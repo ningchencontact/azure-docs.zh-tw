@@ -5,13 +5,13 @@ ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
-ms.date: 05/07/2017
-ms.openlocfilehash: 7ac4b54740b03a8b3fa09486a8e09f3262f67555
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 05/21/2019
+ms.openlocfilehash: 28a4cc854842b66a9fb61134e3ca9ac9a5f38fed
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866887"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965603"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>常見的 Azure Cosmos DB 使用案例
 本文提供數個常見的 Azure Cosmos DB 使用案例概觀。  本文中的建議可作為使用 Cosmos DB 來開發應用程式時的起點。   
@@ -44,7 +44,7 @@ IoT 使用案例在如何內嵌、處理和儲存資料方面通常共用一些�
 
 ![Azure Cosmos DB IoT 參考架構](./media/use-cases/iot.png)
 
-由于 Azure 事件中心可以低延迟引入高吞吐量数据，因此它可以引入激增数据。 您可以將需要處理以取得即時資訊分析的內嵌資料，使用漏斗方式倒入 Azure 串流分析以進行即時分析。 您可以將資料載入 Azure Cosmos DB 以進行臨機操作查詢。 將資料載入 Azure Cosmos DB 之後，這些資料便可供查詢。 此外，可以在變更摘要上讀取新的資料以及現有資料的變更。 變更摘要是永久性的記錄檔，僅以附加寫入方式循序儲存 Cosmos DB 容器的變更。 Azure Cosmos DB 中的全部資料或資料變更可用來在即時分析中作為參考資料。 此外，您還可以將 Azure Cosmos DB 資料連線到 HDInsight 來進行 Pig、Hive 或 Map/Reduce 作業，以進一步精簡和處理資料。  接著，系統會將精簡過的資料載入回 Azure Cosmos DB 以供報告使用。   
+Azure 事件中樞可以擷取暴增的資料量，因為它提供高輸送量資料擷取和低延遲。 您可以將需要處理以取得即時資訊分析的內嵌資料，使用漏斗方式倒入 Azure 串流分析以進行即時分析。 您可以將資料載入 Azure Cosmos DB 以進行臨機操作查詢。 將資料載入 Azure Cosmos DB 之後，這些資料便可供查詢。 此外，可以在變更摘要上讀取新的資料以及現有資料的變更。 變更摘要是永久性的記錄檔，僅以附加寫入方式循序儲存 Cosmos DB 容器的變更。 Azure Cosmos DB 中的全部資料或資料變更可用來在即時分析中作為參考資料。 此外，您還可以將 Azure Cosmos DB 資料連線到 HDInsight 來進行 Pig、Hive 或 Map/Reduce 作業，以進一步精簡和處理資料。  接著，系統會將精簡過的資料載入回 Azure Cosmos DB 以供報告使用。   
 
 如需使用 Azure Cosmos DB、EventHubs 和 Storm 的範例 IoT 解決方案，請參閱 [GitHub 上的 hdinsight-storm-examples 存放庫 (英文)](https://github.com/hdinsight/hdinsight-storm-examples/)。
 
@@ -88,7 +88,7 @@ Azure Cosmos DB 常用於 Web 與行動應用程式，而且適合用於建立�
 
 許多社交應用程式是以全球的規模運作，而且可能出現無法預期的使用模式。 調整資料存放區的彈性十分重要，因為應用程式層會進行調整以符合使用需求。  您可以透過在 Cosmos DB 帳戶下新增其他資料分割區來相應放大。  此外，您也可以跨多個區域建立其他 Cosmos DB 帳戶。 如需了解 Cosmos DB 服務區域可用性，請參閱 [Azure 區域](https://azure.microsoft.com/regions/#services)。
 
-![Azure Cosmos DB Web 应用参考体系结构](./media/use-cases/apps-with-global-reach.png)
+![Azure Cosmos DB Web 應用程式參考架構](./media/use-cases/apps-with-global-reach.png)
 
 ### <a name="personalization"></a>個人化
 現今，現代應用程式具備複雜的檢視和體驗。 這些是通常是動態的，根據使用者喜好設定或情緒和品牌需求量身訂做。 因此，應用程式必須要能夠有效地擷取個人化設定，以快速呈現 UI 項目和體驗。 
@@ -121,7 +121,7 @@ JSON (Cosmos DB 所支援的格式) 是一種呈現 UI 配置資料的有效格�
 * [News Republic](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18639)。 為新聞加入智慧功能，提供以參加的公民為對象的資訊。 
 * [SGS International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18653)。 為取得全球的一致性色彩，主要品牌會尋求 SGS 的協助。 而 SGS 會求助於 Azure。
 * [Telenor](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18608)。 全球領導者 Telenor 借助雲端之力加快啟動速度。 
-* [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667)。 未来的存储依赖于数据的快速搜索和轻松流动。
+* [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667)。 未來存放區的運作基礎會是快速搜尋和簡單資料流程。
 * [Nucleo](https://customers.microsoft.com/story/azure-based-software-platform-breaks-down-barriers-bet)。 以 Azure 為基礎的軟體平台，將企業與客戶之間的障礙細分
 * [Weka](https://customers.microsoft.com/story/weka-smart-fridge-improves-vaccine-management-so-more-people-can-be-protected-against-diseases)。 Weka 的智能冰櫃可改善疫苗管理，讓更多人受到保護免於疾病危害
 * [Orange Tribes](https://customers.microsoft.com/story/theres-more-to-that-food-app-than-meets-the-eye-or-the-mouth)。 那個美食應用程式除了滿足視覺和味蕾享受，還有更多功能。

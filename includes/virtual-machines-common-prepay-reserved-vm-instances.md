@@ -5,11 +5,11 @@ ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 05/14/2019
 ms.openlocfilehash: c7ff7ab0800449c2a3aa9d58bd036981caccaa1c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65815512"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156268"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>預付的 Azure 保留的 VM 執行個體 (RI) 的虛擬機器
 
@@ -79,7 +79,7 @@ ms.locfileid: "65815512"
     |VM 大小     |VM 執行個體的大小。|
     |已針對下列項目最佳化     |VM 執行個體大小彈性會將保留項目折扣套用至同一個 [VM 大小群組](https://aka.ms/RIVMGroups)中的其他 VM。 容量優先順序會讓資料中心容量供您的部署優先使用。 這可讓您更加確信您能夠在需要時啟動 VM 執行個體。 保留項目範圍是單一訂用帳戶時，才可使用容量優先順序。 |
     |詞彙        |一年或三年。|
-    |数量    |保留項目內所購買的執行個體數目。 數量是可以取得帳單折扣之執行中 VM 執行個體的數目。 例如，如果您在美國東部執行 10 個 Standard_D2 VM，那麼您會指定數量為 10，以最大化所有執行中機器的效益。 |
+    |數量    |保留項目內所購買的執行個體數目。 數量是可以取得帳單折扣之執行中 VM 執行個體的數目。 例如，如果您在美國東部執行 10 個 Standard_D2 VM，那麼您會指定數量為 10，以最大化所有執行中機器的效益。 |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 

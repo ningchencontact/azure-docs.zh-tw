@@ -5,15 +5,15 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: ef8155cda6c31a63204af80ca091a13bb16a687d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6711506c1e489dcbd50aedd36241affc3bbed80b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866417"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113396"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>原則:您的目錄中的使用者
 
@@ -34,6 +34,9 @@ ms.locfileid: "64866417"
 ### <a name="policy-for-users-not-in-your-directory"></a>原則:不在您的目錄中的使用者
 
 如果您想要針對不在您可以要求此存取套件的目錄中的使用者原則，請遵循下列步驟。 目錄必須設定為允許**組織關係共同作業限制**設定。
+
+> [!NOTE]
+> Guest 使用者帳戶會建立使用者，尚未在您核准或自動核准其要求的目錄。 客體可獲邀但不是會收到邀請電子郵件。 相反地，他們會收到一封電子郵件傳遞其存取套件指派時。 根據預設，稍後當來賓使用者不再擁有任何存取權封裝指派，因為其最後一項指派已過期或已取消，guest 使用者帳戶將會封鎖從登入，並刪除。 如果您想要有無限期保留在您目錄的來賓使用者，即使它們有沒有任何存取封裝指派，您可以變更設定，您的權限管理組態。
 
 1. 在 **可以要求存取權的使用者**區段中，選取**不在您的目錄中的使用者**。
 

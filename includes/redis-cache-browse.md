@@ -9,11 +9,11 @@ ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 7f03072c2b7ee1f08fc5fa306da6c5b8368742ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60554360"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133089"
 ---
 如果您未將快取釘選到儀表板，請使用 [所有服務] 在 [Azure 入口網站](https://portal.azure.com)中找到快取。
 

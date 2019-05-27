@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 032c4af0e36626881b514573cc4a5f966e8c2077
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: cd1db615b11259bcf1d8aff988d2817e08065ca2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510306"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991742"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>如何將服務匯流排佇列搭配 Java 使用
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "65510306"
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>設定應用程式以使用服務匯流排
-在建置此範例之前，請先確定您已安裝 [Azure SDK for Java][Azure SDK for Java]。 如果您使用的是 Eclipse，則可以安裝包含 Azure SDK for Java 的[適用於 Eclipse 的 Azure 工具組][Azure Toolkit for Eclipse]。 然后，用户可以将 **Microsoft Azure Libraries for Java** 添加到项目：
+在建置此範例之前，請先確定您已安裝 [Azure SDK for Java][Azure SDK for Java]。 如果您使用的是 Eclipse，則可以安裝包含 Azure SDK for Java 的[適用於 Eclipse 的 Azure 工具組][Azure Toolkit for Eclipse]。 然後您可以將 **Microsoft Azure Libraries for Java** 新增至您的專案：
 
 ![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
@@ -114,7 +114,7 @@ public void run() throws Exception {
 傳送至 (和接收自) 服務匯流排佇列的訊息是 [Message](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) 類別的執行個體。 Message 物件有一組標準屬性 (例如 Label 和 TimeToLive)、一個用來保存自訂應用程式專用屬性的字典，以及一堆任意應用程式資料。 應用程式可以設定訊息本文，方法是將任何可序列化物件傳遞到 Message 的建構函式，接著系統便會使用適當的序列化程式將物件序列化。 此外，您也可以提供 **java.IO.InputStream** 物件。
 
 
-服務匯流排佇列支援的訊息大小上限：在[標準層](service-bus-premium-messaging.md)中為 256 KB 以及在[進階層](service-bus-premium-messaging.md)中為 1 MB。 標頭 (包含標準和自訂應用程式屬性) 可以容納 64 KB 的大小上限。 佇列中所保存的訊息數目沒有限制，但佇列所保存的訊息大小總計會有最高限制。 此队列大小是在创建时定义的，上限为 5 GB。
+服務匯流排佇列支援的訊息大小上限：在[標準層](service-bus-premium-messaging.md)中為 256 KB 以及在[進階層](service-bus-premium-messaging.md)中為 1 MB。 標頭 (包含標準和自訂應用程式屬性) 可以容納 64 KB 的大小上限。 佇列中所保存的訊息數目沒有限制，但佇列所保存的訊息大小總計會有最高限制。 此佇列大小會在建立時定義，上限是 5 GB。
 
 ## <a name="receive-messages-from-a-queue"></a>從佇列接收訊息
 自佇列接收訊息的主要方式是使用 **ServiceBusContract** 物件。 接收的訊息可在兩種不同的模式下運作：**ReceiveAndDelete** 和 **PeekLock**。
@@ -181,7 +181,10 @@ public void run() throws Exception {
 
 與在佇列內鎖定訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
 
-在處理訊息之後和發出 **deleteMessage** 要求之前，如果應用程式當機，則會在應用程式重新啟動時，將訊息重新傳遞給該應用程式。 這通常稱為 *至少處理一次*，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。 如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。 通常可使用消息的 **getMessageId** 方法实现此操作，这在多个传送尝试中保持不变。
+在處理訊息之後和發出 **deleteMessage** 要求之前，如果應用程式當機，則會在應用程式重新啟動時，將訊息重新傳遞給該應用程式。 這通常稱為 *至少處理一次*，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。 如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。 通常您可使用訊息的 **getMessageId** 方法來達到此目的，該方法將在各個傳遞嘗試中保持不變。
+
+> [!NOTE]
+> 您可以管理與服務匯流排資源[Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)。 Service Bus Explorer 可讓使用者連接到服務匯流排命名空間，並可以輕鬆地管理訊息實體。 此工具提供進階的功能，例如匯入/匯出功能或測試主題、 佇列、 訂用帳戶、 轉送服務、 通知中樞和事件中樞的能力。 
 
 ## <a name="next-steps"></a>後續步驟
 既然您已了解「服務匯流排」佇列的基本概念，請參閱[佇列、主題和訂用帳戶][Queues, topics, and subscriptions]來取得詳細資訊。

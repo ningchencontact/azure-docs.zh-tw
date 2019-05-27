@@ -8,31 +8,31 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: aaf54907ca0cf218b126fc9fc74080c02ef6cf6c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e0c17b07f70d9b05ff9ea6c3af2e8dc26127cae
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721600"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906527"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>透過 JDBC 驅動程式在 HDInsight 中查詢 Apache Hive
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-了解如何從 Java 應用程式使用 JDBC 驅動程式將 Apache Hive 查詢提交到 Azure HDInsight 中的 Apache Hadoop。 本文档中的信息演示如何以编程方式从 SQuirreL SQL 客户端进行连接。
+了解如何從 Java 應用程式使用 JDBC 驅動程式將 Apache Hive 查詢提交到 Azure HDInsight 中的 Apache Hadoop。 這份文件中的資訊會示範如何以程式設計的方式，和從 SQuirreL SQL 用戶端連接。
 
 如需有關 Hive JDBC 介面的詳細資訊，請參閱 [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface)。
 
 ## <a name="prerequisites"></a>必要條件
 
 * HDInsight Hadoop 叢集。 若要建立，請參閱[開始使用 Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)。
-* [Java 开发人员工具包 (JDK) 版本 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) 或更高版本。
+* [Java Developer Kit (JDK) 第 11 版](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)或更高版本。
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/)。 SQuirreL 是 JDBC 用戶端應用程式。
 
 
 ## <a name="jdbc-connection-string"></a>JDBC 連接字串
 
-JDBC 通过端口 443 连接到 Azure 上的 HDInsight 群集，并使用 SSL 保护通信安全。 背後有叢集的公用閘道器會將流量重新導向至 HiveServer2 實際接聽的連接埠。 下列連接字串會顯示用於 HDInsight 的格式：
+若要在 Azure 上的 HDInsight 叢集的 JDBC 連接都是透過連接埠 443，並使用 SSL 保護流量。 背後有叢集的公用閘道器會將流量重新導向至 HiveServer2 實際接聽的連接埠。 下列連接字串會顯示用於 HDInsight 的格式：
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
@@ -52,9 +52,9 @@ DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
 SQuirreL SQL 是可用來從遠端以 HDInsight 叢集執行 Hive 查詢的 JDBC 用戶端。 下列步驟假設您已安裝 SQuirreL SQL。
 
-1. 创建一个目录来包含要从群集复制的某些文件。
+1. 建立包含要複製從您的叢集特定檔案的目錄。
 
-2. 在下面的脚本中，将 `sshuser` 替换为群集的 SSH 用户帐户名。  將 `CLUSTERNAME` 取代為 HDInsight 叢集名稱。  从命令行中，输入以下命令来从 HDInsight 群集复制文件：
+2. 在下列程式碼取代`sshuser`與叢集的 SSH 使用者帳戶名稱。  將 `CLUSTERNAME` 取代為 HDInsight 叢集名稱。  從命令列中，輸入下列命令從 HDInsight 叢集複製檔案：
 
     ```bash
     scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
@@ -87,9 +87,9 @@ SQuirreL SQL 是可用來從遠端以 HDInsight 叢集執行 Hive 查詢的 JDBC
 
    ![新增驅動程式對話方塊](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
 
-   选择“确定”保存这些设置。
+   選取 **確定**來儲存這些設定。
 
-6. 在 SQuirreL SQL 視窗的左側選取 [別名]。 然后选择 **+** 图标来创建连接别名。
+6. 在 SQuirreL SQL 視窗的左側選取 [別名]。 然後選取**+** 圖示，以建立連線別名。
 
     ![新增別名](./media/apache-hadoop-connect-hive-jdbc-driver/aliases.png)
 
@@ -114,11 +114,11 @@ SQuirreL SQL 是可用來從遠端以 HDInsight 叢集執行 Hive 查詢的 JDBC
 
     若要儲存連線別名，請使用 [新增別名] 對話方塊底部的 [確定] 按鈕。
 
-8. 在 SQuirreL SQL 顶部的“连接到”下拉列表中，选择“Hive on HDInsight”。 出現提示時，請選取 [連接]。
+8. 從 SQuirreL SQL 頂端的 [連接到] 下拉式清單選取 [HDInsight 上的 Hive]。 出現提示時，請選取 [連接]。
 
     ![連接對話方塊](./media/apache-hadoop-connect-hive-jdbc-driver/connect.png)
 
-9. 连接后，在 SQL 查询对话框中输入以下查询，然后选择“运行”图标（一个正在跑步的人）。 結果區域應該會顯示查詢的結果。
+9. 連線之後，在 [SQL 查詢] 對話方塊中，輸入下列查詢，然後按**執行**圖示 (執行 person)。 結果區域應該會顯示查詢的結果。
 
     ```hql
     select * from hivesampletable limit 10;
@@ -156,7 +156,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 * [在 Azure HDInsight 中使用 Microsoft Power BI 將 Apache Hive 資料視覺化](apache-hadoop-connect-hive-power-bi.md)。
 * [在 Azure HDInsight 中使用 Power BI 將互動式查詢 Hive 資料視覺化](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)。
-* [使用 Apache Zeppelin 在 Azure HDInsight 中執行 Apache Hive 查詢](./../hdinsight-connect-hive-zeppelin.md)。
+* [使用 Apache Zeppelin 在 Azure HDInsight 中執行 Apache Hive 查詢](../interactive-query/hdinsight-connect-hive-zeppelin.md)。
 * [使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 HDInsight](apache-hadoop-connect-excel-hive-odbc-driver.md)。
 * [使用 Power Query 將 Excel 連線到 Apache Hadoop](apache-hadoop-connect-excel-power-query.md)。
 * [使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Apache Hive 查詢](apache-hadoop-visual-studio-tools-get-started.md)。

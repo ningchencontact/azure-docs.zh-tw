@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 031a23016abb5b0d8c4c6ebd7213bb24cf3c53cb
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: d87ac21b02dcf8c523a4479afdf666c2b7a86c75
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66115937"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>使用 PowerShell 設定「資料同步」在內部部署的 SQL Database 和 SQL Server 之間進行同步處理
 
@@ -397,7 +397,7 @@ Remove-AzResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 -   設定資料同步
     - 在入口網站中 - [教學課程：設定 SQL 資料同步以同步處理 Azure SQL Database 與內部部署 SQL Server 之間的資料](../sql-database-get-started-sql-data-sync.md)
     - 透過 PowerShell
-        -  [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](sql-database-sync-data-between-sql-databases.md)
+        -  [使用 PowerShell 在多個 Azure SQL 資料庫之間進行同步處理](sql-database-sync-data-between-sql-databases.md)
 -   Data Sync Agent - [適用於 Azure SQL Data Sync 的 Data Sync Agent](../sql-database-data-sync-agent.md)
 -   最佳做法 - [Azure SQL 資料同步最佳做法](../sql-database-best-practices-data-sync.md)
 -   監視 - [使用 Azure 監視器記錄監視 SQL 資料同步](../sql-database-sync-monitor-oms.md)

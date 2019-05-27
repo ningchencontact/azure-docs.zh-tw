@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 1957fa4310a22a162ee2a621d1e0349e253badb3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 421e0db48f045c5cbce52a0641902e6d2a11276e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456562"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132451"
 ---
 ## <a name="trigger"></a>觸發程序
 
@@ -387,12 +387,12 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 |**type** | n/a | 必須設為 `eventHubTrigger`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | n/a | 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
 |**name** | n/a | 代表函式程式碼中事件項目的變數名稱。 |
-|**路徑** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
+|**path** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
 |**eventHubName** |**EventHubName** | 僅限 Functions 2.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
 |**consumerGroup** |**ConsumerGroup** | 選擇性屬性，以設定[取用者群組](../articles/event-hubs/event-hubs-features.md)#event-取用者) 用來訂閱中樞內事件。 如果省略，則會使用 `$Default` 取用者群組。 |
 |**基數** | n/a | 適用於 JavaScript。 設定為 `many` 才能啟用批次處理。  如果省略或設訂為 `one`，會傳遞單一訊息至函數。 |
 |**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下來複製此連接字串**連接資訊**按鈕[命名空間](../articles/event-hubs/event-hubs-create.md)#create-的-事件-中樞-命名空間)，不是事件中樞本身。 此連接字串至少必須具備讀取權限，才能啟動觸發程序。|
-|**路徑**|**EventHubName**|事件中樞的名稱。 可透過應用程式設定 `%eventHubName%` 參照|
+|**path**|**EventHubName**|事件中樞的名稱。 可透過應用程式設定 `%eventHubName%` 參照|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
@@ -400,7 +400,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 事件中樞觸發程序提供數個[中繼資料屬性](../articles/azure-functions/./functions-bindings-expressions-patterns.md)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) 類別的屬性。
 
-|屬性|類型|描述|
+|屬性|類型|說明|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|`PartitionContext` 執行個體。|
 |`EnqueuedTimeUtc`|`DateTime`|加入佇列的時間 (UTC)。|
@@ -446,6 +446,26 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 {
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
     return $"{DateTime.Now}";
+}
+```
+
+下列範例示範如何使用`IAsyncCollector`介面傳送的訊息批次。 這案例常見於，當您正在處理來自一個事件中樞，並將結果傳送至另一個事件中樞的訊息。
+
+```csharp
+[FunctionName("EH2EH")]
+public static async Task Run(
+    [EventHubTrigger("source", Connection = "EventHubConnectionAppSetting")] EventData[] events,
+    [EventHub("dest", Connection = "EventHubConnectionAppSetting")]IAsyncCollector<string> outputEvents,
+    ILogger log)
+{
+    foreach (EventData eventData in events)
+    {
+        // do some processing:
+        var myProcessedEvent = DoSomething(eventData);
+
+        // then send the message
+        await outputEvents.AddAsync(JsonConvert.SerializeObject(myProcessedEvent));
+    }
 }
 ```
 
@@ -657,7 +677,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 |**type** | n/a | 必須設定為 "eventHub"。 |
 |**direction** | n/a | 必須設定為 "out"。 當您在 Azure 入口網站中建立繫結時，會自動設定此參數。 |
 |**name** | n/a | 函式程式碼中所使用的變數名稱，代表事件。 |
-|**路徑** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
+|**path** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
 |**eventHubName** |**EventHubName** | 僅限 Functions 2.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
 |**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下*命名空間*的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串必須具有傳送權限，才能將訊息傳送至事件資料流。|
 
@@ -699,7 +719,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }  
 ```
 
-|屬性  |預設值 | 描述 |
+|屬性  |預設值 | 說明 |
 |---------|---------|---------|
 |maxBatchSize|64|每個接收迴圈接收到的事件計數上限。|
 |prefetchCount|n/a|基礎 EventProcessorHost 將使用的預設 PrefetchCount。|

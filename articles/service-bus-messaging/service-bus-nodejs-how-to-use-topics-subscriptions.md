@@ -14,18 +14,23 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: d3f71382a3f2b15ec0f9764b9913a95c0d32b21d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b805a80330dd44ac4a65db88950393d3d4d60b7
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591817"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992101"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>如何透過 Node.js 使用服務匯流排主題和訂用帳戶
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>如何使用服務匯流排主題和訂用帳戶使用 Node.js 和 azure sb 封裝
+> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+在本教學課程，了解如何建立 Node.js 應用程式，以將訊息傳送至服務匯流排主題，然後從使用服務匯流排訂用帳戶接收訊息[azure sb](https://www.npmjs.com/package/azure-sb)封裝。 這些範例均以 JavaScript 撰寫並使用 Node.js [Azure 模組](https://www.npmjs.com/package/azure)內部使用`azure-sb`封裝。
 
-本指南說明如何從 Node.js 應用程式使用服務匯流排主題和訂閱。 涵蓋的案例包括：
+[Azure sb](https://www.npmjs.com/package/azure-sb)封裝會使用[服務匯流排 REST 執行階段 Api](/rest/api/servicebus/service-bus-runtime-rest)。 您可以取得使用新的速度[ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus)封裝，它會使用速度就越快[AMQP 1.0 通訊協定](service-bus-amqp-overview.md)。 若要深入了解新的封裝，請參閱[如何透過 Node.js 使用服務匯流排主題和訂用帳戶並@azure/service-bus封裝](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package)，否則請繼續閱讀以了解如何使用[azure](https://www.npmjs.com/package/azure)封裝。
+
+這裡所涵蓋的案例包括：
 
 - 建立主題和訂用帳戶 
 - 建立訂用帳戶篩選 
@@ -36,8 +41,8 @@ ms.locfileid: "60591817"
 如需主題和訂用帳戶的詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
 ## <a name="prerequisites"></a>必要條件
-1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或是註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
-2. 遵循的步驟[快速入門：使用 Azure 入口網站建立服務匯流排主題和訂用帳戶的主題](service-bus-quickstart-topics-subscriptions-portal.md)來建立服務匯流排**命名空間**並取得**連接字串**。
+- Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或是註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+- 遵循的步驟[快速入門：使用 Azure 入口網站建立服務匯流排主題和訂用帳戶的主題](service-bus-quickstart-topics-subscriptions-portal.md)來建立服務匯流排**命名空間**並取得**連接字串**。
 
     > [!NOTE]
     > 您將建立**主題**並**訂用帳戶**使用主題**Node.js**在本快速入門。 
@@ -118,7 +123,7 @@ serviceBusService.createTopicIfNotExists('MyTopic', topicOptions, function(error
 ```
 
 ### <a name="filters"></a>篩選器
-您可以將選用的篩選作業套用至使用 **ServiceBusService** 執行的作業。 筛选操作可包括日志记录、自动重试等。篩選器是使用簽章實作方法的物件：
+您可以將選用的篩選作業套用至使用 **ServiceBusService** 執行的作業。 篩選作業可包括記錄、自動重試等等。篩選器是使用簽章實作方法的物件：
 
 ```javascript
 function handle (requestOptions, next)
@@ -329,6 +334,9 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
     }
 });
 ```
+
+> [!NOTE]
+> 您可以管理與服務匯流排資源[Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)。 Service Bus Explorer 可讓使用者連接到服務匯流排命名空間，並可以輕鬆地管理訊息實體。 此工具提供進階的功能，例如匯入/匯出功能或測試主題、 佇列、 訂用帳戶、 轉送服務、 通知中樞和事件中樞的能力。 
 
 ## <a name="next-steps"></a>後續步驟
 了解基本的服務匯流排主題之後，請參考下列連結以取得更多資訊。

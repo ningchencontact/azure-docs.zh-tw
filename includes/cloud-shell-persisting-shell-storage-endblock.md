@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: c2ed33aea77b5478e8d17f6bd0213ef3e778b806
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60200139"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66125193"
 ---
 ## <a name="transfer-local-files-to-cloud-shell"></a>將本機檔案傳輸至 Cloud Shell
 `clouddrive` 目錄會與 Azure 入口網站儲存體刀鋒視窗同步。 使用此刀鋒視窗對檔案共用雙向傳輸本機檔案。 從 Cloud Shell 中更新的檔案，會在您重新整理刀鋒視窗時反映在檔案儲存體 GUI 中。

@@ -4,14 +4,14 @@ description: 使用本 Power BI 教學課程以匯入 JSON、建立具深入資�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/03/2018
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 2c58b982e596c95aa47442c1897410fe9ab6b99a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76531de279dfe6e9b73b3895f0ef63c4c88b63cd
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929591"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978999"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>使用 Power BI 連接器將 Azure Cosmos DB 資料視覺化
 
@@ -48,7 +48,7 @@ ms.locfileid: "60929591"
 
 若要在 PowerBI.com 上共用您的報告，您必須有 PowerBI.com 中的帳戶。  若要深入了解 Power BI 和 Power BI Pro，請參閱 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)。
 
-## <a name="lets-get-started"></a>現在就開始吧
+## <a name="lets-get-started"></a>馬上開始
 在本教學課程中，我們假設您是研究世界各地火山的地質學家。 火山資料儲存在 Azure Cosmos DB 帳戶中，JSON 文件格式如下：
 
     {
@@ -175,7 +175,7 @@ ms.locfileid: "60929591"
     ![成功發佈到 Power BI！ 在 Power BI 中開啟教學課程](./media/powerbi-visualize/power_bi_connector_open_in_powerbi.png)
 
 ## <a name="create-a-dashboard-in-powerbicom"></a>在 PowerBI.com 中建立儀表板
-现在，已创建一份可在 PowerBI.com 上共享的报表
+現在，您有一份報表可在 PowerBI.com 上共用。
 
 當您從 Power BI Desktop發佈報告至 PowerBI.com 時，在您的 PowerBI.com 租用戶中會產生 [報表] 和 [資料集]。 例如，您將名為 **PowerBITutorial** 的報表發佈到 PowerBI.com，會在 PowerBI.com 的 [報表] 和 [資料集] 區段看到 PowerBITutorial。
 
@@ -183,7 +183,7 @@ ms.locfileid: "60929591"
 
 若要建立可共用的儀表板，按一下 PowerBI.com 報表上的 [釘選即時頁面]  按鈕。
 
-   ![PowerBI.com 中新报表和数据集的屏幕截图](./media/powerbi-visualize/power-bi-pin-live-tile.png)
+   ![PowerBI.com 中新報表和資料集的螢幕擷取畫面](./media/powerbi-visualize/power-bi-pin-live-tile.png)
 
 依照 [從報表釘選圖格](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) 的指示建立新的儀表板。 
 

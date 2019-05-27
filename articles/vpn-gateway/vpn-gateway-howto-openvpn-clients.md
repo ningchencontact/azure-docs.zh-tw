@@ -5,22 +5,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 1/15/2019
+ms.date: 5/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: d1e57e623e3e95f3d71e895c49c928f00aa0ad46
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274667"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989093"
 ---
-# <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>設定 Azure VPN 閘道的 OpenVPN 用戶端 (預覽)
+# <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>設定 Azure VPN 閘道的 OpenVPN 用戶端
 
 這篇文章可協助您設定**OpenVPN® 通訊協定**用戶端。
-
-> [!IMPORTANT]
-> 此公開預覽版是在沒有服務等級協定的情況下提供，不得用於生產工作負載。 可能不支援特定功能、可能已經限制功能，或者可能無法在所有 Azure 位置提供使用。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
->
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -138,6 +134,6 @@ ms.locfileid: "59274667"
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您想要能夠存取另一個 VNet （生產） 中的資源的 VPN 用戶端，然後依照[VNet 對 VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)文章，以設定 vnet 對 vnet 連線。 請務必啟用閘道上的 BGP 和連線，否則流量無法流動。
+如果您想要能夠存取另一個 VNet 中的資源的 VPN 用戶端，然後依照[VNet 對 VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)文章，以設定 vnet 對 vnet 連線。 請務必啟用閘道上的 BGP 和連線，否則流量無法流動。
 
 **「 OpenVPN"是 OpenVPN Inc.的商標。**

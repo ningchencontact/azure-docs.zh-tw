@@ -4,16 +4,16 @@ description: 深入說明如何產生及擷取記錄和診斷 Azure 空間的錨
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 134023c0884ce3a402b99806f1bf19dcb59ecc32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b66dc7d6ec9d11fe645587fe791824009231b7c2
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564862"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964751"
 ---
 # <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>記錄與診斷 Azure 空間的錨點功能
 

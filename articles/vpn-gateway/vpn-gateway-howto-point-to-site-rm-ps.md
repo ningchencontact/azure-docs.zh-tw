@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: f3c02e80016e43bdd83218851de5ceb72be7f268
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 822cbc7401de90d63f9079561ced0dfbb911fa2c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320050"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989449"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>請使用原生 Azure 憑證驗證設定 VNet 的點對站連線：PowerShell
 
@@ -55,7 +55,7 @@ ms.locfileid: "60320050"
 * **訂用帳戶：** 如果您有一個以上的訂用帳戶，請確認您使用正確的訂用帳戶。
 * **資源群組：TestRG**
 * **位置：美國東部**
-* **DNS 伺服器：** 您想要用於名稱解析的 DNS 伺服器的 IP 位址。 (選用)
+* **DNS 伺服器：** 您想要用於名稱解析的 DNS 伺服器的 IP 位址。 (選擇性)
 * **GW 名稱：Vnet1GW**
 * **公用 IP 名稱：VNet1GWPIP**
 * **VpnType：RouteBased** 
@@ -117,7 +117,7 @@ ms.locfileid: "60320050"
    $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
    $subnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
    ```
-5. VPN 閘道必須具有公用 IP 位址。 您會先要求 IP 位址資源，然後在建立虛擬網路閘道時參考它。 建立 VPN 閘道時，系統會將 IP 位址動態指派給此資源。 VPN 网关当前仅支持动态公共 IP 地址分配。 您無法要求靜態公用 IP 位址指派。 不過，這不表示之後的 IP 位址變更已指派至您的 VPN 閘道。 公用 IP 位址只會在刪除或重新建立閘道時變更。 它不會因為重新調整、重設或 VPN 閘道的其他內部維護/升級而變更。
+5. VPN 閘道必須具有公用 IP 位址。 您會先要求 IP 位址資源，然後在建立虛擬網路閘道時參考它。 建立 VPN 閘道時，系統會將 IP 位址動態指派給此資源。 VPN 閘道目前僅支援*動態*公用 IP 位址配置。 您無法要求靜態公用 IP 位址指派。 不過，這不表示之後的 IP 位址變更已指派至您的 VPN 閘道。 公用 IP 位址只會在刪除或重新建立閘道時變更。 它不會因為重新調整、重設或 VPN 閘道的其他內部維護/升級而變更。
 
    要求動態指派的公用 IP 位址。
 
@@ -131,8 +131,8 @@ ms.locfileid: "60320050"
 設定和建立 VNet 的虛擬網路閘道。
 
 * -GatewayType 必須是 **Vpn**，而 -VpnType 必須是 **RouteBased**。
-* 使用 -VpnClientProtocol 可指定您想要啟用的通道類型。 通道有 **SSTP** 和 **IKEv2** 這兩個選項。 您可以選擇啟用其中一個或兩個都啟用。 如果您想要將兩個選項都啟用，請同時指定這兩個名稱並以逗號隔開。 Android 和 Linux 上的 strongSwan 用戶端以及 iOS 和 OSX 上的原生 IKEv2 VPN 用戶端只會使用 IKEv2 通道來進行連線。 Windows 用戶端會先嘗試 IKEv2，如果無法連線，就會切換回使用 SSTP。
-* 虛擬網路閘道的「基本」SKU 不支援 IKEv2 或 RADIUS 驗證。 如果您打算讓 Mac 用戶端連線到您的虛擬網路，請勿使用「基本」SKU。
+* 使用 -VpnClientProtocol 可指定您想要啟用的通道類型。 通道選項**OpenVPN，SSTP**並**IKEv2**。 您可以選擇啟用其中一個或任何支援的組合。 如果您想要啟用多個類型，然後指定以逗號分隔的名稱。 無法同時啟用 OpenVPN 和 SSTP。 Android 和 Linux 上的 strongSwan 用戶端以及 iOS 和 OSX 上的原生 IKEv2 VPN 用戶端只會使用 IKEv2 通道來進行連線。 Windows 用戶端會先嘗試 IKEv2，如果無法連線，就會切換回使用 SSTP。 您可以使用 OpenVPN 用戶端連接到 OpenVPN 通道類型。
+* 虛擬網路閘道 'Basic' SKU 不支援 IKEv2，OpenVPN 或 RADIUS 驗證。 如果您打算讓 Mac 用戶端連線到您的虛擬網路，請勿使用「基本」SKU。
 * 視您選取的[閘道 sku](vpn-gateway-about-vpn-gateway-settings.md) 而定，VPN 閘道可能需要 45 分鐘的時間才能完成。 此範例使用 IKEv2。
 
 ```azurepowershell-interactive
@@ -202,7 +202,7 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPoo
 
 VPN 用戶端組態檔所包含的設定，可用來將裝置設定為透過 P2S 連線來連線至 VNet。 如需產生和安裝 VPN 用戶端組態檔的指示，請參閱[建立和安裝適用於原生 Azure 憑證驗證 P2S 組態的 VPN 用戶端組態檔](point-to-site-vpn-client-configuration-azure-cert.md)。
 
-## <a name="connect"></a>9.連接到 Azure
+## <a name="connect"></a>9.連線至 Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>從 Windows VPN 用戶端連線
 
@@ -235,7 +235,7 @@ VPN 用戶端組態檔所包含的設定，可用來將裝置設定為透過 P2S
 這些指示適用於 Windows 用戶端。
 
 1. 若要驗證您的 VPN 連線為作用中狀態，請開啟提升權限的命令提示字元，並執行 *ipconfig/all*。
-2. 查看结果。 請注意，您接收到的 IP 位址是您在組態中指定的點對站 VPN 用戶端位址集區中的其中一個位址。 結果類似於此範例：
+2. 檢視結果。 請注意，您接收到的 IP 位址是您在組態中指定的點對站 VPN 用戶端位址集區中的其中一個位址。 結果類似於此範例：
 
    ```
    PPP adapter VNet1:
@@ -294,7 +294,7 @@ VPN 用戶端組態檔所包含的設定，可用來將裝置設定為透過 P2S
 
 這個方法的步驟比方法 1 多，但結果相同。 納入此方法，以免您需要檢視憑證資料。 需要 Azure PowerShell Cmdlet 安裝在您的本機電腦上 (不是 Azure Cloud Shell)。
 
-1. 建立並準備要新增至 Azure 的新根憑證。 將公開金鑰匯出成 Base-64 編碼 X.509 (.CER) 並使用文字編輯器開啟。 复制值，如以下示例所示：
+1. 建立並準備要新增至 Azure 的新根憑證。 將公開金鑰匯出成 Base-64 編碼 X.509 (.CER) 並使用文字編輯器開啟。 如下列範例所示，複製相關值：
 
    ![憑證](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png)
 
@@ -331,7 +331,7 @@ VPN 用戶端組態檔所包含的設定，可用來將裝置設定為透過 P2S
    $P2SRootCertName2 = "ARMP2SRootCert2.cer"
    $MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
    ```
-2. 删除证书。
+2. 移除憑證。
 
    ```azurepowershell-interactive
    Remove-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -PublicCertData $MyP2SCertPubKeyBase64_2
@@ -393,7 +393,7 @@ VPN 用戶端組態檔所包含的設定，可用來將裝置設定為透過 P2S
    Remove-AzVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
    -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
    ```
-3. 检查指纹是否已从吊销列表中删除。
+3. 檢查指紋是否已從撤銷的清單中移除。
 
    ```azurepowershell-interactive
    Get-AzVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG

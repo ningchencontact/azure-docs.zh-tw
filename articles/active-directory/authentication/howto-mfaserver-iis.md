@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6404356edca606d78656011b9dec654e9f29edd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a019aaec270fe1beb3914e7ab388fce9a701bcc
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415019"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988612"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>針對 IIS Web 應用程式設定 Azure Multi-Factor Authentication Server
 
@@ -76,4 +76,4 @@ ms.locfileid: "60415019"
 1. 在 [IIS 驗證] 區段中，按一下 [信任的 IP] 索引標籤。
 2. 按一下 [新增] 。
 3. 在 [新增可信任 IP] 對話方塊出現時，選取 [單一 IP]、[IP 範圍] 或 [子網路] 選項按鈕。
-4. 輸入應列入允許清單中的 IP 位址、IP 位址範圍或子網路。 如果要輸入子網路，請選取適當的「網路遮罩」，然後按一下 [確定]。 現已加入白名單。
+4. 輸入 IP 位址、 IP 位址範圍或允許的子網路。 如果要輸入子網路，請選取適當的「網路遮罩」，然後按一下 [確定]。

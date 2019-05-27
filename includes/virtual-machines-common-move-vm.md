@@ -9,11 +9,11 @@ ms.date: 10/19/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 61990e785741799fcbcd4e6df965953bd9944f4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473923"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66110429"
 ---
 ## <a name="use-the-azure-portal-to-move-a-vm-to-a-different-subscription"></a>使用 Azure 入口網站將 VM 移至不同的訂用帳戶
 您可以使用 Azure 入口網站，將 Azure VM 與其相關聯的資源移到不同的訂用帳戶。

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: rezas
-ms.openlocfilehash: 703e2c842fb42bad8aa112d84c516a29c2327378
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: f39f184bdc09677e347a2691351309dd6483f467
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473502"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965401"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-amqp-protocol"></a>IoT 中樞使用 AMQP 通訊協定與通訊
 
@@ -65,7 +65,7 @@ receive_client = uamqp.ReceiveClient(uri, debug=True)
 | 建立者: | 連結類型 | 連結路徑 | 說明 |
 |------------|-----------|-----------|-------------|
 | 服務 | 寄件者 連結 | `/messages/devicebound` | C2D 訊息為目標的裝置會傳送到此連結服務。 透過此連結來傳送的訊息有他們`To`屬性設定為 目標裝置的接收者連結路徑： 亦即， `/devices/<deviceID>/messages/devicebound`。 |
-| 服務 | 接收者連結 | `/messages/serviceBound/feedback` | 來自裝置接收到此連結服務的完成、 拒絕，並放棄意見反應訊息。 請參閱[此處](./iot-hub-devguide-messages-c2d.md#message-feedback)的意見反應訊息的詳細資訊。 |
+| 服務 | 接收者連結 | `/messages/serviceBound/feedback` | 來自裝置接收到此連結服務的完成、 拒絕，並放棄意見反應訊息。 如需詳細的意見反應訊息的詳細資訊，請參閱[此處](./iot-hub-devguide-messages-c2d.md#message-feedback)。 |
 
 下列程式碼片段示範如何建立 C2D 訊息，並將它傳送至裝置，使用[uAMQP 在 Python 中的程式庫](https://github.com/Azure/azure-uamqp-python)。
 
@@ -127,11 +127,76 @@ C2D 意見反應訊息如上所示，有的內容類型`application/vnd.microsof
 * 索引鍵`originalMessageId`意見反應中主體會包含服務所傳送的原始 C2D 訊息的識別碼。 這可用來將意見反應給 C2D 訊息相互關聯。
 
 ### <a name="receive-telemetry-messages-service-client"></a>接收遙測訊息 （服務用戶端）
+根據預設，IoT 中樞會儲存內建的事件中樞擷取的裝置遙測訊息。 您服務用戶端可以使用 AMQP 通訊協定來接收儲存的事件。
+
+基於此目的，服務用戶端第一次必須連接到 IoT 中樞端點，並接收到內建的事件中樞的重新導向位址。 服務用戶端接著會使用提供的位址連接至內建的事件中樞。
+
+在每個步驟中，用戶端必須提供下列幾項資訊：
+* 有效的服務認證 （服務 SAS 權杖）。
+* 想要擷取來自訊息取用者群組資料分割的完整格式的路徑。 指定的取用者群組與分割區識別碼，路徑具有下列格式： `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` (預設的取用者群組是`$Default`)。
+* 選用篩選述詞來指定資料分割中起點 （可以採用的順序號碼、 位移或已加入佇列的時間戳記格式）。
+
+使用下列程式碼片段[uAMQP 在 Python 中的程式庫](https://github.com/Azure/azure-uamqp-python)來示範上述步驟。
+
+```python
+import json
+import uamqp
+import urllib
+import time
+
+# Use generate_sas_token implementation available here: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
+from helper import generate_sas_token
+
+iot_hub_name = '<iot-hub-name>'
+hostname = '{iot_hub_name}.azure-devices.net'.format(iot_hub_name=iot_hub_name)
+policy_name = 'service'
+access_key = '<primary-or-secondary-key>'
+operation = '/messages/events/ConsumerGroups/{consumer_group}/Partitions/{p_id}'.format(consumer_group='$Default', p_id=0)
+
+username = '{policy_name}@sas.root.{iot_hub_name}'.format(policy_name=policy_name, iot_hub_name=iot_hub_name)
+sas_token = generate_sas_token(hostname, access_key, policy_name)
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+
+# Optional filtering predicates can be specified using endpiont_filter
+# Valid predicates include:
+# - amqp.annotation.x-opt-sequence-number
+# - amqp.annotation.x-opt-offset
+# - amqp.annotation.x-opt-enqueued-time
+# Set endpoint_filter variable to None if no filter is needed
+endpoint_filter = b'amqp.annotation.x-opt-sequence-number > 2995'
+
+# Helper function to set the filtering predicate on the source URI
+def set_endpoint_filter(uri, endpoint_filter=''):
+  source_uri = uamqp.address.Source(uri)
+  source_uri.set_filter(endpoint_filter)
+  return source_uri
+
+receive_client = uamqp.ReceiveClient(set_endpoint_filter(uri, endpoint_filter), debug=True)
+try:
+  batch = receive_client.receive_message_batch(max_batch_size=5)
+except uamqp.errors.LinkRedirect as redirect:
+  # Once a redirect error is received, close the original client and recreate a new one to the re-directed address
+  receive_client.close()
+
+  sas_auth = uamqp.authentication.SASTokenAuth.from_shared_access_key(redirect.address, policy_name, access_key)
+  receive_client = uamqp.ReceiveClient(set_endpoint_filter(redirect.address, endpoint_filter), auth=sas_auth, debug=True)
+
+# Start receiving messages in batches
+batch = receive_client.receive_message_batch(max_batch_size=5)
+for msg in batch:
+  print('*** received a message ***')
+  print(''.join(msg.get_data()))
+  print('\t: ' + str(msg.annotations['x-opt-sequence-number']))
+  print('\t: ' + str(msg.annotations['x-opt-offset']))
+  print('\t: ' + str(msg.annotations['x-opt-enqueued-time']))
+```
+
+指定的裝置識別碼，IoT 中樞會使用裝置識別碼的雜湊來判斷哪一個資料分割儲存在其訊息。 上述程式碼片段會示範從單一事件的接收這類資料分割。 不過，要注意的是，一般的應用程式通常需要擷取所有事件中樞資料分割中儲存的事件。
 
 
 ### <a name="additional-notes"></a>其他附註
 * AMQP 連線可能中斷網路小毛病或 （在程式碼產生） 的驗證權杖的到期日到期。 服務用戶端必須處理這些情況下，並重新建立連線和連結，如有需要。 驗證權杖到期的情況下，用戶端還必須主動可以更新其到期日，以避免連線卸除前的語彙基元。
-* 在某些情況下，您的用戶端必須能夠正確處理連結重新導向。 請參閱您的 AMQP 用戶端文件上如何執行這項操作。
+* 在某些情況下，您的用戶端必須能夠正確處理連結重新導向。 請參閱您的 AMQP 用戶端文件如何處理這項作業。
 
 ### <a name="receive-cloud-to-device-messages-device-and-module-client"></a>接收雲端到裝置訊息 （裝置和模組用戶端）
 在裝置端上使用 AMQP 連結如下所示：

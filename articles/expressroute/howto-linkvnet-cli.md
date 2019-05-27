@@ -5,22 +5,22 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: anzaman,cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 5ddcfe14873d13384b043f7a977dc4f069dbe8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9a6f16df4b827538c1f8bdb9b7382ed06d543b62
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883074"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991526"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>使用 CLI 將虛擬網路連線到 ExpressRoute 線路
 
 本文可協助您使用 CLI 將虛擬網路 (VNet) 連結到 Azure ExpressRoute 線路。 若要使用 Azure CLI 進行連結，您必須使用 Resource Manager 部署模型建立虛擬網路。 其可以位於相同的訂用帳戶中，或屬於另一個訂用帳戶。 如果您想要使用不同的方法將 VNet 連線到 ExpressRoute 線路，您可以從下列清單選取文章：
 
 > [!div class="op_single_selector"]
-> * [Azure 门户](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Azure 入口網站](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [影片 - Azure 入口網站](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
@@ -35,7 +35,7 @@ ms.locfileid: "60883074"
 
 * 您必須擁有作用中的 ExpressRoute 線路。 
   * 遵循指示來 [建立 ExpressRoute 線路](howto-circuit-cli.md) ，並由您的連線提供者來啟用該線路。 
-  * 确保为线路配置 Azure 专用对等互连。 請參閱 [設定路由](howto-routing-cli.md) 一文，以取得路由指示。 
+  * 確定您已針對循環設定了 Azure 私用對等。 請參閱 [設定路由](howto-routing-cli.md) 一文，以取得路由指示。 
   * 確定已設定 Azure 私用對等互連。 已開啟您的網路與 Microsoft 之間的 BGP 對等互連，讓您可以啟用端對端連線。
   * 請確定您有已建立且完整佈建的虛擬網路和虛擬網路閘道。 請遵循指示[為 ExpressRoute 設定虛擬網路閘道](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)。 請務必使用 `--gateway-type ExpressRoute`。
 
@@ -138,8 +138,34 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 
 **釋出連線授權**
 
-可以通过删除 ExpressRoute 线路与虚拟网络之间的连接释放授权。
+您可以藉由刪除將 ExpressRoute 線路連結到虛擬網路的連線來釋出授權。
+
+## <a name="modify-a-virtual-network-connection"></a>修改虛擬網路連線
+您可以更新虛擬網路連線的特定屬性。 
+
+**更新連線權數**
+
+您的虛擬網路可以連接到多個 ExpressRoute 線路。 您可能會收到來自多個 ExpressRoute 線路的相同前置詞。 若要選擇要使用哪一個連線來傳送目的為此前置詞的流量，您可以變更連線的 *RoutingWeight*。 流量將透過具有最高 *RoutingWeight* 的連線來傳送。
+
+```azurecli
+az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --routing-weight 100
+```
+
+*RoutingWeight* 的範圍是從 0 到 32000。 預設值為 0。
+
+## <a name="configure-expressroute-fastpath"></a>設定 ExpressRoute 快速 
+您可以讓[ExpressRoute 快速](expressroute-about-virtual-network-gateways.md)如果您的 ExpressRoute 線路位於[ExpressRoute 直接](expressroute-erdirect-about.md)和您的虛擬網路閘道是超級效能或 ErGw3AZ。 快速提升資料路徑效能，例如每秒封包及每秒在內部部署網路與虛擬網路之間的連線。 
+
+> [!NOTE] 
+> 如果您已經有虛擬網路連線，但您尚未啟用快速您要刪除虛擬網路連線，建立新密碼。 
+> 
+>  
+
+```azurecli
+az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
+```
+
 
 ## <a name="next-steps"></a>後續步驟
 
-有关 ExpressRoute 的详细信息，请参阅 [ExpressRoute 常见问题](expressroute-faqs.md)。
+如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。

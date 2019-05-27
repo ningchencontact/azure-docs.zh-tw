@@ -13,11 +13,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 3c1178a20debc36fbdbbd374eaf9adb6005a93a7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454931"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66152375"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>重新設定 Azure-SSIS 整合執行階段
 本文說明如何重新設定現有的 Azure-SSIS 整合執行階段。 若要了解如何在 Azure Data Factory 建立 Azure-SSIS 整合執行階段 (IR)，請瀏覽[建立 Azure SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)，。  

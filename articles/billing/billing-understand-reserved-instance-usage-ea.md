@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/07/2019
 ms.author: banders
-ms.openlocfilehash: 09242eaa6058229226062801f5f71f2bf4c7a9e8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b2452580eaecc0ab922f8e7db48676f70831a8ca
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789382"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66126853"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>取得 Enterprise 合約的保留項目成本與使用量
 
@@ -42,9 +42,9 @@ Marketplace 費用將會合併使用情況資料。 您檢視第一次的合作�
 
 | 資料 | 實際的成本資料集 | 分攤的成本資料集 |
 | --- | --- | --- |
-| 保留購買 | 在此檢視中可用。<br>  若要取得此資料篩選 ChargeType =&quot;採購&quot;。 <br> 請參閱 ReservationID 或 ReservationName 知道需要付費的是哪一個保留項目。  | 此檢視不適用。 <br> 分攤的資料中，不提供採購成本。 |
+| 保留購買 | 在此檢視中可用。<br><br>  若要取得此資料篩選 ChargeType =&quot;採購&quot;。 <br><br> 請參閱 ReservationID 或 ReservationName 知道需要付費的是哪一個保留項目。  | 此檢視不適用。 <br><br> 分攤的資料中，不提供採購成本。 |
 | EffectivePrice | 取得保留折扣的使用量為零的值。 | 這個值是每小時按比例成本有保留折扣的使用方式的保留項目。 |
-| 未使用的保留項目 （提供的保留項目並未用於一天的小時數和浪費的貨幣值） | 在此檢視中不適用。 | 在此檢視中可用。<br> 若要取得這項資料，篩選 ChargeType = &quot;UnusedReservation&quot;。<br>  請參閱 ReservationID 或 ReservationName 知道哪一個保留項目使用量過低。 這是保留項目中有多少浪費在一天。  |
+| 未使用的保留項目 （提供的保留項目並未用於一天的小時數和浪費的貨幣值） | 在此檢視中不適用。 | 在此檢視中可用。<br><br> 若要取得這項資料，篩選 ChargeType = &quot;UnusedReservation&quot;。<br><br>  請參閱 ReservationID 或 ReservationName 知道哪一個保留項目使用量過低。 這是保留項目中有多少浪費在一天。  |
 | UnitPrice （來自價位表的資源的價格） | 可用 | 可用 |
 
 其他可用 Azure 使用量資料中的資訊已變更：
@@ -77,12 +77,12 @@ https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enroll
 | **API 資料類型** | API 呼叫動作 |
 | --- | --- |
 | **所有費用 （使用方式和購買項目）** | {計量} 取代為 ActualCost |
-| **取得保留折扣的使用方式** | {計量} 取代為 ActualCost<br>取代 {filter}: properties/reservationId%20ne%20 |
-| **未取得保留折扣的使用方式** | {計量} 取代為 ActualCost<br>Replace {filter} with: properties/reservationId%20eq%20 |
+| **取得保留折扣的使用方式** | {計量} 取代為 ActualCost<br><br>取代 {filter}: properties/reservationId%20ne%20 |
+| **未取得保留折扣的使用方式** | {計量} 取代為 ActualCost<br><br>Replace {filter} with: properties/reservationId%20eq%20 |
 | **分攤的費用 （使用方式和購買項目）** | {計量} 取代為 AmortizedCost |
-| **未使用的保留項目報表** | {計量} 取代為 AmortizedCost<br>取代 {filter}: properties/ChargeType%20eq%20'UnusedReservation' |
-| **保留購買** | 將取代為 ActualCostReplace {filter} 的 {計量} 取代： properties/ChargeType%20eq%20'Purchase'  |
-| **退款** | {計量} 取代為 ActualCost<br>取代 {filter}: properties/ChargeType%20eq%20'Refund' |
+| **未使用的保留項目報表** | {計量} 取代為 AmortizedCost<br><br>取代 {filter}: properties/ChargeType%20eq%20'UnusedReservation' |
+| **保留購買** | {計量} 取代為 ActualCost<br><br>取代 {filter}: properties/ChargeType%20eq%20'Purchase'  |
+| **退款** | {計量} 取代為 ActualCost<br><br>取代 {filter}: properties/ChargeType%20eq%20'Refund' |
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>下載使用量 CSV 檔案，以新的資料
 

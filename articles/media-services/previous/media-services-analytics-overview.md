@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: aac9719f8d74c4b7bc283745ee2b8e01365a81f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ceaf4d3db71d99c3e87157f9847312fdf4000026
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61245247"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991795"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>媒體服務平台上的媒體分析 
 
@@ -58,15 +58,13 @@ Azure 內容仲裁可讓您針對影片使用機器輔助仲裁。 例如，您�
 
 * **客服中心**。 即使社交媒體出現，但客服中心仍能協助處理大量的客戶服務交易。 客服中心的語音資料經編碼後可成為大量的客戶資訊，企業可分析這些資訊以提高客戶滿意度。 組織可使用媒體索引器擷取文字，及建置搜尋索引與儀表板。 接著便可以從一般客訴、客訴來源及其他相關資料中獲取情報。
 * **仲裁使用者產生的內容**。 從新聞媒體到警察局，許多組織都有對外公開的入口網站可接受使用者產生的媒體，例如影片和影像。 內容的數量可能會因為未預期事件而激增。 在這些狀況下，很難有效地人工審查內容是否適當。 客戶可以依賴內容仲裁服務將重點放在適當的內容。
-* **監視錄影**. 隨著 IP 攝影機的使用愈來愈普遍，監視影片的存量也隨之成長。 手動檢閱監視視訊既耗時又容易發生人為錯誤。 媒體分析提供數種服務，例如動作偵測、臉部偵測和 Hyperlapse，讓審查、管理和建立衍生物件的程序變得更容易。
 
 ## <a name="media-analytics-media-processors"></a>媒體分析媒體處理器
 本節列出所有媒體分析媒體處理器，並示範如何使用 .NET 或 REST 來取得媒體處理器 (MP) 物件。
 
 ### <a name="mp-names"></a>MP 名稱
 * Azure 媒體索引器 2 預覽
-* Azure Media Indexer
-* Azure Media Hyperlapse
+* Azure 媒體索引器
 * Azure 媒體臉部偵測器
 * Azure 媒體動作偵測器
 * Azure 媒體視訊縮圖

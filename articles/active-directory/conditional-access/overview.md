@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb1289ba615fea6e6c43b256da6978534d9edc7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 32ad8c12834ee538e231b38f9098c741fdc17954
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799372"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65997255"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>什麼是 Azure Active Directory 中的條件式存取？
 
@@ -64,7 +64,7 @@ ms.locfileid: "59799372"
 
 - **[使用者](conditions.md#users-and-groups)**：執行存取嘗試的使用者 (**執行者**)。
 
-- **[雲端應用程式](conditions.md#cloud-apps)**：存取嘗試的目標 (**目標**)。
+- **[雲端應用程式](conditions.md#cloud-apps-and-actions)**：存取嘗試的目標 (**目標**)。
 
 這兩個條件是條件式存取原則中的必要條件。 除了這兩個必要條件之外，您也可以納入說明存取嘗試執行方式的額外條件。 常見的範例包括使用您公司網路外的行動裝置或位置。 如需詳細資訊，請參閱 [Azure Active Directory 條件式存取中的條件](conditions.md)。
 
@@ -86,9 +86,9 @@ ms.locfileid: "59799372"
 
 當使用者登入同盟驗證服務之後，Azure AD 會處理其他原則需求，例如裝置合規性或核准的應用程式。
 
-## <a name="license-requirements-for-using-conditional-access"></a>使用條件式存取的授權需求
+## <a name="license-requirements"></a>授權需求
 
-使用條件式存取需要 Azure AD Premium 授權。 若要尋找適用於您需求的正確授權，請參閱[比較 Free、Basic 及 Premium 版本的正式運作功能](https://azure.microsoft.com/pricing/details/active-directory/)。
+[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

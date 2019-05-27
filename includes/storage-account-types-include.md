@@ -9,11 +9,11 @@ ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: d4f57eca89cbb68d61546c6d5ce5bcd04f9256e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477960"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114919"
 ---
 Azure 儲存體提供數種類型的儲存體帳戶。 每個類型都支援不同的功能，而且都有自己的計價模式。 您在建立儲存體帳戶之前請先考量這些差異，以判斷您的應用程式最適用的帳戶類型。 儲存體帳戶的類型如下：
 
@@ -33,7 +33,7 @@ Azure 儲存體提供數種類型的儲存體帳戶。 每個類型都支援不�
 | FileStorage （預覽）   | 僅限檔案 | 進階                       | N/A                            | LRS                               | Resource Manager             | 已加密              |
 | Blob 儲存體         | Blob (僅限區塊 Blob 和附加 Blob) | 標準                      | 經常性存取層、非經常性存取層、封存存取層<sup>3</sup> | LRS、GRS、RA-GRS                  | Resource Manager             | 已加密              |
 
-<sup>1</sup>建議使用 Azure Resource Manager 部署模型。 使用傳統部署模型的儲存體帳戶仍可建立於某些位置，而且會繼續支援現有的傳統帳戶。 如需詳細資訊，請參閱 [Azure Resource Manager 與傳統部署：了解部署模型和资源状态](../articles/azure-resource-manager/resource-manager-deployment-model.md)。
+<sup>1</sup>建議使用 Azure Resource Manager 部署模型。 使用傳統部署模型的儲存體帳戶仍可建立於某些位置，而且會繼續支援現有的傳統帳戶。 如需詳細資訊，請參閱 [Azure Resource Manager 與傳統部署：了解資源的部署模型和狀態](../articles/azure-resource-manager/resource-manager-deployment-model.md)。
 
 <sup>2</sup>所有儲存體帳戶會使用待用資料的 Azure 儲存體服務加密 (SSE) 進行加密。 如需詳細資訊，請參閱[待用資料的 Azure 儲存體服務加密](../articles/storage/common/storage-service-encryption.md)。
 

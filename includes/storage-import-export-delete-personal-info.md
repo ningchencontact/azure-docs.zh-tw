@@ -9,11 +9,11 @@ ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478717"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114981"
 ---
 ## <a name="deleting-personal-information"></a>刪除個人資訊
 
@@ -25,7 +25,7 @@ ms.locfileid: "61478717"
 - 電話號碼
 - 電子郵件
 - 街道地址
-- City
+- 縣/市
 - 郵遞區號
 - State
 - 國家/地區/州/省/區域

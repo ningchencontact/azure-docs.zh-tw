@@ -7,14 +7,14 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: b452485ccf235d1f245989e40840f2f0b3b2ae45
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.topic: conceptual
+ms.date: 05/20/2019
+ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544515"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961443"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>透過使用整合服務環境 (ISE) 從 Azure Logic Apps 連線至 Azure 虛擬網路
 
@@ -24,7 +24,7 @@ ms.locfileid: "65544515"
 
 本文會示範如何完成這些工作：
 
-* 設定您的 Azure 虛擬網路上的連接埠，讓流量可以在您的虛擬網路中，通過跨子網路的整合服務環境 (ISE)。
+* 請確定虛擬網路上任何必要的連接埠已開啟，使流量可以流經您整合服務的環境 (ISE) 透過子網路在該虛擬網路中。
 
 * 建立您的整合服務環境 (ISE)。
 
@@ -60,11 +60,13 @@ ms.locfileid: "65544515"
 
 <a name="ports"></a>
 
-## <a name="set-up-network-ports"></a>設定網路連接埠
+## <a name="check-network-ports"></a>檢查網路連接埠
 
-若要正確運作並保持可存取，您的整合服務環境 (ISE) 需要在您的虛擬網路上提供特定連接埠。 如果無法取得任何這些連接埠，您可能就無法存取您的 ISE，它可能會停止運作。 當您在虛擬網路中使用 ISE 時，常見的設定問題是有一或多個封鎖的連接埠。 對於您 ISE 與目的地系統之間的連線，您使用的連接器可能也有它自己的連接埠需求。 例如，如果您使用 FTP 連接器與 FTP 系統進行通訊，請確定可取得您在該 FTP 系統使用的連接埠 (如傳送命令的連接埠 21)。
+當您使用整合服務環境 (ISE) 與虛擬網路時，常見的安裝程式發生問題就具有一或多個連接埠遭到封鎖。 您用來建立您的 ISE 與目標系統之間的連線的連接器也可能具有自己的連接埠需求。 例如，如果您使用 FTP 連接器與 FTP 系統進行通訊，請確定可取得您在該 FTP 系統使用的連接埠 (如傳送命令的連接埠 21)。
 
-若要跨虛擬網路的子網路，您在其中部署您的 ISE 控制的流量，您可以設定[網路安全性群組](../virtual-network/security-overview.md)藉由這些子網路[篩選子網路間的網路流量](../virtual-network/tutorial-filter-network-traffic.md)。 這些表格描述您的 ISE 在您的虛擬網路中使用的連接埠及其用途。 [Resource Manager 服務標籤](../virtual-network/security-overview.md#service-tags)代表一組協助建立安全性規則時，將複雜性降至最低的 IP 位址首碼。
+若要跨虛擬網路的子網路，您將部署 ISE 控制的流量，您可以設定[網路安全性群組](../virtual-network/security-overview.md)依[篩選子網路間的網路流量](../virtual-network/tutorial-filter-network-traffic.md)。 不過，您的 ISE 必須開啟 虛擬網路使用網路安全性群組上的特定連接埠。 如此一來，您 ISE 保持可存取，可以會使您不無法存取您的 ISE 正確運作。 否則，如果任何必要的連接埠無法使用，您 ISE 便會停止運作。
+
+這些表格描述您的 ISE 在您的虛擬網路中使用的連接埠及其用途。 [Resource Manager 服務標籤](../virtual-network/security-overview.md#service-tags)代表一組協助建立安全性規則時，將複雜性降至最低的 IP 位址首碼。
 
 > [!IMPORTANT]
 > 在您的子網路內的內部通訊，ISE 會需要您開啟這些子網路內的所有連接埠。

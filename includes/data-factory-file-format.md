@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 89d5483347f93cd3b57a02ced19b1e8b099a5ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60486825"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151596"
 ---
 ## <a name="specifying-formats"></a>指定格式
 Azure Data Factory 支援下列格式類型：
@@ -25,7 +25,7 @@ Azure Data Factory 支援下列格式類型：
 
 | 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
-| columnDelimiter |用來分隔檔案中的資料行的字元。 您可以考慮使用資料中不太可能存在的罕見不可列印字元：例如，指定 "\u0001" 代表標題開頭 (SOH)。 |只允許一個字元。 **預設值**是**逗號 (',')**。 <br/><br/>若要使用 Unicode 字元，請參閱 [Unicode 字元](https://en.wikipedia.org/wiki/List_of_Unicode_characters)以為它取得對應的程式碼。 |否 |
+| columnDelimiter |用來分隔檔案中的資料行的字元。 您可以考慮使用資料中不太可能存在的罕見不可列印字元：例如，指定 "\u0001" 代表標題開頭 (SOH)。 |只允許一個字元。 **預設值**是**逗號 (',')**。 <br/><br/>若要使用 Unicode 字元，請參閱 [Unicode 字元](https://en.wikipedia.org/wiki/List_of_Unicode_characters)以為它取得對應的程式碼。 |無 |
 | rowDelimiter |用來分隔檔案中的資料列的字元。 |只允許一個字元。 **預設值**是下列任一個值：**["\r\n", "\r", "\n"]** (讀取時) 與 **"\r\n"** (寫入時)。 |否 |
 | escapeChar |用來逸出輸入檔內容中的資料行分隔符號的特殊字元。 <br/><br/>您無法同時為資料表指定 escapeChar 和 quoteChar。 |只允許一個字元。 沒有預設值。 <br/><br/>範例：如果以逗號 (「,」) 做為資料行分隔符號，但想要在文字中使用逗號字元 (例如：「Hello, world」)，您可以將「$」定義為逸出字元，並在來源中使用字串「Hello$, world」。 |否 |
 | quoteChar |用來引用字串值的字元。 引號字元內的資料行和資料列分隔符號會被視為字串值的一部分。 這個屬性同時適用於輸入和輸出資料集。<br/><br/>您無法同時為資料表指定 escapeChar 和 quoteChar。 |只允許一個字元。 沒有預設值。 <br/><br/>例如，如果您以逗號 (',') 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如：<Hello, world>)，您可以定義 " (雙引號) 做為引用字元，並在來源中使用字串 "Hello, world"。 |否 |

@@ -17,11 +17,11 @@ ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 1c2be140e4d7156a1e23e1064436dda959c9cd14
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749996"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66166005"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>教學課程：使用 Azure CLI 建立 Azure VM 的自訂映像
 

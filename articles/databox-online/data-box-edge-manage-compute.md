@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: a90475cfd1d166b8fae1c2b872cbbb9d48b50392
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785802"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953134"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>管理 Azure Data Box Edge 上的計算
 
@@ -129,24 +129,6 @@ ms.locfileid: "65785802"
 
 3. 在同步完成後結束對話方塊。
 
-## <a name="enable-a-network-interface-for-compute"></a>啟用用於計算的網路介面
-
-您可能需要存取在 Data Box Edge 裝置上執行的模組。 若要從外部存取模組，您必須將 IP 位址指派給裝置上的網路介面。 您可以從本機 Web UI 管理這些計算設定。
-
-請在本機 Web UI 上採取下列步驟來設定計算的設定值。
-
-1. 在本機 Web UI 中，移至 [組態] > [計算設定]。  
-
-2. **啟用**您想要用來連線至裝置上計算模組的網路介面。 
-
-    - 如果使用靜態 IP 位址，請輸入網路介面的 IP 位址。
-    - 如果使用 DHCP，則系統會自動指派 IP 位址。
-
-3. 選取 [套用] 來套用設定。
-
-    ![啟用計算設定](media/data-box-edge-manage-compute/compute-settings-1.png)
-
-
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何[透過 Azure 入口網站管理使用者](data-box-edge-manage-users.md)。
+- 了解如何[管理的 Edge 計算透過 Azure 入口網站的網路](data-box-edge-extend-compute-access-modules.md)。

@@ -1,5 +1,5 @@
 ---
-title: 自动缩放 Azure HDInsight 群集（预览）
+title: 自動調整 Azure HDInsight 叢集 （預覽）
 description: 使用 HDInsight 自動調整功能自動調整叢集規模
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,21 +8,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 6ec981164de0ff61b0e83d54255d046a1418ed96
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413707"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000094"
 ---
-# <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>自动缩放 Azure HDInsight 群集（预览）
+# <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>自動調整 Azure HDInsight 叢集 （預覽）
+
+> [!Important]
+> 自動調整功能僅適用於 Spark、 Hive 和 MapReduce 2019 8 日之後建立的叢集。 
 
 Azure HDInsight 叢集中自動調整功能會自動調整背景工作節點數目在叢集中增加和減少。 無法在目前調整其他類型的叢集中的節點。  在建立新的 HDInsight 叢集時，可以設定最小和最大的背景工作節點數目。 然後，自動調整會監視 analytics 負載的資源需求，並相應增加或減少背景工作節點數目。 沒有這項功能需額外付費。
 
 ## <a name="cluster-compatibility"></a>叢集的相容性
-
-> [!Important]
-> 自動調整功能僅適用於在 2019 年中功能的公開發行之後建立的叢集。 也無法使用預先存在的叢集。
 
 下表說明叢集類型和版本相容的自動調整功能。
 
@@ -48,13 +48,13 @@ Azure HDInsight 叢集中自動調整功能會自動調整背景工作節點數�
 * **可用的 CPU 總計**：作用中背景工作節點上所有未使用核心的總和。
 * **可用的記憶體總計**：作用中背景工作節點上所有未使用記憶體的總和 (MB)。
 * **每個節點的已使用記憶體**：背景工作節點上的負載。 已使用 10 GB 記憶體的背景工作節點會被視為所承受的負載高於已使用 2 GB 記憶體的背景工作節點。
-* **每個節點的應用程式主機數目**：背景工作節點上執行的應用程式主機 (AM) 容器數目。 托管两个 AM 容器的工作节点被认为比托管零个 AM 容器的工作节点更重要。
+* **每個節點的應用程式主機數目**：背景工作節點上執行的應用程式主機 (AM) 容器數目。 裝載兩個的上午容器在背景工作節點會被視為比裝載零上午容器在背景工作節點更重要的。
 
 系統每隔 60 秒就會檢查上述計量。 自動調整規模會相應增加和相應減少的決策，根據這些計量。
 
 ### <a name="load-based-cluster-scale-up"></a>負載為基礎的叢集相應增加
 
-检测到以下情况时，自动缩放将发出纵向扩展请求：
+當偵測到下列條件時，自動調整規模就會發出相應增加要求：
 
 * 暫止 CPU 總計大於可用的 CPU 總計超過 3 分鐘。
 * 暫止的記憶體總計大於總可用記憶體超過 3 分鐘。
@@ -63,7 +63,7 @@ HDInsight 服務會計算以符合目前的 CPU 和記憶體需求，需要多�
 
 ### <a name="load-based-cluster-scale-down"></a>負載為基礎的叢集相應減少
 
-检测到以下情况时，自动缩放将发出纵向缩减请求：
+當偵測到下列條件時，自動調整規模就會發出相應減少要求：
 
 * 擱置中的 CPU 總計小於可用的 CPU 總計超過 10 分鐘。
 * 擱置中的記憶體總計小於可用的記憶體總計超過 10 分鐘。
@@ -79,7 +79,7 @@ HDInsight 服務會計算以符合目前的 CPU 和記憶體需求，需要多�
 1. 選取 [自訂 (大小、設定、應用程式)]，而非 [快速建立]。
 1. 在 **自訂**步驟 5 (**叢集大小**)，檢查**背景工作節點自動調整規模**核取方塊。
 1. 選取的選項**負載為基礎**下方**自動調整類型**。
-1. 为以下属性输入所需的值：  
+1. 下列屬性輸入所需的值：  
 
     * 初始**背景工作節點數目**。  
     * 背景工作節點**最小**數目。  
@@ -190,6 +190,25 @@ HDInsight 服務會計算以符合目前的 CPU 和記憶體需求，需要多�
 
 ![啟用背景工作節點排程為基礎的自動調整選項](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
 
+## <a name="best-practices"></a>最佳做法
+
+### <a name="choosing-load-based-or-schedule-based-scaling"></a>選擇負載或排程調整規模
+
+進行做出選擇哪一種模式的決策之前，先考慮下列因素：
+
+* 載入的變異數： 未在叢集的負載遵循一致的模式在特定時間，在特定幾天。 如果沒有，以負載為基礎的排程是較好的選擇。
+* SLA 需求：自動調整規模調整為被動，而不是 預測性。 將會有足夠的延遲時間時增加，當叢集必須位於目標大小會開始載入嗎？ 如果有嚴格的 SLA 需求，將負載是固定的已知的模式為基礎的排程' 是較好的選擇。
+
+### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>考慮擴展的延遲增加或相應減少作業
+
+可能需要 10 到 20 分鐘才能完成調整作業。 設定自訂排程，在規劃此延遲。 比方說，如果您需要叢集大小為 20 日上午 9:00，設定排程觸發程序為較早的時間，例如上午 8:30，因此在調整作業已完成的上午 9:00。
+
+### <a name="preparation-for-scaling-down"></a>準備進行相應減少
+
+在叢集相應減少程序期間自動調整規模會將節點解除委任符合目標大小。 如果在這些節點上正在執行工作，自動調整規模會等到工作完成。 因為每個背景工作節點也會處理在 HDFS 中的角色，暫存資料會被移到剩餘的節點。 因此您應該確定主控所有暫存資料的其餘節點上沒有足夠的空間。 
+
+執行中的作業會繼續執行並完成。 擱置中的工作將會等候排定為正常大小並且較少的可用的背景工作節點。
+
 ## <a name="monitoring"></a>監視
 
 ### <a name="cluster-status"></a>叢集狀態
@@ -212,7 +231,7 @@ HDInsight 服務會計算以符合目前的 CPU 和記憶體需求，需要多�
 
 ### <a name="operation-history"></a>作業歷程記錄
 
-可查看群集指标中包含的群集增加和减少历史记录。 您也可以透過前一天、 週或其他一段時間，列出所有的調整動作。
+您可以檢視叢集計量的叢集相應增加和相應減少歷程的記錄。 您也可以透過前一天、 週或其他一段時間，列出所有的調整動作。
 
 選取 **度量**下方**監視**。 然後按一下 **新增計量**並**數字的使用中工作者**從**計量**下拉式方塊。 按一下右上方，若要變更時間範圍中的按鈕。
 

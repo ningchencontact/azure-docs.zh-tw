@@ -4,16 +4,16 @@ description: Azure 儲存體資料表設計指南：在 Azure Cosmos DB 和 Azur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 84749332c5b7ab5fec2905c0fc36d89863adc3d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af155b5adb2e4b45412a8b84818852ed1b1c5e72
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60579243"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966089"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 儲存體資料表設計指南：設計可擴充且效能良好的資料表
 
@@ -47,9 +47,9 @@ ms.locfileid: "60579243"
 <td>
 <table>
 <tr>
-<th>名字</th>
-<th>姓氏</th>
-<th>年齡</th>
+<th>FirstName</th>
+<th>LastName</th>
+<th>天數</th>
 <th>電子郵件</th>
 </tr>
 <tr>
@@ -61,15 +61,15 @@ ms.locfileid: "60579243"
 </table>
 </tr>
 <tr>
-<td>Marketing</td>
+<td>行銷</td>
 <td>00002</td>
 <td>2014-08-22T00:50:34Z</td>
 <td>
 <table>
 <tr>
-<th>名字</th>
-<th>姓氏</th>
-<th>年齡</th>
+<th>FirstName</th>
+<th>LastName</th>
+<th>天數</th>
 <th>電子郵件</th>
 </tr>
 <tr>
@@ -104,9 +104,9 @@ ms.locfileid: "60579243"
 <td>
 <table>
 <tr>
-<th>名字</th>
-<th>姓氏</th>
-<th>年齡</th>
+<th>FirstName</th>
+<th>LastName</th>
+<th>天數</th>
 <th>電子郵件</th>
 </tr>
 <tr>
@@ -145,14 +145,14 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 | Azure 儲存體帳戶的容量總計 | 500 TB |
 | --- | --- |
 | Azure 儲存體帳戶中的資料表數目 |僅受限於儲存體帳戶的容量 |
-| 資料表中的資料分割數目 |仅受存储帐户的容量限制 |
+| 資料表中的資料分割數目 |僅受限於儲存體帳戶的容量 |
 | 資料分割中的實體數目 |僅受限於儲存體帳戶的容量 |
 | 個別實體的大小 |最多 1 MB 和 255 個屬性 (包括 **PartitionKey**、**RowKey** 和 **Timestamp**) |
-|  **PartitionKey** |大小最大为 1 KB 的字符串 |
+|  **PartitionKey** |大小最多 1 KB 的字串 |
 |  **RowKey** |大小最多 1 KB 的字串 |
 | 實體群組交易的大小 |交易最多可以包含 100 個實體，而承載大小必須小於 4 MB。 一個 EGT 只能更新實體一次。 |
 
-有关详细信息，请参阅 [了解表服务数据模型](https://msdn.microsoft.com/library/azure/dd179338.aspx)。  
+如需詳細資訊，請參閱 [了解表格服務資料模型](https://msdn.microsoft.com/library/azure/dd179338.aspx)。  
 
 ### <a name="cost-considerations"></a>成本考量
 資料表儲存體比較便宜，但您在評估任何會使用資料表服務的方案時，均應將容量使用量和交易數目的成本預估同時納入考量。 不過，在許多情況下，儲存反正規化或重複的資料以改善方案的效能或延展性，也是可以採行的有效措施。 如需定價的詳細資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。  
@@ -165,7 +165,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 * ***設計大量讀取應用程式中的查詢。***  當您在設計資料表時，請先思考您將執行的查詢 (尤其是較無法容續延遲的查詢)，然後再思考更新實體的方法。 透過這樣的方式，通常可造就一個有效率且高效能的解決方案。  
 * ***在查詢中同時指定 PartitionKey 和 RowKey。*** *點查詢* 都是最有效率的表格服務查詢。  
 * ***考慮儲存重複的實體副本。***  資料表儲存體的成本較低，因此請考慮多次儲存相同的實體 (使用不同索引鍵)，以啟用更有效率的查詢。  
-* ***考慮將資料反正規化。***  資料表儲存體十分便宜，所以建議您考慮將資料反正規化。 例如，存储摘要实体，以便对聚合数据的查询只需访问单个实体。  
+* ***考慮將資料反正規化。***  資料表儲存體十分便宜，所以建議您考慮將資料反正規化。 例如儲存摘要實體，可讓彙總資料的查詢只需存取單一實體。  
 * ***使用複合索引鍵值。*** 您只有 **PartitionKey** 和 **RowKey** 這兩個索引鍵。 例如，使用複合索引鍵值啟用替代的實體索引鍵式存取路徑。  
 * ***使用查詢預測。***  使用僅選取您所需欄位的查詢，即可減少透過網路傳輸的資料量。  
 
@@ -200,12 +200,12 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 
 | *資料行名稱* | *資料類型* |
 | --- | --- |
-| **PartitionKey** (部門名稱) |字串 |
-| **RowKey** (員工識別碼) |字串 |
-| **名字** |字串 |
-| **姓氏** |字串 |
+| **PartitionKey** (部門名稱) |String |
+| **RowKey** (員工識別碼) |String |
+| **名字** |String |
+| **姓氏** |String |
 | **年齡** |整數  |
-| **EmailAddress** |字串 |
+| **EmailAddress** |String |
 
 稍早的「Azure 資料表服務概觀」一節說明了某些對查詢設計有直接影響的重要 Azure 表格服務功能。 這些功能產生了設計資料表服務查詢的一般指導方針。 下列範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱[查詢實體](https://msdn.microsoft.com/library/azure/dd179421.aspx)。  
 
@@ -213,7 +213,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 * 次佳的是***範圍查詢***，它使用 **PartitionKey**，並篩選特定範圍的 **RowKey** 值，以傳回多個實體。 **PartitionKey** 值會識別特定的分割，而 **RowKey** 值會識別該分割中實體的子集。 例如：$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
 * 再其次是***分割掃描***，它使用 **PartitionKey**，並篩選另一個非索引鍵的，可傳回多個實體。 **PartitionKey** 值會識別特定的分割，而屬性值會選取該分割中實體的子集。 例如：$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
 * ***資料表掃描***不包含 **PartitionKey**，且效率不佳，因為它會依序在所有組成資料表的分割中搜尋是否有任何相符的實體。 無論您的篩選是否使用 **RowKey**，它都會執行資料表掃描。 例如：$filter=LastName eq 'Jones'  
-* 傳回多個實體的 Azure 表格儲存體查詢，在傳回時會以 **PartitionKey** 和 **RowKey** 順序排序。 若要避免重新排序用戶端中的實體，請選擇定義最常見的排序次序的 **RowKey** 。 Azure Cosmos DB 中 Azure 表 API 返回的查询结果不按分区键或行键排序。 如需詳細的功能差異清單，請參閱 [Azure Cosmos DB 和 Azure 資料表儲存體中資料表 API 之間的差異](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
+* 傳回多個實體的 Azure 表格儲存體查詢，在傳回時會以 **PartitionKey** 和 **RowKey** 順序排序。 若要避免重新排序用戶端中的實體，請選擇定義最常見的排序次序的 **RowKey** 。 Azure Cosmos DB 中的 「 Azure 資料表 API 所傳回的查詢結果不會排序的資料分割索引鍵或資料列索引鍵。 如需詳細的功能差異清單，請參閱 [Azure Cosmos DB 和 Azure 資料表儲存體中資料表 API 之間的差異](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
 
 使用 "**or**" 指定以 **RowKey** 值為基礎的篩選條件，會產生資料分割掃描且不被當作範圍查詢。 因此，您應該避免會使用下列篩選條件的搜尋：例如 $filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
 
@@ -255,7 +255,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 系統會先根據 **PartitionKey** 再根據 **RowKey**，以遞增順序排序「資料表」服務所傳回的查詢結果。
 
 > [!NOTE]
-> Azure DB 中 Azure 表 API 返回的查询结果不按分区键或行键排序。 如需詳細的功能差異清單，請參閱 [Azure Cosmos DB 和 Azure 資料表儲存體中資料表 API 之間的差異](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
+> 在 Azure DB 中的 「 Azure 資料表 API 所傳回的查詢結果不會排序的資料分割索引鍵或資料列索引鍵。 如需詳細的功能差異清單，請參閱 [Azure Cosmos DB 和 Azure 資料表儲存體中資料表 API 之間的差異](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
 
 Azure 儲存體資料表中的索引鍵是字串值，可確保能正確排序數字值，您應該將它們轉換成固定長度，並以零填補它們。 例如，如果您用來做為 **RowKey** 的員工識別碼值是整數值，您應將員工識別碼 **123** 轉換為 **00000123**。 
 
@@ -301,9 +301,9 @@ Azure 儲存體資料表中的索引鍵是字串值，可確保能正確排序�
 * [記錄結尾模式](#log-tail-pattern) - 使用以反向的日期和時間順序排序的 *RowKey* 值，擷取最近加入資料分割的 **n** 個實體。  
 
 ## <a name="encrypting-table-data"></a>加密資料表的資料
-.NET Azure 儲存體用戶端程式庫支援在插入和取代作業時進行字串實體屬性的加密。 加密的字符串作为二进制属性存储在服务中，并在解密之后转换回字符串。    
+.NET Azure 儲存體用戶端程式庫支援在插入和取代作業時進行字串實體屬性的加密。 加密的字串儲存在服務上作為二進位屬性，且解密後會轉換回字串。    
 
-針對資料表，除了加密原則之外，使用者必須指定要加密的屬性。 作法是指定 [EncryptProperty] 屬性 (針對衍生自 TableEntity 的 POCO 實體)，或在要求選項中指定加密解析程式。 加密解析程式是委派，接受資料分割索引鍵、資料列索引鍵和屬性名稱，然後傳回布林值，指出是否應該加密該屬性。 在加密期間，用戶端程式庫會使用此資訊，決定將屬性在寫到網路時是否應該加密。 该委托还可以围绕如何加密属性实现逻辑的可能性。 (例如，如果 X，則加密屬性 A，否則加密屬性 A 和 B。)讀取或查詢實體時不需要提供這項資訊。
+針對資料表，除了加密原則之外，使用者必須指定要加密的屬性。 作法是指定 [EncryptProperty] 屬性 (針對衍生自 TableEntity 的 POCO 實體)，或在要求選項中指定加密解析程式。 加密解析程式是委派，接受資料分割索引鍵、資料列索引鍵和屬性名稱，然後傳回布林值，指出是否應該加密該屬性。 在加密期間，用戶端程式庫會使用此資訊，決定將屬性在寫到網路時是否應該加密。 委派也提供關於屬性如何加密的可能邏輯。 (例如，如果 X，則加密屬性 A，否則加密屬性 A 和 B。)讀取或查詢實體時不需要提供這項資訊。
 
 目前不支援合併。 因為屬性子集先前可能是使用不同的金鑰加密，直接合併新的屬性並更新中繼資料會導致資料遺失。 合併可能需要額外的服務呼叫來從服務讀取預先存在的實體，或在每個屬性上都使用新的金鑰，兩者都不利用於效能。     
 
@@ -384,7 +384,7 @@ Azure 儲存體資料表中的索引鍵是字串值，可確保能正確排序�
 </tr>
 </table>
 
-如何在这些选项中进行选择，以及哪些优点和缺点最重要，取决于特定应用程序方案。 例如，您多久修改一次部門實體；您所有的員工查詢是否都需要其他部門資訊；您的磁碟分割或儲存體帳戶有多接近延展性限制？  
+您選擇這些選項的方式及其優缺點是最重要的，這取決於您的應用程式案例。 例如，您多久修改一次部門實體；您所有的員工查詢是否都需要其他部門資訊；您的磁碟分割或儲存體帳戶有多接近延展性限制？  
 
 ### <a name="one-to-one-relationships"></a>一對一關聯性
 網域模型的實體之間可能會包含一對一關聯性。 如果您需要在資料表服務中實作一對一關聯性，您在需要同時擷取兩個相關的實體時，也必須選擇如何連結兩者。 此連結可以是隱含的 (根據索引鍵值中的慣例) 或明確的 (藉由以 **PartitionKey** 和 **RowKey** 值的形式，將每個實體中的連結儲存至其相關的實體)。 如需是否應將相關實體儲存於相同資料分割中的討論，請參閱 [一對多關聯性](#one-to-many-relationships)一節。  
@@ -415,7 +415,7 @@ Azure 儲存體資料表中的索引鍵是字串值，可確保能正確排序�
 
 ![資料表設計模式的影像][5]
 
-上方的模式圖強調顯示本指南中提及的模式 (藍色) 與反向模式 (橘色) 之間的一些關聯性。 当然，还有许多其他值得考虑的模式。 例如，表格服務的其中一個主要案例是從[命令查詢責任隔離 (CQRS)](https://msdn.microsoft.com/library/azure/jj554200.aspx) 模式使用[具體化檢視模式](https://msdn.microsoft.com/library/azure/dn589782.aspx)。  
+上方的模式圖強調顯示本指南中提及的模式 (藍色) 與反向模式 (橘色) 之間的一些關聯性。 當然還有許多其他模式也值得考量。 例如，表格服務的其中一個主要案例是從[命令查詢責任隔離 (CQRS)](https://msdn.microsoft.com/library/azure/jj554200.aspx) 模式使用[具體化檢視模式](https://msdn.microsoft.com/library/azure/dn589782.aspx)。  
 
 ### <a name="intra-partition-secondary-index-pattern"></a>內部資料分割次要索引模式
 為每個實體儲存多個複本且使用不同 **RowKey** 值 (在相同的資料分割內)，透過使用不同的 **RowKey** 值，就能快速且有效率的查閱和替代排序次序。 複本之間的更新可以使用 EGT 保持一致。  
@@ -447,7 +447,7 @@ Azure 儲存體資料表中的索引鍵是字串值，可確保能正確排序�
 #### <a name="issues-and-considerations"></a>問題和考量
 當您決定如何實作此模式時，請考慮下列幾點：  
 
-* 使用表存储相对比较便宜，因此存储重复数据的成本开销不应是主要考虑因素。 不過，您一律應根據預期的儲存需求評估設計成本，並僅新增重複實體來支援用戶端應用程式將會執行的查詢。  
+* 資料表儲存體的使用成本相對較低廉，因此儲存重複資料的成本負擔應該不是主要的考量。 不過，您一律應根據預期的儲存需求評估設計成本，並僅新增重複實體來支援用戶端應用程式將會執行的查詢。  
 * 因為次要索引實體儲存在與原始實體相同的磁碟分割中，因此您應該確定不會超過個別資料分割的延展性目標。  
 * 您可以將重複實體彼此保持一致，方法是使用 EGT 自動更新實體的兩個複本。 這表示您應該將實體的所有複本儲存在相同的資料分割中。 如需詳細資訊，請參閱 [使用實體群組交易](#entity-group-transactions)一節。  
 * 每個實體用於 **RowKey** 的值必須是唯一的。 請考慮使用複合索引鍵值。  
@@ -462,7 +462,7 @@ Azure 儲存體資料表中的索引鍵是字串值，可確保能正確排序�
 當用戶端應用程式需要使用各種不同的索引鍵擷取實體時、當用戶端需要擷取不同排序次序的實體時，以及您可以使用不同的唯一值識別每個實體時，請使用此模式。 不過，您應確定在使用不同的 **RowKey** 值執行實體查閱時，您不會超出資料分割延展性限制。  
 
 #### <a name="related-patterns-and-guidance"></a>相關的模式和指導方針
-实现此模式时，以下模式和指南也可能相关：  
+在實作此模式時，下列模式和指導方針也可能有所關聯：  
 
 * [間分割次要索引模式](#inter-partition-secondary-index-pattern)
 * [複合索引鍵模式](#compound-key-pattern)
@@ -516,9 +516,9 @@ Azure 儲存體資料表中的索引鍵是字串值，可確保能正確排序�
 #### <a name="related-patterns-and-guidance"></a>相關的模式和指導方針
 在實作此模式時，下列模式和指導方針也可能有所關聯：  
 
-* [最终一致的事务模式](#eventually-consistent-transactions-pattern)  
+* [最終一致的交易模式](#eventually-consistent-transactions-pattern)  
 * [內部資料分割次要索引模式](#intra-partition-secondary-index-pattern)  
-* [复合键模式](#compound-key-pattern)  
+* [複合索引鍵模式](#compound-key-pattern)  
 * [實體群組交易](#entity-group-transactions)  
 * [使用異質性實體類型](#working-with-heterogeneous-entity-types)  
 
@@ -579,7 +579,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 
 ![員工實體][13]
 
-如果您也想能夠根據其他非唯一屬性 (例如其姓氏) 的值擷取員工實體清單，您必須使用效率較低的資料分割掃描來尋找相符項目，而不要使用索引直接加以查閱。 这是因为表服务不提供辅助索引。  
+如果您也想能夠根據其他非唯一屬性 (例如其姓氏) 的值擷取員工實體清單，您必須使用效率較低的資料分割掃描來尋找相符項目，而不要使用索引直接加以查閱。 這是因為資料表服務不會提供次要索引。  
 
 #### <a name="solution"></a>解決方法
 若要透過如上所示的實體結構啟用依據姓氏的查閱，您必須維護員工識別碼清單。 如果您想要擷取具有特定姓氏 (例如 Jones) 的員工實體，您必須先針對姓氏為 Jones 的員工找出員工識別碼清單，然後擷取這些員工實體。 有三個主要的選項可儲存員工識別碼清單：  
@@ -653,14 +653,14 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 ![部門實體與員工實體][16]
 
 #### <a name="solution"></a>解決方法
-不要將資料儲存在兩個不同的實體中，而是將資料反正規化，並將管理員詳細資料的複本保存在部門實體中。 例如︰  
+不要將資料儲存在兩個不同的實體中，而是將資料反正規化，並將管理員詳細資料的複本保存在部門實體中。 例如：  
 
 ![反正規化且合併的部門實體][17]
 
 部門實體連同這些屬性一起儲存後，您現在可以擷取與使用點查詢的部門有關的所有詳細資料。  
 
 #### <a name="issues-and-considerations"></a>問題和考量
-在决定如何实现此模式时，请考虑以下几点：  
+當您決定如何實作此模式時，請考慮下列幾點：  
 
 * 儲存資料兩次還有一些相關的成本負擔。 效能優勢 (因對儲存體服務的要求較少而產生) 通常會高於儲存體成本的邊際增值 (而且這項成本有部分會由擷取部門的詳細資料所需的交易量減少而抵銷)。  
 * 您必須讓儲存管理員相關資訊的兩個實體保有一致性。 您可以使用 EGT 在單一不可部分完成交易中更新多個實體，以處理一致性問題：在此情況下，部門實體和部門經理的員工實體會儲存在相同的資料分割中。  
@@ -673,7 +673,7 @@ EGT 可讓您在共用相的資料分割索引鍵的多個實體之間執行不�
 
 * [複合索引鍵模式](#compound-key-pattern)  
 * [實體群組交易](#entity-group-transactions)  
-* [处理异类实体类型](#working-with-heterogeneous-entity-types)
+* [使用異質性實體類型](#working-with-heterogeneous-entity-types)
 
 ### <a name="compound-key-pattern"></a>複合索引鍵模式
 使用複合 **RowKey** 值，讓用戶端可透過單點查詢來查閱相關資料。  
@@ -723,7 +723,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 使用以反向的日期和時間順序排序的 *RowKey* 值，擷取最近加入資料分割的 **n** 個實體。  
 
 > [!NOTE]
-> Azure DB 中 Azure 表 API 返回的查询结果不按分区键或行键排序。 因此，此模式適合 Azure 表格儲存體，而不適合 Azure Cosmos DB。 如需詳細的功能差異清單，請參閱 [Azure Cosmos DB 和 Azure 資料表儲存體中資料表 API 之間的差異](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
+> Azure DB 中的 「 Azure 資料表 API 所傳回的查詢結果未排序的資料分割索引鍵或資料列索引鍵。 因此，此模式適合 Azure 表格儲存體，而不適合 Azure Cosmos DB。 如需詳細的功能差異清單，請參閱 [Azure Cosmos DB 和 Azure 資料表儲存體中資料表 API 之間的差異](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
 
 #### <a name="context-and-problem"></a>內容和問題
 常見的需求是要能夠取出最近建立的實體，例如員工提交的最近 10 筆費用請款。 資料表查詢支援 **$top** 查詢作業，以從某個集合中傳回前 *n* 個實體：沒有對等的查詢作業可傳回某個集合中的最後 n 個實體。  
@@ -787,7 +787,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 #### <a name="related-patterns-and-guidance"></a>相關的模式和指導方針
 在實作此模式時，下列模式和指導方針也可能有所關聯：  
 
-* [实体组事务](#entity-group-transactions)
+* [實體群組交易](#entity-group-transactions)
 * [修改實體](#modifying-entities)  
 
 ### <a name="data-series-pattern"></a>資料序列模式
@@ -870,7 +870,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 #### <a name="when-to-use-this-pattern"></a>使用此模式的時機
 如果需要在資料表服務中儲存大小超過個別實體限制的實體，請使用此模式。  
 
-#### <a name="related-patterns-and-guidance"></a>相关模式和指南
+#### <a name="related-patterns-and-guidance"></a>相關的模式和指導方針
 在實作此模式時，下列模式和指導方針也可能有所關聯：  
 
 * [最終一致的交易模式](#eventually-consistent-transactions-pattern)  
@@ -967,7 +967,7 @@ if (retrieveResult.Result != null)
 請注意，此範例預期會擷取的實體屬於 **EmployeeEntity**類型。  
 
 #### <a name="retrieving-multiple-entities-using-linq"></a>使用 LINQ 擷取多個實體
-您可以搭配使用 LINQ 與儲存體用戶端程式庫，並指定具有 **where** 子句的查詢，以擷取多個實體。 若要避免資料表掃描，您應一律在 where 子句中加入 **PartitionKey** 值，並盡可能加入 **RowKey** 值，以防止資料表和資料分割掃描。 表服务支持一组有限的比较运算符（大于、大于等于、小于、小于等于、等于和不等于）可用于 where 子句。 下列 C# 程式碼片段會在業務部門 (假設 **PartitionKey** 儲存部門名稱) 中，尋找姓氏以 "B" 開頭的所有員工 (假設 **RowKey** 儲存姓氏)：  
+您可以搭配使用 LINQ 與儲存體用戶端程式庫，並指定具有 **where** 子句的查詢，以擷取多個實體。 若要避免資料表掃描，您應一律在 where 子句中加入 **PartitionKey** 值，並盡可能加入 **RowKey** 值，以防止資料表和資料分割掃描。 資料表服務支援在 where 子句中使用一組有限的比較運算子 (大於、大於或等於、小於、小於或等於、等於和不等於)。 下列 C# 程式碼片段會在業務部門 (假設 **PartitionKey** 儲存部門名稱) 中，尋找姓氏以 "B" 開頭的所有員工 (假設 **RowKey** 儲存姓氏)：  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = employeeTable.CreateQuery<EmployeeEntity>();
@@ -1105,7 +1105,7 @@ foreach (var e in entities)
 > 
 > 
 
-### <a name="working-with-heterogeneous-entity-types"></a>处理异类实体类型
+### <a name="working-with-heterogeneous-entity-types"></a>使用異質性實體類型
 表格服務是 *無結構描述* 資料表存放區，這表示單一資料表可以儲存多種類型的實體，並在您的設計中提供絕佳的彈性。 下列範例說明用以儲存員工和部門實體的資料表：  
 
 <table>
@@ -1123,8 +1123,8 @@ foreach (var e in entities)
 <table>
 <tr>
 <th>FirstName</th>
-<th>姓氏</th>
-<th>年齡</th>
+<th>LastName</th>
+<th>天數</th>
 <th>電子郵件</th>
 </tr>
 <tr>
@@ -1142,9 +1142,9 @@ foreach (var e in entities)
 <td>
 <table>
 <tr>
-<th>名字</th>
-<th>姓氏</th>
-<th>年齡</th>
+<th>FirstName</th>
+<th>LastName</th>
+<th>天數</th>
 <th>電子郵件</th>
 </tr>
 <tr>
@@ -1162,7 +1162,7 @@ foreach (var e in entities)
 <td>
 <table>
 <tr>
-<th>DepartmentName</th>
+<th>部門名稱</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -1179,9 +1179,9 @@ foreach (var e in entities)
 <td>
 <table>
 <tr>
-<th>名字</th>
-<th>姓氏</th>
-<th>年齡</th>
+<th>FirstName</th>
+<th>LastName</th>
+<th>天數</th>
 <th>電子郵件</th>
 </tr>
 <tr>
@@ -1198,7 +1198,7 @@ foreach (var e in entities)
 每個實體仍必須要有 **PartitionKey**、**RowKey** 和 **Timestamp** 值，但是可以有任何屬性集。 此外，除非您選擇將實體類型資訊儲存在某處，否則將沒有項目會指出此類型。 有兩個選項可用來識別實體類型：  
 
 * 在 **RowKey** (或可能是 **PartitionKey**) 前面加上實體類型。 例如 **EMPLOYEE_000123**，或以 **DEPARTMENT_SALES** 做為 **RowKey** 值。  
-* 使用一个单独的属性来记录实体类型，如下表中所示。  
+* 使用個別屬性記錄實體類型，如下表所示。  
 
 <table>
 <tr>
@@ -1215,10 +1215,10 @@ foreach (var e in entities)
 <table>
 <tr>
 <th>EntityType</th>
-<th>名字</th>
-<th>姓氏</th>
-<th>年齡</th>
-<th>Email</th>
+<th>FirstName</th>
+<th>LastName</th>
+<th>天數</th>
+<th>電子郵件</th>
 </tr>
 <tr>
 <td>員工</td>
@@ -1237,10 +1237,10 @@ foreach (var e in entities)
 <table>
 <tr>
 <th>EntityType</th>
-<th>名字</th>
-<th>姓氏</th>
-<th>年齡</th>
-<th>Email</th>
+<th>FirstName</th>
+<th>LastName</th>
+<th>天數</th>
+<th>電子郵件</th>
 </tr>
 <tr>
 <td>員工</td>
@@ -1259,11 +1259,11 @@ foreach (var e in entities)
 <table>
 <tr>
 <th>EntityType</th>
-<th>DepartmentName</th>
+<th>部門名稱</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
-<td>department</td>
+<td>部門</td>
 <td></td>
 <td></td>
 </tr>
@@ -1278,10 +1278,10 @@ foreach (var e in entities)
 <table>
 <tr>
 <th>EntityType</th>
-<th>名字</th>
-<th>姓氏</th>
-<th>年齡</th>
-<th>Email</th>
+<th>FirstName</th>
+<th>LastName</th>
+<th>天數</th>
+<th>電子郵件</th>
 </tr>
 <tr>
 <td>員工</td>
@@ -1346,7 +1346,7 @@ if (e.Properties.TryGetValue("EntityType", out entityTypeProperty))
 
 您必須在 **DynamicTableEntity** 類別的 **Properties** 屬性上使用 **TryGetValue** 方法，才能擷取其他屬性。  
 
-第三個選項是使用 **DynamicTableEntity** 類型和 **EntityResolver** 執行個體進行結合。 使用此选项可以在同一查询中解析为多种 POCO 类型。 在此範例中，**EntityResolver** 委派會使用 **EntityType** 屬性來區別查詢傳回的兩個實體類型。 **Resolve** 方法會使用 **resolver** 委派，將 **DynamicTableEntity** 執行個體解析為 **TableEntity** 執行個體。  
+第三個選項是使用 **DynamicTableEntity** 類型和 **EntityResolver** 執行個體進行結合。 這可讓您解析為相同查詢中的多個 POCO 類型。 在此範例中，**EntityResolver** 委派會使用 **EntityType** 屬性來區別查詢傳回的兩個實體類型。 **Resolve** 方法會使用 **resolver** 委派，將 **DynamicTableEntity** 執行個體解析為 **TableEntity** 執行個體。  
 
 ```csharp
 EntityResolver<TableEntity> resolver = (pk, rk, ts, props, etag) =>
@@ -1420,7 +1420,7 @@ employeeTable.Execute(TableOperation.Merge(department));
 
 不過，您仍必須產生SAS 權杖，讓用戶端應用程式有權使用資料表服務中的實體：在可安全存取儲存體帳戶金鑰的環境中執行這個動作。 一般而言，您可以使用 Web 或背景工作角色來產生 SAS 權杖，並將其傳送至需要存取您的實體的用戶端應用程式。 由於產生 SAS 權杖並將其傳遞至用戶端仍會產生額外負荷，因此您應考量怎樣最能降低此負荷，尤其是在大量的案例中。  
 
-可以生成授权访问表中实体子集的 SAS 令牌。 根據預設，您會建立適用於整個資料表的 SAS 權杖，但也可以指定 SAS 權杖僅授與存取特定範圍的 **PartitionKey** 值或特定範圍的 **PartitionKey** 和 **RowKey** 值的權限。 您可以選擇為系統的個別使用者產生 SAS 權杖，使每位使用者的 SAS 權杖只允許他們在資料表服務中存取自己的實體。  
+您可以產生特定 SAS 權杖，使其授與對資料表中的實體子集進行存取的權限。 根據預設，您會建立適用於整個資料表的 SAS 權杖，但也可以指定 SAS 權杖僅授與存取特定範圍的 **PartitionKey** 值或特定範圍的 **PartitionKey** 和 **RowKey** 值的權限。 您可以選擇為系統的個別使用者產生 SAS 權杖，使每位使用者的 SAS 權杖只允許他們在資料表服務中存取自己的實體。  
 
 ### <a name="asynchronous-and-parallel-operations"></a>非同步和平行作業
 假設您要跨多個資料分割分散您的要求，您可以使用非同步或平行查詢來改善輸送量和用戶端的回應性。
@@ -1515,7 +1515,7 @@ private static async Task SimpleEmployeeUpsertAsync(CloudTable employeeTable,
 
 用戶端應用程式可以呼叫多個此類的非同步方法，每個方法叫用會在個別的執行緒上執行。  
 
-### <a name="credits"></a>學分
+### <a name="credits"></a>參與名單
 我們要感謝下列 Azure 團隊成員所做的貢獻：Dominic Betts、Jason Hogg、Jean Ghanem、Jai Haridas、Jeff Irwin、Vamshidhar Kommineni、Vinay Shah 和 Serdar Ozler，以及來自 Microsoft DX 的 Tom Hollander。 
 
 我們也要感謝下列 Microsoft MVP 在審閱期間提供了寶貴意見：Igor Papirov 和 Edward Bakker。

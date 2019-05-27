@@ -9,18 +9,18 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: c12f805de93762c9bd18d65cf8d6ff082db80c41
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ca308a19148f27a6b853aa4ffe6c3c8cdd377ecb
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64743983"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132300"
 ---
 下表說明如何在每個開發環境中為此繫結新增支援。
 
 | 開發環境               | 若要新增支援 <br>Functions 2.x  |
 |----------------------|----------------|
-|本機開發 - C# 類別庫       | [安裝套件](../articles/azure-functions/functions-bindings-register.md#c-class-library-with-visual-studio-2017) |
+|本機開發 - C# 類別庫       | [安裝套件](../articles/azure-functions/functions-bindings-register.md#c-class-library-with-visual-studio-2019) |
 |本機開發 - C# 指令碼、JavaScript、F#、Java 和 Python |[註冊擴充功能](../articles/azure-functions/functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)         |
 |入口網站開發| 在新增輸出繫結時安裝    |
 

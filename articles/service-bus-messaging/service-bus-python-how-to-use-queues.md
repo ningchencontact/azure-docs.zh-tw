@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: f2605ee5688a86de0a8e7d036aa63edd604c6538
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6d95e4a0a7aeedef2fc7e635d2e49ea68c3ba0ca
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787190"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992039"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>如何將服務匯流排佇列搭配 Python 使用
 
@@ -39,13 +39,13 @@ ms.locfileid: "65787190"
 1. 安裝 Python 或[Python Azure 服務匯流排套件][Python Azure Service Bus package]，請參閱[Python 安裝指南](../python-how-to-install.md)。 請參閱完整的文件的服務匯流排 Python SDK[此處](/python/api/overview/azure/servicebus?view=azure-python)。
 
 ## <a name="create-a-queue"></a>建立佇列
-可以通过 **ServiceBusClient** 对象处理队列。 將下列程式碼新增至您想要在其中以程式設計方式存取服務匯流排之任何 Python 檔案內的頂端附近：
+**ServiceBusClient**物件可讓您能夠使用佇列。 將下列程式碼新增至您想要在其中以程式設計方式存取服務匯流排之任何 Python 檔案內的頂端附近：
 
 ```python
 from azure.servicebus import ServiceBusClient
 ```
 
-以下代码创建 **ServiceBusClient** 对象。 請使用您的命名空間、共用存取簽章 (SAS) 金鑰名稱和值來取代 `mynamespace`、`sharedaccesskeyname` 和 `sharedaccesskey`。
+下列程式碼會建立**ServiceBusClient**物件。 請使用您的命名空間、共用存取簽章 (SAS) 金鑰名稱和值來取代 `mynamespace`、`sharedaccesskeyname` 和 `sharedaccesskey`。
 
 ```python
 sb_client = ServiceBusClient.from_connection_string('<CONNECTION STRING>')
@@ -66,7 +66,7 @@ sb_client.create_queue("taskqueue", max_size_in_megabytes=5120, default_message_
 如需詳細資訊，請參閱 < [Azure 服務匯流排 Python 文件](/python/api/overview/azure/servicebus?view=azure-python)。
 
 ## <a name="send-messages-to-a-queue"></a>傳送訊息至佇列
-要将消息发送到服务总线队列，应用程序需对 `ServiceBusClient` 对象调用 `send` 方法。
+若要將訊息傳送至服務匯流排佇列，應用程式會呼叫`send`方法`ServiceBusClient`物件。
 
 下列範例示範如何使用 `send_queue_message` 將測試訊息傳送至名為 `taskqueue` 的佇列：
 
@@ -86,7 +86,7 @@ queue_client.send(msg)
 如需詳細資訊，請參閱 < [Azure 服務匯流排 Python 文件](/python/api/overview/azure/servicebus?view=azure-python)。
 
 ## <a name="receive-messages-from-a-queue"></a>從佇列接收訊息
-对 `ServiceBusService` 对象使用 `get_receiver` 方法可从队列接收消息：
+從使用佇列接收訊息`get_receiver`方法`ServiceBusService`物件：
 
 ```python
 from azure.servicebus import QueueClient, Message
@@ -121,6 +121,9 @@ msg.delete()
 與在佇列內鎖定之訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
 
 如果應用程式在處理訊息之後，尚未呼叫 **delete** 方法時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這通常稱為**至少一次處理**，也就是每個訊息會被處理一次，但在某些情況下可能會重新傳遞相同訊息。 如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。 通常您可使用訊息的 **MessageId** 屬性來達到此目的，該屬性將在各個傳遞嘗試中會保持不變。
+
+> [!NOTE]
+> 您可以管理與服務匯流排資源[Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)。 Service Bus Explorer 可讓使用者連接到服務匯流排命名空間，並可以輕鬆地管理訊息實體。 此工具提供進階的功能，例如匯入/匯出功能或測試主題、 佇列、 訂用帳戶、 轉送服務、 通知中樞和事件中樞的能力。 
 
 ## <a name="next-steps"></a>後續步驟
 既然您已經了解「服務匯流排」佇列的基本概念，您現在可以閱讀下列文章來深入了解。

@@ -11,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: b33561ad80207a5d649ac1fd497c9d6c7add78c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fe472b8a19b45d7f7b00a8f858c9179d6ee51999
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723981"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951572"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Azure SQL 資料庫機器學習服務使用 R （預覽）
 
@@ -49,9 +49,7 @@ ms.locfileid: "64723981"
 | [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | RevoScaleR 是擴充 R 的主要程式庫，此程式庫的函式最廣泛受到使用。 在這些程式庫中，可以找到資料轉換和操作、統計摘要、視覺效果，以及多種形式的模型與分析。 此外，這些程式庫中的函式會自動將工作負載發散到可用的核心進行平行處理，且能夠在計算引擎協調與管理的資料區塊上運作。 |
 | [MicrosoftML (R)](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml) | MicrosoftML 新增機器學習演算法，可用來建立文字分析、影像分析和情緒分析的自訂模型。 |
 
-<!-- Add this back when the new package-related article is written
-In addition to the pre-installed packages, you can [install additional packages](sql-database-quickstart-r-create-script.md#add-a-package).
--->
+除了預先安裝的套件，您可以[安裝其他套件](sql-database-machine-learning-services-add-r-packages.md)。
 
 <a name="signup"></a>
 

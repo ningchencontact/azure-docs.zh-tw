@@ -10,25 +10,25 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156419"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Data Lake Analytics
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 本文說明如何使用 Azure PowerShell 來管理 Azure Data Lake Analytics 帳戶、資料來源、使用者和作業。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-若要搭配使用 PowerShell 與 Data Lake Analytics，請收集下列幾個資訊： 
+若要搭配使用 PowerShell 與 Data Lake Analytics，請收集下列幾項資訊： 
 
 * **訂用帳戶識別碼**：您 Data Lake Analytics 帳戶所屬 Azure 訂用帳戶的識別碼。
-* **資源群組**：您 Data Lake Analytics 帳戶所屬 Azure 資源群組的名稱。
+* **资源组**：您 Data Lake Analytics 帳戶所屬 Azure 資源群組的名稱。
 * **Data Lake Analytics 帳戶名稱**：您 Data Lake Analytics 帳戶的名稱。
 * **預設 Data Lake Store 帳戶名稱**：每個 Data Lake Analytics 帳戶都有預設的 Data Lake Store 帳戶。
 * **位置**：您 Data Lake Analytics 帳戶的位置，例如「美國東部 2」或其他支援的位置。
@@ -245,7 +245,7 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 * 已取消
 * Failed
 * None
-* Succeeded
+* 成功
 
 ``` powershell
 # List Successful jobs.
@@ -287,7 +287,7 @@ Get-AdlJob -AccountName $adla -JobId $job.JobId
 ```
 
 
-### <a name="cancel-a-job"></a>取消工作
+### <a name="cancel-a-job"></a>取消作业
 
 ```powershell
 Stop-AdlJob -Account $adla -JobID $jobID
@@ -303,7 +303,7 @@ Wait-AdlJob -Account $adla -JobId $job.JobId
 
 ## <a name="analyzing-job-history"></a>分析作業記錄
 
-使用 Azure PowerShell 來分析已在 Data Lake 分析中執行之作業的記錄，是一個強大的技術。 您可以使用此技術來深入了解使用情形和成本。 若要深入了解，請參閱[作業記錄分析存放庫範例](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
+使用 Azure PowerShell 來分析已在 Data Lake 分析中執行之作業的記錄，是一項強大的技術。 您可以使用這項技術來深入了解使用情形和成本。 若要深入了解，請參閱[作業記錄分析存放庫範例](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
 
 ## <a name="list-job-pipelines-and-recurrences"></a>列出作業管線和週期
 

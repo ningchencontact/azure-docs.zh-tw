@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
-ms.openlocfilehash: b26252ddda7997bebd730bb4c1007f76b3e645a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b9756920d25891dbe6b71fa24c06ed8f0c8eabb0
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60650704"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963247"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>HEVC 的 Smooth Streaming 通訊協定 (MS-SSTR) 增修條款 
 
@@ -40,11 +40,11 @@ ms.locfileid: "60650704"
 
 以下是本文專用的字詞：
 
->  **編寫階段：** 樣本存留在用戶端上的時間，如 [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695) 所定義。
+>  **編寫階段：** 這個時間的範例會在用戶端，如同[[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695)。
 > 
 >   **CENC**：一般加密，如 [ISO/IEC 23001-7] 第二版所定義。
 > 
->   **解碼階段：** 樣本必須在用戶端上解碼的時間，如 [[ISO/IEC https://go.microsoft.com/fwlink/?LinkId=18369514496-12] 所定義。](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   **解碼階段：** 時間的範例是必須在用戶端，解碼定義於[[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695)。
 
 **片段：** 可單獨下載、包含一或多個**樣本**的**媒體**單元。
 
@@ -52,11 +52,11 @@ ms.locfileid: "60650704"
 > 
 >   **資訊清單：** 可讓用戶端發出**媒體**要求之**顯示**的相關中繼資料。 **媒體：** 用戶端用來播放**顯示**的壓縮音訊、視訊和文字資料。 **媒體格式：** 一個妥善定義的格式，可將音訊或視訊顯示為壓縮的**樣本**。
 > 
->   **顯示：** 播放單一影片所需的所有**資料流**和相關中繼資料的集合。 **要求：** 從用戶端傳送至伺服器的 HTTP 訊息，如 [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) 所定義。 **回應：** 從伺服器傳送至用戶端的 HTTP 訊息，如 [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) 所定義。
+>   **顯示：** 播放單一影片所需的所有**資料流**和相關中繼資料的集合。 **要求：** HTTP 訊息中所定義，從用戶端傳送到伺服器， [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **回應：** HTTP 訊息中所定義，從伺服器傳送到用戶端， [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
 > 
 >   **樣本：** 儲存及處理**媒體**的最小基本單位 (例如框架)。
 > 
->   **「可能」、「應該」、「必須」、「不應」、「不可」：** 這些字詞 (全都會加上引號) 的用法如 [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) 所說明。 選擇性行為的所有陳述均使用「可能」、「應該」或「不應」。
+>   **「可能」、「應該」、「必須」、「不應」、「不可」：** 使用了下列詞彙 （以全部大寫） 中所述[[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317)選擇性行為使用的所有陳述式是可能，應該 」 或 「 不應該。
 
 ## <a name="12-references"></a>1.2 參考
 

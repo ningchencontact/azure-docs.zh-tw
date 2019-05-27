@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
 ms.openlocfilehash: 6280ca55023fc604e70b62cabdc30cca6409d9e6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66127791"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 用戶端的 Azure 備份
 
@@ -104,9 +104,9 @@ MARSAgentInstaller.exe /q
 
 若要查看已安裝的程式清單，請移至 [控制台] > [程式] > [程式和功能]。
 
-![已安装代理](./media/backup-client-automation/installed-agent-listing.png)
+![安裝的代理程式](./media/backup-client-automation/installed-agent-listing.png)
 
-### <a name="installation-options"></a>安装选项
+### <a name="installation-options"></a>安裝選項
 
 若要查看所有可透過命令列執行的選項，請使用下列命令：
 
@@ -116,7 +116,7 @@ MARSAgentInstaller.exe /?
 
 可用的選項包括：
 
-| 选项 | 詳細資料 | 預設值 |
+| 選項 | 詳細資料 | 預設值 |
 | --- | --- | --- |
 | /q |無訊息安裝 |- |
 | /p:"location" |Azure 備份代理程式的安裝資料夾路徑。 |C:\Program Files\Microsoft Azure Recovery Services Agent |
@@ -196,7 +196,7 @@ Set-OBMachineSetting -NoThrottle
 Server properties updated successfully.
 ```
 
-## <a name="encryption-settings"></a>加密设置
+## <a name="encryption-settings"></a>加密設定
 
 傳送至 Azure 備份的備份資料會進行加密來保護資料的機密性。 加密複雜密碼是在還原時用來解密資料的「密碼」。
 
@@ -218,10 +218,10 @@ Server properties updated successfully
 
 ## <a name="back-up-files-and-folders"></a>備份檔案和資料夾
 
-Windows Server 和用戶端的所有 Azure 備份都是由原則來掌管。 策略由三个部分组成：
+Windows Server 和用戶端的所有 Azure 備份都是由原則來掌管。 原則包含三個部分：
 
 1. **備份排程** ，指定何時進行備份並與服務同步。
-2. **保留计划** ，用于指定要在 Azure 中保留恢复点的时长。
+2. **保留排程** 可指定要在 Azure 中保留復原點多久時間。
 3. **檔案包含/排除規格** ，指出要備份的項目。
 
 本文件中要說明如何將備份自動化，因此我們假設還未設定任何選項。 一開始，請先使用 [New-OBPolicy](https://technet.microsoft.com/library/hh770416.aspx) Cmdlet 建立新的備份原則。
@@ -230,7 +230,7 @@ Windows Server 和用戶端的所有 Azure 備份都是由原則來掌管。 策
 $NewPolicy = New-OBPolicy
 ```
 
-该策略暂时为空，需要使用其他 cmdlet 来定义要包含或排除的项、运行备份的时间，以及备份的存储位置。
+此時，原則是空的，需要使用其他 Cmdlet 來定義要包含或排除的項目、執行備份的時機，以及儲存備份的位置。
 
 ### <a name="configuring-the-backup-schedule"></a>設定備份排程
 
@@ -394,7 +394,7 @@ PolicyState     : Valid
 
 ### <a name="applying-the-policy"></a>套用原則
 
-現在原則物件已完成，且具有關聯的備份排程、保留原則及包含/排除的檔案清單。 此原則現在已經過認可，適合用於 Azure 備份。 套用新建立的原則之前，請使用 [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) Cmdlet 確認沒有與伺服器未與現有的備份原則相關聯。 移除原則時，系統會提示確認。 若要跳过确认，请在 cmdlet 中请使用 `-Confirm:$false` 标志。
+現在原則物件已完成，且具有關聯的備份排程、保留原則及包含/排除的檔案清單。 此原則現在已經過認可，適合用於 Azure 備份。 套用新建立的原則之前，請使用 [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) Cmdlet 確認沒有與伺服器未與現有的備份原則相關聯。 移除原則時，系統會提示確認。 若要略過確認，Cmdlet 中請使用 `-Confirm:$false` 。
 
 ```powershell
 Get-OBPolicy | Remove-OBPolicy

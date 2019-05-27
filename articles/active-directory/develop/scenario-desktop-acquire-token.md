@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1fe9594471c6e8f723afff2def940bb675e04fb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9d18c92cccac6bfb0bd359767ecdb51951268735
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407014"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962530"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>呼叫 web Api-的傳統型應用程式取得權杖
 
@@ -163,7 +163,7 @@ MSAL.NET 小組已重新撰寫我們的 UI 測試，以利用此擴充性機制�
 
 #### <a name="other-optional-parameters"></a>其他選擇性參數
 
-深入了解所有其他選擇性參數`AcquireTokenInteractive`的參考文件從[AcquireTokenInteractiveParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
+深入了解所有其他選擇性參數`AcquireTokenInteractive`的參考文件從[AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="integrated-windows-authentication"></a>整合式的 Windows 驗證
 
@@ -283,7 +283,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-如需可能 AcquireTokenByIntegratedWindowsAuthentication 修飾詞的清單，請參閱[AcquireTokenByIntegratedWindowsAuthParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
+如需可能 AcquireTokenByIntegratedWindowsAuthentication 修飾詞的清單，請參閱[AcquireTokenByIntegratedWindowsAuthParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="username--password"></a>使用者名稱/密碼
 
@@ -519,7 +519,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-如需有關可套用至所有修飾詞`AcquireTokenByUsernamePassword`，請參閱[AcquireTokenByUsernamePasswordParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
+如需有關可套用至所有修飾詞`AcquireTokenByUsernamePassword`，請參閱[AcquireTokenByUsernamePasswordParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## <a name="command-line-tool-without-web-browser"></a>（不含網頁瀏覽器） 的命令列工具
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419762"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111533"
 ---
 1. 登入 [Azure 入口網站][Azure portal]。
 2. 在左功能表中選取 [+ 建立資源]。 然後，選取 [整合] > [轉送]。 如果清單中未顯示 [轉送]，請選取右上角的 [查看全部]。 

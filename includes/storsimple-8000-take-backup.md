@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 48a3326dbe0e9eed4a5490e720248555586d189c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61488625"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66118165"
 ---
 ### <a name="to-take-a-backup"></a>建立備份
 
@@ -31,7 +31,7 @@ ms.locfileid: "61488625"
 
     1. 選取備份類型。 針對更快速的還原，請選取 [本機] 快照集。 針對資料復原，請選取 [雲端] 快照集。
     2. 指定備份頻率 (以分鐘、小時、天或週為單位)。
-    3. 選取保留時間。 保留期选项取决于备份频率。 例如，針對每日原則，可以指定保留幾週，而針對每月原則，則可指定保留幾個月。
+    3. 選取保留時間。 保留選項會根據備份頻率而定。 例如，針對每日原則，可以指定保留幾週，而針對每月原則，則可指定保留幾個月。
     4. 選取備份原則的開始時間和日期。
     5. 按一下 [確定] 可建立備份原則。
 

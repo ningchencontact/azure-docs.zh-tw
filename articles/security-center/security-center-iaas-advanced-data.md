@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2019
-ms.author: monhaber
-ms.openlocfilehash: e601bbaa0d15078fc2b19b5b7c536e3a1f6d20ad
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.author: v-mohabe
+ms.openlocfilehash: cfe633c5251842257a0bef5237ea6b80aeaf05e9
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442743"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968578"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-iaas"></a>IaaS 上的 SQL server 的進階的資料安全性
 IaaS 上的 SQL server 的進階的資料安全性是 SQL 的進階安全性功能的整合的套件。 目前包含呈現及緩解潛在的資料庫弱點和偵測可能表示您的資料庫威脅的異常活動的功能。

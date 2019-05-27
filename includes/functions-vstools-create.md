@@ -5,16 +5,15 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-origin.date: 03/05/2019
-ms.date: 03/25/2019
-ms.author: v-junlch
+ms.date: 03/05/2019
+ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 6c430f22a9d4fa0fad95bcaa41675545fffd91ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403567"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131847"
 ---
 Visual Studio 中的 Azure Functions 專案範本會建立可發行至 Azure 中函式應用程式的專案。 您可以使用函式應用程式將多個函式群組為邏輯單位，以便您管理、部署和共用資源。
 
@@ -39,4 +38,3 @@ Visual Studio 中的 Azure Functions 專案範本會建立可發行至 Azure 中
     > 請確定您將 [存取權限] 設為 `Anonymous`。 如果您選擇預設層級 `Function` 時，必須在要求中提供[函式金鑰](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys)以存取您的函式端點。
     
 4. 選取 [確定] 以建立函式專案和由 HTTP 觸發的函式。
-

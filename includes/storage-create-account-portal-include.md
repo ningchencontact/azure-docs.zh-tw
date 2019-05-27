@@ -9,11 +9,11 @@ ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 56545b02c35d68455497c93582073c73d6c75da5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65815521"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114647"
 ---
 若要在 Azure 入口網站中建立一般用途 v2 儲存體帳戶，請遵循下列步驟：
 

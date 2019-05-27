@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 1ab6bb069f60f4d2dbb4cfaecda54c3c2ef20adc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a79a5fe1632eeabee670274ebbb19c4c34bd84d2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806427"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66117347"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>快速入門：建立使用 Jupyter Python notebook 的 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -26,17 +26,17 @@ ms.locfileid: "65806427"
 > * [入口網站](search-create-index-portal.md)
 > 
 
-建置建立、 載入和查詢 Azure 搜尋服務的 Jupyter notebook [index](search-what-is-an-index.md)使用 Python 並[Azure 搜尋服務 REST Api](https://docs.microsoft.com/rest/api/searchservice/)。 這篇文章說明如何建置您自己的 notebook 逐步解說。 （選擇性） 您可以執行已完成的 notebook。 若要下載複本，請前往[Azure 搜尋服務-python 範例存放庫](https://github.com/Azure-Samples/azure-search-python-samples)。
+建置建立、 載入和查詢使用 Python 的 Azure 搜尋服務索引的 Jupyter notebook 並[Azure 搜尋服務 REST Api](https://docs.microsoft.com/rest/api/searchservice/)。 這篇文章說明如何建置 notebook 逐步解說，從頭開始。 或者，您可以執行已完成的 notebook。 若要下載複本，請前往[Azure 搜尋服務-python 範例存放庫](https://github.com/Azure-Samples/azure-search-python-samples)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)，然後[註冊 Azure 搜尋服務](search-create-service-portal.md)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
 
 本快速入門會使用下列服務和工具。 
 
-+ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。 
-
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section)，提供 Python 3.x 和 Jupyter Notebook。
+
++ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。 
 
 ## <a name="get-a-key-and-url"></a>取得金鑰和 URL
 
@@ -67,9 +67,9 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 1. 在第二個資料格中，輸入要求項目將會在每次要求的常數。 以有效的值取代的搜尋服務名稱 （您-搜尋-服務-名稱） 和系統管理 API 金鑰 （您的系統管理員-API 金鑰）。 
 
    ```python
-    endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
-    api_version = '?api-version=2019-05-06'
-    headers = {'Content-Type': 'application/json',
+   endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
+   api_version = '?api-version=2019-05-06'
+   headers = {'Content-Type': 'application/json',
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
@@ -98,7 +98,6 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 Fields 集合定義的結構*文件*。 索引的必要項目包含一個名稱和欄位的集合。 每個欄位都有名稱、 類型和屬性，以決定其使用方式 (例如，它是否全文檢索搜尋、 可篩選，或可在搜尋結果中擷取)。 索引，其中一個類型的欄位內`Edm.String`您必須指定為*金鑰*文件的身分識別。
 
 這個索引名為"hotels py"，並具有您在下方看到的欄位定義。 它是較大子集[Hotels 索引](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON)其他逐步解說中使用。 我們在本快速入門，為求簡單明瞭修剪。
-
 
 1. 下一步 的資料格，將下列範例貼入提供結構描述的儲存格。 
 
@@ -152,7 +151,7 @@ Fields 集合定義的結構*文件*。 索引的必要項目包含一個名稱�
 
 若要推送的文件，使用 HTTP POST 要求至您的索引 URL 端點。 REST api[新增、 更新或刪除文件](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)。 文件源自[HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) GitHub 上。
 
-1. 在新的儲存格，提供符合索引結構描述的三份文件。 指定每個文件上傳動作。
+1. 在新的儲存格，提供符合索引結構描述的四個文件。 指定每個文件上傳動作。
 
     ```python
     documents = {
@@ -212,7 +211,25 @@ Fields 集合定義的結構*文件*。 索引的必要項目包含一個名稱�
             "StateProvince": "GA",
             "PostalCode": "30326",
             "Country": "USA"
-        }
+        },
+        {
+        "@search.action": "upload",
+        "HotelId": "4",
+        "HotelName": "Sublime Cliff Hotel",
+        "Description": "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
+        "Description_fr": "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.",
+        "Category": "Boutique",
+        "Tags": [ "concierge", "view", "24-hour front desk service" ],
+        "ParkingIncluded": "true",
+        "LastRenovationDate": "1960-02-06T00:00:00Z",
+        "Rating": 4.60,
+        "Address": {
+            "StreetAddress": "7400 San Pedro Ave",
+            "City": "San Antonio",
+            "StateProvince": "TX",
+            "PostalCode": "78216",
+            "Country": "USA"
+       }
       }
      ]
     }
@@ -242,6 +259,10 @@ Fields 集合定義的結構*文件*。 索引的必要項目包含一個名稱�
            {'errorMessage': None,
             'key': '3',
             'status': True,
+            'statusCode': 201}]},
+           {'errorMessage': None,
+            'key': '4',
+            'status': True,
             'statusCode': 201}]}
      ```
 
@@ -266,7 +287,7 @@ Fields 集合定義的結構*文件*。 索引的必要項目包含一個名稱�
    pprint(query)
    ```
 
-   結果看起來應該類似下列的輸出。
+   結果看起來應該類似下列的輸出。 結果會 unranked (search.score = 1.0) 因為我們並未提供任何要比對的準則。
 
    ```
    {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#docs(*)",
@@ -279,14 +300,17 @@ Fields 集合定義的結構*文件*。 索引的必要項目包含一個名稱�
                'HotelName': 'Twin Dome Motel'},
               {'@search.score': 1.0,
                'HotelId': '3',
-               'HotelName': 'Triple Landscape Hotel'}]}
+               'HotelName': 'Triple Landscape Hotel'},
+              {'@search.score': 1.0,
+               'HotelId': '4',
+               'HotelName': 'Sublime Cliff Hotel'}]}
    ```
 
-3. 請嘗試幾個其他查詢範例，以概略了語法。 您可以套用篩選，採取前兩個結果，依特定欄位，或 
+3. 請嘗試幾個其他查詢範例，以概略了語法。 您可以套用篩選器、 需要前兩個結果，或依特定欄位。
 
    + `searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'`
 
-   + `searchstring = '&search=hotel&$top=2&$select=HotelId,HotelName,Description'`
+   + `searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'`
 
    + `searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'`
 
@@ -311,7 +335,7 @@ pprint(index_list)
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解查詢語法和案例。
+為簡化，本快速入門會使用的 Hotels 索引精簡的版本。 您可以建立完整的版本，以便嘗試更有趣的查詢。 若要取得完整的版本和所有的 50 份文件，請執行**匯入資料**精靈中，選取*旅館範例*內建的範例資料來源。
 
 > [!div class="nextstepaction"]
-> [建立基本查詢](search-query-overview.md)
+> [快速入門：在 Azure 入口網站中建立索引](search-get-started-portal.md)

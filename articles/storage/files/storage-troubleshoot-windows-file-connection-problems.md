@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3e40e72a4cbb154a7ccef153959e81f7054ea003
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9658ed46e1a46aa3fc2c7fe251fd73b2ef0a13dd
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926388"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991375"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>針對 Windows 中的 Azure 檔案服務問題進行疑難排解
 
@@ -103,10 +103,10 @@ Azure 檔案同步可以將您的內部部署 Windows Server 轉換成 Azure 檔
 )從 Windows 存取 Azure 檔案。
 
 #### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>解決方案 3-解除封鎖連接埠 445，協助您的 ISP / IT 系統管理員
-与 IT 部门或 ISP 配合，向 [Azure IP 范围](https://www.microsoft.com/download/details.aspx?id=41653)开放端口 445 出站通信。
+使用您的 IT 部門或開啟連接埠 445 輸出到 ISP [Azure IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。
 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>解決方案 4-使用 REST API 以儲存體總管/Powershell 等工具
-除了 SMB，Azure 文件存储还支持 REST。 REST 访问可以通过端口 443 进行（标准 tcp）。 有许多工具是用 REST API 编写的，可以给用户带来丰富的 UI 体验。 [存储资源管理器](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)是其中之一。 [下载并安装存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)，然后将其连接到 Azure 文件存储支持的文件共享。 也可使用 [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell)，此工具也使用 REST API。
+Azure 檔案服務也支援除了 SMB 之外的其他部分。 透過連接埠 443 (標準 tcp)，適用於 REST 存取。 有各種工具，使用 REST API 撰寫可讓豐富的 UI 體驗。 [儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)是其中一個。 [下載並安裝儲存體總管](https://azure.microsoft.com/features/storage-explorer/)並連接到您備份 Azure 檔案的檔案共用。 您也可以使用[PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell)這也使用者 REST API。
 
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>原因 2：已啟用 NTLMv1
@@ -254,7 +254,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
   - 路徑 = HKLM\Software\Policies\Microsoft\Windows\System
   - 數值類型 = DWORD
   - Name = CopyFileAllowDecryptedRemoteDestination
-  - 值= 1
+  - Value = 1
 
 請注意，設定登錄機碼會影響所有對網路共用所做的複製作業。
 
@@ -268,7 +268,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 
 若要解決此問題，請調整 **DirectoryCacheEntrySizeMax** 登錄值，以允許在用戶端機器快取較大型的目錄清單：
 
-- 位置：HKLM\System\CCS\Services\Lanmanworkstation\Parameters
+- 位置:HKLM\System\CCS\Services\Lanmanworkstation\Parameters
 - 值名稱：DirectoryCacheEntrySizeMax 
 - 值類型：DWORD
  
@@ -284,6 +284,8 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 ### <a name="solution"></a>解決方法
 
 在您儲存體帳戶部署所在訂用帳戶的 AAD 租用戶上啟用 AAD DS。 您必須有 AAD 租用戶的系統管理員權限，才能建立受控網域。 如果您不是 Azure AD 租用戶的系統管理員，請連絡系統管理員，並遵循[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) 的逐步指導。
+
+[!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

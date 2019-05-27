@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: a320f584ff82f2b8a2b3d784e1995aa043004587
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 53f9f67397e1484559ee8243a52ad8339df930bc
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597482"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990207"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -95,7 +95,7 @@ ms.locfileid: "65597482"
 
 | 名稱 | 限制 | 注意 |
 | ---- | ----- | ----- |
-| 動作：每 5 分鐘執行次數 | 默认限制为 100,000，最大限制为 300,000。 | 若要變更預設限制，請參閱[以「輸送量」模式執行您的邏輯應用程式](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) (此為預覽版)。 或者，您可以視需要將工作負載分散到多個邏輯應用程式。 |
+| 動作：每 5 分鐘執行次數 | 100,000 是預設限制，但 300,000 的最大限制。 | 若要變更預設限制，請參閱[以「輸送量」模式執行您的邏輯應用程式](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) (此為預覽版)。 或者，您可以視需要將工作負載分散到多個邏輯應用程式。 |
 | 動作：並行連出呼叫數目 | ~2,500 | 您可以視需要減少並行要求數目或縮短持續時間。 |
 | 執行階段端點：並行連入呼叫數目 | ~1,000 | 您可以視需要減少並行要求數目或縮短持續時間。 |
 | 執行階段端點：每 5 分鐘讀取呼叫數目  | 60,000 | 您可以視需要將工作負載分散到多個應用程式。 |
@@ -166,7 +166,7 @@ ms.locfileid: "65597482"
 
 | 名稱 | 限制 |
 | ---- | ----- |
-| 每個 Azure 訂用帳戶都有系統指派受控識別的邏輯應用程式數目。 | 10 |
+| 每個 Azure 訂用帳戶都有系統指派受控識別的邏輯應用程式數目。 | 100 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -229,7 +229,7 @@ ms.locfileid: "65597482"
 
 ## <a name="disabling-or-deleting-logic-apps"></a>停用或刪除邏輯應用程式
 
-當您停用邏輯應用程式後，就不會具現化新的執行。 所有正在进行的和挂起的运行将继续进行，直到完成，这可能要花费一些时间才能完成。
+當您停用邏輯應用程式後，就不會具現化新的執行。 所有進行中和擱置的執行會繼續直到它們完成時，這可能需要時間來完成。
 
 當您刪除邏輯應用程式後，就不會具現化新的執行。 所有進行中和擱置的執行都會取消。 如果您有數千個執行，加以取消可能需要很長的時間。
 
@@ -241,7 +241,7 @@ ms.locfileid: "65597482"
 
 若要支援 [Microsoft 管理的連接器](../connectors/apis-list.md)所進行的呼叫，請根據您邏輯應用程式的所在區域，使用這些連接器使用的「所有」[輸出](#outbound) IP 位址設定您的防火牆。 這些位址會出現在本節中的**輸出**標題底下，並且依照區域排序。
 
-對於 [Azure Government](../azure-government/documentation-government-overview.md) 和 [Azure 中國 21Vianet](/azure/china/china-welcome)，目前無法使用針對連接器保留的 IP 位址。
+對於 [Azure Government](../azure-government/documentation-government-overview.md) 和 [Azure 中國 21Vianet](https://docs.microsoft.com/azure/china/)，目前無法使用針對連接器保留的 IP 位址。
 
 > [!IMPORTANT]
 >

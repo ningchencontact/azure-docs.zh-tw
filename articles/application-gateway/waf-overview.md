@@ -4,15 +4,15 @@ description: 本文提供適用於應用程式閘道的 Web 應用程式防火�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
+ms.date: 5/22/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 830513a03bd65ca14cb0938ae599a676f1bb3bca
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9c2759222198f5df682d9e7a5363c0d9679e0fad
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518179"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991409"
 ---
 # <a name="web-application-firewall-for-azure-application-gateway"></a>Azure 應用程式閘道 web 應用程式防火牆
 
@@ -38,7 +38,7 @@ WAF 解決方案可以藉由集中修補已知的弱點，而不是保護每個�
 
 * 保護您的 web 應用程式從 web 弱點和攻擊，而不修改後端的程式碼。
 
-* 在此同時保護多個 web 應用程式。 應用程式閘道的執行個體可以裝載的 web 應用程式防火牆所保護的最多 20 個網站。
+* 在此同時保護多個 web 應用程式。 應用程式閘道的執行個體可以裝載的 web 應用程式防火牆所保護的最多 100 個網站。
 
 ### <a name="monitoring"></a>監視
 
@@ -50,7 +50,7 @@ WAF 解決方案可以藉由集中修補已知的弱點，而不是保護每個�
 
 * 您可以自訂 WAF 規則與規則群組，以符合您的應用程式的需求並消除誤判。
 
-## <a name="features"></a>特性
+## <a name="features"></a>功能
 
 - SQL 插入式攻擊的保護。
 - 跨網站指令碼的保護。
@@ -82,7 +82,7 @@ WAF 可保護對以下的 web 弱點：
 
 CRS 3.0 會包含 13 個規則群組下, 表所示。 每個群組包含多個規則，您可以停用。
 
-|規則群組|描述|
+|規則群組|說明|
 |---|---|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|鎖定方法 (PUT、 PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**|針對連接埠和環境掃描器保護|
@@ -100,7 +100,7 @@ CRS 3.0 會包含 13 個規則群組下, 表所示。 每個群組包含多個�
 
 CRS 2.2.9 中將包含 10 個規則群組下, 表所示。 每個群組包含多個規則，您可以停用。
 
-|規則群組|描述|
+|規則群組|說明|
 |---|---|
 |**[crs_20_protocol_violations](application-gateway-crs-rulegroups-rules.md#crs20)**|防範通訊協定違規 （例如無效的字元或 GET 要求內文）|
 |**[crs_21_protocol_anomalies](application-gateway-crs-rulegroups-rules.md#crs21)**|防範不正確的標頭資訊|
@@ -121,12 +121,19 @@ CRS 2.2.9 中將包含 10 個規則群組下, 表所示。 每個群組包含多
 * **防止模式**:區塊入侵和攻擊偵測規則。 攻擊者會收到 「 403 未經授權的存取 」 例外狀況，並終止連接。 防止模式會在 WAF 記錄檔中記錄這類攻擊。
 
 ### <a name="anomaly-scoring-mode"></a>異常 Scoring 模式
- 
+
 OWASP 有兩種模式決定是否要封鎖的流量：傳統模式和異常分數的模式。
 
 在傳統模式中，符合任何規則的流量會被視為獨立於任何其他規則相符項目。 此模式非常簡單易懂。 但缺乏幾個規則符合特定要求的資訊是一項限制。 因此，已引進異常評分模式。 它是 OWASP 3 的預設值。*x*。
 
 在異常計分模式中，符合任何規則的流量不立即封鎖防火牆在防止模式時。 規則具有特定嚴重性：*關鍵*，*錯誤*，*警告*，或*通知*。 該嚴重性會影響的要求，稱為異常分數的數值。 例如，一個*警告*相符項目提供分數 3 的規則。 一*重大*相符項目提供 5 的規則。
+
+|Severity  |Value  |
+|---------|---------|
+|重要     |5|
+|Error        |4|
+|警告      |3|
+|注意事項       |2|
 
 沒有為 5 來阻擋流量異常分數的臨界值。 因此，單一*重大*規則相符項目已足夠來封鎖的要求，甚至在防止模式中的應用程式閘道 WAF。 保留一個*警告*相符項目只會增加異常分數 3，這還不夠本身，以封鎖流量的規則。
 

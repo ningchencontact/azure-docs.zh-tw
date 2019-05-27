@@ -15,11 +15,11 @@ ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405016"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65956093"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>本機 Git 部署至 Azure App Service
 
@@ -172,7 +172,7 @@ git push vsts master
 
 **原因**：如果您在 `git push` 期間未指定分支，或未在 `.gitconfig` 中設定 `push.default` 值，就會發生這個錯誤。
 
-**解決方案**：再次執行 `git push`，指定主分支。 例如︰
+**解決方案**：再次執行 `git push`，指定主分支。 例如：
 
 ```bash
 git push azure master
@@ -183,7 +183,7 @@ git push azure master
 
 **原因**：如果您嘗試在 'azure' 遠端上推送至主分支以外的分支，就會發生這個錯誤。
 
-**解決方案**：再次執行 `git push`，指定主分支。 例如︰
+**解決方案**：再次執行 `git push`，指定主分支。 例如：
 
 ```bash
 git push azure master

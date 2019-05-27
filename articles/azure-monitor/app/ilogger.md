@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: ca842ce46a58dafa87581b77bcbd802191f7fcd1
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: fd5a16334fff0319d7993fb2403a48d1777f6bce
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511021"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955333"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>適用於.NET Core ILogger 記錄 ApplicationInsightsLoggerProvider
 
@@ -437,7 +437,7 @@ public class MyController : ApiController
 ```
 
 > [!NOTE]
-> 如果您使用的 Microsoft.ApplicationInsights.AspNetCore 封裝來啟用 Application Insights 時，修改此程式碼，以取得`TelemetryClient`直接在建構函式中。 如需範例，請參閱[這份常見問題集](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio#frequently-asked-questions)。
+> 如果您使用的 Microsoft.ApplicationInsights.AspNetCore 封裝來啟用 Application Insights 時，修改此程式碼，以取得`TelemetryClient`直接在建構函式中。 如需範例，請參閱[這份常見問題集](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#frequently-asked-questions)。
 
 
 ### <a name="what-application-insights-telemetry-type-is-produced-from-ilogger-logs-or-where-can-i-see-ilogger-logs-in-application-insights"></a>Application Insights 遙測類型會產生從 ILogger 記錄？ 或者，哪裡可以查看 ILogger 登入 Application Insights？

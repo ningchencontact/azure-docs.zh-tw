@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
 ms.openlocfilehash: 7d94834523e331ff048f787760561739765e7023
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842289"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171397"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>使用 Azure CLI 建立適用於 MariaDB 的 Azure 資料庫伺服器
 

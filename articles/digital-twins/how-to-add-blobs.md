@@ -7,14 +7,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: adgera
+ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b77960961a7c032faad7000f7a2ce297802a1497
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926370"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967041"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>在 Azure Digital Twins 中將 Blob 新增到物件
 
@@ -51,16 +51,16 @@ JSON blob 中繼資料符合下列模型：
   }
 ```
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | 類型 | 說明 |
 | --- | --- | --- |
-| **parentId** | 字串 | 與 blob 相關聯的父實體 (空間、裝置或使用者) |
-| **name** |字串 | blob 的人類易記名稱 |
-| **type** | 字串 | Blob 的類型 - 不能使用 *type* 與 *typeId*  |
+| **parentId** | String | 與 blob 相關聯的父實體 (空間、裝置或使用者) |
+| **name** |String | blob 的人類易記名稱 |
+| **type** | String | Blob 的類型 - 不能使用 *type* 與 *typeId*  |
 | **typeId** | 整數  | Blob 類型識別碼 - 不能使用 *type* 與 *typeId* |
-| **subtype** | 字串 | Blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
+| **subtype** | String | Blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
 | **subtypeId** | 整數  | blob 的子類型識別碼 - 不能使用 *subtype* 與 *subtypeId* |
-| **description** | 字串 | 自訂的 blob 描述 |
-| **sharing** | 字串 | 是否可以共用 blob - enum [`None`, `Tree`, `Global`] |
+| **description** | String | 自訂的 blob 描述 |
+| **sharing** | String | 是否可以共用 blob - enum [`None`, `Tree`, `Global`] |
 
 一律提供 blob 中繼資料作為 **Content-Type** 為 `application/json` 的第一個區塊，或作為 `.json` 檔案。 檔案資料是在第二個區塊中提供的，可以是任何支援的 MIME 類型。
 
@@ -108,20 +108,20 @@ Swagger 文件會完整詳細說明這些模型結構描述。
 }
 ```
 
-| 屬性 | 類型 | 描述 |
+| 屬性 | 類型 | 說明 |
 | --- | --- | --- |
-| **id** | 字串 | Blob 的專屬識別碼 |
-| **name** |字串 | Blob 的人類易記名稱 |
-| **parentId** | 字串 | 與 Blob 相關聯的父實體 (空間、裝置或使用者) |
-| **type** | 字串 | Blob 的類型 - 不能使用 *type* 與 *typeId*  |
+| **id** | String | Blob 的專屬識別碼 |
+| **name** |String | Blob 的人類易記名稱 |
+| **parentId** | String | 與 Blob 相關聯的父實體 (空間、裝置或使用者) |
+| **type** | String | Blob 的類型 - 不能使用 *type* 與 *typeId*  |
 | **typeId** | 整數  | Blob 類型識別碼 - 不能使用 *type* 與 *typeId* |
-| **subtype** | 字串 | Blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
+| **subtype** | String | Blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
 | **subtypeId** | 整數  | Blob 的子類型識別碼 - 不能使用 *subtype* 與 *subtypeId* |
-| **sharing** | 字串 | 是否可以共用 blob - enum [`None`, `Tree`, `Global`] |
-| **description** | 字串 | 自訂的 Blob 描述 |
+| **sharing** | String | 是否可以共用 blob - enum [`None`, `Tree`, `Global`] |
+| **description** | String | 自訂的 Blob 描述 |
 | **contentInfos** | 陣列 | 指定非結構化的中繼資料資訊，包括版本 |
-| **fullName** | 字串 | Blob 的完整名稱 |
-| **spacePaths** | 字串 | 空間路徑 |
+| **fullName** | String | Blob 的完整名稱 |
+| **spacePaths** | String | 空間路徑 |
 
 一律提供 Blob 中繼資料作為 **Content-Type** 為 `application/json` 的第一個區塊，或作為 `.json` 檔案。 檔案資料是在第二個區塊中提供的，可以是任何支援的 MIME 類型。
 
@@ -225,7 +225,7 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 
 成功的要求傳回 JSON 物件，如[先前所述](#blobModel)。
 
-### <a name="spaces"></a>空格
+### <a name="spaces"></a>空間
 
 您也可以江 Blob 連結道空間。 下圖列出負責處理 Blob 的所有空間 API 端點。 也會列出要傳入這些端點的任何路徑參數。
 

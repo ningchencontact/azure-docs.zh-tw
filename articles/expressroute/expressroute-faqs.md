@@ -5,17 +5,17 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/12/2019
+ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e4d4ac45ad0ba9516d863682015b9c07096ae106
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 75c0deaa8bca94349091e3317e4ca70129bb4426
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794763"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991598"
 ---
-# <a name="expressroute-faq"></a>ExpressRoute 常见问题
+# <a name="expressroute-faq"></a>ExpressRoute 常見問題集
 
 ## <a name="what-is-expressroute"></a>什麼是 ExpressRoute？
 
@@ -43,7 +43,7 @@ ExpressRoute 連線不會經過公用網際網路。 相較於網際網路一般
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>如果我支付指定頻寬的 ExpressRoute 線路，是否能夠在需要時突增到較高的速度？
 
-是的。 ExpressRoute 線路設定允許您可以突增兩倍的所採購頻寬限制，且無需另外付費。 請洽詢您的服務提供者，以了解是否支援此功能。 這不是持續一段時間，而且不保證。 
+是。 ExpressRoute 線路設定允許您可以突增兩倍的所採購頻寬限制，且無需另外付費。 請洽詢您的服務提供者，以了解是否支援此功能。 這不是持續一段時間，而且不保證。 
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>我是否可以在虛擬網路和其他 Azure 服務中同時使用相同的私人網路連線？
 
@@ -72,6 +72,7 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 * 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br><br>
   **不支援下列服務**：
     * CDN
+    * Azure Front Door
     * 多因素驗證
     * 流量管理員
 
@@ -84,8 +85,9 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure 全域服務社群)
 * 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br><br>**不支援下列服務**：
     * CDN
+    * Azure Front Door
     * 多因素驗證
-    * 流量管理器
+    * 流量管理員
 
 ## <a name="data-and-connections"></a>資料與連線
 
@@ -172,7 +174,7 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 
 是。 您在標準 ExpressRoute 線路上最多可以有 10 個虛擬網路，而在[進階 ExpressRoute 電路](#expressroute-premium)上最多可以有 100 個虛擬網路。 
 
-### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>我有多个包含虚拟网络的 Azure 订阅。 我可以將各個訂用帳戶的虛擬網路連線到單一 ExpressRoute 電路嗎？
+### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>我有多個含有虛擬網路的 Azure 訂用帳戶。 我可以將各個訂用帳戶的虛擬網路連線到單一 ExpressRoute 電路嗎？
 
 是。 您可以使用單一 ExpressRoute 線路，在與線路相同的訂用帳戶或不同訂用帳戶中，最多連結 10 個虛擬網路。 您可透過啟用 ExpressRoute 進階功能來提高此限制。
 
@@ -220,7 +222,7 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>我可以透過 BGP 工作階段通告的 IP 範圍有無限制？
 
-對於 Microsoft 對等互連 BGP 工作階段，我們不接受私人首碼 (RFC1918)。
+對於 Microsoft 對等互連 BGP 工作階段，我們不接受私人首碼 (RFC1918)。 Microsoft 和私用對等互連，我們可以接受任意的前置詞大小 （最多/32)。
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>如果超過 BGP 限制，該怎麼辦？
 
@@ -283,6 +285,26 @@ ExpressRoute Premium 是下列功能的集合：
 ### <a name="do-i-pay-for-expressroute-premium-in-addition-to-standard-expressroute-charges"></a>除了標準的 ExpressRoute 費用以外，我是否仍需支付 ExpressRoute Premium？
 
 是。 除了 ExpressRoute 電路費用和連線提供者所需費用以外，還需另行支付 ExpressRoute Premium 費用。
+
+## <a name="expressroute-local"></a>ExpressRoute 本機
+### <a name="what-is-expressroute-local"></a>什麼是 ExpressRoute 本機？
+ExpressRoute 本機是 SKU 的 ExpressRoute 線路。 本機的主要功能是在 ExpressRoute 對等互連位置可讓您的本機 circit 存取只以一或兩個 Azure 區域，或接近相同的城市。 相反地，標準線路可讓您存取地緣政治區域和 Premium 循環，所有的 Azure 區域中的所有 Azure 區域全域。 
+
+### <a name="what-are-the-benefits-of-expressroute-local"></a>ExpressRoute 本機的優點有哪些？
+當您需要輸出資料傳輸需支付您的 Standard 或 Premium ExpressRoute 線路時，您不需要支付輸出資料傳輸分開本機 ExpressRoute 線路。 換句話說，ExpressRoute 當地的價格包括資料傳輸費用。 如果您有大量的資料傳輸，而您也可以透過私人連線的 ExpressRoute 對等互連位置讓您的資料接近您所需的 Azure 區域，ExpressRoute 本機會是更具經濟效益的解決方案。 
+
+### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>所提供功能，以及為何不在 ExpressRoute 本機上嗎？
+相較於標準的 ExpressRoute 線路，本機循環會具有一組相同的功能，除了：
+* Azure 區域述上述的存取範圍
+* ExpressRoute 觸及全球範圍不是可在本機上
+
+ExpressRoute 本機也對相同的限制資源 （例如的 Vnet 數目每個電路） 標準。 
+
+### <a name="how-to-configure-expressroute-local"></a>如何設定 ExpressRoute 本機？ 
+ExpressRoute 本機僅在 ExpressRoute 直接使用。 因此，首先您必須設定您的 ExpressRoute 直接連接埠。 建立您的直接連接埠之後，您就可以建立本機電路的指示[此處](expressroute-howto-erdirect.md)。
+
+### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>其中是本機 ExpressRoute 可用和哪些 Azure 區域是每個對等互連位置對應到嗎？
+ExpressRoute 本機位於對等互連關閉由一或兩個 Azure 區域的所在的位置。 它目前無法使用對等互連位置沒有任何在該狀態或省或國家/地區的 Azure 區域。 請參閱上的 完全對應[[位置] 頁面](expressroute-locations-providers.md)。  
 
 ## <a name="expressroute-for-office-365"></a>ExpressRoute for Office 365
 

@@ -5,22 +5,23 @@ services: storage
 author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/14/2017
+ms.date: 05/15/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: fdb05adaf6a4b039ef288ac8b4464f62930e3f9c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e8640b136c52f500de010f842ab73678acdce4f
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797764"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991346"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 執行 Azure 佇列儲存體作業
 
 Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可透過 HTTP 或 HTTPS 叫來存取這些訊息。 如需詳細資訊，請參閱 [Azure 佇列簡介](storage-queues-introduction.md)。 本做法文章涵蓋一般的佇列儲存體作業。 您會了解如何：
 
 > [!div class="checklist"]
+>
 > * 建立佇列
 > * 擷取佇列
 > * 新增訊息
@@ -53,7 +54,7 @@ $location = "eastus"
 
 ## <a name="create-resource-group"></a>建立資源群組
 
-使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 命令來建立資源群組。 
+使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 命令來建立資源群組。
 
 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 在變數中儲存資源群組名稱供日後使用。 在此範例中，會在 *eastus* 區域中建立名為 *howtoqueuesrg* 的資源群組。
 
@@ -114,7 +115,7 @@ $queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMe
 # Add a new message to the queue
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 
-# Add two more messages to the queue 
+# Add two more messages to the queue
 $queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
   -ArgumentList "This is message 2"
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
@@ -123,15 +124,15 @@ $queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMe
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 ```
 
-如果您使用 [Azure 儲存體總管](https://storageexplorer.com)，則可以連線到您的 Azure 帳戶，以及檢視儲存體帳戶中的佇列，並向下鑽研至某個佇列以檢視佇列上的訊息。 
+如果您使用 [Azure 儲存體總管](https://storageexplorer.com)，則可以連線到您的 Azure 帳戶，以及檢視儲存體帳戶中的佇列，並向下鑽研至某個佇列以檢視佇列上的訊息。
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>讀取佇列的訊息，然後刪除它
 
 會嘗試以最佳的先進先出順序讀取訊息。 不保證會採用此作法。 當您從佇列讀取訊息時，查看佇列的其他處理序會看不到它。 這可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。  
 
-此**不可見逾時**定義在重新開放處理前，訊息維持不可見的時間。 預設值為 30 秒。 
+此**不可見逾時**定義在重新開放處理前，訊息維持不可見的時間。 預設值為 30 秒。
 
-您的程式碼可使用兩個步驟，從佇列讀取訊息。 當您呼叫[Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage)方法，會取得下一個訊息佇列中。 從 **GetMessage** 傳回的訊息，對於從此佇列讀取訊息的任何其他程式碼而言將會是不可見的。 若要完成從佇列移除訊息，請呼叫[Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage)方法。 
+您的程式碼可使用兩個步驟，從佇列讀取訊息。 當您呼叫[Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage)方法，會取得下一個訊息佇列中。 從 **GetMessage** 傳回的訊息，對於從此佇列讀取訊息的任何其他程式碼而言將會是不可見的。 若要完成從佇列移除訊息，請呼叫[Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage)方法。
 
 在下列範例中，您可以閱讀三個佇列訊息，然後等待 10 秒 (不可見逾時)。 接著重新讀取三個訊息，然後呼叫 **DeleteMessage** 來刪除讀取後的訊息。 如果嘗試在刪除訊息後讀取佇列，會將 $queueMessage 傳回成 NULL。
 
@@ -148,7 +149,7 @@ $queueMessage.Result
 $queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
 $queueMessage.Result
 
-# After 10 seconds, these messages reappear on the queue. 
+# After 10 seconds, these messages reappear on the queue.
 # Read them again, but delete each one after reading it.
 # Delete the message.
 $queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
@@ -167,7 +168,7 @@ $queue.CloudQueue.DeleteMessageAsync($queueMessage.Result.Id,$queueMessage.Resul
 若要刪除佇列及其內含的所有訊息，請呼叫 Remove-AzStorageQueue Cmdlet。 下列範例示範如何使用 Remove-AzStorageQueue Cmdlet 來刪除本練習所使用的特定佇列。
 
 ```powershell
-# Delete the queue 
+# Delete the queue
 Remove-AzStorageQueue –Name $queueName –Context $ctx
 ```
 
@@ -184,11 +185,12 @@ Remove-AzResourceGroup -Name $resourceGroup
 在本做法文章中，您學會使用 PowerShell 進行基本佇列儲存體管理，包括如何：
 
 > [!div class="checklist"]
+>
 > * 建立佇列
 > * 擷取佇列
 > * 新增訊息
 > * 讀取下一個訊息
-> * 刪除訊息 
+> * 刪除訊息
 > * 刪除佇列
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell 儲存體 Cmdlet

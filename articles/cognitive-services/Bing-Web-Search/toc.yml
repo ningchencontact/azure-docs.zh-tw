@@ -105,6 +105,8 @@
       href: language-support.md
     - name: Bing Web 搜尋 API 的分析
       href: bing-web-stats.md
+    - name: 法規遵循
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 支援
       items:
         - name: User Voice 論壇

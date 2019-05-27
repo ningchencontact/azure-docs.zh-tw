@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: mimart
-ms.reviewer: asmalser
+ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 952853b32b5fadb980e9e96a7c56c05ac63d9931
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a9a0e595d2120d3cdccd42c502a83de9d5ed3ff4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784599"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963184"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 使用者佈建服務 SCIM 2.0 通訊協定相容性的已知問題和解決方法
 
@@ -74,7 +74,7 @@ Azure Active Directory (Azure AD) 會利用 [System for Cross-Domain Identity Ma
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
-   ![]取得結構描述(./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "取得結構描述") 
+   ![取得結構描述](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "取得結構描述") 
 
 8. 複製上一個步驟中的 JSON 輸出，並將其儲存至文字檔。 這包含已新增至舊應用程式的任何自訂屬性對應，大約應為幾千行的 JSON。
 9. 執行下列命令以刪除佈建作業：

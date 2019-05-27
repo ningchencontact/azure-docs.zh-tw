@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
 ms.custom: ''
-ms.openlocfilehash: 86f1c36bd5f972a6ebd573019a22b0c0d07dc480
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 27b5dc9ccee8647d4fbb617063865df18b80bc5d
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928088"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990267"
 ---
 # <a name="continuous-delivery-using-azure-devops"></a>使用 Azure DevOps 的持續傳遞
 
@@ -26,7 +26,7 @@ ms.locfileid: "64928088"
 
 ## <a name="yaml-based-pipeline"></a>YAML 管線
 
-### <a name="build-your-app"></a>建置應用程式
+### <a name="build-your-app"></a>建置您的應用程式
 
 建置您的應用程式，在 Azure 中的管線，取決於您的應用程式的程式設計語言。
 每個語言都有特定的建置步驟，以建立可用來部署您的函式應用程式，在 Azure 中的部署成品。
@@ -55,12 +55,12 @@ steps:
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
-    rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output/s"
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output"
     includeRootFolder: false
     archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     name: 'drop'
 ```
 
@@ -85,12 +85,12 @@ steps:
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
-    rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output/s"
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
     includeRootFolder: false
     archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     name: 'drop'
 ```
 
@@ -121,12 +121,12 @@ steps:
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
-    rootFolderOrFile: "$(System.DefaultWorkingDirectory)/publish_output/s"
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
     includeRootFolder: false
     archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     name: 'drop'
 ```
 
@@ -164,7 +164,7 @@ steps:
 
 Azure DevOps 中的範本是預先定義的建置或部署應用程式的工作群組。
 
-### <a name="build-your-app"></a>建置應用程式
+### <a name="build-your-app"></a>建置您的應用程式
 
 建置您的應用程式，在 Azure 中的管線，取決於您的應用程式的程式設計語言。 每個語言都有特定的建置步驟，以建立部署的成品，可用來更新您在 Azure 中的函式應用程式。
 若要使用的內建建置範本，建立新的組建管線時，選擇**使用傳統的編輯器**來建立管線，使用設計工具的範本

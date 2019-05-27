@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 892d485fb5cdaa08107870e9ab5b2b7ad9bcba5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ca8f0e34b63802453c8876f878b531e78e66d76
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714185"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991752"
 ---
 # <a name="get-started-with-service-bus-topics"></a>開始使用服務匯流排主題
 
@@ -33,7 +33,7 @@ ms.locfileid: "60714185"
 ## <a name="prerequisites"></a>必要條件
 
 1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
-2. 遵循的步驟[快速入門：使用 Azure 入口網站建立服務匯流排主題和訂用帳戶的主題](service-bus-quickstart-topics-subscriptions-portal.md)來執行下列工作：
+2. 遵循的步驟[快速入門：使用 Azure 入口網站建立服務匯流排主題和主題的訂用帳戶](service-bus-quickstart-topics-subscriptions-portal.md)，以執行下列工作：
     1. 建立服務匯流排**命名空間**。
     2. 取得**連接字串**。
     3. 建立**主題**命名空間中。
@@ -393,6 +393,9 @@ ms.locfileid: "60714185"
     ![主題長度][topic-message-receive]
 
 恭喜！ 使用 .NET Standard 程式庫，您現在已建立主題和訂用帳戶，傳送 10 則訊息，以及接收這些訊息。
+
+> [!NOTE]
+> 您可以管理與服務匯流排資源[Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)。 Service Bus Explorer 可讓使用者連接到服務匯流排命名空間，並可以輕鬆地管理訊息實體。 此工具提供進階的功能，例如匯入/匯出功能或測試主題、 佇列、 訂用帳戶、 轉送服務、 通知中樞和事件中樞的能力。 
 
 ## <a name="next-steps"></a>後續步驟
 

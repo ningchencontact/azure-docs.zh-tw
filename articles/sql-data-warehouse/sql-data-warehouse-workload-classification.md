@@ -1,6 +1,6 @@
 ---
-title: SQL 数据仓库分类 | Microsoft Docs
-description: 有关使用分类管理 Azure SQL 数据仓库中查询的并发性、重要性和计算资源的指导。
+title: SQL 資料倉儲分類 |Microsoft Docs
+description: 使用分類來管理並行，重要性，以及適用於 Azure SQL 資料倉儲中查詢計算資源的指引。
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -10,62 +10,62 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 208308533753370575b844633c45f7e4aeda0864
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c4630e11ef4001c546aecfe74dbced346b6d30e4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154217"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000111"
 ---
 # <a name="sql-data-warehouse-workload-classification"></a>SQL 資料倉儲工作負載分類
 
-本文介绍用于向传入请求分配资源类和重要性的 SQL 数据仓库工作负荷分类过程。
+這篇文章說明 SQL 資料倉儲工作負載分類程序，連入要求中指定的資源類別和重要性。
 
 ## <a name="classification"></a>分類
 
 > [!Video https://www.youtube.com/embed/QcCRBAhoXpM]
 
-使用工作负荷管理分类可以通过分配[资源类](resource-classes-for-workload-management.md#what-are-resource-classes)和[重要性](sql-data-warehouse-workload-importance.md)对请求应用工作负荷策略。
+工作負載管理分類可讓工作負載原則套用至透過指派的要求[資源類別](resource-classes-for-workload-management.md#what-are-resource-classes)並[重要性](sql-data-warehouse-workload-importance.md)。
 
-可通过多种方法来分类数据仓库工作负荷，而最简单且最常用的分类方法是加载和查询。 可以使用 insert、update 和 delete 语句加载数据。  可以使用 select 查询数据。 数据仓库解决方案通常对加载活动使用工作负荷策略，例如，分配具有更多资源的更高资源类。 可对查询应用不同的工作负荷策略，例如，分配比加载活动更低的重要性。
+雖然有許多方法可分類資料倉儲工作負載，載入和查詢，也會是最簡單且最常見的分類。 您載入資料的 insert、 update 和 delete 陳述式。  您查詢使用選取的資料。 資料倉儲解決方案通常必須載入活動，例如指派較高的資源類別，使用更多資源的工作負載原則。 不同的工作負載原則可以套用至查詢，例如較低的重要性，相較於載入活動。
 
-还可以将加载和查询工作负荷进一步分类。 进一步分类能够更好地控制工作负荷。 例如，查询工作负荷可能包括多维数据集刷新、仪表板查询或即席查询。 可以使用不同的资源类或重要性设置将其中的每个查询工作负荷分类。 加载活动也可以受益于进一步分类。 可将大型转换分配到较大的资源类。 可以使用较高的重要性来确保先加载重要销售数据，再加载天气数据或社交数据馈送。
+您也可以 subclassify 您載入和查詢工作負載。 Subclassification 可讓您進一步控制您的工作負載。 例如，查詢工作負載可以包含 cube 的重新整理、 儀表板查詢或臨機操作查詢。 您可以將每個具有不同的資源類別或重要性設定這些查詢工作負載。 負載也可以從 subclassification 獲益。 大型的轉換可以指派給較大資源類別。 較高的重要性可用來確保索引鍵的銷售資料之前的天氣資料的載入器或社交資料摘要。
 
 並非所有的陳述式會分類為他們不需要資源或需要來影響執行的重要性。  DBCC 命令，並不會歸類 BEGIN、 COMMIT 和 ROLLBACK TRANSACTION 陳述式。
 
 ## <a name="classification-process"></a>分類程序
 
-目前，SQL 数据仓库中的分类是通过将用户分配到某个角色来实现的，该角色具有一个使用 [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) 分配的相应资源类。 使用此功能时，将请求特征化，使之超出资源类登录范围的能力会受到限制。 现在，可以通过 [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql) 语法来利用更丰富的分类方法。  SQL 数据仓库用户可以使用此语法向请求分配重要性和资源类。  
+SQL 資料倉儲中的分類之後，即可立即將使用者指派給具有對應的資源類別指派給它使用的角色[sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)。 描述要求以外的登入的資源類別的功能限制，且這項功能。 更豐富的方法進行分類現已與[建立工作負載分類](/sql/t-sql/statements/create-workload-classifier-transact-sql)語法。  使用此語法，SQL 資料倉儲使用者可指派重要性與資源類別的要求。  
 
 > [!NOTE]
-> 分类是按每个请求评估的。 可以不同的方式对单个会话中的多个请求进行分类。
+> 分類會評估個別要求基礎上。 以不同的方式可以分類在單一工作階段中的多個要求。
 
-## <a name="classification-precedence"></a>分类过程
+## <a name="classification-precedence"></a>分類優先順序
 
-在分类过程中，将使用优先顺序来确定要分配哪个资源类。 基于数据库用户的分类优先于角色成员身份。 如果创建一个将 UserA 数据库用户映射到 mediumrc 资源类的分类器， 请将 RoleA 数据库角色（UserA 是其成员）映射到 largerc 资源类。 将数据库用户映射到 mediumrc 资源类的分类器优先于将 RoleA 数据库角色映射到 largerc 资源类的分类器。
+分類程序的一部分，優先順序是以判斷哪一個資源類別指派。 資料庫使用者為基礎的分類會將優先順序高於角色的成員資格。 如果您建立的分類器，將 UserA 資料庫使用者對應至 mediumrc 資源類別。 然後，對應至 largerc 資源類別的 RoleA 資料庫角色 （使用者 a 為成員的）。 將資料庫使用者對應至 mediumrc 資源類別的分類器會將優先順序高於 RoleA 資料庫角色會對應至 largerc 資源類別的分類器。
 
-如果某个用户是多个角色的成员，并且这些角色分配有不同的资源类或者在多个分类器中相匹配，则会为该用户分配最高的资源类。  此行为与现有的资源类分配行为保持一致。
+如果使用者是使用不同的資源類別指派或在多個分類器中相符的多個角色的成員，則使用者可以最高的資源類別指派。  此行為是與現有的資源類別指派行為一致。
 
-## <a name="system-classifiers"></a>系统分类器
+## <a name="system-classifiers"></a>系統分類器
 
-工作负荷分类采用系统工作负荷分类器。 系统分类器将现有的资源类角色成员身份映射到具有一般重要性的资源类资源分配。 无法删除系统分类器。 若要查看系统分类器，可运行以下查询：
+工作負載分類有系統工作負載分類器。 系統分類器會以正常的重要性，將現有的資源類別角色成員資格對應至資源類別的資源配置。 無法卸除系統分類器。 若要檢視系統分類器，您可以執行下列查詢：
 
 ```sql
 SELECT * FROM sys.workload_management_workload_classifiers where classifier_id <= 12
 ```
 
-## <a name="mixing-resource-class-assignments-with-classifiers"></a>混合使用资源类分配和分类器
+## <a name="mixing-resource-class-assignments-with-classifiers"></a>混合使用資源類別指派的分類器
 
-使用自动创建的系统分类器能够轻松迁移到工作负荷分类。 开始创建具有重要性的新分类器时，使用具有分类优先顺序的资源类角色映射可能会导致错误分类。
+代替您建立的系統分類器會提供移轉到工作負載分類的簡單路徑。 使用分類優先順序中的資源類別角色對應，可能會導致誤判當您開始使用重要性來建立新的分類器時。
 
 請考慮下列狀況：
 
-- 現有的資料倉儲具有 DBAUser 指派為 largerc 資源類別角色的資料庫使用者。 资源类分配是使用 sp_addrolemember 进行的。
+- 現有的資料倉儲具有 DBAUser 指派為 largerc 資源類別角色的資料庫使用者。 資源類別指派是使用 sp_addrolemember 來完成。
 - 資料倉儲現在已更新工作負載管理。
 - 若要測試新的分類語法，在資料庫角色 DBARole （即 DBAUser 的成員），會有建立為其對應至 mediumrc 和高重要性的分類器。
-- 當 DBAUser 登入，並執行查詢時，查詢將會指派為 largerc。 因为用户优先于角色成员身份。
+- 當 DBAUser 登入，並執行查詢時，查詢將會指派為 largerc。 因為使用者的優先順序高於角色的成員資格。
 
-为了简化分类错误的排查，我们建议在创建工作负荷分类器时删除资源类角色映射。  以下代码返回现有的资源类角色成员身份。  针对相应资源类返回的每个成员名称运行 [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql)。
+若要簡化疑難排解分類誤判，我們建議您移除資源類別角色對應，當您建立工作負載分類器。  下列程式碼會傳回現有的資源類別角色成員資格。  執行[sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql)針對每個成員名稱傳回對應的資源類別。
 
 ```sql
 SELECT  r.name AS [Resource Class]
@@ -81,4 +81,7 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>後續步驟
 
-若要開始使用建立分類器，請參閱[建立工作負載分類 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)。  有关 SQL 数据仓库工作负荷分类和重要性的详细信息，请参阅[创建工作负荷分类器](quickstart-create-a-workload-classifier-tsql.md)和 [SQL 数据仓库重要性](sql-data-warehouse-workload-importance.md)。 請參閱 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以檢視查詢和所指派的重要性。
+- 如需有關如何建立分類器的詳細資訊，請參閱 <<c0> [ 建立工作負載分類 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)。  
+- 有關如何建立工作負載分類器，請參閱快速入門[建立工作負載分類器](quickstart-create-a-workload-classifier-tsql.md)。
+- 請參閱操作說明文章等[設定工作負載重要性](sql-data-warehouse-how-to-configure-workload-importance.md)，以及如何[管理及監視工作負載管理](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)。
+- 請參閱 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以檢視查詢和所指派的重要性。

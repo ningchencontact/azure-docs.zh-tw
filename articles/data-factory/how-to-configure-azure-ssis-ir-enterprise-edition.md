@@ -13,11 +13,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d2b06d044f68972ef72dd9b53401980e84ef779f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440925"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66152437"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>佈建 Azure-SSIS 整合執行階段的企業版
 
@@ -42,7 +42,7 @@ Azure-SSIS 整合執行階段的企業版可讓您使用下列進階功能：
 | 模糊群組和模糊查閱轉換  | 模糊群組和模糊查閱轉換會在 Azure-SSIS IR 企業版上預先安裝。 這些元件都支援 SQL Server 和 Azure SQL Database 以儲存參考資料。 |
 | 詞彙擷取和詞彙查閱轉換 | 詞彙擷取和詞彙查閱轉換會在 Azure-SSIS IR 企業版上預先安裝。 這些元件都支援 SQL Server 和 Azure SQL Database 以儲存參考資料。 |
 
-## <a name="instructions"></a>範例的指示
+## <a name="instructions"></a>指示
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

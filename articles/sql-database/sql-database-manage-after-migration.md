@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 4424e53689714625ebc791df250956463452c3cb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e13907e96bba338648bddcc102e3b4f51887d0ea
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791504"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949914"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的單一和集區資料庫
 
@@ -160,7 +160,7 @@ SQL Database 提供[兩個驗證方法](sql-database-control-access.md#authentic
 
 ### <a name="how-can-i-limit-access-to-sensitive-data-in-my-database"></a>如何才能限制存取我資料庫中的敏感性資料
 
-每個應用程式的資料庫中會有某些敏感性資料需要加以保護，不讓每個人都看見。 組織內的特定人員可能需要檢視此資料，但其他人卻不應該能夠檢視此資料。 其中一個範例是員工薪資。 經理需要存取其直屬員工的薪資資訊，不過，個別團隊成員不應該可存取其同儕的薪資資訊。 另一個案例是可能會在開發階段或測試期間與敏感性資料互動的資料開發人員，例如，客戶的 SSN。 重申，此資訊不需公開給開發人員。 在這種情況下，可能需要將您的敏感性資料遮罩，或完全不公開。 SQL Database 提供兩個這類方法來防止未經授權的使用者檢視敏感性資料：
+每個應用程式的資料庫中會有某些敏感性資料需要加以保護，不讓每個人都看見。 組織內的特定人員可能需要檢視此資料，但其他人卻不應該能夠檢視此資料。 其中一個範例是員工薪資。 經理需要的薪資資訊的存取其直屬員工不過，個別團隊成員不應該存取其同儕的薪資資訊。 另一個案例是可能會在開發階段或測試期間與敏感性資料互動的資料開發人員，例如，客戶的 SSN。 重申，此資訊不需公開給開發人員。 在這種情況下，可能需要將您的敏感性資料遮罩，或完全不公開。 SQL Database 提供兩個這類方法來防止未經授權的使用者檢視敏感性資料：
 
 [動態資料遮罩](sql-database-dynamic-data-masking-get-started.md)是一項資料遮罩功能，藉由將敏感性資料進行遮罩處理，使得應用程式層上不具權限的使用者看不見這些資料來限制資料的公開方式。 您可以定義可以建立遮罩模式的遮罩規則 (例如，僅顯示國民身分證 SSN 的最後 4 位數：XXX-XX-0000 並將其大部分標記為 X) 並確定要從遮罩規則中排除哪些使用者。 遮罩會快速發生，並且有各種不同遮罩函數可供各種資料類別使用。 動態資料遮罩可讓您自動偵測資料庫中的敏感性資料，並對其套用遮罩。
 

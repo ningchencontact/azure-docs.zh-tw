@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/20/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b3500ce1f1f80d975555edef56d95f2f1d27ca7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5524576ef21830ae13526dad2d8ac8a1d0864cf1
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783764"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956883"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML 單一登入內部部署應用程式使用應用程式 Proxy （預覽）
 
@@ -50,8 +50,9 @@ ms.locfileid: "65783764"
 1. 選取  **SAML**做為單一登入方法。
 1. 在**設定單一登入使用 SAML 設定**頁面上，編輯**基本 SAML 組態**資料，並遵循[Enter 基本 SAML 組態](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on)若要設定 SAML 型應用程式的驗證。
 
-   * 請確定**回覆 URL**比對，或者是在路徑**外部 URL**您透過應用程式 Proxy 發佈的內部部署應用程式。 如果您的應用程式需要不同**回覆 URL** SAML 設定時，將此做**第一次**清單中保留的 URL**外部 URL**做為額外的 URL，排序在第一個之後。
-   * 請確認應用程式也已指定正確**回覆 URL**或判斷提示取用者服務 URL，用來接收驗證權杖。
+   * 請確定**回覆 URL**比對，或者是在路徑**外部 URL**您透過應用程式 Proxy 發佈的內部部署應用程式。 
+   * 如果您的應用程式需要不同**回覆 URL** SAML 設定時，將此做**其他**記號旁邊的核取方塊與清單中的 URL，將它指定為主要**回覆 URL**傳送至 IDP 起始的 SAML 回應。
+   * SP 啟始的 flow 確定應用程式也會指定正確**回覆 URL**或判斷提示取用者服務 URL，用來接收驗證權杖。
 
      ![輸入基本的 SAML 組態資料](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 

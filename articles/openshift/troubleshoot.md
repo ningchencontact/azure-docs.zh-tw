@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 05/08/2019
-ms.openlocfilehash: 9ef32273c007e7319b7f6df99f3d904f805c31f2
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 82678091c1d0b71e6209f6d03e9d1a0ca60fe03e
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550918"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992162"
 ---
 # <a name="troubleshooting-for-azure-red-hat-openshift"></a>Azure 的 Red Hat OpenShift 的疑難排解
 
@@ -23,10 +23,6 @@ ms.locfileid: "65550918"
 
 如果建立 Azure 的 Red Hat OpenShift 叢集使用`az`CLI 命令失敗，重試建立就會一直失敗。
 使用`az openshift delete`刪除失敗的叢集，然後建立全新的叢集。
-
-## <a name="untrusted-azure-red-hat-openshift-server-certificate"></a>不受信任的 Azure Red Hat OpenShift 伺服器憑證
-
-OpenShift 主控台會建立一個自我簽署憑證。 當瀏覽器中出現系統提示時，請略過警告並接受「不受信任」的憑證。
 
 ## <a name="hidden-azure-red-hat-openshift-cluster-resource-group"></a>隱藏的 Azure Red Hat OpenShift 叢集資源群組
 

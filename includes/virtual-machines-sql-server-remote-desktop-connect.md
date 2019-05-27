@@ -1,16 +1,15 @@
 ---
-author: rockboyfor
+author: rothja
 ms.service: virtual-machines-sql
 ms.topic: include
-origin.date: 10/26/2018
-ms.date: 11/26/2018
-ms.author: v-yeche
+ms.date: 10/26/2018
+ms.author: jroth
 ms.openlocfilehash: fe5daa38c43723c85fb464e191ee4a3e85700e0b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129753"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165654"
 ---
 1. 建立並執行 Azure 虛擬機器後，請按一下 Azure 入口網站中的 [虛擬機器] 圖示，以檢視您的 VM。
 
@@ -29,5 +28,3 @@ ms.locfileid: "62129753"
    ![遠端桌面驗證](./media/virtual-machines-sql-server-remote-desktop-connect/remote-desktop-connect.png)
 
 1. 按一下 [確定] 進行連線。
-
-<!--Update_Description: wording update, update link-->

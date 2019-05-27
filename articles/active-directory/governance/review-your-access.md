@@ -11,22 +11,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fe2013ff84dd0451fed7d108539606520cb9403
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b38422b22885ad96c6681abe58b897155809521
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384469"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113193"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>自行檢閱存取權給群組或 Azure AD 中的應用程式存取權檢閱
 
 Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組或應用程式的存取權和其他 Microsoft Online Services 的 「 使用稱為 Azure AD 存取權檢閱方式。
 
 本文說明如何檢閱您自己的存取權的群組或應用程式。
+
+## <a name="prerequisites"></a>必要條件
+
+- Azure AD Premium P2
+
+如需詳細資訊，請參閱 <<c0> [ 哪些使用者必須有授權？](access-reviews-overview.md#which-users-must-have-licenses)。
 
 ## <a name="open-the-access-review"></a>開啟存取權檢閱
 

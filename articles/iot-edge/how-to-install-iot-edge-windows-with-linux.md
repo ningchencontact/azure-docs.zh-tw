@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: bb47a1b828084673961a6d2c5657793b4437f294
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b7386cbbe18d7e05c2fbffb96f6214b468956192
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160571"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151694"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>在 Windows 上使用 IoT Edge，來執行 Linux 容器
 
@@ -36,7 +36,7 @@ ms.locfileid: "65160571"
 
 如需最新版本 IoT Edge 中包含哪些內容的詳細資訊，請參閱 [Azure IoT Edge 版次](https://github.com/Azure/azure-iotedge/releases)。
 
-若要在虚拟机上安装 IoT Edge，请启用嵌套虚拟化并分配至少 2-GB 内存。 如何启用嵌套虚拟化取决于所用的虚拟机监控程序。 就 Hyper-V 来说，第 2 代虚拟机已默认启用嵌套虚拟化。 如果使用 VMWare，则可通过切换开关在虚拟机上启用此功能。 
+如果您想要在虛擬機器上安裝 IoT Edge，啟用巢狀虛擬化，並配置至少 2 GB 的記憶體。 啟用巢狀虛擬化的方式不一樣在 hypervisor 上，視您使用就行了。 Hyper-v，第 2 代虛擬機器具有巢狀虛擬化預設啟用。 對於 VMWare，沒有可啟用此功能在您的虛擬機器上的切換符號。 
 
 ### <a name="prepare-the-container-engine"></a>準備容器引擎 
 
@@ -55,7 +55,7 @@ PowerShell 指令碼會下載並安裝 Azure IoT Edge 安全性精靈。 接著�
 
 當您第一次在裝置上安裝 IoT Edge 執行階段時，需要使用來自 IoT 中樞的身分識別以佈建裝置。 單一的 IoT Edge 裝置可以使用您的 IoT 中樞所提供的裝置連接字串，以手動方式佈建。 或者，您可以使用裝置佈建服務來自動佈建裝置，這在您有許多裝置要設定時將很有幫助。 
 
-您可以深入了解不同的安裝選項和文件中的參數[在 Windows 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-windows.md)。 安裝和設定適用於 Linux 容器的 Docker 桌面之後，主要安裝差異宣告與 Linux **-ContainerOs**參數。 例如︰ 
+您可以深入了解不同的安裝選項和文件中的參數[在 Windows 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-windows.md)。 安裝和設定適用於 Linux 容器的 Docker 桌面之後，主要安裝差異宣告與 Linux **-ContainerOs**參數。 例如： 
 
 1. 如果您還沒有這麼做，註冊新的 IoT Edge 裝置，並擷取的裝置連接字串。 複製連接字串以供日後使用，這一節。 您可以完成此步驟中使用下列工具：
 
@@ -64,6 +64,13 @@ PowerShell 指令碼會下載並安裝 Azure IoT Edge 安全性精靈。 接著�
    * [Visual Studio Code](how-to-register-device-vscode.md)
 
 2. 以系統管理員身分執行 PowerShell。
+
+   >[!NOTE]
+   >您可以使用 PowerShell AMD64 工作階段來安裝 IoT Edge，PowerShell (x86)。 如果您不確定您使用哪一個工作階段類型，請執行下列命令：
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. **部署 IoTEdge**命令會檢查您的 Windows 電腦上支援的版本、 開啟 「 容器 」 功能，以及然後下載 白鯨執行階段 （這不適用於 Linux 容器） 和 IoT Edge 執行階段。 則命令會預設為 Windows 容器，所以會將 Linux 宣告做為作業系統的 瀏覽的容器。 
 
@@ -74,7 +81,7 @@ PowerShell 指令碼會下載並安裝 Azure IoT Edge 安全性精靈。 接著�
 
 4. 此時，IoT 核心版的裝置可能會自動重新啟動。 其他 Windows 10 或 Windows Server 的裝置可能會提示您重新啟動。 如果是的話，請立即重新啟動您的裝置。 您的裝置準備就緒後，再以系統管理員身分執行 PowerShell。
 
-5. **Initialize IoTEdge**命令會設定您的電腦上的 IoT Edge 執行階段。 此命令會預設為手動佈建的裝置連接字串。 一次將 Linux 宣告做為作業系統的 瀏覽的容器。 
+5. **Initialize-IoTEdge** 命令會設定機器的 IoT Edge 執行階段。 此命令會預設為手動佈建的裝置連接字串。 一次將 Linux 宣告做為作業系統的 瀏覽的容器。 
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 4e7956e8873b552fcd73c51a51f51d99f21af324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003005"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991388"
 ---
 # <a name="understand-and-work-with-scopes"></a>了解並使用範圍
 
@@ -60,14 +60,14 @@ Azure 支援資源管理的三個的範圍。 每個範圍支援管理存取和�
 - [**擁有者**](../role-based-access-control/built-in-roles.md#owner) -可以檢視成本和管理所有項目，包括成本的組態。
 - [**參與者**](../role-based-access-control/built-in-roles.md#contributor) -可以檢視成本和管理一切，包括成本組態，但不包括存取控制。
 - [**讀取器**](../role-based-access-control/built-in-roles.md#reader) -可以檢視所有項目，包括成本資料和組態，但無法進行任何變更。
-- [**成本管理參與者**](../role-based-access-control/built-in-roles.md#cost-management-contributor) -可以檢視成本和管理成本的組態。
-- [**成本管理讀者**](../role-based-access-control/built-in-roles.md#cost-management-reader) -可以檢視成本資料和組態。
+- [**成本管理參與者**](../role-based-access-control/built-in-roles.md#cost-management-contributor) -可以檢視成本、 管理成本的組態，以及檢視建議。
+- [**成本管理讀者**](../role-based-access-control/built-in-roles.md#cost-management-reader) -可以檢視成本資料，成本組態，以及檢視建議。
 
 成本的管理參與者是建議的最低權限角色。 它可以讓使用者建立及管理預算的存取，並將匯出更有效地監視和報告的成本。 成本管理參與者，也可能需要額外的角色，以支援端對端成本管理案例。 請考慮下列情況：
 
 - **處理超過預算時**– 成本管理參與者也需要建立及/或管理自動回應超額部分的動作群組的存取。 請考慮授與[監視參與者](../role-based-access-control/built-in-roles.md#monitoring-contributor)到資源群組，其中包含動作群組時要使用超過預算臨界值。 自動執行特定動作需要其他角色使用，例如自動化和 Azure Functions 的特定服務。
 - **成本匯出資料的排程**– 成本管理參與者也需要管理排程的匯出將資料複製到儲存體帳戶的儲存體帳戶存取權。 請考慮授與[儲存體帳戶參與者](../role-based-access-control/built-in-roles.md#storage-account-contributor)匯出其中成本資料的帳戶的資源群組，其中包含儲存體。
-- **檢視成本節約建議**– 成本管理 Readers 和 Contributors 沒有存取權的建議預設。 建議存取需要個別資源的 「 讀取 」 權限。 請考慮授與[讀者](../role-based-access-control/built-in-roles.md#reader)或是[服務專屬角色](../role-based-access-control/built-in-roles.md#built-in-role-descriptions)。
+- **檢視節省成本建議**– 成本管理讀取器和成本管理參與者可以存取*檢視*預設成本建議。 不過，存取成本建議採取動作需要個別資源的存取權。 請考慮授與[服務專屬角色](../role-based-access-control/built-in-roles.md#built-in-role-descriptions)如果您想要處理的成本為基礎的建議。
 
 ## <a name="enterprise-agreement-scopes"></a>Enterprise 合約範圍
 

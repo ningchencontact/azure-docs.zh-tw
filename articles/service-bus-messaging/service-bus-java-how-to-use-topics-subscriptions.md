@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 46891a60e6fd36ec0bc19d4b52de87d18e2b6793
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 578fd0caa8986c48b3fd50a7890bb66b14bee2f4
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510280"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991732"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>如何透過 Java 使用服務匯流排主題和訂用帳戶
 
@@ -30,7 +30,7 @@ ms.locfileid: "65510280"
 ## <a name="prerequisites"></a>必要條件
 
 1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
-2. 遵循的步驟[快速入門：使用 Azure 入口網站建立服務匯流排主題和訂用帳戶的主題](service-bus-quickstart-topics-subscriptions-portal.md)來執行下列工作：
+2. 遵循的步驟[快速入門：使用 Azure 入口網站建立服務匯流排主題和主題的訂用帳戶](service-bus-quickstart-topics-subscriptions-portal.md)，以執行下列工作：
     1. 建立服務匯流排**命名空間**。
     2. 取得**連接字串**。
     3. 建立**主題**命名空間中。
@@ -454,6 +454,8 @@ Message sending: Id = 9
                         Content: [ firstName = Werner, name = Heisenberg ]
 ```
 
+> [!NOTE]
+> 您可以管理與服務匯流排資源[Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)。 Service Bus Explorer 可讓使用者連接到服務匯流排命名空間，並可以輕鬆地管理訊息實體。 此工具提供進階的功能，例如匯入/匯出功能或測試主題、 佇列、 訂用帳戶、 轉送服務、 通知中樞和事件中樞的能力。 
 
 ## <a name="next-steps"></a>後續步驟
 如需詳細資訊，請參閱[服務匯流排佇列、主題和訂用帳戶][Service Bus queues, topics, and subscriptions]。
