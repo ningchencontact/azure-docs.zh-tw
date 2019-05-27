@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc4ff596cdafd348288187b0cd9b32f7b4c2d275
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: cafe81a1b5ab6d26e71eff05e355d2ed79c4d5e7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823380"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119373"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>結合的啟用安全性資訊註冊 （預覽）
 
@@ -43,7 +43,7 @@ ms.locfileid: "65823380"
 > 從 2019 年 3 月開始，[通話] 選項無法使用 Multi-factor Authentication 和 SSPR 免費/試用 Azure AD 租用戶中的使用者。 SMS 訊息不會受到這項變更。 通話選項仍會在使用者可使用付費的 Azure AD 租用戶。
 
 > [!NOTE]
-> 啟用後結合註冊，註冊或確認其電話號碼或行動裝置應用程式，透過新體驗能將它們用於 Multi-factor Authentication 和 SSPR，如果這些方法會在中啟用 Multi-factor Authentication 和 SSPR 的使用者原則。 如果您再停用這項體驗，請移至先前的 SSPR 註冊的使用者會在頁面上`https:/aka.ms/ssprsetup`都必須執行多重要素驗證，才能存取的頁面。
+> 啟用後結合註冊，註冊或確認其電話號碼或行動裝置應用程式，透過新體驗能將它們用於 Multi-factor Authentication 和 SSPR，如果這些方法會在中啟用 Multi-factor Authentication 和 SSPR 的使用者原則。 如果您再停用這項體驗，請移至先前的 SSPR 註冊的使用者會在頁面上`https://aka.ms/ssprsetup`都必須執行多重要素驗證，才能存取的頁面。
 
 如果您已指派網站到區域清單在 Internet Explorer 中，下列站台必須位於相同的區域：
 

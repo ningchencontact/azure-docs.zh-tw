@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: 7ef152b130e77e833e19c51ff97d0cea577216c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472245"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979632"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 角色型存取控制 (預覽)
 
@@ -31,11 +31,18 @@ Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源�
 
 ## <a name="service-bus-roles-and-permissions"></a>服務匯流排角色和權限
 
-在初始公開預覽中，您只能將 Azure AD 帳戶和服務主體新增至服務匯流排傳訊命名空間的「擁有者」或「參與者」角色。 此作業會對身分識別授與命名空間中所有實體的完全控制權。 會變更命名空間拓撲的管理作業一開始只能透過 Azure 資源管理來獲得支援，而無法透過原生服務匯流排 REST 管理介面來獲得支援。 這項支援也表示 .NET Framework 用戶端 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 物件無法與 Azure AD 帳戶搭配使用。
+Azure 提供內建的 RBAC 角色，以授權存取服務匯流排命名空間如下：
+
+* [服務匯流排資料擁有者 （預覽）](../role-based-access-control/built-in-roles.md#service-bus-data-owner):可讓您的資料存取服務匯流排命名空間和其實體 （佇列、 主題、 訂用帳戶和篩選器）
+
+>[!IMPORTANT]
+> 我們稍早支援新增至受管理的身分識別 **「 擁有者 」** 或是 **「 參與者 」** 角色。
+>
+> 不過，資料存取權限 **「 擁有者 」** 並 **「 參與者 」** 角色將不會再接受。 如果您使用 **「 擁有者 」** 或是 **「 參與者 」** 利用調整需要角色，則這些 **「 服務匯流排資料擁有者 」** 角色。
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>搭配使用服務匯流排與 Azure AD 網域使用者帳戶
 
-下列章節會說明要建立及執行應用程式範例 (會提示互動式 Azure AD 使用者進行登入) 所需進行的步驟，如何對服務匯流排授與該使用者帳戶的存取權，以及如何使用該身分識別來存取事件中樞。
+下節說明的步驟，才能建立及執行範例應用程式會提示互動式 Azure AD 使用者登入、 如何授與服務匯流排的存取權給該使用者帳戶，以及如何使用該識別來存取事件中樞。
 
 此簡介會說明簡單的主控台應用程式，[其程式碼位於 GitHub 上](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)。
 
@@ -47,7 +54,7 @@ Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源�
 
 ### <a name="create-a-service-bus-namespace"></a>建立服務匯流排命名空間
 
-接下來，在具有 RBAC 之預覽支援的其中一個 Azure 區域中[建立服務匯流排傳訊命名空間](service-bus-create-namespace-portal.md)：**美國東部**、**美國東部 2** 或**西歐**。
+下一步[建立服務匯流排傳訊命名空間](service-bus-create-namespace-portal.md)。
 
 命名空間建立好之後，瀏覽至其位於入口網站上的 [存取控制 (IAM)] 頁面，然後按一下 [新增角色指派] 以將 Azure AD 使用者帳戶新增至 [擁有者] 角色。 如果您使用自己的使用者帳戶，而且您已建立命名空間，則您已加入「擁有者」角色。 若要在角色中新增不同帳戶，請在 [新增權限] 面板的 [選取] 欄位中搜尋 Web 應用程式的名稱，然後按一下該項目。 然後按一下 [儲存] 。
 
@@ -67,7 +74,7 @@ Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源�
 
 - `tenantId`:設定為 **TenantId** 值。
 - `clientId`:設定為 **ApplicationId** 值。
-- `clientSecret`:如果您要使用用戶端密碼來登入，請在 Azure AD 中建立該用戶端密碼。 另外，請使用 Web 應用程式或 API 而非使用原生應用程式。 還有，請將應用程式新增到您先前所建立之命名空間中的 [存取控制 (IAM)] 底下。
+- `clientSecret`:如果您想要使用用戶端密碼來登入，請在 Azure AD 中建立該密碼。 另外，請使用 Web 應用程式或 API 而非使用原生應用程式。 還有，請將應用程式新增到您先前所建立之命名空間中的 [存取控制 (IAM)] 底下。
 - `serviceBusNamespaceFQDN`:設定為新建立之服務匯流排命名空間的完整 DNS 名稱；例如 `example.servicebus.windows.net`。
 - `queueName`:設定為您所建立之佇列的名稱。
 - 您在前面步驟的應用程式中所指定的重新導向 URI。

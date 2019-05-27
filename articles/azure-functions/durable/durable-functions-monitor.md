@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9be062ec42f054832225c17a65b06e47dbcbe990
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 243a388ee59a1a550f80882b0af61e1f1db008ca
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123479"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977446"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Durable Functions 中的監視器案例 - 天氣監看員範例
 
@@ -89,7 +89,8 @@ ms.locfileid: "62123479"
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>強型別資料轉送 (僅限 .NET)
 
-協調器需要許多資料，因此會使用[共用 POCO 物件](../functions-reference-csharp.md#reusing-csx-code)在 C# 和 C# 指令碼中進行強型別資料轉送：[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
+協調器需要多段資料，因此[共用 POCO 物件](../functions-reference-csharp.md#reusing-csx-code)用於強型別資料傳輸，在C#和C#指令碼：  
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
 

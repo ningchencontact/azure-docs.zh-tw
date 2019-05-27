@@ -4,14 +4,14 @@ description: 本文說明如何針對儲存在 Azure Cosmos DB 中的資料管�
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: aed32db257ddbc8cb5b8f4af5f27024c23583798
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 71f1f8896126728277ba6f0bf2c0ded1b2a608b7
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60928908"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967254"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中最佳化儲存體成本
 
@@ -31,7 +31,7 @@ Azure Cosmos DB 能提供無限制的儲存體和輸送量。 不同於輸送量
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>搭配存留時間和變更摘要以最佳化成本
 
-在您不需要資料之後，您可以正常地將它從您的 Azure Cosmos 帳戶中刪除，方法是使用[存留時間](time-to-live.md)、[變更摘要](change-feed.md)，或是將舊資料遷移到另一個資料存放區 (例如 Azure Blob 儲存體或 Azure 資料倉儲)。 Azure Cosmos DB 可讓您利用存留時間 (簡稱 TTL)，在一段時間後自動從容器中刪除項目。 根據預設，您可以在容器層級設定存留時間，且覆寫每個項目的值。 在容器或項目層級設定 TTL 之後，Azure Cosmos DB 會從上次修改該項目的時間開始算起，在經過所設定的時間週期後自動移除那些項目。 透過使用變更摘要，您可以將資料遷移到 Azure Cosmos DB 中的另一個容器，或是外部資料存放區。 遷移不需要花費任何停機時間，且當您完成遷移時，便可以刪除或設定存留時間來刪除來源 Azure Cosmos 容器。
+在您不需要資料之後，您可以正常地將它從您的 Azure Cosmos 帳戶中刪除，方法是使用[存留時間](time-to-live.md)、[變更摘要](change-feed.md)，或是將舊資料遷移到另一個資料存放區 (例如 Azure Blob 儲存體或 Azure 資料倉儲)。 Azure Cosmos DB 可讓您利用存留時間 (簡稱 TTL)，在一段時間後自動從容器中刪除項目。 根據預設，您可以在容器層級設定存留時間，並覆寫每個項目的值。 在容器或項目層級設定 TTL 之後，Azure Cosmos DB 會從上次修改該項目的時間開始算起，在經過所設定的時間週期後自動移除那些項目。 透過使用變更摘要，您可以將資料遷移到 Azure Cosmos DB 中的另一個容器，或是外部資料存放區。 遷移不需要花費任何停機時間，且當您完成遷移時，便可以刪除或設定存留時間來刪除來源 Azure Cosmos 容器。
 
 ## <a name="optimize-cost-with-rich-media-data-types"></a>搭配豐富媒體資料類型以最佳化成本 
 

@@ -5,28 +5,28 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150304"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116344"
 ---
 >[!NOTE]
 >如需不固定的資源，開啟支援票證以要求增加配額。 請勿建立其他的 Azure 媒體服務帳戶在嘗試取得較高的限制。
 
-| 資源 | 預設限制 | 
+| Resource | 預設限制 | 
 | --- | --- | 
 | 單一訂用帳戶中的 azure 媒體服務帳戶 | 25 (固定) |
 | 媒體保留單元，每個媒體服務帳戶 |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
 | 每個媒體服務帳戶的工作 | 50,000<sup>2</sup> |
 | 每個作業的鏈結工作 | 30 (固定) |
 | 每個媒體服務帳戶的資產 | 1,000,000|
-| 每个任务的资产数 | 50 |
+| 每個工作的資產 | 50 |
 | 每個作業的資產 | 100 |
 | 一次與資產相關聯的唯一定位器 | 5<sup>4</sup> |
 | 每個媒體服務帳戶的直播頻道 |5|
-| 每个频道的停止状态节目数 |50|
-| 每个频道的运行状态节目数 |3|
+| 每個通道中已停止狀態的程式  |50|
+| 每個通道中執行中的程式  |3|
 | 串流端點已停止，或執行每個媒體服務帳戶|2|
 | 每個串流端點的資料流單位  |10 |
 | 儲存體帳戶 | 1,000<sup>5</sup> (fixed) |

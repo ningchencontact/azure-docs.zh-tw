@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/22/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2505ab5a9445256bd592dfa7f58a6dea79d25043
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7abd0ac3d95825594dffe385bccc1672d0f71c5f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506824"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142552"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 
@@ -34,7 +34,7 @@ ms.locfileid: "65506824"
 ||||
 
 <a name="tab1400a">1</a> - 僅限 Tabular 1400 和更高模型。   
-<a name="azsqlmanaged">2</a> - 支援 Azure SQL Database 受控執行個體。 因為受控執行個體在具有私人 IP 位址的 Azure VNet 中執行，所以需要內部部署資料閘道。   
+<a name="azsqlmanaged">2</a> - 支援 Azure SQL Database 受控執行個體。 因為受控執行個體在具有私人 IP 位址的 Azure VNet 中執行，所以需要內部部署資料閘道。 目前不支援 azure SQL Database 受控執行個體具有公用端點。   
 <a name="databricks">3</a> - 目前不支援使用 Spark 連接器的 Azure Databricks。   
 <a name="gen2">4</a> - 目前不支援 ADLS Gen2。
 
@@ -83,7 +83,7 @@ ms.locfileid: "65506824"
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
 |SharePoint 清單<sup>[1](#tab1400b)</sup>， <sup> [2](#filesSP)</sup>     |   
 |Sybase 資料庫     |  
-|TXT 文件  |
+|TXT 檔案  |
 |XML 表格<sup>[1](#tab1400b)</sup>    |  
 ||
  

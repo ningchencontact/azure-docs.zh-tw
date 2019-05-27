@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
 ms.openlocfilehash: a5fab3e2bf9908fa35cf5f5485df3116b7718d8c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881124"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66126278"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 診斷記錄
 
@@ -189,9 +189,9 @@ Azure 診斷記錄可讓您將 CDN 端點的基本使用情況計量匯出到各
 
 **欄位說明：**
 
-|值|描述|
+|Value|說明|
 |-------|---------|
-|訂用帳戶識別碼    |使用 GUID 格式的 Azure 訂用帳戶識別碼。|
+|订阅 ID    |使用 GUID 格式的 Azure 訂用帳戶識別碼。|
 |資源群組名稱 |CDN 資源所屬資源群組的名稱。|
 |設定檔名稱 |CDN 設定檔名稱|
 |端點名稱 |CDN 端點名稱|
@@ -242,55 +242,55 @@ Azure 監視器是一項 Azure 服務，監視您的雲端和內部部署環境�
 
 3. 在 [監視 + 管理] 頁面中，選取 [檢視全部]。
 
-    ![檢視全部](./media/cdn-diagnostics-log/15_See-all.png)
+    ![查看全部](./media/cdn-diagnostics-log/15_See-all.png)
 
 4. 在搜尋方塊中搜尋 CDN。
 
-    ![檢視全部](./media/cdn-diagnostics-log/16_Search-for.png)
+    ![查看全部](./media/cdn-diagnostics-log/16_Search-for.png)
 
 5. 選取 [Azure CDN 核心分析]。 
 
-    ![檢視全部](./media/cdn-diagnostics-log/17_Core-analytics.png)
+    ![查看全部](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
 6. 選取 [建立] 之後，系統會詢問您要建立新的 Log Analytics 工作區，還是使用現有工作區。 
 
-    ![檢視全部](./media/cdn-diagnostics-log/18_Adding-solution.png)
+    ![查看全部](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
 7. 選取您之前建立的工作區。 然後，您必須新增自動化帳戶。
 
-    ![檢視全部](./media/cdn-diagnostics-log/19_Add-automation.png)
+    ![查看全部](./media/cdn-diagnostics-log/19_Add-automation.png)
 
 8. 下列畫面顯示您必須填寫的自動化帳戶表單。 
 
-    ![檢視全部](./media/cdn-diagnostics-log/20_Automation.png)
+    ![查看全部](./media/cdn-diagnostics-log/20_Automation.png)
 
 9. 在建立好自動化帳戶後，您即可新增您的解決方案。 選取 [建立] 按鈕。
 
-    ![檢視全部](./media/cdn-diagnostics-log/21_Ready.png)
+    ![查看全部](./media/cdn-diagnostics-log/21_Ready.png)
 
 10. 您的解決方案現已新增至工作區。 回到 Azure 入口網站的儀表板。
 
-    ![檢視全部](./media/cdn-diagnostics-log/22_Dashboard.png)
+    ![查看全部](./media/cdn-diagnostics-log/22_Dashboard.png)
 
     選取您所建立的 Log Analytics 工作區，以前往您的工作區。 
 
 11. 選取 [OMS 入口網站] 圖格，以查看您的新解決方案。
 
-    ![檢視全部](./media/cdn-diagnostics-log/23_workspace.png)
+    ![查看全部](./media/cdn-diagnostics-log/23_workspace.png)
 
 12. 您的入口網站現在看起來應該類似下列畫面︰
 
-    ![檢視全部](./media/cdn-diagnostics-log/24_OMS-solution.png)
+    ![查看全部](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
     選取其中一個圖格，以查看數個針對您資料的檢視。
 
-    ![檢視全部](./media/cdn-diagnostics-log/25_Interior-view.png)
+    ![查看全部](./media/cdn-diagnostics-log/25_Interior-view.png)
 
     您可以向左或向右捲動來看到更多代表個別資料檢視的圖格。 
 
     選取其中一個圖格，以查看更多資料細節。
 
-     ![檢視全部](./media/cdn-diagnostics-log/26_Further-detail.png)
+     ![查看全部](./media/cdn-diagnostics-log/26_Further-detail.png)
 
 ### <a name="offers-and-pricing-tiers"></a>供應項目和定價層
 
@@ -323,35 +323,35 @@ Microsoft 目前僅提供核心分析記錄，其中包含的計量會顯示 HTT
 下表顯示**來自 Microsoft 的標準 Azure CDN**、**來自 Akamai 的標準 Azure CDN**和**來自 Verizon 的標準/進階 Azure CDN** 的核心分析記錄中可用的計量清單。 並非所有提供者的所有計量皆可用，雖然這樣的差異極少。 下表也顯示提供者是否提供指定的計量。 計量僅適用於有流量的 CDN 端點。
 
 
-|計量                     | 描述 | Microsoft | Verizon | Akamai |
+|計量                     | 說明 | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
-| RequestCountTotal         | 這段期間要求命中總數。 | 是 | 是 |是 |
-| RequestCountHttpStatus2xx | 產生 2xx HTTP 代碼 (例如 200、202) 的所有要求計數。 | 是 | 是 |是 |
-| RequestCountHttpStatus3xx | 產生 3xx HTTP 代碼 (例如 300、302) 的所有要求計數。 | 是 | 是 |是 |
-| RequestCountHttpStatus4xx | 產生 4xx HTTP 代碼 (例如 400、404) 的所有要求計數。 | 是 | 是 |是 |
-| RequestCountHttpStatus5xx | 產生 5xx HTTP 代碼 (例如 500、504) 的所有要求計數。 | 是 | 是 |是 |
-| RequestCountHttpStatusOthers | 所有其他 HTTP 代碼 (2xx-5xx 以外) 的計數。 | 是 | 是 |是 |
-| RequestCountHttpStatus200 | 產生 200 HTTP 代碼回應的所有要求計數。 | 是 | 否  |是 |
-| RequestCountHttpStatus206 | 產生 206 HTTP 代碼回應的所有要求計數。 | 是 | 否  |是 |
-| RequestCountHttpStatus302 | 產生 302 HTTP 代碼回應的所有要求計數。 | 是 | 否  |是 |
-| RequestCountHttpStatus304 | 產生 304 HTTP 代碼回應的所有要求計數。 | 是 | 否  |是 |
-| RequestCountHttpStatus404 | 產生 404 HTTP 代碼回應的所有要求計數。 | 是 | 否  |是 |
-| RequestCountCacheHit | 產生快取命中之所有要求的計數。 資產是從 POP 直接提供給用戶端。 | 是 | 是 | 否  |
-| RequestCountCacheMiss | 產生快取遺漏之所有要求的計數。 快取遺漏表示在最靠近用戶端的 POP 上找不到資產，因此會從來源擷取。 | 是 | 是 | 否 |
-| RequestCountCacheNoCache | 因為邊緣上的使用者組態之故，而無法予以快取的所有資產要求計數。 | 是 | 是 | 否 |
-| RequestCountCacheUncacheable | 無法由資產的 Cache-Control 與 Expires 標頭快取的所有資產要求計數，這表示不應在 POP 上或由 HTTP 用戶端快取要求。 | 是 | 是 | 否 |
-| RequestCountCacheOthers | 非上述快取狀態的所有要求計數。 | 否 | 是 | 否  |
-| EgressTotal | 輸出資料傳輸 (單位 GB) | 是 |是 |是 |
-| EgressHttpStatus2xx | 狀態代碼為 2xx HTTP 之回應的輸出資料傳輸* (單位為 GB)。 | 是 | 是 | 否  |
-| EgressHttpStatus3xx | 狀態代碼為 3xx HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | 是 | 是 | 否  |
-| EgressHttpStatus4xx | 狀態代碼為 4xx HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | 是 | 是 | 否  |
-| EgressHttpStatus5xx | 狀態代碼為 5xx HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | 是 | 是 | 否 |
-| EgressHttpStatusOthers | 狀態代碼為其他 HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | 是 | 是 | 否  |
-| EgressCacheHit | 直接從 CDN POP/邊緣上 CDN 快取所傳遞回應的輸出資料傳輸。 | 是 | 是 | 否 |
-| EgressCacheMiss。 | 在最靠近的 POP 伺服器上找不到和從原始伺服器擷取之回應的輸出資料傳輸。 | 是 | 是 | 否 |
-| EgressCacheNoCache | 因為邊緣上使用者組態之故而無法予以快取的資產輸出資料傳輸。 | 是 | 是 | 否 |
-| EgressCacheUncacheable | 無法由資產的 Cache-Control 和/或 Expires 標頭快取的資產輸出資料傳輸。 表示應該不會在 POP 上加以快取或由 HTTP 用戶端進行快取。 | 是 | 是 | 否 |
-| EgressCacheOthers | 其他快取案例的輸出資料傳輸。 | 否 | 是 | 否 |
+| RequestCountTotal         | 這段期間要求命中總數。 | 有 | 是 |有 |
+| RequestCountHttpStatus2xx | 產生 2xx HTTP 代碼 (例如 200、202) 的所有要求計數。 | 有 | 是 |有 |
+| RequestCountHttpStatus3xx | 產生 3xx HTTP 代碼 (例如 300、302) 的所有要求計數。 | 有 | 是 |有 |
+| RequestCountHttpStatus4xx | 產生 4xx HTTP 代碼 (例如 400、404) 的所有要求計數。 | 有 | 是 |有 |
+| RequestCountHttpStatus5xx | 產生 5xx HTTP 代碼 (例如 500、504) 的所有要求計數。 | 有 | 是 |有 |
+| RequestCountHttpStatusOthers | 所有其他 HTTP 代碼 (2xx-5xx 以外) 的計數。 | 有 | 是 |有 |
+| RequestCountHttpStatus200 | 產生 200 HTTP 代碼回應的所有要求計數。 | 有 | 否  |有 |
+| RequestCountHttpStatus206 | 產生 206 HTTP 代碼回應的所有要求計數。 | 有 | 否  |有 |
+| RequestCountHttpStatus302 | 產生 302 HTTP 代碼回應的所有要求計數。 | 有 | 否  |有 |
+| RequestCountHttpStatus304 | 產生 304 HTTP 代碼回應的所有要求計數。 | 有 | 否  |有 |
+| RequestCountHttpStatus404 | 產生 404 HTTP 代碼回應的所有要求計數。 | 有 | 否  |有 |
+| RequestCountCacheHit | 產生快取命中之所有要求的計數。 資產是從 POP 直接提供給用戶端。 | 有 | 是 | 無  |
+| RequestCountCacheMiss | 產生快取遺漏之所有要求的計數。 快取遺漏表示在最靠近用戶端的 POP 上找不到資產，因此會從來源擷取。 | 有 | 是 | 無 |
+| RequestCountCacheNoCache | 因為邊緣上的使用者組態之故，而無法予以快取的所有資產要求計數。 | 有 | 是 | 無 |
+| RequestCountCacheUncacheable | 無法由資產的 Cache-Control 與 Expires 標頭快取的所有資產要求計數，這表示不應在 POP 上或由 HTTP 用戶端快取要求。 | 有 | 是 | 無 |
+| RequestCountCacheOthers | 非上述快取狀態的所有要求計數。 | 無 | 有 | 無  |
+| EgressTotal | 輸出資料傳輸 (單位 GB) | 有 |是 |有 |
+| EgressHttpStatus2xx | 狀態代碼為 2xx HTTP 之回應的輸出資料傳輸* (單位為 GB)。 | 有 | 是 | 無  |
+| EgressHttpStatus3xx | 狀態代碼為 3xx HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | 有 | 是 | 無  |
+| EgressHttpStatus4xx | 狀態代碼為 4xx HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | 有 | 是 | 無  |
+| EgressHttpStatus5xx | 狀態代碼為 5xx HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | 有 | 是 | 無 |
+| EgressHttpStatusOthers | 狀態代碼為其他 HTTP 之回應的輸出資料傳輸 (單位為 GB)。 | 有 | 是 | 無  |
+| EgressCacheHit | 直接從 CDN POP/邊緣上 CDN 快取所傳遞回應的輸出資料傳輸。 | 有 | 是 | 無 |
+| EgressCacheMiss。 | 在最靠近的 POP 伺服器上找不到和從原始伺服器擷取之回應的輸出資料傳輸。 | 有 | 是 | 無 |
+| EgressCacheNoCache | 因為邊緣上使用者組態之故而無法予以快取的資產輸出資料傳輸。 | 有 | 是 | 無 |
+| EgressCacheUncacheable | 無法由資產的 Cache-Control 和/或 Expires 標頭快取的資產輸出資料傳輸。 表示應該不會在 POP 上加以快取或由 HTTP 用戶端進行快取。 | 有 | 是 | 無 |
+| EgressCacheOthers | 其他快取案例的輸出資料傳輸。 | 無 | 有 | 無 |
 
 *輸出資料傳輸是指從 CDN POP 伺服器傳遞到用戶端的流量。
 

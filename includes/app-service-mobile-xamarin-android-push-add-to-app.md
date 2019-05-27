@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 3ced8c9fdadf547ec234c6d1bd5f3ddb8af7bc05
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: HT
+ms.openlocfilehash: baf0f07002a21a8e4e60bc17186107b471243202
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42816257"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140302"
 ---
 1. 在名為 `ToDoBroadcastReceiver`的專案中建立新類別。
 2. 在 **ToDoBroadcastReceiver** 類別中新增下列 using 陳述式：
@@ -109,7 +109,7 @@ ms.locfileid: "42816257"
     }
     ```
 
-    此方法使用傳回的 GCM 註冊識別碼，向 Azure 註冊以取得推送通知。 只能在建立註冊之後加入標記。 如需詳細資訊，請參閱 [做法：將標記新增至裝置安裝以啟用發送到標記](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags)。
+    此方法使用傳回的 GCM 註冊識別碼，向 Azure 註冊以取得推送通知。 只能在建立註冊之後加入標記。 如需詳細資訊，請參閱[操作說明：將標籤新增至裝置安裝以啟用推播到標記](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags)。
 
 7. 以下列程式碼覆寫 **PushHandlerService** 中的 **OnMessage** 方法：
 

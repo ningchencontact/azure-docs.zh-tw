@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 96abef29c5290770d296fb5053007e36d1eaf537
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035444"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989954"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>建立並探索自動化的機器學習服務實驗，在 Azure 入口網站 （預覽）
 
@@ -40,7 +40,7 @@ ms.locfileid: "65035444"
 
 ![Azure 入口網站的實驗登陸頁面](media/how-to-create-portal-experiments/landing-page.png)
 
-否則，您會看到您自動化機器學習服務儀表板的所有自動化機器學習服務實驗，包括執行使用 SDK 的概觀。 您可以在這裡篩選和日期來瀏覽您的執行、 實驗名稱，並執行狀態。
+否則，您會看到您自動化機器學習服務儀表板的所有自動化機器學習服務實驗，包括使用 SDK 的概觀。 您可以在這裡篩選和日期來瀏覽您的執行、 實驗名稱，並執行狀態。
 
 ![Azure 入口網站的實驗儀表板](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -58,7 +58,7 @@ ms.locfileid: "65035444"
 
     ![建立新實驗的計算](media/how-to-create-portal-experiments/create-new-compute.png)
 
-    欄位|描述
+    欄位|說明
     ---|---
     Compute 名稱| 輸入可識別您的計算內容的唯一名稱。
     虛擬機器大小| 選取您的計算的虛擬機器大小。
@@ -100,7 +100,7 @@ ms.locfileid: "65035444"
 
 1. （選擇性）進階設定： 您可以用來進一步控制訓練作業的其他設定。
 
-    進階設定|描述
+    進階設定|說明
     ------|------
     主要的計量| 用來評分模型的主要度量。 [深入了解模型計量](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics)。
     允出準則| 當下列任何準則符合時，則會在完整完成之前結束訓練作業。 <br> *定型作業時間 （分鐘）*:允許執行定型作業的時間長度。  <br> *最大數目的反覆項目*:若要測試訓練作業中的管線 （反覆項目） 的最大數目。 作業不會執行多個指定的反覆運算次數。 <br> *計量分數臨界值*:所有管線的最小度量分數。 這可確保如果您有您想要達到定義的目標度量時，您執行不超過必要訓練作業花更多時間。
@@ -154,7 +154,7 @@ ms.locfileid: "65035444"
 
 在設定您的實驗時，您可以啟用 [進階] 設定`Preprocess`。 這就表示會自動執行下列的資料前置處理和特徵化步驟。
 
-|前置處理&nbsp;步驟| 描述 |
+|前置處理&nbsp;步驟| 說明 |
 | ------------- | ------------- |
 |卸除高基數或無變異數特徵|卸除從定型和驗證集，包括功能的遺漏，跨所有資料列，或具有極高基數 （例如，雜湊、 識別碼或 Guid） 的相同值的所有值。|
 |插補遺漏值|針對數值特徵，推算與資料行中值的平均值。<br/><br/>如需類別的功能，推算最常見的值。|
@@ -184,6 +184,63 @@ ms.locfileid: "65035444"
 
 ![反覆項目詳細資料](media/how-to-create-portal-experiments/iteration-details.png)
 
+## <a name="deploy-model"></a>部署模型
+
+一旦您手邊有最佳的模型，就可以將它部署為 web 服務來預測新資料。
+
+自動化的 ML 可協助您部署模型，而不需要撰寫程式碼：
+
+1. 您有幾個部署選項。 
+    1. 如果您想要將計量準則為基礎的最佳模型部署為此實驗中，選取**部署的最佳模型**從**執行詳細資料**頁面。
+
+        ![部署模型按鈕](media/how-to-create-portal-experiments/deploy-model-button.png)
+
+    1. 如果您想要部署特定模型的反覆項目，在向下切入模式以開啟其特定的執行詳細資料頁面，然後選取**部署模型**。
+
+        ![部署模型按鈕](media/how-to-create-portal-experiments/deploy-model-button2.png)
+
+1. 第一個步驟是在服務中註冊的模型。 選取 註冊模型 」，並等待完成註冊程序。
+
+    ![部署模型 刀鋒視窗](media/how-to-create-portal-experiments/deploy-model-blade.png)
+
+1. 一旦註冊模型，您可以下載評分指令碼 (scoring.py) 和環境指令碼 (condaEnv.yml)，以在部署期間使用。
+
+1. 當下載評分指令碼和環境的指令碼時，請移至**資產**刀鋒視窗的左側的導覽窗格，然後選取**模型**。
+
+    ![瀏覽窗格中的模型](media/how-to-create-portal-experiments/nav-pane-models.png)
+
+1. 選取您註冊時，該模型，然後選取 [建立映像]。
+
+    您可以透過它的描述，其中包含執行的識別碼，也就是反覆項目數目，以下列格式來識別模型： *< Run_ID > _ < Iteration_number > （_m)*
+
+    ![型號:建立映像](media/how-to-create-portal-experiments/model-create-image.png)
+
+1. 輸入映像的名稱。 
+1. 選取 **瀏覽**上傳您先前下載的評分檔案 (scoring.py) 評分檔案 方塊旁的按鈕。
+
+1. 選取 **瀏覽**上傳您先前下載的環境檔案 (condaEnv.yml) Conda 檔案 方塊旁的按鈕。
+
+    您可以使用您自己的計分指令碼和 conda 檔案，以及上傳其他檔案。 [深入了解計分指令碼](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script)。
+
+      >[!Important]
+      > 檔案名稱必須是在 32 個字元與開頭與結尾必須使用英數字元。 可能包含連字號、 底線、 點和之間的英數字元。 不允許有空格。
+
+    ![建立映像](media/how-to-create-portal-experiments/create-image.png)
+
+1. 選取 建立 按鈕以啟動 建立映像。 這需要幾分鐘才能完成，完成後，您會看到一則訊息，在頂端列中。
+1. 移至 「 映像 」 索引標籤，檢查您想要部署的映像旁邊的核取方塊，選取 [建立部署]。 [深入了解部署](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where)。
+
+    有 2 個選項進行部署。
+     + Azure 容器執行個體 (ACI)-這使用更多用於測試用途，而不是大規模運作的部署。 請確定至少一個核心的值填滿_CPU 保留容量_，和至少 1 gb (GB) 為_記憶體保留容量_
+     + Azure Kubernetes Service (AKS))-這個選項是用於大規模的部署。 您必須已準備好 AKS 基礎計算。
+
+     ![映像：建立部署](media/how-to-create-portal-experiments/images-create-deployment.png)
+
+1. 完成後，請選取 [建立]。 部署模型可能需要幾分鐘的時間才能完成執行每個管線。
+
+1. 就這麼簡單！ 您有操作的 web 服務來產生預測。
+
 ## <a name="next-steps"></a>後續步驟
 
 * [深入了解自動化的機器學習服務](concept-automated-ml.md)和 Azure Machine Learning。
+* [了解如何使用 web 服務](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service)。

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38b5b233d21c0c5d79d7bcb6a145e6232b238b0e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738880"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133128"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>從 Azure 虛擬機器讓更新管理、變更追蹤和清查解決方案上線
 
@@ -53,27 +53,27 @@ Azure 自動化提供的解決方案可協助您管理作業系統安全性更�
 
 選取任何設定上的省略符號 (**...**)，然後選取 [編輯]。 在 [編輯範圍設定] 窗格中選取 [選取電腦群組]。 [電腦群組] 窗格會顯示用來建立範圍設定的已儲存搜尋。
 
-## <a name="saved-searches"></a>已儲存的搜尋
+## <a name="saved-searches"></a>儲存的搜尋
 
 當電腦新增至「更新管理」、「變更追蹤」或「清查」解決方案時，系統會將電腦新增至工作區中兩個已儲存搜尋的其中一個。 這兩個已儲存的搜尋是包含這些解決方案所鎖定電腦的查詢。
 
 移至工作區。 在 [一般] 下，選取 [已儲存的搜尋]。 下表會顯示這些解決方案所使用的兩個已儲存搜尋：
 
-|名稱     |Category  |Alias  |
+|名稱     |Category  |別名  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | 更新        | Updates__MicrosoftDefaultComputerGroup         |
 
 選取任一個已儲存的搜尋，以檢視用來填入群組的查詢。 下圖顯示查詢與其結果：
 
-![已儲存的搜尋](media/automation-onboard-solutions-from-vm/logsearch.png)
+![儲存的搜尋](media/automation-onboard-solutions-from-vm/logsearch.png)
 
 ## <a name="unlink-workspace"></a>取消連結工作區
 
 下列解決方案相依於 Log Analytics 工作區：
 
 * [更新管理](automation-update-management.md)
-* [更改跟踪](automation-change-tracking.md)
+* [變更追蹤](automation-change-tracking.md)
 * [於下班時間啟動/停止 VM](automation-solution-vm-management.md)
 
 如果您決定您不再想要整合您的自動化帳戶與 Log Analytics 工作區，您可以取消連結您的帳戶，直接從 Azure 入口網站。  繼續之前，您必須先移除稍早所述的解決方案，否則無法進行此程序。 檢閱已匯入特定解決方案的相關文章，以了解移除解決方案所需的步驟。
@@ -104,6 +104,8 @@ Azure 自動化提供的解決方案可協助您管理作業系統安全性更�
 * 啟動及停止 VM Runbook 排程
 * 啟動及停止 VM Runbook
 * 變數
+
+或者您也可以取消連結您的工作區從您的自動化帳戶從您的 Log Analytics 工作區。 在您的工作區中，選取**自動化帳戶**下方**相關資源**。 在 [自動化帳戶] 頁面上選取**取消連結帳戶**。
 
 ## <a name="next-steps"></a>後續步驟
 

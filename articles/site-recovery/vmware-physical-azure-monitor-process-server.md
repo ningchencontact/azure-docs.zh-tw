@@ -6,13 +6,13 @@ manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/24/2019
-ms.author: rayne
-ms.openlocfilehash: 5fac369f15edb3ef0be31d3dc7d7434104c18dfe
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.author: raynew
+ms.openlocfilehash: f3ba08bc1d557d53bca2421b5052f496c740b185
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928163"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969334"
 ---
 # <a name="monitor-the-process-server"></a>監視處理序伺服器
 
@@ -53,7 +53,7 @@ ms.locfileid: "64928163"
 
 **警示類型** | **詳細資料**
 --- | ---
-![Healthy][green] | 處理序伺服器已連線且狀況良好。
+![狀況良好][green] | 處理序伺服器已連線且狀況良好。
 ![警告][yellow] | 過去 15 分鐘內的 CPU 使用率 > 80%
 ![警告][yellow] | 過去 15 分鐘內的記憶體使用方式 > 80%
 ![警告][yellow] | 快取資料夾的可用空間 < 30%的過去 15 分鐘

@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
 ms.openlocfilehash: 10bc4e4c440e5495afd820f588270b7990108b68
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259256"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135435"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>使用 Azure 入口網站建立包含 URL 路徑型路由規則的應用程式閘道
 
@@ -117,7 +117,7 @@ ms.locfileid: "58259256"
       -Settings $publicSettings
     ```
 
-3. 再多建立兩個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 在 Set-AzVMExtension 中输入 *myVM2* 和 *myVM3* 作为名称，并输入 VMName 值。
+3. 再多建立兩個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入 myVM2 和 myVM3 作為名稱，及作為 Set-AzVMExtension 中的 VMName 值。
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>建立包含虛擬機器的後端集區
 

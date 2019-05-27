@@ -17,11 +17,11 @@ ms.date: 12/11/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 43c070513f23564bd4679531e20b411f178920ac
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136765"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-from-github-using-cli"></a>使用 CLI 建立可從 GitHub 持續部署的 App Service 應用程式
 

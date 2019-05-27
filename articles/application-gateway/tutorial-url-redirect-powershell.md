@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 4/3/2019
 ms.author: victorh
-ms.openlocfilehash: febe02ac7fe4dfcb4140a8e5796c4c9fa86f6de3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7988198e5135768e58579d41bc04175b2ce10460
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60233192"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "66133289"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>使用 Azure PowerShell 以建立包含 URL 路徑型重新導向的應用程式閘道
 
@@ -112,7 +112,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-default-pool-and-settings"></a>建立預設集區和設定
 
-使用 [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool) 為應用程式閘道建立名為 *appGatewayBackendPool* 的預設後端集區。 使用 [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings) 來設定後端集區的設定。
+使用 [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool) 為應用程式閘道建立名為 *appGatewayBackendPool* 的預設後端集區。 使用 [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting) 來設定後端集區的設定。
 
 ```azurepowershell-interactive
 $defaultPool = New-AzApplicationGatewayBackendAddressPool `

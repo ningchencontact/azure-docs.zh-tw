@@ -9,11 +9,11 @@ ms.date: 11/06/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 85a1579e32b4c216f234f77c76316bedeaea77b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561740"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119553"
 ---
 這項功能處於預覽狀態。 若要使用這項功能，您必須安裝此模組的預覽擴充功能。
 

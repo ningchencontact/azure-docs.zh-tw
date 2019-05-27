@@ -9,11 +9,11 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
 ms.openlocfilehash: ef01c38dddee0a74477ef331f935bda2787866df
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546364"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171312"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mariadb-server-using-azure-cli"></a>使用 Azure CLI 監視和調整適用於 MariaDB 的 Azure 資料庫伺服器
 此範例 CLI 指令碼會在查詢計量之後，將單一「適用於 MariaDB 的 Azure 資料庫」伺服器調整為不同的效能等級。

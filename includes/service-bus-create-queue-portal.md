@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: d1cf75d8e678bc5bd3e3036930eea42526194df1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58115373"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171300"
 ---
 ## <a name="create-a-queue-in-the-azure-portal"></a>在 Azure 入口網站中建立佇列
 1. 在 [服務匯流排命名空間] 頁面的左側導覽功能表中選取 [佇列]。

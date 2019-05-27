@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: ff7ba04271c150018f2c55b62e40542a686608cf
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55904979"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140897"
 ---
 ## <a name="create-client"></a>建立用戶端連接
 建立 `WindowsAzure.MobileServiceClient` 物件來建立用戶端連接。  以您行動應用程式的 URL 取代 `appUrl` 。
@@ -148,7 +148,7 @@ table
     }, failure);
 ```
 
-在成功插入時，插入的項目及同步處理作業所需的其他欄位會一起傳回。  以此資訊更新您自己的快取，後續更新時才會正確。
+在成功插入時，插入的項目及同步處理作業所需的其他欄位會一起傳回。  以這項資訊更新您自己的快取，後續更新時才會正確。
 
 Azure Mobile Apps Node.js Server SDK 支援的動態結構描述適用於開發用途。  動態結構描述可讓您在插入或更新作業中指定資料行，以將資料行新增至資料表。  在將應用程式移至生產環境之前，我們建議您關閉動態結構描述。
 

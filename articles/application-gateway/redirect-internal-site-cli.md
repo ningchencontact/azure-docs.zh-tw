@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.openlocfilehash: e44beed592e013a089011c2a774b7300f2b3f854
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101987"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66133767"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>使用 Azure CLI 以建立具有內部重新導向的應用程式閘道
 
@@ -213,11 +213,11 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-在瀏覽器的網址列中輸入您的網域名稱。 例如， http://www.contoso.com。
+在瀏覽器的網址列中輸入您的網域名稱。 例如， http://www.contoso.com 。
 
 ![在應用程式閘道中測試 contoso 網站](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
-將位址變更為您其他的網域，例如 http://www.contoso.org，您應該會看到流量已重新導向回到 www 的接聽程式\.contoso.com。
+將位址變更為您其他的網域，例如 http://www.contoso.org ，您應該會看到流量已重新導向回到 www 的接聽程式\.contoso.com。
 
 ## <a name="next-steps"></a>後續步驟
 

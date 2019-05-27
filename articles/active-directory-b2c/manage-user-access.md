@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 88123cc24359daaf1c6fc7e3ceeed8f77f717c9a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f4f2b93316c87a5e8ba572ca2b584dbd13f6536c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228014"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956943"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中管理使用者存取
 
@@ -38,7 +38,7 @@ ms.locfileid: "65228014"
 
 - **將未簽署的 JSON 權杖傳送至應用程式**：Azure AD B2C 會通知應用程式使用者屬未成年人，並提供使用者的家長同意狀態。 接著，應用程式會套用商務規則。 JSON 權杖不會對應用程式完成成功的驗證。 應用程式必須根據包含在 JSON 權杖中的宣告處理未驗證的使用者，而該權杖中可能包含**名稱**、**電子郵件**、**ageGroup** 和 **consentProvidedForMinor**。
 
-- **封鎖該使用者**：如果使用者是未成年人，且未提供家長同意，則 Azure AD B2C 可告知該使用者他已被封鎖。 此時將不會簽發權杖，而會封鎖存取，且註冊作業期間不會建立使用者帳戶。 若要實作此通知，您可以提供適當的 HTML/CSS 內容頁面以通知使用者，並顯示適當選項。 應用程式不需要針對新的註冊執行進一步的動作。
+- **封鎖該使用者**：如果使用者是次要，而且未提供取得家長同意，Azure AD B2C 可以通知使用者他們所封鎖。 此時將不會簽發權杖，而會封鎖存取，且註冊作業期間不會建立使用者帳戶。 若要實作此通知，您可以提供適當的 HTML/CSS 內容頁面以通知使用者，並顯示適當選項。 應用程式不需要針對新的註冊執行進一步的動作。
 
 ## <a name="get-parental-consent"></a>取得家長同意
 
@@ -48,7 +48,7 @@ ms.locfileid: "65228014"
 
 1. [Azure Active Directory 圖形 API](/previous-versions/azure/ad/graph/api/api-catalog) 作業將使用者識別為未成年人，並以未簽署的 JSON 權杖形式將使用者資料傳回至應用程式。
 
-2. 應用程式在處理 JSON 權杖後對未成年人顯示相關畫面，告知必須提供家長同意，並要求家長於線上出具同意。 
+2. 應用程式會處理 JSON 權杖，並顯示螢幕通知，需要家長同意，並要求同意的父代線上的次要。 
 
 3. Azure AD B2C 會顯示登入程序，讓使用者能正常登入，並將權杖簽發給已設定為包含 **legalAgeGroupClassification = “minorWithParentalConsent”** 的應用程式。 應用程式會收集家長的電子郵件地址，並確認家長是成人。 為此，它會使用受信任的來源，例如戶政單位、授權驗證或信用卡證明。 如果驗證成功，應用程式會提示未成年人使用 Azure AD B2C 使用者流程登入。 如果拒絕同意 (例如 **legalAgeGroupClassification = “minorWithoutParentalConsent”**)，則 Azure AD B2C 會將 JSON 權杖 (不是登入資料) 傳回至應用程式以重新啟動同意程序。 使用者流程可以選擇性地自訂，讓未成年人或成人可據以按照記錄將註冊程式碼傳送至未成年人的電子郵件地址或成人的電子郵件地址，以重新取得未成年人帳戶的存取權。
 

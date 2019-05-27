@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 350e67f5a1e7e1eab7abe27a6ca851ed2420af84
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61486070"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978534"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>部署及探索分區化多租用戶應用程式
 
@@ -58,7 +58,7 @@ ms.locfileid: "61486070"
 ### <a name="plan-the-names"></a>計劃名稱
 
 在本節的步驟中，您將提供使用者值來確保資源名稱是全域唯一，且為資源群組的名稱，該群組包含部署應用程式時建立的所有資源。 假設使用者的姓名為 Ann Finley，我們建議使用以下名稱：
-- 使用者：**af1** (姓名首字母縮寫加一個數字。如果您非首次部署應用程式，請使用另一個值 (例如 af2))。
+- *使用者：* **af1***（他們的姓名縮寫加一個數字。* 如果您非首次部署應用程式，請使用另一個值 (例如 af2))。
 - *資源群組：* **wingtip-mt-af1** *(wingtip-mt 表示這是共用的多租用戶應用程式。* 加上使用者名稱 af1，會使資源群組名稱與其中各項資源的名稱相互關聯)。
 
 現在請選擇您的名稱，然後將它們寫下來。 
@@ -250,7 +250,7 @@ ms.locfileid: "61486070"
 
 - 若要深入了解彈性集區，請參閱：
 
-  - [彈性集區可協助您管理及調整多個 Azure SQL Database](sql-database-elastic-pool.md)
+  - [彈性集區可協助您管理及調整多個 Azure SQL 資料庫](sql-database-elastic-pool.md)
   - [使用 Azure SQL Database 相應放大](sql-database-elastic-scale-introduction.md)
 
 ## <a name="next-steps"></a>後續步驟

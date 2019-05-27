@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
 ms.openlocfilehash: 6ead2e0ea326b5c3f2e76e7aa9cc4ab3c50d4154
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202102"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164290"
 ---
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>從 Azure 入口網站取得連接字串
 使用 [Azure 入口網站](https://portal.azure.com/)來取得用戶端程式與 Azure SQL Database 進行互動所需的連接字串。

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04490abb8b7f3f4c39e4134a314429e190db5174
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a20299887de827f25e4c3306f5e78c188c9a8a7f
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714048"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969394"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>在 Azure 之 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用上安裝 SAP NetWeaver 高可用性
 
@@ -56,6 +56,7 @@ ms.locfileid: "60714048"
 [sap-high-availability-architecture-scenarios]:sap-high-availability-architecture-scenarios.md
 [sap-high-availability-guide-wsfc-shared-disk]:sap-high-availability-guide-wsfc-shared-disk.md
 [sap-high-availability-guide-wsfc-file-share]:sap-high-availability-guide-wsfc-file-share.md
+[high-availability-guide]:high-availability-guide.md
 [sap-ascs-high-availability-multi-sid-wsfc]:sap-ascs-high-availability-multi-sid-wsfc.md
 [sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
 [sap-high-availability-infrastructure-wsfc-file-share]:sap-high-availability-infrastructure-wsfc-file-share.md
@@ -207,11 +208,16 @@ ms.locfileid: "60714048"
 
 * [使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用，為 SAP 高可用性準備 Azure 基礎結構][sap-high-availability-infrastructure-wsfc-file-share]
 
-需要來自 SAP 的下列可執行檔和 DLL：
-* SAP Software Provisioning Manager (SWPM) 安裝工具版本 SPS21 或更新版本。
-* 請下載最新的 NTCLUST.SAR 封存與新 SAP 叢集資源 DLL。 新的 SAP 叢集 DLL 在 Windows Server 容錯移轉叢集上透過檔案共用支援 SAP ASCS/SCS 高可用性。
+* [Azure Vm 上的 SAP NetWeaver 的高可用性][high-availability-guide]
 
-  如需有關新 SAP 叢集資源 DLL 的詳細資訊，請參閱這篇部落格：[新 SAP 叢集資源 DLL 已上市 ！][sap-blog-new-sap-cluster-resource-dll].
+需要來自 SAP 的下列可執行檔和 DLL：
+* SAP Software Provisioning Manager (SWPM) 安裝工具版本 SPS25 或更新版本。
+* SAP 核心 7.49 或更新版本
+
+> [!IMPORTANT]
+> 針對 SAP NetWeaver 7.40 (和更新版本)，包含 SAP 核心 7.49 (和更新版本)，支援使用檔案共用進行 SAP ASCS/SCS 執行個體叢集處理。
+>
+
 
 設定會視使用的 DBMS 而異，因此我們不會說明資料庫管理系統 (DBMS) 設定。 不過，我們會假設 DBMS 在高可用性方面的疑慮已藉由不同 DBMS 廠商為 Azure 提供的功能支援而獲得解決。 此類功能包括適用於 SQL Server 的 Always On 或資料庫鏡像，以及適用於 Oracle 資料庫的 Oracle Data Guard。 在本文使用的案例中，我們並未對 DBMS 加入更多保護。
 
@@ -221,58 +227,6 @@ ms.locfileid: "60714048"
 > SAP NetWeaver ABAP 系統、Java 系統及 ABAP+Java 系統的安裝程序幾乎完全相同。 最顯著的差異在於 SAP ABAP 系統有一個 ASCS 執行個體。 SAP Java 系統有一個 SCS 執行個體。 SAP ABAP+Java 系統有一個 ASCS 執行個體和一個 SCS 執行個體在相同 Microsoft 容錯移轉叢集群組中執行。 我們會明確說明每個 SAP NetWeaver 安裝堆疊的所有安裝差異。 您可以假設所有其他部分都相同。  
 >
 >
-
-## <a name="install-an-ascsscs-instance-on-an-ascsscs-cluster"></a>在 ASCS/SCS 叢集上安裝 ASCS/SCS 執行個體
-
-> [!IMPORTANT]
->
-> 目前，SAP SWPM 安裝工具不支援具有檔案共用設定的高可用性設定。 因此，SAP 系統的安裝必須經過一些手動作業，例如需安裝和叢集 SAP ASCS/SCS 執行個體並個別設定 SAP 全域主機。  
->
-> DBMS 執行個體和 SAP 應用程式伺服器的安裝 (和叢集) 的安裝步驟並未更改。
->
-
-### <a name="install-an-ascsscs-instance-on-your-local-drive"></a>在本機磁碟機上安裝 ASCS/SCS 執行個體
-
-在 ASCS/SCS 叢集的兩個節點上都安裝 SAP ASCS/SCS 執行個體。 將其安裝於本機磁碟機。 在我們的範例中，本機磁碟機為 C:\\，但是您可以選擇任何其他本機磁碟機。  
-
-若要安裝執行個體，在 SAP SWPM 安裝工具中，移至：
-
-**\<產品>** > **\<DBMS>** > **安裝** > **應用程式伺服器 ABAP** (或 **Java**) > **分散式系統** > **ASCS/SCS 執行個體**
-
-> [!IMPORTANT]
-> 目前，SAP SWPM 安裝工具不支援檔案共用案例。 您無法使用下列安裝路徑：
->
-> **\<產品>** > **\<DBMS>** > **安裝** > **應用程式伺服器 ABAP** (或 **Java**) > **高可用性系統** > …
->
-
-### <a name="remove-sapmnt-and-create-an-saploc-file-share"></a>移除 SAPMNT 並建立 SAPLOC 檔案共用
-
-SWMP 已在 C:\\usr\\sap 資料夾上建立 SAPMNT 本機共用。
-
-移除兩個 ASCS/SCS 叢集節點上的 SAPMNT 檔案共用。
-
-執行下列 PowerShell 指令碼：
-
-```powershell
-Remove-SmbShare sapmnt -ScopeName * -Force
- ```
-
-如果 SAPLOC 共用不存在，請在兩個 ASCS/SCS 叢集節點上建立。
-
-執行下列 PowerShell 指令碼：
-
-```powershell
-#Create SAPLOC share and set security
-$SAPSID = "PR1"
-$DomainName = "SAPCLUSTER"
-$SAPSIDGlobalAdminGroupName = "$DomainName\SAP_" + $SAPSID + "_GlobalAdmin"
-$HostName = $env:computername
-$SAPLocalAdminGroupName = "$HostName\SAP_LocalAdmin"
-$SAPDisk = "C:"
-$SAPusrSapPath = "$SAPDisk\usr\sap"
-
-New-SmbShare -Name saploc -Path c:\usr\sap -FullAccess "BUILTIN\Administrators", $SAPSIDGlobalAdminGroupName , $SAPLocalAdminGroupName  
- ```
 
 ## <a name="prepare-an-sap-global-host-on-the-sofs-cluster"></a>在 SOFS 叢集上準備 SAP 全域主機
 
@@ -309,23 +263,19 @@ $ASCSClusterObjectNode1 = "$DomainName\$ASCSClusterNode1$"
 $ASCSClusterObjectNode2 = "$DomainName\$ASCSClusterNode2$"
 
 # Create usr\sap\.. folders on CSV
-$SAPGlobalFolder = "C:\ClusterStorage\Volume1\usr\sap\$SAPSID\SYS"
+$SAPGlobalFolder = "C:\ClusterStorage\SAP$SAPSID\usr\sap\$SAPSID\SYS"
 New-Item -Path $SAPGlobalFOlder -ItemType Directory
 
-$UsrSAPFolder = "C:\ClusterStorage\Volume1\usr\sap\"
+$UsrSAPFolder = "C:\ClusterStorage\SAP$SAPSID\usr\sap\"
 
 # Create a SAPMNT file share and set share security
-New-SmbShare -Name sapmnt -Path $UsrSAPFolder -FullAccess "BUILTIN\Administrators", $SAPSIDGlobalAdminGroupName, $ASCSClusterObjectNode1, $ASCSClusterObjectNode2 -ContinuouslyAvailable $false -CachingMode None -Verbose
+New-SmbShare -Name sapmnt -Path $UsrSAPFolder -FullAccess "BUILTIN\Administrators", $ASCSClusterObjectNode1, $ASCSClusterObjectNode2 -ContinuouslyAvailable $false -CachingMode None -Verbose
 
 # Get SAPMNT file share security settings
 Get-SmbShareAccess sapmnt
 
 # Set file and folder security
 $Acl = Get-Acl $UsrSAPFolder
-
-# Add a file security object of SAP_<sid>_GlobalAdmin group
-$Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($SAPSIDGlobalAdminGroupName,"FullControl", 'ContainerInherit,ObjectInherit', 'None', 'Allow')
-$Acl.SetAccessRule($Ar)
 
 # Add  a security object of the clusternode1$ computer object
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($ASCSClusterObjectNode1,"FullControl",'ContainerInherit,ObjectInherit', 'None', 'Allow')
@@ -338,239 +288,43 @@ $Acl.SetAccessRule($Ar)
 # Set security
 Set-Acl $UsrSAPFolder $Acl -Verbose
  ```
-## <a name="stop-ascsscs-instances-and-sap-services"></a>停止 ASCS/SCS 執行個體和 SAP 服務
-
-執行以下步驟：
-1. 在兩個 ASCS/SCS 叢集節點上停止 SAP ASCS/SCS 執行個體。
-2. 在兩個叢集節點上停止 SAP ASCS/SCS Windows 服務 **SAP\<SID>_\<InstanceNumber>**。
-
-## <a name="move-the-sys-folder-to-the-sofs-cluster"></a>將 \SYS\... 資料夾移至 SOFS 叢集
-
-執行以下步驟：
-1. 將 SYS 資料夾複製 (例如`C:\usr\sap\<SID>\SYS`) 從一個 ASCS/SCS 叢集節點移至 SOFS 叢集 (例如，若要`C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS`)。
-2. 刪除`C:\usr\sap\<SID>\SYS`從兩個 ASCS/SCS 叢集節點的資料夾。
-
-## <a name="update-the-cluster-security-setting-on-the-sap-ascsscs-cluster"></a>更新 SAP ASCS/SCS 叢集上的叢集安全性設定
-
-在其中一個 SAP ASCS/SCS 叢集節點上執行下列 PowerShell 指令碼：
-
-```powershell
-# Grant <DOMAIN>\SAP_<SID>_GlobalAdmin group access to the cluster
-
-$SAPSID = "PR1"
-$DomainName = "SAPCLUSTER"
-$SAPSIDGlobalAdminGroupName = "$DomainName\SAP_" + $SAPSID + "_GlobalAdmin"
-
-# Set full access for the <DOMAIN>\SAP_<SID>_GlobalAdmin group
-Grant-ClusterAccess -User $SAPSIDGlobalAdminGroupName -Full
-
-#Check security settings
-Get-ClusterAccess
-```
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>建立叢集 SAP ASCS/SCS 執行個體的虛擬主機名稱
 
 建立 SAP ASCS/SCS 叢集網路名稱 (例如，**pr1-ascs [10.0.6.7]**)，如[建立叢集 SAP ASCS/SCS 執行個體的虛擬主機名稱][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host]中所述。
 
-## <a name="update-the-default-and-sap-ascsscs-instance-profile"></a>更新預設和 SAP ASCS/SCS 執行個體設定檔
 
-若要使用新的 SAP ASCS/SCS 虛擬主機名稱和 SAP 全域主機名稱，您必須更新預設和 SAP ASCS/SCS 執行個體設定檔\<SID >_ASCS/SCS\<Nr >_\<主應用程式 >。
+## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>在叢集中安裝 ASCS/SCS 和 ERS 執行個體
+
+### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>第一個 ASCS/SCS 叢集節點上安裝 ASCS/SCS 執行個體
+
+第一個叢集節點上安裝 SAP ASCS/SCS 執行個體。 若要安裝執行個體，在 SAP SWPM 安裝工具中，移至：
+
+**\<產品 >** > **\<DBMS >** > **安裝** > **應用程式伺服器 ABAP** (或是**Java**) >**高可用性系統** > **ASCS/SCS 執行個體** > **第一個叢集節點**.
+
+### <a name="add-a-probe-port"></a>新增探查連接埠
+
+使用 PowerShell 設定 SAP 叢集資源 SAP-SID-IP 探查連接埠。 如[本文][sap-high-availability-installation-wsfc-shared-disk-add-probe-port]所述，請在其中一個 SAP ASCS/SCS 叢集節點上執行此設定。
+
+### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>在第二個 ASCS/SCS 叢集節點上安裝 ASCS/SCS 執行個體
+
+在第二個叢集節點上安裝 SAP ASCS/SCS 執行個體。 若要安裝執行個體，在 SAP SWPM 安裝工具中，移至：
+
+**\<產品 >** > **\<DBMS >** > **安裝** > **應用程式伺服器 ABAP** (或是**Java**) >**高可用性系統** > **ASCS/SCS 執行個體** > **其他叢集節點**.
 
 
-| 舊值 |  |
-| --- | --- |
-| SAP ASCS/SCS 主機名稱 = SAP 全域主機 | ascs-1 |
-| SAP ASCS/SCS 執行個體設定檔名稱 | PR1_ASCS00_ascs-1 |
+## <a name="update-the-sap-ascsscs-instance-profile"></a>更新 SAP ASCS/SCS 執行個體設定檔
 
-| 新值 |  |
-| --- | --- |
-| SAP ASCS/SCS 主機名稱 | **pr1-ascs** |
-| SAP 全域主機 | **sapglobal** |
-| SAP ASCS/SCS 執行個體設定檔名稱 | PR1\_ASCS00\_**pr1-ascs** |
+更新 SAP ASCS/SCS 執行個體設定檔中的參數\<SID >_ASCS/SCS\<Nr >_\<主應用程式 >。
 
-### <a name="update-sap-default-profile"></a>更新 SAP 預設設定檔
-
-
-| 參數名稱 | 參數值 |
-| --- | --- |
-| SAPGLOBALHOST | **sapglobal** |
-| rdisp/mshost | **pr1-ascs** |
-| enque/serverhost | **pr1-ascs** |
-
-### <a name="update-the-sap-ascsscs-instance-profile"></a>更新 SAP ASCS/SCS 執行個體設定檔
 
 | 參數名稱 | 參數值 |
 | --- | --- |
-| SAPGLOBALHOST | **sapglobal** |
-| DIR_PROFILE | \\\sapglobal\sapmnt\PR1\SYS\profile |
-| _PF | $(DIR_PROFILE)\PR1\_ASCS00_ pr1-ascs |
-| Restart_Program_02 = local$(_MS) pf=$(_PF) | **Start**_Program_02 = local$(_MS) pf=$(_PF) |
-| SAPLOCALHOST | **pr1-ascs** |
-| Restart_Program_03 = local$(_EN) pf=$(_PF) | **Start**_Program_03 = local$(_EN) pf=$(_PF) |
 | gw/netstat_once | **0** |
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-> [!IMPORTANT]
->您可以使用 **Update-SAPASCSSCSProfile** PowerShell Cmdlet 來自動化設定檔更新。
->
->PowerShell Cmdlet 同時支援 SAP ABAP ASCS 和 SAP Java SCS 執行個體。
->
-
-將 [**SAPScripts.psm1**][sap-powershell-scrips] 複製到本機磁碟機 C:\tmp，並執行下列 PowerShell Cmdlet：
-
-```powershell
-Import-Module C:\tmp\SAPScripts.psm1
-
-Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
-```
-
-![圖 1：SAPScripts.psm1 output][sap-ha-guide-figure-8012]
-
-_**圖 1**:SAPScripts.psm1 輸出_
-
-## <a name="update-the-sidadm-user-environment-variable"></a>更新 \<sid>adm 使用者環境變數
-
-1. 請在兩個 ASCS/SCS 叢集節點上更新 \<sid>adm 使用者環境的新 GLOBALHOST UNC 路徑。
-2. 以 \<sid>adm 使用者的身分登入，然後啟動 Regedit.exe 工具。
-3. 移至 **HKEY_CURRENT_USER** > **Environment**，然後將變數更新為新值：
-
-| 變數 | Value |
-| --- | --- |
-| RSEC_SSFS_DATAPATH | \\\\**sapglobal**\sapmnt\PR1\SYS\global\security\rsecssfs\data |
-| RSEC_SSFS_KEYPATH | \\\\**sapglobal**\sapmnt\PR1\SYS\global\security\rsecssfs\key |
-| SAPEXE | \\\\**sapglobal**\sapmnt\PR1\SYS\exe\uc\NTAMD64 |
-| SAPLOCALHOST  | **pr1-ascs** |
-
-
-## <a name="install-a-new-saprcdll-file"></a>安裝新的 saprc.dll 檔案
-
-1. 安裝支援檔案共用案例的新版 SAP 叢集資源。
-
-2. 從 SAP Service Marketplace 下載最新的 NTCLUST.SAR 套件。
-
-3. 在其中一個 ASCS/SCS 叢集節點上解壓縮 NTCLUS.SAR，然後從命令提示字元中執行下列命令，以安裝新的 saprc.dll 檔案：
-
-```
-.\NTCLUST\insaprct.exe -yes -install
-```
-
-系統將在兩個 ASCS/SCS 叢集節點上安裝新的 saprc.dll 檔案。
-
-如需詳細資訊，請參閱 [SAP 附註 1596496 - 如何更新叢集資源監視器的 SAP 資源類型 DLL][1596496]。
-
-## <a name="create-a-sap-sid-cluster-group-network-name-and-ip"></a>建立 SAP \<SID > 叢集群組、 網路名稱和 IP
-
-若要建立 SAP \<SID > 叢集群組、ASCS/SCS 網路名稱和對應的 IP 位址，請執行下列 PowerShell Cmdlet：
-
-```powershell
-# Create SAP Cluster Group
-$SAPSID = "PR1"
-$SAPClusterGroupName = "SAP $SAPSID"
-$SAPIPClusterResourceName = "SAP $SAPSID IP"
-$SAPASCSNetworkName = "pr1-ascs"
-$SAPASCSIPAddress = "10.0.6.7"
-$SAPASCSSubnetMask = "255.255.255.0"
-
-# Create an SAP ASCS instance virtual IP cluster resource
-Add-ClusterGroup -Name $SAPClusterGroupName -Verbose
-
-#Create an SAP ASCS virtual IP address
-$SAPIPClusterResource = Add-ClusterResource -Name $SAPIPClusterResourceName -ResourceType "IP Address" -Group $SAPClusterGroupName -Verbose
-
-# Set a static IP address
-$param1 = New-Object Microsoft.FailoverClusters.PowerShell.ClusterParameter $SAPIPClusterResource,Address,$SAPASCSIPAddress
-$param2 = New-Object Microsoft.FailoverClusters.PowerShell.ClusterParameter $SAPIPClusterResource,SubnetMask,$SAPASCSSubnetMask
-$params = $param1,$param2
-$params | Set-ClusterParameter
-
-# Create a corresponding network name
-$SAPNetworkNameClusterResourceName = $SAPASCSNetworkName
-Add-ClusterResource -Name $SAPNetworkNameClusterResourceName -ResourceType "Network Name" -Group $SAPClusterGroupName -Verbose
-
-# Set a network DNS name
-$SAPNetworkNameClusterResource = Get-ClusterResource $SAPNetworkNameClusterResourceName
-$SAPNetworkNameClusterResource | Set-ClusterParameter -Name Name -Value $SAPASCSNetworkName
-
-#Check the updated values
-$SAPNetworkNameClusterResource | Get-ClusterParameter
-
-#Set resource dependencies
-Set-ClusterResourceDependency -Resource $SAPNetworkNameClusterResourceName -Dependency "[$SAPIPClusterResourceName]" -Verbose
-
-#Start an SAP <SID> cluster group
-Start-ClusterGroup -Name $SAPClusterGroupName -Verbose
-```
-
-## <a name="register-the-sap-start-service-on-both-nodes"></a>在兩個節點上註冊 SAP 啟動服務
-
-重新註冊 SAP ASCS/SCS 啟動服務，以指向新的設定檔和設定檔路徑。
-
-您必須在兩個 ASCS/SCS 叢集節點上執行此重新註冊。
-
-在提高權限的命令提示字元中執行下列命令：
-
-```
-C:\usr\sap\PR1\ASCS00\exe\sapstartsrv.exe -r -p \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_pr1-ascs -s PR1 -n 00 -U SAPCLUSTER\SAPServicePR1 -P mypasswd12 -e SAPCLUSTER\pr1adm
-```
-
-![圖 2：重新安裝 SAP 服務][sap-ha-guide-figure-8013]
-
-_**圖 2**:重新安裝 SAP 服務_
-
-請確定參數都正確無誤，然後選取 [手動] 作為 [啟動類型]。
-
-## <a name="stop-the-ascsscs-service"></a>停止 ASCS/SCS 服務
-
-在兩個 ASCS/SCS 叢集節點上停止 SAP ASCS/SCS 服務 SAP\<SID>_\<InstanceNumber>。
-
-## <a name="create-a-new-sap-service-and-sap-instance-resources"></a>建立新的 SAP 服務和 SAP 執行個體資源
-
-若要完成建立 SAP SAP\<SID> 叢集群組的資源，請建立下列資源：
-
-* SAP \<SID> \<InstanceNumber> 服務
-* SAP \<SID> \<InstanceNumber> 執行個體
-
-執行下列 PowerShell cmdlet：
-
-```powershell
-$SAPSID = "PR1"
-$SAPInstanceNumber = "00"
-$SAPNetworkNameClusterResourceName = "pr1-ascs"
-
-$SAPServiceName = "SAP$SAPSID"+ "_" + $SAPInstanceNumber
-
-$SAPClusterGroupName = "SAP $SAPSID"
-$SAPServiceClusterResourceName = "SAP $SAPSID $SAPInstanceNumber Service"
-
-$SAPASCSServiceClusterResource = Add-ClusterResource -Name $SAPServiceClusterResourceName -Group $SAPClusterGroupName -ResourceType "SAP Service" -SeparateMonitor -Verbose
-$SAPASCSServiceClusterResource  | Set-ClusterParameter  -Name ServiceName -Value $SAPServiceName
-
-#Set resource dependencies
-Set-ClusterResourceDependency -Resource $SAPASCSServiceClusterResource  -Dependency "[$SAPNetworkNameClusterResourceName]" -Verbose
-
-$SAPInstanceClusterResourceName = "SAP $SAPSID $SAPInstanceNumber Instance"
-
-# Create SAP instance cluster resource
-$SAPASCSServiceClusterResource = Add-ClusterResource -Name $SAPInstanceClusterResourceName -Group $SAPClusterGroupName -ResourceType "SAP Resource" -SeparateMonitor -Verbose
-
-#Set SAP instance cluster resource parameters
-$SAPASCSServiceClusterResource  | Set-ClusterParameter  -Name SAPSystemName -Value $SAPSID -Verbose
-$SAPASCSServiceClusterResource  | Set-ClusterParameter  -Name SAPSystem -Value $SAPInstanceNumber -Verbose
-
-#Set resource dependencies
-Set-ClusterResourceDependency -Resource $SAPASCSServiceClusterResource  -Dependency "[$SAPServiceClusterResourceName]" -Verbose
-```
-
-## <a name="add-a-probe-port"></a>新增探查連接埠
-
-使用 PowerShell 設定 SAP 叢集資源 SAP-SID-IP 探查連接埠。 如[本文][sap-high-availability-installation-wsfc-shared-disk-add-probe-port]所述，請在其中一個 SAP ASCS/SCS 叢集節點上執行此設定。
-
-## <a name="install-an-ers-instance-on-both-cluster-nodes"></a>在兩個叢集節點上安裝 ERS 執行個體
-
-在 ASCS/SCS 叢集的兩個節點上安裝加入佇列複寫伺服器 (ERS) 執行個體。 在 SWPM 功能表上，遵循此安裝路徑：
-
-**\<產品>** > **\<DBMS>** > **安裝** > **其他 SAP 系統執行個體** > **加入佇列複寫伺服器執行個體**
+重新啟動 SAP ASCS/SCS 執行個體。 設定`KeepAlive`兩個 SAP ASCS/SCS 叢集節點上的參數遵照指示來[SAP ASCS/SCS 執行個體的叢集節點上設定登錄項目]([high-availability-guide]:high-availability-guide.md)。 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>安裝 DBMS 執行個體和 SAP 應用程式伺服器
 

@@ -11,22 +11,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 05/29/2019
 ms.author: apimpm
-ms.openlocfilehash: 450ebc621758363c5ea9ab6d631cd6c7df38794b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac9910358cf19eac3f704f1bf3e259e9a1543dcc
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657708"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66141526"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>如何使用 API 管理中的用戶端憑證驗證保護 API
 
-API 管理提供以用戶端憑證保護對 API 之存取 (例如，用戶端對 API 管理) 的功能。 目前，您可以檢查用戶端憑證的指紋是否符合想要的值。 还可以针对已上传到 API 管理的现有证书检查指纹。  
+API 管理提供以用戶端憑證保護對 API 之存取 (例如，用戶端對 API 管理) 的功能。 目前，您可以檢查用戶端憑證的指紋是否符合想要的值。 您也可以檢查指紋是否符合已上傳到 API 管理的現有憑證。  
 
-有关使用客户端证书保护对 API 后端服务的访问（即，API 管理到后端）的信息，请参阅[如何使用客户端证书身份验证保护后端服务](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+如需有關如何使用用戶端憑證保護對 API 後端服務之存取 (例如，API 管理到後端) 的資訊，請參閱[如何使用用戶端憑證驗證來保護後端服務](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 
 ## <a name="checking-the-expiration-date"></a>檢查到期日
 
@@ -58,7 +56,7 @@ API 管理提供以用戶端憑證保護對 API 之存取 (例如，用戶端對
 
 ## <a name="checking-the-thumbprint"></a>檢查指紋
 
-可以将以下策略配置为检查客户端证书的指纹：
+您可以設定下面的原則來檢查用戶端憑證的指紋：
 
 ```xml
 <choose>

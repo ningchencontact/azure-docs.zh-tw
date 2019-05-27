@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/26/2019
 ms.author: manayar
 ms.openlocfilehash: c41beda6c9d6bb4b63a45944126421dd22799904
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868918"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171786"
 ---
 您可以依照 [Azure Resource Manager 文件](../articles/azure-resource-manager/resource-group-template-deploy.md)所述來部署上述範本。
 

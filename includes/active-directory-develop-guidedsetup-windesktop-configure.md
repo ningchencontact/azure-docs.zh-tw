@@ -15,11 +15,11 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: c4dc3d422e18d9ee41bf16ac3e6f22c3d7e466d7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198896"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121636"
 ---
 ## <a name="register-your-application"></a>註冊您的應用程式
 
@@ -43,7 +43,7 @@ ms.locfileid: "65198896"
    - 在 [支援的帳戶類型] 區段中，選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]，例如 Skype、Xbox、Outlook.com。
    - 選取 [註冊] 以建立應用程式。
 1. 在應用程式頁面清單中，選取 [驗證]。
-   1. 在 [重新導向 URL] 區段的 [重新導向 URL] 清單中：
+   1. 在「重新導向 URI」清單的 [重新導向 URI] 區段中：
    1. 在 [型別] 欄中，選取 [公開用戶端 (行動裝置及桌上型電腦)]。
    1. 在 [重新導向 URI] 欄中輸入 `urn:ietf:wg:oauth:2.0:oob`。
 1. 選取 [ **儲存**]。

@@ -7,14 +7,14 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 1897193f0ae781029a7303c42ca8eeaa51389892
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: abbad97e29f60e5f135017cd43f9d30eba1805ca
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920584"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142970"
 ---
-# <a name="refresh-with-azure-automation"></a>重新整理與 Azure 自動化
+# <a name="refresh-with-azure-automation"></a>使用 Azure 自動化重新整理
 
 藉由使用 Azure 自動化和 PowerShell Runbook，您可以執行自動的資料重新整理作業，在您的 Azure 分析表格式模型。  
 
@@ -67,13 +67,13 @@ ms.locfileid: "64920584"
 
 3. 匯入自動化 Runbook
 
-    ![Import Runbook](./media/analysis-services-refresh-azure-automation/8.png)
+    ![匯入 Runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
 4. 瀏覽**重新整理 Model.ps1**檔案中，提供**名稱**並**描述**，然後按一下**建立**。
 
-    ![Import Runbook](./media/analysis-services-refresh-azure-automation/9.png)
+    ![匯入 Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
-5. 建立 Runbook 之後，它將會自動進入編輯模式。  選取 [發佈] 。
+5. 建立 Runbook 之後，它將會自動進入編輯模式。  選取 [發行]。
 
     ![發佈 Runbook](./media/analysis-services-refresh-azure-automation/10.png)
 
@@ -148,7 +148,7 @@ Azure Analysis Services 模型重新整理排程為基礎的觸發程序，就�
 |屬性  |Value  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Azure Analysis Services 資料庫的名稱 <br/> 範例：AdventureWorksDB         |
-|**AnalysisServicesServer**     |Azure Analysis Services 伺服器名稱。 <br/> 範例： https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
+|**AnalysisServicesServer**     |Azure Analysis Services 伺服器名稱。 <br/> 範例： https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
 |**DatabaseRefreshType**     |若要執行的重新整理的類型。 <br/> 範例：完整         |
 
 範例 JSON 主體：

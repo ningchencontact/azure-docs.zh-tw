@@ -12,11 +12,11 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 035e12da67d28e8e3fb46ac295717dd6b579922c
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486608"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66167045"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>以程式設計方式監視 Azure Data Factory
 本文說明如何使用不同的軟體開發套件 (SDK) 來監視資料處理站中的管線。 

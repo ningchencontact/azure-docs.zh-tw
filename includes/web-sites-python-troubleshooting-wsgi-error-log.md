@@ -9,13 +9,13 @@ ms.date: 06/11/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 020e59f029b09f3c7656f67039731e4141e68d31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61270188"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66137023"
 ---
-如果 Python 在启动应用程序时遇到错误，只只会返回简单的错误页（例如“由于发生内部服务器错误，无法显示该页。”）。
+會傳回 （例如，Python 會發生錯誤，在啟動您的應用程式時，如果只是一個簡單的錯誤頁面「 網頁無法顯示因為發生內部伺服器錯誤。"）。
 
 若要擷取 Python 應用程式錯誤：
 

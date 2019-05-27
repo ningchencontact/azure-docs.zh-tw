@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: ccc2b574ea054a1b0ecf32a1e59691050fb66fcf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108283"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66166079"
 ---
 ## <a name="tagging-a-virtual-machine-through-templates"></a>透過範本標記虛擬機器
 首先，我們來看一下透過範本進行標記。 [此範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags)標記置於下列資源：計算 （虛擬機器）、 儲存體 （儲存體帳戶） 和網路 （公用 IP 位址、 虛擬網路和網路介面）。 這個範本適用於 Windows VM，但也可改寫成適用於 Linux VM。
@@ -50,5 +50,5 @@ ms.locfileid: "62108283"
 
 新標籤現在應出現在您的資源的標記清單中。
 
-![Azure 门户中保存的新标记](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
+![Azure 入口網站中儲存的新標記](./media/virtual-machines-common-tag/azure-portal-saved-new-tag.png)
 

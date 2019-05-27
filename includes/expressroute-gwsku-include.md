@@ -9,11 +9,11 @@ ms.date: 03/22/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: bf526ebeebb18e22f133383e7956d68584db2486
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60367934"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164525"
 ---
 建立虛擬網路閘道時，您必須指定想要使用的閘道 SKU。 當您選取較高的閘道 SKU 時，會配置更多的 CPU 和網路頻寬給閘道，如此一來，閘道即可支援對虛擬網路的更高網路輸送量。 
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 7b5df31c3e1d07cc9ac93f73362e853fab728fa9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0c1efa0e5cfa4bf31e58be64b3fe78075b79b515
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793793"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66141724"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何在 Azure API 管理中使用服務備份和還原實作災害復原
 
@@ -63,7 +63,7 @@ ms.locfileid: "58793793"
 6. 輸入 [重新導向 URI] 的預留位置 URL，例如 `http://resources`，因為它是必要的欄位，但稍後不會使用這個值。 按一下核取方塊以儲存應用程式。
 7. 按一下頁面底部的 [新增] 。
 
-### <a name="add-an-application"></a>新增應用程式
+### <a name="add-an-application"></a>加入應用程式
 
 1. 在建立應用程式之後，按一下 [設定]。
 2. 按一下 [必要權限]。
@@ -72,7 +72,7 @@ ms.locfileid: "58793793"
 5. 選擇 [Windows Azure 服務管理 API]。
 6. 按 [選取]。
 
-    ![新增權限](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    ![加入權限](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
 7. 按一下剛新增之應用程式旁邊的 [委派的權限]，選取 [存取 Azure 服務管理 (預覽)] 方塊。
 8. 按 [選取]。
@@ -117,7 +117,7 @@ namespace GetTokenResourceManagerRequests
 
     指定值之後，程式碼範例應該會傳回類似以下範例的權杖：
 
-    ![token][api-management-arm-token]
+    ![權杖][api-management-arm-token]
 
     > [!NOTE]
     > 權杖可能會在一段時間之後過期。 再次執行程式碼範例即可產生新的權杖。
@@ -147,7 +147,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 * `serviceName` - 所要備份 API 管理服務的名稱，該名稱是在服務建立時所指定
 * `api-version` - 取代為 `2018-06-01-preview`
 
-在请求正文中，指定目标 Azure 存储帐户名称、访问密钥、blob 容器名称和备份名称：
+在要求的本文中指定目標 Azure 儲存體帳戶名稱、存取金鑰、Blob 容器名稱和備份名稱：
 
 ```json
 {
@@ -209,7 +209,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> 也可分别运行 PowerShell Backup-AzApiManagement 和 Restore-AzApiManagement 命令，执行备份和还原操作。
+> 您也可以使用 PowerShell 執行備份和還原作業*備份 AzApiManagement*並*還原 AzApiManagement*分別命令。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -223,7 +223,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
 
-[Azure API Management REST API]: https://msdn.microsoft.com/library/azure/dn781421.aspx
+[Azure API Management REST API]: https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest
 
 [api-management-add-aad-application]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-add-aad-application.png
 

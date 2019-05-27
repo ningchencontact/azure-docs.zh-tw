@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6e88d8f1c16e7c73f5c62325e41701e6f0ea97fb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 90e43ab0448646650067dbf151702132f434c01e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728082"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967955"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -57,7 +57,7 @@ ms.locfileid: "64728082"
 1. 資料開發人員使用 PowerShell Cmdlet 在 Azure Data Factory 內建立自我裝載整合執行階段。 目前，Azure 入口網站不支援此功能。
 2. 資料開發人員建立內部部署資料存放區的連結服務，方法是指定應用來連結資料存放區的自我裝載整合執行階段執行個體。
 3. 自我裝載整合執行階段節點會使用 Windows 資料保護應用程式開發介面 (DPAPI) 將加密，並將認證儲存在本機上。 如果有多個節點設定為高可用性，則該認證會進一步同步處理到其他節點。 每個節點都會使用 DPAPI 來加密認證，並將其儲存在本機上。 認證同步處理無需資料開發人員介入，並且由自我裝載 IR 處理。    
-4. Data Factory 服務會與自我裝載整合執行階段進行通訊，透過使用共用 Azure 服務匯流排佇列的*控制通道*，進行作業的排程和管理。 當需要執行活動作業時，Data Factory 會將要求與任何認證資訊排入佇列 (如果認證尚未儲存在自我裝載整合執行階段上)。 輪詢佇列之後，自我裝載整合執行階段便會開始作業。
+4. Data Factory 服務與自我裝載的整合執行階段通訊進行排程和管理作業，透過*控制通道*使用共用[Azure 服務匯流排轉送](https://docs.microsoft.com/azure/service-bus-relay/relay-what-is-it#wcf-relay)。 當需要執行活動作業時，Data Factory 會將要求與任何認證資訊排入佇列 (如果認證尚未儲存在自我裝載整合執行階段上)。 輪詢佇列之後，自我裝載整合執行階段便會開始作業。
 5. 自我裝載整合執行階段會根據複製活動在資料管線中的設定方式，將資料從內部部署存放區複製到雲端儲存體，反之亦然。 針對這個步驟，自我裝載整合執行階段會透過安全的 (HTTPS) 通道，直接與雲端式儲存體服務 (例如 Azure Blob 儲存體) 進行通訊。
 
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>使用自我裝載 IR 的考量

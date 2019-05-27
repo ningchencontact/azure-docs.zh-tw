@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 04/19/2019
 ms.openlocfilehash: cbcdcfd151951334246a4e85d9f521a15bb6269d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66146119"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>使用唯讀複本，以進行負載平衡唯讀查詢工作負載
 
@@ -25,7 +25,7 @@ ms.locfileid: "60006143"
 > [!IMPORTANT]
 > PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
-做為一部分[高可用性架構](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)，Premium、 業務關鍵或超大規模的服務層中每個資料庫都會自動佈建的主要複本與數個次要複本。 为次要副本预配的计算大小与主要副本相同。 **讀取相應放大**功能可讓您將負載平衡的 SQL 資料庫唯讀工作負載使用其中一個唯讀複本的容量，而不共用讀寫複本。 這種方式的唯讀工作負載將會與主要讀寫工作負載隔離，而且不會影響其效能。 此功能適用於包含邏輯上分隔唯讀工作負載，例如分析的應用程式。 它們可以獲得效能優勢，使用此額外的容量不會有任何額外的費用。
+做為一部分[高可用性架構](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)，Premium、 業務關鍵或超大規模的服務層中每個資料庫都會自動佈建的主要複本與數個次要複本。 次要複本會成為主要複本相同的計算大小與佈建。 **讀取相應放大**功能可讓您將負載平衡的 SQL 資料庫唯讀工作負載使用其中一個唯讀複本的容量，而不共用讀寫複本。 這種方式的唯讀工作負載將會與主要讀寫工作負載隔離，而且不會影響其效能。 此功能適用於包含邏輯上分隔唯讀工作負載，例如分析的應用程式。 它們可以獲得效能優勢，使用此額外的容量不會有任何額外的費用。
 
 下圖說明使用業務關鍵資料庫。
 
@@ -36,11 +36,11 @@ ms.locfileid: "60006143"
 如果您想要確保應用程式連接到主要複本，不論`ApplicationIntent`設定 SQL 連接字串中，您必須明確地停用讀取的相應放大或改變它的組態時建立資料庫。 例如，如果您從標準或一般目的層將資料庫升級至 Premium、 業務關鍵或超大規模的層，並想要確定您的連線繼續移至主要複本時，停用讀取相應放大。如需有關如何停用它的詳細資訊，請參閱 <<c0> [ 啟用和停用讀取相應放大](#enable-and-disable-read-scale-out)。
 
 > [!NOTE]
-> 只读副本不支持查询数据存储、扩展事件、SQL Profiler 和审核功能。 
+> 查詢資料存放區、 擴充的事件、 SQL Profiler 和稽核功能，不支援在唯讀複本。 
 
 ## <a name="data-consistency"></a>資料一致性
 
-複本的其中一個優點是複本一律處於交易一致狀態，但在不同的時間點，不同的複本之間可能會有些微延遲。 讀取相應放大支援工作階段層級一致性。 這表示如果唯讀工作階段重新連線無法使用複本所造成的連線錯誤之後，它可能會重新導向至不是最新的讀寫複本的 100%的複本。 同样，如果应用程序使用读写会话写入数据，并立即使用只读会话读取该数据，则最新的更新可能不会在副本中立即可见。 延迟是由异步事务日志重做操作导致的。
+複本的其中一個優點是複本一律處於交易一致狀態，但在不同的時間點，不同的複本之間可能會有些微延遲。 讀取相應放大支援工作階段層級一致性。 這表示如果唯讀工作階段重新連線無法使用複本所造成的連線錯誤之後，它可能會重新導向至不是最新的讀寫複本的 100%的複本。 同樣地，如果應用程式使用讀寫工作階段的資料寫入，並立即讀取它使用唯讀工作階段，就可以最新的更新不會立即顯示在複本上。 延遲是非同步的交易記錄重做作業所造成的。
 
 > [!NOTE]
 > 區域內的複寫延遲較低，這種情況很罕見。
@@ -74,12 +74,12 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 > [!NOTE]
 > 在任何指定時間，ReadOnly 工作階段只能存取其中一個 AlwaysON 複本。
 
-## <a name="monitoring-and-troubleshooting-read-only-replica"></a>对只读副本进行监视和故障排除
+## <a name="monitoring-and-troubleshooting-read-only-replica"></a>監視和疑難排解唯讀複本
 
-连接到只读副本后，可以使用 `sys.dm_db_resource_stats` DMV 访问性能指标。 若要访问查询计划统计信息，请使用 `sys.dm_exec_query_stats`、`sys.dm_exec_query_plan` 和 `sys.dm_exec_sql_text` DMV。
+當連接到唯讀複本，您可以存取效能計量使用`sys.dm_db_resource_stats`DMV。 若要存取查詢計劃的統計資料，請使用`sys.dm_exec_query_stats`，`sys.dm_exec_query_plan`和`sys.dm_exec_sql_text`Dmv。
 
 > [!NOTE]
-> 逻辑 master 数据库中的 DMV `sys.resource_stats` 返回主要副本的 CPU 使用率和存储数据。
+> DMV`sys.resource_stats`邏輯 master 資料庫中傳回的主要複本的 CPU 使用量和儲存體資料。
 
 
 ## <a name="enable-and-disable-read-scale-out"></a>啟用和停用讀取縮放
@@ -136,13 +136,13 @@ Body:
 
 如需詳細資訊，請參閱[資料庫 - 建立或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)。
 
-## <a name="using-tempdb-on-read-only-replica"></a>对只读副本使用 TempDB
+## <a name="using-tempdb-on-read-only-replica"></a>使用唯讀複本上的 TempDB
 
-TempDB 数据库不会复制到只读副本。 每个副本具有自身的 TempDB 数据库版本，该版本是创建该副本时创建的。 系统确保 TempDB 可更新，并可以在执行查询期间进行修改。 如果只读工作负荷依赖于使用 TempDB 对象，则应创建这些对象作为查询脚本的一部分。 
+TempDB 資料庫不會複寫到唯讀複本。 每個複本都有自己的複本建立時所建立的 TempDB 資料庫的版本。 它會確保 TempDB 可以更新，並且可以在查詢執行期間修改。 如果您的唯讀工作負載相依於使用 TempDB 的物件，您應該建立這些物件做為您的查詢指令碼的一部分。 
 
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>對異地複寫的資料庫使用讀取縮放
 
-如果您用讀取相應放大的資料庫，異地複寫 （例如，做為容錯移轉群組的成員） 上的負載平衡唯讀工作負載，請確定主要和異地複寫次要資料庫上啟用該讀取的相應放大。 此配置可确保应用程序在故障转移后连接到新的主数据库时，相同的负载均衡体验能够继续。 如果您要連線到啟用讀取縮放的異地複寫次要資料庫，則會使用與路由傳送主要資料庫上連線的相同方式，將設定 `ApplicationIntent=ReadOnly` 的工作階段路由傳送至其中一個複本。  未設定 `ApplicationIntent=ReadOnly` 的工作階段會路由傳送至異地複寫次要的主要複本，這也是唯讀狀態。 因為異地複寫的次要資料庫比主要資料庫不同的端點，在過去以存取次要複本就不需要設定`ApplicationIntent=ReadOnly`。 為了確保回溯相容性，`sys.geo_replication_links` DMV 會顯示 `secondary_allow_connections=2` (允許所有用戶端連線)。
+如果您用讀取相應放大的資料庫，異地複寫 （例如，做為容錯移轉群組的成員） 上的負載平衡唯讀工作負載，請確定主要和異地複寫次要資料庫上啟用該讀取的相應放大。 此組態可確保您的應用程式容錯移轉之後連接至新的主要複本時，會繼續相同的負載平衡體驗。 如果您要連線到啟用讀取縮放的異地複寫次要資料庫，則會使用與路由傳送主要資料庫上連線的相同方式，將設定 `ApplicationIntent=ReadOnly` 的工作階段路由傳送至其中一個複本。  未設定 `ApplicationIntent=ReadOnly` 的工作階段會路由傳送至異地複寫次要的主要複本，這也是唯讀狀態。 因為異地複寫的次要資料庫比主要資料庫不同的端點，在過去以存取次要複本就不需要設定`ApplicationIntent=ReadOnly`。 為了確保回溯相容性，`sys.geo_replication_links` DMV 會顯示 `secondary_allow_connections=2` (允許所有用戶端連線)。
 
 > [!NOTE]
 > 不支援循環配置資源或任何其他負載平衡之間的路由，次要資料庫的本機複本。

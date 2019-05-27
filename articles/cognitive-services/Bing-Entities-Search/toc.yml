@@ -93,3 +93,5 @@
       href: entity-search-endpoint.md
     - name: Bing 實體搜尋 API 的分析
       href: bing-entity-stats.md
+    - name: 法規遵循
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 4/18/2019
 ms.author: victorh
 ms.openlocfilehash: 5307f7674635fd33241e1faba9bb0b7c0432d10b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001026"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66134795"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站建立包含 URL 路徑型路由規則的應用程式閘道
 
@@ -142,8 +142,8 @@ ms.locfileid: "60001026"
 
 1. 選取 [規則]，然後選取 [路徑型]。
 2. 輸入 rule2 作為名稱。
-3. 輸入 Images 作為第一個路徑的名稱。 輸入 */images/*\* 作為路徑。 選取 **imagesBackendPool** 作為後端集區。
-4. 輸入 Video 作為第二個路徑的名稱。 輸入 */video/*\* 作為路徑。 選取 **videoBackendPool** 作為後端集區。
+3. 輸入 Images 作為第一個路徑的名稱。 輸入 */images/* \* 作為路徑。 選取 **imagesBackendPool** 作為後端集區。
+4. 輸入 Video 作為第二個路徑的名稱。 輸入 */video/* \* 作為路徑。 選取 **videoBackendPool** 作為後端集區。
 
     ![建立路徑型規則](./media/create-url-route-portal/application-gateway-route-rule.png)
 
@@ -155,7 +155,7 @@ ms.locfileid: "60001026"
 
     ![記錄應用程式閘道公用 IP 位址](./media/create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. 將公用 IP 位址複製並貼到您瀏覽器的網址列。 例如， http://40.121.222.19。
+2. 將公用 IP 位址複製並貼到您瀏覽器的網址列。 例如， [http://40.121.222.19](http://40.121.222.19)。
 
     ![在應用程式閘道中測試基底 URL](./media/create-url-route-portal/application-gateway-iistest.png)
 

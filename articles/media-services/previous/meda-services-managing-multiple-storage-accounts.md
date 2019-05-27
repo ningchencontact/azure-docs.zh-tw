@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 252d5e551dad56108ad952eb0c7c3b39df0585d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855294"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66169286"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>管理多個儲存體帳戶間的媒體服務資產  
 
@@ -66,7 +66,7 @@ ms.locfileid: "57855294"
 
 目前，如果您要新增非經常性儲存體帳戶到 AMS 帳戶，儲存體帳戶必須是 Blob 類型，並且設定為非主要。
 
-## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>跨多个存储帐户管理媒体服务资产
+## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>管理跨多個儲存體帳戶的媒體服務資產
 下列程式碼會使用最新的媒體服務 SDK，執行下列工作：
 
 1. 顯示所有與指定媒體服務帳戶相關聯的儲存體帳戶。

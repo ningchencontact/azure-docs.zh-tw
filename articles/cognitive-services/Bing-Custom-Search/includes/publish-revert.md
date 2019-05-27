@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 7987e8a7a9db06608f663b6ae414788ba8330f65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328361"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66125001"
 ---
 ## <a name="publish-or-revert"></a>發佈或還原
 您對自訂搜尋執行個體所做的變更位於 [組態] 索引標籤中，因此可以驗證您的變更。 當您完成變更並準備好發佈之後，請按一下 [發佈]。 一直要到您發佈之後，變更才會反映到您的生產環境端點。

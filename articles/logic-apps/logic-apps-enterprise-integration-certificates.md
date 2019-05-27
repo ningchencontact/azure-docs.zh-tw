@@ -12,11 +12,11 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/17/2018
 ms.openlocfilehash: 38bc1615c0849a33ddfa5790a66fc05d681ce339
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244924"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66167099"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>使用憑證保護 B2B 訊息
 
@@ -47,11 +47,11 @@ ms.locfileid: "56244924"
 
 3. 在 [憑證] 之下，選擇 [新增]。 在 [新增憑證] 之下，提供憑證的以下詳細資料。 完成時，選擇 [確定]。
 
-   | 屬性 | 值 | 說明 | 
+   | 屬性 | Value | 說明 | 
    |----------|-------|-------------|
    | **名稱** | <*certificate-name*> | 您的憑證名稱，在本例中為 "publicCert" | 
-   | **憑證類型** | 公開 | 您的憑證類型 |
-   | **憑證** | <*certificate-file-name*> | 若要尋找及選取要上傳的憑證檔案，請選擇 [憑證] 方塊旁的資料夾圖示。 |
+   | **憑證類型** | 公用 | 您的憑證類型 |
+   | **[MSSQLSERVER 的通訊協定內容]** | <*certificate-file-name*> | 若要尋找及選取要上傳的憑證檔案，請選擇 [憑證] 方塊旁的資料夾圖示。 |
    ||||
 
    ![選擇 [新增]，並提供憑證的詳細資料](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
@@ -86,11 +86,11 @@ ms.locfileid: "56244924"
 
 5. 在 [憑證] 之下，選擇 [新增]。 在 [新增憑證] 之下，提供憑證的以下詳細資料。 完成時，選擇 [確定]。
 
-   | 屬性 | 值 | 說明 | 
+   | 屬性 | Value | 說明 | 
    |----------|-------|-------------|
    | **名稱** | <*certificate-name*> | 您的憑證名稱，在本例中為 "privateCert" | 
    | **憑證類型** | 私人 | 您的憑證類型 |
-   | **憑證** | <*certificate-file-name*> | 若要尋找及選取要上傳的憑證檔案，請選擇 [憑證] 方塊旁的資料夾圖示。 | 
+   | **[MSSQLSERVER 的通訊協定內容]** | <*certificate-file-name*> | 若要尋找及選取要上傳的憑證檔案，請選擇 [憑證] 方塊旁的資料夾圖示。 | 
    | **資源群組** | <*integration-account-resource-group*> | 整合帳戶的資源群組，在本例中為 "MyResourceGroup" | 
    | **金鑰保存庫** | <*key-vault-name*> | Azure 金鑰保存庫的名稱 |
    | **金鑰名稱** | <*key-name*> | 金鑰名稱 |

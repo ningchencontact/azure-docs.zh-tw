@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
-ms.openlocfilehash: a48a72fe36b7925936758e844d959968ea921c65
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: aac60d3d4fd154847bdfae3dfb590b947e861e9e
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130767"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978826"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>使用 ZIP 或 WAR 檔案將您的應用程式部署至 Azure App Service
 
@@ -95,7 +95,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="deploy-war-file"></a>部署 WAR 檔案
 
-若要將 WAR 檔案部署至 App Service，請將 POST 要求傳送至 https://<app_name>.scm.azurewebsites.net/api/wardeploy。 POST 要求必須在訊息本文中包含 .war 檔案。 系統會使用 HTTP 基本驗證，在要求中提供應用程式的部署認證。 
+若要將 WAR 檔案部署到 App Service 中，傳送 POST 要求至`https://<app_name>.scm.azurewebsites.net/api/wardeploy`。 POST 要求必須在訊息本文中包含 .war 檔案。 系統會使用 HTTP 基本驗證，在要求中提供應用程式的部署認證。
 
 針對 HTTP 基本驗證，您需要 App Service 部署的認證。 若要了解如何設定部署認證，請參閱[設定及重設使用者層級的認證](deploy-configure-credentials.md#userscope)。
 
@@ -117,7 +117,7 @@ $password = "<deployment_password>"
 $filePath = "<war_file_path>"
 $apiUrl = "https://<app_name>.scm.azurewebsites.net/api/wardeploy"
 $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
-Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "multipart/form-data"
+Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "application/octet-stream"
 ```
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]

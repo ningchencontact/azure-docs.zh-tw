@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: 113e30ab65f2cd0ff420df1c79807147a62f79f1
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 29b607f10c15ba35a515b55b059b7b55ff594fe6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608447"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135793"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure 資源管理員範本建立應用程式閘道
 
@@ -28,26 +28,26 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
 
 * 建立具有 Web 應用程式防火牆的應用程式閘道
 * 建立名為 VirtualNetwork1 且含有 10.0.0.0/16 保留 CIDR 區塊的虛擬網路。
-* 创建名为 Appgatewaysubnet 且使用 10.0.0.0/28 作为其 CIDR 块的子网。
+* 建立名為 Appgatewaysubnet 且使用 10.0.0.0/28 做為其 CIDR 區塊的子網路。
 * 針對想要用來為流量進行負載平衡的 Web 伺服器，設定兩個先前所設定的後端 IP。 在此範本範例中，後端 IP 是 10.0.1.10 和 10.0.1.11。
 
 > [!NOTE]
-> 这些设置是适用于此模板的参数。 若要自訂範本，您可以在 azuredeploy.json 檔案中變更規則、接聽程式、SSL 和其他選項。
+> 這些設定都是適用於此範本的參數。 若要自訂範本，您可以在 azuredeploy.json 檔案中變更規則、接聽程式、SSL 和其他選項。
 
 ![案例](./media/application-gateway-create-gateway-arm-template/scenario.png)
 
-## <a name="download-and-understand-the-azure-resource-manager-template"></a>下载并了解 Azure Resource Manager 模板
+## <a name="download-and-understand-the-azure-resource-manager-template"></a>下載並了解 Azure 資源管理員範本
 
 您可以下載現有 Azure 資源管理員範本，以透過 Github 建立虛擬網路和兩個子網路，然後進行任何需要的變更，並重複使用該範本。 若要這樣做，請使用下列步驟：
 
 1. 瀏覽至[建立已啟用 Web 應用程式防火牆的應用程式閘道](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-waf)
 1. 依序按一下 [azuredeploy.json] 和 [RAW]。
-1. 将该文件保存到计算机上的本地文件夹中。
-1. 如果熟悉 Azure Resource Manager 模板，则跳到步骤 7。
+1. 將檔案儲存至您電腦上的本機資料夾。
+1. 如果您熟悉 Azure 資源管理員範本的使用方式，請跳至步驟 7。
 1. 開啟您儲存的檔案，查看 **parameters** 這行下方的內容。
-1. Azure Resource Manager 模板参数提供了在部署过程中可以填充的值的占位符。
+1. Azure 資源管理員範本的參數提供值的預留位置，可以在部署期間填寫。
 
-   | 參數 | 描述 |
+   | 參數 | 說明 |
    | --- | --- |
    | **subnetPrefix** |應用程式閘道子網路的 CIDR 區塊。 |
    | **applicationGatewaySize** | 應用程式閘道的大小。  WAF 只允許中型和大型。 |
@@ -56,13 +56,13 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
    | **wafEnabled** | 用於判斷 WAF 是否已啟用的設定。|
    | **wafMode** | Web 應用程式防火牆的模式。  可用的選項為 **prevention** 或 **detection**。|
    | **wafRuleSetType** | WAF 的規則集類型。  目前，OWASP 是唯一支援的選項。 |
-   | **wafRuleSetVersion** |規則集版本。 OWASP CRS 2.2.9 和 3.0 目前是支持的选项。 |
+   | **wafRuleSetVersion** |規則集版本。 OWASP CRS 2.2.9 和 3.0 是目前支援的選項。 |
 
 1. 檢查 **resources** 下方的內容，並注意下列屬性：
 
    * **type**。 範本所建立的資源類型。 在此案例中，類型是 `Microsoft.Network/applicationGateways`，代表應用程式閘道。
    * **名稱**。 資源的名稱。 請注意 `[parameters('applicationGatewayName')]` 的用法，這表示此名稱是在部署期間由您輸入的內容，或是由參數檔案所提供。
-   * **properties**。 資源屬性的清單。 此範本會在應用程式閘道建立期間，使用虛擬網路與公用 IP 位址。
+   * **屬性**。 資源屬性的清單。 此範本會在應用程式閘道建立期間，使用虛擬網路與公用 IP 位址。
 
 1. 巡覽回 [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf)。
 1. 按一下 [azuredeploy-parameters.json]，然後按一下 [RAW]。
@@ -142,7 +142,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
     New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. 运行 **New-AzResourceGroupDeployment** cmdlet，使用在前面下载并修改的模板和参数文件部署新虚拟网络。
+1. 執行**新增 AzResourceGroupDeployment**指令程式來部署新的虛擬網路，使用上述的範本和參數檔案，下載並修改。
     
     ```powershell
     New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
@@ -151,11 +151,11 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-the-azure-cli"></a>使用 Azure CLI 來部署 Azure 資源管理員範本
 
-若要使用 Azure CLI 部署下载的 Azure Resource Manager 模板，请执行以下步骤：
+若要使用 Azure CLI 部署您下載的 Azure Resource Manager 範本，請依照下列步驟執行：
 
 1. 如果您從未使用過 Azure CLI，請參閱 [安裝和設定 Azure CLI](/cli/azure/install-azure-cli) ，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
 
-1. 如有必要，請執行 `az group create` 命令建立新的資源群組，如下列程式碼片段所示。 請查看命令的輸出內容。 在输出后显示的列表说明了所使用的参数。 如需資源群組的詳細資訊，請瀏覽 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。
+1. 如有必要，請執行 `az group create` 命令建立新的資源群組，如下列程式碼片段所示。 請查看命令的輸出內容。 輸出後顯示的清單可說明所使用的參數。 如需資源群組的詳細資訊，請瀏覽 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。
 
     ```azurecli
     az group create --location westus --name appgatewayRG
@@ -173,7 +173,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-click-to-deploy"></a>使用「按一下即部署」來部署 Azure 資源管理員範本
 
-「按一下即部署」是另一種使用 Azure 資源管理員範本的方式。 这是将模板与 Azure 门户配合使用的简便方法。
+「按一下即部署」是另一種使用 Azure 資源管理員範本的方式。 這是將範本與 Azure 入口網站搭配使用的簡便方法。
 
 1. 移至[建立具有 Web 應用程式防火牆的應用程式閘道](https://azure.microsoft.com/documentation/templates/101-application-gateway-waf/)。
 
@@ -191,7 +191,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
 
 ## <a name="providing-certificate-data-to-resource-manager-templates"></a>提供 Resource Manager 範本的憑證資料
 
-使用 SSL 搭配範本時，必須以 base64 字串形式提供憑證，而不是上傳憑證。 若要將 .pfx 或 .cer 轉換為 Base64 字串，請使用下列其中一個命令。 下列命令會將憑證轉換為可以提供給範本的 Base64 字串。 预期输出为一个字符串，它可以存储在变量中，并粘贴到模板中。
+使用 SSL 搭配範本時，必須以 base64 字串形式提供憑證，而不是上傳憑證。 若要將 .pfx 或 .cer 轉換為 Base64 字串，請使用下列其中一個命令。 下列命令會將憑證轉換為可以提供給範本的 Base64 字串。 預期的輸出是可以儲存在變數並貼在範本中的字串。
 
 ### <a name="macos"></a>macOS
 ```bash
@@ -199,7 +199,7 @@ cert=$( base64 <certificate path and name>.pfx )
 echo $cert
 ```
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```

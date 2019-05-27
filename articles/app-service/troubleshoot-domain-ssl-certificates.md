@@ -16,11 +16,11 @@ ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: c0584a69349c2785b5b6bce1d17c023c95b36151
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525376"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136183"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>在 Azure App Service 中對網域和 SSL 憑證問題進行疑難排解
 
@@ -99,7 +99,7 @@ ms.locfileid: "59525376"
     2. 前往 [App Service 憑證]，然後選取憑證。
     3. 選取 [憑證組態] > [步驟 2：驗證] > [網域驗證]。 此步驟會傳送電子郵件通知給 Azure 憑證提供者，尋求解決問題。
 
-## <a name="custom-domain-problems"></a>自定义域问题
+## <a name="custom-domain-problems"></a>自訂網域的問題
 
 ### <a name="a-custom-domain-returns-a-404-error"></a>自訂網域傳回 404 錯誤 
 
@@ -119,7 +119,7 @@ ms.locfileid: "59525376"
 
 - 如果您已新增 A 記錄，請務必一併新增 TXT 記錄。 如需詳細資訊，請參閱[建立 A 記錄](./app-service-web-tutorial-custom-domain.md#create-the-a-record)。
 - 如果您的應用程式不一定要使用根網域，建議您使用 CNAME 記錄，避免使用 A 記錄。
-- CNAME 記錄和 A 記錄不應同時用於同一個網域。 此问题可能会导致冲突，并阻止域解析。 
+- CNAME 記錄和 A 記錄不應同時用於同一個網域。 此問題會造成衝突，並且防止網域解析。 
 
 **原因 2** 
 
@@ -138,7 +138,7 @@ ms.locfileid: "59525376"
 #### <a name="solution"></a>解決方法
 
 - 請洽詢訂用帳戶管理員，確認您擁有將主機名稱新增至應用程式的權限。
-- 如果需要更多子域，我们建议将域托管服务更改为 Azure 域服务 (DNS)。 只要使用 Azure DNS，您就可以將 500 個主機名稱新增至應用程式。 如需詳細資訊，請參閱[新增子網域](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/)。
+- 如果您需要更多的子網域時，我們建議您變更網域裝載到 Azure 網域名稱服務 (DNS)。 只要使用 Azure DNS，您就可以將 500 個主機名稱新增至應用程式。 如需詳細資訊，請參閱[新增子網域](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/)。
 
 ### <a name="dns-cant-be-resolved"></a>無法解析 DNS
 
@@ -168,7 +168,7 @@ ms.locfileid: "59525376"
 訂用帳戶的擁有者可能已意外刪除網域。
 
 #### <a name="solution"></a>解決方法
-如果網域遭到刪除的時間距離今天不到七天，網域的刪除程序可能尚未開始。 此時，您可以 Azure 入口網站中以同一個訂用帳戶再次購買相同的網域。 (請務必在搜尋方塊內輸入完全相同的網域名稱。)您將不需要再支付這個網域的費用。 如果该域的删除时间超过七天，请求助 [Azure 支持](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)来还原该域。
+如果網域遭到刪除的時間距離今天不到七天，網域的刪除程序可能尚未開始。 此時，您可以 Azure 入口網站中以同一個訂用帳戶再次購買相同的網域。 (請務必在搜尋方塊內輸入完全相同的網域名稱。)您將不需要再支付這個網域的費用。 如果超過七天已刪除網域，請連絡[Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)還原網域的相關說明。
 
 ## <a name="domain-problems"></a>網域問題
 
@@ -269,63 +269,63 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 
     |記錄類型|Host|指向|
     |------|------|-----|
-    |具有使用 |@|應用程式的 IP 位址|
+    |A |@|應用程式的 IP 位址|
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 
 ## <a name="faq"></a>常見問題集
 
-**购买网站的自定义域后是否必须配置该域？**
+**我是否必須購買它之後，設定我自訂的網域，我的網站？**
 
-通过 Azure 门户购买某个域时，应用服务应用程序会自动配置为使用该自定义域。 你不需要执行任何额外的步骤。 如需詳細資訊，請觀賞[Azure App Service 自助說明：新增自訂網域名稱](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name)Channel9 上。
+當您購買網域，以從 Azure 入口網站時，App Service 應用程式會自動設定為使用該自訂網域。 您不必採取任何額外的步驟。 如需詳細資訊，請觀賞[Azure App Service 自助說明：新增自訂網域名稱](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name)Channel9 上。
 
-**是否可以使用在 Azure 门户中购买的域来指向 Azure VM？**
+**可以使用 Azure 入口網站中購買的網域以改為指向 Azure VM 嗎？**
 
 是，您可以指向網域的 vm。 如需詳細資訊，請參閱[使用 Azure DNS 為 Azure 服務提供自訂網域設定](../dns/dns-custom-domain.md)。
 
-**我的域是由 GoDaddy 还是 Azure DNS 托管？**
+**我的網域裝載在 GoDaddy 或 Azure DNS？**
 
-应用服务域使用 GoDaddy 进行域注册，使用 Azure DNS 来托管域。 
+App Service 網域使用 GoDaddy 網域註冊，將 Azure DNS 來裝載網域。 
 
-**我已启用自动续订，但仍收到了有关域续订的电子邮件通知。我該怎麼辦？**
+**我有自動更新啟用，但仍然會收到我的網域，透過電子郵件的續約通知。我該怎麼辦？**
 
-如果你已启用自动续订，则不需要执行任何操作。 电子邮件通知旨在告诉你该域即将过期，如果未启用自动续订，则需要手动续订。
+如果您有自動更新啟用，您不需要採取任何動作。 提供通知電子郵件通知您的網域是即將過期，並手動更新，如果自動更新未在啟用。
 
-**在 Azure DNS 中托管域是否要付费？**
+**我會收取 Azure DNS 裝載我的網域嗎？**
 
-最初的域购买费用仅适用于域注册。 除了注册费用以外，Azure DNS 还会根据用量收费。 有关详细详细，请参阅 [Azure DNS 定价](https://azure.microsoft.com/pricing/details/dns/)。
+網域註冊只適用於網域購買的初始成本。 除了註冊成本，還有您的使用量為基礎的 Azure dns 會產生費用。 如需詳細資訊，請參閱 < [Azure DNS 定價](https://azure.microsoft.com/pricing/details/dns/)如需詳細資訊。
 
-**我的域是之前在 Azure 门户中购买的，现在想要从 GoDaddy 托管改为 Azure DNS 托管。该如何处理？**
+**我購買我稍早從 Azure 入口網站的網域，而且想要從 GoDaddy 裝載 Azure DNS 裝載移動。如何執行這個？**
 
-不一定非要迁移到 Azure DNS 托管。 如果你确实想要迁移到 Azure DNS，Azure 门户中的域管理体验会提供有关转移到 Azure DNS 的步骤信息。 如果域通过应用服务购买的，则从 GoDaddy 托管迁移到 Azure DNS 的过程相对较为顺畅。
+您不一定要移轉至 Azure DNS 託管服務。 如果您想要移轉至 Azure DNS，在 Azure 入口網站中的網域管理體驗的相關資訊提供移往 Azure DNS 所需的步驟。 透過 App Service 購買網域，如果從 GoDaddy 給 Azure DNS 所主控的移轉會是相當順暢的程序。
 
-**如果通过应用服务域购买域，是否可以在 GoDaddy 而不是 Azure DNS 中托管该域？**
+**我想要購買我的 App Service 網域的網域，但是我可以裝載我的網域，而不是 Azure DNS 的 GoDaddy 上？**
 
-从 2017 年 7 月 24 日开始，在门户中购买的应用服务域将托管在 Azure DNS 中。 如果你想要使用其他托管提供商，则必须转到其网站以获取域托管解决方案。
+從 2017 年 7 月 24 日起，在入口網站中購買的 App Service 網域裝載於 Azure DNS。 如果您想要使用不同的主機服務提供者，您必須移至其網站，以取得網域託管解決方案。
 
-**是否需要支付域的隐私保护费用？**
+**我必須支付隱私權保護我的網域嗎？**
 
-通过 Azure 门户购买域时，可以选择免费添加隐私保护。 这是通过 Azure 应用服务购买域所能获得的权益之一。
+當您購買網域，以透過 Azure 入口網站時，您可以選擇新增隱私權，不需要額外收費。 這是購買您的網域，透過 Azure App Service 的優點之一。
 
-**如果我不再想要使用我的域，是否可以获得退款？**
+**如果我決定我不想再我的網域，可以取得我的金錢回復？**
 
-购买域时，你可以免费试用 5 天，在此期间，可以决定是否要继续使用。 如果在这五天内你决定不需要该域，则不会产生费用。 （.uk 域例外。 购买 .uk 域会立即产生费用，而不能获得退款）。
+當您購買網域時，您不會收取一段五天，在這段期間您可以決定您不要在網域。 如果您決定不想網域這五天的期間內，您無須付費。 （.uk 網域會是這個例外狀況。 如果您購買.uk 網域，您都需立即支付費用，您無法退還）。
 
-**是否可以在订阅中的另一个 Azure 应用服务应用中使用域？**
+**可以使用另一個 Azure App Service 應用程式中的網域中 我的訂用帳戶嗎？**
 
-是。 在 Azure 门户中访问“自定义域和 SSL”边栏选项卡时，会看到购买的域。 可将应用配置为使用其中的任何域。
+是。 當您存取 Azure 入口網站中的 [自訂網域及 SSL] 刀鋒視窗時，您會看到您已購買的網域。 您可以設定您的應用程式使用任何這些網域。
 
-**是否可将域从一个订阅转移到另一个订阅？**
+**可以將傳輸網域從一個訂用帳戶到另一個訂用帳戶嗎？**
 
 您可以將網域移到另一個訂用帳戶/資源群組使用[移動 AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) PowerShell cmdlet。
 
-**如果我当前没有 Azure 应用服务应用，该如何管理自定义域？**
+**如果我目前還沒有 Azure App Service 應用程式，如何管理我的自訂網域？**
 
-即使没有应用服务 Web 应用，也可以管理域。 域可用于虚拟机、存储等 Azure 服务。如果你打算将域用于应用服务 Web 应用，则需要添加一个未包含在免费应用服务计划中的 Web 应用才能将域绑定到 Web 应用。
+即使您沒有 App Service Web 應用程式，您可以管理您的網域。 網域可以用於如虛擬機器、 儲存體等的 Azure 服務。如果您想要使用 App Service Web Apps 的網域，您需要包含 Web 應用程式不是免費的 App Service 方案，以繫結至您的 web 應用程式的網域。
 
-**是否可将使用自定义域的 Web 应用移到另一个订阅，或者将其从应用服务环境 v1 移到 v2？**
+**可移與自訂網域的 web 應用程式到另一個訂用帳戶，或從 App Service Environment v1 至 V2？**
 
-是的，可以在订阅之间移动 Web 应用。 请遵照[如何在 Azure 中移动资源](../azure-resource-manager/resource-group-move-resources.md)中的指导操作。 移动 Web 应用时存在一些限制。 有关详细信息，请参阅[移动应用服务资源时存在的限制](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
+是，您可以移動您的 web 應用程式跨訂用帳戶。 請依照下列中的指導方針[如何將資源移入 Azure](../azure-resource-manager/resource-group-move-resources.md)。 移動 web 應用程式時，有一些限制。 如需詳細資訊，請參閱 <<c0> [ 移動 App Service 資源的限制](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
 )。
 
-移动 Web 应用之后，自定义域设置中的域的主机名绑定应保持不变。 无需执行额外的步骤即可配置主机名绑定。
+移動後的 web 應用程式，設定自訂網域中的定義域的主機名稱繫結，也應該保持相同。 若要設定的主機名稱繫結，不需要任何額外的步驟。

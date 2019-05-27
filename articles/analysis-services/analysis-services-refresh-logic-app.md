@@ -7,14 +7,14 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 6e1ac5dfd1972e406a1bd8dcd26e6aef2c4ea6d1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6ffce339fe7b1a434c8f007b417ee81a42529dfc
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919873"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142349"
 ---
-# <a name="refresh-with-logic-apps"></a>重新整理與 Logic Apps
+# <a name="refresh-with-logic-apps"></a>使用 Logic Apps 重新整理
 
 藉由使用邏輯應用程式與 REST 呼叫，您可以執行自動的資料重新整理作業，對您 Azure 分析表格式模型，包括同步處理的向外延展查詢的唯讀複本。
 
@@ -66,14 +66,14 @@ ms.locfileid: "64919873"
 |屬性  |Value  |
 |---------|---------|
 |**方法**     |POST         |
-|**URI**     | https://*伺服器地區*/servers/*aas 伺服器名稱*/models/*您的資料庫名稱*/ <br /> <br /> 例如： https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
-|**標頭**     |   內容類型、 application/json <br /> <br />  ![headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**URI**     | https://*伺服器地區*/servers/*aas 伺服器名稱*/models/*您的資料庫名稱*/ <br /> <br /> 例如： https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
+|**標頭**     |   內容類型、 application/json <br /> <br />  ![標頭](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**內文**     |   若要深入了解的要求主體的形成，請參閱[非同步重新整理使用 REST API-POST /refreshes](analysis-services-async-refresh.md#post-refreshes)。 |
 |**驗證**     |Active Directory OAuth         |
 |**租用戶**     |填寫您 Azure Active Directory 租用戶識別碼         |
 |**目標對象**     |https://*.asazure.windows.net         |
 |**用戶端識別碼**     |輸入您的服務主體名稱 ClientID         |
-|**認證類型**     |Secret         |
+|**認證類型**     |祕密         |
 |**祕密**     |輸入您的服務主體名稱祕密         |
 
 範例：

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.author: jingwang
-ms.openlocfilehash: 6af5c8cdad00802052f08be844f77d36420da3c9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9f6edc45316eaeceb75da643ed64b39382712852
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142361"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165949"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory 中支援的檔案格式和壓縮轉碼器
 
@@ -29,7 +29,7 @@ ms.locfileid: "65142361"
 * [Avro 格式](#avro-format)
 
 > [!TIP]
-> 請參閱[複製活動中的結構描述對應](copy-activity-schema-and-type-mapping.md)，以了解複製活動將來源資料對應至接收的方式，其中包括中繼資料是如何根據您的檔案格式設定來決定，以及指定[資料集 `structure`](concepts-datasets-linked-services.md#dataset-structure-or-schema) 區段的時機。
+> 了解複製活動如何對應來源資料，以接收來自[複製活動中的結構描述對應](copy-activity-schema-and-type-mapping.md)。
 
 ## <a name="text-format"></a>文字格式
 

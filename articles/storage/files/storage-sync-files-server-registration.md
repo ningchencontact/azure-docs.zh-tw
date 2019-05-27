@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6b9996716621137945b5aeb2f0699bf1bddba4a6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ef6def9f03a880d9fc8d649fe226caf597ba0ad5
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65189989"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991834"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>使用 Azure 檔案同步管理已註冊的伺服器
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
@@ -102,9 +102,7 @@ Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服�
 您也可以透過 PowerShell 執行伺服器註冊。 這是雲端解決方案提供者 (CSP) 訂用帳戶唯一支援的伺服器註冊方法：
 
 ```powershell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-Login-AzStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
-Register-AzStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
+Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
 ```
 
 ### <a name="unregister-the-server-with-storage-sync-service"></a>向儲存體同步服務取消註冊伺服器
@@ -154,7 +152,7 @@ Get-AzStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName
 1. 在 Azure 入口網站中，瀏覽到儲存體同步服務的 [已註冊的伺服器] 區段。
 2. 以滑鼠右鍵按一下您要取消註冊的伺服器，然後按一下 [取消註冊伺服器]。
 
-    ![將伺服器取消註冊](media/storage-sync-files-server-registration/unregister-server-1.png)
+    ![取消登錄伺服器](media/storage-sync-files-server-registration/unregister-server-1.png)
 
 ## <a name="ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter"></a>確認 Azure 檔案同步對於您的資料中心不會有不良影響 
 因為資料中心中不只有 Azure 檔案同步這項服務，因此您可能會想要限制 Azure 檔案同步的網路和儲存體使用量。

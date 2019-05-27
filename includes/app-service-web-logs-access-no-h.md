@@ -9,11 +9,11 @@ ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 0dd6618bdee8e6810d414d4b04b16a1e0a9c90ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60768704"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66137390"
 ---
 您可以存取從容器產生的主控台記錄。 請先在 Cloud Shell 中執行下列命令來開啟容器記錄：
 

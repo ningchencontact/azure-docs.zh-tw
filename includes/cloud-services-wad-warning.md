@@ -1,10 +1,15 @@
 ---
+author: jpconnock
+ms.service: cloud-services
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: jeconnoc
 ms.openlocfilehash: f23d5246401f23694755e63a51c52da5dbf5ac1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337286"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66125394"
 ---
 > [!WARNING]
 > 當您在現有角色上啟用診斷功能時，您已設定的任何擴充功能都會在部署套件時停用。 其中包含：

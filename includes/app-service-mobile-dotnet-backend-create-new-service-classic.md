@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: e087a1db008422aeec8fd4e073a7476eebe4d54b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729402"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140636"
 ---
 1. 登入 [Azure 入口網站]。
 2. 選取 [+ 新增] > [Web + 行動] > [行動應用程式]，然後為您的行動應用程式後端提供名稱。

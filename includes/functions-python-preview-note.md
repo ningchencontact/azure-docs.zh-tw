@@ -6,18 +6,15 @@ author: astay
 manager: edlaure
 ms.service: functions
 ms.topic: include
-origin.date: 08/30/2018
-ms.date: 12/26/2018
-ms.author: v-junlch
+ms.date: 08/30/2018
+ms.author: astay
 ms.custom: include file
 ms.openlocfilehash: 7a10ef292f3d131191fe7763635b4604498de326
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61021256"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131464"
 ---
 > [!NOTE]
 > 適用於 Azure Functions 的 Python 目前為預覽版。 若要接收重要更新，請在 GitHub 上訂閱 [Azure App Service 通知](https://github.com/Azure/app-service-announcements/issues)存放庫。  
-
-<!-- ms.date: 12/26/2018 -->

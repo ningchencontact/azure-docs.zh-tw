@@ -60,6 +60,8 @@
       href: 'https://aka.ms/adregion'
     - name: 參考解決方案架構
       href: 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
+    - name: 法規遵循
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
 - name: 支援
   items:
     - name: 取得支援

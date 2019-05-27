@@ -16,11 +16,11 @@ ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: 711b662c35b5f8fec96f1edee765696bc1028bf8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550176"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66127504"
 ---
 ### <a name="general-requirements"></a>一般需求
 
@@ -71,7 +71,7 @@ ms.locfileid: "60550176"
 
 **輸出安全性規則**
 
-| 來源 | 來源連接埠 | 目的地 | 目的地服務標記 | Protocol |  動作 |
+| `Source` | 來源連接埠 | 目的地 | 目的地服務標籤 | Protocol |  動作 |
 | --- | --- | --- | --- | --- | --- |
 | 任意 | 443 | [服務標記](../articles/virtual-network/security-overview.md#service-tags) | `Storage` （在您的 Batch 帳戶和 VNet 位於相同區域）  | 任意 | 允許 |
 
@@ -104,6 +104,6 @@ ms.locfileid: "60550176"
 
 **輸出安全性規則**
 
-| 來源 | 來源連接埠 | 目的地 | 目的地連接埠 | Protocol |  動作 |
+| `Source` | 來源連接埠 | 目的地 | 目的地連接埠 | Protocol |  動作 |
 | --- | --- | --- | --- | --- | --- |
 | 任意 | * | 任意 | 443  | 任意 | 允許 |

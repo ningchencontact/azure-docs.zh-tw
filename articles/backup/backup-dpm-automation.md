@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
 ms.openlocfilehash: b16963265c971e604f03b51fd63f7fe411bab36e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651835"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66127745"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>使用 PowerShell 部署和管理 Data Protection Manager (DPM) 伺服器的 Azure 備份
 
@@ -21,7 +21,7 @@ ms.locfileid: "58651835"
 
 ## <a name="setting-up-the-powershell-environment"></a>設定 PowerShell 環境
 
-在可以使用 PowerShell 來管理 Data Protection Manager 的 Azure 備份之前，您必須在 PowerShell 中具備適當的環境。 在 PowerShell 会话开始时，请确保运行以下命令，以便导入正确的模块以及正确引用 DPM cmdlet：
+在可以使用 PowerShell 來管理 Data Protection Manager 的 Azure 備份之前，您必須在 PowerShell 中具備適當的環境。 在 PowerShell 工作階段開始時，請確定您執行下列命令來匯入正確的模組並可讓您正確地參考 DPM Cmdlet：
 
 ```powershell
 & "C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin\DpmCliInitScript.ps1"
@@ -46,9 +46,9 @@ Sample DPM scripts: Get-DPMSampleScript
 
 PowerShell 可以自動化下列設定和註冊工作：
 
-* 创建恢复服务保管库
+* 建立復原服務保存庫
 * 安裝 Azure 備份代理程式
-* 注册到 Azure 备份服务
+* 向 Azure 備份服務進行註冊
 * 網路設定
 * 加密設定
 
@@ -119,9 +119,9 @@ MARSAgentInstaller.exe /q
 
 這會以所有預設選項安裝代理程式。 安裝作業會在背景中進行幾分鐘。 如果您沒有指定 */nu* 選項，則安裝結束時會開啟 **Windows Update** 視窗以檢查是否有任何更新。
 
-代理在已安装程序列表中显示。 若要查看已安裝的程式清單，請移至 [控制台] > [程式] > [程式和功能]。
+代理程式會顯示在已安裝的程式清單中。 若要查看已安裝的程式清單，請移至 [控制台] > [程式] > [程式和功能]。
 
-![已安装代理](./media/backup-dpm-automation/installed-agent-listing.png)
+![安裝的代理程式](./media/backup-dpm-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>安裝選項
 
@@ -133,7 +133,7 @@ MARSAgentInstaller.exe /?
 
 可用的選項包括：
 
-| 选项 | 詳細資料 | 預設值 |
+| 選項 | 詳細資料 | 預設值 |
 | --- | --- | --- |
 | /q |無訊息安裝 |- |
 | /p:"location" |Azure 備份代理程式的安裝資料夾路徑。 |C:\Program Files\Microsoft Azure Recovery Services Agent |
@@ -191,7 +191,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 
 ## <a name="networking"></a>網路功能
 
-如果 DPM 機器對在網際網路上的 Azure 備份服務的連線是透過 Proxy 伺服器，則應該提供 Proxy 伺服器設定，備份才能成功。 這是使用 ```-ProxyServer```、```-ProxyPort```、```-ProxyUsername``` 及 ```ProxyPassword``` 參數搭配 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) Cmdlet 來完成。 此示例未使用代理服务器，因此我们要显式清除任何代理相关的信息。
+如果 DPM 機器對在網際網路上的 Azure 備份服務的連線是透過 Proxy 伺服器，則應該提供 Proxy 伺服器設定，備份才能成功。 這是使用 ```-ProxyServer```、```-ProxyPort```、```-ProxyUsername``` 及 ```ProxyPassword``` 參數搭配 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) Cmdlet 來完成。 本範例未使用 Proxy 伺服器，因此會明確地清除任何 Proxy 相關資訊。
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoProxy
@@ -205,7 +205,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 
 ## <a name="configuring-the-staging-area"></a>設定臨時區域
 
-在 DPM 服务器上运行的 Azure 备份代理需要使用临时存储来存放从云还原的数据（本地过渡区域）。 使用 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) Cmdlet 和 ```-StagingAreaPath``` 參數來設定臨時區域。
+在 DPM 伺服器上執行的 Azure 備份代理程式需要暫存儲存體，以供存放從雲端還原的資料 (本機臨時區域)。 使用 [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) Cmdlet 和 ```-StagingAreaPath``` 參數來設定臨時區域。
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
@@ -226,7 +226,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 ```
 
 > [!IMPORTANT]
-> 请妥善保管设置好的通行短语，并保证其安全。 若沒有此複雜密碼，您將無法從 Azure 還原資料。
+> 一旦設定，就請保管好此複雜密碼。 若沒有此複雜密碼，您將無法從 Azure 還原資料。
 >
 >
 
@@ -338,7 +338,7 @@ Set-DPMProtectionGroup -ProtectionGroup $MPG
 
 ### <a name="initial-backup"></a>初始備份
 
-第一次備份資料來源時，DPM 需要建立初始複本，以建立要在 DPM 複本磁碟區上保護的資料來源完整複本。 此活动可以安排在特定的时间，或使用 [Set-DPMReplicaCreationMethod](https://technet.microsoft.com/library/hh881715) cmdlet 并结合参数 ```-NOW``` 手动触发。
+第一次備份資料來源時，DPM 需要建立初始複本，以建立要在 DPM 複本磁碟區上保護的資料來源完整複本。 此活動可以排定在特定的時間，或可以使用 [Set-DPMReplicaCreationMethod](https://technet.microsoft.com/library/hh881715) Cmdlet 搭配參數 ```-NOW``` 手動觸發。
 
 ```powershell
 Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW

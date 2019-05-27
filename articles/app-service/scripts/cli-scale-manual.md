@@ -17,11 +17,11 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 5a15a16b05adedf9f7c8738ae26174120a86efd8
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136649"
 ---
 # <a name="scale-an-app-service-app-manually-using-azure-cli"></a>使用 Azure CLI 來手動調整 App Service 應用程式
 
@@ -41,7 +41,7 @@ ms.locfileid: "53650008"
 
 ## <a name="script-explanation"></a>指令碼說明
 
-此指令碼使用下列命令來建立資源群組、App Service 應用程式和所有相關資源。 下表中的每個命令都會連結至命令特定的文件。
+此指令碼會使用下列命令來建立資源群組、App Service 應用程式及所有相關資源。 下表中的每個命令都會連結至命令特定的文件。
 
 | 命令 | 注意 |
 |---|---|

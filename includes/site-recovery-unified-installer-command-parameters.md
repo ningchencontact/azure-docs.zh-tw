@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 9d9790c9b3dbe3b130be999dd76092ae64f7b52c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841400"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66169937"
 ---
-|參數名稱| 類型 | 說明| 可能的值|
+|參數名稱| Type | 說明| 可能的值|
 |-|-|-|-|
 | /ServerMode|強制|指定應該同時安裝組態和處理序伺服器，還是只安裝處理序伺服器|CS<br>PS|
 |/InstallLocation|強制|安裝元件的資料夾| 電腦上的任何資料夾|

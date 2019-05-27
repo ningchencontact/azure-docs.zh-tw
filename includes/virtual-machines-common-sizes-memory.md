@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/13/2019
+ms.date: 05/16/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 8cc13e9aec679a79d31d2724ba412efd2d58dfd1
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 0b0e03b163d4de7a441bb7d2714be23b58c95028
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561265"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170366"
 ---
 記憶體最佳化的虛擬機器大小的記憶體與 CPU 比例相當高，最適合關聯式資料庫伺服器、中型到大型快取，以及記憶體內部分析。 本文提供 vCPU 數量、資料磁碟和 NIC 的相關資訊，以及此群組中各種大小之儲存體輸送量和網路頻寬的相關資訊。 
 
@@ -98,15 +98,57 @@ Ev3 系列執行個體以 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 處理器
 
 寫入加速器：[支援](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
+Mv2 系列功能高輸送量、 低延遲、 直接對應本機上執行超執行緒 Intel® Xeon® Platinum 8180 M 2.5ghz (Skylake) 處理器使用所有核心基底頻率 2.5ghz 和 3.8 GHz 的最大的渦輪頻率的 NVMe 儲存體。 所有的 Mv2 系列虛擬機器大小可以使用標準和進階永續性磁碟。 Mv2 系列執行個體是記憶體最佳化提供無與倫比的計算效能，以支援大型記憶體內部資料庫和工作負載，較高的記憶體與 CPU 比例適用於關聯式資料庫伺服器、 大型的快取，以及記憶體中的 VM 大小分析。 
+
 |大小 | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大快取和暫存儲存體輸送量IOPS / MBps (快取大小，以 GiB 為單位) | 最大取消快取的磁碟輸送量：IOPS / MBps | 最大 NIC/預期的網路頻寬 (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M208ms_v22<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
-| Standard_M208s_v22<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
+| Standard_M208ms_v2<sup>1, 2</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
+| Standard_M208s_v2<sup>1, 2</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
 
 Mv2 系列 VM 的功能 Intel® 超執行緒技術  
 
-<sup>1</sup>這些大型個 vCPU 需要下列其中一個支援的客體 Os:Windows Server 2016、windows Server 2019，SLES 12 SP4、 15 SLES 和 RHEL 7.6
+<sup>1</sup>這些大型的 Vm 需要下列其中一個支援的客體 Os:Windows Server 2016、windows Server 2019，SLES 12 SP4，SLES 15。
 
+<sup>2</sup> Mv2 系列 Vm 是只有層代 2。 如果您使用 Linux，請參閱下的節以取得如何尋找並選取 SUSE Linux 映像。
+
+#### <a name="find-a-suse-image"></a>尋找 SUSE 映像
+
+若要在 Azure 入口網站中選取適當的 SUSE Linux 映像： 
+
+1. 在 Azure 入口網站中，選取**建立資源** 
+1. 搜尋 「 SUSE SAP 」 
+1. SLES for SAP 的第 2 代映像可做為任一個的隨用隨付，或攜帶您自己的訂用帳戶 (BYOS)。 在搜尋結果中，展開所需的映像分類：
+
+    * 適用於 SAP 的 SUSE Linux Enterprise Server (SLES)
+    * SUSE Linux Enterprise Server (SLES) for SAP (BYOS)
+    
+1. 與 Mv2 系列相容的 SUSE 映像前面會加上名稱`GEN2:`。 下列的 SUSE 映像可供 Mv2 系列 Vm:
+
+    * GEN2:SUSE Linux Enterprise Server (SLES) 12 SP4 for SAP 應用程式
+    * GEN2:SUSE Linux Enterprise Server (SLES) 15 for SAP 應用程式
+    * GEN2:SUSE Linux Enterprise Server (SLES) 12 SP4 for SAP 應用程式 (BYOS)
+    * GEN2:SUSE Linux Enterprise Server (SLES) 15 for SAP 應用程式 (BYOS)
+
+#### <a name="select-a-suse-image-via-azure-cli"></a>選取 透過 Azure CLI 的 SUSE 映像
+
+若要查看 Mv2 系列 Vm 的目前可用的 SLES for SAP 映像清單，請使用下列[ `az vm image list` ](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list)命令：
+
+```azurecli
+az vm image list --output table --publisher SUSE --sku gen2 --all
+```
+
+命令會輸出目前提供第 2 代 Vm 提供從 SUSE Mv2 系列 vm。 
+
+範例輸出︰
+
+```
+Offer          Publisher  Sku          Urn                                        Version
+-------------  ---------  -----------  -----------------------------------------  ----------
+SLES-SAP       SUSE       gen2-12-sp4  SUSE:SLES-SAP:gen2-12-sp4:2019.05.13       2019.05.13
+SLES-SAP       SUSE       gen2-15      SUSE:SLES-SAP:gen2-15:2019.05.13           2019.05.13
+SLES-SAP-BYOS  SUSE       gen2-12-sp4  SUSE:SLES-SAP-BYOS:gen2-12-sp4:2019.05.13  2019.05.13
+SLES-SAP-BYOS  SUSE       gen2-15      SUSE:SLES-SAP-BYOS:gen2-15:2019.05.13      2019.05.13
+```
 
 ## <a name="m-series"></a>M 系列 
 
