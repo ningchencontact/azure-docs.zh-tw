@@ -68,7 +68,7 @@ Data Factory 目前只支援將資料從 HTTP 來源移到其他資料存放區�
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| username | 用來存取 HTTP 端點的使用者名稱。 | 是 |
+| userName | 用來存取 HTTP 端點的使用者名稱。 | 是 |
 | password | 使用者 (**username**) 的密碼。 | 是 |
 
 **範例：使用基本、摘要或 Windows 驗證**
