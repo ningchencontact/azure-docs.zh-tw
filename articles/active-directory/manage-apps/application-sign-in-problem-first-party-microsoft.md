@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26acb32828ae4829b3da5c3a1181dbde19b23d05
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 504c1bdeb05ecb6372be0edf023c480acac8a8a7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825222"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956856"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>登入 Microsoft 應用程式的問題
 
@@ -31,7 +31,7 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 -   對於 Office 365 或其他付費套件中的應用程式，會透過**指派授權**直接指派至使用者帳戶，或使用我們的群組授權指派功能來透過群組，將存取權授與使用者。
 
--   對於 Microsoft 或第三方免費發佈給任何人使用的應用程式，會透過**使用者同意**將存取權授與使用者。 这意味着他们使用其 Azure AD 工作或学校帐户登录到应用程序，并允许它访问其帐户上一些受限制的数据集。
+-   對於 Microsoft 或第三方免費發佈給任何人使用的應用程式，會透過**使用者同意**將存取權授與使用者。 這表示它們的應用程式具有其 Azure AD 工作或學校帳戶登入，並允許它在其帳戶上有一些有限的資料存取。
 
 -   應用程式的 Microsoft 或第 3 方發佈免費供任何人使用，使用者可能也會授與存取透過**系統管理員的同意**。 這表示系統管理員已決定組織中的每個人都能使用該應用程式，因此系統管理員使用全域管理員帳戶身分登入應用程式，並將存取權授與組織中的每個人。
 
@@ -87,7 +87,7 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 - 對於不需要授權的 **Microsoft** **應用程式**，以下為其他的檢查事項：
 
-  * 如果應用程式要求的是**使用者層級權限** (例如「存取此使用者的信箱」)，請確定使用者已登入該應用程式，並已執行**使用者層級同意作業**，讓應用程式可存取其資料。
+  * 如果應用程式要求**使用者層級權限**（例如 「 存取此使用者的信箱 」），請確定使用者已登入應用程式，且已經有執行**使用者層級同意作業**若要讓應用程式存取其資料。
 
   * 如果應用程式要求的是**系統管理員層級權限** (例如「存取所有使用者的信箱」)，請確定全域管理員已**代表組織中所有使用者執行系統管理員層級同意作業**。
 
@@ -205,7 +205,7 @@ Microsoft 應用程式 (如 Office 365 Exchange、SharePoint、Yammer 等) 在�
 
 9. 從使用者清單中選取使用者，然後視需要 [啟用]、[停用] 或 [強制執行] 多重要素驗證。
 
-   * **注意**：如果用户处于**已强制实施**状态，可暂时将其设置为**已禁用**以允许用户重新登录到其帐户。 退回之後，您可以再次將其狀態變更為 [已啟用]，以要求他們在下次登入時重新註冊連絡資訊。 或者，您可以依照[檢查使用者的驗證連絡資訊](#check-a-users-authentication-contact-info)中的步驟，為他們確認或設定此資料。
+   * **注意**：如果使用者處於 [已強制] 狀態，您可以暫時將他們設為 [已停用]，讓他們回到各自的帳戶。 退回之後，您可以再次將其狀態變更為 [已啟用]，以要求他們在下次登入時重新註冊連絡資訊。 或者，您可以依照[檢查使用者的驗證連絡資訊](#check-a-users-authentication-contact-info)中的步驟，為他們確認或設定此資料。
 
 ### <a name="check-a-users-authentication-contact-info"></a>檢查使用者的驗證連絡資訊
 

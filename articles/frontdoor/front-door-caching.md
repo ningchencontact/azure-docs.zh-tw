@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: fb00c09680c6a80bc093c6f02ccd8d7269b8748c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42ee1dea8c9735592f6d6c9e0542ca094a6be383
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306133"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962907"
 ---
 # <a name="caching-with-azure-front-door-service"></a>使用 Azure Front Door Service 進行快取
 下列文件會利用已啟用快取的路由規則來指定 Front Door 的行為。
@@ -101,7 +101,7 @@ Front Door 上的快取清除是不區分大小寫的。 此外，它們是無�
 ## <a name="cache-expiration"></a>快取到期
 下列標頭的順序可用來判斷項目將在我們的快取中儲存的時間：</br>
 1. Cache-Control: s-maxage=\<seconds>
-2. Cache-Control: maxage=\<seconds>
+2. Cache-Control: max-age=\<seconds>
 3. 到期： \<http 日期 >
 
 系統會接受指出將不會快取回應的 Cache-Control 回應標頭 (例如，Cache-Control: private、Cache-Control: no-cache 與 Cache-Control: no-store)。 不過，如果 POP 中有多個針對相同 URL 的要求，它們可能共用回應。 若沒有快取控制項，則預設行為是時間的 AFD 會快取的資源量 X X 隨機挑選介於 1 到 3 天之間。
