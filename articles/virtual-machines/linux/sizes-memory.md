@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/13/2019
+ms.date: 05/16/2019
 ms.author: jonbeck
-ms.openlocfilehash: 535103f875f479b2951b4cc5414e5b133bf6584d
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 3201183bbd012340575ee2c117b4b2083ceea711
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561269"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832154"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>記憶體最佳化的虛擬機器大小
 
@@ -29,6 +29,7 @@ ms.locfileid: "65561269"
 [!INCLUDE [virtual-machines-common-sizes-memory](../../../includes/virtual-machines-common-sizes-memory.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
+
 
 ## <a name="other-sizes"></a>其他大小
 - [一般用途](sizes-general.md)
@@ -39,4 +40,7 @@ ms.locfileid: "65561269"
 - [前幾代](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>後續步驟
-深入了解 [Azure 計算單位 (ACU)](acu.md) 如何協助您比較各個 Azure SKU 的計算效能。
+
+* 深入了解 [Azure 計算單位 (ACU)](acu.md) 如何協助您比較各個 Azure SKU 的計算效能。
+
+* 了解如何[建立和管理使用 Azure CLI 的 Linux Vm](tutorial-manage-vm.md)

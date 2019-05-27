@@ -286,8 +286,8 @@ ms.locfileid: "60405920"
 | 日期 |DateTime |
 | FLOAT |Decimal，字串 (如果精確度 > 28) |
 | INTEGER |Decimal，字串 (如果精確度 > 28) |
-| 長 |String |
-| 長 RAW |Byte[] |
+| LONG |String |
+| LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
 | NUMBER |Decimal，字串 (如果精確度 > 28) |

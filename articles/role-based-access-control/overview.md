@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fd5c47bb3c7bc3dfc9c0e140531ff832e7e6ef56
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6510099f9fb145951cbce1ea168b36dba5f76e07
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011032"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540910"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>什麼是 Azure 資源的角色型存取控制 (RBAC)？
 
@@ -138,4 +138,4 @@ Azure 引進了可讓您授與物件內資料存取權的資料作業 (目前處
 - [快速入門：使用 Azure 入口網站檢視使用者擁有的 Azure 資源存取權](check-access.md)
 - [使用 RBAC 和 Azure 入口網站管理 Azure 資源的存取權](role-assignments-portal.md)
 - [了解 Azure 中的不同角色](rbac-and-directory-admin-roles.md)
-- [企業雲端採用：Azure 中的資源存取管理](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)
+- [企業雲端採用：Azure 中的資源存取管理](/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)

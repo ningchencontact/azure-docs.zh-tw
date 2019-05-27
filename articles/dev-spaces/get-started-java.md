@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s
 manager: mmontwil
-ms.openlocfilehash: b69a793d1d860bf2f2a4d52a92d4bea5cf903c0c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 10f85ea697ad0ffae181112ae51eac928424ccc3
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426302"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861736"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>在使用 Java 的 Azure Dev Spaces 上開始使用
 
@@ -65,7 +65,7 @@ az group create --name MyResourceGroup --location <region>
 使用下列命令來建立 Kubernetes 叢集：
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
 ```
 
 建立叢集需要幾分鐘的時間。

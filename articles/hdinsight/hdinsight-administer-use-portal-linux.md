@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 003aeadba1f4683af40f390d40dd3bbe32e02a83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 528d2fd5b26e06478078711405bd5b9ca51feeda
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721912"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859990"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集
 
@@ -25,7 +25,7 @@ ms.locfileid: "64721912"
 - Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - HDInsight 中現有的 Apache Hadoop 叢集。  請參閱 [使用 Azure 入口網站在 HDInsight 中建立以 Linux 為基礎的叢集](hdinsight-hadoop-create-linux-clusters-portal.md)。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 登入 [https://portal.azure.com](https://portal.azure.com)。
 
 ## <a name="showClusters"></a> 列出和顯示叢集
@@ -40,7 +40,7 @@ ms.locfileid: "64721912"
 
 **上方功能表：**  
 
-| Item| 描述 |
+| Item| 說明 |
 |---|---|
 |移動|將叢集移至另一個資源群組或另一個訂用帳戶。|
 |Delete|刪除叢集。 |
@@ -49,19 +49,19 @@ ms.locfileid: "64721912"
 **左側功能表**：  
   - **左上方功能表**
 
-    | Item| 描述 |
+    | Item| 說明 |
     |---|---|
     |概觀|提供您叢集的一般資訊。|
     |活動記錄檔|顯示和查詢活動記錄。|
     |存取控制 (IAM)|使用角色指派。  請參閱[使用角色指派來管理 Azure 訂用帳戶資源的存取權](../role-based-access-control/role-assignments-portal.md)。|
-    |標記|可讓您設定索引鍵/值組，以定義自訂的雲端服務分類法。 例如，您可建立名為 **project**的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。|
+    |Tags|可讓您設定索引鍵/值組，以定義自訂的雲端服務分類法。 例如，您可建立名為 **project**的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。|
     |診斷並解決問題|顯示疑難排解資訊。|
     |快速入門|顯示可協助您開始使用 HDInsight 的資訊。|
     |工具|HDInsight 相關工具的說明資訊。|
 
   - **[設定] 功能表**  
 
-    | Item| 描述 |
+    | Item| 說明 |
     |---|---|
     |叢集大小|檢查、增加和減少叢集背景工作節點的數目。 請參閱[調整叢集](hdinsight-administer-use-portal-linux.md#scale-clusters)。|
     |配額限制|顯示訂用帳戶的已使用和可用核心。|
@@ -78,25 +78,25 @@ ms.locfileid: "64721912"
 
   - **[監視] 功能表**
 
-    | Item| 描述 |
+    | Item| 說明 |
     |---|---|
     |警示|管理警示和動作。|
-    |指标|监视 Azure Monitor 日志中的群集指标。|
+    |指标|監視 Azure 監視器記錄檔中的叢集計量。|
     |診斷設定|要在其中儲存診斷計量的設定。|
-    |Operations Management Suite|监视 Azure Operations Management Suite (OMS) 和 Azure Monitor 日志中的群集。|
+    |Operations Management Suite|監視 Azure Operations Management Suite (OMS) 」 和 「 Azure 監視器的記錄檔中的叢集。|
 
   - **[支援 + 疑難排解] 功能表**
 
-    | Item| 描述 |
+    | Item| 說明 |
     |---|---|
-    |資源健康情況|請參閱 [Azure 資源健康情況概觀](../service-health/resource-health-overview.md)。|
+    |資源健康狀態|請參閱 [Azure 資源健康情況概觀](../service-health/resource-health-overview.md)。|
     |新增支援要求|可讓您透過 Microsoft 支援服務建立支援票證。|
 
 ## <a name="properties"></a> 叢集屬性
 
 從[叢集首頁](#homePage)的 [設定] 底下，選取 [屬性]。
 
-|Item | 描述 |
+|Item | 說明 |
 |---|---|
 |主機名稱|叢集名稱。|
 |叢集 URL|Ambari Web 介面的 URL。|
@@ -105,8 +105,8 @@ ms.locfileid: "64721912"
 |區域|Azure 位置。 如需支援的 Azure 位置清單，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)上的 [區域] 下拉式清單方塊。|
 |建立日期|叢集部署的日期。|
 |作業系統|**Windows** 或 **Linux**。|
-|類型|Hadoop、HBase、Storm、Spark。|
-|Version|請參閱 [HDInsight 版本](hdinsight-component-versioning.md)。|
+|Type|Hadoop、HBase、Storm、Spark。|
+|版本|請參閱 [HDInsight 版本](hdinsight-component-versioning.md)。|
 |訂用帳戶|訂用帳戶名稱。|
 |預設資料來源|預設叢集檔案系統。|
 |背景工作角色節點大小|背景工作節點的選取 VM 大小。|
@@ -204,7 +204,7 @@ ms.locfileid: "64721912"
 
 * 使用 Azure Data Factory。 如需建立隨選 HDInsight 連結服務，請參閱 [使用 Azure Data Factory 在 HDInsight 中建立 Linux 型隨選 Apache Handooop 叢集](hdinsight-hadoop-create-linux-clusters-adf.md)。
 * 使用 Azure PowerShell。  請參閱 [分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)。
-* 使用 Azure 傳統 CLI。 請參閱[使用 Azure CLI 管理 HDInsight 中的 Hadoop 叢集](hdinsight-administer-use-command-line.md)。
+* 使用 Azure CLI。 請參閱[使用 Azure CLI 管理 Azure HDInsight 叢集](hdinsight-administer-use-command-line.md)。
 * 使用 HDInsight .NET SDK。 請參閱[提交 Apache Hadoop 作業](hadoop/submit-apache-hadoop-jobs-programmatically.md)。
 
 如需定價資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。 若要從入口網站刪除叢集，請參閱 [刪除叢集](#delete-clusters)
@@ -276,7 +276,7 @@ HDInsight 叢集可以有兩個使用者帳戶。 建立程序期間建立的 HD
 6. 按一下 [建立] 套用指令碼。 指令碼完成後，您可以使用 SSH 與新密碼連線到叢集。
 
 ## <a name="grantrevoke-access"></a>授與/撤銷存取權
-HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样式的终结点）：
+HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful 端點)：
 
 * ODBC
 * JDBC
@@ -284,7 +284,7 @@ HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样
 * Oozie
 * Templeton
 
-預設會授與這些服務的存取權。 您可以使用 [Azure 傳統 CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) 和 [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access) 撤銷/授與存取權。
+預設會授與這些服務的存取權。 您可以撤銷/授與存取權來使用[Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access)。
 
 ## <a name="find-the-subscription-id"></a>尋找訂用帳戶識別碼
 每個叢集都會繫結至一個 Azure 訂用帳戶。  您可以在[叢集首頁](#homePage)看見 Azure 訂用帳戶識別碼。
@@ -316,7 +316,7 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 在本文中，您已了解一些基本的系統管理功能。 若要深入了解，請參閱下列文章：
 
 * [使用 Azure PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md)
-* [使用 Azure 傳統 CLI 管理 HDInsight](hdinsight-administer-use-command-line.md)
+* [使用 Azure CLI 管理 HDInsight](hdinsight-administer-use-command-line.md)
 * [建立 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)
 * [深入了解使用 Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
 * [使用 Apache Ambari REST API 的詳細資料](hdinsight-hadoop-manage-ambari-rest-api.md)

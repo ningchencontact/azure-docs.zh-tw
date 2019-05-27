@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d0bb43f1dad775594e3c3229bc5d69528f055144
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65864353"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-globalview"></a>教學課程：Azure Active Directory 與 ADP GlobalView 整合
 
@@ -39,7 +39,7 @@ ms.locfileid: "57877542"
 若要設定 Azure AD 與 ADP GlobalView 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* 已啟用 ADP GlobalView 單一登入的訂用帳戶
+* 啟用 ADP GlobalView 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
@@ -103,7 +103,7 @@ ms.locfileid: "57877542"
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![ADP Globalview 網域及 URL 單一登入資訊](common/idp-identifier.png)
+    ![ADP Globalview 網域與 URL 單一登入資訊](common/idp-identifier.png)
 
     在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
 
@@ -118,7 +118,7 @@ ms.locfileid: "57877542"
 
 5. ADP Globalview 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟： 
 
@@ -166,7 +166,7 @@ ms.locfileid: "57877542"
 
 ### <a name="configure-adp-globalview-single-sign-on"></a>設定 ADP Globalview 單一登入
 
-若要在 **ADP Globalview** 端設定單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [ADP Globalview 支援小組](https://www.adp.com/contact-us/overview.aspx)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要設定 **ADP Globalview** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [ADP Globalview 支援小組](https://www.adp.com/contact-us/overview.aspx)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -203,7 +203,7 @@ ms.locfileid: "57877542"
 
 2. 在應用程式清單中，選取 [ADP GlobalView]。
 
-    ![應用程式清單中的 [ADP GlobalView] 連結](common/all-applications.png)
+    ![應用程式清單中的 ADP GlobalView 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -221,13 +221,13 @@ ms.locfileid: "57877542"
 
 ### <a name="create-adp-globalview-test-user"></a>建立 ADP GlobalView 測試使用者
 
-在本節中，您會在 ADP Globalview 中建立名為 Britta Simon 的使用者。 請與 [ADP GlobalView 支援小組](https://www.adp.com/contact-us/overview.aspx)合作，在 ADP GlobalView 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 ADP Globalview 中建立名為 Britta Simon 的使用者。 與 [ADP GlobalView 支援小組](https://www.adp.com/contact-us/overview.aspx)合作，在 ADP GlobalView 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [ADP Globalview] 圖格時，應該會自動登入您已設定 SSO 的 ADP Globalview。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 ADP Globalview 圖格時，應該會自動登入您已設定 SSO 的 ADP Globalview。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

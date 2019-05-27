@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 188733266c15bf214c0177762b9d10aecd05223b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 592b2c611888623c2753d7c4abc9fe57c28af30e
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792234"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823154"
 ---
-# <a name="run-your-first-resource-graph-query-using-azure-cli"></a>使用 Azure CLI 執行您的第一個 Resource Graph 查詢
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>快速入門：使用 Azure CLI 執行您的第一個 Resource Graph 查詢
 
 使用 Azure Resource Graph 的第一個步驟，是確認已安裝適用於 [Azure CLI](/cli/azure/) 的延伸模組。 此快速入門逐步引導您完成將延伸模組新增至您的 Azure CLI 安裝的程序。 您可以透過在本機安裝的 Azure CLI，或是透過 [Azure Cloud Shell](https://shell.azure.com) 使用延伸模組。
 
@@ -81,7 +81,7 @@ ms.locfileid: "59792234"
 
 執行最終查詢數次後，假設您的環境中未變更任何內容，傳回的結果將會一致且符合預期 - 依照**名稱**屬性排序，但仍限制為前五個結果。
 
-## <a name="cleanup"></a>清除
+## <a name="clean-up-resources"></a>清除資源
 
 如果您想要從 Azure CLI 環境中移除 Resource Graph 延伸模組，則可以使用下列命令：
 

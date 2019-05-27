@@ -17,11 +17,11 @@ ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97c13469c9c70aec31314048b8971c66bae5cd49
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004715"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65858865"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>教學課程：Azure Active Directory 與 SAML SSO for Bamboo by resolution GmbH 整合
 

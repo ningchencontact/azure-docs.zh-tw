@@ -1,6 +1,6 @@
 ---
-title: 注册 Azure Functions 绑定扩展
-description: 了解如何根据你的环境注册 Azure Functions 绑定扩展。
+title: 註冊 Azure Functions 繫結延伸模組
+description: 了解如何註冊您的環境為基礎的 Azure Functions 繫結延伸模組。
 services: functions
 documentationcenter: na
 author: craigshoemaker
@@ -10,30 +10,30 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 802e177b6f3844abe4d24c26b7ea2d0d4fb1688c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 53eb5fc9389d913ecacec3729a06e47a1c2bf56b
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697003"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864556"
 ---
-# <a name="register-azure-functions-binding-extensions"></a>注册 Azure Functions 绑定扩展
+# <a name="register-azure-functions-binding-extensions"></a>註冊 Azure Functions 繫結延伸模組
 
-從 Azure Functions 第 2.x 中，[繫結](./functions-triggers-bindings.md)可用以從 functions 執行階段的個別封裝。 雖然.NET 函式會透過 NuGet 套件存取繫結，延伸模組套件組合會允許透過組態設定的所有繫結其他函式存取。
+在 Azure Functions 第 2.x 中，[繫結](./functions-triggers-bindings.md)可用以從 functions 執行階段的個別封裝。 雖然.NET 函式會透過 NuGet 套件存取繫結，延伸模組套件組合會允許透過組態設定的所有繫結其他函式存取。
 
-請考慮下列項目屬於繫結延伸模組：
+請考慮下列項目與繫結延伸模組：
 
-- 在 Functions 1.x 中，除了[使用 Visual Studio 2017 创建 C# 类库](#local-csharp)时，绑定扩展不是显式注册的。
+- 繫結延伸模組未明確註冊函式中除非 1.x[建立C#使用 Visual Studio 2019 的類別程式庫](#local-csharp)。
 
-- HTTP 和計時器觸發程序支援根據預設，不需要延伸模組。
+- HTTP 和計時器觸發程序會根據預設所支援，而且不需要延伸模組。
 
-下表指明了何时以及如何注册绑定。
+下表指出您何時及如何註冊繫結。
 
-| 開發環境 |註冊<br/> 在 Functions 1.x 中  |註冊<br/> 在 Functions 2.x 中  |
+| 開發環境 |登錄<br/> 在 Functions 1.x 中  |登錄<br/> 在 Functions 2.x 中  |
 |-------------------------|------------------------------------|------------------------------------|
 |Azure 入口網站|自動|自動|
-|非 .NET 语言或本地 Azure Core Tools 开发|自動|[使用 Azure Functions Core Tools 和延伸模組套件組合](#local-development-with-azure-functions-core-tools-and-extension-bundles)|
-|使用 Visual Studio 2017 的 C# 類別庫|[使用 NuGet 工具](#c-class-library-with-visual-studio-2017)|[使用 NuGet 工具](#c-class-library-with-visual-studio-2017)|
+|非.NET 語言或本機 Azure Core Tools 開發|自動|[使用 Azure Functions Core Tools 和延伸模組套件組合](#local-development-with-azure-functions-core-tools-and-extension-bundles)|
+|C#使用 Visual Studio 2019 的類別程式庫|[使用 NuGet 工具](#c-class-library-with-visual-studio-2019)|[使用 NuGet 工具](#c-class-library-with-visual-studio-2019)|
 |使用 Visual Studio Code 的 C# 類別庫|N/A|[使用 .NET Core CLI](#c-class-library-with-visual-studio-code)|
 
 ## <a name="local-development-with-azure-functions-core-tools-and-extension-bundles"></a>使用 Azure Functions Core Tools 和延伸模組套件組合的本機開發
@@ -41,9 +41,9 @@ ms.locfileid: "64697003"
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
 <a name="local-csharp"></a>
-## <a name="c-class-library-with-visual-studio-2017"></a>包含 Visual Studio 2017 的 C# 類別庫
+## <a name="c-class-library-with-visual-studio-2019"></a>C#使用 Visual Studio 2019 的類別庫
 
-在 **Visual Studio 2017** 中，您可以使用 [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 命令，從「套件管理員主控台」中安裝套件，如下列範例所示：
+在  **Visual Studio 2019**，您可以從 Package Manager Console 來安裝封裝[Install-package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package)命令，如下列範例所示：
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
@@ -69,5 +69,5 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <TARG
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]
-> [Azure Functions 触发器和绑定示例](./functions-bindings-example.md)
+> [Azure 函式觸發程序和繫結範例](./functions-bindings-example.md)
 

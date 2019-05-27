@@ -1,110 +1,98 @@
 ---
-title: 使用 Azure 傳統 CLI 管理 Apache Hadoop 叢集 - Azure HDInsight
-description: 了解如何使用 Azure 傳統 CLI 來管理 Azure HDInsight 中的 Apache Hadoop 叢集。
+title: 管理 Azure HDInsight 叢集使用 Azure CLI
+description: 了解如何使用 Azure CLI 來管理 Azure HDInsight 叢集。 叢集類型包括 Apache Hadoop、 Spark、 HBase、 Storm、 Kafka、 互動式查詢和 ML 服務。
 ms.reviewer: jasonh
 author: tylerfox
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/13/2019
 ms.author: tyfox
-ms.openlocfilehash: 94ef5a60ecc5d943d78b16a386660049cc52d82e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7c12831c43762ddc776e8d5701f002be97992cbc
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694468"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859971"
 ---
-# <a name="manage-apache-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>使用 Azure 傳統 CLI 來管理 HDInsight 中的 Apache Hadoop 叢集
+# <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>管理 Azure HDInsight 叢集使用 Azure CLI
+
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-了解如何使用 [Azure 傳統 CLI](../cli-install-nodejs.md) 來管理 Azure HDInsight 中的 [Apache Hadoop](https://hadoop.apache.org/) 叢集。 傳統 CLI 實作於 Node.js 中。 此工具可在任何支援 Node.js 的平台上使用，包括 Windows、Mac 和 Linux。
+了解如何使用[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)來管理 Azure HDInsight 叢集。 Azure 命令列介面 (CLI) 是用來管理 Azure 資源的 Microsoft 跨平台命令列體驗。
 
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
-開始閱讀本文之前，您必須符合下列必要條件：
 
-* **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-* **Azure 傳統 CLI** - 請參閱[安裝及設定 Azure 傳統 CLI](../cli-install-nodejs.md) 以取得安裝和設定資訊。
-* **連線到 Azure**，使用下列命令：
+* Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)的步驟。
 
-    ```cli
-    azure login
-    ```
-  
-    如需使用公司或學校帳戶驗證的詳細資訊，請參閱[從 Azure 傳統 CLI 連線至 Azure 訂用帳戶](/cli/azure/authenticate-azure-cli)。
-* 使用下列命令，**切換至 Azure 資源管理員模式**：
-  
-    ```cli
-    azure config mode arm
-    ```
+* 在 HDInsight 上 Apache Hadoop 叢集。 請參閱[開始使用 Linux 上的 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 
-若要获得帮助，请使用 **-h** 开关。  例如︰
+## <a name="connect-to-azure"></a>連線至 Azure
 
-```cli
-azure hdinsight cluster create -h
+登入您的 Azure 訂用帳戶。 如果您打算使用 Azure Cloud Shell，只要選取**試試**的程式碼區塊右上角。 否則，請輸入下列命令：
+
+```azurecli-interactive
+az login
+
+# If you have multiple subscriptions, set the one to use
+# az account set --subscription "SUBSCRIPTIONID"
 ```
 
-## <a name="create-clusters-with-the-cli"></a>使用 CLI 建立叢集
-請參閱[使用 Azure 傳統 CLI 建立 HDInsight 中的叢集](hdinsight-hadoop-create-linux-clusters-azure-cli.md)。
+## <a name="list-clusters"></a>列出叢集
 
-## <a name="list-and-show-cluster-details"></a>列出和顯示叢集詳細資料
-使用以下命令列出并显示群集详细信息：
+使用[az hdinsight 清單](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-list)來列出叢集。 編輯下面命令取代`RESOURCE_GROUP_NAME`與您的資源群組名稱，然後輸入命令：
 
-```cli
-azure hdinsight cluster list
-azure hdinsight cluster show <Cluster Name>
+```azurecli-interactive
+# List all clusters in the current subscription
+az hdinsight list
+
+# List only cluster name and its resource group
+az hdinsight list --query "[].{Cluster:name, ResourceGroup:resourceGroup}" --output table
+
+# List all cluster for your resource group
+az hdinsight list --resource-group RESOURCE_GROUP_NAME
+
+# List all cluster names for your resource group
+az hdinsight list --resource-group RESOURCE_GROUP_NAME --query "[].{clusterName:name}" --output table
 ```
 
-![叢集清單的命令列檢視][image-cli-clusterlisting]
+## <a name="show-cluster"></a>顯示叢集
+
+使用[az hdinsight 顯示](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-show)以顯示指定的叢集資訊。 編輯下列命令，來取代`RESOURCE_GROUP_NAME`，和`CLUSTER_NAME`的相關資訊，然後輸入命令：
+
+```azurecli-interactive
+az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
+```
 
 ## <a name="delete-clusters"></a>刪除叢集
-使用以下命令来删除群集：
 
-```cli
-azure hdinsight cluster delete <Cluster Name>
+使用[az hdinsight 刪除](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-delete)刪除指定的叢集。 編輯下列命令，來取代`RESOURCE_GROUP_NAME`，和`CLUSTER_NAME`的相關資訊，然後輸入命令：
+
+```azurecli-interactive
+az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
 ```
 
-您也可以刪除包含叢集的資源群組來刪除叢集。 請注意，這將會刪除群組中的所有資源 (包括預設儲存體帳戶)。
+您也可以刪除包含叢集的資源群組來刪除叢集。 請注意，這會刪除群組包括預設儲存體帳戶中的所有資源。
 
-```cli
-azure group delete <Resource Group Name>
+```azurecli-interactive
+az group delete --name RESOURCE_GROUP_NAME
 ```
 
 ## <a name="scale-clusters"></a>調整叢集
-若要變更 Apache Hadoop 叢集大小：
 
-```cli
-azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-```
+使用[調整大小，az hdinsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize)調整成指定的大小指定的 HDInsight 叢集的大小。 編輯下列命令，來取代`RESOURCE_GROUP_NAME`，和`CLUSTER_NAME`的相關資訊。 取代`TARGET_INSTANCE_COUNT`適用於您叢集的背景工作角色節點所需的數目。 如需有關如何調整叢集的詳細資訊，請參閱 <<c0> [ 調整 HDInsight 叢集](./hdinsight-scaling-best-practices.md)。 輸入命令：
 
-
-## <a name="enabledisable-http-access-for-a-cluster"></a>啟用/停用叢集 HTTP 存取
-
-```cli
-azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
-azure hdinsight cluster disable-http-access [options] <Cluster Name>
+```azurecli-interactive
+az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --target-instance-count TARGET_INSTANCE_COUNT
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 本文中，您學到如何執行不同的 HDInsight 叢集管理工作。 若要深入了解，請參閱下列文章：
 
 * [使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集](hdinsight-administer-use-portal-linux.md)
-* [使用 Azure PowerShell 管理 HDInsight][hdinsight-admin-powershell]
-* [開始使用 Azure HDInsight][hdinsight-get-started]
-* [如何使用 Azure 傳統 CLI][azure-command-line-tools]
-
-[azure-command-line-tools]: ../cli-install-nodejs.md
-[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
-[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-
-[image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
-[image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
-[image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
-[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/command-line-list-of-clusters.png "列出和顯示叢集"
+* [使用 Azure PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md)
+* [開始使用 Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* [開始使用 Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)

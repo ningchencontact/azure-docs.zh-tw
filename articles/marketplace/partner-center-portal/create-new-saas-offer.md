@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 32537426b7b9b1a7015610fc0c3e2dd7c3efa49b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 30e547759cbafabf5f762f671b09b0cbeea3a44c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806202"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851174"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應項目
 
@@ -167,7 +167,7 @@ SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結�
 
 選取 **儲存**完成這些欄位之後。 
 
-### <a name="category"></a>類別
+### <a name="category"></a>Category
 選取最少的一 （1），最多三 （3） 用於將您的供應項目分組為適當的 marketplace 搜尋區域的類別。 請呼叫您的供應項目如何支援這些類別在供應項目描述中。 
 
 ### <a name="industry"></a>產業

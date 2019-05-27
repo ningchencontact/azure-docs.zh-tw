@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
 ms.openlocfilehash: 5608b3e0f9b98db62d22245de5a864f757f48799
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: f4469b7bb1f380bf9dddaf14763b24b1b508d57c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/23/2019
 ms.locfileid: "60199645"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 的概觀
@@ -34,7 +34,7 @@ Linux 使用者可以選擇 Bash 體驗，而 Windows 使用者可以選擇 Powe
 
 ![入口網站啟動](media/overview/portal-launch-icon.png)
 
-## <a name="features"></a>特性
+## <a name="features"></a>功能
 
 ### <a name="browser-based-shell-experience"></a>以瀏覽器為基礎的體驗
 Cloud Shell 以 Azure 管理工作為考量，提供以瀏覽器存取命令列的體驗。

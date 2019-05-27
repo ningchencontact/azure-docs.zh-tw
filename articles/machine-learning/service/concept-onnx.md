@@ -11,18 +11,18 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: a8bc46011b00a0c63eddd2799ac1309b5754472e
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: f1eca5bdd81a384efe04f769ebd12be9d91fc78a
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442414"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849734"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX 與 Azure Machine Learning：建立及加速 ML 模型
 
-了解如何使用[開啟類神經網路交換](https://onnx.ai)(ONNX) 能協助您最佳化您的機器學習模型。
+了解如何使用[開啟類神經網路交換](https://onnx.ai)(ONNX) 能協助您最佳化您的機器學習服務模型推斷。 推斷，或模型計分，是階段已部署的模型用於預測，最常在實際執行資料的位置。 
 
-最佳化的機器學習服務模型的推斷並不容易，因為您需要調整模型和推斷程式庫，以充分利用的硬體功能。 問題會變得非常困難的是如果您想要取得最佳效能，在各種平台 (雲端/edge，CPU/GPU 等) 上的，由於每個有不同的功能和特性。 如果您有各式各樣的架構，需要在不同平台上執行的模型，則會增加複雜度。 它是非常耗費時間最佳化的架構和硬體的所有不同組合。 需要訓練一次在您慣用的架構，並在雲端或 edge 上的任何位置執行的解決方案。 這是 ONNX 之處。
+最佳化的機器學習服務模型推斷 （或模型計分） 並不容易，因為您需要調整模型和推斷程式庫，以充分利用的硬體功能。 問題會變得非常困難的是如果您想要取得最佳效能，在各種平台 (雲端/edge，CPU/GPU 等) 上的，由於每個有不同的功能和特性。 如果您有各式各樣的架構，需要在不同平台上執行的模型，則會增加複雜度。 它是非常耗費時間最佳化的架構和硬體的所有不同組合。 需要訓練一次在您慣用的架構，並在雲端或 edge 上的任何位置執行的解決方案。 這是 ONNX 之處。
 
 Microsoft 與合作夥伴社群建立 ONNX 為一項開放標準來表示機器學習服務模型。 從模型[許多架構](https://onnx.ai/supported-tools)包括 TensorFlow、 PyTorch、 Scikit-learn、 Keras、 Chainer、 MXNet、 和 MATLAB 可以匯出或轉換成標準的 ONNX 格式。 一旦模型 ONNX 格式，它們可以各種不同的平台和裝置上執行它。
 

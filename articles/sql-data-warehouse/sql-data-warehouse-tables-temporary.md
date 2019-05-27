@@ -2,21 +2,20 @@
 title: SQL 資料倉儲中的暫存資料表 | Microsoft Docs
 description: 使用暫存資料表的基本指引，並強調說明工作階段層級暫存資料表的原則。
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: XiaoyuL-Preview
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-origin.date: 04/17/2018
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.subservice: development
+ms.date: 04/01/2019
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 23a62e28700ad5fd733040c43ea0eec225fd286f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56c15a9505b3f0e4344c9164268082da1ff7cc22
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474890"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851547"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL 資料倉儲中的暫存資料表
 本文包含使用暫存資料表的基本指引，並強調說明工作階段層級暫存資料表的原則。 使用這份文件中的資訊可協助您將程式碼模組化，以提高程式碼的重複使用性，維護起來更簡單。
@@ -25,7 +24,7 @@ ms.locfileid: "61474890"
 暫存資料表在處理資料時很有用 - 尤其是具有暫時性中繼結果的轉換期間。 在 SQL 資料倉儲中，暫存資料表存在於工作階段層級。  它們只出現在建立它們的工作階段中，工作階段登出時就會自動卸除它們。  暫存資料表的結果會寫入至本機，而不是遠端儲存體，這是它的效能優點。
 
 ## <a name="create-a-temporary-table"></a>建立暫存資料表
-建立暫存資料表時會在資料表名稱前面加上 `#`。  例如︰
+建立暫存資料表時會在資料表名稱前面加上 `#`。  例如：
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -194,7 +193,7 @@ FROM    t1
 GO
 ```
 
-在此阶段发生的唯一操作是创建存储过程，该存储过程使用 DDL 语句生成临时表 #stats_ddl。  如果 #stats_ddl 已經存在，這個預存程序會卸除它，以確保在工作階段中執行一次以上時不會失敗。  不過，因為預存程序結尾沒有任何 `DROP TABLE`，當預存程序完成時，它會保留建立的資料表，以便能夠從預存程序之外讀取。  不同於其他 SQL Server 資料庫，在 SQL 資料倉儲中，從建立暫存資料表的程序之外能夠使用此暫存資料表。  工作階段內的 **任何位置** 都可以使用 SQL 資料倉儲暫存資料表。 這可以產生更具模組化和更易於管理的程式碼，如下列範例所示：
+在這個階段中，唯一發生的動作是預存程序產生暫存資料表 #stats_ddl，DDL 陳述式的建立。  如果 #stats_ddl 已經存在，這個預存程序會卸除它，以確保在工作階段中執行一次以上時不會失敗。  不過，因為預存程序結尾沒有任何 `DROP TABLE`，當預存程序完成時，它會保留建立的資料表，以便能夠從預存程序之外讀取。  不同於其他 SQL Server 資料庫，在 SQL 資料倉儲中，從建立暫存資料表的程序之外能夠使用此暫存資料表。  工作階段內的 **任何位置** 都可以使用 SQL 資料倉儲暫存資料表。 這可以產生更具模組化和更易於管理的程式碼，如下列範例所示：
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;

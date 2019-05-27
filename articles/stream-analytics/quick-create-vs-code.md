@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 05/06/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 511dab7090f6114c7769d504166f3e2c137d43ca
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 894f43a7da0abd129123d5c4ddf2bb95347c42c5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071865"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825299"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>快速入門：在 Visual Studio Code 中建立 Azure 串流分析雲端作業 (預覽)
 
@@ -229,7 +229,7 @@ ms.locfileid: "65071865"
 
 2. 以滑鼠右鍵按一下作業名稱。 然後，從快顯功能表中選取 [啟動]。
 
-![在 VS Code 中啟動串流分析作業](./media/quick-create-vs-code/start-asa-job-vs-code.png)
+   ![在 VS Code 中啟動串流分析作業](./media/quick-create-vs-code/start-asa-job-vs-code.png)
 
 3. 在快顯視窗中選擇 [立即]，以啟動作業。
 

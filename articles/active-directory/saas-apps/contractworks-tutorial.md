@@ -16,11 +16,11 @@ ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8d6ee5d4d9db8f6c91d43f72135ba42d6735287
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892994"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65863112"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>教學課程：Azure Active Directory 與 ContractWorks 整合
 
@@ -109,13 +109,13 @@ ContractWorks 與 Azure AD 整合提供下列優點：
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![映像](common/both-preintegrated-signon.png)
+    ![image](common/both-preintegrated-signon.png)
 
     在 [登入 URL] 文字方塊中，輸入 URL：`https://login.securedocs.com/saml/hint`
 
 6. ContractWorks 應用程式會預期要有特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 7. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟： 
 

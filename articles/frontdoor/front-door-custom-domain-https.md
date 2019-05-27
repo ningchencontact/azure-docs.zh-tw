@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: b99132cceb8981a93a8f1c10ccc488d5806f7254
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fc4db12f722d1330f0642e155c02a1936373e256
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050972"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520498"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>教學課程：在 Front Door 自訂網域上設定 HTTPS
 
@@ -82,7 +82,6 @@ ms.locfileid: "59050972"
 
 > [!WARNING]
 > </br> - Azure Front Door Service 目前僅支援與 Front Door 設定相同訂用帳戶中的 Key Vault 帳戶。 選擇與您 Front Door 不同訂用帳戶下的 Key Vault 將會失敗。
-> </br> - Azure Front Door Service 目前僅支援儲存在「祕密」區段下的 Key Vault 憑證。 若您將其儲存在「憑證」區段下，而非「祕密」區段，則憑證匯入將會失敗。
 > </br> - Azure Front Door Service 目前僅支援使用**不具**密碼 PFX 所上傳的憑證。
 
 #### <a name="register-azure-front-door-service"></a>註冊 Azure Front Door Service

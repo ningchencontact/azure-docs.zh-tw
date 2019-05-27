@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: d16f57db6a3c39be34c13663db62d7be50749f57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d83bdc3fd3f644013a2d2b80128839658524db9
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741060"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864454"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>使用 IoT 中樞將訊息從雲端傳送至裝置 (.NET)
 
@@ -43,12 +43,12 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 * **SendCloudToDevice**會透過 IoT 中樞，將雲端到裝置訊息傳送到裝置應用程式，然後接收其傳遞通知。
 
 > [!NOTE]
-> IoT 中心通过 [Azure IoT 设备 SDK](iot-hub-devguide-sdks.md) 对许多设备平台和语言（包括 C、Java 和 Javascript）提供 SDK 支持。 如需有關如何將您的裝置與本教學課程中的程式碼連接 (通常是連線至 Azure IoT 中樞) 的逐步指示，請參閱 [Azure IoT 中樞開發人員指南](iot-hub-devguide.md)。
+> IoT 中樞會透過 [Azure IoT 裝置 SDK](iot-hub-devguide-sdks.md) 為許多裝置平台和語言 (包括 C、Java 及 Javascript) 提供 SDK 支援。 如需有關如何將您的裝置與本教學課程中的程式碼連接 (通常是連線至 Azure IoT 中樞) 的逐步指示，請參閱 [Azure IoT 中樞開發人員指南](iot-hub-devguide.md)。
 > 
 
 若要完成此教學課程，您需要下列項目：
 
-* Visual Studio 2017
+* Visual Studio
 
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 
@@ -77,9 +77,9 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
     }
    ```
 
-   `ReceiveAsync` 方法會以非同步方式，在裝置收到訊息時，傳回收到的訊息。 它會在可指定的逾時期間過後傳回「null」  (在本例中，使用的是預設值 1 分鐘)。 當應用程式收到 *null* 時，應繼續等待新訊息。 此要求是使用 `if (receivedMessage == null) continue` 行的原因。
+   `ReceiveAsync` 方法會以非同步方式，在裝置收到訊息時，傳回收到的訊息。 它會在可指定的逾時期間過後傳回「null」  (在本例中，使用的是預設值 1 分鐘)。 當應用程式收到 *null* 時，應繼續等待新訊息。 這項要求是 `if (receivedMessage == null) continue` 行的的原因。
 
-    对 `CompleteAsync()` 的调用通知 IoT 中心，指出已成功处理消息。 可以安全地從裝置佇列中移除該訊息。 如果因故導致裝置應用程式無法完成訊息處理作業，「IoT 中樞」將會重新傳遞該訊息。 因此，裝置應用程式中的訊息處理邏輯必須是「等冪」，如此一來，多次接收相同的訊息才會產生相同的結果。 
+    對 `CompleteAsync()` 的呼叫會通知 IoT 中樞，說明已成功處理訊息。 可以安全地從裝置佇列中移除該訊息。 如果因故導致裝置應用程式無法完成訊息處理作業，「IoT 中樞」將會重新傳遞該訊息。 因此，裝置應用程式中的訊息處理邏輯必須是「等冪」，如此一來，多次接收相同的訊息才會產生相同的結果。 
 
     應用程式也可以暫時放棄訊息，這會使得「IoT 中樞」將訊息保留在佇列中以供未來取用。 或者，應用程式可以拒絕訊息，這會將訊息從佇列中永久移除。 如需有關雲端到裝置訊息生命週期的詳細資訊，請參閱[使用 IoT 中樞的 D2C 和 C2D 傳訊](iot-hub-devguide-messaging.md)。
 
@@ -117,7 +117,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
    ![Visual Studio 中的新專案](./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png)
 
-2. 在“解决方案资源管理器”中，右键单击该解决方案，并单击“为解决方案管理 NuGet 包...” 。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下方案，然後按一下 [ **管理方案的 NuGet 封裝...**]。
 
    此動作會開啟 [管理 NuGet 套件] 視窗。
 
@@ -165,13 +165,13 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 8. 從 Visual Studio 中，在您的方案上按一下滑鼠右鍵，然後選取 [設定啟始專案...]。選取 [多個啟始專案]，然後同時針對 **ReadDeviceToCloudMessages**、**SimulatedDevice** 以及 **SendCloudToDevice** 選取 [啟動] 動作。
 
-9. 按 **F5**。 三個應用程式應該全部都會啟動。 选择“**SendCloudToDevice**”窗口并按 **Enter**。 您應該會看到裝置應用程式正在接收訊息。
+9. 按 **F5**。 三個應用程式應該全部都會啟動。 選取 [SendCloudToDevice] 視窗，然後按 **Enter**。 您應該會看到裝置應用程式正在接收訊息。
 
    ![正在接收訊息的應用程式](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
 ## <a name="receive-delivery-feedback"></a>接收傳遞意見反應
 
-可以从 IoT 中心请求每个云到设备消息的送达（或过期）确认。 這個選項可讓解決方案後端輕鬆地通知重試或補償邏輯。 如需有關雲端到裝置意見反應的詳細資訊，請參閱[使用 IoT 中樞的 D2C 和 C2D 傳訊](iot-hub-devguide-messaging.md)。
+您可以向「IoT 中樞」要求每個雲端到裝置訊息的傳遞 (或到期) 通知。 這個選項可讓解決方案後端輕鬆地通知重試或補償邏輯。 如需有關雲端到裝置意見反應的詳細資訊，請參閱[使用 IoT 中樞的 D2C 和 C2D 傳訊](iot-hub-devguide-messaging.md)。
 
 在本節中，您會修改 **SendCloudToDevice** 應用程式以要求意見反應，然後從 IoT 中樞接收意見反應。
 

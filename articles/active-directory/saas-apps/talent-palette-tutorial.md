@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6752a2474f3629ad79f6a652bba475691b6a53e5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897500"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65866319"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talent-palette"></a>教學課程：Azure Active Directory 與 Talent Palette 整合
 
@@ -72,10 +72,10 @@ Talent Palette 與 Azure AD 的整合可提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Talent Palette 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 Talent Palette 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Talent Palette 中相關使用者之間的連結關聯性。
 
-若要設定並測試與 Talent Palette 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定並測試與 Talent Palette 搭配運作的 Azure AD 單一登入，您必須完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Talent Palette 單一登入](#configure-talent-palette-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -104,13 +104,13 @@ Talent Palette 與 Azure AD 的整合可提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![Talent Palette 網域及 URL 單一登入資訊](common/both_replyurl.png)
+    ![Talent Palette 網域和 URL 單一登入資訊](common/both_replyurl.png)
 
     在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://talent-p.net/saml/acs/<tenantID>`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![Talent Palette 網域及 URL 單一登入資訊](common/both_signonurl.png)
+    ![Talent Palette 網域和 URL 單一登入資訊](common/both_signonurl.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://talent-p.net/saml/sso/<tenantID>`
 
@@ -170,7 +170,7 @@ Talent Palette 與 Azure AD 的整合可提供下列優點：
 
 2. 在應用程式清單中，輸入 **Talent Palette** 並加以選取。
 
-    ![應用程式清單中的 [Talent Palette] 連結](common/all_applications.png)
+    ![應用程式清單中的 Talent Palette 連結](common/all_applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -194,7 +194,7 @@ Talent Palette 與 Azure AD 的整合可提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Talent Palette] 圖格時，應該會自動登入您已設定 SSO 的 Talent Palette。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Talent Palette] 圖格時，應該會自動登入您設定 SSO 的 Talent Palette。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

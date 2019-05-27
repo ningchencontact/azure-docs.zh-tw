@@ -2,22 +2,22 @@
 title: 設定單一登入 - Azure Active Directory | Microsoft Docs
 description: 本教學課程會使用 Azure 入口網站為應用程式設定透過 Azure Active Directory (Azure AD) 進行的 SAML 型單一登入。
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 04/08/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3d96799e69e2fdef3a4ffd1a436727e6a58da79
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: fa18bc637ec31a1f83b5cab090e008715c5e0c2a
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565983"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825021"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>教學課程：為應用程式設定透過 Azure Active Directory 進行的 SAML 型單一登入
 
@@ -77,7 +77,7 @@ ms.locfileid: "59565983"
     | 識別碼 (實體識別碼) | 某些應用程式需要 | 某些應用程式需要 | 可唯一識別要設定單一登入的應用程式。 Azure AD 會將識別碼傳送給應用程式作為 SAML 權杖的 Audience 參數。 應用程式應該會對其進行驗證。 在應用程式中提供的任何 SAML 中繼資料中，此值也會顯示為實體識別碼。|
     | 回覆 URL | 選用 | 必要 | 指定應用程式預期要接收 SAML 權杖的位置。 此回覆 URL 也稱為判斷提示取用者服務 (ACS) URL。 |
     | 登入 URL | 必要 | 請勿指定 | 當使用者開啟此 URL 時，服務提供者會重新導向至 Azure AD 以進行驗證，並將使用者登入。 Azure AD 會使用此 URL 從 Office 365 和 Azure AD「存取面板」中啟動應用程式。 如果空白，當使用者啟動應用程式時，Azure AD 會倚賴識別提供者來開始單一登入。|
-    | 轉送狀態 | 選用 | 選用 | 對應用程式指定在驗證完成後應將使用者重新導向到的位置。 此值通常是應用程式有效的 URL。 不過，有些應用程式會以不同的方式使用此欄位。 如需詳細資訊，請詢問應用程式廠商。
+    | 轉送狀態 | 選用 | 選用 | 對應用程式指定在驗證完成後應將使用者重新導向到的位置。 此值通常是對應用程式而言有效的 URL。 不過，有些應用程式會以不同的方式使用此欄位。 如需詳細資訊，請詢問應用程式廠商。
     | 登出 URL | 選用 | 選用 | 用於將 SAML 登出回應傳回應用程式。
 
 
@@ -91,7 +91,7 @@ ms.locfileid: "59565983"
 
 ## <a name="configure-user-attributes-and-claims"></a>設定使用者屬性和宣告 
 
-您可以控制當使用者登入時，Azure AD 會在 SAML 權杖中傳送給應用程式的資訊。 您可以設定使用者屬性來控制此資訊。 例如，您可以將 Azure AD 設定為當使用者登入時，將使用者的名稱、電子郵件和員工識別碼傳送至應用程式。 
+您可以控制當使用者登入時，Azure AD 會在 SAML 權杖中傳送給應用程式的資訊。 您可以藉由設定使用者屬性來控制此資訊。 例如，您可以將 Azure AD 設定為當使用者登入時，將使用者的名稱、電子郵件和員工識別碼傳送至應用程式。 
 
 這些屬性可能是單一登入正常運作所需的必要或選擇性屬性。 如需詳細資訊，請參閱[應用程式專用教學課程](../saas-apps/tutorial-list.md)，或洽詢應用程式廠商。
 
@@ -147,7 +147,7 @@ Azure AD 會使用憑證來簽署它傳送至應用程式的 SAML 權杖。
 您已準備就緒，可開始測試設定。  
 
 1. 開啟應用程式的單一登入設定。 
-2. 捲動到 [驗證單一登入方式]**<applicationName>** 區段。 在本教學課程中，此區段稱為 [設定 GitHub-test]。
+2. 捲動到 [驗證單一登入方式] **<applicationName>** 區段。 在本教學課程中，此區段稱為 [設定 GitHub-test]。
 3. 選取 [測試]。 測試選項隨即出現。
 4. 選取 [以目前使用者身分登入]。 此測試可讓您先看看單一登入對您這個系統管理員來說是否有效。
 

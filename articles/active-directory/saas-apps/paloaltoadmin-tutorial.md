@@ -16,11 +16,11 @@ ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f45b0779693433f1b1fad3c5bfd4323eacb9a63b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838641"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65870150"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>教學課程：Azure Active Directory 與 Palo Alto Networks - Admin UI 整合
 
@@ -117,7 +117,7 @@ ms.locfileid: "57838641"
 
 5. Palo Alto 網路 - 系統管理 UI 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
    > [!NOTE]
    > 這些屬性值只是範例，因此您必須對應 *username* 和 *adminrole* 的適當值。 此外還有另一個選用屬性 *accessdomain*，可用來限制管理員對防火牆上特定虛擬系統的存取。

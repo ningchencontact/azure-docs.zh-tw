@@ -5,20 +5,24 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: pabutler
-ms.openlocfilehash: 81e33bf37750dd869c3b52be5b2bca49820f47d6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.date: 05/16/2019
+ms.author: pbutlerm
+ms.openlocfilehash: 08baf908d47cdc6a9bc1e97f88eb5ff509d6790e
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941904"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835061"
 ---
 # <a name="azure-saas-application-offer"></a>Azure SaaS 應用程式供應項目
 
 本節說明如何將軟體即服務 (SaaS) 應用程式供應項目發佈至 <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>。
 
-當您的解決方案部署在您自己的 Azure 訂用帳戶中，且客戶將透過您所設計和管理的介面登入以測試應用程式時，請使用 SaaS 應用程式。 使用 <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory (AAD)</a> 可充分利用您現有的試用環境。
+> [!IMPORTANT] 
+> SaaS 提供的功能正移轉至[Microsoft 合作夥伴中心](https://partner.microsoft.com/dashboard/directory)。  所有新的發行者必須使用合作夥伴中心建立新的 SaaS 供應項目，以及管理現有的供應項目。  SaaS 供應項目目前的發行者 batchwise 移轉從 Cloud Partner 入口網站來合作夥伴中心。  Cloud Partner 入口網站會顯示狀態訊息，指出何時已移轉特定的現有供應項目。
+
+
+當您的解決方案會部署在您自己的 Azure 訂用帳戶和客戶透過您設計及測試應用程式管理的介面，將登入，請使用 SaaS 應用程式。 使用 <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory (AAD)</a> 可充分利用您現有的試用環境。
 
 ## <a name="benefits"></a>優點
 

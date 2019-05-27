@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 71ac525e2af7473ca9ce0a8f60268e76eccd1a9a
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: 46b1e5c99dd86fed6f87ac3b8f0ff6555187899b
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530379"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833511"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 開發人員指南
 
@@ -23,9 +23,9 @@ ms.locfileid: "64530379"
 
 [!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
-PowerShell 函式被以觸發時執行的 PowerShell 指令碼。 每個函式指令碼會有相關的 function.json，定義函式的運作方式，例如觸發方式和輸入和輸出參數。 若要進一步了解，請參閱[觸發程序和繫結文章](functions-triggers-bindings.md)。 
+PowerShell 的 Azure 函式 （函式） 被以觸發時執行的 PowerShell 指令碼。 每個函式指令碼有一個相關`function.json`定義函式的運作方式，例如觸發方式的檔案和其輸入和輸出參數。 若要進一步了解，請參閱[觸發程序和繫結文章](functions-triggers-bindings.md)。 
 
-其他種類的函式，例如 PowerShell 指令碼會接受 function.json 中定義的所有輸入繫結的名稱相符的參數。 A`TriggerMetadata`參數也會傳遞包含啟動函式的觸發程序的其他資訊。
+其他種類的函式，例如 PowerShell 指令碼函式會採用在參數中所定義的所有輸入繫結的名稱相符的`function.json`檔案。 A`TriggerMetadata`參數也會傳遞包含啟動函式的觸發程序的其他資訊。
 
 本文假設您已經讀過 [Azure Functions 開發人員參考](functions-reference.md)。 您應該也已經完成[適用於 PowerShell 的 Functions 快速入門](functions-create-first-function-powershell.md)來建立您的第一個 PowerShell 函式。
 
@@ -56,9 +56,9 @@ PSFunctionApp
  | - bin
 ```
 
-在專案根目錄中，有共用的 [host.json](functions-host-json.md) 檔案可用來設定函式應用程式。 每個函式已有自己的程式碼檔案 (.ps1) 和繫結組態檔 (function.json) 的資料夾。 `function.json` 的父目錄名稱一律是函式的名稱。
+在專案根目錄中，沒有共用[ `host.json` ](functions-host-json.md)可用來設定函數應用程式的檔案。 每個函式已有自己的程式碼檔案 (.ps1) 和繫結組態檔的資料夾 (`function.json`)。 Function.json 檔案的上層目錄的名稱永遠是您的函式的名稱。
 
-特定繫結需要`extensions.csproj`。 繫結延伸模組，需要[版本 2.x](functions-versions.md) Functions 執行階段中定義`extensions.csproj`檔案，與實際的程式庫檔案中`bin`資料夾。 在本機開發時，您必須[註冊繫結擴充功能](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
+特定繫結需要`extensions.csproj`檔案。 繫結延伸模組，需要[版本 2.x](functions-versions.md) Functions 執行階段中定義`extensions.csproj`檔案，與實際的程式庫檔案中`bin`資料夾。 在本機開發時，您必須[註冊繫結擴充功能](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
 
 在 PowerShell 函式應用程式，您可能會選擇`profile.ps1`函式應用程式開始執行時執行 (否則知道*[冷啟動](#cold-start)*。 如需詳細資訊，請參閱 < [PowerShell 設定檔](#powershell-profile)。
 
@@ -81,7 +81,7 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 $TriggerMetadata.sys
 ```
 
-| 屬性   | 描述                                     | 類型     |
+| 屬性   | 描述                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | 時，以 utc 格式，此函式已觸發        | DateTime |
 | MethodName | 已觸發的函式名稱     | string   |
@@ -133,9 +133,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 以下是有效的參數呼叫`Push-OutputBinding`:
 
-| 名稱 | 類型 | 位置 | 描述 |
+| 名稱 | Type | 位置 | 說明 |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | 字串 | 1 | 您要設定輸出繫結的名稱。 |
+| **`-Name`** | String | 1 | 您要設定輸出繫結的名稱。 |
 | **`-Value`** | Object | 2 | 輸出繫結的值要設定，其可接受來自管線 ByValue。 |
 | **`-Clobber`** | SwitchParameter | 已命名 | （選擇性）指定時，會強制設為指定的輸出繫結的值。 | 
 
@@ -302,7 +302,7 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 傳遞至指令碼的要求物件是型別的`HttpRequestContext`，其具有下列屬性：
 
-| 屬性  | 描述                                                    | 類型                      |
+| 屬性  | 描述                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | 包含要求本文的物件。 `Body` 會序列化為以資料為依據的最佳類型。 比方說，如果資料是 JSON，它會傳入做為雜湊表。 如果資料是字串，它傳入做為字串。 | 物件 |
 | **`Headers`** | 字典，包含要求標頭。                | Dictionary<string,string><sup>*</sup> |
@@ -317,7 +317,7 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 您應該傳回的回應物件是型別的`HttpResponseContext`，其具有下列屬性：
 
-| 屬性      | 描述                                                 | 類型                      |
+| 屬性      | 描述                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | 包含回應本文的物件。           | 物件                    |
 | **`ContentType`** | 簡短的指針的回應內容類型設定。 | string                    |

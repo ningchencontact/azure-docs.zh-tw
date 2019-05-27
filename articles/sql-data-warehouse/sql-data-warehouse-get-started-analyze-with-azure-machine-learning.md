@@ -2,20 +2,20 @@
 title: 使用 Azure Machine Learning 分析資料 | Microsoft Docs
 description: 使用 Azure Machine Learning，根據 Azure 資料倉儲中儲存的資料建置預測性機器學習模型。
 services: sql-data-warehouse
-author: anumjs
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: integration
 ms.date: 03/22/2019
-ms.author: anjangsh
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f9500adc6871c4c9f81c32bf456bc36cf91db4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cae2acf98f39030f4ff340d32f1911bb2b5763ae
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61439897"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860834"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>使用 Azure Machine Learning 分析資料
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "61439897"
 > 
 > 
 
-本教程使用 Azure 机器学习，基于存储在 Azure SQL 数据仓库中的数据生成预测机器学习模型。 具體來說，這會為 Adventure Work 建置鎖定目標的行銷活動，預測客戶是否可能購買自行車。
+本教學課程會使用 Azure Machine Learning，根據 Azure 資料倉儲中儲存的資料建置預測性機器學習模型。 具體來說，這會為 Adventure Work 建置鎖定目標的行銷活動，預測客戶是否可能購買自行車。
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
 > 
@@ -36,7 +36,7 @@ ms.locfileid: "61439897"
 ## <a name="prerequisites"></a>必要條件
 若要逐步執行本教學課程，您需要：
 
-* 已随 AdventureWorksDW 示例数据预先加载的 SQL 数据仓库。 若要進行佈建，請參閱[建立 SQL 資料倉儲][Create a SQL Data Warehouse]並選擇載入範例資料。 如果您已經有資料倉儲但沒有範例資料，您可以[手動載入範例資料][load sample data manually]。
+* 預先載入 AdventureWorksDW 範例資料的 SQL 資料倉儲。 若要進行佈建，請參閱[建立 SQL 資料倉儲][Create a SQL Data Warehouse]並選擇載入範例資料。 如果您已經有資料倉儲但沒有範例資料，您可以[手動載入範例資料][load sample data manually]。
 
 ## <a name="1-get-the-data"></a>1.取得資料
 此資料位於 AdventureWorksDW 資料庫的 dbo.vTargetMail 檢視中。 如何讀取此資料：

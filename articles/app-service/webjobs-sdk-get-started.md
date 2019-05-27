@@ -13,34 +13,34 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a9e902a13071abefff71dc4db089380979c8d459
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6f743f7ea7fda368fc5895646145f553f3fb50fb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198608"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864847"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>開始使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
-本文介绍如何使用 Visual Studio 2017 创建 Azure WebJobs SDK 项目、在本地运行它，然后将其部署到 [Azure 应用服务](overview.md)。 创建的项目是使用 WebJobs SDK 版本 3.x 的 .NET Core 控制台应用。 如果你对使用 .NET Framework 的版本 2.x 感兴趣，请参阅[使用 Visual Studio 开发和部署 WebJob - Azure 应用服务](webjobs-dotnet-deploy-vs.md)。
+本文說明如何建立 Azure WebJobs SDK 專案，它在本機執行，然後將其部署到使用 Visual Studio 2019 [Azure App Service](overview.md)。 您所建立的專案是.NET Core 主控台應用程式，會使用版本 3.x 的 WebJobs sdk。 如果您有興趣使用版本 2.x，其會使用.NET Framework，請參閱[開發使用 Visual Studio-Azure App Service 和部署 Webjob](webjobs-dotnet-deploy-vs.md)。
 
-若要详细了解如何使用 WebJobs SDK，请参阅[如何使用 Azure WebJobs SDK 进行事件驱动的后台处理](webjobs-sdk-how-to.md)。
+若要深入了解如何使用 WebJobs SDK，請參閱[如何使用 Azure WebJobs SDK 用於事件驅動的背景處理](webjobs-sdk-how-to.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
-* 透過 **Azure 開發**工作負載[安裝 Visual Studio 2017](/visualstudio/install/)。 如果您已有 Visual Studio 但沒有該工作負載，請選取 [工具] > [取得工具和功能] 來新增該工作負載。
+* [安裝 Visual Studio 2019](/visualstudio/install/)具有**Azure 開發**工作負載。 如果您已有 Visual Studio 但沒有該工作負載，請選取 [工具] > [取得工具和功能] 來新增該工作負載。
 
-* 必须有一个 [Azure 帐户](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)才能将 WebJobs SDK 项目发布到 Azure。
+* 您必須擁有[Azure 帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)發行至 Azure WebJobs SDK 專案。
 
 ## <a name="create-a-project"></a>建立專案
 
-1. 在 Visual Studio 中，選取 [檔案 > 新增 > 專案]。
+1. 在 Visual Studio 中，選取**建立新的專案**。
 
-2. 选择“.NET Core”>“控制台应用(.NET Core)”。
+2. 選取 **主控台應用程式 (.NET Core)**。
 
-3. 將專案命名為 WebJobsSDKSample，然後選取 [確定]。
+3. 將專案命名為*WebJobsSDKSample*，然後選取**建立**。
 
-   ![[新增專案] 對話方塊](./media/webjobs-sdk-get-started/new-project.png)
+   ![[新增專案] 對話](./media/webjobs-sdk-get-started/new-project.png)
 
 ## <a name="webjobs-nuget-packages"></a>WebJobs NuGet 套件
 
@@ -49,7 +49,7 @@ ms.locfileid: "65198608"
    * `Microsoft.Azure.WebJobs`
    * `Microsoft.Azure.WebJobs.Extensions`
 
-     下面是适用于版本 3.0.4 的**包管理器控制台**命令：
+     以下是**Package Manager Console**版本 3.0.4 命令：
 
      ```powershell
      Install-Package Microsoft.Azure.WebJobs -version 3.0.4
@@ -58,7 +58,7 @@ ms.locfileid: "65198608"
 
 ## <a name="create-the-host"></a>建立主機
 
-主机是函数的运行时容器，它侦听触发器并调用函数。 以下步骤创建一个实现 [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost) 的主机，它是 ASP.NET Core 中的通用主机。
+主機是函式的執行階段容器，它會接聽觸發程序並呼叫函式。 下列步驟建立主控件可實作[ `IHost` ](/dotnet/api/microsoft.extensions.hosting.ihost)，這是 ASP.NET Core 中的泛型主機。
 
 1. 在 Program.cs 中，新增 `using` 陳述式：
 
@@ -84,16 +84,16 @@ ms.locfileid: "65198608"
     }
     ```
 
-在 ASP.NET Core 中，主機組態是透過在 [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) 執行個體上呼叫方法來設定。 如需詳細資訊，請參閱 [.NET 泛型主機](/aspnet/core/fundamentals/host/generic-host)。 `ConfigureWebJobs` 擴充方法會初始化 WebJobs 主機。 在 `ConfigureWebJobs` 中，初始化特定的 WebJobs 扩展并设置这些扩展的属性。  
+在 ASP.NET Core 中，主機組態是透過在 [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) 執行個體上呼叫方法來設定。 如需詳細資訊，請參閱 [.NET 泛型主機](/aspnet/core/fundamentals/host/generic-host)。 `ConfigureWebJobs` 擴充方法會初始化 WebJobs 主機。 在  `ConfigureWebJobs`，初始化特定 WebJobs 延伸模組，並設定這些擴充功能的屬性。  
 
 ## <a name="enable-console-logging"></a>啟用主控台記錄
 
-在本部分，设置使用 [ASP.NET Core 日志记录框架](/aspnet/core/fundamentals/logging)的控制台日志记录。
+在本節中，您將使用的主控台記錄設定[ASP.NET Core 記錄架構](/aspnet/core/fundamentals/logging)。
 
 1. 安裝下列 NuGet 套件的最新穩定版本：
 
    * `Microsoft.Extensions.Logging` - 記錄架構。
-   * `Microsoft.Extensions.Logging.Console` - 用于将日志发送到控制台的控制台提供程序。
+   * `Microsoft.Extensions.Logging.Console` -主控台提供者，它會將記錄傳送至主控台。
 
    以下是 2.2.0 版的 [套件管理員主控台] 命令：
 
@@ -142,7 +142,7 @@ ms.locfileid: "65198608"
     }
     ```
 
-    此项更新执行以下操作：
+    此更新會執行下列動作：
 
     * 停用[儀表板記錄](https://github.com/Azure/azure-webjobs-sdk/wiki/Queues#logs)。 儀表板是舊版監視工具，而且不建議將儀表板記錄用於高輸送量的生產案例。
     * 透過預設[篩選](webjobs-sdk-how-to.md#log-filtering)新增主控台提供者。
@@ -151,11 +151,11 @@ ms.locfileid: "65198608"
 
 ## <a name="install-the-storage-binding-extension"></a>安裝儲存體繫結延伸模組
 
-从版本 3.x 开始，必须显式安装 WebJobs SDK 所需的存储绑定扩展。 在以前版本中，存储绑定已包含在 SDK 中。
+從版本 3.x 中，您必須明確安裝 WebJobs SDK 所需的儲存體繫結延伸模組。 在舊版中，儲存體繫結已隨附於 SDK 中。
 
 1. 安裝 [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet 套件 3.x 版的最新穩定版本。 
 
-    下面是适用于版本 3.0.3 的**包管理器控制台**命令：
+    以下是**Package Manager Console**版本 3.0.3 命令：
 
     ```powershell
     Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.3
@@ -173,7 +173,7 @@ ms.locfileid: "65198608"
 
 ## <a name="create-a-function"></a>建立函式
 
-1. 右键单击项目，选择“添加” > “新建项...”，选择“类”，将新的 C# 类文件命名为 *Functions.cs*，然后选择“添加”。
+1. 以滑鼠右鍵按一下專案，請選取**新增** > **新項目...**，選擇**類別**，指定新C#類別檔案*Functions.cs*，然後選取**新增**。
 
 1. 在 Functions.cs 中，以下列程式碼取代產生的範本：
 
@@ -199,7 +199,7 @@ ms.locfileid: "65198608"
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-在本機執行的 Azure 儲存體模擬器沒有 WebJobs SDK 所需的全部功能。 因此，在本部分，我们应在 Azure 中创建一个存储帐户，并将项目配置为使用该帐户。 如果已有一个存储帐户，请跳到步骤 6。
+在本機執行的 Azure 儲存體模擬器沒有 WebJobs SDK 所需的全部功能。 因此在本節中您在 Azure 中建立儲存體帳戶，並設定專案以使用它。 如果您已經有儲存體帳戶，直接跳到步驟 6。
 
 1. 在 Visual Studio 中開啟 [伺服器總管] 並登入 Azure。 以滑鼠右鍵按一下 **Azure** 節點，然後選取 [連線至 Microsoft Azure 訂用帳戶]。
 
@@ -229,9 +229,9 @@ ms.locfileid: "65198608"
 
 WebJobs SDK 會在 Azure 中的 [應用程式設定] 尋找儲存體連接字串。 當您在本機執行時，它會在組態檔或環境變數中尋找此值。
 
-1. 右键单击项目，选择“添加” > “新建项...”，选择“JavaScript JSON 配置文件”，将新文件命名为 *appsettings.json*，然后选择“添加”。 
+1. 以滑鼠右鍵按一下專案，請選取**新增** > **新項目...**，選擇**JavaScript JSON 組態檔**，將新檔案命名*appsettings.json*檔案，然後選取**新增**。 
 
-1. 在新文件中添加 `AzureWebJobsStorage` 字段，如以下示例所示：
+1. 在新的檔案中新增`AzureWebJobsStorage`欄位，如下列範例所示：
 
     ```json
     {
@@ -241,7 +241,7 @@ WebJobs SDK 會在 Azure 中的 [應用程式設定] 尋找儲存體連接字串
 
 1. 使用您先前複製的連接字串取代 {儲存體連接字串}。
 
-1. 在解决方案资源管理器中选择“appsettings.json”文件，在“属性”窗口中，将“复制到输出目录”设置为“如果较新则复制”。
+1. 選取  *appsettings.json*檔案，在 方案總管，然後在**屬性**視窗中，將**複製到輸出目錄**至**才複製**.
 
 稍後，您會在 Azure App Service 的應用程式中新增相同連接字串應用程式設定。
 
@@ -249,7 +249,7 @@ WebJobs SDK 會在 Azure 中的 [應用程式設定] 尋找儲存體連接字串
 
 在這一節中，您會在本機建置並執行專案，以及藉由建立佇列訊息來觸發函式。
 
-1. 按 **Ctrl+F5** 运行项目。
+1. 按下**Ctrl + F5**執行專案。
 
    主控台會顯示執行階段已找到您的函式並等候佇列訊息觸發它。 下列輸出是由 v3.x 主機產生：
 
@@ -283,7 +283,7 @@ WebJobs SDK 會在 Azure 中的 [應用程式設定] 尋找儲存體連接字串
 
    ![建立佇列](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-1. 在 [新增訊息] 對話方塊中，輸入 Hello World! 作為 [訊息文字]，然後選取 [確定]。 现在，队列中会出现一条消息。
+1. 在 [新增訊息] 對話方塊中，輸入 Hello World! 作為 [訊息文字]，然後選取 [確定]。 在佇列中目前沒有訊息。
 
    ![建立佇列](./media/webjobs-sdk-get-started/hello-world-text.png)
 
@@ -308,7 +308,7 @@ WebJobs SDK 會在 Azure 中的 [應用程式設定] 尋找儲存體連接字串
 
 1. 關閉主控台視窗。 
 
-1. 返回“队列”窗口并刷新。 该消息已消失，因为本地运行的函数已对其进行处理。 
+1. 返回 [佇列] 視窗，並重新整理它。 因為您在本機執行的函式已處理，便看不見了，該訊息。 
 
 ## <a name="add-application-insights-logging"></a>新增 Application Insights 記錄
 
@@ -437,9 +437,9 @@ WebJobs SDK 會在 Azure 中的 [應用程式設定] 尋找儲存體連接字串
 
 1. 關閉主控台視窗。
 
-## <a name="deploy-as-a-webjob"></a>部署到 Azure
+## <a name="deploy-as-a-webjob"></a>部署至 Azure
 
-在部署期间，可以创建一个要在其中运行函数的应用服务实例。 将 .NET Core 控制台应用发布到 Azure 中的应用服务时，该应用会自动以 WebJob 的形式运行。 若要详细了解发布过程，请参阅[使用 Visual Studio 开发和部署 WebJob](webjobs-dotnet-deploy-vs.md)。
+在部署期間，您會建立用以執行您的函式應用程式服務執行個體。 當您發行至 App Service，在 Azure 中的.NET Core 主控台應用程式時，它會自動取得以執行 WebJob。 若要深入了解發行，請參閱[開發和使用 Visual Studio 部署 WebJobs](webjobs-dotnet-deploy-vs.md)。
 
 [!INCLUDE [webjobs-publish-net-core](../../includes/webjobs-publish-net-core.md)]
 
@@ -508,7 +508,7 @@ WebJobs SDK 會在 Azure 中的 [應用程式設定] 尋找儲存體連接字串
 
    ![佇列訊息 Program.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
 
-1. 在本地运行项目
+1. 在本機執行專案。
 
    佇列訊息會觸發函式，然後讀取 blob 並且記錄其長度。 主控台輸出如下所示：
 
@@ -542,21 +542,21 @@ WebJobs SDK 會在 Azure 中的 [應用程式設定] 尋找儲存體連接字串
 
 1. 以 Program.cs 作為訊息文字，建立另一則佇列訊息。
 
-1. 在本地运行项目
+1. 在本機執行專案。
 
    佇列訊息會觸發函式，然後讀取 blob、記錄其長度，然後建立新的 Blob。 主控台輸出相同，但是當您移至 blob 容器視窗並選取 [重新整理] 時，您會看到名為 copy-Program.cs 的新 blob。
 
-## <a name="republish-the-updates-to-azure"></a>将更新重新发布到 Azure
+## <a name="republish-the-updates-to-azure"></a>重新發佈至 Azure 的更新
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下專案並選取 [發佈]。
 
-1. 在“发布”对话框中，确保当前配置文件已选中，然后选择“发布”。 “输出”窗口中会详细显示发布结果。
+1. 在 [**發行**] 對話方塊中，確定已選取目前的設定檔，然後選擇**發佈**。 發行的結果會詳述**輸出**視窗。
  
-1. 通过再次将某个文件上传到 Blob 容器，并将一条消息添加到与所上传文件同名的队列，来验证 Azure 中的函数。 将会看到，该消息已从队列中删除，并且 Blob 容器中创建了该文件的副本。 
+1. 確認 Azure 中的函式一次將檔案上傳至 blob 容器，並將訊息加入佇列的上傳的檔案名稱。 您看到訊息從佇列和 blob 容器中建立之檔案的複本中移除。 
 
 ## <a name="next-steps"></a>後續步驟
 
-本文介绍了如何创建、运行和部署 WebJobs SDK 3.x 项目。
+這篇文章會示範如何建立、 執行和部署 WebJobs SDK 3.x 版專案。
 
 > [!div class="nextstepaction"]
 > [深入了解 WebJobs SDK](webjobs-sdk-how-to.md)

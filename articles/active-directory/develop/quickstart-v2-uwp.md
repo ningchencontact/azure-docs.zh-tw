@@ -17,16 +17,14 @@ ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c45cd1627eb1eb98b2fc19f6663d5635b001ce0c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: fd4b6dd31d620603b765fd33494f399f97915af3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067780"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784926"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>快速入門：自通用 Windows 平台 (UWP) 應用程式呼叫 Microsoft Graph API
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 此快速入門包含程式碼範例，用以示範通用 Windows 平台 (UWP) 應用程式如何登入個人帳戶或公司與學校帳戶的使用者、取得存取權杖，以及呼叫 Microsoft Graph API。
 

@@ -16,11 +16,11 @@ ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1cdf8f78a54c89ac89441a87ca0ba34d61a3d2a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888309"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65740130"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-euromonitor-passport"></a>教學課程：Azure Active Directory 與 Euromonitor Passport 整合
 
@@ -113,7 +113,7 @@ ms.locfileid: "57888309"
 
 6. Euromonitor Passport 應用程式會預期要有特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
-    ![映像](./media/euromonitor-passport-tutorial/attribute1.png)
+    ![image](./media/euromonitor-passport-tutorial/attribute1.png)
 
 7. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 
@@ -186,7 +186,7 @@ ms.locfileid: "57888309"
 
 2. 在應用程式清單中，選取 [Euromonitor Passport]。
 
-    ![應用程式清單中的 [Euromonitor Passport] 連結](common/all-applications.png)
+    ![應用程式清單中的 Euromonitor Passport 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -210,7 +210,7 @@ ms.locfileid: "57888309"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Euromonitor Passport] 圖格時，應該會自動登入您已設定 SSO 的 Euromonitor Passport。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在「存取面板」中按一下 [Euromonitor Passport] 圖格時，應該會自動登入您已設定 SSO 的 Euromonitor Passport。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

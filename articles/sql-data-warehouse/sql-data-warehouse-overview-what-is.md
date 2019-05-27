@@ -2,20 +2,20 @@
 title: 什麼是 Azure SQL 資料倉儲？ | Microsoft Docs
 description: 企業級分散式資料庫，可處理資料量高達 PB 的關聯式與非關聯式資料。 它是業界首見能在幾秒內增加、縮減和暫停的雲端資料倉儲。
 services: sql-data-warehouse
-author: igorstanko
+author: happynicolle
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: igorstan
+ms.author: nicw
 ms.reviewer: igorstan
-ms.openlocfilehash: 1937d96db96c00af7f004ef4c22c4985499e393e
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 29296d703e59cb234177349ca477c3fdab74ee61
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521630"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790844"
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>什麼是 Azure SQL 資料倉儲？
 

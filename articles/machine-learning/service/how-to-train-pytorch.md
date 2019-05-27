@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 02463ba47a48f5e86055b9ecb4e0edbdf9608769
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 11819730e05e425066e1f060769e14d5290f877d
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024563"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851969"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務將 PyTorch 模型定型
 
@@ -105,7 +105,7 @@ run = exp.submit(pt_est)
 
 ## <a name="export-to-onnx"></a>匯出至 ONNX
 
-若要取得與最佳化的推斷[ONNX Runtime](concept-onnx.md)，您可以將您的定型的 PyTorch 模型轉換成 ONNX 格式。 請參閱[教學課程](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)的範例。
+若要最佳化與推斷[ONNX Runtime](concept-onnx.md)，將您的定型的 PyTorch 模型轉換成 ONNX 格式。 推斷，或模型計分，是階段已部署的模型用於預測，最常在實際執行資料的位置。 請參閱[教學課程](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)的範例。
 
 ## <a name="examples"></a>範例
 

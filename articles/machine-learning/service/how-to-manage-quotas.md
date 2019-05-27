@@ -11,16 +11,18 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9734a5d8f34536558fbf0c861889f3c7d6719da
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8754eedc8284aab01006ea71bfd870064b91ea17
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523991"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851127"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>管理及要求 Azure 資源的配額
 
-如同使用其他 Azure 服務，對於與 Azure Machine Learning 服務相關聯的特定資源有一些限制。 這些限制的範圍，包括您可建立的工作區數目上限，到用於定型或推斷您的模型之實際基礎計算上的限制。 此文章針對您訂用帳戶之各種 Azure 資源所預先設定的限制提供更詳細的資料，另外還包含針對各種資源類型要求配額增強功能的方便連結。 設置這些限制可防止因詐欺而導致的預算超支，並遵循 Azure 的容量條件約束。
+如同使用其他 Azure 服務，對於與 Azure Machine Learning 服務相關聯的特定資源有一些限制。 您可以限制在實際的基礎計算取得用於模型定型或計分推斷/建立限制範圍可從工作區的數目上限。 
+
+此文章針對您訂用帳戶之各種 Azure 資源所預先設定的限制提供更詳細的資料，另外還包含針對各種資源類型要求配額增強功能的方便連結。 設置這些限制可防止因詐欺而導致的預算超支，並遵循 Azure 的容量條件約束。
 
 當您為生產工作負載設計及相應增加您的 Azure Machine Learning 服務資源時，請記住這些配額。 比方說，如果您的叢集未連線到您指定的節點目標數目，則您可能已達到 Azure Machine Learning 計算核心限制為您的訂用帳戶。 如果您想要將限制或配額提升到預設限制以上，您可以免費提出線上客戶支援要求。 由於 Azure 容量有其條件約束，您無法將限制提升至高於下表所示的「上限」值。 如果沒有上限欄，資源即沒有可調整的限制。
 

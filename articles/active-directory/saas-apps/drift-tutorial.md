@@ -16,11 +16,11 @@ ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 876780189768411eba40a99192755bee6732728b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874808"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862972"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-drift"></a>教學課程：Azure Active Directory 與 Drift 整合
 
@@ -36,7 +36,7 @@ Drift 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Drift 的整合，您需要下列項目：
+若要設定 Azure AD 與 Drift 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Drift 單一登入的訂用帳戶
@@ -73,10 +73,10 @@ Drift 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Drift 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 Drift 設定和測試 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Drift 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Drift 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 Drift 來設定和測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Drift 單一登入](#configure-drift-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -89,7 +89,7 @@ Drift 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 Drift 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要使用 Drift 設定 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Drift] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -117,7 +117,7 @@ Drift 與 Azure AD 整合提供下列優點：
 
 6. Drift 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 7. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，使用 [編輯] 圖示來編輯宣告或使用 [新增宣告] 來新增宣告，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟： 
 
@@ -206,7 +206,7 @@ Drift 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Drift]。
 
-    ![應用程式清單中的 [Drift] 連結](common/all-applications.png)
+    ![應用程式清單中的 Drift 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -224,7 +224,7 @@ Drift 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-drift-test-user"></a>建立 Drift 測試使用者
 
-本節會在 Drift 中建立名為 Britta Simon 的使用者。 Drift 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Drift 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Drift 中建立名為 Britta Simon 的使用者。 Drift 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Drift 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 >[!Note]
 >如果您需要手動建立使用者，請連絡 [Drift 支援小組](mailto:integrations@drift.com)。

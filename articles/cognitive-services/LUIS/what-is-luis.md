@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c26f3d6c3b34ed90a5455bb94ea71d7556b47751
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2bb50f985b99a3fb62e7b8a61bb0f9ce2dd402e1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441962"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522012"
 ---
 # <a name="what-is-language-understanding-luis"></a>何謂 Language Understanding Intelligent Service (LUIS)？
 
@@ -53,7 +53,7 @@ LUIS 應用程式包含領域特定自然語言模型。 您可以從預先建�
 * **自訂實體** LUIS 提供數種方式來識別您自己的自訂意圖和實體，包括機器學習實體、特定或常值實體，以及機器學習和常值的組合。
 
 ## <a name="build-the-luis-model"></a>建置 LUIS 模型
-使用[撰寫](https://aka.ms/luis-authoring-apis) API 或使用 LUIS 入口網站建置模型。
+使用[撰寫](https://go.microsoft.com/fwlink/?linkid=2092087) API 或使用 LUIS 入口網站建置模型。
 
 LUIS 模型的首要組件是使用者意向的類別，名為 **[意圖](luis-concept-intent.md)** 。 每個意圖都需要使用者 **[語句](luis-concept-utterance.md)** 的範例。 每個語句都提供各種不同需要以 **[實體](luis-concept-entity-types.md)** 擷取的資料。 
 
@@ -65,7 +65,7 @@ LUIS 模型的首要組件是使用者意向的類別，名為 **[意圖](luis-c
 
 ## <a name="query-prediction-endpoint"></a>查詢預測端點
 
-在模型已建置並發佈至端點後，用戶端應用程式會將語句傳送至已發佈的預測[端點](https://aka.ms/luis-endpoint-apis) API。 此 API 會將模型套用至文字以進行分析。 API 會以 JSON 格式的預測結果提供回應。  
+在模型已建置並發佈至端點後，用戶端應用程式會將語句傳送至已發佈的預測[端點](https://go.microsoft.com/fwlink/?linkid=2092356) API。 此 API 會將模型套用至文字以進行分析。 API 會以 JSON 格式的預測結果提供回應。  
 
 JSON 最基本的端點回應包含查詢語句和評分最高的意圖。 它也可以擷取下列**連絡人類型**實體之類的資料。 
 
@@ -126,6 +126,6 @@ LUIS 最上層的用戶端應用程式是：
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/
-[authoring-apis]: https://aka.ms/luis-authoring-api
-[endpoint-apis]: https://aka.ms/luis-endpoint-apis
+[authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
+[endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

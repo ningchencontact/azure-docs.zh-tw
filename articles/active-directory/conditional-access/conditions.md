@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 05/17/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9da23b0c0b0b0c0bfc238b1504811a9c1c55a9ef
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2caedeb5cd4d0f920ffa49b33b0dca8bea9938cb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785384"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861552"
 ---
-# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的條件？ 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的條件？
 
-您可以使用 [Azure Active Directory (Azure AD) 條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)，控制使用者將如何存取您的雲端應用程式。 在條件式存取原則中，您會定義對觸發原則原因 ("When this happens") 做出的回應 ("Then do this")。 
+您可以使用 [Azure Active Directory (Azure AD) 條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)，控制使用者將如何存取您的雲端應用程式。 在條件式存取原則中，您會定義對觸發原則原因 ("When this happens") 做出的回應 ("Then do this")。
 
 ![原因和回應](./media/conditions/10.png)
 
@@ -37,7 +37,7 @@ ms.locfileid: "65785384"
 ![條件式存取原則](./media/conditions/61.png)
 
 
-您未在條件式存取原則中設定的條件將不會套用。 某些條件會[強制](best-practices.md)將條件式存取原則套用至環境。 
+您未在條件式存取原則中設定的條件將不會套用。 某些條件會[強制](best-practices.md)將條件式存取原則套用至環境。
 
 本文將簡要說明條件及如何在條件式存取原則中使用條件。 
 
@@ -73,7 +73,7 @@ ms.locfileid: "65785384"
 > [!NOTE]
 > 您可以將特定應用程式從原則中排除。 不過，這些應用程式仍須遵循它們存取的服務所套用的原則。
 
-**使用者動作**是可以由使用者執行的工作。 只有目前支援的動作**註冊安全性資訊 （預覽）**，可讓使用者註冊安全性資訊時強制執行條件式存取原則。
+**使用者動作**是可以由使用者執行的工作。 只有目前支援的動作**註冊安全性資訊 （預覽）**，以便針對結合的註冊啟用的使用者嘗試註冊其安全性時強制執行條件式存取原則資訊。 可以在本文中，找到更多資訊[啟用結合安全性資訊註冊 （預覽）](../authentication/howto-registration-mfa-sspr-combined.md)。
 
 ## <a name="sign-in-risk"></a>登入風險
 

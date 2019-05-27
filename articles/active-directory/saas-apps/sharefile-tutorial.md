@@ -16,11 +16,11 @@ ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5839329f78fc349210f9439c5b1580a21f5172a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834399"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65867482"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>教學課程：Azure Active Directory 與 Citrix ShareFile 整合
 
@@ -74,7 +74,7 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Citrix ShareFile 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Citrix ShareFile 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Citrix ShareFile 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 Citrix ShareFile 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Citrix ShareFile 單一登入](#configure-citrix-sharefile-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -103,7 +103,7 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Citrix ShareFile 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
+    ![Citrix ShareFile 網域與 URL 單一登入資訊](common/sp-identifier-reply.png)
 
     a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<tenant-name>.sharefile.com/saml/login`
 
@@ -204,7 +204,7 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入並選取 [Citrix ShareFile]。
 
-    ![應用程式清單中的 [Citrix ShareFile] 連結](common/all-applications.png)
+    ![應用程式清單中的 Citrix ShareFile 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

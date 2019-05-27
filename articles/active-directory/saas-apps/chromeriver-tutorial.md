@@ -16,11 +16,11 @@ ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 26147c26d5eaae471e5a4f93add7da2f9a0272f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57896088"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65863359"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chromeriver"></a>教學課程：Azure Active Directory 與 Chromeriver 整合
 
@@ -80,7 +80,7 @@ ms.locfileid: "57896088"
 2. **[設定 Chromeriver 單一登入](#configure-chromeriver-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Chromeriver 測試使用者](#create-chromeriver-test-user)** - 在 Chromeriver 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
+5. **[建立 Chromeriver 測試使用者](#create-chromeriver-test-user)** - 在 Chromeriver 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的 Britta Simon 對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -165,7 +165,7 @@ ms.locfileid: "57896088"
 
 2. 在應用程式清單中，選取 [Chromeriver]。
 
-    ![應用程式清單中的 [Chromeriver] 連結](common/all-applications.png)
+    ![應用程式清單中的 Chromeriver 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -192,7 +192,7 @@ ms.locfileid: "57896088"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Chromeriver] 圖格時，應該會自動登入您已設定 SSO 的 Chromeriver。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Chromeriver] 圖格時，應該會自動登入您設定 SSO 的 Chromeriver。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -7,14 +7,14 @@ ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4f400e45d8defc304cf58c4bd05fa19f16d0501b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b0d5d96ff897ac1710206eb49bca785e8809cb7d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785950"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798322"
 ---
-# <a name="create-an-environment-from-a-blueprint-sample"></a>從藍圖範例建立環境
+# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>教學課程：從藍圖範例建立環境
 
 藍圖範例會舉例說明可使用 Azure 藍圖來完成的工作。 這些範例各自都有特定目的或用途，但其本身並無法建立完整的環境。 其目的是作為起點，以探索如何使用由所含成品、設計和參數所組合而成的各種 Azure 藍圖。
 

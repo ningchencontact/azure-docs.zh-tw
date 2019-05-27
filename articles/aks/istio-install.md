@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: 12565d2b8004a5119add25473e5b088c9162035f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 33d86ab8c88b45c7787620773f0df6e7fe888cf3
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780488"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850404"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中安裝和使用 Istio
 
@@ -40,13 +40,13 @@ ms.locfileid: "65780488"
 
 這篇文章中詳述的步驟假設您已建立 AKS 叢集 (Kubernetes`1.11`和更新版本，使用 RBAC 啟用)，並已建立`kubectl`與叢集的連線。 如果您需要前述任何方面的協助，請參閱 [AKS 快速入門][aks-quickstart]。
 
-您將需要[Helm] [ helm]遵循這些指示，並安裝 Istio。 建議您有版本`2.12.2`或更新版本正確安裝並設定您的叢集中。 如果您需要安裝 Helm 的協助，則會看到[AKS Helm 安裝的指導][helm-install]。
+您將需要[Helm] [ helm]遵循這些指示，並安裝 Istio。 建議您有版本`2.12.2`或更新版本正確安裝並設定您的叢集中。 如果您需要安裝 Helm 的協助，則會看到[AKS Helm 安裝的指導][helm-install]。 所有 Istio pod，則也必須都排程在 Linux 節點上執行。
 
 本文將 Istio 安裝指引分成數個獨立的步驟。 最終結果的結構與官方的 Istio 安裝[指引][istio-install-helm]相同。
 
 ## <a name="download-istio"></a>下載 Istio
 
-首先，下載並解壓縮最新的 Istio 版本。 MacOS、Linux 或适用于 Linux 的 Windows 子系统上的 bash shell 的步骤和 PowerShell shell 的步骤稍有不同。 選擇其中一個符合您慣用的環境下安裝步驟：
+首先，下載並解壓縮最新的 Istio 版本。 步驟適用於 MacOS、 Linux 或適用於 Linux，和 PowerShell 殼層的 Windows 子系統上的 bash 殼層稍有不同。 選擇其中一個符合您慣用的環境下安裝步驟：
 
 * [MacOS、Linux 或適用於 Linux 的 Windows 子系統上的 Bash](#bash)
 * [PowerShell](#powershell)
@@ -92,7 +92,7 @@ Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 ## <a name="install-the-istio-istioctl-client-binary"></a>安裝二進位 Istio istioctl 用戶端
 
 > [!IMPORTANT]
-> 确保从已经下载并提取的 Istio 版本的顶层文件夹运行此部分的步骤。
+> 請確定在此區段中，執行步驟，從您下載並解壓縮的 Istio 版次的最上層資料夾。
 
 `istioctl`用戶端電腦上執行二進位的用戶端，並可讓您使用 Istio 服務網格互動。 安裝步驟會稍有不同的用戶端作業系統。 選擇其中一個符合您慣用的環境下安裝步驟：
 
@@ -165,7 +165,7 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 ## <a name="install-the-istio-crds-on-aks"></a>在 AKS 上安裝 Istio Crd
 
 > [!IMPORTANT]
-> 确保从已经下载并提取的 Istio 版本的顶层文件夹运行此部分的步骤。
+> 請確定在此區段中，執行步驟，從您下載並解壓縮的 Istio 版次的最上層資料夾。
 
 使用 Istio[自訂資源定義 (Crd)] [ kubernetes-crd]來管理其執行階段組態。 我們需要 Istio Crd 先安裝，因為 Istio 元件在其上有相依性。 使用 Helm 和`istio-init`圖表，以安裝至 Istio Crd `istio-system` AKS 叢集中的命名空間：
 
@@ -206,7 +206,7 @@ Powershell
 ## <a name="install-the-istio-components-on-aks"></a>在 AKS 上安裝 Istio 元件
 
 > [!IMPORTANT]
-> 确保从已经下载并提取的 Istio 版本的顶层文件夹运行此部分的步骤。
+> 請確定在此區段中，執行步驟，從您下載並解壓縮的 Istio 版次的最上層資料夾。
 
 我們將安裝[Grafana] [ grafana]並[Kiali] [ kiali]我們 Istio 安裝的一部分。 Grafana 提供分析和監視儀表板，而且 Kiali 提供服務網格可檢視性儀表板。 在我們的設定，每個元件都需要認證必須提供作為[祕密][kubernetes-secrets]。
 
@@ -336,6 +336,9 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
 ```
 
 `istio` Helm 圖表部署大量的物件。 您可以看到的輸出清單您`helm install`上述命令。 Istio 元件部署可能需要 4 到 5 分鐘的時間才能完成，取決於您的叢集環境。
+
+> [!NOTE]
+> 在排程所有 Istio pod 時，必須在 Linux 節點上執行。 如果您除了 Linux 節點集區中有 Windows Server 的節點集區，在叢集上，確認所有 Istio pod，已都排程在 Linux 節點上執行。
 
 此時，您已部署 Istio 至您的 AKS 叢集。 若要確保我們有 Istio 成功部署，讓我們移至下一節[驗證 Istio 安裝](#validate-the-istio-installation)。
 

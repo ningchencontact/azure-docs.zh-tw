@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 2a7af59495966c76a47ea84311ab073eb594f82e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c52574485a62b081224a36ca5deb0fdae114f9bc
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707563"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859664"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>在 Linux 上使用 HDInsight 的相關資訊
 
@@ -27,15 +27,15 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
 本文件中的許多步驟都使用下列公用程式，可能需要安裝在您的系統上。
 
 * [cURL](https://curl.haxx.se/) - 用來與 Web 型服務通訊。
-* 命令行 JSON 处理程序 **jq**。  請參閱 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。
+* **jq**，命令列的 JSON 處理器。  請參閱 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) - 用來從遠端管理 Azure 服務。
 * **SSH 用戶端**。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="users"></a>使用者
 
-除非[已加入網域](./domain-joined/apache-domain-joined-introduction.md)，否則應將 HDInsight 視為**單一使用者**系統。 叢集中會建立一個具有系統管理員層級權限的 SSH 使用者帳戶。 可以创建其他 SSH 帐户，但这些帐户也具有对群集的管理员访问权限。
+除非[已加入網域](./domain-joined/apache-domain-joined-introduction.md)，否則應將 HDInsight 視為**單一使用者**系統。 叢集中會建立一個具有系統管理員層級權限的 SSH 使用者帳戶。 您可以建立其他 SSH 帳戶，但這些帳戶也會擁有叢集的系統管理員權限。
 
-已加入網域的 HDInsight 可支援多個使用者和更細微的權限和角色設定。 有关详细信息，请参阅[管理已加入域的 HDInsight 群集](./domain-joined/apache-domain-joined-manage.md)。
+已加入網域的 HDInsight 可支援多個使用者和更細微的權限和角色設定。 如需詳細資訊，請參閱[管理已加入網域的 HDInsight 叢集](./domain-joined/apache-domain-joined-manage.md)。
 
 ## <a name="domain-names"></a>網域名稱
 
@@ -115,7 +115,7 @@ Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包�
 在 HDInsight 中，資料儲存體資源 (Azure Blob 儲存體和 Azure Data Lake Storage) 會與計算資源分離。 因此，您可以在必要時建立 HDInsight 叢集以執行計算，並在後續完成工作後刪除該叢集，同時將您的資料檔案安全地保存在雲端儲存體中，沒有時間限制。
 
 
-### <a name="URI-and-scheme"></a>URI 和方案
+### <a name="URI-and-scheme"></a>URI 和配置
 
 有些命令可能需要您在存取檔案時於 URI 中指定配置。 例如，Storm-HDFS 元件就需要您指定配置。 在使用非預設儲存體 (新增為叢集「其他」儲存體的儲存體) 時，您一律必須在 URI 中使用配置。
 
@@ -223,7 +223,7 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 * **Hadoop**︰相應減少叢集中的節點數目時，會重新啟動叢集中的部分服務。 調整作業可能會導致執行中或擱置的工作在調整作業完成時失敗。 您可以在作業完成後重新提交這些工作。
 * **HBase**︰區域伺服器會在調整作業完成後的幾分鐘內自動取得平衡。 若要手動平衡區域伺服器，請使用下列步驟：
 
-    1. 使用 SSH 连接到 HDInsight 群集。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+    1. 使用 SSH 連線到 HDInsight 叢集。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
     2. 使用下列命令來啟動 HBase Shell：
 
@@ -251,7 +251,7 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 如需有關調整 HDInsight 叢集的特定資訊，請參閱：
 
 * [使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [使用 Azure PowerShell 管理 HDInsight 上的 Apache Hadoop 叢集](hdinsight-administer-use-command-line.md#scale-clusters)
+* [使用 Azure CLI 管理 HDInsight 中的 Apache Hadoop 叢集](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>如何安裝 Hue (或其他 Hadoop 元件)？
 
@@ -266,14 +266,14 @@ HDInsight 是受控服務。 如果 Azure 偵測到叢集問題，它可能會�
 
 如需開發您自己的指令碼動作相關資訊，請參閱 [使用 HDInsight 開發指令碼動作](hdinsight-hadoop-script-actions-linux.md)。
 
-### <a name="jar-files"></a>Jar 文件
+### <a name="jar-files"></a>JAR 檔案
 
 獨立的 jar 檔案中提供了一些 Hadoop 技術，其中包含可用來做為 MapReduce 工作一部分的函式，或者來自 Pig 或 Hive 內部的函式。 它們通常不需要任何設定，而且可在佈建後上傳到叢集並直接使用。 如果您想要確定元件會在重新安裝叢集的映像後保存下來，則可將 jar 檔案儲存於叢集的預設儲存體 (WASB 或 ADL) 中。
 
 例如，如果您想要使用最新版本的 [Apache DataFu](https://datafu.incubator.apache.org/)，則可下載包含專案的 jar，並將它上傳至 HDInsight 叢集。 接著遵循 DataFu 文件中，如何從 Pig 或 Hive 中使用它的指示進行。
 
 > [!IMPORTANT]  
-> 有一些屬於獨立 jar 檔案的元件是透過 HDInsight 來提供，但它們不在路徑中。 若要查找特定组件，可使用以下命令在群集上搜索：
+> 有一些屬於獨立 jar 檔案的元件是透過 HDInsight 來提供，但它們不在路徑中。 如果您正在尋找特定元件，可在叢集上使用下列內容來搜尋：
 >
 > ```find / -name *componentname*.jar 2>/dev/null```
 >

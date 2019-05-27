@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: b599eaf36eed69cd693e0dc4e20ef2123e42e60b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270739"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65867057"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>教學課程：Azure Active Directory 與 Skills Manager 整合
 
