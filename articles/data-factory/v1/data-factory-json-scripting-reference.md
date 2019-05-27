@@ -59,7 +59,7 @@ ms.locfileid: "66156540"
 | expirationTime |建立之後，管線有效且應該保持佈建的期間。 如果管線沒有任何作用中、失敗或擱置執行，則會在到達到期時間之後自動予以刪除。 |否 |
 
 
-## <a name="activity"></a>活動
+## <a name="activity"></a>activities
 管線定義 (activities 元素) 內活動的高階結構如下所示︰
 
 ```json
@@ -90,14 +90,14 @@ ms.locfileid: "66156540"
 | name |活動的名稱。 指定名稱，代表活動設定要進行的動作<br/><ul><li>字元數目上限︰260</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\\”</li></ul> |是 |
 | description |說明活動用途的文字。 |否 |
 | type |指定活動的類型。 如需了解不同類型的活動，請參閱[資料存放區](#data-stores)和[資料轉換活動](#data-transformation-activities)小節。 |是 |
-| inputs |活動所使用的輸入資料表<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |對 HDInsightStreaming 和 SqlServerStoredProcedure 活動來說為非必要 <br/> <br/> 對所有其他活動來說為必要 |
-| outputs |活動所使用的輸出資料表。<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |是 |
+| 輸入 |活動所使用的輸入資料表<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |對 HDInsightStreaming 和 SqlServerStoredProcedure 活動來說為非必要 <br/> <br/> 對所有其他活動來說為必要 |
+| 輸出 |活動所使用的輸出資料表。<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |是 |
 | linkedServiceName |活動所使用的連結服務名稱。 <br/><br/>活動可能會要求您指定可連結至所需計算環境的連結服務。 |對於 HDInsight 活動、Azure Machine Learning 活動和預存程序活動而言為必要。 <br/><br/>否：所有其他 |
 | typeProperties |typeProperties 區段中的屬性會視活動的類型而定。 |否 |
 | policies |會影響活動之執行階段行為的原則。 如果未指定，則會使用預設原則。 |否 |
 | scheduler |“scheduler” 屬性用來定義所要的活動排程。 其子屬性與 [資料集中的可用性屬性](data-factory-create-datasets.md#dataset-availability)中的屬性相同。 |否 |
 
-### <a name="policies"></a>原則
+### <a name="policies"></a>policies
 原則會影響活動的執行階段行為，特別是在處理資料表配量的時候。 下表提供詳細資料。
 
 | 屬性 | 允許的值 | 預設值 | 描述 |
@@ -292,7 +292,7 @@ Azure Data Factory 中的資料集定義如下：
 | typeProperties | 對應至所選類型的屬性。 關於支援的類型和其屬性，請參閱[資料存放區](#data-stores)一節。 |是 |NA |
 | external | 用來指定資料集是否由 Data Factory 管線明確產生的布林值旗標。 |否 |false |
 | availability | 定義處理時間範圍或資料集生產的切割模型。 如需資料集切割模型的詳細資訊，請參閱 [排程和執行](data-factory-scheduling-and-execution.md) 一文。 |是 |NA |
-| 原則 |定義資料集配量必須符合的準則或條件。 <br/><br/>如需詳細資訊，請參閱「資料集原則」一節。 |否 |NA |
+| policies |定義資料集配量必須符合的準則或條件。 <br/><br/>如需詳細資訊，請參閱「資料集原則」一節。 |否 |NA |
 
 **structure** 區段中的每個資料行包含下列屬性︰
 
@@ -599,7 +599,7 @@ Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Az
 | servicePrincipalId | 指定應用程式的用戶端識別碼。 | 是 (適用於服務主體驗證) |
 | servicePrincipalKey | 指定應用程式的金鑰。 | 是 (適用於服務主體驗證) |
 | tenant | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是 (適用於服務主體驗證) |
-| 授權 | 按一下 [Data Factory 編輯器] 中的 [授權] 按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | 是 (適用於使用者認證驗證)|
+| 授權 | 按一下 [Data Factory 編輯器]  中的 [授權]  按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | 是 (適用於使用者認證驗證)|
 | sessionId | OAuth 授權工作階段的 OAuth 工作階段識別碼。 每個工作階段識別碼都是唯一的，只能使用一次。 當您使用 Data Factory 編輯器時便會自動產生此設定。 | 是 (適用於使用者認證驗證) |
 
 #### <a name="example-using-service-principal-authentication"></a>範例：使用服務主體驗證
@@ -3313,7 +3313,7 @@ encryptedCredential | 加密的認證字串。 | 字串 | 否
 
 
 ### <a name="linked-service"></a>連結服務
-您可以利用「內部部署檔案伺服器」已連結服務，將內部部署的檔案系統連結到 Azure Data Factory。 下表說明內部部署檔案伺服器連結服務專屬的 JSON 元素。
+您可以利用「內部部署檔案伺服器」  已連結服務，將內部部署的檔案系統連結到 Azure Data Factory。 下表說明內部部署檔案伺服器連結服務專屬的 JSON 元素。
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
@@ -4114,10 +4114,10 @@ auto-
 
 如果您使用 `certThumbprint` 進行驗證且憑證已安裝在本機電腦的個人存放區中，您必須授與讀取權限給閘道器服務︰
 
-1. 啟動 Microsoft Management Console (MMC)。 新增目標為 [本機電腦] 的 [憑證] 嵌入式管理單元。
-2. 展開 [憑證]，[個人]，然後按一下 [憑證]。
-3. 以滑鼠右鍵按一下個人存放區中的 [憑證]，然後選取 [所有工作]->[管理私用金鑰...]
-3. 在 [安全性] 索引標籤上，新增資料管理閘道主機服務使用憑證讀取存取執行所在的使用者帳戶。
+1. 啟動 Microsoft Management Console (MMC)。 新增目標為 [本機電腦]  的 [憑證]  嵌入式管理單元。
+2. 展開 [憑證]  ，[個人]  ，然後按一下 [憑證]  。
+3. 以滑鼠右鍵按一下個人存放區中的 [憑證]，然後選取 [所有工作]  ->[管理私用金鑰...] 
+3. 在 [安全性]  索引標籤上，新增資料管理閘道主機服務使用憑證讀取存取執行所在的使用者帳戶。
 
 **範例︰使用用戶端憑證：** 此連結服務會將您的資料處理站與內部部署 HTTP web 伺服器連結。 它會使用已安裝資料管理閘道的電腦上所安裝的用戶端憑證。
 
@@ -4275,7 +4275,7 @@ auto-
 | authenticationType |用來連線到 OData 來源的驗證類型。 <br/><br/> 若為雲端 OData，可能的值為 Anonymous、Basic 和 OAuth (請注意，Azure Data Factory 目前僅支援 Azure Active Directory 架構的 OAuth)。 <br/><br/> 若為內部部署 OData，可能的值為 Anonymous、Basic 和 Windows。 |是 |
 | username |如果您要使用 Basic 驗證，請指定使用者名稱。 |是 (只在您使用基本驗證時) |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |是 (只在您使用基本驗證時) |
-| authorizedCredential |如果您使用 OAuth，按一下 Data Factory 複製精靈或編輯器中的 [授權] 按鈕，然後輸入您的認證，接著將會自動產生這個屬性的值。 |是 (只有在您使用 OAuth 驗證時) |
+| authorizedCredential |如果您使用 OAuth，按一下 Data Factory 複製精靈或編輯器中的 [授權]  按鈕，然後輸入您的認證，接著將會自動產生這個屬性的值。 |是 (只有在您使用 OAuth 驗證時) |
 | gatewayName |Data Factory 服務應該用來連接到內部部署 OData 服務的閘道器名稱。 如果您複製資料，從內部部署 OData 來源上只指定。 |否 |
 
 #### <a name="example---using-basic-authentication"></a>範例 - 使用基本驗證
@@ -4822,7 +4822,7 @@ auto-
 ## <a name="compute-environments"></a>計算環境
 下表列出 Data Factory 支援的計算環境和可在這些環境上執行的轉換活動。 按一下您感興趣的計算連結，查看連結服務的 JSON 結構描述，以將它連結至資料處理站。
 
-| 計算環境 | 活動 |
+| 計算環境 | activities |
 | --- | --- |
 | [隨選 HDInsight 叢集](#on-demand-azure-hdinsight-cluster)或[您自己的 HDInsight 叢集](#existing-azure-hdinsight-cluster) |[.NET 自訂活動](#net-custom-activity)、[Hive 活動](#hdinsight-hive-activity)、[Pig 活動](#hdinsight-pig-activity)、[MapReduce 活動](#hdinsight-mapreduce-activity)、Hadoop 串流活動、[Spark 活動](#hdinsight-spark-activity) |
 | [Azure Batch](#azure-batch) |[.NET 自訂活動](#net-custom-activity) |
@@ -4842,7 +4842,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 | clusterSize |叢集中的背景工作/資料節點數。 HDInsight 叢集會利用您為此屬性指定的 2 個前端節點以及背景工作節點數目來建立。 節點大小為具有 4 個核心的 Standard_D3，因此 4 個背景工作節點的叢集需要 24 個核心 (4\*4 = 16 個核心用於背景工作節點，加上 2\*4 = 8 個核心用於前端節點)。 如需 Standard_D3 層的詳細資料，請參閱[在 HDInsight 中建立 Linux 型 Hadoop 叢集](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)。 |是 |
 | timetolive |隨選 HDInsight 叢集允許的閒置時間。 指定在活動執行完成後，如果叢集中沒有其他作用中的作業，隨選 HDInsight 叢集要保持運作多久。<br/><br/>例如，如果活動執行花費 6 分鐘，而 timetolive 設為 5 分鐘，叢集會在處理活動執行的 6 分鐘期間之後保持運作 5 分鐘。 如果 6 分鐘期間內執行了另一個活動執行，它便會由相同叢集來處理。<br/><br/>建立隨選 HDInsight 叢集是昂貴的作業 (可能需要一段時間)，因此請視需要使用這項設定，重複使用隨選 HDInsight 叢集以改善 Data Factory 的效能。<br/><br/>如果您將 timetolive 值設為 0，叢集會在處理活動執行後立即刪除。 另一方面，如果您設定較高的值，叢集可能會有不必要的閒置而導致高成本。 因此，請務必根據您的需求設定適當的值。<br/><br/>如果適當地設定 timetolive 屬性值，則多個管線可以共用相同的隨選 HDInsight 叢集執行個體 |是 |
 | version |HDInsight 叢集的版本。 如需詳細資訊，請參閱 [Azure Data Factory 中支援的 HDInsight 版本](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory)。 |否 |
-| 預設容器 |隨選叢集用於儲存及處理資料的 Azure 儲存體連結服務。 <p>目前，您無法建立使用 Azure Data Lake Store 做為儲存體的隨選 HDInsight 叢集。 如果您想要在 Azure Data Lake Store 中儲存 HDInsight 處理的結果資料，可使用複製活動將 Azure Blob 儲存體的資料複製到 Azure Data Lake Store。</p>  | 是 |
+| linkedServiceName |隨選叢集用於儲存及處理資料的 Azure 儲存體連結服務。 <p>目前，您無法建立使用 Azure Data Lake Store 做為儲存體的隨選 HDInsight 叢集。 如果您想要在 Azure Data Lake Store 中儲存 HDInsight 處理的結果資料，可使用複製活動將 Azure Blob 儲存體的資料複製到 Azure Data Lake Store。</p>  | 是 |
 | additionalLinkedServiceNames |指定 HDInsight 連結服務的其他儲存體帳戶，讓 Data Factory 服務代表您註冊它們。 |否 |
 | osType |作業系統的類型。 允許的值包括：Windows (預設值) 和 Linux |否 |
 | hcatalogLinkedServiceName |指向 HCatalog 資料庫的 Azure SQL 連結服務名稱。 會使用 Azure SQL 資料庫作為中繼存放區，建立隨選 HDInsight 叢集。 |否 |
@@ -4880,7 +4880,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 | clusterUri |HDInsight 叢集的 URI。 |是 |
 | username |指定要用來連接到現有 HDInsight 叢集的使用者名稱。 |是 |
 | password |指定使用者帳戶的密碼。 |是 |
-| 預設容器 | 參照 HDInsight 叢集所使用 Azure Blob 儲存體的 Azure 儲存體連結服務名稱。 <p>目前，您無法針對此屬性指定 Azure Data Lake Store 連結服務。 如果 HDInsight 叢集可存取 Data Lake Store，您可以透過 Hive/Pig 指令碼存取 Azure Data Lake Store 中的資料。 </p>  |是 |
+| linkedServiceName | 參照 HDInsight 叢集所使用 Azure Blob 儲存體的 Azure 儲存體連結服務名稱。 <p>目前，您無法針對此屬性指定 Azure Data Lake Store 連結服務。 如果 HDInsight 叢集可存取 Data Lake Store，您可以透過 Hive/Pig 指令碼存取 Azure Data Lake Store 中的資料。 </p>  |是 |
 
 如需支援的 HDInsight 叢集版本，請參閱[支援的 HDInsight 版本](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory)。
 
@@ -4913,7 +4913,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 | accountName |建立 Azure Batch 帳戶。 |是 |
 | accessKey |Azure Batch 帳戶的存取金鑰。 |是 |
 | poolName |虛擬機器的集區名稱。 |是 |
-| 預設容器 |與此 Azure Batch 連結服務相關聯的 Azure 儲存體服務連結名稱。 此連結服務用於執行活動及儲存活動執行記錄所需的暫存檔案。 |是 |
+| linkedServiceName |與此 Azure Batch 連結服務相關聯的 Azure 儲存體服務連結名稱。 此連結服務用於執行活動及儲存活動執行記錄所需的暫存檔案。 |是 |
 
 
 #### <a name="json-example"></a>JSON 範例
@@ -5110,7 +5110,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 
 ## <a name="data-transformation-activities"></a>資料轉換活動
 
-活動 | 描述
+activities | 描述
 -------- | -----------
 [HDInsight Hive 活動](#hdinsight-hive-activity) | Data Factory 管線中的 HDInsight Hive 活動會在您自己或隨選的 Windows/Linux 架構 HDInsight 叢集上執行 Hive 查詢。
 [HDInsight Pig 活動](#hdinsight-pig-activity) | Data Factory 管線中的 HDInsight Pig 活動會在您自己或隨選的 Windows/Linux 架構 HDInsight 叢集上執行 Pig 查詢。

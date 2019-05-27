@@ -67,7 +67,7 @@ Data Factory 中的複製活動會將資料從來源資料存放區複製到接�
 如果您需要將資料移入/移出「複製活動」不支援的資料存放區，或使用您自己的邏輯來轉換資料，請建立**自訂 .NET 活動**。 如需有關建立及使用自訂活動的詳細資料，請參閱 [在 Azure Data Factory 管線中使用自訂活動](data-factory-use-custom-activities.md)。
 
 ## <a name="schedule-pipelines"></a>建立管線排程
-管線僅在其「開始」時間與「結束」時間之間有作用。 在開始時間之前或結束時間之後就不會執行。 如果管線已暫停，不論其開始和結束時間為何，都不會執行。 若要執行管線，則不該將它暫停。 請參閱 [排程和執行](data-factory-scheduling-and-execution.md) ，以了解如何在 Azure Data Factory 中排程和執行。
+管線僅在其「開始」  時間與「結束」  時間之間有作用。 在開始時間之前或結束時間之後就不會執行。 如果管線已暫停，不論其開始和結束時間為何，都不會執行。 若要執行管線，則不該將它暫停。 請參閱 [排程和執行](data-factory-scheduling-and-execution.md) ，以了解如何在 Azure Data Factory 中排程和執行。
 
 ## <a name="pipeline-json"></a>管線 JSON
 讓我們來深入探討如何定義 JSON 格式的管線。 管線的一般結構如下所示：
@@ -137,14 +137,14 @@ Data Factory 中的複製活動會將資料從來源資料存放區複製到接�
 | name | 活動的名稱。 指定代表活動所執行之動作的名稱。 <br/><ul><li>字元數目上限︰260</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\\”</li></ul> |是 |
 | description | 說明活動用途的文字 |是 |
 | type | 活動的類型。 如需了解不同類型的活動，請參閱[資料移動活動](#data-movement-activities)和[資料轉換活動](#data-transformation-activities)小節。 |是 |
-| inputs |活動所使用的輸入資料表<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |是 |
-| outputs |活動所使用的輸出資料表。<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |是 |
+| 輸入 |活動所使用的輸入資料表<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |是 |
+| 輸出 |活動所使用的輸出資料表。<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |是 |
 | linkedServiceName |活動所使用的連結服務名稱。 <br/><br/>活動可能會要求您指定可連結至所需計算環境的連結服務。 |是：適用於 HDInsight 活動和 Azure Machine Learning Batch 評分活動  <br/><br/>否：所有其他 |
 | typeProperties |**typeProperties** 區段中的屬性會視活動的類型而定。 若要查看活動的類型屬性，請按一下先前小節中的活動連結。 | 否 |
 | policy |會影響活動之執行階段行為的原則。 如果未指定，則會使用預設原則。 |否 |
 | scheduler | “scheduler” 屬性用來定義所要的活動排程。 其子屬性與 [資料集中的可用性屬性](data-factory-create-datasets.md#dataset-availability)中的屬性相同。 |否 |
 
-### <a name="policies"></a>原則
+### <a name="policies"></a>policy
 原則會影響活動的執行階段行為，特別是在處理資料表配量的時候。 下表提供詳細資料。
 
 | 屬性 | 允許的值 | 預設值 | 描述 |
