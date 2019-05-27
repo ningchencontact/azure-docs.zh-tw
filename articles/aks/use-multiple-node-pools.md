@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 1c24bbb9433e4164d4b2f6ce1ac7bd726cc36356
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.openlocfilehash: 4086b73313d563afaecad9b6a9289905d7085004
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506896"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142648"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>預覽-建立和管理 Azure Kubernetes Service (AKS) 叢集的多個節點集區
 
@@ -21,9 +21,9 @@ Azure Kubernetes Service (AKS) 中，相同的設定節點會分組放入*節點
 這篇文章會示範如何建立和管理 AKS 叢集中的多個節點集區。 此功能目前為預覽狀態。
 
 > [!IMPORTANT]
-> AKS 预览功能是自助服务和可以选择加入的功能。 提供预览是为了从我们的社区收集反馈和 bug。 但是，Azure 技术支持部门不为其提供支持。 如果你创建一个群集，或者将这些功能添加到现有群集，则除非该功能不再为预览版并升级为公开发布版 (GA)，否则该群集不会获得支持。
+> AKS 預覽功能是自助服務和選用功能。 預覽可供收集從我們的社群的意見及 bug。 不過，它們不是支援 Azure 技術支援。 如果您建立叢集，或將這些功能加入到現有的叢集，該叢集不支援此功能不再處於預覽狀態，並發展至公開上市 (GA) 之前。
 >
-> 如果遇到预览版功能的问题，请[在 AKS GitHub 存储库中提交问题][aks-github]，并在 Bug 标题中填写预览版功能的名称。
+> 如果您遇到問題，使用預覽功能[開立 AKS GitHub 儲存機制][ aks-github] bug 標題中的預覽功能的名稱。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -332,7 +332,7 @@ Events:
 
 在本文中，您會建立 AKS 叢集，其中包含以 GPU 為基礎的節點。 若要減少不必要的成本，您可能想要刪除*gpunodepool*，或整個 AKS 叢集。
 
-若要刪除以 GPU 為基礎的節點集區，請使用[az aks 節點的集區刪除][ az-aks-nodepool-delete]命令，在下列範例所示：
+若要刪除以 GPU 為基礎的節點集區，請使用[刪除 az aks nodepool] [ az-aks-nodepool-delete]命令，在下列範例所示：
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
@@ -348,8 +348,10 @@ az group delete --name myResourceGroup --yes --no-wait
 
 在這篇文章中，您學會如何建立和管理 AKS 叢集中的多個節點集區。 如需如何控制跨節點集區的 pod 的詳細資訊，請參閱[AKS 中的進階排程器功能的最佳做法][operator-best-practices-advanced-scheduler]。
 
+若要建立及使用 Windows Server 容器節點集區，請參閱[AKS 中建立 Windows Server 容器][aks-windows]。
+
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -376,3 +378,4 @@ az group delete --name myResourceGroup --yes --no-wait
 [install-azure-cli]: /cli/azure/install-azure-cli
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[aks-windows]: windows-container-cli.md

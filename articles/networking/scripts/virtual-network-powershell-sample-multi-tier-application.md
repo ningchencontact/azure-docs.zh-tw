@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.openlocfilehash: 0d680bdab7e72f722ca3d653037e5f707607e72e
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: d5433cdd6e6702a289fe0a4b6eab87e9f196fb1c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649352"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156907"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>為多層式應用程式建立網路
 
@@ -38,7 +38,7 @@ ms.locfileid: "56649352"
 
 ## <a name="clean-up-deployment"></a>清除部署 
 
-运行以下命令来删除资源组、VM 和所有相关资源。
+執行下列命令來移除資源群組、VM 和所有相關資源。
 
 ```powershell
 Remove-AzResourceGroup -Name myResourceGroup

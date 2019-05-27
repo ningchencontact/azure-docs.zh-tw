@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
-ms.openlocfilehash: d5b08a22aa3896fb7158ef3535b115e3e0189142
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.openlocfilehash: 39ef23d04dc1cf1b48297ecf8f0accfef4935cd2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596976"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158946"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -374,7 +374,7 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 存取 Azure 開發人員空格控制器的使用者必須具有系統管理員的讀取權限*kubeconfig* AKS 叢集上。 例如，此權限可用於[內建 Azure Kubernetes 服務叢集系統管理員角色](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions)。 存取 Azure 開發人員空格控制器的使用者也必須擁有*參與者*或是*擁有者*控制站的 RBAC 角色。
 
 ### <a name="try"></a>嘗試
-正在更新使用者的權限，適用於 AKS 叢集更多詳細資料[此處](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user)。
+正在更新使用者的權限，適用於 AKS 叢集更多詳細資料[此處](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group)。
 
 若要更新使用者的 RBAC 角色，控制站：
 

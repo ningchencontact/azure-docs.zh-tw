@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: b8585b62b0728d1ba6e010e42b44840903c46833
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500860"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146929"
 ---
 ### <a name="azure-storage-linked-service"></a>Azure 儲存體連結服務
 「Azure 儲存體連結服務」可讓您使用**帳戶金鑰**將 Azure 儲存體帳戶連結至 Azure Data Factory，而帳戶金鑰可將 Azure 儲存體的全域存取權提供給資料處理站。 下表提供 Azure 儲存體連結服務專屬 JSON 元素的描述。
@@ -17,7 +17,7 @@ ms.locfileid: "58500860"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type |類型屬性必須設定為：**AzureStorage** |是 |
-| connectionString |針對 connectionString 屬性指定連接到 Azure 儲存體所需的資訊。 |是 |
+| connectionString |針對 connectionString 屬性指定連接到 Azure 儲存體所需的資訊。 |有 |
 
 請參閱下一節的步驟來檢視或複製帳戶金鑰的 Azure 儲存體：[存取金鑰](../articles/storage/common/storage-account-manage.md#access-keys)。
 

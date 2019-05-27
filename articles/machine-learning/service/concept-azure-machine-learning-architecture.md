@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb716e0d9f97d3ea2e9584a9fc3d7a6f57da9179
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
-ms.translationtype: MT
+ms.openlocfilehash: 3167f60cca9997c9713efad0fbb8a51b20def76b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65502087"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151170"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -34,39 +34,23 @@ ms.locfileid: "65502087"
 1. 找到令人滿意的回合之後，請在**模型登錄**中註冊保存的模型。
 1. 開發使用模型的評分指令碼並**部署模型**作為**web 服務**在 Azure 中，或**IoT Edge 裝置**。
 
+您執行這些步驟，使用下列其中一項：
++ [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
++ [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
++  [Azure Machine Learning 服務的視覺化介面 （預覽）](ui-concept-visual-interface.md)
 
 > [!NOTE]
 > 雖然本文定義了 Azure Machine Learning 服務使用的詞彙與概念，但並沒有定義 Azure 平台的詞彙與概念。 如需有關 Azure 平台技術的詳細資訊，請參閱 [Microsoft Azure 詞彙](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)。
 
 ## <a name="workspace"></a>工作區
 
-工作區是 Azure Machine Learning 服務的最上層資源。 它可以在您使用 Azure Machine Learning 服務時，提供集中式位置以處理您建立的所有成品。
-
-工作區會保留一份可用於定型模型的計算目標清單。 它也會保留定型執行記錄，包括記錄、計量、輸出，以及指令碼快照集。 您可以使用此資訊來判斷哪一個定型回合會產生最佳模型。
-
-您要在工作區註冊模型。 若要將模型部署至 Azure Container Instances，Azure Kubernetes 服務，或做為 REST 架構 HTTP 端點的欄位可程式化 gate array (FPGA) 中使用已註冊的模型和評分指令碼。 您也可以將映像部署到 Azure IoT Edge 裝置作為模組。 就內部而言，會建立 docker 映像，來裝載已部署的映像。 如有需要您可以指定自己的映像。
-
-您可以建立多個工作區，而且每個工作區都可由多人共用。 當您共用工作區時，您可以將使用者指派給下列角色來控制其存取權：
-
-* 擁有者
-* 參與者
-* 讀取者
-
-如需有關這些角色的詳細資訊，請參閱 <<c0> [ 管理的存取權的 Azure Machine Learning 工作區](how-to-assign-roles.md)文章。
-
-建立新的工作區時，會自動建立工作區使用的幾個 Azure 資源：
-
-* [Azure 容器登錄](https://azure.microsoft.com/services/container-registry/)：註冊您在定型期間及部署模型時使用的 Docker 容器。
-* [Azure 儲存體帳戶](https://azure.microsoft.com/services/storage/)：用來作為工作區的預設資料存放區。
-* [Azure Application Insights](https://azure.microsoft.com/services/application-insights/)：儲存與模型有關的監視資訊。
-* [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)：儲存計算目標所使用的密碼與工作區所需的其他機密資訊。
-
-> [!NOTE]
-> 除了建立新的版本之外，您也可以使用現有的 Azure 服務。
+[工作區](concept-workspace.md)是 Azure Machine Learning 服務的最上層資源。 它可以在您使用 Azure Machine Learning 服務時，提供集中式位置以處理您建立的所有成品。
 
 下圖說明工作區的分類：
 
 [![工作區分類](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+
+如需工作區的詳細資訊，請參閱[什麼是 Azure Machine Learning 工作區？](concept-workspace.md)。
 
 ## <a name="experiment"></a>實驗
 
@@ -170,6 +154,10 @@ Azure Machine Learning 資料集 （預覽） 讓您更輕鬆地存取及處理�
 
 如需檢視定型模型所產生之回合的範例，請參閱[快速入門：開始使用 Azure Machine Learning 服務](quickstart-run-cloud-notebook.md)。
 
+## <a name="github-tracking-and-integration"></a>GitHub 追蹤和整合
+
+當您啟動定型，執行 [source] 目錄所在的本機 Git 儲存機制時，儲存機制的資訊會儲存執行歷程記錄中。 例如，存放庫的最新的認可識別碼會記錄做為歷程記錄的一部分。 這適用於使用估計工具、 ML 管線或執行指令碼提交的執行。 它也適用於執行從 SDK 或 Machine Learning CLI 提交。
+
 ## <a name="snapshot"></a>快照
 
 提交回合時，Azure Machine Learning 會將包含指令碼的目錄壓縮成 zip 檔案，然後傳送至計算目標。 接著會將 zip 檔案解壓縮並在該處執行指令碼。 Azure Machine Learning 也會將 zip 檔案以快照方式儲存在回合記錄中。 任何擁有工作區存取權的人都能瀏覽回合記錄並下載快照集。
@@ -228,7 +216,7 @@ Azure IoT Edge 會確保模組正在執行，並監視裝載模組的裝置。
 
 ## <a name="pipeline"></a>管線
 
-您可以使用機器學習管線來建立和管理結合多個機器學習階段的工作流程。 例如，管線可能包含資料準備、模型訓練、模型部署和推斷階段。 每個階段都可以包含多個步驟，這些步驟各自都可以在各種計算目標中自動執行。
+您可以使用機器學習管線來建立和管理結合多個機器學習階段的工作流程。 例如，管線可能包含資料準備、 模型訓練、 模型部署和評分推斷/階段。 每個階段都可以包含多個步驟，這些步驟各自都可以在各種計算目標中自動執行。
 
 如需有關機器學習管線與此服務的詳細資訊，請參閱[管線和 Azure Machine Learning](concept-ml-pipelines.md)。
 

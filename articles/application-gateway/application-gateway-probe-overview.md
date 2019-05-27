@@ -6,18 +6,19 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/6/2018
-ms.author: victorh
+origin.date: 08/06/2018
+ms.date: 04/16/2019
+ms.author: v-junlch
 ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120545"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135199"
 ---
-# <a name="application-gateway-health-monitoring-overview"></a>应用程序网关运行状况监视概述
+# <a name="application-gateway-health-monitoring-overview"></a>應用程式閘道健全狀況監視概觀
 
-默认情况下，Azure 应用程序网关会监视其后端池中所有资源的运行状况，并自动从池中删除任何被视为不正常的资源。 應用程式閘道會繼續監視狀況不良的執行個體，一旦其恢復可用狀態並回應健康狀況探查，就會將其新增回狀況良好後端集區中。 应用程序网关发送的运行状况探测所针对的端口与后端 HTTP 设置中定义的端口相同。 此組態可確保探查所測試的連接埠會和客戶用來連接到後端的連接埠相同。
+Azure 應用程式閘道預設會監視其後端集區中所有資源的健康狀況，並自動從集區中移除任何被視為狀況不良的資源。 應用程式閘道會繼續監視狀況不良的執行個體，一旦其恢復可用狀態並回應健康狀況探查，就會將其新增回狀況良好後端集區中。 应用程序网关发送的运行状况探测所针对的端口与后端 HTTP 设置中定义的端口相同。 此組態可確保探查所測試的連接埠會和客戶用來連接到後端的連接埠相同。
 
 ![應用程式閘道探查範例][1]
 
@@ -25,11 +26,11 @@ ms.locfileid: "58120545"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="default-health-probe"></a>默认的运行状况探测
+## <a name="default-health-probe"></a>預設的健全狀況探查
 
 如果您沒有設定任何自訂探查組態，應用程式閘道就會自動設定預設健全狀況探查。 監視行為的運作方式是對後端集區所設定的 IP 位址提出 HTTP 要求。 針對預設探查，如果後端 http 設定設為使用 HTTPS，探查也會使用 HTTPS 測試後端的健康狀態。
 
-例如︰您將應用程式閘道設定為使用 A、B 和 C 後端伺服器來接收連接埠 80 上的 HTTP 網路流量。 預設健全狀況監視每 30 秒就會對三部伺服器進行一次測試，以取得狀況良好的 HTTP 回應。 狀況良好的 HTTP 回應具有 200 到 399 之間的 [狀態碼](https://msdn.microsoft.com/library/aa287675.aspx) 。
+例如：您將應用程式閘道設定為使用 A、B 和 C 後端伺服器來接收連接埠 80 上的 HTTP 網路流量。 預設健全狀況監視每 30 秒就會對三部伺服器進行一次測試，以取得狀況良好的 HTTP 回應。 狀況良好的 HTTP 回應具有 200 到 399 之間的 [狀態碼](https://msdn.microsoft.com/library/aa287675.aspx) 。
 
 如果伺服器 A 的預設探查檢查失敗，應用程式閘道就會將其從後端集區中移除，網路流量也不會再流向此伺服器。 預設探查仍會繼續每 30 秒檢查一次伺服器 A。 當伺服器 A 成功回應預設健全狀態探查所提出的要求時，就會變為狀況良好並重新回到後端集區中，而流量也會開始再次流向該伺服器。
 
@@ -44,7 +45,7 @@ ms.locfileid: "58120545"
 
 比對準則是使用 `New-AzApplicationGatewayProbeHealthResponseMatch` Cmdlet 來指定的。
 
-例如︰
+例如：
 
 ```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
@@ -54,12 +55,12 @@ $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 
 ### <a name="default-health-probe-settings"></a>預設的健全狀況探查設定
 
-| 探查屬性 | 值 | 描述 |
+| 探查屬性 | Value | 說明 |
 | --- | --- | --- |
-| 探测 URL |http://127.0.0.1:\<port\>/ |URL 路徑 |
-| 时间间隔 |30 |在傳送下一個健康情況探查之前的等候時間，以秒為單位。|
+| 探查 URL |http://127.0.0.1:\<port\>/ |URL 路徑 |
+| Interval |30 |在傳送下一個健康情況探查之前的等候時間，以秒為單位。|
 | 逾時 |30 |應用程式閘道在將探查標示為狀況不良之前等待探查回應的時間，以秒為單位。 如果傳回狀況良好的探查，則對應的後端會立即標示為狀況良好。|
-| 狀況不良臨界值 |3 |控管在定期健康情況探查失敗時所要傳送的探查數量。 這些額外的健康情況探查會緊密地連續傳送，以快速判斷後端的健康情況，而不等待探查間隔。 連續探查失敗計數到達狀況不良臨界值後，就會將後端伺服器標示為故障。 |
+| 狀況不良閾值 |3 |控管在定期健康情況探查失敗時所要傳送的探查數量。 這些額外的健康情況探查會緊密地連續傳送，以快速判斷後端的健康情況，而不等待探查間隔。 連續探查失敗計數到達狀況不良臨界值後，就會將後端伺服器標示為故障。 |
 
 > [!NOTE]
 > 連接埠會是和後端 HTTP 設定相同的連接埠。
@@ -80,15 +81,15 @@ $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 
 下表提供自訂健全狀況探查的屬性定義。
 
-| 探查屬性 | 描述 |
+| 探查屬性 | 說明 |
 | --- | --- |
 | 名稱 |探查的名稱。 此名稱用來在後端 HTTP 設定中指出探查。 |
-| 通訊協定 |用于发送探测的协议。 探查會使用後端 HTTP 設定中定義的通訊協定 |
+| Protocol |用來傳送探查的通訊協定。 探查會使用後端 HTTP 設定中定義的通訊協定 |
 | Host |用來傳送探查的主機名稱。 只有當應用程式閘道上設定多站台時適用，否則請使用 '127.0.0.1'。 此值與 VM 主機名稱不同。 |
-| Path |探查的相對路徑。 有效路徑的開頭為 '/'。 |
-| 間隔 |探查間隔 (秒)。 這個值是兩個連續探查之間的時間間隔。 |
+| `Path` |探查的相對路徑。 有效路徑的開頭為 '/'。 |
+| Interval |探查間隔 (秒)。 這個值是兩個連續探查之間的時間間隔。 |
 | 逾時 |探查逾時 (秒)。 如果在這個逾時期間內未收到有效的回應，則會將探查標示為失敗。  |
-| 狀況不良臨界值 |探测重试计数。 連續探查失敗計數到達狀況不良臨界值後，就會將後端伺服器標示為故障。 |
+| 狀況不良閾值 |探查重試計數。 連續探查失敗計數到達狀況不良臨界值後，就會將後端伺服器標示為故障。 |
 
 > [!IMPORTANT]
 > 如果已將應用程式閘道設定為單一站台，根據預設，除非已在自訂探查中加以設定，否則應將主機名稱指定為 '127.0.0.1'。
@@ -104,3 +105,5 @@ $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 在了解應用程式閘道的健全狀態監視之後，您可以在 Azure 入口網站中[自訂健全狀態探查](application-gateway-create-probe-portal.md)，或使用 PowerShell 和 Azure Resource Manager 部署模型設定[自訂健全狀態探查](application-gateway-create-probe-ps.md)。
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
+
+<!-- Update_Description: wording update -->

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: a4c9ec133b3686a92cec7e7c8d4552c1302e3074
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474264"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158519"
 ---
 您必須具有 Azure 的帳戶，才能搭配使用 Azure CLI 與 Resource Manager 命令和範本，使用資源群組來部署 Azure 資源和工作負載。 如果您沒有帳戶，可以取得 [此處免費試用的 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
@@ -39,7 +39,7 @@ ms.locfileid: "61474264"
 | 取得 VM 的相關資訊 |`azure  vm show [options] <resource_group> <name>` |
 | 啟動 VM |`azure vm start [options] <resource_group> <name>` |
 | 停止 VM |`azure vm stop [options] <resource_group> <name>` |
-| 释放 VM |`azure vm deallocate [options] <resource-group> <name>` |
+| 解除配置 VM |`azure vm deallocate [options] <resource-group> <name>` |
 | 重新啟動 VM |`azure vm restart [options] <resource_group> <name>` |
 | 刪除 VM |`azure vm delete [options] <resource_group> <name>` |
 | 擷取 VM |`azure vm capture [options] <resource_group> <name>` |
@@ -52,7 +52,7 @@ ms.locfileid: "61474264"
 | 將 Docker 延伸模組新增至 VM |`azure  vm docker create [options] <resource-group> <name> <location> <os-type>` |
 | 移除 VM 延伸模組 |`azure  vm extension set [options] –u <resource-group> <vm-name> <name> <publisher-name> <version>` |
 | 取得 VM 資源的使用量 |`azure vm list-usage [options] <location>` |
-| 获取所有可用 VM 大小 |`azure vm sizes [options]` |
+| 取得所有可用的 VM 大小 |`azure vm sizes [options]` |
 
 ## <a name="next-steps"></a>後續步驟
 * 如需超越基本 VM 管理的其他 CLI 命令範例，請參閱 [Azure CLI 與 Azure Resource Manager 搭配使用](../articles/virtual-machines/azure-cli-arm-commands.md)。

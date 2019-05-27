@@ -1,5 +1,5 @@
 ---
-title: 探索及準備資料 （資料集類別）
+title: 探索和轉換資料 （資料集類別）
 titleSuffix: Azure Machine Learning service
 description: 使用摘要統計資料探索資料並準備透過資料清理、 轉換和特徵工程設計的資料
 services: machine-learning
@@ -10,17 +10,17 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/19
-ms.openlocfilehash: 70712605cc97670b625d32052bb79b4a666e4281
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 05/23/2019
+ms.openlocfilehash: e692b0dc1089804b1d68b79c1a6f438f30554602
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603147"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146286"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>探索及準備資料的資料集類別 （預覽）
 
-了解如何探索及準備資料[Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)。 [資料集](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py)類別 （預覽） 可讓您探索及準備您的資料，例如提供函式： 取樣、 摘要統計資料和智慧型的轉換。 轉換步驟就會存入[資料集定義](how-to-manage-dataset-definitions.md)高度可調整的方式處理不同的結構描述的多個大型檔案的能力。
+了解如何探索及準備資料中的資料集的 azureml 封裝[Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)。 [資料集](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py)類別 （預覽） 可讓您探索及準備您的資料，例如提供函式： 取樣、 摘要統計資料和智慧型的轉換。 轉換步驟就會存入[資料集定義](how-to-manage-dataset-definitions.md)高度可調整的方式處理不同的結構描述的多個大型檔案的能力。
 
 > [!Important]
 > 某些資料集類別 （預覽） 有相依性[azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py)封裝 (GA)。 雖然轉換函式可以直接使用 GA'ed[資料準備函式](how-to-transform-data.md)，我們建議您在本文中所述，如果您要建立新方案的資料集封裝包裝函式。 Azure Machine Learning 資料集 （預覽） 可讓您不只將您的資料，但也[快照集資料](how-to-create-dataset-snapshots.md)並儲存[建立版本的資料集定義](how-to-manage-dataset-definitions.md)。 資料集是資料準備 SDK 中，供應項目擴充的功能管理 AI 解決方案中的資料集的下一個版本。
@@ -33,7 +33,7 @@ ms.locfileid: "65603147"
 
 * Azure Machine Learning 服務工作區。 請參閱[建立 Azure 機器學習服務工作區](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)。
 
-* Azure 機器學習服務 SDK for Python (版本 1.0.21 或更新版本)。 若要安裝或更新至最新版的 sdk，請參閱[安裝或更新 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。
+* Azure 機器學習服務 SDK for Python (版本 1.0.21 或更新版本)，其中包含資料集的 azureml 封裝。 若要安裝或更新至最新版的 sdk，請參閱[安裝或更新 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。
 
 * Azure Machine Learning 資料準備 SDK。 若要安裝或更新為最新版本，請參閱[安裝或更新 Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install)。
 

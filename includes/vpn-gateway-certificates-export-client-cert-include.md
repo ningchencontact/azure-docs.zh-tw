@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b657d54c3ebbe5afc20fc98c1348bb783410df60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60763794"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150304"
 ---
 當您產生用戶端憑證時，它會自動安裝於您用來產生它的電腦上。 如果您想要在另一部用戶端電腦上安裝用戶端憑證，您必須匯出您所產生的用戶端憑證。
 
@@ -22,7 +22,7 @@ ms.locfileid: "60763794"
    ![匯出](./media/vpn-gateway-certificates-export-client-cert-include/export.png)
 2. 在 [憑證匯出精靈] 中，按 [下一步] 繼續作業。
 
-   ![下一頁](./media/vpn-gateway-certificates-export-client-cert-include/next.png)
+   ![下一個](./media/vpn-gateway-certificates-export-client-cert-include/next.png)
 3. 選取 [是，匯出私密金鑰]，然後按 [下一步]。
 
    ![匯出私密金鑰](./media/vpn-gateway-certificates-export-client-cert-include/privatekeyexport.png)
@@ -31,10 +31,10 @@ ms.locfileid: "60763794"
    ![匯出檔案格式](./media/vpn-gateway-certificates-export-client-cert-include/includeallcerts.png)
 5. 在 [安全性]  頁面上，您必須保護私密金鑰。 如果您選取要使用密碼，請務必記錄或牢記您為此憑證設定的密碼。 然後按 [下一步] 。
 
-   ![security](./media/vpn-gateway-certificates-export-client-cert-include/security.png)
-6. 在 [要匯出的檔案] 中，[瀏覽] 到您要匯出憑證的位置。 在“文件名”中，为证书文件命名。 然後按 [下一步] 。
+   ![安全性](./media/vpn-gateway-certificates-export-client-cert-include/security.png)
+6. 在 [要匯出的檔案] 中，[瀏覽] 到您要匯出憑證的位置。 針對 [檔案名稱] ，請為憑證檔案命名。 然後按 [下一步] 。
 
    ![要匯出的檔案](./media/vpn-gateway-certificates-export-client-cert-include/filetoexport.png)
 7. 按一下 [完成]  以匯出憑證。
 
-   ![完成](./media/vpn-gateway-certificates-export-client-cert-include/finish.png)
+   ![結束](./media/vpn-gateway-certificates-export-client-cert-include/finish.png)

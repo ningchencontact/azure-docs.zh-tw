@@ -9,11 +9,11 @@ ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0a81d8c97b916fd15e7be5fde05e9ea25ba1151d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457846"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150818"
 ---
 包含閘道的中樞。 中樞建立好時，您就需要支付中樞費用，即使您未連結任何網站也是如此。 大約需要 30 分鐘的時間以建立中樞與閘道。
 
@@ -22,7 +22,7 @@ ms.locfileid: "60457846"
 3. 在 [建立虛擬中樞] 頁面上，完成下列欄位：
 
    * 位置
-   * 名稱
+   * Name
    * 中樞私人位址空間
 
 按一下 [確認] 以建立中樞。 按一下 [重新整理] 以檢視 [中樞] 頁面上的中樞。

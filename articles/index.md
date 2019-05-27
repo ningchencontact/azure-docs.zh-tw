@@ -6,12 +6,12 @@ description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功�
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: b36302e349327354e31ef4ea5adb9842d04ed4f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c1c33cab46082d1d3b748b45b40a7928801b2e55
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149356"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151252"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -649,6 +649,12 @@ Azure 服務和功能導覽 </a>
                                     <h3>Azure Stack</h3>
                                     <ul>
                                         <li>
+                                            <a href="/azure-stack">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/azure-stack/">
                                                 <img src="media/index/azure-stack.svg" alt="" />
                                                 <p>Azure Stack 操作員</p>
@@ -658,6 +664,11 @@ Azure 服務和功能導覽 </a>
                                             <a href="/azure/azure-stack/user">
                                                 <img src="media/index/azure-stack.svg" alt="" />
                                                 <p>Azure Stack 使用者</p>
+                                            </a>
+                                        </li>                                        <li>
+                                            <a href="/azure-stack/asdk/">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack 開發套件 (ASDK)</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -5959,6 +5970,25 @@ Azure 服務和功能導覽 </a>
                         <a href="#stack">Azure Stack</a>
                         <ul id="stack" class="cardsA">
                             <li>
+                                <a href="/azure-stack">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-stack.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Stack</h3>
+                                                    <p>擴充內部部署的 Azure 服務和功能，以建置並部署混合式雲端及跨雲端界限的邊線應用程式</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/azure-stack/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -5970,7 +6000,7 @@ Azure 服務和功能導覽 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Stack 操作員</h3>
-                                                    <p>從您自己的資料中心搭配新的混合式雲端平台傳遞 Azure 服務</p>
+                                                    <p>了解如何管理 Azure Stack 整合系統基礎結構，以及如何提供服務</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5989,6 +6019,23 @@ Azure 服務和功能導覽 </a>
                                             <div class="cardText">
                                                 <h3>Azure Stack 使用者</h3>
                                                 <p>使用服務並建置 Azure Stack 的應用程式</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure-stack/asdk/">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/azure-stack.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>Azure Stack 開發套件 (ASDK)</h3>
+                                                <p>教育及測試用途的非生產環境</p>
                                             </div>
                                         </div>
                                     </div>

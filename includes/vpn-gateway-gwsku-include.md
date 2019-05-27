@@ -9,11 +9,11 @@ ms.date: 03/20/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b1a9d93d9fccf02ba1517e429625150736e539e9
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305196"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159392"
 ---
 建立虛擬網路閘道時，您必須指定想要使用的閘道 SKU。 根據工作負載、輸送量、功能和 SLA 的類型，選取符合您需求的 SKU。 虛擬網路閘道 Sku，在 Azure 可用性區域中，請參閱[Azure 可用性區域閘道 Sku](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md)。
 
@@ -29,7 +29,7 @@ ms.locfileid: "58305196"
 
 | **SKU**| **特性**|
 | ---    | ---         |
-|**基本** (\*\*)   | **基于路由的 VPN**：用于 S2S /连接的 10 个隧道；无适用于 P2S 的 RADIUS 身份验证；无适用于 P2S 的 IKEv2<br>**基于策略的 VPN**：(IKEv1)：1 个 S2S/连接隧道；无 P2S|
+|**基本** (\*\*)   | **路由式 VPN**:10 個通道的 S2S/連線;如需 P2S; 無 RADIUS 驗證沒有用於 P2S 的 IKEv2<br>**以原則為基礎的 VPN**:(IKEv1):1/連線的 S2S 通道;沒有 P2S|
 | **VpnGw1、VpnGw2 和 VpnGw3** | **路由式 VPN**：最多 30 個通道 ( * )，P2S、BGP、主動-主動、自訂 IPsec/IKE 原則、ExpressRoute/VPN 共存 |
 |        |             |
 

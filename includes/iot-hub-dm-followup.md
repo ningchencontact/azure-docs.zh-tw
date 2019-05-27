@@ -9,11 +9,11 @@ ms.date: 02/17/2019
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 69fdc6cf678107ef64ea1fe7b819738fd4a4ff4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346115"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156359"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>自訂及延伸裝置管理動作
 
@@ -27,6 +27,6 @@ ms.locfileid: "60346115"
 
 在本教學課程中，您已使用直接方法在裝置上觸發遠端重新開機。 您已使用報告屬性來從裝置回報上次重新開機時間，以及查詢裝置對應項來從雲端探索裝置的上次重新開機時間。
 
-若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅[如何更新固件](../articles/iot-hub/tutorial-firmware-update.md)
+若要繼續開始使用 IoT 中樞和裝置管理模式，例如遠端無線韌體更新，請參閱[如何進行韌體更新](../articles/iot-hub/tutorial-firmware-update.md)
 
-若要了解如何扩展 IoT 解决方案并在多个设备上计划方法调用，请参阅[计划和广播作业](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md)。
+若要了解如何擴充您的 IoT 解決方案以及排程方法呼叫多個裝置，請參閱[排程及廣播的作業](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md)。

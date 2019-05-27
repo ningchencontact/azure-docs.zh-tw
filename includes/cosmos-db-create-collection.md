@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 28ecac39d991754cfadeb87479c336a6c6086fd7
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59532744"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151402"
 ---
 您現在可以在 Azure 入口網站中使用 [資料總管] 工具，建立資料庫和集合。 
 

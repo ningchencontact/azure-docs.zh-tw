@@ -9,11 +9,11 @@ ms.date: 02/04/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 6a12ef422211a77299ece00c5333a6c9f10c9427
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246760"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151133"
 ---
 若要存取 Azure 儲存體，您需要有 Azure 訂用帳戶。 如果您還沒有訂用帳戶，則先建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)，再開始操作。
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
 ms.openlocfilehash: e7e57c6a821731874dcb1d99a3133b6ede1da26e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386287"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148164"
 ---
 **進階非受控的虛擬機器磁碟：每個帳戶限制**
 
@@ -25,7 +25,7 @@ ms.locfileid: "60386287"
 
 | 進階儲存體磁碟類型 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- |
-| 磁盘大小 |128 GB |512 GB |1,024 giB (1 TB) |2,048 giB (2 TB)|4095 giB (4 TB)|
+| 磁碟大小 |128 GB |512 GB |1,024 giB (1 TB) |2,048 giB (2 TB)|4095 giB (4 TB)|
 | 每個磁碟的最大 IOPS |500 |2,300 |5,000 |7,500 |7,500 |
 | 每個磁碟的最大輸送量 |100 MB/秒 | 150 MB/秒 |200 MB/秒 |250 MB/秒 |250 MB/秒 |
 | 每個儲存體帳戶的磁碟數目上限 |280 |70 |35 | 17 | 8 |

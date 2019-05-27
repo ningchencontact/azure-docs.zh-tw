@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f5d1c66cb049ab9ec52db619d55a4bb3e485e4b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8142551d9c20c18d83c256b3f07a0deb291577c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60588353"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147646"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 公用雲端中的隔離
 ##  <a name="introduction"></a>簡介
@@ -72,7 +72,7 @@ Azure 租用 (Azure 訂用帳戶) 是指「客戶/計費」關聯性，以及 [A
 
 針對診斷與維護需求，必須使用採用 Just-In-Time 權限提高系統的作業模型。 Azure AD Privileged Identity Management (PIM) 導入了合格管理員的概念。[合格管理員](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)應該是偶爾需要特殊存取權限而非每一天都需要此權限的使用者。 在使用者需要存取權之前，角色會處於非作用中狀態，然後使用者須完成啟用程序，才能在一段預定的時間內成為作用中的系統管理員。
 
-![Azure AD 特殊權限身分識別管理](./media/azure-isolation/azure-isolation-fig2.png)
+![Azure AD Privileged Identity Management](./media/azure-isolation/azure-isolation-fig2.png)
 
 Azure Active Directory 會透過租用戶單獨擁有且管理之容器內的原則和權限，在它自己受保護的容器中裝載每個租用戶。
 
@@ -137,6 +137,7 @@ Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制�
 * Standard_G5
 * Standard_DS15_v2
 * Standard_D15_v2
+* Standard_F72s_v2
 
 您可以在[這裡](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)深入了解每個可用的隔離大小。
 
@@ -272,11 +273,11 @@ Windows 的磁碟加密解決方案是建基於 [Microsoft BitLocker 磁碟機�
 
 -   在使用儲存空間設定的 Windows VM 上啟用加密
 
--   支持所有 Azure 公共区域
+-   所有 Azure 公用區域皆受到支援
 
 解決方案不支援此版本中的下列案例、功能和技術：
 
--   基本层 IaaS VM
+-   基本層 IaaS VM
 
 -   在 Linux IaaS VM 的 OS 磁碟機上停用加密
 

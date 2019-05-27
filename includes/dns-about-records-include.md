@@ -1,16 +1,15 @@
 ---
-author: WenJason
+author: vhorne
 ms.service: dns
 ms.topic: include
-origin.date: 11/25/2018
-ms.date: 12/24/2018
-ms.author: v-jay
+ms.date: 11/25/2018
+ms.author: victorh
 ms.openlocfilehash: f7fa018225d82e2db4a3c51b333aea6fcb9a1514
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563330"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160944"
 ---
 ### <a name="record-names"></a>記錄名稱
 
@@ -22,7 +21,7 @@ ms.locfileid: "60563330"
 
 每一筆 DNS 記錄都有名稱和類型。 記錄根據所包含的資料而組織成各種類型。 最常見的類型為 'A' 記錄，可將名稱對應到 IPv4 位址。 另一個一般類型為 'MX' 記錄，可將名稱對應到郵件伺服器。
 
-Azure DNS 支持所有常见 DNS 记录类型：A、AAAA、CAA、CNAME、MX、NS、PTR、SOA、SRV 和 TXT。 請注意，[SPF 記錄是使用 TXT 記錄表示](../articles/dns/dns-zones-records.md#spf-records)。
+Azure DNS 支援所有常見的 DNS 記錄類型：A、 AAAA、 CAA、 CNAME、 MX、 NS、 PTR、 SOA、 SRV 和 TXT。 請注意，[SPF 記錄是使用 TXT 記錄表示](../articles/dns/dns-zones-records.md#spf-records)。
 
 ### <a name="record-sets"></a>記錄集
 

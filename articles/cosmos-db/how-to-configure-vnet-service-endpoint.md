@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.openlocfilehash: c0b1b415db9d8a530a495e09805ad9788c1edfbe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785025"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66153684"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>設定從虛擬網路 (VNet) 存取
 
@@ -53,9 +53,9 @@ ms.locfileid: "59785025"
 > 若要啟用虛擬網路服務端點，您必須具備下列訂用帳戶權限：
 >   * 虛擬網路的訂用帳戶：網路參與者
 >   * Azure Cosmos DB 帳戶的訂用帳戶：DocumentDB 帳戶參與者
->   * 如果虚拟网络与 Azure Cosmos DB 帐户位于不同的订阅中，请确保包含虚拟网络的订阅还注册了 `Microsoft.DocumentDB` 资源提供程序。 若要注册资源提供程序，请参阅 [Azure 资源提供程序和类型](../azure-resource-manager/resource-manager-supported-services.md)一文。 
+>   * 如果您的虛擬網路和 Azure Cosmos DB 帳戶位於不同訂用帳戶，請確定具有虛擬網路的訂用帳戶也有`Microsoft.DocumentDB`註冊資源提供者。 若要註冊資源提供者，請參閱[Azure 資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md)文章。 
 
-以下是向资源提供程序注册订阅的说明。
+以下是向資源提供者註冊訂用帳戶的指示。
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>對新的 Azure 虛擬網路和子網路設定服務端點
 

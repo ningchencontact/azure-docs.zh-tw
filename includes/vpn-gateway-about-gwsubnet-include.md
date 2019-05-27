@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0334f9fd2d749b88580ff3857d705de2ae961902
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60407567"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157740"
 ---
 虛擬網路閘道會使用稱為閘道子網路的特定子網路。 閘道子網路是您設定虛擬網路時，所指定虛擬網路 IP 位址範圍的一部分。 其包含虛擬網路閘道資源和服務所使用的 IP 位址。 子網路必須命名為 'GatewaySubnet' 才可供 Azure 部署閘道資源。 您無法指定不同的子網路來作為閘道資源的部署目的地。 如果您沒有名為 'GatewaySubnet' 的子網路，當您建立 VPN 閘道時，它將會失敗。
 

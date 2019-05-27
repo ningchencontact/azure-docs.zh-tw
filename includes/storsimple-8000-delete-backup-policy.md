@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: b7a86963c657524fa91c4eb824ced1a495391f3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819173"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66172205"
 ---
 #### <a name="to-delete-a-storsimple-backup-policy"></a>刪除 StorSimple 備份原則
 
@@ -21,7 +21,7 @@ ms.locfileid: "60819173"
 
 3. 系統將提示您進行確認。 請留意，刪除備份原則將會刪除所有相關聯的備份。 按一下 [ **是** ] 以進行刪除。
 
-    ![Confirm delete](./media/storsimple-8000-delete-backup-policy/deletebupol2.png)
+    ![確認刪除](./media/storsimple-8000-delete-backup-policy/deletebupol2.png)
 
 將會更新備份原則清單，以顯示新的原則清單。
 

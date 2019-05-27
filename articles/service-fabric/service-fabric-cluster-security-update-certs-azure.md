@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
 ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050232"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66161890"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>新增或移除 Azure 中 Service Fabric 叢集的憑證
 建議您熟悉 Service Fabric 使用 X.509 憑證的方式，以及熟悉[叢集安全性案例](service-fabric-cluster-security.md)。 您必須瞭解什麼是叢集憑證及其用途，方可繼續進行後續作業。
@@ -117,7 +117,7 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
          }
     ``` 
 
-4. 對**所有** **Microsoft.Compute/virtualMachineScaleSets** 資源定義進行變更 - 找出 Microsoft.Compute/virtualMachineScaleSets 資源定義。 在“virtualMachineProfile”下，滚动到“publisher”：“Microsoft.Azure.ServiceFabric”。
+4. 對**所有** **Microsoft.Compute/virtualMachineScaleSets** 資源定義進行變更 - 找出 Microsoft.Compute/virtualMachineScaleSets 資源定義。 捲動到 「 發行者 」:"Microsoft.Azure.ServiceFabric"，"virtualMachineProfile"底下。
 
     在 Service Fabric 發行者設定中，您應該會看到像這樣的畫面。
     
@@ -289,10 +289,10 @@ Get-ServiceFabricClusterHealth
 若要移除次要憑證，使其不用於叢集安全性，請瀏覽至 [安全性] 區段，然後從特定憑證上的操作功能表中選取 [刪除] 選項。
 
 ## <a name="next-steps"></a>後續步驟
-有关群集管理的详细信息，请阅读以下文章：
+如需有關叢集管理的詳細資訊，請參閱下列文件︰
 
-* [Service Fabric 群集升级过程和用户预期](service-fabric-cluster-upgrade.md)
-* [为客户端设置基于角色的访问](service-fabric-cluster-security-roles.md)
+* [Service Fabric 叢集升級程序與您的期望](service-fabric-cluster-upgrade.md)
+* [設定用戶端的角色型存取](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->
 [Add_Client_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_13.PNG

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
 ms.openlocfilehash: 0bd8a7d403ad1fe0f7abb15356cc9c90ed6b3f02
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359414"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66153824"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 的常見問題
 
@@ -178,7 +178,7 @@ B. 針對虛擬機器擴展集已啟用 MSI 的主機，您可以開發簡單 Po
 
 ## <a name="other-questions"></a>其他問題
 
-### <a name="how-does-service-fabric-relate-to-containers"></a>Service Fabric 如何与容器关联？
+### <a name="how-does-service-fabric-relate-to-containers"></a>Service Fabric 如何與容器相關聯？
 
 容器會提供簡單的方式來封裝服務及其相依性，使它們可以在所有環境中一致地執行，並且可在單一機器上以隔離的方式運作。 Service Fabric 提供部署與管理服務的方式，包括[已經包裝於容器中的服務](service-fabric-containers-overview.md)。
 

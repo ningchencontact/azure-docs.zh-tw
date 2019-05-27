@@ -9,11 +9,11 @@ ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 72e61a36b58c0bc666f3e19b71fb1abe842208f5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111633"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150281"
 ---
 1. 登入 Azure 入口網站，然後選取 [建立資源]。 [新增] 頁面隨即開啟。
 

@@ -9,11 +9,11 @@ ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: fe90de618df04063a5486af80bdade67fb886a48
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444010"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157350"
 ---
 1. 在虛擬網路頁面的 [設定] 區段中，選取 [DNS 伺服器] 以開啟 [DNS 伺服器] 頁面。
 

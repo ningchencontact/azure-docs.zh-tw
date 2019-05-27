@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 07f2e46198118530de5a2163480eb44575891c4b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 7d3a32b5f2b2742a36716bac9747f20c47c98858
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415257"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66150188"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>合作夥伴 VPN 裝置設定的概觀
 本文提供設定連線到 Azure VPN 閘道之內部部署 VPN 裝置的概觀。 範例 Azure 虛擬網路和 VPN 閘道安裝程式是用來以相同參數連線到不同的內部部署 VPN 裝置設定。

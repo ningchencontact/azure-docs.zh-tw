@@ -9,11 +9,11 @@ ms.date: 05/14/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 787eb12faff381509fab3faf3b0e74c2c640d51c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405834"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66149787"
 ---
 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 只要按一下 [複製] 即可複製程式碼，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。 以下有幾種啟動 Cloud Shell 的方式：
 

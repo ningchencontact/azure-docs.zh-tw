@@ -9,11 +9,11 @@ ms.date: 04/26/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: f3c1a946afb7f51a1c7543dabae7f2f42ff466be
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198900"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145841"
 ---
 Azure H 系列虛擬機器 (Vm) 專為提供領導級的效能，MPI 延展性和成本的各種不同的實際 HPC 工作負載的效率。
 

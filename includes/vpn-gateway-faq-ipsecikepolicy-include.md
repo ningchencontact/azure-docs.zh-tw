@@ -2,19 +2,18 @@
 title: 包含檔案
 description: 包含檔案
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 12/14/2018
-ms.date: 12/24/2018
-ms.author: v-jay
+ms.date: 12/14/2018
+ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 36b3fcfa90b5b1de9c9d3262da1f3e519cc99c19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60456432"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151060"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>是否所有的 Azure VPN 閘道 SKU 都支援自訂 IPsec/IKE 原則？
 Azure **VpnGw1、VpnGw2、VpnGw3、標準**和**高效能** VPN 閘道可支援自訂 IPsec/IKE 原則。 **不**支援**基本** SKU。
@@ -23,7 +22,7 @@ Azure **VpnGw1、VpnGw2、VpnGw3、標準**和**高效能** VPN 閘道可支援�
 每個給定的連線只能指定***一個***原則組合。
 
 ### <a name="can-i-specify-a-partial-policy-on-a-connection-for-example-only-ike-algorithms-but-not-ipsec"></a>可以對連線指定部分原則嗎？ (例如，只指定 IKE 演算法，而不指定 IPsec)
-不行，您必須同時對 IKE (主要模式) 和 IPsec (快速模式) 指定所有的演算法和參數。 不允许指定部分策略。
+不行，您必須同時對 IKE (主要模式) 和 IPsec (快速模式) 指定所有的演算法和參數。 系統不允許只指定一部分原則。
 
 ### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>自訂原則支援什麼演算法和金鑰強度？
 下表列出可供客戶設定的支援密碼編譯演算法和金鑰強度。 每個欄位都必須選取一個選項。
@@ -60,7 +59,7 @@ Azure **VpnGw1、VpnGw2、VpnGw3、標準**和**高效能** VPN 閘道可支援�
 
 SA 存留期只需要在本機指定，不需要相符。
 
-如果您啟用 **UsePolicyBasedTrafficSelectors**，您必須確定 VPN 裝置的流量選取器已定義了內部部署網路 (區域網路閘道) 前置詞往/返 Azure 虛擬網路前置詞的所有組合，而不是任意對任意的組合。 例如，如果本地网络前缀为 10.1.0.0/16 和 10.2.0.0/16，虚拟网络前缀为 192.168.0.0/16 和 172.16.0.0/16，则需指定以下流量选择器：
+如果您啟用 **UsePolicyBasedTrafficSelectors**，您必須確定 VPN 裝置的流量選取器已定義了內部部署網路 (區域網路閘道) 前置詞往/返 Azure 虛擬網路前置詞的所有組合，而不是任意對任意的組合。 例如，如果內部部署網路的前置詞為 10.1.0.0/16 和 10.2.0.0/16，而虛擬網路的前置詞為 192.168.0.0/16 和 172.16.0.0/16，則需要指定下列流量選取器︰
 * 10.1.0.0/16 <====> 192.168.0.0/16
 * 10.1.0.0/16 <====> 172.16.0.0/16
 * 10.2.0.0/16 <====> 192.168.0.0/16

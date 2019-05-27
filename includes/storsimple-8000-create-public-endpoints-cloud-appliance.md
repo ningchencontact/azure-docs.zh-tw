@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 1cf5bbdad555c50c418851904f36a578522843b2
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166390"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159700"
 ---
 #### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>在雲端設備上建立公用端點
 
@@ -31,7 +31,7 @@ ms.locfileid: "50166390"
 
         在 [新增輸入安全性規則] 刀鋒視窗中：
 
-        1. 針對 [名稱]，為端點輸入下列名稱：WinRMHttps。
+        1. 針對**名稱**，輸入下列名稱的端點：WinRMHttps.
         
         2. 針對 [優先順序]，選取小於 1000 的數字 (這是預設規則的優先順序)。 值越高，優先順序就越低。
 

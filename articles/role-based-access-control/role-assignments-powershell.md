@@ -1,6 +1,6 @@
 ---
 title: 使用 RBAC 與 Azure PowerShell 管理 Azure 資源的存取權 | Microsoft Docs
-description: 了解如何使用基于角色的访问控制 (RBAC) 和 Azure PowerShell 管理用户、组和应用程序对 Azure 资源的访问权限。 這包括如何列出存取權、授與存取權以及移除存取權。
+description: 了解如何管理使用者、 群組和應用程式使用角色型存取控制 (RBAC) 和 Azure PowerShell 對 Azure 資源的存取權。 這包括如何列出存取權、授與存取權以及移除存取權。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,11 +15,11 @@ ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 002ebcbe8ba14b9f15ddea6deb21f0f2bc201ab0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999037"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66160326"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>使用 RBAC 與 Azure PowerShell 管理 Azure 資源的存取權
 
@@ -81,11 +81,11 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
-## <a name="list-a-role-definition"></a>列出角色定义
+## <a name="list-a-role-definition"></a>列出角色定義
 
-### <a name="list-a-role-definition-in-json-format"></a>以 JSON 格式列出角色定义
+### <a name="list-a-role-definition-in-json-format"></a>列出角色定義，以 JSON 格式
 
-若要以 JSON 格式列出角色定义，请使用 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition)。
+若要列出角色定義，以 JSON 格式，請使用[Get AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition)。
 
 ```azurepowershell
 Get-AzRoleDefinition <role_name> | ConvertTo-Json
@@ -355,7 +355,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-## <a name="remove-access"></a>移除存取
+## <a name="remove-access"></a>移除存取權
 
 在 RBAC 中，若要移除存取權，您需使用 [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) 來移除角色指派。
 

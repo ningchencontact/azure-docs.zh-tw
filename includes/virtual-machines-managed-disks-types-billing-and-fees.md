@@ -9,17 +9,17 @@ ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 268467796e67caf2d20fedb44d83fd455a09b83e
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65538359"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147878"
 ---
-**輸出資料傳輸**：[出站数据传输](https://azure.microsoft.com/pricing/details/bandwidth/)（传出 Azure 数据中心的数据）会产生带宽使用费。
+**輸出資料傳輸**：[輸出資料傳輸](https://azure.microsoft.com/pricing/details/bandwidth/) (Azure 資料中心送出的資料) 會產生頻寬使用量費用。
 
 **交易**：將依據您在標準受控磁碟上執行的交易數向您收費。 標準的 Ssd，每個 I/O 作業小於或等於 256 KiB 的輸送量會被視為單一 I/O 作業。 大於 256 KiB 的輸送量的 I/O 作業會被視為多個 I/o 大小 256 KiB。 針對標準的 Hdd，每個的 IO 作業都會被視為單一交易，不論的 I/O 大小。
 
-有关托管磁盘定价的详细信息（包括事务成本），请参阅[托管磁盘定价](https://azure.microsoft.com/pricing/details/managed-disks)。
+如需受控磁碟，包括交易成本的定價詳細資訊，請參閱[受控磁碟價格](https://azure.microsoft.com/pricing/details/managed-disks)。
 
 ### <a name="ultra-ssd-vm-reservation-fee"></a>Ultra SSD VM 保留費用
 

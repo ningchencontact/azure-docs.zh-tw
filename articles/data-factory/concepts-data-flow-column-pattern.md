@@ -1,24 +1,23 @@
 ---
 title: Azure Data Factory 對應資料流程資料行模式
-description: Azure Data Factory 對應資料流程資料行模式用來建立一般化範本模式，適用於在資料流程中轉換欄位而不考慮基礎結構描述中繼資料
+description: 了解如何使用對應資料流程中的 Azure Data Factory 資料行模式，來建立轉換資料流程中的資料而不考慮基礎結構描述中繼資料欄位的通用的範本模式
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 53d3300ea11a86c34909ba6ce0fd6c8c0c38b4b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5131329f6675bc86374f5a5c081e0aaa7d36c0fe
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61269559"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155246"
 ---
-# <a name="azure-data-factory-mapping-data-flow-concepts"></a>Azure Data Factory 對應資料流程概念
+# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Azure data factory 的對應資料流資料行模式
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-數個 Azure Data Factory 資料流程轉換支援「資料行模式」的概念，因此您可以根據模式建立範本資料行，而不是硬式編碼的資料行名稱。 您可以在運算式產生器中使用此功能來定義符合要轉換之資料行的模式，而不需要進行擷取特定的欄位名稱。 模式在連入的來源欄位經常變更時非常實用，特別是在變更文字檔或 NoSQL 資料庫中的資料行時。 這有時候稱為「結構描述漂移」。
+數個 Azure Data Factory 資料流程轉換支援「資料行模式」的概念，因此您可以根據模式建立範本資料行，而不是硬式編碼的資料行名稱。 您可以在運算式產生器中使用此功能來定義符合要轉換之資料行的模式，而不需要進行擷取特定的欄位名稱。 模式是如果連入的來源欄位經常變更，特別是如果變更文字檔案或 NoSQL 資料庫中的資料行是很有用。 這種情況有時稱為 「 結構描述漂移 」。
 
 ![資料行模式](media/data-flow/columnpattern2.png "資料行模式")
 

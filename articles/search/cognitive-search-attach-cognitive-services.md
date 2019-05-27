@@ -7,28 +7,30 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 69b03bd24abcdf502bf80cfce4221f4958058932
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.openlocfilehash: f9a1e82cb60bf0ec32165294e7f4af3e93d042b0
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541716"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158533"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>在 Azure 搜尋服務中連結認知服務資源與技能 
 
-AI 演算法磁碟機[認知的索引編製管線](cognitive-search-concept-intro.md)用於處理 Azure 搜尋服務中的非結構化的資料。 這些演算法根據[Azure 認知服務資源](https://azure.microsoft.com/services/cognitive-services/)，包括[Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)影像分析和光學字元辨識 (OCR) 及[文字分析](https://azure.microsoft.com/services/cognitive-services/text-analytics/)實體辨識、 關鍵片語擷取和其他類。
+AI 演算法磁碟機[認知的索引編製管線](cognitive-search-concept-intro.md)用於 Azure 搜尋服務中的文件擴充。 這些演算法會根據 Azure 認知服務資源，包括[Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)影像分析和光學字元辨識 (OCR) 及[文字分析](https://azure.microsoft.com/services/cognitive-services/text-analytics/)實體辨識關鍵片語擷取和其他類。 使用 Azure 搜尋服務文件擴充基於，演算法會包裝內*技能*、 在放置*技能集*，和所參考*索引子*期間編製索引。
 
-您可以免費擴充數目有限的文件，或是針對較大型且較頻繁的工作負載附加計費的「認知服務」資源。 本文中，您將學習如何將認知服務資源關聯認知技能來充實資料期間[Azure 搜尋服務編製索引](search-what-is-an-index.md)。
-
-即使您的管線包含認知服務 Api 不相關的技能，您仍然應該附加認知服務資源。 如此一來，就會覆寫您少數類每日限制的免費資源。 您可以免費使用未繫結至認知服務 Api 的技能。 這些技巧包括[自訂技術](cognitive-search-create-custom-skill-example.md)，[文字合併](cognitive-search-skill-textmerger.md)，[文字分隔器](cognitive-search-skill-textsplit.md)，以及[shaper](cognitive-search-skill-shaper.md)。
+您可以免費擴充數目有限的文件，或是針對較大型且較頻繁的工作負載附加計費的「認知服務」資源。 本文中，您將學習如何將計費的認知服務資源使用認知技能集來擴充文件期間[Azure 搜尋服務編製索引](search-what-is-an-index.md)。
 
 > [!NOTE]
-> 當您展開範圍，藉由增加處理、 新增更多的文件，或新增更多的 AI 演算法的頻率，您必須將可計費的認知服務資源的連結。 您將支付呼叫認知服務中的 Api 和 Azure 搜尋服務中的文件破解階段一部分的映像擷取。 您不會收取從文件的文字擷取。
+> 計費的事件包括呼叫認知服務 Api 和映像一部分的文件破解階段擷取 Azure 搜尋服務中。 沒有任何文件中的文字擷取或會呼叫認知服務技術的費用。
 >
-> 執行內建的技巧享有[認知服務付移價格](https://azure.microsoft.com/pricing/details/cognitive-services/)。 如需映像擷取定價資訊，請參閱 < [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)。
+> 是在執行的可計費的技能[認知服務付移價格](https://azure.microsoft.com/pricing/details/cognitive-services/)。 如需映像擷取價格，請參閱[Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)。
+
+## <a name="same-region-requirement"></a>相同區域的需求
+
+我們會要求 Azure 搜尋服務和 Azure 認知服務存在於相同的區域。 否則，就會出現此訊息在執行階段：`"Provided key is not a valid CognitiveServices type key for the region of your search service."` 沒有任何方法，跨區域移動服務。 如果您收到這個錯誤，您應該在相同的區域中建立新的服務，並據以重新發佈您的索引。
 
 ## <a name="use-free-resources"></a>使用免費資源
 
@@ -50,7 +52,7 @@ AI 演算法磁碟機[認知的索引編製管線](cognitive-search-concept-intr
 
 ## <a name="use-billable-resources"></a>使用計費資源
 
-建立每日超過 20 個類的工作負載，您要附加的可計費的認知服務資源。
+建立每日超過 20 個類的工作負載，請務必附加可計費的認知服務資源。 我們建議您一律將附加的可計費的認知服務資源，即使您永遠不會想要呼叫認知服務 Api。 附加資源，就會覆寫的每日限制。
 
 您只需要支付呼叫認知服務 Api 的技能。 您不會收取[自訂技術](cognitive-search-create-custom-skill-example.md)，或是想要的技能[文字合併](cognitive-search-skill-textmerger.md)，[文字分隔器](cognitive-search-skill-textsplit.md)，並[shaper](cognitive-search-skill-shaper.md)，這不是以 API 為基礎。
 
@@ -60,7 +62,7 @@ AI 演算法磁碟機[認知的索引編製管線](cognitive-search-concept-intr
 
    ![建立認知服務資源](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "建立認知服務資源")
 
-1. 在 **位置**清單中，選取您的 Azure 搜尋服務所在的區域。 您要使用此區域，基於效能考量。 使用此區域也，則不必輸出頻寬費用跨區域。
+1. 在 **位置**清單中，選取您的 Azure 搜尋服務所在的區域。 請務必使用此區域，基於效能考量。 使用此區域也，則不必輸出頻寬費用跨區域。
 
 1. 在 **定價層**清單中，選取**S0**取得認知服務功能，包括回預先定義的技術，Azure 搜尋服務所使用的願景和語言功能-全方位集合。
 

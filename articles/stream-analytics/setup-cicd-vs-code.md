@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 7fe46712d610d881c21653461d12e4f8efecb468
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: fa5a57afa379c6bbe027be80f400fc176800d289
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827871"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158513"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-cicd-npm-package"></a>持續整合及開發與 Stream Analytics CI/CD npm 套件
 本文說明如何使用 Azure Stream Analytics CI/CD npm 套件來設定持續整合和部署程序。
@@ -22,10 +22,14 @@ ms.locfileid: "65827871"
 
 您可以啟用持續整合和部署使用 Azure Stream Analytics 作業**asa-streamanalytics-cicd** npm 套件。 Npm 套件會提供工具來產生的 Azure Resource Manager 範本[Stream Analytics Visual Studio 程式碼專案](quick-create-vs-code.md)。 它可以用在 Windows、 macOS 和 Linux 上而不需要安裝 Visual Studio Code。
 
-一旦[下載套件](https://www.npmjs.com/package/azure-streamanalytics-cicd)，使用下列命令輸出的 Azure Resource Manager 範本。 如果**outputPath**未指定，範本將會置於**部署**下的專案資料夾**bin**資料夾。
+一旦[下載套件](https://www.npmjs.com/package/azure-streamanalytics-cicd)，使用下列命令輸出的 Azure Resource Manager 範本。 **ScriptPath**引數是絕對路徑**asaql**專案中的檔案。 請確定 asaproj.json 和 JobConfig.json 檔案位於相同的資料夾與指令碼檔案。 如果**outputPath**未指定，範本將會置於**部署**下的專案資料夾**bin**資料夾。
 
 ```powershell
-asa-cicd build -scriptPath <scriptFullPath> -outputPath <outputPath>
+azure-streamanalytics-cicd build -scriptPath <scriptFullPath> -outputPath <outputPath>
+```
+（在 macOS) 上的範例
+```powershell
+azure-streamanalytics-cicd build -scriptPath "/Users/roger/projects/samplejob/script.asaql" 
 ```
 
 當 Stream Analytics Visual Studio 程式碼專案建置成功時，它會產生下列兩個 Azure Resource Manager 範本檔案底下**bin / [Debug/Retail] /deploy**資料夾： 
@@ -38,7 +42,7 @@ asa-cicd build -scriptPath <scriptFullPath> -outputPath <outputPath>
 
        [ProjectName].JobTemplate.parameters.json   
 
-parameters.json 檔案中的預設參數來自 Visual Studio 專案中的設定。 如果您想要部署到其他環境，請據以取代參數。
+Parameters.json 檔案中的預設參數會從您的 Visual Studio 程式碼專案中的設定。 如果您想要部署到其他環境，請據以取代參數。
 
 > [!NOTE]
 > 對於所有認證，預設值都會設為 null。 部署至雲端之前，「必須」設定這些值。

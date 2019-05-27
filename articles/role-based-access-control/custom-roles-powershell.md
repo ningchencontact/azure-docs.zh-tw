@@ -15,17 +15,17 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: ad1185cab2b2bd2d0fea10f21b7859fd9ab1339f
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807604"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66158458"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>使用 Azure PowerShell 建立適用於 Azure 資源的自訂角色
 
 如果[適用於 Azure 資源的內建角色](built-in-roles.md)無法滿足您組織的特定需求，您可以建立自己的自訂角色。 本文說明如何使用 Azure PowerShell 來建立和管理自訂角色。
 
-如需如何建立自訂角色的逐步教學課程，請參閱[教學課程：使用 Azure PowerShell 为 Azure 资源创建自定义角色](tutorial-custom-role-powershell.md)。
+如需如何建立自訂角色的逐步教學課程，請參閱[教學課程：建立使用 Azure PowerShell 的 Azure 資源的自訂角色](tutorial-custom-role-powershell.md)。
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -69,9 +69,9 @@ Virtual Machine Operator     True
 
 如果選取的訂用帳戶不在角色的 `AssignableScopes` 中，將不會列出自訂角色。
 
-## <a name="list-a-custom-role-definition"></a>列出自定义角色定义
+## <a name="list-a-custom-role-definition"></a>列出自訂角色定義
 
-若要列出自定义角色定义，请使用 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition)。 这与用于内置角色的命令相同。
+若要列出自訂角色定義，請使用[Get AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition)。 當您使用內建的角色，這會是相同的命令。
 
 ```azurepowershell
 Get-AzRoleDefinition <role name> | ConvertTo-Json
@@ -106,7 +106,7 @@ PS C:\> Get-AzRoleDefinition "Virtual Machine Operator" | ConvertTo-Json
 }
 ```
 
-以下示例仅列出了角色的操作：
+下列範例會列出角色的動作：
 
 ```azurepowershell
 (Get-AzRoleDefinition <role name>).Actions

@@ -14,11 +14,11 @@ ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 5dcf31adc5e8bdf810d484f07ebeb6f23acbf452
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487799"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66146830"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>教學課程：使用 Data Factory REST API 建置您的第一個 Azure Data Factory
 > [!div class="op_single_selector"]
@@ -125,8 +125,8 @@ ms.locfileid: "58487799"
 
 | 屬性 | 說明 |
 |:--- |:--- |
-| clusterSize |HDInsight 叢集的大小。 |
-| timeToLive |指定 HDInsight 叢集在被刪除之前的閒置時間。 |
+| ClusterSize |HDInsight 叢集的大小。 |
+| TimeToLive |指定 HDInsight 叢集在被刪除之前的閒置時間。 |
 | linkedServiceName |指定用來儲存 HDInsight 產生之記錄的儲存體帳戶 |
 
 請注意下列幾點：
@@ -172,7 +172,7 @@ JSON 會定義名為 **AzureBlobInput**的資料集，以表示管線中活動�
 | 屬性 | 說明 |
 |:--- |:--- |
 | type |類型屬性設為 AzureBlob，因為資料位於 Azure Blob 儲存體。 |
-| linkedServiceName |表示您稍早建立的 StorageLinkedService。 |
+| 預設容器 |表示您稍早建立的 StorageLinkedService。 |
 | fileName |這是選用屬性。 如果您省略此屬性，會挑選位於 folderPath 的所有檔案。 在這種情況下，只會處理 input.log。 |
 | type |記錄檔為文字格式，因此我們會使用 TextFormat。 |
 | columnDelimiter |記錄檔案中的資料行會以逗號字元 (,) 分隔 |

@@ -50,7 +50,7 @@
         - name: 儲存體
           href: storage-account-concept.md
           displayName: Storage side encryption
-        - name: 資產 API
+        - name: Assets
           href: assets-concept.md
     - name: 編碼
       items:

@@ -2,19 +2,18 @@
 title: 包含檔案
 description: 包含檔案
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 12/06/2018
-ms.date: 12/24/2018
-ms.author: v-jay
+ms.date: 12/06/2018
+ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0c0ad6ea5a687d066c78533b45a7f531561661bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60845385"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157651"
 ---
 這個常見問題集適用於使用傳統部署模型的 P2S 連線。
 

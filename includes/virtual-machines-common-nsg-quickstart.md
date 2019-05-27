@@ -2,19 +2,18 @@
 title: 包含檔案
 description: 包含檔案
 services: virtual-machines-windows
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-origin.date: 09/12/2018
-ms.date: 11/12/2018
-ms.author: v-yeche
+ms.date: 09/12/2018
+ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405373"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66154772"
 ---
 您可以透過在子網路或 VM 網路介面上建立網路篩選，對 Azure 中的虛擬機器 (VM) 開啟連接埠或建立端點。 您可將控制輸入與輸出流量的這些篩選器放在可接收流量的資源所附加的網路安全性群組上。
 
@@ -34,4 +33,8 @@ ms.locfileid: "60405373"
 
 3. 讓網路安全性群組與 VM 網路介面或子網路產生關聯。
 
-    雖然此範例使用簡單的規則來允許 HTTP 流量，您也可以使用網路安全性群組與規則來建立更複雜的網路設定。
+雖然此範例使用簡單的規則來允許 HTTP 流量，您也可以使用網路安全性群組與規則來建立更複雜的網路設定。 
+
+
+
+

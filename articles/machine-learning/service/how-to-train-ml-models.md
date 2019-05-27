@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b479556543c6a9dff88643fdc587dec3f832f39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98f7dc2e295c0c994db9a0189814b0ef2a19b758
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818484"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153605"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>藉由估算器使用 Azure Machine Learning 將模型定型
 
@@ -26,7 +26,7 @@ ms.locfileid: "60818484"
 
 ## <a name="train-with-an-estimator"></a>使用預估器來定型
 
-建立您的[工作區](concept-azure-machine-learning-architecture.md#workspace)並設定您的[開發環境](how-to-configure-environment.md)後，請將 Azure Machine Learning 中的模型定型牽涉到下列步驟：  
+建立您的[工作區](concept-workspace.md)並設定您的[開發環境](how-to-configure-environment.md)後，請將 Azure Machine Learning 中的模型定型牽涉到下列步驟：  
 1. 建立[遠端計算目標](how-to-set-up-training-targets.md) (請注意，您也可以使用本機電腦作為計算目標)
 2. 將您的[定型資料](how-to-access-data.md)上傳到資料存放區 (選擇性)
 3. 建立您的[定型指令碼](tutorial-train-models-with-aml.md#create-a-training-script)
@@ -119,6 +119,10 @@ estimator = Estimator(source_directory='./my-keras-proj',
 run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
+
+## <a name="github-tracking-and-integration"></a>GitHub 追蹤和整合
+
+當您啟動定型，執行 [source] 目錄所在的本機 Git 儲存機制時，儲存機制的資訊會儲存執行歷程記錄中。 例如，存放庫的最新的認可識別碼會記錄做為歷程記錄的一部分。
 
 ## <a name="examples"></a>範例
 關於顯示估計工具模式基本概念的筆記本，請參閱：

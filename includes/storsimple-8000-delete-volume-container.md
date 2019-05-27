@@ -9,11 +9,11 @@ ms.date: 06/08/2018
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: e683d17422321b780a1c01b3011292f2e2c631cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60724611"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156094"
 ---
 若要刪除磁碟區容器，您必須
  - 刪除磁碟區容器中的磁碟區。 如果磁碟區容器有相關聯的磁碟區，請先將那些磁碟區離線。 請遵循 [使磁碟區離線](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline)中的步驟進行。 磁碟機離線後，才可以刪除它們。 

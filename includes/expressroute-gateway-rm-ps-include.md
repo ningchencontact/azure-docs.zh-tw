@@ -9,16 +9,16 @@ ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 922ac7eb6cb9676af65700a6a2fe7fbae35a0dc5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60366368"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158762"
 ---
 此工作的步驟會根據下列組態參考清單中的值來使用 VNet。 其他設定和名稱也會概述於這份清單中。 雖然我們會根據這份清單中的值加入變數，但不會在任何步驟中直接使用這份清單。 您可以複製清單以供參考，並使用您自己的值來取代其中的值。
 
 * 虛擬網路名稱 = "TestVNet"
-* 虚拟网络地址空间 = 192.168.0.0/16
+* 虛擬網路位址空間 = 192.168.0.0/16
 * 資源群組 = "TestRG"
 * Subnet1 名稱 = "FrontEnd" 
 * Subnet1 位址空間 = "192.168.1.0/24"
@@ -50,7 +50,7 @@ ms.locfileid: "60366368"
    ```azurepowershell-interactive
    $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
    ```
-4. 將閘道子網路加入至虛擬網路。 网关子网必须命名为“GatewaySubnet”。 您應建立 /27 或更大 (/26、/25 等) 的閘道子網路。
+4. 將閘道子網路加入至虛擬網路。 閘道子網路必須命名為 "GatewaySubnet"。 您應建立 /27 或更大 (/26、/25 等) 的閘道子網路。
 
    ```azurepowershell-interactive
    Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
@@ -70,7 +70,7 @@ ms.locfileid: "60366368"
    ```azurepowershell-interactive
    $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
    ```
-8. 建立適用於閘道的組態。 网关配置定义要使用的子网和公共 IP 地址。 在此步驟中，您要指定在建立閘道將使用的組態。 這個步驟不會實際建立閘道物件。 使用以下的範例來建立閘道器組態。
+8. 建立適用於閘道的組態。 閘道器組態定義要使用的子網路和公用 IP 位址。 在此步驟中，您要指定在建立閘道將使用的組態。 這個步驟不會實際建立閘道物件。 使用以下的範例來建立閘道器組態。
 
    ```azurepowershell-interactive
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
 ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797529"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66150572"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>針對 StorSimple 上裝載的檔案共用使用 Azure Site Recovery 的自動化災害復原解決方案
 
@@ -136,7 +136,7 @@ Microsoft Azure StorSimple 是一個混合式雲端儲存體解決方案，可�
 
 您可以在 [複寫的項目] 索引標籤中選取 VM 以設定網路設定，如以下圖例所示。
 
-![計算和網路](./media/storsimple-disaster-recovery-using-azure-site-recovery/image2.png)
+![計算與網路](./media/storsimple-disaster-recovery-using-azure-site-recovery/image2.png)
 
 ## <a name="create-a-recovery-plan"></a>建立復原計畫
 您可以在 ASR 中建立復原計劃來將檔案共用的容錯移轉程序自動化。 如果發生中斷，您只要按一下就可以在幾分鐘內讓檔案共用重新上線。 若要啟用此自動化功能，您需要 Azure 自動化帳戶。
@@ -166,7 +166,7 @@ Microsoft Azure StorSimple 是一個混合式雲端儲存體解決方案，可�
    
 1. 選取自動化帳戶中的 Runbook，以發行所有指令碼，並按一下 [編輯]  &gt; [發行] ，然後按一下 [是]  顯示驗證訊息。 在這個步驟之後，[Runbook]  索引標籤看起來會像下面這樣：
    
-   ![Runbook](./media/storsimple-disaster-recovery-using-azure-site-recovery/image4.png)
+   ![runbook](./media/storsimple-disaster-recovery-using-azure-site-recovery/image4.png)
    
 1. 在自動化帳戶中，按一下 [變數] &gt; [加入變數] ，然後加入下列變數。 您可以選擇將這些資產加密。 這些變數都是復原計劃特定變數。 如果您的復原計劃 (您將會在下一個步驟中建立) 名稱為 TestPlan，您的變數就應該是 TestPlan-StorSimRegKey、TestPlan-AzureSubscriptionName 等等。
 
@@ -184,7 +184,7 @@ Microsoft Azure StorSimple 是一個混合式雲端儲存體解決方案，可�
 
      例如，若復原計劃的名稱是 fileServerpredayRP，您的 [變數]、[連線] 和 [憑證] 索引標籤應會在您新增所有資產後顯示如下。
 
-      ![Assets](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
+      ![資產](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
 1. 使用您的自動化帳戶，上傳 StorSimple 8000 系列 Runbook 模組。 使用以下步驟新增模組：
    
@@ -241,7 +241,7 @@ Microsoft Azure StorSimple 是一個混合式雲端儲存體解決方案，可�
    
    - 按一下 [+ 復原計劃] 按鈕，開啟如下的刀鋒視窗。
       
-      ![建立復原計畫](./media/storsimple-disaster-recovery-using-azure-site-recovery/image6.png)
+      ![建立復原方案](./media/storsimple-disaster-recovery-using-azure-site-recovery/image6.png)
       
    - 輸入復原計劃名稱，選擇來源、目標及部署模型值。
    
@@ -323,7 +323,7 @@ Microsoft Azure StorSimple 是一個混合式雲端儲存體解決方案，可�
 
 ## <a name="best-practices"></a>最佳做法
 ### <a name="capacity-planning-and-readiness-assessment"></a>容量規劃和整備性評估
-#### <a name="hyper-v-site"></a>Hyper-V 站台
+#### <a name="hyper-v-site"></a>Hyper-V 網站
 使用 [使用者容量規劃工具](https://www.microsoft.com/download/details.aspx?id=39057) 來為您的 Hyper-V 複本環境設計伺服器、儲存體及網路基礎結構。
 
 #### <a name="azure"></a>Azure

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
-ms.openlocfilehash: b950e7d38235d089c6236c76136d8ec2fc7a1f74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9762b8cadde86a2e64f8fa74a4e794bdf1109ec4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821395"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151196"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning 服務的企業安全性
 
@@ -88,7 +88,7 @@ print(primary)
 | 工作區 | 參與者 | 
 | 儲存體帳戶 | 儲存體 Blob 資料參與者 | 
 | Key Vault | 所有的金鑰，祕密，憑證的存取權 | 
-| Azure Container Registry | 參與者 | 
+| Azure 容器登錄 | 參與者 | 
 | 包含的工作區的資源群組 | 參與者 | 
 | （如果不同於包含工作區），包含金鑰保存庫的資源群組 | 參與者 | 
 
@@ -154,7 +154,7 @@ SSH 密碼和計算目標，例如 HDI HDInsight 和 VM 的金鑰會儲存在個
 使用者登入 Azure AD 從任何支援的 Azure Machine Learning 服務用戶端 （CLI 中，Python SDK 中，Azure 入口網站），並要求適當的 Azure Resource Manager 權杖。  使用者接著會呼叫 Azure Resource Manager 建立工作區。  Azure Resource Manager 連絡人 Azure Machine Learning 服務來佈建工作區的資源提供者。  在工作區建立期間的客戶的訂用帳戶中建立其他資源：
 * 金鑰保存庫 （以儲存祕密）
 * Azure 儲存體帳戶 （包括 Blob 和檔案共用）
-* Azure Container Registry （以儲存推斷和試驗的 docker 映像）
+* Azure Container Registry （以儲存 docker 映像，來推斷/評分和測試）
 * Application Insights （以儲存遙測）
 
 視其他附加至工作區 （Azure Kubernetes 服務、 VM 等等） 的計算也可提供客戶。 
@@ -172,7 +172,7 @@ SSH 密碼和計算目標，例如 HDI HDInsight 和 VM 的金鑰會儲存在個
 * Azure Machine Learning 服務儲存上述程式碼快照集時，稱為快照集識別碼
 * 服務會建立 azure Machine Learning 執行識別碼 （選擇性） 和 Azure Machine Learning 服務權杖，稍後用來向 Azure Machine Learning 服務的計算目標例如機器學習計算/VM
 * 您可以選擇其中一個受控的計算 （例如。 Machine Learning 計算) 或非受控的計算 （例如。 虛擬機器） 執行定型工作。 資料流程會說明這兩個案例下：
-* （VM/HDInsight/區域 – 使用金鑰保存庫中的 SSH 認證，Microsoft 訂用帳戶中存取）Azure Machine Learning 服務管理程式碼上執行的計算目標的：
+* （VM/HDInsight-使用金鑰保存庫中的 SSH 認證，Microsoft 訂用帳戶中存取）Azure Machine Learning 服務管理程式碼上執行的計算目標的：
     1.  準備環境 (請注意：Docker 是可選擇的 VM/本機以及。 若要了解 docker 容器運作的方式執行實驗 Machine Learning 計算下，請參閱步驟）
     2.  下載程式碼
     3.  設定環境變數設定
@@ -189,7 +189,7 @@ SSH 密碼和計算目標，例如 HDI HDInsight 和 VM 的金鑰會儲存在個
 ![建立工作區的工作流程的螢幕擷取畫面顯示](./media/enterprise-readiness/training-and-metrics.png)
 
 ### <a name="creating-web-services"></a>建立 web 服務
-下圖顯示模型部署為 web 服務所在的推斷工作流程。
+下圖顯示推斷工作流程。 推斷，或模型計分，是階段已部署的模型用於預測，最常在實際執行資料的位置。
 請參閱下面的詳細資料：
 * 使用者註冊使用 Azure ML SDK 等用戶端的模型
 * 使用者會建立使用模型、 評分檔案和其他模型相依性的映像

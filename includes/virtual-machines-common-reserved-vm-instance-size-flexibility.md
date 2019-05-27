@@ -5,11 +5,11 @@ ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11-20-2018
 ms.openlocfilehash: 05820cc5f7b7d61d83f73ea5b62b05f8712e0997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771190"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156231"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>利用保留 VM 執行個體獲得虛擬機器大小彈性
 
@@ -61,9 +61,9 @@ ms.locfileid: "60771190"
 | 大小 | 比例|
 |---|---|
 | 標準_D1|1|
-|標準_D2|2|
+|Standard_D2|2|
 |Standard_D3|4|
-|標準_D4|8|
+|Standard_D4|8|
 
 如需詳細資訊，請參閱[前幾代的虛擬機器大小](../articles/virtual-machines/windows/sizes-previous-gen.md)。
 
@@ -71,10 +71,10 @@ ms.locfileid: "60771190"
 
 | 大小 | 比例|
 |---|---|
-| 標準_D11|1|
-|標準_D12|2|
-|標準_D13|4|
-|標準_D14|8|
+| Standard_D11|1|
+|Standard_D12|2|
+|Standard_D13|4|
+|Standard_D14|8|
 
 如需詳細資訊，請參閱[前幾代的虛擬機器大小](../articles/virtual-machines/windows/sizes-previous-gen.md)。
 
