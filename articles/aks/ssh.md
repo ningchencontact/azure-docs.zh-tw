@@ -5,18 +5,18 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: d421fad5f574b0d10b24453aca01adf574f493e8
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: a85c39fbfbf629e6ba9e668d55dd905c1ce0800c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407696"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956364"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>使用 SSH 連線到 Azure Kubernetes Service (AKS) 叢集節點以進行維護或疑難排解
 
-在 Azure Kubernetes Service (AKS) 叢集的生命週期中，您可能需要存取 AKS 節點。 此存取可能用於維護、記錄收集，或其他疑難排解作業。 AKS 節點是 Linux VM，因此可以使用 SSH 進行存取。 基於安全考量，AKS 節點不會公開至網際網路。
+在 Azure Kubernetes Service (AKS) 叢集的生命週期中，您可能需要存取 AKS 節點。 此存取可能用於維護、記錄收集，或其他疑難排解作業。 您可以存取 AKS 節點使用 SSH，包括 Windows Server （目前在 AKS 中的預覽） 的節點。 您也可以[連接到使用遠端桌面通訊協定 (RDP) 連線的 Windows Server 節點][aks-windows-rdp]。 基於安全考量，AKS 節點不會公開至網際網路。
 
 本文會示範如何使用私人 IP 位址以 AKS 節點建立 SSH 連線。
 
@@ -24,13 +24,16 @@ ms.locfileid: "65407696"
 
 此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
 
-还需安装并配置 Azure CLI 2.0.59 或更高版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
+您也需要 Azure CLI 2.0.64 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="add-your-public-ssh-key"></a>新增公開 SSH 金鑰
 
-根據預設，建立 AKS 叢集時，會產生 SSH 金鑰。 如果在建立 AKS 叢集時您未指定自己的 SSH 金鑰，請新增公用 SSH 金鑰至 AKS 節點。
+根據預設，SSH 金鑰是取得，或產生，則當您建立 AKS 叢集加入節點。 如果您需要指定不同於建立 AKS 叢集時所使用的 SSH 金鑰，請將 SSH 公開金鑰加入 Linux AKS 節點。 如有需要您可以建立 SSH 金鑰使用[macOS 或 Linux] [ ssh-nix]或是[Windows][ssh-windows]。 如果您使用 PuTTY Gen 來建立金鑰組，OpenSSH 中的金鑰組儲存格式而不是預設的 PuTTy 私密金鑰格式 （.ppk 檔案）。
 
-若要新增 SSH 金鑰至 AKS 節點，請完成下列步驟：
+> [!NOTE]
+> SSH 金鑰可以目前只能加入至使用 Azure CLI 的 Linux 節點。 如果您使用 Windows Server 的節點時，使用建立 AKS 叢集時所提供的 SSH 金鑰，並跳至步驟上[如何取得 AKS 節點位址](#get-the-aks-node-address)。 或者，[連接到使用遠端桌面通訊協定 (RDP) 連線的 Windows Server 節點][aks-windows-rdp]。
+
+若要將您的 SSH 金鑰新增至 Linux AKS 節點中，完成下列步驟：
 
 1. 使用 [az aks show][az-aks-show] 取得 AKS 叢集資源的資源群組名稱。 提供您自己的核心資源群組和 AKS 叢集名稱：
 
@@ -64,7 +67,12 @@ ms.locfileid: "65407696"
 
 ## <a name="get-the-aks-node-address"></a>取得 AKS 節點位址
 
-AKS 節點不會公開至網際網路。 對於 SSH 至 AKS 節點，您可以使用私人 IP 位址。 下一步将在 AKS 群集中创建一个帮助器 Pod，以允许你通过 SSH 连接到节点的此专用 IP 地址。
+AKS 節點不會公開至網際網路。 對於 SSH 至 AKS 節點，您可以使用私人 IP 位址。 在下一個步驟中，您的協助程式 pod 中建立 AKS 叢集，可讓您 SSH 到節點的此私人 IP 位址。 根據您執行的 AKS 叢集類型，取得 AKS 節點的私人 IP 位址的步驟會有所不同：
+
+* 對於大部分的 AKS 叢集，請依照下列步驟來[取得的 IP 位址規則的 AKS 叢集](#regular-aks-clusters)。
+* 如果您使用任何預覽功能中使用虛擬機器擴展集，例如多個節點的集區或 Windows Server 容器支援的 AKS[遵循的步驟進行虛擬機器擴展集為基礎的 AKS 叢集](#virtual-machine-scale-set-based-aks-clusters)。
+
+### <a name="regular-aks-clusters"></a>一般的 AKS 叢集
 
 使用 [az vm list-ip-addresses][az-vm-list-ip-addresses] 命令檢視 AKS 叢集節點的私人 IP 位址。 提供您自己的 AKS 叢集資源群組名稱，此名稱會在前一個 [az-aks-show][az-aks-show] 步驟中取得：
 
@@ -80,6 +88,26 @@ VirtualMachine            PrivateIPAddresses
 aks-nodepool1-79590246-0  10.240.0.4
 ```
 
+### <a name="virtual-machine-scale-set-based-aks-clusters"></a>虛擬機器擴展集為基礎的 AKS 叢集
+
+列出使用節點的內部 IP 位址[kubectl get 命令][kubectl-get]:
+
+```console
+kubectl get nodes -o wide
+```
+
+下列範例輸出會顯示所有節點的內部 IP 位址在叢集中，包括 Windows Server 節點。
+
+```console
+$ kubectl get nodes -o wide
+
+NAME                                STATUS   ROLES   AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                    KERNEL-VERSION      CONTAINER-RUNTIME
+aks-nodepool1-42485177-vmss000000   Ready    agent   18h   v1.12.7   10.240.0.4    <none>        Ubuntu 16.04.6 LTS          4.15.0-1040-azure   docker://3.0.4
+aksnpwin000000                      Ready    agent   13h   v1.12.7   10.240.0.67   <none>        Windows Server Datacenter   10.0.17763.437
+```
+
+記錄您想要進行疑難排解之節點的內部 IP 位址。 您將在稍後步驟中使用此位址。
+
 ## <a name="create-the-ssh-connection"></a>建立 SSH 連線
 
 若要建立到 AKS 節點的 SSH 連線，您可以在 AKS 叢集中執行協助程式 Pod。 此協助程式 Pod 為您提供到叢集的 SSH 存取權，以及額外的 SSH 節點存取權。 若要建立和使用此協助程式 Pod，請完成下列步驟：
@@ -89,6 +117,11 @@ aks-nodepool1-79590246-0  10.240.0.4
     ```console
     kubectl run -it --rm aks-ssh --image=debian
     ```
+
+    > [!TIP]
+    > 如果您使用 Windows Server 節點 （目前在 AKS 中的預覽） 時，新增節點選取器至命令，以排程在 Linux 節點上的 Debian 容器，如下所示：
+    >
+    > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
 
 1. 基底 Debian 映像不包含 SSH 元件。 終端機工作階段連線到容器後，請使用 `apt-get` 安裝 SSH 用戶端，如下所示：
 
@@ -163,3 +196,6 @@ aks-nodepool1-79590246-0  10.240.0.4
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-windows-rdp]: rdp.md
+[ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
+[ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md

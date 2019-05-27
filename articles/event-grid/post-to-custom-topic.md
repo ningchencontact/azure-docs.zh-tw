@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182399"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162044"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>針對 Azure Event Grid 張貼到自訂主題
 
@@ -94,11 +94,11 @@ az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --quer
 }]
 ```
 
-## <a name="response"></a>Response
+## <a name="response"></a>回應
 
 在張貼到主題端點之後，您會收到回應。 回應是標準的 HTTP 回應碼。 一些常見回應有：
 
-|結果  |Response  |
+|結果  |回應  |
 |---------|---------|
 |成功  | 200 確定  |
 |事件資料的格式不正確 | 400 不正確的要求 |

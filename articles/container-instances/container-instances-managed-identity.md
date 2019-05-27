@@ -9,11 +9,11 @@ ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
 ms.openlocfilehash: ac0a84aa3121c6ebb91860c96c0f6692827c8a3f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336519"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66152329"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>如何搭配 Azure 容器執行個體使用受控識別
 
@@ -83,7 +83,7 @@ az keyvault secret set --name SampleSecret --value "Hello Container Instances!" 
 
 請在「Azure 容器執行個體」中使用使用者指派或系統指派的受控識別，繼續進行下列範例以存取 Key Vault。
 
-## <a name="example-1-use-a-user-assigned-identity-to-access-azure-key-vault"></a>範例 1：使用使用者指派的身分識別來存取 Azure Key Vault
+## <a name="example-1-use-a-user-assigned-identity-to-access-azure-key-vault"></a>範例 1:使用使用者指派的身分識別來存取 Azure Key Vault
 
 ### <a name="create-an-identity"></a>建立身分識別
 

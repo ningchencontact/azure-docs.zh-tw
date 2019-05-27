@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 6cbde9d0d53cdd688c39381978bd338c66d5688e
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 339183dabf67abb43d6fc99bbe5258a39f12b14a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671670"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122294"
 ---
-# <a name="create-an-internal-load-balancer-using-a-template"></a>使用模板创建内部负载均衡器
+# <a name="create-an-internal-load-balancer-using-a-template"></a>使用範本建立內部負載平衡器
 
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
@@ -45,7 +45,7 @@ ms.locfileid: "56671670"
 1. 如果您從未用過 Azure PowerShell，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) ，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
 2. 將參數檔案下載至本機磁碟。
 3. 編輯並儲存檔案。
-4. 运行 **New-AzResourceGroupDeployment** cmdlet 以使用模板创建资源组。
+4. 執行**新增 AzResourceGroupDeployment** cmdlet 來建立使用範本的資源群組。
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `
@@ -55,7 +55,7 @@ ms.locfileid: "56671670"
 
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>使用 Azure CLI 部署範本
 
-若要使用 Azure CLI 部署模板，请执行以下步骤。
+若要使用 Azure CLI 部署範本，請依照下列步驟執行。
 
 1. 如果您從未使用過 Azure CLI，請參閱 [安裝和設定 Azure CLI](../cli-install-nodejs.md) ，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
 2. 執行 **azure config mode** 命令，以切換為資源管理員模式，如下所示。

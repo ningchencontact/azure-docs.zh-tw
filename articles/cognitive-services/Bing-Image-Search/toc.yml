@@ -115,3 +115,5 @@
       href: language-support.md
     - name: Bing 影像搜尋 API 的分析
       href: bing-image-stats.md
+    - name: 法規遵循
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

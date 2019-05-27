@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: glenga
 ms.openlocfilehash: 79dbee33928fbc7560d0ea27be3af25cc510e996
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641889"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132265"
 ---
 ## <a name="create-an-azure-functions-project"></a>建立 Azure Functions 專案
 
 Visual Studio Code 中的 Azure Functions 專案範本會建立可發佈至 Azure 中函式應用程式的專案。 函式應用程式可讓您將多個函式群組為邏輯單位，以便您管理、部署和共用資源。
 
-1. 在 Visual Studio Code 中，選取 Azure 標誌以顯示 [Azure：函式] 區域，然後選取 [建立新專案] 圖示。
+1. 在 Visual Studio Code 中，選取 Azure 標誌以顯示 **[Azure：** 函式] 區域，然後選取 [建立新專案] 圖示。
 
     ![建立函式應用程式專案](./media/functions-create-function-app-vs-code/create-function-app-project.png)
 

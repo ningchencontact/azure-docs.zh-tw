@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 06337fef1a9d9b41fd41ff7c67611581639adc0a
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: b3177c5dfc5602dd2b6530b0934c17400ab5d528
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619730"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978884"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>針對 Azure App Service 購買自訂網域名稱
 
@@ -43,7 +43,7 @@ App Service 網域是直接在 Azure 中管理的最上層網域。 它們可以
 
 ### <a name="sign-in-to-azure"></a>登入 Azure
 
-打开 [Azure 门户](https://portal.azure.com)，然后使用 Azure 帐户登录。
+開啟 [Azure 入口網站](https://portal.azure.com)並使用您的 Azure 帳戶登入。
 
 ### <a name="navigate-to-the-app-in-the-azure-portal"></a>瀏覽至 Azure 入口網站中的應用程式
 
@@ -53,7 +53,7 @@ App Service 網域是直接在 Azure 中管理的最上層網域。 它們可以
 
 您看到 App Service 應用程式的管理分頁。  
 
-### <a name="check-the-pricing-tier"></a>检查定价层
+### <a name="check-the-pricing-tier"></a>檢查定價層
 
 在應用程式分頁的左側導覽中，捲動到 [設定] 區段，然後選取 [相應增加 (App Service 方案)]。
 
@@ -126,7 +126,7 @@ App Service 網域是直接在 Azure 中管理的最上層網域。 它們可以
 按一下 [法律條款] 來檢閱條款與費用，然後按一下 [購買]。
 
 > [!NOTE]
-> 应用服务域使用 GoDaddy 进行域注册，使用 Azure DNS 来托管域。 除了網域註冊費之外，您也必須支付 Azure DNS 的使用費用。 如需相關資訊，請參閱 [Azure DNS 定價](https://azure.microsoft.com/pricing/details/dns/)。
+> App Service 網域使用 GoDaddy 網域註冊，將 Azure DNS 來裝載網域。 除了網域註冊費之外，您也必須支付 Azure DNS 的使用費用。 如需相關資訊，請參閱 [Azure DNS 定價](https://azure.microsoft.com/pricing/details/dns/)。
 >
 >
 
@@ -201,7 +201,9 @@ App Service 網域是直接在 Azure 中管理的最上層網域。 它們可以
 
 ## <a name="renew-the-domain"></a>續訂網域
 
-您購買的 App Service 網域自購買起一年內有效。 按照預設，網域會設定為自動續訂下一年度，並使用您的付款方式付費。 如果您想要關閉自動續訂，或想要以手動方式續訂網域，請依照下列步驟進行。
+您購買的 App Service 網域自購買起一年內有效。 按照預設，網域會設定為自動續訂下一年度，並使用您的付款方式付費。 您可以手動更新您的網域名稱。
+
+如果您想要關閉自動續訂，或想要以手動方式續訂網域，請依照下列步驟進行。
 
 在 [App Service] 索引標籤中，按一下您應用程式的名稱，選取 [設定]，然後選取 [自訂網域]。
 
@@ -211,11 +213,25 @@ App Service 網域是直接在 Azure 中管理的最上層網域。 它們可以
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
-從網域的左側導覽中，選取 [網域續訂]。 若要停止自動續訂您的網域，請選取 [關閉]，然後選取 [儲存]。 
+從網域的左側導覽中，選取 [網域續訂]。 若要停止自動續訂您的網域，請選取 [關閉]，然後選取 [儲存]。
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-若要以手動方式續訂您的網域，請選取 [續訂網域]。 不過，此按鈕在網域到期前 90 天才會啟用。
+若要以手動方式續訂您的網域，請選取 [續訂網域]。 不過，此按鈕不是等到[在網域到期前 90 天](#when-domain-expires)。
+
+如果您的網域更新成功，您會收到電子郵件通知在 24 小時內。
+
+## <a name="when-domain-expires"></a>當網域到期
+
+Azure 會處理過期或過期 App Service 網域，如下所示：
+
+* 如果已停用自動更新：網域到期前 90 天內續訂通知電子郵件傳送給您，**續訂網域**按鈕會在入口網站中啟用。
+* 如果已啟用自動更新：之後您網域的到期日當天，Azure 會嘗試針對網域名稱更新向您收費。
+* 如果自動更新期間發生錯誤 （比方說，您在檔案上的卡片過期），或如果已停用自動續約，而且允許定義域到期，Azure 會通知您的網域到期與公園您的網域名稱。 您可以[手動更新](#renew-the-domain)您的網域。
+* 在第 4 個和第 12 天當天到期後，Azure 會傳送給您額外的通知電子郵件。 您可以[手動更新](#renew-the-domain)您的網域。
+* 在 19 天到期後，您的網域會留在保留，但是受到兌換費用。 您可以呼叫來更新您的網域名稱，取決於任何適用的更新和兌換費用的客戶支援。
+* 第 25 天到期後，Azure 會將您的網域與網域名稱業界拍賣服務拍賣。 您可以呼叫來更新您的網域名稱，取決於任何適用的更新和兌換費用的客戶支援。
+* 在到期後 30 天，就不再能夠兌換您的網域。
 
 <a name="custom"></a>
 

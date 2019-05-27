@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45ea34a673b46dda2ec9606952c707a13d1b72d9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b8897de5ee86d20e52b948f21afaef4acf196539
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65766862"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988568"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>設定驗證工作階段管理使用條件式存取
 
@@ -50,7 +50,7 @@ ms.locfileid: "65766862"
 
 ## <a name="configuring-authentication-session-controls"></a>設定驗證工作階段控制項
 
-條件式存取是 Azure AD Premium 功能，而且需要 premium 授權。 如果想進一步深入了解條件式存取，請參閱[什麼是 Azure Active Directory 條件式存取？](overview.md#license-requirements-for-using-conditional-access)
+條件式存取是 Azure AD Premium 功能，而且需要 premium 授權。 如果想進一步深入了解條件式存取，請參閱[什麼是 Azure Active Directory 條件式存取？](overview.md#license-requirements)
 
 > [!WARNING]
 > 如果您使用[可設定權杖存留期](../develop/active-directory-configurable-token-lifetimes.md)功能目前處於公開預覽狀態，請注意，我們不支援建立兩個不同的原則相同的使用者或應用程式組合： 一個與這項功能，另一個則使用可設定權杖存留期的功能。 Microsoft 計劃在年 10 月 15 日淘汰 「 可設定權杖存留期 」 功能，並取代的條件式存取驗證工作階段管理功能。  
@@ -66,7 +66,7 @@ ms.locfileid: "65766862"
 1. 移至**存取控制** > **工作階段**按一下**登入頻率**
 1. 第一個文字方塊中輸入必要的值的天與小時
 1. 選取的值**小時**或是**天**從下拉式清單中
-1. 儲存原則
+1. 儲存您的原則
 
 ![以頻率設定為正負號的條件式存取原則](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 

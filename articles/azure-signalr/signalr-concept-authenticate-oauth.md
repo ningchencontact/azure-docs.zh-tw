@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128344"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR 服務驗證
 
@@ -58,7 +58,7 @@ ms.locfileid: "58003693"
 
 3. 對新的 OAuth 應用程式使用下列設定，然後按一下 [註冊應用程式]：
 
-    | 設定名稱 | 建議的值 | 描述 |
+    | 設定名稱 | 建議的值 | 說明 |
     | ------------ | --------------- | ----------- |
     | 應用程式名稱 | Azure SignalR Chat | GitHub 使用者應該要能夠辨識並信任他們用來進行驗證的應用程式。   |
     | 首頁 URL | `http://localhost:5000/home` | |
@@ -412,7 +412,7 @@ az webapp create --name $WebAppName --resource-group $ResourceGroupName \
     --plan $WebAppPlan
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | -------------------- | --------------- |
 | resourceGroupName | 這是先前的教學課程中所建議的資源群組名稱。 您最好將所有教學課程的資源群組在一起。 使用您在先前的教學課程中所使用的相同資源群組。 |
 | WebAppPlan | 輸入全新且唯一的 App Service 方案名稱。 |
@@ -460,7 +460,7 @@ az webapp config appsettings set --name $WebAppName \
     --settings "GitHubClientSecret=$GitHubClientSecret"
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | -------------------- | --------------- |
 | GitHubClientId | 對此變數指派您 GitHub OAuth 應用程式的祕密用戶端識別碼。 |
 | GitHubClientSecret | 對此變數指派您 GitHub OAuth 應用程式的祕密密碼。 |
@@ -495,7 +495,7 @@ az webapp deployment source config-local-git --name $WebAppName \
     --query [url] -o tsv
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | -------------------- | --------------- |
 | DeploymentUserName | 選擇新的部署使用者名稱。 |
 | DeploymentUserPassword | 選擇新的部署使用者密碼。 |
@@ -565,7 +565,7 @@ az webapp deployment source config-local-git --name $WebAppName \
 
 在 [依名稱篩選...] 文字方塊中，輸入您的資源群組名稱。 本文的指示是使用名為 SignalRTestResources 的資源群組。 在結果清單中的目標資源群組上方，按一下 **...**，然後按一下 [刪除資源群組]。
 
-![刪除](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
+![Delete](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 
 系統將會要求您確認是否刪除資源。 輸入您的資源群組名稱來確認，然後按一下 [刪除]。
 

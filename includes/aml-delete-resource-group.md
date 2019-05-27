@@ -9,11 +9,11 @@ author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
 ms.openlocfilehash: 6af620f54acb3bf782f05b81f12aca2103cddf47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60764613"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66123244"
 ---
 >[!IMPORTANT]
 >您所建立的資源可用來作為其他 Azure Machine Learning 服務教學課程和操作說明文章的先決條件。 

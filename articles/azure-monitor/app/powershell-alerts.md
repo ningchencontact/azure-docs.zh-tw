@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
 ms.openlocfilehash: 5dfbc6fa18b5d1b5b3058db14eb1232be27a0c40
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481786"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66130976"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>在 Application Insights 中使用 PowerShell 設定警示
 
@@ -38,7 +38,7 @@ ms.locfileid: "58481786"
 * 安裝 [Microsoft Web Platform Installer (v5 或更高版本)](https://www.microsoft.com/web/downloads/platform.aspx)。
 * 使用該程式安裝 Microsoft Azure PowerShell
 
-## <a name="connect-to-azure"></a>連接到 Azure
+## <a name="connect-to-azure"></a>連線至 Azure
 啟動 Azure PowerShell 並 [連接至您的訂用帳戶](/powershell/azure/overview)：
 
 ```powershell
@@ -98,7 +98,7 @@ GUID 是該訂用帳戶的 ID (而非應用程式的檢測金鑰)。
 您亦可針對使用其他追蹤呼叫之 [測量參數](../../azure-monitor/app/api-custom-events-metrics.md#properties) (例如 TrackEvent 或 trackPageView) 報告的度量，使用相同的規則。
 
 ## <a name="metric-names"></a>度量名稱
-| 度量名稱 | 畫面名稱 | 描述 |
+| 度量名稱 | 畫面名稱 | 說明 |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |瀏覽器例外狀況 |在瀏覽器中擲回的未攔截例外狀況計數。 |
 | `basicExceptionServer.count` |伺服器例外狀況 |應用程式擲回的未處理例外狀況計數 |
@@ -127,12 +127,12 @@ GUID 是該訂用帳戶的 ID (而非應用程式的檢測金鑰)。
 
 | 度量群組 | 收集器模組 |
 | --- | --- |
-| basicExceptionBrowser、<br/>clientPerformance、<br/>view |[瀏覽器 JavaScript](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser、<br/>clientPerformance、<br/>檢視 |[瀏覽器 JavaScript](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[效能](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[相依性](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request、<br/>requestFailed |[伺服器要求](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 
-## <a name="webhooks"></a>Webhook
+## <a name="webhooks"></a>Webhooks
 您可以[自動回應至警示](../../azure-monitor/platform/alerts-webhooks.md)。 Azure 會在出現警示時呼叫您選擇的網址。
 
 ## <a name="see-also"></a>請參閱

@@ -9,18 +9,18 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e6359d57a1f4cce6ec89fd76ef343b515cafae6e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738971"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133132"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>在多個 VM 上啟用更新管理、變更追蹤和清查解決方案
 
 Azure 自動化提供的解決方案可管理作業系統安全性更新、追蹤變更，以及清查您的電腦上安裝的項目。 讓機器上架的方式有很多種，您可以[從虛擬機器](automation-onboard-solutions-from-vm.md)、從[自動化帳戶](automation-onboard-solutions-from-automation-account.md)、透過瀏覽虛擬機器，或透過 [Runbook](automation-onboard-solutions.md) 來讓解決方案上架。 本文會說明如何在瀏覽 Azure 中的虛擬機器時，讓這些解決方案上架。
 
-## <a name="log-in-to-azure"></a>登入 Azure
+## <a name="sign-in-to-azure"></a>登入 Azure
 
 在 https://portal.azure.com 登入 Azure
 
@@ -59,27 +59,10 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 ![沒有工作區](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-啟用解決方案時，只有特定區域支援連結 Log Analytics 工作區和自動化帳戶。
-
-下表顯示支援的對應：
-
-|**Log Analytics 工作區區域**|**Azure 自動化區域**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP 和 EastUS 對應至自動化帳戶的 Log Analytics 工作區不是確切的區域對應，但是是正確的對應。
-
-<sup>2</sup>基於容量限制的區域不提供建立新的資源時。 這包括自動化帳戶和 Log Analytics 工作區。 不過，在區域中預先存在連結的資源應該繼續運作。
+> [!NOTE]
+> 啟用解決方案時，只有特定區域支援連結 Log Analytics 工作區和自動化帳戶。
+>
+> 如需支援的對應配對的清單，請參閱 <<c0> [ 自動化帳戶和 Log Analytics 工作區的區域對應](how-to/region-mappings.md)。
 
 針對您不想啟用的虛擬機器，取消選取它旁邊的核取方塊。 無法啟用的虛擬機器已取消選取。
 
@@ -90,7 +73,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 下列解決方案相依於 Log Analytics 工作區：
 
 * [更新管理](automation-update-management.md)
-* [更改跟踪](automation-change-tracking.md)
+* [變更追蹤](automation-change-tracking.md)
 * [於下班時間啟動/停止 VM](automation-solution-vm-management.md)
 
 如果您決定您不再想要整合您的自動化帳戶與 Log Analytics 工作區，您可以取消連結您的帳戶，直接從 Azure 入口網站。 繼續之前，您必須先移除稍早所述的解決方案，否則無法進行此程序。 檢閱已匯入特定解決方案的相關文章，以了解移除解決方案所需的步驟。
@@ -122,6 +105,8 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 * 啟動及停止 VM Runbook
 * 變數
 
+或者您也可以取消連結您的工作區從您的自動化帳戶從您的 Log Analytics 工作區。 在您的工作區中，選取**自動化帳戶**下方**相關資源**。 在 [自動化帳戶] 頁面上選取**取消連結帳戶**。
+
 ## <a name="troubleshooting"></a>疑難排解
 
 上架多部機器時，可能會有機器顯示為 [無法啟用]。 有許多不同原因會造成部分機器無法啟用。 下列章節將說明嘗試上架 VM 時，出現 [無法啟用] 狀態的可能原因。
@@ -152,7 +137,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 **原因**︰不支援使用傳統部署模型的 VM。
 
-**解決方案**：將虛擬機器遷移至資源管理員部署模型。 若要了解如何執行這項操作，請參閱[遷移傳統部署模型資源](../virtual-machines/windows/migration-classic-resource-manager-overview.md)。
+**解決方案**：將虛擬機器移轉至 Resource Manager 部署模型。 若要了解如何執行這項操作，請參閱[遷移傳統部署模型資源](../virtual-machines/windows/migration-classic-resource-manager-overview.md)。
 
 ### <a name="vm-is-stopped-deallocated"></a>VM 已停止。 (已解除配置)
 

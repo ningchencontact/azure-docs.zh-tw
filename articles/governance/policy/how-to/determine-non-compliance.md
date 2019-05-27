@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2f856e9c42b26d4e286493e2eb5d019a8cff6c23
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6e3e01ca9bd459aa6c6aca8dfaacb98b1267fada
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868674"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979338"
 ---
 # <a name="determine-causes-of-non-compliance"></a>判斷不符合的原因
 
@@ -85,7 +85,7 @@ ms.locfileid: "64868674"
 
 下列矩陣會將每一個可能的對應_原因_要負責[條件](../concepts/definition-structure.md#conditions)原則定義中：
 
-|原因 | 條件 |
+|`Reason` | 條件 |
 |-|-|
 |目前的值必須包含作為索引鍵的目標值。 |containsKey 或**不**notContainsKey |
 |目前的值必須包含目標值。 |包含或**不**notContains |
@@ -215,11 +215,11 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 1. 選取 [資源合規性] 頁面上的 [變更歷程記錄 (預覽)] 索引標籤。 偵測到的變更清單 (如果有的話) 會隨即顯示。
 
-   ![在資源合規性 頁面上的原則變更歷程記錄 索引標籤](../media/determine-non-compliance/change-history-tab.png)
+   ![在資源合規性 頁面上的 azure 原則變更歷程記錄 索引標籤](../media/determine-non-compliance/change-history-tab.png)
 
 1. 選取其中一個偵測到的變更。 _視覺化 diff_的資源會顯示**修訂歷程記錄**頁面。
 
-   ![在 [變更歷程記錄] 頁面上的原則變更歷程記錄視覺差異](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Azure 原則變更歷程記錄視覺差異變更記錄 頁面上](../media/determine-non-compliance/change-history-visual-diff.png)
 
 _視覺化差異_有助於識別資源的變更。 偵測到的變更可能不相關的資源目前的合規性狀態。
 
@@ -228,7 +228,7 @@ _視覺化差異_有助於識別資源的變更。 偵測到的變更可能不�
 ## <a name="next-steps"></a>後續步驟
 
 - 檢閱範例[「 Azure 原則範例](../samples/index.md)。
-- 檢閱[原則定義結構](../concepts/definition-structure.md)。
+- 檢閱 [Azure 原則定義結構](../concepts/definition-structure.md)。
 - 檢閱[了解原則效果](../concepts/effects.md)。
 - 了解如何[以程式設計方式建立原則](programmatically-create.md)。
 - 了解如何[取得合規性資料](getting-compliance-data.md)。

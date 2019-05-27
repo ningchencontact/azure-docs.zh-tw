@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 7c6e7d8bb407b0ffeb320ebfe9e2639feb303800
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: fe483f00c5711c2b2b62add32e951d26f732de2f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603405"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131420"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -52,51 +52,51 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
 
 ### <a name="v2"></a>版本 2.x
 
-工具的 2.x 版會使用以 .NET Core 為建置基礎的 Azure Functions 執行階段 2.x。 .NET Core 2.x 支援的所有平台都支援這個版本，包括 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。 您必須先安裝 .NET Core 2.x SDK。
+工具的 2.x 版會使用以 .NET Core 為建置基礎的 Azure Functions 執行階段 2.x。 .NET Core 2.x 支援的所有平台都支援這個版本，包括 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。 
+
+> [!IMPORTANT]
+> 您可以略過安裝.NET Core 2.x SDK，利用[延伸模組套件組合]。
 
 #### <a name="windows-npm"></a>Windows
 
 下列步驟使用 npm 在 Windows 上安裝 Core Tools。 您也可以使用 [Chocolatey](https://chocolatey.org/)。 如需詳細資訊，請參閱 [Core Tools 讀我檔案](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)。
 
-1. 安裝[適用於 Windows 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/windows)。
+1. 安裝 [Node.js] (內含 npm)。 針對 2.x 版的工具，只支援 Node.js 8.5 和更新版本。
 
-2. 安裝 [Node.js] (內含 npm)。 針對 2.x 版的工具，只支援 Node.js 8.5 和更新版本。
-
-3. 安裝 Core Tools 套件：
+1. 安裝 Core Tools 套件：
 
     ```bash
     npm install -g azure-functions-core-tools
     ```
+1. 如果您不打算使用[延伸模組套件組合]，安裝[.NET Core 2.x SDK for Windows](https://www.microsoft.com/net/download/windows)。
 
 #### <a name="brew"></a>採用 Homebrew 的 MacOS
 
 下列步驟使用 Homebrew 在 macOS 上安裝 Core Tools。
 
-1. 安裝[適用於 macOS 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/macos)。
+1. 如果尚未安裝 [Homebrew](https://brew.sh/)，請加以安裝。
 
-2. 如果尚未安裝 [Homebrew](https://brew.sh/)，請加以安裝。
-
-3. 安裝 Core Tools 套件：
+1. 安裝 Core Tools 套件：
 
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
+1. 如果您不打算使用[延伸模組套件組合]，安裝[.NET Core 2.x SDK 適用於 macOS](https://www.microsoft.com/net/download/macos)。
+
 
 #### <a name="linux"></a> 採用 APT 的 Linux (Ubuntu/Debian)
 
 下列步驟使用 [APT](https://wiki.debian.org/Apt) 在 Ubuntu/Debian Linux 散發套件上安裝 Core Tools。 若為其他 Linux 散發套件，請參閱 [Core Tools 讀我檔案](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux)。
 
-1. 安裝[適用於 Linux 的 .NET Core 2.x SDK](https://www.microsoft.com/net/download/linux)。
-
-2. 將 Microsoft 產品金鑰註冊為可信任：
+1. 將 Microsoft 產品金鑰註冊為可信任：
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-3. 請確認您的 Ubuntu 伺服器正在執行下表其中一個適當的版本。 若要新增 apt 來源，請執行：
+1. 請確認您的 Ubuntu 伺服器正在執行下表其中一個適當的版本。 若要新增 apt 來源，請執行：
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -110,11 +110,12 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
-4. 安裝 Core Tools 套件：
+1. 安裝 Core Tools 套件：
 
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
+1. 如果您不打算使用[延伸模組套件組合]，安裝[.NET Core 2.x SDK 適用於 Linux](https://www.microsoft.com/net/download/linux)。
 
 ## <a name="create-a-local-functions-project"></a>建立本機的 Functions 專案
 
@@ -186,6 +187,7 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
   "Host": {
     "LocalHttpPort": 7071,
     "CORS": "*"
+    "CORSCredentials": true
   },
   "ConnectionStrings": {
     "SQLConnectionString": "<sqlclient-connection-string>"
@@ -195,12 +197,13 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 
 | 設定      | 說明                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | 设置为 `true` 时，使用本地计算机密钥加密所有值。 需搭配 `func settings` 命令使用。 預設值為 `false`。 |
-| **`Values`** | 於本機執行時使用的應用程式設定集合與連接字串。 这些值对应于 Azure 中你的函数应用中的应用设置，例如 [`AzureWebJobsStorage`]。 许多触发器和绑定都有一个引用连接字符串应用设置的属性，例如 [Blob 存储触发器](functions-bindings-storage-blob.md#trigger---configuration)的 `Connection`。 对于此类属性，你需要一个在 `Values` 数组中定义的应用程序设置。 <br/>对于 HTTP 之外的触发器，[`AzureWebJobsStorage`] 是一个必需的应用设置。 <br/>2.x 版的 Functions 运行时需要 [`FUNCTIONS_WORKER_RUNTIME`] 设置，该设置是由 Core Tools 为项目生成的。 <br/> 在本地安装 [Azure 存储模拟器](../storage/common/storage-use-emulator.md)后，可以将 [`AzureWebJobsStorage`] 设置为 `UseDevelopmentStorage=true`，以便 Core Tools 使用此模拟器。 此功能在開發期間非常實用，但您應在部署前先透過實際的儲存體連接進行測試。 |
+| **`IsEncrypted`** | 當設定為`true`，所有的值會使用本機電腦金鑰加密。 需搭配 `func settings` 命令使用。 預設值為 `false`。 |
+| **`Values`** | 於本機執行時使用的應用程式設定集合與連接字串。 這些值會對應至在 Azure 中，函數應用程式中的應用程式設定這類[ `AzureWebJobsStorage` ]。 許多觸發程序和繫結具有的屬性，是指連接字串的應用程式設定，像是`Connection`for [Blob 儲存體觸發程序](functions-bindings-storage-blob.md#trigger---configuration)。 對於這類屬性中，您需要應用程式設定中定義`Values`陣列。 <br/>[`AzureWebJobsStorage`] 必要的應用程式，設定 HTTP 以外的觸發程序。 <br/>版本 2.x 的 Functions 執行階段需要[ `FUNCTIONS_WORKER_RUNTIME` ]核心工具為您的專案產生的設定。 <br/> 當您擁有[Azure 儲存體模擬器](../storage/common/storage-use-emulator.md)安裝在本機，您可以設定[ `AzureWebJobsStorage` ]至`UseDevelopmentStorage=true`和 Core Tools 會使用模擬器。 此功能在開發期間非常實用，但您應在部署前先透過實際的儲存體連接進行測試。 |
 | **`Host`** | 此區段中的設定能自訂於本機執行的 Functions 主機處理序。 |
 | **`LocalHttpPort`** | 設定於執行本機 Functions 主機 (`func host start` 和 `func run`) 時所使用的預設連接埠。 `--port` 命令列選項的優先順序高於此值。 |
 | **`CORS`** | 定義針對[跨來源資源共享 (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 所允許的來源。 來源是以不含空格的逗號分隔清單提供。 支援萬用字元值 (\*)，它允許來自任何來源的要求。 |
-| **`ConnectionStrings`** | 請勿將此集合用於您函式繫結所使用的連接字串。 此集合仅供通常从配置文件的 `ConnectionStrings` 节获取连接字符串的框架使用，例如[实体框架](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx)。 此物件中的連接字串會新增至具有 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) 提供者類型的環境。 此集合中的項目不會發佈至具備其他應用程式設定的 Azure。 必须将这些值显式添加到函数应用设置的 `Connection strings` 集合中。 如果要在函数代码中创建 [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx)，则应将连接字符串值与其他连接一起存储在门户的“应用程序设置”中。 |
+| **`CORSCredentials`** |  將它設定為 true，允許`withCredentials`要求 |
+| **`ConnectionStrings`** | 請勿將此集合用於您函式繫結所使用的連接字串。 這個集合只能由通常會從連接字串的架構`ConnectionStrings`一節中的某個組態檔，例如[Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx)。 此物件中的連接字串會新增至具有 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) 提供者類型的環境。 此集合中的項目不會發佈至具備其他應用程式設定的 Azure。 您必須明確將這些值來`Connection strings`函式應用程式設定的集合。 如果您要建立[ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx)函式程式碼中，您應該儲存中的連接字串值**應用程式設定**在入口網站中與您其他的連線。 |
 
 這些函數應用程式設定值在您的程式碼中也可以做為環境變數加以讀取。 如需詳細資訊，請參閱這些特定語言參考主題的「環境變數」章節：
 
@@ -210,7 +213,7 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
-如果没有为 [`AzureWebJobsStorage`] 设置有效的存储连接字符串并且没有使用模拟器，则会显示以下错误消息：
+當沒有有效的儲存體連接字串設定為[ `AzureWebJobsStorage` ]與模擬器不在使用中，會顯示下列錯誤訊息：
 
 > 在 local.settings.json 中遺失 AzureWebJobsStorage 的值。 這對 HTTP 以外的所有觸發程序是必要的。 您可以執行 'func azure functionapp fetch-app-settings \<functionAppName\>'，或指定 local.settings.json 中的連接字串。
 
@@ -500,3 +503,4 @@ Azure Functions Core Tools 是[開放原始碼且裝載於 GitHub 上](https://g
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
+[延伸模組套件組合]: functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles

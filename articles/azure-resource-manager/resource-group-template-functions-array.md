@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
 ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270448"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128705"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的陣列和物件函式
 
@@ -49,16 +49,16 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="array"></a>array
+## <a name="array"></a>陣列
 `array(convertToArray)`
 
 將值轉換為陣列。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| convertToArray |yes |整數、字串、陣列或物件 |要轉換為陣列的值。 |
+| convertToArray |有 |整數、字串、陣列或物件 |要轉換為陣列的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -107,7 +107,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | intOutput | 陣列 | [1] |
 | stringOutput | 陣列 | ["efgh"] |
@@ -134,10 +134,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |整數、字串、陣列或物件 |要測試是否為 null 的第一個值。 |
-| 其他引數 |否 |整數、字串、陣列或物件 |要測試是否為 null 的其他值。 |
+| arg1 |有 |整數、字串、陣列或物件 |要測試是否為 null 的第一個值。 |
+| 其他引數 |無 |整數、字串、陣列或物件 |要測試是否為 null 的其他值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -193,9 +193,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
-| stringOutput | 字串 | 預設值 |
+| stringOutput | String | 預設 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
 | arrayOutput | 陣列 | [1] |
@@ -222,10 +222,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |陣列或字串 |串連的第一個陣列或字串。 |
-| 其他引數 |否 |陣列或字串 |串連的其他陣列或字串 (循序順序)。 |
+| arg1 |有 |陣列或字串 |串連的第一個陣列或字串。 |
+| 其他引數 |無 |陣列或字串 |串連的其他陣列或字串 (循序順序)。 |
 
 此函式可以接受任意數目的引數，並且可針對參數接受字串或陣列。
 
@@ -271,7 +271,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | return | 陣列 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -311,9 +311,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
-| concatOutput | 字串 | prefix-5yj4yjf5mbg72 |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -329,17 +329,17 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="contains" />
 
-## <a name="contains"></a>contains
+## <a name="contains"></a>包含
 `contains(container, itemToFind)`
 
 檢查陣列中是否包含值、物件中是否包含索引鍵，或字串中是否包含子字串。 字串比較會區分大小寫。 不過，測試時，如果物件包含索引鍵，比較便不區分大小寫。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| container |yes |陣列、物件或字串 |其中包含要尋找之值的值。 |
-| itemToFind |yes |字串或整數 |要尋找的值。 |
+| container |有 |陣列、物件或字串 |其中包含要尋找之值的值。 |
+| itemToFind |有 |字串或整數 |要尋找的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -400,7 +400,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -430,10 +430,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |字串、整數、陣列或物件 |陣列中的第一個值。 |
-| 其他引數 |否 |字串、整數、陣列或物件 |陣列中的其他值。 |
+| arg1 |有 |字串、整數、陣列或物件 |陣列中的第一個值。 |
+| 其他引數 |無 |字串、整數、陣列或物件 |陣列中的其他值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -482,7 +482,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | stringArray | 陣列 | ["a", "b", "c"] |
 | intArray | 陣列 | [1, 2, 3] |
@@ -503,7 +503,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="empty" />
 
-## <a name="empty"></a>empty
+## <a name="empty"></a>空的
 
 `empty(itemToTest)`
 
@@ -511,9 +511,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| itemToTest |yes |陣列、物件或字串 |要檢查其是否為空白的值。 |
+| itemToTest |有 |陣列、物件或字串 |要檢查其是否為空白的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -562,7 +562,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -589,9 +589,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |陣列或字串 |要擷取其第一個元素或字元的值。 |
+| arg1 |有 |陣列或字串 |要擷取其第一個元素或字元的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -628,10 +628,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
-| arrayOutput | 字串 | one |
-| stringOutput | 字串 | O |
+| arrayOutput | String | one |
+| stringOutput | String | O |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -654,11 +654,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |陣列或物件 |要用來尋找共同元素的第一個值。 |
-| arg2 |yes |陣列或物件 |要用來尋找共同元素的第二個值。 |
-| 其他引數 |否 |陣列或物件 |要用來尋找共同元素的其他值。 |
+| arg1 |有 |陣列或物件 |要用來尋找共同元素的第一個值。 |
+| arg2 |有 |陣列或物件 |要用來尋找共同元素的第二個值。 |
+| 其他引數 |無 |陣列或物件 |要用來尋找共同元素的其他值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -707,7 +707,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | 陣列 | ["two", "three"] |
@@ -724,16 +724,16 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
-## <a name="json"></a>json
+## <a name="json"></a>JSON
 `json(arg1)`
 
 傳回 JSON 物件。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |字串 |要轉換成 JSON 的值。 |
+| arg1 |有 |string |要轉換成 JSON 的值。 |
 
 
 ### <a name="return-value"></a>傳回值
@@ -779,10 +779,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
-| nullOutput | BOOLEAN | True |
+| nullOutput | Boolean | True |
 | paramOutput | Object | {"a": "示範值"}
 
 若要使用 Azure CLI 部署此範例範本，請使用：
@@ -806,9 +806,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |陣列或字串 |要擷取其最後一個元素或字元的值。 |
+| arg1 |有 |陣列或字串 |要擷取其最後一個元素或字元的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -845,10 +845,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
-| arrayOutput | 字串 | three |
-| stringOutput | 字串 | e |
+| arrayOutput | String | three |
+| stringOutput | String | e |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -871,9 +871,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |陣列或字串 |要用來取得元素數目的陣列，或用來取得字元數目的字串。 |
+| arg1 |有 |陣列或字串 |要用來取得元素數目的陣列，或用來取得字元數目的字串。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -917,7 +917,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -947,16 +947,16 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="max" />
 
-## <a name="max"></a>max
+## <a name="max"></a>上限
 `max(arg1)`
 
 傳回整數陣列的最大值，或以逗號分隔的整數清單。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |整數的陣列，或以逗號分隔的整數清單 |要用來取得最大值的集合。 |
+| arg1 |有 |整數的陣列，或以逗號分隔的整數清單 |要用來取得最大值的集合。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -992,7 +992,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -1011,16 +1011,16 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>Min
+## <a name="min"></a>分鐘
 `min(arg1)`
 
 傳回整數陣列的最小值，或以逗號分隔的整數清單。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |整數的陣列，或以逗號分隔的整數清單 |要用來取得最小值的集合。 |
+| arg1 |有 |整數的陣列，或以逗號分隔的整數清單 |要用來取得最小值的集合。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1056,7 +1056,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -1082,10 +1082,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| startingInteger |yes |int |陣列中的第一個整數。 |
-| numberofElements |yes |int |陣列中的整數數目。 |
+| startingInteger |有 |int |陣列中的第一個整數。 |
+| numberofElements |有 |int |陣列中的整數數目。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1121,7 +1121,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | rangeOutput | 陣列 | [5, 6, 7] |
 
@@ -1139,17 +1139,17 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="skip" />
 
-## <a name="skip"></a>skip
+## <a name="skip"></a>略過
 `skip(originalValue, numberToSkip)`
 
 傳回陣列中位於指定數字之後的所有元素所形成的陣列，或傳回字串中位於指定數字之後的所有字元所組成的字串。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| originalValue |yes |陣列或字串 |要用於略過的陣列或字串。 |
-| numberToSkip |yes |int |要略過的元素或字元數。 如果此值為 0 或更小的值，則會傳回值內的所有元素或字元。 如果此值大於陣列或字串的長度，則會傳回空白陣列或字串。 |
+| originalValue |有 |陣列或字串 |要用於略過的陣列或字串。 |
+| numberToSkip |有 |int |要略過的元素或字元數。 如果此值為 0 或更小的值，則會傳回值內的所有元素或字元。 如果此值大於陣列或字串的長度，則會傳回空白陣列或字串。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1201,10 +1201,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | arrayOutput | 陣列 | ["three"] |
-| stringOutput | 字串 | two three |
+| stringOutput | String | two three |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1227,10 +1227,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| originalValue |yes |陣列或字串 |要從其中擷取元素的陣列或字串。 |
-| numberToTake |yes |int |要擷取的元素或字元數。 如果此值為 0 或更小的值，則會傳回空白陣列或字串。 如果此值大於給定陣列或字串的長度，則會傳回陣列或字串中的所有元素。 |
+| originalValue |有 |陣列或字串 |要從其中擷取元素的陣列或字串。 |
+| numberToTake |有 |int |要擷取的元素或字元數。 如果此值為 0 或更小的值，則會傳回空白陣列或字串。 如果此值大於給定陣列或字串的長度，則會傳回陣列或字串中的所有元素。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1282,10 +1282,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | arrayOutput | 陣列 | ["one", "two"] |
-| stringOutput | 字串 | on |
+| stringOutput | String | 於 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -1308,11 +1308,11 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要 | 類型 | 說明 |
+| 參數 | 必要項 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |陣列或物件 |用來聯結元素的第一個值。 |
-| arg2 |yes |陣列或物件 |用來聯結元素的第二個值。 |
-| 其他引數 |否 |陣列或物件 |用來聯結元素的其他值。 |
+| arg1 |有 |陣列或物件 |用來聯結元素的第一個值。 |
+| arg2 |有 |陣列或物件 |用來聯結元素的第二個值。 |
+| 其他引數 |無 |陣列或物件 |用來聯結元素的其他值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1361,7 +1361,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| Name | 類型 | 值 |
+| 名稱 | 類型 | Value |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | 陣列 | ["one", "two", "three", "four"] |

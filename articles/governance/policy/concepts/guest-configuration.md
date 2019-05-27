@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c11d6519986cf7a0e70d1fe004ef527c3df247d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c98229a28f31ff715f252dc3915ca690e99245ff
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277712"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979520"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure 原則的來賓設定
 
@@ -58,12 +58,12 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 |作業系統|驗證工具|注意|
 |-|-|-|
-|Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| 「來賓設定」延伸模組會安裝 Ruby 和 Python。 |
+| Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
+| Linux|[Chef InSpec](https://www.chef.io/inspec/)| 「來賓設定」延伸模組會安裝 Ruby 和 Python。 |
 
 ### <a name="validation-frequency"></a>驗證頻率
 
-「來賓設定」用戶端會每隔 5 分鐘檢查一次是否有新內容。 一旦收到來賓指派，系統便會每隔 15 分鐘檢查一次設定。 稽核完成後，系統會立即將結果傳送給來賓設定資源提供者。 發生原則[評估觸發程序](../how-to/get-compliance-data.md#evaluation-triggers)時，系統會將機器的狀態寫入到來賓設定資源提供者。 這會導致 Azure 原則評估 Azure Resource Manager 屬性。 隨選原則評估會從來賓設定資源提供者擷取最新的值。 不過，該評估不會對虛擬機器內的設定觸發新的稽核作業。
+「來賓設定」用戶端會每隔 5 分鐘檢查一次是否有新內容。 一旦收到來賓指派，系統便會每隔 15 分鐘檢查一次設定。 稽核完成後，系統會立即將結果傳送給來賓設定資源提供者。 發生原則[評估觸發程序](../how-to/get-compliance-data.md#evaluation-triggers)時，系統會將機器的狀態寫入到來賓設定資源提供者。 這會導致 Azure 原則評估 Azure Resource Manager 屬性。 隨 Azure 原則評估從來賓設定資源提供者擷取的最新的值。 不過，該評估不會對虛擬機器內的設定觸發新的稽核作業。
 
 ### <a name="supported-client-types"></a>支援的用戶端類型
 
@@ -71,7 +71,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 |發行者|名稱|版本|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04、16.04、18.04|
+|標準的|Ubuntu Server|14.04、16.04、18.04|
 |Credativ|Debian|8、9|
 |Microsoft|Windows Server|2012 Datacenter、 2012 R2 Datacenter、 2016年資料中心、 2019年資料中心|
 |Microsoft|Windows 用戶端|Windows 10|
@@ -80,7 +80,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 |Suse|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Guest 設定可以稽核執行受支援的作業系統的節點。  如果您想要稽核使用自訂映像的虛擬機器，您需要重複**DeployIfNotExists**定義及修改**如果**節，以加入您的映像屬性。
+> Guest 設定可以稽核執行受支援的作業系統的節點。 如果您想要稽核使用自訂映像的虛擬機器，您需要重複**DeployIfNotExists**定義及修改**如果**節，以加入您的映像屬性。
 
 ### <a name="unsupported-client-types"></a>不支援的用戶端類型
 
@@ -93,9 +93,7 @@ Windows Server Nano Server 不支援任何版本。
 如需 IP 位址清單，您可以下載[Microsoft Azure Datacenter IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 此檔案會每週更新，並具有目前已部署的範圍及任何即將進行的 IP 範圍變更。 您只需要允許輸出存取您的 Vm 部署所在的區域中的 Ip。
 
 > [!NOTE]
-> Azure 資料中心 IP 位址 XML 檔會列出在 Microsoft Azure 資料中心使用的 IP 位址範圍。 此檔案包含計算、SQL 和儲存體範圍。
-> 每週會公佈已更新的檔案。 檔案會反映目前已部署的範圍及任何即將進行的 IP 範圍變更。 出現在檔案中的新範圍至少有一週的時間不會在資料中心中使用。
-> 最好是每週下載新的 XML 檔案。 接著，更新您的網站以便正確地識別在 Azure 中執行的服務。 Azure ExpressRoute 使用者應該注意到，在每個月的第一週，此檔案會用來更新 Azure 空間的邊界閘道協定 (BGP) 公告。
+> Azure 資料中心 IP 位址 XML 檔會列出在 Microsoft Azure 資料中心使用的 IP 位址範圍。 此檔案包含計算、SQL 和儲存體範圍。 每週會公佈已更新的檔案。 檔案會反映目前已部署的範圍及任何即將進行的 IP 範圍變更。 出現在檔案中的新範圍至少有一週的時間不會在資料中心中使用。 最好是每週下載新的 XML 檔案。 接著，更新您的網站以便正確地識別在 Azure 中執行的服務。 Azure ExpressRoute 使用者應該注意到，在每個月的第一週，此檔案會用來更新 Azure 空間的邊界閘道協定 (BGP) 公告。
 
 ## <a name="guest-configuration-definition-requirements"></a>來賓設定定義需求
 
@@ -140,7 +138,7 @@ Linux：`/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<ve
 ## <a name="next-steps"></a>後續步驟
 
 - 檢閱範例[「 Azure 原則範例](../samples/index.md)。
-- 檢閱[原則定義結構](definition-structure.md)。
+- 檢閱 [Azure 原則定義結構](definition-structure.md)。
 - 檢閱[了解原則效果](effects.md)。
 - 了解如何[以程式設計方式建立原則](../how-to/programmatically-create.md)。
 - 了解如何[取得合規性資料](../how-to/getting-compliance-data.md)。

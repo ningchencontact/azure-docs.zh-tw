@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/05/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 6f856aeae74ea285cd6a0326fd225e454a1cbe43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91dc386641c758c42f64afff387d0463d1445f1d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003709"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969072"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>了解 Cloudyn 成本管理報告
 
@@ -66,14 +66,14 @@ ms.locfileid: "61003709"
     ![分組時可用標記的第二個清單範例](./media/understanding-cost-reports/groups-tags02.png)
 
     在成本配置報告中，標記型群組類別中的群組可能包括：
-      - 標記
+      - Tags
       - 資源群組標記
       - Cloudyn 成本實體標記
       - 成本配置用途的訂用帳戶標記類別
 
    範例可能包括：
    - 成本中心
-   - department
+   - 部門
    - Application
    - 環境
    - 成本代碼
@@ -144,7 +144,7 @@ ms.locfileid: "61003709"
 8. **解決方案**
 
     使用 [解析] 選取在所選日期範圍內的時間解析。 時間解析會決定如何在報告中顯示單位，而且可以是：
-    - 每日
+    - 每天
     - 每週
     - 每月
     - 每季

@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: 549cfb84ff247295e01c800aa41ba265bb8921c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343455"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978301"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 角色型存取控制 (預覽)
 
@@ -27,8 +27,13 @@ Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源�
 使用 Azure AD RBAC 的應用程式不需要處理專屬於事件中樞的 SAS 規則和金鑰或任何其他存取權杖。 用戶端應用程式會與 Azure AD 互動以建立驗證內容，並取得事件中樞的存取權杖。 在使用需要互動式登入的網域使用者帳戶時，應用程式永遠不會直接處理任何認證。
 
 ## <a name="event-hubs-roles-and-permissions"></a>事件中樞角色和權限
+Azure 會提供下列內建的 RBAC 角色的授權存取事件中樞命名空間：
 
-在初始公開預覽中，您只能將 Azure AD 帳戶和服務主體新增至事件中樞命名空間的「擁有者」或「參與者」角色。 此作業會對身分識別授與命名空間中所有實體的完全控制權。 會變更命名空間拓撲的管理作業一開始只能透過 Azure 資源管理來獲得支援，而無法透過原生事件中樞 REST 管理介面來獲得支援。 這項支援也表示 .NET Framework 用戶端 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 物件無法與 Azure AD 帳戶搭配使用。  
+[事件中樞資料擁有者 （預覽）](../role-based-access-control/built-in-roles.md#service-bus-data-owner)角色可讓資料存取事件中樞命名空間和其實體 （佇列、 主題、 訂用帳戶和篩選器）
+
+>[!IMPORTANT]
+> 我們稍早支援新增至受管理的身分識別**擁有者**或是**參與者**角色。 不過，資料存取權限**擁有者**並**參與者**角色都不會再接受。 如果您使用**擁有者**或是**參與者**角色時，切換到使用**事件中樞資料擁有者**角色。
+
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>搭配使用事件中樞與 Azure AD 網域使用者帳戶
 
@@ -44,7 +49,7 @@ Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源�
 
 ### <a name="create-an-event-hubs-namespace"></a>建立事件中樞命名空間
 
-接下來，在具有 RBAC 之「事件中樞」預覽支援的其中一個 Azure 區域中[建立事件中樞命名空間](event-hubs-create.md)：**美國東部**、**美國東部 2** 或**西歐**。 
+下一步[建立事件中樞命名空間](event-hubs-create.md)。 
 
 命名空間建立好之後，瀏覽至其位於入口網站上的 [存取控制 (IAM)] 頁面，然後按一下 [新增角色指派] 以將 Azure AD 使用者帳戶新增至 [擁有者] 角色。 如果您使用自己的使用者帳戶，而且您已建立命名空間，則您已加入「擁有者」角色。 若要在角色中新增不同帳戶，請在 [新增權限] 面板的 [選取] 欄位中搜尋 Web 應用程式的名稱，然後按一下該項目。 然後按一下 [儲存] 。 使用者帳戶現在會具有事件中樞命名空間的存取權，以及您先前建立之事件中樞的存取權。
  

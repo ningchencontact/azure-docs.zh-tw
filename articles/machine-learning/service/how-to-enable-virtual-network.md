@@ -10,16 +10,16 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: fe51f4589075cb275e867c943c5d7df3e8d5d4a0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c1006aa21b3009bb7508c7a24ab501d39737261c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794920"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978229"
 ---
-# <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>在 Azure 虛擬網路內安全地執行實驗與推斷
+# <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>安全地執行實驗和在 Azure 虛擬網路內的推斷
 
-在本文中，您會學習如何在虛擬網路內執行實驗和推斷。 虛擬網路充當安全邊界，將 Azure 資源與公用網際網路隔離。 您也可以將 Azure 虛擬網路加入到您的內部部署網路， 讓您能夠安全地將模型定型，並可存取所部署的模型進行推斷。
+在本文中，您會學習如何執行您的實驗和在虛擬網路內的推斷。 虛擬網路充當安全邊界，將 Azure 資源與公用網際網路隔離。 您也可以將 Azure 虛擬網路加入到您的內部部署網路， 它可讓您安全地訓練您的模型，並存取您的部署的模型的推斷。 推斷，或模型計分，是階段已部署的模型用於預測，最常在實際執行資料的位置。
 
 Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 計算資源 (計算目標) 用於定型和部署模型。 這些計算目標可建立在虛擬網路內部。 例如，您可以使用 Microsoft 資料科學虛擬機器來定型模型，然後將模型部署到 Azure Kubernetes Service (AKS)。 如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)。
 
@@ -35,16 +35,16 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
 ## <a name="storage-account-for-your-workspace"></a>您工作區的儲存體帳戶
 
 > [!IMPORTANT]
-> 您可以放置只在執行測試時，才能附加至虛擬網路背後的 Azure 機器學習服務工作區的儲存體帳戶。 推斷需要無限制地的存取儲存體帳戶。 如果您不確定是否修改了這些設定，請參閱[設定 Azure 儲存體防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security)中的__預設網路存取規則__。 使用步驟，以允許來自所有網路存取的同時進行推斷。
+> 您可以放置只在執行測試時，才能附加至虛擬網路背後的 Azure 機器學習服務工作區的儲存體帳戶。 推斷需要無限制地的存取儲存體帳戶。 如果您不確定是否修改了這些設定，請參閱[設定 Azure 儲存體防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security)中的__預設網路存取規則__。 使用步驟期間推斷，允許從所有網路存取，或建立的模型評分。
 
-若要使用 Azure Machine Learning 實驗的虛擬網路與 Azure 儲存體功能，請遵循下列步驟：
+若要使用 Azure 儲存體的 Azure Machine Learning 實驗的功能背後的虛擬網路，請遵循下列步驟：
 
 1. 建立測試運算，例如。 Machine Learning 計算背後的虛擬網路，或將測試計算連結至工作區，例如。 HDInsight 叢集或虛擬機器。 如需詳細資訊，請參閱[使用 Machine Learning 計算](#use-machine-learning-compute)並[使用的虛擬機器或 HDInsight 叢集](#use-a-virtual-machine-or-hdinsight-cluster)本文件中的區段
 2. 請移至 附加至工作區的儲存體。 ![顯示連接至 Azure 機器學習服務工作區的 Azure 儲存體的 Azure 入口網站的映像](./media/how-to-enable-virtual-network/workspace-storage.png)
 3. 在 Azure 儲存體 頁面上，選取__防火牆和虛擬網路__。 ![映像的 Azure 入口網站顯示防火牆和虛擬網路在 Azure 儲存體 頁面上的區段](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
-4. 在 __防火牆和虛擬網路__頁面上，選取下列：
+4. 在 __防火牆和虛擬網路__頁面上，選取下列項目：
     - 選取 [選取的網路]。
-    - 底下__虛擬網路__選取__加入現有的虛擬網路__來新增您實驗的計算所在的虛擬網路。 （請參閱步驟 1）。
+    - 底下__虛擬網路__，選取__加入現有的虛擬網路__來新增您實驗的計算所在的虛擬網路。 （請參閱步驟 1）。
     - 選取 __允許信任的 Microsoft 服務存取此儲存體帳戶__。
 ![映像的 Azure 入口網站顯示防火牆和虛擬網路在 Azure 儲存體頁面](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png) 
 
@@ -61,10 +61,10 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
 
 若要使用 Azure Machine Learning 實驗功能使用金鑰保存庫的虛擬網路，請遵循下列步驟：
 1. 請移至工作區相關聯的金鑰保存庫。 ![顯示 Azure Machine Learning 服務工作區相關聯的金鑰保存庫的 Azure 入口網站的映像](./media/how-to-enable-virtual-network/workspace-key-vault.png)
-2. 在金鑰保存庫 頁面上選取__防火牆和虛擬網路__一節。 ![映像的 Azure 入口網站顯示防火牆和虛擬網路在金鑰保存庫 頁面上的區段](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
-3. 在 __防火牆和虛擬網路__頁面上，選取下列：
+2. 在金鑰保存庫 頁面上，選取__防火牆和虛擬網路__一節。 ![映像的 Azure 入口網站顯示防火牆和虛擬網路在金鑰保存庫 頁面上的區段](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
+3. 在 __防火牆和虛擬網路__頁面上，選取下列項目：
     - 選取 [選取的網路]。
-    - 底下__虛擬網路__選取__加入現有的虛擬網路__來新增您實驗的計算所在的虛擬網路。
+    - 底下__虛擬網路__，選取__加入現有的虛擬網路__來新增您實驗的計算所在的虛擬網路。
     - 選取 __允許信任的 Microsoft 服務略過此防火牆__。
 ![映像的 Azure 入口網站顯示防火牆和虛擬網路頁面的 金鑰保存庫下](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png) 
 
@@ -101,7 +101,7 @@ Machine Learning Compute 目前使用 Azure Batch 服務將 VM 佈建在指定�
 
     ![顯示使用 BatchNodeManagement 服務標記的輸入的規則的 Azure 入口網站的映像](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
  
-- （選擇性）連接埠 22 以允許遠端存取上的連入的 TCP 流量。 如果您想要使用的公用 IP 上的 SSH 連線時才需要此是。
+- （選擇性）連接埠 22 以允許遠端存取上的連入的 TCP 流量。 如果您想要使用的公用 IP 上的 SSH 連線時，才需要此連接埠。
  
 - 任何連接埠上傳至虛擬網路的輸出流量。
 
@@ -129,8 +129,19 @@ Machine Learning Compute 目前使用 Azure Batch 服務將 VM 佈建在指定�
 
 ![Machine Learning Compute 的輸出 NSG 規則螢幕擷取畫面](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)
 
+### <a name="user-defined-routes-for-forced-tunneling"></a>強制通道的使用者定義路由
 
+如果您使用 Azure Machine Learning 計算使用強制通道，您必須新增[使用者定義路由 (UDR)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)来包含的計算資源的子網路。
 
+* 每個 IP 位址資源所在的區域中的 Azure Batch 服務所使用 「 使用者定義的路由。 這些 Udr 啟用批次服務與排程工作的計算節點進行通訊。 若要取得 Batch 服務的 IP 位址的清單，請連絡 Azure 支援。
+
+* Azure 儲存體的輸出流量 (具體而言，Url 的格式`<account>.table.core.windows.net`， `<account>.queue.core.windows.net`，和`<account>.blob.core.windows.net`) 不會封鎖您的內部網路應用裝置的。
+
+當您新增的使用者定義的路由時，定義每個相關的批次 IP 位址首碼，路由並設定__下一個躍點類型__要__網際網路__。 下圖顯示 Azure 入口網站中的這個 UDR 的範例：
+
+![範例使用者定義路由的位址首碼](./media/how-to-enable-virtual-network/user-defined-route.png)
+
+如需詳細資訊，請參閱 <<c0> [ 虛擬網路中建立 Azure Batch 集區](/azure/batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling)文章。
 
 ### <a name="create-machine-learning-compute-in-a-virtual-network"></a>在虛擬網路中建立 Machine Learning Compute
 
@@ -233,7 +244,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > 先檢查先決條件，並為您的叢集規劃 IP 位址，再繼續進行這些步驟。 如需詳細資訊，請參閱[在 Azure Kubernetes Service 中設定進階網路](https://docs.microsoft.com/azure/aks/configure-advanced-networking)。
 > 
-
+>
 > 為 NSG 保留預設輸出規則。 如需詳細資訊，請參閱[安全性群組](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)中的預設安全性規則一節。
 >
 > Azure Kubernetes Service 與 Azure 虛擬網路應在相同的區域中。
@@ -295,7 +306,7 @@ aks_target = ComputeTarget.create(workspace = ws,
                                   provisioning_configuration = config)
 ```
 
-建立程序完成之後，您可以在虛擬網路背後的 AKS 叢集進行推斷。 如需詳細資訊，請參閱[部署至 AKS 的方式](how-to-deploy-to-aks.md)。
+在建立程序完成時，您可以在 AKS 叢集中的虛擬網路背後的推斷/分數。 如需詳細資訊，請參閱[部署至 AKS 的方式](how-to-deploy-to-aks.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

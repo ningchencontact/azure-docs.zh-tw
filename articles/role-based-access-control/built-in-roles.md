@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/25/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: ce23b891decd20db239e653702533ac7af21b980
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5d964ebd40ac1bd8817bc93d5e4f78096f221be2
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073346"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977757"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 
@@ -33,7 +33,7 @@ ms.locfileid: "65073346"
 下表提供每個內建角色的簡短說明。 按一下角色名稱，即可查看每個角色的 `Actions`、`NotActions`、`DataActions` 及 `NotDataActions` 清單。 如需這些動作的意義以及它們如何套用在管理和資料平面的相關資訊，請參閱[了解 Azure 資源的角色定義](role-definitions.md)。
 
 
-| 內建角色 | 描述 |
+| 內建角色 | 說明 |
 | --- | --- |
 | [擁有者](#owner) | 可讓您管理一切，包括對資源的存取。 |
 | [參與者](#contributor) | 可讓您管理一切，但無法管理對資源的存取。 |
@@ -56,12 +56,14 @@ ms.locfileid: "65073346"
 | [Avere Operator](#avere-operator) | Avere vFXT 叢集用來管理叢集 |
 | [Azure Kubernetes Service 叢集管理員角色](#azure-kubernetes-service-cluster-admin-role) | 列出叢集管理員認證動作。 |
 | [Azure Kubernetes Service 叢集使用者角色](#azure-kubernetes-service-cluster-user-role) | 列出叢集使用者認證動作。 |
+| [Azure 地圖服務資料讀者 （預覽）](#azure-maps-data-reader-preview) | 授與從 Azure 地圖服務帳戶讀取地圖相關資料的存取權。 |
 | [Azure Stack 註冊擁有者](#azure-stack-registration-owner) | 可讓您管理 Azure Stack 註冊。 |
 | [備份參與者](#backup-contributor) | 可讓您管理備份服務，但無法建立保存庫及為其他人提供存取權 |
 | [備份操作員](#backup-operator) | 可讓您管理備份服務，但無法移除備份、建立保存庫及為其他人提供存取權 |
 | [備份讀取者](#backup-reader) | 可以檢視備份服務，但無法進行變更 |
 | [帳單讀取器](#billing-reader) | 允許對計費資料進行讀取存取 |
 | [BizTalk 參與者](#biztalk-contributor) | 可讓您管理 BizTalk 服務，但無法存取它們。 |
+| [區塊鏈成員節點存取 （預覽）](#blockchain-member-node-access-preview) | 允許存取區塊鏈成員節點 |
 | [CDN 端點參與者](#cdn-endpoint-contributor) | 可管理 CDN 端點，但無法對其他使用者授與存取權。 |
 | [CDN 端點讀者](#cdn-endpoint-reader) | 可檢視 CDN 端點，但無法進行變更。 |
 | [CDN 設定檔參與者](#cdn-profile-contributor) | 可管理 CDN 設定檔及其端點，但無法對其他使用者授與存取權。 |
@@ -71,7 +73,7 @@ ms.locfileid: "65073346"
 | [傳統儲存體帳戶金鑰操作員服務角色](#classic-storage-account-key-operator-service-role) | 「傳統儲存體帳戶金鑰操作員」可以列出及重新產生「傳統儲存體帳戶」的金鑰 |
 | [傳統虛擬機器參與者](#classic-virtual-machine-contributor) | 可讓您管理傳統虛擬機器 (不含虛擬機器所連線的虛擬網路或儲存體帳戶)，但無法存取它們。 |
 | [認知服務參與者](#cognitive-services-contributor) | 可讓您建立、讀取、更新、刪除及管理認知服務的金鑰。 |
-| [认知服务数据读者（预览）](#cognitive-services-data-reader-preview) | 可以读取认知服务数据。 |
+| [認知服務資料讀者 （預覽）](#cognitive-services-data-reader-preview) | 讓您可讀取認知服務資料。 |
 | [認知服務使用者](#cognitive-services-user) | 可讓您讀取和列出認知服務的金鑰。 |
 | [Cosmos DB 帳戶讀者角色](#cosmos-db-account-reader-role) | 可以讀取 Azure Cosmos DB 帳戶資料。 請參閱 [DocumentDB 帳戶參與者](#documentdb-account-contributor)以管理 Azure Cosmos DB 帳戶。 |
 | [Cosmos DB 運算子](#cosmos-db-operator) | 可讓您管理 Azure Cosmos DB 帳戶，但不是存取資料。 無法存取帳戶金鑰和連接字串。 |
@@ -86,6 +88,7 @@ ms.locfileid: "65073346"
 | [DevTest Labs 使用者](#devtest-labs-user) | 可讓您連線、啟動、重新啟及關閉您 Azure DevTest Labs 中的虛擬機器。 |
 | [DNS 區域參與者](#dns-zone-contributor) | 可讓您管理 Azure DNS 中的 DNS 區域與記錄集，但無法讓您控制誰可存取它們。 |
 | [DocumentDB 帳戶參與者](#documentdb-account-contributor) | 可以管理 Azure Cosmos DB 帳戶。 Azure Cosmos DB 先前稱為 DocumentDB。 |
+| [事件中樞資料擁有者](#event-hubs-data-owner) | 可讓 Azure 事件中樞資源完整存取權 | 
 | [EventGrid EventSubscription 參與者](#eventgrid-eventsubscription-contributor) | 可讓您管理 EventGrid 事件訂用帳戶作業。 |
 | [EventGrid EventSubscription 讀者](#eventgrid-eventsubscription-reader) | 可讓您讀取 EventGrid 事件訂用帳戶。 |
 | [HDInsight 叢集操作員](#hdinsight-cluster-operator) | 可讓您讀取和修改 HDInsight 叢集組態。 |
@@ -116,6 +119,7 @@ ms.locfileid: "65073346"
 | [安全性系統管理員](#security-admin) | 僅限資訊安全中心：可檢視安全性原則、檢視安全性狀態、編輯安全性原則、檢視警示和建議、關閉警示和建議 |
 | [安全性管理員 (舊版)](#security-manager-legacy) | 此為舊版角色。 請改用安全性系統管理員 |
 | [安全性讀取者](#security-reader) | 僅限資訊安全中心：可檢視建議和警示、檢視安全性原則、檢視安全性狀態，但無法進行變更 |
+| [服務匯流排資料擁有者](#service-bus-data-owner) | 允許 Azure 服務匯流排資源的完整存取 |
 | [Site Recovery 參與者](#site-recovery-contributor) | 可讓您管理 Site Recovery 服務，但無法建立保存庫和指派角色 |
 | [Site Recovery 操作員](#site-recovery-operator) | 可讓您容錯移轉及容錯回復，但無法執行其他 Site Recovery 管理作業 |
 | [Site Recovery 讀取者](#site-recovery-reader) | 可讓您檢視 Site Recovery 狀態，但無法執行其他管理作業 |
@@ -152,7 +156,7 @@ ms.locfileid: "65073346"
 > | **說明** | 可讓您管理一切，包括對資源的存取。 |
 > | **Id** | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | **動作** |  |
-> | * | 创建和管理所有类型的资源 |
+> | * | 建立和管理所有類型的資源 |
 > | **NotActions** |  |
 > | 無 |  |
 > | **DataActions** |  |
@@ -167,7 +171,7 @@ ms.locfileid: "65073346"
 > | **說明** | 可讓您管理一切，但無法管理對資源的存取。 |
 > | **Id** | b24988ac-6180-42a0-ab88-20f7382dd24c |
 > | **動作** |  |
-> | * | 创建和管理所有类型的资源 |
+> | * | 建立和管理所有類型的資源 |
 > | **NotActions** |  |
 > | Microsoft.Authorization/*/Delete | 刪除角色和角色指派 |
 > | Microsoft.Authorization/*/Write | 建立角色和角色指派 |
@@ -574,6 +578,21 @@ ms.locfileid: "65073346"
 > | **NotDataActions** |  |
 > | 無 |  |
 
+## <a name="azure-maps-data-reader-preview"></a>Azure 地圖服務資料讀者 (預覽)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 授與從 Azure 地圖服務帳戶讀取地圖相關資料的存取權。 |
+> | **Id** | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | **動作** |  |
+> | 無 |  |
+> | **NotActions** |  |
+> | 無 |  |
+> | **DataActions** |  |
+> | Microsoft.Maps/accounts/data/read | 將資料讀取權限授與地圖服務帳戶。 |
+> | **NotDataActions** |  |
+> | 無 |  |
+
 ## <a name="azure-stack-registration-owner"></a>Azure Stack 註冊擁有者
 > [!div class="mx-tableFixed"]
 > | | |
@@ -815,6 +834,21 @@ ms.locfileid: "65073346"
 > | **NotDataActions** |  |
 > | 無 |  |
 
+## <a name="blockchain-member-node-access-preview"></a>區塊鏈成員節點存取權 (預覽)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 允許存取區塊鏈成員節點 |
+> | **Id** | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
+> | **動作** |  |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | 取得或列出現有的區塊鏈成員交易節點。 |
+> | **NotActions** |  |
+> | 無 |  |
+> | **DataActions** |  |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | 連線到區塊鏈成員交易節點。 |
+> | **NotDataActions** |  |
+> | 無 |  |
+
 ## <a name="cdn-endpoint-contributor"></a>CDN 端點參與者
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1023,11 +1057,11 @@ ms.locfileid: "65073346"
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="cognitive-services-data-reader-preview"></a>认知服务数据读者（预览）
+## <a name="cognitive-services-data-reader-preview"></a>認知服務資料讀者 (預覽)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 可以读取认知服务数据。 |
+> | **說明** | 讓您可讀取認知服務資料。 |
 > | **Id** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | **動作** |  |
 > | 無 |  |
@@ -1139,6 +1173,8 @@ ms.locfileid: "65073346"
 > | Microsoft.Resources/subscriptions/read | 取得訂用帳戶清單。 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
+> | Microsoft.Advisor/configurations/read | 取得組態 |
+> | Microsoft.Advisor/recommendations/read | 讀取建議 |
 > | **NotActions** |  |
 > | 無 |  |
 > | **DataActions** |  |
@@ -1159,6 +1195,8 @@ ms.locfileid: "65073346"
 > | Microsoft.Resources/subscriptions/read | 取得訂用帳戶清單。 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
+> | Microsoft.Advisor/configurations/read | 取得組態 |
+> | Microsoft.Advisor/recommendations/read | 讀取建議 |
 > | **NotActions** |  |
 > | 無 |  |
 > | **DataActions** |  |
@@ -1198,6 +1236,7 @@ ms.locfileid: "65073346"
 > | Microsoft.Databox/jobs/listsecrets/action |  |
 > | Microsoft.Databox/jobs/listcredentials/action | 列出與訂單相關的未加密認證。 |
 > | Microsoft.Databox/locations/availableSkus/action | 此方法會傳回可用的 SKU 清單。 |
+> | Microsoft.Databox/locations/validateAddress/action | 驗證出貨地址，並提供備用的地址 (若有的話)。 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
@@ -1299,6 +1338,7 @@ ms.locfileid: "65073346"
 > | Microsoft.DevTestLab/*/read | 讀取實驗室的屬性 |
 > | Microsoft.DevTestLab/labs/claimAnyVm/action | 在實驗室中宣告隨機的可宣告虛擬機器。 |
 > | Microsoft.DevTestLab/labs/createEnvironment/action | 在實驗室中建立虛擬機器。 |
+> | Microsoft.DevTestLab/labs/ensureCurrentUserProfile/action | 請確定目前的使用者在實驗室中具有有效的設定檔。 |
 > | Microsoft.DevTestLab/labs/formulas/delete | 刪除公式。 |
 > | Microsoft.DevTestLab/labs/formulas/read | 讀取公式。 |
 > | Microsoft.DevTestLab/labs/formulas/write | 新增或修改公式。 |
@@ -1369,6 +1409,22 @@ ms.locfileid: "65073346"
 > | **NotDataActions** |  |
 > | 無 |  |
 
+## <a name="event-hubs-data-owner"></a>事件中樞資料擁有者
+
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可供 Azure 事件中樞資源的完整存取。 |
+> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | **動作** |  |
+> | Microsoft.EventHubs/* | 可讓事件中樞命名空間的完整管理存取 |
+> | **NotActions** |  |
+> | 無 |  |
+> | **DataActions** |  |
+> | Microsoft.EventHubs/* | 可讓您完整的資料存取事件中樞命名空間 |
+> | **NotDataActions** |  |
+> | 無 |  |
+
 ## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription 參與者
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1426,6 +1482,7 @@ ms.locfileid: "65073346"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Resources/deployments/operations/read | 取得或列出部署作業。 |
 > | Microsoft.Insights/alertRules/* | 建立和管理 Insights 警示規則 |
+> | Microsoft.Authorization/*/read | 读取角色和角色分配 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
 > | 無 |  |
@@ -2019,6 +2076,22 @@ ms.locfileid: "65073346"
 > | **NotDataActions** |  |
 > | 無 |  |
 
+## <a name="service-bus-data-owner"></a>服務匯流排資料擁有者
+
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可供 Azure 服務匯流排資源的完整存取。 |
+> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **動作** |  |
+> | Microsoft.ServiceBus/* | 可讓服務匯流排命名空間的完整管理存取 |
+> | **NotActions** |  |
+> | 無 |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/* | 可讓您完整的資料存取服務匯流排命名空間 |
+> | **NotDataActions** |  |
+> | 無 |  |
+
 ## <a name="site-recovery-contributor"></a>Site Recovery 參與者
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2176,11 +2249,11 @@ ms.locfileid: "65073346"
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="spatial-anchors-account-contributor"></a>空间定位点帐户参与者
+## <a name="spatial-anchors-account-contributor"></a>空間錨點帳戶參與者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 允许管理帐户中的空间定位点，但不能删除它们 |
+> | **說明** | 讓您可管理帳戶中的空間錨點，但無法將其刪除 |
 > | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
 > | **動作** |  |
 > | 無 |  |
@@ -2196,11 +2269,11 @@ ms.locfileid: "65073346"
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="spatial-anchors-account-owner"></a>空间定位点帐户所有者
+## <a name="spatial-anchors-account-owner"></a>空間錨點帳戶擁有者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 允许管理帐户中的空间定位点，包括删除它们 |
+> | **說明** | 讓您可管理帳戶中的空間錨點，包含將其刪除 |
 > | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
 > | **動作** |  |
 > | 無 |  |
@@ -2217,11 +2290,11 @@ ms.locfileid: "65073346"
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="spatial-anchors-account-reader"></a>空间定位点帐户读者
+## <a name="spatial-anchors-account-reader"></a>空間錨點帳戶讀者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 允许在帐户中查找和读取空间定位点的属性 |
+> | **說明** | 讓您可找出及讀取帳戶中空間錨點的屬性 |
 > | **Id** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
 > | **動作** |  |
 > | 無 |  |
@@ -2482,7 +2555,7 @@ ms.locfileid: "65073346"
 > | **說明** | 提供 Azure 儲存體 blob 容器與資料，包括指派 POSIX 存取控制的完整存取。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。 |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **動作** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/* | 在容器上的完整權限。  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* | 在容器上的完整權限。 |
 > | **NotActions** |  |
 > | 無 |  |
 > | **DataActions** |  |

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405516"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128616"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解
 
@@ -63,7 +63,7 @@ ms.locfileid: "57405516"
 | MissingRegistrationForLocation | 檢查資源提供者註冊狀態和支援的位置。 | [解析註冊](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | 向資源提供者註冊訂用帳戶。 | [解析註冊](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | 檢查資源提供者註冊狀態。 | [解析註冊](resource-manager-register-provider-errors.md) |
-| NotFound | 您可以嘗試與父代資源並行部署相依資源。 檢查是否需要新增相依性。 | [解析相依性](resource-manager-not-found-errors.md) |
+| 找不到 | 您可以嘗試與父代資源並行部署相依資源。 檢查是否需要新增相依性。 | [解析相依性](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | 部署嘗試進行超過訂用帳戶、資源群組或區域配額的作業。 可能的話，請修改您的部署，以維持在配額內。 否則，請考慮要求變更您的配額。 | [解析配額](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | 請確定父代資源在建立子系資源之前即已存在。 | [解析父代資源](resource-manager-parent-resource-errors.md) |
 | PasswordTooLong | 您可能選取了字元太多的密碼，或者在將密碼值作為參數傳遞之前已將密碼值轉換成安全字串。 如果範本包含**安全字串**參數，則不需要將值轉換為安全字串。 提供密碼值作為文字。 |  |
@@ -74,10 +74,10 @@ ms.locfileid: "57405516"
 | ReservedResourceName | 提供不包含保留名稱的資源名稱。 | [唯一的資源名稱](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | 等候刪除完成。 | |
 | ResourceGroupNotFound | 檢查部署的目標資源群組名稱。 它必須已經存在於您的訂用帳戶中。 檢查訂用帳戶內容。 | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
-| ResourceNotFound | 您的部署會參考無法解析的資源。 確認您使用 **reference** 函式包括案例的必要參數。 | [解析參考](resource-manager-not-found-errors.md) |
-| ResourceQuotaExceeded | 部署嘗試建立資源，這些資源超過訂用帳戶、資源群組或區域的配額。 可能的話，請修改您的基礎結構，以維持在配額內。 否则，请考虑请求更改配额。 | [解析配額](resource-manager-quota-errors.md) |
+| 資源找不到 | 您的部署會參考無法解析的資源。 確認您使用 **reference** 函式包括案例的必要參數。 | [解析參考](resource-manager-not-found-errors.md) |
+| ResourceQuotaExceeded | 部署嘗試建立資源，這些資源超過訂用帳戶、資源群組或區域的配額。 可能的話，請修改您的基礎結構，以維持在配額內。 否則，請考慮要求變更您的配額。 | [解析配額](resource-manager-quota-errors.md) |
 | SkuNotAvailable | 選取可供您選取之位置使用的 SKU (例如 VM 大小)。 | [解析 SKU](resource-manager-sku-not-available-errors.md) |
-| StorageAccountAlreadyExists | 为存储帐户提供唯一名称。 | [解析儲存體帳戶名稱](resource-manager-storage-account-name-errors.md)  |
+| StorageAccountAlreadyExists | 提供儲存體帳戶的唯一名稱。 | [解析儲存體帳戶名稱](resource-manager-storage-account-name-errors.md)  |
 | StorageAccountAlreadyTaken | 提供儲存體帳戶的唯一名稱。 | [解析儲存體帳戶名稱](resource-manager-storage-account-name-errors.md) |
 | StorageAccountNotFound | 檢查您嘗試使用的訂用帳戶、資源群組和儲存體帳戶名稱。 | |
 | SubnetsNotInSameVnet | 虛擬機器只能有一個虛擬網路。 在部署數個 NIC 時，請確定它們屬於相同的虛擬網路。 | [多個 NIC](../virtual-machines/windows/multiple-nics.md) |
@@ -158,7 +158,7 @@ New-AzResourceGroupDeployment `
 | ConvertTo-Json
 ```
 
-或者，使用以下命令检查响应内容：
+或者，具有下列項目的回應內容︰
 
 ```powershell
 (Get-AzResourceGroupDeploymentOperation `
@@ -201,7 +201,7 @@ az group deployment operation list \
 
 ### <a name="nested-template"></a>巢狀範本
 
-若要记录嵌套模板的调试信息，请使用 **debugSetting** 元素。
+若要記錄巢狀範本的偵錯資訊，請使用 **debugSetting** 項目。
 
 ```json
 {

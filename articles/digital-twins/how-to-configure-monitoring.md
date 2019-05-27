@@ -7,14 +7,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 12/26/2018
-ms.author: adgera
+ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 23759a6c3d920e2b791a10ddd5ac5c5285ed1889
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c35633c9b25eafdb738ed591c7c7022fbd8149a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926561"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967816"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中設定監視
 
@@ -46,7 +46,7 @@ Azure Digital Twins 的活動記錄預設會啟用，而且可以透過下列方
 
 1. 選取 [記錄] 選項以顯示 [活動記錄分析概觀]：
 
-    ![選取項目][2]
+    ![選取範圍][2]
 
 1. [活動記錄分析概觀] 會摘要說明基本活動記錄資料：
 

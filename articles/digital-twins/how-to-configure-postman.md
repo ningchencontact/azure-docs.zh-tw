@@ -7,13 +7,13 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: adgera
-ms.openlocfilehash: 49b073952b0923b940204b19680dcc9a1ffa44b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-adgera
+ms.openlocfilehash: 797dfc44b9897920f9fd74346ee01e4b157a4ce8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926076"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967778"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>如何針對 Azure Digital Twins 設定 Postman
 
@@ -74,7 +74,7 @@ ms.locfileid: "60926076"
     | 回呼 URL | `https://www.getpostman.com/oauth2/callback` |
     | 驗證 URL | 使用取自步驟 2 的**授權 URL** |
     | 用戶端識別碼 | 使用從上一節中建立或重新決定用途之 Azure Active Directory 應用程式的**應用程式識別碼** |
-    | 影響範圍 | 保留空白 |
+    | `Scope` | 保留空白 |
     | State | 保留空白 |
     | 用戶端驗證 | `Send as Basic Auth header` |
 

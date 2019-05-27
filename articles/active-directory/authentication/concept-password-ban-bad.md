@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 50452dc5a0c2074c452878c890643f7b21591689
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415699"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977299"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>避免在組織中使用不當密碼
 
@@ -75,7 +75,7 @@ Microsoft 一直努力在網路罪犯發生前加以防範。 因此，Azure AD 
 
 子字串比對在正規化密碼上用來檢查使用者的名字和姓氏以及租用戶名稱 (請注意，在 Active Directory 網域控制站上驗證密碼時不會進行租用戶名稱比對)。
 
-範例：假設有一位使用者 John Doe 想要將其密碼重設為 “J0hn123fb”。 正規化之後，此密碼會變成 “john123fb”。 子字串比對發現密碼包含使用者的名字 "John"。 即使 “J0hn123fb” 並未明確列在任一份禁用密碼清單上，但是子字串比對在密碼中找到 "John"。 因此，此密碼會遭到拒絕。
+範例： 假設我們有使用者、 Pol、 想要重設其密碼，才能"P0l123fb 」。 正規化後，此密碼會變成 「 pol123fb"。 子字串比對尋找密碼包含使用者的名字"Pol 」。 即使 「 P0l123fb"不是特別在任一個的禁用的密碼清單上，子字串中找到符合"Pol 」 密碼。 因此，此密碼會遭到拒絕。
 
 #### <a name="score-calculation"></a>分數計算
 
@@ -106,7 +106,7 @@ Microsoft 一直努力在網路罪犯發生前加以防範。 因此，Azure AD 
 
 |   | 使用全域禁用密碼清單的 Azure AD 密碼保護 | 使用自訂禁用密碼清單的 Azure AD 密碼保護|
 | --- | --- | --- |
-| 僅限雲端使用者 | Azure AD Free | Azure AD Premium P1 或 P2 |
+| 僅限雲端使用者 | Azure AD 免費版 | Azure AD Premium P1 或 P2 |
 | 從內部部署 Windows Server Active Directory 同步處理的使用者 | Azure AD Premium P1 或 P2 | Azure AD Premium P1 或 P2 |
 
 > [!NOTE]

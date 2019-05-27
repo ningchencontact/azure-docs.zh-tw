@@ -15,15 +15,15 @@ ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: dcfc341b89a3cfebcb5538f88481fd2fbb2936a7
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505788"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121744"
 ---
 ## <a name="set-up-your-project"></a>設定專案
 
-此節說明使用 OpenID Connect 在 ASP.NET 專案中，透過 OWIN 中介軟體安裝及設定驗證管線的步驟。
+本節說明使用 OpenID Connect 在 ASP.NET 專案中，透過 OWIN 中介軟體安裝及設定驗證管線的步驟。
 
 > 想要改為下載此範例的 Visual Studio 專案嗎？ [下載專案](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)並跳至[設定步驟](#register-your-application)，以在執行之前先設定程式碼範例。
 
@@ -56,7 +56,7 @@ ms.locfileid: "59505788"
 
 > [!TIP]
 > 如果您專案的根資料夾中沒有 `Startup.cs` 檔案：
-> 1. 在專案的根資料夾上按一下滑鼠右鍵：> `Add` > `New Item...` > `OWIN Startup class`<br/>
+> 1. 在專案的根資料夾上按一下滑鼠右鍵： > `Add` > `New Item...` > `OWIN Startup class`<br/>
 > 2. 將它命名為 `Startup.cs`
 >
 >> 確定選取的類別是 OWIN 啟動類別，而非標準 C# 類別。 如果命名空間上方顯示 `[assembly: OwinStartup(typeof({NameSpace}.Startup))]`，請勾選以確認此項目。

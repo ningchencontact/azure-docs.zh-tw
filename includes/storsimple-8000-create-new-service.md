@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 54a1bc9ce04cf10575b26cda7861c1dd458dc831
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506524"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156134"
 ---
 #### <a name="to-create-a-new-service"></a>建立新服務
 
@@ -27,7 +27,7 @@ ms.locfileid: "60506524"
    
    1. 為服務提供唯一的**資源名稱** 。 這個名聲是可用來識別服務的易記名稱。 名稱長度可介於 2 到 50 個字元之間，且可以是字母、數字和連字號。 名稱必須以字母或數字為開頭或結尾。
 
-   2. 從下拉式清單選擇 [訂用帳戶]  。 该订阅将链接到计费帐户。 如果您只擁有一個訂用帳戶，則此欄位不存在。
+   2. 從下拉式清單選擇 [訂用帳戶]  。 訂用帳戶會連結到您的帳單帳戶。 如果您只擁有一個訂用帳戶，則此欄位不存在。
 
    3. 針對**資源群組**，**使用現有群組**或**建立新的群組**。 如需詳細資訊，請參閱 [Azure 資源群組](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/)。
    

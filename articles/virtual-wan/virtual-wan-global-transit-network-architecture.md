@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 8cda617ca60a17fceaaa818480ff9bbaef46c3fd
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 114d11f98c6181a03f5ce52527b5e2efea468c42
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414059"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965976"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>全域傳輸網路架構與虛擬 WAN
 
@@ -48,7 +48,7 @@ ms.locfileid: "65414059"
 
 ## <a name="crossregion"></a>跨區域連接
 
-企業中，針對雲端耗用量通常會遵循實際使用量。 大多數的企業從其實體站台和使用者最接近的區域存取雲端。 其中一個全域網路架構的索引鍵的主體是以啟用網路實體與端點之間的跨區域連線。 雲端使用量可以跨越多個區域。 這表示，另一個分支或不同區域中的 VNet，可以觸達流量從已連線到雲端，在一個區域中的分支。
+企業中，針對雲端耗用量通常會遵循實際使用量。 大多數的企業從其實體站台和使用者最接近的區域存取雲端。 其中一個全域網路架構的索引鍵的主體是以啟用網路實體與端點之間的跨區域連線。 雲端使用量可以跨越多個區域。 這表示，另一個分支或使用中樞-中樞連線目前處於預覽狀態的不同區域中的 VNet，可以觸達流量從已連線到雲端，在一個區域中的分支。
 
 ## <a name="any"></a>任意-到-任意的連線
 
@@ -89,7 +89,7 @@ Azure 虛擬 WAN 支援下列全域的傳輸連線路徑。 在括號中的字�
 
 ### <a name="vnetvnet"></a>使用 VNet 對等互連的 VNet 對 VNet 傳輸
 
-若要連接到彼此的 Vnet，以支援跨多個 Vnet 所實作的多層式應用程式，使用 VNet 對等互連。 透過 Azure 虛擬 WAN 的 VNet 對 VNet 傳輸案例目前不支援，但位於 Azure 的藍圖。 透過 VNet 對等互連連線的 Vnet 是建議的解決方案需要彼此連線的 vnet。 如需有關 VNet 對等互連的詳細資訊，請參閱[VNet 對等互連概觀](../virtual-network/virtual-network-peering-overview.md)。
+若要連接到彼此的 Vnet，以支援跨多個 Vnet 所實作的多層式應用程式，使用 VNet 對等互連。 透過 Azure 虛擬 WAN 的 VNet 對 VNet 傳輸案例目前不支援，但位於 Azure 的藍圖。 透過 VNet 對等互連連線的 Vnet 是建議的解決方案需要彼此連線的 vnet。 [閘道傳輸](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity)（在 VNet 對等互連的內容） 並不需要虛擬 WAN 因為虛擬 WAN 會自動啟用閘道傳輸。
 
 ### <a name="globalreach"></a>ExpressRoute 遍及全球的觸角
 

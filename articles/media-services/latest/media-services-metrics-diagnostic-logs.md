@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 7ce57e1f8b2732ea909625c89f3e8148cb70635c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bbf43ecb07947fad8cc1ee064d2038e4a21d4444
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728834"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964761"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>監視媒體服務的計量和診斷記錄
 
-[Azure 監視器](../../azure-monitor/overview.md)可讓您監視計量和診斷的記錄檔，可協助您了解如何執行您的應用程式。 Azure 監視器所收集的所有資料都適合其中兩個基本的型別，計量和記錄檔。 您可以監視媒體服務的診斷記錄檔，並建立警示和通知所收集的計量和記錄檔。 您以視覺化方式檢視和分析計量使用資料[計量瀏覽器](../../azure-monitor/platform/metrics-getting-started.md)。 您可以將記錄傳送至[Azure 儲存體](https://azure.microsoft.com/services/storage/)，串流至[Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，並將它們以匯出[Log Analytics](https://azure.microsoft.com/services/log-analytics/)，或使用第 3 方服務。
+[Azure 監視器](../../azure-monitor/overview.md)可讓您監視計量和診斷的記錄檔，可協助您了解如何執行您的應用程式。 Azure 監視器所收集的所有資料都適合其中兩個基本的型別，度量和記錄檔。 您可以監視媒體服務的診斷記錄檔，並建立警示和通知所收集的計量和記錄檔。 您以視覺化方式檢視和分析計量使用資料[計量瀏覽器](../../azure-monitor/platform/metrics-getting-started.md)。 您可以將記錄傳送至[Azure 儲存體](https://azure.microsoft.com/services/storage/)，串流至[Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，並將它們以匯出[Log Analytics](https://azure.microsoft.com/services/log-analytics/)，或使用第 3 方服務。
 
 如需詳細概觀，請參閱[Azure 監視器計量](../../azure-monitor/platform/data-platform.md)並[Azure 監視器診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)。
 
@@ -34,11 +34,11 @@ ms.locfileid: "64728834"
 
 目前，下列媒體服務[串流端點](https://docs.microsoft.com/rest/api/media/streamingendpoints)azure 就會發出度量：
 
-|名稱|描述|
-|---|---|
-|Requests|提供的串流端點服務的要求總數的詳細資料。|
-|輸出|輸出位元組總數。 比方說，位元組資料流處理的串流端點。|
-|成功的端對端延遲| 可讓要求成功的端對端延遲的相關資訊。|
+|計量|Display name|說明|
+|---|---|---|
+|Requests|Requests|提供的串流端點服務的要求總數的詳細資料。|
+|輸出|輸出|輸出位元組總數。 比方說，位元組資料流處理的串流端點。|
+|SuccessE2ELatency|成功的端對端延遲| 可讓要求成功的端對端延遲的相關資訊。|
 
 例如，若要使用 CLI 的 「 輸出 」 計量，您會執行下列`az monitor metrics`CLI 命令：
 
@@ -54,7 +54,7 @@ az monitor metrics list --resource \
 
 目前，您可以取得下列診斷記錄檔：
 
-|名稱|描述|
+|名稱|說明|
 |---|---|
 |金鑰傳遞服務要求|顯示金鑰傳遞服務要求資訊的記錄檔。 如需詳細資訊，請參閱 <<c0> [ 結構描述](media-services-diagnostic-logs-schema.md)。|
 
@@ -76,7 +76,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-例如︰
+例如：
 
 ```cli
 az monitor diagnostic-settings create --name amsv3diagnostic \

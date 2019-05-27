@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/20/2019
 ms.author: shvija
-ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e6f16a15547583baab63f452504d36eb2e43b85
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60746880"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978432"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Azure 資源的受控識別與事件中樞
 
@@ -27,8 +27,28 @@ ms.locfileid: "60746880"
 一旦與受控識別產生關聯之後，事件中樞用戶端就可以執行所有授權的作業。 授權會藉由將受控識別與事件中樞角色產生關聯來授與。 
 
 ## <a name="event-hubs-roles-and-permissions"></a>事件中樞角色和權限
+您可以新增到受控身分識別**事件中樞資料擁有者**至事件中樞命名空間的角色。 此角色授與身分識別，命名空間中的所有實體的完整控制權 （適用於管理和資料作業）。
 
-您只能將受控識別新增至事件中樞命名空間的「擁有者」或「參與者」角色，以便為命名空間中的所有實體授與識別完整控制。 不過，變更命名空間拓撲的管理作業一開始只能透過 Azure Resource Manager 來支援。 它不能透過原生的事件中樞 REST 管理介面來支援。 此支援也表示您無法在受控識別內使用 .NET Framework 用戶端 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 物件。 
+>[!IMPORTANT]
+> 我們稍早支援新增至受管理的身分識別**擁有者**或是**參與者**角色。 不過，資料存取權限**擁有者**並**參與者**角色都不會再接受。 如果您使用**擁有者**或是**參與者**角色時，切換到使用**事件中樞資料擁有者**角色。
+
+若要使用新的內建角色，請遵循下列步驟： 
+
+1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)
+2. 瀏覽至事件中樞命名空間。
+3. 在 **事件中樞命名空間**頁面上，選取**存取控制 （iam)** 從左側功能表中。
+4. 在 **存取控制 (IAM)** 頁面上，選取**新增**中**新增角色指派**一節。 
+
+    ![[新增角色指派] 按鈕](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
+5. 在 **新增的角色指派**頁面上，執行下列步驟： 
+    1. 針對**角色**，選取**Azure 事件中樞資料擁有者**。 
+    2. 選取 **識別**可以加入至角色。
+    3. 選取 [ **儲存**]。 
+
+        ![事件中樞資料擁有者角色](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
+6. 若要切換**角色指派**頁面上，並確認使用者已新增至**Azure 事件中樞資料擁有者**角色。 
+
+    ![確認使用者新增至角色](./media/event-hubs-managed-service-identity/role-assignments.png)
  
 ## <a name="use-event-hubs-with-managed-identities-for-azure-resources"></a>搭配使用事件中樞與 Azure 資源的受控識別
 
@@ -54,7 +74,7 @@ ms.locfileid: "60746880"
 
 ### <a name="create-a-new-event-hubs-namespace"></a>建立新的事件中樞命名空間
 
-接下來，在具有 Azure 資源之受控識別預覽支援的其中一個 Azure 區域中[建立事件中樞命名空間](event-hubs-create.md)：**美國東部**、**美國東部 2** 或**西歐**。 
+下一步[建立事件中樞命名空間](event-hubs-create.md)。 
 
 瀏覽至入口網站上的命名空間 [存取控制 (IAM)] 頁面，然後按一下 [新增角色指派] 以將受控識別新增至 [擁有者] 角色。 若要這樣做，請在 [新增權限] 面板 [選取] 欄位中搜尋 Web 應用程式的名稱，然後按一下項目。 然後按一下 [儲存] 。 Web 應用程式的受控識別現在具有事件中樞命名空間的存取權，以及您先前建立之事件中樞的存取權。 
 

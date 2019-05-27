@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e258670e863ff195190bae5cd50537e50d40d942
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 4cc742a6b1a7f3fc78e8639206e06c2937f00c30
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825646"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956910"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 中的自訂網域
 
@@ -71,7 +71,9 @@ ms.locfileid: "65825646"
 ### <a name="certificate-format"></a>憑證格式
 憑證簽章方法沒有任何限制。 橢圓曲線密碼編譯 (ECC)、主體別名 (SAN) 和其他常見的憑證類型均可支援。 
 
-只要萬用字元符合所需的外部 URL，便可使用萬用字元憑證。 
+只要萬用字元符合所需的外部 URL，便可使用萬用字元憑證。
+
+您無法使用您自己公開金鑰基礎結構 (PKI) 基於安全性考量所核發的憑證。
 
 ### <a name="changing-the-domain"></a>變更網域
 所有已驗證的網域會出現在您應用程式的外部 URL 下拉式清單中。 若要變更的網域，只要更新應用程式的該欄位。 如果您想要的網域不在清單中，請[將它新增為已驗證的網域](../fundamentals/add-custom-domain.md)。 如果您選取的網域還沒有相關聯的憑證，請遵循步驟 5-7 來新增憑證。 接著，務必更新 DNS 記錄以從新的外部 URL 重新導向。 

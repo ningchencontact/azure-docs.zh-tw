@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 58abe3a3973986ab489456be7958361ad8ab06f4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 12eea032c37c8d737ae004d622b72536195c4444
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922849"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977575"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure 監視代理程式概觀 
 Microsoft Azure 提供了多種方法，可從裝載於 Azure、資料中心或其他雲端提供者中，且執行 Microsoft Windows 和 Linux 的虛擬機器收集不同類型的資料。 三種可用來監視 VM 的代理程式類型為：
@@ -30,7 +30,7 @@ Microsoft Azure 提供了多種方法，可從裝載於 Azure、資料中心或�
 本文說明這些代理程式的差異和功能，以便您判斷哪個代理程式可支援您的 IT 服務管理或一般監視需求。  
 
 ## <a name="azure-diagnostic-extension"></a>Azure 診斷擴充功能
-[Azure 診斷擴充功能](../../azure-monitor/platform/diagnostics-extension-overview.md)這個代理程式先前稱為 Windows Azure Diagnostic (WAD) 或 Linux Azure Diagnostic (LAD) 擴充功能 (於 2010 年 Azure 雲端服務正式推出後提供)，可供從 Azure 計算資源 (例如 VM) 簡單收集診斷資料，並將它保存到 Azure 儲存體。 放入儲存體後，您便選擇使用其中一個可用工具進行檢視，例如 [Visual Studio 中的伺服器總管](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)和 [Azure 儲存體總管](../../vs-azure-tools-storage-manage-with-storage-explorer.md)。
+[Azure 診斷擴充功能](../../azure-monitor/platform/diagnostics-extension-overview.md)這個代理程式先前稱為 Windows Azure Diagnostic (WAD) 或 Linux Azure Diagnostic (LAD) 擴充功能 (於 2010 年 Azure 雲端服務正式推出後提供)，可供從 Azure 計算資源 (例如 VM) 簡單收集診斷資料，並將它保存到 Azure 儲存體。 一旦您選擇儲存體中，檢視的其中一個可用的工具，例如[Visual Studio 中的 伺服器總管](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)並[Azure 儲存體總管](../../vs-azure-tools-storage-manage-with-storage-explorer.md)。
 
 您可以選擇收集：
 
@@ -59,7 +59,7 @@ Microsoft Azure 提供了多種方法，可從裝載於 Azure、資料中心或�
 當您想要執行下列作業時，即應使用 Log Analytics 代理程式：
 
 * 從 Azure、其他雲端提供者和內部部署資源的各種來源收集資料。 
-* 使用其中一個 Azure 監視器監視解決方案，例如[適用於 VM 的 Azure 監視器](../insights/vminsights-overview.md)、[適用於容器的 Azure 監視器](../insights/container-insights-overview.md)等等。  
+* 使用其中一個這類監視解決方案的 Azure 監視器[Vm 的 Azure 監視器](../insights/vminsights-overview.md)，[適用於容器的 Azure 監視器](../insights/container-insights-overview.md)，依此類推。  
 * 使用其他 Azure 管理服務，例如 [Azure 資訊安全中心](../../security-center/security-center-intro.md)、[Azure 自動化](../../automation/automation-intro.md)等等。
 
 過去已有數項 Azure 服務隨附於 *Operations Management Suite* 中，因此 Log Analytics 代理程式已可在一些服務間共用，包括 Azure 資訊安全中心和 Azure 自動化。  這融合了這些服務所提供的完整功能集，而讓您可在 Azure VM 的生命週期中對其進行全方位的管理。  其範例包括：

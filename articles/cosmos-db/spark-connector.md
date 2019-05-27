@@ -4,14 +4,14 @@ description: 了解可讓您將 Apache Spark 連線到 Azure Cosmos DB 的 Azure
 author: tknandu
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: 60afd8128224050d456699e798d814a259e106ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc0f2044f70c674177f9c9786f56f0441db2e282
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61330241"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978896"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>使用 Apache Spark 至 Azure Cosmos DB 連接器來加速巨量資料分析
 

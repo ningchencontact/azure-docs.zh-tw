@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 05/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6a66d45028b9fbf9c421b10ffb7863fcb9be5bec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f4ecc01f42d491f5d9d967b9983e773c1df22298
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779852"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65986823"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中開始使用自訂原則
 
@@ -31,7 +31,7 @@ ms.locfileid: "65779852"
 ## <a name="add-signing-and-encryption-keys"></a>新增簽署與加密金鑰
 
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 請確定您使用包含 Azure AD B2C 租用戶的目錄。 按一下 **目錄和訂用帳戶篩選**頂端的功能表，然後選擇包含您的租用戶的目錄中。 
+2. 請確定您使用包含 Azure AD B2C 租用戶的目錄。 按一下 **目錄和訂用帳戶篩選**上方功能表中，然後選擇包含您的租用戶的目錄。 
 3. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
 4. 在 [概觀] 頁面上，選取 [識別體驗架構]。
 
@@ -70,17 +70,17 @@ Azure AD B2C 會要求您註冊兩個用來註冊和登入使用者的應用程�
 
 ### <a name="register-the-identityexperienceframework-application"></a>註冊 IdentityExperienceFramework 應用程式
 
-1. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [應用程式註冊]。
-2. 選取 [新增應用程式註冊]。
-3. 針對 [名稱] 輸入 `IdentityExperienceFramework`。
-4. 針對 [應用程式類型] 選擇 [Web 應用程式/API]。
-5. 針對 [登入 URL] 輸入 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`，其中 `your-tenant-name` 是您的 Azure AD B2C 租用戶網域名稱。
-6. 按一下頁面底部的 [新增] 。 
-7. 建立之後，複製應用程式識別碼，並儲存它以供日後使用。
+1. 選擇**所有的服務**在 Azure 入口網站左上角，搜尋並選取**Azure Active Directory**。
+2. 在功能表中，選取**應用程式註冊 （舊版）**。
+3. 選取 [新增應用程式註冊]。
+4. 針對 [名稱] 輸入 `IdentityExperienceFramework`。
+5. 針對 [應用程式類型] 選擇 [Web 應用程式/API]。
+6. 針對 [登入 URL] 輸入 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`，其中 `your-tenant-name` 是您的 Azure AD B2C 租用戶網域名稱。 所有 URL 現在都應會使用 [b2clogin.com](b2clogin.md)。
+7. 按一下頁面底部的 [新增] 。 建立之後，複製應用程式識別碼，並儲存它以供日後使用。
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>註冊 ProxyIdentityExperienceFramework 應用程式
 
-1. 選取 [應用程式註冊]，然後選取 [新增應用程式註冊]。
+1. 在 **應用程式註冊 （傳統）**，選取**新的應用程式註冊**。
 2. 針對 [名稱] 輸入 `ProxyIdentityExperienceFramework`。
 3. 針對 [應用程式類型] 選擇 [原生]。
 4. 針對 [重新導向 URI] 輸入 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`，其中 `yourtenant` 是您的 Azure AD B2C 租用戶。

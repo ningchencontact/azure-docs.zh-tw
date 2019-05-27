@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65f89e234317c5a17e4443e767528fb9be9a8b72
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687072"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991426"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>將現有的 Azure 服務匯流排標準命名空間移轉到 「 進階 」 層
 先前，Azure 服務匯流排提供只能在標準層上的命名空間。 命名空間是最適合用於低的輸送量和開發人員環境的多租用戶設定。 進階層提供每個命名空間的可預測的延遲並增加的輸送量，以固定價格的專用的資源。 進階層已針對高輸送量和所需的其他企業功能的實際執行環境最佳化。
 
-本文說明如何將現有的標準層命名空間移轉至 「 進階 」 層。
+本文說明如何將現有的標準層命名空間移轉至 「 進階 」 層。  
 
 >[!WARNING]
 > 移轉適用於升級為優質層次的服務匯流排標準命名空間。 移轉工具不支援降級。
@@ -33,6 +33,7 @@ ms.locfileid: "64687072"
 - **Premium**命名空間應該**任何實體**中進行移轉失敗。 
 - 所有**實體**標準命名空間中是**複製**為進階命名空間，在移轉過程。 
 - 移轉支援**1,000 個實體，每個傳訊單位**進階層。 若要識別您需要多少個傳訊單位，開始您對您目前的標準命名空間的實體數目。 
+- 您無法直接從移轉**基本層**要**頂級層**，但您可以藉由移轉從基本到標準的第一個，然後從標準版至進階下, 一個步驟中間接執行。
 
 ## <a name="migration-steps"></a>移轉步驟
 某些條件是移轉程序相關聯。 熟悉下列步驟，以減少發生錯誤的可能性。 下列步驟概述的移轉程序，並在下列各節中列出的逐步詳細資料。

@@ -2,18 +2,18 @@
 title: 包含檔案
 description: 包含檔案
 services: batch
-author: dlepow
+author: laurenhughes
 ms.service: batch
 ms.topic: include
 ms.date: 10/11/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: 6b48dbfc33890df12209c3a242d812ad2103e07a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ffb02fce41e8805dfccf1dfd6e982cf107039ec
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776362"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66127553"
 ---
 | **Resource** | **預設限制** | **上限** |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "60776362"
 | 每一 Batch 帳戶的專用核心 | 10-100 | N/A<sup>1</sup> |
 | 每一 Batch 帳戶的低優先順序核心 | 10-100 | N/A<sup>2</sup> |
 | 每一 Batch 帳戶的作用中作業和作業排程<sup>3</sup> | 100-300 | 1,000<sup>4</sup> |
-| 每一 Batch 帳戶的集區 | 20-100 | 500<sup>4</sup> |
+| 每個 Batch 帳戶集區數 | 20-100 | 500<sup>4</sup> |
 
 > [!NOTE]
 > 預設限制會根據您用來建立 Batch 帳戶的訂用帳戶類型而有所不同。 所顯示的核心配額是針對 Batch 服務模式中的 Batch 帳戶。 [檢視您 Batch 帳戶中的配額](../articles/batch/batch-quota-limit.md#view-batch-quotas)。 

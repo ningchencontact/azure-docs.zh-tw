@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.subservice: autoscale
+ms.component: autoscale
 ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312047"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66129738"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure 監視器自動調整的常用度量
 
@@ -43,7 +43,7 @@ Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.mic
 ### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>客體 OS 度量以 Resource Manager 為基礎的 Windows VM
 在 Azure 中建立 VM 時會使用診斷擴充來啟用診斷。 診斷擴充會發出一組取自 VM 內的度量。 這表示您可以關閉自動調整依預設不發出的度量。
 
-可以在 PowerShell 中使用以下命令生成指标列表。
+您可以在 PowerShell 中使用下列命令產生度量清單。
 
 ```
 Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
@@ -53,32 +53,32 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 | 度量名稱 | 單位 |
 | --- | --- |
-| \Processor(_Total)\% Processor Time |百分比 |
-| \Processor(_Total)\% Privileged Time |百分比 |
-| \Processor(_Total)\% User Time |百分比 |
+| \Processor(_Total)\% Processor Time |Percent |
+| \Processor(_Total)\% Privileged Time |Percent |
+| \Processor(_Total)\% User Time |Percent |
 | \Processor Information(_Total)\Processor Frequency |計數 |
 | \System\Processes |計數 |
 | \Process(_Total)\Thread Count |計數 |
 | \Process(_Total)\Handle Count |計數 |
-| \Memory\% Committed Bytes In Use |百分比 |
+| \Memory\% Committed Bytes In Use |Percent |
 | \Memory\Available Bytes |位元組 |
 | \Memory\Committed Bytes |位元組 |
 | \Memory\Commit Limit |位元組 |
 | \Memory\Pool Paged Bytes |位元組 |
 | \Memory\Pool Nonpaged Bytes |位元組 |
-| \PhysicalDisk(_Total)\% Disk Time |百分比 |
-| \PhysicalDisk(_Total)\% Disk Read Time |百分比 |
-| \PhysicalDisk(_Total)\% Disk Write Time |百分比 |
-| \PhysicalDisk(_Total)\每秒的磁碟傳輸數 |每秒計數 |
-| \PhysicalDisk(_Total)\Disk Reads/sec |每秒計數 |
+| \PhysicalDisk(_Total)\% Disk Time |Percent |
+| \PhysicalDisk(_Total)\% Disk Read Time |Percent |
+| \PhysicalDisk(_Total)\% Disk Write Time |Percent |
+| \PhysicalDisk(_Total)\每秒的磁碟傳輸數 |CountPerSecond |
+| \PhysicalDisk(_Total)\Disk Reads/sec |CountPerSecond |
 | \PhysicalDisk(_Total)\Disk Writes/sec |每秒計數 |
-| \PhysicalDisk(_Total)\Disk Bytes/sec |每秒位元組 |
-| \PhysicalDisk(_Total)\Disk Read Bytes/sec |每秒位元組 |
-| \PhysicalDisk(_Total)\Disk Write Bytes/sec |每秒位元組 |
+| \PhysicalDisk(_Total)\Disk Bytes/sec |BytesPerSecond |
+| \PhysicalDisk(_Total)\Disk Read Bytes/sec |BytesPerSecond |
+| \PhysicalDisk(_Total)\Disk Write Bytes/sec |BytesPerSecond |
 | \PhysicalDisk(_Total)\Avg.磁碟佇列長度 |計數 |
 | \PhysicalDisk(_Total)\Avg.磁碟讀取佇列長度 |計數 |
 | \PhysicalDisk(_Total)\Avg.磁碟寫入佇列長度 |計數 |
-| \LogicalDisk(_Total)\% Free Space |百分比 |
+| \LogicalDisk(_Total)\% Free Space |Percent |
 | \LogicalDisk(_Total)\Free Megabytes |計數 |
 
 ### <a name="guest-os-metrics-linux-vms"></a>客體 OS 度量 Linux VM
@@ -95,31 +95,31 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | 度量名稱 | 單位 |
 | --- | --- |
 | \Memory\AvailableMemory |位元組 |
-| \Memory\PercentAvailableMemory |百分比 |
+| \Memory\PercentAvailableMemory |Percent |
 | \Memory\UsedMemory |位元組 |
-| \Memory\PercentUsedMemory |百分比 |
-| \Memory\PercentUsedByCache |百分比 |
-| \Memory\PagesPerSec |每秒計數 |
-| \Memory\PagesReadPerSec |每秒計數 |
-| \Memory\PagesWrittenPerSec |每秒計數 |
+| \Memory\PercentUsedMemory |Percent |
+| \Memory\PercentUsedByCache |Percent |
+| \Memory\PagesPerSec |CountPerSecond |
+| \Memory\PagesReadPerSec |CountPerSecond |
+| \Memory\PagesWrittenPerSec |CountPerSecond |
 | \Memory\AvailableSwap |位元組 |
-| \Memory\PercentAvailableSwap |百分比 |
+| \Memory\PercentAvailableSwap |Percent |
 | \Memory\UsedSwap |位元組 |
-| \Memory\PercentUsedSwap |百分比 |
-| \Processor\PercentIdleTime |百分比 |
-| \Processor\PercentUserTime |百分比 |
-| \Processor\PercentNiceTime |百分比 |
-| \Processor\PercentPrivilegedTime |百分比 |
-| \Processor\PercentInterruptTime |百分比 |
-| \Processor\PercentDPCTime |百分比 |
-| \Processor\PercentProcessorTime |百分比 |
-| \Processor\PercentIOWaitTime |百分比 |
-| \PhysicalDisk\BytesPerSecond |每秒位元組 |
-| \PhysicalDisk\ReadBytesPerSecond |每秒位元組 |
-| \PhysicalDisk\WriteBytesPerSecond |每秒位元組 |
-| \PhysicalDisk\TransfersPerSecond |每秒計數 |
-| \PhysicalDisk\ReadsPerSecond |每秒計數 |
-| \PhysicalDisk\WritesPerSecond |每秒計數 |
+| \Memory\PercentUsedSwap |Percent |
+| \Processor\PercentIdleTime |Percent |
+| \Processor\PercentUserTime |Percent |
+| \Processor\PercentNiceTime |Percent |
+| \Processor\PercentPrivilegedTime |Percent |
+| \Processor\PercentInterruptTime |Percent |
+| \Processor\PercentDPCTime |Percent |
+| \Processor\PercentProcessorTime |Percent |
+| \Processor\PercentIOWaitTime |Percent |
+| \PhysicalDisk\BytesPerSecond |BytesPerSecond |
+| \PhysicalDisk\ReadBytesPerSecond |BytesPerSecond |
+| \PhysicalDisk\WriteBytesPerSecond |BytesPerSecond |
+| \PhysicalDisk\TransfersPerSecond |CountPerSecond |
+| \PhysicalDisk\ReadsPerSecond |CountPerSecond |
+| \PhysicalDisk\WritesPerSecond |CountPerSecond |
 | \PhysicalDisk\AverageReadTime |秒 |
 | \PhysicalDisk\AverageWriteTime |秒 |
 | \PhysicalDisk\AverageTransferTime |秒 |
@@ -145,17 +145,17 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 您可以針對這些度量發出警示通知或以其為調整依據。
 
-| 指标名称 | 單位 |
+| 度量名稱 | 單位 |
 | --- | --- |
-| CpuPercentage |百分比 |
-| MemoryPercentage |百分比 |
+| CpuPercentage |Percent |
+| MemoryPercentage |Percent |
 | DiskQueueLength |計數 |
 | HttpQueueLength |計數 |
 | BytesReceived |位元組 |
 | BytesSent |位元組 |
 
 ## <a name="commonly-used-storage-metrics"></a>常用的儲存體度量
-您可以「儲存體佇列長度」做為調整依據，它是儲存體佇列中的訊息數目。 儲存體佇列長度是特殊度量，臨界值是每個執行個體的訊息數。 比方說，如果有兩個執行個體，且臨界值設定為 100，當佇列中的訊息總數為 200 時，將會進行調整。 这两个实例的消息数可能各为 100，或分别为 120 和 80，或者为其他相加大于等于 200 的数字组合。
+您可以「儲存體佇列長度」做為調整依據，它是儲存體佇列中的訊息數目。 儲存體佇列長度是特殊度量，臨界值是每個執行個體的訊息數。 比方說，如果有兩個執行個體，且臨界值設定為 100，當佇列中的訊息總數為 200 時，將會進行調整。 可能每個執行個體有 100 個訊息、120 和 80 個訊息，或合計最多 200 個或更多訊息的其他任何組合。
 
 在 Azure 入口網站的 [設定] 刀鋒視窗中進行此設定。 若使用 VM 擴展集，您可以更新 Resource Manager 範本中的自動調整設定，改為使用 metricName 作為 ApproximateMessageCount，並傳遞儲存體佇列的識別碼作為 *metricResourceUri*。
 
@@ -190,4 +190,3 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 > 若使用服務匯流排，資源群組的概念不存在，但 Azure Resource Manager 會建立每個區域的預設資源群組。 此資源群組通常是 'Default-ServiceBus-[region]' 的格式。 例如，'Default-ServiceBus-EastUS'、'Default-ServiceBus-WestUS'、'Default-ServiceBus-AustraliaEast' 等。
 >
 >
-

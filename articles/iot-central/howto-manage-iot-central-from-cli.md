@@ -9,11 +9,11 @@ ms.date: 02/07/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 9e5d842cece316bc9c53e1e8583f40a0f222b91d
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56809147"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66151964"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>從 Azure CLI 管理 IoT 中心
 
@@ -31,7 +31,7 @@ ms.locfileid: "56809147"
 
 ## <a name="create-an-application"></a>建立應用程式
 
-使用[az iotcentral 應用程式建立](/cli/azure/iotcentral/app#az-iotcentral-app-create)您 Azure 訂用帳戶中建立 IoT Central 應用程式的命令。 例如︰
+使用[az iotcentral 應用程式建立](/cli/azure/iotcentral/app#az-iotcentral-app-create)您 Azure 訂用帳戶中建立 IoT Central 應用程式的命令。 例如：
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application
@@ -50,19 +50,19 @@ az iotcentral app create \
 
 第一次，這些命令會在美國東部地區的應用程式中建立資源群組。 下表描述搭配使用的參數**az iotcentral 應用程式建立**命令：
 
-| 參數         | 描述 |
+| 參數         | 說明 |
 | ----------------- | ----------- |
 | resource-group    | 包含應用程式的資源群組。 此資源群組必須已經存在於您的訂用帳戶中。 |
 | location          | 根據預設，此命令會使用的資源群組的位置。 目前您可以在**美國東部**、**美國西部**、**北歐**或**西歐**地區建立 IoT Central 應用程式。 |
 | name              | 應用程式在 Azure 入口網站中的名稱。 |
 | 子網域         | 應用程式 URL 中的子網域。 在範例中，應用程式 URL 是 https://mysubdomain.azureiotcentral.com。 |
-| sku               | 目前唯一的值是 **S1** (標準層)。 請參閱 [Azure IoT Central 價格](https://azure.microsoft.com/pricing/details/iot-central/)。 |
-| template          | 要使用的應用程式範本。 如需詳細資訊，請參閱下列表格： |
+| SKU               | 目前唯一的值是 **S1** (標準層)。 請參閱 [Azure IoT Central 價格](https://azure.microsoft.com/pricing/details/iot-central/)。 |
+| 樣板          | 要使用的應用程式範本。 如需詳細資訊，請參閱下列表格： |
 | display-name      | 在 UI 中顯示的應用程式名稱。 |
 
 **應用程式範本**
 
-| 範本名稱            | 描述 |
+| 範本名稱            | 說明 |
 | ------------------------ | ----------- |
 | iotc-default@1.0.0       | 為您建立空的應用程式，以填入您自己的裝置範本和裝置。 |
 | iotc-demo@1.0.0          | 建立一個應用程式，其中包含已為冷飲自動販賣機建立的裝置範本。 使用此範本來開始探索 Azure IoT 中心。 |
@@ -84,7 +84,7 @@ az iotcentral app update --name myiotcentralapp \
 
 ## <a name="remove-an-application"></a>移除應用程式
 
-使用[az iotcentral 應用程式刪除](/cli/azure/iotcentral/app#az-iotcentral-app-delete)命令來刪除 IoT Central 應用程式。 例如︰
+使用[az iotcentral 應用程式刪除](/cli/azure/iotcentral/app#az-iotcentral-app-delete)命令來刪除 IoT Central 應用程式。 例如：
 
 ```azurecli-interactive
 az iotcentral app delete --name myiotcentralapp \

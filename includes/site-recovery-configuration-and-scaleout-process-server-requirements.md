@@ -10,11 +10,11 @@ ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: 371cbcc50b574f95e8d9ba4efe79058b2b25a8ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58016677"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66127736"
 ---
 **組態/處理序伺服器需求**
 
@@ -23,7 +23,7 @@ ms.locfileid: "58016677"
 **硬體設定** | 
 CPU 核心 | 8 
 RAM | 16 GB
-磁碟數量 | 3，包括作業系統磁碟、處理序伺服器快取磁碟和用於容錯回復的保留磁碟機 
+磁碟數 | 3，包括作業系統磁碟、處理序伺服器快取磁碟和用於容錯回復的保留磁碟機 
 可用磁碟空間 (處理序伺服器快取) | 600 GB
 可用磁碟空間 (保留磁碟) | 600 GB
  | 

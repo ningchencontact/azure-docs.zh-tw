@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 08/31/2018
 ms.author: diberry
 ms.openlocfilehash: 3594ce0d789513b63877911deb28e00ffc10b3c4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738887"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66123721"
 ---
 請確定您人力資源應用程式位於 LUIS 的 [建置] 區段。 選取右上方功能表列中的 [Build] \(建置\)，即可變更至此區段。

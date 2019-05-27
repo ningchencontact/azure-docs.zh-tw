@@ -4,18 +4,18 @@ description: Azure SQL 資料倉儲的版本資訊。
 services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 05/13/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 519cec0951305db60e0994134f8c680f6c560752
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 215f7c9c65658ddbb10498bb59f3d326bf3a10f1
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792421"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988278"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL 資料倉儲版本資訊
 
@@ -23,15 +23,11 @@ ms.locfileid: "65792421"
 
 ## <a name="check-your-azure-sql-data-warehouse-version"></a>檢查您的 Azure SQL 資料倉儲版本
 
-連接到您的資料倉儲透過 SQL Server Management Studio (SSMS)，並執行下列語法來傳回目前版本的 SQL 資料倉儲。
-
-```sql
-SELECT @@VERSION AS 'SQL Data Warehouse';
-```
+因為新功能正在推出到所有區域，請檢查版本部署到您的執行個體和功能可用性的最新 Azure SQL DW 版本資訊。 若要檢查您的 Azure SQL DW 版本，連接到您的資料倉儲透過 SQL Server Management Studio (SSMS)，並執行`SELECT @@VERSION AS 'SQL Data Warehouse';`返回目前版本的 Azure SQL DW。
 
 範例輸出︰![SQL 資料倉儲版本](./media/release-notes/sql_data_warehouse_version.png)
 
-使用辨識，以確認哪些版本的日期已套用至您的 Azure SQL 資料倉儲。
+使用辨識，以確認哪些版本的日期已套用至您的 Azure SQL DW。
 
 ## <a name="may-2019"></a>2019 年
 
@@ -39,7 +35,7 @@ SELECT @@VERSION AS 'SQL Data Warehouse';
 | --- | --- |
 |**動態資料遮罩 （預覽）**|動態資料遮罩 (DDM) 亂上即時在查詢結果中，根據您定義的遮罩規則，您在資料倉儲中的機密資料以防止未經授權的存取。 如需詳細資訊，請參閱 < [SQL Database 動態資料遮罩](/azure/sql-database/sql-database-dynamic-data-masking-get-started)。|
 |**工作負載重要性現已正式推出**|工作負載管理分類和重要性提供的功能來影響查詢的執行的順序。 如需有關工作負載重要性的詳細資訊，請參閱[分類](sql-data-warehouse-workload-classification.md)並[重要性](sql-data-warehouse-workload-importance.md)文件中的概觀文章。 請參閱[建立工作負載分類](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)以及文件。<br/><br/>請參閱中的作用中的工作負載重要性以下影片：<br/> -[工作負載管理概念](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[工作負載管理案例](https://www.youtube.com/embed/_2rLMljOjw8)|
-|**其他的 T-SQL 支援**|SQL 資料倉儲的 T-SQL 語言介面區已經擴充成包含的支援： </br> - [AT TIME ZONE](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
+|**其他的 T-SQL 支援**|SQL 資料倉儲的 T-SQL 語言介面區已經擴充成包含的支援： </br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
 |**JSON 函式**|商務分析師現在可以使用熟悉的 T-SQL 語言來查詢及管理文件格式化為 JSON 資料，在 Azure 資料倉儲中使用下列的新 JSON 函式：</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
 |**結果集的快取 （預覽）**|結果集快取，可讓商務分析師之減少時間-深入解析和報告使用者立即查詢回應時間。 如需詳細資訊，請參閱</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTER DATABASE SET 選項 (Transact SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [設定結果集快取 & Amp;#40;transact-SQL&AMP;#41](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET 陳述式 & Amp;#40;transact-SQL&AMP;#41](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases & Amp;#40;transact-SQL&AMP;#41](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
 

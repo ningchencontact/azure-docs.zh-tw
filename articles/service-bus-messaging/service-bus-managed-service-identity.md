@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: abba0e15314387aed09e39f05d9127f346f9c799
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8477ff8c8ff0bc1629ff4cdc61f7c28c6eed778c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228406"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978806"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>搭配服務匯流排之 Azure 資源的受控識別 
 
@@ -29,7 +29,23 @@ ms.locfileid: "65228406"
 
 ## <a name="service-bus-roles-and-permissions"></a>服務匯流排角色和權限
 
-您只能將受控識別新增到服務匯流排命名空間的 "Owner" 或 "Contributor" 角色。 它會授與身分識別對命名空間中所有實體的完整控制權。 不過，變更命名空間拓撲的管理作業一開始只能透過 Azure Resource Manager 來支援。 透過原生服務匯流排 REST 管理介面不支援。 這項支援也表示您無法使用.NET Framework 用戶端[NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager)或.NET Standard 用戶端[ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient)內受管理的身分識別的物件。
+您可以新增受控身分識別的服務匯流排命名空間的 「 服務匯流排資料擁有者 」 角色。 它會授與身分識別，命名空間中的所有實體的完整控制權 （適用於管理和資料作業）。
+
+>[!IMPORTANT]
+> 我們稍早支援新增至受管理的身分識別 **「 擁有者 」** 或是 **「 參與者 」** 角色。
+>
+> 不過，資料存取權限 **「 擁有者 」** 並 **「 參與者 」** 角色將不會再接受。 如果您使用 **「 擁有者 」** 或是 **「 參與者 」** 利用調整需要角色，則這些 **「 服務匯流排資料擁有者 」** 角色。
+
+若要使用新的內建角色，請完成下列步驟-
+
+1. 若要繼續[Azure 入口網站](https://portal.azure.com)
+2. 瀏覽至服務匯流排命名空間，您目前有安裝程式的 「 擁有者 」 或 「 參與者 」 角色。
+3. 從左的窗格功能表按一下 「 存取控制 （iam） 」。
+4. 請繼續進行，如下所示新增新的角色指派
+
+    ![](./media/service-bus-role-based-access-control/ServiceBus_RBAC_SBDataOwner.png)
+
+5. 點擊 [儲存] 以儲存新的角色指派。
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>搭配使用服務匯流排和 Azure 資源的受控識別
 
@@ -51,7 +67,7 @@ ms.locfileid: "65228406"
 
 ### <a name="create-a-new-service-bus-messaging-namespace"></a>建立新的服務匯流排傳訊命名空間
 
-接下來，在具有 RBAC 之預覽支援的其中一個 Azure 區域中[建立服務匯流排傳訊命名空間](service-bus-create-namespace-portal.md)：**美國東部**、**美國東部 2** 或**西歐**。 
+下一步[建立服務匯流排傳訊命名空間](service-bus-create-namespace-portal.md)。 
 
 瀏覽至入口網站上的命名空間 [存取控制 (IAM)] 頁面，然後按一下 [新增角色指派] 以將受控識別新增至 [擁有者] 角色。 若要這樣做，請在 [新增權限] 面板 [選取] 欄位中搜尋 Web 應用程式的名稱，然後按一下項目。 然後按一下 [儲存] 。
 

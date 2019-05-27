@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/08/2019
+ms.date: 05/20/2019
 ms.author: pareshmu
-ms.openlocfilehash: 63d6d1419b0a70a0bcf3532a13d6f7491b792593
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 00748f0a245dd0c63d59b32113077b5b10915d3d
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467690"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977966"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -50,22 +50,22 @@ ms.locfileid: "65467690"
 | **印度** | 2 |印度西部、印度中部、印度南部 |辰內、辰內 2、孟買、孟買 2 |
 | **日本** | 2 |日本西部、日本東部 |大阪、東京 |
 | **南韓** | 2 |南韓中部、南韓南部 |釜山、首爾|
-| **UAE** | 3 | 阿拉伯聯合大公國中部、 阿拉伯聯合大公國北部 | Dubai |
+| **UAE** | 3 | 阿拉伯聯合大公國中部、 阿拉伯聯合大公國北部 | 杜拜 Dubai2 |
 | **南非** | 3 |南非西部、 南非北部 |開普敦、約翰尼斯堡 |
 | **南美洲** | 3 |巴西南部 |Sao Paulo |
 
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>國家雲端的區域和地理政治界限
-下表提供了有关国家/地区云的区域和地缘政治边界的信息。
+下表提供國家雲端的區域和地理政治界限等資訊。
 
-| **地缘政治区域** | **Azure 區域** | **ExpressRoute 位置** |
+| **地緣政治區域** | **Azure 區域** | **ExpressRoute 位置** |
 | --- | --- | --- |
 | **美國政府雲端** |US Gov 亞利桑那州、US Gov 愛荷華州、US Gov 德克薩斯州、US Gov 維吉尼亞州、US DoD 中部、US DoD 東部  |芝加哥、達拉斯、紐約、鳳凰城、聖安東尼奧、西雅圖、矽谷、華盛頓特區 |
 | **中國東部** |中國東部、中國東部 2 |上海、上海 2 |
 | **中國北部** |中國北部、中國北部 2 |北京、北京 2 |
-| **德國** |德国中部、德国东部 |柏林、法蘭克福 |
+| **德國** |德國中部、德國東部 |柏林、法蘭克福 |
 
-标准 ExpressRoute SKU 不支持跨地缘政治区域的连接。 您必須啟用 ExpressRoute 進階附加元件，以支援全球連線。 不支援連線至國家雲端環境。 如果需要，请与连接服务提供商合作。
+標準 ExpressRoute SKU 不支援跨地緣政治區域的連線。 您必須啟用 ExpressRoute 進階附加元件，以支援全球連線。 不支援連線至國家雲端環境。 如果有需要的話，您可以聯絡您的連線提供者。
 
 ## <a name="locations"></a>連線提供者位置
 
@@ -90,11 +90,12 @@ ms.locfileid: "65467690"
 | **China Telecom Global** |支援 |不支援 |香港特別行政區 |
 | **[Cologix](https://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |支援 |支援 |芝加哥、達拉斯、蒙特婁、多倫多、華盛頓特區 |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |支援 |支援 |阿姆斯特丹、都柏林、倫敦、巴黎、新加坡2、東京 |
-| **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |支援 |支援 |芝加哥、硅谷、华盛顿特区 |
+| **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |支援 |支援 |芝加哥、矽谷、華盛頓特區 |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |支援 |支援 |芝加哥、 丹佛、 洛杉磯、 紐約、 矽谷、 矽 Valley2 華盛頓 DC，華盛頓州 DC2 |
 | **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/directcloud/find-a-cloud-service/detail/microsoft-azure)** | 支援 |支援 |Amsterdam2、 法蘭克福|
+| **du datamena** |支援 |支援 | Dubai2 |
 | **eir** |支援 |支援 |Dublin|
-| **Epsilon Global Communications** |支援 |支援 |新加坡、新加坡 2 |
+| **[Epsilon Global Communications](https://www.epsilontel.com/solutions/direct-cloud-connect)** |支援 |支援 |新加坡、新加坡 2 |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |支援 |支援 |阿姆斯特丹、 亞特蘭大、 芝加哥、 達拉斯、 都柏林、 香港特別行政區、 倫敦、 London2、 洛杉磯、 墨爾本、 邁阿密、 紐約、 大阪、 巴黎、 聖保羅、 西雅圖、 矽谷、 新加坡、 雪梨、 東京、 多倫多、 華盛頓特區 |
 | **Etisalat 阿拉伯聯合大公國** |支援 |支援 |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |支援 |支援 |阿姆斯特丹、都柏林、倫敦 |
@@ -165,14 +166,14 @@ ms.locfileid: "65467690"
 
 ### <a name="china"></a>中國
 
-| **服务提供商** | **Microsoft Azure** | **Office 365** | **位置** |
+| **服務提供者** | **Microsoft Azure** | **Office 365** | **位置** |
 | --- | --- | --- | --- |
-| **China Telecom** |支持 |不支援 |北京、上海 |
+| **China Telecom** |支援 |不支援 |北京、上海 |
 | **[GDS](http://en.gds-services.com/news_detail/newsId=21.html)** |支援 |不支援 |北京 2、上海 2 |
 
 若要深入了解，請參閱 [ExpressRoute (中國)](http://www.windowsazure.cn/home/features/expressroute/)。
 
-### <a name="germany"></a>德国
+### <a name="germany"></a>德國
 
 | **服務提供者** | **Microsoft Azure** | **Office 365** | **位置** |
 | --- | --- | --- | --- |
@@ -312,7 +313,7 @@ ms.locfileid: "65467690"
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | 澳大利亞 |
 
 ## <a name="next-steps"></a>後續步驟
-* 有关 ExpressRoute 的详细信息，请参阅 [ExpressRoute 常见问题](expressroute-faqs.md)。
+* 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 * 請確定符合所有必要條件。 請參閱 [ExpressRoute 必要條件](expressroute-prerequisites.md)。
 
 <!--Image References-->
