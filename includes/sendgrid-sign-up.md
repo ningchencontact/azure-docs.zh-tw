@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: erikre
 ms.openlocfilehash: 96c4da8465a87fee4c00bfc6177515c94910704a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444731"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121366"
 ---
 Azure 客戶每月可以解除鎖定 25,000 封免費電子郵件。 這些每月 25,000 封的免費電子郵件可讓您存取進階報告與分析及 [所有 API][all APIs] (Web、SMTP、Event、Parse 及更多)。 如需 SendGrid 所提供其他服務的相關資訊，請參閱 [SendGrid 解決方案 (英文)][SendGrid Solutions] 頁面。
 
@@ -46,14 +46,14 @@ Azure 客戶每月可以解除鎖定 25,000 封免費電子郵件。 這些每�
 
     若要修改您的訂用計畫或查看 SendGrid 連絡人設定，請按一下您的 SendGrid 服務名稱，以開啟 SendGrid Marketplace 儀表板。
 
-    ![settings][settings]
+    ![設定][settings]
 
     若要使用 SendGrid 傳送電子郵件，您必須提供您的 API 金鑰。
 
 ### <a name="to-find-your-sendgrid-api-key"></a>尋找您的 SendGrid API 金鑰
 1. 按一下 [管理] 。
 
-    ![manage][manage]
+    ![管理][manage]
 2. 在 SendGrid 儀表板的左側功能表中，依序選取 [設定] 和 [API 金鑰]。
 
     ![api-keys][api-keys]
@@ -66,15 +66,15 @@ Azure 客戶每月可以解除鎖定 25,000 封免費電子郵件。 這些每�
     ![access][access]
 5. 您的 API 將會在此時顯示一次。 請務必安全地儲存它。
 
-### <a name="to-find-your-sendgrid-credentials"></a>查找 SendGrid 凭据
+### <a name="to-find-your-sendgrid-credentials"></a>尋找您的 SendGrid 認證
 1. 按一下金鑰圖示來尋找您的**使用者名稱**。
 
     ![key][key]
 2. 密碼是您在安裝期間所選擇的密碼。 您可以選取 [變更密碼] 或 [重設密碼] 來進行任何變更。
 
-若要管理电子邮件传递设置，请单击“管理”按钮。 這將會重新導向至您的 SendGrid 儀表板。
+若要管理電子郵件傳遞能力設定，按一下 [管理] 按鈕。 這將會重新導向至您的 SendGrid 儀表板。
 
-![manage][manage]
+![管理][manage]
 
 如需透過 SendGrid 傳送電子郵件的詳細資訊，請造訪[電子郵件 API 概觀][Email API Overview]。
 

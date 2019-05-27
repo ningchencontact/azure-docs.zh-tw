@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 8e00fd312dd335551f5ba8e7dcec2baa4f7e2643
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 72306132f88f211180c99cd30845781667605204
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204316"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921876"
 ---
 # <a name="connect-your-fortinet-appliance"></a>連接您的 Fortinet 應用裝置 
 
@@ -45,7 +45,7 @@ ms.locfileid: "65204316"
 1. 在 Azure Sentinel 入口網站中，按一下**資料連接器**，然後選取您的設備類型。 
 
 1. 底下**Linux Syslog 代理程式設定**:
-   - 選擇**自動部署**如果您想要建立新的機器會預先安裝 Azure Sentinel 代理程式，並且包含所有組態必要，如上面所述。 選取 **自動部署**然後按一下**自動代理程式部署**。 這會帶您前往 [購買] 頁面，會自動連接到您的工作區，是使用專用 vm。 VM 處於**標準 D2s v3 系列 （2 個 vcpu，8 GB 記憶體）** 且具有公用 IP 位址。
+   - 選擇**自動部署**如果您想要建立新的機器會預先安裝 Azure Sentinel 代理程式，並且包含所有組態必要，如上面所述。 選取 **自動部署**然後按一下**自動代理程式部署**。 這會帶您前往 [購買] 頁面，會自動連接到您的工作區，是使用專用 vm。 VM 處於**標準 D2s v3 系列 （2 個 Vcpu，8 GB 記憶體）** 且具有公用 IP 位址。
       1. 在 **自訂部署**頁面提供您詳細資料並選擇使用者名稱和密碼，如果您同意條款及條件，購買的 VM。
       1. 設定您的應用裝置傳送記錄檔使用 [連接] 頁面中列出的設定。 泛型的常見事件格式 connector，使用這些設定：
          - 通訊協定 = UDP
@@ -120,13 +120,50 @@ ms.locfileid: "65204316"
    > [!NOTE] 
    > 如需詳細資訊，請移至[Fortinet 文件庫](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary)。 選擇您的版本，並使用**手冊**並**記錄檔訊息參考**。
 
+ 若要在 Log Analytics 中用於 Fortinet 事件相關的結構描述，搜尋`CommonSecurityLog`。
+
+
 ## <a name="step-3-validate-connectivity"></a>步驟 3：驗證連線能力
 
 可能需要多達 20 分鐘，直到您的記錄檔開始出現在 Log Analytics 中。 
 
-1. 請確定您的記錄檔會進入 Syslog 代理程式中的正確連接埠。 Syslog 代理程式電腦執行下列命令：`tcpdump -A -ni any  port 514 -vv` 此命令會顯示從裝置到 Syslog 機器資料流處理的記錄檔。請確定記錄檔會收到來源應用裝置上的右側連接埠和正確的設備。
+1. 請確定您使用正確的設備。 此設備必須在您的應用裝置和 Azure Sentinel 相同。 您可以檢查您正在使用中 Azure Sentinel，修改檔案中的功能檔案`security-config-omsagent.conf`。 
 
-2. 檢查 Syslog 服務精靈與代理程式之間的通訊。 Syslog 代理程式電腦執行下列命令：`tcpdump -A -ni any  port 25226 -vv` 此命令會顯示從裝置到 Syslog 機器資料流處理的記錄檔。請確定記錄檔，也在代理程式上接收。
+2. 請確定您的記錄檔會進入 Syslog 代理程式中的正確連接埠。 Syslog 代理程式電腦上執行此命令：`tcpdump -A -ni any  port 514 -vv` 此命令會顯示從裝置到 Syslog 機器資料流處理的記錄檔。請確定記錄檔會收到來源應用裝置上的右側連接埠和正確的設備。
+
+3. 請確定您所傳送的記錄檔遵守[RFC 5424](https://tools.ietf.org/html/rfc542)。
+
+4. 在電腦上執行 Syslog 代理程式，請確定這些連接埠 514、 25226 會開啟並在接聽，使用命令`netstat -a -n:`。 如需使用此命令的詳細資訊，請參閱[netstat(8)-Linux man 頁面](https://linux.die.netman/8/netstat)。 如果它正在接聽正確，您會看到這個：
+
+   ![Azure 的 Sentinel 連接埠](./media/connect-cef/ports.png) 
+
+5. 請確定將精靈設定為接聽連接埠 514，在其上，您要傳送記錄檔。
+    - Rsyslog:<br>請確定檔案`/etc/rsyslog.conf`包含這項設定：
+
+           # provides UDP syslog reception
+           module(load="imudp")
+           input(type="imudp" port="514")
+        
+           # provides TCP syslog reception
+           module(load="imtcp")
+           input(type="imtcp" port="514")
+
+      如需詳細資訊，請參閱[imudp:UDP Syslog 輸入模組](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module)和[imtcp:TCP Syslog 輸入模組](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module)
+
+   - 為 syslog-ng:<br>請確定檔案`/etc/syslog-ng/syslog-ng.conf`包含這項設定：
+
+           # source s_network {
+            network( transport(UDP) port(514));
+             };
+     如需詳細資訊，請參閱 [imudp:UDP Syslog 輸入模組] (如需詳細資訊，請參閱[syslog ng 開放來源版本 3.16-系統管理指南](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455)。
+
+1. 檢查 Syslog 服務精靈與代理程式之間的通訊。 Syslog 代理程式電腦上執行此命令：`tcpdump -A -ni any  port 25226 -vv` 此命令會顯示從裝置到 Syslog 機器資料流處理的記錄檔。請確定記錄檔，也在代理程式上接收。
+
+6. 如果這兩個這些命令提供成功的結果，請檢查以查看您的記錄檔會同時抵達的 Log Analytics。 從這些設備串流處理的所有事件會都出現在 Log Analytics 中的未經處理格式`CommonSecurityLog`型別。
+
+7. 檢查是否有錯誤，或如果未到達記錄檔，查看`tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`。 如果它顯示有記錄檔格式不符的錯誤，請移至`/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`並查看檔案`security_events.conf`並確定您的記錄符合 regex 格式，您會看到此檔案中。
+
+8. 請確定您 Syslog 訊息的預設大小限制為 2048 個位元組 (2 KB)。 如果記錄檔太長，更新 security_events.conf 使用下列命令： `message_length_limit 4096`
 
 1. 如果代理程式不接收 Fortinet 記錄，執行下列命令，視您使用，即可設定設施以及設定記錄檔，以搜尋單字 Fortinet 記錄檔中的 Syslog 服務精靈的類型而定：
    - rsyslog.d: `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Fortinet\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
@@ -135,11 +172,6 @@ ms.locfileid: "65204316"
    - Syslog ng: `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Fortinet\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
       
      重新啟動 Syslog 精靈： `sudo service syslog-ng restart`
-1. 如果這兩個這些命令提供成功的結果，請檢查以查看您的記錄檔會同時抵達的 Log Analytics。 從這些設備串流處理的所有事件會都出現在 Log Analytics 中的未經處理格式`CommonSecurityLog`型別。
-1. 若要檢查如果發生錯誤，或記錄檔未抵達，請查看 `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
-1. 請確定您 Syslog 訊息的預設大小限制為 2048 個位元組 (2 KB)。 如果記錄檔太長，更新 security_events.conf 使用下列命令： `message_length_limit 4096`
-6. 若要在 Log Analytics 中用於 Fortinet 事件相關的結構描述，搜尋**CommonSecurityLog**。
-
 
 ## <a name="next-steps"></a>後續步驟
 在本文件中，您已了解如何連接至 Azure 的 Sentinel 的 Fortinet 設備。 若要深入了解 Azure Sentinel，請參閱下列文章：

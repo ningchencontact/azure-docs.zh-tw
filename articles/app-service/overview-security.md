@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 374fd700f3ac99c00b922f4fca330fee9acfd704
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838955"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955737"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service 中的安全性
 
@@ -105,7 +105,7 @@ App Service 驗證和授權支援多個驗證提供者，包括 Azure Active Dir
 
 ## <a name="application-secrets"></a>應用程式祕密
 
-請勿將應用程式祕密 (例如資料庫認證、API 權杖和私密金鑰) 存放在您的程式碼或組態檔中。 普遍接受的方法是使用您所選語言的標準模式，將它們當作[環境變數](https://wikipedia.org/wiki/Environment_variable)存取。 在 App Service 中，環境變數是透過[應用程式設定](web-sites-configure.md#app-settings) (以及特別適用於 .NET 應用程式的[連接字串](web-sites-configure.md#connection-strings)) 來定義。 應用程式設定和連接字串都會經過加密並儲存在 Azure 中，而且只會在應用程式啟動時，要插入您應用程式的程序記憶體之前解密。 加密金鑰會定期輪替。
+請勿將應用程式祕密 (例如資料庫認證、API 權杖和私密金鑰) 存放在您的程式碼或組態檔中。 普遍接受的方法是使用您所選語言的標準模式，將它們當作[環境變數](https://wikipedia.org/wiki/Environment_variable)存取。 在 App Service 中，環境變數是透過[應用程式設定](configure-common.md#configure-app-settings) (以及特別適用於 .NET 應用程式的[連接字串](configure-common.md#configure-connection-strings)) 來定義。 應用程式設定和連接字串都會經過加密並儲存在 Azure 中，而且只會在應用程式啟動時，要插入您應用程式的程序記憶體之前解密。 加密金鑰會定期輪替。
 
 或者，您可以整合 App Service 應用程式與 [Azure Key Vault](/azure/key-vault/)，以便進行進階祕密管理。 藉由[利用受控識別存取 Key Vault](../key-vault/tutorial-web-application-keyvault.md)，App Service 應用程式便可安全地存取您所需的祕密。
 

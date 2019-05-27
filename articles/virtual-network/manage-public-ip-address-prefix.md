@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: anavin
-ms.openlocfilehash: 82ee9d04785fc0f6ac534428bf411ca0fe3204ad
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 26d8ee34c735cab8f1033a9aad897ec0b1bed524
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601503"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952691"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>建立、變更或刪除公用 IP 位址首碼
 
@@ -50,7 +50,7 @@ ms.locfileid: "65601503"
    |訂用帳戶|是|所在的[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)必須與您想要與公用 IP 位址建立關聯的資源相同。|
    |資源群組|是|所在的[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)可以與您想要與公用 IP 位址建立關聯的資源相同或不同。|
    |名稱|是|名稱必須是您選取的資源群組中唯一的名稱。|
-   |區域|有|必須與您從範圍指派位址的公用 IP 位址存在於相同[區域](https://azure.microsoft.com/regions)。 首碼目前在下列區域已供預覽：美國中西部、美國西部、美國西部 2、美國中部、北歐、西歐和東南亞。|
+   |區域|有|必須與您從範圍指派位址的公用 IP 位址存在於相同[區域](https://azure.microsoft.com/regions)。|
    |首碼大小|有| 您需要的首碼大小。 /28 或 16 個 IP 位址為預設值。
 
 **命令**
@@ -72,7 +72,14 @@ ms.locfileid: "65601503"
    |---|---|---|
    |名稱|有|公用 IP 位址名稱在您選取的資源群組中必須是唯一。|
    |閒置逾時 (分鐘)|無|不需依賴用戶端傳送保持連線訊息，讓 TCP 或 HTTP 連線保持開啟的分鐘數。 |
-   |DNS 名称标签|無|在您建立名稱的 Azure 區域 (跨越所有訂用帳戶和所有客戶) 中必須是唯一。 Azure 會在其 DNS 中自動登錄名稱和 IP 位址，以便您連線至具有此名稱的資源。 Azure 會將 *location.cloudapp.azure.com* (其中 location 是您選取的位置) 之類的預設子網路附加至您提供的名稱，以建立完整的 DNS 名稱。如需詳細資訊，請參閱[使用具有 Azure 公用 IP 位址的 Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)。|
+   |DNS 名稱標籤|無|在您建立名稱的 Azure 區域 (跨越所有訂用帳戶和所有客戶) 中必須是唯一。 Azure 會在其 DNS 中自動登錄名稱和 IP 位址，以便您連線至具有此名稱的資源。 Azure 會將 *location.cloudapp.azure.com* (其中 location 是您選取的位置) 之類的預設子網路附加至您提供的名稱，以建立完整的 DNS 名稱。如需詳細資訊，請參閱[使用具有 Azure 公用 IP 位址的 Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)。|
+
+您也可以使用 CLI 和 PS 命令如下，使用--公用 ip 首碼 (CLI) 和-PublicIpPrefix (PS) 參數，以建立公用 IP 位址資源。 
+
+|Tool|命令|
+|---|---|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
+|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
 
 ## <a name="view-or-delete-a-prefix"></a>檢視或刪除首碼
 

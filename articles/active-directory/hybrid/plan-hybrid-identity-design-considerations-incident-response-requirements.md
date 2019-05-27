@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32efe76ac2fce4c4541287e96c3a495f3eb9031b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08bf7950ada5db90d2b8bfea751b39ffc21f3ee9
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455800"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950840"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>判斷混合式身分識別解決方案的事件回應需求
 中大型組織最可能具備適當的 [安全性事件回應](https://technet.microsoft.com/library/cc700825.aspx) ，可協助 IT 根據事件層級來採取動作。 身分識別管理系統是事件回應程序中的重要元件，因為它可以用來協助識別對目標執行特定動作的人員。 混合式身分識別解決方案必須能夠提供監視和報告功能，讓 IT 可用來採取動作以識別和減緩潛在威脅。 在一般事件回應計畫中，您可以將計畫分為下列階段：
@@ -50,9 +50,9 @@ ms.locfileid: "60455800"
 * 貴公司需要識別使用者在不同裝置上嘗試進行的單一登入嗎？
 * 貴公司需要偵測可能入侵的使用者認證嗎？
 * 貴公司需要稽核使用者的存取和動作嗎？
-* 貴公司需要知道使用者何時重設密碼嗎？
+* 貴公司是否需要知道當使用者重設其密碼？
 
-## <a name="policy-enforcement"></a>強制執行原則
+## <a name="policy-enforcement"></a>原則強制執行
 在損毀控制和風險降低階段期間，最重要的是快速降低攻擊的實際和潛在影響。 此時您所採取的動作可以在次要和主要之間產生差異。 確切的回應將取決於您的組織和您面對攻擊的性質。 如果最初評估歸納出帳戶已遭到入侵，則您必須強制執行原則來封鎖這個帳戶。 這只是運用身分識別管理系統的其中一個範例。 在考量如何強制執行原則以回應即將發生的事件時，請使用下列問題來協助您設計混合式身分識別解決方案：
 
 * 貴公司具備適當的原則，可視需要封鎖使用者存取網路嗎？

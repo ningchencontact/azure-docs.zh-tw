@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cbb1bc64d923add0b1fd38749299714a9093633
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3eca6fc3ab788ee7085c0df5f6c9770858af29ba
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408026"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65891652"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>教學課程：Azure Active Directory 與 OpenAthens 整合
 
@@ -143,11 +143,11 @@ OpenAthens 與 Azure AD 整合提供下列優點：
 
     a. 在 [顯示名稱對應] 中，選取 [使用屬性]。
 
-    b. 在 [顯示名稱屬性] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 值。
+    b. 在 [顯示名稱屬性] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 值。
     
     c. 在 [唯一使用者對應] 中，選取 [使用屬性]。
 
-    d. 在 [唯一使用者屬性] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 值。
+    d. 在 [唯一使用者屬性] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 值。
 
     e. 在 [狀態] 中，勾選三個核取方塊。
 

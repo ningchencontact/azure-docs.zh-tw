@@ -3,20 +3,20 @@ title: 預測用意
 titleSuffix: Azure Cognitive Services
 description: 在本教學課程中，建立自訂應用程式來預測使用者的用意。 此應用程式不會擷取語句文字中的各種資料元素 (例如電子郵件地址或日期)，因此是最簡單的 LUIS 應用程式類型。
 services: cognitive-services
-author: diberry
-manager: nitinme
+author: lingliw
+manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
-ms.author: diberry
+ms.date: 04/19/19
+ms.author: v-lingwu
 ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593908"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123901"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>教學課程：建置 LUIS 應用程式來判斷使用者的用意
 
@@ -239,3 +239,7 @@ ms.locfileid: "56593908"
 
 > [!div class="nextstepaction"]
 > [在此應用程式中新增預先建置的意圖和實體](luis-tutorial-prebuilt-intents-entities.md)
+
+
+
+

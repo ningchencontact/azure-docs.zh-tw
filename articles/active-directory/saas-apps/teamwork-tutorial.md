@@ -17,15 +17,15 @@ ms.date: 08-04-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4b0c6fc9ed196a1b3ddd3d8e67887e2340ddbcda
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563573"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65888428"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>教學課程：Azure Active Directory 與 Teamwork.com 整合
 
-在此教學課程中，您將了解如何整合 Teamwork.com 與 Azure Active Directory (Azure AD)。
+在本教學課程中，您將了解如何整合 Teamwork.com 與 Azure Active Directory (Azure AD)。
 Teamwork.com 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中管控可存取 Teamwork.com 的人員。
@@ -44,7 +44,7 @@ Teamwork.com 與 Azure AD 整合提供下列優點：
 
 ## <a name="scenario-description"></a>案例描述
 
-在此教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
+在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
 * Teamwork.com 支援由 **SP** 起始的 SSO
 
@@ -86,7 +86,7 @@ Teamwork.com 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
-在此節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
+在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
 若要搭配 Teamwork.com 設定 Azure AD 單一登入，請執行下列步驟：
 
@@ -138,7 +138,7 @@ Teamwork.com 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
-此節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
+本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
@@ -162,7 +162,7 @@ Teamwork.com 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在此節中，您會將 Teamwork.com 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會將 Teamwork.com 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Teamwork.com]。
 
@@ -188,11 +188,11 @@ Teamwork.com 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-teamworkcom-test-user"></a>建立 Teamwork.com 測試使用者
 
-在此節中，您會在 Teamwork.com 中建立名為 Britta Simon 的使用者。 使用 [Teamwork.com 支援小組](mailto:support@teamwork.com)，在 Teamwork.com 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Teamwork.com 中建立名為 Britta Simon 的使用者。 使用 [Teamwork.com 支援小組](mailto:support@teamwork.com)，在 Teamwork.com 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 
-在此節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
+在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Teamwork.com] 圖格時，應該會自動登入您已設定 SSO 的 Teamwork.com。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 

@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 2d56a7cda88f96a6728dc1c3e4af8e9ad0bf946f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87cfce6045ce84f83ca651472635227547c26ee9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60822856"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66117014"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 安全性與驗證 
 
@@ -45,6 +45,9 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新事�
 
     此驗證機制也需要 webhook 端點，讓它知道置於手動驗證模式之前，已接受驗證事件的 POST，傳回 HTTP 狀態碼 200。 換句話說，如果端點會傳回 200，但不傳回回驗證回應以程式設計的方式，模式轉換為手動驗證模式。 如果沒有在 5 分鐘內取得的驗證 URL，驗證信號交換視為成功。
 
+> [!NOTE]
+> 不支援使用自我簽署的憑證進行驗證。 改為使用憑證授權單位 (CA) 簽署的憑證。
+
 ### <a name="validation-details"></a>驗證詳細資料
 
 * 建立/更新事件訂閱時，「事件方格」會將訂閱驗證事件發佈至目標端點。 
@@ -64,8 +67,8 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新事�
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subject": "",
   "data": {
-    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
-    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=B2E34264-7D71-453A-B5FB-B62D0FDC85EE&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1BNqCxBBSSE9OnNSfZM4%2b5H9zDegKMY6uJ%2fO2DFRkwQ%3d"
+    "validationCode": "0000000000-0000-0000-0000-00000000000000",
+    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=0000000000-0000-0000-0000-0000000000000&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",

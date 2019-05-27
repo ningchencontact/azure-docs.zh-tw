@@ -16,11 +16,11 @@ ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 27c2f4b2fd0d634b933a88307b468c2bf57ef32d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864383"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899845"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-databasics"></a>教學課程：Azure Active Directory 與 DATABASICS 整合
 
@@ -36,7 +36,7 @@ DATABASICS 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 DATABASICS 的整合，您需要下列項目：
+若要設定 Azure AD 與 DATABASICS 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 DATABASICS 單一登入的訂用帳戶
@@ -45,7 +45,7 @@ DATABASICS 與 Azure AD 整合提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* DATABASICS 支援由 **SP** 起始的 SSO
+* DATABASICS 支援 **SP** 起始的 SSO
 
 ## <a name="adding-databasics-from-the-gallery"></a>從資源庫新增 DATABASICS
 
@@ -74,7 +74,7 @@ DATABASICS 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者作為基礎，設定及測試與 DATABASICS 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 DATABASICS 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 DATABASICS 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 DATABASICS 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 DATABASICS 單一登入](#configure-databasics-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -165,7 +165,7 @@ DATABASICS 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [DATABASICS]。
 
-    ![應用程式清單中的 [DATABASICS] 連結](common/all-applications.png)
+    ![應用程式清單中的 DATABASICS 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

@@ -8,11 +8,11 @@ ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
 ms.openlocfilehash: 1da35b55a458ad73689f51c49e73855fd33ee45f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496245"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66118011"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure 磁碟加密的先決條件
 
@@ -251,7 +251,7 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
 
 * 當產生金鑰，使用 RSA 金鑰類型。 Azure 磁碟加密還不支援使用橢圓曲線金鑰。
 
-* 您的金鑰保存庫密碼和 KEK URL 必須已設定版本。 Azure 会强制实施这项版本控制限制。 針對有效的密碼和 KEK URL，請參閱下列範例︰
+* 您的金鑰保存庫密碼和 KEK URL 必須已設定版本。 Azure 會強制執行設定版本的這項限制。 針對有效的密碼和 KEK URL，請參閱下列範例︰
 
   * 有效祕密 URL 的範例：*https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
   * 有效 KEK URL 的範例：*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*

@@ -16,11 +16,11 @@ ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45063107cdaf5ea8a720233c47e5b9007faa6d13
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880393"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900345"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-competencyiq"></a>教學課程：Azure Active Directory 與 CompetencyIQ 整合
 
@@ -28,7 +28,7 @@ ms.locfileid: "57880393"
 CompetencyIQ 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 CompetencyIQ 的人員。
-* 您可以讓使用者使用其 Azure AD 帳戶自動登入 CompetencyIQ (單一登入)。
+* 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 CompetencyIQ (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -36,7 +36,7 @@ CompetencyIQ 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 CompetencyIQ 的整合，您需要下列項目：
+若要設定 Azure AD 與 CompetencyIQ 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 CompetencyIQ 單一登入的訂用帳戶
@@ -45,7 +45,7 @@ CompetencyIQ 與 Azure AD 整合提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* CompetencyIQ 支援由 **SP** 起始的 SSO
+* CompetencyIQ 支援 **SP** 起始的 SSO
 
 ## <a name="adding-competencyiq-from-the-gallery"></a>從資源庫新增 CompetencyIQ
 
@@ -71,7 +71,7 @@ CompetencyIQ 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 CompetencyIQ 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 CompetencyIQ 設定及測試 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 CompetencyIQ 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 CompetencyIQ 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
@@ -103,7 +103,7 @@ CompetencyIQ 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![CompetencyIQ 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![CompetencyIQ 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<customer>.competencyiq.com/`
 
@@ -157,7 +157,7 @@ CompetencyIQ 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 CompetencyIQ 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會把 CompetencyIQ 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [CompetencyIQ]。
 
@@ -165,7 +165,7 @@ CompetencyIQ 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [CompetencyIQ]。
 
-    ![應用程式清單中的 [CompetencyIQ] 連結](common/all-applications.png)
+    ![應用程式清單中的 CompetencyIQ 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -183,13 +183,13 @@ CompetencyIQ 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-competencyiq-test-user"></a>建立 CompetencyIQ 測試使用者
 
-在本節中，您要在 CompetencyIQ 中建立名為 Britta Simon 的使用者。 請與 [CompetencyIQ 支援小組](https://www.competencyiq.com/)合作，在 CompetencyIQ 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 CompetencyIQ 中建立名為 Britta Simon 的使用者。 請與  [CompetencyIQ 支援小組](https://www.competencyiq.com/)合作，以在 CompetencyIQ 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [CompetencyIQ] 圖格時，應該會自動登入您已設定 SSO 的 CompetencyIQ。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [CompetencyIQ] 圖格時，應該會自動登入您設定 SSO 的 CompetencyIQ。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

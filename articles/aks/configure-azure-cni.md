@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 9006590583f0ef52bbce716529534f8bce6f47c5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6516b11bf5d4d4c4e5406a3e6e0cce3189796d33
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780377"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956408"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中設定 Azure CNI 網路
 
@@ -41,6 +41,7 @@ Pod 和叢集節點的 IP 位址會從虛擬網路內的指定子網路來指派
 > 所需的 IP 位址數目應包含針對升級和調整作業考量的數目。 如果設定只支援固定節點數目的 IP 位址範圍，將無法升級或擴展您的叢集。
 >
 > - 當您**升級** AKS 叢集時，會部署新的節點到叢集中。 服務和工作負載會開始在新的節點上執行，並移除叢集中較舊的節點。 此輪流升級程序需要至少一個額外的 IP 位址區塊以供使用。 因此您的節點計數為 `n + 1`。
+>   - 當您使用 Windows Server （目前在 AKS 中的預覽） 的節點集區時，這項考量是特別重要。 在 AKS 中的 Windows Server 節點不會自動套用 Windows 更新，改為在節點集區上執行升級。 這項升級會部署最新的 「 視窗 Server 2019 基底節點 」 映像和安全性修補程式的新節點。 如需有關如何升級 Windows Server 的節點集區的詳細資訊，請參閱 <<c0> [ 升級 AKS 中的節點集區][nodepool-upgrade]。
 >
 > - 當您**擴展** AKS 叢集時，會部署新的節點到叢集中。 服務和工作負載會開始在新的節點上執行。 您的 IP 位址範圍必須將您可能想要相應增加的節點數和您的叢集可支援的 Pod 數目納入考量。 也應包含一個額外的節點以用於升級作業。 因此您的節點計數為 `n + number-of-additional-scaled-nodes-you-anticipate + 1`。
 
@@ -68,7 +69,7 @@ Pod 和叢集節點的 IP 位址會從虛擬網路內的指定子網路來指派
 
 ### <a name="configure-maximum---new-clusters"></a>設定最大值 - 新叢集
 
-您*只能在叢集部署階段*設定每一節點的 Pod 數目上限。 如果您部署使用 Azure CLI 或 Resource Manager 範本，您就可以設定每個節點值的最大 pod，視需要在下列`maxPods`指導方針：
+您*只能在叢集部署階段*設定每一節點的 Pod 數目上限。 如果您部署使用 Azure CLI 或 Resource Manager 範本，您可以設定最大 pod，每個節點值高達 250。
 
 | 網路功能 | 最小值 | 最大值 |
 | -- | :--: | :--: |
@@ -76,8 +77,7 @@ Pod 和叢集節點的 IP 位址會從虛擬網路內的指定子網路來指派
 | Kubenet | 30 | 110 |
 
 > [!NOTE]
-> 上表中的最小值是會嚴格強制執行 AKS 服務。
-您可以設定 maxPods 值低於最小值顯示為這樣做可以讓叢集無法啟動。
+> 上表中的最小值是會嚴格強制執行 AKS 服務。 您可以設定 maxPods 值低於最小值顯示為這樣做可以讓叢集無法啟動。
 
 * **Azure CLI**：當您使用 [az aks create][ az-aks-create] 命令部署叢集時，請指定 `--max-pods` 引數。 最大值為 250。
 * **Resource Manager 範本**：當您使用 Resource Manager 範本部署叢集時，請指定 [ManagedClusterAgentPoolProfile] 物件中的 `maxPods` 屬性。 最大值為 250。
@@ -114,7 +114,7 @@ Pod 和叢集節點的 IP 位址會從虛擬網路內的指定子網路來指派
 
 首先，針對將聯結 AKS 叢集的現有子網路取得子網路資源識別碼：
 
-```console
+```azurecli-interactive
 $ az network vnet subnet list \
     --resource-group myVnet \
     --vnet-name myVnet \
@@ -125,7 +125,7 @@ $ az network vnet subnet list \
 
 使用 [az aks create][az-aks-create] 命令搭配 `--network-plugin azure` 參數來建立具備進階網路功能的叢集。 使用在上一個步驟中收集的子網路識別碼來更新 `--vnet-subnet-id` 值：
 
-```azurecli
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -133,7 +133,8 @@ az aks create \
     --vnet-subnet-id <subnet-id> \
     --docker-bridge-address 172.17.0.1/16 \
     --dns-service-ip 10.2.0.10 \
-    --service-cidr 10.2.0.0/24
+    --service-cidr 10.2.0.0/24 \
+    --generate-ssh-keys
 ```
 
 ## <a name="configure-networking---portal"></a>設定網路功能 - 入口網站
@@ -152,7 +153,7 @@ az aks create \
 
 * 是否可以針對個別 Pod 設定網路原則？
 
-  Kubernetes 網路原則是，可以使用 AKS 中。 若要开始使用，请参阅[在 AKS 中使用网络策略保护 Pod 之间的流量][network-policy]。
+  Kubernetes 網路原則是，可以使用 AKS 中。 若要開始，請參閱[保護在 AKS 中使用網路原則的 pod 之間的流量][network-policy]。
 
 * 是否可以設定可部署到節點的 Pod 數目上限？
 
@@ -211,3 +212,4 @@ az aks create \
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
 [network-policy]: use-network-policies.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

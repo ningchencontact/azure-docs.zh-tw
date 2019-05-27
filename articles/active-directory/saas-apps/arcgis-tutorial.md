@@ -16,11 +16,11 @@ ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 037e01120a695b1bacf2b1d4bc47e9ca9ed3fbd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881243"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900372"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>教學課程：Azure Active Directory 與 ArcGIS Online 整合
 
@@ -118,7 +118,7 @@ ms.locfileid: "57881243"
 
 6. 若要自動執行 **ArcGIS Online** 內的設定，您必須按一下 [安裝延伸模組] 來安裝「我的應用程式安全登入瀏覽器延伸模組」。
 
-    ![映像](./media/arcgis-tutorial/install_extension.png)
+    ![image](./media/arcgis-tutorial/install_extension.png)
 
 7. 將延伸模組新增至瀏覽器之後，按一下 [安裝 ArcGIS Online] 便會將您導向到 ArcGIS Online 應用程式。 請從該處提供用以登入 ArcGIS Online 的管理員認證。 瀏覽器延伸模組將會自動為您設定應用程式，並自動執行**設定 ArcGIS Online 單一登入**一節中的步驟。
 

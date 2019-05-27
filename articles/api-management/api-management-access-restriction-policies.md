@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: b8c564ef2de22555930f998ccd9918b252d35f17
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8947637a42adfca12268c3f84e208079768870e0
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541704"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921212"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理存取限制原則
 
@@ -145,7 +145,7 @@ ms.locfileid: "65541704"
 > [!IMPORTANT]
 > 這項功能無法在 API 管理的**使用**層中使用。
 
-`rate-limit-by-key` 原則藉由將指定時間週期內的呼叫頻率限制為指定次數，以防止每個金鑰的 API 使用量暴增。 密钥的值可以是任意字符串，通常使用策略表达式来提供密钥。 可以新增選擇性增量條件，以指定哪些要求應該計入限制。 觸發此原則時，呼叫者會收到 `429 Too Many Requests` 回應狀態碼。
+`rate-limit-by-key` 原則藉由將指定時間週期內的呼叫頻率限制為指定次數，以防止每個金鑰的 API 使用量暴增。 金鑰可以具有任意字串值，而且通常會使用原則運算式來提供。 可以新增選擇性增量條件，以指定哪些要求應該計入限制。 觸發此原則時，呼叫者會收到 `429 Too Many Requests` 回應狀態碼。
 
 如需此原則範例的詳細資訊，請參閱[以 Azure API 管理進行進階要求節流](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/)。
 
@@ -219,7 +219,7 @@ ms.locfileid: "65541704"
 
 ### <a name="example"></a>範例
 
-在下面的示例中，策略仅允许来自指定的单一 IP 地址或 IP 地址范围的请求
+在下列範例中，原則只允許來自從單一 IP 位址或 IP 位址範圍指定的要求
 
 ```xml
 <ip-filter action="allow">
@@ -315,8 +315,6 @@ ms.locfileid: "65541704"
 `quota-by-key` 原則會以金鑰為單位，強制採用可續訂或有存留期呼叫量與 (或) 頻寬配額。 金鑰可以具有任意字串值，而且通常會使用原則運算式來提供。 可以新增選擇性增量條件，以指定哪些要求應該計入配額。 如果多個原則會使相同的金鑰值遞增，該值址會針對每個要求遞增一次。 達到呼叫限制時，呼叫端會收到 `403 Forbidden` 回應狀態碼。
 
 如需此原則範例的詳細資訊，請參閱[以 Azure API 管理進行進階要求節流](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/)。
-
-> [原則運算式](api-management-policy-expressions.md)無法使用於此原則的任何原則屬性。
 
 ### <a name="policy-statement"></a>原則陳述式
 
@@ -423,7 +421,7 @@ ms.locfileid: "65541704"
 
 ### <a name="examples"></a>範例
 
-#### <a name="simple-token-validation"></a>简单的令牌验证
+#### <a name="simple-token-validation"></a>簡單權杖驗證
 
 ```xml
 <validate-jwt header-name="Authorization" require-scheme="Bearer">
@@ -473,7 +471,7 @@ ms.locfileid: "65541704"
 
 #### <a name="authorize-access-to-operations-based-on-token-claims"></a>根據權杖宣告授與作業的存取權
 
-以下示例演示了如何使用[验证 JWT](api-management-access-restriction-policies.md#ValidateJWT) 策略根据令牌声明值授予操作访问权限。
+此範例示範如何使用[驗證 JWT](api-management-access-restriction-policies.md#ValidateJWT)原則來授權存取作業會根據權杖宣告值。
 
 ```xml
 <validate-jwt header-name="Authorization" require-scheme="Bearer" output-token-variable-name="jwt">
@@ -538,17 +536,17 @@ ms.locfileid: "65541704"
 | clock-skew                      | 時間範圍。 用來指定權杖簽發者和 API 管理執行個體的系統時鐘之間最大預期時間差異。                                                                                                                                                                                                                                                                                                               | 無                                                                               | 0 秒                                                                         |
 | failed-validation-error-message | 如果 JWT 未通過驗證，在 HTTP 回應主體中傳回的錯誤訊息。 此訊息必須正確逸出任何特殊字元。                                                                                                                                                                                                                                                                                                 | 無                                                                               | 預設錯誤訊息視驗證問題而定，例如「JWT 不存在」。 |
 | failed-validation-httpcode      | JWT 未通過驗證時所要傳回的 HTTP 狀態碼。                                                                                                                                                                                                                                                                                                                                                                                         | 無                                                                               | 401                                                                               |
-| header-name                     | 保留權杖的 HTTP 標頭名稱。                                                                                                                                                                                                                                                                                                                                                                                                         | 必须指定 `header-name`、`query-parameter-name`、`token-value` 中的一个。 | N/A                                                                               |
-| query-parameter-name            | 保留權杖的查詢參數名稱。                                                                                                                                                                                                                                                                                                                                                                                                     | 必须指定 `header-name`、`query-parameter-name`、`token-value` 中的一个。 | N/A                                                                               |
-| token-value                     | 一个表达式，返回的字符串包含 JWT 令牌                                                                                                                                                                                                                                                                                                                                                                                                     | 必须指定 `header-name`、`query-parameter-name`、`token-value` 中的一个。 | N/A                                                                               |
+| header-name                     | 保留權杖的 HTTP 標頭名稱。                                                                                                                                                                                                                                                                                                                                                                                                         | 其中一個`header-name`，`query-parameter-name`或`token-value`必須指定。 | N/A                                                                               |
+| query-parameter-name            | 保留權杖的查詢參數名稱。                                                                                                                                                                                                                                                                                                                                                                                                     | 其中一個`header-name`，`query-parameter-name`或`token-value`必須指定。 | N/A                                                                               |
+| token-value                     | 運算式會傳回字串，包含 JWT 權杖                                                                                                                                                                                                                                                                                                                                                                                                     | 其中一個`header-name`，`query-parameter-name`或`token-value`必須指定。 | N/A                                                                               |
 | id                              | `key` 元素的 `id` 屬性可讓您指定要與權杖中的 `kid` 宣告 (如果存在) 進行比對的字串，以找出適合用於簽章驗證的金鑰。                                                                                                                                                                                                                                           | 無                                                                               | N/A                                                                               |
 | match                           | `claim` 元素的 `match` 屬性可指定原則中的每個宣告值是否都必須存在於權杖，才能驗證成功。 可能的值包括：<br /><br /> - `all` - 原則中的每個宣告值都必須存在於權杖，才能驗證成功。<br /><br /> - `any` - 至少一個宣告必須存在於權杖，才能驗證成功。                                                       | 無                                                                               | 全部                                                                               |
-| require-expiration-time         | 布尔值。 指定權杖中是否需有逾期宣告。                                                                                                                                                                                                                                                                                                                                                                               | 無                                                                               | true                                                                              |
+| require-expiration-time         | 布林值。 指定權杖中是否需有逾期宣告。                                                                                                                                                                                                                                                                                                                                                                               | 無                                                                               | true                                                                              |
 | require-scheme                  | 權杖結構描述的名稱，例如"Bearer"。 當已設定此屬性時，原則將會確定指定的結構描述存在於授權標頭值中。                                                                                                                                                                                                                                                                                    | 無                                                                               | N/A                                                                               |
 | require-signed-tokens           | 布林值。 指定是否需要簽署權杖。                                                                                                                                                                                                                                                                                                                                                                                           | 無                                                                               | true                                                                              |
 | 分隔符號                       | 字串。 指定用於從多重值宣告中擷取一組值的分隔符號 (例如 ",")。                                                                                                                                                                                                                                                                                                                                          | 無                                                                               | N/A                                                                               |
 | url                             | 可從中取得 Open ID 設定中繼資料的 Open ID 設定端點 URL。 回應應該根據 URL 所定義的規格：`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`。 對於 Azure Active Directory，使用下列 URL：`https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 代替您的目錄租用戶名稱，例如 `contoso.onmicrosoft.com`。 | 有                                                                              | N/A                                                                               |
-output-token-variable-name|字串。 成功进行令牌验证后，将作为 [`Jwt`](api-management-policy-expressions.md) 类型的对象接收令牌值的上下文变量的名称|無|N/A
+output-token-variable-name|字串。 將會收到權杖值的型別物件的內容變數的名稱[ `Jwt` ](api-management-policy-expressions.md)成功的權杖驗證時|無|N/A
 
 ### <a name="usage"></a>使用量
 

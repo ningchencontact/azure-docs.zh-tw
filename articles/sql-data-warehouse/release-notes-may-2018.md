@@ -2,20 +2,20 @@
 title: 2018 年 5 月 Azure SQL 資料倉儲版本資訊 | Microsoft Docs
 description: Azure SQL 資料倉儲的版本資訊。
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 07/23/2018
-ms.author: twounder
-ms.reviewer: twounder
-ms.openlocfilehash: c17cb13bff0ea9eb3b0bb2caf5bb527fa3958428
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: anjangsh
+ms.reviewer: jrasnick
+ms.openlocfilehash: eb933e8085ec956be713a18602b8baff9c87084b
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402695"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912194"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 5 月 
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 5 月導入的新功能和變更。 
@@ -26,7 +26,7 @@ Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 5 月導入的新
 請參閱 Azure Data 公司副總裁 Rohan Kumar 所帶來的[使用 Azure SQL 資料倉儲大幅加速雲端分析](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/)部落格通知。
 
 ## <a name="auto-statistics"></a>自動統計資料
-在現代化的成本型最佳化工具 (例如 SQL 資料倉儲中的引擎) 中，統計資料對於將查詢計劃產生最佳化而言至關緊要。 若能事先知道所有的查詢，就能決定需要建立的統計資料物件。 但是，如果系统面对临时查询和随机查询（对于数据仓库工作负荷很常见），则系统管理员可能很难预测需要创建哪些统计，这可能导致查询执行计划的性能欠佳，并延长查询响应时间。 減輕這個問題的其中一種方式，是在所有資料表的資料行上事先建立統計資料物件。 然而，該程序會帶來負面影響，因為統計資料物件在資料表載入程序期間需要進行維護，而導致載入時間變長。
+在現代化的成本型最佳化工具 (例如 SQL 資料倉儲中的引擎) 中，統計資料對於將查詢計劃產生最佳化而言至關緊要。 若能事先知道所有的查詢，就能決定需要建立的統計資料物件。 不過，當系統面臨臨機操作和系統管理員可能會遭遇通常用於資料倉儲工作負載的隨機查詢，來預測哪些統計資料需要建立導致權限可能次佳的查詢執行計畫和長度查詢回應時間。 減輕這個問題的其中一種方式，是在所有資料表的資料行上事先建立統計資料物件。 然而，該程序會帶來負面影響，因為統計資料物件在資料表載入程序期間需要進行維護，而導致載入時間變長。
 
 SQL 資料倉儲現在支援自動建立統計資料物件，以提供更大彈性、生產力，並讓系統管理員和開發人員更輕鬆使用，同時確保系統持續提供高品質的執行計劃和最佳的回應時間。
 

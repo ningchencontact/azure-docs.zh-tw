@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 355f61d6282c822e18cf4752044c1e1a5cbbc6a0
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: c0591a7850516a419cb59045754cc4eb02979dfd
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560765"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122589"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure Data Lake Storage Gen2 來回複製資料
 
@@ -167,6 +167,9 @@ Azure Data Lake Storage Gen2 連接器支援下列驗證類型，請參閱詳細
 >- 以 **複製資料工具**製作複製管線。
 >- 以 **Data Factory UI** 在製作期間測試連線和瀏覽資料夾。 
 >如果您有在帳戶層級的權限授與需要考量，您可以略過測試連接，並輸入的路徑以手動方式在撰寫期間。 複製活動仍然可以使用，只要受控身分識別時授與適當的權限在檔案複製。
+
+>[!IMPORTANT]
+>如果您使用 PolyBase 載入資料至 SQL DW，當使用 ADLS Gen2 受管理的身分識別驗證的 ADLS Gen2，請確定您也可以設定 SQL DW，正確地將 ADLS Gen2 儲存體的 MSI，請依照下列 #3.b 中的步驟 #1[本指導方針](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)。 如果您的 ADLS Gen2 設定 VNet 服務端點，若要使用 PolyBase 載入資料，您必須使用受控身分識別驗證。
 
 以下是連結服務支援的屬性：
 

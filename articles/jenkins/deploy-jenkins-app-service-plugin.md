@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 58835b66824d55b64b77e34df64d34c8da1c269a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29a842f7dfcf720f29fcff80d2e736893c824f5a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864808"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949549"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>使用 Jenkins 外掛程式來部署到 Azure App Service 
 
@@ -72,7 +72,7 @@ sudo apt-get install -y maven
 
 
 1. 使用 `az appservice plan create` [Azure CLI 命令](/cli/azure/appservice/plan#az-appservice-plan-create)來建立搭配**免費**定價層的 Azure App Service 方案。 App Service 方案會定義用來裝載您應用程式的實體資源。 指派給 App Service 方案的所有應用程式會共用這些資源。 共用資源可協助您在裝載多個應用程式時節省成本。
-2. 建立 Web 應用程式。 您可以使用 [Azure 入口網站](/azure/app-service-web/web-sites-configure) 或下列 `az` Azure CLI 命令：
+2. 建立 Web 應用程式。 您可以使用 [Azure 入口網站](/azure/app-service/configure-common) 或下列 `az` Azure CLI 命令：
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
     ```

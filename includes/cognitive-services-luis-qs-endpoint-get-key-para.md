@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
 ms.openlocfilehash: ef8dae8219eaf1a85a5c112705517b992e25a50f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740675"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124028"
 ---
 預測端點的存取權會與端點金鑰一起提供。 基於本快速入門的目的，請使用與您的 LUIS 帳戶相關聯的免費入門金鑰。 
  

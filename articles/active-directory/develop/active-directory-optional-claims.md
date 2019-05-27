@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 593289e64c0f9cd13251a0f7b47b860158100b36
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8c0e5035331cbe4f54926f0ae60ae0c5c31f6a9a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544571"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119714"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>作法：提供給您的 Azure AD 應用程式的選擇性宣告
 
@@ -125,6 +125,9 @@ ms.locfileid: "65544571"
 ## <a name="configuring-optional-claims"></a>設定選擇性宣告
 
 您可以藉由修改應用程式資訊清單，來為應用程式設定選擇性宣告 (請參閱以下範例)。 如需詳細資訊，請參閱 <<c0> [ 了解 Azure AD 應用程式資訊清單的文件](reference-app-manifest.md)。
+
+> [!IMPORTANT]
+> 存取權杖**一律**使用的資源，而不是用戶端資訊清單產生。  因此在要求`...scope=https://graph.microsoft.com/user.read...`有圖形資源。  因此，會建立存取權杖，使用 Graph 資訊清單，而不是用戶端的資訊清單。  變更您的應用程式的資訊清單絕不會造成圖表看起來不同的語彙基元。  若要驗證您`accessToken`變更均生效，請要求您的應用程式中，不另一個應用程式的權杖。  
 
 **範例結構描述：**
 

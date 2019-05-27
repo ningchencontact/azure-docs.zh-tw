@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/01/2019
+ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561993"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952895"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 訊息傳遞與重試
 
@@ -24,16 +24,18 @@ Event Grid 提供持久的傳遞。 它針對每個訂用帳戶傳遞每則訊�
 
 ## <a name="retry-schedule-and-duration"></a>重試排程和持續時間
 
-Event Grid 針對事件傳遞使用指數輪詢重試原則。 如果端點未回應，或是傳回失敗碼，Event Grid 會重試上盡力在下列排程傳遞：
+Event Grid 會等候 30 秒的回應之後傳遞訊息。 30 秒之後，如果端點未回應，訊息在佇列中等候重試。 Event Grid 針對事件傳遞使用指數輪詢重試原則。 Event Grid 會重試傳遞最佳努力在下列排程：
 
-1. 10 秒
-1. 30 秒
-1. 1 分鐘
-1. 5 分鐘
-1. 10 分鐘
-1. 30 分钟
-1. 1 小時
-1. 每小時，最多 24 小時
+- 10 秒
+- 30 秒
+- 1 分鐘
+- 5 分鐘
+- 10 分鐘
+- 30 分钟
+- 1 小時
+- 每小時，最多 24 小時
+
+如果 3 分鐘內回應的端點，Event Grid 會嘗試將盡力上重試佇列中移除的事件，但可能仍會收到重複的項目。
 
 Event Grid 會將小型隨機加入所有重試步驟，並可能都伺機如果略過特定重試一致狀況不良下, 一長段時間，或端點似乎是難以應付。
 

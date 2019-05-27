@@ -9,12 +9,12 @@ ms.date: 04/12/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7029f07b494630cc1ebe4a2dbfb297e73d85ec5e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ef01cf194ea7a0afea033d2888df946208073e41
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153196"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65874135"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>設定 Azure 儲存體連接字串
 
@@ -35,7 +35,7 @@ ms.locfileid: "65153196"
 
 在組態檔內儲存連接字串，可讓您更容易更新連接字串，藉此在儲存體模擬器和雲端中的 Azure 儲存體帳戶之間切換。 您只需要編輯連接字串以指向您的目標環境。
 
-您可以使用 [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)，在執行階段存取連接字串，而不論應用程式執行所在的地方為何。
+您可以使用 [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)，在執行階段存取連接字串，而不論應用程式執行所在的地方為何。
 
 ## <a name="create-a-connection-string-for-the-storage-emulator"></a>建立儲存體模擬器的連接字串
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
@@ -57,7 +57,7 @@ ms.locfileid: "65153196"
 > 您可以在 [Azure 入口網站](https://portal.azure.com)中找到儲存體帳戶的連接字串。 若要查看這主要和次要存取金鑰的連接字串，請在儲存體帳戶的功能表刀鋒視窗中，瀏覽至 [設定] > [存取金鑰]。
 >
 
-## <a name="create-a-connection-string-using-a-shared-access-signature"></a>使用共享访问签名创建连接字符串
+## <a name="create-a-connection-string-using-a-shared-access-signature"></a>使用共用存取簽章建立連接字串
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ## <a name="create-a-connection-string-for-an-explicit-storage-endpoint"></a>建立明確儲存體端點的連接字串
@@ -107,7 +107,7 @@ AccountKey=<account-key>
 >
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>建立包含端點尾碼的連接字串
-若要建立區域或包含不同端點尾碼的執行個體 (例如 Azure China 或 Azure Government) 中儲存體服務的連接字串，請使用下列連接字串格式。 指出您是否要透過 HTTPS (建議) 或 HTTP 連線至儲存體帳戶、使用您的儲存體帳戶名稱來取代 `myAccountName`、使用您的帳戶存取金鑰來取代 `myAccountKey`，以及使用 URI 尾碼來取代 `mySuffix`：
+若要建立儲存體中的服務區域或包含不同端點尾碼的執行個體的連接字串這類 Azure 中國 21Vianet 或 Azure Government，使用下列連接字串格式。 指出您是否要透過 HTTPS (建議) 或 HTTP 連線至儲存體帳戶、使用您的儲存體帳戶名稱來取代 `myAccountName`、使用您的帳戶存取金鑰來取代 `myAccountKey`，以及使用 URI 尾碼來取代 `mySuffix`：
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -116,7 +116,7 @@ AccountKey=myAccountKey;
 EndpointSuffix=mySuffix;
 ```
 
-以下是 Azure China 中儲存體服務的連接字串範例：
+以下是在 Azure 中國 21Vianet 的儲存體服務的連接字串範例：
 
 ```
 DefaultEndpointsProtocol=https;
@@ -125,11 +125,11 @@ AccountKey=<account-key>;
 EndpointSuffix=core.chinacloudapi.cn;
 ```
 
-## <a name="parsing-a-connection-string"></a>分析连接字符串
+## <a name="parsing-a-connection-string"></a>剖析連接字串
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
 ## <a name="next-steps"></a>後續步驟
 * [使用 Azure 儲存體模擬器進行開發和測試](storage-use-emulator.md)
 * [Azure 儲存體總管](storage-explorers.md)
-* [使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md)
+* [使用共用的存取簽章 (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 

@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 5ac6603be087e887e3304f6a7e14aa063863e1dd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796458"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952147"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>停用的資訊安全中心功能 (第 2019 年 7 月)
 
@@ -162,7 +162,7 @@ Log Analytics 儀表板上的單一工作區顯示深入解析。 不過，原�
 
 Azure 資訊安全中心監視安全性組態所套用的一組[超過 150 個建議規則](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)。 以強化 OS。 這些規則是有關防火牆、 稽核、 密碼原則，以及更多。 如果發現電腦設定有弱點，資訊安全中心會產生安全性建議。 [編輯安全性設定畫面](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config)可讓客戶自訂資訊安全中心在預設 OS 安全性設定。
 
-我們即將退休這項預覽功能。
+我們即將退休這項預覽功能。 如果在淘汰日期之後，您想要重設您的安全性組態，為其預設值，則可以透過 API 或 Powershell 使用[指示](https://aka.ms/ascresetsecurityconfigurations)
 
 ![編輯安全性設定][17]
 

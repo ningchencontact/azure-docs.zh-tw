@@ -15,17 +15,17 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: include file
 ms.openlocfilehash: 8c2dc41fde9387da291b6e4a6c8a6220ae62b514
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59503240"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121676"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>登入使用者並從 JavaScript 單頁應用程式 (SPA) 呼叫 Microsoft 圖形 API
 
 此指南示範 JavaScript 單頁應用程式 (SPA) 如何登入個人公司及學校帳戶，取得存取權杖，以及呼叫 Microsoft 圖形 API 或需要來自 Microsoft 身分識別平台端點之存取權杖的其他 API。
 
-## <a name="how-the-sample-app-generated-by-this-guide-works"></a>此指南產生之範例應用程式的運作方式
+## <a name="how-the-sample-app-generated-by-this-guide-works"></a>本指南產生之範例應用程式的運作方式
 
 ![顯示此教學課程所產生的範例應用程式如何運作](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
@@ -39,7 +39,7 @@ ms.locfileid: "59503240"
 <!--start-collapse-->
 ### <a name="libraries"></a>程式庫
 
-此指南使用下列程式庫：
+本指南使用下列程式庫：
 
 |程式庫|說明|
 |---|---|

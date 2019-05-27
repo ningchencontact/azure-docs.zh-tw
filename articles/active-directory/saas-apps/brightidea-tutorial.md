@@ -16,11 +16,11 @@ ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc45c63d3168a15b4701dcaff7bb531f759d47ad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888701"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900013"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>教學課程：Azure Active Directory 與 Brightidea 整合
 
@@ -116,14 +116,14 @@ ms.locfileid: "57888701"
 
     c. 在成功上傳中繼資料檔案之後，會自動在 [Brightidea] 區段文字方塊中填入 [識別碼] 和 [回覆 URL] 值：
 
-    ![映像](common/idp-intiated.png)
+    ![image](common/idp-intiated.png)
 
     > [!Note]
     > 如果 [識別碼] 和 [回覆 URL] 值未自動填入，則請根據您的需求手動填入這些值。
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![映像](common/metadata-upload-additional-signon.png)
+    ![image](common/metadata-upload-additional-signon.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<SUBDOMAIN>.brightidea.com`
 
@@ -211,7 +211,7 @@ ms.locfileid: "57888701"
 
 2. 在應用程式清單中，選取 [Brightidea]。
 
-    ![應用程式清單中的 [Brightidea] 連結](common/all-applications.png)
+    ![應用程式清單中的 Brightidea 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -229,13 +229,13 @@ ms.locfileid: "57888701"
 
 ### <a name="create-brightidea-test-user"></a>建立 Brightidea 測試使用者
 
-本節會在 Brightidea 中建立名為 Britta Simon 的使用者。 Brightidea 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Brightidea 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Brightidea 中建立名為 Britta Simon 的使用者。 Brightidea 支援預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Brightidea 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Brightidea] 圖格時，應該會自動登入您已設定 SSO 的 Brightidea。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在「存取面板」中按一下 [Brightidea] 圖格時，應該會自動登入您已設定 SSO 的 Brightidea。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

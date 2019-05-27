@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/15/2019
+ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84df04a6d3fbd634524d3819657860c6a3448d65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7317b634ee4c8886ce5c99bb2b3395d7d1f646d5
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499762"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65913870"
 ---
 # <a name="manage-pre-and-post-scripts"></a>管理前置和後置指令碼
 
@@ -30,9 +30,7 @@ ms.locfileid: "60499762"
 
 ![選取指令碼](./media/pre-post-scripts/select-scripts.png)
 
-選取您想要使用的指令碼，在此範例中，您已使用 **UpdateManagement-TurnOnVms** Runbook。 當您選取了 Runbook 後，[設定指令碼] 頁面會隨即開啟，請提供參數的值，然後選擇 [前置指令碼]。 完成時按一下 [確定]。
-
-![設定指令碼](./media/pre-post-scripts/configure-script.png)
+選取您想要使用的指令碼，在此範例中，您已使用 **UpdateManagement-TurnOnVms** Runbook。 當您選取 runbook**設定指令碼**頁面隨即開啟，選擇**前置指令碼**。 完成時按一下 [確定]。
 
 對 **UpdateManagement-TurnOffVms** 指令碼重複此程序。 但是當您選擇 [指令碼類型] 時，請選擇 [後置指令碼]。
 
@@ -87,7 +85,7 @@ foreach($summary in $finalStatus)
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext 屬性
 
-|屬性  |描述  |
+|屬性  |說明  |
 |---------|---------|
 |SoftwareUpdateConfigurationName     | 軟體更新設定的名稱        |
 |SoftwareUpdateConfigurationRunId     | 執行的唯一識別碼。        |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 8bdd5764bf2fc08890375adcdedbc5387b1a9534
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 9b899bcae473edfccbf587baece27089fc001ff4
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209591"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921824"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>連接您的 Palo Alto 網路應用裝置
 
@@ -113,16 +113,50 @@ ms.locfileid: "65209591"
  
   ![CEF 文字複製問題](./media/connect-cef/paloalto-text-prob1.png)
 
+6. 若要使用 Log Analytics 中的 Palo Alto 網路事件相關的結構描述，搜尋**CommonSecurityLog**。
+
 ## <a name="step-3-validate-connectivity"></a>步驟 3：驗證連線能力
 
 可能需要多達 20 分鐘，直到您的記錄檔開始出現在 Log Analytics 中。 
 
-1. 請確定您的記錄檔會進入 Syslog 代理程式中的正確連接埠。 Syslog 代理程式電腦執行下列命令：`tcpdump -A -ni any  port 514 -vv` 此命令會顯示從裝置到 Syslog 機器資料流處理的記錄檔。請確定記錄檔會收到來源應用裝置上的右側連接埠和正確的設備。
-2. 檢查 Syslog 服務精靈與代理程式之間的通訊。 Syslog 代理程式電腦執行下列命令：`tcpdump -A -ni any  port 25226 -vv` 此命令會顯示從裝置到 Syslog 機器資料流處理的記錄檔。請確定記錄檔，也在代理程式上接收。
-3. 如果這兩個這些命令提供成功的結果，請檢查以查看您的記錄檔會同時抵達的 Log Analytics。 從這些設備串流處理的所有事件會都出現在 Log Analytics 中的未經處理格式`CommonSecurityLog`型別。
-1. 若要檢查如果發生錯誤，或記錄檔未抵達，請查看 `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
-4. 請確定您 Syslog 訊息的預設大小限制為 2048 個位元組 (2 KB)。 如果記錄檔太長，更新 security_events.conf 使用下列命令： `message_length_limit 4096`
-6. 若要使用 Log Analytics 中的 Palo Alto 網路事件相關的結構描述，搜尋**CommonSecurityLog**。
+1. 請確定您使用正確的設備。 此設備必須在您的應用裝置和 Azure Sentinel 相同。 您可以檢查您正在使用中 Azure Sentinel，修改檔案中的功能檔案`security-config-omsagent.conf`。 
+
+2. 請確定您的記錄檔會進入 Syslog 代理程式中的正確連接埠。 Syslog 代理程式電腦上執行此命令：`tcpdump -A -ni any  port 514 -vv` 此命令會顯示從裝置到 Syslog 機器資料流處理的記錄檔。請確定記錄檔會收到來源應用裝置上的右側連接埠和正確的設備。
+
+3. 請確定您所傳送的記錄檔遵守[RFC 5424](https://tools.ietf.org/html/rfc542)。
+
+4. 在電腦上執行 Syslog 代理程式，請確定這些連接埠 514、 25226 會開啟並在接聽，使用命令`netstat -a -n:`。 如需使用此命令的詳細資訊，請參閱[netstat(8)-Linux man 頁面](https://linux.die.netman/8/netstat)。 如果它正在接聽正確，您會看到這個：
+
+   ![Azure 的 Sentinel 連接埠](./media/connect-cef/ports.png) 
+
+5. 請確定將精靈設定為接聽連接埠 514，在其上，您要傳送記錄檔。
+    - Rsyslog:<br>請確定檔案`/etc/rsyslog.conf`包含這項設定：
+
+           # provides UDP syslog reception
+           module(load="imudp")
+           input(type="imudp" port="514")
+        
+           # provides TCP syslog reception
+           module(load="imtcp")
+           input(type="imtcp" port="514")
+
+      如需詳細資訊，請參閱[imudp:UDP Syslog 輸入模組](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module)和[imtcp:TCP Syslog 輸入模組](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module)
+
+   - 為 syslog-ng:<br>請確定檔案`/etc/syslog-ng/syslog-ng.conf`包含這項設定：
+
+           # source s_network {
+            network( transport(UDP) port(514));
+             };
+     如需詳細資訊，請參閱 [imudp:UDP Syslog 輸入模組] (如需詳細資訊，請參閱[syslog ng 開放來源版本 3.16-系統管理指南](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455)。
+
+1. 檢查 Syslog 服務精靈與代理程式之間的通訊。 Syslog 代理程式電腦上執行此命令：`tcpdump -A -ni any  port 25226 -vv` 此命令會顯示從裝置到 Syslog 機器資料流處理的記錄檔。請確定記錄檔，也在代理程式上接收。
+
+6. 如果這兩個這些命令提供成功的結果，請檢查以查看您的記錄檔會同時抵達的 Log Analytics。 從這些設備串流處理的所有事件會都出現在 Log Analytics 中的未經處理格式`CommonSecurityLog`型別。
+
+7. 檢查是否有錯誤，或如果未到達記錄檔，查看`tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`。 如果它顯示有記錄檔格式不符的錯誤，請移至`/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"`並查看檔案`security_events.conf`並確定您的記錄符合 regex 格式，您會看到此檔案中。
+
+8. 請確定您 Syslog 訊息的預設大小限制為 2048 個位元組 (2 KB)。 如果記錄檔太長，更新 security_events.conf 使用下列命令： `message_length_limit 4096`
+
 
 
 

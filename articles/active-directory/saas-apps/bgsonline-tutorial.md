@@ -16,11 +16,11 @@ ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3da6277d2e816960f3db8964fd8b849c7d2a497c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57876930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65858745"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bgs-online"></a>教學課程：Azure Active Directory 與 BGS Online 整合
 
@@ -36,7 +36,7 @@ ms.locfileid: "57876930"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 BGS Online 的整合，您需要下列項目：
+若要設定 Azure AD 與 BGS Online 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 BGS Online 單一登入的訂用帳戶
@@ -103,7 +103,7 @@ ms.locfileid: "57876930"
 
 4. 在 [以 SAML 設定單一登入] 頁面上，執行下列步驟：
 
-    ![BGS Online 網域及 URL 單一登入資訊](common/idp-intiated.png)
+    ![BGS Online 網域和 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
 
@@ -173,7 +173,7 @@ ms.locfileid: "57876930"
 
 2. 在應用程式清單中，選取 [BGS Online]。
 
-    ![應用程式清單中的 [BGS Online] 連結](common/all-applications.png)
+    ![應用程式清單中的 BGS Online 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -191,7 +191,7 @@ ms.locfileid: "57876930"
 
 ### <a name="create-bgs-online-test-user"></a>建立 BGS Online 測試使用者
 
-在本節中，您會在 BGS Online 中建立名為 Britta Simon 的使用者。 請與 [BGS Online 支援小組](mailto:bgsdashboardteam@millwardbrown.com)合作，在 BGS Online 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 BGS Online 中建立名為 Britta Simon 的使用者。 請與  [BGS Online 支援小組](mailto:bgsdashboardteam@millwardbrown.com)合作，在 BGS Online 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

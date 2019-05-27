@@ -16,11 +16,11 @@ ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: af9d475c4be2adae360d77b3effc758684d60175
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57846696"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898861"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-efi-digital-storefront"></a>教學課程：Azure Active Directory 與 EFI Digital StoreFront 整合
 
@@ -36,7 +36,7 @@ ms.locfileid: "57846696"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 EFI Digital StoreFront 的整合，您需要下列項目：
+若要設定 Azure AD 與 EFI Digital StoreFront 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 EFI Digital StoreFront 單一登入的訂用帳戶
@@ -103,7 +103,7 @@ ms.locfileid: "57846696"
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![EFI Digital StoreFront 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![EFI Digital StoreFront 網域和 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.myprintdesk.net/DSF`
 
@@ -165,7 +165,7 @@ ms.locfileid: "57846696"
 
 2. 在應用程式清單中，選取 [EFI Digital StoreFront]。
 
-    ![應用程式清單中的 [EFI Digital StoreFront] 連結](common/all-applications.png)
+    ![應用程式清單中的 EFI Digital StoreFront 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

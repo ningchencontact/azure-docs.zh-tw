@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 0ddc235064d99e9d6385ab48e78f893952eefa15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7e3b1496890a4b97fc435b49ab9bf282134d1a6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61254193"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65910826"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,7 @@ ms.locfileid: "61254193"
 
 ## <a name="walkthrough-create-a-custom-activity"></a>逐步解說：建立自訂活動
 ### <a name="prerequisites"></a>必要條件
-* Visual Studio 2012/2013/2015
+* Visual Studio 2012/2013/2015/2017
 * 下載並安裝 [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Azure Batch 的必要條件
@@ -100,10 +100,10 @@ public IDictionary<string, string> Execute(
 ### <a name="procedure"></a>程序
 1. 建立 **.NET 類別庫** 專案。
    <ol type="a">
-     <li>啟動 <b>Visual Studio 2017</b> 或 <b>Visual Studio 2015</b> 或 <b>Visual Studio 2013</b> 或 <b>Visual Studio 2012</b>。</li>
+     <li>啟動 Visual Studio。</li>
      <li>按一下 [檔案]<b></b>，指向 [新增]<b></b>，然後按一下 [專案]<b></b>。</li>
      <li>展開 [範本]<b></b>，然後選取 [Visual C#]<b></b>。 在此逐步解說中，您使用 C# 中，但您可以使用任何 .NET 語言來開發自訂活動。</li>
-     <li>從右邊的專案類型清單中選取 [類別庫]<b></b>。 在 VS 2017 中，選擇 <b>類別庫 (.NET Framework)</b> </li>
+     <li>從右邊的專案類型清單中選取 [類別庫]<b></b>。 在 Visual Studio 中，選擇<b>類別庫 (.NET Framework)</b> </li>
      <li>針對 [名稱]<b></b> 輸入 <b>MyDotNetActivity</b>。</li>
      <li>在 [位置]<b></b> 選取 <b>C:\ADFGetStarted</b>。</li>
      <li>按一下 [確定] <b></b> 以建立專案。</li>

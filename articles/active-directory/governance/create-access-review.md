@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 804efa6e0a39e009e18bbb9dec5ad1638a163597
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6bafa4614e40bb1796ec90e07ecf5b9286a8acb9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60247230"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113436"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>建立群組的存取權檢閱，或在 Azure AD 中的應用程式存取權檢閱
 
@@ -30,8 +30,11 @@ ms.locfileid: "60247230"
 
 ## <a name="prerequisites"></a>必要條件
 
+- Azure AD Premium P2
 - [存取權檢閱已啟用](access-reviews-overview.md)
 - 全域管理員或使用者管理員
+
+如需詳細資訊，請參閱 <<c0> [ 哪些使用者必須有授權？](access-reviews-overview.md#which-users-must-have-licenses)。
 
 ## <a name="create-one-or-more-access-reviews"></a>建立一或多個存取權檢閱
 
@@ -77,11 +80,15 @@ ms.locfileid: "60247230"
 
     ![建立存取權檢閱 - 檢閱者](./media/create-access-review/reviewers.png)
 
-1. 在 [程式] 區段中，選取您要使用的程式。 您可以將追蹤和收集不同用途的存取權檢閱簡化，方法是將它們組織到程式中。 一律會出現一個「預設程式」程式，您也可以建立不同的程式。 比方說，您可以針對每個合規性方案或業務目標建立一個程式。
+1. 在 [程式] 區段中，選取您要使用的程式。 一律會出現一個「預設程式」。
 
     ![建立存取權檢閱 - 程式](./media/create-access-review/programs.png)
 
-### <a name="upon-completion-settings"></a>完成時的設定
+    您可以將追蹤和收集不同用途的存取權檢閱簡化，方法是將它們組織到程式中。 每個存取權檢閱可連結至一個程式。 然後當您為稽核員準備報告時，您可以著重於特定方案範圍內的存取權檢閱。 程式和存取權檢閱結果會顯示給全域管理員、 使用者管理員、 安全性系統管理員或安全性讀取者角色中的使用者。
+
+    若要查看程式清單，請移至存取權檢閱頁面並選取**程式**。 如果您是全域管理員或使用者系統管理員角色中，您可以建立其他程式。 比方說，您可以針對每個合規性方案或業務目標建立一個程式。 如果您不再需要某個程式，且該程式未連結任何控制項，就可以將程式刪除。
+
+### <a name="upon-completion-settings"></a>當設定完成時
 
 1. 若要指定檢閱完成後所應執行的動作，請展開 [完成時的設定] 區段。
 
@@ -110,6 +117,8 @@ ms.locfileid: "60247230"
 
 1. 將 [提醒] 設為 [啟用]，會讓 Azure AD 對尚未完成其檢閱的檢閱者傳送存取權檢閱正在進行中的提醒。
 
+    依預設，Azure AD 會在結束日期過半時自動將提醒傳送給尚未回應的檢閱者。
+
 ## <a name="start-the-access-review"></a>開始存取權檢閱
 
 在指定存取權檢閱的設定後，請按一下 [啟動]。 存取權檢閱會出現在您的清單，其中包含其狀態的指標。
@@ -118,19 +127,7 @@ ms.locfileid: "60247230"
 
 依預設，Azure AD 會在檢閱開始不久後傳送電子郵件給檢閱者。 如果您選擇不讓 Azure AD 傳送電子郵件，請務必通知檢閱者有存取權檢閱等待他們完成。 您可以提供他們如何指示[檢閱存取權的群組或應用程式](perform-access-review.md)。 如果您允許來賓檢閱自己的存取權的可顯示它們如何指示[自行檢閱存取權，來群組或應用程式](review-your-access.md)。
 
-若有部分檢閱者是來賓，則只會透過電子郵件通知已接受邀請的來賓。
-
-## <a name="manage-the-access-review"></a>管理存取權檢閱
-
-當檢閱者完成其檢閱，您可以追蹤進度**概觀**的存取權檢閱 頁面。 在[完成檢閱](complete-access-review.md)之前，不會變更目錄中的任何存取權限。
-
-![存取權檢閱進度](./media/create-access-review/overview-progress.png)
-
-如果這是一次性的檢閱，然後存取權檢閱期間結束後或系統管理員停止存取權檢閱之後, 請依照下列中的步驟[完成群組或應用程式的存取權檢閱](complete-access-review.md)來查看並套用結果。  
-
-若要管理一系列的存取權檢閱，瀏覽至 [存取權檢閱，和您將即將推出的項目中尋找已排程檢閱和編輯的結束日期] 或新增/移除檢閱者據以。
-
-根據您的選取項目，在**當設定完成時**，將會自動套用檢閱的結束日期，或當您以手動方式停止檢閱之後執行。 檢閱的狀態將會變更**已完成**歷經中繼狀態，例如**套用**最後狀態**套用**。 您應該會看到遭到拒絕的使用者 (若有的話)，在幾分鐘內從群組成員資格或應用程式指派中移除。
+如果您已指派為檢閱者的客體，而且他們未接受邀請，它們不會收到一封電子郵件的存取權檢閱因為它們必須先接受邀請之前檢閱。
 
 ## <a name="create-reviews-via-apis"></a>透過 API 建立檢閱
 

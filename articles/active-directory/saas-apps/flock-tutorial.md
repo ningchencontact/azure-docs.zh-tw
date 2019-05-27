@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 93ac6009e593fa5eaefd14b09ce8eecd513688e5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864842"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898554"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>教學課程：Azure Active Directory 與 Flock 整合
 
@@ -35,7 +35,7 @@ Flock 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Flock 的整合，您需要下列項目：
+若要設定 Azure AD 與 Flock 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Flock 單一登入的訂用帳戶
@@ -73,7 +73,7 @@ Flock 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Flock 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Flock 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Flock 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 Flock 來設定和測試 Azure AD 單一登入，您需要完成下列基本工作：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Flock 單一登入](#configure-flock-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -172,7 +172,7 @@ Flock 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 Flock 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會將 Flock 的存取權授與 Britta Simon，使其能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Flock]。
 
@@ -180,7 +180,7 @@ Flock 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Flock]。
 
-    ![應用程式清單中的 [Flock] 連結](common/all-applications.png)
+    ![應用程式清單中的 Flock 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

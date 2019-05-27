@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 09ab4cd44515d90df0e36e2775f50ac33955fe75
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: f54cea75e6f7866f1be41d3b0f82393af2235a0a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466266"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949883"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>快速入門：建立 Azure SQL Database 受控執行個體
 
@@ -28,7 +28,9 @@ ms.locfileid: "65466266"
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
-登入 [Azure 入口網站](https://portal.azure.com/)。 
+如果您沒有 Azure 訂用帳戶，請[建立免費帳戶](https://azure.microsoft.com/free/)。
+
+登入 [Azure 入口網站](https://portal.azure.com/)。
 
 ## <a name="create-a-managed-instance"></a>建立受控執行個體
 

@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 904b9b8ba98be5e14b1d769a0e1d8c2d6084e24d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477282"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951166"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure 儲存體效能與延展性檢查清單
 ## <a name="overview"></a>概觀
 在推出 Microsoft Azure 儲存體服務後，Microsoft 針對以具效能方式使用這些服務方面，開發許多經實證的做法，本文的目的在於將最重要的做法整合成檢查清單樣式的清單。 本文旨在協助應用程式開發人員驗證他們在 Azure 儲存體上使用的做法是否已經實證，並協助他們識別應該考慮採用的其他已經實證做法。 本文並不嘗試包含每個可能的效能與延展性最佳化做法 — 它會將影響不大或無法廣泛適用的做法排除。 對於設計過程中可預測的應用程式行為，一開始便謹記這些行為將可避免設計遇到效能問題。  
 
-每位使用 Azure 儲存體的應用程式開發人員都應該花一點時間閱讀本文，並檢查他或她的應用程式是否遵循以下所列的每個已經實證做法。  
+使用 Azure 儲存體的每個應用程式開發人員應該花時間閱讀這篇文章中，並檢查其應用程式遵循每個下面所列的已經實證做法。  
 
-## <a name="checklist"></a>清单
+## <a name="checklist"></a>檢查清單
 本文將已經實證做法分成下列幾類。 已經實證做法的適用對象：  
 
 * 所有 Azure 儲存體服務 (Blob、資料表、佇列和檔案)
@@ -29,7 +29,7 @@ ms.locfileid: "61477282"
 * 資料表
 * 佇列  
 
-| 完成 | 領域 | Category | 问题 |
+| 完成 | 領域 | Category | 問題 |
 | --- | --- | --- | --- |
 | &nbsp; | 所有服務 |延展性目標 |[您的應用程式是否旨在避免達到延展性目標？](#subheading1) |
 | &nbsp; | 所有服務 |延展性目標 |[您的命名慣例設計能因應更好的負載平衡嗎？](#subheading47) |
@@ -41,19 +41,19 @@ ms.locfileid: "61477282"
 | &nbsp; | 所有服務 |快取 |[您的應用程式是否會針對重複使用和極少變更的資料進行快取？](#subheading7) |
 | &nbsp; | 所有服務 |快取 |[您的應用程式是否會批次執行更新 (在用戶端快取更新，然後以大型集合的方式上傳)？](#subheading8) |
 | &nbsp; | 所有服務 |.NET 組態 |[您是否已設定用戶端使用足夠數量的並行連線？](#subheading9) |
-| &nbsp; | 所有服务 |.NET 組態 |[您是否已設定 .NET 使用足夠數量的執行緒？](#subheading10) |
-| &nbsp; | 所有服務 |.NET 配置 |[您使用的是已改善記憶體回收的 .NET 4.5 或更新版本嗎？](#subheading11) |
+| &nbsp; | 所有服務 |.NET 組態 |[您是否已設定 .NET 使用足夠數量的執行緒？](#subheading10) |
+| &nbsp; | 所有服務 |.NET 組態 |[您使用的是已改善記憶體回收的 .NET 4.5 或更新版本嗎？](#subheading11) |
 | &nbsp; | 所有服務 |平行處理原則 |[您是否已確保平行處理原則已適當地受到限制，因此您的用戶端功能或延展性目標不會超載？](#subheading12) |
 | &nbsp; | 所有服務 |工具 |[您是否使用 Microsoft 所提供的最新用戶端程式庫和工具版本？](#subheading13) |
-| &nbsp; | 所有服務 |重試 |[您是否針對節流錯誤和逾時使用指數輪詢重試原則？](#subheading14) |
+| &nbsp; | 所有服務 |重試次數 |[您是否針對節流錯誤和逾時使用指數輪詢重試原則？](#subheading14) |
 | &nbsp; | 所有服務 |重試 |[您的應用程式是否避免重試不能再嘗試的錯誤？](#subheading15) |
 | &nbsp; | Blob |延展性目標 |[您是嘔有大量的用戶端並行存取單一物件？](#subheading46) |
 | &nbsp; | Blob |延展性目標 |[您的應用程式是否不超過單一 Blob 的頻寬或操作延展性目標？](#subheading16) |
-| &nbsp; | Blob |复制 Blob |[您是否以有效的方式複製 Blob？](#subheading17) |
+| &nbsp; | Blob |複製 Blob |[您是否以有效的方式複製 Blob？](#subheading17) |
 | &nbsp; | Blob |複製 Blob |[您是否使用 AzCopy 進行 Blob 的大量複製？](#subheading18) |
 | &nbsp; | Blob |複製 Blob |[您是否使用 Azure 匯入/匯出來傳輸大量的資料？](#subheading19) |
 | &nbsp; | Blob |使用中繼資料 |[您是否將 Blob 相關的常用中繼資料儲存在它的中繼資料內？](#subheading20) |
-| &nbsp; | Blob |快速上传 |[嘗試快速上傳一個 Blob 時，您是否平行上傳區塊？](#subheading21) |
+| &nbsp; | Blob |快速上傳 |[嘗試快速上傳一個 Blob 時，您是否平行上傳區塊？](#subheading21) |
 | &nbsp; | Blob |快速上傳 |[嘗試快速上傳多個 Blob 時，您是否平行上傳 Blob？](#subheading22) |
 | &nbsp; | Blob |正確的 Blob 類型 |[您是否在適當的時機使用分頁 Blob 或區塊 Blob？](#subheading23) |
 | &nbsp; | 資料表 |延展性目標 |[您的每秒實體數是否逐漸達到延展性目標？](#subheading24) |
@@ -71,12 +71,12 @@ ms.locfileid: "61477282"
 | &nbsp; | 資料表 |插入/更新/刪除 |[您是否避免擷取實體，以避免判斷是要呼叫插入或更新？](#subheading36) |
 | &nbsp; | 資料表 |插入/更新/刪除 |[您是否考慮將經常會被一起擷取的一系列資料，以屬性的方式儲存在單一實體中 (而非儲存在多個實體中)？](#subheading37) |
 | &nbsp; | 資料表 |插入/更新/刪除 |[針對總是會被一起擷取並可以批次執行方式寫入的實體 (例如時間序列資料)，您是否考慮使用 Blob (而非資料表)？](#subheading38) |
-| &nbsp; | 佇列 |可伸缩性目标 |[您的每秒訊息數是否逐漸達到延展性目標？](#subheading39) |
-| &nbsp; | 佇列 |配置 |[您是否已關閉 Nagle 以提高小型要求的效能？](#subheading40) |
+| &nbsp; | 佇列 |延展性目標 |[您的每秒訊息數是否逐漸達到延展性目標？](#subheading39) |
+| &nbsp; | 佇列 |組態 |[您是否已關閉 Nagle 以提高小型要求的效能？](#subheading40) |
 | &nbsp; | 佇列 |訊息大小 |[您的訊息是否精簡以提高佇列效能？](#subheading41) |
 | &nbsp; | 佇列 |大量擷取 |[您是否在單一 "Get" 操作中擷取多則訊息？](#subheading42) |
 | &nbsp; | 佇列 |輪詢頻率 |[您是否夠常輪詢以降低可察覺的應用程式延遲？](#subheading43) |
-| &nbsp; | 佇列 |更新消息 |[您是否使用 UpdateMessage 來儲存處理訊息時的進度，避免在出現錯誤時需要重新處理整個訊息？](#subheading44) |
+| &nbsp; | 佇列 |更新訊息 |[您是否使用 UpdateMessage 來儲存處理訊息時的進度，避免在出現錯誤時需要重新處理整個訊息？](#subheading44) |
 | &nbsp; | 佇列 |架構 |[您是否透過將長時間執行的工作負載排除在重要路徑外，然後再個別進行調整的方式，使用佇列來讓您的整個應用程式更有彈性？](#subheading45) |
 
 ## <a name="allservices"></a>所有服務
@@ -208,7 +208,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 ### <a name="subheading13"></a>儲存體用戶端程式庫和工具
 一律使用 Microsoft 所提供的最新版用戶端程式庫和工具。 本文撰寫期間，有適用於 .NET、Windows Phone、Windows Runtime、Java 和 C++ 的用戶端程式庫，以及其他語言的預覽程式庫。 此外，Microsoft 也推出 PowerShell Cmdlet 和 Azure CLI 命令，可與 Azure 儲存體搭配使用。 Microsoft 主動開發根據效能考量的這些工具，透過最新的服務版本將他們保持在最新的狀態，並確保這些工具會在內部處理許多已經實證的效能做法。  
 
-### <a name="retries"></a>重試
+### <a name="retries"></a>重試次數
 #### <a name="subheading14"></a>節流/ServerBusy
 在某些情況下，儲存體服務可節流應用程式，或因某些暫時性狀況而無法服務要求，並傳回「503 伺服器忙碌」訊息或「500 逾時」。  如果您的應用程式即將達到其中任何一個延展性目標，或如果系統重新平衡分割資料以允許較高輸送量，則有可能會發生這個問題。  用戶端應用程式通常應重試會造成這類錯誤的作業：稍後嘗試相同的要求即可成功。 不過，如果儲存體服務因為您的應用程式超出延展性目標而進行節流，或即使服務因為一些其他原因而無法服務要求，則積極重試的結果通常會使問題雪上加霜。 基於這個原因，您應使用指數輪詢 (用戶端程式庫預設為此行為)。 例如，您的應用程式可能會在 2 秒後進行重試、然後 4 秒、然後 10 秒、然後 30 秒，最後會完全放棄。 此行為會大幅降低您的應用程式在服務上的負荷，而不會使任何問題惡化。  
 
@@ -410,4 +410,4 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。 在指定使用
 * 您可以使用佇列來脫離應用程式的零件，以便您可以個別進行調整。 例如，Web 前端可以將使用者的調查結果放到佇列中，以供日後分析與儲存。 您可以加入更多的背景工作角色執行個體，以視需要處理佇列資料。  
 
 ## <a name="conclusion"></a>結論
-本文討論一些最常見的已經實證做法，以便在使用 Azure 儲存體時將效能最佳化。 我们建议每一位应用程序开发人员对照以上每条做法，对自己的应用程序进行评估，并考虑按照建议要求进行操作，以便优化使用 Azure 存储的应用程序的性能。
+本文討論一些最常見的已經實證做法，以便在使用 Azure 儲存體時將效能最佳化。 我們鼓勵每位應用程式開發人員根據上述的每個做法來評估他們的應用程式，並考慮照著建議去做，為其使用 Azure 儲存體的應用程式取得最佳效能。

@@ -16,11 +16,11 @@ ms.date: 12/11/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae59e6820214d1f3291f4d95a0bc7094f8b488d7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856068"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904687"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>教學課程：Azure Active Directory 與 Palo Alto 網路 - GlobalProtect 整合
 
@@ -36,7 +36,7 @@ ms.locfileid: "57856068"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Palo Alto Networks - GlobalProtect 的整合，您需要下列項目：
+若要設定 Azure AD 與 Palo Alto 網路 - GlobalProtect 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Palo Alto 網路 - GlobalProtect 單一登入的訂用帳戶
@@ -45,7 +45,7 @@ ms.locfileid: "57856068"
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Palo Alto 網路 - GlobalProtect 支援由 **SP** 起始的 SSO
+* Palo Alto 網路 - GlobalProtect 支援 **SP** 起始的 SSO
 * Palo Alto 網路 - GlobalProtect 支援 **Just In Time** 使用者佈建
 
 ## <a name="adding-palo-alto-networks---globalprotect-from-the-gallery"></a>從資源庫新增 Palo Alto 網路 - GlobalProtect
@@ -72,10 +72,10 @@ ms.locfileid: "57856068"
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Palo Alto Networks - GlobalProtect 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，使用 Palo Alto 網路 - GlobalProtect 設定及測試 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Palo Alto 網路 - GlobalProtect 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Palo Alto Networks - GlobalProtect 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 Palo Alto 網路 - GlobalProtect 來設定及測試 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Palo Alto 網路 - GlobalProtect 單一登入](#configure-palo-alto-networks---globalprotect-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -88,7 +88,7 @@ ms.locfileid: "57856068"
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 Palo Alto Networks - GlobalProtect 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要使用 Palo Alto 網路 - GlobalProtect 來設定 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 **Palo Alto 網路 - GlobalProtect** 應用程式整合頁面上，按一下 [單一登入]。
 
@@ -104,7 +104,7 @@ ms.locfileid: "57856068"
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Palo Alto Networks - GlobalProtect 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![Palo Alto 網路 - GlobalProtect 網域和 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<Customer Firewall URL>`
 
@@ -176,7 +176,7 @@ ms.locfileid: "57856068"
 
     b. 在 [Identity Provider Metadata] \(識別提供者中繼資料\) 中，按一下 [Browse] \(瀏覽\)，然後選取您從 Azure 入口網站下載的中繼資料 .xml 檔案
 
-    c. 按一下 [確定]
+    c. 按一下 [檔案] &gt; [新增] &gt; [專案] 
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -205,7 +205,7 @@ ms.locfileid: "57856068"
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 Palo Alto Networks - GlobalProtect 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會把 Palo Alto 網路 - GlobalProtect 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Palo Alto 網路 - GlobalProtect]。
 
@@ -213,7 +213,7 @@ ms.locfileid: "57856068"
 
 2. 在應用程式清單中，輸入並選取 [Palo Alto 網路 - GlobalProtect]。
 
-    ![應用程式清單中的 [Palo Alto Networks - GlobalProtect] 連結](common/all-applications.png)
+    ![應用程式清單中的 Palo Alto 網路 - GlobalProtect 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -231,13 +231,13 @@ ms.locfileid: "57856068"
 
 ### <a name="create-palo-alto-networks---globalprotect-test-user"></a>建立 Palo Alto 網路 - GlobalProtect 測試使用者
 
-本節會在 Palo Alto 網路 - GlobalProtect 中建立名為 Britta Simon 的使用者。 Palo Alto 網路 - GlobalProtect 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Palo Alto 網路 - GlobalProtect 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Palo Alto 網路 - GlobalProtect 中建立名為 Britta Simon 的使用者。 Palo Alto 網路 - GlobalProtect 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Palo Alto 網路 - GlobalProtect 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Palo Alto Networks - GlobalProtect] 圖格時，應該會自動登入您已設定 SSO 的 Palo Alto Networks - GlobalProtect。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Palo Alto 網路 - GlobalProtect ] 圖格時，系統應該會將您自動登入您設定了 SSO 的 Palo Alto 網路 - GlobalProtect。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

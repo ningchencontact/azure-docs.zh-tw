@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 75b86ea028a500b6b358c468a1d10a830db01b6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b1872699b8b3ac72424f00cd74bb90b8b7be87f
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354865"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873165"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>透過入口網站和 .NET 裝置開始使用 IoT 中樞模組身分識別和模組對應項
 
@@ -34,7 +34,7 @@ ms.locfileid: "60354865"
 
 若要完成此教學課程，您需要下列項目：
 
-* Visual Studio 2015 或 Visual Studio 2017。
+* Visual Studio。
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞

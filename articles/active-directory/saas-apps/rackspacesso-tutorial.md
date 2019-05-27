@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.openlocfilehash: fd420ea3fc4faae7fe4510a72204d71acaa3549a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009919"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65890757"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>教學課程：Azure Active Directory 與 Rackspace SSO 整合
 

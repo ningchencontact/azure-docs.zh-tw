@@ -8,11 +8,11 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: fa9b970ee9319af061ceab99844b0497253881ad
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286613"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66117946"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms-previous-release"></a>啟用適用於 Windows IaaS VM 的 Azure 磁碟加密 (舊版)
 
@@ -52,7 +52,7 @@ ms.locfileid: "58286613"
      -  選取 VM，然後按一下 [設定] 標題之下的 [磁碟]，以在入口網站中驗證加密狀態。 在圖中的 [加密] 之下，您會看到它是否已啟用。 
            ![Azure 入口網站 - 已啟用磁碟加密](./media/azure-security-disk-encryption/disk-encryption-fig2.png) 針對透過 Marketplace 案例使用 Azure AD 用戶端識別碼的新 VM，以下資料表列出其 Resource Manager 範本參數︰
 
-| 參數 | 描述 | 
+| 參數 | 說明 | 
 | --- | --- |
 | adminUserName | 虛擬機器的系統管理使用者名稱。 |
 | adminPassword | 虛擬機器的系統管理使用者密碼。 |
@@ -170,11 +170,11 @@ ms.locfileid: "58286613"
 
 針對使用 Azure AD 用戶端識別碼的現有或執行中 VM，以下資料表列出其 Resource Manager 範本參數︰
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | AADClientID | 具有權限可將密碼寫入金鑰保存庫之 Azure AD 應用程式的用戶端識別碼。 |
 | AADClientSecret | 具有權限可將密碼寫入金鑰保存庫之 Azure AD 應用程式的用戶端密碼。 |
-| KeyVaultName | 應上傳 BitLocker 金鑰的金鑰保存庫名稱。 您可以使用 Cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` 或 Azure CLI 命令 `az keyvault list --resource-group "MySecureGroup"` 來取得|
+| keyVaultName | 應上傳 BitLocker 金鑰的金鑰保存庫名稱。 您可以使用 Cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` 或 Azure CLI 命令 `az keyvault list --resource-group "MySecureGroup"` 來取得|
 |  keyEncryptionKeyURL | 用來加密所產生 BitLocker 金鑰的金鑰加密金鑰 URL。 如果您在 UseExistingKek 下拉式清單中選取 [nokek]，此參數是選擇性的。 如果您在 UseExistingKek 下拉式清單中選取 [kek]，您必須輸入 _keyEncryptionKeyURL_ 值。 |
 | volumeType | 執行加密作業所在磁碟區的類型。 有效值為 _OS_、_Data_ 和 _All_。 |
 | sequenceVersion | BitLocker 作業的順序版本。 每當在相同的 VM 上執行磁碟加密作業時便遞增此版本號碼。 |

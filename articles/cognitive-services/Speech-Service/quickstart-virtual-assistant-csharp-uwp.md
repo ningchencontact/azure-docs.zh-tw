@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: e2b25875a0dff12bba32b033bca0c35394d407aa
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: e03cc45c5868f90dd1c2da0d7b4890fbf72c9899
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465634"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954796"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>快速入門：使用語音 SDK、UWP 建立語音優先虛擬助理
 
@@ -353,7 +353,6 @@ ms.locfileid: "65465634"
     ![權限要求的螢幕擷取畫面](media/sdk/qs-csharp-uwp-10-access-prompt.png "啟動應用程式進入偵錯模式")
 
 1. 選取 [與您的 Bot 交談]，然後對裝置的麥克風說出英文片語或句子。 您的語音會傳送到 Direct Line Speech 頻道並轉譯為文字，該文字會出現在視窗中。
-quickstart-cs-uwp-bot-successful-turn
 
     ![成功 Bot 回合的螢幕擷取畫面](media/voice-first-virtual-assistants/quickstart-cs-uwp-bot-successful-turn.png "成功 Bot 回合")
 

@@ -15,11 +15,11 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: c2769282a2e9afda22d2e03c653b0f62b05b98bc
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550358"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121576"
 ---
 本文章之前，您應該先熟悉下列概念，或閱讀下列文章：
 

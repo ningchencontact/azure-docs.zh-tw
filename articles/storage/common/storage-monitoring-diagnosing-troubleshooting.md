@@ -9,12 +9,12 @@ ms.date: 05/11/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: b929d9d1acc217c291c5aa645ee2d8952f401cd1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ccafa3431e12b036346c4fd654b2978dc9021471
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192156"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912281"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>对 Microsoft Azure 存储进行监视、诊断和故障排除
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -247,7 +247,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 >
 
 ### <a name="server-request-id"></a>伺服器要求 ID
-存储服务会自动生成服务器请求 ID。
+儲存體服務會自動產生的伺服器要求 Id。
 
 * 在伺服器端的儲存體記錄中，伺服器要求識別碼會顯示在 [要求識別碼標頭] 資料行。
 * 以 Fiddler 所擷取的網路追蹤為例，伺服器要求識別碼會顯示在回應訊息中，並呈現為 **x-ms-request-id** HTTP 標頭值。
@@ -426,7 +426,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 **PercentThrottlingError** 的增加通常會伴隨著儲存體要求數量增加一起發生，或是當您第一次對應用程式進行負載測試時。 當儲存體作業出現「503 伺服器忙碌」或是「500 作業逾時」狀態訊息時，用戶端也會明顯出現這個情況。
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>PercentThrottlingError 的暫時性增加
-如果應用程式中與高活動期間同時發生的 **PercentThrottlingError** 值突然增加，則您會在用戶端中針對重試作業實作指數型 (而非線性) 輪詢策略。 輪詢重試會減少資料分割上的即時負載，協助應用程式緩和突然增加的流量。 如需有關如何使用「儲存體用戶端程式庫」實作重試原則的詳細資訊，請參閱 [Microsoft.WindowsAzure.Storage.RetryPolicies 命名空間](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.retrypolicy)。
+如果應用程式中與高活動期間同時發生的 **PercentThrottlingError** 值突然增加，則您會在用戶端中針對重試作業實作指數型 (而非線性) 輪詢策略。 輪詢重試會減少資料分割上的即時負載，協助應用程式緩和突然增加的流量。 如需如何實作使用儲存體用戶端程式庫的重試原則的詳細資訊，請參閱[Microsoft.Azure.Storage.RetryPolicies 命名空間](/dotnet/api/microsoft.azure.storage.retrypolicies)。
 
 > [!NOTE]
 > **PercentThrottlingError** 值的突然增加也可能與應用程式的大量活動期間非同時發生：最可能的原因是儲存體服務移動資料分割以改善負載平衡。
@@ -469,15 +469,15 @@ queueServicePoint.UseNagleAlgorithm = false;
 
 | 來源 | 詳細程度 | 詳細程度 | 用戶端要求 ID | 作業內容 |
 | --- | --- | --- | --- | --- |
-| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab-… |從主要位置開始作業 (依據位置模式 PrimaryOnly)。 |
-| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |若要起始同步要求 <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
-| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |等候回應。 |
-| Microsoft.WindowsAzure.Storage |警告 |2 |85d077ab -… |等候回應時擲回例外狀況：遠端伺服器傳回錯誤：(403) 禁止。 |
-| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |收到回應。 狀態碼 = 403，要求 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d，Content-MD5 =，ETag = . |
-| Microsoft.WindowsAzure.Storage |警告 |2 |85d077ab -… |作業期間擲回例外狀況：遠端伺服器傳回錯誤：(403) 禁止... |
-| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |檢查是否應該重試作業。 重試計數 = 0，HTTP 狀態碼 = 403，例外狀況 = 遠端伺服器傳回錯誤：(403) 禁止... |
-| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |以下位置已經設為「主要」(依據位置模式)。 |
-| Microsoft.WindowsAzure.Storage |Error |1 |85d077ab -… |重試原則不允許重試。 失敗時遠端伺服器傳回錯誤：(403) 禁止。 |
+| Microsoft.Azure.Storage |資訊 |3 |85d077ab-… |從主要位置開始作業 (依據位置模式 PrimaryOnly)。 |
+| Microsoft.Azure.Storage |資訊 |3 |85d077ab -… |若要起始同步要求 <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.Azure.Storage |資訊 |3 |85d077ab -… |等候回應。 |
+| Microsoft.Azure.Storage |警告 |2 |85d077ab -… |等候回應時擲回例外狀況：遠端伺服器傳回錯誤：(403) 禁止。 |
+| Microsoft.Azure.Storage |資訊 |3 |85d077ab -… |收到回應。 狀態碼 = 403，要求 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d，Content-MD5 =，ETag = . |
+| Microsoft.Azure.Storage |警告 |2 |85d077ab -… |作業期間擲回例外狀況：遠端伺服器傳回錯誤：(403) 禁止... |
+| Microsoft.Azure.Storage |資訊 |3 |85d077ab -… |檢查是否應該重試作業。 重試計數 = 0，HTTP 狀態碼 = 403，例外狀況 = 遠端伺服器傳回錯誤：(403) 禁止... |
+| Microsoft.Azure.Storage |資訊 |3 |85d077ab -… |以下位置已經設為「主要」(依據位置模式)。 |
+| Microsoft.Azure.Storage |Error |1 |85d077ab -… |重試原則不允許重試。 失敗時遠端伺服器傳回錯誤：(403) 禁止。 |
 
 在此案例中，您應該調查 SAS 權杖為何在用戶端將權杖傳送給伺服器之前到期：
 

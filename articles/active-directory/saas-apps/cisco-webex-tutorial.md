@@ -16,11 +16,11 @@ ms.date: 03/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 308f745489fba2e2b539a2f2615b65228565dcf9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850004"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900120"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex-meetings"></a>教學課程：Azure Active Directory 與 Cisco Webex Meetings 整合
 
@@ -124,7 +124,7 @@ ms.locfileid: "57850004"
 
 5. Cisco Webex Meetings 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示以新增屬性。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 從 [使用者宣告] 區段中刪除預設屬性，而 Cisco Webex Meetings 則會預期 SAML 回應中會再多傳回幾個屬性。 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
     

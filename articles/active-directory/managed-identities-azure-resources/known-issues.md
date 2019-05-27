@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e958aa82eb1e2fbf21a44df333533c6da058a966
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 1a6797c7bd0c6bd8ce8d3f51b42cb4c2b1338fd6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448484"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950473"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 資源適用受控識別的常見問題集與已知問題
 
@@ -81,6 +81,11 @@ Azure 資源的 VM 擴充功能管理的身分識別是仍然可用;不過，我
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>可以使用受控識別來存取不同目錄/租用戶中的資源嗎？
 
 沒有。 受控識別目前不支援跨目錄案例。 
+
+### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>哪些 Azure RBAC 權限所需的資源上的受管理身分識別？ 
+
+- 系統指派給受控身分識別：您需要對資源寫入權限。 例如：資源特定的內建角色，例如包含 Microsoft.Compute/virtualMachines/write 或此動作[虛擬機器參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)。
+- 指派使用者給受控身分識別：您需要對資源寫入權限。 例如：Microsoft.Compute/virtualMachines/write。 除了[受管理身分識別操作員](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator)透過受管理的身分識別的角色指派。 
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>如何重新啟動 Azure 資源適用受控識別擴充功能？
 在特定版本的 Windows 和 Linux 上，擴充功能停止時，可手動用下列 Cmdlet 來重新啟動：

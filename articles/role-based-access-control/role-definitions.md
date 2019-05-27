@@ -15,12 +15,12 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5a08c2ae0b82841fd15aac4af06a8874cf64ba53
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121818"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950002"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>了解適用於 Azure 資源的角色定義
 
@@ -48,7 +48,7 @@ AssignableScopes []
 
 作業字串的 `{action}` 部分指定您可以對資源類型執行的作業類型。 例如，您將會在 `{action}` 中看到下列子字串：
 
-| 動作子字串    | 描述         |
+| 動作子字串    | 說明         |
 | ------------------- | ------------------- |
 | `*` | 此萬用字元會授與所有符合字串之作業的存取權。 |
 | `read` | 啟用讀取作業 (GET)。 |
@@ -147,9 +147,9 @@ AssignableScopes []
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-由於 Alice 在訂用帳戶範圍上有萬用字元 (`*`) 動作，她的權限可向下繼承，因此她可執行所有管理動作。 Alice 可以讀取、寫入和刪除容器。 不過，Alice 無法在未採取額外步驟的情況下執行資料作業。 例如，根據預設，Alice 無法讀取容器內的 Blob。 若要讀取 Blob，Alice 必須擷取儲存體存取金鑰，並使用它們來存取 Blob。
+由於 Alice 有萬用字元 (`*`) 訂用帳戶範圍的動作，其權限繼承，使其能夠執行所有管理動作。 Alice 可以讀取、寫入和刪除容器。 不過，Alice 無法在未採取額外步驟的情況下執行資料作業。 例如，根據預設，Alice 無法讀取容器內的 Blob。 若要讀取 Blob，Alice 必須擷取儲存體存取金鑰，並使用它們來存取 Blob。
 
-Bob 的權限會限制為只`Actions`並`DataActions`中指定[儲存體 Blob 資料參與者](built-in-roles.md#storage-blob-data-contributor)角色。 以此角色為基礎，Bob 可以執行管理和資料作業。 例如，Bob 可以讀取、寫入和刪除指定儲存體帳戶中的容器，而且他也可以讀取、寫入和刪除 Blob。
+Bob 的權限會限制為只`Actions`並`DataActions`中指定[儲存體 Blob 資料參與者](built-in-roles.md#storage-blob-data-contributor)角色。 以此角色為基礎，Bob 可以執行管理和資料作業。 比方說，Bob 可以讀取、 寫入和刪除指定的儲存體帳戶中的容器和可以也讀取、 寫入和刪除 blob。
 
 如需適用於儲存體之管理及資料平面安全性的詳細資訊，請參閱 [Azure 儲存體安全性指南](../storage/common/storage-security-guide.md)。
 
@@ -157,7 +157,7 @@ Bob 的權限會限制為只`Actions`並`DataActions`中指定[儲存體 Blob �
 
 若要檢視及使用資料作業，您必須有正確版本的工具或 SDK：
 
-| 工具  | Version  |
+| Tool  | 版本  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 或更新版本 |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 或更新版本 |
@@ -179,7 +179,7 @@ Azure 入口網站也可讓使用者透過 Azure AD 預覽體驗來瀏覽及管�
 
 `Actions` 權限會指定角色所允許執行的管理作業。 它是識別 Azure 資源提供者的安全性實體作業的作業字串集合。 以下是可用於 `Actions` 中的一些管理作業範例。
 
-| 作業字串    | 描述         |
+| 作業字串    | 說明         |
 | ------------------- | ------------------- |
 | `*/read` | 授與所有 Azure 資源提供者的所有資源類型之讀取作業的存取權。|
 | `Microsoft.Compute/*` | 授與對 Microsoft.Compute 資源提供者中所有資源類型之所有作業的存取權。|
@@ -199,7 +199,7 @@ Azure 入口網站也可讓使用者透過 Azure AD 預覽體驗來瀏覽及管�
 
 `DataActions` 權限會指定角色允許對物件內資料執行的管理作業。 例如，如果使用者有儲存體帳戶的讀取 Blob 資料存取權，則他們可讀取該儲存體帳戶中的 Blob。 以下是可用於 `DataActions` 中的一些資料作業範例。
 
-| 作業字串    | 描述         |
+| 作業字串    | 說明         |
 | ------------------- | ------------------- |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | 傳回 Blob 或 Blob 清單。 |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | 傳回寫入 Blob 的結果。 |

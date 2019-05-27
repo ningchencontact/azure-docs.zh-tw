@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: a6a2fb246e407d6ea240ff40f4d2fa2b1b780931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7a0269ff22987648d134cb7f4fba8e28e29fd8b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61023710"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956284"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>將 Virtual Kubelet 與 Azure Kubernetes Service (AKS) 搭配使用
 
@@ -26,13 +26,35 @@ Azure 容器執行個體 (ACI) 可提供託管環境，以便在 Azure 中執行
 >
 > Virtual Kubelet 是實驗性開放原始碼專案，應該如此使用。 若要參與、提報問題，以及深入了解 Virtual Kubelet，請參閱[Virtual Kubelet GitHub 專案][vk-github]。
 
-## <a name="prerequisite"></a>必要條件
+## <a name="before-you-begin"></a>開始之前
 
 本文件假設您有 AKS 叢集。 如果您需要 AKS 叢集，請參閱 [Azure Kubernetes Service (AKS) 快速入門][aks-quick-start]。
 
 您也必須需要 Azure CLI 版本 **2.0.33** 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 若要安裝 Virtual Kubelet，也需要 [Helm](https://docs.helm.sh/using_helm/#installing-helm)。
+
+### <a name="register-container-instances-feature-provider"></a>註冊容器執行個體功能提供者
+
+如果先前未使用 Azure 容器執行個體 (ACI) 服務，請與您的訂用帳戶註冊服務提供者。 您可以檢查使用 [az provider list] [az-提供者-list] 命令，ACI 提供者註冊狀態，如下列範例所示：
+
+```azurecli-interactive
+az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
+```
+
+*Microsoft.ContainerInstance* 提供者應該回報為 *Registered*，如以下範例輸出所示：
+
+```
+Namespace                    RegistrationState
+---------------------------  -------------------
+Microsoft.ContainerInstance  Registered
+```
+
+如果提供者會顯示成*NotRegistered*，註冊的提供者使用 [az 提供者註冊] [az 提供者-暫存器]，如下列範例所示：
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerInstance
+```
 
 ### <a name="for-rbac-enabled-clusters"></a>對於已啟用 RBAC 的叢集
 
@@ -85,18 +107,18 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 `aks install-connector` 命令可使用下列引數。
 
-| 引數： | 描述 | 必要項 |
+| 引數： | 說明 | 必要項 |
 |---|---|:---:|
-| `--connector-name` | ACI 連接器的名稱。| 是 |
-| `--name` `-n` | 受控叢集的名稱。 | 是 |
-| `--resource-group` `-g` | 資源群組的名稱。 | 是 |
-| `--os-type` | 容器執行個體的作業系統類型。 允許的值：兩者、Linux、Windows。 預設值：Linux。 | 否 |
-| `--aci-resource-group` | 要在其中建立 ACI 容器群組的資源群組。 | 否 |
-| `--location` `-l` | 要建立 ACI 容器群組的位置。 | 否 |
-| `--service-principal` | 用於向 Azure API 驗證的服務主體。 | 否 |
-| `--client-secret` | 與服務主體相關聯的祕密。 | 否 |
-| `--chart-url` | 安裝 ACI 連接器的 Helm 圖表 URL。 | 否 |
-| `--image-tag` | Virtual Kubelet 容器映像的映像標記。 | 否 |
+| `--connector-name` | ACI 連接器的名稱。| 有 |
+| `--name` `-n` | 受控叢集的名稱。 | 有 |
+| `--resource-group` `-g` | 資源群組的名稱。 | 有 |
+| `--os-type` | 容器執行個體的作業系統類型。 允許的值：兩者、Linux、Windows。 預設值：Linux。 | 無 |
+| `--aci-resource-group` | 要在其中建立 ACI 容器群組的資源群組。 | 無 |
+| `--location` `-l` | 要建立 ACI 容器群組的位置。 | 無 |
+| `--service-principal` | 用於向 Azure API 驗證的服務主體。 | 無 |
+| `--client-secret` | 與服務主體相關聯的祕密。 | 無 |
+| `--chart-url` | 安裝 ACI 連接器的 Helm 圖表 URL。 | 無 |
+| `--image-tag` | Virtual Kubelet 容器映像的映像標記。 | 無 |
 
 ## <a name="validate-virtual-kubelet"></a>驗證 Virtual Kubelet
 

@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 05/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ae1db992984e8bb1dca71afed9fadd6b411b3dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa3d7d22ed032379f452eb4648c9a1cf87293df9
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415105"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956571"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>開始使用 Azure Multi-Factor Authentication Server
 
@@ -27,6 +27,9 @@ ms.locfileid: "60415105"
 既然我們已經決定要使用內部部署 Multi-Factor Authentication Server，那麼我們就開始著手進行吧。 本頁面探討新伺服器安裝，以及透過內部部署 Active Directory 予以設定。 如果您已經安裝 MFA 伺服器，且想要升級，請參閱[升級至最新的 Azure Multi-factor Authentication Server](howto-mfaserver-deploy-upgrade.md)。 如果您想要尋找僅是安裝 Web 服務的資訊，請參閱[部署 Azure Multi-Factor Authentication Server 行動應用程式 Web 服務](howto-mfaserver-deploy-mobileapp.md)。
 
 ## <a name="plan-your-deployment"></a>規劃您的部署
+
+> [!WARNING]
+> 開始在三月 2019 MFA Server 的下載項目將僅可供付費租用戶。 免費/試用租用戶將不再能夠下載或產生及使用啟用認證。
 
 下載 Azure Multi-Factor Authentication Server 之前，請考慮您的負載和高可用性需求為何。 使用此資訊來決定部署的方式和位置。
 
@@ -90,6 +93,9 @@ ms.locfileid: "60415105"
 
 ## <a name="download-the-mfa-server"></a>下載 MFA Server
 
+> [!WARNING]
+> 開始在三月 2019 MFA Server 的下載項目將僅可供付費租用戶。 免費/試用租用戶將不再能夠下載或產生及使用啟用認證。
+
 請遵循下列步驟，以從 Azure 入口網站下載 Azure Multi-Factor Authentication Server：
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
@@ -102,9 +108,6 @@ ms.locfileid: "60415105"
 5. 讓此頁面保持開啟，我們會在執行安裝程式之後參照該頁面。
 
 ## <a name="install-and-configure-the-mfa-server"></a>安裝和設定 MFA Server
-
-> [!WARNING]
-> 開始在三月 2019 MFA Server 的下載項目將僅可供付費租用戶。 免費/試用租用戶將不再能夠下載或產生及使用啟用認證。
 
 既然您已下載伺服器，現在可以進行安裝和設定。 請確定要安裝的伺服器符合規劃區段中所列的需求。
 

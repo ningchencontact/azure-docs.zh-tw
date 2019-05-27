@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 0b8139f11f937ddae30e25f4153e35287289a4d1
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ad7ef714147616fe55a9b978d501b974323e251
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233980"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949566"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中的存取控制
 
@@ -150,7 +150,7 @@ SAS 權杖會在其權杖中包含允許的權限。 SAS 權杖中包含的權�
 
 #### <a name="the-owning-group"></a>擁有群組
 
-在 POSIX ACL 中，每個使用者都與*主要群組*相關聯。 例如，使用者"Alice"可能屬於"finance"群組。 Alice 也可能屬於多個群組，但一定有一個群組指定為其主要群組。 在 POSIX 中，當 Alice 會建立檔案時，該檔案的擁有群組會設定為她的主要群組，在此案例中為 "finance"。 除此之外，擁有群組的作用類似於指派給其他使用者/群組的權限。
+在 POSIX ACL 中，每個使用者都與*主要群組*相關聯。 例如，使用者"Alice"可能屬於"finance"群組。 Alice 也可能屬於多個群組，但有一個群組一律會指定為其主要群組。 在 POSIX 中，當 Alice 會建立檔案時，該檔案的擁有群組會設定為她的主要群組，在此案例中為 "finance"。 除此之外，擁有群組的作用類似於指派給其他使用者/群組的權限。
 
 ##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>指派新檔案或目錄的擁有群組
 
@@ -305,16 +305,16 @@ def set_default_acls_for_new_child(parent, child):
 
 如果項目代表使用者，而使用者已不存在於 Azure AD 中，則會顯示 GUID。 當使用者已離開公司，或已在 Azure AD 中刪除其帳戶時，通常會發生這種情形。 此外，服務主體和安全性群組並沒有使用者主體名稱 (UPN) 可資識別，因此會藉由其 OID 屬性 (GUID) 來顯示。
 
-### <a name="how-do-i-set-acls-correctly-for-a-service-principal"></a>如何为服务主体正确设置 ACL？
+### <a name="how-do-i-set-acls-correctly-for-a-service-principal"></a>如何設定 Acl 正確的服務主體？
 
-为服务主体定义 ACL 时，必须使用所创建应用注册的服务主体的对象 ID (OID)。 请务必注意，注册的应用在特定的 Azure AD 租户中具有独立的服务主体。 注册的应用会在 Azure 门户中显示一个 OID，但服务主体具有另一个（不同的）OID。
+當您定義 Acl 的服務主體時，務必要使用物件識別碼 (OID) 的*服務主體*您所建立的應用程式註冊。 請務必請注意，已註冊的應用程式就會有不同的服務主體中的特定 Azure AD 租用戶。 已註冊的應用程式都有 OID，會顯示在 Azure 入口網站中，但*服務主體*有另一個 （差異） 的 OID。
 
-若要取得對應至應用程式註冊的服務主體的 OID，您可以使用`az ad sp show`命令。 指定应用程序 ID 作为参数。 以下是範例取得對應至應用程式識別碼的應用程式註冊為服務主體的 OID = 18218b12-1895年-43e9-ad80-6e8fc1ea88ce。 在 Azure CLI 中執行下列命令：
+若要取得對應至應用程式註冊的服務主體的 OID，您可以使用`az ad sp show`命令。 指定應用程式識別碼做為參數。 以下是範例取得對應至應用程式識別碼的應用程式註冊為服務主體的 OID = 18218b12-1895年-43e9-ad80-6e8fc1ea88ce。 在 Azure CLI 中執行下列命令：
 
 `az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>`
 
-获取服务主体的正确 OID 后，转到存储资源管理器的“管理访问权限”页，以添加该 OID 并为其分配适当的的权限。 请务必选择“保存”。
+當您有正確的 OID，服務主體時，請移至儲存體總管**Manage Access**頁面以新增 OID，並指派適當的權限的 OID。 請確定您選取**儲存**。
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 是否支援 ACL 的繼承？
 

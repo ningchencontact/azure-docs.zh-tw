@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/19/2018
 ms.author: jingwang
 ms.openlocfilehash: 0c381cc6e2e2957c946207491c666667821184ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60486823"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122572"
 ---
 | 類別 | 資料存放區 | 支援作為來源 | 支援作為接收器 |
 |:--- |:--- |:--- |:--- |

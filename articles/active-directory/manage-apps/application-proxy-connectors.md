@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f337ea9d55a119c3aec6e94649cdbf049f99e9d6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 51ad6ea2abcc18b985e9c45fbfb1ffba98fb2c1f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783689"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113091"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>了解 Azure AD 應用程式 Proxy 連接器
 
@@ -87,7 +87,9 @@ Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程�
 
 ## <a name="capacity-planning"></a>容量規劃 
 
-請務必確定連接器之間已規劃了足夠的容量，能夠處理預計流量。 一般而言，使用者越多，您需要的機器就越大。 下表概述不同機器可處理的流量。 請注意，這完全是根據預期的每秒交易數 (TPS)，而不是依據使用者，因為使用模式都不同，無法用來預測負載。 根據回應大小和後端應用程式回應時間，也會有一些差異，較大的回應和較慢的回應時間會導致「最大 TPS」較低。 建議需有額外的機器，以讓跨機器的分散式負載達到大約 50%。 額外的容量可確保具備高可用性和復原能力。
+請務必確定連接器之間已規劃了足夠的容量，能夠處理預計流量。 我們建議每個連接器群組有兩個以上的連接器，可提供高可用性和延展性。 如果您可能需要以服務的機器，在任何時間點，有三個連接器是最佳作法。 
+
+一般而言，使用者越多，您需要的機器就越大。 以下是讓磁碟區與不同的機器可以處理的預期的延遲的外框的資料表。 請注意，這完全是根據預期的每秒交易數 (TPS)，而不是依據使用者，因為使用模式都不同，無法用來預測負載。 根據回應大小和後端應用程式回應時間，也會有一些差異，較大的回應和較慢的回應時間會導致「最大 TPS」較低。 我們也建議其他機器，使跨機器的分散式的負載一律會提供很大的緩衝區。 額外的容量可確保具備高可用性和復原能力。
 
 |核心|RAM|預期延遲 (MS)-P99|最大 TPS|
 | ----- | ----- | ----- | ----- |

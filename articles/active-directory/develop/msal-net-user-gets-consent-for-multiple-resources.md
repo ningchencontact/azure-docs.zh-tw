@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f7d24a1e14cfbb1163ab78b94dd36ec288dce50
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e8bd9a86d5ec0d39a7f1c26adac52f41e6420283
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544056"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121977"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>使用者取得同意使用 MSAL.NET 的幾項資源
 Microsoft 身分識別平台端點不允許您一次取得多項資源的權杖。 當使用 Microsoft Authentication Library for.NET (MSAL.NET)，在取得權杖方法的範圍參數應該只包含單一資源的範圍。 不過，您可以預先同意預付數個資源指定使用的其他範圍`.WithExtraScopeToConsent`產生器方法。
@@ -32,8 +32,8 @@ Microsoft 身分識別平台端點不允許您一次取得多項資源的權杖�
 
 例如，如果您有兩個資源具有 2 範圍每個：
 
-- https://mytenant.onmicrosoft.com/customerapi (2 個領域`customer.read`和`customer.write`)
-- https://mytenant.onmicrosoft.com/vendorapi (2 個領域`vendor.read`和`vendor.write`)
+- https:\//mytenant.onmicrosoft.com/customerapi (2 個領域`customer.read`和`customer.write`)
+- https:\//mytenant.onmicrosoft.com/vendorapi (2 個領域`vendor.read`和`vendor.write`)
 
 您應該使用`.WithExtraScopeToConsent`修飾詞具有*extraScopesToConsent*參數，在下列範例所示：
 

@@ -2,18 +2,19 @@
 title: 如何在 Azure IoT 中樞裝置佈建服務中針對多組織用戶佈建裝置 | Microsoft Docs
 description: 如何使用裝置佈建服務執行個體針對多組織用戶佈建裝置
 author: wesmc7777
-ms.author: wesmc
-ms.date: 04/10/2019
+ms.author: v-yiso
+origin.date: 04/10/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793158"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66116111"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>如何針對多組織用戶佈建 
 
@@ -41,8 +42,6 @@ ms.locfileid: "59793158"
 
 * 完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)快速入門。
 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-two-regional-iot-hubs"></a>建立兩個區域 IoT 中樞
@@ -421,7 +420,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 ## <a name="next-steps"></a>後續步驟
 
 - 若要深入了解更多的 Reprovisioning，請參閱[IoT 中樞裝置重新佈建概念](concepts-device-reprovision.md) 
-- 若要了解有关取消设置的详细信息，请参阅[如何取消设置以前自动预配的设备](how-to-unprovision-devices.md) 
+- 若要深入了解更多的解除佈建，請參閱[如何取消佈建先前自動佈建的裝置](how-to-unprovision-devices.md) 
 
 
 

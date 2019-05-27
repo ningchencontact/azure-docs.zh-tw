@@ -9,12 +9,12 @@ ms.date: 10/24/2018
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9fd594fb264ff0467cc315f59927cd157068d522
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d4c40e172352fc2d92ea5523cad2aebe5468e1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146189"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961435"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>區域備援儲存體 (ZRS)：高可用性 Azure 儲存體應用程式
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -32,10 +32,10 @@ ZRS 一般會在以下地區推出：
 - 法國中部
 - 日本東部
 - 英國南部
+- 美國中部
 - 美國東部
 - 美國東部 2
 - 美國西部 2
-- 美國中部
 
 Microsoft 會持續在其他 Azure 區域啟用 ZRS。 如需新區域的詳細資訊，請定期查看 [Azure 服務更新](https://azure.microsoft.com/updates/)頁面。
 
@@ -75,6 +75,7 @@ Microsoft 強烈建議您執行手動移轉。 手動移轉比即時移轉更具
 - 您只能在相同的區域內移轉資料。 如果您想要將資料移轉至的 ZRS 帳戶位於和來源帳戶不同的區域中，則必須執行手動移轉。
 - 只有標準儲存體帳戶類型支援即時移轉。 進階儲存體帳戶必須以手動方式移轉。
 - 不支援 ZRS 從 LRS、 GRS 或 RA-GRS 的費用一直到的即時移轉。 您必須以手動方式將資料移至新的或現有的儲存體帳戶。
+- 受控的磁碟僅適用於 LRS，且無法移轉至 ZRS。 針對可用性的整合設定，請參閱[Introduction to Azure 受控磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets)。 您可以對於標準 SSD 受控磁碟儲存快照集和映像，在標準的 HDD 儲存體和[LRS 與 ZRS 選項當中作選擇](https://azure.microsoft.com/pricing/details/managed-disks/)。 
 
 您可以透過 [Azure 支援入口網站](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)要求即時移轉。 從入口網站中，選取您想要轉換成 ZRS 的儲存體帳戶。
 1. 選取 [新增支援要求]
@@ -96,7 +97,7 @@ Microsoft 強烈建議您執行手動移轉。 手動移轉比即時移轉更具
 
 **應規劃在移轉期間任何停機時間？**
 
-沒有任何移轉作業所造成的停機時間。 在即時移轉期間，移轉您的資料來源和目的地儲存體戳記之間時，可以繼續您的儲存體帳戶。 在移轉過程中，您會有相同層級的持久性和可用性 SLA 為您平常。
+沒有任何移轉作業所造成的停機時間。 在即時移轉時，您可以繼續使用您的儲存體帳戶，而您的資料來源和目的地儲存體戳記之間移轉。 在移轉過程中，您會有相同層級的持久性和可用性 SLA 為您平常。
 
 **是否有任何移轉作業相關聯的資料遺失？**
 

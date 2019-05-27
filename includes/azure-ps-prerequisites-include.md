@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: victorh
 ms.openlocfilehash: 0c161510d106343d88e7c77c72a1d1750fe25040
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60398762"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122228"
 ---
 ## <a name="prerequisite-install-the-azure-powershell-module"></a>必要條件：安裝 Azure PowerShell 模組
 

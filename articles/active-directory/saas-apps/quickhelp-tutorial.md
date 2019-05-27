@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 33fd6b8b7423f8640910e02383bba8397d2f8336
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 45ffcaa1d5bccb0746ce86ec0f98342ce5e9bcc9
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408084"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904016"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>教學課程：Azure Active Directory 與 QuickHelp 整合
 
@@ -150,11 +150,11 @@ QuickHelp 與 Azure AD 整合提供下列優點：
    
     b. 若要上傳您下載的 Azure 中繼資料檔案，請按一下 [瀏覽]、瀏覽至該檔案，然後按一下 [上傳中繼資料]。
    
-    c. 在 [電子郵件] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
+    c. 在 [電子郵件] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
    
-    d. 在 [名字] 文字方塊中，輸入 `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`。
+    d. 在 [名字] 文字方塊中，輸入 `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`。
    
-    e. 在 [姓氏] 文字方塊中，輸入 `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`。
+    e. 在 [姓氏] 文字方塊中，輸入 `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`。
    
     f. 在 [動作列] 中，按一下 [儲存]。
 

@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d533e6aac9ae1a486d018414a86a9dc3fe742c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37c63e32f1ee9c404e8b84a6eb17bc6eec30a761
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294274"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956941"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>什麼是 Azure Active Directory Identity Protection (已改版)？
 
@@ -67,7 +67,7 @@ Azure AD Identity Protection 可偵測下列風險事件：
 
  
 
-| 風險事件類型 | 描述 | 偵測類型 |
+| 風險事件類型 | 說明 | 偵測類型 |
 | ---             | ---         | ---            |
 | 非慣用登入位置 | 以使用者最近的登入為準，從非慣用的位置登入。 | 離線 |
 | 匿名 IP 位址 | 從匿名 IP 位址登入 (例如：Tor 瀏覽器、Anonymizer VPN)。 | 即時 |
@@ -147,44 +147,44 @@ Azure AD 會使用機器學習來偵測異常與可疑的活動，所使用的�
 
 ## <a name="common-scenarios"></a>常見案例 
 
-我們來看看 Contoso 員工 Sarah 的範例。 
+讓我們看看 Contoso 的員工的範例。 
 
-1. Sarah 嘗試從 Tor 瀏覽器登入 Exchange Online。 在登入時，Azure AD 會偵測即時風險事件。 
+1. 員工會嘗試從 Tor 瀏覽器登入 Exchange online。 在登入時，Azure AD 會偵測即時風險事件。 
 
-2. Azure AD 偵測到 Sarah 從匿名 IP 位址登入，而觸發了中級登入風險。 
+2. Azure AD 偵測到，員工的登入從匿名 IP 位址，觸發中的登入風險層級。 
 
-3. Sarah 收到了 MFA 提示，因為 Contoso 的 IT 管理員設定了 Identity Protection 登入風險條件式存取原則。 該原則要求中級或更高的登入風險必須進行 MFA。 
+3. 員工受到挑戰的 MFA 提示字元，因為 Contoso 的 IT 系統管理員設定的身分識別保護登入風險條件式存取原則。 該原則要求中級或更高的登入風險必須進行 MFA。 
 
-4. Sarah 通過了 MFA 提示並存取 Exchange Online，且 Sarah 的使用者風險層級並未變更。 
+4. 員工會傳遞 MFA 提示字元，並存取 Exchange Online，並不會變更其使用者風險層級。 
 
-幕後發生了哪些情況？ 嘗試從 Tor 瀏覽器登入的舉動因匿名 IP 位址，而觸發了 Azure AD 中的即時登入風險。 Azure AD 在處理要求時套用了 Identity Protection 所設定的登入風險原則，因為 Sarah 的登入風險層級達到閾值 (中級)。 由於 Sarah 先前已註冊了 MFA，因此她能夠回應並通過 MFA 挑戰。 她能夠成功通過 MFA 挑戰，即已向 Azure AD 表明她可能是合法的身分識別擁有者，因此她的使用者風險層級並未提高。 
+幕後發生了哪些情況？ 嘗試從 Tor 瀏覽器登入的舉動因匿名 IP 位址，而觸發了 Azure AD 中的即時登入風險。 Azure AD 會處理要求，它會套用設定 Identity Protection 中，因為員工的登入風險層級達到臨界值 （中） 的登入風險原則。 員工先前已註冊過 MFA，因為他們能夠回應，並傳遞 MFA 挑戰。 它們可能是合法的識別擁有者，以及其使用者風險層級不會增加至 Azure AD 收到信號能夠成功通過 MFA 檢查。 
 
 
-但如果 Sarah 不是嘗試登入的那個人呢？ 
+但是，如果員工不是一個在嘗試登入？ 
 
-1. 具有 Sarah 認證的惡意執行者嘗試從 Tor 瀏覽器登入 Sarah 的 Exchange Online 帳戶，因為他們試圖隱藏其 IP 位址。 
+1. 惡意的執行者與員工的認證嘗試登入其 Exchange Online 的帳戶從 Tor 瀏覽器中，因為他們嘗試隱藏其 IP 位址。 
 
 2. Azure AD 偵測到從匿名 IP 位址登入的嘗試，而觸發了即時登入風險。 
 
 3. 惡意執行者收到了 MFA 提示，因為 Contoso 的 IT 管理員設定了 Identity Protection 登入風險條件式存取原則，要求在登入風險達到中級或更高時必須進行 MFA。 
 
-4. 惡意執行者未通過 MFA 挑戰，而無法存取 Sarah 的 Exchange Online 帳戶。 
+4. 惡意的動作項目失敗 MFA 挑戰，且無法存取該員工的 Exchange Online 的帳戶。 
 
-5. 失敗的 MFA 提示觸發了應記錄的風險事件，進而提高了 Sarah 日後登入時的使用者風險。 
+5. 失敗的 MFA 提示觸發要記錄的風險事件引發其未來的登入的使用者風險。 
 
-在惡意執行者嘗試存取 Sarah 的帳戶之後，我們來看看在 Sarah 下次嘗試登入時會發生什麼情況。 
+現在，惡意的動作項目會嘗試存取 Sarah 的帳戶，讓我們來看看會發生什麼情況下一次登入嘗試的員工。 
 
-1. Sarah 嘗試從 Outlook 登入 Exchange Online。 在登入時，Azure AD 會偵測即時風險事件以及任何先前的使用者風險。 
+1. 員工會嘗試從 Outlook 登入 Exchange online。 在登入時，Azure AD 會偵測即時風險事件以及任何先前的使用者風險。 
 
 2. Azure AD 不會偵測任何即時登入風險，但會偵測因過去在前述情況下出現的風險活動而產生的高使用者風險。  
 
-3. Sarah 收到了密碼重設提示，因為 Contoso 的 IT 管理員設定了 Identity Protection 使用者風險原則，要求具有高風險的使用者登入必須進行變更密碼。 
+3. 因為員工會面對的密碼重設提示字元中，Contoso 的 IT 系統管理員已設定 Identity Protection 使用者風險原則，具有高風險的使用者登入時要求變更密碼。 
 
-4. 由於 Sarah 已註冊 SSPR 和 MFA，因此能成功重設其密碼。 
+4. 員工註冊 SSPR 的 MFA，因為它們已成功重設其密碼。 
 
-5. 藉由重設其密碼，Sarah 的認證不會再遭到入侵，且其身分識別也恢復到安全狀態。 
+5. 藉由重設其密碼，員工的認證不會再遭到入侵，並其身分識別傳回至安全的狀態。 
 
-6. Sarah 先前的風險事件都已解決，而她的使用者風險層級也因為認證遭入侵的影響有所緩解而自動重設。 
+6. 員工的先前的風險事件都已解決和她的使用者風險層級會自動重設為緩和認證遭到入侵的回應。 
 
 ## <a name="how-do-i-configure-identity-protection"></a>如何設定 Identity Protection？ 
 
@@ -212,11 +212,11 @@ Identity Protection 支援 Azure AD 中的 3 種角色，以平衡與您的部�
 
 | 功能 | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
 | --- | --- | --- | --- |
-| 使用者風險原則 | 是 | 否 | 否 |
-| 登入風險原則 | 是 | 否 | 否 |
+| 使用者風險原則 | 有 | 否 | 無 |
+| 登入風險原則 | 有 | 否 | 無 |
 | 具風險使用者報告 | 完整存取 | 有限資訊 | 有限資訊 |
 | 有風險的登入報告 | 完整存取 | 有限資訊 | 有限資訊 |
-| MFA 註冊原則 | 是 | 否 | 否 |
+| MFA 註冊原則 | 有 | 否 | 無 |
 
 
 

@@ -5,14 +5,14 @@ author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/29/2018
+ms.date: 05/19/2018
 ms.author: robb
-ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96183e22f0aeafc681a782e7d3d8bd29a6ec9617
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776614"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914716"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>什麼是 Microsoft Azure 中的傳統警示？
 
@@ -24,7 +24,7 @@ ms.locfileid: "60776614"
 
 ## <a name="old-and-new-alerting-capabilities"></a>舊的和新的警示功能
 
-在舊的 Azure 監視器中，Application Insights、Log Analytics 和服務健康狀態具有個別的警示功能。 隨著時間進展，Azure 改善並結合使用者介面與不同的警示方法。 這樣的整併仍在持續進行中。 警示
+在舊的 Azure 監視器中，Application Insights、Log Analytics 和服務健康狀態具有個別的警示功能。 隨著時間進展，Azure 改善並結合使用者介面與不同的警示方法。 這樣的整併仍在持續進行中。
 
 您只能在 Azure 入口網站的傳統警示使用者畫面中檢視傳統警示。 您可以從警示畫面上的 [檢視傳統警示] 按鈕取得此畫面。 
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
 ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525162"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66113841"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>建立和安裝適用於原生 Azure 憑證驗證 P2S 組態的 VPN 用戶端組態檔
 
@@ -74,7 +74,7 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
 
 ## <a name="installmac"></a>Mac (OS X)
 
- 您必須在將會連線到 Azure 的每部 Mac 上，手動設定原生 IKEv2 VPN 用戶端。 Azure 不提供用於原生 Azure 憑證驗證的 mobileconfig 檔案。 **Generic** 包含您進行設定所需的所有資訊。 如果未出現下載的 Generic 資料夾，則可能是未將 IKEv2 選為通道型別。 请注意，VPN 网关基本 SKU 不支持 IKEv2。 一旦選取 IKEv2 後，重新產生 zip 檔案以擷取 Generic 資料夾。<br>Generic 資料夾包含下列檔案：
+ 您必須在將會連線到 Azure 的每部 Mac 上，手動設定原生 IKEv2 VPN 用戶端。 Azure 不提供用於原生 Azure 憑證驗證的 mobileconfig 檔案。 **Generic** 包含您進行設定所需的所有資訊。 如果未出現下載的 Generic 資料夾，則可能是未將 IKEv2 選為通道型別。 請注意，VPN 閘道基本 SKU 不支援 IKEv2。 一旦選取 IKEv2 後，重新產生 zip 檔案以擷取 Generic 資料夾。<br>Generic 資料夾包含下列檔案：
 
 * **VpnSettings.xml**，此檔案包含重要的設定，例如伺服器位址和通道類型。 
 * **VpnServerRoot.cer**，此檔案包含所需的根憑證，以供您在 P2S 連線設定期間驗證 Azure VPN 閘道。

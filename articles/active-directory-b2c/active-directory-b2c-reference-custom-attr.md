@@ -10,18 +10,22 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4debd5408abda7e6ae7a7ebf2210fb69210582ae
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 629b872f78a30592fc00cb268066970b12b20561
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687916"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952796"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中定義自訂屬性
 
  每個客戶面向的應用程式對於需要收集的資訊都有不同的需求。 您的 Azure Active Directory (Azure AD) B2C 租用戶隨附一組儲存在屬性中的內建資訊，例如名字、姓氏、城市及郵遞區號。 Azure AD B2C 可讓您擴充儲存在每個客戶帳戶上的屬性組合。 
  
- 您可以在 [Azure 入口網站](https://portal.azure.com/) 中建立自訂屬性，並在您的註冊使用者流程、註冊或登入使用者流程，或設定檔編輯使用者流程中使用這些屬性。 您也可以使用 [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)讀取和寫入這些屬性。 Azure AD B2C 中的自訂屬性會使用 [Azure AD Graph API 目錄結構描述擴充](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions)。
+ 您可以在 [Azure 入口網站](https://portal.azure.com/) 中建立自訂屬性，並在您的註冊使用者流程、註冊或登入使用者流程，或設定檔編輯使用者流程中使用這些屬性。 您也可以使用 [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)讀取和寫入這些屬性。 Azure AD B2C 中的自訂屬性會使用 [Azure AD Graph API 目錄結構描述擴充](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions)。  
+
+> [!NOTE]
+> 支援較新[Microsoft Graph API](https://docs.microsoft.com/graph/overview?view=graph-rest-1.0)來查詢 Azure AD B2C 租用戶仍處於開發階段。
+>
 
 ## <a name="create-a-custom-attribute"></a>建立自訂屬性
 
@@ -41,7 +45,8 @@ ms.locfileid: "64687916"
 7. 選擇性地輸入 [描述]，以供參考。 
 8. 按一下頁面底部的 [新增] 。
 
-[使用者屬性] 清單現已提供自訂屬性，您可用於使用者流程中。 只有在第一次用於任何使用者流程時才會建立自訂屬性，而不是在您將它加入 [使用者屬性] 清單時建立。
+[使用者屬性] 清單現已提供自訂屬性，您可用於使用者流程中。 只有在第一次用於任何使用者流程時才會建立自訂屬性，而不是在您將它加入 [使用者屬性] 清單時建立。 
+
 
 ## <a name="use-a-custom-attribute-in-your-user-flow"></a>在您的使用者流程中使用自訂屬性
 
@@ -51,5 +56,5 @@ ms.locfileid: "64687916"
 5. 選取 [應用程式宣告]，然後選取自訂屬性。 
 6. 按一下 [檔案] 。
 
-您可以在使用者流程上使用 [執行使用者流程] 功能，以驗證客戶體驗。 現在您應該會在註冊期間收集的屬性清單中看到 **ShoeSize** ，其亦會在傳回至您應用程式的權杖中出現。
+當您建立新的使用者使用使用者流程會使用新建立的自訂屬性時，該物件可以進行查詢[Azure AD Graph 總管](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)。 或者您可以使用[**執行使用者流程**](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows)驗證客戶體驗的使用者流程的功能。 現在您應該會在註冊期間收集的屬性清單中看到 **ShoeSize** ，其亦會在傳回至您應用程式的權杖中出現。 
 

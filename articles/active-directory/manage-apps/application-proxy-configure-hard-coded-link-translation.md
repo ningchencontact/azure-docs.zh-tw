@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdfd8fd642120f4e829de8fbb013f85aea2a9484
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: b0899a127566c4d06de7d42443a956c2660a7a6d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825551"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956897"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>重新導向使用 Azure AD Application Proxy 發佈之應用程式的硬式編碼連結
 
@@ -59,7 +59,7 @@ Azure AD Application Proxy 讓您的內部部署應用程式可供遠端使用�
 
 若要使用此功能，使用者必須下載延伸模組並登入。 管理員或使用者不需要任何其他設定。 
 
-若要進一步了解，包括如何設定此選項時，請參閱[MyApps 瀏覽器延伸模組](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension)文件。
+若要進一步了解，包括如何設定此選項時，請參閱[MyApps 瀏覽器延伸模組](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension)文件。
 
 ### <a name="option-3-link-translation-setting"></a>選項 3：連結轉譯設定 
 

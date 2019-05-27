@@ -4,14 +4,14 @@ description: 使用 Azure Resource Manager 將資源移到新的資源群組或�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 05/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 076d120d9c02b15837e92b71bc2a015377f54594
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1ae1afe103d4c52a2a7d921ef4f34dc030f3c6f7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792690"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872647"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -33,7 +33,7 @@ ms.locfileid: "65792690"
 
 您可以透過本文顯示的自助式作業，移動大部分資源。 使用自助式作業︰
 
-* 移动 Resource Manager 资源。
+* 移動 Resource Manager 資源。
 * 根據[傳統部署限制](#classic-deployment-limitations)移動傳統資源。
 
 當您需要進行下列作業時，請連絡[支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)︰
@@ -43,7 +43,7 @@ ms.locfileid: "65792690"
 
 ## <a name="services-that-can-be-moved"></a>可以移動的服務
 
-下列清單提供可移至新資源群組和訂用帳戶之 Azure 服務的一般摘要。 对于支持移动的资源类型列表，请参阅[支持移动操作的资源](move-support-resources.md)。
+下列清單提供可移至新資源群組和訂用帳戶之 Azure 服務的一般摘要。 如需哪一個資源類型支援移動的清單，請參閱[移動資源的作業支援](move-support-resources.md)。
 
 * Analysis Services
 * API 管理
@@ -112,7 +112,7 @@ ms.locfileid: "65792690"
 * SQL Database 伺服器 - 資料庫和伺服器必須位於相同的資源群組。 當您移動 SQL 伺服器時，其所有資料庫也會跟著移動。 此行為會套用至 Azure SQL Database 和 Azure SQL Data Warehouse 資料庫。
 * 時間序列深入解析
 * 流量管理員
-* 虚拟机 - 请参阅[虚拟机限制](#virtual-machines-limitations)
+* 虛擬機器-請參閱[虛擬機器限制](#virtual-machines-limitations)
 * 虛擬機器 (傳統) - 請參閱 [傳統部署限制](#classic-deployment-limitations)
 * 虛擬機器擴展集 - 請參閱[虛擬機器限制](#virtual-machines-limitations)
 * 虛擬網路 - 請參閱[虛擬網路限制](#virtual-networks-limitations)
@@ -161,12 +161,12 @@ ms.locfileid: "65792690"
 
 ### <a name="virtual-machines-limitations"></a>虛擬機器限制
 
-可以移动包含托管磁盘、托管映像和托管快照的虚拟机，以及移动所含虚拟机使用托管磁盘的可用性集。 受控的磁碟位於可用性區域中無法移到不同的訂用帳戶中。
+您可以繼續搭配使用受控的磁碟的虛擬機器的虛擬機器使用受控的磁碟、 受管理的映像、 受控快照集和可用性設定組。 受控的磁碟位於可用性區域中無法移到不同的訂用帳戶中。
 
 尚未支援下列案例：
 
 * 憑證儲存在 Key Vault 中的虛擬機器可以移動至相同訂用帳戶中的新資源群組，但是無法跨訂用帳戶移動。
-* 无法移动具有标准 SKU 负载均衡器或标准 SKU 公共 IP 的虚拟机规模集。
+* 不能移動標準 SKU 負載平衡器或標準 SKU 公用 IP 的虛擬機器擴展集。
 * 從 Marketplace 資源建立且附加方案的虛擬機器無法在資源群組或訂用帳戶之間移動。 在目前的訂用帳戶中取消佈建虛擬機器，然後於新訂用帳戶中再次部署。
 
 若要移動使用 Azure 備份設定的虛擬機器，請使用下列因應措施：
@@ -185,7 +185,7 @@ ms.locfileid: "65792690"
 
 當您移動虛擬網路時，也必須移動其相依資源。 針對 VPN 閘道，您必須移動 IP 位址、虛擬網路閘道和所有相關聯的連線資源。 區域網路閘道可位於不同的資源群組。
 
-若要移动带网络接口卡的虚拟机，必须移动所有依赖的资源。 必须移动与该网络接口卡对应的虚拟网络、该虚拟网络的所有其他网络接口卡，以及 VPN 网关。
+若要移動虛擬機器網路介面卡，您必須移動所有的相依資源。 您必須移動網路介面卡的虛擬網路中，所有其他網路介面卡的虛擬網路和 VPN 閘道。
 
 若要移動對等虛擬網路，您必須先停用虛擬網路對等互連。 停用之後，您可以移動虛擬網路。 移動之後，重新啟用虛擬網路對等互連。
 
@@ -264,13 +264,13 @@ ms.locfileid: "65792690"
 
 若要將傳統資源移到新的訂用帳戶，請使用傳統資源特定的 REST 作業。 若要使用 REST，執行下列步驟：
 
-1. 請檢查來源訂用帳戶是否可以參與跨訂用帳戶移動。 使用以下操作：
+1. 請檢查來源訂用帳戶是否可以參與跨訂用帳戶移動。 請使用下列作業：
 
    ```HTTP
    POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
    ```
 
-     在请求正文中包括：
+     在要求本文中包含：
 
    ```json
    {
@@ -525,7 +525,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要了解管理资源所需的 PowerShell cmdlet，请参阅[将 Azure PowerShell 与资源管理器配合使用](manage-resources-powershell.md)。
-* 若要了解管理资源所需的 Azure CLI 命令，请参阅[将 Azure CLI 与资源管理器配合使用](manage-resources-cli.md)。
+* 若要深入了解用於管理資源的 PowerShell cmdlet，請參閱[使用 Azure PowerShell 與 Resource Manager](manage-resources-powershell.md)。
+* 若要深入了解 Azure CLI 命令來管理資源，請參閱[使用 Azure CLI 搭配 Resource Manager](manage-resources-cli.md)。
 * 若要了解用於管理訂用帳戶的入口網站功能，請參閱 [使用 Azure 入口網站來管理資源](resource-group-portal.md)。
 * 若要了解如何將邏輯組織套用到您的資源，請參閱 [使用標記來組織您的資源](resource-group-using-tags.md)。

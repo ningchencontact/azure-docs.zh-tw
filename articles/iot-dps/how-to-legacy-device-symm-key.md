@@ -2,19 +2,18 @@
 title: 如何使用對稱金鑰透過 Azure IoT 中樞裝置佈建服務佈建繼承裝置 | Microsoft Docs
 description: 如何使用對稱金鑰透過裝置佈建服務執行個體佈建繼承裝置
 author: wesmc7777
-ms.author: v-yiso
-origin.date: 04/10/2019
-ms.date: 05/06/2019
+ms.author: wesmc
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 248c7977752eaec86121a0dd197e5bff2621ead5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+manager: philmea
+ms.openlocfilehash: 00161f8158ad73591687764528258e1081f81ce2
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775158"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914311"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>如何使用對稱金鑰佈建繼承裝置
 
@@ -44,7 +43,7 @@ ms.locfileid: "60775158"
 ## <a name="prerequisites"></a>必要條件
 
 * 完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)快速入門。
-* 啟用[「使用 C++ 進行桌面開發」](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載的 Visual Studio 2015 或 [Visual Studio 2017](https://www.visualstudio.com/vs/)。
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015年或更新版本['使用的桌面開發C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)啟用的工作負載。
 * 已安裝最新版的 [Git](https://git-scm.com/download/)。
 
 
@@ -173,7 +172,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 將 **REG_ID** 的值取代為您的註冊識別碼。
 
-```PowerShell
+```powershell
 $KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
 $REG_ID='sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6'
 
@@ -184,7 +183,7 @@ $derivedkey = [Convert]::ToBase64String($sig)
 echo "`n$derivedkey`n"
 ```
 
-```PowerShell
+```powershell
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
@@ -281,7 +280,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 * 若要深入了解更多的 Reprovisioning，請參閱[IoT 中樞裝置重新佈建概念](concepts-device-reprovision.md) 
 * [快速入門：使用對稱金鑰佈建模擬的裝置](quick-create-simulated-device-symm-key.md)
-* 若要了解有关取消设置的详细信息，请参阅[如何取消设置以前自动预配的设备](how-to-unprovision-devices.md) 
+* 若要深入了解更多的解除佈建，請參閱[如何取消佈建先前自動佈建的裝置](how-to-unprovision-devices.md) 
 
 
 

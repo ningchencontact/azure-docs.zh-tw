@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: kumud
 ms.openlocfilehash: f28088a1a0586964092a0b5f86ce8bf0f95402cd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122434"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>使用 Azure CLI 在 Standard Load Balancer 中設定負載平衡和輸出規則
 
 本快速入門說明如何使用 Azure CLI 在 Standard Load Balancer 中設定輸出規則。  
 
-當您完成時，Load Balancer 資源會包含兩個前端以及與其相關聯的規則：一個用於輸入，另一個用於輸出。  每個前端都有公用 IP 位址的參考，本案例會對輸入與輸出使用不同的公用 IP 位址。   負載平衡規則只會提供輸入負載平衡，輸出規則則可控制提供給 VM 的輸出 NAT。  本快速入门使用两个独立的后端池（一个用于入站连接，一个用于出站连接）来演示功能，以及如何灵活实施此方案。
+當您完成時，Load Balancer 資源會包含兩個前端以及與其相關聯的規則：一個用於輸入，另一個用於輸出。  每個前端都有公用 IP 位址的參考，本案例會對輸入與輸出使用不同的公用 IP 位址。   負載平衡規則只會提供輸入負載平衡，輸出規則則可控制提供給 VM 的輸出 NAT。  此快速入門會使用兩個個別的後端集區，一個用於輸入和輸出，來說明功能，並允許在此案例的彈性。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -73,15 +73,15 @@ ms.locfileid: "59281942"
 
 本節將詳細說明如何建立及設定下列負載平衡器元件：
   - 前端 IP，可接收負載平衡器上的連入網路流量。
-  - 后端池，前端 IP 将负载均衡的网络流量发送到此处。
-  - 用于出站连接的后端池。 
+  - 後端集區的前端 IP 在其中傳送負載平衡網路流量。
+  - 對於輸出連線能力後端集區。 
   - 健康狀態探查，可判斷後端 VM 執行個體的健康狀態。
   - 負載平衡器輸入規則，可定義如何將流量分散至 VM。
   - 負載平衡器輸出規則，可定義如何從 VM 分散流量。
 
 ### <a name="create-load-balancer"></a>建立負載平衡器
 
-使用 [az network lb create ](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 创建名为 *lb* 的入站 IP 地址负载均衡器，该负载均衡器包括入站前端 IP 配置和后端池 *bepoolinbound*（与在前一步创建的公共 IP 地址 *mypublicipinbound* 相关联）。
+建立負載平衡器輸入的 IP 位址使用[建立 az 網路 lb](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)名為*lb*含有輸入的前端 IP 組態與後端集區*bepoolinbound*相關聯的公用 IP 位址*mypublicipinbound*您在上一個步驟中建立。
 
 ```azurecli-interactive
   az network lb create \
@@ -94,9 +94,9 @@ ms.locfileid: "59281942"
     --public-ip-address mypublicipinbound   
   ```
 
-### <a name="create-outbound-pool"></a>创建出站池
+### <a name="create-outbound-pool"></a>建立輸出的集區
 
-使用 [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 创建名为 *bepooloutbound* 的另一个后端地址池，用于定义 VM 池的出站连接。  创建独立的出站池可以提供最大的灵活性，但你也可以忽略此步骤，仅使用入站池 *bepoolinbound*。
+建立其他的後端位址集區來定義使用 Vm 集區的輸出連線能力[az network lb ip-config address-pool 建立](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)同名*bepooloutbound*。  建立不同的輸出集區可提供最大的彈性，但您可以略過此步驟只會使用傳入*bepoolinbound*以及。
 
 ```azurecli-interactive
   az network lb address-pool create \
@@ -167,9 +167,9 @@ az network lb outbound-rule create \
  --address-pool bepooloutbound
 ```
 
-如果你不想要使用独立的出站池，可以更改上述命令中的地址池参数，以指定 *bepoolinbound*。  我们建议使用独立的池，以提高灵活性，并方便阅读最终的配置。
+如果您不想要使用不同的輸出集區，您可以變更在上述命令中指定的位址集區引數*bepoolinbound*改。  我們建議使用不同的集區的彈性和可讀性所產生的組態。
 
-此时，可以使用 [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest)，通过更新相应 NIC 资源的 IP 配置来继续将 VM 添加到后端池 *bepoolinbound* __和__ *bepooloutbound*。
+此時，您可以繼續將您的 VM 新增至後端集區*bepoolinbound* __並__ *bepooloutbound*藉由更新個別的 NIC 的 IP 組態使用的資源[az network nic ip 組態-address-pool add](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest)。
 
 ## <a name="clean-up-resources"></a>清除資源
 

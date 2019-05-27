@@ -9,11 +9,11 @@ ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365115"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121277"
 ---
 > [!NOTE]
 > 這些範例不會套用到 S2S/ExpressRoute 並存組態。
@@ -84,7 +84,7 @@ New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayType DynamicRouting -Gatewa
 
 ## <a name="verify-the-gateway-was-created"></a>確認已建立閘道
 
-使用以下命令来验证是否已创建网关。 這個命令也會擷取閘道器識別碼，您在其他作業會需要它。
+使用下列命令，確認已建立閘道。 這個命令也會擷取閘道器識別碼，您在其他作業會需要它。
 
 ```powershell
 Get-AzureVNetGateway

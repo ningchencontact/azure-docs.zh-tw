@@ -8,11 +8,11 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 1e535ed92305d124499fd0ce9933b7edd19df32e
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286154"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66118086"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms-previous-release"></a>啟用適用於 Linux IaaS VM 的 Azure 磁碟加密 (舊版)
 
@@ -138,10 +138,10 @@ key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-
 
 針對使用 Azure AD 用戶端識別碼的現有或執行中 VM，以下資料表列出其 Resource Manager 範本參數︰
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | AADClientID | 具有權限可將密碼寫入金鑰保存庫之 Azure AD 應用程式的用戶端識別碼。 |
-| AADClientSecret | 有权将机密写入 Key Vault 的 Azure AD 应用程序的客户端机密。 |
+| AADClientSecret | 具有權限可將密碼寫入金鑰保存庫之 Azure AD 應用程式的用戶端密碼。 |
 | keyVaultName | 應上傳金鑰的金鑰保存庫名稱。 您可以使用 Azure CLI 命令 `az keyvault show --name "MySecureVault" --query KVresourceGroup` 來取得它。 |
 |  keyEncryptionKeyURL | 用來加密所產生金鑰的金鑰加密金鑰 URL。 如果您在 UseExistingKek 下拉式清單中選取 [nokek]，此參數是選擇性的。 如果您在 UseExistingKek 下拉式清單中選取 [kek]，您必須輸入 _keyEncryptionKeyURL_ 值。 |
 | volumeType | 執行加密作業所在磁碟區的類型。 支援的有效值為 _OS_ 或 _All_ (請參閱支援的 Linux 散發套件及其適用於作業系統與資料磁碟版本，述於先前的必要條件區段)。 |

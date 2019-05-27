@@ -8,12 +8,12 @@ ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 0b155a5cdfa1c540e1cfb92147f6ebc7f88dd929
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 407e25b7bb1a2220448c9701bbef208195c50b63
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003691"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953105"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>管理 Azure 資料目錄中的資料資產
 ## <a name="introduction"></a>簡介
@@ -52,7 +52,7 @@ Azure 資料目錄專為資料來源探索功能而設計，讓您能夠輕鬆�
 ### <a name="remove-owners"></a>移除擁有者
 資產擁有者既然能新增共同擁有者，當然也能移除共同擁有者。
 
-移除自己之擁有者身分的資產擁有者無法再管理資產。 如果資產擁有者移除自己的擁有者身分，而且已無其他共同擁有者，則資產會回復為無人擁有狀態。
+資產擁有者移除自己身為擁有者就無法再管理資產。 如果資產擁有者移除自己身為擁有者，而且已無其他共同擁有者，則資產會回復為無人擁有狀態。
 
 ## <a name="control-visibility"></a>控制可見性
 資料資產擁有者可以控制其擁有之資料資產的可見性。 若要以預設值限制可見性，讓所有資料目錄使用者都能探索及檢視資料資產，資產擁有者可以將資產屬性中的可見性設定從 [所有人] 切換為 [擁有者與這些使用者]。 接著，擁有者便可以新增特定使用者和安全性群組。

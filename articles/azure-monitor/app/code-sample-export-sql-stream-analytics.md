@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0166622539a439a99aef7e476519881518baa0b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eecd2a50607fa42562a9ae6a7fb950a253655a45
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60904586"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872713"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>逐步解說：使用串流分析從 Application Insights 匯出至 SQL
 本文將說明如何使用[連續匯出][export]和 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)，將您的遙測資料從 [Azure Application Insights][start] 移入Azure SQL 資料庫。 
@@ -179,10 +179,10 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 > [!TIP]
 > 使用範例函數來檢查您是否已正確設定輸入路徑。 如果此方法失敗：請檢查儲存體中您所選擇的範例時間範圍的資料。 編輯輸入定義，並檢查您是否已正確設定儲存體帳戶、路徑前置詞和日期格式。
-> 
-> 
-> ## <a name="set-query"></a>設定查詢
-> 開啟 [查詢] 區段：
+
+ 
+## <a name="set-query"></a>設定查詢
+開啟 [查詢] 區段：
 
 將預設查詢替換為以下內容：
 
