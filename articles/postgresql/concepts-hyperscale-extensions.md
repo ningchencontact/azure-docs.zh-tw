@@ -58,7 +58,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 > | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | 依時間或識別碼管理分割的資料表。 |
 > | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | 提供可根據三併詞比對判斷英數文字相似度的函式和運算子。 |
 > | [refint](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.5) | 實作 （已過時） 的參考完整性的函式。 |
-> | 工作階段\_分析 | 用於查詢 hstore 陣列函式。 |
+> | session\_analytics | 用於查詢 hstore 陣列函式。 |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | 提供操縱整個資料表 (包括交叉資料表) 的函式。 |
 > | [tcn](https://www.postgresql.org/docs/current/tcn.html) | 觸發變更通知。 |
 > | [timetravel](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.6) | 實作時間移動的函式。 |
@@ -95,7 +95,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 > | **擴充功能** | **說明** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Citus 分散式資料庫。 |
-> | 分區\_rebalancer | 安全地重新平衡在發生節點新增或移除伺服器群組中的資料。 |
+> | shard\_rebalancer | 安全地重新平衡在發生節點新增或移除伺服器群組中的資料。 |
 
 ### <a name="miscellaneous-extensions"></a>其他擴充功能
 
