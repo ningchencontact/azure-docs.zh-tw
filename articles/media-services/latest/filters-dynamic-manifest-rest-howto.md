@@ -11,20 +11,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: 32b9664d12d6fe3a44329665c730dbc8709430f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69399513291a47f7109003e825052314f447125a
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322714"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002334"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>使用媒體服務 REST API 建立篩選器
 
-當提供您的內容給客戶 (串流即時活動或點播視訊) 時，您的用戶端可能需要比預測資產資訊清單檔案中所述還大的彈性。 Azure 媒體服務可讓您為您的內容定義帳戶篩選器與資產篩選器。 如需詳細資訊，請參閱 [篩選器與動態資訊清單](filters-dynamic-manifest-overview.md)。
+當提供您的內容給客戶 (串流即時活動或點播視訊) 時，您的用戶端可能需要比預測資產資訊清單檔案中所述還大的彈性。 Azure 媒體服務可讓您為您的內容定義帳戶篩選器與資產篩選器。 如需詳細資訊，請參閱 <<c0> [ 篩選條件](filters-concept.md)並[動態資訊清單](filters-dynamic-manifest-overview.md)。
 
 此主題說明如何為點播視訊資產建立篩選器，以及如何使用 REST API 來建立[帳戶篩選器](https://docs.microsoft.com/rest/api/media/accountfilters) \(英文\) 與[資產篩選器](https://docs.microsoft.com/rest/api/media/assetfilters) \(英文\)。 
+
+> [!NOTE]
+> 請務必檢閱[presentationTimeRange](filters-concept.md#presentationtimerange)。
 
 ## <a name="prerequisites"></a>必要條件 
 

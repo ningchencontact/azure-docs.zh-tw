@@ -7,16 +7,19 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 347c89991cbb4d28b46eafff0a783148793ad2f7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bdbd45c2b10dec8f1c0a85110747a470e818dbf9
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727495"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015615"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>適用於傳統的警示規則的移轉準備您的 logic apps 和 runbook
 
-作為[先前所宣布](monitoring-classic-retirement.md)，在 Azure 監視器傳統警示會在 2019 年 7 月即將淘汰。 客戶使用傳統的警示規則的人員，而且想要自行觸發移轉至 Azure 入口網站中使用移轉工具。
+作為[先前所宣布](monitoring-classic-retirement.md)，即將在 2019 年 9 月淘汰 Azure 監視器中的傳統警示 (已原先於 2019 年 7 月)。 客戶使用傳統的警示規則的人員，而且想要自行觸發移轉至 Azure 入口網站中使用移轉工具。
+
+> [!NOTE]
+> 由於導入的移轉工具中的延遲，傳統警示移轉的停用日期已擴充到 2019 年 8 月 31 日從最初宣布於 2019 年 6 月 30 日的日期。
 
 如果您選擇主動將傳統的警示規則移轉至新的警示規則，請注意，有兩個系統之間的一些差異。 這篇文章會說明這些差異，以及如何準備變更。
 
@@ -30,7 +33,7 @@ ms.locfileid: "64727495"
 |---------|---------|---------|
 |REST API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor metrics alert](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
-|PowerShell      | [參考](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |      |
+|PowerShell      | [參考](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [參考](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Azure Resource Manager 範本 | [傳統警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[適用於新的計量警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
 ## <a name="notification-payload-changes"></a>通知承載變更

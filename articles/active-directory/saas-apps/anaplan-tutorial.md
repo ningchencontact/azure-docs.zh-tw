@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 88741c81fe5efe219b052810c374fed3f4834d2a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891462"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901059"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>教學課程：Azure Active Directory 與 Anaplan 整合
 
@@ -36,7 +36,7 @@ ms.locfileid: "57891462"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Anaplan 的整合，您需要下列項目：
+若要設定與 Anaplan 的 Azure AD 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Anaplan 單一登入的訂用帳戶
@@ -165,7 +165,7 @@ ms.locfileid: "57891462"
 
 2. 在應用程式清單中，選取 [Anaplan]。
 
-    ![應用程式清單中的 [Anaplan] 連結](common/all-applications.png)
+    ![應用程式清單中的 Anaplan 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -189,7 +189,7 @@ ms.locfileid: "57891462"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Anaplan] 圖格時，應該會自動登入您已設定 SSO 的 Anaplan。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在「存取面板」中按一下 [Anaplan] 圖格時，應該會自動登入您已設定 SSO 的 Anaplan。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

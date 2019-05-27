@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 290b548f31a967d514b09e4de775b12de7703b07
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7499dbe1f3f0b89a11814ad1b65a52bb9ba9fd05
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782947"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016066"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>使用 Application Proxy 應用程式時發生「無法存取此企業應用程式」錯誤
 
@@ -77,7 +77,7 @@ ms.locfileid: "65782947"
 
 1. 移至 [Azure Active Directory]，然後依序按一下 [企業應用程式]、[所有應用程式]，以開啟入口網站中的應用程式。 開啟應用程式，然後選取左側功能表中的 [Application Proxy]。
 
-2. 找到 [連接器群組] 欄位。 如果群組中沒有作用中的連接器，您會看到一則警告。 如果您沒有看到任何警告，請進一步「確認所有必要的連接埠皆在允許清單中」。
+2. 找到 [連接器群組] 欄位。 如果群組中沒有作用中的連接器，您會看到一則警告。 如果您沒有看到任何警告，移至確認 允許所有必要的連接埠。
 
 3. 如果顯示的是錯誤的連接器群組，請使用下拉式清單選取正確的群組，並確認未再出現任何警告。 如果顯示的是所需的連接器群組，請按一下警告訊息以開啟內含連接器管理資訊的頁面。
 
@@ -87,11 +87,11 @@ ms.locfileid: "65782947"
 
    * 為該群組下載新的連接器：此頁面上有連結可讓您[下載新連接器](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download)。 在可以直接檢視後端應用程式的機器上安裝連接器。 一般而言，應用程式的同一部伺服器上安裝連接器。 使用下載連接器連結，將連接器下載到目標電腦上。 接著按一下連接器，然後使用 [連接器群組] 下拉式清單確定它屬於正確的群組。
 
-   * 調查非作用中的連接器：如果連接器會顯示為非作用中，則表示其無法連線到服務。 此錯誤通常肇因於某些必要的連接埠遭到封鎖。 若要解決此問題，請進一步「確認所有必要的連接埠皆在允許清單中」。
+   * 調查非作用中的連接器：如果連接器會顯示為非作用中，則表示其無法連線到服務。 此錯誤通常肇因於某些必要的連接埠遭到封鎖。 若要解決此問題，請移至確認 允許所有必要的連接埠。
 
 在使用這些步驟確認應用程式已指派至有運作中連接器的群組後，請再次測試應用程式。 如果仍然無法運作，繼續進行下一節。
 
-## <a name="check-all-required-ports-are-whitelisted"></a>檢查所有必要連接埠皆在允許清單中
+## <a name="check-all-required-ports-are-open"></a>檢查所有必要的連接埠已開啟
 
 若要確認所有必要連接埠皆已開啟，請參閱開啟連接埠的相關文件。 如果所有必要連接埠皆已開啟，請移至下一節。
 

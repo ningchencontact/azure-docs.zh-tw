@@ -6,11 +6,11 @@ ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416265"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111464"
 ---
 標準化的虛擬機器 (VM) 映像可讓組織移轉至雲端，並確保在部署中的一致性。 映像通常包含預先定義的安全性和組態設定和必要的軟體。 設定您自己的映像處理管線需要的時間、 基礎結構和安裝程式，但使用 Azure VM 映像產生器，只是提供描述您的映像的簡單設定、 提交至服務，和建置，並散發映像。
  

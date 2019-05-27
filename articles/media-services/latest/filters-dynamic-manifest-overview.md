@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 21fb2b84fd58fb7cca7551ee1cef0c79179cfa40
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: ac440be4444ca0d62f7ffde2b8b65e41dcba6683
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467136"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002390"
 ---
 # <a name="dynamic-manifests"></a>動態資訊清單
 
@@ -31,7 +31,7 @@ ms.locfileid: "65467136"
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
+ 
 > [!NOTE]
 > 動態資訊清單不會變更資產和該資產的預設資訊清單。 您的用戶端可以選擇要求包含或不含篩選器的資料流。 
 > 
@@ -71,7 +71,7 @@ ms.locfileid: "65467136"
 ## <a name="removing-language-tracks"></a>移除語言資料軌
 您的資產可能包含多個音訊語言，例如英文、西班牙文、法文等。通常，播放程式 SDK 管理員會預設音訊資料軌選取範圍，以及每個使用者可選擇的可用音訊資料軌。 開發這類的播放程式 SDK 相當有挑戰性，因為在各個裝置特有的播放程式架構之間有不同的實作方式。 此外播放程式 API 在某些平台上受到限制，且不包含音訊選擇功能，因此使用者無法選取或變更預設的音訊資料軌。有了資產篩選器，您可以藉由建立只包含所需音訊語言的篩選器來控制行為。
 
-![语言音轨筛选][language_filter]
+![語言資料軌篩選][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>修剪資產開頭
 在大部分的即時資料流事件中，操作人員必須在實際的事件前先進行測試。 例如，他們可以在事件開始前包含如下 slate 訊息：「程式將立刻開始」。 如果程式正在進行封存，則測試和靜態圖像資料也會一併封存並包含在簡報中。 但是此資訊不會對用戶端顯示。 透過動態資訊清單，您可以建立開始時間篩選器，並從資訊清單中移除不必要的資料。
@@ -124,7 +124,7 @@ ms.locfileid: "65467136"
 
 ## <a name="associate-filters-with-streaming-locator"></a>串流定位器相關聯的篩選器
 
-您可以指定資產或帳戶會套用到您的串流定位器的篩選器清單。 [動態封裝程式](dynamic-packaging-overview.md)適用於這份清單，以及那些用戶端在 URL 中所指定的篩選條件。 這個組合會產生[動態資訊清單](filters-dynamic-manifest-overview.md)，根據在 URL 中的篩選器 + 串流定位器指定的篩選條件。 我們建議您使用這項功能，如果您想要套用篩選，但不是想要公開 （expose） 在 URL 中的篩選條件名稱。
+請參閱[篩選器： 使用串流定位器關聯](filters-concept.md#associate-filters-with-streaming-locator)。
 
 ## <a name="considerations-and-limitations"></a>考量與限制
 
@@ -136,7 +136,6 @@ ms.locfileid: "65467136"
     
     - 若要判斷 Asset 中資料軌的屬性，請[取得並檢查資訊清單檔案](#get-and-examine-manifest-files)。
     - 設定資產篩選器 timestamp 屬性的公式： <br/>startTimestamp = &lt;資訊清單中的開始時間&gt; +  &lt;預期的篩選器開始時間 (秒)&gt;*timescale
-
 
 ## <a name="next-steps"></a>後續步驟
 

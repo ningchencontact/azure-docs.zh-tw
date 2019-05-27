@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/21/2019
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0516c954bd23d5a2e339c5df447a923528e09d93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61430625"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002017"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Cloudyn 的常見問題集
 
@@ -74,9 +74,9 @@ ms.locfileid: "61430625"
 
 首先，讓我們來看看造成使用者帳戶發生 initiallySuspended 的最常見案例。
 
-> Admin1 可能是 Microsoft 雲端解決方案提供者或 Enterprise 合約使用者。 其組織已準備好開始使用 Cloudyn。  他透過 Azure 入口網站註冊，並登入 Cloudyn 入口網站。 註冊 Cloudyn 服務並登入 Cloudyn 入口網站的人員會成為「主要管理員」。 Admin1 不會建立任何使用者帳戶。 不過，他會使用 Cloudyn 入口網站建立 Azure 帳戶並設定實體階層。 Admin1 通知身為租用戶系統管理員的 Admin2，告訴其必須向 Cloudyn 註冊，並登入 Cloudyn 入口網站。
-> 
-> Admin2 透過 Azure 入口網站註冊。 不過，當他嘗試登入 Cloudyn 入口網站時，他收到錯誤訊息，其中顯示他的帳戶遭到**暫時停權**。 主要管理員 Admin1 會收到帳戶暫時停權的通知。 Admin1 必須啟用 Admin2 的帳戶，授與適當實體的「管理員實體存取權」，然後允許使用者管理存取權並啟用使用者帳戶。
+> Admin1 可能是 Microsoft 雲端解決方案提供者或企業合約的使用者。 組織已準備好開始使用 Cloudyn。  他透過 Azure 入口網站註冊，並登入 Cloudyn 入口網站。 註冊 Cloudyn 服務並登入 Cloudyn 入口網站的人員，還有 Admin1 會變得*主要的系統管理員*。 Admin1 不會建立任何使用者帳戶。 不過，使用 Cloudyn 入口網站，他們建立 Azure 帳戶進行設定的實體階層。 Admin1 通知 Admin2，租用戶系統管理員，他們需要向 Cloudyn 註冊和登入 Cloudyn 入口網站。
+>
+> Admin2 透過 Azure 入口網站註冊。 但是當使用者嘗試登入 Cloudyn 入口網站，他們會取得錯誤，指出他們的帳戶**暫止**。 主要管理員 Admin1 會收到帳戶暫時停權的通知。 Admin1 必須啟用 Admin2 的帳戶，授與適當實體的「管理員實體存取權」，然後允許使用者管理存取權並啟用使用者帳戶。
 
 
 如果您收到要求允許使用者存取權的警示，則需要啟用使用者帳戶。

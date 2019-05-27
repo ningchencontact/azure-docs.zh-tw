@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 67a195932ad1afc3c93a94dfcbda8ab8a47760b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498809"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116193"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure 原則效果
 
@@ -21,7 +21,7 @@ ms.locfileid: "60498809"
 
 原則定義中目前支援六種效果：
 
-- Append
+- 附加
 - 稽核
 - AuditIfNotExists
 - 拒絕
@@ -30,7 +30,7 @@ ms.locfileid: "60498809"
 
 ## <a name="order-of-evaluation"></a>評估順序
 
-「原則」會先評估透過 Azure Resource Manager 進行的資源建立或更新要求。 「原則」會建立適用於資源的所有指派清單，然後對照每個定義來評估資源。 「原則」會先處理數個效果，然後才處理對適當「資源提供者」的要求。 此做法可避免「資源提供者」在資源不符合所設計的「原則」治理控制措施時，進行不必要的處理。
+若要建立或更新資源透過 Azure Resource Manager 要求會先評估 Azure 原則。 Azure 原則會建立一份所有套用到資源，然後再評估資源的每個定義的指派。 Azure 原則處理數個效果，再交給適當的資源提供者的要求。 當資源不符合設計的管理控制，Azure 原則，如此可避免不必要的處理，由資源提供者。
 
 - 首先會檢查 **Disabled**，以決定是否應評估原則規則。
 - 接著評估的是 **Append**。 由於 Append 可以改變要求，因此 Append 所進行的變更可能會導致無法觸發 Audit 或 Deny 效果。
@@ -43,7 +43,7 @@ ms.locfileid: "60498809"
 
 針對測試情況，或當原則定義已將效果參數化時，此效果相當有用。 這個彈性讓您得以停用單一指派，而不是停用該原則的所有指派。
 
-## <a name="append"></a>Append
+## <a name="append"></a>附加
 
 Append 可用來在建立或更新所要求的資源時，為資源新增額外的欄位。 其中一個常見的範例就是在資源上新增標籤 (例如 costCenter)，或是為儲存體資源指定允許的 IP。
 
@@ -59,7 +59,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 ### <a name="append-examples"></a>Append 範例
 
-範例 1：用以附加一個標籤的單一 **field/value** 配對。
+範例 1:用以附加一個標籤的單一 **field/value** 配對。
 
 ```json
 "then": {
@@ -88,8 +88,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 }
 ```
 
-範例 3：使用非 **[\*]**
- [別名](definition-structure.md#aliases)搭配 **value** 陣列以設定儲存體帳戶相關 IP 規則的單一 **field/value** 配對。 當非 **[\*]** 別名是陣列時，效果會將 **value** 當做整個陣列來附加。 如果陣列已經存在，就會因為衝突而發生拒絕事件。
+範例 3：單一**欄位/值**配對使用非 **[\*]** [別名](definition-structure.md#aliases)陣列**值**儲存體帳戶上設定 IP 規則。 當非 **[\*]** 別名是陣列時，效果會將 **value** 當做整個陣列來附加。 如果陣列已經存在，就會因為衝突而發生拒絕事件。
 
 ```json
 "then": {
@@ -149,7 +148,7 @@ Audit 效果可用來在評估到不符合規範的資源時，在活動記錄�
 
 ### <a name="audit-evaluation"></a>Audit 評估
 
-Audit 是建立或更新資源期間，「原則」所檢查的最後一個效果。 接著，「原則」就會將該資源傳送給「資源提供者」。 Audit 對資源要求和評估週期的運作方式相同。 「原則」會將 `Microsoft.Authorization/policies/audit/action` 作業新增至活動記錄，然後將資源標示為不符合規範。
+稽核是最後一個期間建立或更新資源的檢查 Azure 原則的效果。 Azure 原則接著會傳送到資源提供者的資源。 Audit 對資源要求和評估週期的運作方式相同。 Azure 原則新增`Microsoft.Authorization/policies/audit/action`至活動記錄的作業，並將標示為不相容資源。
 
 ### <a name="audit-properties"></a>Audit 屬性
 
@@ -171,7 +170,7 @@ AuditIfNotExists 可讓您稽核符合下列條件的資源：符合 **if** 條�
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists 評估
 
-AuditIfNotExists 的執行順序是在「資源提供者」已處理建立或更新資源要求，並且已傳回成功狀態碼之後。 如果沒有任何相關資源，或 **ExistenceCondition** 所定義的資源未評估為 true，就會進行稽核。 「原則」會以和 Audit 效果相同的方式，將 `Microsoft.Authorization/policies/audit/action` 作業新增至活動記錄。 當觸發時，滿足 **if** 條件的資源會是標示為不符合規範的資源。
+AuditIfNotExists 的執行順序是在「資源提供者」已處理建立或更新資源要求，並且已傳回成功狀態碼之後。 如果沒有任何相關資源，或 **ExistenceCondition** 所定義的資源未評估為 true，就會進行稽核。 Azure 原則新增`Microsoft.Authorization/policies/audit/action`至活動的作業記錄與稽核效果的相同的方式。 當觸發時，滿足 **if** 條件的資源會是標示為不符合規範的資源。
 
 ### <a name="auditifnotexists-properties"></a>AuditIfNotExists 屬性
 
@@ -300,7 +299,7 @@ DeployIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
         "roleDefinitionIds": [
-            "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+            "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
             "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
         ],
         "existenceCondition": {
@@ -340,7 +339,7 @@ DeployIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 
 ## <a name="layering-policies"></a>分層原則
 
-一個資源可能會受到數個指派影響。 這些指派可能屬於相同範圍，也可能屬於不同範圍。 這些指派中的每項指派也可能定義了不同的效果。 針對每個原則的條件和效果，都會以獨立方式進行評估。 例如︰
+一個資源可能會受到數個指派影響。 這些指派可能屬於相同範圍，也可能屬於不同範圍。 這些指派中的每項指派也可能定義了不同的效果。 針對每個原則的條件和效果，都會以獨立方式進行評估。 例如：
 
 - 原則 1
   - 將資源位置限制為 'westus'
@@ -369,9 +368,9 @@ DeployIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 在 [Azure 原則範例](../samples/index.md)檢閱範例
-- 檢閱[原則定義結構](definition-structure.md)
-- 了解如何[以程式設計方式建立原則](../how-to/programmatically-create.md)
-- 了解如何[取得合規性資料](../how-to/getting-compliance-data.md)
-- 了解如何[補救不符合規範的資源](../how-to/remediate-resources.md)
-- 檢閱[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)，以了解何謂管理群組
+- 檢閱範例[「 Azure 原則範例](../samples/index.md)。
+- 檢閱 [Azure 原則定義結構](definition-structure.md)。
+- 了解如何[以程式設計方式建立原則](../how-to/programmatically-create.md)。
+- 了解如何[取得合規性資料](../how-to/getting-compliance-data.md)。
+- 了解如何[補救不符合規範的資源](../how-to/remediate-resources.md)。
+- 檢閱管理群組是使用[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)。

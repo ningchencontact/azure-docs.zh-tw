@@ -4,20 +4,20 @@ description: 安裝適用於 Azure SQL 資料倉儲的 Visual Studio 和 SQL Ser
 services: sql-data-warehouse
 ms.custom: vs-azure
 ms.workload: azure-vs
-author: kevinvngo
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: development
 ms.date: 04/05/2019
-ms.author: kevin
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f67c2a4547ee923e5c1b49302c38693e9ffe87c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 683ec8f9cebb2fcbade9fd636506cf1903eff317
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474244"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873303"
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>安裝適用於 SQL 資料倉儲的 Visual Studio 和 SSDT
 您可以使用 Visual Studio 2017 來開發 SQL 資料倉儲的應用程式。 目前適用於 SQL 資料倉儲不支援 Visual Studio 2019 SSDT。 
@@ -44,7 +44,7 @@ ms.locfileid: "61474244"
 如果找不到更新，表示您應該已安裝最新版本。  若要確認已安裝 SSDT，請按一下 [說明] / [關於 Microsoft Visual Studio]，然後在清單中尋找 SQL Server Data Tools。 如果無法在 Visual Studio 中使用安裝選項，或者您也可以瀏覽 [SSDT 下載][SSDT Download]頁面，手動下載和安裝 SSDT。
 
 ## <a name="next-steps"></a>後續步驟
-安装最新版本的 SSDT 后，便可以[连接][connect]到 SQL 数据仓库。
+既然有了最新版本的 SSDT，您可以開始 [連接][connect]到 SQL 資料倉儲。
 
 <!--Anchors-->
 

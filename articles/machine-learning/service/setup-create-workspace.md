@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
-ms.date: 04/19/2019
-ms.openlocfilehash: ca43a6cff6a32a30d93e42f6a6624439b2fe83a7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/21/2019
+ms.openlocfilehash: c6c32265e6fc2fc2bb0d6b00d89862e200731a2a
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696535"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "66016452"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>建立 Azure 機器學習服務工作區
 
-若要使用 Azure Machine Learning 服務，您需要[ **Azure Machine Learning 服務工作區**](concept-azure-machine-learning-architecture.md#workspace)。  此工作區是服務的最上層資源，並提供您要使用您所建立的所有成品的集中位置。 
+若要使用 Azure Machine Learning 服務，您需要[ **Azure Machine Learning 服務工作區**](concept-workspace.md)。  此工作區是服務的最上層資源，並提供您要使用您所建立的所有成品的集中位置。 
 
 在本文中，您會學習如何建立工作區中使用任何一種方法： 
 * [Azure 入口網站](#portal)介面
@@ -33,7 +33,7 @@ ms.locfileid: "64696535"
 
 當您建立工作區自動 （如果它們也出現些許可用），會加入下列的 Azure 資源：
  
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+- [Azure 容器登錄](https://azure.microsoft.com/services/container-registry/)：若要降低成本，是 ACR**消極式載入**直到部署映像建立。
 - [Azure 儲存體](https://azure.microsoft.com/services/storage/)
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure 金鑰保存庫](https://azure.microsoft.com/services/key-vault/)

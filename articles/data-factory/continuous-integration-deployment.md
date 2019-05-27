@@ -3,20 +3,21 @@ title: Azure Data Factory 中的持續整合和傳遞 | Microsoft Docs
 description: 了解如何使用持續整合和傳遞將一個環境 (開發、測試、生產) 中的 Data Factory 管線移至另一個環境。
 services: data-factory
 documentationcenter: ''
-author: gauravmalhot
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
+author: gauravmalhot
 ms.author: gamal
+ms.reviewer: maghan
 manager: craigg
-ms.openlocfilehash: 2edd4e28a0dd67be3c06159bce2e968d681b7f70
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 76962975705ff53a292f41a0a54e42c5f2991a2c
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905251"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002642"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory 中的持續整合和傳遞 (CI/CD)
 

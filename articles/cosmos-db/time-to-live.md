@@ -9,18 +9,18 @@ ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 27540c3dfce73788e01f0f8ab0892c733f153fdf
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60728996"
 ---
-# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB 中的生存时间 (TTL) 
+# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB 中的存留時間 (TTL) 
 
-利用**生存时间**（简称 TTL），Azure Cosmos DB 能够在特定一段时间后自动将项从容器中删除。 根據預設，您可以在容器層級設定存留時間，且覆寫每個項目的值。 在容器或項目層級設定 TTL 之後，Azure Cosmos DB 會在自從上次修改以來的時間週期後自動移除這些項目。 存留時間值會以秒設定。 配置 TTL 后，系统会基于 TTL 值自动删除已过期的项，不需要客户端应用程序显式发出的 delete 操作。
+使用**存留時間** ( TTL)，Azure Cosmos DB 提供在一段特定時間後自動從容器刪除項目的功能。 根據預設，您可以在容器層級設定存留時間，並覆寫每個項目的值。 在容器或項目層級設定 TTL 之後，Azure Cosmos DB 會在自從上次修改以來的時間週期後自動移除這些項目。 存留時間值是以秒為單位來設定的。 設定 TTL 之後，系統會根據 TTL 值自動刪除已過期的項，不需要用戶端應用程序明確地發出刪除作業。
 
 ## <a name="time-to-live-for-containers-and-items"></a>容器和項目的存留時間
 
-生存时间值是以秒为单位设置的，解释为自上次修改项的时间的增量。 您可以設定容器或容器內項目的存留時間：
+存留時間值是以秒為單位來設定的的，解釋為自上次修改項目時間之後的增量。 您可以在容器或容器內項目上設定存留時間：
 
 1. **容器的存留時間** (使用 `DefaultTimeToLive` 設定)：
 
@@ -48,6 +48,6 @@ ms.locfileid: "60728996"
 
 ## <a name="next-steps"></a>後續步驟
 
-通过以下文章了解如何配置生存时间：
+透過下列文章來了解如何設定存留時間：
 
 * [如何設定存留時間](how-to-time-to-live.md)

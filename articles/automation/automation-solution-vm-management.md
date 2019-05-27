@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2269eac0790e61dbf0ce893bbb737cb22d58d497
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501967"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002484"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Azure 自動化中的「停機期間啟動/停止 VM」解決方案
 
@@ -49,7 +49,7 @@ ms.locfileid: "65501967"
 
 ### <a name="permissions-needed-to-deploy"></a>部署所需的權限
 
-有特定權限，使用者必須在部署期間啟動/停止 Vm 關閉小時解決方案。 這些權限會不同，如果使用預先建立的自動化帳戶和 Log Analytics 工作區或建立新的檔案，在部署期間。
+有特定權限，使用者必須在部署期間啟動/停止 Vm 關閉小時解決方案。 這些權限會不同，如果使用預先建立的自動化帳戶和 Log Analytics 工作區或建立新的檔案，在部署期間。 如果您是訂用帳戶參與者 」 和 「 全域系統管理員在您的 Azure Active Directory 租用戶中，您不需要設定下列權限。 如果沒有這些權限或需要設定自訂的角色，請參閱下面所需的權限。
 
 #### <a name="pre-existing-automation-account-and-log-analytics-account"></a>現有的自動化帳戶和 Log Analytics 帳戶
 
@@ -79,41 +79,21 @@ ms.locfileid: "65501967"
 
 若要部署停機期間啟動/停止 Vm 至新的自動化帳戶和 Log Analytics 工作區部署解決方案的使用者的解決方案需要定義在上一節，以及下列權限的權限：
 
-- 共同管理員的訂用帳戶-這需要建立傳統執行身分帳戶
-- 是的一部分**應用程式開發人員**角色。 如需有關如何設定執行身分帳戶的詳細資訊，請參閱 <<c0> [ 若要設定執行身分帳戶的權限](manage-runas-account.md#permissions)。
+- 共同管理員的訂用帳戶-才需要此來建立傳統執行身分帳戶
+- 是的一部分[Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **應用程式開發人員**角色。 如需有關如何設定執行身分帳戶的詳細資訊，請參閱 <<c0> [ 若要設定執行身分帳戶的權限](manage-runas-account.md#permissions)。
+- 訂用帳戶上的下列權限的參與者。
 
 | 權限 |`Scope`|
 | --- | --- |
+| Microsoft.Authorization/Operations/read | 訂用帳戶|
+| Microsoft.Authorization/permissions/read |訂用帳戶|
 | Microsoft.Authorization/roleAssignments/read | 訂用帳戶 |
 | Microsoft.Authorization/roleAssignments/write | 訂用帳戶 |
+| Microsoft.Authorization/roleAssignments/delete | 訂用帳戶 |
 | Microsoft.Automation/automationAccounts/connections/read | 資源群組 |
 | Microsoft.Automation/automationAccounts/certificates/read | 資源群組 |
 | Microsoft.Automation/automationAccounts/write | 資源群組 |
 | Microsoft.OperationalInsights/workspaces/write | 資源群組 |
-
-### <a name="region-mappings"></a>區域對應
-
-當啟用時在離峰期間啟動/停止 Vm，只有特定區域的 Log Analytics 工作區和自動化帳戶連結的支援。
-
-下表顯示支援的對應：
-
-|**Log Analytics 工作區區域**|**Azure 自動化區域**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP 和 EastUS 對應至自動化帳戶的 Log Analytics 工作區不是確切的區域對應，但是是正確的對應。
-
-<sup>2</sup>基於容量限制的區域不提供建立新的資源時。 這包括自動化帳戶和 Log Analytics 工作區。 不過，在區域中預先存在連結的資源應該繼續運作。
 
 ## <a name="deploy-the-solution"></a>部署解決方案
 
@@ -140,6 +120,11 @@ ms.locfileid: "65501967"
    - 對於 [資源群組]，您可以建立新的資源群組，或選取現有的資源群組。
    - 選取 [位置] 。 目前可用的位置只有**澳大利亞東南部**、**加拿大中部**、**印度中部**、**美國東部**、**日本東部**、**東南亞**、**英國南部**、**西歐**和**美國西部 2**。
    - 選取 **定價層**。 選擇 [每 GB (獨立)] 選項。 Azure 監視器記錄檔已更新[定價](https://azure.microsoft.com/pricing/details/log-analytics/)和 每 GB 層是唯一的選項。
+
+   > [!NOTE]
+   > 啟用解決方案時，只有特定區域支援連結 Log Analytics 工作區和自動化帳戶。
+   >
+   > 如需支援的對應配對的清單，請參閱 <<c0> [ 自動化帳戶和 Log Analytics 工作區的區域對應](how-to/region-mappings.md)。
 
 5. 在 [Log Analytics 工作區] 頁面上提供必要資訊之後，按一下 [建立]。 您可以在功能表的 [通知] 下追蹤其進度，這會在完成時帶您返回 [新增解決方案] 頁面。
 6. 在 [新增解決方案] 頁面中，選取 [自動化帳戶]。 如果要建立新的 Log Analytics 工作區，您可以建立要與其相關聯的新自動化帳戶，或選取尚未連結至 Log Analytics 工作區的現有自動化帳戶。 選取現有自動化帳戶或按一下 [建立自動化帳戶]，然後在 [新增自動化帳戶] 頁面上提供下列資訊︰
@@ -433,7 +418,9 @@ ms.locfileid: "65501967"
 
 若要刪除解決方案，請執行下列步驟：
 
-1. 從您的自動化帳戶，選取左頁面中的 [工作區]。
+1. 從您的自動化帳戶底下**相關的資源**，選取**連結工作區**。
+1. 選取 **移至工作區**。
+1. 底下**一般**，選取**解決方案**。 
 1. 在 [解決方案] 頁面上，選取 [Start-Stop-VM[工作區]] 解決方案。 在 [VMManagementSolution[工作區]] 頁面上，選取功能表中的 [刪除]。<br><br> ![刪除 VM 管理解決方案](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. 在 [刪除解決方案] 視窗中，確認您要刪除解決方案。
 1. 在驗證資訊並刪除解決方案後，您可以在功能表的 [通知] 底下追蹤其進度。 移除解決方案的程序啟動之後，您會返回 [解決方案] 頁面。

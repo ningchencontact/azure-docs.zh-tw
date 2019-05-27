@@ -1,5 +1,5 @@
 ---
-title: 如何以 WebJobs 的形式运行 Durable Functions - Azure
+title: 如何執行 Durable Functions 為 Webjob-Azure
 description: 了解如何使用 WebJobs SDK，對 Durable Functions 進行編碼並設定為在 WebJobs 中執行。
 services: functions
 author: ggailey777
@@ -10,22 +10,22 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39a757900b4307d702a0ce0ce1c20694418aa8dd
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648647"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872827"
 ---
-# <a name="how-to-run-durable-functions-as-webjobs"></a>如何以 WebJobs 的形式运行 Durable Functions
+# <a name="how-to-run-durable-functions-as-webjobs"></a>如何執行 Durable Functions 與 WebJobs
 
-默认情况下，Durable Functions 使用 Azure Functions 运行时来托管业务流程。 但是，在某些情况下，可能需要对侦听事件的代码进行更多的控制。 本文介绍如何使用 WebJobs SDK 来实现业务流程。 若要查看更詳細的比較 Functions 和 WebJobs 之間，請參閱[比較 Functions 和 WebJobs](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs)。
+根據預設，長期函式會使用 Azure Functions 執行階段主應用程式協調流程。 不過，可能有某些情況下，您需要更充分掌控接聽事件的程式碼。 這篇文章會示範如何實作協調流程使用 WebJobs SDK。 若要查看更詳細的比較 Functions 和 WebJobs 之間，請參閱[比較 Functions 和 WebJobs](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs)。
 
-[Azure Functions](../functions-overview.md) 和 [Durable Functions](durable-functions-overview.md) 擴充功能是以 [WebJobs SDK](../../app-service/webjobs-sdk-how-to.md) 為基礎所建置的。 WebJobs SDK 中的作业主机是 Azure Functions 中的运行时。 如果需要以 Azure Functions 中做不到的方式来控制行为，可以使用 WebJobs SDK 自行开发并运行 Durable Functions。
+[Azure Functions](../functions-overview.md) 和 [Durable Functions](durable-functions-overview.md) 擴充功能是以 [WebJobs SDK](../../app-service/webjobs-sdk-how-to.md) 為基礎所建置的。 WebJobs SDK 中的工作主機是在 Azure Functions 執行階段。 如果您需要控制方式無法在 Azure Functions 中的行為，您可以開發，並自行使用 WebJobs SDK 來執行長期函式。
 
-在 WebJobs SDK 的版本 3.x 中，主机是 `IHost` 的实现，而在版本 2.x 中，你使用 `JobHost` 对象。
+版本 3.x 的 WebJobs sdk，主應用程式會實作`IHost`，並在版本 2.x，您使用`JobHost`物件。
 
-WebJobs SDK 2.x 版中提供了有关链接 Durable Functions 的示例：下载或克隆 [Durable Functions 存储库](https://github.com/azure/azure-functions-durable-extension/)，然后转到 *samples\\webjobssdk\\chaining* 文件夹。
+鏈結的 Durable Functions 範例是 WebJobs SDK 2.x 版中可用： 下載或複製[Durable Functions 存放庫](https://github.com/azure/azure-functions-durable-extension/)，然後前往*範例\\webjobssdk\\鏈結*資料夾。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -37,9 +37,9 @@ WebJobs SDK 2.x 版中提供了有关链接 Durable Functions 的示例：下载
 
 若要完成本文中的步驟：
 
-* [安裝 Visual Studio 2017 15.6 版或更新版本](https://docs.microsoft.com/visualstudio/install/)與 **Azure 開發**工作負載。
+* [安裝 Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/)具有**Azure 開發**工作負載。
 
-  如果已安装 Visual Studio，但未配置该工作负荷，请选择“工具” > “获取工具和功能”以添加该工作负荷。
+  如果您已經有 Visual Studio 中，但沒有該工作負載，請選取新增工作負載**工具** > **取得工具和功能**。
 
   (您可以改為使用 [Visual Studio Code](https://code.visualstudio.com/)，但某些指示是 Visual Studio 特有的。)
 
@@ -51,15 +51,15 @@ WebJobs SDK 2.x 版中提供了有关链接 Durable Functions 的示例：下载
 
 ## <a name="create-a-console-app"></a>建立主控台應用程式
 
-若要将 Durable Functions 作为 WebJobs 运行，必须先创建控制台应用。 WebJobs SDK 專案只是安裝了適當 NuGet 套件的主控台應用程式專案。
+若要執行長期函式為 WebJobs，您必須先建立主控台應用程式。 WebJobs SDK 專案只是安裝了適當 NuGet 套件的主控台應用程式專案。
 
-在 Visual Studio 的“新建项目”对话框中，选择“Windows 经典桌面” > “控制台应用(.NET Framework)”。 在專案檔中，`TargetFrameworkVersion` 應該是 `v4.6.1`。
+在 Visual Studio**新的專案**對話方塊中，選取**Windows 傳統桌面** > **主控台應用程式 (.NET Framework)**。 在專案檔中，`TargetFrameworkVersion` 應該是 `v4.6.1`。
 
-Visual Studio 还有一个 WebJob 项目模板，选择“云” > “Azure WebJob (.NET Framework)”即可使用此模板。 此範本會安裝許多套件，但您可能不需要其中的某些套件。
+Visual Studio 也有您可以使用選取的 WebJob 專案範本**雲端** > **Azure WebJob (.NET Framework)**。 此範本會安裝許多套件，但您可能不需要其中的某些套件。
 
 ## <a name="install-nuget-packages"></a>安裝 NuGet 套件
 
-您需要 NuGet 套件中的 WebJobs SDK、核心繫結、記錄架構和長期工作擴充功能。 下面是这些包的“包管理器控制台”命令，并提供了截至编写本文时的最新稳定版本号：
+您需要 NuGet 套件中的 WebJobs SDK、核心繫結、記錄架構和長期工作擴充功能。 以下是**Package Manager Console**這些封裝，請使用最新穩定版本數字，自撰寫本文時的日期起的命令：
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions -version 2.2.0
@@ -82,7 +82,7 @@ Install-Package Microsoft.Extensions.Logging.Console -version 2.0.1
 
 ## <a name="jobhost-code"></a>JobHost 程式碼
 
-创建控制台应用并安装所需的 NuGet 包以后，即可使用 Durable Functions。 可以使用 JobHost 代码来这样做。
+建立主控台應用程式以及已安裝的 NuGet 套件，您需要您就可以使用長期函式。 您可以使用這樣 JobHost 程式碼。
 
 若要使用 Durable Functions 擴充功能，請在 `Main` 方法中的 `JobHostConfiguration` 物件上呼叫 `UseDurableTask`：
 
@@ -125,9 +125,9 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>功能
 
-WebJobs 上下文中的 Durable Functions 有点不同于 Azure Functions 上下文中的 Durable Functions。 在编写代码时，必须了解相关差异。
+WebJobs 的內容中的 durable Functions 可讓從 Durable Functions 略有不同的 Azure 函式的內容中。 務必在您撰寫程式碼時需要注意的差異。
 
 WebJobs SDK 不支援下列 Azure Functions 功能：
 
@@ -157,13 +157,13 @@ public static async Task CronJob(
 
 由於沒有 HTTP 觸發程序，WebJobs SDK 沒有 [HTTP 管理 API](durable-functions-http-api.md)。
 
-在 WebJobs SDK 项目中，可对业务流程客户端对象调用方法，而无需发送 HTTP 请求。 下列方法對應至三個可使用 HTTP 管理 API 來進行的工作：
+在 WebJobs SDK 專案中，您可以藉由傳送 HTTP 要求而不是呼叫協調流程用戶端物件上的方法。 下列方法對應至三個可使用 HTTP 管理 API 來進行的工作：
 
 * `GetStatusAsync`
 * `RaiseEventAsync`
 * `TerminateAsync`
 
-示例项目中的业务流程客户端函数启动业务流程协调程序函数，然后进入每隔 2 秒调用 `GetStatusAsync` 的循环：
+範例專案中的協調流程用戶端函式會啟動協調器函式，並接著會進入一個迴圈，呼叫`GetStatusAsync`每 2 秒：
 
 ```cs
 string instanceId = await client.StartNewAsync(nameof(HelloSequence), input: null);
@@ -188,7 +188,7 @@ while (true)
 
 ## <a name="run-the-sample"></a>執行範例
 
-你已经将 Durable Functions 设置为以 WebJob 方式运行，并且已了解其与以独立 Azure Functions 形式运行 Durable Functions 时的区别。 此时可以在示例中查看其运行情况。
+您有設定要執行的 webjob，長期函式，且您現在已了解這會有何不同執行獨立 Azure Functions 的 Durable Functions。 此時，查看其運作中的範例可能會很有幫助。
 
 本節概述如何執行[範例專案](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/webjobssdk/chaining)。 如需會說明如何在本機執行 WebJobs SDK 專案並將其部署至 Azure WebJob 的詳細指示，請參閱[開始使用 WebJobs SDK](../../app-service/webjobs-sdk-get-started.md#deploy-as-a-webjob)。
 

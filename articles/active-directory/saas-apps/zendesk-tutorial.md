@@ -16,11 +16,11 @@ ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 11370e651c338de3d139a4bb70c9658090052469
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901775"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896224"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>教學課程：Azure Active Directory 與 Zendesk 整合
 
@@ -73,7 +73,7 @@ Zendesk 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Zendesk 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 Zendesk 設定及測試 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Zendesk 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Zendesk 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
@@ -105,7 +105,7 @@ Zendesk 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Zendesk 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![Zendesk 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.zendesk.com`
 
@@ -159,11 +159,11 @@ Zendesk 與 Azure AD 整合提供下列優點：
   
 10. 若要自動執行 Zendesk 內的設定，您必須按一下 [安裝延伸模組] 來安裝「我的應用程式安全登入瀏覽器延伸模組」。
 
-    ![映像](./media/zendesk-tutorial/install_extension.png)
+    ![image](./media/zendesk-tutorial/install_extension.png)
 
 11. 將延伸模組新增至瀏覽器之後，按一下 [安裝 Zendesk] 便會將您導向到 Zendesk 應用程式。 請從該處提供用以登入 Zendesk 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行**設定 Zendesk 單一登入**一節中的步驟。
 
-    ![映像](./media/zendesk-tutorial/d2_saml.png)
+    ![image](./media/zendesk-tutorial/d2_saml.png)
 
 ### <a name="configure-zendesk-single-sign-on"></a>設定 Zendesk 單一登入
 
@@ -226,7 +226,7 @@ Zendesk 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入 **Zendesk** 並加以選取。
 
-    ![應用程式清單中的 [Zendesk] 連結](common/all-applications.png)
+    ![應用程式清單中的 Zendesk 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

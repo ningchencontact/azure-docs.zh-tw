@@ -7,16 +7,19 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 55e6b515328df635a423e0ecf736b03e17a90b8f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00229cca1d7fb238b330ec98cd35d0bb59bc821a
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698413"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015631"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>使用自願性移轉工具來移轉傳統警示規則
 
-作為[先前所宣布](monitoring-classic-retirement.md)，在 Azure 監視器傳統警示會在 2019 年 7 月即將淘汰。 客戶使用傳統的警示規則的人員，而且想要自行觸發移轉至 Azure 入口網站中使用移轉工具。 這篇文章說明如何使用移轉工具在 2019 年 7 月中的自動移轉開始之前，主動移轉傳統警示規則。
+作為[先前所宣布](monitoring-classic-retirement.md)，即將在 2019 年 9 月淘汰 Azure 監視器中的傳統警示 (已原先於 2019 年 7 月)。 客戶使用傳統的警示規則的人員，而且想要自行觸發移轉至 Azure 入口網站中使用移轉工具。 這篇文章說明如何使用移轉工具將自動移轉開始在 2019 年 9 月之前，主動移轉傳統警示規則。
+
+> [!NOTE]
+> 因為導入的移轉工具中的延遲，所以傳統警示移轉的停用日期已[延伸到 2019 年 8 月 31 日](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/)從最初宣布於 2019 年 6 月 30 日的日期。
 
 ## <a name="benefits-of-new-alerts"></a>新警示的優點
 
@@ -78,7 +81,7 @@ ms.locfileid: "64698413"
 
 ### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>為什麼我的訂用帳戶列為未準備好進行移轉？
 
-移轉工具即將推出的客戶在階段中。 在早期階段中，大部分或所有訂用帳戶可能會標示為**還沒準備好移轉**。 Mid 年 4 月，不過，所有訂用帳戶應準備好移轉。
+移轉工具即將推出的客戶在階段中。 在早期階段中，大部分或所有訂用帳戶可能會標示為**還沒準備好移轉**。 
 
 準備好進行移轉訂用帳戶時，訂用帳戶擁有者會收到電子郵件訊息，指出此工具位。 提早寄出這個訊息。
 

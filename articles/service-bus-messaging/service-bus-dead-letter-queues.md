@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 05/21/2019
 ms.author: aschhab
-ms.openlocfilehash: 0364304a203e03faf69868174a45cb41850ce112
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af67b27dacf3bb86c2dd5c878a2751e027a53acb
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713957"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003127"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>服務匯流排寄不出的信件佇列的概觀
 
@@ -50,7 +50,7 @@ Azure 服務匯流排佇列和主題訂用帳戶提供次要的子佇列，稱�
 | EnableDeadLetteringOnMessageExpiration |TTLExpiredException |訊息已過期，且已停止傳送。 |
 | SubscriptionDescription.RequiresSession |工作階段識別碼為 null。 |啟用工作階段的實體不允許工作階段識別項為 null 的訊息。 |
 | ！寄不出的信件佇列 |MaxTransferHopCountExceeded |Null |
-| 應用程式明確停止傳送 |應用程式所指定 |由应用程序指定 |
+| 應用程式明確停止傳送 |應用程式所指定 |應用程式所指定 |
 
 ## <a name="exceeding-maxdeliverycount"></a>超過 MaxDeliveryCount
 
@@ -80,7 +80,7 @@ Azure 服務匯流排佇列和主題訂用帳戶提供次要的子佇列，稱�
 - 目的地佇列或主題已停用或刪除。
 - 目的地佇列或主題超過最大實體大小。
 
-若要检索这些死信消息，可以使用 [FormatTransferDeadletterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath) 实用方法创建接收器。
+若要擷取這些寄不出的信件訊息，您可以使用 [FormatTransferDeadletterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath) 公用程式方法來建立接收者。
 
 ## <a name="example"></a>範例
 
@@ -103,10 +103,21 @@ while(true)
 }
 ```
 
+## <a name="path-to-the-dead-letter-queue"></a>寄不出信件佇列路徑
+您可以使用下列語法來存取寄不出信件佇列：
+
+```
+<queue path>/$deadletterqueue
+<topic path>/Subscription/<subscription path>/$deadletterqueue
+```
+
+如果您使用.NET SDK，您可以使用 SubscriptionClient.FormatDeadLetterPath() 方法來取得寄不出信件佇列的路徑。 這個方法會採用主題名稱/訂用帳戶名稱，並具有字尾 **/$DeadLetterQueue**。
+
+
 ## <a name="next-steps"></a>後續步驟
 
 如需服務匯流排佇列的詳細資訊，請參閱下列文章。
 
-* [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
+* [開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
 * [比較 Azure 佇列和服務匯流排佇列](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 

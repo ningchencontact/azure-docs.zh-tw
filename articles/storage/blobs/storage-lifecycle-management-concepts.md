@@ -5,16 +5,16 @@ services: storage
 author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 26ff592ea0d0a57049ae11a981fe8d8e77ca876f
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: ce2559f62d29c7b062cfd1ad1dcb61146adfd91c
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606953"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001747"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>管理 Azure Blob 儲存體生命週期
 
@@ -199,7 +199,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 | 參數名稱 | 參數類型 | 注意 | 必要項 |
 |----------------|----------------|-------|----------|
-| `name`         | 字串 |規則名稱可包含最多 256 個的英數字元。 規則名稱會區分大小寫。  它在原則內必須是唯一的。 | True |
+| `name`         | String |規則名稱可包含最多 256 個的英數字元。 規則名稱會區分大小寫。  它在原則內必須是唯一的。 | True |
 | `enabled`      | Boolean | 選擇性的布林值，以允許規則，以暫時停用。 預設值為 true，如果未設定。 | False | 
 | `type`         | 列舉值 | 目前有效的型別是`Lifecycle`。 | True |
 | `definition`   | 定義生命週期規則的物件 | 每個定義是由篩選集和動作集組成。 | True |
@@ -393,8 +393,12 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 ## <a name="faq"></a>常見問題集
 
-**我建立新的原則，原因動作不立即執行嗎？**  
+**我建立新的原則，為什麼要執行的動作不立即執行嗎？**  
 平台會每天執行一次生命週期原則。 一旦您設定原則時，可能需要一些動作，才能執行第一次最多 24 小時。  
+
+**我以手動方式解除凍結已封存的 blob，如何防止它被移回封存層暫時嗎？**  
+當 blob 從一個存取層移至另一個存取層時，則不會變更其上次修改時間。 如果您以手動方式解除凍結已封存的 blob 至經常性存取層，它會移回封存層的生命週期管理引擎。 您可以防止其停用此規則會暫時影響此 blob。 如果需要永久保留在經常性存取層，您可以將 blob 複製到另一個位置中。 Blob 可以安全地移回封存層時，您可以重新啟用此規則。 
+
 
 ## <a name="next-steps"></a>後續步驟
 

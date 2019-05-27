@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
 ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049892"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66110252"
 ---
-# <a name="service-fabric-networking-patterns"></a>Service Fabric 网络模式
+# <a name="service-fabric-networking-patterns"></a>Service Fabric 網路功能模式
 您可以將 Azure Service Fabric 叢集與其他的 Azure 網路功能整合起來。 本文說明如何建立使用下列功能的叢集︰
 
 - [現有虛擬網路或子網路](#existingvnet)
@@ -31,9 +31,9 @@ ms.locfileid: "59049892"
 
 Service Fabric 會在標準的虛擬機器擴展集內執行。 能在虛擬機器擴展集內使用的功能，就能在 Service Fabric 叢集內使用。 虛擬機器擴展集和 Service Fabric 之 Azure Resource Manager 範本中的網路區段完全相同。 在部署至現有虛擬網路後，即可輕鬆地納入其他網路功能，例如 Azure ExpressRoute、Azure VPN 閘道、網路安全性群組和虛擬網路對等互連。
 
-Service Fabric 有一個方面是其他網路功能所沒有的。 [Azure 入口網站](https://portal.azure.com)在內部會使用 Service Fabric 資源提供者來呼叫叢集，以取得節點和應用程式的相關資訊。 Service Fabric 資源提供者對管理端點上的 HTTP 閘道連接埠 (預設為連接埠 19080) 需具備可公開存取的輸入存取權。 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 會使用此管理端點來管理您的叢集。 Service Fabric 资源提供程序还使用此端口来查询有关群集的信息，以便在 Azure 门户中显示。 
+Service Fabric 有一個方面是其他網路功能所沒有的。 [Azure 入口網站](https://portal.azure.com)在內部會使用 Service Fabric 資源提供者來呼叫叢集，以取得節點和應用程式的相關資訊。 Service Fabric 資源提供者對管理端點上的 HTTP 閘道連接埠 (預設為連接埠 19080) 需具備可公開存取的輸入存取權。 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 會使用此管理端點來管理您的叢集。 Service Fabric 資源提供者也會使用此連接埠來查詢您叢集的相關資訊，以顯示在 Azure 入口網站中。 
 
-如果無法從 Service Fabric 資源提供者存取連接埠 19080，入口網站中會出現「找不到節點」之類的訊息，而且您的節點和應用程式清單會顯示為空白。 如果想要在 Azure 门户中查看群集，负载均衡器必须公开一个公共 IP 地址，并且网络安全组必须允许端口 19080 上的传入流量。 如果您的設定不符合這些需求，Azure 入口網站就不會顯示叢集的狀態。
+如果無法從 Service Fabric 資源提供者存取連接埠 19080，入口網站中會出現「找不到節點」之類的訊息，而且您的節點和應用程式清單會顯示為空白。 如果您想在 Azure 入口網站看到您的叢集，負載平衡器必須公開公用 IP 位址，且您的網路安全性群組必須允許連入的連接埠 19080 流量。 如果您的設定不符合這些需求，Azure 入口網站就不會顯示叢集的狀態。
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -45,7 +45,7 @@ Service Fabric 有一個方面是其他網路功能所沒有的。 [Azure 入口
 <a id="initialsetup"></a>
 ## <a name="initial-setup"></a>初始設定
 
-### <a name="existing-virtual-network"></a>现有虚拟网络
+### <a name="existing-virtual-network"></a>現有的虛擬網路
 
 在下列範例中，我們會從 **ExistingRG** 資源群組中名為 ExistingRG-vnet 的現有虛擬網路來開始。 子網路名為 default。 這些預設資源會在您使用 Azure 入口網站來建立標準虛擬機器 (VM) 時建立。 您可以建立虛擬網路和子網路而不建立 VM，但將叢集新增至現有虛擬網路的主要目標是要提供對其他 VM 的網路連線能力。 建立 VM 可為現有虛擬網路一般是如何使用的提供良好範例。 如果 Service Fabric 叢集只使用內部負載平衡器而不使用公用 IP 位址，您可以使用 VM 和其公用 IP 來做為安全的「跳躍箱」。
 
@@ -184,7 +184,7 @@ DnsSettings              : {
 
 
 <a id="staticpublicip"></a>
-## <a name="static-public-ip-address"></a>静态公共 IP 地址
+## <a name="static-public-ip-address"></a>靜態公用 IP 位址
 
 1. 新增現有靜態 IP 資源群組名稱、名稱和完整網域名稱 (FQDN) 的參數︰
 
@@ -200,7 +200,7 @@ DnsSettings              : {
     }
     ```
 
-2. 删除 `dnsName` 参数。 (靜態 IP 位址已經有一個)。
+2. 移除 `dnsName` 參數  (靜態 IP 位址已經有一個)。
 
     ```json
     /*
@@ -268,7 +268,7 @@ DnsSettings              : {
                     ],
     ```
 
-7. 在 `Microsoft.ServiceFabric/clusters` 資源中，將 `managementEndpoint` 變更為靜態 IP 位址的 DNS FQDN。 如果您使用安全的叢集，請務必將 http:// 變更為 https://  （请注意，此步骤仅适用于 Service Fabric 群集。 如果您使用虛擬機器擴展集，請略過此步驟)。
+7. 在 `Microsoft.ServiceFabric/clusters` 資源中，將 `managementEndpoint` 變更為靜態 IP 位址的 DNS FQDN。 如果您使用安全的叢集，請務必將 http:// 變更為 https://  (請注意，此步驟僅適用於 Service Fabric 叢集。 如果您使用虛擬機器擴展集，請略過此步驟)。
 
     ```json
                     "fabricSettings": [],
@@ -276,7 +276,7 @@ DnsSettings              : {
                     "managementEndpoint": "[concat('http://',parameters('existingStaticIPDnsFQDN'),':',parameters('nt0fabricHttpGatewayPort'))]",
     ```
 
-8. 部署模板：
+8. 部署範本：
 
     ```powershell
     New-AzResourceGroup -Name sfnetworkingstaticip -Location westus
@@ -291,7 +291,7 @@ DnsSettings              : {
 在部署後，您會看到負載平衡器繫結至另一個資源群組中的公用靜態 IP 位址。 Service Fabric 用戶端連線端點和 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 端點會指向靜態 IP 位址的 DNS FQDN。
 
 <a id="internallb"></a>
-## <a name="internal-only-load-balancer"></a>仅限内部的负载均衡器
+## <a name="internal-only-load-balancer"></a>僅內部負載平衡器
 
 此案例使用僅內部負載平衡器取代預設 Service Fabric 範本中的外部負載平衡器。 若要了解這對 Azure 入口網站和 Service Fabric 資源提供者的影響，請參閱上一節。
 

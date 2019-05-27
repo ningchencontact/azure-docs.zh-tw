@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34a499ac12bcf6f4aee671eb209b709390ca6139
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: ed4e7559ff6c3b76bbdf49b538ffebf3ad09cc58
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545128"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001222"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>適用於應用程式驗證的憑證認證
 
@@ -98,11 +98,10 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ### <a name="uploading-the-certificate-file"></a>上傳憑證檔案
 
 在用戶端應用程式的 Azure 應用程式註冊中：
-1. 選取 [設定 > 金鑰]，然後選取 [上傳公開金鑰]。 
-2. 選取您要上傳的憑證檔案。
-3. 選取 [ **儲存**]。 
-   
-   儲存後會上傳憑證，並且會顯示指紋、開始日期和到期值。 
+1. 選取 **憑證與祕密**。 
+2. 按一下 **上傳憑證**，然後選取要上傳憑證檔案。
+3. 按一下 [新增] 。
+  一旦上傳憑證時，會顯示指紋、 開始日期和到期值。 
 
 ### <a name="updating-the-application-manifest"></a>更新應用程式資訊清單
 
@@ -114,7 +113,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 您也必須提供 GUID 來識別應用程式資訊清單中的金鑰 (`$keyId`)。
 
 在用戶端應用程式的 Azure 應用程式註冊中：
-1. 開啟應用程式資訊清單。
+1. 選取 **資訊清單**開啟應用程式資訊清單。
 2. 使用下列結構描述，將 *keyCredentials* 屬性取代為您新的憑證資訊。
 
    ```

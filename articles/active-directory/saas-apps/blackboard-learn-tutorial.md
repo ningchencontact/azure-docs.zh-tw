@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60aacc3d4d5743187ec826fb9f544488171b1285
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838539"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900723"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>教學課程：Azure Active Directory 與 Blackboard Learn 整合
 
@@ -115,7 +115,7 @@ ms.locfileid: "57838539"
 
 5. Blackboard Learn 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟。 在這裡，我們已將 Userprincipalname 對應為唯一的使用者屬性，但您可以將它對應到適當的值，此值必須可在組織內唯一識別該使用者，並且對應到 Blackboard Learn 使用者名稱欄位。
 

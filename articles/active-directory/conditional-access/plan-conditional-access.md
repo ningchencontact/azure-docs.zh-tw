@@ -13,14 +13,14 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4832055bffa72732991cb766ce88cc48c07530e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e277f31dcf2627959b88d58f325fb4dad024a00
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301339"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001182"
 ---
-# <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>作法：在 Azure Active Directory 中規劃條件式存取部署
+# <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>如何：在 Azure Active Directory 中規劃條件式存取部署
 
 規劃條件式存取部署非常重要，這可確保您針對組織內的應用程式和資源達成需要的存取策略。 您在部署的規劃階段，應該將大部分時間花費在設計需要的各種原則，以在您選擇的條件下授與或封鎖使用者存取權。 本文件說明實作安全有效率的條件式存取原則所應採取的步驟。 在開始之前，請務必了解[條件式存取](overview.md)的運作方式和使用時機。
 
@@ -81,7 +81,7 @@ Azure Active Directory 條件式存取可讓您的雲端應用程式保護登上
  
 ![命名標準](./media/plan-conditional-access/11.png)
 
-雖然描述性名稱可協助概述條件式存取實作，但是如果您需要在交談中參考原則，則序號很有幫助。 例如，如果您透過電話與其他系統管理員交談，您可以要求他開啟原則 EM063 來解決問題。
+雖然描述性名稱可協助概述條件式存取實作，但是如果您需要在交談中參考原則，則序號很有幫助。 比方說，如果您透過電話連絡其他系統管理員，您可以要求他們以開啟 原則 EM063 來解決問題。
 
 
 
@@ -131,7 +131,7 @@ Azure Active Directory 條件式存取可讓您的雲端應用程式保護登上
 
 需要 MFA 來進行存取的常見使用案例：
 
-- [系統管理員](baseline-protection.md#require-mfa-for-admins)
+- [系統管理員](howto-baseline-protect-administrators.md)
 - [存取特定應用程式](app-based-mfa.md) 
 - [來自不信任的網路位置](untrusted-networks.md)。
 

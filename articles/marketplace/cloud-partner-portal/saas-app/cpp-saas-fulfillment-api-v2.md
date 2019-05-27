@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 551f3be2ca23bc18224d28faeea6a6df80eba1db
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 4efd9556e255709204654cf0acbf1b08fa2c1fc0
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823527"
+ms.locfileid: "65872145"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS 履行 Api 第 2 版 
 
-本文詳細說明在 Azure Marketplace 與 AppSource 讓獨立軟體廠商 (Isv) 銷售其 SaaS 應用程式的 API。 此 API 是用於列出 SaaS 需求提供在 Azure Marketplace 與 AppSource 上。
+本文詳細說明在 Azure Marketplace 與 AppSource 讓獨立軟體廠商 (Isv) 銷售其 SaaS 應用程式的 API。 此 API 是可交易的 SaaS 需求提供在 Azure Marketplace 與 AppSource 上。
 
 ## <a name="managing-the-saas-subscription-lifecycle"></a>管理 SaaS 訂用帳戶生命週期
 

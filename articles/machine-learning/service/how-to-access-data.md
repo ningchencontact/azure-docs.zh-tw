@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0ab01187b03b3d658b171029003667588382bd7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15118535578419f9e1230c5b2fcfd0d7c42257ea
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820299"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908993"
 ---
 # <a name="access-data-from-your-datastores"></a>從您的資料存放區存取資料
 
@@ -30,7 +30,7 @@ ms.locfileid: "60820299"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要使用資料存放區，必須先有[工作區](concept-azure-machine-learning-architecture.md#workspace)。
+若要使用資料存放區，必須先有[工作區](concept-workspace.md)。
 
 從[建立新工作區](setup-create-workspace.md#sdk)，或擷取現有工作區開始：
 
@@ -74,7 +74,7 @@ ds = ws.get_default_datastore()
                                                create_if_not_exists=True)
   ```
 
-+ 針對**Azure 檔案共用資料存放區**，使用[ `register_azure_file_share()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)。 例如︰ 
++ 針對**Azure 檔案共用資料存放區**，使用[ `register_azure_file_share()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)。 例如： 
   ```Python
   ds = Datastore.register_azure_file_share(workspace=ws, 
                                            datastore_name='your datastore name', 
@@ -153,7 +153,7 @@ ds.download(target_path='your target path',
 
 下表列出[ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py)告知如何在執行期間使用的資料存放區的計算目標的方法。
 
-方法|方法|描述|
+方法|方法|說明|
 ----|-----|--------
 掛接| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| 若要計算目標上裝載資料存放區使用。
 下載|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|使用您的資料存放區的內容下載到所指定的位置`path_on_compute`。 <br> 針對定型執行的內容，此下載發生之前執行。

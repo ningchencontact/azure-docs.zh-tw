@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 5/3/2019
 ms.author: victorh
-ms.openlocfilehash: 4c4a6776e3bb56026a48963ec83fe582380c68d0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 84b42654ec472ea2c7c81bed545f56b647158c95
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145950"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016009"
 ---
 # <a name="azure-firewall-faq"></a>Azure 防火牆常見問題集
 
@@ -25,7 +25,7 @@ Azure 防火牆是受控、雲端式網路安全性服務，可以保護您的 A
 * 具狀態防火牆即服務
 * 內建高可用性且不受限制的雲端延展性
 * FQDN 篩選
-* FQDN 標記
+* FQDN 標籤
 * 網路流量篩選規則
 * 輸出 SNAT 支援
 * 輸入 DNAT 支援
@@ -84,10 +84,10 @@ Web 應用程式防火牆 (WAF) 是應用程式閘道的一個功能，可提供
 
 您可以使用 Azure PowerShell 的「解除配置」和「配置」方法。
 
-例如︰
+例如：
 
 ```azurepowershell
-# Stop an exisitng firewall
+# Stop an existing firewall
 
 $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
@@ -123,9 +123,9 @@ Set-AzFirewall -AzureFirewall $azfw
 
 根據預設，不支援強制通道，但可透過支援的協助。
 
-Azure 的防火牆必須有直接的網際網路連線。 如果您 AzureFirewallSubnet 學習您的內部部署網路透過 BGP 的預設路由，您必須使用覆寫此使用 0.0.0.0/0 UDR **NextHopType**將值設為**網際網路**維護直接網際網路連線。 根據預設，Azure 防火牆不支援在內部部署網路的強制通道。
+「Azure 防火牆」必須能夠直接連線到網際網路。 如果您的 AzureFirewallSubnet 學習到透過 BGP 連至您內部部署網路的預設路由，您必須將其覆寫為 0.0.0.0/0 UDR，且 **NextHopType** 值必須設為 [網際網路]，以保有直接網際網路連線。 根據預設，Azure 防火牆不支援對內部部署網路的強制通道。
 
-不過，如果您的組態需要到內部部署網路的強制通道，Microsoft 將支援它以案例為基礎。 如此我們可以檢閱您的案例，請連絡支援服務。 如果接受，我們會將您的訂用帳戶的白名單，並確保能維持必要的防火牆的網際網路連線能力。
+不過，如果您的設定需要對內部部署網路的強制通道，Microsoft 將以個別案例為原則提供支援。 連絡支援人員，以便我們檢閱您的案例。 受理後，我們會將您的訂用帳戶列入白名單，並確實維持必要的防火牆網際網路連線。
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>是否有任何防火牆資源群組的限制？
 

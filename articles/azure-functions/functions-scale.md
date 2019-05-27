@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05fb277564f72e62a4cdacc12a16cce229b2befc
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61045818"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872750"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
@@ -88,7 +88,7 @@ Azure Functions 的進階方案，在下列情況下，請考慮：
 
 使用 App Service 方案時，您可以透過手動新增更多 VM 執行個體來相應放大，或者您可以啟用自動規模調整。 如需詳細資訊，請參閱[手動或自動調整執行個體計數規模](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)。 您也可以透過選擇不同的 App Service 方案來相應增加。 如需詳細資訊，請參閱[在 Azure 中為應用程式進行相應增加](../app-service/web-sites-scale.md)。 
 
-在 App Service 方案上執行 JavaScript 函式時，您應該選擇 vCPU 數目較少的方案。 有关详细信息，请参阅[选择单核应用服务计划](functions-reference-node.md#choose-single-vcpu-app-service-plans)。 
+在 App Service 方案上執行 JavaScript 函式時，您應該選擇 vCPU 數目較少的方案。 如需詳細資訊，請參閱 <<c0> [ 選擇單一核心 App Service 方案](functions-reference-node.md#choose-single-vcpu-app-service-plans)。 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
 ### <a name="always-on"></a> Always On
@@ -155,7 +155,7 @@ Azure Functions 使用名為「縮放控制器」的元件來監視事件的速�
 
 函數應用程式中有多個面向會影響其調整規模的效果，包括主機設定、執行階段耗用量和資源效率。  如需詳細資訊，請參閱[效能考量文章中的延展性一節](functions-best-practices.md#scalability-best-practices)。 您也應了解在縮放函式應用程式後，連線會如何運作。 如需詳細資訊，請參閱[如何管理 Azure Functions 中的連線](manage-connections.md)。
 
-### <a name="billing-model"></a>計費模式
+### <a name="billing-model"></a>計費模型
 
 [Azure Functions 價格頁面]會詳細說明取用方案的計費方式。 使用量是在函式應用程式層級彙總，且只會計算函式程式碼執行的時間。 計費單位如下︰
 
@@ -165,3 +165,9 @@ Azure Functions 使用名為「縮放控制器」的元件來監視事件的速�
 有用的查詢，以及如何了解耗用量計費的詳細資訊，請參閱[計費的常見問題集 >](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ)。
 
 [Azure Functions 價格頁面]: https://azure.microsoft.com/pricing/details/functions
+
+## <a name="service-limits"></a>服務限制
+
+下表指出套用至函式應用程式，在各種不同的主控方案中執行時的限制：
+
+[!INCLUDE [functions-limits](../../includes/functions-limits.md)]

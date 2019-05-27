@@ -16,11 +16,11 @@ ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8896922cf3f95439b76e12faf9577ca6570fbdf7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880716"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900664"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cimpl"></a>教學課程：Azure Active Directory 與 Cimpl 整合
 
@@ -39,7 +39,7 @@ ms.locfileid: "57880716"
 若要設定 Azure AD 與 Cimpl 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* 已啟用 Cimpl 單一登入的訂用帳戶
+* 已啟用 Cimpl 單一登入功能的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
@@ -71,7 +71,7 @@ ms.locfileid: "57880716"
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Cimpl 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 Cimpl 設定及測試 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Cimpl 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Cimpl 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
@@ -80,7 +80,7 @@ ms.locfileid: "57880716"
 2. **[設定 Cimpl 單一登入](#configure-cimpl-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Cimpl 測試使用者](#create-cimpl-test-user)** - 在 Cimpl 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
+5. **[建立 Cimpl 測試使用者](#create-cimpl-test-user)** - 在 Cimpl 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -103,7 +103,7 @@ ms.locfileid: "57880716"
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Cimpl 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![Cimpl 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://sso.etelesolv.com/<TENANTNAME>`
 
@@ -165,7 +165,7 @@ ms.locfileid: "57880716"
 
 2. 在應用程式清單中，選取 [Cimpl] 。
 
-    ![應用程式清單中的 [Cimpl] 連結](common/all-applications.png)
+    ![應用程式清單中的 Cimpl 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

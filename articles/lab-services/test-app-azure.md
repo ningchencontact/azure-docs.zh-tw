@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 9ca1c4a1ed1841f82bc386cff48315dd15ef91bb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f8c57b9e1fabbd04a7d9c92484b0f52f074c2577
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730404"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872446"
 ---
 # <a name="test-your-app-in-azure"></a>在 Azure 測試您的應用程式 
-本文提供在 Azure 中使用 DevTest Labs 測試應用程式的步驟。 首先，您會在實驗室內設定檔案共用，並將它掛接為本機開發電腦和實驗室內 VM 上的磁碟機。 然後，您可使用 Visual Studio 2017 將應用程式部署到檔案共用，以便在實驗室中的 VM 上執行應用程式。  
+本文提供在 Azure 中使用 DevTest Labs 測試應用程式的步驟。 首先，您會在實驗室內設定檔案共用，並將它掛接為本機開發電腦和實驗室內 VM 上的磁碟機。 然後，您可以使用 Visual Studio 2019 將應用程式部署到檔案共用，以便您可以在實驗室中 VM 上執行應用程式。  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -64,7 +64,7 @@ ms.locfileid: "56730404"
 ## <a name="publish-your-app-from-visual-studio"></a>從 Visual Studio 發佈應用程式
 在這一節中，您會將應用程式從 Visual Studio 發佈至雲端的測試 VM。
 
-1. 使用 Visual Studio 2017 建立傳統型/Web 應用程式。
+1. 使用 Visual Studio 2019，建立桌面/web 應用程式。
 2. 建置您的應用程式。
 3. 若要發佈應用程式，請在 [方案總管] 中以滑鼠右鍵按一下您的專案，然後選取 [發佈]。 
 4. 在 [發佈精靈] 中，輸入您的檔案共用所對應的**磁碟機**。

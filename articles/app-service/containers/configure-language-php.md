@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: ed6a50ee68d39e6e0d01b405eb02edd6d4c93613
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 637feb855c7816dfb26229c5a65a069260a58cd3
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407576"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003086"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>適用於 Azure App Service 中設定 Linux PHP 應用程式
 
@@ -105,7 +105,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>存取環境變數
 
-在 App Service 中，您可以於應用程式的程式碼外部[設定應用程式設定](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings)。 然後您可以存取它們使用標準[getenv （)](https://secure.php.net/manual/function.getenv.php)模式。 例如，若要存取稱為 `DB_HOST` 的應用程式設定，請使用下列程式碼：
+在 App Service 中，您可以於應用程式的程式碼外部[設定應用程式設定](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)。 然後您可以存取它們使用標準[getenv （)](https://secure.php.net/manual/function.getenv.php)模式。 例如，若要存取稱為 `DB_HOST` 的應用程式設定，請使用下列程式碼：
 
 ```php
 getenv("DB_HOST")
@@ -147,7 +147,7 @@ if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'h
 > 若要查看的 PHP 版本和目前的最佳方式*php.ini*組態就是呼叫[phpinfo （)](https://php.net/manual/function.phpinfo.php)應用程式中。
 >
 
-### <a name="customize-non-phpinisystem-directives"></a>自訂非 PHP_INI_SYSTEM 指示詞
+### <a name="Customize-non-PHP_INI_SYSTEM directives"></a>自訂-非-PHP_INI_SYSTEM 指示詞
 
 若要自訂 PHP_INI_USER、 PHP_INI_PERDIR 和 PHP_INI_ALL 指示詞 (請參閱[php.ini 指示詞](https://www.php.net/manual/ini.list.php))，新增 *.htaccess*檔案至您的應用程式的根目錄。
 
@@ -237,7 +237,7 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
     - 取決於您*composer.json*，不同的封裝可能會安裝用於實際執行模式 (`require`與`require-dev`)。
     - 某些 web 架構可能部署在生產模式中有不同的靜態檔案。
     - 在生產模式中執行時，某些 web 架構可能會使用自訂的啟動指令碼。
-- 在 App Service 中偵錯模式執行您的應用程式。 例如，在[Laravel](https://meanjs.org/)，您可以設定您的應用程式輸出生產環境中的偵錯訊息[設定`APP_DEBUG`應用程式設定設`true` ](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)。
+- 在 App Service 中偵錯模式執行您的應用程式。 例如，在[Laravel](https://meanjs.org/)，您可以設定您的應用程式輸出生產環境中的偵錯訊息[設定`APP_DEBUG`應用程式設定設`true` ](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)。
 
 ### <a name="robots933456"></a>robots933456
 

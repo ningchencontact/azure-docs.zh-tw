@@ -1,6 +1,6 @@
 ---
 title: 開始在 Xamarin.Forms 應用程式中使用 Mobile Apps 的驗證 | Microsoft Docs
-description: 了解如何使用移动应用通过各种标识提供者（包括 AAD、Google、Facebook、Twitter 和 Microsoft）对 Xamarin Forms 应用的用户进行身份验证。
+description: 了解如何使用 Mobile Apps 透過眾多識別提供者驗證 Xamarin Forms 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。
 services: app-service\mobile
 documentationcenter: xamarin
 author: panarasi
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: d97c4689b40dd0bcf2ab083c688c547014a4de0b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2945cefc18a378b31700104049f1a14a1f320136
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62113521"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019779"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>將驗證新增至 Xamarin Forms 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "62113521"
 
 ## <a name="redirecturl"></a>將您的應用程式新增至允許的外部重新導向 URL
 
-安全身份验证要求为应用定义新的 URL 方案。 這讓驗證系統能夠在驗證程序完成之後，重新導向回到您的應用程式。 我們會在這整個教學課程中使用 URL 配置 appname。 不過，您可以使用任何您選擇的 URL 結構描述。 对于移动应用程序而言，它应是唯一的。 在伺服器端啟用重新導向：
+安全的驗證會要求您為應用程式定義新的 URL 配置。 這讓驗證系統能夠在驗證程序完成之後，重新導向回到您的應用程式。 我們會在這整個教學課程中使用 URL 配置 appname。 不過，您可以使用任何您選擇的 URL 結構描述。 它對於您的行動應用程式而言應該是唯一的。 在伺服器端啟用重新導向：
 
 1. 在 [Azure 入口網站][8] 中，選取您的 App Service。
 
@@ -52,10 +52,10 @@ ms.locfileid: "62113521"
 ## <a name="restrict-permissions-to-authenticated-users"></a>限制只有通過驗證的使用者具有權限
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-## <a name="add-authentication-to-the-portable-class-library"></a>向可移植类库添加身份验证
-Mobile Apps 會使用 [MobileServiceClient][4] 的 [LoginAsync][3] 擴充方法，透過 App Service 驗證將使用者登入。 此示例使用服务器托管的身份验证流，在应用中显示提供程序的登录界面。 如需詳細資訊，請參閱[伺服器管理的驗證][5]。 若要在實際執行應用程式中提供更好的使用者體驗，您應該考慮改用[用戶端管理的驗證][6]。
+## <a name="add-authentication-to-the-portable-class-library"></a>將驗證加入可攜式類別庫中
+Mobile Apps 會使用 [MobileServiceClient][4] 的 [LoginAsync][3] 擴充方法，透過 App Service 驗證將使用者登入。 這個範例使用伺服器管理的驗證流程，在應用程式中顯示提供者的登入介面。 如需詳細資訊，請參閱[伺服器管理的驗證][5]。 若要在實際執行應用程式中提供更好的使用者體驗，您應該考慮改用[用戶端管理的驗證][6]。
 
-若要使用 Xamarin Forms 项目进行身份验证，请在可移植类库中为应用定义 **IAuthenticate** 接口。 然後，將 [登入]  按鈕新增至可攜式類別庫中定義的使用者介面，讓您按一下來開始驗證。 驗證成功後，將會從行動應用程式後端載入資料。
+為了驗證 Xamarin Forms 專案，請在應用程式的可攜式類別庫中定義 **IAuthenticate** 介面。 然後，將 [登入]  按鈕新增至可攜式類別庫中定義的使用者介面，讓您按一下來開始驗證。 驗證成功後，將會從行動應用程式後端載入資料。
 
 為應用程式支援的每個平台實作 **IAuthenticate** 介面。
 
@@ -116,10 +116,10 @@ Mobile Apps 會使用 [MobileServiceClient][4] 的 [LoginAsync][3] 擴充方法�
             if (authenticated == true)
                 await RefreshItems(true, syncItems: false);
         }
-8. 保存更改，重新生成可移植类库项目，并验证没有错误。
+8. 儲存變更，並建置可攜式類別庫專案，以驗證沒有錯誤。
 
 ## <a name="add-authentication-to-the-android-app"></a>將驗證加入 Android 應用程式中
-本節說明如何在 Android 應用程式專案中實作 **IAuthenticate** 介面。 如果不要支持 Android 设备，请跳过本部分。
+本節說明如何在 Android 應用程式專案中實作 **IAuthenticate** 介面。 如果您不要支援 Android 裝置，請略過這一節。
 
 1. 在 Visual Studio 或 Xamarin Studio 中，以滑鼠右鍵按一下 **droid** 專案，然後按一下 [設定為啟始專案]。
 2. 按下 F5 在偵錯工具中啟動專案，然後確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。 產生 401 代碼是因為只有獲授權的使用者才能存取後端。
@@ -195,7 +195,7 @@ Mobile Apps 會使用 [MobileServiceClient][4] 的 [LoginAsync][3] 擴充方法�
 在某些情況下，支援套件中的衝突在 Visual studio 中僅顯示為警告，但應用程式在執行階段會因此例外狀況而當機。 在此情況下，您必須確定您專案中所參考的所有支援套件都具有相同版本。 [Azure Mobile Apps NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) 具有 Android 平台的 `Xamarin.Android.Support.CustomTabs` 相依性，因此若您的專案使用較新的支援套件，您必須直接安裝具有必要版本的此套件以避免發生衝突。
 
 ## <a name="add-authentication-to-the-ios-app"></a>將驗證加入 iOS 應用程式中
-本節說明如何在 iOS 應用程式專案中實作 **IAuthenticate** 介面。 如果不要支持 iOS 设备，请跳过本部分。
+本節說明如何在 iOS 應用程式專案中實作 **IAuthenticate** 介面。 如果您不要支援 iOS 裝置，請略過這一節。
 
 1. 在 Visual Studio 或 Xamarin Studio 中，以滑鼠右鍵按一下 **iOS** 專案，然後按一下 [設定為啟始專案]。
 2. 按下 F5 在偵錯工具中啟動專案，然後確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。 產生 401 回應是因為只有獲授權的使用者才能存取後端。
@@ -236,8 +236,9 @@ Mobile Apps 會使用 [MobileServiceClient][4] 的 [LoginAsync][3] 擴充方法�
             }
 
             // Display the success or failure message.
-            UIAlertView avAlert = new UIAlertView("Sign-in result", message, null, "OK", null);
-            avAlert.Show();
+            UIAlertController avAlert = UIAlertController.Create("Sign-in result", message, UIAlertControllerStyle.Alert);
+            avAlert.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+            UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(avAlert, true, null);
 
             return success;
         }
@@ -345,9 +346,9 @@ Mobile Apps 會使用 [MobileServiceClient][4] 的 [LoginAsync][3] 擴充方法�
 * [將推播通知新增至應用程式](app-service-mobile-xamarin-forms-get-started-push.md)
 
   了解如何將推播通知支援新增至應用程式，並設定行動應用程式後端以使用 Azure 通知中樞傳送推播通知。
-* [为应用启用脱机同步](app-service-mobile-xamarin-forms-get-started-offline-data.md)
+* [啟用應用程式的離線同步處理](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 
-  了解如何使用行動應用程式後端，將離線支援新增至應用程式。 脱机同步允许最终用户与移动应用交互（查看、添加或修改数据），即使在没有网络连接时也是如此。
+  了解如何使用行動應用程式後端，將離線支援新增至應用程式。 離線同步處理可讓使用者與行動應用程式進行互動 (檢視、新增或修改資料)，即使沒有網路連接也可以。
 
 <!-- Images. -->
 
