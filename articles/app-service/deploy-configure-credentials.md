@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 03/10/2019
 ms.author: cephalin;byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: df874ab77c88f05b048b1f9d10873943b7bebf36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b054e56afdec65ac000b0dc18a0c1a3fd845b4c3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765424"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955989"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>設定 Azure App Service 的部署認證
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 支援兩種認證類，用於[本機 Git 部署](deploy-local-git.md)和 [FTP/S 部署](deploy-ftp.md)。 這些認證不會與您的 Azure Active Directory 認證相同。
 
-* **使用者層級認證**︰一組用於整個 Azure 帳戶的認證。 它可以用來將任何應用程式部署至 Azure 帳戶有權存取的任何訂用帳戶的 App Service 中。 其為呈現在入口網站 GUI 中的預設集合 (例如應用程式[資源頁面](../azure-resource-manager/manage-resources-portal.md#manage-resources)的 [概觀] 和 [屬性])。 透過角色型存取控制 (RBAC) 或共同管理員權限來為使用者授與應用程式存取權時，該使用者可以使用自己的使用者層級認證，直到存取權遭到撤銷為止。 請勿與其他 Azure 使用者共用這些認證。
+* **使用者層級認證**︰一組用於整個 Azure 帳戶的認證。 它可以用來將任何應用程式部署至 Azure 帳戶有權存取的任何訂用帳戶的 App Service 中。 其為呈現在入口網站 GUI 中的預設集合 (例如應用程式[資源頁面](../azure-resource-manager/manage-resources-portal.md#manage-resources)的 [概觀] 和 [屬性])。 當透過角色型存取控制 (RBAC) 或共同管理員權限的應用程式存取權授與使用者時，該使用者可以使用自己的使用者層級認證，直到存取權被撤銷。 請勿與其他 Azure 使用者共用這些認證。
 
 * **應用程式層級認證**︰一組用於單個 應用程式的認證。 它只可以用來部署該應用程式。 每個應用程式的認證都會在建立應用程式時自動產生。 您無法手動設定它們，但可隨時重設。 若是要透過 (RBAC) 授與應用程式層級認證存取權的使用者，該使用者就必須是應用程式上的參與者或更高權限。 讀者不允許發佈且無法存取那些認證。
 
@@ -54,11 +54,11 @@ ms.locfileid: "60765424"
 >
 >  
 
-## <a name="use-user-level-credentials-with-ftpftps"></a>将用户级凭据用于 FTP/FTPS
+## <a name="use-user-level-credentials-with-ftpftps"></a>使用 FTP/FTPS 的使用者層級的認證
 
-使用用户级凭据向 FTP/FTPS 终结点进行身份验证时需要使用以下格式的用户名：`<app-name>\<user-name>`
+驗證 FTP/FTPS 端點使用使用者層級認證 requirers 使用者名稱格式如下： `<app-name>\<user-name>`
 
-由于用户级凭据链接到用户而不是特定资源，因此用户名必须采用此格式才能将登录操作定向到正确的应用终结点。
+使用者層級的認證連結到使用者並不是特定的資源，因為使用者名稱必須以下列格式將正確的應用程式端點的登入動作。
 
 ## <a name="appscope"></a>設定及重設應用程式層級的認證
 若要取得應用程式層級的認證：

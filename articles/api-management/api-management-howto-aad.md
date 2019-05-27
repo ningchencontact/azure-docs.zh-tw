@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 422c2a8a61b1df36b452c153aa6cd78ba7e2dcef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d267ff3a43438d9fe6e4e21f0ac023cfa6675f19
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723637"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956297"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 來授權開發人員帳戶
 
@@ -61,21 +61,22 @@ ms.locfileid: "64723637"
 14.  註冊應用程式之後，請將複製**應用程式 （用戶端） 識別碼**從**概觀**頁面。 
 15. 回到您的 API 管理執行個體。 在 **新增識別提供者** 視窗中，貼上**應用程式 （用戶端） 識別碼**值插入**用戶端識別碼** 方塊中。
 16. 切換回 Azure AD 組態中，選取**憑證與祕密**下方**管理**。 選取 [**新的用戶端祕密**] 按鈕。 輸入中的值**描述**，選取任何選項**Expires** ，然後選擇 **新增**。 離開頁面之前，將複製用戶端祕密值。 您在下一個步驟將會用到這些資料。 
-17. 返回您的 API 管理執行個體中，貼上密碼貼入**用戶端祕密** 方塊中。
+17. 底下**管理**，選取**驗證**，然後選取**識別碼權杖**下**隱含授與**
+18. 返回您的 API 管理執行個體中，貼上密碼貼入**用戶端祕密** 方塊中。
 
     > [!IMPORTANT]
     > 請務必在金鑰到期之前，更新 [用戶端密碼]。 
     >  
     >
 
-18. [新增識別提供者] 視窗也包含 [允許的租用戶] 文字方塊。 請在該處指定 Azure AD 執行個體的網域，您將會對它授與 API 管理服務執行個體的 API 存取權。 您可以使用換行符號、空格或逗號來分隔多個網域。
+19. [新增識別提供者] 視窗也包含 [允許的租用戶] 文字方塊。 請在該處指定 Azure AD 執行個體的網域，您將會對它授與 API 管理服務執行個體的 API 存取權。 您可以使用換行符號、空格或逗號來分隔多個網域。
 
 > [!NOTE]
 > 您可以在 [允許的租用戶] 區段中指定多個網域。 在使用者可透過與註冊應用程式之原始網域不同的網域登入前，不同網域的全域管理員必須授與權限，應用程式才能存取目錄資料。 若要授與權限，全域系統管理員應：。 移至 `https://<URL of your developer portal>/aadadminconsent` (例如， https://contoso.portal.azure-api.net/aadadminconsent)。
 > b. 輸入想要授與存取權的 Azure AD 租用戶網域名稱。
 > c. 選取 [提交]。 
 
-19.  在您指定所需的設定之後，請選取 [新增]。
+20.  在您指定所需的設定之後，請選取 [新增]。
 
 儲存變更之後，所指定 Azure AD 執行個體中的使用者即可依照[使用 Azure AD 帳戶來登入開發人員入口網站](#log_in_to_dev_portal)中的步驟來登入開發人員入口網站。
 

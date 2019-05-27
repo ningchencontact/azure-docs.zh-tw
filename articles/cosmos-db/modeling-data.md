@@ -5,15 +5,15 @@ description: 了解如何在 NoSQL 資料庫中將資料模型化，以及在關
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/20/2019
 ms.author: rimman
 ms.custom: rimman
-ms.openlocfilehash: e8581cb130c8b2d7ac044838f0ae922b9b5e86cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 956f63dd92c82df0998cfaca76c7ecf5b10f053e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446687"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953864"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB 中模型化的資料
 
@@ -80,7 +80,7 @@ ms.locfileid: "60446687"
 
 一般而言，使用內嵌的資料模型的時機為：
 
-* 实体之间存在“包含”关系。
+* 有**包含**實體之間的關聯性。
 * 實體之間有 **一對一些** 關聯性。
 * 內嵌的資料 **不常變更**。
 * 內嵌的資料不會成長**無限**。
@@ -174,7 +174,7 @@ ms.locfileid: "60446687"
 
 股票 *zaza* 可能在單一日交易數百次，而上千名使用者的組合上可能有 *zaza*。 如果使用如上所示的資料模型，我們每天都必須多次更新數千個組合文件，這會導致系統無法妥善延展。
 
-## <a name="referencing-data"></a>引用数据
+## <a name="referencing-data"></a>參考資料
 
 因此，內嵌資料於許多情況下可適用，但很明顯有時反正規化資料將會造成更多問題，使得適得其反。 那我們現在該怎麼辦？
 
@@ -321,7 +321,7 @@ ms.locfileid: "60446687"
 
 現在，如果我有作者，我立即會知道哪些其著作，而反之如果我載入書籍文件我就知道作者的識別碼。 這樣可以省下對聯結資料表的中繼查詢，減少您的應用程式必須進行的伺服器來回行程數目。
 
-## <a name="hybrid-data-models"></a>混合数据模型
+## <a name="hybrid-data-models"></a>混合式資料模型
 
 我們現在已看過內嵌 (或反正規化) 和參考 (或正規化) 資料，如我們所見，各有其優缺點。
 
@@ -414,6 +414,6 @@ ms.locfileid: "60446687"
 
 正如同沒有單一方法可表示螢幕上的資料片段，沒有單一方法可為您的資料建立模型。 您需要了解您的應用程式，以及它將如何產生、取用及處理資料。 然後，藉由套用一些此處所提供的指導方針，您可以設定相關的建立模型，來處理您的應用程式的立即需求。 當您的應用程式需要進行變更時，您可以利用無結構描述之資料庫的彈性來納入變更，並輕鬆進化您的資料模型。
 
-若要了解有关 Azure Cosmos DB 的详细信息，请参阅服务的[文档](https://azure.microsoft.com/documentation/services/cosmos-db/)页。
+若要深入了解 Azure Cosmos DB，請參閱服務的[文件 (英文)](https://azure.microsoft.com/documentation/services/cosmos-db/)頁面。
 
 若要了解如何跨多個分割將您的資料分區，請參閱[在 Azure Cosmos DB 中分割資料](sql-api-partition-data.md)。

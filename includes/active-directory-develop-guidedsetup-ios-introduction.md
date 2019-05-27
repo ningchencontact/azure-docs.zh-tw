@@ -5,21 +5,21 @@ services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: ios
 ms.workload: identity
 ms.date: 03/20/2019
-ms.author: dadobali
+ms.author: jmprieur
+ms.reviwer: brandwe
 ms.custom: include file
-ms.openlocfilehash: 971ae8cd44f1b345d3a71b8fa4f256c8f25ef961
-ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
+ms.openlocfilehash: 08849cb44b5a3db3d66dc444d5e84fb3df66ad9a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64951333"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967614"
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>從 iOS 應用程式呼叫 Microsoft Graph API
 
@@ -50,6 +50,6 @@ MSAL 會為您管理快取和重新整理存取權杖，因此您的應用程式
 
 本指南使用下列程式庫：
 
-|程式庫|描述|
+|程式庫|說明|
 |---|---|
 |[MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|適用於 iOS 的 Microsoft Authentication Library 預覽|

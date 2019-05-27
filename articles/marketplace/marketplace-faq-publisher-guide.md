@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: 3e1bad5902bb35ce0c037835359c267582cc8bc7
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 152be044b5696a0d9017729d731e080ed9163828
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938637"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964058"
 ---
 # <a name="marketplace-faqs"></a>Marketplace 常見問題集
 
@@ -36,7 +36,7 @@ Azure Marketplace 提供來自 Microsoft 與合作夥伴的技術解決方案和
 
 * 基本作業系統
 * 資料庫
-* security
+* 安全性
 * 身分識別
 * 網路功能
 * 區塊鏈
@@ -310,7 +310,7 @@ Microsoft 提供兩個不同的雲端市集店面 – Azure Marketplace 和 AppS
 
 **如何開始在 Azure Marketplace 中發佈？**
 
-若要開始在 Azure Marketplace 中陳列商品，請先檢閱 [Azure Marketplace 發行者指南](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide)和[成為發行者](https://docs.microsoft.com/azure/marketplace/become-publisher)。 接著，請完成 [Azure Marketplace 提名表單](https://azuremarketplace.microsoft.com/sell/signup)以提交您的應用程式。
+若要開始在 Azure Marketplace 中陳列商品，請先檢閱 [Azure Marketplace 發行者指南](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide)和[成為發行者](https://docs.microsoft.com/azure/marketplace/become-publisher)。 接下來，提交您的應用程式所[提交您的供應項目](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)。 請參閱如何[建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)如需詳細資訊。
 
 **我必須成為 Microsoft 合作夥伴網路 (MPN) 的成員，才能在 Azure Marketplace 中陳列應用程式和服務嗎？**
 
@@ -400,7 +400,7 @@ O365 應用程式
 1.  使用開發人員帳戶登入 [https://sellerdashboard.microsoft.com](https://sellerdashboard.microsoft.com)。
 1.  撤銷增益集。
 
-注意：應用程式將在 90 天後從現有的清單中消失。
+注意:應用程式將在 90 天後從現有的清單中消失。
 
 Power BI 應用程式
 * 連絡人︰[Anjana Sompur (Slalom Consulting LLC)](mailto:v-ansomp@microsoft.com)。

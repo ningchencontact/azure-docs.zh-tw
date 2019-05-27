@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 6cd5413d64be2117cc5f64202ecdaaf40f35db4b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 76bbcd6fa400111514ec3496005a28ec28ae6ab7
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205383"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977907"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>監視任何網站的可用性和回應性
 將 Web 應用程式或網站部署至任何伺服器之後，您可以設定測試來監視其可用性和回應性。 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 會將來自全球各地的 Web 要求定期傳送給您的應用程式。 如果應用程式沒有回應或回應太慢，則會警告您。
@@ -71,7 +71,7 @@ ms.locfileid: "65205383"
 
 * **警示位置閾值**：建議至少為位置數的 3/5。 警示位置閾值與測試位置數目之間的最佳關聯性，就是**警示位置閾值** = **測試位置數目** - 2 (最少五個測試位置)。
 
-## <a name="multi-step-web-tests"></a>多重步驟 Web 測試
+## <a name="multi-step-web-tests"></a>多重步驟的 Web 效能測試
 您可以監視涉及一連串 URL 的案例。 例如，如果您正在監視銷售網站，您可以測試將項目加入購物車正確運作。
 
 > [!NOTE]
@@ -175,7 +175,7 @@ Web 測試外掛程式提供將時間參數化的方法。
 
 當您對服務執行維護時，您可能會想要停用可用性測試或與其相關聯的警示規則。
 
-![停用 Web 測試](./media/monitor-web-app-availability/6disable.png)
+![停用 web 測試](./media/monitor-web-app-availability/6disable.png)  
 ![編輯測試](./media/monitor-web-app-availability/8edittest.png)
 
 ## <a name="failures"></a>如果您看到失敗

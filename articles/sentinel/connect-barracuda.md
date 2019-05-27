@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6b0285903537dafb004b5aca033b50560247c605
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: dd45be69ec29fdcd00710b7366348846f325b151
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204450"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921979"
 ---
 # <a name="connect-your-barracuda-appliance"></a>連接您的 Barracuda 應用裝置 
 
@@ -27,14 +27,14 @@ ms.locfileid: "65204450"
 > Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-Barracuda Web 應用程式防火牆 (WAF) 連接器可讓您輕鬆地連接您的 Barracuda 記錄您 Azure Sentinel，來檢視儀表板、 建立自訂警示，以及改善調查。 這可讓您更多深入您的組織網路，並改善您的安全性作業功能。 Azure 的 Sentinel 利用之間的原生整合**Barracuda**和 Microsoft Azure OMS 提供無縫整合。 
+Barracuda Web 應用程式防火牆 (WAF) 連接器可讓您輕鬆地連接您的 Barracuda 記錄您 Azure Sentinel，來檢視儀表板、 建立自訂警示，以及改善調查。 這可讓您更多深入您的組織網路，並改善您的安全性作業功能。 Azure 的 Sentinel 利用之間的原生整合**Barracuda**和提供緊密整合的 Microsoft Monitoring Agent。 
 
 
 > [!NOTE]
 > 資料會儲存在您在執行 Azure Sentinel 的工作區的地理位置。
 
 ## <a name="configure-and-connect-barracuda-waf"></a>設定及連接 Barracuda WAF
-Barracuda Web 應用程式防火牆整合和記錄檔將直接匯出至 Azure Sentinel 透過 Azure OMS 的伺服器。
+Barracuda Web 應用程式防火牆整合和記錄檔將直接匯出至 Azure Sentinel 透過 Microsoft Monitoring Agent。
 1. 移至[Barracuda WAF 設定流程](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)，並遵循指示來設定連線，使用下列參數：
     - **工作區識別碼**： 從 Azure Sentinel Barracuda 連接器頁面複製您的工作區識別碼的值。
     - **主索引鍵**： 從 Azure Sentinel Barracuda 連接器頁面複製您的主索引鍵的值。

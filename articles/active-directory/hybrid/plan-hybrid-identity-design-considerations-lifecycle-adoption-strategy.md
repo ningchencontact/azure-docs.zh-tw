@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b312f284d557c2c1344b82b9fcd570d3392077
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aff695307fc97e9f2acfd44f7434d5cbb26ef53e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381261"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950839"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>判斷混合式身分識別生命週期採用策略
 在這項工作中，您將為混合式身分識別解決方案定義身分識別管理策略，以滿足您在 [判斷混合式身分識別管理工作](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)中定義的商務需求。
@@ -42,7 +42,7 @@ ms.locfileid: "60381261"
 
 ## <a name="role-based-access-control"></a>角色型存取控制
 角色型存取控制 (RBAC) 使用角色和佈建原則來評估、測試和強制執行商務程序和規則，以授與存取權給使用者。 金鑰系統管理員建立佈建原則，將使用者指派到角色，並定義這些角色對資源的權限集。 RBAC 擴充身分識別管理解決方案，使用軟體型處理程序並減少佈建程序中的使用者手動互動。
-Azure AD RBAC 可讓公司限制個人存取 Azure 入口網站之後可執行的作業數目。 使用 RBAC 來控制存取入口網站時，IT 系統管理員可以利用下列存取管理方法來委派存取：
+Azure AD RBAC 可讓公司限制個人可以執行後他們可以存取 Azure 入口網站的作業數目。 使用 RBAC 來控制存取入口網站時，IT 系統管理員可以利用下列存取管理方法來委派存取：
 
 * **群組型角色指派**：您可以指派存取權給可從本機 Active Directory 同步處理的 Azure AD 群組。 這可讓您運用組織目前在群組管理工具和程序方面所做的投資。 您也可以使用 Azure AD Premium 的委派群組管理功能。
 * **運用 Azure 中內建的角色**：您可以使用三個角色 — 擁有者、參與者和讀者，以確保使用者和群組只擁有他們執行工作所需的權限。

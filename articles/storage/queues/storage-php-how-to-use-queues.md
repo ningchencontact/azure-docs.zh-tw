@@ -10,12 +10,12 @@ ms.date: 01/11/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: b827894c633c425220bf94be1f51c52d464bd79b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 4ff54f9ca20c101de55bec2c7acf914c17bd7709
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410457"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951207"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>如何使用 PHP 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -45,7 +45,7 @@ ms.locfileid: "65410457"
       }
     }
     ```
-2. 将 [composer.phar][composer-phar] 下载到项目根目录中。
+2. 將 **[composer.phar][composer-phar]** 下載到專案根目錄中。
 3. 開啟命令提示字元，在專案根目錄中執行下列命令
    
     ```
@@ -87,7 +87,7 @@ UseDevelopmentStorage=true
 若要建立 Azure 佇列服務用戶端，您需要使用 **QueueRestProxy** 類別。 您可以使用下列其中一種方式：
 
 * 直接將連接字串傳遞給它。
-* 使用 Web 應用程式中的環境變數來儲存連接字串。 請參閱 [Azure Web 應用程式組態設定](../../app-service/web-sites-configure.md)文件來設定連接字串。
+* 使用 Web 應用程式中的環境變數來儲存連接字串。 請參閱 [Azure Web 應用程式組態設定](../../app-service/configure-common.md)文件來設定連接字串。
 在本文的各範例中，將會直接傳遞連接字串。
 
 ```php
@@ -302,7 +302,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="additional-options-for-de-queuing-messages"></a>其他將訊息移出佇列的選項
-自訂從佇列中擷取訊息的方法有兩種。 首先，可获取一批消息（最多 32 条）。 其次，您可以設定較長或較短的可見度逾時，讓您的程式碼有較長或較短的時間可以完整處理每個訊息。 下列程式碼範例將使用 **getMessages** 方法，在一次呼叫中取得 16 個訊息。 接著它會使用 **for** 迴圈處理每個訊息。 它也會將可見度逾時設定為每個訊息五分鐘。
+自訂從佇列中擷取訊息的方法有兩種。 首先，您可以取得一批訊息 (最多 32 個)。 其次，您可以設定較長或較短的可見度逾時，讓您的程式碼有較長或較短的時間可以完整處理每個訊息。 下列程式碼範例將使用 **getMessages** 方法，在一次呼叫中取得 16 個訊息。 接著它會使用 **for** 迴圈處理每個訊息。 它也會將可見度逾時設定為每個訊息五分鐘。
 
 ```php
 require_once 'vendor/autoload.php';

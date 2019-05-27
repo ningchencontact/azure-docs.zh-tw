@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2f3d08a32384cea815f096f51b24eea596d0d118
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8923c94409dcf079179ed0464046e39ef7654c4c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871160"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949821"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>如何在 Azure 搜尋服務中為大型資料集編製索引
 
@@ -67,7 +67,7 @@ ms.locfileid: "60871160"
 平行處理具有下列元素：
 
 + 將來源資料分置於多個容器中，或是相同容器內的多個虛擬資料夾中。 
-+ 將每個小型資料集對應至各自的[資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)，並與各自的[索引子](https://docs.microsoft.com/rest/api/searchservice/create-indexer)配對。
++ 將每個小型的資料集對應到其自有[資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)配對到其自有、 [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)。
 + 對於認知搜尋，請參考每個索引子定義中的相同[技能集](https://docs.microsoft.com/rest/api/searchservice/create-skillset)。
 + 寫入相同的目標搜尋索引中。 
 + 將所有索引子排程在相同時間執行。

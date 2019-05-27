@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 3dd61ae9298a03ce0cbb9e9a5b143229c15ea9bb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f455985d2a7d05f45100d4a88b43c688fe1a7767
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786382"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955762"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web 應用程式的應用程式效能常見問題集
 
@@ -43,7 +43,7 @@ ms.locfileid: "65786382"
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>如何針對高記憶體耗用量案例進行疑難排解？
 
-在某些高記憶體耗用量案例中，您的應用程式可能真正需要更多運算資源。 在此情況下，請考慮調整為較高的服務層級，讓應用程式取得所需的所有資源。 若是其他情況，程式碼中的錯誤可能會導致記憶體流失。 程式碼撰寫慣例也可能會增加記憶體耗用量。 深入了解什麼觸發高記憶體耗用量是兩部分的處理序。 首先，创建进程转储，然后分析此进程转储。 Azure 網站擴充功能資源庫的損毀診斷程式可以有效率地執行這兩個步驟。 如需詳細資訊，請參閱[擷取及分析 Web 應用程式間歇高記憶體的傾印檔案](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)。
+在某些高記憶體耗用量案例中，您的應用程式可能真正需要更多運算資源。 在此情況下，請考慮調整為較高的服務層級，讓應用程式取得所需的所有資源。 若是其他情況，程式碼中的錯誤可能會導致記憶體流失。 程式碼撰寫慣例也可能會增加記憶體耗用量。 深入了解什麼觸發高記憶體耗用量是兩部分的處理序。 首先，建立處理序傾印，然後分析處理序傾印。 Azure 網站擴充功能資源庫的損毀診斷程式可以有效率地執行這兩個步驟。 如需詳細資訊，請參閱[擷取及分析 Web 應用程式間歇高記憶體的傾印檔案](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)。
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>如何使用 PowerShell 自動化 App Service Web 應用程式？
 
@@ -161,7 +161,7 @@ ms.locfileid: "65786382"
 
 另請注意，64 位元環境需要基本或標準服務方案。 [免費] 與 [共用] 方案一律於 32 位元環境中執行。
 
-如需詳細資訊，請參閱 [在 App Service 中設定 Web 應用程式](web-sites-configure.md)。
+如需詳細資訊，請參閱 [在 App Service 中設定 Web 應用程式](configure-common.md)。
 
 ## <a name="why-does-my-request-time-out-after-230-seconds"></a>為何我的要求在 230 秒後逾時？
 

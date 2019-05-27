@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: raynew
-ms.openlocfilehash: c91629d24267d280edefdb7530e2614eb7be89fd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4500f4c53ed2731e9f96add97018b16d83f9d304
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704877"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955107"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware 至 Azure 災害復原架構
 
@@ -45,7 +45,7 @@ ms.locfileid: "64704877"
         - **復原點保留**。 發生中斷時，此設定會指定您所希望回溯的時間。 進階儲存體中的保留期上限為 24 小時。 標準儲存體則為 72 小時。 
         - **應用程式一致快照集**。 應用程式快照集會視應用程式的需求每隔 1 至 12 小時拍攝一次。 快照集為標準的 Azure blob 快照集。 在 VM 執行的流動性代理程式會根據此設定要求 VSS 快照集，並在複寫串流中將該時間點標記為應用程式一致時間點。
 
-2. 流量會透過網際網路複寫到 Azure 儲存體的公用端點。 或者，您也可以使用 Azure ExpressRoute 搭配[公用對等互連](../expressroute/expressroute-circuit-peerings.md#publicpeering)。 不支援從內部部署網站透過站對站虛擬私人網路 (VPN) 將流量複寫至 Azure。
+2. 流量會透過網際網路複寫到 Azure 儲存體的公用端點。 或者，您可以使用 Azure ExpressRoute 搭配[Microsoft 對等互連](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)。 不支援從內部部署網站透過站對站虛擬私人網路 (VPN) 將流量複寫至 Azure。
 3. 初始複寫完成之後，就會開始將差異變更複寫到 Azure。 機器的追蹤變更會傳送至流程伺服器。
 4. 進行通訊的過程如下：
 

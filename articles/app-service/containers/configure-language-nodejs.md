@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 3074048dd4426a10e706e37e6d375ea4995fcbbb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9422d543ad83f29d60fd7e1de51a79c3416e5b14
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919791"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956169"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>適用於 Azure App Service 中設定 Linux Node.js 應用程式
 
@@ -137,7 +137,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>存取環境變數
 
-在 App Service 中，您可以於應用程式的程式碼外部[設定應用程式設定](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings)。 然後，您可以使用標準的 Node.js 模式。 例如，若要存取稱為 `NODE_ENV` 的應用程式設定，請使用下列程式碼：
+在 App Service 中，您可以於應用程式的程式碼外部[設定應用程式設定](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)。 然後，您可以使用標準的 Node.js 模式。 例如，若要存取稱為 `NODE_ENV` 的應用程式設定，請使用下列程式碼：
 
 ```javascript
 process.env.NODE_ENV
@@ -253,7 +253,7 @@ if (req.secure) {
     - 取決於您*package.json*，不同的封裝可能會安裝用於實際執行模式 (`dependencies`與`devDependencies`)。
     - 某些 web 架構可能部署在生產模式中有不同的靜態檔案。
     - 在生產模式中執行時，某些 web 架構可能會使用自訂的啟動指令碼。
-- 在開發模式中，在 App Service 中執行您的應用程式。 例如，在[MEAN.js](https://meanjs.org/)，您可以設定您的應用程式執行階段中的開發模式[設定`NODE_ENV`應用程式設定](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)。
+- 在開發模式中，在 App Service 中執行您的應用程式。 例如，在[MEAN.js](https://meanjs.org/)，您可以設定您的應用程式執行階段中的開發模式[設定`NODE_ENV`應用程式設定](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)。
 
 ## <a name="next-steps"></a>後續步驟
 

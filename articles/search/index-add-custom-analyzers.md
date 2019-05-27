@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5983c2036ff206825a82072b57ca2b9bb44ca678
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e9daebf46093e38858feff87ca5c4ba89638aa74
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021667"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951899"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>將自訂分析器新增至 Azure 搜尋服務索引
 
@@ -214,7 +214,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |||  
 |-|-|  
 |名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
-|類型|可支援分析器清單中的分析器類型。 請參閱下方[分析器](#AnalyzerTable)表格中的 **analyzer_type** 資料行。|  
+|Type|可支援分析器清單中的分析器類型。 請參閱下方[分析器](#AnalyzerTable)表格中的 **analyzer_type** 資料行。|  
 |選項|必須是下方[分析器](#AnalyzerTable)表格中有效的預先定義分析器選項。|  
 
 #### <a name="custom-analyzers"></a>自訂分析器
@@ -222,8 +222,8 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |||  
 |-|-|  
 |名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
-|類型|必須是 "#Microsoft.Azure.Search.CustomAnalyzer"。|  
-|CharFilters|設定為[字元篩選器](#CharFilter)表格內其中一個預先定義的字元篩選器，或設定為索引定義中指定的自訂字元篩選器。|  
+|Type|必須是 "#Microsoft.Azure.Search.CustomAnalyzer"。|  
+|CharFilters|設定為[字元篩選器](#char-filters-reference)表格內其中一個預先定義的字元篩選器，或設定為索引定義中指定的自訂字元篩選器。|  
 |權杖化工具|必要。 設定為下方 [Token 化工具](#Tokenizers) 表格內其中一個預先定義的 Token 化工具或設定為索引定義中指定的自訂 Token 化工具。|  
 |語彙基元篩選器|設定為[語彙基元篩選器](#TokenFilters)表格內其中一個預先定義的語彙基元篩選器，或設定為索引定義中指定的自訂語彙基元篩選器。|  
 
@@ -236,8 +236,8 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |||  
 |-|-|  
 |名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
-|類型|可支援字元篩選器清單中的字元篩選器類型。 請參閱下方[字元篩選器](#CharFilter)表格中的 **char_filter_type** 資料行。|  
-|選項|必須是指定[字元篩選器](#CharFilter)類型的有效選項。|  
+|Type|可支援字元篩選器清單中的字元篩選器類型。 請參閱下方[字元篩選器](#char-filters-reference)表格中的 **char_filter_type** 資料行。|  
+|選項|必須是指定[字元篩選器](#char-filters-reference)類型的有效選項。|  
 
 ### <a name="tokenizers"></a>Tokenizers
 
@@ -249,7 +249,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |||  
 |-|-|  
 |名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
-|類型|可支援 Token 化工具清單中的 Token 化工具名稱。 請參閱下方 [Token 化工具](#Tokenizers) 表格中的 **tokenizer_type** 資料行。|  
+|Type|可支援 Token 化工具清單中的 Token 化工具名稱。 請參閱下方 [Token 化工具](#Tokenizers) 表格中的 **tokenizer_type** 資料行。|  
 |選項|必須是下方 [Token 化工具](#Tokenizers) 表格中指定 Token 化工具類型的有效選項。|  
 
 ### <a name="token-filters"></a>權杖篩選器
@@ -260,7 +260,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |||  
 |-|-|  
 |名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
-|類型|可支援語彙基元篩選器清單中的語彙基元篩選器名稱。 請參閱下方[語彙基元篩選器](#TokenFilters)表格中的 **token_filter_type** 資料行。|  
+|Type|可支援語彙基元篩選器清單中的語彙基元篩選器名稱。 請參閱下方[語彙基元篩選器](#TokenFilters)表格中的 **token_filter_type** 資料行。|  
 |選項|必須是指定語彙基元篩選器類型的[語彙基元篩選器](#TokenFilters)。|  
 
 <a name="PropertyReference"></a>  

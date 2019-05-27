@@ -2,20 +2,20 @@
 title: 系統檢視表 - Azure SQL 資料倉儲 | Microsoft Docs
 description: Azure SQL 資料倉儲中所支援系統檢視表的文件連結。
 services: sql-data-warehouse
-author: twounder
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: query
 ms.date: 06/13/2018
-ms.author: twounder
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a172f469ef3ff1107179dcd7a8d501cfe6d70049
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6687a279b9992d31e3529aaf47054b3cb5c6d0eb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475825"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873442"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中支援的系統檢視表
 Azure SQL 資料倉儲中所支援 T-SQL 陳述式的文件連結。
@@ -38,8 +38,8 @@ Azure SQL 資料倉儲中所支援 T-SQL 陳述式的文件連結。
 * [sys.pdw_table_distribution_properties](https://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](https://msdn.microsoft.com/library/mt203876.aspx)
 * [sys.resource_governor_workload_groups](/sql/relational-databases/system-catalog-views/sys-resource-governor-workload-groups-transact-sql)
-* [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql)（预览版）
-* [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql)（预览版）
+* [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql) （預覽）
+* [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql) （預覽）
 
 ## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>SQL 資料倉儲動態管理檢視 (DMV)
 * [sys.dm_pdw_dms_cores](https://msdn.microsoft.com/library/mt203911.aspx)
@@ -61,14 +61,14 @@ Azure SQL 資料倉儲中所支援 T-SQL 陳述式的文件連結。
 * [sys.dm_pdw_wait_stats](https://msdn.microsoft.com/library/mt203909.aspx)
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 
-## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>适用于 SQL 数据仓库的 SQL Server DMV
+## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>適用於 SQL 資料倉儲的 SQL Server DMV
 下列 DMV 適用於「SQL 資料倉儲」，但必須透過連接到 **master** 資料庫才能執行。
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 * [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
 * [sys.fn_helpcollations()](https://msdn.microsoft.com/library/ms187963.aspx)
 
-## <a name="sql-server-catalog-views"></a>SQL Server 目录视图
+## <a name="sql-server-catalog-views"></a>SQL Server 目錄檢視
 * [sys.all_columns](https://msdn.microsoft.com/library/ms177522.aspx)
 * [sys.all_objects](https://msdn.microsoft.com/library/ms178618.aspx)
 * [sys.all_parameters](https://msdn.microsoft.com/library/ms190340.aspx)

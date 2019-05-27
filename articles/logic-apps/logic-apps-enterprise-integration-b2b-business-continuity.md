@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
-ms.openlocfilehash: 8d024e0bc90724892bc53f8895b270716ad0cefc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac29ef7f0599cc41924ba1a5a00e46b0292e7e9b
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61000960"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967755"
 ---
 # <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Azure Logic Apps 中 B2B 整合帳戶的跨區域災害復原
 
@@ -62,7 +62,7 @@ Logic Apps 整合帳戶中的商務持續性會根據 B2B 通訊協定 X12、AS2
 
 在災難事件期間，沒有商務持續性的主要區域可用時，會將流量導向次要區域。 次要地區可協助企業將職能快速復原，來符合與其合作夥伴達成的 RPO/RTO。 此外，從一個區域容錯移轉至另一個區域僅需要最低程度的作業過程。 
 
-將控制編號從主要區域複製到次要地區會有預期的延遲。 若要避免在災害事件期間將重複產生的控制編號傳送給合作夥伴，建議使用 [PowerShell Cmdlet](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery) 在次要地區合約中增加控制編號。
+將控制編號從主要區域複製到次要地區會有預期的延遲。 若要避免在災害事件期間將重複產生的控制編號傳送給合作夥伴，建議使用 [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0) 在次要地區合約中增加控制編號。
 
 ## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>發生災難事件後切換回主要區域
 
@@ -70,7 +70,7 @@ Logic Apps 整合帳戶中的商務持續性會根據 B2B 通訊協定 X12、AS2
 
 1. 停止接受次要地區中的合作夥伴發出的訊息。  
 
-2. 使用 [PowerShell Cmdlet](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery) 對所有主要區域合約增加所產生的控制編號。  
+2. 使用 [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0) 對所有主要區域合約增加所產生的控制編號。  
 
 3. 將資料流從次要地區導向主要區域。
 

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 98ab9904f8afc5c74d9f043b0964bc56b49670cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269770"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904567"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>教學課程：Azure Active Directory 與 PolicyStat 整合
 

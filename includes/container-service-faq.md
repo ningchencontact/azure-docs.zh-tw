@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60510528"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148825"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(已被取代) Container Service 常見問題集
 
@@ -99,7 +99,7 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 
 4. 在 [摘要] 頁面的 [輸出] 底下，提供了一些叢集連結。 **SSHMaster0** 會提供容器服務叢集中第一個主要主機的 SSH 連接字串。 
 
-如先前所述，您也可以使用 Azure 工具來尋找主要主機的 FQDN。 請使用建立叢集時所指定的主要主機 FQDN 和使用者名稱，透過 SSH 連線到主要主機。 例如︰
+如先前所述，您也可以使用 Azure 工具來尋找主要主機的 FQDN。 請使用建立叢集時所指定的主要主機 FQDN 和使用者名稱，透過 SSH 連線到主要主機。 例如：
 
 ```bash
 ssh userName@masterFQDN –A –p 22 

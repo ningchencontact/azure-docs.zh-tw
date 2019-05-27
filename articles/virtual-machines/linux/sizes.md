@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/14/2018
 ms.author: jonbeck
-ms.openlocfilehash: 75333332c118e85bbe1ceb31b206360ce5ed3897
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c87a192051e34bebf6c1b137c0e96f755a0bb492
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60540228"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873256"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure 中的 Linux 虛擬機器大小
-本文介绍可用于运行 Linux 应用和工作负荷的 Azure 虚拟机的可用大小与选项。 同時也提供當您規劃使用這些資源時所需注意的部署考量。 本文也适用于 [Windows 虚拟机](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+本文說明可用於執行 Linux 應用程式與工作負載之 Azure 虛擬機器的可用大小及選項。 同時也提供當您規劃使用這些資源時所需注意的部署考量。 本文也適用於 [Windows 虛擬機器](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 
-| 類型                     | 大小           |    描述       |
+| Type                     | 大小           |    說明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [一般用途](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, Av2, DC  | CPU 與記憶體的比例平均。 適用於測試和開發、小型至中型資料庫，以及低至中流量 Web 伺服器。 |
-| [計算最佳化](sizes-compute.md)        | Fsv2、Fs、F             | CPU 與記憶體的比例高。 適用於中流量 Web 伺服器、網路設備、批次處理，以及應用程式伺服器。        |
+| [計算最佳化](sizes-compute.md)        | Fsv2           | CPU 與記憶體的比例高。 適用於中流量 Web 伺服器、網路設備、批次處理，以及應用程式伺服器。        |
 | [記憶體最佳化](sizes-memory.md)         | Esv3、Ev3、M、GS、G、DSv2、Dv2  | 記憶體與 CPU 的比例高。 適用於關聯式資料庫伺服器、中型至大型快取，以及記憶體內部分析。                 |
 | [儲存體最佳化](sizes-storage.md)        | Lsv2、Ls                | 較高的磁碟輸送量和 IO 適用於巨量資料、SQL、NoSQL 資料庫、資料倉儲和大型交易資料庫。  |
 | [GPU](sizes-gpu.md)            | NV、NVv2、NC、NCv2、NCv3、ND、NDv2 (預覽)            | 特製化的虛擬機器，其目標是大量的圖形轉譯和視訊編輯，以及搭配深入學習運作的模型訓練和推斷 (ND)。 有單一或多個 GPU 可供使用。       |
@@ -63,8 +63,8 @@ ms.locfileid: "60540228"
 ## <a name="next-steps"></a>後續步驟
 
 深入了解可用的不同 VM 大小：
-- [常规用途](sizes-general.md)
-- [计算优化](sizes-compute.md)
+- [一般用途](sizes-general.md)
+- [計算最佳化](sizes-compute.md)
 - [記憶體最佳化](sizes-memory.md)
 - [儲存體最佳化](sizes-storage.md)
 - [GPU](sizes-gpu.md)

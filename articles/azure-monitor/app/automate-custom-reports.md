@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 37de2de18656f0f8ba85495b3fd72315e0bd885b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f57d80adc7c77f2d874d13a68214cd638a2ac2a0
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60903779"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957299"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>將含有 Azure Application Insights 資料的自訂報表自動化
 
@@ -93,6 +93,9 @@ availabilityResults
    ![「建立新函式」螢幕擷取畫面](./media/automate-custom-reports/function-app-03.png)
 
 5. 選取 [Application Insights 排程摘要範本]。
+
+     > [!NOTE]
+     > 根據預設，函式應用程式會建立與執行階段版本 2.x。 您必須[目標 Azure Functions 執行階段版本](https://docs.microsoft.com/azure/azure-functions/set-runtime-version)使用 Application Insights 的 1.x 排程摘要範本。
 
    ![「新增函式 Application Insights 範本」螢幕擷取畫面](./media/automate-custom-reports/function-app-04.png)
 

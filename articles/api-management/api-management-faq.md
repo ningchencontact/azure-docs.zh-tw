@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 9c0c8adca9d99c00e32127e02a3d68ff668a235e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6a917b5e4586e9b2f54fee5816a9a0bcfcca2eee
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793300"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956262"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常見問題集
 得到 Azure API 管理常見問題、模式和最佳作法的答案。
@@ -39,7 +39,7 @@ ms.locfileid: "58793300"
 * [如何在單一 API 中設定多個環境？](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [可以使用 SOAP 搭配 API 管理嗎？](#can-i-use-soap-with-api-management)
 * [API 管理閘道 IP 位址是否固定？我可以用在防火牆規則嗎？](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
-* 可以設定具有 AD FS 安全性的 OAUth 2.0 授權伺服器嗎？
+* [可以設定具有 AD FS 安全性的 OAUth 2.0 授權伺服器嗎？](#can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security)
 * [API 管理在部署到多個地理位置時使用何種路由方法？](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [可以使用 Azure Resource Manager 範本建立 API 管理服務執行個體嗎？](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
 * [是否可以對後端使用自我簽署的 SSL 憑證？](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
@@ -75,7 +75,7 @@ ms.locfileid: "58793300"
 * 使用 [API 管理 REST API](/rest/api/apimanagement/) 建立自己的備份和還原功能。 使用 REST API，從您想要的服務執行個體儲存和還原實體。
 * 使用 Git 下載服務組態，然後將它上傳至新的執行個體。 如需詳細資訊，請參閱[如何使用 Git 儲存和設定您的 API 管理服務組態](api-management-configuration-repository-git.md)。
 
-### <a name="can-i-manage-my-api-management-instance-programmatically"></a>是否可以编程方式管理 API 管理实例？
+### <a name="can-i-manage-my-api-management-instance-programmatically"></a>我可以透過程式設計方式管理我的 API 管理執行個體嗎？
 可以，您可以使用下列各項，以程式設計方式管理 API 管理：
 
 * [API 管理 REST API](/rest/api/apimanagement/)。
@@ -108,14 +108,14 @@ ms.locfileid: "58793300"
 ### <a name="can-i-use-soap-with-api-management"></a>可以使用 SOAP 搭配 API 管理嗎？
 現在可以使用 [SOAP 傳遞](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/)支援。 系統管理員可以匯入其 SOAP 服務的 WSDL，而 Azure API 管理將會建立 SOAP 前端。 開發人員入口網站文件、測試主控台、原則和分析全都適用於 SOAP 服務。
 
-### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>API 管理网关 IP 地址是否不变？ 我可以用在防火牆規則嗎？
+### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>API 管理閘道 IP 位址是否固定？ 我可以用在防火牆規則嗎？
 在 API 管理的所有層級中，API 管理租用戶的公用 IP 位址 (VIP) 在租用戶的存留期內是靜態的，但有一些例外狀況。 在下列情況下，IP 位址會變更︰
 
 * 服務遭到刪除，然後又重新建立。
 * 服務訂用帳戶遭到[暫止](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states)或[警告](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (例如，因為未付款)，然後又恢復。
 * 您新增或移除「Azure 虛擬網路」(您只能在「開發人員」或「進階」層使用「虛擬網路」)。
 
-对于多区域部署，仅当区域先空出然后恢复时，区域地址会更改（只能在高级层使用多区域部署）。
+對於多重區域的部署，如果區域被清空而後恢復，區域位址則會變更 (您只能在進階層使用多重區域部署)。
 
 針對多重區域部署設定的進階層租用戶，每個區域會被指派一個公用 IP 位址。
 
@@ -125,7 +125,7 @@ ms.locfileid: "58793300"
 若要了解如何使用 Active Directory Federation Services (AD FS) 安全性來設定 OAuth 2.0 授權伺服器，請參閱[在 API 管理中使用 ADFS](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/)。
 
 ### <a name="what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations"></a>API 管理在部署到多個地理位置時使用何種路由方法？
-API 管理會在部署到多個地理位置時，使用[效能流量路由方法](../traffic-manager/traffic-manager-routing-methods.md#performance)。 传入流量将路由到最近的 API 网关。 如果一個區域離線，則連入流量會自動路由傳送至下一個最接近的閘道。 深入了解[流量管理員路由方法](../traffic-manager/traffic-manager-routing-methods.md)中的路由方法。
+API 管理會在部署到多個地理位置時，使用[效能流量路由方法](../traffic-manager/traffic-manager-routing-methods.md#performance)。 連入流量會傳送至最接近的 API 閘道。 如果一個區域離線，則連入流量會自動路由傳送至下一個最接近的閘道。 深入了解[流量管理員路由方法](../traffic-manager/traffic-manager-routing-methods.md)中的路由方法。
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>可以使用 Azure Resource Manager 範本建立 API 管理服務執行個體嗎？
 是。 請參閱 [Azure API 管理服務](https://aka.ms/apimtemplate)快速入門範本。
@@ -147,7 +147,7 @@ New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -
 3. 如果您不想再允許自我簽署的憑證，請刪除後端實體或將 **skipCertificateChainValidation** 屬性設定為 **false**。
 
 ### <a name="why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository"></a>為什麼我在嘗試複製 Git 儲存機制時會發生驗證失敗？
-如果您使用 Git 認證管理員，或如果您嘗試使用 Visual Studio 複製 Git 儲存機制，您可能會遇到 Windows 認證對話方塊的已知問題。 此對話方塊會將密碼長度限制為 127 個字元，並且截斷 Microsoft 所產生的密碼。 我们正致力于缩短密码。 目前，請使用 Git Bash 來複製 Git 儲存機制。
+如果您使用 Git 認證管理員，或如果您嘗試使用 Visual Studio 複製 Git 儲存機制，您可能會遇到 Windows 認證對話方塊的已知問題。 此對話方塊會將密碼長度限制為 127 個字元，並且截斷 Microsoft 所產生的密碼。 我們正在努力縮短密碼。 目前，請使用 Git Bash 來複製 Git 儲存機制。
 
 ### <a name="does-api-management-work-with-azure-expressroute"></a>API 管理是否能搭配 Azure ExpressRoute 運作？
 是。 API 管理能搭配 Azure ExpressRoute 運作。

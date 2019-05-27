@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 04/13/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
+ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89ea1dba09173b20d11a5022e6666e6c865ead62
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 6c989b690e9537dcaaf3710996474a1b8b99826b
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540084"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962748"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft 身分識別平台開發人員詞彙
 
@@ -56,7 +56,7 @@ ms.locfileid: "65540084"
 
 ## <a name="application-registration"></a>應用程式註冊
 
-為了讓應用程式能夠整合身分識別和存取管理功能，並將這些功能委派給 Azure AD，您必須向 Azure AD [租用戶](#tenant)註冊應用程式。 向 Azure AD 注册应用程序时，必须提供应用程序的标识配置，以允许它与 Azure AD 集成并使用如下所述的功能：
+為了讓應用程式能夠整合身分識別和存取管理功能，並將這些功能委派給 Azure AD，您必須向 Azure AD [租用戶](#tenant)註冊應用程式。 當您向 Azure AD 註冊應用程式時，您必須提供應用程式的身分識別組態，以允許它與 Azure AD 整合，並使用如下功能︰
 
 * 使用 Azure AD 身分識別管理和 [OpenID Connect][OpenIDConnect] 通訊協定實作，健全地管理單一登入
 * 代理方式存取[受保護的資源](#resource-server)依[用戶端應用程式](#client-application)，透過 OAuth 2.0[授權伺服器](#authorization-server)
@@ -64,7 +64,7 @@ ms.locfileid: "65540084"
 
 如需詳細資訊，請參閱[整合應用程式與 Azure Active Directory][AAD-Integrating-Apps]。
 
-## <a name="authentication"></a>authentication
+## <a name="authentication"></a>驗證
 
 對憑證者查問合法認證的動作，此動作可做為基礎來建立用於身分識別和存取控制的安全性主體。 例如，在 [OAuth2 授權授與](#authorization-grant)期間，憑證者驗證會根據所使用的授與，填入[資源擁有者](#resource-owner)或[用戶端應用程式](#client-application)的角色。
 
@@ -81,11 +81,11 @@ ms.locfileid: "65540084"
 
 ## <a name="authorization-endpoint"></a>授權端點
 
-[授權伺服器](#authorization-server)所實作的其中一個端點，可用來與[資源擁有者](#resource-owner)互動，以在 OAuth2 授權授與流程期間提供[授權授與](#authorization-grant)。 根据使用的授权流程，实际提供的授权可能不同，这包括[授权代码](#authorization-code)或[安全令牌](#security-token)。
+[授權伺服器](#authorization-server)所實作的其中一個端點，可用來與[資源擁有者](#resource-owner)互動，以在 OAuth2 授權授與流程期間提供[授權授與](#authorization-grant)。 根據所使用的授權授與流程而定，實際提供的授與會不一樣，這包括[授權碼](#authorization-code)或[安全性權杖](#security-token)。
 
 如需詳細資訊，請參閱 OAuth2 規格的[授權授與類型][OAuth2-AuthZ-Grant-Types]和[授權端點][OAuth2-AuthZ-Endpoint]等節以及 [OpenIDConnect 規格][OpenIDConnect-AuthZ-Endpoint]。
 
-## <a name="authorization-grant"></a>授权
+## <a name="authorization-grant"></a>授權授與
 
 授與給[用戶端應用程式](#client-application)的認證，代表[資源擁有者](#resource-owner)對其受保護資源存取權的[授權](#authorization)。 視用戶端類型/需求而定，用戶端應用程式可以使用 [OAuth2 授權架構所定義的四種授與類型][OAuth2-AuthZ-Grant-Types]的其中一種來取得授與：「授權碼授與」、「用戶端認證授與」、「隱含授與」和「資源擁有者密碼認證授與」。 視所使用的授權授與類型而定，傳回給用戶端的認證會是[存取權杖](#access-token)或[授權碼](#authorization-code) (稍後換成存取權杖)。
 
@@ -103,7 +103,7 @@ Microsoft 身分識別平台應用程式整合，在 Microsoft 身分識別平�
 
 ## <a name="client-application"></a>用戶端應用程式
 
-如 [OAuth2 授權架構][OAuth2-Role-Def]所定義，這是代表[資源擁有者](#resource-owner)提出受保護資源要求的應用程式。 “客户端”一词并不代表任何特定的硬件实现特征（例如，应用程序是在服务器、台式机还是其他设备上执行）。
+如 [OAuth2 授權架構][OAuth2-Role-Def]所定義，這是代表[資源擁有者](#resource-owner)提出受保護資源要求的應用程式。 「用戶端」一詞並不代表任何特定的硬體實作特性 (例如，應用程式執行於伺服器、桌面還是其他裝置)。
 
 用戶端應用程式會向資源擁有者要求[授權](#authorization)，以參與 [OAuth2 授權授與](#authorization-grant)流程，並可代表資源擁有者存取 API/資料。 OAuth2 授權架構會根據用戶端是否能夠維護其認證的機密性，[定義兩種類型的用戶端][OAuth2-Client-Types]：「機密」和「公用」。 應用程式可實作在 Web 伺服器上執行的 [Web 用戶端 (機密)](#web-client)、安裝在裝置上的[原生用戶端 (公用)](#native-client)，或在裝置的瀏覽器中執行的[使用者代理程式型用戶端 (公用)](#user-agent-based-client)。
 
@@ -129,13 +129,13 @@ Microsoft 身分識別平台是 Azure Active Directory (Azure AD) 身分識別�
 
 如需詳細資訊，請參閱[如何使用多租用戶應用程式模式登入任何 Azure AD 使用者][AAD-Multi-Tenant-Overview]。
 
-## <a name="native-client"></a>本机客户端
+## <a name="native-client"></a>原生用戶端
 
-裝置上原生安裝的 [用戶端應用程式](#client-application) 類型。 由于所有代码都在设备上执行，因此设备因为无法隐私/秘密地存储凭据而被视为“公共”客户端。 有关详细信息，请参阅 [OAuth2 client types and profiles][OAuth2-Client-Types] （OAuth2 客户端类型和配置文件）。
+裝置上原生安裝的 [用戶端應用程式](#client-application) 類型。 所有程式碼都會在裝置上執行，因此裝置會因為無法私下/祕密地儲存認證而被視為「公用」用戶端。 如需詳細資訊，請參閱 [OAuth2 用戶端類型和設定檔][OAuth2-Client-Types]。
 
 ## <a name="permissions"></a>權限
 
-透過宣告權限要求來取得[資源伺服器](#resource-server)存取權的[用戶端應用程式](#client-application)。 有两种权限类型：
+透過宣告權限要求來取得[資源伺服器](#resource-server)存取權的[用戶端應用程式](#client-application)。 其可用類型有兩種︰
 
 * 「委派」權限，其可使用登入的[資源擁有者](#resource-owner)的委派授權指定[範圍型](#scopes)存取，而在執行階段會以用戶端[存取權杖](#access-token)中的 ["scp" 宣告](#claim)形式顯示給資源。
 * 「應用程式」權限，其可使用用戶端應用程式的認證/身分識別指定[角色型](#roles)存取，而在執行階段會以用戶端存取權杖中的[「角色」宣告](#claim)形式顯示給資源。
@@ -172,7 +172,7 @@ Microsoft 身分識別平台是 Azure Active Directory (Azure AD) 身分識別�
 
 命名慣例的最佳作法是使用「resource.operation.constraint」格式。 如需 Azure AD 圖形 API 所公開之範圍的詳細討論，請參閱[圖形 API 權限範圍][AAD-Graph-Perm-Scopes]。 如需 Office 365 服務所公開的範圍，請參閱 [Office 365 API 權限參考][O365-Perm-Ref]。
 
-## <a name="security-token"></a>安全令牌
+## <a name="security-token"></a>安全性權杖
 
 包含 OAuth2 權杖或 SAML 2.0 判斷提示等宣告的已簽署文件。 對於 OAuth2 [授權授與](#authorization-grant)而言，[存取權杖](#access-token) (OAuth2) 和[識別碼權杖](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)皆為安全性權杖類型，而且這兩種類型都會實作為 [JSON Web 權杖 (JWT)][JWT]。
 
@@ -204,7 +204,7 @@ Azure AD 租用戶會在註冊期間建立/與 Azure 和 Office 365 訂用帳戶
 
 ## <a name="token-endpoint"></a>權杖端點
 
-[授权服务器](#authorization-server)为了支持 OAuth2 [权限授予](#authorization-grant)而实现的终结点之一。 根據授與情形而定，權杖端點可用來取得[存取權杖](#access-token) (和相關的「重新整理」權杖) 給[用戶端](#client-application)，或搭配 [OpenID Connect][OpenIDConnect] 通訊協定使用時的[識別碼權杖](#id-token)。
+[授權伺服器](#authorization-server)為了支援 OAuth2 [授權授與](#authorization-grant)所實作的其中一個端點。 根據授與情形而定，權杖端點可用來取得[存取權杖](#access-token) (和相關的「重新整理」權杖) 給[用戶端](#client-application)，或搭配 [OpenID Connect][OpenIDConnect] 通訊協定使用時的[識別碼權杖](#id-token)。
 
 ## <a name="user-agent-based-client"></a>使用者代理程式型用戶端
 
@@ -212,7 +212,7 @@ Azure AD 租用戶會在註冊期間建立/與 Azure 和 Office 365 訂用帳戶
 
 ## <a name="user-principal"></a>使用者主體
 
-和服務主體物件用來表示應用程式執行個體的方式一樣，使用者主體物件是另一種類型的安全性主體，它所代表的是使用者。 Azure AD Graph [使用者實體][AAD-Graph-User-Entity]可定義使用者物件的結構描述，包括使用者相關屬性，例如名字和姓氏、使用者主體名稱、目錄角色成員資格等。这样即可提供 Azure AD 的用户标识配置，用于在运行时建立用户主体。 使用者主體可用來代表單一登入的已驗證使用者、記錄[同意](#consent)委派，以做出存取控制決策等。
+和服務主體物件用來表示應用程式執行個體的方式一樣，使用者主體物件是另一種類型的安全性主體，它所代表的是使用者。 Azure AD Graph [使用者實體][AAD-Graph-User-Entity]可定義使用者物件的結構描述，包括使用者相關屬性，例如名字和姓氏、使用者主體名稱、目錄角色成員資格等。這可提供使用者身分識別設定，以便 Azure AD 在執行階段建立使用者主體。 使用者主體可用來代表單一登入的已驗證使用者、記錄[同意](#consent)委派，以做出存取控制決策等。
 
 ## <a name="web-client"></a>Web 用戶端
 

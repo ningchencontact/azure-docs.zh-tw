@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 55eee839e24db2ad96eb635adc488e9a119c5907
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 92ea3c71dda011c5f7b19682d9bdea6c226ae5d2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201693"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992088"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>如何將服務匯流排佇列搭配 PHP 使用
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -51,13 +51,13 @@ ms.locfileid: "60201693"
 ## <a name="configure-your-application-to-use-service-bus"></a>設定應用程式以使用服務匯流排
 若要使用服務匯流排佇列 API，請執行下列動作：
 
-1. 使用 [require_once][require_once] 语句引用 autoloader 文件。
+1. 使用 [require_once][require_once] 陳述式來參考自動換片器檔案。
 2. 參考任何您可能使用的類別。
 
 下列範例顯示如何納入自動換片器檔案及參考 `ServicesBuilder` 類別。
 
 > [!NOTE]
-> 本示例（以及本文中的其他示例）假定你已通过 Composer 安装了用于 Azure 的 PHP 客户端库。 如果您以手動方式或以 PEAR 套件方式安裝程式庫，則必須參考 **WindowsAzure.php** 自動換片器檔案。
+> 此範例 (和本文中的其他範例) 假設您已透過編輯器安裝 PHP Client Libraries for Azure。 如果您以手動方式或以 PEAR 套件方式安裝程式庫，則必須參考 **WindowsAzure.php** 自動換片器檔案。
 > 
 > 
 
@@ -219,9 +219,12 @@ catch(ServiceException $e){
 
 服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。 如果接收者應用程式因為某些原因無法處理訊息，它可以在接收訊息上呼叫 `unlockMessage` 方法 (而不是 `deleteMessage` 方法)。 這將導致服務匯流排將佇列中的訊息解除鎖定，讓此訊息可以被相同取用應用程式或其他取用應用程式重新接收。
 
-还存在与队列中已锁定的消息相关联的超时，并且如果应用程序未能在锁定超时到期之前处理消息（例如，如果应用程序崩溃），服务总线则将自动解锁该消息，使它可以再次被接收。
+與在佇列內鎖定之訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
 
 如果應用程式在處理訊息之後，但尚未發出 `deleteMessage` 要求時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這通常稱為「至少處理一次」，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。 如果案例無法容許重複處理，建議您在應用程式中新增其他邏輯，以處理重複的訊息傳遞。 通常您可使用訊息的 `getMessageId` 方法來達到此目的，該方法在各個傳遞嘗試中保持不變。
+
+> [!NOTE]
+> 您可以管理與服務匯流排資源[Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)。 Service Bus Explorer 可讓使用者連接到服務匯流排命名空間，並可以輕鬆地管理訊息實體。 此工具提供進階的功能，例如匯入/匯出功能或測試主題、 佇列、 訂用帳戶、 轉送服務、 通知中樞和事件中樞的能力。 
 
 ## <a name="next-steps"></a>後續步驟
 現在您已了解服務匯流排佇列的基本概念，請參閱[佇列、主題和訂用帳戶][Queues, topics, and subscriptions]，以取得詳細資訊。

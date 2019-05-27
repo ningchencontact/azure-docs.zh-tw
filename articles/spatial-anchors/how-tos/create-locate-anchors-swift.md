@@ -4,16 +4,16 @@ description: 深入的說明，如何建立並找出的錨定在 Swift 中使用
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6147616156bc192ffd8d38ddcc636734d8d5179c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0078aac093a19ae0d02da4e7ba07c112d563971
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60232734"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964814"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-swift"></a>如何建立並找出使用 swift 的 Azure 空間的錨點的錨點
 

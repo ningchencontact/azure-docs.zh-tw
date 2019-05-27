@@ -16,19 +16,19 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d919453816436366c00dde506210a2ed38cc69b7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345216"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952200"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>使用 RBAC 來管理外部使用者的 Azure 資源存取權
 
 不論是大型組織，還是與需要存取您環境中特定資源，但不一定需要存取整個基礎結構或任何計費相關範圍的外部共同作業者、廠商或自由工作者合作的 SMB，角色型存取控制 (RBAC) 都可為其提供更好的安全性管理。 RBAC 能提供彈性，可擁有一個系統管理員帳戶 (訂用帳戶等級中的服務系統管理員角色) 所管理的 Azure 訂用帳戶，並邀請多個使用者在相同的訂用帳戶下運作，而無需任何系統管理權限。
 
 > [!NOTE]
-> 从 Microsoft 365 管理中心预配的 Office 365 订阅或 Azure Active Directory 许可证（例如：Azure Active Directory 访问权限）不符合 RBAC 的使用条件。
+> Office 365 訂用帳戶或 Azure Active Directory 授權 (例如：從 Microsoft 365 系統管理中心沒有資格使用 RBAC，佈建至 Azure Active Directory 的存取）。
 
 ## <a name="assign-rbac-roles-at-the-subscription-scope"></a>指派訂用帳戶範圍內的 RBAC 角色
 
@@ -57,7 +57,7 @@ ms.locfileid: "60345216"
 
 下一個步驟是選取要指派的角色，以及要指派 RBAC 角色的使用者。 在 [角色] 下拉式功能表中，管理使用者只會看到 Azure 中提供的內建 RBAC 角色。 如需每個角色及其可指派範圍的詳細說明，請參閱 [Azure 資源的內建角色](built-in-roles.md)。
 
-然後，管理使用者必須新增外部使用者的電子郵件地址。 預期的行為是要使外部使用者不顯示在現有的租用戶中。 外部使用者受邀請之後，將會與目前在「訂用帳戶」範圍獲指派 RBAC 角色的所有目前使用者一起顯示在 [訂用帳戶] > [存取控制 (IAM)] 下。
+然後，管理使用者必須新增外部使用者的電子郵件地址。 預期的行為是要使外部使用者不顯示在現有的租用戶中。 已邀請外部使用者之後，它們會顯示於下方**訂用帳戶 > 存取控制 (IAM)** 與目前已指派訂用帳戶範圍的 RBAC 角色的所有目前使用者。
 
 ![將權限新增至新的 RBAC 角色](./media/role-assignments-external-users/3.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "60345216"
 已邀請使用者 "chessercarlton@gmail.com" 成為「免費試用」訂用帳戶的**擁有者**。 傳送邀請之後，外部使用者會收到包含啟用連結的電子郵件確認。
 ![RBAC 角色的電子郵件邀請](./media/role-assignments-external-users/5.png)
 
-在組織外部的新使用者，沒有任何「預設租用戶 Azure」目錄中的現有屬性。 在外部使用者同意被記錄在與他獲指派角色之訂用帳戶關聯的目錄中之後，便會建立這些屬性。
+在組織外部的新使用者，沒有任何「預設租用戶 Azure」目錄中的現有屬性。 它們將外部使用者取得同意之後建立記錄與訂用帳戶相關聯的目錄中已指派給這些角色。
 
 ![RBAC 角色的電子郵件邀請訊息](./media/role-assignments-external-users/6.png)
 

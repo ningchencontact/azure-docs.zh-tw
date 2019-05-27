@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/20/2019
 ms.author: danlep
-ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582409"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977207"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>使用 ACR 工作來自動執行 OS 和架構修補
 
@@ -41,7 +41,7 @@ Azure CLI 中的 [az acr build][az-acr-build]命令會使用熟悉的 `docker bu
 
 下表顯示「ACR 工作」的幾個所支援內容位置範例：
 
-| 內容位置 | 描述 | 範例 |
+| 內容位置 | 說明 | 範例 |
 | ---------------- | ----------- | ------- |
 | 本機檔案系統 | 本機檔案系統上目錄內的檔案。 | `/home/user/projects/myapp` |
 | GitHub 主要分支 | GitHub 存放庫之主要 (或其他預設) 分支內的檔案。  | `https://github.com/gituser/myapp-repo.git` |
@@ -95,11 +95,21 @@ Azure CLI 中的 [az acr build][az-acr-build]命令會使用熟悉的 `docker bu
 
 如需了解多步驟工作，請參閱[執行 ACR 工作中的多步驟建置、測試及修補工作](container-registry-tasks-multi-step.md)。
 
+## <a name="view-task-logs"></a>檢視工作記錄檔
+
+每次工作執行會產生記錄輸出，您可以檢查以判斷是否已成功執行的工作步驟。 如果您使用[az acr 組建](/cli/azure/acr#az-acr-build)， [az acr 執行](/cli/azure/acr#az-acr-run)，或[az acr 工作執行](/cli/azure/acr/task#az-acr-task-run)命令以觸發的工作中，工作執行的記錄輸出會串流至主控台，並也儲存供稍後使用擷取。 檢視工作的記錄檔在 Azure 入口網站中執行，或使用[az acr 工作記錄檔](/cli/azure/acr/task#az-acr-task-logs)命令。
+
+從 2019 年 7 月開始，資料和記錄檔的登錄中的工作執行會保留預設的 30 天並自動清除。 如果您想要封存的資料執行的工作，啟用 封存使用[az acr update-執行的工作](/cli/azure/acr/task#az-acr-task-update-run)命令。 下列範例會啟用的工作執行保存*cf11*在登錄中*myregistry*。
+
+```azurecli
+az acr task update-run --registry myregistry --run-id cf11 --no-archive false
+```
+
 ## <a name="next-steps"></a>後續步驟
 
 當您準備好自動化 OS 和修補藉由建置您的容器映像，在雲端中的 framework 時，請參閱三段[ACR 工作的教學課程系列](container-registry-tutorial-quick-task.md)。
 
-您可以選擇性地安裝[適用於 Visual Studio Code 的 Docker 擴充功能](https://code.visualstudio.com/docs/azure/docker)和 [Azure 帳戶](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)擴充功能，來搭配 Azure 容器登錄使用。 通过 Azure 容器注册表拉取和推送映像，或者运行 ACR 任务，这一切都可以在 Visual Studio Code 中进行。
+您可以選擇性地安裝[適用於 Visual Studio Code 的 Docker 擴充功能](https://code.visualstudio.com/docs/azure/docker)和 [Azure 帳戶](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)擴充功能，來搭配 Azure 容器登錄使用。 向 Azure 容器登錄提取及推送映像，或是執行 ACR 工作，都可以在 Visual Studio Code 內完成。
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

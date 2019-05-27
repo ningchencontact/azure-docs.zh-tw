@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 10690f156e81c4adebe6cf11d651791f7c05e735
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ae1ef2c51fba9186eb75bfec421fbbb05baa4582
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073855"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956453"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 上建立 HTTPS 輸入控制器
 
@@ -40,6 +40,8 @@ ms.locfileid: "65073855"
 
 若要建立輸入控制器，請使用 `Helm` 以安裝 *nginx-ingress*。 為了新增備援，您必須使用 `--set controller.replicaCount` 參數部署兩個 NGINX 輸入控制器複本。 為充分享有執行輸入控制器複本的好處，請確定 AKS 叢集中有多個節點。
 
+輸入控制器也需要將它排程在 Linux 節點上。 Windows Server （目前在 AKS 中的預覽） 的節點不應該執行輸入控制器。 使用指定的節點選取器`--set nodeSelector`告訴 Kubernetes 排程器，在以 Linux 為基礎的節點上執行 NGINX 輸入控制器的參數。
+
 > [!TIP]
 > 下列範例會建立名為輸入資源的 Kubernetes 命名空間*輸入 basic*。 視需要請指定您自己的環境的命名空間。 如果您的 AKS 叢集不啟用 RBAC，請新增`--set rbac.create=false`Helm 命令。
 
@@ -48,7 +50,10 @@ ms.locfileid: "65073855"
 kubectl create namespace ingress-basic
 
 # Use Helm to deploy an NGINX ingress controller
-helm install stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2
+helm install stable/nginx-ingress \
+    --namespace ingress-basic \
+    --set controller.replicaCount=2 \
+    --set nodeSelector."beta.kubernetes.io/os"=linux
 ```
 
 在安裝期間，會為輸入控制器建立 Azure 公用 IP 位址。 在輸入控制器的生命週期內，此公用 IP 位址都是靜態的。 如果您刪除輸入控制器，公用 IP 位址指派將會遺失。 如果您後續又建立其他輸入控制器，將會指派新的公用 IP 位址。 如果您想要持續使用公用 IP 位址，您可以改為[使用靜態公用 IP 位址建立輸入控制器][aks-ingress-static-tls]。
@@ -249,7 +254,7 @@ metadata:
   name: tls-secret
   namespace: ingress-basic
 spec:
-  secretName: tls-secret
+  secretName: tls-secret-staging
   dnsNames:
   - demo-aks-ingress.eastus.cloudapp.azure.com
   acme:
@@ -268,7 +273,7 @@ spec:
 ```
 $ kubectl apply -f certificates.yaml
 
-certificate.certmanager.k8s.io/tls-secret created
+certificate.certmanager.k8s.io/tls-secret-staging created
 ```
 
 ## <a name="test-the-ingress-configuration"></a>測試輸入組態

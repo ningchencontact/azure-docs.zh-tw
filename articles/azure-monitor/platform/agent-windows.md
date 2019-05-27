@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 34f02b1d72f08ef5da6b8a5740243b6e557bfb4a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2d57e619ec17e183bc8c9bb155f3e111f43b85f1
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138134"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952481"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>將 Windows 電腦連線到 Azure 監視器
 
@@ -54,9 +54,9 @@ ms.locfileid: "65138134"
 若要設定將 [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) 通訊協定用於 Windows 代理程式和 Log Analytics 服務之間的通訊，您可以遵循下列步驟，以在將代理程式安裝於虛擬機器之前或之後啟用此功能。   
 
 1. 找出下列登錄子機碼：**HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
-2. 在 **Protocols** 底下針對 TLS 1.2 建立子機碼：**HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
-3. 在您先前所建立的 TLS 1.2 通訊協定版本子機碼底下，建立 **Client** 子機碼。 例如，**HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**。
-4. 在 **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**底下建立下列 DWORD 值：
+2. 建立子機碼底下**通訊協定**TLS 1.2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
+3. 在您先前所建立的 TLS 1.2 通訊協定版本子機碼底下，建立 **Client** 子機碼。 例如， **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**。
+4. 建立下列 DWORD 值之下**HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**:
 
     * **Enabled** [Value = 1]
     * **DisabledByDefault** [Value = 0]  

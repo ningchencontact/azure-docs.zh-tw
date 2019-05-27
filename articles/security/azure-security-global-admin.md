@@ -8,12 +8,12 @@ editor: TomSh
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: barclayn
-ms.openlocfilehash: d0479b834f814616e44a1888ab8b958990610820
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbc3bba3d95526277da3487cb8670c1f1a88a925
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611708"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951765"
 ---
 # <a name="enforce-multi-factor-authentication-mfa-for-subscription-administrators"></a>對訂用帳戶系統管理員強制執行多重要素驗證 (MFA)。
 
@@ -22,7 +22,7 @@ ms.locfileid: "60611708"
 您可以視需要將特定的系統管理員角色指派給 IT 人員的使用者帳戶，例如 Exchange 系統管理員或密碼系統管理員，以便執行例行管理作業。
 此外，為系統管理員啟用 [Azure 多重要素驗證 (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) 可以加強防護使用者登入和交易的安全。 Azure MFA 也可協助 IT 降低遭入侵的認證能夠存取公司資料的可能性。
 
-例如︰對您的使用者強制執行 Azure MFA，並將它設定為使用電話或簡訊進行驗證。 如果使用者的認證遭到入侵，攻擊者將無法存取任何資源，因為他無法存取使用者的電話。 未新增額外身分識別保護層的組織會更容易受到認證竊取攻擊，這可能會導致資料洩漏。
+例如：您對使用者強制執行 Azure MFA，並將它設定為使用電話通話或簡訊做為驗證。 如果使用者的認證遭到入侵，攻擊者將無法存取任何資源，因為他們就不需要存取使用者的電話。 未新增額外身分識別保護層的組織會更容易受到認證竊取攻擊，這可能會導致資料洩漏。
 
 想要將整個驗證控制保留於內部部署的組織有一個替代方法，就是使用 [Azure Multi-factor Authentication Server](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server) (也稱為「MFA 內部部署」)。 使用此方法，您仍可強制執行 Multi-Factor Authentication，同時保留 MFA 伺服器內部部署。
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e9f52948d035c72a6a019558915d8c92ceebeb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 2830e95f042d5c83d91d6c026d2fa2e70eb3e3b2
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463551"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901139"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>教學課程：Azure Active Directory 與 BlueJeans 整合
 
@@ -108,7 +108,7 @@ ms.locfileid: "65463551"
 
     ![BlueJeans 網域及 URL 單一登入資訊](media/bluejeans-tutorial/tutorial_bluejeans-basic-configuration.png)
 
-   - 在 [識別碼] 文字方塊中，輸入下列值：`https://samlsp.bluejeans.com`
+   - 在 [識別碼] 文字方塊中，輸入下列值：`http://samlsp.bluejeans.com`
     
    - 在 [登入 URL] 文字方塊中，輸入 BlueJeans 提供給您的登陸頁面 URL (若要取得此值，您可以連絡 [BlueJeans 用戶端支援小組](https://support.bluejeans.com/contact))：`https://<companyname>.bluejeans.com`
     
@@ -160,9 +160,9 @@ ms.locfileid: "65463551"
 
     ![儲存變更](./media/bluejeans-tutorial/ic785874.png "儲存變更")
 
-    a. 在 [使用者識別碼] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
+    a. 在 [使用者識別碼] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
 
-    b. 在 [電子郵件] 文字方塊中，輸入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
+    b. 在 [電子郵件] 文字方塊中，輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
 
     c. 按一下 [儲存變更]。
 

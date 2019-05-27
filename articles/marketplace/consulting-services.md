@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: e13111eb241c7734e25a28fcaeea55b1c70bc267
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938318"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964123"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 和 AppSource 的諮詢服務
 Azure Marketplace 和 AppSource 中的諮詢服務會為 Microsoft 合作夥伴提供一個目標，希望以服務連結客戶，支援並擴大客戶對 Azure 的使用和商務目標。 
@@ -80,7 +80,7 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 諮詢服務將在特定地理位置推出。 首波推出區域將為：美國、加拿大、英國與澳洲。 其他國家/地區的目錄就會上線之後的有意義的數字，且引人注目的精選服務供應項目在合作夥伴提交並經 Microsoft 核准。
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>如何使用 Azure Marketplace 和 AppSource 註冊諮詢服務
-首先，在市集中[註冊](https://azuremarketplace.microsoft.com/sell/signup)您的公司資訊。 如需完整的註冊需求清單，發行者可以參考[成為 Marketplace 中的發行者](https://docs.microsoft.com/azure/marketplace/become-publisher)。 
+首先，在市集中[註冊](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)您的公司資訊。 如需完整的註冊需求清單，發行者可以參考[成為 Marketplace 中的發行者](https://docs.microsoft.com/azure/marketplace/become-publisher)。 
 
 **註冊後的預期事項**上線團隊將在 1-3 個工作日內寄送歡迎電子郵件與您連絡，該電子郵件內含您的 Cloud Partner 入口網站 (CPP) 登入資訊。 [Cloud Partner 入口網站](https://cloudpartner.azure.com)是供應項目清單入口網站，發行者可在其中提交清單資訊和提交內容。 
 

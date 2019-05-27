@@ -9,11 +9,11 @@ ms.date: 07/30/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e4d20cd39d2a843ee1ab57a412ac668b3495fdb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320031"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147088"
 ---
 >[!NOTE]
 >從 2018 年 7 月 1 日起，對 TLS 1.0 和 1.1 的支援將會從 Azure VPN 閘道移除。 VPN 閘道僅支援 TLS 1.2。 若要保有支援，請參閱[用以啟用 TLS 1.2 支援的更新](#tls1)。

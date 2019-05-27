@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: f0eb2f7358e8fb1564275e1de510f302d2eef90b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 03d39ed01907a2ad61e089946673b96b8a2cc83e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500935"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65916949"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>如何使用自訂配置原則
 
@@ -46,7 +46,7 @@ ms.locfileid: "59500935"
 ## <a name="prerequisites"></a>必要條件
 
 * 完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)快速入門。
-* 啟用[「使用 C++ 進行桌面開發」](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載的 Visual Studio 2015 或 [Visual Studio 2017](https://www.visualstudio.com/vs/)。
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015年或更新版本['使用的桌面開發C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)啟用的工作負載。
 * 已安裝最新版的 [Git](https://git-scm.com/download/)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -508,7 +508,7 @@ ms.locfileid: "59500935"
 
 | 案例 | 佈建服務的註冊結果 | 佈建 SDK 結果 |
 | -------- | --------------------------------------------- | ------------------------ |
-| Webhook 傳回「200 確定」，且 'iotHubHostName' 設定為有效的 IoT 中樞主機名稱 | 結果狀態：已指派  | SDK 傳回 PROV_DEVICE_RESULT_OK 與中樞資訊 |
+| Webhook 傳回「200 確定」，且 'iotHubHostName' 設定為有效的 IoT 中樞主機名稱 | 結果狀態：獲指派  | SDK 傳回 PROV_DEVICE_RESULT_OK 與中樞資訊 |
 | Webhook 傳回「200 確定」，且回應中包含 'iotHubHostName'，但設定為空字串或 Null | 結果狀態：Failed<br><br> 錯誤碼：CustomAllocationIotHubNotSpecified (400208) | SDK 傳回 PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
 | Webhook 傳回「401 未授權」 | 結果狀態：Failed<br><br>錯誤碼：CustomAllocationUnauthorizedAccess (400209) | SDK 傳回 PROV_DEVICE_RESULT_UNAUTHORIZED |
 | 建立了個別註冊以停用裝置 | 結果狀態：已停用 | SDK 傳回 PROV_DEVICE_RESULT_DISABLED |
@@ -539,7 +539,7 @@ ms.locfileid: "59500935"
 ## <a name="next-steps"></a>後續步驟
 
 - 若要深入了解更多的 Reprovisioning，請參閱[IoT 中樞裝置重新佈建概念](concepts-device-reprovision.md) 
-- 若要了解有关取消设置的详细信息，请参阅[如何取消设置以前自动预配的设备](how-to-unprovision-devices.md) 
+- 若要深入了解更多的解除佈建，請參閱[如何取消佈建先前自動佈建的裝置](how-to-unprovision-devices.md) 
 
 
 

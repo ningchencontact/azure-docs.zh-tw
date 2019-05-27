@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d158e1869cb85752b9b24e76d5227a2f7167bfcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2871a4a0efaa40d20148ede7f0402a0dd874126c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794131"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957304"
 ---
 # <a name="manage-your-azure-maps-account"></a>管理 Azure 地圖服務帳戶
 
@@ -21,7 +21,7 @@ ms.locfileid: "60794131"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="create-a-new-account"></a>建立新帳戶
+## <a name="create-a-new-account"></a>建立新的帳戶
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -43,10 +43,14 @@ ms.locfileid: "60794131"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 了解如何管理 Azure 地圖服務帳戶的定價層：
-    > [!div class="nextstepaction"] 
-    > [管理定價層](./how-to-manage-pricing-tier.md)
+安裝程式使用 Azure 地圖服務進行驗證：
+> [!div class="nextstepaction"]
+> [管理驗證](how-to-manage-authentication.md)
 
-* 了解如何查看 Azure 地圖服務帳戶的 API 使用計量：
-    > [!div class="nextstepaction"] 
-    > [檢視使用計量](./how-to-view-api-usage.md)
+了解如何管理 Azure 地圖服務帳戶的定價層：
+> [!div class="nextstepaction"] 
+> [管理定價層](how-to-manage-pricing-tier.md)
+
+了解如何查看 Azure 地圖服務帳戶的 API 使用計量：
+> [!div class="nextstepaction"] 
+> [檢視使用計量](how-to-view-api-usage.md)

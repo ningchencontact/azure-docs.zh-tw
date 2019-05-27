@@ -11,34 +11,46 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/12/2019
-ms.openlocfilehash: f0cff30f246bfeec528f440b507da9248ebbea9f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
+ms.date: 05/20/2019
+ms.openlocfilehash: 1c81f5748d1e3edff4902eb462b9beea78acd8bc
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678593"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951689"
 ---
 # <a name="automated-backups"></a>自動備份
 
-SQL Database 會自動建立資料庫備份保留 7 到 35 天之間，並使用 Azure 讀取權限異地備援儲存體 (RA-GRS)，以確保即使資料中心都無法使用會保留。 這些備份是自動建立的，且不需額外付費。 您不需要採取任何動作來進行，且您可以[變更備份保留期限](#how-to-change-the-pitr-backup-retention-period)。 資料庫備份可保護資料免於意外損毀或刪除，是商務持續性和災害復原策略中不可或缺的一部分。 如果您的安全性規則需要備份可供使用一段時間 (最長 10 年)，您可以設定[長期保留](sql-database-long-term-retention.md)。
+SQL Database 自動建立資料庫備份保留 7 到 35 天之間，並使用 Azure[讀取權限異地備援儲存體 (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)以確保即使資料中心都無法使用會保留。 這些備份是自動建立的，且不需額外付費。 您不需要執行任何動作來建立備份。 資料庫備份可保護資料免於意外損毀或刪除，是商務持續性和災害復原策略中不可或缺的一部分。 如果您的安全性規則有需要，您的備份可供使用一段時間 （最多 10 年），您可以設定[長期保留](sql-database-long-term-retention.md)上單一資料庫和彈性集區。
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="what-is-a-sql-database-backup"></a>什麼是 SQL Database 備份
 
-針對還原時間點 (PITR) 目的，SQL Database 會使用 SQL Server 技術來建立[完整](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server)、[差異](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server)及[交易記錄](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server)備份。 根據計算大小和資料庫活動量的頻率，交易記錄備份通常每隔 5-10 分鐘會進行一次，而差異備份通常每隔 12 小時進行一次。 完整、差異及交易記錄備份可讓您將資料庫還原到裝載該資料庫之相同伺服器上的特定時間點。 儲存在 RA-GRS 儲存體 Blob 中的備份會複寫到[配對的資料中心](../best-practices-availability-paired-regions.md)，以防止發生資料中心中斷的情況。 在您還原資料庫時，服務會判斷需要還原的完整、差異及交易記錄備份。
+SQL Database 使用 SQL Server 技術來建立[完整備份](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server)每週[差異備份](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server)每隔 12 小時，並[交易記錄備份](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server)每隔 5-10 分鐘。 備份會儲存在[RA-GRS 儲存體 blob](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)複寫至[配對的資料中心](../best-practices-availability-paired-regions.md)來防範資料中心中斷情況。 在您還原資料庫時，服務會判斷需要還原的完整、差異及交易記錄備份。
 
 您可以使用這些備份︰
 
-- 將資料庫還原至保留期限內的某一個時間點。 這項作業將會在與原始資料庫相同的伺服器中建立新的資料庫。
-- 將已刪除的資料庫還原至其被刪除的時間，或保留期限內的任何時間。 已刪除的資料庫只能在當中已建立原始資料庫的相同伺服器中還原。
-- 將資料庫還原到另一個地理區域。 異地還原可讓您在無法存取您的伺服器和資料庫時，從地理災害中復原。 在世界各地任何現有的伺服器中建立新的資料庫。
-- 如果已使用長期保留原則 (LTR) 設定資料庫，請從特定長期備份還原資料庫。 LTR 可讓您還原舊版的資料庫來符合規範要求，或執行舊版的應用程式。 如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
+- **在時間點還原現有的資料庫，在過去**使用 Azure 入口網站、 Azure PowerShell、 Azure CLI 或 REST API 在保留期限內。 在單一資料庫和彈性集區中，此作業會建立與原始資料庫相同的伺服器中的新資料庫。 在受控執行個體，這項作業可以建立一份相同或不同受控執行個體相同的訂用帳戶下的資料庫。
+  - **[變更備份保留期限](#how-to-change-the-pitr-backup-retention-period)** 之間 35 天前，若要設定備份原則。
+  - **將長期保留原則變更為 10 年**單一資料庫和彈性集區使用[Azure 入口網站](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)或是[Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups)。
+- **將已刪除的資料庫還原至其被刪除的時間**或保留期限內的任何時間。 已刪除的資料庫只能還原在同一部邏輯伺服器或原始的資料庫建立所在的受控執行個體。
+- **將資料庫還原到另一個地理區域**。 異地還原可讓您在無法存取您的伺服器和資料庫時，從地理災害中復原。 在世界各地任何現有的伺服器中建立新的資料庫。
+- **從特定長期備份還原資料庫**上單一資料庫或彈性集區，如果資料庫已設有長期的保留原則 (LTR)。 LTR 可讓您還原舊版的資料庫使用[Azure 入口網站](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal)或是[Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups)滿足合規性要求，或執行應用程式的舊版本。 如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
 - 若要執行還原，請參閱[從備份還原資料庫](sql-database-recovery-using-backups.md)。
 
 > [!NOTE]
 > 在 Azure 儲存體中，「複寫」一詞指的是將檔案從某個位置複製到另一個位置。 SQL 的「資料庫複寫」指的是保持多個次要資料庫與主要資料庫同步。
+
+您可以嘗試其中一些作業使用下列範例：
+
+| | Azure 入口網站 | Azure PowerShell |
+|---|---|---|
+| 變更備份保留 | [單一資料庫](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-the-azure-portal) <br/> [受控執行個體](sql-database-automated-backups.md#change-pitr-for-a-managed-instance) | [單一資料庫](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[受控執行個體](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| 變更長期備份保留 | [單一資料庫](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>受管理的執行個體-n/A  | [單一資料庫](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups)<br/>受管理的執行個體-n/A  |
+| 從時間點還原資料庫 | [單一資料庫](sql-database-recovery-using-backups.md#point-in-time-restore) | [單一資料庫](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [受控執行個體](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| 還原已刪除的資料庫 | [單一資料庫](sql-database-recovery-using-backups.md#deleted-database-restore-using-the-azure-portal) | [單一資料庫](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [受控執行個體](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| 從 Azure Blob 儲存體還原資料庫 | 單一資料庫-n/A <br/>受管理的執行個體-n/A  | 單一資料庫-n/A <br/>[受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="how-long-are-backups-kept"></a>備份會保留多久的時間
 
@@ -57,13 +69,13 @@ SQL Database 會自動建立資料庫備份保留 7 到 35 天之間，並使用
 
 使用以 DTU 為基礎的購買模型所建立之資料庫的預設保留週期取決於服務層：
 
-- 基本服務層級為 1 週。
-- 標準服務層級為 5 週。
-- 進階服務層級為 5 週。
+- 基本服務層**一個**週。
+- 標準服務層**五個**週。
+- Premium 服務層**五個**週。
 
 #### <a name="vcore-based-purchasing-model"></a>以虛擬核心為基礎的購買模型
 
-如果您是使用[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)，預設的備份保留期限是 7 天 (適用於單一、集區和執行個體資料庫)。 針對所有 Azure SQL 資料庫 (單一、集區和執行個體資料庫)，您可以[將備份保留期限變更為最多 35 天](#how-to-change-the-pitr-backup-retention-period)。
+如果您使用[虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)，預設的備份保留期限是**七個**（單一、 集區，及執行個體的資料庫）。 針對所有 Azure SQL 資料庫 (單一、集區和執行個體資料庫)，您可以[將備份保留期限變更為最多 35 天](#how-to-change-the-pitr-backup-retention-period)。
 
 > [!WARNING]
 > 如果缩短当前保留期，早于新保留期的所有现有备份将不再可用。 如果您延長目前的保留期間，則 SQL Database 將保留現有備份，直到達到較長的保留期間為止。
@@ -87,7 +99,7 @@ PITR 備份為異地備援，並受到 [Azure 儲存體跨區域複寫](../stora
 如需詳細資訊，請參閱[長期備份保留](sql-database-long-term-retention.md)。
 
 ## <a name="storage-costs"></a>儲存成本
-根據預設，系統會將您資料庫的 7 天自動備份複製到 RA-GRS 標準 Blob 儲存體。 每週完整備份、每日差異備份以及每 5 分鐘複製一次的交易記錄備份都使用此儲存體。 交易記錄檔的大小取決於資料庫的變動率。 會提供等於資料庫大小 100% 的最低儲存空間，且無額外費用。 備份儲存體的額外使用量會按每月每 GB 來收費。
+根據預設，您資料庫的 7 天自動備份，將會複製到符合 RA-GRS 標準的 Blob 儲存體。 每週完整備份、每日差異備份以及每 5 分鐘複製一次的交易記錄備份都使用此儲存體。 交易記錄檔的大小取決於資料庫的變動率。 會提供等於資料庫大小 100% 的最低儲存空間，且無額外費用。 備份儲存體的額外使用量會按每月每 GB 來收費。
 
 如需儲存體價格的詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/sql-database/single/)頁面。 
 
@@ -101,7 +113,7 @@ Azure SQL Database 工程小組會持續自動地對服務上所有資料庫，�
 
 ## <a name="how-do-automated-backups-impact-compliance"></a>自動化備份對合規性的影響為何
 
-當您將資料庫從預設 PITR 保留 35 天的以 DTU 為基礎的服務層級遷移至以虛擬核心為基礎的服務層級時，會保留 PITR 保留，確保不會危害您應用程式的資料復原原則。 如果預設保留週期不符合合規性需求，您可以使用 PowerShell 或 REST API 變更 PITR 保留週期。 如需詳細資料，請參閱[變更備份保留週期](#how-to-change-the-pitr-backup-retention-period)。
+當您將資料庫從預設 PITR 保留 35 天的以 DTU 為基礎的服務層級遷移至以虛擬核心為基礎的服務層級時，會保留 PITR 保留，確保不會危害您應用程式的資料復原原則。 如果預設保留週期不符合合規性需求，您可以使用 PowerShell 或 REST API 變更 PITR 保留週期。 如需詳細資訊，請參閱[變更備份保留週期](#how-to-change-the-pitr-backup-retention-period)。
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

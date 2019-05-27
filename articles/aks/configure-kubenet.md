@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 4d2ab19fafc265d70028d5ee192efc60a5a8eaff
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a4ed3ec823982bf3977edf9939d98419e1c4b01f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073980"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956383"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中使用 kubenet 網路與您自己的 IP 位址範圍
 
@@ -21,7 +21,10 @@ ms.locfileid: "65073980"
 
 使用 [Azure 容器網路介面 (CNI)][cni-networking]，每個 Pod 都從子網路取得 IP 位址，並且可以直接存取。 這些 IP 位址在您的網路空間中必須是唯一的，且必須事先規劃。 每個節點都有一個組態參數，用於所支援的最大 Pod 數目。 然後，為該節點預先保留每個節點的相同 IP 位址數目。 此方法需要更多的規劃，並且通常會導致 IP 位址耗盡，或者隨著應用程式需求增加，需要在更大的子網路中重建叢集。
 
-本文將說明如何使用 *kubenet* 網路來建立虛擬網路子網路，並將其與 AKS 叢集搭配使用。 如需關於網路選項與考量的詳細資訊，請參閱 [Kubernetes 和 AKS 的網路概念][aks-network-concepts]。
+本文將說明如何使用 *kubenet* 網路來建立虛擬網路子網路，並將其與 AKS 叢集搭配使用。 如需網路選項與考量的詳細資訊，請參閱 [Kubernetes 和 AKS 的網路概念][aks-network-concepts]。
+
+> [!WARNING]
+> 若要使用 Windows Server （目前在 AKS 中的預覽） 的節點集區，您必須使用 Azure CNI。 無法使用適用於 Windows Server 容器 kubenet 作為網路模式。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -129,7 +132,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-現在，使用 [az role assignment create][az-role-assignment-create] 命令為虛擬網路上的 AKS 叢集「參與者」權限指派服務主體。 根据上一命令的输出所示，提供自己的 \<appId> 来创建服务主体：
+現在，使用 [az role assignment create][az-role-assignment-create] 命令為虛擬網路上的 AKS 叢集「參與者」權限指派服務主體。 提供您自己 *\<appId >* 從前一個命令來建立服務主體輸出所示：
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -137,7 +140,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>在虛擬網路中建立 AKS 叢集
 
-您現在已經建立虛擬網路和子網路，並為服務主體建立並指派使用這些網路資源的權限。 現在，使用 [az aks create][az-aks-create] 命令在虛擬網路和子網路中建立 AKS 叢集。 根据上一命令的输出所示，定义自己的服务主体 \<appId> 和 \<password> 来创建服务主体。
+您現在已經建立虛擬網路和子網路，並為服務主體建立並指派使用這些網路資源的權限。 現在，使用 [az aks create][az-aks-create] 命令在虛擬網路和子網路中建立 AKS 叢集。 定義您自己的服務主體 *\<appId >* 並*\<密碼 >* 從前一個命令來建立服務主體輸出所示。
 
 下列 IP 位址範圍也定義為叢集建立程序的一部分：
 
@@ -149,6 +152,8 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
     * 此位址範圍必須大到足以容納您希望相應增加的節點數目。 如果您需要更多位址用於其他節點，則無法在部署叢集之後變更此位址範圍。
     * Pod IP 位址範圍用來為叢集中的每個節點指派 */24* 位址空間。 在下列範例中，*192.168.0.0/16* 的 *--pod-cidr* 指派第一個節點 *192.168.0.0/24*、第二個節點 *192.168.1.0/24* 和第三個節點 *192.168.2.0/24*。
     * 隨著叢集縮放比例或升級，Azure 平台會繼續為每個新的節點指派一個 Pod IP 位址範圍。
+    
+* *-Docker 橋接器位址*可讓基礎的管理平台與通訊的 AKS 節點。 此 IP 位址不能在您叢集的虛擬網路 IP 位址範圍內，而且不應該與您網路上使用中的其他位址範圍重疊。
 
 ```azurecli-interactive
 az aks create \

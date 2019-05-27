@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 1d7bb72dab622cd0b18d1da1aa34a651e1443997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0fec7234d18659051c61fda593b1ba0fb846c220
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365072"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964253"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>如何設定 ExpressRoute Direct
 
@@ -226,7 +226,9 @@ ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位
 
 ExpressRoute Direct 上有只可用於支援以上所述案例的額外線路頻寬。 它們是：40Gbps 和 100Gbps。
 
-您可以建立標準或進階線路。 標準線路會納入成本中，而進階線路則是根據所選的頻寬計算成本。 只能依照計量建立線路，因為 ExpressRoute Direct 不支援無限量。
+**SkuTier**可以是本機、 Standard 或 Premium。
+
+**SkuFamily**只為無限制必須 MeteredData ExpressRoute 直接上不支援。
 
 在 ExpressRoute Direct 資源上建立線路。
 

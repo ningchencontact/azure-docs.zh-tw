@@ -1,41 +1,36 @@
 ---
-title: 在 Azure Active Directory B2C 中使用 REST API 宣告交換作為協調流程步驟 | Microsoft Docs
-description: 關於已與 API 整合之 Azure Active Directory B2C 自訂原則的主題。
+title: REST API 宣告交換-Azure Active Directory B2C |Microsoft Docs
+description: 加入在 Active Directory B2C 自訂原則中的 REST API 宣告交換。
 services: active-directory-b2c
 author: davidmu1
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/24/2017
+ms.date: 05/20/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c0a29bcbd3142be577d4cf1f64ff8c9921010bba
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e705c12782310597ea14d5253aba8b6a1a004e6d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688001"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952790"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>逐步解說：將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為協調流程步驟
+# <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>若要在 Azure Active Directory B2C 自訂原則新增 REST API 宣告交換
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-構成 Azure Active Directory B2C (Azure AD B2C) 基礎的識別體驗架構 (IEF)，可讓身分識別開發人員於使用者旅程圖中整合與 RESTful API 的互動。  
+您可以新增至支援的 RESTful API 的互動您[自訂原則](active-directory-b2c-overview-custom.md)Azure Active Directory (Azure AD) B2C 中。 這篇文章會示範如何建立與 RESTful 服務互動的 Azure AD B2C 使用者旅程圖。
 
-在本逐步解說結束時，您將能建立與 RESTful 服務互動的 Azure AD B2C 使用者旅程圖。
-
-IEF 會在宣告中傳送資料，並在宣告中收到傳回的資料。 REST API 宣告交換：
+互動包括宣告交換的 REST API 宣告與 Azure AD B2C 之間的資訊。 宣告交換具有下列特性：
 
 - 可以設計成協調流程步驟。
 - 可以觸發外部動作。 例如，它可以在外部資料庫中記錄一個事件。
 - 可用來擷取值，然後將它存放在使用者資料庫中。
+- 可以變更執行流程。 
 
-您稍後可以使用接收的宣告來變更執行流程。
-
-您也可以將互動設計成驗證設定檔。 如需詳細資訊，請參閱[逐步解說：將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為對使用者輸入的驗證](active-directory-b2c-rest-api-validation-custom.md)。
-
-有個案例是，當使用者執行設定檔編輯時，我們想要：
+表示在這篇文章中的案例包含下列動作：
 
 1. 查閱外部系統中的使用者。
 2. 取得註冊該使用者的城市。
@@ -43,180 +38,170 @@ IEF 會在宣告中傳送資料，並在宣告中收到傳回的資料。 REST A
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如[開始使用](active-directory-b2c-get-started-custom.md)所述，設定為完成本機帳戶註冊/登入的 Azure AD B2C 租用戶。
-- 要互動的 REST API 端點。 本逐步解說使用簡單的 Azure 函式應用程式 Webhook 作為範例。
-- *建議*：完成 [REST API 宣告交換逐步解說以作為驗證步驟](active-directory-b2c-rest-api-validation-custom.md)。
+- 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
+- 要互動的 REST API 端點。 簡單的 Azure 函式，例如此發行項使用。 若要建立 Azure 函式，請參閱[在 Azure 入口網站中建立您的第一個函式](../azure-functions/functions-create-first-azure-function.md)。
 
-## <a name="step-1-prepare-the-rest-api-function"></a>步驟 1：準備 REST API 函式
+## <a name="prepare-the-api"></a>準備 API
 
-> [!NOTE]
-> REST API 函式的設定不在本文討論範圍內。 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) 提供了絕佳的工具組，供您在雲端建立 RESTful 服務。
+在本節中，您準備 Azure 的函式，來獲得價值`email`，然後傳回的值`city`，可供 Azure AD B2C 做為宣告。
 
-我們設定了 Azure 函式來接收名為 `email` 的宣告，然後傳回指派值為 `Redmond` 的宣告 `city`。 範例 Azure 函式位於 [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples) 上。
+變更您要使用下列程式碼建立 Azure 函式的 run.csx 檔案： 
 
-在此內容中，Azure 函式所傳回的 `userMessage` 宣告是選擇性的，IEF 將予以略過。 您可以選擇使用它作為訊息，以便稍後傳遞給應用程式並向使用者呈現。
-
-```csharp
-if (requestContentAsJObject.email == null)
+```
+public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
-    return request.CreateResponse(HttpStatusCode.BadRequest);
-}
+  log.LogInformation("C# HTTP trigger function processed a request.");
+  string email = req.Query["email"];
+  string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+  dynamic data = JsonConvert.DeserializeObject(requestBody);
+  email = email ?? data?.email;
 
-var email = ((string) requestContentAsJObject.email).ToLower();
-
-return request.CreateResponse<ResponseContent>(
-    HttpStatusCode.OK,
-    new ResponseContent
-    {
+  return email != null
+    ? (ActionResult)new OkObjectResult(
+      new ResponseContent
+      {
         version = "1.0.0",
         status = (int) HttpStatusCode.OK,
-        userMessage = "User Found",
         city = "Redmond"
-    },
-    new JsonMediaTypeFormatter(),
-    "application/json");
+      })
+      : new BadRequestObjectResult("Please pass an email on the query string or in the request body");
+}
+
+public class ResponseContent
+{
+    public string version { get; set; }
+    public int status { get; set; }
+    public string city {get; set; }
+}
 ```
 
-Azure 函式應用程式可讓您輕鬆地取得函式 URL，此 URL 中包含特定函式的識別碼。 在此案例中，URL 是： https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==。 您可以使用它來測試。
+## <a name="configure-the-claims-exchange"></a>宣告交換設定
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>步驟 2：在 TrustFrameworkExtensions.xml 檔案中，將 RESTful API 宣告交換設定為技術設定檔
+技術設定檔提供宣告交換的設定。 
 
-技術設定檔是 RESTful 服務所需之交換的完整設定。 開啟 TrustFrameworkExtensions.xml 檔案，然後在 `<ClaimsProvider>` 元素內加入下列 XML 程式碼片段。
-
-> [!NOTE]
-> 在下列 XML 中，會將 RESTful 提供者 `Version=1.0.0.0` 描述為通訊協定。 請將它視為要與外部服務互動的函式。 <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
+開啟*TrustFrameworkExtensions.xml*檔案，並新增下列 XML 元素內**ClaimsProvider**項目。
 
 ```XML
 <ClaimsProvider>
-    <DisplayName>REST APIs</DisplayName>
-    <TechnicalProfiles>
-        <TechnicalProfile Id="AzureFunctions-LookUpLoyaltyWebHook">
-            <DisplayName>Check LookUpLoyalty Web Hook Azure Function</DisplayName>
-            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-            <Metadata>
-                <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==</Item>
-                <Item Key="AuthenticationType">None</Item>
-                <Item Key="SendClaimsIn">Body</Item>
-                <Item Key="AllowInsecureAuthInProduction">true</Item>
-            </Metadata>
-            <InputClaims>
-                <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
-            </InputClaims>
-            <OutputClaims>
-                <OutputClaim ClaimTypeReferenceId="city" PartnerClaimType="city" />
-            </OutputClaims>
-            <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
-        </TechnicalProfile>
-    </TechnicalProfiles>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="AzureFunctions-WebHook">
+      <DisplayName>Azure Function Web Hook</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="ServiceUrl">https://myfunction.azurewebsites.net/api/HttpTrigger1?code=bAZ4lLy//ZHZxmncM8rI7AgjQsrMKmVXBpP0vd9smOzdXDDUIaLljA==</Item>
+        <Item Key="AuthenticationType">None</Item>
+        <Item Key="SendClaimsIn">Body</Item>
+        <Item Key="AllowInsecureAuthInProduction">true</Item>
+      </Metadata>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
+      </InputClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="city" PartnerClaimType="city" />
+      </OutputClaims>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+    </TechnicalProfile>
+  </TechnicalProfiles>
 </ClaimsProvider>
 ```
 
-`<InputClaims>` 元素會定義將從 IEF 傳送至 REST 服務的宣告。 在此範例中，會將 `givenName` 宣告的內容傳送至 REST 服務以作為宣告 `email`。  
+**InputClaims**元素定義傳送至 REST 服務的宣告。 在此範例中，宣告值`givenName`傳送至 REST 服務來作為宣告`email`。 **OutputClaims**元素定義預期來自 REST 服務的宣告。
 
-`<OutputClaims>` 元素會定義 IEF 預期要從 REST 服務收到的宣告。 不論收到多少宣告，IEF 只會使用這裡所識別的宣告。 在此範例中，以 `city` 形式收到的宣告會對應到名為 `city` 的 IEF 宣告。
+## <a name="add-the-claim-definition"></a>新增宣告定義
 
-## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>步驟 3：將新的 `city` 宣告新增至 TrustFrameworkExtensions.xml 檔案的結構描述
-
-宣告 `city` 尚未在結構描述的其他地方加以定義。 因此，請在元素 `<BuildingBlocks>` 內部新增定義。 您可以在 TrustFrameworkExtensions.xml 檔案開頭處找到此元素。
+加入定義`city`內**BuildingBlocks**項目。 您可以在 TrustFrameworkExtensions.xml 檔案開頭處找到此元素。
 
 ```XML
 <BuildingBlocks>
-    <!--The claimtype city must be added to the TrustFrameworkPolicy-->
-    <!-- You can add new claims in the BASE file Section III, or in the extensions file-->
-    <ClaimsSchema>
-        <ClaimType Id="city">
-            <DisplayName>City</DisplayName>
-            <DataType>string</DataType>
-            <UserHelpText>Your city</UserHelpText>
-            <UserInputType>TextBox</UserInputType>
-        </ClaimType>
-    </ClaimsSchema>
+  <ClaimsSchema>
+    <ClaimType Id="city">
+      <DisplayName>City</DisplayName>
+      <DataType>string</DataType>
+      <UserHelpText>Your city</UserHelpText>
+      <UserInputType>TextBox</UserInputType>
+    </ClaimType>
+  </ClaimsSchema>
 </BuildingBlocks>
 ```
 
-## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>步驟 4：在 TrustFrameworkExtensions.xml 的設定檔編輯使用者旅程圖中，將 REST 服務宣告交換納入為協調流程步驟
+## <a name="add-an-orchestration-step"></a>新增協調流程步驟
 
-在使用者通過驗證之後新增設定檔編輯使用者旅程圖的步驟 (下列 XML 中的協調流程步驟 1-4)，而且使用者已提供更新的設定檔資訊 (步驟 5)。
+有許多使用案例都可將 REST API 呼叫用來作為協調流程步驟。 作為協調流程步驟，它可在使用者成功完成工作 (例如首次註冊) 後作為外部系統的更新，或作為設定檔更新以讓資訊保持同步。 在此情況下，它會用來加強設定檔編輯之後提供給應用程式的資訊。
 
-> [!NOTE]
-> 有許多使用案例都可將 REST API 呼叫用來作為協調流程步驟。 作為協調流程步驟，它可在使用者成功完成工作 (例如首次註冊) 後作為外部系統的更新，或作為設定檔更新以讓資訊保持同步。 在此情況下，它會用來加強設定檔編輯之後提供給應用程式的資訊。
-
-將設定檔編輯使用者旅程圖 XML 程式碼從 TrustFrameworkBase.xml 檔案複製到 `<UserJourneys>` 元素內的 TrustFrameworkExtensions.xml 檔案。 然後在步驟 6 中進行修改。
+加入設定檔編輯使用者旅程圖中的步驟。 使用者之後驗證 （協調流程步驟 1-4 中下列 XML 程式碼），而且使用者已提供更新的設定檔資訊 （步驟 5）。 複製設定檔編輯使用者旅程圖 XML 程式碼，從*TrustFrameworkBase.xml*的檔案您*TrustFrameworkExtensions.xml*檔案**UserJourneys**項目。 然後進行步驟 6 所作的修改。
 
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
-    <ClaimsExchanges>
-        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
-    </ClaimsExchanges>
+  <ClaimsExchanges>
+    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+  </ClaimsExchanges>
 </OrchestrationStep>
 ```
 
-> [!IMPORTANT]
-> 如果操作順序不符合您的版本，請確定和該步驟一樣在 `ClaimsExchange` 類型 `SendClaims` 前插入程式碼。
-
-使用者旅程圖的最終 XML 看起來應該像這樣：
+使用者旅程圖的最終 XML 看起來應該如下列範例：
 
 ```XML
 <UserJourney Id="ProfileEdit">
-    <OrchestrationSteps>
-        <OrchestrationStep Order="1" Type="ClaimsProviderSelection" ContentDefinitionReferenceId="api.idpselections">
-            <ClaimsProviderSelections>
-                <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
-                <ClaimsProviderSelection TargetClaimsExchangeId="LocalAccountSigninEmailExchange" />
-            </ClaimsProviderSelections>
-        </OrchestrationStep>
-        <OrchestrationStep Order="2" Type="ClaimsExchange">
-            <ClaimsExchanges>
-                <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
-                <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="3" Type="ClaimsExchange">
-            <Preconditions>
-                <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-                    <Value>authenticationSource</Value>
-                    <Value>localAccountAuthentication</Value>
-                    <Action>SkipThisOrchestrationStep</Action>
-                </Precondition>
-            </Preconditions>
-            <ClaimsExchanges>
-                <ClaimsExchange Id="AADUserRead" TechnicalProfileReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="4" Type="ClaimsExchange">
-            <Preconditions>
-                <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-                    <Value>authenticationSource</Value>
-                    <Value>socialIdpAuthentication</Value>
-                    <Action>SkipThisOrchestrationStep</Action>
-                </Precondition>
-            </Preconditions>
-            <ClaimsExchanges>
-                <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="5" Type="ClaimsExchange">
-            <ClaimsExchanges>
-                <ClaimsExchange Id="B2CUserProfileUpdateExchange" TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
-        <!-- Add a step 6 to the user journey before the JWT token is created-->
-        <OrchestrationStep Order="6" Type="ClaimsExchange">
-            <ClaimsExchanges>
-                <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-    </OrchestrationSteps>
-    <ClientDefinition ReferenceId="DefaultWeb" />
+  <OrchestrationSteps>
+    <OrchestrationStep Order="1" Type="ClaimsProviderSelection" ContentDefinitionReferenceId="api.idpselections">
+      <ClaimsProviderSelections>
+        <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
+        <ClaimsProviderSelection TargetClaimsExchangeId="LocalAccountSigninEmailExchange" />
+      </ClaimsProviderSelections>
+    </OrchestrationStep>
+    <OrchestrationStep Order="2" Type="ClaimsExchange">
+      <ClaimsExchanges>
+        <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
+        <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    <OrchestrationStep Order="3" Type="ClaimsExchange">
+      <Preconditions>
+        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+          <Value>authenticationSource</Value>
+          <Value>localAccountAuthentication</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <ClaimsExchanges>
+        <ClaimsExchange Id="AADUserRead" TechnicalProfileReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    <OrchestrationStep Order="4" Type="ClaimsExchange">
+      <Preconditions>
+        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+          <Value>authenticationSource</Value>
+          <Value>socialIdpAuthentication</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <ClaimsExchanges>
+        <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    <OrchestrationStep Order="5" Type="ClaimsExchange">
+      <ClaimsExchanges>
+        <ClaimsExchange Id="B2CUserProfileUpdateExchange" TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    <!-- Add a step 6 to the user journey before the JWT token is created-->
+    <OrchestrationStep Order="6" Type="ClaimsExchange">
+      <ClaimsExchanges>
+        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+  </OrchestrationSteps>
+  <ClientDefinition ReferenceId="DefaultWeb" />
 </UserJourney>
 ```
 
-## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>步驟 5：將 `city` 宣告新增至您的信賴憑證者原則檔案，以便將宣告傳送給您的應用程式
+## <a name="add-the-claim"></a>新增宣告
 
-請編輯您的 ProfileEdit.xml 信賴憑證者 (RP) 檔案，並修改 `<TechnicalProfile Id="PolicyProfile">` 元素以新增下列內容︰`<OutputClaim ClaimTypeReferenceId="city" />`。
+編輯*ProfileEdit.xml*檔案，並新增`<OutputClaim ClaimTypeReferenceId="city" />`要**OutputClaims**項目。
 
-新增宣告之後，技術設定檔看起來像這樣：
+加入新的宣告之後，技術設定檔看起來像此範例中：
 
 ```XML
 <DisplayName>PolicyProfile</DisplayName>
@@ -229,17 +214,15 @@ Azure 函式應用程式可讓您輕鬆地取得函式 URL，此 URL 中包含�
 </TechnicalProfile>
 ```
 
-## <a name="step-6-upload-your-changes-and-test"></a>步驟 6：上傳您的變更並測試
+## <a name="upload-your-changes-and-test"></a>上傳您的變更並測試
 
-覆寫現有的原則版本。
+1. (選擇性：)儲存現有的版本 （透過下載） 的檔案再繼續進行。
+2. 上傳*TrustFrameworkExtensions.xml*並*ProfileEdit.xml* ，然後選取要覆寫現有的檔案。
+3. 選取  **B2C_1A_ProfileEdit**。
+4. 針對**選取 應用程式**自訂原則的 概觀 頁面上選取 web 應用程式名稱*webapp1*先前登錄。 請確定**回覆 URL**是`https://jwt.ms`。
+4. 選取 **立即執行**。 使用您的帳戶認證登入，然後按一下**繼續**。
 
-1.  (選擇性：)繼續進行之前，先儲存延伸模組檔案的現有版本 (透過下載)。 建議您不要上傳多個擴充檔案版本，以免一開始的複雜性太高。
-2.  (選擇性：)藉由變更 `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`，為原則編輯檔案重新命名原則識別碼的新版本。
-3.  上傳擴充檔案。
-4.  上傳原則編輯 RP 檔案。
-5.  使用 [立即執行] 來測試原則。 檢閱 IEF 傳回給應用程式的權杖。
-
-如果一切設定皆正確，權杖會包含新的宣告 `city`，且值為 `Redmond`。
+如果所有項目已正確設定時，此權杖還包含新的宣告`city`，以值`Redmond`。
 
 ```JSON
 {
@@ -249,7 +232,7 @@ Azure 函式應用程式可讓您輕鬆地取得函式 URL，此 URL 中包含�
   "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
   "sub": "a58e7c6c-7535-4074-93da-b0023fbaf3ac",
   "aud": "4e87c1dd-e5f5-4ac8-8368-bc6a98751b8b",
-  "acr": "b2c_1a_trustframeworkprofileedit",
+  "acr": "b2c_1a_profileedit",
   "nonce": "defaultNonce",
   "iat": 1493049692,
   "auth_time": 1493049692,
@@ -259,6 +242,5 @@ Azure 函式應用程式可讓您輕鬆地取得函式 URL，此 URL 中包含�
 
 ## <a name="next-steps"></a>後續步驟
 
-[使用 REST API 來作為驗證步驟](active-directory-b2c-rest-api-validation-custom.md)
-
-[修改設定檔編輯以從使用者收集其他資訊](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+- 您也可以將互動設計成驗證設定檔。 如需詳細資訊，請參閱[逐步解說：將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為對使用者輸入的驗證](active-directory-b2c-rest-api-validation-custom.md)。
+- [修改設定檔編輯以從使用者收集其他資訊](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)

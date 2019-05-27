@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 188c17b4e8ef84f3907b63fd62bf110ee94b4d7f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 92ca09040836dfc55a9d709b12a0ee01192d6bac
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511199"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957399"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>如何在 Azure 入口網站中管理函數應用程式 
 
@@ -61,7 +61,7 @@ ms.locfileid: "65511199"
 + [驗證](#auth)
 + [API 定義](#swagger)
 
-如需有關如何使用 App Service 設定的詳細資訊，請參閱[設定 Azure App Service 設定](../app-service/web-sites-configure.md)。
+如需有關如何使用 App Service 設定的詳細資訊，請參閱[設定 Azure App Service 設定](../app-service/configure-common.md)。
 
 ### <a name="editor"></a>App Service 編輯器
 
@@ -124,7 +124,7 @@ ms.locfileid: "65511199"
 
 ## <a name="next-steps"></a>後續步驟
 
-+ [設定 Azure App Service 設定](../app-service/web-sites-configure.md)
++ [設定 Azure App Service 設定](../app-service/configure-common.md)
 + [Azure Functions 的持續部署](functions-continuous-deployment.md)
 
 

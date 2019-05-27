@@ -16,11 +16,11 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a953ae52f37b8d48f9e2e0566325691dbb08307
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258080"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897756"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>教學課程：Azure Active Directory 與 LogicMonitor 整合
 

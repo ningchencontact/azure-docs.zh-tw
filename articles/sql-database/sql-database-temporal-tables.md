@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 49491c5283ba16c5379c1115fae597bd7fd6ea19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbb2458e73330a09124c00cebe3eb7bcaba5408d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614129"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951508"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>開始使用 Azure SQL Database 中的時態表
 
@@ -109,7 +109,7 @@ WITH (DROP_EXISTING = ON);
 ## <a name="step-2-run-your-workload-regularly"></a>步驟 2：定期執行您的工作負載
 時態表的主要優點是您不需要以任何方式變更或調整您的網站，就可以執行變更追蹤。 一旦建立時態表之後，當您每次對資料進行修改時，便會自動保存先前的資料列版本。 
 
-若要為這個特定案例使用自動變更追蹤功能，我們只需要在每次使用者結束網站上的工作階段時，更新資料行 **PagesVisited** 即可︰
+若要使用自動變更追蹤此特定案例，讓我們只更新資料行**PagesVisited**每次使用者結束其網站上的工作階段：
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
@@ -123,7 +123,7 @@ WHERE [UserID] = 1;
 ## <a name="step-3-perform-historical-data-analysis"></a>步驟 3：執行歷史資料分析
 現在當時態系統設定版本功能啟用時，您只需要一個查詢，就可以進行歷史資料分析。 在本文中，我們將提供一些解決常見分析案例的範例。若要了解所有詳細資料，請瀏覽使用 [FOR SYSTEM_TIME](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3) 子句所導入的各種選項。
 
-若要查看按访问网页次数排序的前 10 个用户，请运行以下查询：
+若要查看依瀏覽網頁次數排序的前 10 名使用者，請執行以下查詢︰
 
 ```
 DECLARE @hourAgo datetime2 = DATEADD(HOUR, -1, SYSUTCDATETIME());

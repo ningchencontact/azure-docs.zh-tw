@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e09eec89c683d36df49110227488a6413ed371c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137887"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955824"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>在 Azure App Service 中設定預備環境
 <a name="Overview"></a>
@@ -93,10 +93,10 @@ ms.locfileid: "65137887"
 
 **無法交換的設定**：
 
-* 發行端點
+* 正在發行端點
 * 自訂網域名稱
 * 私人憑證與 SSL 繫結
-* 擴充設定
+* 調整設定
 * WebJobs 排程器
 * IP 限制
 * 永遠開啟
@@ -215,9 +215,9 @@ ms.locfileid: "65137887"
         </applicationInitialization>
     </system.webServer>
 
-有关自定义 `applicationInitialization` 元素的详细信息，请参阅[最常见的部署槽位交换故障以及如何修复它们](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/)。
+如需有關自訂`applicationInitialization`項目，請參閱 <<c2> [ 最常見的部署位置交換失敗，以及如何加以修正](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/)。
 
-您也可以使用下列一或多個[應用程式設定](web-sites-configure.md)來自訂準備行為：
+您也可以使用下列一或多個[應用程式設定](configure-common.md)來自訂準備行為：
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`:用來準備您網站的偵測路徑。 請指定開頭為斜線的自訂路徑作為值，以新增此應用程式設定。 例如： `/statuscheck`。 預設值為 `/`。 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`:準備作業的有效 HTTP 回應碼。 請以 HTTP 代碼的逗號分隔清單方式新增此應用程式設定。 例如：`200,202`。 如果傳回的狀態碼不在清單中，準備和交換作業就會停止。 預設是所有回應碼都有效。

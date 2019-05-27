@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: kumud
-ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734505"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957480"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure Standard Load Balancer 概觀
 
-Azure Load Balancer 可讓您調整您的應用程式，並為您的服務建立高可用性。 對於所有的 TCP 和 UDP 應用程式，Load Balancer 皆可用於輸入和輸出案例，並可提供低延遲和高輸送量，且最多可相應增加為數百萬個流程。 
+您可利用 Azure Load Balancer 調整您應用程式的規模，並為您的服務建立高可用性。 對於所有的 TCP 和 UDP 應用程式，Load Balancer 皆可用於輸入和輸出案例，並可提供低延遲和高輸送量，且最多可相應增加為數百萬個流程。 
 
 本文將著重於標準 Load Balancer。  如需 Azure Load Balancer 的一般概觀，請另行檢閱[負載平衡器概觀](load-balancer-overview.md)。
 
@@ -91,7 +91,7 @@ Standard Load Balancer 會新增對 [HTTPS 健康情況探查](load-balancer-cus
 
 標準 Load Balancer 可透過 Azure 監視器提供多維度計量。  您可針對指定維度篩選、分組及劃分這些計量，  且您可深入檢視服務目前和過去的效能和健康情況。  此外也支援資源健康情況。  以下將簡單說明支援的診斷：
 
-| 計量 | 描述 |
+| 計量 | 說明 |
 | --- | --- |
 | VIP 可用性 | Standard Load Balancer 會在資料路徑上持續運用，從區域內到 Load Balancer 前端，再一路到支援 VM 的 SDN 堆疊。 只要狀況良好的執行個體持續存在，測量就會依循與您應用程式的負載平衡流量相同的路徑。 此外，也會驗證您客戶所使用的資料路徑。 此測量對您的應用程式來說是看不見的，也不會干擾到其他作業。|
 | DIP 可用性 | 標準 Load Balancer 使用分散式健康情況探查服務，可根據您的組態設定監視應用程式端點的健康情況。 這個計量會提供 Load Balancer 集區中每個個別執行個體端點的彙總檢視，或各端點篩選過的檢視。  您可以看到 Load Balancer 藉由健康情況探查設定如何檢視應用程式的健康情況。
@@ -226,7 +226,6 @@ Standard Load Balancer 目前已在所有公用雲端地區推出。
 - SKU 是不可變動的。 您無法變更現有資源的 SKU。
 - 獨立虛擬機器資源、可用性設定組資源或虛擬機器擴展集資源都只能參考一個 SKU，絕不會同時參考兩者。
 - Load Balancer 規則無法跨越兩個虛擬網路。  前端和其相關的後端執行個體必須位於相同的虛擬網路。  
-- 無法跨全域虛擬網路對等互連存取 Load Balancer 前端。
 - 標準 SKU LB 與 PIP 資源不支援[移動訂用帳戶作業](../azure-resource-manager/resource-group-move-resources.md)。
 - 由於預先 VNet 服務和其他平台服務的運作方式產生副作用，而只使用內部標準 Load Balancer 時，才可存取沒有 VNet 和其他 Microsoft 平台服務的 Web 背景工作角色。 請勿以此作為個別服務本身，否則基礎平台可能會在不經通知的情況下變更。 如果在只使用內部標準 Load Balancer 時有需要，請一律假設您需要明確建立[輸出連線](load-balancer-outbound-connections.md)。
 - Load Balancer 是一款 TCP 或 UDP 產品，用於針對特定的 IP 通訊協定，進行負載平衡和連接埠轉送作業。  負載平衡規則和 NAT 傳入規則均支援 TCP 和 UDP ，但不支援包含 ICMP 在內的其他 IP 通訊協定。 Load Balancer 並不會終止、回應或與 UDP 或 TCP 流程的承載互動。 Load Balancer 並非 Proxy。 前端連線能力必須在與負載平衡或是 NAT 傳入規則 (TCP 或 UDP) 所使用的相同通訊協定中，成功進行頻內驗證，而且至少要有一個虛擬機器必須對用戶端產生回應，以查看來自前端的回應。  未從 Load Balancer 前端接收到頻內回應，即表示沒有任何虛擬機器能夠回應。  在虛擬機器未回應的情況下，無法和 Load Balancer 前端互動。  這也適用於傳出連線，其中[連接埠偽裝 SNAT](load-balancer-outbound-connections.md#snat) 僅支援 TCP 和 UDP，包括 ICMP 在內的任何其他 IP 通訊協定也會失敗。  指派執行個體層級的公用 IP 可減輕負擔。

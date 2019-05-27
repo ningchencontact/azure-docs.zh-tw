@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: robinsh
-ms.openlocfilehash: eec63cbdbdb852aff2cf9c6fa768bdc2580d4665
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9d5d5bdc569fec1df20c7729285cc462d5af4ffb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60780409"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873242"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>開始使用裝置對應項 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "60780409"
 
 若要完成此教學課程，您需要下列項目：
 
-* Visual Studio 2017。
+* Visual Studio。
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
@@ -52,7 +52,7 @@ ms.locfileid: "60780409"
 
 在本節中，您將 (使用 C#) 建立一個 .NET 主控台應用程式，此應用程式會將位置中繼資料新增至與 **myDeviceId** 相關聯的裝置對應項。 接著，它會選取位於美國的裝置來查詢儲存在 IoT 中樞的裝置對應項，再查詢會報告行動電話連線的對應項。
 
-1. 在 Visual Studio 中，使用“**控制台应用程序**”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 將專案命名為 **AddTagsAndQuery**。
+1. 在 Visual Studio 中，使用 [主控台應用程式] 專案範本，將 Visual C# Windows 傳統桌面專案新增至目前的方案。 將專案命名為 **AddTagsAndQuery**。
    
     ![新的 Visual C# Windows 傳統桌面專案](./media/iot-hub-csharp-csharp-twin-getstarted/createnetapp.png)
 
@@ -105,11 +105,11 @@ ms.locfileid: "60780409"
     }
     ```
    
-    **RegistryManager** 类公开从该服务与设备孪生交互所需的所有方法。 上面的代码首先初始化 **registryManager** 对象，并检索 **myDeviceId** 的设备孪生，最后使用所需位置信息更新其标记。
+    **RegistryManager** 類別會公開從服務來與裝置對應項進行互動時所需的所有方法。 先前的程式碼會先初始化 **registryManager** 物件，然後擷取 **myDeviceId** 的裝置對應項，最後會以所需的位置資訊來更新其標籤。
    
     在更新後，它會執行兩個查詢：第一個只選取位於 **Redmond43** 工廠的裝置對應項，第二個會修改查詢，只選取也透過行動電話網路來連接的裝置。
    
-    請注意，先前的程式碼在建立 **查詢** 物件時，指定傳回的最大文件數。 **query** 对象包含 **HasMoreResults** 布尔值属性，可以使用它多次调用 **GetNextAsTwinAsync** 方法来检索所有结果。 有一個稱為 **GetNextAsJson** 的方法適用於不是裝置對應項的結果，例如彙總查詢的結果。
+    請注意，先前的程式碼在建立 **查詢** 物件時，指定傳回的最大文件數。 **query** 物件包含 **HasMoreResults** 布林值屬性，可用來多次叫用 **GetNextAsTwinAsync** 方法以擷取所有結果。 有一個稱為 **GetNextAsJson** 的方法適用於不是裝置對應項的結果，例如彙總查詢的結果。
 
 7. 最後，將下列幾行新增至 **Main** 方法：
 
@@ -128,7 +128,7 @@ ms.locfileid: "60780409"
 
 在下一節，您將建立一個裝置應用程式，以報告連線資訊並變更上一節的查詢結果。
 
-## <a name="create-the-device-app"></a>创建设备应用
+## <a name="create-the-device-app"></a>建立裝置應用程式
 
 在本節中，您將建立一個 .NET 主控台應用程式，此應用程式會以 **myDeviceId** 來連線到您的中樞，然後更新其回報屬性，以包含資訊來指出目前使用行動電話通訊網路來連線。
 
@@ -230,13 +230,13 @@ ms.locfileid: "60780409"
    
     ![執行裝置應用程式以回報連線](./media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png)
        
-11. 现在设备报告了其连接信息，该信息应出现在两个查询中。 執行 .NET **AddTagsAndQuery** 應用程式，以再次執行查詢。 這次，**myDeviceId** 應該會出現在這兩個查詢結果中。
+11. 現在，裝置已回報其連線資訊，它應該會出現在這兩個查詢中。 執行 .NET **AddTagsAndQuery** 應用程式，以再次執行查詢。 這次，**myDeviceId** 應該會出現在這兩個查詢結果中。
    
     ![已成功回報裝置連線](./media/iot-hub-csharp-csharp-twin-getstarted/tagappsuccess.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您在 Azure 入口網站中設定了新的 IoT 中樞，然後在 IoT 中樞的身分識別登錄中建立了裝置身分識別。 您已從後端應用程式將裝置中繼資料新增為標籤，並撰寫模擬裝置應用程式來報告裝置對應項中的裝置連線資訊。 还学习了如何使用类似 SQL 的 IoT 中心查询语言来查询此信息。
+在此教學課程中，您在 Azure 入口網站中設定了新的 IoT 中樞，然後在 IoT 中樞的身分識別登錄中建立了裝置身分識別。 您已從後端應用程式將裝置中繼資料新增為標籤，並撰寫模擬裝置應用程式來報告裝置對應項中的裝置連線資訊。 您也了解如何使 類似 SQL 的 IoT 中樞查詢語言來查詢此資訊。
 
 使用下列資源來了解如何：
 

@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3593324523340300279232e0e63392c9c127991d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 1107a6df92bf577cd60b9ad31627219da8e1a388
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823572"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956535"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
-使用 Azure Active Directory (Azure AD) 时，可以指定有限的管理员以权限较低的角色来管理标识任务。 可以分配管理员来执行各种任务，例如，添加或更改用户、分配管理角色、重置用户密码、管理用户许可证，以及管理域名。 只能在 Azure AD 中的使用者設定中變更預設使用者權限。
+使用 Azure Active Directory (Azure AD)，您可以指定有限的系統管理員管理較低權限角色中的身分識別工作。 系統管理員可以指派等目的的新增或變更使用者、 指派系統管理角色、 重設使用者密碼、 管理使用者授權，及管理網域名稱。 只能在 Azure AD 中的使用者設定中變更預設使用者權限。
 
 全域管理員可以存取所有系統管理功能。 註冊 Azure 訂用帳戶的人員預設會獲指派目錄的全域管理員角色。 只有全域管理員和特殊權限角色管理員才能委派系統管理員角色。 為了降低業務風險，建議您將此角色僅指派給您公司中的幾個人員。
 
@@ -36,11 +36,11 @@ ms.locfileid: "65823572"
 
 可用的系統管理員角色如下：
 
-* **[應用程式系統管理員](#application-administrator)**：此角色中的使用者可以建立和管理企業應用程式、應用程式註冊和應用程式 Proxy 設定的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 在创建新应用程序注册或企业应用程序时，不会将分配到此角色的用户添加为所有者。
+* **[應用程式系統管理員](#application-administrator)**：此角色中的使用者可以建立和管理企業應用程式、應用程式註冊和應用程式 Proxy 設定的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 建立新的應用程式註冊 」 或 「 企業應用程式時，指派給這個角色的使用者不會新增為擁有者。
 
   <b>重要</b>：此角色授與管理應用程式認證的能力。 獲指派此角色的使用者可以將認證新增至應用程式，並使用這些認證來模擬應用程式的身分識別。 如果應用程式的身分識別已授與 Azure Active Directory 的存取權，例如建立或更新使用者或其他物件的能力，則獲指派這個角色的使用者可以在模擬應用程式時執行這些動作。 模擬應用程式身分識別的這項能力，對於使用者透過 Azure AD 中角色指派所能執行的動作，是一種權限提高。 請務必了解，將應用程式系統管理員角色指派給使用者，會給予他們模擬應用程式身分識別的能力。
 
-* **[應用程式開發人員](#application-developer)**：將「使用者可以註冊應用程式」設定設為「否」時，此角色中的使用者可以建立應用程式註冊。 当“用户可以同意应用代表他们访问公司数据”设置设为“否”时，此角色还能够代表自己授权同意。 在创建新应用程序注册或企业应用程序时，会将分配到此角色的用户添加为所有者。
+* **[應用程式開發人員](#application-developer)**：將「使用者可以註冊應用程式」設定設為「否」時，此角色中的使用者可以建立應用程式註冊。 這個角色也會授與的權限，其代表同意時 「 使用者可同意應用程式存取公司資料，其代表"設定為 [否]。 建立新的應用程式註冊 」 或 「 企業應用程式時，會指派給這個角色的使用者新增為擁有者。
 
 * **[驗證系統管理員](#authentication-administrator)**：具有此角色的使用者可以設定或重設非密碼認證。 驗證系統管理員可以要求使用者重新向現有的非密碼認證 （例如 MFA 或 FIDO） 註冊及撤銷**裝置上記住 MFA**，這會提示在下次登入使用者的 mfa非系統管理員或指派下列角色：
   * 驗證管理員
@@ -73,7 +73,7 @@ ms.locfileid: "65823572"
 
 * **[計費管理員](#billing-administrator)**：進行採購、管理訂用帳戶、管理支援票證，以及監控服務健全狀況。
 
-* **[雲端應用程式系統管理員](#cloud-application-administrator)**：此角色中的使用者具有與應用程式系統管理員角色相同的權限，但不包括管理應用程式 Proxy 的能力。 此角色會授與能力來建立和管理企業應用程式和應用程式註冊的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 在创建新应用程序注册或企业应用程序时，不会将分配到此角色的用户添加为所有者。
+* **[雲端應用程式系統管理員](#cloud-application-administrator)**：此角色中的使用者具有與應用程式系統管理員角色相同的權限，但不包括管理應用程式 Proxy 的能力。 此角色會授與能力來建立和管理企業應用程式和應用程式註冊的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 建立新的應用程式註冊 」 或 「 企業應用程式時，指派給這個角色的使用者不會新增為擁有者。
 
   <b>重要</b>：此角色授與管理應用程式認證的能力。 獲指派此角色的使用者可以將認證新增至應用程式，並使用這些認證來模擬應用程式的身分識別。 如果應用程式的身分識別已授與 Azure Active Directory 的存取權，例如建立或更新使用者或其他物件的能力，則獲指派這個角色的使用者可以在模擬應用程式時執行這些動作。 模擬應用程式身分識別的這項能力，對於使用者透過 Azure AD 中角色指派所能執行的動作，是一種權限提高。 請務必了解，將雲端應用程式系統管理員角色指派給使用者，會給予他們模擬應用程式身分識別的能力。
 
@@ -259,7 +259,7 @@ ms.locfileid: "65823572"
   |<p>所有使用者，包括所有管理員</p>|<p>管理授權</p><p>管理使用者主體名稱以外的所有使用者屬性</p>
   |只有非管理員或者下列任何有限管理員角色的使用者：<ul><li>目錄讀取者<li>來賓邀請者<li>技術服務管理員<li>訊息中心讀取者<li>報告讀取者<li>使用者管理員|<p>刪除及還原</p><p>停用和啟用</p><p>使重新整理權杖失效</p><p>管理包含使用者主體名稱的所有使用者屬性</p><p>重設密碼</p><p>更新 (FIDO) 裝置金鑰</p>
   
-  <b>重要说明</b>：具備此角色的使用者可以變更可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員密碼。 變更使用者的密碼表示可承擔該使用者身分識別和權限。 例如：
+  <b>重要</b>：具備此角色的使用者可以變更可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員密碼。 變更使用者的密碼表示可承擔該使用者身分識別和權限。 例如：
   * 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與使用者系統管理員。 使用者系統管理員可以透過此路徑承擔應用程式擁有者的身分識別，然後藉由更新應用程式的認證，進一步承擔特殊權限應用程式的身分識別。
   * Azure 訂用帳戶擁有者，他們具有機密或私人資訊或者 Azure 中重要組態的存取權。
   * 安全性群組和 Office 365 群組擁有者，他們可以管理群組成員資格。 這個群組可以存取機密或私人資訊或者 Azure AD 和其他位置中的重要組態。
@@ -335,7 +335,7 @@ ms.locfileid: "65823572"
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康狀態。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
 
-### <a name="b2c-user-flow-administrator"></a>B2C 使用者流程的系統管理員
+### <a name="b2c-user-flow-administrator"></a>B2C 使用者流程管理員
 建立和管理使用者流程的所有層面。
 
 | **動作** | **說明** |
@@ -349,14 +349,14 @@ ms.locfileid: "65823572"
 | --- | --- |
 | microsoft.aad.b2c/userAttributes/allTasks | 讀取及設定 Azure Active Directory B2C 中的使用者屬性。 |
 
-### <a name="b2c-ief-keyset-administrator"></a>B2C IEF 索引鍵集的系統管理員
+### <a name="b2c-ief-keyset-administrator"></a>B2C IEF 索引鍵集管理員
 管理來實現同盟和身分識別體驗架構中的加密密碼。
 
 | **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.b2c/trustFramework/keySets/allTasks | 讀取及設定 Azure Active Directory B2C 中的金鑰組。 |
 
-### <a name="b2c-ief-policy-administrator"></a>B2C IEF 原則系統管理員
+### <a name="b2c-ief-policy-administrator"></a>B2C IEF 原則管理員
 建立和管理身分識別體驗架構中的信任架構原則。
 
 | **動作** | **說明** |

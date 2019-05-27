@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ba4643118c5d90b91c3e51d569e9a628c84159fc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 70d1f54aed5e83801b1d1e249d7a412dd6d9a49a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780023"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964030"
 ---
 # <a name="application-map-triage-distributed-applications"></a>應用程式對應：將分散式應用程式分級
 
@@ -94,7 +94,9 @@ ms.locfileid: "65780023"
 
 使用應用程式對應**雲端角色名稱**屬性來識別在地圖上的元件。 Application Insights SDK 會自動新增至遙測元件發出的雲端角色名稱屬性。 比方說，SDK 會將網站名稱或服務的角色名稱加入雲端角色名稱屬性。 但是，有時候您可能會想覆寫預設值。 若要覆寫雲端角色名稱，並變更應用程式對應上顯示的內容取得：
 
-### <a name="net"></a>.NET
+### <a name="netnet-core"></a>.NET/.NET Core
+
+**撰寫自訂的 TelemetryInitializer，如下所示。**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -117,7 +119,7 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**載入您的初始設定式**
+**載入使用中的 TelemetryConfiguration 初始設定式**
 
 在 ApplicationInsights.config 中：
 
@@ -131,7 +133,10 @@ namespace CustomInitializer.Telemetry
     </ApplicationInsights>
 ```
 
-替代方法則是在程式碼 (如 Global.aspx.cs) 中具現化初始設定式：
+> [!NOTE]
+> 將使用的初始設定式`ApplicationInsights.config`不適用於 ASP.NET Core 應用程式。
+
+ASP.NET Web 應用程式的替代方法是具現化初始設定式程式碼，例如中的 Global.aspx.cs:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -141,6 +146,17 @@ namespace CustomInitializer.Telemetry
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+    }
+```
+
+針對[ASP.NET Core](asp-net-core.md#adding-telemetryinitializers)應用程式，加入新`TelemetryInitializer`，即可將它新增至相依性插入容器，如下所示。 這在完成`ConfigureServices`方法的程式`Startup.cs`類別。
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
     }
 ```
 

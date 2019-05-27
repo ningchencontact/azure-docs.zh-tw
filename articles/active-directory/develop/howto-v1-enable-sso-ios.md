@@ -10,18 +10,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d543df842464f1b69fa287c89e777a7e1512ae09
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 19b010091ebd909745b272fca704bb87adf7924b
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540253"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962617"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>作法：使用 ADAL 在 iOS 上啟用跨應用程式的 SSO
 
@@ -62,11 +62,11 @@ Microsoft 為每個行動平台提供應用程式，允許跨不同廠商的應�
 * 非訊息代理程式協助登入
 * 訊息代理程式協助登入
 
-#### <a name="non-broker-assisted-logins"></a>无中转站辅助的登录
+#### <a name="non-broker-assisted-logins"></a>非訊息代理程式協助登入
 
 非訊息代理程式協助登入是在應用程式內發生的登入體驗，並且使用該應用程式之裝置上的本機儲存體。 儲存體可能會跨應用程式共用，但認證會緊密繫結至使用該認證的應用程式或應用程式套件。 當您在應用程式本身內部輸入使用者名稱和密碼時，最可能已在許多行動應用程式中經歷此體驗。
 
-这种登录具有以下优点：
+這些登入具備下列優點︰
 
 * 使用者體驗完全存在於應用程式內部。
 * 認證可以跨由相同憑證登入的應用程式共用，提供單一登入體驗給您的應用程式套件。
@@ -98,7 +98,7 @@ Microsoft 為每個行動平台提供應用程式，允許跨不同廠商的應�
 
 訊息代理程式協助登入是在訊息代理程式應用程式中發生的登入體驗，並且使用訊息代理程式的儲存體和安全性，跨套用身分識別平台的裝置上所有應用程式共用認證。 這表示您的應用程式依賴訊息代理程式來讓使用者登入。 在 iOS 和 Android 上，會透過可下載的應用程式提供這些訊息代理程式，客戶可單獨加以安裝，或可由為使用者管理裝置的公司推送至裝置。 此類型應用程式的範例為 iOS 上的 Microsoft Authenticator 應用程式。 在 Windows 中，內建於作業系統的帳戶選擇器會提供此功能，在技術上稱為 Web 驗證訊息代理程式。
 
-具体的体验因平台而异，如果未正确管理，有时会给用户带来麻烦。 如果您已安裝 Facebook 應用程式，並在另一個應用程式中使用 Facebook Connect，您可能最熟悉這種模式。 身分識別平台會使用相同的模式。
+體驗會依平台而有所不同，如果未正確管理，有時可能會干擾使用者。 如果您已安裝 Facebook 應用程式，並在另一個應用程式中使用 Facebook Connect，您可能最熟悉這種模式。 身分識別平台會使用相同的模式。
 
 對於 iOS 而言，這會前往「轉換」動畫，您的應用程式已在其中傳送到背景工作，而 Microsoft Authenticator 應用程式則來到前景讓使用者選取他們想要登入的帳戶。
 
@@ -292,7 +292,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 
 為了確保我們永遠傳回認證權杖給正確的應用程式，我們必須確定 iOS 作業系統可以確認我們回呼應用程式的方式。 iOS 作業系統會向 Microsoft 訊息代理程式應用程式回報呼叫它之應用程式的組合識別碼。 這樣就不會讓惡意應用程式假冒。 因此，我們利用這個方法搭配訊息代理程式應用程式的 URI，以確保將權杖傳回給正確的應用程式。 我們需要您在應用程式中建立此唯一重新導向 URI，並在我們的開發人員入口網站中設定為重新導向 URI。
 
-重定向 URI 必须采用正确的格式：
+您的重新導向 URI 必須是適當的格式︰
 
 `<app-scheme>://<your.bundle.id>`
 

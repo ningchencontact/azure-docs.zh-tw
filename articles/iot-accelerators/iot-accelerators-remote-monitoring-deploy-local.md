@@ -3,17 +3,17 @@ title: 本機部署遠端監視解決方案 (透過 Visual Studio IDE) - Azure 
 description: 此操作指南會示範如何使用 Visual Studio，將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a5754fc2f7e0fc36a6708bfd4d2d1d3d6f016b27
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1adf59feca7db4c5903b04c59e1bd23290c1855e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150958"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967499"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>本機部署遠端監視解決方案加速器 - Visual Studio
 
@@ -27,7 +27,7 @@ ms.locfileid: "65150958"
 
 若要部署遠端監視解決方案加速器所使用的 Azure 服務，您需要一個有效的 Azure 訂用帳戶。
 
-如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資訊，請參閱 < [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ### <a name="machine-setup"></a>電腦設定
 
@@ -60,9 +60,9 @@ ms.locfileid: "65150958"
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>在本機電腦上部署所有其他微服務
 
-下列步驟示範如何在 Visual Studio 2017 中執行遠端監視微服務：
+下列步驟會示範如何在 Visual Studio 中執行的遠端監視微服務：
 
-1. 啟動 Visual Studio 2017
+1. 啟動 Visual Studio。
 1. 開啟 **remote-monitoring.sln** 解決方案 (位於存放庫本機複本的 **services** 資料夾中)。
 1. 以滑鼠右鍵按一下 [方案總管] 中的方案，然後按一下 [屬性]。
 1. 選取 [通用屬性] > [啟始專案]。

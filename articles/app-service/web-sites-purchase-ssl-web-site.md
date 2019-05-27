@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 15441f70052950748f07b96ff234557462f268cd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0febb8fadd973b67ed232d6094d85894fb383d14
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786332"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955702"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>購買及設定 Azure App Service 的 SSL 憑證
 
@@ -115,7 +115,7 @@ ms.locfileid: "65786332"
 |-|-|
 | 主機名稱 | 要新增 SSL 繫結的網域名稱。 |
 | 私人憑證指紋 | 要繫結的憑證。 |
-| SSL 類型 | <ul><li>**SNI SSL** - 可能會新增多個以 SNI 為基礎的 SSL 繫結。 此選項可允許多個 SSL 憑證保護同一個 IP 位址上的多個網域。 大多数新式浏览器（包括 Internet Explorer、Chrome、Firefox 和 Opera）都支持 SNI（可以在[服务器名称指示](https://wikipedia.org/wiki/Server_Name_Indication)中了解更全面的浏览器支持信息）。</li><li>**以 IP 為基礎的 SSL**：可能只會新增一個以 IP 為基礎的 SSL 繫結。 此選項只允許一個 SSL 憑證保護專用的公用 IP 位址。 設定繫結之後，請依照[為 IP SSL 重新對應 A 記錄](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl)中的步驟執行。 </li></ul> |
+| SSL 類型 | <ul><li>**SNI SSL** - 可能會新增多個以 SNI 為基礎的 SSL 繫結。 此選項可允許多個 SSL 憑證保護同一個 IP 位址上的多個網域。 大多數現代化的瀏覽器 (包括 Internet Explorer、Chrome、Firefox 和 Opera) 都支援 SNI (可在[伺服器名稱指示](https://wikipedia.org/wiki/Server_Name_Indication)找到更完整的瀏覽器支援資訊)。</li><li>**以 IP 為基礎的 SSL**：可能只會新增一個以 IP 為基礎的 SSL 繫結。 此選項只允許一個 SSL 憑證保護專用的公用 IP 位址。 設定繫結之後，請依照[為 IP SSL 重新對應 A 記錄](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl)中的步驟執行。 </li></ul> |
 
 ## <a name="verify-https-access"></a>驗證 HTTPS 存取
 
@@ -166,4 +166,4 @@ ms.locfileid: "65786332"
 * [強制使用 HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [強制使用 TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [在 Azure App Service 中的應用程式程式碼中使用 SSL 憑證](app-service-web-ssl-cert-load.md)
-* [常見問題集：App Service 憑證](https://docs.microsoft.com/en-us/azure/app-service/faq-configuration-and-management/)
+* [常見問題集：App Service 憑證](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

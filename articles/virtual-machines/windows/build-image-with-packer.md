@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 012f4e479a5b8ea2e3ddea1bfde70ab10ee4e834
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 81dbd8082d5a7ab473cc0cbe5fcb6e564fbd750c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467054"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951142"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>如何在 Azure 中使用 Packer 來建立 Windows 虛擬機器映像
-Azure 中的每個虛擬機器 (VM) 都是透過映像所建立，而映像則會定義 Windows 散發套件和作業系統版本。 映像可以包括预安装的应用程序和配置。 Azure Marketplace 提供了許多第一方和第三方映像，這些映像適用於最常見的作業系統和應用程式環境，而您也可以建立自己自訂的映像，以符合您的需求。 本文詳述如何使用開放原始碼工具 [Packer](https://www.packer.io/) \(英文\)，在 Azure 中定義和建置自訂映像。
+Azure 中的每個虛擬機器 (VM) 都是透過映像所建立，而映像則會定義 Windows 散發套件和作業系統版本。 映像中可包含預先安裝的應用程式與組態。 Azure Marketplace 提供了許多第一方和第三方映像，這些映像適用於最常見的作業系統和應用程式環境，而您也可以建立自己自訂的映像，以符合您的需求。 本文詳述如何使用開放原始碼工具 [Packer](https://www.packer.io/) \(英文\)，在 Azure 中定義和建置自訂映像。
 
-本文最后一次使用 [Az PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)版本 1.3.0 和 [Packer](https://www.packer.io/docs/install/index.html) 版本 1.3.4 在 2019 年 2 月 21 日进行了测试。
+這篇文章上次進行測試，使用 2/21/2019年[Az PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)1.3.0 版並[Packer](https://www.packer.io/docs/install/index.html) 1.3.4 的版本。
 
 > [!NOTE]
 > Azure 現在會有一項服務，Azure 映像產生器 （預覽），來定義和建立您自己的自訂映像。 Azure 映像產生器的基礎 Packer，因此您甚至可以使用現有的 Packer shell 佈建程式指令碼使用它。 若要開始使用 Azure 映像產生器，請參閱[使用 Azure 映像產生器中建立 Windows VM](image-builder.md)。
@@ -43,7 +43,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 ## <a name="create-azure-credentials"></a>建立 Azure 認證
 Packer 會使用服務主體來向 Azure 驗證。 Azure 服務主體是安全性識別，可供您與應用程式、服務及諸如 Packer 等自動化工具搭配使用。 您可以控制和定義對於服務主體可以在 Azure 中執行哪些作業的權限。
 
-使用 [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) 建立服務主體，並為服務主體指派權限以便使用 [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment) 來建立和管理資源。 `-DisplayName` 的值必须唯一；请根据需要将其替换为你自己的值。  
+使用 [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) 建立服務主體，並為服務主體指派權限以便使用 [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment) 來建立和管理資源。 值`-DisplayName`必須是唯一的; 視需要取代您自己的值。  
 
 ```azurepowershell
 $sp = New-AzADServicePrincipal -DisplayName "PackerServicePrincipal"
@@ -52,7 +52,7 @@ $plainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR
 New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-然后输出密码和应用程序 ID。
+然後輸出該密碼和應用程式的識別碼。
 
 ```powershell
 $plainPassword
@@ -76,7 +76,7 @@ Get-AzSubscription
 |-------------------------------------|----------------------------------------------------|
 | client_id                         | 檢視具有 `$sp.applicationId` 的服務主體識別碼 |
 | client_secret                     | 檢視自動產生密碼 `$plainPassword` |
-| tenant_id                         | `$sub.TenantId` 命令的输出 |
+| tenant_id                         | `$sub.TenantId` 命令所產生的輸出 |
 | subscription_id                   | `$sub.SubscriptionId` 命令所產生的輸出 |
 | managed_image_resource_group_name | 您在第一個步驟中建立的資源群組名稱 |
 | managed_image_name                | 所建立之受控磁碟映像的名稱 |
@@ -102,7 +102,7 @@ Get-AzSubscription
     "communicator": "winrm",
     "winrm_use_ssl": true,
     "winrm_insecure": true,
-    "winrm_timeout": "3m",
+    "winrm_timeout": "5m",
     "winrm_username": "packer",
 
     "azure_tags": {
@@ -130,7 +130,7 @@ Get-AzSubscription
 ## <a name="build-packer-image"></a>建置 Packer 映像
 如果您尚未在本機電腦上安裝 Packer，請[遵循 Packer 安裝指示](https://www.packer.io/docs/install/index.html)。
 
-按如下所述打开 cmd 提示并指定 Packer 模板文件，以便生成映像：
+建置映像開啟命令提示字元，並指定 Packer 範本檔案，如下所示：
 
 ```
 ./packer build windows.json

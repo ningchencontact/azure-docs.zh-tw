@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 3f19c442d0f5806147ee05b3f0d2d32740a8ecdd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 15cf3b1316cc35e22538ca353302c4a82d2d418b
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121735"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979027"
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC 教學課程：使用 Azure Cosmos DB 進行 Web 應用程式開發
 
@@ -153,7 +153,7 @@ ms.locfileid: "58121735"
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，按一下 [新增]，然後按一下 [控制器]。
    
     [ **新增 Scaffold** ] 對話方塊隨即出現。
-2. 選取 [Web API 5 控制器 - 空白]，然後按一下 [新增]。
+2. 選取 [Web API 5 控制器 - 空]，然後按一下 [新增]。
    
     ![[新增 Scaffold] 對話方塊的螢幕擷取畫面，其中已醒目提示 [MVC 5 控制器 - 空白] 選項](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
 3. 將新的控制器命名為 **ItemController**

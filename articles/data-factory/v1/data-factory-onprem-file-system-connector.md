@@ -14,11 +14,11 @@ ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 40086924731876dc44d9651ca46814149dba52f0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122462"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>使用 Azure Data Factory 從內部部署檔案系統來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,7 +62,7 @@ Data Factory 支援透過「資料管理閘道」連接到內部部署的檔案�
 1. 建立 **Data Factory**。 資料處理站可包含一或多個管線。
 2. 建立**連結服務**，將輸入和輸出資料存放區連結到資料處理站。 例如，如果您從 Azure Blob 儲存體將資料複製到內部部署檔案系統，您會建立兩個連結服務，將內部部署檔案系統和 Azure 儲存體帳戶連結至資料處理站。 有關內部部署檔案系統專屬的連結服務屬性，請參閱[連結服務屬性](#linked-service-properties)一節。
 3. 建立**資料集**，代表複製作業的輸入和輸出資料。 在上一個步驟所述的範例中，您可以建立資料集來指定包含輸入資料的 Blob 容器與資料夾。 同時，您會建立另一個資料集來指定檔案系統中的資料夾與檔案名稱 (選擇性)。 針對內部部署檔案系統專屬的資料集屬性，請參閱[資料集屬性](#dataset-properties)一節。
-4. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。 在稍早所述的範例中，您使用 BlobSource 作為來源，以及使用 FileSystemSink 作為複製活動的接收器。 同樣地，如果您是從內部部署檔案系統複製到 Azure Blob 儲存體，則在複製活動中使用 FileSystemSource 和 BlobSink。 針對內部部署檔案系統專屬的複製活動屬性，請參閱[複製活動屬性](#copy-activity-properties)一節。 如需有關如何使用資料存放區作為來源或接收器的詳細資訊，按一下上一節中資料存放區的連結。
+4. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。 在稍早所述的範例中，您使用 BlobSource 作為來源，以及使用 FileSystemSink 作為複製活動的接收器。 同樣地，如果您是從內部部署檔案系統複製到 Azure Blob 儲存體，則在複製活動中使用 FileSystemSource 和 BlobSink。 針對內部部署檔案系統專屬的複製活動屬性，請參閱[複製活動屬性](#copy-activity-properties)一節。 如需有關如何使用資料存放區作為來源或接收器的詳細資訊，請在上一節按一下適用於您的資料存放區的連結。
 
 使用精靈時，精靈會自動為您建立這些 Data Factory 實體 (已連結的服務、資料集及管線) 的 JSON 定義。 使用工具/API (.NET API 除外) 時，您需使用 JSON 格式來定義這些 Data Factory 實體。  如需相關範例，其中含有用來將資料複製到檔案系統 (或從檔案系統複製資料) 之 Data Factory 實體的 JSON 定義，請參閱本文的 [JSON 範例](#json-examples-for-copying-data-to-and-from-file-system)一節。
 
@@ -74,11 +74,11 @@ Data Factory 支援透過「資料管理閘道」連接到內部部署的檔案�
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | type |確保 type 屬性設為 **OnPremisesFileServer**。 |是 |
-| host |指定想要複製之資料夾的根路徑。 字串中的特殊字元需使用逸出字元 ‘ \ ’。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。 |是 |
+| host |指定想要複製之資料夾的根路徑。 字串中的特殊字元需使用逸出字元 ‘ \ ’。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。 |有 |
 | userid |指定具有伺服器存取權之使用者的識別碼。 |否 (如果您選擇 encryptedCredential) |
 | password |指定使用者 (userid) 的密碼。 |否 (如果您選擇 encryptedCredential) |
 | encryptedCredential |指定您可以執行新增 AzDataFactoryEncryptValue cmdlet 取得的加密的認證。 |否 (如果您選擇以純文字指定使用者識別碼和密碼) |
-| gatewayName |指定 Data Factory 應該用來連接到內部部署檔案伺服器的閘道器名稱。 |是 |
+| gatewayName |指定 Data Factory 應該用來連接到內部部署檔案伺服器的閘道器名稱。 |有 |
 
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>範例連結服務和資料集定義
@@ -182,13 +182,13 @@ Data Factory 支援透過「資料管理閘道」連接到內部部署的檔案�
 
 | 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
-| 遞迴 |指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式讀取資料。 |True/False (預設值為 False) |否 |
+| 遞迴 |指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式讀取資料。 |True/False (預設值為 False) |無 |
 
 **FileSystemSink** 支援下列屬性：
 
 | 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
-| copyBehavior |當來源為 BlobSource 或 FileSystem 時，定義複製行為。 |**PreserveHierarchy：** 保留目標資料夾中的檔案階層。 亦即，來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><br/>**FlattenHierarchy：** 來源資料夾的中所有檔案都會建立在目標資料夾的第一層中。 建立的目標檔案會具有自動產生的名稱。<br/><br/>**MergeFiles：** 將來自來源資料夾的所有檔案合併成一個檔案。 如果有指定檔案/Blob 名稱，合併檔案的名稱會是指定的名稱。 否則，就會是自動產生的檔案名稱。 |否 |
+| copyBehavior |當來源為 BlobSource 或 FileSystem 時，定義複製行為。 |**PreserveHierarchy：** 保留目標資料夾中的檔案階層。 亦即，來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><br/>**FlattenHierarchy：** 來源資料夾的中所有檔案都會建立在目標資料夾的第一層中。 建立的目標檔案會具有自動產生的名稱。<br/><br/>**MergeFiles：** 將來自來源資料夾的所有檔案合併成一個檔案。 如果有指定檔案/Blob 名稱，合併檔案的名稱會是指定的名稱。 否則，就會是自動產生的檔案名稱。 |無 |
 
 ### <a name="recursive-and-copybehavior-examples"></a>遞迴和 copyBehavior 範例
 本節說明 recursive 和 copyBehavior 屬性在不同組合的情況下，複製作業所產生的行為。

@@ -2,20 +2,20 @@
 title: T-SQL 陳述式 - Azure SQL 資料倉儲 | Microsoft Docs
 description: Azure SQL 資料倉儲中所支援 T-SQL 陳述式的文件連結。
 services: sql-data-warehouse
-author: twounder
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: query
 ms.date: 05/01/2019
-ms.author: twounder
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 5bab83c2cb3874ad662ad54a9646cc3fc406046e
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 984d8ffa9f901437f1413e1d5d3145cabba80883
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561366"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954980"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中支援的 T-SQL 陳述式
 Azure SQL 資料倉儲中所支援 T-SQL 陳述式的文件連結。
@@ -28,7 +28,7 @@ Azure SQL 資料倉儲中所支援 T-SQL 陳述式的文件連結。
 * [ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx)
 * [CREATE COLUMNSTORE INDEX](https://msdn.microsoft.com/library/gg492153.aspx)
 * [CREATE DATABASE](https://msdn.microsoft.com/library/mt204021.aspx)
-* [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
+* [建立資料庫範圍認證](https://msdn.microsoft.com/library/mt270260.aspx)
 * [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
 * [CREATE EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/dn935026.aspx)
 * [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
@@ -52,7 +52,7 @@ Azure SQL 資料倉儲中所支援 T-SQL 陳述式的文件連結。
 * [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx)
 * [卸除工作負載分類器](/sql/t-sql/statements/drop-workload-classifier-transact-sql)
 * [RENAME](https://msdn.microsoft.com/library/mt631611.aspx)
-* [設定 RESULT_SET_CACHING](/sql/t-sql/statements/set-statements-transact-sql) （預覽）
+* [設定 RESULT_SET_CACHING](/sql/t-sql/statements/set-result-set-caching-transact-sql) （預覽）
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 

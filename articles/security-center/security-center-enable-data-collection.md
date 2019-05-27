@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 63ee603f83d0c2de3bc89b8792ada4a61edb7e00
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: v-mohabe
+ms.openlocfilehash: 8fed3ce98b23c5ac1cc97b88a278c5946f06af8e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006747"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968638"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure 資訊安全中心的資料收集
 資訊安全中心會從您的 Azure 虛擬機器 (Vm)、 虛擬機器擴展集、 IaaS 容器和監視安全性漏洞與威脅 （包括內部部署） 的非 Azure 電腦收集資料。 資料是使用 Microsoft Monitoring Agent 收集而得，收集的方式是讀取機器的各種安全性相關組態和事件記錄，並將資料複製到工作區進行分析。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄 (Windows 事件記錄)、執行中程序、電腦名稱、IP 位址和已登入的使用者。 Microsoft Monitoring Agent 代理程式也會將損毀傾印檔案複製到您的工作區中。

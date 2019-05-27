@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4415759530985710c8376709db9955ba98066160
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 00b1b58a39724951f2d5e4e688df8eb178654bbb
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61045976"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952834"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>專案負責人在 Team Data Science Process 中的工作
 
-本教學課程概述希望專案負責人為他/她的專案小組完成的工作。 目標是建立在 [Team 資料科學程序](overview.md) (TDSP) 上標準化的共同作業小組環境。 TDSP 是 Microsoft 開發的架構，提供結構化的一系列活動，以有效率地執行雲端式、預測性分析解決方案。 如需人員角色的概述，以及對此程序進行標準化之資料科學小組所處理相關聯工作的大綱，請參閱 [Team 資料科學程序角色和工作](roles-tasks.md)。
+本教學課程概述希望專案負責人的工作應該在其專案小組完成。 目標是建立在 [Team 資料科學程序](overview.md) (TDSP) 上標準化的共同作業小組環境。 TDSP 是 Microsoft 開發的架構，提供結構化的一系列活動，以有效率地執行雲端式、預測性分析解決方案。 如需人員角色的概述，以及對此程序進行標準化之資料科學小組所處理相關聯工作的大綱，請參閱 [Team 資料科學程序角色和工作](roles-tasks.md)。
 
 **專案負責人**會管理特定資料科學專案的個別資料科學家日常活動。 由專案負責人完成以便設定此環境之工作的工作流程，如下圖所述：
 

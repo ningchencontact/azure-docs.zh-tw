@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fb0482be1670a96befdd69a5356c9e21476d9f9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85a4aca0c4b80eaab1f43bcbec33dc9cf37aa655
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60305078"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950092"
 ---
 # <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>資料科學 Team 專案的群組管理員工作
 
-本主題概述希望群組管理員為其資料科學組織完成的工作。 目標是建立在 [Team 資料科學程序](overview.md) (TDSP) 上標準化的共同作業群組環境。 如需人員角色的概述，以及對此程序進行標準化之資料科學小組所處理相關聯工作的大綱，請參閱 [Team 資料科學程序角色和工作](roles-tasks.md)。
+本主題概述希望群組管理員的工作預期的資料科學組織完成。 目標是建立在 [Team 資料科學程序](overview.md) (TDSP) 上標準化的共同作業群組環境。 如需人員角色的概述，以及對此程序進行標準化之資料科學小組所處理相關聯工作的大綱，請參閱 [Team 資料科學程序角色和工作](roles-tasks.md)。
 
 **群組管理員**是在企業中整個資料科學單位的管理員。 一個資料科學單位可能有多個小組，而每個小組負責不同商業垂直市場中的多個資料科學專案。 群組管理員可能會將他們的工作委派給代理人，但與角色相關聯的工作則一樣。 有六個主要工作，如下圖所示：
 
@@ -99,7 +99,7 @@ Azure DevOps Services 會裝載下列存放庫：
 ![5](./media/group-manager-tasks/create-account-2.png)
 
 
-按一下 [繼續]。
+按一下 [ **繼續**]。
 
 ## <a name="2-groupcommon-project"></a>2.GroupCommon 專案
 

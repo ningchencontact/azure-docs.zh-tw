@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 9026b561f52b2d43fff2d3e36ba569d7b62a4684
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 8a0fe87703c9fb471174c761a6e8296e6e7a37ec
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069032"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952098"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>疑難排解連線到 Azure Database for PostgreSQL-單一伺服器
 
@@ -53,7 +53,7 @@ ms.locfileid: "65069032"
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>解決永久性連線問題的步驟
 
 1. 設定 [防火牆規則](howto-manage-firewall-using-portal.md) 允許用戶端 IP 位址。 (僅適用於臨時性的測試目的) 請使用 0.0.0.0 作為起始 IP 位址並使用 255.255.255.255 作為結束 IP 位址來設定防火牆規則。 這樣會開放伺服器供所有 IP 位址存取。 若這樣可解決您的連線問題，請移除此規則並針對已適當限制的 IP 位址或位址範圍建立防火牆規則。
-2. 在用戶端與網際網路之間的所有防火牆上，確定開放連接埠 5432 供輸出連線使用。
+2. 在所有用戶端與網際網路之間的防火牆，請確定連接埠 5432 已開啟輸出連線。
 3. 請確認您的連接字串和其他連線設定。
 4. 檢查儀表板中的服務健康情況。 如果您認為有區域性中斷情況，請參閱[使用適用於 PostgreSQL 的 Azure 資料庫的商務持續性概觀](concepts-business-continuity.md)，以了解復原到新區域的步驟。
 

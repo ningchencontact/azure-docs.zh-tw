@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 35d9e953ade337672fd57149e325b507f6ce115f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cebe22dddf9ef382c4eceb799e05cbaab30aedaa
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405706"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951100"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽中的資料儲存體和輸入
 
@@ -28,7 +28,7 @@ ms.locfileid: "65405706"
 * 時間序列深入解析環境。
 * Azure 儲存體一般用途 V1 帳戶，資料將儲存於其中。
 
-時間序列深入解析預覽使用 Azure Blob 儲存體搭配 Parquet 檔案類型。 時間序列解析管理所有資料作業，包括建立 Blob、編製索引，以及在 Azure 儲存體帳戶中分割資料。 您可以使用 Azure 儲存體帳戶來建立這些 Blob。
+時間序列深入解析預覽會使用 Parquet 檔案類型中的 Azure Blob 儲存體。 時間序列解析管理所有資料作業，包括建立 Blob、編製索引，以及在 Azure 儲存體帳戶中分割資料。 您可以使用 Azure 儲存體帳戶來建立這些 Blob。
 
 就和其他 Azure 儲存體 Blob 一樣，時間序列深入解析建立的 Blob 可讓您讀取並寫入，以支援各種不同的整合案例。
 
@@ -101,12 +101,12 @@ Parquet 是資料行導向的資料檔案格式，設計用來提供：
 
 ### <a name="logical-partitions"></a>邏輯分割區
 
-邏輯分割區是一種實體分割區內的分割區，當中儲存與某個單一分割區索引鍵值相關的所有資料。 時間序列深入解析預覽根據下列兩個屬性，以邏輯方式分割每個 Blob：
+邏輯分割區是一種實體分割區內的分割區，當中儲存與某個單一分割區索引鍵值相關的所有資料。 時間序列深入解析預覽以邏輯方式分割每個 blob，根據兩個屬性：
 
 * **時間序列識別碼**：事件資料流和模型中所有時間序列深入解析資料的分割區索引鍵。
 * **時間戳記**：初始輸入的時間。
 
-時間序列深入解析預覽根據這兩個屬性提供高效能查詢。 這兩個屬性也提供快速傳遞時間序列深入解析資料最有效的方法。
+時間序列深入解析預覽提供這兩個屬性為基礎的高效能查詢。 這兩個屬性也提供快速傳遞時間序列深入解析資料最有效的方法。
 
 務必選取適當的時間序列識別碼，因為它是不可變的屬性。 如需詳細資訊，請參閱[選擇時間序列識別碼](./time-series-insights-update-how-to-id.md)。
 
@@ -116,11 +116,11 @@ Parquet 是資料行導向的資料檔案格式，設計用來提供：
 
 當您建立時間序列深入解析隨用隨付環境時，您會建立兩個資源：時間序列深入解析環境和 Azure 儲存體一般用途 V1 帳戶 (資料將儲存於其中)。 我們選擇 Azure 儲存體一般用途 V1 作為預設資源，是因為其互通性、價格和效能。 
 
-時間序列深入解析在您的 Azure 儲存體帳戶中，每個事件最多會發佈兩個複本。 初始副本始终会保留，使你能够使用其他服务对它进行快速查询。 您可以輕鬆地使用 Spark、Hadoop 和其他熟悉的工具，透過原始 Parquet 檔案橫跨時間序列識別碼，因為這些引擎都支援基本檔案名稱篩選。 依年份和月份分組 Blob，是列出自訂作業特定時間範圍內 Blob 的實用方式。 
+時間序列深入解析在您的 Azure 儲存體帳戶中，每個事件最多會發佈兩個複本。 初始複本一定會被保留，以便您可以使用其他服務，快速地查詢它。 您可以輕鬆地使用 Spark、Hadoop 和其他熟悉的工具，透過原始 Parquet 檔案橫跨時間序列識別碼，因為這些引擎都支援基本檔案名稱篩選。 依年份和月份分組 Blob，是列出自訂作業特定時間範圍內 Blob 的實用方式。 
 
 此外，時間序列深入解析會重新分割 Parquet 檔案，為時間序列深入解析 API 最佳化。 最近重新分割的檔案也會儲存。
 
-在公開預覽期間，資料會無限期地儲存在您的 Azure 儲存體帳戶中。
+公開預覽期間，資料會儲存無限期地在您的 Azure 儲存體帳戶。
 
 ### <a name="writing-and-editing-time-series-insights-blobs"></a>寫入和編輯時間序列深入解析 Blob
 
@@ -146,13 +146,13 @@ Parquet 是資料行導向的資料檔案格式，設計用來提供：
 
 ### <a name="data-deletion"></a>刪除資料
 
-請勿刪除 Blob，因為時間序列深入解析預覽其中會維護有關 Blob 的中繼資料。
+請勿刪除 blob。 它們不只是適用於稽核和維護您資料的記錄，時間序列深入解析預覽維護每個 blob 中的 blob 中繼資料。
 
 ## <a name="time-series-insights-data-ingress"></a>時間序列深入解析資料輸入
 
 ### <a name="ingress-policies"></a>輸入原則
 
-時間序列深入解析預覽支援時間序列深入解析目前支援的相同事件來源和檔案類型。
+時間序列深入解析預覽支援 Time Series Insights 目前支援的相同的事件來源和檔案類型。
 
 支援的事件來源包括：
 
@@ -168,7 +168,7 @@ Parquet 是資料行導向的資料檔案格式，設計用來提供：
 
 ### <a name="data-availability"></a>資料可用性
 
-時間序列深入解析預覽使用 Blob 大小最佳化策略來編製資料索引。 資料經過編製索引後即可供查詢，其編製方式以資料輸入量與速度為基礎。
+時間序列深入解析預覽資料的索引所使用的 blob 大小最佳化策略。 資料經過編製索引後即可供查詢，其編製方式以資料輸入量與速度為基礎。
 
 > [!IMPORTANT]
 > * 時間序列深入解析正式運作 (GA) 版本將可在叫用事件資料來源的 60 秒內讓資料可供使用。 
@@ -177,7 +177,7 @@ Parquet 是資料行導向的資料檔案格式，設計用來提供：
 
 ### <a name="scale"></a>調整
 
-時間序列深入解析預覽針對每個環境支援最多 6 Mbps 的初始輸入規模。 即將推出增強的規模支援。 我們計劃更新我們的文件以反映那些增強功能
+時間序列深入解析預覽支援每個環境的初始輸入小數位數最多 1 個百萬位元組 / 秒 (Mbps)。 即將推出增強的規模支援。 我們計劃更新我們的文件以反映那些增強功能。
 
 ## <a name="next-steps"></a>後續步驟
 

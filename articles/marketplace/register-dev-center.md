@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 559b5a519a48d4aa8022961a59f6f29cef28f948
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 1caa523b2bc43b7b3690e01f589aecf18fd3da9e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937588"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965102"
 ---
 # <a name="register-in-dev-center"></a>在開發人員中心註冊  
 為了協助確認您尚未登入個人瀏覽器帳戶，請開啟新的 Internet Explorer InPrivate 或 Chrome Incognito 瀏覽工作階段。  
@@ -69,7 +69,7 @@ ms.locfileid: "64937588"
     按一下 [完成] 按鈕，以傳送確認電子郵件訊息。  
 11. 使用您供應項目的計費模型來選擇後續步驟。  
 
-    | 計費模式 | 後續步驟 |  
+    | 計費模型 | 後續步驟 |  
     |:--- |:--- |  
     | 免費 | 移至 Cloud Partner 入口網站。<ul> <li>若要在 Azure Marketplace 上發行，請瀏覽 Cloud Partner 入口網站頁面：[cloudpartner.azure.com](https://cloudpartner.azure.com)。</li> </ul> |  
     | 商業 (transact) | 更新您的帳戶資訊。<ul> <li>如需有關新增帳戶資訊的詳細資訊，請瀏覽[如何新增銀行與稅務資訊](#add-bank-information)一節。</li> </ul> |  
@@ -156,7 +156,7 @@ ms.locfileid: "64937588"
   > 請檢查並確認輸入的郵遞區號也是正確的。 系統會進行城市、郵遞區號的驗證。
 
 * **如何取得促銷代碼？**
-  > 請完成 [Marketplace 註冊](https://azuremarketplace.microsoft.com/en-us/sell/signup)表單，以取得開發人員中心促銷代碼。
+  > 請完成 [Marketplace 註冊](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)表單，以取得開發人員中心促銷代碼。 請參閱如何[建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)如需詳細資訊。
  
 * **完成註冊後需要哪些後續動作？**
   > 請尋找來自 verify@microsoft.com、主旨行為「需要動作：請向 Microsoft 確認您的電子郵件帳戶」的電子郵件。 按一下具時效性的驗證連結，以完成註冊。 *如果您未在 24 小時內收到電子郵件，請查看垃圾郵件資料夾。*

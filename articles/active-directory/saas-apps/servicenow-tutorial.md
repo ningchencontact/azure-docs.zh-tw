@@ -16,11 +16,11 @@ ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0efc69aa7fb081303df6fc6327253fd5b8336999
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898596"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902793"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>教學課程：Azure Active Directory 與 ServiceNow 整合
 
@@ -36,7 +36,7 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 ServiceNow 的整合，您需要下列項目：
+若要設定 Azure AD 與 ServiceNow 的整合作業，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 ServiceNow 單一登入的訂用帳戶
@@ -80,7 +80,7 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 ServiceNow 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 ServiceNow 中相關使用者之間的連結關聯性。
 
-若要設定及測試透過 ServiceNow 使用 Azure AD 單一登入功能，您需要完成下列構成要素：
+若要設定及測試透過 ServiceNow 使用 Azure AD 單一登入功能，您需要完成下列建置組塊：
 
 1. **[針對 ServiceNow 設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on-for-servicenow)** - 讓您的使用者能夠使用此功能。
 2. **[設定 ServiceNow 單一登入](#configure-servicenow-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -111,7 +111,7 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![ServiceNow 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![ServiceNow 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<instance-name>.service-now.com/navpage.do`
 
@@ -212,12 +212,12 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 
         * 請從文字方塊中移除已填入的 [Identity Provider's SingleLogoutRequest] \(識別提供者的 SingleLogoutRequest\) 值。
 
-        * 複製 [ServiceNow Homepage] \(ServiceNow 首頁\) 值，將其貼到 Azure 入口網站上 [ServiceNow 網域及 URL] 區段的 [登入 URL] 文字方塊中。
+        * 複製 [ServiceNow 首頁] 值，貼入 Azure 入口網站 [ServiceNow 網域和 URL] 區段的 [單一登入 URL] 文字方塊中。
 
             > [!NOTE]
             > 將您的 [ServieNow 租用戶 URL] 與 **/navpage.do** 串連即是 ServiceNow 執行個體首頁(例如：`https://fabrikam.service-now.com/navpage.do`)。
 
-        * 複製 [Entity ID / Issuer] \(實體識別碼 / 簽發者\) 值，將其貼到 Azure 入口網站上 [ServiceNow 網域及 URL] 區段的 [識別碼] 文字方塊中。
+        * 複製 [實體識別碼/簽發者] 值，貼入 Azure 入口網站 [ServiceNow 網域和 URL] 區段的 [識別碼] 文字方塊中。
 
         * 請確定 [NameID Policy] \(NameID 原則\) 是設定為 `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` 值。 
 
@@ -271,12 +271,12 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 
         * 請從文字方塊中移除已填入的 [Identity Provider's SingleLogoutRequest] \(識別提供者的 SingleLogoutRequest\) 值。
 
-        * 複製 [ServiceNow Homepage] \(ServiceNow 首頁\) 值，將其貼到 Azure 入口網站上 [ServiceNow 網域及 URL] 區段的 [登入 URL] 文字方塊中。
+        * 複製 [ServiceNow 首頁] 值，貼入 Azure 入口網站 [ServiceNow 網域和 URL] 區段的 [單一登入 URL] 文字方塊中。
 
             > [!NOTE]
             > 將您的 [ServieNow 租用戶 URL] 與 **/navpage.do** 串連即是 ServiceNow 執行個體首頁(例如：`https://fabrikam.service-now.com/navpage.do`)。
 
-        * 複製 [Entity ID / Issuer] \(實體識別碼 / 簽發者\) 值，將其貼到 Azure 入口網站上 [ServiceNow 網域及 URL] 區段的 [識別碼] 文字方塊中。
+        * 複製 [實體識別碼/簽發者] 值，貼入 Azure 入口網站 [ServiceNow 網域和 URL] 區段的 [識別碼] 文字方塊中。
 
         * 請確定 [NameID Policy] \(NameID 原則\) 是設定為 `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` 值。
 
@@ -307,7 +307,7 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![ServiceNow 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![ServiceNow 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<instance-name>.service-now.com/navpage.do`
 
@@ -445,7 +445,7 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 ServiceNow 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會把 ServiceNow 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [ServiceNow]。
 
@@ -453,7 +453,7 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [ServiceNow]。
 
-    ![應用程式清單中的 [ServiceNow] 連結](common/all-applications.png)
+    ![應用程式清單中的 ServiceNow 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -471,7 +471,7 @@ ServiceNow 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-servicenow-test-user"></a>建立 ServiceNow 測試使用者
 
-本節的目標是要在 ServiceNow 中建立一個名為 Britta Simon 的使用者。 ServiceNow 支援自動使用者佈建，該功能預設為啟用。 您可以在[這裡](servicenow-provisioning-tutorial.md)找到關於如何設定自動使用者佈建的更多詳細資料。
+本節的目標是在 ServiceNow 中建立名為 Britta Simon 的使用者。 ServiceNow 支援自動使用者佈建，該功能預設為啟用。 您可以在[這裡](servicenow-provisioning-tutorial.md)找到關於如何設定自動使用者佈建的更多詳細資料。
 
 > [!NOTE]
 > 如果您需要手動建立使用者，請連絡 [ServiceNow 用戶端支援小組](https://www.servicenow.com/support/contact-support.html)

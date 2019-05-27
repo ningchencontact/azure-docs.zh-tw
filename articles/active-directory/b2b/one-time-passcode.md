@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 577f370c3be0f232be4e6628dd6754c4164ab93f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 13808871d67bb47dce82c5a3493fd89b0dfe1dcd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785268"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952855"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>電子郵件單次密碼驗證 (預覽版)
 
@@ -64,7 +64,7 @@ ms.locfileid: "65785268"
 > 當使用者兌換單次密碼，並稍後取得 MSA、Azure AD 帳戶或其他同盟帳戶時，系統仍會繼續使用單次密碼進行驗證。 如果您想要更新驗證方法，您可以刪除來賓使用者帳戶，然後重新邀請他們。
 
 ### <a name="example"></a>範例
-邀請來賓使用者 alexdoe@gmail.com 到 Fabrikam，該使用者尚未設定 Google 同盟。 Alex 沒有 Microsoft 帳戶。 他將收到單次密碼進行驗證。
+邀請來賓使用者 alexdoe@gmail.com 到 Fabrikam，該使用者尚未設定 Google 同盟。 Alex 沒有 Microsoft 帳戶。 他們會收到單次密碼進行驗證。
 
 ## <a name="opting-in-to-the-preview"></a>選擇加入預覽版 
 選擇加入可能需要數分鐘的時間才會生效。 生效後，只有剛獲邀且符合上述條件的使用者可使用單次密碼驗證。 先前已兌換邀請的來賓使用者將繼續使用其相同的驗證方法。

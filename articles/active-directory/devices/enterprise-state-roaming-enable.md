@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7e665f3124296392c8138f4f2bd3632b56e53de
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 88e825ebc08b4bfbd65f81b7b2480ead9be314b5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230941"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954940"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>在 Azure Active Directory 中啟用企業狀態漫遊
 任何具有 Azure AD Premium 或 Enterprise Mobility + Security (EMS) 授權的組織都可以使用企業狀態漫遊。 如需有關如何取得 Azure AD 訂用帳戶的詳細資訊，請參閱 [Azure AD 產品頁面](https://azure.microsoft.com/services/active-directory)。
@@ -84,7 +84,7 @@ APAC 國家/地區例如澳洲或紐西蘭 | 亞洲內的一個或多個 Azure �
 一年 (「保留期限」) 未存取的資料將視為過時，可能會從 Microsoft 雲端中刪除。 保留期限可能有所變更，但不會小於 90 天。 過時的資料可能是一組特定的 Windows/應用程式設定或使用者的所有設定。 例如：
 
 * 如果沒有任何裝置存取特定的設定集合 (例如，從裝置中移除應用程式，或針對使用者的所有裝置停用設定群組，例如「佈景主題」)，則該集合在保留期限之後就會變成過時，可能會被刪除。 
-* 如果使用者在其所有裝置上已關閉設定同步處理，則不會存取任何設定資料，而且該使用者的所有設定資料將會變成過時，而且可能在保留期限之後刪除。 
+* 如果使用者已關閉其所有裝置上的設定同步處理，則不會設定資料將會存取，並為該使用者的所有設定資料將會變成過時，並可能在保留期限之後刪除。 
 * 如果 Azure AD 目錄管理員針對整個目錄關閉企業狀態漫遊，則該目錄中的所有使用者會停止同步處理設定，且所有使用者的所有設定資料會變成過時，並且可能在保留期限之後刪除。 
 
 ### <a name="deleted-data-recovery"></a>復原已刪除的資料

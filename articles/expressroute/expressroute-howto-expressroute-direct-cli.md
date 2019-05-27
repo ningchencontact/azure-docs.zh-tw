@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 2/25/2019
+ms.date: 05/20/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: c4998712d77771a5600c06183a76254548289372
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ebfe3db43de87e67ad05ed8cb9f5812b5ded04e0
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365089"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965917"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>設定 ExpressRoute 直接使用 Azure CLI
 
@@ -280,8 +280,9 @@ ms.locfileid: "60365089"
 
 您只可以在 ExpressRoute Direct 上使用額外線路頻寬來支援以上所述的案例。 頻寬是 40 Gbps 和 100 Gbps。
 
-您可以建立標準或進階線路。 標準線路會包含在服務的成本中。 進階線路的成本則是以您選取的頻寬為基礎。 您只可以依照計量建立線路。 ExpressRoute Direct 不支援無限制的線路。
+**SkuTier**可以是本機、 Standard 或 Premium。
 
+**SkuFamily**只為無限制必須 MeteredData ExpressRoute 直接上不支援。
 在 ExpressRoute Direct 資源上建立線路：
 
   ```azurecli

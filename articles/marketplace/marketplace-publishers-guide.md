@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: a3d75f09ac21fcdb4862cf8eefff0b5c05fd3369
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 58591302280c67dbd0f69ebe0bc47cf95c8bfc18
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937618"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956754"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace 和 AppSource 發行指南
 
@@ -62,7 +62,7 @@ Marketplace 是與 Microsoft 共同舉辦上市活動的跳板，有助於促進
 
 *   共同銷售：展開您的旅程或加快腳步，透過 Marketplace 與 Microsoft 合作銷售您的產品。 可取用各種方案與支援，與 Microsoft 團隊一同推動聯合銷售。
 
-[提交解決方案](https://azuremarketplace.microsoft.com/sell/signup)到 Marketplace 之後，我們的上線團隊便會連絡您，為您的發行體驗提供支援。
+[提交解決方案](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)到 Marketplace 之後，我們的上線團隊便會連絡您，為您的發行體驗提供支援。  請參閱[如何建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)如需詳細資訊。
 
 如需 Microsoft Go-To-Market 權益的詳細資訊，以及在 Marketplace 上拓展業務的方式，請參閱 [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm)。
 
