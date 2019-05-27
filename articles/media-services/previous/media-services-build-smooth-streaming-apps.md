@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466035"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949619"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何建置 Smooth Streaming Windows 市集應用程式  
 
@@ -140,7 +140,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
             <TextBox x:Name="txtStatus" FontSize="10" Width="700" VerticalAlignment="Center"/>
          </StackPanel>
    ```
-   MediaElement 控件用于播放媒体。 下一個課程將使用名稱為 sliderProgress 的滑動軸控制項來控制媒體進度。
+   MediaElement 控制項會用來播放媒體。 下一個課程將使用名稱為 sliderProgress 的滑動軸控制項來控制媒體進度。
 3. 按 **CTRL+S** 儲存檔案。
 
 MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Smooth Streaming 支援，您必須依副檔名和 MIME 類型來註冊 Smooth Streaming 位元組資料流處理常式。  若要註冊，請使用 Windows.Media 命名空間的 MediaExtensionManager.RegisterByteStreamHandler 方法。
@@ -156,7 +156,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 3. 在 **MainPage** 類別的開頭，新增下列資料成員：
    
          private MediaExtensionManager extensions = new MediaExtensionManager();
-4. 在 **MainPage** 构造函数的末尾，添加以下两行：
+4. 在 **MainPage** 建構函式的結尾，新增下列兩行：
    
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
@@ -215,10 +215,10 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
 1. 從 [建置] 功能表中，按一下 [組態管理員]。
 2. 變更 [使用中的方案平台]  ，以符合您的開發平台。
-3. 按 **F6** 编译项目。 
+3. 按 **F6** 鍵編譯專案。 
 4. 按 **F5** 鍵執行應用程式。
 5. 在應用程式頂端，您可以使用預設 Smooth Streaming URL，或輸入不同的 Smooth Streaming URL。 
-6. 单击“设置源” 。 因為預設會啟用 [自動播放]  ，所以應該會自動播放媒體。  您可以使用 [播放]、[暫停] 和 [停止] 按鈕來控制媒體。  您可以使用垂直滑動軸來控制媒體音量。  不過，尚未完整實作用於控制媒體進度的水平滑動軸。 
+6. 按一下 [設定來源] 。 因為預設會啟用 [自動播放]  ，所以應該會自動播放媒體。  您可以使用 [播放]、[暫停] 和 [停止] 按鈕來控制媒體。  您可以使用垂直滑動軸來控制媒體音量。  不過，尚未完整實作用於控制媒體進度的水平滑動軸。 
 
 您已完成課程 1。  在本課程中，您使用 MediaElement 控制項來播放 Smooth Streaming 內容。  在下一個課程中，您將新增滑動軸來控制 Smooth Streaming 內容的進度。
 
@@ -230,7 +230,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
 媒體來源是一種產生媒體資料的物件。  來源解析程式會接受 URL 或位元組資料流，然後為該內容建立適當的媒體來源。  來源解析程式是應用程式建立媒體來源的標準方式。 
 
-本课包含以下过程：
+本課程包含下列程序：
 
 1. 註冊 Smooth Streaming 處理常式 
 2. 新增調適性來源管理員層級事件處理常式
@@ -315,13 +315,13 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 ### <a name="to-add-adaptive-source-level-event-handlers"></a>新增調適性來源層級的事件處理常式
 
 1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
-2. 在 **MainPage** 类中，添加以下数据成员：
+2. 在 [MainPage]  類別內，新增下列資料成員：
 
    ```csharp
      private AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate; 
      private Manifest manifestObject;
    ```
-3. 在 **MainPage** 类的末尾，添加以下事件处理程序：
+3. 在 **MainPage** 類別的結尾，新增下列事件處理常式：
 
    ```csharp
          # region Adaptive Source Level Events
@@ -507,7 +507,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
    ```
 
    > [!NOTE]
-   > CoreDispatcher 用來從非 UI 執行緒對 UI 執行緒進行變更。 如果發送器執行緒發生瓶頸，開發人員可以選擇使用自己想要更新之 UI-element 所提供的發送器。  例如︰
+   > CoreDispatcher 用來從非 UI 執行緒對 UI 執行緒進行變更。 如果發送器執行緒上的瓶頸，開發人員可以選擇使用 UI 項目他們想要更新所提供的發送器。  例如：
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -517,7 +517,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
          sliderProgress.Maximum = absvalue; }); 
    ```
-6. 在 mediaElement_AdaptiveSourceStatusUpdated 方法的末尾，添加以下代码：
+6. 在 **mediaElement_AdaptiveSourceStatusUpdated** 方法的結尾，新增下列程式碼：
 
    ```csharp
          setSliderStartTime(args.StartTime);
@@ -847,7 +847,7 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
          </ListBox>
          </StackPanel>
    ```
-3. 按 **CTRL+S** 儲存變更。
+3. 按下**CTRL + S**以儲存變更
 
 ### <a name="to-modify-the-code-behind-file"></a>若要修改的程式碼後置檔案
 
@@ -994,7 +994,7 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
         }
         #endregion track selection
    ```
-5. 找到 mediaElement_ManifestReady 方法，并在函数的末尾追加以下代码：
+5. 找到 mediaElement_ManifestReady 方法，並在函數的結尾附加下列程式碼：
    ```csharp
          getTracks(manifestObject);
          refreshAvailableTracksListBoxItemSource();

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: ae1f5f9148fa516c98d78afdd57887d4279f92dc
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 2fba8b0056c80a62837682a6820b68f71fba9ea8
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827676"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952947"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>備份 Azure VM 中的 SQL Server 資料庫
 
@@ -51,7 +51,7 @@ SQL Server 資料庫是重要的工作負載所需的低復原點目標 (RPO) �
 
 - **允許 Azure datacenter IP 範圍**。 此選項可讓[IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)下載中。 若要存取的網路安全性群組 (NSG)，使用 Set-azurenetworksecurityrule cmdlet。 如果您是設為允許清單僅特定地區的 Ip，您將也需要列入白名單 Azure Active Directory (Azure AD) 服務標籤來啟用驗證。
 
-- **允許存取使用 NSG 標記**。 如果您使用 Nsg 來限制連線能力時，此選項會將您使用 AzureBackup 標記可讓 Azure 備份的輸出存取的 NSG 規則。 除了這個標記中，您也需要對應[規則](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags)適用於 Azure AD 和 Azure 儲存體，以允許連線的驗證和資料傳輸。 AzureBackup 標記只是目前可用的 powershell。 若要使用 AzureBackup 標記建立規則：
+- **允許存取使用 NSG 標記**。 如果您使用 Nsg 來限制連線能力時，此選項會將您使用 AzureBackup 標記可讓 Azure 備份的輸出存取的 NSG 規則。 除了這個標記中，您也需要對應[規則](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)適用於 Azure AD 和 Azure 儲存體，以允許連線的驗證和資料傳輸。 AzureBackup 標記只是目前可用的 powershell。 若要使用 AzureBackup 標記建立規則：
 
     - 新增 Azure 帳戶認證，並更新國家/地區雲端<br/>
     `Add-AzureRmAccount`
@@ -67,7 +67,7 @@ SQL Server 資料庫是重要的工作負載所需的低復原點目標 (RPO) �
 
   - 儲存 NSG<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
-- **允許存取使用的 Azure 防火牆標記**。 如果您使用 Azure 防火牆，建立應用程式規則使用 AzureBackup [FQDN 標記](https://docs.microsoft.com/en-us/azure/firewall/fqdn-tags)。 這可讓 Azure 備份的輸出存取。
+- **允許存取使用的 Azure 防火牆標記**。 如果您使用 Azure 防火牆，建立應用程式規則使用 AzureBackup [FQDN 標記](https://docs.microsoft.com/azure/firewall/fqdn-tags)。 這可讓 Azure 備份的輸出存取。
 - **部署 HTTP proxy 伺服器路由傳送流量**。 當您在 Azure VM 備份的 SQL Server 資料庫時，在 VM 上的備份擴充功能會使用 HTTPS Api 將管理命令傳送至 Azure 備份 」 和 「 Azure 儲存體的資料。 備份擴充功能也會使用 Azure AD 進行驗證。 透過 HTTP Proxy 路由傳送這三項服務的備份延伸模組流量。 延伸模組是已針對至公用網際網路存取之唯一元件。
 
 連線能力選項包括下列的優點和缺點：
