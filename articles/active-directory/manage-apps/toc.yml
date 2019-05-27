@@ -111,8 +111,6 @@
           href: application-proxy-remove-personal-data.md
         - name: 設定自訂網域
           href: application-proxy-configure-custom-domain.md
-        - name: 組態錯誤
-          href: application-proxy-troubleshoot.md
         - name: 發佈逐步解說
           items:
             - name: 與 Cloud App Security 整合
@@ -129,6 +127,12 @@
               href: application-proxy-qlik.md
         - name: 應用程式 Proxy 疑難排解
           items:
+            - name: 連接器疑難排解流程圖
+              href: application-proxy-debug-connectors.md
+            - name: 應用程式疑難排解流程圖
+              href: application-proxy-debug-apps.md
+            - name: 組態錯誤
+              href: application-proxy-troubleshoot.md
             - name: 顯示應用程式頁面時發生問題
               href: application-proxy-page-appearance-broken-problem.md
             - name: 應用程式載入時間過長

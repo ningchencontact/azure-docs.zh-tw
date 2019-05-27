@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 5/06/2019
 ms.author: mimart
-ms.reviewer: asmalser
+ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 143919cb804be771d547e2913818d486c7f8adda
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: ad90cd66d922c29887aaa8094e798edb28022b27
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824491"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015464"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management (SCIM) 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
 
@@ -633,7 +633,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 1. 在此資料夾中，啟動 Visual Studio 中的 FileProvisioning\Host\FileProvisioningService.csproj 專案。
 1. 選取 **工具** > **NuGet 套件管理員** > **Package Manager Console**，並執行下列命令FileProvisioningService 專案解析方案參考：
 
-   ```
+   ```powershell
     Update-Package -Reinstall
    ```
 
@@ -702,6 +702,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 ### <a name="building-a-custom-scim-endpoint"></a>建置自訂 SCIM 端點
 使用 CLI 程式庫的開發人員可以其服務託管在任何可執行的 CLI 組件，或在網際網路資訊服務內。 以下是範例程式碼，此程式碼可將服務裝載於位於 http://localhost:9000: 位址的可執行組件內： 
 
+   ```csharp
     private static void Main(string[] arguments)
     {
     // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor, 
@@ -770,6 +771,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
         }
     }
     }
+   ```
 
 這項服務必須具有 HTTP 位址，而其伺服器驗證憑證的根憑證授權單位是下列其中一個名稱： 
 
@@ -791,6 +793,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 
 若要裝載在網際網路資訊服務內的服務，開發人員會建置組件的預設命名空間中名為 Startup 的類別使用的 CLI 程式碼程式庫組件。  以下是這種類別的範例： 
 
+   ```csharp
     public class Startup
     {
     // Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter, 
@@ -818,6 +821,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
         this.starter.ConfigureApplication(builder);
     }
     }
+   ```
 
 ### <a name="handling-endpoint-authentication"></a>處理端點驗證
 來自 Azure Active Directory 的要求包括 OAuth 2.0 持有人權杖。   接收要求的任何服務應該驗證簽發者為 Azure Active Directory 預期的 Azure Active Directory 租用戶，Azure Active Directory 圖形 web 服務的存取。  在權杖中，簽發者由用 iss 宣告，例如"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/」。  在此範例中，宣告值的基底位址 https://sts.windows.net識別為簽發者的 Azure Active Directory，而相對位址區段 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422，不會針對 Azure Active Directory 租用戶的唯一識別碼這發出的權杖。  如果發出的權杖要用於存取 Azure Active Directory 圖形 Web 服務，則該服務的識別項 00000002-0000-0000-c000-000000000000，應該位於權杖的 aud 宣告中的值。  每個在單一租用戶中註冊應用程式可能會收到相同`iss`SCIM 要求宣告。
@@ -826,8 +830,8 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 
 1. 在提供者中，透過讓 Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior 屬性在每次服務啟動時傳回要呼叫的方法，來實作此屬性： 
 
-   ```
-     public override Action\<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration\> StartupBehavior
+   ```csharp
+     public override Action<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration> StartupBehavior
      {
        get
        {
@@ -844,7 +848,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 
 2. 將下列程式碼新增至該方法，以對任何驗證為持有 Azure Active Directory 針對指定的租用戶，以存取 Azure AD 圖形 web 服務發出的權杖的服務任何的端點要求： 
 
-   ```
+   ```csharp
      private void OnServiceStartup(
        Owin.IAppBuilder applicationBuilder IAppBuilder applicationBuilder, 
        System.Web.Http.HttpConfiguration HttpConfiguration configuration)
@@ -882,12 +886,12 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
     >[!NOTE]
     > 這是僅為範例。 並非所有的使用者將具有 mailNickname 屬性，且使用者具有的值可能不是唯一的目錄中。 此外，用來比對 （即在此情況下是否有 externalId） 的屬性是可在中設定[Azure AD 屬性對應](customize-application-attributes.md)。
 
-   ````
+   ```
     GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
     Authorization: Bearer ...
-   ````
+   ```
    如果服務建置使用 Microsoft 所提供用於實作 SCIM 服務的 CLI 程式庫，然後將要求轉譯為對服務的提供者的查詢方法的呼叫。  以下是該方法的簽章： 
-   ````
+   ```csharp
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
     // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
@@ -897,9 +901,9 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
     System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource[]> Query(
       Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters parameters, 
       string correlationIdentifier);
-   ````
+   ```
    以下是 Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters 介面的定義： 
-   ````
+   ```csharp
     public interface IQueryParameters: 
       Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
     {
@@ -916,15 +920,16 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
       string SchemaIdentifier 
       { get; }
     }
+   ```
 
    ```
      GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
      Authorization: Bearer ...
    ```
 
-   If the service was built using the Common Language Infrastructure libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider.  Here is the signature of that method: 
+   如果是使用 Microsoft 所提供、用於實作 SCIM 服務的通用語言基礎結構程式庫建置服務，會將要求轉譯為對服務提供者的 Query 方法的呼叫。  以下是該方法的簽章： 
 
-   ```
+   ```csharp
      // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
      // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
      // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
@@ -936,9 +941,9 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
        string correlationIdentifier);
    ```
 
-   Here is the definition of the Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters interface: 
+   以下是 Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters 介面的定義： 
 
-   ```
+   ```csharp
      public interface IQueryParameters: 
        Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
      {
@@ -974,77 +979,167 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
      }
    ```
 
-   In the following sample of a query for a user with a given value for the externalId attribute, values of the arguments passed to the Query method are: 
-   * parameters.AlternateFilters.Count: 1
+   在查詢具有給定值 externalId 屬性的使用者的下列範例中，傳遞至 Query 方法的引數值為： 
+   * parameters.AlternateFilters.Count：1
    * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
-   * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilters.ElementAt(0).ComparisonOperator：ComparisonOperator.Equals
    * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
-   * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
+   * correlationIdentifier：System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
-2. If the response to a query to the web service for a user with an externalId attribute value that matches the mailNickname attribute value of a user doesn't return any users, then Azure Active Directory requests that the service provision a user corresponding to the one in Azure Active Directory.  Here is an example of such a request: 
+2. 如果 web 服務有 externalId 屬性值符合使用者的 mailNickname 屬性值與使用者查詢的回應未傳回任何使用者，然後 Azure Active Directory 要求服務佈建使用者，對應至在 Azure Active Directory。  以下是這類要求的範例： 
 
-   ````
-    POST https://.../scim/Users HTTP/1.1 授權：持有人...內容類型： 應用程式/scim + json {[結構描述]: ["urn:ietf:params:scim:schemas:core:2.0:user"，"urn: ietf:params:scim:schemas:extension:enterprise:2.0User"]"是否有 externalId":"jyoung"，"userName":"jyoung"，"active": true 時，「 位址 」: null，   "displayName":"Joy Young"、 [電子郵件]: [{"type": 「 工作 」，「 值 」:"jyoung@Contoso.com」，「 主要 」:，則為 true}]，」 中繼 「: {"resourceType":"User"}、"name": {"familyName":"年輕"，"givenName 」: 「 樂趣 」}，「 phoneNumbers 」: null，"preferredLanguage": null，"title": null，「 部門 」: null，"manager": null}
-   ````
-   The CLI libraries provided by Microsoft for implementing SCIM services would translate that request into a call to the Create method of the service’s provider.  The Create method has this signature: 
-   ````
-    System.Threading.Tasks.Tasks 被定義在 mscorlib.dll 中。  
-    中所定義的 Microsoft.SystemForCrossDomainIdentityManagement.Resource / / Microsoft.SystemForCrossDomainIdentityManagement.Schemas。  
+   ```
+    POST https://.../scim/Users HTTP/1.1
+    Authorization: Bearer ...
+    Content-type: application/scim+json
+    {
+      "schemas":
+      [
+        "urn:ietf:params:scim:schemas:core:2.0:User",
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0User"],
+      "externalId":"jyoung",
+      "userName":"jyoung",
+      "active":true,
+      "addresses":null,
+      "displayName":"Joy Young",
+      "emails": [
+        {
+          "type":"work",
+          "value":"jyoung@Contoso.com",
+          "primary":true}],
+      "meta": {
+        "resourceType":"User"},
+       "name":{
+        "familyName":"Young",
+        "givenName":"Joy"},
+      "phoneNumbers":null,
+      "preferredLanguage":null,
+      "title":null,
+      "department":null,
+      "manager":null}
+   ```
+   Microsoft 所提供用於實作 SCIM 服務的 CLI 程式庫會將該要求轉譯為對服務的提供者的 Create 方法的呼叫。  Create 方法具有此簽章： 
+   ```csharp
+    // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+    // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
+    // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
 
-    System.Threading.Tasks.Task < Microsoft.SystemForCrossDomainIdentityManagement.Resource > 建立 Microsoft.SystemForCrossDomainIdentityManagement.Resource 資源 （字串 correlationIdentifier）;
-   ````
-   In a request to provision a user, the value of the resource argument is an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, defined in the Microsoft.SystemForCrossDomainIdentityManagement.Schemas library.  If the request to provision the user succeeds, then the implementation of the method is expected to return an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, with the value of the Identifier property set to the unique identifier of the newly provisioned user.  
+    System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource> Create(
+      Microsoft.SystemForCrossDomainIdentityManagement.Resource resource, 
+      string correlationIdentifier);
+   ```
+   在佈建使用者的要求中，資源引數的值會是 Microsoft.SystemForCrossDomainIdentityManagement 的執行個體。 Microsoft.SystemForCrossDomainIdentityManagement.Schemas 程式庫中定義的 Core2EnterpriseUser 類別。  如果佈建使用者的要求成功，則方法的實作應該會傳回 Microsoft.SystemForCrossDomainIdentityManagement 的執行個體。 Core2EnterpriseUser 類別，且其識別碼屬性值設定為新佈建使用者的唯一識別碼。  
 
-3. To update a user known to exist in an identity store fronted by an SCIM, Azure Active Directory proceeds by requesting the current state of that user from the service with a request such as: 
-   ````
-    GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1  Authorization:持有人...
-   ````
-   In a service built using the CLI libraries provided by Microsoft for implementing SCIM services, the request is translated into a call to the Retrieve method of the service’s provider.  Here is the signature of the Retrieve method: 
-   ````
-    System.Threading.Tasks.Tasks 被定義在 mscorlib.dll 中。  
-    Microsoft.SystemForCrossDomainIdentityManagement.Resource 和 / / Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters / / Microsoft.SystemForCrossDomainIdentityManagement.Schemas 中所定義。  
-    System.Threading.Tasks.Task < Microsoft.SystemForCrossDomainIdentityManagement.Resource > 擷取 Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 參數 （字串 correlationIdentifier）;
+3. 為了更新已知存在於前端為 SCIM 之身分識別存放區中的使用者，Azure Active Directory 會以類似下方的要求向服務要求該使用者的目前狀態，來繼續執行： 
+   ```
+    GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
+    Authorization: Bearer ...
+   ```
+   在服務中使用 Microsoft 所提供用於實作 SCIM 服務的 CLI 程式庫所建置，將要求轉譯為對服務的提供者的 Retrieve 方法的呼叫。  以下是 Retrieve 方法的簽章： 
+   ```csharp
+    // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+    // Microsoft.SystemForCrossDomainIdentityManagement.Resource and 
+    // Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 
+    // are defined in Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
+    System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource> 
+       Retrieve(
+         Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 
+           parameters, 
+           string correlationIdentifier);
 
-    公用介面 Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters:   
-        IRetrievalParameters {Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier ResourceIdentifier {get;}} 公用介面 Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier {string 識別碼 {get; set;}string Microsoft.SystemForCrossDomainIdentityManagement.SchemaIdentifier {get; set;}}
-   ````
-   In the example of a request to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument are as follows: 
+    public interface 
+      Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters:   
+        IRetrievalParameters
+        {
+          Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier 
+            ResourceIdentifier 
+              { get; }
+    }
+    public interface Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier
+    {
+        string Identifier 
+          { get; set; }
+        string Microsoft.SystemForCrossDomainIdentityManagement.SchemaIdentifier 
+          { get; set; }
+    }
+   ```
+   在擷取使用者目前狀態之要求的範例中，提供作為參數引數值的物件具有的屬性值如下所示： 
   
-   * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * 識別碼："54D382A4-2050-4C03-94D1-E769F1D15682"
    * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-4. If a reference attribute is to be updated, then Azure Active Directory queries the service to determine whether the current value of the reference attribute in the identity store fronted by the service already matches the value of that attribute in Azure Active Directory. For users, the only attribute of which the current value is queried in this way is the manager attribute. Here is an example of a request to determine whether the manager attribute of a particular user object currently has a certain value: 
+4. 如果要更新參考屬性，Azure Active Directory 查詢服務，以判斷服務前端的身分識別存放區中參考屬性目前值是否已經符合在 Azure Active 該屬性的值目錄。 對於使用者，以這種方式可查詢目前值的唯一屬性會是管理員屬性。 要判斷特定使用者物件的管理員屬性目前是否具有某個值之要求的範例如下： 
 
-   If the service was built using the CLI libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
+   如果服務建置使用 Microsoft 所提供用於實作 SCIM 服務的 CLI 程式庫，然後將要求轉譯為對服務的提供者的查詢方法的呼叫。 提供物件的屬性值作為參數引數的值，如下所示： 
   
-   * parameters.AlternateFilters.Count: 2
-   * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
-   * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
-   * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * parameters.AlternateFilters.Count：2
+   * parameters.AlternateFilters.ElementAt(x).AttributePath：「識別碼」
+   * parameters.AlternateFilters.ElementAt(x).ComparisonOperator：ComparisonOperator.Equals
+   * parameters.AlternateFilter.ElementAt(x).ComparisonValue："54D382A4-2050-4C03-94D1-E769F1D15682"
    * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
-   * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
-   * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
-   * parameters.RequestedAttributePaths.ElementAt(0): "ID"
+   * parameters.AlternateFilters.ElementAt(y).ComparisonOperator：ComparisonOperator.Equals
+   * parameters.AlternateFilter.ElementAt(y).ComparisonValue："2819c223-7f76-453a-919d-413861904646"
+   * parameters.RequestedAttributePaths.ElementAt(0)：「識別碼」
    * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-   Here, the value of the index x can be 0 and the value of the index y can be 1, or the value of x can be 1 and the value of y can be 0, depending on the order of the expressions of the filter query parameter.   
+   在這裡，索引 x 的值可以是 0 索引 y 的值可以是 1，或 x 的值可以是 1 而 y 的值可以是 0，視篩選查詢參數運算式中的順序而定。   
 
-5. Here is an example of a request from Azure Active Directory to an SCIM service to update a user: 
-   ````
-    PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1  Authorization:持有人...內容類型： 應用程式/scim + json {[結構描述]: ["urn: ietf:params:scim:api:messages:2.0:PatchOp"]，「 作業 」: [{"op":"Add"，"path":"manager"，"value": [{"$ref":"http://.../scim/Users/2819c223-7f76-453a-919d-413861904646"、"value":"2819c223-7f76-453a-919d-413861904646"}]}]}
-   ````
-   The Microsoft CLI libraries for implementing SCIM services would translate the request into a call to the Update method of the service’s provider. Here is the signature of the Update method: 
-   ````
-    System.Threading.Tasks.Tasks 和 / / System.Collections.Generic.IReadOnlyCollection<T> / / 在 mscorlib.dll 中定義。  
-    Microsoft.SystemForCrossDomainIdentityManagement.IPatch，/ / Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase，/ / Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier，/ /Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation，/ / Microsoft.SystemForCrossDomainIdentityManagement.OperationName，/ / Microsoft.SystemForCrossDomainIdentityManagement.IPath 和 / /Microsoft.SystemForCrossDomainIdentityManagement.OperationValue / / 所有定義於 Microsoft.SystemForCrossDomainIdentityManagement.Protocol。 
+5. 以下是由 Azure Active Directory 對 SCIM 服務發出要求來更新使用者的範例： 
+   ```
+    PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
+    Authorization: Bearer ...
+    Content-type: application/scim+json
+    {
+      "schemas": 
+      [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+      "Operations":
+      [
+        {
+          "op":"Add",
+          "path":"manager",
+          "value":
+            [
+              {
+                "$ref":"http://.../scim/Users/2819c223-7f76-453a-919d-413861904646",
+                "value":"2819c223-7f76-453a-919d-413861904646"}]}]}
+   ```
+   用於實作 SCIM 服務的 Microsoft CLI 程式庫會將要求轉譯為對服務的提供者的 Update 方法的呼叫。 以下是更新方法的簽章： 
+   ```csharp
+    // System.Threading.Tasks.Tasks and 
+    // System.Collections.Generic.IReadOnlyCollection<T>
+    // are defined in mscorlib.dll.  
+    // Microsoft.SystemForCrossDomainIdentityManagement.IPatch, 
+    // Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase, 
+    // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
+    // Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation, 
+    // Microsoft.SystemForCrossDomainIdentityManagement.OperationName, 
+    // Microsoft.SystemForCrossDomainIdentityManagement.IPath and 
+    // Microsoft.SystemForCrossDomainIdentityManagement.OperationValue 
+    // are all defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
 
-    System.Threading.Tasks.Task 更新 Microsoft.SystemForCrossDomainIdentityManagement.IPatch 修補程式 （字串 correlationIdentifier）;
+    System.Threading.Tasks.Task Update(
+      Microsoft.SystemForCrossDomainIdentityManagement.IPatch patch, 
+      string correlationIdentifier);
 
-    公用介面 Microsoft.SystemForCrossDomainIdentityManagement.IPatch {Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase PatchRequest {get; set;}Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier ResourceIdentifier {get; set;}        
+    public interface Microsoft.SystemForCrossDomainIdentityManagement.IPatch
+    {
+    Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase 
+      PatchRequest 
+        { get; set; }
+    Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier 
+      ResourceIdentifier 
+        { get; set; }        
     }
 
-    公用類別 PatchRequest2:  Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase {公用 System.Collections.Generic.IReadOnlyCollection < Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation > 作業 {get;}
-
+    public class PatchRequest2: 
+      Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase
+    {
+    public System.Collections.Generic.IReadOnlyCollection
+      <Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation> 
+        Operations
+        { get;}
+   ```
 
    如果是使用 Microsoft 所提供、用於實作 SCIM 服務的通用語言基礎結構程式庫建置服務，會將要求轉譯為對服務提供者的 Query 方法的呼叫。 提供物件的屬性值作為參數引數的值，如下所示： 
   
@@ -1084,7 +1179,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 
    用於實作 SCIM 服務的 Microsoft 通用語言基礎結構程式庫，會將要求轉譯為對服務提供者的 Update 方法的呼叫。 以下是更新方法的簽章： 
 
-   ```
+   ```csharp
      // System.Threading.Tasks.Tasks and 
      // System.Collections.Generic.IReadOnlyCollection<T>
      // are defined in mscorlib.dll.  
@@ -1185,7 +1280,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 
    如果是使用 Microsoft 所提供、用於實作 SCIM 服務的通用語言基礎結構程式庫建置服務，會將要求轉譯為對服務提供者的 Delete 方法的呼叫。   該方法具有此簽章： 
 
-   ```
+   ```csharp
      // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
      // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
      // is defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
@@ -1253,10 +1348,13 @@ Azure Active Directory 可以佈建兩種類型的資源至 SCIM Web 服務。  
 | displayName |externalId |
 | mail |emails[type eq "work"].value |
 | mailNickname |displayName |
-| 成員 |members |
+| 成員 |成員 |
 | objectId |ID |
 | proxyAddresses |emails[type eq "other"].Value |
 
+## <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>允許 IP 位址用來提出 SCIM 佈建服務的 Azure AD
+某些應用程式可讓其應用程式的流量。 為了讓 Azure AD 佈建服務如預期般運作，必須允許使用的 IP 位址。 如需每個服務標籤/地區的 IP 位址的清單，請參閱 JSON 檔案- [Azure IP 範圍和服務標籤 – 公用雲端](https://www.microsoft.com/download/details.aspx?id=56519)。 您可以下載，並視需要由程式設計納入您的防火牆這些 Ip。 Azure AD 佈建的保留的 IP 範圍可以找到 「 AzureActiveDirectoryDomainServices。 」
+ 
 
 ## <a name="related-articles"></a>相關文章
 * [自動化 SaaS 應用程式使用者佈建/解除佈建](user-provisioning.md)

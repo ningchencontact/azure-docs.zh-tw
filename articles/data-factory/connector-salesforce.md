@@ -320,19 +320,19 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 | Currency |Decimal |
 | Date |DateTime |
 | Date/Time |DateTime |
-| Email |String |
-| Id |String |
-| Lookup Relationship |String |
-| Multi-Select Picklist |String |
+| 電子郵件 |String |
+| id |String |
+| 查閱關聯性 |String |
+| 複選挑選清單 |String |
 | Number |Decimal |
 | Percent |Decimal |
-| Phone |String |
-| Picklist |String |
+| 電話 |String |
+| 挑選清單 |String |
 | Text |String |
-| Text Area |String |
-| Text Area (Long) |String |
-| Text Area (Rich) |String |
-| Text (Encrypted) |String |
+| 文字區域 |String |
+| 文字區域 (完整) |String |
+| 文字區域 (豐富) |String |
+| 文字 (加密) |String |
 | URL |String |
 
 ## <a name="next-steps"></a>後續步驟

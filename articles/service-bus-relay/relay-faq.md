@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
 ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045572"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66111466"
 ---
 # <a name="azure-relay-faqs"></a>Azure 轉送常見問題集
 
@@ -29,7 +29,7 @@ ms.locfileid: "59045572"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>一般問題
-### <a name="what-is-azure-relay"></a>什么是 Azure 中继？
+### <a name="what-is-azure-relay"></a>什麼是 Azure 轉送？
 [Azure 轉送服務](relay-what-is-it.md)有助於您的混合式應用程式，方法是協助您更安全地將位於公司企業網路內的服務公開至公用雲端。 您可以在不開啟防火牆連線的情況下公開服務，也不需要對公司網路基礎結構做侵入式變更。
 
 ### <a name="what-is-a-relay-namespace"></a>什麼是轉送命名空間？
@@ -80,7 +80,7 @@ ms.locfileid: "59045572"
 使用 **netTCPRelay** WCF 繫結開啟的轉送不會將訊息視為個別的訊息，但是會視為通過系統的資料流。 當您使用此繫結時，只有傳送者和接聽程式能夠看見傳送和接收之個別訊息的框架。 對於使用 **netTCPRelay** 繫結的轉送，所有資料都會被視為資料流，以便計算計費訊息。 在此情況下，服務匯流排會以 5 分鐘為基礎，計算透過每個個別轉送傳送或接收的資料總量。 然後，它會依據 64 KB 來分割資料總量，以判斷該期間該轉送的計費訊息數目。
 
 ## <a name="quotas"></a>配額
-| 配額名稱 | 影響範圍 |  注意 | 值 |
+| 配額名稱 | `Scope` |  注意 | Value |
 | --- | --- | --- | --- |
 | 轉送上的並行接聽程式 |實體 |後續對更多連線的要求將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。 |25 |
 | 服務命名空間中所有轉送端點的並行轉送連線 |命名空間 |- |5,000 |
@@ -99,7 +99,7 @@ ms.locfileid: "59045572"
 ### <a name="naming-restrictions"></a>命名限制
 轉送命名空間名稱的長度必須介於 6 到 50 個字元之間。
 
-## <a name="subscription-and-namespace-management"></a>订阅和命名空间管理
+## <a name="subscription-and-namespace-management"></a>訂用帳戶和命名空間管理
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>如何將命名空間移轉到另一個 Azure 訂用帳戶？
 
 若要將命名空間從某個 Azure 訂用帳戶移至另一個訂用帳戶，您可以使用 [Azure 入口網站](https://portal.azure.com)或使用 PowerShell 命令。 若要將命名空間移至另一個訂用帳戶，命名空間必須已經是作用中。 執行命令的使用者必須是來源和目標訂用帳戶的系統管理員使用者。

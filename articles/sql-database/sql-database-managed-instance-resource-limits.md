@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/27/2019
-ms.openlocfilehash: 9726c589472c9ff6d456c922f88d12071e5ebcaf
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.date: 05/22/2019
+ms.openlocfilehash: e091ec29c810fce7a39ad5aa5cc8f0ddae711752
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560572"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016395"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控執行個體資源限制概觀
 
@@ -56,7 +56,7 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
 | 每個執行個體的資料庫數目上限 | 100 | 100 |
 | 每個執行個體的資料庫檔案數上限 | 最多 280 個 | 每個資料庫 32,767 個檔案 |
 | 資料/記錄 IOPS (大約) | 每個檔案 500 - 7,500<br/>\*[視檔案大小而定](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K-110 K （1375年/虛擬核心） |
-| 記錄輸送量 | 每個執行個體 22 MB/秒 | 4 MB/s 每個虛擬核心<br/>最大为 48 MB/秒（每个实例）|
+| 記錄輸送量 | 每個虛擬核心 3MB/秒<br/>最大 22 MB/s 每個執行個體 | 4 MB/s 每個虛擬核心<br/>最大 48 MB/s 每個執行個體|
 | 資料輸送量 (大約) | 每個檔案 100 - 250 MB/秒<br/>\*[視檔案大小而定](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | |
 | IO 延遲 (大約) | 5-10 毫秒 | 1-2 毫秒 |
 | 最大 tempDB 大小 | 192 - 1920 GB (每個虛擬核心 24 GB) | 沒有限制 - 受到執行個體儲存體大小上限的限制 |

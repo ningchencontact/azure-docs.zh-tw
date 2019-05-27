@@ -1,6 +1,6 @@
 ---
-title: 工作负荷重要性 | Microsoft Docs
-description: 有关为 Azure SQL 数据仓库中的查询设置重要性的指导。
+title: 工作負載重要性 |Microsoft Docs
+description: 設定 Azure SQL 資料倉儲中的查詢的重要性的指引。
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -10,55 +10,59 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9c26bca66b0f82ea58d01d0eb8358f521168a799
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 92990b68969e754ee126b6cd5a22ecfa700c0494
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154145"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002895"
 ---
 # <a name="sql-data-warehouse-workload-importance"></a>SQL 資料倉儲工作負載的重要性
 
-本文介绍工作负荷重要性如何影响 SQL 数据仓库请求的执行顺序。
+這篇文章說明如何工作負載的重要性可能會影響 SQL 資料倉儲要求的執行順序。
 
 ## <a name="importance"></a>重要性
 
 > [!Video https://www.youtube.com/embed/_2rLMljOjw8]
 
-业务需求可能要求数据仓库工作负荷的重要性高于其他工作负荷。  假设存在这样一种情况：需要加载财务周期结束之前的任务关键型销售数据。  其他信息源（例如天气数据）的数据加载不需要遵守严格的 SLA。   为加载销售数据的请求设置高重要性，并为加载天气数据的请求设置低重要性，可以确保销售数据加载操作能够首先访问资源，并更快地完成。
+商務需求可能需要資料倉儲會比其他人更重要的工作負載。  假設之前的會計週期關閉任務關鍵性的銷售資料載入的位置。  針對其他來源的資料載入，例如天氣資料沒有嚴格的 Sla。   設定高重要性的載入銷售資料的要求和重要性低負載，無論資料可確保銷售資料負載要求取得第一個資源的存取權，並更快速完成。
 
-## <a name="importance-levels"></a>重要性级别
+## <a name="importance-levels"></a>重要性層級
 
-有五个重要性级别：low、below_normal、normal、above_normal 和 high。  对于未设置重要性的请求，将为其分配默认级别 normal。  重要性级别相同的请求具有当前存在的相同计划行为。
+有五個層級的重要性： 低 」、 「 below_normal 」、 「 標準 」、 「 above_normal 和 「 高。  不需要設定重要性的要求會指派一般的預設層級。  具有相同的重要性層級的要求有目前已有相同的排程行為。
 
-## <a name="importance-scenarios"></a>重要性场景
+## <a name="importance-scenarios"></a>重要性案例
 
-除了上面所述的有关销售数据和天气数据的基本重要性场景以外，在其他某些场景中，工作负荷重要性也有助于满足数据处理和查询需求。
+除了基本的重要性上述的案例與銷售和天氣資料，還有其他案例，其中工作負載重要性可協助符合資料處理和查詢需求。
 
-### <a name="locking"></a>鎖定
+### <a name="locking"></a>正在鎖定
 
-访问读取和写入活动锁是自然争用的一个方面。  [分区切换](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition)或 [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) 等活动需要权限提升的锁。  如果不设置工作负荷重要性，SQL 数据仓库将会针对吞吐量进行优化。  针对吞吐量进行优化意味着，当正在运行的和排队的请求具有相同的锁定需求，并且资源可用时，排队的请求可能会绕过提前抵达请求队列的、具有更高锁定需求的请求。  将工作负荷重要性应用到具有较高锁定需求的请求后， 会先运行具有较高重要性的请求，然后再运行具有较低重要性的请求。
+存取鎖定供讀取和寫入活動是自然的爭用情況的其中一個區域。  這類活動[資料分割切換](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition)或是[重新命名物件](/sql/t-sql/statements/rename-transact-sql)需要提高權限的鎖定。  沒有工作負載的重要性，SQL 資料倉儲會針對輸送量進行最佳化。  最佳化輸送量就會執行和已排入佇列的要求有相同的鎖定需求和資源可供使用，已排入佇列的要求可以略過具有較高鎖定需求稍早抵達要求佇列的要求。  一旦工作負載的重要性會套用至具有較高的鎖定要求需要。 以高重要性的要求會執行要求之前，以較低的重要性。
 
-請思考下列範例：
+參考下列範例：
 
-Q1 正在运行，它从 SalesFact 中选择数据。
-Q2 正在排队等待 Q1 完成。  该请求是在上午 9:00 提交的，目前正在尝试将新数据分区切换到 SalesFact。
-Q3 是在上午 9:01 提交的，希望从 SalesFact 中选择数据。
+Q1 會主動執行，而且從 SalesFact 選取資料。
+第 2 季已排入佇列等候完成的第 1 季。  它已提交於上午 9 點到 SalesFact 嘗試資料分割切換新資料。
+第 3 季提交於上午 9:01，而且想要從 SalesFact 選取資料。
 
-如果 Q2 和 Q3 的重要性相同，而 Q1 仍在执行，则 Q3 将开始执行。 Q2 将继续等待 SalesFact 上的独占锁。  如果 Q2 的重要性高于 Q3，则 Q3 将等待 Q2 完成，然后它才能开始执行。
+如果第 2 季和年第 3 季都有相同的重要性，而且 Q1 仍在執行中，第 3 季會開始執行。 第 2 季會繼續在 SalesFact 上等候獨佔鎖定。  如果第 2 季具有較高的重要性，比第 3 季，第 3 季會等到 Q2 完成才能開始執行。
 
-### <a name="non-uniform-requests"></a>非统一请求
+### <a name="non-uniform-requests"></a>非統一要求
 
-另一个可以借助重要性满足查询需求的场景是提交了具有不同资源类的请求。  如前所述，在重要性相同的情况下，SQL 数据仓库会针对吞吐量进行优化。  如果混合大小的请求（例如 smallrc 或 mediumrc）已排队，则 SQL 数据仓库会选择最早抵达的、可用资源能够解决的请求。  如果应用了工作负荷重要性，则计划执行的下一个请求是重要性最高的请求。
+重要性可協助符合查詢的需求的另一種情況時，會提交要求使用不同的資源類別。  如先前所提及，在相同的重要性，SQL 資料倉儲會針對輸送量進行最佳化。  時 （例如 smallrc 或 mediumrc） 的混合的大小要求已排入佇列，SQL 資料倉儲將會選擇可用的資源能容納的最早抵達要求。  如果套用工作負載的重要性，最高的重要性要求排在下一步。
   
-请考虑 DW500c 中的以下示例：
+請考慮下列範例在 DW500c 上：
 
-Q1、Q2、Q3 和 Q4 正在运行 smallrc 查询。
-Q5 是在上午 9:00 提交的，具有 mediumrc 资源类。
-Q6 是在上午 9:01 提交的，具有 smallrc 资源类。
+Q1，Q2，第 3 季，Q4 正在 smallrc 查詢。
+Mediumrc 資源類別被提交 Q5 早上 9 點。
+在上午 9:01 Q6 提交 smallrc 資源類別。
 
-由于 Q5 是 mediumrc，因此需要两个并发槽。  Q5 需要等待两个正在运行的查询完成。  但是，当一个正在运行的查询 (Q1-Q4) 完成时，会紧接着计划 Q6，因为可以提供用于执行查询的资源。  如果 Q5 的重要性高于 Q6，则 Q6 会等待 Q5 运行，然后才能开始执行。
+由於 Q5 mediumrc，它需要兩個的並行存取插槽。  Q5 必須等待兩個執行的查詢，來完成。  不過，當其中一個執行的查詢 （第 1 季-第 4 季） 完成時，Q6 會排程立即因為資源存在，以執行查詢。  如果 Q5 具有較高的重要性，比 Q6，Q6 等到 Q5 正在執行，才能開始執行。
 
 ## <a name="next-steps"></a>後續步驟
 
-若要開始使用建立分類器，請參閱[建立工作負載分類 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)。  如需有關 SQL 資料倉儲工作負載分類的詳細資訊，請參閱 < [SQL 資料倉儲工作負載分類](sql-data-warehouse-workload-classification.md)。  有關如何建立工作負載分類器，請參閱快速入門[建立工作負載分類器](quickstart-create-a-workload-classifier-tsql.md)。 請參閱 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以檢視查詢和所指派的重要性。
+- 如需有關如何建立分類器的詳細資訊，請參閱 <<c0> [ 建立工作負載分類 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)。  
+- 如需有關 SQL 資料倉儲工作負載分類的詳細資訊，請參閱 <<c0> [ 工作負載分類](sql-data-warehouse-workload-classification.md)。  
+- 請參閱快速入門[建立工作負載分類器](quickstart-create-a-workload-classifier-tsql.md)如何建立工作負載分類器。
+- 請參閱操作說明文章等[設定工作負載重要性](sql-data-warehouse-how-to-configure-workload-importance.md)，以及如何[管理並監視工作負載管理](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)。
+- 請參閱 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以檢視查詢和所指派的重要性。

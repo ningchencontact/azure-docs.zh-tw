@@ -13,14 +13,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 3a562f98635d581aa320fdbd59d05a0382f09606
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: bfe4bbae7953479f9b5b5ce9653fb3b8d4b2d092
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465534"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002373"
 ---
-# <a name="define-account-filters-and-asset-filters"></a>定義帳戶篩選器和資產篩選器  
+# <a name="filters"></a>篩選器
 
 當您將內容傳遞給客戶 （即時資料流的事件或隨選視訊） 您的用戶端可能需要更多的彈性比預設資產資訊清單檔中所述。 Azure 媒體服務可讓您為您的內容定義帳戶篩選器與資產篩選器。 
 
@@ -88,11 +88,9 @@ ms.locfileid: "65465534"
 |**名稱**|使用資料軌的名稱來篩選。|
 |**類型**|使用資料軌的類型來篩選。<br/><br/>允許下列值："video"、"audio" 或 "text"。|
 
-## <a name="associate-filters-with-streaming-locator"></a>串流定位器相關聯的篩選器
+### <a name="example"></a>範例
 
-您可以指定資產或帳戶會套用到您的串流定位器的篩選器清單。 [動態封裝程式](dynamic-packaging-overview.md)適用於這份清單，以及那些用戶端在 URL 中所指定的篩選條件。 這個組合會產生[動態資訊清單](filters-dynamic-manifest-overview.md)，根據在 URL 中的篩選器 + 串流定位器指定的篩選條件。 我們建議您使用這項功能，如果您想要套用篩選，但不是想要公開 （expose） 在 URL 中的篩選條件名稱。
-
-## <a name="definition-example"></a>定義範例
+下列範例會定義即時資料流的篩選器： 
 
 ```json
 {
@@ -146,6 +144,15 @@ ms.locfileid: "65465534"
   }
 }
 ```
+
+## <a name="associate-filters-with-streaming-locator"></a>串流定位器相關聯的篩選器
+
+您可以指定一份[資產或帳戶篩選器](filters-concept.md)，而這會套用至您[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body)。 [動態封裝程式](dynamic-packaging-overview.md)適用於這份清單，以及那些用戶端在 URL 中所指定的篩選條件。 這個組合會產生[動態資訊清單](filters-dynamic-manifest-overview.md)，根據在 URL 中的篩選器 + 串流定位器指定的篩選條件。 我們建議您使用這項功能，如果您想要套用篩選，但不是想要公開 （expose） 在 URL 中的篩選條件名稱。
+
+請參閱下列範例：
+
+* [篩選關聯串流定位器-.NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
+* [篩選關聯串流定位器-CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,22 +8,25 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e7cb9f4750fc26d4e03d255c8614e42a42944fd0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 82e6f28e00de725042a3d764a898b3c6486e1110
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678100"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66023209"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Azure 監視器中的整合警示和監視取代了傳統警示和監視
 
 Azure 監視器現在已成為整合的完整堆疊監視服務，其現在可跨資源支援「一個計量」和「一個警示」；如需詳細資訊，請參閱[關於新 Azure 監視器的部落格文章](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/)。新的 Azure 監視和警示平台經過建置，變得更快速、更聰明，且可擴充，以跟上雲端運算日益擴張的版圖，並和 Microsoft Intelligent Cloud 的原則保持一致。 
 
-隨著新的 Azure 監視和警示平台準備就緒，我們即將淘汰「傳統」的監視和警示平台 (裝載於 Azure 警示的 [檢視傳統警示] 區段內，**將於 2019 年 6 月前於 Azure 公用雲端中淘汰**)。 [Azure Government 雲端](../../azure-government/documentation-government-welcome.md)將不受影響。
+使用新的 Azure 監視和警示就緒的平台，我們將會淘汰 「 傳統 」 監視和警示平台-裝載於*檢視傳統警示*一節的 Azure 警示，**會在淘汰將於 2019 年 8 月在 Azure 公用雲端**。 [Azure Government 雲端](../../azure-government/documentation-government-welcome.md)將不受影響。
+
+> [!NOTE]
+> 因為導入的移轉工具中的延遲，所以傳統警示移轉的停用日期已[延伸到 2019 年 8 月 31 日](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/)從最初宣布於 2019 年 6 月 30 日的日期。
 
  ![Azure 入口網站中的傳統警示](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
-建議您開始使用警示，並在新的平台中重新建立警示。 有大量警示的客戶，我們會[輪流逾時是以階段](alerts-understand-migration.md#roll-out-phases)，則[自願性移轉工具](alerts-using-migration-tool.md)將現有的傳統警示移至新的警示系統，而不會中斷或已新增的成本。
+建議您開始使用警示，並在新的平台中重新建立警示。 有大量警示的客戶，我們會[輪流逾時是以階段](alerts-understand-migration.md#rollout-phases)，則[自願性移轉工具](alerts-using-migration-tool.md)將現有的傳統警示移至新的警示系統，而不會中斷或已新增的成本。
 
 > [!IMPORTANT]
 > 在 [活動記錄] 上建立的傳統警示規則將不會被淘汰或移轉。 從新的 [Azure 監視器 - 警示] 即可依原樣存取和使用在 [活動記錄] 上建立的所有傳統警示規則。 如需詳細資訊，請參閱[使用 Azure 監視器來建立、檢視及管理活動記錄警示](../../azure-monitor/platform/alerts-activity-log.md)。 同樣地，從新的 [服務健康狀態] 區段也可以依原樣存取和使用 [服務健康狀態] 上的警示。 如需詳細資料，請參閱[服務健康狀態通知的相關警示](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。
@@ -50,7 +53,7 @@ Azure 監視器的較新計量平台現在可強化來自 Application Insights �
 ## <a name="retirement-of-classic-monitoring-and-alerting-platform"></a>淘汰傳統監視和警示平台
 
 如前所述，目前可從 Azure 入口網站的[警示 (傳統) 區段](../../azure-monitor/platform/alerts-classic.overview.md)使用的傳統監視和警示平台，由於已由較新的系統取代，因此將會在未來幾個月內淘汰。
-較舊的傳統監視和警示將在 2019 年 6 月 30 日淘汰；相關的 API、Azure 入口網站介面及其中的服務也會隨之關閉。 具體來說，這些功能將會淘汰：
+將於 31 年 8 月 2019; 淘汰舊版的傳統，監視和警示包括相關的 Api、 Azure 入口網站介面和服務的關閉中。 具體來說，這些功能將會淘汰：
 
 - 目前可透過 Azure 入口網站 [[警示 (傳統)] 區段](../../azure-monitor/platform/alerts-classic.overview.md)使用的 Azure 資源舊版 (傳統) 計量和警示；可以 [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) 資源的形式來存取
 - 目前可透過 Azure 入口網站 [[警示 (傳統)] 區段](../../azure-monitor/platform/alerts-classic.overview.md)使用的 Application Insights 舊版 (傳統) 平台與自訂計量及警示；且可以 [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) 資源的形式來存取
@@ -58,18 +61,18 @@ Azure 監視器的較新計量平台現在可強化來自 Application Insights �
 
 所有傳統監視和警示系統 (包括對應的 [API](https://msdn.microsoft.com/library/azure/dn931945.aspx)、[PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)、[CLI](../../azure-monitor/platform/alerts-classic-portal.md)、[Azure 入口網站頁面](../../azure-monitor/platform/alerts-classic-portal.md)和[資源範本](../../azure-monitor/platform/alerts-enable-template.md)) 在 2019 年 6 月底之前仍可繼續使用。 
 
-2019 年 6 月底時，在 Azure 監視器中：
+在 Azure 監視器中的年 8 月 2019年結尾：
 
 - 傳統的監視及警示服務會停用且無法再建立新的警示規則。
 - 在 2019 年 6 月之後繼續存在於警示 (傳統) 中的任何警示規則都將會繼續執行並引發通知，但不可供修改之用。
-- 啟動第 2019 年 7 月警示規則在傳統的監視與警示可以移轉的會自動變成 microsoft 新的 Azure 監視器平台在其對等項目。 此程序無須停機即可順利進行，而且客戶不會遺失任何監視涵蓋範圍。
+- 啟動第 2019 年 9 月，警示規則在傳統的監視與警示可以移轉的會自動變成 microsoft 新的 Azure 監視器平台在其對等項目。 此程序無須停機即可順利進行，而且客戶不會遺失任何監視涵蓋範圍。
 - 移轉至新警示平台的警示規則將提供與之前一樣的監視涵蓋範圍，但會引發具有新承載的通知。 任何電子郵件地址、 webhook 端點或與傳統的警示規則相關聯的邏輯應用程式連結在移轉時，將向前進行，但可能無法正確運作警示承載將會在新的平台不同。
 - 有些[傳統警示規則，也就無法自動移轉](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated)，而且需要使用者手動動作將會繼續執行直到 2020 年 6 月。
 
 > [!IMPORTANT]
-> Microsoft Azure 監視器有分階段首展[工具來主動移轉](alerts-using-migration-tool.md)入新的平台推出其傳統警示規則。 然後執行它的所有傳統的警示規則，仍然存在，可以移轉，啟動 2019 年 7 月的強制。 移轉至傳統警示規則之後，客戶必須確實調整使用傳統警示規則的自動化作業，以處理來自 [Application Insights 中的整合計量和警示](#unified-metrics-and-alerts-in-application-insights)或[其他 Azure 資源的整合計量和警示](#unified-metrics-and-alerts-for-other-azure-resources)的新承載。 如需詳細資訊，請參閱[為傳統的警示規則移轉做準備](alerts-prepare-migration.md)
+> Microsoft Azure 監視器有分階段首展[工具來主動移轉](alerts-using-migration-tool.md)入新的平台推出其傳統警示規則。 然後執行它的所有傳統的警示規則，仍然存在，可以移轉，從 2019 年 9 月開始強制。 移轉至傳統警示規則之後，客戶必須確實調整使用傳統警示規則的自動化作業，以處理來自 [Application Insights 中的整合計量和警示](#unified-metrics-and-alerts-in-application-insights)或[其他 Azure 資源的整合計量和警示](#unified-metrics-and-alerts-for-other-azure-resources)的新承載。 如需詳細資訊，請參閱[為傳統的警示規則移轉做準備](alerts-prepare-migration.md)
 
-我們很快就會提供工具，讓您可以自行從 Azure 入口網站的 [[警示 (傳統)] 區段](../../azure-monitor/platform/alerts-classic.overview.md)遷移至新的 Azure 警示。 [警示 (傳統)] 中所設定並遷移至新 Azure 監視器的規則全都會維持免費，不會收費。 所遷移的傳統警示規則也不會因為透過電子郵件、Webhook 或 LogicApp 推送通知而需要承擔任何費用。 不過，使用較新的通知或動作類型 (例如簡訊、語音電話、ITSM 整合等等) 則會收費，不論其新增到遷移的警示還是新的警示都是如此。 如需詳細資訊，請參閱 [Azure 監視器定價](https://azure.microsoft.com/pricing/details/monitor/)。
+我們推出了可讓您主動將您的警示，從移轉的移轉工具[警示 （傳統） 區段](../../azure-monitor/platform/alerts-classic.overview.md)至新的 Azure 警示的 Azure 入口網站。 [警示 (傳統)] 中所設定並遷移至新 Azure 監視器的規則全都會維持免費，不會收費。 所遷移的傳統警示規則也不會因為透過電子郵件、Webhook 或 LogicApp 推送通知而需要承擔任何費用。 不過，使用較新的通知或動作類型 (例如簡訊、語音電話、ITSM 整合等等) 則會收費，不論其新增到遷移的警示還是新的警示都是如此。 如需詳細資訊，請參閱 [Azure 監視器定價](https://azure.microsoft.com/pricing/details/monitor/)。
 
 此外，根據 [Azure 監視器定價](https://azure.microsoft.com/pricing/details/monitor/)的適用範圍，下列項目也會收費：
 

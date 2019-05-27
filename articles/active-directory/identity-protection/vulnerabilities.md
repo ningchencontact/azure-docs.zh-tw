@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80faf1899da0f16d25b9b7c68cb0edcbc1276632
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e792551f4cac857f56454c67d527e01cb9c4281
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294223"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113115"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection 偵測到的弱點
 
@@ -30,20 +30,18 @@ ms.locfileid: "60294223"
 
 此弱點可協助您評估在您的組織部署 Azure Multi-factor Authentication。
 
-若要檢視計數未註冊 mfa，使用者按一下這個弱點，您會重新導向至在身分識別安全分數的統計資料。
-
 Azure Multi-factor Authentication 提供第二個使用者驗證的安全性層級。 這有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。 Azure Multi-factor Authentication 提供易於使用的驗證選項，例如：
 
 * 撥打電話
 * 簡訊
-* 行動應用程式通知
+* 行動裝置應用程式通知
 * OTP 驗證碼
 
 建議您要求對使用者登入進行 Multi-Factor Authentication。在 Identity Protection 提供的以風險為基礎的條件式存取原則中，Multi-Factor Authentication 扮演關鍵角色。
 
 如需詳細資訊，請參閱[什麼是 Azure Multi-Factor Authentication？](../authentication/multi-factor-authentication.md)。
 
-## <a name="unmanaged-cloud-apps"></a>非受控雲端應用程式
+## <a name="unmanaged-cloud-apps"></a>非受控的雲端應用程式
 
 此弱點可協助您識別組織中非受控雲端應用程式。
 
@@ -53,7 +51,7 @@ IT 人員多半不知道其組織中的所有雲端應用程式。 您應該不�
 
 如需詳細資訊，請參閱 [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)。
 
-## <a name="security-alerts-from-privileged-identity-management"></a>來自 Privileged Identity Management 的安全性警示
+## <a name="security-alerts-from-privileged-identity-management"></a>Privileged Identity Management 的安全性警示
 
 此弱點可協助您找出並解決有關您組織中特殊權限身分識別的警示。  
 

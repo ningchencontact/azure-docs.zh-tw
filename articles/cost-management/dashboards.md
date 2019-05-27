@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 7ea7cbf4526528eb481b6125b006d0c29d86deb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b83368b913bf1303b49e3a56e3a15248af222cbe
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60577501"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002058"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>透過儀表板檢視重要成本計量
 
@@ -118,7 +118,7 @@ Cloudyn 中的儀表板可提供高階的報告檢視。 儀表板可讓您在�
 1. 按一下 [儀表板設定] 以查看可用的儀表板清單，並選取您想要設為預設值的儀表板。  
     ![預設儀表板的儀表板選項](./media/dashboards/dashboard-options.png)
 2. 按一下儀表板那一行中的 [預設]。 [預設儀表板] 確認方塊隨即顯示。
-3. 按一下 [是] 。 此儀表板會設為預設值。
+3. 按一下 [ **是**]。 此儀表板會設為預設值。
 
 ## <a name="management-dashboard"></a>管理儀表板
 管理 (或 MSP 使用者的 MSP 儀表板) 儀表板包括主要報告類型的重點摘要。  

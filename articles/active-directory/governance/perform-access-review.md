@@ -11,22 +11,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cd5bbba681acaa0c32e681f7cb4809142fe11f9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384614"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113249"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>檢閱群組的存取權或在 Azure AD 中的應用程式存取權檢閱
 
 Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組和應用程式的存取以及其他 Microsoft Online Services 的 「 使用稱為 Azure AD 存取權檢閱。
 
 這篇文章會說明如何指定檢閱者執行之成員的群組或使用者的存取權的應用程式的存取權檢閱。
+
+## <a name="prerequisites"></a>必要條件
+
+- Azure AD Premium P2
+
+如需詳細資訊，請參閱 <<c0> [ 哪些使用者必須有授權？](access-reviews-overview.md#which-users-must-have-licenses)。
 
 ## <a name="open-the-access-review"></a>開啟存取權檢閱
 
@@ -64,16 +70,16 @@ Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組和�
 
 有兩種方式，您可以核准或拒絕存取：
 
-- 您可以核准或拒絕每個要求個別或
+- 您可以核准或拒絕存取的一或多個使用者，或
 - 您可以接受系統建議，這是最簡單且最快速方式。
 
-### <a name="approve-or-deny-access-for-each-request"></a>核准或拒絕存取的每個要求
+### <a name="approve-or-deny-access-for-one-or-more-users"></a>核准或拒絕一或多個使用者的存取權
 
 1. 檢閱要決定是否要核准或拒絕其持續存取權的使用者清單。
 
-1. 若要核准或拒絕每個要求，請按一下要開啟視窗，以指定要採取的動作的資料列。
+1. 若要核准或拒絕存取的單一使用者，請按一下要開啟視窗，以指定要採取的動作的資料列。 若要核准或拒絕存取的多個使用者，請在新增之使用者旁邊的核取記號，，然後按一下**檢閱 X 個使用者**按鈕以開啟視窗，以指定要採取的動作。
 
-1. 按一下 **核准**或是**拒絕**。 如果您不確定，您可以按一下**不知道**。 這樣會導致使用者維護自己的存取權，但選取項目將會反映在稽核記錄檔。
+1. 按一下 **核准**或是**拒絕**。 如果您不確定，您可以按一下**不知道**。 這樣會導致使用者維護其存取權，但選取項目將會反映在稽核記錄檔。
 
     ![執行存取權檢閱](./media/perform-access-review/approve-deny.png)
 

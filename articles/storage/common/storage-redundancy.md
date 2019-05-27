@@ -9,18 +9,20 @@ ms.date: 01/18/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 7006e19616be51d79dc3e1319064d19024400bcc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 078c62913b903eafe9e0fcfcef4189f5ca735d0f
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789986"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002829"
 ---
 # <a name="azure-storage-redundancy"></a>Azure 儲存體備援
 
 Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久性及高可用性。 「Azure 儲存體」會複製您的資料，以保護該資料不受計劃性和非計劃性事件影響，包括暫時性硬體故障、網路或電力中斷和大規模天然災害。 您可以選擇在相同資料中心內、在相同地區的不同資料中心內、或跨不同區域複寫您的資料。
 
 複寫可確保您的儲存體帳戶符合[儲存體的服務等級協定 (SLA)](https://azure.microsoft.com/support/legal/sla/storage/) 即使遇到失敗時也一樣。 請參閱 SLA 以取得 Azure 儲存體持續性和可用性保證的相關資訊。
+
+Azure 儲存體定期驗證使用循環冗餘檢查 （crc） 」 儲存的資料的完整性。 如果偵測到資料損毀時，它就會修復使用多餘的資料。 Azure 儲存體也會計算總和檢查碼來偵測損毀的資料封包時儲存或擷取資料的所有網路流量。
 
 ## <a name="choosing-a-redundancy-option"></a>選擇備援選項
 
@@ -60,9 +62,9 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>變更我帳戶的複寫策略是否會產生任何費用？
 這取決於您的轉換途徑。 從費用最低到費用最高的備援供應項目依序為 LRS、ZRS、GRS 及 RA-GRS。 例如，「從」LRS 傳換成任何方案都會產生額外費用，因為是移至更複雜的備援層級。 移「至」GRS 或 RA-GRS 會產生輸出頻寬費用，因為您的資料 (在您的主要區域中) 會複寫至遠端次要區域。 這是在初始設定時所收取的一次性費用。 在複製資料之後，即沒有任何進一步的轉換費用。 您將只有在複寫任何新資料或對現有資料的更新時，才需支付費用。 如需有關頻寬費用的詳細資料，請參閱 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/blobs/)找到。
 
-如果将存储帐户从 GRS 转换为 LRS，则不会产生额外的费用，但从次要位置复制的数据将被删除。
+如果您將從 GRS 的儲存體帳戶轉換成 LRS 時，就不需要額外的成本，但將複寫的資料會從次要位置刪除。
 
-如果将存储帐户从 RA-GRS 转换为 GRS 或 LRS，则会在完成转换 30 天后以 RA-GRS 方式对该帐户计费。
+如果您將從 RA-GRS 的儲存體帳戶轉換為 GRS 或 LRS 時，該帳戶會計為 RA-GRS 上額外的 30 天內，它會被轉換的日期。
 
 ## <a name="see-also"></a>請參閱
 

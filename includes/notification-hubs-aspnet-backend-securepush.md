@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: b8cf4217ca6c80be998b92e71c3ba29c4f68bce2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60874542"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111527"
 ---
-## <a name="webapi-project"></a>WebAPI 项目
+## <a name="webapi-project"></a>WebAPI 專案
 1. 在 Visual Studio 中，開啟您在 [通知使用者] 教學課程中所建立的 **AppBackend** 專案。
 2. 在 Notifications.cs 中，使用下列程式碼來取代整個 **Notifications** 類別。 請確定使用通知中樞的連接字串 (包含完整存取權) 和中樞名稱來取代預留位置。 您可以從 [Azure 入口網站](http://portal.azure.com)取得這些值。 此模組現會顯示即將傳送的不同安全通知。 在完整的實作中，通知會儲存在資料庫中。為了本案例的方便起見，我們會將通知儲存在記憶體中。
    
