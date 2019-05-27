@@ -754,17 +754,3 @@
       href: /azure/architecture/
     - name: 客戶案例
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
-    - name: 彈性工作 (取代)
-      items:
-        - name: 彈性工作 (取代)
-          href: sql-database-elastic-jobs-overview.md
-        - name: 安裝彈性工作 (取代)
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: 建立工作 - 入口網站 (取代)
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: 建立工作 - Azure PowerShell (取代)
-          href: sql-database-elastic-jobs-powershell.md
-        - name: 建立工作 - 範例應用程式 (取代)
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: 解除安裝彈性工作 (取代)
-          href: sql-database-elastic-jobs-uninstall.md

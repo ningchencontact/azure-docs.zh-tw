@@ -3,16 +3,16 @@ title: 使用 Azure 管理群組來組織資源 - Azure Governance
 description: 了解管理群組及權限如何運作，以及如何使用。
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
-ms.service: azure-resource-manager
+ms.service: governance
 ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: ceb606f2243ef723866e485c6580a6323c1c92ec
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1958a829df2643bd218d4e8d7f6dd563b5b395e8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722473"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237172"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理群組來組織資源
 
@@ -113,7 +113,7 @@ Azure 管理群組支援對所有的資源存取和角色定義使用 [Azure 角
 
 ![使用管理群組的活動記錄](media/al-mg.png)
 
-在 Azure 入口網站外部查詢管理群組時，管理群組的目標範圍像是 **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**。
+在 Azure 入口網站外部查詢管理群組時，管理群組的目標範圍像是 **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** 。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -121,6 +121,12 @@
           items:
             - name: 什麼是 Data Box Heavy？
               href: data-box-heavy-overview.md
+        - name: 概念
+          items:
+            - name: 檢閱需求
+              href: data-box-heavy-system-requirements.md
+            - name: 了解限制
+              href: data-box-heavy-limits.md
     - name: 資源
       items:
         - name: 資料箱產品
