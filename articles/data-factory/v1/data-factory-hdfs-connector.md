@@ -68,7 +68,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | type |類型屬性必須設定為：**Hdfs** |是 |
-| Url |到 HDFS 的 URL |是 |
+| url |到 HDFS 的 URL |是 |
 | authenticationType |匿名或 Windows。 <br><br> 若要對 HDFS 連接器使用 **Kerberos 驗證**，請參閱[此章節](#use-kerberos-authentication-for-hdfs-connector)來據以設定您的內部部署環境。 |是 |
 | userName |Windows 驗證的使用者名稱。 Kerberos 驗證請指定 `<username>@<domain>.com`。 |是 (適用於 Windows 驗證) |
 | password |Windows 驗證的密碼。 |是 (適用於 Windows 驗證) |
@@ -171,7 +171,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 
 | 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
-| 遞迴 |表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 |True/False (預設值為 False) |否 |
+| recursive |表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 |True/False (預設值為 False) |否 |
 
 ## <a name="supported-file-and-compression-formats"></a>支援的檔案和壓縮格式
 請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md)文章以了解詳細資訊。
