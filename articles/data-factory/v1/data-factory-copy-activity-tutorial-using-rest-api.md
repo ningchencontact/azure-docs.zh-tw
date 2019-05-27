@@ -182,7 +182,7 @@ ms.locfileid: "66151609"
 | 屬性 | 說明 |
 |:--- |:--- |
 | type | type 屬性會設為 **AzureBlob**，因為資料位於 Azure Blob 儲存體中。 |
-| 預設容器 | 表示您稍早建立的 **AzureStorageLinkedService**。 |
+| linkedServiceName | 表示您稍早建立的 **AzureStorageLinkedService**。 |
 | folderPath | 指定包含輸入 Blob 的 Blob **容器**和**資料夾**。 在本教學課程中，adftutorial 是 blob 容器，而資料夾是根資料夾。 | 
 | fileName | 這是選用屬性。 如果您省略此屬性，則會挑選 folderPath 中的所有檔案。 在本教學課程中，會針對 fileName 指定 **emp.txt**，因此只會挑選該檔案進行處理。 |
 | format -> type |輸入檔為文字格式，因此我們會使用 **TextFormat**。 |
@@ -225,7 +225,7 @@ ms.locfileid: "66151609"
 | 屬性 | 說明 |
 |:--- |:--- |
 | type | type 屬性會設為 **AzureSqlTable**，因為資料已複製到 Azure SQL 資料庫中的資料表。 |
-| 預設容器 | 表示您稍早建立的 **AzureSqlLinkedService**。 |
+| linkedServiceName | 表示您稍早建立的 **AzureSqlLinkedService**。 |
 | tableName | 指定作為資料複製目的地的**資料表**。 | 
 | frequency/interval | frequency 會設為**Hour** 且 interval 為**1**，這表示會在管線開始和結束時間之間 (而非這些時間之前或之後) **每小時**產生輸出配量。  |
 

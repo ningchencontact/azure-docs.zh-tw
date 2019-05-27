@@ -37,7 +37,7 @@ ms.locfileid: "60546619"
 
 - 使用 **GET** 或 **POST** 方法，從 REST 端點擷取資料。
 - 使用下列其中一種驗證來擷取資料︰**匿名**、**基本**、**AAD 服務主體**和 **Azure 資源的受控識別**。
-- REST API 中的**[分頁](#pagination-support)**。
+- REST API 中的 **[分頁](#pagination-support)** 。
 - 複製 REST JSON 回應的[原狀](#export-json-response-as-is)或使用[結構描述對應](copy-activity-schema-and-type-mapping.md#schema-mapping)加以剖析。 僅支援 **JSON** 格式的回應承載。
 
 > [!TIP]
@@ -63,7 +63,7 @@ ms.locfileid: "60546619"
 
 ### <a name="use-basic-authentication"></a>使用基本驗證
 
-將 **authenticationType** 屬性設定為 [Basic]。 除了上一節所述的一般屬性以外，請指定下列屬性：
+將 **authenticationType** 屬性設定為 [Basic]  。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -96,7 +96,7 @@ ms.locfileid: "60546619"
 
 ### <a name="use-aad-service-principal-authentication"></a>使用 AAD 服務主體驗證
 
-將 **authenticationType** 屬性設定為 [AadServicePrincipal]。 除了上一節所述的一般屬性以外，請指定下列屬性：
+將 **authenticationType** 屬性設定為 [AadServicePrincipal]  。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -133,7 +133,7 @@ ms.locfileid: "60546619"
 
 ### <a name="managed-identity"></a>使用 Azure 資源的受控識別驗證
 
-將 **authenticationType** 屬性設定為 [ManagedServiceIdentity]。 除了上一節所述的一般屬性以外，請指定下列屬性：
+將 **authenticationType** 屬性設定為 [ManagedServiceIdentity]  。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -169,7 +169,7 @@ ms.locfileid: "60546619"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的 **type** 屬性必須設定為 [RestResource]。 | 是 |
+| type | 資料集的 **type** 屬性必須設定為 [RestResource]  。 | 是 |
 | relativeUrl | 包含資料之資源的相對 URL。 若未指定此屬性，則只會使用在連結服務定義中指定的 URL。 | 否 |
 | requestMethod | HTTP 方法。 允許的值為 **Get** (預設值) 和 **Post**。 | 否 |
 | additionalHeaders | 其他 HTTP 要求標頭。 | 否 |
@@ -232,9 +232,9 @@ ms.locfileid: "60546619"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 **type** 屬性必須設定為 [RestSource]。 | 是 |
+| type | 複製活動來源的 **type** 屬性必須設定為 [RestSource]  。 | 是 |
 | httpRequestTimeout | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 此值是取得回應的逾時值，而非讀取回應資料的逾時值。 預設值為 **00:01:40**。  | 否 |
-| requestInterval | 傳送下一個頁面要求之前的等候時間。 預設值為 [00:00:01] |  否 |
+| requestInterval | 傳送下一個頁面要求之前的等候時間。 預設值為 [00:00:01]  |  否 |
 
 **範例**
 
@@ -355,7 +355,7 @@ Facebook 圖形 API 會傳回採用下列結構的回應，在該案例中，下
 
 ## <a name="export-json-response-as-is"></a>匯出 JSON 回應的原狀
 
-您可以使用此 REST 連接器將 REST API 的 JSON 回應原狀匯出到各種檔案型存放區。 若要完成這種無結構描述的複製，請略過資料集中的「結構」(也稱為「結構描述」) 區段，以及複製活動中的結構描述。
+您可以使用此 REST 連接器將 REST API 的 JSON 回應原狀匯出到各種檔案型存放區。 若要完成這種無結構描述的複製，請略過資料集中的「結構」(也稱為「結構描述」  ) 區段，以及複製活動中的結構描述。
 
 ## <a name="schema-mapping"></a>結構描述對應
 

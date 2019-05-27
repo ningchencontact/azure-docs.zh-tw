@@ -283,14 +283,14 @@ ms.locfileid: "60405920"
 | BLOB |Byte[]<br/>(僅 Oracle 10g 及更高版本可支援) |
 | CHAR |String |
 | CLOB |String |
-| 日期 |DateTime |
-| FLOAT |Decimal，字串 (如果精確度 > 28) |
-| INTEGER |Decimal，字串 (如果精確度 > 28) |
+| DATE |DateTime |
+| FLOAT |Decimal，String (如果精確度 > 28) |
+| INTEGER |Decimal，String (如果精確度 > 28) |
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Decimal，字串 (如果精確度 > 28) |
+| NUMBER |Decimal，String (如果精確度 > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |
