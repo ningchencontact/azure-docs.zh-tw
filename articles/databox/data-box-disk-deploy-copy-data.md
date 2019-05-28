@@ -1,5 +1,5 @@
 ---
-title: 將資料複製到您的 Microsoft Azure 資料箱磁碟 | Microsoft Docs
+title: 將資料複製到 Azure 資料箱磁碟的教學課程 | Microsoft Docs
 description: 使用本教學課程以了解如何將資料複製到您的 Azure 資料箱磁碟
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 418b158b127a688314fb3a0a506d116cc27da98c
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: f5c498fc3f3fe051070b3565041e506bc40fceda
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678491"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925157"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>教學課程：將資料複製到 Azure 資料箱磁碟並確認
 
@@ -257,7 +257,7 @@ ms.locfileid: "59678491"
 
 如果您未使用「分割複製」工具複製資料，則必須驗證資料。 若要確認資料，請執行下列步驟。
 
-1. 在磁碟機的 DataBoxDiskImport 資料夾中執行 `DataBoxDiskValidation.cmd`，以進行總和檢查碼驗證。
+1. 在磁碟機的 DataBoxDiskImport  資料夾中執行 `DataBoxDiskValidation.cmd`，以進行總和檢查碼驗證。
     
     ![資料箱磁碟驗證工具的輸出](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 

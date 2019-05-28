@@ -1,20 +1,19 @@
 ---
 title: 何謂 Azure 備份？
-description: 提供 Azure 備份服務的概觀，並說明如何將其部署為商務持續性和災害復原 (BCDR) 策略的一部分。
-services: backup
+description: 提供 Azure 備份服務的概觀，並說明如何將它提供給商務持續性和災害復原 (BCDR) 策略。
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: overview
-ms.date: 04/05/2019
+ms.date: 04/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bd90d315fd5590a8bd862a1a3397cf8c254fccc8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361800"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714293"
 ---
 # <a name="what-is-azure-backup"></a>何謂 Azure 備份？
 
@@ -31,11 +30,7 @@ Azure 備份可提供下列主要優點：
 - **取得無限制的資料傳輸**：Azure 備份不會限制輸入或輸出資料的傳輸，或對傳輸的資料收費。
     - 輸出資料是指還原作業期間傳輸自復原服務保存庫的資料。
     - 如果您使用 Azure 匯入/匯出服務執行離線初始備份以匯出大量資料，則會有輸入資料的相關費用。  [深入了解](backup-azure-backup-import-export.md)。
-- **確保資料安全性**：
-    - 在內部部署環境，傳輸中的資料會在內部部署機器上以 AES256 加密。 傳輸的資料會受到儲存體與備份之間的 HTTPS 保護。 iSCSI 通訊協定會保護備份與使用者電腦之間傳輸的資料。 安全通道用於保護 iSCSI 通道。
-    - 對於內部部署環境至 Azure 的備份，系統會使用您在設定備份時所提供的複雜密碼來加密 Azure 中的待用資料。 複雜密碼或金鑰永遠不會在 Azure 中傳輸或儲存。 如果需要還原任何資料，只有您有加密複雜密碼或金鑰。
-    - 針對 Azure VM，會使用「儲存體服務加密」(SSE) 對資料進行靜態加密。 備份會儲存資料前自動進行加密。 Azure 儲存體會在擷取資料前進行解密。
-    - 備份也支援使用 Azure 磁碟加密 (ADE) 加密的 Azure VM。 [深入了解](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups)。
+- **確保資料安全性**：Azure 備份提供解決方案來保護傳輸中和待用的資料。
 - **取得應用程式一致備份**：應用程式一致備份表示復原點具有還原備份複本所需的所有資料。 Azure 備份提供應用程式一致備份，確保資料還原不需要其他修正程式。 還原應用程式一致的資料會減少還原時間，讓您能夠快速回到執行狀態。
 - **保留短期和長期資料**：您可以使用復原服務保存庫進行短期和長期資料保留。 Azure 不會限制您可在復原服務保存庫中保留資料的時間長度。 您可以無限期保留資料。 Azure 備份的每個受保護執行個體上限為 9999 個復原點。 [深入了解](backup-introduction-to-azure-backup.md#backup-and-retention)這項限制對您的備份需求有何影響。
 - **自動儲存管理** - 混合式環境通常需要異質性儲存體 - 部份在內部部署，部份在雲端。 使用 Azure 備份，使用內部部署儲存體裝置無需成本。 Azure 備份會自動配置和管理備份儲存體，且採用隨用隨付模式，因此您只需為已使用的儲存體付費。 [深入了解](https://azure.microsoft.com/pricing/details/backup)定價。
@@ -107,13 +102,19 @@ Azure 備份可備份內部部署機器和 Azure VM。
 
 **備份** | **方案** | **限制**
 --- | --- | ---
-**我想要備份整個 Azure VM** | 啟用 VM 的備份。 備份擴充功能會在 Windows 或 Linux Azure VM 上自動設定。 | 整個 VM 都會備份 <br/><br/> Windows VM 的備份具應用程式一致性。 Linux 的備份則具檔案一致性。 如果需要 Linux VM 的應用程式感知能力，您必須使用自訂指令碼加以設定。
+**我想要備份整個 Azure VM** | 啟用 VM 的備份。 備份擴充功能會在 Windows 或 Linux Azure VM 上自動設定。 | 整個 VM 都會備份 <br/><br/> Windows VM 的備份具應用程式一致性。 Linux 的備份則具檔案一致性。 如果需要 Linux VM 的應用程式感知能力，必須使用自訂指令碼加以設定。
 **我想要備份 Azure VM 上的特定檔案/資料夾** | 在 VM 上部署 MARS 代理程式。
 **我想要直接備份內部部署 Windows 機器** | 在機器上安裝 MARS 代理程式。 | 您可以將檔案、資料夾和系統狀態備份到 Azure。 備份不是應用程式感知的。
-**我想要直接備份內部部署 Linux 機器** | 您必須部署 DPM 或 MABS，以備份至 Azure。 | 不支援 Linux 主機的備份，您只可以備份 Hyper-V 或 VMWare 上裝載的 Linux 客體機器。
+**我想要直接備份內部部署 Linux 機器** | 您必須部署 DPM 或 MABS，以備份至 Azure。 | 不支援 Linux 主機的備份，您只能備份 Hyper-V 或 VMWare 上裝載的 Linux 客體機器。
 **我想要備份在內部部署執行的應用程式** | 若要進行應用程式感知備份，機器必須受到 DPM 或 MABS 保護。
 **我希望 Azure VM 有精細且彈性的備份和復原設定** | 在 Azure 中執行 MABS/DPM 為 Azure VM 提供保護，以提高備份排程的彈性，並且能有充分的彈性可保護及還原檔案、資料夾、磁碟區、應用程式和系統狀態。
 
+## <a name="how-does-azure-backup-work-with-encryption"></a>Azure 備份如何與加密功能搭配運作？
+
+**加密** | **備份內部部署** | **備份 Azure VM** | **在 Azure VM 上備份 SQL**
+--- | --- | --- | ---
+待用加密<br/> (將持續性/已儲存資料加密) | 客戶指定的複雜密碼會用來將資料加密 | Azure [儲存體服務加密 (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)會用來將儲存在保存庫中的資料加密。<br/><br/> 備份會儲存資料前自動進行加密。 Azure 儲存體會在擷取資料前進行解密。 目前不支援將客戶管理的金鑰用於 SSE。<br/><br/> 您可以將使用 [Azure 磁碟加密 (ADE)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) 的 VM 備份，以加密作業系統和資料磁碟。 Azure 備份支援以僅 BEK 和包含 BEK 與 [KEK](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/) 的方式加密的 VM。 檢閱[限制](backup-azure-vms-encryption.md#encryption-support)。 | Azure 備份支援已啟用 [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) 的 SQL Server 資料庫或伺服器的備份。 備份功能支援搭配 Azure 所管理的金鑰，或搭配客戶管理的金鑰 (BYOK) 使用 TDE。<br/><br/> 備份功能不會在備份程序中執行任何 SQL 加密作業。
+傳輸中加密<br/> (將從某個位置移動到另一個位置的資料加密) | 資料會使用 AES256 加密，然後透過 HTTPS 傳送到 Azure 中的保存庫 | 在 Azure 中，會透過 HTTPS 保護 Azure 儲存體與保存庫之間的資料。 此資料會保持在 Azure 中樞網路上。<br/><br/> iSCSI 可保護在保存庫與 Azure VM 之間傳輸的資料，以用於檔案復原。 安全通道會保護 iSCSI 通道。 | 在 Azure 中，會透過 HTTPS 保護 Azure 儲存體與保存庫之間的資料。<br/><br/> 檔案復原與 SQL 無關。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -12,19 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 04/23/2019
 ms.author: cephalin;robmcm
 ms.custom: seodec18
-ms.openlocfilehash: 3af585ede27536dfb644dd374e54183c3539d585
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f1411ee28ca4e371f68c375242a2445c8b48f8d7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007350"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706130"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>在 Azure 中建立第一個 Java Web 應用程式
 
-[Azure App Service](overview.md) 可提供可高度擴充、自我修復的 Web 主控服務。 本快速入門示範如何使用 [Eclipse IDE for Java EE Developers](https://www.eclipse.org/) 將 Java Web 應用程式部署到 App Service。
+Azure App Service 提供可高度擴充、自我修復的 Web 裝載服務。 本快速入門示範如何使用 Eclipse IDE for Java EE Developers 將 Java Web 應用程式部署到 App Service。
 
 > [!IMPORTANT]
 > 您也可以選擇使用 Linux 上的 Azure App Service，在使用受控 Tomcat、Java SE 和 WildFly 供應項目的 Linux 上以原生方式裝載 Java Web 應用程式。 如果您想要開始使用 Linux 上的 App Service，請參閱[快速入門：在 Linux 上的 App Service 中建立 Java 應用程式](containers/quickstart-java.md)。
@@ -54,9 +54,9 @@ ms.locfileid: "60007350"
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>在 Eclipse 中建立動態 Web 專案
 
-在 Eclipse 中，選取 [檔案] > [新增] > [Dynamic Web Project]。
+在 Eclipse 中，選取 [檔案]   > [新增]   > [Dynamic Web Project]  。
 
-在 [新增動態 Web 專案] 對話方塊中，將專案命名為 **MyFirstJavaOnAzureWebApp**，然後選取 [完成]。
+在 [新增動態 Web 專案]  對話方塊中，將專案命名為 **MyFirstJavaOnAzureWebApp**，然後選取 [完成]  。
    
 ![新增動態 Web 專案對話方塊](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
@@ -67,14 +67,14 @@ ms.locfileid: "60007350"
 ![適用於 Eclipse 的 Java EE 工作區](./media/app-service-web-get-started-java/pe.png)
 
 在 [專案總管] 中，展開 **MyFirstJavaOnAzureWebApp** 專案。
-在 [WebContent] 上按一下滑鼠右鍵，然後選取 [新增] > [JSP 檔案]。
+在 [WebContent]  上按一下滑鼠右鍵，然後選取 [新增]   > [JSP 檔案]  。
 
 ![專案總管中新 JSP 檔案的功能表](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
 
-在 [新增 JSP 檔案] 對話方塊中：
+在 [新增 JSP 檔案]  對話方塊中：
 
 * 將檔案命名為 **index.jsp**。
-* 選取 [完成]。
+* 選取 [完成]  。
 
   ![[新增 JSP 檔案] 對話方塊](./media/app-service-web-get-started-java/new-jsp-file-dialog-box-page-1.png)
 
@@ -97,35 +97,35 @@ ms.locfileid: "60007350"
 
 ## <a name="publish-the-web-app-to-azure"></a>將 Web 應用程式發佈至 Azure
 
-在 [專案總管] 中，以滑鼠右鍵按一下專案，然後選取 [Azure] > [發佈為 Azure Web 應用程式]。
+在 [專案總管] 中，以滑鼠右鍵按一下專案，然後選取 [Azure]   > [發佈為 Azure Web 應用程式]  。
 
 ![[發佈為 Azure Web 應用程式] 內容功能表](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 
-如果出現 [Azure 登入] 對話方塊的提示，則必須依照[適用於 Eclipse 之 Azure 工具組的 Azure 登入指示](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions)一文中的步驟輸入您的認證。
+如果出現 [Azure 登入]  對話方塊的提示，則必須依照[適用於 Eclipse 之 Azure 工具組的 Azure 登入指示](/java/azure/eclipse/azure-toolkit-for-eclipse-sign-in-instructions)一文中的步驟輸入您的認證。
 
 ### <a name="deploy-web-app-dialog-box"></a>部署 Web 應用程式對話方塊
 
-在您登入 Azure 帳戶後，[部署 Web 應用程式] 對話方塊隨即出現。
+在您登入 Azure 帳戶後，[部署 Web 應用程式]  對話方塊隨即出現。
 
-選取 [建立] 。
+選取 [建立]  。
 
 ![部署 Web 應用程式對話方塊](./media/app-service-web-get-started-java/deploy-web-app-dialog-box.png)
 
 ### <a name="create-app-service-dialog-box"></a>建立 App Service 對話方塊
 
-顯示的 [建立 App Service] 對話方塊會包含預設值。 下圖中顯示的數字 **170602185241** 不同於您的對話方塊。
+顯示的 [建立 App Service]  對話方塊會包含預設值。 下圖中顯示的數字 **170602185241** 不同於您的對話方塊。
 
 ![建立 App Service 對話方塊](./media/app-service-web-get-started-java/cas1.png)
 
-在 [建立 App Service] 對話方塊中：
+在 [建立 App Service]  對話方塊中：
 
 * 為您的 Web 應用程式名稱輸入唯一的名稱，或保留所產生的名稱。 此名稱在整個 Azure 中必須是唯一的。 名稱是 Web 應用程式 URL 位址的一部分。 例如：如果 Web 應用程式名稱是 **MyJavaWebApp**，URL 是 *myjavawebapp.azurewebsites.net*。
 * 在本快速入門中，保留預設 Web 容器。
 * 選取 Azure 訂用帳戶。
-* 在 [App Service 方案] 索引標籤上：
+* 在 [App Service 方案]  索引標籤上：
 
   * **建立新項目**：保留預設值，這是 App Service 方案的名稱。
-  * **位置**：選取 [西歐] 或您附近的區域。
+  * **位置**：選取 [西歐]  或您附近的區域。
   * **定價層**：選取免費選項。 如需詳細資訊，請參閱 [App Service 價格](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
     ![建立 App Service 對話方塊](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
@@ -134,13 +134,13 @@ ms.locfileid: "60007350"
 
 ### <a name="resource-group-tab"></a>資源群組索引標籤
 
-選取 [資源群組] 索引標籤。保留針對資源群組產生的預設值。
+選取 [資源群組]  索引標籤。保留針對資源群組產生的預設值。
 
 ![資源群組索引標籤](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
 
 [!INCLUDE [resource-group](../../includes/resource-group.md)]
 
-選取 [建立] 。
+選取 [建立]  。
 
 <!--
 ### The JDK tab
@@ -156,15 +156,15 @@ Azure Toolkit 會建立 Web 應用程式並顯示進度對話方塊。
 
 ### <a name="deploy-web-app-dialog-box"></a>部署 Web 應用程式對話方塊
 
-在 [部署 Web 應用程式] 對話方塊中，選取 [部署至根目錄]。 如果您有位於 wingtiptoys.azurewebsites.net 的應用程式服務，而您未將它部署至根目錄，則命名為 **MyFirstJavaOnAzureWebApp** 的 Web 應用程式會部署至 wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp。
+在 [部署 Web 應用程式]  對話方塊中，選取 [部署至根目錄]  。 如果您有位於 wingtiptoys.azurewebsites.net  的應用程式服務，而您未將它部署至根目錄，則命名為 **MyFirstJavaOnAzureWebApp** 的 Web 應用程式會部署至 wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp  。
 
 ![部署 Web 應用程式對話方塊](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
 
 此對話方塊會顯示 Azure、JDK 和 Web 容器選取項目。
 
-選取 [部署] 將 Web 應用程式發佈至 Azure。
+選取 [部署]  將 Web 應用程式發佈至 Azure。
 
-當發佈完成時，選取 [Azure 活動記錄] 對話方塊中的 [已發佈] 連結。
+當發佈完成時，選取 [Azure 活動記錄]  對話方塊中的 [已發佈]  連結。
 
 ![Azure 活動記錄對話方塊](./media/app-service-web-get-started-java/aal.png)
 
@@ -184,23 +184,23 @@ Azure Toolkit 會建立 Web 應用程式並顯示進度對話方塊。
 
 儲存變更。
 
-在 [專案總管] 中，以滑鼠右鍵按一下專案名稱，然後選取 [Azure] > [發佈為 Azure Web 應用程式]。
+在 [專案總管] 中，以滑鼠右鍵按一下專案名稱，然後選取 [Azure]   > [發佈為 Azure Web 應用程式]  。
 
-[部署 Web 應用程式] 對話方塊隨即出現，並顯示您先前建立的應用程式服務。 
+[部署 Web 應用程式]  對話方塊隨即出現，並顯示您先前建立的應用程式服務。 
 
 > [!NOTE] 
-> 每次發佈時都選取 [部署至根目錄]。 
+> 每次發佈時都選取 [部署至根目錄]  。 
 > 
 
-選取 Web 應用程式，然後選取 [部署] 來發佈變更。
+選取 Web 應用程式，然後選取 [部署]  來發佈變更。
 
-當 [發佈] 連結出現時，請加以選取來瀏覽至 Web 應用程式並查看變更。
+當 [發佈]  連結出現時，請加以選取來瀏覽至 Web 應用程式並查看變更。
 
 ## <a name="manage-the-web-app"></a>管理 Web 應用程式
 
 請移至 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，以查看您所建立的 Web 應用程式。
 
-從左功能表，選取 [資源群組]。
+從左功能表，選取 [資源群組]  。
 
 ![入口網站瀏覽至資源群組](media/app-service-web-get-started-java/rg.png)
 
@@ -210,7 +210,7 @@ Azure Toolkit 會建立 Web 應用程式並顯示進度對話方塊。
 
 選取 Web 應用程式 (上圖中的 **webapp 170602193915**)。
 
-[概觀] 頁面隨即出現。 此頁面可讓您檢視應用程式的執行方式。 您可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。 頁面左側的索引標籤會顯示您可以開啟的各種組態。 
+[概觀]  頁面隨即出現。 此頁面可讓您檢視應用程式的執行方式。 您可以在這裡執行基本管理工作，像是瀏覽、停止、啟動、重新啟動及刪除。 頁面左側的索引標籤會顯示您可以開啟的各種組態。 
 
 ![Azure 入口網站中的 App Service 頁面](media/app-service-web-get-started-java/web-app-blade.png)
 

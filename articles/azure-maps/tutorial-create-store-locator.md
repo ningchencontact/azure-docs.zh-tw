@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f53e21b8121006a6a6a1d2099b26e7cb28ca0ed9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 1d3099da3d449e29d378e2f350fdc87ce5166f2e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545292"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574394"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>使用 Azure 地圖服務建立商店定位器
 
@@ -93,7 +93,7 @@ ms.locfileid: "59545292"
 
 另一種方法是將此資料集轉換成瀏覽器可輕易地剖析的一般文字檔案。 檔案本身可隨著應用程式的其餘部分而裝載。 此選項較為單純，但僅適用於較小的資料集，因為使用者會下載所有資料。 我們將為此資料集使用一般文字檔案，因為其資料檔案大小不到 1 MB。  
 
-若要將活頁簿轉換成一般文字檔案，請將活頁簿儲存為 Tab 鍵分隔檔案。 每個資料行都會以 Tab 字元分隔，以便在我們的程式碼中剖析資料行。 您可以使用逗號分隔值 (CSV) 格式，但該選項需要較多剖析邏輯。 周圍有逗號的任何欄位都會在兩側加上引號。 若要將此資料匯出為 Excel 中的 Tab 鍵分隔檔案，請選取 [另存新檔]。 在 [存檔類型] 下拉式清單中，選取 [文字 (Tab 鍵分隔) (*.txt)]。 將檔案命名為 *ContosoCoffee.txt*。 
+若要將活頁簿轉換成一般文字檔案，請將活頁簿儲存為 Tab 鍵分隔檔案。 每個資料行都會以 Tab 字元分隔，以便在我們的程式碼中剖析資料行。 您可以使用逗號分隔值 (CSV) 格式，但該選項需要較多剖析邏輯。 周圍有逗號的任何欄位都會在兩側加上引號。 若要將此資料匯出為 Excel 中的 Tab 鍵分隔檔案，請選取 [另存新檔]  。 在 [存檔類型]  下拉式清單中，選取 [文字 (Tab 鍵分隔) (*.txt)]  。 將檔案命名為 *ContosoCoffee.txt*。 
 
 <br/>
 <center>
@@ -403,7 +403,7 @@ ms.locfileid: "59545292"
 
 1. 將程式碼新增至 *index.js*。 下列程式碼會初始化地圖、新增等候頁面完成載入的[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)、連接事件以監視地圖載入的情形，並啟用搜尋按鈕和 [我的位置] 按鈕。
 
-   當使用者選取搜尋按鈕時，或是當使用者在搜尋方塊中輸入位置之後按下 Enter 鍵時，就會起始對使用者查詢的模糊搜尋。 將國家/地區 ISO 2 值的陣列傳入 `countrySet` 選項，可限制這些國家/地區的搜尋結果。 限制要搜尋的國家/地區，有助於提高傳回結果的精確度。 
+   當使用者選取搜尋按鈕時，或是當使用者在搜尋方塊中輸入位置之後按下 Enter 鍵時，就會起始對使用者查詢的模糊搜尋。 將國家/地區 ISO 2 值的陣列傳入 `countrySet` 選項，可將搜尋結果限制在這些國家/地區。 限制要搜尋的國家/地區，有助於提高傳回結果的精確度。 
   
    搜尋完成後，請取用第一項結果，並設定該區域的地圖相機。 當使用者選取 [我的位置] 按鈕時，請使用瀏覽器中內建的 HTML5 地理位置 API 來擷取使用者的位置，並以其位置作為地圖的中心點。  
 

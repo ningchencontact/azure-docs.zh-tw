@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Box Edge 傳輸資料 | Microsoft Docs
+title: 使用 Azure Data Box Edge 傳輸要共用之資料的教學課程 | Microsoft Docs
 description: 了解如何新增及連線到 Data Box Edge 裝置上的共用。
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e902f0c9465f65f31f6e1a5cadc7b6b30cda1a27
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 701ae5e70612b89c28e3092571e26e4f06389af0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403675"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924619"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>教學課程：使用 Azure Data Box Edge 轉送資料
 
@@ -42,36 +42,36 @@ ms.locfileid: "58403675"
 
 若要建立共用，請執行下列程序：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取您的 Data Box Edge 資源，然後移至 [概觀]。 您的裝置應在線上。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取您的 Data Box Edge 資源，然後移至 [概觀]  。 您的裝置應在線上。
 
    ![線上裝置](./media/data-box-edge-deploy-add-shares/device-online-1.png)
 
-2. 選取裝置命令列上的 [+ 新增共用]。
+2. 選取裝置命令列上的 [+ 新增共用]  。
 
    ![新增共用](./media/data-box-edge-deploy-add-shares/select-add-share-1.png)
 
-3. 在 [新增共用] 窗格中，執行下列程序：
+3. 在 [新增共用]  窗格中，執行下列程序：
 
-    a. 在 [名稱] 方塊中，為共用提供唯一的名稱。  
+    a. 在 [名稱]  方塊中，為共用提供唯一的名稱。  
     共用名稱只能包含小寫字母、數字和連字號。 此名稱必須介於 3 到 63 個字元，並且以字母或數字開頭。 連字號的前後必須緊鄰字母或數字。
     
-    b. 選取共用的 [類型]。  
+    b. 選取共用的 [類型]  。  
     類型可以是 **SMB** 或 **NFS**，並以 SMB 為預設值。 SMB 是 Windows 用戶端的標準，NFS 則用於 Linux 用戶端。  
     視您選擇 SMB 或 NFS 共用而定，其餘選項可能會有些許不同。 
 
     c. 提供共用所在的儲存體帳戶。 
 
     
-    d. 在 [儲存體服務] 下拉式清單中，選取 [區塊 Blob]、[分頁 Blob] 或 [檔案]。  
-    您選取的服務類型，取決於您想要讓資料在 Azure 中使用的格式。 在此範例中，我們想要將資料以區塊 Blob 的形式儲存在 Azure 中，因此我們選取 [區塊 Blob]。 如果您選取 [分頁 Blob]，請確定您的資料是 512 位元組規格。 例如，VHDX 一律是 512 位元組規格。
+    d. 在 [儲存體服務]  下拉式清單中，選取 [區塊 Blob]  、[分頁 Blob]  或 [檔案]  。  
+    您選取的服務類型，取決於您想要讓資料在 Azure 中使用的格式。 在此範例中，我們想要將資料以區塊 Blob 的形式儲存在 Azure 中，因此我們選取 [區塊 Blob]  。 如果您選取 [分頁 Blob]  ，請確定您的資料是 512 位元組規格。 例如，VHDX 一律是 512 位元組規格。
 
     e. 建立新的 Blob 容器，或使用從下拉式清單中的現有容器。 如果要建立 Blob 容器，請提供容器名稱。 如果容器尚不存在，則會使用新建共用名稱在儲存體帳戶中建立容器。
    
     f. 根據您已建立的是 SMB 共用還是 NFS 共用，執行下列其中一個步驟： 
      
-    - **SMB 共用**：在 [完整權限本機使用者] 下方，選取 [新建] 或 [使用現有的]。 如果您建立新的本機使用者，請輸入使用者名稱和密碼，然後確認密碼。 此動作會將權限指派給本機使用者。 在此指派權限之後，您可以使用 [檔案總管] 加以修改。
+    - **SMB 共用**：在 [完整權限本機使用者]  下方，選取 [新建]  或 [使用現有的]  。 如果您建立新的本機使用者，請輸入使用者名稱和密碼，然後確認密碼。 此動作會將權限指派給本機使用者。 在此指派權限之後，您可以使用 [檔案總管] 加以修改。
 
-        如果您針對此共用資料選取 [僅允許讀取作業] 核取方塊，則可以指定唯讀使用者。
+        如果您針對此共用資料選取 [僅允許讀取作業]  核取方塊，則可以指定唯讀使用者。
 
         ![新增 SMB 共用](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
    
@@ -79,9 +79,9 @@ ms.locfileid: "58403675"
 
         ![新增 NFS 共用](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
    
-4. 選取 [建立] 以建立共用。
+4. 選取 [建立]  以建立共用。
     
-    共用正在建立時，您會收到通知。 使用指定的設定來建立共用之後，[共用] 圖格將會更新，以反映新的共用。
+    共用正在建立時，您會收到通知。 使用指定的設定來建立共用之後，[共用]  圖格將會更新，以反映新的共用。
     
 
 ## <a name="connect-to-the-share"></a>連線至共用
@@ -114,7 +114,7 @@ ms.locfileid: "58403675"
 
 3. 在鍵盤上選取 Windows + R。
 
-4. 在 [執行] 視窗中指定 `\\<device IP address>`，然後選取 [確定]。  
+4. 在 [執行]  視窗中指定 `\\<device IP address>`，然後選取 [確定]  。  
    [檔案總管] 隨即開啟。 現在您應可以資料夾的形式檢視您所建立的共用。 在 [檔案總管] 中按兩下某個共用 (資料夾)，即可檢視其內容。
  
     ![連線至 SMB 共用](./media/data-box-edge-deploy-add-shares/connect-to-share2.png)

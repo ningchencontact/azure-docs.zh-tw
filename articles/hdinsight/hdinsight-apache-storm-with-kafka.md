@@ -1,7 +1,6 @@
 ---
 title: 教學課程：使用 Apache Storm 搭配 Apache Kafka 來讀取和寫入資料 - Azure HDInsight
 description: 了解如何在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka 以建立串流管線。 在本教學課程中，您會使用 KafkaBolt 與 KafkaSpout 元件從 Kafka 串流處理資料。
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: dca789a850e5df58024d13b8f592765e55c39485
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c89567115079887295704e216cd4046fae99c9d1
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316944"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873019"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>教學課程：在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka
 
@@ -80,7 +79,7 @@ Apache Storm 提供數個用來處理 Apache Kafka 的元件。 在本教學課�
     * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`：從在 Strom 拓樸內使用的 Tuple 資料結構對應至儲存在 Kafka 中的欄位。
 
 這些是 `org.apache.storm : storm-kafka` 套件中提供的元件。 請使用與 Storm 版本相符的套件版本。 對於 HDInsight 3.6，適用的 Storm 版本為 1.1.0。
-您也需要 `org.apache.kafka : kafka_2.10` 套件，其中包含其他 Kafka 元件。 請使用與 Kafka 版本相符的套件版本。 對於 HDInsight 3.6，適用的 Kafka 版本為 0.10.0.0。
+您也需要 `org.apache.kafka : kafka_2.10` 套件，其中包含其他 Kafka 元件。 請使用與 Kafka 版本相符的套件版本。 對於 HDInsight 3.6，適用的 Kafka 版本為 1.1.1。
 
 下列 XML 是 `pom.xml` 中對於 [Apache Maven](https://maven.apache.org/) 專案的相依性宣告：
 
@@ -95,7 +94,7 @@ Apache Storm 提供數個用來處理 Apache Kafka 的元件。 在本教學課�
 <dependency>
     <groupId>org.apache.kafka</groupId>
     <artifactId>kafka_2.10</artifactId>
-    <version>0.10.0.0</version>
+    <version>1.1.1</version>
     <!-- Exclude components that are loaded from the Storm cluster at runtime -->
     <exclusions>
         <exclusion>
@@ -392,7 +391,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Azure Resource Manager 範本位於 **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**。 它會建立下列資源︰
+    Azure Resource Manager 範本位於 **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json** 。 它會建立下列資源︰
     
     * Azure 資源群組
     * Azure 虛擬網路
@@ -403,9 +402,9 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
    > [!WARNING]  
    > 若要保證 Kafka 在 HDInsight 上的可用性，您的叢集必須包含至少三個背景工作角色節點。 此範本會建立包含三個背景工作角色節點的 Kafka 叢集。
 
-2. 使用下列指引來填入 [自訂部署] 區段上的項目︰
+2. 使用下列指引來填入 [自訂部署]  區段上的項目︰
 
-   1. 使用下列資訊，填入 [自訂範本] 區段上的項目︰
+   1. 使用下列資訊，填入 [自訂範本]  區段上的項目︰
 
       | 設定 | 值 |
       | --- | --- |
@@ -421,9 +420,9 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
    
       ![範本參數的圖片](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
 
-3. 讀取**條款及條件**，然後選取 [我同意上方所述的條款及條件]。
+3. 讀取**條款及條件**，然後選取 [我同意上方所述的條款及條件]  。
 
-4. 最後，核取 [釘選到儀表板]，然後選取 [購買]。
+4. 最後，核取 [釘選到儀表板]  ，然後選取 [購買]  。
 
 > [!NOTE]  
 > 建立叢集可能需要 20 分鐘的時間。
@@ -626,9 +625,9 @@ Kafka 會將資料儲存到_主題_中。 在啟動 Storm 拓撲之前，您必�
 
 若要使用 Azure 入口網站移除資源群組：
 
-1. 在 Azure 入口網站中展開左側功能表，以開啟服務的功能表，然後選擇 [資源群組] 以顯示資源群組的清單。
-2. 找出要刪除的資源群組，然後以滑鼠右鍵按一下清單右側的 [更多] 按鈕 (...)。
-3. 選取 [刪除資源群組]，並加以確認。
+1. 在 Azure 入口網站中展開左側功能表，以開啟服務的功能表，然後選擇 [資源群組]  以顯示資源群組的清單。
+2. 找出要刪除的資源群組，然後以滑鼠右鍵按一下清單右側的 [更多]  按鈕 (...)。
+3. 選取 [刪除資源群組]  ，並加以確認。
 
 > [!WARNING]  
 > HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費是以每分鐘按比例計算，因此不再使用時，請一律刪除您的叢集。

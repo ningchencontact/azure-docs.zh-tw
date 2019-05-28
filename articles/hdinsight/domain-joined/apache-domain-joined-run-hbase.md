@@ -1,20 +1,19 @@
 ---
 title: 使用企業安全性套件在 HDInsight 中設定 Apache HBase 原則 - Azure
 description: 了解如何使用企業安全性套件在 Azure HDInsight 中設定 HBase 的 Apache Ranger 原則。
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: 1421b142fbca83d2de46f52f8390d0c25f22780c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d1f2a2b24e6f1856d021911e6f2e9c107bd38b72
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117280"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926103"
 ---
-# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>教學課程：使用企業安全性套件在 HDInsight 中設定 Apache HBase 原則 (預覽)
+# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>教學課程：使用企業安全性套件在 HDInsight 中設定 Apache HBase 原則
 
 了解如何對企業安全性套件 (ESP) Apache HBase 叢集設定 Apache Ranger 原則。 ESP 叢集連線到網域，讓使用者使用網域認證進行驗證。 在此教學課程中，您會建立兩個 Ranger 原則來限制 HBase 資料表中不同資料行系列的存取權。
 
@@ -98,11 +97,11 @@ ms.locfileid: "58117280"
 
    ![Apache Ranger 管理員 UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
-2. **原則清單**畫面會顯示為此叢集建立的所有 Ranger 原則。 可能會列出其中一個預先設定的原則。 按一下 [新增原則]。
+2. **原則清單**畫面會顯示為此叢集建立的所有 Ranger 原則。 可能會列出其中一個預先設定的原則。 按一下 [新增原則]  。
 
     ![Apache Ranger 管理員 UI 建立原則](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
-3. 在 [建立原則] 畫面上輸入下列值：
+3. 在 [建立原則]  畫面上輸入下列值：
 
    |**設定**  |**建議的值**  |
    |---------|---------|
@@ -122,11 +121,11 @@ ms.locfileid: "58117280"
    ![Apache Ranger 管理員 UI 建立原則](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
-   >如果 [選取使用者] 未自動填入網域使用者，請稍候 Ranger 與 Azure AD 同步處理。
+   >如果 [選取使用者]  未自動填入網域使用者，請稍候 Ranger 與 Azure AD 同步處理。
 
-4. 按一下 [新增] 以儲存規則。
+4. 按一下 [新增]  以儲存規則。
 
-5. 按一下 [新增原則]，然後輸入下列值︰
+5. 按一下 [新增原則]  ，然後輸入下列值︰
 
    |**設定**  |**建議的值**  |
    |---------|---------|
@@ -140,7 +139,7 @@ ms.locfileid: "58117280"
 
    ![Apache Ranger 管理員 UI 建立原則](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
 
-6. 按一下 [新增] 以儲存規則。
+6. 按一下 [新增]  以儲存規則。
 
 ## <a name="test-the-ranger-policies"></a>測試 Ranger 原則
 
@@ -235,10 +234,10 @@ ms.locfileid: "58117280"
 如果您不打算繼續使用此應用程式，請使用下列步驟來刪除所建立的 HBase 叢集：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 在頂端的 [搜尋] 方塊中，輸入 **HDInsight**。 
-1. 在 [服務] 底下，選取 [HDInsight 叢集]。
-1. 從出現的 HDInsight 叢集清單中，在您為本教學課程建立的叢集旁按一下 [...]。 
-1. 按一下 [刪除] 。 按一下 [是] 。
+2. 在頂端的 [搜尋]  方塊中，輸入 **HDInsight**。 
+1. 在 [服務]  底下，選取 [HDInsight 叢集]  。
+1. 從出現的 HDInsight 叢集清單中，在您為本教學課程建立的叢集旁按一下 [...]  。 
+1. 按一下 [刪除]  。 按一下 [是]  。
 
 ## <a name="next-steps"></a>後續步驟
 

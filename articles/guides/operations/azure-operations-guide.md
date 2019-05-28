@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1f8972c89ecb0fc7d8cc7ceb9bfdeab9e905e862
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051165"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570618"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 操作員快速入門
 
@@ -145,7 +145,7 @@ Azure 在其雲端運算平台中提供許多服務。 這些服務包括下列�
 
 Azure 是在全球各地許多地區正式推出的全域雲端平台。 當您在 Azure 中佈建服務、應用程式或 VM 時，系統會要求您選取區域。 選取的區域代表您應用程式執行所在的特定資料中心。 如需詳細資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。
 
-使用 Azure 的其中一個優點是您可以將應用程式部署至全球各地的各種資料中心。 您選擇的區域可能會影響應用程式的效能。 最好選擇較接近大多數客戶的區域，以減少網路要求延遲。 您也可以選取區域，以符合在某些國家/地區散發應用程式的法律需求。
+使用 Azure 的其中一個優點是您可以將應用程式部署至全球各地的各種資料中心。 您選擇的區域可能會影響應用程式的效能。 最好選擇較接近大多數客戶的區域，以減少網路要求延遲。 您也可以選取區域來滿足在特定國家/地區散發應用程式的法律需求。
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
@@ -291,7 +291,7 @@ Resource Manager 範本包含四個區段：
 
 您可以在任何文字編輯器中建立 Resource Manager 範本。 不過，Azure SDK for Visual Studio 包含可協助您的工具。 使用 Visual Studio，即可透過精靈將資源新增至範本，然後直接在 Visual Studio 中部署範本和進行偵錯。 如需詳細資訊，請參閱[編寫 Azure Resource Manager 範本](../../resource-group-authoring-templates.md)。
 
-最後，您可以從 Azure 入口網站將現有資源群組轉換成可重複使用的範本。 如果您想要建立現有資源群組的可部署範本，或只是想要檢查基礎 JSON，這可能很有幫助。 若要匯出資源群組，請從資源群組的設定中選取 [自動化指令碼] 按鈕。
+最後，您可以從 Azure 入口網站將現有資源群組轉換成可重複使用的範本。 如果您想要建立現有資源群組的可部署範本，或只是想要檢查基礎 JSON，這可能很有幫助。 若要匯出資源群組，請從資源群組的設定中選取 [自動化指令碼]  按鈕。
 
 ## <a name="security-of-azure-resources-rbac"></a>Azure 資源的安全性 (RBAC)
 
@@ -375,7 +375,7 @@ Azure 儲存體帳戶可以設定不同層級的備援性：
 
 #### <a name="blob-storage"></a>Blob 儲存體
 
-blob 這個字是「二進位大型物件的縮寫。 Blob 類似您在電腦上儲存的非結構化檔案。 Blob 儲存體可以儲存任何類型的文字或二進位資料，例如文件、媒體檔案或應用程式安裝程式。 Blob 儲存體也稱為物件儲存體。 Azure Blob 儲存體也可保留 Azure 虛擬機器資料磁碟。
+blob  這個字是「二進位大型物件  的縮寫。 Blob 類似您在電腦上儲存的非結構化檔案。 Blob 儲存體可以儲存任何類型的文字或二進位資料，例如文件、媒體檔案或應用程式安裝程式。 Blob 儲存體也稱為物件儲存體。 Azure Blob 儲存體也可保留 Azure 虛擬機器資料磁碟。
 
 Azure 儲存體支援三種 blob 類型：
 

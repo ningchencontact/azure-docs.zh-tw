@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 04/07/2019
-ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/29/2019
+ms.openlocfilehash: 187aa4b02e389c485b24ad7de256422d1880182b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262902"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872592"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>教學課程：在 Azure 資料總管中內嵌資料，而不需任何一行程式碼
 
@@ -137,7 +137,7 @@ Azure 活動記錄為訂用帳戶層級的記錄，可針對在訂用帳戶中�
 
 ### <a name="connect-to-the-azure-data-explorer-web-ui"></a>連線至 Azure 資料總管 Web UI
 
-在 Azure 資料總管的 *TestDatabase* 資料庫中選取 [查詢]，以開啟 Azure 資料總管 Web UI。
+在 Azure 資料總管的 *TestDatabase* 資料庫中選取 [查詢]  ，以開啟 Azure 資料總管 Web UI。
 
 ![查詢頁面](media/ingest-data-no-code/query-database.png)
 
@@ -155,11 +155,11 @@ Azure 監視器記錄的結構不是表格式的。 您將操作資料，並將�
     .create table DiagnosticLogsRecords (Timestamp:datetime, ResourceId:string, MetricName:string, Count:int, Total:double, Minimum:double, Maximum:double, Average:double, TimeGrain:string)
     ```
 
-1. 選取 [執行] 以建立資料表。
+1. 選取 [執行]  以建立資料表。
 
     ![執行查詢](media/ingest-data-no-code/run-query.png)
 
-1. 使用下列查詢，在 *TestDatabase* 資料庫中建立名為 *DiagnosticLogsRawRecords* 的中繼資料資料表，以用來操作資料。 選取 [執行] 以建立資料表。
+1. 使用下列查詢，在 *TestDatabase* 資料庫中建立名為 *DiagnosticLogsRawRecords* 的中繼資料資料表，以用來操作資料。 選取 [執行]  以建立資料表。
 
     ```kusto
     .create table DiagnosticLogsRawRecords (Records:dynamic)
@@ -266,7 +266,7 @@ Azure 監視器記錄的結構不是表格式的。 您將操作資料，並將�
 
 Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在本教學課程中，我們將透過事件中樞來路由計量。 您將在下列步驟中，建立診斷記錄的事件中樞命名空間和事件中樞。 Azure 監視器會建立活動記錄的事件中樞 *insights-operational-logs*。
 
-1. 在 Azure 入口網站中使用 Azure Resource Manager 範本建立事件中樞。 若要依照本文中的其餘步驟操作，請以滑鼠右鍵按一下 [部署至 Azure] 按鈕，然後選取 [在新視窗中開啟]。 [部署至 Azure] 按鈕可將您帶往 Azure 入口網站。
+1. 在 Azure 入口網站中使用 Azure Resource Manager 範本建立事件中樞。 若要依照本文中的其餘步驟操作，請以滑鼠右鍵按一下 [部署至 Azure]  按鈕，然後選取 [在新視窗中開啟]  。 [部署至 Azure]  按鈕可將您帶往 Azure 入口網站。
 
     [![部署至 Azure 按鈕](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
@@ -295,47 +295,47 @@ Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在�
 選取要從中匯入計量的資源。 有數個資源類型支援匯出診斷記錄的作業，包括事件中樞命名空間、Azure Key Vault、Azure IoT 中樞和 Azure 資料總管叢集。 本教學課程中，我們將使用 Azure 資料總管叢集作為資源。
 
 1. 在 Azure 入口網站中選取您的 Kusto 叢集。
-1. 選取 [診斷設定]，然後選取 [開啟診斷] 連結。 
+1. 選取 [診斷設定]  ，然後選取 [開啟診斷]  連結。 
 
     ![診斷設定](media/ingest-data-no-code/diagnostic-settings.png)
 
-1. [診斷設定] 窗格隨即開啟。 請執行下列步驟：
+1. [診斷設定]  窗格隨即開啟。 請執行下列步驟：
    1. 將您的診斷記錄資料命名為 *ADXExportedData*。
-   1. 在 [計量] 下方，選取 [AllMetrics] 核取方塊 (選擇性)。
-   1. 選取 [串流至事件中樞] 核取方塊。
-   1. 選取 [設定] 。
+   1. 在 [計量]  下方，選取 [AllMetrics]  核取方塊 (選擇性)。
+   1. 選取 [串流至事件中樞]  核取方塊。
+   1. 選取 [設定]  。
 
       ![診斷設定窗格](media/ingest-data-no-code/diagnostic-settings-window.png)
 
-1. 在 [選取事件中樞] 窗格中，設定如何將診斷記錄中的資料匯出至您所建立的事件中樞：
-    1. 在 [選取事件中樞命名空間] 清單中，選取 [AzureMonitoringData]。
-    1. 在 [選取事件中樞名稱] 清單中，選取 [diagnosticlogsdata]。
-    1. 在 [選取事件中樞原則名稱] 清單中，選取 [RootManagerSharedAccessKey]。
-    1. 選取 [確定] 。
+1. 在 [選取事件中樞]  窗格中，設定如何將診斷記錄中的資料匯出至您所建立的事件中樞：
+    1. 在 [選取事件中樞命名空間]  清單中，選取 [AzureMonitoringData]  。
+    1. 在 [選取事件中樞名稱]  清單中，選取 [diagnosticlogsdata]  。
+    1. 在 [選取事件中樞原則名稱]  清單中，選取 [RootManagerSharedAccessKey]  。
+    1. 選取 [確定]  。
 
 1. 選取 [ **儲存**]。
 
 ### <a name="connect-activity-logs-to-your-event-hub"></a>將活動記錄連線到事件中樞
 
-1. 在 Azure 入口網站的左側功能表中，選取 [活動記錄]。
-1. [活動記錄] 視窗隨即開啟。 選取 [匯出至事件中樞]。
+1. 在 Azure 入口網站的左側功能表中，選取 [活動記錄]  。
+1. [活動記錄]  視窗隨即開啟。 選取 [匯出至事件中樞]  。
 
     ![活動記錄視窗](media/ingest-data-no-code/activity-log.png)
 
-1. [匯出活動記錄] 視窗隨即開啟：
+1. [匯出活動記錄]  視窗隨即開啟：
  
     ![匯出活動記錄視窗](media/ingest-data-no-code/export-activity-log.png)
 
-1. 在 [匯出活動記錄] 視窗中，採取下列步驟：
+1. 在 [匯出活動記錄]  視窗中，採取下列步驟：
       1. 選取您的訂用帳戶。
-      1. 在 [區域] 清單中，選擇 [全選]。
-      1. 選取 [匯出至事件中樞] 核取方塊。
-      1. 選擇 [選取服務匯流排命名空間]，以開啟 [選取事件中樞] 窗格。
-      1. 在 [選取事件中樞] 窗格中，選取您的訂用帳戶。
-      1. 在 [選取事件中樞命名空間] 清單中，選取 [AzureMonitoringData]。
-      1. 在 [選取事件中樞原則名稱] 清單中，選取預設的事件中樞原則名稱。
-      1. 選取 [確定] 。
-      1. 在視窗的左上角，選取 [儲存]。
+      1. 在 [區域]  清單中，選擇 [全選]  。
+      1. 選取 [匯出至事件中樞]  核取方塊。
+      1. 選擇 [選取服務匯流排命名空間]  ，以開啟 [選取事件中樞]  窗格。
+      1. 在 [選取事件中樞]  窗格中，選取您的訂用帳戶。
+      1. 在 [選取事件中樞命名空間]  清單中，選取 [AzureMonitoringData]  。
+      1. 在 [選取事件中樞原則名稱]  清單中，選取預設的事件中樞原則名稱。
+      1. 選取 [確定]  。
+      1. 在視窗的左上角，選取 [儲存]  。
    將會建立名稱為 *insights-operational-logs* 的事件中樞。
 
 ### <a name="see-data-flowing-to-your-event-hubs"></a>查看流向事件中樞的資料
@@ -354,11 +354,11 @@ Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在�
 
 ### <a name="create-the-data-connection-for-diagnostic-logs"></a>建立診斷記錄的資料連線
 
-1. 在您名為 *kustodocs* 的 Azure 資料總管叢集中，選取左側功能表中的 [資料庫]。
-1. 在 [資料庫] 視窗中，選取您的 *TestDatabase* 資料庫。
-1. 在左側功能表中，選取 [資料擷取]。
-1. 在 [資料擷取] 視窗中，按一下 [+ 新增資料連線]。
-1. 在 [資料連線] 視窗中，輸入下列資訊：
+1. 在您名為 *kustodocs* 的 Azure 資料總管叢集中，選取左側功能表中的 [資料庫]  。
+1. 在 [資料庫]  視窗中，選取您的 *TestDatabase* 資料庫。
+1. 在左側功能表中，選取 [資料擷取]  。
+1. 在 [資料擷取]  視窗中，按一下 [+ 新增資料連線]  。
+1. 在 [資料連線]  視窗中，輸入下列資訊：
 
     ![事件中樞資料連線](media/ingest-data-no-code/event-hub-data-connection.png)
 
@@ -374,22 +374,22 @@ Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在�
 
     目標資料表：
 
-    路由有兩個選項：*靜態*和*動態*。 在本教學課程中，您將使用靜態路由 (預設值)，而指定資料表名稱、資料格式和對應。 將 [我的資料包含路由資訊] 保留為未選取。
+    路由有兩個選項：*靜態*和*動態*。 在本教學課程中，您將使用靜態路由 (預設值)，而指定資料表名稱、資料格式和對應。 將 [我的資料包含路由資訊]  保留為未選取。
 
      **設定** | **建議的值** | **欄位描述**
     |---|---|---|
     | **資料表** | *DiagnosticLogsRawRecords* | 您在 *TestDatabase* 資料庫中建立的資料表。 |
     | **資料格式** | *JSON* | 在資料表中使用的格式。 |
-    | **資料行對應** | *DiagnosticLogsRecordsMapping* | 您在 *TestDatabase* 資料庫中建立的對應，會將傳入的 JSON 資料對應至 *DiagnosticLogsRecords* 資料表的資料行名稱與資料類型。|
+    | **資料行對應** | *DiagnosticLogsRecordsMapping* | 您在 *TestDatabase* 資料庫中建立的對應，會將傳入的 JSON 資料對應至 *DiagnosticLogsRawRecords* 資料表的資料行名稱與資料類型。|
     | | |
 
-1. 選取 [建立] 。  
+1. 選取 [建立]  。  
 
 ### <a name="create-the-data-connection-for-activity-logs"></a>建立活動記錄的資料連線
 
 重複執行「建立診斷記錄的資料連線」一節中的步驟，以建立活動記錄的資料連線。
 
-1. 在 [資料連線] 視窗中使用下列設定：
+1. 在 [資料連線]  視窗中使用下列設定：
 
     資料來源：
 
@@ -403,7 +403,7 @@ Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在�
 
     目標資料表：
 
-    路由有兩個選項：*靜態*和*動態*。 在本教學課程中，您將使用靜態路由 (預設值)，而指定資料表名稱、資料格式和對應。 將 [我的資料包含路由資訊] 保留為未選取。
+    路由有兩個選項：*靜態*和*動態*。 在本教學課程中，您將使用靜態路由 (預設值)，而指定資料表名稱、資料格式和對應。 將 [我的資料包含路由資訊]  保留為未選取。
 
      **設定** | **建議的值** | **欄位描述**
     |---|---|---|
@@ -412,7 +412,7 @@ Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在�
     | **資料行對應** | *ActivityLogsRawRecordsMapping* | 您在 *TestDatabase* 資料庫中建立的對應，會將傳入的 JSON 資料對應至 *ActivityLogsRawRecords* 資料表的資料行名稱與資料類型。|
     | | |
 
-1. 選取 [建立] 。  
+1. 選取 [建立]  。  
 
 ## <a name="query-the-new-tables"></a>查詢新的資料表
 

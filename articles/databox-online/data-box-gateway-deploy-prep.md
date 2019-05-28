@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 34bc4d7cbdbb89cd9ff3f334ca32087c474735b7
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f9650cdb6935fb45f0c59e8a114a9ce1c8e2d809
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620082"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686525"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>教學課程：準備部署 Azure Data Box Gateway
 
@@ -51,6 +51,8 @@ ms.locfileid: "58620082"
 在您開始前，請確定：
 
 - Data Box Gateway 資源應支援您的 Microsoft Azure 訂用帳戶。 不支援預付型訂用帳戶。
+- 您有您訂用帳戶的擁有者或參與者存取權。
+- 您有 Azure Active Directory 圖形 API 的管理員或使用者存取權。 如需詳細資訊，請參閱 [Azure Active Directory 圖形 API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)。
 - 您擁有的 Microsoft Azure 儲存體帳戶具有存取認證。
 
 ### <a name="for-the-data-box-gateway-device"></a>針對資料箱閘道裝置
@@ -85,22 +87,22 @@ ms.locfileid: "58620082"
 
 1. 使用您的 Microsoft Azure 認證登入：
 
-    - 位於以下 RUL 的 Azure 入口網站：[https://portal.azure.com](http://portal.azure.com)。
+    - 位於以下 RUL 的 Azure 入口網站：[https://portal.azure.com](https://portal.azure.com)。
     - 或者，位於以下 RUL 的 Azure Government 入口網站：[https://portal.azure.us](https://portal.azure.us)。 如需詳細資訊，請移至[使用入口網站連線到 Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal)。
 
-2. 在左窗格中，選取 [+ 建立資源]。 搜尋 **Data Box Edge / Data Box Gateway**。 選取 Data Box Edge / Data Box Gateway。 選取 [建立] 。
-3. 挑選您要用於 Data Box Gateway 裝置的訂用帳戶。 選取您要部署 Data Box Gateway 資源的區域。 此版本適用於美國東部、東南亞和西歐等區域。 請選擇與您要部署裝置的地理區域最接近的位置。 在 [Data Box Gateway] 選項中，選取 [建立]。
+2. 在左窗格中，選取 [+ 建立資源]  。 搜尋 **Data Box Edge / Data Box Gateway**。 選取 Data Box Edge / Data Box Gateway。 選取 [建立]  。
+3. 挑選您要用於 Data Box Gateway 裝置的訂用帳戶。 選取您要部署 Data Box Gateway 資源的區域。 此版本適用於美國東部、東南亞和西歐等區域。 請選擇與您要部署裝置的地理區域最接近的位置。 在 [Data Box Gateway]  選項中，選取 [建立]  。
 
     ![搜尋資料箱閘道服務](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
 
-4. 在 [基本概念] 索引標籤上，輸入或選取下列 [專案詳細資料]。
+4. 在 [基本概念]  索引標籤上，輸入或選取下列 [專案詳細資料]  。
     
     |設定  |值  |
     |---------|---------|
     |訂用帳戶    |這會根據您稍早的選取項目自動填入。 訂用帳戶會連結到您的帳單帳戶。 |
     |資源群組  |選取現有的群組或建立新的群組。<br>深入了解 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)。     |
 
-5. 輸入或選取下列 [執行個體詳細資料]。
+5. 輸入或選取下列 [執行個體詳細資料]  。
 
     |設定  |值  |
     |---------|---------|
@@ -109,13 +111,13 @@ ms.locfileid: "58620082"
     
     ![建立資料箱閘道資源](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     
-6. 選取 [檢閱 + 建立]。
+6. 選取 [檢閱 + 建立]  。
  
-7. 在 [檢閱 + 建立] 索引標籤上，檢閱 [定價詳細資料]、[使用規定]，以及您的資源詳細資料。 選取 [建立] 。
+7. 在 [檢閱 + 建立]  索引標籤上，檢閱 [定價詳細資料]  、[使用規定]  ，以及您的資源詳細資料。 選取 [建立]  。
 
     ![檢閱 Data Box Gateway 資源詳細資料](media/data-box-gateway-deploy-prep/data-box-gateway-resource1.png)
 
-建立資源需要幾分鐘的時間。 順利建立及部署資源之後，您就會接獲通知。 選取 [前往資源]。
+建立資源需要幾分鐘的時間。 順利建立及部署資源之後，您就會接獲通知。 選取 [前往資源]  。
 
 ![檢閱 Data Box Gateway 資源詳細資料](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
 
@@ -128,11 +130,11 @@ ms.locfileid: "58620082"
 
 在 [Azure 入口網站](https://portal.azure.com/)中遵循下列步驟，以下載虛擬裝置映像。
 
-1. 在您所建立的資源中，選取 [概觀]。 如果您有現有的 Azure Data Box Gateway 資源，請選取該資源並移至 [概觀]。 選取 [裝置設定]。
+1. 在您所建立的資源中，選取 [概觀]  。 如果您有現有的 Azure Data Box Gateway 資源，請選取該資源並移至 [概觀]  。 選取 [裝置設定]  。
 
     ![新增資料箱閘道資源](media/data-box-gateway-deploy-prep/data-box-gateway-resource-created.png)
 
-2. 在 [下載映像] 圖格上，選取用來佈建 VM 的主機伺服器上對應至作業系統的虛擬裝置映像。 映像檔大約為 5.6 GB。
+2. 在 [下載映像]  圖格上，選取用來佈建 VM 的主機伺服器上對應至作業系統的虛擬裝置映像。 映像檔大約為 5.6 GB。
    
    * [VHDX (適用於 Windows Server 2012 R2 及更新版本上的 Hyper-V)](https://aka.ms/dbe-vhdx-2012)。
    * [VMDK (適用於 VMWare ESXi 6.0、6.5 或 6.7)](https://aka.ms/dbe-vmdk)。
@@ -146,11 +148,11 @@ ms.locfileid: "58620082"
 
 在 Data Box Gateway 資源啟動並執行後，您必須取得啟用金鑰。 此金鑰可用來啟動資料箱閘道裝置，並將其與資源連線。 您現在可以在 Azure 入口網站中取得此金鑰。
 
-1. 選取您所建立的資源，然後選取 [概觀]。 在 [裝置設定] 中，移至 [設定並啟用] 圖格。
+1. 選取您所建立的資源，然後選取 [概觀]  。 在 [裝置設定]  中，移至 [設定並啟用]  圖格。
 
     ![設定並啟用圖格](media/data-box-gateway-deploy-prep/data-box-gateway-configure-activate.png)
 
-2. 選取 [產生金鑰] 以建立啟用金鑰。 選取 [複製] 圖示以複製金鑰，並儲存金鑰以供日後使用。
+2. 選取 [產生金鑰]  以建立啟用金鑰。 選取 [複製] 圖示以複製金鑰，並儲存金鑰以供日後使用。
 
     ![取得啟用金鑰](media/data-box-gateway-deploy-prep/get-activation-key.png)
 

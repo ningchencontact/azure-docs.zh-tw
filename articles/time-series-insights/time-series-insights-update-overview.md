@@ -9,28 +9,33 @@ manager: cshankar
 ms.reviewer: anshan
 ms.workload: big-data
 ms.topic: overview
-ms.date: 12/05/2018
+ms.date: 04/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7f8731f48b96ccbe0e77970af1ccefa1d7a7155f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a742e9f235812cdbdafdcb0a39581e0779fcd040
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438766"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572923"
 ---
-# <a name="azure-time-series-insights-preview-overview"></a>Azure 時間序列深入解析預覽概觀
+# <a name="the-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽
 
-Azure 時間序列深入解析預覽版為端對端的平台即服務供應項目。 它用來內嵌、處理、儲存和查詢高度相關的語境、時間序列最佳化 IoT 規模資料。 時間序列深入解析十分適用於特定資料探索及營運分析。 時間序列深入解析是唯一可延伸且可自訂符合產業 IoT 部署廣泛需求的服務供應項目。
+Azure 時間序列深入解析預覽版為端對端的平台即服務供應項目。 它可用來收集、處理、儲存、分析及查詢高度內容相關且已進行時間序列最佳化的 IoT 級別資料。 時間序列深入解析十分適用於特定資料探索及營運分析。 時間序列深入解析是唯一可延伸且可自訂符合產業 IoT 部署廣泛需求的服務供應項目。
+
+> [!TIP]
+> 如需了解已正式運作的功能，請參閱 [Azure 時間序列深入解析 GA 概觀](time-series-insights-overview.md)。
 
 ## <a name="video"></a>影片
 
-在此影片中，我們提供 Azure 時間序列深入解析預覽版這個雲端式 IoT 分析平台的概觀。
+### <a name="learn-more-about-the-azure-time-series-insights-preview-br"></a>深入了解「Azure 時間序列深入解析預覽」。 </br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player]
 
 ## <a name="define-iot-data"></a>定義 IoT 資料
 
-IoT 資料是指資產密集組織中提供的所有「產業」資料。 IoT 資料通常是高度非結構化的，因為它是從記錄有很多雜訊之測量結果的資產傳送。 這些測量結果會包含溫度、動態和溼度。 這些資料流通常有差距大、訊息損毀和讀數錯誤的特點。 因此，必須先整理這些資料流中的資料，才能執行任何分析。 IoT 資料通常僅在來自第一方來源 (如 CRM 或 ERP) 的其他資料輸入內容中才有意義。 輸入也來自協力廠商資料來源，例如天氣或位置。
+IoT 資料係指資產密集組織中提供的所有產業資料。 IoT 資料通常是高度非結構化的，因為它是從記錄有很多雜訊之測量結果的資產傳送。 這些測量結果會包含溫度、動態和溼度。 這些資料流通常有差距大、訊息損毀和讀數錯誤的特點。 因此，必須先整理這些資料流中的資料，才能執行任何分析。
+
+IoT 資料通常僅在來自第一方來源 (如 CRM 或 ERP) 的其他資料輸入內容中才有意義。 輸入也來自協力廠商資料來源，例如天氣或位置。
 
 因此，該資料中只有少部分可用於營運和商務用途。 這類資料會提供一致、完整、最新且正確的資訊，以用於商務報表和分析。 將收集的 IoT 資料轉化為可付諸行動的見解需要：
 
@@ -46,8 +51,8 @@ IoT 資料是指資產密集組織中提供的所有「產業」資料。 IoT �
 
 目前的 IoT 環境十分多元。 客戶遍及製造業、汽車產業、能源產業、公共產業、智慧建築及專業諮詢類產業。 案例包括特定資料瀏覽，其中資料的圖形未知。 案例還包括對結構描述化 (或明確模型化) 資料的操作分析，以提升操作效率。 這些案例通常是並存的，而且支援不同使用案例。 平台功能是工業 IoT 企業成功及其數位革命的關鍵，包括：
 
-- 多層式儲存體，經常性與非經常性。 
-- 儲存數十年份的時間序列資料的能力。 
+- 多層式儲存體，經常性與非經常性。
+- 儲存數十年份的時間序列資料的能力。
 - 能夠明確建模和最佳化以資產為基礎的營運智慧能力。
 
 時間序列深入解析是全方位的端對端平台即服務供應項目，適用於 IoT 資料探索及營運見解。 時間序列深入解析提供完全受控雲端服務來分析 IoT 規模的時間序列資料。

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9a243dd236a8c499602a9070a7dd61e69541d58d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7684ae6b4ddb6320efc62ef6f9963bef1b9a66fa
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256816"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692001"
 ---
 # <a name="advanced-resource-graph-queries"></a>進階 Resource Graph 查詢
 
@@ -22,7 +22,7 @@ ms.locfileid: "59256816"
 我們將逐步解說下列進階查詢︰
 
 > [!div class="checklist"]
-> - [取得 VMSS 容量和大小](#vmss-capacity)
+> - [取得虛擬機器擴展集的容量和大小](#vmss-capacity)
 > - [列出所有標記名稱](#list-all-tags)
 > - [依 RegEx 比對虛擬機器](#vm-regex)
 
@@ -38,7 +38,7 @@ Azure CLI (透過擴充功能) 與 Azure PowerShell (透過模組) 支援 Azure 
 
 此查詢會尋找虛擬機器擴展集資源，並取得各種詳細資料，包括虛擬機器大小與擴展集的容量。 此查詢會使用 `toint()` 函式，將容量轉換為數字以便進行排序。 最後，資料行會重新命名為自訂的具名屬性。
 
-```Query
+```kusto
 where type=~ 'microsoft.compute/virtualmachinescalesets'
 | where name contains 'contoso'
 | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name
@@ -57,7 +57,7 @@ Search-AzGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' 
 
 此查詢的開頭為標記，而且會建置 JSON 物件，列出所有的唯一標記名稱及其對應的類型。
 
-```Query
+```kusto
 project tags
 | summarize buildschema(tags)
 ```
@@ -86,7 +86,7 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 
 在依名稱比對之後，查詢會投射名稱，並依名稱遞增排序。
 
-```Query
+```kusto
 where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$'
 | project name
 | order by name asc

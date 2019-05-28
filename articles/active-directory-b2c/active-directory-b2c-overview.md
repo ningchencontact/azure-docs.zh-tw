@@ -3,23 +3,23 @@ title: 什麼是 Azure Active Directory B2C？ | Microsoft Docs
 description: 了解如何使用 Azure Active Directory B2C 在應用程式中建立和管理身分識別體驗，例如註冊/登入和設定檔管理。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9e01ba8ae53dbcca686a9844600a5df416a685ae
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 33c6f9e06439ebeb17608aa374532ac4f7a020cf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455495"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701364"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>什麼是 Azure Active Directory B2C？
 
-Azure Active Directory (Azure AD) B2C 是一項身分識別管理服務。 此服務可讓您自訂和控制使用者如何安全地與您的 Web、桌面、行動或單頁應用程式互動。 透過 Azure AD B2C，使用者可以註冊、登入、重設密碼及編輯設定檔。 Azure AD B2C 可實作某種形式的 OpenID Connect 和 OAuth 2.0 通訊協定。 安全性權杖及其宣告可讓您提供資源的安全存取，這是此類通訊協定實作中的關鍵要素。
+Azure Active Directory (Azure AD) B2C 是一項企業對消費者身分識別管理服務。 此服務可讓您自訂和控制使用者如何安全地與您的 Web、桌面、行動或單頁應用程式互動。 透過 Azure AD B2C，使用者可以註冊、登入、重設密碼及編輯設定檔。 Azure AD B2C 可實作某種形式的 OpenID Connect 和 OAuth 2.0 通訊協定。 安全性權杖及其宣告可讓您提供資源的安全存取，這是此類通訊協定實作中的關鍵要素。
 
 *使用者旅程圖*是一個指定原則的要求，可控制使用者和您的應用程式與 Azure AD B2C 互動的行為。 您可以透過兩種途徑在 Azure AD B2C 中定義使用者旅程圖。 
 

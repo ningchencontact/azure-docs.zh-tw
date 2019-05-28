@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a7ddc6b9f4a8638d18262e458d61108c00b618d
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: e2729a47771f2c3073d91cb5b0de4684b51badbd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564548"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681884"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>教學課程：Azure Active Directory 與 Zscaler Three 整合
 
@@ -38,7 +38,7 @@ ms.locfileid: "59564548"
 
 若要設定 Azure AD 與 Zscaler Three 的整合，您需要下列項目：
 
-* Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
+* Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以申請[免費帳戶](https://azure.microsoft.com/free/)
 * 已啟用 Zscaler Three 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
@@ -55,19 +55,19 @@ ms.locfileid: "59564548"
 
 **若要從資源庫新增 Zscaler Three，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
+2. 瀏覽至 [企業應用程式]  ，然後選取 [所有應用程式]  選項。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中輸入 **Zscaler Three**，並從結果面板中選取 [Zscaler Three]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中輸入 **Zscaler Three**，並從結果面板中選取 [Zscaler Three]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
      ![結果清單中的 Zscaler Three](common/search-new-app.png)
 
@@ -83,7 +83,7 @@ ms.locfileid: "59564548"
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[建立 Zscaler Three 測試使用者](#create-zscaler-three-test-user)** - 在 Zscaler Three 中建立 Britta Simon 的對應項目，使該項目與 Azure AD 中代表該使用者的項目連結。
-6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+6. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -91,58 +91,58 @@ ms.locfileid: "59564548"
 
 若要搭配 Zscaler Three 設定 Azure AD 單一登入，請執行以下步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Zscaler Three] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Zscaler Three]  應用程式整合頁面上，選取 [單一登入]  。
 
     ![設定單一登入連結](common/select-sso.png)
 
-2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML/WS-Fed] 模式以啟用單一登入。
+2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML/WS-Fed]  模式以啟用單一登入。
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
+3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
+4. 在 [基本 SAML 組態]  區段上，執行下列步驟：
 
     ![Zscaler Three 網域和 URL 單一登入資訊](common/sp-intiated.png)
 
-    在 [登入 URL] 文字方塊中，輸入 URL：`https://login.zscalerthree.net/sfc_sso`
+    在 [登入 URL]  文字方塊中，輸入 URL：`https://login.zscalerthree.net/sfc_sso`
 
-5. Zscaler Three 應用程式會預期特定格式的 SAML 判斷提示，這會需要您將自訂屬性對應加入至您的 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] **** 圖示，以開啟 [使用者屬性] **** 對話方塊。
+5. Zscaler Three 應用程式會預期特定格式的 SAML 判斷提示，這會需要您將自訂屬性對應加入至您的 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示，以開啟 [使用者屬性] ****  對話方塊。
 
-    ![映像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
-6. 除了以上屬性外，Zscaler Three 應用程式還會預期 SAML 回應傳回更多屬性。 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
+6. 除了以上屬性外，Zscaler Three 應用程式還會預期 SAML 回應傳回更多屬性。 在 [使用者屬性]  對話方塊的 [使用者宣告]  區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
     
     | Name | 來源屬性 |
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
-    a. 按一下 [新增宣告] 以開啟 [管理使用者宣告] 對話方塊。
+    a. 按一下 [新增宣告]  以開啟 [管理使用者宣告]  對話方塊。
 
     ![映像](common/new-save-attribute.png)
 
     ![映像](common/new-attribute-details.png)
 
-    b. 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
+    b. 在 [名稱]  文字方塊中，輸入該資料列所顯示的屬性名稱。
 
-    c. 讓 [命名空間] 保持空白。
+    c. 讓 [命名空間]  保持空白。
 
-    d. 選取 [來源] 作為 [屬性]。
+    d. 選取 [來源] 作為 [屬性]  。
 
-    e. 在 [來源屬性] 清單中，輸入該資料列所顯示的屬性值。
+    e. 在 [來源屬性]  清單中，輸入該資料列所顯示的屬性值。
     
-    f. 按一下 [檔案] 。
+    f. 按一下 [檔案]  。
 
     > [!NOTE]
     > 請按一下[這裡](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management)，以了解如何在 Azure AD 中設定角色
 
-7. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
+7. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，按一下 [下載]  ，以依據您的需求從指定選項下載 [憑證 (Base64)]  ，並儲存在您的電腦上。
 
     ![憑證下載連結](common/certificatebase64.png)
 
-8. 在 [設定 Zscaler Three] 區段上，依據需求複製適當的 URL。
+8. 在 [設定 Zscaler Three]  區段上，依據需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -154,50 +154,58 @@ ms.locfileid: "59564548"
 
 ### <a name="configure-zscaler-three-single-sign-on"></a>設定 Zscaler Three 單一登入
 
-1. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Zscaler Three 公司網站。
+1. 若要自動執行 Zscaler Three 內的設定，您必須按一下 [安裝擴充功能]  來安裝「我的應用程式安全登入瀏覽器擴充功能」  。
 
-2. 移至 管理 > 驗證 > 驗證設定 並執行下列步驟：
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+2. 將擴充功能新增至瀏覽器之後，按一下 [設定 Zscaler Three]  便會將您導向到 Zscaler Three 應用程式。 請從該處提供用以登入 Zscaler Three 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行步驟 3 到 6。
+
+    ![設定 SSO](common/setup-sso.png)
+
+3. 如果您想要手動設定 Zscaler Three，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 Zscaler Three 公司網站，然後執行下列步驟：
+
+4. 移至 管理 > 驗證 > 驗證設定  並執行下列步驟：
    
     ![管理](./media/zscaler-three-tutorial/ic800206.png "管理")
 
-    a. 在 [驗證類型] 下選擇 [SAML]。
+    a. 在 [驗證類型] 下選擇 [SAML]  。
 
-    b. 按一下 [設定 SAML]。
+    b. 按一下 [設定 SAML]  。
 
-3. 在 [編輯 SAML] 視窗上執行下列步驟，然後按一下 [儲存]。  
+5. 在 [編輯 SAML]  視窗上執行下列步驟，然後按一下 [儲存]。  
             
     ![管理使用者和驗證](./media/zscaler-three-tutorial/ic800208.png "管理使用者和驗證")
     
-    a. 在 [SAML 入口網站 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]。
+    a. 在 [SAML 入口網站 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  。
 
-    b. 在 [登入名稱屬性] 文字方塊中，輸入 **NameID**。
+    b. 在 [登入名稱屬性]  文字方塊中，輸入 **NameID**。
 
-    c. 按一下 [上傳]，以上傳您從 Azure 入口網站的 [公開 SSL 憑證] 下載的 Azure SAML 簽署憑證。
+    c. 按一下 [上傳]  ，以上傳您從 Azure 入口網站的 [公開 SSL 憑證]  下載的 Azure SAML 簽署憑證。
 
-    d. 切換 [啟用 SAML 自動佈建]。
+    d. 切換 [啟用 SAML 自動佈建]  。
 
-    e. 如果您想要啟用 displayName 屬性的 SAML 自動佈建，請在 [使用者顯示名稱屬性] 文字方塊中，輸入 **displayName**。
+    e. 如果您想要啟用 displayName 屬性的 SAML 自動佈建，請在 [使用者顯示名稱屬性]  文字方塊中，輸入 **displayName**。
 
-    f. 如果您想要啟用 memberOf 屬性的 SAML 自動佈建，請在 [群組名稱屬性] 文字方塊中，輸入 **memberOf**。
+    f. 如果您想要啟用 memberOf 屬性的 SAML 自動佈建，請在 [群組名稱屬性]  文字方塊中，輸入 **memberOf**。
 
-    g. 如果您想要啟用 department 屬性的 SAML 自動佈建，請在 [部門名稱屬性] 文字方塊中，輸入 **department**。
+    g. 如果您想要啟用 department 屬性的 SAML 自動佈建，請在 [部門名稱屬性]  文字方塊中，輸入 **department**。
 
-    h. 按一下 [檔案] 。
+    h. 按一下 [檔案]  。
 
-4. 在 [設定使用者驗證]  對話方塊頁面上執行下列步驟：
+6. 在 [設定使用者驗證]  對話方塊頁面上執行下列步驟：
 
     ![系統管理](./media/zscaler-three-tutorial/ic800207.png)
 
-    a. 將滑鼠停留在靠近左下方的 [啟用] 功能表上。
+    a. 將滑鼠停留在靠近左下方的 [啟用]  功能表上。
 
-    b. 按一下 [啟用]。
+    b. 按一下 [啟用]  。
 
 ## <a name="configuring-proxy-settings"></a>進行 Proxy 設定
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>在 Internet Explorer 中進行 Proxy 設定
 
 1. 啟動 **Internet Explorer**。
 
-2. 從 [工具] 功能表選取 [網際網路選項] 可開啟 [網際網路選項] 對話方塊。   
+2. 從 [工具]  功能表選取 [網際網路選項]  可開啟 [網際網路選項]  對話方塊。   
     
      ![網際網路選項](./media/zscaler-three-tutorial/ic769492.png "網際網路選項")
 
@@ -205,33 +213,33 @@ ms.locfileid: "59564548"
   
      ![連線](./media/zscaler-three-tutorial/ic769493.png "連線")
 
-4. 按一下 [區域網路設定] 可開啟 [區域網路設定] 對話方塊。
+4. 按一下 [區域網路設定]  可開啟 [區域網路設定]  對話方塊。
 
 5. 在 [Proxy 伺服器] 區段中，執行下列步驟：   
    
     ![Proxy 伺服器](./media/zscaler-three-tutorial/ic769494.png "Proxy 伺服器")
 
-    a. 選取 [在您的區域網路使用 Proxy 伺服器]。
+    a. 選取 [在您的區域網路使用 Proxy 伺服器]  。
 
     b. 在 [位址] 文字方塊中輸入 **gateway.Zscaler Three.net**。
 
     c. 在 [連接埠] 文字方塊中輸入 **80**。
 
-    d. 選取 [近端網址不使用 Proxy 伺服器] 。
+    d. 選取 [近端網址不使用 Proxy 伺服器]  。
 
-    e. 按一下 [確定] 關閉 [區域網路 (LAN) 設定] 對話方塊。
+    e. 按一下 [確定]  關閉 [區域網路 (LAN) 設定]  對話方塊。
 
-6. 按一下 [確定] 關閉 [網際網路選項] 對話方塊。
+6. 按一下 [確定]  關閉 [網際網路選項]  對話方塊。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](common/users.png)
 
-2. 在畫面頂端選取 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]  。
 
     ![[新增使用者] 按鈕](common/new-user.png)
 
@@ -239,45 +247,45 @@ ms.locfileid: "59564548"
 
     ![[使用者] 對話方塊](common/user-properties.png)
 
-    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 brittasimon@yourcompanydomain.extension。 例如， BrittaSimon@contoso.com
+    b. 在 [使用者名稱]  欄位中，輸入 `brittasimon@yourcompanydomain.extension`。 例如， BrittaSimon@contoso.com
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 Zscaler Three 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Zscaler Three]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]  、[所有應用程式]  及 [Zscaler Three]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Zscaler Three]。
+2. 在應用程式清單中，選取 [Zscaler Three]  。
 
     ![應用程式清單中的 Zscaler Three 連結](common/all-applications.png)
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，選取 [使用者和群組]  。
 
     ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-4. 按一下 [新增使用者] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+4. 按一下 [新增使用者]  按鈕，然後在 [新增指派]  對話方塊中，選取 [使用者和群組]  。
 
     ![[新增指派] 窗格](common/add-assign-user.png)
 
-5. 在 [使用者和群組] 對話方塊中，從清單中選取使用者 (例如 **Britta Simon**)，然後按一下畫面底部的 [選取] 按鈕。
+5. 在 [使用者和群組]  對話方塊中，從清單中選取使用者 (例如 **Britta Simon**)，然後按一下畫面底部的 [選取]  按鈕。
 
-    ![映像](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
+    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
 
-6. 從 [選取角色] 對話方塊的清單中選擇適當的使用者角色，然後按一下畫面底部的 [選取] 按鈕。
+6. 從 [選取角色]  對話方塊的清單中選擇適當的使用者角色，然後按一下畫面底部的 [選取]  按鈕。
 
-    ![映像](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
+    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
 
-7. 在 [新增指派] 對話方塊中，選取 [指派] 按鈕。
+7. 在 [新增指派]  對話方塊中，選取 [指派]  按鈕。
 
-    ![映像](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
+    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
 
 ### <a name="create-zscaler-three-test-user"></a>建立 Zscaler Three 測試使用者
 

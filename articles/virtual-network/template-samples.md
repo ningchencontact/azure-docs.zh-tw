@@ -3,8 +3,8 @@ title: 虛擬網路的 Azure Resource Manager 範本範例 | Microsoft Docs
 description: 了解可供您用來部署 Azure 虛擬網路的不同 Azure Resource Manager 範本。
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/13/2018
-ms.author: jdial
-ms.openlocfilehash: a16feffea6ac64423398b995499f0e6a60182636
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 04/22/2019
+ms.author: kumud
+ms.openlocfilehash: c4d0c65cfae0bb323978f4143b0058071562ddb6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039583"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682512"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>虛擬網路的 Azure Resource Manager 範本範例
 
@@ -36,3 +36,4 @@ ms.locfileid: "54039583"
 |[建立 Azure 儲存體的虛擬網路服務端點](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-2subnets-service-endpoints-storage-integration)|建立具有兩個子網路、且每個子網路中各有一個虛擬介面的新虛擬網路。 讓服務端點可連線到其中一個子網路的 Azure 儲存體，並保護該子網路的新儲存體帳戶。|
 |[將兩個虛擬網路連線](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-to-vnet-peering)| 建立兩個虛擬網路，以及兩者之間的虛擬網路對等互連。|
 |[建立具有多個 IP 位址的虛擬機器](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-ipconfig)| 建立具有多個 IP 位址的 Windows 或 Linux VM。|
+|[設定 IPv4 + IPv6 雙重堆疊虛擬網路](https://github.com/Azure/azure-quickstart-templates/tree/master/ipv6-in-vnet) \(英文\)|部署包含兩個 VM 和一個具備 IPv4 與 IPv6 公用 IP 位址的 Azure Basic Load Balancer 的雙重堆疊 (IPv4 + IPv6) 虛擬網路。 |

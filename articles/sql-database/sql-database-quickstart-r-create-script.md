@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: ada09959391c551a9eff4d96b186be29c1e3b7a8
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: cfc70b3d8e364c25ccf9fd221699695641a66ef0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013091"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708596"
 ---
 # <a name="create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>在 Azure SQL Database 機器學習服務 (預覽) 中建立和執行簡單的 R 指令碼
 
@@ -73,9 +73,9 @@ print(c(c, d))
 
    > [!NOTE]
    > 如果您是系統管理員，您可以自動執行外部程式碼。 您可以使用以下命令，將權限授予其他使用者：
-   <br>**GRANT EXECUTE ANY EXTERNAL SCRIPT TO** *\<username\>*.
+   <br>**GRANT EXECUTE ANY EXTERNAL SCRIPT TO** *\<username\>* .
 
-2. 系統會計算正確的結果，而 R `print` 函式將結果傳回至 [訊息] 視窗。
+2. 系統會計算正確的結果，而 R `print` 函式將結果傳回至 [訊息]  視窗。
 
    您應該會看到類似下面的畫面。
 
@@ -102,9 +102,9 @@ GO
 
 | | |
 |-|-|
-|*@language* | 定義要呼叫的語言擴充功能，在此情況下為 R |
-|*@script* | 定義傳遞至 R 執行階段的命令。 整個 R 指令碼都必須包含在這個引數中 (作為 Unicode 文字)。 您也可以將文字新增到 **nvarchar** 類型的變數，然後呼叫此變數 |
-|*@input_data_1* | 查詢所傳回的資料會傳遞至 R 執行階段，而後資料再從該處傳回至 SQL Server 作為資料框架 |
+| @language | 定義要呼叫的語言擴充功能，在此情況下為 R |
+| @script | 定義傳遞至 R 執行階段的命令。 整個 R 指令碼都必須包含在這個引數中 (作為 Unicode 文字)。 您也可以將文字新增到 **nvarchar** 類型的變數，然後呼叫此變數 |
+| @input_data_1 | 查詢所傳回的資料會傳遞至 R 執行階段，而後資料再從該處傳回至 SQL Server 作為資料框架 |
 |WITH RESULT SETS | 子句會定義為 SQL Server 傳回的資料表所具備的結構描述，並新增 "Hello World" 作為資料行名稱，以及新增 **int** 作為資料類型 |
 
 此命令會輸出下列文字：
@@ -146,9 +146,9 @@ GO
 
     **結果**
 
-    ![RTestData 資料表的內容](./media/sql-database-connect-query-r/select-rtestdata.png)
+    ![RTestData 資料表的內容](./media/sql-database-quickstart-r-create-script/select-rtestdata.png)
 
-1. 執行下列 R 指令碼。 它會使用 `SELECT` 陳述式從資料表擷取資料，將它傳遞至 R 執行階段，並傳回資料作為資料框架。 `WITH RESULT SETS` 子句會定義為 SQL Database 傳回的資料表所具備的結構描述，並新增資料行名稱 NewColName。
+1. 執行下列 R 指令碼。 它會使用 `SELECT` 陳述式從資料表擷取資料，將它傳遞至 R 執行階段，並傳回資料作為資料框架。 `WITH RESULT SETS` 子句會定義為 SQL Database 傳回的資料表所具備的結構描述，並新增資料行名稱 NewColName  。
 
     ```sql
     EXECUTE sp_execute_external_script @language = N'R'
@@ -159,7 +159,7 @@ GO
 
     **結果**
 
-    ![從資料表傳回資料的 R 指令碼輸出](./media/sql-database-connect-query-r/r-output-rtestdata.png)
+    ![從資料表傳回資料的 R 指令碼輸出](./media/sql-database-quickstart-r-create-script/r-output-rtestdata.png)
 
 1. 我們現在會變更輸入或輸出變數的名稱。 預設輸入和輸出變數名稱為 **InputDataSet** 和 **OutputDataSet**，此指令碼會將這些名稱變更為 **SQL_in** 和 **SQL_out**：
 
@@ -193,7 +193,7 @@ GO
 
     **結果**
 
-    ![使用 @script 作為輸入的查詢結果](./media/sql-database-connect-query-r/r-data-generated-output.png)
+    ![使用 @script 作為輸入的查詢結果](./media/sql-database-quickstart-r-create-script/r-data-generated-output.png)
 
 ## <a name="check-r-version"></a>檢查 R 版本
 
@@ -205,7 +205,7 @@ EXECUTE sp_execute_external_script @language = N'R'
 GO
 ```
 
-R `print` 函式會將版本傳回至 [訊息] 視窗。 在下列範例輸出中，您可以看到此案例中的 SQL 資料庫已安裝 R 3.4.4 版。
+R `print` 函式會將版本傳回至 [訊息]  視窗。 在下列範例輸出中，您可以看到此案例中的 SQL 資料庫已安裝 R 3.4.4 版。
 
 **結果**
 
@@ -251,7 +251,7 @@ WITH result sets((
 
 **結果**
 
-![R 中已安裝的套件](./media/sql-database-connect-query-r/r-installed-packages.png)
+![R 中已安裝的套件](./media/sql-database-quickstart-r-create-script/r-installed-packages.png)
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -260,10 +260,8 @@ WITH result sets((
 > [!div class="nextstepaction"]
 > [使用 Azure SQL Database 機器學習服務 (預覽) 在 R 中建立和定型預測模型](sql-database-quickstart-r-train-score-model.md)
 
-如需機器學習服務的詳細資訊，請參閱下列文章。 雖然某些文章是針對 SQL Server 而撰寫的，但大部分的資訊都適用於 Azure SQL Database 中的機器學習服務 (搭配 R)。
+如需有關「搭配 R 的 Azure SQL Database 機器學習服務 (預覽)」的詳細資訊，請參閱下列文章。
 
-- [Azure SQL Database 機器學習服務 (搭配 R)](sql-database-machine-learning-services-overview.md)
-- [SQL Server Machine Learning 服務](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [教學課程：了解在 SQL Server 中使用 R 的資料庫內分析](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [R 和 SQL Server 的端對端資料科學逐步解說](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [教學課程：搭配使用 RevoScaleR R 函式與 SQL Server 資料](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [搭配 R 的 Azure SQL Database 機器學習服務 (預覽)](sql-database-machine-learning-services-overview.md)
+- [使用機器學習服務在 Azure SQL Database 中撰寫進階的 R 函式 (預覽)](sql-database-machine-learning-services-functions.md)
+- [在 Azure SQL Database 機器學習服務 (預覽) 中使用 R 和 SQL 資料](sql-database-machine-learning-services-data-issues.md)

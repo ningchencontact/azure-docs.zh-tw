@@ -1,5 +1,5 @@
 ---
-title: 設定 Microsoft Azure 資料箱磁碟 | Microsoft Docs
+title: 將 Azure 資料箱磁碟解除封裝、連接、解除鎖定的教學課程 | Microsoft Docs
 description: 使用本教學課程以了解如何設定您的 Azure 資料箱磁碟
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ee1150dd146be1f022134ffe6df3ca2fbf84f867
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 34d62df989da80c84bad92a90fc2253c416a4924
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652145"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939658"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>教學課程：針對 Azure 資料箱磁碟打開包裝、連線然後解除鎖定
 
@@ -59,7 +59,7 @@ ms.locfileid: "58652145"
 
     ![資料箱磁碟連線](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)    
     
-2. 在 Azure 入口網站中，移至 [一般] > [裝置詳細資料]。 使用複製圖示來複製通行金鑰。 此通行金鑰用來將磁碟解除鎖定。
+2. 在 Azure 入口網站中，移至 [一般] > [裝置詳細資料]  。 使用複製圖示來複製通行金鑰。 此通行金鑰用來將磁碟解除鎖定。
 
     ![資料箱磁碟解除鎖定通行金鑰](media/data-box-disk-deploy-set-up/data-box-disk-get-passkey.png) 
 
@@ -69,7 +69,7 @@ ms.locfileid: "58652145"
 
 請執行下列步驟，以連接磁碟並解除鎖定。
      
-1. 在 Azure 入口網站中，移至 [一般] > [裝置詳細資料]。 
+1. 在 Azure 入口網站中，移至 [一般] > [裝置詳細資料]  。 
 2. 下載對應至 Windows 用戶端的資料箱磁碟工具組。 此工具組包含 3 個工具：資料箱磁碟解除鎖定工具、資料箱磁碟驗證工具，以及資料箱磁碟分割複製工具。 
 
     在此程序中，您將只使用資料箱磁碟解除鎖定工具。 其他兩個工具會在稍後使用。
@@ -127,7 +127,7 @@ ms.locfileid: "58652145"
 
 ## <a name="unlock-disks-on-linux-client"></a>將 Linux 用戶端上的磁碟解除鎖定
 
-1. 在 Azure 入口網站中，移至 [一般] > [裝置詳細資料]。 
+1. 在 Azure 入口網站中，移至 [一般] > [裝置詳細資料]  。 
 2. 下載對應至 Linux 用戶端的資料箱磁碟工具組。  
 
     > [!div class="nextstepaction"]
@@ -208,12 +208,12 @@ ms.locfileid: "58652145"
 
     輸入下列命令。
  
-    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’ /Volumes:’<list of volumes>’`         
+    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:'<Your passkey from Azure portal>'          
 
     範例輸出如下所示。 
  
     ```
-    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’ /Volumes:’/dev/sdbl’ 
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’  
     
     START: Mon Aug 13 14:25:49 2018 
     Volumes: /dev/sdbl 

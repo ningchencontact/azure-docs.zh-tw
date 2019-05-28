@@ -8,19 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 85b8d4d0-3f6a-4913-b9d3-8cc327d8280d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/21/2019
+ms.date: 04/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ba9f4df36f753a1caf619ad90015fa073a00de3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8e85f390ee5ff74f02cb95fa4dcf1dfc1a35dad1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883372"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699868"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>教學課程：Azure Active Directory 與 SharePoint 內部部署整合
 
@@ -38,7 +38,7 @@ ms.locfileid: "58883372"
 
 若要設定 Azure AD 與 SharePoint 內部部署整合，您需要下列項目：
 
-* Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
+* Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以申請[免費帳戶](https://azure.microsoft.com/free/)
 * 已啟用 SharePoint 內部部署單一登入功能的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
@@ -53,19 +53,19 @@ ms.locfileid: "58883372"
 
 **若要從資源庫新增 SharePoint 內部部署，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
+2. 瀏覽至 [企業應用程式]  ，然後選取 [所有應用程式]  選項。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **SharePoint 內部部署**，從結果面板中選取 [SharePoint 內部部署]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **SharePoint 內部部署**，從結果面板中選取 [SharePoint 內部部署]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
     ![結果清單中的 SharePoint 內部部署](common/search-new-app.png)
 
@@ -81,8 +81,8 @@ ms.locfileid: "58883372"
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[在 Azure 入口網站中建立 Azure AD 安全性群組](#create-an-azure-ad-security-group-in-the-azure-portal)** - 在 Azure AD 中啟用新的安全性群組以使用單一登入。
 5. **[授與 SharePoint 內部部署安全性群組的存取權](#grant-access-to-sharepoint-on-premises-security-group)** - 將特定群組的存取權授與 Azure AD。
-6. **[在 Azure 入口網站中指派 Azure AD 安全性群組](#assign-the-azure-ad-security-group-in-the-azure-portal)** - 將特定群組指派給 Azure AD 進行驗證。
-7. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+6. **[在 Azure 入口網站中指派 Azure AD 安全性群組](#assign-the-azure-ad-security-group-in-the-azure-portal)** - 將特定群組指派給 Azure AD 以進行驗證。
+7. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -90,39 +90,39 @@ ms.locfileid: "58883372"
 
 若要設定與 SharePoint 內部部署搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [SharePoint 內部部署] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [SharePoint 內部部署]  應用程式整合頁面上，選取 [單一登入]  。
 
     ![設定單一登入連結](common/select-sso.png)
 
-2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML/WS-Fed] 模式以啟用單一登入。
+2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML/WS-Fed]  模式以啟用單一登入。
 
     ![單一登入選取模式](common/select-saml-option.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
+3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
+4. 在 [基本 SAML 組態]  區段上，執行下列步驟：
 
     ![[SharePoint 內部部署網域及 URL] 單一登入資訊](common/sp-identifier-reply.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<YourSharePointServerURL>/_trust/default.aspx`
+    a. 在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://<YourSharePointServerURL>/_trust/default.aspx`
 
-    b. 在 [識別碼] 方塊中，使用下列模式輸入 URL：`urn:sharepoint:federation`
+    b. 在 [識別碼]  方塊中，使用下列模式輸入 URL：`urn:sharepoint:federation`
 
-    c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<YourSharePointServerURL>/_trust/default.aspx`
+    c. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://<YourSharePointServerURL>/_trust/default.aspx`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [SharePoint 內部部署用戶端支援小組](https://support.office.com/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
+5. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，按一下 [下載]  ，以依據您的需求從指定選項下載 [憑證 (Base64)]  ，並儲存在您的電腦上。
 
     ![憑證下載連結](common/certificatebase64.png)
 
     > [!Note]
     > 請記下您已將憑證檔案下載到其中的檔案路徑，因為您稍後需要在 PowerShell 指令碼中使用它來進行設定。
 
-6. 在 [設定 SharePoint 內部部署] 區段上，依據您的需求複製適當的 URL。 針對**單一登入服務 URL**，請使用下列模式的值：`https://login.microsoftonline.com/_my_directory_id_/wsfed`
+6. 在 [設定 SharePoint 內部部署]  區段上，依據您的需求複製適當的 URL。 針對**單一登入服務 URL**，請使用下列模式的值：`https://login.microsoftonline.com/_my_directory_id_/wsfed`
 
     > [!Note]
     > _my_directory_id_ 是 Azure AD 訂用帳戶的租用戶識別碼。
@@ -149,7 +149,7 @@ ms.locfileid: "58883372"
     > [!TIP]
     > 如果您不熟悉 PowerShell 的使用方式，或想要深入了解 PowerShell 的運作方式，請參閱 [SharePoint PowerShell](https://docs.microsoft.com/powershell/sharepoint/overview?view=sharepoint-ps)。
 
-    ```powershell
+    ```
     $realm = "<Identifier value from the SharePoint on-premises Domain and URLs section in the Azure portal>"
     $wsfedurl="<SAML single sign-on service URL value which you have copied from the Azure portal>"
     $filepath="<Full path to SAML signing certificate file which you have downloaded from the Azure portal>"
@@ -160,20 +160,20 @@ ms.locfileid: "58883372"
     $map3 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" -IncomingClaimTypeDisplayName "SurName" -SameAsIncoming
     $map4 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" -IncomingClaimTypeDisplayName "Email" -SameAsIncoming
     $map5 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" -IncomingClaimTypeDisplayName "Role" -SameAsIncoming
-    $ap = New-SPTrustedIdentityTokenIssuer -Name "AzureAD" -Description "SharePoint secured by Azure AD" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $map,$map2,$map3,$map4 -SignInUrl $wsfedurl -IdentifierClaim "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
+    $ap = New-SPTrustedIdentityTokenIssuer -Name "AzureAD" -Description "SharePoint secured by Azure AD" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $map,$map2,$map3,$map4,$map5 -SignInUrl $wsfedurl -IdentifierClaim "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
     ```
 
     接著，依照下列步驟為您的應用程式啟用受信任的身分識別提供者：
 
-    a. 在 [管理中心] 中，瀏覽至 [管理 Web 應用程式]，然後選取您想要以 Azure AD 保護的 Web 應用程式。
+    a. 在 [管理中心] 中，瀏覽至 [管理 Web 應用程式]  ，然後選取您想要以 Azure AD 保護的 Web 應用程式。
 
-    b. 在功能區中，按一下 [驗證提供者]，然後選擇您想要使用的區域。
+    b. 在功能區中，按一下 [驗證提供者]  ，然後選擇您想要使用的區域。
 
-    c. 選取 [信任的身分識別提供者]，然後選取您剛才註冊名為 *AzureAD* 的身分識別提供者。
+    c. 選取 [信任的身分識別提供者]  ，然後選取您剛才註冊名為 *AzureAD* 的身分識別提供者。
 
-    d. 在 [登入頁面 URL] 設定中，選取 [自訂登入頁面] 並提供值 “/_trust/”。
+    d. 在 [登入頁面 URL] 設定中，選取 [自訂登入頁面]  並提供值 “/_trust/”。
 
-    e. 按一下 [確定]。
+    e. 按一下 [確定]  。
 
     ![設定您的驗證提供者](./media/sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
 
@@ -184,11 +184,11 @@ ms.locfileid: "58883372"
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](common/users.png)
 
-2. 在畫面頂端選取 [新增使用者]。
+2. 在畫面頂端選取 [新增使用者]  。
 
     ![[新增使用者] 按鈕](common/new-user.png)
 
@@ -196,26 +196,26 @@ ms.locfileid: "58883372"
 
     ![[使用者] 對話方塊](common/user-properties.png)
 
-    a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
+    b. 在 [使用者名稱]  欄位中，輸入 `brittasimon@yourcompanydomain.extension`  
     例如， BrittaSimon@contoso.com
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
 
 ### <a name="create-an-azure-ad-security-group-in-the-azure-portal"></a>在 Azure 入口網站中建立 Azure AD 安全性群組
 
-1. 按一下 [Azure Active Directory] > [所有群組]。
+1. 按一下 [Azure Active Directory] > [所有群組]  。
 
     ![建立 Azure AD 安全性群組](./media/sharepoint-on-premises-tutorial/allgroups.png)
 
-2. 按一下 [新增群組]：
+2. 按一下 [新增群組]  ：
 
     ![建立 Azure AD 安全性群組](./media/sharepoint-on-premises-tutorial/newgroup.png)
 
-3. 填寫 [群組類型]、[群組名稱]、[群組描述]、[成員資格類型]。 按一下箭頭來選取成員，然後搜尋或按一下您要新增至群組的成員。 按一下 [選取] 來新增選取的成員，然後按一下 [建立]。
+3. 填寫 [群組類型]  、[群組名稱]  、[群組描述]  、[成員資格類型]  。 按一下箭頭來選取成員，然後搜尋或按一下您要新增至群組的成員。 按一下 [選取]  來新增選取的成員，然後按一下 [建立]  。
 
     ![建立 Azure AD 安全性群組](./media/sharepoint-on-premises-tutorial/addingmembers.png)
 
@@ -226,15 +226,15 @@ ms.locfileid: "58883372"
 
 **在應用程式註冊上設定安全性群組與權限**
 
-1. 在 Azure 入口網站中選取 [Azure Active Directory]，然後選取 [應用程式註冊]。
+1. 在 Azure 入口網站中選取 [Azure Active Directory]  ，然後選取 [應用程式註冊]  。
 
     ![企業應用程式刀鋒視窗](./media/sharepoint-on-premises-tutorial/appregistrations.png)
 
-2. 在搜尋方塊中，輸入並選取 [SharePoint 內部部署]。
+2. 在搜尋方塊中，輸入並選取 [SharePoint 內部部署]  。
 
     ![結果清單中的 SharePoint 內部部署](./media/sharepoint-on-premises-tutorial/appsearch.png)
 
-3. 按一下 [資訊清單]。
+3. 按一下 [資訊清單]  。
 
     ![資訊清單選項](./media/sharepoint-on-premises-tutorial/manifest.png)
 
@@ -242,11 +242,11 @@ ms.locfileid: "58883372"
 
     ![編輯資訊清單](./media/sharepoint-on-premises-tutorial/manifestedit.png)
 
-5. 按一下 [設定]，然後按一下 [必要權限]。
+5. 按一下 [設定]  ，然後按一下 [必要權限]  。
 
     ![所需的權限](./media/sharepoint-on-premises-tutorial/settings.png)
 
-6. 按一下 [新增]，然後**選取 API**。
+6. 按一下 [新增]  ，然後**選取 API**。
 
     ![API 存取](./media/sharepoint-on-premises-tutorial/required_permissions.png)
 
@@ -258,7 +258,7 @@ ms.locfileid: "58883372"
 
     ![啟用存取](./media/sharepoint-on-premises-tutorial/readpermission.png)
 
-9. 現在，在 [必要設定] 底下按一下 [授與權限]，然後按一下 [是] 來授與權限。
+9. 現在，在 [必要設定] 底下按一下 [授與權限]  ，然後按一下 [是] 來授與權限。
 
     ![授與權限](./media/sharepoint-on-premises-tutorial/grantpermission.png)
 
@@ -270,7 +270,7 @@ ms.locfileid: "58883372"
     > [!NOTE]
     > 請注意，AzureCP 並非 Microsoft 產品，無法使用 Microsoft 技術支援。 依循 https://yvand.github.io/AzureCP/，在內部部署 SharePoint 伺服器陣列上下載、安裝及設定 AzureCP 
 
-11. **在內部部署 SharePoint 中授與 Azure Active Directory 安全性群組的存取權**：群組必須能存取內部部署 SharePoint 中的應用程式。  您可以使用下列步驟來設定存取 Web 應用程式的權限。
+11. **在內部部署 SharePoint 中授與 Azure Active Directory 安全性群組的存取權**：必須將 SharePoint 內部部署中應用程式的存取權授與群組。  您可以使用下列步驟來設定存取 Web 應用程式的權限。
 
 12. 在 [管理中心] 內按一下 [應用程式管理] 和 [管理 Web 應用程式]，然後選取 Web 應用程式來啟用功能區，最後按一下 [使用者原則]。
 
@@ -288,7 +288,7 @@ ms.locfileid: "58883372"
 
     ![新增安全性群組](./media/sharepoint-on-premises-tutorial/permissions1.png)
 
-16. 檢查 [Web 應用程式原則]，您會看到 Azure Active Directory 群組已新增。  群組宣告會顯示使用者名稱的 Azure Active Directory 安全性群組物件識別碼。
+16. 檢查 [Web 應用程式原則]，您會看到 Azure Active Directory 群組已新增。  群組宣告會顯示該使用者名稱的 Azure Active Directory 安全性群組物件識別碼。
 
     ![新增安全性群組](./media/sharepoint-on-premises-tutorial/addgroup.png)
 
@@ -300,29 +300,28 @@ ms.locfileid: "58883372"
 
 此組態適用於單一 Web 應用程式，但是如果您想要對多個 Web 應用程式使用相同受信任的識別提供者，則需要額外的組態。 例如，假設我們已將 Web 應用程式擴充為使用 URL `https://portal.contoso.local`，而現在也想要向 `https://sales.contoso.local` 驗證使用者。 若要完成這項操作，我們必須更新識別提供者以接受 WReply 參數，並且在 Azure AD 中更新應用程式註冊以新增回覆 URL。
 
-1. 在 Azure 入口網站中，開啟 Azure AD 目錄。 按一下 [應用程式註冊]，然後按一下 [檢視所有應用程式]。 按一下您先前建立的應用程式 (SharePoint SAML 整合)。
+1. 在 Azure 入口網站中，開啟 Azure AD 目錄。 按一下 [應用程式註冊]  ，然後按一下 [檢視所有應用程式]  。 按一下您先前建立的應用程式 (SharePoint SAML 整合)。
 
-2. 按一下 [設定] 。
+2. 按一下 [設定]  。
 
-3. 在 [設定] 刀鋒視窗中，按一下 [回覆 URL]。
+3. 在 [設定] 刀鋒視窗中，按一下 [回覆 URL]  。
 
-4. 為額外的 Web 應用程式新增 URL，將 `/_trust/default.aspx` 附加到 URL (例如 `https://sales.contoso.local/_trust/default.aspx`)，然後按一下 [儲存]。
+4. 為額外的 Web 應用程式新增 URL，將 `/_trust/default.aspx` 附加到 URL (例如 `https://sales.contoso.local/_trust/default.aspx`)，然後按一下 [儲存]  。
 
-5. 在 SharePoint 伺服器上，開啟 [SharePoint 2016 管理命令介面]，然後使用您先前使用的受信任身分識別權杖簽發者名稱，來執行下列命令。
+5. 在 SharePoint 伺服器上，開啟 [SharePoint 2016 管理命令介面]  ，然後使用您先前使用的受信任身分識別權杖簽發者名稱，來執行下列命令。
 
-    ```powershell
+    ```
     $t = Get-SPTrustedIdentityTokenIssuer "AzureAD"
     $t.UseWReplyParameter=$true
     $t.Update()
     ```
-
 6. 在 [管理中心] 內，移至 Web 應用程式，並且啟用現有受信任的識別提供者。 請記得也要將登入頁面 URL 設定為自訂登入頁面 `/_trust/`。
 
-7. 在 [管理中心] 內，按一下 Web 應用程式，然後選擇 [使用者原則]。 如本文中先前的示範，新增具有適當權限的使用者。
+7. 在 [管理中心] 內，按一下 Web 應用程式，然後選擇 [使用者原則]  。 如本文中先前的示範，新增具有適當權限的使用者。
 
 ### <a name="fixing-people-picker"></a>修正人員選擇器
 
-使用者現在可以使用來自 Azure AD 的身分識別登入 SharePoint 2016，但此使用者體驗還有改善的機會。 例如，搜尋使用者會在人員選擇器中呈現多個搜尋結果。 在宣告對應中建立之 3 種宣告類型的每種類型都有一個搜尋結果。 若要使用人員選擇器來選擇使用者，您必須精確輸入使用者名稱，然後選擇 [name] 宣告結果。
+使用者現在可以使用來自 Azure AD 的身分識別登入 SharePoint 2016，但此使用者體驗還有改善的空間。 例如，搜尋使用者會在人員選擇器中呈現多個搜尋結果。 在宣告對應中建立之 3 種宣告類型的每種類型都有一個搜尋結果。 若要使用人員選擇器來選擇使用者，您必須精確輸入使用者名稱，然後選擇 [name]  宣告結果。
 
 ![宣告搜尋結果](./media/sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
 
@@ -332,28 +331,28 @@ ms.locfileid: "58883372"
 
 ### <a name="assign-the-azure-ad-security-group-in-the-azure-portal"></a>在 Azure 入口網站中指派 Azure AD 安全性群組
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [SharePoint 內部部署]。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]  、[所有應用程式]  及 [SharePoint 內部部署]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，輸入並選取 [SharePoint 內部部署]。
+2. 在應用程式清單中，輸入並選取 [SharePoint 內部部署]  。
 
     ![應用程式清單中的 SharePoint 內部部署連結](common/all-applications.png)
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，選取 [使用者和群組]  。
 
     ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-4. 按一下 [新增使用者]。
+4. 按一下 [新增使用者]  。
 
     ![[新增指派] 窗格](common/add-assign-user.png)
 
-5. 搜尋您要使用的安全性群組，然後按一下該群組，將其新增至 [選取成員] 區段。 按一下 [選取]，然後按一下 [指派]。
+5. 搜尋您要使用的安全性群組，然後按一下該群組，將其新增至 [選取成員] 區段。 按一下 [選取]  ，然後按一下 [指派]  。
 
     ![搜尋安全性群組](./media/sharepoint-on-premises-tutorial/securitygroup1.png)
 
     > [!NOTE]
-    > 在 Azure 入口網站中，核取功能表列中的通知，讓您能在群組成功指派給企業應用程式時接收通知。
+    > 檢查 Azure 入口網站功能表列中的通知，以取得群組已成功指派至企業應用程式的通知。
 
 ### <a name="create-sharepoint-on-premises-test-user"></a>建立 SharePoint 內部部署測試使用者
 

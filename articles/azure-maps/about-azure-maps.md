@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 944a111ac0c31e755b3991f9ea101ba652c676d3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fbb855db1ff5a2cf79826294365733614259e4b0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268754"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575741"
 ---
 # <a name="what-is-azure-maps"></a>什麼是 Azure 地圖服務？
 
-Azure 地圖服務是地理空間服務的集合，以最新的可用地圖資料作為後盾，進而為 Web 和行動裝置應用程式提供準確的地理內容。 Azure 地圖服務是由 REST API 組成，可用於呈現多種樣式的**地圖**和衛星影像、**搜尋**地址、地點及全球景點；點對點和多點**路線規劃**、多點最佳化、等時線、營業用車、受影響的交通，以及矩陣路線規劃；領先業界的交通流量和事故檢視；透過 [地理位置] 建立使用者位置，以及將位置轉換為 [時區]，也可擷取某個位置的時間。 此外，Azure 地圖服務可為 [地理柵欄]、地圖**資料** 儲存體 (在 Azure 中裝載位置資訊) 及 [空間作業] 提供服務，進而透過地理空間分析提供位置智慧。 Azure 地圖服務可直接作為 REST API 使用，或透過我們強固的 **Web SDK** 或 **Android SDK** 提供。 這些工具可讓開發人員快速開發和調整解決方案，以將位置資訊整合到 Azure 雲端的 Azure 解決方案中。 立即註冊免費的 [Azure 地圖服務帳戶](https://azure.microsoft.com/services/azure-maps/)，開始進行開發！
+Azure 地圖服務是地理空間服務的集合，以最新的可用地圖資料作為後盾，進而為 Web 和行動裝置應用程式提供準確的地理內容。 Azure 地圖服務是由 REST API 組成，可用於呈現多種樣式的**地圖**和衛星影像、**搜尋**地址、地點及全球景點；點對點和多點**路線規劃**、多點最佳化、等時線、營業用車、受影響的交通，以及矩陣路線規劃；領先業界的交通流量和事故檢視；透過 [地理位置]  建立使用者位置，以及將位置轉換為 [時區]  ，也可擷取某個位置的時間。 此外，Azure 地圖服務可為 [地理柵欄]  、地圖**資料** 儲存體 (在 Azure 中裝載位置資訊) 及 [空間作業]  提供服務，進而透過地理空間分析提供位置智慧。 Azure 地圖服務可直接作為 REST API 使用，或透過我們強固的 **Web SDK** 或 **Android SDK** 提供。 這些工具可讓開發人員快速開發和調整解決方案，以將位置資訊整合到 Azure 雲端的 Azure 解決方案中。 立即註冊免費的 [Azure 地圖服務帳戶](https://azure.microsoft.com/services/azure-maps/)，開始進行開發！
 
 以下影片會深入說明 Azure 地圖服務：
 

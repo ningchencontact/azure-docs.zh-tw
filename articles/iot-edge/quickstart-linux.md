@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1913cf8d5fa367cc97dfac0a1ecfdf1edf06e298
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 5c790d39ea471a599e8a6b46004b3e350834c318
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758663"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573967"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>快速入門：將您的第一個 IoT Edge 模組部署至 Linux 裝置
 
@@ -77,7 +77,7 @@ IoT Edge 裝置：
 
 此快速入門適用於 IoT 中樞的免費層級。 如果您在過去已使用過 IoT 中樞，並已建立可用的中樞，您可以使用該 IoT 中樞。 每個訂用帳戶只能有一個免費的 IoT 中樞。
 
-下列程式碼會在資源群組 **IoTEdgeResources** 中建立免費的 **F1** 中樞。 請以 IoT 中樞的唯一名稱取代 {hub_name}。
+下列程式碼會在資源群組 **IoTEdgeResources** 中建立免費的 **F1** 中樞。 請以 IoT 中樞的唯一名稱取代 {hub_name}  。
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1
@@ -119,7 +119,7 @@ IoT Edge 裝置：
 
 ![圖表 - 在裝置上啟動執行階段](./media/quickstart-linux/start-runtime.png)
 
-IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件。 **IoT Edge 安全性精靈**會在每次 Edge 裝置開機時啟動，並藉由啟動 IoT Edge 代理程式來啟動該裝置。 **IoT Edge 代理程式**有助於在 IoT Edge 裝置 (包括 IoT Edge 中樞) 上部署及監視模組。 **IoT Edge 中樞**會管理 IoT Edge 裝置上的模組通訊，以及裝置與 IoT 中樞之間的通訊。
+IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件。 **IoT Edge 安全性精靈**會在每次 IoT Edge 裝置開機時啟動，並藉由啟動 IoT Edge 代理程式來啟動該裝置。 **IoT Edge 代理程式**有助於在 IoT Edge 裝置 (包括 IoT Edge 中樞) 上部署及監視模組。 **IoT Edge 中樞**會管理 IoT Edge 裝置上的模組通訊，以及裝置與 IoT 中樞之間的通訊。
 
 在執行階段設定期間，您必須提供裝置連接字串。 請使用您從 Azure CLI 擷取到的字串。 這個字串會讓實體裝置與 Azure 中的 IoT Edge 裝置身分識別建立關聯。
 
@@ -135,7 +135,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
 
 ### <a name="view-the-iot-edge-runtime-status"></a>檢視 IoT Edge 執行階段狀態
 
-此快速入門中的其餘命令，會在您的 IoT Edge 裝置本身上執行，讓您可以查看在裝置上發生的事。 如果您是使用虛擬機器，現在請使用建立命令所輸出的公用 IP 位址來連線到該機器。 您也可在 Azure 入口網站中您虛擬機器的 [概觀] 頁面上找到該公用 IP 位址。 使用下列命令連線到您的虛擬機器。 如果您使用的使用者名稱，與必要條件中建議的不同，請將 **{azureuser}** 取代為該名稱。 以您的電腦位址取代 **{publicIpAddress}**。
+此快速入門中的其餘命令，會在您的 IoT Edge 裝置本身上執行，讓您可以查看在裝置上發生的事。 如果您是使用虛擬機器，現在請使用建立命令所輸出的公用 IP 位址來連線到該機器。 您也可在 Azure 入口網站中您虛擬機器的 [概觀] 頁面上找到該公用 IP 位址。 使用下列命令連線到您的虛擬機器。 如果您使用的使用者名稱，與必要條件中建議的不同，請將 **{azureuser}** 取代為該名稱。 以您的電腦位址取代 **{publicIpAddress}** 。
 
    ```azurecli-interactive
    ssh azureuser@{publicIpAddress}
@@ -146,13 +146,13 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
 >[!TIP]
 >您必須要有提高的權限才能執行 `iotedge` 命令。 當您在安裝 IoT Edge 執行階段之後登出機器，並第一次重新登入時，您的權限將會自動更新。 在那之前，請在這些命令前面使用 **sudo**。
 
-1. 確認 Edge 安全性精靈正以系統服務的形式執行。
+1. 確認 IoT Edge 安全性精靈正以系統服務的形式執行。
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-   ![檢視以系統服務的形式執行的 Edge 精靈](./media/quickstart-linux/iotedged-running.png)
+   ![查看以系統服務形式執行的 IoT Edge 精靈](./media/quickstart-linux/iotedged-running.png)
 
 2. 如果您需要對服務進行疑難排解，請擷取服務記錄。
 
@@ -206,38 +206,22 @@ IoT Edge 裝置現已設定完成。 並已準備好執行雲端部署的模組�
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您想要繼續進行 IoT Edge 教學課程，您可以使用在本快速入門中註冊和設定的裝置。 否則，您可以刪除您所建立的 Azure 資源，並從裝置中移除 IoT Edge 執行階段。
-
-### <a name="delete-azure-resources"></a>刪除 Azure 資源
+如果您想要繼續進行 IoT Edge 教學課程，您可以使用在本快速入門中註冊和設定的裝置。 否則，您可以刪除您建立的 Azure 資源，以避免產生費用。
 
 如果您是在新的資源群組中建立虛擬機器和 IoT 中樞，您可以刪除該群組和所有相關聯的資源。 再次檢查資源群組的內容，確定沒有您想要保留的內容。 如果您不想刪除整個群組，可改為刪除個別資源。
 
 移除 **IoTEdgeResources** 群組。
 
-   ```azurecli-interactive
-   az group delete --name IoTEdgeResources
-   ```
-
-### <a name="remove-the-iot-edge-runtime"></a>移除 IoT Edge 執行階段
-
-如果您想要從裝置移除這些安裝，請使用下列命令。  
-
-移除 IoT Edge 執行階段。
-
-   ```bash
-   sudo apt-get remove --purge iotedge
-   ```
-
-移除容器執行階段。
-
-   ```bash
-   sudo apt-get remove --purge moby-cli
-   sudo apt-get remove --purge moby-engine
-   ```
+```azurecli-interactive
+az group delete --name IoTEdgeResources
+```
 
 ## <a name="next-steps"></a>後續步驟
 
-本快速入門是所有 IoT Edge 教學課程的先決條件。 您可以繼續閱讀其他任何教學課程，以了解 Azure IoT Edge 可如何協助您將此資料轉換成具有優勢的商業洞見。
+
+在本快速入門中，您已建立 IoT Edge 裝置，並使用 Azure IoT Edge 雲端介面將程式碼部署至裝置上。 現在，您已有測試裝置，可產生其環境的相關原始資料。
+
+下一個步驟是設定您的本機開發環境，以便您可以開始建立執行您商務邏輯的 IoT Edge 模組。 
 
 > [!div class="nextstepaction"]
-> [使用 Azure 函式篩選感應器資料](tutorial-deploy-function.md)
+> [開始開發適用於 Linux 裝置的 IoT Edge 模組](tutorial-develop-for-linux.md)

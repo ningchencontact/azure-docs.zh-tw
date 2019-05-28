@@ -3,8 +3,8 @@ title: Azure PowerShell 指令碼範例 - 為多層式應用程式建立網路 |
 description: Azure PowerShell 指令碼範例 - 為多層式應用程式建立虛擬網路。
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 12/13/2018
-ms.author: jdial
-ms.openlocfilehash: efd496f2f69f243b958f4e780b9f3455d2ffece3
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud
+ms.openlocfilehash: 2fad78db4fdc92f3dc9c0f320c36d12dea554a61
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648689"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725398"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>為多層式應用程式建立網路的指令碼範例
 
@@ -34,7 +34,8 @@ ms.locfileid: "56648689"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 --> 子網路識別碼會在虛擬網路建好後指派；具體來說，會使用 New-AzVirtualNetwork Cmdlet 搭配 -Subnet 選項。 如果您在呼叫 New-AzVirtualNetwork 前使用 New-AzVirtualNetworkSubnetConfig Cmdlet 設定子網路，您就不會看到子網路識別碼，直到您呼叫 New-AzVirtualNetwork 後才能看到。
+<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 -->
+子網路識別碼會在虛擬網路建立完成後指派；具體來說，會使用 New-AzVirtualNetwork Cmdlet 搭配 -Subnet 選項。 如果您在呼叫 New-AzVirtualNetwork 前使用 New-AzVirtualNetworkSubnetConfig Cmdlet 設定子網路，您就不會看到子網路識別碼，直到您呼叫 New-AzVirtualNetwork 後才能看到。
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 

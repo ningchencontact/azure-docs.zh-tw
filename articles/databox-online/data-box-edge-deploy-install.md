@@ -1,5 +1,5 @@
 ---
-title: 安裝 Azure Data Box Edge 實體裝置的教學課程 | Microsoft Docs
+title: 安裝 (解除封裝、裝設機架、連接纜線) Azure Data Box Edge 實體裝置的教學課程 | Microsoft Docs
 description: 關於安裝 Azure Data Box Edge 的第二個教學課程將說明如何打開包裝，然後接上實體裝置的機架和纜線。
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7062e9d829242a62dfa4f661c21ce6c56b0db69c
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278474"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924531"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>教學課程：安裝 Azure Data Box Edge
 
@@ -117,7 +117,7 @@ ms.locfileid: "59278474"
 ### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>安裝及移除工具式滑軌 (已穿孔的機架)
 
 > [!TIP]
-> 這個選項需用到工具，因為其需要工具 (一字型螺絲起子) 才能將滑軌安裝到機架中的螺紋圓形孔，以及從中移除滑軌。
+> 這個選項需用到工具，因為其需要工具 (一字型螺絲起子  ) 才能將滑軌安裝到機架中的螺紋圓形孔，以及從中移除滑軌。
 
 1. 使用一字型螺絲起子，從前端和後端安裝托架移除定位銷。
 2. 拉開並旋轉滑軌閂鎖子組件，從安裝托架將其移除。
@@ -145,7 +145,8 @@ ms.locfileid: "59278474"
 
 ### <a name="engage-and-release-the-slam-latch"></a>嚙合及解除閉合閂鎖
 
-注意：對於未配備閉合閂鎖的系統，使用螺絲固定系統 (如此程序的步驟 3 所述)。
+> [!NOTE]
+> 對於未配備閉合閂鎖的系統，使用螺絲固定系統 (如此程序的步驟 3 所述)。
 
 1. 面向前方，找到系統任一側的閉合閂鎖。
 2. 閂鎖會在系統推入機架時自動嚙合，而向上拉起閂鎖就會解除。

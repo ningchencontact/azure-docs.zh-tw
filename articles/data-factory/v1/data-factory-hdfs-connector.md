@@ -50,7 +50,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 
 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
 
-您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -456,7 +456,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 
     1. 移至 [伺服器管理員] > [群組原則管理] > [網域] > [群組原則物件] > [預設或作用中的網域原則]，然後進行編輯。
 
-    2. 在 [群組原則管理編輯器] 快顯視窗中，移至 [電腦設定] > [原則] > [Windows 設定] > [安全性設定] > [本機原則] > [安全性選項]，並設定 [網路安全性：設定 Kerberos 允許的加密類型]。
+    2. 在 [群組原則管理編輯器]  快顯視窗中，移至 [電腦設定] > [原則] > [Windows 設定] > [安全性設定] > [本機原則] > [安全性選項]，並設定 [網路安全性：  設定 Kerberos 允許的加密類型]。
 
     3. 選取您想要在連線至 KDC 時使用的加密演算法。 一般來說，您可以直接選取所有選項。
 
@@ -468,11 +468,11 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 
 4.  建立網域帳戶與 Kerberos 主體之間的對應，以便在 Windows 網域中使用 Kerberos 主體。
 
-    1. 啟動 [系統管理工具] > [Active Directory 使用者和電腦]。
+    1. 啟動 [系統管理工具] > [Active Directory 使用者和電腦]  。
 
-    2. 按一下 [檢視] > [進階功能] 來設定進階功能。
+    2. 按一下 [檢視]   > [進階功能]  來設定進階功能。
 
-    3. 找到您要用以建立對應的帳戶，然後按一下滑鼠右鍵以檢視 [名稱對應] > 按一下 [Kerberos 名稱] 索引標籤。
+    3. 找到您要用以建立對應的帳戶，然後按一下滑鼠右鍵以檢視 [名稱對應]  > 按一下 [Kerberos 名稱]  索引標籤。
 
     4. 從領域中新增主體。
 

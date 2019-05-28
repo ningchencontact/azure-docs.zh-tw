@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 97309a24c0ab12720f968409856a16cab4ff7ac7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c1719064de53b79a127146d0ab034f461657cc64
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013087"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714904"
 ---
 # <a name="create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>使用 Azure SQL Database 機器學習服務 (預覽) 在 R 中建立和定型預測模型
 
@@ -46,7 +46,7 @@ ms.locfileid: "60013087"
 **cars** 資料集中的汽車速度資料包含兩個資料行 (均為數值)：**dist** 和 **speed**。 這項資料包含不同速度下的多個煞停觀察值。 您將從這項資料建立線性迴歸模型，以說明車輛速度與煞停所需距離之間的關聯性。
 
 線性模型的需求很簡單：
-- 定義一個公式來說明應變數「速度」與自變數「距離」之間的關聯性。
+- 定義一個公式來說明應變數「速度」  與自變數「距離」  之間的關聯性。
 - 提供定型模型時所使用的輸入資料。
 
 > [!TIP]
@@ -171,11 +171,11 @@ VALUES (
 
 **結果**
 
-![有其他輸出的定型模型](./media/sql-database-connect-query-r/r-train-model-with-additional-output.png)
+![有其他輸出的定型模型](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
 ## <a name="score-new-data-using-the-trained-model"></a>使用已定型的模型進行新資料評分
 
-「評分」一詞在資料科學中用來表示根據送入定型模型中的新資料來產生預測、機率或其他值的動作。 您會使用在上一節建立的模型對新資料進行預測評分。
+「評分」  一詞在資料科學中用來表示根據送入定型模型中的新資料來產生預測、機率或其他值的動作。 您會使用在上一節建立的模型對新資料進行預測評分。
 
 您是否注意到，原始的定型資料僅止於每小時 25 英哩的速度？ 這是因為原始資料以 1920 年的實驗作為基礎！ 您可能會想知道，如果 1920 年代的汽車能開到每小時 60 英哩甚或 100 英哩的速度，需要多久的時間才能煞停？ 若要解答此問題，您可將一些新的速度值提供給您的模型。
 
@@ -239,7 +239,7 @@ VALUES (
 
    **結果**
 
-   ![預測煞停距離的結果集](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+   ![預測煞停距離的結果集](./media/sql-database-quickstart-r-train-score-model/r-predict-stopping-distance-resultset.png)
 
 > [!NOTE]
 > 在此範例指令碼中，會在測試階段加入 `str` 函式，以檢查從 R 傳回的資料結構描述。您可於稍後移除陳述式。
@@ -248,10 +248,9 @@ VALUES (
 
 ## <a name="next-steps"></a>後續步驟
 
-如需機器學習服務的詳細資訊，請參閱下列文章。 雖然某些文章是針對 SQL Server 而撰寫的，但大部分的資訊都適用於 Azure SQL Database 中的機器學習服務 (搭配 R)。
+如需有關「搭配 R 的 Azure SQL Database 機器學習服務 (預覽)」的詳細資訊，請參閱下列文章。
 
-- [Azure SQL Database 機器學習服務 (搭配 R)](sql-database-machine-learning-services-overview.md)
-- [SQL Server Machine Learning 服務](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [教學課程：了解在 SQL Server 中使用 R 的資料庫內分析](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [R 和 SQL Server 的端對端資料科學逐步解說](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [教學課程：搭配使用 RevoScaleR R 函式與 SQL Server 資料](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [搭配 R 的 Azure SQL Database 機器學習服務 (預覽)](sql-database-machine-learning-services-overview.md)
+- [在 Azure SQL Database 機器學習服務中建立和執行簡單的 R 指令碼 (預覽)](sql-database-quickstart-r-create-script.md)
+- [使用機器學習服務在 Azure SQL Database 中撰寫進階的 R 函式 (預覽)](sql-database-machine-learning-services-functions.md)
+- [在 Azure SQL Database 機器學習服務 (預覽) 中使用 R 和 SQL 資料](sql-database-machine-learning-services-data-issues.md)
