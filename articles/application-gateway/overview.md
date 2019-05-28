@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 4/18/2019
+ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 91e94c70444430725ffec836d1663aef99eb5496
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 78dd4b31991a15d3d946c47c5394f64bb3afea95
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003355"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947258"
 ---
 # <a name="what-is-azure-application-gateway"></a>什麼是 Azure 應用程式閘道？
 
@@ -21,48 +21,29 @@ Azure 應用程式閘道是網路流量負載平衡器，可讓您管理 Web 應
 
 ![應用程式閘道概念](media/overview/figure1-720.png)
 
-但是使用應用程式閘道可讓作業變得更明確。 例如，您可以根據傳入 URL 路由傳送流量。 因此，如果 `/images` 在傳入的 URL 中，您可以將流量路由傳送至一組針對影像設定的特定伺服器 (也稱為集區)。 如果 `/video` 在此 URL 中，該流量就會路由傳送至另一個針對影片最佳化的集區。
+透過應用程式閘道，您可以根據 HTTP 要求的其他屬性 (例如 URI 路徑或主機標頭) 進行路由決策。 例如，您可以根據傳入 URL 路由傳送流量。 因此，如果 `/images` 在傳入的 URL 中，您可以將流量路由傳送至一組針對影像設定的特定伺服器 (也稱為集區)。 如果 `/video` 在此 URL 中，該流量就會路由至另一個針對影片最佳化的集區。
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
 
-這類型的路由也稱為應用程式層 (OSI 層 7) 負載平衡。 Azure 應用程式閘道可以進行 URL 型路由等作業。 
+這類型的路由也稱為應用程式層 (OSI 層 7) 負載平衡。 Azure 應用程式閘道可以進行 URL 型路由等作業。
 
 Azure 應用程式閘道包含下列功能︰
 
-## <a name="autoscaling-public-preview"></a>自動調整公開預覽版
-
-除了本文所述的功能外，應用程式閘道也提供新 SKU [Standard_V2] 的公開預覽版，其中提供自動調整和其他重要效能的增強功能。
-
-- **自動調整** - 自動調整 SKU 下的「應用程式閘道」或 WAF 部署可以根據變動的流量負載模式來相應增加或相應減少。 自動調整規模也可讓您在佈建時，無須選擇部署大小或執行個體計數。 
-
-- **區域備援** - 「應用程式閘道」或 WAF 部署可以跨多個「可用性區域」，讓您無須使用「流量管理員」在每個區域中佈建及運轉個別的「應用程式閘道」執行個體。
-
-- **靜態 VIP** - 應用程式閘道 VIP 現已可獨佔地支援靜態 VIP 類型。 這可確保與應用程式閘道相關的 VIP 即使在重新啟動後也不會變更。
-
-- **更快速的部署和更新時間** (相較於正式運作的 SKU)。 
-
-- **提升 5 倍的 SSL 卸載效能** (相較於正式運作的 SKU)。
-
-如需應用程式閘道公開預覽版功能的詳細資訊，請參閱[自動調整和區域備援應用程式閘道 (公開預覽)](application-gateway-autoscaling-zone-redundant.md)。
-
 ## <a name="secure-sockets-layer-ssl-termination"></a>安全通訊端層 (SSL) 終止
 
-應用程式閘道支援在閘道上終止 SSL，之後流量通常會以未加密狀態流至後端伺服器。 這項功能可讓 Web 伺服器不必再負擔昂貴的加密和解密成本。 不過，有時候無法對伺服器進行未加密的通訊。 可能是因為安全性需求、合規性需求，或應用程式可能只接受安全連線。 對於這些應用程式，應用程式閘道可支援端對端 SSL 加密。
+應用程式閘道支援在閘道上終止 SSL，之後流量通常會以未加密狀態流至後端伺服器。 這項功能可讓 Web 伺服器不必再負擔昂貴的加密和解密成本。 不過，有時候無法對伺服器進行未加密的通訊。 這可能是因為安全性需求、合規性需求，或應用程式可能只接受安全連線。 對於這些應用程式，應用程式閘道可支援端對端 SSL 加密。
 
-## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Azure Kubernetes Service (AKS) 輸入控制器預覽 
+## <a name="autoscaling"></a>自動調整
 
-應用程式閘道輸入控制器會以 Pod 的形式在 AKS 叢集中運作，並允許應用程式閘道作為 AKS 叢集的輸入。 這僅限搭配應用程式閘道 v2 使用。
+Standard_v2 或 WAF_v2 SKU 下的應用程式閘道或 WAF 部署支援自動調整，並且可根據變動的流量負載模式來相應增加或相應減少。 自動調整規模也可讓您在佈建時，無須選擇部署大小或執行個體計數。 如需應用程式閘道 standard_v2 和 WAF_v2 功能的詳細資訊，請參閱[自動調整 v2 SKU](application-gateway-autoscaling-zone-redundant.md)。
 
-如需詳細資訊，請參閱 [Azure 應用程式閘道輸入控制器](https://azure.github.io/application-gateway-kubernetes-ingress/)。
+## <a name="zone-redundancy"></a>區域備援
 
-## <a name="connection-draining"></a>清空連線
+Standard_v2 或 WAF_v2 SKU 下的應用程式閘道或 WAF 部署可以跨多個可用性區域、提供更好的錯誤復原能力，且讓您無須在每個區域中佈建個別的應用程式閘道。
 
-清空連線可協助您在已規劃的服務更新期間，毫無錯誤地移除後端集區成員。 此設定會透過後端 http 設定啟用，而且可以在規則建立期間套用至後端集區的所有成員。 啟用之後，應用程式閘道可確保所有取消註冊的後端集區執行個體不會再接收任何新要求，但允許在已設定的時間限制內完成現有要求。 這適用於透過 API 呼叫從後端集區中確實移除的後端執行個體，以及根據健康情況探查的判斷，而回報為狀況不良的後端執行個體。
+## <a name="static-vip"></a>靜態 VIP
 
-## <a name="custom-error-pages"></a>自訂錯誤頁面
-應用程式閘道可讓您建立自訂的錯誤頁面，而不是顯示預設的錯誤頁面。 您可以使用自訂錯誤頁面來搭配您自己的商標和版面配置。
-
-如需詳細資訊，請參閱[建立應用程式閘道的自訂錯誤頁面](custom-error.md)。
+Standard_v2 或 WAF_v2 SKU 上的應用程式閘道 VIP 支援獨佔的靜態 VIP 類型。 這可確保與應用程式閘道相關聯的 VIP 即使在應用程式閘道的存留期結束後也不會變更。
 
 ## <a name="web-application-firewall"></a>Web 應用程式防火牆
 
@@ -92,9 +73,9 @@ URL 路徑型路由可讓您根據要求的 URL 路徑，將流量路由傳送�
 
 ## <a name="redirection"></a>重新導向
 
-許多 Web 應用程式的常見案例是支援自動 HTTP 至 HTTPS 的重新導向，以確保應用程式與其使用者之間的通訊會透過加密的路徑進行。 
+許多 Web 應用程式的常見案例是支援自動 HTTP 至 HTTPS 的重新導向，以確保應用程式與其使用者之間的通訊會透過加密的路徑進行。
 
-在過去，您會使用一些技巧 (例如建立專屬集區)，其唯一目的是要將其在 HTTP 上接收的要求重新導向至 HTTPS。 應用程式閘道支援在應用程式閘道上重新導向流量的功能。 這可簡化應用程式組態、將資源使用量最佳化，並支援新的重新導向案例，包括全域和路徑式重新導向。 應用程式閘道重新導向支援不只限於 HTTP 至 HTTPS 重新導向。 這是一般重新導向機制，因此您可以從使用規則定義的任何連接埠重新導向，或是重新導向至使用規則定義的任何連接埠。 它也支援重新導向至外部網站。
+在過去，您會使用一些技巧 (例如建立專屬集區)，其唯一目的是要將其在 HTTP 上接收的要求重新導向至 HTTPS。 應用程式閘道支援在應用程式閘道上重新導向流量的功能。 這可簡化應用程式組態、將資源使用量最佳化，並支援新的重新導向案例，包括全域和路徑式重新導向。 應用程式閘道重新導向支援不僅止於 HTTP 至 HTTPS 的重新導向。 這是一般重新導向機制，因此您可以從使用規則定義的任何連接埠重新導向，或是重新導向至使用規則定義的任何連接埠。 它也支援重新導向至外部網站。
 
 應用程式閘道重新導向提供下列功能：
 
@@ -114,22 +95,41 @@ URL 路徑型路由可讓您根據要求的 URL 路徑，將流量路由傳送�
 
 WebSocket 和 HTTP/2 通訊協定都可透過長時間執行的 TCP 連線，讓伺服器與用戶端之間能進行全雙工通訊。 此功能可讓網頁伺服器和用戶端之間進行互動性更高的通訊，此通訊可以是雙向的，而不需要像 HTTP 型實作所要求的進行輪詢。 不同於 HTTP，這些通訊協定的負荷很低，而且可以對多個要求/回應重複使用相同的 TCP 連線，進而提升資源使用效率。 這些通訊協定設計為透過傳統 HTTP 連接埠 80 和 443 進行運作。
 
-如需詳細資訊，請參閱 [WebSocket 支援](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) \(機器翻譯\) 與 [HTTP/2 支援](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support) \(機器翻譯\)。 
+如需詳細資訊，請參閱 [WebSocket 支援](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) \(機器翻譯\) 與 [HTTP/2 支援](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support) \(機器翻譯\)。
 
-## <a name="rewrite-http-headers-public-preview"></a>重新撰寫 HTTP 標頭 (公開預覽)
+## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Azure Kubernetes Service (AKS) 輸入控制器預覽 
+
+應用程式閘道輸入控制器會以 Pod 的形式在 AKS 叢集中運作，並允許應用程式閘道作為 AKS 叢集的輸入。 這僅限搭配應用程式閘道 v2 使用。
+
+如需詳細資訊，請參閱 [Azure 應用程式閘道輸入控制器](https://azure.github.io/application-gateway-kubernetes-ingress/)。
+
+## <a name="connection-draining"></a>清空連線
+
+清空連線可協助您在已規劃的服務更新期間，毫無錯誤地移除後端集區成員。 此設定會透過後端 http 設定啟用，而且可以在規則建立期間套用至後端集區的所有成員。 啟用之後，應用程式閘道可確保所有取消註冊的後端集區執行個體不會再接收任何新要求，但允許在已設定的時間限制內完成現有要求。 這適用於透過 API 呼叫從後端集區中確實移除的後端執行個體，以及根據健康情況探查的判斷，而回報為狀況不良的後端執行個體。
+
+## <a name="custom-error-pages"></a>自訂錯誤頁面
+
+應用程式閘道可讓您建立自訂的錯誤頁面，而不是顯示預設的錯誤頁面。 您可以使用自訂錯誤頁面來搭配您自己的商標和版面配置。
+
+如需詳細資訊，請參閱[重新撰寫 HTTP 標頭](rewrite-http-headers.md)。
+
+## <a name="rewrite-http-headers"></a>重新撰寫 HTTP 標頭
 
 HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。 重寫這些 HTTP 標頭可協助您完成幾個重要的案例，例如：
+
 - 新增安全性相關的標頭欄位，例如 HSTS/ X-XSS-Protection。
 - 移除可能會顯示機密資訊的回應標頭欄位。
 - 從 X-Forwarded-For 標頭中移除連接埠資訊。
 
 Application Gateway 支援在要求及回應封包於用戶端與後端應用程式之間移動時，新增、移除或更新 HTTP 要求及回應標頭的功能。 它還為您提供了新增條件的功能，以確保僅在符合特定條件時才重新寫入指定的標頭。
 
-如需此公開預覽功能的詳細資訊，請參閱[重新撰寫 HTTP 標頭](rewrite-http-headers.md)。
+如需詳細資訊，請參閱[重新撰寫 HTTP 標頭](rewrite-http-headers.md)。
 
 ## <a name="sizing"></a>調整大小
 
-應用程式閘道目前提供三種大小：**小型**、**中型**和**大型**。 小型執行個體大小是針對開發和測試案例。
+應用程式閘道 Standard_v2 和 WAF_v2 SKU 可以設定自動調整或固定大小的部署。 這些 SKU 不會提供不同的執行個體大小。
+
+應用程式閘道的標準和 WAF SKU 目前提供三種大小：**小型**、**中型**和**大型**。 小型執行個體大小是針對開發和測試案例。
 
 如需應用程式閘道限制的完整清單，請瀏覽[應用程式閘道服務限制](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)。
 
@@ -147,6 +147,6 @@ Application Gateway 支援在要求及回應封包於用戶端與後端應用程
 
 視需求和環境而定，您可以使用 Azure 入口網站、Azure PowerShell 或 Azure CLI 來建立測試應用程式閘道：
 
-- [快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure 入口網站](quick-create-portal.md)。
+- [快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure 入口網站](quick-create-portal.md)
 - [快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure PowerShell](quick-create-powershell.md)
 - [快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure CLI](quick-create-cli.md)
