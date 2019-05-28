@@ -190,7 +190,7 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 | jarLinkedService |包含 Jar 檔案的 Azure 儲存體連結服務。 這個連結服務會參考與 HDInsight 叢集關聯的儲存體。 |
 | arguments |字數統計程式會採用輸入和輸出兩個引數。 輸入檔為 davinci.txt 檔案。 |
 | frequency/interval |這些屬性的值符合輸出資料集。 |
-| 預設容器 |表示您先前建立的 HDInsight 連結服務。 |
+| linkedServiceName |表示您先前建立的 HDInsight 連結服務。 |
 
 ```JSON
 {
