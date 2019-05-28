@@ -63,28 +63,24 @@
       href: azure-management.md
     - name: 連續監視
       href: continuous-monitoring.md
+    - name: 資料來源
+      href: platform/data-sources.md
     - name: 資料平台
       items:
         - name: 概觀
           href: platform/data-platform.md
+        - name: 資料地點
+          href: platform/data-locations.md
         - name: 度量
           href: platform/data-platform-metrics.md
         - name: 記錄
           href: platform/data-platform-logs.md
-    - name: 資料來源
-      items:
-        - name: 資料來源摘要
-          href: platform/data-sources.md
-        - name: Azure 資料來源
-          href: platform/data-sources-reference.md
-        - name: 活動記錄檔
-          href: platform/activity-logs-overview.md
-        - name: 診斷記錄
-          href: platform/diagnostic-logs-overview.md
         - name: 記錄檔資料擷取時間
           href: platform/data-ingestion-time.md
-        - name: 自訂計量至計量存放區
-          href: platform/metrics-custom-overview.md
+    - name: 深入解析
+      href: insights/insights-overview.md
+    - name: 監視解決方案
+      href: insights/solutions-inventory.md
     - name: 資料安全性
       items:
         - name: 記錄資料
@@ -93,24 +89,6 @@
           href: platform/personal-data-mgmt.md
         - name: 應用程式資料收集、保留和儲存
           href: app/data-retention-privacy.md
-    - name: 深入解析
-      items:
-        - name: Application Insights
-          items:
-            - name: 概觀
-              href: app/app-insights-overview.md
-            - name: DevOps
-              href: app/detect-triage-diagnose.md
-            - name: 分散式追蹤
-              href: app/distributed-tracing.md
-            - name: 記錄檔型與預先彙總的計量
-              href: app/pre-aggregated-metrics-log-metrics.md
-        - name: 容器
-          href: insights/container-insights-overview.md
-        - name: 虛擬機器
-          href: insights/vminsights-overview.md
-        - name: 監視解決方案
-          href: insights/solutions-inventory.md
     - name: 回應事件
       items:
         - name: 警示
@@ -189,6 +167,42 @@
               href: platform/service-providers.md
     - name: 收集資料
       items:
+        - name: Azure 資源
+          items:
+            - name: 活動記錄檔
+              items:
+                - name: 概觀
+                  href: platform/activity-logs-overview.md
+                - name: 檢視和擷取
+                  href: platform/activity-log-view.md
+                - name: 收集和分析
+                  href: platform/activity-log-collect.md
+                - name: 跨租用戶收集
+                  href: platform/activity-log-collect-tenants.md
+                - name: 匯出
+                  href: platform/activity-log-export.md
+                - name: 結構描述
+                  href: platform/activity-log-schema.md
+            - name: 診斷記錄
+              items:
+                - name: 概觀
+                  href: platform/diagnostic-logs-overview.md
+                - name: 在記錄中收集
+                  href: platform/diagnostic-logs-stream-log-store.md
+                - name: 從 Azure 儲存體收集
+                  href: platform/collect-azure-metrics-logs.md
+                - name: 封存至儲存體
+                  href: platform/archive-diagnostic-logs.md
+                - name: 將資料串流至事件中樞
+                  href: platform/diagnostic-logs-stream-event-hubs.md
+                - name: 搭配資源管理員範本啟用
+                  href: platform/diagnostic-logs-stream-template.md
+                - name: Service 記錄與計量
+                  href: platform/azure-storage-iis-table.md
+            - name: 串流至事件中樞
+              href: platform/stream-monitoring-data-event-hubs.md
+            - name: 將自訂資料來源相互關聯
+              href: app/custom-data-correlation.md
         - name: 安裝及設定代理程式
           items:
             - name: 監視代理程式概觀
@@ -221,17 +235,15 @@
                   href: platform/diagnostics-extension-stream-event-hubs.md
                 - name: 疑難排解
                   href: platform/diagnostics-extension-troubleshooting.md
-                - name: 使用 Resource Manager 範本啟用診斷設定
-                  href: platform/diagnostic-logs-stream-template.md
                 - name: 準備使用 JSON Lines 診斷記錄格式
                   href: platform/diagnostic-logs-append-blobs.md
-                - name: VM 來賓至計量存放區
+                - name: 虛擬機器來賓至 Metrics
                   href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                - name: 虛擬機器擴展集來賓至計量存放區
+                - name: 虛擬機器擴展集來賓至 Metrics
                   href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                - name: VM 傳統來賓至計量存放區
+                - name: 虛擬機器傳統來賓至 Metrics
                   href: platform/collect-custom-metrics-guestos-vm-classic.md
-                - name: 雲端服務來賓至計量存放區
+                - name: 雲端服務來賓至 Metrics
                   href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
             - name: 疑難排解
               items:
@@ -341,8 +353,6 @@
                       href: app/status-monitor-v2-api-get-status.md
                     - name: API Set-ApplicationInsightsMonitoringConfig
                       href: app/status-monitor-v2-api-set-config.md
-                - name: Windows 服務
-                  href: app/windows-services.md
                 - name: Windows 桌面
                   href: app/windows-desktop.md
                 - name: 主控台
@@ -432,83 +442,46 @@
                   href: app/proactive-email-notification.md
             - name: 建立資源
               href: app/create-new-resource.md
-            - name: 疑難排解
+            - name: 應用程式資料到 Log Analytics
+              href: platform/app-insights-connector.md
+            - name: 匯出應用程式資料
               items:
                 - name: 沒有 .NET 的資料
                   href: app/asp-net-troubleshoot-no-data.md
                 - name: 快照集偵錯工具
                   href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
-                - name: 分析
-                  href: app/analytics-troubleshooting.md
                 - name: Java
                   href: app/java-troubleshoot.md
                 - name: 流量分析
                   href: app/usage-troubleshoot.md
-        - name: Azure 資源
-          items:
-            - name: Azure 活動記錄
-              items:
-                - name: 分析
-                  href: platform/collect-activity-logs.md
-                - name: 跨訂用帳戶收集
-                  href: platform/collect-activity-logs-subscriptions.md
-            - name: Service 記錄與計量
-              href: platform/collect-azure-metrics-logs.md
-            - name: Azure 儲存體的診斷或記錄資料
-              href: platform/azure-storage-iis-table.md
-            - name: Azure PaaS 資源
-              href: platform/collect-azurepass-posh.md
-            - name: 將自訂資料來源相互關聯
-              href: app/custom-data-correlation.md
         - name: 收集自訂資料
           items:
+            - name: 自訂度量
+              href: platform/metrics-custom-overview.md
             - name: Log Analytics 資料收集器 API
               href: platform/data-collector-api.md
             - name: Log Analytics 資料收集器 API 管線範例
               href: platform/create-pipeline-datacollector-api.md
-            - name: 計量存放區 REST API
+            - name: Metrics REST API
               href: platform/metrics-store-custom-rest-api.md
-            - name: GuestOS 至記錄存放區 Linux VM (Telegraf)
+            - name: GuestOS 至 Metrics Linux VM (Telegraf)
               href: platform/collect-custom-metrics-linux-telegraf.md
         - name: System Center
           items:
             - name: 組態管理員
               href: platform/collect-sccm.md
-            - name: 使用 SCOM 的應用程式效能監視
-              href: app/scom.md
-        - name: 路由傳送資料
-          items:
-            - name: 封存活動記錄
-              href: platform/archive-activity-log.md
-            - name: 封存診斷記錄
-              href: platform/archive-diagnostic-logs.md
-            - name: 存放診斷記錄
-              href: platform/diagnostic-logs-stream-log-store.md
-            - name: 將活動記錄串流至事件中樞
-              href: platform/activity-logs-stream-event-hubs.md
-            - name: 記錄與計量到事件中樞
-              href: platform/stream-monitoring-data-event-hubs.md
-            - name: 診斷記錄到事件中樞
-              href: platform/diagnostic-logs-stream-event-hubs.md
-            - name: 應用程式資料到 Log Analytics
-              href: platform/app-insights-connector.md
-            - name: 匯出應用程式資料
-              items:
-                - name: 連續匯出
-                  href: app/export-telemetry.md
-                  items:
-                    - name: 程式碼範例
-                      items:
-                        - name: 使用串流分析匯出至 SQL
-                          href: app/code-sample-export-sql-stream-analytics.md
-                        - name: 匯出至串流分析簡介
-                          href: app/export-stream-analytics.md
-                - name: 匯出資料模型
-                  href: app/export-data-model.md
     - name: 取得見解
       items:
         - name: 監視應用程式
           items:
+            - name: Application Insights 概觀
+              items:
+                - name: 概觀
+                  href: app/app-insights-overview.md
+                - name: 分散式追蹤
+                  href: app/distributed-tracing.md
+                - name: 記錄檔型與預先彙總的計量
+                  href: app/pre-aggregated-metrics-log-metrics.md
             - name: Application Insights 入口網站
               items:
                 - name: Search
@@ -982,6 +955,8 @@
               href: app/api-filtering-sampling.md
             - name: 取樣
               href: app/sampling.md
+            - name: TelemetryChannels
+              href: app/telemetry-channels.md
         - name: 監視解決方案
           items:
             - name: 設計和建置
@@ -1060,8 +1035,6 @@
       items:
         - name: 診斷記錄服務、類別和結構描述
           href: platform/diagnostic-logs-schema.md
-        - name: 活動記錄事件結構描述
-          href: platform/activity-log-schema.md
         - name: Azure 診斷延伸結構描述
           href: platform/diagnostics-extension-schema.md
           items:

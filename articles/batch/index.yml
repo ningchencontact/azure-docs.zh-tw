@@ -57,6 +57,17 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="cli-samples">Azure CLI</a>
+  - title: 免費 Pluralsight 影片訓練
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: 開始使用 Microsoft Azure Batch
+            href: 'https://app.pluralsight.com/library/courses/microsoft-azure-batch-getting-started/table-of-contents'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://app.pluralsight.com/library/courses/microsoft-azure-batch-getting-started/table-of-contents'
   - title: 參考
     items:
       - type: list

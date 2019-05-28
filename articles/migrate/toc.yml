@@ -28,36 +28,8 @@
           href: migrate-best-practices-networking.md
         - name: 移轉後的成本及大小最佳做法
           href: migrate-best-practices-costs.md
-    - name: Contoso 移轉系列
-      items:
-        - name: 1. Contoso 移轉概觀
-          href: contoso-migration-overview.md
-        - name: 2. Contoso - 部署 Azure 基礎結構
-          href: contoso-migration-infrastructure.md
-        - name: 3. Contoso - 存取內部部署資源以移轉至 Azure
-          href: contoso-migration-assessment.md
-        - name: 4. Contoso - 在 Azure VM 和 Azure SQL Database 受控執行個體上重新裝載應用程式
-          href: contoso-migration-rehost-vm-sql-managed-instance.md
-        - name: 5. Contoso - 在 Azure VN 上重新裝載應用程式
-          href: contoso-migration-rehost-vm.md
-        - name: 6. Contoso - 在 Azure VM 和 Azure SQL Server AlwaysOn 可用性群組上重新裝載應用程式
-          href: contoso-migration-rehost-vm-sql-ag.md
-        - name: 7. Contoso - 在 Azure VM 上重新裝載 Linux 應用程式
-          href: contoso-migration-rehost-linux-vm.md
-        - name: 8. Contoso - 在 Azure MySQL 上重新裝載 Linux 應用程式
-          href: contoso-migration-rehost-linux-vm-mysql.md
-        - name: 9. Contoso 重構 Azure Web Apps 和 Azure SQL Database 上的應用程式
-          href: contoso-migration-refactor-web-app-sql.md
-        - name: 10. Contoso 重構 Azure Web Apps 和 Azure MySQL 上的 Linux 應用程式
-          href: contoso-migration-refactor-linux-app-service-mysql.md
-        - name: 11. Contoso - 將 TFS 遷移至 Azure DevOps Services
-          href: contoso-migration-tfs-vsts.md
-        - name: 12. Contoso - 在 Azure 容器 和 Azure SQL Database 上重新架構應用程式
-          href: contoso-migration-rearchitect-container-sql.md
-        - name: 13. Contoso - 在 Azure 重建應用程式
-          href: contoso-migration-rebuild.md
-        - name: 14. Contoso - 縮放移轉
-          href: contoso-migration-scale.md
+    - name: 移轉 examples-Contoso 系列
+      href: contoso-migration-overview.md
     - name: 探索及評定大型環境
       href: how-to-scale-assessment.md
     - name: 群組機器

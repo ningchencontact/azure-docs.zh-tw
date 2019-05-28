@@ -59,11 +59,13 @@
   items:
     - name: 組態
       items:
-        - name: .NET Core 組態提供者
+        - name: Azure CLI
+          href: 'https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest'
+        - name: .NET Core 提供者
           href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
-        - name: .NET Framework 組態建立器
+        - name: .NET Framework 建立器
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-        - name: Java Spring 組態提供者
+        - name: Java Spring 提供者
           href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
         - name: .NET Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
@@ -79,7 +81,11 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
 - name: 資源
   items:
-    - name: 使用者入門影片
-      href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+    - name: 影片
+      items:
+        - name: 開始使用
+          href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+        - name: 功能管理
+          href: 'https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement'
     - name: 提供產品意見反應
       href: 'https://github.com/Azure/AppConfiguration/issues'
