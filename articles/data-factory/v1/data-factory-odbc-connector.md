@@ -71,7 +71,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 | connectionString |連接字串的非存取認證部分和選擇性的加密認證。 請參閱下列幾節中的範例。 <br/><br/>您可以用 `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` 模式指定連接字串，或使用您在閘道電腦上以 `"DSN=<name of the DSN>;"` 設定的系統 DSN (資料來源名稱) (仍需要據此指定連結的服務中的認證部分)。 |有 |
 | 認證 |以驅動程式特定「屬性-值」格式指定之連接字串的存取認證部分。 範例： `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |無 |
 | authenticationType |用來連接到 ODBC 資料存放區的驗證類型。 可能的值包括：匿名和基本。 |是 |
-| username |如果您要使用 Basic 驗證，請指定使用者名稱。 |否 |
+| userName |如果您要使用 Basic 驗證，請指定使用者名稱。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
 | gatewayName |Data Factory 服務應該用來連接到 ODBC 資料存放區的閘道器名稱。 |有 |
 
