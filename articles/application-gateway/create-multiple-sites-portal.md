@@ -40,57 +40,57 @@ ms.locfileid: "59999020"
 
 需要虛擬網路，才能在您所建立的資源之間進行通訊。 這個範例中會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。 您建立應用程式閘道時，可以同時建立虛擬網路。
 
-1. 按一下 Azure 入口網站左上角的 [新增]。
-2. 在 [精選] 清單中選取 [網路]，然後選取 [應用程式閘道]。
+1. 按一下 Azure 入口網站左上角的 [新增]  。
+2. 在 [精選] 清單中選取 [網路]  ，然後選取 [應用程式閘道]  。
 3. 針對應用程式閘道輸入這些值：
 
-   - myAppGateway - 作為應用程式閘道的名稱。
-   - myResourceGroupAG - 作為新資源群組。
+   - myAppGateway  - 作為應用程式閘道的名稱。
+   - myResourceGroupAG  - 作為新資源群組。
 
      ![建立新的應用程式閘道](./media/create-multiple-sites-portal/application-gateway-create.png)
 
-4. 接受其他設定的預設值，然後按一下 [確定]。
-5. 按一下 [選擇虛擬網路]，按一下 [新建]，然後針對虛擬網路輸入這些值：
+4. 接受其他設定的預設值，然後按一下 [確定]  。
+5. 按一下 [選擇虛擬網路]  ，按一下 [新建]  ，然後針對虛擬網路輸入這些值：
 
-   - myVNet - 作為虛擬網路的名稱。
-   - 10.0.0.0/16 - 作為虛擬網路位址空間。
-   - myAGSubnet - 作為子網路名稱。
-   - 10.0.0.0/24 - 作為子網路位址空間。
+   - myVNet  - 作為虛擬網路的名稱。
+   - 10.0.0.0/16  - 作為虛擬網路位址空間。
+   - myAGSubnet  - 作為子網路名稱。
+   - 10.0.0.0/24  - 作為子網路位址空間。
 
      ![建立虛擬網路](./media/create-multiple-sites-portal/application-gateway-vnet.png)
 
-6. 按一下 [確定] 以建立虛擬網路和子網路。
-7. 依序按一下 [選擇公用 IP 位址]、[新建]，然後輸入公用 IP 位址的名稱。 在此範例中，公用 IP 位址名為 myAGPublicIPAddress。 接受其他設定的預設值，然後按一下 [確定]。
-8. 接受接聽程式設定的預設值，將 Web 應用程式防火牆保持為停用，然後按一下 [確定]。
-9. 檢閱 [摘要] 頁面上的設定，然後按一下 [確定] 以建立網路資源和應用程式閘道。 建立應用程式閘道可能需要幾分鐘的時間，請等候部署成功完成後，再繼續進行至下一節。
+6. 按一下 [確定]  以建立虛擬網路和子網路。
+7. 依序按一下 [選擇公用 IP 位址]  、[新建]  ，然後輸入公用 IP 位址的名稱。 在此範例中，公用 IP 位址名為 myAGPublicIPAddress  。 接受其他設定的預設值，然後按一下 [確定]  。
+8. 接受接聽程式設定的預設值，將 Web 應用程式防火牆保持為停用，然後按一下 [確定]  。
+9. 檢閱 [摘要] 頁面上的設定，然後按一下 [確定]  以建立網路資源和應用程式閘道。 建立應用程式閘道可能需要幾分鐘的時間，請等候部署成功完成後，再繼續進行至下一節。
 
 ### <a name="add-a-subnet"></a>新增子網路
 
-1. 按一下左側功能表中的 [所有資源]，然後從 [資源] 清單中按一下 [myVNet]。
-2. 按一下 [子網路]，然後按一下 [子網路]。
+1. 按一下左側功能表中的 [所有資源]  ，然後從 [資源] 清單中按一下 [myVNet]  。
+2. 按一下 [子網路]  ，然後按一下 [子網路]  。
 
     ![建立子網路](./media/create-multiple-sites-portal/application-gateway-subnet.png)
 
-3. 輸入 myBackendSubnet 作為子網路的名稱，然後按一下 [確定]。
+3. 輸入 myBackendSubnet  作為子網路的名稱，然後按一下 [確定]  。
 
 ## <a name="create-virtual-machines"></a>建立虛擬機器
 
 在此範例中，您要建立兩個虛擬機器，作為應用程式閘道的後端伺服器。 您也要在虛擬機器上安裝 IIS，確認會正確地路由流量。
 
-1. 按一下 [新增] 。
-2. 按一下 [計算]，然後選取 [精選] 清單中的 [Windows Server 2016 Datacenter]。
+1. 按一下 [新增]  。
+2. 按一下 [計算]  ，然後選取 [精選] 清單中的 [Windows Server 2016 Datacenter]  。
 3. 針對虛擬機器，請輸入這些值：
 
     - *contosoVM* - 作為虛擬機器的名稱。
-    - azureuser - 作為系統管理員使用者名稱。
+    - azureuser  - 作為系統管理員使用者名稱。
     - *Azure123456!* 作為密碼。
-    - 選取 [使用現有的]，然後選取 [myResourceGroupAG]。
+    - 選取 [使用現有的]  ，然後選取 [myResourceGroupAG]  。
 
-4. 按一下 [確定]。
-5. 選取 [DS1_V2] 作為虛擬機器的大小，然後按一下 [選取]。
-6. 確定您已選取 [myVNet] 作為虛擬網路，而且子網路是 [myBackendSubnet]。 
-7. 按一下 [停用] 來停用開機診斷。
-8. 按一下 [確定]，檢閱 [摘要] 頁面上的設定，然後按一下 [建立]。
+4. 按一下 [確定]  。
+5. 選取 [DS1_V2]  作為虛擬機器的大小，然後按一下 [選取]  。
+6. 確定您已選取 [myVNet]  作為虛擬網路，而且子網路是 [myBackendSubnet]  。 
+7. 按一下 [停用]  來停用開機診斷。
+8. 按一下 [確定]  ，檢閱 [摘要] 頁面上的設定，然後按一下 [建立]  。
 
 ### <a name="install-iis"></a>安裝 IIS
 
@@ -115,30 +115,30 @@ ms.locfileid: "59999020"
       -Settings $publicSettings
     ```
 
-3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入 fabrikamVM 作為名稱，並作為 Set-AzVMExtension 中的 VMName 值。
+3. 建立第二個虛擬機器，並使用您剛完成的步驟來安裝 IIS。 輸入 fabrikamVM  作為名稱，並作為 Set-AzVMExtension 中的 VMName 值。
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>建立包含虛擬機器的後端集區
 
-1. 按一下 [所有資源]，然後按一下 [myAppGateway]。
-2. 依序按一下 [後端集區] 和 [新增]。
-3. 輸入 contosoPool 的名稱，然後使用 [新增目標] 新增 contosoVM。
+1. 按一下 [所有資源]  ，然後按一下 [myAppGateway]  。
+2. 依序按一下 [後端集區]  和 [新增]  。
+3. 輸入 contosoPool  的名稱，然後使用 [新增目標]  新增 contosoVM  。
 
     ![新增後端伺服器](./media/create-multiple-sites-portal/application-gateway-multisite-backendpool.png)
 
-4. 按一下 [確定]。
-5. 依序按一下 [後端集區] 和 [新增]。
-6. 使用您剛才完成的步驟，建立含有 fabrikamVM 的 fabrikamPool。
+4. 按一下 [確定]  。
+5. 依序按一下 [後端集區]  和 [新增]  。
+6. 使用您剛才完成的步驟，建立含有 fabrikamVM  的 fabrikamPool  。
 
 ## <a name="create-backend-listeners"></a>建立後端接聽程式
 
-1. 按一下 [接聽程式]，然後按一下 [多站台]。
+1. 按一下 [接聽程式]  ，然後按一下 [多站台]  。
 2. 為接聽程式輸入這些值：
     
-   - contosoListener - 作為接聽程式的名稱。
-   - www.contoso.com - 以您的網域名稱取代此主機名稱範例。
+   - contosoListener  - 作為接聽程式的名稱。
+   - www.contoso.com  - 以您的網域名稱取代此主機名稱範例。
 
-3. 按一下 [確定]。
-4. 使用 fabrikamListener 的名稱建立第二個接聽程式，然後使用您的第二個網域名稱。 此範例中使用 www.fabrikam.com。
+3. 按一下 [確定]  。
+4. 使用 fabrikamListener  的名稱建立第二個接聽程式，然後使用您的第二個網域名稱。 此範例中使用 www.fabrikam.com  。
 
 ![多站台接聽程式](media/create-multiple-sites-portal/be-listeners.png)
 
@@ -148,22 +148,22 @@ ms.locfileid: "59999020"
 
 在此範例中，您會建立兩個新規則，並刪除您在建立應用程式閘道時所建立的預設規則。
 
-1. 按一下 [規則]，然後按一下 [基本]。
+1. 按一下 [規則]  ，然後按一下 [基本]  。
 2. 輸入 *contosoRule* 作為名稱。
-3. 選取 contosoListener 作為接聽程式。
-4. 選取 contosoPool 作為後端集區。
+3. 選取 contosoListener  作為接聽程式。
+4. 選取 contosoPool  作為後端集區。
 
     ![建立路徑型規則](./media/create-multiple-sites-portal/application-gateway-multisite-rule.png)
 
-5. 按一下 [確定]。
-6. 使用 fabrikamRule、fabrikamListener 及 *fabrikamPool* 的名稱，建立第二個規則。
-7. 按一下名為 rule1 的預設規則，然後按一下 [刪除]，即可刪除。
+5. 按一下 [確定]  。
+6. 使用 fabrikamRule  、fabrikamListener  及 *fabrikamPool* 的名稱，建立第二個規則。
+7. 按一下名為 rule1  的預設規則，然後按一下 [刪除]  ，即可刪除。
 
 ## <a name="create-a-cname-record-in-your-domain"></a>在網域中建立 CNAME 記錄
 
 在以公用 IP 位址建立應用程式閘道之後，您可以取得 DNS 位址並用以在網域中建立 CNAME 記錄。 不建議使用 A-records，因為重新啟動應用程式閘道時，可能會變更 VIP。
 
-1. 按一下 [所有資源]，然後按一下 [myAGPublicIPAddress]。
+1. 按一下 [所有資源]  ，然後按一下 [myAGPublicIPAddress]  。
 
     ![記錄應用程式閘道 DNS 位址](./media/create-multiple-sites-portal/application-gateway-multisite-dns.png)
 
@@ -185,10 +185,10 @@ ms.locfileid: "59999020"
 
 若要移除資源群組：
 
-1. 在 Azure 入口網站的左側功能表上，選取 [資源群組]。
-2. 在 [資源群組] 頁面上，在清單中搜尋 **myResourceGroupAG** 並加以選取。
-3. 在 [資源群組] 頁面上，選取 [刪除資源群組]。
-4. 針對 [輸入資源群組名稱] 輸入 myResourceGroupAG，然後選取 [刪除]
+1. 在 Azure 入口網站的左側功能表上，選取 [資源群組]  。
+2. 在 [資源群組]  頁面上，在清單中搜尋 **myResourceGroupAG** 並加以選取。
+3. 在 [資源群組]  頁面上，選取 [刪除資源群組]  。
+4. 針對 [輸入資源群組名稱]  輸入 myResourceGroupAG  ，然後選取 [刪除] 
 
 ## <a name="next-steps"></a>後續步驟
 

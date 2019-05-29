@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e705ce17f0f09d341f2c650dfaccbbad60da14c7
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: ca6914967d855123c70bf746a9d68d2e045e76d9
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500187"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908685"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>快速入門：使用 Azure IoT C SDK 佈建模擬 TPM 裝置
 
@@ -34,7 +34,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 ## <a name="prerequisites"></a>必要條件
 
-* 啟用[「使用 C++ 進行桌面開發」](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載的 Visual Studio 2015 或 [Visual Studio 2017](https://www.visualstudio.com/vs/)。
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 或更新版本，並啟用[使用 C++ 的桌面開發](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載。
 * 已安裝最新版的 [Git](https://git-scm.com/download/)。
 
 
@@ -94,7 +94,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 2. 瀏覽至您所複製的 git 存放庫根資料夾，並使用以下顯示的路徑執行 [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) 模擬器。 此模擬器會透過連接埠 2321 和 2322 上的通訊端來接聽。 請勿關閉此命令視窗；您必須讓此模擬器保持執行，直到此快速入門結束。 
 
-   如果您是在 cmake 資料夾中，請執行下列命令：
+   如果您是在 cmake  資料夾中，請執行下列命令：
 
     ```cmd/sh
     cd ..
@@ -111,32 +111,32 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 1. 啟動 Visual Studio，並開啟名為 `azure_iot_sdks.sln` 的新解決方案檔案。 此解決方案檔案位於您先前在 azure-iot-sdk-c git 存放庫根目錄中建立的 `cmake` 資料夾內。
 
-2. 在 Visual Studio 功能表中，選取 [建置] > [建置解決方案]，以建置方案中的所有專案。
+2. 在 Visual Studio 功能表中，選取 [建置]   > [建置解決方案]  ，以建置方案中的所有專案。
 
-3. 在 Visual Studio 的 [方案總管] 視窗中，瀏覽至 **Provision\_Tools** 資料夾。 以滑鼠右鍵按一下 **tpm_device_provision** 專案，然後選取 [設為起始專案]。 
+3. 在 Visual Studio 的 [方案總管]  視窗中，瀏覽至 **Provision\_Tools** 資料夾。 以滑鼠右鍵按一下 **tpm_device_provision** 專案，然後選取 [設為起始專案]  。 
 
-4. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決方案。 應用程式會讀取並顯示 [註冊識別碼] 和 [簽署金鑰]。 複製這些值。 這些值會在下一節用於裝置註冊。 
+4. 在 Visual Studio 功能表中，選取 [偵錯]   > [啟動但不偵錯]  以執行解決方案。 應用程式會讀取並顯示 [註冊識別碼]     和 [簽署金鑰]    。 複製這些值。 這些值會在下一節用於裝置註冊。 
 
 
 <a id="portalenrollment"></a>
 
 ## <a name="create-a-device-enrollment-entry-in-the-portal"></a>在入口網站中建立裝置註冊項目
 
-1. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源] 按鈕，然後開啟您的裝置佈建服務。
+1. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源]  按鈕，然後開啟您的裝置佈建服務。
 
-2. 選取 [管理註冊] 索引標籤，然後按一下頂端的 [新增個別註冊] 按鈕。 
+2. 選取 [管理註冊]  索引標籤，然後按一下頂端的 [新增個別註冊]  按鈕。 
 
-3. 在 [新增註冊] 上，輸入下列資訊，然後按一下 [儲存] 按鈕。
+3. 在 [新增註冊]  上，輸入下列資訊，然後按一下 [儲存]  按鈕。
 
-    - **機制：** 選取 [TPM] 作為身分識別證明「機制」。
+    - **機制：** 選取 [TPM]  作為身分識別證明「機制」  。
     - **簽署金鑰：** 執行 *tpm_device_provision* 專案，以輸入您為 TPM 裝置產生的*簽署金鑰*。
     - **註冊識別碼：** 執行 *tpm_device_provision* 專案，以輸入您為 TPM 裝置產生的*註冊識別碼*。
-    - **IoT Edge 裝置：** 選取 [停用]。
+    - **IoT Edge 裝置：** 選取 [停用]  。
     - **IoT 中樞裝置識別碼：** 輸入 **test-docs-device** 作為裝置的識別碼。
 
       ![在入口網站中輸入裝置註冊資訊](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
-      註冊成功時，您裝置的「登錄識別碼」將會出現在「個別註冊」索引標籤之下的清單中。 
+      註冊成功時，您裝置的「登錄識別碼」  將會出現在「個別註冊」  索引標籤之下的清單中。 
 
 
 <a id="firstbootsequence"></a>
@@ -145,11 +145,11 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 在本節中，您將設定範例程式碼，以使用[進階訊息佇列通訊協定 (AMQP)](https://wikipedia.org/wiki/Advanced_Message_Queuing_Protocol) 將裝置的開機順序傳送至裝置佈建服務執行個體。 此開機順序會使裝置經過辨識，並指派給連結至裝置佈建服務執行個體的 IoT 中樞。
 
-1. 在 Azure 入口網站中，選取您裝置佈建服務的 [概觀] 索引標籤，並複製 [識別碼範圍] 值。
+1. 在 Azure 入口網站中，選取您裝置佈建服務的 [概觀]  索引標籤，並複製 [識別碼範圍]     值。
 
     ![從入口網站擷取裝置佈建服務端點資訊](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
-2. 在 Visual Studio 的 [方案總管] 視窗中，瀏覽至 **Provision\_Samples** 資料夾。 展開名為 **prov\_dev\_client\_sample** 的範例專案。 展開 [來源檔案]，然後開啟 **prov\_dev\_client\_sample.c**。
+2. 在 Visual Studio 的 [方案總管]  視窗中，瀏覽至 **Provision\_Samples** 資料夾。 展開名為 **prov\_dev\_client\_sample** 的範例專案。 展開 [來源檔案]  ，然後開啟 **prov\_dev\_client\_sample.c**。
 
 3. 在檔案頂端附近，從 `#define` 陳述式中找出每個裝置通訊協定，如下所示。 請確定只有 `SAMPLE_AMQP` 取消註解。
 
@@ -166,7 +166,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
     //#define SAMPLE_HTTP
     ```
 
-4. 找出 `id_scope` 常數，並將其值取代為您先前複製的 [識別碼範圍] 值。 
+4. 找出 `id_scope` 常數，並將其值取代為您先前複製的 [識別碼範圍]  值。 
 
     ```c
     static const char* id_scope = "0ne00002193";
@@ -180,9 +180,9 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
     //hsm_type = SECURE_DEVICE_TYPE_X509;
     ```
 
-6. 以滑鼠右鍵按一下 **prov\_dev\_client\_sample** 專案，然後選取 [設定為起始專案]。 
+6. 以滑鼠右鍵按一下 **prov\_dev\_client\_sample** 專案，然後選取 [設定為起始專案]  。 
 
-7. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決方案。 出現重新建置專案的提示時，按一下 [是]，以在執行前重新建置專案。
+7. 在 Visual Studio 功能表中，選取 [偵錯]   > [啟動但不偵錯]  以執行解決方案。 出現重新建置專案的提示時，按一下 [是]  ，以在執行前重新建置專案。
 
     下列輸出範例說明佈建裝置用戶端範例已成功啟動，並連線至佈建服務執行個體，以取得 IoT 中樞資訊並進行註冊：
 
@@ -200,7 +200,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
     test-docs-hub.azure-devices.net, deviceId: test-docs-device
     ```
 
-8. 佈建服務將模擬裝置佈建到 IoT 中樞後，裝置識別碼會連同中樞的 [IoT 裝置] 一起顯示。 
+8. 佈建服務將模擬裝置佈建到 IoT 中樞後，裝置識別碼會連同中樞的 [IoT 裝置]  一起顯示。 
 
     ![已向 IoT 中樞註冊裝置](./media/quick-create-simulated-device/hub-registration.png) 
 
@@ -211,8 +211,8 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 1. 在您的電腦上關閉裝置用戶端範例輸出視窗。
 2. 在您的電腦上關閉 TPM 模擬器視窗。
-3. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的裝置佈建服務。 為您的服務開啟 [管理註冊]，然後按一下 [個別註冊] 索引標籤。選取您在本快速入門中註冊的裝置之 [註冊識別碼]，然後按一下頂端的 [刪除] 按鈕。 
-4. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的 IoT 中樞。 為您的中樞開啟 [IoT 裝置]，選取您在本快速入門中註冊的裝置 [裝置識別碼]，然後按一下頂端的 [刪除] 按鈕。
+3. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]  ，然後選取您的裝置佈建服務。 為您的服務開啟 [管理註冊]  ，然後按一下 [個別註冊]  索引標籤。選取您在本快速入門中註冊的裝置之 [註冊識別碼]  ，然後按一下頂端的 [刪除]  按鈕。 
+4. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]  ，然後選取您的 IoT 中樞。 為您的中樞開啟 [IoT 裝置]  ，選取您在本快速入門中註冊的裝置 [裝置識別碼]  ，然後按一下頂端的 [刪除]  按鈕。
 
 ## <a name="next-steps"></a>後續步驟
 

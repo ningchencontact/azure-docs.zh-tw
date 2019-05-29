@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 6a62e75fadad14148f5f82da3a213d4b13cbe343
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 12ccff3676cb35ac27126360dbcf5a1b9b3e131f
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122668"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914144"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 Python 裝置 SDK 來建立及佈建模擬 X.509 裝置
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -34,7 +34,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 ## <a name="prepare-the-environment"></a>準備環境 
 
-1. 確定您已在電腦上安裝 [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/) 或 [Visual Studio 2017](https://www.visualstudio.com/vs/)。 為了 Visual Studio 安裝，您必須啟用「C ++ 桌面開發」工作負載。
+1. 請務必安裝 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 或更新版本，並為您的 Visual Studio 安裝啟用 [使用 C++ 的桌面開發] 工作負載。
 
 2. 下載並安裝 [CMake 建置系統](https://cmake.org/download/)。
 
@@ -72,7 +72,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 1. 開啟在 *cmake* 資料夾中產生的方案 (名為 `azure_iot_sdks.sln`)，並且在 Visual Studio 中建置。
 
-2. 以滑鼠右鍵按一下 **Provision\_Samples** 資料夾底下的 **dice\_device\_enrollment** 專案，然後選取 [設定為起始專案]。 執行方案。 
+2. 以滑鼠右鍵按一下 **Provision\_Samples** 資料夾底下的 **dice\_device\_enrollment** 專案，然後選取 [設定為起始專案]  。 執行方案。 
 
 3. 在輸出視窗中，當出現提示時，針對個別註冊輸入 `i`。 輸出視窗會顯示針對您的模擬裝置在本機產生的 X.509 憑證。 
     
@@ -88,32 +88,32 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
     ![Dice 裝置註冊應用程式](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
  
-4. 在 Windows 電腦上建立名為 X509testcertificate.pem 的檔案，在您選擇的編輯器中開啟該檔案，並將剪貼簿內容複製到這個檔案。 儲存檔案。 
+4. 在 Windows 電腦上建立名為 X509testcertificate.pem     的檔案，在您選擇的編輯器中開啟該檔案，並將剪貼簿內容複製到這個檔案。 儲存檔案。 
 
-5. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源] 按鈕，然後開啟您的佈建服務。
+5. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源]  按鈕，然後開啟您的佈建服務。
 
-6. 在裝置佈建服務摘要刀鋒視窗上，選取 [管理註冊]。 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增個別註冊] 按鈕。 
+6. 在裝置佈建服務摘要刀鋒視窗上，選取 [管理註冊]  。 選取 [個別註冊]  索引標籤，然後按一下頂端的 [新增個別註冊]  按鈕。 
 
-7. 在 [新增註冊] 面板之下，輸入下列資訊：
-   - 選取 [X.509] 作為身分識別證明「機制」。
-   - 在 [主要 .pem 或 .cer 憑證檔案] 之下，按一下 [選取檔案] 以選取在先前步驟中建立的憑證檔案 **X509testcertificate.pem**。
+7. 在 [新增註冊]  面板之下，輸入下列資訊：
+   - 選取 [X.509]  作為身分識別證明「機制」  。
+   - 在 [主要 .pem 或 .cer 憑證檔案]  之下，按一下 [選取檔案]  以選取在先前步驟中建立的憑證檔案 **X509testcertificate.pem**。
    - 您可以選擇性地提供下列資訊：
      - 選取與您的佈建服務連結的 IoT 中樞。
      - 輸入唯一的裝置識別碼。 替您的裝置命名時，務必避免使用敏感性資料。 
      - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
-   - 完成後，按一下 [儲存] 按鈕。 
+   - 完成後，按一下 [儲存]  按鈕。 
 
      [![在入口網站中新增 X.509 證明的個別註冊](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
-   註冊成功時，您的 X.509 裝置會在 [個別註冊] 索引標籤之下的 [註冊識別碼] 資料行中顯示為 **riot-device-cert**。 
+   註冊成功時，您的 X.509 裝置會在 [個別註冊]  索引標籤之下的 [註冊識別碼]  資料行中顯示為 **riot-device-cert**。 
 
 ## <a name="simulate-the-device"></a>模擬裝置
 
-1. 在裝置佈建服務摘要刀鋒視窗上，選取 [概觀]。 請注意您的 [識別碼範圍] 和 [全域服務端點]。
+1. 在裝置佈建服務摘要刀鋒視窗上，選取 [概觀]  。 請注意您的 [識別碼範圍]  和 [全域服務端點]  。
 
     ![服務資訊](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
-2. 下載並安裝 [Python 2.x 或 3.x](https://www.python.org/downloads/)。 請務必使用安裝程式所需的 32 位元或 64 位元安裝。 在安裝期間出現系統提示時，務必將 Python 新增至平台特有的環境變數。 如果您是使用 Python 2.x，可能需要[安裝或升級 pip (Python 套件管理系統](https://pip.pypa.io/en/stable/installing/))。
+2. 下載並安裝 [Python 2.x 或 3.x](https://www.python.org/downloads/)。 請務必使用安裝程式所需的 32 位元或 64 位元安裝。 在安裝期間出現系統提示時，務必將 Python 新增至平台特有的環境變數。 如果您是使用 Python 2.x，可能需要[安裝或升級 pip  (Python 套件管理系統](https://pip.pypa.io/en/stable/installing/))。
     
     > [!NOTE] 
     > 如果您使用 Windows，也請安裝[適用於 Visual Studio 2015 的 Visual C++ 可轉散發套件](https://www.microsoft.com/download/confirmation.aspx?id=48145)。 PIP 套件需要可轉散發套件才能載入/執行 C Dll。
@@ -148,7 +148,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
     ![成功註冊](./media/python-quick-create-simulated-device-x509/enrollment-success.png)
 
-8. 在入口網站中，瀏覽到連結至您的佈建服務的 IoT 中樞，並開啟 [Device Explorer] 刀鋒視窗。 X.509 模擬裝置成功佈建到 IoT 中樞時，其裝置識別碼會出現在 [Device Explorer] 刀鋒視窗上，且 [狀態] 顯示為 [已啟用]。 如果您在執行範例裝置應用程式之前開啟了刀鋒視窗，可能需要按一下頂端的 [重新整理] 按鈕。 
+8. 在入口網站中，瀏覽到連結至您的佈建服務的 IoT 中樞，並開啟 [Device Explorer]  刀鋒視窗。 X.509 模擬裝置成功佈建到 IoT 中樞時，其裝置識別碼會出現在 [Device Explorer]  刀鋒視窗上，且 [狀態]  顯示為 [已啟用]  。 如果您在執行範例裝置應用程式之前開啟了刀鋒視窗，可能需要按一下頂端的 [重新整理]  按鈕。 
 
     ![已向 IoT 中樞註冊裝置](./media/python-quick-create-simulated-device-x509/registration.png) 
 
@@ -161,8 +161,8 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 如果您打算繼續使用並探索裝置用戶端範例，請勿清除在此快速入門中建立的資源。 如果您不打算繼續，請使用下列步驟來刪除本快速入門建立的所有資源。
 
 1. 在您的電腦上關閉裝置用戶端範例輸出視窗。
-2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的裝置佈建服務。 開啟您服務的 [管理註冊] 刀鋒視窗，然後按一下 [個別註冊] 索引標籤。選取您在本快速入門中註冊的裝置之 [註冊識別碼]，然後按一下頂端的 [刪除] 按鈕。 
-3. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的 IoT 中樞。 開啟您中樞的 [IoT 裝置] 刀鋒視窗，選取您在本快速入門中註冊之裝置的 [裝置識別碼]，然後按一下頂端的 [刪除] 按鈕。
+2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]  ，然後選取您的裝置佈建服務。 開啟您服務的 [管理註冊]  刀鋒視窗，然後按一下 [個別註冊]  索引標籤。選取您在本快速入門中註冊的裝置之 [註冊識別碼]  ，然後按一下頂端的 [刪除]  按鈕。 
+3. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]  ，然後選取您的 IoT 中樞。 開啟您中樞的 [IoT 裝置]  刀鋒視窗，選取您在本快速入門中註冊之裝置的 [裝置識別碼]  ，然後按一下頂端的 [刪除]  按鈕。
 
 ## <a name="next-steps"></a>後續步驟
 

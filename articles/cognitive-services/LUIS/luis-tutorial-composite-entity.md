@@ -48,7 +48,7 @@ ms.locfileid: "65073695"
 
 2. 將 JSON 匯入新的應用程式中。
 
-3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `composite`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
+3. 從 [管理]  區段的 [版本]  索引標籤上，複製版本並將它命名為 `composite`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。
 
 ## <a name="composite-entity"></a>複合實體
 
@@ -69,11 +69,11 @@ ms.locfileid: "65073695"
 
 LUIS 提供數個預先建置的實體來擷取常見的資料。 
 
-1. 從上方導覽列中選取 [建置]，然後從左側導覽功能表中選取 [意圖]。
+1. 從上方導覽列中選取 [建置]  ，然後從左側導覽功能表中選取 [意圖]  。
 
-1. 選取 [管理預先建置的實體] 按鈕。
+1. 選取 [管理預先建置的實體]  按鈕。
 
-1. 從預先建置的實體清單中選取 **[PersonName](luis-reference-prebuilt-person.md)**，然後選取 [完成]。
+1. 從預先建置的實體清單中選取 **[PersonName](luis-reference-prebuilt-person.md)** ，然後選取 [完成]  。
 
     ![預先建置的實體對話方塊中已選取 number 的螢幕擷取畫面](./media/luis-tutorial-composite-entity/add-personname-prebuilt-entity.png)
 
@@ -81,27 +81,27 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
 
 ## <a name="create-composite-entity-from-example-utterances"></a>從範例語句建立複合實體
 
-1. 從左側導覽窗格中，選取 [Intents] \(意圖\)。
+1. 從左側導覽窗格中，選取 [Intents] \(意圖\)  。
 
-1. 從意圖清單中選取 [TransferEmployeeToDepartment]。
+1. 從意圖清單中選取 [TransferEmployeeToDepartment]  。
 
 1. 在 [utterance] `place John Jackson in engineering`，選取 personName 實體`John Jackson`，然後選取**複合實體中包裝**下列 [utterance] 快顯功能表清單中。 
 
-    ![下拉式清單] 對話方塊中選取 [自動換行複合螢幕擷取畫面](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
+    ![在下拉对话框中选择“包装复合实体”的屏幕截图](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. 接著，立即選取語句中的最後一個實體 `engineering`。 系統會在所選取的文字下方繪製綠色橫條，來表示複合實體。 在快顯功能表中，輸入複合名稱 `TransferEmployeeInfo`，然後選取 Enter。 
 
     ![下拉式清單 對話方塊中輸入複合名稱的螢幕擷取畫面](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-1. 在 [您想要建立何種類型的實體?] 中，所有所需的欄位都會位於清單中：`personName` 和 `Department`。 選取 [完成] 。 請注意，預先建置的實體 personName 會新增至複合實體。 如果您讓預先建置的實體出現在複合實體的開頭與結尾語彙基元之間，則複合實體必須包含這些預先建置的實體。 如果未包含預先建置的實體，則無法正確預測複合實體，但可正確預測每個個別的元素。
+1. 在 [您想要建立何種類型的實體?]  中，所有所需的欄位都會位於清單中：`personName` 和 `Department`。 選取 [完成]  。 請注意，預先建置的實體 personName 會新增至複合實體。 如果您讓預先建置的實體出現在複合實體的開頭與結尾語彙基元之間，則複合實體必須包含這些預先建置的實體。 如果未包含預先建置的實體，則無法正確預測複合實體，但可正確預測每個個別的元素。
 
     ![下拉式清單 對話方塊中輸入複合名稱的螢幕擷取畫面](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
 ## <a name="label-example-utterances-with-composite-entity"></a>使用複合實體來標示範例語句
 
-1. 在每個範例語句中，選取應該出現在複合中的最左邊實體。 接著，選取 [包裝於複合實體中]。
+1. 在每個範例語句中，選取應該出現在複合中的最左邊實體。 接著，選取 [包裝於複合實體中]  。
 
-1. 選取複合實體中的最後一個字，然後從快顯功能表中選取 [TransferEmployeeInfo]。 
+1. 選取複合實體中的最後一個字，然後從快顯功能表中選取 [TransferEmployeeInfo]  。 
 
 1. 確認已使用複合實體來標示意圖中的所有語句。 
 
