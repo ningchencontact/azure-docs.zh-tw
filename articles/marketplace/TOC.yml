@@ -8,15 +8,6 @@
     - name: Azure Marketplace 和 AppSource 概觀和優點
       href: ./marketplace-publishers-guide.md
       items:
-        - name: 成為 Marketplace 上的發行者
-          href: ./become-publisher.md
-          items:
-            - name: 建立 Microsoft 帳戶
-              href: ./guidelines.md
-            - name: 在開發人員中心註冊
-              href: ./register-dev-center.md
-            - name: Azure 合作夥伴客戶使用狀況屬性
-              href: ./azure-partner-customer-usage-attribution.md
         - name: 一個市集，二間店面
           href: ./comparing-appsource-azure-marketplace.md
         - name: 發佈選項與考量
@@ -30,6 +21,8 @@
               href: ./private-offers.md
             - name: 標準合約
               href: ./standard-contract.md
+            - name: Azure 合作夥伴客戶使用狀況屬性
+              href: ./azure-partner-customer-usage-attribution.md
         - name: 依供應項目類型的發行指南
           href: ./publisher-guide-by-offer-type.md
           items:
@@ -481,6 +474,15 @@
       items:
         - name: 建立 SaaS 供應項目
           href: ./partner-center-portal/create-new-saas-offer.md
+        - name: SaaS 履行 API
+          href: ./partner-center-portal/pc-saas-fulfillment-apis.md
+          items:
+            - name: 註冊 SaaS 應用程式
+              href: ./partner-center-portal/pc-saas-registration.md
+            - name: SaaS 履行 API v2
+              href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+            - name: SaaS 履行 API v1 (已淘汰)
+              href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
     - name: 發佈狀態
       href: ./partner-center-portal/publishing-status.md
     - name: 更新現有供應項目

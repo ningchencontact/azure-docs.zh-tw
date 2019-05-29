@@ -29,6 +29,8 @@
       href: active-directory-deployment-checklist-p2.md
     - name: 適用於歐盟的身分識別資料儲存體
       href: active-directory-data-storage-eu.md
+    - name: Microsoft 365 Government 的最新消息
+      href: whats-new-microsoft-365-government.md
 - name: 使用說明指南
   expanded: true
   items:
