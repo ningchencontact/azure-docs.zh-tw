@@ -6,7 +6,7 @@
         - name: 什麼是由 CloudSimple 提供的 VMware 解決方案
           href: cloudsimple-vmware-solutions-overview.md
         - name: 管理的重要概念
-          href: 'https://docs.azure.cloudsimple.com/key-concepts/'
+          href: key-concepts.md
     - name: 快速入門
       expanded: true
       items:
@@ -21,7 +21,7 @@
     - name: 概念
       items:
         - name: 服務
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-service/'
+          href: cloudsimple-service.md
         - name: 節點
           href: cloudsimple-node.md
         - name: 私人雲端
@@ -45,13 +45,13 @@
         - name: 私人雲端上的 VMware
           href: vmware-components.md
         - name: 安全性概觀
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-security/'
+          href: cloudsimple-security.md
         - name: 節點配額
           href: node-quota.md
         - name: 維護和更新
           href: cloudsimple-maintenance-updates.md
         - name: 常見問題集
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-faq/'
+          href: cloudsimple-faq.md
     - name: 教學課程
       items:
         - name: 啟用資源提供者
