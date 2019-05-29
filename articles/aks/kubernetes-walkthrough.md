@@ -5,19 +5,21 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 05/20/2019
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 0bbb200bdfeb88b774f561d537edc71e60b3994f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: b96c1ada1ebb1bc53f7f55311c69a3cdc04f7574
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680599"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956436"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>快速入門：使用 Azure CLI 部署 Azure Kubernetes Service (AKS) 叢集
 
 Azure Kubernetes Service (AKS) 是受控 Kubernetes 服務，可讓您快速部署及管理叢集。 在本快速入門中，您會使用 Azure CLI 來部署 AKS 叢集。 在叢集上執行包含 Web 前端和 Redis 執行個體的多容器應用程式。 然後，您會了解如何監視叢集的健康情況和執行您應用程式的 Pod。
+
+如果您想要使用 Windows Server 容器 (目前在 AKS 中為預覽版本)，請參閱[建立支援 Windows Server 容器的 AKS 叢集][windows-container-cli]。
 
 ![瀏覽至 Azure 投票的影像](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
@@ -27,13 +29,13 @@ Azure Kubernetes Service (AKS) 是受控 Kubernetes 服務，可讓您快速部�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.52 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
+如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.64 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯群組。 建立資源群組時，系統會要求您指定位置。 此位置是儲存資源群組中繼資料的位置，如果您未在資源建立期間指定另一個區域，此位置也會是您在 Azure 中執行資源的位置。 使用 [az group create][az-group-create] 命令來建立資源群組。
 
-下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
+下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組。
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -56,7 +58,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-aks-cluster"></a>建立 AKS 叢集
 
-使用 [az aks create][az-aks-create] 命令來建立 AKS 叢集。 下列範例會建立名為 myAKSCluster 並包含一個節點的叢集。 使用 *--enable-addons monitoring* 參數也可啟用適用於容器的 Azure 監視器。
+使用 [az aks create][az-aks-create] 命令來建立 AKS 叢集。 下列範例會建立名為 myAKSCluster  並包含一個節點的叢集。 使用 *--enable-addons monitoring* 參數也可啟用適用於容器的 Azure 監視器。
 
 ```azurecli-interactive
 az aks create \
@@ -93,7 +95,7 @@ kubectl get nodes
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.9.11
+aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## <a name="run-the-application"></a>執行應用程式
@@ -239,17 +241,17 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 若要查看目前的狀態、運作時間，以及 Azure 投票 pod 的資源使用量，請完成下列步驟：
 
 1. 開啟網頁瀏覽器並移至 Azure 入口網站[https://portal.azure.com][azure-portal]。
-1. 選取您的資源群組 (例如 myResourceGroup)，然後選取您的 AKS 叢集 (例如 myAKSCluster)。
-1. 在左側的 [監視] 底下，選擇 [見解]
-1. 在頂端選擇 [+ 新增篩選器]
-1. 選取 [命名空間] 作為屬性，然後選擇 \<除了 kube-system 以外的所有項目\>
+1. 選取您的資源群組 (例如 myResourceGroup  )，然後選取您的 AKS 叢集 (例如 myAKSCluster  )。
+1. 在左側的 [監視]  底下，選擇 [見解] 
+1. 在頂端選擇 [+ 新增篩選器] 
+1. 選取 [命名空間]  作為屬性，然後選擇 \<除了 kube-system 以外的所有項目\> 
 1. 選擇檢視**容器**。
 
-系統會顯示 azure-vote-back 和 azure-vote-front 容器，如下列範例所示：
+系統會顯示 azure-vote-back  和 azure-vote-front  容器，如下列範例所示：
 
 ![檢視 AKS 中執行的容器健康情況](media/kubernetes-walkthrough/monitor-containers.png)
 
-若要查看 `azure-vote-front` Pod 的記錄，請選取容器清單右側的 [檢視容器記錄] 連結。 這些記錄包含來自容器的 stdout 和 stderr 資料流。
+若要查看 `azure-vote-front` Pod 的記錄，請選擇 [在 Analytics 中檢視]  的選項，然後選取容器清單右側的 [檢視容器記錄]  連結。 這些記錄包含來自容器的 stdout  和 stderr  資料流。
 
 ![在 AKS 中檢視容器記錄](media/kubernetes-walkthrough/monitor-container-logs.png)
 
@@ -272,7 +274,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已部署 Kubernetes 叢集，並將多容器應用程式部署到此叢集。  [存取 Kubernetes Web 儀表板][kubernetes-dashboard]，以使用您剛才建立的叢集。
+在本快速入門中，您已部署 Kubernetes 叢集，並將多容器應用程式部署到此叢集。 您也可以[存取 Kubernetes Web 儀表板][kubernetes-dashboard]，以供您的 AKS 叢集使用。
 
 若要深入了解 AKS，並逐步完成部署範例的完整程式碼，請繼續 Kubernetes 叢集教學課程。
 
@@ -302,3 +304,4 @@ az group delete --name myResourceGroup --yes --no-wait
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: concepts-network.md#services
 [kubernetes-dashboard]: kubernetes-dashboard.md
+[windows-container-cli]: windows-container-cli.md

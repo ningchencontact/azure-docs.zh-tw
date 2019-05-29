@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8df9c2a5e45cf222debc733b3e051c3f707715c5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150755"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603079"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>教學課程：退回 Azure 資料箱磁碟，並確認資料上傳至 Azure
 
@@ -44,7 +44,7 @@ ms.locfileid: "65150755"
 如果在美國或加拿大退回裝置，請執行下列步驟。
 
 1. 使用黏貼在外盒上，透明塑膠套裡面的退貨標籤。 如果標籤受損或遺失：
-    - 移至 [概觀 > 下載出貨標籤]。
+    - 移至 [概觀 > 下載出貨標籤]  。
 
         ![下載出貨標籤](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
 
@@ -67,7 +67,7 @@ ms.locfileid: "65150755"
 如果在歐洲退回裝置，請執行下列步驟。
 
 1. 使用黏貼在外盒上，透明塑膠套裡面的退貨標籤。 如果標籤受損或遺失：
-    - 移至 [概觀 > 下載出貨標籤]。
+    - 移至 [概觀 > 下載出貨標籤]  。
 
         ![下載出貨標籤](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
 
@@ -78,11 +78,11 @@ ms.locfileid: "65150755"
 
 2. 將包裹密封，並確定退貨標籤清楚可見。
 3. 如果是在歐洲經由 DHL 辦理裝置退貨，請造訪 DHL 的網站並且指定空運提單號碼，要求他們取貨。
-4. 移至該國家/地區的 DHL Express 網站，然後選擇 [Book a Courier Collection > eReturn Shipment] \(預約快遞收貨 > eReturn 出貨\)。
+4. 移至該國家/地區的 DHL Express 網站，然後選擇 [Book a Courier Collection > eReturn Shipment] \(預約快遞收貨 > eReturn 出貨\)  。
 
     ![DHL 退貨](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
-3. 指定運貨單號碼，然後按一下 [Schedule Pickup] (排程取貨) 以安排取貨。
+3. 指定運貨單號碼，然後按一下 [Schedule Pickup] (排程取貨)  以安排取貨。
 
       ![排程取貨](media/data-box-disk-deploy-picked-up/dhl-ship-2.png)
 
@@ -109,7 +109,7 @@ ms.locfileid: "65150755"
     - 可用的取貨要求時間取決於各家郵局。
     - 通知此出貨適用於日本郵局運費到付 Yu-Pack。
     - 使用內含的運費到付理貨單。
-4. 如果未包含日本郵局運費到付理貨單，請利用 `Customerservice.JP@quantiumsolutions.com` 傳送電子郵件給 Quantium Solutions。 *Quantium Solutions* 會要求日本郵局取貨並要求他們在取貨時提供理貨單。
+4. 如果未包含日本郵局運費到付理貨單，請利用 `Customerservice.JP@quantiumsolutions.com` 傳送電子郵件給 Quantium Solutions  。 *Quantium Solutions* 會要求日本郵局取貨並要求他們在取貨時提供理貨單。
     - 指出日本郵局提供的運費到付理貨單備註欄上的參考號碼。
     - 輸入如下所示的交貨地址：   
         ```
@@ -137,23 +137,23 @@ Body:
 
 1. 請務必附上退貨理貨單。
 2. 若要要求取貨：
-    1. 在上班時間 (週一至週五上午 10 點到下午 5 點) 撥打 *Quantium Solutions International* 熱線 070-8231-1418。 引述 Microsoft Pickup 和理貨單號碼以便安排收貨。  
+    1. 在上班時間 (週一至週五上午 10 點到下午 5 點) 撥打 *Quantium Solutions International* 熱線 070-8231-1418。 引述 Microsoft Pickup  和理貨單號碼以便安排收貨。  
     2. 如果熱線忙線中，請傳送電子郵件到 `microsoft@rocketparcel.com`，其電子郵件主旨為 *Microsoft Pickup* 並提供理貨單號碼作為參考。
     3. 如果快遞人員未到府收貨，請撥打 *Quantium Solutions International* 熱線以便尋求替代安排。 
 
 ## <a name="verify-data-upload-to-azure"></a>確認資料上傳至 Azure
 
-一旦承運業者收取磁碟，入口網站的訂單狀態會更新為 [已取貨]。 此外，也會顯示追蹤識別碼。
+一旦承運業者收取磁碟，入口網站的訂單狀態會更新為 [已取貨]  。 此外，也會顯示追蹤識別碼。
 
 ![磁碟已取貨](media/data-box-disk-deploy-picked-up/data-box-portal-pickedup.png)
 
-當 Microsoft 收到並掃描磁碟之後，作業狀態會更新為 [已收到]。 
+當 Microsoft 收到並掃描磁碟之後，作業狀態會更新為 [已收到]  。 
 
 ![磁碟已收到](media/data-box-disk-deploy-picked-up/data-box-portal-received.png)
 
 一旦磁碟連線到 Azure 資料中心的伺服器，系統會自動複製資料。 視資料大小而定，複製作業可能需要數小時到數天才能完成。 您可以在入口網站中監視複製作業進度。
 
-一旦複製完成，訂單狀態會更新為 [已完成]。
+一旦複製完成，訂單狀態會更新為 [已完成]  。
 
 ![資料複製已完成](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
 
@@ -168,7 +168,7 @@ Body:
 
 - 您的受控磁碟資源群組。 建立受控磁碟時，會上傳 VHD 以作為分頁 Blob，接著轉換為受控磁碟。 受控磁碟會連結至訂單建立時所指定的資源群組。
 
-  - 如果您已成功複製到 Azure 中的受控磁碟，則可前往 Azure 入口網站中的 [訂單詳細資料]，並記下針對受控磁碟所指定的資源群組。
+  - 如果您已成功複製到 Azure 中的受控磁碟，則可前往 Azure 入口網站中的 [訂單詳細資料]  ，並記下針對受控磁碟所指定的資源群組。
 
       ![檢閱訂單詳細資料](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
 
@@ -176,15 +176,15 @@ Body:
 
       ![受控磁碟的資源群組](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
-  - 如果您複製了 VHDX 或動態/差異 VHD，則會將 VHDX/VHD 上傳至暫存的儲存體帳戶以作為區塊 Blob。 移至您暫存的 [儲存體帳戶] > [Blob]，然後選取適當的容器：標準 SSD、標準 HDD 或進階 SSD。 VHDX/VHD 應該會在您暫存的儲存體帳戶中顯示為區塊 Blob。
+  - 如果您複製了 VHDX 或動態/差異 VHD，則會將 VHDX/VHD 上傳至暫存的儲存體帳戶以作為區塊 Blob。 移至您暫存的 [儲存體帳戶] > [Blob]  ，然後選取適當的容器：標準 SSD、標準 HDD 或進階 SSD。 VHDX/VHD 應該會在您暫存的儲存體帳戶中顯示為區塊 Blob。
 
 若要確認資料已上傳至 Azure，請執行下列步驟：
 
 1. 移至與磁碟訂單相關聯的儲存體帳戶。
-2. 移至 [Blob 服務 > 瀏覽 Blob]。 容器清單隨即顯示。 對應至您在 BlockBlob 和 PageBlob 資料夾底下建立的子資料夾，系統會在儲存體帳戶中建立具有相同名稱的容器。
+2. 移至 [Blob 服務 > 瀏覽 Blob]  。 容器清單隨即顯示。 對應至您在 BlockBlob  和 PageBlob  資料夾底下建立的子資料夾，系統會在儲存體帳戶中建立具有相同名稱的容器。
     如果資料夾名稱不符合 Azure 命名慣例，則資料上傳至 Azure 會失敗。
 
-4. 若要確認已載入整個資料集，請使用 Microsoft Azure 儲存體總管。 連接對應到磁碟出租訂單的儲存體帳戶，然後查看 Blob 容器的清單。 選取容器，按一下 [...更多]，然後按一下 [資料夾統計資料]。 在 [活動] 窗格中，會顯示該資料夾的統計資料，包括 Blob 數目和 Blob 大小總計。 Blob 大小總計 (以位元組為單位) 應該符合資料集的大小。
+4. 若要確認已載入整個資料集，請使用 Microsoft Azure 儲存體總管。 連接對應到磁碟出租訂單的儲存體帳戶，然後查看 Blob 容器的清單。 選取容器，按一下 [...更多]  ，然後按一下 [資料夾統計資料]  。 在 [活動]  窗格中，會顯示該資料夾的統計資料，包括 Blob 數目和 Blob 大小總計。 Blob 大小總計 (以位元組為單位) 應該符合資料集的大小。
 
     ![儲存體總管中的資料夾統計資料](media/data-box-disk-deploy-picked-up/folder-statistics-storage-explorer.png)
 

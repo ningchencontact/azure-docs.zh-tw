@@ -3,19 +3,19 @@ title: 快速入門：使用適用於 C# 的 Bing 拼字檢查 SDK 進行檢查�
 titlesuffix: Azure Cognitive Services
 description: 開始使用 Bing 拼字檢查 REST API 來檢查拼字和文法。
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
-ms.author: v-gedod
-ms.openlocfilehash: 3487656f72f315aa15ce003a8dfd279c45d1f992
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: aahi
+ms.openlocfilehash: adbb60c7ddbc72b8b7e5cb31c6909117ce3a10cb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105738"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798369"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>快速入門：使用適用於 C# 的 Bing 拼字檢查 SDK 進行檢查拼字
 
@@ -23,10 +23,10 @@ ms.locfileid: "58105738"
 
 ## <a name="application-dependencies"></a>應用程式相依性
 
-* 任何一版的 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)。
+* [Visual Studio 2017 或更新版本](https://visualstudio.microsoft.com/downloads/)的任何版本。
 * Bing 拼字檢查 [NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck)
 
-若要將 Bing 拼字檢查 SDK 新增至您的專案，請在 Visual Studio 中從 [方案總管] 按一下 `Manage NuGet Packages`。 新增 `Microsoft.Azure.CognitiveServices.Language.SpellCheck` 套件。 此套件也會安裝下列相依性：
+若要將 Bing 拼字檢查 SDK 新增至您的專案，請在 Visual Studio 中選取 [方案總管]  中的 [管理 NuGet 套件]  。 新增 `Microsoft.Azure.CognitiveServices.Language.SpellCheck` 套件。 此套件也會安裝下列相依性：
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure

@@ -1,19 +1,19 @@
 ---
-title: 透過 SMB 將資料複製到您的 Microsoft Azure 資料箱 | Microsoft Docs
+title: 透過 SMB 在 Azure 資料箱上複製資料的教學課程 | Microsoft Docs
 description: 了解如何透過 SMB 將資料複製到您的 Azure 資料箱
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 05/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 3474d4ee8751bcd472aa109e9e541d639344276d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 83eabca3b2ec1903e25b02083b1a2d5b49745396
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118079"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800458"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>教學課程：透過 SMB 將資料複製到 Azure 資料箱
 
@@ -32,7 +32,7 @@ ms.locfileid: "58118079"
 在您開始前，請確定：
 
 1. 您已完成[教學課程：設定 Azure 資料箱](data-box-deploy-set-up.md)。
-2. 您已收到資料箱，且入口網站中的訂購狀態為 [已交付]。
+2. 您已收到資料箱，且入口網站中的訂購狀態為 [已交付]  。
 3. 您有一部主機電腦，其中包含要複製到資料箱的資料。 您的主機電腦必須符合下列條件：
     - 執行[支援的作業系統](data-box-system-requirements.md)。
     - 連線至高速網路。 強烈建議您具有至少一個 10 GbE 的連線。 如果無法使用 10 GbE 連線，請使用 1 GbE 資料連結，但是複製速度會受到影響。
@@ -41,8 +41,8 @@ ms.locfileid: "58118079"
 
 根據選取的儲存體帳戶，資料箱最多會建立：
 - 每個相關聯的儲存體帳戶三個共用 (針對 GPv1 與 GPv2)。
-- 一個適用於進階儲存體的共用。 
-- 一個適用於 Blob 儲存體帳戶的共用。 
+- 一個適用於進階儲存體的共用。
+- 一個適用於 Blob 儲存體帳戶的共用。
 
 在區塊 Blob 與分頁 Blob 共用底下，第一層實體是容器，而第二層實體是 Blob。 在 Azure 檔案共用底下，第一層實體是共用，第二層實體是檔案。
 
@@ -56,15 +56,15 @@ ms.locfileid: "58118079"
 
 如果使用 Windows Server 主機電腦，請依照下列步驟來連線至資料箱。
 
-1. 第一個步驟是驗證並啟動工作階段。 移至 [連線並複製]。 按一下 [取得認證]，以取得您儲存體帳戶相關共用的存取認證。 
+1. 第一個步驟是驗證並啟動工作階段。 移至 [連線並複製]  。 按一下 [取得認證]  ，以取得您儲存體帳戶相關共用的存取認證。 
 
     ![取得共用認證 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. 在 [存取共用及複製資料] 對話方塊中，複製與共用相對應的 [使用者名稱] 和 [密碼]。 按一下 [確定]。
+2. 在 [存取共用及複製資料] 對話方塊中，複製與共用相對應的 [使用者名稱]  和 [密碼]  。 按一下 [確定]  。
     
     ![取得共用認證 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. 若要從主機電腦存取與您的儲存體帳戶相關聯的共用 (在下列範例中為 devicemanagertest1)，請開啟命令視窗。 在命令提示字元中，輸入：
+3. 若要從主機電腦存取與您的儲存體帳戶相關聯的共用 (在下列範例中為 devicemanagertest1  )，請開啟命令視窗。 在命令提示字元中，輸入：
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -81,7 +81,7 @@ ms.locfileid: "58118079"
     The command completed successfully.
     ```
 
-4. 按 Windows + R。在 [執行] 視窗中，指定 `\\<device IP address>`。 按一下 [確定] 以開啟檔案總管。
+4. 按 Windows + R。在 [執行]  視窗中，指定 `\\<device IP address>`。 按一下 [確定]  以開啟檔案總管。
     
     ![透過檔案總管 2 連線至共用](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
@@ -89,9 +89,9 @@ ms.locfileid: "58118079"
     
     ![透過檔案總管 2 連線至共用](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)    
 
-    **一律針對您想複製的檔案，在共用之下建立一個資料夾，然後將檔案複製到該資料夾**。 在區塊 Blob 和分頁 Blob 底下建立的資料夾，代表資料以 Blob 形式上傳至的容器。 您無法將檔案直接複製到儲存體帳戶中的 [root] 資料夾。
+    **一律針對您想複製的檔案，在共用之下建立一個資料夾，然後將檔案複製到該資料夾**。 在區塊 Blob 和分頁 Blob 底下建立的資料夾，代表資料以 Blob 形式上傳至的容器。 您無法將檔案直接複製到儲存體帳戶中的 [root]  資料夾。
     
-使用 Linux 用戶端時，請使用下列命令來掛接 SMB 共用。 下方的 "vers" 參數是您的 Linux 主機支援的 SMB 版本。 請在下列命令中插入適當的版本。 如需資料箱支援哪些 SMB 版本的相關資訊，請參閱 [Linux 用戶端支援的檔案系統](https://docs.microsoft.com/en-us/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
+使用 Linux 用戶端時，請使用下列命令來掛接 SMB 共用。 下方的 "vers" 參數是您的 Linux 主機支援的 SMB 版本。 請在下列命令中插入適當的版本。 如需資料箱支援哪些 SMB 版本的相關資訊，請參閱 [Linux 用戶端支援的檔案系統](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
 
     `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
     
@@ -109,7 +109,7 @@ ms.locfileid: "58118079"
     - 將相同的資料複製到 Azure 上的相同最終目的地。 
      
   在這類情況下，無法判斷最後的結果。
-- 一律針對您想複製的檔案，在共用之下建立一個資料夾，然後將檔案複製到該資料夾。 在區塊 Blob 和分頁 Blob 底下建立的資料夾，代表資料以 Blob 形式上傳至的容器。 您無法將檔案直接複製到儲存體帳戶中的 [root] 資料夾。
+- 一律針對您想複製的檔案，在共用之下建立一個資料夾，然後將檔案複製到該資料夾。 在區塊 Blob 和分頁 Blob 底下建立的資料夾，代表資料以 Blob 形式上傳至的容器。 您無法將檔案直接複製到儲存體帳戶中的 [root]  資料夾。
 
 連線至 SMB 共用之後，請開始複製資料。 您可以使用任何與 SMB 相容的檔案複製工具 (例如 Robocopy) 來複製資料。 使用 Robocopy 可起始多個複製作業。 使用下列命令：
     
@@ -132,7 +132,7 @@ ms.locfileid: "58118079"
 |/z    | 以重新啟動模式複製檔案；如果環境不穩定，請使用此選項。 此選項會因為額外的記錄而降低輸送量。      |
 | /zb     | 使用重新啟動模式。 如果存取遭拒，此選項會使用備份模式。 此選項會因為執行檢查點而降低輸送量。         |
 |/efsraw     | 以 EFS 原始模式複製所有加密檔案。 這只適用於加密檔案。         |
-|log+:<LogFile>| 將輸出附加至現有的記錄檔。|    
+|log+:\<LogFile>| 將輸出附加至現有的記錄檔。|    
  
 下列範例顯示將檔案複製到資料箱的 robocopy 命令輸出。
     
@@ -202,7 +202,7 @@ ms.locfileid: "58118079"
 
 如需 Robocopy 命令的詳細資訊，請移至 [Robocopy 和數個範例](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx)。
 
-開啟目標資料夾，以檢視並確認已複製的檔案。 如果您在複製程序期間遇到任何錯誤，請下載錯誤檔以進行疑難排解。
+開啟目標資料夾，以檢視並確認已複製的檔案。 如果您在複製程序期間遇到任何錯誤，請下載錯誤檔以進行疑難排解。 如需詳細資訊，請參閱[在資料複製到資料箱期間檢視錯誤記錄](data-box-logs.md#view-error-log-during-data-copy-to-data-box)。 如需資料複製期間的詳細錯誤清單，請參閱[針對資料箱問題進行疑難排解](data-box-troubleshoot.md)。
 
 為了確保資料完整性，在複製資料時會計算內嵌的總和檢查碼。 複製完成後，請確認您的裝置上已使用的空間和可用空間。
     

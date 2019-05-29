@@ -5,21 +5,25 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 69f91949347eadcffb3c0d3ff833a40b5e483e24
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6615c6d8912195dbecda727bbdb31dcf04898ea2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003170"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792818"
 ---
 # <a name="what-is-azure-cost-management"></a>什麼是 Azure 成本管理？
 
 成本管理是有效規劃和控制商務相關成本的流程。 成本管理工作通常是由財務、管理和應用程式小組執行。 Azure 成本管理可協助組織在規劃時考量成本。 它也有助於有效地分析成本，並採取動作來將雲端費用最佳化。 若要深入了解如何以組織身分進行成本管理，請查看 [Azure 成本管理最佳做法](cost-mgt-best-practices.md)一文。
+
+觀看 [Azure 成本管理概觀影片](https://www.youtube.com/watch?v=el4yN5cHsJ0) 以快速並概略了解 Azure 成本管理如何協助您在 Azure 中節省成本。
+
+>[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
 雖然計費與成本管理相關，則實則不同。 計費是涉及向客戶開立商品或服務發票以及管理商業關係的程序。  採購和財務小組通常會進行計費工作。
 
@@ -41,7 +45,11 @@ ms.locfileid: "58003170"
 
 ## <a name="consider-cloudyn"></a>考慮 Cloudyn
 
-[Cloudyn](overview.md) 是一項與成本管理相關的 Azure 服務。 透過 Cloudyn，您可以追蹤 Azure 資源的雲端使用量和支出。 它也支援其他雲端提供者，包括 AWS 和 Google。 淺顯易懂的儀表板報告有助於成本配置和回報 (showback)/計費 (chargeback)。 成本管理目前不支援回報/退款或其他雲端服務提供者。 不過，Cloudyn 是「不」支援雲端提供者的選項。 目前，成本管理不支援 Microsoft Cloud 服務提供者 (CSP) 帳戶，但 Cloudyn 支援。 如果您有 CSP 帳戶，或想要使用帳單明細/退款，您可以使用 Cloudyn 來協助管理成本。
+[Cloudyn](overview.md) 是一項與成本管理相關的 Azure 服務。 透過 Cloudyn，您可以追蹤 Azure 資源的雲端使用量和支出。 它也支援其他雲端提供者，包括 AWS 和 Google。 淺顯易懂的儀表板報告有助於成本配置和回報 (showback)/計費 (chargeback)。 成本管理目前不支援回報/退款或其他雲端服務提供者。 不過，Cloudyn 是「不」  支援雲端提供者的選項。 目前，成本管理不支援 Microsoft Cloud 服務提供者 (CSP) 帳戶，但 Cloudyn 支援。 如果您有 CSP 帳戶，或想要使用帳單明細/退款，您可以使用 Cloudyn 來協助管理成本。
+
+觀看 [Azure 成本管理和 Cloudyn 影片](https://www.youtube.com/watch?v=PmwFWwSluh8)取得相關建議，了解如何依據您的業務需求，決定應使用 Azure 成本管理或 Cloudyn。
+
+>[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
 
 ## <a name="additional-azure-tools"></a>其他 Azure 工具
 

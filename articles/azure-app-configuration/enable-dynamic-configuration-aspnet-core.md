@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cae29fe045d1bdc17f414ff016642635b74320df
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ee539b87c08dd00545060cb30d28ac7fcd01e61b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408821"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518995"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>教學課程：在 ASP.NET Core 應用程式中使用動態設定
 
@@ -45,7 +45,7 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
 
 ## <a name="reload-data-from-app-configuration"></a>從應用程式設定重新載入資料
 
-1. 開啟 Program.cs，然後新增 `config.AddAzureAppConfiguration()` 方法來更新 `CreateWebHostBuilder` 方法。
+1. 開啟 Program.cs  ，然後新增 `config.AddAzureAppConfiguration()` 方法來更新 `CreateWebHostBuilder` 方法。
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -63,8 +63,11 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
     ```
 
     `.Watch` 方法中的第二個參數是 ASP.NET 用戶端程式庫查詢應用程式組態存放區的輪詢間隔。 用戶端程式庫會檢查特定的組態設定，以了解是否發生任何變更。
+    
+    > [!NOTE]
+    > `Watch` 擴充方法的預設輪詢間隔為 30 秒 (如果未指定)。
 
-2. 新增 Settings.cs 檔案，以定義及實作新的 `Settings` 類別。
+2. 新增 Settings.cs  檔案，以定義及實作新的 `Settings` 類別。
 
     ```csharp
     namespace TestAppConfig
@@ -79,7 +82,7 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
     }
     ```
 
-3. 開啟 Startup.cs，然後更新 `ConfigureServices` 方法以將組態資料繫結至 `Settings` 類別。
+3. 開啟 Startup.cs  ，然後更新 `ConfigureServices` 方法以將組態資料繫結至 `Settings` 類別。
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -98,7 +101,7 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
 
 ## <a name="use-the-latest-configuration-data"></a>使用最新的設定資料
 
-1. 在控制器目錄中開啟 HomeController.cs，並將參考新增至 `Microsoft.Extensions.Options` 套件。
+1. 在控制器目錄中開啟 HomeController.cs  ，並將參考新增至 `Microsoft.Extensions.Options` 套件。
 
     ```csharp
     using Microsoft.Extensions.Options;
@@ -127,7 +130,7 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
     }
     ```
 
-3. 開啟 [Views] > [Home] 目錄中的 Index.cshtml，然後以下列程式碼取代其內容：
+3. 開啟 [Views] > [Home] 目錄中的 Index.cshtml  ，然後以下列程式碼取代其內容：
 
     ```html
     <!DOCTYPE html>
@@ -164,9 +167,9 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
 
     ![快速入門應用程式啟動本機](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. 登入 [Azure 入口網站](https://aka.ms/azconfig/portal)。 選取 [所有資源]，然後選取您在快速入門中建立的應用程式組態存放區執行個體。
+4. 登入 [Azure 入口網站](https://aka.ms/azconfig/portal)。 選取 [所有資源]  ，然後選取您在快速入門中建立的應用程式組態存放區執行個體。
 
-5. 選取 [組態總管]，然後更新下列索引鍵的值：
+5. 選取 [組態總管]  ，然後更新下列索引鍵的值：
 
     | Key | 值 |
     |---|---|

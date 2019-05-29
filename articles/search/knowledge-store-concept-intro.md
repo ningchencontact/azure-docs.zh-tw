@@ -1,5 +1,5 @@
 ---
-title: 知識存放區簡介和概觀 - Azure 搜尋服務
+title: 知識存放區簡介和概觀 (預覽) - Azure 搜尋服務
 description: 將擴充的文件傳送到 Azure 搜尋服務，您可以從該處檢視、調整及取用 Azure 搜尋服務和其他應用程式中的擴充文件。
 manager: cgronlun
 author: HeidiSteen
@@ -9,16 +9,20 @@ ms.devlang: NA
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 3000016de934aaa3faab96821f9747ea4b571ef7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4a27e4d8f2fbaafe6d27a3e3cabd31aa715b9d80
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030086"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540741"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>什麼是 Azure 搜尋服務中的知識存放區？
 
-知識存放區是 Azure 搜尋服務的一個選用功能且目前是公開預覽版，可儲存以 AI 為基礎的索引編製管線 [(認知搜尋)](cognitive-search-concept-intro.md) 所建立的擴充文件與中繼資料。 知識存放區是由您設定為管線之一部分的 Azure 儲存體帳戶提供支援。 啟用時，搜尋服務會使用此儲存體帳戶快取每個擴充文件的表示法。 
+> [!Note]
+> 知識存放區處於預覽狀態，不適合用於生產環境。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前 .NET SDK 入口網站並不支援此功能。
+>
+
+知識存放區是 Azure 搜尋服務的一個選用功能，可儲存以 AI 為基礎的索引管線 [(認知搜尋)](cognitive-search-concept-intro.md) 所建立的擴充文件與中繼資料。 知識存放區是由您設定為管線之一部分的 Azure 儲存體帳戶提供支援。 啟用時，搜尋服務會使用此儲存體帳戶快取每個擴充文件的表示法。 
 
 如果您過去使用過認知搜尋，您已經知道該技能集可用來透過一連串的擴充移動文件。 結果可能是 Azure 搜尋服務索引，或 (此預覽版中的新功能) 知識存放區中的投影。
 
@@ -47,7 +51,7 @@ ms.locfileid: "65030086"
 
 ## <a name="create-a-knowledge-store"></a>建立知識存放區
 
-知識存放區是技能集定義的一部分。 在此預覽版本中，建立知識存放區需要有 REST API，並在入口網站中使用 `api-version=2019-05-06-Preview` 或[匯入資料] 精靈。
+知識存放區是技能集定義的一部分。 在此預覽版本中，建立知識存放區需要有 REST API，並在入口網站中使用 `api-version=2019-05-06-Preview` 或[匯入資料]  精靈。
 
 下列 JSON 會指定 `knowledgeStore`，這是技能集的一部分，由索引子所叫用 (未顯示)。 `knowledgeStore` 中的投影規格可判斷在 Azure 儲存體中建立的是資料表還是物件。
 
@@ -139,7 +143,7 @@ Azure 搜尋服務可提供索引子功能，而索引子用來端對端地驅�
 | 資料來源 | [建立資料來源](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 一個資源，用以識別提供來源資料以建立擴充文件的外部 Azure 資料來源。  |
 | 技能集 | [建立技能集 (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 一個資源，在索引編製期間負責對擴充管線中使用的[內建技能](cognitive-search-predefined-skills.md)和[自訂認知技能](cognitive-search-custom-skill-interface.md)協調用法。 |
 | index | [建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index)  | 表示 Azure 搜尋服務索引的結構描述。 索引中與來源資料中的欄位或在擴充階段產生的欄位 (例如，實體辨識所建立之組織名稱的欄位) 相對應的欄位。 |
-| 索引子 | [建立索引子 (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 一個資源，用以定義在索引編製期間所使用的元件：包括資料來源、技能集、來源和中繼資料結構與目標索引的欄位關聯性，以及索引本身。 執行索引子是擷取和擴充資料的觸發程序。 輸出是以索引結構描述為基礎、以來源資料填入，並透過技能集進行擴充的搜尋索引。  |
+| 索引子 | [建立索引子 (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 一項資源，用以定義在索引編製期間所使用的元件：包括資料來源、技能集、來源和中繼資料結構與目標索引的欄位關聯性，以及索引本身。 執行索引子是擷取和擴充資料的觸發程序。 輸出是以索引結構描述為基礎、以來源資料填入，並透過技能集進行擴充的搜尋索引。  |
 
 ### <a name="3---cognitive-services"></a>3 - 認知服務
 
@@ -179,7 +183,7 @@ Azure 搜尋服務可提供索引子功能，而索引子用來端對端地驅�
 
 ## <a name="inside-a-knowledge-store"></a>在知識存放區內
 
-知識存放區是由註釋快取和投影所組成。 服務會在內部使用*快取*，來快取技能的結果並追蹤變更。 「投影」可定義符合預定用途之擴充的結構描述和結構。 每個知識存放區都有一個快取，但是有多個投影。 
+知識存放區是由註釋快取和投影所組成。 服務會在內部使用*快取*，來快取技能的結果並追蹤變更。 「投影」  可定義符合預定用途之擴充的結構描述和結構。 每個知識存放區都有一個快取，但是有多個投影。 
 
 快取一律是 Blob 容器，但是投影可以清楚表達為資料表或物件：
 
@@ -239,11 +243,11 @@ Although Azure Search creates and updates structures and content in Azure storag
 
 ## <a name="takeaways"></a>重要心得
 
-知識存放區提供各式各樣的優點，包括但不是限於在搜尋以外的案例中啟用擴充的文件、成本控制，以及管理擴充程序中的漂移。 這些功能都可供使用，只要將儲存體帳戶新增至您的技能集，然後使用更新的運算式語言即可，如[如何開始使用知識存放區](knowledge-store-howto.md)中所示。 
+知識存放區提供各式各樣的優點，包括但不限於在搜尋以外的案例中啟用擴充文件、成本控制，以及管理擴充程序中的漂移。 這些功能都可供使用，只要將儲存體帳戶新增至您的技能集，然後使用更新的運算式語言，如[如何開始使用知識存放區](knowledge-store-howto.md)中所述。 
 
 ## <a name="next-steps"></a>後續步驟
 
-建立擴充文件最簡單的方法，是透過 [匯入資料] 精靈。
+建立擴充文件最簡單的方法，是透過 [匯入資料]  精靈。
 
 > [!div class="nextstepaction"]
 > [快速入門：在入口網站中逐步試用認知搜尋](cognitive-search-quickstart-blob.md)

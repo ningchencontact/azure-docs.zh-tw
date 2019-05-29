@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: da6c9bb6cbd94ab5078641f25e42ad2203ff7a53
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 48bb241a7871d2a209636f66837fb2afd95fd22c
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402349"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001805"
 ---
 # <a name="azure-managed-applications-overview"></a>Azure 受控應用程式概觀
 
@@ -33,7 +33,7 @@ Azure 受控應用程式可讓您提供雲端解決方案，讓取用者方便�
 
 對於 IT 小組，受控應用程式可讓您為組織中的使用者提供預先核准的解決方案。 您知道這些解決方案都符合組織標準。
 
-受控應用程式目前不支援[適用於 Azure 資源的受控識別](../active-directory/managed-identities-azure-resources/overview.md)。
+受控應用程式支援[適用於 Azure 資源的受控識別](./publish-managed-identity.md)。
 
 ## <a name="types-of-managed-applications"></a>受控應用程式的類型
 

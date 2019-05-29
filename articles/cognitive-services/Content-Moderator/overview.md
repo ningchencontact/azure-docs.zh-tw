@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 440471acb6e122bf25ba21b0ab3b5a2f7d9b021d
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 7e9c12c7da701fb627c51373e57f870d3fc77ac5
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758137"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551283"
 ---
 # <a name="what-is-azure-content-moderator"></a>什麼是 Azure Content Moderator？
 
-Azure Content Moderator API 是一項認知服務，可檢查文字、影像和視訊內容是否含有可能具冒犯意味、有風險或不當的資料。 找到這類資料時，服務會對內容套用適當的標籤 (旗標)。 加上旗標的內容隨後可由您的應用程式處理，以遵循法規或維護使用者應有的環境。 請參閱 [Content Moderator API](#content-moderator-apis) 一節，以深入了解不同內容旗標的意義。
+Azure Content Moderator API 是一項認知服務，可檢查文字、影像和視訊內容是否含有可能具冒犯意味、有風險或不當的資料。 找到這類資料時，服務會對內容套用適當的標籤 (旗標)。 加上旗標的內容隨後可由您的應用程式處理，以遵循法規或維護使用者應有的環境。 請參閱[仲裁 API](#moderation-apis) 一節，以深入了解不同內容旗標的意義。
 
 ## <a name="where-it-is-used"></a>使用位置
 
@@ -35,11 +35,13 @@ Azure Content Moderator API 是一項認知服務，可檢查文字、影像和�
 
 Content Moderator 服務由數個可透過 REST 呼叫和 .NET SDK 使用的 Web 服務 API 所組成。 此外也包含人工審核工具，可讓人工審核者輔助服務，以及改善或微調其仲裁功能。
 
-![顯示仲裁 API、審核 API 和人工審核工具的 Content Moderator 區塊圖](images/content-moderator-block-diagram.png)
+## <a name="moderation-apis"></a>仲裁 API
 
-### <a name="content-moderator-apis"></a>Content Moderator API
+Content Moderator 服務包含仲裁 API，可用來檢查可能不適當或令人反感的素材內容。
 
-Content Moderator 服務包含適用於下列案例的 API。
+![Content Moderator 仲裁 API 的區塊圖](images/content-moderator-mod-api.png)
+
+下表描述不同類型的仲裁 API。
 
 | API 群組 | 說明 |
 | ------ | ----------- |
@@ -48,9 +50,17 @@ Content Moderator 服務包含適用於下列案例的 API。
 |[**影像仲裁**](image-moderation-api.md)| 掃描影像中的成人或猥褻內容、使用光學字元辨識 (OCR) 功能偵測影像中的文字，以及偵測臉部。|
 |[**自訂影像清單**](try-image-list-api.md)| 根據自訂影像清單掃描影像。 使用自訂影像清單，篩選掉重複出現、而您不想再次分類的內容執行個體。|
 |[**影片仲裁**](video-moderation-api.md)| 掃描影片中的成人或猥褻內容，並傳回該內容的時間標記。|
-|[**檢閱 API**](try-review-api-job.md)| 使用[作業](try-review-api-job.md)、[審核](try-review-api-review.md)與[工作流程](try-review-api-workflow.md)作業來建立及自動化審核工具的人機互動工作流程。 .NET SDK 尚未提供工作流程 API。|
 
-### <a name="review-tool"></a>檢閱工具
+## <a name="review-apis"></a>檢閱 API
+
+檢閱 API 可讓您整合仲裁管線與人工審核。 使用[作業](review-api.md#jobs)、[審核](review-api.md#reviews)與[工作流程](review-api.md#workflows)作業來建立及自動化[審核工具](#the-review-tool)的人機互動工作流程 (如下所示)。
+
+> [!NOTE]
+> 工作流程 API 尚無法用於 .NET SDK，但是可以搭配 REST 端點使用。
+
+![Content Moderator 審核 API 的區塊圖](images/content-moderator-rev-api.png)
+
+## <a name="the-review-tool"></a>審查工具
 
 Content Moderator 服務也包含以 Web 為基礎的[審核工具](Review-Tool-User-Guide/human-in-the-loop.md)，此工具會裝載內容審核以供人力審核者處理。 人工輸入不會訓練服務，但在服務與人工審核小組的搭配運作下，開發人員將可在效率和精確度之間取得適當的平衡。 審核工具也針對各種 Content Moderator 資源提供方便使用的前端。
 

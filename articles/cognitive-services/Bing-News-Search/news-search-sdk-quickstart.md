@@ -3,20 +3,20 @@ title: 快速入門：執行新聞搜尋 - 適用於 C# 的 Bing 新聞搜尋 SD
 titleSuffix: Azure Cognitive Services
 description: 使用此快速入門以運用「適用於 C# 的 Bing 新聞搜尋 SDK」來搜尋新聞，並處理回應。
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 01/10/2019
-ms.author: v-gedod
+ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: fe9010215e5b6c4c9ece2372e3ce87bcf99b150c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9e0a4da2662b9d4b4b775631705e7b4fcc1eecea
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262885"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798678"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>快速入門：使用適用於 C# 的 Bing 新聞搜尋 SDK 來執行新聞搜尋
 
@@ -24,7 +24,7 @@ ms.locfileid: "59262885"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 任何一版的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
+* [Visual Studio 2017 或更新版本](https://www.visualstudio.com/downloads/)的任何版本。
 * [Json.NET](https://www.newtonsoft.com/json) 架構 (以 NuGet 套件形式提供)。
 * 如果您使用 Linux/MacOS，則可以使用 [Mono](https://www.mono-project.com/)來執行此應用程式。
 

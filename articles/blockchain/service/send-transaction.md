@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: d3ad4cdfe33948c04c278ed3dfef7aa6fda637ab
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 0b5e39e9cf2fc3ffe91db6587bc1ed1bab079e93
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027494"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65777333"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>教學課程：使用 Azure 區塊鏈服務傳送交易
 
@@ -47,7 +47,7 @@ ms.locfileid: "65027494"
 根據預設，您會有一個交易節點。 我們會多新增兩個。 其中一個節點會參與私人交易。 另一個節點則不會包含在私人交易中。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 瀏覽至您的 Azure 區塊鏈成員，然後選取 [交易節點] > [新增]。
+1. 瀏覽至您的 Azure 區塊鏈成員，然後選取 [交易節點] > [新增]  。
 1. 完成設定名為 `alpha` 的新交易節點。
 
     ![建立交易節點](./media/send-transaction/create-node.png)
@@ -57,7 +57,7 @@ ms.locfileid: "65027494"
     | Name | `alpha` | 交易節點名稱。 該名稱會用來建立交易節點端點的 DNS 位址。 例如： `alpha-mymanagedledger.blockchain.azure.com`。 |
     | 密碼 | 強式密碼 | 該密碼會用來存取搭配基本驗證的交易節點端點。
 
-1. 選取 [建立] 。
+1. 選取 [建立]  。
 
     佈建一個新的交易節點大約需要 10 分鐘。
 
@@ -86,7 +86,7 @@ ms.locfileid: "65027494"
 
 使用 Web3 來連線至預設的交易節點並建立帳戶。 您可以從 Azure 入口網站取得 Web3 連接字串。
 
-1. 在 Azure 入口網站中，瀏覽至預設的交易節點，然後選取 [交易節點] > [程式碼範例] > [Web3]。
+1. 在 Azure 入口網站中，瀏覽至預設的交易節點，然後選取 [交易節點] > [程式碼範例] > [Web3]  。
 1. 從 **HTTPS (存取金鑰 1)** 複製 JavaScript ![Web3 程式碼範例](./media/send-transaction/web3-code.png)
 
 1. 將預設交易節點的 Web3 JavaScript 程式碼貼到 Truffle 互動式開發主控台。 該程式碼會建立連線至您 Azure 區塊鏈服務交易節點的 Web3 物件。
@@ -119,7 +119,7 @@ ms.locfileid: "65027494"
 
 ### <a name="transaction-node-public-key"></a>交易節點公開金鑰
 
-每個交易節點都有公開金鑰。 公開金鑰可讓您將私人交易傳送到節點。 若要將交易從預設的交易節點傳送至 alpha 交易節點，您需要 alpha 交易節點的公開金鑰。
+每個交易節點都有公開金鑰。 公開金鑰可讓您將私人交易傳送到節點。 若要將交易從預設的交易節點傳送至 alpha  交易節點，您需要 alpha  交易節點的公開金鑰。
 
 您可以從交易節點清單中取得公開金鑰。 複製 alpha 節點的公開金鑰並儲存該值，以便稍後在本教學課程中使用。
 
@@ -127,14 +127,14 @@ ms.locfileid: "65027494"
 
 ### <a name="transaction-node-endpoint-addresses"></a>交易節點端點位址
 
-1. 在 Azure 入口網站中，瀏覽至每個交易節點，然後選取 [交易節點] > [連接字串]。
-1. 針對每個交易節點，從 ** HTTPS (存取金鑰 1) 複製並儲存端點 URL。 稍後在本教學課程中，智慧型合約組態檔會需要用到端點位址。
+1. 在 Azure 入口網站中，瀏覽至每個交易節點，然後選取 [交易節點] > [連接字串]  。
+1. 針對每個交易節點，從 **HTTPS (存取金鑰 1)** 複製並儲存端點 URL。 稍後在本教學課程中，智慧型合約組態檔會需要用到端點位址。
 
     ![交易端點位址](./media/send-transaction/endpoint.png)
 
 ### <a name="edit-configuration-file"></a>編輯組態檔
 
-1. 啟動 Visual Studio Code，並使用 [檔案] > [開啟資料夾] 功能表來開啟 Truffle 專案目錄資料夾。
+1. 啟動 Visual Studio Code，並使用 [檔案] > [開啟資料夾]  功能表來開啟 Truffle 專案目錄資料夾。
 1. 開啟 Truffle 組態檔 `truffle-config.js`。
 1. 使用下列組態資訊取代檔案的內容。 新增包含端點位址和帳戶資訊的變數。 將角括號區段取代為您在上一節中收集的值。
 
@@ -230,9 +230,9 @@ module.exports = function(deployer) {
 
 在此範例中，**storeData** 值的初始值會設為 42。
 
-**privateFor** 會定義可使用合約的節點。 在此範例中，預設交易節點的帳戶可以將私人交易投送到 **alpha** 節點。 您需要新增所有私人交易參與者的公開金鑰。 如果您未包含 **privateFor:** 和 **from:**，則智慧型合約交易會是公開狀態，能讓所有聯盟成員看見。
+**privateFor** 會定義可使用合約的節點。 在此範例中，預設交易節點的帳戶可以將私人交易投送到 **alpha** 節點。 您需要新增所有私人交易參與者的公開金鑰。 如果您未包含 **privateFor:** 和 **from:** ，則智慧型合約交易會是公開狀態，能讓所有聯盟成員看見。
 
-若要儲存所有檔案，請選取 [檔案] > [全部儲存]。
+若要儲存所有檔案，請選取 [檔案] > [全部儲存]  。
 
 ## <a name="deploy-smart-contract"></a>部署智慧型合約
 
@@ -470,8 +470,8 @@ Finished!
 
 若要刪除資源群組：
 
-1. 在 Azure 入口網站中，瀏覽至左側瀏覽窗格中的 [資源群組]，然後選取您想要刪除的資源群組。
-1. 選取 [刪除資源群組]。 輸入資源群組名稱並選取 [刪除]，以確定進行刪除。
+1. 在 Azure 入口網站中，瀏覽至左側瀏覽窗格中的 [資源群組]  ，然後選取您想要刪除的資源群組。
+1. 選取 [刪除資源群組]  。 輸入資源群組名稱並選取 [刪除]  ，以確定進行刪除。
 
 ## <a name="next-steps"></a>後續步驟
 

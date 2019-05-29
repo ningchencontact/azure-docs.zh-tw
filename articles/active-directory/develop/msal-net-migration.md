@@ -4,7 +4,7 @@ description: 了解適用於 .NET 的 Microsoft 驗證程式庫 (MSAL.NET) 與�
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2576121bfc945b90ce8ec0260ea30ec110e14dd8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f9be13ac22e6eda32668d635032ebcccf417b6c7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138835"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785212"
 ---
 # <a name="migrating-applications-to-msalnet"></a>將應用程式遷移至 Azure
 
@@ -47,7 +47,7 @@ ADAL.NET 取用自 [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www
 
 ### <a name="scopes-not-resources"></a>範圍，而非資源
 
-ADAL.NET 可取得「資源」的權杖，但 MSAL.NET 可取得「範圍」的權杖。 有些 MSAL.NET AcquireToken 覆寫需要名為 scopes 的參數 (`IEnumerable<string> scopes`)。 此參數是簡單的字串清單，其宣告所需的權限和要求的資源。 知名的範圍是 [Microsoft Graph 範圍](/graph/permissions-reference)。
+ADAL.NET 可取得「資源」  的權杖，但 MSAL.NET 可取得「範圍」  的權杖。 有些 MSAL.NET AcquireToken 覆寫需要名為 scopes 的參數 (`IEnumerable<string> scopes`)。 此參數是簡單的字串清單，其宣告所需的權限和要求的資源。 知名的範圍是 [Microsoft Graph 範圍](/graph/permissions-reference)。
 
 此外，也可以在 MSAL.NET 中存取 v1.0 資源。 請參閱 [v1.0 應用程式範圍](#scopes-for-a-web-api-accepting-v10-tokens)中的詳細資料。 
 
@@ -192,7 +192,7 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 Azure AD 所用的邏輯如下所示：
 - 若為具有 v1.0 存取權杖 (唯一可能) 的 ADAL (v1.0) 端點，則 aud=resource
 - 若為要求資源存取權杖並接受 v2.0 權杖的 MSAL (v2.0 端點)，則 aud=resource.AppId
-- 對於要求資源存取權杖並接受 v1.0 存取權杖 (上述案例) 的 MSAL (v2.0 端點)，Azure AD 會採用最後一個斜線之前的一切並以它作為資源識別碼，藉此剖析要求範圍中的所需對象。 因此，如果 https://database.windows.net 預期對象為 "https://database.windows.net/"，您就需要要求 https://database.windows.net//.default 範圍。 另請參閱問題 #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)：資源 url 的結尾斜線會被省略，進而導致 sql 驗證失敗 #747
+- 對於要求資源存取權杖並接受 v1.0 存取權杖 (上述案例) 的 MSAL (v2.0 端點)，Azure AD 會採用最後一個斜線之前的一切並以它作為資源識別碼，藉此剖析要求範圍中的所需對象。 因此，如果 https:\//database.windows.net 預期的對象為 "https://database.windows.net/"，您必須要求 https:\//database.windows.net//.default 的範圍。 另請參閱問題 #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)：資源 url 的結尾斜線會被省略，進而導致 sql 驗證失敗 #747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>要求存取 v1.0 應用程式所有權限的範圍

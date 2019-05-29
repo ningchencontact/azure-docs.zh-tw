@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 0e80fbc96bf1241308c80d108e9f9580122b801b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: cb4ad20067783d8d6bd649710950fea51a22a454
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587713"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979147"
 ---
 # <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>快速入門：使用 Azure Cosmos DB SQL API 帳戶建置 Java 應用程式
 
@@ -35,8 +35,7 @@ ms.locfileid: "56587713"
 
 此外： 
 
-* [Java Development Kit (JDK) 1.8+](https://aka.ms/azure-jdks) \(英文\)
-    * 在 Ubuntu 上，執行 `apt-get install default-jdk` 來安裝 JDK。
+* [JAVA 開發套件 (JDK) 8 版](https://aka.ms/azure-jdks) \(英文\)
     * 務必設定 JAVA_HOME 環境變數，以指向 JDK 安裝所在的資料夾。
 * [下載](https://maven.apache.org/download.cgi)和[安裝 ](https://maven.apache.org/install.html) [Maven](https://maven.apache.org/) 二進位封存檔
     * 在 Ubuntu 上，您可以執行 `apt-get install maven` 來安裝 Maven。

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: eade9f4e2a956a6542b69e93b0102169ddd32ccf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6c7952f5baf2e6956e4052f68ede6fb0c4902854
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281228"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921359"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>使用 JavaScript 建立第一個耐久函式
 
@@ -52,15 +52,15 @@ ms.locfileid: "59281228"
 
 首先，建立 HTTP 觸發的函式，該函式會啟動耐久函式協調流程。
 
-1. 從 [Azure: 函式] 中，選擇 [建立函式] 圖示。
+1. 從 [Azure: 函式]  中，選擇 [建立函式] 圖示。
 
     ![建立函式](./media/quickstart-js-vscode/create-function.png)
 
-2. 選取具有函式應用程式專案的資料夾，然後選取 [HTTP 觸發程序] 函式範本。
+2. 選取具有函式應用程式專案的資料夾，然後選取 [HTTP 觸發程序]  函式範本。
 
     ![選擇 HTTP 觸發程序範本](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. 輸入 `HttpStart` 作為函式名稱，並按下 Enter，然後選取 [匿名] 驗證。
+3. 輸入 `HttpStart` 作為函式名稱，並按下 Enter，然後選取 [匿名]  驗證。
 
     ![選擇匿名驗證](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
@@ -117,7 +117,7 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 2. 若要測試您的函式，可在函式程式碼中設定中斷點，並按 F5 以啟動函式應用程式專案。 Core Tools 的輸出會顯示在**終端機**面板中。 如果這是您第一次使用 Durable Functions，則會安裝Durable Functions 擴充功能 且建置可能需要幾秒鐘的時間。
 
     > [!NOTE]
-    > JavaScript Durable Functions 需要 **1.7.0** 版或更新版的 **Microsoft.Azure.WebJobs.Extensions.DurableTask** 擴充功能。 確認 `extensions.csproj` 檔案中 Durable Functions 擴充功能的版本符合此需求。 如果不相符，請停止您的函式應用程式、變更版本，然後按 F5 重新啟動您的函式應用程式。
+    > JavaScript Durable Functions 需要 **1.7.0** 版或更新版的 **Microsoft.Azure.WebJobs.Extensions.DurableTask** 擴充功能。 從 Azure Functions 應用程式的根資料夾執行下列命令，以安裝 Durable Functions 擴充功能 `func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.7.0`
 
 3. 在**終端機**面板中，複製 HTTP 觸發函式的 URL 端點。
 
@@ -159,7 +159,7 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 
 ## <a name="test-your-function-in-azure"></a>在 Azure 中測試您的函式
 
-1. 從 [輸出] 面板中複製 HTTP 觸發程序的 URL。 呼叫 HTTP URL 觸發函式的 URL 應採用下列格式：
+1. 從 [輸出]  面板中複製 HTTP 觸發程序的 URL。 呼叫 HTTP URL 觸發函式的 URL 應採用下列格式：
 
         http://<functionappname>.azurewebsites.net/orchestrators/<functionname>
 

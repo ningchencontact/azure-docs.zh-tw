@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e19523834c0ddb517fa9d15853411c1b58024b43
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236759"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834000"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>教學課程：透過 Azure Marketplace 建立主機集區
 
@@ -30,9 +30,9 @@ ms.locfileid: "65236759"
 
 若要執行 Azure Marketplace 供應項目來佈建新的主機集區：
 
-1. 選取 **+** 或 [+ 建立資源]。
+1. 選取 **+** 或 [+ 建立資源]  。
 2. 在 Marketplace 搜尋視窗中輸入 **Windows 虛擬桌面**。
-3. 選取 [Windows 虛擬桌面 - 佈建主機集區]，然後選取 [建立]。
+3. 選取 [Windows 虛擬桌面 - 佈建主機集區]  ，然後選取 [建立]  。
 
 請依照指導方針來輸入適當刀鋒視窗的資訊。
 
@@ -41,11 +41,11 @@ ms.locfileid: "65236759"
 以下是您針對 [基本概念] 刀鋒視窗執行的作業：
 
 1. 輸入主機集區的名稱，該名稱必須是 Windows 虛擬桌面租用戶內的唯一名稱。
-2. 為個人桌面選取適當選項。 如果您選取 [是]，系統會將連線到此主機集區的每個使用者永久指派給虛擬機器。
+2. 為個人桌面選取適當選項。 如果您選取 [是]  ，系統會將連線到此主機集區的每個使用者永久指派給虛擬機器。
 3. 輸入以逗號分隔的使用者清單，這些使用者可以登入 Windows 虛擬桌面用戶端，並在 Azure Marketplace 供應項目完成後存取桌面。 例如，如果您想要指派 user1@contoso.com 和 user2@contoso.com 存取權，請輸入"user1@contoso.com,user2@contoso.com"。
-4. 選取 [新建] 並提供新資源群組的名稱。
-5. 針對 [位置]，選取與可連線至 Active Directory 伺服器的虛擬網路相同的位置。
-6. 選取 [確定] 。
+4. 選取 [新建]  並提供新資源群組的名稱。
+5. 針對 [位置]  ，選取與可連線至 Active Directory 伺服器的虛擬網路相同的位置。
+6. 選取 [確定]  。
 
 ### <a name="configure-virtual-machines"></a>設定虛擬機器
 
@@ -53,34 +53,37 @@ ms.locfileid: "65236759"
 
 1. 接受預設值，或自訂 VM 的數量或大小。
 2. 輸入虛擬機器的名稱前置詞。 比方說，如果您輸入名稱「前置詞」，則虛擬機器會稱為 "prefix-0"、"prefix-1"，依此類推。
-3. 選取 [確定] 。
+3. 選取 [確定]  。
 
 ### <a name="virtual-machine-settings"></a>虛擬機器設定
 
 針對 [虛擬機器設定] 刀鋒視窗：
 
-1. 選取 [映像來源] 並輸入如何進行尋找及儲存的相關資訊。 如果您選擇不使用受控磁碟，請選取包含 .vhd 檔案的儲存體帳戶。
+>[!NOTE]
+> 如果您要將 VM 加入 Azure AD Domain Services 環境，請確定您的網域加入使用者也是 [AAD DC 系統管理員群組](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group)的成員。
+
+1. 選取 [映像來源]  並輸入如何進行尋找及儲存的相關資訊。 如果您選擇不使用受控磁碟，請選取包含 .vhd 檔案的儲存體帳戶。
 2. 針對會將 VM 加入至 Active Directory 網域的網域帳戶，輸入使用者主體名稱和密碼。 此相同使用者名稱和密碼將會建立於虛擬機器作為本機帳戶。 您稍後可以重設這些本機帳戶。
 3. 選取可連線至 Active Directory 伺服器的虛擬網路，然後選擇要裝載虛擬機器的子網路。
-4. 選取 [確定] 。
+4. 選取 [確定]  。
 
 ### <a name="windows-virtual-desktop-preview-tenant-information"></a>Windows 虛擬桌面預覽版租用戶資訊
 
 針對 Windows 虛擬桌面租用戶資訊刀鋒視窗：
 
-1. 針對包含您租用戶的租用戶群組，輸入 [Windows 虛擬桌面租用戶群組名稱]。 如果您未規劃特定租用戶群組名稱，請將它保留為預設值。
-2. 針對您將在其中建立此主機集區的租用戶，輸入 [Windows 虛擬桌面租用戶名稱]。
-3. 指定您想要用來以 Windows 虛擬桌面租用戶 RDS 擁有者的身分進行驗證的認證類型。 如果您已完成[使用 PowerShell 建立服務主體和角色指派的教學課程](./create-service-principal-role-powershell.md)，請選取 [服務主體]。 您現在必須針對包含服務主體的 Azure Active Directory 輸入 **Azure AD 租用戶識別碼**。
+1. 針對包含您租用戶的租用戶群組，輸入 [Windows 虛擬桌面租用戶群組名稱]  。 除非系統將特定租用戶群組名稱提供給您，否則將它保留為預設值。
+2. 針對您將在其中建立此主機集區的租用戶，輸入 [Windows 虛擬桌面租用戶名稱]  。
+3. 指定您想要用來以 Windows 虛擬桌面租用戶 RDS 擁有者的身分進行驗證的認證類型。 如果您已完成[使用 PowerShell 建立服務主體和角色指派的教學課程](./create-service-principal-role-powershell.md)，請選取 [服務主體]  。 您現在必須針對包含服務主體的 Azure Active Directory 輸入 **Azure AD 租用戶識別碼**。
 4. 輸入租用戶管理帳戶的認證。 僅支援具有密碼認證的服務主體。
-5. 選取 [確定] 。
+5. 選取 [確定]  。
 
 ## <a name="complete-setup-and-create-the-virtual-machine"></a>完成設定並建立虛擬機器
 
 針對最後兩個刀鋒視窗：
 
-1. 在 [摘要] 刀鋒視窗中，檢閱設定資訊。 如果您需要變更一些資料，請回到適當的刀鋒視窗進行變更，再繼續執行。 如果資訊看起來正確無誤，請選取 [確定]。
-2. 在 [購買] 刀鋒視窗中，檢閱有關您從 Azure Marketplace 購買的項目相關資訊。
-3. 選取 [建立] 以部署您的主機集區。
+1. 在 [摘要]  刀鋒視窗中，檢閱設定資訊。 如果您需要變更一些資料，請回到適當的刀鋒視窗進行變更，再繼續執行。 如果資訊看起來正確無誤，請選取 [確定]  。
+2. 在 [購買]  刀鋒視窗中，檢閱有關您從 Azure Marketplace 購買的項目相關資訊。
+3. 選取 [建立]  以部署您的主機集區。
 
 根據您要建立多少個 VM，此程序可能需要 30 分鐘或更久時間才能完成。
 
@@ -94,12 +97,6 @@ ms.locfileid: "65236759"
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
-使用下列 Cmdlet，將內容設定為您在 Azure Marketplace 供應項目中指定的 Windows 虛擬桌面租用戶群組。 如果您將 Windows 虛擬桌面租用戶群組值保留為 Azure Marketplace 供應項目中的預設值，則可略過此步驟。
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 完成這兩項之後，您可以使用此 Cmdlet 將使用者新增桌面應用程式群組：

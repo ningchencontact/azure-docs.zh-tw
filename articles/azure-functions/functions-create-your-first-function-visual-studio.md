@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 51f6fb8c0dc1450a39173fafb0d71efc9a59a536
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1c07da0121b8e350c55b139901d56cfe2133386d
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649970"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864489"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>使用 Visual Studio 建立第一個函式
 
 Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions/serverless/)環境中執行程式碼，而不需要先建立 VM 或發佈 Web 應用程式。
 
-在本文中，您將了解如何使用 Visual Studio 2017 Tools for Azure Functions 在本機建立及測試 "hello world" 函式。 接著會將函式程式碼發佈至 Azure。 這些工具可在 Visual Studio 2017 的 Azure 開發工作負載中取得。
+在本文中，您將了解如何使用 Visual Studio 2019 Tools for Azure Functions，在本機建立及測試 "hello world" 函式。 接著會將函式程式碼發佈至 Azure。 這些工具可在 Visual Studio 2019 的 Azure 開發工作負載中取得。
 
 ![瀏覽器中的函式 localhost 回應](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
@@ -34,7 +34,7 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions
 
 若要完成本教學課程：
 
-* 安裝 [Visual Studio 2017](https://azure.microsoft.com/downloads/)，並確定也已經安裝 **Azure 開發**工作負載。
+* 安裝 [Visual Studio 2019](https://azure.microsoft.com/downloads/)，並確定也已經安裝 **Azure 開發**工作負載。
 
 * 確定您有[最新的 Azure Functions 工具](functions-develop-vs.md#check-your-tools-version)。
 

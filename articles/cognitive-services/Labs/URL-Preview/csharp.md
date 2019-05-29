@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 0e2d4b783068cfd14385eb1712ea246c94dc9500
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2cb3f1de803b8549a88866da1042f4f32609a601
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877264"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827155"
 ---
 # <a name="quickstart-url-preview-query-in-c"></a>快速入門：C# 中的 URL 預覽查詢
 
@@ -23,7 +23,7 @@ ms.locfileid: "55877264"
 
 ## <a name="prerequisites"></a>必要條件
 
-您將需要 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 以在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。
+您將需要 [Visual Studio 2017 或更新版本](https://www.visualstudio.com/downloads/)，才能在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。
 
 取得免費試用版[認知服務實驗室](https://aka.ms/answersearchsubscription)的存取金鑰
 

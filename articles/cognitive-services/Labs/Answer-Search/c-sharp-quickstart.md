@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 2fc2a4267c3a10a7837012dc65f0ce1a0f826a11
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: dce13636cce299098c988ccea3a059f0f0e12acd
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871263"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823267"
 ---
 # <a name="quickstart-project-answer-search-query-in-c"></a>快速入門：C# 中的專案答案搜尋查詢
 
@@ -23,7 +23,7 @@ ms.locfileid: "55871263"
 
 ## <a name="prerequisites"></a>必要條件
 
-您將需要 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 以在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。
+您需要 [Visual Studio 2017 或更新版本](https://www.visualstudio.com/downloads/)，才能在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。
 
 取得免費試用版[認知服務實驗室](https://aka.ms/answersearchsubscription)的存取金鑰
 

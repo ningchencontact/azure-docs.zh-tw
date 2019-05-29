@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f585c496328fef3e3d7dbb300fc4f07167fd55d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3b4c5e4700b0ef718a6b079ecc6ab3ad80f4eab6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192473"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786174"
 ---
 # <a name="quickstart-create-custom-alerts"></a>快速入門：建立自訂警示
 
@@ -50,13 +50,12 @@ ms.locfileid: "65192473"
 ## <a name="customize-an-alert"></a>自訂警示
 
 1. 開啟 IoT 中樞。 
-2. 選取 [安全性]，然後選取 [自訂警示]。 
+2. 按一下 [安全性]  區段中的 [自訂警示]  。 
 3. 選擇要作為自訂內容套用對象的安全性群組。 
-4. 按一下 [新增自訂警示]
-5. 輸入警示名稱 (請注意，建立後就無法再變更警示名稱)。 
-6. 從下拉式清單中選取自訂警示行為。 
-7. 編輯所需屬性，按一下 [確定]。
-8. 請務必按一下 [儲存]。 若未儲存新的警示，該警示會在您下一次關閉 IoT 中樞時遭到刪除。
+4. 按一下 [新增自訂警示]  
+5. 從下拉式清單中選取自訂警示行為。 
+6. 編輯所需屬性，按一下 [確定]  。
+7. 請務必按一下 [儲存]  。 若未儲存新的警示，該警示會在您下一次關閉 IoT 中樞時遭到刪除。
 
  
 ## <a name="alerts-available-for-customization"></a>可供自訂的警示

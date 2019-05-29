@@ -5,26 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/01/2019
+ms.date: 04/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 660bbf50e1a8ae73bd7bbe1f7c42691ed62d276a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 40c8cb41ad3bcd46e9973a5f96134ff1bfd02fd2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552960"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150840"
 ---
-如果您還沒有 VNet，可以使用 PowerShell 快速建立一個。 您也可以使用 Azure 入口網站建立虛擬網路。
+若要快速建立 VNet，您可以按一下本文的 [試試看]，以開啟 PowerShell 主控台。 調整值，然後複製命令並貼到主控台視窗。 若要深入了解新的 Az 模組和 AzureRM 的相容性，請參閱[新的 Azure PowerShell Az 模組簡介](/powershell/azure/new-azureps-module-az)。 如需 Az 模組安裝指示，請參閱[安裝 Azure PowerShell](/powershell/azure/install-az-ps)。
 
-* 請務必確認您所建立的 VNet 位址空間不會與任何其他想要連線的 Vnet 位址範圍重疊，或是不會與內部部署網路的位址空間重疊。 
-* 如果您已經有 VNet，請確認它符合所需的準則，而且沒有虛擬網路閘道。
-
-按一下本文中的 [試試看] 來開啟 PowerShell 主控台，即可輕鬆建立您的 VNet。 調整值，然後複製命令並貼到主控台視窗。
+請務必確認您所建立的 VNet 位址空間不會與任何其他想要連線的 Vnet 位址範圍重疊，或是不會與內部部署網路的位址空間重疊。
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-調整 PowerShell 命令，然後建立資源群組。
+如果您還未擁有想要使用的資源群組，請建立一個新的。 調整 PowerShell 命令以反映您想要使用的資源群組名稱，然後執行下列 Cmdlet：
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName WANTestRG -Location WestUS

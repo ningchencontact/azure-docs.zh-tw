@@ -9,25 +9,25 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 344cc3b8ba3f7698f5124d464f3c277b6cb5cdde
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: d5a4f6c7d7d19ced4f2cd9ff21b00e58703f795e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500969"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911690"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>將裝置設定為使用 Azure IoT 中樞裝置佈建服務進行佈建
 
-在上一個教學課程中，您已了解如何將 Azure IoT 中樞裝置佈建服務設定為自動將裝置佈建到 IoT 中樞。 此教學課程示範如何在製造過程中設定您的裝置，讓它能透過 IoT 中樞自動佈建。 第一次開機並連線至佈建服務時，您的裝置會根據其[證明機制](concepts-device.md#attestation-mechanism)進行佈建。 此教學課程涵蓋下列工作：
+在上一個教學課程中，您已了解如何將 Azure IoT 中樞裝置佈建服務設定為自動將裝置佈建到 IoT 中樞。 本教學課程示範如何在製造過程中設定您的裝置，讓它能透過 IoT 中樞自動佈建。 第一次開機並連線至佈建服務時，您的裝置會根據其[證明機制](concepts-device.md#attestation-mechanism)進行佈建。 本教學課程涵蓋下列工作：
 
 > [!div class="checklist"]
 > * 建置平台特定裝置佈建服務用戶端 SDK
 > * 擷取安全構件
 > * 建立裝置註冊軟體
 
-此教學課程預期您已使用[設定雲端資源](tutorial-set-up-cloud.md)教學課程中的指示，建立裝置佈建服務執行個體和 IoT 中樞。
+本教學課程預期您已使用[設定雲端資源](tutorial-set-up-cloud.md)教學課程中的指示，建立裝置佈建服務執行個體和 IoT 中樞。
 
-此教學課程使用 [Azure IoT SDK 及適用於 C 存放庫的程式庫](https://github.com/Azure/azure-iot-sdk-c)，其中包含適用於 C 的裝置佈建服務用戶端 SDK。此 SDK 目前針對在 Windows 或 Ubuntu 實作上執行的裝置，提供 TPM 和 X.509 支援。 此教學課程是以使用 Windows 開發用戶端為基礎，而且假設熟悉 Visual Studio 2017 基本功能。 
+本教學課程使用 [Azure IoT SDK 及適用於 C 存放庫的程式庫](https://github.com/Azure/azure-iot-sdk-c)，其中包含適用於 C 的裝置佈建服務用戶端 SDK。此 SDK 目前針對在 Windows 或 Ubuntu 實作上執行的裝置，提供 TPM 和 X.509 支援。 本教學課程將使用 Windows 開發用戶端，因此也會假設您熟悉 Visual Studio 的基本功能。 
 
 如果您不熟悉自動佈建程序，請務必先檢閱[自動佈建概念](concepts-auto-provisioning.md)才能繼續。 
 
@@ -36,14 +36,14 @@ ms.locfileid: "59500969"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 啟用[「使用 C++ 進行桌面開發」](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載的 Visual Studio 2015 或 [Visual Studio 2017](https://www.visualstudio.com/vs/)。
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 或更新版本，並啟用[使用 C++ 的桌面開發](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載。
 * 已安裝最新版的 [Git](https://git-scm.com/download/)。
 
 
 
 ## <a name="build-a-platform-specific-version-of-the-sdk"></a>建置 SDK 的平台特定版本
 
-裝置佈建服務用戶端 SDK 可協助您實作裝置註冊軟體。 但是，您必須先建置您的開發用戶端平台和證明機制特有的 SDK 版本，才可以使用該軟體。 在此教學課程中，您會針對支援的證明類型，在 Windows 開發平台上建置使用 Visual Studio 2017 的 SDK：
+裝置佈建服務用戶端 SDK 可協助您實作裝置註冊軟體。 但是，您必須先建置您的開發用戶端平台和證明機制特有的 SDK 版本，才可以使用該軟體。 在本教學課程中，您會針對支援的證明類型，在 Windows 開發平台上建置使用 Visual Studio 的 SDK：
 
 1. 下載 [CMake 建置系統](https://cmake.org/download/)。
 
@@ -116,21 +116,21 @@ ms.locfileid: "59500969"
       > [!NOTE]
       > 如果在此步驟中您使用 Git Bash 命令提示字元，您必須將反斜線變更為正斜線，例如：`./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe`。
 
-   1. 使用 Visual Studio，開啟在 cmake 資料夾中產生的方案 (名為 `azure_iot_sdks.sln`)，然後使用 [建置] 功能表上的 [建置方案] 命令加以建置。
+   1. 使用 Visual Studio，開啟在 cmake  資料夾中產生的方案 (名為 `azure_iot_sdks.sln`)，然後使用 [建置] 功能表上的 [建置方案] 命令加以建置。
 
-   1. 在 Visual Studio 的 [方案總管] 窗格中，瀏覽至 **Provision\_Tools** 資料夾。 以滑鼠右鍵按一下 **tpm_device_provision** 專案，然後選取 [設為起始專案]。 
+   1. 在 Visual Studio 的 [方案總管]  窗格中，瀏覽至 **Provision\_Tools** 資料夾。 以滑鼠右鍵按一下 **tpm_device_provision** 專案，然後選取 [設為起始專案]  。 
 
-   1. 使用 [偵錯] 功能表上的任一 [啟動] 命令來執行方案。 輸出視窗會顯示裝置註冊所需之 TPM 模擬器的 [登錄識別碼] 和 [簽署金鑰]。 複製這些值，供後續使用。 您可以關閉此視窗 (含有註冊識別碼和簽署金鑰)，但是讓您在步驟 1 中啟動的 TPM 模擬器視窗持續執行。
+   1. 使用 [偵錯] 功能表上的任一 [啟動] 命令來執行方案。 輸出視窗會顯示裝置註冊所需之 TPM 模擬器的 [登錄識別碼]     和 [簽署金鑰]    。 複製這些值，供後續使用。 您可以關閉此視窗 (含有註冊識別碼和簽署金鑰)，但是讓您在步驟 1 中啟動的 TPM 模擬器視窗持續執行。
 
 - 對於模擬 X.509 裝置：
 
-  1. 使用 Visual Studio，開啟在 cmake 資料夾中產生的方案 (名為 `azure_iot_sdks.sln`)，然後使用 [建置] 功能表上的 [建置方案] 命令加以建置。
+  1. 使用 Visual Studio，開啟在 cmake  資料夾中產生的方案 (名為 `azure_iot_sdks.sln`)，然後使用 [建置] 功能表上的 [建置方案] 命令加以建置。
 
-  1. 在 Visual Studio 的 [方案總管] 窗格中，瀏覽至 **Provision\_Tools** 資料夾。 以滑鼠右鍵按一下 **dice\_device\_enrollment** 專案，然後選取 [設為起始專案]。 
+  1. 在 Visual Studio 的 [方案總管]  窗格中，瀏覽至 **Provision\_Tools** 資料夾。 以滑鼠右鍵按一下 **dice\_device\_enrollment** 專案，然後選取 [設為起始專案]  。 
   
-  1. 使用 [偵錯] 功能表上的任一 [啟動] 命令來執行方案。 在輸出視窗中，當出現提示時，針對個別註冊輸入 **i**。 輸出視窗會顯示針對您的模擬裝置在本機產生的 X.509 憑證。 將輸出 (從 -----BEGIN CERTIFICATE----- 開始並於第一個 -----END PUBLIC KEY----- 結束) 複製到剪貼簿，並確定包含這兩行文字。 您只需要輸出視窗中的第一個憑證。
+  1. 使用 [偵錯] 功能表上的任一 [啟動] 命令來執行方案。 在輸出視窗中，當出現提示時，針對個別註冊輸入 **i**。 輸出視窗會顯示針對您的模擬裝置在本機產生的 X.509 憑證。 將輸出 (從 -----BEGIN CERTIFICATE-----  開始並於第一個 -----END PUBLIC KEY-----  結束) 複製到剪貼簿，並確定包含這兩行文字。 您只需要輸出視窗中的第一個憑證。
  
-  1. 建立名為 **X509testcert.pem** 的檔案，在您選擇的文字編輯器中開啟該檔案，並將剪貼簿內容複製到這個檔案。 儲存檔案，因為稍後註冊裝置時會用到它。 當您註冊軟體執行時，它會在自動佈建期間使用相同的憑證。    
+  1. 建立名為 **X509testcert.pem  **   的檔案，在您選擇的文字編輯器中開啟該檔案，並將剪貼簿內容複製到這個檔案。 儲存檔案，因為稍後註冊裝置時會用到它。 當您註冊軟體執行時，它會在自動佈建期間使用相同的憑證。    
 
 向裝置佈建服務註冊裝置期間需要這些安全構件。 佈建服務會等候裝置開機，並於稍後的任何時間點與裝置連線。 裝置第一次開機時，用戶端 SDK 邏輯會與晶 (或模擬器) 片互動以從裝置擷取安全構件，並向裝置佈建服務確認註冊情形。 
 
@@ -141,13 +141,13 @@ ms.locfileid: "59500969"
 > [!NOTE]
 > 在此步驟中，我們會假設使用模擬裝置，並藉由從您的工作站執行 SDK 範例註冊應用程式來完成。 不過，如果您要建置註冊應用程式以供部署到實體裝置，則適用相同的概念。 
 
-1. 在 Azure 入口網站中，選取您裝置佈建服務的 [概觀] 刀鋒視窗，並複製 [識別碼範圍] 值。 「識別碼範圍」會由服務產生，以保證唯一性。 識別碼範圍永遠不變，因此可用來唯一識別註冊識別碼。
+1. 在 Azure 入口網站中，選取您裝置佈建服務的 [概觀]  刀鋒視窗，並複製 [識別碼範圍]     值。 「識別碼範圍」  會由服務產生，以保證唯一性。 識別碼範圍永遠不變，因此可用來唯一識別註冊識別碼。
 
     ![從入口網站刀鋒視窗擷取裝置佈建服務端點資訊](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 
-1. 在您電腦上 Visual Studio 的 [方案總管] 中，瀏覽至 **Provision\_Samples** 資料夾。 選取名為 **prov\_dev\_client\_sample** 的範例專案，並開啟來源檔案 **prov\_dev\_client\_sample.c**。
+1. 在您電腦上 Visual Studio 的 [方案總管]  中，瀏覽至 **Provision\_Samples** 資料夾。 選取名為 **prov\_dev\_client\_sample** 的範例專案，並開啟來源檔案 **prov\_dev\_client\_sample.c**。
 
-1. 將在步驟 1 取得的 [識別碼範圍] 值指派給 `id_scope` 變數 (移除左 `[` 和右 `]` 方括號)： 
+1. 將在步驟 1 取得的 [識別碼範圍]  值指派給 `id_scope` 變數 (移除左 `[` 和右 `]` 方括號)： 
 
     ```c
     static const char* global_prov_uri = "global.azure-devices-provisioning.net";
@@ -165,7 +165,7 @@ ms.locfileid: "59500969"
 
 1. 儲存您的變更，並藉由從 [建置] 功能表選取 [建置方案] 來重建 **prov\_dev\_client\_sample** 範例。 
 
-1. 以滑鼠右鍵按一下 **Provision\_Samples** 資料夾底下的 **prov\_dev\_client\_sample** 專案，然後選取 [設定為起始專案]。 先不要執行範例應用程式。
+1. 以滑鼠右鍵按一下 **Provision\_Samples** 資料夾底下的 **prov\_dev\_client\_sample** 專案，然後選取 [設定為起始專案]  。 先不要執行範例應用程式。
 
 > [!IMPORTANT]
 > 先不要執行/啟動裝置！ 在啟動裝置之前，您必須先向裝置佈建服務註冊裝置，才能完成此程序。 下面的「後續步驟」一節將引導您前往下一篇文章。
@@ -195,13 +195,13 @@ PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const 
 
 ## <a name="clean-up-resources"></a>清除資源
 
-至此，您可能有在入口網站中執行的裝置佈建和 IoT 中樞服務。 如果您想要放棄裝置佈建設定及 (或) 延遲完成此教學課程系列，建議您將其關閉以避免產生不必要的成本。
+至此，您可能有在入口網站中執行的裝置佈建和 IoT 中樞服務。 如果您想要放棄裝置佈建設定及 (或) 延遲完成本教學課程系列，建議您將其關閉以避免產生不必要的成本。
 
-1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的裝置佈建服務。 在 [所有資源] 刀鋒視窗的頂端，按一下 [刪除]。  
-1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取您的 IoT 中樞。 在 [所有資源] 刀鋒視窗的頂端，按一下 [刪除]。  
+1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]  ，然後選取您的裝置佈建服務。 在 [所有資源]  刀鋒視窗的頂端，按一下 [刪除]  。  
+1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]  ，然後選取您的 IoT 中樞。 在 [所有資源]  刀鋒視窗的頂端，按一下 [刪除]  。  
 
 ## <a name="next-steps"></a>後續步驟
-在此教學課程中，您已了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 建置平台特定裝置佈建服務用戶端 SDK

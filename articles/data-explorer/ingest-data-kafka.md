@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 11/19/2018
-ms.openlocfilehash: 180053aa2146d8ab80df832044ac3ee4d45970da
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/17/2019
+ms.openlocfilehash: f36acb7237438848a53fdf91c291c4f67233af5d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047099"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901034"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>快速入門：將資料從 Kafka 擷取至 Azure 資料總管
  
@@ -22,11 +22,11 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
  
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。 
  
-* [測試叢集和資料庫](create-cluster-database-portal.md)
+* [一個測試叢集和資料庫](create-cluster-database-portal.md)。
  
-* 產生資料並將其傳送至 Kafka 的[範例應用程式](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka)
+* 產生資料並傳送至 Kafka 的[範例應用程式](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka)。
 
-* [Visual studio 2017 15.3.2 版或更新版本](https://www.visualstudio.com/vs/)，以執行範例應用程式
+* 用於執行範例應用程式的 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)。
  
 ## <a name="kafka-connector-setup"></a>Kafka 連接器設定
 
@@ -51,7 +51,7 @@ cd ./kafka-sink-azure-kusto/kafka/
 * Maven [下載](https://maven.apache.org/install.html)
  
 
-在根目錄 kafka-sink-azure-kusto 內執行：
+在根目錄 kafka-sink-azure-kusto  內執行：
 
 ```bash
 mvn clean compile assembly:single
@@ -87,11 +87,11 @@ kusto.sink.flush_size=1000
  
 在 ADX 中建立資料表，讓 Kafka 可將資料傳送至此。 在於**必要條件**中佈建的叢集與資料庫中建立該資料表。
  
-1. 在 Azure 入口網站中瀏覽至您的叢集，然後選取 [查詢]。
+1. 在 Azure 入口網站中瀏覽至您的叢集，然後選取 [查詢]  。
  
     ![查詢應用程式連結](media/ingest-data-event-hub/query-explorer-link.png)
  
-1. 將下列命令複製到視窗，然後選取 [執行]。
+1. 將下列命令複製到視窗，然後選取 [執行]  。
  
     ```Kusto
     .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
@@ -99,7 +99,7 @@ kusto.sink.flush_size=1000
  
     ![執行建立查詢](media/ingest-data-event-hub/run-create-query.png)
  
-1. 將下列命令複製到視窗，然後選取 [執行]。
+1. 將下列命令複製到視窗，然後選取 [執行]  。
  
     ```Kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'

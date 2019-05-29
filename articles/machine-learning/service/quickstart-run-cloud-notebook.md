@@ -8,24 +8,25 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/02/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 3e360b019a0c275c5ce0f9986fabd5dfc847f130
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510622"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015287"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>快速入門：使用雲端式 Notebook 伺服器開始使用 Azure Machine Learning
 
-建立雲端式 Notebook 伺服器，然後使用它。  在本快速入門中，您會執行 Python 程式碼，以在 [Azure Machine Learning 服務工作區](concept-azure-machine-learning-architecture.md)中記錄值。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎。 
+無需安裝。  以雲端中的受控筆記本伺服器開始使用 Azure Machine Learning 服務。 如果您想要改為將 SDK 安裝至自己的 Python 環境，請參閱[快速入門：使用您自有的 Notebook 伺服器來開始使用 Azure Machine Learning](quickstart-run-local-notebook.md)。
 
-本快速入門示範如何在 Azure Machine Learning 工作區 (已設定執行 Azure Machine Learning 所需的 Python 環境) 中建立雲端資源。 若要改為使用您自己的環境，請參閱[快速入門：使用您自有的 Notebook 伺服器來開始使用 Azure Machine Learning](quickstart-run-local-notebook.md)。  
+本快速入門顯示您可以如何使用 [Azure Machine Learning 服務工作區](concept-azure-machine-learning-architecture.md)來追蹤您的機器學習實驗。  您將會建立 [Notebook VM (預覽)](how-to-configure-environment.md#notebookvm)，它是安全的雲端式 Azure 工作站，且提供 Jupyter Notebook 伺服器、JupyterLab 和準備就緒的 ML 環境。 您接著會在此 VM 上執行將值記錄到工作區中的 Python Notebook。
 
 在本快速入門中，您會執行下列動作：
 
-* 在您的工作區中建立新的雲端式 Notebook 伺服器。
+* 建立工作區
+* 在您的工作區中建立 Notebook VM。
 * 啟動 Jupyter Web 介面。
 * 開啟包含程式碼的 Notebook，以估計每個反覆項目的 pi 和記錄錯誤。
 * 執行 Notebook。
@@ -35,23 +36,23 @@ ms.locfileid: "65510622"
 
 ## <a name="create-a-workspace"></a>建立工作區
 
-如果您有 Azure Machine Learning 服務工作區，請跳至[下一節](#create-a-cloud-based-notebook-server)。 否則，請建立此工作區。
+如果您有 Azure Machine Learning 服務工作區，請跳至[下一節](#create-notebook)。 否則，請建立此工作區。
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="create-a-cloud-based-notebook-server"></a>建立雲端式 Notebook 伺服器
+## <a name="create-notebook"></a>建立 Notebook VM
 
  從您的工作區建立雲端資源，以開始使用 Jupyter Notebook。 這項資源為您提供雲端式平台，其已預先設定執行 Azure Machine Learning 服務所需的一切。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中開啟工作區。  如果您不確定如何在入口網站中找出您的工作區，請參閱如何[尋找您的工作區](how-to-manage-workspace.md#view)。
 
-1. 在 Azure 入口網站中您的工作區頁面上，選取左側的 [Notebook VM]。
+1. 在 Azure 入口網站中您的工作區頁面上，選取左側的 [Notebook VM]  。
 
-1. 選取 [+新增] 以建立 Notebook VM。
+1. 選取 [+新增]  以建立 Notebook VM。
 
      ![選取新的 VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
-1. 為您的 VM 提供名稱。 然後選取 [建立]。
+1. 為您的 VM 提供名稱。 然後選取 [建立]  。
 
     > [!NOTE]
     > Notebook 虛擬機器名稱長度必須介於 2 到 16 個字元之間。 有效字元包含字母、數字及 - 字元。  名稱在 Azure 訂用帳戶中必須是唯一的。
@@ -60,11 +61,12 @@ ms.locfileid: "65510622"
 
 1. 等待約 4-5 分鐘，直到狀態變更為**執行中**。
 
+
 ## <a name="launch-jupyter-web-interface"></a>啟動 Jupyter Web 介面
 
-在您的 VM 執行之後，使用 [Notebook VM] 區段來啟動 Jupyter Web 介面。
+在您的 VM 執行之後，使用 [Notebook VM]  區段來啟動 Jupyter Web 介面。
 
-1. 在您 VM 的 [URI] 資料行中選取 [Jupyter]。  
+1. 在您 VM 的 [URI]  資料行中選取 [Jupyter]  。  
 
     ![啟動 Jupyter Notebook 伺服器](./media/quickstart-run-cloud-notebook/start-server.png)
 
@@ -82,10 +84,10 @@ ms.locfileid: "65510622"
 
 1. 選取 **01.run-experiment.ipynb** 以開啟 Notebook。
 
-1. 在第一個程式碼儲存格中按一下，然後選取 [執行]。
+1. 在第一個程式碼儲存格中按一下，然後選取 [執行]  。
 
     > [!NOTE]
-    > 程式碼儲存格的前面有方括號。 如果方括號是空的 (__[  ]__)，則尚未執行程式碼。 執行程式碼時，您會看到一個星號 (__[*]__)。 程式碼完成後，隨即出現一個數字 **[1]**。  此數字會告訴您儲存格的執行順序。
+    > 程式碼儲存格的前面有方括號。 如果方括號是空的 ( __[  ]__ )，則尚未執行程式碼。 執行程式碼時，您會看到一個星號 ( __[*]__ )。 程式碼完成後，隨即出現一個數字 **[1]** 。  此數字會告訴您儲存格的執行順序。
     >
     > 使用 **Shift-Enter** 作為執行儲存格的快速鍵。
 
@@ -109,7 +111,7 @@ ms.locfileid: "65510622"
 
     ![檢視實驗](./media/quickstart-run-cloud-notebook/view-exp.png)
 
-1. 按一下 [連結至 Azure 入口網站]，在您的工作區中檢視執行的相關資訊。  此連結會在 Azure 入口網站中開啟您的工作區。
+1. 按一下 [連結至 Azure 入口網站]  ，在您的工作區中檢視執行的相關資訊。  此連結會在 Azure 入口網站中開啟您的工作區。
 
 1. 您看到的記錄值繪圖已自動建立於工作區中。 每當您使用相同的名稱參數記錄多個值時，系統就會自動為您產生繪圖。
 
@@ -123,26 +125,27 @@ ms.locfileid: "65510622"
 
 當您不使用 Notebook VM 來降低成本時，請將它停止。  
 
-1. 在您的工作區中，選取 [Notebook VM]。
+1. 在您的工作區中，選取 [Notebook VM]  。
 
    ![停止 VM 伺服器](./media/quickstart-run-cloud-notebook/stop-server.png)
 
 1. 從清單中選取 VM。
 
-1. 選取 [停止]。
+1. 選取 [停止]  。
 
-1. 當您準備好再次使用伺服器時，請選取 [啟動]。
+1. 當您準備好再次使用伺服器時，請選取 [啟動]  。
 
 ### <a name="delete-everything"></a>刪除所有內容
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-您也可以保留資源群組，但刪除單一工作區。 顯示工作區屬性，然後選取 [刪除]。
+您也可以保留資源群組，但刪除單一工作區。 顯示工作區屬性，然後選取 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 
 在本快速入門中，您已完成下列工作：
 
+* 建立工作區
 * 建立 Notebook 虛擬機器。
 * 啟動 Jupyter Web 介面。
 * 開啟包含程式碼的 Notebook，以估計每個反覆項目的 pi 和記錄錯誤。

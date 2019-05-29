@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 48d67c765a8a76a6058592f59eb61770e2f23df5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0b47ffd77ee23f997bb7de2ea41f83c2854cba72
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068664"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550896"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引編製原則
 
@@ -23,6 +23,9 @@ Azure Cosmos DB 會遵循針對每個容器所定義的[索引編製原則](inde
 
 [更新索引編製原則](index-policy.md#modifying-the-indexing-policy)將會觸發索引的轉換。 您也可以從 SDK 追蹤此轉換的進度。
 
+> [!NOTE]
+> 作為 SDK 和入口網站升級的一部分，我們會持續改進索引原則，以配合針對新容器推出的新索引配置。 透過新的版面配置，所有基本資料類型的索引都能以全精度 (-1) 來編製成範圍。 因此，索引種類和精確度將不再公開給使用者。 在未來，使用者必須直接將路徑新增至 includedPaths 區段，並忽略 indexKinds 和精確度。 這項變更不會影響效能，您可以繼續使用相同語法來更新索引編製原則。 您可以繼續使用現有文件中的所有範例來更新索引原則。
+
 ## <a name="use-the-azure-portal"></a>使用 Azure 入口網站
 
 Azure Cosmos 容器會將其索引編製原則儲存為 JSON 文件，並可從 Azure 入口網站直接進行編輯。
@@ -31,13 +34,13 @@ Azure Cosmos 容器會將其索引編製原則儲存為 JSON 文件，並可從 
 
 1. 建立新的 Azure Cosmos 帳戶，或選取現有帳戶。
 
-1. 開啟 [資料總管] 窗格，然後選取您要處理的容器。
+1. 開啟 [資料總管]  窗格，然後選取您要處理的容器。
 
-1. 按一下 [規模與設定]。
+1. 按一下 [規模與設定]  。
 
 1. 修改索引編製原則 JSON 文件 (請參閱[下面](#indexing-policy-examples)範例)
 
-1. 當您完成時，按一下 [儲存]。
+1. 當您完成時，按一下 [儲存]  。
 
 ![使用 Azure 入口網站管理索引編製](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
 

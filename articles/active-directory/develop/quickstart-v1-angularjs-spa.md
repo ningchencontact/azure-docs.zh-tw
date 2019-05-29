@@ -3,8 +3,8 @@ title: 建置 AngularJS 單一頁面應用程式 與 Azure Active Directory 整�
 description: 了解如何建置 AngularJS 單一頁面應用程式來與 Azure AD 整合進行登入，並使用 OAuth 呼叫受 Azure AD 保護的 API。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6596d1d8251bafd1ff013961555b20475e3a06d3
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 1a1fdbcd04504181a20f5245b6f2378be5b9d405
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544935"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001200"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>快速入門：建置 AngularJS 單一頁面應用程式 與 Azure Active Directory 整合進行登入和登出
 
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) 可讓您簡單又直截了當地新增登入�
 3. 使用 ADAL 來保護單一頁面應用程式中的頁面。
 
 > [!NOTE]
-> 如果除了公司和學校帳戶之外，您也需要為個人帳戶啟用登入，則可以使用 [Microsoft 身分識別平台端點](azure-ad-endpoint-comparison.md)。 如需詳細資訊，請參閱[此 JavaScript SPA 教學課程](tutorial-v2-javascript-spa.md)，以及說明「Microsoft 身分識別平台端點」的[這篇文章](active-directory-v2-limitations.md)。 
+> 如果除了公司和學校帳戶之外，您也需要為個人帳戶啟用登入，則可以使用 [Microsoft 身分識別平台端點](azure-ad-endpoint-comparison.md)  。 如需詳細資訊，請參閱[此 JavaScript SPA 教學課程](tutorial-v2-javascript-spa.md)，以及說明「Microsoft 身分識別平台端點」  的[這篇文章](active-directory-v2-limitations.md)。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -61,22 +61,17 @@ Azure Active Directory (Azure AD) 可讓您簡單又直截了當地新增登入�
 若要讓應用程式能夠驗證使用者並取得權杖，您必須先在 Azure AD 租用戶中註冊這個應用程式：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 如果登入多個目錄，您可能需要確定檢視正確的目錄。 若要這樣做，請在頂端列上，按一下您的帳戶。 在 [目錄] 清單下，選擇您要註冊應用程式的 Azure AD 租用戶。
-1. 按一下左窗格中的 [所有服務]，然後選取 [Azure Active Directory]。
-1. 按一下 [應用程式註冊]，然後選取 [新增]。
-1. 遵照提示進行，並建立新的 Web 應用程式和/或 Web API：
-
-    * **名稱**向使用者描述您的應用程式。
-    * **登入 URL** 是供 Azure AD 傳回權杖的位置。 此範例中的預設位置是 `https://localhost:44326/`。
-
-1. 完成註冊之後，Azure AD 會為應用程式指派一個唯一的應用程式識別碼。 您會在後續小節中用到這個值，所以請從應用程式索引標籤中複製此值。
-1. Adal.js 會使用 OAuth 隱含流程來與 Azure AD 通訊。 您必須為您的應用程式啟用隱含流程：
-
-    1. 按一下應用程式，選取 [資訊清單] 以開啟內嵌資訊清單編輯器。
-    1. 找出 `oauth2AllowImplicitFlow` 屬性。 將值設為 `true`。
-    1. 按一下 [儲存]  以儲存資訊清單。
-
-1. 在您的應用程式租用戶上授予權限。 前往 [設定] > [必要的權限]，並選取頂端列中的 [授與權限] 按鈕。
+1. 如果登入多個目錄，您可能需要確定檢視正確的目錄。 若要這樣做，請在頂端列上，按一下您的帳戶。 在 [目錄]  清單下，選擇您要註冊應用程式的 Azure AD 租用戶。
+1. 按一下左窗格中的 [所有服務]  ，然後選取 [Azure Active Directory]  。
+1. 按一下 [應用程式註冊]  ，然後選取 [新增註冊]  。
+1. [註冊應用程式]  頁面出現時，輸入您應用程式的名稱。
+1. 在 [支援的帳戶類型]  底下，選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]  。
+1. 在 [重新導向 URI]  區段底下選取 [Web]  平台，並將值設為 `https://localhost:44326/` (供 Azure AD 傳回權杖的位置)。
+1. 完成時，選取 [註冊]  。 在應用程式 [概觀]  頁面上，記下 [應用程式 (用戶端) 識別碼]  值。
+1. Adal.js 會使用 OAuth 隱含流程來與 Azure AD 通訊。 您必須為您的應用程式啟用隱含流程。 在所註冊應用程式的左側導覽窗格中，選取 [驗證]  。
+1. 在 [進階設定]  的 [隱含授與]  底下，啟用 [識別碼權杖]  和 [存取權杖]  核取方塊。 識別碼權杖和存取權杖都是必要權杖，因為此應用程式必須將使用者登入並呼叫 API。
+1. 選取 [ **儲存**]。
+1. 在您的應用程式租用戶上授予權限。 移至 [API 權限]  ，然後選取 [授與同意]  下方的 [授與管理員同意]  按鈕。
 1. 選取 [是]  加以確認。
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>步驟 2：安裝 ADAL 並設定單一頁面應用程式
@@ -169,7 +164,7 @@ adal.js 與 AngularJS 路由和 HTTP 提供者整合，因此您可以保護單�
     ...
     ```
 
-* 在許多情況下，您也可能想知道使用者是否已登入。 您也可以使用 `userInfo` 物件來收集此資訊。 例如，在 `index.html` 中，您可以根據驗證狀態顯示 [登入] 或 [登出] 按鈕：
+* 在許多情況下，您也可能想知道使用者是否已登入。 您也可以使用 `userInfo` 物件來收集此資訊。 例如，在 `index.html` 中，您可以根據驗證狀態顯示 [登入]  或 [登出]  按鈕：
 
     ```js
     <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>

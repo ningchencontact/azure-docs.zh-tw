@@ -1,33 +1,33 @@
 ---
 title: 如何實作自訂同步處理，透過最佳化處理而在 Azure Cosmos DB 中獲得較高的可用性和效能
-description: 了解如何實作自訂同步處理，透過最佳化處理而在 Azure Cosmos DB 中獲得較高的可用性和效能
+description: 了解如何實作自訂同步處理，透過最佳化處理而在 Azure Cosmos DB 中獲得較高的可用性和效能。
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: rimman
-ms.openlocfilehash: d948798f161eb36578cb679b6d96409917424fd4
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: f10e260432a93a0413d65d6f5814d00a50e9465a
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678457"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560277"
 ---
-# <a name="how-to-implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>如何實作自訂同步處理，透過最佳化處理而獲得較高的可用性和效能
+# <a name="implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>實作自訂同步處理，透過最佳化處理而獲得較高的可用性和效能
 
-Azure Cosmos DB 提供[五個定義完善的一致性層級](consistency-levels.md)供您選擇，以讓您在一致性、效能和可用性之間做出平衡的取捨。 強式一致性可確保資料在 Azure Cosmos 帳戶可供使用的每個區域中能夠同步複寫並保有持久性。 此設定雖可提供最高層級的持久性，但會犧牲效能和可用性。 如果應用程式想要控制/放寬資料持久性，以符合應用程式需求又不損及可用性，其可以在應用程式層採用「自訂的同步處理」，以實現所需的持久性層級。
+Azure Cosmos DB 提供[五個定義完善的一致性層級](consistency-levels.md)供您選擇，以讓您在一致性、效能和可用性之間做出平衡的取捨。 強式一致性有助於確保資料在 Azure Cosmos 帳戶可供使用的每個區域中能夠同步複寫並保有持久性。 此設定雖可提供最高層級的持久性，但會犧牲效能和可用性。 如果您要應用程式控制/放寬資料持久性，以符合應用程式需求又不損及可用性，您可以在應用程式層採用「自訂的同步處理」  ，以實現所需的持久性層級。
 
-下圖以視覺方式說明自訂同步處理模型。
+下圖以視覺方式說明自訂同步處理模型：
 
 ![自訂同步處理](./media/how-to-custom-synchronization/custom-synchronization.png)
 
 在此案例中，Azure Cosmos 容器會複寫到位於全球各地的數個區域，範圍橫跨多個大陸。 在此案例中的所有區域使用強式一致性將會對效能造成影響。 為了確保有較高的資料持久性層級，又不會損及寫入延遲時間，應用程式可以使用兩個共用相同[工作階段權杖](how-to-manage-consistency.md#utilize-session-tokens)的用戶端。
 
-第一個用戶端可以將資料寫入至本機區域 (例如，美國西部)。 第二個用戶端 (例如，在美國東部) 則是用來確保同步處理的讀取用戶端。 藉由讓工作階段權杖從寫入回應傳到下列讀取中，讀取將會確保寫入會同步處理至美國東部。 Azure Cosmos DB 可確保至少會有一個區域能看到寫入，並保證如果原始的寫入區域中斷，該寫入將不受區域中斷影響而存留下來。 在此案例中，每個寫入都會同步處理至美國東部，從而降低在所有區域採用強式一致性所造成的延遲。 在多主機案例中，每個區域都會發生寫入，您可將此模型擴充為會以平行方式同步處理至多個區域。
+第一個用戶端可以將資料寫入至本機區域 (例如，美國西部)。 第二個用戶端 (例如，在美國東部) 則是用來確保同步處理的讀取用戶端。 藉由讓工作階段權杖從寫入回應傳到下列讀取中，讀取會確保寫入會同步處理至美國東部。 Azure Cosmos DB 可確保寫入至少會讓一個區域看見。 如果原始寫入區域停止運作，這些寫入保證不受區域性中斷的影響。 在此案例中，每個寫入都會同步處理至美國東部，從而降低在所有區域採用強式一致性所造成的延遲。 在多主機案例中，每個區域都會發生寫入，您可將此模型擴充為會以平行方式同步至多個區域。
 
 ## <a name="configure-the-clients"></a>設定用戶端
 
-下列範例示範為了實現此目的，而會具現化兩個用戶端的資料存取層。
+下列範例會示範具現化兩個用戶端以進行自訂同步的資料存取層：
 
 ```csharp
 class MyDataAccessLayer
@@ -82,7 +82,7 @@ class MyDataAccessLayer
 }
 ```
 
-此模型可擴充為會以平行方式同步處理至多個區域。
+您可以擴充模型，以平行地同步至多個區域。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -90,5 +90,5 @@ class MyDataAccessLayer
 
 * [在 Azure Cosmos DB 中選擇正確的一致性層級](consistency-levels-choosing.md)
 * [Azure Cosmos DB 中一致性、可用性和效能的取捨](consistency-levels-tradeoffs.md)
-* [如何在 Azure Cosmos DB 中管理一致性](how-to-manage-consistency.md)
+* [在 Azure Cosmos DB 中管理一致性](how-to-manage-consistency.md)
 * [Azure Cosmos DB 中的資料分割和資料散發](partition-data.md)

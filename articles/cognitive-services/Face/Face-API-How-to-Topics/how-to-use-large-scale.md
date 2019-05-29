@@ -10,27 +10,27 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: 35ab2d36a5d6c9977398fdbc16ba22eb1d9656a4
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5a4085f713d66859a464ab59b00d856921db8ec3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65229843"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124487"
 ---
-# <a name="example-how-to-use-the-large-scale-feature"></a>範例：如何使用大規模功能
+# <a name="example-use-the-large-scale-feature"></a>範例：使用大型功能
 
-本指南是說明如何從現有的 **PersonGroup** 和 **FaceList** 將規模分別放大至 **LargePersonGroup** 和 **LargeFaceList** 的進階文章。 本指南將示範移轉程序，並假設您對 **PersonGroup**、**FaceList** 和 [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) 作業與臉部辨識功能有基本的認識。 若要深入加以了解，請參閱[臉部辨識](../concepts/face-recognition.md)概念指南。
+本指南是一篇進階文章，可說明如何分別將規模從現有的 PersonGroup 和 FaceList 物件相應增加為 LargePersonGroup 和 LargeFaceList 物件。 本指南示範移轉流程。 其假設您對於 PersonGroup 和 FaceList 物件、[定型](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) \(英文\) 作業及臉部辨識功能已有基本了解。 若要深入了解這些物件，請參閱[臉部辨識](../concepts/face-recognition.md)概念指南。
 
-LargePersonGroup 和 LargeFaceList 統稱為大規模作業。 LargePersonGroup 最多可包含 1,000,000 個人員，每人最多可以有 248 個臉部，而 LargeFaceList 最多可包含 1,000,000 個臉部。大規模作業與傳統的 PersonGroup 和 FaceList 類似，但由於採用新架構，因此有一些明顯的差異。 
+LargePersonGroup 和 LargeFaceList 統稱為大規模作業。 LargePersonGroup 最多可包含 100 萬個人，每人最多可有 248 張臉。 LargeFaceList 最多可包含 100 萬張臉。 大規模作業與傳統的 PersonGroup 和 FaceList 類似，但由於採用新架構，因此有一些差異。 
 
-這些範例是使用「臉部 API」用戶端程式庫以 C# 撰寫的。
+這些範例是使用 Azure 認知服務的臉部 API 用戶端程式庫，以 C# 撰寫的。
 
 > [!NOTE]
-> 若要在大型規模中啟用「識別」和 FindSimilar 的臉部搜尋效能，您必須導入「定型」作業來對 LargeFaceList 和 LargePersonGroup 進行前處理。 定型時間從幾秒到大約半小時不等，取決於實際的容量。 如果先前已進行過成功的定型，則在定型期間，仍有可能執行「識別」和 FindSimilar。 不過，缺點是，在完成新的大規模定型後移轉之前，新增的人員/臉部不會出現在結果中。
+> 若要大規模針對 Identification 和 FindSimilar 啟用臉部搜尋效能，請導入定型作業來對 LargeFaceList 和 LargePersonGroup 進行前處理。 根據實際容量而定，定型時間從數秒到大約半小時不等。 如果先前已成功進行定型作業，則在定型期間，可能會執行 Identification 和 FindSimilar。 缺點則是在完成新的大規模定型後移轉之前，新增的人員和臉部不會出現在結果中。
 
 ## <a name="step-1-initialize-the-client-object"></a>步驟 1：初始化用戶端物件
 
-使用「臉部 API」用戶端程式庫時，會透過 FaceServiceClient 類別的建構函式，傳入訂用帳戶金鑰和訂用帳戶端點。 例如︰
+當您使用臉部 API 用戶端程式庫時，會透過 FaceServiceClient 類別的建構函式，傳入訂用帳戶金鑰和訂用帳戶端點。 例如︰
 
 ```CSharp
 string SubscriptionKey = "<Subscription Key>";
@@ -39,24 +39,24 @@ string SubscriptionRegion = "https://westcentralus.api.cognitive.microsoft.com/f
 FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, SubscriptionRegion);
 ```
 
-您可以從 Azure 入口網站的 Marketplace 頁面取得訂用帳戶金鑰及對應的端點。
-請參閱[訂用帳戶](https://azure.microsoft.com/services/cognitive-services/directory/vision/)。
+若要取得訂用帳戶金鑰及其對應端點，請從 Azure 入口網站移至 Azure Marketplace。
+如需詳細資訊，請參閱[訂用帳戶](https://azure.microsoft.com/services/cognitive-services/directory/vision/)。
 
 ## <a name="step-2-code-migration"></a>步驟 2：程式碼移轉
 
-本節只著重在將 PersonGroup/FaceList 移轉至 LargePersonGroup/LargeFaceList。 雖然 LargePersonGroup/LargeFaceList 與 PersonGroup/FaceList 在設計上及內部實作上不同，但 API 介面相類似，以支援回溯相容性。
+本節著重於如何將 PersonGroup 或 FaceList 實作移轉至 LargePersonGroup 或 LargeFaceList。 雖然 LargePersonGroup 或 LargeFaceList 與 PersonGroup 或 FaceList 在設計及內部實作上不同，但 API 介面類似，均支援回溯相容性。
 
-不支援資料移轉，您必須改為重新建立 LargePersonGroup/LargeFaceList。
+不支援資料移轉。 您可以改為重新建立 LargePersonGroup 或 LargeFaceList。
 
-### <a name="migrate-persongroup-to-largepersongroup"></a>將 PersonGroup 移轉至 LargePersonGroup
+### <a name="migrate-a-persongroup-to-a-largepersongroup"></a>將 PersonGroup 移轉至 LargePersonGroup
 
-從 PersonGroup 到 LargePersonGroup 的移轉相當容易，因為它們共用完全相同的群組層級作業。
+從 PersonGroup 移轉至 LargePersonGroup 很簡單。 它們會共用完全相同的群組層級作業。
 
-針對 PersonGroup/Person 相關的實作，只需將 API 路徑或 SDK 類別/模組變更為 LargePersonGroup 和「LargePersonGroup 人員」即可.
+針對 PersonGroup 或人員相關的實作，只需將 API 路徑或 SDK 類別/模組變更為 LargePersonGroup 和 LargePersonGroup Person 即可。
 
-您必須將 PersonGroup 中的所有臉部和人員新增至新的 LargePersonGroup。 請參閱[如何新增臉部](how-to-add-faces.md)。
+將 PersonGroup 中的所有臉部和人員新增至新的 LargePersonGroup。 如需詳細資訊，請參閱[新增臉部](how-to-add-faces.md)。
 
-### <a name="migrate-facelist-to-largefacelist"></a>將 FaceList 移轉到 LargeFaceList
+### <a name="migrate-a-facelist-to-a-largefacelist"></a>將 FaceList 移轉至 LargeFaceList
 
 | FaceList API | LargeFaceList API |
 |:---:|:---:|
@@ -68,7 +68,7 @@ FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, Sub
 | - | 定型 |
 | - | 取得定型訓練 |
 
-上表是 FaceList 與 LargeFaceList 之間的清單層級作業比較。 如所示，與 FaceList 相比，LargeFaceList 附帶「定型」和「取得定型狀態」這兩項新作業。 將 LargeFaceList 定型是 [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) 作業的先決條件，而 FaceList 則不需要「定型」。 以下程式碼片段是一個等候 LargeFaceList 定型作業的協助程式函式。
+上表是 FaceList 與 LargeFaceList 之間的清單層級作業比較。 如所示，與 FaceList 相比時，LargeFaceList 附帶「定型」和「取得定型狀態」這兩項新作業。 將 LargeFaceList 定型是 [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) \(英文\) 作業的前置條件。 FaceList 不需要定型。 以下程式碼片段是一個等候 LargeFaceList 定型的協助程式函式：
 
 ```CSharp
 /// <summary>
@@ -118,7 +118,7 @@ private static async Task TrainLargeFaceList(
 }
 ```
 
-先前，FaceList 搭配新增臉部和 FindSimilar 的一般用法會是：
+以前，含已新增臉部的 FaceList 與 FindSimilar 的一般用法如下所示：
 
 ```CSharp
 // Create a FaceList.
@@ -151,7 +151,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 }
 ```
 
-將其移轉至 LargeFaceList 後，則應會變成：
+將其移轉至 LargeFaceList 時，即會變成下列內容：
 
 ```CSharp
 // Create a LargeFaceList.
@@ -188,44 +188,47 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 }
 ```
 
-如以上所示，資料管理和 FindSimilar 部分幾乎相同。 唯一的例外就是必須先在 LargeFaceList 中完成全新的前處理「定型」作業，FindSimilar 才能運作。
+如前所示，資料管理和 FindSimilar 部分幾乎相同。 唯一例外是必須先在 LargeFaceList 中完成全新的前處理定型作業，FindSimilar 才能運作。
 
 ## <a name="step-3-train-suggestions"></a>步驟 3：定型建議
 
-雖然「定型」作業可加快 [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) 和[識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)的速度，但定型需要花費時間，尤其在面對大型規模時更為耗時。 下表列出針對各種不同規模預估的定型時間：
+雖然定型作業可加快 [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) \(英文\) 和 [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 的速度，但定型時間會受到影響，尤其是在大規模進行時。 下表列出針對各種不同規模預估的定型時間。
 
-| 規模 (臉部或人員) | 預估的定型時間 |
+| 臉部或人員的規模 | 預估的定型時間 |
 |:---:|:---:|
 | 1,000 | 1-2 秒 |
 | 10,000 | 5-10 秒 |
-| 100,000 | 1 - 2 分鐘 |
-| 1,000,000 | 10 - 30 分鐘 |
+| 100,000 | 1-2 分 |
+| 1,000,000 | 10-30 分 |
 
-若要更充分利用大規模功能，建議您考量採用一些策略。
+若要充分利用大規模功能，我們建議使用下列策略。
 
-## <a name="step-31-customize-time-interval"></a>步驟 3.1：自訂時間間隔
+### <a name="step-31-customize-time-interval"></a>步驟 3.1：自訂時間間隔
 
-如 `TrainLargeFaceList()` 中所示，有一個延遲無限定型狀態檢查程序的 `timeIntervalInMilliseconds`。 針對臉部數量較多的 LargeFaceList，使用較長的間隔將可降低呼叫計數和成本。 您應該根據預期的 LargeFaceList 容量自訂時間間隔。
+如 `TrainLargeFaceList()` 中所示，有一個會延遲無限定型狀態檢查程序的時間間隔 (以毫秒為單位)。 針對臉部數量較多的 LargeFaceList，使用較長的間隔將可降低呼叫計數和成本。 根據預期的 LargeFaceList 容量來自訂時間間隔。
 
-相同的策略也適用於 LargePersonGroup。 例如，為含有 1,000,000 個人員的 LargePersonGroup 進行定型時，`timeIntervalInMilliseconds` 可為 60,000 (1 分鐘的間隔)。
+相同的策略也適用於 LargePersonGroup。 例如，當您將含 100 萬人的 LargePersonGroup 定型時，`timeIntervalInMilliseconds` 可能是 60,000 (此為 1 分鐘的間隔)。
 
-## <a name="step-32-small-scale-buffer"></a>步驟 3.2：小規模緩衝區
+### <a name="step-32-small-scale-buffer"></a>步驟 3.2：小規模緩衝區
 
-LargePersonGroup/LargeFaceList 中的「人員/臉部」只有在定型後才可供搜尋。 在動態案例中，會不斷新增人員/臉部且必須立即可供搜尋，而定型所花費的時間可能會超出預期。 為了解決這個問題，您可以僅針對剛新增的項目使用額外的小規模 LargePersonGroup/LargeFaceList 作為緩衝區。 由於規模小很多，因此這個緩衝區所需的定型時間較短，而應該能夠讓這個暫存緩衝區立即可供搜尋。 請將此緩衝區與主要 LargePersonGroup/LargeFaceList 的定型搭配使用，方法是以更疏鬆的間隔 (例如在午夜和每天) 執行主要定型。
+LargePersonGroup 或 LargeFaceList 中的人員或臉部只有在定型後才可供搜尋。 在動態案例中，新的人員或臉部會持續新增且必須立即可供搜尋，而定型所花費的時間可能超出預期。 
+
+為了緩解此問題，僅針對剛新增的項目使用額外的小規模 LargePersonGroup 或 LargeFaceList 作為緩衝區。 由於大小較小，因此，此緩衝區會採用較短的時間來定型。 此暫存緩衝區上的即時搜尋功能應會運作。 請以更疏鬆的間隔來執行主要定型，藉以將此緩衝區與主要 LargePersonGroup 或 LargeFaceList 上的定型一起使用。 範例包括午夜和每日。
 
 範例工作流程：
-1. 建立一個主要 LargePersonGroup/LargeFaceList (主要集合) 和一個緩衝區 LargePersonGroup/LargeFaceList (緩衝區集合)。 緩衝區集合僅適用於剛新增的「人員/臉部」。
-1. 將新的「人員/臉部」同時新增至主要集合和緩衝區集合。
-1. 只以短時間間隔進行緩衝區集合定型，以確保剛新增的項目生效。
-1. 同時針對主要集合和緩衝區集合呼叫「識別/FindSimilar」，然後合併結果。
-1. 在緩衝區集合大小增加達到閾值，或處於系統閒置時間時，建立新的緩衝區集合並觸發主要集合定型。
-1. 完成主要集合定型之後，刪除舊的緩衝區集合。
 
-## <a name="step-33-standalone-training"></a>步驟 3.3：獨立定型
+1. 建立主要 LargePersonGroup 或 LargeFaceList，此為主要集合。 建立緩衝區 LargePersonGroup 或 LargeFaceList，此為緩衝區集合。 緩衝區集合僅適用於新增加的人員或臉部。
+1. 將新的人員或臉部同時新增至主要集合和緩衝區集合。
+1. 只以短時間間隔來將緩衝區集合定型，以確保新增加的項目會生效。
+1. 同時針對主要集合和緩衝區集合呼叫 Identification 或 FindSimilar。 合併結果。
+1. 在緩衝區集合大小增加達到閾值，或處於系統閒置時間時，建立新的緩衝區集合。 觸發主要集合上的定型作業。
+1. 當主要集合上的定型完成之後，刪除舊的緩衝區集合。
 
-如果可以接受相當長的延遲，就不需要在新增資料後立即觸發「定型」作業。 可以改為將「定型」作業從主要邏輯中分割出來，而以定期方式觸發。 這個策略適用於具有可接受延遲的動態案例，也可套用至靜態案例來進一步降低「定型」頻率。
+### <a name="step-33-standalone-training"></a>步驟 3.3：獨立定型
 
-假設有一個類似於 `TrainLargeFaceList` 的 `TrainLargePersonGroup` 函式。 藉由叫用 `System.Timers` 中的 [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) 類別以在 LargePersonGroup 上進行獨立「定型」的一般實作會是：
+如果可以接受相對較長的延遲，就不需要在新增資料後立即觸發定型作業。 可以改為將「定型」作業從主要邏輯中分割出來，而以定期方式觸發。 此策略適用於可接受延遲的動態案例。 它可以套用至靜態案例，以進一步降低定型頻率。
+
+假設有一個類似於 `TrainLargeFaceList` 的 `TrainLargePersonGroup` 函式。 透過叫用 `System.Timers` 中的 [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) \(部分機器翻譯\) 類別，以在 LargePersonGroup 上進行獨立定型的一般實作為：
 
 ```CSharp
 private static void Main()
@@ -235,15 +238,15 @@ private static void Main()
     const string LargePersonGroupName = "MyLargePersonGroupDisplayName";
     FaceServiceClient.CreateLargePersonGroupAsync(LargePersonGroupId, LargePersonGroupName).Wait();
 
-    // Setup a standalone training at regular intervals.
-    const int TimeIntervalForStatus = 1000 * 60; // 1 minute interval for getting training status.
-    const double TimeIntervalForTrain = 1000 * 60 * 60; // 1 hour interval for training.
+    // Set up standalone training at regular intervals.
+    const int TimeIntervalForStatus = 1000 * 60; // 1-minute interval for getting training status.
+    const double TimeIntervalForTrain = 1000 * 60 * 60; // 1-hour interval for training.
     var trainTimer = new Timer(TimeIntervalForTrain);
     trainTimer.Elapsed += (sender, args) => TrainTimerOnElapsed(LargePersonGroupId, TimeIntervalForStatus);
     trainTimer.AutoReset = true;
     trainTimer.Enabled = true;
 
-    // Other operations like creating persons, adding faces and Identification except for Train.
+    // Other operations like creating persons, adding faces, and identification, except for Train.
     // ...
 }
 
@@ -253,18 +256,18 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 }
 ```
 
-如需有關資料管理和識別相關實作的詳細資訊，請參閱[如何新增臉部](how-to-add-faces.md)和[如何識別影像中的臉部](HowtoIdentifyFacesinImage.md)。
+如需資料管理和識別相關實作的詳細資訊，請參閱[新增臉部](how-to-add-faces.md)和[識別影像中的臉部](HowtoIdentifyFacesinImage.md)。
 
 ## <a name="summary"></a>總結
 
-在本指南中，您以了解如何將現有的 PersonGroup/FaceList 程式碼 (非資料) 移轉成 LargePersonGroup/LargeFaceList：
+在本指南中，您已了解如何將現有的 PersonGroup 或 FaceList 程式碼 (非資料) 移轉至 LargePersonGroup 或 LargeFaceList：
 
-- LargePersonGroup 和 LargeFaceList 的運作方式與 PersonGroup/FaceList 類似，差別在於 LargeFaceList 需要「定型」作業。
+- LargePersonGroup 和 LargeFaceList 的運作方式與 PersonGroup 或 FaceList 類似，差別在於 LargeFaceList 需要定型作業。
 - 採用適當的定型策略，以針對大規模資料集進行動態資料更新。
 
 ## <a name="next-steps"></a>後續步驟
 
 依照操作指南了解如何將臉部新增至 PersonGroup 或執行 PersonGroup 的識別作業。
 
-- [如何新增臉部](how-to-add-faces.md)
-- [如何識別影像中的人臉](HowtoIdentifyFacesinImage.md)
+- [新增臉部](how-to-add-faces.md)
+- [識別影像中的臉部](HowtoIdentifyFacesinImage.md)

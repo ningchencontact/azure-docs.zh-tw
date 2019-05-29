@@ -4,14 +4,14 @@ description: 了解 Azure Cosmos DB。 這個全域散發的多模型資料庫�
 author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 05/20/2019
 ms.author: rimman
-ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a338cec213b82d54b08f2a11a969ddecf72ea7e5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280939"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953911"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>歡迎使用 Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 透�
 
 Cosmos DB 可讓您在全球範圍內建置回應迅速且高可用性的應用程式。 無論使用者身在何處，Cosmos DB 都會明確地複寫您的資料，因此您的使用者可以與最接近他們的資料複本進行互動。
 
-Cosmos DB 允許您隨時新增任何 Azure 區域到您的Cosmos 帳戶或者移除，只要按一下按鈕即可。 Cosmos DB 可以將您的資料順暢地複寫到與您的 Cosmos 帳戶相關聯的所有區域，同時由於該服務的「多路連接」功能，您的應用程式可用性仍高。 如需詳細資訊，請參閱[全域散發](distribute-data-globally.md)一文。
+Cosmos DB 允許您隨時新增任何 Azure 區域到您的Cosmos 帳戶或者移除，只要按一下按鈕即可。 Cosmos DB 可以將您的資料順暢地複寫到與您的 Cosmos 帳戶相關聯的所有區域，同時由於該服務的「多路連接」  功能，您的應用程式可用性仍高。 如需詳細資訊，請參閱[全域散發](distribute-data-globally.md)一文。
 
 ### <a name="always-on"></a>永遠開啟
 
@@ -44,11 +44,11 @@ Cosmos DB 的設計包括透明的水平分割和多重主要複寫，可為您�
 
 ### <a name="guaranteed-low-latency-at-99th-percentile-worldwide"></a>保證在第 99 個百分位數低延遲 (全球)
 
-使用 Cosmos DB，您可以建置具高回應能力的全球級應用程式。 Cosmos DB 利用其新的多重主要複寫通訊協定、無閂鎖和[最適合寫入的資料庫引擎](index-policy.md)，保證全球各地的讀取和 (索引) 寫入延遲低於 10 毫秒的時間達第 99 個百分位數。 此功能可以持續擷取資料，並為回應迅速的應用程式提供快速查詢。
+使用 Cosmos DB，您可以建置具高回應能力的全球級應用程式。 Cosmos DB 利用其新的多重主要複寫通訊協定、無閂鎖和[最適合寫入的資料庫引擎](index-policy.md)，保證全球各地的讀取 (索引) 和寫入延遲低於 10 毫秒的時間達第 99 個百分位數。 此功能可以持續擷取資料，並為回應迅速的應用程式提供快速查詢。
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>精確定義的多重一致性選擇
 
-建置 Cosmos DB 中的全域分散式應用程式時，您不再需要[在一致性、可用性、延遲和輸送量之間做出極端取捨](consistency-levels-tradeoffs.md)。 Cosmos DB 的多重主要複寫通訊協定謹慎設計成提供[五種定義完善的一致性選擇](consistency-levels.md) -  (強式、限定過期、工作階段、一致前置詞和最終)，以取得直覺式的程式設計模型，讓全域分散式應用程式具有低延遲和高可用性。
+建置 Cosmos DB 中的全域分散式應用程式時，您不再需要[在一致性、可用性、延遲和輸送量之間做出極端取捨](consistency-levels-tradeoffs.md)。 Cosmos DB 的多重主要複寫通訊協定謹慎設計成提供[五種定義完善的一致性選擇](consistency-levels.md) -       (強式、限定過期、工作階段、一致前置詞和最終)，以取得直覺式的程式設計模型，讓全域分散式應用程式具有低延遲和高可用性。
 
 ### <a name="no-schema-or-index-management"></a>不需要任何結構描述或索引管理
 

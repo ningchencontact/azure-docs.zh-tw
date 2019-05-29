@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 8ded7a86c1b4fb53ca81fc4e7b0c0d794c515ddf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 614d7c0b58ee318461cf3c97e934a77c84221ef7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886332"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827601"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>使用 C# 從知識庫取得答案
 
@@ -25,8 +25,8 @@ ms.locfileid: "58886332"
 ## <a name="prerequisites"></a>必要條件
 
 * 最新 [**Visual Studio Community 版本**](https://www.visualstudio.com/downloads/)。
-* 您必須有 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。 若要擷取您的金鑰，請在 QnA Maker 資源的 Azure 儀表板中選取 [資源管理] 下方的 [金鑰]。 
-* [發佈] 頁面設定。 如果您沒有已發佈的知識庫，請建立空白的知識庫，在 [設定] 頁面上匯入知識庫，然後發佈。 您可以下載並使用[這個基本知識庫](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv)。 
+* 您必須有 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。 若要擷取您的金鑰，請在 QnA Maker 資源的 Azure 儀表板中選取 [資源管理]  下方的 [金鑰]  。 
+* [發佈]  頁面設定。 如果您沒有已發佈的知識庫，請建立空白的知識庫，在 [設定]  頁面上匯入知識庫，然後發佈。 您可以下載並使用[這個基本知識庫](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv)。 
 
     發佈頁面設定包括 POST 路由值、主機值以及 EndpointKey 值。 
 
@@ -36,7 +36,7 @@ ms.locfileid: "58886332"
 
 ## <a name="create-a-knowledge-base-project"></a>建立知識庫專案
 
-1. 開啟 Visual Studio 2017 Community 版本。
+1. 開啟 Visual Studio 2019 Community 版本。
 1. 建立新的主控台應用程式 (.NET Core) 專案，並將專案命名為 QnaMakerQuickstart。 接受其餘設定的預設值。
 
 ## <a name="add-the-required-dependencies"></a>新增必要的相依性
@@ -47,7 +47,7 @@ ms.locfileid: "58886332"
 
 ## <a name="add-the-required-constants"></a>新增必要的常數
 
-在 `Main` 內部的 `Program` 類別頂端，新增必要常數以存取 QnA Maker。 在您發佈知識庫之後，這些值都位於 [發佈] 頁面上。 
+在 `Main` 內部的 `Program` 類別頂端，新增必要常數以存取 QnA Maker。 在您發佈知識庫之後，這些值都位於 [發佈]  頁面上。 
 
 [!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=14-30 "Add the required constants")]
 
@@ -72,4 +72,4 @@ ms.locfileid: "58886332"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API 參考](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [QnA Maker (V4) REST API 參考](https://go.microsoft.com/fwlink/?linkid=2092179)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 74cd73cd7f9d5be9da552fb22ef2a2750ddc8321
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed82c214e2fbb2a1efc5917eb74ffe9b29abb115
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61029851"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560316"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>教學課程：調整 Azure Kubernetes Service (AKS) 中的應用程式
 
@@ -83,7 +83,7 @@ git clone https://github.com/kubernetes-incubator/metrics-server.git
 kubectl create -f metrics-server/deploy/1.8+/
 ```
 
-若要使用自動調整程式，必須為您的 Pod 定義 CPU 要求和限制。 在 `azure-vote-front` 部署中，前端容器已經要求 0.25 個 CPU，限制為 0.5 個 CPU。 這些資源要求和限制定義如下列範例程式碼片段所示：
+若要使用自動調整程式，必須為您 Pod 中所有容器和 Pod 定義 CPU 要求和限制。 在 `azure-vote-front` 部署中，前端容器已經要求 0.25 個 CPU，限制為 0.5 個 CPU。 這些資源要求和限制定義如下列範例程式碼片段所示：
 
 ```yaml
 resources:
@@ -93,7 +93,7 @@ resources:
      cpu: 500m
 ```
 
-下列範例會使用 [kubectl autoscale][kubectl-autoscale] 命令自動調整 *azure-vote-front* 部署中的 Pod 數目。 如果 CPU 使用率超過 50%，自動調整程式就會增加 Pod，最多可達 10 個執行個體。 然後，為此部署定義最少 3 個執行個體：
+下列範例會使用 [kubectl autoscale][kubectl-autoscale] 命令自動調整 *azure-vote-front* 部署中的 Pod 數目。 如果 CPU 使用率超過 50%，自動調整程式就會增加 Pod，最多可達 10  個執行個體。 然後，為此部署定義最少 3  個執行個體：
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -114,7 +114,7 @@ azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        
 
 如果您在上一個教學課程中使用命令建立了 Kubernetes 叢集，它會有一個節點。 如果您打算在叢集上增加或減少容器工作負載，可以手動調整節點的數目。
 
-下列範例會在名為 myAKSCluster 的 Kubernetes 叢集中，將節點的數目增加到三個。 此命令需要幾分鐘的時間來完成。
+下列範例會在名為 myAKSCluster  的 Kubernetes 叢集中，將節點的數目增加到三個。 此命令需要幾分鐘的時間來完成。
 
 ```azurecli
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3

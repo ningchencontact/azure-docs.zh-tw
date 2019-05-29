@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: 2925ca5a303876a68b6d605c7312d43af102b6e0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f697c91851e7ddc95f84239987bb4378bafd094
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088463"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798630"
 ---
 # <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>教學課程：使用以 Visual Studio 和 C# 撰寫的連線服務來連線到 Bing 新聞搜尋 API
 
@@ -26,24 +26,24 @@ ms.locfileid: "58088463"
 ## <a name="prerequisites"></a>必要條件
 
 - Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
-- Visual Studio 2017 15.7 版，並且已安裝網頁程式開發工作負載。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
+- 已安裝 Web 開發工作負載的 Visual Studio 2017 15.7.3 版或更新版本。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
 ## <a name="add-support-to-your-project-for-bing-news-search-api"></a>對您的專案新增 Bing 新聞搜尋 API 的支援
 
-1. 建立名為 MyWebApplication 的新 ASP.NET Core Web 專案。 使用 [Web 應用程式 (模型-檢視-控制器)] 專案範本，使用所有預設設定。 請務必將專案命名為 MyWebApplication，這樣當您將程式碼複製到專案時，命名空間才會相符。 
+1. 建立名為 MyWebApplication 的新 ASP.NET Core Web 專案。 使用 [Web 應用程式 (模型-檢視-控制器)]  專案範本，使用所有預設設定。 請務必將專案命名為 MyWebApplication，這樣當您將程式碼複製到專案時，命名空間才會相符。 
 
-1. 在 [方案總管] 中，選擇 [新增] > [連線服務]。
+1. 在 [方案總管]  中，選擇 [新增]   > [連線服務]  。
    [連線服務] 頁面隨即出現，並顯示您可新增至專案的服務。
 
    ![[新增連線服務] 功能表項目的螢幕擷取畫面](../media/vs-common/Connected-Service-Menu.PNG)
 
-1. 在可用服務的功能表中，選擇 [為應用程式帶入智慧搜尋]。
+1. 在可用服務的功能表中，選擇 [為應用程式帶入智慧搜尋]  。
 
    ![連線服務清單的螢幕擷取畫面](./media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-0.PNG)
 
-   如果您已登入 Visual Studio，並具有與您帳戶相關聯的 Azure 訂用帳戶，則會出現一個頁面，其中顯示含有您訂用帳戶的下拉式清單。 選取您想要使用的訂用帳戶，然後選擇 Bing 新聞搜尋 API 的名稱。 您也可以選擇 [編輯]，以修改自動產生的名稱。
+   如果您已登入 Visual Studio，並具有與您帳戶相關聯的 Azure 訂用帳戶，則會出現一個頁面，其中顯示含有您訂用帳戶的下拉式清單。 選取您想要使用的訂用帳戶，然後選擇 Bing 新聞搜尋 API 的名稱。 您也可以選擇 [編輯]  ，以修改自動產生的名稱。
 
    ![訂用帳戶和名稱欄位的螢幕擷取畫面](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-1.PNG)
 
@@ -51,9 +51,9 @@ ms.locfileid: "58088463"
 
    ![資源群組與定價層欄位的螢幕擷取畫面](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-2.PNG)
 
-   如果您想要更詳細的定價層資料，請選取 [檢閱定價]。
+   如果您想要更詳細的定價層資料，請選取 [檢閱定價]  。
 
-1. 選擇 [新增] 以新增連線服務的支援。
+1. 選擇 [新增]  以新增連線服務的支援。
    Visual Studio 會修改專案，以新增 NuGet 套件、設定檔項目及其他變更，以支援 Bing 新聞搜尋 API 連線。 輸出會顯示您的專案發生什麼情形的記錄。 您應該會看到如下的內容：
 
    ```output
@@ -263,8 +263,8 @@ ms.locfileid: "58088463"
 當不再需要資源群組時，您可以將它刪除。 這會刪除認知服務與相關資源。 若要透過入口網站刪除資源群組：
 
 1. 在入口網站頂端的 [搜尋] 方塊中，輸入資源群組的名稱。 選取您想要刪除的資源群組。
-2. 選取 [刪除資源群組]。
-3. 在 [輸入資源群組名稱] 方塊中，輸入資源群組的名稱，然後選取 [刪除]。
+2. 選取 [刪除資源群組]  。
+3. 在 [輸入資源群組名稱]  方塊中，輸入資源群組的名稱，然後選取 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 

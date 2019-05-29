@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: cd60129e2da0b0c2130b300159953bd81c4aeb82
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: caa249dda4215dfcef13df96d2dd4245cae49efd
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077559"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595747"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>教學課程：使用模擬裝置來測試與您 IoT 中樞的連線能力
 
@@ -39,7 +39,7 @@ ms.locfileid: "58077559"
 az extension add --name azure-cli-iot-ext
 ```
 
-您在本教學課程中執行的裝置模擬器應用程式，是使用 Node.js 撰寫的。 您的開發電腦上需要 Node.js 4.x.x 版或更高版本。
+您在本教學課程中執行的裝置模擬器應用程式，是使用 Node.js 撰寫的。 您的開發電腦上需要 Node.js v10.x.x 版或更高版本。
 
 您可以從 [nodejs.org](https://nodejs.org) 下載適用於多種平台的 Node.js。
 
@@ -59,17 +59,17 @@ node --version
 
 ## <a name="check-device-authentication"></a>檢查裝置驗證
 
-裝置必須先對您的中樞進行驗證，才能與中樞交換資料。 您可以在入口網站的 [裝置管理] 區段中使用 [IoT 裝置] 工具來管理您的裝置，並檢查裝置所使用的驗證金鑰。 在教學課程的這一節中，您會新增新的測試裝置、擷取其金鑰，以及確認測試裝置可連線至中樞。 其後您會重設驗證金鑰，以觀察裝置嘗試使用過期的金鑰時會發生什麼情況。 教學課程的這一節會使用 Azure 入口網站來建立、管理及監視裝置，以及範例 Node.js 裝置模擬器。
+裝置必須先對您的中樞進行驗證，才能與中樞交換資料。 您可以在入口網站的 [裝置管理]  區段中使用 [IoT 裝置]  工具來管理您的裝置，並檢查裝置所使用的驗證金鑰。 在教學課程的這一節中，您會新增新的測試裝置、擷取其金鑰，以及確認測試裝置可連線至中樞。 其後您會重設驗證金鑰，以觀察裝置嘗試使用過期的金鑰時會發生什麼情況。 教學課程的這一節會使用 Azure 入口網站來建立、管理及監視裝置，以及範例 Node.js 裝置模擬器。
 
-登入入口網站，然後瀏覽至 IoT 中樞。 接著，瀏覽至 [IoT 裝置] 工具：
+登入入口網站，然後瀏覽至 IoT 中樞。 接著，瀏覽至 [IoT 裝置]  工具：
 
 ![IoT 裝置工具](media/tutorial-connectivity/iot-devices-tool.png)
 
-若要註冊新裝置，請按一下 [+ 新增]，將 [裝置識別碼] 設定為 **MyTestDevice**，然後按一下 [儲存]：
+若要註冊新裝置，請按一下 [+ 新增]  ，將 [裝置識別碼]  設定為 **MyTestDevice**，然後按一下 [儲存]  ：
 
 ![新增裝置](media/tutorial-connectivity/add-device.png)
 
-若要擷取 **MyTestDevice** 的連接字串，請在裝置清單中按一下該裝置，然後複製 [連接字串 - 主要金鑰] 值。 連接字串會包含裝置的共用存取金鑰。
+若要擷取 **MyTestDevice** 的連接字串，請在裝置清單中按一下該裝置，然後複製 [連接字串 - 主要金鑰]  值。 連接字串會包含裝置的共用存取金鑰  。
 
 ![擷取裝置連接字串](media/tutorial-connectivity/copy-connection-string.png)
 
@@ -189,7 +189,7 @@ node SimulatedDevice-3.js "{your device connection string}"
 
 ![傳送訊息的模擬裝置](media/tutorial-connectivity/sim-3-sending.png)
 
-您可以在入口網站中使用 [計量]，確認遙測訊息已送達您的 IoT 中樞。 在 [資源] 下拉式清單中選取您的 IoT 中樞，選取 [已傳送的遙測訊息] 作為計量，並將時間範圍設定為 [過去一小時]。 圖表會顯示模擬裝置所傳送訊息的彙總計數：
+您可以在入口網站中使用 [計量]  ，確認遙測訊息已送達您的 IoT 中樞。 在 [資源]  下拉式清單中選取您的 IoT 中樞，選取 [已傳送的遙測訊息]  作為計量，並將時間範圍設定為 [過去一小時]  。 圖表會顯示模擬裝置所傳送訊息的彙總計數：
 
 ![顯示 IoT 中樞計量](media/tutorial-connectivity/metrics-portal.png)
 
@@ -255,7 +255,7 @@ az iot hub device-twin update --set properties.desired='{"mydesiredproperty":"pr
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不再需要 IoT 中樞，請在入口網站中刪除它和資源群組。 若要這麼做，請選取包含 IoT 中樞的 **tutorials-iot-hub-rg** 資源群組，然後按一下 [刪除]。
+如果您不再需要 IoT 中樞，請在入口網站中刪除它和資源群組。 若要這麼做，請選取包含 IoT 中樞的 **tutorials-iot-hub-rg** 資源群組，然後按一下 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 

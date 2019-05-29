@@ -10,23 +10,23 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4e1c03085d6b1d0099ac66dd3d1dadd981a561aa
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 75228b8c939cb5b8dd04471662ba86b46cfc808c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004239"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860466"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>教學課程：使用 Visual Studio 中的連線服務連線至文字分析服務
 
 您可以使用文字分析服務擷取豐富的資訊，進而分類及處理視覺化資料，並對影像進行機器輔助仲裁，以協助籌備您的服務。
 
-本文及其附屬文章提供使用適用於文字分析服務之 Visual Studio 已連線的服務功能的詳細資料。 此功能適用於已安裝認知服務擴充功能的 Visual Studio 2017 15.7 或更新版本。
+本文及其附屬文章提供使用適用於文字分析服務之 Visual Studio 已連線的服務功能的詳細資料。 此功能適用於已安裝認知服務擴充功能的 Visual Studio 2019 或更新版本。
 
 ## <a name="prerequisites"></a>必要條件
 
 - Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
-- Visual Studio 2017 15.7 版，並且已安裝網頁程式開發工作負載。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
+- 已安裝網頁程式開發工作負載的 Visual Studio 2019。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
@@ -34,12 +34,12 @@ ms.locfileid: "60004239"
 
 1. 建立一個稱為 TextAnalyticsDemo 的新 ASP.NET Core Web 專案。 使用具有所有預設設定的 [Web 應用程式 (模型-檢視-控制器)] 專案範本。 請務必將專案命名為 MyWebApplication，這樣當您將程式碼複製到專案時，命名空間才會相符。  本文中的範例使用 MVC，但您可以使用文字分析連線服務搭配任何 ASP.NET 專案類型。
 
-1. 在 [方案總管] 中，按兩下 [連線服務] 項目。
+1. 在 [方案總管]  中，按兩下 [連線服務]  項目。
    [連線服務] 頁面隨即出現，並顯示您可新增至專案的服務。
 
    ![[方案總管] 中的連線服務螢幕擷取畫面](../media/vs-common/Connected-Services-Solution-Explorer.PNG)
 
-1. 在可用服務的功能表中，選擇 [使用文字分析評估情感]。
+1. 在可用服務的功能表中，選擇 [使用文字分析評估情感]  。
 
    ![[已連的服務] 畫面的螢幕擷取畫面](./media/vs-text-connected-service/Cog-Text-Connected-Service-0.PNG)
 
@@ -47,14 +47,14 @@ ms.locfileid: "60004239"
 
    ![[文字分析連線服務] 畫面的螢幕擷取畫面](media/vs-text-connected-service/Cog-Text-Connected-Service-1.PNG)
 
-1. 選取您想要使用的訂用帳戶，然後選擇文字分析服務的名稱，或選擇 [編輯] 連結來修改自動產生的名稱，選擇資源群組及定價層。
+1. 選取您想要使用的訂用帳戶，然後選擇文字分析服務的名稱，或選擇 [編輯]  連結來修改自動產生的名稱，選擇資源群組及定價層。
 
    ![[資源群組] 與 [定價層] 欄位的螢幕擷取畫面](media/vs-text-connected-service/Cog-Text-Connected-Service-2.PNG)
 
    瀏覽此連結，以取得定價層的詳細資料。
 
-1. 選擇 [新增] 以新增連線服務的支援。
-   Visual Studio 會修改專案，以新增 NuGet 套件、設定檔項目與其他變更，以支援文字分析服務的連線。 [輸出視窗] 會顯示您的專案發生什麼情形的記錄。 您應該會看到如下的內容：
+1. 選擇 [新增]  以新增連線服務的支援。
+   Visual Studio 會修改專案，以新增 NuGet 套件、設定檔項目與其他變更，以支援文字分析服務的連線。 [輸出視窗]  會顯示您的專案發生什麼情形的記錄。 您應該會看到如下的內容：
 
    ```output
     [6/1/2018 3:04:02.347 PM] Adding Text Analytics to the project.
@@ -193,7 +193,7 @@ ms.locfileid: "60004239"
     }
     ```
 
-1. 新增檢視以顯示分析的文字、判定的語言，以及在分析中表示信賴等級的分數。 若要這樣做，請以滑鼠右鍵按一下 [檢視] 資料夾，選擇 [新增]，然後選擇 [檢視]。 在出現的對話方塊中，提供名稱 _TextAnalyzeResult_ 並接受預設值，以便在 [檢視] 資料夾中新增一個稱為 _TextAnalyzeResult.cshtml_ 的新檔案，然後將下列內容複製到其中：
+1. 新增檢視以顯示分析的文字、判定的語言，以及在分析中表示信賴等級的分數。 若要這樣做，請以滑鼠右鍵按一下 [檢視]  資料夾，選擇 [新增]  ，然後選擇 [檢視]  。 在出現的對話方塊中，提供名稱 _TextAnalyzeResult_ 並接受預設值，以便在 [檢視]  資料夾中新增一個稱為 _TextAnalyzeResult.cshtml_ 的新檔案，然後將下列內容複製到其中：
     
     ```cshtml
     @using System
@@ -262,8 +262,8 @@ ms.locfileid: "60004239"
 不再需要資源群組時，請加以刪除。 這會刪除認知服務與相關資源。 若要透過入口網站刪除資源群組：
 
 1. 在入口網站頂端的 [搜尋] 方塊中，輸入資源群組的名稱。 當您在搜尋結果中看到本教學課程中使用的資源群組時，請加以選取。
-2. 選取 [刪除資源群組]。
-3. 在 [輸入資源群組名稱:] 方塊中輸入資源群組的名稱，然後選取 [刪除]。
+2. 選取 [刪除資源群組]  。
+3. 在 [輸入資源群組名稱:]  方塊中輸入資源群組的名稱，然後選取 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 

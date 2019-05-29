@@ -2,20 +2,20 @@
 title: 快速入門：建立及查詢 Azure SQL 資料倉儲 - Azure 入口網站 | Microsoft Docs
 description: 在 Azure 入口網站中透過 Azure SQL 資料倉儲建立和查詢資料倉儲。
 services: sql-data-warehouse
-author: kevinvngo
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: development
 ms.date: 08/02/2018
-ms.author: kevin
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 053dccb4ba5798fabd4426d5741d9238af579449
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: ee18a78aea67d0270b105f8703259b65c706d2e7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732405"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66169265"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入門：如何在 Azure 入口網站中建立及查詢 Azure SQL 資料倉儲
 
@@ -40,9 +40,9 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
 
 依照下列步驟來建立包含 AdventureWorksDW 範例資料的 SQL 資料倉儲。 
 
-1. 按一下 Azure 入口網站左上角的 [建立資源]。
+1. 按一下 Azure 入口網站左上角的 [建立資源]  。
 
-2. 從 [新增] 頁面中選取 [資料庫]，然後在 [新增] 頁面的 [精選] 下選取 [SQL 資料倉儲]。
+2. 從 [新增]  頁面中選取 [資料庫]  ，然後在 [新增]  頁面的 [精選]  下選取 [SQL 資料倉儲]  。
 
     ![建立空的資料倉儲](media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
@@ -59,7 +59,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
 
     ![建立資料倉儲](media/create-data-warehouse-portal/select-sample.png)
 
-4. 按一下 [伺服器] 為您的新資料庫建立及設定新的伺服器。 在**新伺服器表單**表單中填寫下列資訊︰ 
+4. 按一下 [伺服器]  為您的新資料庫建立及設定新的伺服器。 在**新伺服器表單**表單中填寫下列資訊︰ 
 
     | 設定 | 建議的值 | 說明 |
     | :------ | :-------------- | :---------- |
@@ -71,21 +71,21 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
 
     ![建立資料庫伺服器](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
-5. 按一下 [選取] 。
+5. 按一下 [選取]  。
 
-6. 按一下 [效能等級] 以指定資料倉儲的效能設定。
+6. 按一下 [效能等級]  以指定資料倉儲的效能設定。
 
-7. 針對本教學課程，請選取 [Gen2]。 根據預設，滑桿會設定為 [DW1000c]。 請嘗試向上和向下移動以查看其運作方式。 
+7. 針對本教學課程，請選取 [Gen2]  。 根據預設，滑桿會設定為 [DW1000c]  。 請嘗試向上和向下移動以查看其運作方式。 
 
     ![設定效能](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
-8. 按一下 [套用]。
+8. 按一下 [套用]  。
 
-9. 您現在已完成 SQL 資料倉儲表單，請按一下 [建立] 以佈建資料庫。 佈建需要幾分鐘的時間。 
+9. 您現在已完成 SQL 資料倉儲表單，請按一下 [建立]  以佈建資料庫。 佈建需要幾分鐘的時間。 
 
     ![按一下 [建立]](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
-10. 在工具列上，按一下 [通知] 以監視部署程序。
+10. 在工具列上，按一下 [通知]  以監視部署程序。
     
      ![通知](media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
@@ -96,7 +96,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 > [!NOTE]
 > SQL 資料倉儲會透過連接埠 1433 通訊。 如果您嘗試從公司網路內進行連線，您網路的防火牆可能不允許透過連接埠 1433 的輸出流量。 若情況如此，除非 IT 部門開啟連接埠 1433，否則您無法連線至 Azure SQL Database 伺服器。
 
-1. 部署完成之後，按一下左側功能表中的 [SQL 資料倉儲]，然後按一下 [SQL 資料倉儲] 頁面上的 [mySampleDatabase]。 資料庫的概觀頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver-20180430.database.windows.net**)，並提供進一步的設定選項。 
+1. 部署完成之後，按一下左側功能表中的 [SQL 資料倉儲]  ，然後按一下 [SQL 資料倉儲]  頁面上的 [mySampleDatabase]  。 資料庫的概觀頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver-20180430.database.windows.net**)，並提供進一步的設定選項。 
 
 2. 在後續的快速入門中，請複製此完整伺服器名稱，才能用來連線到伺服器及其資料庫。 若要開啟伺服器設定，請按一下伺服器名稱。
 
@@ -107,28 +107,28 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
    ![伺服器設定](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
 
-5. 按一下 [顯示防火牆設定]。 SQL Database 伺服器的 [防火牆設定] 頁面隨即開啟。 
+5. 按一下 [顯示防火牆設定]  。 SQL Database 伺服器的 [防火牆設定]  頁面隨即開啟。 
 
    ![伺服器防火牆規則](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
 
-4. 若要將目前的 IP 位址新增至新的防火牆規則，按一下工具列上的 [新增用戶端 IP]。 防火牆規則可以針對單一 IP 位址或 IP 位址範圍開啟連接埠 1433。
+4. 若要將目前的 IP 位址新增至新的防火牆規則，按一下工具列上的 [新增用戶端 IP]  。 防火牆規則可以針對單一 IP 位址或 IP 位址範圍開啟連接埠 1433。
 
-5. 按一下 [檔案] 。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則，以便在邏輯伺服器上開啟連接埠 1433。
+5. 按一下 [檔案]  。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則，以便在邏輯伺服器上開啟連接埠 1433。
 
-6. 依序按一下 [確定]，然後關閉 [防火牆設定] 頁面。
+6. 依序按一下 [確定]  ，然後關閉 [防火牆設定]  頁面。
 
 您現在可以使用這個 IP 位址連線到 SQL Server 及其資料倉儲。 可從 SQL Server Management Studio 或您選擇的另一個工具來運作連線。 當您連線時，請使用先前建立的 ServerAdmin 帳戶。
 
 > [!IMPORTANT]
-> 根據預設，已對所有 Azure 服務啟用透過 SQL Database 防火牆存取。 在此頁面上按一下 [關閉]，然後按一下 [儲存] 可停用所有 Azure 服務的防火牆。
+> 根據預設，已對所有 Azure 服務啟用透過 SQL Database 防火牆存取。 在此頁面上按一下 [關閉]  ，然後按一下 [儲存]  可停用所有 Azure 服務的防火牆。
 
 ## <a name="get-the-fully-qualified-server-name"></a>取得完整的伺服器名稱
 
 請在 Azure 入口網站中取得 SQL 伺服器的完整伺服器名稱。 稍後您在連線到伺服器時，會使用完整伺服器名稱。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 從左側功能表中選取 [SQL 資料倉儲]，在 [SQL 資料倉儲] 頁面上按一下您的資料倉儲。 
-3. 在 Azure 入口網站中您資料庫的 [基本資訊] 窗格中，找到後複製 [伺服器名稱]。 在此範例中，完整名稱是 mynewserver 20180430.database.windows.net。 
+2. 從左側功能表中選取 [SQL 資料倉儲]  ，在 [SQL 資料倉儲]  頁面上按一下您的資料倉儲。 
+3. 在 Azure 入口網站中您資料庫的 [基本資訊]  窗格中，找到後複製 [伺服器名稱]  。 在此範例中，完整名稱是 mynewserver 20180430.database.windows.net。 
 
     ![連線資訊](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
@@ -138,7 +138,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 1. 開啟 SQL Server Management Studio。
 
-2. 在 [連接到伺服器] 對話方塊中，輸入下列資訊：
+2. 在 [連接到伺服器]  對話方塊中，輸入下列資訊：
 
    | 設定 | 建議的值 | 說明 |
    | :------ | :-------------- | :---------- |
@@ -153,7 +153,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 3. 按一下 [ **連接**]。 [物件總管] 視窗隨即在 SSMS 中開啟。 
 
-4. 在 [物件總管] 中，展開 [資料庫]。 然後展開 [mySampleDatabase] 可檢視新資料庫中的物件。
+4. 在 [物件總管] 中，展開 [資料庫]  。 然後展開 [mySampleDatabase]  可檢視新資料庫中的物件。
 
     ![資料庫物件](media/create-data-warehouse-portal/connected.png) 
 
@@ -161,14 +161,14 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 
 SQL 資料倉儲會使用 T-SQL 作為查詢語言。 若要開啟查詢視窗並執行一些 T-SQL 查詢，請使用下列步驟：
 
-1. 以滑鼠右鍵按一下 [mySampleDataWarehouse]，然後選取 [新增查詢]。 新的查詢視窗隨即開啟。
+1. 以滑鼠右鍵按一下 [mySampleDataWarehouse]  ，然後選取 [新增查詢]  。 新的查詢視窗隨即開啟。
 2. 在新的查詢視窗中，輸入下列命令可查看資料庫清單。
 
     ```sql
     SELECT * FROM sys.databases
     ```
 
-3. 按一下 [Execute (執行)] 。 查詢結果顯示兩個資料庫：**master** 和 **mySampleDataWarehouse**。
+3. 按一下 [Execute (執行)]  。 查詢結果顯示兩個資料庫：**master** 和 **mySampleDataWarehouse**。
 
     ![查詢資料庫](media/create-data-warehouse-portal/query-databases.png)
 
@@ -194,13 +194,13 @@ SQL 資料倉儲會使用 T-SQL 作為查詢語言。 若要開啟查詢視窗�
 
     ![清除資源](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. 若要暫停計算，請按一下 [暫停] 按鈕。 資料倉儲暫停時，您會看到 [啟動] 按鈕。 若要繼續計算，請按一下 [啟動]。
+2. 若要暫停計算，請按一下 [暫停]  按鈕。 資料倉儲暫停時，您會看到 [繼續]  按鈕。 若要繼續計算，請按一下 [繼續]  。
 
-3. 若要移除資料倉儲，而不再支付計算或儲存體的費用，請按一下 [刪除]。
+3. 若要移除資料倉儲，而不再支付計算或儲存體的費用，請按一下 [刪除]  。
 
-4. 若要移除您所建立的 SQL Server，請按一下先前映像中的 [mynewserver 20180430.database.windows.net]，然後按一下 [刪除]。 請謹慎使用刪除，因為刪除伺服器也會刪除所有指派給伺服器的資料庫。
+4. 若要移除您所建立的 SQL Server，請按一下先前映像中的 [mynewserver 20180430.database.windows.net]  ，然後按一下 [刪除]  。 請謹慎使用刪除，因為刪除伺服器也會刪除所有指派給伺服器的資料庫。
 
-5. 若要移除此資源群組，請按一下 [myResourceGroup]，然後按一下 [刪除資源群組]。
+5. 若要移除此資源群組，請按一下 [myResourceGroup]  ，然後按一下 [刪除資源群組]  。
 
 ## <a name="next-steps"></a>後續步驟
 

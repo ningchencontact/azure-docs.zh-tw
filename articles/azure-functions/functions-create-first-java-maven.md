@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d25fbfc058337c7a96414cf41f321e039ebc2258
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ab705b6131bd43a7ab70bab16cef81d33f07c055
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58801833"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827419"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>使用 Java 和 Maven 建立您的第一個函式
 
@@ -29,10 +29,10 @@ ms.locfileid: "58801833"
 
 若要使用 Java 開發函式，您必須安裝下列項目：
 
-- [Java Developer Kit](https://www.azul.com/downloads/zulu/)第 8 版。
-- [Apache Maven](https://maven.apache.org) 3.0 版或更高版本。
+- [Java Developer Kit](https://aka.ms/azure-jdks) 第 8 版
+- [Apache Maven](https://maven.apache.org) 3.0 版或更新版本
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
-- [Azure Functions Core Tools](functions-run-local.md#v2) (需要 **.NET Core 2.x SDK**)
+- [Azure Functions Core Tools](./functions-run-local.md#v2) 2.6.666 版或更新版本
 
 > [!IMPORTANT]
 > JAVA_HOME 環境變數必須設定為 JDK 的安裝位置，才能完成本快速入門。
@@ -89,8 +89,8 @@ public class Function {
      * 2. curl {your host}/api/hello?name=HTTP%20Query
      */
     @FunctionName("hello")
-    public HttpResponseMessage<String> hello(
-            @HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
@@ -99,14 +99,18 @@ public class Function {
         String name = request.getBody().orElse(query);
 
         if (name == null) {
-            return request.createResponse(400, "Please pass a name on the query string or in the request body");
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("Please pass a name on the query string or in the request body").build();
         } else {
-            return request.createResponse(200, "Hello, " + name);
+            return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
         }
     }
 }
 
 ```
+
+## <a name="reference-bindings"></a>參考繫結
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ## <a name="run-the-function-locally"></a>在本機執行函式
 
@@ -135,7 +139,7 @@ Http Functions:
 在新的終端機視窗中使用 curl 從命令列觸發函式：
 
 ```
-curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
+curl -w "\n" http://localhost:7071/api/hello -d LocalFunction
 ```
 
 ```Output
@@ -174,10 +178,10 @@ mvn azure-functions:deploy
 使用 `cURL` 測試在 Azure 上執行的函式應用程式。 您必須變更下面範例中的 URL，以符合上一個步驟中自有函式應用程式的已部署 URL。
 
 > [!NOTE]
-> 請確定您將 [存取權限] 設為 `Anonymous`。 當您選擇預設層級 `Function` 時，您必須在要求中提供[函式金鑰](../azure-functions/functions-bindings-http-webhook.md#authorization-keys)以存取您的函式端點。
+> 請確定您將 [存取權限]  設為 `Anonymous`。 當您選擇預設層級 `Function` 時，您必須在要求中提供[函式金鑰](../azure-functions/functions-bindings-http-webhook.md#authorization-keys)以存取您的函式端點。
 
 ```
-curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
 ```Output
@@ -198,7 +202,7 @@ return request.createResponse(200, "Hello, " + name);
 return request.createResponse(200, "Hi, " + name);
 ```
 
-儲存變更，然後一如往常從終端機執行 `azure-functions:deploy` 來重新部署。 函數應用程式將會更新，而此要求：
+儲存變更。 執行 mvn 全新套件，然後一如往常從終端機執行 `azure-functions:deploy` 來重新部署。 函數應用程式將會更新，而此要求：
 
 ```bash
 curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java

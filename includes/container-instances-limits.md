@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 02/13/2019
 ms.author: danlep
 ms.openlocfilehash: f8821060b98ebfc954a6e59abad60350e6779b76
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553272"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146228"
 ---
 | 資源 | 預設限制 |
 | --- | :--- |
@@ -25,7 +25,7 @@ ms.locfileid: "57553272"
 | 每 5 分鐘的容器刪除 | 100<sup>1</sup> |
 
 
-<sup>1</sup>若要要求增加限制，建立[Azure 支援要求][azure-support]。<br />
+<sup>1</sup>若要要求提高限制，請建立 [Azure 支援要求][azure-support]。<br />
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

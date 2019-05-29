@@ -7,15 +7,15 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 04/11/2018
-ms.openlocfilehash: 50a67ca5c7d1fa3165889b1e59565d1a1030690d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/16/2019
+ms.openlocfilehash: be2195092cf3890f754f875ea7bccc1f717eb95b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712134"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762342"
 ---
-# <a name="what-is-apache-kafka-on-hdinsight"></a>什麼是 HDInsight 上的 Apache Kafka？
+# <a name="what-is-apache-kafka-in-azure-hdinsight"></a>什麼是 Azure HDInsight 中的 Apache Kafka
 
 [Apache Kafka](https://kafka.apache.org) 是開放原始碼分散式串流平台，可用來建置即時串流資料管線和應用程式。 Kafka 也提供類似於訊息佇列的訊息代理程式功能，可讓您發佈和訂閱具名資料流。 
 
@@ -49,7 +49,7 @@ HDInsight 上的 Apache Kafka 特定特性如下：
 
 Apache ZooKeeper 會管理 Kafka 叢集的狀態。 Zookeeper 是針對並行、彈性且低度延遲的交易所建置的。 
 
-Kafka 會在「主題」中儲存記錄 (資料)。 記錄是由「產生者」產生，並由「取用者」取用。 產生者會在 Kafka「訊息代理程式」中傳送記錄。 HDInsight 叢集中的每個背景工作節點都是 Kafka 訊息代理程式。 
+Kafka 會在「主題」  中儲存記錄 (資料)。 記錄是由「產生者」  產生，並由「取用者」  取用。 產生者會在 Kafka「訊息代理程式」  中傳送記錄。 HDInsight 叢集中的每個背景工作節點都是 Kafka 訊息代理程式。 
 
 主題會將記錄分割至各個訊息代理程式。 取用記錄時，您可以針對每個分割區最多使用一個取用者，以達到資料平行處理。
 

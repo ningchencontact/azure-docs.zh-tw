@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: e4664f121601ecec4b8ed52d536e5212b3d0950f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2425d14e43abd98d80bef8ce01e1c1c5f73a78a0
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039294"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833072"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>快速入門：使用 Python 與 Azure Cosmos DB 建置資料表 API 應用程式
 
@@ -35,8 +35,8 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 此外：
 
-* 如果尚未安裝 Visual Studio 2017，您可以下載並使用**免費的** [Visual Studio 2017 Community 版本](https://www.visualstudio.com/downloads/)。 請務必在 Visual Studio 安裝期間選取 [Azure 開發] 和 [Python 開發] 工作負載。
-* 此外也請選取 [Python 開發] 工作負載中的 [Python 2] 選項，或從 [python.org](https://www.python.org/downloads/release/python-2712/) 下載 Python 2.7。
+* 如果尚未安裝 Visual Studio 2019，您可以下載並使用**免費的** [Visual Studio 2019 Community 版本](https://www.visualstudio.com/downloads/)。 請務必在 Visual Studio 安裝期間選取 [Azure 開發]  和 [Python 開發]  工作負載。
+* 此外也請選取 [Python 開發]  工作負載中的 [Python 2] 選項，或從 [python.org](https://www.python.org/downloads/release/python-2712/) 下載 Python 2.7。
 
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
 
@@ -82,7 +82,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。 這可讓您的應用程式與託管資料庫進行通訊。 
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [連接字串]。 
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [連接字串]  。 
 
     ![在 [連接字串] 窗格中檢視及複製「連接字串」。](./media/create-table-python/connection-string.png)
 
@@ -98,7 +98,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="run-the-app"></a>執行應用程式
 
-1. 在 Visual Studio 中，於 [方案總管] 中的專案上按一下滑鼠右鍵，選取目前的 Python 環境，然後按一下滑鼠右鍵。
+1. 在 Visual Studio 中，於 [方案總管]  中的專案上按一下滑鼠右鍵，選取目前的 Python 環境，然後按一下滑鼠右鍵。
 
 2. 選取 [安裝 Python 套件]，然後輸入 **azure-storage-table**
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: fmegen
-ms.openlocfilehash: 05475dbfb7dc1ee3f5de1a9b858eaf212b674eac
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3dad2696332f57d9a0dc86927f91caa7352b1d7b
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466382"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65884952"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>快速入門：使用適用於 Java 的語音 SDK 來辨識語音
 
@@ -55,7 +55,7 @@ ms.locfileid: "65466382"
   ```
 
 如果您執行 Windows (64 位元)，請確定您已為平台安裝 Microsoft Visual C++ 可轉散發套件。
-* [下載適用於 Visual Studio 2017 的 Microsoft Visual C++ 可轉散發套件](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+* [下載適用於 Visual Studio 2019 的 Microsoft Visual C++ 可轉散發套件](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 ## <a name="create-and-configure-project"></a>建立及設定專案
 
@@ -63,9 +63,9 @@ ms.locfileid: "65466382"
 
 ## <a name="add-sample-code"></a>新增範例程式碼
 
-1. 若要將新的空白類別新增到您的 Java 專案，請選取 [檔案] > [新增] > [類別]。
+1. 若要將新的空白類別新增到您的 Java 專案，請選取 [檔案]   > [新增]   > [類別]  。
 
-1. 在 [新增 Java 類別] 視窗中，於 [套件] 欄位中輸入 **speechsdk.quickstart**，並在 [名稱] 欄位中輸入 **Main**。
+1. 在 [新增 Java 類別]  視窗中，於 [套件]  欄位中輸入 **speechsdk.quickstart**，並在 [名稱]  欄位中輸入 **Main**。
 
    ![[新增 Java 類別] 視窗的螢幕擷取畫面](media/sdk/qs-java-jre-06-create-main-java.png)
 
@@ -81,7 +81,7 @@ ms.locfileid: "65466382"
 
 ## <a name="build-and-run-the-app"></a>建置並執行應用程式
 
-按 F11 鍵，或選取 [執行] > [偵錯]。
+按 F11 鍵，或選取 [執行]   > [偵錯]  。
 系統將會辨識接下來 15 秒來自您麥克風的語音輸入，並記錄在主控台視窗中。
 
 ![成功辨識後主控台輸出的螢幕擷取畫面](media/sdk/qs-java-jre-07-console-output.png)

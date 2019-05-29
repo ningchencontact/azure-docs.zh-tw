@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 75e52398386e7ef1b338d13a8cfe8f20c06abcc6
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005976"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541533"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>教學課程：使用電腦視覺在 Azure 儲存體中產生影像中繼資料
 
@@ -40,21 +40,15 @@ ms.locfileid: "60005976"
 
 ## <a name="create-a-computer-vision-resource"></a>建立電腦視覺資源
 
-您必須為您的 Azure 帳戶建立電腦視覺資源；這項資源會管理您對 Azure 電腦視覺服務的存取。
+您必須為您的 Azure 帳戶建立電腦視覺資源；這項資源會管理您對 Azure 電腦視覺服務的存取。 
 
-1. 登入 [Azure 入口網站](https://ms.portal.azure.com)，然後按一下 [建立資源]，接著按 [AI + 機器學習服務] 和 [電腦視覺]。
+1. 請遵循[建立 Azure 認知服務資源](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription)中的指示來建立電腦視覺資源。
 
-    ![建立新的電腦視覺 API 訂用帳戶](../Images/new-vision-api.png)
-
-1. 在對話視窗的 [名稱] 欄位中輸入 "vision-api-key"，然後選取 [F0] 作為 [定價層]。 選取您在設定 Azure 儲存體帳戶時所選取的相同 [位置]。 在 [資源群組] 下方選取 [使用現有項目]，並同樣選取相同的資源群組。 勾選 [我確認] 方塊，然後按一下 [建立]。
-
-    ![訂閱電腦視覺 API](../Images/create-vision-api.png)
-
-1. 返回您資源群組的功能表，然後按一下您剛才建立的電腦視覺 API 訂用帳戶。 將 [端點] 下方的 URL 複製到您可輕鬆快速加以擷取之處。 然後，按一下 [顯示存取金鑰]。
+1. 接著，移至您資源群組的功能表，然後按一下您剛建立的電腦視覺 API 訂用帳戶。 將 [端點]  下方的 URL 複製到您可輕鬆快速加以擷取之處。 然後，按一下 [顯示存取金鑰]  。
 
     ![Azure 入口網站頁面：已框出端點 URL 和存取金鑰連結](../Images/copy-vision-endpoint.png)
 
-1. 在下一個視窗中，將 [金鑰 1] 的值複製到剪貼簿。
+1. 在下一個視窗中，將 [金鑰 1]  的值複製到剪貼簿。
 
     ![[管理金鑰] 對話方塊：已框出 [複製] 按鈕](../Images/copy-vision-key.png)
 
@@ -134,7 +128,7 @@ ms.locfileid: "60005976"
 
 ![電腦產生的標題](../Images/thumbnail-with-tooltip.png)
 
-若要檢視所有連結的中繼資料，請使用 Azure 儲存體總管檢視您為影像使用的儲存體容器。 以滑鼠右鍵按一下容器中的任何 Blob，然後選取 [屬性]。 在對話方塊中，您會看到索引鍵/值組清單。 電腦產生的影像描述會儲存在「標題」項目中，而搜尋關鍵字會儲存於 "Tag0"、"Tag1"，依此類推。 完成作業後，請按一下 [取消] 以關閉對話方塊。
+若要檢視所有連結的中繼資料，請使用 Azure 儲存體總管檢視您為影像使用的儲存體容器。 以滑鼠右鍵按一下容器中的任何 Blob，然後選取 [屬性]  。 在對話方塊中，您會看到索引鍵/值組清單。 電腦產生的影像描述會儲存在「標題」項目中，而搜尋關鍵字會儲存於 "Tag0"、"Tag1"，依此類推。 完成作業後，請按一下 [取消]  以關閉對話方塊。
 
 ![影像屬性對話方塊視窗：已列出中繼資料標記](../Images/blob-metadata.png)
 
@@ -142,7 +136,7 @@ ms.locfileid: "60005976"
 
 如果您想要繼續使用 Web 應用程式，請參閱[後續步驟](#next-steps)一節。 如果您不打算繼續使用此應用程式，則應刪除應用程式專屬的所有資源。 若要這樣做，您可以直接刪除包含 Azure 儲存體訂用帳戶和電腦視覺資源的資源群組。 這將會移除儲存體帳戶、上傳至該帳戶的 Blob，以及與 ASP.NET Web 應用程式連線所需的 App Service 資源。 
 
-若要刪除資源群組，請在入口網站中開啟 [資源群組] 刀鋒視窗，並瀏覽至您用於此專案的資源群組，然後按一下檢視頂端的 [刪除資源群組]。 系統會要求您輸入資源群組的名稱以確認您要加以刪除，因為資源群組一經刪除即無法復原。
+若要刪除資源群組，請在入口網站中開啟 [資源群組]  刀鋒視窗，並瀏覽至您用於此專案的資源群組，然後按一下檢視頂端的 [刪除資源群組]  。 系統會要求您輸入資源群組的名稱以確認您要加以刪除，因為資源群組一經刪除即無法復原。
 
 ## <a name="next-steps"></a>後續步驟
 

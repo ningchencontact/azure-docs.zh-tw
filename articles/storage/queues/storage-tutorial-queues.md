@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 6b833ef56b890eb4ea0db6b48fe8c2622e211498
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233870"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797529"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>教學課程：使用 Azure 儲存體佇列
 
@@ -98,7 +98,7 @@ Azure 佇列儲存體可實作雲端式佇列，使分散式應用程式的元�
 
 由於應用程式使用雲端資源，因此程式碼會以非同步方式執行。 但在 C#7.1 之前，C# 的 **async** 和 **await** 在 **Main** 方法中並非有效的關鍵字。 您可以透過 **csproj** 檔案中的旗標輕鬆地切換至該編譯器。
 
-1. 從專案目錄中的命令列輸入 `code .`，以在目前的目錄中開啟 Visual Studio Code。 將命令列視窗保持開啟。 稍後將會執行其他命令。 如果系統提示您新增建置和偵錯所需的 C# 資產，請按一下 [是] 按鈕。
+1. 從專案目錄中的命令列輸入 `code .`，以在目前的目錄中開啟 Visual Studio Code。 將命令列視窗保持開啟。 稍後將會執行其他命令。 如果系統提示您新增建置和偵錯所需的 C# 資產，請按一下 [是]  按鈕。
 
 2. 在編輯器中開啟 **QueueApp.csproj** 檔案。
 
@@ -129,33 +129,34 @@ Azure 佇列儲存體可實作雲端式佇列，使分散式應用程式的元�
 
 ## <a name="create-a-queue"></a>建立佇列
 
-1. 將 **WindowsAzure.Storage** 套件安裝到專案中 (使用 `dotnet add package` 命令)。 從主控台視窗中的專案資料夾執行下列 dotnet 命令。
+1. 使用 `dotnet add package` 命令，將 **Microsoft.Azure.Storage.Common** 和 **Microsoft.Azure.Storage.Queue** 套件安裝到專案。 從主控台視窗中的專案資料夾執行下列 dotnet 命令。
 
    ```console
-   dotnet add package WindowsAzure.Storage
+   dotnet add package Microsoft.Azure.Storage.Common
+   dotnet add package Microsoft.Azure.Storage.Queue
    ```
 
 2. 在 **Program.cs** 檔案頂端，緊接在 `using System;` 陳述式後面新增下列命名空間。 此應用程式會使用這些命名空間中的類型連線至 Azure 儲存體，並使用佇列。
 
    ```csharp
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
    ```
 
 3. 儲存 **Program.cs** 檔案。
 
 ### <a name="get-your-connection-string"></a>取得您的連接字串
 
-用戶端程式庫會使用連接字串建立您的連線。 您可以在 Azure 入口網站中從您儲存體帳戶的 [設定] 區段取得連接字串。
+用戶端程式庫會使用連接字串建立您的連線。 您可以在 Azure 入口網站中從您儲存體帳戶的 [設定]  區段取得連接字串。
 
 1. 在網頁瀏覽器中，登入 [Azure 入口網站](https://portal.azure.com/)。
 
 2. 在 Azure 入口網站中巡覽至您的儲存體帳戶。
 
-3. 選取 [存取金鑰]。
+3. 選取 [存取金鑰]  。
 
-4. 按一下 [連接字串]欄位右側的 [複製] 按鈕。
+4. 按一下 [連接字串]  欄位右側的 [複製]  按鈕。
 
 ![連接字串](media/storage-tutorial-queues/get-connection-string.png)
 
@@ -171,7 +172,7 @@ Azure 佇列儲存體可實作雲端式佇列，使分散式應用程式的元�
 
 1. 切換回 Visual Studio Code。
 
-2. 在 [程式] 類別中，新增用來存放連接字串的 `private const string connectionString =` 成員。
+2. 在 [程式]  類別中，新增用來存放連接字串的 `private const string connectionString =` 成員。
 
 3. 在等號後面，貼上您先前在 Azure 入口網站中複製的字串值。 **ConnectionString** 值將是您的帳戶專用的值。
 
@@ -206,7 +207,7 @@ Azure 佇列儲存體可實作雲端式佇列，使分散式應用程式的元�
 
 ## <a name="insert-messages-into-the-queue"></a>將訊息插入佇列中
 
-建立將訊息傳送至佇列中的新方法。 將下列方法新增至您的**程式**類別。 此方法會取得佇列參考，然後藉由呼叫 [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet) 建立新的佇列 (如果還不存在)。 接著，它會藉由呼叫 [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet) 將訊息新增至佇列。
+建立將訊息傳送至佇列中的新方法。 將下列方法新增至您的**程式**類別。 此方法會取得佇列參考，然後藉由呼叫 [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync) 建立新的佇列 (如果還不存在)。 接著，它會藉由呼叫 [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync) 將訊息新增至佇列。
 
 1. 將下列 **SendMessageAsync** 方法新增至您的**程式**類別。
 
@@ -229,7 +230,7 @@ Azure 佇列儲存體可實作雲端式佇列，使分散式應用程式的元�
 
 ## <a name="dequeue-messages"></a>清除佇列中的訊息
 
-建立名為 **ReceiveMessageAsync** 的新方法。 此方法會藉由呼叫 [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet) 接收來自佇列的訊息。 在成功接收訊息後，務必要從佇列中刪除該訊息，以免受到多次處理。 收到訊息後，請呼叫 [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet) 以從佇列中刪除該訊息。
+建立名為 **ReceiveMessageAsync** 的新方法。 此方法會藉由呼叫 [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync) 接收來自佇列的訊息。 在成功接收訊息後，務必要從佇列中刪除該訊息，以免受到多次處理。 收到訊息後，請呼叫 [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync) 以從佇列中刪除該訊息。
 
 1. 將下列 **ReceiveMessageAsync** 方法新增至您的**程式**類別。
 
@@ -343,8 +344,8 @@ Azure 佇列儲存體可實作雲端式佇列，使分散式應用程式的元�
    ```csharp
    using System;
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
 
    namespace QueueApp
    {

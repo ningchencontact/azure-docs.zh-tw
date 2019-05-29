@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 05/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 3fca94a56f80ec520ac6777610a90bdddf1b8988
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 2b021975983858386cd7c847ba11a26f4feb9562
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473254"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150466"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure 資料箱：常見問題集
 
@@ -89,7 +89,7 @@ A. 您可以複製您的上一筆訂單。 複製會建立與之前相同的訂�
 ## <a name="configure-and-connect"></a>設定和連線
 
 ### <a name="q-how-do-i-unlock-the-data-box"></a>問： 如何將資料箱解除鎖定？ 
-A.  在 Azure 入口網站中，移至您的資料箱訂單，並瀏覽至 [裝置詳細資料]。 複製解除鎖定密碼。 使用此密碼，登入資料箱上的本機 Web UI。 如需詳細資訊，請移至[教學課程：打開包裝、接上纜線、連接您的 Azure 資料箱](data-box-deploy-set-up.md)。
+A.  在 Azure 入口網站中，移至您的資料箱訂單，並瀏覽至 [裝置詳細資料]  。 複製解除鎖定密碼。 使用此密碼，登入資料箱上的本機 Web UI。 如需詳細資訊，請移至[教學課程：打開包裝、接上纜線、連接您的 Azure 資料箱](data-box-deploy-set-up.md)。
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box"></a>問： 是否可使用 Linux 主機電腦連線到資料箱，並將資料複製到該處？
 A.  是。 您可以使用資料箱連線至 SMB 與 NFS 用戶端。 如需詳細資訊，請移至主機電腦[支援的作業系統](data-box-system-requirements.md)清單。
@@ -130,10 +130,10 @@ A. 我們在資料箱上不支援連接埠通道設定、多重路徑 IO (MPIO) 
 A.  您可以在 Azure 入口網站中追蹤資料箱訂單的狀態。 當您建立訂單時，系統也會提示您提供通知電子郵件。 如果您有提供的話，您將會透過電子郵件獲知訂單的所有狀態變更。 請取得關於如何[設定通知電子郵件](data-box-portal-ui-admin.md#edit-notification-details)的資訊。
 
 ### <a name="q-how-do-i-return-the-device"></a>問： 如何送回裝置？ 
-A.  Microsoft 會在電子墨水顯示器上顯示出貨標籤。 如果出貨標籤沒有顯示在電子墨水顯示器上，請移至 [概觀] > [下載出貨標籤]。 下載並列印標籤，將標籤插入裝置上的塑膠貨籤中，然後將裝置投遞到貨運公司地點。 
+A.  Microsoft 會在電子墨水顯示器上顯示出貨標籤。 如果出貨標籤沒有顯示在電子墨水顯示器上，請移至 [概觀] > [下載出貨標籤]  。 下載並列印標籤，將標籤插入裝置上的塑膠貨籤中，然後將裝置投遞到貨運公司地點。 
 
 ### <a name="q-i-received-an-email-notification-that-my-device-has-reached-the-azure-datacenter-how-do-i-find-out-if-the-data-upload-is-in-progress"></a>問： 我收到電子郵件通知我的裝置已經送達 Azure 資料中心。 我要如何知道資料是否正在上傳？
-A. 您可以移至 Azure 入口網站中的資料箱訂單，然後移至 [概觀]。 如果已開始將資料上傳至 Azure，您將會在右窗格中看到複製進度。 
+A. 您可以移至 Azure 入口網站中的資料箱訂單，然後移至 [概觀]  。 如果已開始將資料上傳至 Azure，您將會在右窗格中看到複製進度。 
 
 ## <a name="migrate-data"></a>移轉資料
 
@@ -183,10 +183,13 @@ A. 如果您收到的裝置已損毀，或是有遭到竄改的跡象，請勿�
 ### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>問： 是否可以使用自己的貨運公司來寄送資料箱？
 A. 針對資料箱服務，Microsoft 會處理進出 Azure 資料中心的物流。 如果您想要使用自己的貨運公司，可以使用 Azure 匯入/匯出服務。 如需詳細資訊，請移至[什麼是 Azure 匯入/匯出服務？](../storage/common/storage-import-export-service.md)
 
+### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>問： 我的資料箱服務在運送期間可以跨國家/地區邊界使用嗎？
+A. 所有的資料箱裝置都是在與目的地相同的國家/地區內寄送，並不會跨越任何跨國界。 唯一的例外狀況是位於歐盟 (EU) 的訂單，該地區的裝置可以在任何歐盟國家/地區之間運送。
+
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>問： 電子墨水顯示器並未顯示寄回用的出貨標籤。 我該怎麼辦？
 A. 如果電子墨水顯示器並未顯示寄回用的出貨標籤，請執行下列步驟：
 - 將先前寄送時的舊出貨標籤與任何貼紙移除。
-- 移至 Azure 入口網站中的訂單。 移至 [概觀]，然後**下載出貨標籤**。 如需詳細資訊，請移至[下載出貨標籤](data-box-portal-admin.md#download-shipping-label)。
+- 移至 Azure 入口網站中的訂單。 移至 [概觀]  ，然後**下載出貨標籤**。 如需詳細資訊，請移至[下載出貨標籤](data-box-portal-admin.md#download-shipping-label)。
 - 列印出貨標籤，然後將它插入裝置上隨附的乾淨塑膠保護套。 
 - 確認出貨標籤清晰可見。 
 
@@ -205,7 +208,7 @@ A. 如果您的裝置無法開機，請移至您在 Azure 入口網站中的訂�
 ## <a name="verify-and-upload"></a>確認和上傳
 
 ### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-data-box-back"></a>問： 在送回資料箱後，多久可以在 Azure 中存取我的資料？ 
-A.  當 [資料複製] 的訂單狀態顯示為 [完成] 時，您應該就能立即存取您的資料。
+A.  當 [資料複製]  的訂單狀態顯示為 [完成]  時，您應該就能立即存取您的資料。
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>問： 我的資料在上傳後會存放於 Azure 的何處？
 A.  當您將資料複製到資料箱時，視資料為區塊 Blob、分頁 Blob 或 Azure 檔案而定，資料會上傳到 Azure 儲存體帳戶中的下列其中一個路徑。

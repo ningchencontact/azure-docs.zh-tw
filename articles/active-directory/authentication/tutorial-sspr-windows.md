@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224646"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861522"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>教學課程：從登入畫面重設 Azure AD 密碼
 
-在本教學課程中，您會讓使用者從 Windows 10 登入畫面重設其密碼。 透過新的 Windows 10 2018 年 4 月更新，使用者若具有**已加入 Azure AD** 或**已加入混合式 Azure AD** 的裝置，即可在其登入畫面上使用 [重設密碼] 連結。 使用者按一下此連結時，就可以享受熟悉的相同自助式密碼重設 (SSPR) 體驗。
+在本教學課程中，您會讓使用者從 Windows 10 登入畫面重設其密碼。 透過新的 Windows 10 2018 年 4 月更新，使用者若具有**已加入 Azure AD** 或**已加入混合式 Azure AD** 的裝置，即可在其登入畫面上使用 [重設密碼] 連結。 使用者按一下此連結時，就可以享受熟悉的相同自助式密碼重設 (SSPR) 體驗。 如果使用者已遭鎖定，此程序不會將內部部署 Active Directory 中的帳戶解除鎖定。
 
 > [!div class="checklist"]
 > * 使用 Intune 來設定重設密碼連結
@@ -44,14 +44,14 @@ ms.locfileid: "58224646"
 
 ### <a name="create-a-device-configuration-policy-in-intune"></a>在 Intune 中建立裝置設定原則
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [Intune]。
-2. 移至 [裝置組態] > [設定檔] > [建立設定檔]，以建立新的裝置組態設定檔
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [Intune]  。
+2. 移至 [裝置組態]   > [設定檔]   > [建立設定檔]  ，以建立新的裝置組態設定檔
    * 為設定檔提供有意義的名稱
    * 選擇性地提供有意義的設定檔描述
    * 平台：**Windows 10 和更新版本**
    * 設定檔類型：**自訂**
 
-3. 配置 [設定]
+3. 配置 [設定] 
    * **新增**下列 OMA-URI 設定來啟用 [重設密碼] 連結
       * 提供有意義的名稱，以說明正在進行的設定
       * 選擇性地提供有意義的設定描述
@@ -66,22 +66,22 @@ ms.locfileid: "58224646"
 
 #### <a name="create-a-group-to-apply-device-configuration-policy-to"></a>建立要套用裝置設定原則的群組
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [Azure Active Directory]。
-2. 瀏覽至 [使用者和群組] > [所有群組] > [新增群組]
-3. 提供群組的名稱，然後在 [成員資格類型] 之下選擇 [已指派]
-   * 在 [成員] 之下，選擇您要套用原則之已加入 Azure AD 的 Windows 10 裝置。
-   * 按一下 [選取]
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [Azure Active Directory]  。
+2. 瀏覽至 [使用者和群組]   > [所有群組]   > [新增群組] 
+3. 提供群組的名稱，然後在 [成員資格類型]  之下選擇 [已指派] 
+   * 在 [成員]  之下，選擇您要套用原則之已加入 Azure AD 的 Windows 10 裝置。
+   * 按一下 [選取] 
 4. 按一下 [建立] 
 
 如需建立群組的詳細資訊，請參閱[使用 Azure Active Directory 群組管理資源的存取權](../fundamentals/active-directory-manage-groups.md)。
 
 #### <a name="assign-device-configuration-policy-to-device-group"></a>將裝置設定原則指派給裝置群組
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [Intune]。
-2. 移至 [裝置組態] > [設定檔] 來尋找先前建立的裝置組態設定檔 > 按一下稍早建立的設定檔
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [Intune]  。
+2. 移至 [裝置組態]   > [設定檔]  來尋找先前建立的裝置組態設定檔 > 按一下稍早建立的設定檔
 3. 將設定檔指派給裝置群組 
-   * 按一下 [指派] > 在 [Include] 之下 > [選取要包含的群組]
-   * 選取先前建立的群組，然後按一下 [選取]
+   * 按一下 [指派]  > 在 [Include] 之下   > [選取要包含的群組] 
+   * 選取先前建立的群組，然後按一下 [選取] 
    * 按一下 [儲存] 
 
    ![指派][Assignment]
@@ -116,15 +116,15 @@ Azure AD 稽核記錄會包含 IP 位址相關資訊以及發生密碼重設的 
 
 使用 Hyper-V 測試這項功能時，不會出現 [重設密碼] 連結。
 
-* 移至您用來測試的 VM，按一下 [檢視]，然後取消核取 [增強的工作階段]。
+* 移至您用來測試的 VM，按一下 [檢視]  ，然後取消核取 [增強的工作階段]  。
 
 使用遠端桌面或增強的 VM 工作階段測試這項功能時，不會出現 [重設密碼] 連結。
 
 * 目前不支援從遠端桌面進行密碼重設。
 
-如果 1809 前的 Windows 10 版本中的原則需要 Ctrl+Alt+Del，[重設密碼] 將無法運作。
+如果 1809 前的 Windows 10 版本中的原則需要 Ctrl+Alt+Del，[重設密碼]  將無法運作。
 
-如果鎖定螢幕通知已關閉，[重設密碼] 將無法運作。
+如果鎖定螢幕通知已關閉，[重設密碼]  將無法運作。
 
 已知下列原則設定會影響重設密碼的能力
 

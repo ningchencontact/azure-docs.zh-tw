@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f080e315430cba986642e4a24af776cc82062c0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 94fbcc1c29c1860642dda0afab6a1f10e719a05a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190801"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962199"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>教學課程：設定適用於受控網域的混合式 Azure Active Directory Join
 
@@ -91,27 +91,27 @@ ms.locfileid: "65190801"
 
 **若要使用 Azure AD Connect 設定混合式 Azure AD Join：**
 
-1. 啟動 Azure AD Connect，然後按一下 [設定]。
+1. 啟動 Azure AD Connect，然後按一下 [設定]  。
 
     ![歡迎使用](./media/hybrid-azuread-join-managed-domains/11.png)
 
-2. 在 [其他工作] 頁面上選取 [設定裝置選項]，然後按 [下一步]。 
+2. 在 [其他工作]  頁面上選取 [設定裝置選項]  ，然後按 [下一步]  。 
 
     ![其他工作](./media/hybrid-azuread-join-managed-domains/12.png)
 
-3. 在 [概觀] 頁面上，按 [下一步]。 
+3. 在 [概觀]  頁面上，按 [下一步]  。 
 
     ![概觀](./media/hybrid-azuread-join-managed-domains/13.png)
 
-4. 在 [連線到 Azure AD] 頁面上，輸入 Azure AD 租用戶的全域管理員認證。  
+4. 在 [連線到 Azure AD]  頁面上，輸入 Azure AD 租用戶的全域管理員認證。  
 
     ![連接至 Azure AD](./media/hybrid-azuread-join-managed-domains/14.png)
 
-5. 在 [裝置選項] 頁面上選取 [設定混合式 Azure AD Join]，然後按 [下一步]。 
+5. 在 [裝置選項]  頁面上選取 [設定混合式 Azure AD Join]  ，然後按 [下一步]  。 
 
     ![裝置選項](./media/hybrid-azuread-join-managed-domains/15.png)
 
-6. 在 [SCP] 頁面上，針對要以 Azure AD Connect 設定 SCP 的每個樹系執行下列步驟，然後按 [下一步]： 
+6. 在 [SCP]  頁面上，針對要以 Azure AD Connect 設定 SCP 的每個樹系執行下列步驟，然後按 [下一步]  ： 
 
     ![SCP](./media/hybrid-azuread-join-managed-domains/16.png)
 
@@ -119,19 +119,19 @@ ms.locfileid: "65190801"
 
     b. 選取驗證服務。
 
-    c. 按一下 [新增]，並輸入企業系統管理員認證。
+    c. 按一下 [新增]  ，並輸入企業系統管理員認證。
 
 
-7. 在 [裝置作業系統] 頁面上，選取 Active Directory 環境中的裝置所使用的作業系統，然後按 [下一步]。 
+7. 在 [裝置作業系統]  頁面上，選取 Active Directory 環境中的裝置所使用的作業系統，然後按 [下一步]  。 
 
     ![裝置作業系統](./media/hybrid-azuread-join-managed-domains/17.png)
 
 
-8. 在 [準備設定] 頁面上，按一下 [設定]。 
+8. 在 [準備設定]  頁面上，按一下 [設定]  。 
 
     ![準備設定](./media/hybrid-azuread-join-managed-domains/19.png)
 
-9. 在 [設定完成] 頁面上，按一下 [結束]。 
+9. 在 [設定完成]  頁面上，按一下 [結束]  。 
 
     ![組態完成](./media/hybrid-azuread-join-managed-domains/20.png)
 
@@ -159,7 +159,7 @@ ms.locfileid: "65190801"
 
 
     
-以下原則必須設定為 [全部]：**使用者可以向 Azure AD 註冊其裝置**
+以下原則必須設定為 [全部]  ：**使用者可以向 Azure AD 註冊其裝置**
 
 ![註冊裝置](media/hybrid-azuread-join-managed-domains/23.png)
 
@@ -173,17 +173,17 @@ ms.locfileid: "65190801"
 
 - `https://autologon.microsoftazuread-sso.com` 。
 
-此外，您必須在使用者的近端內部網路區域中啟用 [允許透過指令碼更新狀態列]。
+此外，您必須在使用者的近端內部網路區域中啟用 [允許透過指令碼更新狀態列]  。
 
 
 ### <a name="configure-seamless-sso"></a>設定無縫 SSO
 
-若要在使用傳遞驗證 (PTA) 或密碼雜湊同步 (PHS) 作為 Azure AD 雲端驗證方法的受控網域中順利完成舊版 Windows 裝置的混合式 Azure AD Join，您也必須[設定無縫 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature)。 
+若要在使用傳遞驗證 (PTA) 或密碼雜湊同步 (PHS) 作為 Azure AD 雲端驗證方法的受控網域中順利完成舊版 Windows 裝置的混合式 Azure AD Join，您也必須[設定無縫 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature)。 如果您無法設定無縫 SSO，請參閱[對 Azure Active Directory 無縫單一登入進行疑難排解](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/tshoot-connect-sso)一文。
 
 
 ### <a name="control-windows-down-level-devices"></a>控制舊版 Windows 裝置 
 
-若要註冊舊版 Windows 裝置，您必須從下載中心下載並安裝 Windows Installer 套件 (.msi)。 如需詳細資訊，請按一下[這裡](hybrid-azuread-join-control.md#control-windows-down-level-devices)。 
+若要註冊舊版 Windows 裝置，您必須從下載中心下載並安裝 Windows Installer 套件 (.msi)。 如需詳細資訊，請參閱[控制裝置的混合式 Azure AD Join](hybrid-azuread-join-control.md#control-windows-down-level-devices) 一文。 
 
 
 ## <a name="verify-the-registration"></a>確認註冊
@@ -193,8 +193,8 @@ ms.locfileid: "65190801"
 使用 **Get-MSolDevice** Cmdlet 來檢查服務詳細資料時：
 
 - 必須要有**裝置識別碼**與 Windows 用戶端上的識別碼相符的物件存在。
-- **DeviceTrustType** 的值必須是 [已加入網域]。 這相當於 Azure AD 入口網站中的 [裝置] 頁面上所呈現的 [已加入混合式 Azure AD] 狀態。
-- 在條件式存取中使用的裝置，[Enabled] 的值必須是 [True]，而 [DeviceTrustLevel] 必須是 [Managed]。 
+- **DeviceTrustType** 的值必須是 [已加入網域]  。 這相當於 Azure AD 入口網站中的 [裝置] 頁面上所呈現的 [已加入混合式 Azure AD]  狀態。
+- 在條件式存取中使用的裝置，[Enabled]  的值必須是 [True]  ，而 [DeviceTrustLevel]  必須是 [Managed]  。 
 
 
 **若要查看服務詳細資料：**
@@ -205,7 +205,7 @@ ms.locfileid: "65190801"
 
 3. 輸入 `get-msoldevice -deviceId <deviceId>`。
 
-6. 確認 [已啟用] 設為 [True]。
+6. 確認 [已啟用]  設為 [True]  。
 
 
 

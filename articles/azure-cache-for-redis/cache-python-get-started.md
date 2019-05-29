@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8682a335372a1516be49b35400a2605f08d6b45e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f8189b5a90f7e9114ec39a874cc60912ac2bb0ce
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779435"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872989"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>快速入門：搭配使用 Azure Cache for Redis 與 Python
 
@@ -46,7 +46,7 @@ ms.locfileid: "57779435"
 
 [redis-py](https://github.com/andymccurdy/redis-py) \(英文\) 是 Azure Cache for Redis 的 Python 介面。 使用 Python 的套件工具 *pip* 安裝 redis-py 套件。 
 
-以下範例使用適用於 Python3 的 *pip3*，透過 Visual Studio 2017 開發人員命令提示字元搭配提高權限的系統管理員權限，在 Windows 10 上安裝 redis-py 套件。
+以下範例使用適用於 Python3 的 *pip3*，透過 Visual Studio 2019 開發人員命令提示字元搭配提高權限的系統管理員權限，在 Windows 10 上安裝 redis-py 套件。
 
     pip3 install redis
 
@@ -69,9 +69,9 @@ b'bar'
 
 ## <a name="create-a-python-script"></a>建立 Python 指令碼
 
-建立新的指令碼文字檔案，命名為 PythonApplication1.py。
+建立新的指令碼文字檔案，命名為 PythonApplication1.py  。
 
-在 PythonApplication1.py 中新增下列指令碼並儲存檔案。 此指令碼會測試快取存取。 將 `<Your Host Name>` 和 `<Your Access Key>` 取代為 Azure Cache for Redis 的值。 
+在 PythonApplication1.py  中新增下列指令碼並儲存檔案。 此指令碼會測試快取存取。 將 `<Your Host Name>` 和 `<Your Access Key>` 取代為 Azure Cache for Redis 的值。 
 
 ```python
 import redis
@@ -111,13 +111,13 @@ for c in result:
 > 刪除資源群組是無法回復的動作，資源群組和其內的所有資源將會永久刪除。 請確定您不會不小心刪除錯誤的資源群組或資源。 如果您是在包含有需要保留之資源的現有資源群組內，建立用來裝載此範例的資源，則可以從每個資源各自的刀鋒視窗中個別刪除每個資源，而不必刪除正個資源群組。
 >
 
-登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]。
+登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]  。
 
-在 [依名稱篩選...] 文字方塊中，輸入您的資源群組名稱。 本文的指示是使用名為 TestResources 的資源群組。 在結果清單中的目標資源群組上方，按一下 **...**，然後按一下 [刪除資源群組]。
+在 [依名稱篩選...]  文字方塊中，輸入您的資源群組名稱。 本文的指示是使用名為 TestResources  的資源群組。 在結果清單中的目標資源群組上方，按一下 **...** ，然後按一下 [刪除資源群組]  。
 
 ![刪除](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
-系統將會要求您確認是否刪除資源。 輸入您的資源群組名稱來確認，然後按一下 [刪除]。
+系統將會要求您確認是否刪除資源。 輸入您的資源群組名稱來確認，然後按一下 [刪除]  。
 
 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
 

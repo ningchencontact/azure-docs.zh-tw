@@ -2,31 +2,25 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/04/2018
+ms.date: 04/24/2019
 ms.author: glenga
-ms.openlocfilehash: 914c006daf49e22ebec870a549bfdbc63f882647
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a3f75b7273164abc5318f16e9ab8d9883ff0c0aa
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55148022"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132199"
 ---
-## <a name="test"></a>測試函式
+## <a name="test"></a>在 Azure 測試函式
 
-在 Mac 或 Linux 電腦上使用 cURL 來測試已部署的函式，在 Windows 上則請使用 Powershell。 執行下列 cURL 命令時，但請將其中的 `<app_name>` 預留位置改為函式應用程式的名稱。 將查詢字串 `&name=<yourname>` 附加至 URL。
-
-```powershell
-Invoke-WebRequest -Uri "https://<app_name>.azurewebsites.net/api/MyHttpTrigger?name=<yourname>"
-```
+使用 cURL 來測試已部署的函式。 使用您從上一個步驟複製的 URL，將查詢字串 `&name=<yourname>` 附加至 URL，如下列範例所示：
 
 ```bash
-curl https://<app_name>.azurewebsites.net/api/MyHttpTrigger?name=<yourname>
-```  
+curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
+```
 
-![瀏覽器顯示的函式回應。](./media/functions-test-function-code/functions-azure-cli-function-test-curl.png)  
+![使用 cURL 來呼叫 Azure 中的函式。](./media/functions-test-function-code/functions-azure-cli-function-test-curl.png) 
 
-如果您的命令列無法使用 `cURL` 或 `Invoke-WebRequest`，在網頁瀏覽器的位址中輸入相同 URL 即可。 同樣地，請將 `<app_name>` 預留位置改為函式應用程式的名稱，然後對 URL 附加查詢字串 `&name=<yourname>` 並執行要求。
+您也可以將複製的 URL 貼至網頁瀏覽器的位址。 同樣地，先將查詢字串 `&name=<yourname>` 附加至 URL，然後再執行要求。
 
-    https://<app_name>.azurewebsites.net/api/MyHttpTrigger?name=<yourname>
-   
-![瀏覽器顯示的函式回應。](./media/functions-test-function-code/functions-azure-cli-function-test-browser.png)  
+![使用網頁瀏覽器來呼叫函式。](./media/functions-test-function-code/functions-azure-cli-function-test-browser.png)  

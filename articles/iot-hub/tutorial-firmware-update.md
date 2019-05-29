@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 1418a9815e155a0c491fc65b16307fa2755bd964
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 57ec4990447070d1889f7476b89abb742296c056
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59008897"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597515"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>教學課程：實作裝置韌體更新程序
 
@@ -41,7 +41,7 @@ ms.locfileid: "59008897"
 
 ## <a name="prerequisites"></a>必要條件
 
-您在此快速入門中執行的兩個範例應用程式是使用 Node.js 所撰寫的。 您的開發電腦上需要 Node.js 4.x.x 版或更高版本。
+您在此快速入門中執行的兩個範例應用程式是使用 Node.js 所撰寫的。 您的開發電腦上需要 Node.js v10.x.x 版或更高版本。
 
 您可以從 [nodejs.org](https://nodejs.org) 下載適用於多種平台的 Node.js。
 
@@ -187,7 +187,7 @@ node ServiceClient.js "{your service connection string}"
 
 ![後端應用程式](./media/tutorial-firmware-update/BackEnd2.png)
 
-由於 IoT 中樞裝置身分識別登錄中的延遲，您可能不會看到每個傳送至後端應用程式的狀態更新。 您也可以在入口網站中，經由 IoT 中樞的 [自動裝置管理] -> [IoT 裝置組態] 區段來檢視計量：
+由於 IoT 中樞裝置身分識別登錄中的延遲，您可能不會看到每個傳送至後端應用程式的狀態更新。 您也可以在入口網站中，經由 IoT 中樞的 [自動裝置管理] -> [IoT 裝置組態]  區段來檢視計量：
 
 ![在入口網站中檢視組態](./media/tutorial-firmware-update/portalview.png)
 
@@ -195,7 +195,7 @@ node ServiceClient.js "{your service connection string}"
 
 如果您打算繼續完成下一個教學課程，請保留資源群組和 IoT 中樞，以供稍後重複使用。
 
-如果您不再需要 IoT 中樞，請在入口網站中刪除它和資源群組。 若要這麼做，請選取包含 IoT 中樞的 **tutorial-iot-hub-rg** 資源群組，然後按一下 [刪除]。
+如果您不再需要 IoT 中樞，請在入口網站中刪除它和資源群組。 若要這麼做，請選取包含 IoT 中樞的 **tutorial-iot-hub-rg** 資源群組，然後按一下 [刪除]  。
 
 或者，請使用 CLI：
 

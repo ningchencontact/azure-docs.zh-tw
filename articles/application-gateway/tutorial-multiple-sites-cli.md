@@ -3,25 +3,23 @@ title: 建立裝載多個網站的應用程式閘道 - Azure CLI
 description: 了解如何使用 Azure CLI，以建立裝載多個網站的應用程式閘道。
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a1f1b464b2ac6fc62ea23a80a3887961ebe2d87e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9c99b534a40b5c87cf511c75ccdb19df4d9aaf63
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100712"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955625"
 ---
-# <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>教學課程：使用 Azure CLI 建立裝載多個網站的應用程式閘道
+# <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>使用 Azure CLI 建立裝載多個網站的應用程式閘道
 
-您可以使用 Azure CLI，在建立[應用程式閘道](overview.md)時設定[裝載多個網站](multiple-site-overview.md)。 在本教學課程中，您可以使用虛擬機器擴展集定義後端位址集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本教學課程假設您擁有多個網域，並使用 *www\.contoso.com* 和 *www\.fabrikam.com* 範例。
+您可以使用 Azure CLI，在建立[應用程式閘道](overview.md)時設定[裝載多個網站](multiple-site-overview.md)。 在本文中，您可以使用虛擬機器擴展集來定義後端位址集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本文假設您擁有多個網域，並使用 *www\.contoso.com* 和 *www\.fabrikam.com* 範例。
 
-在本教學課程中，您了解如何：
+在本文中，您將了解：
 
 > [!div class="checklist"]
 > * 設定網路
@@ -33,8 +31,7 @@ ms.locfileid: "58100712"
 
 ![多站台路由範例](./media/tutorial-multiple-sites-cli/scenario.png)
 
-
-如果您想要的話，可以使用 [Azure PowerShell](tutorial-multiple-sites-powershell.md) 完成本教學課程。
+如果您想要的話，可以使用 [Azure PowerShell](tutorial-multiple-sites-powershell.md) 完成本程序。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -46,15 +43,15 @@ ms.locfileid: "58100712"
 
 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 使用 [az group create](/cli/azure/group) 建立資源群組。
 
-下列範例會在 eastus 位置建立名為 myResourceGroupAG 的資源群組。
+下列範例會在 eastus  位置建立名為 myResourceGroupAG  的資源群組。
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>建立網路資源 
+## <a name="create-network-resources"></a>建立網路資源
 
-使用 [az network vnet create](/cli/azure/network/vnet) 建立虛擬網路以及名為 myAGSubnet 的子網路。 然後您可以使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet) 新增後端伺服器所需的子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip) 建立名為 myAGPublicIPAddress 的公用 IP 位址。
+使用 [az network vnet create](/cli/azure/network/vnet) 建立虛擬網路以及名為 myAGSubnet  的子網路。 然後您可以使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet) 新增後端伺服器所需的子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip) 建立名為 myAGPublicIPAddress  的公用 IP 位址。
 
 ```azurecli-interactive
 az network vnet create \
@@ -78,7 +75,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>建立應用程式閘道
 
-您可以使用 [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) 來建立應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 應用程式閘道會指派給您先前建立的 myAGSubnet 和 myAGPublicIPAddress。 
+您可以使用 [az network application-gateway create](/cli/azure/network/application-gateway#az-network-application-gateway-create) 來建立應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 應用程式閘道會指派給您先前建立的 myAGSubnet  和 myAGPublicIPAddress  。 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -98,11 +95,11 @@ az network application-gateway create \
 
 可能需要幾分鐘的時間來建立應用程式閘道。 建立應用程式閘道後，您可以看到它的這些新功能：
 
-- appGatewayBackendPool - 應用程式閘道必須至少有一個後端位址集區。
-- appGatewayBackendHttpSettings - 指定以連接埠 80 和 HTTP 通訊協定來進行通訊。
-- appGatewayHttpListener - 與 appGatewayBackendPool 相關聯的預設接聽程式。
-- appGatewayFrontendIP - 將 myAGPublicIPAddress 指派給 appGatewayHttpListener。
-- rule1 - 與 appGatewayHttpListener 相關聯的預設路由規則。
+- appGatewayBackendPool  - 應用程式閘道必須至少有一個後端位址集區。
+- appGatewayBackendHttpSettings  - 指定以連接埠 80 和 HTTP 通訊協定來進行通訊。
+- appGatewayHttpListener  - 與 appGatewayBackendPool  相關聯的預設接聽程式。
+- appGatewayFrontendIP  - 將 myAGPublicIPAddress  指派給 appGatewayHttpListener  。
+- rule1  - 與 appGatewayHttpListener  相關聯的預設路由規則。
 
 ### <a name="add-the-backend-pools"></a>新增後端集區
 
@@ -172,7 +169,7 @@ az network application-gateway rule delete \
 
 ## <a name="create-virtual-machine-scale-sets"></a>建立虛擬機器擴展集
 
-在此範例中，您會建立三個虛擬機器擴展集，以支援應用程式閘道中的三個後端集區。 您所建立的擴展集名為 myvmss1、myvmss2 和 myvmss3。 每個擴展集都會包含兩個您安裝 IIS 的虛擬機器執行個體。
+在此範例中，您會建立三個虛擬機器擴展集，以支援應用程式閘道中的三個後端集區。 您所建立的擴展集名為 myvmss1  、myvmss2  和 myvmss3  。 每個擴展集都會包含兩個您安裝 IIS 的虛擬機器執行個體。
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -254,15 +251,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
-
-> [!div class="checklist"]
-> * 設定網路
-> * 建立應用程式閘道
-> * 建立後端接聽程式
-> * 建立路由規則
-> * 建立包含後端集區的虛擬機器擴展集
-> * 在網域中建立 CNAME 記錄
-
-> [!div class="nextstepaction"]
-> [建立包含 URL 路徑型路由規則的應用程式閘道](./tutorial-url-route-cli.md)
+* [建立包含 URL 路徑型路由規則的應用程式閘道](./tutorial-url-route-cli.md)

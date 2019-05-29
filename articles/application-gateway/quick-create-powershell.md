@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 1/11/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d41480def95137e1dc938c845f8cec1d59e26036
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a387d6fd8b99706e266ae4c2d9a51f823b0582e4
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521779"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539312"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure PowerShell
 
@@ -79,7 +79,7 @@ New-AzPublicIpAddress `
 2. 使用 [New-AzVMConfig](/powershell/module/Az.compute/new-Azvmconfig) 建立虛擬機器設定。
 3. 使用 [New-AzVM](/powershell/module/Az.compute/new-Azvm) 來建立虛擬機器。
 
-當您執行下列程式碼範例以建立虛擬機器時，Azure 會提示您輸入認證。 輸入「azureuser」作為使用者名稱，並且輸入「Azure123456!」 作為密碼：
+當您執行下列程式碼範例以建立虛擬機器時，Azure 會提示您輸入認證。 輸入「azureuser」  作為使用者名稱，並且輸入「Azure123456!」  作為密碼：
     
 ```azurepowershell-interactive
 $vnet   = Get-AzVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
@@ -151,7 +151,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 ### <a name="create-the-backend-pool"></a>建立後端集區
 
 1. 使用 [New-AzApplicationGatewayBackendAddressPool](/powershell/module/Az.network/new-Azapplicationgatewaybackendaddresspool) 建立應用程式閘道的後端集區。 
-2. 使用 [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/Az.network/new-Azapplicationgatewaybackendhttpsettings) 設定後端集區的設定。
+2. 使用 [New-AzApplicationGatewayBackendHttpSetting](/powershell/module/Az.network/new-Azapplicationgatewaybackendhttpsetting) 設定後端集區的設定。
 
 ```azurepowershell-interactive
 $address1 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
@@ -159,7 +159,7 @@ $address2 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name my
 $backendPool = New-AzApplicationGatewayBackendAddressPool `
   -Name myAGBackendPool `
   -BackendIPAddresses $address1.ipconfigurations[0].privateipaddress, $address2.ipconfigurations[0].privateipaddress
-$poolSettings = New-AzApplicationGatewayBackendHttpSettings `
+$poolSettings = New-AzApplicationGatewayBackendHttpSetting `
   -Name myPoolSettings `
   -Port 80 `
   -Protocol Http `
@@ -172,7 +172,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 Azure 需要接聽程式才能讓應用程式閘道將流量適當地路由到後端集區。 Azure 也需要接聽程式的規則，以得知要對傳入的流量使用哪個後端集區。 
 
 1. 使用 [New-AzApplicationGatewayHttpListener](/powershell/module/Az.network/new-Azapplicationgatewayhttplistener) 以及您先前建立的前端設定和前端連接埠，來建立接聽程式。 
-2. 使用 [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/Az.network/new-Azapplicationgatewayrequestroutingrule) 建立名為 rule1 的規則。 
+2. 使用 [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/Az.network/new-Azapplicationgatewayrequestroutingrule) 建立名為 rule1  的規則。 
 
 ```azurepowershell-interactive
 $defaultlistener = New-AzApplicationGatewayHttpListener `

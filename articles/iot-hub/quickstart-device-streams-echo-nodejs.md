@@ -1,5 +1,5 @@
 ---
-title: Azure IoT 中樞裝置串流 Node.js 快速入門 (預覽) | Microsoft Docs
+title: 透過 IoT 中樞裝置串流與使用 Node.js 的裝置應用程式進行通訊 (預覽) | Microsoft Docs
 description: 在本快速入門中，您將會執行透過裝置串流與 IoT 裝置進行通訊的 Node.js 服務端應用程式。
 author: rezasherafat
 manager: briz
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 4b546b91634e153fa0074adfb863596a1bf36242
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9a123c35620cd82059eb08d370939761f7c2fe69
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006445"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834057"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>快速入門：透過 IoT 中樞裝置串流與使用 Node.js 的裝置應用程式進行通訊 (預覽)
 
@@ -23,7 +23,11 @@ ms.locfileid: "59006445"
 
 Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-[IoT 中樞裝置串流](./iot-hub-device-streams-overview.md)可讓服務和裝置應用程式以安全且便於設定防火牆的方式進行通訊。 在公開預覽期間，Node.js SDK 僅支援服務端上的裝置串流。 因此，本快速入門僅提供執行服務端應用程式的指示。 您應執行 [C 快速入門](./quickstart-device-streams-echo-c.md)或 [C# 快速入門](./quickstart-device-streams-echo-csharp.md)指南中提及的隨附裝置端應用程式。
+[IoT 中樞裝置串流](./iot-hub-device-streams-overview.md)可讓服務和裝置應用程式以安全且便於設定防火牆的方式進行通訊。 在公開預覽期間，Node.js SDK 僅支援服務端上的裝置串流。 因此，本快速入門僅提供執行服務端應用程式的指示。 您應執行來自下列其中一個快速入門中的隨附裝置端應用程式：
+
+* [透過 IoT 中樞裝置串流與使用 C 的裝置應用程式進行通訊](./quickstart-device-streams-echo-c.md)
+
+* [透過 IoT 中樞裝置串流與使用 C# 的裝置應用程式進行通訊](./quickstart-device-streams-echo-csharp.md)。
 
 本快速入門中的服務端 Node.js 應用程式具有下列功能：
 
@@ -41,12 +45,13 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 
 裝置串流的預覽版目前僅支援在下列區域建立的 IoT 中樞：
 
-  - **美國中部**
-  - **美國中部 EUAP**
+*  **美國中部**
 
-若要執行本快速入門中的服務端應用程式，您的開發電腦上需要 Node.js 4.x.x 版或更新版本。
+*  **美國中部 EUAP**
 
-您可以從 [Node.js.org](https://nodejs.org) 下載適用於多種平台的 Node.js。
+若要執行本快速入門中的服務端應用程式，您的開發電腦上需要 Node.js 10.x.x 版或更新版本。
+
+您可以從 [Nodejs.org](https://nodejs.org) \(英文\) 下載適用於多種平台的 Node.js。
 
 您可以使用下列命令，以確認開發電腦上目前的 Node.js 版本：
 
@@ -62,13 +67,11 @@ az extension add --name azure-cli-iot-ext
 
 如果您尚未這樣做，請從 https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip 下載範例 Node.js 專案並將 ZIP 封存檔解壓縮。
 
-
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
 如果您已完成先前的[快速入門：將遙測從裝置傳送到 IoT 中樞](quickstart-send-telemetry-node.md)，則可以略過此步驟。
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
-
+[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## <a name="register-a-device"></a>註冊裝置
 
@@ -86,7 +89,7 @@ az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-2. 您也需要_服務連接字串_，讓後端應用程式能夠連線到您的 IoT 中樞並擷取訊息。 下列命令可擷取 IoT 中樞的服務連接字串：
+2. 您也需要*服務連接字串*，讓後端應用程式能夠連線到您的 IoT 中樞並擷取訊息。 下列命令可擷取 IoT 中樞的服務連接字串：
 
     **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
@@ -98,53 +101,59 @@ az extension add --name azure-cli-iot-ext
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
-
 ## <a name="communicate-between-device-and-service-via-device-streams"></a>透過裝置串流在裝置與服務之間進行通訊
+
+在本節中，您會執行裝置端應用程式和服務端應用程式，並在兩者之間進行通訊。
 
 ### <a name="run-the-device-side-application"></a>執行裝置端應用程式
 
-如先前所說明，IoT 中樞 Node.js SDK 僅支援服務端上的裝置串流。 對於裝置端應用程式，請使用 [C 快速入門](./quickstart-device-streams-echo-c.md)或 [C# 快速入門](./quickstart-device-streams-echo-csharp.md)指南中提及的隨附裝置程式。 請確定裝置端應用程式已在執行中，再繼續進行下一個步驟。
+如先前所說明，IoT 中樞 Node.js SDK 僅支援服務端上的裝置串流。 對於裝置端應用程式，請使用可在這些快速入門中其中一個取得的隨附裝置程式：
 
+   * [透過 IoT 中樞裝置串流與使用 C 的裝置應用程式進行通訊](./quickstart-device-streams-echo-c.md)
+
+   * [透過 IoT 中樞裝置串流與使用 C# 的裝置應用程式進行通訊](./quickstart-device-streams-echo-csharp.md)
+
+請確定裝置端應用程式已在執行中，再繼續進行下一個步驟。
 
 ### <a name="run-the-service-side-application"></a>執行服務端應用程式
 
 假設裝置端應用程式正在執行中，請依照下列步驟執行使用 Node.js 的服務端應用程式：
 
-- 提供您的服務認證和裝置識別碼，作為環境變數。
-  ```
-  # In Linux
-  export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
-  export STREAMING_TARGET_DEVICE="MyDevice"
+* 提供您的服務認證和裝置識別碼，作為環境變數。
+ 
+   ```
+   # In Linux
+   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
+   export STREAMING_TARGET_DEVICE="MyDevice"
 
-  # In Windows
-  SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
-  SET STREAMING_TARGET_DEVICE=MyDevice
-  ```
-  將變更 `MyDevice` 為您為裝置選擇的裝置識別碼。
-
-- 在解壓縮的專案資料夾中瀏覽至 `Quickstarts/device-streams-service`，並使用節點執行範例。
-  ```
-  cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
+   # In Windows
+   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
+   SET STREAMING_TARGET_DEVICE=MyDevice
+   ```
   
-  # Install the preview service SDK, and other dependencies
-  npm install azure-iothub@streams-preview
-  npm install
+   將變更 `MyDevice` 為您為裝置選擇的裝置識別碼。
 
-  node echo.js
-  ```
+* 在解壓縮的專案資料夾中瀏覽至 `Quickstarts/device-streams-service`，並使用節點執行範例。
 
-在最後一個步驟結束時，服務端程式將會對您的裝置起始串流，且在建立之後，會透過串流將字串緩衝區傳送至服務。 在此範例中，服務端程式會直接讀取終端機上的 stdin，並將其傳送至裝置，而裝置隨後會加以回應。 這示範了兩個應用程式之間成功的雙向通訊。
+   ```
+   cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
+    
+   # Install the preview service SDK, and other dependencies
+   npm install azure-iothub@streams-preview
+   npm install
 
-服務端上的主控台輸出：![替代文字](./media/quickstart-device-streams-echo-nodejs/service-console-output.PNG "服務端上的主控台輸出")
+   node echo.js
+   ```
 
+在最後一個步驟結束時，服務端程式將會對您的裝置起始串流，且在建立之後，會透過串流將字串緩衝區傳送至服務。 在此範例中，服務端程式會直接讀取終端機上的 `stdin`，並將它傳送至裝置，而裝置隨後會回應它。 這示範了兩個應用程式之間成功的雙向通訊。
+
+![服務端主控台輸出](./media/quickstart-device-streams-echo-nodejs/service-console-output.png)
 
 接著，您可以再次 Enter 鍵以終止程式。
 
-
 ## <a name="clean-up-resources"></a>清除資源
 
-[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
-
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,16 +8,20 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: heidist
-ms.openlocfilehash: d9006e3fcfc9691b9f3eec4b86c545fd3fea9f8a
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: e7be2dfc811caa087726339846a1de2516f1e2b2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471747"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540734"
 ---
-# <a name="how-to-get-started-with-knowledge-store"></a>如何開始使用知識存放區
+# <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>如何在 Azure 搜尋服務中開始使用知識存放區 (預覽)
 
-[知識存放區](knowledge-store-concept-intro.md)是 Azure 搜尋服務中的新預覽功能，可儲存在索引管線中建立的 AI 擴充資料，以供使用其他應用程式進行知識採礦。 您也可以使用已儲存的擴充資料，以了解 Azure 搜尋服務索引管線並縮小其範圍。
+> [!Note]
+> 知識存放區處於預覽階段，不適用於生產環境。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有 .NET SDK 支援。
+>
+
+[知識存放區](knowledge-store-concept-intro.md)會將在編製索引期間建立的 AI 擴充儲存到您的 Azure 儲存體帳戶，以便在其他應用程式中進行下游知識發掘。 您也可以使用已儲存的擴充資料，以了解 Azure 搜尋服務索引管線並縮小其範圍。
 
 知識存放區是由技能集定義的。 對於一般的 Azure 搜尋服務全文檢索搜尋案例，技能集的目的在於提供 AI 擴充資料，提高內容的可搜尋性。 在知識採礦的情況下，技能集的角色會在其他應用程式和處理程序中建立、填入和儲存多個用於分析或模型化的資料結構。
 
@@ -43,9 +47,9 @@ ms.locfileid: "65471747"
 
 REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
 
-1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀] 頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
+1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀]  頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
 
-1. 在 [設定]  >  [金鑰] 中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
+1. 在 [設定]   >  [金鑰]  中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
 
     ![取得 HTTP 端點和存取金鑰](media/search-fiddler/get-url-key.png "取得 HTTP 端點和存取金鑰")
 
@@ -53,15 +57,15 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ## <a name="prepare-sample-data"></a>準備範例資料
 
-1. [登入 Azure 入口網站](https://portal.azure.com)瀏覽至您的 Azure 儲存體帳戶、按一下 [Blob]，然後按一下 [+ 容器]。
+1. [登入 Azure 入口網站](https://portal.azure.com)瀏覽至您的 Azure 儲存體帳戶、按一下 [Blob]  ，然後按一下 [+ 容器]  。
 
 1. [建立 Blob 容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)以容納範例資料。 使用容器名稱 "caselaw-test"。 您可以將公用存取層級設定為任何有效值。
 
-1. 建立容器之後，請加以開啟，然後選取命令列的 [上傳]。
+1. 建立容器之後，請加以開啟，然後選取命令列的 [上傳]  。
 
    ![命令列上的 上傳](media/search-semi-structured-data/upload-command-bar.png "命令列上的 上傳")
 
-1. 瀏覽至包含 **caselaw-sample.json** 範例檔案的資料夾。 選取檔案，然後按一下 [上傳]。
+1. 瀏覽至包含 **caselaw-sample.json** 範例檔案的資料夾。 選取檔案，然後按一下 [上傳]  。
 
 
 ## <a name="set-up-postman"></a>設定 Postman

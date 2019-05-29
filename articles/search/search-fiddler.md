@@ -1,57 +1,50 @@
 ---
-title: 快速入門：在 Postman 中探索 REST API - Azure 搜尋服務
-description: 如何使用 Postman 對 Azure 搜尋服務發出 HTTP 要求和 REST API 呼叫。
+title: 快速入門：Postman 和 REST API - Azure 搜尋服務
+description: 了解如何使用 Postman 和範例資料與定義呼叫 Azure 搜尋服務 REST API。
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 7db3292bc5f377d9728e42994dd3a437cb59958e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bd3b9fe80a57a6a0dd824d92ae14a863ced240b2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024800"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793548"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>快速入門：使用 Postman 探索 Azure 搜尋服務 REST API
 > [!div class="op_single_selector"]
 > * [Postman](search-fiddler.md)
 > * [C#](search-create-index-dotnet.md)
+> * [Python](search-get-started-python.md)
 > * [入口網站](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
 探索 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice) 的最簡單方式之一，就是使用 Postman 或其他 Web 測試工作來制訂 HTTP 要求及檢查回應。 透過適當的工具與下列指示，您可以在撰寫任何程式碼前，先傳送要求並檢視回應。
 
-> [!div class="checklist"]
-> * 下載 Web API 測試工具
-> * 取得您搜尋服務的金鑰和 URL
-> * 連線到 Azure 搜尋服務
-> * 建立索引
-> * 載入索引
-> * 搜尋索引
-
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)，然後[註冊 Azure 搜尋服務](search-create-service-portal.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-此快速入門會使用下列服務和工具。 
+本快速入門會使用下列服務和工具。 
 
-[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用此快速入門的免費服務。 
++ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。 
 
-[Postman 傳統型應用程式](https://www.getpostman.com/)或 [Telerik Fiddler](https://www.telerik.com/fiddler) 會用來將要求傳送至 Azure 搜尋服務。
++ [Postman 傳統型應用程式](https://www.getpostman.com/)或 [Telerik Fiddler](https://www.telerik.com/fiddler) 會用來將要求傳送至 Azure 搜尋服務。
 
 ## <a name="get-a-key-and-url"></a>取得金鑰和 URL
 
 REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
 
-1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀] 頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
+1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀]  頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
 
-1. 在 [設定]  >  [金鑰] 中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
+1. 在 [設定]   >  [金鑰]  中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
 
 ![取得 HTTP 端點和存取金鑰](media/search-fiddler/get-url-key.png "取得 HTTP 端點和存取金鑰")
 
@@ -59,35 +52,38 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ## <a name="connect-to-azure-search"></a>連線到 Azure 搜尋服務
 
-在此節中，您可以使用所選 Web 工具來設定與 Azure 搜尋服務的連線。 每個工具都會保存工作階段的要求標頭資訊，這表示您只需要輸入一次 API 金鑰和內容類型。
+在本節中，您可以使用所選 Web 工具來設定與 Azure 搜尋服務的連線。 每個工具都會保存工作階段的要求標頭資訊，這表示您只需要輸入一次 API 金鑰和內容類型。
 
-針對任何一種工具，您都需要選擇命令 (GET、POST 及 PUT等等) 和提供 URL 端點，並且針對某些工作，在要求本文中提供 JSON。 完整的 URL 大致如下：
+針對任何一種工具，您都需要選擇命令 (GET、POST 及 PUT等等) 和提供 URL 端點，並且針對某些工作，在要求本文中提供 JSON。 使用有效值取代搜尋服務名稱 (YOUR-SEARCH-SERVICE-NAME)。 
 
-    https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06
+    https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06
 
 您會看到 HTTPS 前置詞、服務名稱、物件名稱 (此案例使用索引集合) 和 [API 版本](search-api-versions.md)。 API 版本是針對目前版本指定的必要小寫字串，例如 `?api-version=2019-05-06`。 API 版本會定期更新。 在每個要求上包括 API 版本可讓您具備所使用之版本的完整控制權。  
 
-要求標頭組合包含兩個元素：內容類型及用來對 Azure 搜尋服務進行驗證的 API 金鑰：
+要求標頭組合包含兩個元素：內容類型及用來對 Azure 搜尋服務進行驗證的 API 金鑰。 使用有效值取代管理員 API 金鑰 (YOUR-ADMIN-API-KEY)。 
 
-    api-key: <placeholder-api-key-for-your-service>
+    api-key: <YOUR-ADMIN-API-KEY>
     Content-Type: application/json
 
-在 Postman 中，可制訂如下列螢幕擷取畫面所示的要求。 選擇 **GET** 作為動詞、提供 URL，然後按一下 [傳送]。 此命令會連線至 Azure 搜尋服務、讀取索引集合，並在連線成功時傳回 HTTP 狀態碼 200。 如果您的服務已有索引，回應也會包含索引定義。
+在 Postman 中，可制訂如下列螢幕擷取畫面所示的要求。 選擇 **GET** 作為動詞、提供 URL，然後按一下 [傳送]  。 此命令會連線至 Azure 搜尋服務、讀取索引集合，並在連線成功時傳回 HTTP 狀態碼 200。 如果您的服務已有索引，回應也會包含索引定義。
 
 ![Postman 要求標頭][6]
 
 ## <a name="1---create-an-index"></a>1 - 建立索引
 
-在 Azure 搜尋服務中，您通常會先建立索引，然後再載入資料。 這項工作會使用[建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index) REST API。 
+在 Azure 搜尋服務中，您通常會先建立索引，然後再載入資料。 這項工作會使用[建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\)。 
 
 我們已延長 URL 來加入 `hotel` 索引名稱。
 
 若要在 Postman 中執行這項操作：
 
-1. 將動詞變更為 **PUT**
-2. 複製此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`
-3. 在要求本文中提供索引定義 (如下所示)
-4. 按一下 [傳送] 
+1. 將動詞變更為 **PUT**。
+
+2. 複製此 URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`。
+
+3. 在要求本文中提供索引定義 (如下所示)。
+
+4. 按一下 [ **傳送**]。
 
 ![Postman 要求本文][8]
 
@@ -122,16 +118,19 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ## <a name="2---load-documents"></a>2 - 載入文件
 
-建立索引和填入索引是個別的步驟。 在 Azure 搜尋服務中，索引會包含所有可搜尋的資料，您可以提供來作為 JSON 文件。 這項工作會使用[新增、更新或刪除文件](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) REST API。 
+建立索引和填入索引是個別的步驟。 在 Azure 搜尋服務中，索引會包含所有可搜尋的資料，您可以提供來作為 JSON 文件。 這項工作會使用[新增、更新或刪除文件 REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) \(英文\)。 
 
 我們已延長 URL 來加入 `docs` 集合和 `index` 作業。
 
 若要在 Postman 中執行這項操作：
 
-1. 將動詞變更為 **POST**
-2. 複製此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`
-3. 在要求本文中提供 JSON 文件 (如下所示)
-4. 按一下 [傳送] 
+1. 將動詞變更為 **POST**。
+
+2. 複製此 URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`。
+
+3. 在要求本文中提供 JSON 文件 (如下所示)。
+
+4. 按一下 [ **傳送**]。
 
 ![Postman 要求裝載][10]
 
@@ -207,28 +206,30 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 如果您收到 207，表示至少有一個文件上傳失敗。 如果您收到 404，則表示要求的標頭或本文有語法錯誤：確認您已變更端點以包含 `/docs/index`。
 
 > [!Tip]
-> 針對選取的資料來源，您可以選擇替代「索引子」方法，這個方法可簡化並減少編制索引所需的程式碼數量。 如需詳細資訊，請參閱[索引子作業](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)。
+> 針對選取的資料來源，您可以選擇替代「索引子」  方法，這個方法可簡化並減少編制索引所需的程式碼數量。 如需詳細資訊，請參閱[索引子作業](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)。
 
 
 ## <a name="3---search-an-index"></a>3 - 搜尋索引
 
-現在已載入索引和文件，您可以使用[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/search-documents) REST API 對其發出查詢。
+現在已載入索引和文件，您可以使用[搜尋文件 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) \(英文\) 對其發出查詢。
 
 我們已延長 URL 來加入使用搜尋運算子指定的查詢字串。
 
 若要在 Postman 中執行這項操作：
 
-+ 將動詞變更為 **GET**
-+ 複製此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`
-+ 按一下 [傳送] 
+1. 將動詞變更為 **GET**。
 
-此查詢會搜尋 "motel" 一詞，並在搜尋結果中傳回文件計數。 在您按一下 [傳送] 之後，Postman 的要求和回應看起來應該類似下列螢幕擷取畫面。 狀態碼應為 200。
+2. 複製此 URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`。
+
+3. 按一下 [ **傳送**]。
+
+此查詢會搜尋 "motel" 一詞，並在搜尋結果中傳回文件計數。 在您按一下 [傳送]  之後，Postman 的要求和回應看起來應該類似下列螢幕擷取畫面。 狀態碼應為 200。
 
  ![Postman 查詢回應][11]
 
 
 ## <a name="get-index-properties"></a>取得索引屬性
-您也可以查詢系統資訊以取得文件計數和儲存體用量：`https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2019-05-06`
+您也可以查詢系統資訊以取得文件計數和儲存體用量：`https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/stats?api-version=2019-05-06`
 
 在 Postman 中，您的要求看起來應該與下方項目類似，回應會包括文件計數和使用的空格 (以位元組表示)。
 
@@ -236,27 +237,27 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 請注意，API 版本語法不同。 針對此要求，使用 `?` 以附加 API 版本。 從查詢字串分隔 URL 路徑，`?` 會分隔查詢字串中的每個 'name=value' 組。 針對此查詢，API 版本是查詢字串中第一個也是唯一一個項目。
 
-如需此 API 的詳細資訊，請參閱[取得索引統計資料 (REST)](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics)。
+如需此 API 的詳細資訊，請參閱[取得索引統計資料 REST API](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) \(英文\)。
 
 
 ## <a name="use-fiddler"></a>使用 Fiddler
 
-此節相當於前面的章節，只是改為使用 Fiddler 螢幕擷取畫面和指示
+本節相當於前面的章節，只是改為使用 Fiddler 螢幕擷取畫面和指示
 
 ### <a name="connect-to-azure-search"></a>連線到 Azure 搜尋服務
 
 制訂如下列螢幕擷取畫面所示的要求。 選擇 **GET** 作為動詞。 Fiddler 會新增 `User-Agent=Fiddler`。 您可以在其下的新行上貼上兩個額外的要求標頭。 使用服務的管理員存取金鑰，包含服務的內容類型和 API 金鑰。
 
-複製此 URL 的修改版本作為目標：`https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06`
+複製此 URL 的修改版本作為目標：`https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06`
 
 ![Fiddler 要求標頭][1]
 
 > [!Tip]
-> 關閉 Web 流量以隱藏無關且不相關的 HTTP 活動。 在 Fiddler 的 [檔案] 功能表中，關閉 [擷取流量]。 
+> 關閉 Web 流量以隱藏無關且不相關的 HTTP 活動。 在 Fiddler 的 [檔案]  功能表中，關閉 [擷取流量]  。 
 
 ### <a name="1---create-an-index"></a>1 - 建立索引
 
-將動詞變更為 **PUT**。 複製此 URL 的已修改版本：`https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`。 將上面提供的索引定義複製到要求本文。 您的頁面應該會看起來如下列螢幕擷取畫面所示。 按一下右上方的 [執行]，即可傳送完成的要求。
+將動詞變更為 **PUT**。 複製此 URL 的已修改版本：`https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`。 將上面提供的索引定義複製到要求本文。 您的頁面應該會看起來如下列螢幕擷取畫面所示。 按一下右上方的 [執行]  ，即可傳送完成的要求。
 
 ![Fiddler 要求本文][7]
 
@@ -268,7 +269,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ### <a name="tips-for-running-our-sample-queries-in-fiddler"></a>在 Fiddler 中執行範例查詢的提示
 
-下列範例查詢來自[搜尋索引作業 (Azure 搜尋服務 API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 一文。 本文中有許多範例查詢包含空格，這在 Fiddler 中是不允許的。 因此，請先使用 + 字元取代空格，再貼到查詢字串中，然後再於 Fiddler 中嘗試該查詢：
+下列範例查詢來自[搜尋文件 REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) \(英文\) 一文。 本文中有許多範例查詢包含空格，這在 Fiddler 中是不允許的。 因此，請先使用 + 字元取代空格，再貼到查詢字串中，然後再於 Fiddler 中嘗試該查詢：
 
 **前面的空格會被取代 (in lastRenovationDate desc)：**
 
@@ -280,7 +281,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ### <a name="tips-for-viewing-index-statistic-in-fiddler"></a>在 Fiddler 中檢視索引統計資料的提示
 
-在 Fiddler 中，依序按一下 [檢測器] 索引標籤和 [標頭] 索引標籤，然後選取 JSON 格式。 您應該會看到文件計數和儲存體大小 (以 KB計算)。
+在 Fiddler 中，依序按一下 [檢測器]  索引標籤和 [標頭]  索引標籤，然後選取 JSON 格式。 您應該會看到文件計數和儲存體大小 (以 KB計算)。
 
 ## <a name="next-steps"></a>後續步驟
 

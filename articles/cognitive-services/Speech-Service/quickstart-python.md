@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: chlandsi
-ms.openlocfilehash: 34af7544a7678dfd8c8f870369bf0b4b1083b96d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 30e25fa8ea9e49b3005badc3db8f6ada3c0aed50
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020708"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65885172"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>快速入門：使用適用於 Python 的語音 SDK 來辨識語音
 
@@ -47,7 +47,7 @@ ms.locfileid: "65020708"
     sudo apt-get install build-essential libssl1.0.2 libasound2
     ```
 
-* 在 Windows 上，您需要適用於您平台的[適用於 Visual Studio 2017 的 Microsoft Visual C++ 可轉散發套件](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)。
+* 在 Windows 上，您需要適用於您平台的[適用於 Visual Studio 2019 的 Microsoft Visual C++ 可轉散發套件](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)。
 
 ## <a name="install-the-speech-sdk"></a>安裝語音 SDK
 
@@ -87,12 +87,12 @@ python quickstart.py
 
 1. 在您的電腦上下載並安裝 64 位元版本的 [Python](https://www.python.org/downloads/) \(英文\) (3.5 或更新版本)。
 1. 下載並安裝 [Visual Studio Code](https://code.visualstudio.com/Download)。
-1. 開啟 Visual Studio Code，然後安裝 Python 擴充功能。 從功能表選取 [檔案] > [喜好設定] > [擴充功能]。 搜尋 **Python**。
+1. 開啟 Visual Studio Code，然後安裝 Python 擴充功能。 從功能表選取 [檔案]   > [喜好設定]   > [擴充功能]  。 搜尋 **Python**。
 
    ![安裝 Python 擴充功能](media/sdk/qs-python-vscode-python-extension.png)
 
 1. 建立資料夾來儲存專案。 例如，使用 Windows 檔案總管。
-1. 在 Visual Studio Code 中選取 [檔案] 圖示。 然後開啟您所建立的資料夾。
+1. 在 Visual Studio Code 中選取 [檔案]  圖示。 然後開啟您所建立的資料夾。
 
    ![開啟資料夾](media/sdk/qs-python-vscode-python-open-folder.png)
 
@@ -107,7 +107,7 @@ python quickstart.py
 1. 您可以從 Visual Studio Code 內安裝語音 SDK Python 套件。 如果您選取的 Python 解譯器尚未安裝該套件，請予以安裝。
    若要安裝語音 SDK 套件，請開啟終端機。 再次開啟命令選擇區 (Ctrl+Shift+P)，然後輸入 **Terminal:Create New Integrated Terminal** 來開啟終端機。
    在開啟的終端機中，輸入命令 `python -m pip install azure-cognitiveservices-speech` 或系統所適用的命令。
-1. 若要執行範例程式碼，請以滑鼠右鍵按一下編輯器內的任何一個地方。 選取 [在終端機中執行 Python 檔案]。
+1. 若要執行範例程式碼，請以滑鼠右鍵按一下編輯器內的任何一個地方。 選取 [在終端機中執行 Python 檔案]  。
    出現提示時，請說出幾個字。 不久之後便會顯示轉譯的文字。
 
    ![執行範例](media/sdk/qs-python-vscode-python-run.png)

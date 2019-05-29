@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 7b4fcf34831d17d35e9f4d8b38455ea22293076f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ce6703c507e955ffe98e71f26feca08f9f37dfe5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148074"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146776"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device"></a>快速入門：從 Azure 入口網站將您的第一個 IoT Edge 模組部署至 Windows 裝置
 
@@ -65,7 +65,7 @@ IoT Edge 裝置：
 
   1. 巡覽至您在 Azure 入口網站中的第一個 Windows 虛擬機器。
   1. 選取 [ **連接**]。
-  1. 在 [RDP] 索引標籤上，選取 [下載 RDP 檔案]。
+  1. 在 [RDP]  索引標籤上，選取 [下載 RDP 檔案]  。
 
   使用您以 `az vm create`命令指定的系統管理員名稱和密碼，用遠端桌面連線連線到您的 Windows 虛擬機器，以開啟此檔案。
 
@@ -81,7 +81,7 @@ IoT Edge 裝置：
 
 此快速入門適用於 IoT 中樞的免費層級。 如果您在過去已使用過 IoT 中樞，並已建立可用的中樞，您可以使用該 IoT 中樞。 每個訂用帳戶只能有一個免費的 IoT 中樞。
 
-下列程式碼會在資源群組 **IoTEdgeResources** 中建立免費的 **F1** 中樞。 請以 IoT 中樞的唯一名稱取代 {hub_name}。
+下列程式碼會在資源群組 **IoTEdgeResources** 中建立免費的 **F1** 中樞。 請以 IoT 中樞的唯一名稱取代 {hub_name}  。
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1
@@ -138,6 +138,13 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
 1. 如果您尚未註冊，請依照[註冊新的 Azure IoT Edge 裝置](how-to-register-device-portal.md)中的步驟註冊您的裝置，並擷取裝置連接字串。 
 
 2. 以系統管理員身分執行 PowerShell。
+
+   >[!NOTE]
+   >使用 PowerShell 的 AMD64 工作階段來安裝 IoT Edge，而不是使用 PowerShell (x86)。 如果您不確定正在使用的工作階段類型，請執行下列命令：
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. **部署 IoTEdge** 命令會檢查您的 Windows 電腦上支援的版本、開啟容器功能、下載 Moby 執行階段，然後下載 IoT Edge 執行階段。
 

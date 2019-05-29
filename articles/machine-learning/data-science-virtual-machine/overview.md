@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/27/2017
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 74fe2345af5d1249d6704c7560b42323561bc623
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1534bc65a369254802973d6c3b91ed8b76ed44e0
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918241"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596573"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>適用於 Linux 和 Windows 的 Azure 資料科學虛擬機器簡介
 
@@ -30,7 +30,7 @@ ms.locfileid: "58918241"
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>我可以使用資料科學虛擬機器來做什麼？
-資料科學虛擬機器 (DSVM) 的目標在於提供無衝突、預先設定及完全整合的資料科學環境，讓所有技能等級和各個企業的資料專業人員使用。 與其自行推出同等級的工作區，您只要佈建 DSVM 即可，不需要花費好幾天或甚至「好幾週」的時間來安裝、設定及完成套件管理程序。 配置 DSVM 之後，您可以立即開始進行資料科學專案。
+資料科學虛擬機器 (DSVM) 的目標在於提供無衝突、預先設定及完全整合的資料科學環境，讓所有技能等級和各個企業的資料專業人員使用。 與其自行推出同等級的工作區，您只要佈建 DSVM 即可，不需要花費好幾天或甚至「好幾週」  的時間來安裝、設定及完成套件管理程序。 配置 DSVM 之後，您可以立即開始進行資料科學專案。
 
 資料科學 VM 是針對使用廣泛用途案例而設計和設定的。 您可以隨著專案需求的變更來相應增加或減少環境、使用慣用語言來設計資料科學工作的程式，以及安裝其他工具來自訂系統以符合確切需求。
 
@@ -45,6 +45,10 @@ ms.locfileid: "58918241"
 
 ### <a name="on-demand-elastic-capacity-for-large-scale-projects"></a>大型專案的隨選彈性容量
 資料科學黑客松 (Hackathon)/競賽或大型資料模型化和探索需要相應放大硬體容量，通常是很短的期間。 資料科學 VM 可幫助在相應放大的伺服器上快速隨選複寫資料科學環境，允許需要強大運算資源執行的實驗。
+
+### <a name="custom-compute-power-for-azure-notebooks"></a>自訂 Azure Notebooks 的計算能力
+
+[Azure Notebooks](/azure/notebooks/azure-notebooks-overview.md) 是免費的託管服務，無需任何安裝程序，就能用來在雲端中開發、執行和共用 Jupyter Notebook。 不過，免費服務層級的限制為 4 GB 記憶體和 1GB 資料。 若要解除所有的限制，您接著可以將 Notebooks 專案附加至資料科學 VM 或執行 Jupyter 伺服器的任何其他 VM。 如果您以使用 Azure Active Directory 的帳戶 (例如公司帳戶) 登入 Azure Notebooks，Notebooks 會自動顯示與該帳戶相關聯之訂用帳戶中的任何資料科學 VM。 如需詳細資訊，請參閱[管理和設定專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)。
 
 ### <a name="short-term-experimentation-and-evaluation"></a>短期實驗和評估
 資料科學 VM 可以用來評估或學習工具，例如 Microsoft ML Server、SQL Server、Visual Studio 工具、Jupyter、深入學習/ML 工具組，與社群中需要最少設定的受歡迎新工具。 因為資料科學 VM 可快速設定，它可以套用至其他短期使用案例，例如複寫已發佈的實驗、執行示範、遵循線上課程和會議教學課程的逐步解說。

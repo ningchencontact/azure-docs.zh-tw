@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0bdf47991435a9a28a4db12f3aa89478b18bb9f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b989e5cf5b66d21c19d58f2f64fbba1927f5d69
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020244"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792789"
 ---
 # <a name="what-is-the-cloudyn-service"></a>什麼是 Cloudyn 服務？
 
@@ -24,6 +24,10 @@ Cloudyn 是 Microsoft 的子公司之一，可讓您針對 Azure 資源及包含
 若要觀看簡介影片，請觀看 [Azure Cloudyn 簡介](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo)。
 
 Azure 成本管理可提供與 Cloudyn 類似的功能。 「Azure 成本管理」是原生的 Azure 成本管理解決方案。 它可協助您分析成本、建立及管理預算、匯出資料，以及檢閱最佳化建議並依據這些建議採取動作來節省成本。 如需詳細資訊，請參閱 [Azure 成本管理](overview-cost-mgt.md)。
+
+觀看 [Azure 成本管理和 Cloudyn 影片](https://www.youtube.com/watch?v=PmwFWwSluh8)取得相關建議，了解如何依據您的業務需求，決定應使用 Azure 成本管理或 Cloudyn。
+
+>[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
 
 ## <a name="cloudyn-features-moving-to-azure-cost-management"></a>移至 Azure 成本管理的 Cloudyn 功能
 

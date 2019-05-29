@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: b80ff38e2afb5e9da6227537ea9c483566d03e4d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 41cb37eb9d96752d4732731d2a36d9bc892cbaa5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232589"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159822"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>快速入門：使用 .NET 在 Azure 儲存體中建立佇列
 
@@ -145,7 +145,7 @@ Press any key to delete the sample queue.
 
 ### <a name="try-parsing-the-connection-string"></a>嘗試剖析連接字串
 
-此範例會先檢查環境變數是否包含可剖析的連接字串，以建立指向儲存體帳戶的 [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 物件。 為了檢查連接字串是否有效，此範例會使用 [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) 方法。 如果 **TryParse** 成功，它會初始化 storageAccount 變數並傳回 **true**。
+此範例會先檢查環境變數是否包含可剖析的連接字串，以建立指向儲存體帳戶的 [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 物件。 為了檢查連接字串是否有效，此範例會使用 [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) 方法。 如果 **TryParse** 成功，它會初始化 storageAccount  變數並傳回 **true**。
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -257,7 +257,9 @@ if (queue != null)
 
 ### <a name="binaries-and-source-code"></a>二進位檔和原始程式碼
 
-- 針對 Azure 儲存體最新版的 [.NET 用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)下載 NuGet 套件。 
+- 針對 Azure 儲存體最新版的 [.NET 用戶端程式庫](/dotnet/api/overview/azure/storage/client)下載 NuGet 套件
+    - [通用](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+    - [佇列](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - 在 GitHub 上檢視 [.NET 用戶端程式庫原始程式碼](https://github.com/Azure/azure-storage-net)。
 
 ### <a name="client-library-reference-and-samples"></a>用戶端程式庫參考和範例

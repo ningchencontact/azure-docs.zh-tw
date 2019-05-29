@@ -9,11 +9,11 @@ ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: da63a5418ab94623f6ce3c9f35a085dd8b198d1a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858089"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148990"
 ---
 您必須滿足下列需求，才能完成本教學課程：
 
@@ -24,7 +24,7 @@ ms.locfileid: "48858089"
 **Docker 引擎**：若要完成本教學課程，您需要在本機安裝 Docker 引擎。 Docker 提供可在 [macOS][docker-mac]、[Windows][docker-windows] 和 [Linux][docker-linux] 上設定 Docker 環境的套件。
 
 > [!IMPORTANT]
-> 因為 Azure Cloud shell 不包含 Docker 精靈，所以您「必須」在「本機電腦」上安裝 Azure CLI 和 Docker 引擎，才能完成本教學課程。 您無法在此教學課程中使用 Azure Cloud Shell。
+> 因為 Azure Cloud shell 不包含 Docker 精靈，所以您「必須」  在「本機電腦」  上安裝 Azure CLI 和 Docker 引擎，才能完成本教學課程。 您無法在此教學課程中使用 Azure Cloud Shell。
 
 <!-- LINKS - External -->
 [docker-get-started]: https://docs.docker.com/engine/docker-overview/

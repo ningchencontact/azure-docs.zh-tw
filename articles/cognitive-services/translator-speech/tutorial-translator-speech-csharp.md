@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 68457367987305b6926f8f885a226cfcedd23873
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900823"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860325"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>教學課程：翻譯工具語音應用程式 (C#)
 
@@ -34,7 +34,7 @@ ms.locfileid: "57900823"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要進行本教學課程，您需要有任何一版的 Visual Studio 2017，包括 Community Edition。
+若要進行本教學課程，您需要有任何一版的 Visual Studio 2019，包括 Community Edition。
 
 Visual Studio 解決方案也會建置應用程式的安裝程式。 您需要 [WiX Toolset](http://wixtoolset.org/) 和 [WiX Toolset Visual Studio 延伸模組](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension)來支援此功能。
 
@@ -48,15 +48,15 @@ Visual Studio 解決方案也會建置應用程式的安裝程式。 您需要 [
 
 ![[「語音翻譯工具」主視窗]](media/speech-translator-main-window.png)
 
-在第一次執行時，從 [設定] 功能表中選擇 [帳戶設定] 功能表，以開啟這裡顯示的視窗。
+在第一次執行時，從 [設定]  功能表中選擇 [帳戶設定]  功能表，以開啟這裡顯示的視窗。
 
 ![[「語音翻譯工具」主視窗]](media/speech-translator-settings-window.png)
 
-將您的翻譯工具語音訂用帳戶金鑰貼到此視窗中，然後按一下 [儲存]。 您的金鑰會在各個執行之間儲存下來。
+將您的翻譯工具語音訂用帳戶金鑰貼到此視窗中，然後按一下 [儲存]  。 您的金鑰會在各個執行之間儲存下來。
 
-請返回主視窗，選擇要使用的音訊輸入和輸出裝置，以及 [從] 和 [到] 語言。 如果您想要聽到翻譯的音訊，請務必勾選 [TTS]\(文字轉換語音) 選項。 如果您想要在說話時看到推測性的部分翻譯，請啟用 [部分結果] 選項。
+請返回主視窗，選擇要使用的音訊輸入和輸出裝置，以及 [從] 和 [到] 語言。 如果您想要聽到翻譯的音訊，請務必勾選 [TTS]  \(文字轉換語音) 選項。 如果您想要在說話時看到推測性的部分翻譯，請啟用 [部分結果]  選項。
 
-最後，按一下 [啟動] 以開始翻譯。 說出您想要翻譯的話，然後看著已辨識的文字和翻譯出現在視窗中。 如果您已啟用 TTS 選項，就會同時聽到翻譯。
+最後，按一下 [啟動]  以開始翻譯。 說出您想要翻譯的話，然後看著已辨識的文字和翻譯出現在視窗中。 如果您已啟用 TTS 選項，就會同時聽到翻譯。
 
 ## <a name="obtaining-supported-languages"></a>取得支援的語言
 

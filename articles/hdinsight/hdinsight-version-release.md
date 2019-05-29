@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: overview
 ms.date: 04/15/2019
-ms.openlocfilehash: 553f50897afaaf9c677e84f9cfffbff7d2c1e607
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: aa0d01bfbebd5279b5268bae9d161492f30b81de
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679666"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546288"
 ---
 # <a name="hdinsight-40-overview"></a>HDInsight 4.0 概觀
 
@@ -90,11 +90,11 @@ Apache Oozie 4.3.1 隨附於 HDI 4.0，並包含下列變更：
 
 ## <a name="limitations"></a>限制
 
-* HDInsight 4.0 不支援 MapReduce。 請改用 Apache Tez。 深入了解 [Apache Tez](https://tez.apache.org/) \(英文\)。
+* HDInsight 4.0 不支援適用於 Apache Hive 的 MapReduce。 請改用 Apache Tez。 深入了解 [Apache Tez](https://tez.apache.org/) \(英文\)。
 * HDInsight 4.0 不支援 Apache Storm。 
 * HDInsight 4.0 中已不再提供 Hive 檢視。 
 * Apache Zeppelin 中的殼層解譯器在 Spark 和互動式查詢叢集中不受支援。
-* 您不能「停用」Spark-LLAP 叢集上的 LLAP。 您只能關閉 LLAP。
+* 您不能「停用」  Spark-LLAP 叢集上的 LLAP。 您只能關閉 LLAP。
 * Azure Data Lake Storage Gen2 無法在 Spark 叢集中儲存 Juypter Notebook。
 
 ## <a name="next-steps"></a>後續步驟

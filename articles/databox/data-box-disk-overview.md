@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 05/15/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 20b8d7a6a7d6da639481045d9462c484b820a4df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 194f2b80e9cbf3a69fef6ce382e6755934f1d5bd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575828"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787444"
 ---
 # <a name="what-is-azure-data-box-disk"></a>什麼是 Azure 資料箱磁碟？
 
@@ -89,22 +89,7 @@ Microsoft Azure 資料箱磁碟解決方案可讓您以快速、實惠和可靠�
 
 ## <a name="region-availability"></a>區域可用性
 
-目前，資料箱磁碟可將資料傳輸至下列 Azure 區域：
-
-
-|Azure 區域  |Azure 區域  |
-|---------|---------|
-|美國中西部     |加拿大中部       |        
-|美國西部 2     |加拿大東部         |     
-|美國西部     | 西歐        |      
-|美國中南部   |北歐     |         
-|美國中部     |澳洲東部|
-|美國中北部  |澳大利亞東南部   |
-|美國東部      |澳大利亞中部 |
-|美國東部 2     |澳大利亞中部 2|
-|日本東部     |南韓中部 |
-|日本西部     |南韓南部 |
-|東南亞 |
+如需區域可用性的資訊，請移至[依區域提供的 Azure 產品](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all) \(英文\)。
 
 
 ## <a name="pricing"></a>價格

@@ -1,19 +1,19 @@
 ---
-title: 設定您的 Azure 資料箱 | Microsoft Docs
+title: 設定 Azure 資料箱的教學課程 | Microsoft Docs
 description: 深入了解如何連接 Azure 資料箱的纜線並且連線
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/08/2019
+ms.date: 05/14/2019
 ms.author: alkohli
-ms.openlocfilehash: b601ad5936820e2c237b7b9d37d9af73aa468bbc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6a725784c419b67f7738b70ad867d2d6ef8b0785
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895748"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795966"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>教學課程：連接 Azure 資料箱的纜線並且連線
 
@@ -30,7 +30,7 @@ ms.locfileid: "57895748"
 在您開始前，請確定：
 
 1. 您已完成[教學課程：訂購 Azure 資料箱](data-box-deploy-ordered.md)。
-2. 您已收到資料箱，且入口網站中的訂購狀態為 [已交付]。 
+2. 您已收到資料箱，且入口網站中的訂購狀態為 [已交付]  。 
     - 黏貼到裝置目前標籤下的透明袋中有出貨標籤。 請妥善保存此標籤，您會在退貨時用到。
     - 歐洲境內某些區域可能會收到封裝在盒子裡的裝置。 打開裝置包裝後，請保留盒子以在送回裝置時使用。
 3. 您已檢閱[資料箱安全指導方針](data-box-safety.md)。
@@ -70,21 +70,21 @@ ms.locfileid: "57895748"
 
 1. 使用靜態 IP 位址 192.168.100.5 和子網路 255.255.255.0，在您要用來連接到裝置的膝上型電腦上設定乙太網路介面卡。 
 2. 連接到裝置的 MGMT 連接埠，並經由 https\://192.168.100.10 存取其本機 Web UI。 在開啟裝置後，此作業最多可能需耗時 5 分鐘。
-3. 按一下 [詳細資料]，然後按一下 [繼續瀏覽網頁]。
+3. 按一下 [詳細資料]  ，然後按一下 [繼續瀏覽網頁]  。
 
    ![連線至本機 Web UI](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 
 
-4. 您會看到本機 Web UI 的 [登入] 頁面。 請確定入口網站 UI 和本機 Web UI 上的裝置序號是相符的。 裝置此時處於鎖定狀態。
+4. 您會看到本機 Web UI 的 [登入]  頁面。 請確定入口網站 UI 和本機 Web UI 上的裝置序號是相符的。 裝置此時處於鎖定狀態。
 5. 登入 [Azure 入口網站](https://portal.azure.com)。
-6. 從入口網站下載裝置認證。 移至 [一般] > [裝置詳細資料]。 複製 [裝置密碼]。 裝置密碼會繫結至入口網站中的特定訂單。 
+6. 從入口網站下載裝置認證。 移至 [一般] > [裝置詳細資料]  。 複製 [裝置密碼]  。 裝置密碼會繫結至入口網站中的特定訂單。 
 
     ![取得裝置認證](media/data-box-deploy-set-up/data-box-device-credentials.png)
     
     
 7. 提供您在上一個步驟中從 Azure 入口網站取得的裝置密碼，以登入裝置的本機 Web UI。 按一下 [ **登入**]。
-8. 在 [儀表板] 上，確定網路介面已設定。 
+8. 在 [儀表板]  上，確定網路介面已設定。 
    - 如果您的環境中啟用了 DHCP，則會自動設定網路介面。 
-   - 如果未啟用 DHCP，請移至 [設定網路介面]，並視需要指派靜態 IP。
+   - 如果未啟用 DHCP，請移至 [設定網路介面]  ，並視需要指派靜態 IP。
 
      ![裝置儀表板](media/data-box-deploy-set-up/data-box-dashboard-1.png)
 

@@ -3,8 +3,8 @@ title: 建置與 Azure AD 整合來進行驗證和授權的 .NET MVC Web API | M
 description: 如何建置與 Azure AD 整合來進行驗證和授權的 .NET MVC Web API。
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
+ms.date: 05/21/2019
+ms.author: ryanwi
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f87573e23f2c0f48e54b6f03289969aab930e15c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5e2eca253bc5d1495d26506e0e6f8a83762e8bc5
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200593"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001113"
 ---
 # <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>快速入門：建置與 Azure AD 整合來進行驗證和授權的 .NET Web API
 
@@ -54,16 +54,16 @@ ms.locfileid: "56200593"
 若要協助保護您的應用程式，您必須先在您的租用戶中建立應用程式，然後提供 Azure AD 幾個重要的資訊。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在頁面的右上角選取您的帳戶，選取 [切換目錄] 瀏覽，然後選取適當的租用戶，以選擇您的 Azure AD 租用戶。
+2. 在頁面的右上角選取您的帳戶，選取 [切換目錄]  瀏覽，然後選取適當的租用戶，以選擇您的 Azure AD 租用戶。
     * 如果您的帳戶底下只有一個 Azure AD 租用戶，或如果您已選取適當的 Azure AD 租用戶，請略過此步驟。
 
-3. 選取左側導覽窗格中的 [Azure Active Directory]。
-4. 選取 [應用程式註冊]，然後選取 [新增]。
-5. 依照提示並建立新的「Web 應用程式和/或 Web API」。
-    * [名稱] 可向使用者描述您的應用程式。 輸入**待辦事項清單服務**。
-    * 「重新導向 URI」是配置與字串的組合，Azure AD 會用它來傳回應用程式所要求的任何權杖。 請為此值輸入 `https://localhost:44321/` 。
-
-6. 從應用程式的 [設定] > [屬性] 頁面，更新應用程式識別碼 URI。 輸入租用戶特定識別碼。 例如，輸入 `https://contoso.onmicrosoft.com/TodoListService`。
+3. 選取左側導覽窗格中的 [Azure Active Directory]  。
+4. 選取 [應用程式註冊]  ，然後選取 [新增註冊]  。
+5. [註冊應用程式]  頁面出現時，輸入您應用程式的名稱。
+在 [支援的帳戶類型]  底下，選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]  。
+6. 在 [重新導向 URI]  區段底下選取 [Web]  平台，並將值設為 `https://localhost:44321/` (供 Azure AD 傳回權杖的位置)。
+7. 完成時，選取 [註冊]  。 在應用程式 [概觀]  頁面上，記下 [應用程式 (用戶端) 識別碼]  值。
+6. 選取 [公開 API]  ，然後按一下 [設定]  ，以更新應用程式識別碼 URI。 輸入租用戶特定識別碼。 例如，輸入 `https://contoso.onmicrosoft.com/TodoListService`。
 7. 儲存組態。 讓入口網站保持開啟，因為您很快就必須一併註冊用戶端應用程式。
 
 ## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>步驟 2：設定應用程式以使用 OWIN 驗證管線
@@ -77,7 +77,7 @@ ms.locfileid: "56200593"
     PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
     ```
 
-2. 將 OWIN 啟動類別加入至名為 `Startup.cs`的 TodoListService 專案。  在專案上按一下滑鼠右鍵，選取 [新增] > [新增項目]，然後搜尋 **OWIN**。 OWIN 中介軟體將會在應用程式啟動時叫用 `Configuration(…)` 方法。
+2. 將 OWIN 啟動類別加入至名為 `Startup.cs`的 TodoListService 專案。  在專案上按一下滑鼠右鍵，選取 [新增] > [新增項目]  ，然後搜尋 **OWIN**。 OWIN 中介軟體將會在應用程式啟動時叫用 `Configuration(…)` 方法。
 
 3. 將類別宣告變更為 `public partial class Startup`。 我們已在另一個檔案中為您實作此類別的一部分。 請在 `Configuration(…)` 方法中，呼叫 `ConfgureAuth(…)` 來為您的 Web 應用程式設定驗證。
 
@@ -91,7 +91,11 @@ ms.locfileid: "56200593"
     }
     ```
 
-4. 開啟檔案 `App_Start\Startup.Auth.cs` 並實作 `ConfigureAuth(…)` 方法。 您在 `WindowsAzureActiveDirectoryBearerAuthenticationOptions` 中提供的參數會作為供應用程式與 Azure AD 進行通訊的座標。
+4. 開啟檔案 `App_Start\Startup.Auth.cs` 並實作 `ConfigureAuth(…)` 方法。 您在 `WindowsAzureActiveDirectoryBearerAuthenticationOptions` 中提供的參數會作為供應用程式與 Azure AD 進行通訊的座標。 若要使用它們，您將需要使用 `System.IdentityModel.Tokens` 命名空間中的類別。
+
+    ```csharp
+    using System.IdentityModel.Tokens;
+    ```
 
     ```csharp
     public void ConfigureAuth(IAppBuilder app)
@@ -99,8 +103,11 @@ ms.locfileid: "56200593"
         app.UseWindowsAzureActiveDirectoryBearerAuthentication(
             new WindowsAzureActiveDirectoryBearerAuthenticationOptions
             {
-                Audience = ConfigurationManager.AppSettings["ida:Audience"],
-                Tenant = ConfigurationManager.AppSettings["ida:Tenant"]
+                 Tenant = ConfigurationManager.AppSettings["ida:Tenant"],
+                 TokenValidationParameters = new TokenValidationParameters
+                 {
+                    ValidAudience = ConfigurationManager.AppSettings["ida:Audience"]
+                 }
             });
     }
     ```
@@ -141,12 +148,9 @@ ms.locfileid: "56200593"
 在看到「待辦事項清單服務」運作之前，您必須設定「待辦事項清單」用戶端，以便讓它能夠從 Azure AD 取得權杖，並對服務進行呼叫。
 
 1. 回到 [Azure 入口網站](https://portal.azure.com)。
-1. 在 Azure AD 租用戶中建立新的應用程式，然後在產生的提示中選取 [ **原生用戶端應用程式** ]。
-    * **名稱**向使用者描述您的應用程式。
-    * 請輸入 `http://TodoListClient/` 作為 [重新導向 URI] 的值。
-
+1. 在 Azure AD 租用戶中建立新的應用程式註冊。  輸入向使用者描述您應用程式的 [名稱]  、輸入 `http://TodoListClient/` 作為 [重新導向 URI]  值，然後在下拉式清單中選取 [公開用戶端 (行動和桌面)]  。
 1. 完成註冊之後，Azure AD 會為應用程式指派一個唯一的應用程式識別碼。 您會在後續小節中用到這個值，所以請從應用程式頁面中複製此值。
-1. 從 [設定] 頁面中，選取 [必要權限]，然後選取 [新增]。 找出並選取 [待辦事項清單服務]，在 [委派的權限] 底下新增 [存取 TodoListService] 權限，然後選取 [完成]。
+1. 選取 [API 權限]  ，然後選取 [新增權限]  。  找出並選取 [待辦事項清單服務]、在 [委派的權限]  底下新增 **user_impersonation Access TodoListService** 權限，然後選取 [新增權限]  。
 1. 在 Visual Studio 中，開啟 TodoListClient 專案中的 `App.config`，然後在 `<appSettings>` 區段中輸入您的組態值。
 
     * `ida:Tenant` 是您 Azure AD 租用戶的名稱，例如 contoso.onmicrosoft.com。

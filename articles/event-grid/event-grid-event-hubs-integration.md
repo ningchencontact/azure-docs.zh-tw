@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/13/2019
 ms.author: spelluru
-ms.openlocfilehash: c2c49563bf505ce70c4900c6c0a8e41c0f6ac9c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1ae7a18660d2a7324bc5897d6b3952da42b6c4b2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176611"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603452"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>教學課程：將巨量資料串流處理至資料倉儲
 Azure [Event Grid](overview.md) 是一項智慧型事件路由服務，可讓您對應用程式和服務發出的通知 (事件) 做出回應。 例如，它可以觸發 Azure 函式以處理已擷取至 Azure Blob 儲存體或 Azure Data Lake Storage 的事件中樞資料，並將資料移轉至其他資料存放庫。 此[事件中樞和事件方格整合範例](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)說明如何使用事件中樞與事件方格，將已擷取的事件中樞資料從 Blob 儲存體順暢地移轉至 SQL 資料倉儲。
@@ -45,7 +45,7 @@ Azure [Event Grid](overview.md) 是一項智慧型事件路由服務，可讓您
 若要完成本教學課程，您必須具備：
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
-* [Visual Studio 2017 15.3.2 或更新版本](https://www.visualstudio.com/vs/)，搭配適用於 .NET 桌面開發、Azure 開發、ASP.NET 和 Web 開發、Node.js 開發及 Python 開發的工作負載。
+* [Visual Studio 2019](https://www.visualstudio.com/vs/)，搭配適用於 .NET 桌面開發、Azure 開發、ASP.NET 和 Web 開發、Node.js 開發及 Python 開發的工作負載。
 * 將 [EventHubsCaptureEventGridDemo 範例專案](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)下載到您的電腦。
 
 ## <a name="deploy-the-infrastructure"></a>部署基礎結構
@@ -61,14 +61,14 @@ Azure [Event Grid](overview.md) 是一項智慧型事件路由服務，可讓您
 ### <a name="launch-azure-cloud-shell-in-azure-portal"></a>在 Azure 入口網站中啟動 Azure Cloud Shell
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
-2. 選取位於最上方的 [Cloud Shell] 按鈕。
+2. 選取位於最上方的 [Cloud Shell]  按鈕。
 
     ![Azure 入口網站](media/event-grid-event-hubs-integration/azure-portal.png)
 3. 您會看到 Cloud Shell 在瀏覽器底部開啟。
 
     ![Cloud Shell](media/event-grid-event-hubs-integration/launch-cloud-shell.png) 
 4. 在 Cloud Shell 中，如果您看到選取 **Bash** 或 **PowerShell** 的選項，請選取 **Bash**。 
-5. 如果您是第一次使用 Cloud Shell，請選取 [建立儲存體] 以建立儲存體帳戶。 Azure Cloud Shell 需要以 Azure 儲存體帳戶儲存某些檔案。 
+5. 如果您是第一次使用 Cloud Shell，請選取 [建立儲存體]  以建立儲存體帳戶。 Azure Cloud Shell 需要以 Azure 儲存體帳戶儲存某些檔案。 
 
     ![建立 Cloud Shell 的儲存體](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
 6. 等待 Cloud Shell 完成初始化。 
@@ -125,7 +125,7 @@ Azure [Event Grid](overview.md) 是一項智慧型事件路由服務，可讓您
 
 ### <a name="use-azure-powershell"></a>使用 Azure PowerShell
 
-1. 在 Azure Cloud Shell 中，切換為 PowerShell 模式。 選取位於 Azure Cloud Shell 左上角的向下箭號，然後選取 [PowerShell]。
+1. 在 Azure Cloud Shell 中，切換為 PowerShell 模式。 選取位於 Azure Cloud Shell 左上角的向下箭號，然後選取 [PowerShell]  。
 
     ![切換為 PowerShell](media/event-grid-event-hubs-integration/select-powershell-cloud-shell.png)
 2. 執行下列命令以建立 Azure 資源群組： 
@@ -158,7 +158,7 @@ Azure [Event Grid](overview.md) 是一項智慧型事件路由服務，可讓您
 
 ### <a name="verify-that-the-resources-are-created"></a>確認資源已建立
 
-1. 在 Azure 入口網站中，選取左側功能表上的 [資源群組]。 
+1. 在 Azure 入口網站中，選取左側功能表上的 [資源群組]  。 
 2. 在搜尋方塊中輸入您資源群組的名稱，以篩選資源群組的清單。 
 3. 在清單中選取您的資源群組。
 
@@ -171,10 +171,10 @@ Azure [Event Grid](overview.md) 是一項智慧型事件路由服務，可讓您
 執行 [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) 指令碼，在您的資料倉儲中建立資料表。 若要執行指令碼，您可以在入口網站中使用 Visual Studio 或查詢編輯器。 下列步驟說明如何使用查詢編輯器： 
 
 1. 在資源群組中的資源清單內，選取您的 SQL 資料倉儲。 
-2. 在 [SQL 資料倉儲] 頁面中，選取左側功能表中的 [查詢編輯器 (預覽)]。 
+2. 在 [SQL 資料倉儲] 頁面中，選取左側功能表中的 [查詢編輯器 (預覽)]  。 
 
     ![SQL 資料倉儲頁面](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
-2. 輸入 SQL 伺服器的**使用者名稱**和**密碼**，然後選取 [確定]。 
+2. 輸入 SQL 伺服器的**使用者名稱**和**密碼**，然後選取 [確定]  。 
 
     ![SQL 伺服器驗證](media/event-grid-event-hubs-integration/sql-server-authentication.png)
 4. 在查詢視窗中，複製並執行下列 SQL 指令碼： 
@@ -196,21 +196,21 @@ Azure [Event Grid](overview.md) 是一項智慧型事件路由服務，可讓您
 
 ## <a name="publish-the-azure-functions-app"></a>發佈 Azure Functions 應用程式
 
-1. 啟動 Visual Studio 2017。 
+1. 啟動 Visual Studio。
 2. 開啟您為了符合必要條件而從 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) 下載的 **EventHubsCaptureEventGridDemo.sln** 解決方案。
-3. 在 [方案總管] 中，以滑鼠右鍵按一下 [FunctionEGDWDumper]，然後選取 [發佈]。
+3. 在 [方案總管] 中，以滑鼠右鍵按一下 [FunctionEGDWDumper]  ，然後選取 [發佈]  。
 
    ![發佈函數應用程式](media/event-grid-event-hubs-integration/publish-function-app.png)
-4. 如果您看到下列畫面，請選取 [開始]。 
+4. 如果您看到下列畫面，請選取 [開始]  。 
 
    ![開始發佈按鈕](media/event-grid-event-hubs-integration/start-publish-button.png) 
-5. 在 [挑選發佈目標] 頁面中選取 [選取現有的] 選項，然後選取 [建立設定檔]。 
+5. 在 [挑選發佈目標]  頁面中選取 [選取現有的]  選項，然後選取 [建立設定檔]  。 
 
    ![挑選發行目標](media/event-grid-event-hubs-integration/publish-select-existing.png)
-6. 在 [App Service] 頁面中選取您的 **Azure 訂用帳戶**、選取您資源群組中的**函式應用程式**，然後選取 [確定]。 
+6. 在 [App Service] 頁面中選取您的 **Azure 訂用帳戶**、選取您資源群組中的**函式應用程式**，然後選取 [確定]  。 
 
    ![App Service 頁面](media/event-grid-event-hubs-integration/publish-app-service.png) 
-1. 當 Visual Studio 完成設定檔設定時，選取 [發佈]。
+1. 當 Visual Studio 完成設定檔設定時，選取 [發佈]  。
 
    ![Select publish](media/event-grid-event-hubs-integration/select-publish.png)
 
@@ -219,25 +219,25 @@ Azure [Event Grid](overview.md) 是一項智慧型事件路由服務，可讓您
 ## <a name="subscribe-to-the-event"></a>訂閱事件
 
 1. 在網頁瀏覽器的新索引標籤或新視窗中，瀏覽至 [Azure 入口網站](https://portal.azure.com)。
-2. 在 Azure 入口網站中，選取左側功能表上的 [資源群組]。 
+2. 在 Azure 入口網站中，選取左側功能表上的 [資源群組]  。 
 3. 在搜尋方塊中輸入您資源群組的名稱，以篩選資源群組的清單。 
 4. 在清單中選取您的資源群組。
 
     ![選取您的資源群組](media/event-grid-event-hubs-integration/select-resource-group.png)
 4. 選取清單中的 App Service 方案。 
-5. 在 [App Service 方案] 頁面中，選取左側功能表中的 [應用程式]，然後選取函式應用程式。 
+5. 在 [App Service 方案] 頁面中，選取左側功能表中的 [應用程式]  ，然後選取函式應用程式。 
 
     ![選取您的函式應用程式](media/event-grid-event-hubs-integration/select-function-app-app-service-plan.png)
 6. 展開函式應用程式、展開函式，然後選取您的函式。 
 
     ![選取您的 Azure 函式](media/event-grid-event-hubs-integration/select-function-add-button.png)
-7. 選取工具列上的 [新增事件方格訂用帳戶]。 
-8. 在 [建立事件方格訂用帳戶] 頁面中，執行下列動作： 
-    1. 在 [主題詳細資料] 區段中，執行下列動作：
+7. 選取工具列上的 [新增事件方格訂用帳戶]  。 
+8. 在 [建立事件方格訂用帳戶]  頁面中，執行下列動作： 
+    1. 在 [主題詳細資料]  區段中，執行下列動作：
         1. 選取 Azure 訂用帳戶。
         2. 選取 Azure 資源群組。
         3. 選取事件中樞命名空間。
-    2. 在 [事件訂用帳戶詳細資料] 頁面中，輸入訂用帳戶的名稱 (例如 captureEventSub)，然後選取 [建立]。 
+    2. 在 [事件訂用帳戶詳細資料]  頁面中，輸入訂用帳戶的名稱 (例如 captureEventSub)，然後選取 [建立]  。 
 
         ![建立事件方格訂用帳戶](media/event-grid-event-hubs-integration/create-event-subscription.png)
 
@@ -246,9 +246,9 @@ Azure [Event Grid](overview.md) 是一項智慧型事件路由服務，可讓您
 
 1. 在 Azure 入口網站中，再次瀏覽至您的資源群組。 
 2. 選取事件中樞命名空間。
-3. 在 [事件中樞命名空間] 頁面中，選取左側功能表上的 [共用存取原則]。
+3. 在 [事件中樞命名空間]  頁面中，選取左側功能表上的 [共用存取原則]  。
 4. 選取原則清單中的 **RootManageSharedAccessKey**。 
-5. 選取 [連接字串 - 主要金鑰] 文字方塊旁的複製按鈕。 
+5. 選取 [連接字串 - 主要金鑰]  文字方塊旁的複製按鈕。 
 
     ![事件中樞命名空間的連接字串](media/event-grid-event-hubs-integration/get-connection-string.png)
 1. 返回您的 Visual Studio 解決方案。 

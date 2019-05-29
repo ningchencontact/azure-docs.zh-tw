@@ -11,24 +11,24 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 8a6a46708b78b3f92087ace02173f9f081fa85b2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3460424a8d80baef92eb8b29a3be4de5686027c6
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170508"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827579"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>快速入門：使用 C# 在 QnA Maker 中發佈知識庫
 
 本快速入門以 REST 為基礎，會逐步引導您以程式設計方式發佈知識庫 (KB)。 發佈作業會將最新版的知識庫推送到專用 Azure 搜尋服務索引，並建立端點以供應用程式或聊天機器人呼叫。
 
 本快速入門會呼叫 QnA Maker API：
-* [發佈](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) - 此 API 不需要在要求主體中有任何資訊。
+* [發佈](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) - 此 API 不需要在要求主體中有任何資訊。
 
 ## <a name="prerequisites"></a>必要條件
 
 * 最新 [**Visual Studio Community 版本**](https://www.visualstudio.com/downloads/)。
-* 您必須有 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。 若要擷取您的金鑰，請選取儀表板中 [資源管理] 下方的 [金鑰]。 
+* 您必須有 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。 若要擷取您的金鑰，請選取儀表板中 [資源管理]  下方的 [金鑰]  。 
 * QnA Maker 知識庫 (KB) 識別碼可以在 kbid 查詢字串參數中的 URL 找到，如下所示。
 
     ![QnA Maker 知識庫識別碼](../media/qnamaker-quickstart-kb/qna-maker-id.png)
@@ -40,7 +40,7 @@ ms.locfileid: "58170508"
 
 ## <a name="create-knowledge-base-project"></a>建立知識庫專案
 
-1. 開啟 Visual Studio 2017 Community 版本。
+1. 開啟 Visual Studio 2019 Community 版本。
 1. 建立新的**主控台應用程式 (.NET Core)** 專案，並且將專案命名為 `QnaMakerQuickstart`。 接受其餘設定的預設值。
 
 ## <a name="add-required-dependencies"></a>新增必要的相依性
@@ -76,4 +76,4 @@ ms.locfileid: "58170508"
 在發佈知識庫之後，您需要有[用來產生答案的端點 URL](../Tutorials/create-publish-answer.md#generating-an-answer)。 
 
 > [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API 參考](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [QnA Maker (V4) REST API 參考](https://go.microsoft.com/fwlink/?linkid=2092179)

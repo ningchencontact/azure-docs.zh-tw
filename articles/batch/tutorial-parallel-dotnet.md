@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: c55839f7ec4e4c28086912c476a193e31561c3f4
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e450ca0ff2578c4ec2ce95c14a17735860044b59
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65234122"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595253"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>教學課程：使用 .NET API 透過 Azure Batch 執行平行工作負載
 
@@ -37,7 +37,7 @@ ms.locfileid: "65234122"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 適用於 Linux、macOS 或 Windows 的 [Visual Studio 2017](https://www.visualstudio.com/vs) 或 [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1)。
+* 適用於 Linux、macOS 或 Windows 的 [Visual Studio 2017 或更新版本](https://www.visualstudio.com/vs) \(英文\)，或 [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) \(英文\)。
 
 * Batch 帳戶和連結的 Azure 儲存體帳戶。 若要建立這些帳戶，請參閱使用 [Azure 入口網站](quick-create-portal.md)或 [Azure CLI](quick-create-cli.md) 的 Batch 快速入門。
 
@@ -51,9 +51,9 @@ ms.locfileid: "65234122"
 
 使用 Azure 入口網站，將 ffmpeg 新增至 Batch 帳戶作為[應用程式套件](batch-application-packages.md)。 應用程式套件可協助您管理工作應用程式並將其部署到集區中的計算節點。 
 
-1. 在 Azure 入口網站中，按一下 [更多服務] > [Batch 帳戶]，然後按一下您的 Batch 帳戶名稱。
-3. 按一下 [應用程式] > [新增]。
-4. 針對 [應用程式識別碼]，輸入 ffmpeg，以及 3.4 套件版本。 選取您先前下載的 ffmpeg ZIP 檔案，然後按一下 [確定]。 ffmpeg 應用程式套件會新增至您的 Batch 帳戶。
+1. 在 Azure 入口網站中，按一下 [更多服務]   > [Batch 帳戶]  ，然後按一下您的 Batch 帳戶名稱。
+3. 按一下 [應用程式]   > [新增]  。
+4. 針對 [應用程式識別碼]  ，輸入 ffmpeg  ，以及 3.4  套件版本。 選取您先前下載的 ffmpeg ZIP 檔案，然後按一下 [確定]  。 ffmpeg 應用程式套件會新增至您的 Batch 帳戶。
 
 ![新增應用程式套件](./media/tutorial-parallel-dotnet/add-application.png)
 
@@ -97,7 +97,7 @@ const string appPackageVersion = "3.4";
 
 在 Visual Studio 中建置及執行應用程式，或是在命令列使用 `dotnet build` 和 `dotnet run` 命令。 執行此應用程式之後，檢閱程式碼以了解應用程式的每部分用途。 例如，在 Visual Studio 中：
 
-* 在 [方案總管] 中以滑鼠右鍵按一下方案，然後按一下 [建置方案]。 
+* 在 [方案總管] 中以滑鼠右鍵按一下方案，然後按一下 [建置方案]  。 
 
 * 出現提示時，請確認任何 NuGet 封裝的還原。 如果您需要下載遺漏的套件，請確保已安裝 [NuGet 套件管理員](https://docs.nuget.org/consume/installing-nuget)。
 
@@ -124,7 +124,7 @@ Sample end: 11/19/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
-移至 Azure 入口網站中您的 Batch 帳戶，以監視集區、計算節點、作業和工作。 例如，若要查看集區中計算節點的熱度圖，請按一下 [集區] > [WinFFmpegPool]。
+移至 Azure 入口網站中您的 Batch 帳戶，以監視集區、計算節點、作業和工作。 例如，若要查看集區中計算節點的熱度圖，請按一下 [集區]   > [WinFFmpegPool]  。
 
 當工作正在執行時，熱度圖會如下所示：
 
@@ -196,7 +196,7 @@ List<ResourceFile> inputFiles = await UploadResourceFilesToContainerAsync(
 
 接著，範例會呼叫 `CreatePoolIfNotExistAsync` 以在 Batch 帳戶中建立計算節點集區。 這個已定義的方法會使用 [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) 方法來設定節點數目、VM 大小和集區設定。 在此，[VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) 物件會將 [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) 指定至 Azure Marketplace 中發佈的 Windows Server 映像。 Batch 支援 Azure Marketplace 中各式各樣的 VM 映像，以及自訂 VM 映像。
 
-使用已定義的常數可設定節點數目和 VM 大小。 Batch 支援專用節點和[低優先順序節點](batch-low-pri-vms.md)，而您可以在集區中使用其中一種或同時使用兩種。 專用節點會保留給您的集區使用。 低優先順序節點則會以較低的價格從 Azure 中的剩餘容量提供。 如果 Azure 沒有足夠的容量，便無法使用低優先順序節點。 此範例預設建立的集區只包含 5 個大小為 Standard_A1_v2 的低優先順序節點。
+使用已定義的常數可設定節點數目和 VM 大小。 Batch 支援專用節點和[低優先順序節點](batch-low-pri-vms.md)，而您可以在集區中使用其中一種或同時使用兩種。 專用節點會保留給您的集區使用。 低優先順序節點則會以較低的價格從 Azure 中的剩餘容量提供。 如果 Azure 沒有足夠的容量，便無法使用低優先順序節點。 此範例預設建立的集區只包含 5 個大小為 Standard_A1_v2  的低優先順序節點。
 
 將 [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) 新增到集區設定，ffmpeg 應用程式便會部署至計算節點。
 
@@ -316,7 +316,7 @@ batchClient.JobOperations.TerminateJob(jobId);
 
 應用程式在執行工作之後，會自動刪除它所建立的輸入儲存體容器，並且為您提供用於刪除 Batch 集區和工作的選項。 BatchClient 的 [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) 和 [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) 類別都有對應的刪除方法 (在您確認刪除時呼叫)。 雖然您不需支付作業和工作本身的費用，但您需支付計算節點的費用。 因此，我們建議您只在必要時配置集區。 當您刪除集區時，節點上的所有工作輸出也會跟著刪除。 不過，輸出檔案會保留在儲存體帳戶中。
 
-若不再需要，可刪除資源群組、Batch 帳戶和儲存體帳戶。 若要在 Azure 入口網站中這麼做，請選取 Batch 帳戶的資源群組，然後按一下 [刪除資源群組]。
+若不再需要，可刪除資源群組、Batch 帳戶和儲存體帳戶。 若要在 Azure 入口網站中這麼做，請選取 Batch 帳戶的資源群組，然後按一下 [刪除資源群組]  。
 
 ## <a name="next-steps"></a>後續步驟
 

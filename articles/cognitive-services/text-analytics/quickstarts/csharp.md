@@ -1,7 +1,7 @@
 ---
-title: 快速入門：使用 C# 來呼叫文字分析 API
+title: 快速入門：使用適用於 .NET 的 Azure SDK 和 C# 呼叫文字分析服務
 titleSuffix: Azure Cognitive Services
-description: 取得資訊和程式碼範例，以協助您快速開始使文字分析 API。
+description: 協助您快速開始使文字分析服務和 C# 的資訊及程式碼範例。
 services: cognitive-services
 author: raymondl
 manager: nitinme
@@ -10,28 +10,31 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/29/2019
 ms.author: assafi
-ms.openlocfilehash: c521be03f884227116a21c8c5396d47cdd1ae253
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 44d4a9427fcf6b582d44707127b87c262781520f
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466542"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602356"
 ---
-# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 C# 來呼叫文字分析認知服務
+# <a name="quickstart-use-the-net-sdk-and-c-to-call-the-text-analytics-service"></a>快速入門：使用 .NET SDK 和 C# 來呼叫文字分析服務
 <a name="HOLTop"></a>
 
-透過此快速入門，開始使用 Text Analytics SDK for C# 來分析語言。 雖然 [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API 與大部分程式設計語言相容，但 SDK 會提供簡單的方法，將服務整合到您的應用程式。 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics) 上找到。
+本快速入門可協助您開始使用適用於 .NET 的 Azure SDK 和 C# 來分析語言。 雖然[文字分析](//go.microsoft.com/fwlink/?LinkID=759711) REST API 與大部分程式設計語言相容，但 SDK 會提供簡單的方法，將服務整合到您的應用程式。
 
-如需 API 的技術文件，請參閱 [API 定義](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)。
+> [!NOTE]
+> [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics) 上有此範例的原始程式碼。
+
+如需技術詳細資料，請針對適用於 .NET 的 SDK 參閱[文字分析參考](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet)。
 
 ## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-您也必須具備註冊時產生的[端點和存取金鑰](../How-tos/text-analytics-how-to-access-key.md)。
+您也需要註冊時產生的[端點和存取金鑰](../How-tos/text-analytics-how-to-access-key.md)。
 
 > [!Tip]
->  雖然您可以直接從 C# 呼叫 [HTTP 端點](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)，但是 Microsoft.Azure.CognitiveServices.Language SDK 可以讓您更輕鬆地呼叫服務，而不必擔心序列化和還原序列化 JSON。
+>  雖然您可以直接從 C# 呼叫 [HTTP 端點](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)，但是 Microsoft.Azure.CognitiveServices.Language SDK 可以讓您更輕鬆地呼叫服務，而不必序列化和還原序列化 JSON。
 >
 > 以下是幾個實用的連結：
 > - [SDK NuGet 頁面](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
@@ -39,13 +42,13 @@ ms.locfileid: "65466542"
 
 ## <a name="create-the-visual-studio-solution-and-install-the-sdk"></a>建立 Visual Studio 解決方案並安裝 SDK
 
-1. 建立新的主控台應用程式 (.NET Core) 專案 [Visual Studio](https://visualstudio.microsoft.com/vs/)。
-1. 以滑鼠右鍵按一下方案，然後按一下 [管理方案的 NuGet 套件]。
-1. 選取 [瀏覽] 索引標籤，搜尋 **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**
+1. 建立新的主控台應用程式 (.NET Core) 專案。 [存取 Visual Studio](https://visualstudio.microsoft.com/vs/)。
+1. 以滑鼠右鍵按一下方案，然後選取 [管理方案的 NuGet 套件]  。
+1. 選取 [瀏覽]  索引標籤。搜尋 **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**。
 
 ## <a name="authenticate-your-credentials"></a>驗證您的認證
 
-1. 新增下列 `using` 陳述式至主要類別檔 (預設為 `Program.cs`)。
+1. 新增下列 `using` 陳述式至主要類別檔 (預設為 Program.cs)。
 
     ```csharp
     using System;
@@ -63,7 +66,7 @@ ms.locfileid: "65466542"
 
     ```csharp
     /// <summary>
-    /// Allows authentication to the API using a basic apiKey mechanism
+    /// Allows authentication to the API by using a basic apiKey mechanism
     /// </summary>
     class ApiKeyServiceClientCredentials : ServiceClientCredentials
     {
@@ -96,7 +99,7 @@ ms.locfileid: "65466542"
     }
     ```
 
-3. 更新 `Program` 類別並新增文字分析訂用帳戶金鑰的常數成員，並新增另一個服務端點常數成員。 請記得文字分析訂用帳戶要使用正確的 Azure 區域。
+3. 更新 `Program` 類別。 新增文字分析訂用帳戶金鑰的常數成員，並新增另一個服務端點常數成員。 請記得文字分析訂用帳戶要使用正確的 Azure 區域。
 
     ```csharp
     private const string SubscriptionKey = "enter-your-key-here";
@@ -104,12 +107,12 @@ ms.locfileid: "65466542"
     private const string Endpoint = "enter-your-service-endpoint-here"; // For example: "https://westus.api.cognitive.microsoft.com";
     ```
 > [!Tip]
-> 為了在生產系統中安全部署祕密，建議使用 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net)
+> 為了提升生產系統中的祕密安全性，建議使用 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net)。
 >
 
 ## <a name="create-a-text-analytics-client"></a>建立文字分析用戶端
 
-在專案的 `Main` 函式中，請呼叫您想要叫用的範例方法，並傳遞您定義的 `Endpoint` 和 `SubscriptionKey` 參數。
+在專案的 `Main` 函式中，呼叫您要叫用的範例方法。 傳遞您定義的 `Endpoint` 和 `SubscriptionKey` 參數。
 
 ```csharp
     public static void Main(string[] args)
@@ -117,11 +120,11 @@ ms.locfileid: "65466542"
         var credentials = new ApiKeyServiceClientCredentials(SubscriptionKey);
         var client = new TextAnalyticsClient(credentials)
         {
-            //Replace 'westus' with the correct region for your Text Analytics subscription
+            //Replace 'westus' with the correct region for your Text Analytics subscription.
             Endpoint = "https://westus.api.cognitive.microsoft.com"
         };
 
-        // Change console encoding to display non-ASCII characters
+        // Change the console encoding to display non-ASCII characters.
         Console.OutputEncoding = System.Text.Encoding.UTF8;
         SentimentAnalysisExample(client).Wait();
         // DetectLanguageExample(client).Wait();
@@ -131,12 +134,12 @@ ms.locfileid: "65466542"
     }
 ```
 
-下一節會說明如何呼叫 API 的各項功能。
+下列各節將說明如何呼叫每個服務功能。
 
-## <a name="sentiment-analysis"></a>情感分析
+## <a name="perform-sentiment-analysis"></a>執行人氣分析
 
-1. 建立名為 `SentimentAnalysisExample()` 的新函式，取用稍早建立的用戶端。
-2. 產生 `MultiLanguageInput` 物件清單，包含您要分析的文件。
+1. 建立新函式 `SentimentAnalysisExample()`，以取用稍早建立的用戶端。
+2. 產生 `MultiLanguageInput` 物件清單，其中包含您要分析的文件。
 
     ```csharp
     public static async Task SentimentAnalysisExample(TextAnalyticsClient client)
@@ -154,7 +157,7 @@ ms.locfileid: "65466542"
     }
     ```
 
-3. 在同一個函式中，呼叫 `client.SentimentAsync()` 並取得結果。 接著逐一查看結果，並列印每個文件的識別碼和人氣分數。 接近 0 的分數表示負面人氣，而接近 1 的分數則表示正面人氣。
+3. 在同一個函式中，呼叫 `client.SentimentAsync()` 並取得結果。 然後逐一查看結果。 輸出每個文件的識別碼和人氣分數。 接近 0 的分數表示負面人氣，而接近 1 的分數則表示正面人氣。
 
     ```csharp
     var result = await client.SentimentAsync(false, inputDocuments);
@@ -175,10 +178,10 @@ Document ID: 3 , Sentiment Score: 0.44
 Document ID: 4 , Sentiment Score: 1.00
 ```
 
-## <a name="language-detection"></a>語言偵測
+## <a name="perform-language-detection"></a>執行語言偵測
 
-1. 建立名為 `DetectLanguageExample()` 的新函式，取用稍早建立的用戶端。
-2. 產生 `LanguageInput` 物件清單，包含您的文件。
+1. 建立新函式 `DetectLanguageExample()`，以取用稍早建立的用戶端。
+2. 產生包含您文件的 `LanguageInput` 物件清單。
 
     ```csharp
     public static async Task DetectLanguageExample(TextAnalyticsClient client)
@@ -196,7 +199,7 @@ Document ID: 4 , Sentiment Score: 1.00
     }
     ```
 
-3. 在同一個函式中，呼叫 `client.DetectLanguageAsync()` 並取得結果。 接著逐一查看結果，並列印每個文件的識別碼以及第一個傳回的語言。
+3. 在同一個函式中，呼叫 `client.DetectLanguageAsync()` 並取得結果。 然後逐一查看結果。 輸出每個文件的識別碼以及第一個傳回的語言。
 
     ```csharp
     var langResults = await client.DetectLanguageAsync(false, inputDocuments);
@@ -217,10 +220,10 @@ Document ID: 2 , Language: Spanish
 Document ID: 3 , Language: Chinese_Simplified
 ```
 
-## <a name="entity-recognition"></a>實體辨識
+## <a name="perform-entity-recognition"></a>執行實體辨識
 
-1. 建立名為 `RecognizeEntitiesExample()` 的新函式，取用稍早建立的用戶端。
-2. 產生 `MultiLanguageBatchInput` 物件清單，包含您的文件。
+1. 建立新函式 `RecognizeEntitiesExample()`，以取用稍早建立的用戶端。
+2. 產生包含您文件的 `MultiLanguageBatchInput` 物件清單。
 
     ```csharp
     public static async Task RecognizeEntitiesExample(TextAnalyticsClient client)
@@ -237,7 +240,7 @@ Document ID: 3 , Language: Chinese_Simplified
     }
     ```
 
-3. 在同一個函式中，呼叫 `client.EntitiesAsync()` 並取得結果。 接著逐一查看結果，並列印每個文件的識別碼。 對於每個偵測到的實體，列印其維基百科名稱、類型和子類型 (如果存在) 以及原始文字中的位置。
+3. 在同一個函式中，呼叫 `client.EntitiesAsync()` 並取得結果。 然後逐一查看結果。 輸出每個文件的識別碼。 對於每個偵測到的實體，輸出其維基百科名稱、類型和子類型 (如果存在) 以及原始文字中的位置。
 
     ```csharp
     var entitiesResult = await client.EntitiesAsync(false, inputDocuments);
@@ -290,10 +293,10 @@ Document ID: 2
                         Offset: 88,     Length: 7,      Score: 1.000
 ```
 
-## <a name="key-phrase-extraction"></a>關鍵片語擷取
+## <a name="perform-key-phrase-extraction"></a>執行關鍵片語擷取
 
-1. 建立名為 `KeyPhraseExtractionExample()` 的新函式，取用稍早建立的用戶端。
-2. 產生 `MultiLanguageBatchInput` 物件清單，包含您的文件。
+1. 建立新函式 `KeyPhraseExtractionExample()`，以取用稍早建立的用戶端。
+2. 產生包含您文件的 `MultiLanguageBatchInput` 物件清單。
 
     ```csharp
     public static async Task KeyPhraseExtractionExample(TextAnalyticsClient client)
@@ -310,7 +313,7 @@ Document ID: 2
     }
     ```
 
-3. 在同一個函式中，呼叫 `client.KeyPhrasesAsync()` 並取得結果。 然後逐一查看結果，並列印每個文件的識別碼以及偵測到的任何主要片語。
+3. 在同一個函式中，呼叫 `client.KeyPhrasesAsync()` 並取得結果。 然後逐一查看結果。 輸出每個文件的識別碼，以及任何偵測到的關鍵片語。
 
     ```csharp
     var kpResults = await client.KeyPhrasesAsync(false, inputDocuments);
@@ -358,4 +361,3 @@ Document ID: 4
 
 * [文字分析概觀](../overview.md)
 * [常見問題集 (FAQ)](../text-analytics-resource-faq.md)
-

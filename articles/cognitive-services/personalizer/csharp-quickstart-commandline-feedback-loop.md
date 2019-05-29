@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/08/2019
 ms.author: edjez
-ms.openlocfilehash: 85252680fcc4d2592d242762d01040c3859b14a2
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: b0dc8fbbb80a4d03b2cb64d09ffe9a36883c5bf9
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442080"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521379"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>快速入門：使用 C# 將內容個人化 
 
@@ -36,11 +36,11 @@ ms.locfileid: "65442080"
 
 * 您需要[個人化工具服務](how-to-settings.md)以取得訂用帳戶金鑰及端點服務 URL。 
 * [Visual Studio 2015 或 2017](https://visualstudio.microsoft.com/downloads/).
-* The Microsoft.Azure.CognitiveServices.Personalizer SDK NuGet 套件。 下面會提供安裝指示。
+* [Microsoft.Azure.CognitiveServices.Personalizer](https://go.microsoft.com/fwlink/?linkid=2092272) \(英文\) SDK NuGet 套件。 下面會提供安裝指示。
 
 ## <a name="change-the-model-update-frequency"></a>變更模型更新頻率
 
-在 Azure 入口網站的個人化資源中，將 [模型更新頻率] 變更為 10 秒。 如此可快速定型服務，讓您查看最上次的動作如何針對每個反覆項目變更
+在 Azure 入口網站的個人化資源中，將 [模型更新頻率]  變更為 10 秒。 如此可快速定型服務，讓您查看最上次的動作如何針對每個反覆項目變更
 
 ![變更模型更新頻率](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -51,10 +51,10 @@ Get the latest code as a Visual Studio solution from [GitHub] (add link).
 -->
 
 1. 在 Visual Studio 中建立 Visual C# 主控台應用程式。
-1. 安裝個人化工具用戶端程式庫 NuGet 套件。 在功能表上，選取 [工具]，選取 [NuGet 套件管理員]，然後選取 [管理解決方案的 NuGet 套件]。
-1. 選取 [瀏覽] 索引標籤，然後在 [搜尋] 方塊中鍵入 `Microsoft.Azure.CognitiveServices.Personalizer`。
+1. 安裝個人化工具用戶端程式庫 NuGet 套件。 在功能表上，選取 [工具]  ，選取 [NuGet 套件管理員]  ，然後選取 [管理解決方案的 NuGet 套件]  。
+1. 選取 [瀏覽]  索引標籤，然後在 [搜尋]  方塊中鍵入 `Microsoft.Azure.CognitiveServices.Personalizer`。
 1. 在 **Microsoft.Azure.CognitiveServices.Personalizer** 出現時加以選取。
-1. 選取專案名稱旁邊的核取方塊，然後選取 [安裝]。
+1. 選取專案名稱旁邊的核取方塊，然後選取 [安裝]  。
 
 ## <a name="add-the-code-and-put-in-your-personalizer-and-azure-keys"></a>新增程式碼並於其中放入個人化工具和 Azure 金鑰
 
@@ -65,7 +65,7 @@ Get the latest code as a Visual Studio solution from [GitHub] (add link).
 
 ## <a name="add-code-to-rank-the-actions-you-want-to-show-to-your-users"></a>新增程式碼來針對您要顯示給使用者的動作進行排名
 
-下列 C# 程式碼是完整的清單，其可使用 SDK 將使用者資訊、_features 和內容的相關資訊 (動作) 傳給個人化工具。 個人化工具會傳回排名最佳的動作以對使用者顯示。  
+下列 C# 程式碼是完整的清單，其可使用 SDK 將使用者資訊、_features 和內容的相關資訊 (動作  ) 傳給個人化工具。 個人化工具會傳回排名最佳的動作以對使用者顯示。  
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Personalizer;

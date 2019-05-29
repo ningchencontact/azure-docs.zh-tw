@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: ac9a748742bda6b1e7a321a427090662542f1032
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f20cc1107476f8d65323d277a53086b8bd035a1b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486906"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518915"
 ---
 # <a name="back-up-azure-file-shares"></a>備份 Azure 檔案共用
 本文說明如何使用 Azure 入口網站來備份和還原 [Azure 檔案共用](../storage/files/storage-files-introduction.md)。
@@ -48,15 +48,15 @@ Azure 檔案共用的備份處於預覽階段。 支援一般用途 v1 和一般
 ## <a name="configuring-backup-for-an-azure-file-share"></a>設定 Azure 檔案共用備份
 本教學課程假設您已經建立了 Azure 檔案共用。 若要備份 Azure 檔案共用：
 
-1. 在與您的檔案共用相同的區域中建立復原服務保存庫。 如果您已經有保存庫，請開啟保存庫的 [概觀] 頁面，然後按一下 [備份]。
+1. 在與您的檔案共用相同的區域中建立復原服務保存庫。 如果您已經有保存庫，請開啟保存庫的 [概觀] 頁面，然後按一下 [備份]  。
 
     ![選擇 Azure 檔案共用作為備份目標](./media/backup-file-shares/overview-backup-page.png)
 
-2. 在 [備份目標] 功能表中，從 [您想要備份什麼？]，選擇 Azure 檔案共用。
+2. 在 [備份目標]  功能表中，從 [您想要備份什麼？]  ，選擇 Azure 檔案共用。
 
     ![選擇 Azure 檔案共用作為備份目標](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
-3. 按一下 [備份]，將 Azure 檔案共用設定為備份至復原服務保存庫。 
+3. 按一下 [備份]  ，將 Azure 檔案共用設定為備份至復原服務保存庫。
 
    ![按一下 [備份] 讓 Azure 檔案共用與保存庫建立關聯](./media/backup-file-shares/set-backup-goal.png)
 
@@ -64,13 +64,13 @@ Azure 檔案共用的備份處於預覽階段。 支援一般用途 v1 和一般
 
    ![按一下 [備份] 讓 Azure 檔案共用與保存庫建立關聯](./media/backup-file-shares/list-of-storage-accounts.png)
 
-4. 在 [儲存體帳戶] 清單中，選取帳戶並按一下 [確定]。 Azure 會搜尋儲存體帳戶中可以備份的檔案共用。 如果您最近新增了檔案共用，但並未在清單中看到它們，請稍後片刻讓檔案共用出現。
+4. 在 [儲存體帳戶] 清單中，選取帳戶並按一下 [確定]  。 Azure 會搜尋儲存體帳戶中可以備份的檔案共用。 如果您最近新增了檔案共用，但並未在清單中看到它們，請稍後片刻讓檔案共用出現。
 
    ![按一下 [備份] 讓 Azure 檔案共用與保存庫建立關聯](./media/backup-file-shares/discover-file-shares.png)
 
-5. 從 [檔案共用] 清單中，選取您要備份的一或多個檔案，然後按一下 [確定]。
+5. 從 [檔案共用]  清單中，選取您要備份的一或多個檔案，然後按一下 [確定]  。
 
-6. 選擇您的檔案共用之後，[備份] 功能表會切換至 [備份原則]。 從這個功能表中選取現有的備份原則，或建立新的備份原則，然後按一下 [啟用備份]。
+6. 選擇您的檔案共用之後，[備份] 功能表會切換至 [備份原則]  。 從這個功能表中選取現有的備份原則，或建立新的備份原則，然後按一下 [啟用備份]  。
 
    ![按一下 [備份] 讓 Azure 檔案共用與保存庫建立關聯](./media/backup-file-shares/apply-backup-policy.png)
 
@@ -81,11 +81,11 @@ Azure 檔案共用的備份處於預覽階段。 支援一般用途 v1 和一般
 
 ### <a name="to-create-an-on-demand-backup"></a>若要建立隨選備份：
 
-1. 開啟包含檔案共用復原點的復原服務保存庫，然後按一下 [備份項目]。 [備份項目] 類型清單隨即出現。
+1. 開啟包含檔案共用復原點的復原服務保存庫，然後按一下 [備份項目]  。 [備份項目] 類型清單隨即出現。
 
    ![按一下 [備份] 讓 Azure 檔案共用與保存庫建立關聯](./media/backup-file-shares/list-of-backup-items.png)
 
-2. 從清單中，選取 [Azure 儲存體 (Azure 檔案服務)]。 Azure 檔案共用的清單隨即出現。
+2. 從清單中，選取 [Azure 儲存體 (Azure 檔案服務)]  。 Azure 檔案共用的清單隨即出現。
 
    ![按一下 [備份] 讓 Azure 檔案共用與保存庫建立關聯](./media/backup-file-shares/list-of-azure-files-backup-items.png)
 
@@ -93,23 +93,23 @@ Azure 檔案共用的備份處於預覽階段。 支援一般用途 v1 和一般
 
    ![按一下 [備份] 讓 Azure 檔案共用與保存庫建立關聯](./media/backup-file-shares/backup-item-menu.png)
 
-4. 從 [備份項目] 功能表，按一下 [立即備份]。 因為這是隨選備份作業，所以沒有與復原點相關聯的保留原則。 [立即備份] 對話方塊隨即開啟。 指定您想要保留復原點的最後一天。
+4. 從 [備份項目] 功能表，按一下 [立即備份]  。 因為這是隨選備份作業，所以沒有與復原點相關聯的保留原則。 [立即備份]  對話方塊隨即開啟。 指定您想要保留復原點的最後一天。
 
    ![按一下 [備份] 讓 Azure 檔案共用與保存庫建立關聯](./media/backup-file-shares/backup-now-menu.png)
 
 ## <a name="restore-from-backup-of-azure-file-share"></a>從 Azure 檔案共用的備份進行還原
-如果您需要從還原點還原整個檔案共用或個別的檔案或資料夾，請前往上一節中詳述的 [備份項目]。 選擇 [還原共用]，以從所需的時間點還原整個檔案共用。 從顯示的 [還原點] 清單中，選取一個還原點，其可覆寫您目前的檔案共用或將它還原至相同區域中的替代檔案共用。
+如果您需要從還原點還原整個檔案共用或個別的檔案或資料夾，請前往上一節中詳述的 [備份項目]。 選擇 [還原共用]  ，以從所需的時間點還原整個檔案共用。 從顯示的 [還原點] 清單中，選取一個還原點，其可覆寫您目前的檔案共用或將它還原至相同區域中的替代檔案共用。
 
    ![按一下 [備份] 讓 Azure 檔案共用與保存庫建立關聯](./media/backup-file-shares/select-restore-location.png)
 
 ## <a name="restore-individual-files-or-folders-from-backup-of-azure-file-shares"></a>從 Azure 檔案共用的備份還原個別的檔案或資料夾
-Azure 備份提供在 Azure 入口網站中瀏覽還原點的功能。 若要還原您所選的檔案或資料夾，請按一下 [備份項目] 頁面中的 [檔案復原]，並從 [還原點] 清單中進行選擇。 選取 [復原目的地]，然後按一下 [選取檔案] 來瀏覽還原點。 選取您所選的檔案或資料夾，然後選取 [還原]。
+Azure 備份提供在 Azure 入口網站中瀏覽還原點的功能。 若要還原您所選的檔案或資料夾，請按一下 [備份項目] 頁面中的 [檔案復原]，並從 [還原點] 清單中進行選擇。 選取 [復原目的地]，然後按一下 [選取檔案]  來瀏覽還原點。 選取您所選的檔案或資料夾，然後選取 [還原]  。
 
    ![按一下 [備份] 讓 Azure 檔案共用與保存庫建立關聯](./media/backup-file-shares/restore-individual-files-folders.png)
 
 ## <a name="manage-azure-file-share-backups"></a>管理 Azure 檔案共用備份
 
-您可以在 [備份作業] 頁面上對檔案共用備份執行幾項管理工作，包括：
+您可以在 [備份作業]  頁面上對檔案共用備份執行幾項管理工作，包括：
 - [監視工作](backup-azure-files.md#monitor-jobs)
 - [建立新的原則](backup-azure-files.md#create-a-new-policy)
 - [停止保護檔案共用](backup-azure-files.md#stop-protecting-an-azure-file-share)
@@ -118,34 +118,36 @@ Azure 備份提供在 Azure 入口網站中瀏覽還原點的功能。 若要還
 
 ### <a name="monitor-jobs"></a>監視工作
 
-您可以在 [備份作業] 頁面上監視所有作業的進度。
+您可以在 [備份作業]  頁面上監視所有作業的進度。
 
-若要開啟 [備份作業] 頁面：
+若要開啟 [備份作業]  頁面：
 
-- 開啟您要監視的復原服務保存庫，然後在 [復原服務保存庫] 功能表中，按一下 [作業]，然後按一下 [備份作業]。
+- 開啟您要監視的復原服務保存庫，然後在 [復原服務保存庫] 功能表中，按一下 [作業]  ，然後按一下 [備份作業]  。
+
    ![選取您要監視的作業](./media/backup-file-shares/open-backup-jobs.png)
 
     備份作業清單和這些作業的狀態隨即出現。
-   ![選取您要監視的作業](./media/backup-file-shares/backup-jobs-progress-list.png)
+
+    ![選取您要監視的作業](./media/backup-file-shares/backup-jobs-progress-list.png)
 
 ### <a name="create-a-new-policy"></a>建立新的原則
 
-您可以建立新的原則，以從復原服務保存庫的 [備份原則] 備份 Azure 檔案共用。 當您針對檔案共用設定備份時建立的所有原則都會顯示，其 [原則類型] 為 Azure 檔案共用。
+您可以建立新的原則，以從復原服務保存庫的 [備份原則]  備份 Azure 檔案共用。 當您針對檔案共用設定備份時建立的所有原則都會顯示，其 [原則類型] 為 Azure 檔案共用。
 
 若要檢視現有的備份原則：
 
-- 開啟您想要的復原服務保存庫，然後在 [復原服務保存庫] 功能表中，按一下 [備份原則]。 系統會列出所有的備份原則。
+- 開啟您想要的復原服務保存庫，然後在 [復原服務保存庫] 功能表中，按一下 [備份原則]  。 系統會列出所有的備份原則。
 
    ![選取您要監視的作業](./media/backup-file-shares/list-of-backup-policies.png)
 
 若要建立新的備份原則：
 
-1. 在 [復原服務保存庫] 功能表中，按一下 [備份原則]。
-2. 在備份原則清單中，按一下 [新增]。
+1. 在 [復原服務保存庫] 功能表中，按一下 [備份原則]  。
+2. 在備份原則清單中，按一下 [新增]  。
 
    ![選取您要監視的作業](./media/backup-file-shares/new-backup-policy.png)
 
-3. 在 [新增] 功能表中，選取 [Azure 檔案共用]。 Azure 檔案共用的 [備份原則] 功能表隨即開啟。 提供原則名稱、備份頻率，以及復原點的保留期範圍。 當您定義好原則時，按一下 [確定]。
+3. 在 [新增]  功能表中，選取 [Azure 檔案共用]  。 Azure 檔案共用的 [備份原則] 功能表隨即開啟。 提供原則名稱、備份頻率，以及復原點的保留期範圍。 當您定義好原則時，按一下 [確定]。
 
    ![選取您要監視的作業](./media/backup-file-shares/create-new-policy.png)
 
@@ -160,27 +162,27 @@ Azure 備份提供在 Azure 入口網站中瀏覽還原點的功能。 若要還
 
 若要停止保護 Azure 檔案共用：
 
-1. 開啟包含檔案共用復原點的復原服務保存庫，然後按一下 [備份項目]。 [備份項目] 類型清單隨即出現。
+1. 開啟包含檔案共用復原點的復原服務保存庫，然後按一下 [備份項目]  。 [備份項目] 類型清單隨即出現。
 
    ![按一下 [備份] 讓 Azure 檔案共用與保存庫建立關聯](./media/backup-file-shares/list-of-backup-items.png)
 
-2. 在 [備份管理類型] 清單中，選取 [Azure 儲存體 (Azure 檔案服務)]。 Azure 儲存體 (Azure 檔案服務) 的 [備份項目] 清單隨即出現。
+2. 在 [備份管理類型]  清單中，選取 [Azure 儲存體 (Azure 檔案服務)]  。 Azure 儲存體 (Azure 檔案服務) 的 [備份項目] 清單隨即出現。
 
    ![按一下項目以開啟其他功能表](./media/backup-file-shares/azure-file-share-backup-items.png)
 
 3. 在 [備份項目 (Azure 儲存體 (Azure 檔案服務))] 的清單中，選取您要停止的備份項目。
 
-4. 在 Azure 檔案共用項目中，按一下 [更多] 功能表，然後選取 [停止備份]。
+4. 在 Azure 檔案共用項目中，按一下 [更多]  功能表，然後選取 [停止備份]  。
 
    ![按一下項目以開啟其他功能表](./media/backup-file-shares/stop-backup.png)
 
-5. 從 [停止備份] 功能表，選擇 [保留] 或 [刪除備份資料]，然後按一下 [停止備份]。
+5. 從 [停止備份] 功能表，選擇 [保留]  或 [刪除備份資料]  ，然後按一下 [停止備份]  。
 
    ![按一下項目以開啟其他功能表](./media/backup-file-shares/retain-data.png)
 
 ### <a name="resume-protection-for-azure-file-share"></a>繼續保護 Azure 檔案共用
 
-如果在停止保護檔案共用時選擇了 [保留備份資料] 選項，則可以繼續保護。 如果已選擇 [刪除備份資料] 選項，則無法繼續保護檔案共用。
+如果在停止保護檔案共用時選擇了 [保留備份資料] 選項，則可以繼續保護。 如果已選擇 [刪除備份資料]  選項，則無法繼續保護檔案共用。
 
 若要繼續保護檔案共用，請移至 [備份項目] 並按一下 [繼續備份]。 [備份原則] 隨即開啟，而您可以選擇您所選的原則來繼續備份。
 

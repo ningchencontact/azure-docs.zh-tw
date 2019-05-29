@@ -7,12 +7,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 9d9a3a5af304c1080d1d43b9bbfbafe2554a9844
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5b084bd5a1b34dc2ce8ac8abb2a4af03a22262d2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275006"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787336"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>範例 - 計費標籤原則計畫
 
@@ -24,11 +24,7 @@ ms.locfileid: "59275006"
 
 [!code-json[main](../../../../policy-templates/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.json "Billing Tags Policy Initiative")]
 
-您可以使用 [Azure 入口網站](#deploy-with-the-portal)或 [PowerShell](#deploy-with-powershell) 來部署此範本。
-
-## <a name="deploy-with-the-portal"></a>使用入口網站部署
-
-[![將原則範例部署至 Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+您可以使用 [PowerShell](#deploy-with-powershell) 部署此範本。
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 部署
 

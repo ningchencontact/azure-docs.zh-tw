@@ -1,5 +1,5 @@
 ---
-title: 了解 Azure NetApp Files 的儲存體階層 | Microsoft Docs
+title: 什麼是 Azure NetApp Files 的儲存體階層 | Microsoft Docs
 description: 描述儲存體階層，包括 Azure NetApp Files 帳戶、容量集區和磁碟區。
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 04/16/2019
 ms.author: b-juche
-ms.openlocfilehash: 357bd5eac41b0da50a1d7035e8e8045a9f21144c
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: c2984e012ae83a8bc17d72ed4eac0c5c469c2694
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545517"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522876"
 ---
-# <a name="understand-the-storage-hierarchy-of-azure-netapp-files"></a>了解 Azure NetApp Files 的儲存體階層
+# <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>什麼是 Azure NetApp Files 的儲存體階層
 
 在 Azure NetApp Files 中建立磁碟區之前，您必須先購買及設定佈建容量的集區。  若要設定容量集區，您必須具有 NetApp 帳戶。 了解儲存體階層有助於設定和管理您的 Azure NetApp Files 資源。
 
@@ -40,14 +40,16 @@ ms.locfileid: "59545517"
 - 每個容量集區都只能屬於一個 NetApp 帳戶。 不過，您的 NetApp 帳戶內可以有多個容量集區。  
 - 容量集區不能跨越 NetApp 帳戶移動。   
   例如，在下方[儲存體階層的概念圖表](#conceptual_diagram_of_storage_hierarchy)中，容量集區 1 無法從美國東部 NetApp 帳戶移至美國西部 2 NetApp 帳戶。  
+- 必須先刪除容量集區內的所有磁碟區之後，才能刪除容量集區。
 
 ## <a name="volumes"></a>磁碟區
 
 - 磁碟區會依據邏輯容量耗用量進行測量，且可以調整。 
 - 磁碟區的容量耗用量是根據其集區的佈建容量進行計算。
 - 每個磁碟區都只屬於一個集區，但是一個集區可以包含多個磁碟區。 
-- 您可以在相同的 NetApp 帳戶內，於集區之間移動磁碟區。    
-  例如，在下方[儲存體階層的概念圖表](#conceptual_diagram_of_storage_hierarchy)中，您可以將磁碟區從容量集區 1 移至容量集區 2。
+- 磁碟區不能跨越容量集區移動。 <!--Within the same NetApp account, you can move a volume across pools.  -->   
+  例如，在下方的[儲存體階層的概念圖表](#conceptual_diagram_of_storage_hierarchy)中，您可以將磁碟區從容量集區 1 移至容量集區 2。
+- 必須先刪除磁碟區的所有快照之後，才能刪除磁碟區。
 
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>儲存體階層的概念圖表 
 下列範例顯示 Azure 訂用帳戶、NetApp 帳戶、容量集區和磁碟區之間的關係。   
