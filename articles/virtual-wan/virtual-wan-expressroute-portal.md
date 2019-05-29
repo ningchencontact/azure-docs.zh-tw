@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 7b7adcc85b9274af45ddab653e875377e959e40c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3e6ab347a86aa8d04c8ebd0382178b873c987300
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876321"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605436"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>教學課程：使用 Azure 虛擬 WAN 來建立 ExpressRoute 關聯 (預覽)
 
@@ -69,24 +69,24 @@ ms.locfileid: "58876321"
 
 ## <a name="hub"></a>4.尋找線路並將其關聯至中樞
 
-1. 選取您的 vWAN，並且在 [虛擬 WAN 架構] 底下選取 [ExpressRoute 線路]。
-1. 如果 ExpressRoute 線路位在與您 vWAN 相同的訂用帳戶中，請從訂用帳戶按一下 [選取 ExpressRoute 線路]。 
+1. 選取您的 vWAN，並且在 [虛擬 WAN 架構]  底下選取 [ExpressRoute 線路]  。
+1. 如果 ExpressRoute 線路位在與您 vWAN 相同的訂用帳戶中，請從訂用帳戶按一下 [選取 ExpressRoute 線路]  。 
 1. 使用下拉式清單，選取您要關聯至中樞的 ExpressRoute。
-1. 如果 ExpressRoute 線路不是在相同的訂用帳戶中，或是您已提供[授權金鑰和對等互連識別碼](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)，請選取 [尋找線路來兌換授權金鑰]
+1. 如果 ExpressRoute 線路不是在相同的訂用帳戶中，或是您已提供[授權金鑰和對等互連識別碼](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)，請選取 [尋找線路來兌換授權金鑰] 
 1. 輸入下列詳細資料：
 1. **授權金鑰** - 由線路擁有者產生，如上所述
 1. **對等互連線路 URI** - 由線路擁有者所提供的線路 URI，是線路的唯一識別碼
 1. **路由權重** - 當有來自不同對等互連位置的多個線路連線至相同中樞時，[路由權重](../expressroute/expressroute-optimize-routing.md)可讓您使用偏好的特定路徑
-1. 按一下 [尋找線路]，在找到時選取線路。
-1. 從下拉式清單中選取 1 或多個中樞，然後按一下 [儲存]。
+1. 按一下 [尋找線路]  ，在找到時選取線路。
+1. 從下拉式清單中選取 1 或多個中樞，然後按一下 [儲存]  。
 
 ## <a name="vnet"></a>5.將 VNet 連線至中樞
 
 在此步驟中，您會在中樞和 VNet 之間建立等互連的連線。 為您想要連線的每個 VNet 重複這些步驟。
 
-1. 在您的虛擬 WAN 頁面上，按一下 [虛擬網路連線]。
-2. 在 [虛擬網路連線] 頁面上，按一下 [+ 新增連線]。
-3. 在 [新增連線] 頁面上，填寫下列欄位︰
+1. 在您的虛擬 WAN 頁面上，按一下 [虛擬網路連線]  。
+2. 在 [虛擬網路連線] 頁面上，按一下 [+ 新增連線]  。
+3. 在 [新增連線]  頁面上，填寫下列欄位︰
 
     * **名稱** - 為您的連線命名。
     * **中樞** - 選取要與此連線產生關聯的中樞。
@@ -103,7 +103,7 @@ ms.locfileid: "58876321"
 ## <a name="viewhealth"></a>7.檢視資源健康情況
 
 1. 瀏覽至您的 WAN。
-2. 在 WAN 頁面上的 [支援 + 疑難排解] 區段中，按一下 [健康情況] 並檢視您的資源。
+2. 在 WAN 頁面上的 [支援 + 疑難排解]  區段中，按一下 [健康情況]  並檢視您的資源。
 
 ## <a name="connectmon"></a>8.監視連線
 

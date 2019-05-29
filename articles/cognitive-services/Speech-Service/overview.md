@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: e29e36807aff6c32f295c79c90d80c7d2b5b4bcc
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: dc0871c0b16246fa178072e9d9f266d4c02ba1c4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510737"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002996"
 ---
 # <a name="what-are-the-speech-services"></a>什麼是語音服務？
 
 Azure 語音服務會將語音轉文字、文字轉語音及語音翻譯整合至單一 Azure 訂用帳戶。 藉由[語音 SDK](speech-sdk-reference.md)、[語音裝置 SDK](https://aka.ms/sdsdk-quickstart) 或 [REST API](rest-apis.md)，可輕易地透過語音來啟用您的應用程式、工具和裝置。
 
 > [!IMPORTANT]
-> 語音服務已取代 Bing 語音 API、翻譯工具語音和自訂語音。 如需移轉說明，請參閱 [操作指南] > [移轉]。
+> 語音服務已取代 Bing 語音 API、翻譯工具語音和自訂語音。 如需移轉說明，請參閱 [操作指南] > [移轉]  。
 
 Azure 語音服務是由以下功能所組成。 請使用此資料表中的連結，深入了解每項功能的常見使用案例，或瀏覽 API 參考。
 
@@ -42,7 +42,9 @@ Azure 語音服務是由以下功能所組成。 請使用此資料表中的連�
 了解 Azure 語音服務的新功能。
 
 * 2019 年 5 月 - [對話轉譯](conversation-transcription-service.md), [話務中心轉譯](call-center-transcription.md)和[語音優先虛擬助理](voice-first-virtual-assistants.md)的文件目前可供使用。
-* 2019 年 5 月 - 發行的語音 SDK 1.5.0。 如需更新、增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
+* 2019 年 5 月
+    * 發行的語音 SDK 1.5.1。 如需更新、增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
+    * 發行的語音 SDK 1.5.0。 如需更新、增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
 * 2019 年 4 月 - 已發行語音 SDK 1.4.0，在 Windows 和 Linux 上可支援適用於 C++、C# 和 Java 的文字轉語音搶鮮版 (Beta)。 此外，此 SDK 目前在 Linux 上已支援適用於 C++ 和 C# 的 MP3 和 Opus/Ogg 音訊格式。 如需更新、增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
 * 2019 年 3 月 - 現已推出新的文字轉語音 (TTS) 端點，其可傳回特定區域中可用的完整語音清單。 此外，TTS 現在支援新的區域。 如需詳細資訊，請參閱[文字轉語音 API 參考 (REST)](rest-text-to-speech.md)。
 

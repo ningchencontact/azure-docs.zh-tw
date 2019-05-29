@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 45d5cf7c4235d10e136cc96364d52aa4319bbf79
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9d3385b688208065e5854b6358819b5afad8fe65
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137769"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162069"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 服務的概觀
 
@@ -27,13 +27,13 @@ Azure Resource Graph 是 Azure 中的一項服務，透過大規模查詢指定�
 
 > [!NOTE]
 > Azure Resource Graph 負責提供 Azure 入口網站的搜尋列、「所有資源」的全新瀏覽體驗以及用於 Azure 原則的[變更記錄](../policy/how-to/determine-non-compliance.md#change-history-preview)
-> 「視覺效果差異」。其目的是協助客戶管理大規模的環境。
+>   「視覺效果差異」。其目的是協助客戶管理大規模的環境。
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Resource Graph 輔助 Resource Manager 的方式
 
 Azure Resource Manager 目前支援查詢基本資源欄位 (尤其是資源名稱、識別碼、類型、資源群組、訂用帳戶及位置)。 Resource Manager 也提供呼叫個別資源提供者的功能，可一次取得一個資源的詳細屬性。
 
-使用 Azure Resource Graph，您可以存取這些由資源提供者傳回的屬性，而無須對每個資源提供者進行個別呼叫。 如需支援的資源類型清單，請在[完整模式部署資源](../../azure-resource-manager/complete-mode-deletion.md)資料表中尋找 [是] 的部分。
+使用 Azure Resource Graph，您可以存取這些由資源提供者傳回的屬性，而無須對每個資源提供者進行個別呼叫。 如需支援的資源類型清單，請在[完整模式部署資源](../../azure-resource-manager/complete-mode-deletion.md)資料表中尋找 [是]  的部分。
 
 透過 Azure Resource Graph，您可以：
 
@@ -43,7 +43,7 @@ Azure Resource Manager 目前支援查詢基本資源欄位 (尤其是資源名�
 ## <a name="how-resource-graph-is-kept-current"></a>Resource Graph 保持最新狀態的方式
 
 更新 Azure 資源時，Resource Manager 會向 Resource Graph 通知變更。
-Resource Graph 接著會更新其資料庫。 Resource Graph 也會執行標準的「完整掃描」。 若是錯過通知，或者資源在 Resource Manager 的範圍外有所更新，透過掃描可確保 Resource Graph 保持在最新狀態。
+Resource Graph 接著會更新其資料庫。 Resource Graph 也會執行標準的「完整掃描」  。 此掃描可確保 Resource Graph 能在使用者錯過通知，或是有資源在 Resource Manager 範圍外被更新的情況下保持在最新狀態。
 
 ## <a name="the-query-language"></a>查詢語言
 
@@ -63,9 +63,15 @@ Resource Graph 接著會更新其資料庫。 Resource Graph 也會執行標準�
 
 ## <a name="throttling"></a>節流
 
-對 Resource Graph 的查詢是免費的服務，可進行節流控制，以便為所有客戶提供最佳的體驗和回應時間。 如果您的組織想要使用 Resource Graph API 來執行頻繁的大規模查詢，請從 Resource Graph 頁面使用 [意見反應] 入口網站。 請務必提供您的商務案例，並選取 [Microsoft 可以就您提供的意見傳送電子郵件給您] 核取方塊，以便支援小組可以與您連絡。
+對 Resource Graph 的查詢是免費的服務，可進行節流控制，以便為所有客戶提供最佳的體驗和回應時間。 如果您的組織想要使用 Resource Graph API 來執行頻繁的大規模查詢，請從 [Resource Graph 入口網站頁面](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph)使用 [意見反應] 入口網站。
+請提供您的商務案例，並選取 [Microsoft 會就您提供的意見傳送電子郵件給您] 核取方塊，以便支援小組可以與您連絡。
 
-Resource Graph 會在租用戶層級進行節流處理。 服務會覆寫並設定 `x-ms-ratelimit-remaining-tenant-reads` 回應標頭，標明租用戶中的使用者可用的剩餘查詢。 Resource Graph 會每隔 5 秒重設配額，而非每小時重設。 如需詳細資訊，請參閱[對 Resource Manager 要求進行節流](../../azure-resource-manager/resource-manager-request-limits.md)(機器翻譯\)。
+Resource Graph 會在使用者層級進行查詢的節流處理。 服務回應會包含下列 HTTP 標頭：
+
+- `x-ms-user-quota-remaining` (int)：使用者的剩餘資源配額。 此值會對應至查詢計數。
+- `x-ms-user-quota-resets-after` (hh:mm:ss)：使用者配額耗用量重設之前的剩餘時間長度
+
+如需詳細資訊，請參閱[對 Resource Manager 要求進行節流](../../azure-resource-manager/resource-manager-request-limits.md)(機器翻譯\)。
 
 ## <a name="running-your-first-query"></a>執行您的第一個查詢
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 9a59255097c6cb2a6728a14c3dbe19dbcbb0932a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5129af1f34f8a2604e7b70c9638b370c7cad029a
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236794"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015534"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>教學課程：在 .NET 中透過 Azure Web 應用程式使用 Azure Key Vault
 
@@ -43,12 +43,12 @@ Azure Key Vault 可協助您保護秘密，例如 API 金鑰和資料庫連接�
 * 若為 Mac：[Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/)
 * 若為 Windows、Mac 和 Linux：
   * [Git](https://git-scm.com/downloads)
-  * 此教學課程需要您在本機執行 Azure CLI。 您必須安裝 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級 CLI，請參閱[安裝 Azure CLI 2.0](https://review.docs.microsoft.com/cli/azure/install-azure-cli)。
+  * 此教學課程需要您在本機執行 Azure CLI。 您必須安裝 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級 CLI，請參閱[安裝 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
   * [.NET Core](https://www.microsoft.com/net/download/dotnet-core/2.1)
 
 ## <a name="about-managed-service-identity"></a>關於受控服務識別
 
-Azure Key Vault 可安全地儲存認證，因此認證不會在程式碼內顯示出來。 不過，您需要向 Azure Key Vault 驗證才能擷取您的金鑰。 若要向 Key Vault 進行驗證，您必須要有認證。 這是典型的啟動程序難題。 受控服務識別 (MSI) 可藉由提供可簡化此程序的「啟動程序身分識別」來解決此問題。
+Azure Key Vault 可安全地儲存認證，因此認證不會在程式碼內顯示出來。 不過，您需要向 Azure Key Vault 驗證才能擷取您的金鑰。 若要向 Key Vault 進行驗證，您必須要有認證。 這是典型的啟動程序難題。 受控服務識別 (MSI) 可藉由提供可簡化此程序的「啟動程序身分識別」  來解決此問題。
 
 當您針對 Azure 服務 (例如，Azure 虛擬機器、Azure App Service 或 Azure Functions) 啟用 MSI 時，Azure 會建立[服務主體](key-vault-whatis.md#basic-concepts)。 MSI 會在 Azure Active Directory (Azure AD) 中為服務執行個體執行此作業，並將服務主體的認證插入該執行個體中。
 
@@ -85,7 +85,7 @@ Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
 * 金鑰保存庫名稱：由 3 到 24 個字元組成的字串，只能包含數字 (0-9)、字母 (a-z、A-Z) 和連字號 (-)
 * 資源群組名稱
-* 位置：美國西部
+* 位置：美國西部 
 
 在 Azure CLI 中，輸入下列命令：
 
@@ -127,13 +127,13 @@ az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
 
 ## <a name="open-and-edit-the-solution"></a>開啟及編輯解決方案
 
-1. 移至 [頁面] > [About.cshtml.cs] 檔案。
+1. 移至 [頁面]   > [About.cshtml.cs]  檔案。
 
 1. 安裝這些 NuGet 套件：
    - [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)
    - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 
-1. 將下列程式碼匯入到 About.cshtml.cs 檔案：
+1. 將下列程式碼匯入到 About.cshtml.cs  檔案：
 
    ```csharp
     using Microsoft.Azure.KeyVault;
@@ -191,8 +191,8 @@ az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
 
 ## <a name="run-the-web-app"></a>執行 Web 應用程式
 
-1. 在 Visual Studio 2017 的主功能表上，選取 [偵錯] > [啟動] (偵錯/不偵錯)。 
-1. 在瀏覽器中，移至 [關於] 頁面。  
+1. 在 Visual Studio 2019 的主功能表上，選取 [偵錯]   > [啟動]  (偵錯/不偵錯)。 
+1. 在瀏覽器中，移至 [關於]  頁面。  
     **AppSecret** 的值隨即顯示。
 
 ## <a name="enable-a-managed-identity"></a>啟用受控識別
@@ -219,7 +219,7 @@ az webapp identity assign --name "<YourAppName>" --resource-group "<YourResource
 ```
 
 >[!NOTE]
->此程序中的命令等同於前往 [Azure 入口網站](https://portal.azure.com)，並在 Web 應用程式屬性中將 [身分識別/系統指派] 設定切換為 [開啟]。
+>此程序中的命令等同於前往 [Azure 入口網站](https://portal.azure.com)，並在 Web 應用程式屬性中將 [身分識別/系統指派]  設定切換為 [開啟]  。
 
 ## <a name="assign-permissions-to-your-app"></a>對您的應用程式指派權限
 
@@ -236,8 +236,8 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 再次將 Web 應用程式發佈至 Azure，以確認即時 Web 應用程式可以擷取祕密值。
 
 1. 在 Visual Studio 中，選取 **key-vault-dotnet-core-quickstart** 專案。
-2. 選取 [發佈] > [開始]。
-3. 選取 [建立] 。
+2. 選取 [發佈]   > [開始]  。
+3. 選取 [建立]  。
 
 當您執行應用程式時，您應會發現它可擷取您的秘密值。
 

@@ -9,12 +9,12 @@ ms.date: 02/02/2019
 ms.topic: tutorial
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 2a050f8bc5d2437c7cdbadcf3296c2ef6d4659dc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 270059537fc8d06648c86088b22aef5b78ff00ec
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728634"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606310"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>教學課程：使用 Azure CLI 和事件方格將自訂事件路由至 Azure 轉送混合式連線
 
@@ -35,7 +35,7 @@ Event Grid 為 Azure 資源，必須放入 Azure 資源群組中。 資源群組
 
 使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 
 
-下列範例會在 westus2 位置建立名為 gridResourceGroup 的資源群組。
+下列範例會在 westus2  位置建立名為 gridResourceGroup  的資源群組。
 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2
@@ -80,7 +80,7 @@ az eventgrid event-subscription create \
 
 您需要可以從混合式連線擷取事件的應用程式。 [適用於 C# 的 Microsoft Azure Event Grid 混合式連線取用者範例](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination)會執行該作業。 您已經完成必要的步驟。
 
-1. 確定您有 Visual Studio 2017 Version 15.5 或更新版本。
+1. 請確定您有 Visual Studio 2019 或更新版本。
 
 1. 將存放庫複製到本機電腦。
 

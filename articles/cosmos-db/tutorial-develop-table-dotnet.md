@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
-ms.date: 03/11/2019
-ms.openlocfilehash: 0a329722b65e407f011016a1f55e86ef17b47d70
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/20/2019
+ms.openlocfilehash: dc29cc6d3cc2a07214fb638a10039a4c3ea2d92b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192409"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953616"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>透過 .NET SDK 開始使用 Azure Cosmos DB 資料表 API 和 Azure 資料表儲存體
 
@@ -41,15 +41,15 @@ ms.locfileid: "65192409"
 
 ## <a name="create-a-net-console-project"></a>建立 .NET 主控台專案
 
-在 Visual Studio 中，建立新的 .NET 主控台應用程式。 下列步驟示範如何在 Visual Studio 2017 中建立主控台應用程式。 這些步驟類似其他 Visual Studio 版本中的步驟。 您可以在任何類型的 .NET 應用程式 (包括 Azure 雲端服務或 Web 應用程式，以及桌面與行動應用程式) 中使用 Azure CosmosDB 資料表程式庫。 在本指南中，為求簡化，我們會使用主控台應用程式。
+在 Visual Studio 中，建立新的 .NET 主控台應用程式。 下列步驟說明如何在 Visual Studio 2019 中建立主控台應用程式。 您可以在任何類型的 .NET 應用程式 (包括 Azure 雲端服務或 Web 應用程式，以及桌面與行動應用程式) 中使用 Azure CosmosDB 資料表程式庫。 在本指南中，為求簡化，我們會使用主控台應用程式。
 
-1. 選取 [檔案] > [新增] > [專案]。
+1. 選取 [檔案]   > [新增]   > [專案]  。
 
-1. 選取 [已安裝] > [Visual C#] > [主控台應用程式 (.NET Core)]。
+1. 選擇 [主控台應用程式 (.NET Core)]  ，然後選取 [下一步]  。
 
-1. 在 [名稱] 欄位中，輸入應用程式的名稱，例如 **CosmosTableSamples** (您可以視需要提供不同的名稱)。
+1. 在 [專案名稱]  欄位中輸入應用程式的名稱，例如 **CosmosTableSamples**。 (您可以視需要提供不同的名稱。)
 
-1. 選取 [確定] 。
+1. 選取 [建立]  。
 
 此範例中的所有程式碼範例均可新增至主控台應用程式 **Program.cs** 檔案的 Main() 方法。
 
@@ -57,19 +57,21 @@ ms.locfileid: "65192409"
 
 若要取得 NuGet 套件，請遵循下列步驟：
 
-1. 在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。
+1. 在 [方案總管]  中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]  。
 
-1. 線上搜尋 `Microsoft.Azure.Cosmos.Table`、`Microsoft.Extensions.Configuration`、`Microsoft.Extensions.Configuration.Json`、`Microsoft.Extensions.Configuration.Binder`，然後選取 [安裝] 以安裝 Microsoft Azure CosmosDB 資料表程式庫。
+1. 線上搜尋 `Microsoft.Azure.Cosmos.Table`、`Microsoft.Extensions.Configuration`、`Microsoft.Extensions.Configuration.Json`、`Microsoft.Extensions.Configuration.Binder`，然後選取 [安裝]  以安裝 Microsoft Azure CosmosDB 資料表程式庫。
 
 ## <a name="configure-your-storage-connection-string"></a>設定儲存體連接字串
 
-1. 從 [Azure 入口網站](https://portal.azure.com/)，按一下 [連接字串]。 使用視窗右方的複製按鈕來複製**主要連接字串**。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您的 Azure Cosmos 帳戶或資料表儲存體帳戶。 
+
+1. 開啟 [連接字串]  或 [存取金鑰]  窗格。 使用視窗右方的複製按鈕來複製**主要連接字串**。
 
    ![在 [連接字串] 窗格中檢視及複製主要連接字串](./media/create-table-dotnet/connection-string.png)
    
 1. 若要設定連接字串，從 Visual Studio 中，以滑鼠右鍵按一下您的專案 **CosmosTableSamples**。
 
-1. 選取 [新增]，然後選取 [新增項目]。 建立檔案類型為 **TypeScript JSON 組態檔**的新檔案 **Settings.json**。 
+1. 選取 [新增]  ，然後選取 [新增項目]  。 建立檔案類型為 **TypeScript JSON 組態檔**的新檔案 **Settings.json**。 
 
 1. 將 Settings.json 檔案中的程式碼取代為下列程式碼，並指派您的主要連接字串：
 
@@ -79,7 +81,7 @@ ms.locfileid: "65192409"
    }
    ```
 
-1. 以滑鼠右鍵按一下您的專案 **CosmosTableSamples**。 選取 [新增]、[新增項目]，然後新增名為 **AppSettings.cs** 的類別。
+1. 以滑鼠右鍵按一下您的專案 **CosmosTableSamples**。 選取 [新增]  、[新增項目]  ，然後新增名為 **AppSettings.cs** 的類別。
 
 1. 將下列程式碼新增至 AppSettings.cs 檔案。 此檔案會從 Settings.json 檔案中讀取連接字串，並將它指派給設定參數：
 
@@ -104,7 +106,7 @@ ms.locfileid: "65192409"
 
 ## <a name="parse-and-validate-the-connection-details"></a>剖析及驗證連線詳細資料 
 
-1. 以滑鼠右鍵按一下您的專案 **CosmosTableSamples**。 選取 [新增]、[新增項目]，然後新增名為 **Common.cs** 的類別。 您將撰寫程式碼來驗證連線詳細資料，並在此類別內建立資料表。
+1. 以滑鼠右鍵按一下您的專案 **CosmosTableSamples**。 選取 [新增]  、[新增項目]  ，然後新增名為 **Common.cs** 的類別。 您將撰寫程式碼來驗證連線詳細資料，並在此類別內建立資料表。
 
 1. 定義 `CreateStorageAccountFromConnectionString` 方法，如下所示。 此方法將剖析連接字串詳細資料，並驗證 "Settings.json" 檔案中所提供的帳戶名稱和帳戶金鑰詳細資料為有效的。 
 
@@ -170,7 +172,7 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
 
 使用衍生自 [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity)的自訂類別，將實體對應至 C# 物件。 若要將實體新增至資料表，請建立一個類別來定義實體的屬性。
 
-以滑鼠右鍵按一下您的專案 **CosmosTableSamples**。 選取 [新增]、[新增資料夾]，然後將其命名為 **Model**。 在 [Model] 資料夾內新增一個名為 **CustomerEntity.cs** 的類別，然後將下列程式碼新增至其中。
+以滑鼠右鍵按一下您的專案 **CosmosTableSamples**。 選取 [新增]  、[新增資料夾]  ，然後將其命名為 **Model**。 在 [Model] 資料夾內新增一個名為 **CustomerEntity.cs** 的類別，然後將下列程式碼新增至其中。
 
 ```csharp
 namespace CosmosTableSamples.Model
@@ -200,7 +202,7 @@ namespace CosmosTableSamples.Model
 
 下列程式碼範例會建立實體物件，並將它新增至資料表。 [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) \(英文\) 類別內的 InsertOrMerge 方法可用來插入或合併實體。 呼叫 [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet) \(英文\) 方法來執行作業。 
 
-以滑鼠右鍵按一下您的專案 **CosmosTableSamples**。 選取 [新增]、[新增項目]，然後新增名為 **SamplesUtils.cs** 的類別。 此類別會儲存在實體上執行 CRUD 作業所需的所有程式碼。 
+以滑鼠右鍵按一下您的專案 **CosmosTableSamples**。 選取 [新增]  、[新增項目]  ，然後新增名為 **SamplesUtils.cs** 的類別。 此類別會儲存在實體上執行 CRUD 作業所需的所有程式碼。 
 
 ```csharp
 public static async Task<CustomerEntity> InsertOrMergeEntityAsync(CloudTable table, CustomerEntity entity)
@@ -304,7 +306,7 @@ public static async Task DeleteEntityAsync(CloudTable table, CustomerEntity dele
 
 ## <a name="execute-the-crud-operations-on-sample-data"></a>針對範例資料執行 CRUD 作業
 
-當您定義方法來建立資料表、插入或合併實體之後，請針對範例資料執行這些方法。 若要執行此動作，以滑鼠右鍵按一下您的專案 **CosmosTableSamples**。 選取 [新增]、[新增項目]，然後新增名為 **BasicSamples.cs** 的類別，並將下列程式碼新增至其中。 此程式碼會建立資料表並將實體新增至其中。 如果您想要在專案結束時刪除實體和資料表，請從下列程式碼中移除 `table.DeleteIfExistsAsync()` 和 `SamplesUtils.DeleteEntityAsync(table, customer)` 方法的註解：
+當您定義方法來建立資料表、插入或合併實體之後，請針對範例資料執行這些方法。 若要執行此動作，以滑鼠右鍵按一下您的專案 **CosmosTableSamples**。 選取 [新增]  、[新增項目]  ，然後新增名為 **BasicSamples.cs** 的類別，並將下列程式碼新增至其中。 此程式碼會建立資料表並將實體新增至其中。 如果您想要在專案結束時刪除實體和資料表，請從下列程式碼中移除 `table.DeleteIfExistsAsync()` 和 `SamplesUtils.DeleteEntityAsync(table, customer)` 方法的註解：
 
 ```csharp
 using System;

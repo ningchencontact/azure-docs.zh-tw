@@ -8,19 +8,19 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e30308ac2cda643cc0157f5e718157f6599751d6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 76f457b7d577fb2a08bbcc386328ce4d8e59f902
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283540"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979625"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>建立原則指派，以便使用 Azure CLI 識別不相容資源
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>快速入門：建立原則指派，以便使用 Azure CLI 識別不相容資源
 
 了解 Azure 中合規性的第一個步驟是識別您資源的狀態。
 本快速入門會逐步引導您完成程序來建立原則指派，以識別出未使用受控磁碟的虛擬機器。
 
-在此程序結束時，您將會成功識別出未使用受控磁碟的虛擬機器。 它們「不符合」原則指派的規範。
+在此程序結束時，您將會成功識別出未使用受控磁碟的虛擬機器。 它們「不符合」  原則指派的規範。
 
 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 本指南使用 Azure CLI 來建立原則指派，以及識別 Azure 環境中不符合規範的資源。
 
@@ -32,7 +32,7 @@ Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 
 ## <a name="prerequisites"></a>必要條件
 
-使用 Azure CLI 註冊 Policy Insights 資源提供者。 註冊資源提供者，以確保您的訂用帳戶可搭配它使用。 若要註冊資源提供者，您必須有權註冊資源提供者作業。 這項作業包含在「參與者」和「擁有者」角色中。 執行下列命令以註冊資源提供者：
+使用 Azure CLI 註冊 Azure 原則見解資源提供者。 註冊資源提供者，以確保您的訂用帳戶可搭配它使用。 若要註冊資源提供者，您必須有權註冊資源提供者作業。 這項作業包含在「參與者」和「擁有者」角色中。 執行下列命令以註冊資源提供者：
 
 ```azurecli-interactive
 az provider register --namespace 'Microsoft.PolicyInsights'
@@ -54,7 +54,7 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 
 上述命令會使用下列資訊：
 
-- **Name** - 指派的實際名稱。  例如，我們使用了 audit-vm-manageddisks。
+- **Name** - 指派的實際名稱。 例如，我們使用了 audit-vm-manageddisks  。
 - **DisplayName** - 原則指派的顯示名稱。 在此案例中，您會使用*稽核沒有受控磁碟指派的虛擬機器*。
 - **原則** – 原則定義識別碼，這是您用來建立指派的根基。 在此案例中，即為原則定義*稽核沒有受控磁碟的虛擬機器*的 ID。 若要取得原則定義識別碼，請執行此命令：`az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **範圍** – 範圍會決定在哪些資源或資源群組上強制執行原則指派。 範圍從訂用帳戶到資源群組。 請務必將 &lt;scope&gt; 取代為您的資源群組。
@@ -102,7 +102,7 @@ armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/provider
 }
 ```
 
-結果類似於您通常在 Azure 入口網站檢視中看到列在 [不符合規範的資源] 之下的內容。
+結果類似於您通常在 Azure 入口網站檢視中看到列在 [不符合規範的資源]  之下的內容。
 
 ## <a name="clean-up-resources"></a>清除資源
 

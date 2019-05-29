@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 07/03/2013
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 84cc4e92419e683f8d2c29883b26148fdef23356
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ee655dc39fbe7d0e3eb5cb41b091aea24d8dbea3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325716"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131277"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>將自訂 SSL 憑證繫結至函式應用程式
 
@@ -27,7 +27,7 @@ ms.locfileid: "60325716"
 * 對於想要上傳並繫結的 SSL 憑證，您具備有效的 .PFX 檔案和其密碼。
 * 已在指向您 Web 應用程式預設網域名稱的自訂網域中設定 A 記錄。 如需詳細資訊，請參閱[將現有的自訂 DNS 名稱對應至 Azure Web Apps](https://aka.ms/appservicecustomdns)。
 
-若要繫結 SSL 憑證，必須在 App Service 方案中建立函式應用程式，而不是在取用方案中建立。
+若要繫結 SSL 憑證，必須在進階方案或 App Service 方案中建立函式應用程式，而不是在取用方案中建立。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

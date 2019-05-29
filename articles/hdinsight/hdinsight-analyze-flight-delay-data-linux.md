@@ -5,24 +5,21 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/15/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: eb86dc8c5c3b215a2c90380b4009efd00d2a243c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ac1ae7ed761099a19accf55e9e4dab61193c2de7
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723154"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967796"
 ---
-# <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>教學課程：使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料
+# <a name="tutorial-extract-transform-and-load-data-using-apache-hive-in-azure-hdinsight"></a>教學課程：使用 Azure HDInsight 中的 Apache Hive 來擷取、轉換和載入資料
 
-在本教學課程中，您會取用原始 CSV 資料檔、將其匯入 HDInsight 叢集儲存體中，然後使用 Azure HDInsight 上的 [Apache Hive](https://hive.apache.org/) 轉換資料。 資料轉換後，您會使用 [Apache Sqoop](https://sqoop.apache.org/) 將該資料載入 Azure SQL 資料庫中。 在本文中，您會使用可公開取用的航班資料。
+在本教學課程中，您將取用公開航班資料的原始 CSV 資料檔案、將其匯入 HDInsight 叢集儲存體中，然後使用 Azure HDInsight 中的 [Apache Hive](https://hive.apache.org/) 來轉換資料。 資料轉換後，您會使用 [Apache Sqoop](https://sqoop.apache.org/) 將該資料載入 Azure SQL 資料庫中。
 
-> [!IMPORTANT]  
-> 此文件中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是 Azure HDInsight 版本 3.4 或更新版本上唯一使用的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
-
-本教學課程涵蓋下列工作： 
+本教學課程涵蓋下列工作：
 
 > [!div class="checklist"]
 > * 下載範例航班資料
@@ -31,73 +28,71 @@ ms.locfileid: "64723154"
 > * 在 Azure SQL 資料庫中建立資料表
 > * 使用 Sqoop 將資料匯出至 Azure SQL 資料庫
 
-
 下圖顯示一般 ETL 應用程式流程。
 
 ![使用 Azure HDInsight 上的 Apache Hive 執行 ETL 作業](./media/hdinsight-analyze-flight-delay-data-linux/hdinsight-etl-architecture.png "使用 Azure HDInsight 上的 Apache Hive 執行 ETL 作業")
 
-如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
 
-* **HDInsight 上的 Linux 型 Hadoop 叢集**。 請參閱[開始在 HDInsight 中使用 Apache Hadoop](hadoop/apache-hadoop-linux-tutorial-get-started.md)，以取得如何建立新的 Linux 型 HDInsight 叢集的步驟。
+* HDInsight 上的 Apache Hadoop 叢集。 請參閱[開始在 Linux 上使用 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 
-* **Azure SQL Database**。 您會使用 Azure SQL 資料庫做為目的地資料存放區。 如果您沒有 SQL 資料庫，請參閱[在 Azure 入口網站中建立 Azure SQL 資料庫](../sql-database/sql-database-get-started.md)。
+* Azure SQL Database。 您會使用 Azure SQL 資料庫做為目的地資料存放區。 如果您沒有 SQL 資料庫，請參閱[在 Azure 入口網站中建立 Azure SQL 資料庫](../sql-database/sql-database-single-database-get-started.md)。
 
-* **Azure CLI**。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 以取得相關步驟。
-
-* **SSH 用戶端**。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
+* SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="download-the-flight-data"></a>下載航班資料
 
-1. 瀏覽至[創新技術研究管理部運輸統計處][rita-website]。
+1. 瀏覽至[創新技術研究管理部運輸統計處](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time)。
 
-2. 在此頁面上選取下列值：
+2. 在此頁面上清除所有欄位，然後選取下列值：
 
    | Name | 值 |
    | --- | --- |
-   | 篩選年份 |2013 |
+   | 篩選年份 |2019 |
    | 篩選期間 |一月 |
-   | 欄位 |Year、FlightDate、UniqueCarrier、Carrier、FlightNum、OriginAirportID、Origin、OriginCityName、OriginState、DestAirportID、Dest、DestCityName、DestState、DepDelayMinutes、ArrDelay、ArrDelayMinutes、CarrierDelay、WeatherDelay、NASDelay、SecurityDelay、LateAircraftDelay。 |
-   
-   清除所有其他欄位。 
+   | 欄位 |Year、FlightDate、Reporting_Airline、DOT_ID_Reporting_Airline、Flight_Number_Reporting_Airline、OriginAirportID、Origin、OriginCityName、OriginState、DestAirportID、Dest、DestCityName、DestState、DepDelayMinutes、ArrDelay、ArrDelayMinutes、CarrierDelay、WeatherDelay、NASDelay、SecurityDelay、LateAircraftDelay。 |
 
-3. 選取 [下載]。 您會取得含有您所選資料欄位的 .zip 檔案。
+3. 選取 [下載]  。 您會取得含有您所選資料欄位的 .zip 檔案。
 
 ## <a name="upload-data-to-an-hdinsight-cluster"></a>將資料上傳至 HDInsight 叢集
 
 有許多方法可將資料上傳至與 HDInsight 叢集相關聯的儲存體。 在本節中，您會使用 `scp` 來上傳資料。 若要了解其他上傳資料的方式，請參閱[將資料上傳至 HDInsight](hdinsight-upload-data.md)。
 
-1. 開啟命令提示字元，並使用下列命令將 .zip 檔案上傳至 HDInsight 叢集前端節點：
+1. 將 .zip 檔案上傳到 HDInsight 叢集前端節點。 將 `FILENAME` 取代為 .zip 檔案的名稱，並將 `CLUSTERNAME` 取代為 HDInsight 叢集的名稱，以編輯下列命令。 然後，開啟命令提示字元，並將您的工作目錄設為檔案位置，然後輸入命令。
 
-    ```bash
-    scp <FILENAME>.zip <SSH-USERNAME>@<CLUSTERNAME>-ssh.azurehdinsight.net:<FILENAME.zip>
+    ```cmd
+    scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
     ```
 
-    以 .zip 檔案名稱取代 FILENAME。 以 HDInsight 叢集的 SSH 登入取代 *USERNAME* 。 將 *CLUSTERNAME* 取代為 HDInsight 叢集的名稱。
+2. 完成上傳之後，使用 SSH 連線至叢集。 將 `CLUSTERNAME` 取代為 HDInsight 叢集的名稱，以編輯下列命令。 然後，輸入下列命令：
 
-   > [!NOTE]  
-   > 如果您使用密碼來驗證您的 SSH 登入，系統會提示您輸入密碼。 如果您使用的是公用金鑰，您可能必須使用 `-i` 參數並指定對應的私密金鑰路徑。 例如： `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`。
-
-2. 完成上傳之後，使用 SSH 連線至叢集。 在命令提示字元中輸入下列命令：
-
-    ```bash
-    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-3. 使用以下命令解壓縮 .zip 檔案：
+3. 在 SSH 連線建立後，請設定環境變數。 請將 `FILE_NAME`、`SQL_SERVERNAME`、`SQL_DATABASE`、`SQL_USER` 和 `SQL_PASWORD` 取代為適當的值。 然後輸入命令：
 
     ```bash
-    unzip FILENAME.zip
+    export FILENAME=FILE_NAME
+    export SQLSERVERNAME=SQL_SERVERNAME
+    export DATABASE=SQL_DATABASE
+    export SQLUSER=SQL_USER
+    export SQLPASWORD='SQL_PASWORD'
     ```
 
-    此命令會解壓縮一個 .csv 檔案 (約為 60MB)。
+4. 輸入以下命令將 .zip 檔案解壓縮：
 
-4. 使用下列命令在 HDInsight 儲存體上建立目錄，然後將 .csv 檔案複製到該目錄︰
+    ```bash
+    unzip $FILENAME.zip
+    ```
+
+5. 輸入下列命令以在 HDInsight 儲存體上建立目錄，然後將 .csv 檔案複製到該目錄︰
 
     ```bash
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
-    hdfs dfs -put <FILENAME>.csv /tutorials/flightdelays/data/
+    hdfs dfs -put $FILENAME.csv /tutorials/flightdelays/data/
     ```
 
 ## <a name="transform-data-using-a-hive-query"></a>使用 Hive 查詢轉換資料
@@ -174,21 +169,21 @@ ms.locfileid: "64723154"
     FROM delays_raw;
     ```
 
-2. 若要儲存檔案，請按 **Esc**，然後輸入 `:x`。
+3. 若要儲存檔案，請依序按 **Ctrl + X**、**y** 和 Enter 鍵。
 
-3. 若要啟動 Hive 並執行 **flightdelays.hql** 檔案，請使用下列命令：
+4. 若要啟動 Hive 並執行 **flightdelays.hql** 檔案，請使用下列命令：
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
-4. 在 __flightdelays.hql__ 指令碼執行完畢之後，請使用下列命令來開啟互動式 Beeline 工作階段：
+5. 在 **flightdelays.hql** 指令碼執行完畢之後，請使用下列命令來開啟互動式 Beeline 工作階段：
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
-5. 當您收到 `jdbc:hive2://localhost:10001/>` 提示字元時，請使用以下查詢從匯入的航班延誤資料中擷取資料：
+6. 當您收到 `jdbc:hive2://localhost:10001/>` 提示字元時，請使用以下查詢從匯入的航班延誤資料中擷取資料：
 
     ```hiveql
     INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
@@ -202,33 +197,23 @@ ms.locfileid: "64723154"
 
     此查詢會擷取因氣候因素而延誤的城市清單，以及平均延誤時間，並會儲存到 `/tutorials/flightdelays/output`。 稍後，Sqoop 會從此位置讀取該資料，並匯出到 Azure SQL Database。
 
-6. 若要結束 Beeline，請在提示字元中輸入 `!quit` 。
+7. 若要結束 Beeline，請在提示字元中輸入 `!quit` 。
 
 ## <a name="create-a-sql-database-table"></a>建立 SQL 資料庫資料表
 
-本節假設您已建立事件 Azure SQL 資料庫。 如果您還沒有 SQL 資料庫，請使用[在 Azure 入口網站中建立 Azure SQL 資料庫](../sql-database/sql-database-get-started.md)中的資訊來建立一個資料庫。
+連接至 SQL Database 並建立資料表的方法有很多種。 下列步驟會從 HDInsight 叢集使用 [FreeTDS](http://www.freetds.org/) 。
 
-如果您已經有 SQL 資料庫，就必須取得伺服器名稱。 若要在 [Azure 入口網站](https://portal.azure.com)中找到伺服器名稱，請選取 [SQL Database]，然後篩選您選擇使用的資料庫名稱。 伺服器名稱會列在 [伺服器名稱] 資料行中。
-
-![取得 Azure SQL 伺服器詳細資料](./media/hdinsight-analyze-flight-delay-data-linux/get-azure-sql-server-details.png "取得 Azure SQL 伺服器詳細資料")
-
-> [!NOTE]  
-> 連接至 SQL Database 並建立資料表的方法有很多種。 下列步驟會從 HDInsight 叢集使用 [FreeTDS](http://www.freetds.org/) 。
-
-
-1. 若要安裝 FreeTDS，請從 SSH 連線對叢集使用下列命令：
+1. 若要安裝 FreeTDS，請從開啟的叢集 SSH 連線使用下列命令：
 
     ```bash
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-3. 安裝完成後，請使用下列命令來連線到 SQL Database 伺服器。 使用 SQL Database 伺服器名稱取代 **serverName** 。 使用 SQL Database 的登入取代 **adminLogin** 和 **adminPassword**。 使用資料庫名稱取代 **databaseName** 。
+2. 安裝完成後，請使用下列命令來連線到 SQL Database 伺服器。
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H $SQLSERVERNAME.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD
     ```
-
-    出現提示時，請輸入 SQL Database 管理員的登入密碼。
 
     您會收到如以下文字的輸出：
 
@@ -236,22 +221,22 @@ ms.locfileid: "64723154"
     locale is "en_US.UTF-8"
     locale charset is "UTF-8"
     using default charset "UTF-8"
-    Default database being set to sqooptest
+    Default database being set to <yourdatabase>
     1>
     ```
 
-4. 在 `1>` 提示字元輸入下列幾行：
+3. 在 `1>` 提示字元輸入下列幾行：
 
     ```hiveql
     CREATE TABLE [dbo].[delays](
     [origin_city_name] [nvarchar](50) NOT NULL,
     [weather_delay] float,
-    CONSTRAINT [PK_delays] PRIMARY KEY CLUSTERED   
+    CONSTRAINT [PK_delays] PRIMARY KEY CLUSTERED
     ([origin_city_name] ASC))
     GO
     ```
 
-    輸入 `GO` 陳述式後，將評估先前的陳述式。 此查詢會建立名為 **delays** 的資料表 (具有叢集索引)。
+    輸入 `GO` 陳述式後，將評估先前的陳述式。 此陳述式會建立名為 **delays** 的資料表 (具有叢集索引)。
 
     使用下列查詢來確認已建立資料表：
 
@@ -267,32 +252,32 @@ ms.locfileid: "64723154"
     databaseName       dbo             delays        BASE TABLE
     ```
 
-5. Enter `exit` at the `1>` 以結束 tsql 公用程式。
+4. Enter `exit` at the `1>` 以結束 tsql 公用程式。
 
 ## <a name="export-data-to-sql-database-using-apache-sqoop"></a>使用 Apache Sqoop 將資料匯出至 SQL 資料庫
 
-在前幾節中，您在 `/tutorials/flightdelays/output` 上複製了已轉換的資料。 在本節中，您會使用 Sqoop 將資料從 '/tutorials/flightdelays/output` 匯出至您在 Azure SQL 資料庫中建立的資料表。 
+在前幾節中，您在 `/tutorials/flightdelays/output` 上複製了已轉換的資料。 在本節中，您會使用 Sqoop 將資料從 `/tutorials/flightdelays/output` 匯出至您在 Azure SQL 資料庫中建立的資料表。
 
-1. 使用下列命令以確認 Sqoop 看得見您的 SQL 資料庫：
+1. 輸入下列命令，以確認 Sqoop 看得見您的 SQL 資料庫：
 
     ```bash
-    sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
+    sqoop list-databases --connect jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433 --username $SQLUSER --password $SQLPASWORD
     ```
 
-    此命令會傳回一份資料庫清單，包含您稍早在其中建立 delays 資料表的資料庫。
+    此命令會傳回一份資料庫清單，包含您稍早在其中建立 `delays` 資料表的資料庫。
 
-2. 使用以下命令，將資料從 hivesampletable 匯出至延遲資料表：
+2. 輸入下列命令，將資料從 `/tutorials/flightdelays/output` 匯出至 `delays` 資料表：
 
     ```bash
-    sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+    sqoop export --connect "jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433;database=$DATABASE" --username $SQLUSER --password $SQLPASWORD --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
-    Sqoop 會連線到包含 delays 資料表的資料庫，並將資料從 `/tutorials/flightdelays/output` 目錄匯出至 delays 資料表。
+    Sqoop 會連線至包含 `delays` 資料表的資料庫，並將資料從 `/tutorials/flightdelays/output` 目錄匯出至 `delays` 資料表。
 
-3. 在 sqoop 命令完成後，使用 tsql 公用程式連線至資料庫：
+3. 在 sqoop 命令完成後，輸入下列命令以使用 tsql 公用程式連線至資料庫：
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H $SQLSERVERNAME.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD
     ```
 
     使用下列陳述式來確認資料已匯出到延遲資料表：
@@ -306,44 +291,24 @@ ms.locfileid: "64723154"
 
     輸入 `exit` 以結束 tsql 公用程式。
 
+## <a name="clean-up-resources"></a>清除資源
+
+完成本教學課程之後，您可以刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
+
+若要刪除叢集，請參閱[使用您的瀏覽器、PowerShell 或 Azure CLI 刪除 HDInsight 叢集](./hdinsight-delete-cluster.md)。
+
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何使用 HDInsight 中的 Apache Hadoop 叢集執行擷取、轉換和載入資料作業。 接著請進入下一個教學課程，了解如何使用 Azure Data Factory 隨需建立 HDInsight Handoop 叢集。
+在本教學課程中，您已取用原始 CSV 資料檔、將其匯入 HDInsight 叢集儲存體中，然後使用 Azure HDInsight 上的 Apache Hive 轉換了資料。  接著請進入下一個教學課程，了解如何使用 Azure Data Factory 隨需建立 HDInsight Handoop 叢集。
 
 > [!div class="nextstepaction"]
 >[使用 Azure Data Factory 在 HDInsight 中建立隨選 Apache Hadoop 叢集](hdinsight-hadoop-create-linux-clusters-adf.md)
 
 若要了解更多 HDInsight 中資料的使用方式，請參閱下列文章：
 
-* [教學課程：使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
-* [搭配 HDInsight 使用 Apache Hive][hdinsight-use-hive]
-* [搭配 HDInsight 使用 Apache Pig][hdinsight-use-pig]
-* [開發適用於 HDInsight 上 Apache Hadoop 的 Java MapReduce 程式][hdinsight-develop-mapreduce]
+* [教學課程：使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料](../storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive.md)
+* [搭配 HDInsight 使用 Apache Hive](hadoop/hdinsight-use-hive.md)
+* [開發適用於 HDInsight 上 Apache Hadoop 的 Java MapReduce 程式](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-* [搭配 HDInsight 使用 Apache Oozie][hdinsight-use-oozie]
-* [搭配 HDInsight 使用 Apache Sqoop][hdinsight-use-sqoop]
-
-
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-
-[rita-website]: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
-[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
-
-[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-use-sqoop]:hadoop/apache-hadoop-use-sqoop-mac-linux.md
-[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
-
-[hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
-
-[hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
-
-[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+* [使用 Apache Oozie 搭配 HDInsight](hdinsight-use-oozie-linux-mac.md)
+* [搭配 HDInsight 使用 Apache Sqoop](hadoop/apache-hadoop-use-sqoop-mac-linux.md)

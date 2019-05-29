@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a81eef9e3f7892afa1d64befec35852381ffe17b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ddbb535d386fb90ccb2042e0908e66146e854f00
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117739"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603455"
 ---
 # <a name="what-is-azure-data-box"></a>什麼是 Azure 資料箱？
 
@@ -109,7 +109,7 @@ Microsoft Azure 資料箱雲端解決方案可讓您以快速、實惠和可靠�
 
 ## <a name="region-availability"></a>區域可用性
 
-資料箱可以根據其服務所部署的區域、裝置所寄送的國家/地區，以及您將資料傳輸至的目標 Azure 儲存體帳戶來傳輸資料。 
+資料箱可以根據其服務所部署的區域、裝置所寄送的國家/地區，以及資料傳輸後所在的目標 Azure 儲存體帳戶來傳輸資料。 
 
 - **服務可用性** - 針對此版本，下列區域提供資料箱服務：
     - 位於美國的所有區域 - 美國中西部、美國西部2、美國西部、美國中南部、美國中部、美國中北部、美國東部，以及美國東部2。

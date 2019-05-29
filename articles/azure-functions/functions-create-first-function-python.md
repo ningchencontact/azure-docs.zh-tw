@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 7e2b3424c3d8edc931054dea062280ea7789dc44
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 88e8d543e8bc3c3ae07133ec333b33c4486c2684
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143063"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864521"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>在 Azure 中建立 HTTP 觸發的函式
 
@@ -100,7 +100,7 @@ cd MyFunctionProj
 func new
 ```
 
-選擇 [HTTP 觸發程序] 範本，並輸入 `HttpTrigger` 作為函式名稱，然後按 Enter 鍵。
+選擇 [HTTP 觸發程序]  範本，並輸入 `HttpTrigger` 作為函式名稱，然後按 Enter 鍵。
 
 此時會建立名為 _HttpTrigger_ 的子資料夾，其中包含下列檔案：
 
@@ -108,7 +108,7 @@ func new
 
   每個繫結都需要方向、類型和唯一名稱。 HTTP 觸發程序具有 [`httpTrigger`](functions-bindings-http-webhook.md#trigger) 類型的輸入繫結，和 [`http`](functions-bindings-http-webhook.md#output) 類型的輸出繫結。
 
-* **__init__.py**：包含 HTTP 觸發函式的指令碼檔案。 請檢閱此指令碼，並確認其中包含預設的 `main()`。 來自觸發程序的 HTTP 資料會使用 `req` 指定的繫結參數傳至此函式。 `req` 定義於 function.json 中，是 [azure.functions.HttpRequest 類別](/python/api/azure-functions/azure.functions.httprequest)的執行個體。 
+* **\_\_init\_\_.py**：HTTP 觸發函式的指令碼檔案。 請檢閱此指令碼，並確認其中包含預設的 `main()`。 來自觸發程序的 HTTP 資料會使用 `req` 指定的繫結參數傳至此函式。 `req` 定義於 function.json 中，是 [azure.functions.HttpRequest 類別](/python/api/azure-functions/azure.functions.httprequest)的執行個體。 
 
     傳回物件在 function.json 中定義為 `$return`，是 [azure.functions.HttpResponse 類別](/python/api/azure-functions/azure.functions.httpresponse)的執行個體。 若要深入了解，請參閱 [Azure Functions HTTP 觸發程序和繫結](functions-bindings-http-webhook.md)。
 

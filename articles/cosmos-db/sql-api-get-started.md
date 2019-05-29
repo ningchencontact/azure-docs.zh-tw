@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: 64aef17663fdc28a467172bbe8954fc06fdb7ff0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 7574985dbcc502d03bc886c7651c859b22968c5f
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680375"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596102"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>建置 .NET 主控台應用程式來管理 Azure Cosmos DB SQL API 帳戶中的資料
 
@@ -63,10 +63,10 @@ Azure 訂用帳戶或免費的 Cosmos DB 試用帳戶：
 
 1. 確認您已安裝這些[必要條件](#prerequisites)。 
 1. 在 Visual Studio 中開啟下載的 *GetStarted.sln* 解決方案檔案。
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 [GetStarted] 專案，然後選取 [管理 NuGet 套件]。
-1. 在 [NuGet] 索引標籤上，選取 [還原] 來還原 Azure Cosmos DB.NET SDK 的參考。
+1. 在 [方案總管]  中，以滑鼠右鍵按一下 [GetStarted]  專案，然後選取 [管理 NuGet 套件]  。
+1. 在 [NuGet]  索引標籤上，選取 [還原]  來還原 Azure Cosmos DB.NET SDK 的參考。
 1. 接下來，在 *App.config* 檔案中更新 `EndpointUrl` 和 `PrimaryKey` 值，如[連線至 Azure Cosmos DB 帳戶](#Connect)中所述。
-1. 選取 [偵錯] > [啟動但不偵錯]或按 **Ctrl**+**F5** 建置並執行應用程式。
+1. 選取 [偵錯]   > [啟動但不偵錯]  或按 **Ctrl**+**F5** 建置並執行應用程式。
 
 ## <a name="create-an-azure-cosmos-db-account"></a>建立 Azure Cosmos DB 帳戶
 
@@ -76,19 +76,19 @@ Azure 訂用帳戶或免費的 Cosmos DB 試用帳戶：
 
 ## <a id="SetupVS"></a>設定 Visual Studio 解決方案
 
-1. 在 Visual Studio 2017 中，選取 [檔案] > [新增] > [專案]。
+1. 在 Visual Studio 2017 中，選取 [檔案]   > [新增]   > [專案]  。
    
-1. 在 [新增專案] 對話方塊中，選取 [Visual C#] > [主控台應用程式 (.NET Framework)]、將專案命名為 *AzureCosmosDBApp*，然後按一下 [確定]。
+1. 在 [新增專案]  對話方塊中，選取 [Visual C#]   > [主控台應用程式 (.NET Framework)]  、將專案命名為 *AzureCosmosDBApp*，然後按一下 [確定]  。
    
    ![[新增專案] 視窗的螢幕擷取畫面](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
    
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 **AzureCosmosDBApp** 專案，然後選取 [管理 NuGet 套件]。
+1. 在 [方案總管]  中，以滑鼠右鍵按一下 **AzureCosmosDBApp** 專案，然後選取 [管理 NuGet 套件]  。
    
    ![專案操作功能表](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges.png)
    
-1. 在 [NuGet] 索引標籤中，選取 [瀏覽]，然後在搜尋方塊中輸入 *azure documentdb*。
+1. 在 [NuGet]  索引標籤中，選取 [瀏覽]  ，然後在搜尋方塊中輸入 *azure documentdb*。
    
-1. 尋找並選取 [Microsoft.Azure.DocumentDB]，如果尚未安裝，請選取 [安裝]。
+1. 尋找並選取 [Microsoft.Azure.DocumentDB]  ，如果尚未安裝，請選取 [安裝]  。
    
    「Azure Cosmos DB SQL API 用戶端程式庫」的套件識別碼是 [Microsoft Azure Cosmos DB 用戶端程式庫](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) \(英文\)。
 
@@ -97,13 +97,13 @@ Azure 訂用帳戶或免費的 Cosmos DB 試用帳戶：
 
    ![用於尋找 Azure Cosmos DB 用戶端 SDK 的 NuGet 功能表螢幕擷取畫面](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
    
-   如果您收到關於檢閱方案變更的訊息，請選取 [確定]。 如果您收到關於接受授權的訊息，請選取 [我接受]。
+   如果您收到關於檢閱方案變更的訊息，請選取 [確定]  。 如果您收到關於接受授權的訊息，請選取 [我接受]  。
 
 ## <a id="Connect"></a>連線至 Azure Cosmos DB 帳戶
 
 現在，開始撰寫一些程式碼。 此教學課程的完整 *Project.cs* 檔案位於 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs) 中。
 
-1. 在 [方案總管] 中，選取 [Program.cs]，然後在程式碼編輯器中，將下列參考加入至檔案的開頭：
+1. 在 [方案總管]  中，選取 [Program.cs]  ，然後在程式碼編輯器中，將下列參考加入至檔案的開頭：
    
    ```csharp
    using System.Net;
@@ -126,11 +126,11 @@ Azure 訂用帳戶或免費的 Cosmos DB 試用帳戶：
 1. 端點 URL 和主要金鑰可讓您的應用程式連線到您的 Azure Cosmos DB 帳戶，Azure Cosmos DB 帳戶才會信任該連線。 從 [Azure 入口網站](https://portal.azure.com)複製金鑰，並將其貼到您的程式碼中。 
 
    
-   1. 在 Azure Cosmos DB 帳戶的左側導覽中，選取 [金鑰]。
+   1. 在 Azure Cosmos DB 帳戶的左側導覽中，選取 [金鑰]  。
       
       ![在 Azure 入口網站的 [金鑰] 頁面中，檢視並複製存取金鑰](./media/sql-api-get-started/nosql-tutorial-keys.png)
       
-   1. 在 [讀寫金鑰] 底下，使用右側的 [複製] 按鈕複製 **URI** 值，然後將其貼到 *Program.cs* 中的 `<your endpoint URL>`。 例如︰ 
+   1. 在 [讀寫金鑰]  底下，使用右側的 [複製] 按鈕複製 **URI** 值，然後將其貼到 *Program.cs* 中的 `<your endpoint URL>`。 例如︰ 
       
       `private const string EndpointUrl = "https://mysqlapicosmosdb.documents.azure.com:443/";`
       
@@ -145,6 +145,20 @@ Azure 訂用帳戶或免費的 Cosmos DB 試用帳戶：
       {
         client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
       }
+   ```
+
+   如果您使用 Proxy 物件來連線到 Azure Cosmos DB，您應該改用下列程式碼區塊來建立 DocumentClient 物件。 這份文件中的範例不是使用 Proxy 物件，因此下列範例僅供您參考：
+
+   ```csharp
+   HttpClientHandler handler = new HttpClientHandler()
+   {
+     Proxy = proxyObject
+     UseProxy = true,
+   };
+
+   //Pass handler to the constructor of DocumentClient.
+   DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey, handler);
+   
    ```
    
 1. 將下列程式碼新增至 `Main` 方法以執行 `GetStartedDemo` 工作。 `Main` 方法會攔截例外狀況並將它們寫入主控台。
@@ -177,7 +191,7 @@ Azure 訂用帳戶或免費的 Cosmos DB 試用帳戶：
    
 1. 按 **F5** 鍵執行您的應用程式。 
    
-1. 當您在主控台視窗中看到訊息 [示範結束，按任意鍵退出]，表示連線成功。 按任意鍵關閉主控台視窗。 
+1. 當您在主控台視窗中看到訊息 [示範結束，按任意鍵退出]  ，表示連線成功。 按任意鍵關閉主控台視窗。 
 
 您已成功連線至您的 Azure Cosmos DB 帳戶。 現在，使用一些 Azure Cosmos DB 資源。  
 
@@ -204,7 +218,7 @@ Azure Cosmos DB [資料庫](databases-containers-items.md#azure-cosmos-databases
    
 1. 按 **F5** 鍵執行您的應用程式。
 
-您已成功建立 Azure Cosmos DB 資料庫。 透過在 Azure Cosmos DB 帳戶左側導覽中選取 [資料總管]，可以在 [Azure 入口網站](https://portal.azure.com)中查看資料庫。 
+您已成功建立 Azure Cosmos DB 資料庫。 透過在 Azure Cosmos DB 帳戶左側導覽中選取 [資料總管]  ，可以在 [Azure 入口網站](https://portal.azure.com)中查看資料庫。 
 
 ## <a id="CreateColl"></a>建立集合
 
@@ -222,7 +236,7 @@ Azure Cosmos DB [資料庫](databases-containers-items.md#azure-cosmos-databases
    
 1. 按 **F5** 鍵執行您的應用程式。
 
-您已成功建立 Azure Cosmos DB 文件集合。 您可以在 Azure 入口網站中，於 [資料總管] 中的 **FamilyDB** 資料庫下查看該集合。  
+您已成功建立 Azure Cosmos DB 文件集合。 您可以在 Azure 入口網站中，於 [資料總管]  中的 **FamilyDB** 資料庫下查看該集合。  
 
 ## <a id="CreateDoc"></a>建立 JSON 文件
 
@@ -376,7 +390,7 @@ Azure Cosmos DB [資料庫](databases-containers-items.md#azure-cosmos-databases
    
 1. 按 **F5** 鍵執行您的應用程式。
 
-您已成功建立兩個 Azure Cosmos DB 文件。 您可以在 Azure 入口網站中，於 [資料總管] 中的 **FamilyDB** 資料庫和 **FamilyCollection** 集合下查看該這些文件。   
+您已成功建立兩個 Azure Cosmos DB 文件。 您可以在 Azure 入口網站中，於 [資料總管]  中的 **FamilyDB** 資料庫和 **FamilyCollection** 集合下查看該這些文件。   
 
 ![說明帳戶、線上資料庫、集合和文件之間階層式關聯性的圖表](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
@@ -502,7 +516,7 @@ Azure Cosmos DB SQL API 支援刪除 JSON 文件。
    
 1. 按 **F5** 鍵執行您的應用程式。
 
-您已成功刪除 Azure Cosmos DB 資料庫。 您可以在 [資料總管] 中看到 Azure Cosmos DB 帳戶中已刪除 FamilyDB 資料庫。 
+您已成功刪除 Azure Cosmos DB 資料庫。 您可以在 [資料總管]  中看到 Azure Cosmos DB 帳戶中已刪除 FamilyDB 資料庫。 
 
 ## <a id="Run"></a>執行整個 C# 主控台應用程式
 

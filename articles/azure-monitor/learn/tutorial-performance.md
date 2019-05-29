@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 7eae71411a1a3772dbdbaa289a32cbc69fca0e5a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: f906ab5db35ce8b239eceac9cdc8244f230f5a77
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108747"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596020"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>使用 Azure Application Insights 尋找並診斷效能問題
 
@@ -32,7 +32,7 @@ Azure Application Insights 會從您的應用程式收集遙測，以協助分�
 
 若要完成本教學課程：
 
-- 使用下列工作負載安裝 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
+- 使用下列工作負載安裝 [Visual Studio 2019](https://www.visualstudio.com/downloads/)：
     - ASP.NET 和 Web 開發
     - Azure 開發
 - 將 .NET 應用程式部署至 Azure，並[啟用 Application Insights SDK](../../azure-monitor/app/asp-net.md)。
@@ -44,12 +44,12 @@ Azure Application Insights 會從您的應用程式收集遙測，以協助分�
 ## <a name="identify-slow-server-operations"></a>識別緩慢的伺服器作業
 Application Insights 會收集您應用程式中不同作業的效能詳細資料。 藉由識別持續時間最長的作業，您可以診斷潛在的問題，或為進行中的開發設定最適合的目標，以改善應用程式的整體效能。
 
-1. 選取 [Application Insights]，然後選取您的訂用帳戶。  
-1. 若要開啟 [效能] 面板，選取 [調查] 功能表下方的 [效能]，或按一下 [伺服器回應時間] 圖形。
+1. 選取 [Application Insights]  ，然後選取您的訂用帳戶。  
+1. 若要開啟 [效能]  面板，選取 [調查]  功能表下方的 [效能]  ，或按一下 [伺服器回應時間]  圖形。
 
     ![效能](media/tutorial-performance/performance.png)
 
-2. [效能] 面板會顯示應用程式每個作業的計數和平均持續時間。  您可以使用這項資訊來識別對使用者影響最大的作業。 在此範例中，**GET Customers/Details** 和 **GET Home/Index** 是可能的調查候選項目，因其持續時間和呼叫數目相對較高。  其他作業的持續時間可能更高，但因呼叫次數不頻繁，改善後的影響不大。  
+2. [效能]  面板會顯示應用程式每個作業的計數和平均持續時間。  您可以使用這項資訊來識別對使用者影響最大的作業。 在此範例中，**GET Customers/Details** 和 **GET Home/Index** 是可能的調查候選項目，因其持續時間和呼叫數目相對較高。  其他作業的持續時間可能更高，但因呼叫次數不頻繁，改善後的影響不大。  
 
     ![[效能] 面板](media/tutorial-performance/performance-blade.png)
 
@@ -66,17 +66,17 @@ Application Insights 會收集您應用程式中不同作業的效能詳細資�
     ![作業詳細資料](media/tutorial-performance/operation-details.png)
     
 
-6.  **Profiler** 可顯示為作業執行的實際程式碼和每個步驟所需的時間，以協助您深入進行程式碼層級的診斷。 因為 Profiler 是定期執行，某些作業可能不具有追蹤。  隨著時間累積，將會有更多作業具有追蹤。  若要針對作業啟動 Profiler，請按一下 [Profiler 追蹤]。
+6.  **Profiler** 可顯示為作業執行的實際程式碼和每個步驟所需的時間，以協助您深入進行程式碼層級的診斷。 因為 Profiler 是定期執行，某些作業可能不具有追蹤。  隨著時間累積，將會有更多作業具有追蹤。  若要針對作業啟動 Profiler，請按一下 [Profiler 追蹤]  。
 5.  追蹤會顯示每個作業的個別事件，讓您可以診斷整體作業持續時間的根本原因。  按一下持續時間最長之前幾個範例的其中一個。
-6.  按一下 [顯示最忙碌路徑] 來反白顯示對於作業的總持續時間影響最深之事件的特定路徑。  在此範例中，您可以看到最慢的呼叫是來自 FabrikamFiberAzureStorage.GetStorageTableData 方法。 花費最多時間的部分是 CloudTable.CreateIfNotExist 方法。 如果每次呼叫函式時都會執行此程式碼，就會使用不必要的網路呼叫和 CPU 資源。 修正程式碼的最佳方式，是將這一行放在只執行一次的某些啟動方法中。 
+6.  按一下 [顯示最忙碌路徑]  來反白顯示對於作業的總持續時間影響最深之事件的特定路徑。  在此範例中，您可以看到最慢的呼叫是來自 FabrikamFiberAzureStorage.GetStorageTableData  方法。 花費最多時間的部分是 CloudTable.CreateIfNotExist  方法。 如果每次呼叫函式時都會執行此程式碼，就會使用不必要的網路呼叫和 CPU 資源。 修正程式碼的最佳方式，是將這一行放在只執行一次的某些啟動方法中。 
 
     ![Profiler 詳細資料](media/tutorial-performance/profiler-details.png)
 
-7.  畫面頂端的 [效能提示] 證實了過長的持續時間是由於等待。  按一下 [等待] 連結以存取關於解譯不同事件類型的文件。
+7.  畫面頂端的 [效能提示]  證實了過長的持續時間是由於等待。  按一下 [等待]  連結以存取關於解譯不同事件類型的文件。
 
     ![效能提示](media/tutorial-performance/performance-tip.png)
 
-8.  如需進一步的分析，您可以按一下 [下載 .etl 追蹤]，將追蹤下載至 Visual Studio。
+8.  如需進一步的分析，您可以按一下 [下載 .etl 追蹤]  ，將追蹤下載至 Visual Studio。
 
 ## <a name="use-analytics-data-for-server"></a>使用伺服器的分析資料
 Application Insights Analytics 提供豐富的查詢語言，可讓您分析 Application Insights 收集的所有資料。  您可以使用這項功能來深入分析要求和效能資料。
@@ -93,12 +93,12 @@ Application Insights Analytics 提供豐富的查詢語言，可讓您分析 App
 ## <a name="identify-slow-client-operations"></a>識別緩慢的用戶端作業
 除了識別要最佳化的伺服器處理序，Application Insights 還可以從用戶端瀏覽器的角度來進行分析。  這可協助您識別用戶端元件是否有改善空間，甚至識別不同瀏覽器或不同位置的問題。
 
-1. 選取 [調查] 下方的 [瀏覽器] 以開啟瀏覽器摘要。  這樣會從瀏覽器的角度提供各種應用程式遙測的視覺效果摘要。
+1. 選取 [調查]  下方的 [瀏覽器]  以開啟瀏覽器摘要。  這樣會從瀏覽器的角度提供各種應用程式遙測的視覺效果摘要。
 
     ![瀏覽器摘要](media/tutorial-performance/browser-summary.png)
 
-2.  向下捲動至 [哪些是我最慢的頁面?]。  這樣會顯示在您的應用程式中用戶端載入耗時最久的頁面清單。  您可以使用這項資訊，將對使用者影響最大的頁面依照優先順序排列。
-3.  按一下其中一個以開啟 [頁面檢視] 面板。  在此範例中，**/FabrikamProd** 頁面顯示過長的平均持續時間。  [頁面檢視] 面板提供有關此頁面的詳細資料，包括不同持續時間範圍的明細。
+2.  向下捲動至 [哪些是我最慢的頁面?]  。  這樣會顯示在您的應用程式中用戶端載入耗時最久的頁面清單。  您可以使用這項資訊，將對使用者影響最大的頁面依照優先順序排列。
+3.  按一下其中一個以開啟 [頁面檢視]  面板。  在此範例中， **/FabrikamProd** 頁面顯示過長的平均持續時間。  [頁面檢視]  面板提供有關此頁面的詳細資料，包括不同持續時間範圍的明細。
 
     ![頁面檢視](media/tutorial-performance/page-view.png)
 

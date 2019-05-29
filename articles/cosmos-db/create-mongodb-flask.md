@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 35159a1630c7f1268119cd55cc6e0ac99dfd7b5f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 07f213de3509ed16af627af5e0583cd985c278f6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119202"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954648"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>快速入門：使用 Azure Cosmos DB 適用於 MongoDB 的 API 建置 Python 應用程式
 
@@ -104,7 +104,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 2. 開啟終端機視窗，並 `cd` 至儲存應用程式的目錄。
 
-3. 接著，使用 `set FLASK_APP=app.py` 來設定 Flask 應用程式的環境變數；如果您使用的是 Mac，請改為使用 `export FLASK_APP=app.py`。
+3. 接著，使用 `set FLASK_APP=app.py` (PowerShell 編輯器請使用 `$env:FLASK_APP = app.py`) 來設定 Flask 應用程式的環境變數；如果使用 Mac，則請使用 `export FLASK_APP=app.py`。 
 
 4. 使用 `flask run` 執行應用程式，並瀏覽至 [http://127.0.0.1:5000/](http://127.0.0.1:5000/)。
 
@@ -118,15 +118,15 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 如果您想要針對即時 Cosmos 帳戶測試程式碼，請移至 Azure 入口網站以建立帳戶，並取得您的連接字串資訊。 接著將它複製到應用程式。
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，於您 Cosmos 帳戶的左側瀏覽區中，按一下 [連接字串]，然後按一下 [讀寫金鑰]。 在下一個步驟中，您將使用畫面右側的複製按鈕，將使用者名稱、密碼和主機複製到 Dal.cs 檔案中。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，於您 Cosmos 帳戶的左側瀏覽區中，按一下 [連接字串]  ，然後按一下 [讀寫金鑰]  。 在下一個步驟中，您將使用畫面右側的複製按鈕，將使用者名稱、密碼和主機複製到 Dal.cs 檔案中。
 
 2. 開啟根目錄中的 **app.py** 檔案。
 
-3. 從入口網站複製您的 [使用者名稱] 值 (使用 [複製] 按鈕)，並使它成為 **app.py** 檔案中的 **name** 值。
+3. 從入口網站複製您的 [使用者名稱]  值 (使用 [複製] 按鈕)，並使它成為 **app.py** 檔案中的 **name** 值。
 
-4. 接著，從入口網站複製您的 [連接字串] 值，並使它成為 **app.py** 檔案中的 MongoClient 值。
+4. 接著，從入口網站複製您的 [連接字串]  值，並使它成為 **app.py** 檔案中的 MongoClient 值。
 
-5. 最後，從入口網站複製您的 [密碼] 值，並使它成為 **app.py** 檔案中的 **password** 值。
+5. 最後，從入口網站複製您的 [密碼]  值，並使它成為 **app.py** 檔案中的 **password** 值。
 
 您現已更新應用程式，使其具有與 Cosmos DB 通訊所需的所有資訊。 您可以使用與之前相同的方式執行它。
 
@@ -142,7 +142,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-接著，您需要將 MONGOURL、MONGO_PASSWORD 和 MONGO_USERNAME 新增到應用程式設定。 您可以遵循此[教學課程](https://docs.microsoft.com/azure/app-service-web/web-sites-configure#application-settings)，以深入了解 Azure Web Apps 中的應用程式設定。
+接著，您需要將 MONGOURL、MONGO_PASSWORD 和 MONGO_USERNAME 新增到應用程式設定。 您可以遵循此[教學課程](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings)，以深入了解 Azure Web Apps 中的應用程式設定。
 
 如果您不想要建立此存放庫的分支，也可以按一下下方的 [部署至 Azure] 按鈕。 接著，您應該移至 Azure 並使用 Cosmos DB 帳戶資訊設定應用程式設定。
 

@@ -12,23 +12,23 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 1b7efd4f36d5587667010d25f30a3e7945faee4f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4a49cb3de2dc36dcd933a0b31b6a55b838eb1336
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997804"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864664"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>在 Azure 入口網站中建立您的第一個函式
 
-Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions/serverless/)環境中執行程式碼，而不需要先建立 VM 或發佈 Web 應用程式。 在本主題中，請學習如何使用 Functions 在 Azure 入口網站中建立「hello world」函式。
+Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions/serverless/)環境中執行程式碼，而不需要先建立 VM 或發佈 Web 應用程式。 在本文中，了解如何使用 Functions 在 Azure 入口網站中建立 "hello world" 函式。
 
 ![在 Azure 入口網站中建立函式應用程式](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!NOTE]
-> C# 開發人員應該考慮[在 Visual Studio 2017 中建立第一個函式](functions-create-your-first-function-visual-studio.md)，而不是在入口網站中建立。 
+> C# 開發人員應該考慮[在 Visual Studio 2019 中建立第一個函式](functions-create-your-first-function-visual-studio.md)，而不是在入口網站中建立。 
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
@@ -44,11 +44,11 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions
 
 ## <a name="create-function"></a>建立由 HTTP 觸發的函式
 
-1. 展開新的函式應用程式，接著選取 [Functions] 旁的 **+** 按鈕、選擇 [入口網站內]，然後選取 [繼續]。
+1. 展開新的函式應用程式，接著選取 [Functions]  旁的 **+** 按鈕、選擇 [入口網站內]  ，然後選取 [繼續]  。
 
-    ![Functions 快速入門選擇平台。](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+    ![選擇平台的 Functions 快速入門。](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
 
-1. 選擇 [WebHook + API]，然後選取 [建立]。
+1. 選擇 [WebHook + API]  ，然後選取 [建立]  。
 
     ![Azure 入口網站中的 Functions 快速入門。](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
@@ -58,7 +58,7 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions
 
 ## <a name="test-the-function"></a>測試函式
 
-1. 在新的函式中，按一下右上方的 [</> 取得函式 URL]，選取 [預設 (函式索引鍵)]，然後按一下 [複製]。 
+1. 在新的函式中，按一下右上方的 [</> 取得函式 URL]  ，選取 [預設 (函式索引鍵)]  ，然後按一下 [複製]  。 
 
     ![從 Azure 入口網站複製函式 URL](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
@@ -80,7 +80,7 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions
 
 ## <a name="next-steps"></a>後續步驟
 
-您已使用簡單的 HTTP 觸發函式建立了函式應用程式。  
+您已經使用簡單的 HTTP 觸發函式建立函式應用程式。  
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

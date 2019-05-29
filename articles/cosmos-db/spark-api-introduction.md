@@ -3,19 +3,21 @@ title: Azure Cosmos DB 中使用 Apache Spark 的內建作業分析簡介
 description: 了解如何在 Azure Cosmos DB 中使用 Apache Spark 內建支援執行作業分析與 AI
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 05/06/2019
+ms.date: 05/10/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: 504f463f55edf1a22f99e1ba02449121e8bf5efc
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: c62639feed7ced9d92e29715e350b952465a94a1
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472267"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517740"
 ---
 # <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Azure Cosmos DB 中使用 Apache Spark (預覽) 的內建作業分析 
 
 Azure Cosmos DB 中的 Apache Spark 內建支援可讓您從 Apache Spark 對 Azure Cosmos 帳戶中儲存的資料執行分析。 它會提供 Apache Spark 作業的原生支援，以直接在散佈全球的 Cosmos 資料庫上執行。 有了這些功能，開發人員、資料工程師和資料科學家可以使用 Azure Cosmos DB 作為有彈性、可擴充和高效能的資料平台，以執行 **OLTP 和 OLAP/HTAP** 工作負載。 
+
+與 Azure Cosmos 帳戶相關聯的所有 Azure 區域中都會自動提供 Spark 計算功能。 Spark 作業會使用 Azure Cosmos DB 的多重主機功能，而且它們可以在每個區域中寫入或查詢本機複本。 
 
 > [!NOTE]
 > Azure Cosmos DB 中的 Apache Spark 內建支援目前以有限預覽形式提供。 若要註冊預覽版，請巡覽至[註冊預覽版](https://portal.azure.com/?feature.customportal=false#create/Microsoft.DocumentDB)頁面。 
@@ -72,6 +74,12 @@ Apache Spark 作業會有 Azure Cosmos DB 優點，例如領先業界的全方�
 ### <a name="mixed-workloads"></a>混合的工作負載
 
 將 Apache Spark 整合到 Azure Cosmos DB 中，可跨越交易與分析區隔，當客戶建置全球規模的雲端原生應用程式時，此種區隔已成為主要的痛苦點之一。 
+
+## <a name="built-in-jupyter-notebooks-support"></a>內建 Jupyter Notebook 支援
+
+Azure Cosmos DB 支援所有 API 的 Jupyter Notebook，例如 SQL、MongoDB、Cassandra、Gremlin 和資料表。 Jupyter Notebook 會在 Azure Cosmos DB 帳戶內執行，而且它們可強化開發人員的經驗。 所有 Azure Cosmos DB API 和資料模型內建的 Notebook 支援可讓您以互動方式執行查詢。 您也可以執行機器學習模型，並分析您的 Azure Cosmos 資料庫中儲存的資料。 藉由使用 Jupyter Notebook 的體驗，您可以分析儲存的資料、建置及定型機器學習模型，以及在 Azure 入口網站中的資料上執行推斷，如下圖所示：
+
+![Azure Cosmos DB 中的 Jupyter Notebook 支援](./media/spark-api-introduction/jupyter-notebooks-portal.png)
 
 ## <a name="next-steps"></a>後續步驟
 

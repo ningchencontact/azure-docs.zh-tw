@@ -10,18 +10,18 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 53e495a3c2d82738e1008ead84a4124e44435c9a
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549130"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864370"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>快速入門：使用您自有的 Notebook 伺服器來開始使用 Azure Machine Learning
 
-使用自己的 Notebook 伺服器在 [Azure Machine Learning 服務工作區](concept-azure-machine-learning-architecture.md)中執行會記錄值的程式碼。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎。
+使用您自有的 Python 環境和 Jupyter Notebook 伺服器，開始使用 Azure Machine Learning 服務。  如需不安裝 SDK 的快速入門，請參閱[快速入門：使用雲端式 Notebook 伺服器開始使用 Azure Machine Learning](quickstart-run-cloud-notebook.md)。
 
-本快速入門會使用您自有的 Python 環境和 Jupyter Notebook 伺服器。 如需不安裝 SDK 的快速入門，請參閱[快速入門：使用雲端式 Notebook 伺服器開始使用 Azure Machine Learning](quickstart-run-cloud-notebook.md) 
+本快速入門顯示您可以如何使用 [Azure Machine Learning 服務工作區](concept-azure-machine-learning-architecture.md)來追蹤您的機器學習實驗。 您將會執行將值記錄到工作區中的 Python 程式碼。
 
 檢視本快速入門的影片版本：
 
@@ -33,7 +33,7 @@ ms.locfileid: "59549130"
 
 * 已安裝 Azure Machine Learning SDK 的 Python 3.6 Notebook 伺服器
 * Azure Machine Learning 服務工作區
-* 工作區組態檔 (**.azureml/config.json**)。
+* 工作區組態檔 ( **.azureml/config.json**)。
 
 從[建立 Azure Machine Learning 服務工作區](setup-create-workspace.md#portal)取得上述所有必要條件。
 

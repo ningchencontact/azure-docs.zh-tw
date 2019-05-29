@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 2a0cee1ad750144f30b9ab6732e0bbdf8138db28
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 0288d9c0932d012bc83f23053b661c5a7ea2ef82
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038144"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872961"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>使用 C\# 建立第一個耐久函式
 
 *Durable Functions* 是 [Azure Functions](../functions-overview.md) 的擴充功能，可讓您在無伺服器環境中撰寫具狀態函式。 此擴充功能會為您管理狀態、設定檢查點和重新啟動。
 
-在本文中，您將了解如何使用 Visual Studio 2017 Tools for Azure Functions 在本機建立及測試 "hello world" 耐久函式。  此函式會協調對其他函式的呼叫並鏈結在一起。 接著會將函式程式碼發佈至 Azure。 這些工具可在 Visual Studio 2017 的 Azure 開發工作負載中取得。
+在本文中，您將了解如何使用 Visual Studio 2019 Tools for Azure Functions，在本機建立及測試 "hello world" 耐久函式。  此函式會協調對其他函式的呼叫並鏈結在一起。 接著會將函式程式碼發佈至 Azure。 這些工具可在 Visual Studio 2019 的 Azure 開發工作負載中取得。
 
 ![在 Azure 中執行耐久函式](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
@@ -30,7 +30,7 @@ ms.locfileid: "54038144"
 
 若要完成本教學課程：
 
-* 安裝 [Visual Studio 2017](https://azure.microsoft.com/downloads/)。 確定也已經安裝 **Azure 開發**工作負載。
+* 安裝 [Visual Studio 2019](https://azure.microsoft.com/downloads/)。 確定也已經安裝 **Azure 開發**工作負載。
 
 * 確定您有[最新的 Azure Functions 工具](../functions-develop-vs.md#check-your-tools-version)。
 
@@ -42,9 +42,9 @@ ms.locfileid: "54038144"
 
 Azure Functions 範本可建立可發佈至 Azure 中函式應用程式的專案。 函式應用程式可讓您將多個函式群組為邏輯單位，以便您管理、部署和共用資源。
 
-1. 在 Visual Studio 中，從 [檔案] 功能表中選取 [新增]  >  [專案]。
+1. 在 Visual Studio 中，從 [檔案]  功能表中選取 [新增]   >  [專案]  。
 
-2. 在 [新增專案] 對話方塊中，選取 [已安裝]，展開 [Visual C#]  >  [雲端]，選取 [Azure Functions]，輸入專案的 [名稱]，然後按一下 [確定]。 函式應用程式名稱必須是有效的 C# 命名空間，因此不會使用底線、連字號或任何其他非英數字元。
+2. 在 [新增專案]  對話方塊中，選取 [已安裝]  ，展開 [Visual C#]   >  [雲端]  ，選取 [Azure Functions]  ，輸入專案的 [名稱]  ，然後按一下 [確定]  。 函式應用程式名稱必須是有效的 C# 命名空間，因此不會使用底線、連字號或任何其他非英數字元。
 
     ![新增專案對話方塊以在 Visual Studio 中建立函式](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
@@ -58,19 +58,19 @@ Azure Functions 範本可建立可發佈至 Azure 中函式應用程式的專案
     | **範本** | 空白 | 建立空白的函式應用程式。 |
     | **儲存體帳戶**  | 儲存體模擬器 | 需要儲存體帳戶，才能管理耐久函式應用程式狀態。 |
 
-4. 按一下 [確定] 以建立空白的函式專案。 此專案具有執行您的函式所需的基本組態檔。
+4. 按一下 [確定]  以建立空白的函式專案。 此專案具有執行您的函式所需的基本組態檔。
 
 ## <a name="add-functions-to-the-app"></a>將函式新增至應用程式
 
 下列步驟會使用範本在您的專案中建立耐久函式程式碼。
 
-1. 在 Visual Studio 中以滑鼠右鍵按一下專案，然後選取 [新增] > [新增 Azure Function]。
+1. 在 Visual Studio 中以滑鼠右鍵按一下專案，然後選取 [新增]   > [新增 Azure Function]  。
 
     ![新增函式](./media/durable-functions-create-first-csharp/functions-vs-add-new-function.png)
 
-2. 確認已從 [新增] 功能表中選取 **Azure Function**，並且為您的 C# 檔案命名。  按 [新增] 。
+2. 確認已從 [新增] 功能表中選取 **Azure Function**，並且為您的 C# 檔案命名。  按 [新增]  。
 
-3. 選取 [Durable Functions 協調器] 範本，然後按一下 [確定]。
+3. 選取 [Durable Functions 協調器]  範本，然後按一下 [確定]  。
 
     ![選取耐久範本](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 

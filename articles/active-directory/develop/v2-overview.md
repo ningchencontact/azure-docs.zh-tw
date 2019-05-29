@@ -3,8 +3,8 @@ title: Microsoft 身分識別平台 (v2.0) 概觀 - Azure
 description: 了解 Microsoft 身分識別平台 (v2.0) 端點和平台。
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,20 +13,20 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d97b45217da4bbf4b8c0e857b817911484f29c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 3d139efaa8e6de4861dc8e885bd22a426fde6c94
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231089"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833065"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Microsoft 身分識別平台 (v2.0) 概觀
 
-Microsoft 身分識別平台是 Azure Active Directory (Azure AD) 身分識別服務與開發人員平台的演化。 它可讓開發人員建置應用程式以登入所有 Microsoft 身分識別，並取得權杖以呼叫 Microsoft Graph 等 Microsoft API，或開發人員所建置的 API。 Microsoft 身分識別平台包含：
+Microsoft 身分識別平台是 Azure Active Directory (Azure AD) 開發人員平台的演化。 它可讓開發人員建置應用程式以登入所有 Microsoft 身分識別，並取得權杖以呼叫 Microsoft Graph 等 Microsoft API，或開發人員所建置的 API。 Microsoft 身分識別平台包含：
 
 - **OAuth 2.0 和 OpenID Connect 符合標準的驗證服務**，可讓開發人員驗證任何 Microsoft 身分識別，包括：
   - 工作或學校帳戶 (透過 Azure AD 佈建)
@@ -79,4 +79,4 @@ Microsoft 身分識別平台是 Azure Active Directory (Azure AD) 身分識別�
 
 ## <a name="learn-more"></a>深入了解
 
-如果您打算建置可登入社交和本機身分識別的客戶面向應用程式，請查看 [Azure AD B2C 概觀](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers)。
+如果您打算建置可登入社交和本機身分識別的客戶面向應用程式，請參閱 [Azure AD B2C 概觀](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers)。

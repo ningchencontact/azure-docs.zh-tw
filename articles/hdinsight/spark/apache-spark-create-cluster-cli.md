@@ -1,0 +1,147 @@
+---
+title: 使用 Azure CLI 在 Azure HDInsight 中建立 Apache Spark 叢集
+description: 本快速入門顯示如何使用 Azure CLI 在 Azure HDInsight 中建立 Apache Spark 叢集。
+author: hrasheed-msft
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: quickstart
+ms.date: 05/09/2019
+ms.author: hrasheed
+ms.openlocfilehash: b9478ca8e1b31c1761e063a6789e96043f9a2c68
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556811"
+---
+# <a name="create-an-apache-spark-cluster-in-azure-hdinsight-with-azure-cli"></a>使用 Azure CLI 在 Azure HDInsight 中建立 Apache Spark 叢集
+
+在本快速入門中，您會了解如何使用 Azure CLI，在 Azure HDInsight 上建立 Apache Spark 叢集。 Apache Spark 能夠運用記憶體內部處理，使得資料分析及叢集運算更為快速。 [Azure 命令列介面 (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 是用來管理 Azure 資源的 Microsoft 跨平台命令列體驗。
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+
+## <a name="prerequisites"></a>必要條件
+
+Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 以取得相關步驟。
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+## <a name="create-an-apache-spark-cluster"></a>建立 Apache Spark 叢集
+
+1. 登入您的 Azure 訂用帳戶。 如果您打算使用 Azure Cloud Shell，可直接選取程式碼區塊右上角的 [試試看]  。 或者，請輸入以下命令：
+
+    ```azurecli-interactive
+    az login
+
+    # If you have multiple subscriptions, set the one to use
+    # az account set --subscription "SUBSCRIPTIONID"
+    ```
+
+2. 設定環境變數。 本快速入門中使用的變數是以 Bash 為基礎的。 針對其他環境，會需要一點變化。 將以下程式碼片段中的 RESOURCEGROUPNAME、LOCATION、CLUSTERNAME、STORAGEACCOUNTNAME 和 PASSWORD 取代為所需的值。 然後輸入 CLI 命令來設定環境變數。
+
+    ```azurecli-interactive
+    export resourceGroupName=RESOURCEGROUPNAME
+    export location=LOCATION
+    export clusterName=CLUSTERNAME
+    export AZURE_STORAGE_ACCOUNT=STORAGEACCOUNTNAME
+    export httpCredential='PASSWORD'
+    export sshCredentials='PASSWORD'
+    
+    export AZURE_STORAGE_CONTAINER=$clusterName
+    export clusterSizeInNodes=1
+    export clusterVersion=3.6
+    export clusterType=spark
+    export componentVersion=Spark=2.3
+    ```
+
+3. 輸入以下命令來建立資源群組：
+
+    ```azurecli-interactive
+    az group create \
+        --location $location \
+        --name $resourceGroupName
+    ```
+
+4. 輸入以下命令來建立 Azure 儲存體帳戶：
+
+    ```azurecli-interactive
+    az storage account create \
+        --name $AZURE_STORAGE_ACCOUNT \
+        --resource-group $resourceGroupName \
+        --https-only true \
+        --kind StorageV2 \
+        --location $location \
+        --sku Standard_LRS
+    ```
+
+5. 輸入以下命令，從 Azure 儲存體帳戶擷取主要金鑰並儲存至變數：
+
+    ```azurecli-interactive
+    export AZURE_STORAGE_KEY=$(az storage account keys list \
+        --account-name $AZURE_STORAGE_ACCOUNT \
+        --resource-group $resourceGroupName \
+        --query [0].value -o tsv)
+    ```
+
+6. 輸入以下命令來建立 Azure 儲存體容器：
+
+    ```azurecli-interactive
+    az storage container create \
+        --name $AZURE_STORAGE_CONTAINER \
+        --account-key $AZURE_STORAGE_KEY \
+        --account-name $AZURE_STORAGE_ACCOUNT
+    ```
+
+7. 輸入下列命令來建立 Apache Spark 叢集：
+
+    ```azurecli-interactive
+    az hdinsight create \
+        --name $clusterName \
+        --resource-group $resourceGroupName \
+        --type $clusterType \
+        --component-version $componentVersion \
+        --http-password $httpCredential \
+        --http-user admin \
+        --location $location \
+        --size $clusterSizeInNodes \
+        --ssh-password $sshCredentials \
+        --ssh-user sshuser \
+        --storage-account $AZURE_STORAGE_ACCOUNT \
+        --storage-account-key $AZURE_STORAGE_KEY \
+        --storage-default-container $AZURE_STORAGE_CONTAINER \
+        --version $clusterVersion
+    ```
+
+## <a name="clean-up-resources"></a>清除資源
+
+完成此快速入門之後，您可以刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
+
+輸入所有或部分的下列命令來移除資源：
+
+```azurecli-interactive
+# Remove cluster
+az hdinsight delete \
+    --name $clusterName \
+    --resource-group $resourceGroupName
+
+# Remove storage container
+az storage container delete \
+    --account-name $AZURE_STORAGE_ACCOUNT \
+    --name $AZURE_STORAGE_CONTAINER
+
+# Remove storage account
+az storage account delete \
+    --name $AZURE_STORAGE_ACCOUNT \
+    --resource-group $resourceGroupName
+
+# Remove resource group
+az group delete \
+    --name $resourceGroupName
+```
+
+## <a name="next-steps"></a>後續步驟
+
+在本快速入門中，您會了解如何使用 Azure CLI，在 Azure HDInsight 中建立 Apache Spark 叢集。  前往下一個教學課程，以了解如何使用 HDInsight Spark 叢集來執行範例資料的互動式查詢。
+
+> [!div class="nextstepaction"]
+> [在 Apache Spark 上執行互動式查詢](./apache-spark-load-data-run-query.md)

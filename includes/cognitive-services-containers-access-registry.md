@@ -5,13 +5,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/07/2019
 ms.openlocfilehash: 27c6b59a458fb79b86d7064d710a01593a1745dc
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028871"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66125140"
 ---
-## <a name="use-docker-cli-to-authenticate-private-container-registry"></a>使用 Docker CLI 來驗證私人容器登錄
+## <a name="use-docker-cli-to-authenticate-private-container-registry"></a>使用 Docker CLI 驗證私人容器登錄
 
 有幾個方式可以向認知服務容器的私人容器登錄驗證，但從命令列進行的建議方法是使用 [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/) \(英文\)。
 

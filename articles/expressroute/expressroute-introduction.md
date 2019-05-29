@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: overview
-ms.date: 10/18/2018
+ms.date: 05/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 56baabb95a7873b48a27943a58b8e26c56efb6b7
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9b13c57728c43e02f7ebf9d7730d82d681f5fc1f
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139549"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965873"
 ---
 # <a name="expressroute-overview"></a>ExpressRoute 概欟
 ExpressRoute 可讓您透過連線提供者所提供的私人連線，將內部部署網路延伸至 Microsoft 雲端。 透過 ExpressRoute，您可以建立 Microsoft 雲端服務的連線，例如 Microsoft Azure、Office 365 和 Dynamics 365。
@@ -59,8 +59,11 @@ Microsoft 採用BGP (業界標準動態路由通訊協定)，在您的內部部�
 
 例如，如果您在阿姆斯特丹透過 ExpressRoute 連線至 Microsoft，您就能夠存取在北歐和西歐託管的所有 Microsoft 雲端服務。 如需地理政治地區、相關聯的 Microsoft 雲端區域以及對應的 ExpressRoute 對等互連位置之概觀，請參閱 [ExpressRoute 合作夥伴和對等互連位置](expressroute-locations.md)一文。
 
-### <a name="global-connectivity-with-expressroute-premium-add-on"></a>使用 ExpressRoute Premium 附加元件從全球連線
-您可以啟用 ExpressRoute Premium 附加功能，將連線能力延伸到跨越地理政治的界限。 例如，如果您在阿姆斯特丹透過 ExpressRoute 連線至 Microsoft，您就能夠存取全球所有區域託管的所有 Microsoft 雲端服務 (不包括國家雲端)。 就像存取北歐和西歐區域一樣，您也可以存取部署在南美洲或澳大利亞的服務。
+### <a name="global-connectivity-with-expressroute-premium"></a>搭配 ExpressRoute Premium 的全球連線能力
+您可以啟用 [ExpressRoute Premium](expressroute-faqs.md) 來將連線能力延伸到跨越地理政治的界限。 例如，如果您在阿姆斯特丹透過 ExpressRoute 連線至 Microsoft，您就能夠存取全球所有區域託管的所有 Microsoft 雲端服務 (不包括國家雲端)。 就像存取北歐和西歐區域一樣，您也可以存取部署在南美洲或澳大利亞的服務。
+
+### <a name="local-connectivity-with-expressroute-local"></a>搭配 ExpressRoute Local 的本地連線能力
+如果您可以將資料移至鄰近您所需 Azure 區域的 ExpressRoute 位置，便可以啟用[本地 SKU](expressroute-faqs.md)來以符合成本效益的方式傳送資料。 透過使用 Local，資料轉送將會被包含在 ExpressRoute 連接埠費用中。 
 
 ### <a name="across-on-premises-connectivity-with-expressroute-global-reach"></a>使用 ExpressRoute Global Reach 跨內部部署連線
 您可以啟用 ExpressRoute Global Reach 來將 ExpressRoute 線路連線，以在內部部署站台之間交換資料。 例如，如果您有位在加州的私人資料中心連線到位在矽谷的 ExpressRoute，以及另一個位在德州的私人資料中心連線到位在達拉斯的 ExpressRoute，使用 ExpressRoute Global Reach 您就可以透過兩個 ExpressRoute 線路將您的私人資料中心連線在一起。 您跨資料中心的流量會透過 Microsoft 的網路周遊。

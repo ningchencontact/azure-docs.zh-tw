@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
-ms.date: 3/5/2018
+ms.date: 04/26/2019
 ms.author: v-jaswel
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a76c11341d0e145e6d2e9f86a7300ddb9319f6f5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: b4fe4f651340ef54c2907192f3a96e9a017ab1dd
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673882"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65910507"
 ---
 # <a name="quickstart-translator-speech-api-with-c"></a>快速入門：翻譯工具語音 API (使用 C#)
 <a name="HOLTop"></a>
@@ -27,7 +27,7 @@ ms.locfileid: "56673882"
 
 ## <a name="prerequisites"></a>必要條件
 
-您將需要 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 以在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。如果您使用 Mac OS 或 Linux，您也可以改用文字編輯器 [Visual Studio Code](https://code.visualstudio.com/Download)。
+您將需要 [Visual Studio 2019](https://www.visualstudio.com/downloads/) 以在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。如果您使用 Mac OS 或 Linux，您也可以改用文字編輯器 [Visual Studio Code](https://code.visualstudio.com/Download)。
 
 您將需要將一個名為 "speak.wav" 的 .wav 檔案，放在與您從下方程式碼編譯之可執行檔相同的資料夾中。 這個 .wav 檔案應該採用標準 PCM 16 位元 16 kHz 單聲道格式。
 

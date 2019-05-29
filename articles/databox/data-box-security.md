@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 90004c27463a61de1b36eaea6754215f911f7483
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3e871b8d4de8ff83e260aded89e09ad5b17b3297
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095852"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799235"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure 資料箱安全性和資料保護
 
@@ -34,6 +34,8 @@ Microsoft Azure 資料箱解決方案包含四個彼此互動的主要元件：
 
 ![資料箱安全性](media/data-box-security/data-box-security-2.png)
 
+當資料流經此解決方案時，就會記錄事件並產生記錄檔。 如需詳細資訊，請移至[您 Azure 資料箱的追蹤與事件記錄](data-box-logs.md)。
+
 ## <a name="security-features"></a>安全性功能
 
 資料箱會確保只有獲得授權的實體可以檢視、修改或刪除您的資料，從而提供資料保護的安全解決方案。 此解決方案的安全性功能適用於磁碟以及相關聯的服務，確保在其中所儲存資料的安全性。 
@@ -48,24 +50,25 @@ Microsoft Azure 資料箱解決方案包含四個彼此互動的主要元件：
 - 只能執行資料箱專用軟體。
 - 在鎖定狀態下開機。
 - 透過裝置解除鎖定密碼控制裝置存取。
-- 存取認證，以將資料複製到裝置中或從裝置複製資料。
+- 存取認證，以將資料複製到裝置中或從裝置複製資料。 Azure 入口網站中，所有對 [裝置認證]  頁面的存取都會記錄於[活動記錄](data-box-logs.md#query-activity-logs-during-setup)中。
 
 ### <a name="data-box-data-protection"></a>資料箱資料保護
 
 流入及流出資料箱的資料會受到下列功能保護：
 
-- 待用資料的 AES 256 位元加密。 
+- 待用資料的 AES 256 位元加密。
 - 可用於資料傳輸的加密通訊協定。
-- 將資料上傳至 Azure 完成之後，安全清除裝置中的資料。 資料清除是根據 NIST 800-88r1 標準。
+- 將資料上傳至 Azure 完成之後，安全清除裝置中的資料。 資料清除是根據 NIST 800-88r1 標準。 資料清除事件記錄在[訂購記錄](data-box-logs.md#download-order-history)中。
 
 ### <a name="data-box-service-protection"></a>資料箱服務保護
 
 資料箱服務受到下列功能保護。
 
 - 若要存取資料箱服務，貴組織需有內含資料箱的 Azure 訂用帳戶。 您的訂用帳戶控管您在 Azure 入口網站中可存取的功能。
-- 因為資料箱服務裝載於 Azure 中，所以會受到 Azure 安全性功能的保護。 如需有關 Microsoft Azure 所提供的安全性功能的詳細資訊，請移至 [Microsoft Azure 信任中心](https://www.microsoft.com/TrustCenter/Security/default.aspx)。 
-- 資料箱服務會儲存解除鎖定密碼，用來解鎖服務中的裝置。 
-- 資料箱服務會在服務中儲存訂單詳細資料和狀態。 刪除訂單時，會將此資訊刪除。 
+- 因為資料箱服務裝載於 Azure 中，所以會受到 Azure 安全性功能的保護。 如需有關 Microsoft Azure 所提供的安全性功能的詳細資訊，請移至 [Microsoft Azure 信任中心](https://www.microsoft.com/TrustCenter/Security/default.aspx)。
+- 您可以透過使用角色型存取控制 (RBAC) 角色，控制對資料箱訂單的存取。 如需詳細資訊，請參閱[設定資料箱訂單的存取控制](data-box-logs.md#set-up-access-control-on-the-order)
+- 資料箱服務會儲存解除鎖定密碼，用來解鎖服務中的裝置。
+- 資料箱服務會在服務中儲存訂單詳細資料和狀態。 刪除訂單時，會將此資訊刪除。
 
 ## <a name="managing-personal-data"></a>管理個人資料
 

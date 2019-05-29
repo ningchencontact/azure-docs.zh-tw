@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: aafa115ee1e270b903e958e5b43826dfb4ff8bdb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 492161a9a47627db8a06686daf953e99ca652e02
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435221"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827670"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>使用 Visual Studio 中的連線服務連線至認知服務臉部 API
 
@@ -25,8 +25,8 @@ ms.locfileid: "57435221"
 
 ## <a name="prerequisites"></a>必要條件
 
-- **Azure 訂用帳戶**。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
-- **Visual Studio 2017 版本 15.7**，並且已安裝**網頁程式開發**工作負載。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
+- Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
+- 已安裝 [Web 開發]  工作負載的 Visual Studio 2017 15.7.3 版或更新版本。 [立即下載](https://www.visualstudio.com/downloads/)。
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
@@ -34,12 +34,12 @@ ms.locfileid: "57435221"
 
 1. 建立新的 ASP.NET Core Web 專案。 使用空白專案範本。 
 
-1. 在 [方案總管] 中，選擇 [新增] > [連線服務]。
+1. 在 [方案總管]  中，選擇 [新增]   > [連線服務]  。
    [連線服務] 頁面隨即出現，並顯示您可新增至專案的服務。
 
    ![[新增連線服務] 功能表項目](./media/vs-face-connected-service/Connected-Service-Menu.PNG)
 
-1. 在可用服務的功能表中，選擇 [認知服務臉部 API]。
+1. 在可用服務的功能表中，選擇 [認知服務臉部 API]  。
 
    ![選擇要連線的服務](./media/vs-face-connected-service/Cog-Face-Connected-Service-0.PNG)
 
@@ -79,11 +79,11 @@ ms.locfileid: "57435221"
       }
    ```
 
-1. 在專案的 wwwroot 資料夾中，新增影像資料夾，然後將影像檔案新增至 wwwroot 資料夾。 例如，您可以使用這個[臉部 API 頁面](https://azure.microsoft.com/services/cognitive-services/face/)上的其中一個影像。 在其中一個影像上按一下滑鼠右鍵，儲存到本機硬碟，然後在 [方案總管] 中的影像資料夾上按一下滑鼠右鍵，然後選擇 [新增] > [現有項目]，將它新增至您的專案。 您的專案在 [方案總管] 中看起來應該如下所示：
+1. 在專案的 wwwroot 資料夾中，新增影像資料夾，然後將影像檔案新增至 wwwroot 資料夾。 例如，您可以使用這個[臉部 API 頁面](https://azure.microsoft.com/services/cognitive-services/face/)上的其中一個影像。 在其中一個影像上按一下滑鼠右鍵，儲存到本機硬碟，然後在 [方案總管] 中的影像資料夾上按一下滑鼠右鍵，然後選擇 [新增]   > [現有項目]  ，將它新增至您的專案。 您的專案在 [方案總管] 中看起來應該如下所示：
  
    ![含有影像檔案的影像資料夾](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 
-1. 在影像檔案上按一下滑鼠右鍵，選擇 [屬性]，然後選擇 [有更新時才複製]。
+1. 在影像檔案上按一下滑鼠右鍵，選擇 [屬性]，然後選擇 [有更新時才複製]  。
 
    ![有更新時才複製](media/vs-face-connected-service/Cog-Face-Connected-Service-5.PNG)
  
@@ -240,8 +240,8 @@ ms.locfileid: "57435221"
 不再需要資源群組時，請加以刪除。 這會刪除認知服務與相關資源。 若要透過入口網站刪除資源群組：
 
 1. 在入口網站頂端的 [搜尋] 方塊中，輸入資源群組的名稱。 當您在搜尋結果中看到本快速入門中使用的資源群組時，請加以選取。
-1. 選取 [刪除資源群組]。
-1. 在 [輸入資源群組名稱:] 方塊中輸入資源群組的名稱，然後選取 [刪除]。
+1. 選取 [刪除資源群組]  。
+1. 在 [輸入資源群組名稱:]  方塊中輸入資源群組的名稱，然後選取 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/26/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: cc910359b5519d2cf1bd8a8bf019924dff660362
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 73caa57fe7e721d69091bfb6ee74f7d88baf1ba3
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852275"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979098"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>快速入門：使用 Azure Cosmos DB 適用於 MongoDB 的 API 建置 .NET Web 應用程式 
 
@@ -34,7 +34,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 若要執行範例，您將需要 [Visual Studio](https://www.visualstudio.com/downloads/) 和有效的 Azure Cosmos DB 帳戶。
 
-如果您還沒有 Visual Studio，請下載 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)，其在安裝時會一併安裝 **ASP.NET 及 Web 開發**工作負載。
+如果您還沒有 Visual Studio，請下載 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)，它會在安裝時一併安裝 **ASP.NET 及 Web 開發**工作負載。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
@@ -130,7 +130,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，於您 Cosmos 帳戶的左側瀏覽區中，按一下 [連接字串]，然後按一下 [讀寫金鑰]。 在下一個步驟中，您將使用畫面右側的複製按鈕，將使用者名稱、密碼和主機複製到 Dal.cs 檔案中。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，於您 Cosmos 帳戶的左側瀏覽區中，按一下 [連接字串]  ，然後按一下 [讀寫金鑰]  。 在下一個步驟中，您將使用畫面右側的複製按鈕，將使用者名稱、密碼和主機複製到 Dal.cs 檔案中。
 
 2. 開啟 **DAL** 目錄中的 **Dal.cs** 檔案。 
 
@@ -144,15 +144,15 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     
 ## <a name="run-the-web-app"></a>執行 Web 應用程式
 
-1. 在 Visual Studio 中，於 [方案總管] 中的專案上按一下滑鼠右鍵，然後按一下 [管理 NuGet 套件]。 
+1. 在 Visual Studio 中，於 [方案總管]  中的專案上按一下滑鼠右鍵，然後按一下 [管理 NuGet 套件]  。 
 
-2. 在 NuGet [瀏覽] 方塊中，輸入 MongoDB.Driver。
+2. 在 NuGet [瀏覽]  方塊中，輸入 MongoDB.Driver  。
 
 3. 從結果中，安裝 **MongoDB.Driver** 程式庫。 這會安裝 MongoDB.Driver 套件以及所有相依性。
 
 4. 按 CTRL + F5 來執行應用程式。 您的應用程式會顯示在瀏覽器中。 
 
-5. 按一下瀏覽器中的 [建立]，然後在您的工作清單應用程式中建立一些新工作。
+5. 按一下瀏覽器中的 [建立]  ，然後在您的工作清單應用程式中建立一些新工作。
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 入口網站中檢閱 SLA
 

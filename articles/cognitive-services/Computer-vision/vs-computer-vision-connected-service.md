@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/01/2019
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 148f94410f6acb421d352b68b6f1ecb305a6b16a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 24d9a5fa1e9c2f44ef32ac1fc05ad09f8a550f12
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235956"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827757"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>使用 Visual Studio 中已連線的服務來連線到電腦視覺 API
 
@@ -24,8 +24,8 @@ ms.locfileid: "65235956"
 
 ## <a name="prerequisites"></a>必要條件
 
-- **Azure 訂用帳戶**。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
-- **Visual Studio 2017 版本 15.7**，並且已安裝**網頁程式開發**工作負載。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
+- Azure 訂用帳戶。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
+- 已安裝 [Web 開發]  工作負載的 Visual Studio 2017 15.7.3 版或更新版本。 [立即下載](https://visualstudio.microsoft.com/downloads/)。
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
@@ -33,12 +33,12 @@ ms.locfileid: "65235956"
 
 1. 建立新的 ASP.NET Core Web 專案。 使用空白專案範本。 
 
-1. 在 [方案總管] 中，選擇 [新增] > [連線服務]。
+1. 在 [方案總管]  中，選擇 [新增]   > [連線服務]  。
    [連線服務] 頁面隨即出現，並顯示您可新增至專案的服務。
 
    ![Visual Studio 專案上的滑鼠右鍵功能表：新增 > 已連線的服務](../media/vs-common/Connected-Service-Menu.PNG)
 
-1. 在可用服務的功能表中，選擇 [認知服務電腦視覺 API]。
+1. 在可用服務的功能表中，選擇 [認知服務電腦視覺 API]  。
 
    ![連線服務功能表：概述分析影像](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
@@ -90,11 +90,11 @@ ms.locfileid: "65235956"
       }
    ```
 
-1. 在專案的 wwwroot 資料夾中，新增影像資料夾，然後將影像檔案新增至 wwwroot 資料夾。 例如，您可以使用這個[電腦視覺 API 頁面](https://azure.microsoft.com/services/cognitive-services/computer-vision/)上的其中一個影像。 在其中一個影像上按一下滑鼠右鍵，儲存到本機硬碟，然後在 [方案總管] 中的影像資料夾上按一下滑鼠右鍵，然後選擇 [新增] > [現有項目]，將它新增至您的專案。 您的專案在 [方案總管] 中看起來應該如下所示： 
+1. 在專案的 wwwroot 資料夾中，新增影像資料夾，然後將影像檔案新增至 wwwroot 資料夾。 例如，您可以使用這個[電腦視覺 API 頁面](https://azure.microsoft.com/services/cognitive-services/computer-vision/)上的其中一個影像。 在其中一個影像上按一下滑鼠右鍵，儲存到本機硬碟，然後在 [方案總管] 中的影像資料夾上按一下滑鼠右鍵，然後選擇 [新增]   > [現有項目]  ，將它新增至您的專案。 您的專案在 [方案總管] 中看起來應該如下所示： 
   
    ![已選取影像檔之方案總管檢視的螢幕擷取畫面](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 
-1. 在影像檔案上按一下滑鼠右鍵，選擇 [屬性]，然後選擇 [有更新時才複製]。 
+1. 在影像檔案上按一下滑鼠右鍵，選擇 [屬性]，然後選擇 [有更新時才複製]  。 
 
    ![影像屬性視窗；[複製到輸出目錄] 設為 [有更新時才複製]](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
@@ -255,8 +255,8 @@ ms.locfileid: "65235956"
 不再需要資源群組時，請加以刪除。 這會刪除認知服務與相關資源。 若要透過入口網站刪除資源群組：
 
 1. 在入口網站頂端的 [搜尋] 方塊中，輸入資源群組的名稱。 當您在搜尋結果中看到本快速入門中使用的資源群組時，請加以選取。
-2. 選取 [刪除資源群組]。
-3. 在 [輸入資源群組名稱:] 方塊中輸入資源群組的名稱，然後選取 [刪除]。
+2. 選取 [刪除資源群組]  。
+3. 在 [輸入資源群組名稱:]  方塊中輸入資源群組的名稱，然後選取 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 

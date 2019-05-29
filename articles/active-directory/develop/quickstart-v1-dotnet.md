@@ -3,8 +3,8 @@ title: 從 .NET 桌面 (WPF) 應用程式登入使用者並呼叫 Microsoft Grap
 description: 深入了解如何建置 .NET Windows 桌面應用程式來與 Azure AD 整合進行登入，並使用 OAuth 2.0 呼叫受 Azure AD 保護的 API。
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
+ms.date: 05/21/2019
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b55f7e615f2c2edb604d5b9433db6cc48d9f36f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: a2d9639c21e201db1df5145caf1345d4f0879af6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223388"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121950"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>快速入門：從 .NET 桌面 (WPF) 應用程式登入使用者並呼叫 Microsoft Graph API
 
@@ -55,15 +55,17 @@ ms.locfileid: "58223388"
 若要啟用您的應用程式以取得權杖，在 Azure AD 租用戶中註冊您的應用程式，並對其授與存取 Azure AD Graph API 的權限：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在頂端列上選取您的帳戶，然後在 [目錄] 清單底下，選擇您要註冊應用程式的 Active Directory 租用戶。
-3. 選取左側導覽區中的 [所有服務]，然後選擇 [Azure Active Directory]。
-4. 在 [應用程式註冊] 上，選擇 [新增]。
-5. 遵照提示進行，並建立新的**原生**用戶端應用程式。
-    * 應用程式的**名稱**將對使用者說明您的應用程式
-    * 「 **重新導向 Uri** 」是配置和字串的組合，Azure AD 可用它來傳回權杖回應。 輸入應用程式特定的值，例如 `http://DirectorySearcher`。
+2. 在頂端列上選取您的帳戶，然後在 [目錄]  清單底下，選擇您要註冊應用程式的 Active Directory 租用戶。
+3. 選取左側導覽區中的 [所有服務]  ，然後選擇 [Azure Active Directory]  。
+4. 在 [應用程式註冊]  上，選擇 [新增註冊]  。
+5. 依照提示來建立新的用戶端應用程式。
+    * [名稱]  為應用程式名稱，並能向使用者描述您的應用程式。
+    * 在 [支援的帳戶類型]  底下，選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]  。
+    * [重新導向 URI]  是配置與字串的組合，Azure AD 會用它來傳回權杖回應。 根據上面的重新導向 URI 資訊，輸入您應用程式特有的值 (例如，`http://DirectorySearcher`)。 此外，從下拉式清單選取 [公開用戶端 (行動和桌面)]  。 
 
 6. 完成註冊後，AAD 會為您的應用程式指派唯一的應用程式識別碼。 您會在後續章節中用到這個值，所以請從應用程式頁面中複製此值。
-7. 從 [設定] 頁面，選擇 [必要權限]，然後選擇 [新增]。 選取 [Microsoft Graph] 作為 API，然後在 [委派權限] 底下新增 [讀取目錄資料] 權限。 設定此權限可讓您的應用程式查詢 Graph API 的使用者。
+7. 從 [API 權限]  頁面上，選取 [新增權限]  。 在 [選取 API]  內選取 [Microsoft Graph]。
+8. 在 [委派的權限]  底下，選取權限 **User.Read**，然後按下 [新增]  以儲存。 此權限會設定您的應用程式來為使用者查詢 Azure AD 圖形 API。
 
 ## <a name="step-2-install-and-configure-adal"></a>步驟 2：安裝及設定 ADAL
 
@@ -100,7 +102,7 @@ ADAL 的基本原則是每當您的應用程式需要存取權杖時，您的應
     }
     ```
 
-1. 找到 `Search(...)` 方法，這是在使用者選取應用程式 UI 的 [搜尋] 按鈕時所呼叫的方法。 這個方法會對 Azure AD Graph API 提出 GET 要求，以查詢 UPN 開頭為指定搜尋詞彙的使用者。
+1. 找到 `Search(...)` 方法，這是在使用者選取應用程式 UI 的 [搜尋]  按鈕時所呼叫的方法。 這個方法會對 Azure AD Graph API 提出 GET 要求，以查詢 UPN 開頭為指定搜尋詞彙的使用者。
 1. 若要查詢 Graph API，要求的 `Authorization` 標頭必須包含 access_token - ADAL 可以提供這方面的協助。
 
     ```csharp
@@ -139,7 +141,7 @@ ADAL 的基本原則是每當您的應用程式需要存取權杖時，您的應
     * 如果基於任何原因 ADAL 無法傳回權杖，則會擲回 `AdalException`。
 
 1. 請注意，`AuthenticationResult` 物件包含 `UserInfo` 物件，可用來收集您的應用程式可能需要的資訊。 在 DirectorySearcher 中，`UserInfo` 用來以使用者識別碼自訂應用程式的 UI。
-1. 當使用者選取 [登出] 按鈕時，確保下次呼叫 `AcquireTokenAsync(...)` 時會要求使用者登入。 您可以使用 ADAL 清除權杖快取，輕鬆地完成這項操作：
+1. 當使用者選取 [登出]  按鈕時，確保下次呼叫 `AcquireTokenAsync(...)` 時會要求使用者登入。 您可以使用 ADAL 清除權杖快取，輕鬆地完成這項操作：
 
     ```csharp
     private void SignOut(object sender = null, RoutedEventArgs args = null)
@@ -151,7 +153,7 @@ ADAL 的基本原則是每當您的應用程式需要存取權杖時，您的應
     }
     ```
 
-    如果使用者未按一下 [登出] 按鈕，您需要維護使用者的工作階段，供他們下一次執行 DirectorySearcher 繼續使用。 當應用程式啟動時，您可以在 ADAL 的權杖快取中檢查現有的權杖，並據此更新 UI。
+    如果使用者未按一下 [登出]  按鈕，您需要維護使用者的工作階段，供他們下一次執行 DirectorySearcher 繼續使用。 當應用程式啟動時，您可以在 ADAL 的權杖快取中檢查現有的權杖，並據此更新 UI。
 
 1. 在 `CheckForCachedToken()` 方法中，再次呼叫 `AcquireTokenAsync(...)`，這次傳入 `PromptBehavior.Never` 參數。 `PromptBehavior.Never` 告訴 ADAL 不要提示使用者進行登入，而如果 ADAL 無法傳回權杖，則應該改為擲回例外狀況。
 

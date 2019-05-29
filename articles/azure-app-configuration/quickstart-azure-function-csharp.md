@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a0c677e25be86e0f82b821a7931bda0af2b35127
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c09cb0f93f05a9574543ebabb398148638092c73
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408662"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864782"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>快速入門：使用應用程式設定建立 Azure 函式
 
@@ -31,7 +31,7 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 
 ## <a name="prerequisites"></a>必要條件
 
-若要進行本快速入門，請安裝 [Visual Studio 2017](https://visualstudio.microsoft.com/vs)。 確定也已經安裝 **Azure 開發**工作負載。 還要安裝[最新的 Azure Functions 工具](../azure-functions/functions-develop-vs.md#check-your-tools-version)。
+若要進行本快速入門，請安裝 [Visual Studio 2019](https://visualstudio.microsoft.com/vs)。 確定也已經安裝 **Azure 開發**工作負載。 還要安裝[最新的 Azure Functions 工具](../azure-functions/functions-develop-vs.md#check-your-tools-version)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,13 +39,13 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. 選取 [組態總管]  >  [+ 建立] 來新增下列索引鍵/值組：
+6. 選取 [組態總管]   >  [+ 建立]  來新增下列索引鍵/值組：
 
     | Key | 值 |
     |---|---|
     | TestApp:Settings:Message | Azure 應用程式設定的值 |
 
-    目前先讓 [標籤] 和 [內容類型] 保持空白。
+    目前先讓 [標籤]  和 [內容類型]  保持空白。
 
 ## <a name="create-a-function-app"></a>建立函數應用程式
 
@@ -53,13 +53,13 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 
 ## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式設定存放區
 
-1. 以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]。 在 [瀏覽] 索引標籤上，搜尋下列 NuGet 套件並新增至您的專案。 如果您找不到它們，請選取 [包括發行前版本] 核取方塊。
+1. 以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]  。 在 [瀏覽]  索引標籤上，搜尋下列 NuGet 套件並新增至您的專案。 如果您找不到它們，請選取 [包括發行前版本]  核取方塊。
 
     ```
     Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
     ```
 
-2. 開啟 Function1.cs，並將參考新增至 .NET Core 應用程式組態提供者。
+2. 開啟 Function1.cs  ，並將參考新增至 .NET Core 應用程式組態提供者。
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;

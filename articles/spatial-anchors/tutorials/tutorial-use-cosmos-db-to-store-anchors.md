@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d955654eee1d02994f303b6270b156eb9a61c29b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 19c2298c9bda03acba28496a97c89c2a53e3c44e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915249"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964907"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>教學課程：跨工作階段和裝置與 Azure Cosmos DB 後端共用 Azure Spatial Anchors
 
@@ -54,11 +54,11 @@ ms.locfileid: "58915249"
 
 ### <a name="configure-the-service-to-use-your-azure-cosmos-db-database"></a>設定服務以使用您的 Azure Cosmos DB 資料庫
 
-在 [方案總管] 中開啟 `SharingService\Startup.cs`。
+在 [方案總管]  中開啟 `SharingService\Startup.cs`。
 
 找出檔案頂端的 `#define INMEMORY_DEMO`，並將它註解化。儲存檔案。
 
-在 [方案總管] 中開啟 `SharingService\appsettings.json`。
+在 [方案總管]  中開啟 `SharingService\appsettings.json`。
 
 找出 `StorageConnectionString` 屬性，並將其值設為您在[建立資料庫帳戶步驟](#create-a-database-account)中記下的 `Connection String` 值。 儲存檔案。
 
@@ -70,7 +70,7 @@ ms.locfileid: "58915249"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已使用 Azure Cosmos DB 在各裝置間共用錨點識別碼。 若要深入了解如何在新的 Android 應用程式中使用 Azure Spatial Anchors，請繼續進行下一個教學課程。
+在本教學課程中，您已使用 Azure Cosmos DB 在各裝置間共用錨點識別碼。 若要深入了解如何在新的 Unity HoloLens 應用程式中使用 Azure Spatial Anchors，請繼續進行下一個教學課程。
 
 > [!div class="nextstepaction"]
-> [啟動新的 Android 應用程式](./tutorial-new-android-app.md)
+> [啟動新的 Android 應用程式](./tutorial-new-unity-hololens-app.md)

@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 1b3353cae73bb5710dc9343f1d211266d15743a2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7794cf256ed8063007b4eee7c5c928be85723982
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153198"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170189"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C# 教學課程：在 Azure 搜尋服務索引管線中呼叫認知服務 API
 
@@ -44,21 +44,21 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 本教學課程會使用下列服務、工具和資料。 
 
-[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
++ [建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)，以儲存範例資料。 確定儲存體帳戶位於和 Azure 搜尋服務相同的區域中。
 
-[建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)，以儲存範例資料。
++ 下載由不同類型小型檔案集組成的[範例資料](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)。 
 
-下載由不同類型小型檔案集組成的[範例資料](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)。 
++ [安裝 Visual Studio](https://visualstudio.microsoft.com/) 以當作 IDE 使用。
 
-[安裝 Visual Studio](https://visualstudio.microsoft.com/) 以當作 IDE 使用。
++ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
 
 ## <a name="get-a-key-and-url"></a>取得金鑰和 URL
 
 若要與 Azure 搜尋服務互動，您需要服務 URL 和存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
 
-1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀] 頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
+1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀]  頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
 
-1. 在 [設定]  >  [金鑰] 中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
+1. 在 [設定]   >  [金鑰]  中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
 
    ![取得 HTTP 端點和存取金鑰](media/search-fiddler/get-url-key.png "取得 HTTP 端點和存取金鑰")
 
@@ -68,15 +68,15 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 擴充管線會從 Azure 資料來源中提取資料。 來源資料必須來自 [Azure 搜尋服務索引子](search-indexer-overview.md)支援的資料來源類型。 Azure 表格儲存體不支援認知搜尋。 針對此練習，我們會使用 Blob 儲存體來展現多個內容類型。
 
-1. [登入 Azure 入口網站](https://portal.azure.com)瀏覽至您的 Azure 儲存體帳戶、按一下 [Blob]，然後按一下 [+ 容器]。
+1. [登入 Azure 入口網站](https://portal.azure.com)瀏覽至您的 Azure 儲存體帳戶、按一下 [Blob]  ，然後按一下 [+ 容器]  。
 
 1. [建立 Blob 容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)以容納範例資料。 您可以將公用存取層級設定為任何有效值。 此教學課程假設容器名稱為 "basic-demo-data-pr"。
 
-1. 建立容器之後，請開啟它，然後選取命令列上的 [上傳] 來上傳[樣本資料](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)。
+1. 建立容器之後，請開啟它，然後選取命令列上的 [上傳]  來上傳[樣本資料](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)。
 
    ![Azure Blob 儲存體中的來源檔案](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-1. 範例檔案載入之後，請取得 Blob 儲存體的容器名稱和連接字串。 您可以透過在 Azure 入口網站中瀏覽至儲存體帳戶、選取 [存取金鑰]，然後複製 [連接字串] 欄位來執行此動作。
+1. 範例檔案載入之後，請取得 Blob 儲存體的容器名稱和連接字串。 您可以透過在 Azure 入口網站中瀏覽至儲存體帳戶、選取 [存取金鑰]  ，然後複製 [連接字串]  欄位來執行此動作。
 
    連接字串應為類似於下列範例的 URL：
 
@@ -96,15 +96,15 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 針對此專案，您必須安裝 `Microsoft.Azure.Search` NuGet 套件的版本 9 與最新的 `Microsoft.Extensions.Configuration.Json` NuGet 套件。
 
-在 Visual Studio 中，使用套件管理員主控台來安裝 `Microsoft.Azure.Search` NuGet 套件。 若要開啟套件管理員主控台，請選取 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。 若要取得要執行的命令，請瀏覽至 [Microsoft.Azure.Search NuGet 套件頁面](https://www.nuget.org/packages/Microsoft.Azure.Search) \(英文\)、選取版本 9，然後複製套件管理員命令。 在套件管理員主控台中，執行此命令。
+在 Visual Studio 中，使用套件管理員主控台來安裝 `Microsoft.Azure.Search` NuGet 套件。 若要開啟套件管理員主控台，請選取 [工具]   > [NuGet 套件管理員]   > [套件管理員主控台]  。 若要取得要執行的命令，請瀏覽至 [Microsoft.Azure.Search NuGet 套件頁面](https://www.nuget.org/packages/Microsoft.Azure.Search) \(英文\)、選取版本 9，然後複製套件管理員命令。 在套件管理員主控台中，執行此命令。
 
-若要在 Visual Studio 中安裝 `Microsoft.Extensions.Configuration.Json` NuGet 套件，請選取 [工具] > [NuGet 套件管理員] > [管理解決方案的 NuGet 套件]。選取 [瀏覽]，然後搜尋 `Microsoft.Extensions.Configuration.Json` NuGet 套件。 一旦找到它之後，請選取該套件、選取您的專案、確認該版本為最新的穩定版本，然後選取 [安裝]。
+若要在 Visual Studio 中安裝 `Microsoft.Extensions.Configuration.Json` NuGet 套件，請選取 [工具]   > [NuGet 套件管理員]   > [管理解決方案的 NuGet 套件]  。選取 [瀏覽]，然後搜尋 `Microsoft.Extensions.Configuration.Json` NuGet 套件。 一旦找到它之後，請選取該套件、選取您的專案、確認該版本為最新的穩定版本，然後選取 [安裝]。
 
 ## <a name="add-azure-search-service-information"></a>新增 Azure 搜尋服務資訊
 
-若要連線到您的 Azure 搜尋服務，您必須將搜尋服務資訊新增至專案。 在 [方案總管] 中以滑鼠右鍵按一下您的專案，然後選取 [新增] > [新增項目]。 將檔案命名為 `appsettings.json`，然後選取 [新增]。 
+若要連線到您的 Azure 搜尋服務，您必須將搜尋服務資訊新增至專案。 在 [方案總管] 中以滑鼠右鍵按一下您的專案，然後選取 [新增]   > [新增項目]  。 將檔案命名為 `appsettings.json`，然後選取 [新增]  。 
 
-此檔案必須包含於您的輸出目錄中。 若要執行此動作，請以滑鼠右鍵按一下 `appsettings.json`，然後選取 [屬性]。 將 [複製到輸出目錄] 的值變更為 [有更新時才複製]。
+此檔案必須包含於您的輸出目錄中。 若要執行此動作，請以滑鼠右鍵按一下 `appsettings.json`，然後選取 [屬性]  。 將 [複製到輸出目錄]  的值變更為 [有更新時才複製]  。
 
 將下列 JSON 複製到新的 JSON 檔案。
 
@@ -119,9 +119,9 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 新增您的搜尋服務與 Blob 儲存體帳戶資訊。
 
-您可以在 Azure 入口網站，從搜尋帳戶頁面中取得搜尋服務資訊。 帳戶名稱將位於主頁面上，而您可以透過選取 [金鑰] 來尋找金鑰。
+您可以在 Azure 入口網站，從搜尋帳戶頁面中取得搜尋服務資訊。 帳戶名稱將位於主頁面上，而您可以透過選取 [金鑰]  來尋找金鑰。
 
-您可以透過在 Azure 入口網站中瀏覽至儲存體帳戶、選取 [存取金鑰]，然後複製 [連接字串] 欄位來取得 Blob 連接字串。
+您可以透過在 Azure 入口網站中瀏覽至儲存體帳戶、選取 [存取金鑰]  ，然後複製 [連接字串]  欄位來取得 Blob 連接字串。
 
 ## <a name="add-namespaces"></a>新增命名空間
 
@@ -201,7 +201,7 @@ catch (Exception e)
 
 ## <a name="create-a-skillset"></a>建立技能集
 
-在此節中，您會定義一組要套用至資料的擴充步驟。 每個擴充步驟均稱為一個「技能」，而一組擴充步驟會稱為一個「技能集」。 本教學課程會使用為技能集[預先定義的認知技能](cognitive-search-predefined-skills.md)：
+在此節中，您會定義一組要套用至資料的擴充步驟。 每個擴充步驟均稱為一個「技能」  ，而一組擴充步驟會稱為一個「技能集」  。 本教學課程會使用為技能集[預先定義的認知技能](cognitive-search-predefined-skills.md)：
 
 + [光學字元辨識](cognitive-search-skill-ocr.md)可辨識影像檔案中的列印和手寫文字。
 
@@ -425,7 +425,7 @@ catch (Exception e)
 
 此索引的欄位會使用模型類別來定義。 每個模型類別的屬性皆具有屬性，會判斷對應索引欄位的搜尋相關行為。 
 
-我們會將模型類別新增至新的 C# 檔案。 以滑鼠右鍵按一下您的專案，然後選取 [新增] > [新增項目]、選取 [類別] 並將檔案命名為 `DemoIndex.cs`，然後選取 [新增]。
+我們會將模型類別新增至新的 C# 檔案。 以滑鼠右鍵按一下您的專案，然後選取 [新增]   > [新增項目]  、選取 [類別] 並將檔案命名為 `DemoIndex.cs`，然後選取 [新增]  。
 
 請務必指出您想要使用來自 `Microsoft.Azure.Search` 和 `Microsoft.Azure.Search.Models` 命名空間的類型。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: acf1608257bc5416ff52ed9fbd4209008712f2d7
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: f5837e06f347a4f822ac007dfe54c99fc7457dbb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408699"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872983"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式設定建立 .NET Framework 應用程式
 
@@ -29,7 +29,7 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 
 ## <a name="prerequisites"></a>必要條件
 
-若要進行本快速入門，請安裝 [Visual Studio 2017](https://visualstudio.microsoft.com/vs) 和 [.NET Framework 4.7.1](https://dotnet.microsoft.com/download) 或更新版本 (如果您尚未安裝的話)。
+若要進行本快速入門，請安裝 [Visual Studio 2019](https://visualstudio.microsoft.com/vs) 和 [.NET Framework 4.7.1](https://dotnet.microsoft.com/download) 或更新版本 (如果您尚未安裝的話)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,23 +37,23 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. 選取 [組態總管]  >  [+ 建立] 來新增下列索引鍵/值組：
+6. 選取 [組態總管]   >  [+ 建立]  來新增下列索引鍵/值組：
 
     | Key | 值 |
     |---|---|
     | TestApp:Settings:Message | Azure 應用程式設定的值 |
 
-    目前先讓 [標籤] 和 [內容類型] 保持空白。
+    目前先讓 [標籤]  和 [內容類型]  保持空白。
 
 ## <a name="create-a-net-console-app"></a>建立 .NET 主控台應用程式
 
-1. 啟動 Visual Studio，然後選取 [檔案] > [新增] > [專案]。
+1. 啟動 Visual Studio，然後選取 [檔案]   > [新增]   > [專案]  。
 
-2. 在 [新增專案] 中，選取 [已安裝] > [Visual C#] > [Windows 桌面]。 選取 [主控台應用程式 (.NET Framework)]，然後輸入專案的名稱。 選取 **.NET Framework 4.7.1** 或以上，然後選取 [確定]。
+2. 在 [新增專案]  中，選取 [已安裝]   > [Visual C#]   > [Windows 桌面]  。 選取 [主控台應用程式 (.NET Framework)]  ，然後輸入專案的名稱。 選取 **.NET Framework 4.7.1** 或以上，然後選取 [確定]  。
 
 ## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式設定存放區
 
-1. 以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]。 在 [瀏覽] 索引標籤上，搜尋下列 NuGet 套件並新增至您的專案。 如果您找不到它們，請選取 [包括發行前版本] 核取方塊。
+1. 以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]  。 在 [瀏覽]  索引標籤上，搜尋下列 NuGet 套件並新增至您的專案。 如果您找不到它們，請選取 [包括發行前版本]  核取方塊。
 
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later

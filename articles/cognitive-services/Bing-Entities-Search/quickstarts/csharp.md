@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: d31be245d906ba0405a44d4482272051982c943c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 211f33d5b217714b26dc39ad63f9d1427950589a
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59488332"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595769"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>快速入門：使用 C# 將搜尋要求傳送至 Bing 實體搜尋 REST API
 
@@ -26,14 +26,15 @@ ms.locfileid: "59488332"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 任何一版的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
-* [Json.NET](https://www.newtonsoft.com/json) 架構 (以 NuGet 套件形式提供)。
-    * 在 Visual Studio 中安裝 NuGet 套件：
-        1. 以滑鼠右鍵按一下方案總管
-        2. 按一下 [管理 NuGet 套件...]
-        3. 搜尋 **newtonsoft.json** 並安裝套件
+- [Visual Studio 2017 或更新版本](https://www.visualstudio.com/downloads/)的任何版本。
 
-* 如果您使用 Linux/MacOS，則可以使用 [Mono](https://www.mono-project.com/)來執行此應用程式。
+- [Json.NET](https://www.newtonsoft.com/json) 架構 (以 NuGet 套件形式提供)。 在 Visual Studio 中安裝 NuGet 套件：
+
+   1. 在 [方案總管]  中，以滑鼠右鍵按一下您的專案。
+   2. 選取 [管理 NuGet 套件]  。
+   3. 搜尋 Newtonsoft.Json  並安裝套件
+
+- 如果您使用 Linux/MacOS，則可以使用 [Mono](https://www.mono-project.com/) 來執行此應用程式。
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]

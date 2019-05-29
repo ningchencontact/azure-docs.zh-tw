@@ -3,18 +3,18 @@ title: 建立自訂原則定義
 description: 針對 Azure 原則製作自訂原則定義以強制執行自訂的商務規則。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/12/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bf3582036a28603c3b6ef33a2af28cb61926d91f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e38eb1315cde3400b70925059d4dd50475a47835
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267747"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979675"
 ---
-# <a name="create-a-custom-policy-definition"></a>建立自訂原則定義
+# <a name="tutorial-create-a-custom-policy-definition"></a>教學課程：建立自訂原則定義
 
 自訂原則定義可讓客戶定義自己的 Azure 使用規則。 這些規則通常會強制執行：
 
@@ -46,12 +46,11 @@ ms.locfileid: "59267747"
 
 您的需求應該清楚地識別「要」和「不要」的資源狀態。
 
-我們雖已定義資源的預期狀態，但尚未定義不符合規範的資源所需的狀態。 原則支援許多[效果](../concepts/effects.md)。 在本教學課程中，我們會將商務需求定義為防止建立不符合商務規則規範的資源。 為了達到此目標，我們會使用[拒絕](../concepts/effects.md#deny)效果。 我們也想要可以暫停特定指派原則的選項。 因此，我們會使用[停用](../concepts/effects.md#disabled)效果，然後讓該效果成為原則定義中的[參數](../concepts/definition-structure.md#parameters)。
+我們雖已定義資源的預期狀態，但尚未定義不符合規範的資源所需的狀態。 Azure 原則支援許多[效果](../concepts/effects.md)。 在本教學課程中，我們會將商務需求定義為防止建立不符合商務規則規範的資源。 為了達到此目標，我們會使用[拒絕](../concepts/effects.md#deny)效果。 我們也想要可以暫停特定指派原則的選項。 因此，我們會使用[停用](../concepts/effects.md#disabled)效果，然後讓該效果成為原則定義中的[參數](../concepts/definition-structure.md#parameters)。
 
 ## <a name="determine-resource-properties"></a>決定資源屬性
 
-根據商務需求，原則所要稽核的 Azure 資源是儲存體帳戶。
-不過，我們不知道要在原則定義中使用的屬性。 原則會針對資源的 JSON 表示法進行評估，因此我們必須了解該資源上可用的屬性。
+根據商務需求，Azure 原則所要稽核的 Azure 資源是儲存體帳戶。 不過，我們不知道要在原則定義中使用的屬性。 Azure 原則會針對資源的 JSON 表示法進行評估，因此我們必須了解該資源上可用的屬性。
 
 用來決定 Azure 資源屬性的方式很多。 在本教學課程中，我們會就每一種方式進行探討：
 
@@ -69,9 +68,9 @@ ms.locfileid: "59267747"
 #### <a name="existing-resource-in-the-portal"></a>入口網站中的現有資源
 
 若要尋找屬性，最簡單的方式是查看相同類型的現有資源。 已使用所要強制執行的設定進行設定的資源，也會提供可用來比較的值。
-在 Azure 入口網站中，查看該特定資源的 [自動化指令碼] 頁面 (在 [設定] 底下)。
+在 Azure 入口網站中，查看該項資源的 [匯出範本]  頁面 (在 [設定]  下方)。
 
-![現有資源上的 [匯出範本] 頁面](../media/create-custom-policy-definition/automation-script.png)
+![現有資源上的 [匯出範本] 頁面](../media/create-custom-policy-definition/export-template.png)
 
 對儲存體帳戶執行此操作，就會顯示類似此範例的範本：
 
@@ -117,14 +116,13 @@ ms.locfileid: "59267747"
 ...
 ```
 
-[屬性] 底下是名為 **supportsHttpsTrafficOnly**、且設定為 **false** 的值。 這個屬性似乎就是我們要尋找的屬性。 此外，該資源的**類型**是 **Microsoft.Storage/storageAccounts**。 該類型可讓我們將原則限制為僅限此類型的資源。
+[屬性]  底下是名為 **supportsHttpsTrafficOnly**、且設定為 **false** 的值。 這個屬性似乎就是我們要尋找的屬性。 此外，該資源的**類型**是 **Microsoft.Storage/storageAccounts**。 該類型可讓我們將原則限制為僅限此類型的資源。
 
 #### <a name="create-a-resource-in-the-portal"></a>在入口網站建立資源
 
-另一種透過入口網站的方式是資源建立體驗。 在透過入口網站建立儲存體帳戶時，[進階] 索引標籤下有 [需要安全性傳輸] 選項。
-此屬性具有 [停用] 和 [啟用] 選項。 資訊圖示會有額外的文字，可確認此選項或許就是我們想要的屬性。 不過，入口網站不會在此畫面上告訴我們屬性名稱。
+另一種透過入口網站的方式是資源建立體驗。 在透過入口網站建立儲存體帳戶時，[進階]  索引標籤下有 [需要安全性傳輸]  選項。 此屬性具有 [停用]  和 [啟用]  選項。 資訊圖示會有額外的文字，可確認此選項或許就是我們想要的屬性。 不過，入口網站不會在此畫面上告訴我們屬性名稱。
 
-在 [檢閱 + 建立] 索引標籤上，頁面底部會有用來**下載自動化的範本**的連結。 選取連結就會開啟範本，以建立我們所設定的資源。 在此案例中，我們會看到兩項關鍵資訊：
+在 [檢閱 + 建立]  索引標籤上，頁面底部會有用來**下載自動化的範本**的連結。 選取連結就會開啟範本，以建立我們所設定的資源。 在此案例中，我們會看到兩項關鍵資訊：
 
 ```json
 ...
@@ -154,7 +152,7 @@ GitHub 上的 [Azure 快速入門範本](https://github.com/Azure/azure-quicksta
 
 另一種瀏覽 Azure 資源的方式是透過 [Azure 資源總管](https://resources.azure.com) (預覽)。 此工具會使用您訂用帳戶的內容，因此您必須使用 Azure 認證向該網站進行驗證。 通過驗證後，即可依提供者、訂用帳戶、資源群組和資源來進行瀏覽。
 
-找出儲存體帳戶資源，並查看其屬性。 我們在這裡也看到 **supportsHttpsTrafficOnly** 屬性。 選取 [文件] 索引標籤，我們會看到屬性描述符合我們稍早在參考文件中找到的資訊。
+找出儲存體帳戶資源，並查看其屬性。 我們在這裡也看到 **supportsHttpsTrafficOnly** 屬性。 選取 [文件]  索引標籤，我們會看到屬性描述符合我們稍早在參考文件中找到的資訊。
 
 ## <a name="find-the-property-alias"></a>尋找屬性別名
 
@@ -181,8 +179,7 @@ az provider show --namespace Microsoft.Storage --expand "resourceTypes/aliases" 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-在 Azure PowerShell 中，`Get-AzPolicyAlias` Cmdlet 可用來搜尋資源別名。
-我們會根據稍早取得的 Azure 資源相關詳細資料，來篩選 **Microsoft.Storage** 命名空間。
+在 Azure PowerShell 中，`Get-AzPolicyAlias` Cmdlet 可用來搜尋資源別名。 我們會根據稍早取得的 Azure 資源相關詳細資料，來篩選 **Microsoft.Storage** 命名空間。
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -197,8 +194,9 @@ az provider show --namespace Microsoft.Storage --expand "resourceTypes/aliases" 
 
 [Azure Resource Graph](../../resource-graph/overview.md) 是新的預覽版服務。 其可實現另一種用來尋找 Azure 資源屬性的方法。 以下是用來查看 Resource Graph 所搭配單一儲存體帳戶的 查詢範例：
 
-```Query
-where type=~'microsoft.storage/storageaccounts' | limit 1
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
 ```
 
 ```azurecli-interactive
@@ -209,7 +207,23 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-其結果看起來與我們在 Resource Manager 範本中以及透過 Azure 資源總管所看到的結果類似。 不過，Azure Resource Graph 的結果還會包含[別名](../concepts/definition-structure.md#aliases)詳細資料。 以下是來自儲存體帳戶的別名輸出範例：
+其結果看起來與我們在 Resource Manager 範本中以及透過 Azure 資源總管所看到的結果類似。 不過，Azure Resource Graph 的結果也可能因_投射_了_別名_陣列而包含[別名](../concepts/definition-structure.md#aliases)詳細資料：
+
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
+| project aliases
+```
+
+```azurecli-interactive
+az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+以下是來自儲存體帳戶的別名輸出範例：
 
 ```json
 "aliases": {
@@ -295,7 +309,8 @@ Azure Resource Graph (預覽) 可透過 [Cloud Shell](https://shell.azure.com) �
 
 ## <a name="determine-the-effect-to-use"></a>決定要使用的效果
 
-決定要如何處理不符合規範的資源，與決定要先評估什麼資源有著幾乎一樣的重要性。 針對不符合規範的資源，其每個可能的回應稱為[效果](../concepts/effects.md)。 效果會控制不符合規範的資源是否要加以記錄、封鎖、是否有附加的資料，或是否有與其相關聯的部署，而可讓資源恢復符合規範的狀態。
+決定要如何處理不符合規範的資源，與決定要先評估什麼資源有著幾乎一樣的重要性。 針對不符合規範的資源，其每個可能的回應稱為[效果](../concepts/effects.md)。
+效果會控制不符合規範的資源是否要加以記錄、封鎖、是否有附加的資料，或是否有與其相關聯的部署，而可讓資源恢復符合規範的狀態。
 
 在我們的範例中，因為我們不想要在 Azure 環境中建立不符合規範的資源，所以拒絕是我們想要的效果。 第一個優異的原則效果選擇是稽核，其可先決定原則的影響範圍，再將原則設定為拒絕。 若要讓變更每一指派的效果變得更容易，有一種方法是將效果參數化。 請參閱下面的[參數](#parameters)，來了解其操作方式。
 
@@ -326,7 +341,7 @@ Azure Resource Graph (預覽) 可透過 [Cloud Shell](https://shell.azure.com) �
 
 ### <a name="metadata"></a>中繼資料
 
-前三個元件是原則的中繼資料。 由於我們知道為何要建立規則，所以為這些元件提供值並不難。 [模式](../concepts/definition-structure.md#mode)主要是和標記與資源位置有關。 我們並不需要限制只對支援標記的資源進行評估，因此會對 **mode** 使用 all 這個值。
+前三個元件是原則的中繼資料。 由於我們知道為何要建立規則，所以為這些元件提供值並不難。 [模式](../concepts/definition-structure.md#mode)主要是和標記與資源位置有關。 我們並不需要限制只對支援標記的資源進行評估，因此會對 **mode** 使用 all  這個值。
 
 ```json
 "displayName": "Deny storage accounts not using only HTTPS",

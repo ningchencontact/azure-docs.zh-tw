@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: e9378f8d2b31bfed4c464951c427b1e9d00b7893
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b073a270fabb8657be19b79601fa90f1b9a0351b
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699364"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015230"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>教學課程：將實際裝置新增至 Azure IoT Central 應用程式
 
@@ -48,33 +48,33 @@ ms.locfileid: "64699364"
 
 若要將實際裝置新增至應用程式，您應使用在[定義新的裝置類型](tutorial-define-device-type.md)教學課程中建立的**連線的空調**裝置範本。
 
-1. 若要以操作員的身分新增裝置，請選擇左側導覽功能表中的 [裝置總管]：
+1. 若要以操作員的身分新增裝置，請選擇左側導覽功能表中的 [裝置總管]  ：
 
    ![顯示連線空調的裝置總管頁面](media/tutorial-add-device/explorer.png)
 
-   [裝置總管] 示範 [連線的空調] 裝置範本及模擬裝置。 當您建立模擬裝置時，IoT Central 會自動建立模擬裝置。
+   [裝置總管]  示範 [連線的空調]  裝置範本及模擬裝置。 當您建立模擬裝置時，IoT Central 會自動建立模擬裝置。
 
-2. 若要開始連接實際的連線空調裝置，請選取 **+**，然後選取 [實際]：
+2. 若要開始連接實際的連線空調裝置，請選取 **+** ，然後選取 [實際]  ：
 
    ![開始新增，實際的連線空調裝置：](media/tutorial-add-device/newreal.png)
 
-3. 輸入裝置識別碼 (應為小寫)，或使用建議的裝置識別碼。 您也可以輸入新裝置的名稱，然後選擇 [建立]。
+3. 輸入裝置識別碼 (應為小寫)，或使用建議的裝置識別碼。 您也可以輸入新裝置的名稱，然後選擇 [建立]  。
 
    ![將裝置重新命名](media/tutorial-add-device/rename.png)
 
 ## <a name="configure-a-real-device"></a>設定實際裝置
 
-實際裝置可從**連線的空調**裝置範本建立： 您可以使用 [設定] 來設定裝置並設定屬性值，以記錄裝置的相關資訊。
+實際裝置可從**連線的空調**裝置範本建立： 您可以使用 [設定]  來設定裝置並設定屬性值，以記錄裝置的相關資訊。
 
-1. 在 [設定] 頁面上應留意到，[設定溫度] 設定狀態為 [沒有更新]。 在實際裝置連線到應用程式並確認它已針對設定執行因應動作之前，都會處於此狀態。
+1. 在 [設定]  頁面上應留意到，[設定溫度]  設定狀態為 [沒有更新]  。 在實際裝置連線到應用程式並確認它已針對設定執行因應動作之前，都會處於此狀態。
 
     ![設定顯示同步中](media/tutorial-add-device/settingssyncing.png)
 
-2. 在您新的實際裝置的 [屬性] 頁面上，服務的位置和上次服務日期都是可編輯的屬性。 在裝置連線到應用程式之前，序號和韌體版本欄位將是空的。 這些唯讀值是由裝置傳送，無法加以編輯。
+2. 在您新的實際裝置的 [屬性]  頁面上，服務的位置和上次服務日期都是可編輯的屬性。 在裝置連線到應用程式之前，序號和韌體版本欄位將是空的。 這些唯讀值是由裝置傳送，無法加以編輯。
 
     ![實際裝置的裝置屬性](media/tutorial-add-device/setproperties1.png)
 
-3. 您可以檢視實際裝置的 [測量]、[規則] 和 [儀表板] 頁面。
+3. 您可以檢視實際裝置的 [測量]  、[規則]  和 [儀表板]  頁面。
 
 ## <a name="generate-connection-string"></a>產生連接字串
 
@@ -87,7 +87,7 @@ ms.locfileid: "64699364"
 * 以裝置連線至 Azure IoT Central 應用程式。
 * 以連線的空調裝置傳送溫度遙測資料。
 * 將裝置屬性傳送至 Azure IoT Central 應用程式。
-* 回應使用 [設定溫度] 設定的操作員。
+* 回應使用 [設定溫度]  設定的操作員。
 * 處理來自 Azure IoT Central 應用程式的回應命令。
 
 [後續步驟](#next-steps)一節中所列的文章包含更多完整範例並說明其他程式設計語言。 如需關於裝置如何連線至 Azure IoT Central 的詳細資訊，請參閱[裝置連線能力](concepts-connectivity.md)一文。
@@ -98,11 +98,11 @@ ms.locfileid: "64699364"
 
 1. 應用程式中的裝置執行個體所適用的連接字串會從 IoT Central 所提供的裝置資訊產生。
 
-   在實際「連線的空調」的裝置畫面上，選擇 [連線]。
+   在實際「連線的空調」的裝置畫面上，選擇 [連線]  。
 
    ![顯示檢視連線資訊連結的裝置頁面](media/tutorial-add-device/connectionlink.png)
 
-1. 在 [裝置連線] 頁面上，記下 [範圍識別碼]、[裝置識別碼] 和 [主要金鑰] 值。 您在下一個步驟將用到這些值。
+1. 在 [裝置連線] 頁面上，記下 [範圍識別碼]  、[裝置識別碼]  和 [主要金鑰]  值。 您在下一個步驟將用到這些值。
 
    ![連線詳細資料](media/tutorial-add-device/device-connect.png)
 
@@ -318,22 +318,22 @@ ms.locfileid: "64699364"
 
    ![用戶端應用程式輸出](media/tutorial-add-device/output.png)
 
-1. 約 30 秒後，您就會在裝置的 [測量] 頁面上看到遙測資料：
+1. 約 30 秒後，您就會在裝置的 [測量]  頁面上看到遙測資料：
 
    ![實際的~~遙測資料](media/tutorial-add-device/realtelemetry.png)
 
-1. 在 [設定] 頁面上，您可以看到設定此時處於已同步狀態。 裝置第一次連線時，將會接收設定值並確認變更：
+1. 在 [設定]  頁面上，您可以看到設定此時處於已同步狀態。 裝置第一次連線時，將會接收設定值並確認變更：
 
    ![設定已同步](media/tutorial-add-device/settingsynced.png)
 
-1. 在 [設定] 頁面上，將裝置溫度設定為 **95**，並選擇 [更新裝置]。 範例應用程式會接收並處理這項變更：
+1. 在 [設定]  頁面上，將裝置溫度設定為 **95**，並選擇 [更新裝置]  。 範例應用程式會接收並處理這項變更：
 
    ![接收並處理設定](media/tutorial-add-device/receivesetting.png)
 
    > [!NOTE]
    > 「設定更新」訊息有兩種。 一種會在傳送 `pending` 狀態時顯示，另一種則在傳送 `completed` 狀態時顯示。
 
-1. 在 [測量] 頁面上，您可以看到裝置正在傳送較高的溫度值：
+1. 在 [測量]  頁面上，您可以看到裝置正在傳送較高的溫度值：
 
     ![目前的溫度遙測資料較高](media/tutorial-add-device/highertemperature.png)
 
@@ -348,7 +348,7 @@ ms.locfileid: "64699364"
 > * 了解用戶端程式碼如何對應至應用程式
 > * 設定實際裝置的用戶端程式碼
 
-現在，您已將實際裝置連線至 Azure IoT Central 應用程式，以下是建議的後續步驟：
+現在，您已將實際裝置連線至 Azure IoT Central 應用程式，以下是一些建議的後續步驟。
 
 身為操作員，您可以了解如何：
 

@@ -1,19 +1,19 @@
 ---
-title: 訂購 Microsoft Azure 資料箱 | Microsoft Docs
+title: 訂購 Azure 資料箱的教學課程 | Microsoft Docs
 description: 深入了解部署必要條件以及如何訂購 Azure 資料箱
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 03/05/2019
+ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 07ccd2aaec6b2325d6eef09a466a5d0707836b4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b0204673c0706403c8c5a7367be19e590d9cb134
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834263"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604082"
 ---
 # <a name="tutorial-order-azure-data-box"></a>教學課程：訂購 Azure 資料箱
 
@@ -54,26 +54,26 @@ Azure 資料箱是一項混合式解決方案，可讓您以快速、簡便而�
 請在 Azure 入口網站中執行下列步驟，以訂購裝置。
 
 1. 使用您的 Microsoft Azure 認證在以下 URL 登入：[https://portal.azure.com](https://portal.azure.com)。
-2. 按一下 [+ 建立資源]，然後搜尋「Azure 資料箱」。 按一下 [Azure 資料箱]。
+2. 按一下 [+ 建立資源]  ，然後搜尋「Azure 資料箱」  。 按一下 [Azure 資料箱]  。
     
    [![搜尋 Azure 資料箱 1](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
 
-3. 按一下頁面底部的 [新增] 。
+3. 按一下頁面底部的 [新增]  。
 
-4. 確認您的區域是否適用資料箱服務。 輸入或選取下列資訊，然後按一下 [套用]。 
+4. 確認您的區域是否適用資料箱服務。 輸入或選取下列資訊，然後按一下 [套用]  。 
 
     |設定  |值  |
     |---------|---------|
     |訂用帳戶     | 為資料箱服務選取 EA、CSP 或 Azure 贊助訂用帳戶。 <br> 訂用帳戶會連結到您的帳單帳戶。       |
-    |傳輸類型     | 選取 [匯入至 Azure]。        |
+    |傳輸類型     | 選取 [匯入至 Azure]  。        |
     |來源國家/地區     |   選取您的資料目前所在的國家/地區。         |
     |目的地 Azure 區域     |     選取要傳輸資料的 Azure 區域。        |
 
-5. 選取 [資料箱]。 單一訂單的最大可用容量是 786 TB。 您可以建立多份訂單以訂購更大的資料大小。
+5. 選取 [資料箱]  。 單一訂單的最大可用容量是 80 TB。 您可以建立多份訂單以訂購更大的資料大小。
 
       [![選取資料箱選項 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
-6. 在 [訂單] 中，指定 [訂單詳細資料]。 輸入或選取下列資訊，然後按 [下一步]。
+6. 在 [訂單]  中，指定 [訂單詳細資料]  。 輸入或選取下列資訊，然後按 [下一步]  。
     
     |設定  |值  |
     |---------|---------|
@@ -96,20 +96,20 @@ Azure 資料箱是一項混合式解決方案，可讓您以快速、簡便而�
 
     針對受控磁碟指定的儲存體帳戶不能當成暫存的儲存體帳戶來使用。 資料箱服務會先將 VHD 以分頁 Blob 形式上傳至暫存的儲存體帳戶，然後再將它轉換為受控磁碟並移至資源群組。 如需詳細資訊，請參閱[確認資料上傳至 Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure)。
 
-7. 在 [交貨地址] 中，提供您的姓名、公司的名稱和郵寄地址，以及有效的電話號碼。 按一下 [驗證地址]。 服務會驗證交貨地址以確認服務可用性。 如果服務可提供至指定的交貨地址，您將會收到該項通知。 按 [下一步] 。
+7. 在 [交貨地址]  中，提供您的姓名、公司的名稱和郵寄地址，以及有效的電話號碼。 按一下 [驗證地址]  。 服務會驗證交貨地址以確認服務可用性。 如果服務可提供至指定的交貨地址，您將會收到該項通知。 按 [下一步]  。
 
-8. 在 [通知詳細資料] 中，指定電子郵件地址。 服務會將關於任何訂單狀態更新的電子郵件通知傳送至指定的電子郵件地址。
+8. 在 [通知詳細資料]  中，指定電子郵件地址。 服務會將關於任何訂單狀態更新的電子郵件通知傳送至指定的電子郵件地址。
 
     建議您使用群組電子郵件，以便在群組中的管理員離開時繼續接收通知。
 
 9. 檢閱與訂單、連絡人、通知和隱私權條款有關的資訊**摘要**。 請勾選隱私權條款合約的對應方塊。
 
-10. 按一下 [訂單]。 建立訂單需要幾分鐘的時間。
+10. 按一下 [訂單]  。 建立訂單需要幾分鐘的時間。
 
 
 ## <a name="track-the-order"></a>追蹤訂單狀態
 
-在您下訂單之後，可以從 Azure 入口網站來追蹤訂單狀態。 請移至您的資料箱訂單，然後移至 [概觀] 以檢視狀態。 入口網站會顯示處於 [已訂購] 狀態的訂單。
+在您下訂單之後，可以從 Azure 入口網站來追蹤訂單狀態。 請移至您的資料箱訂單，然後移至 [概觀]  以檢視狀態。 入口網站會顯示處於 [已訂購]  狀態的訂單。
 
 如果裝置無法使用，您會收到通知。 如果可使用服務，Microsoft 會識別要寄送的裝置，並準備出貨。 在裝置準備期間，會執行下列動作：
 
@@ -118,21 +118,21 @@ Azure 資料箱是一項混合式解決方案，可讓您以快速、簡便而�
 - 也會產生可協助將裝置解除鎖定的裝置密碼。
 - 資料箱會鎖定，防止任何對裝置的未經授權存取。
 
-裝置準備完成後，入口網站會顯示訂單處於 [已處理] 狀態。
+裝置準備完成後，入口網站會顯示訂單處於 [已處理]  狀態。
 
 ![資料箱訂單已處理](media/data-box-overview/data-box-order-status-processed.png)
 
-接著，Microsoft 會準備裝置，並透過區域貨運公司派送給您。 在裝置送達後，您會收到追蹤號碼。 入口網站會顯示訂單處於 [已分派] 狀態。
+接著，Microsoft 會準備裝置，並透過區域貨運公司派送給您。 在裝置送達後，您會收到追蹤號碼。 入口網站會顯示訂單處於 [已分派]  狀態。
 
 ![資料箱訂單分派](media/data-box-overview/data-box-order-status-dispatched.png)
 
 ## <a name="cancel-the-order"></a>取消訂單
 
-若要取消此訂單，請在 Azure 入口網站中移至 [概觀]，然後從命令列按一下 [取消]。
+若要取消此訂單，請在 Azure 入口網站中移至 [概觀]  ，然後從命令列按一下 [取消]  。
 
 下訂單之後，您可以在訂單狀態標示為已處理之前的任何時間點，取消訂單。
  
-若要刪除已取消的訂單，請移至 [概觀]，然後從命令列按一下 [刪除]。
+若要刪除已取消的訂單，請移至 [概觀]  ，然後從命令列按一下 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 

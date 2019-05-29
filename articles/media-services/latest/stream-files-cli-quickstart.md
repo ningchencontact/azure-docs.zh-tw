@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 媒體服務和 Azure CLI 串流視訊檔案 - CLI | Microsoft Docs
-description: 按照本快速入門的步驟建立新的 Azure 媒體服務帳戶、對檔案進行編碼，然後將它串流到 Azure 媒體播放器。
+description: 按照本教學課程的步驟建立新的 Azure 媒體服務帳戶、對檔案進行編碼，然後將它串流到 Azure 媒體播放器。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,24 +9,24 @@ editor: ''
 keywords: Azure 媒體服務, 串流
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: ''
 ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: bd818135f289c430416909d16c8568208936a9f8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: cce424b11cc4cd587c6e7c50bc8bdf988004a43a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205408"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550209"
 ---
-# <a name="quickstart-stream-video-files---cli"></a>快速入門：串流影片檔案 - CLI
+# <a name="tutorial-stream-video-files---cli"></a>教學課程：串流影片檔案 - CLI
 
-此快速入門說明如何使用 Azure 媒體服務和 Azure CLI，在各種不同的瀏覽器和裝置上輕鬆地編碼和串流視訊。 您可以使用 HTTPS、SAS URL 或 Azure Blob 儲存體中的檔案路徑來指定輸入內容。
+此教學課程說明如何使用 Azure 媒體服務和 Azure CLI，在各種不同的瀏覽器和裝置上輕鬆地編碼和串流視訊。 您可以使用 HTTPS、SAS URL 或 Azure Blob 儲存體中的檔案路徑來指定輸入內容。
 
 本文中的範例會將您透過 HTTPS URL 提供的內容編碼。 媒體服務 v3 目前不支援透過 HTTPS URL 的區塊傳輸編碼。
 
-完成本快速入門時，您將能夠串流視訊。  
+完成本教學課程時，您將能夠串流視訊。  
 
 ![播放影片](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -334,15 +334,15 @@ az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 > 如果播放程式裝載在 HTTPS 網站上，請務必以 "https" 作為 URL 的開頭。
 
 1. 開啟網頁瀏覽器並前往 [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)。
-2. 在 [URL] 方塊中，貼上您在上一節建置的 URL。 您可以貼上 HLS、 Dash 或 Smooth 格式的 URL。 Azure 媒體播放器將自動使用適當的串流通訊協定，以便在您的裝置上播放。
-3. 選取 [更新播放程式]。
+2. 在 [URL]  方塊中，貼上您在上一節建置的 URL。 您可以貼上 HLS、 Dash 或 Smooth 格式的 URL。 Azure 媒體播放器將自動使用適當的串流通訊協定，以便在您的裝置上播放。
+3. 選取 [更新播放程式]  。
 
 >[!NOTE]
 >Azure 媒體播放器可以用於測試，但不應用於生產環境。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不再需要資源群組中的任何資源 (包含在此快速入門中建立的媒體服務和儲存體帳戶)，請將資源群組刪除。
+如果您不再需要資源群組中的任何資源 (包含在此教學課程中建立的媒體服務和儲存體帳戶)，請將資源群組刪除。
 
 執行此 CLI 命令：
 
@@ -350,10 +350,7 @@ az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 az group delete --name amsResourceGroup
 ```
 
-## <a name="see-also"></a>另請參閱
-
-請參閱[作業錯誤碼](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)。
-
 ## <a name="next-steps"></a>後續步驟
 
 [媒體服務概觀](media-services-overview.md)
+

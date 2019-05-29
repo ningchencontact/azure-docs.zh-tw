@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/04/2019
+ms.date: 05/22/2019
 ms.author: jgao
-ms.openlocfilehash: b1b50858286e3a174de254ae16c64b04abc00936
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 802c0409fe3ac88f73c383958d2337be09ef7992
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715999"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016469"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>快速入門：使用 Resource Manager 範本從 Azure Key Vault 設定及擷取祕密
 
@@ -29,7 +29,7 @@ ms.locfileid: "64715999"
 
 * 範本需要您的 Azure AD 使用者物件識別碼來設定權限。 下列程序會取得物件識別碼 (GUID)。
 
-    1. 透過選取 [試試看] 來執行下列 Azure PowerShell 或 Azure CLI 命令，然後將指令碼貼到 Shell 窗格中。 若要貼上指令碼，請以滑鼠右鍵按一下 Shell，然後選取 [貼上]。 
+    1. 透過選取 [試試看]  來執行下列 Azure PowerShell 或 Azure CLI 命令，然後將指令碼貼到 Shell 窗格中。 若要貼上指令碼，請以滑鼠右鍵按一下 Shell，然後選取 [貼上]  。 
 
         ```azurecli-interactive
         echo "Enter your email address that is used to sign in to Azure:" &&
@@ -59,15 +59,15 @@ ms.locfileid: "64715999"
     除非有指定，否則就使用預設值來建立金鑰保存庫和密碼。
 
     * **訂用帳戶**：選取 Azure 訂用帳戶。
-    * [資源群組]選取 [新建]，輸入資源群組的唯一名稱，然後按一下 [確認]。 
+    * [資源群組]  選取 [新建]  ，輸入資源群組的唯一名稱，然後按一下 [確認]  。 
     * **位置**：選取位置。  例如，**美國中部**。
-    * **Key Vault 名稱**：輸入的金鑰保存庫的唯一名稱。  
-    * **租用戶識別碼**：範本功能會自動擷取您的租用戶識別碼。請勿變更預設值
+    * **Key Vault 名稱**：輸入金鑰保存庫的名稱，它在 vault.azure.net 命名空間內必須是全域唯一的。  
+    * **租用戶識別碼**：範本功能會自動擷取您的租用戶識別碼。請勿變更預設值。
     * **AD 使用者識別碼**：輸入您從[必要條件](#prerequisites)中擷取的 Azure AD 使用者物件識別碼。
-    * **祕密名稱**：輸入您在金鑰保存庫中儲存的祕密的名稱。  例如，**adminpassword**
+    * **祕密名稱**：輸入您在金鑰保存庫中儲存的祕密的名稱。  例如，**adminpassword**。
     * **祕密值**：輸入祕密值。  如果您儲存密碼，建議使用您在必要條件中建立而產生的密碼。
     * **我同意上方所述的條款及條件**：選取。
-3. 選取 [購買]。
+3. 選取 [購買]  。
 
 ## <a name="validate-the-deployment"></a>驗證部署
 

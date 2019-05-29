@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3c62ad66a29943e26d1cb2f15ca71631d2feabe3
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: bba263b65344672808487ae6de4c3f475a871842
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467439"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523950"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站記錄往返於虛擬機器的網路流量
 
@@ -39,9 +39,9 @@ ms.locfileid: "65467439"
 
 ## <a name="create-a-vm"></a>建立 VM
 
-1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
-2. 選取 [計算]，然後選取 [Windows Server 2016 Datacenter] 或某個版本的 [Ubuntu Server]。
-3. 輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [確定]：
+1. 選取 Azure 入口網站左上角的 [+ 建立資源]  。
+2. 選取 [計算]  ，然後選取 [Windows Server 2016 Datacenter]  或某個版本的 [Ubuntu Server]  。
+3. 輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [確定]  ：
 
     |設定|值|
     |---|---|
@@ -49,12 +49,12 @@ ms.locfileid: "65467439"
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |訂用帳戶| 選取您的訂用帳戶。|
-    |資源群組| 選取 [新建]，然後輸入 **myResourceGroup**。|
-    |位置| 選取 [美國東部]|
+    |資源群組| 選取 [新建]  ，然後輸入 **myResourceGroup**。|
+    |位置| 選取 [美國東部] |
 
-4. 選取 VM 的大小，然後選取 [選取]。
-5. 在 [設定] 底下，接受所有預設值，然後選取 [確定]。
-6. 在 [摘要] 的 [建立] 底下，選取 [建立] 來開始部署 VM。 部署 VM 需要幾分鐘的時間。 等候虛擬機器完成部署，再繼續進行其餘步驟。
+4. 選取 VM 的大小，然後選取 [選取]  。
+5. 在 [設定]  底下，接受所有預設值，然後選取 [確定]  。
+6. 在 [摘要]  的 [建立]  底下，選取 [建立]  來開始部署 VM。 部署 VM 需要幾分鐘的時間。 等候虛擬機器完成部署，再繼續進行其餘步驟。
 
 建立 VM 需要幾分鐘的時間。 完成 VM 建立之前，請不要繼續其餘步驟。 入口網站建立 VM 的同時，也會建立名為 **myVm-nsg** 的網路安全性群組，並讓它與 VM 的網路介面相關聯。
 
@@ -62,68 +62,68 @@ ms.locfileid: "65467439"
 
 如果您已經在美國東部區域中啟用網路監看員，請跳至[註冊 Insights 提供者](#register-insights-provider)。
 
-1. 在入口網站中，選取 [所有服務]。 在 [篩選條件] 方塊中，輸入*網路監看員*。 當結果中出現**網路監看員**時，請加以選取。
-2. 選取 [地區]、展開它，然後選取 [美國東部] 右邊的 [...]，如下圖所示：
+1. 在入口網站中，選取 [所有服務]  。 在 [篩選條件]  方塊中，輸入*網路監看員*。 當結果中出現**網路監看員**時，請加以選取。
+2. 選取 [地區]  、展開它，然後選取 [美國東部]  右邊的 [...]  ，如下圖所示：
 
     ![啟用網路監看員](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
 
-3. 選取 [啟用網路監看員]。
+3. 選取 [啟用網路監看員]  。
 
 ## <a name="register-insights-provider"></a>註冊 Insights 提供者
 
 NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者，請完成下列步驟：
 
-1. 在入口網站的左上角，選取 [所有服務]。 在 [篩選] 方塊中輸入 [訂用帳戶]。 當搜尋結果中出現**訂用帳戶**時加以選取。
+1. 在入口網站的左上角，選取 [所有服務]  。 在 [篩選] 方塊中輸入 [訂用帳戶]  。 當搜尋結果中出現**訂用帳戶**時加以選取。
 2. 從訂用帳戶的清單中，選取您要為其啟用提供者的訂用帳戶。
-3. 在 [設定] 下，選取 [資源提供者]。
-4. 確認 **microsoft.insights** 提供者的**狀態**是 [已註冊]，如下圖所示。 如果狀態為 [未註冊]，則選取提供者右邊的 [註冊]。
+3. 在 [設定]  下，選取 [資源提供者]  。
+4. 確認 **microsoft.insights** 提供者的**狀態**是 [已註冊]  ，如下圖所示。 如果狀態為 [未註冊]  ，則選取提供者右邊的 [註冊]  。
 
     ![註冊提供者](./media/network-watcher-nsg-flow-logging-portal/register-provider.png)
 
 ## <a name="enable-nsg-flow-log"></a>啟用 NSG 流量記錄
 
-1. NSG 流量記錄資料會寫入至 Azure 儲存體帳戶。 若要建立 Azure 儲存體帳戶，請選取入口網站左上角的 [+ 建立資源]。
-2. 選取 [儲存體]，然後選取 [儲存體帳戶 - Blob、檔案、資料表、佇列]。
-3. 輸入或選取下列資訊、接受其餘預設值，然後選取 [建立]。
+1. NSG 流量記錄資料會寫入至 Azure 儲存體帳戶。 若要建立 Azure 儲存體帳戶，請選取入口網站左上角的 [+ 建立資源]  。
+2. 選取 [儲存體]  ，然後選取 [儲存體帳戶 - Blob、檔案、資料表、佇列]  。
+3. 輸入或選取下列資訊、接受其餘預設值，然後選取 [建立]  。
 
     | 設定        | 值                                                        |
     | ---            | ---   |
     | Name           | 3-24 個字元長，只能包含小寫英文字母和數字，並且必須是所有 Azure 儲存體帳戶中唯一的名稱。                                                               |
-    | 位置       | 選取 [美國東部]                                           |
-    | 資源群組 | 選取 [使用現有的]，然後選取 [myResourceGroup] |
+    | 位置       | 選取 [美國東部]                                            |
+    | 資源群組 | 選取 [使用現有的]  ，然後選取 [myResourceGroup]  |
 
-    建立儲存體帳戶可能需要一分鐘的時間。 建好儲存體帳戶之前，請不要繼續其餘步驟。 如果您使用現有儲存體帳戶，而不是新建一個，請確定在所選儲存體帳戶的 [設定] 下方，[防火牆與虛擬網路] 的 [所有網路] (預設值) 已選取。
+    建立儲存體帳戶可能需要一分鐘的時間。 建好儲存體帳戶之前，請不要繼續其餘步驟。 如果您使用現有儲存體帳戶，而不是新建一個，請確定在所選儲存體帳戶的 [設定]  下方，[防火牆與虛擬網路]  的 [所有網路]  (預設值) 已選取。
     
     > [!NOTE]
-    > 雖然 Microsoft.Insight 和 Microsoft.Network 提供者目前支援 Azure 儲存體，但 NSG 流量記錄仍未完全上線。 為了啟用 NSG 流量記錄，必須仍可選取 [所有網路]，直到這項功能完全上線為止。 
-4. 在入口網站的左上角，選取 [所有服務]。 在 [篩選] 方塊中，輸入*網路監看員*。 當搜尋結果中出現**網路監看員**時，請加以選取。
-5. 在 [記錄] 下，選取 [NSG 流量記錄]，如下列圖所示：
+    > 雖然 Microsoft.Insight 和 Microsoft.Network 提供者目前是 Azure 儲存體支援的受信任 Microsoft 服務，但 NSG 流量記錄仍未完全上線。 為了啟用 NSG 流量記錄，必須仍可選取 [所有網路]  ，直到這項功能完全上線為止。 
+4. 在入口網站的左上角，選取 [所有服務]  。 在 [篩選]  方塊中，輸入*網路監看員*。 當搜尋結果中出現**網路監看員**時，請加以選取。
+5. 在 [記錄]  下，選取 [NSG 流量記錄]  ，如下列圖所示：
 
     ![NSG](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
 
 6. 從 NSG 清單中，選取名為 **myVm-nsg** 的 NSG。
-7. 在 [流量記錄設定] 下，選取 [開啟]。
+7. 在 [流量記錄設定]  下，選取 [開啟]  。
 8. 選取流程記錄版本。 第 2 版包含流量工作階段統計資料 (位元組和封包)
 
    ![選取流量記錄版本](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
 
 9. 選取您在步驟 3 建立的儲存體帳戶。
-10. 將 [保留 (天數)] 設定為 5，然後選取 [儲存]。
+10. 將 [保留 (天數)]  設定為 5，然後選取 [儲存]  。
 
 ## <a name="download-flow-log"></a>下載流量記錄
 
-1. 從入口網站的網路監看員中，選取 [記錄] 下方的 [NSG 流量記錄]。
-2. 選取 [您可從設定的儲存體帳戶下載流量記錄]，如下圖所示：
+1. 從入口網站的網路監看員中，選取 [記錄]  下方的 [NSG 流量記錄]  。
+2. 選取 [您可從設定的儲存體帳戶下載流量記錄]  ，如下圖所示：
 
    ![下載流量記錄](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. 選取您在步驟 2 ([啟用 NSG 流量記錄](#enable-nsg-flow-log)) 設定的儲存體帳戶。
-4. 在 [Blob 服務] 下選取 [Blob]，然後選取 **insights-logs-networksecuritygroupflowevent** 容器。
+4. 在 [Blob 服務]  下選取 [Blob]  ，然後選取 **insights-logs-networksecuritygroupflowevent** 容器。
 5. 在容器中，瀏覽資料夾階層，直到看到 PT1H.json 檔案為止，如下圖所示。 記錄檔會寫入至遵循下列命名慣例的資料夾階層： https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
    ![流量記錄](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
-6. 選取 PT1H.json 檔案右邊的 [...]，然後選取 [下載]。
+6. 選取 PT1H.json 檔案右邊的 [...]  ，然後選取 [下載]  。
 
 ## <a name="view-flow-log"></a>檢視流量記錄
 

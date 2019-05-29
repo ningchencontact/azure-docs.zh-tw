@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 8874039d148cc89d3f47979370e64dd78777f268
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 790d095cfb1b59aed1b9014fc474f9ad6e1b3328
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325743"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131297"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>將自訂網域對應至函式應用程式
 
-此範例指令碼會在 App Service 方案中建立函式應用程式，然後再將其對應至您所提供的自訂網域。 當您的函式應用程式裝載於 [App Service 方案](../functions-scale.md#app-service-plan)時，您可以使用 CNAME 或 A 記錄對應自訂網域。 若為[取用方案](../functions-scale.md#consumption-plan)中的函式應用程式，則只支援 CNAME 選項。 此範例會建立 App Service 方案，並要求 A 記錄對應網域。 
+此範例指令碼會在 App Service 方案中建立函式應用程式，然後再將其對應至您所提供的自訂網域。 當您的函式應用程式裝載於[進階方案](../functions-scale.md#premium-plan-public-preview)或 [App Service 方案](../functions-scale.md#app-service-plan)時，您可以使用 CNAME 或 A 記錄對應自訂網域。 若為[取用方案](../functions-scale.md#consumption-plan)中的函式應用程式，則只支援 CNAME 選項。 此範例會建立 App Service 方案，並要求 A 記錄對應網域。 
 
 若要執行此範例指令碼，您必須已在指向您 Web 應用程式預設網域名稱的自訂網域中設定 A 記錄。 如需詳細資訊，請參閱[將現有的自訂 DNS 名稱對應至 Azure Web Apps](https://aka.ms/appservicecustomdns)。 
 

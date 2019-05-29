@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2074ea1028f6a5e8a0251c6d0c9519361db6ba8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1c84bf84f8ba28a98937b02a463003a900aefaa0
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150392"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002904"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>快速入門：使用 T-SQL 建立工作負載分類器
 
@@ -97,16 +97,16 @@ DROP USER [TheCEO]
 
     ![清除資源](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. 若要暫停計算，請選取 [暫停] 按鈕。 資料倉儲暫停時，您會看到 [啟動] 按鈕。  若要繼續計算，請選取 [啟動]。
+2. 若要暫停計算，請選取 [暫停]  按鈕。 資料倉儲暫停時，您會看到 [啟動]  按鈕。  若要繼續計算，請選取 [啟動]  。
 
-3. 若要移除資料倉儲，而不再支付計算或儲存體的費用，請選取 [刪除]。
+3. 若要移除資料倉儲，而不再支付計算或儲存體的費用，請選取 [刪除]  。
 
-4. 若要移除您所建立的 SQL Server，請選取先前映像中的 [mynewserver 20180430.database.windows.net]，然後選取 [刪除]。  請謹慎使用刪除，因為刪除伺服器也會刪除所有指派給伺服器的資料庫。
+4. 若要移除您所建立的 SQL Server，請選取先前映像中的 [mynewserver 20180430.database.windows.net]  ，然後選取 [刪除]  。  請謹慎使用刪除，因為刪除伺服器也會刪除所有指派給伺服器的資料庫。
 
-5. 若要移除此資源群組，請選取 [myResourceGroup]，然後選取 [刪除資源群組]。
+5. 若要移除此資源群組，請選取 [myResourceGroup]  ，然後選取 [刪除資源群組]  。
 
 ## <a name="next-steps"></a>後續步驟
 
-您現在已建立了工作負載分類器。 以 TheCEO 身分執行一些查詢來查看其運作。 請參閱 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以檢視查詢和所指派的重要性。
-
-如需 SQL 資料倉儲工作負載管理的詳細資訊，請參閱 [SQL 資料倉儲工作負載重要性](sql-data-warehouse-workload-importance.md)和 [SQL 資料倉儲工作負載分類](sql-data-warehouse-workload-classification.md)。
+- 您現在已建立了工作負載分類器。 以 TheCEO 身分執行一些查詢來查看其運作。 請參閱 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以檢視查詢和所指派的重要性。
+- 如需 Azure SQL 資料倉儲工作負載管理的詳細資訊，請參閱[工作負載重要性](sql-data-warehouse-workload-importance.md)和[工作負載分類](sql-data-warehouse-workload-classification.md)。
+- 請參閱[設定工作負載的重要性](sql-data-warehouse-how-to-configure-workload-importance.md)的操作說明文章，以及如何[管理並監視工作負載管理](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)。

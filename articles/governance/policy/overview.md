@@ -7,16 +7,16 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0e66327a04d1390061580d82716b44b25139bf67
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2dd31ab29479fade21d27b8e2c23952f905f530a
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259451"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979165"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Azure 原則服務的概觀
 
-控管可驗證貴組織是否能夠透過符合 IT 效率及效益的方式來達成其目標。 透過在商務目標與 IT 專案之間建立明確見地符合此需求。
+控管可驗證貴組織是否能夠透過富有效率及效益的 IT 使用方式來達成其目標。 透過在商務目標與 IT 專案之間建立明確見地符合此需求。
 
 您公司是否遇到似乎永遠無法解決的大量 IT 問題？
 良好的 IT 控管包括規劃您的方案，以及在策略層級上設定優先順序，以協助管理及避免問題。 此策略性需求是 Azure 原則存在的理由。
@@ -28,7 +28,7 @@ Azure 原則是 Azure 中的一個服務，您可以用來建立、指派和管�
 
 ## <a name="how-is-it-different-from-rbac"></a>它和 RBAC 有什麼不同？
 
-原則和角色型存取控制 (RBAC) 之間有幾個主要差異。 RBAC 著重於不同範圍的使用者動作。 您可能會被加入資源群組的參與者角色中，讓您對該資源群組進行變更。 原則著重於部署期間及既有資源的資源屬性。 原則會控制屬性，例如資源的類型或位置。 不同於 RBAC，原則是一個預設允許且明確拒絕的系統。
+Azure 原則和角色型存取控制 (RBAC) 之間有幾個主要差異。 RBAC 著重於不同範圍的使用者動作。 您可能會被加入資源群組的參與者角色中，讓您對該資源群組進行變更。 Azure 原則著重於部署期間及既有資源的資源屬性。 Azure 原則會控制屬性，例如資源的類型或位置。 不同於 RBAC，Azure 原則是預設允許且明確拒絕的系統。
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Azure 原則中的 RBAC 權限
 
@@ -37,7 +37,7 @@ Azure 原則在下列兩個資源提供者中有數個權限，一般稱之為�
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-許多內建角色都會授與 Azure 原則資源的權限。 **資源原則參與者 (預覽)** 角色包含大部分的原則作業。 **擁有者**則具有完整權限。 **參與者**和**讀取者**都可以使用所有已讀取的原則作業，但**參與者**也可以觸發修復。
+許多內建角色都會授與 Azure 原則資源的權限。 **資源原則參與者 (預覽)** 角色包含大部分的 Azure 原則作業。 **擁有者**則具有完整權限。 **參與者**和**讀取者**都可以使用所有讀取的 Azure 原則作業，但**參與者**也可以觸發修復。
 
 沒有任何內建角色具有所需的權限，請建立[自訂角色](../../role-based-access-control/custom-roles.md)。
 
@@ -64,7 +64,7 @@ Azure 原則在下列兩個資源提供者中有數個權限，一般稱之為�
 
 ## <a name="policy-assignment"></a>原則指派
 
-原則指派是已指派在特定範圍內發生的原則定義。 此範圍可從[管理群組](../management-groups/overview.md)到資源群組。 「範圍」一詞係指作為原則定義指派對象的所有資源群組、訂用帳戶或管理群組。 原則指派會由所有子資源繼承。 此設計的用意是，套用至某個資源群組的原則也會套用至該資源群組中的資源。 不過，您可以從原則指派中排除某個子範圍。
+原則指派是已指派在特定範圍內發生的原則定義。 此範圍可從[管理群組](../management-groups/overview.md)到資源群組。 「範圍」  一詞係指作為原則定義指派對象的所有資源群組、訂用帳戶或管理群組。 原則指派會由所有子資源繼承。 此設計的用意是，套用至某個資源群組的原則也會套用至該資源群組中的資源。 不過，您可以從原則指派中排除某個子範圍。
 
 例如，在訂用帳戶範圍，您可以指派一個防止建立網路資源的原則。 您可以將該訂用帳戶內一個要用於網路基礎結構的資源群組排除。 接著，您要將此網路資源群組的存取權授與您所信任來建立網路資源的使用者。
 
@@ -115,7 +115,7 @@ Azure 原則在下列兩個資源提供者中有數個權限，一般稱之為�
 
 建立計畫定義中的值選項時，您無法在計畫指派期間輸入不同的值，因為它不是清單的一部分。
 
-## <a name="maximum-count-of-policy-objects"></a>原則物件的最大計數
+## <a name="maximum-count-of-azure-policy-objects"></a>Azure 原則物件的最大計數
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
@@ -144,8 +144,8 @@ Azure 原則在下列兩個資源提供者中有數個權限，一般稱之為�
 
 現在您已大概了解 Azure 原則，以及一些重要概念，以下是建議的後續步驟：
 
-- [使用入口網站指派原則定義](assign-policy-portal.md)
-- [使用 Azure CLI 指派原則定義](assign-policy-azurecli.md)
-- [使用 PowerShell 指派原則定義](assign-policy-powershell.md)
-- 檢閱[使用 Azure 管理群組來組織資源](..//management-groups/overview.md)，以了解何謂管理群組
-- 檢視 Channel 9 上的[透過 Azure 原則控管您的 Azure 環境](https://channel9.msdn.com/events/Build/2018/THR2030)
+- [使用入口網站指派原則定義](assign-policy-portal.md)。
+- [使用 Azure CLI 指派原則定義](assign-policy-azurecli.md)。
+- [使用 PowerShell 指派原則定義](assign-policy-powershell.md)。
+- 透過[使用 Azure 管理群組來組織資源](..//management-groups/overview.md)來檢閱何謂管理群組。
+- 檢視 Channel 9 上的[透過 Azure 原則控管您的 Azure 環境](https://channel9.msdn.com/events/Build/2018/THR2030) \(英文\)。

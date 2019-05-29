@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a80a815d4a1a892b5258aef1c1fc7ef4ab881fe7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149914"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594158"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>教學課程：從 QnA Maker 入口網站建立知識庫
 
@@ -42,7 +42,7 @@ ms.locfileid: "65149914"
 
 1. 登入 [QnA Maker](https://www.qnamaker.ai) 入口網站。 
 
-1. 從頂端功能表中選取 [建立知識庫]。
+1. 從頂端功能表中選取 [建立知識庫]  。
 
     ![KB 建立程序的步驟 1](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-1.png)
 
@@ -52,7 +52,7 @@ ms.locfileid: "65149914"
 
     |設定|目的|
     |--|--|
-    |Microsoft Azure 目錄識別碼|您的「Microsoft Azure 目錄識別碼」會與您用來登入 Azure 入口網站和 QnA Maker 入口網站的帳戶相關聯。 |
+    |Microsoft Azure 目錄識別碼|您的「Microsoft Azure 目錄識別碼」  會與您用來登入 Azure 入口網站和 QnA Maker 入口網站的帳戶相關聯。 |
     |Azure 訂用帳戶名稱|您的 QnA Maker 資源建立所在的計費帳戶。|
     |Azure QnA 服務|您現有的 QnA Maker 資源。|
 
@@ -68,11 +68,11 @@ ms.locfileid: "65149914"
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |該 URL 上的常見問題集內容會格式化為後面附有答案的問題。 QnA Maker 可解譯此格式以擷取問題和相關聯的答案。|
     |檔案 |_本教學課程中未使用_|此設定會上傳問題和答案的檔案。 |
-    |閒聊特質|易記|此設定可為常見問題和答案賦予友善而非正式的特質。 這些問題和答案可於後續進行編輯。 |
+    |閒聊特質|易記|此設定可為常見問題和答案賦予友善而非正式的[特質](../Concepts/best-practices.md#chit-chat)。 這些問題和答案可於後續進行編輯。 |
 
     ![KB 建立程序的步驟 4](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 
-1. 選取 [建立您的 KB] 以完成建立程序。
+1. 選取 [建立您的 KB]  以完成建立程序。
 
     ![KB 建立程序的步驟 5](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-5.png)
 
@@ -84,15 +84,15 @@ ms.locfileid: "65149914"
 
 1. 從資料表底部選取問題和答案的最後一個頁面。 此頁面會顯示閒聊特質中的問題和答案。 
 
-1. 在問題和答案清單上方的工具列中，選取 [檢視選項] 圖示，然後選取 [顯示中繼資料]。 這會顯示每個問題和答案的中繼資料標記。 閒聊問題已經設定**編輯：閒聊**中繼資料。 此中繼資料會連同選取的答案傳回至用戶端應用程式。 用戶端應用程式 (例如聊天機器人) 可使用此經果篩選的中繼資料來決定其他處理或與使用者的互動。
+1. 在問題和答案清單上方的工具列中，選取 [檢視選項]  圖示，然後選取 [顯示中繼資料]  。 這會顯示每個問題和答案的中繼資料標記。 閒聊問題已經設定**編輯：閒聊**中繼資料。 此中繼資料會連同選取的答案傳回至用戶端應用程式。 用戶端應用程式 (例如聊天機器人) 可使用此經果篩選的中繼資料來決定其他處理或與使用者的互動。
 
     ![![View Metadata tags](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png#lightbox)
 
-1. 在頂端功能表列中選取 [儲存並訓練]。
+1. 在頂端功能表列中選取 [儲存並訓練]  。
 
 ## <a name="publish-to-get-kb-endpoints"></a>發佈以取得 KB 端點
 
-從頂端功能表中選取 [發佈] 按鈕。 進入發佈頁面後，請選取 [取消] 按鈕旁的 [發佈]。
+從頂端功能表中選取 [發佈]  按鈕。 進入發佈頁面後，請選取 [取消]  按鈕旁的 [發佈]  。
 
 ![發佈](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-1.png)
 
@@ -100,15 +100,15 @@ ms.locfileid: "65149914"
 
 ![發佈頁面的端點設定](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
-請勿關閉此 [發佈] 頁面，此頁面稍後會用來在本教學課程中建立 Bot。 
+請勿關閉此 [發佈]  頁面，此頁面稍後會用來在本教學課程中建立 Bot。 
 
 ## <a name="use-curl-to-query-for-an-faq-answer"></a>使用 Curl 查詢常見問題集的答案
 
-1. 選取 [Curl] 索引標籤。 
+1. 選取 [Curl]  索引標籤。 
 
     ![Curl 命令](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-3-curl.png)
 
-1. 複製 [Curl] 索引標籤的文字，然後在支援 Curl 的終端機或命令列中執行。 授權標頭的值包含文字 `Endpoint`，而其後依序有尾端空格和索引鍵。
+1. 複製 [Curl]  索引標籤的文字，然後在支援 Curl 的終端機或命令列中執行。 授權標頭的值包含文字 `Endpoint`，而其後依序有尾端空格和索引鍵。
 
 1. 將 `<Your question>` 取代為 `How large can my KB be?`。 此問題類似於 `How large a knowledge base can I create?`，但並非完全相同。 QnA Maker 會套用自然語言處理，以判斷兩個問題是否相同。     
 
@@ -210,7 +210,7 @@ QnA Maker 不確定答案的任何問題，都會收到預設答案。 此答案
 
 當您完成知識庫 Bot 後，請藉由移除 `my-tutorial-rg` 資源群組，來移除在 Bot 程序中建立的所有 Azure 資源。
 
-完成知識庫後，請在 QnA Maker 入口網站中選取 [我的知識庫]，然後選取 [我的教學課程 KB] 知識庫，最後在該資料列最右側選取 [刪除] 圖示。  
+完成知識庫後，請在 QnA Maker 入口網站中選取 [我的知識庫]  ，然後選取 [我的教學課程 KB]  知識庫，最後在該資料列最右側選取 [刪除] 圖示。  
 
 ## <a name="next-steps"></a>後續步驟
 

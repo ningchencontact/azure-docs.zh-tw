@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 08745c3ef3d4996340ec40af496f8f0a5e0201c3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805341"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595745"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>開始監視 ASP.NET Web 應用程式
 
@@ -26,7 +26,7 @@ ms.locfileid: "58805341"
 ## <a name="prerequisites"></a>必要條件
 若要完成本快速入門：
 
-- 使用下列工作負載安裝 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
+- 使用下列工作負載[安裝 Visual Studio 2019](https://www.visualstudio.com/downloads/)：
     - ASP.NET 和 Web 開發
     - Azure 開發
 
@@ -35,25 +35,25 @@ ms.locfileid: "58805341"
 
 ## <a name="enable-application-insights"></a>啟用 Application Insights
 
-1. 在 Visual Studio 2017 中開啟您的專案。
-2. 從 [專案] 功能表選取 [設定 Application Insights]。 Visual Studio 會將 Application Insights SDK 新增至您的應用程式。
+1. 在 Visual Studio 2019 中開啟您的專案。
+2. 從 [專案] 功能表選取 [設定 Application Insights]  。 Visual Studio 會將 Application Insights SDK 新增至您的應用程式。
 
     > [!IMPORTANT]
-    > 新增 Application Insights 的程序會因 ASP.NET 範本類型而異。 如果您使用 [空白] 或 [Azure 行動裝置應用程式] 範本，請選取 [專案] > [新增 Application Insights 遙測]。 至於其他所有 ASP.NET 範本，請參閱上述步驟中的指示。 
+    > 新增 Application Insights 的程序會因 ASP.NET 範本類型而異。 如果您使用 [空白]  或 [Azure 行動裝置應用程式]  範本，請選取 [專案]   > [新增 Application Insights 遙測]  。 至於其他所有 ASP.NET 範本，請參閱上述步驟中的指示。 
 
-3. 按一下 [開始使用] (舊版的 Visual Studio 有 [免費開始] 按鈕)。
+3. 按一下 [開始使用]  (舊版的 Visual Studio 有 [免費開始]  按鈕)。
 
     ![將 Application Insights 新增至 Visual Studio](./media/quick-monitor-portal/add-application-insights-b.png)
 
-4. 選取您的訂用帳戶，然後按一下 [註冊]。
+4. 選取您的訂用帳戶，然後按一下 [註冊]  。
 
-5. 從 [偵錯] 功能表選取 [開始偵錯]或按 F5 鍵來執行您的應用程式。
+5. 從 [偵錯]  功能表選取 [開始偵錯]  或按 F5 鍵來執行您的應用程式。
 
 ## <a name="confirm-app-configuration"></a>確認應用程式設定
 
 Application Insights 會為您的應用程式收集遙測資料，不論其執行所在位置為何。 請使用下列步驟來開始檢視此資料。
 
-1. 按一下 [檢視] -> [其他視窗] -> [Application Insights 搜尋]，以開啟 Application Insights。  您會從您目前的工作階段查看遙測。<BR><br>![Visual Studio 中的遙測](./media/quick-monitor-portal/telemetry-in-vs.png)
+1. 按一下 [檢視]   -> [其他視窗]   -> [Application Insights 搜尋]  ，以開啟 Application Insights。  您會從您目前的工作階段查看遙測。<BR><br>![Visual Studio 中的遙測](./media/quick-monitor-portal/telemetry-in-vs.png)
 
 2. 按一下清單中的第一個要求 (此範例中的取得首頁/索引) 來查看要求詳細資料。 請注意，狀態碼和回應時間會隨著有關要求的其他重要資訊併入。<br><br>![Visual Studio 中的回應詳細資料](media/quick-monitor-portal/request-details.png)
 
@@ -61,19 +61,19 @@ Application Insights 會為您的應用程式收集遙測資料，不論其執�
 
 您現在可以在 Azure 入口網站中開啟 Application Insights 以檢視有關執行中應用程式的各種詳細資料。
 
-1. 在方案總管中展開 [連線的服務] 資料夾 (雲端和加號圖示)，然後以滑鼠右鍵按一下 [Application Insights] 資料夾，並按一下 [開啟 Application Insights 入口網站]。  您可以看到有關您的應用程式的某些資訊和各種選項。
+1. 在方案總管中展開 [連線的服務]  資料夾 (雲端和加號圖示)，然後以滑鼠右鍵按一下 [Application Insights]  資料夾，並按一下 [開啟 Application Insights 入口網站]  。  您可以看到有關您的應用程式的某些資訊和各種選項。
 
     ![應用程式對應](media/quick-monitor-portal/4overview.png)
 
-2. 按一下 [應用程式對應]，取得應用程式元件之間相依性關聯性的視覺化配置。  每個元件會顯示負載、效能、失敗和警示等 KPI。
+2. 按一下 [應用程式對應]  ，取得應用程式元件之間相依性關聯性的視覺化配置。  每個元件會顯示負載、效能、失敗和警示等 KPI。
 
     ![應用程式對應](media/quick-monitor-portal/5appmap.png)
 
-3. 按一下其中一個應用程式元件的 [應用程式分析] 圖示 ![應用程式對應](media/quick-monitor-portal/app-analytics-icon.png) **在 Analytics 中檢視**。 這樣會開啟 **Application Insights Analytics**，它提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。  此案例中會為您產生查詢，可將要求計數以圖表呈現。 您可以撰寫自己的查詢來分析其他資料。
+3. 按一下其中一個應用程式元件的 [應用程式分析]  圖示 ![應用程式對應](media/quick-monitor-portal/app-analytics-icon.png) **在 Analytics 中檢視**。 這樣會開啟 **Application Insights Analytics**，它提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。  此案例中會為您產生查詢，可將要求計數以圖表呈現。 您可以撰寫自己的查詢來分析其他資料。
 
     ![分析](media/quick-monitor-portal/6viewanalytics.png)
 
-4. 在 [調查] 底下的左邊按一下 [即時計量資料流]。 這會顯示有關您的應用程式的即時統計資料，因為它在執行中。 這包含連入要求數量、這些要求的持續時間及發生的任何失敗之類的資訊。 您也可以檢查重要效能計量，例如處理器和記憶體。
+4. 在 [調查] 底下的左邊按一下 [即時計量資料流]  。 這會顯示有關您的應用程式的即時統計資料，因為它在執行中。 這包含連入要求數量、這些要求的持續時間及發生的任何失敗之類的資訊。 您也可以檢查重要效能計量，例如處理器和記憶體。
 
     ![即時資料流](media/quick-monitor-portal/7livemetrics.png)
 
@@ -108,8 +108,8 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 
 ## <a name="clean-up-resources"></a>清除資源
 當您完成測試時，您可以刪除資源群組和所有相關資源。 若要這樣做，請依照下列步驟執行。
-1. 從 Azure 入口網站的左側功能表中，依序按一下 [資源群組] 和 [myResourceGroup]。
-2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入 **myResourceGroup**，然後按一下 [刪除]。
+1. 從 Azure 入口網站的左側功能表中，依序按一下 [資源群組]  和 [myResourceGroup]  。
+2. 在資源群組頁面上，按一下 [刪除]  ，在文字方塊中輸入 **myResourceGroup**，然後按一下 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 在這個快速入門中，您已啟用您的應用程式，供 Azure Application Insights 進行監視。  繼續進行教學課程，以了解如何使用它來監視統計資料和偵測應用程式中的問題。

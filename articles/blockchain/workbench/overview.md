@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 05/20/2019
 ms.topic: overview
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 58fd09726f05ba442c66387ecbd6cfad37f598e1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 16e2497f4e26d16c008161477fd7d573e59e84db
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332552"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955197"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>什麼是 Azure Blockchain Workbench？
 
@@ -41,13 +41,13 @@ Workbench 會自動將事件傳遞至服務匯流排和事件方格，以向下�
 
 Azure Blockchain Workbench 會使用 Azure Resource Manager 解決方案範本，將混合區塊鏈網路設定簡化為預先設定的解決方案。 該範本會提供能部署執行混合區塊鏈所需全部元件的簡化部署。 Blockchain Workbench 目前支援 Ethereum。
 
-## <a name="use-active-directory-login"></a>使用 Active Directory 登入
+## <a name="use-active-directory"></a>使用 Active Directory
 
 利用現有的區塊鏈通訊協定，區塊鏈身分識別會以網路上位址的形式來表示。 Azure Blockchain Workbench 能透過將區塊鏈身分識別與 Active Directory 身分識別建立關聯，來對區塊鏈身分識別進行抽象化處理，這能使搭配 Active Directory 身分識別建置企業應用程式變得更為簡單。
 
 ## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>將鏈結上的資料同步處理至鏈結外的儲存體
 
-Azure Blockchain Workbench 能透過將區塊鏈上的資料自動同步處理至鏈結外的儲存體，來使分析區塊鏈事件和資料變得更加容易。 與其直接從區塊鏈擷取資料，您可以查詢鏈結外的資料庫系統，例如 SQL Server。 進行資料分析工作的使用者並不需要具備區塊鏈特定的專業知識。 
+Azure Blockchain Workbench 能透過將區塊鏈上的資料自動同步處理至鏈結外的儲存體，來使分析區塊鏈事件和資料變得更加容易。 與其直接從區塊鏈擷取資料，您可以查詢鏈結外的資料庫系統，例如 SQL Server。 進行資料分析工作的使用者並不需要具備區塊鏈專業知識。
 
 ## <a name="next-steps"></a>後續步驟
 

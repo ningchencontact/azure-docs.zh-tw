@@ -14,18 +14,21 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 05/21/2019
 ms.author: jowargo
-ms.openlocfilehash: 2793f64528baa2b9a84c671fc73bbe399e2387ea
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c5793d2388ddd7bb59d68f8f7fd7af773179ed41
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411606"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988226"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 iOS 應用程式
 
-[!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
+> [!div class="op_single_selector"]
+> * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
+> * [Swift](notification-hubs-ios-push-notifications-swift-apps-get-started.md)
+
 
 在本教學課程中，您會使用 Azure 通知中樞將通知推送至 iOS 應用程式。 您會使用 [Apple Push Notification Service (APNS)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)，建立可接收推播通知的空白 iOS 應用程式。
 
@@ -57,25 +60,6 @@ ms.locfileid: "65411606"
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>針對 iOS 推播通知設定您的通知中樞
-
-在本節中，您會建立通知中樞，並使用您先前建立的 **.p12** 推播憑證，設定以 APNS 進行驗證的機制。 如果您想要使用已經建立的通知中樞，可以跳至步驟 5。
-
-[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
-### <a name="configure-your-notification-hub-with-apns-information"></a>使用 APNS 資訊設定您的通知中樞
-
-1. 在 [Notification Services] 下，選取 [Apple (APNS)]。
-2. 選取 [憑證] 。
-3. 選取 [檔案] 圖示。
-4. 選取您先前匯出的 **.p12** 檔案。
-5. 指定正確的**密碼**。
-6. 選取 [沙箱] 模式。 只有在您想傳送推播通知給從市集購買 App 的使用者時，才使用 [生產] 模式。
-
-    ![在 Azure 入口網站中設定 APNS 憑證][7]
-
-現在，您已為通知中心設定了 APNS，而且擁有可用來註冊應用程式和傳送推播通知的連接字串。
-
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>將您的 iOS 應用程式連接到通知中樞
 
 1. 在 Xcode 中建立新的 iOS 專案，並選取 [單一檢視應用程式]  範本。
@@ -86,13 +70,13 @@ ms.locfileid: "65411606"
 
     ![Xcode - 專案選項][11]
 
-3. 在 [專案導覽器] 中，按一下您的專案名稱，再按一下 [一般] 索引標籤，然後尋找 [簽署]。 請務必要選取適合您 Apple 開發人員帳戶的團隊。 XCode 應該會根據您的套件組合識別碼，自動提取您先前建立的佈建設定檔。
+3. 在 [專案導覽器] 中，按一下您的專案名稱，再按一下 [一般]  索引標籤，然後尋找 [簽署]  。 請務必要選取適合您 Apple 開發人員帳戶的團隊。 XCode 應該會根據您的套件組合識別碼，自動提取您先前建立的佈建設定檔。
 
-    如果畫面未顯示您在 Xcode 中建立的新佈建設定檔，請嘗試重新整理簽署身分識別的設定檔。 按一下功能表列上的 Xcode，再依序按一下 [喜好設定]、[帳戶] 索引標籤、[檢視詳細資料] 按鈕、您的簽署身分識別，然後按一下右下角的 [重新整理] 按鈕。
+    如果畫面未顯示您在 Xcode 中建立的新佈建設定檔，請嘗試重新整理簽署身分識別的設定檔。 按一下功能表列上的 Xcode  ，再依序按一下 [喜好設定]  、[帳戶]  索引標籤、[檢視詳細資料]  按鈕、您的簽署身分識別，然後按一下右下角的 [重新整理] 按鈕。
 
     ![Xcode - 佈建設定檔][9]
 
-4. 選取 [功能] 索引標籤，並務必要啟用推播通知
+4. 選取 [功能]  索引標籤，並務必要啟用推播通知
 
     ![Xcode - 推播功能][12]
 
@@ -133,11 +117,11 @@ ms.locfileid: "65411606"
 
      1. 下載以 zip 檔案形式提供的 [Azure 通知中樞 SDK](https://github.com/Azure/azure-notificationhubs-ios/releases) 架構，然後將其解壓縮。
 
-     2. 在 Xcode 中，以滑鼠右鍵按一下您的專案，然後按一下 [新增檔案至] 選項，將 **WindowsAzureMessaging.framework** 資料夾新增至 Xcode 專案。 選取 [選項]，並務必要選取 [必要時複製項目]，然後按一下 [新增]。
+     2. 在 Xcode 中，以滑鼠右鍵按一下您的專案，然後按一下 [新增檔案至]  選項，將 **WindowsAzureMessaging.framework** 資料夾新增至 Xcode 專案。 選取 [選項]  ，並務必要選取 [必要時複製項目]  ，然後按一下 [新增]  。
 
         ![解壓縮 Azure SDK][10]
 
-6. 將新的標頭檔新增至名為 `HubInfo.h`的專案。 此檔案會保存通知中樞的常數。 新增下列定義，然後以您的「中樞名稱」以及先前記下的「DefaultListenSharedAccessSignature」 取代字串常值預留位置。
+6. 將新的標頭檔新增至名為 `HubInfo.h`的專案。 此檔案會保存通知中樞的常數。 新增下列定義，然後以您的「中樞名稱」  以及先前記下的「DefaultListenSharedAccessSignature」  取代字串常值預留位置。
 
     ```objc
     #ifndef HubInfo_h
@@ -207,7 +191,7 @@ ms.locfileid: "65411606"
 
 ## <a name="send-test-push-notifications"></a>傳送測試推播通知
 
-您可以在 [Azure 入口網站] 中，使用 [測試傳送] 選項測試應用程式能否接收通知。 它會將測試推播通知傳送至您的裝置。
+您可以在 [Azure 入口網站] 中，使用 [測試傳送]  選項測試應用程式能否接收通知。 它會將測試推播通知傳送至您的裝置。
 
 ![Azure 入口網站 - 測試傳送][30]
 
@@ -217,7 +201,7 @@ ms.locfileid: "65411606"
 
 若要在 iOS 上測試推播通知，您必須將應用程式部署至實體 iOS 裝置。 您無法利用 iOS 模擬器傳送 Apple 推播通知。
 
-1. 執行應用程式並確認註冊成功，然後按下 [確定] 。
+1. 執行應用程式並確認註冊成功，然後按下 [確定]  。
 
     ![iOS 應用程式推播通知註冊測試][33]
 

@@ -42,7 +42,7 @@ ms.locfileid: "65410846"
 
 1. 使用您的帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 在 Azure 入口網站中，選取 [建立資源]。 
+1. 在 Azure 入口網站中，選取 [建立資源]  。 
 
 1. 在搜尋欄位中輸入 `SQL Server 2017 Developer on Windows Server 2016`，然後按 ENTER 鍵。 展開 Windows Server 2016 上的 SQL Server 2017 選項。 
 
@@ -51,63 +51,63 @@ ms.locfileid: "65410846"
    ![新的搜尋視窗](./media/quickstart-sql-vm-create-portal/newsearch.png)
 
 
-1. 選取 [建立] 。
+1. 選取 [建立]  。
 
 ## <a id="configure"></a> 提供基本詳細資料
 
-在 [基本概念] 索引標籤中提供下列資訊：
+在 [基本概念]  索引標籤中提供下列資訊：
 
-1. 在 [專案詳細資料] 區段中選取您的 Azure 訂用帳戶，然後選取 [新建] 以建立新的資源群組。 輸入 _SQLVM-RG_ 作為名稱。
+1. 在 [專案詳細資料]  區段中選取您的 Azure 訂用帳戶，然後選取 [新建]  以建立新的資源群組。 輸入 _SQLVM-RG_ 作為名稱。
 
    ![訂用帳戶](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
-1. 在 [執行個體詳細資料] 下方：
-    1. 輸入 _SQLVM_ 作為 [虛擬機器名稱]。 
-    1. 選擇 [區域] 的位置。 
-    1. 基於此快速入門的目的，請將 [可用性選項] 設定保留為 [不需要基礎結構備援]。 如需關於可用性選項的詳細資訊，請參閱 [Azure 區域和可用性](../../windows/regions-and-availability.md)。 
-    1. 在 [映像]** _清單中，選取 **[免費的 SQL Server 授權：_ Windows Server 2016 上的 SQL Server 2017 Developer] 的映像。 
-    1. 選擇為虛擬機器的**大小** [變更大小]，然後選取 **A2 Basic** 供應項目。 在資源使用完畢後請務必加以清除，以防止產生任何非預期的費用。 
+1. 在 [執行個體詳細資料]  下方：
+    1. 輸入 _SQLVM_ 作為 [虛擬機器名稱]  。 
+    1. 選擇 [區域]  的位置。 
+    1. 基於此快速入門的目的，請將 [可用性選項]  設定保留為 [不需要基礎結構備援]  。 如需關於可用性選項的詳細資訊，請參閱 [Azure 區域和可用性](../../windows/regions-and-availability.md)。 
+    1. 在 **映像** 清單中，選取免費的 _SQL Server 授權：_ Windows Server 2016 上的 SQL Server 2017 Developer 的映像。 
+    1. 選擇為虛擬機器的**大小** [變更大小]  ，然後選取 **A2 Basic** 供應項目。 在資源使用完畢後請務必加以清除，以防止產生任何非預期的費用。 
 
    ![執行個體詳細資料](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
-1. 在 [系統管理員帳戶] 下方提供使用者名稱 (例如 azureuser) 和密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../../windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。
+1. 在 [系統管理員帳戶]  下方提供使用者名稱 (例如 azureuser  ) 和密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../../windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。
 
    ![系統管理員帳戶](media/quickstart-sql-vm-create-portal/basics-administrator-account.png)
 
-1. 在 [輸入連接埠規則] 下方選擇 [允許選取的連接埠]，然後從下拉式清單中選取 [RDP (3389)]。 
+1. 在 [輸入連接埠規則]  下方選擇 [允許選取的連接埠]  ，然後從下拉式清單中選取 [RDP (3389)]  。 
 
    ![輸入連接埠規則](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
 
 ## <a name="sql-server-settings"></a>SQL Server 設定
 
-在 [SQL Server 設定] 索引標籤上，設定下列選項：
+在 [SQL Server 設定]  索引標籤上，設定下列選項：
 
-1. 在 [安全性與網路] 下方，針對 [SQL 連線] 選取 [公用 (網際網路)]，並將連接埠變更為 `1401`，以避免在公用案例中使用已知的連接埠號碼。 
-1. 在 [SQL 驗證] 下方，選取 [啟用]。 SQL 登入設定為您對 VM 設定的相同使用者名稱和密碼。 使用 [Azure Key Vault 整合] 和 [儲存體組態] 的預設設定。  
+1. 在 [安全性與網路]  下方，針對 [SQL 連線]  選取 [公用 (網際網路)]  ，並將連接埠變更為 `1401`，以避免在公用案例中使用已知的連接埠號碼。 
+1. 在 [SQL 驗證]  下方，選取 [啟用]  。 SQL 登入設定為您對 VM 設定的相同使用者名稱和密碼。 使用 [Azure Key Vault 整合]  和 [儲存體組態]  的預設設定。  
 
    ![SQL Server 安全性設定](media/quickstart-sql-vm-create-portal/sql-server-settings.png)
 
-1. 視需要變更任何其他設定，然後選取 [檢閱 + 建立]。 
+1. 視需要變更任何其他設定，然後選取 [檢閱 + 建立]  。 
 
    ![檢閱 + 建立](media/quickstart-sql-vm-create-portal/review-create.png)
 
 
 ## <a name="create-the-sql-server-vm"></a>建立 SQL Server VM
 
-在 [檢閱 + 建立] 索引標籤上檢閱摘要，然後選取 [建立] 以建立為此 VM 指定的 SQL Server、資源群組及資源。
+在 [檢閱 + 建立]  索引標籤上檢閱摘要，然後選取 [建立]  以建立為此 VM 指定的 SQL Server、資源群組及資源。
 
 您可以從 Azure 入口網站監視部署。 畫面頂端的 [通知]  按鈕會顯示基本的部署狀態。 部署可能需要數分鐘的時間。 
 
 ## <a name="connect-to-sql-server"></a>連接到 SQL Server
 
-1. 在入口網站中，在虛擬機器屬性的 [概觀] 區段中尋找 SQL Server VM 的 [公用 IP 位址]。
+1. 在入口網站中，在虛擬機器屬性的 [概觀]  區段中尋找 SQL Server VM 的 [公用 IP 位址]  。
 
 1. 在已連線到網際網路的其他電腦上開啟 [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)。
 
 
-1. 在 [連接到伺服器] 或 [連接到 Database Engine] 對話方塊中，編輯 [伺服器名稱] 值。 輸入您 VM 的公用 IP 位址。 然後加入一個逗號，並加入我們在您設定新的 VM 時所指定的自訂連接埠 **1401**。 例如： `11.22.33.444,1401`。
+1. 在 [連接到伺服器]  或 [連接到 Database Engine]  對話方塊中，編輯 [伺服器名稱]  值。 輸入您 VM 的公用 IP 位址。 然後加入一個逗號，並加入我們在您設定新的 VM 時所指定的自訂連接埠 **1401**。 例如： `11.22.33.444,1401`。
 
-1. 在 [驗證] 方塊中，選取 [SQL Server 驗證]。
+1. 在 [驗證]  方塊中，選取 [SQL Server 驗證]  。
 
 1. 在 [登入]  方塊中，輸入有效的 SQL 登入名稱。
 

@@ -3,8 +3,8 @@ title: Azure AD Xamarin 入門 | Microsoft Docs
 description: 建置 Xamarin 應用程式來與 Azure AD 整合進行登入，並使用 OAuth 呼叫受 Azure AD 保護的 API。
 services: active-directory
 documentationcenter: xamarin
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
+ms.date: 05/22/2019
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a20c2e6524b0c466f5c45578e0ba8eaad351ea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e3470d9220ed471a05792ed5b3bb259e0dcbe0a6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881880"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121921"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>快速入門：建置可整合 Microsoft 登入的 Xamarin 應用程式
 
@@ -55,16 +55,16 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
 若要讓應用程式能夠取得權杖，您必須先在 Azure AD 租用戶中註冊該應用程式，然後授與它存取 Azure AD Graph API 的權限。 方式如下：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在頂端列中，按一下您的帳戶。 然後，在 [目錄] 清單下，選取您要註冊應用程式的 Active Directory 租用戶。
-3. 按一下左窗格中的 [所有服務]，然後選取 [Azure Active Directory]。
-4. 按一下 [應用程式註冊]，然後選取 [新增]。
-5. 若要建立新的**原生用戶端應用程式**，請遵照提示進行。
-   * [名稱] 向使用者說明該應用程式。
-   * [重新導向 URI] 是配置與字串的組合，Azure AD 會用它來傳回權杖回應。 輸入一個值 (例如，`http://DirectorySearcher`)。
-6. 完成註冊之後，Azure AD 會為應用程式指派唯一的應用程式識別碼。 從 [應用程式] 索引標籤複製值，因為稍後將會需要它。
-7. 在 [設定] 頁面中，選取 [必要的權限]，然後選取 [新增]。
-8. 選取 [Microsoft Graph] 做為 API。 在 [委派的權限] 下，新增 [讀取目錄資料] 權限。 
-   這個動作可讓應用程式查詢使用者的圖形 API。
+2. 在頂端列中，按一下您的帳戶。 然後，在 [目錄]  清單下，選取您要註冊應用程式的 Active Directory 租用戶。
+3. 按一下左窗格中的 [所有服務]  ，然後選取 [Azure Active Directory]  。
+4. 按一下 [應用程式註冊]  ，然後選取 [新增註冊]  。
+5. 若要建立新的用戶端應用程式，請依照提示進行。
+   * [名稱]  可向使用者描述該應用程式。
+   * 在 [支援的帳戶類型]  底下，選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]  。
+   * [重新導向 URI]  是配置與字串的組合，Azure AD 會用它來傳回權杖回應。 輸入一個值 (例如，`http://DirectorySearcher`)。
+6. 完成註冊之後，Azure AD 會為應用程式指派唯一的應用程式識別碼。 從 [應用程式]  索引標籤複製值，因為稍後將會需要它。
+7. 從 [API 權限]  頁面上，選取 [新增權限]  。 在 [選取 API]  內選取 [Microsoft Graph]。
+8. 在 [委派的權限]  底下，選取權限 **User.Read**，然後按下 [新增]  以儲存。 此權限會設定您的應用程式來為使用者查詢 Azure AD 圖形 API。
 
 ## <a name="step-3-install-and-configure-adal"></a>步驟 3：安裝及設定 ADAL
 

@@ -1,0 +1,168 @@
+---
+title: 教學課程：準備在 R 中定型預測模型所需的資料
+titleSuffix: Azure SQL Database Machine Learning Services (preview)
+description: 在這個三部分教學課程系列的第一部分中，您將準備 Azure SQL 資料庫中的資料，以供您透過 Azure SQL Database 機器學習服務 (預覽) 在 R 中定型預測模型。
+services: sql-database
+ms.service: sql-database
+ms.subservice: machine-learning
+ms.custom: ''
+ms.devlang: r
+ms.topic: tutorial
+author: garyericson
+ms.author: garye
+ms.reviewer: davidph
+manager: cgronlun
+ms.date: 05/02/2019
+ms.openlocfilehash: aa9c41ee34a50ab9b1409357bfe7d123166601bf
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978735"
+---
+# <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>教學課程：準備使用 Azure SQL Database 機器學習服務 (預覽) 在 R 中定型預測模型所需的資料
+
+在這個三部分教學課程系列的第一部分中，您將準備 Azure SQL 資料庫中的資料，以供您透過 Azure SQL Database 機器學習服務 (預覽) 在 R 中定型預測模型。
+
+在本教學課程系列中，我們假設您是滑雪設備的出租業者，且您想要預測未來某個日期的出租數目。 這項資訊將可協助您備妥庫存、人力和相關設施。
+
+在本文中，您將了解如何：
+
+> [!div class="checklist"]
+> * 將範例資料庫匯入 Azure SQL 資料庫中
+> * 使用 R 將 Azure SQL 資料庫中的資料載入資料框架中
+> * 依某些資料行分類以進行資料準備
+
+在[第二部分](sql-database-tutorial-predictive-model-build-compare.md)中，您將了解如何建立及定型多個模型，然後選擇最精確的模型。
+
+在[第三部分](sql-database-tutorial-predictive-model-deploy.md)中，您將了解如何將模型儲存在資料庫中，然後建立可根據新資料進行預測的預存程序。
+
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
+
+## <a name="prerequisites"></a>必要條件
+
+* Azure 訂用帳戶 - 如果您沒有 Azure 訂用帳戶，請在開始前[建立帳戶](https://azure.microsoft.com/free/)。
+
+* 已啟用機器學習服務的 Azure SQL Database - 在公開預覽期間，Microsoft 會將您加入，並為您現有的或新的資料庫啟用機器學習服務。 請遵循[註冊預覽版](sql-database-machine-learning-services-overview.md#signup)中的步驟。
+
+* RevoScaleR 套件 - 請參閱 [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) 以了解在本機安裝此套件的選項。
+
+* R IDE - 本教學課程使用 [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/)。
+
+* SQL 查詢工具 - 本教學課程假設您使用 [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) 或 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS)。
+
+## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
+
+登入 [Azure 入口網站](https://portal.azure.com/)。
+
+## <a name="import-the-sample-database"></a>匯入範例資料庫
+
+本教學課程使用的範例資料集已儲存至 **.bacpac** 資料庫備份檔案，供您下載及使用。
+
+1. 下載檔案 [TutorialDB.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/TutorialDB.bacpac)。
+
+1. 請依照[匯入 BACPAC 檔案以建立 Azure SQL 資料庫](https://docs.microsoft.com/azure/sql-database/sql-database-import)中的指示，並使用下列詳細資料：
+
+   * 從您下載的 **TutorialDB.bacpac** 檔案匯入
+   * 在公開預覽期間，請為新資料庫選擇 **Gen5/虛擬核心**組態
+   * 將新資料庫命名為 "TutorialDB"
+
+## <a name="load-the-data-into-a-data-frame"></a>將資料載入資料框架中
+
+若要在 R 中使用資料，請將 Azure SQL 資料庫中的資料載入資料框架 (`rentaldata`) 中。
+
+在 RStudio 中建立新的 RScript 檔案，並執行下列指令碼。 將 **Server**、**UID** 和 **PWD** 取代為您自己的連線資訊。
+
+```r
+#Define the connection string to connect to the TutorialDB database
+connStr <- paste("Driver=SQL Server",
+               "; Server=", "<Azure SQL Database Server>",
+               "; Database=TutorialDB",
+               "; UID=", "<user>",
+               "; PWD=", "<password>",
+                  sep = "");
+
+#Get the data from the table
+SQL_rentaldata <- RxSqlServerData(table = "dbo.rental_data", connectionString = connStr, returnDataFrame = TRUE);
+
+#Import the data into a data frame
+rentaldata <- rxImport(SQL_rentaldata);
+
+#Take a look at the structure of the data and the top rows
+head(rentaldata);
+str(rentaldata);
+```
+
+您應該會看到如下的結果。
+
+```results
+   Year  Month  Day  RentalCount  WeekDay  Holiday  Snow
+1  2014    1     20      445         2        1      0
+2  2014    2     13       40         5        0      0
+3  2013    3     10      456         1        0      0
+4  2014    3     31       38         2        0      0
+5  2014    4     24       23         5        0      0
+6  2015    2     11       42         4        0      0
+'data.frame':       453 obs. of  7 variables:
+$ Year       : int  2014 2014 2013 2014 2014 2015 2013 2014 2013 2015 ...
+$ Month      : num  1 2 3 3 4 2 4 3 4 3 ...
+$ Day        : num  20 13 10 31 24 11 28 8 5 29 ...
+$ RentalCount: num  445 40 456 38 23 42 310 240 22 360 ...
+$ WeekDay    : num  2 5 1 2 5 4 1 7 6 1 ...
+$ Holiday    : int  1 0 0 0 0 0 0 0 0 0 ...
+$ Snow       : num  0 0 0 0 0 0 0 0 0 0 ...
+```
+
+## <a name="prepare-the-data"></a>準備資料
+
+在此範例資料庫中，大部分的準備工作都已完成，但您在此將再執行一項準備。
+使用下列 R 指令碼，藉由將資料類型變更為「因素」  ，將三個資料行識別為「類別」  。
+
+```r
+#Changing the three factor columns to factor types
+rentaldata$Holiday <- factor(rentaldata$Holiday);
+rentaldata$Snow    <- factor(rentaldata$Snow);
+rentaldata$WeekDay <- factor(rentaldata$WeekDay);
+
+#Visualize the dataset after the change
+str(rentaldata);
+```
+
+您應該會看到如下的結果。
+
+```results
+data.frame':      453 obs. of  7 variables:
+$ Year       : int  2014 2014 2013 2014 2014 2015 2013 2014 2013 2015 ...
+$ Month      : num  1 2 3 3 4 2 4 3 4 3 ...
+$ Day        : num  20 13 10 31 24 11 28 8 5 29 ...
+$ RentalCount: num  445 40 456 38 23 42 310 240 22 360 ...
+$ WeekDay    : Factor w/ 7 levels "1","2","3","4",..: 2 5 1 2 5 4 1 7 6 1 ...
+$ Holiday    : Factor w/ 2 levels "0","1": 2 1 1 1 1 1 1 1 1 1 ...
+$ Snow       : Factor w/ 2 levels "0","1": 1 1 1 1 1 1 1 1 1 1 ...
+```
+
+資料現已備妥，可供訓練之用。
+
+## <a name="clean-up-resources"></a>清除資源
+
+如果您不打算繼續進行本教學課程，請從 Azure SQL Database 伺服器中刪除 TutorialDB 資料庫。
+
+在 Azure 入口網站中執行下列步驟：
+
+1. 在 Azure 入口網站的左側功能表中，選取 [所有資源]  或 [SQL 資料庫]  。
+1. 在 [依名稱篩選...]  欄位中輸入 **TutorialDB**，然後選取您的訂用帳戶。
+1. 選取您的 TutorialDB 資料庫。
+1. 在 [概觀]  頁面上，按一下 [刪除]  。
+
+## <a name="next-steps"></a>後續步驟
+
+在本教學課程系列的第一部分中，您已完成下列步驟：
+
+* 將資料庫備份檔案匯入 Azure SQL 資料庫中
+* 使用 R 將 Azure SQL 資料庫中的資料載入資料框架中
+* 依某些資料行分類以進行資料準備
+
+若要建立會使用 TutorialDB 資料庫中所含資料的機器學習模型，請遵循本教學課程系列的第二部分：
+
+> [!div class="nextstepaction"]
+> [教學課程：使用 Azure SQL Database 機器學習服務 (預覽) 在 R 中建立預測模型](sql-database-tutorial-predictive-model-build-compare.md)

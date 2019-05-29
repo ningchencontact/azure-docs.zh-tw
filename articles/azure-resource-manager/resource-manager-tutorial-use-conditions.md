@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/04/2019
+ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ad7c87161c550c4728978e9c975252cab34f76ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a03707246f27bcba9cc46168ec04893b7bbc4c3
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389750"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990830"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>教學課程：在 Azure Resource Manager 範本中使用條件
 
 深入了解如何根據條件部署 Azure 資源。
 
-在[設定資源部署順序](./resource-manager-tutorial-create-templates-with-dependent-resources.md)教學課程中，您建立了虛擬機器、虛擬網路和其他相依資源，包括儲存體帳戶。 您可以不用每次都建立新的儲存體帳戶，而是讓使用者在建立新的儲存體帳戶與使用現有的儲存體帳戶之間做選擇。 為了達成此目標，您會定義額外的參數。 如果參數的值是 "new"，則會建立新的儲存體帳戶。
+在[設定資源部署順序](./resource-manager-tutorial-create-templates-with-dependent-resources.md)教學課程中，您建立了虛擬機器、虛擬網路和其他相依資源，包括儲存體帳戶。 您可以不用每次都建立新的儲存體帳戶，而是讓使用者在建立新的儲存體帳戶與使用現有的儲存體帳戶之間做選擇。 為了達成此目標，您會定義額外的參數。 如果參數的值是 "new"，則會建立新的儲存體帳戶。 否則，會使用具有所提供名稱的現有儲存體帳戶。
 
 ![Resource Manager 範本使用條件圖](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
@@ -35,6 +35,13 @@ ms.locfileid: "60389750"
 > * 修改範本
 > * 部署範本
 > * 清除資源
+
+本教學課程只會涵蓋使用條件的基本案例。 如需詳細資訊，請參閱
+
+* [範本檔案結構：條件](./resource-group-authoring-templates.md#condition)。
+* [在 Azure Resource Manager 範本中依條件部署資源](/azure/architecture/building-blocks/extending-templates/conditional-deploy.md)。
+* [範本函式：If](./resource-group-template-functions-logical.md#if)。
+* [Azure Resource Manager 範本的比較函式](./resource-group-template-functions-comparison.md)
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -48,19 +55,21 @@ ms.locfileid: "60389750"
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     Azure Key Vault 的設計訴求是保護加密金鑰和其他祕密。 如需詳細資訊，請參閱[教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault](./resource-manager-tutorial-use-key-vault.md)。 我們也建議您每三個月更新一次密碼。
 
 ## <a name="open-a-quickstart-template"></a>開啟快速入門範本
 
 Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋找範例範本並加以自訂，而不要從頭建立範本。 本教學課程中使用的範本名為[部署簡單的 Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/)。
 
-1. 在 Visual Studio Code 中，選取 [檔案]>[開啟檔案]。
-2. 在 [檔案名稱] 中，貼上下列 URL：
+1. 在 Visual Studio Code 中，選取 [檔案]  >[開啟檔案]  。
+2. 在 [檔案名稱]  中，貼上下列 URL：
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
-3. 選取 [開啟] 以開啟檔案。
+
+3. 選取 [開啟]  以開啟檔案。
 4. 範本中定義了五項資源：
 
    * `Microsoft.Storage/storageAccounts` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)。
@@ -70,7 +79,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
    * `Microsoft.Compute/virtualMachines` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)。
 
      自訂範本之前，最好能初步了解範本。
-5. 選取 [檔案]>[另存新檔]，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
+5. 選取 [檔案]  >[另存新檔]  ，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
 
 ## <a name="modify-the-template"></a>修改範本
 
@@ -82,12 +91,11 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 進行變更的程序如下：
 
 1. 在 Visual Studio Code 中，開啟 **azuredeploy.json**。
-2. 在整個範本中以 **parameters('storageAccountName')** 來取代 **variables('storageAccountName')**。  **variables('storageAccountName')** 會出現三次。
+2. 在整個範本中以 **parameters('storageAccountName')** 來取代三個 **variables('storageAccountName')** 。
 3. 移除下列變數定義：
 
-    ```json
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
-    ```
+    ![Resource Manager 範本使用條件圖](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+
 4. 將以下兩個參數新增至範本：
 
     ```json
@@ -95,13 +103,14 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
       "type": "string"
     },
     "newOrExisting": {
-      "type": "string", 
+      "type": "string",
       "allowedValues": [
-        "new", 
+        "new",
         "existing"
       ]
     },
     ```
+
     已更新的參數定義看起來如下：
 
     ![Resource Manager 使用條件](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-parameters.png)
@@ -117,7 +126,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
     已更新的儲存體帳戶定義看起來如下：
 
     ![Resource Manager 使用條件](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-6. 將 **storageUri** 更新為下列值：
+6. 使用下列值更新虛擬機器資源定義的 **storageUri** 屬性：
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -129,11 +138,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 ## <a name="deploy-the-template"></a>部署範本
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-請依照[部署範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)中的指示來部署範本。
-
-當您使用 Azure PowerShell 部署範本時，需要指定一個額外參數。 為了提高安全性，請使用為虛擬機器系統管理員帳戶產生的密碼。 請參閱[必要條件](#prerequisites)。
+請遵循[部署範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)中的指示，來開啟 Cloud Shell 並上傳修改過的範本，然後執行下列 PowerShell 指令碼來部署範本。
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -162,12 +167,12 @@ New-AzResourceGroupDeployment `
 
 ## <a name="clean-up-resources"></a>清除資源
 
-不再需要 Azure 資源時，可藉由刪除資源群組來清除您所部署的資源。
+不再需要 Azure 資源時，可藉由刪除資源群組來清除您所部署的資源。 若要刪除資源群組，請選取 [試試看]  來開啟 Cloud Shell。 若要貼上 PowerShell 指令碼，請以滑鼠右鍵按一下 Shell 窗格，然後選取 [貼上]  。
 
-1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]。
-2. 在 [依名稱篩選] 欄位中輸入資源群組名稱。
-3. 選取資源群組名稱。  您在資源群組中應該會看到共計六個資源。
-4. 從頂端功能表中選取 [刪除資源群組]。
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the same resource group name you used in the last procedure"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
 
 ## <a name="next-steps"></a>後續步驟
 

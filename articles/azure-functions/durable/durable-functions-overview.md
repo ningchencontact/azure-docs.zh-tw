@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: overview
 ms.date: 12/22/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: 4c7b4733d05f18d3c30e45fd08c3cf9c50354ebc
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2228f3fe05e1021d0f87ce0b0d33a8287f048a8c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816082"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872817"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions 是什麼？
 
@@ -43,13 +43,13 @@ Durable Functions 主要用來簡化無伺服器應用程式中複雜的具狀�
 
 Durable Functions 目前支援下列語言：
 
-* **C#**：[預先編譯的類別庫](../functions-dotnet-class-library.md)和 [C# 指令碼](../functions-reference-csharp.md)。
-* **F#**：預先編譯的類別庫和 F# 指令碼。 只有 1.x 版的 Azure Functions 執行階段才支援 F# 指令碼。
+* **C#** ：[預先編譯的類別庫](../functions-dotnet-class-library.md)和 [C# 指令碼](../functions-reference-csharp.md)。
+* **F#** ：預先編譯的類別庫和 F# 指令碼。 只有 1.x 版的 Azure Functions 執行階段才支援 F# 指令碼。
 * **JavaScript**：只有 2.x 版的 Azure Functions 執行階段才支援。 需要 1.7.0 版的 Durable Functions 擴充功能，或更新版本。 
 
 Durable Functions 的目標是支援所有的 [Azure Functions 語言](../supported-languages.md)。 請參閱 [Durable Functions 問題清單](https://github.com/Azure/azure-functions-durable-extension/issues)，以取得最新工作狀態來支援其他語言。
 
-如同 Azure Functions，有一些範本可協助您使用 [Visual Studio 2017](durable-functions-create-first-csharp.md)、[Visual Studio Code](quickstart-js-vscode.md) 和 [Azure 入口網站](durable-functions-create-portal.md)開發 Durable Functions。
+如同 Azure Functions，有一些範本可協助您使用 [Visual Studio 2019](durable-functions-create-first-csharp.md)、[Visual Studio Code](quickstart-js-vscode.md) 和 [Azure 入口網站](durable-functions-create-portal.md)開發 Durable Functions。
 
 ## <a name="billing"></a>計費
 
@@ -59,7 +59,7 @@ Durable Functions 的收費方式與 Azure Functions 相同。 如需詳細資�
 
 完成下列其中一個特定語言快速入門教學課程，即可在 10 分鐘內開始使用 Durable Functions：
 
-* [使用 Visual Studio 2017 的 C#](durable-functions-create-first-csharp.md)
+* [使用 Visual Studio 2019 的 C#](durable-functions-create-first-csharp.md)
 * [使用 Visual Studio Code 的 JavaScript](quickstart-js-vscode.md)
 
 在這兩個快速入門中，您會在本機建立及測試 "hello world" 耐久函式。 接著會將函式程式碼發佈至 Azure。 您建立的函式會協調對其他函式的呼叫並鏈結在一起。

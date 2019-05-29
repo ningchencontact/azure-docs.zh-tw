@@ -3,19 +3,19 @@ title: 快速入門：使用適用於 C# 的 Bing 影片搜尋 SDK 來搜尋影�
 titleSuffix: Azure Cognitive Services
 description: 透過本快速入門，使用適用於 C# 的 Bing 影片搜尋 SDK 來傳送影片搜尋要求。
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
-ms.author: rosh
-ms.openlocfilehash: f94db7a29827a80307f4a081d93744c5edc59edb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.author: aahi
+ms.openlocfilehash: e10d9088f6de3b7a3a638cdbe18f51425d206b7b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867778"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798170"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-c"></a>快速入門：使用適用於 C# 的 Bing 影片搜尋 SDK 來執行影片搜尋
 
@@ -23,10 +23,10 @@ ms.locfileid: "55867778"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 任何一版的 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)。
+* [Visual Studio 2017 或更新版本](https://visualstudio.microsoft.com/downloads/)的任何版本。
 * Json.NET 架構 ([以 NuGet 套件形式](https://www.nuget.org/packages/Newtonsoft.Json/)提供)。
 
-若要將 Bing 影片搜尋 SDK 新增至您的專案，請在 Visual Studio 中瀏覽至 [方案總管] 中的 `Manage NuGet Packages` 選項。  新增 `Microsoft.Azure.CognitiveServices.Search.VideoSearch` 套件。
+若要將 Bing 影片搜尋 SDK 新增至您的專案，請在 Visual Studio 中選取 [方案總管]  中的 [管理 NuGet 套件]  。 新增 `Microsoft.Azure.CognitiveServices.Search.VideoSearch` 套件。
 
 安裝 [[NuGet 影片搜尋 SDK 套件]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) 也會安裝下列相依性：
 

@@ -1,5 +1,5 @@
 ---
-title: 快速入門：搭配使用 REST API 與 Python 來將模型定型並擷取表單資料 - 表單辨識器
+title: 快速入門：搭配使用 REST API 與 Python 將模型定型並擷取表單資料 - 表單辨識器
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將搭配使用表單辨識器 REST API 和 Python 來定型模型，並從表單中擷取資料。
 author: PatrickFarley
@@ -9,34 +9,48 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 98d1870105038c4314a6b038ec198342bb2ca1d0
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 139c0c29033dc45d07fd0987c2eee92308512329
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026676"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906975"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-python"></a>快速入門：搭配使用 REST API 與 Python 來將表單辨識器模型定型並擷取表單資料
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>快速入門：搭配使用 REST API 與 Python 將表單辨識器模型定型並擷取表單資料
 
-在本快速入門中，您將搭配使用表單辨識器的 REST API 與 Python 來定型及評分表單，以擷取機碼值組和資料表。
+在本快速入門中，您將搭配使用 Azure 表單辨識器的 REST API 與 Python 來定型及評分表單，以擷取金鑰/值組和資料表。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
+若要完成此快速入門，您必須：
+- 有權存取表單辨識器的有限存取預覽版。 若要存取此預覽服務，請先填寫並提交[表單辨識器存取要求](https://aka.ms/FormRecognizerRequestAccess)表單。
+- 已安裝 [Python](https://www.python.org/downloads/) (如果您想要在本機執行此範例)。
+- 至少有五個相同類型的表單。 您可以使用本快速入門的[範例資料集](https://go.microsoft.com/fwlink/?linkid=2090451)。
 
--  您必須獲得表單辨識器有限存取預覽版的存取權。 若要存取此預覽服務，請先填寫並提交[認知服務表單辨識器存取要求](https://aka.ms/FormRecognizerRequestAccess)表單。 
-- 如果您想要在本機執行此範例，就必須安裝 [Python](https://www.python.org/downloads/)。
-- 您必須有表單辨識器的訂用帳戶金鑰。 若要取得訂用帳戶金鑰，請參閱[取得訂用帳戶金鑰](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。
-- 您必須至少有五個類型相同的表單。 您可以使用本快速入門的[範例資料集](https://go.microsoft.com/fwlink/?linkid=2090451)。
+## <a name="create-a-form-recognizer-resource"></a>建立表單辨識器資源
+
+當您獲得使用表單辨識器的存取權時，您將會收到「歡迎使用」電子郵件，內含數個連結和資源。 請使用該訊息中的 [Azure 入口網站] 連結開啟 Azure 入口網站，並建立表單辨識器資源。 在 [建立]  窗格中，提供下列資訊：
+
+|    |    |
+|--|--|
+| **名稱** | 資源的描述性名稱。 建議您使用描述性名稱，例如 *MyNameFormRecognizer*。 |
+| **訂用帳戶** | 選取已獲存取權的 Azure 訂用帳戶。 |
+| **位置** | 您的認知服務執行個體的位置。 位置不同可能會造成延遲，但不會影響您資源執行階段的可用性。 |
+| **定價層** | 資源的成本取決於您選擇的定價層和您的使用量。 如需詳細資訊，請參閱 API [定價詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/)。
+| **資源群組** | 將包含您的資源的 [Azure 資源群組](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group)。 您可以建立新的群組，或將群組新增到既有的群組。 |
+
+> [!IMPORTANT]
+> 一般而言，當您在 Azure 入口網站中建立認知服務資源時，您可以選擇建立多服務的訂用帳戶金鑰 (可跨多個認知服務使用) 或單一服務的訂用帳戶金鑰 (僅用於特定認知服務)。 不過，由於表單辨識器是預覽版本，而並未納入多服務的訂用帳戶中，因此您無法建立單一服務的訂用帳戶，除非您使用「歡迎使用」電子郵件中提供的連結。
+
+當您的表單辨識器資源完成部署後，您可以從入口網站中的 [所有資源]  清單尋找並選取該項資源。 然後，選取 [金鑰]  索引標籤即可檢視您的訂用帳戶金鑰。 這兩種金鑰都可讓您的應用程式存取資源。 複製**金鑰 1** 的值。 您在下一節將會用到此位址。
 
 ## <a name="create-and-run-the-sample"></a>建立並執行範例
 
-若要建立及執行範例，請對下方的程式碼片段進行下列變更：
-
-1. 將 `<subscription_key>` 的值取代為您的訂用帳戶金鑰。
-1. 請在您取得訂用帳戶金鑰的 Azure 區域中，將 `<Endpoint>` 的值取代為表單辨識器資源的端點 URL。
+若要建立及執行範例，請對以下程式碼片段進行下列變更：
+1. 在您取得訂用帳戶金鑰的 Azure 區域中，將 `<Endpoint>` 取代為表單辨識器資源的端點 URL。
 1. 將 `<SAS URL>` 取代為 Azure Blob 儲存體容器的共用存取簽章 (SAS) URL，也就是定型資料所在的位置。  
-
+1. 將 `<Subscription key>` 取代為您在先前的步驟中複製的訂用帳戶金鑰。
     ```python
     ########### Python Form Recognizer Train #############
     from requests import post as http_post
@@ -58,7 +72,7 @@ ms.locfileid: "65026676"
     except Exception as e:
         print(str(e))
     ```
-1. 將程式碼儲存為副檔名為 `.py` 的檔案。 例如： `form-recognize-train.py`。
+1. 將程式碼儲存在副檔名為 .py 的檔案中。 例如 *form-recognize-train.py*。
 1. 開啟命令提示字元視窗。
 1. 出現提示時，使用 `python` 命令執行範例。 例如： `python form-recognize-train.py`。
 
@@ -103,16 +117,16 @@ ms.locfileid: "65026676"
 }
 ```
 
-請記下 `"modelId"` 值，下面的步驟會需要該值。
+請記下 `"modelId"` 值。 您在後續步驟中將用到此值。
   
 ## <a name="extract-key-value-pairs-and-tables-from-forms"></a>從表單擷取機碼值組與資料表
 
-接下來，您會分析文件，並從中擷取機碼值組和資料表。 執行下列 Python 指令碼來呼叫**模型 - 分析** API。 執行命令之前，請進行下列變更：
+接下來，您會分析文件，並從中擷取金鑰/值組和資料表。 執行下列 Python 指令碼以呼叫**模型 - 分析** API。 執行命令之前，請進行下列變更：
 
-1. 將 `<Endpoint>` 取代為您使用表單辨識器訂用帳戶金鑰所取得的端點。 您可以在表單辨識器的資源概觀索引標籤中找到此項目。
-1. 將 `<File Path>` 取代為要從中擷取資料的表單所在的檔案路徑位置或 URL。
-1. 將 `<modelID>` 取代為您在上一個定型模型步驟中收到的模型識別碼。
-1. 將 `<file type>` 取代為檔案類型 - 支援的類型為 pdf、影像/jpeg、影像/png。
+1. 將 `<Endpoint>` 取代為您使用表單辨識器訂用帳戶金鑰取得的端點。 您可以在表單辨識器的資源 [概觀]  索引標籤上找到此項目。
+1. 將 `<File Path>` 取代為要從中擷取資料的表單所在之處的檔案路徑或 URL。
+1. 將 `<modelID>` 取代為您在上一節中取得的模型識別碼。
+1. 將 `<file type>` 取代為檔案類型。 支援的類型為 pdf、影像/jpeg、影像/png。
 1. 將 `<subscription key>` 取代為訂用帳戶金鑰。
 
     ```python
@@ -140,13 +154,13 @@ ms.locfileid: "65026676"
         print(str(e))
     ```
 
-1. 將程式碼儲存為副檔名為 `.py` 的檔案。 例如： `form-recognize-analyze.py`。
+1. 將程式碼儲存在副檔名為 .py 的檔案中。 例如 *form-recognize-analyze.py*。
 1. 開啟命令提示字元視窗。
 1. 出現提示時，使用 `python` 命令執行範例。 例如： `python form-recognize-analyze.py`。
 
 ### <a name="examine-the-response"></a>檢查回應
 
-成功的回應會以 JSON 格式傳回，代表從表單中擷取的機碼值組與資料表。
+成功的回應會以 JSON 的形式傳回。 這代表從表單中擷取的金鑰/值組與資料表：
 
 ```bash
 {
@@ -471,7 +485,7 @@ ms.locfileid: "65026676"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本指南中，您已搭配使用表單辨識器 REST API 和 Python 來定型模型，並在範例案例中加以執行。 接下來，請參閱參考文件來深入探索表單辨識器 API。
+在本快速入門中，您已搭配使用表單辨識器 REST API 和 Python 來定型模型，並在範例案例中加以執行。 接下來，請參閱參考文件來深入探索表單辨識器 API。
 
 > [!div class="nextstepaction"]
 > [REST API 參考文件](https://aka.ms/form-recognizer/api)
