@@ -76,11 +76,11 @@ Remove-AzureRmResource -ResourceType 'Microsoft.OperationsManagement/solutions' 
 
 在 Azure 入口網站中，選取**監視器** > **警示** > **管理動作群組**。
 
-選取  **StartStop_VM_Notification**從清單中。 在 [動作群組] 頁面中，選取**刪除**。
+選取 **StartStop_VM_Notification**從清單中。 在 動作群組 頁面中，選取**刪除**。
 
-![動作群組] 頁面上，選取 [刪除](../media/move-account/delete-action-group.png)
+![動作群組 頁面上，選取 刪除](../media/move-account/delete-action-group.png)
 
-同樣地，您可以使用 PowerShell 搭配刪除動作群組[Remove-azurermactiongroup](/powershell/module/azurerm.insights/remove-azurermactiongroup) cmdlet，如下列範例所示：
+同樣地，您可以使用 PowerShell 搭配刪除動作群組 [Remove-AzureRmActionGroup](/powershell/module/azurerm.insights/remove-azurermactiongroup) cmdlet，如下列範例所示：
 
 ```azurepowershell-interactive
 Remove-AzureRmActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification
