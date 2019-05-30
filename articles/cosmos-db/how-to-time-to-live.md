@@ -4,14 +4,14 @@ description: 了解如何在 Azure Cosmos DB 中設定和管理存留時間
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/14/2018
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: bb5997c2ae8f93068b0ad2a77b5109f6c79b9b30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b5eb57562dac498c0e5bf2960007f52ad1117ac2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003523"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244775"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中設定存留時間
 
@@ -25,13 +25,13 @@ ms.locfileid: "58003523"
 
 2. 建立新的 Azure Cosmos 帳戶，或選取現有帳戶。
 
-3. 開啟 [資料總管] 窗格。
+3. 開啟 [資料總管]  窗格。
 
 4. 選取現有容器，加以展開並修改下列值：
 
-   * 開啟 [規模與設定] 視窗。
-   * 在 [設定] 底下，尋找 [存留時間]。
-   * 選取 [開啟 (無預設值)]，或選取 [開啟] 並設定 TTL 值
+   * 開啟 [規模與設定]  視窗。
+   * 在 [設定]  底下，尋找 [存留時間]  。
+   * 選取 [開啟 (無預設值)]  ，或選取 [開啟]  並設定 TTL 值
    * 按一下 [儲存]  儲存變更。
 
    ![在 Azure 入口網站中設定存留時間](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
@@ -104,16 +104,16 @@ async function createcontainerWithTTL(db: Database, containerDefinition: Contain
 
 2. 建立新的 Azure Cosmos 帳戶，或選取現有帳戶。
 
-3. 開啟 [資料總管] 窗格。
+3. 開啟 [資料總管]  窗格。
 
 4. 選取現有容器，加以展開並修改下列值：
 
-   * 開啟 [規模與設定] 視窗。
-   * 在 [設定] 底下，尋找 [存留時間]。
-   * 選取 [開啟 (無預設)]，或選取 [開啟] 並設定 TTL 值。 
+   * 開啟 [規模與設定]  視窗。
+   * 在 [設定]  底下，尋找 [存留時間]  。
+   * 選取 [開啟 (無預設)]  ，或選取 [開啟]  並設定 TTL 值。 
    * 按一下 [儲存]  儲存變更。
 
-5. 接著瀏覽至您要設定存留時間的項目、新增 `ttl` 屬性，然後選取 [更新]。 
+5. 接著瀏覽至您要設定存留時間的項目、新增 `ttl` 屬性，然後選取 [更新]  。 
 
    ```json
    {

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: vlvinogr
 ms.openlocfilehash: 3a46462f761e7608ae7554604577a1e9d7f88b15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60558012"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238082"
 ---
 ## <a name="go-to-your-api-management-instance"></a>移至您的 API 管理執行個體
 
@@ -17,11 +17,11 @@ ms.locfileid: "60558012"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
 
-2. 選取 [所有服務]。  
+2. 選取 [所有服務]  。  
 
 3. 在搜尋方塊中，輸入 `api management`。
 
-4. 在搜尋結果中，選取 [API 管理服務]。
+4. 在搜尋結果中，選取 [API 管理服務]  。
 
 5. 選取 API 管理服務執行個體。
 

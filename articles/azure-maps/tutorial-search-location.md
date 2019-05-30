@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 125e0c4331eea105ffc201bd1f5f26bdbec1c553
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 21c7e996cfe2f07d9a5b056d8cbc22f238bb48fd
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549383"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357609"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>使用 Azure 地圖服務來搜尋附近景點
 
-此教學課程說明如何使用 Azure 地圖服務來設定帳戶，然後使用地圖服務 API 來搜尋景點。 在此教學課程中，您了解如何：
+本教學課程說明如何使用 Azure 地圖服務來設定帳戶，然後使用地圖服務 API 來搜尋景點。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立 Azure 地圖服務帳戶
@@ -38,15 +38,15 @@ ms.locfileid: "59549383"
 
 使用下列步驟建立新的地圖服務帳戶：
 
-1. 按一下 [Azure 入口網站](https://portal.azure.com)左上角的 [建立資源]。
-2. 在 [搜尋 Marketplace] 方塊中，輸入 **Maps**。
-3. 從 [結果] 中，選取 [地圖服務]。 按一下地圖下方顯示的 [建立] 按鈕。
-4. 在 [建立地圖服務帳戶] 頁面上輸入下列值：
-    * 您想要使用於此帳戶的 [訂用帳戶]。
-    * 此帳戶的 [資源群組] 名稱。 您可以選擇 [建立新的] 或 [使用現有的] 資源群組。
-    * 新帳戶的 [名稱]。
-    * 此帳戶的 [定價層]。
-    * 閱讀 [授權] 和 [隱私權聲明]，然後選取核取方塊以接受條款。
+1. 按一下 [Azure 入口網站](https://portal.azure.com)左上角的 [建立資源]  。
+2. 在 [搜尋 Marketplace]  方塊中，輸入 **Maps**。
+3. 從 [結果]  中，選取 [地圖服務]  。 按一下地圖下方顯示的 [建立]  按鈕。
+4. 在 [建立地圖服務帳戶]  頁面上輸入下列值：
+    * 您想要使用於此帳戶的 [訂用帳戶]  。
+    * 此帳戶的 [資源群組]  名稱。 您可以選擇 [建立新的]  或 [使用現有的]  資源群組。
+    * 新帳戶的 [名稱]  。
+    * 此帳戶的 [定價層]  。
+    * 閱讀 [授權]  和 [隱私權聲明]  ，然後選取核取方塊以接受條款。
     * 按一下 [ **建立** ] 按鈕。
 
 ![在入口網站中建立地圖服務帳戶](./media/tutorial-search-location/create-account.png)
@@ -58,8 +58,8 @@ ms.locfileid: "59549383"
 成功建立地圖服務帳戶後，擷取金鑰以便能查詢地圖服務 API。
 
 1. 在入口網站中開啟地圖服務帳戶。
-2. 在 [設定] 區段上，選取 [驗證]。
-3. 將 [主索引鍵] 複製到剪貼簿。 將其儲存在本機，以供此教學課程稍後使用。
+2. 在 [設定] 區段上，選取 [驗證]  。
+3. 將 [主索引鍵]  複製到剪貼簿。 將其儲存在本機，以供本教學課程稍後使用。
 
 ![在入口網站中取得主索引鍵](./media/tutorial-search-location/get-key.png)
 
@@ -167,7 +167,7 @@ ms.locfileid: "59549383"
 
 ## <a name="add-search-capabilities"></a>新增搜尋功能
 
-此節說明如何使用「地圖服務」的[搜尋 API](https://docs.microsoft.com/rest/api/maps/search)在地圖上尋找景點。 這是針對開發人員所設計的 RESTful API，用於搜尋地址、景點及其他地理資訊。 搜尋服務會將經緯度資訊指派給指定的地址。 以下說明的**服務模組**可讓您使用地圖服務搜尋 API 來搜尋位置。
+本節說明如何使用「地圖服務」的[搜尋 API](https://docs.microsoft.com/rest/api/maps/search)在地圖上尋找景點。 這是針對開發人員所設計的 RESTful API，用於搜尋地址、景點及其他地理資訊。 搜尋服務會將經緯度資訊指派給指定的地址。 以下說明的**服務模組**可讓您使用地圖服務搜尋 API 來搜尋位置。
 
 ### <a name="service-module"></a>服務模組
 
@@ -184,7 +184,7 @@ ms.locfileid: "59549383"
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   `SubscriptionKeyCredential` 會建立 `SubscriptionKeyCredentialPolicy`，以使用訂用帳戶金鑰驗證對「Azure 地圖服務」的 HTTP 要求。 `atlas.service.MapsURL.newPipeline()` 會採用 `SubscriptionKeyCredential` 原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest)執行個體。 `searchURL` 代表 Azure 地圖服務[搜尋](https://docs.microsoft.com/rest/api/maps/search)作業的 URL。
+   `SubscriptionKeyCredential` 會建立 `SubscriptionKeyCredentialPolicy`，以使用訂用帳戶金鑰驗證對「Azure 地圖服務」的 HTTP 要求。 `atlas.service.MapsURL.newPipeline()` 會採用 `SubscriptionKeyCredential` 原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest)執行個體。 `searchURL` 代表 Azure 地圖服務[搜尋](https://docs.microsoft.com/rest/api/maps/search)作業的 URL。
 
 2. 接著，新增下列指令碼區塊以建置搜尋查詢。 它會使用模糊搜尋服務，這是搜尋服務的基本搜尋 API。 模糊搜尋服務可處理大部分的模糊輸入，例如地址、地點和景點 (POI)。 此程式碼會在所提供經緯度的指定半徑範圍內，搜尋附近的加油站。 接著會使用 `geojson.getFeatures()` 方法，從回應中擷取 GeoJSON 功能集合並新增至資料來源，而自動使資料透過符號圖層呈現在地圖上。 指令碼的最後一個部分會透過地圖的 [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 屬性使用結果的週框方塊來設定地圖相機檢視。
 
@@ -272,7 +272,7 @@ ms.locfileid: "59549383"
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 使用 Azure 地圖服務建立帳戶

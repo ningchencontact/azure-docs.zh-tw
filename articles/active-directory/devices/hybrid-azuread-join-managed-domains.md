@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94fbcc1c29c1860642dda0afab6a1f10e719a05a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: e45b3b19821644142176c5c0cc7646c4643fe17c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962199"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235213"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>教學課程：設定適用於受控網域的混合式 Azure Active Directory Join
 
@@ -178,7 +178,7 @@ ms.locfileid: "65962199"
 
 ### <a name="configure-seamless-sso"></a>設定無縫 SSO
 
-若要在使用傳遞驗證 (PTA) 或密碼雜湊同步 (PHS) 作為 Azure AD 雲端驗證方法的受控網域中順利完成舊版 Windows 裝置的混合式 Azure AD Join，您也必須[設定無縫 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature)。 如果您無法設定無縫 SSO，請參閱[對 Azure Active Directory 無縫單一登入進行疑難排解](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/tshoot-connect-sso)一文。
+若要在使用傳遞驗證 (PTA) 或密碼雜湊同步 (PHS) 作為 Azure AD 雲端驗證方法的受控網域中順利完成舊版 Windows 裝置的混合式 Azure AD Join，您也必須[設定無縫 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature)。 如果您無法設定無縫 SSO，請參閱[對 Azure Active Directory 無縫單一登入進行疑難排解](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso)一文。
 
 
 ### <a name="control-windows-down-level-devices"></a>控制舊版 Windows 裝置 

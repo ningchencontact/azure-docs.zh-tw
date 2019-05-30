@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
 ms.openlocfilehash: ac1717a8e8a08fcfedc3bc21bb0f03b3e3ca2511
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548076"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "60721814"
 ---
 # <a name="what-is-project-answer-search"></a>什麼是專案答案搜尋？
 專案答案搜尋 API 使用 Bing v7 端點取得疑問查詢的答案。 「地球的圓周有多長？」之類的問題 傳回事實資訊的答案。  人、地或事的查詢會傳回查詢所識別的實體有關的資訊。 這些情節適用於對話聊天機器人、傳訊應用程式、讀取器之類的應用程式。  

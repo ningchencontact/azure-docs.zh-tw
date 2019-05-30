@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 中將 Java 應用程式部署到 Service Fabric 叢集 | Microsoft Docs
-description: 在此教學課程中，了解如何將 Java Service Fabric 應用程式部署到 Azure Service Fabric 叢集。
+description: 在本教學課程中，了解如何將 Java Service Fabric 應用程式部署到 Azure Service Fabric 叢集。
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: aa7f77299750a969bf936a3ed9b6ae76653a90c4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: c836fd122d9dba0cd7eb20fe405e63c3ca3f59eb
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526685"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306787"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>教學課程：將 Java 應用程式部署到 Azure 中的 Service Fabric 叢集
 
-此教學課程是系列中的第三部分，示範如何將 Service Fabric 應用程式部署到 Azure 中的叢集。
+本教學課程是系列中的第三部分，示範如何將 Service Fabric 應用程式部署到 Azure 中的叢集。
 
 在系列的第三部分中，您將了解如何：
 
@@ -32,7 +32,7 @@ ms.locfileid: "59526685"
 > * 在 Azure 中建立安全的 Linux 叢集
 > * 將應用程式部署到叢集
 
-在此教學課程系列中，您將了解如何：
+在本教學課程系列中，您將了解如何：
 
 > [!div class="checklist"]
 > * [建置 Java Service Fabric Reliable Services 應用程式](service-fabric-tutorial-create-java-app.md)
@@ -43,7 +43,7 @@ ms.locfileid: "59526685"
 
 ## <a name="prerequisites"></a>必要條件
 
-開始進行此教學課程之前：
+開始進行本教學課程之前：
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -104,7 +104,7 @@ ms.locfileid: "59526685"
     Example: az storage account create -g teststorageaccountrg -l westus --name teststorageaccount --kind Storage
     ```
 
-7. 存取 [Azure 入口網站](https://portal.azure.com)並瀏覽至儲存體帳戶的 [共用存取簽章] 索引標籤。 產生 SAS 權杖，如下所示。
+7. 存取 [Azure 入口網站](https://portal.azure.com)並瀏覽至儲存體帳戶的 [共用存取簽章]  索引標籤。 產生 SAS 權杖，如下所示。
 
     ![產生儲存體的 SAS](./media/service-fabric-tutorial-java-deploy-azure/storagesas.png)
 
@@ -159,7 +159,7 @@ ms.locfileid: "59526685"
     }
     ```
 
-11. 執行 eventhubssastoken.py 指令碼，為您建立的 EventHubs 資源產生 SAS url。 Service Fabric 叢集會使用 SAS URL 將記錄傳送至事件中樞。 因此，**寄件者**原則用來產生 URL。 指令碼會針對下一個步驟中使用的事件中樞資源傳回 SAS URL：
+11. 執行 eventhubssastoken.py  指令碼，為您建立的 EventHubs 資源產生 SAS url。 Service Fabric 叢集會使用 SAS URL 將記錄傳送至事件中樞。 因此，**寄件者**原則用來產生 URL。 指令碼會針對下一個步驟中使用的事件中樞資源傳回 SAS URL：
 
     ```python
     python3 eventhubssastoken.py 'testeventhubs' 'testeventhubs' 'sender' '[PRIMARY-KEY]'
@@ -173,7 +173,7 @@ ms.locfileid: "59526685"
 
     EventHubs 的 SAS URL 會遵循以下結構：`https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`。 例如， `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
 
-12. 開啟 sfdeploy.parameters.json 檔案，並取代從先前的步驟中取得的下列內容。 步驟 8 中註明了 [SAS-URL-STORAGE-ACCOUNT]。 步驟 11 中註明了 [SAS-URL-EVENT-HUBS]。
+12. 開啟 sfdeploy.parameters.json  檔案，並取代從先前的步驟中取得的下列內容。 步驟 8 中註明了 [SAS-URL-STORAGE-ACCOUNT]。 步驟 11 中註明了 [SAS-URL-EVENT-HUBS]。
 
     ```json
     "applicationDiagnosticsStorageAccountName": {
@@ -200,7 +200,7 @@ ms.locfileid: "59526685"
 
 ## <a name="deploy-your-application-to-the-cluster"></a>將應用程式部署到叢集
 
-1. 在部署您的應用程式之前，您必須將下列程式碼片段新增至 Voting/VotingApplication/ApplicationManifest.xml 檔案。 **X509FindValue** 欄位是從「在 Azure 中建立 Service Fabric 叢集」一節的步驟 4 傳回的指紋。 此程式碼片段會以巢狀形式存在 **Secretscertificate** 欄位 (根欄位) 之下。
+1. 在部署您的應用程式之前，您必須將下列程式碼片段新增至 Voting/VotingApplication/ApplicationManifest.xml  檔案。 **X509FindValue** 欄位是從「在 Azure 中建立 Service Fabric 叢集」  一節的步驟 4 傳回的指紋。 此程式碼片段會以巢狀形式存在 **Secretscertificate** 欄位 (根欄位) 之下。
 
     ```xml
     <Certificates>
@@ -220,13 +220,13 @@ ms.locfileid: "59526685"
     sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
-4. 若要部署您的應用程式，請瀏覽至 Voting/Scripts 資料夾並執行 **install.sh** 指令碼。
+4. 若要部署您的應用程式，請瀏覽至 Voting/Scripts  資料夾並執行 **install.sh** 指令碼。
 
     ```bash
     ./install.sh
     ```
 
-5. 若要存取 Service Fabric 總管，請開啟您慣用的瀏覽器並輸入 https://testlinuxcluster.westus.cloudapp.azure.com:19080。 從憑證存放區選擇您要用來連線到此端點的憑證。 如果您使用 Linux 機器，new-service-fabric-cluster-certificate.sh 指令碼所產生的憑證必須匯入 Chrome 中，才能檢視 Service Fabric 總管。 如果您使用 Mac，則必須將 PFX 檔案安裝到您的金鑰鏈。 您會注意您的應用程式已安裝於叢集上。
+5. 若要存取 Service Fabric 總管，請開啟您慣用的瀏覽器並輸入 https://testlinuxcluster.westus.cloudapp.azure.com:19080。 從憑證存放區選擇您要用來連線到此端點的憑證。 如果您使用 Linux 機器，new-service-fabric-cluster-certificate.sh  指令碼所產生的憑證必須匯入 Chrome 中，才能檢視 Service Fabric 總管。 如果您使用 Mac，則必須將 PFX 檔案安裝到您的金鑰鏈。 您會注意您的應用程式已安裝於叢集上。
 
     ![SFX Java Azure](./media/service-fabric-tutorial-java-deploy-azure/sfxjavaonazure.png)
 
@@ -242,7 +242,7 @@ ms.locfileid: "59526685"
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 中建立安全的 Linux 叢集

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a0d2927024dff78021d433b965bb6c0149236ddd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5c828644cb03d83df38265719cd8afabc24cf739
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876812"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242579"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>將您的資料移轉至 Azure Cosmos DB 資料表 API 帳戶
 
@@ -66,11 +66,11 @@ ms.locfileid: "58876812"
     /s.Filter: Optional. Filter string to apply
     /s.Projection: Optional. List of columns to select
 
-在從 Azure 資料表儲存體匯入時若要擷取來源的連接字串，請開啟 Azure 入口網站，按一下 [儲存體帳戶] > [帳戶] > [存取金鑰]，然後使用 [複製] 按鈕複製 [連接字串]。
+在從 Azure 資料表儲存體匯入時若要擷取來源的連接字串，請開啟 Azure 入口網站，按一下 [儲存體帳戶]   > [帳戶]   > [存取金鑰]  ，然後使用 [複製] 按鈕複製 [連接字串]  。
 
 ![HBase 檔案來源選項的螢幕擷取畫面](./media/table-import/storage-table-access-key.png)
 
-在從 Azure Cosmos DB 資料表 API (預覽) 帳戶匯入時若要擷取來源的連接字串，請開啟 Azure 入口網站，按一下 [Azure Cosmos DB] > [帳戶] > [連接字串]，然後使用 [複製] 按鈕複製 [連接字串]。
+在從 Azure Cosmos DB 資料表 API (預覽) 帳戶匯入時若要擷取來源的連接字串，請開啟 Azure 入口網站，按一下 [Azure Cosmos DB]   > [帳戶]   > [連接字串]  ，然後使用 [複製] 按鈕複製 [連接字串]  。
 
 ![HBase 檔案來源選項的螢幕擷取畫面](./media/table-import/cosmos-connection-string.png)
 
@@ -109,7 +109,7 @@ dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=
 
 ## <a name="migrate-data-by-using-azcopy"></a>使用 AzCopy 移轉資料
 
-使用 AzCopy 命令列公用程式是另一個用來將資料從 Azure 資料表儲存體移轉到 Azure Cosmos DB 資料表 API 的選項。 若要使用 AzCopy，您必須先匯出資料 (如[從資料表儲存體匯出資料](../storage/common/storage-use-azcopy.md#export-data-from-table-storage)所述)，然後將資料匯入到 Azure Cosmos DB (如 [Azure Cosmos DB 資料表 API](../storage/common/storage-use-azcopy.md#import-data-into-table-storage) 所述)。
+使用 AzCopy 命令列公用程式是另一個用來將資料從 Azure 資料表儲存體移轉到 Azure Cosmos DB 資料表 API 的選項。 若要使用 AzCopy，您必須先匯出資料 (如[從資料表儲存體匯出資料](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#export-data-from-table-storage)所述)，然後將資料匯入到 Azure Cosmos DB (如 [Azure Cosmos DB 資料表 API](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#import-data-into-table-storage) 所述)。
 
 在執行目標為 Azure Cosmos DB 的匯入作業時，請參閱下列範例。 請注意，/Dest 值使用 cosmosdb，而非 core。
 

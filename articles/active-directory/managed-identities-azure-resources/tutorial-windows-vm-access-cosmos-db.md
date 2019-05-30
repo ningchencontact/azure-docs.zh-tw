@@ -16,11 +16,11 @@ ms.date: 04/10/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4e5858fe392629d61b3f0b8833db3af959a16a8b
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525179"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66227698"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure Cosmos DB
 
@@ -44,20 +44,20 @@ ms.locfileid: "59525179"
 
 如果您還沒有 Cosmos DB 帳戶，請加以建立。 您可以跳過此步驟，直接使用現有的 Cosmos DB 帳戶。 
 
-1. 按一下 Azure 入口網站左上角的 [+/建立新服務] 按鈕。
-2. 按一下 [資料庫]，然後按 [Azure Cosmos DB]，新的 [新增帳戶] 面板隨即顯示。
-3. 輸入 Cosmos DB 帳戶的 [識別碼]，您稍後將會用到。  
+1. 按一下 Azure 入口網站左上角的 [+/建立新服務]  按鈕。
+2. 按一下 [資料庫]  ，然後按 [Azure Cosmos DB]  ，新的 [新增帳戶] 面板隨即顯示。
+3. 輸入 Cosmos DB 帳戶的 [識別碼]  ，您稍後將會用到。  
 4. **API** 應設定為 "SQL"。 本教學課程中所述的方法可用於其他可用的 API 類型，但本教學課程中的步驟適用於 SQL API。
-5. 確定 [訂用帳戶] 和 [資源群組] 符合您在上一個步驟中建立 VM 時指定的值。  選取有可用 Cosmos DB 的 [位置]。
-6. 按一下頁面底部的 [新增] 。
+5. 確定 [訂用帳戶]  和 [資源群組]  符合您在上一個步驟中建立 VM 時指定的值。  選取有可用 Cosmos DB 的 [位置]  。
+6. 按一下頁面底部的 [新增]  。
 
 ## <a name="create-a-collection-in-the-cosmos-db-account"></a>在 Cosmos DB 帳戶中建立集合
 
 接下來，在 Cosmos DB 帳戶中新增您可以在後續步驟中查詢的資料收集。
 
 1. 導覽至您新建立的 Cosmos DB 帳戶。
-2. 在 [概觀] 索引標籤上按一下 [+/新增集合] 按鈕，[新增集合] 面板隨即顯示。
-3. 為集合指定資料庫識別碼和集合識別碼、選取儲存容量、輸入分割區索引鍵、輸入輸送量值，然後按一下 [確定]。  在本教學課程中，以 "Test" 作為資料庫識別碼和集合識別碼，並選取固定的儲存容量和最小輸送量 (400 RU/s)，即足堪使用。  
+2. 在 [概觀]  索引標籤上按一下 [+/新增集合]  按鈕，[新增集合] 面板隨即顯示。
+3. 為集合指定資料庫識別碼和集合識別碼、選取儲存容量、輸入分割區索引鍵、輸入輸送量值，然後按一下 [確定]  。  在本教學課程中，以 "Test" 作為資料庫識別碼和集合識別碼，並選取固定的儲存容量和最小輸送量 (400 RU/s)，即足堪使用。  
 
 ## <a name="grant-windows-vm-system-assigned-managed-identity-access-to-the-cosmos-db-account-access-keys"></a>將存取 Cosmos DB 帳戶存取金鑰的權利，授予 Windows VM 系統指派的受控識別
 
@@ -75,7 +75,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 
 您必須在 Windows VM 上安裝最新版的 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
-1. 在 Azure 入口網站中，瀏覽至 [虛擬機器]，移至您的 Windows 虛擬機器，然後在 [概觀] 頁面中，按一下頂端的 [連線]。 
+1. 在 Azure 入口網站中，瀏覽至 [虛擬機器]  ，移至您的 Windows 虛擬機器，然後在 [概觀]  頁面中，按一下頂端的 [連線]  。 
 2. 輸入您建立 Windows VM 時新增的**使用者名稱**和**密碼**。 
 3. 現在您已經建立虛擬機器的**遠端桌面連線**，請在遠端工作階段中開啟 PowerShell。
 4. 使用 Powershell 的 Invoke-WebRequest，向 Azure 資源端點的本機受控識別提出要求，以取得 Azure Resource Manager 的存取權杖。
@@ -111,7 +111,7 @@ Invoke-WebRequest -Uri 'https://management.azure.com/subscriptions/<SUBSCRIPTION
 {"primaryReadonlyMasterKey":"bWpDxS...dzQ==",
 "secondaryReadonlyMasterKey":"38v5ns...7bA=="}
 ```
-現在，您已有 Cosmos DB 帳戶的存取金鑰，您可以將其傳至 Cosmos DB SDK，並進行呼叫以存取帳戶。  如需快速範例，您可以將存取金鑰傳至 Azure CLI。  您可以透過 Azure 入口網站，從 Cosmos DB 帳戶刀鋒視窗上的 [概觀] 索引標籤取得 `<COSMOS DB CONNECTION URL>`。  請將 `<ACCESS KEY>` 取代為您先前取得的值：
+現在，您已有 Cosmos DB 帳戶的存取金鑰，您可以將其傳至 Cosmos DB SDK，並進行呼叫以存取帳戶。  如需快速範例，您可以將存取金鑰傳至 Azure CLI。  您可以透過 Azure 入口網站，從 Cosmos DB 帳戶刀鋒視窗上的 [概觀]  索引標籤取得 `<COSMOS DB CONNECTION URL>`。  請將 `<ACCESS KEY>` 取代為您先前取得的值：
 
 ```bash
 az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>

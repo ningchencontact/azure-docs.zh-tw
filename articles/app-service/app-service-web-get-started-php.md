@@ -4,7 +4,7 @@ description: 短短幾分鐘內在 Azure App Service Web Apps 中部署第一個
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/24/2018
-ms.author: cephalin;cfowler
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 48df416002a2c89e0172e82278f6154c6a6da836
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f1a5c3a57c60b30855f7bfaaa1ee3ab85285011d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630014"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298531"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>在 Azure 中建立 PHP Web 應用程式
 
@@ -111,7 +111,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 > Git 遠端的 URL 會顯示在 `deploymentLocalGitUrl` 屬性中，其格式為 `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`。 儲存此 URL，稍後您會用到此資訊。
 >
 
-瀏覽至您剛建立的 Web 應用程式。 以您在先前步驟中建立的唯一應用程式名稱取代 _&lt;應用程式名稱 >_。
+瀏覽至您剛建立的 Web 應用程式。 以您在先前步驟中建立的唯一應用程式名稱取代 _&lt;應用程式名稱 >_ 。
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -185,7 +185,7 @@ git push azure master
 
 請移至 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，以管理您所建立的 Web 應用程式。
 
-按一下左側功能表中的 [應用程式服務]，然後按一下 Azure 應用程式的名稱。
+按一下左側功能表中的 [應用程式服務]  ，然後按一下 Azure 應用程式的名稱。
 
 ![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 

@@ -16,11 +16,11 @@ ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5b9e42da3ae4510c217cb29c211557e28a30074
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443976"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66236198"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>使用 Linux VM 系統指派的受控識別來存取 Azure Resource Manager
 
@@ -41,12 +41,12 @@ ms.locfileid: "58443976"
 您的程式碼可以使用適用於 Azure 資源的受控識別來取得存取權杖，以向支援 Azure AD 驗證的資源進行驗證。 Azure Resource Manager API 支援 Azure AD 驗證。 首先，我們需要在 Azure Resource Manager 中將這個 VM 的身分識別存取權授與資源，此情況下就是包含 VM 的資源群組。  
 
 1. 瀏覽至**資源群組**的索引標籤。
-2. 選取您先前建立的特定 [資源群組]。
-3. 前往左側面板的 [存取控制 (IAM)]。
-4. 按一下以 [新增] VM 的新角色指派。 選擇 [角色] 為 [讀取者]。
-5. 在下一個下拉式清單中，將**存取權指派給**資源 [虛擬機器]。
-6. 接下來，確認適當的訂用帳戶已列在 [訂用帳戶]下拉式清單中。 針對 [資源群組]，請選取 [所有資源群組]。
-7. 最後，在 [選取] 中選擇下拉式清單中您的 Linux 虛擬機器，然後按一下 [儲存]。
+2. 選取您先前建立的特定 [資源群組]  。
+3. 前往左側面板的 [存取控制 (IAM)]  。
+4. 按一下以 [新增]  VM 的新角色指派。 選擇 [角色]  為 [讀取者]  。
+5. 在下一個下拉式清單中，將**存取權指派給**資源 [虛擬機器]  。
+6. 接下來，確認適當的訂用帳戶已列在 [訂用帳戶]  下拉式清單中。 針對 [資源群組]  ，請選取 [所有資源群組]  。
+7. 最後，在 [選取]  中選擇下拉式清單中您的 Linux 虛擬機器，然後按一下 [儲存]  。
 
     ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
@@ -54,7 +54,7 @@ ms.locfileid: "58443976"
 
 若要完成這些步驟，您需要 SSH 用戶端。 如果您使用 Windows，您可以在[適用於 Linux 的 Windows 子系統](https://msdn.microsoft.com/commandline/wsl/about)中使用 SSH 用戶端。 如果您需要設定 SSH 用戶端金鑰的協助，請參閱[如何在 Azure 上搭配 Windows 使用 SSH 金鑰](../../virtual-machines/linux/ssh-from-windows.md)，或[如何在 Azure 中建立和使用 Linux VM 的 SSH 公開和私密金鑰組](../../virtual-machines/linux/mac-create-ssh-keys.md)。
 
-1. 在入口網站中，瀏覽至 [Linux VM]，並在 [概觀] 中按一下 [連線]。  
+1. 在入口網站中，瀏覽至 [Linux VM]，並在 [概觀]  中按一下 [連線]  。  
 2. 使用您所選擇的 SSH 用戶端來**連線**到 VM。 
 3. 在終端機視窗中，使用 `curl` 向 Azure 資源端點的本機受控識別提出要求，以取得 Azure Resource Manager 的存取權杖。  
  

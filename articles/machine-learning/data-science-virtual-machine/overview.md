@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1534bc65a369254802973d6c3b91ed8b76ed44e0
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: bb04d6c8b16a6b9bdbbb95b0b4f577cf4cc3ed86
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596573"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235086"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>適用於 Linux 和 Windows 的 Azure 資料科學虛擬機器簡介
 
@@ -48,7 +48,7 @@ ms.locfileid: "65596573"
 
 ### <a name="custom-compute-power-for-azure-notebooks"></a>自訂 Azure Notebooks 的計算能力
 
-[Azure Notebooks](/azure/notebooks/azure-notebooks-overview.md) 是免費的託管服務，無需任何安裝程序，就能用來在雲端中開發、執行和共用 Jupyter Notebook。 不過，免費服務層級的限制為 4 GB 記憶體和 1GB 資料。 若要解除所有的限制，您接著可以將 Notebooks 專案附加至資料科學 VM 或執行 Jupyter 伺服器的任何其他 VM。 如果您以使用 Azure Active Directory 的帳戶 (例如公司帳戶) 登入 Azure Notebooks，Notebooks 會自動顯示與該帳戶相關聯之訂用帳戶中的任何資料科學 VM。 如需詳細資訊，請參閱[管理和設定專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)。
+[Azure Notebooks](/azure/notebooks/azure-notebooks-overview) 是免費的託管服務，無需任何安裝程序，就能用來在雲端中開發、執行和共用 Jupyter Notebook。 不過，免費服務層級的限制為 4 GB 記憶體和 1GB 資料。 若要解除所有的限制，您接著可以將 Notebooks 專案附加至資料科學 VM 或執行 Jupyter 伺服器的任何其他 VM。 如果您以使用 Azure Active Directory 的帳戶 (例如公司帳戶) 登入 Azure Notebooks，Notebooks 會自動顯示與該帳戶相關聯之訂用帳戶中的任何資料科學 VM。 如需詳細資訊，請參閱[管理和設定專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)。
 
 ### <a name="short-term-experimentation-and-evaluation"></a>短期實驗和評估
 資料科學 VM 可以用來評估或學習工具，例如 Microsoft ML Server、SQL Server、Visual Studio 工具、Jupyter、深入學習/ML 工具組，與社群中需要最少設定的受歡迎新工具。 因為資料科學 VM 可快速設定，它可以套用至其他短期使用案例，例如複寫已發佈的實驗、執行示範、遵循線上課程和會議教學課程的逐步解說。

@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: fdde10c9ef7c035ed36b5f823a0b77e7c8b53803
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: cd004e1eb6a40648c52dd3b5aee0ec38bff8f9b3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65964565"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304169"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors 的相關常見問題集
 
@@ -57,7 +57,7 @@ Azure Spatial Anchors 是一個受控雲端服務和開發人員平台，可在 
 
 Azure Spatial Anchors 會遵循 [Azure 服務合約條款](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9)和 [Microsoft 隱私權聲明](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409)。
 
-![環境及其衍生的疏鬆點雲](./media/sparce-point-cloud.png)
+![環境及其衍生的疏鬆點雲](./media/sparse-point-cloud.png)
 *圖 1：環境及其衍生的疏鬆點雲*
 
 

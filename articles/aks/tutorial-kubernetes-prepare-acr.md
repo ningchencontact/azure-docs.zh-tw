@@ -2,18 +2,18 @@
 title: Azure 上的 Kubernertes 教學課程 - 建立容器登錄
 description: 在本 Azure Kubernetes Service (AKS) 教學課程中，您會建立 Azure Container Registry 執行個體，並上傳範例應用程式容器映像。
 services: container-service
-author: iainfoulds
+author: tylermsft
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: 1ba320a523d21beebe089084f40efff4b36dc4af
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1bd41dc464c251a2e7dab3087f3feffb15db785f
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753566"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304419"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>教學課程：部署和使用 Azure Container Registry
 
@@ -37,7 +37,7 @@ Azure Container Registry (ACR) 是適用於容器映像的私人登錄。 私人
 
 若要建立 Azure Container Registry，您必須已有資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
-使用 [az group create][az-group-create] 命令來建立資源群組。 在下列範例中，會在 eastus 區域中建立名為 myResourceGroup 的資源群組：
+使用 [az group create][az-group-create] 命令來建立資源群組。 在下列範例中，會在 eastus  區域中建立名為 myResourceGroup  的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

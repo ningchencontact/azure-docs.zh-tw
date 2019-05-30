@@ -4,14 +4,14 @@ description: 了解如何設定多個獨立的 Azure Cosmos DB 觸發程序，�
 author: ealsur
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 4/15/2019
+ms.date: 05/23/2019
 ms.author: maquaran
-ms.openlocfilehash: 7a47a928e97d52535a6d3baa808f1fcb81d9bb55
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 722da9f0112d63af52be8c9c3a746f6da9638bac
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59700271"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241939"
 ---
 # <a name="create-multiple-azure-cosmos-db-triggers"></a>建立多個 Azure Cosmos DB 觸發程序
 
@@ -27,7 +27,7 @@ ms.locfileid: "59700271"
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>最佳化多個觸發程序的容器
 
-考慮到 Cosmos DB 觸發程序的「需求」，我們需要第二個容器來儲存狀態，該容器也稱為「租用容器」。 這表示每個 Azure 函式都需要個別的租用容器嗎？
+考慮到 Cosmos DB 觸發程序的「需求」  ，我們需要第二個容器來儲存狀態，該容器也稱為「租用容器」  。 這表示每個 Azure 函式都需要個別的租用容器嗎？
 
 在此，您有兩個選項：
 

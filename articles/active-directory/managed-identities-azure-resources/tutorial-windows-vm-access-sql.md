@@ -16,11 +16,11 @@ ms.date: 11/07/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b6d5452f23e830ca7a9ffe5ca5ed3d4aa12fb717
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444662"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66236055"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure SQL
 
@@ -51,12 +51,12 @@ ms.locfileid: "58444662"
 
 使用下列步驟[為 SQL 伺服器設定 Azure AD 驗證](/azure/sql-database/sql-database-aad-authentication-configure)：
 
-1.  在 Azure 入口網站中，選取左側導覽中的 [SQL 伺服器]。
+1.  在 Azure 入口網站中，選取左側導覽中的 [SQL 伺服器]  。
 2.  按一下要啟用 Azure AD 驗證的 SQL 伺服器。
-3.  在刀鋒視窗的 [設定] 區段中，按一下 [Active Directory 系統管理員]。
-4.  在命令列中，按一下 [設定系統管理員]。
-5.  選取要設為伺服器系統管理員的 Azure AD 使用者帳戶，然後按一下 [選取]。
-6.  在命令列中，按一下 [儲存]。
+3.  在刀鋒視窗的 [設定]  區段中，按一下 [Active Directory 系統管理員]  。
+4.  在命令列中，按一下 [設定系統管理員]  。
+5.  選取要設為伺服器系統管理員的 Azure AD 使用者帳戶，然後按一下 [選取]  。
+6.  在命令列中，按一下 [儲存]  。
 
 ## <a name="create-a-contained-user-in-the-database-that-represents-the-vms-system-assigned-identity"></a>在資料庫中建立內含的使用者，以代表 VM 系統指派的身分識別
 
@@ -68,15 +68,15 @@ ms.locfileid: "58444662"
 SQL DB 需要唯一的 AAD 顯示名稱。 因此，AAD 帳戶 (例如使用者、群組和服務主體 (應用程式)) 和針對受控識別啟用的 VM 名稱，在 AAD 中都必須具有唯一定義的顯示名稱。 SQL DB 會在 T-SQL 建立這類使用者時檢查 AAD 顯示名稱，如果這不是唯一的名稱，命令就無法要求為指定的帳戶提供唯一的 AAD 顯示名稱。
 
 1. 啟動 SQL Server Management Studio。
-2. 在 [連線到伺服器] 對話方塊中，在 [伺服器名稱] 欄位中輸入您的 SQL 伺服器名稱。
-3. 在 [驗證] 欄位中，選取 [具 MFA 支援的 Active Directory - 通用]。
-4. 在 [使用者名稱] 欄位中，輸入您設為伺服器系統管理員的 Azure AD 帳戶名稱，例如 helen@woodgroveonline.com。
-5. 按一下 [選項] 。
-6. 在 [連 線至資料庫] 欄位中，輸入您想要設定的非系統資料庫的名稱。
+2. 在 [連線到伺服器]  對話方塊中，在 [伺服器名稱]  欄位中輸入您的 SQL 伺服器名稱。
+3. 在 [驗證]  欄位中，選取 [具 MFA 支援的 Active Directory - 通用]  。
+4. 在 [使用者名稱]  欄位中，輸入您設為伺服器系統管理員的 Azure AD 帳戶名稱，例如 helen@woodgroveonline.com。
+5. 按一下 [選項]  。
+6. 在 [連 線至資料庫]  欄位中，輸入您想要設定的非系統資料庫的名稱。
 7. 按一下 [ **連接**]。 完成登入程序。
-8. 在 [物件總管] 中展開 [資料庫] 資料夾。
-9. 在使用者資料庫上按一下滑鼠右鍵，然後按一下 [新增查詢]。
-10. 在查詢視窗中，輸入下列這一行，然後按一下工具列中的 [執行]︰
+8. 在 [物件總管]  中展開 [資料庫]  資料夾。
+9. 在使用者資料庫上按一下滑鼠右鍵，然後按一下 [新增查詢]  。
+10. 在查詢視窗中，輸入下列這一行，然後按一下工具列中的 [執行]  ︰
 
     > [!NOTE]
     > 下列命令中的 `VMName` 是在必要條件一節中已將系統指派的身分識別啟用的 VM 名稱。
@@ -86,7 +86,7 @@ SQL DB 需要唯一的 AAD 顯示名稱。 因此，AAD 帳戶 (例如使用者�
     ```
     
     命令應該會順利完成，為 VM 系統指派的身分識別建立內含的使用者。
-11. 清除查詢視窗，輸入下列這一行，然後按一下工具列中的 [執行]︰
+11. 清除查詢視窗，輸入下列這一行，然後按一下工具列中的 [執行]  ︰
 
     > [!NOTE]
     > 下列命令中的 `VMName` 是在必要條件一節中已將系統指派的身分識別啟用的 VM 名稱。
@@ -149,7 +149,7 @@ if (accessToken != null) {
 
 或者，另一個測試端對端安裝程式，而不需要在 VM 上撰寫和部署應用程式的快速方法，是使用 PowerShell。
 
-1.  在入口網站中，瀏覽至 [虛擬機器] 並移至您的 Windows 虛擬機器，在 [概觀] 中按一下 [連線]。
+1.  在入口網站中，瀏覽至 [虛擬機器]  並移至您的 Windows 虛擬機器，在 [概觀]  中按一下 [連線]  。
 2.  輸入您建立 Windows VM 時新增的**使用者名稱**和**密碼**。
 3.  現在您已經建立虛擬機器的**遠端桌面連線**，請在遠端工作階段中開啟 **PowerShell**。
 4.  使用 PowerShell 的 `Invoke-WebRequest`，向本機受控識別的端點提出要求，以取得 Azure SQL 的存取權杖。

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3e33eef430db627a82bb82e8c22ddc861d08982b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: e0d201baec253abee9ad8a998dd36968927a25a6
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546255"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357596"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>使用 Azure 地圖服務尋找不同行進模式的路線
 
@@ -201,7 +201,7 @@ ms.locfileid: "59546255"
 
 ## <a name="render-routes-prioritized-by-mode-of-travel"></a>轉譯依行進模式設定優先順序的路線
 
-本節說明如何使用地圖服務的路線規劃服務 API，根據運輸模式，尋找從給定起點到終點的多條路線。 路線規劃服務會提供 API 來規劃兩個位置之間「最快速」、「最短」、「最環保」或「驚心動魄」的路線，並將即時路況考慮進去。 它也可讓使用者使用 Azure 廣泛的歷史路況資料庫，並預測任何日期和時間的路線時間，以規劃日後的路線。 如需詳細資訊，請參閱 [GetRoute 指示](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)。 以下所有程式碼區塊都應該新增至**地圖載入 eventListener 內**，以確保會在地圖完整載入之後載入。
+本節說明如何使用地圖服務的路線規劃服務 API，根據運輸模式，尋找從給定起點到終點的多條路線。 路線規劃服務會提供 API 來規劃兩個位置之間「最快速」  、「最短」  、「最環保」  或「驚心動魄」  的路線，並將即時路況考慮進去。 它也可讓使用者使用 Azure 廣泛的歷史路況資料庫，並預測任何日期和時間的路線時間，以規劃日後的路線。 如需詳細資訊，請參閱 [GetRoute 指示](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)。 以下所有程式碼區塊都應該新增至**地圖載入 eventListener 內**，以確保會在地圖完整載入之後載入。
 
 1. 在 GetMap 函式中，將下列內容新增至 Javascript 程式碼。
 
@@ -216,7 +216,7 @@ ms.locfileid: "59546255"
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   `SubscriptionKeyCredential` 會建立 `SubscriptionKeyCredentialPolicy`，以使用訂用帳戶金鑰驗證對「Azure 地圖服務」的 HTTP 要求。 `atlas.service.MapsURL.newPipeline()` 會採用 `SubscriptionKeyCredential` 原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest)執行個體。 `routeURL` 代表 Azure 地圖服務[路線規劃](https://docs.microsoft.com/rest/api/maps/route)作業的 URL。
+   `SubscriptionKeyCredential` 會建立 `SubscriptionKeyCredentialPolicy`，以使用訂用帳戶金鑰驗證對「Azure 地圖服務」的 HTTP 要求。 `atlas.service.MapsURL.newPipeline()` 會採用 `SubscriptionKeyCredential` 原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest)執行個體。 `routeURL` 代表 Azure 地圖服務[路線規劃](https://docs.microsoft.com/rest/api/maps/route)作業的 URL。
 
 2. 設定認證和 URL 之後，請新增下列 JavaScript 程式碼，為載運 USHazmatClass2 類貨物的卡車建構從起點到終點的路線，並顯示結果。
 
@@ -245,7 +245,7 @@ ms.locfileid: "59546255"
     });
     ```
 
-    上方的程式碼片段會透過 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) 方法來查詢 Azure 地圖服務的路線規劃服務。 接著，系統會從回應中的 GeoJSON 特性集合擷取路線；這些特性是使用 `geojson.getFeatures()` 方法擷取的。 路線隨後會新增至資料來源。 此路線也會加上指數 0，以確保它會在資料來源中的任何其他路線之前先呈現。 之所以這麼做，是因為卡車路線計算的速度通常比汽車路線計算慢，若卡車路線在汽車路線之後新增至資料來源，則會呈現於汽車路線之上。 系統會將兩個屬性新增至卡車路線，一個呈現為鮮明藍色的筆觸色彩，和一個寬度為九個像素的筆觸。
+    上方的程式碼片段會透過 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) 方法來查詢 Azure 地圖服務的路線規劃服務。 接著，系統會從回應中的 GeoJSON 特性集合擷取路線；這些特性是使用 `geojson.getFeatures()` 方法擷取的。 路線隨後會新增至資料來源。 此路線也會加上指數 0，以確保它會在資料來源中的任何其他路線之前先呈現。 之所以這麼做，是因為卡車路線計算的速度通常比汽車路線計算慢，若卡車路線在汽車路線之後新增至資料來源，則會呈現於汽車路線之上。 系統會將兩個屬性新增至卡車路線，一個呈現為鮮明藍色的筆觸色彩，和一個寬度為九個像素的筆觸。
 
 3. 新增下列 JavaScript 程式碼以建構行車路線，並顯示結果。
 
@@ -265,7 +265,7 @@ ms.locfileid: "59546255"
     });
     ```
 
-    上方的程式碼片段會透過 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) 方法來查詢 Azure 地圖服務的路線規劃服務。 接著，系統會從回應中的 GeoJSON 特性集合擷取路線；這些特性是使用 `geojson.getFeatures()` 方法擷取的。 路線隨後會新增至資料來源。 系統會將兩個屬性新增至汽車路線，一個紫色的筆觸色彩，和一個寬度為五個像素的筆觸。  
+    上方的程式碼片段會透過 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) 方法來查詢 Azure 地圖服務的路線規劃服務。 接著，系統會從回應中的 GeoJSON 特性集合擷取路線；這些特性是使用 `geojson.getFeatures()` 方法擷取的。 路線隨後會新增至資料來源。 系統會將兩個屬性新增至汽車路線，一個紫色的筆觸色彩，和一個寬度為五個像素的筆觸。  
 
 4. 儲存 **MapTruckRoute.html** 檔案並重新整理瀏覽器，以觀察結果。 如果您成功連線到地圖服務的 API，您應該會看到類似下面的地圖。
 

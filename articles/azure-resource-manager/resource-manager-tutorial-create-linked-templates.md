@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e811d1f7fb84e2539ba9daea3eea13f5e028f997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de2e848bd587f3b9bf2efe3fa8df3710e24243e4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389526"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241391"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教學課程：建立連結的 Azure Resource Manager 範本
 
@@ -62,13 +62,13 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 * **主範本**：建立所有資源，儲存體帳戶除外。
 * **連結的範本**：建立儲存體帳戶。
 
-1. 在 Visual Studio Code 中，選取 [檔案]>[開啟檔案]。
-2. 在 [檔案名稱] 中，貼上下列 URL：
+1. 在 Visual Studio Code 中，選取 [檔案]  >[開啟檔案]  。
+2. 在 [檔案名稱]  中，貼上下列 URL：
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
-3. 選取 [開啟] 以開啟檔案。
+3. 選取 [開啟]  以開啟檔案。
 4. 範本中定義了五項資源：
 
    * [`Microsoft.Storage/storageAccounts`](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)
@@ -78,8 +78,8 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
    * [`Microsoft.Compute/virtualMachines`](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
 
      在自訂範本之前，先對範本結構描述有一些基本了解會相當有幫助。
-5. 選取 [檔案]>[另存新檔]，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
-6. 選取 [檔案]>[另存新檔] 以使用名稱 **linkedTemplate.json** 建立該檔案的複本。
+5. 選取 [檔案]  >[另存新檔]  ，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
+6. 選取 [檔案]  >[另存新檔]  以使用名稱 **linkedTemplate.json** 建立該檔案的複本。
 
 ## <a name="create-the-linked-template"></a>建立連結的範本
 
@@ -89,7 +89,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 2. 進行下列變更：
 
     * 移除 **location** 以外的所有參數。
-    * 新增稱為 **storageAccountName** 的參數。 
+    * 新增稱為 **storageAccountName** 的參數。
         ```json
         "storageAccountName":{
           "type": "string",
@@ -99,7 +99,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
         },
         ```
         儲存體帳戶名稱和位置會以參數形式從主要範本傳遞給連結的範本。
-        
+
     * 移除 **variables** 元素及所有的變數定義。
     * 移除儲存體帳戶以外的所有資源。 您必須移除總共四個資源。
     * 將儲存體帳戶資源的 **name** 元素值更新為：
@@ -109,7 +109,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
         ```
 
     * 更新 **outputs** 元素，讓它看起來像這樣：
-    
+
         ```json
         "outputs": {
           "storageUri": {
@@ -221,11 +221,11 @@ echo "Resource Group Name: $resourceGroupName"
 echo "Linked template URI with SAS token: $templateURI"
 ```
 
-1. 選取 [試試看] 綠色按鈕，以開啟 Azure Cloud Shell 窗格。
-2. 選取 [複製] 來複製 PowerShell 指令碼。
-3. 以滑鼠右鍵按一下 Shell 窗格內的任何位置 (深藍色的部分)，然後選取 [貼上]。
+1. 選取 [試試看]  綠色按鈕，以開啟 Azure Cloud Shell 窗格。
+2. 選取 [複製]  來複製 PowerShell 指令碼。
+3. 以滑鼠右鍵按一下 Shell 窗格內的任何位置 (深藍色的部分)，然後選取 [貼上]  。
 4. 請記下 Shell 窗格結尾的兩個值 (資源群組名稱和連結的範本 URI)。 在本教學課程後續的內容中，您會需要這些值。
-5. 選取 [結束焦點模式] 以關閉 Shell 窗格。
+5. 選取 [結束焦點模式]  以關閉 Shell 窗格。
 
 實際上，您會在部署主要範本時產生 SAS 權杖，並提供 SAS 權杖較小的到期時間範圍，讓它更安全。 如需詳細資訊，請參閱[在部署期間提供 SAS 權杖](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment)。
 
@@ -272,7 +272,7 @@ echo "Linked template URI with SAS token: $templateURI"
     請注意這些詳細資料：
 
     * 主範本中的 `Microsoft.Resources/deployments` 資源會用來連結到另一個範本。
-    * `deployments` 資源的名稱是 `linkedTemplate`。 此名稱會用於[設定相依性](#configure-dependency)。  
+    * `deployments` 資源的名稱是 `linkedTemplate`。 此名稱會用於[設定相依性](#configure-dependency)。
     * 呼叫連結的範本時，您只能使用[增量](./deployment-modes.md)部署模式。
     * `templateLink/uri` 包含連結的範本 URI。 將此值更新為您上傳連結的範本 (具有 SAS 權杖的範本) 時取得的 URI。
     * 使用 `parameters` 將值從主範本傳遞到連結的範本。
@@ -305,7 +305,7 @@ echo "Linked template URI with SAS token: $templateURI"
 
     ![Azure Resource Manager 連結的範本設定相依性](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
-    linkedTemplate 是部署資源的名稱。  
+    linkedTemplate  是部署資源的名稱。
 3. 更新 **properties/diagnosticsProfile/bootDiagnostics/storageUri**，如上一個螢幕擷取畫面所示。
 4. 儲存修改過的範本。
 
@@ -317,10 +317,10 @@ echo "Linked template URI with SAS token: $templateURI"
 
 不再需要 Azure 資源時，可藉由刪除資源群組來清除您所部署的資源。
 
-1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]。
-2. 在 [依名稱篩選] 欄位中輸入資源群組名稱。
+1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]  。
+2. 在 [依名稱篩選]  欄位中輸入資源群組名稱。
 3. 選取資源群組名稱。  您在資源群組中應該會看到共計六個資源。
-4. 從頂端功能表中選取 [刪除資源群組]。
+4. 從頂端功能表中選取 [刪除資源群組]  。
 
 ## <a name="additional-practice"></a>其他做法
 
@@ -334,4 +334,4 @@ echo "Linked template URI with SAS token: $templateURI"
 在本教學課程，您已將某個範本模組化成為主要範本和連結的範本。 若要了解如何使用虛擬機器擴充功能來執行部署後工作，請參閱：
 
 > [!div class="nextstepaction"]
-> [部署虛擬機器延伸模組](./deployment-manager-tutorial.md)
+> [部署虛擬機器延伸模組](./resource-manager-tutorial-deploy-vm-extensions.md)

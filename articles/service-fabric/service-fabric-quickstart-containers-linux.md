@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/30/2019
 ms.author: aljo,suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 183f27d752b99c04a711d8141db512c77b9848f9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 1487c9e3e57a2fe4dcdcab04aa81cd81315decfd
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664874"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302342"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>快速入門：將 Linux 容器部署至 Service Fabric
 
@@ -100,7 +100,7 @@ Service Fabric 提供了數項可用來管理叢集及其應用程式的工具�
 
 在此快速入門中，您會使用 Service Fabric CLI 和 Service Fabric Explorer (Web 型工具)。 若要使用 Service Fabric Explorer，您需要將憑證 PFX 檔案匯入瀏覽器。 根據預設，PFX 檔案沒有密碼。
 
-Mozilla Firefox 是 Ubuntu 16.04 中的預設瀏覽器。 若要將憑證匯入 Firefox 中，請按一下瀏覽器右上角的功能表按鈕，然後按一下 [選項]。 在 [喜好設定] 頁面上，使用搜尋方塊搜尋「憑證」。 按一下 [檢視憑證]，選取 [您的憑證] 索引標籤上，按一下 [匯入]，並依照提示匯入憑證。
+Mozilla Firefox 是 Ubuntu 16.04 中的預設瀏覽器。 若要將憑證匯入 Firefox 中，請按一下瀏覽器右上角的功能表按鈕，然後按一下 [選項]  。 在 [喜好設定]  頁面上，使用搜尋方塊搜尋「憑證」。 按一下 [檢視憑證]  ，選取 [您的憑證]  索引標籤上，按一下 [匯入]  ，並依照提示匯入憑證。
 
    ![在 Firefox 上安裝憑證](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png)
 
@@ -112,7 +112,7 @@ Mozilla Firefox 是 Ubuntu 16.04 中的預設瀏覽器。 若要將憑證匯入 
     sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
     ```
 
-2. 使用安裝指令碼將投票應用程式定義複製到叢集、註冊應用程式類型，以及建立應用程式的執行個體。  PEM 憑證檔案應該位於與 install.sh 檔案相同的目錄。
+2. 使用安裝指令碼將投票應用程式定義複製到叢集、註冊應用程式類型，以及建立應用程式的執行個體。  PEM 憑證檔案應該位於與 install.sh  檔案相同的目錄。
 
     ```bash
     ./install.sh
@@ -120,7 +120,7 @@ Mozilla Firefox 是 Ubuntu 16.04 中的預設瀏覽器。 若要將憑證匯入 
 
 3. 開啟網頁瀏覽器，並瀏覽至叢集的 Service Fabric Explorer 端點。 此端點具有下列格式：**https://\<my-azure-service-fabric-cluster-url>:19080/Explorer**；例如 `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`。 </br>
 
-4. 展開 [應用程式] 節點，您可以看到投票應用程式類型和您建立的執行個體現在有一個項目。
+4. 展開 [應用程式]  節點，您可以看到投票應用程式類型和您建立的執行個體現在有一個項目。
 
     ![Service Fabric Explorer][sfx]
 
@@ -142,8 +142,8 @@ Service Fabric 可確保如果發生失敗，容器執行個體會自動移至�
 
 1. 在您的叢集中開啟 Service Fabric Explorer，例如 `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`。
 2. 按一下樹狀檢視中的 **fabric:/Voting/azurevotefront** 節點，然後展開分割區節點 (以 GUID 表示)。 請注意樹狀檢視中的節點名稱，其中顯示哪些節點上的容器目前正在執行，例如 `_nodetype_1`。
-3. 展開樹狀檢視中的 [節點] 節點。 按一下正在執行容器之節點旁邊的省略符號 (...)。
-4. 選擇 [重新啟動] 以重新啟動節點並確認重新啟動動作。 重新啟動會造成容器容錯移轉至叢集中的其他節點。
+3. 展開樹狀檢視中的 [節點]  節點。 按一下正在執行容器之節點旁邊的省略符號 (...)。
+4. 選擇 [重新啟動]  以重新啟動節點並確認重新啟動動作。 重新啟動會造成容器容錯移轉至叢集中的其他節點。
 
     ![Service Fabric Explorer 中的節點檢視][sfxquickstartshownodetype]
 
@@ -154,13 +154,13 @@ Service Fabric 可確保如果發生失敗，容器執行個體會自動移至�
 若要調整 Web 前端服務，請執行下列步驟：
 
 1. 在您的叢集中開啟 Service Fabric Explorer，例如 `https://containertestcluster.eastus.cloudapp.azure.com:19080`。
-2. 按一下樹狀檢視中 **fabric:/Voting/azurevotefront** 節點旁邊的省略符號 (三個點)，然後選擇 [調整服務]。
+2. 按一下樹狀檢視中 **fabric:/Voting/azurevotefront** 節點旁邊的省略符號 (三個點)，然後選擇 [調整服務]  。
 
     ![Service Fabric Explorer 調整服務啟動][containersquickstartscale]
 
     您現在可以選擇調整 Web 前端服務的執行個體數目。
 
-3. 將數字變更為 **2**，然後按一下 [調整服務]。
+3. 將數字變更為 **2**，然後按一下 [調整服務]  。
 4. 按一下樹狀檢視中的 **fabric:/Voting/azurevotefront** 節點，然後展開分割區節點 (以 GUID 表示)。
 
     ![Service Fabric Explorer 調整服務完成][containersquickstartscaledone]
@@ -189,7 +189,7 @@ az group delete --name $ResourceGroupName
 ```
 
 如果您已完成叢集的處理，可以從憑證存放區中移除憑證。 例如︰
-- 在 Windows 上：使用[憑證 MMC 嵌入式管理單元](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)。 在新增嵌入式管理單元時，請務必選取 [我的使用者帳戶]。 瀏覽至 `Certificates - Current User\Personal\Certificates` 並移除憑證。
+- 在 Windows 上：使用[憑證 MMC 嵌入式管理單元](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)。 在新增嵌入式管理單元時，請務必選取 [我的使用者帳戶]  。 瀏覽至 `Certificates - Current User\Personal\Certificates` 並移除憑證。
 - 在 Mac 上：使用 Keychain 應用程式。
 - 在 Ubuntu 上：依照您用來檢視憑證的步驟，將憑證移除。
 

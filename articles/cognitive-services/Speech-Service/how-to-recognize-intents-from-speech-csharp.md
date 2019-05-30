@@ -10,16 +10,14 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0e24f66369cf990f6b271b894a31dc8395068e17
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280531"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257336"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>教學課程：使用適用於 C# 的語音 SDK 從語音辨識意圖
-
-[!INCLUDE [Article selector](../../../includes/cognitive-services-speech-service-how-to-recognize-intents-from-speech-selector.md)]
 
 認知服務[語音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) 會與 [Language Understanding Intelligent Service (LUIS)](https://www.luis.ai/home) 整合以提供**意圖辨識。** 意圖是使用者想要做的事情：訂機票、查看天氣或打電話。 使用者可以使用任何他們覺得自然的字詞。 使用機器學習服務，LUIS 會將使用者要求對應至您已定義的意圖。
 
@@ -58,14 +56,14 @@ LUIS 會使用兩種金鑰：
 
 當您建立 LUIS 應用程式 (app) 時，系統會自動產生入門金鑰，讓您可以使用文字查詢來測試應用程式 (app)。 此金鑰不會啟用語音服務整合，且無法用於本教學課程。 您必須在 Azure 儀表板中建立 LUIS 資源，並將它指派給 LUIS 應用程式 (app)。 在本教學課程中，您可以使用免費訂用帳戶層。
 
-在 Azure 儀表板中建立 LUIS 資源之後，登入 [LUIS 入口網站](https://www.luis.ai/home)，在 [我的應用程式] 頁面選擇應用程式 (application)，然後切換至應用程式 (app) 的 [管理] 頁面。 最後，按一下提要欄位中的 [金鑰和端點]。
+在 Azure 儀表板中建立 LUIS 資源之後，登入 [LUIS 入口網站](https://www.luis.ai/home)，在 [我的應用程式] 頁面選擇應用程式 (application)，然後切換至應用程式 (app) 的 [管理] 頁面。 最後，按一下提要欄位中的 [金鑰和端點]  。
 
 ![LUIS 入口網站的金鑰和端點設定](media/sdk/luis-keys-endpoints-page.png)
 
 在 [金鑰和端點設定] 頁面上：
 
-1. 向下捲動至 [資源與金鑰] 區段，然後按一下 [指派資源]。
-1. 在 [對應用程式指派金鑰] 對話方塊中，選擇下列項目：
+1. 向下捲動至 [資源與金鑰] 區段，然後按一下 [指派資源]  。
+1. 在 [對應用程式指派金鑰]  對話方塊中，選擇下列項目：
 
     * 選擇 Microsoft 作為租用戶。
     * 在 [訂用帳戶名稱] 下，選擇包含所要使用 LUIS 資源的 Azure 訂用帳戶。

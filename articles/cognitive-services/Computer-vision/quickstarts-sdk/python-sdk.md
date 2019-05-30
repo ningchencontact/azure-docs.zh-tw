@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: ce7e8788ec807c8ceccb49a7d435041b34e75348
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9b126d5ccbbf3cb1f22163ffb6ac53a8aff61004
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917086"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357343"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>適用於 Python 的 Azure 認知服務電腦視覺 SDK
 
@@ -51,7 +51,7 @@ ms.locfileid: "64917086"
 
 ### <a name="if-you-have-an-azure-subscription"></a>如果您有 Azure 訂用帳戶
 
-在訂用帳戶中建立資源的最簡單方法是使用下列 [Azure CLI][azure_cli] 命令。 這會建立可用於許多認知服務的認知服務金鑰。 您必須選擇「現有」資源群組名稱 (例如 "my-cogserv-group") 和新的電腦視覺資源名稱 (例如 "my-computer-vision-resource")。
+在訂用帳戶中建立資源的最簡單方法是使用下列 [Azure CLI][azure_cli] 命令。 這會建立可用於許多認知服務的認知服務金鑰。 您必須選擇「現有」  資源群組名稱 (例如 "my-cogserv-group") 和新的電腦視覺資源名稱 (例如 "my-computer-vision-resource")。
 
 ```Bash
 RES_REGION=westeurope
@@ -220,18 +220,16 @@ for caption in analysis.captions:
 
 ```Python
 # import models
-from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
 from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
 import time
 
 url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
-mode = TextRecognitionMode.handwritten
 raw = True
 custom_headers = None
 numberOfCharsInOperationId = 36
 
 # Async SDK call
-rawHttpResponse = client.batch_read_file(url, mode, custom_headers,  raw)
+rawHttpResponse = client.batch_read_file(url, custom_headers,  raw)
 
 # Get ID from returned headers
 operationLocation = rawHttpResponse.headers["Operation-Location"]

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3a307c32d15aa8c7809d728d98220b0819e91c7c
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432102"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357383"
 ---
 # <a name="what-is-computer-vision"></a>什麼是電腦視覺？
 
@@ -39,14 +39,14 @@ Azure 的電腦視覺服務可供開發人員存取進階演算法，以處理�
 |**[偵測影像類型](concept-detecting-image-types.md)**|偵測影像的關於特性，例如影像是否為線條繪圖，或影像為美工圖案的可能性。|
 |**[偵測特定領域內容](concept-detecting-domain-content.md)**|使用領域模型可偵測及識別影像中的特定領域內容，例如名人和地標。 例如，如果影像中包含人物，電腦視覺即可使用服務隨附的名人領域模型，判斷在影像中偵測到的人物是否和已知的名人相符。|
 |**[偵測色彩配置](concept-detecting-color-schemes.md)**|分析影像中的用色方式。 電腦視覺可判斷影像是黑白還是彩色的，如果是彩色影像，則會找出主色和輔色。|
-|**[產生縮圖](concept-generating-thumbnails.md)**|分析影像的內容，為其產生適當的縮圖。 「電腦視覺」會先產生高品質的縮圖，然後分析該影像內的物件，以判斷「關注區域」。 接著，「電腦視覺」會裁剪影像以符合關注區域的需求。 產生的縮圖可以使用與原始影像的外觀比例不同的外觀比例來呈現，視您的需求而定。|
-|**[取得關注區域](concept-generating-thumbnails.md#area-of-interest)**|分析影像的內容以傳回「關注區域」的座標。 這與用來產生縮圖的功能相同，但「電腦視覺」會傳回該區域的週框方塊座標，而不會裁剪影像，因此呼叫端應用程式可以視需要修改原始影像。|
+|**[產生縮圖](concept-generating-thumbnails.md)**|分析影像的內容，為其產生適當的縮圖。 「電腦視覺」會先產生高品質的縮圖，然後分析該影像內的物件，以判斷「關注區域」  。 接著，「電腦視覺」會裁剪影像以符合關注區域的需求。 產生的縮圖可以使用與原始影像的外觀比例不同的外觀比例來呈現，視您的需求而定。|
+|**[取得關注區域](concept-generating-thumbnails.md#area-of-interest)**|分析影像的內容以傳回「關注區域」  的座標。 這與用來產生縮圖的功能相同，但「電腦視覺」會傳回該區域的週框方塊座標，而不會裁剪影像，因此呼叫端應用程式可以視需要修改原始影像。|
 
 ## <a name="extract-text-from-images"></a>擷取影像中的文字
 
 您可以使用電腦視覺功能，利用[光學字元辨識 (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) 將影像中的文字擷取為機器可讀取的字元資料流。 如有需要，OCR 會校正已辨識文字的旋轉角度，並提供每個字的框架座標。 OCR 支援 25 種語言，且會根據辨識的文字自動偵測其語言。
 
-您也可以使用[閱讀 API](concept-recognizing-text.md#read-api)，從影像和大量文字的文件中擷取列印和手寫文字。 讀取 API 會使用已更新的模型，並處理表層和背景不同的各種物件，例如收據、海報、名片、信件和白板等。 目前，讀取 API 處於預覽階段，英文是唯一支援的語言。
+您也可以使用[閱讀 API](concept-recognizing-text.md#read-api)，從影像和大量文字的文件中擷取列印和手寫文字。 讀取 API 會使用已更新的模型，並處理表層和背景不同的各種物件，例如收據、海報、名片、信件和白板等。 目前，英文是唯一支援的語言。
 
 ## <a name="moderate-content-in-images"></a>調節影像中的內容
 

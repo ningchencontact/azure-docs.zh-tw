@@ -8,19 +8,18 @@ ms.author: raynew
 ms.date: 01/31/2019
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 5ee0eccced5757c91fca1ba7f77750839bc017f3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: eec30ec8ff85f2d9a2ba78da2872b081e90c9e33
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492720"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240170"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>針對備份 Azure 檔案共用的問題進行疑難排解
 您可以使用下列表格中所列的資訊，針對使用 Azure 檔案共用備份時所發生的問題和錯誤進行疑難排解。
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>預覽期間的 Azure 檔案共用備份限制
 Azure 檔案共用的備份處於預覽狀態。 支援一般用途 v1 和一般用途 v2 儲存體帳戶中的 Azure 檔案共用。 Azure 檔案共用不支援下列備份案例︰
-- 您無法使用[讀取權限異地備援儲存體](../storage/common/storage-redundancy-grs.md) (RA-GRS) 複寫功能，保護儲存體帳戶中的 Azure 檔案共用*。
 - 您無法在已啟用虛擬網路或防火牆的儲存體帳戶中保護 Azure 檔案共用。
 - 無法透過 CLI 使用 Azure 備份來保護 Azure 檔案。
 - 每天的排程備份次數上限為 1 次。
@@ -28,8 +27,6 @@ Azure 檔案共用的備份處於預覽狀態。 支援一般用途 v1 和一般
 - 在儲存體帳戶上使用[資源鎖定](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest)，以防止在您的復原服務保存庫中意外刪除備份。
 - 請勿刪除 Azure 備份所建立的快照集。 刪除快照集可能會導致遺失復原點和/或還原失敗。
 - 請勿刪除由 Azure 備份所保護的檔案共用。 目前的解決方案會在刪除檔案共用後，刪除 Azure 備份使用的所有快照集，並因此失去所有還原點
-
-\*儲存體帳戶中的 Azure 檔案共用以[讀取權限異地備援儲存體](../storage/common/storage-redundancy-grs.md) (RA-GRS) 複寫功能作為 GRS，並以 GRS 價格計費。
 
 在儲存體帳戶中使用[區域備援儲存體](../storage/common/storage-redundancy-zrs.md) (ZRS) 複寫功能來備份 Azure 檔案共用，目前僅適用於美國中部 (CUS)、美國東部 (EUS)、美國東部 2 (EUS2)、北歐 (NE)、東南亞 (SEA)、西歐 (WE) 和西歐 2 (WUS2)。
 
@@ -43,7 +40,7 @@ Azure 檔案共用的備份處於預覽狀態。 支援一般用途 v1 和一般
 | 選取的儲存體帳戶驗證或註冊失敗。| 請重試此作業。若問題持續發生，請連絡支援人員。|
 | 無法在選取的儲存體帳戶中列出或尋找檔案共用。 | <ul><li> 確定儲存體帳戶存在於資源群組中 (而且上次在保存庫中驗證/註冊之後並未遭到刪除或移動)。<li>確定您想要保護的檔案共用尚未遭到刪除。 <li>確定儲存體帳戶是檔案共用備份支援的儲存體帳戶。<li>請檢查檔案共用是否已在相同的復原服務保存庫中受到保護。|
 | 備份檔案共用設定 (或保護原則設定) 發生失敗。 | <ul><li>請重試此作業，查看問題是否持續發生。 <li> 確定您想要保護的檔案共用尚未遭到刪除。 <li> 如果您嘗試同時保護多個檔案共用，而且有些檔案共用發生失敗，請再次重新設定失敗檔案共用的備份。 |
-| 無法在取消保護檔案共用之後刪除復原服務保存庫。 | 在 Azure 入口網站中，開啟您的保存庫 > [備份基礎結構] > [儲存體帳戶]，然後按一下 [取消註冊] 以從復原服務保存庫中移除儲存體帳戶。|
+| 無法在取消保護檔案共用之後刪除復原服務保存庫。 | 在 Azure 入口網站中，開啟您的保存庫 > [備份基礎結構]   > [儲存體帳戶]  ，然後按一下 [取消註冊]  以從復原服務保存庫中移除儲存體帳戶。|
 
 
 ## <a name="error-messages-for-backup-or-restore-job-failures"></a>備份或還原作業失敗的錯誤訊息

@@ -2,18 +2,18 @@
 title: Azure 上的 Kubernetes 教學課程 - 準備應用程式
 description: 在本 Azure Kubernetes Service (AKS) 教學課程中，您將了解如何透過 Docker Compose 來準備和建置後續可部署至 AKS 的多容器應用程式。
 services: container-service
-author: iainfoulds
+author: tylermsft
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: 9212e065ff7f6b0e3df1b90296f54159762bdaf9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8fdc36215841348cf62cd61245950be6573a1938
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002019"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304441"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>教學課程：準備 Azure Kubernetes Service (AKS) 的應用程式
 
@@ -95,7 +95,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="clean-up-resources"></a>清除資源
 
-應用程式的功能已完成驗證，因此可以停止並移除執行中的容器。 請勿刪除容器映像 - 在下一個教學課程中，會將 azure-vote-front 映像上傳至 Azure Container Registry 執行個體。
+應用程式的功能已完成驗證，因此可以停止並移除執行中的容器。 請勿刪除容器映像 - 在下一個教學課程中，會將 azure-vote-front  映像上傳至 Azure Container Registry 執行個體。
 
 使用 [docker-compose down][docker-compose-down] 命令停止並移除容器執行個體和資源：
 

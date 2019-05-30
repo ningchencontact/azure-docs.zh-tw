@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 05/24/2019
 ms.author: diberry
-ms.openlocfilehash: 154b02cba41d685803d06bc3c9c24db2779434e5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0f40ed3d0b77662e23e4042f568b8241cef130c6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792110"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256601"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-python"></a>使用 Python 從知識庫取得答案
 
@@ -25,8 +25,8 @@ ms.locfileid: "65792110"
 
 * [Python 3.6 或更新版本](https://www.python.org/downloads/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* 您必須有 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。 若要擷取您的金鑰，請在 QnA Maker 資源的 Azure 儀表板中選取 [資源管理] 下方的 [金鑰]。 
-* [發佈] 頁面設定。 如果您沒有已發佈的知識庫，請建立空白的知識庫，在 [設定] 頁面上匯入知識庫，然後發佈。 您可以下載並使用[這個基本知識庫](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv)。 
+* 您必須有 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。 若要擷取您的金鑰，請在 QnA Maker 資源的 Azure 儀表板中選取 [資源管理]  下方的 [金鑰]  。 
+* [發佈]  頁面設定。 如果您沒有已發佈的知識庫，請建立空白的知識庫，在 [設定]  頁面上匯入知識庫，然後發佈。 您可以下載並使用[這個基本知識庫](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv)。 
 
     發佈頁面設定包括 POST 路由值、主機值以及 EndpointKey 值。 
 
@@ -44,11 +44,11 @@ ms.locfileid: "65792110"
 
 [!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/get-answer/get-answer-3x.py?range=1-2 "Add the required dependencies")]
 
-主機和路由出現於 [發佈] 頁面上的方式有所不同。 這是因為 Python 程式庫不允許主機中的任何路由。 以主機的一部分形式出現於 [發佈] 頁面上的路由已移至路由。
+主機和路由出現於 [發佈]  頁面上的方式有所不同。 這是因為 Python 程式庫不允許主機中的任何路由。 以主機的一部分形式出現於 [發佈]  頁面上的路由已移至路由。
 
 ## <a name="add-the-required-constants"></a>新增必要的常數
 
-新增必要常數以存取 QnA Maker。 在您發佈知識庫之後，這些值都位於 [發佈] 頁面上。 
+新增必要常數以存取 QnA Maker。 在您發佈知識庫之後，這些值都位於 [發佈]  頁面上。 
 
 [!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/get-answer/get-answer-3x.py?range=5-25 "Add the required constants")]
 

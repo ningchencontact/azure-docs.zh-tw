@@ -4,12 +4,12 @@ ms.service: api-management
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: vlvinogr
-ms.openlocfilehash: f98f750c14666400f41a249b3d8379b423e6dee2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: dff01f8bc4a4cf58d1ed503b69a29dadc367fecb
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66141119"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66249016"
 ---
 ## <a name="how-apim-proxy-server-responds-with-ssl-certificates-in-the-tls-handshake"></a>APIM Proxy 伺服器在 TLS 交握中使用 SSL 憑證進行回應的方式
 
@@ -20,9 +20,9 @@ ms.locfileid: "66141119"
 如果客戶使用的用戶端不會傳送 [SNI](https://tools.ietf.org/html/rfc6066#section-3) 標頭，APIM 就會根據下列邏輯建立回應：
 
 * 如果服務針對 Proxy 只設定了一個自訂網域，預設憑證就是發給 Proxy 自訂網域的憑證。
-* 如果服務已針對 Proxy 設定多個自訂網域 (**進階**層才會支援此設定)，客戶就可以指定要作為預設憑證的憑證。 若要設定預設憑證，請將 [defaultSslBinding](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/createorupdate#hostnameconfiguration) 屬性設定為 true ("defaultSslBinding":"true")。 如果客戶未設定此屬性，預設憑證就是發給 *.azure-api.net 上所裝載之預設 Proxy 網域的憑證。
+* 如果服務已針對 Proxy 設定多個自訂網域 (**進階**層才會支援此設定)，客戶就可以指定要作為預設憑證的憑證。 若要設定預設憑證，請將 [defaultSslBinding](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/createorupdate#hostnameconfiguration) 屬性設定為 true ("defaultSslBinding":"true")。 如果客戶未設定此屬性，預設憑證就是發給 *.azure-api.net 上所裝載之預設 Proxy 網域的憑證。
 
 ## <a name="support-for-putpost-request-with-large-payload"></a>有大型承載之 PUT/POST 要求的支援
 
-APIM Proxy 伺服器在 HTTPS 中使用用戶端憑證時，可支援有大型承載的要求 (例如，承載 > 40 KB)。 若要防止系統凍結伺服器的要求，客戶可以在 Proxy 主機名稱上設定 ["negotiateClientCertificate": "true"](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/CreateOrUpdate#hostnameconfiguration) 屬性。 如果將屬性設定為 true，系統就會在任何 HTTP 要求交換之前，於 SSL/TLS 連線時間要求用戶端憑證。 由於設定會在 **Proxy 主機名稱**層級套用，因此所有連線要求都會要求用戶端憑證。 客戶可以針對 Proxy 設定多達 20 個自訂網域 (**進階**層才會支援此設定) 而解決這項限制。
+APIM Proxy 伺服器在 HTTPS 中使用用戶端憑證時，可支援有大型承載的要求 (例如，承載 > 40 KB)。 若要防止系統凍結伺服器的要求，客戶可以在 Proxy 主機名稱上設定 ["negotiateClientCertificate": "true"](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/ApiManagementService/CreateOrUpdate#hostnameconfiguration) 屬性。 如果將屬性設定為 true，系統就會在任何 HTTP 要求交換之前，於 SSL/TLS 連線時間要求用戶端憑證。 由於設定會在 **Proxy 主機名稱**層級套用，因此所有連線要求都會要求用戶端憑證。 客戶可以針對 Proxy 設定多達 20 個自訂網域 (**進階**層才會支援此設定) 而解決這項限制。
 

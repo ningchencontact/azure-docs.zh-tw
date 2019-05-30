@@ -4,14 +4,14 @@ description: 了解如何將 Azure Cosmos DB 觸發程序記錄檔公開至您�
 author: ealsur
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 5/2/2019
+ms.date: 05/23/2019
 ms.author: maquaran
-ms.openlocfilehash: a598842ecde9508a6c2185a6097f689252fda60c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: bf5216dc3b296c98176387c6e2cfff7c31daedab
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65515016"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241032"
 ---
 # <a name="how-to-configure-and-read-the-azure-cosmos-db-trigger-logs"></a>如何設定及讀取 Azure Cosmos DB 觸發程序記錄檔
 
@@ -39,7 +39,7 @@ Azure Cosmos DB 觸發程序會在內部使用[變更摘要處理器程式庫](.
 }
 ```
 
-在 Azure Function 中部署更新的設定之後，您會看到追蹤功能中包含 Azure Cosmos DB 觸發程序記錄檔。 您可以在「類別」`Host.Triggers.CosmosDB` 底下，自己設定的記錄提供者中檢視記錄。
+在 Azure Function 中部署更新的設定之後，您會看到追蹤功能中包含 Azure Cosmos DB 觸發程序記錄檔。 您可以在「類別」  `Host.Triggers.CosmosDB` 底下，自己設定的記錄提供者中檢視記錄。
 
 ## <a name="query-the-logs"></a>查詢記錄檔
 

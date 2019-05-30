@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 05/23/2019
 ms.author: jowargo
-ms.openlocfilehash: 94f3d2345ad9ab8187a8c3eff8dc3684b9f4cc39
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cd6d22e7c689bce5c325863b914c5ee8abcbf40a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141355"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240768"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 Xamarin.iOS 應用程式
 
@@ -65,10 +65,10 @@ ms.locfileid: "65141355"
 
 ### <a name="configure-ios-settings-for-the-notification-hub"></a>設定通知中樞的 iOS 設定
 
-1. 在 [通知設定] 群組中選取 [Apple] \(APNS\)。
-2. 選取 [憑證]、按一下 [檔案] 圖示，然後選取您先前匯出的 **.p12** 檔案。
+1. 在 [通知設定]  群組中選取 [Apple] \(APNS\)  。
+2. 選取 [憑證]  、按一下 [檔案]  圖示，然後選取您先前匯出的 **.p12** 檔案。
 3. 指定憑證的**密碼**。
-4. 選取 [沙箱] 模式。 只有在您想傳送推播通知給從市集購買應用程式的使用者時，才可使用 [生產] 模式。
+4. 選取 [沙箱]  模式。 只有在您想傳送推播通知給從市集購買應用程式的使用者時，才可使用 [生產]  模式。
 
     ![在 Azure 入口網站中設定 APNS][6]
 
@@ -80,21 +80,21 @@ ms.locfileid: "65141355"
 
 ### <a name="create-a-new-project"></a>建立新專案
 
-1. 在 Visual Studio 中建立新的 iOS 專案，並選取 [單一檢視應用程式] 範本，然後按 [下一步]
+1. 在 Visual Studio 中建立新的 iOS 專案，並選取 [單一檢視應用程式]  範本，然後按 [下一步] 
 
      ![Visual Studio - 選取應用程式類型][31]
 
-2. 輸入應用程式名稱和組織識別碼，然後按 [下一步] 和 [建立]。
+2. 輸入應用程式名稱和組織識別碼，然後按 [下一步]  和 [建立]  。
 
-3. 在 [方案] 檢視中，按兩下 *Into.plist*，並確定 [身分識別] 下方的套件組合識別碼符合您在建立佈建設定檔時所使用的套件組合識別碼。 在 [簽署] 下方，確定您已於 [小組] 下方選取您的開發人員帳戶，已選取 [自動管理簽署]，並已自動選取您的簽署憑證和佈建設定檔。
+3. 在 [方案] 檢視中，按兩下 *Into.plist*，並確定 [身分識別]  下方的套件組合識別碼符合您在建立佈建設定檔時所使用的套件組合識別碼。 在 [簽署]  下方，確定您已於 [小組]  下方選取您的開發人員帳戶，已選取 [自動管理簽署]，並已自動選取您的簽署憑證和佈建設定檔。
 
     ![Visual Studio- iOS 應用程式組態][32]
 
-4. 在 [解決方案] 檢視中按兩下 `Entitlements.plist`，並確定已核取 [啟用推播通知]。
+4. 在 [解決方案] 檢視中按兩下 `Entitlements.plist`，並確定已核取 [啟用推播通知]  。
 
     ![Visual Studio- iOS 權利組態][33]
 
-5. 新增 Azure 傳訊套件。 在 [方案] 檢視中，以滑鼠右鍵按一下專案，然後選取 [新增] > [新增 NuGet 套件]。 搜尋 **Xamarin.Azure.NotificationHubs.iOS**，並將此套件新增至專案中。
+5. 新增 Azure 傳訊套件。 在 [方案] 檢視中，以滑鼠右鍵按一下專案，然後選取 [新增]   > [新增 NuGet 套件]  。 搜尋 **Xamarin.Azure.NotificationHubs.iOS**，並將此套件新增至專案中。
 
 6. 在您的類別中新增檔案，將其命名為 `Constants.cs`，然後新增下列變數並以 先前記下的 `hubname` 和 `DefaultListenSharedAccessSignature` 取代字串常值預留位置。
 
@@ -108,6 +108,7 @@ ms.locfileid: "65141355"
 
     ```csharp
     using WindowsAzure.Messaging;
+    using UserNotifications
     ```
 
 8. 宣告 `SBNotificationHub` 的執行個體：
@@ -222,7 +223,7 @@ ms.locfileid: "65141355"
 
 ## <a name="send-test-push-notifications"></a>傳送測試推播通知
 
-您可以在 [Azure 入口網站] 中，使用 [測試傳送] 選項測試應用程式能否接收通知。 它會將測試推播通知傳送至您的裝置。
+您可以在 [Azure 入口網站] 中，使用 [測試傳送]  選項測試應用程式能否接收通知。 它會將測試推播通知傳送至您的裝置。
 
 ![Azure 入口網站 - 測試傳送][30]
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 539d80310f07031f7a92bb5c1d6155e5948c2653
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 656e2519dc814baffa2f1c427d46e66054969e25
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997439"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357161"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>快速入門：使用電腦視覺 C# SDK 擷取手寫文字
 
@@ -34,9 +34,9 @@ ms.locfileid: "59997439"
 
 1. 在 Visual Studio 中建立 Visual C# 主控台應用程式。
 1. 安裝「電腦視覺」用戶端程式庫 NuGet 套件。
-    1. 在功能表中，按一下 [工具]，選取 [NuGet 套件管理員]，然後選取 [管理解決方案的 NuGet 套件]。
-    1. 按一下 [瀏覽] 索引標籤，然後在 [搜尋] 方塊中，鍵入 "Microsoft.Azure.CognitiveServices.Vision.ComputerVision"。
-    1. 顯示時選取 [Microsoft.Azure.CognitiveServices.Vision.ComputerVision]，按一下專案名稱旁邊的核取方塊，然後按一下 [安裝]。
+    1. 在功能表中，按一下 [工具]  ，選取 [NuGet 套件管理員]  ，然後選取 [管理解決方案的 NuGet 套件]  。
+    1. 按一下 [瀏覽]  索引標籤，然後在 [搜尋]  方塊中，鍵入 "Microsoft.Azure.CognitiveServices.Vision.ComputerVision"。
+    1. 顯示時選取 [Microsoft.Azure.CognitiveServices.Vision.ComputerVision]  ，按一下專案名稱旁邊的核取方塊，然後按一下 [安裝]  。
 1. 使用以下程式碼來取代 `Program.cs`。 `BatchReadFileAsync` 與 `BatchReadFileInStreamAsync` 方法可分別針對遠端與本機影像包裝[批次讀取 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) \(英文\)。 `GetReadOperationResultAsync` 方法會包裝[取得讀取作業結果 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) (英文)。
 
     ```csharp
@@ -53,10 +53,6 @@ ms.locfileid: "59997439"
         {
             // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
             private const string subscriptionKey = "<Subscription key>";
-
-            // For printed text, change to TextRecognitionMode.Printed
-            private const TextRecognitionMode textRecognitionMode =
-                TextRecognitionMode.Handwritten;
 
             // localImagePath = @"C:\Documents\LocalImage.jpg"
             private const string localImagePath = @"<LocalImage>";
@@ -106,7 +102,7 @@ ms.locfileid: "59997439"
                 // Start the async process to read the text
                 BatchReadFileHeaders textHeaders =
                     await computerVision.BatchReadFileAsync(
-                        imageUrl, textRecognitionMode);
+                        imageUrl);
 
                 await GetTextAsync(computerVision, textHeaders.OperationLocation);
             }
@@ -127,7 +123,7 @@ ms.locfileid: "59997439"
                     // Start the async process to recognize the text
                     BatchReadFileInStreamHeaders textHeaders =
                         await computerVision.BatchReadFileInStreamAsync(
-                            imageStream, textRecognitionMode);
+                            imageStream);
 
                     await GetTextAsync(computerVision, textHeaders.OperationLocation);
                 }
@@ -177,7 +173,6 @@ ms.locfileid: "59997439"
 
 1. 將 `<Subscription Key>` 換成您的有效訂用帳戶金鑰。
 1. 必要時，請將 `computerVision.Endpoint` 變更為與您的訂用帳戶金鑰相關聯的 Azure 區域。
-1. 選擇性地將 `textRecognitionMode` 設定為 `TextRecognitionMode.Printed`。
 1. 使用本機影像的路徑和檔案名稱來取代 `<LocalImage>`。
 1. (選擇性) 將 `remoteImageUrl` 設為不同的影像。
 1. 執行程式。
