@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e13bcb7d4eeded691669277b64aba9048f3bbefa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 99aea38ec877074075eaec8cf9ab8da077901acf
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150426"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393101"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>內容保護與動態加密
 
@@ -39,14 +39,13 @@ ms.locfileid: "65150426"
 
 1. Azure 媒體服務程式碼
   
-   [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs)範例會示範如何實作使用媒體服務 v3 的多重 DRM 系統，而且也使用媒體服務授權/金鑰傳遞服務。 您可以使用多種加密類型 (AES-128、PlayReady、Widevine、FairPlay) 來加密每項資產。 請參閱[串流通訊協定和加密類型](#streaming-protocols-and-encryption-types)，以查看哪些組合可行。
+   [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs)範例會示範如何實作使用.NET 使用媒體服務 v3 的多重 DRM 系統。 它也會示範如何使用媒體服務授權/金鑰傳遞服務。 您可以使用多種加密類型 (AES-128、PlayReady、Widevine、FairPlay) 來加密每項資產。 請參閱[串流通訊協定和加密類型](#streaming-protocols-and-encryption-types)，以查看哪些組合可行。
   
    下列範例示範如何：
 
-   1. 建立和設定[內容的索引鍵原則](https://docs.microsoft.com/rest/api/media/contentkeypolicies)。
+   1. 建立和設定[內容的索引鍵原則](content-key-policy-concept.md)。 您建立**內容金鑰原則**設定內容金鑰 （也提供安全存取您的資產） 傳送給終端用戶端的方式。    
 
       * 定義授權傳遞授權，根據 JWT 中的宣告指定授權檢查的邏輯。
-      * 指定的內容金鑰，以設定 DRM 加密。
       * 設定[PlayReady](playready-license-template-overview.md)， [Widevine](widevine-license-template-overview.md)，和/或[FairPlay](fairplay-license-overview.md)授權。 範本可讓您設定每個已使用之 DRM 的權力與權限。
 
         ```
@@ -54,11 +53,11 @@ ms.locfileid: "65150426"
         ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
         ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
         ```
-   2. 建立[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)設定為串流處理加密的資產。 
+   2. 建立[串流定位器](streaming-locators-concept.md)設定為串流處理加密的資產。 
   
-      **串流定位器**有相關聯[串流原則](https://docs.microsoft.com/rest/api/media/streamingpolicies)。 在範例中，我們會設定 StreamingLocator.StreamingPolicyName"Predefined_MultiDrmCencStreaming 」 原則。 此原則會指出我們想要將兩個內容金鑰 （信封和 CENC），來取得產生和設定的定位器。 因此，會套用信封、PlayReady 及 Widevine 加密 (會根據設定的 DRM 授權將金鑰傳遞至播放用戶端)。 如果您也想要使用 CBCS (FairPlay) 為串流加密，請使用 "Predefined_MultiDrmStreaming"。
-    
-      因為我們想要加密影片，請**內容的索引鍵原則**我們稍早設定也會有相關聯**串流定位器**。 
+      **串流定位器**有相關聯[串流原則](streaming-policy-concept.md)。 在範例中，我們會設定 StreamingLocator.StreamingPolicyName"Predefined_MultiDrmCencStreaming 」 原則。 PlayReady 和 Widevine 加密會套用，將金鑰傳遞給播放用戶端設定的 DRM 授權為基礎。 如果您也想要使用 CBCS (FairPlay) 為串流加密，請使用 "Predefined_MultiDrmStreaming"。
+      
+      串流定位器也相關聯**內容的索引鍵原則**所定義。
     
    3. 建立測試權杖。
 
@@ -102,11 +101,11 @@ HLS 通訊協定支援下列容器格式和加密配置。
 
 |容器格式|加密配置|URL 範例|
 |---|---|---|
-|全部|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
-|MPG2-TS |CBCS (FairPlay) ||
-|CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
-|MPG2-TS |CENC (PlayReady) ||
-|CMAF(fmp4) |CENC (PlayReady) ||
+|全部|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|MPG2-TS |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
+|CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
+|MPG2-TS |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
+|CMAF(fmp4) |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cenc)`|
 
 HLS/CMAF + FairPlay (包括 HEVC / H.265) 支援下列裝置：
 
@@ -120,9 +119,9 @@ MPEG DASH 通訊協定支援下列容器格式和加密配置。
 
 |容器格式|加密配置|URL 範例
 |---|---|---|
-|全部|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
-|CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
-|CMAF(fmp4)|CENC (Widevine + PlayReady)||
+|全部|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
+|CMAF(fmp4)|CENC (Widevine + PlayReady)|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cenc)`|
 
 ### <a name="smooth-streaming"></a>Smooth Streaming
 
@@ -130,8 +129,8 @@ Smooth Streaming 通訊協定支援下列容器格式和加密配置。
 
 |Protocol|容器格式|加密配置|
 |---|---|---|
-|fMP4|AES||
-|fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(encryption=cenc)`|
+|fMP4|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cbc)`|
+|fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cenc)`|
 
 ### <a name="browsers"></a>瀏覽器
 
@@ -168,7 +167,7 @@ DRM 系統，例如 PlayReady、 Widevine 和 FairPlay 全部都會提供一層�
 * StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate-與上述相同，只針對 Widevine。 
 * StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate-與上述相同，只適用於 FairPlay。  
 
-例如︰
+例如: 
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
@@ -206,7 +205,7 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 如果您收到錯誤訊息結尾`_NOT_SPECIFIED_IN_URL`，請確定您在 URL 中指定的加密格式。 例如： `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`。 請參閱[串流通訊協定和加密類型](#streaming-protocols-and-encryption-types)。
 
-## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、 意見、 取得更新
+## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、提供意見反應、取得更新
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 

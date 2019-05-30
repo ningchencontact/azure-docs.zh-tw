@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: d0a4180a3ea28427b8d82c6f5cf86ef9fa51d580
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e20aef77625fe426526884c3fcee83019afd0c0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785889"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299257"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>自訂事件和度量的 Application Insights API
 
@@ -57,11 +57,11 @@ ms.locfileid: "65785889"
 
     *C#:* `using Microsoft.ApplicationInsights;`
 
-    *Visual Basic：*`Imports Microsoft.ApplicationInsights`
+    *Visual Basic：* `Imports Microsoft.ApplicationInsights`
 
     *Java：* `import com.microsoft.applicationinsights.TelemetryClient;`
 
-    *Node.js：*`var applicationInsights = require("applicationinsights");`
+    *Node.js：* `var applicationInsights = require("applicationinsights");`
 
 ## <a name="get-a-telemetryclient-instance"></a>取得 TelemetryClient 執行個體
 
@@ -113,7 +113,7 @@ telemetry.getContext().getDevice().setId("...");
 
 ## <a name="trackevent"></a>TrackEvent
 
-在 Application Insights 中，「自訂事件」是您可以在[計量瀏覽器](../../azure-monitor/app/metrics-explorer.md)顯示為彙總計數，以及在[診斷搜尋](../../azure-monitor/app/diagnostic-search.md)中顯示為個別發生點的資料點。 (它與 MVC 或其他架構的「事件」不相關。)
+在 Application Insights 中，「自訂事件」  是您可以在[計量瀏覽器](../../azure-monitor/app/metrics-explorer.md)顯示為彙總計數，以及在[診斷搜尋](../../azure-monitor/app/diagnostic-search.md)中顯示為個別發生點的資料點。 (它與 MVC 或其他架構的「事件」不相關。)
 
 在您的程式碼中插入 `TrackEvent` 呼叫，以計算各種事件。 使用者選擇特定功能的頻率、達成特定目標的頻率，或他們犯特定類型錯誤的頻率。
 
@@ -430,7 +430,7 @@ using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operati
 
 在作業範圍內回報的遙測項目會變成這類作業的「子項目」。 作業內容可以是巢狀。
 
-在搜尋中，會使用作業內容來建立 [相關項目] 清單：
+在搜尋中，會使用作業內容來建立 [相關項目]  清單：
 
 ![相關項目](./media/api-custom-events-metrics/21.png)
 
@@ -712,7 +712,7 @@ dependencies
 
 ## <a name="flushing-data"></a>排清資料
 
-通常 SDK 會在選擇的時間傳送資料以將對使用者的影響降到最低。 不過，在某些情況下您可能想要排清緩衝區，例如，如果您在會關閉的應用程式中使用 SDK。
+通常，SDK 會傳送完整的資料在固定時間間隔 （通常是 30 秒），或緩衝區時 （通常是 500 個項目）。 不過，在某些情況下您可能想要排清緩衝區，例如，如果您在會關閉的應用程式中使用 SDK。
 
 *C#*
 
@@ -782,7 +782,7 @@ function Authenticated(signInId) {
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-在[計量瀏覽器](../../azure-monitor/app/metrics-explorer.md)中，您可建立可計算 [已驗證的使用者] 和 [使用者帳戶] 的圖表。
+在[計量瀏覽器](../../azure-monitor/app/metrics-explorer.md)中，您可建立可計算 [已驗證的使用者]  和 [使用者帳戶]  的圖表。
 
 您也可以[搜尋](../../azure-monitor/app/diagnostic-search.md)具有特定使用者名稱和帳戶的用戶端資料點。
 
@@ -1052,7 +1052,7 @@ telemetry.getConfiguration().setTrackingDisabled(true);
 telemetry.config.disableAppInsights = true;
 ```
 
-若要在初始化時「停用選取的標準收集器」(例如，效能計數器、HTTP 要求或相依性)，請將設定方法鏈結至您的 SDK 初始化程式碼：
+若要在初始化時「停用選取的標準收集器」  (例如，效能計數器、HTTP 要求或相依性)，請將設定方法鏈結至您的 SDK 初始化程式碼：
 
 ```javascript
 applicationInsights.setup()

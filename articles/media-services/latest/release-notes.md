@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 05/29/2019
 ms.author: juliako
-ms.openlocfilehash: 8f50188480b963d13460c79175ea6972d3e68f6a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a5ce6467a547b9fded03b3b5a6f40f84d29d3618
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153069"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385154"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒體服務 v3 版本資訊
 
@@ -34,9 +34,23 @@ ms.locfileid: "65153069"
 
 如需詳細資訊，請參閱[從媒體服務 v2 移至 v3 的移轉指導](migrate-from-v2-to-v3.md#known-issues)。
 
-## <a name="may-2019"></a>2019 年
+## <a name="may-2019"></a>2019 年 5 月
+
+### <a name="hls-v4-and-above-support-in-dynamic-packaging"></a>HLS v4 和更新版本，在動態封裝的支援 
+
+已新增 HLS (第 4 版或更新版本) 支援中有多個具有多個轉碼器和語言的音訊資料軌的資產的動態封裝。
+
+如需詳細資訊，請參閱 <<c0> [ 動態封裝](dynamic-packaging-overview.md)。
+
+### <a name="korea-regional-pair-is-open-for-media-services"></a>韓國區域配對會開啟用於媒體服務 
+
+媒體服務現在會在韓國中部與韓國南部區域中上市。 
+
+如需詳細資訊，請參閱 <<c0> [ 雲端和區域中的媒體服務 v3 存在](azure-clouds-regions.md)。
 
 ### <a name="performance-improvements"></a>效能改進
+
+已新增的更新，包括媒體服務的效能改進。
 
 * 對於支援處理的最大檔案大小已更新。 查看，請[配額和限制](limits-quotas-constraints.md)。
 * [編碼速度改進](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types)。
@@ -52,7 +66,7 @@ ms.locfileid: "65153069"
 
 動態封裝現在支援 Dolby Atmos. 如需詳細資訊，請參閱 <<c0> [ 音訊轉碼器支援動態封裝](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging)。
 
-您現在可以指定資產或帳戶會套用到您的串流定位器的篩選器清單。 如需詳細資訊，請參閱 <<c0> [ 串流定位器相關聯的篩選器](filters-concept.md#associate-filters-with-streaming-locator)。
+您現在可以指定資產或帳戶會套用到您的串流定位器的篩選器清單。 如需詳細資訊，請參閱 <<c0> [ 串流定位器相關聯的篩選器](filters-concept.md#associating-filters-with-streaming-locator)。
 
 ## <a name="february-2019"></a>2019 年 2 月
 
@@ -215,7 +229,7 @@ Azure CLI 2.0 模組即將推出，內含所有功能的操作 (包括即時、�
 
 * 提交工作時，您可以使用 HTTPS URL、SAS URL 或位於 Azure Blob 儲存體中檔案的路徑來指定內嵌您的來源影片。 目前，AMS v3 不支援透過 HTTPS URL 的區塊傳送編碼。
 
-## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、 意見、 取得更新
+## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、提供意見反應、取得更新
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 

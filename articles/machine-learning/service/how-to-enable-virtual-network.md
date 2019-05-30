@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: c1006aa21b3009bb7508c7a24ab501d39737261c
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 48c59ddc1e203030bd967911d536930cb94761d3
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978229"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356185"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>安全地執行實驗和在 Azure 虛擬網路內的推斷
 
@@ -43,7 +43,7 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
 2. 請移至 附加至工作區的儲存體。 ![顯示連接至 Azure 機器學習服務工作區的 Azure 儲存體的 Azure 入口網站的映像](./media/how-to-enable-virtual-network/workspace-storage.png)
 3. 在 Azure 儲存體 頁面上，選取__防火牆和虛擬網路__。 ![映像的 Azure 入口網站顯示防火牆和虛擬網路在 Azure 儲存體 頁面上的區段](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 4. 在 __防火牆和虛擬網路__頁面上，選取下列項目：
-    - 選取 [選取的網路]。
+    - 選取 [選取的網路]  。
     - 底下__虛擬網路__，選取__加入現有的虛擬網路__來新增您實驗的計算所在的虛擬網路。 （請參閱步驟 1）。
     - 選取 __允許信任的 Microsoft 服務存取此儲存體帳戶__。
 ![映像的 Azure 入口網站顯示防火牆和虛擬網路在 Azure 儲存體頁面](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png) 
@@ -63,7 +63,7 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
 1. 請移至工作區相關聯的金鑰保存庫。 ![顯示 Azure Machine Learning 服務工作區相關聯的金鑰保存庫的 Azure 入口網站的映像](./media/how-to-enable-virtual-network/workspace-key-vault.png)
 2. 在金鑰保存庫 頁面上，選取__防火牆和虛擬網路__一節。 ![映像的 Azure 入口網站顯示防火牆和虛擬網路在金鑰保存庫 頁面上的區段](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
 3. 在 __防火牆和虛擬網路__頁面上，選取下列項目：
-    - 選取 [選取的網路]。
+    - 選取 [選取的網路]  。
     - 底下__虛擬網路__，選取__加入現有的虛擬網路__來新增您實驗的計算所在的虛擬網路。
     - 選取 __允許信任的 Microsoft 服務略過此防火牆__。
 ![映像的 Azure 入口網站顯示防火牆和虛擬網路頁面的 金鑰保存庫下](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png) 
@@ -141,7 +141,7 @@ Machine Learning Compute 目前使用 Azure Batch 服務將 VM 佈建在指定�
 
 ![範例使用者定義路由的位址首碼](./media/how-to-enable-virtual-network/user-defined-route.png)
 
-如需詳細資訊，請參閱 <<c0> [ 虛擬網路中建立 Azure Batch 集區](/azure/batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling)文章。
+如需詳細資訊，請參閱 <<c0> [ 虛擬網路中建立 Azure Batch 集區](../../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling)文章。
 
 ### <a name="create-machine-learning-compute-in-a-virtual-network"></a>在虛擬網路中建立 Machine Learning Compute
 
@@ -149,13 +149,13 @@ Machine Learning Compute 目前使用 Azure Batch 服務將 VM 佈建在指定�
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 Azure Machine Learning 服務工作區。
 
-1. 在 [應用程式] 區段中，選取 [計算]。 然後，選取 [新增計算]。 
+1. 在 [應用程式]  區段中，選取 [計算]  。 然後，選取 [新增計算]  。 
 
     ![如何在 Azure Machine Learning 服務中新增計算](./media/how-to-enable-virtual-network/add-compute.png)
 
 1. 若要設定此計算資源以使用虛擬網路，使用下列選項：
 
-    - __網路組態__：選取 [進階]。
+    - __網路組態__：選取 [進階]  。
 
     - __资源组__：選取包含虛擬網路的資源群組。
 
@@ -217,19 +217,19 @@ except ComputeTargetException:
 
 1. 若要允許 Azure Machine Learning 服務與 VM 或叢集上的 SSH 連接埠通訊，您必須設定 NSG 的來源項目。 SSH 連接埠通常是連接埠 22。 若要允許來自此來源的流量，請使用以下資訊：
 
-    * __來源__：選取 [服務標記]。
+    * __來源__：選取 [服務標記]  。
 
-    * __來源服務標記__：選取 [AzureMachineLearning]。
+    * __來源服務標記__：選取 [AzureMachineLearning]  。
 
-    * __來源連接埠範圍__:選取 __[*]__。
+    * __來源連接埠範圍__:選取 __[*]__ 。
 
-    * __目的地__:選取 [任何]。
+    * __目的地__:選取 [任何]  。
 
-    * __目的地連接埠範圍__：選取 [22]。
+    * __目的地連接埠範圍__：選取 [22]  。
 
-    * __通訊協定__：選取 [任何]。
+    * __通訊協定__：選取 [任何]  。
 
-    * __動作__：選取 [允許]。
+    * __動作__：選取 [允許]  。
 
    ![用於對虛擬網路內的 VM 或 HDInsight 叢集進行實驗的輸入規則螢幕擷取畫面](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
 
@@ -257,13 +257,13 @@ except ComputeTargetException:
  
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 Azure Machine Learning 服務工作區。
 
-1. 在 [應用程式] 區段中，選取 [計算]。 然後，選取 [新增計算]。 
+1. 在 [應用程式]  區段中，選取 [計算]  。 然後，選取 [新增計算]  。 
 
     ![如何在 Azure Machine Learning 服務中新增計算](./media/how-to-enable-virtual-network/add-compute.png)
 
 1. 若要設定此計算資源以使用虛擬網路，使用下列選項：
 
-    - __網路組態__：選取 [進階]。
+    - __網路組態__：選取 [進階]  。
 
     - __资源组__：選取包含虛擬網路的資源群組。
 
@@ -271,11 +271,11 @@ except ComputeTargetException:
 
     - __子網路__：選取子網路。
 
-    - __Kubernetes 服務位址範圍__：選取 Kubernetes Service 位址範圍。 此位址範圍使用 CIDR 標記法 IP 範圍，來定義可用於叢集的 IP 位址。 此範圍不得與任何子網路 IP 範圍重疊。 例如：10.0.0.0/16。
+    - __Kubernetes 服務位址範圍__：選取 Kubernetes Service 位址範圍。 此位址範圍使用 CIDR 標記法 IP 範圍，來定義可用於叢集的 IP 位址。 此範圍不得與任何子網路 IP 範圍重疊。 例如: 10.0.0.0/16。
 
-    - __Kubernetes DNS 服務 IP 位址__：選取 Kubernetes DNS 服務 IP 位址。 此 IP 位址會指派給 Kubernetes DNS 服務。 它必須在 Kubernetes Service 位址範圍內。 例如：10.0.0.10.
+    - __Kubernetes DNS 服務 IP 位址__：選取 Kubernetes DNS 服務 IP 位址。 此 IP 位址會指派給 Kubernetes DNS 服務。 它必須在 Kubernetes Service 位址範圍內。 例如: 10.0.0.10.
 
-    - __Docker 橋接器位址__：選取 Docker 橋接器位址。 此 IP 位址會指派給 Docker 橋接器， 不得位於任何子網路 IP 範圍或 Kubernetes Service 位址範圍中。 例如：172.17.0.1/16。
+    - __Docker 橋接器位址__：選取 Docker 橋接器位址。 此 IP 位址會指派給 Docker 橋接器， 不得位於任何子網路 IP 範圍或 Kubernetes Service 位址範圍中。 例如: 172.17.0.1/16。
 
    ![Azure Machine Learning 服務：Machine Learning Compute 虛擬網路設定](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 

@@ -5,14 +5,14 @@ ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4532962b6fd9f40fad625ab000116e5a617682e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eea4366ca19c01af1f79566a5ca6bcae8805b6c3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765877"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242483"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>將 Qlik Sense 連線到 Azure Cosmos DB 並將資料視覺化
 
@@ -52,15 +52,15 @@ Qlik Sense 是一種資料視覺效果工具，可將不同來源的資料組合
 
 ## <a name="connect-qlik-sense-to-cosmos-db"></a>將 Qlik Sense 連線到 Cosmos DB
 
-1. 開啟 Qlik Sense，然後選取 [建立新的應用程式]。 提供應用程式的名稱，然後選取 [建立]。
+1. 開啟 Qlik Sense，然後選取 [建立新的應用程式]  。 提供應用程式的名稱，然後選取 [建立]  。
 
    ![建立新的 Qlik Sense 應用程式](./media/visualize-qlik-sense/create-new-qlik-sense-app.png)
 
-2. 成功建立新的應用程式之後，選取 [開啟應用程式]，然後選擇 [從檔案和其他來源新增資料]。 
+2. 成功建立新的應用程式之後，選取 [開啟應用程式]  ，然後選擇 [從檔案和其他來源新增資料]  。 
 
-3. 從資料來源中，選取 [ODBC] 以開啟新的連線設定視窗。 
+3. 從資料來源中，選取 [ODBC]  以開啟新的連線設定視窗。 
 
-4. 切換至 [使用者 DSN]，然後選擇您稍早建立的 ODBC 連線。 提供連線的名稱，然後選取 [建立]。 
+4. 切換至 [使用者 DSN]  ，然後選擇您稍早建立的 ODBC 連線。 提供連線的名稱，然後選取 [建立]  。 
 
    ![建立新的連線](./media/visualize-qlik-sense/create-new-connection.png)
 
@@ -68,7 +68,7 @@ Qlik Sense 是一種資料視覺效果工具，可將不同來源的資料組合
 
    ![選擇資料庫與集合](./media/visualize-qlik-sense/choose-database-and-collection.png) 
 
-6. 接下來，選取 [新增資料]，將資料載入至 Qlik Sense。 當您將資料載入至 Qlik Sense 之後，您可以產生資料的深入解析並執行分析。 您可以使用深入解析或建置自己的應用程式，來探索視訊遊戲銷售。 下圖說明 
+6. 接下來，選取 [新增資料]  ，將資料載入至 Qlik Sense。 當您將資料載入至 Qlik Sense 之後，您可以產生資料的深入解析並執行分析。 您可以使用深入解析或建置自己的應用程式，來探索視訊遊戲銷售。 下圖說明 
 
    ![顯現資料](./media/visualize-qlik-sense/visualize-data.png)
 

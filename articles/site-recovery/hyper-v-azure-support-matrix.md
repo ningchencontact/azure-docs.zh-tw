@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: e311a328c1c3d78fa8e5ba7065dcc6484006eaaf
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: bce9f3b3a574d27e2fb47fb9b2da9470c43fd2eb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235889"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399417"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>內部部署 Hyper-V VM 至 Azure 的災害復原支援矩陣
 
@@ -59,16 +59,16 @@ VM 設定 | 複寫到 Azure 的 VM 必須符合 [Azure 需求](#azure-vm-require
 
 **元件** | **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | ---
-主機網路：NIC Teaming | 有 | 有
-主機網路：VLAN | 有 | 有
-主機網路：IPv4 | 有 | 有
-主機網路：IPv6 | 無 | 無
-來賓 VM 網路：NIC Teaming | 無 | 無
-來賓 VM 網路：IPv4 | 有 | 有
-來賓 VM 網路：IPv6 | 無 | 有
-來賓 VM 網路：靜態 IP (Windows) | 有 | 有
-來賓 VM 網路：靜態 IP (Linux) | 無 | 無
-來賓 VM 網路：多個 NIC | 有 | 有
+主機網路：NIC Teaming | 是 | 是
+主機網路：VLAN | 是 | 是
+主機網路：IPv4 | 是 | 是
+主機網路：IPv6 | 否 | 否
+來賓 VM 網路：NIC Teaming | 否 | 否
+來賓 VM 網路：IPv4 | 是 | 是
+來賓 VM 網路：IPv6 | 否 | 是
+來賓 VM 網路：靜態 IP (Windows) | 是 | 是
+來賓 VM 網路：靜態 IP (Linux) | 否 | 否
+來賓 VM 網路：多個 NIC | 是 | 是
 
 
 
@@ -76,16 +76,16 @@ VM 設定 | 複寫到 Azure 的 VM 必須符合 [Azure 需求](#azure-vm-require
 
 **元件** | **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | ---
-Azure ExpressRoute | 有 | 有
-ILB | 有 | 有
-ELB | 有 | 有
-Azure 流量管理員 | 有 | 有
-多 NIC | 有 | 有
-保留的 IP | 有 | 有
-IPv4 | 有 | 有
-保留來源 IP 位址 | 有 | 有
-Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | 有 | 有
-加速網路 | 無 | 無
+Azure ExpressRoute | 是 | 是
+ILB | 是 | 是
+ELB | 是 | 是
+Azure 流量管理員 | 是 | 是
+多個 NIC | 是 | 是
+保留的 IP | 是 | 是
+IPv4 | 是 | 是
+保留來源 IP 位址 | 是 | 是
+Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | 是 | 是
+加速網路 | 否 | 否
 
 
 ## <a name="hyper-v-host-storage"></a>Hyper-V 主機儲存體
@@ -93,55 +93,55 @@ Azure 虛擬網路服務端點<br/> (不含 Azure 儲存體防火牆) | 有 | �
 **儲存體** | **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | --- 
 NFS | NA | NA
-SMB 3.0 | 有 | 有
-SAN (ISCSI) | 有 | 有
-多重路徑 (MPIO)。 測試工具：<br></br> Microsoft DSM、EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | 有 | 有
+SMB 3.0 | 是 | 是
+SAN (ISCSI) | 是 | 是
+多重路徑 (MPIO)。 測試工具：<br></br> Microsoft DSM、EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | 是 | 是
 
 ## <a name="hyper-v-vm-guest-storage"></a>Hyper-V VM 客體儲存體
 
 **儲存體** | **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | ---
 VMDK | NA | NA
-VHD/VHDX | 有 | 有
-第 2 代 VM | 有 | 有
-EFI/UEFI| 有 | 有
-共用叢集磁碟 | 無 | 無
-已加密磁碟 | 無 | 無
+VHD/VHDX | 是 | 是
+第 2 代 VM | 是 | 是
+EFI/UEFI| 是 | 是
+共用叢集磁碟 | 否 | 否
+已加密磁碟 | 否 | 否
 NFS | NA | NA
-SMB 3.0 | 無 | 無
+SMB 3.0 | 否 | 否
 RDM | NA | NA
 磁碟 > 1 TB | 是，最多 4,095 GB | 是，最多 4,095 GB
 磁碟：4k 邏輯與實體磁區 | 不支援：Gen 1/Gen 2 | 不支援：Gen 1/Gen 2
-磁碟：4K 邏輯與 512 位元組實體磁區 | 有 |  有
-邏輯磁碟區管理 (LVM)。 資料磁碟上才支援 LVM。 Azure 只提供單一 OS 磁碟。 | 有 | 有
-使用等量磁碟的磁碟區 > 1 TB | 有 | 有
-儲存空間 | 有 | 有
-热添加/移除磁盘 | 無 | 無
-排除磁碟 | 有 | 有
-多路径 (MPIO) | 有 | 有
+磁碟：4K 邏輯與 512 位元組實體磁區 | 是 |  是
+邏輯磁碟區管理 (LVM)。 資料磁碟上才支援 LVM。 Azure 只提供單一 OS 磁碟。 | 是 | 是
+使用等量磁碟的磁碟區 > 1 TB | 是 | 是
+儲存空間 | 是 | 是
+熱新增/移除磁碟 | 否 | 否
+排除磁碟 | 是 | 是
+多重路徑 (MPIO) | 是 | 是
 
 ## <a name="azure-storage"></a>Azure 儲存體
 
 **元件** | **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | ---
-本地備援儲存體 | 有 | 有
-異地備援儲存體 | 有 | 有
-讀取權限異地備援儲存體 | 有 | 有
-非經常性儲存體 | 無 | 無
-經常性存取儲存體| 無 | 無
-區塊 Blob | 無 | 無
-待用加密 (SSE)| 有 | 有
-進階儲存體 | 有 | 有
-匯入/匯出服務 | 無 | 無
-設定在目標儲存體/快取儲存體帳戶 (用於儲存複寫資料) 上適用於虛擬網路的 Azure 儲存體防火牆 | 無 | 無
+本地備援儲存體 | 是 | 是
+異地備援儲存體 | 是 | 是
+讀取權限異地備援儲存體 | 是 | 是
+非經常性儲存體 | 否 | 否
+經常性存取儲存體| 否 | 否
+區塊 Blob | 否 | 否
+待用加密 (SSE)| 是 | 是
+進階儲存體 | 是 | 是
+匯入/匯出服務 | 否 | 否
+設定在目標儲存體/快取儲存體帳戶 (用於儲存複寫資料) 上適用於虛擬網路的 Azure 儲存體防火牆 | 否 | 否
 
 
 ## <a name="azure-compute-features"></a>Azure 計算功能
 
 **功能** | **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | ---
-可用性設定組 | 有 | 有
-中樞 | 有 | 有  
+可用性設定組 | 是 | 是
+中樞 | 是 | 是  
 受控磁碟 | 是，適用於容錯移轉。<br/><br/> 不支援受控磁碟的容錯回復。 | 是，適用於容錯移轉。<br/><br/> 不支援受控磁碟的容錯回復。
 
 ## <a name="azure-vm-requirements"></a>Azure VM 需求
@@ -159,7 +159,7 @@ RDM | NA | NA
 網路介面卡 | 支援多個介面卡 |
 共用 VHD | 不支援 | 若不支援，則必要條件檢查會失敗。
 FC 磁碟 | 不支援 | 若不支援，則必要條件檢查會失敗。
-硬碟格式 | VHD <br/><br/> VHDX | Site Recovery 會在您容錯移轉至 Azure 時，自動將 VHDX 轉換為 VHD。 當您容錯回復到內部部署時，虛擬機器仍會繼續使用 VHDX 格式。
+硬碟格式 | VHD  <br/><br/> VHDX | Site Recovery 會在您容錯移轉至 Azure 時，自動將 VHDX 轉換為 VHD。 當您容錯回復到內部部署時，虛擬機器仍會繼續使用 VHDX 格式。
 BitLocker | 不支援 | 為 VM 啟用複寫之前必須先停用 BitLocker。
 VM 名稱 | 介於 1 到 63 個字元。 只能使用字母、數字和連字號。 VM 名稱必須以字母或數字為開頭或結尾。 | 更新 Site Recovery 中 VM 屬性的值。
 VM 類型 | 第 1 代<br/><br/> 第 2 代--Windows | OS 磁碟基本類型的第 2 代 VM (其中包含一或兩個格式化為 VHDX 的資料磁碟區) 且支援小於 300 GB 的磁碟空間。<br></br>不支援 Linux 第 2 代 VM。 [深入了解](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。|
@@ -168,8 +168,8 @@ VM 類型 | 第 1 代<br/><br/> 第 2 代--Windows | OS 磁碟基本類型的第
 
 **動作** |  **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | ---
-在資源群組間移動保存庫<br/><br/> 订阅内和跨订阅移动 | 無 | 無
-跨資源群組間移動儲存體、網路、Azure VM<br/><br/> 內及跨訂用帳戶 | 無 | 無
+在資源群組間移動保存庫<br/><br/> 內及跨訂用帳戶 | 否 | 否
+跨資源群組間移動儲存體、網路、Azure VM<br/><br/> 內及跨訂用帳戶 | 否 | 否
 
 > [!NOTE]
 > 將 Hyper-VM (使用/不使用 SCVMM 管理) 從內部部署複寫到 Azure 時，您可以從一個特定環境 (適用的 Hyper-V 網站或 SCVMM) 複寫到僅限單個的 AD 租用戶上。

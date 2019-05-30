@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 395a231fcf43378a51e22427254abb196a46081e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a3f441a0dd7f7b9f402390e853bd1c28f282f653
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709016"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245084"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>重新定型和部署機器學習模型
 
@@ -49,9 +49,9 @@ ms.locfileid: "64709016"
     現在，您可將定型實驗部署為重新定型的 Web 服務，此服務可輸出定型的模型與模型評估結果。
 
 1. 在實驗畫布底端，按一下 [設定 Web 服務] 
-1. 選取 [部署 Web 服務 [新]]。 Azure Machine Learning Web Services 入口網站會開啟 [部署 Web 服務] 頁面。
+1. 選取 [部署 Web 服務 [新]]  。 Azure Machine Learning Web Services 入口網站會開啟 [部署 Web 服務]  頁面。
 1. 輸入您 Web 服務的名稱，然後選擇付款方案。
-1. 選取 [部署]。
+1. 選取 [部署]  。
 
 ## <a name="retrain-the-model"></a>重新定型模型
 
@@ -59,16 +59,16 @@ ms.locfileid: "64709016"
 
 使用下列步驟呼叫重新定型 API：
 
-1. 在 Visual Studio 中建立 C# 主控台應用程式：[新增] > [專案] > [Visual C#] > [Windows 傳統桌面] > [主控台應用程式 (.NET Framework)]。
+1. 在 Visual Studio 中建立 C# 主控台應用程式：[新增]   > [專案]   > [Visual C#]   > [Windows 傳統桌面]   > [主控台應用程式 (.NET Framework)]  。
 1. 登入 Machine Learning Web 服務入口網站。
 1. 按一下您要使用的 Web 服務。
-1. 按一下 [取用] 。
-1. 在 [取用] 頁面底部的 [範例程式碼] 區段，按一下 [批次]。
+1. 按一下 [取用]  。
+1. 在 [取用]  頁面底部的 [範例程式碼]  區段，按一下 [批次]  。
 1. 複製可用於批次執行的範例 C# 程式碼，然後貼入 Program.cs 檔案。 請確定命名空間保持不變。
 
 新增 NuGet 套件 Microsoft.AspNet.WebApi.Client，如註解中所述。 若要新增指向 Microsoft.WindowsAzure.Storage.dll 的參考，您可能需要安裝 [Azure 儲存體服務的用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage)。
 
-下列螢幕擷取畫面顯示 Azure Machine Learning Web 服務入口網站的 [取用]頁面。
+下列螢幕擷取畫面顯示 Azure Machine Learning Web 服務入口網站的 [取用]  頁面。
 
 ![取用頁面](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
@@ -78,21 +78,21 @@ ms.locfileid: "64709016"
 
     const string apiKey = "abc123"; // Replace this with the API key for the web service
 
-在 [取用] 頁面的 [基本取用資訊] 區段中，找到主索引鍵，將其複製到 **apikey** 宣告。
+在 [取用]  頁面的 [基本取用資訊]  區段中，找到主索引鍵，將其複製到 **apikey** 宣告。
 
 ### <a name="update-the-azure-storage-information"></a>更新 Azure 儲存體資訊
 
 BES 範例程式碼會將檔案從本機磁碟機 (例如，C:\temp\CensusInput.csv) 上傳至 Azure 儲存體、加以處理後，再將結果寫回 Azure 儲存體。
 
 1. 登入 Azure 入口網站
-1. 在左側導覽中，按一下 [更多服務]，搜尋 [儲存體帳戶]，並加以選取。
+1. 在左側導覽中，按一下 [更多服務]  ，搜尋 [儲存體帳戶]  ，並加以選取。
 1. 在儲存體帳戶的清單中，選取要儲存重新定型模型的帳戶。
-1. 在左側導覽中，按一下 [存取金鑰]。
-1. 複製並儲存 [主要存取金鑰]。
-1. 在左側導覽中，按一下 [容器]。
+1. 在左側導覽中，按一下 [存取金鑰]  。
+1. 複製並儲存 [主要存取金鑰]  。
+1. 在左側瀏覽 欄中，按一下**Blob**。
 1. 您可以使用現有容器，或建立新的容器並儲存名稱。
 
-找到 StorageAccountName、StorageAccountKey、StorageContainerName 宣告，更新為您從入口網站儲存的值。
+找到 StorageAccountName  、StorageAccountKey  、StorageContainerName  宣告，更新為您從入口網站儲存的值。
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key
@@ -122,11 +122,11 @@ BES 範例程式碼會將檔案從本機磁碟機 (例如，C:\temp\CensusInput.
 
 當您執行應用程式時，輸出會包含存取評估結果所需的 URL 和共用存取簽章權杖。
 
-您可以組合 output2 輸出結果中的 BaseLocation、RelativeLocation、SasBlobToken，再將完整 URL 貼入瀏覽器網址列，便能看到重新訓練模型的執行結果。
+您可以組合 output2  輸出結果中的 BaseLocation  、RelativeLocation  、SasBlobToken  ，再將完整 URL 貼入瀏覽器網址列，便能看到重新訓練模型的執行結果。
 
 查看結果以判斷新定型的模型其效能是否比現有的模型好。
 
-儲存輸出結果中的 BaseLocation、RelativeLocation、SasBlobToken。
+儲存輸出結果中的 BaseLocation  、RelativeLocation  、SasBlobToken  。
 
 ## <a name="update-the-predictive-experiment"></a>更新預測性實驗
 
@@ -161,7 +161,7 @@ BES 範例程式碼會將檔案從本機磁碟機 (例如，C:\temp\CensusInput.
 
 ### <a name="update-the-reference-to-the-ilearner-blob"></a>將參考更新為 ilearner blob
 
-在資產中，找出 [定型模型]，使用 ilearner blob 的 URI 更新 locationInfo 節點中的 uri 值。 URI 的產生方式為結合來自 BES 重新定型呼叫輸出的 BaseLocation 和 RelativeLocation。
+在資產中，找出 [定型模型]，使用 ilearner blob 的 URI 更新 locationInfo  節點中的 uri  值。 URI 的產生方式為結合來自 BES 重新定型呼叫輸出的 BaseLocation  和 RelativeLocation  。
 
      "asset3": {
         "name": "Retrain Sample [trained model]",

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d00808295d39247729f6e843ac59ad7b23407148
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 99fe386ec75e60a16f3095f22dccc3852883f8aa
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785408"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304520"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 共同作業邀請兌換
 
@@ -42,13 +42,13 @@ ms.locfileid: "65785408"
 如果透過傳送邀請電子郵件的方法獲得邀請，使用者也可以透過邀請電子郵件兌換邀請。 受邀的使用者可以按一下電子郵件中的兌換 URL，然後檢閱並接受隱私權條款。 以下更詳細地說明此程序：
 
 1.  獲得邀請之後，受邀者會透過 **Microsoft 邀請**所傳送的電子郵件收到邀請。
-2.  受邀者在電子郵件中選取 [開始使用]。
+2.  受邀者在電子郵件中選取 [開始使用]  。
 3.  如果受邀者沒有 Azure AD 帳戶或 MSA，系統會提示他們建立 MSA。
-4.  系統會將受邀者重新導向至 [檢閱權限] 畫面，他們可在其中檢閱邀請組織的隱私權聲明並接受條款。
+4.  系統會將受邀者重新導向至 [檢閱權限]  畫面，他們可在其中檢閱邀請組織的隱私權聲明並接受條款。
 
 ## <a name="privacy-policy-agreement"></a>隱私權原則協議
 
-在任何來賓使用者第一次登入以存取夥伴組織中的資源之後，他們會看到 [檢閱權限] 畫面。 在這裡，他們可以檢閱邀請組織的隱私權聲明。 使用者必須根據邀請組織的隱私權原則來接受其資訊的使用方式，才能繼續執行。
+在任何來賓使用者第一次登入以存取夥伴組織中的資源之後，他們會看到 [檢閱權限]  畫面。 在這裡，他們可以檢閱邀請組織的隱私權聲明。 使用者必須根據邀請組織的隱私權原則來接受其資訊的使用方式，才能繼續執行。
 
 ![顯示 [存取面板] 中使用者設定的螢幕擷取畫面](media/redemption-experience/ConsentScreen.png) 
 
@@ -56,7 +56,7 @@ ms.locfileid: "65785408"
 
 ## <a name="terms-of-use"></a>使用規定
 
-在初始兌換期間，您可以使用 Azure AD 使用規定功能，向來賓使用者呈現使用規定。 在 Azure Active Directory 中，您可以在 [管理]  >  [組織關係]  >  [使用規定] 下方，或在 [安全性]  >  [條件式存取]  >  [使用規定] 下方存取此功能。 如需詳細資料，請參閱 [Azure AD 使用規定](../conditional-access/terms-of-use.md)。
+您可以呈現使用的規定的 guest 使用者初始的兌換程序期間使用 Azure AD 使用規定特性。 在 Azure Active Directory 中，您可以在 [管理]   >  [組織關係]   >  [使用規定]  下方，或在 [安全性]   >  [條件式存取]   >  [使用規定]  下方存取此功能。 如需詳細資訊，請參閱 <<c0> [ 功能的 Azure AD 使用規定](../conditional-access/terms-of-use.md)。
 
 ![顯示新增使用規定的螢幕擷取畫面](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 

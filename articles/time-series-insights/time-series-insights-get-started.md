@@ -4,19 +4,19 @@ description: 本文說明如何使用 Azure 入口網站建立新的時間序列
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: d6e38465b46f387092ab457ebe6716a3dcff4768
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 1018b449047e40a67ea843e8506fb43f6e1093a6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205852"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239061"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>在 Azure 入口網站中建立新的 Time Series Insights 環境
 
@@ -30,19 +30,19 @@ ms.locfileid: "65205852"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 選取 [+ 新增] 按鈕。
+1. 選取 [+ 新增]  按鈕。
 
-1. 選取 [物聯網] 類別，然後選取 [時間序列深入解析]。
+1. 選取 [物聯網]  類別，然後選取 [時間序列深入解析]  。
 
    ![建立 Time Series Insights 環境](media/time-series-insights-get-started/1-new-tsi.png)
 
-1. 在 [時間序列深入解析] 分頁上，選取 [建立]。
+1. 在 [時間序列深入解析]  分頁上，選取 [建立]  。
 
 1. 填入必要參數。 下表說明每個參數：
    
    ![建立 Time Series Insights 資源群組](media/time-series-insights-get-started/2-create-tsi.png)
    
-   設定|建議的值|描述
+   設定|建議值|描述
    ---|---|---
    環境名稱 | 唯一的名稱 | 此名稱代表[時間序列總管](https://insights.timeseries.azure.com)中的環境
    訂用帳戶 | 您的訂用帳戶 | 如果您有多個訂用帳戶，最好是選擇包含事件來源的訂用帳戶。 Time Series Insights 可以自動偵測相同訂用帳戶中現有的 Azure IoT 中樞與事件中樞資源。
@@ -51,17 +51,17 @@ ms.locfileid: "65205852"
    定價層 | S1 | 選擇所需的輸送量。 如需最低成本和入門容量，選取 S1。
    容量 | 1 | 容量是套用至輸入速率、儲存體容量以及與選取之 SKU 相關聯成本的乘數。  您可以在環境建立後變更其容量。 如需最低成本，選取 1 作為容量。 
   
-1. 請勾選 [釘選到儀表板] 以便在未來最輕鬆地存取時間序列環境。
+1. 請勾選 [釘選到儀表板]  以便在未來最輕鬆地存取時間序列環境。
 
    ![建立 Time Series Insights [釘選到儀表板]](media/time-series-insights-get-started/3-pin-create.png)
 
-1. 選取 [建立] 以開始佈建程序。 這需要幾分鐘的時間。
+1. 選取 [建立]  以開始佈建程序。 這需要幾分鐘的時間。
 
-1. 若要監視部署程序，選取 [通知] 符號 (鈴鐺圖示)。
+1. 若要監視部署程序，選取 [通知]  符號 (鈴鐺圖示)。
 
    ![觀看通知](media/time-series-insights-get-started/4-notifications.png)
 
-當部署成功時，您可以選取 [移至資源] 以設定其他屬性、以資料存取原則設定安全性、新增事件來源和其他動作。
+當部署成功時，您可以選取 [移至資源]  以設定其他屬性、以資料存取原則設定安全性、新增事件來源和其他動作。
 
 ## <a name="next-steps"></a>後續步驟
 

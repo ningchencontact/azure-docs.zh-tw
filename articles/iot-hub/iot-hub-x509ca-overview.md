@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: b7464e5cc052ecade4a10102de947d37a63c962a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615024"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257568"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>使用 X.509 CA 憑證進行裝置驗證
 
@@ -40,7 +40,7 @@ X.509 CA 憑證位於您每個裝置的憑證鏈結頂端。  您可以購買或
 
 您也可以建立自我簽署的 X.509 CA 來進行測試，或在封閉式 IoT 網路中使用。
 
-不論您如何取得 X.509 CA 憑證，請務必在任何時候都將其對應的私密金鑰妥善保密及保護。  這對於在 X.509 CA 驗證中建立信任來說是必要的。
+不論如何取得 X.509 CA 憑證，請務必保持其相對應私密金鑰妥善保密及保護的任何時候。  這對於在 X.509 CA 驗證中建立信任來說是必要的。
 
 了解如何[建立自我簽署的 CA 憑證](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)，您可以使用此憑證在這整個功能描述中進行測試。
 

@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 24ea6b2b44518b4cf75389585caf42ff6bc6722f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ce3b7a29f6f57b2bc309c719dbbab6c4574f0a46
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191062"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306495"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>教學課程：使用 DRM 動態加密與授權傳遞服務
 
@@ -74,21 +74,21 @@ ms.locfileid: "65191062"
 
 ## <a name="create-an-output-asset"></a>建立輸出資產  
 
-輸出[資產](https://docs.microsoft.com/rest/api/media/assets)會儲存您的編碼作業結果。  
+輸出[資產](assets-concept.md)會儲存您的編碼作業結果。  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CreateOutputAsset)]
  
 ## <a name="get-or-create-an-encoding-transform"></a>取得或建立編碼轉換
 
-建立新的[轉換](https://docs.microsoft.com/rest/api/media/transforms)執行個體時，您需要指定想要其產生的輸出是什麼。 必要的參數是 **TransformOutput** 物件，如下列程式碼所示。 每個 **TransformOutput** 都會包含 **Preset (預設)**。 **Preset** 會描述影片和/或音訊處理作業的逐步指示，以產生所需的 **TransformOutput**。 本文中所述的範例會使用稱為 **AdaptiveStreaming** 的內建 Preset。 Preset 會根據輸入解析度和位元速率，將輸入影片編碼為自動產生的位元速率階梯 (位元速率-解析度配對)，並產生 H.264 影片與 AAC 音訊標準 (對應到每個 位元速率-解析度配對) 的 ISO MP4 檔案。 
+建立新的[轉換](transforms-jobs-concept.md)執行個體時，您需要指定想要其產生的輸出是什麼。 必要的參數是`transformOutput`物件，如下列程式碼所示。 包含每個 TransformOutput**預設**。 預設值描述是用來產生所需的 TransformOutput 的視訊和 （或） 音訊處理作業的逐步的指示。 本文中所述的範例會使用稱為 **AdaptiveStreaming** 的內建 Preset。 Preset 會根據輸入解析度和位元速率，將輸入影片編碼為自動產生的位元速率階梯 (位元速率-解析度配對)，並產生 H.264 影片與 AAC 音訊標準 (對應到每個 位元速率-解析度配對) 的 ISO MP4 檔案。 
 
-在建立新的[轉換](https://docs.microsoft.com/rest/api/media/transforms)之前，您應該先使用 **Get** 方法檢查是否已有轉換存在，如後續程式碼所示。  在媒體服務 v3 中，如果實體不存在，對實體執行的 **Get** 方法會傳回 **null** (檢查名稱時不區分大小寫)。
+在建立新的**轉換**之前，您應該先使用 **Get** 方法檢查是否已有轉換存在，如後續程式碼所示。  在媒體服務 v3 中，如果實體不存在，對實體執行的 **Get** 方法會傳回 **null** (檢查名稱時不區分大小寫)。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#EnsureTransformExists)]
 
 ## <a name="submit-job"></a>提交作業
 
-如同前面所述，[轉換](https://docs.microsoft.com/rest/api/media/transforms)物件是配方，而[作業](https://docs.microsoft.com/rest/api/media/jobs)則是實際要求媒體服務，將**轉換**套用至指定的輸入影片或音訊內容。 **作業**會指定輸入影片的位置、輸出的位置等資訊。
+如同前面所述，**轉換**物件是配方，而[作業](transforms-jobs-concept.md)則是實際要求媒體服務，將**轉換**套用至指定的輸入影片或音訊內容。 **作業**會指定輸入影片的位置、輸出的位置等資訊。
 
 在本教學課程中，我們會根據直接從 [HTTP 來源 URL](job-input-from-http-how-to.md) 內嵌的檔案，建立作業的輸入。
 
@@ -96,17 +96,17 @@ ms.locfileid: "65191062"
 
 ## <a name="wait-for-the-job-to-complete"></a>請等待作業完成
 
-此作業需要一些時間來完成，而您可以選擇在完成時收到通知。 下列程式碼範例說明如何輪詢服務以取得[作業](https://docs.microsoft.com/rest/api/media/jobs)狀態。 對生產應用程式而言，輪詢不是建議的最佳做法，因為可能會發生延遲。 如果過度使用帳戶，輪詢可能會進行節流處理。 開發人員應改為使用事件方格。 請參閱[將事件路由至自訂 Web 端點](job-state-events-cli-how-to.md)。
+此作業需要一些時間來完成，而您可以選擇在完成時收到通知。 下列程式碼範例說明如何輪詢服務以取得**作業**狀態。 對生產應用程式而言，輪詢不是建議的最佳做法，因為可能會發生延遲。 如果過度使用帳戶，輪詢可能會進行節流處理。 開發人員應改為使用事件方格。 請參閱[將事件路由至自訂 Web 端點](job-state-events-cli-how-to.md)。
 
 **作業**通常會經歷下列狀態：**已排程**、**已排入佇列**、**正在處理**、**已完成** (最後一個狀態)。 如果作業發生錯誤，您會收到**錯誤**狀態。 如果正在取消作業，您會收到**正在取消**的狀態，以及完成時的**已取消**狀態。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 
-## <a name="create-a-contentkeypolicy"></a>建立 ContentKeyPolicy
+## <a name="create-a-content-key-policy"></a>建立內容的索引鍵原則
 
-內容金鑰可提供資產的安全存取。 您必須建立內容金鑰原則，該原則會設定內容金鑰傳送給終端用戶端的方式。 內容金鑰會與 StreamingLocator 相關聯。 媒體服務也提供加密金鑰傳遞服務，可將加密金鑰和授權傳遞給已授權的使用者。 
+內容金鑰可提供資產的安全存取。 您必須建立[內容金鑰原則](content-key-policy-concept.md)時加密您的內容使用 DRM。 原則會設定內容金鑰傳送給終端用戶端的方式。 串流定位器相關聯內容的金鑰。 媒體服務也提供加密金鑰傳遞服務，可將加密金鑰和授權傳遞給已授權的使用者。 
 
-您必須設定要使用指定的組態傳遞金鑰所須符合的內容金鑰原則需求 (限制)。 在此範例中，我們會設定下列組態和需求：
+您必須在設定的需求 （限制）**內容的索引鍵原則**必須符合將索引鍵，使用指定的組態。 在此範例中，我們會設定下列組態和需求：
 
 * 組態 
 
@@ -120,19 +120,19 @@ ms.locfileid: "65191062"
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetOrCreateContentKeyPolicy)]
 
-## <a name="create-a-streaminglocator"></a>建立 StreamingLocator
+## <a name="create-a-streaming-locator"></a>建立串流定位器
 
 編碼完成且設定好內容金鑰原則後，下一個步驟是要讓用戶端可播放輸出資產中的視訊。 您可透過兩個步驟即可完成： 
 
-1. 建立 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)
+1. 建立 [串流定位器](streaming-locators-concept.md)
 2. 建置用戶端可使用的串流 URL。 
 
-建立 **StreamingLocator** 的程序稱為發佈。 根據預設，**StreamingLocator** 會在進行 API 呼叫後立即生效，而且會持續運作到遭到刪除為止 (除非您有設定選擇性的開始和結束時間)。 
+建立的程序**串流定位器**稱為發佈。 根據預設，[串流定位器]  會在進行 API 呼叫後立即生效，而且會持續運作到遭到刪除為止 (除非您有設定選擇性的開始和結束時間)。 
 
-建立 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) 時，您必須指定需要的 **StreamingPolicyName**。 在本教學課程中，我們會使用其中一個預先定義的 StreamingPolicies，這會告訴 Azure 媒體服務如何發行內容以進行串流。 在此範例中，我們將 StreamingLocator.StreamingPolicyName 設定為 "Predefined_MultiDrmCencStreaming" 原則。 此原則會指出您要在定位器上產生並設定兩個內容金鑰 (信封和 CENC)。 因此，會套用信封、PlayReady 及 Widevine 加密 (會根據設定的 DRM 授權將金鑰傳遞至播放用戶端)。 如果您也想要使用 CBCS (FairPlay) 為串流加密，請使用 "Predefined_MultiDrmStreaming"。 
+建立時**串流定位器**，您需要指定所需`StreamingPolicyName`。 在本教學課程中，我們會使用其中一個預先定義串流的原則，它會告訴 Azure 媒體服務如何發行資料流的內容。 在此範例中，我們將 StreamingLocator.StreamingPolicyName 設定為 "Predefined_MultiDrmCencStreaming" 原則。 PlayReady 和 Widevine 加密會套用，將金鑰傳遞給播放用戶端設定的 DRM 授權為基礎。 如果您也想要使用 CBCS (FairPlay) 為串流加密，請使用 "Predefined_MultiDrmStreaming"。 
 
 > [!IMPORTANT]
-> 使用自訂的 [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) 時，您應該為媒體服務帳戶設計一組受限的這類原則，並且在需要相同的加密選項和通訊協定時，對 StreamingLocators 重新使用這些原則。 媒體服務帳戶有 StreamingPolicy 項目的數量配額。 不建議您對每個 StreamingLocator 建立新的 StreamingPolicy。
+> 使用自訂的[串流原則](streaming-policy-concept.md)時，您應該為媒體服務帳戶設計一組受限的這類原則，並且在需要相同的加密選項和通訊協定時，對 StreamingLocators 重新使用這些原則。 媒體服務帳戶有 StreamingPolicy 項目的數量配額。 不建議您對每個 StreamingLocator 建立新的 StreamingPolicy。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CreateStreamingLocator)]
 
@@ -140,13 +140,13 @@ ms.locfileid: "65191062"
         
 在本教學課程中，我們會指定內容金鑰原則具有權杖限制。 權杖限制原則必須伴隨 Security Token Service (STS) 所發出的權杖。 媒體服務支援 [JSON Web 權杖](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) 格式的權杖，這就是我們在範例中設定的項目。
 
-ContentKeyIdentifierClaim 用於 ContentKeyPolicy，表示向金鑰傳遞服務提出的權杖必須具有 ContentKey 的識別碼。 在此範例中，我們在建立 StreamingLocator 時不指定內容金鑰，系統會為我們隨機建立一個金鑰。 為了產生測試權杖，我們必須取得 ContentKeyId，以將其放入 ContentKeyIdentifierClaim 宣告中。
+ContentKeyIdentifierClaim 用於 ContentKeyPolicy，表示向金鑰傳遞服務提出的權杖必須具有 ContentKey 的識別碼。 在此範例中，建立串流定位器時，我們便未指定內容的索引鍵，系統會建立一個隨機的。 為了產生測試權杖，我們必須取得 ContentKeyId，以將其放入 ContentKeyIdentifierClaim 宣告中。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetToken)]
 
 ## <a name="build-a-streaming-url"></a>建置串流 URL
 
-建立了 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) 之後，現在您就可以取得串流 URL。 若要建置 URL，您需要串連 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) 主機名稱和 **StreamingLocator** 路徑。 此範例會使用預設的 **StreamingEndpoint**。 初次建立媒體服務帳戶時，此預設的 **StreamingEndpoint** 會處於停止狀態，因此您需要呼叫 **Start**。
+建立了 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) 之後，現在您就可以取得串流 URL。 若要建置的 URL，您必須串連[StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)主機名稱並**串流定位器**路徑。 此範例會使用預設的  **串流端點**。 初次建立媒體服務帳戶時，此預設的  **串流端點**會處於停止狀態，因此您需要呼叫 **Start**。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
@@ -172,7 +172,7 @@ ContentKeyIdentifierClaim 用於 ContentKeyPolicy，表示向金鑰傳遞服務�
 az group delete --name amsResourceGroup
 ```
 
-## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、 意見、 取得更新
+## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、提供意見反應、取得更新
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 

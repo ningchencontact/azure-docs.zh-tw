@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: e13907e96bba338648bddcc102e3b4f51887d0ea
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 73bc2d9889727a1633986e12642bd06cf2714632
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949914"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357320"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的單一和集區資料庫
 
@@ -29,6 +29,7 @@ ms.locfileid: "65949914"
 
 本文將討論以 Azure SQL Database 作為平台的一些核心特性，以便您可以在使用彈性集區中的單一資料庫和集區資料庫時充分運用。 這些特性如下所示：
 
+- 監視資料庫使用 Azure 入口網站
 - 業務持續性和災害復原 (BCDR)
 - 安全性與合規性
 - 智慧型資料庫監視和維護
@@ -36,6 +37,25 @@ ms.locfileid: "65949914"
 
 > [!NOTE]
 > 本文適用於 Azure SQL Database 中下列的部署選項：單一資料庫和彈性集區。 本文不適用於 SQL Database 中的受控執行個體部署選項。
+
+## <a name="monitor-databases-using-the-azure-portal"></a>使用 Azure 入口網站監視資料庫
+
+在  [Azure 入口網站](https://portal.azure.com/)，您可以監視個別資料庫的使用率選取您的資料庫，然後按一下**監視**圖表。 如此會帶出您可變更的 [度量]  視窗，只要按一下 [編輯圖表]  按鈕即可。 添加以下指标：
+
+- CPU 百分比
+- DTU 百分比
+- 資料 IO 百分比
+- 資料庫大小百分比
+
+新增這些計量之後，您就能在 [計量]  視窗上含有詳細資訊的 [監視]  圖表中繼續檢視它們。 這四個度量都會顯示與資料庫 **DTU** 相對的平均使用率百分比。 如需服務層的相關詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)文章。  
+
+![資料庫效能的服務層監視。](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
+
+还可针对性能指标配置警报。 按一下 [度量]  視窗中的 [新增警示]  按鈕。 按照向导说明来配置警报。 您可以選擇在度量超出或低於特定臨界值時發出警示。
+
+例如，如果您預期資料庫中的工作負載會成長，可以選擇設定電子郵件警示，以便在資料庫的任何效能度量達到 80% 時收到警示。 您可以使用此警示作為早期警告，協助您判斷何時需要切換至更高的計算大小。
+
+效能度量也可協助您判斷您是否能夠降級至較低的計算大小。 假設您使用標準 S2 資料庫，且所有效能度量皆顯示在指定時間內，資料庫平均使用率沒有超過 10%。 則該資料庫可能在標準 S1 中會運作得不錯。 不過，在您決定將資料庫移至較低計算大小前，請先注意暴增或大幅變動的工作負載。
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>業務持續性和災害復原 (BCDR)
 

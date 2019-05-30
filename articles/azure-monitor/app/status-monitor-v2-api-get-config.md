@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 28893e0782a7fa928757bbbba42662e6d3fa272c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ddc1f673ffec793bbca643ec1057215067f761a9
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153568"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255140"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig-v021-alpha"></a>狀態監視器 v2 API:Get-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
 
@@ -64,7 +64,7 @@ Filters:
  - [探索計量](../../azure-monitor/app/metrics-explorer.md)以監視效能和使用量
 - [搜尋事件和記錄](../../azure-monitor/app/diagnostic-search.md)來診斷問題
 - 更多進階查詢的[分析](../../azure-monitor/app/analytics.md)
-- [建立儀表板](../../azure-monitor/app/app-insights-dashboards.md)
+- [建立儀表板](../../azure-monitor/app/overview-dashboard.md)
  
  新增更多遙測：
  - [建立 web 測試](monitor-web-app-availability.md)藉此確定您的網站保持即時狀態。

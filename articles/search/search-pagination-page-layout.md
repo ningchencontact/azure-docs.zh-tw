@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: dc208f3231882a0726733c897e70557c657cddf3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6e627de5b22a67051961e70bab56b2d931129281
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024515"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244805"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>如何在 Azure 搜尋服務中使用搜尋結果
 本文會講解如何實作搜尋結果頁面的標準項目，例如次數總計、擷取文件、排序次序和導覽。 發表資料或資訊到您的搜尋結果的頁面相關選項，會由傳送到 Azure 搜尋服務的[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)要求所指定。 
 
-在 REST API 中，要求會包含 GET 命令、路徑和查詢參數，這些會對服務通知要求是什麼，以及如何制訂回應。 在.NET SDK 中，對等 API 是 [DocumentSearchResult 類別](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult?view=azure-dotnet)。
+在 REST API 中，要求會包含 GET 命令、路徑和查詢參數，這些會對服務通知要求是什麼，以及如何制訂回應。 在.NET SDK 中，對等 API 是 [DocumentSearchResult 類別](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1)。
 
 這裡有數個包含 Web 前端介面的程式碼範例：[New York City 工作示範應用程式](https://azjobsdemo.azurewebsites.net/)和 [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd)。
 

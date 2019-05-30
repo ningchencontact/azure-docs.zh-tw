@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 050f301b55c718e80c1b4157639bd9dce506f6ba
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 428a1614889409300064420e1d3d4fbc0423a0ec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979415"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237520"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>取得 Azure 資源的合規性資料
 
@@ -93,10 +93,10 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 | 資源狀態 | 效果 | 原則評估 | 合規性狀態 |
 | --- | --- | --- | --- |
-| 存在 | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | True | 不符合規範 |
-| 存在 | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | False | 相容 |
-| 換一個 | 稽核、AuditIfNotExist\* | True | 不符合規範 |
-| 換一個 | 稽核、AuditIfNotExist\* | False | 相容 |
+| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | True | 不相容 |
+| exists | 拒絕、稽核、附加\*、DeployIfNotExist\*、AuditIfNotExist\* | False | 相容 |
+| 新增 | 稽核、AuditIfNotExist\* | True | 不相容 |
+| 新增 | 稽核、AuditIfNotExist\* | False | 相容 |
 
 \* Append、DeployIfNotExist 和 AuditIfNotExist 效果需要 IF 陳述式為 TRUE。
 這些效果也需要存在條件為 FALSE，以呈現不符合規範。 若為 TRUE，IF 條件會觸發相關資源的存在條件評估。
@@ -115,7 +115,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 - **未啟動**：尚未針對原則或資源開始評估週期。
 - **未註冊**：「Azure 原則資源提供者」尚未註冊，或登入的帳戶無權讀取合規性資料。
 
-使用 azure 原則**型別**並**名稱**來判斷資源是否相符項目定義中的欄位。 當資源相符時，就會將資源視為適用，且其狀態會是 [符合規範]或 [不符合規範]。 如果 **type** 或 **name** 是定義中的唯一屬性，則會將所有資源都視為適用並進行評估。
+使用 azure 原則**型別**並**名稱**來判斷資源是否相符項目定義中的欄位。 當資源相符時，就會將資源視為適用，且其狀態會是 [符合規範]  或 [不符合規範]  。 如果 **type** 或 **name** 是定義中的唯一屬性，則會將所有資源都視為適用並進行評估。
 
 合規性百分比是透過將**符合規範**資源除以_總資源_來決定的。
 _總資源_定義為**符合規範**、**不符合規範**和**衝突**資源的總和。 整體的合規性數字是**符合規範**之不同資源的總和除以所有不同資源的總和。 在下圖中，有 20 種適用的不同資源，只有一種是**不符合規範**。 整體資源合規性為 95% (20 分之 19)。
@@ -124,7 +124,7 @@ _總資源_定義為**符合規範**、**不符合規範**和**衝突**資源的
 
 ## <a name="portal"></a>入口網站
 
-Azure 入口網站示範視覺化並了解您環境中合規性狀態的圖形化體驗。 在 [原則] 頁面上，[概觀] 選項提供有關原則和計畫合規性之可用範圍的詳細資料。 除了每個指派的合規性狀態和計數之外，還包含一個圖表，顯示過去七天的合規性。 [合規性] 頁面包含大部分相同的資訊 (圖表除外)，但提供額外的篩選和排序選項。
+Azure 入口網站示範視覺化並了解您環境中合規性狀態的圖形化體驗。 在 [原則]  頁面上，[概觀]  選項提供有關原則和計畫合規性之可用範圍的詳細資料。 除了每個指派的合規性狀態和計數之外，還包含一個圖表，顯示過去七天的合規性。 [合規性]  頁面包含大部分相同的資訊 (圖表除外)，但提供額外的篩選和排序選項。
 
 ![Azure 原則合規性頁面範例](../media/getting-compliance-data/compliance-page.png)
 
@@ -132,12 +132,12 @@ Azure 入口網站示範視覺化並了解您環境中合規性狀態的圖形�
 
 ![Azure 原則合規性詳細資料頁面範例](../media/getting-compliance-data/compliance-details.png)
 
-[資源合規性] 索引標籤上的資源清單會顯示目前指派的現有資源評估狀態。 此索引標籤預設為 [不符合規範]，但您可以進行篩選。
-由要求所觸發來建立資源的事件 (附加、稽核、拒絕、部署) 會顯示在 [事件] 索引標籤底下。
+[資源合規性]  索引標籤上的資源清單會顯示目前指派的現有資源評估狀態。 此索引標籤預設為 [不符合規範]  ，但您可以進行篩選。
+由要求所觸發來建立資源的事件 (附加、稽核、拒絕、部署) 會顯示在 [事件]  索引標籤底下。
 
 ![Azure 原則合規性事件的範例](../media/getting-compliance-data/compliance-events.png)
 
-以滑鼠右鍵按一下您想要收集更多詳細資料的事件資料列，然後選取 [顯示活動記錄]。 活動記錄頁面隨即開啟，並會預先篩選至顯示指派和事件詳細資料的搜尋結果。 活動記錄檔提供有關這些事件的其他內容和資訊。
+以滑鼠右鍵按一下您想要收集更多詳細資料的事件資料列，然後選取 [顯示活動記錄]  。 活動記錄頁面隨即開啟，並會預先篩選至顯示指派和事件詳細資料的搜尋結果。 活動記錄檔提供有關這些事件的其他內容和資訊。
 
 ![Azure 原則合規性活動記錄檔的範例](../media/getting-compliance-data/compliance-activitylog.png)
 
@@ -407,7 +407,7 @@ TenantId                   : {tenantId}
 PrincipalOid               : {principalOid}
 ```
 
-您可以透過 Azure PowerShell Cmdlet `Get-AzADUser` 使用 [PrincipalOid] 欄位來取得特定使用者。 以您從上一個範例取得的回應取代 **{principalOid}**。
+您可以透過 Azure PowerShell Cmdlet `Get-AzADUser` 使用 [PrincipalOid]  欄位來取得特定使用者。 以您從上一個範例取得的回應取代 **{principalOid}** 。
 
 ```azurepowershell-interactive
 PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
@@ -416,7 +416,8 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure 監視器記錄
 
-如果您有[Log Analytics 工作區](../../../log-analytics/log-analytics-overview.md)具有`AzureActivity`從[Activity Log Analytics 解決方案](../../../azure-monitor/platform/collect-activity-logs.md)繫結至您的訂用帳戶，您也可以檢視從評估週期使用的非合規性結果簡單的 Kusto 查詢和`AzureActivity`資料表。 有了「Azure 監視器」記錄中的詳細資料，您便可以設定警示來監看不符合規範的情況。
+如果您有[Log Analytics 工作區](../../../log-analytics/log-analytics-overview.md)具有`AzureActivity`從[Activity Log Analytics 解決方案](../../../azure-monitor/platform/activity-log-collect.md)繫結至您的訂用帳戶，您也可以檢視從評估週期使用的非合規性結果簡單的 Kusto 查詢和`AzureActivity`資料表。 有了「Azure 監視器」記錄中的詳細資料，您便可以設定警示來監看不符合規範的情況。
+
 
 ![使用 Azure 監視器記錄檔的 azure 原則合規性](../media/getting-compliance-data/compliance-loganalytics.png)
 
@@ -427,4 +428,4 @@ Trent Baker
 - 檢閱[了解原則效果](../concepts/effects.md)。
 - 了解如何[以程式設計方式建立原則](programmatically-create.md)。
 - 了解如何[補救不符合規範的資源](remediate-resources.md)。
-- 檢閱管理群組是使用[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)。
+- 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

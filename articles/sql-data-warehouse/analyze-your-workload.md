@@ -1,30 +1,29 @@
 ---
-title: 分析工作負載 - Azure SQL 資料倉儲 | Microsoft Docs
+title: 分析您的工作負載，Azure SQL 資料倉儲中 |Microsoft Docs
 description: 在 Azure SQL 資料倉儲中用來分析工作負載查詢優先順序的技術。
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: ronortloff
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-origin.date: 03/13/2019
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.date: 03/13/2019
+ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 434cbb18a109308844dbc7ff219d40948678e86e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f470670ae3d526f3b66badf219a01a471c24db0d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679095"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242230"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>分析 Azure SQL 資料倉儲的工作負載 | Microsoft Docs
 
-分析 Azure SQL 数据仓库中工作负荷的技巧。
+分析您的工作負載，Azure SQL 資料倉儲中的技術。
 
 ## <a name="resource-classes"></a>資源課程
 
-SQL 数据仓库提供资源类，可以将系统资源分配给查询。  有关资源类的详细信息，请参阅[资源类和工作负荷管理](resource-classes-for-workload-management.md)。  如果分配给查询的资源类需要的资源超出目前能够提供的量，则查询会等待。
+SQL 資料倉儲提供的資源類別來將系統資源指派給查詢。  如需有關資源類別的詳細資訊，請參閱[資源類別與工作負載管理](resource-classes-for-workload-management.md)。  如果指派給查詢的資源類別需要比目前可用的更多資源，查詢會等候。
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>已排入佇列的查詢偵測和其他 DMV
 
@@ -68,7 +67,7 @@ SQL 資料倉儲具有下列等候類型：
 * **LocalQueriesConcurrencyResourceType**：位於並行存取插槽架構外部的查詢。 DMV 查詢及 `SELECT @@VERSION` 這類的系統函數是本機查詢的範例。
 * **UserConcurrencyResourceType**：位於並行存取插槽架構內部的查詢。 針對使用者資料表的查詢代表會使用此資源類型的範例。
 * **DmsConcurrencyResourceType**：資料移動作業所產生的等候。
-* **BackupConcurrencyResourceType**：此等候指出正在備份資料庫。 此資源類型的最大值為 1。 如果在同一時間要求多個備份，其他備份會排入佇列。 通常情况下，建议连续快照的最小间隔时间为 10 分钟。 
+* **BackupConcurrencyResourceType**：此等候指出正在備份資料庫。 此資源類型的最大值為 1。 如果在同一時間要求多個備份，其他備份會排入佇列。 一般情況下，我們建議 10 分鐘的連續快照之間的最小時間。 
 
 `sys.dm_pdw_waits` DMV 可用來查看要求正在等待哪些資源。
 
@@ -107,7 +106,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-`sys.dm_pdw_resource_waits` DMV 显示给定查询的等待信息。 资源等待时间度量等待提供资源的时间。 信号等待时间是基础 SQL Server 将查询调度到 CPU 所需的时间。
+`sys.dm_pdw_resource_waits` DMV 會顯示指定的查詢等候資訊。 資源等候時間量值提供的資源所等候的時間。 訊號等候時間為基礎的 SQL server 將查詢排程到 CPU 所花費的時間。
 
 ```sql
 SELECT  [session_id]

@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 62faa47c116cceb941f575a9f76052e8bc57f036
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60474356"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243281"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>將您的工作裝置加入組織的網路
 將您工作用的 Windows 10 裝置加入組織的網路，如此就能存取可能受限的資源。
@@ -39,11 +39,11 @@ ms.locfileid: "60474356"
 
 1. 啟動新裝置並開始 OOBE 程序。
 
-2. 在 [使用 Microsoft 帳戶登入] 畫面上，輸入您的公司或學校電子郵件地址。
+2. 在 [使用 Microsoft 帳戶登入]  畫面上，輸入您的公司或學校電子郵件地址。
 
     ![使用電子郵件地址的登入畫面](./media/user-help-join-device-on-network/join-device-oobe-signin.png)
 
-3. 在 [輸入您的密碼] 畫面上，輸入您的密碼。
+3. 在 [輸入您的密碼]  畫面上，輸入您的密碼。
 
     ![[輸入您的密碼] 畫面](./media/user-help-join-device-on-network/join-device-oobe-password.png)
 
@@ -58,7 +58,7 @@ ms.locfileid: "60474356"
 ## <a name="to-make-sure-youre-joined"></a>確定您已加入
 您可以透過查看設定來確定您已加入。
 
-1. 開啟 [設定]，然後選取 [帳戶]。
+1. 開啟 [設定]  ，然後選取 [帳戶]  。
 
     ![[設定] 畫面上的帳戶](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
@@ -70,21 +70,21 @@ ms.locfileid: "60474356"
 ## <a name="to-join-an-already-configured-windows-10-device"></a>加入已經設定的 Windows 10 裝置
 如果您已擁有裝置一段時間且已設定，則您可以依照下列步驟將裝置加入網路。
 
-1. 開啟 [設定]，然後選取 [帳戶]。
+1. 開啟 [設定]  ，然後選取 [帳戶]  。
 
-2. 選取 [存取公司或學校資源]，然後選取 [連線]。
+2. 選取 [存取公司或學校資源]  ，然後選取 [連線]  。
 
     ![[存取公司或學校資源] 與 [連線] 連結](./media/user-help-join-device-on-network/join-device-access-work-school-connect.png)
 
-3. 在 [設定公司或學校帳戶] 畫面上，選取 [將此裝置加入 Azure Active Directory]。
+3. 在 [設定公司或學校帳戶]  畫面上，選取 [將此裝置加入 Azure Active Directory]  。
 
     ![設定公司或學校帳戶畫面](./media/user-help-join-device-on-network/join-device-setup-join-aad.png)
 
-4. 在 [讓我們協助您登入帳戶] 畫面上，輸入您的電子郵件地址 (例如 alain@contoso.com)，然後選取 [下一步]。
+4. 在 [讓我們協助您登入帳戶]  畫面上，輸入您的電子郵件地址 (例如 alain@contoso.com)，然後選取 [下一步]  。
 
     ![[讓我們協助您登入帳戶] 畫面](./media/user-help-join-device-on-network/join-device-setup-get-signed-in.png)
 
-5. 在 [輸入密碼] 畫面上，輸入您的密碼，然後選取 [登入]。
+5. 在 [輸入密碼]  畫面上，輸入您的密碼，然後選取 [登入]  。
 
     ![輸入密碼](./media/user-help-join-device-on-network/join-device-setup-password.png)
 
@@ -92,18 +92,18 @@ ms.locfileid: "60474356"
 
     ![行動裝置通知畫面](./media/user-help-join-device-on-network/join-device-setup-mobile.png)
 
-7. 在 [確定這是您的組織] 畫面上，檢閱資訊以確定它是正確的，然後選取 [加入]。
+7. 在 [確定這是您的組織]  畫面上，檢閱資訊以確定它是正確的，然後選取 [加入]  。
 
     ![[確定這是您的組織] 驗證畫面](./media/user-help-join-device-on-network/join-device-setup-confirm.png)
 
-8. 在 [您已就緒] 畫面上，按一下 [完成]。
+8. 在 [您已就緒]  畫面上，按一下 [完成]  。
 
     ![[您已就緒] 畫面](./media/user-help-join-device-on-network/join-device-setup-finish.png)
 
 ## <a name="to-make-sure-youre-joined"></a>確定您已加入
 您可以透過查看設定來確定您已加入。
 
-1. 開啟 [設定]，然後選取 [帳戶]。
+1. 開啟 [設定]  ，然後選取 [帳戶]  。
 
     ![[設定] 畫面上的帳戶](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
@@ -116,3 +116,4 @@ ms.locfileid: "60474356"
 
 - 如果您的組織想要您註冊個人裝置 (例如您的手機)，請參閱[在組織的網路上註冊個人裝置](user-help-register-device-on-network.md)。
 
+- 如果您的組織使用 Microsoft Intune 管理，而且您有關於註冊問題，登入，或任何其他 Intune 相關的問題，請參閱[Intune 使用者說明內容](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done)。

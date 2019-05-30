@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 2195c9a5e1f0d3683ea8cf6564d97cbabd072f81
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 825170be5dc4d1b25980c7d5037d72779169b3cc
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834206"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258062"
 ---
 # <a name="update-an-existing-saas-application-offer"></a>更新現有的 SaaS 應用程式供應項目
 
@@ -20,6 +20,7 @@ ms.locfileid: "65834206"
 
 > [!IMPORTANT] 
 > SaaS 提供的功能正移轉至[Microsoft 合作夥伴中心](https://partner.microsoft.com/dashboard/directory)。  所有新的發行者必須使用合作夥伴中心建立新的 SaaS 供應項目，以及管理現有的供應項目。  SaaS 供應項目目前的發行者 batchwise 移轉從 Cloud Partner 入口網站來合作夥伴中心。  Cloud Partner 入口網站會顯示狀態訊息，指出何時已移轉特定的現有供應項目。
+> 如需詳細資訊，請參閱 <<c0> [ 建立新的 SaaS 供應項目](../../partner-center-portal/create-new-saas-offer.md)。
 
 您可能會因為某些原因而想要更新供應項目，例如：
 
@@ -28,7 +29,7 @@ ms.locfileid: "65834206"
 - 在應用程式中新增功能。
 - 更新供應項目的市集中繼資料。
 
-為了協助您修改這些項目，入口網站提供了 [比較] 與 [歷程記錄] 功能。
+為了協助您修改這些項目，入口網站提供了 [比較]  與 [歷程記錄]  功能。
 
 ## <a name="unpermitted-changes-to-a-saas-offer"></a>不允許對 SaaS 供應項目進行的變更
 
@@ -47,9 +48,9 @@ ms.locfileid: "65834206"
 使用下列步驟來更新供應項目的支援連絡人。
 
 1. 登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)。
-2. 在 [所有供應項目] 下，尋找您要更新的供應項目。
-3. 移至 [連絡人] 索引標籤。更新您的連絡人。
-4. 選取 [發佈] 啟動工作流程，以發佈變更。
+2. 在 [所有供應項目]  下，尋找您要更新的供應項目。
+3. 移至 [連絡人]  索引標籤。更新您的連絡人。
+4. 選取 [發佈]  啟動工作流程，以發佈變更。
 
 
 ### <a name="update-offer-marketplace-metadata"></a>更新供應項目市集中繼資料
@@ -57,9 +58,9 @@ ms.locfileid: "65834206"
 使用下列步驟來更新與供應項目關聯的市集中繼資料。 (例如：公司名稱、標誌等等)
 
 1. 登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)。
-2. 在 [所有供應項目] 下，尋找您要更新的供應項目。
-3. 移至 [電子店面詳細資料] 索引標籤。使用[發佈 SaaS 供應項目](./cpp-publish-offer.md)一文的指示來進行中繼資料變更。
-4. 選取 [發佈] 啟動工作流程，以發佈變更。
+2. 在 [所有供應項目]  下，尋找您要更新的供應項目。
+3. 移至 [電子店面詳細資料]  索引標籤。使用[發佈 SaaS 供應項目](./cpp-publish-offer.md)一文的指示來進行中繼資料變更。
+4. 選取 [發佈]  啟動工作流程，以發佈變更。
 
 ## <a name="compare-feature"></a>比較功能
 
@@ -74,7 +75,7 @@ ms.locfileid: "65834206"
 
 ## <a name="publishing-history"></a>發佈記錄
 
-若要查看發佈活動記錄，請在 Cloud Partner 入口網站左邊導覽功能表列中，選擇 [記錄] 索引標籤。 您可以檢視在您的 Microsoft Azure Marketplace 供應項目生命週期期間發生的動作 (含時間戳記)。
+若要查看發佈活動記錄，請在 Cloud Partner 入口網站左邊導覽功能表列中，選擇 [記錄]  索引標籤。 您可以檢視在您的 Microsoft Azure Marketplace 供應項目生命週期期間發生的動作 (含時間戳記)。
 
 ![查看 Cloud Partner 入口網站的供應項目記錄](./media/saas-offer-history.png)
 

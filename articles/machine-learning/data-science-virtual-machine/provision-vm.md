@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 03bf0833bdc1bda24b9d435dafe329e9a3c8e4b2
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596496"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235092"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>在 Azure 上佈建 Windows 資料科學虛擬機器
 
@@ -61,7 +61,7 @@ DSVM 中包含下列工具：
 
 DSVM 可快速啟動分析專案。 您可以用各種語言處理工作，包含 R、Python、SQL 與 C#。 Visual Studio 提供容易使用的整合式開發環境 (IDE) 來開發和測試您的程式碼。 Azure SDK 包含在 VM 中，以便您使用 Microsoft 雲端平台上的各種服務來建置應用程式。
 
-這個資料科學 VM 映像沒有任何軟體費用。 您只需支付 Azure 使用費用。 費用取決於您佈建的虛擬機器大小。 計算費用的詳細資訊位於[資料科學虛擬機器](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice)頁面的 [定價詳細資料] 一節中。
+這個資料科學 VM 映像沒有任何軟體費用。 您只需支付 Azure 使用費用。 費用取決於您佈建的虛擬機器大小。 計算費用的詳細資訊位於[資料科學虛擬機器](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice)頁面的 [定價詳細資料]  一節中。
 
 ### <a name="other-dsvm-versions"></a>其他 DSVM 版本
 
@@ -78,7 +78,7 @@ DSVM 可快速啟動分析專案。 您可以用各種語言處理工作，包�
 若要建立 DSVM 執行個體：
 
 1. 移至 [Azure 入口網站](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016)上的虛擬機器清單。 如果您尚未登入 Azure 帳戶，系統可能會提示您登入。
-1. 選取底部的 [建立] 按鈕。
+1. 選取底部的 [建立]  按鈕。
 
    ![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
 
@@ -89,24 +89,24 @@ DSVM 可快速啟動分析專案。 您可以用各種語言處理工作，包�
       * **VM 磁碟類型**：**SSD** 或 **HDD**。 針對 NC_v1 GPU 執行個體 (像是 NVidia Tesla K80 型)，請選擇 **HDD** 作為磁碟類型。
       * **使用者名稱**：管理帳戶識別碼
       * **密碼**：管理帳戶密碼
-      * 訂用帳戶：如果您有多個訂用帳戶，請選取要用來建立機器和開立帳單的訂用帳戶。
+      * 訂用帳戶  ：如果您有多個訂用帳戶，請選取要用來建立機器和開立帳單的訂用帳戶。
       * **資源群組**。 您可以建立新群組或使用現有的群組。
       * **位置**。 選取最適合的資料中心。 如需最快速的網路存取，請選取擁有您大部分資料或是最接近您實際位置的資訊中心。
-   1. **大小**：選取其中一個符合您的功能性需求和成本條件約束的伺服器類型。 如需更多 VM 大小的選項，請選取 [檢視全部]。
+   1. **大小**：選取其中一個符合您的功能性需求和成本條件約束的伺服器類型。 如需更多 VM 大小的選項，請選取 [檢視全部]  。
    1. **設定**：  
-      * **使用受控磁碟**。 如果您想要 Azure 來管理 VM 的磁碟，則選擇 [受控]。 否則，您必須指定新的或現有的儲存體帳戶。  
+      * **使用受控磁碟**。 如果您想要 Azure 來管理 VM 的磁碟，則選擇 [受控]  。 否則，您必須指定新的或現有的儲存體帳戶。  
       * **其他參數**。 您可以使用預設值。 如果您想要使用非預設值，可將滑鼠停留在特定欄位的資訊連結上以取得說明。
-   1. **摘要**：請確認您輸入的所有資訊都正確無誤。 選取 [建立] 。
+   1. **摘要**：請確認您輸入的所有資訊都正確無誤。 選取 [建立]  。
 
 > [!NOTE]
-> * 除了您在 [大小] 步驟中所選伺服器大小的計算成本之外，VM 不會產生任何其他費用。
+> * 除了您在 [大小]  步驟中所選伺服器大小的計算成本之外，VM 不會產生任何其他費用。
 > * 佈建需要大約 10 到 20 分鐘的時間。 您可以在 Azure 入口網站上檢視 VM 的狀態。
 
 ## <a name="how-to-access-the-dsvm"></a>如何存取 DSVM
 
-建立及佈建 VM 之後，您可以使用您在前面 [基本] 區段中設定的系統管理員帳戶認證從遠端桌面登入 VM。 您已準備好開始使用在 VM 上安裝及設定的工具。 許多工具都可以透過開始功能表圖格和桌面圖示存取。
+建立及佈建 VM 之後，您可以使用您在前面 [基本]  區段中設定的系統管理員帳戶認證從遠端桌面登入 VM。 您已準備好開始使用在 VM 上安裝及設定的工具。 許多工具都可以透過開始功能表圖格和桌面圖示存取。
 
-您也可以附加至要在 VM 上執行的 Jupyter notebook，並略過的 「 免費 」 服務層限制的 Azure Notebooks 的資料科學 VM。 如需詳細資訊，請參閱 <<c0> [ 管理和設定 Notebook 專案-計算層](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)。
+您也可以附加至要在 VM 上執行的 Jupyter notebook，並略過的 「 免費 」 服務層限制的 Azure Notebooks 的資料科學 VM。 如需詳細資訊，請參閱 <<c0> [ 管理和設定 Notebook 專案-計算層](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)。
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Microsoft 資料科學虛擬機器上所安裝的工具
 
@@ -125,7 +125,7 @@ Machine Learning Server 會藉由新增資料的平行和區塊處理，解決�
 為了能夠使用 Python 進行開發，已安裝 Anaconda Python 散發套件 2.7 與 3.6。 這些散發套件具有基底 Python 以及大約 300 個最受歡迎的數學運算、工程設計和資料分析封裝。 您可以使用 Visual Studio Community 2017 內安裝的 PTVS。 或者，您可以使用其中一個隨附於 Anaconda 的 IDE，像是 IDLE 或 Spyder。 搜尋並啟動其中一個套件 (Win + S)。
 
 > [!NOTE]
-> 若要將「適用於 Visual Studio 的 Python 工具」指向 Anaconda Python 2.7，您必須為每個版本建立自訂的環境。 若要在 Visual Studio 2017 Community 中設定這些環境路徑，請瀏覽至 [工具] > [Python 工具] > [Python 環境]。 然後選取 [+ 自訂]。
+> 若要將「適用於 Visual Studio 的 Python 工具」指向 Anaconda Python 2.7，您必須為每個版本建立自訂的環境。 若要在 Visual Studio 2017 Community 中設定這些環境路徑，請瀏覽至 [工具]   > [Python 工具]   > [Python 環境]  。 然後選取 [+ 自訂]  。
 
 Anaconda Python 3.6 安裝在 **C:\Anaconda** 之下。 Anaconda Python 2.7 則安裝在 **C:\Anaconda\envs\python2** 之下。 如需詳細步驟，請參閱 [PTVS 文件](https://docs.microsoft.com/visualstudio/python/installing-python-interpreters)。
 
@@ -148,7 +148,7 @@ Jupyter Notebook 也隨附 Anaconda 散發套件，這是一個共用程式碼�
 
 DSVM 包含 Visual Studio Community。 這是 Microsoft 提供的熱門 IDE 的免費版本，可供用於進行評估，且適合小型團隊。 請參閱[授權條款](https://www.visualstudio.com/support/legal/mt171547)。
 
-使用桌面圖示或 [開始] 功能表來開啟 Visual Studio。 搜尋程式 (Win + S)，後面接著 **Visual Studio**。 從那裡，您可以使用像是 C#、Python、R 及 node.js 等語言來建立專案。 已安裝的外掛程式方便您使用下列 Azure 服務：
+使用桌面圖示或 [開始]  功能表來開啟 Visual Studio。 搜尋程式 (Win + S)，後面接著 **Visual Studio**。 從那裡，您可以使用像是 C#、Python、R 及 node.js 等語言來建立專案。 已安裝的外掛程式方便您使用下列 Azure 服務：
 
 * Azure 資料目錄
 * Azure HDInsight Hadoop 和 Spark
@@ -166,7 +166,7 @@ DSVM 隨附於具有機器學習服務的 SQL Server 2017 開發人員版本。 
 > [!NOTE]
 > SQL Server Developer 版本只能用於進行開發和測試。 您需要授權，才能在生產環境中執行它。
 
-您可藉由啟動 Microsoft SQL Server Management Studio 來存取 SQL Server。 您的 VM 名稱會填入為 [伺服器名稱]。 在 Windows 上以系統管理員身分登入時，請使用 Windows 驗證。 當您在 SQL Server Management Studio 中，您可以建立其他使用者、建立資料庫、匯入資料以及執行 SQL 查詢。
+您可藉由啟動 Microsoft SQL Server Management Studio 來存取 SQL Server。 您的 VM 名稱會填入為 [伺服器名稱]  。 在 Windows 上以系統管理員身分登入時，請使用 Windows 驗證。 當您在 SQL Server Management Studio 中，您可以建立其他使用者、建立資料庫、匯入資料以及執行 SQL 查詢。
 
 若要使用 SQL 機器學習服務啟用資料庫內分析，在以伺服器系統管理員身分登入後，請在 SQL Server Management Studio 中執行下列命令 (一次性動作)：
 
@@ -182,7 +182,7 @@ CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS
 
 * 前往 Azure SDK 文件的桌面捷徑。
 * 使用 **AzCopy** 在 Azure 儲存體帳戶的內部和外部複製資料。 若要查看使用情況，在命令提示字元中輸入 **Azcopy**。
-* 使用 **Azure 儲存體總管**來瀏覽您儲存在 Azure 儲存體帳戶中的物件。 它也會從 Azure 儲存體來回複製資料。 若要存取此工具，請在 [搜尋] 欄位中輸入**儲存體總管**。 或在 Windows [開始] 功能表上找到。
+* 使用 **Azure 儲存體總管**來瀏覽您儲存在 Azure 儲存體帳戶中的物件。 它也會從 Azure 儲存體來回複製資料。 若要存取此工具，請在 [搜尋]  欄位中輸入**儲存體總管**。 或在 Windows [開始]  功能表上找到。
 * **Adlcopy** 會將資料複製到 Azure Data Lake。 若要查看使用情況，請在命令提示字元中輸入 **adlcopy**。
 * **dtui** 會從 Azure Cosmos DB (雲端上的 NoSQL 資料庫) 往返複製資料。 請在命令提示字元中輸入**dtui**。
 * **Azure Data Factory Integration Runtime** 可在內部部署資料來源與雲端之間複製資料。 其使用於 Azure Data Factory 之類的工具。
@@ -190,7 +190,7 @@ CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS
 
 ### <a name="power-bi"></a>Power BI
 
-DSVM 已安裝 **Power BI Desktop**，以協助您建立儀表板和視覺效果。 使用此工具以從不同來源提取資料，來撰寫您的儀表板和報告並發佈至雲端。 如需詳細資訊，請參閱 [Power BI](https://powerbi.microsoft.com) 網站。 您可以在 [開始] 功能表上找到 Power BI 桌面。
+DSVM 已安裝 **Power BI Desktop**，以協助您建立儀表板和視覺效果。 使用此工具以從不同來源提取資料，來撰寫您的儀表板和報告並發佈至雲端。 如需詳細資訊，請參閱 [Power BI](https://powerbi.microsoft.com) 網站。 您可以在 [開始]  功能表上找到 Power BI 桌面。
 
 > [!NOTE]
 > 您需要 Microsoft Office 365 帳戶才能存取 Power BI。
@@ -226,9 +226,9 @@ Python SDK 會預先安裝在「Microsoft 資料科學虛擬機器」上。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 選取 [開始] 功能表，以探索資料科學 VM 上的工具。
+* 選取 [開始]  功能表，以探索資料科學 VM 上的工具。
 * 閱讀[什麼是 Azure Machine Learning 服務？](../service/overview-what-is-azure-ml.md)並嘗試可用的[快速入門和教學課程](../service/index.yml)以了解 Azure Machine Learning 服務。
 * 在檔案總管中，瀏覽至 **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts**，以取得在 R 中使用 RevoScaleR 程式庫的範例，其支援企業規模的資料分析。  
 * 閱讀文章：[您可以在 Data Science Virtual Machine 上做的十件事](https://aka.ms/dsvmtenthings)。
 * 了解如何使用 [Team Data Science Process](../team-data-science-process/index.yml)，以系統化方式建置端對端分析方案。
-* 瀏覽 [Azure AI 資源庫](https://gallery.cortanaintelligence.com)，可取得在 Azure 上使用 Azure Machine Learning 和相關資料服務的機器學習和資料分析範例。 我們也已經在虛擬機器的 [開始] 功能表與桌面上提供此資源庫的圖示。
+* 瀏覽 [Azure AI 資源庫](https://gallery.cortanaintelligence.com)，可取得在 Azure 上使用 Azure Machine Learning 和相關資料服務的機器學習和資料分析範例。 我們也已經在虛擬機器的 [開始]  功能表與桌面上提供此資源庫的圖示。

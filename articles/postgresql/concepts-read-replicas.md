@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: ce99e03cbd767b5e25871397ea9ae9a301132ab6
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 13580289144d798a57e636f15ab5bce629ff3572
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510984"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242285"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-單一伺服器中讀取複本
 
@@ -40,10 +40,9 @@ ms.locfileid: "65510984"
 
 當您開始建立複本的工作流程時，系統會建立空白的「適用於 PostgreSQL 的 Azure 資料庫」伺服器。 新的伺服器會具有主要伺服器上的資料。 建立時間取決於主要伺服器上的資料量，以及距離上次每週完整備份的時間。 時間的範圍可能介於數分鐘到數小時。
 
-讀取複本功能會使用 PostgreSQL 的實體複寫，而非邏輯複寫。 使用複寫位置的串流複寫是預設作業模式。 必要時，系統會使用記錄傳送來跟上進度。
+每個複本都可使用儲存體[自動成長](concepts-pricing-tiers.md#storage-auto-grow)。 「 真的 」 功能可讓以跟上，複寫的資料，並避免中斷超出儲存體錯誤所造成的複寫複本。
 
-> [!NOTE]
-> 如果您沒有在伺服器上設定儲存體警示，建議您這麼做。 警示會在伺服器接近儲存體限制時向您發出通知，因為此狀況會影響複寫。
+讀取複本功能會使用 PostgreSQL 的實體複寫，而非邏輯複寫。 使用複寫位置的串流複寫是預設作業模式。 必要時，系統會使用記錄傳送來跟上進度。
 
 了解如何[在 Azure 入口網站中建立讀取複本](howto-read-replicas-portal.md)。
 

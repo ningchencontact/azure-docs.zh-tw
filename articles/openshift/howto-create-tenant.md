@@ -1,18 +1,18 @@
 ---
 title: 建立 Azure AD 租用戶的 Azure Red Hat OpenShift |Microsoft Docs
 description: 以下是如何建立 Azure Active Directory (Azure AD) 租用戶來裝載您的 Microsoft Azure 的 Red Hat OpenShift 叢集。
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.service: container-service
 manager: jeconnoc
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 04d710f4d60b776f8059d87ea4d009bed6f7f8ba
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 560cdcf8a99a486c7f5177b675cff327c6fb6a41
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551693"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306451"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>建立 Azure AD 租用戶的 Azure Red Hat OpenShift
 
@@ -29,7 +29,7 @@ ms.locfileid: "65551693"
 3. 提供**組織名稱**。
 4. 提供**初始網域名稱**。 這會造成*onmicrosoft.com*附加到它。 您可以重複使用的值*組織名稱*這裡。
 5. 選擇國家/地區或區域將會在當中建立租用戶。
-6. 按一下頁面底部的 [新增] 。
+6. 按一下頁面底部的 [新增]  。
 7. 建立 Azure AD 租用戶之後，請選取**按一下這裡管理您的新目錄**連結。 在 Azure 入口網站右上方，應該會顯示您新的租用戶名稱：  
 
     ![在右上方顯示租用戶名稱的入口網站的螢幕擷取畫面][tenantcallout]  

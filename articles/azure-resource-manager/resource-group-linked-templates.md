@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: bbbaef306b9ed2bb415b29bc6d96dcfe649338f9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 95044373800441bdcc04bdb84e8485dce29f11e7
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205931"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357411"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 資源時使用連結和巢狀的範本
 
@@ -91,7 +91,7 @@ ms.locfileid: "65205931"
 > [!NOTE]
 > 對於巢狀範本，您無法使用巢狀範本中定義的參數或變數。 您可以使用來自主要範本的參數和變數。 在上述範例中，`[variables('storageName')]` 會從主要範本擷取值，而不是巢狀範本。 這項限制不適用於外部範本。
 >
-> 如果在嵌套的模板内定义了两个资源并且一个资源依赖于另一个资源，则依赖项的值就是被依赖资源的名称：
+> 兩個資源定義內的巢狀的範本和一個資源相依於其他、 相依性的值就是相依的資源名稱：
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"

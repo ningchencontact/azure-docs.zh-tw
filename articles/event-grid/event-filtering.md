@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 9f284fea701220906a994cf108ed58cb6998aef9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 76a4c16afc9edef0a88ac9f2892de9738fd30289
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187665"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305063"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>了解適用於事件格線訂用帳戶的事件篩選
 
@@ -140,8 +140,6 @@ ms.locfileid: "65187665"
 * 每個事件格線訂用帳戶只能有五個進階篩選
 * 每個字串值只能有 512 個字元
 * **in** 和 **not in** 運算子個別只能有五個值
-* 索引鍵只能有一個層級的巢狀結構 (例如 data.key1)
-* 自訂事件結構描述只能在最上層欄位上進行篩選
 
 相同的索引鍵可以用在多個篩選中。
 

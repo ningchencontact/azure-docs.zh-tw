@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: jingwang
-ms.openlocfilehash: 9ca3cbb1ef46c7fe53b6b16bda40ebef245613f3
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 80ef8870bafa00f3debda99db299018a39d42a82
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415664"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245044"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Office 365 中的資料複製到 Azure 中使用 Azure Data Factory
 
@@ -41,8 +41,8 @@ Azure Data Factory 可讓您將 Office 365 租用戶中豐富的組織資料以�
 - 您的 Office 365 租用戶系統管理員必須完成上架動作，如[此處](https://docs.microsoft.com/graph/data-connect-get-started)所述。
 - 在 Azure Active Directory 中建立和設定 Azure AD Web 應用程式。  如需指示，請參閱[建立 Azure AD 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)。
 - 請記下以下的值，您可以使用這些值來定義 Office 365 的連結服務：
-    - 租用戶識別碼。 如需相關指示，請參閱[取得租用戶識別碼](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id)。
-    - 應用程式識別碼和驗證金鑰。  如需相關指示，請參閱[取得應用程式識別碼和驗證金鑰](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key)。
+    - 租用戶識別碼。 如需相關指示，請參閱[取得租用戶識別碼](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)。
+    - 應用程式識別碼和驗證金鑰。  如需相關指示，請參閱[取得應用程式識別碼和驗證金鑰](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)。
 - 新增使用者身分識別，該使用者會以 Azure AD Web 應用程式擁有者身分進行資料存取要求 (從 [Azure AD Web 應用程式] > [設定] > [擁有者] > [新增擁有者])。 
     - 使用者身分識別必須位於要從中取得資料的 Office 365 組織中，而且不可以是來賓使用者。
 
@@ -78,12 +78,12 @@ Azure Data Factory 可讓您將 Office 365 租用戶中豐富的組織資料以�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**Office365** | 有 |
-| office365TenantId | Office 365 帳戶所屬的 Azure 租用戶識別碼。 | 有 |
-| servicePrincipalTenantId | 指定您 Azure AD Web 應用程式所在的租用戶資訊。 | 有 |
+| type | 類型屬性必須設定為：**Office365** | 是 |
+| office365TenantId | Office 365 帳戶所屬的 Azure 租用戶識別碼。 | 是 |
+| servicePrincipalTenantId | 指定您 Azure AD Web 應用程式所在的租用戶資訊。 | 是 |
 | servicePrincipalId | 指定應用程式的用戶端識別碼。 | 是 |
-| servicePrincipalKey | 指定應用程式的金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 | 有 |
-| connectVia | 用來連線到資料存放區的整合執行階段。  如果未指定，就會使用預設的 Azure Integration Runtime。 | 無 |
+| servicePrincipalKey | 指定應用程式的金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 | 是 |
+| connectVia | 用來連線到資料存放區的整合執行階段。  如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 |
 
 >[!NOTE]
 > **office365TenantId** 與 **servicePrincipalTenantId** 之間的差異以及要提供的對應值：
@@ -118,10 +118,10 @@ Azure Data Factory 可讓您將 Office 365 租用戶中豐富的組織資料以�
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**Office365Table** | 有 |
-| tableName | 擷取自 Office 365 的資料集名稱。 如需可供擷取的 Office 365 資料集清單，請參閱[這裡](https://docs.microsoft.com/graph/data-connect-datasets#datasets)。 | 有 |
-| allowedGroups | 群組選取述詞。  您可以使用這個屬性來選取最多 10 個使用者群組，將其擷取的資料。  如果沒有指定任何群組，則會在整個組織傳回的資料。 | 無 |
-| userScopeFilterUri | 當`allowedGroups`未指定屬性，您可以使用會套用至整個租用戶，以擷取從 Office 365 的特定資料列篩選述詞運算式。 述詞的格式應該符合查詢的格式 Microsoft Graph Api，例如`https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`。 | 無 |
+| type | 資料集的類型屬性必須設定為：**Office365Table** | 是 |
+| tableName | 擷取自 Office 365 的資料集名稱。 如需可供擷取的 Office 365 資料集清單，請參閱[這裡](https://docs.microsoft.com/graph/data-connect-datasets#datasets)。 | 是 |
+| allowedGroups | 群組選取述詞。  您可以使用這個屬性來選取最多 10 個使用者群組，將其擷取的資料。  如果沒有指定任何群組，則會在整個組織傳回的資料。 | 否 |
+| userScopeFilterUri | 當`allowedGroups`未指定屬性，您可以使用會套用至整個租用戶，以擷取從 Office 365 的特定資料列篩選述詞運算式。 述詞的格式應該符合查詢的格式 Microsoft Graph Api，例如`https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`。 | 否 |
 | dateFilterColumn | 日期時間篩選條件資料行的名稱。 您可以使用這個屬性來限制哪些 Office 365 擷取資料的時間範圍。 | 如果資料集有一或多個日期時間資料行，[是]。 請參閱[此處](https://docs.microsoft.com/graph/data-connect-filtering#filtering)如需要這個日期時間篩選器的資料集的清單。 |
 | startTime | 開始日期時間值，做為篩選條件。 | [是] 如果`dateFilterColumn`指定 |
 | endTime | 結束日期時間值，做為篩選條件。 | [是] 如果`dateFilterColumn`指定 |

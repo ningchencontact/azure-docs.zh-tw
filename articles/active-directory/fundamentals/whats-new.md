@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 05/23/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74767e9d00f630efd2be026c3c3688c816c2ccee
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 387f1e0bf6461b5e87da1de35e74c5e49c5dc632
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113367"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305534"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -40,6 +40,18 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 ---
 
 ## <a name="april-2019"></a>2019 年 4 月
+
+### <a name="new-azure-ad-threat-intelligence-detection-is-now-available-in-refreshed-azure-ad-identity-protection"></a>新 Azure AD 威脅智慧偵測現已在重新整理的 Azure AD Identity Protection
+
+**類型：** 新功能  
+**服務類別：** Azure AD Identity Protection  
+**產品功能：** 身分識別安全性與保護
+
+現在可在重新整理的 Azure AD Identity Protection 中使用 azure AD 的威脅情報偵測。 這項新功能，可協助指出特定使用者的不尋常或這是已知的攻擊模式，根據 Microsoft 內部和外部威脅情報與一致的使用者活動。
+
+如需 Azure AD Identity Protection 的重新整理版本的詳細資訊，請參閱[四個主要的 Azure AD Identity Protection 增強功能現為公開預覽版](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935)部落格和[什麼是 Azure Active Directory（重新整理） 的身分識別保護嗎？](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2) 發行項。 如需有關 Azure AD 威脅智慧偵測的詳細資訊，請參閱[Azure Active Directory Identity Protection 風險事件](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#azure-ad-threat-intelligence)文章。
+
+---
 
 ### <a name="azure-active-directory-azure-ad-entitlement-management-is-now-available-public-preview"></a>Azure Active Directory (Azure AD) 權利管理現在為可用 （公開預覽）
 
@@ -125,7 +137,7 @@ Azure AD 權限管理，現處於公開預覽狀態，可協助客戶委派管�
 **服務類別：** AD 同步  
 **產品功能：** 平台
 
-Azure AD Connect 正在轉換我們的電子郵件警示系統，可能會顯示某些客戶新的電子郵件寄件者。 若要解決此問題，您必須新增`azure-noreply@microsoft.com`到貴組織的允許清單，或者您將無法繼續收到來自您 Office 365、 Azure 或您的同步處理服務的重要的警示。
+Azure AD Connect 正在轉換我們的電子郵件警示系統，可能會顯示某些客戶新的電子郵件寄件者。 若要解決此問題，您必須新增`azure-noreply@microsoft.com`到您的組織允許清單，或您將無法繼續收到來自您 Office 365、 Azure 或您的同步處理服務的重要的警示。
 
 ---
 
@@ -286,10 +298,10 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統，可能會顯示
 ### <a name="improved-end-user-terms-of-use-experiences-on-mobile-devices"></a>中的行動裝置上的使用經驗的改良的使用者條款
 
 **類型：** 已變更的功能  
-**服務類別：** 使用條款  
+**服務類別：** 使用規定  
 **產品功能：** 控管
 
-我們已更新我們現有的條款的使用體驗以協助改善您在檢閱並同意在行動裝置上的使用規定。 此外，您現在可以放大和縮小，返回、 下載的詳細資訊，並選取超連結。 如需已更新使用規定的詳細資訊，請參閱[Azure Active Directory 使用規定特性](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users)。
+我們已更新的使用體驗，以協助改善您在檢閱並同意在行動裝置上的使用規定我們現有的條款。 此外，您現在可以放大和縮小，返回、 下載的詳細資訊，並選取超連結。 如需已更新使用規定的詳細資訊，請參閱[Azure Active Directory 使用規定特性](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users)。
 
 ---
 
@@ -469,11 +481,11 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統，可能會顯示
 
 我們引進了三項新的 cookie 設定，以供透過應用程式 Proxy 發佈的應用程式使用：
 
-- **使用僅限 HTTP Cookie。** 在您的應用程式 Proxy 存取和工作階段 Cookie 上設定 **HTTPOnly** 旗標。 開啟此設定可提供額外的安全性優點，例如協助防止透過用戶端指令碼複製或修改 Cookie。 我們建議您開啟這個旗標 (選擇 [是])，以獲得附加好處。
+- **使用僅限 HTTP Cookie。** 在您的應用程式 Proxy 存取和工作階段 Cookie 上設定 **HTTPOnly** 旗標。 開啟此設定可提供額外的安全性優點，例如協助防止透過用戶端指令碼複製或修改 Cookie。 我們建議您開啟這個旗標 (選擇 [是]  )，以獲得附加好處。
 
-- **使用安全的 Cookie。** 在您的應用程式 Proxy 存取和工作階段 Cookie 上設定 [安全] 旗標。 開啟此設定可提供額外的安全性優點，例如確定 Cookie 只會透過 TLS 安全通道 (例如 HTTPS) 傳輸。 我們建議您開啟這個旗標 (選擇 [是])，以獲得附加好處。
+- **使用安全的 Cookie。** 在您的應用程式 Proxy 存取和工作階段 Cookie 上設定 [安全]  旗標。 開啟此設定可提供額外的安全性優點，例如確定 Cookie 只會透過 TLS 安全通道 (例如 HTTPS) 傳輸。 我們建議您開啟這個旗標 (選擇 [是]  )，以獲得附加好處。
 
-- **使用永續性 Cookie。** 防止存取 Cookie 在關閉 Web 瀏覽器關閉時過期。 這些 Cookie 會在存取權杖的存留期中持續存在。 不過，如果已達到期時間，或是使用者手動刪除 Cookie，便會重設 Cookie。 我們建議您保留預設設定 [否]，僅針對程序間不共用 Cookie 的舊版應用程式開啟此設定。
+- **使用永續性 Cookie。** 防止存取 Cookie 在關閉 Web 瀏覽器關閉時過期。 這些 Cookie 會在存取權杖的存留期中持續存在。 不過，如果已達到期時間，或是使用者手動刪除 Cookie，便會重設 Cookie。 我們建議您保留預設設定 [否]  ，僅針對程序間不共用 Cookie 的舊版應用程式開啟此設定。
 
 如需新 Cookie 的詳細資訊，請參閱 [Azure Active Directory 中用來存取內部部署應用程式的 Cookie 設定](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)。
 
@@ -575,14 +587,14 @@ Privileged Identity Management (PIM) 系統管理員現在可以針對特定資�
 我們目前透過 Azure 監視器發佈稽核和登入記錄資料流，因此您可以將記錄檔與 SIEM 工具或 Log Analytics完美整合。 根據您的意見反應，並準備此功能正式發行的宣佈，我們對結構描述進行下列變更。 這些結構描述變更及其相關文件更新將在 1 月的第一週進行。
 
 #### <a name="new-fields-in-the-audit-schema"></a>稽核結構描述中的新欄位
-我們正在新增新的 [操作類型] 欄位，以提供對資源執行的操作類型。 例如，**新增**、**更新**或**刪除**。
+我們正在新增新的 [操作類型]  欄位，以提供對資源執行的操作類型。 例如，**新增**、**更新**或**刪除**。
 
 #### <a name="changed-fields-in-the-audit-schema"></a>稽核結構描述中變更的欄位
 稽核結構描述中的下列欄位會變更：
 
 |欄位名稱|變更內容|舊值|新值|
 |----------|------------|----------|----------|
-|類別|這以前是 [服務名稱] 欄位。 現在是 [稽核類別] 欄位。 [服務名稱] 已重新命名為 [loggedByService] 欄位。|<ul><li>帳戶佈建</li><li>核心目錄</li><li>自助式密碼重設</li></ul>|<ul><li>使用者管理</li><li>群組管理</li><li>應用程式管理</li></ul>|
+|類別|這以前是 [服務名稱]  欄位。 現在是 [稽核類別]  欄位。 [服務名稱]  已重新命名為 [loggedByService]  欄位。|<ul><li>帳戶佈建</li><li>核心目錄</li><li>自助式密碼重設</li></ul>|<ul><li>使用者管理</li><li>群組管理</li><li>應用程式管理</li></ul>|
 |targetResources|包含最高層級的 **TargetResourceType**。|&nbsp;|<ul><li>原則</li><li>應用程式</li><li>使用者</li><li>群組</li></ul>|
 |loggedByService|提供產生稽核記錄之服務的名稱。|Null|<ul><li>帳戶佈建</li><li>核心目錄</li><li>自助式密碼重設</li></ul>|
 |結果|提供稽核記錄的結果。 在過去這是列舉的，但我們現在會顯示實際值。|<ul><li>0</li><li>1</li></ul>|<ul><li>成功</li><li>失敗</li></ul>|
@@ -592,7 +604,7 @@ Privileged Identity Management (PIM) 系統管理員現在可以針對特定資�
 
 |欄位名稱|變更內容|舊值|新值|
 |----------|------------|----------|----------|
-|appliedConditionalAccessPolicies|這以前是 [conditionalaccessPolicies] 欄位。 現在是 [appliedConditionalAccessPolicies] 欄位。|無變更|無變更|
+|appliedConditionalAccessPolicies|這以前是 [conditionalaccessPolicies]  欄位。 現在是 [appliedConditionalAccessPolicies]  欄位。|無變更|無變更|
 |conditionalAccessStatus|在登入時提供條件式存取原則狀態的結果。 在過去這是列舉的，但我們現在會顯示實際值。|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>成功</li><li>失敗</li><li>未套用</li><li>已停用</li></ul>|
 |appliedConditionalAccessPolicies: result|在登入時提供個別條件式存取原則狀態的結果。 在過去這是列舉的，但我們現在會顯示實際值。|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>成功</li><li>失敗</li><li>未套用</li><li>已停用</li></ul>|
 
@@ -661,37 +673,37 @@ Azure AD 系統管理員現在可以使用 Microsoft Authenticator 應用程式�
 ### <a name="administrators-can-require-users-to-accept-a-terms-of-use-on-each-device"></a>系統管理員可以要求使用者接受每個裝置上的使用規定
 
 **類型：** 新功能  
-**服務類別：** 使用條款  
+**服務類別：** 使用規定  
 **產品功能：** 控管
  
-系統管理員現在可以開啟 [需要使用者在每部裝置上同意] 選項，要求使用者接受他們在您的租用戶上所使用之每個裝置的使用規定。
+系統管理員現在可以開啟**使用者必須同意每個裝置上**選項會要求使用者接受他們使用您的租用戶每個裝置上的使用規定。
 
-如需詳細資訊，請參閱 [Azure Active Directory 使用規定特性的＜每部裝置的使用規定＞一節](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use)。
+如需詳細資訊，請參閱 <<c0> [ 每一裝置的 Azure Active Directory 使用規定特性使用 > 一節的規定](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use)。
 
 ---
 
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>系統管理員可以根據週期性排程將使用規定設定為到期
+### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>系統管理員可以設定為根據的週期性排程過期的使用規定
 
 **類型：** 新功能  
-**服務類別：** 使用條款  
+**服務類別：** 使用規定  
 **產品功能：** 控管
  
 
-系統管理員現在可以開啟 [到期同意]選項，根據您指定的週期性排程，為所有使用者設定使用規定到期。 排程可以是每年、每兩年、每季，或每個月。 使用規定到期之後，必須接受使用者。
+系統管理員現在可以開啟**到期同意**到期的所有使用者根據您指定的週期性排程的選項，以便將使用規定。 排程可以是每年、每兩年、每季，或每個月。 使用規定到期之後，必須接受使用者。
 
-如需詳細資訊，請參閱 [Azure Active Directory 使用規定特性的＜新增使用規定＞一節](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use)。
+如需詳細資訊，請參閱 <<c0> [ 新增的 Azure Active Directory 使用規定特性使用 > 一節的詞彙](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use)。
 
 ---
 
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-each-users-schedule"></a>系統管理員可以根據每位使用者的排程，將使用規定設定為到期
+### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-each-users-schedule"></a>系統管理員可以設定為過期 根據排程每位使用者的使用規定
 
 **類型：** 新功能  
-**服務類別：** 使用條款  
+**服務類別：** 使用規定  
 **產品功能：** 控管
 
-系統管理員現在可以指定使用者必須重新接受使用規定的持續時間。 例如，系統管理員可以指定使用者必須每隔 90 天重新接受使用規定。
+系統管理員現在可以指定持續時間，該使用者必須接受使用規定。 比方說，系統管理員可以指定使用者必須接受使用規定每隔 90 天。
 
-如需詳細資訊，請參閱 [Azure Active Directory 使用規定特性的＜新增使用規定＞一節](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use)。
+如需詳細資訊，請參閱 <<c0> [ 新增的 Azure Active Directory 使用規定特性使用 > 一節的詞彙](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use)。
  
 ---
 

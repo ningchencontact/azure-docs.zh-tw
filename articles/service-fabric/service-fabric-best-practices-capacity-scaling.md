@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: c72392e46805049703300dd6f60fc7bf08b9053b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9bddb6552b11dd506ee3e2c1c416c15da11048b7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235775"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258745"
 ---
 # <a name="capacity-planning-and-scaling"></a>容量規劃和調整
 
@@ -42,7 +42,7 @@ ms.locfileid: "65235775"
 
 ## <a name="vertical-scaling-considerations"></a>垂直調整考量
 
-[垂直調整](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)Azure Service Fabric 中的節點類型需要的步驟和考量的數字。 例如：
+[垂直調整](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)Azure Service Fabric 中的節點類型需要的步驟和考量的數字。 例如: 
 
 * 在調整之前，叢集必須處於良好狀態。 否則您只會進一步在叢集中造成不穩定。
 * **銀級耐久性層級或更高**需要裝載具狀態服務的所有 Service Fabric 叢集節點類型。
@@ -70,6 +70,9 @@ ms.locfileid: "65235775"
 2. 執行 `Get-ServiceFabricNode` 以確保節點已轉換為停用狀態。 如果沒有，請等到節點停用。 每個節點可能各需要數小時的時間。 請等到節點已轉換為停用狀態後，再繼續操作。
 3. 將該節點類型的 VM 數目減少一個。 此時將會移除最高的 VM 執行個體。
 4. 視需要重複步驟 1 到 3，但是請永遠不要將主要節點類型的執行個體數目相應減少到少於可靠性層級所需的數目。 如需建議的行個體清單，請參閱[規劃 Service Fabric 叢集容量](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)。
+
+> [!NOTE]
+> 支援的案例，來執行垂直調整作業的時機為：我可以移轉我的 Service Fabric 叢集和應用程式從非受控磁碟為受控磁碟而不需要應用程式停機。 藉由佈建新的虛擬機器擴展集使用受控磁碟，並執行含有放置約束限制應用程式升級為目標佈建容量，Service Fabric 叢集可以排程您的升級網域的推出而不需要應用程式停機的佈建的叢集節點容量的工作負載。 [Azure 負載平衡器基本 SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus)後端集區端點也可以在一個可用性設定組或虛擬機器擴展集虛擬機器。 這表示您無法使用基本 SKU 負載平衡器，如果您在擴展集之間移動您的 Service Fabric 系統應用程式，而不會造成暫時無法存取您的 Service fabric 叢集管理端點，即使叢集和其應用程式仍在執行;通常使用者佈建的標準 SKU 負載平衡器中，執行基本 SKU LB 與標準 SKU LB 資源之間的虛擬 IP 位址 (VIP) 交換時，以減少任何未來大約 30 秒會以無法存取所需的 VIP 交換。
 
 ## <a name="horizontal-scaling"></a>水平調整
 
@@ -99,7 +102,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 ### <a name="scaling-in"></a>相應縮小
 
-相應縮小所需考量的因素會比相應放大多一些。例如：
+相應縮小所需考量的因素會比相應放大多一些。例如: 
 
 * Service Fabric 系統服務會在叢集內的主要節點類型中執行。 切勿關閉該節點類型的執行個體，或將其數目相應減少到低於可靠性層級保證所需的執行個體數目。 
 * 針對具狀態服務，您需要一些始終啟動的節點來維持可用性，以及維持服務的狀態。 您至少需要與分割區/服務的目標複本集計數相等的節點數目。
@@ -123,7 +126,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 1. 重複步驟 1 到 3，直到佈建了您需要的容量為止。 切勿將主要節點類型的執行個體數目相應減少到低於可靠性層級保證所需的數目。 如需關於可靠性層級及其所需執行個體數目的詳細資訊，請參閱[規劃 Service Fabric 叢集容量](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)。
 
-您必須做好節點的關機準備，才能以程式設計方式進行相應縮小。 準備工作包括尋找要移除的節點 (最高的執行個體節點) 並加以停用。 例如：
+您必須做好節點的關機準備，才能以程式設計方式進行相應縮小。 準備工作包括尋找要移除的節點 (最高的執行個體節點) 並加以停用。 例如: 
 
 ```c#
 using (var client = new FabricClient())
@@ -192,7 +195,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ## <a name="durability-levels"></a>持久性層級
 
 > [!WARNING]
-> 執行 Bronze 持久性的節點類型「沒有權限」。 這表示不會停止或延遲對您的無狀態工作負載造成影響的基礎結構作業 (可能會影響工作負載)。 銅級持久性僅適用於執行無狀態工作負載的節點類型。 對於生產工作負載，請執行銀級或更高層級，以確保狀態的一致性。 請根據[容量規劃文件](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)中的指導方針選擇正確的可靠性。
+> 執行 Bronze 持久性的節點類型「沒有權限」  。 這表示不會停止或延遲對您的無狀態工作負載造成影響的基礎結構作業 (可能會影響工作負載)。 銅級持久性僅適用於執行無狀態工作負載的節點類型。 對於生產工作負載，請執行銀級或更高層級，以確保狀態的一致性。 請根據[容量規劃文件](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)中的指導方針選擇正確的可靠性。
 
 持久性層級必須設定於兩個資源中。 擴充功能設定檔[虛擬機器擴展集資源](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile):
 

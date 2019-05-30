@@ -5,15 +5,14 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-origin.date: 03/26/2019
-ms.date: 04/29/2019
-ms.author: v-yiso
-ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/26/2019
+ms.author: hrasheed
+ms.openlocfilehash: 41420497bffd0abdc598e4c86b2dbda1466b2ce1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60484868"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252857"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight 虛擬網路架構
 
@@ -26,8 +25,8 @@ Azure HDInsight 叢集有不同類型的虛擬機器或節點。 每個節點類
 | 類型 | 描述 |
 | --- | --- |
 | 前端節點 |  Apache Storm 以外的所有叢集類型，針對前端節點會裝載管理的分散式應用程式執行的處理程序。 在前端節點也是您可以透過 ssh 連線到節點，並執行所有叢集資源執行時，必須再都協調的應用程式。 前端節點的數目是在所有叢集類型的兩個固定的。 |
-| ZooKeeper 節點 | Zookeeper 協調工作之間進行資料處理的節點。 它也會選出領導者的前端節點，並追蹤哪一個前端節點執行特定的主要服務。 ZooKeeper 節點的數目是在兩個固定的。 |
-| 背景工作節點 | 表示支援的資料處理功能的節點。 背景工作角色節點可以加入或移除叢集，以調整的運算能力和管理成本。 |
+| ZooKeeper 節點 | Zookeeper 協調工作之間進行資料處理的節點。 它也會選出領導者的前端節點，並追蹤哪一個前端節點執行特定的主要服務。 ZooKeeper 節點的數目是在三個固定的。 |
+| 背景工作角色節點 | 表示支援的資料處理功能的節點。 背景工作角色節點可以加入或移除叢集，以調整的運算能力和管理成本。 |
 | R Server 邊緣節點 | R Server 邊緣節點代表您可以透過 ssh 連線到節點，並執行所有叢集資源執行時，必須再都協調的應用程式。 邊緣節點不會參與叢集內的資料分析。 此節點也會裝載 R Studio Server，讓您執行使用瀏覽器的 R 應用程式。 |
 | 區域節點 | 對於 HBase 叢集類型中，（也稱為資料節點） 的區域節點會執行區域伺服器。 區域伺服器提供，並管理由 HBase 資料的一部分。 區域節點可以加入或移除叢集，以調整的運算能力和管理成本。|
 | Nimbus 節點 | 對於 Storm 叢集類型中，Nimbus 節點會提供類似於前端節點的功能。 Nimbus 節點會將工作指派給透過協調執行的 Storm 拓撲的 Zookeeper 叢集中的其他節點。 |
@@ -47,7 +46,7 @@ HDInsight 部署到 Azure 虛擬網路時存在的預設資源包含在上表中
 | --- | --- | --- |
 |前端節點 | two |    |
 |Zookeeper 節點 | three | |
-|背景工作節點 | two | 這個數目可以因叢集組態和調整。 適用於 Apache Kafka，都需要至少三個背景工作節點。  |
+|背景工作角色節點 | two | 這個數目可以因叢集組態和調整。 適用於 Apache Kafka，都需要至少三個背景工作節點。  |
 |閘道節點 | two | 閘道節點會在 Azure 上建立，但不會顯示您的訂用帳戶中的 Azure 虛擬機器。 如果您需要重新啟動這些節點，請連絡支援服務。 |
 
 搭配 HDInsight 使用虛擬網路內，會自動建立的下列網路資源：
@@ -55,7 +54,7 @@ HDInsight 部署到 Azure 虛擬網路時存在的預設資源包含在上表中
 | 網路功能資源 | 出現數目 | 詳細資料 |
 | --- | --- | --- |
 |負載平衡器 | three | |
-|網路介面 | 九 | 這個值根據正常的叢集，其中每個節點都有它自己的網路介面。 九個介面是兩個前端節點、 三個 zookeeper 節點、 兩個背景工作節點和上表中所述的兩個閘道節點。 |
+|網路介面 | 九個 | 這個值根據正常的叢集，其中每個節點都有它自己的網路介面。 九個介面是兩個前端節點、 三個 zookeeper 節點、 兩個背景工作節點和上表中所述的兩個閘道節點。 |
 |公用 IP 位址 | two |    |
 
 ## <a name="endpoints-for-connecting-to-hdinsight"></a>端點連接到 HDInsight

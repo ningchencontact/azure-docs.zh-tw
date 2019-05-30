@@ -4,15 +4,15 @@ description: 本文說明 Azure Cosmos DB 合規性供應項目的認證涵蓋�
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: bbfc31e5eab2c2beb232a9ec2e0d5e11e4107be5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: af1b3dba0ac73ef30a4be20cab795ce6de595970
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606279"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239711"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB 中的合規性 
 
@@ -20,7 +20,7 @@ ms.locfileid: "65606279"
 
 * **Azure 公用**雲端，全球皆有提供。
 
-* Microsoft 與中國最大的網際網路供應商 21Vianet 締結了特殊的合作關係，從而提供 **Azure China**。
+* **Azure 中國 21Vianet**可透過 Microsoft 與 21Vianet，其中一個國家/地區的最大的網際網路提供者的合作關係。
 
 * **Azure Germany** 在資料信任者模型下提供服務，以確保 Deutsche Telecom 子公司 T-Systems International GmbH 以德國資料信任者的形式，掌管留在德國的客戶資料。
 
@@ -36,15 +36,32 @@ Azure Cosmos DB 會持續擴展其認證涵蓋範圍。 目前，Azure Cosmos DB
 
 | **全球適用** | **美國政府** | **業界專屬** | **區域或國家/地區專屬** |
 | --- | --- | --- | --- |
-| CSA STAR Certification<br/><br/>CSA STAR Attestation<br/><br/>ISO 20000-1:2011<br/><br/>ISO 22301:2012<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3| DoD SRG Level 2<br/><br/>FedRAMP Moderate<br/><br/>GxP (FDA 21 CFR Part 11)<br/><br/>| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australia IRAP Unclassified<br/><br/>Germany C5<br/><br/>Singapore MTCS Level 3<br/><br/>Spain ENS High|
+| CSA STAR Certification | DoD SRG Level 2 | HIPAA BAA | Australia IRAP Unclassified |
+| CSA STAR Attestation | FedRAMP Moderate | HITRUST | Germany C5|
+| ISO 20000-1:2011 | GxP (FDA 21 CFR Part 11) | PCI DSS | Singapore MTCS Level 3 |
+| ISO 22301:2012 | | | Spain ENS High|
+| ISO 27001:2013| | | |
+| ISO 27017:2015 | | | |
+| ISO 27018:2014 | | | |
+| ISO 9001:2015 | | | |
+| SOC 1, 2, 3 | | | |
 
 若要深入了解上述每個合規性供應項目以及它們對您帶來的好處，請參閱 [Microsoft Azure 合規性概觀](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)頁面。
 
 下表列出 Azure Cosmos DB 在 Azure Government 中所支援的認證：
 
-| **全球適用** | **美國政府** | **業界專屬** | **區域或國家/地區專屬** |
+| **全球適用** | **美國政府** | **業界專屬** | 
 | --- | --- | --- | --- |
-| CSA STAR Certification<br/><br/>CSA STAR Attestation<br/><br/>ISO 20000-1:2011<br/><br/>ISO 9001:2015<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3 | DoD SRG Level 2<br/><br/>DoD SRG Level 5<br/><br/>CJIS<br/><br/>FedRAMP High<br/><br/>IRS 1075<br/><br/>NIST CSF<br/><br/>NIST SP 800-171| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australia IRAP Unclassified<br/><br/>Germany C5<br/><br/>Singapore MTCS Level 3<br/><br/>Spain ENS High|
+| CSA STAR Certification | CJIS| HIPAA BAA | 
+| CSA STAR Attestation| DoD SRG Level 2| HITRUST  | 
+| ISO 20000-1:2011 | DoD SRG 層級 4 | PCI DSS | 
+| ISO 9001:2012 | DoD SRG Level 5 | | 
+| ISO 27001:2013 | FedRAMP High | |
+| ISO 9001:2015 | IRS 1075|  |
+| ISO 27017:2014 | NIST CSF | |
+| ISO 27018:2015 | NIST SP 800-171 | |
+| SOC 1, 2, 3 | | |
+
 
 ## <a name="next-steps"></a>後續步驟
 

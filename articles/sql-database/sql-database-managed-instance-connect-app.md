@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 52a9cfa52cd63715addadcbfb367510ded56fd76
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142731"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297098"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>將您的應用程式連線到 Azure SQL Database 受控執行個體
 
@@ -56,7 +56,7 @@ ms.locfileid: "65142731"
 - 站對站 VPN 連線 ([Azure 入口網站](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)、[PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)、[Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - [ExpressRoute](../expressroute/expressroute-introduction.md) 連線  
 
-如果您已成功建立內部部署環境與 Azure 的連線，但是無法建立與受控執行個體的連線，請檢查您的防火牆是否開啟 SQL 通訊埠 1433 的輸出連線，以及開啟 11000-12000 範圍的連接埠以便重新導向。
+如果您已成功建立內部部署與 Azure 的連線，而且您無法建立連線至受控執行個體，請檢查您的防火牆是否開啟的輸出連接上的 SQL 連接埠 1433年，以及 11000-11999 範圍的連接埠以便重新導向。
 
 ## <a name="connect-an-application-on-the-developers-box"></a>連線開發人員方塊上的應用程式
 
@@ -68,10 +68,10 @@ ms.locfileid: "65142731"
 
 ![VNet 對等互連](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 
-在您設定基本的基礎結構後，您必須修改某些設定，使 VPN 閘道可以看到裝載受控執行個體的虛擬網路中所包含的 IP 位址。 若要這麼做，請在 [對等互連設定] 下方設定下列特定變更。
+在您設定基本的基礎結構後，您必須修改某些設定，使 VPN 閘道可以看到裝載受控執行個體的虛擬網路中所包含的 IP 位址。 若要這麼做，請在 [對等互連設定]  下方設定下列特定變更。
 
-1. 在裝載 VPN 閘道的 VNet 中移至 [對等互連]，接著移至受控執行個體的對等互連 VNet 連線，然後按一下 [允許閘道傳輸]。
-2. 在裝載受控執行個體的 VNet 中移至 [對等互連]，接著移至 VPN 閘道的對等互連 VNet 連線，然後按一下 [使用遠端閘道]。
+1. 在裝載 VPN 閘道的 VNet 中移至 [對等互連]  ，接著移至受控執行個體的對等互連 VNet 連線，然後按一下 [允許閘道傳輸]  。
+2. 在裝載受控執行個體的 VNet 中移至 [對等互連]  ，接著移至 VPN 閘道的對等互連 VNet 連線，然後按一下 [使用遠端閘道]  。
 
 ## <a name="connect-an-azure-app-service-hosted-application"></a>連線 Azure App Service 裝載應用程式
 
@@ -96,8 +96,8 @@ ms.locfileid: "65142731"
 
 若要對連線問題進行疑難排解，請檢閱以下幾點︰
 
-- 如果您無法從位於相同 VNet、但子網路不同的 Azure 虛擬機器連線至受控執行個體時，請檢查您是否在 VM 子網路上設定了可能會封鎖存取的網路安全性群組。此外請注意，您必須在 SQL 連接埠 1433 和 11000-12000 範圍內的連接埠上開啟輸出連線，因為在 Azure 界限內透過重新導向連線時需要這些連接埠。
-- 確定已針對與 VNet 相關聯的路由表將 BGP 傳播設定為 [已啟用]。
+- 如果您無法從 Azure 虛擬機器相同的 VNet，但不同的子網路內連線到受控執行個體時，請檢查您是否可能會封鎖存取的 VM 子網路上設定網路安全性群組。此外請注意，您必須在範圍 11000-11999 中開啟 SQL 連接埠 1433年，以及連接埠的輸出連線，因為這些都需要透過 Azure 界限內的重新導向連線。
+- 確定已針對與 VNet 相關聯的路由表將 BGP 傳播設定為 [已啟用]  。
 - 如果使用 P2S VPN，請檢查 Azure 入口網站中的組態，以確認您是否看到**輸入/輸出**數值。 非零的數值表示 Azure 會將流量路由至內部部署，或從中輸出流量。
 
    ![輸入/輸出數值](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)

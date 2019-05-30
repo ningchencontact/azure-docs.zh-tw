@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 130ca6bc946d44d80cddba5486d405bfb15523cb
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887202"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235870"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式
 
@@ -66,7 +66,7 @@ Azure IoT Central 應用程式中加入實際的裝置，從**MXChip**裝置範�
 #### <a name="to-prepare-the-devkit-device"></a>準備 DevKit 裝置
 
 1. 從 GitHub 上的[版本](https://aka.ms/iotcentral-docs-MXChip-releases)頁面下載適用於 MXChip 的最新預先建置 Azure IoT 中心韌體。
-1. 使用 USB 纜線將 DevKit 裝置連接到開發電腦。 在 Windows 中，檔案總管視窗會在對應到 DevKit 裝置上儲存體的磁碟機上開啟。 例如，此磁碟機可能會稱為 **AZ3166 (D:)**。
+1. 使用 USB 纜線將 DevKit 裝置連接到開發電腦。 在 Windows 中，檔案總管視窗會在對應到 DevKit 裝置上儲存體的磁碟機上開啟。 例如，此磁碟機可能會稱為 **AZ3166 (D:)** 。
 1. 將 **iotCentral.bin** 檔案拖曳到磁碟機視窗。 複製完成時，使用新的韌體重新啟動裝置。
 
 1. 當 DevKit 裝置重新啟動時，會顯示下列畫面：
@@ -96,11 +96,11 @@ Azure IoT Central 應用程式中加入實際的裝置，從**MXChip**裝置範�
     - 連線詳細資料**領域識別碼**，**裝置識別碼**，並**主索引鍵**您的裝置 （您應該已儲存此遵循的步驟）
     - 選取所有可用的遙測資料量值
 
-1. 選擇 [設定裝置] 之後，您會看到這個頁面：
+1. 選擇 [設定裝置]  之後，您會看到這個頁面：
 
     ![已設定裝置](media/howto-connect-devkit/deviceconfigured.png)
 
-1. 按裝置上的 [重設] 按鈕。
+1. 按裝置上的 [重設]  按鈕。
 
 ## <a name="view-the-telemetry"></a>檢視遙測資料
 
@@ -113,23 +113,23 @@ Azure IoT Central 應用程式中加入實際的裝置，從**MXChip**裝置範�
 > [!NOTE]
 > 如果裝置出現循環播放，嘗試連線時，請檢查裝置是否**已封鎖**IoT 中心中並**解除封鎖**裝置，讓它可以連線到應用程式。
 
-搖動裝置傳送報告的屬性。 裝置會傳送一個隨機數字作為 [Die 數字] 裝置屬性。
+搖動裝置傳送報告的屬性。 裝置會傳送一個隨機數字作為 [Die 數字]  裝置屬性。
 
 您可以檢視遙測量值和報告屬性值，並且在 Azure IoT 中心進行設定：
 
-1. 使用 [裝置總管]，瀏覽至您所新增真實 MXChip 裝置的 [量值] 頁面：
+1. 使用 [裝置總管]  ，瀏覽至您所新增真實 MXChip 裝置的 [量值]  頁面：
 
     ![瀏覽至真實裝置](media/howto-connect-devkit/realdevicenew.png)
 
-1. 在 [量值] 頁面上，您可以看到來自 MXChip 裝置的遙測：
+1. 在 [量值]  頁面上，您可以看到來自 MXChip 裝置的遙測：
 
     ![從真實裝置檢視遙測](media/howto-connect-devkit/devicetelemetrynew.png)
 
-1. 在 [屬性] 頁面上，您可以檢視裝置所報告的最後一個印模號碼和裝置位置：
+1. 在 [屬性]  頁面上，您可以檢視裝置所報告的最後一個印模號碼和裝置位置：
 
     ![檢視裝置屬性](media/howto-connect-devkit/devicepropertynew.png)
 
-1. 在 [設定] 頁面上，您可以在 MXChip 裝置上更新設定：
+1. 在 [設定]  頁面上，您可以在 MXChip 裝置上更新設定：
 
     ![檢視裝置設定](media/howto-connect-devkit/devicesettingsnew.png)
 
@@ -137,7 +137,7 @@ Azure IoT Central 應用程式中加入實際的裝置，從**MXChip**裝置範�
 
     ![呼叫命令](media/howto-connect-devkit/devicecommands.png)
 
-1. 在 [儀表板] 頁面上，您可以看到位置地圖
+1. 在 [儀表板]  頁面上，您可以看到位置地圖
 
     ![檢視裝置儀表板](media/howto-connect-devkit/devicedashboardnew.png)
 
@@ -208,12 +208,12 @@ git clone https://github.com/Azure/iot-central-firmware
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>狀態 
-| 名稱          | 顯示名稱   | 正常 | 警告 | 危險 | 
+| 名稱          | Display name   | 正常 | 警告 | 危險 | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | 裝置狀態   | 綠色  | 橙色  | 紅色    | 
 
 #### <a name="events"></a>活動 
-| 名稱             | 顯示名稱      | 
+| 名稱             | Display name      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | 按下按鈕 B  | 
 
@@ -221,7 +221,7 @@ git clone https://github.com/Azure/iot-central-firmware
 
 數值設定
 
-| 顯示名稱 | 欄位名稱 | Units | 小數位數 | 最小值 | 最大值 | Initial |
+| Display name | 欄位名稱 | Units | 小數位數 | 最小值 | 最大值 | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 電壓      | setVoltage | 伏特 | 0              | 0       | 240     | 0       |
 | Current      | setCurrent | 安培  | 0              | 0       | 100     | 0       |
@@ -229,13 +229,13 @@ git clone https://github.com/Azure/iot-central-firmware
 
 切換設定
 
-| 顯示名稱 | 欄位名稱 | 開啟文字 | 關閉文字 | Initial |
+| Display name | 欄位名稱 | 開啟文字 | 關閉文字 | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | 開啟      | 關      | 關閉     |
 
 ### <a name="properties"></a>properties
 
-| 類型            | 顯示名稱 | 欄位名稱 | 資料類型 |
+| 類型            | Display name | 欄位名稱 | 数据类型 |
 | --------------- | ------------ | ---------- | --------- |
 | 裝置屬性 | 模具編號   | dieNumber  | number    |
 | 裝置屬性 | 裝置位置   | location  | location    |
@@ -243,11 +243,11 @@ git clone https://github.com/Azure/iot-central-firmware
 
 ### <a name="commands"></a>命令
 
-| 顯示名稱 | 欄位名稱 | 傳回類型 | 輸入的欄位的顯示名稱 | 輸入的欄位名稱 | 輸入的欄位類型 |
+| Display name | 欄位名稱 | 傳回類型 | 輸入的欄位的顯示名稱 | 輸入的欄位名稱 | 輸入的欄位類型 |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | 回應         | 回應       | text        | 若要顯示的值         | displayedValue   | text             |
 | 倒數計時    | 倒數計時  | number      | 從計算               | countFrom        | number           |
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已了解如何將 Raspberry Pi 連線至 Azure IoT Central 應用程式，建議的下一個步驟是了解如何[設定自訂裝置範本](howto-set-up-template.md)IoT 裝置。
+既然您已了解如何在 MXChip IoT DevKit 連線至 Azure IoT Central 應用程式，建議的下一個步驟是了解如何[設定自訂裝置範本](howto-set-up-template.md)IoT 裝置。

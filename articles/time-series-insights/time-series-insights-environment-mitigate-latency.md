@@ -4,7 +4,7 @@ description: 本文描述如何監視、診斷和減少會在 Azure 時間序列
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4b2f73013b399dd2ca3d549e2ac2ec4ffba65b81
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 6151af941b89198812f2a33a522b30ff0a8796a0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471729"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242065"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>監視與降低節流，以減少 Azure 時間序列深入解析中的延遲
 
@@ -42,17 +42,17 @@ ms.locfileid: "65471729"
 
 警示有助於您協助診斷並減少您環境所造成的延遲問題。
 
-1. 在 Azure 入口網站中，按一下 [計量]。
+1. 在 Azure 入口網站中，按一下 [計量]  。
 
    [![計量](media/environment-mitigate-latency/add-metrics.png)](media/environment-mitigate-latency/add-metrics.png#lightbox)
 
-1. 按一下 [新增計量警示]。  
+1. 按一下 [新增計量警示]  。  
 
    [![新增計量警示](media/environment-mitigate-latency/add-metric-alert.png)](media/environment-mitigate-latency/add-metric-alert.png#lightbox)
 
 從該處，您可以使用下列計量來設定警示：
 
-|計量  |說明  |
+|計量  |描述  |
 |---------|---------|
 |**輸入接收的位元組**     | 從事件來源讀取的未經處理位元組計數。 未經處理的計數通常會包含屬性名稱和值。  |  
 |**輸入接收的無效訊息**     | 從所有的 Azure 事件中樞或 Azure IoT 中樞事件來源讀取的無效訊息計數。      |
@@ -62,17 +62,17 @@ ms.locfileid: "65471729"
 |**輸入接收的訊息時間延遲**    |  訊息在事件來源中加入佇列的時間與在輸入中處理的時間之間的差異 (以秒為單位)。      |
 |**輸入接收的訊息計數延遲**    |  事件來源資料分割中最後加入佇列之訊息的序號與輸入中所處理訊息的序號之間的差異。      |
 
-![延遲](media/environment-mitigate-latency/latency.png)
+![Latency](media/environment-mitigate-latency/latency.png)
 
-* 如果已進行節流，您會看到的值*輸入收到訊息時間延遲*，通知您落後 TSI 您的秒數是實際的時間從訊息叫用事件來源 （不包括索引時間大約。 30-60 秒)。  「輸入收到的訊息計數延遲」也應該有值，讓您可判斷您落後的訊息數目。  最簡單的趕上方式是將您環境的容量增加至可讓您克服差異的大小。  
+* 如果已進行節流，您會看到的值*輸入收到訊息時間延遲*，通知您落後 TSI 您的秒數是實際的時間從訊息叫用事件來源 （不包括索引時間大約。 30-60 秒)。  「輸入收到的訊息計數延遲」  也應該有值，讓您可判斷您落後的訊息數目。  最簡單的趕上方式是將您環境的容量增加至可讓您克服差異的大小。  
 
   比方說，如果您有單一單位的 S1 環境，並看到有 5,000,000 訊息延遲情形，您可以增加到六個單位的大約一天趕上您環境的大小。  您甚至可以更進一步加速趕上。 在一開始佈建環境時，有追趕期是常見的情況，特別是當您將其連線至已經有事件的事件來源，或是當您大量上傳許多歷史資料時。
 
-* 另一種技術是將 [輸入儲存的事件] 警示設定為 >= 稍微小於 2 小時期間內您總環境容量的臨界值。  此警示可協助您了解是否經常符合容量，表示很有可能會延遲。 
+* 另一種技術是將 [輸入儲存的事件]  警示設定為 >= 稍微小於 2 小時期間內您總環境容量的臨界值。  此警示可協助您了解是否經常符合容量，表示很有可能會延遲。 
 
-  例如，如果您佈建了三個 S1 單位 (或每分鐘輸入容量 2100 個事件)，就可以設定 [輸入儲存的事件] 警示 >= 2 小時 1900 個事件。 如果您經常會超過此臨界值，並因此觸發警示，您就可能佈建不足。  
+  例如，如果您佈建了三個 S1 單位 (或每分鐘輸入容量 2100 個事件)，就可以設定 [輸入儲存的事件]  警示 >= 2 小時 1900 個事件。 如果您經常會超過此臨界值，並因此觸發警示，您就可能佈建不足。  
 
-* 如果您懷疑已進行節流，您可以比較您**輸入接收的訊息**與您事件來源的輸出訊息。  如果事件中樞的輸入大於您 [輸入接收的訊息]，時間序列深入解析就可能會受到節流。
+* 如果您懷疑已進行節流，您可以比較您**輸入接收的訊息**與您事件來源的輸出訊息。  如果事件中樞的輸入大於您 [輸入接收的訊息]  ，時間序列深入解析就可能會受到節流。
 
 ## <a name="improving-performance"></a>改善效能
 

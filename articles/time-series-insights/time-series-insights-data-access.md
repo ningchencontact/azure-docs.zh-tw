@@ -4,19 +4,19 @@ description: 本文說明如何設定安全性和權限作為管理存取原則�
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6853637ba23e17f3a7ca5420bdd84425c81a67be
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 53489ef9c1264fa31b06f4660e545e6efbd1f616
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791015"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237041"
 ---
 # <a name="grant-data-access-to-an-environment"></a>授與環境的資料存取權
 
@@ -25,36 +25,36 @@ ms.locfileid: "65791015"
 ## <a name="sign-in-to-time-series-insights"></a>登入時間序列深入解析
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-1. 找到您的時間序列深入解析環境。 在 [搜尋] 方塊中，輸入 `Time Series`。 選取搜尋結果中的 [時間序列環境]。
+1. 找到您的時間序列深入解析環境。 在 [搜尋]  方塊中，輸入 `Time Series`。 選取搜尋結果中的 [時間序列環境]  。
 1. 從清單中選取 Time Series Insights 環境。
 
 ## <a name="grant-data-access"></a>授與資料存取
 
 依照下列步驟來授與使用者主體的資料存取權。
 
-1. 選取 [資料存取原則]，然後選取 [+新增]。
+1. 選取 [資料存取原則]  ，然後選取 [+新增]  。
 
     [![資料存取一](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
-1. 選擇 [選取使用者]。 搜尋使用者名稱或電子郵件地址，以找出您想要新增的使用者。 按一下 [選取] 以確認選取項目。
+1. 選擇 [選取使用者]  。 搜尋使用者名稱或電子郵件地址，以找出您想要新增的使用者。 按一下 [選取]  以確認選取項目。
 
     [![資料存取兩](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
-1. 選擇 [選取角色]。 為使用者選擇適當的存取角色：
+1. 選擇 [選取角色]  。 為使用者選擇適當的存取角色：
 
-    * 如果您要允許使用者變更參考資料，並與其他環境使用者共用已儲存的查詢和觀點，請選取 [參與者]。
+    * 如果您要允許使用者變更參考資料，並與其他環境使用者共用已儲存的查詢和觀點，請選取 [參與者]  。
 
-    * 否則，選取 [讀取者]，允許使用者查詢環境中的資料並且在環境中儲存個人 (非共用) 查詢。
+    * 否則，選取 [讀取者]  ，允許使用者查詢環境中的資料並且在環境中儲存個人 (非共用) 查詢。
 
-   選取 [確定] 以確認角色選擇。
+   選取 [確定]  以確認角色選擇。
 
     [![資料存取三](media/data-access/data-access-three.png)](media/data-access/data-access-three.png#lightbox)
 
-1. 在 [選取使用者角色] 頁面中選取 [確定]。
+1. 在 [選取使用者角色]  頁面中選取 [確定]  。
 
     [![資料存取四](media/data-access/data-access-four.png)](media/data-access/data-access-four.png#lightbox)
 
-1. 確認 [資料存取原則] 頁面列出的使用者和每個使用者的角色。
+1. 確認 [資料存取原則]  頁面列出的使用者和每個使用者的角色。
 
     [![資料存取五](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
 
@@ -64,7 +64,7 @@ ms.locfileid: "65791015"
 
 依照這些步驟將對「時間序列深入解析」環境的存取權授與來自另一個租用戶的 Azure AD 使用者。
 
-1. 選取 [資料存取原則]，然後選取 [+ 邀請]。
+1. 選取 [資料存取原則]  ，然後選取 [+ 邀請]  。
 
     [![Data-access-six](media/data-access/data-access-six.png)](media/data-access/data-access-six.png#lightbox)
 
@@ -76,27 +76,27 @@ ms.locfileid: "65791015"
 
     [![Data-access-eight](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
-1. 選擇 [選取使用者]。 搜尋您邀請之來賓使用者的電子郵件地址，以尋找您要新增的使用者。 按一下 [選取] 以確認選取項目。
+1. 選擇 [選取使用者]  。 搜尋您邀請之來賓使用者的電子郵件地址，以尋找您要新增的使用者。 按一下 [選取]  以確認選取項目。
 
     [![資料存取-九個](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 
-1. 選擇 [選取角色]。 為來賓使用者選擇適當的存取角色：
+1. 選擇 [選取角色]  。 為來賓使用者選擇適當的存取角色：
 
-    * 如果您要允許使用者變更參考資料，並與其他環境使用者共用已儲存的查詢和觀點，請選取 [參與者]。
+    * 如果您要允許使用者變更參考資料，並與其他環境使用者共用已儲存的查詢和觀點，請選取 [參與者]  。
 
-    * 否則，選取 [讀取者]，允許使用者查詢環境中的資料並且在環境中儲存個人 (非共用) 查詢。
+    * 否則，選取 [讀取者]  ，允許使用者查詢環境中的資料並且在環境中儲存個人 (非共用) 查詢。
 
-   選取 [確定] 以確認角色選擇。
+   選取 [確定]  以確認角色選擇。
 
     [![資料存取-十個](media/data-access/data-access-ten.png)](media/data-access/data-access-ten.png#lightbox)
 
-1. 在 [選取使用者角色] 頁面中選取 [確定]。
+1. 在 [選取使用者角色]  頁面中選取 [確定]  。
 
-1. 確認 [資料存取原則] 頁面列出的來賓使用者與每個來賓使用者的角色。
+1. 確認 [資料存取原則]  頁面列出的來賓使用者與每個來賓使用者的角色。
 
     [![資料集的存取-11](media/data-access/data-access-eleven.png)](media/data-access/data-access-eleven.png#lightbox)
 
-1. 現在，來賓使用者必須遵循步驟，以存取位於您將其邀請到其中之 Azure 租用戶的環境。 首先，他們接受您傳送給他們的邀請。 此邀請是透過電子郵件傳送到您在步驟 5 使用的電子郵件地址。 他們選取 [開始使用] 以接受。
+1. 現在，來賓使用者必須遵循步驟，以存取位於您將其邀請到其中之 Azure 租用戶的環境。 首先，他們接受您傳送給他們的邀請。 此邀請是透過電子郵件傳送到您在步驟 5 使用的電子郵件地址。 他們選取 [開始使用]  以接受。
 
     [![Data-access-twelve](media/data-access/data-access-twelve.png)](media/data-access/data-access-twelve.png#lightbox)
 

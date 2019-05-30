@@ -6,20 +6,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2d0b8aba95787f179733dd596e783f097cba4299
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 16041d2b7a971c9ba479c133261930b38d130792
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692133"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252787"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight 上 Apache Hadoop 服務所使用的連接埠
 
 本文件提供在 Linux 型 HDInsight 叢集上執行之 Apache Hadoop 服務所使用的連接埠清單。 此外，也提供用來連線到使用 SSH 之叢集的連接埠相關資訊。
 
-## <a name="public-ports-vs-non-public-ports"></a>公共端口与非公共端口
+## <a name="public-ports-vs-non-public-ports"></a>公用連接埠與非公用連接埠
 
 以 Linux 為基礎的 HDInsight 叢集只會在網際網路上公開三個公開連接埠：22、23 和 443。 這些連接埠用來使用 SSH 以及透過安全 HTTPS 通訊協定公開的服務安全地存取叢集。
 
@@ -27,7 +27,6 @@ ms.locfileid: "64692133"
 
 > [!IMPORTANT]  
 > 如果您沒有將 Azure 虛擬網路指定為 HDInsight 的設定選項，則會自動建立一個。 不過，您無法將其他電腦 (例如其他 Azure 虛擬機器或用戶端開發電腦) 加入此虛擬網路。
-
 
 若要將其他電腦加入至虛擬網路，您必須先建立虛擬網路，然後在建立 HDInsight 叢集時進行指定。 如需詳細資訊，請參閱 [使用 Azure 虛擬網路延伸 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)
 
@@ -88,17 +87,17 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 | 服務 | 節點 | Port | Protocol | 描述 |
 | --- | --- | --- | --- | --- |
 | NameNode Web UI |前端節點 |30070 |HTTPS |用以檢視狀態的 Web UI |
-| NameNode 中繼資料服務 |头节点 |8020 |IPC |檔案系統中繼資料 |
+| NameNode 中繼資料服務 |前端節點 |8020 |IPC |檔案系統中繼資料 |
 | DataNode |所有背景工作節點 |30075 |HTTPS |用以檢視狀態、記錄等的 Web UI |
 | DataNode |所有背景工作節點 |30010 |&nbsp; |資料傳輸 |
-| DataNode |所有辅助角色节点 |30020 |IPC |中繼資料作業 |
+| DataNode |所有背景工作節點 |30020 |IPC |中繼資料作業 |
 | 次要 NameNode |前端節點 |50090 |HTTP |NameNode 中繼資料的檢查點 |
 
 ### <a name="yarn-ports"></a>YARN 連接埠
 
 | 服務 | 節點 | Port | Protocol | 描述 |
 | --- | --- | --- | --- | --- |
-| Resource Manager Web UI |前端節點 |8088 |HTTP |Resource Manager 的 Web UI |
+| Resource Manager |前端節點 |8088 |HTTP |適用於 Resource Manager 的 Web UI |
 | Resource Manager |前端節點 |8090 |HTTPS |適用於 Resource Manager 的 Web UI |
 | Resource Manager 系統管理介面 |前端節點 |8141 |IPC |適用於應用程式提交 (Hive、Hive 伺服器、Pig 等) |
 | Resource Manager 排程器 |前端節點 |8030 |HTTP |系統管理介面 |
@@ -126,7 +125,7 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 | 服務 | 節點 | Port | Protocol | 描述 |
 | --- | --- | --- | --- | --- |
 | JobHistory |前端節點 |19888 |HTTP |MapReduce JobHistory Web UI |
-| JobHistory |头节点 |10020 |&nbsp; |MapReduce JobHistory 伺服器 |
+| JobHistory |前端節點 |10020 |&nbsp; |MapReduce JobHistory 伺服器 |
 | ShuffleHandler |&nbsp; |13562 |&nbsp; |將中繼對應輸出傳輸至要求的歸納器 |
 
 ### <a name="oozie"></a>Oozie

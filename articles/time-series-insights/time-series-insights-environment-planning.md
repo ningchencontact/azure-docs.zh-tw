@@ -4,7 +4,7 @@ description: 本文說明在規劃 Azure 時間序列深入解析環境 (包括�
 services: time-series-insights
 ms.service: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: bf1f570319370fab99e2f52086bc81df259e3d35
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1c6e8ef9effdb5cf31aee1603de28bed0d894cbb
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236529"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239098"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>規劃 Azure 時間序列深入解析 GA 環境
 
@@ -29,7 +29,7 @@ ms.locfileid: "65236529"
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-## <a name="best-practices"></a>最佳做法
+## <a name="best-practices"></a>最佳作法
 
 若要開始使用時間序列深入解析，您最好知道以分鐘數計您需要推送多少資料，以及需要儲存資料多久。  
 
@@ -57,9 +57,9 @@ ms.locfileid: "65236529"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取您的時間序列深入解析環境。
 
-1. 在 [時間序列深入解析環境] **頁面**的 [設定]標題下，選取 [設定]。
+1. 在 [時間序列深入解析環境] **頁面**的 [設定]  標題下，選取 [設定]  。
 
-1. 在 [資料保留時間 (天數)] 方塊中，輸入介於 1 到 400 的值。
+1. 在 [資料保留時間 (天數)]  方塊中，輸入介於 1 到 400 的值。
 
    [![設定保留期](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
 
@@ -87,7 +87,7 @@ ms.locfileid: "65236529"
 
 例如，如果您有單一 S1 SKU 和以每分鐘 720 個事件速率的輸入資料，且高峰以 1440 個或更少事件的速率低於 1 小時，對您的環境就沒有明顯的延遲。 不過，如果一小時以上超過每分鐘 1440 個事件，您可能會遇到視覺化的資料發生延遲，而且可供您在環境中查詢。
 
-您可能不會事先知道需要推送多少資料。 在此情況下，您可以在 Azure 入口網站中找到 [Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics)和 [Azure 事件中樞](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/)的資料遙測。 此遙測可協助您判斷如何佈建環境。 在 Azure 入口網站中使用個別事件來源的 [計量] 頁面以檢視其遙測。 如果您了解事件來源的計量，就可以更有效地規劃並佈建時間序列深入解析環境。
+您可能不會事先知道需要推送多少資料。 在此情況下，您可以在 Azure 入口網站中找到 [Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics)和 [Azure 事件中樞](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/)的資料遙測。 此遙測可協助您判斷如何佈建環境。 在 Azure 入口網站中使用個別事件來源的 [計量]  頁面以檢視其遙測。 如果您了解事件來源的計量，就可以更有效地規劃並佈建時間序列深入解析環境。
 
 ### <a name="calculate-ingress-requirements"></a>計算輸入需求
 

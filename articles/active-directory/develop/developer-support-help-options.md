@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2019
+ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0741dda0aa087f21625cabe79e51d0b9e344f7ef
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962654"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235327"
 ---
 # <a name="support-and-help-options-for-developers"></a>開發人員的支援和協助選項
 
@@ -31,8 +31,8 @@ ms.locfileid: "65962654"
 > [!div class="checklist"]
 > * 如何搜尋社群是否尚未回答您的問題，或您嘗試實作的功能是否已有現存文件
 > * 在某些情況下，您只想使用我們的支援工具來協助您進行特定問題的偵錯
-> * 如果您找不到所需的解答，就可以在「Stack Overflow」上發問
-> * 如果您發現我們的驗證程式庫有問題，請提出 GitHub 問題
+> * 如果您找不到所需的解答，就可以在「Stack Overflow」  上發問
+> * 如果您發現我們的驗證程式庫有問題，請提出 GitHub  問題
 > * 最後，如果您需要與人對談，您可以開啟支援要求
 
 ## <a name="search"></a>Search
@@ -47,11 +47,11 @@ ms.locfileid: "65962654"
 {Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
 ```
 
-其中，*{Your Search Terms}* 對應您的搜尋關鍵字。
+其中， *{Your Search Terms}* 對應您的搜尋關鍵字。
 
 ## <a name="use-the-development-support-tools"></a>使用開發支援工具
 
-| Tool  | 說明  |
+| 工具  | 描述  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | 貼上識別碼或存取權杖以將宣告名稱和值解碼。 |
 | [Microsoft Graph 總管](https://developer.microsoft.com/graph/graph-explorer)| 此工具可讓您針對 Microsoft Graph API 提出要求並查看回應。 |
@@ -81,10 +81,10 @@ Stack Overflow 的下列貼文包含如何提出問題以及如何新增原始�
 
 如果您發現與我們的程式庫有關的錯誤或問題，請在我們的 GitHub 存放庫上提出問題。 我們的程式庫屬於開放原始碼，因此您也可以提交提取要求。
 
-若要查看程式庫及其 GitHub 存放庫的清單，請參閱下列文章：
+程式庫及其 GitHub 存放庫的清單，請參閱下列各項：
 
 * [ADAL](active-directory-authentication-libraries.md) 程式庫以及 GitHub 存放庫
-* [MSAL](reference-v2-libraries.md) 程式庫以及 GitHub 存放庫
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md)， [MSAL。Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)，並[MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc)程式庫以及 GitHub 存放庫
 
 ## <a name="open-a-support-request"></a>開啟支援要求
 

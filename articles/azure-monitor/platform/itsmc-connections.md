@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 0ff73e342a668fef6d405783c130cf216f8003b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ffd9c4bfc934faff1664ff39c0e979a9d6c09487
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60395482"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399785"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>將 ITSM 產品/服務與 IT Service Management Connector 連線
 本文提供如何設定 ITSM 產品/服務與 Log Analytics 中 IT Service Management Connector (ITSMC) 之間的連線，以集中管理工作項目的相關資訊。 如需 ITSMC 的詳細資訊，請參閱[概觀](../../azure-monitor/platform/itsmc-overview.md)。
@@ -51,15 +51,15 @@ ms.locfileid: "60395482"
 
 您可以使用下列程序，將 System Center Service Manager 執行個體連線到 ITSMC：
 
-1. 在 Azure 入口網站中，移至 [所有資源]，然後尋找 **ServiceDesk(YourWorkspaceName)**
+1. 在 Azure 入口網站中，移至 [所有資源]  ，然後尋找 **ServiceDesk(YourWorkspaceName)**
 
-2.  在 [工作區資料來源] 下方，按一下 [ITSM 連線]。
+2.  在 [工作區資料來源]  下方，按一下 [ITSM 連線]  。
 
     ![新增連線](media/itsmc-connections/add-new-itsm-connection.png)
 
-3. 在右窗格頂端按一下 [新增]。
+3. 在右窗格頂端按一下 [新增]  。
 
-4. 提供下表中所述的資訊，然後按一下 [確定] 來建立連線。
+4. 提供下表中所述的資訊，然後按一下 [確定]  來建立連線。
 
 > [!NOTE]
 > 
@@ -67,13 +67,13 @@ ms.locfileid: "60395482"
 
 | **欄位** | **說明** |
 | --- | --- |
-| 連線名稱   | 輸入您想要與 ITSMC 連線之 System Center Service Manager 執行個體的名稱。  稍後當您設定這個執行個體的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
+| 連線名稱    | 輸入您想要與 ITSMC 連線之 System Center Service Manager 執行個體的名稱。  稍後當您設定這個執行個體的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
 | **夥伴類型**   | 選取 **System Center Service Manager**。 |
 | **伺服器 URL**   | 輸入 Service Manager Web 應用程式的 URL。 Service Manager Web 應用程式的相關詳細資訊在[這裡](#create-and-deploy-service-manager-web-app-service)。
 | **用戶端識別碼**   | 將您所產生 (使用自動指令碼) 用來驗證 Web 應用程式的用戶端識別碼輸入。 自動化指令碼的相關詳細資訊在[這裡](../../azure-monitor/platform/itsmc-service-manager-script.md)。|
 | **用戶端祕密**   | 輸入針對此識別碼產生的用戶端祕密。   |
-| **資料同步範圍**   | 選取您想要透過 ITSMC 同步的 Service Manager 工作項目。  系統會將這些工作項目匯入 Log Analytics。 **選項︰** 事件、變更要求。|
-| **同步資料** | 輸入您想要起算資料的過去天數。 **上限**：120 天。 |
+| **同步資料**   | 選取您想要透過 ITSMC 同步的 Service Manager 工作項目。  系統會將這些工作項目匯入 Log Analytics。 **選項︰** 事件、變更要求。|
+| **資料同步範圍** | 輸入您想要起算資料的過去天數。 **上限**：120 天。 |
 | **在 ITSM 解決方案中建立新的設定項目** | 如果您想要在 ITSM 產品中建立設定項目，請選取此選項。 選取時，Log Analytics 會在支援的 ITSM 系統中建立受影響的 CI 作為設定項目 (如果 CI 不存在)。 **預設**︰停用。 |
 
 ![Service Manager 連線](media/itsmc-connections/service-manager-connection.png)
@@ -114,8 +114,8 @@ ms.locfileid: "60395482"
 
 **檢查 Web 應用程式安裝**
 
-1. 移至 [Azure 入口網站] > [資源]。
-2. 選取 Web 應用程式，按一下 [設定] > [應用程式設定]。
+1. 移至 [Azure 入口網站]   > [資源]  。
+2. 選取 Web 應用程式，按一下 [設定]   > [應用程式設定]  。
 3. 確認您在透過指令碼部署應用程式時所提供的 Service Manager 執行個體之相關資訊。
 
 ### <a name="configure-the-hybrid-connection"></a>設定混合式連線
@@ -123,15 +123,15 @@ ms.locfileid: "60395482"
 您可以使用下列程序，設定將 Service Manager 執行個體與 Azure 中的 ITSMC 連線之混合式連線。
 
 1. 在 **Azure 資源**下，尋找 Service Manager Web 應用程式。
-2. 按一下 [設定] > [網路]。
-3. 在 [混合式連線] 下，按一下 [設定混合式連線端點]。
+2. 按一下 [設定]   > [網路]  。
+3. 在 [混合式連線]  下，按一下 [設定混合式連線端點]  。
 
     ![混合式連線網路](media/itsmc-connections/itsmc-hybrid-connection-networking-and-end-points.png)
-4. 在 [混合式連線] 刀鋒視窗上，按一下 [新增混合式連線]。
+4. 在 [混合式連線]  刀鋒視窗上，按一下 [新增混合式連線]  。
 
     ![混合式連線新增](media/itsmc-connections/itsmc-new-hybrid-connection-add.png)
 
-5. 在 [新增混合式連線] 刀鋒視窗上，按一下 [建立新的混合式連線]。
+5. 在 [新增混合式連線]  刀鋒視窗上，按一下 [建立新的混合式連線]  。
 
     ![新增混合式連線](media/itsmc-connections/itsmc-create-new-hybrid-connection.png)
 
@@ -145,11 +145,11 @@ ms.locfileid: "60395482"
    - **名稱**：如果您要建立服務匯流排，請為它指定名稱。
 
      ![混合式連線值](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
-6. 按一下 [確定] 將 [建立混合式連線] 刀鋒視窗關閉，然後開始建立混合式連線。
+6. 按一下 [確定]  將 [建立混合式連線]  刀鋒視窗關閉，然後開始建立混合式連線。
 
     建立混合式連線之後，它會顯示在刀鋒視窗下。
 
-7. 建立混合式連線之後，請選取連線，然後按一下 [新增所選的混合式連線]。
+7. 建立混合式連線之後，請選取連線，然後按一下 [新增所選的混合式連線]  。
 
     ![新增混合式連線](media/itsmc-connections/itsmc-new-hybrid-connection-added.png)
 
@@ -157,15 +157,15 @@ ms.locfileid: "60395482"
 
 您可以使用下列程序來設定混合式連線的接聽程式設定。
 
-1. 在 [混合式連線] 刀鋒視窗中，按 [下載連線管理員]，並將它安裝在執行 System Center Service Manager 執行個體的電腦上。
+1. 在 [混合式連線]  刀鋒視窗中，按 [下載連線管理員]  ，並將它安裝在執行 System Center Service Manager 執行個體的電腦上。
 
-    一旦安裝完成後，可在 [啟動] 功能表下使用 [混合式連線管理員 UI]選項。
+    一旦安裝完成後，可在 [啟動]  功能表下使用 [混合式連線管理員 UI]  選項。
 
-2. 按一下 [混合式連線管理員 UI]，系統會提示您輸入 Azure 認證。
+2. 按一下 [混合式連線管理員 UI]  ，系統會提示您輸入 Azure 認證。
 
 3. 使用您的 Azure 認證登入，然後選取您在其中建立混合式連線的訂用帳戶。
 
-4. 按一下 [檔案] 。
+4. 按一下 [檔案]  。
 
 混合式連線已成功連線。
 
@@ -185,11 +185,12 @@ ms.locfileid: "60395482"
 ### <a name="prerequisites"></a>必要條件
 請確保已符合下列必要條件︰
 - 已安裝 ITSMC。 詳細資訊：[新增 IT 服務管理連接器解決方案](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution)。
-- ServiceNow 支援的版本：倫敦、 Kingston、 Jakarta、 Istanbul、 Helsinki、 Geneva。
+- ServiceNow 支援的版本：馬德里、 倫敦、 Kingston、 Jakarta、 Istanbul、 Helsinki、 Geneva。
 
 **ServiceNow 管理員必須在 ServiceNow 執行個體中執行下列動作**：
 - 產生 ServiceNow 產品的用戶端識別碼和用戶端密碼。 如需如何產生用戶端識別碼和祕密的相關資訊，請視需要參閱下列資訊：
 
+    - [針對馬德里設定 OAuth](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [針對倫敦設定 OAuth](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [針對 Kingston 設定 OAuth](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [針對 Jakarta 設定 OAuth](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -205,14 +206,14 @@ ms.locfileid: "60395482"
 請使用下列程序來建立 ServiceNow 連線：
 
 
-1. 在 Azure 入口網站中，移至 [所有資源]，然後尋找 **ServiceDesk(YourWorkspaceName)**
+1. 在 Azure 入口網站中，移至 [所有資源]  ，然後尋找 **ServiceDesk(YourWorkspaceName)**
 
-2.  在 [工作區資料來源] 下方，按一下 [ITSM 連線]。
+2.  在 [工作區資料來源]  下方，按一下 [ITSM 連線]  。
     ![新增連線](media/itsmc-connections/add-new-itsm-connection.png)
 
-3. 在右窗格頂端按一下 [新增]。
+3. 在右窗格頂端按一下 [新增]  。
 
-4. 提供下表中所述的資訊，然後按一下 [確定] 來建立連線。
+4. 提供下表中所述的資訊，然後按一下 [確定]  來建立連線。
 
 
 > [!NOTE]
@@ -220,7 +221,7 @@ ms.locfileid: "60395482"
 
 | **欄位** | **說明** |
 | --- | --- |
-| 連線名稱   | 輸入您想要與 ITSMC 連線之 ServiceNow 執行個體的名稱。  稍後當您在 Log Analytics 中設定這個 ITSM 的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
+| 連線名稱    | 輸入您想要與 ITSMC 連線之 ServiceNow 執行個體的名稱。  稍後當您在 Log Analytics 中設定這個 ITSM 的工作項目/檢視詳細的記錄分析時，會使用這個名稱。 |
 | **夥伴類型**   | 選取 **ServiceNow**。 |
 | **使用者名稱**   | 輸入您在 ServiceNow 應用程式中建立的整合使用者名稱，以支援 ITSMC 的連線。 詳細資訊：[建立 ServiceNow 應用程式使用者角色](#create-integration-user-role-in-servicenow-app)。|
 | **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **注意**：使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 ITSMC 服務內。  |
@@ -250,12 +251,12 @@ ms.locfileid: "60395482"
    >[!NOTE]
    >因屬於 Microsoft Operations Management Suite (OMS) 轉換為 Azure 監視器的一環，OMS 現在稱為 Log Analytics。     
 2. 安裝完成後，請瀏覽左側導覽列中的 [ServiceNow 執行個體]、[搜尋] 並選取 [Microsoft OMS 整合器]。  
-3. 按一下 [安裝檢查清單]。
+3. 按一下 [安裝檢查清單]  。
 
-   如果尚未建立使用者角色，則狀態會顯示為 [未完成]。
+   如果尚未建立使用者角色，則狀態會顯示為 [未完成]  。
 
-4. 在 [建立整合使用者] 旁邊的文字方塊中，輸入可連線到 Azure 中 ITSMC 之使用者的使用者名稱。
-5. 輸入這個使用者的密碼，然後按一下 [確定]。  
+4. 在 [建立整合使用者]  旁邊的文字方塊中，輸入可連線到 Azure 中 ITSMC 之使用者的使用者名稱。
+5. 輸入這個使用者的密碼，然後按一下 [確定]  。  
 
 > [!NOTE]
 > 
@@ -271,7 +272,7 @@ ms.locfileid: "60395482"
 -   template_editor
 -   view_changer
 
-成功建立使用者之後，[檢查安裝檢查清單] 狀態會改變為 [已完成]，並列出針對應用程式所建立的使用者角色詳細資料。
+成功建立使用者之後，[檢查安裝檢查清單]  狀態會改變為 [已完成]，並列出針對應用程式所建立的使用者角色詳細資料。
 
 > [!NOTE]
 > 
@@ -300,14 +301,14 @@ ms.locfileid: "60395482"
 
 請使用下列程序來建立 Provance 連線：
 
-1. 在 Azure 入口網站中，移至 [所有資源]，然後尋找 **ServiceDesk(YourWorkspaceName)**
+1. 在 Azure 入口網站中，移至 [所有資源]  ，然後尋找 **ServiceDesk(YourWorkspaceName)**
 
-2.  在 [工作區資料來源] 下方，按一下 [ITSM 連線]。
+2.  在 [工作區資料來源]  下方，按一下 [ITSM 連線]  。
     ![新增連線](media/itsmc-connections/add-new-itsm-connection.png)
 
-3. 在右窗格頂端按一下 [新增]。
+3. 在右窗格頂端按一下 [新增]  。
 
-4. 提供下表中所述的資訊，然後按一下 [確定] 來建立連線。
+4. 提供下表中所述的資訊，然後按一下 [確定]  來建立連線。
 
 > [!NOTE]
 > 
@@ -315,8 +316,8 @@ ms.locfileid: "60395482"
 
 | **欄位** | **說明** |
 | --- | --- |
-| 連線名稱   | 輸入您想要與 ITSMC 連線之 Provance 執行個體的名稱。  稍後當您在這個 ITSM 中設定工作項目 / 檢視詳細的記錄分析時，會使用這個名稱。 |
-| **夥伴類型**   | 選取 [Provance]。 |
+| 連線名稱    | 輸入您想要與 ITSMC 連線之 Provance 執行個體的名稱。  稍後當您在這個 ITSM 中設定工作項目 / 檢視詳細的記錄分析時，會使用這個名稱。 |
+| **夥伴類型**   | 選取 [Provance]  。 |
 | **使用者名稱**   | 輸入可以連線到 ITSMC 的使用者名稱。    |
 | **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **附註：** 使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 ITSMC 服務內。|
 | **伺服器 URL**   | 輸入您想要連線到 ITSMC 之 Provance 執行個體的 URL。 |
@@ -351,14 +352,14 @@ ms.locfileid: "60395482"
 
 請使用下列程序來建立 Provance 連線：
 
-1. 在 Azure 入口網站中，移至 [所有資源]，然後尋找 **ServiceDesk(YourWorkspaceName)**
+1. 在 Azure 入口網站中，移至 [所有資源]  ，然後尋找 **ServiceDesk(YourWorkspaceName)**
 
-2.  在 [工作區資料來源] 下方，按一下 [ITSM 連線]。
+2.  在 [工作區資料來源]  下方，按一下 [ITSM 連線]  。
     ![新增連線](media/itsmc-connections/add-new-itsm-connection.png)
 
-3. 在右窗格頂端按一下 [新增]。
+3. 在右窗格頂端按一下 [新增]  。
 
-4. 提供下表中所述的資訊，然後按一下 [確定] 來建立連線。
+4. 提供下表中所述的資訊，然後按一下 [確定]  來建立連線。
 
 > [!NOTE]
 > 
@@ -366,8 +367,8 @@ ms.locfileid: "60395482"
 
 | **欄位** | **說明** |
 | --- | --- |
-| 連線名稱   | 輸入您想要與 ITSMC 連線之 Cherwell 執行個體的名稱。  稍後當您在這個 ITSM 中設定工作項目 / 檢視詳細的記錄分析時，會使用這個名稱。 |
-| **夥伴類型**   | 選取 [Cherwell]。 |
+| 連線名稱    | 輸入您想要與 ITSMC 連線之 Cherwell 執行個體的名稱。  稍後當您在這個 ITSM 中設定工作項目 / 檢視詳細的記錄分析時，會使用這個名稱。 |
+| **夥伴類型**   | 選取 [Cherwell]。  |
 | **使用者名稱**   | 輸入可以連線到 ITSMC 的 Cherwell 使用者名稱。 |
 | **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **附註：** 使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 ITSMC 服務內。|
 | **伺服器 URL**   | 輸入您想要連線到 ITSMC 之 Cherwell 執行個體的 URL。 |
@@ -392,8 +393,8 @@ ms.locfileid: "60395482"
 若要產生用戶端識別碼/Cherwell 的金鑰，請使用下列程序︰
 
 1. 以管理員身分登入您的 Cherwell 執行個體。
-2. 按一下 [安全性] > [編輯 REST API 用戶端設定]。
-3. 選取 [建立新的用戶端] > [用戶端祕密]。
+2. 按一下 [安全性]   > [編輯 REST API 用戶端設定]  。
+3. 選取 [建立新的用戶端]   > [用戶端祕密]  。
 
     ![Cherwell 使用者識別碼](media/itsmc-connections/itsmc-cherwell-client-id.png)
 

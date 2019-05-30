@@ -5,12 +5,12 @@ author: sread
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: be94cf0367f93f14249239fce5e09c8635a01136
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 7afe29cb98a294b2a30020ad48f8b27264386746
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125469"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304814"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>在 Azure 上微焦點企業開發人員 4.0 設定 Micro 焦點 CICS BankDemo
 
@@ -20,13 +20,13 @@ CICs 代表客戶資訊控制系統，許多線上的大型電腦應用程式所
 
 ## <a name="prerequisites"></a>必要條件
 
-- 使用的 VM[企業開發人員](set-up-micro-focus-azure.md)。 請記住，企業開發人員會有完整執行個體的企業伺服器上進行開發和測試目的。 這是用來示範企業伺服器的執行個體。
+- 使用的 VM[企業開發人員](set-up-micro-focus-azure.md)。 請記住，企業開發人員會有完整執行個體的企業伺服器上進行開發和測試目的。 這個執行個體是用來示範企業伺服器的執行個體。
 
 - [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express)。 下載並安裝在 Enterprise Developer VM 上。 企業伺服器需要資料庫的 CICS 區域管理，且 BankDemo 應用程式也會使用名為 BANKDEMO 的 SQL Server 資料庫。 這段示範影片，假設您正在使用這兩個資料庫的 「 SQL Server Express。 安裝時，請選取 基本安裝。
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) (SSMS)。 SSMS 用來管理資料庫和執行 T-SQL 指令碼中。 下載並安裝在 Enterprise Developer VM 上。
 
-- [Visual Studio 2017](https://azure.microsoft.com/downloads/)最新的 service pack 或[Visual Studio Community](https://visualstudio.microsoft.com/vs/community/)，您可以免費下載。
+- [Visual Studio 2019](https://azure.microsoft.com/downloads/)最新的 service pack 或[Visual Studio Community](https://visualstudio.microsoft.com/vs/community/)，您可以免費下載。
 
 - Rumba 桌面或另一個 3270 模擬器。
 
@@ -38,7 +38,7 @@ CICs 代表客戶資訊控制系統，許多線上的大型電腦應用程式所
 
 2. 按一下 **搜尋**旁的圖示**開始**按鈕並輸入**Windows 功能**。 伺服器管理員新增角色及功能精靈 隨即開啟。
 
-3. 選取 **網頁伺服器 (IIS) 角色**，然後核取下列：
+3. 選取 **網頁伺服器 (IIS) 角色**，然後核取下列選項：
 
     - Web 管理工具
     - IIS 6 管理相容性 （選取所有可用的功能）
@@ -46,7 +46,7 @@ CICs 代表客戶資訊控制系統，許多線上的大型電腦應用程式所
     - IIS 管理指令碼及工具
     - IIS 管理服務
 
-4. 選取  **World Wide Web 服務**，並檢查下列項目：
+4. 選取  **World Wide Web 服務**，並檢查下列選項：
 
      應用程式開發功能：
     - .NET 擴充性
@@ -59,12 +59,12 @@ CICs 代表客戶資訊控制系統，許多線上的大型電腦應用程式所
 
 5. 選取  **Windows Process Activation Service**及其所有子系。
 
-6. 針對**功能**，檢查**Microsoft.NET framework 3.5.1**，並檢查下列項目：
+6. 針對**功能**，檢查**Microsoft.NET framework 3.5.1**，並檢查下列選項：
 
     - Windows Communication Foundation HTTP 啟動
     - Windows Communication Foundation 非 HTTP 啟動
 
-7. 針對**功能**，檢查**Microsoft.NET framework 4.6**，並檢查下列項目：
+7. 針對**功能**，檢查**Microsoft.NET framework 4.6**，並檢查下列選項：
 
    - 具名的管道啟動
    - TCP 啟動
@@ -88,7 +88,7 @@ CICs 代表客戶資訊控制系統，許多線上的大型電腦應用程式所
 
 ## <a name="configure-the-local-system-account-for-sql-server"></a>設定 SQL Server 的本機系統帳戶
 
-某些企業伺服器處理程序必須要能夠登入 SQL Server，並建立資料庫和其他物件。 這些程序會使用本機系統帳戶，因此您必須將該帳戶提供給系統管理員授權單位。
+某些企業伺服器處理程序必須能夠登入 SQL Server，並建立資料庫和其他物件。 這些程序會使用本機系統帳戶，因此您必須將該帳戶提供給系統管理員授權單位。
 
 1. 啟動**SSMS**然後按一下**Connect**連接到本機 SQLEXPRESS 伺服器使用 Windows 驗證。 它應該會出現在**伺服器名稱**清單。
 
@@ -181,7 +181,7 @@ CICs 代表客戶資訊控制系統，許多線上的大型電腦應用程式所
 
      ![定義區域的區域名稱：BANKDEMO](media/08-demo-cics.png)
 
-7. 按一下 [完成] 。
+7. 按一下 [完成]  。
 
 ## <a name="create-xa-resource-definitions"></a>建立 XA 資源定義
 
@@ -197,11 +197,11 @@ CICs 代表客戶資訊控制系統，許多線上的大型電腦應用程式所
 
      ![新的資料庫 XA 資源定義畫面](media/09-demo-xa.png)
 
-6. 按一下省略符號 (**...**) 以顯示 [連接字串] 精靈。 針對**伺服器名稱**，型別 **(local)\\SQLEXPRESS**。 針對**登入**，選取**Windows 驗證**。 資料庫名稱 中輸入**BANKDEMO**
+6. 按一下省略符號 ( **...** ) 以顯示 [連接字串] 精靈。 針對**伺服器名稱**，型別 **(local)\\SQLEXPRESS**。 針對**登入**，選取**Windows 驗證**。 資料庫名稱 中輸入**BANKDEMO**
 
      ![編輯連接字串的畫面](media/10-demo-string.png)
 
-7. 測試連線能力。
+7. 測試連接。
 
 ## <a name="start-the-bankdemo-region"></a>啟動 BANKDEMO 區域
 
@@ -216,13 +216,13 @@ CICs 代表客戶資訊控制系統，許多線上的大型電腦應用程式所
 
 4. 在底部**啟動/停止區域** 方塊中，會出現在中間窗格中，選取**開始**。 幾秒鐘後，會啟動區域。
 
-     ![SQL 啟動/停止方塊](/media/11-demo-sql.png)
+     ![SQL 啟動/停止方塊](media/11-demo-sql.png)
 
      ![CICS 區域 BANKDEMO-開始使用 畫面](media/12-demo-cics.png)
 
 ## <a name="create-a-listener"></a>建立接聽程式
 
-您需要針對 TN3270 的工作階段存取 BankDemo 應用程式建立的接聽程式。
+TN3270 的工作階段存取 BankDemo 應用程式中建立的接聽程式。
 
 1. 在左窗格中，依序展開**組態編輯器**，然後選取**接聽程式**。
 
@@ -236,7 +236,7 @@ CICs 代表客戶資訊控制系統，許多線上的大型電腦應用程式所
 
 6. 以滑鼠右鍵按一下新增 TN3270 頻道**BANKDEMO 區域**，然後選取**新增頻道**。
 
-7. 針對**名稱**，輸入**TN3270**。 針對**連接埠**，輸入**9024**。 （請注意 ESDEMO 應用程式會使用連接埠 9230，因此您必須使用不同的連接埠）。
+7. 針對**名稱**，輸入**TN3270**。 針對**連接埠**，輸入**9024**。 ESDEMO 應用程式會使用連接埠 9230，因此您必須使用不同的連接埠。
 
 8. 若要儲存檔案，按一下**儲存**圖示，或選擇**檔案** \> **儲存**。
 
@@ -247,7 +247,7 @@ CICs 代表客戶資訊控制系統，許多線上的大型電腦應用程式所
 
 ## <a name="configure-rumba-to-access-the-bankdemo-application"></a>設定 Rumba 存取 BankDemo 應用程式
 
-您需要執行最後一件事是設定 3270 工作階段使用 Rumba，3270 模擬器。 此步驟可讓您存取 BankDemo 應用程式透過您剛建立的接聽程式。
+您需要執行最後一件事是設定 3270 工作階段使用 Rumba，3270 模擬器。 此步驟可讓您存取 BankDemo 應用程式透過您所建立的接聽程式。
 
 1. 從 Windows**啟動**功能表上，啟動 Rumba Desktop。
 

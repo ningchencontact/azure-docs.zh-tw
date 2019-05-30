@@ -1,26 +1,26 @@
 ---
 title: 將管理事件的 Azure 警示移轉至活動記錄警示
 description: 管理事件的警示將於 10 月 1 日移除。 藉由遷移現有警示來做準備。
-author: lingliw
+author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
-ms.author: v-lingwu
+ms.date: 08/14/2017
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78519dad85739b6e4d760bc34719837956638f48
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255918"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388724"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>將管理事件的 Azure 警示移轉至活動記錄警示
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!WARNING]
-> 管理事件的警示將於 10 月 1 日或之後關閉。 使用下列指示來了解您是否有這些警示並加以移轉 (如果有的話)。
+> 管理事件的警示將會關閉在或之後月 1,2017。 使用下列指示來了解您是否有這些警示並加以移轉 (如果有的話)。
 
 ## <a name="what-is-changing"></a>變更內容
 
@@ -32,7 +32,7 @@ Azure 監視器 (先前稱為 Azure Insights) 提供了建立警示的功能，�
 下列 PowerShell 指令碼會傳回您的訂用帳戶中管理事件的所有警示清單，以及每個警示上設定的條件。
 
 ```powershell
-Connect-AzAccount -Environment AzureChinaCloud
+Connect-AzAccount
 $alerts = $null
 foreach ($rg in Get-AzResourceGroup ) {
   $alerts += Get-AzAlertRule -ResourceGroup $rg.ResourceGroupName
@@ -115,3 +115,4 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 * 檢閱[活動記錄警示 webhook 結構描述](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 * 深入了解[服務通知](../../azure-monitor/platform/service-notifications.md)
 * 深入了解[動作群組](../../azure-monitor/platform/action-groups.md)
+

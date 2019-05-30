@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2cc5d953ec412c1c747989d58303beae05f2039c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 201998168b0709b1608ffad2565518e15d47e52c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66118036"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234293"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure 磁碟加密必要條件 (舊版)
 
@@ -73,7 +73,7 @@ ms.locfileid: "66118036"
 **群組原則：**
  - Azure 磁碟加密解決方案對 Windows IaaS VM 使用 BitLocker 外部金鑰保護裝置。 對於加入網域的 VM，請勿推送任何會強制使用 TPM 保護裝置的群組原則。 如需關於「在不含相容 TPM 的情形下允許使用 BitLocker」的群組原則相關資訊，請參閱 [BitLocker 群組原則參考文件](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup)。
 
--  具有自訂群組原則之已加入網域虛擬機器上的 BitLocker 原則必須包含下列設定：[設定 BitLocker 復原資訊的使用者儲存體 -> 允許 256 位元的復原金鑰](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)。 當 BitLocker 的自訂群組原則設定不相容時，Azure 磁碟加密將會失敗。 在沒有正確原則設定的電腦上，您可能必須套用新的原則、強制新的原則進行更新 (gpupdate.exe /force)，然後重新啟動。  
+-  具有自訂群組原則之已加入網域虛擬機器上的 BitLocker 原則必須包含下列設定：[設定使用者存放裝置的 BitLocker 修復資訊-> 允許 256 位元修復金鑰](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)。 當 BitLocker 的自訂群組原則設定不相容時，Azure 磁碟加密將會失敗。 在沒有正確原則設定的電腦上，您可能必須套用新的原則、強制新的原則進行更新 (gpupdate.exe /force)，然後重新啟動。  
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -204,8 +204,8 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 
 您可以使用 [Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)來建立金鑰保存庫。
 
-1. 在 Azure 快速入門範本中，按一下 [部署至 Azure]。
-2. 選取訂用帳戶、資源群組、資源群組位置、Key Vault 名稱、物件識別碼、法律條款和協議，然後按一下 [購買]。 
+1. 在 Azure 快速入門範本中，按一下 [部署至 Azure]  。
+2. 選取訂用帳戶、資源群組、資源群組位置、Key Vault 名稱、物件識別碼、法律條款和協議，然後按一下 [購買]  。 
 
 
 ## <a name="bkmk_ADapp"></a> 設定 Azure AD 應用程式和服務主體 
@@ -246,7 +246,7 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 1. [確認所需權限](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
 2. [建立 Azure Active Directory 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - 在建立應用程式時，您可以使用任何您想要的名稱和登入 URL。
-3. [取得應用程式識別碼和驗證金鑰](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key)。 
+3. [取得應用程式識別碼和驗證金鑰](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)。 
      - 驗證金鑰是用戶端密碼，並作為組 AzVMDiskEncryptionExtension AadClientSecret。 
         - 應用程式會使用驗證金鑰作為認證來登入 Azure AD。 在 Azure 入口網站中，此密碼稱為金鑰，但實際上與金鑰保存庫並無任何關聯。 請適當地保護這個祕密。 
      - 應用程式識別碼將用於稍後的組 AzVMDiskEncryptionExtension AadClientId 以及如組 AzKeyVaultAccessPolicy ServicePrincipalName。 
@@ -283,11 +283,11 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 ### <a name="bkmk_KVAPRM"></a> 使用入口網站設定 Azure AD 應用程式的金鑰保存庫存取原則
 
 1. 使用金鑰保存庫開啟資源群組。
-2. 選取金鑰保存庫，移至 [存取原則]，然後按一下 [新增]。
-3. 在 [選取主體] 底下，搜尋您所建立的 Azure AD 應用程式，並加以選取。 
-4. 針對 [金鑰權限]，勾選 [密碼編譯作業] 底下的 [包裝金鑰]。
-5. 針對 [祕密權限]，勾選 [祕密管理作業] 底下的 [設定]。
-6. 按一下 [確定] 以儲存存取原則。 
+2. 選取金鑰保存庫，移至 [存取原則]  ，然後按一下 [新增]  。
+3. 在 [選取主體]  底下，搜尋您所建立的 Azure AD 應用程式，並加以選取。 
+4. 針對 [金鑰權限]  ，勾選 [密碼編譯作業]  底下的 [包裝金鑰]  。
+5. 針對 [祕密權限]  ，勾選 [祕密管理作業]  底下的 [設定]  。
+6. 按一下 [確定]  以儲存存取原則。 
 
 ![Azure Key Vault 密碼編譯作業 - 包裝金鑰](./media/azure-security-disk-encryption/keyvault-portal-fig3.png)
 
@@ -339,10 +339,10 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
 
 ### <a name="bkmk_KVperrm"></a> 透過 Azure 入口網站設定金鑰保存庫進階存取原則
 
-1. 選取金鑰保存庫，移至 [存取原則]，然後**按一下以顯示進階存取原則**。
+1. 選取金鑰保存庫，移至 [存取原則]  ，然後**按一下以顯示進階存取原則**。
 2. 選取標示為**為磁碟區加密啟用對 Azure 磁碟加密的存取**的方塊。
-3. 視需要選取 [為部署啟用對 Azure 虛擬機器的存取] 及/或 [為範本部署啟用對 Azure Resource Manager 的存取]。 
-4. 按一下 [檔案] 。
+3. 視需要選取 [為部署啟用對 Azure 虛擬機器的存取]  及/或 [為範本部署啟用對 Azure Resource Manager 的存取]  。 
+4. 按一下 [檔案]  。
 
 ![Azure 金鑰保存庫進階存取原則](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
 
@@ -354,13 +354,13 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
 
 * 您的金鑰保存庫密碼和 KEK URL 必須已設定版本。 Azure 會強制執行設定版本的這項限制。 針對有效的密碼和 KEK URL，請參閱下列範例︰
 
-  * 有效祕密 URL 的範例：*https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * 有效 KEK URL 的範例：*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * 有效祕密 URL 的範例： *https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * 有效 KEK URL 的範例： *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Azure 磁碟加密不支援將連接埠號碼指定為金鑰保存庫密碼和 KEK URL 的一部分。 如需不支援和支援的金鑰保存庫 URL 範例，請參閱下列範例：
 
   * 無法接受的金鑰保存庫 URL *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * 可接受的金鑰保存庫 URL：*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * 可接受的金鑰保存庫 URL： *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 ### <a name="bkmk_KEKPSH"></a> 使用 Azure PowerShell 設定金鑰加密金鑰 
 在使用 PowerShell 指令碼之前，請先熟悉 Azure 磁碟加密的先決條件，以了解指令碼中的步驟。 範例指令碼可能需要隨環境加以變更。 此指令碼會建立所有 Azure 磁碟加密先決條件，並加密現有 IaaS VM 以使用金鑰加密金鑰包裝磁碟加密金鑰。 

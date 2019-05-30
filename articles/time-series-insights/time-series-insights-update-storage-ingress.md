@@ -2,7 +2,7 @@
 title: Azure 時間序列深入解析預覽中的資料儲存體和輸入 | Microsoft Docs
 description: 了解 Azure 時間序列深入解析預覽中的資料儲存體和輸入。
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: cebe22dddf9ef382c4eceb799e05cbaab30aedaa
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 8587fb0138309040232b6e0abc0f3eb17cc3093a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951100"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244065"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽中的資料儲存體和輸入
 
@@ -77,7 +77,7 @@ Parquet 是資料行導向的資料檔案格式，設計用來提供：
 * 所有對應至資料行的其他屬性，都會以 `_string` (字串)、`_bool` (布林值)、`_datetime` (日期時間) 和 `_double` (雙精度浮點數) 結尾，取決於屬性類型。
 * 這是第一版的檔案格式對應結構描述，我們稱為 **V=1**。 隨著這項功能發展，名稱將會遞增為 **V=2**、**V=3**，依此類推。
 
-## <a name="partitions"></a>分割區
+## <a name="partitions"></a>分割數
 
 每個時間序列深入解析預覽環境必須具備**時間序列識別碼**屬性並**時間戳記**唯一識別它的屬性。 您的時間序列識別碼作為您資料的邏輯分割，並提供時間序列深入解析預覽環境自然界限，以跨實體分割區散發資料。 實體分割區的管理，是受 Azure 儲存體帳戶中的時間序列深入解析預覽所管理。
 
@@ -86,7 +86,7 @@ Parquet 是資料行導向的資料檔案格式，設計用來提供：
 一開始，在輸入階段，資料會依時間戳記分割，如此一來指定時間範圍內的單一邏輯分割區就可分散到多個實體分割區。 單一實體分割區也可能包含多個或所有邏輯分割區。 由於 Blob 的大小限制，即使已最佳化分割，單一邏輯分割區也可能佔用多個實體分割區。
 
 > [!NOTE]
-> 根據預設，時間戳記的值是您設定之事件來源中的「已加入佇列時間」訊息。
+> 根據預設，時間戳記的值是您設定之事件來源中的「已加入佇列時間」  訊息。
 
 如果您正在上傳歷史資料或批次訊息，請將您要與資料一起儲存的值指派給時間戳記屬性，其會對應至適當的時間戳記。 時間戳記屬性有區分大小寫。 如需詳細資訊，請參閱[時間序列模型](./time-series-insights-update-tsm.md)。
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 59a801fd149a0f647298d94522f9eefc1ea6eb9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d3cbc2d5be1f7addf833162b23c5db0786e9d361
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820716"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297484"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>記錄度量在定型期間執行 Azure Machine Learning 中
 
@@ -30,7 +30,7 @@ ms.locfileid: "60820716"
 |----|:----|:----|
 |純量值 |函式：<br>`run.log(name, value, description='')`<br><br>範例：<br>run.log("accuracy", 0.95) |使用指定名稱將數字或字串值記錄到執行中。 將計量記錄到執行中，會導致該計量儲存在實驗的執行記錄中。  您可以在執行中多次記錄相同的計量，結果會視為該計量的向量。|
 |清單|函式：<br>`run.log_list(name, value, description='')`<br><br>範例：<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | 使用指定名稱將值清單記錄到執行中。|
-|資料列|函式：<br>`run.log_row(name, description=None, **kwargs)`<br>範例：<br>run.log_row("Y over X", x=1, y=0.4) | 使用 log_row 建立計量，並於其中包含 kwargs 中描述的多個資料行。 每個具名的參數都會產生一個具有指定值的資料行。  可以呼叫一次 *log_row* 以記錄任意 Tuple，或者在迴圈中多次呼叫以產生完整的資料表。|
+|資料列|函式：<br>`run.log_row(name, description=None, **kwargs)`<br>範例：<br>run.log_row("Y over X", x=1, y=0.4) | 使用 log_row  建立計量，並於其中包含 kwargs 中描述的多個資料行。 每個具名的參數都會產生一個具有指定值的資料行。  可以呼叫一次 *log_row* 以記錄任意 Tuple，或者在迴圈中多次呼叫以產生完整的資料表。|
 |資料表|函式：<br>`run.log_table(name, value, description='')`<br><br>範例：<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | 使用指定名稱將字典物件記錄到執行中。 |
 |映像|函式：<br>`run.log_image(name, path=None, plot=None)`<br><br>範例：<br>`run.log_image("ROC", plt)` | 將映像記錄到執行記錄中。 使用 log_image 將映像檔案或 matplotlib 繪圖記錄到執行中。  這些映像會顯示在執行記錄中，並可供比較。|
 |標記執行|函式：<br>`run.tag(key, value=None)`<br><br>範例：<br>run.tag("selected", "yes") | 使用字串索引鍵和可選字串值標記執行。|
@@ -67,7 +67,7 @@ ms.locfileid: "60820716"
 
 1. 在本機 Jupyter Notebook 中建立定型指令碼。 
 
-   ``` python
+   ```python
    # load diabetes dataset, a well-known small dataset that comes with scikit-learn
    from sklearn.datasets import load_diabetes
    from sklearn.linear_model import Ridge
@@ -300,7 +300,7 @@ ms.locfileid: "60820716"
 
 1. 移至工作區。 
 
-1. 在工作區的最左邊面板中，選取 [實驗]。
+1. 在工作區的最左邊面板中，選取 [實驗]  。
 
    ![實驗功能表的螢幕擷取畫面](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_menu.PNG)
 

@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f4bbea8acd447a731cf5c56f9876baf9183735ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cba57875daf9b570d274ec8c4e9c4146af0dc045
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60518642"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072838"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances 中的容器群組
 
-在 Azure Container Instances 中，最上層的資源就是容器群組。 本文說明容器群組為何，以及這些群組能夠實現的案例類型。
+在 Azure Container Instances 中，最上層的資源就是容器群組  。 本文說明容器群組為何，以及這些群組能夠實現的案例類型。
 
 ## <a name="how-a-container-group-works"></a>容器群組的運作方式
 
@@ -65,7 +65,7 @@ Azure 容器執行個體配置的資源，例如 Cpu、 記憶體，並選擇性
 
 * 配置**最小**1 的 CPU 和 1 GB 記憶體給容器群組。 群組內的個別容器執行個體，可以使用小於 1 佈建 CPU 和 1 GB 的記憶體。 
 
-* 針對**最大**容器群組中的資源，請參閱 [資源可用性] [aci-區域-可用性] 部署區域中的 Azure 容器執行個體。
+* 針對**最大**容器群組中的資源，請參閱[資源可用性][ region-availability] Azure Container instances 中部署區域。
 
 ## <a name="networking"></a>網路功能
 

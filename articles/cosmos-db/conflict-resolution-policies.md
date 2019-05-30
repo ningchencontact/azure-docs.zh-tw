@@ -4,15 +4,15 @@ description: 本文描述 Azure Cosmos DB 中的衝突類別和衝突解決原�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98e9f5fff1b74d417ee07ed0056c8046b49baa17
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60892586"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236538"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>衝突類型和解決原則
 
@@ -30,7 +30,7 @@ Azure Cosmos 帳戶設有多個寫入區域，當寫入器同時更新多個區�
 
 Azure Cosmos DB 會提供彈性原則導向的機制來解決寫入衝突。 您可以選取從 Azure Cosmos 容器上的兩個衝突解決原則：
 
-- **最後寫入為準 (LWW)**：此解決原則預設會使用系統定義的時間戳記屬性。 它是以時間同步化時鐘通訊協定為基礎。 如果您使用 SQL API，您可以指定要用於衝突解決的任何其他自訂數值屬性 （例如您自己的觀念，時間戳記）。 自訂的數值屬性也稱為*衝突解析路徑*。 
+- **最後寫入為準 (LWW)** ：此解決原則預設會使用系統定義的時間戳記屬性。 它是以時間同步化時鐘通訊協定為基礎。 如果您使用 SQL API，您可以指定要用於衝突解決的任何其他自訂數值屬性 （例如您自己的觀念，時間戳記）。 自訂的數值屬性也稱為*衝突解析路徑*。 
 
   如果兩個或更多項目在插入或取代作業時發生衝突，則包含衝突解決路徑最高值的項目會成為「優先」項目。 如果多個項目的衝突解決路徑值都相同，則由系統決定「優先」項目。 所有區域保證都會彙整出單一優先項目，且認可項目的版本最後都會相同。 如果涉及刪除衝突，則刪除的版本一律優先於插入或取代衝突。 不論衝突解決之道的值為何，就會發生這個結果。
 

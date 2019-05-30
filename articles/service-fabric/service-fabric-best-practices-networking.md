@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 86ad6fce34f323d94f7b9c318ba81f547360d4df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61038482"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237330"
 ---
 # <a name="networking"></a>網路功能
 
@@ -60,7 +60,7 @@ Service Fabric 叢集可以佈建在[使用加速網路的 Linux](https://docs.m
 
 * Service Fabric 叢集可依照 [Service Fabric 網路功能模式](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking)中說明的步驟部署到現有的虛擬網路中。
 
-* 對於限制叢集的輸入和輸出流量的節點類型，建議使用網路安全性群組 (NSG)。 請確實在 NSG 中開啟必要的連接埠。 例如︰![Service Fabric NSG 規則][NSGSetup]
+* 對於限制叢集的輸入和輸出流量的節點類型，建議使用網路安全性群組 (NSG)。 請確實在 NSG 中開啟必要的連接埠。 例如: ![Service Fabric NSG 規則][NSGSetup]
 
 * 主要節點類型包含 Service Fabric 系統服務，因此不需要透過外部負載平衡器來公開，而可由[內部負載平衡器](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)來公開
 
@@ -71,6 +71,8 @@ Service Fabric 叢集可以佈建在[使用加速網路的 Linux](https://docs.m
 * 若要執行 Windows 容器工作負載，請使用[開放網路模式](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)，以便進行服務對服務的通訊。
 
 * 使用反向 Proxy (例如 [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) 或 [Service Fabric 反向 Proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy)) 公開常用的應用程式連接埠，例如 80 或 443。
+
+* 無法提取從 Azure 雲端儲存體中，基底圖層的空中 gapped 機器上託管的 Windows 容器使用覆寫外部的圖層的行為，如[-允許 nondistributable 成品](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines)中 Docker 精靈旗標。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.openlocfilehash: be592cb6bb7c041fab0a2f96a338f4f4bb0ff00a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2d70e1b5434b2fb263d1f4587888d4758fac2828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510932"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225369"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>讀取「適用於 MySQL 的 Azure 資料庫」中的複本
 
@@ -42,8 +42,7 @@ ms.locfileid: "65510932"
 
 當您開始建立複本工作流程時，會建立空白的 Azure Database for MySQL 伺服器。 新的伺服器會具有主要伺服器上的資料。 建立時間取決於主要伺服器上的資料量，以及距離上次每週完整備份的時間。 時間的範圍可能介於數分鐘到數小時。
 
-> [!NOTE]
-> 如果您沒有在伺服器上設定儲存體警示，建議您這麼做。 警示會在伺服器接近儲存體限制時向您發出通知，因為此狀況會影響複寫。
+每個複本都可使用儲存體[自動成長](concepts-pricing-tiers.md#storage-auto-grow)。 「 真的 」 功能可讓以跟上，複寫的資料，並避免中斷超出儲存體錯誤所造成的複寫複本。
 
 了解如何[在 Azure 入口網站中建立讀取複本](howto-read-replicas-portal.md)。
 
@@ -89,7 +88,7 @@ mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 
 ### <a name="master-server-restart"></a>主要伺服器重新啟動
 
-如果为没有现有副本的主服务器创建副本，主服务器将首先重启以便为复制准备自身。 請考慮這一點，並在離峰期間執行這些作業。
+當您建立沒有任何現有複本的主要複本時，主要會先重新啟動準備本身進行複寫。 請考慮這一點，並在離峰期間執行這些作業。
 
 ### <a name="new-replicas"></a>新複本
 

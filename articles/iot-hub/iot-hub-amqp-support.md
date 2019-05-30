@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: rezas
-ms.openlocfilehash: f39f184bdc09677e347a2691351309dd6483f467
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: d256faa42161e276e165f95c944b9f58ac4a8927
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965401"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297406"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-amqp-protocol"></a>IoT 中樞使用 AMQP 通訊協定與通訊
 
@@ -29,7 +29,7 @@ IoT 中樞支援[AMQP 1.0 版](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp
 | 資訊 | Value | 
 |-------------|--------------|
 | IoT 中樞主機名稱 | `<iot-hub-name>.azure-devices.net` |
-| 金鑰名稱 | `service` |
+| 索引鍵名稱 | `service` |
 | 存取金鑰 | 與服務相關聯的主要或次要金鑰 |
 | 共用存取簽章 | 短期的 SAS，以下列格式： `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}` (可以找到程式碼來產生這個簽章[這裡](./iot-hub-devguide-security.md#security-token-structure))。
 
@@ -62,7 +62,7 @@ receive_client = uamqp.ReceiveClient(uri, debug=True)
 ### <a name="invoking-cloud-to-device-messages-service-client"></a>叫用的雲端到裝置訊息 （服務用戶端）
 描述服務與 IoT 中樞之間，以及裝置與 IoT 中樞之間的雲端到裝置訊息交換[此處](iot-hub-devguide-messages-c2d.md)。 服務用戶端會使用兩個連結，如下所述來傳送訊息，並從裝置收到先前傳送的訊息的意見反應。
 
-| 建立者: | 連結類型 | 連結路徑 | 說明 |
+| 所建立 | 連結類型 | 連結路徑 | 描述 |
 |------------|-----------|-----------|-------------|
 | 服務 | 寄件者 連結 | `/messages/devicebound` | C2D 訊息為目標的裝置會傳送到此連結服務。 透過此連結來傳送的訊息有他們`To`屬性設定為 目標裝置的接收者連結路徑： 亦即， `/devices/<deviceID>/messages/devicebound`。 |
 | 服務 | 接收者連結 | `/messages/serviceBound/feedback` | 來自裝置接收到此連結服務的完成、 拒絕，並放棄意見反應訊息。 如需詳細的意見反應訊息的詳細資訊，請參閱[此處](./iot-hub-devguide-messages-c2d.md#message-feedback)。 |
@@ -194,20 +194,142 @@ for msg in batch:
 指定的裝置識別碼，IoT 中樞會使用裝置識別碼的雜湊來判斷哪一個資料分割儲存在其訊息。 上述程式碼片段會示範從單一事件的接收這類資料分割。 不過，要注意的是，一般的應用程式通常需要擷取所有事件中樞資料分割中儲存的事件。
 
 
-### <a name="additional-notes"></a>其他附註
-* AMQP 連線可能中斷網路小毛病或 （在程式碼產生） 的驗證權杖的到期日到期。 服務用戶端必須處理這些情況下，並重新建立連線和連結，如有需要。 驗證權杖到期的情況下，用戶端還必須主動可以更新其到期日，以避免連線卸除前的語彙基元。
-* 在某些情況下，您的用戶端必須能夠正確處理連結重新導向。 請參閱您的 AMQP 用戶端文件如何處理這項作業。
+## <a name="device-client"></a>裝置用戶端
 
-### <a name="receive-cloud-to-device-messages-device-and-module-client"></a>接收雲端到裝置訊息 （裝置和模組用戶端）
-在裝置端上使用 AMQP 連結如下所示：
+### <a name="connection-and-authenticating-to-iot-hub-device-client"></a>連線並向 IoT 中樞 （裝置用戶端）
+若要連接到 IoT 中樞使用 AMQP，裝置可以使用[宣告型安全性 (CBS)](https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc)或是[簡單驗證及安全性階層 (SASL) 驗證](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer)。
 
-| 建立者: | 連結類型 | 連結路徑 | 說明 |
+下列資訊是必要的裝置用戶端：
+
+| 資訊 | Value | 
+|-------------|--------------|
+| IoT 中樞主機名稱 | `<iot-hub-name>.azure-devices.net` |
+| 存取金鑰 | 與裝置相關聯的主要或次要金鑰 |
+| 共用存取簽章 | 短期的 SAS，以下列格式： `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}` (可以找到程式碼來產生這個簽章[這裡](./iot-hub-devguide-security.md#security-token-structure))。
+
+
+使用下列程式碼片段[uAMQP 在 Python 中的程式庫](https://github.com/Azure/azure-uamqp-python)來連線到 IoT 中樞，透過寄件者 連結。
+
+```python
+import uamqp
+import urllib
+import uuid
+
+# Use generate_sas_token implementation available here: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
+from helper import generate_sas_token
+
+iot_hub_name = '<iot-hub-name>'
+hostname = '{iot_hub_name}.azure-devices.net'.format(iot_hub_name=iot_hub_name)
+device_id = '<device-id>'
+access_key = '<primary-or-secondary-key>'
+username = '{device_id}@sas.{iot_hub_name}'.format(device_id=device_id, iot_hub_name=iot_hub_name)
+sas_token = generate_sas_token('{hostname}/devices/{device_id}'.format(hostname=hostname, device_id=device_id), access_key, None)
+
+operation = '<operation-link-name>' # e.g., '/devices/{device_id}/messages/devicebound'
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+
+receive_client = uamqp.ReceiveClient(uri, debug=True)
+send_client = uamqp.SendClient(uri, debug=True)
+```
+
+裝置作業支援下列的連結路徑：
+
+| 所建立 | 連結類型 | 連結路徑 | 描述 |
 |------------|-----------|-----------|-------------|
 | 裝置 | 接收者連結 | `/devices/<deviceID>/messages/devicebound` | 此連結會接收 C2D 訊息為目標的裝置，每個目的地裝置。 |
+| 裝置 | 寄件者 連結 | `/devices/<deviceID>messages/events` | 從裝置傳送 D2C 訊息會透過此連結傳送。 |
 | 裝置 | 寄件者 連結 | `/messages/serviceBound/feedback` | C2D 訊息意見反應傳送到此連結服務的裝置。 |
-| 模組 | 接收者連結 | `/devices/<deviceID>/modules/<moduleID>/messages/devicebound` | 每個目的地模組 C2D 訊息流向模組接收到此連結。 |
-| 模組 | 寄件者 連結 | `/messages/serviceBound/feedback` | C2D 訊息意見反應傳送至由模組透過此連結服務。 |
 
+
+### <a name="receive-c2d-commands-device-client"></a>接收 C2D 命令 （裝置用戶端）
+C2D 命令傳送至裝置到達`/devices/<deviceID>/messages/devicebound`連結。 裝置可以在批次中接收這些訊息，並視需要使用訊息資料內容、 訊息屬性、 註解或應用程式屬性的訊息中。
+
+使用下列程式碼片段[uAMQP 在 Python 中的程式庫](https://github.com/Azure/azure-uamqp-python)裝置接收 C2D 訊息。
+
+```python
+# ... 
+# Create a receive client for the C2D receive link on the device
+operation = '/devices/{device_id}/messages/devicebound'.format(device_id=device_id)
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+
+receive_client = uamqp.ReceiveClient(uri, debug=True)
+while True:
+  batch = receive_client.receive_message_batch(max_batch_size=5)
+  for msg in batch:
+    print('*** received a message ***')
+    print(''.join(msg.get_data()))
+
+    # Property 'to' is set to: '/devices/device1/messages/devicebound',
+    print('\tto:                     ' + str(msg.properties.to))
+
+    # Property 'message_id' is set to value provided by the service
+    print('\tmessage_id:             ' + str(msg.properties.message_id))
+
+    # Other properties are present if they were provided by the service
+    print('\tcreation_time:          ' + str(msg.properties.creation_time))
+    print('\tcorrelation_id:         ' + str(msg.properties.correlation_id))
+    print('\tcontent_type:           ' + str(msg.properties.content_type))
+    print('\treply_to_group_id:      ' + str(msg.properties.reply_to_group_id))
+    print('\tsubject:                ' + str(msg.properties.subject))
+    print('\tuser_id:                ' + str(msg.properties.user_id))
+    print('\tgroup_sequence:         ' + str(msg.properties.group_sequence))
+    print('\tcontent_encoding:       ' + str(msg.properties.content_encoding))
+    print('\treply_to:               ' + str(msg.properties.reply_to))
+    print('\tabsolute_expiry_time:   ' + str(msg.properties.absolute_expiry_time))
+    print('\tgroup_id:               ' + str(msg.properties.group_id))
+
+    # Message sequence number in the built-in Event hub
+    print('\tx-opt-sequence-number:  ' + str(msg.annotations['x-opt-sequence-number']))
+```
+
+### <a name="send-telemetry-messages-device-client"></a>傳送遙測訊息 （裝置用戶端）
+遙測訊息也會透過 AMQP 從裝置傳送。 裝置可以選擇性地提供應用程式屬性的字典或各種訊息屬性，例如訊息識別碼。
+
+使用下列程式碼片段[uAMQP 在 Python 中的程式庫](https://github.com/Azure/azure-uamqp-python)從裝置傳送 D2C 訊息。
+
+
+```python
+# ... 
+# Create a send client for the D2C send link on the device
+operation = '/devices/{device_id}/messages/events'.format(device_id=device_id)
+uri = 'amqps://{}:{}@{}{}'.format(urllib.quote_plus(username), urllib.quote_plus(sas_token), hostname, operation)
+
+send_client = uamqp.SendClient(uri, debug=True)
+
+# Set any of the applicable message properties
+msg_props = uamqp.message.MessageProperties()
+msg_props.message_id = str(uuid.uuid4())
+msg_props.creation_time = None
+msg_props.correlation_id = None
+msg_props.content_type = None
+msg_props.reply_to_group_id = None
+msg_props.subject = None
+msg_props.user_id = None
+msg_props.group_sequence = None
+msg_props.to = None
+msg_props.content_encoding = None
+msg_props.reply_to = None
+msg_props.absolute_expiry_time = None
+msg_props.group_id = None
+
+# Application properties in the message (if any)
+application_properties = { "app_property_key": "app_property_value" }
+
+# Create message
+msg_data = b"Your message payload goes here"
+message = uamqp.Message(msg_data, properties=msg_props, application_properties=application_properties)
+
+send_client.queue_message(message)
+results = send_client.send_all_messages()
+
+for result in results:
+    if result == uamqp.constants.MessageState.SendFailed:
+        print result
+```
+
+## <a name="additional-notes"></a>其他注意事項
+* AMQP 連線可能中斷網路小毛病或 （在程式碼產生） 的驗證權杖的到期日到期。 服務用戶端必須處理這些情況下，並重新建立連線和連結，如有需要。 驗證權杖到期的情況下，用戶端還必須主動可以更新其到期日，以避免連線卸除前的語彙基元。
+* 在某些情況下，您的用戶端必須能夠正確處理連結重新導向。 請參閱您的 AMQP 用戶端文件如何處理這項作業。
 
 ## <a name="next-steps"></a>後續步驟
 

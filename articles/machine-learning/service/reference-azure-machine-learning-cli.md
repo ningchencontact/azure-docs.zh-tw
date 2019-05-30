@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 163b8e1f68b8d5a102465022c67f7d0da57a7215
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 541ffe70ae5198e631568584a58d02ac283e89d3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596970"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298246"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務的 CLI 擴充功能
 
@@ -40,7 +40,7 @@ CLI 不是 Azure Machine Learning SDK 的取代項目。 這是已最佳化，�
 
 尋找[完整的 Azure CLI 的 azure-cli-ml 延伸模組的參考文件](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/?view=azure-cli-latest)。
 
-## <a name="install-the-extension"></a>安裝延伸模組
+## <a name="install-the-extension"></a>安裝擴充功能
 
 若要安裝 Machine Learning CLI 擴充功能，請使用下列命令：
 
@@ -165,13 +165,11 @@ az extension remove -n azure-cli-ml
     如需詳細資訊，請參閱 < [az ml 模型的設定檔](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile)。
 
 + 將模型部署到 AKS
-
     ```azurecli-interactive
-    az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
+    az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget
     ```
-
+    
     以下是範例`inferenceconfig.json`文件：
-
     ```json
     {
     "entryScript": "score.py",
@@ -182,6 +180,13 @@ az extension remove -n azure-cli-ml
     "enableGpu": false,
     "baseImage": null,
     "baseImageRegistry": null
+    }
+    ```
+    'Deploymentconfig.json' 文件的範例如下：
+    ```json
+    {
+    "computeType": "aks",
+    "ComputeTarget": "akscomputetarget"
     }
     ```
 

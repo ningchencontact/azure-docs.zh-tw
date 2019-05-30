@@ -7,14 +7,14 @@ keywords: apache storm 使用案例,storm 叢集,什麼是 apache storm
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 05/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5688056bc0d371c780bce02254769792e9a95696
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 42aaa91906319133fd2864cd836447fcf3ca3a07
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696101"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257773"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什麼是 Apache Storm on Azure HDInsight？
 
@@ -26,7 +26,7 @@ ms.locfileid: "64696101"
 
 Storm on HDInsight 提供下列功能︰
 
-* __Storm 運作時間的 99% 服務等級協定 (SLA)__：如需詳細資訊，請參閱[適用於 HDInsight 的 SLA 資訊](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/)文件。
+* __Storm 運作時間的 99% 服務等級協定 (SLA)__ ：如需詳細資訊，請參閱[適用於 HDInsight 的 SLA 資訊](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/)文件。
 
 * 在建立期間或之後針對 Storm 叢集執行指令碼，可支援輕鬆自訂。 如需詳細資訊，請參閱[使用指令碼動作來自訂 HDInsight 叢集](../hdinsight-hadoop-customize-cluster-linux.md)。
 
@@ -47,13 +47,13 @@ Storm on HDInsight 提供下列功能︰
 
 如需使用 Apache Storm 作為即時分析解決方案的公司清單，請參閱[使用 Apache Storm 的公司](https://storm.apache.org/documentation/Powered-By.html)。
 
-若要开始使用 Storm，请参阅 [Apache Storm on HDInsight 入门][gettingstarted]。
+若要開始使用 Storm，請參閱[開始使用 Apache Storm on HDInsight](apache-storm-tutorial-get-started-linux.md)。
 
 ## <a name="how-does-apache-storm-work"></a>Apache Storm 的運作方式
 
-Storm 會執行拓撲，而不是您可能熟悉的 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 作業。 Storm 拓撲是由有向非循環圖 (DAG) 中排列的多個元件所組成。 圖形中元件之間的資料流程。 每個元件會取用一或多個資料流，並可選擇性地發出一或多個資料流。 下图演示了一个基本单词计数拓扑中组件之间的数据流动方式：
+Storm 會執行拓撲，而不是您可能熟悉的 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 作業。 Storm 拓撲是由有向非循環圖 (DAG) 中排列的多個元件所組成。 圖形中元件之間的資料流程。 每個元件會取用一或多個資料流，並可選擇性地發出一或多個資料流。 下圖說明資料在基本字數拓撲中的元件之間的流動方式：
 
-![Storm 拓扑中组件排列方式的示例](./media/apache-storm-overview/example-apache-storm-topology-diagram.png)
+![Storm 拓撲中元件排列方式的範例](./media/apache-storm-overview/example-apache-storm-topology-diagram.png)
 
 * Spout 元件可將資料帶入拓撲中。 它們會將一或多個串流發出至拓撲。
 
@@ -65,7 +65,7 @@ Storm 會執行拓撲，而不是您可能熟悉的 [Apache Hadoop MapReduce](ht
 
 Nimbus 節點提供與 Apache Hadoop JobTracker 類似的功能，並會透過 [Apache Zookeeper](https://zookeeper.apache.org/) 將工作指派給叢集中的其他節點。 Zookeeper 節點可為叢集進行協調，並促進 Nimbus 與背景工作節點上的監督員處理序之間的通訊。 如果其中一個處理節點停止，Nimbus 節點會收到通知，然後將工作和相關資料指派給其他節點。
 
-Apache Storm 叢集的預設組態只有一個 Nimbus 節點。 Storm on HDInsight 會提供兩個 Nimbus 節點。 如果主要節點失敗，Storm 叢集會切換至次要節點，直到主要節點復原為止。 下图说明了 Storm on HDInsight 的任务流配置：
+Apache Storm 叢集的預設組態只有一個 Nimbus 節點。 Storm on HDInsight 會提供兩個 Nimbus 節點。 如果主要節點失敗，Storm 叢集會切換至次要節點，直到主要節點復原為止。 下圖說明 Storm on HDInsight 的工作流程組態：
 
 ![Nimbus、Zookeeper 和監督員的圖表](./media/apache-storm-overview/nimbus.png)
 
@@ -87,7 +87,7 @@ Apache Storm 叢集的預設組態只有一個 Nimbus 節點。 Storm on HDInsig
 
 * __Visual Studio 整合__：Azure Data Lake Tools for Visual Studio 包含可供建立的專案範本C#使用 SCP.NET 架構 Storm 拓撲。 Data Lake Tools 也提供一些工具，以利用 Storm on HDInsight 來部署、監視和管理解決方案。
 
-  有关详细信息，请参阅 [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)（使用用于 Visual Studio 的 HDInsight 工具开发 C# Storm 拓扑）。
+  如需詳細資訊，請參閱[使用 HDInsight Tools for Visual Studio 開發 C# Storm 拓撲](apache-storm-develop-csharp-visual-studio-topology.md)。
 
 ## <a name="integration-with-other-azure-services"></a>與其他 Azure 服務整合
 
@@ -133,7 +133,7 @@ Python 也可以用於開發 Storm 元件。 如需詳細資訊，請參閱[使�
 
 ## <a name="common-development-patterns"></a>常見的開發模式
 
-### <a name="guaranteed-message-processing"></a>有保证的消息处理
+### <a name="guaranteed-message-processing"></a>保證處理訊息
 
 Apache Storm 可以提供不同程度的訊息處理保證。 例如，基本的 Storm 應用程式可以保證至少處理一次，而 [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) 可以保證只處理一次。
 
@@ -141,9 +141,9 @@ Apache Storm 可以提供不同程度的訊息處理保證。 例如，基本的
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-读取输入元组，发出零个或多个元组，并在执行方法结束时立即确认输入元组，这种模式非常普通。 Storm 提供 [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 介面將此模式自動化。
+讀取輸入的 tuple、 發出零個或多個 tuple，和然後認可輸入的 tuple，在執行方法結束時立即模式很常見。 Storm 提供 [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 介面將此模式自動化。
 
-### <a name="joins"></a>联接
+### <a name="joins"></a>聯結
 
 資料流的聯結方式會隨應用程式而異。 例如，您可以將多個串流中的每個 Tuple 聯結成一個新的串流，也可以只聯結特定時間範圍的幾批 Tuple。 無論何者，都可利用 [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) 來完成聯結。 群組欄位是一種定義 Tuple 如何路由傳送至 Bolt 的方法。
 
@@ -157,9 +157,9 @@ Apache Storm 提供稱為「計時 Tuple」的內部計時機制。 您可以設
 
 如需使用 C# 元件中 tick tuple 的範例，請參閱 [PartialBoltCount.cs](https://github.com/hdinsight/hdinsight-storm-examples/blob/3b2c960549cac122e8874931df4801f0934fffa7/EventCountExample/EventCountTopology/src/main/java/com/microsoft/hdinsight/storm/examples/PartialCountBolt.java)。
 
-### <a name="caches"></a>缓存
+### <a name="caches"></a>快取
 
-内存缓存通常用作加速处理的机制，因为它在内存中存储常用资产。 由于拓扑跨多个节点分布，而每个节点中有多个流程，因此应考虑使用 [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-)。 使用 `fieldsGrouping` 可確保含有快取查閱所用欄位的 Tuple 一律會路由傳送至相同程序。 此分组功能可以避免在进程间重复缓存条目。
+通常會使用記憶體內部快取當做加速處理的機制，因為此方式可以將常用的資產保留在記憶體內。 由於拓撲會分散到多個節點，多個處理序位於每個節點內，您應該考慮使用 [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-)。 使用 `fieldsGrouping` 可確保含有快取查閱所用欄位的 Tuple 一律會路由傳送至相同程序。 此群組功能可避免快取項目在程序之間重複。
 
 ### <a name="stream-top-n"></a>串流「前 N 個」
 
@@ -177,10 +177,5 @@ Storm 使用 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) 來記錄�
 
 深入了解使用 Apache Storm on HDInsight 的即時分析解決方案：
 
-* [開始使用 Apache Storm on HDInsight][gettingstarted]
+* [開始使用 Apache Storm on HDInsight](apache-storm-tutorial-get-started-linux.md)
 * [Apache Storm on HDInsight 的範例拓撲](apache-storm-example-topology.md)
-
-[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
-[samoa]: https://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
-[gettingstarted]: apache-storm-tutorial-get-started-linux.md

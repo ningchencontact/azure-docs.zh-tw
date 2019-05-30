@@ -2,18 +2,18 @@
 title: Azure Red Hat OpenShift 的支援資源 |Microsoft Docs
 description: 了解 Microsoft Azure 的 Red Hat OpenShift 支援哪些 Azure 區域與虛擬機器大小。
 services: container-service
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/15/2019
-ms.openlocfilehash: 5182a5e325bd7883af1a7d102d3e02b277a5089e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c226227797802ab58d1bcbaadb7e97e780b30560
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788704"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306209"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Red Hat OpenShift 的 azure 資源
 

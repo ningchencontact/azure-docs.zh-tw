@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 3d50746324ddac21f222d4c743f4b7bf6ee9b773
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: d9cc5da0cd2936c1ac79a308366b8164548cb202
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864811"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241731"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>如何在 Azure API 管理中管理使用者帳戶
 
-在 API 管理中，開發人員是指您使用 API 管理所公開之 API 的使用者。 本指南示範如何建立並邀請開發人員使用您以 API 管理執行個體提供給他們的 API 和產品。 如需以程式設計方式管理使用者帳戶的相關資訊，請參閱 [API 管理 REST](/rest/api/apimanagement/) 參考中的[使用者實體](https://docs.microsoft.com/rest/api/apimanagement/user)文件。
+在 API 管理中，開發人員是指您使用 API 管理所公開之 API 的使用者。 本指南示範如何建立並邀請開發人員使用您以 API 管理執行個體提供給他們的 API 和產品。 如需以程式設計方式管理使用者帳戶的相關資訊，請參閱 [API 管理 REST](/rest/api/apimanagement/) 參考中的[使用者實體](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user)文件。
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -36,20 +36,20 @@ ms.locfileid: "65864811"
 
 若要新增使用者，請遵循本節中的步驟：
 
-1. 選取畫面左側的 [使用者] 索引標籤。
-2. 按 [+新增]。
+1. 選取畫面左側的 [使用者]  索引標籤。
+2. 按 [+新增]  。
 3. 輸入使用者的適當資訊。
-4. 按 [新增] 。
+4. 按 [新增]  。
 
     ![新增使用者](./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png)
 
-依預設，新建立的開發人員帳戶為 [作用中]，且與 [開發人員] 群組相關聯。 處於「作用中」  狀態的開發人員帳戶可用來存取擁有訂用帳戶的所有 API。 若要將新建立的開發人員與其他群組建立關聯，請參閱 [如何將群組與開發人員建立關聯][How to associate groups with developers]。
+依預設，新建立的開發人員帳戶為 [作用中]  ，且與 [開發人員]  群組相關聯。 處於「作用中」  狀態的開發人員帳戶可用來存取擁有訂用帳戶的所有 API。 若要將新建立的開發人員與其他群組建立關聯，請參閱 [如何將群組與開發人員建立關聯][How to associate groups with developers]。
 
 ## <a name="invite-developer"> </a>邀請開發人員
 若要邀請開發人員，請遵循本節中的步驟：
 
-1. 選取畫面左側的 [使用者] 索引標籤。
-2. 按 [+邀請]。
+1. 選取畫面左側的 [使用者]  索引標籤。
+2. 按 [+邀請]  。
 
 這時會顯示確認訊息，但剛獲邀的開發人員在尚未接受邀請之前，都不會出現在清單中。 
 
@@ -59,13 +59,13 @@ ms.locfileid: "65864811"
 
 ## <a name="block-developer"> </a> 停用或重新啟用開發人員帳戶
 
-依預設，新建立或邀請的開發人員帳戶為「作用中」 。 若要停用開發人員帳戶，請按一下 [封鎖] 。 若要重新啟用已封鎖的開發人員帳戶，請按一下 [啟用] 。 已封鎖的開發人員帳戶無法存取開發人員入口網站或呼叫任何 API。 若要刪除使用者帳戶，請按一下 [刪除] 。
+依預設，新建立或邀請的開發人員帳戶為「作用中」  。 若要停用開發人員帳戶，請按一下 [封鎖]  。 若要重新啟用已封鎖的開發人員帳戶，請按一下 [啟用]  。 已封鎖的開發人員帳戶無法存取開發人員入口網站或呼叫任何 API。 若要刪除使用者帳戶，請按一下 [刪除]  。
 
 若要封鎖使用者，請遵循下列步驟。
 
-1. 選取畫面左側的 [使用者] 索引標籤。
+1. 選取畫面左側的 [使用者]  索引標籤。
 2. 按一下您要封鎖的使用者。
-3. 按 [封鎖]。
+3. 按 [封鎖]  。
 
 ## <a name="reset-a-user-password"></a>重設使用者密碼
 

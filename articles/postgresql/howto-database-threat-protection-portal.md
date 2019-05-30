@@ -1,19 +1,19 @@
 ---
-title: 進階威脅防護 - 適用於 PostgreSQL 的 Azure 資料庫
+title: 進階的威脅防護-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
 description: 「威脅保護」會偵測異常資料庫活動，指出資料庫有潛在的安全性威脅。
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: bbb48708d0e5a7cd07a3971a6966f40696107562
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: a69a8b651188b9566fdbec4bc6de09a8fec164c7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421259"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067458"
 ---
-# <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure SQL 資料庫進階威脅防護
+# <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Azure database for PostgreSQL-單一伺服器的進階的威脅防護
 
 適用於 PostgreSQL 的 Azure 資料庫進階威脅防護偵測到異常活動，指出有不尋常及可能有害的活動試圖存取或惡意探索資料庫。
 
@@ -28,11 +28,11 @@ ms.locfileid: "60421259"
 
 ## <a name="set-up-threat-detection"></a>設定威脅偵測
 1. 在 [https://portal.azure.com](https://portal.azure.com) 上啟動 Azure 入口網站。
-2. 瀏覽至所要保護的 適用於 PostgreSQL 的 Azure 資料庫伺服器的設定頁面。 在 [安全性] 設定中，選取 [進階威脅防護 (預覽)]。
-3. 在 [進階威脅防護 (預覽)] 設定頁面上：
+2. 瀏覽至所要保護的 適用於 PostgreSQL 的 Azure 資料庫伺服器的設定頁面。 在 [安全性] 設定中，選取 [進階威脅防護 (預覽)]  。
+3. 在 [進階威脅防護 (預覽)]  設定頁面上：
 
    - 在伺服器上啟用進階威脅防護。
-   - 在 [進階威脅防護設定] 的 [傳送警示給] 文字方塊中，提供要在偵測到異常資料庫活動時收到安全性警示的電子郵件清單。
+   - 在 [進階威脅防護設定]  的 [傳送警示給]  文字方塊中，提供要在偵測到異常資料庫活動時收到安全性警示的電子郵件清單。
   
    ![設定威脅偵測](./media/howto-database-threat-protection-portal/set-up-threat-protection.png)
 
@@ -40,7 +40,7 @@ ms.locfileid: "60421259"
 
 偵測到異常資料庫活動時，您會收到電子郵件通知。 電子郵件會提供可疑安全性事件的相關資訊，包括異常活動的性質、資料庫名稱、伺服器名稱、應用程式名稱和事件時間。 此外，該電子郵件還會提供可能原因和建議動作的相關資訊，以協助您調查和減輕資料庫的潛在威脅。
     
-1. 按一下電子郵件中的 [檢視最近的警示] 連結來啟動 Azure 入口網站，並顯示 Azure 資訊安全中心警示頁面，其中會概述在 SQL 資料庫上偵測到的作用中威脅。
+1. 按一下電子郵件中的 [檢視最近的警示]  連結來啟動 Azure 入口網站，並顯示 Azure 資訊安全中心警示頁面，其中會概述在 SQL 資料庫上偵測到的作用中威脅。
     
     ![異常活動報告](./media/howto-database-threat-protection-portal/anomalous-activity-report.png)
 
@@ -56,7 +56,7 @@ ms.locfileid: "60421259"
 
 進階威脅防護會將自有的警示與 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)整合。 
 
-按一下 [威脅保護] 下的 [安全性警訊] 會啟動 Azure 資訊安全中心的警示頁面，並獲得在資料庫中偵測到的作用中 SQL 威脅概觀。
+按一下 [威脅保護]  下的 [安全性警訊]  會啟動 Azure 資訊安全中心的警示頁面，並獲得在資料庫中偵測到的作用中 SQL 威脅概觀。
 
   ![威脅防護 asc](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
 

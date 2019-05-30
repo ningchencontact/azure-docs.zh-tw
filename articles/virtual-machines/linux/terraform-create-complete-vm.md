@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 8eba59429a3045b929976963b08f33e488055ec7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 406af03ab81b279be4f0d72dcca4ec8ec0e4ee55
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127475"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304659"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>在 Azure 中使用 Terraform 建立完整的 Linux 虛擬機器基礎結構
 
@@ -52,7 +52,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
     name     = "myResourceGroup"
     location = "eastus"
 
-    tags {
+    tags = {
         environment = "Terraform Demo"
     }
 }
@@ -70,7 +70,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
     location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
 
-    tags {
+    tags = {
         environment = "Terraform Demo"
     }
 }
@@ -98,7 +98,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
     resource_group_name          = "${azurerm_resource_group.myterraformgroup.name}"
     allocation_method            = "Dynamic"
 
-    tags {
+    tags = {
         environment = "Terraform Demo"
     }
 }
@@ -126,7 +126,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
         destination_address_prefix = "*"
     }
 
-    tags {
+    tags = {
         environment = "Terraform Demo"
     }
 }
@@ -134,7 +134,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
 
 
 ## <a name="create-virtual-network-interface-card"></a>建立虛擬網路介面卡
-虛擬網路介面卡 (NIC) 會將您的 VM 連線至指定的虛擬網路、公用 IP 位址，及網路安全性群組。 Terraform 範本中的下列區段會建立名為 myNIC 的虛擬 NIC，以連線至您所建立的虛擬網路資源：
+虛擬網路介面卡 (NIC) 會將您的 VM 連線至指定的虛擬網路、公用 IP 位址，及網路安全性群組。 Terraform 範本中的下列區段會建立名為 myNIC  的虛擬 NIC，以連線至您所建立的虛擬網路資源：
 
 ```tf
 resource "azurerm_network_interface" "myterraformnic" {
@@ -150,7 +150,7 @@ resource "azurerm_network_interface" "myterraformnic" {
         public_ip_address_id          = "${azurerm_public_ip.myterraformpublicip.id}"
     }
 
-    tags {
+    tags = {
         environment = "Terraform Demo"
     }
 }
@@ -181,7 +181,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
     account_replication_type = "LRS"
     account_tier = "Standard"
 
-    tags {
+    tags = {
         environment = "Terraform Demo"
     }
 }
@@ -234,7 +234,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
         storage_uri = "${azurerm_storage_account.mystorageaccount.primary_blob_endpoint}"
     }
 
-    tags {
+    tags = {
         environment = "Terraform Demo"
     }
 }
@@ -258,7 +258,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
     name     = "myResourceGroup"
     location = "eastus"
 
-    tags {
+    tags = {
         environment = "Terraform Demo"
     }
 }
@@ -270,7 +270,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
     location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
 
-    tags {
+    tags = {
         environment = "Terraform Demo"
     }
 }
@@ -290,7 +290,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
     resource_group_name          = "${azurerm_resource_group.myterraformgroup.name}"
     allocation_method            = "Dynamic"
 
-    tags {
+    tags = {
         environment = "Terraform Demo"
     }
 }
@@ -313,7 +313,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
         destination_address_prefix = "*"
     }
 
-    tags {
+    tags = {
         environment = "Terraform Demo"
     }
 }
@@ -332,7 +332,7 @@ resource "azurerm_network_interface" "myterraformnic" {
         public_ip_address_id          = "${azurerm_public_ip.myterraformpublicip.id}"
     }
 
-    tags {
+    tags = {
         environment = "Terraform Demo"
     }
 }
@@ -355,7 +355,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
     account_tier                = "Standard"
     account_replication_type    = "LRS"
 
-    tags {
+    tags = {
         environment = "Terraform Demo"
     }
 }
@@ -400,7 +400,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
         storage_uri = "${azurerm_storage_account.mystorageaccount.primary_blob_endpoint}"
     }
 
-    tags {
+    tags = {
         environment = "Terraform Demo"
     }
 }

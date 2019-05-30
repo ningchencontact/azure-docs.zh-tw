@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f93f6c8891ba9f7407310a8f09387e97f5c1f578
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65de80004dd05e3eb29f3313bc17405c40450d7a
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401777"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397133"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>針對 Runbook 的錯誤進行疑難排解
 
@@ -217,7 +217,7 @@ Exception: A task was canceled.
 
 此錯誤可以透過將 Azure 模組更新至最新版本來解決。
 
-在您的自動化帳戶中，按一下 [模組]，然後按一下 [更新 Azure 模組]。 更新大約需要 15 分鐘，完成之後，請重新執行先前失敗的 Runbook。 若要深入了解如何更新模組，請參閱[更新 Azure 自動化中的 Azure 模組](../automation-update-azure-modules.md)。
+在您的自動化帳戶中，按一下 [模組]  ，然後按一下 [更新 Azure 模組]  。 更新大約需要 15 分鐘，完成之後，請重新執行先前失敗的 Runbook。 若要深入了解如何更新模組，請參閱[更新 Azure 自動化中的 Azure 模組](../automation-update-azure-modules.md)。
 
 ### <a name="runbook-auth-failure"></a>案例：Runbook 在處理多個子訂用帳戶時發生失敗
 
@@ -305,6 +305,8 @@ The job was tried three times but it failed
 
 4. 您的 runbook 會嘗試呼叫可執行檔或 subprocess 會在 Azure 的沙箱中執行的 runbook。 Azure 沙箱不支援此案例。
 
+5. 您的 runbook 嘗試寫入過多的例外狀況資料至輸出資料流。
+
 #### <a name="resolution"></a>解決方案
 
 下列任何一個解決方案都可以修正此問題：
@@ -316,6 +318,8 @@ The job was tried three times but it failed
 * 另一個解決方案是在[混合式 Runbook 背景工作角色](../automation-hrw-run-runbooks.md)上執行 Runbook。 「混合式背景工作角色」不受限於 Azure 沙箱所受的記憶體和網路限制。
 
 * 如果您需要在 Runbook 中呼叫處理序 (例如 .exe 或 subprocess.call)，您將必須在[混合式 Runbook 背景工作角色](../automation-hrw-run-runbooks.md)上執行 Runbook。
+
+* 在 作業輸出資料流上沒有 1 MB 的限制。 請確定您將可執行檔或表示子處理序的呼叫括在 try/catch 區塊。 如果則會擲回例外狀況，請從自動化變數到該例外狀況寫入訊息。 這可防止它被寫入作業的輸出資料流。
 
 ### <a name="fails-deserialized-object"></a>案例：Runbook 因還原序列化物件而失敗
 
@@ -389,8 +393,8 @@ The quota for the monthly total job run time has been reached for this subscript
 
 1. 登入您的 Azure 訂用帳戶：  
 2. 選取您想要升級的自動化帳戶  
-3. 按一下 [設定] > [價格]。
-4. 按一下頁面底端的 [啟用]，將您的帳戶升級至**基本**層。
+3. 按一下 [設定]   > [價格]  。
+4. 按一下頁面底端的 [啟用]  ，將您的帳戶升級至**基本**層。
 
 ### <a name="cmdlet-not-recognized"></a>案例：執行 Runbook 時，無法辨識 Cmdlet
 
@@ -419,13 +423,13 @@ The quota for the monthly total job run time has been reached for this subscript
 
 #### <a name="issue"></a>問題
 
-您的 Runbook 在執行 3 小時之後顯示為 [已停止] 狀態。 您可能還收到此錯誤：
+您的 Runbook 在執行 3 小時之後顯示為 [已停止]  狀態。 您可能還收到此錯誤：
 
 ```error
 The job was evicted and subsequently reached a Stopped state. The job cannot continue running
 ```
 
-這是 Azure 沙箱中故意設計的行為，原因是 Azure 自動化中會進行處理序「公平共用」監視。 如果執行時間超過三小時，公平共用就會自動停止 Runbook。 超過公平共用時間限制時的 Runbook 狀態會依 Runbook 類型而有所不同。 PowerShell 和 Python Runbook 是設定為 [已停止] 狀態。 「PowerShell 工作流程」Runbook 是設定為 [失敗]狀態。
+這是 Azure 沙箱中故意設計的行為，原因是 Azure 自動化中會進行處理序「公平共用」監視。 如果執行時間超過三小時，公平共用就會自動停止 Runbook。 超過公平共用時間限制時的 Runbook 狀態會依 Runbook 類型而有所不同。 PowerShell 和 Python Runbook 是設定為 [已停止]  狀態。 「PowerShell 工作流程」Runbook 是設定為 [失敗]  狀態。
 
 #### <a name="cause"></a>原因
 
@@ -513,4 +517,4 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 * 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
 * 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。
-* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
+* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。

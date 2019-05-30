@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 30e547759cbafabf5f762f671b09b0cbeea3a44c
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 9750aa924ba4b6e4e5f3a51e5b34531d3fab0a6e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851174"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243331"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應項目
 
@@ -39,7 +39,7 @@ ms.locfileid: "65851174"
 - **供應項目名稱**：SaaS 應用程式供應項目，在發行集、 公告和網站一致的官方名稱。  此名稱可能 trademarked。  提供名稱不能包含空白字元，emoji （除非它們是商標或著作權符號），而且必須是限制為 50 個字元。
 <br>範例：測試供應項目 1&#8482;
 
-選取 [建立] 。  **提供概觀**頁面已經為此供應項目。  
+選取 [建立]  。  **提供概觀**頁面已經為此供應項目。  
 
 ![在合作夥伴中心上的供應項目概觀](./media/commercial-marketplace-offer-overview.png)
 
@@ -89,7 +89,7 @@ SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結�
 - 有資格的合作夥伴**降低 Marketplace 服務費用**降低的交易費用 SaaS 上提供從 2019 年直到 2020 年 6 月將會看到。 在此案例中，Microsoft 會針對您的軟體授權的 $100.00 美元，並支付美金，鍵入 90.00 出到 「 發行者 」。
 
 > [!NOTE]
-> **降低 Marketplace 服務費用**:為特定 SaaS 提供，您已在我們的商業 Marketplace 上發行，Microsoft 將會降低其 Marketplace 服務費用從 20%（如 Microsoft Publisher Agreement 所述） 到 10%。 為了讓您的供應項目來限定，至少其中一個供應項目必須指定由 Microsoft 為 IP 共同銷售準備或 IP 設定優先順序的共同銷售。  資格必須符合才能接收此縮減的 Marketplace 服務費用的每月每個日曆月結束前至少五 （5） 工作天。  降低 Marketplace 服務費用不適用於 Vm、 受管理應用程式或任何其他商業 Marketplace 透過提供的產品。  降低 Marketplace 服務費用才會提供完整的供應項目 2019 5 月 31 日和 2020 年 6 月 30 日之間的 Microsoft 所收集的授權費用。  此時間之後，Marketplace 服務費用將會回到其正常的數量而定。 
+> **降低 Marketplace 服務費用**:為特定 SaaS 提供，您已在我們的商業 Marketplace 上發行，Microsoft 將會降低其 Marketplace 服務費用從 20%（如 Microsoft Publisher Agreement 所述） 到 10%。 為了讓您的供應項目來限定，至少其中一個供應項目必須指定由 Microsoft 為 IP 共同銷售準備或 IP 設定優先順序的共同銷售。  資格必須符合才能接收此縮減的 Marketplace 服務費用的每月每個日曆月結束前至少五 （5） 工作天。  降低 Marketplace 服務費用不適用於 Vm、 受管理應用程式或任何其他商業 Marketplace 透過提供的產品。  降低 Marketplace 服務費用才會提供完整的供應項目 2019 5 月 1 日和 2020 年 6 月 30 日之間的 Microsoft 所收集的授權費用。  此時間之後，Marketplace 服務費用將會回到其正常的數量而定。 
 
 |**Microsoft 收取的費用**|**每月美金 $100 元**|
 |:---|:---|
@@ -118,6 +118,10 @@ SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結�
 ##### <a name="contact-me"></a>與我連絡
 連接您的客戶關係管理 (CRM) 系統，以收集客戶的連絡資訊。 將要求的客戶，才能共用其資訊的權限。 這些客戶詳細資料，以及供應項目名稱、 識別碼和 marketplace 來源他們找到您的供應項目，將會傳送到您已設定的 CRM 系統。 如需有關如何設定您的 CRM 的詳細資訊，請參閱 < [Connect 潛在客戶管理](#connect-lead-management)。 
 
+## <a name="example-marketplace-offer-listing"></a>範例 marketplace 供應項目清單
+
+![範例 marketplace 供應項目清單中的資訊](./media/marketplace-offer.svg)
+
 ## <a name="enable-a-test-drive"></a>啟用試用產品
 
 試用產品是由提供他們 '購買前先試用' 的選項，而導致增加的轉換及產生高素質的潛在客戶展示您的供應項目，向潛在客戶的好方法。 [深入了解試用產品。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
@@ -128,12 +132,12 @@ SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結�
 
 ### <a name="type-of-test-drive"></a>測試磁碟機類型
 
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)**:部署範本，其中包含構成方案的所有 Azure 資源。 符合此案例中的產品使用只有 Azure 資源。
-- **[Dynamics 365 Business central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)**:Microsoft 裝載，並為 Business Central 的企業資源規劃系統維護 （包括佈建和部署） 的測試磁碟服務 (財務、 作業、 供應鏈，CRM 等等。)。  
-- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)**:Microsoft 主控和維護 （包括佈建和部署） 的磁碟機測試服務之 Customer Engagement 系統 （銷售、 服務、 專案服務、 現場服務等）。  
-- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)**:Microsoft 主控，並為 Finance and Operations 企業資源規劃 （財務、 作業、 製造、 供應鏈等） 的系統維護 （包括佈建和部署） 的磁碟機測試服務。 
-- **[邏輯應用程式](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)**:部署範本，包含所有複雜的方案架構。 任何自訂產品應該使用這種類型的試用產品。
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)**:自訂建置的儀表板內嵌的連結。 想要示範互動式 Power BI 視覺效果應該使用這種類型的試用產品的產品。 您只需要上傳內嵌的 Power BI URL。
+- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** :部署範本，其中包含構成方案的所有 Azure 資源。 符合此案例中的產品使用只有 Azure 資源。
+- **[Dynamics 365 Business central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** :Microsoft 裝載，並為 Business Central 的企業資源規劃系統維護 （包括佈建和部署） 的測試磁碟服務 (財務、 作業、 供應鏈，CRM 等等。)。  
+- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** :Microsoft 主控和維護 （包括佈建和部署） 的磁碟機測試服務之 Customer Engagement 系統 （銷售、 服務、 專案服務、 現場服務等）。  
+- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** :Microsoft 主控，並為 Finance and Operations 企業資源規劃 （財務、 作業、 製造、 供應鏈等） 的系統維護 （包括佈建和部署） 的磁碟機測試服務。 
+- **[邏輯應用程式](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** :部署範本，包含所有複雜的方案架構。 任何自訂產品應該使用這種類型的試用產品。
+- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** :自訂建置的儀表板內嵌的連結。 想要示範互動式 Power BI 視覺效果應該使用這種類型的試用產品的產品。 您只需要上傳內嵌的 Power BI URL。
 
 #### <a name="additional-test-drive-resources"></a>其他測試磁碟機資源
 - [測試磁碟機技術，最佳作法](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
@@ -167,17 +171,18 @@ SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結�
 
 選取 **儲存**完成這些欄位之後。 
 
-### <a name="category"></a>Category
+### <a name="category"></a>類別
 選取最少的一 （1），最多三 （3） 用於將您的供應項目分組為適當的 marketplace 搜尋區域的類別。 請呼叫您的供應項目如何支援這些類別在供應項目描述中。 
 
-### <a name="industry"></a>產業
+### <a name="industry"></a>業界
 選取產業最多兩個 （2），用於將您的供應項目分組為適當的 marketplace 搜尋區域。 如果您的供應項目不是特定的產業，請勿選取其中一個。 請呼叫您的供應項目如何支援所選的業界供應項目描述中。 
 
 ### <a name="app-version"></a>應用程式版本
 這是選擇性欄位 AppSource marketplace 中用來識別您的供應項目的版本號碼。 
 
 ### <a name="standard-contract"></a>標準合約
-- **使用標準的合約？** 
+
+- **使用標準的合約？**
 
 若要簡化客戶的採購程序，並降低軟體廠商的合法的複雜性，Microsoft 會提供標準的合約範本以協助在 marketplace 中的交易。 
 
@@ -185,7 +190,8 @@ SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結�
 
 標準的合約可以在這裡找到： https://go.microsoft.com/fwlink/?linkid=2041178。
 
-##### <a name="terms-of-use"></a>使用規定
+#### <a name="terms-of-use"></a>使用規定
+
 如果您的授權條款不同於標準的合約，您可以選擇輸入您自己的法律使用條款的以下。 您也可以在此欄位中，輸入最多 10,000 個字元的文字。 如果您使用規定需要更長的描述，請輸入單一的 URL 連結到這個欄位可以找到其他授權條款。 它會顯示給客戶作為作用中的連結。
 
 客戶必須先接受這些條款，才能試用您的應用程式。 
@@ -193,9 +199,11 @@ SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結�
 請記得**儲存**再繼續進行下一節 ！
 
 ## <a name="offer-listing"></a>供應項目清單
+
 列出索引標籤會顯示您的供應項目可使用的語言 （和市場） 供應項目，英文 （美國） 目前是唯一可用的位置。 此外，此頁面會顯示特定語言的清單和已加入該日期/時間的狀態。 您必須定義 marketplace 詳細資料 （提供項目名稱、 描述、 搜尋詞彙等） 為每個語言 / 市場。
 
 ### <a name="offer-listings"></a>供應項目清單
+
 提供要顯示在 marketplace 中，包括您的供應項目描述和行銷資產的詳細資料。
 
 - **名稱**（必要）：此處定義的名稱會顯示為列出您已選擇 marketplace(s) 上您供應項目的標題。 名稱會根據您先前預先**新的供應項目**項目。  這可能被 trademarked。  這必須不能包含空白字元，emoji （除非它們是商標和著作權符號），而且必須是限制為 50 個字元。
@@ -211,7 +219,7 @@ SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結�
 - **CSP 計劃的行銷資料**（選擇性）：您必須提供行銷資料，如果您選擇將供應項目連結[雲端解決方案提供者 (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)程式。 CSP 會擴充您的供應項目，以符合資格的客戶有更多讓 CSP 合作夥伴套件組合，市場，並轉售您的供應項目。 這些轉銷商必須為行銷您的供應項目資料的存取。 如需詳細資訊，請參閱 < [Go To Market 服務](https://partner.microsoft.com/reach-customers/gtm)。
 - **實用連結**（選擇性）：選擇性補充線上文件應用程式或列出提供的相關的服務的相關**標題**並**URL**。 按一下 新增額外的實用連結 **+ 加入 URL**。
 
-#### <a name="contact-information"></a>連絡資訊
+#### <a name="contact-information"></a>連絡人資訊
 
 - **連絡人**:每個客戶連絡人，提供員工**名稱**，**電話號碼**，並**電子郵件**位址。  (這些*不會*公開顯示)。 A**支援 URL**也必須有**支援連絡人**群組。  (這項資訊*將*公開顯示)。
 
@@ -235,7 +243,6 @@ SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結�
 - [最佳作法 marketplace 優惠清單](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
 
-
 ## <a name="preview"></a>預覽
 
 **Preview**索引標籤可讓您定義有限**預覽對象**來釋放您的供應項目發佈 marketplace 接觸到的即時您供應項目之前。
@@ -256,7 +263,7 @@ SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結�
 
 - **登陸頁面 URL** （必要）：定義站台 URL 的客戶將會導向至登入之後取得從 marketplace 供應項目。 此 URL 也會是接收連線 API 以與 Microsoft 建立商務的端點。
 
-- **連線 webhook** （必要）：針對 Microsoft 代表客戶傳送給您所需的所有非同步事件 (範例：Azure 訂用帳戶已經無效），我們會要求您提供連線 webhook。 如果您還沒有 webhook 系統位置中，最簡單的組態是 HTTP 端點的邏輯應用程式會接聽任何事件張貼到它，並適當地處理它們 (例如 https://prod-1westus.logic.azure.com:443/work)。 如需詳細資訊，請參閱[在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)。
+- **連線 webhook** （必要）：針對 Microsoft 代表客戶傳送給您所需的所有非同步事件 (範例：Azure 訂用帳戶已經無效），我們會要求您提供連線 webhook。 如果您還沒有 webhook 系統位置中，最簡單的組態是 HTTP 端點的邏輯應用程式會接聽任何事件張貼到它，並適當地處理它們 (例如 https:\//prod-1westus.logic.azure.com:443/work)。 如需詳細資訊，請參閱[在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)。
 
 - **Azure AD 租用戶識別碼**（必要）：在 Azure 入口網站中，我們需要您[建立 Azure Active Directory (AD) 應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)，讓我們能驗證我們的兩個服務之間的連線位於已驗證的通訊。 若要尋找[租用戶識別碼](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id)，請移至您的 Azure Active Directory，然後選取**屬性**，然後尋找**目錄識別碼**數字 （例如，列出50c464d3-4930-494c-963c-1e951d15360e)。
 
@@ -270,14 +277,15 @@ SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結�
 
 建立之後，您會看到您的計劃名稱、 Id、 計價模式，可用性 （公用或私人），目前發行狀態，以及任何可用的動作。
 
--   **動作**中可用**計劃概觀**您計劃的目前狀態而有所不同，而且可能包含：
-  - 如果計劃狀態是 **草稿**– 刪除草稿
-  - 如果計劃狀態是  **Live** – 停止銷售計劃 或 同步處理私用對象
+**動作**中可用**計劃概觀**您計劃的目前狀態而有所不同，而且可能包含：
+
+- 如果計劃狀態是 **草稿**– 刪除草稿
+- 如果計劃狀態是  **Live** – 停止銷售計劃 或 同步處理私用對象
 
 **建立新的計劃**（一個為選取要透過 Microsoft 銷售人員的計劃的最小）
 
 - **計劃識別碼：** 在這項優惠中的每個計劃的唯一的計劃識別碼。 此識別碼會顯示給客戶之產品的 URL 和 Azure Resource Manager 範本中 （如果適用）。 使用小寫的英數字元、 連字號或底線。 最多 50 個字元的允許此計劃識別碼。 請注意，選取在建立之後無法修改的識別碼。
-- **方案名稱：** 當您決定其想要選取您的供應項目內時，客戶會看到此名稱。 在這項優惠中的每個計劃的唯一供應項目名稱。 方案名稱用來區分屬於相同的供應項目 （例如的軟體方案 供應項目名稱:Windows Server;計劃：Windows Server 2016、windows Server 2019)。
+- **方案名稱：** 當您決定其想要選取您的供應項目內時，客戶會看到此名稱。 在這項優惠中的每個計劃的唯一供應項目名稱。 方案名稱用來區分屬於相同的供應項目 （例如的軟體方案 優惠名稱：Windows Server;計劃：Windows Server 2016、windows Server 2019)。
 
 ### <a name="plan-listing"></a>計劃清單
 
@@ -334,7 +342,7 @@ SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結�
 
 您可以選擇設定要顯示給所有人，或是特定對象您選擇的每個計劃。 您可以指派此限制使用 Azure AD 租用戶識別碼的對象中的成員資格。
 
-#### <a name="privacy"></a>隱私權聲明
+#### <a name="privacy"></a>隱私權
 
 - **這是私用方案**（選擇性的核取方塊）
 
@@ -351,10 +359,13 @@ SaaS 供應項目會使用租用戶識別碼，來定義私用的對象，而其
 > [!NOTE]
 > 私用對象 （或受限制的對象） 與不同的預覽對象。 在  **[預覽](#preview)** 索引標籤上，您可以定義預覽對象。 預覽對象允許存取您的供應項目*先前*即時在 marketplace 中發佈的供應項目。 預覽對象時指定的私用對象僅適用於特定的計劃，可以檢視所有的計劃 (私用或未)，但是只有在有限的預覽期間，雖然計劃是進行測試和驗證。
 
+## <a name="example-list-of-plans-within-a-marketplace-offer"></a>Marketplace 供應項目內的計劃範例清單
+
+![清單中的資訊範例 marketplace 方案](./media/marketplace-plan.svg)
 
 ## <a name="test-drive"></a>試用產品
 
-**試用** 索引標籤可讓您設定示範 （或 「 測試磁碟機 」） 這可讓客戶試用您的供應項目之前認可來購買它。 進一步了解本文[什麼是試用？](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)。 如果您不再想要為您的供應項目提供試用產品，返回**[提供安裝程式](#offer-setup)** 頁面上，並取消核取**啟用試用**。
+**試用** 索引標籤可讓您設定示範 （或 「 測試磁碟機 」） 這可讓客戶試用您的供應項目之前認可來購買它。 進一步了解本文[什麼是試用？](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)。 如果您不再想要為您的供應項目提供試用產品，返回 **[提供安裝程式](#offer-setup)** 頁面上，並取消核取**啟用試用**。
 
 ### <a name="technical-configuration"></a>技術設定
 下列類型的試用產品可供使用，每個都有自己的技術設定需求。
@@ -443,7 +454,7 @@ Microsoft 可以移除所裝載及維護服務佈建和部署使用這種類型�
 - **影片：將影片新增**（選擇性）：可以上傳至 YouTube 或 Vimeo 影片，和使用連結和縮圖映像 （533x324 像素） 此處參考，好讓客戶可以檢視的逐步解說資訊，協助他們深入了解試用產品，包括如何使用的功能，成功的程式提供，並了解反白顯示其權益的案例。
   - **名稱**（必要）
   - **URL （YouTube 或 Vimeo 只）** （必要）
-  - **縮圖 (533 x 324px)**:映像檔必須是 PNG 格式。
+  - **縮圖 (533 x 324px)** :映像檔必須是 PNG 格式。
 
 選取 **儲存**完成這些欄位之後。
 

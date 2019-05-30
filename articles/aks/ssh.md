@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: a85c39fbfbf629e6ba9e668d55dd905c1ce0800c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 57eacca75d711c5125a2856a7b6219cd2ec5306b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956364"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242040"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>使用 SSH 連線到 Azure Kubernetes Service (AKS) 叢集節點以進行維護或疑難排解
 
@@ -33,18 +33,25 @@ ms.locfileid: "65956364"
 > [!NOTE]
 > SSH 金鑰可以目前只能加入至使用 Azure CLI 的 Linux 節點。 如果您使用 Windows Server 的節點時，使用建立 AKS 叢集時所提供的 SSH 金鑰，並跳至步驟上[如何取得 AKS 節點位址](#get-the-aks-node-address)。 或者，[連接到使用遠端桌面通訊協定 (RDP) 連線的 Windows Server 節點][aks-windows-rdp]。
 
+根據您執行的 AKS 叢集類型，取得 AKS 節點的私人 IP 位址的步驟會有所不同：
+
+* 對於大部分的 AKS 叢集，請依照下列步驟來[取得的 IP 位址規則的 AKS 叢集](#add-ssh-keys-to-regular-aks-clusters)。
+* 如果您使用任何預覽功能中使用虛擬機器擴展集，例如多個節點的集區或 Windows Server 容器支援的 AKS[遵循的步驟進行虛擬機器擴展集為基礎的 AKS 叢集](#add-ssh-keys-to-virtual-machine-scale-set-based-aks-clusters)。
+
+### <a name="add-ssh-keys-to-regular-aks-clusters"></a>將 SSH 金鑰新增至規則的 AKS 叢集
+
 若要將您的 SSH 金鑰新增至 Linux AKS 節點中，完成下列步驟：
 
-1. 使用 [az aks show][az-aks-show] 取得 AKS 叢集資源的資源群組名稱。 提供您自己的核心資源群組和 AKS 叢集名稱：
+1. 使用 [az aks show][az-aks-show] 取得 AKS 叢集資源的資源群組名稱。 提供您自己的核心資源群組和 AKS 叢集名稱。 叢集名稱指派給名為的變數*CLUSTER_RESOURCE_GROUP*:
 
     ```azurecli-interactive
-    az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+    CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
     ```
 
 1. 使用 [az vm list][az-vm-list] 命令列出 AKS 叢集資源群組中的虛擬機器。 這些虛擬機器是您的 AKS 節點：
 
     ```azurecli-interactive
-    az vm list --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
+    az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
     ```
 
     下列範例輸出顯示 AKS 節點：
@@ -59,25 +66,61 @@ ms.locfileid: "65956364"
 
     ```azurecli-interactive
     az vm user update \
-      --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+      --resource-group $CLUSTER_RESOURCE_GROUP \
       --name aks-nodepool1-79590246-0 \
       --username azureuser \
       --ssh-key-value ~/.ssh/id_rsa.pub
+    ```
+
+### <a name="add-ssh-keys-to-virtual-machine-scale-set-based-aks-clusters"></a>將 SSH 金鑰新增至虛擬機器擴展集為基礎的 AKS 叢集
+
+若要將您的 SSH 金鑰新增至 Linux AKS 節點虛擬機器擴展集的一部分，完成下列步驟：
+
+1. 使用 [az aks show][az-aks-show] 取得 AKS 叢集資源的資源群組名稱。 提供您自己的核心資源群組和 AKS 叢集名稱。 叢集名稱指派給名為的變數*CLUSTER_RESOURCE_GROUP*:
+
+    ```azurecli-interactive
+    CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+    ```
+
+1. 接下來，取得虛擬機器擴展集使用 AKS 叢集[az vmss 清單][ az-vmss-list]命令。 虛擬機器擴展集名稱指派給名為的變數*SCALE_SET_NAME*:
+
+    ```azurecli-interactive
+    SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
+    ```
+
+1. 若要將您的 SSH 金鑰新增至虛擬機器擴展集中的節點中，使用[az vmss 擴充功能組][ az-vmss-extension-set]命令。 從先前的命令提供的叢集資源群組和虛擬機器擴展集名稱。 根據預設，AKS 節點的使用者名稱是 *azureuser*。 視需要更新的您自己 SSH 公用金鑰位置，例如 *~/.ssh/id_rsa.pub*:
+
+    ```azurecli-interactive
+    az vmss extension set  \
+        --resource-group $CLUSTER_RESOURCE_GROUP \
+        --vmss-name $SCALE_SET_NAME \
+        --name VMAccessForLinux \
+        --publisher Microsoft.OSTCExtensions \
+        --version 1.4 \
+        --protected-settings "{\"username\":\"azureuser\", \"ssh_key\":\"$(cat ~/.ssh/id_rsa.pub)\"}"
+    ```
+
+1. 套用到使用節點的 SSH 金鑰[az vmss update-執行個體][ az-vmss-update-instances]命令：
+
+    ```azurecli-interactive
+    az vmss update-instances --instance-ids '*' \
+        --resource-group $CLUSTER_RESOURCE_GROUP \
+        --name $SCALE_SET_NAME
     ```
 
 ## <a name="get-the-aks-node-address"></a>取得 AKS 節點位址
 
 AKS 節點不會公開至網際網路。 對於 SSH 至 AKS 節點，您可以使用私人 IP 位址。 在下一個步驟中，您的協助程式 pod 中建立 AKS 叢集，可讓您 SSH 到節點的此私人 IP 位址。 根據您執行的 AKS 叢集類型，取得 AKS 節點的私人 IP 位址的步驟會有所不同：
 
-* 對於大部分的 AKS 叢集，請依照下列步驟來[取得的 IP 位址規則的 AKS 叢集](#regular-aks-clusters)。
-* 如果您使用任何預覽功能中使用虛擬機器擴展集，例如多個節點的集區或 Windows Server 容器支援的 AKS[遵循的步驟進行虛擬機器擴展集為基礎的 AKS 叢集](#virtual-machine-scale-set-based-aks-clusters)。
+* 對於大部分的 AKS 叢集，請依照下列步驟來[取得的 IP 位址規則的 AKS 叢集](#ssh-to-regular-aks-clusters)。
+* 如果您使用任何預覽功能中使用虛擬機器擴展集，例如多個節點的集區或 Windows Server 容器支援的 AKS[遵循的步驟進行虛擬機器擴展集為基礎的 AKS 叢集](#ssh-to-virtual-machine-scale-set-based-aks-clusters)。
 
-### <a name="regular-aks-clusters"></a>一般的 AKS 叢集
+### <a name="ssh-to-regular-aks-clusters"></a>透過 ssh 連線到一般的 AKS 叢集
 
 使用 [az vm list-ip-addresses][az-vm-list-ip-addresses] 命令檢視 AKS 叢集節點的私人 IP 位址。 提供您自己的 AKS 叢集資源群組名稱，此名稱會在前一個 [az-aks-show][az-aks-show] 步驟中取得：
 
 ```azurecli-interactive
-az vm list-ip-addresses --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
+az vm list-ip-addresses --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 
 下列範例輸出顯示 AKS 節點的私人 IP 位址：
@@ -88,7 +131,7 @@ VirtualMachine            PrivateIPAddresses
 aks-nodepool1-79590246-0  10.240.0.4
 ```
 
-### <a name="virtual-machine-scale-set-based-aks-clusters"></a>虛擬機器擴展集為基礎的 AKS 叢集
+### <a name="ssh-to-virtual-machine-scale-set-based-aks-clusters"></a>透過 ssh 連線到虛擬機器擴展集為基礎的 AKS 叢集
 
 列出使用節點的內部 IP 位址[kubectl get 命令][kubectl-get]:
 
@@ -199,3 +242,6 @@ aksnpwin000000                      Ready    agent   13h   v1.12.7   10.240.0.67
 [aks-windows-rdp]: rdp.md
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
+[az-vmss-list]: /cli/azure/vmss#az-vmss-list
+[az-vmss-extension-set]: /cli/azure/vmss/extension#az-vmss-extension-set
+[az-vmss-update-instances]: /cli/azure/vmss#az-vmss-update-instances

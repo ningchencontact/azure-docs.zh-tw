@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 349896a7114fba83d852b8bc066f4f7eb0a070ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550257"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242625"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>用於診斷評估和監視的 Batch 計量、警示和記錄
 
@@ -45,9 +45,9 @@ ms.locfileid: "60550257"
 
 檢視所有 Batch 帳戶計量： 
 
-1. 在入口網站中，按一下 [所有服務] > [Batch 帳戶]，然後按一下您的 Batch 帳戶名稱。
-2. 在 [監視] 下，按一下 [計量]。
-3. 選取一或多個計量。 如有需要，可使用 [訂閱]、[資源群組]、[資源類型]和 [資源] 下拉式清單，來選取其他資源計量。
+1. 在入口網站中，按一下 [所有服務]   > [Batch 帳戶]  ，然後按一下您的 Batch 帳戶名稱。
+2. 在 [監視]  下，按一下 [計量]  。
+3. 選取一或多個計量。 如有需要，可使用 [訂閱]  、[資源群組]  、[資源類型]  和 [資源]  下拉式清單，來選取其他資源計量。
 
     ![Batch 計量](media/batch-diagnostics/metrics-portal.png)
 
@@ -61,14 +61,14 @@ ms.locfileid: "60550257"
 
 ## <a name="batch-metric-alerts"></a>Batch 計量警示
 
-(選擇性) 設定幾近即時的「計量警示」，當指定的計量值超出您指派的閾值時，就會觸發此警示。 當警示為「已啟動」時 (超出閾值且符合警示條件時)，以及當警示為「已解決」時 (再次超出閾值且不再符合條件時)，您選擇的警示會產生[通知](../monitoring-and-diagnostics/insights-alerts-portal.md)。 不建議使用以單一資料量為基礎的警示，因為計量可能會未按順序傳遞、遺失資料，和/或重複的狀況。 警示應使用臨界值說明這些不一致。
+(選擇性) 設定幾近即時的「計量警示」  ，當指定的計量值超出您指派的閾值時，就會觸發此警示。 當警示為「已啟動」時 (超出閾值且符合警示條件時)，以及當警示為「已解決」時 (再次超出閾值且不再符合條件時)，您選擇的警示會產生[通知](../monitoring-and-diagnostics/insights-alerts-portal.md)。 不建議使用以單一資料量為基礎的警示，因為計量可能會未按順序傳遞、遺失資料，和/或重複的狀況。 警示應使用臨界值說明這些不一致。
 
 例如，您可以在低優先順序核心計數降至特定層級時設定計量警示，以便您調整集區的構成要素。 建議設定 10 分鐘以上的期間，在這段期間，如果平均的低優先順序核心計數低於整段期間的臨界值，就會觸發警示。 建議 1-5 分鐘警示，因為仍可能會彙總計量。
 
 在入口網站中設定計量警示：
 
-1. 按一下 [所有服務] > [Batch 帳戶]，然後按一下您的 Batch 帳戶名稱。
-2. 在 [監視] 下方，按一下 [警示規則] > [新增計量警示]。
+1. 按一下 [所有服務]   > [Batch 帳戶]  ，然後按一下您的 Batch 帳戶名稱。
+2. 在 [監視]  下方，按一下 [警示規則]   > [新增計量警示]  。
 3. 選取計量、警示條件 (例如計量在某個期間超過特定值)，以及一個或多個通知。
 
 您也可以使用 [REST API](https://docs.microsoft.com/rest/api/monitor/) 設定幾近即時的警示。 如需詳細資訊，請參閱[警示概觀](../azure-monitor/platform/alerts-overview.md)
@@ -99,17 +99,17 @@ ms.locfileid: "60550257"
 
 ### <a name="enable-collection-of-batch-diagnostic-logs"></a>啟用 Batch 診斷記錄的收集
 
-1. 在入口網站中，按一下 [所有服務] > [Batch 帳戶]，然後按一下您的 Batch 帳戶名稱。
-2. 在 [監視] 下方，按一下 [診斷記錄] > [開啟診斷]。
-3. 在“诊断设置”中，输入设置的名称，并选择日志目标（现有存储帐户、事件中心或 Azure Monitor 日志）。 選取 **ServiceLog** 或/和 **AllMetrics**。
+1. 在入口網站中，按一下 [所有服務]   > [Batch 帳戶]  ，然後按一下您的 Batch 帳戶名稱。
+2. 在 [監視]  下方，按一下 [診斷記錄]   > [開啟診斷]  。
+3. 在 **診斷設定**，輸入設定名稱，然後選擇記錄目的地 （現有的儲存體帳戶、 事件中樞或 Azure 監視器記錄檔）。 選取 **ServiceLog** 或/和 **AllMetrics**。
 
     當您選取儲存體帳戶時，可選擇性地設定保留原則。 如果您未指定保留天數，資料的保留期限會是儲存體帳戶的存留期間。
 
-4. 按一下 [檔案] 。
+4. 按一下 [檔案]  。
 
     ![Batch 診斷](media/batch-diagnostics/diagnostics-portal.png)
 
-啟用記錄收集的其他選項包括：使用入口網站中的 Azure 監視器設定診斷設定、使用 [Resource Manager 範本](../azure-monitor/platform/diagnostic-logs-stream-template.md)或使用 Azure PowerShell 或 Azure CLI。 請參閱[收集並取用來自 Azure 資源的記錄資料](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs)。
+啟用記錄收集的其他選項包括：使用入口網站中的 Azure 監視器設定診斷設定、使用 [Resource Manager 範本](../azure-monitor/platform/diagnostic-logs-stream-template.md)或使用 Azure PowerShell 或 Azure CLI。 請參閱[收集並取用來自 Azure 資源的記錄資料](../azure-monitor/platform/diagnostic-logs-overview.md)。
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>存取儲存體中的診斷記錄

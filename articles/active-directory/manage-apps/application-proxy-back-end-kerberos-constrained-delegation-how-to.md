@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c95eb45d75a54af75fdc8004316bc8bfeeddbd7e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0cfaea53156b78fad024046bb6f55229f8ad6536
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783941"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236277"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>針對應用程式 Proxy 的 Kerberos 限制委派設定進行疑難排解
 
@@ -91,7 +91,7 @@ Azure AD 應用程式 Proxy 可以部署到許多類型的基礎結構或環境�
 
    ![不正確的 KCD 組態錯誤](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
-在事件記錄檔中看到的對應項目會顯示為事件 13019 或 12027。 您可以在 [應用程式及服務記錄]&gt; [Microsoft]&gt; [AadApplicationProxy]&gt; [連接器]&gt; [管理] 中，找到連接器事件記錄。
+在事件記錄檔中看到的對應項目會顯示為事件 13019 或 12027。 您可以在 [應用程式及服務記錄]  &gt; [Microsoft]  &gt; [AadApplicationProxy]  &gt; [連接器]  &gt; [管理]  中，找到連接器事件記錄。
 
    ![應用程式 Proxy 事件記錄檔中的事件 13019](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic4.png)
 
@@ -99,7 +99,7 @@ Azure AD 應用程式 Proxy 可以部署到許多類型的基礎結構或環境�
 
 1.   在您的內部 DNS 中針對應用程式位址使用 **A** 記錄，而非 **CName**。
 
-2.   重新確認連接器主機已獲授與權限，可委派給所指定目標帳戶的 SPN。 重新確認已選取 [使用任何驗證通訊協定]。 如需詳細資訊，請參閱 [SSO 設定文章](application-proxy-configure-single-sign-on-with-kcd.md)。
+2.   重新確認連接器主機已獲授與權限，可委派給所指定目標帳戶的 SPN。 重新確認已選取 [使用任何驗證通訊協定]  。 如需詳細資訊，請參閱 [SSO 設定文章](application-proxy-configure-single-sign-on-with-kcd.md)。
 
 3.   確認 Azure AD 中只有一個 SPN 執行個體存在。 從命令提示字元對任何網域成員主機發出 `setspn -x`。
 
@@ -112,7 +112,7 @@ Azure AD 應用程式 Proxy 可以部署到許多類型的基礎結構或環境�
 ### <a name="target-application"></a>目標應用程式 
 連接器所提供 Kerberos 票證的取用者。 在這個階段，連接器應該已經將 Kerberos 服務票證傳送給後端。 此票證是第一個應用程式要求中的標頭。
 
-1.   藉由使用入口網站中所定義的應用程式內部 URL，確認可從連接器主機上的瀏覽器直接存取應用程式。 然後您就可以成功登入。 您可以在連接器的 [疑難排解] 頁面上找到詳細資料。
+1.   藉由使用入口網站中所定義的應用程式內部 URL，確認可從連接器主機上的瀏覽器直接存取應用程式。 然後您就可以成功登入。 您可以在連接器的 [疑難排解]  頁面上找到詳細資料。
 
 2.   在仍位於連接器主機上的情況下，確認瀏覽器與應用程式之間的驗證使用 Kerberos。 請採取下列其中一個動作：
 
@@ -129,7 +129,7 @@ Azure AD 應用程式 Proxy 可以部署到許多類型的基礎結構或環境�
 
 4.  暫時從 IIS 網站上的提供者清單移除 NTLM。 直接從連接器主機上的 Internet Explorer 存取應用程式。 NTLM 已經不在提供者清單中。 您只能使用 Kerberos 來存取應用程式。 如果存取失敗，表示應用程式的設定可能有問題。 Kerberos 驗證未正常運作。
 
-    - 如果無法使用 Kerberos，請檢查 IIS 中的應用程式驗證設定。 請確定 [Negotiate] 列在最上方，而 NTLM 緊接在其下方。 如果您看到 [非 Negotiate]、[Kerberos 或 Negotiate] 或 [PKU2U]，則請只在 Kerberos 可正常運作的情況下，才繼續操作。
+    - 如果無法使用 Kerberos，請檢查 IIS 中的應用程式驗證設定。 請確定 [Negotiate]  列在最上方，而 NTLM 緊接在其下方。 如果您看到 [非 Negotiate]  、[Kerberos 或 Negotiate]  或 [PKU2U]  ，則請只在 Kerberos 可正常運作的情況下，才繼續操作。
 
        ![Windows 驗證提供者](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
    
@@ -137,7 +137,7 @@ Azure AD 應用程式 Proxy 可以部署到許多類型的基礎結構或環境�
 
     - 在入口網站中重新啟用預先驗證。 請嘗試經由應用程式的外部 URL 來連線到應用程式，以透過 Azure 進行驗證。 如果 SSO 失敗，您就會在瀏覽器中看到禁止錯誤訊息，並在記錄檔中看到事件 13022：
 
-       「因為後端伺服器以 HTTP 401 錯誤回應 Kerberos 驗證嘗試，Microsoft AAD 應用程式 Proxy 連接器便無法驗證使用者。」
+       「因為後端伺服器以 HTTP 401 錯誤回應 Kerberos 驗證嘗試，Microsoft AAD 應用程式 Proxy 連接器便無法驗證使用者。」 
 
        ![HTTP 401 禁止錯誤](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
    
@@ -153,7 +153,7 @@ Azure AD 應用程式 Proxy 可以部署到許多類型的基礎結構或環境�
 
        ![Azure 入口網站中的 SPN 設定](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
    
-    - 移至 IIS 並選取應用程式的 [設定編輯器] 選項。 瀏覽至 **system.webServer/security/authentication/windowsAuthentication**。 確定 **UseAppPoolCredentials** 值為 **True**。
+    - 移至 IIS 並選取應用程式的 [設定編輯器]  選項。 瀏覽至 **system.webServer/security/authentication/windowsAuthentication**。 確定 **UseAppPoolCredentials** 值為 **True**。
 
        ![IIS 設定應用程式集區認證選項](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
 
@@ -169,7 +169,7 @@ Azure AD 應用程式 Proxy 可以部署到許多類型的基礎結構或環境�
 
 如果將 Kernel 模式保持啟用，將可改善 Kerberos 作業的效能。 但這也會造成要藉由使用電腦帳戶將所要求服務的票證解密。 這個帳戶也稱為本機系統。 當應用程式裝載在伺服器陣列中的多部伺服器上時，請將此值設定為 **True** 來中斷 KCD。
 
--   作為額外的檢查，請一併停用 [擴充] 保護。 在某些情況下，當已在特定設定中啟用 KCD 時，[擴充] 保護會中斷 KCD。 在這些情況下，應用程式是發佈成預設網站的子資料夾。 此應用程式僅設定為適用於匿名驗證。 所有對話方塊都會變成灰色，這意謂著子物件不會繼承任何作用中設定。 建議您儘可能進行測試，但請記得將此值還原成 [已啟用]。
+-   作為額外的檢查，請一併停用 [擴充]  保護。 在某些情況下，當已在特定設定中啟用 KCD 時，[擴充]  保護會中斷 KCD。 在這些情況下，應用程式是發佈成預設網站的子資料夾。 此應用程式僅設定為適用於匿名驗證。 所有對話方塊都會變成灰色，這意謂著子物件不會繼承任何作用中設定。 建議您儘可能進行測試，但請記得將此值還原成 [已啟用]  。
 
     這項額外檢查可讓您回歸正軌來使用已發佈的應用程式。 您可以運轉其他也已設定要委派的連接器。 如需詳細資訊，請閱讀更深入的技術逐步解說：[針對 Azure AD 應用程式 Proxy 進行疑難排解](https://aka.ms/proxytshootpaper) \(英文\)。
 
@@ -182,4 +182,4 @@ Azure AD 應用程式 Proxy 可以部署到許多類型的基礎結構或環境�
 - 雙躍點驗證通常適用於具有後端與前端且兩者都需要驗證的分層應用程式，例如 SQL Reporting Services。 若要設定多躍點案例，請參閱[多躍點案例中的 Kerberos 限制委派可能需要轉換通訊協定](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul) \(機器翻譯\) 支援文章。
 
 ## <a name="next-steps"></a>後續步驟
-[在受控網域上建立 KCD](../../active-directory-domain-services/active-directory-ds-enable-kcd.md)。
+[在受控網域上建立 KCD](../../active-directory-domain-services/deploy-kcd.md)。

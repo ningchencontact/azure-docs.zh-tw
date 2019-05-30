@@ -4,15 +4,15 @@ description: 本文件說明關於 Azure Cosmos 帳戶的虛擬網路和子網�
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 672c62c440708f8e949d67d545bee2179c6066b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dfc3ebc0274c87466d6dc27c93880483df023085
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765511"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242479"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>從虛擬網路 (VNet) 存取 Azure Cosmos DB
 
@@ -36,7 +36,7 @@ ms.locfileid: "60765511"
 
 在新增了 IP 防火牆或虛擬網路存取規則時，只有來自已允許來源的要求能取得有效回應。 系統會拒絕其他要求，並顯示 403 (禁止)。 請務必區別 Azure Cosmos 帳戶的防火牆和連線層級防火牆。 來源仍可連線至服務，且連線本身不會被拒絕。
 
-### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>當我在子網路上啟用 Azure Cosmos DB 的服務端點時，我的要求開始遭到封鎖。 發生什麼情形？
+### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>當我在子網路上啟用 Azure Cosmos DB 的服務端點時，我的要求開始遭到封鎖。 發生什麼情況？
 
 在子網路上啟用 Azure Cosmos DB 的服務端點後，送到帳戶的流量來源就會從公用 IP 切換至虛擬網路和子網路。 如果您的 Azure Cosmos 帳戶只有 IP 型防火牆，來自已啟用服務之子網路的流量將不再符合 IP 防火牆規則，因此會遭到拒絕。 請執行步驟以順暢地從 IP 型防火牆移轉至虛擬網路型存取控制。
 
@@ -44,7 +44,7 @@ ms.locfileid: "60765511"
 只有新增至 Azure Cosmos 帳戶的虛擬網路和其子網路可以存取。 只有將對等互連之虛擬網路內的子網路新增到帳戶之後，其對等互連的 VNet 才能存取帳戶。
 
 ### <a name="what-is-the-maximum-number-of-subnets-allowed-to-access-a-single-cosmos-account"></a>允取存取單一 Cosmos 帳戶的子網路數目上限為何？ 
-目前，最多允许 64 个子网访问一个 Azure Cosmos 帐户。
+目前，您可以有最多 64 子網路允許 Azure Cosmos 帳戶。
 
 ### <a name="can-i-enable-access-from-vpn-and-express-route"></a>可以啟用來自 VPN 和 Express Route 的存取嗎？ 
 透過 expressroute 從內部部署存取 Azure Cosmos 帳戶，您必須啟用 Microsoft 對等互連。 一旦制訂 IP 防火牆或虛擬網路存取規則，就可以新增公用 IP 位址 (用於您 Azure Cosmos 帳戶 IP 防火牆上的 Microsoft 對等互連)，以允許內部部署服務存取 Azure Cosmos 帳戶。 

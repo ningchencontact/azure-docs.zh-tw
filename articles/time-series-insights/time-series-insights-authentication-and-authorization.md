@@ -4,7 +4,7 @@ description: 本文說明如何為呼叫 Azure Time Series Insights API 的自�
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5fb2802bfe9cc0a4d3297e6fa749e5b94008c616
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 9b6cd993e9f6c6dbf173c161de638c6c4a8b18d3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472675"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237043"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API 的驗證和授權
 
@@ -30,7 +30,7 @@ ms.locfileid: "65472675"
 
 這和下列各節說明如何設定應用程式代表應用程式存取 Time Series Insights API。 應用程式查詢或應用程式認證，而不是使用者認證的 Time Series Insights 環境中發佈參考資料。
 
-## <a name="best-practices"></a>最佳做法
+## <a name="best-practices"></a>最佳作法
 
 當您有必須存取 Time Series Insights 的應用程式：
 
@@ -55,11 +55,11 @@ ms.locfileid: "65472675"
 
 ## <a name="detailed-setup"></a>詳細的安裝程式
 
-1. 在 Azure 入口網站中，選取 [Azure Active Directory] > [應用程式註冊] > [新應用程式註冊]。
+1. 在 Azure 入口網站中，選取 [Azure Active Directory]   > [應用程式註冊]   > [新應用程式註冊]  。
 
    [![Azure Active Directory 中的新應用程式註冊](media/authentication-and-authorization/active-directory-new-application-registration.png)](media/authentication-and-authorization/active-directory-new-application-registration.png#lightbox)
 
-1. 指定應用程式的名稱，選取 [Web 應用程式 / API] 作為類型，選取任何有效的 URI 作為 [登入 URL]，然後按一下 [建立]。
+1. 指定應用程式的名稱，選取 [Web 應用程式 / API]  作為類型，選取任何有效的 URI 作為 [登入 URL]  ，然後按一下 [建立]  。
 
    [![Azure Active Directory 中建立應用程式](media/authentication-and-authorization/active-directory-create-web-api-application.png)](media/authentication-and-authorization/active-directory-create-web-api-application.png#lightbox)
 
@@ -67,7 +67,7 @@ ms.locfileid: "65472675"
 
    [![複製應用程式識別碼](media/authentication-and-authorization/active-directory-copy-application-id.png)](media/authentication-and-authorization/active-directory-copy-application-id.png#lightbox)
 
-1. 選取 [金鑰]，輸入金鑰名稱，選取到期日，然後按一下 [儲存]。
+1. 選取 [金鑰]  ，輸入金鑰名稱，選取到期日，然後按一下 [儲存]  。
 
    [![選取應用程式金鑰](media/authentication-and-authorization/active-directory-application-keys.png)](media/authentication-and-authorization/active-directory-application-keys.png#lightbox)
 
@@ -77,7 +77,7 @@ ms.locfileid: "65472675"
 
    [![複製應用程式金鑰](media/authentication-and-authorization/active-directory-copy-application-key.png)](media/authentication-and-authorization/active-directory-copy-application-key.png#lightbox)
 
-1. 針對 Time Series Insights 環境，選取 [資料存取原則]，然後按一下 [新增]。
+1. 針對 Time Series Insights 環境，選取 [資料存取原則]  ，然後按一下 [新增]  。
 
    [![將新的資料存取原則新增至 Time Series Insights 環境](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
 

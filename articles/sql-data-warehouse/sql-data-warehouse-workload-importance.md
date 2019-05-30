@@ -1,5 +1,5 @@
 ---
-title: 工作負載重要性 |Microsoft Docs
+title: Azure SQL 資料倉儲工作負載重要性 |Microsoft Docs
 description: 設定 Azure SQL 資料倉儲中的查詢的重要性的指引。
 services: sql-data-warehouse
 author: ronortloff
@@ -10,14 +10,14 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 92990b68969e754ee126b6cd5a22ecfa700c0494
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 0147977307ec22134777d6c3e8242a4191362ada
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002895"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233830"
 ---
-# <a name="sql-data-warehouse-workload-importance"></a>SQL 資料倉儲工作負載的重要性
+# <a name="azure-sql-data-warehouse-workload-importance"></a>Azure SQL 資料倉儲工作負載的重要性
 
 這篇文章說明如何工作負載的重要性可能會影響 SQL 資料倉儲要求的執行順序。
 
@@ -35,7 +35,7 @@ ms.locfileid: "66002895"
 
 除了基本的重要性上述的案例與銷售和天氣資料，還有其他案例，其中工作負載重要性可協助符合資料處理和查詢需求。
 
-### <a name="locking"></a>正在鎖定
+### <a name="locking"></a>鎖定
 
 存取鎖定供讀取和寫入活動是自然的爭用情況的其中一個區域。  這類活動[資料分割切換](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition)或是[重新命名物件](/sql/t-sql/statements/rename-transact-sql)需要提高權限的鎖定。  沒有工作負載的重要性，SQL 資料倉儲會針對輸送量進行最佳化。  最佳化輸送量就會執行和已排入佇列的要求有相同的鎖定需求和資源可供使用，已排入佇列的要求可以略過具有較高鎖定需求稍早抵達要求佇列的要求。  一旦工作負載的重要性會套用至具有較高的鎖定要求需要。 以高重要性的要求會執行要求之前，以較低的重要性。
 
@@ -64,5 +64,5 @@ Mediumrc 資源類別被提交 Q5 早上 9 點。
 - 如需有關如何建立分類器的詳細資訊，請參閱 <<c0> [ 建立工作負載分類 (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)。  
 - 如需有關 SQL 資料倉儲工作負載分類的詳細資訊，請參閱 <<c0> [ 工作負載分類](sql-data-warehouse-workload-classification.md)。  
 - 請參閱快速入門[建立工作負載分類器](quickstart-create-a-workload-classifier-tsql.md)如何建立工作負載分類器。
-- 請參閱操作說明文章等[設定工作負載重要性](sql-data-warehouse-how-to-configure-workload-importance.md)，以及如何[管理並監視工作負載管理](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)。
+- 請參閱[設定工作負載的重要性](sql-data-warehouse-how-to-configure-workload-importance.md)的操作說明文章，以及如何[管理並監視工作負載管理](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)。
 - 請參閱 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以檢視查詢和所指派的重要性。

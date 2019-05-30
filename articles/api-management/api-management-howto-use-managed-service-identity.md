@@ -11,18 +11,16 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: ebded5d1d58baf501ee5106d622162edc62d46ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75a02abb6cce332daad12e1feb25fb425f89f7f4
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656661"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393376"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>在 Azure API 管理中使用受管理的身分識別
 
 這篇文章說明如何建立 API 管理服務執行個體的受管理身分識別，以及如何存取其他資源。 Azure Active Directory (Azure AD) 所產生的受管理身分識別可讓您輕鬆且安全地存取其他 Azure AD 保護的資源，例如 Azure Key Vault 的 API 管理執行個體。 此身分識別由 Azure 管理，而且不需要您佈建或輪替任何祕密。 如需有關受管理的身分識別的詳細資訊，請參閱[什麼是適用於 Azure 資源管理的身分識別](../active-directory/managed-identities-azure-resources/overview.md)。
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="create-a-managed-identity-for-an-api-management-instance"></a>建立 API 管理執行個體的受管理身分識別
 
@@ -89,7 +87,7 @@ ms.locfileid: "60656661"
 
 #### <a name="prerequisites"></a>必要條件
 1. 包含 pfx 憑證的 Key Vault 必須位於相同的 Azure 訂用帳戶中，以及與 API 管理服務相同的資源群組中。 這是 Azure Resource Manager 範本的需求。
-2. 秘密的內容類型必須是 application/x-pkcs12。 您可以使用下列指令碼來上傳憑證：
+2. 秘密的內容類型必須是 application/x-pkcs12  。 您可以使用下列指令碼來上傳憑證：
 
 ```powershell
 $pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 
@@ -242,3 +240,4 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 
 * [什麼是適用於 Azure 資源管理的身分識別](../active-directory/managed-identities-azure-resources/overview.md)
 * [Azure 資源管理員範本](https://github.com/Azure/azure-quickstart-templates)
+* [在 原則管理的身分識別進行驗證](./api-management-authentication-policies.md#ManagedIdentity)

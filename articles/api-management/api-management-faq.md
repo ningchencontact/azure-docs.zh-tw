@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 6a917b5e4586e9b2f54fee5816a9a0bcfcca2eee
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: edc3c2ddcddaa8a51ae634a7abcd3a61aab530e9
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956262"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357259"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常見問題集
 得到 Azure API 管理常見問題、模式和最佳作法的答案。
@@ -87,7 +87,7 @@ ms.locfileid: "65956262"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 移至包含您要更新之 API 管理執行個體的資源群組。
-3. 在 API 管理中，將 [Api 管理參與者] 角色指派給使用者。
+3. 在 API 管理中，將 [Api 管理參與者]  角色指派給使用者。
 
 新增的參與者現在即可使用 Azure PowerShell [Cmdlet](https://docs.microsoft.com/powershell/azure/overview)。 以系統管理員身分登入的步驟如下︰
 
@@ -137,7 +137,7 @@ API 管理會在部署到多個地理位置時，使用[效能流量路由方法
 使用 [`New-AzApiManagementBackend` ](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (適用於新的後端) 或 [ `Set-AzApiManagementBackend` ](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (適用於現有的後端) PowerShell Cmdlet，並將 `-SkipCertificateChainValidation` 參數設定為 `True`。 
 
 ```powershell
-$context = New-AApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+$context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 

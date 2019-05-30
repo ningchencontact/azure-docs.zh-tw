@@ -8,16 +8,20 @@ ms.topic: reference
 ms.date: 03/28/2019
 ms.author: pabutler
 ROBOTS: NOINDEX
-ms.openlocfilehash: 816bdc61f85fdf171870a5b552661b816ec65e2f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 9b80f0fd36545de94e7128080dba5e516344c107
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943131"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257508"
 ---
 # <a name="saas-fulfillment-apis-version-1--deprecated"></a>SaaS 履行 Api 第 1 版 （已過時）
 
 本文說明如何使用 API 建立 SaaS 供應項目。 使用 Api，REST 方法和端點，組成所需的允許訂用帳戶，您的 SaaS 供應項目，如果您已透過 Azure 選取銷售。  
+
+> [!IMPORTANT] 
+> SaaS 提供的功能已移轉到[Microsoft 合作夥伴中心](https://partner.microsoft.com/dashboard/directory)。  所有新的發行者必須使用合作夥伴中心建立新的 SaaS 供應項目，以及管理現有的供應項目。  SaaS 供應項目目前的發行者 batchwise 移轉從 Cloud Partner 入口網站來合作夥伴中心。  Cloud Partner 入口網站會顯示狀態訊息，指出何時已移轉特定的現有供應項目。
+> 如需詳細資訊，請參閱 <<c0> [ 建立新的 SaaS 供應項目](../../partner-center-portal/create-new-saas-offer.md)。
 
 > [!WARNING]
 > 這個初始版本 SaaS 履行 API 已被取代;請改用[SaaS 履行 API V2](./cpp-saas-fulfillment-api-v2.md)。  此 API 目前會維護僅為現有的發行者。 
@@ -86,9 +90,9 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 | **參數名稱** | **資料類型** | **說明**                       |
 |--------------------|---------------|---------------------------------------|
 | id                 | 字串        | SaaS 訂用帳戶的識別碼。          |
-| subscriptionName| 字串| 使用者訂閱 SaaS 服務時在 Azure 中設定的 SaaS 訂用帳戶名稱。|
-| OfferId            | 字串        | 使用者訂閱的供應項目識別碼。 |
-| planId             | 字串        | 使用者訂閱的方案識別碼。  |
+| subscriptionName| String| 使用者訂閱 SaaS 服務時在 Azure 中設定的 SaaS 訂用帳戶名稱。|
+| OfferId            | String        | 使用者訂閱的供應項目識別碼。 |
+| planId             | String        | 使用者訂閱的方案識別碼。  |
 |  |  |  |
 
 
@@ -121,7 +125,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **參數名稱**  | **說明**                                       |
 |---------------------|-------------------------------------------------------|
@@ -186,7 +190,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 
 **PATCH**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **參數名稱**  | **說明**                                       |
 |---------------------|-------------------------------------------------------|
@@ -250,7 +254,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 
 **DELETE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **參數名稱**  | **說明**                                       |
 |---------------------|-------------------------------------------------------|
@@ -300,7 +304,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/ *{operationId}* ?api-version=2017-04-15**
 
 | **參數名稱**  | **說明**                                       |
 |---------------------|-------------------------------------------------------|
@@ -331,9 +335,9 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 
 | **參數名稱** | **資料類型** | **說明**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | 字串        | 作業的識別碼。                                                                      |
+| id                 | String        | 作業的識別碼。                                                                      |
 | status             | 例舉          | 下列其中之一的作業狀態：`In Progress`、 `Succeeded` 或 `Failed`。          |
-| resourceLocation   | 字串        | 已建立或修改之訂用帳戶的連結。 此連結可協助用戶端取得更新的狀態後續作業。 此值並未針對 `Unsubscribe` 作業進行設定。 |
+| resourceLocation   | String        | 已建立或修改之訂用帳戶的連結。 此連結可協助用戶端取得更新的狀態後續作業。 此值並未針對 `Unsubscribe` 作業進行設定。 |
 | created            | DateTime      | 作業建立時間 (UTC)。                                                           |
 | lastModified       | DateTime      | 作業上次更新時間 (UTC)。                                                      |
 |  |  |  |
@@ -368,7 +372,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **參數名稱**  | **說明**                                       |
 |---------------------|-------------------------------------------------------|
@@ -402,8 +406,8 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 | **參數名稱**     | **資料類型** | **說明**                               |
 |------------------------|---------------|-----------------------------------------------|
 | id                     | 字串        | Azure 中的 SaaS 訂用帳戶資源識別碼。    |
-| offerId                | 字串        | 使用者訂閱的供應項目識別碼。         |
-| planId                 | 字串        | 使用者訂閱的方案識別碼。          |
+| offerId                | String        | 使用者訂閱的供應項目識別碼。         |
+| planId                 | String        | 使用者訂閱的方案識別碼。          |
 | saasSubscriptionName   | 字串        | SaaS 訂用帳戶名稱。                |
 | saasSubscriptionStatus | 例舉          | 作業狀態。  下列其中之一：  <br/> - `Subscribed`：訂用帳戶作用中。  <br/> - `Pending`：使用者建立了該資源，但它不是由 ISV 所啟動。   <br/> - `Unsubscribed`：使用者已取消訂閱。   <br/> - `Suspended`：使用者已暫止訂用帳戶。   <br/> - `Deactivated`：Azure 訂用帳戶已暫止。  |
 | created                | DateTime      | 建立訂用帳戶的時間戳記值 (UTC)。 |
@@ -474,9 +478,9 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 | **參數名稱**     | **資料類型** | **說明**                               |
 |------------------------|---------------|-----------------------------------------------|
 | id                     | 字串        | Azure 中的 SaaS 訂用帳戶資源識別碼。    |
-| offerId                | 字串        | 使用者訂閱的供應項目識別碼。         |
-| planId                 | 字串        | 使用者訂閱的方案識別碼。          |
-| saasSubscriptionName   | 字串        | SaaS 訂用帳戶名稱。                |
+| offerId                | String        | 使用者訂閱的供應項目識別碼。         |
+| planId                 | String        | 使用者訂閱的方案識別碼。          |
+| saasSubscriptionName   | String        | SaaS 訂用帳戶名稱。                |
 | saasSubscriptionStatus | 例舉          | 作業狀態。  下列其中之一：  <br/> - `Subscribed`：訂用帳戶作用中。  <br/> - `Pending`：使用者建立了該資源，但它不是由 ISV 所啟動。   <br/> - `Unsubscribed`：使用者已取消訂閱。   <br/> - `Suspended`：使用者已暫止訂用帳戶。   <br/> - `Deactivated`：Azure 訂用帳戶已暫止。  |
 | created                | DateTime      | 建立訂用帳戶的時間戳記值 (UTC)。 |
 | lastModified           | DateTime      | 已修改之訂用帳戶的時間戳記值 (UTC)。 |
@@ -523,14 +527,14 @@ SaaS Webhook 可用來主動通知 SaaS 服務關於變更的訊息。 此 POST 
 
 | **參數名稱**     | **資料類型** | **說明**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id  | 字串       | 已觸發作業的唯一識別碼。                |
-| activityId   | 字串        | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。               |
-| subscriptionId                     | 字串        | Azure 中的 SaaS 訂用帳戶資源識別碼。    |
+| id  | String       | 已觸發作業的唯一識別碼。                |
+| activityId   | String        | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。               |
+| subscriptionId                     | String        | Azure 中的 SaaS 訂用帳戶資源識別碼。    |
 | offerId                | 字串        | 使用者訂閱的供應項目識別碼。 僅為「更新」動作提供。        |
-| publisherId                | 字串        | SaaS 供應項目的發行者識別碼         |
+| publisherId                | String        | SaaS 供應項目的發行者識別碼         |
 | planId                 | 字串        | 使用者訂閱的方案識別碼。 僅為「更新」動作提供。          |
-| action                 | 字串        | 觸發此通知的動作。 可能的值 - 啟動、刪除、暫止、恢復、更新          |
-| timeStamp                 | 字串        | 觸發此通知時的時間戳記值 (採用 UTC)。          |
+| action                 | String        | 觸發此通知的動作。 可能的值 - 啟動、刪除、暫止、恢復、更新          |
+| timeStamp                 | String        | 觸發此通知時的時間戳記值 (採用 UTC)。          |
 |  |  |  |
 
 

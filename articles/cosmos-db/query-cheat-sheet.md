@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB PDF 查詢速查表
 description: 可協助您使用 Azure Cosmos DB 之 SQL、MongoDB、圖形及資料表 API 來查詢資料的可列印 PDF 速查表
-author: rockboyfor
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.author: v-yeche
-ms.openlocfilehash: 848b5a75e4e957b2ad61072ff2e229cacdba2019
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/28/2019
+ms.author: sngun
+ms.openlocfilehash: 51660fb416aa9850381f515a3a31cc57519094b0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60928173"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256986"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB 查詢速查表
 

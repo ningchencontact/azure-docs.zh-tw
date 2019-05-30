@@ -6,23 +6,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 05/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 757c3ef55e93397030b0fe847dc19d81a7bbe568
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 51270f1fd7a662cdfd747bd0bfaf9ff03dd438a2
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713841"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257908"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>使用 Azure PowerShell 在 HDInsight 中建立以 Linux 為基礎的叢集
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 Azure PowerShell 是功能強大的指令碼環境，可讓您在 Microsoft Azure 中控制和自動化工作量的部署與管理。 本文件提供如何使用 Azure PowerShell 建立以 Linux 為基礎之 HDInsight 叢集的相關資訊。 其中也包含一個範例指令碼。
-
-> [!NOTE]  
-> Azure PowerShell 僅適用於 Windows 用戶端。 如果您使用 Linux、Unix 或 Mac OS X 用戶端，請參閱[使用 Azure 傳統 CLI 建立 Linux 型 HDInsight 叢集](hdinsight-hadoop-create-linux-clusters-azure-cli.md)，以取得使用傳統 CLI 建立叢集的相關資訊。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -34,11 +31,11 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Microsoft Azur
 * [Azure PowerShell](/powershell/azure/install-Az-ps)
 
     > [!IMPORTANT]  
-    > 使用 Azure Service Manager 管理 HDInsight 資源的 Azure PowerShell 支援已**被取代**，並已在 2017 年 1 月 1 日移除。 本文档中的步骤使用的是与 Azure Resource Manager 兼容的新 HDInsight cmdlet。
+    > 使用 Azure Service Manager 管理 HDInsight 資源的 Azure PowerShell 支援已**被取代**，並已在 2017 年 1 月 1 日移除。 本文件中的步驟會使用可與 Azure Resource Manager 搭配使用的新 HDInsight Cmdlet。
     >
     > 請遵循[安裝 Azure PowerShell (英文)](https://docs.microsoft.com/powershell/azure/install-Az-ps) 中的步驟來安裝最新版的 Azure PowerShell。 如果您需要修改指令碼才能使用適用於 Azure Resource Manager 的新 Cmdlet，請參閱 [移轉至以 Azure Resource Manager 為基礎的開發工具 (適用於 HDInsight 叢集)](hdinsight-hadoop-development-using-azure-resource-manager.md) ，以取得詳細資訊。
 
-## <a name="create-cluster"></a>创建群集
+## <a name="create-cluster"></a>建立叢集
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -53,14 +50,14 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Microsoft Azur
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster.ps1?range=5-71)]
 
-使用为群集登录指定的值创建群集的 Hadoop 用户帐户。 請使用此帳戶來連線叢集上裝載的服務，像是 web UI 或 REST API。
+您為叢集登入指定的值會用來建立叢集的 Hadoop 使用者帳戶。 請使用此帳戶來連線叢集上裝載的服務，像是 web UI 或 REST API。
 
 您為 SSH 使用者指定的值會用來建立叢集的 SSH 使用者。 使用此帳戶在叢集上啟動遠端 SSH 工作階段並執行工作。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md) 文件。
 
 > [!IMPORTANT]  
 > 如果您規劃使用 32 個以上的背景工作角色節點 (在建立叢集時或在建立後調整叢集時)，則您也必須指定具有至少 8 個核心和 14 GB RAM 的前端節點大小。
 >
-> 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://azure.microsoft.com/pricing/details/hdinsight/)。
+> 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
 建立叢集可能需要花費 20 分鐘的時間。
 
@@ -68,7 +65,7 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Microsoft Azur
 
 您也可以使用 `New-AzHDInsightClusterConfig` Cmdlet 建立 HDInsight 設定物件。 然後，您可以修改此設定物件來啟用叢集的其他設定選項。 最後，請使用 `New-AzHDInsightCluster` Cmdlet 的 `-Config` 參數以使用設定。
 
-下列指令碼會建立可在 HDInsight 叢集類型上設定 R 伺服器的設定物件。 该配置支持边缘节点、RStudio 和其他存储帐户。
+下列指令碼會建立可在 HDInsight 叢集類型上設定 R 伺服器的設定物件。 此設定可啟用邊緣節點、RStudio 和其他儲存體帳戶。
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-99)]
 
@@ -77,8 +74,8 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Microsoft Azur
 
 ## <a name="customize-clusters"></a>自訂叢集
 
-* 请参阅[使用 Bootstrap 自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell)。
-* 请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
+* 請參閱 [使用 Bootstrap 自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell)。
+* 請參閱[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 ## <a name="delete-the-cluster"></a>刪除叢集
 

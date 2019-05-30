@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f273104366b3e583bd98ebcc6d50387a3fb1d335
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 58de8de9a9fab67d743d4560ccda037d8f41301b
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572822"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298994"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health：版本發行歷程記錄
 Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Connect Health。 本文列出已發行的版本和功能。  
@@ -30,6 +30,13 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
 >
 
 Azure AD Connect Health for Sync 會與 Azure AD Connect Health 安裝整合。 深入了解 [Azure AD Connect 版本歷程記錄](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history) 如需功能意見反應，請在 [Connect Health User Voice 頻道](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)投票
+
+
+## <a name="may-2019"></a>2019 年 5 月
+**代理程式更新：** 
+* 適用於 AD FS （版本 3.1.51.0） 的 azure AD Connect Health 代理程式 
+   1. Bug 修正，以區別多個的登入共用同一個用戶端要求識別碼。
+   2. Bug 修正，以剖析錯誤的使用者名稱/密碼錯誤的語言進行當地語系化伺服器。   
 
 ## <a name="april-2019"></a>2019 年 4 月
 **代理程式更新：** 
@@ -196,9 +203,9 @@ Azure AD Connect Health for Sync 會與 Azure AD Connect Health 安裝整合。 
 
 * 支援 [角色型存取控制](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
 
-**新的预览功能：**
+**新的預覽功能：**
 
-* [用于同步的 Azure AD Connect Health](how-to-connect-health-sync.md)
+* [適用於同步的 Azure AD Connect Health](how-to-connect-health-sync.md)。
 
 **已修正的問題：**
 

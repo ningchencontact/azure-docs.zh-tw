@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5846d2bd85a382b8e2aee539af405518e9fb221
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0afec1d6eded25a2d9b2389c950e2e21e06e0d54
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288819"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66307066"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>邀請來賓使用者，並將在 PIM 中的 Azure 資源角色指派
 
@@ -55,13 +55,13 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 是一組功能，可讓
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-1. 按一下 [Azure Active Directory] > [使用者設定]。
+1. 按一下 [Azure Active Directory]   > [使用者設定]  。
 
-1. 按一下 [管理外部共同作業設定]。
+1. 按一下 [管理外部共同作業設定]  。
 
     ![外部共同作業設定](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
 
-1. 確定 [系統管理員與具備「來賓邀請者角色」的使用者可邀請來賓] 參數設定為 [是]。
+1. 確定 [系統管理員與具備「來賓邀請者角色」的使用者可邀請來賓]  參數設定為 [是]  。
 
 ## <a name="invite-a-guest-and-assign-a-role"></a>邀請來賓，並指派角色
 
@@ -71,15 +71,15 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 是一組功能，可讓
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure 資源]。
+1. 按一下 [Azure 資源]  。
 
-1. 使用 [資源篩選] 來篩選管理的資源清單。
+1. 使用 [資源篩選]  來篩選管理的資源清單。
 
 1. 按一下您想要管理的資源，例如資源、資源群組、訂用帳戶或管理群組。
 
     您應該將範圍設定只需要哪些客體。
 
-1. 按一下 [管理] 下方的 [角色]，以查看 Azure 資源角色的清單。
+1. 按一下 [管理] 下方的 [角色]  ，以查看 Azure 資源角色的清單。
 
     ![Azure 資源角色](./media/pim-resource-roles-external-users/resources-roles.png)
 
@@ -87,9 +87,9 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 是一組功能，可讓
 
     ![選取的角色](./media/pim-resource-roles-external-users/selected-role.png)
 
-1. 在角色頁面上，按一下 [新增成員] 以開啟 [新增指派] 窗格。
+1. 在角色頁面上，按一下 [新增成員]  以開啟 [新增指派] 窗格。
 
-1. 按一下 [選取成員或群組]。
+1. 按一下 [選取成員或群組]  。
 
     ![選取成員或群組](./media/pim-resource-roles-external-users/select-member-group.png)
 
@@ -107,7 +107,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 是一組功能，可讓
 
     ![成員資格設定](./media/pim-resource-roles-external-users/membership-settings.png)
 
-1. 若要完成指派，請按一下 [完成]，然後 [新增]。
+1. 若要完成指派，請按一下 [完成]  ，然後 [新增]  。
 
     來賓角色指派會出現在您的角色清單。
 
@@ -121,13 +121,13 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 是一組功能，可讓
 
     ![電子郵件邀請](./media/pim-resource-roles-external-users/email-invite.png)
 
-1. 按一下電子郵件中的 [開始] 連結。
+1. 按一下電子郵件中的 [開始]  連結。
 
-1. 檢閱權限之後，按一下 [接受]。
+1. 檢閱權限之後，按一下 [接受]  。
 
     ![檢閱權限](./media/pim-resource-roles-external-users/invite-accept.png)
 
-1. 系統可能會要求您接受使用規定，並指定您是否想要保持登入狀態。
+1. 可能會要求您接受使用規定，並指定您是否想要保持登入。
 
     Azure 入口網站隨即開啟。 如果您剛具備某個角色的資格，則沒有資源的存取權。
 
@@ -135,15 +135,15 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 是一組功能，可讓
 
     ![電子郵件邀請](./media/pim-resource-roles-external-users/email-role-assignment.png)
 
-1. 按一下 [啟用角色] 以在 PIM 中開啟您有資格的角色。
+1. 按一下 [啟用角色]  以在 PIM 中開啟您有資格的角色。
 
     ![我的角色-合格](./media/pim-resource-roles-external-users/my-roles-eligible.png)
 
-1. 按一下 [動作] 下方的 [啟用] 連結。
+1. 按一下 [動作] 下方的 [啟用]  連結。
 
     根據角色設定，您必須指定一些資訊才能啟用該角色。
 
-1. 您指定了角色的設定之後，按一下 [啟用] 以啟用角色。
+1. 您指定了角色的設定之後，按一下 [啟用]  以啟用角色。
 
     ![啟用角色](./media/pim-resource-roles-external-users/activate-role.png)
 
@@ -155,7 +155,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 是一組功能，可讓
 
 1. 身為管理員，開啟 PIM 並選取已共用的資源。
 
-1. 按一下 [資源稽核] 來檢視該資源的活動。 下列範例顯示資源群組的活動範例。
+1. 按一下 [資源稽核]  來檢視該資源的活動。 下列範例顯示資源群組的活動範例。
 
     ![資源稽核](./media/pim-resource-roles-external-users/audit-resource.png)
 

@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6138a9ff6bb6d34b09c49fa7b5dbb67cbf5eb1b6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712860"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244897"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>了解計量警示在 Azure 監視器中的運作方式
 
@@ -28,8 +28,8 @@ Azure 監視器中的計量警示以多維度計量為基礎運作。 這些計�
 
 - 目標資源 (您要監視的 Azure 資源)：myVM
 - 計量：Percentage CPU
-- 條件類型：靜態
-- 時間彙總 (針對未經處理的計量值執行的統計資料。 支援的時間彙總為最小、最大、平均、總計)：平均值
+- 條件類型：Static
+- 時間彙總 (針對未經處理的計量值執行的統計資料。 支援的時間彙總是 Min、 Max、 Avg、 總計、 計數）：平均值
 - 期間 (檢查計量值的回溯查看時段)：過去 5 分鐘
 - 頻率 (計量警示檢查條件是否符合的頻率)：1 分鐘
 - 運算子：大於
@@ -44,7 +44,7 @@ Azure 監視器中的計量警示以多維度計量為基礎運作。 這些計�
 - 目標資源 (您要監視的 Azure 資源)：myVM
 - 計量：Percentage CPU
 - 條件類型：動態
-- 時間彙總 (針對未經處理的計量值執行的統計資料。 支援的時間彙總為最小、最大、平均、總計)：平均值
+- 時間彙總 (針對未經處理的計量值執行的統計資料。 支援的時間彙總是 Min、 Max、 Avg、 總計、 計數）：平均值
 - 期間 (檢查計量值的回溯查看時段)：過去 5 分鐘
 - 頻率 (計量警示檢查條件是否符合的頻率)：1 分鐘
 - 運算子：大於
@@ -58,7 +58,7 @@ Azure 監視器中的計量警示以多維度計量為基礎運作。 這些計�
 
 ### <a name="view-and-resolution-of-fired-alerts"></a>檢視並解決觸發的警示
 
-前述警示規則引發範例也可在 Azure 入口網站的 [所有警示] 刀鋒視窗中檢視。
+前述警示規則引發範例也可在 Azure 入口網站的 [所有警示]  刀鋒視窗中檢視。
 
 假設在後續檢查中，"myVM" 上的使用量一直高於閾值，除非解決該情況，否則不會再次引發警示規則。
 
@@ -74,7 +74,7 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 
 - 目標資源：myAppServicePlan
 - 計量：Percentage CPU
-- 條件類型：靜態
+- 條件類型：Static
 - 維度
   - 執行個體 = InstanceName1、InstanceName2
 - 時間彙總：平均值
@@ -89,7 +89,7 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 
 - 目標資源：myAppServicePlan
 - 計量：Percentage CPU
-- 條件類型：靜態
+- 條件類型：Static
 - 維度
   - 執行個體 = *
 - 時間彙總：平均值

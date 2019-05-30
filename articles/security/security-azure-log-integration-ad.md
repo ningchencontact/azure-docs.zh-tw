@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 01/14/2019
+ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: db065c78008e47326155e9e2b3a0f65031ec4cd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6e99553afc05fca0250607bfccd2799adaf471e5
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478424"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298166"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>整合 Azure Active Directory 稽核記錄
 
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) 稽核事件可協助您識別 Azure Active Di
 
 
 >[!IMPORTANT]
-> Azure 記錄整合功能將於 2019/06/01 淘汰。 AzLog 下載已在 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
+> Azure 記錄整合功能會在 2019 年 06/15/淘汰。 AzLog 下載已在 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>整合 Azure Active Directory 稽核記錄的步驟
 
@@ -68,7 +68,7 @@ Azure Active Directory (Azure AD) 稽核事件可協助您識別 Azure Active Di
 
 可透過 [Azure 記錄檔整合 MSDN 論壇](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration)取得社群協助。 此論壇可透過分享問題、解答、秘訣和技巧，讓 Azure 記錄整合社群的成員彼此支援。 此外，Azure 記錄整合小組會監看這個論壇，並且會盡全力提供協助。
 
-您也可以建立[支援要求](../azure-supportability/how-to-create-azure-support-request.md)。 選取 [記錄整合] 作為您要求支援的服務。
+您也可以建立[支援要求](../azure-supportability/how-to-create-azure-support-request.md)。 選取 [記錄整合]  作為您要求支援的服務。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解 Azure 記錄整合，請參閱：

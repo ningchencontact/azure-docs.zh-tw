@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 3e9885466d422a0428311ed3013e2ab34341cd25
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145928"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391427"
 ---
 暫時的 OS 磁碟是本機的虛擬機器 (VM) 儲存體上建立，並不會保存到遠端的 Azure 儲存體。 暫時的 OS 磁碟適用於無狀態工作負載，其中的應用程式可容忍的個別 VM 失敗，但關心更大規模的部署所花費的時間或時間來重新安裝映像個別的 VM 執行個體。 它也適合用於部署的應用程式，使用傳統部署模型中，移至 Resource Manager 部署模型。 使用暫時性 OS 磁碟時，您會發現 OS 磁碟的讀寫延遲較低，而重新安裝 VM 映像的速度較快。 此外，暫時的作業系統磁碟是免費，您需要支付在 OS 磁碟沒有儲存體費用。 
  
@@ -33,43 +33,11 @@ ms.locfileid: "66145928"
 | 支援的 VM 大小          | 全部                                                                                          | DSv1、 DSv2、 DSv3、 Esv3、 Fs、 FsV2、 GS、 M                                               |
 | 磁碟型別支援           | 受控和非受控 OS 磁碟                                                                | 僅限受控的 OS 磁碟                                                               |
 | 區域支援              | 所有區域                                                                                  | 所有區域                              |
-| 資料持續性            | OS 磁碟的資料轉遞到作業系統磁碟會儲存在 Azure 儲存體                                  | OS 磁碟寫入的資料會儲存到本機的 VM 儲存體，而不會保存到 Azure 儲存體。 |
+| 資料永續性            | OS 磁碟的資料轉遞到作業系統磁碟會儲存在 Azure 儲存體                                  | OS 磁碟寫入的資料會儲存到本機的 VM 儲存體，而不會保存到 Azure 儲存體。 |
 | 停止並解除配置的狀態      | Vm 和擴展集執行個體可以停止並解除配置並從的停止取消配置狀態重新啟動 | Vm 和擴展集執行個體不能停止並解除配置                                  |
-| 特製化的 OS 磁碟支援 | 有                                                                                          | 無                                                                                 |
+| 特製化的 OS 磁碟支援 | 是                                                                                          | 否                                                                                 |
 | OS 磁碟大小調整              | 支援的 VM 建立期間和之後停止並解除配置 VM                                | 只有在建立 VM 時支援                                                  |
 | 新的 VM 大小調整大小   | OS 磁碟的資料會保留                                                                    | OS 磁碟上的資料會遭到刪除，OS 會重新佈建                                      |
-
-## <a name="register-for-the-preview"></a>註冊預覽
-
-
-自行註冊暫時使用 Azure CLI 或 Azure PowerShell 的最新版本的 OS 磁碟的預覽。
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
-```
-
-若要檢查您已註冊預覽版：
-
-```azurepowershell-interactive
-Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
-```
-
-### <a name="cli"></a>CLI
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
-```
-
-若要檢查您已註冊預覽版：
- 
-```azurecli-interactive
-az provider show --namespace Microsoft.Compute
-```
-
 
 ## <a name="scale-set-deployment"></a>擴展集部署  
 建立會使用暫時性 OS 磁碟的擴展集的程序是以新增`diffDiskSettings`屬性設`Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile`範本中的資源類型。 此外，快取原則必須設為`ReadOnly`的暫時性 OS 磁碟。 

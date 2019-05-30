@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 6e3e01ca9bd459aa6c6aca8dfaacb98b1267fada
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: fb7f238bb5c04bb03ee500b1b953895cc88c0596
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979338"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298930"
 ---
 # <a name="determine-causes-of-non-compliance"></a>判斷不符合的原因
 
@@ -22,7 +22,7 @@ ms.locfileid: "65979338"
 > - [合規性詳細資料](#compliance-details)
 > - [變更歷程記錄 （預覽）](#change-history-preview)
 
-## <a name="compliance-details"></a>相容性詳細資料
+## <a name="compliance-details"></a>合規性詳細資料
 
 不符合規範的資源時，該資源的合規性詳細資料都是從**原則合規性**頁面。 合規性詳細資料 窗格包含下列資訊：
 
@@ -35,7 +35,7 @@ ms.locfileid: "65979338"
 
 若要檢視合規性詳細資料，請遵循下列步驟：
 
-1. 藉由按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
+1. 藉由按一下 [所有服務]  然後搜尋並選取 [原則]  ，在 Azure 入口網站中啟動 Azure 原則服務。
 
 1. 上**概觀**或是**合規性**頁面上，選取中的原則**合規性狀態**也就是說_不符合規範_。
 
@@ -87,23 +87,27 @@ ms.locfileid: "65979338"
 
 |`Reason` | 條件 |
 |-|-|
-|目前的值必須包含作為索引鍵的目標值。 |containsKey 或**不**notContainsKey |
+|目前的值必須包含目標值，做為索引鍵。 |containsKey 或**不**notContainsKey |
 |目前的值必須包含目標值。 |包含或**不**notContains |
 |目前的值必須等於目標值。 |等於或**不**notEquals |
+|目前的值必須小於目標值。 |較少或**不**greaterOrEquals |
+|目前的值必須大於或等於目標值。 |greaterOrEquals 或**不**較少 |
+|目前的值必須大於目標值。 |更新版本或是**不**lessOrEquals |
+|目前的值必須是小於或等於目標值。 |lessOrEquals 或**不**更高 |
 |目前的值必須存在。 |exists |
-|目前的值必須位於目標值內。 |在或**不**notIn |
-|目前的值必須與目標值相同。 |例如或**不**notLike |
-|目前的值必須符合目標值 (區分大小寫)。 |比對或**不**notMatch |
-|目前的值必須符合目標值 (不區分大小寫)。 |matchInsensitively 或**不**notMatchInsensitively |
-|目前的值不得包含作為索引鍵的目標值。 |notContainsKey 或**不**containsKey|
-|目前的值不得包含目標值。 |notContains 或**不**包含 |
+|目前的值必須是目標值。 |在或**不**notIn |
+|目前的值必須與目標值類似。 |例如或**不**notLike |
+|目前的值必須區分大小寫的比對目標值。 |比對或**不**notMatch |
+|目前的值必須不區分大小寫的比對目標值。 |matchInsensitively 或**不**notMatchInsensitively |
+|目前的值不得包含目標值做為索引鍵。 |notContainsKey 或**不**containsKey|
+|目前的值必須包含目標值。 |notContains 或**不**包含 |
 |目前的值不得等於目標值。 |notEquals 或**不**等於 |
-|目前的值不得存在。 |**不**存在  |
-|目前的值不得在目標值之中。 |notIn 或**不**中 |
-|目前的值不得與目標值相同。 |notLike 或**不**等 |
-|目前的值不得符合目標值 (區分大小寫)。 |notMatch 或**不**比對 |
-|目前的值不得符合目標值 (不區分大小寫)。 |notMatchInsensitively 或**不**matchInsensitively |
-|沒有任何相關的資源，符合原則定義中的效果詳細資料。 |類型中定義的資源**then.details.type**中所定義的資源相關**如果**部分原則規則不存在。 |
+|目前的值必須存在。 |**不**存在  |
+|目前的值不能在目標值。 |notIn 或**不**中 |
+|目前的值不能和目標值一樣。 |notLike 或**不**等 |
+|目前的值必須不區分大小寫的比對目標值。 |notMatch 或**不**比對 |
+|目前的值必須不區分大小寫的比對目標值。 |notMatchInsensitively 或**不**matchInsensitively |
+|沒有相關的資源比對原則定義中的效果詳細資料。 |類型中定義的資源**then.details.type**中所定義的資源相關**如果**部分原則規則不存在。 |
 
 ## <a name="compliance-details-for-guest-configuration"></a>Guest 設定的合規性詳細資料
 
@@ -113,7 +117,7 @@ ms.locfileid: "65979338"
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-1. 藉由按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
+1. 藉由按一下 [所有服務]  然後搜尋並選取 [原則]  ，在 Azure 入口網站中啟動 Azure 原則服務。
 
 1. 在 **概觀**或是**合規性**頁面上，選取包含 Guest 設定的原則定義任何計劃的原則指派的_不符合規範_。
 
@@ -128,7 +132,7 @@ ms.locfileid: "65979338"
    - **資源類型**- _guestConfigurationAssignments_完整名稱。
    - **上次評估**-來賓設定服務收到通知的目標虛擬機器的狀態相關的 Azure 原則的最後一個時間。
 
-   ![檢視相容性詳細資料。](../media/determine-non-compliance/guestconfig-assignment-view.png)
+   ![檢視合規性詳細資料](../media/determine-non-compliance/guestconfig-assignment-view.png)
 
 1. 選取中的客體設定指派名稱**名稱**若要開啟的資料行**資源合規性**頁面。
 
@@ -136,7 +140,7 @@ ms.locfileid: "65979338"
 
 **來賓指派**頁面會顯示所有可用的合規性詳細資料。 在檢視中的每個資料列代表虛擬機器內執行評估。 在 **原因**資料行中，說明為何來賓指派詞語_不符合規範_會顯示。 例如，如果您要稽核 Vm 應該加入網域，請**原因**欄會顯示文字，包括目前的網域成員資格。
 
-![檢視相容性詳細資料。](../media/determine-non-compliance/guestconfig-compliance-details.png)
+![檢視合規性詳細資料](../media/determine-non-compliance/guestconfig-compliance-details.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -207,13 +211,13 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 新的一部分**公開預覽版**，過去 14 天的變更歷程記錄可供所有支援的 Azure 資源[完成模式刪除](../../../azure-resource-manager/complete-mode-deletion.md)。 變更歷程記錄會提供關於何時偵測到變更的詳細資料，以及每項變更的_視覺化差異_。 新增、 移除或更改資源管理員屬性時，會觸發變更偵測。
 
-1. 藉由按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
+1. 藉由按一下 [所有服務]  然後搜尋並選取 [原則]  ，在 Azure 入口網站中啟動 Azure 原則服務。
 
 1. 在 **概觀**或是**合規性**頁面上，選取原則，在任何**合規性狀態**。
 
 1. 底下**資源的合規性**索引標籤**原則合規性**頁面上，選取資源。
 
-1. 選取 [資源合規性] 頁面上的 [變更歷程記錄 (預覽)] 索引標籤。 偵測到的變更清單 (如果有的話) 會隨即顯示。
+1. 選取 [資源合規性]  頁面上的 [變更歷程記錄 (預覽)]  索引標籤。 偵測到的變更清單 (如果有的話) 會隨即顯示。
 
    ![在資源合規性 頁面上的 azure 原則變更歷程記錄 索引標籤](../media/determine-non-compliance/change-history-tab.png)
 
@@ -233,4 +237,4 @@ _視覺化差異_有助於識別資源的變更。 偵測到的變更可能不�
 - 了解如何[以程式設計方式建立原則](programmatically-create.md)。
 - 了解如何[取得合規性資料](getting-compliance-data.md)。
 - 了解如何[補救不符合規範的資源](remediate-resources.md)。
-- 檢閱管理群組是使用[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)。
+- 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

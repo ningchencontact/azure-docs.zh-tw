@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 95ff8d1a70325357fee4bc24fd96c1a1c7a73845
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 567163a5d5ce37eeffb5ef2bc6f9adb7c5b027ec
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371473"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255728"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>監視傳統型 Windows 桌面應用程式的使用情況和效能
 
@@ -29,15 +29,15 @@ ms.locfileid: "60371473"
 3. 在 Visual Studio 中，編輯應用程式專案的 NuGet 封裝，並新增 Microsoft.ApplicationInsights.WindowsServer。 (或選擇 Microsoft.ApplicationInsights，如果您只想要單純的 API，而不需要標準遙測集合模組。)
 4. 在程式碼中設定檢測金鑰︰
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "`您的金鑰 `";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "`您的金鑰  `";`
    
     或在 ApplicationInsights.config 中設定檢測金鑰 (如果您已安裝其中一個標準遙測封裝)︰
    
     `<InstrumentationKey>`*您的金鑰*`</InstrumentationKey>` 
    
-    如果使用 ApplicationInsights.config，請確定其在方案總管中的屬性已設定為 [建置動作] = [內容]、[複製到輸出目錄] = [複製] 。
+    如果使用 ApplicationInsights.config，請確定其在方案總管中的屬性已設定為 [建置動作] = [內容]、[複製到輸出目錄] = [複製]  。
 5. [使用 API](../../azure-monitor/app/api-custom-events-metrics.md) 傳送遙測。
-6. 執行應用程式，並查看您在 Azure 入口網站中建立的資源內的遙測。
+6. 執行您的應用程式，並查看您在 Azure 入口網站中建立的資源中的遙測。
 
 ## <a name="telemetry"></a>程式碼範例
 ```csharp
@@ -77,7 +77,7 @@ ms.locfileid: "60371473"
 ```
 
 ## <a name="next-steps"></a>後續步驟
-* [建立儀表板](../../azure-monitor/app/app-insights-dashboards.md)
+* [建立儀表板](../../azure-monitor/app/overview-dashboard.md)
 * [診斷搜尋](../../azure-monitor/app/diagnostic-search.md)
 * [探索度量](../../azure-monitor/app/metrics-explorer.md)
 * [撰寫分析查詢](../../azure-monitor/app/analytics.md)

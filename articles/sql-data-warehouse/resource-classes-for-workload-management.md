@@ -1,5 +1,5 @@
 ---
-title: 適用於工作負載管理的資源類別 - Azure SQL 資料倉儲 | Microsoft Docs
+title: 適用於 Azure SQL 資料倉儲中的工作負載管理的資源類別 |Microsoft Docs
 description: 在 Azure SQL 資料倉儲中，使用資源類別來管理並行和適用於查詢之計算資源的指引。
 services: sql-data-warehouse
 author: ronortloff
@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 05/22/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 75bd6e8071717ba755b71f51afcd884539049489
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 1c15778eb2ce38efb65e777578008b61e7066d67
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165988"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244512"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中搭配使用工作負載管理與資源類別
 

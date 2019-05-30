@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/21/2019
+ms.date: 05/28/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 06b7fb678bc79203589cfa75e8afb457d6ed344f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9071cf524a0f3d319d108cb5c961fa886cf8747f
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60866509"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399908"
 ---
 # <a name="database-views-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench 中的資料庫檢視
 
@@ -52,7 +52,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 
 此檢視能為 Azure Blockchain Workbench 應用程式中已定義的角色提供詳細資料。
 
-例如，在 [資產傳輸] 應用程式中，可定義*買方*和*賣方*等角色。
+例如，在 [資產傳輸]  應用程式中，可定義*買方*和*賣方*等角色。
 
 | Name                   | 類型             | 可為 Null | 說明                                       |
 |------------------------|------------------|-------------|---------------------------------------------------|
@@ -68,7 +68,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 
 此檢視提供已在 Azure Blockchain Workbench 應用程式中定義的角色及其相關使用者的詳細資料。
 
-例如，在 [資產傳輸] 應用程式中，*John Smith* 可以與*買方*角色產生關聯。
+例如，在 [資產傳輸]  應用程式中，*John Smith* 可以與*買方*角色產生關聯。
 
 | Name                       | 類型          | 可為 Null | 說明                                                                                                                                                                                                                           |
 |----------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -327,7 +327,7 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | WorkflowStartStateDescription     | nvarchar(255) | 是         | 工作流程狀態的說明 |
 | WorkflowStartStateStyle           | nvarchar(50)  | 是         | 此值可識別工作流程在處於狀態時的完成百分比 |
 | WorkflowStartStateValue           | int           | 否          | 狀態的值 |
-| WorkflowStartStatePercentComplete | int           | 否          | 一個文字說明，可提示用戶端如何在 UI 中轉譯此狀態。 支援的狀態包括成功和失敗 |
+| WorkflowStartStatePercentComplete | int           | 否          | 一個文字說明，可提示用戶端如何在 UI 中轉譯此狀態。 支援的狀態包括成功  和失敗  |
 
 ## <a name="vwworkflowfunction"></a>vwWorkflowFunction
 
@@ -409,4 +409,4 @@ Azure Blockchain Workbench 提供一組資料庫檢視，可讓您存取在執�
 | WorkflowStateDescription     | nvarchar(255) | 是         | 工作流程狀態的說明 |
 | WorkflowStatePercentComplete | int           | 否          | 此值可識別工作流程在處於狀態時的完成百分比 |
 | WorkflowStateValue           | nvarchar(50)  | 否          | 狀態的值 |
-| WorkflowStateStyle           | nvarchar(50)  | 否          | 一個文字說明，可提示用戶端如何在 UI 中轉譯此狀態。 支援的狀態包括成功和失敗 |
+| WorkflowStateStyle           | nvarchar(50)  | 否          | 一個文字說明，可提示用戶端如何在 UI 中轉譯此狀態。 支援的狀態包括成功  和失敗  |

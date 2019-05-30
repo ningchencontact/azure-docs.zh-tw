@@ -1,6 +1,6 @@
 ---
 title: Azure 資料庫移轉服務概觀 | Microsoft Docs
-description: Azure 資料庫移轉服務的概觀，此服務能從許多資料庫來源提供無縫移轉到 Azure 資料平台。
+description: Azure 資料庫移轉服務，可從許多資料庫來源的無縫移轉到 Azure 資料平台的概觀。
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -9,33 +9,38 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 38bce2316110259298ff478d6019b33c78a53d21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/24/2019
+ms.openlocfilehash: 05ff39c65ae96e4131f57da513173848bbb6f319
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60533481"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225398"
 ---
-# <a name="what-is-the-azure-database-migration-service"></a>什麼是 Azure 資料庫移轉服務？
-Azure 資料庫移轉服務是一個完全受控的服務，其設計目的是能夠從多個資料庫來源無縫移轉到 Azure 資料平台，將停機時間降到最低 (線上移轉)。
+# <a name="what-is-azure-database-migration-service"></a>何謂 Azure 資料庫移轉服務？
+
+Azure 資料庫移轉服務是完全受控的服務，設計用來啟用多個資料庫來源的無縫移轉到 Azure 資料平台，最少的停機時間 （線上移轉）。
 
 ## <a name="migrate-databases-to-azure-with-familiar-tools"></a>使用熟悉的工具來將資料庫移轉到 Azure
-Azure 資料庫移轉服務整合我們現有工具和服務的某些功能。 它提供客戶全方位、高可用性的解決方案。 服務會使用[資料移轉小幫手](https://aka.ms/dma)來產生評估報表，提供建議以引導您在移轉之前完成所需的變更。 由您自行決定，是否要執行任何所需的補救。 當您準備好要開始移轉程序時，Azure 資料庫移轉服務會執行所有必要步驟。 移轉程序會善用 Microsoft 決定的最佳做法，因此您可以放心地移轉專案。
+
+Azure 資料庫移轉服務整合我們現有工具和服務的功能。 它提供客戶全方位、高可用性的解決方案。 服務會使用[資料移轉小幫手](https://aka.ms/dma)來產生評估報表，提供建議以引導您在移轉之前完成所需的變更。 由您自行決定，是否要執行任何所需的補救。 當您準備好開始移轉程序時，Azure 資料庫移轉服務會執行所有必要的步驟。 移轉程序會善用 Microsoft 決定的最佳做法，因此您可以放心地移轉專案。
 
 > [!NOTE]
 > 若要使用「Azure 資料庫移轉服務」來執行線上移轉，必須根據「進階」定價層建立執行個體。
 
 ## <a name="regional-availability"></a>區域可用性
-如需關於 Azure 資料庫移轉服務區域可用性的最新資訊，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration)。
+
+最新的 Azure 資料庫移轉服務的區域可用性的詳細資訊，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration)。
 
 ## <a name="pricing"></a>價格
+
 如需關於 Azure 資料庫移轉服務定價的最新資訊，請參閱 [Azure 資料庫移轉服務定價](https://azure.microsoft.com/pricing/details/database-migration/)。
 
 ## <a name="next-steps"></a>後續步驟
-- [Azure 資料庫移轉服務支援的移轉案例狀態](resource-scenario-status.md)。
-- [使用 Azure 入口網站建立 Azure 資料庫移轉服務的執行個體](quickstart-create-data-migration-service-portal.md)。
-- [將 SQL Server 移轉到 Azure SQL Database](tutorial-sql-server-to-azure-sql.md)。
-- [使用 Azure 資料庫移轉服務的必要條件概觀](pre-reqs.md)。
-- [使用 Azure 資料庫移轉服務的相關常見問題集](faq.md)。
-- [資料移轉案例可用的服務和工具](dms-tools-matrix.md)。
+
+* [Azure 資料庫移轉服務所支援的移轉案例的狀態](resource-scenario-status.md)。
+* [使用 Azure 入口網站中建立的 Azure 資料庫移轉服務執行個體](quickstart-create-data-migration-service-portal.md)。
+* [將 SQL Server 移轉到 Azure SQL Database](tutorial-sql-server-to-azure-sql.md)。
+* [使用 Azure 資料庫移轉服務的必要條件概觀](pre-reqs.md)。
+* [使用 Azure 資料庫移轉服務相關常見問題集](faq.md)。
+* [資料移轉案例可用的服務和工具](dms-tools-matrix.md)。

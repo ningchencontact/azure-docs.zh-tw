@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 296f843f9d09b57e12e867700f456126eca128b3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 64039234a3863332ca19b915fb59a5271625d695
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942887"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258192"
 ---
 # <a name="azure-application-prerequisites"></a>Azure 應用程式先決條件
 
@@ -38,7 +38,8 @@ ms.locfileid: "64942887"
 
 商業需求包含下列程序、契約，和法律責任：
 
-* 您必須是已註冊的雲端 Marketplace 發行者。 如果您未註冊，請依照下列文章中的步驟[成為雲端 Marketplace 發行者](../../become-publisher.md)。
+* 您必須是已註冊的雲端 Marketplace 發行者。 如果您未註冊，請依照下列文章中的步驟[成為雲端 Marketplace 發行者](https://docs.microsoft.com/azure/marketplace/become-publisher
+)。
 
 >[!NOTE]
 >您需要使用與註冊 Microsoft 開發人員中心相同的帳戶來登入 Cloud Partner 入口網站。 您所有的 Azure Marketplace 供應項目應該只會共有一個 Microsoft 帳戶。 此帳戶不應該限定於特定個別服務或供應項目。
