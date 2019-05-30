@@ -4,19 +4,19 @@ description: 本文說明如何使用 Azure Resource Manager 以程式設計方�
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f5e350e8a9093936f1e747afda7c3192b4d8368d
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: ba7d412e9bfc29a53cd0aa47a926f60580b45490
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471718"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237645"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立時間序列深入解析資源
 
@@ -24,7 +24,7 @@ ms.locfileid: "65471718"
 
 「時間序列深入解析」支援下列資源：
 
-   | 資源 | 說明 |
+   | Resource | 描述 |
    | --- | --- |
    | 環境 | Time Series Insights 環境是事件從事件訊息代理程式讀取、 儲存，而且可供查詢的邏輯群組。 如需詳細資訊，請參閱[規劃您的 Azure Time Series Insights 環境](time-series-insights-environment-planning.md) |
    | 事件來源 | 事件來源是與事件訊息代理程式的連線，「時間序列深入解析」會從該訊息代理程式讀取事件，並將事件內嵌到環境中。 目前支援的事件來源為 IoT 中樞和事件中樞。 |
@@ -59,10 +59,10 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
    * 必要參數
 
-     | 參數 | 說明 |
+     | 參數 | 描述 |
      | --- | --- |
      | eventHubNamespaceName | 來源事件中樞的命名空間。 |
-     | 事件中樞名稱 | 來源事件中樞的名稱。 |
+     | eventHubName | 來源事件中樞的名稱。 |
      | consumerGroupName | 「時間序列深入解析」服務將用來從事件中樞讀取資料的取用者群組名稱。 **注意：** 為避免資源爭用，此取用者群組必須專用於「時間序列深入解析」服務，而不和其他讀取者共用。 |
      | environmentName | 環境的名稱。 名稱不得包含： `<`， `>`， `%`， `&`， `:`， `\\`， `?`， `/`，和任何控制字元。 允許所有其他字元。|
      | eventSourceName | 事件來源子系資源的名稱。 名稱不得包含： `<`， `>`， `%`， `&`， `:`， `\\`， `?`， `/`，和任何控制字元。 允許所有其他字元。 |
@@ -71,7 +71,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
    * 選擇性參數
 
-     | 參數 | 說明 |
+     | 參數 | 描述 |
      | --- | --- |
      | existingEventHubResourceId | 現有事件中樞的選擇性資源識別碼，將透過事件來源連線至「時間序列深入解析」環境。 **注意：** 部署範本的使用者必須擁有在事件中樞中執行 listkey 作業的權限。 如果沒有傳遞任何值，將會由範本建立新的事件中樞。 |
      | environmentDisplayName | 要在工具或使用者介面中顯示的選擇性易記名稱，而不是環境名稱。 |
@@ -148,7 +148,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
 1. 如果沒有資源群組，請建立一個新的。
 
-   * 如果您沒有現有的資源群組中，建立新的資源群組**新增 AzResourceGroup**命令。 提供您要使用的資源群組名稱和位置。 例如：
+   * 如果您沒有現有的資源群組中，建立新的資源群組**新增 AzResourceGroup**命令。 提供您要使用的資源群組名稱和位置。 例如: 
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"
@@ -243,7 +243,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
 1. 透過 Azure 入口網站部署快速入門範本
 
-   * GitHub 上快速入門範本的首頁也包括一個 [部署至 Azure] 按鈕。 按一下它即可在 Azure 入口網站中開啟一個 [自訂部署] 頁面。 您可以從這個頁面的[必要參數](#required-parameters)或[選擇性參數](#optional-parameters)表格輸入或選擇 每個參數的值。 填好設定值之後，按一下 [購買] 按鈕就會起始範本部署。
+   * GitHub 上快速入門範本的首頁也包括一個 [部署至 Azure]  按鈕。 按一下它即可在 Azure 入口網站中開啟一個 [自訂部署] 頁面。 您可以從這個頁面的[必要參數](#required-parameters)或[選擇性參數](#optional-parameters)表格輸入或選擇 每個參數的值。 填好設定值之後，按一下 [購買]  按鈕就會起始範本部署。
     </br>
     </br>
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">

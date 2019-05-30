@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ad1a5b69e4ec7b44c0e61a5ddd2c06633464d31a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410052"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234989"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP 的效能微調 Azure Vm
 
@@ -47,7 +47,7 @@ ms.locfileid: "65410052"
 
 最大傳輸單位 (MTU) 是最大大小指定的框架 （封包），以位元組為單位，可以透過網路介面傳送。 MTU 是可設定的設定。 在 Azure Vm 上使用的預設 MTU，大部分的網路裝置上的預設設定全域，為 1,500 個位元組。
 
-#### <a name="fragmentation"></a>分割
+#### <a name="fragmentation"></a>片段
 
 超過一個網路介面的 MTU 傳送封包時，就會發生分散程度。 TCP/IP 堆疊會分成較小的片段 （片段） 符合介面的 MTU，封包。 分散在 IP 層，就會發生，並且獨立於基礎的通訊協定 （例如 TCP)。 當 2000 個位元組封包傳送透過 1,500 MTU 的網路介面時，封包會被細分成一個 1,500 個位元組封包和一個 500 個位元組封包。
 
@@ -79,7 +79,7 @@ ms.locfileid: "65410052"
 
 #### <a name="azure-and-vm-mtu"></a>Azure 與 VM MTU
 
-適用於 Azure Vm 的 MTU 的預設值為 1,500 個位元組。 Azure 虛擬網路堆疊會嘗試將片段為 1,400 個位元組的封包。 但虛擬網路堆疊的封包 2,006 個位元組時允許 Don't Fragment 位元設定 IP 標頭中。
+適用於 Azure Vm 的 MTU 的預設值為 1,500 個位元組。 Azure 虛擬網路堆疊會嘗試將片段為 1,400 個位元組的封包。
 
 請注意，虛擬網路堆疊不原本就是效率不佳，因為它會分割為 1,400 個位元組的封包，即使 Vm 有 1,500 MTU。 大量百分比的網路封包會遠小於 1,400 或 1,500 個位元組。
 
@@ -240,7 +240,7 @@ Set-NetTCPSetting
 |已停用|None|None|視窗大小|
 |受限制|4|2^4|視窗大小 * (2 ^4)|
 |很高的限制|2|2^2|視窗大小 * (2 ^2)|
-|標準|8|2^8|視窗大小 * (2 ^8)|
+|正常|8|2^8|視窗大小 * (2 ^8)|
 |實驗性|14|2^14|視窗大小 * (2 ^14)|
 
 這些設定是最有可能會影響 TCP 效能，但請記住，整個網際網路、 Azure 中的控制之外的許多其他因素也可能會影響 TCP 效能。
@@ -264,7 +264,7 @@ Set-NetTCPSetting
 
 加速的網路允許在客體 VM 來略過主應用程式，並建立直接與主機的 SmartNIC 資料路徑，以改善效能。 以下是加速網路的一些優點：
 
-- **較低的延遲 / 較高每秒封包 (pps)**:資料路徑移除虛擬交換器時，排除在原則處理的主機的封包花費的時間，並增加可以在 VM 中處理的封包數目。
+- **較低的延遲 / 較高每秒封包 (pps)** :資料路徑移除虛擬交換器時，排除在原則處理的主機的封包花費的時間，並增加可以在 VM 中處理的封包數目。
 
 - **減少抖動**:虛擬交換器處理視需要套用的原則數量和正在進行處理的 cpu 的工作負載而定。 藉由直接將封包交給 VM，並消除 VM 主機通訊及所有軟體插斷和內容切換，卸載至硬體強制的原則移除，而減少變化。
 

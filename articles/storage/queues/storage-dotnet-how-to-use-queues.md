@@ -10,12 +10,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 054369a7fd75663c75c99c6ee586843582a6b6f9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: bfa69c6904644f707626e57a6696695cf4868c50
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965953"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236606"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>以 .NET 開始使用 Azure 佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -58,8 +58,8 @@ using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
 2. 找出您的儲存體帳戶。
-3. 在儲存體帳戶概觀的 [設定] 區段中，選取 [存取金鑰]。 您的帳戶存取金鑰隨即出現，此外也會顯示每個金鑰的完整連接字串。
-4. 尋找 [金鑰1] 下方的 [連接字串] 值，然後按一下 [複製] 按鈕來複製連接字串。 在下一個步驟中，您會將連接字串值新增至環境變數。
+3. 在儲存體帳戶概觀的 [設定]  區段中，選取 [存取金鑰]  。 您的帳戶存取金鑰隨即出現，此外也會顯示每個金鑰的完整連接字串。
+4. 尋找 [金鑰1]  下方的 [連接字串]  值，然後按一下 [複製]  按鈕來複製連接字串。 在下一個步驟中，您會將連接字串值新增至環境變數。
 
     ![顯示如何從 Azure 入口網站複製連接字串的螢幕擷取畫面](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
@@ -231,7 +231,7 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 ```
 
 ## <a name="get-the-queue-length"></a>取得佇列長度
-您可以取得佇列中的估計訊息數目。 [FetchAttributes](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet) 方法會要求佇列服務擷取佇列屬性，其中包含訊息計數。 [ApproximateMessageCount](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet) 屬性會傳回 **FetchAttributes** 方法所擷取的最後一個值，而無需呼叫佇列服務。
+您可以取得佇列中的估計訊息數目。 [FetchAttributes](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet) 方法會要求佇列服務擷取佇列屬性，其中包含訊息計數。 [ApproximateMessageCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet) 屬性會傳回 **FetchAttributes** 方法所擷取的最後一個值，而無需呼叫佇列服務。
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -255,7 +255,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
 ## <a name="delete-a-queue"></a>刪除佇列
-若要刪除佇列及其內含的所有訊息，請在佇列物件上呼叫 [Delete](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet) 方法。
+若要刪除佇列及其內含的所有訊息，請在佇列物件上呼叫 [Delete](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet) 方法。
 
 ```csharp
 // Retrieve storage account from connection string.

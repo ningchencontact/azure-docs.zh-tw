@@ -4,19 +4,19 @@ description: 本文描述如何在 Azure 時間序列深入解析環境中診斷
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7be2652355e3b9830d4a5198ba71c0f4a78858dd
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 68d46b54bf066724d8f3474f421d2d1f751b75e3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471687"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235052"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>在時間序列深入解析環境中診斷與解決問題
 
@@ -48,7 +48,7 @@ Azure 時間序列深入解析只支援 JSON 資料。 如需 JSON 範例，請�
 
 ### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>原因 c： 提供的取用者群組不限於使用時間序列深入解析
 
-當您註冊 IoT 中樞或事件中樞時，請務必設定您想要用來讀取資料的取用者群組。 此取用者群組「不可是共用的」。 如果取用者群組是共用的，基礎 IoT 中樞或事件中樞會自動且隨機地將其中一個讀者中斷連線。 提供唯一的取用者群組讓時間序列深入解析讀取。
+當您註冊 IoT 中樞或事件中樞時，請務必設定您想要用來讀取資料的取用者群組。 此取用者群組「不可是共用的」  。 如果取用者群組是共用的，基礎 IoT 中樞或事件中樞會自動且隨機地將其中一個讀者中斷連線。 提供唯一的取用者群組讓時間序列深入解析讀取。
 
 ## <a name="problem-some-data-is-shown-but-data-is-missing"></a>問題： 某些資料顯示，但遺漏資料
 
@@ -102,15 +102,15 @@ Azure 時間序列深入解析只支援 JSON 資料。 如需 JSON 範例，請�
 * 時間戳記屬性名稱會區分大小寫。
 * 來自事件來源的時間戳記屬性值 (JSON 字串) 格式應是 _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_。 例如，**2008-04-12T12:53Z**。
 
-若要確保系統已擷取時間戳記屬性名稱且正常運作，最簡單方式是使用時間序列深入解析總管。 在時間序列深入解析總管中，使用圖表，當您輸入時間戳記屬性名稱之後，選取一段時間。 以滑鼠右鍵按一下選取範圍，然後選取 [探索事件] 選項。
+若要確保系統已擷取時間戳記屬性名稱且正常運作，最簡單方式是使用時間序列深入解析總管。 在時間序列深入解析總管中，使用圖表，當您輸入時間戳記屬性名稱之後，選取一段時間。 以滑鼠右鍵按一下選取範圍，然後選取 [探索事件]  選項。
 
-第一個資料行標頭應該是您的時間戳記屬性名稱。 在文字 **Timestamp** 旁邊，您應該會看到 **($ts)**。
+第一個資料行標頭應該是您的時間戳記屬性名稱。 在文字 **Timestamp** 旁邊，您應該會看到 **($ts)** 。
 
 您應該不會看到下列值：
 
-- *(abc)*：表示時間序列深入解析將資料值讀取為字串。
-- *行事曆圖示*：表示時間序列深入解析將資料值讀取為「日期時間」。
-- *#*：表示時間序列深入解析將資料值讀取為整數。
+- *(abc)* ：表示時間序列深入解析將資料值讀取為字串。
+- *行事曆圖示*：表示時間序列深入解析將資料值讀取為「日期時間」  。
+- *#* ：表示時間序列深入解析將資料值讀取為整數。
 
 ## <a name="next-steps"></a>後續步驟
 

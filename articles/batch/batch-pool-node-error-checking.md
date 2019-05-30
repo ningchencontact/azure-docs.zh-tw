@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 9/25/2018
+ms.date: 05/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8d8df9935e935ac8d5a1194cfab103a006cf5546
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: b0a9d04fccce7ccbacb700f7af5126c6ae05140a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791336"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357767"
 ---
 # <a name="check-for-pool-and-node-errors"></a>檢查是否有集區和節點錯誤
 
@@ -56,7 +56,7 @@ ms.locfileid: "57791336"
 
 [集區調整大小完成事件](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event)會擷取所有評估的相關資訊。
 
-### <a name="delete"></a>刪除
+### <a name="delete"></a>Delete
 
 當您刪除包含節點的集區時，Batch 會先刪除節點。 然後它會刪除集區物件本身。 刪除這些節點可能需要幾分鐘的時間。
 
@@ -84,18 +84,27 @@ ms.locfileid: "57791336"
 
 節點的 [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 屬性會報告應用程式套件的下載和解壓縮失敗。 Batch 會將節點狀態設為**無法使用**。
 
+### <a name="container-download-failure"></a>容器下載失敗
+
+您可以在集區上指定一個或多個容器的參考。 批次會下載到每個節點指定的容器。 節點[錯誤](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror)屬性會報告失敗，若要下載容器，並將節點狀態設定為**無法使用**。
+
 ### <a name="node-in-unusable-state"></a>處於無法使用狀態的節點
 
 Azure Batch 將[節點狀態](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate)設為**無法使用**的原因有很多。 當節點狀態設為**無法使用**時，將無法為節點排定工作，但節點仍將產生費用。
 
-Batch 一律會嘗試復原無法使用的節點，但視原因而定，可能可以進行復原，也可能無法進行復原。
+中的節點**unsuable**，但不含[錯誤](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror)狀態表示批次無法與 VM 通訊。 在此情況下，批次一律會嘗試將 VM 復原。 批次不會自動嘗試修復無法安裝應用程式封裝或容器，即使其狀態的 Vm**無法使用**。
 
 如果 Batch 可判斷出原因，節點的 [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 屬性會加以報告。
 
 導致節點**無法使用**的其他原因包括：
 
 - 自訂 VM 映像無效。 例如，未正確備妥的映像。
+
 - VM 因基礎結構失敗或低層級升級而移動。 Batch 會復原節點。
+
+- 不支援的硬體上已部署的 VM 映像。 比方說 「 HPC 「 VM 映像在非 HPC 硬體上執行。 例如，嘗試執行 CentOS HPC 映像[Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) VM。
+
+- 這些 Vm 位於[Azure 虛擬網路](batch-virtual-network.md)，和重要連接埠已封鎖流量。
 
 ### <a name="node-agent-log-files"></a>節點代理程式記錄檔
 

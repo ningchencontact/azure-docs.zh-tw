@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ae1afe103d4c52a2a7d921ef4f34dc030f3c6f7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4b836faef4630f6bee914478aecaed1bb4db7d71
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872647"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225896"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -25,7 +25,7 @@ ms.locfileid: "65872647"
 > 本文說明如何在現有的 Azure 訂用帳戶之間移動資源。 如果您實際上是想要升級 Azure 訂用帳戶 (例如從免費切換成預付型方案)，則必須轉換您的訂用帳戶。
 > * 若要將免費試用升級，請參閱[將免費試用或 Microsoft Imagine Azure 訂用帳戶升級至隨用隨付](..//billing/billing-upgrade-azure-subscription.md)。
 > * 若要變更預付型方案帳戶，請參閱[將您的 Azure 預付型方案訂閱變更為其他供應項目](../billing/billing-how-to-switch-azure-offer.md)。
-> * 如果您無法轉換訂用帳戶，請[建立 Azure 支援要求](../azure-supportability/how-to-create-azure-support-request.md)。 針對問題類型選取 [訂用帳戶管理]。
+> * 如果您無法轉換訂用帳戶，請[建立 Azure 支援要求](../azure-supportability/how-to-create-azure-support-request.md)。 針對問題類型選取 [訂用帳戶管理]  。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -62,14 +62,14 @@ ms.locfileid: "65872647"
 * Azure 監視器記錄
 * Azure 轉送
 * Azure Stack - 註冊
-* 批次
+* Batch
 * BizTalk 服務
 * Bot 服務
 * CDN
 * 雲端服務 - 請參閱 [傳統部署限制](#classic-deployment-limitations)
 * 認知服務
 * Container Registry
-* Content Moderator
+* 內容仲裁
 * 成本管理
 * Customer Insights
 * 資料目錄
@@ -98,7 +98,7 @@ ms.locfileid: "65872647"
 * Power BI - Power BI Embedded 和 Power BI 工作區集合
 * 公用 IP - 可以移動基本 SKU 公用 IP。 不能移動標準 SKU 公用 IP。
 * 復原服務保存庫 - 註冊[預覽版](#recovery-services-limitations)。
-* Azure 上的 SAP HANA
+* SAP HANA on Azure
 * 排程器
 * 搜尋 - 您無法在一個作業中移動不同區域中的數個搜尋資源， 而是要在不同作業中移動它們。
 * 服務匯流排
@@ -133,7 +133,7 @@ ms.locfileid: "65872647"
 * Azure NetApp Files
 * 憑證 - App Service 憑證可以移動，但上傳的憑證則有其[限制](#app-service-limitations)。
 * 傳統應用程式
-* 容器執行個體
+* Container Instances
 * 容器服務
 * 資料箱
 * Dev Spaces
@@ -210,7 +210,7 @@ ms.locfileid: "65872647"
 在_訂用帳戶之間_移動 Web 應用程式時，適用下列限制：
 
 - 目的地資源群組中必須沒有任何已存在的 App Service。 App Service 資源包括：
-    - Web 應用程式
+    - Web Apps
     - App Service 方案
     - 已上傳或已匯的入 SSL 憑證
     - App Service 環境
@@ -323,7 +323,7 @@ ms.locfileid: "65872647"
 
 ### <a name="recovery-services-limitations"></a>復原服務限制
 
- 若要移動「復原服務」保存庫，您必須註冊[有限公開預覽版](../backup/backup-azure-move-recovery-services-vault.md)。
+ 若要移動的復原服務保存庫，請遵循下列步驟：[將資源移動到新的資源群組或訂用帳戶](../backup/backup-azure-move-recovery-services-vault.md)。
 
 目前每個區域一次可移動一個復原服務保存庫。 您無法移動負責備份 IaaS 虛擬機器中的 Azure 檔案服務、Azure 檔案同步或 SQL 的保存庫。
 
@@ -352,7 +352,7 @@ ms.locfileid: "65872647"
 
 在移動資源之前，有幾個重要步驟需要進行。 藉由驗證這些條件，您可以避免錯誤。
 
-1. 來源和目的地訂用帳戶必須為作用中。 如果您在啟用已停用的帳戶時遇到問題，請[建立 Azure 支援要求](../azure-supportability/how-to-create-azure-support-request.md)。 針對問題類型選取 [訂用帳戶管理]。
+1. 來源和目的地訂用帳戶必須為作用中。 如果您在啟用已停用的帳戶時遇到問題，請[建立 Azure 支援要求](../azure-supportability/how-to-create-azure-support-request.md)。 針對問題類型選取 [訂用帳戶管理]  。
 
 1. 來源和目的地的訂用帳戶必須存在於相同的 [Azure Active Directory 租用戶](../active-directory/develop/quickstart-create-new-tenant.md)內。 若要檢查這兩個訂用帳戶都有相同的租用戶識別碼，請使用 Azure PowerShell 或 Azure CLI。
 
@@ -471,17 +471,17 @@ Authorization: Bearer <access-token>
 
 ### <a name="a-nameuse-portal-by-using-azure-portal"></a><a name="use-portal" />使用 Azure 入口網站
 
-若要移動資源，請選取具有這些資源的資源群組，然後選取 [移動] 按鈕。
+若要移動資源，請選取具有這些資源的資源群組，然後選取 [移動]  按鈕。
 
 ![移動資源](./media/resource-group-move-resources/select-move.png)
 
 選擇將資源移動到新的資源群組或新的訂用帳戶。
 
-選取要移動的資源和目的地資源群組。 認可您需要更新這些資源的指令碼，然後選取 [確定] 。 如果您在上一個步驟中選取了 [編輯訂用帳戶] 圖示，則也必須選取目的地訂用帳戶。
+選取要移動的資源和目的地資源群組。 認可您需要更新這些資源的指令碼，然後選取 [確定]  。 如果您在上一個步驟中選取了 [編輯訂用帳戶] 圖示，則也必須選取目的地訂用帳戶。
 
 ![選取目的地](./media/resource-group-move-resources/select-destination.png)
 
-在 [通知] 中，您會看到移動作業正在執行。
+在 [通知]  中，您會看到移動作業正在執行。
 
 ![顯示移動狀態](./media/resource-group-move-resources/show-status.png)
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 92b1e95598da27f0b7d7df30dfa4a82824b4a48c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 970d533424e2e603a96bf7e36317cbcdf5110304
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158198"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306804"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>整合 API 管理與 Azure 中的 Service Fabric
 
@@ -75,8 +75,8 @@ az account set --subscription <guid>
 請以「系統管理員」身分啟動 Visual Studio，然後建立 ASP.NET Core 服務：
 
  1. 在 Visual Studio 中，選取 [檔案] -> [新增專案]。
- 2. 選取 [雲端] 底下的 [Service Fabric 應用程式] 範本，然後將它命名為 **"ApiApplication"**。
- 3. 選取無狀態 ASP.NET Core 服務範本，然後將專案命名為 **"WebApiService"**。
+ 2. 選取 [雲端] 底下的 [Service Fabric 應用程式] 範本，然後將它命名為 **"ApiApplication"** 。
+ 3. 選取無狀態 ASP.NET Core 服務範本，然後將專案命名為 **"WebApiService"** 。
  4. 選取 [Web API ASP.NET Core 2.0] 專案範本。
  5. 建立專案之後，開啟 `PackageRoot\ServiceManifest.xml`，然後從端點資源組態中移除 `Port` 屬性：
 
@@ -100,7 +100,7 @@ az account set --subscription <guid>
 
     這是您會透過 Azure 中的「API 管理」公開的端點。
 
- 7. 最後，將應用程式部署至您在 Azure 中的叢集。 在 Visual Studio 中的 [應用程式] 專案上按一下滑鼠右鍵，然後選取 [發佈]。 提供您的叢集端點 (例如 `mycluster.southcentralus.cloudapp.azure.com:19000`) 以將應用程式部署至您在 Azure 中的 Service Fabric 叢集。
+ 7. 最後，將應用程式部署至您在 Azure 中的叢集。 在 Visual Studio 中的 [應用程式] 專案上按一下滑鼠右鍵，然後選取 [發佈]  。 提供您的叢集端點 (例如 `mycluster.southcentralus.cloudapp.azure.com:19000`) 以將應用程式部署至您在 Azure 中的 Service Fabric 叢集。
 
 一個名為 `fabric:/ApiApplication/WebApiService` 的 ASP.NET Core 無狀態服務現在應該正在 Azure 中的 Service Fabric 叢集內執行。
 
@@ -115,7 +115,7 @@ az account set --subscription <guid>
 
 *network-apim.json* 範本會在部署 Service Fabric 叢集的虛擬網路中，部署新的子網路與網路安全性群組。
 
-下列各節描述 apim.json 範本所定義的資源。 如需詳細資訊，請遵循每個章節內範本參考文件的連結。 在 apim.parameters.json 參數檔中定義的可設定參數會在本文稍後設定。
+下列各節描述 apim.json  範本所定義的資源。 如需詳細資訊，請遵循每個章節內範本參考文件的連結。 在 apim.parameters.json  參數檔中定義的可設定參數會在本文稍後設定。
 
 ### <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
@@ -171,7 +171,7 @@ az account set --subscription <guid>
 * 無狀態服務的複本選取。
 * 解析重試條件：可讓您指定重新解析服務位置及重新傳送要求的條件。
 
-**policyContent** 是原則的 Json 逸出 XML 內容。  在本文中，請建立一個後端原則，以將要求直接路由傳送到稍早部署的 .NET 或 Java 無狀態服務。 在輸入原則底下新增 `set-backend-service` 原則。  如果您稍早已部署 .NET 後端服務，將 *sf-service-instance-name* 值替換為 `fabric:/ApiApplication/WebApiService`，或者如果您已部署 Java 服務，則替換為 `fabric:/EchoServerApplication/EchoServerService`。  backend-id 會參考後端資源，在此例中為 apim.json 範本中定義的 `Microsoft.ApiManagement/service/backends` 資源。 backend-id 也可以參考另一個使用「API 管理」API 所建立的後端資源。 在本文中，請將 backend-id 設定為 service_fabric_backend_name 參數的值。
+**policyContent** 是原則的 Json 逸出 XML 內容。  在本文中，請建立一個後端原則，以將要求直接路由傳送到稍早部署的 .NET 或 Java 無狀態服務。 在輸入原則底下新增 `set-backend-service` 原則。  如果您稍早已部署 .NET 後端服務，將 *sf-service-instance-name* 值替換為 `fabric:/ApiApplication/WebApiService`，或者如果您已部署 Java 服務，則替換為 `fabric:/EchoServerApplication/EchoServerService`。  backend-id  會參考後端資源，在此例中為 apim.json  範本中定義的 `Microsoft.ApiManagement/service/backends` 資源。 backend-id  也可以參考另一個使用「API 管理」API 所建立的後端資源。 在本文中，請將 backend-id  設定為 service_fabric_backend_name  參數的值。
 
 ```xml
 <policies>
@@ -195,7 +195,7 @@ az account set --subscription <guid>
 
 ## <a name="set-parameters-and-deploy-api-management"></a>設定參數並且部署 API 管理
 
-針對您的部署，在 apim.parameters.json 中填入下列空白參數。
+針對您的部署，在 apim.parameters.json  中填入下列空白參數。
 
 |參數|Value|
 |---|---|
@@ -210,9 +210,9 @@ az account set --subscription <guid>
 |clusterHttpManagementEndpoint|https://mysfcluster.southcentralus.cloudapp.azure.com:19080|
 |inbound_policy|&lt;XML 字串&gt;|
 
-certificatePassword 和 serviceFabricCertificateThumbprint 必須符合用來設定叢集的叢集憑證。
+certificatePassword  和 serviceFabricCertificateThumbprint  必須符合用來設定叢集的叢集憑證。
 
-serviceFabricCertificate 是 base 64 編碼字串的憑證，可以使用下列指令碼產生：
+serviceFabricCertificate  是 base 64 編碼字串的憑證，可以使用下列指令碼產生：
 
 ```powershell
 $bytes = [System.IO.File]::ReadAllBytes("C:\mycertificates\sfclustertutorialgroup220171109113527.pfx");
@@ -220,7 +220,7 @@ $b64 = [System.Convert]::ToBase64String($bytes);
 [System.Io.File]::WriteAllText("C:\mycertificates\sfclustertutorialgroup220171109113527.txt", $b64);
 ```
 
-在 inbound_policy 中，如果您稍早已部署 .NET 後端服務，將 sf-service-instance-name 值替換為 `fabric:/ApiApplication/WebApiService`，或者如果您已部署 Java 服務，則替換為 `fabric:/EchoServerApplication/EchoServerService`。 backend-id 會參考後端資源，在此例中為 apim.json 範本中定義的 `Microsoft.ApiManagement/service/backends` 資源。 backend-id 也可以參考另一個使用「API 管理」API 所建立的後端資源。 在本文中，請將 backend-id 設定為 service_fabric_backend_name 參數的值。
+在 inbound_policy  中，如果您稍早已部署 .NET 後端服務，將 sf-service-instance-name  值替換為 `fabric:/ApiApplication/WebApiService`，或者如果您已部署 Java 服務，則替換為 `fabric:/EchoServerApplication/EchoServerService`。 backend-id  會參考後端資源，在此例中為 apim.json  範本中定義的 `Microsoft.ApiManagement/service/backends` 資源。 backend-id  也可以參考另一個使用「API 管理」API 所建立的後端資源。 在本文中，請將 backend-id  設定為 service_fabric_backend_name  參數的值。
 
 ```xml
 <policies>
@@ -263,9 +263,9 @@ az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGr
 
 您現在可以嘗試直接從 [Azure 入口網站](https://portal.azure.com)透過「API 管理」，將要求傳送到 Service Fabric 中的後端服務。
 
- 1. 在 API 管理服務中，選取 [API]。
- 2. 在您於先前步驟中建立的 **Service Fabric 應用程式** API 中，依序選取 [測試] 索引標籤和 [Values] 作業。
- 3. 按一下 [傳送] 按鈕以將測試要求傳送到後端服務。  您應該會看到如下所示的 HTTP 回應：
+ 1. 在 API 管理服務中，選取 [API]  。
+ 2. 在您於先前步驟中建立的 **Service Fabric 應用程式** API 中，依序選取 [測試]  索引標籤和 [Values]  作業。
+ 3. 按一下 [傳送]  按鈕以將測試要求傳送到後端服務。  您應該會看到如下所示的 HTTP 回應：
 
     ```http
     HTTP/1.1 200 OK

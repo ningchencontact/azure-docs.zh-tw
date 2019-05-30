@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8b8f9856fe7e0fa591ceb42aab97e92642b6098
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362334"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399356"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>將 Hyper-V 虛擬機器災害復原至次要網站的支援矩陣
 
@@ -75,7 +75,7 @@ Windows Server 2012 R2 | Windows Server 2012 R2 上 [Hyper-V 所支援的](https
 NFS | N/A
 SMB 3.0 |  是
 SAN (ISCSI) | 是
-多路径 (MPIO) | 是
+多重路徑 (MPIO) | 是
 
 ### <a name="guest-or-physical-server-storage"></a>客體或實體伺服器儲存體
 
@@ -93,13 +93,13 @@ RDM | N/A
 磁碟 > 1 TB | 是
 使用等量磁碟的磁碟區 > 1 TB<br/><br/> LVM | 是
 儲存空間 | 是
-热添加/移除磁盘 | 否
+熱新增/移除磁碟 | 否
 排除磁碟 | 是
-多路径 (MPIO) | 是
+多重路徑 (MPIO) | 是
 
 ## <a name="vaults"></a>保存庫
 
-**Action** | **支援**
+**動作** | **支援**
 --- | --- 
 跨資源群組間移動保存庫 (在訂用帳戶之內或跨訂用帳戶) |  否
 跨資源群組間移動儲存體、網路、Azure VM (在訂用帳戶之內或跨訂用帳戶) | 否
@@ -116,5 +116,5 @@ RDM | N/A
 
 ## <a name="next-steps"></a>後續步驟
 
-[将 VMM 云中的 Hyper-V VM 复制到辅助站点](tutorial-vmm-to-vmm.md)
+[將 VMM 雲端中的 Hyper-V VM 複寫至次要網站](tutorial-vmm-to-vmm.md)
 

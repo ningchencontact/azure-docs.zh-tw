@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: dcd546b4b4d8e47395535cd37e1629166c8c2e7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08e915354df4f4aa1d9a183e78cbad47460b8d37
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394824"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356215"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常見問題集
 
@@ -42,7 +42,7 @@ Azure 入口網站中的新 [Logs] 體驗是以進階分析入口網站為基礎
 
 ### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>問： 何無法在新的 Logs 體驗中看見 [查詢總管] 和 [儲存] 按鈕？
 
-在特定資源的內容中探索 Logs 時，無法使用 [查詢總管]、[儲存] 和 [設定警示] 按鈕。 若要建立警示、儲存或載入查詢，Logs 必須受限於工作區。 若要在工作區內容中開啟 Logs，請選取 [所有服務] > [監視器] > [Logs]。 已選取上次使用的工作區，但您可以選取任何其他工作區。 如需詳細資訊，請參閱[在 Log Analytics 中檢視及分析資料](../log-query/portals.md)。
+在特定資源的內容中探索 Logs 時，無法使用 [查詢總管]  、[儲存]  和 [設定警示]  按鈕。 若要建立警示、儲存或載入查詢，Logs 必須受限於工作區。 若要在工作區內容中開啟 Logs，請選取 [所有服務]   > [監視器]   > [Logs]  。 已選取上次使用的工作區，但您可以選取任何其他工作區。 如需詳細資訊，請參閱[在 Log Analytics 中檢視及分析資料](../log-query/portals.md)。
 
 ### <a name="q-how-do-i-extract-custom-fields-in-the-new-logs-experience"></a>問： 如何在新的 Logs 體驗中擷取自訂欄位？ 
 
@@ -80,11 +80,11 @@ A. 是，Azure 中的 [Logs] 頁面和進階分析入口網站是以相同的程
 
 ### <a name="q-how-can-i-see-my-views-and-solutions-in-azure-portal"></a>問： 如何在 Azure 入口網站中查看我的檢視和解決方案？ 
 
-答：在 Azure 入口網站中可取得檢視和已安裝解決方案的清單。 按一下 [所有服務]。 在資源清單中，選取 [監視]，然後按一下 [...更多]。 已選取上次使用的工作區，但您可以選取任何其他工作區。 
+答：在 Azure 入口網站中可取得檢視和已安裝解決方案的清單。 按一下 [所有服務]  。 在資源清單中，選取 [監視]  ，然後按一下 [...更多]  。 已選取上次使用的工作區，但您可以選取任何其他工作區。 
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>問： 為何無法在美國中西部區域建立工作區？ 
 
-答：此區域有暫存容量限制。 此限制已計劃在 2019 年上半年獲得解決。
+答：此區域有暫存容量限制。 這項限制已規劃於 2019 年 9 月日結束處理。
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>問： Log Analytics 會使用相同的代理程式作為 Azure 資訊安全中心嗎？
@@ -113,7 +113,7 @@ A. 是，Azure 中的 [Logs] 頁面和進階分析入口網站是以相同的程
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>問： 如何針對 Log Analytics 不再收集資料的問題進行疑難排解？
 
-答：針對 2018 年 4 月 2 日之前建立且位於「免費」定價層的訂用帳戶和工作區，如果每天傳送的資料超過 500 MB，當日即會停止收集資料。 達到每日限制是 Log Analytics 停止收集資料或資料似乎遺失的常見原因。  
+答：針對 2018 年 4 月 2 日之前建立且位於「免費」  定價層的訂用帳戶和工作區，如果每天傳送的資料超過 500 MB，當日即會停止收集資料。 達到每日限制是 Log Analytics 停止收集資料或資料似乎遺失的常見原因。  
 
 Log Analytics 會建立*活動訊號*類型的事件，而且可用於判斷資料收集是否停止。 
 
@@ -130,7 +130,7 @@ Log Analytics 會建立*活動訊號*類型的事件，而且可用於判斷資�
 | 已達免費資料的限制<sup>1</sup>       | 請等到隔月自動重新開始收集，或<br> 變更為付費定價層 |
 | Azure 訂用帳戶處於暫停狀態，原因如下： <br> 免費試用已結束 <br> Azure Pass 已過期 <br> 已達每月消費限制 (例如 MSDN 或 Visual Studio 訂閱)                          | 轉換成付費訂閱 <br> 轉換成付費訂閱 <br> 移除限制，或等到限制重設 |
 
-<sup>1</sup> 如果您的工作區位於「免費」定價層，您每天最多可傳送 500 MB 的資料至服務。 當您達到每日限制時，資料收集就會停止，直到隔天再開始。 在資料收集停止時所傳送的資料不會編製索引，而且無法供搜尋使用。 當資料收集繼續時，只會處理傳送的新資料。 
+<sup>1</sup> 如果您的工作區位於「免費」  定價層，您每天最多可傳送 500 MB 的資料至服務。 當您達到每日限制時，資料收集就會停止，直到隔天再開始。 在資料收集停止時所傳送的資料不會編製索引，而且無法供搜尋使用。 當資料收集繼續時，只會處理傳送的新資料。 
 
 Log Analytics 使用 UTC 時間，而且每天從午夜 UTC 開始。 如果工作區達到每日限制，會在隔天 UTC 的第一個小時繼續處理。
 
@@ -142,13 +142,13 @@ Log Analytics 使用 UTC 時間，而且每天從午夜 UTC 開始。 如果工�
 
 - **定義警示條件**：將您的 Log Analytics 工作區指定為資源目標。
 - **警示準則**：指定下列項目：
-   - **訊號名稱**：選取 [自訂記錄搜尋]。
-   - 將 [搜尋查詢] 設定為 `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
-   - [警示邏輯] 為 [根據結果數目]，而 [條件] 為 [大於臨界值 0]
-   - [時間週期] 為 30 分鐘，而 [警示頻率] 設定為每隔 10 分鐘
+   - **訊號名稱**：選取 [自訂記錄搜尋]  。
+   - 將 [搜尋查詢]  設定為 `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+   - [警示邏輯]  為 [根據結果數目]   ，而 [條件]  為 [大於臨界值 0]   
+   - [時間週期]  為 30  分鐘，而 [警示頻率]  設定為每隔 10  分鐘
 - **定義警示詳細資料**：指定下列項目：
-   - 將 [名稱] 設定為「資料收集已停止」
-   - 將 [嚴重性] 設定為「警告」
+   - 將 [名稱]  設定為「資料收集已停止」 
+   - 將 [嚴重性]  設定為「警告」 
 
 指定現有或建立新的[動作群組](../../azure-monitor/platform/action-groups.md)，以便在記錄警示符合準則時 (如果活動訊號遺失超過 15 分鐘) 收到通知。
 
@@ -186,7 +186,7 @@ A. `Move-AzResource` Cmdlet 可讓您將 Log Analytics 工作區及自動化帳�
 
 ### <a name="q-how-can-i-confirm-that-an-agent-is-able-to-communicate-with-log-analytics"></a>問：如何確認代理程式可與 Log Analytics 通訊？
 
-答：若要確認代理程式可以與 OMS 進行通訊，請移至：[控制台] > [安全性與設定] > [Microsoft Monitoring Agent]。
+答：若要確認代理程式可以與 OMS 進行通訊，請移至：[控制台] > [安全性與設定] > [Microsoft Monitoring Agent]  。
 
 在 [Azure Log Analytics (OMS)]  索引標籤中，找出綠色的核取記號。 綠色核取記號圖示可確認代理程式能夠與 Azure 服務進行通訊。
 
@@ -194,12 +194,12 @@ A. `Move-AzResource` Cmdlet 可讓您將 Log Analytics 工作區及自動化帳�
 
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>問：如何阻止代理程式與 Log Analytics 通訊？
 
-答：在 System Center Operations Manager 中，從 OMS 受控電腦清單中移除該電腦。 Operations Manager 會將代理程式的設定更新為不再向 Log Analytics 回報。 針對直接連線到 Log Analytics 的代理程式，您可以透過以下步驟來阻止其通訊：[控制台] > [安全性與設定] > [Microsoft Monitoring Agent]。
+答：在 System Center Operations Manager 中，從 OMS 受控電腦清單中移除該電腦。 Operations Manager 會將代理程式的設定更新為不再向 Log Analytics 回報。 針對直接連線到 Log Analytics 的代理程式，您可以透過以下步驟來阻止其通訊：[控制台] > [安全性與設定] > [Microsoft Monitoring Agent]  。
 在 **Azure Log Analytics (OMS)** 下，移除所有列出的工作區。
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>問：當我試著將工作區從某個 Azure 訂用帳戶移到另一個時，為什麼會發生錯誤？
 
-答：若要將工作區移到不同的訂用帳戶或資源群組，您必須先將工作區中的自動化帳戶取消連結。 若要取消自動化帳戶的連結，必須先移除這些解決方案 (若工作區中已安裝這些解決方案)：「更新管理」、「變更追蹤」或「停機期間啟動/停止 VM」將會移除。 移除這些解決方案之後，即可在自動化帳戶資源的左側窗格上選取 [連結的工作區]，然後按一下功能區上的 [取消與工作區的連結] 來將自動化帳戶取消連結。
+答：若要將工作區移到不同的訂用帳戶或資源群組，您必須先將工作區中的自動化帳戶取消連結。 若要取消自動化帳戶的連結，必須先移除這些解決方案 (若工作區中已安裝這些解決方案)：「更新管理」、「變更追蹤」或「停機期間啟動/停止 VM」將會移除。 移除這些解決方案之後，即可在自動化帳戶資源的左側窗格上選取 [連結的工作區]  ，然後按一下功能區上的 [取消與工作區的連結]  來將自動化帳戶取消連結。
  > 完成搬移之後，您必須在工作區中重新安裝已移除的解決方案，並重新聲明針對工作區的自動化連結。
 
 請確定您具有這兩個 Azure 訂用帳戶的權限。

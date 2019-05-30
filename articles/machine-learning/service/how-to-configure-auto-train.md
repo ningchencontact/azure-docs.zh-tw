@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3fcc1926d580007750e7e1f5a3de06ef6578e1b5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: c0f8a56df5b41236256115ced0d46a87c5ee91a5
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957465"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400239"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>在 Python 中設定自動化的 ML 實驗
 
@@ -59,6 +59,14 @@ ms.locfileid: "65957465"
 [貝氏機率分類](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
 [隨機梯度下降 (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
+使用`task`中的參數`AutoMLConfig`建構函式來指定您實驗的類型。
+
+```python
+from azureml.train.automl import AutoMLConfig
+
+# task can be one of classification, regression, forecasting
+automl_config = AutoMLConfig(task="classification")
+```
 
 ## <a name="data-source-and-format"></a>資料來源和格式
 自動化機器學習支援位於本機桌面或雲端中 (例如 Azure Blob 儲存體) 所包含的資料。 資料可讀取到支援 scikit-learn 的資料格式中。 您可以將資料讀取到：
@@ -117,11 +125,11 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 `get_data` 指令碼可傳回：
 
-Key | Type | 互斥項目    | 說明
+Key | 類型 | 互斥項目    | 描述
 ---|---|---|---
 X | Pandas 資料框架或 Numpy 陣列 | data_train、標籤、資料行 |  所有要用於訓練的特徵
 y | Pandas 資料框架或 Numpy 陣列 |   標籤   | 要用於訓練的標籤資料。 就分類而言，應為整數的陣列。
-X_valid | Pandas 資料框架或 Numpy 陣列   | data_train、標籤 | _選擇性_ 所有要用於驗證的特徵。 如果未指定，則 X 會分割至訓練和驗證之間
+X_valid | Pandas 資料框架或 Numpy 陣列   | data_train、標籤 | _選擇性_功能 form 驗證集的資料。 如果未指定，則 X 會分割至訓練和驗證之間
 y_valid |   Pandas 資料框架或 Numpy 陣列 | data_train、標籤 | _選擇性_ 要用於驗證的標籤資料。 如果未指定，則 y 會分割至訓練和驗證之間
 sample_weight | Pandas 資料框架或 Numpy 陣列 |   data_train、標籤、資料行| _選擇性_ 每個範例的加權值。 如果您想要為資料點指派不同的加權，則應使用
 sample_weight_valid | Pandas 資料框架或 Numpy 陣列 | data_train、標籤、資料行 |    _選擇性_ 每個驗證範例的加權值。 如果未指定，則 sample_weight 會分割至訓練和驗證之間
@@ -129,30 +137,6 @@ data_train |    Pandas 資料框架 |  X、y、X_valid、y_valid |    所有要�
 標籤 | string  | X、y、X_valid、y_valid |  data_train 中的哪個資料行代表標籤
 columns | 字串的陣列  ||  _選擇性_ 要用於特徵的資料行白名單
 cv_splits_indices   | 一連串整數 ||  _選擇性_ 用來分割交叉驗證資料的索引清單
-
-### <a name="load-and-prepare-data-using-data-prep-sdk"></a>載入並準備資料使用資料準備 SDK
-自動化的機器學習服務實驗支援載入資料，並將轉換使用資料準備 SDK。 使用 SDK 能夠
-
->* 使用剖析參數推斷 (編碼、分隔符號、標頭)，從許多檔案類型載入
->* 在檔案載入期間使用推斷進行類型轉換
->* MS SQL Server 和 Azure Data Lake Storage 的連線支援
->* 加入使用運算式的資料行
->* 插補遺漏值
->* 依範例衍生資料行
->* 正在篩選
->* 自訂 Python 轉換
-
-若要深入了解 data prep sdk，請參閱[如何準備資料以進行模型化文件](how-to-load-data.md)。
-以下是使用 data prep sdk 載入資料的 sdk 範例。
-```python
-# The data referenced here was pulled from `sklearn.datasets.load_digits()`.
-simple_example_data_root = 'https://dprepdata.blob.core.windows.net/automl-notebook-data/'
-X = dprep.auto_read_file(simple_example_data_root + 'X.csv').skip(1)  # Remove the header row.
-# You can use `auto_read_file` which intelligently figures out delimiters and datatypes of a file.
-
-# Here we read a comma delimited file and convert all columns to integers.
-y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelector(term='.*', use_regex = True))
-```
 
 ## <a name="train-and-validation-data"></a>訓練和驗證資料
 
@@ -501,6 +485,8 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 ![特徵重要性圖形](./media/how-to-configure-auto-train/feature-importance.png)
+
+如需有關如何自動化的機器學習服務外部的 SDK 的其他區域中啟用模型說明和特徵重要性的詳細資訊，請參閱[概念](machine-learning-interpretability-explainability.md)interpretability 文章。
 
 ## <a name="next-steps"></a>後續步驟
 

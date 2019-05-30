@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5524576ef21830ae13526dad2d8ac8a1d0864cf1
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 907cb598d708bfa26f53d2e43fef5456258c21b1
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956883"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393037"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML 單一登入內部部署應用程式使用應用程式 Proxy （預覽）
 
@@ -50,14 +50,14 @@ ms.locfileid: "65956883"
 1. 選取  **SAML**做為單一登入方法。
 1. 在**設定單一登入使用 SAML 設定**頁面上，編輯**基本 SAML 組態**資料，並遵循[Enter 基本 SAML 組態](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on)若要設定 SAML 型應用程式的驗證。
 
-   * 請確定**回覆 URL**比對，或者是在路徑**外部 URL**您透過應用程式 Proxy 發佈的內部部署應用程式。 
-   * 如果您的應用程式需要不同**回覆 URL** SAML 設定時，將此做**其他**記號旁邊的核取方塊與清單中的 URL，將它指定為主要**回覆 URL**傳送至 IDP 起始的 SAML 回應。
-   * SP 啟始的 flow 確定應用程式也會指定正確**回覆 URL**或判斷提示取用者服務 URL，用來接收驗證權杖。
+   * 請確定**回覆 URL**比對**外部 URL**在內部部署應用程式，您透過應用程式 Proxy 發佈，或者是在路徑**外部 URL**。
+   * 您的應用程式需要不同的 IDP 起始流程**回覆 URL** SAML 設定時，將此做為**其他**記號旁邊的核取方塊與清單中，將其做為指定的 URL主要**回覆 URL**。
+   * 確保 SP 起始流程的 確認指定正確的後端應用程式**回覆 URL**或判斷提示取用者服務 URL，用來接收驗證權杖。
 
      ![輸入基本的 SAML 組態資料](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
     > [!NOTE]
-    > 如果後端應用程式預期**回覆 URL**是內部的 URL，您必須在使用者的裝置上安裝 My Apps 安全登入延伸模組。 此延伸模組會自動重新導向至適當的應用程式 Proxy 服務。 若要安裝擴充功能，請參閱[My Apps 安全登入延伸模組](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension)。
+    > 如果後端應用程式預期**回覆 URL**是內部的 URL，您必須使用[自訂網域](application-proxy-configure-custom-domain.md)具有對應的內部和外部 URL，或安裝 My Apps 安全登入延伸模組在使用者的裝置。 此延伸模組會自動重新導向至適當的應用程式 Proxy 服務。 若要安裝擴充功能，請參閱[My Apps 安全登入延伸模組](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension)。
 
 ## <a name="test-your-app"></a>測試應用程式
 

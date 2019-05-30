@@ -5,27 +5,27 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/3/2019
+ms.date: 5/30/2019
 ms.author: victorh
-ms.openlocfilehash: 84b42654ec472ea2c7c81bed545f56b647158c95
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 75b1131f2853cb444481b9c7a6c96e28f8537538
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016009"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384681"
 ---
 # <a name="azure-firewall-faq"></a>Azure 防火牆常見問題集
 
 ## <a name="what-is-azure-firewall"></a>何謂 Azure 防火牆？
 
-Azure 防火牆是受控、雲端式網路安全性服務，可以保護您的 Azure 虛擬網路資源。 它是完全具狀態防火牆即服務，具有內建的高可用性和不受限制的雲端延展性。 您可以橫跨訂用帳戶和虛擬網路集中建立、強制執行以及記錄應用程式和網路連線原則。
+Azure 防火牆是受控、雲端式網路安全性服務，可以保護您的 Azure 虛擬網路資源。 它是完全具狀態的防火牆即服務，具有內建的高可用性和不受限制的雲端延展性。 您可以橫跨訂用帳戶和虛擬網路集中建立、強制執行以及記錄應用程式和網路連線原則。
 
 ## <a name="what-capabilities-are-supported-in-azure-firewall"></a>Azure 防火牆中支援哪些功能？
 
 * 具狀態防火牆即服務
 * 內建高可用性且不受限制的雲端延展性
 * FQDN 篩選
-* FQDN 標籤
+* FQDN 標記
 * 網路流量篩選規則
 * 輸出 SNAT 支援
 * 輸入 DNAT 支援
@@ -34,7 +34,7 @@ Azure 防火牆是受控、雲端式網路安全性服務，可以保護您的 A
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Azure 防火牆的一般部署模型是什麼？
 
-您可以將「Azure 防火牆」部署在任何虛擬網路上，但客戶通常會將其部署在中央虛擬網路上，然後以中樞和支點模型方式，將其他虛擬網路與其對等互連。 接著，您便可以從對等互連的虛擬網路設定預設路由，使其指向此中央防火牆虛擬網路。 全域 VNet 對等互連支援，但建議您不要因為潛在的效能和延遲問題跨區域。 為了達到最佳效能，部署每個區域一個防火牆。
+您可以將「Azure 防火牆」部署在任何虛擬網路上，但客戶通常會將其部署在中央虛擬網路上，然後以中樞和支點模型方式，將其他虛擬網路與其對等互連。 接著，您便可以從對等互連的虛擬網路設定預設路由，使其指向此中央防火牆虛擬網路。 全域 VNet 對等互連支援，但不建議因為潛在的效能和延遲問題而跨區域。 為了達到最佳效能，部署每個區域一個防火牆。
 
 此模型的優點是能夠集中控制不同訂用帳戶上的多個分支 VNET。 這也可讓您節省成本，因為您不需要在每個 VNet 中分別部署防火牆。 若要衡量節省的成本，應根據客戶流量模式，與相關的對等成本做比較。
 
@@ -62,7 +62,7 @@ Azure 防火牆支援輸入和輸出篩選。 輸入保留適用於非 HTTP/S �
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Azure 防火牆的運作方式與市集中現有的服務 (例如 NVA) 有何不同？
 
-Azure 防火牆是一種基本防火牆服務，可以處理特定的客戶案例。 預期的情況是您將會混合使用協力廠商 NVA 與「Azure 防火牆」。 使用上，首重相輔相成。
+Azure 防火牆是一種基本防火牆服務，可以處理特定的客戶案例。 預期的是，您必須混合使用協力廠商 Nva 和 Azure 防火牆。 使用上，首重相輔相成。
 
 ## <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>應用程式閘道 WAF 與 Azure 防火牆有什麼不同？
 
@@ -71,6 +71,11 @@ Web 應用程式防火牆 (WAF) 是應用程式閘道的一個功能，可提供
 ## <a name="what-is-the-difference-between-network-security-groups-nsgs-and-azure-firewall"></a>網路安全性群組 (NSG) 和 Azure 防火牆有什麼不同？
 
 「Azure 防火牆」服務可補足網路安全性群組功能。 兩者結合時，可提供更好的「深度防禦」網路安全性。 網路安全性群組提供分散式網路層流量篩選，可限制每個訂用帳戶中虛擬網路內資源的流量。 「Azure 防火牆」是完全具狀態的集中式網路防火牆即服務，可跨不同的訂用帳戶和虛擬網路，提供網路層級和應用程式層級的保護。
+
+## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>為支援 Azure 防火牆子網路上的網路安全性群組 (Nsg)？
+
+Azure 防火牆是受管理的服務具有多個保護層，包括具有 NIC 層級的 Nsg （不可見） 的平台保護。  子網路層級的 Nsg 不需要 Azure 防火牆子網路上，以確保無服務中斷情況已停用。
+
 
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>如何使用我的服務端點設定 Azure 防火牆？
 
@@ -82,9 +87,9 @@ Web 應用程式防火牆 (WAF) 是應用程式閘道的一個功能，可提供
 
 ## <a name="how-can-i-stop-and-start-azure-firewall"></a>如何停止和啟動 Azure 防火牆？
 
-您可以使用 Azure PowerShell 的「解除配置」和「配置」方法。
+您可以使用 Azure PowerShell 的「解除配置」  和「配置」  方法。
 
-例如：
+例如: 
 
 ```azurepowershell
 # Stop an existing firewall
@@ -121,11 +126,11 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>強制通道/鏈結至支援網路虛擬設備嗎？
 
-根據預設，不支援強制通道，但可透過支援的協助。
+強制通道不支援根據預設，但可透過支援的協助。
 
-「Azure 防火牆」必須能夠直接連線到網際網路。 如果您的 AzureFirewallSubnet 學習到透過 BGP 連至您內部部署網路的預設路由，您必須將其覆寫為 0.0.0.0/0 UDR，且 **NextHopType** 值必須設為 [網際網路]，以保有直接網際網路連線。 根據預設，Azure 防火牆不支援對內部部署網路的強制通道。
+「Azure 防火牆」必須能夠直接連線到網際網路。 如果您的 AzureFirewallSubnet 學習到透過 BGP 連至您內部部署網路的預設路由，您必須將其覆寫為 0.0.0.0/0 UDR，且 **NextHopType** 值必須設為 [網際網路]  ，以保有直接網際網路連線。 根據預設，Azure 防火牆不支援對內部部署網路的強制通道。
 
-不過，如果您的設定需要對內部部署網路的強制通道，Microsoft 將以個別案例為原則提供支援。 連絡支援人員，以便我們檢閱您的案例。 受理後，我們會將您的訂用帳戶列入白名單，並確實維持必要的防火牆網際網路連線。
+不過，如果您的設定需要對內部部署網路的強制通道，Microsoft 將以個別案例為原則提供支援。 連絡支援人員，以便我們檢閱您的案例。 如果接受，我們將允許您的訂用帳戶，並確保能維持必要的防火牆的網際網路連線能力。
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>是否有任何防火牆資源群組的限制？
 
@@ -137,7 +142,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>如何使用萬用字元應用程式規則的目標 FQDN 中運作？
 
-如果您設定 ***。 contoso.com**，它可讓*anyvalue*。 contoso.com，但不是 contoso.com （網域頂點）。 如果您想要允許網域頂點，您必須明確地設定它做為目標的 FQDN。
+如果您設定 * **。 contoso.com**，它可讓*anyvalue*。 contoso.com，但不是 contoso.com （網域頂點）。 如果您想要允許網域頂點，您必須明確地設定它做為目標的 FQDN。
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>什麼*佈建狀態：失敗*表示嗎？
 

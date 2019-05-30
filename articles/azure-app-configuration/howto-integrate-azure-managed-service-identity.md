@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: ff098ebd23d2ce5a8c9c39f154375be1dae6a262
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3977991386dbcd07e92f21d1ac541f486b4f7f0a
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408879"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393656"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>與 Azure 受控識別整合
 
@@ -49,25 +49,25 @@ Azure Active Directory [受控識別](https://docs.microsoft.com/azure/active-di
 
 若要在入口網站中設定受控身分識別，您需先像平常一樣建立應用程式，然後再啟用此功能。
 
-1. 像平常一樣在 [Azure入口網站](https://aka.ms/azconfig/portal)中建立應用程式。 在入口網站中移至該應用程式。
+1. 像平常一樣在 [Azure入口網站](https://portal.azure.com)中建立應用程式。 在入口網站中移至該應用程式。
 
-2. 在左側窗格中，向下捲動到 [設定] 群組，然後選取 [身分識別]。
+2. 在左側窗格中，向下捲動到 [設定]  群組，然後選取 [身分識別]  。
 
-3. 在 [系統指派] 索引標籤上，將 [狀態] 切換成 [開啟]，然後選取 [儲存]。
+3. 在 [系統指派]  索引標籤上，將 [狀態]  切換成 [開啟]  ，然後選取 [儲存]  。
 
     ![在 App Service 中設定受控識別](./media/set-managed-identity-app-service.png)
 
 ## <a name="grant-access-to-app-configuration"></a>授與應用程式設定的存取權
 
-1. 在 [Azure 入口網站](https://aka.ms/azconfig/portal)中，選取 [所有資源]，然後選取您在快速入門中建立的應用程式組態存放區。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有資源]  ，然後選取您在快速入門中建立的應用程式組態存放區。
 
-2. 選取 [存取控制 (IAM)]。
+2. 選取 [存取控制 (IAM)]  。
 
-3. 在 [檢查存取權] 索引標籤上，選取 [新增角色指派] 卡片 UI 中的 [新增]。
+3. 在 [檢查存取權]  索引標籤上，選取 [新增角色指派]  卡片 UI 中的 [新增]  。
 
-4. 在 [角色] 底下，選取 [參與者]。 在 [存取權指派對象為] 底下，選取 [系統指派的受控識別] 底下的 [App Service]。
+4. 在 [角色]  底下，選取 [參與者]  。 在 [存取權指派對象為]  底下，選取 [系統指派的受控識別]  底下的 [App Service]  。
 
-5. 在 [訂用帳戶] 底下，選取您的 Azure 訂用帳戶。 選取您應用程式的 App Service 資源。
+5. 在 [訂用帳戶]  底下，選取您的 Azure 訂用帳戶。 選取您應用程式的 App Service 資源。
 
 6. 選取 [ **儲存**]。
 
@@ -143,7 +143,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 
 ### <a name="deploy-your-project"></a>部署專案
 
-回到「本機終端視窗」，將 Azure 遠端新增至本機 Git 存放庫。 使用從[為應用程式啟用 Git](#enable-local-git-with-kudu) 中取得的 Git 遠端 URL 來取代 _\<url>_。
+回到「本機終端視窗」  ，將 Azure 遠端新增至本機 Git 存放庫。 使用從[為應用程式啟用 Git](#enable-local-git-with-kudu) 中取得的 Git 遠端 URL 來取代 _\<url>_ 。
 
 ```bash
 git remote add azure <url>

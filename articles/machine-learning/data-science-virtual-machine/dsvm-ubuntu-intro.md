@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: d693af5ddd0b94734dfa065bef8a1f3a5de09ccc
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5a9fdebc8db0c2a1acc20a894f80cfcc87fb89d5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597134"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236483"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器
 
@@ -86,16 +86,16 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
 建立 Linux 適用的資料科學虛擬機器執行個體的步驟如下：
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu)上的虛擬機器清單。 如果您尚未登入 Azure 帳戶，系統可能會提示您登入。 
-1. 按一下底部的 [建立] 以進入 wizard.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+1. 按一下底部的 [建立]  以進入 wizard.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
 1. 下列各節提供精靈中每個步驟 (列舉於上圖的右邊) 的輸入，可用來建立 Microsoft 資料科學虛擬機器。 以下是設定每個步驟所需的輸入：
 
    a. **基本**：
 
    * **名稱**：您建立的資料科學伺服器名稱。
-   * **VM 磁碟類型**：如果您偏好固態硬碟 (SSD)，請選擇 [進階 SSD]。 否則請選擇 [標準 HDD]。 
+   * **VM 磁碟類型**：如果您偏好固態硬碟 (SSD)，請選擇 [進階 SSD]  。 否則請選擇 [標準 HDD]  。 
    * **使用者名稱**：第一個帳戶登入識別碼。
    * **密碼**：第一個帳戶密碼 (您可以使用 SSH 公開金鑰來代替密碼)。
-   * 訂用帳戶：如果您有多個訂用帳戶，請選取要用來建立機器和開立帳單的訂用帳戶。 您必須有此訂用帳戶的資源建立權限。
+   * 訂用帳戶  ：如果您有多個訂用帳戶，請選取要用來建立機器和開立帳單的訂用帳戶。 您必須有此訂用帳戶的資源建立權限。
    * **資源群組**：您可以建立新群組或使用現有的群組。
    * **位置**：選取最適合的資料中心。 它通常是擁有您大部分資料的資訊中心，或是最接近您實際位置可進行最快速網路存取的資料中心。
 
@@ -109,7 +109,7 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
 
    d. **摘要**：
 
-   * 請確認您輸入的所有資訊都正確無誤。 系統會提供使用規定的連結。 VM 除了計算您在 [大小]  步驟中所選擇的伺服器大小之外，不會收取任何其他費用。 若要開始佈建，請按一下 [建立]。 
+   * 請確認您輸入的所有資訊都正確無誤。 系統會提供使用規定的連結。 VM 除了計算您在 [大小]  步驟中所選擇的伺服器大小之外，不會收取任何其他費用。 若要開始佈建，請按一下 [建立]  。 
 
 佈建大約需要 5 分鐘。 在 Azure 入口網站中會顯示佈建的狀態。
 
@@ -121,7 +121,7 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
 1. X2Go (如果是圖形化工作階段)
 1. JupyterHub 和 JupyterLab (如果是 Jupyter 筆記本)
 
-您也可以附加至要在 VM 上執行的 Jupyter notebook，並略過的 「 免費 」 服務層限制的 Azure Notebooks 的資料科學 VM。 如需詳細資訊，請參閱 <<c0> [ 管理和設定 Notebook 專案-計算層](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)。
+您也可以附加至要在 VM 上執行的 Jupyter notebook，並略過的 「 免費 」 服務層限制的 Azure Notebooks 的資料科學 VM。 如需詳細資訊，請參閱 <<c0> [ 管理和設定 Notebook 專案-計算層](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)。
 
 ### <a name="ssh"></a>SSH
 
@@ -135,7 +135,7 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
 Linux VM 已經佈建了 X2Go 伺服器，並準備接受用戶端連接。 若要連線到 Linux VM 圖形化桌面，請在用戶端上完成下列程序：
 
 1. 從 [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient)下載並安裝您用戶端平台適用的 X2Go 用戶端。
-1. 執行 X2Go 用戶端，然後選取 [新增工作階段] 。 會開啟具有多個索引標籤的組態視窗。 輸入下列組態參數︰
+1. 執行 X2Go 用戶端，然後選取 [新增工作階段]  。 會開啟具有多個索引標籤的組態視窗。 輸入下列組態參數︰
    * **[工作階段] 索引標籤**：
      * **主機**：「Linux 資料科學 VM」的主機名稱或 IP 位址。
      * **登入**：Linux VM 上的使用者名稱。
@@ -277,16 +277,16 @@ Jupyter 筆記本伺服器已使用 Python 2、Python 3 及 R 核心進行預先
 > [!NOTE]
 > 如果您收到任何憑證警告，請繼續。
 
-您可以從任何主機存取 Jupyter Notebook 伺服器。 只要輸入 https://\<VM DNS 名稱或 IP 位址\>:8000/
+您可以從任何主機存取 Jupyter Notebook 伺服器。 只要輸入 https://\<VM DNS 名稱或 IP 位址\>:8000/ 
 
 > [!NOTE]
 > 在佈建 VM 時，防火牆預設會開啟連接埠 8000。 
 
-我們已封裝範例 Notebook - 一個用於 Python，另一個用於 R。 選取 [新增] 然後選取適當的語言核心，便可建立新的 Notebook。 如果您沒有看到 [新增] 按鈕，請按一下左上角的 **Jupyter** 圖示移至 Notebook 伺服器的首頁。
+我們已封裝範例 Notebook - 一個用於 Python，另一個用於 R。 選取 [新增]  然後選取適當的語言核心，便可建立新的 Notebook。 如果您沒有看到 [新增]  按鈕，請按一下左上角的 **Jupyter** 圖示移至 Notebook 伺服器的首頁。
 
 ### <a name="apache-spark-standalone"></a>獨立 Apache Spark
 
-Apache Spark 的獨立執行個體已預先安裝在 Linux DSVM，可協助您在大型叢集上測試及部署之前，先在本機上開發 Spark 應用程式。 您可以透過 Jupyter 核心執行 PySpark 程式。 當您開啟 Jupyter 時，請按一下 [新增] 按鈕，您應該會看到可用核心的清單。 "Spark - Python" 是 PySpark 核心，可讓您使用 Python 語言建置 Spark 應用程式。 您也可以使用像是 PyCharm 或 Spyder 的 Python IDE 來建置您的 Spark 程式。 在這個獨立執行個體，Spark 堆疊會執行內呼叫的用戶端程式可以更快速且更輕鬆地針對相較於在 Spark 叢集上開發的問題進行疑難排解。
+Apache Spark 的獨立執行個體已預先安裝在 Linux DSVM，可協助您在大型叢集上測試及部署之前，先在本機上開發 Spark 應用程式。 您可以透過 Jupyter 核心執行 PySpark 程式。 當您開啟 Jupyter 時，請按一下 [新增]  按鈕，您應該會看到可用核心的清單。 "Spark - Python" 是 PySpark 核心，可讓您使用 Python 語言建置 Spark 應用程式。 您也可以使用像是 PyCharm 或 Spyder 的 Python IDE 來建置您的 Spark 程式。 在這個獨立執行個體，Spark 堆疊會執行內呼叫的用戶端程式可以更快速且更輕鬆地針對相較於在 Spark 叢集上開發的問題進行疑難排解。
 
 範例 PySpark Notebook 在 Jupyter 上提供，您可以在 Jupyter 的主目錄 ($HOME/notebooks/SparkML/pySpark) 底下的 "SparkML" 目錄中找到。 
 
@@ -460,17 +460,17 @@ rattle()
 > [!NOTE]
 > 如果您沒有存取系統目錄 (預設) 中封裝的存取權，可能會在 R 主控台視窗上看到提示，詢問是否將封裝安裝至您的個人程式庫。 如果您看到這些提示，請回答 「是」  。
 
-1. 按一下 [Execute (執行)] 。
+1. 按一下 [Execute (執行)]  。
 1. 隨即會顯示對話方塊，詢問您是否要使用範例天氣資料集。 按一下 [是]  載入範例。
 1. 按一下 [模型]  索引標籤。
 1. 按一下 [執行]  建立決策樹。
 1. 按一下 [繪圖]  顯示決策樹。
-1. 按一下 [樹系] 選項按鈕，然後按一下 [執行] 建置隨機樹系。
+1. 按一下 [樹系]  選項按鈕，然後按一下 [執行]  建置隨機樹系。
 1. 按一下 [評估]  索引標籤。
-1. 按一下 [風險] 選項按鈕，然後按一下 [執行] 顯示兩個風險 (累積) 效能繪圖。
-1. 按一下 [記錄檔] 索引標籤，顯示針對先前作業產生的 R 程式碼。
+1. 按一下 [風險]  選項按鈕，然後按一下 [執行]  顯示兩個風險 (累積) 效能繪圖。
+1. 按一下 [記錄檔]  索引標籤，顯示針對先前作業產生的 R 程式碼。
    (由於目 Rattle 版本中的錯誤，您必須在記錄檔的文字中，於 *Export this log ...* 前面插入 *#* 字元。)
-1. 按一下 [匯出] 按鈕，將名為 weather_script.R 的 R 指令碼檔案儲存到主資料夾。
+1. 按一下 [匯出]  按鈕，將名為 weather_script.R  的 R 指令碼檔案儲存到主資料夾。
 
 您可以結束 Rattle 和 R。現在您可以修改產生的 R 指令碼，或照原樣使用它，隨時執行，以便重複執行在 Rattle UI 中完成的所有動作。 這是特別適合 R 初學者的簡單方式，讓他們得以在簡單的圖形介面中快速進行分析和機器學習，同時自動產生 R 程式碼來修改及/或學習。
 

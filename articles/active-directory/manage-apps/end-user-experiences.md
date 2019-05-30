@@ -12,19 +12,19 @@ ms.date: 05/03/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41dde1579fc98db37ab7d92ce362d0a4ce9a82cf
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 23e5fc24e426c87bbc5062183f2ee2db0e546484
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824564"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388206"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Azure Active Directory 中的應用程式使用者體驗
 Azure Active Directory (Azure AD) 提供幾種可自訂的方式，來對您組織中的使用者部署應用程式：
 
 * Azure AD 存取面板
 * Office 365 應用程式啟動程式
-* 直接登录联合应用
+* 直接登入同盟應用程式
 * 同盟、密碼或現有應用程式的深層連結
 
 您選擇要在組織中部署哪一種方法由您自行決定。
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD) 提供幾種可自訂的方式，來對您組�
 ## <a name="direct-sign-on-to-federated-apps"></a>直接登入同盟應用程式
 大部分支援 SAML 2.0、WS-同盟或 OpenID Connect 的同盟應用程式也支援使用者在應用程式啟動，然後再透過 Azure AD 的自動重新導向或按一下連結登入。 這稱為服務提供者起始的登入，Azure AD 應用程式資源庫中大部分的同盟應用程式都支援這個方式 (請參閱 Azure 入口網站中應用程式的單一登入設定精靈連結的文件來了解詳細資訊)。
 
-![](./media/end-user-experiences/workdaymobile.png)
+![行動裝置應用程式登入頁面的範例](./media/end-user-experiences/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>直接登入連結
 Azure AD 也支援對支援密碼單一登入、已連結的單一登入，以及任何形式的同盟單一登入的個別應用程式使用直接單一登入連結。

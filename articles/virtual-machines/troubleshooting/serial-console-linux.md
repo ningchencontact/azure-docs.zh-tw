@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: fe08569937dc29ecbc66da1cb2c431cca11a8580
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 52c79a0b883ff4c9ac77d7523764384b88c06a08
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835113"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389028"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azure 適用於 Linux 的序列主控台
 
@@ -39,7 +39,7 @@ ms.locfileid: "65835113"
 
 - 您會使用序列主控台的帳戶必須具備[虛擬機器參與者 」 角色](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)vm 並[開機診斷](boot-diagnostics.md)儲存體帳戶
 
-- 您的 VM 或虛擬機器擴展集執行個體必須具有以密碼為基礎的使用者。 您可以使用 VM 存取擴充的[重設密碼](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password)功能來建立一個帳戶。 然後，選取 [支援與疑難排解] 區段中的 [重設密碼]。
+- 您的 VM 或虛擬機器擴展集執行個體必須具有以密碼為基礎的使用者。 您可以使用 VM 存取擴充的[重設密碼](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password)功能來建立一個帳戶。 然後，選取 [支援與疑難排解]  區段中的 [重設密碼]  。
 
 - 您的 VM 或虛擬機器擴展集執行個體必須具有[開機診斷](boot-diagnostics.md)啟用。
 
@@ -58,7 +58,7 @@ ms.locfileid: "65835113"
 
   1. 瀏覽至**的所有資源**選取虛擬機器。 將會開啟該 VM 的概觀頁面。
 
-  1. 向下捲動至 [支援與疑難排解] 區段，然後選取 [序列主控台]。 這會開啟含有序列主控台的新窗格，並開始連線。
+  1. 向下捲動至 [支援與疑難排解]  區段，然後選取 [序列主控台]  。 這會開啟含有序列主控台的新窗格，並開始連線。
 
      ![Linux 的序列主控台視窗](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
@@ -78,11 +78,11 @@ ms.locfileid: "65835113"
 
 
 > [!NOTE]
-> 序列主控台需要一個已設定密碼的本機使用者。 Vm 或只使用 SSH 公用金鑰設定的虛擬機器擴展集將無法登入序列主控台。 若要建立具有密碼的本機使用者，請使用 [VM 存取擴充功能](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (可透過在入口網站中選取 [重設密碼] 來使用此功能)，然後建立具有密碼的本機使用者。
+> 序列主控台需要一個已設定密碼的本機使用者。 Vm 或只使用 SSH 公用金鑰設定的虛擬機器擴展集將無法登入序列主控台。 若要建立具有密碼的本機使用者，請使用 [VM 存取擴充功能](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (可透過在入口網站中選取 [重設密碼]  來使用此功能)，然後建立具有密碼的本機使用者。
 > 您也可以[使用 GRUB 來開機進入單一使用者模式](./serial-console-grub-single-user-mode.md)，以重設帳戶中的系統管理員密碼。
 
 ## <a name="serial-console-linux-distribution-availability"></a>序列主控台 Linux 發佈可用性
-若要讓序列主控台正確運作，必須設定讓客體作業系統將主控台訊息讀取並寫入至序列連接埠。 大多數[已背書的 Azure Linux 發行版本](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)都已預設設定序列主控台。 在 Azure 入口網站的 [支援與疑難排解] 區段中選取 [序列主控台]，可以存取序列主控台。
+若要讓序列主控台正確運作，必須設定讓客體作業系統將主控台訊息讀取並寫入至序列連接埠。 大多數[已背書的 Azure Linux 發行版本](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)都已預設設定序列主控台。 在 Azure 入口網站的 [支援與疑難排解]  區段中選取 [序列主控台]  ，可以存取序列主控台。
 
 配送映像      | 序列主控台存取
 :-----------|:---------------------
@@ -117,7 +117,9 @@ SSH 組態問題 | 存取序列主控台，然後變更設定。 序列主控台
 > 若要啟用或停用訂用帳戶的序列主控台，您必須有該訂用帳戶的寫入權限。 這些權限包括系統管理員或擁有者角色。 自訂角色也可以有寫入權限。
 
 ### <a name="subscription-level-disable"></a>訂用帳戶層級的停用
-透過[停用主控台 REST API 呼叫](/rest/api/serialconsole/console/disableconsole)，即可針對整個訂用帳戶停用序列主控台。 您可以使用 [API 文件] 頁面上提供的 [試用] 功能，針對訂用帳戶停用和啟用序列主控台。 針對 **subscriptionId** 輸入您的訂用帳戶識別碼，針對 **default** 輸入 **default**，然後選取 [執行]。 Azure CLI 命令尚未提供使用。
+透過[停用主控台 REST API 呼叫](/rest/api/serialconsole/console/disableconsole)，即可針對整個訂用帳戶停用序列主控台。 這個動作需要層級的參與者存取或更新版本的訂用帳戶。 您可以使用 [API 文件] 頁面上提供的 [試用]  功能，針對訂用帳戶停用和啟用序列主控台。 針對 **subscriptionId** 輸入您的訂用帳戶識別碼，針對 **default** 輸入 **default**，然後選取 [執行]  。 Azure CLI 命令尚未提供使用。
+
+若要重新啟用訂用帳戶的序列主控台，使用[啟用主控台 REST API 呼叫](/rest/api/serialconsole/console/enableconsole)。
 
 ![REST API 試用](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
@@ -198,6 +200,7 @@ Web 通訊端已關閉或無法開啟。 | 您可能需要將 `*.console.azure.c
 序列主控台文字只會佔用部分的螢幕大小 (通常在使用文字編輯器之後)。 | 序列主控台不支援對視窗大小進行交涉 ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt))，這表示系統將不會傳送 SIGWINCH 訊號以更新螢幕大小，而且 VM 將無法得知您終端機的大小。 安裝 xterm 或類似的公用程式，以向您提供 `resize` 命令，然後再執行 `resize`。
 貼上長字串沒有作用。 | 序列主控台會將貼上至終端機的字串長度限制為 2048 個字元，以防止多載序列連接埠頻寬。
 序列主控台無法與儲存體帳戶防火牆搭配使用。 | 根據設計，序列主控台無法與開機診斷儲存體帳戶上啟用的儲存體帳戶防火牆搭配使用。
+序列主控台不適用於階層式命名空間搭配使用 Azure Data Lake 儲存體 Gen2 儲存體帳戶。 | 這是階層式命名空間的已知的問題。 若要減輕，確保您的 VM 開機診斷儲存體帳戶無法建立使用 Azure Data Lake 儲存體 Gen2。 只可以在儲存體帳戶建立時設定這個選項。 您可能不必建立個別的開機診斷儲存體帳戶，而不需要 Azure Data Lake 儲存體 Gen2 啟用來解決這個問題。
 
 
 ## <a name="frequently-asked-questions"></a>常見問題集
@@ -235,7 +238,7 @@ A. 是 ！ 請參閱[虛擬機器擴展集的序列主控台](#serial-console-fo
 
 **問：如果我設定我的 VM 或虛擬機器擴展集使用 SSH 金鑰驗證時，我仍然可以使用序列主控台連接到我 VM/虛擬機器擴展集執行個體嗎？**
 
-A. 是。 因為序列主控台並不需要 SSH 金鑰，因此您只需要設定使用者名稱/密碼組合就可以。 您可以透過在 Azure 入口網站中選取 [重設密碼] 並使用這些認證登入序列主控台來執行此操作。
+A. 是。 因為序列主控台並不需要 SSH 金鑰，因此您只需要設定使用者名稱/密碼組合就可以。 您可以透過在 Azure 入口網站中選取 [重設密碼]  並使用這些認證登入序列主控台來執行此操作。
 
 ## <a name="next-steps"></a>後續步驟
 * 使用序列主控台來[存取 GRUB 與單一使用者模式](serial-console-grub-single-user-mode.md)。

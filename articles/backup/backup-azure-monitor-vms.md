@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: c5c3f498f62d6399534333f8166a514a10f044c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 350e13a4b1c01329bef1ec270af5ba007cd788aa
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464279"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399756"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>監視 Azure 虛擬機器備份的警示
 
@@ -25,20 +25,20 @@ ms.locfileid: "60464279"
 
 若要從 [備份警示] 圖格開啟 [備份警示] 刀鋒視窗︰
 
-* 在保存庫儀表板的 [備份警示] 圖格上，按一下 [嚴重] 或 [警告] 以檢視該嚴重性層級的作業事件。
+* 在保存庫儀表板的 [備份警示]  圖格上，按一下 [嚴重]  或 [警告]  以檢視該嚴重性層級的作業事件。
 
     ![備份警示圖格](./media/backup-azure-monitor-vms/backup-alerts-tile.png)
 
 從 [警示和事件] 區段開啟 [備份警示] 刀鋒視窗：
 
-1. 在保存庫儀表板中，按一下 [所有設定] 。 ![所有設定按鈕](./media/backup-azure-monitor-vms/all-settings-button.png)
-2. 在 [設定] 刀鋒視窗上，按一下 [警示和事件]。 ![警示和事件按鈕](./media/backup-azure-monitor-vms/alerts-and-events-button.png)
-3. 在 [警示與事件] 刀鋒視窗上，按一下 [備份警示]。 ![備份警示按鈕](./media/backup-azure-monitor-vms/backup-alerts.png)
+1. 在保存庫儀表板中，按一下 [所有設定]  。 ![所有設定按鈕](./media/backup-azure-monitor-vms/all-settings-button.png)
+2. 在 [設定]  刀鋒視窗上，按一下 [警示和事件]  。 ![警示和事件按鈕](./media/backup-azure-monitor-vms/alerts-and-events-button.png)
+3. 在 [警示與事件]  刀鋒視窗上，按一下 [備份警示]  。 ![備份警示按鈕](./media/backup-azure-monitor-vms/backup-alerts.png)
 
-    [備份警示] 區段會開啟並顯示篩選後的警示。
+    [備份警示]  區段會開啟並顯示篩選後的警示。
 
     ![備份警示圖格](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
-4. 若要檢視特定警示的詳細資訊，請從事件清單中按一下警示，以開啟它的 [詳細資料] 區段。
+4. 若要檢視特定警示的詳細資訊，請從事件清單中按一下警示，以開啟它的 [詳細資料]  區段。
 
     ![事件詳細資料](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
@@ -57,20 +57,20 @@ ms.locfileid: "60464279"
     [設定通知] 區段隨即開啟。
 
     ![設定通知刀鋒視窗](./media/backup-azure-monitor-vms/configure-notifications.png)
-2. 在 [設定通知] 區段上，針對電子郵件通知按一下 [開啟]。
+2. 在 [設定通知] 區段上，針對電子郵件通知按一下 [開啟]  。
 
     [收件者] 和 [嚴重性] 對話方塊旁邊有星號，因為該資訊是必要的。 提供至少一個電子郵件地址，然後選取至少一個嚴重性。
 3. 在 [收件者 (電子郵件)]  對話方塊中，輸入接收通知者的電子郵件地址。 使用格式︰username@domainname.com。 用分號分 (;) 分隔多個電子郵件位址。
-4. 在 [通知] 區域中，選擇 [每個警示] 以在指定的警示發生時傳送通知，或選擇 [每小時摘要] 以傳送過去一小時的摘要。
+4. 在 [通知]  區域中，選擇 [每個警示]  以在指定的警示發生時傳送通知，或選擇 [每小時摘要]  以傳送過去一小時的摘要。
 5. 在 [嚴重性]  對話方塊中，選擇您要觸發電子郵件通知的一或多個層級。
-6. 按一下 [檔案] 。
+6. 按一下 [檔案]  。
 
 ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>哪些警示類型可供 Azure IaaS VM 備份使用
 
    | 警示層級 | 傳送的警示 |
    | --- | --- |
    | 重要 | 適用於備份失敗、復原失敗 |
-   | 警告 | 適用於成功但有警告的備份作業 (例如：建立快照集時的一些寫入失敗) |
+   | 警告 | 目前，沒有任何警告警示可供 Azure VM 備份 (例如： 建立快照集時的一些寫入失敗) |
    | 資訊 | 目前沒有適用於 Azure VM 備份的資訊警示 |
 
 ### <a name="situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>即使已設定通知卻不寄送電子郵件的情況

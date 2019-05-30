@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68973d3a88791bcfffc8183f5e3a16975fe15742
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2e6a5ecd704aabb4994337cb7b7df9e84677348d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540462"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235287"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>作法：讓任何 Azure Active Directory (AD) 使用者以多租用戶應用程式的模式登入
 
@@ -45,7 +45,7 @@ ms.locfileid: "65540462"
 
 ## <a name="update-registration-to-be-multi-tenant"></a>將註冊更新成多租用戶
 
-Azure AD 中的 Web 應用程式/API 註冊預設是單一租用戶。 您只要在 [Azure 入口網站][AZURE-portal]應用程式註冊 [內容] 窗格上，找出 [多租用戶] 切換開關並將它設定為 [是]，即可將您的註冊設為多租用戶。
+Azure AD 中的 Web 應用程式/API 註冊預設是單一租用戶。 您可以將您的註冊多租用戶，找出**支援的帳戶類型**上切換**驗證**窗格中的應用程式註冊[的Azure入口網站][ AZURE-portal]並將它設定為**任何組織的目錄中的帳戶**。
 
 在 Azure AD 中，應用程式的「應用程式識別碼 URI」必須具全域唯一性，您才能將其設為多租用戶應用程式。 「應用程式識別碼 URI」是其中一種可在通訊協定訊息中識別應用程式的方式。 在單一租用戶應用程式中，只要該租用戶內有唯一的應用程式識別碼 URI 就已足夠。 就多租用戶應用程式而言，該 URI 則必須具全域唯一性，Azure AD 才能在所有租用戶中找到該應用程式。 系統會透過要求「應用程式識別碼 URI」必須具有與已驗證的 Azure AD 租用戶網域相符的主機名稱，來強制執行全域唯一性。
 
@@ -82,7 +82,7 @@ Web 應用程式和 web Api 接收，並驗證 Microsoft 身分識別平台的�
 
     https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
 
-以下載用來驗證權杖的兩項關鍵資訊︰租用戶的簽署金鑰和簽發者值。 每个 Azure AD 租户使用以下格式的唯一颁发者值：
+以下載用來驗證權杖的兩項關鍵資訊︰租用戶的簽署金鑰和簽發者值。 每個 Azure AD 租用戶都有具有採用下列格式的唯一簽發者值︰
 
     https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
 
@@ -104,7 +104,7 @@ Web 應用程式和 web Api 接收，並驗證 Microsoft 身分識別平台的�
 
 若要讓使用者登入 Azuer AD 中的應用程式，必須以使用者的租用戶代表該應用程式。 這可讓組織執行一些操作，例如在來自其租用戶的使用者登入應用程式時套用唯一原則。 就單一租用戶應用程式而言，這個註冊程序相當簡單；就是您在 [Azure 入口網站][AZURE-portal]中註冊應用程式時所進行的程序。
 
-就多租用戶應用程式而言，應用程式的初始註冊程序則是在開發人員所使用的 Azure AD 租用戶中進行。 當來自不同租用戶的使用者第一次登入應用程式時，Azure AD 會要求他們同意應用程式所要求的權限。 如果他們同意，系統就會在使用者的租用戶中建立一個稱為「服務主體」的應用程式代表，然後登入便可繼續進行。 系統也會在記錄使用者對應用程式之同意意向的目錄中建立委派。 如需應用程式的「應用程式物件」和「服務主體物件」的詳細資料，請參閱[應用程式物件和服務主體物件][AAD-App-SP-Objects]。
+就多租用戶應用程式而言，應用程式的初始註冊程序則是在開發人員所使用的 Azure AD 租用戶中進行。 當來自不同租用戶的使用者第一次登入應用程式時，Azure AD 會要求他們同意應用程式所要求的權限。 如果他們同意，系統就會在使用者的租用戶中建立一個稱為「服務主體」  的應用程式代表，然後登入便可繼續進行。 系統也會在記錄使用者對應用程式之同意意向的目錄中建立委派。 如需應用程式的「應用程式物件」和「服務主體物件」的詳細資料，請參閱[應用程式物件和服務主體物件][AAD-App-SP-Objects]。
 
 ![同意單層式應用程式][Consent-Single-Tier]
 
@@ -123,7 +123,7 @@ Web 應用程式和 web Api 接收，並驗證 Microsoft 身分識別平台的�
 
 如果您的應用程式使用需要系統管理員同意的權限，您就必須要有相關的表示，例如可供系統管理員起始動作的按鈕或連結。 您的應用程式針對此動作傳送的要求是一個一般的 OAuth2/OpenID Connect 授權要求，其中也包含 `prompt=admin_consent` 查詢字串參數。 在系統管理員同意且系統已在客戶的租用戶中建立服務主體之後，後續的登入要求就不再需要 `prompt=admin_consent` 參數。 由於系統管理員已決定可接受要求的權限，因此從該時間點之後，就不會再提示租用戶中的任何其他使用者行使同意權。
 
-租用戶系統管理員可以停用一般使用者對應用程式行使同意權的能力。 如果停用這項功能，就一律需要系統管理員同意，才能在租用戶中使用應用程式。 如果您想要測試您的應用程式停用使用者同意，您可以找到設定參數，在[Azure 入口網站][ AZURE-portal]中**[使用者設定](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** 區段底下**企業應用程式**。
+租用戶系統管理員可以停用一般使用者對應用程式行使同意權的能力。 如果停用這項功能，就一律需要系統管理員同意，才能在租用戶中使用應用程式。 如果您想要測試您的應用程式停用使用者同意，您可以找到設定參數，在[Azure 入口網站][ AZURE-portal]中 **[使用者設定](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** 區段底下**企業應用程式**。
 
 如果應用程式要求的權限不需要系統管理員同意，則應用程式也可以使用 `prompt=admin_consent` 參數。 這項作業的使用時機範例如下：如果應用程式需要租用戶系統管理員「註冊」一次，之後就不會再提示其他使用者表示同意的情況。
 
@@ -138,7 +138,7 @@ Web 應用程式和 web Api 接收，並驗證 Microsoft 身分識別平台的�
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>單一租用戶中的多層
 
-如果您的邏輯應用程式包含兩個或更多個應用程式註冊 (例如個別的用戶端和資源)，這可能會造成問題。 如何先將資源新增到客戶租用戶中？ Azure AD 涵蓋此情況，支援在單一步驟中同意用戶端和資源。 使用者在同意頁面上會看到用戶端和資源所要求的權限總和。 若要啟用這項行為，在資源的[應用程式資訊清單][AAD-App-Manifest]中，資源的應用程式註冊就必須以 `knownClientApplications` 的形式包含用戶端的「應用程式識別碼」。 例如：
+如果您的邏輯應用程式包含兩個或更多個應用程式註冊 (例如個別的用戶端和資源)，這可能會造成問題。 如何先將資源新增到客戶租用戶中？ Azure AD 涵蓋此情況，支援在單一步驟中同意用戶端和資源。 使用者在同意頁面上會看到用戶端和資源所要求的權限總和。 若要啟用這項行為，在資源的[應用程式資訊清單][AAD-App-Manifest]中，資源的應用程式註冊就必須以 `knownClientApplications` 的形式包含用戶端的「應用程式識別碼」。 例如: 
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
@@ -172,7 +172,7 @@ Web 應用程式和 web Api 接收，並驗證 Microsoft 身分識別平台的�
 
 ## <a name="multi-tenant-applications-and-caching-access-tokens"></a>多租用戶應用程式和快取存取權杖
 
-多租用戶應用程式也可以取得存取權杖來呼叫受 Azure AD 保護的 API。 大多數人在使用多租用戶應用程式和 Active Directory Authentication Library (ADAL) 時容易犯的一個錯誤是：一開始即使用 /common 為使用者要求權杖、接收回應，然後也使用 /common 來為該相同使用者要求後續的權杖。 由於從 Azure AD 傳回的回應是來自租用戶而非 /common，因此 ADAL 在快取權杖時會將它視為來自租用戶。 後續為了為使用者取得存取權杖而進行的 /common 呼叫會遺漏快取項目，因此系統會再次提示使用者登入。 为了避免缓存未命中，请确保后续为登录用户执行的调用是针对租户的终结点发出的。
+多租用戶應用程式也可以取得存取權杖來呼叫受 Azure AD 保護的 API。 大多數人在使用多租用戶應用程式和 Active Directory Authentication Library (ADAL) 時容易犯的一個錯誤是：一開始即使用 /common 為使用者要求權杖、接收回應，然後也使用 /common 來為該相同使用者要求後續的權杖。 由於從 Azure AD 傳回的回應是來自租用戶而非 /common，因此 ADAL 在快取權杖時會將它視為來自租用戶。 後續為了為使用者取得存取權杖而進行的 /common 呼叫會遺漏快取項目，因此系統會再次提示使用者登入。 為了避免遺漏快取，請確定後續為已登入之使用者進行的呼叫是對租用戶的端點發出。
 
 ## <a name="next-steps"></a>後續步驟
 

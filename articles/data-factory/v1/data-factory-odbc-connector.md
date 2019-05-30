@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 83de0046a56788e40b9224823af0411a18dea5eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0db301109da657083d121cc8b986372adcb54171
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66122479"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389034"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 從 ODBC 資料存放區移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
 
-您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -67,13 +67,13 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| type |類型屬性必須設定為：**OnPremisesOdbc** |有 |
-| connectionString |連接字串的非存取認證部分和選擇性的加密認證。 請參閱下列幾節中的範例。 <br/><br/>您可以用 `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` 模式指定連接字串，或使用您在閘道電腦上以 `"DSN=<name of the DSN>;"` 設定的系統 DSN (資料來源名稱) (仍需要據此指定連結的服務中的認證部分)。 |有 |
-| 認證 |以驅動程式特定「屬性-值」格式指定之連接字串的存取認證部分。 範例： `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |無 |
+| type |類型屬性必須設定為：**OnPremisesOdbc** |是 |
+| connectionString |連接字串的非存取認證部分和選擇性的加密認證。 請參閱下列幾節中的範例。 <br/><br/>您可以用 `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` 模式指定連接字串，或使用您在閘道電腦上以 `"DSN=<name of the DSN>;"` 設定的系統 DSN (資料來源名稱) (仍需要據此指定連結的服務中的認證部分)。 |是 |
+| 認證 |以驅動程式特定「屬性-值」格式指定之連接字串的存取認證部分。 範例： `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |否 |
 | authenticationType |用來連接到 ODBC 資料存放區的驗證類型。 可能的值包括：匿名和基本。 |是 |
-| userName |如果您要使用 Basic 驗證，請指定使用者名稱。 |否 |
-| password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
-| gatewayName |Data Factory 服務應該用來連接到 ODBC 資料存放區的閘道器名稱。 |有 |
+| userName |如果您使用基本驗證，請指定使用者名稱。 |否 |
+| password |指定您為 userName 指定之使用者帳戶的密碼。 |否 |
+| gatewayName |Data Factory 服務應該用來連接到 ODBC 資料存放區的閘道器名稱。 |是 |
 
 ### <a name="using-basic-authentication"></a>使用基本驗證
 
@@ -139,7 +139,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| tableName |ODBC 資料存放區中資料表的名稱。 |有 |
+| tableName |ODBC 資料存放區中資料表的名稱。 |是 |
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 如需定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。 屬性 (例如名稱、描述、輸入和輸出資料表，以及原則) 適用於所有類型的活動。
@@ -150,7 +150,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
 | 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
-| query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |有 |
+| query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |是 |
 
 
 ## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>JSON 範例：從 ODBC 資料存放區複製資料到 Azure Blob
@@ -356,7 +356,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 從關聯式資料存放區複製資料時，請將可重複性謹記在心，以避免產生非預期的結果。 在 Azure Data Factory 中，您可以手動重新執行配量。 您也可以為資料集設定重試原則，使得在發生失敗時，重新執行配量。 以上述任一方式重新執行配量時，您必須確保不論將配量執行多少次，都會讀取相同的資料。 請參閱[從關聯式來源進行可重複的讀取](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)。
 
 ## <a name="troubleshoot-connectivity-issues"></a>疑難排解連線問題
-若要針對連線問題進行疑難排解，請使用 [資料管理閘道器組態管理員] 的 [診斷] 索引標籤。
+若要針對連線問題進行疑難排解，請使用 [資料管理閘道器組態管理員]  的 [診斷]  索引標籤。
 
 1. 啟動 **資料管理閘道器組態管理員**。 您可以直接執行 "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe" (或) 搜尋**閘道**，以尋找 **Microsoft 資料管理閘道**應用程式的連結，如下圖所示。
 
@@ -365,7 +365,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
     ![閘道診斷](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
 3. 選取資料存放區的 **類型** (連結的服務)。
-4. 指定 [驗證]，然後輸入用來連線到資料存放區的**認證** (或) 輸入**連接字串**。
+4. 指定 [驗證]  ，然後輸入用來連線到資料存放區的**認證** (或) 輸入**連接字串**。
 5. 按一下 [測試連線]  以測試資料存放區連線。
 
 ## <a name="performance-and-tuning"></a>效能和微調

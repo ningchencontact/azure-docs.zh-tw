@@ -9,20 +9,20 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 description: 了解如何在不安裝任何項目的情況下，直接從瀏覽器快速建立針對 Azure Dev Spaces 所啟用的 Kubernetes 叢集。
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
-ms.openlocfilehash: c9dabc13e85295b88483f43b26ccf0b15406ad9b
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 532a094f96817f3c525384694b6fa60a292aa948
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861617"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391662"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>使用 Azure Cloud Shell 建立 Kubernetes 叢集
 
-您可以使用 [Azure Cloud Shell](/azure/cloud-shell)，透過此頁面的 [試試看] 按鈕建立適用於 Azure Dev Spaces 的叢集。 如果您未登入，請遵循提示使用 Azure 帳戶來登入，然後在 Azure Cloud Shell 提示字元出現時，於其中輸入命令。
+您可以使用 [Azure Cloud Shell](/azure/cloud-shell)，透過此頁面的 [試試看]  按鈕建立適用於 Azure Dev Spaces 的叢集。 如果您未登入，請遵循提示使用 Azure 帳戶來登入，然後在 Azure Cloud Shell 提示字元出現時，於其中輸入命令。
 
 ## <a name="create-the-cluster"></a>建立叢集
 
-首先，在其中建立資源群組[支援 Azure 開發空間的區域](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)。
+首先，在其中建立資源群組[支援 Azure 開發空間的區域][supported-regions]。
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -39,3 +39,6 @@ az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --g
 ## <a name="next-steps"></a>後續步驟
 
 如需完整教學課程的連結，請參閱 [Azure Dev Spaces](/azure/dev-spaces/)。
+
+
+[supported-regions]: ../about.md#supported-regions-and-configurations

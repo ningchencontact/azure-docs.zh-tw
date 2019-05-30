@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 6557f3a4129076c1e8708208e5d4e0d4f53dcec3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 377c5088d39821e87412c517540b3190b0a14a00
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741735"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393277"
 ---
 # <a name="import-or-export-configuration-data"></a>匯入或匯出設定資料
 
@@ -29,7 +29,7 @@ Azure 應用程式組態支援的資料匯入和匯出作業。 使用這些作�
 
 匯入會將為應用程式組態的資料存放區從現有的來源，而不是手動輸入它的組態。 使用匯入函式將資料移轉至的應用程式組態存放區或多個來源的彙總資料。 應用程式設定支援從 JSON、 YAML 或內容檔案匯入。
 
-使用匯入資料[Azure 入口網站](https://aka.ms/azconfig/portal)或[Azure CLI](./scripts/cli-import.md)。 從 Azure 入口網站中，請遵循下列步驟：
+使用匯入資料[Azure 入口網站](https://portal.azure.com)或[Azure CLI](./scripts/cli-import.md)。 在 Azure 入口網站中執行下列步驟：
 
 1. 瀏覽至您的應用程式的組態存放區，然後選取**匯入/匯出**。
 
@@ -53,7 +53,7 @@ Azure 應用程式組態支援的資料匯入和匯出作業。 使用這些作�
 
 匯出會寫入到另一個目的地應用程式組態中儲存組態資料。 比方說，使用匯出函式中，將資料儲存至檔案與應用程式程式碼內嵌在部署期間的應用程式組態存放區中。
 
-使用其中一種匯出資料[Azure 入口網站](https://aka.ms/azconfig/portal)或[Azure CLI](./scripts/cli-export.md)。 從 Azure 入口網站中，請遵循下列步驟：
+使用其中一種匯出資料[Azure 入口網站](https://portal.azure.com)或[Azure CLI](./scripts/cli-export.md)。 在 Azure 入口網站中執行下列步驟：
 
 1. 瀏覽至您的應用程式的組態存放區，然後選取**匯入/匯出**。
 

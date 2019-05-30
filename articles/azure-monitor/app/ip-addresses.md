@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 05/21/2019
 ms.author: mbullwin
-ms.openlocfilehash: af4d350c715a0792934f9d080f0bf571c3b2d2b5
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: c4e924d1e3012bc5e49c89f51026cd651398f4c5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66023242"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242889"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 和 Log Analytics 使用的 IP 位址
 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 服務會使用一些 IP 位址。 如果您所監視的應用程式裝載於防火牆後面，您可能需要知道這些位址。
@@ -54,7 +54,7 @@ ms.locfileid: "66023242"
 | 組態 |`login.live.com` | |`443` |
 | 安裝 |`packages.nuget.org`、`nuget.org`、`api.nuget.org`、`az320820.vo.msecnd.net` (NuGet 下載) | |`443` |
 
-## <a name="availability-tests"></a>可用性測試
+## <a name="availability-tests"></a>可用性集合
 這是用來執行 [可用性 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md) 的位址清單。 如果您想要在您的應用程式上執行 Web 測試，但您的 Web 伺服器限於為特定用戶端提供服務，則您必須允許來自我們的可用性測試伺服器的連入流量。
 
 為來自這些位址 (IP 位址會依照位置分組) 的連入流量開啟連接埠 80 (http) 和 443 (https)︰
@@ -432,7 +432,7 @@ East US
 | --- | --- | --- |
 | 警示 | 23.96.11.4 | 443 |
 
-## <a name="profiler"></a>Profiler
+## <a name="profiler"></a>分析工具
 
 | 目的 | URI | IP | 連接埠 |
 | --- | --- | --- | --- |

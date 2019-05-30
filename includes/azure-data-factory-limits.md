@@ -9,11 +9,11 @@ ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: 6d06ac6efd08c14f77fd963ddf2c67de54260959
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733793"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238526"
 ---
 Azure Data Factory 是多租用戶的服務，以確保客戶訂用帳戶受到保護免於彼此的工作負載中有下列的預設限制。 引發最多可以為您的訂用帳戶的限制，請連絡支援人員。
 

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1defaea3743ebb8ddb688cef28efb7eee8ecb07c
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 0a503b82c07da62b5c5c768d8e1c92cb19e75aee
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597119"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236468"
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>了解資料科學虛擬機器
 
@@ -30,7 +30,7 @@ ms.locfileid: "65597119"
 DSVM 也包含多個程式碼範例和逐步解說，可以在本機執行的 Jupyter Notebook 的形式。另外還有以協助理解這些範例的文件。 
 
 > [!NOTE]
-> 您可以使用[Azure Notebooks](/azure/notebooks/azure-notebooks-overview.md)來建立、 執行和共用雲端中的 Jupyter notebook。 您可以[將資料科學 VM 連接至 Azure Notebooks](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)以展開 可用的計算能力。
+> 您可以使用[Azure Notebooks](/azure/notebooks/azure-notebooks-overview)來建立、 執行和共用雲端中的 Jupyter notebook。 您可以[將資料科學 VM 連接至 Azure Notebooks](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)以展開 可用的計算能力。
 
 包含在資料科學 VM 中的工具、平台、公用程式和範例，皆已整理至下列各節：
 

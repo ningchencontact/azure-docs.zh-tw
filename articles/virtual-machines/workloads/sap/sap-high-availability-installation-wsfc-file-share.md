@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a20299887de827f25e4c3306f5e78c188c9a8a7f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 95cde28bc4789346aabd58b5f7b543e1bbc989c1
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969394"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357704"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>在 Azure 之 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用上安裝 SAP NetWeaver 高可用性
 
@@ -291,7 +291,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>建立叢集 SAP ASCS/SCS 執行個體的虛擬主機名稱
 
-建立 SAP ASCS/SCS 叢集網路名稱 (例如，**pr1-ascs [10.0.6.7]**)，如[建立叢集 SAP ASCS/SCS 執行個體的虛擬主機名稱][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host]中所述。
+建立 SAP ASCS/SCS 叢集網路名稱 (例如，**pr1-ascs [10.0.6.7]** )，如[建立叢集 SAP ASCS/SCS 執行個體的虛擬主機名稱][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host]中所述。
 
 
 ## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>在叢集中安裝 ASCS/SCS 和 ERS 執行個體
@@ -300,7 +300,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 第一個叢集節點上安裝 SAP ASCS/SCS 執行個體。 若要安裝執行個體，在 SAP SWPM 安裝工具中，移至：
 
-**\<產品 >** > **\<DBMS >** > **安裝** > **應用程式伺服器 ABAP** (或是**Java**) >**高可用性系統** > **ASCS/SCS 執行個體** > **第一個叢集節點**.
+**\<產品 >**  >  **\<DBMS >**  > **安裝** > **應用程式伺服器 ABAP** (或是**Java**) >**高可用性系統** > **ASCS/SCS 執行個體** > **第一個叢集節點**.
 
 ### <a name="add-a-probe-port"></a>新增探查連接埠
 
@@ -310,12 +310,12 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 在第二個叢集節點上安裝 SAP ASCS/SCS 執行個體。 若要安裝執行個體，在 SAP SWPM 安裝工具中，移至：
 
-**\<產品 >** > **\<DBMS >** > **安裝** > **應用程式伺服器 ABAP** (或是**Java**) >**高可用性系統** > **ASCS/SCS 執行個體** > **其他叢集節點**.
+**\<產品 >**  >  **\<DBMS >**  > **安裝** > **應用程式伺服器 ABAP** (或是**Java**) >**高可用性系統** > **ASCS/SCS 執行個體** > **其他叢集節點**.
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>更新 SAP ASCS/SCS 執行個體設定檔
 
-更新 SAP ASCS/SCS 執行個體設定檔中的參數\<SID >_ASCS/SCS\<Nr >_\<主應用程式 >。
+更新 SAP ASCS/SCS 執行個體設定檔中的參數\<SID >_ASCS/SCS\<Nr >_ \<主應用程式 >。
 
 
 | 參數名稱 | 參數值 |
@@ -324,7 +324,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
-重新啟動 SAP ASCS/SCS 執行個體。 設定`KeepAlive`兩個 SAP ASCS/SCS 叢集節點上的參數遵照指示來[SAP ASCS/SCS 執行個體的叢集節點上設定登錄項目]([high-availability-guide]:high-availability-guide.md)。 
+重新啟動 SAP ASCS/SCS 執行個體。 設定`KeepAlive`兩個 SAP ASCS/SCS 叢集節點上的參數遵照指示來[SAP ASCS/SCS 執行個體的叢集節點上設定登錄項目][high-availability-guide]。 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>安裝 DBMS 執行個體和 SAP 應用程式伺服器
 

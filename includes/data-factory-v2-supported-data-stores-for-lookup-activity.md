@@ -5,17 +5,17 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 02/22/2019
+ms.date: 05/24/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 498a4471d1ba6803d68e0b497c7c8352f19ff743
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 2b250f9f722bb1992d72b0555207a64dbc2dd972
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153457"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271551"
 ---
-| Category | 資料存放區 |
+| 類別 | 資料存放區 |
 |:--- |:--- |
 | **Azure** |[Azure Blob 儲存體](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |
@@ -50,6 +50,7 @@ ms.locfileid: "66153457"
 | &nbsp; |[SAP Business Warehouse Open Hub](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |
 | &nbsp; |[SAP Business Warehouse via MDX](../articles/data-factory/connector-sap-business-warehouse.md) |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |
+| &nbsp; |[SAP 資料表](../articles/data-factory/connector-sap-table.md) |
 | &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |
@@ -67,7 +68,7 @@ ms.locfileid: "66153457"
 | &nbsp; |[泛型 OData](../articles/data-factory/connector-odata.md) |
 | &nbsp; |[一般 ODBC](../articles/data-factory/connector-odbc.md) |
 | **服務和應用程式** |[Amazon Marketplace Web Service (預覽)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |
-| &nbsp; |[應用程式的常見資料服務](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓
+| &nbsp; |[應用程式的常見資料服務](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Concur (預覽)](../articles/data-factory/connector-concur.md) |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Dynamics AX (預覽)](../articles/data-factory/connector-dynamics-ax.md) |
@@ -95,4 +96,4 @@ ms.locfileid: "66153457"
 | &nbsp; |[Zoho (預覽)](../articles/data-factory/connector-zoho.md) |
 
 > [!NOTE]
-> 任何標示為「預覽」的連接器都表示您可以試用並提供意見反應給我們。 如果您需要依賴解決方案中的預覽連接器，請連絡 [Azure 支援](https://azure.microsoft.com/support/)。
+> 任何標示為「預覽」  的連接器都表示您可以試用並提供意見反應給我們。 如果您需要依賴解決方案中的預覽連接器，請連絡 [Azure 支援](https://azure.microsoft.com/support/)。

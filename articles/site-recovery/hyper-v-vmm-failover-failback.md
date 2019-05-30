@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 3890283f70bfd922d0c436f76b38d7f81d7b8c6f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39b2e4f37abe77439410fa4a83e06a0ca7941787
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471514"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398004"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>將複寫的 Hyper-V VM 容錯移轉及容錯回至次要內部部署網站
 
@@ -52,10 +52,10 @@ ms.locfileid: "61471514"
   此程序說明如何執行定期容錯移轉。
 
 
-1. 在 [設定] > [複寫的項目] 中，按一下 VM > [容錯移轉]。
-1. 如果想在觸發容錯移轉之前，讓 Site Recovery 嘗試將來源 VM 關機，請選取 [先將機器關機再開始容錯移轉]。 Site Recovery 也會在觸發容錯移轉之前，嘗試同步處理尚未傳送至次要網站的內部部署資料。 請注意，即使關機失敗，仍會繼續容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。
+1. 在 [設定]   > [複寫的項目]  中，按一下 VM > [容錯移轉]  。
+1. 如果想在觸發容錯移轉之前，讓 Site Recovery 嘗試將來源 VM 關機，請選取 [先將機器關機再開始容錯移轉]  。 Site Recovery 也會在觸發容錯移轉之前，嘗試同步處理尚未傳送至次要網站的內部部署資料。 請注意，即使關機失敗，仍會繼續容錯移轉。 您可以 [作業]  頁面上追蹤容錯移轉進度。
 2. 您現在應該能夠在次要 VMM 雲端中看到此 VM。
-3. 驗證 VM 之後，請 [認可] 容錯移轉。 這會刪除所有可用的復原點。
+3. 驗證 VM 之後，請 [認可]  容錯移轉。 這會刪除所有可用的復原點。
 
 > [!WARNING]
 > **請勿取消正在進行中的容錯移轉**：在啟動容錯移轉之前，已停止 VM 複寫。 如果您取消正在進行的容錯移轉，容錯移轉會停止，但 VM 不會再次複寫。  
@@ -66,11 +66,11 @@ ms.locfileid: "61471514"
 開始從次要網站複寫至主要網站，然後容錯回復至主要網站。 當 VM 重新在主要網站中執行之後，您可以將它們複寫至次要站台。  
 
  
-1. 按一下 [VM] > 按一下 [反向複寫]。
-2. 一旦工作完成，請按一下 [VM] >在 [容錯移轉] 中，確認容錯移轉方向 (從次要 VMM 雲端)，並選取來源和目標位置。 
+1. 按一下 [VM] > 按一下 [反向複寫]  。
+2. 一旦工作完成，請按一下 [VM] >在 [容錯移轉]  中，確認容錯移轉方向 (從次要 VMM 雲端)，並選取來源和目標位置。 
 4. 起始容錯移轉。 您可以在 [工作]  索引標籤上追蹤容錯移轉進度。
 5. 在主要 VMM 雲端中，檢查 VM 是否可用。
-6. 如果您想要再次開始將主要 VM 複寫回到次要站台，請按一下 [反向複寫]。
+6. 如果您想要再次開始將主要 VM 複寫回到次要站台，請按一下 [反向複寫]  。
 
 ## <a name="next-steps"></a>後續步驟
 [檢閱步驟](hyper-v-vmm-disaster-recovery.md)，了解如何將 Hyper-V VM 複寫至次要網站。

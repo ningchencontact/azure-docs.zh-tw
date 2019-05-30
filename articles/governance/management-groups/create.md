@@ -3,19 +3,19 @@ title: 建立管理群組來組織 Azure 資源 - Azure Governance
 description: 了解如何使用入口網站、Azure PowerShell 和 Azure CLI 建立 Azure 管理群組來管理多個資源。
 author: rthorn17
 manager: rithorn
-ms.service: azure-resource-manager
+ms.service: governance
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 2dd2a6e071533deef47a6482bfb9ed92953864ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9e0a864019c2940ba7b5188ea43e9bbae484178d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165913"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241987"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>建立用於資源組織及管理的管理群組
 
@@ -33,15 +33,15 @@ ms.locfileid: "66165913"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 選取 [所有服務] > [管理群組]。
+1. 選取 [所有服務]   > [管理群組]  。
 
-1. 在主頁面上，選取 [新增管理群組]。
+1. 在主頁面上，選取 [新增管理群組]  。
 
    ![使用管理群組的頁面](./media/main.png)
 
 1. 填寫管理群組識別碼欄位。
 
-   - [管理群組識別碼] 是用來在此管理群組上提交命令的目錄唯一識別碼。 此識別碼在建立後即無法編輯，因為整個 Azure 系統會使用它來識別此群組。 [根管理群組](index.md#root-management-group-for-each-directory)會自動建立的 id，這是 Azure Active Directory 識別碼。 對於所有其他的管理群組中，指派唯一的識別碼。
+   - [管理群組識別碼]  是用來在此管理群組上提交命令的目錄唯一識別碼。 此識別碼在建立後即無法編輯，因為整個 Azure 系統會使用它來識別此群組。 [根管理群組](index.md#root-management-group-for-each-directory)會自動建立的 id，這是 Azure Active Directory 識別碼。 對於所有其他的管理群組中，指派唯一的識別碼。
    - [顯示名稱] 欄位是顯示在 Azure 入口網站內的名稱。 在建立管理群組時，不同的顯示名稱是選擇性欄位，並且可以隨時進行變更。  
 
    ![建立新的管理群組的 [選項] 窗格](./media/create_context_menu.png)  

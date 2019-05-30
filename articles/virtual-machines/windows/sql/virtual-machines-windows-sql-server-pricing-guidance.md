@@ -16,19 +16,19 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 19ba6896d9186cae32249fc8eb51319f9b37a6ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce07c6c19c19f134cc322309bb338b94ef11ea85
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477199"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393864"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定價指導方針
 
 本文提供 Azure 中 [SQL Server 虛擬機器](virtual-machines-windows-sql-server-iaas-overview.md)的定價指導方針。 影響成本的選項有數個，而挑選平衡成本和業務需求的正確映像相當重要。
 
 > [!TIP]
-> 如果您只需要了解特定 SQL Server 版本與虛擬機器大小組合的成本預估，請參閱 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) 或 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux) 適用的定價頁面。 從 [OS/軟體] 清單選取您的平台和 SQL Server 版本。
+> 如果您只需要了解特定 SQL Server 版本與虛擬機器大小組合的成本預估，請參閱 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) 或 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux) 適用的定價頁面。 從 [OS/軟體]  清單選取您的平台和 SQL Server 版本。
 >
 > ![VM 定價頁面上的 UI](./media/virtual-machines-windows-sql-server-pricing-guidance/virtual-machines-pricing-ui.png)
 >
@@ -61,7 +61,7 @@ ms.locfileid: "61477199"
 | 標準 | 小型到中型工作負載 |
 | Enterprise | 大型或任務關鍵性工作負載|
 
-您有兩個選項來支付這些版本的 SQL Server 授權：*依使用量付費*或*自備授權 (BYOL)*。
+您有兩個選項來支付這些版本的 SQL Server 授權：*依使用量付費*或*自備授權 (BYOL)* 。
 
 ## <a name="pay-per-usage"></a>依使用量付費
 
@@ -85,7 +85,7 @@ ms.locfileid: "61477199"
 | Ubuntu | [SQL Server 2017 Web Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS)<br/>[SQL Server 2017 Standard Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS)<br/>[SQL Server 2017 Enterprise Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) |
 
 > [!IMPORTANT]
-> 在入口網站中建立 SQL Server 虛擬機器時，[選擇大小] 視窗會顯示估計的成本。 請務必注意，此預估值僅僅是執行 VM 的計算成本以及任何 OS 授權成本 (Windows 或協力廠商 Linux 作業系統)。
+> 在入口網站中建立 SQL Server 虛擬機器時，[選擇大小]  視窗會顯示估計的成本。 請務必注意，此預估值僅僅是執行 VM 的計算成本以及任何 OS 授權成本 (Windows 或協力廠商 Linux 作業系統)。
 >
 > ![選擇 VM 大小刀鋒視窗](./media/virtual-machines-windows-sql-server-pricing-guidance/sql-vm-choose-size-pricing-estimate.png)
 >
@@ -99,7 +99,7 @@ ms.locfileid: "61477199"
 **透過「授權行動性」自備 SQL Server 授權** (也稱為 **BYOL**) 意謂著在 Azure VM 中使用現有的「SQL Server 大量授權」搭配「軟體保證」。 使用 BYOL 的 SQL Server VM 只會收取執行 VM 的費用，不會收取 SQL Server 授權費用，但前提是您已經透過「大量授權」方案取得授權和「軟體保證」。
 
 > [!IMPORTANT]
-> BYOL 映像需要具有軟體保證的 Enterprise 合約。 Azure 雲端解決方案合作夥伴 (CSP) 目前不會提供這類映像。
+> BYOL 映像需要具有軟體保證的 Enterprise 合約。 Azure 雲端解決方案合作夥伴 (CSP) 目前不會提供這類映像。 CSP 的客戶可以攜帶自己的授權所部署的隨用隨付映像，然後再啟用[Azure Hybrid Benefit](virtual-machines-windows-sql-ahb.md)。
 
 > [!NOTE]
 > BYOL 映像目前只適用於 Windows 虛擬機器。 不過，您可以在僅有 Linux 的 VM 上手動安裝 SQL Server。 請參閱 [Linux SQL VM 常見問題集](../../linux/sql/sql-server-linux-faq.md)中的指導方針。
@@ -115,7 +115,7 @@ ms.locfileid: "61477199"
 | BYOL 優點 | 描述 |
 |-----|-----|
 | **節省成本** | 如果工作負載將持續執行 SQL Server Standard 或 Enterprise 長達 *10 個月以上*的時間，則與依使用量付費相比，自備 SQL Server 授權較符合經濟效益。 |
-| **長期節省** | 平均而言，前 3 年購買或更新 SQL Server 授權可「每年節省 30% 的費用」。 此外，3 年之後，您就不再需要更新授權，只要支付「軟體保證」費用即可。 屆時，將可「節省 200% 的費用」。 |
+| **長期節省** | 平均而言，前 3 年購買或更新 SQL Server 授權可「每年節省 30% 的費用」  。 此外，3 年之後，您就不再需要更新授權，只要支付「軟體保證」費用即可。 屆時，將可「節省 200% 的費用」  。 |
 | **免費的被動次要複本** | 自備授權的另一個優點是每一 SQL Server 可享有[一個免費的被動次要複本授權](https://azure.microsoft.com/pricing/licensing-faq/)，以用於提供高可用性。 這讓高可用性 SQL Server 部署 (例如使用「永遠開啟可用性群組」) 的授權費用得以砍半。 執行被動次要複本的權限是透過「容錯移轉伺服器軟體保證」權益來提供。 |
 
 若要使用上述其中一個自備授權映像來建立 SQL Server 2017 Azure VM，請查看前面帶有 "{BYOL}" 的 VM：
@@ -153,7 +153,7 @@ SQL Server 的授權成本與 vCPU 數目直接相關。 選擇符合預期的 C
 
 ### <a name="shut-down-your-vm-when-possible"></a>若可能則關閉 VM
 
-如果您要使用任何不會持續執行的工作負載，請考慮在非使用中的期間關閉虛擬機器。 仅为所用的部分付费。
+如果您要使用任何不會持續執行的工作負載，請考慮在非使用中的期間關閉虛擬機器。 您只需依據使用量付費。
 
 例如，如果您只是要在 Azure VM 上試用 SQL Server，您就不會希望不小心讓它持續執行數週而產生費用。 其中一個解決方案就是使用[自動關閉功能](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/)。
 

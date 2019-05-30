@@ -1,7 +1,7 @@
 ---
 title: 什麼是工作區
 titleSuffix: Azure Machine Learning service
-description: 了解哪一個工作區，以及為什麼需要另一個用於 Azure Machine Learning 服務。
+description: 工作區是 Azure Machine Learning 服務的最上層資源。 它會保留，包括記錄、 計量、 輸出和指令碼的快照集的所有定型執行的歷程記錄。 您可以使用此資訊來判斷哪些訓練課程產生最佳的模型
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,20 +9,18 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 5785bf8f6538f1d91e7a23178e29487ebee14f29
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 3ecdf62cfed7d70873f3dc752bfacd134e367a90
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989840"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388962"
 ---
-# <a name="what-is-an-azure-machine-learning-workspace"></a>什麼是 Azure Machine Learning 工作區？
+# <a name="what-is-an-azure-machine-learning-service-workspace"></a>什麼是 Azure 機器學習服務工作區？
 
-工作區是 Azure Machine Learning 服務的最上層資源。 它可以在您使用 Azure Machine Learning 服務時，提供集中式位置以處理您建立的所有成品。
+工作區是 Azure Machine Learning 服務，提供集中的位置，當您使用 Azure Machine Learning 服務，您建立的所有成品的最上層資源。  工作區會保留所有定型執行，包括記錄、 計量、 輸出和指令碼的快照集的記錄。 您可以使用此資訊來判斷哪一個定型回合會產生最佳模型。  
 
-工作區會保留定型執行，包括記錄、 計量、 輸出和指令碼的快照集的記錄。 您可以使用此資訊來判斷哪一個定型回合會產生最佳模型。  
-
-您要的模型之後，您會註冊它與工作區。 您可以使用已註冊的模型及評分指令碼部署至 Azure Container Instances，Azure Kubernetes 服務，或做為 REST 架構 HTTP 端點的欄位可程式化 gate array (FPGA)。 您也可以部署到 Azure IoT Edge 裝置的模型做為模組。
+您要的模型之後，您會註冊它與工作區。 您接著會使用已註冊的模型以及評分指令碼部署至 Azure Container Instances，Azure Kubernetes 服務，或做為 REST 架構 HTTP 端點的欄位可程式化 gate array (FPGA)。 您也可以部署到 Azure IoT Edge 裝置的模型做為模組。
 
 ## <a name="taxonomy"></a>分類法 
 
@@ -50,7 +48,7 @@ ms.locfileid: "65989840"
 您可以透過下列方式互動與您工作區：
 
 + 網路：
-    + [Azure 入口網站](https://azure.portal.com)
+    + [Azure 入口網站](https://portal.azure.com)
     + [視覺介面 （預覽）](ui-concept-visual-interface.md)
 + 在 Python 中使用 Azure Machine Learning [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + 使用 Azure Machine Learning 命令列上[CLI 擴充功能](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)

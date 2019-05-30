@@ -3,22 +3,21 @@ title: 使用 Azure Data Factory 透過 Open Hub 從 SAP Business Warehouse 複�
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，透過 Open Hub 將資料從 SAP Business Warehouse (BW) 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 03/08/2019
-ms.date: 04/22/2019
-ms.author: v-jay
-ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/08/2019
+ms.author: jingwang
+ms.openlocfilehash: 6fb989632d3165ac5e54e540aae4385fc2258c85
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60848861"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256917"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>使用 Azure Data Factory 透過 Open Hub 從 SAP Business Warehouse 複製資料
 
@@ -72,7 +71,7 @@ ADF SAP BW 開啟中樞連接器提供兩個選擇性屬性：`excludeLastReques
 
 - 設定 3.13 版或更新版本的「自我裝載 Integration Runtime。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。
 
-- 從 SAP 的網站下載 **64 位元[ SAP .NET Connector 3.0](https://support.sap.com/en/product/connectors/msnet.html)**，並將其安裝在自我裝載的 IR 機器上。 安裝時，請在選擇性的設定步驟視窗中確定您已選取 [將組件安裝到 GAC] 選項，如下圖所示。 
+- 從 SAP 的網站下載 **64 位元[ SAP .NET Connector 3.0](https://support.sap.com/en/product/connectors/msnet.html)** ，並將其安裝在自我裝載的 IR 機器上。 安裝時，請在選擇性的設定步驟視窗中確定您已選取 [將組件安裝到 GAC]  選項，如下圖所示。 
 
     ![安裝 SAP .NET 連接器](./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
 
@@ -81,7 +80,7 @@ ADF SAP BW 開啟中樞連接器提供兩個選擇性屬性：`excludeLastReques
     - RFC 和 SAP BW 的授權。 
     - 「執行」授權物件 "S_SDSAUTH" 活動的權限。
 
-- 勾選 [技術金鑰] 選項，將 SAP Open Hub Destination 類型建立為 [資料庫資料表]。  此外也建議您將 [從資料表中刪除資料] 保留為未勾選，但這並非必要動作。 利用 DTP (直接執行或整合到現有的程序鏈結中) 將資料從您所選擇的來源物件 (例如 Cube) 移至 Open Hub Destination 資料表。
+- 勾選 [技術金鑰] 選項，將 SAP Open Hub Destination 類型建立為 [資料庫資料表]  。  此外也建議您將 [從資料表中刪除資料] 保留為未勾選，但這並非必要動作。 利用 DTP (直接執行或整合到現有的程序鏈結中) 將資料從您所選擇的來源物件 (例如 Cube) 移至 Open Hub Destination 資料表。
 
 ## <a name="getting-started"></a>開始使用
 
@@ -103,7 +102,7 @@ ADF SAP BW 開啟中樞連接器提供兩個選擇性屬性：`excludeLastReques
 | server | SAP BW 執行個體所在之伺服器的名稱。 | 是 |
 | systemNumber | SAP BW 系統的系統編號。<br/>允許的值：以字串表示的二位數十進位數字。 | 是 |
 | clientId | SAP W 系統中用戶端的用戶端識別碼。<br/>允許的值：以字串表示的三位數十進位數字。 | 是 |
-| language | SAP 系統使用的語言。 | 否 (預設值為 **EN**)|
+| 語言 | SAP 系統使用的語言。 | 否 (預設值為 **EN**)|
 | userName | 能夠存取 SAP 伺服器的使用者名稱。 | 是 |
 | password | 使用者的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
@@ -135,7 +134,7 @@ ADF SAP BW 開啟中樞連接器提供兩個選擇性屬性：`excludeLastReques
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Salesforce 資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 SAP BW Open Hub 資料集所支援的屬性清單。
 
 若要從 SAP BW Open Hub 複製資料以及將資料複製到該處，請將資料集的 type 屬性設為 **SapOpenHubTable**。 以下是支援的屬性。
 
@@ -173,7 +172,7 @@ ADF SAP BW 開啟中樞連接器提供兩個選擇性屬性：`excludeLastReques
 
 ### <a name="sap-bw-open-hub-as-source"></a>以 SAP BW Open Hub 作為來源
 
-若要從 SAP BW Open Hub 複製資料，請將複製活動中的來源類型設為 **SapOpenHubSource**。 複製活動的 **source** 區段中不需要其他類型特定的屬性。
+若要從 SAP BW Open Hub 複製資料，請將複製活動中的來源類型設為 **SapOpenHubSource**。 沒有其他特定類型的屬性將複製活動中所需**來源**一節。
 
 **範例：**
 

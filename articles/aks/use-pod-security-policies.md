@@ -7,21 +7,22 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 7ce311ab9c554481f64c6c9be40e2018893a0966
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 881a16501574dc7309eede6b58e270a97bed977a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61027370"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235735"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>預覽-保護您的叢集使用 Azure Kubernetes Service (AKS) 中的 pod 安全性原則
 
 若要改善您的 AKS 叢集的安全性，您可以限制哪些 pod 可以排程。 要求的資源不允許的 pod 不 AKS 叢集中執行。 您可以定義此使用 pod 安全性原則的存取權。 這篇文章會示範如何使用 pod 安全性原則來限制 AKS 中的 pod 部署。
 
 > [!IMPORTANT]
-> AKS 预览功能是自助服务和可以选择加入的功能。 提供预览是为了从我们的社区收集反馈和 bug。 但是，Azure 技术支持部门不为其提供支持。 如果你创建一个群集，或者将这些功能添加到现有群集，则除非该功能不再为预览版并升级为公开发布版 (GA)，否则该群集不会获得支持。
+> AKS 預覽功能包括自助、 選擇加入。 它們可供收集從我們的社群的意見及 bug。 在預覽中，這些功能不適用於實際執行環境。 在公開預覽功能底下 '盡力' 支援。 AKS 技術支援小組的協助時可使用營業時間太平洋 」 (PST) 僅限 timezone。 如需詳細資訊，請參閱下列支援文章：
 >
-> 如果遇到预览版功能的问题，请[在 AKS GitHub 存储库中提交问题][aks-github]，并在 Bug 标题中填写预览版功能的名称。
+> * [AKS 支援原則][aks-support-policies]
+> * [Azure 支援常見問題集][aks-faq]
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -48,7 +49,7 @@ az extension add --name aks-preview
 az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
 ```
 
-狀態需要幾分鐘的時間才會顯示「已註冊」。 您可以使用 [az feature list][az-feature-list] 命令檢查註冊狀態：
+狀態需要幾分鐘的時間才會顯示「已註冊」  。 您可以使用 [az feature list][az-feature-list] 命令檢查註冊狀態：
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
@@ -510,7 +511,6 @@ kubectl delete namespace psp-aks
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [kubernetes-policy-reference]: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#policy-reference
-[aks-github]: https://github.com/azure/aks/issues
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
@@ -523,3 +523,5 @@ kubectl delete namespace psp-aks
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
 [az-extension-add]: /cli/azure/extension#az-extension-add
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

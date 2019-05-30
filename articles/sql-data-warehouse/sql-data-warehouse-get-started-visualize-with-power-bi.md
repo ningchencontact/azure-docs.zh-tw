@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 94ec38bc2cad3566fad88dc2ac56648f79aa16b2
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4650e171c180653e94d78451d66bba1bcc71b136
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873363"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241277"
 ---
 # <a name="visualize-data-with-power-bi"></a>使用 Power BI 視覺化資料
 本教學課程會示範如何使用 Power BI 來連接到 SQL 資料倉儲，並建立一些基本的視覺效果。
@@ -75,7 +75,7 @@ ms.locfileid: "65873363"
    
     ![Power BI 折線圖](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-line.png)
 
-您也可以隨時按一下 [檔案]，並選取 [儲存] 來儲存您的進度。
+您也可以隨時按一下 [檔案]  ，並選取 [儲存]  來儲存您的進度。
 
 ## <a name="using-direct-connect"></a>使用直接連接
 在 Azure SQL Database 中，SQL Data Warehouse 直接連接允許邏輯下推以及 Power BI 的分析功能。 透過直接連接，查詢會在您瀏覽資料時即時傳送回到您的 Azure SQL 資料倉儲。  此功能與 SQL 資料倉儲結合的功能，可讓您在數分鐘內針對數 TB 的資料建立動態報表。 此外，引入 [在 Power BI 中開啟] 按鈕可讓使用者直接將 Power BI 連接到其 SQL 資料倉儲，而不需從其他 Azure 部分收集資訊。
@@ -93,4 +93,4 @@ ms.locfileid: "65873363"
 隨著使用體驗改善，這些限制和助益事項可能會改變。
 
 ## <a name="next-steps"></a>後續步驟
-既然我們已經提供您一些時間，讓您利用範例資料進入狀況，接著請查看如何進行[開發](sql-data-warehouse-overview-develop.md)、[載入](design-elt-data-loading.md)或[移轉](sql-data-warehouse-overview-migrate.md)。 或者，看一下 [Power BI 網站](https://www.powerbi.com/)。
+既然我們已經提供您一些時間才能利用範例資料進入狀況，請參閱如何[開發](sql-data-warehouse-overview-develop.md)或是[載入](design-elt-data-loading.md)。 或者，看一下 [Power BI 網站](https://www.powerbi.com/)。

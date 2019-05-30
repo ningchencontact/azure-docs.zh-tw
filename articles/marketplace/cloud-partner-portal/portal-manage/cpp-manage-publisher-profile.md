@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: pabutler
-ms.openlocfilehash: 6ca0eb23dad218262eff5d80543628df273022c9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c97bf10daa8f062cc833c7d7c5f7b0ca4835ca6f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942229"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257546"
 ---
 # <a name="manage-your-azure-marketplace-and-appsource-publisher-profile"></a>管理您的 Azure Marketplace 和 AppSource 發行者設定檔
 
@@ -49,7 +49,7 @@ ms.locfileid: "64942229"
 > [!NOTE]
 > 開發人員中心帳戶則必須註冊發佈付費的 marketplace Sku。
 
-如果您還沒有開發人員中心帳戶，您就可以建立帳戶，如中所述[開發人員中心註冊](../../register-dev-center.md)。  然後在 Cloud Partner 入口網站上，將已註冊的電子郵件地址新增為您供應項目的擁有者。 擁有者只可以從 [使用者] 區段將已註冊的電子郵件地址新增至發行設定檔。 然後，使用相同電子郵件地址登入入口網站，然後連結您的開發人員中心帳戶。
+如果您還沒有開發人員中心帳戶，您就可以建立帳戶，如中所述[開發人員中心註冊](https://docs.microsoft.com/azure/marketplace/register-dev-center)。  然後在 Cloud Partner 入口網站上，將已註冊的電子郵件地址新增為您供應項目的擁有者。 擁有者只可以從 [使用者]  區段將已註冊的電子郵件地址新增至發行設定檔。 然後，使用相同電子郵件地址登入入口網站，然後連結您的開發人員中心帳戶。
 
 ![[發行者設定檔詳細資料] - 發行者設定檔描述](./media/publisherprofiledescription.png)
 

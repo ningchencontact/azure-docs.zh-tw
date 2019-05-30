@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4086b73313d563afaecad9b6a9289905d7085004
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66142648"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235762"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>預覽-建立和管理 Azure Kubernetes Service (AKS) 叢集的多個節點集區
 
@@ -21,9 +21,10 @@ Azure Kubernetes Service (AKS) 中，相同的設定節點會分組放入*節點
 這篇文章會示範如何建立和管理 AKS 叢集中的多個節點集區。 此功能目前為預覽狀態。
 
 > [!IMPORTANT]
-> AKS 預覽功能是自助服務和選用功能。 預覽可供收集從我們的社群的意見及 bug。 不過，它們不是支援 Azure 技術支援。 如果您建立叢集，或將這些功能加入到現有的叢集，該叢集不支援此功能不再處於預覽狀態，並發展至公開上市 (GA) 之前。
+> AKS 預覽功能包括自助、 選擇加入。 它們可供收集從我們的社群的意見及 bug。 在預覽中，這些功能不適用於實際執行環境。 在公開預覽功能底下 '盡力' 支援。 AKS 技術支援小組的協助時可使用營業時間太平洋 」 (PST) 僅限 timezone。 如需詳細資訊，請參閱下列支援文章：
 >
-> 如果您遇到問題，使用預覽功能[開立 AKS GitHub 儲存機制][ aks-github] bug 標題中的預覽功能的名稱。
+> * [AKS 支援原則][aks-support-policies]
+> * [Azure 支援常見問題集][aks-faq]
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -52,7 +53,7 @@ az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 > [!NOTE]
 > 任何您已成功註冊之後，您建立的 AKS 叢集*MultiAgentpoolPreview*使用此預覽叢集體驗。 若要繼續建立一般、 完全支援的叢集，請勿啟用生產訂用帳戶上的預覽功能。 使用個別的測試或開發 Azure 訂用帳戶進行測試預覽功能。
 
-狀態需要幾分鐘的時間才會顯示「已註冊」。 您可以使用 [az feature list][az-feature-list] 命令檢查註冊狀態：
+狀態需要幾分鐘的時間才會顯示「已註冊」  。 您可以使用 [az feature list][az-feature-list] 命令檢查註冊狀態：
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
@@ -72,6 +73,7 @@ az provider register --namespace Microsoft.ContainerService
 * 多個節點的集區僅適用於您已成功註冊之後建立的叢集*MultiAgentpoolPreview*並*VMSSPreview*訂用帳戶的功能。 您無法加入或使用現有的 AKS 叢集建立之前已成功註冊這些功能的節點集區。
 * 您無法刪除第一個節點集區。
 * 無法使用的 HTTP 應用程式路由附加元件。
+* 您無法新增/更新/刪除節點的集區使用現有的 Resource Manager 範本，如同大部分的作業。 相反地，[使用不同的 Resource Manager 範本](#manage-node-pools-using-a-resource-manager-template)對在 AKS 叢集中的節點集區進行變更。
 
 雖然這項功能處於預覽狀態，其他的限制如下：
 
@@ -328,6 +330,95 @@ Events:
 
 可以排定在節點上的已套用這個誤導的 pod *gpunodepool*。 會在排定的任何其他 pod *nodepool1*節點集區。 如果您建立其他的節點集區時，您可以使用其他 taints，以限制哪些 pod tolerations 可以排程在這些節點資源上。
 
+## <a name="manage-node-pools-using-a-resource-manager-template"></a>管理使用 Resource Manager 範本的節點集區
+
+當您使用 Azure Resource Manager 範本來建立和受管理的資源，您通常可以更新在您的範本和重新部署的設定，以更新資源。 使用 AKS 中 nodepools，一旦建立 AKS 叢集無法更新初始 nodepool 設定檔。 這個行為表示您無法更新現有的 Resource Manager 範本、 節點集區進行變更並重新部署。 相反地，您必須建立個別的 Resource Manager 範本，以更新僅適用於現有的 AKS 叢集的代理程式集區。
+
+建立範本，例如`aks-agentpools.json`並貼上下列範例資訊清單。 此範例範本會設定下列設定：
+
+* 更新*Linux*名為代理程式集區*myagentpool*執行三個節點。
+* 在節點集中的節點集區，以執行 Kubernetes 版本*1.12.8*。
+* 定義的節點大小*Standard_DS2_v2*。
+
+需要更新，新增或刪除節點集區視需要編輯這些值：
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of your existing AKS cluster."
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "The location of your existing AKS cluster."
+      }
+    },
+    "agentPoolName": {
+      "type": "string",
+      "defaultValue": "myagentpool",
+      "metadata": {
+        "description": "The name of the agent pool to create or update."
+      }
+    },
+    "vnetSubnetId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "The Vnet subnet resource ID for your existing AKS cluster."
+      }
+    }
+  },
+  "variables": {
+    "apiVersion": {
+      "aks": "2019-04-01"
+    },
+    "agentPoolProfiles": {
+      "maxPods": 30,
+      "osDiskSizeGB": 0,
+      "agentCount": 3,
+      "agentVmSize": "Standard_DS2_v2",
+      "osType": "Linux",
+      "vnetSubnetId": "[parameters('vnetSubnetId')]"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-04-01",
+      "type": "Microsoft.ContainerService/managedClusters/agentPools",
+      "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
+      "location": "[parameters('location')]",
+      "properties": {
+            "maxPods": "[variables('agentPoolProfiles').maxPods]",
+            "osDiskSizeGB": "[variables('agentPoolProfiles').osDiskSizeGB]",
+            "count": "[variables('agentPoolProfiles').agentCount]",
+            "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
+            "osType": "[variables('agentPoolProfiles').osType]",
+            "storageProfile": "ManagedDisks",
+      "type": "VirtualMachineScaleSets",
+            "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
+            "orchestratorVersion": "1.12.8"
+      }
+    }
+  ]
+}
+```
+
+部署此範本中使用[az 群組部署建立][ az-group-deployment-create]命令，如下列範例所示。 系統會提示您現有的 AKS 叢集名稱和位置：
+
+```azurecli-interactive
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-file aks-agentpools.json
+```
+
+可能需要幾分鐘的時間來更新您的 AKS 叢集，視節點的集區設定和您在 Resource Manager 範本中定義的作業而定。
+
 ## <a name="clean-up-resources"></a>清除資源
 
 在本文中，您會建立 AKS 叢集，其中包含以 GPU 為基礎的節點。 若要減少不必要的成本，您可能想要刪除*gpunodepool*，或整個 AKS 叢集。
@@ -351,7 +442,6 @@ az group delete --name myResourceGroup --yes --no-wait
 若要建立及使用 Windows Server 容器節點集區，請參閱[AKS 中建立 Windows Server 容器][aks-windows]。
 
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -379,3 +469,6 @@ az group delete --name myResourceGroup --yes --no-wait
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-windows]: windows-container-cli.md
+[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

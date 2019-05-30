@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 05/14/2019
-ms.openlocfilehash: 7916e9493a5d572f844bca23a1dd7806e5fbe572
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: af14d5eb521d531f86433712a0d6c325ae7a1cd6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790150"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258635"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 安全性功能的概觀
 
@@ -40,7 +40,7 @@ IP 防火牆規則會根據每個要求的來源 IP 位址授與資料庫存取�
 [虛擬網路規則](sql-database-vnet-service-endpoint-rule-overview.md)可讓 Azure SQL Database 只接受虛擬網路內所選子網路傳來的通訊。
 
 > [!NOTE]
-> 控制防火牆規則的存取「不」適用於**受控執行個體**。 如需所需網路組態的詳細資訊，請參閱[連線到受控執行個體](sql-database-managed-instance-connect-app.md)
+> 控制防火牆規則的存取「不」  適用於**受控執行個體**。 如需所需網路組態的詳細資訊，請參閱[連線到受控執行個體](sql-database-managed-instance-connect-app.md)
 
 ## <a name="access-management"></a>存取管理
 
@@ -64,7 +64,7 @@ IP 防火牆規則會根據每個要求的來源 IP 位址授與資料庫存取�
     其他可用的 Azure AD 驗證選項為[適用於 SQL Server Management Studio 的 Active Directory 通用驗證](sql-database-ssms-mfa-authentication.md)連線，包括 [Multi-factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) 和[條件式存取](sql-database-conditional-access.md)。
 
 > [!IMPORTANT]
-> 在 Azure 內管理資料庫和伺服器，是由入口網站使用者帳戶的角色指派所控制。 如需有關此文章的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../role-based-access-control/overview.md)。 控制防火牆規則的存取「不」適用於**受控執行個體**。 如需所需網路設定的相關資訊，請參閱下列關於[連線到受控執行個體](sql-database-managed-instance-connect-app.md)的文章。
+> 在 Azure 內管理資料庫和伺服器，是由入口網站使用者帳戶的角色指派所控制。 如需有關此文章的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制](../role-based-access-control/overview.md)。 控制防火牆規則的存取「不」  適用於**受控執行個體**。 如需所需網路設定的相關資訊，請參閱下列關於[連線到受控執行個體](sql-database-managed-instance-connect-app.md)的文章。
 
 ## <a name="authorization"></a>授權
 
@@ -98,16 +98,16 @@ SQL Database 稽核會將資料庫事件記錄到客戶自有 Azure 儲存體帳
 
 SQL Database 可藉由使用[傳輸層安全性](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)將移動中的資料加密來保護客戶資料。
 
-SQL Server 始终对所有连接强制要求加密 (SSL/TLS)。 这样可以确保在客户端与服务器之间传输的所有数据经过加密，而不管连接字符串中的 **Encrypt** 或 **TrustServerCertificate** 设置如何。
+Sql Server 會強制執行加密 (SSL/TLS) 在所有時間的所有連線。 這可確保所有資料都會都加密 」 在 「 傳輸 」，用戶端與伺服器的設定無論之間**Encrypt**或是**TrustServerCertificate**連接字串中。
 
-作为最佳做法，我们建议在应用程序的连接字符串中指定加密的连接，而不要信任服务器证书。__ 这会强制应用程序验证服务器证书，因此可以防止中间人攻击利用应用程序的漏洞。
+最佳做法，建議在您的應用程式連接字串會指定加密的連接並 _**不**_ 信任伺服器憑證。 這會強制您的應用程式，來確認伺服器憑證，因此可避免應用程式遭受攔截式中間類型的攻擊。
 
-例如，使用 ADO.NET 驱动程序时，可以通过 **Encrypt=True** 和 **TrustServerCertificate=False** 实现此目的。如果从 Azure 门户获取连接字符串，其中会包含正确的设置。
+例如，使用 ADO.NET 驅動程式時這是透過**Encrypt = True**並**TrustServerCertificate = False**。如果您從 Azure 入口網站取得連接字串，它會有正確的設定。
 
 > [!IMPORTANT]
-> 請注意，有些非 Microsoft 驅動程式可能不預設使用 TLS 或依賴較舊版本的 TLS (< 1.2) 才能運作。 在这种情况下，SQL Server 仍允许连接到数据库。 但是，我们建议评估允许此类驱动程序和应用程序连接到 SQL 数据库所带来的安全风险，尤其是存储敏感数据时。 
+> 請注意，有些非 Microsoft 驅動程式可能不預設使用 TLS 或依賴較舊版本的 TLS (< 1.2) 才能運作。 在此情況下 SQL Server 仍可讓您連接到您的資料庫。 不過，我們建議您評估安全性風險，特別是當您儲存的敏感性資料時，才允許這類驅動程式和應用程式連接到 SQL Database。 
 >
-> 有关 TLS 和连接的更多信息，请参阅 [TLS 注意事项](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)。
+> 如需 TLS 和連線能力的進一步資訊，請參閱[TLS 考量](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>透明資料加密 (待用資料加密)
 
@@ -123,7 +123,7 @@ SQL Server 始终对所有连接强制要求加密 (SSL/TLS)。 这样可以确�
 
 ![azure-database-ae.png](media/sql-database-security-overview/azure-database-ae.png)
 
-[一律加密](/sql/relational-databases/security/encryption/always-encrypted-database-engine)功能的設計訴求是要保護特定資料庫資料行中儲存的敏感性資料以防存取 (例如，信用卡號碼、身分證號碼，或「必須知道」的資料)。 這包括資料庫管理員或其他特殊權限的使用者，該使用者經授權存取資料庫以執行管理工作，但沒有存取已加密資料行中特定資料的商務需求。 資料一律會加密，這表示加密的資料會解密，僅供可存取加密金鑰的用戶端應用程式進行處理。  加密金鑰決不會公開給 SQL，而且可以存放於 [Windows 憑證存放區](sql-database-always-encrypted.md)或 [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)。
+[一律加密](/sql/relational-databases/security/encryption/always-encrypted-database-engine)功能的設計訴求是要保護特定資料庫資料行中儲存的敏感性資料以防存取 (例如，信用卡號碼、身分證號碼，或「必須知道」  的資料)。 這包括資料庫管理員或其他特殊權限的使用者，該使用者經授權存取資料庫以執行管理工作，但沒有存取已加密資料行中特定資料的商務需求。 資料一律會加密，這表示加密的資料會解密，僅供可存取加密金鑰的用戶端應用程式進行處理。  加密金鑰決不會公開給 SQL，而且可以存放於 [Windows 憑證存放區](sql-database-always-encrypted.md)或 [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)。
 
 ### <a name="dynamic-data-masking"></a>動態資料遮罩
 
@@ -150,6 +150,10 @@ SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用�
 ### <a name="compliance"></a>法規遵循
 
 除了上述可協助您的應用程式符合各種安全性需求的特色和功能之外，Azure SQL Database 也定期參與稽核，並且經過認證符合許多法規標準。 如需詳細資訊，請參閱 < [Microsoft Azure 信任中心](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)您可以在此找到最新的 SQL Database 的合規性認證清單。
+
+### <a name="feature-restrictions"></a>功能限制
+
+功能限制可以協助防止某些形式的洩漏資訊資料庫，甚至是在 SQL 資料隱碼攻擊成功時的 SQL 插入式攻擊。 如需詳細資訊，請參閱 < [Azure SQL Database 功能限制](sql-database-feature-restrictions.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

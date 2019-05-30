@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8522b1d0a8f8466870966d3f11ce66f7bf15672b
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: cb7ace20fd0a59dafff3d7f8240f54c3c8e12492
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016375"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226405"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 應用程式的 application Insights
 
@@ -39,11 +39,11 @@ ms.locfileid: "66016375"
     > [!TIP]
     > 而不是必要的步驟，可以設定為您的專案的原始檔控制，讓您可以追蹤所有 Application Insights 所做的變更，很有幫助。 若要啟用原始檔控制選取**檔案** > **加入原始檔控制**。
 
-2. 選取 [專案] > [新增 Application Insights 遙測]。
+2. 選取 [專案]   > [新增 Application Insights 遙測]  。
 
-3. 選取 **[馬上開始]** 。 (視您的 Visual Studio 版本而定，內容可能會稍微不同。 一些較舊版本會有「免費開始」按鈕。)
+3. 選取 **[馬上開始]** 。 (視您的 Visual Studio 版本而定，內容可能會稍微不同。 一些較舊版本會有「免費開始」  按鈕。)
 
-4. 選取您的訂用帳戶，然後選取 [資源] > [註冊]。
+4. 選取您的訂用帳戶，然後選取 [資源]   > [註冊]  。
 
 5. 之後將 Application Insights 新增至您的專案，請檢查以確認您使用 SDK 的最新穩定版本。 移至**專案** > **管理 NuGet 套件** > **Microsoft.ApplicationInsights.AspNetCore** > 如有需要選擇**更新**。
 
@@ -382,7 +382,8 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="video"></a>影片
 
-- 關於外部逐步影片[使用.NET Core 和 Visual Studio 中設定 Application Insights](https://www.youtube.com/watch?v=NoS9UhcR4gA&t)從零開始。
+- 關於如何從頭開始[使用 .NET Core 和 Visual Studio 設定 Application Insights](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) 的外部逐步說明影片。
+- 關於外部逐步影片[使用.NET Core 和 Visual Studio Code 中設定 Application Insights](https://youtu.be/ygGt84GDync)從零開始。
 
 ## <a name="next-steps"></a>後續步驟
 * [瀏覽使用者流程](../../azure-monitor/app/usage-flows.md)來了解使用者如何瀏覽您的應用程式。

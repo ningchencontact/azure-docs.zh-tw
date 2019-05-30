@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec10359c6f684b1d7fb008946b7ceca2ed626ba
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: cd7055794860398ecc6296d0174a691e7fac4450
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545367"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235242"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft 身分識別平台的應用程式類型
 
@@ -37,7 +37,7 @@ Microsoft 身分識別平台 (v2.0) 端點支援各種新型應用程式架構�
 您必須註冊每個應用程式使用在新的 Microsoft 身分識別平台 endpoint[應用程式註冊入口網站](https://go.microsoft.com/fwlink/?linkid=2083908)。 應用程式註冊程序會為您的應用程式收集和指派下列值：
 
 * **應用程式 （用戶端） 識別碼**可唯一識別您的應用程式
-* 可用來將回應導回到應用程式的「重新導向 URI」
+* 可用來將回應導回到應用程式的「重新導向 URI」 
 * 一些其他案例特定的值，例如支援帳戶類型
 
 如需詳細資訊，請了解如何[註冊應用程式](quickstart-register-app.md)。
@@ -51,7 +51,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>單頁應用程式 (JavaScript)
 
-許多新式應用程式都有一個單頁應用程式前端，主要是以 JavaScript 撰寫。 通常是使用 AngularJS、Ember.js、Durandal.js 等架構來撰寫它們。 Microsoft 身分識別平台端點支援這些應用程式使用[OAuth 2.0 隱含流程](v2-oauth2-implicit-grant-flow.md)。
+許多新式應用程式都有一個單頁應用程式前端，主要是以 JavaScript 撰寫。 通常，它會寫入使用 Angular、 React 或 Vue 這類的架構。 Microsoft 身分識別平台端點支援這些應用程式使用[OAuth 2.0 隱含流程](v2-oauth2-implicit-grant-flow.md)。
 
 應用程式在此流程中，直接從 Microsoft 身分識別平台收到權杖授權端點，而不需要任何伺服器對伺服器交換。 所有驗證邏輯和工作階段處理都完全在 JavaScript 用戶端中進行，而不需要執行額外的頁面重新導向。
 

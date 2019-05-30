@@ -4,14 +4,14 @@ description: 深入了解 SQL 子查詢以及其在 Azure Cosmos DB 中的常見
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 05/23/2019
 ms.author: tisande
-ms.openlocfilehash: 48d0c7a022ff568582637aac36a377ca022a413c
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: HT
+ms.openlocfilehash: 68465f4ca195930ce08bb579e68d0227e9c18dd6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65977363"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242851"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>適用於 Azure Cosmos DB 的 SQL 子查詢範例
 
@@ -130,7 +130,7 @@ WHERE AvgNutritionValue > 80
 | ng       | Nanogram            | 1.00E-09       | 字母組          |
 | µg       | Microgram           | 1.00E-06       | 字母組          |
 | mg       | Milligram           | 1.00E-03       | 字母組          |
-| G        | 字母組                | 1.00E+00       | 字母組          |
+| g        | 字母組                | 1.00E+00       | 字母組          |
 | kg       | Kilogram            | 1.00E+03       | 字母組          |
 | mg       | Megagram            | 1.00E+06       | 字母組          |
 | Gg       | Gigagram            | 1.00E+09       | 字母組          |

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2019
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c989b690e9537dcaaf3710996474a1b8b99826b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 314d7a8e8cf6837e2b22446ba23fee03d539bf35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962748"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235343"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft 身分識別平台開發人員詞彙
 
@@ -50,7 +50,7 @@ ms.locfileid: "65962748"
 
 ## <a name="application-object"></a>應用程式物件
 
-當您在 [Azure 入口網站][AZURE-portal]註冊/更新應用程式時，入口網站會為租用戶同時建立/更新應用程式物件和對應的[服務主體物件](#service-principal-object)。 應用程式物件可全域 (在其能夠存取的所有租用戶中)「定義」應用程式的身分識別組態，並提供範本來「衍生」出其對應的服務主體物件，以在執行階段於本機 (在特定租用戶) 使用。
+當您在 [Azure 入口網站][AZURE-portal]註冊/更新應用程式時，入口網站會為租用戶同時建立/更新應用程式物件和對應的[服務主體物件](#service-principal-object)。 應用程式物件可全域 (在其能夠存取的所有租用戶中)「定義」  應用程式的身分識別組態，並提供範本來「衍生」  出其對應的服務主體物件，以在執行階段於本機 (在特定租用戶) 使用。
 
 如需詳細資訊，請參閱[應用程式和服務主體物件][AAD-App-SP-Objects]。
 
@@ -142,7 +142,7 @@ Microsoft 身分識別平台是 Azure Active Directory (Azure AD) 身分識別�
 
 權限也會在 [同意](#consent) 程序期間出現，讓系統管理員或資源擁有者有機會允許/拒絕用戶端對其租用戶中的資源進行存取。
 
-在 [Azure 入口網站][AZURE-portal]的 [應用程式]/[設定] 索引標籤中，於 [必要的權限] 底下按照需要選取 [委派的權限] 和 [應用程式權限] \(後者需要全域管理員角色的成員資格)，即可設定權限要求。 [公用用戶端](#client-application)無法安全地維護認證，因此它只能要求委派的權限，而[機密用戶端](#client-application)則能夠要求委派的權限和應用程式權限。 用戶端的[應用程式物件](#application-object)會將宣告的權限儲存在其 [requiredResourceAccess 屬性][AAD-Graph-App-Entity]中。
+設定權限要求**API 的權限**頁面中的應用程式[Azure 入口網站][AZURE-portal]，選取想要委派的權限 和"應用程式的權限 （後者需要全域管理員角色的成員資格）。 [公用用戶端](#client-application)無法安全地維護認證，因此它只能要求委派的權限，而[機密用戶端](#client-application)則能夠要求委派的權限和應用程式權限。 用戶端的[應用程式物件](#application-object)會將宣告的權限儲存在其 [requiredResourceAccess 屬性][AAD-Graph-App-Entity]中。
 
 ## <a name="resource-owner"></a>資源擁有者
 
@@ -178,7 +178,7 @@ Microsoft 身分識別平台是 Azure Active Directory (Azure AD) 身分識別�
 
 ## <a name="service-principal-object"></a>服務主體物件
 
-當您在 [Azure 入口網站][AZURE-portal]註冊/更新應用程式時，入口網站會為租用戶同時建立/更新[應用程式物件](#application-object)和對應的服務主體物件。 應用程式物件可全域 (在相關聯的應用程式已獲授與存取權的所有租用戶中)「定義」應用程式的身分識別組態，並可做為範本來「衍生」出其對應的服務主體物件，以在執行階段於本機 (在特定租用戶) 使用。
+當您在 [Azure 入口網站][AZURE-portal]註冊/更新應用程式時，入口網站會為租用戶同時建立/更新[應用程式物件](#application-object)和對應的服務主體物件。 應用程式物件可全域 (在相關聯的應用程式已獲授與存取權的所有租用戶中)「定義」  應用程式的身分識別組態，並可做為範本來「衍生」  出其對應的服務主體物件，以在執行階段於本機 (在特定租用戶) 使用。
 
 如需詳細資訊，請參閱[應用程式和服務主體物件][AAD-App-SP-Objects]。
 

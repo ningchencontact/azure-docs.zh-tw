@@ -7,26 +7,26 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: rogarana
-ms.openlocfilehash: af903ce3ce7cfa165c278e415827dda36630e7b4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ad8ddf7e9e324bbcc48f15c95870a24fe7476828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209735"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237743"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>針對 Azure 檔案透過 SMB 進行 Azure Active Directory 驗證 (預覽) 的概觀
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 若要了解如何啟用針對 Azure 檔案在 SMB 上進行 Azure AD 驗證，請參閱[啟用針對 Azure 檔案在 SMB 上進行 Azure Active Directory 驗證 (預覽)](storage-files-active-directory-enable.md)。
 
-## <a name="glossary"></a>字彙 
+## <a name="glossary"></a>詞彙 
 最好先了解針對 Azure 檔案透過 SMB 進行 Azure AD 驗證的一些重要詞彙：
 
 -   **Azure Active Directory (Azure AD)**  
     Azure Active Directory (Azure AD) 是 Microsoft 的多重租用戶雲端式目錄和身分識別管理服務。 Azure AD 將核心目錄服務、應用程式存取管理及身分識別保護結合到單個解決方案。 如需詳細資訊，請參閱[什麼是 Azure Active Directory？](../../active-directory/fundamentals/active-directory-whatis.md)
 
 -   **Azure AD 網域服務**  
-    Azure AD Domain Services 提供受控網域服務，例如：加入網域、群組原則、LDAP 以及 Kerberos/NTLM 驗證。 這些服候與 Windows Server Active Directory 完全相容。 如需詳細資訊，請參閱 [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md)。
+    Azure AD Domain Services 提供受控網域服務，例如：加入網域、群組原則、LDAP 以及 Kerberos/NTLM 驗證。 這些服候與 Windows Server Active Directory 完全相容。 如需詳細資訊，請參閱 [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/overview.md)。
 
 -   **Azure 角色型存取控制 (RBAC)**  
     Azure 角色型存取控制 (RBAC) 可以對 Azure 進行更細緻的存取權管理。 使用 RBAC，您可以對使用者授權執行其執行工作所需的最少權限，以便管理對資源的存取權。 如需 RBAC 的詳細資訊，請參閱[什麼是 Azure 中的角色型存取控制 (RBAC)？](../../role-based-access-control/overview.md)
@@ -60,7 +60,7 @@ Azure 檔案使用 Azure AD Domain Services 來支援從加入網域的 VM 搭�
 ### <a name="enable-azure-ad-authentication-over-smb"></a>啟用透過 SMB 的 Azure AD 驗證
 您可以在 2018 年 9 月 24 日之後建立的新的和現有的儲存體帳戶上，為 Azure 檔案服務啟用透過 SMB 進行 Azure AD 驗證。 
 
-啟用透過 SMB 進行 Azure AD 驗證之前，確認已經為與儲存體帳戶相關聯的主要 Azure AD 租用戶部署 Azure AD Domain Services。 如果您尚未設定 Azure AD Domain Services，請遵循[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started.md) 中的逐步指示操作。
+啟用透過 SMB 進行 Azure AD 驗證之前，確認已經為與儲存體帳戶相關聯的主要 Azure AD 租用戶部署 Azure AD Domain Services。 如果您尚未設定 Azure AD Domain Services，請遵循[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/create-instance.md) 中的逐步指示操作。
 
 Azure AD Domain Services 部署通常需要 10 到 15 分鐘。 在部署 Azure AD Domain Services 之後，您可以為 Azure 檔案啟用透過 SMB 進行 Azure AD 驗證的功能。 如需詳細資訊，請參閱[為 Azure 檔案 (預覽) 啟用「透過 SMB 進行 Azure Active Directory 驗證」](storage-files-active-directory-enable.md)。 
 

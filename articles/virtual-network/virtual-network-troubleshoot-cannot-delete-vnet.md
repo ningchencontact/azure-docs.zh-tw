@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4bd143b37e4403d039108b4349b27604b6503e0e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5d2e10a4c5cd5b5dc1a8fe19cef7bc47f68d3fbe
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123020"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235019"
 ---
-# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>故障排除：无法在 Azure 中删除虚拟网络
+# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>疑難排解：無法刪除 Azure 中的虛擬網路
 
 當您嘗試刪除 Microsoft Azure 中的虛擬網路時，可能會收到錯誤。 本文提供可協助您解決此問題的疑難排解步驟。 
 
@@ -42,11 +42,11 @@ ms.locfileid: "62123020"
 
 若要移除虛擬網路，您必須先移除虛擬網路閘道。
 
-如果是傳統虛擬網路，請移至 Azure 入口網站中傳統虛擬網路的 [概觀]頁面。 在 [VPN 連線] 區段中，如果閘道正在虛擬網路中執行，您將會看到閘道的 IP 位址。 
+如果是傳統虛擬網路，請移至 Azure 入口網站中傳統虛擬網路的 [概觀]  頁面。 在 [VPN 連線]  區段中，如果閘道正在虛擬網路中執行，您將會看到閘道的 IP 位址。 
 
 ![檢查閘道是否正在執行](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
 
-如果是虛擬網路，請移至虛擬網路的 [概觀] 頁面。 檢查虛擬網路閘道的 [連線的裝置]。
+如果是虛擬網路，請移至虛擬網路的 [概觀]  頁面。 檢查虛擬網路閘道的 [連線的裝置]  。
 
 ![檢查連線的裝置](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
@@ -54,9 +54,9 @@ ms.locfileid: "62123020"
 
 ### <a name="check-whether-an-application-gateway-is-running-in-the-virtual-network"></a>檢查虛擬網路中是否正在執行應用程式閘道
 
-移至虛擬網路的 [概觀] 頁面。 檢查應用程式閘道的 [連線的裝置]。
+移至虛擬網路的 [概觀]  頁面。 檢查應用程式閘道的 [連線的裝置]  。
 
-![检查已连接的设备](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
+![檢查連線的裝置](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 如果有應用程式閘道，您必須先移除它，才能刪除虛擬網路。
 
@@ -66,7 +66,7 @@ ms.locfileid: "62123020"
 
 ![檢查連線的裝置](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-若要停用服務，請參閱[使用 Azure 入口網站停用 Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-disable-aadds.md)。
+若要停用服務，請參閱[使用 Azure 入口網站停用 Azure Active Directory Domain Services](../active-directory-domain-services/delete-aadds.md)。
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>檢查虛擬網路是否已連線到其他資源
 
@@ -93,4 +93,4 @@ ms.locfileid: "62123020"
 ## <a name="next-steps"></a>後續步驟
 
 - [Azure 虛擬網路](virtual-networks-overview.md)
-- [Azure 虚拟网络常见问题解答 (FAQ)](virtual-networks-faq.md)
+- [Azure 虛擬網路的常見問題 (FAQ)](virtual-networks-faq.md)

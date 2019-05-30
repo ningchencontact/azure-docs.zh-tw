@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e9ee0d6fab96c84eee8a520d01d97faddab49f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b0844030d069fba40bfd2fdf55252d8b9e3b1c2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249715"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235132"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory 功能部署指南
 
@@ -41,7 +41,7 @@ ms.locfileid: "60249715"
 
 在這個階段，系統管理員會啟用基準安全性功能，以在我們匯入或建立一般使用者帳戶之前，在 Azure AD 中建立更安全且容易使用的基礎。 此基本階段可確保您一開始就處於更安全的狀態，而且只需要向一般使用者介紹新概念一次。
 
-| Task | 詳細資料 | 必要授權 |
+| Task | Detail | 必要授權 |
 | ---- | ------ | ---------------- |
 | [指定超過一個全域管理員](../users-groups-roles/directory-emergency-access.md) | 在發生緊急狀況時，請指定至少兩個僅限雲端的永久全域管理員帳戶。 這些帳戶並非每天使用，而且應該有複雜的長密碼。 | Azure AD Free |
 | [可能的話，請使用非全域系統管理角色](../users-groups-roles/directory-assign-admin-roles.md) | 僅賦予您的系統管理員存取其所需存取區域的權限。 並非所有系統管理員都必須是全域管理員。 | Azure AD Free |
@@ -62,10 +62,10 @@ ms.locfileid: "60249715"
 
 接著，我們會匯入使用者，以及啟用同步處理、規劃來賓存取及準備支援額外功能，藉此擴建增階段 1 所設置的基礎。
 
-| Task | 詳細資料 | 必要授權 |
+| Task | Detail | 必要授權 |
 | ---- | ------ | ---------------- |
 | [安裝 Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md) | 準備讓使用者從現有的內部部署目錄同步至雲端。 | Azure AD Free |
-| [實作密碼雜湊同步處理](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | 同步密碼雜湊，以允許複寫變更密碼、偵測和補救不正確的密碼，以及回報外洩的認證。 | Azure AD Premium P1 |
+| [實作密碼雜湊同步處理](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | 同步密碼雜湊，以允許複寫變更密碼、偵測和補救不正確的密碼，以及回報外洩的認證。 | Azure AD Free |
 | [實作密碼回寫](../authentication/howto-sspr-writeback.md) | 可讓雲端中的密碼變更回寫至內部部署 Windows Server Active Directory 環境。 | Azure AD Premium P1 |
 | [實作 Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md) | 能夠監視 Azure AD Connect 伺服器、AD FS 伺服器和網域控制站的主要健康情況統計資料。 | Azure AD Premium P1 |
 | [依據 Azure Active Directory 中的群組成員資格將授權指派給使用者](../users-groups-roles/licensing-groups-assign.md) | 建立可依照群組啟用或停用功能 (而非依據每位使用者設定) 的授權群組，以節省時間和精力。 | |
@@ -77,7 +77,7 @@ ms.locfileid: "60249715"
 
 當我們繼續以先前的階段為根基，我們會找出可供移轉以及與 Azure AD 整合的候選應用程式，並完成這些應用程式的設定。
 
-| Task | 詳細資料 | 必要授權 |
+| Task | Detail | 必要授權 |
 | ---- | ------ | ---------------- |
 | 識別您的應用程式 | 識別貴組織中使用的應用程式：內部部署應用程式、雲端中的 SaaS 應用程式，以及其他企業營運應用程式。 判斷這些應用程式是否可以且應該透過 Azure AD 管理。 | 不需要授權 |
 | [整合資源庫中支援的 SaaS 應用程式](../manage-apps/add-application-portal.md) | Azure AD 有一個資源庫，其中包含數千個預先整合的應用程式。 您組織使用的某些應用程式可能就在可從 Azure 入口網站直接存取的資源庫中。 | Azure AD Free |
@@ -87,7 +87,7 @@ ms.locfileid: "60249715"
 
 階段 4 可看見系統管理員強制執行系統管理的最低權限準則、完成其第一次存取權檢閱，以及讓一般使用者生命週期工作自動化。
 
-| Task | 詳細資料 | 必要授權 |
+| Task | Detail | 必要授權 |
 | ---- | ------ | ---------------- |
 | [強制使用 Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | 從一般日常使用者帳戶中移除系統管理角色。 在成功執行多重要素驗證檢查、提供業務理由，或是向指定的核准者要求核准之後，讓系統管理使用者有資格使用其角色。 | Azure AD Premium P2 |
 | [在 PIM 中完成 Azure AD 目錄角色的存取權檢閱](../privileged-identity-management/pim-how-to-start-security-review.md) | 與您的安全性和領導小組合作，一起建立存取權檢閱原則，以根據貴組織原則來檢閱系統管理存取權。 | Azure AD Premium P2 |

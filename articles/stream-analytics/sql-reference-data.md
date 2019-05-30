@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0e62c27885e2f6d5097194e1b9d869e167c4a4c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363314"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304979"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>將來自 SQL Database 的參考資料用於 Azure 串流分析作業 (預覽)
 
@@ -33,7 +33,7 @@ Azure 串流分析支援以 Azure SQL Database 作為參考資料輸入的來源
 
 ### <a name="define-sql-database-reference-data-input"></a>定義 SQL Database 參考資料輸入
 
-1. 在您的串流資料作業中，選取 [工作拓樸] 底下的 [輸入]。 按一下 [新增參考輸入] 並選擇 [SQL Database]。
+1. 在您的串流資料作業中，選取 [工作拓樸]  底下的 [輸入]  。 按一下 [新增參考輸入]  並選擇 [SQL Database]  。
 
    ![串流分析工作輸入](./media/sql-reference-data/stream-analytics-inputs.png)
 
@@ -45,7 +45,7 @@ Azure 串流分析支援以 Azure SQL Database 作為參考資料輸入的來源
 
 ### <a name="specify-storage-account-in-job-config"></a>在作業設定中指定儲存體帳戶
 
-瀏覽到 [設定] 底下的 [儲存體帳戶設定]，然後選取 [新增儲存體帳戶]。
+瀏覽到 [設定]  底下的 [儲存體帳戶設定]  ，然後選取 [新增儲存體帳戶]  。
 
    ![串流分析 [儲存體帳戶設定]](./media/sql-reference-data/storage-account-settings.png)
 
@@ -59,16 +59,14 @@ Azure 串流分析支援以 Azure SQL Database 作為參考資料輸入的來源
 
 ### <a name="visual-studio-prerequisites"></a>Visual Studio 必要條件
 
-1. 如果您是使用 Visual Studio 2017，請更新至 15.8.2 或更新版本。 請注意，目前不支援 16.0 和更新版本。
-
-2. [安裝適用於 Visual Studio 的串流分析工具](stream-analytics-tools-for-visual-studio-install.md)。 支援下列其中一個 Visual Studio 版本：
+1. [安裝適用於 Visual Studio 的串流分析工具](stream-analytics-tools-for-visual-studio-install.md)。 支援下列其中一個 Visual Studio 版本：
 
    * Visual Studio 2015
-   * Visual Studio 2017
+   * Visual Studio 2019
 
-3. 熟悉[適用於 Visual Studio 的串流分析工具](stream-analytics-quick-create-vs.md)快速指南。
+2. 熟悉[適用於 Visual Studio 的串流分析工具](stream-analytics-quick-create-vs.md)快速指南。
 
-4. 建立儲存體帳戶。
+3. 建立儲存體帳戶。
 
 ### <a name="create-a-sql-database-table"></a>建立 SQL Database 資料表
 
@@ -82,17 +80,17 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 ### <a name="choose-your-subscription"></a>選擇您的訂用帳戶
 
-1. 在 Visual Studio 的 [檢視] 功能表上，選取 [伺服器總管]。
+1. 在 Visual Studio 的 [檢視]  功能表上，選取 [伺服器總管]  。
 
-2. 以滑鼠右鍵按一下 [Azure]，選取 [連線到 Microsoft Azure 訂用帳戶]，然後以您的 Azure 帳戶登入。
+2. 以滑鼠右鍵按一下 [Azure]  ，選取 [連線到 Microsoft Azure 訂用帳戶]  ，然後以您的 Azure 帳戶登入。
 
 ### <a name="create-a-stream-analytics-project"></a>建立串流分析專案
 
-1. 選取 [檔案] > [新增專案]。 
+1. 選取 [檔案] > [新增專案]  。 
 
-2. 在左側的範本清單中，選取 [串流分析]，然後選取 [Azure 串流分析應用程式]。 
+2. 在左側的範本清單中，選取 [串流分析]  ，然後選取 [Azure 串流分析應用程式]  。 
 
-3. 輸入專案的 [名稱]、[位置] 和 [解決方案名稱]，然後選取 [確定]。
+3. 輸入專案的 [名稱]  、[位置]  和 [解決方案名稱]  ，然後選取 [確定]  。
 
    ![Visual Studio 中的新串流分析專案](./media/sql-reference-data/stream-analytics-vs-new-project.png)
 
@@ -102,23 +100,23 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
    ![Visual Studio 中的新串流分析輸入](./media/sql-reference-data/stream-analytics-vs-input.png)
 
-2. 按兩下 [方案總管] 中的 [Input.json]。
+2. 按兩下 [方案總管]  中的 [Input.json]  。
 
-3. 填寫 [串流分析輸入設定]。 選擇資料庫名稱、伺服器名稱、重新整理類型，以及重新整理頻率。 以 `DD:HH:MM` 的格式指定重新整理頻率。
+3. 填寫 [串流分析輸入設定]  。 選擇資料庫名稱、伺服器名稱、重新整理類型，以及重新整理頻率。 以 `DD:HH:MM` 的格式指定重新整理頻率。
 
    ![Visual Studio 中的串流分析輸入設定](./media/sql-reference-data/stream-analytics-vs-input-config.png)
 
-   如果您選擇 [僅執行一次] 或 [定期執行]，系統會在 [Input.json] 檔案節點底下的專案中產生名為 **[Input Alias].snapshot.sql** 的 SQL 程式碼後置檔案。
+   如果您選擇 [僅執行一次] 或 [定期執行]，系統會在 [Input.json]  檔案節點底下的專案中產生名為 **[Input Alias].snapshot.sql** 的 SQL 程式碼後置檔案。
 
    ![Visual Studio 中的輸入程式碼後置](./media/sql-reference-data/once-or-periodically-codebehind.png)
 
-   如果您選擇 [搭配差異定期重新整理]，系統會產生兩個 SQL 程式碼後置檔案：**[Input Alias].snapshot.sql** 和 **[Input Alias].delta.sql**。
+   如果您選擇 [搭配差異定期重新整理]，系統會產生兩個 SQL 程式碼後置檔案： **[Input Alias].snapshot.sql** 和 **[Input Alias].delta.sql**。
 
    ![方案總管中的程式碼後置](./media/sql-reference-data/periodically-delta-codebehind.png)
 
 4. 在編輯器中開啟該 SQL 檔案，並寫入 SQL 查詢。
 
-5. 如果您是使用 Visual Studio 2017，且已安裝 SQL Server Data Tools，便可以按一下 [執行] 來測試查詢。 精靈視窗將會顯示以協助您連線到 SQL 資料庫，查詢結果將會出現在底部視窗中。
+5. 如果您使用 Visual Studio 2019，而且您已安裝 SQL Server Data tools，您可以按一下來測試查詢**Execute**。 精靈視窗將會顯示以協助您連線到 SQL 資料庫，查詢結果將會出現在底部視窗中。
 
 ### <a name="specify-storage-account"></a>指定儲存體帳戶
 
@@ -128,7 +126,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 ### <a name="test-locally-and-deploy-to-azure"></a>於本機測試並部署到 Azure
 
-在將作業部署到 Azure 之前，您可以在本機針對即時輸入資料測試查詢邏輯。 如需此功能的詳細資料，請參閱[使用適用於 Visual Studio 的 Azure 串流分析工具 (預覽) 在本機測試即時資料](stream-analytics-live-data-local-testing.md)。 完成測試之後，請按一下 [提交至 Azure]。 請參考[使用適用於 Visual Studio 的 Azure 串流分析工具建立串流分析作業](stream-analytics-quick-create-vs.md)快速入門來了解如何啟動作業。
+在將作業部署到 Azure 之前，您可以在本機針對即時輸入資料測試查詢邏輯。 如需此功能的詳細資料，請參閱[使用適用於 Visual Studio 的 Azure 串流分析工具 (預覽) 在本機測試即時資料](stream-analytics-live-data-local-testing.md)。 完成測試之後，請按一下 [提交至 Azure]  。 請參考[使用適用於 Visual Studio 的 Azure 串流分析工具建立串流分析作業](stream-analytics-quick-create-vs.md)快速入門來了解如何啟動作業。
 
 ## <a name="delta-query"></a>差異查詢
 
@@ -175,6 +173,9 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
  
    請注意，除了差異查詢之外，串流分析執行階段可能會定期執行快照集查詢以儲存檢查點。
 
+## <a name="test-your-query"></a>測試查詢
+   請務必確認您的查詢會傳回預期的 Stream Analytics 作業將會使用做為參考資料的資料集。 若要測試您的查詢，請移至輸入作業拓撲 區段下入口網站上。 然後，您就可以在 輸入您 SQL Database 參考上選取範例資料。 此範例就會變成可用之後，您可以下載檔案，並檢查以查看所傳回的資料是否為預期。 如果您想要最佳化您的開發和測試反覆項目，則建議使用[Stream Analytics tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)。 您可以也任何其他工具的 您的喜好設定，必須先確定查詢會傳回正確的結果，從您的 Azure SQL Database，並再將其用於您的 Stream Analytics 作業。 
+
 ## <a name="faqs"></a>常見問題集
 
 **在 Azure 串流分析中使用 SQL 參考資料輸入是否會產生額外成本？**
@@ -193,10 +194,6 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 **我是否需要特別類型的 Azure SQL Database？**
 
 Azure 串流分析可搭配任何類型的 Azure SQL Database 運作。 不過，請務必了解針對參考資料輸入所設定的重新整理頻率，可能會影響查詢負載。 若要使用差異查詢選項，建議使用 Azure SQL Database 中的時態表。
-
-**是否可以從 SQL Database 參考資料輸入取得輸入範例？**
-
-此功能無法使用。
 
 **為何 Azure 串流分析會將快照集儲存在 Azure 儲存體帳戶？**
 

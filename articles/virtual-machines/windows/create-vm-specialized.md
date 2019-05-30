@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: a5e891d334bc15e0b03facb1f1f5ed8a511cda55
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b015b52e3fc806834f12e98c30b6b4e53cb6d659
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443897"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726262"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>使用 PowerShell 從特製化磁碟建立 Windows VM
 
@@ -37,7 +37,7 @@ ms.locfileid: "58443897"
 
 本文說明如何使用受控磁碟。 如果您有需要使用儲存體帳戶的舊版部署，請參閱[從儲存體帳戶中的特製化 VHD 建立 VM](sa-create-vm-specialized.md)。
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="option-1-use-an-existing-disk"></a>選項 1：使用現有的磁碟
 
@@ -313,14 +313,14 @@ $nsg = New-AzNetworkSecurityGroup `
 
 ### <a name="set-the-vm-name-and-size"></a>設定 VM 名稱和大小
 
-此範例將 VM 名稱設定為 myVM，將 VM 大小設定為 Standard_A2。
+此範例將 VM 名稱設定為 myVM  ，將 VM 大小設定為 Standard_A2  。
 
 ```powershell
 $vmName = "myVM"
 $vmConfig = New-AzVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```
 
-### <a name="add-the-nic"></a>添加 NIC
+### <a name="add-the-nic"></a>新增 NIC
     
 ```powershell
 $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
@@ -354,7 +354,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>確認已建立 VM
-您應該可在 [Azure 入口網站](https://portal.azure.com)的 [瀏覽] > [虛擬機器] 下，或透過使用下列 PowerShell 命令，看到新建立的 VM。
+您應該可在 [Azure 入口網站](https://portal.azure.com)的 [瀏覽]   > [虛擬機器]  下，或透過使用下列 PowerShell 命令，看到新建立的 VM。
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup

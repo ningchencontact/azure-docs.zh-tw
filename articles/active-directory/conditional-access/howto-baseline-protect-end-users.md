@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cd52fb82e5e4cce759be5dfdd8872f64802459
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 104665774eee885cc2f562e9813cffcf23aa943e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003157"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235511"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>基準原則：終端使用者 protection （預覽）
 
@@ -75,13 +75,13 @@ ms.locfileid: "66003157"
 
 原則**基準原則：終端使用者 protection （預覽）** 隨附預先設定，然後會出現在頂端當您瀏覽至 Azure 入口網站中的 [條件式存取] 刀鋒視窗。
 
-若要啟用此原則，並保護您的系統管理員：
+若要啟用此原則，並保護您的使用者：
 
 1. 登入 **Azure 入口網站** 為全域管理員、 安全性系統管理員或條件式存取系統管理員。
 1. 瀏覽至**Azure Active Directory** > **條件式存取**。
-1. 在原則清單中，選取 **基準原則：終端使用者 protection （預覽）**。
+1. 在原則清單中，選取 **基準原則：終端使用者 protection （預覽）** 。
 1. 設定**啟用原則**要**立即使用原則**。
-1. 新增任何使用者排除項目上即可**使用者** > **選取排除的使用者**，然後選擇要排除的使用者。 按一下 **選取 **再**完成**。
+1. 新增任何使用者排除項目上即可**使用者** > **選取排除的使用者**，然後選擇要排除的使用者。 按一下 **選取** 再**完成**。
 1. 按一下  **儲存**。
 
 ## <a name="next-steps"></a>後續步驟

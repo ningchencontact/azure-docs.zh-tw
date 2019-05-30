@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/10/2019
-ms.openlocfilehash: 53f9f67397e1484559ee8243a52ad8339df930bc
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.date: 05/23/2019
+ms.openlocfilehash: e824ac81f1336644fa70cc24539284feacee3199
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990207"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244523"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -63,9 +63,9 @@ ms.locfileid: "65990207"
 
 若要變更預設的限制執行的持續時間和儲存體保留期，請遵循下列步驟。 如果需要指定超過上限的值，請[與 Logic Apps 小組連絡](mailto://logicappsemail@microsoft.com)來協助處理您的需求。
 
-1. 在 Azure 入口網站的邏輯應用程式功能表上，選擇 [工作流程設定]。
+1. 在 Azure 入口網站的邏輯應用程式功能表上，選擇 [工作流程設定]  。
 
-2. 在 [執行階段選項] 底下，從 [執行歷程記錄保留期 (天)] 清單中選擇 [自訂]。
+2. 在 [執行階段選項]  底下，從 [執行歷程記錄保留期 (天)]  清單中選擇 [自訂]  。
 
 3. 以輸入或拖曳滑桿的方式選擇所要的天數。
 
@@ -120,7 +120,7 @@ ms.locfileid: "65990207"
 
 以下是單一 HTTP 要求或同步連接器呼叫的限制：
 
-#### <a name="timeout"></a>等候逾時
+#### <a name="timeout"></a>逾時
 
 某些連接器作業會進行非同步呼叫或接聽 Webhook 要求，因此這些作業的逾時可能會超過這些限制。 如需詳細資訊，請參閱特定連接器的技術詳細資料以及[工作流程觸發程序和動作](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)。
 
@@ -143,7 +143,7 @@ ms.locfileid: "65990207"
 
 | 名稱 | 限制 | 注意 |
 | ---- | ----- | ----- |
-| 重試嘗試 | 90 | 預設值為 4。 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
+| 重試次數 | 90 | 預設值為 4。 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
 | 重試延遲上限 | 1 天 | 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
 | 重試延遲下限 | 5 秒 | 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
 ||||
@@ -162,7 +162,7 @@ ms.locfileid: "65990207"
 
 <a name="managed-identity"></a>
 
-## <a name="managed-identities"></a>受控識別
+## <a name="managed-identities"></a>受控身分識別
 
 | 名稱 | 限制 |
 | ---- | ----- |
@@ -184,11 +184,11 @@ ms.locfileid: "65990207"
 
 | 構件 | 免費 | 基本 | 標準 |
 |----------|------|-------|----------|
-| EDI 交易協議 | 10 | 1 | 500 |
-| EDI 交易夥伴 | 25 | 2 | 500 |
+| EDI 交易協議 | 10 | 1 | 1,000 |
+| EDI 交易夥伴 | 25 | 2 | 1,000 |
 | 地圖 | 25 | 500 | 1,000 |
 | 結構描述 | 25 | 500 | 1,000 |
-| 組件 | 10 | 25 | 50 |
+| 組件 | 10 | 25 | 1,000 |
 | 憑證 | 25 | 2 | 500 |
 | 批次設定 | 5 | 1 | 50 |
 ||||
@@ -237,9 +237,9 @@ ms.locfileid: "65990207"
 
 ## <a name="firewall-configuration-ip-addresses"></a>防火牆組態：IP 位址
 
-相同區域中的所有邏輯應用程式都會使用相同的 IP 位址範圍。 若要支援您的邏輯應用程式直接以 [HTTP](../connectors/connectors-native-http.md)、[HTTP + Swagger](../connectors/connectors-native-http-swagger.md) 及其他 HTTP 要求進行的呼叫，請根據您邏輯應用程式的所在區域，使用 Logic Apps 服務使用的「所有」[輸入](#inbound)和[輸出](#outbound) IP 位址設定您的防火牆。 這些位址會出現在本節中的**輸入**和**輸出**標題底下，並且依照區域排序。
+相同區域中的所有邏輯應用程式都會使用相同的 IP 位址範圍。 若要支援您的邏輯應用程式直接以 [HTTP](../connectors/connectors-native-http.md)、[HTTP + Swagger](../connectors/connectors-native-http-swagger.md) 及其他 HTTP 要求進行的呼叫，請根據您邏輯應用程式的所在區域，使用 Logic Apps 服務使用的「所有」  [輸入](#inbound)  和[輸出](#outbound) IP 位址設定您的防火牆。 這些位址會出現在本節中的**輸入**和**輸出**標題底下，並且依照區域排序。
 
-若要支援 [Microsoft 管理的連接器](../connectors/apis-list.md)所進行的呼叫，請根據您邏輯應用程式的所在區域，使用這些連接器使用的「所有」[輸出](#outbound) IP 位址設定您的防火牆。 這些位址會出現在本節中的**輸出**標題底下，並且依照區域排序。
+若要支援 [Microsoft 管理的連接器](../connectors/apis-list.md)所進行的呼叫，請根據您邏輯應用程式的所在區域，使用這些連接器使用的「所有」  [輸出](#outbound) IP 位址設定您的防火牆。 這些位址會出現在本節中的**輸出**標題底下，並且依照區域排序。
 
 對於 [Azure Government](../azure-government/documentation-government-overview.md) 和 [Azure 中國 21Vianet](https://docs.microsoft.com/azure/china/)，目前無法使用針對連接器保留的 IP 位址。
 

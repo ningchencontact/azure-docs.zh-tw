@@ -12,23 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: d75544a30a441b5178a1e9dd368f1ce41cd4d321
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f5819194e7967b5921f34223cad299752460de30
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574272"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255647"
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights 中的分析
 Analytics 是 [Application Insights](app-insights-overview.md) 強大的搜尋和查詢工具。 Analytics 是 web 工具，不需要設定。
-如果已經為您的其中一個應用程式設定 Application Insights，則您可以從應用程式的[概觀刀鋒視窗](app-insights-dashboards.md)開啟 Analytics 來分析應用程式的資料。
+如果您已經設定 Application Insights 的應用程式的其中一個您可以藉由從您的應用程式概觀刀鋒視窗中開啟 Analytics 來分析應用程式的資料。
 
 ![開啟 portal.azure.com，開啟您的 Application Insights 資源，然後按一下 [分析]。](./media/analytics/001.png)
 
 您也可以使用 [Analytics 遊樂場](https://go.microsoft.com/fwlink/?linkid=859557)，這是含有大量範例資料的免費示範環境。
-<br>
-<br>
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="relation-to-azure-monitor-logs"></a>Azure 監視器記錄的關聯
 Application Insights 分析是根據 [Azure 資料總管](/azure/data-explorer)，例如 Azure 監視器記錄，也使用 [Kusto 查詢語言](/azure/kusto/query)。 儘管其資料儲存在單獨的分割區中，它使用與 Azure 監視器記錄相同的[記錄分析入口網站](../log-query/get-started-portal.md)。
@@ -37,7 +34,7 @@ Application Insights 分析是根據 [Azure 資料總管](/azure/data-explorer)�
 
 
 ## <a name="query-data-in-analytics"></a>在 Analytics 中查詢資料
-查詢通常以資料表名稱開頭，後面接著一連串以 `|` 隔開的「運算子」。
+查詢通常以資料表名稱開頭，後面接著一連串以 `|` 隔開的「運算子」  。
 比方說，讓我們了解多少要求我們收到來自不同國家/地區，在過去 3 小時內的應用程式：
 ```AIQL
 requests

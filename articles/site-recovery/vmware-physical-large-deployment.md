@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: raynew
-ms.openlocfilehash: 593a82221ec94e43d50b7382ba89053d5f68864a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e96aafe61c0d8547ffca9e97bfd9e90c9529155f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805917"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237271"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>設定 VMware Vm/實體伺服器為大規模的災害復原
 
@@ -26,7 +26,7 @@ ms.locfileid: "65805917"
 - 當您針對 VMware Vm 和找出所需的 Azure 資源大規模災害復原計劃，您可以指定將用於產能計算的 RTO 值。
 
 
-## <a name="best-practices"></a>最佳做法
+## <a name="best-practices"></a>最佳作法
 
 大規模的災害復原的一些一般最佳作法。 在文件的下一節中詳細討論這些最佳作法。
 
@@ -100,8 +100,8 @@ ms.locfileid: "65805917"
 
 **電腦符合 < 使用 Azure 嗎？** | **Azure VM 的限制 （受控的磁碟容錯移轉）**
 --- | --- 
-有 | 2000
-無 | 1000
+是 | 2000
+否 | 1000
 
 - 限制假設，最低的其他作業正在進行的訂用帳戶的目標區域中。
 - 某些 Azure 區域比較小，並可能會有稍微較低的限制。
@@ -188,7 +188,7 @@ ms.locfileid: "65805917"
 1. 將指定的災害復原的系統管理員來監視複寫的機器的健全狀況狀態。
 2. [監視事件](site-recovery-monitor-and-troubleshoot.md)複寫的項目和基礎結構。
 3. [監視健全狀況](vmware-physical-azure-monitor-process-server.md)的向外延展處理序伺服器。
-4. 若要取得註冊[電子郵件通知](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot.md#subscribe-to-email-notifications)事件，以便進行監視。
+4. 若要取得註冊[電子郵件通知](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications)事件，以便進行監視。
 5. 定期舉行[災害復原演練，又](site-recovery-test-failover-to-azure.md)，以確保一切運作正常。
 
 

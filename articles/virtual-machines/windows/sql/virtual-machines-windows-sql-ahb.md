@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3f62557d024f56b7014784b6956f15a950f8cca7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1fb67600ea01629e7bf3ab4c7c470e4727b0e923
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926241"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393180"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>如何在 Azure 中變更 SQL Server 虛擬機器的授權模型
 本文說明如何在 Azure 中使用新的 SQL VM 資源提供者 **Microsoft.SqlVirtualMachine**，來變更 SQL Server 虛擬機器的授權模型。 有兩個授權裝載 SQL Server-隨用隨付，虛擬機器 (VM) 的模型和自備授權 (BYOL)。 而現在，使用 Azure 入口網站、 Azure CLI 或 PowerShell 您可以修改您的 SQL Server VM 會使用哪個授權模型。 
@@ -29,12 +29,12 @@ ms.locfileid: "64926241"
 
 **攜帶-您擁有的授權**(BYOL) 模式，也就是[Azure Hybrid Benefit (適 AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/)，並可讓您使用執行 SQL Server VM 上的 SQL Server 授權。 如需價格的詳細資訊，請參閱 [SQL Server VM 定價指南](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance)。
 
-在兩個授權模型之間切換時，**不會產生停機時間**、不會重新啟動 VM、**無須支付額外費用** (事實上，啟動 AHB 會「降低」成本)，而且**立即生效**。 
+在兩個授權模型之間切換時，**不會產生停機時間**、不會重新啟動 VM、**無須支付額外費用** (事實上，啟動 AHB 會「降低」  成本)，而且**立即生效**。 
 
 ## <a name="remarks"></a>備註
 
 
- - CSP 客戶可以運用 AHB 的權益，先部署隨用隨付的 VM，然後再將其轉換成自備授權。 
+ - Azure 雲端方案 (CSP) 客戶可以利用 Azure Hybrid Benefit，第一次部署的隨用隨付的 VM，並再將它轉換成自備-您擁有的授權。 
  - 向資源提供者註冊自訂的 SQL Server VM 映像，當指定授權類型 = 'AHUB'。 離開授權類型為空白，或指定 'PAYG' 會造成失敗的註冊。 
  - 如果您卸除 SQL Server VM 資源，您將會移回至映像的硬式編碼的授權設定。 
  - 將 SQL Server VM 加入至可用性設定組時，需要重新建立 VM。 這類，任何虛擬機器加入至可用性集合將會回到預設的隨用隨付授權類型，並適 AHB 必須再次啟用。 
@@ -133,11 +133,11 @@ $SqlVm | Set-AzResource -Force
 #### <a name="with-the-azure-portal"></a>透過 Azure 入口網站
 下列步驟將註冊 SQL 資源提供者，您使用 Azure 入口網站的 Azure 訂用帳戶。 
 
-1. 開啟 Azure 入口網站並瀏覽至 [所有服務]。 
-1. 瀏覽至 [訂用帳戶] 然後選取感興趣的訂用帳戶。  
-1. 在 [訂用帳戶] 刀鋒視窗中，瀏覽至 [資源提供者]。 
+1. 開啟 Azure 入口網站並瀏覽至 [所有服務]  。 
+1. 瀏覽至 [訂用帳戶]  然後選取感興趣的訂用帳戶。  
+1. 在 [訂用帳戶]  刀鋒視窗中，瀏覽至 [資源提供者]  。 
 1. 在篩選條件中輸入 `sql` 以顯示 SQL 相關的資源提供者。 
-1. 取決於您所需的動作，針對 **Microsoft.SqlVirtualMachine** 提供者選取 [註冊]、[重新註冊] 或 [取消註冊]。 
+1. 取決於您所需的動作，針對 **Microsoft.SqlVirtualMachine** 提供者選取 [註冊]  、[重新註冊]  或 [取消註冊]  。 
 
    ![修改提供者](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 

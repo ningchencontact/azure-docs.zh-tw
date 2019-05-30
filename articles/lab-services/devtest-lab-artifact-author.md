@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 05/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311112"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399209"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>為 DevTest Labs 虛擬機器建立自訂構件
 
@@ -30,7 +30,7 @@ ms.locfileid: "60311112"
 >
 
 ## <a name="overview"></a>概觀
-在佈建 VM 之後，您可以使用「構件」來部署和設定應用程式。 構件包含構件定義檔和其他儲存於 Git 存放庫之資料夾中的指令碼檔案。 構件定義檔是由 JSON 和可用來指定您想要在 VM 上安裝的運算式所組成。 例如，您可以定義構件名稱、要執行的命令，以及執行命令時可用的參數。 您可以依照名稱來參考構件定義檔中的其他指令碼檔案。
+在佈建 VM 之後，您可以使用「構件」  來部署和設定應用程式。 構件包含構件定義檔和其他儲存於 Git 存放庫之資料夾中的指令碼檔案。 構件定義檔是由 JSON 和可用來指定您想要在 VM 上安裝的運算式所組成。 例如，您可以定義構件名稱、要執行的命令，以及執行命令時可用的參數。 您可以依照名稱來參考構件定義檔中的其他指令碼檔案。
 
 ## <a name="artifact-definition-file-format"></a>構件定義檔格式
 下列範例顯示組成定義檔基本結構的區段：
@@ -53,7 +53,7 @@ ms.locfileid: "60311112"
       }
     }
 
-| 元素名稱 | 必要？ | 描述 |
+| 元素名稱 | 必要項？ | 描述 |
 | --- | --- | --- |
 | $schema |否 |JSON 結構描述檔案的位置。 JSON 結構描述檔案可協助您測試定義檔是否有效。 |
 | title |是 |實驗室中顯示的構件名稱。 |
@@ -76,7 +76,7 @@ ms.locfileid: "60311112"
       }
     }
 
-| 元素名稱 | 必要？ | 描述 |
+| 元素名稱 | 必要項？ | 描述 |
 | --- | --- | --- |
 | type |是 |參數值類型。 請參閱下列清單以了解允許的類型。 |
 | displayName |是 |為實驗室中的使用者顯示的參數名稱。 |
@@ -89,15 +89,40 @@ ms.locfileid: "60311112"
 * bool (任何有效的 JSON 布林值)
 * array (任何有效的 JSON 陣列)
 
+## <a name="secrets-as-secure-strings"></a>為安全字串的祕密
+宣告為安全字串的祕密。 以下是宣告中的安全字串參數的語法`parameters`一節**artifactfile.json 儲存於**檔案：
+
+```json
+
+    "securestringParam": {
+      "type": "securestring",
+      "displayName": "Secure String Parameter",
+      "description": "Any text string is allowed, including spaces, and will be presented in UI as masked characters.",
+      "allowEmpty": false
+    },
+```
+
+構件安裝命令，執行 PowerShell 指令碼，以便使用 Convertto-securestring 命令來建立安全字串。 
+
+```json
+  "runCommand": {
+    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./artifact.ps1 -StringParam ''', parameters('stringParam'), ''' -SecureStringParam (ConvertTo-SecureString ''', parameters('securestringParam'), ''' -AsPlainText -Force) -IntParam ', parameters('intParam'), ' -BoolParam:$', parameters('boolParam'), ' -FileContentsParam ''', parameters('fileContentsParam'), ''' -ExtraLogLines ', parameters('extraLogLines'), ' -ForceFail:$', parameters('forceFail'), '\"')]"
+  }
+```
+
+如需完整範例 artifactfile.json 儲存於和 artifact.ps1 （PowerShell 指令碼），請參閱[GitHub 上的這個範例](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes)。
+
+另一個重點要特別注意不是記錄至主控台的祕密，輸出會捕捉到的使用者偵錯。 
+
 ## <a name="artifact-expressions-and-functions"></a>構件運算式和函式
 您可以使用運算式和函式來建構構件安裝命令。
 運算式是以方括號 ([ 與 ]) 括住，並會在安裝構件後加以評估。 運算式可以出現在 JSON 字串值的任何位置。 運算式一律會傳回另一個 JSON 值。 如果您必須使用開頭為括號 ([) 的常數字串，您必須使用兩個括號 ([[)。
-通常您會使用運算式搭配函式來建構值。 正如同在 JavaScript 中，函式呼叫的格式為 **functionName(arg1,arg2,arg3)**。
+通常您會使用運算式搭配函式來建構值。 正如同在 JavaScript 中，函式呼叫的格式為 **functionName(arg1,arg2,arg3)** 。
 
 下列清單顯示常見的函式：
 
-* **parameters(parameterName)**：傳回在執行構件命令時所提供的參數值。
-* **concat(arg1, arg2, arg3,….. )**：結合多個字串值。 此函式可以接受各種引數。
+* **parameters(parameterName)** ：傳回在執行構件命令時所提供的參數值。
+* **concat(arg1, arg2, arg3,….. )** ：結合多個字串值。 此函式可以接受各種引數。
 
 下列範例示範如何使用運算式和函式來建構值：
 

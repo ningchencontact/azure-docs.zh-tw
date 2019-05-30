@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c80e9953a24504c4ad324ce077b741e60a52b1fb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 215b839c21c2590c08ac2f4250086eaf97914ce1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65908011"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243719"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>使用 .NET SDK 向 Azure Data Lake Storage Gen1 進行使用者驗證
 > [!div class="op_single_selector"]
@@ -38,20 +38,20 @@ ms.locfileid: "65908011"
 
 ## <a name="create-a-net-application"></a>建立 .NET 應用程式
 1. 在 Visual Studio 中，選取**檔案** 功能表**新增**，然後**專案**。
-2. 選擇**主控台應用程式 (.NET Framework)**，然後選取**下一步**。
+2. 選擇**主控台應用程式 (.NET Framework)** ，然後選取**下一步**。
 3. 在 **專案名稱**，輸入`CreateADLApplication`，然後選取**建立**。
 
 4. 將 NuGet 套件新增至您的專案。
 
    1. 在方案總管中以滑鼠右鍵按一下專案名稱，然後按一下 [ **管理 NuGet 封裝**]。
-   2. 在 [NuGet 套件管理員] 索引標籤中，確定 [套件來源] 設為 [nuget.org]，且已選取 [包含發行前版本] 核取方塊。
+   2. 在 [NuGet 套件管理員]  索引標籤中，確定 [套件來源]  設為 [nuget.org]  ，且已選取 [包含發行前版本]  核取方塊。
    3. 搜尋並安裝下列 NuGet 封裝：
 
       * `Microsoft.Azure.Management.DataLake.Store` - 本教學課程使用 v2.1.3-preview。
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 本教學課程使用 v2.2.12。
 
         ![新增 NuGet 來源](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "建立新的 Azure Data Lake 帳戶")
-   4. 關閉 [NuGet 套件管理員]。
+   4. 關閉 [NuGet 套件管理員]  。
 
 5. 開啟 **Program.cs**
 6. 使用以下幾行取代 using 陳述式：
@@ -74,7 +74,7 @@ ms.locfileid: "65908011"
 ## <a name="end-user-authentication"></a>使用者驗證
 在 .NET 用戶端應用程式中加入這個程式碼片段。 以從 Azure AD 原生應用程式 (列為必要元件) 中擷取的值取代預留位置值。 這個程式碼片段可讓您**以互動方式**向 Data Lake Storage Gen1 驗證應用程式，這表示系統會提示您輸入您的 Azure 認證。
 
-為了方便使用，下列程式碼片段會使用對任何 Azure 訂用帳戶都有效的用戶端識別碼和重新導向 URI 的預設值。 在下列程式碼片段中，您只需要提供租用戶識別碼的值。 您可以使用[取得租用戶識別碼](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id)所提供的指示，取得租用戶識別碼。
+為了方便使用，下列程式碼片段會使用對任何 Azure 訂用帳戶都有效的用戶端識別碼和重新導向 URI 的預設值。 在下列程式碼片段中，您只需要提供租用戶識別碼的值。 您可以使用[取得租用戶識別碼](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)所提供的指示，取得租用戶識別碼。
     
 - 使用下列程式碼來取代 Main() 函式：
 

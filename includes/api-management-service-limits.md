@@ -10,13 +10,13 @@ ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
 ms.openlocfilehash: fc945a7e9389c8aec48a6a1dba969fbf92002d3a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553375"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238148"
 ---
-| 資源 | 限制 |
+| Resource | 限制 |
 | --- | --- |
 | 縮放單位數上限 | 每個區域 10 個<sup>1</sup> |
 | 快取大小 | 每個單位 5 GB<sup>2</sup> |

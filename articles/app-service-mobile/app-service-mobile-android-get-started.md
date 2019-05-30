@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 10/01/2016
+ms.date: 5/6/2019
 ms.author: crdun
-ms.openlocfilehash: 805868617fe7161159c72ba53ac0c94247722ac9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 72fd043321aefe74e95b34ec24c7be2ffd409439
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62113438"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240314"
 ---
 # <a name="create-an-android-app"></a>建立 Android 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>概觀
-本教學課程將示範如何使用 Azure 行動應用程式後端，將雲端式後端服務加入 Android 行動應用程式。  您將建立新的行動應用程式後端，以及可在 Azure 中儲存應用程式資料的簡易「待辦事項清單」 Android 應用程式。
+本教學課程將示範如何使用 Azure 行動應用程式後端，將雲端式後端服務加入 Android 行動應用程式。  您將建立新的行動應用程式後端，以及可在 Azure 中儲存應用程式資料的簡易「待辦事項清單」  Android 應用程式。
 
 對於在 Azure App Service 中使用 Mobile Apps 功能的所有其他 Android 教學課程，完成本教學課程是必要條件。
 
@@ -33,16 +33,16 @@ ms.locfileid: "62113438"
 若要完成此教學課程，您需要下列項目：
 
 * [Android Developer Tools](https://developer.android.com/sdk/index.html)，其中包括 Android Studio 整合式開發環境，以及最新的 Android 平台。
-* Azure Mobile Android SDK，會自動受到參考，包含在您下載的快速入門專案中。
+* Azure 行動裝置的 Android SDK。
 * 有效的 [Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>建立新的 Azure 行動應用程式後端
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="configure-the-server-project"></a>設定伺服器專案
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>建立資料庫連接，並設定用戶端和伺服器專案
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-android-app"></a>下载并运行 Android 应用
+## <a name="run-the-android-app"></a>執行 Android 的應用程式
 [!INCLUDE [app-service-mobile-android-run-app](../../includes/app-service-mobile-android-run-app.md)]
 
 <!-- URLs -->

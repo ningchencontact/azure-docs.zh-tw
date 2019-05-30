@@ -4,19 +4,19 @@ description: 本文說明如何在 Azure 時間序列深入解析中開發參數
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ddde600c2ac15c56b59051fbcd6bb0e8fbae1f6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: dfc04397b1d7e9f3256810cbe469067ae52c99bd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787534"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238966"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>使用參數化 URL 共用自訂檢視
 
@@ -49,7 +49,7 @@ ms.locfileid: "65787534"
 
 ### <a name="relative-time-values"></a>相對時間值
 
-對於相對時間值，使用 `relativeMillis=<value>`，其中 value 是後端最近資料中的時間值 (以 JavaScript 毫秒為單位)。
+對於相對時間值，使用 `relativeMillis=<value>`，其中 value  是後端最近資料中的時間值 (以 JavaScript 毫秒為單位)。
 
 例如，`&relativeMillis=3600000` 可顯示最近 60 分鐘的資料。
 
@@ -68,12 +68,12 @@ ms.locfileid: "65787534"
 
 `timeSeriesDefinitions=<collection of term objects>`參數指定的時間序列深入解析檢視條款：
 
-| 參數 | URL 項目 | 說明 |
+| 參數 | URL 項目 | 描述 |
 | --- | --- | --- |
-| **name** | `\<string>` | term 的名稱。 |
-| **splitBy** | `\<string>` | split by 的資料行名稱。 |
-| **measureName** | `\<string>` | measure 的資料行名稱。 |
-| **predicate** | `\<string>` | 用於伺服器端篩選的 where 子句。 |
+| **name** | `\<string>` | term  的名稱。 |
+| **splitBy** | `\<string>` | split by  的資料行名稱。 |
+| **measureName** | `\<string>` | measure  的資料行名稱。 |
+| **predicate** | `\<string>` | 用於伺服器端篩選的 where  子句。 |
 | **useSum** | `true` | 指定使用總和作為您的量值的選擇性參數。 </br>  請注意，如果`Events`是選取的量值，預設會選取計數。  </br>  如果`Events`是未選取，平均值會選取預設值。 |
 
 * `multiChartStack=<true/false>`索引鍵 / 值組，可讓 「 堆疊圖表中。
@@ -81,7 +81,7 @@ ms.locfileid: "65787534"
 * `timeBucketUnit=<Unit>&timeBucketSize=<integer>`可讓您調整間隔滑桿，以提供更精細或更平滑、 更彙總的圖表檢視。  
 * `timezoneOffset=<integer>`參數可讓您設定的時區與 UTC 的位移，在中檢視圖表。
 
-| 組 | 說明 |
+| 組 | 描述 |
 | --- | --- |
 | `multiChartStack=false` | `true` 依預設會啟用因此傳遞`false`堆疊。 |
 | `multiChartStack=false&multiChartSameScale=true` | 必須啟用堆疊，才能在不同時段使用相同的 Y 軸刻度。  它有`false`根據預設，所以傳遞 'true'，可讓這項功能。 |

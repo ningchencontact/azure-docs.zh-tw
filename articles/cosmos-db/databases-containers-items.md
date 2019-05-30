@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 7d607b4370d51ea2605fae6543bd3336853b0806
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 574dd9fd6189b6d0f1e5d455146d6d083ad7ff77
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954215"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389474"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>使用資料庫、 容器和 Azure Cosmos DB 中的項目
 
@@ -28,7 +28,7 @@ ms.locfileid: "65954215"
 
 | Azure Cosmos 實體 | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos 資料庫 | 資料庫 | Keyspace | 資料庫 | 資料庫 | NA |
+|Azure Cosmos 資料庫 | 資料庫 | keyspace | 資料庫 | 資料庫 | NA |
 
 > [!NOTE]
 > 使用資料表 API 帳戶，當您建立第一個資料表時，預設的資料庫會自動建立 Azure Cosmos 帳戶中。
@@ -39,10 +39,10 @@ ms.locfileid: "65954215"
 
 | 作業 | Azure CLI | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
 | --- | --- | --- | --- | --- | --- | --- |
-|列舉所有資料庫| 有 | 有 | 是 (資料庫會對應至 keyspace) | 有 | NA | NA |
-|讀取資料庫| 有 | 有 | 是 (資料庫會對應至 keyspace) | 有 | NA | NA |
-|建立新資料庫| 有 | 有 | 是 (資料庫會對應至 keyspace) | 有 | NA | NA |
-|更新資料庫| 有 | 有 | 是 (資料庫會對應至 keyspace) | 有 | NA | NA |
+|列舉所有資料庫| 是 | 是 | 是 (資料庫會對應至 keyspace) | 是 | NA | NA |
+|讀取資料庫| 是 | 是 | 是 (資料庫會對應至 keyspace) | 是 | NA | NA |
+|Create new database| 是 | 是 | 是 (資料庫會對應至 keyspace) | 是 | NA | NA |
+|更新資料庫| 是 | 是 | 是 (資料庫會對應至 keyspace) | 是 | NA | NA |
 
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos 容器
@@ -54,6 +54,9 @@ Azure Cosmos 容器是延展性的針對佈建的輸送量和儲存體單位。 
 * **專用佈建輸送量模式**:在容器上佈建的輸送量是特別針對該容器保留的，而且由 SLA 支持。 若要進一步了解，請參閱[如何在 Azure Cosmos 容器上佈建輸送量](how-to-provision-container-throughput.md)。
 
 * **共用的佈建的輸送量模式**:這些容器會分享相同的資料庫 （不包括已設定專用的佈建輸送量的容器） 中的其他容器中的佈建的輸送量。 換句話說，資料庫上已佈建的輸送量會由所有「共用輸送量」容器共用。 若要進一步了解，請參閱[如何將 Azure Cosmos 資料庫上佈建輸送量](how-to-provision-database-throughput.md)。
+
+> [!NOTE]
+> 只有在建立資料庫和容器時，您可以設定共用和專用的輸送量。 若要建立容器之後，請切換從專用的輸送量模式為共用的輸送量模式 （反之亦然），您必須建立新的容器，並將資料移轉到新的容器。 您可以使用 Azure Cosmos DB 變更摘要 」 功能來移轉資料。
 
 不論您是使用專用或共用的佈建的輸送量模式建立容器時，可以彈性調整，調整 Azure Cosmos 容器。
 
@@ -79,15 +82,15 @@ Azure Cosmos 容器具備一組系統定義的屬性。 視您使用的 API 而�
 
 | 系統定義的屬性 | 系統產生或使用者可設定 | 目的 | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | System-generated | 容器的唯一識別碼 | 有 | 否 | 無 | 無 | 無 |
-|\_etag | System-generated | 適用於開放式並行存取控制的實體標記 | 有 | 否 | 無 | 無 | 無 |
-|\_ts | System-generated | 容器的上次更新日期時間戳記 | 有 | 否 | 無 | 無 | 無 |
-|\_self | System-generated | 容器的可定址 URI | 有 | 否 | 無 | 無 | 無 |
-|id | 使用者可設定 | 使用者定義的容器唯一名稱 | 有 | 是 | 是 | 是 | 有 |
-|indexingPolicy | 使用者可設定 | 讓您能夠變更的索引路徑、 索引類型和索引模式 | 有 | 否 | 無 | 否 | 有 |
-|TimeToLive | 使用者可設定 | 讓您能夠在一段時間過後刪除自動從容器項目。 如需詳細資訊，請參閱 <<c0> [ 存留時間](time-to-live.md)。 | 有 | 否 | 無 | 否 | 有 |
-|changeFeedPolicy | 使用者可設定 | 用來讀取對容器中之項目所做的變更。 如需詳細資訊，請參閱 <<c0> [ 變更摘要](change-feed.md)。 | 有 | 否 | 無 | 否 | 有 |
-|uniqueKeyPolicy | 使用者可設定 | 用來確保邏輯資料分割中的一或多個值的唯一性。 如需詳細資訊，請參閱 <<c0> [ 唯一的索引鍵條件約束](unique-keys.md)。 | 有 | 否 | 無 | 否 | 有 |
+|\_id | System-generated | 容器的唯一識別碼 | 是 | 否 | 否 | 否 | 否 |
+|\_etag | System-generated | 適用於開放式並行存取控制的實體標記 | 是 | 否 | 否 | 否 | 否 |
+|\_ts | System-generated | 容器的上次更新日期時間戳記 | 是 | 否 | 否 | 否 | 否 |
+|\_self | System-generated | 容器的可定址 URI | 是 | 否 | 否 | 否 | 否 |
+|id | 使用者可設定 | 使用者定義的容器唯一名稱 | 是 | 是 | 是 | 是 | 是 |
+|indexingPolicy | 使用者可設定 | 讓您能夠變更的索引路徑、 索引類型和索引模式 | 是 | 否 | 否 | 否 | 是 |
+|TimeToLive | 使用者可設定 | 讓您能夠在一段時間過後刪除自動從容器項目。 如需詳細資訊，請參閱 <<c0> [ 存留時間](time-to-live.md)。 | 是 | 否 | 否 | 否 | 是 |
+|changeFeedPolicy | 使用者可設定 | 用來讀取對容器中之項目所做的變更。 如需詳細資訊，請參閱 <<c0> [ 變更摘要](change-feed.md)。 | 是 | 否 | 否 | 否 | 是 |
+|uniqueKeyPolicy | 使用者可設定 | 用來確保邏輯資料分割中的一或多個值的唯一性。 如需詳細資訊，請參閱 <<c0> [ 唯一的索引鍵條件約束](unique-keys.md)。 | 是 | 否 | 否 | 否 | 是 |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Azure Cosmos 容器中的作業
 
@@ -95,11 +98,11 @@ Azure Cosmos 容器具備一組系統定義的屬性。 視您使用的 API 而�
 
 | 作業 | Azure CLI | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
 | --- | --- | --- | --- | --- | --- | --- |
-| 列舉資料庫中的容器 | 有 | 是 | 是 | 有 | NA | NA |
-| 讀取容器 | 有 | 是 | 是 | 有 | NA | NA |
-| 建立新容器 | 有 | 是 | 是 | 有 | NA | NA |
-| 更新容器 | 有 | 是 | 是 | 有 | NA | NA |
-| 刪除容器 | 有 | 是 | 是 | 有 | NA | NA |
+| 列舉資料庫中的容器 | 是 | 是 | 是 | 是 | NA | NA |
+| 讀取容器 | 是 | 是 | 是 | 是 | NA | NA |
+| 建立新的容器 | 是 | 是 | 是 | 是 | NA | NA |
+| 更新容器 | 是 | 是 | 是 | 是 | NA | NA |
+| 刪除容器 | 是 | 是 | 是 | 是 | NA | NA |
 
 ## <a name="azure-cosmos-items"></a>Azure Cosmos 項目
 
@@ -115,12 +118,12 @@ Azure Cosmos 容器具備一組系統定義的屬性。 視您使用的 API 而�
 
 | 系統定義的屬性 | 系統產生或使用者可設定| 目的 | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | System-generated | 項目的唯一識別碼 | 有 | 否 | 無 | 無 | 無 |
-|\_etag | System-generated | 適用於開放式並行存取控制的實體標記 | 有 | 否 | 無 | 無 | 無 |
-|\_ts | System-generated | 項目上次更新時間戳記 | 有 | 否 | 無 | 無 | 無 |
-|\_self | System-generated | 項目的可定址 URI | 有 | 否 | 無 | 無 | 無 |
-|id | 無論是 | 使用者定義唯一的名稱中的邏輯磁碟分割。 如果使用者未指定識別碼，系統會自動產生一個。 | 有 | 是 | 是 | 是 | 有 |
-|任意使用者定義的屬性 | 使用者定義 | 使用者定義的屬性 （包括 JSON、 BSON 和 CQL） 的 API-原生表示法中表示 | 有 | 是 | 是 | 是 | 有 |
+|\_id | System-generated | 項目的唯一識別碼 | 是 | 否 | 否 | 否 | 否 |
+|\_etag | System-generated | 適用於開放式並行存取控制的實體標記 | 是 | 否 | 否 | 否 | 否 |
+|\_ts | System-generated | 項目上次更新時間戳記 | 是 | 否 | 否 | 否 | 否 |
+|\_self | System-generated | 項目的可定址 URI | 是 | 否 | 否 | 否 | 否 |
+|id | 無論是 | 使用者定義唯一的名稱中的邏輯磁碟分割。 如果使用者未指定識別碼，系統會自動產生一個。 | 是 | 是 | 是 | 是 | 是 |
+|任意使用者定義的屬性 | 使用者定義 | 使用者定義的屬性 （包括 JSON、 BSON 和 CQL） 的 API-原生表示法中表示 | 是 | 是 | 是 | 是 | 是 |
 
 ### <a name="operations-on-items"></a>項目上的作業
 
@@ -128,7 +131,7 @@ Azure Cosmos 項目支援下列作業。 您可以使用任一 Azure Cosmos Api 
 
 | 作業 | Azure CLI | SQL API | Cassandra API | 適用於 MongoDB 的 Azure Cosmos DB API | Gremlin API | 資料表 API |
 | --- | --- | --- | --- | --- | --- | --- |
-| 插入、取代、刪除、更新插入、讀取 | 無 | yes | 是 | 是 | 是 | 是 |
+| 插入、取代、刪除、更新插入、讀取 | 否 | yes | 是 | 是 | 是 | 是 |
 
 ## <a name="next-steps"></a>後續步驟
 

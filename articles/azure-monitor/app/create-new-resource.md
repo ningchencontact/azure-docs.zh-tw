@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5daf0944212dc4b8040a39e6efbf5bb25f7f39f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 712004a1ae8a2a72854b7b2332449a019c0820c3
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901783"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256249"
 ---
 # <a name="create-an-application-insights-resource"></a>建立 Application Insights 資源
-Azure Application Insights 會在 Microsoft Azure「資源」中顯示您應用程式的相關資料。 因此，建立新的資源是屬於[設定 Application Insights 以監視新應用程式][start]的一環。 在許多情況下，建立資源可以由 IDE 自動完成。 但在某些情況下，您需要手動建立資源 - 例如，讓應用程式的開發和生產組建有各自可用的資源。
+Azure Application Insights 會在 Microsoft Azure「資源」  中顯示您應用程式的相關資料。 因此，建立新的資源是屬於[設定 Application Insights 以監視新應用程式][start]的一環。 在許多情況下，建立資源可以由 IDE 自動完成。 但在某些情況下，您需要手動建立資源 - 例如，讓應用程式的開發和生產組建有各自可用的資源。
 
 建立資源後，您會取得其檢測金鑰，並將該金鑰用來設定應用程式中的 SDK。 資源索引鍵會將遙測連結到資源。
 
@@ -63,13 +63,12 @@ SDK 包含不需撰寫任何程式碼，即可傳送遙測資料的標準模組�
 
 按一下 [搜尋] 圖格以查看[診斷搜尋][diagnostic]，其中會顯示前幾個事件。 
 
-如果您預期有更多資料，請在幾秒之後按一下 [重新整理]。
+如果您預期有更多資料，請在幾秒之後按一下 [重新整理]  。
 
 ## <a name="creating-a-resource-automatically"></a>自動建立資源
 您可以撰寫 [PowerShell 指令碼](../../azure-monitor/app/powershell.md) 來自動建立資源。
 
 ## <a name="next-steps"></a>後續步驟
-* [建立儀表板](../../azure-monitor/app/app-insights-dashboards.md)
 * [診斷搜尋](../../azure-monitor/app/diagnostic-search.md)
 * [探索度量](../../azure-monitor/app/metrics-explorer.md)
 * [撰寫分析查詢](../../azure-monitor/app/analytics.md)

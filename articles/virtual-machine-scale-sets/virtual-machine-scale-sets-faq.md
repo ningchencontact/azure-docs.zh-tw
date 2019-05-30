@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: b5af6c5007130d71f94e1fa748adc333a8d08a48
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0674d8c98f4bf37bbf9417de60ff4c60910d802a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689313"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258292"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虛擬機器擴展集常見問題集
 
@@ -65,7 +65,7 @@ ms.locfileid: "64689313"
 
 ### <a name="do-scale-sets-work-with-azure-availability-sets"></a>擴展集是否可與 Azure 可用性設定組組搭配使用？
 
-區域 (非區域) 擴展集會使用「放置群組」，其可作為隱含的可用性設定組，並具有五個容錯網域和五個更新網域。 具有 100 部以上 VM 的擴展集會跨越多個放置群組。 如需放置群組的詳細資訊，請參閱[使用大型的虛擬機器擴展集](virtual-machine-scale-sets-placement-groups.md)。 VM 的可用性設定組可以存在於與 VM 擴展集相同的虛擬網路中。 常見組態是在可用性設定組中放入控制節點 VM (其通常需要唯一組態)，以及在擴展集中放入資料節點。
+區域 (非區域) 擴展集會使用「放置群組」  ，其可作為隱含的可用性設定組，並具有五個容錯網域和五個更新網域。 具有 100 部以上 VM 的擴展集會跨越多個放置群組。 如需放置群組的詳細資訊，請參閱[使用大型的虛擬機器擴展集](virtual-machine-scale-sets-placement-groups.md)。 VM 的可用性設定組可以存在於與 VM 擴展集相同的虛擬網路中。 常見組態是在可用性設定組中放入控制節點 VM (其通常需要唯一組態)，以及在擴展集中放入資料節點。
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>擴展集是否可與 Azure 可用性區域搭配使用？
 
@@ -232,7 +232,7 @@ az sf cluster create -h
 linuxConfiguration 元素名稱 | 必要項 | 類型 | 描述
 --- | --- | --- | ---
 ssh | 否 | 集合 | 指定 Linux OS 的 SSH 金鑰組態
-path | 是 | 字串 | 指定 SSH 金鑰或憑證必須位於的 Linux 檔案路徑
+path | 是 | String | 指定 SSH 金鑰或憑證必須位於的 Linux 檔案路徑
 keyData | 是 | 字串 | 指定 base64 編碼的 SSH 公開金鑰
 
 如需範例，請參閱 [101-vm-sshkey GitHub 快速入門範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)。
@@ -360,9 +360,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 您可以在 `$vmss` 中找到 extensionName 值。
 
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>与 Azure Monitor 日志集成的虚拟机规模集模板是否有任何示例可供参考？
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>是否有虛擬機器擴展集範本範例，可與 Azure 監視器記錄檔整合？
 
-有关与 Azure Monitor 日志集成的虚拟机规模集模板示例，请参阅[部署 Azure Service Fabric 群集，并通过使用 Azure Monitor 日志来启用监视](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)中的第二个示例。
+針對虛擬機器擴展集範本範例，可與 Azure 監視器記錄檔整合，請參閱中的第二個範例[部署 Azure Service Fabric 叢集，並使用 Azure 監視器記錄檔來啟用監視](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)。
 
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>如何將擴充功能新增至虛擬機器擴展集中的所有 VM？
 
@@ -521,7 +521,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>我可以搭配加速的網路使用擴展集嗎？
 
-是。 若要使用加速的網路，請在擴展集的 networkInterfaceConfigurations 設定中，將enableAcceleratedNetworking 設為 true。 例如
+是。 若要使用加速的網路，請在擴展集的 networkInterfaceConfigurations 設定中，將enableAcceleratedNetworking 設為 true。 例如：
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -621,11 +621,11 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ## <a name="patching-and-operations"></a>修補和作業
 
-### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>我如何在現有資源群組中建立擴展集？
+### <a name="can-i-create-a-scale-set-in-an-existing-resource-group"></a>我可以建立現有的資源群組中的擴展集嗎？
 
-您尚無法從 Azure 入口網站在現有資源群組中建立擴展集，但您從 Azure Resource Manager 範本部署擴展集時，可以指定現有的資源群組。 您也可以在使用 Azure PowerShell 或 CLI 建立擴展集時，指定現有的資源群組。
+是，您可以建立擴展集現有的資源群組中。
 
-### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>是否可以將擴展集移至另一個資源群組？
+### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>我可以將擴展集以另一個資源群組嗎？
 
 是，您可以將擴展集資源移至新的訂用帳戶或資源群組。
 
@@ -637,16 +637,16 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 是，您可以使用重新安裝映像作業來重設 VM，而不需變更映像。 不過，如果虛擬機器擴展集參考 `version = latest` 的平台映像，當您呼叫 `reimage` 時，您的 VM 可以更新為較新版本的 OS 映像。
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>是否可以将规模集与 Azure Monitor 日志集成？
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>是否可以整合 Azure 監視器記錄檔中的擴展集？
 
-可以，可在规模集 VM 上安装 Azure Monitor 扩展。 Azure CLI 的範例如下：
+是，您可以藉由在標尺上安裝的 Azure 監視擴充功能設定 Vm。 Azure CLI 的範例如下：
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
 您可以在 Azure 入口網站的 Log Analytics 工作區中找到所需的 workspaceId 和 workspaceKey。 在 [概觀] 頁面中，按一下 [設定] 圖格。 按一下頂端的 [連接的來源] 索引標籤。
 
 > [!NOTE]
-> 如果规模集 _upgradePolicy_ 设置为“手动”，则需要通过对 VM 调用升级将扩展应用到集中的所有 VM。 在 CLI 中，這會是 _az vmss update-instances_。
+> 如果您的擴展集_upgradePolicy_設為 Manual，您需要透過呼叫升級，擴充功能套用到集合中的所有 Vm。 在 CLI 中，這會是 _az vmss update-instances_。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -686,7 +686,7 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 
 否，您無法將不同的擴充引數傳遞至虛擬機器擴展集中的不同 VM。 不過，擴充功能可以根據它們執行所在 VM 的唯一屬性來行動，例如根據電腦名稱。 擴充功能也可以在 http://169.254.169.254 上查詢執行個體中繼資料，以取得 VM 詳細資訊。
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>為何我的虛擬機器擴展集 VM 電腦名稱與 VM 識別碼之間會有落差？ 例如︰0, 1, 3...
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>為何我的虛擬機器擴展集 VM 電腦名稱與 VM 識別碼之間會有落差？ 例如: 0, 1, 3...
 
 您的虛擬機器擴展集 VM 電腦名稱與 VM 識別碼之間有落差，是因為虛擬機器擴展集將 **overprovision** 屬性設定為預設值 **true**。 如果過度佈建設定為 **true**，則會建立超過要求的 VM。 然後會刪除額外的 VM。 在此情況下，您會取得更高的部署可靠性，但代價是連續的命名和連續的網路位址轉譯 (NAT) 規則。
 
@@ -715,7 +715,7 @@ $snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard
 New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
 ```
 
-从快照创建托管磁盘。
+從快照集建立受控的磁碟。
 
 ```azurepowershell-interactive
 $snapshotName = "myShapshot"

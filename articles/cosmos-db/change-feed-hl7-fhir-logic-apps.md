@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/08/2017
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 765596500e3ac294dc79f0785b12b03370fa652a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49ef63969bd603c25d120dc5cb93ed30dda04241
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60893820"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257278"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>使用 Logic Apps 與 Azure Cosmos DB 對 HL7 FHIR 病患的醫療保健記錄變更發出通知
 
@@ -92,7 +92,7 @@ API 應用程式會連線到 Azure Cosmos DB，並依資源類型查詢新的或
 
 **輸出**
 - 成功：狀態碼：200，回應：文件清單 (JSON 陣列)
-- 失敗：狀態碼：404，回應：「找不到 'resource name' 資源類型的文件」
+- 失敗：狀態碼：404，回應：「找不到 'resource name'  資源類型的文件」
 
 <a id="api-app-source"></a>
 

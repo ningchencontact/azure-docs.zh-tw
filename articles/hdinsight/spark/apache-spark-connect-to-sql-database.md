@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/15/2018
-ms.openlocfilehash: 84946083146517146ad9aeb48693230aaaaf7943
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/21/2019
+ms.openlocfilehash: 3812cf55a26a12ef110b8acf14edd0e8bfd36851
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701169"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236524"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>使用 HDInsight Spark 叢集對 Azure SQL 資料庫讀取及寫入資料
 
-了解如何連線 Azure HDInsight 中的 Apache Spark 叢集與 Azure SQL 資料庫，然後將資料讀取、寫入和串流到 SQL 資料庫中。 本文中的指示使用 [Jupyter Notebook](https://jupyter.org/) 執行 Scala 程式碼片段。 不過，您可以在 Scala 或 Python 中建立獨立應用程式，並執行相同的工作。 
+了解如何連線 Azure HDInsight 中的 Apache Spark 叢集與 Azure SQL 資料庫，然後將資料讀取、寫入和串流到 SQL 資料庫中。 本文中的指示使用 [Jupyter Notebook](https://jupyter.org/) 執行 Scala 程式碼片段。 不過，您可以在 Scala 或 Python 中建立獨立應用程式，並執行相同的工作。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -36,7 +36,7 @@ ms.locfileid: "64701169"
 首先請建立與 Spark 叢集相關聯的 [Jupyter Notebook](https://jupyter.org/)。 您可以使用此 Notebook 執行本文中使用的程式碼片段。 
 
 1. 从 [Azure 门户网站](https://portal.azure.com/)打开群集。
-1. 在右側選取 [叢集儀表板] 下方的 **Jupyter Notebook**。  如果您沒有看見 [叢集儀表板]，請按一下刀鋒視窗上左側功能表中的 [概觀]。 出現提示時，輸入叢集的系統管理員認證。
+1. 在右側選取 [叢集儀表板]  下方的 **Jupyter Notebook**。  如果您沒有看到**叢集儀表板**，選取**概觀**從左側功能表中。 出現提示時，輸入叢集的系統管理員認證。
 
     ![Spark 上的 Jupyter Notebook](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Spark 上的 Jupyter Notebook")
    
@@ -45,7 +45,7 @@ ms.locfileid: "64701169"
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-1. 在 Jupyter Notebook 中，按一下右上角的 [新增]，然後按一下 [Spark] 以建立 Scala Notebook。 HDInsight Spark 叢集上的 Jupyter Notebook 也會提供適用於 Python2 應用程式的 **PySpark** 核心，以及適用於 Python3 應用程式的 **PySpark3** 核心。 在本文中，我們會建立 Scala Notebook。
+1. 在 Jupyter Notebook 中，按一下右上角的 [新增]  ，然後按一下 [Spark]  以建立 Scala Notebook。 HDInsight Spark 叢集上的 Jupyter Notebook 也會提供適用於 Python2 應用程式的 **PySpark** 核心，以及適用於 Python3 應用程式的 **PySpark3** 核心。 在本文中，我們會建立 Scala Notebook。
    
     ![Spark 上的 Jupyter Notebook 核心](./media/apache-spark-connect-to-sql-database/kernel-jupyter-notebook-on-spark.png "Spark 上的 Jupyter Notebook 核心")
 
@@ -164,7 +164,7 @@ ms.locfileid: "64701169"
 
 1. 首先，請確定 **hvactable** 中沒有任何記錄。 請使用 SSMS 對資料表執行下列查詢。
 
-       DELETE FROM [dbo].[hvactable]
+       TRUNCATE TABLE [dbo].[hvactable]
 
 1. 在 HDInsight Spark 叢集上建立新的 Jupyter Notebook。 在程式碼單元中貼上下列程式碼片段，然後按 **SHIFT + ENTER**：
 
@@ -174,7 +174,7 @@ ms.locfileid: "64701169"
        import org.apache.spark.sql.streaming._
        import java.sql.{Connection,DriverManager,ResultSet}
 
-1. 我們要將 **HVAC.csv** 中的資料串流至 hvactable。 HVAC.csv 檔案可從叢集上的 /HdiSamples/HdiSamples/SensorSampleData/HVAC/ 取得。 在下列程式碼片段中，我們會先取得要串流處理之資料的結構描述。 接著，我們會使用該結構描述建立串流資料框架。 請在程式碼單元中貼上此程式碼片段，然後按 **SHIFT + ENTER** 加以執行。
+1. 我們要將 **HVAC.csv** 中的資料串流至 hvactable。 HVAC.csv 檔案可在叢集上`/HdiSamples/HdiSamples/SensorSampleData/HVAC/`。 在下列程式碼片段中，我們會先取得要串流處理之資料的結構描述。 接著，我們會使用該結構描述建立串流資料框架。 請在程式碼單元中貼上此程式碼片段，然後按 **SHIFT + ENTER** 加以執行。
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 

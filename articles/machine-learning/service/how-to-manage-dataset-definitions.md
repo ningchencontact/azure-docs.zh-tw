@@ -1,5 +1,5 @@
 ---
-title: 資料集定義和使用 azureml 資料集進行版本控制
+title: 版本及管理 azureml 資料集的資料集定義
 titleSuffix: Azure Machine Learning service
 description: 了解如何更新資料集定義，以及管理定義的生命週期
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: e58ce156deaaad259ea7b74521bcf9b79afbd183
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4476bdd902f054683fa544dc44b548689f3a1881
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146211"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241871"
 ---
-# <a name="update-and-manage-the-lifecycle-of-dataset-definitions"></a>更新和管理資料集定義的生命週期
+# <a name="version-and-manage-your-dataset-definitions"></a>版本及管理您的資料集定義
 
 了解如何更新和管理 Azure Machine Learning 資料集 （預覽） 的資料集定義。
 
@@ -37,7 +37,7 @@ ms.locfileid: "66146211"
 
 在這份文件中的範例中使用的範例檔案會位於[ https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv ](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv)。
 
-## <a name="update-dataset-definitions"></a>更新資料集定義
+## <a name="create-and-update-definitions"></a>建立和更新定義
 
 首先，我們會建立，並向您的工作區中的資料集。
 
@@ -173,10 +173,10 @@ ds_def_old.head(5)
       <th>ID</th>
       <th>案例編號</th>
       <th>Date</th>
-      <th>封鎖</th>
+      <th>區塊</th>
       <th>IUCR</th>
       <th>主要類型</th>
-      <th>說明</th>
+      <th>描述</th>
       <th>位置描述</th>
       <th>阻止</th>
       <th>國內</th>
@@ -344,7 +344,7 @@ dataset.get_definition(version_id=1)
 
 您可以獨立管理生命週期的每個資料集定義。 有三個階段的生命週期： 作用中，已被取代，或保存。
 
-### <a name="active"></a>有效
+### <a name="active"></a>Active
 
 建立新的資料集定義時，它是設為預設。 
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 82c0aa53fa8905e0e58cb784a478ade474ec5601
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9144165a3ce593dce11b5e50ce5f0af9f0afa480
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232771"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237663"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -170,7 +170,7 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 
 已啟用 grs 的儲存體帳戶，所有的資料會先複寫使用本地備援儲存體 (LRS)。 更新會先認可到主要位置，並使用 LRS 進行複寫。 接著會使用 GRS，以非同步的方式將更新複寫到次要區域。 當資料寫入次要位置時，也會使用 LRS 在該位置中複寫。
 
-主要和次要區域會管理分散在儲存體縮放單位內不同容錯網域和升級網域之間的複本。 儲存體縮放單位是資料中心內的基本複寫單位。 此级别的复制由 LRS 提供；有关详细信息，请参阅[本地冗余存储 (LRS)：Azure 存储的低成本数据冗余](../common/storage-redundancy-lrs.md)。
+主要和次要區域會管理分散在儲存體縮放單位內不同容錯網域和升級網域之間的複本。 儲存體縮放單位是資料中心內的基本複寫單位。 在此層級的複寫是由 LRS; 提供如需詳細資訊，請參閱[本地備援儲存體 (LRS):適用於 Azure 儲存體的低成本資料備援](../common/storage-redundancy-lrs.md)。
 
 當您決定要使用的複寫選項時，請記住下列幾點：
 
@@ -189,9 +189,9 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 有許多簡單的選項可從現有檔案共用 (例如內部部署檔案共用) 大量傳輸資料到 Azure 檔案服務。 部分常用方法包括 (非完整清單)：
 
 * **Azure 檔案同步**：在 Azure 檔案共用 (雲端端點) 和 Windows 目錄命名空間 (伺服器端點) 之間的初次同步處理中，Azure 檔案同步會從現有檔案共用將所有資料複寫至 Azure 檔案服務。
-* **[Azure 匯入/匯出](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**：您可將硬碟寄送至 Azure 資料中心，透過 Azure 匯入/匯出服務，安全地將大量資料傳送至 Azure 檔案共用。 
-* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**：Robocopy 是隨附於 Windows 和 Windows Server 的常用複製工具。 Robocopy 可在本機掛接檔案共用，然後將掛接位置作為 Robocopy 命令中的目的地使用，以將資料傳輸到 Azure 檔案服務中。
-* **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**：AzCopy 是一種命令列公用程式，專為使用簡單命令高效率地在 Azure 檔案服務及 Azure Blob 儲存體之間複製資料所設計。 Windows 和 Linux 都有 AzCopy 可供使用。
+* **[Azure 匯入/匯出](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** ：您可將硬碟寄送至 Azure 資料中心，透過 Azure 匯入/匯出服務，安全地將大量資料傳送至 Azure 檔案共用。 
+* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** ：Robocopy 是隨附於 Windows 和 Windows Server 的常用複製工具。 Robocopy 可在本機掛接檔案共用，然後將掛接位置作為 Robocopy 命令中的目的地使用，以將資料傳輸到 Azure 檔案服務中。
+* **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** ：AzCopy 是一種命令列公用程式，專為使用簡單命令高效率地在 Azure 檔案服務及 Azure Blob 儲存體之間複製資料所設計。
 
 ## <a name="next-steps"></a>後續步驟
 * [規劃 Azure 檔案同步部署](storage-sync-files-planning.md)

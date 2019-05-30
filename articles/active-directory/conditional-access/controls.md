@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5c6f1064d2d73ab3d99ca341cffd9b296723e97
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: acc30bc18921b79be3b5e5b2ae340eab29dd5bcf
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64571099"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305765"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的存取控制？
 
@@ -107,7 +107,7 @@ ms.locfileid: "64571099"
 如需支援的原則的受保護的用戶端應用程式，請參閱[應用程式保護原則需求](technical-reference.md#app-protection-policy-requirement)。
 
 
-### <a name="terms-of-use"></a>使用條款
+### <a name="terms-of-use"></a>使用規定
 
 您可以要求租用戶中的使用者先同意使用條款，再授與他們存取資源的權利。 身為系統管理員，您可以上傳 PDF 文件來設定及自訂使用條款。 使用者如果落在此控制項的控制範圍內，就必須同意使用條款才會獲得應用程式的存取權。
 
@@ -142,11 +142,11 @@ ms.locfileid: "64571099"
 
 複製 JSON 資料並貼到相關文字方塊中。 除非您明確地了解您要進行的變更，否則請勿變更 JSON。 進行變更可能會讓提供者與 Microsoft 之間的連線中斷，進而可能將您的帳戶鎖定，讓您和您的使用者無法使用。
 
-用來建立自訂控制項的選項位於 [條件式存取] 頁面的 [管理] 區段。
+用來建立自訂控制項的選項位於 [條件式存取]  頁面的 [管理]  區段。
 
 ![控制](./media/controls/82.png)
 
-按一下 [新增自訂控制項] 隨即會開啟刀鋒視窗，裡面有文字方塊可供輸入控制項的 JSON 資料。  
+按一下 [新增自訂控制項]  隨即會開啟刀鋒視窗，裡面有文字方塊可供輸入控制項的 JSON 資料。  
 
 ![控制](./media/controls/81.png)
 
@@ -158,7 +158,7 @@ ms.locfileid: "64571099"
 
 2. 按一下 [...]  
 
-3. 選取 [刪除] 。
+3. 選取 [刪除]  。
 
 ### <a name="editing-custom-controls"></a>編輯自訂控制項
 

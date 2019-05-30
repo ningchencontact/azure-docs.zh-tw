@@ -2,7 +2,7 @@
 title: 針對 Azure 時間序列深入解析預覽進行診斷與疑難排解 | Microsoft Docs
 description: 了解如何運用 Azure 時間序列深入解析預覽進行診斷與疑難排解。
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4a63bfd4e82147fe3324e146f2aaff8889da87e
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: d18f8f4808d5ca9dd7eca1561b1ee08c2073f5fa
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472368"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237550"
 ---
 # <a name="diagnose-and-troubleshoot"></a>診斷和疑難排解
 
@@ -43,12 +43,12 @@ ms.locfileid: "65472368"
 
 - 事件來源索引鍵遺漏必要的權限。
 
-  * 針對 IoT 中樞，您必須提供具有「服務連接」權限的索引鍵。
+  * 針對 IoT 中樞，您必須提供具有「服務連接」  權限的索引鍵。
 
     [![組態](media/v2-update-diagnose-and-troubleshoot/configuration.png)](media/v2-update-diagnose-and-troubleshoot/configuration.png#lightbox)
 
   * 如上圖所示，**iothubowner** 與 **service** 原則都會運作，因為兩者皆有**服務連接**權限。
-  * 針對事件中樞，您必須提供具有「接聽」權限的索引鍵。
+  * 針對事件中樞，您必須提供具有「接聽」  權限的索引鍵。
   
     [![權限](media/v2-update-diagnose-and-troubleshoot/permissions.png)](media/v2-update-diagnose-and-troubleshoot/permissions.png#lightbox)
 
@@ -80,7 +80,7 @@ ms.locfileid: "65472368"
 * 時間戳記屬性名稱區分大小寫。
 * 來自事件來源的時間戳記屬性值 (JSON 字串) 格式為 `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`。 此類型字串的其中一個範例為 `“2008-04-12T12:53Z”`。
 
-若要確保您已擷取時間戳記屬性名稱且正常運作，最簡單方式是使用時間序列深入解析預覽總管。 在時間序列深入解析預覽總管中，當您輸入時間戳記屬性名稱之後，使用圖表選取一段時間。 以滑鼠右鍵按一下選取範圍，然後選取 [探索事件] 選項。 第一個資料行標頭就是您的時間戳記屬性名稱。 它的字組 `Timestamp` 旁邊應該有 `($ts)`，而非：
+若要確保您已擷取時間戳記屬性名稱且正常運作，最簡單方式是使用時間序列深入解析預覽總管。 在時間序列深入解析預覽總管中，當您輸入時間戳記屬性名稱之後，使用圖表選取一段時間。 以滑鼠右鍵按一下選取範圍，然後選取 [探索事件]  選項。 第一個資料行標頭就是您的時間戳記屬性名稱。 它的字組 `Timestamp` 旁邊應該有 `($ts)`，而非：
 
 * `(abc)`，這表示時間序列深入解析將資料值讀取為字串。
 * 行事曆圖示，這表示時間序列深入解析將資料值讀取為日期時間。

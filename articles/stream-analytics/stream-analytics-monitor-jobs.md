@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: eaeb2b4decc7da4caa75cb2af68829b4bf7ce64d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7be57733f9bb5936747c77aa06bde3397eb84fa1
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478890"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302909"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>以程式設計方式來建立串流分析工作監視
 
@@ -24,14 +24,14 @@ ms.locfileid: "61478890"
 
 在開始此程序之前，您必須具有下列必要條件：
 
-* Visual Studio 2017 或 2015
+* Visual Studio 2019 或 2015
 * 已下載並安裝 [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 * 一項已啟用監視的現有串流分析作業
 
 ## <a name="create-a-project"></a>建立專案
 
 1. 建立 Visual Studio C# .NET 主控台應用程式。
-2. 在 Package Manager Console 中，執行下列命令以安裝 NuGet 封裝。 第一个是 Azure 流分析管理 .NET SDK。 第二個是將用來啟用監視功能的 Azure 監視器 SDK。 最後一個是驗證要使用的 Azure Active Directory 用戶端。
+2. 在 Package Manager Console 中，執行下列命令以安裝 NuGet 封裝。 第一個是 Azure 串流分析管理 .NET SDK。 第二個是將用來啟用監視功能的 Azure 監視器 SDK。 最後一個是驗證要使用的 Azure Active Directory 用戶端。
    
    ```powershell
    Install-Package Microsoft.Azure.Management.StreamAnalytics
@@ -111,7 +111,7 @@ ms.locfileid: "61478890"
    }
    ```
 
-## <a name="create-management-clients"></a>创建管理客户端
+## <a name="create-management-clients"></a>建立管理用戶端
 
 下列程式碼將設定必要的變數與管理用戶端。
 
@@ -137,7 +137,7 @@ ms.locfileid: "61478890"
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>為現有串流分析作業啟用監視
 
-下列程式碼將為「現有」 串流分析作業啟用監視。 程式碼的第一部分會對串流分析服務執行 GET 要求，以擷取特定串流分析工作的相關資訊。 它會使用*識別碼*屬性 （擷取自 GET 要求） 當成 Put 方法，在下半部的程式碼，傳送 PUT 要求至 Insights 服務的 Stream Analytics 作業啟用監視，第二個參數。
+下列程式碼將為「現有」  串流分析作業啟用監視。 程式碼的第一部分會對串流分析服務執行 GET 要求，以擷取特定串流分析工作的相關資訊。 它會使用*識別碼*屬性 （擷取自 GET 要求） 當成 Put 方法，在下半部的程式碼，傳送 PUT 要求至 Insights 服務的 Stream Analytics 作業啟用監視，第二個參數。
 
 > [!WARNING]
 > 如果您先前已經為不同的串流分析作業啟用監視 (不論是透過 Azure 入口網站，還是以程式設計方式透過以下的程式碼)，**建議您提供先前啟用監視時所提供的相同儲存體帳戶名稱。**

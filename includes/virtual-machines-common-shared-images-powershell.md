@@ -5,21 +5,21 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 05/21/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 82187b05a398c066f9da94c57cbe8a59a6ba3275
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: bae66078a1bcb1d80f0798b1d501598fa785fb80
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145765"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241216"
 ---
 ## <a name="launch-azure-cloud-shell"></a>啟動 Azure Cloud Shell
 
 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 
 
-若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看] 即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製] 即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
+若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看]  即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製]  即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
 
 
 ## <a name="get-the-managed-image"></a>取得受控映像
@@ -73,9 +73,9 @@ $galleryImage = New-AzGalleryImageDefinition `
 
 從受控映像，使用建立映像版本[新增 AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)。 
 
-映像版本允許的字元是數字及句點。 數字必須在 32 位元整數的範圍內。 格式:*MajorVersion*。*MinorVersion*。*修補程式*。
+映像版本允許的字元是數字及句點。 數字必須在 32 位元整數的範圍內。 格式：*MajorVersion*。*MinorVersion*。*修補程式*。
 
-在此範例中，映像版本為 *1.0.0*，且它會被複寫到「美國中西部」和「美國中南部」資料中心。 當選擇針對複寫的目標區域，請記住，您也必須包含*來源*做為複寫的目標區域。
+在此範例中，映像版本為 *1.0.0*，且它會被複寫到「美國中西部」  和「美國中南部」  資料中心。 當選擇針對複寫的目標區域，請記住，您也必須包含*來源*做為複寫的目標區域。
 
 
 ```azurepowershell-interactive
@@ -105,3 +105,20 @@ $job.State
 >
 > 您也可以儲存在程式映像版本[區域備援儲存體](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs)藉由新增`-StorageAccountType Standard_ZRS`當您建立的映像版本。
 >
+
+
+## <a name="share-the-gallery"></a>共用資源庫
+
+我們建議您共用映像組件庫層級的存取。 使用電子郵件地址和[Get AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet 來取得物件識別碼的使用者，然後使用[新增 AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment)讓它們存取資源庫。 取代的範例電子郵件，alinne_montes@contoso.com在此範例中，使用您自己的資訊。
+
+```azurepowershell-interactive
+# Get the object ID for the user
+$user = Get-AzADUser -StartsWith alinne_montes@contoso.com
+# Grant access to the user for our gallery
+New-AzRoleAssignment `
+   -ObjectId $user.Id `
+   -RoleDefinitionName Reader `
+   -ResourceName $gallery.Name `
+   -ResourceType Microsoft.Compute/galleries `
+   -ResourceGroupName $resourceGroup.ResourceGroupName
+```

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
-ms.openlocfilehash: a70a887ccb19d9c1cbdb5f8ebf6aa8d4b25a0dfd
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0628d5c07d7258cc4d68727c364e65bd81c78e8e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65161066"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388985"
 ---
 # <a name="azure-devops-task-for-azure-data-explorer"></a>Azure 的 DevOps 工作，針對 Azure 的資料總管
 
@@ -67,7 +67,7 @@ ms.locfileid: "65161066"
 
     ![建立變數](media/devops/create-variable.png)
 
-    若要尋找您 Endpoint_URL、 [概觀] 頁面的您**Azure 資料總管叢集**在 Azure 入口網站包含 Azure 資料總管叢集 URI。 建構下列格式的 URI `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`。  例如， https://kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
+    若要尋找您 Endpoint_URL、 [概觀] 頁面的您**Azure 資料總管叢集**在 Azure 入口網站包含 Azure 資料總管叢集 URI。 建構下列格式的 URI `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`。  例如，https:\//kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
 
     ![Azure 的資料總管叢集 URI](media/devops/adx-cluster-uri.png)
 
@@ -79,7 +79,7 @@ ms.locfileid: "65161066"
 
 1. 建立要部署的三個工作**資料表**，**函式**，並**原則**，依此順序。 
 
-1. 在 **任務**索引標籤上，選取**+** 由**代理程式作業**。 搜尋 **Azure 資料總管**。 在  **Marketplace**，安裝**Azure 資料總管 – 系統管理員命令**延伸模組。 然後，選取**新增**中**執行 Azure 資料總管命令**。
+1. 在 **任務**索引標籤上，選取 **+** 由**代理程式作業**。 搜尋 **Azure 資料總管**。 在  **Marketplace**，安裝**Azure 資料總管 – 系統管理員命令**延伸模組。 然後，選取**新增**中**執行 Azure 資料總管命令**。
 
      ![新增系統管理命令](media/devops/add-admin-commands.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "65161066"
 
 1. 完成中的下列資訊**加入 Azure 資料總管服務連線**視窗：
 
-    |設定  |建議的值  |
+    |設定  |建議值  |
     |---------|---------|
     |**連線名稱**     |    輸入名稱來識別此服務端點     |
     |**叢集 Url**    |    值可在您的 Azure 資料總管叢集在 Azure 入口網站中的 [概觀] 區段 | 
@@ -101,7 +101,7 @@ ms.locfileid: "65161066"
     |**服務主體應用程式金鑰**     |    輸入 AAD 應用程式金鑰 （建立作為必要條件）    |
     |**AAD 租用戶識別碼**    |      輸入您的 AAD 租用戶 （例如 microsoft.com，contoso.com...)    |
 
-    選取 **允許使用這個連線的所有管線**核取方塊。 選取 [確定] 。
+    選取 **允許使用這個連線的所有管線**核取方塊。 選取 [確定]  。
 
     ![新增服務連線](media/devops/add-service-connection.png)
 

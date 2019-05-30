@@ -5,19 +5,19 @@ ms.topic: include
 ms.date: 04/19/2019
 ms.author: tomfitz
 ms.openlocfilehash: 8bd16378e9c82a011309c12cf241b59d03405a77
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012490"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238186"
 ---
-| 資源 | 預設限制 | 上限 |
+| Resource | 預設限制 | 上限 |
 | --- | --- | --- |
-| 每个[资源组](../articles/azure-resource-manager/resource-group-overview.md#resource-groups)的资源数（按资源类型） |800 |每個資源類型而異 |
+| 每個資源[資源群組](../articles/azure-resource-manager/resource-group-overview.md#resource-groups)，每個資源類型 |800 |每個資源類型而異 |
 | 部署歷程記錄中每個資源群組的部署 |800<sup>1</sup> |800 |
 | 每個部署的資源 |800 |800 |
-| 管理锁数（按唯一的作用域） |20 |20 |
-| 标记数（按资源或资源组） |15 |15 |
+| 每個唯一的範圍的管理鎖定 |20 |20 |
+| 每個資源或資源群組的標記數目 |15 |15 |
 | 標記金鑰長度 |512 |512 |
 | 標記值長度 |256 |256 |
 
@@ -31,9 +31,9 @@ ms.locfileid: "60012490"
 | 變數 |256 |256 |
 | 資源 (包括複本計數) |800 |800 |
 | 輸出 |64 |64 |
-| 範本運算式 |24,576 個字元 |24,576 个字符 |
-| 已导出模板中的资源 |200 |200 | 
+| 範本運算式 |24,576 個字元 |24,576 個字元 |
+| 已匯出範本中的資源 |200 |200 | 
 | 範本大小 |1 MB |1 MB |
 | 參數檔案大小 |64 KB |64 KB |
 
-使用巢狀範本，即可超出一些範本限制。 有关详细信息，请参阅[部署 Azure 资源时使用链接的模板](../articles/azure-resource-manager/resource-group-linked-templates.md)。 若要減少參數、變數或輸出數目，您可以將數個值合併成一個物件。 如需詳細資訊，請參閱[物件作為參數](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md)。
+使用巢狀範本，即可超出一些範本限制。 如需詳細資訊，請參閱 <<c0> [ 當您部署 Azure 資源時使用連結的範本](../articles/azure-resource-manager/resource-group-linked-templates.md)。 若要減少參數、變數或輸出數目，您可以將數個值合併成一個物件。 如需詳細資訊，請參閱[物件作為參數](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md)。

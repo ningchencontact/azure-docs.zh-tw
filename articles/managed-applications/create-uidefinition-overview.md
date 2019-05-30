@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 05/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: ab777b487159b009bf2cac6086bb09cc71714b0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d0a6d97440404904c041369a4631fdd3fb618b4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587745"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257555"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>為您的受控應用程式建立 Azure 入口網站使用者介面
 本文件介紹 createUiDefinition.json 檔案的核心概念。 Azure 入口網站會使用這個檔案，產生用來建立受控應用程式的使用者介面。
@@ -48,6 +48,8 @@ parameters 屬性的結構描述取決於指定的處理常式和版本之組合
 
 建議包含 `$schema`，但是為選用。 如果指定，`version` 的值必須符合 `$schema` URI 內的版本。
 
+您可以使用 JSON 編輯器來建立 UI 定義，或您可以使用 UI 定義沙箱，以建立並預覽其中的 UI 定義。 如需有關沙箱的詳細資訊，請參閱[Azure 受控應用程式中測試您的入口網站介面](test-createuidefinition.md)。
+
 ## <a name="basics"></a>基本概念
 當 Azure 入口網站剖析檔案時，所產生之精靈的第一個步驟一律為「基本」步驟。 除了顯示 `basics` 中指定的元素之外，入口網站會插入元素，以供使用者選擇部署的訂用帳戶、資源群組和位置。 一般而言，查詢整個部署參數的元素 (例如叢集的名稱或管理員認證) 都應在此步驟中。
 
@@ -59,7 +61,7 @@ steps 屬性可以包含零個或多個要在 basics 之後顯示的額外步驟
 ## <a name="outputs"></a>輸出
 Azure 入口網站會使用 `outputs` 屬性，將 `basics` 和 `steps` 的屬性對應至 Azure Resource Manager 部署範本的參數。 這個字典的金鑰是範本參數的名稱，而值則是所參照元素的輸出物件之屬性。
 
-若要設定受控應用程式資源名稱，您必須在輸出屬性中包含名為 `applicationResourceName` 的值。 如果您未設定此值，應用程式會針對名稱指派 GUID。 您可以在使用者介面中包含文字方塊，向使用者要求名稱。
+若要設定受控應用程式資源名稱，您必須在輸出屬性中包含名為 `applicationResourceName` 的值。 如果您未設定此值，應用程式會指派名稱的 GUID。 您可以在使用者介面中包含文字方塊，向使用者要求名稱。
 
 ```json
 "outputs": {
@@ -71,8 +73,8 @@ Azure 入口網站會使用 `outputs` 屬性，將 `basics` 和 `steps` 的屬�
 }
 ```
 
-## <a name="functions"></a>Functions
-類似於 Azure Resource Manager 中的範本函式 (包括語法和功能)，CreateUiDefinition 提供的函式可用於元素的輸入與輸出，以及條件等功能。
+## <a name="functions"></a>函式
+類似於範本函式在 Azure Resource Manager （包括語法和功能），CreateUiDefinition 提供函式使用項目的輸入和輸出以及條件等功能。
 
 ## <a name="next-steps"></a>後續步驟
 createUiDefinition.json 檔案本身有簡單的結構描述。 它的實際深度來自於所有支援的元素和函式。 這些項目會在以下位置更詳細地描述：

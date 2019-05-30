@@ -7,12 +7,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: tarcher
-ms.openlocfilehash: 7145a50bc53fd28afafd3de9c724b5e5f71624fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89108f02957990ad1c7eb736f39de89537f06db5
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60905871"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297927"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>在 Azure 儲存體中儲存 Terraform 狀態
 
@@ -79,7 +79,7 @@ export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --v
 
 若要設定 Terraform 使用後端，請在 Terraform 設定中使用一種 *azurerm* 類型加入 *backend* 設定。 將 *storage_account_name*、*container_name* 和 *key* 的值新增至設定區塊。
 
-下列範例設定 Terraform 後端及建立 Azure 資源群組。 請以您環境中的值取代這些值。
+下列範例會設定 Terraform 後端，並建立 Azure 資源群組。 請以您環境中的值取代這些值。
 
 ```json
 terraform {

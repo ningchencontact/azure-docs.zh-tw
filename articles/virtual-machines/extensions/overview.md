@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.openlocfilehash: a35cba0ab7df80596ba1403765980809635c0249
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "60617991"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 虛擬機器擴充功能和功能
@@ -54,6 +54,6 @@ Azure 平台裝載許多擴充功能，包括 VM 設定、監視、安全性和�
 ## <a name="next-steps"></a>後續步驟
 * 如需有關 Linux 代理程式和擴充功能運作方式的詳細資訊，請參閱[適用於 Linux 的 Azure VM 擴充功能和功能](features-linux.md)。
 * 如需有關 Windows 客體代理程式和擴充功能運作方式的詳細資訊，請參閱[適用於 Windows 的 Azure VM 擴充功能和功能](features-windows.md)。  
-* 若要安装 Windows 来宾代理，请参阅 [Azure Windows 虚拟机代理概述](agent-windows.md)。  
-* 若要安装 Linux 代理，请参阅 [Azure Linux 虚拟机代理概述](agent-linux.md)。  
+* 若要安裝 Windows 客體代理程式，請參閱[Azure Windows 虛擬機器代理程式概觀](agent-windows.md)。  
+* 若要安裝 Linux 代理程式，請參閱[Azure Linux 虛擬機器代理程式概觀](agent-linux.md)。  
 

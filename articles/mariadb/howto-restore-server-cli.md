@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: 41e75a946f51f67b2b77a36dc0525cd4ff5fcd64
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 409fe7b76306036cad19980459ca718c87118d8f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543116"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66171384"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>如何使用 Azure CLI 在適用於 MariaDB 的 Azure 資料庫中備份和還原伺服器
 
@@ -70,10 +70,11 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 ```
 
 `az mariadb server restore` 命令需要下列參數：
-| 設定 | 建議的值 | 說明  |
+
+| 設定 | 建議值 | 描述  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  來源伺服器所在的資源群組。  |
-| name | mydemoserver-restored | 還原命令所建立之新伺服器的名稱。 |
+| NAME | mydemoserver-restored | 還原命令所建立之新伺服器的名稱。 |
 | restore-point-in-time | 2018-03-13T13:59:00Z | 選取要還原的時間點。 這個日期和時間必須在來源伺服器的備份保留期限內。 請使用 ISO8601 日期和時間格式。 例如，您可以使用自己的當地時區，例如 `2018-03-13T05:59:00-08:00`。 您也可以使用 UTC Zulu 格式，例如 `2018-03-13T13:59:00Z`。 |
 | source-server | mydemoserver | 要進行還原的來源伺服器之名稱或識別碼。 |
 
@@ -109,10 +110,11 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 ```
 
 `az mariadb server georestore` 命令需要下列參數：
-| 設定 | 建議的值 | 說明  |
+
+| 設定 | 建議值 | 描述  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | 新伺服器將所屬的資源群組名稱。|
-|name | mydemoserver-georestored | 新伺服器的名稱。 |
+|NAME | mydemoserver-georestored | 新伺服器的名稱。 |
 |source-server | mydemoserver | 所使用之異地備援備份所屬的現有伺服器名稱。 |
 |location | eastus | 新伺服器的位置。 |
 |sku-name| GP_Gen5_8 | 此參數會設定新伺服器的定價層、計算世代及 vCore 數目。 GP_Gen5_8 所對應的是一般用途、具有 8 個 vCore 的第 5 代伺服器。|

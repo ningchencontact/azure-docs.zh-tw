@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: c11eeb84fe4ed1ded93cb8de7ff54b756fd36749
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c94167929782a2deca7bba19924bfe67dd46bf29
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779900"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388378"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights 中的取樣
 
@@ -527,3 +527,4 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 ## <a name="next-steps"></a>後續步驟
 
 * [篩選](../../azure-monitor/app/api-filtering-sampling.md) 可以對您的 SDK 所傳送的內容，提供更嚴格的控制。
+* Developer Network 閱讀文章[最佳化使用 Application Insights 的遙測](https://msdn.microsoft.com/magazine/mt808502.aspx)。

@@ -3,7 +3,7 @@ title: 比較 Azure AD Join 與 Azure Active Directory Domain Services | Microso
 description: 在 Azure AD Join 與 Azure AD Domain Services 之間做決定
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/26/2017
-ms.author: ergreenl
-ms.openlocfilehash: d4f50ea89f2623d387fb77acb09e609def547468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: eaa8cb54a46b1ff3c2c0f7c40c824f6ddcca16b9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359427"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234953"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Azure Active Directory 聯結和 Azure Active Directory Domain Services 之間的選擇
 本文將說明 Azure Active Directory (AD) 聯結和 Azure AD Domain Services 之間的差異，並協助您根據您的使用案例進行選擇。
@@ -66,14 +66,14 @@ Azure AD Domain Services 在 Azure 虛擬網路中提供受控 AD 網域。 您�
 
 ## <a name="next-steps"></a>後續步驟
 ### <a name="learn-more-about-azure-ad-domain-services"></a>深入了解 Azure AD Domain Services
-* [Azure AD Domain Services 概觀](active-directory-ds-overview.md)
+* [Azure AD Domain Services 概觀](overview.md)
 * [特性](active-directory-ds-features.md)
-* [部署案例](active-directory-ds-scenarios.md)
-* [了解 Azure AD Domain Services 是否適合您的使用案例](active-directory-ds-comparison.md)
-* [了解 Azure AD Domain Services 如何與 Azure AD 目錄同步處理](active-directory-ds-synchronization.md)
+* [部署案例](scenarios.md)
+* [了解 Azure AD Domain Services 是否適合您的使用案例](comparison.md)
+* [了解 Azure AD Domain Services 如何與 Azure AD 目錄同步處理](synchronization.md)
 
 ### <a name="learn-more-about-azure-ad-join"></a>深入了解 Azure AD Join
 * [Azure Active Directory 中的裝置管理簡介](../active-directory/device-management-introduction.md)
 
 ### <a name="get-started-with-azure-ad-domain-services"></a>開始使用 Azure AD 網域服務
-* [使用 Azure 入口網站來啟用 Azure AD Domain Services](active-directory-ds-getting-started.md)
+* [使用 Azure 入口網站來啟用 Azure AD Domain Services](create-instance.md)

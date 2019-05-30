@@ -1,20 +1,20 @@
 ---
-title: 如何在適用於 PostgreSQL 的 Azure 資料庫中備份與還原伺服器
-description: 了解如何使用 Azure CLI，在適用於 PostgreSQL 的 Azure 資料庫中備份和還原伺服器。
+title: 如何備份和還原適用於 PostgreSQL-單一伺服器的 Azure 資料庫中的伺服器
+description: 了解如何備份和還原適用於 PostgreSQL-使用 Azure CLI 的單一伺服器的 Azure 資料庫中的伺服器。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.openlocfilehash: 3415910426d365ea2dc17e7515871c1bf4841fd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 85fb00ad221ae982e4d3ddc9d2d5d20dd4f2793d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419916"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65069104"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>如何使用 Azure CLI 在適用於 PostgreSQL 的 Azure 資料庫中備份和還原伺服器
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>如何備份和還原適用於 PostgreSQL-使用 Azure CLI 的單一伺服器的 Azure 資料庫中的伺服器
 
 ## <a name="backup-happens-automatically"></a>備份會自動進行
 為了能使用還原功能，適用於 PostgreSQL 的 Azure 資料庫伺服器會定期備份。 透過此功能，您可以將伺服器和其所有資料庫還原至更早的時間點 (在新的伺服器上)。
@@ -69,10 +69,10 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 
 `az postgres server restore` 命令需要下列參數：
 
-| 設定 | 建議的值 | 描述  |
+| 設定 | 建議值 | 描述  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  來源伺服器所在的資源群組。  |
-| name | mydemoserver-restored | 還原命令所建立之新伺服器的名稱。 |
+| NAME | mydemoserver-restored | 還原命令所建立之新伺服器的名稱。 |
 | restore-point-in-time | 2018-03-13T13:59:00Z | 選取要還原的時間點。 這個日期和時間必須在來源伺服器的備份保留期限內。 請使用 ISO8601 日期和時間格式。 例如，您可以使用自己的當地時區，例如 `2018-03-13T05:59:00-08:00`。 您也可以使用 UTC Zulu 格式，例如 `2018-03-13T13:59:00Z`。 |
 | source-server | mydemoserver | 要進行還原的來源伺服器之名稱或識別碼。 |
 
@@ -109,10 +109,10 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 
 `az postgres server georestore` 命令需要下列參數：
 
-| 設定 | 建議的值 | 描述  |
+| 設定 | 建議值 | 描述  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | 新伺服器將所屬的資源群組名稱。|
-|name | mydemoserver-georestored | 新伺服器的名稱。 |
+|NAME | mydemoserver-georestored | 新伺服器的名稱。 |
 |source-server | mydemoserver | 所使用之異地備援備份所屬的現有伺服器名稱。 |
 |location | eastus | 新伺服器的位置。 |
 |sku-name| GP_Gen4_8 | 此參數會設定新伺服器的定價層、計算世代及 vCore 數目。 GP_Gen4_8 所對應的是一般用途、具有 8 個 vCore 的第 4 代伺服器。|

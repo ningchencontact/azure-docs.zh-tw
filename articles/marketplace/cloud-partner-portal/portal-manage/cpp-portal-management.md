@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: d35e221790c2f94caf582859f78389ecca987709
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 58451dd225a4f0625a6922bde672a6928ea50943
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942210"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257498"
 ---
 # <a name="cloud-partner-portal-management"></a>Cloud Partner 入口網站管理
 
@@ -24,7 +24,7 @@ ms.locfileid: "64942210"
 之前使用 Cloud Partner 入口網站，您應該熟悉下列文章：
 
 - [Azure Marketplace 原則和詞彙](../../policies-terms.md)列出各種法律和技術需求和規則套用至的使用者和發行者[Azure Marketplace](https://azuremarketplace.microsoft.com)並[AppSource](https://appsource.microsoft.com)。
-- [成為雲端 Marketplace 發行者](../../become-publisher.md)提供成為官方的 Microsoft 雲端發行者所需的所有步驟的概觀。
+- [成為雲端 Marketplace 發行者](https://docs.microsoft.com/azure/marketplace/become-publisher)提供成為官方的 Microsoft 雲端發行者所需的所有步驟的概觀。
 
 
 ## <a name="account-creation-and-management"></a>帳戶建立和管理

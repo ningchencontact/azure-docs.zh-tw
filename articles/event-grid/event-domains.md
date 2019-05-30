@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 131a55d130e7ebf619ee283e943c0b0a7b45edfd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562013"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304289"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>了解用於管理事件方格主題的事件網域
 
@@ -22,8 +22,6 @@ ms.locfileid: "60562013"
 * 管理您的驗證和授權。
 * 分割您的主題，而不個別管理每個主題。
 * 避免個別發行到您的每個主題端點。
-
-這項功能處於預覽狀態。 若要使用這項功能，您必須安裝此模組的預覽擴充功能。 如需相關指示，請參閱[使用事件網域管理主題並發佈事件](how-to-event-domains.md)。
 
 ## <a name="event-domain-overview"></a>事件網域概觀
 
@@ -49,7 +47,7 @@ ms.locfileid: "60562013"
 
 ### <a name="built-in-roles"></a>內建角色
 
-事件方格具有兩個內建角色定義，可使 RBAC 更容易與事件網域搭配運作。 這些角色為 **EventGrid EventSubscription 參與者 (預覽)** 和 **EventGrid EventSubscription 讀者 (預覽)**。 您可以將這些角色指派給需要訂閱您事件網域中之主題的使用者。 您會將角色指派的範圍僅限定為使用者需要訂閱的主題。
+事件方格具有兩個內建角色定義，可使 RBAC 更容易與事件網域搭配運作。 這些角色為 **EventGrid EventSubscription 參與者 (預覽)** 和 **EventGrid EventSubscription 讀者 (預覽)** 。 您可以將這些角色指派給需要訂閱您事件網域中之主題的使用者。 您的範圍限定角色指派，使用者需訂閱的主題。
 
 如需這些角色的詳細資訊，請參閱[適用於事件方格的內建角色](security-authentication.md#built-in-roles)。
 
@@ -99,18 +97,18 @@ ms.locfileid: "60562013"
 事件網域會為您處理發行到主題。 不要將事件個別發行到您所管理的每個主題，您可以改為將所有事件發行到網域端點。 事件方格負責確保會將每個事件傳送到正確的主題。
 
 ## <a name="limits-and-quotas"></a>限制和配額
+以下是限制和配額的相關事件網域：
 
-### <a name="control-plane"></a>控制平面
+- 每個事件網域 100,000 主題 
+- 每個 Azure 訂用帳戶的 100 個事件網域 
+- 500 的事件訂用帳戶每個事件網域中的主題
+- 50 網域範圍訂用帳戶 
+- 每秒的擷取速率 （至網域） 的 5000 個事件
 
-在預覽期間，系統會將事件網域限制為某個網域內的 1,000 個主題，以及某個網域內每個主題 50 個事件訂閱。 事件網域範圍訂用帳戶也會限制為 50。
-
-### <a name="data-plane"></a>資料平面
-
-在預覽期間，將事件網域的事件輸送量限制為與自訂主題限制相同的每秒擷取速率 5,000 個事件。
+如果這些限制不符合您、 連絡產品小組開啟支援票證或傳送電子郵件給[ askgrid@microsoft.com ](mailto:askgrid.microsoft.com)。 
 
 ## <a name="pricing"></a>價格
-
-在預覽期間，事件網域所使用的[作業價格](https://azure.microsoft.com/pricing/details/event-grid/)會與事件方格中所有其他功能所使用的一樣。
+事件網域使用相同[作業定價](https://azure.microsoft.com/pricing/details/event-grid/)Event Grid 中的所有其他功能使用。
 
 作業在事件網域中的運作方式，與它們在自訂主題中所做的一樣。 每個對事件網域的事件輸入都是一項作業，而每次對於事件的傳遞嘗試都是一項作業。
 

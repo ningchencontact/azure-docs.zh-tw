@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3edc1c2bd328cd6e7b7991ff2b5438b8899a0ce7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 59a35e44c78ea86f3b02eb4ad99dc1fd8fcb4870
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160470"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236629"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>設定計算目標進行模型定型 
 
 使用 Azure Machine Learning 服務，您可以在各種資源或環境中定型您的模型，統稱為[__計算目標__](concept-azure-machine-learning-architecture.md#compute-target)。 計算目標可以是本機電腦或雲端資源，例如 Azure Machine Learning Compute、Azure HDInsight 或遠端虛擬機器。  您也可以建立用於部署模型的計算目標，如[模型的部署位置和方法](how-to-deploy-and-where.md)中所述。
 
-您可以使用 Azure Machine Learning SDK、Azure 入口網站或 Azure CLI 建立和管理計算目標。 如果您有透過其他服務 (例如 HDInsight 叢集) 建立的計算目標，可以將它們附加至 Azure Machine Learning 服務工作區來使用這些計算目標。
+您可以建立和管理使用 Azure 機器學習服務 SDK，Azure 入口網站、 Azure CLI 或 Azure Machine Learning VS Code 延伸模組的計算目標。 如果您有透過其他服務 (例如 HDInsight 叢集) 建立的計算目標，可以將它們附加至 Azure Machine Learning 服務工作區來使用這些計算目標。
  
 在本文中，您將了解如何使用各種計算目標來訓練模型。  所有計算目標的步驟皆遵循相同的工作流程：
 1. 如果您沒有計算目標，請__建立__一個。
@@ -38,7 +38,7 @@ ms.locfileid: "66160470"
 Azure Machine Learning 服務在不同計算目標上提供不同的支援。 一般模型開發生命週期會先開始開發/測試少量的資料。 在這個階段，我們建議使用本機環境。 例如，您的本機電腦或雲端式虛擬機器。 您對於較大的資料集相應增加您的定型或進行分散式定型時，建議使用 Azure Machine Learning Compute 建立單一或多重節點叢集，在每次提交執行時自動調整。 您也可以附加您自己的計算資源，不過支援的各種情節可能會有所不同，詳述如下：
 
 
-|訓練用的計算目標| GPU 加速 | 自動<br/> 超參數微調 | 自動<br/> 機器學習服務 | Azure Machine Learning 管線 |
+|訓練用的計算目標| GPU 加速 | 自動化<br/> 超參數微調 | 自動化<br/> 機器學習服務 | Azure Machine Learning 管線 |
 |----|:----:|:----:|:----:|:----:|
 |[本機電腦](#local)| 可能 | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning Compute](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -302,7 +302,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 若要查看您工作區的計算目標，請使用下列步驟：
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)，然後開啟您的工作區。 
-1. 在 [應用程式] 底下，選取 [計算]。
+1. 在 [應用程式]  底下，選取 [計算]  。
 
     ![[檢視計算] 索引標籤](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
 
@@ -316,7 +316,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 1. 輸入計算目標的名稱。 
 
-1. 選取 [Machine Learning Compute] 作為要用於 [定型] 的計算類型。 
+1. 選取 [Machine Learning Compute]  作為要用於 [定型]  的計算類型。 
 
     >[!NOTE]
     >Azure Machine Learning Compute 是您可以在 Azure 入口網站中建立的唯一受控計算資源。  建立之後，即可連結所有其他計算資源。
@@ -325,7 +325,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
     ![填妥表單](./media/how-to-set-up-training-targets/add-compute-form.png) 
 
-1. 選取 [建立] 。
+1. 選取 [建立]  。
 
 
 1. 從清單選取計算目標以檢視建立作業的狀態：
@@ -364,7 +364,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
     > * [在 Linux 或 macOS 上建立及使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
     > * [在 Windows 上建立及使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
-1. 選取 [附加]。 
+1. 選取 [附加]  。 
 1. 從清單選取計算目標以檢視附加作業的狀態。
 
 ## <a name="set-up-compute-with-the-cli"></a>使用 CLI 設定計算
@@ -376,6 +376,10 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 * 連結非受控計算目標
 
 如需詳細資訊，請參閱[資源管理](reference-azure-machine-learning-cli.md#resource-management)。
+
+## <a name="set-up-compute-with-vs-code"></a>設定 VS Code 與計算
+
+您可以存取、 建立及管理您的工作區的使用相關聯的計算目標[VS Code 延伸模組](how-to-vscode-tools.md#create-and-manage-compute-targets)Azure Machine Learning 服務。
 
 ## <a id="submit"></a>提交定型回合
 
@@ -416,8 +420,9 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 或者您可以：
 
-* 使用 `Estimator` 物件提交實驗，如[使用估算程式將 ML 模型定型](how-to-train-ml-models.md)中所示。 
+* 使用 `Estimator` 物件提交實驗，如[使用估算程式將 ML 模型定型](how-to-train-ml-models.md)中所示。
 * [使用 CLI 擴充功能](reference-azure-machine-learning-cli.md#experiments)提交實驗。
+* 將透過實驗提交[VS Code 延伸模組](how-to-vscode-tools.md#train-and-tune-models)。
 
 ## <a name="github-tracking-and-integration"></a>GitHub 追蹤和整合
 

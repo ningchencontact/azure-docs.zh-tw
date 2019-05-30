@@ -7,16 +7,20 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 4efd9556e255709204654cf0acbf1b08fa2c1fc0
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: d240fd7097f0dc284377063df72efd888c09adb6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872145"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258103"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS 履行 Api 第 2 版 
 
 本文詳細說明在 Azure Marketplace 與 AppSource 讓獨立軟體廠商 (Isv) 銷售其 SaaS 應用程式的 API。 此 API 是可交易的 SaaS 需求提供在 Azure Marketplace 與 AppSource 上。
+
+> [!IMPORTANT] 
+> SaaS 提供的功能已移轉到[Microsoft 合作夥伴中心](https://partner.microsoft.com/dashboard/directory)。  所有新的發行者必須使用合作夥伴中心建立新的 SaaS 供應項目，以及管理現有的供應項目。  SaaS 供應項目目前的發行者 batchwise 移轉從 Cloud Partner 入口網站來合作夥伴中心。  Cloud Partner 入口網站會顯示狀態訊息，指出何時已移轉特定的現有供應項目。
+> 如需詳細資訊，請參閱 <<c0> [ 建立新的 SaaS 供應項目](../../partner-center-portal/create-new-saas-offer.md)。
 
 ## <a name="managing-the-saas-subscription-lifecycle"></a>管理 SaaS 訂用帳戶生命週期
 
@@ -53,7 +57,7 @@ Microsoft SaaS 服務會管理 SaaS 訂用帳戶購買的整個生命週期，�
 
 ![更新由 SaaS 服務啟動時，就會呼叫 API。](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
 
-#### <a name="suspended"></a>擱置
+#### <a name="suspended"></a>暫止
 
 此狀態表示客戶的付款未收到。 由原則，我們將提供客戶一段寬限期之前 unfulfilling 訂用帳戶。 當訂用帳戶處於此狀態： 
 
@@ -66,7 +70,7 @@ Microsoft SaaS 服務會管理 SaaS 訂用帳戶購買的整個生命週期，�
 訂用帳戶連線到此狀態，以明確的客戶要求或回應給未支付會費的回應。 從 ISV 預期是客戶的資料時，保留復原 X 天的最少的要求，並再刪除。 
 
 
-## <a name="api-reference"></a>API 參考
+## <a name="api-reference"></a>API 參考資料
 
 本章節記載 SaaS*訂用帳戶 API*並*作業 API*。  值`api-version`參數，針對第 2 版 Api 是`2018-08-31`。  
 
@@ -104,7 +108,7 @@ Microsoft SaaS 服務會管理 SaaS 訂用帳戶購買的整個生命週期，�
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  內容類型      | `application/json` |
+|  Content-Type      | `application/json` |
 |  x-ms-requestid    |  用於追蹤要求從用戶端，最好是一個 GUID 唯一的字串值。 如果未提供此值，則回應標頭中會產生並提供一個。 |
 |  x-ms-correlationid |  在用戶端上的作業的唯一字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，則回應標頭中會產生並提供一個。  |
 |  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
@@ -112,7 +116,7 @@ Microsoft SaaS 服務會管理 SaaS 訂用帳戶購買的整個生命週期，�
 
 *回應碼：*
 
-密碼:200<br>
+程式碼：200<br>
 SaaS 的訂用帳戶將解析的不透明的語彙基元。<br>
 
 ```json
@@ -126,16 +130,16 @@ Response body:
 }
 ```
 
-密碼:404<br>
+程式碼：404<br>
 找不到
 
-密碼:400<br>
+程式碼：400<br>
 不正確的要求。 x-ms-marketplace-語彙基元是遺失、 格式不正確或已過期。
 
-密碼:403<br>
+程式碼：403<br>
 未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
 
-密碼:500<br>
+程式碼：500<br>
 內部伺服器錯誤
 
 ```json
@@ -168,14 +172,14 @@ Response body:
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-| 內容類型       |  `application/json`  |
+| Content-Type       |  `application/json`  |
 | x-ms-requestid     |  用於追蹤要求從用戶端，最好是一個 GUID 唯一的字串值。 如果未提供此值，則回應標頭中會產生並提供一個。 |
 | x-ms-correlationid |  在用戶端上的作業的唯一字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
 | 授權      |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *回應碼：*
 
-密碼:200 <br/>
+程式碼：200 <br/>
 根據驗證權杖，取得 「 發行者 」 與對應的訂用帳戶的所有發行者的供應項目。<br> 回應裝載：<br>
 
 ```json
@@ -207,10 +211,10 @@ Response body:
 
 接續權杖才會存在，如果有其他 「 頁面 」 的計劃，以擷取。 
 
-密碼:403 <br>
+程式碼：403 <br>
 未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。 
 
-密碼:500 內部伺服器錯誤
+程式碼：500 內部伺服器錯誤
 
 ```json
 {
@@ -238,14 +242,14 @@ Response body:
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  內容類型      |  `application/json`  |
+|  Content-Type      |  `application/json`  |
 |  x-ms-requestid    |  用於追蹤要求從用戶端，最好是一個 GUID 唯一的字串值。 如果未提供此值，則回應標頭中會產生並提供一個。 |
 |  x-ms-correlationid |  在用戶端上的作業的唯一字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
 |  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *回應碼：*
 
-密碼:200<br>
+程式碼：200<br>
 從識別碼取得 SaaS 訂用帳戶<br> 回應裝載：<br>
 
 ```json
@@ -269,13 +273,13 @@ Response Body:
 }
 ```
 
-密碼:404<br>
+程式碼：404<br>
 找不到<br> 
 
-密碼:403<br>
+程式碼：403<br>
 未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
 
-密碼:500<br>
+程式碼：500<br>
 內部伺服器錯誤<br>
 
 ```json
@@ -302,14 +306,14 @@ Response Body:
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   內容類型     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |   x-ms-requestid   |   用於追蹤要求從用戶端，最好是一個 GUID 唯一的字串值。 如果未提供此值，則回應標頭中會產生並提供一個。 |
 |  x-ms-correlationid  | 在用戶端上的作業的唯一字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，則回應標頭中會產生並提供一個。 |
 |  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 
 *回應碼：*
 
-密碼:200<br>
+程式碼：200<br>
 取得客戶一份可用的方案。<br>
 
 回應內文：
@@ -324,13 +328,13 @@ Response Body:
 }
 ```
 
-密碼:404<br>
+程式碼：404<br>
 找不到<br> 
 
-密碼:403<br>
+程式碼：403<br>
 未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。 <br> 
 
-密碼:500<br>
+程式碼：500<br>
 內部伺服器錯誤<br>
 
 ```json
@@ -356,7 +360,7 @@ Response Body:
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  內容類型      | `application/json`  |
+|  Content-Type      | `application/json`  |
 |  x-ms-requestid    | 用於追蹤要求從用戶端，最好是一個 GUID 唯一的字串值。 如果未提供此值，則回應標頭中會產生並提供一個。  |
 |  x-ms-correlationid  | 在用戶端上的作業的唯一字串值。 這個字串會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
 |  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
@@ -372,19 +376,19 @@ Response Body:
 
 *回應碼：*
 
-密碼:200<br>
+程式碼：200<br>
 啟用訂用帳戶。<br>
 
-密碼:404<br>
+程式碼：404<br>
 找不到
 
-密碼:400<br>
+程式碼：400<br>
 不正確的要求驗證失敗
 
-密碼:403<br>
+程式碼：403<br>
 未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
 
-密碼:500<br>
+程式碼：500<br>
 內部伺服器錯誤
 
 ```json
@@ -413,7 +417,7 @@ Response Body:
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  內容類型      | `application/json` |
+|  Content-Type      | `application/json` |
 |  x-ms-requestid    |   用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。  |
 |  x-ms-correlationid  |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。    |
 | 授權      |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
@@ -435,22 +439,22 @@ Request Body:
 
 *回應碼：*
 
-密碼:202<br>
+程式碼：202<br>
 若要變更方案的要求已經被接受。 ISV 要輪詢作業位置判斷成功/失敗。 <br>
 
-密碼:404<br>
+程式碼：404<br>
 找不到
 
-密碼:400<br>
+程式碼：400<br>
 不正確的要求驗證失敗。
 
 >[!Note]
 >只有一次修補，不能同時，可以是計劃或數量。 編輯訂閱加上**更新**不在`allowedCustomerOperations`。
 
-密碼:403<br>
+程式碼：403<br>
 未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
 
-密碼:500<br>
+程式碼：500<br>
 內部伺服器錯誤
 
 ```json
@@ -479,7 +483,7 @@ Request Body:
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  內容類型      | `application/json` |
+|  Content-Type      | `application/json` |
 |  x-ms-requestid    |   用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。  |
 |  x-ms-correlationid  |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。    |
 | 授權      |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
@@ -501,22 +505,22 @@ Request Body:
 
 *回應碼：*
 
-密碼:202<br>
+程式碼：202<br>
 已接受。 變更數量的要求已經被接受。 ISV 要輪詢作業位置判斷成功/失敗。 <br>
 
-密碼:404<br>
+程式碼：404<br>
 找不到
 
-密碼:400<br>
+程式碼：400<br>
 不正確的要求驗證失敗。
 
 >[!Note]
 >只有一次修補，不能同時，可以是計劃或數量。 編輯訂閱加上**更新**不在`allowedCustomerOperations`。
 
-密碼:403<br>
+程式碼：403<br>
 未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
 
-密碼:500<br>
+程式碼：500<br>
 內部伺服器錯誤
 
 ```json
@@ -528,7 +532,7 @@ Request Body:
 }
 ```
 
-#### <a name="delete-a-subscription"></a>刪除訂閱
+#### <a name="delete-a-subscription"></a>刪除訂用帳戶
 
 取消訂閱，然後刪除指定的訂用帳戶。
 
@@ -545,26 +549,26 @@ Request Body:
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   內容類型     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |  x-ms-requestid    |   用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，其中會產生並提供回應標頭中。   |
 |  x-ms-correlationid  |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。   |
 |  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *回應碼：*
 
-密碼:202<br>
+程式碼：202<br>
 表示起始的 ISV 呼叫取消訂閱 SaaS 訂用帳戶。<br>
 
-密碼:404<br>
+程式碼：404<br>
 找不到
 
-密碼:400<br>
+程式碼：400<br>
 刪除訂閱加上**刪除**不是在`allowedCustomerOperations`。
 
-密碼:403<br>
+程式碼：403<br>
 未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
 
-密碼:500<br>
+程式碼：500<br>
 內部伺服器錯誤
 
 ```json
@@ -598,14 +602,14 @@ Request Body:
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   內容類型     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |  x-ms-requestid    |  用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。  |
 |  x-ms-correlationid |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
 |  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *回應碼：*
 
-密碼:200<br> 取得暫止的訂用帳戶的作業清單。<br>
+程式碼：200<br> 取得暫止的訂用帳戶的作業清單。<br>
 回應裝載：
 
 ```json
@@ -623,16 +627,16 @@ Request Body:
 }]
 ```
 
-密碼:404<br>
+程式碼：404<br>
 找不到
 
-密碼:400<br>
+程式碼：400<br>
 不正確的要求驗證失敗
 
-密碼:403<br>
+程式碼：403<br>
 未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
 
-密碼:500<br>
+程式碼：500<br>
 內部伺服器錯誤
 
 ```json
@@ -661,12 +665,12 @@ Request Body:
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  內容類型      |  `application/json`   |
+|  Content-Type      |  `application/json`   |
 |  x-ms-requestid    |   用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。  |
 |  x-ms-correlationid |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
 |  授權     |[取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
-*回應碼：* 密碼:200<br> 取得指定的暫止的 SaaS 作業<br>
+*回應碼：* 程式碼：200<br> 取得指定的暫止的 SaaS 作業<br>
 回應裝載：
 
 ```json
@@ -686,16 +690,16 @@ Response body:
 
 ```
 
-密碼:404<br>
+程式碼：404<br>
 找不到
 
-密碼:400<br>
+程式碼：400<br>
 不正確的要求驗證失敗
 
-密碼:403<br>
+程式碼：403<br>
 未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
  
-密碼:500<br> 內部伺服器錯誤
+程式碼：500<br> 內部伺服器錯誤
 
 ```json
 {
@@ -724,7 +728,7 @@ Response body:
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   內容類型     | `application/json`   |
+|   Content-Type     | `application/json`   |
 |   x-ms-requestid   |   用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。 |
 |  x-ms-correlationid |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。 |
 |  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
@@ -742,21 +746,21 @@ Response body:
 
 *回應碼：*
 
-密碼:200<br> 呼叫以通知 ISV 端作業的完成。 例如，此回應可能表示基座/計劃的變更。
+程式碼：200<br> 呼叫以通知 ISV 端作業的完成。 例如，此回應可能表示基座/計劃的變更。
 
-密碼:404<br>
+程式碼：404<br>
 找不到
 
-密碼:400<br>
+程式碼：400<br>
 不正確的要求驗證失敗
 
-密碼:403<br>
+程式碼：403<br>
 未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前的 「 發行者 」 的併購。
 
-密碼:409<br>
+程式碼：409<br>
 發生衝突。 比方說，是已達到較新的交易
 
-密碼:500<br> 內部伺服器錯誤
+程式碼：500<br> 內部伺服器錯誤
 
 ```json
 {

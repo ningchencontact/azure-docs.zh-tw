@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/29/2019
-ms.openlocfilehash: e586ab1bdcca9d6109cf42b6341c333fabb02993
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 05/28/2019
+ms.openlocfilehash: 9316ca0dfaa2d550ea9a2b89d2c93e0e37230f62
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601679"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388349"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -25,7 +25,7 @@ ms.locfileid: "65601679"
 * 直接存取無法透過網際網路公開使用的 [Apache Hadoop](https://hadoop.apache.org/) 服務。 例如，[Apache Kafka](https://kafka.apache.org/) API 或 [Apache HBase](https://hbase.apache.org/) Java API。
 
 > [!IMPORTANT]  
-> 2019 年 2 月 28 日以后，在 VNET 中创建的新群集的网络资源（例如 NIC、LB 等）会在同一 HDInsight 群集资源组中进行预配。 以前，这些资源在 VNET 资源组中预配。 当前运行的群集以及那些在没有 VNET 的情况下创建的群集没有任何更改。
+> 在 2019 年 2 月 28 日之後, 將相同的 HDInsight 叢集資源群組中佈建的網路資源 （例如 Nic、 LBs 等） 在 VNET 中建立的新叢集。 先前，VNET 資源群組中所佈建這些資源。 不沒有目前執行的叢集和建立 VNET 沒有這些叢集的任何變更。
 
 ## <a name="prerequisites-for-code-samples-and-examples"></a>如需程式碼範例和範例的必要條件
 
@@ -92,7 +92,7 @@ ms.locfileid: "65601679"
         如需詳細資訊，請參閱[為網路安全性群組疑難排解](../virtual-network/diagnose-network-traffic-filter-problem.md)文件。
 
         > [!IMPORTANT]  
-        > 會根據規則優先順序依序套用網路安全性群組規則。 會套用第一個符合流量模式的規則，而且未針對該流量套用其他規則。 排序從最寬鬆到最嚴格權限的規則。 有关详细信息，请参阅[使用网络安全组筛选网络流量](../virtual-network/security-overview.md)文档。
+        > 會根據規則優先順序依序套用網路安全性群組規則。 會套用第一個符合流量模式的規則，而且未針對該流量套用其他規則。 排序從最寬鬆到最嚴格權限的規則。 如需詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](../virtual-network/security-overview.md)文件。
 
     * 使用者定義的路由
 
@@ -126,14 +126,14 @@ Azure 會針對安裝於虛擬網路中的 Azure 服務提供名稱解析。 這
 
 * 網際網路上的任何可用資源。 例如，microsoft.com、windowsupdate.com。
 
-* 相同 Azure 虛擬網路中的任何資源，方法是使用資源的「內部 DNS 名稱」。 例如，使用預設名稱解析時，以下是指派給 HDInsight 背景工作節點的範例內部 DNS 名稱：
+* 相同 Azure 虛擬網路中的任何資源，方法是使用資源的「內部 DNS 名稱」  。 例如，使用預設名稱解析時，以下是指派給 HDInsight 背景工作節點的範例內部 DNS 名稱：
 
   * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
   * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     這些節點可以使用內部 DNS 名稱彼此直接通訊，以及與 HDInsight 中的其他節點通訊。
 
-預設名稱解析「不」允許 HDInsight 解析加入虛擬網路之網路中的資源名稱。 例如，通常會將內部部署網路加入虛擬網路。 只使用預設名稱解析，HDInsight 無法透過名稱存取內部部署網路中的資源。 反之亦然，內部部署網路中的資源無法透過名稱存取虛擬網路中的資源。
+預設名稱解析「不」  允許 HDInsight 解析加入虛擬網路之網路中的資源名稱。 例如，通常會將內部部署網路加入虛擬網路。 只使用預設名稱解析，HDInsight 無法透過名稱存取內部部署網路中的資源。 反之亦然，內部部署網路中的資源無法透過名稱存取虛擬網路中的資源。
 
 > [!WARNING]  
 > 您必須建立自訂 DNS 伺服器，並設定虛擬網路使用它，再建立 HDInsight 叢集。
@@ -150,7 +150,7 @@ Azure 會針對安裝於虛擬網路中的 Azure 服務提供名稱解析。 這
 
    * 如果遠端網路是內部部署網路，請設定 DNS，如下所示：
         
-     * 「自訂 DNS」(在虛擬網路中)：
+     * 「自訂 DNS」  (在虛擬網路中)：
 
          * 將虛擬網路 DNS 尾碼的要求轉送至 Azure 遞迴解析程式 (168.63.129.16)。 Azure 會處理虛擬網路中資源的要求
 
@@ -162,7 +162,7 @@ Azure 會針對安裝於虛擬網路中的 Azure 服務提供名稱解析。 這
 
    * 如果遠端網路是另一個 Azure 虛擬網路，請設定 DNS，如下所示：
 
-     * 「自訂 DNS」(在每個虛擬網路中)：
+     * 「自訂 DNS」  (在每個虛擬網路中)：
 
          * 將虛擬網路 DNS 尾碼的要求轉送至自訂 DNS 伺服器。 每個虛擬網路中的 DNS 會負責解析其網路內的資源。
 
@@ -211,41 +211,39 @@ Azure 會針對安裝於虛擬網路中的 Azure 服務提供名稱解析。 這
 
 ## <a id="networktraffic"></a> 控制網路流量
 
+### <a name="controlling-inbound-traffic-to-hdinsight-clusters"></a>控制輸入的流量至 HDInsight 叢集
+
 Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
 
 * **網路安全性群組** (NSG) 可讓您篩選輸入和輸出網路流量。 如需詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](../virtual-network/security-overview.md)文件。
 
-    > [!WARNING]  
-    > HDInsight 不支援限制輸出流量。 應該允許所有輸出流量。
-
-* **使用者定義路由** (UDR) 定義流量在網路中的資源之間如何流動。 如需詳細資訊，請參閱[使用者定義路由和 IP 轉送](../virtual-network/virtual-networks-udr-overview.md)文件。
-
 * **網路虛擬設備**會複寫裝置的功能，例如防火牆和路由器。 如需詳細資訊，請參閱[網路設備](https://azure.microsoft.com/solutions/network-appliances)文件。
 
-做為受管理的服務，HDInsight 需要無限制地的存取 HDInsight 健康狀態和管理服務的傳入和傳出流量從 VNET。 使用 NSG 和 UDR 時，您必須確定這些服務仍然可以與 HDInsight 叢集進行通訊。
+做為受管理的服務，HDInsight 需要無限制地的存取 HDInsight 健康狀態和管理服務的傳入和傳出流量從 VNET。 當使用 Nsg，您必須確定這些服務仍然可以與 HDInsight 叢集進行通訊。
 
-### <a id="hdinsight-ip"></a> 具有網路安全性群組和使用者定義路由的 HDInsight
+![建立自訂的 Azure VNET 中的 HDInsight 實體的圖表](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
 
-如果您規劃使用**網路安全性群組**或**使用者定義路由**來控制網路流量，請先執行下列動作，再安裝 HDInsight：
+### <a id="hdinsight-ip"></a> 使用網路安全性群組的 HDInsight
+
+如果您計劃使用**網路安全性群組**來控制網路流量，然後再安裝 HDInsight 中執行下列動作：
 
 1. 識別您要用於 HDInsight 的 Azure 區域。
 
 2. 識別 HDInsight 所需的 IP 位址。 如需詳細資訊，請參閱 [HDInsight 所需的 IP 位址](#hdinsight-ip)一節。
 
-3. 建立或修改您要安裝 HDInsight 之子網路的網路安全性群組或使用者定義路由。
+3. 建立或修改您想要安裝到 HDInsight 的子網路的網路安全性群組。
 
-    * __網路安全性群組__：允許連接埠 __443__ 上來自 IP 位址的「輸入」流量。 這可確保 HDI 管理服務可從 VNET 外部觸達叢集。
-    * __使用者定義的路由__：如果您打算使用 UDR，請建立每個 IP 位址的路由，並將 [下一個躍點類型] 設定為 [網際網路]。 您也應該無限制地允許 VNET 的任何其他輸出流量。 比方說，您可以將所有其他流量路由傳送至您 Azure 防火牆或網路虛擬設備 （裝載在 Azure 中） 進行監視，但應該不會封鎖連出流量。
+    * __網路安全性群組__：允許連接埠 __443__ 上來自 IP 位址的「輸入」  流量。 這可確保 HDInsight 管理的服務可以連線到該叢集的虛擬網路外部。
 
-如需網路安全性群組或使用者定義路由的詳細資訊，請參閱下列文件：
+如需有關網路安全性群組的詳細資訊，請參閱 <<c0> [ 的網路安全性群組概觀](../virtual-network/security-overview.md)。
 
-* [网络安全组](../virtual-network/security-overview.md)
+### <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>控制輸出流量從 HDInsight 叢集
 
-* [使用者定義路由](../virtual-network/virtual-networks-udr-overview.md)
+如需有關如何控制輸出流量從 HDInsight 叢集的詳細資訊，請參閱[適用於 Azure HDInsight 叢集設定輸出網路流量限制](hdinsight-restrict-outbound-traffic.md)。
 
 #### <a name="forced-tunneling-to-on-premise"></a>流向內部部署的強制通道
 
-強制通道是一種使用者定義路由設定，其中來自子網路的所有流量都會強制流向特定網路或位置，例如內部部署網路。 HDInsight 會__不__支援強制通道的內部部署網路。 如果使用托管在 Azure 中的 Azure 防火墙或网络虚拟设备，则可以使用 UDR 将流量路由到它以便进行监视并允许所有传出流量。
+強制通道是一種使用者定義路由設定，其中來自子網路的所有流量都會強制流向特定網路或位置，例如內部部署網路。 HDInsight 會__不__支援強制通道的內部部署網路的流量。 
 
 ## <a id="hdinsight-ip"></a> 所需的 IP 位址
 
@@ -270,14 +268,14 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
     > [!IMPORTANT]  
     > 如果未列出您使用的 Azure 區域，就只能使用步驟 1 中的四個 IP 位址。
 
-    | 國家/地區 | 區域 | 允許的來源 IP 位址 | 允許的目的地 | Direction |
+    | 國家 (地區) | 區域 | 允許的來源 IP 位址 | 允許的目的地 | Direction |
     | ---- | ---- | ---- | ---- | ----- |
     | 亞洲 | 東亞 | 23.102.235.122</br>52.175.38.134 | \*:443 | 輸入 |
     | &nbsp; | 東南亞 | 13.76.245.160</br>13.76.136.249 | \*:443 | 輸入 |
     | 澳大利亞 | 澳洲東部 | 104.210.84.115</br>13.75.152.195 | \*:443 | 輸入 |
     | &nbsp; | 澳大利亞東南部 | 13.77.2.56</br>13.77.2.94 | \*:443 | 輸入 |
     | 巴西 | 巴西南部 | 191.235.84.104</br>191.235.87.113 | \*:443 | 輸入 |
-    | 加拿大 | 加拿大东部 | 52.229.127.96</br>52.229.123.172 | \*:443 | 輸入 |
+    | 加拿大 | 加拿大東部 | 52.229.127.96</br>52.229.123.172 | \*:443 | 輸入 |
     | &nbsp; | 加拿大中部 | 52.228.37.66</br>52.228.45.222 |\*:443 | 輸入 |
     | 中國 | 中國北部 | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*:443 | 輸入 |
     | &nbsp; | 中國東部 | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*:443 | 輸入 |
@@ -294,7 +292,7 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
     | &nbsp; | 日本西部 | 40.74.125.69</br>138.91.29.150 | \*:443 | 輸入 |
     | 南韓 | 南韓中部 | 52.231.39.142</br>52.231.36.209 | \*:433 | 輸入 |
     | &nbsp; | 南韓南部 | 52.231.203.16</br>52.231.205.214 | \*:443 | 輸入
-    | 英國 | 英国西部 | 51.141.13.110</br>51.141.7.20 | \*:443 | 輸入 |
+    | 英國 | 英國西部 | 51.141.13.110</br>51.141.7.20 | \*:443 | 輸入 |
     | &nbsp; | 英國南部 | 51.140.47.39</br>51.140.52.16 | \*:443 | 輸入 |
     | 美國 | 美國中部 | 13.67.223.215</br>40.86.83.253 | \*:443 | 輸入 |
     | &nbsp; | 美國東部 | 13.82.225.233</br>40.71.175.99 | \*:443 | 輸入 |
@@ -321,7 +319,7 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
 
 ## <a id="hdinsight-nsg"></a>範例：網路安全性群組與 HDInsight
 
-本節中的範例會示範如何建立網路安全性群組規則，以允許 HDInsight 與 Azure 管理服務進行通訊。 使用範例之前，請調整 IP 位址以符合您要使用之 Azure 區域的 IP 位址。 有关此方面的信息，可参阅 [HDInsight 与网络安全组和用户定义路由](#hdinsight-ip)部分。
+本節中的範例會示範如何建立網路安全性群組規則，以允許 HDInsight 與 Azure 管理服務進行通訊。 使用範例之前，請調整 IP 位址以符合您要使用之 Azure 區域的 IP 位址。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
 
 ### <a name="azure-resource-management-template"></a>Azure 資源管理範本
 
@@ -330,7 +328,7 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
 * [部署安全的 Azure 虛擬網路和 HDInsight Hadoop 叢集](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 > [!IMPORTANT]  
-> 更改此示例中使用的 IP 地址，使之与要使用的 Azure 区域匹配。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
+> 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -502,7 +500,7 @@ $vnet | Set-AzVirtualNetwork
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>虛擬網路與已連線內部部署網路之間的名稱解析
 
-此示例作出以下假设：
+此範例做出以下假設：
 
 * 您的 Azure 虛擬網路會使用 VPN 閘道連線至內部部署網路。
 
@@ -539,7 +537,7 @@ $vnet | Set-AzVirtualNetwork
 
     此設定會將虛擬網路 DNS 尾碼的所有 DNS 要求都路由傳送至 Azure 遞迴解析程式。
 
-2. 在虚拟网络的自定义 DNS 服务器上，使用以下文本作为 `/etc/bind/named.conf.options` 文件的内容：
+2. 在虛擬網路的自訂 DNS 伺服器上，使用下列文字作為 `/etc/bind/named.conf.options` 檔案的內容：
 
     ```
     // Clients to accept requests from
@@ -617,7 +615,7 @@ $vnet | Set-AzVirtualNetwork
     };
     ```
 
-    將 `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` 值取代為「其他」虛擬網路的 DNS 尾碼。 此項目會將遠端網路 DNS 尾碼的要求路由傳送至該網路中的自訂 DNS。
+    將 `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` 值取代為「其他」  虛擬網路的 DNS 尾碼。 此項目會將遠端網路 DNS 尾碼的要求路由傳送至該網路中的自訂 DNS。
 
 3. 在這兩個虛擬網路的自訂 DNS 伺服器上，使用下列文字作為 `/etc/bind/named.conf.options` 檔案的內容：
 
@@ -652,9 +650,9 @@ $vnet | Set-AzVirtualNetwork
 
     不適用於虛擬網路 DNS 尾碼 (例如，microsoft.com) 的任何要求都是透過 Azure 遞迴解析程式所處理。
 
-4. 若要使用此配置，请重启 Bind。 例如，兩部 DNS 伺服器上的 `sudo service bind9 restart`。
+4. 若要使用設定，請重新啟動 Bind。 例如，兩部 DNS 伺服器上的 `sudo service bind9 restart`。
 
-完成這些步驟之後，您可以使用完整網域名稱 (FQDN) 連線至虛擬網路中的資源。 现在可以将 HDInsight 安装到虚拟网络。
+完成這些步驟之後，您可以使用完整網域名稱 (FQDN) 連線至虛擬網路中的資源。 您現在可以將 HDInsight 安裝至虛擬網路。
 
 ## <a name="next-steps"></a>後續步驟
 

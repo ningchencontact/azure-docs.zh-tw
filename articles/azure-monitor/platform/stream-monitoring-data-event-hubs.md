@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: ab439eb77113c53ab046256dd8d448a18b63f887
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72d744808d6b52ccd151645c97005bfdfe1a5541
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452666"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243460"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>將 Azure 監視資料串流至事件中樞以供外部工具取用
 
@@ -43,7 +43,7 @@ Azure 環境內有數個「層級」的監視資料，而存取每一層資料�
 * 輸送量單位數可讓您擴大事件中樞的輸送量規模。 分割區數可讓您跨眾多客戶平行處理取用量。 單一分割區每秒最多可以處理 20 MBps 或大約 20,000 則訊息。 視取用資料的工具而定，可能支援也可能不知支援從多個分割區取用。 如果您不確定要設定多少個分割區，建議您從 4 個分割區開始。
 * 建議您將事件中樞上的訊息保留期設定為 7 天。 如果您的取用工具停止運作的時間超過一天，這可確保該工具能夠在其停止的地方接著執行 (最長可達 7 天的事件)。
 * 建議您使用事件中樞的預設取用者群組。 您不需要建立其他取用者群組或使用個別的取用者群組，除非您打算讓兩個不同的工具從相同的事件中樞取用相同的資料。
-* 就「Azure 活動記錄」而言，您需挑選「事件中樞」命名空間，而「Azure 監視器」就會在該命名空間內建立一個名為 'insights-logs-operationallogs' 的事件中樞。 就其他記錄類型而言，您可以選擇現有的事件中樞 (可讓您重複使用相同的 insights-logs-operationallogs 事件中樞)，或讓「Azure 監視器」為每個記錄分類建立一個事件中樞。
+* 針對 Azure 活動記錄檔中，您挑選的事件中樞命名空間和 Azure 監視器建立事件中樞內稱為 'insights-記錄-operationallogs。' 該命名空間 就其他記錄類型而言，您可以選擇現有的事件中樞 (可讓您重複使用相同的 insights-logs-operationallogs 事件中樞)，或讓「Azure 監視器」為每個記錄分類建立一個事件中樞。
 * 一般而言，必須在從事件中樞取用資料的電腦上開啟連接埠 5671 和 5672。
 
 另請參閱 [Azure 事件中樞常見問題集](../../event-hubs/event-hubs-faq.md)。
@@ -117,8 +117,8 @@ Azure 資源會發出兩種監視資料：
 * **Syslog 伺服器** - 若要直接將 Azure 監視器資料串流到 syslog 伺服器，您可以查看[此 GitHub 存放庫](https://github.com/miguelangelopereira/azuremonitor2syslog/) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟
-* [將活動記錄檔封存至儲存體帳戶](../../azure-monitor/platform/archive-activity-log.md)
+* [活動記錄封存至儲存體帳戶](../../azure-monitor/platform/archive-activity-log.md)
 * [閱讀 Azure 活動記錄檔的概觀](../../azure-monitor/platform/activity-logs-overview.md)
-* [根據活動記錄檔事件設定警示](../../azure-monitor/platform/alerts-log-webhook.md)
+* [設定活動記錄事件為基礎的警示](../../azure-monitor/platform/alerts-log-webhook.md)
 
 

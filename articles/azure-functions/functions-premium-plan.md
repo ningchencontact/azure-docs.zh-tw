@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 75987e7cba9f373af5a434de9f273948c3c9ae75
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: de1915c7efb4bd8634228f341df2c57c443dd28e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544734"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242311"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions 的進階方案 （預覽）
 
@@ -91,7 +91,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 ### <a name="available-instance-skus"></a>可用的執行個體 Sku
 
-在建立我們的調整您的計劃時，您可以選擇三個執行個體大小。  您將支付的核心和每秒取用的記憶體總數。  您的應用程式可以自動相應放大至多個執行個體所需。  
+當建立或調整您的計劃時，您可以選擇三個執行個體大小。  您將支付的核心和每秒取用的記憶體總數。  您的應用程式可以自動相應放大至多個執行個體所需。  
 
 |SKU|核心|記憶體|儲存體|
 |--|--|--|--|

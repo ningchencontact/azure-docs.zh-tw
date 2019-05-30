@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: b0a6c6feae11f8daeed54c5e763dbff3aa711652
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: c33219eacb1d3bada5630a7792f98ba33dba824e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153515"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235868"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Azure Data Factory 中執行資料的流程活動
 用於執行資料流活動觸發的管線執行和管線偵錯 (sandbox) 執行中執行您的 ADF 資料流。
@@ -49,25 +49,26 @@ ms.locfileid: "66153515"
 
 ![執行資料流程](media/data-flow/activity-data-flow.png "執行資料流程")
 
-### <a name="run-on"></a>執行於
-
-選擇在資料流程的此執行的計算環境。 預設值是 Azure 自動解析預設整合執行階段。 這項選擇會在相同的區域，為您的 data factory 中的 Spark 環境上執行資料流程的資料。 計算類型會是作業的叢集，這表示計算環境將會需要幾分鐘時間來啟動。
-
 ### <a name="debugging-pipelines-with-data-flows"></a>偵錯資料流程管線
 
 ![偵錯 按鈕](media/data-flow/debugbutton.png "偵錯 按鈕")
 
 利用適用於以互動方式執行管線偵錯版中測試您的資料流的 warmed 的叢集，使用資料流程偵錯。 您可以使用管線進行偵錯的選項來測試管線中的資料流程。
 
-### <a name="run-on"></a>執行於
+### <a name="run-on"></a>執行位置
 
 這是必要的欄位定義要用於您的 資料流程的活動執行的整合執行階段。 根據預設，Data Factory 會使用預設的自動解決 Azure 整合執行階段。 不過，您可以建立您的 Azure 整合執行階段定義特定區域，您的資料流活動執行的計算類型、 核心計數和 TTL。
 
 Data Flow 執行的預設值是 8 核心的一般計算，當 TTL 為 60 分鐘的時間。
 
+選擇在資料流程的此執行的計算環境。 預設值是 Azure 自動解析預設整合執行階段。 這項選擇會在相同的區域，為您的 data factory 中的 Spark 環境上執行資料流程的資料。 計算類型會是作業的叢集，這表示計算環境將會需要幾分鐘時間來啟動。
+
 您的資料流活動的 Spark 執行環境的控制權。 在  [Azure 整合執行階段](concepts-integration-runtime.md)是設定來設定的計算類型 （一般用途、 記憶體最佳化，並計算最佳化），背景工作角色核心數目和存留時間以符合與您的資料流計算的執行引擎需求。 此外，設定 TTL 可讓您維護暖立即可供工作執行的叢集。
 
 ![Azure 整合執行階段](media/data-flow/ir-new.png "Azure 整合執行階段")
+
+> [!NOTE]
+> 將資料流程的活動中的整合執行階段選取項目僅適用於*觸發執行*的管線。 使用偵錯，偵錯資料流程管線，將針對 8 核心預設的 Spark 叢集中執行。
 
 ### <a name="staging-area"></a>臨時區域
 

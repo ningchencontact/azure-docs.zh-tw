@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: fd9695698f90a1efebb71a2b24a196dd8c911081
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 52b929d8caa7b855e45ce9ca57d39d1dfcbcb8a1
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073894"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392693"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中建立輸入控制器
 
@@ -31,11 +31,13 @@ ms.locfileid: "65073894"
 
 本文使用 Helm 來安裝 NGINX 輸入控制器、cert-manager 及範例 Web 應用程式。 您需要在 AKS 叢集內將 Helm 初始化，並使用適用於 Tiller 的服務帳戶。 如需設定及使用 Helm 的詳細資訊，請參閱[在 Azure Kubernetes Service (AKS) 中使用 Helm 安裝應用程式][use-helm]。
 
-本文也會要求您執行 Azure CLI 版本 2.0.61 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
+本文也會要求您執行 Azure CLI 版本 2.0.64 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
 
 ## <a name="create-an-ingress-controller"></a>建立輸入控制器
 
 若要建立輸入控制器，請使用 `Helm` 以安裝 *nginx-ingress*。 為了新增備援，您必須使用 `--set controller.replicaCount` 參數部署兩個 NGINX 輸入控制器複本。 為充分享有執行輸入控制器複本的好處，請確定 AKS 叢集中有多個節點。
+
+輸入控制器也需要將它排程在 Linux 節點上。 Windows Server （目前在 AKS 中的預覽） 的節點不應該執行輸入控制器。 使用指定的節點選取器`--set nodeSelector`告訴 Kubernetes 排程器，在以 Linux 為基礎的節點上執行 NGINX 輸入控制器的參數。
 
 > [!TIP]
 > 下列範例會建立名為輸入資源的 Kubernetes 命名空間*輸入 basic*。 視需要請指定您自己的環境的命名空間。 如果您的 AKS 叢集不啟用 RBAC，請新增`--set rbac.create=false`Helm 命令。
@@ -45,7 +47,11 @@ ms.locfileid: "65073894"
 kubectl create namespace ingress-basic
 
 # Use Helm to deploy an NGINX ingress controller
-helm install stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2
+helm install stable/nginx-ingress \
+    --namespace ingress-basic \
+    --set controller.replicaCount=2 \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 為 NGINX 輸入控制器建立 Kubernetes 負載平衡器服務時，系統會指派動態公用 IP 位址，如下列範例輸出所示：
@@ -102,19 +108,19 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
   - http:
       paths:
-      - path: /
-        backend:
+      - backend:
           serviceName: aks-helloworld
           servicePort: 80
-      - path: /hello-world-two
-        backend:
+        path: /(.*)
+      - backend:
           serviceName: ingress-demo
           servicePort: 80
+        path: /hello-world-two(/|$)(.*)
 ```
 
 使用 `kubectl apply -f hello-world-ingress.yaml` 命令建立輸入資源。
@@ -127,11 +133,11 @@ ingress.extensions/hello-world-ingress created
 
 ## <a name="test-the-ingress-controller"></a>測試輸入控制器
 
-若要測試輸入控制器的路由，請瀏覽至這兩個應用程式。 開啟網頁瀏覽器並前往您 NGINX 輸入控制器的 IP 位址，例如 *http://40.117.74.8*。 第一個示範應用程式會顯示在網頁瀏覽器中，如下列範例所示：
+若要測試輸入控制器的路由，請瀏覽至這兩個應用程式。 開啟網頁瀏覽器並前往您 NGINX 輸入控制器的 IP 位址，例如 *http://40.117.74.8* 。 第一個示範應用程式會顯示在網頁瀏覽器中，如下列範例所示：
 
 ![執行於輸入控制器後方的第一個應用程式](media/ingress-basic/app-one.png)
 
-現在，將 */hello-world-two* 路徑新增至 IP 位址，例如 *http://40.117.74.8/hello-world-two*。 此時會顯示具有自訂標題的第二個示範應用程式：
+現在，將 */hello-world-two* 路徑新增至 IP 位址，例如 *http://40.117.74.8/hello-world-two* 。 此時會顯示具有自訂標題的第二個示範應用程式：
 
 ![執行於輸入控制器後方的第二個應用程式](media/ingress-basic/app-two.png)
 
@@ -155,7 +161,7 @@ helm repo remove azure-samples
 
 ### <a name="delete-resources-individually"></a>個別地刪除資源
 
-或者，更細微的方法是刪除建立的個別資源。 Helm 的發行的清單`helm list`命令。 尋找名為nginx-ingress 和 aks-helloworld 的圖表，如下列範例輸出所示：
+或者，更細微的方法是刪除建立的個別資源。 Helm 的發行的清單`helm list`命令。 尋找名為nginx-ingress  和 aks-helloworld  的圖表，如下列範例輸出所示：
 
 ```
 $ helm list

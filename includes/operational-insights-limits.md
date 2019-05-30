@@ -9,15 +9,15 @@ ms.date: 05/16/2018
 ms.author: magoedte
 ms.custom: include file
 ms.openlocfilehash: 34f2ab8f7ccafb8b30e298cd71e09171ad8c87cb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553453"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238584"
 ---
 下列限制適用於每個訂用帳戶的 Azure Log Analytics 資源。
 
-| 資源 | 預設限制 | 註解
+| Resource | 預設限制 | 註解
 | --- | --- | --- |
 | 每一訂用帳戶的可用工作區數目 | 10 | 此限制無法增加。 |
 | 每一訂用帳戶的付費工作區數目 | N/A | 您受限於資源群組內的資源數目和每個訂用帳戶的資源群組數目。 | 
@@ -31,7 +31,7 @@ ms.locfileid: "57553453"
 |  | 免費 | 標準 | 高級 | 獨立 | OMS | 每 GB |
 | --- | --- | --- | --- | --- | --- |--- |
 | 每日所收集的資料量 |500 MB<sup>1</sup> |None |None | None | None | None
-| 資料保留期間 |7 天 |1 个月 |12 個月 | 1 個月 <sup>2</sup> | 1 個月 <sup>2</sup>| 1 個月 <sup>2</sup>|
+| 資料保留期間 |7 天 |1 個月 |12 個月 | 1 個月 <sup>2</sup> | 1 個月 <sup>2</sup>| 1 個月 <sup>2</sup>|
 
 <sup>1</sup>客戶時達到其每日資料傳輸限制 500 MB，資料分析會停止，並在隔天開頭繼續。 一天是以 UTC 為基礎。
 

@@ -4,14 +4,14 @@ description: 了解 Azure Cosmos DB 的 SQL 語法、資料庫概念及 SQL 查�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: bbca0239053b8f3164055a07b376abc597b0348f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 943ed63aed0f64ae6cbd62c52731c6ec73ddd0bd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954126"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388489"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 查詢範例
 
@@ -550,13 +550,13 @@ FROM 子句可以減少至較小的子集的來源。 若要列舉每個項目�
 
 | **Op** | **未定義** | **Null** | **布林值** | **Number** | **String** | **物件** | **Array** |
 |---|---|---|---|---|---|---|---|
-| **未定義** | 未定義的 | 未定義的 | 未定義的 | 未定義的 | 未定義的 | 未定義的 | 未定義的 |
-| **Null** | 未定義的 | **Ok** | 未定義的 | 未定義的 | 未定義的 | 未定義的 | 未定義的 |
-| **布林值** | 未定義的 | 未定義的 | **Ok** | 未定義的 | 未定義的 | 未定義的 | 未定義的 |
-| **Number** | 未定義的 | 未定義的 | 未定義的 | **Ok** | 未定義的 | 未定義的 | 未定義的 |
-| **String** | 未定義的 | 未定義的 | 未定義的 | 未定義的 | **Ok** | 未定義的 | 未定義的 |
-| **物件** | 未定義的 | 未定義的 | 未定義的 | 未定義的 | 未定義的 | **Ok** | 未定義的 |
-| **Array** | 未定義的 | 未定義的 | 未定義的 | 未定義的 | 未定義的 | 未定義的 | **Ok** |
+| **未定義** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **布林值** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
+| **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
+| **物件** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined |
+| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
 
 比較運算子，例如`>`， `>=`， `!=`， `<`，並`<=`，比較類型，或兩個物件或陣列產生`Undefined`。  
 
@@ -568,19 +568,19 @@ FROM 子句可以減少至較小的子集的來源。 若要列舉每個項目�
 
 **OR 運算子**
 
-| 或 | True | False | 未定義的 |
+| 或 | True | False | Undefined |
 | --- | --- | --- | --- |
 | True |True |True |True |
-| False |True |False |未定義的 |
-| 未定義的 |True |未定義的 |未定義的 |
+| False |True |False |Undefined |
+| Undefined |True |Undefined |Undefined |
 
 **AND 運算子**
 
-| AND | True | False | 未定義的 |
+| AND | True | False | Undefined |
 | --- | --- | --- | --- |
-| True |True |False |未定義的 |
+| True |True |False |Undefined |
 | False |False |False |False |
-| 未定義的 |未定義的 |False |未定義的 |
+| Undefined |Undefined |False |Undefined |
 
 **NOT 運算子**
 
@@ -588,7 +588,7 @@ FROM 子句可以減少至較小的子集的來源。 若要列舉每個項目�
 | --- | --- |
 | True |False |
 | False |True |
-| 未定義的 |未定義的 |
+| Undefined |Undefined |
 
 ## <a name="between-keyword"></a>BETWEEN 關鍵字
 
@@ -756,7 +756,7 @@ ANSI SQL，如同您可以在查詢中包含選擇性的 ORDER BY 子句。 選�
 
 ## <a id="OffsetLimitClause"></a>位移 LIMIT 子句
 
-位移的限制是選擇性的子句來略過，則採用多個查詢的值。 位移的計數和限制計數所需位移限制子句中。
+位移的限制是選擇性的子句來略過，則採用多個查詢的值。 位移的計數和限制計數所需位移限制子句中。 目前只能在單一分割區內查詢支援這個子句，跨資料分割查詢不支援它。 
 
 ORDER BY 子句搭配使用位移的限制時，結果集藉由略過產生，並對已排序的值。 如果沒有 ORDER BY 子句使用時，它會導致的值決定的順序。
 
@@ -1292,13 +1292,13 @@ API 會擴充 SQL 語法，可支援使用 Udf 的自訂應用程式邏輯。 �
 
 SQL API 支援下列彙總函式。 SUM 和 AVG 處理數字的值，並計數、 最小和最大上數字、 字串、 布林值，以及 null 值的工作。
 
-| 函式 | 說明 |
+| 函式 | 描述 |
 |-------|-------------|
-| 計數 | 以運算式傳回項目的數目。 |
+| COUNT | 以運算式傳回項目的數目。 |
 | SUM   | 以運算式傳回所有值的總和。 |
 | 最小值   | 以運算式傳回最小值。 |
 | 最大值   | 以運算式傳回最大值。 |
-| AVG   | 以運算式傳回值的平均。 |
+| 平均   | 以運算式傳回值的平均。 |
 
 您也可以對陣列反覆運算的結果彙總。 如需詳細資訊，請參閱 <<c0> [ 反覆項目](#Iteration)一節。
 
@@ -1326,7 +1326,7 @@ Cosmos DB 函式和 ANSI SQL 函式的主要差異是 Cosmos DB 函數的設計�
 
 每個數學函式都會執行計算，通常以提供來作為引數的輸入值為基礎，並傳回數值。 以下是支援的內建數學函數資料表。
 
-| 使用量 | 說明 |
+| 使用量 | 描述 |
 |----------|--------|
 | ABS (num_expr) | 傳回指定之數值運算式的絕對 (正) 值。 |
 | CEILING (num_expr) | 傳回大於或等於指定之數值運算式的最小整數值。 |
@@ -1395,7 +1395,7 @@ Cosmos DB 函式和 ANSI SQL 函式的主要差異是 Cosmos DB 函數的設計�
 
 下列純量函數會對字串輸入值執行作業，並傳回字串、 數值或布林值。 以下是內建字串函數的資料表：
 
-| 使用量 | 說明 |
+| 使用量 | 描述 |
 | --- | --- |
 | [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | 傳回指定字串運算式的字元數目。 |
 | [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | 傳回字串，該字串是串連兩個或多個字串值的結果。 |
@@ -1471,7 +1471,7 @@ Cosmos DB 函式和 ANSI SQL 函式的主要差異是 Cosmos DB 函數的設計�
 
 下列純量函數會對陣列輸入值執行作業，並傳回數值、 布林值或陣列值。 以下是內建陣列函數的資料表：
 
-| 使用量 | 說明 |
+| 使用量 | 描述 |
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |傳回指定陣列運算式的元素數目。 |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |傳回串連兩個或多個陣列值之結果的陣列。 |
@@ -1534,7 +1534,7 @@ Cosmos DB 函式和 ANSI SQL 函式的主要差異是 Cosmos DB 函數的設計�
 
 Cosmos DB 支援下列開放地理空間協會 (OGC) 的內建函式的地理空間查詢： 
 
-| 使用量 | 說明 |
+| 使用量 | 描述 |
 | --- | --- |
 | ST_DISTANCE (point_expr、point_expr) | 傳回兩個 GeoJSON 之間的距離`Point`， `Polygon`，或`LineString`運算式。 |
 | T_WITHIN (point_expr, polygon_expr) | 傳回布林運算式，指出是否第一個 GeoJSON 物件 (`Point`， `Polygon`，或`LineString`) 內的第二個 GeoJSON 物件 (`Point`， `Polygon`，或`LineString`)。 |
@@ -1986,7 +1986,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 
 - 常數值，包括評估查詢時的基本資料類型的常數值。
   
-- 參考的物件或陣列元素屬性的屬性/陣列索引運算式。 例如：
+- 參考的物件或陣列元素屬性的屬性/陣列索引運算式。 例如: 
   
   ```
     family.Id;

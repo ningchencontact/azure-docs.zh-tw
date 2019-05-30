@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fa7c3d8bbbca5457a194c414863682050dfec9d7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 0913e1877c63ed1a8e960676be02a12b45a34a7d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190001"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240101"
 ---
 # <a name="deploy-azure-file-sync"></a>部署 Azure 檔案同步
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -47,15 +47,15 @@ ms.locfileid: "65190001"
     ```
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>準備 Windows Server 以搭配 Azure 檔案同步使用
-針對要與 Azure 檔案同步搭配使用的每個伺服器 (包括容錯移轉叢集中的每個伺服器節點)，停用 [Internet Explorer 增強式安全性設定]。 此動作只需要在初始伺服器註冊時執行。 您可以在註冊伺服器後重新啟用它。
+針對要與 Azure 檔案同步搭配使用的每個伺服器 (包括容錯移轉叢集中的每個伺服器節點)，停用 [Internet Explorer 增強式安全性設定]  。 此動作只需要在初始伺服器註冊時執行。 您可以在註冊伺服器後重新啟用它。
 
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 1. 開啟 [伺服器管理員]。
-2. 按一下 [本機伺服器]：  
+2. 按一下 [本機伺服器]  ：  
     ![位於伺服器管理員 UI 左側的 [本機伺服器]](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
-3. 選取 [屬性] 子窗格上的 [IE 增強式安全性設定] 連結。  
+3. 選取 [屬性]  子窗格上的 [IE 增強式安全性設定]  連結。  
     ![位於伺服器管理員 UI 中的 [IE 增強式安全性設定] 窗格](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-2.PNG)
-4. 在 [Internet Explorer 增強式安全性設定] 對話方塊中，針對 [系統管理員] 和 [使用者] 選取 [關閉]：  
+4. 在 [Internet Explorer 增強式安全性設定]  對話方塊中，針對 [系統管理員]  和 [使用者]  選取 [關閉]  ：  
     ![已選取 [關閉] 的 [Internet Explorer 增強式安全性設定] 快顯視窗](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -85,20 +85,19 @@ Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 > 部署至訂用帳戶和資源群組的儲存體同步服務會從訂用帳戶和資源群組中繼承存取權限。 我們建議您仔細檢查誰可以存取此服務。 具有寫入存取權的實體可以開始將新的一組檔案從已註冊伺服器同步到此儲存體同步服務，並讓資料流向實體可存取的 Azure 儲存體。
 
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
-若要部署儲存體同步服務，請移至[Azure 入口網站](https://portal.azure.com/)，按一下*建立資源*]，然後搜尋 [Azure 檔案同步。在搜尋結果中，選取 [Azure 檔案同步]，然後選取 [建立] 以開啟 [部署儲存體同步] 索引標籤。
+若要部署儲存體同步服務，請移至[Azure 入口網站](https://portal.azure.com/)，按一下*建立資源*]，然後搜尋 [Azure 檔案同步。在搜尋結果中，選取 [Azure 檔案同步]  ，然後選取 [建立]  以開啟 [部署儲存體同步]  索引標籤。
 
 在開啟的窗格中，輸入下列資訊：
 
 - **名稱**：儲存體同步服務的唯一名稱 (每一訂用帳戶)。
-- 訂用帳戶：您要在其中建立儲存體同步服務的訂用帳戶。 視您組織的設定策略而定，您可能具有一或多個訂用帳戶的存取權限。 Azure 訂用帳戶是針對每個雲端服務 (例如 Azure 檔案服務) 計費的最基本容器。
+- 訂用帳戶  ：您要在其中建立儲存體同步服務的訂用帳戶。 視您組織的設定策略而定，您可能具有一或多個訂用帳戶的存取權限。 Azure 訂用帳戶是針對每個雲端服務 (例如 Azure 檔案服務) 計費的最基本容器。
 - **資源群組**：資源群組是 Azure 資源的邏輯群組，例如儲存體帳戶或儲存體同步服務。 針對 Azure 檔案同步，您可以建立新的資源群組或使用現有的資源群組。(建議使用資源群組作為容器，來以邏輯方式為您的組織隔離資源，例如將 HR 資源或適用於特定專案的資源組成群組)。
 - **位置**：您要在其中部署 Azure 檔案同步的區域。只有支援的區域會列在此清單中。
 
-完成時，請選取 [建立] 來部署儲存體同步服務。
+完成時，請選取 [建立]  來部署儲存體同步服務。
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-與 Azure 檔案同步管理 Cmdlet 互動之前，您必須匯入 DLL 並建立 Azure 檔案同步管理內容。 這是必要的，因為 Azure 檔案同步管理 Cmdlet 還不是 Azure PowerShell 模組的一部分。
-
+取代 **< Az_Region >** ， **< RG_Name >** ，並 **< my_storage_sync_service >** 使用您自己的值，然後使用下列的命令數 」 來建立及部署儲存體同步服務：
 
 ```powershell
 Connect-AzAccount
@@ -133,7 +132,7 @@ if ($resourceGroups -notcontains $resourceGroup) {
     New-AzResourceGroup -Name $resourceGroup -Location $region
 }
 
-$storageSyncName = "<my-storage-sync-service>"
+$storageSyncName = "<my_storage_sync_service>"
 $storageSync = New-AzStorageSyncService -ResourceGroupName $resourceGroup -Name $storageSyncName -Location $region
 ```
 
@@ -199,7 +198,7 @@ Remove-Item -Path ".\StorageSyncAgent.msi" -Recurse -Force
 > 伺服器註冊會使用您的 Azure 認證來建立儲存體同步服務和 Windows Server 之間的信任關係；但是，之後伺服器會建立並使用自有的身分識別，只要伺服器維持註冊狀態，且目前的共用存取簽章權杖 (儲存體 SAS) 有效，此身分識別就會是有效的。 如果伺服器未註冊，新的 SAS 權杖就無法發行至伺服器，並會因此移除伺服器存取您 Azure 檔案共用的能力，進而停止任何同步。
 
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
-安裝 Azure 檔案同步代理程式之後，伺服器註冊 UI 應該會自動開啟。 如果沒有，您可以從其檔案位置手動開啟它：C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe。 伺服器註冊 UI 開啟時，請選取 [登入] 以開始。
+安裝 Azure 檔案同步代理程式之後，伺服器註冊 UI 應該會自動開啟。 如果沒有，您可以從其檔案位置手動開啟它：C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe。 伺服器註冊 UI 開啟時，請選取 [登入]  以開始。
 
 登入之後，系統會提示您輸入下列資訊：
 
@@ -209,7 +208,7 @@ Remove-Item -Path ".\StorageSyncAgent.msi" -Recurse -Force
 - **資源群組**：包含儲存體同步服務的資源群組。
 - **儲存體同步服務**：您要註冊的目標儲存體同步服務名稱。
 
-選取適當的資訊之後，請選取 [註冊] 以完成伺服器註冊。 在註冊過程中，系統會提示您額外再登入一次。
+選取適當的資訊之後，請選取 [註冊]  以完成伺服器註冊。 在註冊過程中，系統會提示您額外再登入一次。
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
@@ -227,15 +226,15 @@ $registeredServer = Register-AzStorageSyncServer -ParentObject $storageSync
 > 您可以對同步群組中的任何雲端端點或伺服器端點進行變更，您的檔案將會與同步群組中的其他端點同步。 如果直接對雲端端點 (Azure 檔案共用) 進行變更，則必須先由 Azure 檔案同步變更偵測作業探索到該變更。 針對雲端端點的變更偵測作業，每隔 24 小時才會起始一次。 如需詳細資訊，請參閱 [Azure 檔案服務常見問題集](storage-files-faq.md#afs-change-detection)。
 
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
-若要建立同步群組，請在 [Azure 入口網站](https://portal.azure.com/)中移至您的儲存體同步服務，然後選取 [+ 同步群組]：
+若要建立同步群組，請在 [Azure 入口網站](https://portal.azure.com/)中移至您的儲存體同步服務，然後選取 [+ 同步群組]  ：
 
 ![在 Azure 入口網站中建立新的同步群組](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
 
 在開啟的窗格中，輸入下列資訊以建立具有雲端端點的同步群組：
 
 - **同步群組名稱**：要建立的同步群組名稱。 此名稱在儲存體同步服務中必須是唯一的，但可以是任何對您而言合理的名稱。
-- 訂用帳戶：您在[部署儲存體同步服務](#deploy-the-storage-sync-service)中部署儲存體同步服務的訂用帳戶。
-- **儲存體帳戶**：如果您選取 [選取儲存體帳戶]，則會顯示另一個窗格，您可在其中選取具有您想要同步之 Azure 檔案共用的儲存體帳戶。
+- 訂用帳戶  ：您在[部署儲存體同步服務](#deploy-the-storage-sync-service)中部署儲存體同步服務的訂用帳戶。
+- **儲存體帳戶**：如果您選取 [選取儲存體帳戶]  ，則會顯示另一個窗格，您可在其中選取具有您想要同步之 Azure 檔案共用的儲存體帳戶。
 - **Azure 檔案共用**：您要同步處理的 Azure 檔案共用名稱。
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -289,18 +288,18 @@ New-AzStorageSyncCloudEndpoint `
 伺服器端點代表已註冊伺服器上的特定位置，例如伺服器磁碟區上的資料夾。 伺服器端點必須是已註冊伺服器 (不是裝載共用) 上的路徑，而且若要使用雲端階層，此路徑必須位在非系統磁碟區上。 不支援網路連接儲存裝置 (NAS)。
 
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
-若要新增伺服器端點，請移至新建立的同步群組，然後選取 [新增伺服器端點]。
+若要新增伺服器端點，請移至新建立的同步群組，然後選取 [新增伺服器端點]  。
 
 ![在 [同步群組] 窗格中新增新的伺服器端點](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
 
-在 [新增伺服器端點] 窗格中，輸入下列資訊以建立伺服器端點：
+在 [新增伺服器端點]  窗格中，輸入下列資訊以建立伺服器端點：
 
 - **已註冊的伺服器**：您要建立伺服器端點的伺服器或叢集名稱。
 - **路徑**：要隨著同步群組同步處理的 Windows Server 路徑。
 - **雲端階層處理**：啟用或停用雲端階層處理的開關。 透過雲端階層處理，可將不常使用或存取的檔案分層處理至 Azure 檔案服務。
 - **磁碟區可用空間**：在伺服器端點所在磁碟區上要保留的可用空間數量。 例如，如果具有單一伺服器端點之磁碟區上的磁碟區可用空間是設定為 50%，則大約有一半的資料量會分層處理至 Azure 檔案服務。 無論雲端階層處理是否啟用，您的 Azure 檔案共用在同步群組中一律會有完整的資料複本。
 
-若要新增伺服器端點，請選取 [建立]。 您的檔案現在會在 Azure 檔案共用和 Windows Server 之間保持同步。 
+若要新增伺服器端點，請選取 [建立]  。 您的檔案現在會在 Azure 檔案共用和 Windows Server 之間保持同步。 
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 執行下列 PowerShell 命令以建立伺服器端點，並務必以所需的值取代 `<your-server-endpoint-path>` 和 `<your-volume-free-space>`。

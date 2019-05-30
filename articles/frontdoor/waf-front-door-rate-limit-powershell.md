@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 3701a69ab72abf20a4f1608a1cee56c9cea38aca
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 99b0cab3fd277f90a675f0e6087d572853053a08
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523629"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387341"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>設定 web 應用程式防火牆速率限制規則使用 Azure PowerShell
 Azure web 應用程式防火牆 (WAF) 速率限制規則的 Azure 大門會控制一分鐘期間允許從單一用戶端 IP 的要求數目。
@@ -65,10 +65,10 @@ Install-Module -Name Az.FrontDoor
      -MatchValue "/promo"
 ```
 ## <a name="create-a-custom-rate-limit-rule"></a>建立自訂的速率限制規則
-使用速率限制設定[新增 AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject)。 在下列範例中，限制是設為 1000年。 在一分鐘內超過 1000年的促銷頁面從任何用戶端要求會遭到封鎖，直到下一分鐘會啟動。
+使用速率限制設定[新增 AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject)。 在下列範例中，限制是設為 1000年。 在一分鐘內超過 1000年的促銷頁面從任何用戶端要求會遭到封鎖，直到下一分鐘會啟動。
 
 ```powershell-interactive
-   $promoRateLimitRule = New-AzFrontDoorCustomRuleObject `
+   $promoRateLimitRule = New-AzFrontDoorWafCustomRuleObject `
      -Name "rateLimitRule" `
      -RuleType RateLimitRule `
      -MatchCondition $promoMatchCondition `
@@ -81,7 +81,7 @@ Install-Module -Name Az.FrontDoor
 
 使用 `Get-AzureRmResourceGroup` 尋找包含 Front Door 設定檔的資源群組名稱。 接下來，設定自訂的速率限制規則使用的 安全性原則[新增 AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)包含前門設定檔指定的資源群組中。
 
-下列範例會使用資源群組名稱 myResourceGroupFD1，並假設您已使用[快速入門：建立 Front Door](quickstart-create-front-door.md) 一文中所提供的指示建立 Front Door 設定檔。
+下列範例會使用資源群組名稱 myResourceGroupFD1  ，並假設您已使用[快速入門：建立 Front Door](quickstart-create-front-door.md) 一文中所提供的指示建立 Front Door 設定檔。
 
  使用[新增 AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)。
 
@@ -97,7 +97,7 @@ Install-Module -Name Az.FrontDoor
 安全性原則物件連結至現有的大門前端的主機，並更新大門屬性。 第一次擷取 大門物件使用[Get AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor)命令。
 接下來，設定 前端*WebApplicationFirewallPolicyLink*屬性設*resourceId*的 「 $ratePolicy"中先前的步驟使用建立[組 AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor)命令。 
 
-下列範例會使用資源群組名稱 myResourceGroupFD1，並假設您已使用[快速入門：建立 Front Door](quickstart-create-front-door.md) 一文中所提供的指示建立 Front Door 設定檔。 此外，在下列範例中，取代 $frontDoorName 大門設定檔名稱。 
+下列範例會使用資源群組名稱 myResourceGroupFD1  ，並假設您已使用[快速入門：建立 Front Door](quickstart-create-front-door.md) 一文中所提供的指示建立 Front Door 設定檔。 此外，在下列範例中，取代 $frontDoorName 大門設定檔名稱。 
 
 ```powershell-interactive
    $FrontDoorObjectExample = Get-AzFrontDoor `

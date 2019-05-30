@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: c0a03b70c6e5e4742e03d4892b2b5f97c908ab9c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: c50271e28db104522c0e8811508fa882dc316eab
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467897"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235813"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>在 Microsoft Flow 中使用 IoT Central 連接器建置工作流程
 
@@ -41,13 +41,13 @@ ms.locfileid: "65467897"
 
     ![建立新的 Microsoft Flow 動作](media/howto-add-microsoft-flow/createflowaction.png)
 
-1. 您會看到一份工作流程 tha 存取，而且會附加到此 IoT Central 的規則。 按一下 **探索範本**或是**新增 > 從範本建立**和您可以選擇任何可用的範本。 
+1. 您會看到一份工作流程，您可以存取，而連接到 IoT Central 這項規則。 按一下 **探索範本**或是**新增 > 從範本建立**和您可以選擇任何可用的範本。 
 
     ![可用的 Microsoft Flow 範本](media/howto-add-microsoft-flow/flowtemplates1.png)
 
 1. 系統會提示您登入您選擇的範本中的連接器。 連接器會登入之後，您將登陸在設計工具來建立您的工作流程。 工作流程具有已填入您的應用程式和規則的 IoT Central 觸發程序。
 
-1. 您可以自訂工作流程自訂動作並加入新的動作所傳遞的資訊。 在此範例中，動作是 **通知-傳送行動通知**。 您可以納入 IoT Central 規則中的「動態內容」，將裝置名稱和時間戳記等重要資訊傳至您的通知。
+1. 您可以自訂工作流程自訂動作並加入新的動作所傳遞的資訊。 在此範例中，動作是 **通知-傳送行動通知**。 您可以納入 IoT Central 規則中的「動態內容」  ，將裝置名稱和時間戳記等重要資訊傳至您的通知。
 
     > [!NOTE]
     > 選取 **查看更多**動態內容視窗以取得觸發此規則的度量和屬性值中的文字。
@@ -73,11 +73,11 @@ ms.locfileid: "65467897"
 
 1. 在此觸發程序中，新增名為**裝置名稱**的文字輸入。 請將描述文字變更為**輸入新裝置的裝置名稱**。
 
-1. 新增動作。 搜尋 [Azure IoT Central - 建立裝置] 動作。
+1. 新增動作。 搜尋 [Azure IoT Central - 建立裝置]  動作。
 
 1. 選擇您的應用程式，並從下拉式清單中選擇用來建立裝置的裝置範本。 您會看到展開以顯示所有裝置屬性和設定的動作。
 
-1. 選取 [裝置名稱] 欄位。 在動態內容窗格中，選擇 [裝置名稱]。 這個值會從輸入的使用者透過行動裝置應用程式中，輸入，並為您 IoT Central 中的新裝置的名稱。 在此範例中，唯一的必要欄位是裝置名稱，會以紅色星號指出。 另一個裝置範本可能會有多個必須填入才能建立新裝置的必要欄位。
+1. 選取 [裝置名稱] 欄位。 在動態內容窗格中，選擇 [裝置名稱]  。 這個值會從輸入的使用者透過行動裝置應用程式中，輸入，並為您 IoT Central 中的新裝置的名稱。 在此範例中，唯一的必要欄位是裝置名稱，會以紅色星號指出。 另一個裝置範本可能會有多個必須填入才能建立新裝置的必要欄位。
 
     ![流程建立裝置動作動態窗格](./media/howto-add-microsoft-flow/flowcreatedevice1.png)
 
@@ -85,7 +85,7 @@ ms.locfileid: "65467897"
 
 1. 最後，儲存您的工作流程。
 
-1. 在 Microsoft Flow 行動應用程式中試用您的工作流程。 移至應用程式中的 [按鈕] 索引標籤。 您應該會看到 [按鈕] -> [建立新的裝置工作流程]。 請輸入新裝置的名稱，並確認它顯示於 IoT Central 中！
+1. 在 Microsoft Flow 行動應用程式中試用您的工作流程。 移至應用程式中的 [按鈕]  索引標籤。 您應該會看到 [按鈕] -> [建立新的裝置工作流程]。 請輸入新裝置的名稱，並確認它顯示於 IoT Central 中！
 
     ![流程建立裝置的行動裝置螢幕擷取畫面](./media/howto-add-microsoft-flow/flowmobilescreenshot.png)
 
@@ -97,9 +97,9 @@ ms.locfileid: "65467897"
 
 1. 搜尋**適用於行動裝置的 [流程] 按鈕**，作為觸發程序。
 
-1. 在此觸發程序中，新增如 [位置] 文字輸入之類、且與您要變更的設定或屬性相對應的輸入。 請變更描述文字。
+1. 在此觸發程序中，新增如 [位置]  文字輸入之類、且與您要變更的設定或屬性相對應的輸入。 請變更描述文字。
 
-1. 新增動作。 搜尋 [Azure IoT Central - 更新裝置] 動作。
+1. 新增動作。 搜尋 [Azure IoT Central - 更新裝置]  動作。
 
 1. 從下拉式清單中選擇您的應用程式。 現在您將需要所要更新之現有裝置的識別碼。 
 
@@ -108,7 +108,7 @@ ms.locfileid: "65467897"
 
     ![IoT 中心識別碼 URL](./media/howto-add-microsoft-flow/iotcdeviceidurl.png)
 
-1. 您可以更新裝置名稱。 若要更新裝置的任何屬性和設定，您必須在 [裝置範本] 下拉式清單中針對您要更新的裝置選取裝置範本。 動作圖格會展開以顯示您可以更新的所有屬性和設定。
+1. 您可以更新裝置名稱。 若要更新裝置的任何屬性和設定，您必須在 [裝置範本]  下拉式清單中針對您要更新的裝置選取裝置範本。 動作圖格會展開以顯示您可以更新的所有屬性和設定。
 
     ![流程更新裝置工作流程](./media/howto-add-microsoft-flow/flowupdatedevice1.png)
 
@@ -116,7 +116,7 @@ ms.locfileid: "65467897"
 
 1. 最後，儲存您的工作流程。
 
-1. 在 Microsoft Flow 行動應用程式中試用您的工作流程。 移至應用程式中的 [按鈕] 索引標籤。 您應該會看到 [按鈕] -> [更新裝置工作流程]。 輸入您的輸入內容，並查看裝置在 IoT Central 中更新的情形！
+1. 在 Microsoft Flow 行動應用程式中試用您的工作流程。 移至應用程式中的 [按鈕]  索引標籤。 您應該會看到 [按鈕] -> [更新裝置工作流程]。 輸入您的輸入內容，並查看裝置在 IoT Central 中更新的情形！
 
 ## <a name="get-device-information-in-a-workflow"></a>取得工作流程中的裝置資訊
 

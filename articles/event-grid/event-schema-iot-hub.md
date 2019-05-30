@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: 5fcd7c10002e7e1ae9683fdd89d3af14a1500050
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e770beb0470b54d8e13493bca4790323b2e96ce1
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561790"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393192"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>IoT 中樞的 Azure Event Grid 事件結構描述
 
@@ -33,6 +33,9 @@ Azure IoT 中樞會發出下列事件類型：
 | Microsoft.Devices.DeviceDeleted | 從 IoT 中樞刪除裝置時發佈。 | 
 | Microsoft.Devices.DeviceConnected | 在裝置連線至 IoT 中樞時發佈。 |
 | Microsoft.Devices.DeviceDisconnected | 在裝置從 IoT 中樞中斷連線時發佈。 | 
+| Microsoft.Devices.DeviceTelemetry | 遙測訊息傳送至 IoT 中樞時，就會發行。 |
+
+Event Grid 所支援的所有區域中，所有的裝置事件，但裝置遙測事件是正式推出。 裝置遙測事件處於公開預覽狀態，並會在美國東部、 美國西部、 西歐、 以外的所有區域內上市[Azure Government](/azure-government/documentation-government-welcome.md)， [Azure 中國 21Vianet](/azure/china/china-welcome.md)，和[Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="example-event"></a>事件範例
 
@@ -56,6 +59,40 @@ DeviceConnected 和 DeviceDisconnected 事件的結構描述具有相同的結�
   }, 
   "dataVersion": "1", 
   "metadataVersion": "1" 
+}]
+```
+
+遙測事件傳送到 IoT 中樞時，會引發 DeviceTelemetry 事件。 此事件的範例結構描述如下所示。
+
+```json
+[{
+  "id": "9af86784-8d40-fe2g-8b2a-bab65e106785",
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceTelemetry",
+  "eventTime": "2019-01-07T20:58:30.48Z",
+  "data": {        
+      "body": {            
+          "Weather": {                
+              "Temperature": 900            
+          },
+          "Location": "USA"        
+      },
+        "properties": {            
+          "Status": "Active"        
+        },
+        "systemProperties": {            
+            "iothub-content-type": "application/json",
+            "iothub-content-encoding": "utf-8",
+            "iothub-connection-device-id": "d1",
+            "iothub-connection-auth-method": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+            "iothub-connection-auth-generation-id": "123455432199234570",
+            "iothub-enqueuedtime": "2019-01-07T20:58:30.48Z",
+            "iothub-message-source": "Telemetry"        
+        }    
+    },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -129,7 +166,9 @@ DeviceCreated 和 DeviceDeleted 事件的結構描述具有相同的結構。 �
 | hubName | string | 已建立或刪除裝置的 IoT 中樞名稱。 |
 | deviceId | string | 裝置的唯一識別碼。 此區分大小寫的字串最長為 128 個字元，並支援 ASCII 7 位元英數字元和下列特殊字元：`- : . + % _ # * ? ! ( ) , = @ ; $ '`。 |
 
-每個事件發行者有不同的資料物件內容。 對於**裝置連線**和**裝置中斷連線** IoT 中樞事件，資料物件會包含下列屬性：
+每個事件發行者有不同的資料物件內容。 
+
+對於**裝置連線**和**裝置中斷連線** IoT 中樞事件，資料物件會包含下列屬性：
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
@@ -137,7 +176,15 @@ DeviceCreated 和 DeviceDeleted 事件的結構描述具有相同的結構。 �
 | deviceConnectionStateEventInfo | 物件 | 裝置連線狀態事件資訊
 | sequenceNumber | string | 一個號碼，有助於指出裝置連線或裝置中斷連線事件的順序。 最新的事件會有高於前一個事件的序號。 此號碼的變動有可能超過 1，但只會增加不會減少。 請參閱[如何使用序號](../iot-hub/iot-hub-how-to-order-connection-state-events.md)。 |
 
-每個事件發行者有不同的資料物件內容。 對於**裝置建立**和**裝置刪除** IoT 中樞事件，資料物件會包含下列屬性：
+針對**裝置遙測**IoT 中樞事件資料物件包含中的裝置到雲端訊息[IoT 中樞訊息格式](../iot-hub/iot-hub-devguide-messages-construct.md)並具有下列屬性：
+
+| 屬性 | 類型 | 描述 |
+| -------- | ---- | ----------- |
+| body | string | 從裝置訊息的內容。 |
+| properties | string | 應用程式屬性為可新增至訊息的使用者定義字串。 這些欄位為選擇性。 |
+| 系統屬性 | string | [系統屬性](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties)有助於識別內容及訊息的來源。 裝置遙測訊息必須是有效的 JSON 格式，與 contentType 設定為 JSON 和 contentEncoding 訊息系統屬性中設定為 utf-8。 如果未設定這個項目，是 IoT 中樞會在 base 64 編碼格式寫入訊息。  |
+
+對於**裝置建立**和**裝置刪除** IoT 中樞事件，資料物件會包含下列屬性：
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: a4e0432260cfb9ee11ed318305fb967d160de835
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 901544886e0a0c90c29e83fc71f7a7a25ffc6862
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66129679"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244891"
 ---
-# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>使用 Azure blob 儲存體的 IIS 和 Azure 資料表儲存體使用 Azure 監視器的事件
+# <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>從 Azure 儲存體收集 Azure 診斷記錄
 
 Azure 監視器可以讀取下列服務寫入表格儲存體的診斷記錄或寫入 blob 儲存體的 IIS 記錄檔：
 
@@ -61,17 +61,17 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
 
 1. 建立虛擬機器時安裝 VM 代理程式。 如果虛擬機器已經存在，請確認已安裝 VM 代理程式。
 
-   * 在 Azure 入口網站中，瀏覽至虛擬機器，依序選取 [選擇性組態] 及 [診斷]，並將 [狀態] 設為 [開啟]。
+   * 在 Azure 入口網站中，瀏覽至虛擬機器，依序選取 [選擇性組態]  及 [診斷]  ，並將 [狀態]  設為 [開啟]  。
 
      完成時，VM 中就會安裝好 Azure 診斷擴充功能並執行。 此擴充功能會負責收集您的診斷資料。
 2. 在現有的 VM 上啟用監視和設定事件記錄。 您可以在 VM 層級上啟用診斷。 若要啟用診斷然後設定事件記錄，請執行下列步驟：
 
    1. 選取 VM。
-   2. 按一下 [監視] 。
-   3. 按一下 [診斷] 。
-   4. 將 [狀態] 設為 [開啟]。
+   2. 按一下 [監視]  。
+   3. 按一下 [診斷]  。
+   4. 將 [狀態]  設為 [開啟]  。
    5. 選取您想要收集的每個診斷記錄。
-   6. 按一下 [確定]。
+   6. 按一下 [確定]  。
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>在 Web 角色中針對 IIS 記錄檔和事件集合啟用 Azure 診斷
 
@@ -132,8 +132,8 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
 
 在 Azure 入口網站中，瀏覽至您的 Log Analytics 工作區並執行下列工作︰
 
-1. 按一下 [儲存體帳戶記錄]
-2. 按一下 [新增] 工作
+1. 按一下 [儲存體帳戶記錄] 
+2. 按一下 [新增]  工作
 3. 選取包含診斷記錄的儲存體帳戶
    * 這可以是傳統儲存體帳戶或 Azure Resource Manager 儲存體帳戶
 4. 選取您想要收集記錄的資料類型

@@ -2,7 +2,7 @@
 title: Azure 時間序列深入解析預覽版使用案例 | Microsoft Docs
 description: 了解 Azure 時間序列深入解析預覽版使用案例。
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 27c79155a4630f49faf49f30b2d46bf1e0dffd90
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 787445d5186a173b2cba674b36cd95879cc863e5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508323"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389986"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure 時間序列深入解析預覽版使用案例
 
@@ -28,11 +28,11 @@ ms.locfileid: "65508323"
 * 什麼是使用針對時間序列深入解析的優點[操作的分析和處理程序效率](#operational-analysis-and-driving-process-efficiency)？
 * 什麼是使用針對時間序列深入解析的優點[advanced analytics](#advanced-analytics)？
 
-其中概述使用案例如下所述。
+其中概述使用案例下列各節所述。
 
 ## <a name="introduction"></a>簡介
 
-Azure Time Series Insights 是端對端的平台為-即服務供應項目。 它用來收集、 處理、 儲存、 分析及查詢高度相關的語境、 時間序列最佳化 IoT 規模資料。 時間序列深入解析十分適用於特定資料探索及營運分析。 時間序列深入解析是唯一可延伸、可自訂，符合產業 IoT 部署廣泛需求的服務供應項目。
+Azure Time Series Insights 是端對端的平台為-即服務供應項目。 它可用來收集、處理、儲存、分析及查詢高度內容相關且已進行時間序列最佳化的 IoT 級別資料。 時間序列深入解析十分適用於特定資料探索及營運分析。 時間序列深入解析是唯一可延伸的自訂服務供應項目，符合廣泛需求的工業 IoT 部署。
 
 ## <a name="data-exploration-and-visual-anomaly-detection"></a>資料探索與視覺化的異常偵測
 
@@ -54,7 +54,7 @@ Azure Time Series Insights 是端對端的平台為-即服務供應項目。 它
 
     * 讀取[時間序列深入解析 JS 用戶端程式庫](tutorial-explore-js-client-lib.md)並[時間序列深入解析用戶端](https://github.com/Microsoft/tsiclient)說明文件，以深入了解 JavaScript SDK。
 
-    * 深入了解共用 Url 和新的 UI，藉由檢閱[explorer 預覽中的資料視覺化](time-series-insights-update-explorer.md)。
+    * 深入了解共用 Url 和新的 UI，藉由檢閱[在 Azure 時間序列深入解析預覽版總管 中的資料視覺化](time-series-insights-update-explorer.md)。
 
 - 第三個方式是使用強大的 API 來查詢儲存在時間序列深入解析中的資料。 具有時態性運算子，例如時間序列深入解析`from`， `to`， `first`，和`last`。 它具有彙總與轉換像是`average`， `min`， `max`， `split by`， `order by`，和`DateHistogram`。 它也有這類篩選運算子`has`， `in`， `and`， `or`， `greater than`，和`REGEX`。 所有這些運算子使下游應用程式能夠快速尋找資料中的有趣趨勢和模式。 您可以使用它們來填入自產的視覺效果，以找出異常狀況。
 
@@ -97,7 +97,5 @@ Azure Time Series Insights 是端對端的平台為-即服務供應項目。 它
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解[時間序列深入解析預覽版總管](./time-series-insights-update-explorer.md)。
-
-- 若要規劃您的環境，請閱讀[時間序列深入解析預覽版規劃](./time-series-insights-update-plan.md)。
-
+- 讀取[時間序列深入解析預覽計劃](./time-series-insights-update-plan.md)規劃您的環境。
 - 請閱讀[時間序列深入解析用戶端](https://github.com/Microsoft/tsiclient)文件。

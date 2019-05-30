@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 6d2ed8ba13fac03a60d9a0730776bc8348876b62
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 5ce838897370430c388d74c3d356497f16efdc8d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153580"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245054"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -132,21 +132,21 @@ ms.locfileid: "66153580"
 
 若要使用以服務主體為基礎的 Azure AD 應用程式權杖驗證，請遵循下列步驟：
 
-1. 從 Azure 入口網站**[建立 Azure Active Directory 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**。 請記下應用程式名稱，以及下列可定義連結服務的值：
+1. 從 Azure 入口網站 **[建立 Azure Active Directory 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** 。 請記下應用程式名稱，以及下列可定義連結服務的值：
 
     - 應用程式識別碼
     - 應用程式金鑰
     - 租用戶識別碼
 
-2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL 伺服器**[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**。 Azure AD 系統管理員可以是 Azure AD 使用者或 Azure AD 群組。 如果您授與管理的身分識別系統管理員角色的群組，請略過步驟 3 和 4。 系統管理員將擁有完整的資料庫存取權。
+2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL 伺服器 **[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** 。 Azure AD 系統管理員可以是 Azure AD 使用者或 Azure AD 群組。 如果您授與管理的身分識別系統管理員角色的群組，請略過步驟 3 和 4。 系統管理員將擁有完整的資料庫存取權。
 
-3. 為服務主體**[建立自主資料庫使用者](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**。 以至少具有 ALTER ANY USER 權限的 AAD 身分識別，使用 SSMS 這類工具連線至您想要從中來回複製資料的資料倉儲。 執行下列 T-SQL：
+3. 為服務主體 **[建立自主資料庫使用者](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** 。 以至少具有 ALTER ANY USER 權限的 AAD 身分識別，使用 SSMS 這類工具連線至您想要從中來回複製資料的資料倉儲。 執行下列 T-SQL：
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. 如同您一般對 SQL 使用者或其他人所做的一樣，**將所需的權限授與服務主體**。 執行下列程式碼，或更多的選項是指[此處](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)。
+4. 如同您一般對 SQL 使用者或其他人所做的一樣，**將所需的權限授與服務主體**。 執行下列程式碼，或更多的選項是指[此處](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)。 如果您想要使用 PolyBase 載入資料，了解[必要資料庫權限](#required-database-permission)。
 
     ```sql
     EXEC sp_addrolemember db_owner, [your application name];
@@ -188,7 +188,7 @@ ms.locfileid: "66153580"
 
 若要使用受控身分識別驗證，請遵循下列步驟：
 
-1. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL 伺服器**[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**。 Azure AD 系統管理員可以是 Azure AD 使用者或 Azure AD 群組。 如果您授與管理的身分識別系統管理員角色的群組，請略過步驟 3 和 4。 系統管理員將擁有完整的資料庫存取權。
+1. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL 伺服器 **[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** 。 Azure AD 系統管理員可以是 Azure AD 使用者或 Azure AD 群組。 如果您授與管理的身分識別系統管理員角色的群組，請略過步驟 3 和 4。 系統管理員將擁有完整的資料庫存取權。
 
 2. **[建立自主的資料庫使用者](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** 的 Data Factory 受控身分識別。 以至少具有 ALTER ANY USER 權限的 AAD 身分識別，使用 SSMS 這類工具連線至您想要從中來回複製資料的資料倉儲。 執行下列 T-SQL。 
   
@@ -196,7 +196,7 @@ ms.locfileid: "66153580"
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **授與 Data Factory 受控身分識別所需的權限**像您一般的 SQL 使用者和其他項目。 執行下列程式碼，或更多的選項是指[此處](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)。
+3. **授與 Data Factory 受控身分識別所需的權限**像您一般的 SQL 使用者和其他項目。 執行下列程式碼，或更多的選項是指[此處](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)。 如果您想要使用 PolyBase 載入資料，了解[必要資料庫權限](#required-database-permission)。
 
     ```sql
     EXEC sp_addrolemember db_owner, [your Data Factory name];
@@ -227,7 +227,7 @@ ms.locfileid: "66153580"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)一文。 本節提供「Azure SQL 資料倉儲」資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供「Azure SQL 資料倉儲」資料集所支援的屬性清單。
 
 若要複製資料，或 Azure SQL 資料倉儲，支援下列屬性：
 
@@ -262,7 +262,7 @@ ms.locfileid: "66153580"
 
 ### <a name="azure-sql-data-warehouse-as-the-source"></a>Azure SQL 資料倉儲作為來源
 
-若要從「Azure SQL 資料倉儲」複製資料，請將複製活動來源中的**類型**屬性設定為 **SqlDWSource**。 複製活動的 [來源] 區段支援下列屬性：
+若要從「Azure SQL 資料倉儲」複製資料，請將複製活動來源中的**類型**屬性設定為 **SqlDWSource**。 複製活動的 [來源]  區段支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -365,7 +365,7 @@ GO
 
 ### <a name="azure-sql-data-warehouse-as-sink"></a>Azure SQL 資料倉儲作為接收端
 
-若要將資料複製到「Azure SQL 資料倉儲」，請將複製活動中的接收類型設定為 **SqlDWSink**。 複製活動的 [接收] 區段支援下列屬性：
+若要將資料複製到「Azure SQL 資料倉儲」，請將複製活動中的接收類型設定為 **SqlDWSink**。 複製活動的 [接收]  區段支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -375,7 +375,7 @@ GO
 | rejectValue | 指定在查詢失敗前可以拒絕的資料列數目或百分比。<br/><br/>在 [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx)的＜引數＞一節中，深入了解 PolyBase 的拒絕選項。 <br/><br/>允許的值為 0 (預設值)、1、2 等其他值。 |否 |
 | rejectType | 指定 **rejectValue** 選項為常值或百分比。<br/><br/>允許的值為**值** (預設值) 和**百分比**。 | 否 |
 | rejectSampleValue | 決定在 PolyBase 重新計算已拒絕的資料列百分比之前，所要擷取的資料列數目。<br/><br/>允許的值為 1、2 等其他值。 | 是，如果 **rejectType** 是**百分比**。 |
-| useTypeDefault | 指定當 PolyBase 從文字檔擷取資料時，如何處理分隔符號文字檔中的遺漏值。<br/><br/>從 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx) 的＜引數＞一節深入了解這個屬性。<br/><br/>允許的值為 **True** 和 **False** (預設值)。<br><br>**請參閱[疑難排解祕訣](#polybase-troubleshooting)與這項設定。** | 無 |
+| useTypeDefault | 指定當 PolyBase 從文字檔擷取資料時，如何處理分隔符號文字檔中的遺漏值。<br/><br/>從 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx) 的＜引數＞一節深入了解這個屬性。<br/><br/>允許的值為 **True** 和 **False** (預設值)。<br><br>**請參閱[疑難排解祕訣](#polybase-troubleshooting)與這項設定。** | 否 |
 | writeBatchSize | 要插入至 SQL 資料表的資料列的數目**每個批次**。 只有在未使用 PolyBase 時才適用。<br/><br/>允許的值為**整數** (資料列數目)。 依預設，Data Factory 以動態方式決定適當的批次大小為基礎的資料列大小。 | 否 |
 | writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。只有在未使用 PolyBase 時才適用。<br/><br/>允許的值為**時間範圍**。 範例：“00:30:00” (30 分鐘)。 | 否 |
 | preCopyScript | 指定一個供「複製活動」在每次執行時將資料寫入到「Azure SQL 資料倉儲」前執行的 SQL 查詢。 使用此屬性來清除預先載入的資料。 | 否 |
@@ -400,10 +400,10 @@ GO
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>使用 PolyBase 將資料載入 Azure SQL 資料倉儲
 
-使用 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 是以高輸送量將大量資料載入 Azure SQL 資料倉儲的有效方法。 使用 PolyBase 而不是預設的 BULKINSERT 機制，將可看到輸送量大幅提升。 如需詳細的比較，請參閱[效能參考](copy-activity-performance.md#performance-reference)。 如需使用案例的逐步解說，請參閱[將 1 TB 載入至 Azure SQL 資料倉儲](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse)。
+使用 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 是以高輸送量將大量資料載入 Azure SQL 資料倉儲的有效方法。 使用 PolyBase 而不是預設的 BULKINSERT 機制，將可看到輸送量大幅提升。 如需詳細的比較，請參閱[效能參考](copy-activity-performance.md#performance-reference)。 如需使用案例的逐步解說，請參閱[將 1 TB 載入至 Azure SQL 資料倉儲](v1/data-factory-load-sql-data-warehouse.md)。
 
-* 如果您的來源資料位於**Azure Blob、 Azure Data Lake 儲存體 Gen1 或 Azure Data Lake 儲存體 Gen2**，而**格式不相容的 PolyBase**，您可以使用複製活動，直接叫用 PolyBase 讓 AzureSQL 資料倉儲會從來源提取資料。 如需詳細資料，請參閱**[使用 PolyBase 直接複製](#direct-copy-by-using-polybase)**。
-* 如果您的來源資料存放區與格式不受 PolyBase 支援，您可以改用**[使用 PolyBase 分段複製](#staged-copy-by-using-polybase)** 功能。 分段複製功能也能提供更好的輸送量。 它會自動將資料轉換成與 PolyBase 相容的格式。 並會將資料儲存在 Azure Blob 儲存體中。 然後，它會將資料載入 SQL 資料倉儲。
+* 如果您的來源資料位於**Azure Blob、 Azure Data Lake 儲存體 Gen1 或 Azure Data Lake 儲存體 Gen2**，而**格式不相容的 PolyBase**，您可以使用複製活動，直接叫用 PolyBase 讓 AzureSQL 資料倉儲會從來源提取資料。 如需詳細資料，請參閱 **[使用 PolyBase 直接複製](#direct-copy-by-using-polybase)** 。
+* 如果您的來源資料存放區與格式不受 PolyBase 支援，您可以改用 **[使用 PolyBase 分段複製](#staged-copy-by-using-polybase)** 功能。 分段複製功能也能提供更好的輸送量。 它會自動將資料轉換成與 PolyBase 相容的格式。 並會將資料儲存在 Azure Blob 儲存體中。 然後，它會將資料載入 SQL 資料倉儲。
 
 >[!TIP]
 >深入了解[使用 PolyBase 最佳做法](#best-practices-for-using-polybase)。
@@ -426,7 +426,7 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob、 Azure Data Lake 儲存體 G
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | 帳戶金鑰的驗證、 受控身分識別驗證 |
 
     >[!IMPORTANT]
-    >如果您的 Azure 儲存體設定為使用 VNet 服務端點，您必須使用受控身分識別驗證。 請參閱[使用 VNet 服務端點搭配 Azure 儲存體的影響](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
+    >如果您的 Azure 儲存體設定為使用 VNet 服務端點，您必須使用受控身分識別驗證。 請參閱[使用 VNet 服務端點搭配 Azure 儲存體的影響](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
 
 2. **來源資料格式**屬於**Parquet**， **ORC**，或**分隔文字**，具備下列組態：
 
@@ -436,7 +436,7 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob、 Azure Data Lake 儲存體 G
    4. `nullValue` 會設定為**空字串** ("") 或保留預設值，而 `treatEmptyAsNull` 則保留預設值或設定為 true。
    5. `encodingName` 會設定為 **utf-8**，也就是預設值。
    6. `quoteChar``escapeChar`，和`skipLineCount`未指定。 PolyBase 支援略過標頭列，這在 ADF 中可設定為 `firstRowAsHeader`。
-   7. `compression` 可以是「無壓縮」、**GZip** 或 **Deflate**。
+   7. `compression` 可以是「無壓縮」  、**GZip** 或 **Deflate**。
 
 ```json
 "activities":[
@@ -610,7 +610,7 @@ NULL 值是一種特殊形式的預設值。 如果資料欄可以是 Null，Blo
 | smalldatetime | DateTime |
 | smallint | Int16 |
 | smallmoney | Decimal |
-| time | TimeSpan |
+| 分析 | TimeSpan |
 | tinyint | Byte |
 | uniqueidentifier | Guid |
 | varbinary | Byte[] |

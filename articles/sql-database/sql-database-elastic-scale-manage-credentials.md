@@ -12,14 +12,14 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: e6c7d682d9b16266208baeeff14168b3da157251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a62ec95c715c08a8fddc09f0c8e5f5bba368556
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60584874"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241763"
 ---
-# <a name="credentials-used-to-access-the-elastic-database-client-library"></a>用于访问弹性数据库客户端库的凭据
+# <a name="credentials-used-to-access-the-elastic-database-client-library"></a>用來存取彈性資料庫用戶端程式庫的認證
 
 [彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)使用三種不同的認證存取[分區對應管理員](sql-database-elastic-scale-shard-map-management.md)。 視需要使用盡可能低的存取層級認證。
 
@@ -44,7 +44,7 @@ ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(s
 "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;”
 ```
 
-请勿使用 username@server 格式的值 - 只需使用“username”格式的值。  这是因为凭据必须同时适用于分片映射管理器数据库和各个分片，而它们可能位于不同的服务器上。
+請勿使用 "username@server" 格式的值，而只要使用 "username" 值。  這是因為認證必須同時適用於入分區對應管理員資料庫和個別分區 (可能位於不同的伺服器上)。
 
 ## <a name="access-credentials"></a>存取認證
 
@@ -75,10 +75,10 @@ using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, 
 
 ## <a name="see-also"></a>請參閱
 
-[在 Azure SQL 数据库中管理数据库和登录名](sql-database-manage-logins.md)
+[管理 Azure SQL Database 中的資料庫和登入](sql-database-manage-logins.md)
 
 [保護您的 SQL Database](sql-database-security-overview.md)
 
-[開始使用彈性資料庫工作](sql-database-elastic-jobs-getting-started.md)
+[彈性資料庫工作](elastic-jobs-overview.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

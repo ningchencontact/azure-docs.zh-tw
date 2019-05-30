@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 3361013d8421cd859c834c07018356318d5e2989
-ms.sourcegitcommit: f4469b7bb1f380bf9dddaf14763b24b1b508d57c
+ms.openlocfilehash: cf9356c2792781558c4403608ff5de0e3aaddb6a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66179807"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254475"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>設定適用於 Azure App Service 的 Linux Java 應用程式
 
@@ -75,7 +75,7 @@ Linux 上的 Azure App Service 可讓 Java 開發人員在全受控 Linux 服務
 
 若要設定配置的記憶體或其他 JVM 執行階段選項 Tomcat 和 Java SE 環境中，建立[應用程式設定](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)名為`JAVA_OPTS`的選項。 App Service Linux 會在啟動時將此設定當成環境變數傳遞至 Java 執行階段。
 
-在 Azure 入口網站中，於 Web 應用程式的 [應用程式設定] 下，建立名為 `JAVA_OPTS` 且包含其他設定的新應用程式設定 (例如 `-Xms512m -Xmx1204m`)。
+在 Azure 入口網站中，於 Web 應用程式的 [應用程式設定]  下，建立名為 `JAVA_OPTS` 且包含其他設定的新應用程式設定 (例如 `-Xms512m -Xmx1204m`)。
 
 若要設定 Maven 外掛程式中的應用程式設定，設定/值標記的區段中新增 Azure 外掛程式。 下列範例會設定特定最小和最大 Java 堆積大小：
 
@@ -100,7 +100,7 @@ Linux 上的 Azure App Service 可讓 Java 開發人員在全受控 Linux 服務
 
 ### <a name="turn-on-web-sockets"></a>開啟 Web 通訊端
 
-在應用程式的 [應用程式設定] 中，開啟 Azure 入口網站中的 Web 通訊端支援。 您必須重新啟動應用程式，設定才會生效。
+在應用程式的 [應用程式設定]  中，開啟 Azure 入口網站中的 Web 通訊端支援。 您必須重新啟動應用程式，設定才會生效。
 
 搭配使用 Azure CLI 與下列命令，以開啟 Web 通訊端支援：
 
@@ -117,7 +117,7 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 
 ### <a name="set-default-character-encoding"></a>設定預設字元編碼
 
-在 Azure 入口網站中，於 Web 應用程式的 [應用程式設定] 下，建立名為 `JAVA_OPTS` 且值為 `-Dfile.encoding=UTF-8` 的新應用程式設定。
+在 Azure 入口網站中，於 Web 應用程式的 [應用程式設定]  下，建立名為 `JAVA_OPTS` 且值為 `-Dfile.encoding=UTF-8` 的新應用程式設定。
 
 或者，您可以使用 App Service Maven 外掛程式來設定應用程式設定。 在外掛程式設定中新增設定名稱和值標籤：
 
@@ -164,7 +164,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-若要登出使用者，並執行其他動作，請參閱文件[App Service 驗證與授權使用量](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-how-to)。 另外還有在 Tomcat 上的官方文件[HttpServletRequest 介面](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html)和其方法。 下列 servlet 也會提供方法，會根據您的應用程式服務組態：
+若要登出使用者，並執行其他動作，請參閱文件[App Service 驗證與授權使用量](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to)。 另外還有在 Tomcat 上的官方文件[HttpServletRequest 介面](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html)和其方法。 下列 servlet 也會提供方法，會根據您的應用程式服務組態：
 
 ```java
 public boolean isSecure()
@@ -412,7 +412,7 @@ Web 應用程式執行個體為無狀態，因此必須在啟動時設定每個�
 
 將啟動指令碼上傳至您 App Service 執行個體中的 `/home/site/deployments/tools`。 如需取得 FTP 認證的相關指示，請參閱[這份文件](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#userscope)。
 
-將 Azure 入口網站中的 [啟動指令碼] 欄位設定為您啟動殼層指令碼的位置，例如 `/home/site/deployments/tools/your-startup-script.sh`。
+將 Azure 入口網站中的 [啟動指令碼]  欄位設定為您啟動殼層指令碼的位置，例如 `/home/site/deployments/tools/your-startup-script.sh`。
 
 提供[應用程式設定](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)應用程式組態，將指令碼中使用的環境變數中。 應用程式設定會保留設定應用程式脫離版本控制所需的連接字串和其他祕密。
 

@@ -1,19 +1,18 @@
 ---
 title: 在 Azure Cosmos DB 中使用 JavaScript Language-integrated Query (LINQ) API
 description: 本文會介紹 JavaScript Language-integrated Query (LINQ) API 的概念，以在 Azure Cosmos DB 中建立預存程序和觸發程序。
-author: rockboyfor
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 12/08/2018
-ms.date: 03/04/2019
-ms.author: v-yeche
+ms.date: 05/23/2019
+ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 101b5382eaa01ed87f05d83c82002fa1b93144b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc1815ce4a7a9ed40848e4a67a7fd9e032c1daa1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61043228"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226201"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 JavaScript 查詢 API
 
@@ -70,5 +69,3 @@ ms.locfileid: "61043228"
 - [如何在 Azure Cosmos DB 中註冊和使用預存程序、觸發程序和使用者定義函式](how-to-use-stored-procedures-triggers-udfs.md)
 - [Azure Cosmos DB JavaScript 伺服器端 API 參考](https://azure.github.io/azure-cosmosdb-js-server) \(英文\)
 - [JavaScript ES6 (ECMA 2015)](https://www.ecma-international.org/ecma-262/6.0/)
-
-<!-- Update_Description: update meta properties -->

@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 71d2d542d71977f9d8dfe07370dffd7fe508bc92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4834688496330210b273f40f1d6f11230a6ae1c8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485338"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234135"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>使用彈性資料庫工具和資料列層級安全性的多租用戶應用程式
 
@@ -28,7 +28,7 @@ ms.locfileid: "61485338"
 
 透過搭配使用這些功能，應用程式可以在同一個分區資料庫中儲存多個租用戶的資料。 當租用戶共用資料庫時，每個租用戶所花費的成本更少。 然而，相同的應用程式也可以為進階租用戶提供付費選項，讓它們取得專屬的單一租用戶分區。 隔離出單一租用戶的一個好處在於能保證較穩固的效能， 因為在單一租用戶的資料庫中，不會有其他租用戶競爭資源。
 
-目標是要使用彈性資料庫用戶端程式庫[資料依存路由](sql-database-elastic-scale-data-dependent-routing.md) API，來將每個指定的租用戶自動連線到正確的分區資料庫。 只有一個分區包含指定租用戶的特定 TenantId 值。 TenantId 是「分區索引鍵」。 建立連線之後，資料庫中的 RLS 安全性原則可確保指定的租用戶只能存取包含其 TenantId 的資料列。
+目標是要使用彈性資料庫用戶端程式庫[資料依存路由](sql-database-elastic-scale-data-dependent-routing.md) API，來將每個指定的租用戶自動連線到正確的分區資料庫。 只有一個分區包含指定租用戶的特定 TenantId 值。 TenantId 是「分區索引鍵」  。 建立連線之後，資料庫中的 RLS 安全性原則可確保指定的租用戶只能存取包含其 TenantId 的資料列。
 
 > [!NOTE]
 > 租用戶識別碼可能由多個資料行組成。 為了方便此討論進行，我們直接假設使用單一資料行的 TenantId。
@@ -228,7 +228,7 @@ RLS 已實作於 Transact-SQL 中。 使用者定義的函式會定義存取邏�
     - BLOCK 述詞會防止系統在被篩選條件篩選掉的資料列上執行 INSERT 或 UPDATE 操作。
     - 如果尚未設定 SESSION\_CONTEXT，則函式會傳回 NULL，而且看不見或無法插入任何資料列。
 
-若要為所有分區啟用 RLS，請使用 Visual Studio (SSDT)、SSMS 或專案中包含的 PowerShell 指令碼來執行下列 T-SQL。 或者，如果您是使用[彈性資料庫工作](sql-database-elastic-jobs-overview.md)，則可以將此 T-SQL 在所有分區上的執行自動化。
+若要為所有分區啟用 RLS，請使用 Visual Studio (SSDT)、SSMS 或專案中包含的 PowerShell 指令碼來執行下列 T-SQL。 或者，如果您是使用[彈性資料庫工作](elastic-jobs-overview.md)，則可以將此 T-SQL 在所有分區上的執行自動化。
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.
@@ -302,12 +302,12 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 ```
 
 > [!NOTE]
-> 如果您針對 Entity Framework 專案使用預設條件約束，建議您「不要」在 EF 資料模型中包含 TenantId 資料行。 此建議的原因是 Entity Framework 查詢會自動提供預設值，以覆寫 T-SQL 中使用 SESSION\_CONTEXT 建立的預設條件約束。
+> 如果您針對 Entity Framework 專案使用預設條件約束，建議您「不要」  在 EF 資料模型中包含 TenantId 資料行。 此建議的原因是 Entity Framework 查詢會自動提供預設值，以覆寫 T-SQL 中使用 SESSION\_CONTEXT 建立的預設條件約束。
 > 若要使用範例專案中的預設條件約束，舉例來說，您可以從 DataClasses.cs 移除 TenantId (並在 Package Manager Console 中執行 Add-Migration)，然後使用 T-SQL 確保欄位只存在於資料庫資料表中。 如此一來，EF 就不會在插入資料時，自動提供不正確的預設值。
 
-### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(選擇性) 啟用「進階使用者」來存取所有資料列
+### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(選擇性) 啟用「進階使用者」  來存取所有資料列
 
-某些應用程式可能會想要建立能存取所有資料列的「進階使用者」。 進階使用者可以啟用跨所有分區上之租用戶的報告。 進階使用者也可以對涉及在資料庫之間移動資料列的分區執行分割合併作業。
+某些應用程式可能會想要建立能存取所有資料列的「進階使用者」  。 進階使用者可以啟用跨所有分區上之租用戶的報告。 進階使用者也可以對涉及在資料庫之間移動資料列的分區執行分割合併作業。
 
 若要啟用進階使用者，請在每個分區資料庫中建立新的 SQL 使用者 (在此範例中為 `superuser`)。 然後使用新的述詞函式修改安全性原則，允許此使用者存取所有資料列。 此類函式如下。
 

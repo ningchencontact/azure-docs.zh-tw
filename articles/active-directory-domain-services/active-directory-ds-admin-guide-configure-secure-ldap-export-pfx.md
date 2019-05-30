@@ -1,9 +1,9 @@
 ---
-title: 為 Azure AD Domain Services 受控網域建立安全 LDAP 憑證 | Microsoft Docs
+title: 建立。使用安全的 LDAP (LDAPS) 憑證的 PFX 檔案，Azure AD Domain Services 網域
 description: 為 Azure AD Domain Services 受控網域建立安全 LDAP 憑證
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
@@ -13,56 +13,57 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2017
-ms.author: ergreenl
-ms.openlocfilehash: 801ba3b84ba9956ca8d13916ac4d90060a7f4037
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/13/2019
+ms.author: mstephen
+ms.openlocfilehash: b79418c6e64727e4fdf13b3f4f267d84fcf5da85
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418418"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235031"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>為受控網域建立具有安全 LDAP (LDAPS) 憑證的 .PFX 檔案
 
 ## <a name="before-you-begin"></a>開始之前
-完成[工作 1：取得安全 LDAP 的憑證](active-directory-ds-admin-guide-configure-secure-ldap.md)。
 
+完成[工作 1：取得安全 LDAP 的憑證](configure-ldaps.md)。
 
 ## <a name="task-2-export-the-secure-ldap-certificate-to-a-pfx-file"></a>工作 2：將安全 LDAP 憑證匯出到 .PFX 檔案
+
 開始此工作之前，請先從公開憑證授權單位取得安全 LDAP 憑證，或建立自我簽署憑證。
 
 將 LDAPS 憑證匯出到.PFX 檔案：
 
-1. 按 [開始] 按鈕並輸入 **R**。在 [執行] 對話方塊中，輸入 **mmc**，然後按一下 [確定]。
+1. 按 [開始]  按鈕並輸入 **R**。在 [執行]  對話方塊中，輸入 **mmc**，然後按一下 [確定]  。
 
     ![啟動 MMC 主控台](./media/active-directory-domain-services-admin-guide/secure-ldap-start-run.png)
-2. 在 [使用者帳戶控制] 提示字元處按一下 [是]，以系統管理員身分啟動 MMC (Microsoft Management Console)。
-3. 在 [檔案] 功能表上，按一下 [新增/移除嵌入式管理單元...]。
+2. 在 [使用者帳戶控制]  提示字元處按一下 [是]  ，以系統管理員身分啟動 MMC (Microsoft Management Console)。
+3. 在 [檔案]  功能表上，按一下 [新增/移除嵌入式管理單元...]  。
 
     ![新增嵌入式管理單元至 MMC 主控台](./media/active-directory-domain-services-admin-guide/secure-ldap-add-snapin.png)
-4. 在 [新增或移除嵌入式管理單元] 對話方塊中，選取 [憑證] 嵌入式管理單元，然後按一下 [新增 >] 按鈕。
+4. 在 [新增或移除嵌入式管理單元]  對話方塊中，選取 [憑證]  嵌入式管理單元，然後按一下 [新增 >]  按鈕。
 
     ![新增憑證嵌入式管理單元至 MMC 主控台](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-snapin.png)
-5. 在 [憑證嵌入式管理單元] 精靈中，選取 [電腦帳戶] 並按 [下一步]。
+5. 在 [憑證嵌入式管理單元]  精靈中，選取 [電腦帳戶]  並按 [下一步]  。
 
     ![新增電腦帳戶的憑證嵌入式管理單元](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-computer-account.png)
-6. 在 [選取電腦] 頁面上，選取 [本機電腦: (執行這個主控台的電腦)] 並按一下 [完成]。
+6. 在 [選取電腦]  頁面上，選取 [本機電腦: (執行這個主控台的電腦)]  並按一下 [完成]  。
 
     ![新增憑證嵌入式管理單元 - 選取電腦](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-local-computer.png)
-7. 在 [新增或移除嵌入式管理單元] 對話方塊中，按一下 [確定] 以在 MMC 中新增憑證嵌入式管理單元。
+7. 在 [新增或移除嵌入式管理單元]  對話方塊中，按一下 [確定]  以在 MMC 中新增憑證嵌入式管理單元。
 
     ![新增憑證嵌入式管理單元至 MMC - 完成](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-snapin-done.png)
-8. 在 MMC 視窗中，按一下以展開 [主控台根目錄] 。 您應該會看到已載入 [憑證] 嵌入式管理單元。 按一下 [憑證 (本機電腦)]  加以展開。 按一下以依序展開 [個人] 節點和 [憑證] 節點。
+8. 在 MMC 視窗中，按一下以展開 [主控台根目錄]  。 您應該會看到已載入 [憑證] 嵌入式管理單元。 按一下 [憑證 (本機電腦)]  加以展開。 按一下以依序展開 [個人]  節點和 [憑證]  節點。
 
     ![開啟個人憑證存放區](./media/active-directory-domain-services-admin-guide/secure-ldap-open-personal-store.png)
 9. 您應該會看到我們所建立的自我簽署憑證。 您可以檢查憑證的屬性以驗證指紋符合您在建立憑證時 PowerShell 視窗上所報告的指紋。
-10. 選取自我簽署憑證並 **按一下滑鼠右鍵**。 在快顯功能表中，依序選取 [所有工作] 和 [匯出...]。
+10. 選取自我簽署憑證並 **按一下滑鼠右鍵**。 在快顯功能表中，依序選取 [所有工作]  和 [匯出...]  。
 
     ![匯出憑證](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert.png)
-11. 在 [憑證匯出精靈] 中按 [下一步]。
+11. 在 [憑證匯出精靈]  中按 [下一步]  。
 
     ![匯出憑證精靈](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert-wizard.png)
-12. 在 [匯出私密金鑰] 頁面上，選取 [是，匯出私密金鑰] 並按 [下一步]。
+12. 在 [匯出私密金鑰]  頁面上，選取 [是，匯出私密金鑰]  並按 [下一步]  。
 
     ![匯出憑證的私密金鑰](./media/active-directory-domain-services-admin-guide/secure-ldap-export-private-key.png)
 
@@ -71,7 +72,7 @@ ms.locfileid: "60418418"
     >
     >
 
-13. 在 [匯出檔案格式] 頁面上，選取 [個人資訊交換 - PKCS #12 (.PFX)] 作為匯出憑證的檔案格式。
+13. 在 [匯出檔案格式]  頁面上，選取 [個人資訊交換 - PKCS #12 (.PFX)]  作為匯出憑證的檔案格式。
 
     ![匯出憑證檔案格式](./media/active-directory-domain-services-admin-guide/secure-ldap-export-to-pfx.png)
 
@@ -80,7 +81,7 @@ ms.locfileid: "60418418"
     >
     >
 
-14. 在 [安全性] 頁面上選取 [密碼] 選項，然後輸入密碼來保護 .PFX 檔案。 請記住此密碼，因為下一個工作會用到它。 单击“下一步”。
+14. 在 [安全性]  頁面上選取 [密碼]  選項，然後輸入密碼來保護 .PFX 檔案。 請記住此密碼，因為下一個工作會用到它。 单击“下一步”  。
 
     ![憑證匯出的密碼](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
@@ -96,6 +97,6 @@ ms.locfileid: "60418418"
 
     ![憑證匯出完成](./media/active-directory-domain-services-admin-guide/secure-ldap-exported-as-pfx.png)
 
-
 ## <a name="next-step"></a>後續步驟
+
 [工作 3：為受控網域啟用安全 LDAP](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)

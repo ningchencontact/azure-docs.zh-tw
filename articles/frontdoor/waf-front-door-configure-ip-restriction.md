@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 05/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: b129579916330a34a2a78d98f2c7653f129d3319
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: dae2bb8ece9ef56c0999e0f89abbf6f8d8e950e2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523700"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242932"
 ---
 # <a name="configure-an-ip-restriction-rule-with-web-application-firewall-for-azure-front-door-preview"></a>設定 IP 限制規則與 web 應用程式防火牆的 Azure 大門 （預覽）
  這篇文章會示範如何使用 Azure CLI、 Azure PowerShell 或 Azure Resource Manager 範本在 Azure web 應用程式防火牆 (WAF) 的 IP 限制規則設定大門。
@@ -157,7 +157,7 @@ Install-Module -Name Az.FrontDoor
    使用[新增 AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject)命令來定義動作，並設定優先順序。 在下列範例中，將允許用戶端 Ip 的要求符合之清單。 
 
 ```powershell
-  $IPAllowRule = New-AzFrontDoorCustomRuleObject `
+  $IPAllowRule = New-AzFrontDoorWafCustomRuleObject `
     -Name "IPAllowRule" `
     -RuleType MatchRule `
     -MatchCondition $IPMatchCondition `
@@ -166,7 +166,7 @@ Install-Module -Name Az.FrontDoor
 建立具有比先前的 IP 允許規則的優先順序較低的區塊所有 IP 規則。
 
 ```powershell
-  $IPBlockAll = New-AzFrontDoorCustomRuleObject `
+  $IPBlockAll = New-AzFrontDoorWafCustomRuleObject `
     -Name "IPDenyAll" `
     -RuleType MatchRule `
     -MatchCondition $IPMatchALlCondition `

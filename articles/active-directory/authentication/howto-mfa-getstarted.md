@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1ca69fc23d580b61e74fe56b3d0c3524fdfad747
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359300"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235543"
 ---
-# <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>規劃雲端架構的 Azure Multi-factor Authentication
+# <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>規劃雲端式 Azure Multi-factor Authentication Server 部署
 
 在日益複雜的案例中的組織資源所連線的人員。 從開啟和關閉使用智慧型手機、 平板電腦、 Pc 和膝上型電腦，通常在多個平台上的公司網路的組織擁有、 個人及公用裝置，使用者連接。 在此一律連線、 多重裝置和多平台的世界裡，使用者帳戶的安全性是比以往更加重要。 不論其複雜性，跨裝置、 網路及平台使用的密碼，便無法再足以確保使用者帳戶的安全性，尤其是使用者通常會在帳戶間重複使用密碼。 複雜的網路釣魚和其他的社交工程攻擊可能會導致使用者名稱和密碼所張貼和售出 dark web。
 
@@ -48,7 +48,7 @@ Microsoft 提供[溝通範本](https://aka.ms/mfatemplates)並[使用者文件](
 
 ## <a name="deployment-considerations"></a>部署考量
 
-您可以強制執行條件式存取原則部署 azure multi-factor Authentication。 A[條件式存取原則](../conditional-access/overview.md)可以要求使用者執行多重要素驗證，例如符合特定條件時：
+您可以使用條件式存取強制執行原則部署 azure multi-factor Authentication。 A[條件式存取原則](../conditional-access/overview.md)可以要求使用者執行多重要素驗證，例如符合特定條件時：
 
 * 所有使用者、 特定使用者、 群組或已指派角色的成員
 * 正在存取的特定雲端應用程式
@@ -60,14 +60,12 @@ Microsoft 提供[溝通範本](https://aka.ms/mfatemplates)並[使用者文件](
 * 符合規範的裝置
 * 已加入混合式 Azure AD 的裝置
 * 已核准的用戶端應用程式
- 
 
-在 [多重要素驗證首度發行的資料] 中使用可自訂的海報和電子郵件範本推出您的組織的多重要素驗證。 (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+使用可自訂的海報和電子郵件中的範本[多重要素驗證的首度發行材料](https://www.microsoft.com/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)推出您的組織的多重要素驗證。
 
 ## <a name="enable-multi-factor-authentication-with-conditional-access"></a>透過條件式存取啟用 Multi-Factor Authentication
 
-條件式存取原則會強制執行註冊，需要未註冊的使用者，以完成註冊，在第一次登入時，一項重要的安全性考量。
-
+條件式存取原則強制執行註冊，需要未註冊的使用者，以完成註冊，在第一次登入時，一項重要的安全性考量。
 
 [Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md)參與的註冊原則和 Azure Multi-factor Authentication 劇本的自動化的風險偵測與修復原則。 原則可以建立以強制執行密碼變更，遭入侵的身分識別的威脅時，或登入已被視為高風險由下列時要求 MFA[事件](../reports-monitoring/concept-risk-events.md):
 
@@ -97,7 +95,7 @@ Microsoft 提供[溝通範本](https://aka.ms/mfatemplates)並[使用者文件](
       2. 指定的 IP 範圍
    2. 如果使用的國家/地區
       1. 展開 下拉式選單，選取您想要定義此具名位置的區域的國家/地區。
-      2. 決定是否要包含未知的區域。 未知區域是無法對應至國家/地區的 IP 位址。
+      2. 決定是否要包含未知的區域。 未知的區域是無法對應到國家/地區的 IP 位址。
 7. 按一下 [建立] 
 
 ## <a name="plan-authentication-methods"></a>規劃驗證方法
@@ -117,7 +115,7 @@ Microsoft 提供[溝通範本](https://aka.ms/mfatemplates)並[使用者文件](
 
 ### <a name="call-to-phone"></a>電話通話
 
-自動的語音撥打給使用者。 使用者接聽電話並按下**#** 核准其驗證電話鍵盤上。 電話通話是絕佳的備份方法，從行動裝置應用程式通知或驗證程式碼。
+自動的語音撥打給使用者。 使用者接聽電話並按下 **#** 核准其驗證電話鍵盤上。 電話通話是絕佳的備份方法，從行動裝置應用程式通知或驗證程式碼。
 
 ### <a name="text-message-to-phone"></a>電話簡訊
 
@@ -129,13 +127,13 @@ Microsoft 提供[溝通範本](https://aka.ms/mfatemplates)並[使用者文件](
 
    ![從 Azure 入口網站中的 [Azure AD 使用者] 刀鋒視窗存取 Multi-Factor Authentication 入口網站](media/howto-mfa-getstarted/users-mfa.png)
 
-1. 在開啟的新索引標籤中，瀏覽至 [服務設定]。
-1. 在 [驗證選項] 底下，核取使用者可用方法的所有方塊。
+1. 在開啟的新索引標籤中，瀏覽至 [服務設定]  。
+1. 在 [驗證選項]  底下，核取使用者可用方法的所有方塊。
 
    ![在 [Multi-Factor Authentication 服務設定] 索引標籤中設定驗證方法](media/howto-mfa-getstarted/mfa-servicesettings-verificationoptions.png)
 
 1. 按一下 [ **儲存**]。
-1. 關閉 [服務設定] 索引標籤。
+1. 關閉 [服務設定]  索引標籤。
 
 ## <a name="plan-registration-policy"></a>計劃註冊原則
 
@@ -171,6 +169,72 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Ob
 Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName | Sort-Object userprincipalname 
 ```
 
+### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>從每個使用者的 MFA 條件式存取的 convert 使用者基礎的 MFA
+
+如果您的使用者已啟用使用每個使用者啟用並強制執行的 Azure Multi-factor Authentication Server 的下列 PowerShell 可以協助您進行轉換為條件式存取會根據 Azure Multi-factor Authentication。
+
+```PowerShell
+# Disable MFA for all users, keeping their MFA methods intact
+Get-MsolUser -All | Disable-MFA -KeepMethods
+
+# Enforce MFA for all users
+Get-MsolUser -All | Set-MfaState -State Enforced
+
+# Wrapper to disable MFA with the option to keep the MFA
+# methods (to avoid having to proof-up again later)
+function Disable-Mfa {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromPipeline=$True)]
+        $User,
+        [switch] $KeepMethods
+    )
+
+    Process {
+
+        Write-Verbose ("Disabling MFA for user '{0}'" -f $User.UserPrincipalName)
+        $User | Set-MfaState -State Disabled
+
+        if ($KeepMethods) {
+            # Restore the MFA methods which got cleared when disabling MFA
+            Set-MsolUser -ObjectId $User.ObjectId `
+                         -StrongAuthenticationMethods $User.StrongAuthenticationMethods
+        }
+    }
+}
+
+# Sets the MFA requirement state
+function Set-MfaState {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromPipelineByPropertyName=$True)]
+        $ObjectId,
+        [Parameter(ValueFromPipelineByPropertyName=$True)]
+        $UserPrincipalName,
+        [ValidateSet("Disabled","Enabled","Enforced")]
+        $State
+    )
+
+    Process {
+        Write-Verbose ("Setting MFA state for user '{0}' to '{1}'." -f $ObjectId, $State)
+        $Requirements = @()
+        if ($State -ne "Disabled") {
+            $Requirement =
+                [Microsoft.Online.Administration.StrongAuthenticationRequirement]::new()
+            $Requirement.RelyingParty = "*"
+            $Requirement.State = $State
+            $Requirements += $Requirement
+        }
+
+        Set-MsolUser -ObjectId $ObjectId -UserPrincipalName $UserPrincipalName `
+                     -StrongAuthenticationRequirements $Requirements
+    }
+}
+
+```
+
 ## <a name="plan-conditional-access-policies"></a>計劃條件式存取原則
 
 若要規劃您的條件式存取原則策略，將會決定 MFA 和其他控制項需要時，請參閱[什麼是 Azure Active Directory 中的條件式存取？](../conditional-access/overview.md)。
@@ -181,26 +245,26 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 
 1. 使用全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 1. 瀏覽至**Azure Active Directory**，**條件式存取**。
-1. 選取 [新增原則]。
+1. 選取 [新增原則]  。
 1. 為原則提供有意義的名稱。
-1. 在 [使用者和群組] 底下：
-   * 在 [包含] 索引標籤上，選取 [所有使用者] 選項按鈕
+1. 在 [使用者和群組]  底下：
+   * 在 [包含]  索引標籤上，選取 [所有使用者]  選項按鈕
    * 在 **排除**索引標籤上，核取方塊**使用者和群組**，然後選擇 緊急存取帳戶。
-   * 按一下 [完成] 。
-1. 在 [雲端應用程式] 下方，選取 [所有雲端應用程式] 選項按鈕。
-   * 選擇性：在 [排除] 索引標籤上，選擇組織不要要求使用 MFA 的雲端應用程式。
-   * 按一下 [完成] 。
-1. 在 [條件] 區段底下：
+   * 按一下 [完成]  。
+1. 在 [雲端應用程式]  下方，選取 [所有雲端應用程式]  選項按鈕。
+   * 選擇性：在 [排除]  索引標籤上，選擇組織不要要求使用 MFA 的雲端應用程式。
+   * 按一下 [完成]  。
+1. 在 [條件]  區段底下：
    * 選擇性：如果您已啟用 Azure Identity Protection，您可以選擇要在原則中評估登入風險。
    * 選擇性：如果您已設定信任的位置或具名位置，您可以指定要在原則中包含或排除這些位置。
-1. 在 [授與] 下方，確定已選取 [授與存取權] 選項按鈕。
-    * 核取 [需要多重要素驗證] 的方塊。
-    * 按一下 [選取] 。
-1. 略過 [工作階段] 區段。
-1. 將 [啟用原則] 切換為 [開啟]。
-1. 按一下頁面底部的 [新增] 。
+1. 在 [授與]  下方，確定已選取 [授與存取權]  選項按鈕。
+    * 核取 [需要多重要素驗證]  的方塊。
+    * 按一下 [選取]  。
+1. 略過 [工作階段]  區段。
+1. 將 [啟用原則]  切換為 [開啟]  。
+1. 按一下頁面底部的 [新增]  。
 
-![建立條件式存取原則，以對試驗群組中的 Azure 入口網站使用者啟用 MFA](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
+![建立條件式存取原則，以在試驗群組中的 Azure 入口網站使用者啟用 MFA](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 
 ## <a name="plan-integration-with-on-premises-systems"></a>計劃與內部部署系統的整合
 
@@ -210,7 +274,7 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 * 在內部部署 RADIUS 的應用程式，將需要使用 MFA 配接器與 NPS 伺服器。
 * 內部部署 AD FS 的應用程式，將需要 AD FS 2016 中使用 MFA 配接器。
 
-請直接使用 Azure AD 進行驗證和新式驗證 （Ws-fed、 SAML、 OAuth、 OpenID Connect） 的應用程式可以直接使用條件式存取原則。
+直接使用 Azure AD 進行驗證和新式驗證 （Ws-fed、 SAML、 OAuth、 OpenID Connect） 的應用程式可以利用條件式存取原則直接。
 
 ### <a name="use-azure-mfa-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 中使用 Azure MFA
 
@@ -227,7 +291,7 @@ Azure MFA 的網路原則伺服器 (NPS) 擴充功能可使用現有伺服器將
 * CHAPv2 通訊協定，只有 「 驗證器應用程式推播通知 」 和 「 語音電話支援。
 * 無法套用條件式存取原則。
 
-NPS 擴充功能作為 RADIUS 與雲端 Azure MFA 提供第二因素驗證來保護之間的介面卡[VPN](howto-mfa-nps-extension-vpn.md)，[遠端桌面閘道連線](howto-mfa-nps-extension-rdg.md)，或其他 RADIUS 支援應用程式。 在此環境中的註冊 Azure MFA 會受到質疑的所有驗證嘗試的使用者，MFA 的條件式存取原則平均值缺乏總是必要。
+NPS 擴充功能作為 RADIUS 與雲端 Azure MFA 提供第二因素驗證來保護之間的介面卡[VPN](howto-mfa-nps-extension-vpn.md)，[遠端桌面閘道連線](howto-mfa-nps-extension-rdg.md)，或其他 RADIUS 支援應用程式。 在此環境中的註冊 Azure MFA 會受到質疑的所有驗證嘗試，缺少的條件式存取原則的使用者表示 MFA 一律是必要項。
 
 #### <a name="implementing-your-nps-server"></a>實作您的 NPS 伺服器
 
@@ -304,7 +368,7 @@ Azure MFA 的報表
 
 Azure Multi-factor Authentication 提供透過 Azure 入口網站的報表：
 
-| 報告 | 位置 | 描述 |
+| 報表 | 位置 | 描述 |
 | --- | --- | --- |
 | 使用方式和詐騙警示 | Azure AD > 登入 | 提供整體使用量、使用者摘要和使用者詳細資料的相關資訊；以及在指定的日期範圍期間所提交的詐騙警示歷程記錄。 |
 

@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2019
-ms.openlocfilehash: f3838bf6b9f7daa24c0cdb5b0c5a08d41d164530
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.date: 05/29/2019
+ms.openlocfilehash: e63937cedf44b1642e091a4744d898a26422be10
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561143"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393679"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure 串流分析預覽功能
 
@@ -29,11 +29,7 @@ Azure 串流分析作業可以在 Visual Studio Code 中撰寫。 請參閱我�
 
 ### <a name="anomaly-detection"></a>異常偵測
 
-Azure 串流分析導入了新的機器學習模型，其可支援「尖峰」和「下降」偵測，以及雙向、緩慢正向趨勢和緩慢負向趨勢偵測。 有关详细信息，请访问 [Azure 流分析中的异常情况检测](stream-analytics-machine-learning-anomaly-detection.md)。
-
-### <a name="sql-database-reference-data"></a>SQL Database 參考資料
-
-Azure 串流分析支援以 Azure SQL Database 作為參考資料輸入的來源。 在 Azure 入口網站和 Visual Studio 中，您可以搭配串流分析工具使用 SQL Database 作為串流分析作業的參考資料。 如需詳細資訊，請造訪[將來自 SQL Database 的參考資料用於 Azure 串流分析作業](sql-reference-data.md)。
+Azure 串流分析導入了新的機器學習模型，其可支援「尖峰」  和「下降」  偵測，以及雙向、緩慢正向趨勢和緩慢負向趨勢偵測。 如需詳細資訊，請瀏覽[在 Azure Stream Analytics 中的異常偵測](stream-analytics-machine-learning-anomaly-detection.md)。
 
 ### <a name="integration-with-azure-machine-learning"></a>與 Azure Machine Learning 整合
 

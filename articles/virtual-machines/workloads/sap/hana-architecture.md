@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 05/25/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 80ef63cdd9de8cb2340fe15d761402bb9f00fae9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d077487f85c789bcdfea3d91e29ee0d44ce82de0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795949"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239450"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>SAP HANA on Azure (大型執行個體) 架構
 
@@ -34,7 +34,7 @@ SAP HANA on Azure (大型執行個體) 的整體架構會提供一個經 SAP TDI
 
 顯示的架構分成三個部分：
 
-- **右**:顯示內部部署基礎結構，執行不同的應用程式中的資料中心，讓使用者可以存取 LOB 應用程式，例如 SAP。 在理想的情況下，這個內部部署基礎結構會接著以 [ExpressRoute](https://azure.microsoft.com/services/expressroute/) 連線至 Azure。
+- **右**:顯示內部部署基礎結構，執行不同的應用程式中的資料中心，讓使用者可以存取 LOB 應用程式，例如 SAP。 在理想情況下，這在內部部署基礎結構連線至 Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/)。
 
 - **Center**:顯示 Azure IaaS，並在此情況下，使用 Vm 來裝載 SAP 或其他利用 SAP HANA 作為 DBMS 系統的應用程式。 以 VM 提供的記憶體運作的較小 HANA 執行個體會與其應用程式層一起部署在 VM 中。 如需虛擬機器的詳細資訊，請參閱[虛擬機器](https://azure.microsoft.com/services/virtual-machines/)。
 
@@ -45,11 +45,11 @@ SAP HANA on Azure (大型執行個體) 的整體架構會提供一個經 SAP TDI
   -  [在 Windows 虛擬機器上使用 SAP](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [在 Azure 虛擬機器上使用 SAP 解決方案](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **左**:顯示 「 Azure 大型執行個體 」 戳記中的 SAP HANA TDI 認證的硬體。 「HANA 大型執行個體」單位會使用與從內部部署連線至 Azure 時的相同技術，連線至您訂用帳戶的虛擬網路。
+- **左**:顯示 「 Azure 大型執行個體 」 戳記中的 SAP HANA TDI 認證的硬體。 從內部部署環境連線至 Azure 中使用相同的技術，HANA 大型執行個體單位會連接到您 Azure 訂用帳戶的虛擬網路。 2019 年，自最佳化引進，讓使用者能夠溝通的 HANA 大型執行個體單位，以及 Azure Vm，不需要 ExpressRoute 閘道的涉入。 這種最佳化稱為 ExpressRoute 快速路徑會顯示在這種架構 （紅線）。 
 
 「Azure 大型執行個體」戳記本身結合了下列元件：
 
-- **運算**:以提供必要的運算能力且經 SAP HANA 認證的 Intel Xeon E7 8890v3 或 Intel Xeon E7 8890v4 處理器為基礎的伺服器。
+- **運算**:以不同的層代的 Intel Xeon 處理器，提供必要的運算能力且經 SAP HANA 認證為基礎的伺服器。
 - **網路**：運算、 儲存體及 LAN 元件互連統一的高速網路網狀架構。
 - **儲存體**：透過整合式的網路網狀架構存取的儲存體基礎結構。 根據已部署的特定 SAP HANA on Azure (大型執行個體) 組態提供的特定儲存體容量。 若要使用更多儲存體容量，則需每月額外付費。
 

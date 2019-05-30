@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 0da5f503c13ce03854964c0d18edd0031e25bb62
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: fa6ab58de09e26683cdd958ef77b0fa01d88e2e0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235615"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225579"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Azure Cosmos DB 和非同步 Java 的效能祕訣
 
@@ -173,7 +173,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
  
 1. **從索引編製中排除未使用的路徑以加快寫入速度**
 
-    Azure Cosmos DB 的索引編製原則可讓您利用檢索路徑 (setIncludedPaths 和 setExcludedPaths)，指定要在索引編製中包含或排除的文件路徑。 在事先知道查詢模式的案例中，使用檢索路徑可改善寫入效能並降低索引儲存空間，因為檢索成本與檢索的唯一路徑數目直接相互關聯。 例如，以下程式碼示範如何將文件的整個區段 (也稱為 从索引中排除文档的整个部分（也称为子树）。
+    Azure Cosmos DB 的索引編製原則可讓您利用檢索路徑 (setIncludedPaths 和 setExcludedPaths)，指定要在索引編製中包含或排除的文件路徑。 在事先知道查詢模式的案例中，使用檢索路徑可改善寫入效能並降低索引儲存空間，因為檢索成本與檢索的唯一路徑數目直接相互關聯。 例如，以下程式碼示範如何將文件的整個區段 (也稱為 樹狀子目錄) 自索引編製作業中排除 (透過使用 "*" 萬用字元)。
 
     ```Java
     Index numberIndex = Index.Range(DataType.Number);
@@ -187,7 +187,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
     如需詳細資訊，請參閱 [Azure Cosmos DB 索引編製原則](indexing-policies.md)。
 
-## <a name="throughput"></a>吞吐量
+## <a name="throughput"></a>Throughput
 <a id="measure-rus"></a>
 
 1. **測量和調整較低的要求單位/秒使用量**

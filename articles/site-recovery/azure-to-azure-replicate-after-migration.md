@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 019c6ec776277a9102cb95cd685bbae0fc660d66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b764c8e7c3d97ff521add05033265f705c4136f
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60789683"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399527"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>移轉至 Azure 之後，設定 Azure VM 的災害復原 
 
@@ -23,7 +23,7 @@ ms.locfileid: "60789683"
 
 ## <a name="verify-migration"></a>驗證移轉
 
-設定災害復原之前，請確定移轉已如預期般完成。 若要成功完成移轉，您就要在容錯移轉之後，針對您需要移轉的每部機器，選取 [完成移轉] 選項。 
+設定災害復原之前，請確定移轉已如預期般完成。 若要成功完成移轉，您就要在容錯移轉之後，針對您需要移轉的每部機器，選取 [完成移轉]  選項。 
 
 ## <a name="verify-the-azure-vm-agent"></a>確認 Azure VM 代理程式
 
@@ -45,8 +45,8 @@ ms.locfileid: "60789683"
 若要檢查已安裝的代理程式：
 
 1. 在 Azure VM 的 C:\WindowsAzure\Packages 資料夾中，您應該會看到 WaAppAgent.exe 檔案。
-2. 在該檔案上按一下滑鼠右鍵，並在 [屬性] 中選取 [詳細資料] 索引標籤。
-3. 確認 [產品版本] 欄位顯示 2.6.1198.718 或更高版本。
+2. 在該檔案上按一下滑鼠右鍵，並在 [屬性]  中選取 [詳細資料]  索引標籤。
+3. 確認 [產品版本]  欄位顯示 2.6.1198.718 或更高版本。
 
 [了解更多](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)關於 Windows 的代理程式安裝。
 
@@ -71,7 +71,7 @@ ms.locfileid: "60789683"
 ## <a name="uninstall-the-mobility-service"></a>將行動服務解除安裝
 
 1. 從 Azure VM，使用下列方法之一，手動解除安裝行動服務。 
-    - 對於 Windows，請在 [控制台] > [新增/移除程式] 中，將 **Microsoft Azure Site Recovery 行動服務/主要目標伺服器**解除安裝。 在提升權限的命令提示字元上，執行：
+    - 對於 Windows，請在 [控制台] > [新增/移除程式]  中，將 **Microsoft Azure Site Recovery 行動服務/主要目標伺服器**解除安裝。 在提升權限的命令提示字元上，執行：
         ```
         MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
         ```

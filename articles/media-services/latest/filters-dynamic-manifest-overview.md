@@ -11,32 +11,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: ac440be4444ca0d62f7ffde2b8b65e41dcba6683
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 041a73cd2840e0b6a1840e15629d9c0e284e9890
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002390"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225514"
 ---
-# <a name="dynamic-manifests"></a>動態資訊清單
+# <a name="pre-filtering-manifests-with-dynamic-packager"></a>預先篩選與動態封裝程式的資訊清單
 
-媒體服務根據預先定義的篩選器提供**動態資訊清單**。 定義篩選器 (請參閱[定義篩選器](filters-concept.md)) 之後，您的用戶端便可使用篩選器來串流處理您視訊的特定轉譯或子剪輯。 用戶端會在資料流 URL 中指定篩選器。 篩選器可以套用至自適性串流通訊協定：Apple HTTP 即時串流 (HLS)、MPEG-DASH 和 Smooth Streaming。 
+當提供自適性串流處理到裝置的內容，您通常需要將資訊清單的多個版本發行至目標裝置特定功能或可用的網路頻寬。 [動態封裝程式](dynamic-packaging-overview.md)可讓您指定篩選，以篩選出特定的轉碼器，其解析度、 位元速率，以及音訊追蹤組合上即時不再需要建立多個複本。 您只需要發行新的 URL，以一組特定的篩選條件設定為您的目標裝置 （iOS、 Android、 SmartTV 或瀏覽器）] 和 [網路功能 （高頻寬、 行動或低頻寬的案例）。 在此情況下，用戶端可以操作您的內容，透過查詢字串的資料流 (藉由指定可用[資產篩選器或帳戶篩選器](filters-concept.md)) 和資料流的資料流的特定區段中使用篩選器。
 
-下表顯示包含篩選器之 URL 的一些範例：
+有些傳遞案例需要您要確定客戶是無法存取特定的追蹤。 比方說，您可能不想將發佈包含特定的訂閱者層 HD 追蹤的資訊清單。 或者，您可能想要移除特定調適性位元速率 (ABR) 追蹤，以減少到特定的裝置，就不會受益於其他追蹤遞送的成本。 在此情況下您可以建立一份預先建立的篩選條件的關聯您[串流定位器](streaming-locators-concept.md)上建立。 在此情況下，用戶端無法操控內容資料流的方式，它由定義**串流定位器**。
 
-|Protocol|範例|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
- 
+您可以透過指定篩選來結合[串流定位器的篩選](filters-concept.md#associating-filters-with-streaming-locator)+ 用戶端所指定 URL 中的其他裝置特定篩選條件。 這可用來限制其他的追蹤，例如中繼資料或事件資料流、 音訊語言或描述性的音訊資料軌。 
+
+這項功能在您的資料流中，指定不同的篩選器提供一個功能強大**動態資訊清單**操作解決方案，以多個使用案例適用於您的目標裝置為目標。 本主題說明**動態資訊清單**相關的概念，並提供您可能會想使用此功能的案例範例。
+
 > [!NOTE]
-> 動態資訊清單不會變更資產和該資產的預設資訊清單。 您的用戶端可以選擇要求包含或不含篩選器的資料流。 
+> 動態資訊清單不會變更資產和該資產的預設資訊清單。 
 > 
-
-本主題說明**動態資訊清單**相關的概念，並提供您可能會想使用此功能的案例範例。
 
 ## <a name="manifests-overview"></a>資訊清單概觀
 
@@ -52,9 +48,19 @@ ms.locfileid: "66002390"
 
 ### <a name="monitor-the-bitrate-of-a-video-stream"></a>監視視訊資料流的位元速率
 
-您可以使用 [Azure 媒體播放器示範頁面](https://aka.ms/amp) \(英文\) 來監視視訊資料流的位元速率。 示範頁面會在 [Diagnostics] (診斷) 索引標籤中顯示診斷資訊：
+您可以使用 [Azure 媒體播放器示範頁面](https://aka.ms/amp) \(英文\) 來監視視訊資料流的位元速率。 示範頁面會在 [Diagnostics]  (診斷) 索引標籤中顯示診斷資訊：
 
 ![Azure 媒體播放器診斷][amp_diagnostics]
+ 
+### <a name="examples-urls-with-filters-in-query-string"></a>範例：在查詢字串中與篩選的 Url
+
+篩選器可以套用至自適性串流通訊協定：HLS、MPEG-DASH 和 Smooth Streaming。 下表顯示包含篩選器之 URL 的一些範例：
+
+|Protocol|範例|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="rendition-filtering"></a>轉譯篩選
 
@@ -121,10 +127,6 @@ ms.locfileid: "66002390"
 您可以結合最多三個篩選。 
 
 如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) 。
-
-## <a name="associate-filters-with-streaming-locator"></a>串流定位器相關聯的篩選器
-
-請參閱[篩選器： 使用串流定位器關聯](filters-concept.md#associate-filters-with-streaming-locator)。
 
 ## <a name="considerations-and-limitations"></a>考量與限制
 

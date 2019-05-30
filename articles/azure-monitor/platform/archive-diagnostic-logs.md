@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 82aaa573c55748daf62b620cdd82561bae6af492
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc1804e547bb1a29fc0dc680b948f1bb31af8307
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345930"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244924"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>封存 Azure 診斷記錄
 
-在本文中，我們會示範如何使用 Azure 入口網站、PowerShell Cmdlet、CLI 或 REST API 來封存儲存體帳戶中的 [Azure 診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)。 如果您想要使用適用於稽核、靜態分析或備份的選用保留原則來保留診斷記錄，這個選項非常有用。 儲存體帳戶不一定要和資源發出記錄屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
+在本文中，我們會示範如何使用 Azure 入口網站、PowerShell Cmdlet、CLI 或 REST API 來封存儲存體帳戶中的 [Azure 診斷記錄](diagnostic-logs-overview.md)。 如果您想要使用適用於稽核、靜態分析或備份的選用保留原則來保留診斷記錄，這個選項非常有用。 儲存體帳戶不一定要和資源發出記錄屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
 
 > [!WARNING]
 > 2018 年 11 月 1 日起，儲存體帳戶中的記錄資料格式將變更為 JSON 資料行。 [請參閱本文以了解影響的描述，以及如何更新您的工具，來處理新的格式。](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -26,7 +26,7 @@ ms.locfileid: "60345930"
 
 ## <a name="prerequisites"></a>必要條件
 
-在開始之前，您需要[建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)，以便將診斷記錄封存至其中。 我們強烈建議您不要使用已儲存了其他非監視資料的現有儲存體帳戶，這樣您對監視資料才能有更好的存取控制。 不過，如果您也要封存活動記錄和診斷度量至儲存體帳戶，則將同一儲存體帳戶用於診斷記錄合情合理，因為可以將所有監視資料集中在一個位置。
+在開始之前，您需要[建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)，以便將診斷記錄封存至其中。 我們強烈建議您不要使用已儲存了其他非監視資料的現有儲存體帳戶，這樣您對監視資料才能有更好的存取控制。 不過，如果您也要封存活動記錄和診斷度量至儲存體帳戶，它會使合理地使用該儲存體帳戶用於診斷記錄也可以在中央位置將所有的監視資料。
 
 > [!NOTE]
 >  您目前無法將資料封存到位在安全虛擬網路後面的儲存體帳戶。
@@ -44,7 +44,7 @@ ms.locfileid: "60345930"
 
 ## <a name="archive-diagnostic-logs-using-the-portal"></a>使用入口網站封存診斷記錄
 
-1. 在入口網站中，瀏覽至 Azure 監視器，然後按一下 [診斷設定]
+1. 在入口網站中，瀏覽至 Azure 監視器，然後按一下 [診斷設定] 
 
     ![Azure 監視器的監視區段](media/archive-diagnostic-logs/diagnostic-settings-blade.png)
 
@@ -58,11 +58,11 @@ ms.locfileid: "60345930"
 
    ![新增診斷設定 - 現有的設定](media/archive-diagnostic-logs/diagnostic-settings-multiple.png)
 
-3. 為您的設定提供名稱，並勾選 [匯出到儲存體帳戶] 核取方塊，然後選取儲存體帳戶。 使用 [保留 (天)]  滑桿選擇性地設定這些記錄的保留天數。 保留天數為 0 會無限期地儲存記錄。
+3. 為您的設定提供名稱，並勾選 [匯出到儲存體帳戶]  核取方塊，然後選取儲存體帳戶。 使用 [保留 (天)]  滑桿選擇性地設定這些記錄的保留天數。 保留天數為 0 會無限期地儲存記錄。
 
    ![新增診斷設定 - 現有的設定](media/archive-diagnostic-logs/diagnostic-settings-configure.png)
 
-4. 按一下 [檔案] 。
+4. 按一下 [檔案]  。
 
 過了幾分鐘之後，新的設定就會出現在此資源的設定清單中，而且每次產生新的事件資料，都會將診斷記錄封存至該儲存體帳戶。
 
@@ -111,7 +111,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 ## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>儲存體帳戶中的診斷記錄結構描述
 
-設定了封存之後，便會在已啟用的其中一個記錄類別發生事件時，立即於儲存體帳戶中建立儲存體容器。 容器內的 Blob 在整個活動記錄和診斷記錄中，會遵循相同的命名慣例，如下所示：
+設定了封存之後，便會在已啟用的其中一個記錄類別發生事件時，立即於儲存體帳戶中建立儲存體容器。 容器內的 blob 會遵循相同的命名慣例在活動記錄和診斷記錄，如下所示：
 
 ```
 insights-logs-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/RESOURCEGROUPS/{resource group name}/PROVIDERS/{resource provider name}/{resource type}/{resource name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json

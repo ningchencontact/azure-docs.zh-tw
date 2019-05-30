@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e059762cbbf5de2ac03a8a74397e59c9b3bdb97e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450018"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387107"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>設定連線的處理站解決方案加速器
 
@@ -282,7 +282,7 @@ WebApp 可維護其中包含所有拓撲節點相關資訊的內部資料字典�
 * 要包含在計算中的 OPC UA 節點值。
 * 如何從遙測值計算數據。
 
-連線的處理站會使用如 https://www.oeefoundation.org 所發行的 OEE 公式。
+連線處理站會使用 OEE 公式所發佈[ http://www.oeefoundation.org ](http://www.oeefoundation.org)。
 
 站台中的 OPC UA 節點物件會啟用可在 OEE/KPI 計算中使用的標記。 **Relevance** 屬性指出 OPC UA 節點值應該用於哪個 OEE/KPI 數據。 **OpCode** 屬性定義如何將值包含在計算中。
 

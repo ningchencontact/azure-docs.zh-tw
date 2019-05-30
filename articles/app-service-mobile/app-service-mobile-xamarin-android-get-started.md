@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 05/06/2019
 ms.author: crdun
-ms.openlocfilehash: 29efa963a254913e3d4744ade1d161c5c8ce42e4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: f3e8ca4f9736dffe4928fc8920b0890dff87367b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127891"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236034"
 ---
-# <a name="create-a-xamarinandroid-app"></a>创建 Xamarin.Android 应用
+# <a name="create-a-xamarinandroid-app"></a>建立 Xamarin.Android 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>概觀
@@ -36,7 +36,7 @@ ms.locfileid: "62127891"
 ## <a name="prerequisites"></a>必要條件
 若要完成本教學課程，您需要下列必要條件：
 
-* 使用中的 Azure 帳戶。 如果您沒有帳戶，請註冊 Azure 試用版並取得最多 10 個免費的 Mobile Apps。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* 使用中的 Azure 帳戶。 如果您沒有帳戶，請註冊 Azure 試用版並取得最多 10 個免費的 Mobile Apps。 如需詳細資訊，請參閱 < [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * Visual Studio 和 Xamarin。 如需相關指示，請參閱 [設定和安裝 Visual Studio 和 Xamarin](/visualstudio/cross-platform/setup-and-install) 。
 
 ## <a name="create-an-azure-mobile-app-backend"></a>建立 Azure 行動應用程式後端
@@ -46,15 +46,27 @@ ms.locfileid: "62127891"
 
 您現在已佈建 Azure 行動應用程式後端，可供您的行動用戶端應用程式使用。 接下來，下載簡易「待辦事項清單」後端的伺服器專案，然後將專案發佈至 Azure。
 
-## <a name="configure-the-server-project"></a>設定伺服器專案
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>建立資料庫連接，並設定用戶端和伺服器專案
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-xamarinandroid-app"></a>下載並執行 Xamarin.Android 應用程式
-1. 在 [下載並執行 Xamarin.Android 專案] 底下，按 [下載] 按鈕。
+## <a name="run-the-xamarinandroid-app"></a>執行 Xamarin.Android 應用程式
+1. 開啟 Xamarin.Android 專案。
 
-      將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
-2. 按 **F5** 鍵，以重建專案並啟動應用程式。
-3. 在應用程式中輸入有意義的文字 (例如 Complete the tutorial)，然後按一下 [新增] 按鈕。
+2. 移至[Azure 入口網站](https://portal.azure.com/)並瀏覽至您所建立的行動應用程式。 在 `Overview`刀鋒視窗中，搜尋 URL，也就是您的行動裝置應用程式的公用端點。 範例-將會針對我的應用程式名稱"test123"sitename https://test123.azurewebsites.net。
+
+3. 開啟檔案`ToDoActivity.cs`在此資料夾中-xamarin.android/ZUMOAPPNAME/ToDoActivity.cs。 應用程式名稱是`ZUMOAPPNAME`。
+
+4. 在 `ToDoActivity`類別中，取代`ZUMOAPPURL`變數與上述的公用端點。
+
+    `const string applicationURL = @"ZUMOAPPURL";`
+
+    會變成
+    
+    `const string applicationURL = @"https://test123.azurewebsites.net";`
+    
+5. 按 F5 鍵來部署和執行應用程式。
+
+6. 在應用程式中輸入有意義的文字 (例如 Complete the tutorial  )，然後按一下 [新增]  按鈕。
 
     ![][10]
 
@@ -62,27 +74,14 @@ ms.locfileid: "62127891"
 
    > [!NOTE]
    > 您可以檢閱存取行動應用程式後端以查詢與插入資料的程式碼，您可在 ToDoActivity.cs C# 檔案中找到此程式碼。
-   >
-   >
-
+   
 ## <a name="troubleshooting"></a>疑難排解
 如果在建置解決方案時發生問題，請執行 NuGet 套件管理員，並更新 `Xamarin.Android` 支援套件。 快速入門專案不一定會包含最新版本。
 
-請注意，您專案中參考的所有支援套件都必須有相同的版本。 [Azure Mobile Apps NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) 具有 Android 平台的 `Xamarin.Android.Support.CustomTabs` 相依性，因此若您的專案使用較新的支援套件，您必須直接安裝具有必要版本的此套件以避免發生衝突。
-
-## <a name="next-steps"></a>後續步驟
-* [將離線同步處理新增至您的應用程式](app-service-mobile-xamarin-android-get-started-offline-data.md)
-* [將驗證新增至應用程式中](app-service-mobile-xamarin-android-get-started-users.md)
-* [將推播通知新增至您的 Xamarin.Android 應用程式](app-service-mobile-xamarin-android-get-started-push.md)
-* [如何使用 Azure 移动应用的托管客户端](app-service-mobile-dotnet-how-to-use-client-library.md)
+請注意，您專案中參考的所有支援套件都必須有相同的版本。 [Azure Mobile Apps NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) 有 Android 平台的 `Xamarin.Android.Support.CustomTabs` 相依性，因此若您的專案使用較新的支援套件，您必須直接安裝具有必要版本的此套件以避免衝突。
 
 <!-- Images. -->
 [0]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-completed-android.png
-[6]: ./media/app-service-mobile-xamarin-android-get-started/mobile-portal-quickstart-xamarin.png
-[8]: ./media/app-service-mobile-xamarin-android-get-started/mobile-xamarin-project-android-vs.png
-[9]: ./media/app-service-mobile-xamarin-android-get-started/mobile-xamarin-project-android-xs.png
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
-
 <!-- URLs. -->
-[Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203

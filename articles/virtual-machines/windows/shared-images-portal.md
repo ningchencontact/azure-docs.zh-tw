@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: d46c545db9e1950988b49cdb577d074b6d04380c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f63b705f7967eeddaf522941d6db9be5d9f2719d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236589"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245001"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>建立使用 Azure 入口網站共用映像庫
 
@@ -33,7 +33,7 @@ ms.locfileid: "65236589"
 
 共用映像庫具有多個資源類型。 我們將在這篇文章中使用或建置這些資源類型：
 
-| 資源 | 說明|
+| Resource | 描述|
 |----------|------------|
 | **受控映像** | 這是基本映像，既可單獨使用，也可用來在映像庫中建立個**映像版本**。 受控映像是從一般化 VM 建立的。 受控映像是一種特殊的 VHD 類型，可用來產生多個 VM，現在可以用來建立共用映像版本。 |
 | **映像庫** | 和 Azure Marketplace 一樣，**映像庫**是用於管理和共用映像的存放庫，但您可以控制哪些使用者能夠存取。 |
@@ -63,15 +63,16 @@ ms.locfileid: "65236589"
 1. 針對**可用性選項**，保留預設值是*沒有所需的基礎結構備援性*。
 1. 值**映像**應該自動填入，如果您從映像版本的頁面開始。
 1. 針對**大小**，從可用大小清單中選擇的 VM 大小，然後按一下 選取。
-1. 在 [系統管理員帳戶] 底下提供使用者名稱 (例如 azureuser) 和密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。
+1. 在 [系統管理員帳戶]  底下提供使用者名稱 (例如 azureuser  ) 和密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。
 1. 如果您想要允許遠端存取 VM，底下**公用輸入連接埠**，選擇**允許選取的連接埠**，然後選取**RDP (3389)** 從下拉式清單。 如果您不想允許遠端存取 VM，請勿**無**選取**公用輸入連接埠**。
 1. 當您完成時，請選取**檢閱 + 建立**在頁面底部的按鈕。
 1. VM 通過驗證之後，請選取**建立**底部的頁面以開始部署。
 
 
+
 ## <a name="clean-up-resources"></a>清除資源
 
-若不再需要，您可以刪除資源群組、虛擬機器和所有相關資源。 若要這樣做，請選取虛擬機器的資源群組，選取 [刪除]，然後確認要刪除的資源群組名稱。
+若不再需要，您可以刪除資源群組、虛擬機器和所有相關資源。 若要這樣做，請選取虛擬機器的資源群組，選取 [刪除]  ，然後確認要刪除的資源群組名稱。
 
 如果您想要刪除個別的資源，您需要以相反順序加以刪除。 例如，若要刪除的映像定義，您需要刪除所有從該映像建立的映像版本。
 

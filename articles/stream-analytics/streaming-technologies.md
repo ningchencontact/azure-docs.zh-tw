@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 7ef8715f23d21a23dc3f37b192314b922847d3e1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 85d6ed80da93f90e6dc0feaee7081ee3f36f1bf9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805902"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242698"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>選擇即時的分析和串流處理技術，在 Azure 上
 
@@ -25,7 +25,7 @@ Azure Stream Analytics 是 Azure 上的串流分析的建議的服務。 它適�
 * 資料視覺效果的儀表板
 * 即時[警示](stream-analytics-set-up-alerts.md)從時態表和空間模式或異常行為
 * 擷取、轉換、載入 (ETL)
-* [事件溯源模式](/azure/architecture/patterns/event-sourcing.md)
+* [事件溯源模式](/azure/architecture/patterns/event-sourcing)
 * [IoT Edge](stream-analytics-edge.md)
 
 新增 Azure Stream Analytics 作業，您的應用程式是最快的方法，取得設定串流分析，並使用 SQL 語言在 Azure 中執行您已經知道。 Azure Stream Analytics 是作業服務，您不必花時間管理的叢集，因此您不必擔心停機時間達 99.9 %sla，在作業層級。 計費也是在作業層級進行啟動成本低 （一個串流單位），但可擴充 （最多 192 串流處理單位）。 它會更符合成本效益比執行及維護叢集中執行幾項 Stream Analytics 工作。

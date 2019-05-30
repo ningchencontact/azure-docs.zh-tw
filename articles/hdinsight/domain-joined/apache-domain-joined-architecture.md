@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 069b3fe89183d7897cea39e2a8a1fe1bbed80bb0
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.date: 05/29/2019
+ms.openlocfilehash: 168a73ced039b9bced9a6aae6a138468b345b19d
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556339"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391672"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>在 HDInsight 中使用企業安全性套件
 
@@ -21,7 +21,7 @@ ms.locfileid: "65556339"
 
 許多企業都朝向一種模型發展，亦即由 IT 小組管理叢集，而由多個應用程式小組共用叢集。 這些較大的企業需要在 Azure HDInsight 中針對每個叢集的多使用者存取。
 
-在管理方面，HDInsight 依賴廣受使用的識別提供者 – Active Directory。 藉由 HDInsight 與 [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/active-directory-ds-overview.md) 的整合，您可以使用網域認證來存取叢集。 
+在管理方面，HDInsight 依賴廣受使用的識別提供者 – Active Directory。 藉由 HDInsight 與 [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/overview.md) 的整合，您可以使用網域認證來存取叢集。 
 
 HDInsight 中的虛擬機器 (VM) 會加入您提供的網域。 因此，經過驗證的使用者都能夠順暢地使用在 HDInsight 上執行的所有服務 (Apache Ambari、Apache Hive 伺服器、Apache Ranger、Apache Spark Thrift 伺服器等等)。 接著，系統管理員可使用 Apache Ranger 來建立強式授權原則，為叢集中的資源提供角色型存取控制。
 
@@ -45,7 +45,7 @@ HDInsight 中的虛擬機器 (VM) 會加入您提供的網域。 因此，經過
 HDInsight 目前僅支援以 Azure AD DS 作為主要網域控制站，讓叢集使用 Kerberos 通訊。 但您仍然可以使用其他複雜的 Active Directory 設定，只要這類設定能夠讓 Azure AD DS 進行 HDInsight 存取即可。
 
 ### <a name="azure-active-directory-domain-services"></a>Azure Active Directory Domain Services
-[Azure AD DS](../../active-directory-domain-services/active-directory-ds-overview.md) 提供與 Windows Server Active Directory 完全相容的受控網域。 Microsoft 會負責管理、修補及監視高可用性 (HA) 設定中的網域。 您可以放心地部署叢集，不必擔心網域控制站的維護問題。 
+[Azure AD DS](../../active-directory-domain-services/overview.md) 提供與 Windows Server Active Directory 完全相容的受控網域。 Microsoft 會負責管理、修補及監視高可用性 (HA) 設定中的網域。 您可以放心地部署叢集，不必擔心網域控制站的維護問題。 
 
 使用者、群組和密碼都會從 Azure AD 同步。 從您的 Azure AD 執行個體單向同步到 Azure AD DS 可讓使用者利用相同的公司認證登入叢集。 
 

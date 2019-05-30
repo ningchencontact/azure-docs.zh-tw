@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: cefde79cf8c544a6900b1efa5dbcefbc43638d40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2f7f83654f397cc6b93adbbebc25193155bcedb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679324"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399382"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>準備「Hyper-V VM 災害復原至 Azure」的網路對應
 
@@ -93,7 +93,7 @@ SilverCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwor
 ---|---|---|---
 VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | 可用
  | GoldCloud1 | GoldCloud2 | 可用
-VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | 不可用
+VMNetwork2-Chicago | SilverCloud1 | SilverCloud2 | 尚未提供
  | GoldCloud1 | GoldCloud2 | 可用
 
 
@@ -112,7 +112,7 @@ VM2 (VM1 的複本) | VMNetwork1-Chicago
 
 讓我們使用這些設定，檢閱幾個可能的案例中發生的情況。
 
-**方案** | **結果**
+**案例** | **結果**
 ---|---
 在容錯移轉之後，VM-2 的網路屬性沒有變更。 | VM 1 仍然連線至來源網路。
 在容錯移轉並中斷連線之後，VM-2 的網路屬性有所變更。 | VM-1 已中斷連線。

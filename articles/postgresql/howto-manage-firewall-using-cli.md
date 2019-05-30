@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure CLI 建立和管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則
-description: 本文說明如何使用 Azure CLI 命令列，建立和管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則。
+title: 建立和管理防火牆規則，在 Azure Database for PostgreSQL-使用 Azure CLI 的單一伺服器
+description: 本文說明如何建立和管理防火牆規則，在 Azure Database for PostgreSQL-使用 Azure CLI 命令列的單一伺服器。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/09/2019
-ms.openlocfilehash: 9a96361d3fb155ea5b400990690e3c2b1f65f819
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 03b1c215994e4089ad0aed4eac3868b05c564c4c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422367"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067525"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>使用 Azure CLI 建立和管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則
+# <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>建立和管理防火牆規則，在 Azure Database for PostgreSQL-使用 Azure CLI 的單一伺服器
 伺服器層級防火牆規則可用來管理存取 Azure Database for PostgreSQL 伺服器從特定的 IP 位址或 IP 位址範圍。 透過方便的 Azure CLI 命令，您可以建立、更新、刪除、列出及顯示防火牆規則，以管理您的伺服器。 PostgreSQL 防火牆規則的 Azure 資料庫概觀，請參閱[Azure Database for PostgreSQL 伺服器的防火牆規則](concepts-firewall-rules.md)。
 
 虛擬網路 (VNet) 規則也可用來安全地存取您的伺服器。 深入了解[建立及管理虛擬網路服務端點和規則使用 Azure CLI](howto-manage-vnet-using-cli.md)。

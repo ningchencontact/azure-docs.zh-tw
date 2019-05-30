@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2204fe3e08b3c4b909ddc8b7ade4cec219d34fb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 82e6cbcd01c87ddffb7eac8d0ea0faef85f41a13
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406640"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254015"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>Web 應用程式，讓登入使用者-程式碼組態
 
@@ -31,7 +31,7 @@ ms.locfileid: "65406640"
 <!-- This section can be in an include for Web App and Web APIs -->
 是用來保護 Web 應用程式 （和 Web API） 的程式庫：
 
-| 平台 | 程式庫 | 說明 |
+| 平台 | 程式庫 | 描述 |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [適用於.NET 的身分識別模型延伸模組](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | 直接使用 ASP.NET 和 ASP.NET Core，適用於.NET 的 Microsoft 身分識別延伸模組所提出一組執行.NET Framework 和.NET Core 的 Dll。 從 ASP.NET/ASP.NET Core Web 應用程式，您可以控制使用權杖驗證**TokenValidationParameters**類別 （尤其在某些 ISV 案例） |
 
@@ -110,6 +110,9 @@ ms.locfileid: "65406640"
 
 在 ASP.NET Core Web 應用程式 （和 Web Api），執行的應用程式初始化的程式碼位於`Startup.cs`檔案，而且，若要新增使用 Microsoft 身分識別平台 (先前稱為 Azure AD) v2.0 的驗證，您必須新增下列程式碼。 在程式碼中的註解應該一目了然。
 
+  > [!NOTE]
+  > 如果您使用 Visual studio 或使用預設 ASP.NET core web 專案啟動您的專案`dotnet new mvc`方法`AddAzureAD`是預設可用的因為會自動載入相關的封裝。 不過如果您從頭建置專案，並嘗試使用我們建議您將 NuGet 套件新增下列程式碼 **"Microsoft.AspNetCore.Authentication.AzureAD.UI 」** 專案，以讓`AddAzureAD`可用的方法。
+  
 ```CSharp
  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
          .AddAzureAD(options => configuration.Bind("AzureAd", options));

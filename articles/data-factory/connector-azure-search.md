@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 05/24/2018
 ms.author: jingwang
-ms.openlocfilehash: 1c8cbcd2e5f137b1e8381dcce164ae9a4b87e804
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: faf0cab55ec0cef034638d218f2172f3676ff39b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998467"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245117"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 搜尋服務索引
 
@@ -77,7 +77,7 @@ ms.locfileid: "60998467"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 本節提供「Azure 搜尋服務」資料集所支援的屬性清單。
 
-若要從「Azure 搜尋服務」複製資料，請將資料集的類型屬性設定為 **RelationalTable**。 以下是支援的屬性：
+若要將資料複製到 Azure 搜尋服務，支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -169,11 +169,11 @@ Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 
 
 | Azure 搜尋服務資料類型 | 在 Azure 搜尋服務接收器中受到支援 |
 | ---------------------- | ------------------------------ |
-| 字串 | Y |
+| String | Y |
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |
-| BOOLEAN | Y |
+| Boolean | Y |
 | DataTimeOffset | Y |
 | String Array | N |
 | GeographyPoint | N |

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2269eac0790e61dbf0ce893bbb737cb22d58d497
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: d4e1ad106b928c41bd6940d7c3713b5fb34afe3a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002484"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389118"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Azure 自動化中的「停機期間啟動/停止 VM」解決方案
 
@@ -71,7 +71,8 @@ ms.locfileid: "66002484"
 | Microsoft.OperationsManagement/solutions/write | 資源群組 |
 | Microsoft.OperationalInsights/workspaces/* | 資源群組 |
 | Microsoft.Insights/diagnosticSettings/write | 資源群組 |
-| Microsoft.Insights/ActionGroups/WriteMicrosoft.Insights/ActionGroups/read | 資源群組 |
+| Microsoft.Insights/ActionGroups/Write | 資源群組 |
+| Microsoft.Insights/ActionGroups/read | 資源群組 |
 | Microsoft.Resources/subscriptions/resourceGroups/read | 資源群組 |
 | Microsoft.Resources/deployments/* | 資源群組 |
 
@@ -99,57 +100,57 @@ ms.locfileid: "66002484"
 
 執行下列步驟，將「停機期間啟動/停止 VM」解決方案新增至您的自動化帳戶，然後設定變數以自訂解決方案。
 
-1. 從 [自動化帳戶]，選取 [相關資源] 之下的 [啟動/停止 VM]。 您可以在此按一下**深入了解並啟用解決方案**。 如果您已經部署「啟動/停止 VM」解決方案，按一下 [管理解決方案] 並且在清單中選找它，即可加以選取。
+1. 從 [自動化帳戶]，選取 [相關資源]  之下的 [啟動/停止 VM]  。 您可以在此按一下**深入了解並啟用解決方案**。 如果您已經部署「啟動/停止 VM」解決方案，按一下 [管理解決方案]  並且在清單中選找它，即可加以選取。
 
    ![從自動化帳戶啟用](./media/automation-solution-vm-management/enable-from-automation-account.png)
 
    > [!NOTE]
-   > 您也可以按一下 [建立資源]，在 Azure 入口網站中的任何地方建立它。 在 [Marketplace] 頁面中輸入關鍵字，例如**啟動**或**啟動/停止**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 或者，您可以輸入解決方案完整名稱中的一或多個關鍵字，然後按 Enter 鍵。 從搜尋結果中選取 [停機期間啟動/停止 VM]。
+   > 您也可以按一下 [建立資源]  ，在 Azure 入口網站中的任何地方建立它。 在 [Marketplace] 頁面中輸入關鍵字，例如**啟動**或**啟動/停止**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 或者，您可以輸入解決方案完整名稱中的一或多個關鍵字，然後按 Enter 鍵。 從搜尋結果中選取 [停機期間啟動/停止 VM]  。
 
-2. 在所選解決方案的 [停機期間啟動/停止 VM] 頁面中，檢閱摘要資訊，然後按一下 [建立]。
+2. 在所選解決方案的 [停機期間啟動/停止 VM]  頁面中，檢閱摘要資訊，然後按一下 [建立]  。
 
    ![Azure 入口網站](media/automation-solution-vm-management/azure-portal-01.png)
 
-3. [新增解決方案] 頁面隨即出現。 系統會在其中提示您設定解決方案，以將它匯入您的自動化訂用帳戶。
+3. [新增解決方案]  頁面隨即出現。 系統會在其中提示您設定解決方案，以將它匯入您的自動化訂用帳戶。
 
    ![VM 管理的新增解決方案頁面](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-4. 在 [新增解決方案] 頁面中，選取 [工作區]。 選取連結到自動化帳戶所在之同一 Azure 訂用帳戶的 Log Analytics 工作區。 如果您沒有工作區，請選取 [建立新工作區]。 在  **Log Analytics 工作區**頁面上，執行下列步驟：
+4. 在 [新增解決方案]  頁面中，選取 [工作區]  。 選取連結到自動化帳戶所在之同一 Azure 訂用帳戶的 Log Analytics 工作區。 如果您沒有工作區，請選取 [建立新工作區]  。 在  **Log Analytics 工作區**頁面上，執行下列步驟：
    - 指定新名稱**Log Analytics 工作區**，例如"ContosoLAWorkspace 」。
-   - 如果選取的預設值不合適，請從下拉式清單中選取要連結的 [訂用帳戶]。
-   - 對於 [資源群組]，您可以建立新的資源群組，或選取現有的資源群組。
-   - 選取 [位置] 。 目前可用的位置只有**澳大利亞東南部**、**加拿大中部**、**印度中部**、**美國東部**、**日本東部**、**東南亞**、**英國南部**、**西歐**和**美國西部 2**。
-   - 選取 **定價層**。 選擇 [每 GB (獨立)] 選項。 Azure 監視器記錄檔已更新[定價](https://azure.microsoft.com/pricing/details/log-analytics/)和 每 GB 層是唯一的選項。
+   - 如果選取的預設值不合適，請從下拉式清單中選取要連結的 [訂用帳戶]  。
+   - 對於 [資源群組]  ，您可以建立新的資源群組，或選取現有的資源群組。
+   - 選取 [位置]  。 目前可用的位置只有**澳大利亞東南部**、**加拿大中部**、**印度中部**、**美國東部**、**日本東部**、**東南亞**、**英國南部**、**西歐**和**美國西部 2**。
+   - 選取 **定價層**。 選擇 [每 GB (獨立)]  選項。 Azure 監視器記錄檔已更新[定價](https://azure.microsoft.com/pricing/details/log-analytics/)和 每 GB 層是唯一的選項。
 
    > [!NOTE]
    > 啟用解決方案時，只有特定區域支援連結 Log Analytics 工作區和自動化帳戶。
    >
    > 如需支援的對應配對的清單，請參閱 <<c0> [ 自動化帳戶和 Log Analytics 工作區的區域對應](how-to/region-mappings.md)。
 
-5. 在 [Log Analytics 工作區] 頁面上提供必要資訊之後，按一下 [建立]。 您可以在功能表的 [通知] 下追蹤其進度，這會在完成時帶您返回 [新增解決方案] 頁面。
-6. 在 [新增解決方案] 頁面中，選取 [自動化帳戶]。 如果要建立新的 Log Analytics 工作區，您可以建立要與其相關聯的新自動化帳戶，或選取尚未連結至 Log Analytics 工作區的現有自動化帳戶。 選取現有自動化帳戶或按一下 [建立自動化帳戶]，然後在 [新增自動化帳戶] 頁面上提供下列資訊︰
-   - 在 [名稱] 欄位中輸入自動化帳戶的名稱。
+5. 在 [Log Analytics 工作區]  頁面上提供必要資訊之後，按一下 [建立]  。 您可以在功能表的 [通知]  下追蹤其進度，這會在完成時帶您返回 [新增解決方案]  頁面。
+6. 在 [新增解決方案]  頁面中，選取 [自動化帳戶]  。 如果要建立新的 Log Analytics 工作區，您可以建立要與其相關聯的新自動化帳戶，或選取尚未連結至 Log Analytics 工作區的現有自動化帳戶。 選取現有自動化帳戶或按一下 [建立自動化帳戶]  ，然後在 [新增自動化帳戶]  頁面上提供下列資訊︰
+   - 在 [名稱]  欄位中輸入自動化帳戶的名稱。
 
-     系統會根據所選的 Log Analytics 工作區自動填入所有其他選項。 這些選項無法修改。 Azure 執行身分帳戶是此方案內含 Runbook 的預設驗證方法。 按下 [確定] 後，就會驗證設定選項並建立自動化帳戶。 您可以在功能表的 [通知] 底下追蹤其進度。
+     系統會根據所選的 Log Analytics 工作區自動填入所有其他選項。 這些選項無法修改。 Azure 執行身分帳戶是此方案內含 Runbook 的預設驗證方法。 按下 [確定]  後，就會驗證設定選項並建立自動化帳戶。 您可以在功能表的 [通知]  底下追蹤其進度。
 
-7. 最後，在 [新增解決方案] 頁面中，選取 [設定]。 [參數] 頁面隨即出現。
+7. 最後，在 [新增解決方案]  頁面中，選取 [設定]  。 [參數]  頁面隨即出現。
 
    ![解決方案的 [參數] 頁面](media/automation-solution-vm-management/azure-portal-add-solution-02.png)
 
    在這裡，系統會提示您：
-   - 指定 [目標資源群組名稱]。 這些值是包含此解決方案所要管理的虛擬機器之資源群組名稱。 您可以輸入多個名稱，然後使用逗號加以分隔 (值不區分大小寫)。 如果您想要以訂用帳戶的所有資源群組中的 VM 為目標，則可使用萬用字元。 此值儲存在 **External_Start_ResourceGroupNames** 和 **External_Stop_ResourceGroupNames** 變數中。
-   - 指定 [虛擬機器排除清單 (字串)]。 此值是來自目標資源群組的一或多個虛擬機器名稱。 您可以輸入多個名稱，然後使用逗號加以分隔 (值不區分大小寫)。 支援使用萬用字元。 這個值會儲存在 **External_ExcludeVMNames** 變數中。
+   - 指定 [目標資源群組名稱]  。 這些值是包含此解決方案所要管理的虛擬機器之資源群組名稱。 您可以輸入多個名稱，然後使用逗號加以分隔 (值不區分大小寫)。 如果您想要以訂用帳戶的所有資源群組中的 VM 為目標，則可使用萬用字元。 此值儲存在 **External_Start_ResourceGroupNames** 和 **External_Stop_ResourceGroupNames** 變數中。
+   - 指定 [虛擬機器排除清單 (字串)]  。 此值是來自目標資源群組的一或多個虛擬機器名稱。 您可以輸入多個名稱，然後使用逗號加以分隔 (值不區分大小寫)。 支援使用萬用字元。 這個值會儲存在 **External_ExcludeVMNames** 變數中。
    - 選取**排程**。 此值是一個週期性日期和時間，可用於啟動及停止目標資源群組中的虛擬機器。 根據預設，排程會設定為即刻起 30 分鐘後。 無法選取不同的區域。 在設定解決方案後，若要將排程設定為特定時區，請參閱[修改啟動和關機排程](#modify-the-startup-and-shutdown-schedules)。
-   - 若要從動作群組接收**電子郵件通知**，請接受預設值 [是]，並提供有效的電子郵件地址。 如果您選取 [否]，但是日後決定想要收到電子郵件通知，您可以更新[動作群組](../azure-monitor/platform/action-groups.md)，該群組是以逗號分隔的有效電子郵件地址所建立。 您還需要啟用下列警示規則︰
+   - 若要從動作群組接收**電子郵件通知**，請接受預設值 [是]  ，並提供有效的電子郵件地址。 如果您選取 [否]  ，但是日後決定想要收到電子郵件通知，您可以更新[動作群組](../azure-monitor/platform/action-groups.md)，該群組是以逗號分隔的有效電子郵件地址所建立。 您還需要啟用下列警示規則︰
 
      - AutoStop_VM_Child
      - Scheduled_StartStop_Parent
      - Sequenced_StartStop_Parent
 
      > [!IMPORTANT]
-     > 「目標資源群組名稱」的預設值為 **&ast;**。 這樣會以訂用帳戶中的所有 VM 為目標。 如果您不想解決方案以您訂用帳戶中的所有 VM 為目標，在啟用排程之前，必須先將此值更新為資源群組名稱清單。
+     > 「目標資源群組名稱」  的預設值為 **&ast;** 。 這樣會以訂用帳戶中的所有 VM 為目標。 如果您不想解決方案以您訂用帳戶中的所有 VM 為目標，在啟用排程之前，必須先將此值更新為資源群組名稱清單。
 
-8. 設定好解決方案所需的初始設定後，按一下 [確定] 以關閉 [參數] 頁面，然後選取 [建立]。 驗證過所有設定之後，解決方案即會部署到您的訂用帳戶。 此程序需要幾秒鐘才能完成，您可以在功能表的 [通知] 底下追蹤其進度。
+8. 設定好解決方案所需的初始設定後，按一下 [確定]  以關閉 [參數]  頁面，然後選取 [建立]  。 驗證過所有設定之後，解決方案即會部署到您的訂用帳戶。 此程序需要幾秒鐘才能完成，您可以在功能表的 [通知]  底下追蹤其進度。
 
 > [!NOTE]
 > 如果您有 Azure 雲端解決方案提供者 (Azure CSP) 訂用帳戶中，部署完成時，在您的自動化帳戶後，移至**變數**下方**共用資源**並設定[**External_EnableClassicVMs** ](#variables)變數加入**False**。 這會讓解決方案停止尋找傳統虛擬機器資源。
@@ -249,13 +250,13 @@ ms.locfileid: "66002484"
 |Runbook | 參數 | 描述|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | 從父系 Runbook 呼叫。 此 Runbook 會針對 AutoStop 案例以每個資源為基礎建立警示。|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf：True 或 False  | 在目標訂用帳戶或資源群組中的 VM 上建立或更新 Azure 警示規則。 <br> VMList：以逗號分隔的 VM 清單。 例如，vm1、vm2、vm3。<br> WhatIf 會驗證 Runbook 邏輯而不會執行。|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf：True 或 False  | 在目標訂用帳戶或資源群組中的 VM 上建立或更新 Azure 警示規則。 <br> VMList：以逗號分隔的 VM 清單。 例如，vm1、vm2、vm3  。<br> WhatIf  會驗證 Runbook 邏輯而不會執行。|
 |AutoStop_Disable | None | 停用 AutoStop 警示和預設排程。|
 |AutoStop_StopVM_Child | WebHookData | 從父系 Runbook 呼叫。 警示規則會呼叫此 Runbook 以停止虛擬機器。|
 |Bootstrap_Main | None | 單次使用以設定啟動程序設定 (例如 webhookURI)，這些設定通常無法從 Azure Resource Manager 存取。 在部署成功之後會自動移除此 Runbook。|
 |ScheduledStartStop_Child | VMName <br> 動作：啟動或停止 <br> resourceGroupName | 從父系 Runbook 呼叫。 針對排程的停止執行啟動或停止動作。|
-|ScheduledStartStop_Parent | 動作：啟動或停止 <br>VMList <br> WhatIf：True 或 False | 此設定會影響訂用帳戶中的所有虛擬機器。 編輯 **External_Start_ResourceGroupNames** 和 **External_Stop_ResourceGroupNames**，以便只在這些目標資源群組上執行。 您也可以更新 **External_ExcludeVMNames** 變數來排除特定的 VM。<br> VMList：以逗號分隔的 VM 清單。 例如，vm1、vm2、vm3。<br> WhatIf 會驗證 Runbook 邏輯而不會執行。|
-|SequencedStartStop_Parent | 動作：啟動或停止 <br> WhatIf：True 或 False<br>VMList| 在您要序列啟動/停止活動的每部虛擬機器上建立名為 **SequenceStart** 和 **SequenceStop** 的標記。 這些標記名稱會區分大小寫。 標記值應為正整數 (1, 2, 3)，對應至您要啟動或停止的順序。 <br> VMList：以逗號分隔的 VM 清單。 例如，vm1、vm2、vm3。 <br> WhatIf 會驗證 Runbook 邏輯而不會執行。 <br> **注意**：虛擬機器必須位於定義於 Azure 自動化變數中 External_Start_ResourceGroupNames、External_Stop_ResourceGroupNames 和 External_ExcludeVMNames 的資源群組內。 虛擬機器必須具有適當的標記以使動作生效。|
+|ScheduledStartStop_Parent | 動作：啟動或停止 <br>VMList <br> WhatIf：True 或 False | 此設定會影響訂用帳戶中的所有虛擬機器。 編輯 **External_Start_ResourceGroupNames** 和 **External_Stop_ResourceGroupNames**，以便只在這些目標資源群組上執行。 您也可以更新 **External_ExcludeVMNames** 變數來排除特定的 VM。<br> VMList：以逗號分隔的 VM 清單。 例如，vm1、vm2、vm3  。<br> WhatIf  會驗證 Runbook 邏輯而不會執行。|
+|SequencedStartStop_Parent | 動作：啟動或停止 <br> WhatIf：True 或 False<br>VMList| 在您要序列啟動/停止活動的每部虛擬機器上建立名為 **SequenceStart** 和 **SequenceStop** 的標記。 這些標記名稱會區分大小寫。 標記值應為正整數 (1, 2, 3)，對應至您要啟動或停止的順序。 <br> VMList：以逗號分隔的 VM 清單。 例如，vm1、vm2、vm3  。 <br> WhatIf  會驗證 Runbook 邏輯而不會執行。 <br> **注意**：虛擬機器必須位於定義於 Azure 自動化變數中 External_Start_ResourceGroupNames、External_Stop_ResourceGroupNames 和 External_ExcludeVMNames 的資源群組內。 虛擬機器必須具有適當的標記以使動作生效。|
 
 ### <a name="variables"></a>變數
 
@@ -351,9 +352,9 @@ ms.locfileid: "66002484"
 
 ## <a name="viewing-the-solution"></a>檢視解決方案
 
-若要存取解決方案，請巡覽至自動化帳戶，在 [相關資源] 之下，選取 [工作區]。 在 [log analytics] 頁面中，選取**解決方案**下方**一般**。 在 [解決方案] 頁面上，從清單中選取 [Start-Stop-VM[工作區]] 解決方案。
+若要存取解決方案，請巡覽至自動化帳戶，在 [相關資源]  之下，選取 [工作區]  。 在 [log analytics] 頁面中，選取**解決方案**下方**一般**。 在 [解決方案]  頁面上，從清單中選取 [Start-Stop-VM[工作區]]  解決方案。
 
-選取該解決方案會顯示 [Start-Stop-VM[工作區]] 解決方案頁面。 在這裡您可以檢閱重要的詳細資料，如 [StartStopVM] 圖格。 如同在 Log Analytics 工作區中，此圖格會顯示解決方案中已啟動並已順利完成的 Runbook 作業計數和圖形表示。
+選取該解決方案會顯示 [Start-Stop-VM[工作區]]  解決方案頁面。 在這裡您可以檢閱重要的詳細資料，如 [StartStopVM]  圖格。 如同在 Log Analytics 工作區中，此圖格會顯示解決方案中已啟動並已順利完成的 Runbook 作業計數和圖形表示。
 
 ![自動化更新管理解決方案頁面](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
@@ -370,7 +371,7 @@ ms.locfileid: "66002484"
 
 ![自動化更新管理解決方案頁面](media/automation-solution-vm-management/azure-monitor.png)
 
-在 [StartStop_VM_Notification] 頁面上，按一下 [詳細資料] 底下的 [編輯詳細資料]。 這樣會開啟 [電子郵件/SMS/推播/語音] 頁面。 請更新電子郵件地址，然後按一下 [確定] 以儲存變更。
+在 [StartStop_VM_Notification]  頁面上，按一下 [詳細資料]  底下的 [編輯詳細資料]  。 這樣會開啟 [電子郵件/SMS/推播/語音]  頁面。 請更新電子郵件地址，然後按一下 [確定]  以儲存變更。
 
 ![自動化更新管理解決方案頁面](media/automation-solution-vm-management/change-email.png)
 
@@ -404,8 +405,8 @@ ms.locfileid: "66002484"
 
 1. 請確定您已新增要在 **External_Stop_ResourceGroupNames** 變數中關閉之 VM 的資源群組。
 2. 針對您需要關閉 VM 的時間建立您自己的排程。
-3. 巡覽至 **ScheduledStartStop_Parent** Runbook，然後按一下 [排程]。 這可讓您選取上一個步驟中建立的排程。
-4. 選取 [參數與回合設定] 並將 ACTION 參數設定為 "Stop"。
+3. 巡覽至 **ScheduledStartStop_Parent** Runbook，然後按一下 [排程]  。 這可讓您選取上一個步驟中建立的排程。
+4. 選取 [參數與回合設定]  並將 ACTION 參數設定為 "Stop"。
 5. 按一下 [確定]  以儲存變更。
 
 ## <a name="update-the-solution"></a>更新解決方案
@@ -421,15 +422,15 @@ ms.locfileid: "66002484"
 1. 從您的自動化帳戶底下**相關的資源**，選取**連結工作區**。
 1. 選取 **移至工作區**。
 1. 底下**一般**，選取**解決方案**。 
-1. 在 [解決方案] 頁面上，選取 [Start-Stop-VM[工作區]] 解決方案。 在 [VMManagementSolution[工作區]] 頁面上，選取功能表中的 [刪除]。<br><br> ![刪除 VM 管理解決方案](media/automation-solution-vm-management/vm-management-solution-delete.png)
-1. 在 [刪除解決方案] 視窗中，確認您要刪除解決方案。
-1. 在驗證資訊並刪除解決方案後，您可以在功能表的 [通知] 底下追蹤其進度。 移除解決方案的程序啟動之後，您會返回 [解決方案] 頁面。
+1. 在 [解決方案]  頁面上，選取 [Start-Stop-VM[工作區]]  解決方案。 在 [VMManagementSolution[工作區]]  頁面上，選取功能表中的 [刪除]  。<br><br> ![刪除 VM 管理解決方案](media/automation-solution-vm-management/vm-management-solution-delete.png)
+1. 在 [刪除解決方案]  視窗中，確認您要刪除解決方案。
+1. 在驗證資訊並刪除解決方案後，您可以在功能表的 [通知]  底下追蹤其進度。 移除解決方案的程序啟動之後，您會返回 [解決方案]  頁面。
 
 此程序並不會刪除自動化帳戶和 Log Analytics 工作區。 如果不想保留 Log Analytics 工作區，則必須手動刪除它。 此作業可以從 Azure 入口網站完成：
 
 1. 從 Azure 入口網站的主畫面，選取**Log Analytics 工作區**。
 1. 在  **Log Analytics 工作區**頁面上，選取工作區。
-1. 在工作區 [設定] 頁面的功能表中選取 [刪除]。
+1. 在工作區 [設定] 頁面的功能表中選取 [刪除]  。
 
 如果您不想保留 Azure 自動化帳戶元件，您可以手動加以刪除。 如需解決方案所建立的 Runbook、變數和排程清單，請參閱[解決方案元件](#solution-components)。
 

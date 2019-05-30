@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 05/27/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0061fb7946e4c35f855d1a409cb9bc210c73641a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 891f9fbd26b53b392ac84ed9d420b58558cd20c2
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228298"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258425"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>內建的 Azure Sentinel 預覽
 
@@ -41,7 +41,7 @@ ms.locfileid: "65228298"
 - Log Analytics 工作區。 了解如何[建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)
 
 -  若要啟用 Azure Sentinel，您需要 Azure Sentinel 工作區所在的訂用帳戶的參與者權限。 
-- 若要使用 Azure 的 Sentinel，您需要 「 參與者 」 或 「 檢視器 工作區所屬的資源群組的權限
+- 若要使用 Azure 的 Sentinel，您需要工作區所屬的資源群組的參與者或讀取者權限
 - 可能需要額外的權限，才能連接特定資料來源
  
 ## 啟用 Azure 的 Sentinel <a name="enable"></a>
@@ -51,7 +51,7 @@ ms.locfileid: "65228298"
 3. Azure 的 Sentinel 搜尋。 
    ![search](./media/quickstart-onboard/search-product.png)
 
-1. 按一下 [+新增]。
+1. 按一下 [+新增]  。
 1. 選取您想要使用或建立一個新的工作區。 您可以執行 Azure Sentinel 上多個工作區中，但資料完全隔離至單一工作區。
 
    ![搜尋](./media/quickstart-onboard/choose-workspace.png)

@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 96d4c2c8d6c2dd7722b7377dd7a0ffd42acd3126
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9520cbb9973071bf1c52266d7718837607c1d10f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572510"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256139"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Application Insights 中記錄型和預先彙總的計量
 
@@ -34,7 +34,7 @@ ms.locfileid: "64572510"
 
 ## <a name="pre-aggregated-metrics"></a>預先彙總的計量
 
-除了記錄型計量，Application Insights 團隊在 2018 年秋季推出計量公開預覽版，而這些計量會儲存在針對時間序列最佳化的特製化存放庫中。 新的計量不再保存為具有許多屬性的個別事件。 相反地，它們會儲存為預先彙總的時間序列，而且只有重要維度。 這可讓新的計量在查詢階段表現優異：擷取資料更快速地發生，而且需要較少的計算能力。 因此造就新的案例，例如[近乎即時的計量維度警示](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts)、更有回應的[儀表板](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards)等。
+除了記錄型計量，Application Insights 團隊在 2018 年秋季推出計量公開預覽版，而這些計量會儲存在針對時間序列最佳化的特製化存放庫中。 新的計量不再保存為具有許多屬性的個別事件。 相反地，它們會儲存為預先彙總的時間序列，而且只有重要維度。 這可讓新的計量在查詢階段表現優異：擷取資料更快速地發生，而且需要較少的計算能力。 因此造就新的案例，例如[近乎即時的計量維度警示](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts)、更有回應的[儀表板](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard)等。
 
 > [!IMPORTANT]
 > 記錄型和預先彙總的計量兩者共存於 Application Insights 中。 為了在 Application Insights UX 中區分這兩者，預先彙總的計量現在稱為「標準計量 (預覽) 」，而事件中的傳統計量已重新命名為「記錄型計量」。

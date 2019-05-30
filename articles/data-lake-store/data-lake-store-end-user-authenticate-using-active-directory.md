@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c0fe63e395ee08cb65e9bbbadc4ce1f03032ce95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c2b774c304e46f9fc68f3beaf64218e614ecad1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60878159"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234062"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>使用 Azure Active Directory 向 Azure Data Lake Storage Gen1 進行使用者驗證
 > [!div class="op_single_selector"]
@@ -45,12 +45,12 @@ Azure Data Lake Storage Gen1 使用 Azure Active Directory 進行驗證。 撰�
   
     ![取得 AAD 網域](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* 您的 Azure 租用戶識別碼。 如需有關如何擷取租用戶識別碼的指示，請參閱[取得租用戶識別碼](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id)。
+* 您的 Azure 租用戶識別碼。 如需有關如何擷取租用戶識別碼的指示，請參閱[取得租用戶識別碼](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)。
 
 ## <a name="end-user-authentication"></a>使用者驗證
-如果您需要讓終端使用者透過 Azure AD 登入您的應用程式，建議使用這個驗證機制。 您的應用程式接著能夠以與登入的終端使用者相同的存取層級，來存取 Azure 資源。 您的終端使用者必須定期提供其認證，您的應用程式才能繼續存取。
+如果您想要登入您的應用程式，透過 Azure AD 使用者，此驗證機制是建議的方法。 您的應用程式接著能夠以與登入的終端使用者相同的存取層級，來存取 Azure 資源。 您的終端使用者必須定期提供其認證，您的應用程式才能繼續存取。
 
-讓終端使用者登入的結果，是系統會提供一個存取權杖和一個重新整理權杖給您的應用程式。 存取權杖會附加到每個對 Data Lake Storage Gen1 或 Data Lake Analytics 提出的要求，預設的有效期是一小時。 重新整理權杖可用來取得新的存取權杖，預設的有效期最多為兩週。 您可以使用兩種不同方法讓終端使用者登入。
+有登入使用者的結果是您的應用程式有一個存取權杖和重新整理權杖。 存取權杖會附加到每個對 Data Lake Storage Gen1 或 Data Lake Analytics 提出的要求，預設的有效期是一小時。 重新整理權杖可用來取得新的存取權杖，預設的有效期最多為兩週。 您可以使用兩個不同的方法進行使用者登入。
 
 ### <a name="using-the-oauth-20-pop-up"></a>使用 OAuth 2.0 快顯視窗
 您的應用程式可以觸發 OAuth 2.0 授權快顯視窗，讓終端使用者輸入其認證。 如有必要，這個快顯視窗也適用於 Azure AD 雙因素驗證 (2FA) 程序。 
@@ -76,19 +76,19 @@ Azure Data Lake Storage Gen1 使用 Azure Active Directory 進行驗證。 撰�
 
 建立和設定 Azure AD 原生應用程式，以便使用 Azure Active Directory 向 Data Lake Storage Gen1 進行使用者驗證。 如需指示，請參閱[建立 Azure AD 應用程式](../active-directory/develop/howto-create-service-principal-portal.md)。
 
-遵循連結中的指示進行時，請確定如以下螢幕擷取畫面所示，選取 [原生] 應用程式類型：
+遵循連結中的指示進行時，請確定如以下螢幕擷取畫面所示，選取 [原生]  應用程式類型：
 
 ![建立 Web 應用程式](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "建立原生應用程式")
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>步驟 2：取得應用程式識別碼和重新導向 URI
 
-若要擷取應用程式識別碼，請參閱[取得應用程式識別碼](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key)。
+若要擷取應用程式識別碼，請參閱[取得應用程式識別碼](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)。
 
 若要擷取重新導向 URI，請進行下列步驟。
 
-1. 在 Azure 入口網站中，選取 [Azure Active Directory]，按一下 [應用程式註冊]，然後尋找並按一下您已建立的 Azure AD 原生應用程式。
+1. 在 Azure 入口網站中，選取 [Azure Active Directory]  ，按一下 [應用程式註冊]  ，然後尋找並按一下您已建立的 Azure AD 原生應用程式。
 
-2. 在應用程式的 [設定] 刀鋒視窗中，按一下 [重新導向 URI]。
+2. 在應用程式的 [設定]  刀鋒視窗中，按一下 [重新導向 URI]  。
 
     ![取得重新導向 URI](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-redirect-uri.png)
 
@@ -97,21 +97,21 @@ Azure Data Lake Storage Gen1 使用 Azure Active Directory 進行驗證。 撰�
 
 ## <a name="step-3-set-permissions"></a>步驟 3：設定權限
 
-1. 在 Azure 入口網站中，選取 [Azure Active Directory]，按一下 [應用程式註冊]，然後尋找並按一下您已建立的 Azure AD 原生應用程式。
+1. 在 Azure 入口網站中，選取 [Azure Active Directory]  ，按一下 [應用程式註冊]  ，然後尋找並按一下您已建立的 Azure AD 原生應用程式。
 
-2. 在應用程式的 [設定] 刀鋒視窗中，按一下 [必要的權限]，然後按一下 [新增]。
+2. 在應用程式的 [設定]  刀鋒視窗中，按一下 [必要的權限]  ，然後按一下 [新增]  。
 
     ![用戶端識別碼](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
 
-3. 在 [加入 API 存取權] 刀鋒視窗中，依序按一下 [選取 API]、[Azure Data Lake]，然後按一下 [選取]。
+3. 在 [加入 API 存取權]  刀鋒視窗中，依序按一下 [選取 API]  、[Azure Data Lake]  ，然後按一下 [選取]  。
 
     ![用戶端識別碼](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
  
-4.  在 [加入 API 存取權] 刀鋒視窗中，按一下 [選取權限]，選取核取方塊以提供 **Data Lake Store 完整的存取權**，然後按一下 [選取]。
+4.  在 [加入 API 存取權]  刀鋒視窗中，按一下 [選取權限]  ，選取核取方塊以提供 **Data Lake Store 完整的存取權**，然後按一下 [選取]  。
 
     ![用戶端識別碼](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
 
-    按一下 [完成] 。
+    按一下 [完成]  。
 
 5. 重複最後兩個步驟，以便將權限也授與 **Windows Azure 服務管理 API**。
    

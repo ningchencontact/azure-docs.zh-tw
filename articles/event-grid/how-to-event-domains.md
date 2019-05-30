@@ -7,16 +7,16 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.openlocfilehash: c49044d8bd96efb7e86cf54509c32033900be305
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73c837897f4a104fabb4143d4b49fa3fbc258bb4
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561741"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305020"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>使用事件網域管理主題並發佈事件
 
-本文將說明如何：
+本文說明如何：
 
 * 建立事件方格網域
 * 訂閱事件方格主題
@@ -27,10 +27,6 @@ ms.locfileid: "60561741"
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-## <a name="install-preview-feature"></a>安裝預覽功能
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
-
 ## <a name="create-an-event-domain"></a>建立事件網域
 
 若要管理大量主題集合，請建立事件網域。
@@ -38,10 +34,6 @@ ms.locfileid: "60561741"
 對於 Azure CLI，請使用：
 
 ```azurecli-interactive
-# If you haven't already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid domain create \
   -g <my-resource-group> \
   --name <my-domain-name> \
@@ -51,10 +43,6 @@ az eventgrid domain create \
 對於 PowerShell，請使用：
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
 New-AzureRmEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain-name> `
@@ -203,6 +191,23 @@ Get-AzureRmEventGridDomainKey `
 ```
 
 然後使用您慣用的方法，讓 HTTP POST 將您的事件發佈至事件方格網域。
+
+## <a name="search-lists-of-topics-or-subscriptions"></a>搜尋主題或訂用帳戶的清單
+
+若要進行搜尋及管理大量的主題或訂用帳戶，Event Grid 的 Api 支援清單中的分頁。
+
+### <a name="using-cli"></a>使用 CLI
+
+若要使用它請確定您使用 Azure CLI Event Grid 的延伸模組版本 0.4.1 或更新版本。
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid topic list \
+    --odata-query "contains(name, 'my-test-filter')"
+```
 
 ## <a name="next-steps"></a>後續步驟
 

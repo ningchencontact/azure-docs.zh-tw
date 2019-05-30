@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 5/06/2019
+ms.date: 05/06/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad90cd66d922c29887aaa8094e798edb28022b27
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: e5c2d987a1556513e36fc0a81e903d9eefdcae68
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015464"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388165"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management (SCIM) 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
 
@@ -75,25 +75,25 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
    *圖 2：Azure AD 應用程式庫*
     
 1. 在 [應用程式管理] 畫面中，選取**佈建**左方面板中。
-1. 在 [佈建模式] 功能表上，選取 [自動]。
+1. 在 [佈建模式]  功能表上，選取 [自動]  。
     
    ![][2]
    *圖 3：在 Azure 入口網站中設定佈建*
     
-1. 在 [租用戶 URL] 欄位中，輸入應用程式 SCIM 端點的 URL。 範例： https://api.contoso.com/scim/v2/
-1. 如果 SCIM 端點需要來自非 Azure AD 簽發者的 OAuth 持有人權杖，那麼便將所需的 OAuth 持有人權杖複製到選擇性 [祕密權杖] 欄位。 如果此欄位保留空白，則 Azure AD 會包含從每個要求的 Azure AD 簽發的 OAuth 持有人權杖。 應用程式若使用 Azure AD 作為識別提供者，便可以驗證此 Azure AD 簽發的權杖。
+1. 在 [租用戶 URL]  欄位中，輸入應用程式 SCIM 端點的 URL。 範例： https://api.contoso.com/scim/v2/
+1. 如果 SCIM 端點需要來自非 Azure AD 簽發者的 OAuth 持有人權杖，那麼便將所需的 OAuth 持有人權杖複製到選擇性 [祕密權杖]  欄位。 如果此欄位保留空白，則 Azure AD 會包含從每個要求的 Azure AD 簽發的 OAuth 持有人權杖。 應用程式若使用 Azure AD 作為識別提供者，便可以驗證此 Azure AD 簽發的權杖。
 1. 選取 **測試連接**，讓 Azure Active Directory 嘗試連線到 SCIM 端點。 如果嘗試失敗，則會顯示錯誤的資訊。  
 
     >[!NOTE]
-    >[測試連線] 會查詢 SCIM 端點中是否有不存在的使用者，並使用隨機 GUID 作為 Azure AD 設定中選取的比對屬性。 預期的正確回應是 HTTP 200 OK 和空白的 SCIM ListResponse 訊息。 
+    >[測試連線]  會查詢 SCIM 端點中是否有不存在的使用者，並使用隨機 GUID 作為 Azure AD 設定中選取的比對屬性。 預期的正確回應是 HTTP 200 OK 和空白的 SCIM ListResponse 訊息。 
 
 1. 如果嘗試連線到應用程式成功，然後選取**儲存**儲存管理員認證。
-1. 在 [對應] 區段中，有兩組可選取的屬性對應：一個用於使用者物件，一個用於群組物件。 選取其中一個以檢閱從 Azure Active Directory 同步處理至應用程式的屬性。 選取為 [比對] 屬性的屬性會用來比對應用程式中的使用者和群組以進行更新作業。 選取 [儲存] 認可任何變更。
+1. 在 [對應]  區段中，有兩組可選取的屬性對應：一個用於使用者物件，一個用於群組物件。 選取其中一個以檢閱從 Azure Active Directory 同步處理至應用程式的屬性。 選取為 [比對]  屬性的屬性會用來比對應用程式中的使用者和群組以進行更新作業。 選取 [儲存]  認可任何變更。
 
     >[!NOTE]
     >您可以選擇性地藉由停用「群組」對應以停用同步處理群組物件。 
 
-1. 在 [設定] 底下，[範圍] 欄位會定義要同步的使用者和群組。 選取 **同步處理只會指派使用者和群組**（建議） 在 指派使用者和群組只同步處理**使用者和群組** 索引標籤。
+1. 在 [設定]  底下，[範圍]  欄位會定義要同步的使用者和群組。 選取 **同步處理只會指派使用者和群組**（建議） 在 指派使用者和群組只同步處理**使用者和群組** 索引標籤。
 1. 一旦完成您的設定，設定**佈建狀態**要**上**。
 1. 選取 **儲存**啟動 Azure AD 佈建服務。 
 1. 如果僅同步處理指派使用者和群組 （建議選項），請務必選取**使用者和群組**索引標籤，並將指派的使用者或您想要同步的群組。
@@ -229,7 +229,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 }
 ```
 
-##### <a name="response"></a>回應
+##### <a name="response"></a>Response
 *HTTP/1.1 201 已建立*
 ```json
 {
@@ -262,7 +262,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 ###### <a name="request"></a>要求
 *GET /Users/5d48a0a8e9f04aa38008* 
 
-###### <a name="response"></a>回應
+###### <a name="response"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -293,7 +293,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 ##### <a name="request"></a>要求
 *GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
 
-##### <a name="response"></a>回應
+##### <a name="response"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -332,7 +332,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 ##### <a name="request"></a>要求
 *GET/使用者？ filter = 使用者名稱 eq"不存在的使用者 」*
 
-##### <a name="response"></a>回應
+##### <a name="response"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -367,7 +367,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 }
 ```
 
-##### <a name="response"></a>回應
+##### <a name="response"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -409,7 +409,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 }
 ```
 
-##### <a name="response"></a>回應
+##### <a name="response"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -442,7 +442,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 ##### <a name="request"></a>要求
 *DELETE /Users/5171a35d82074e068ce2 HTTP/1.1*
 
-##### <a name="response"></a>回應
+##### <a name="response"></a>Response
 *HTTP/1.1 204 沒有內容*
 
 ### <a name="group-operations"></a>群組作業
@@ -468,7 +468,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 }
 ```
 
-##### <a name="response"></a>回應
+##### <a name="response"></a>Response
 *HTTP/1.1 201 已建立*
 ```json
 {
@@ -491,7 +491,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 ##### <a name="request"></a>要求
 *GET/群組/40734ae655284ad3abcc？ excludedAttributes = HTTP/1.1*
 
-##### <a name="response"></a>回應
+##### <a name="response"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -512,7 +512,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 ##### <a name="request"></a>要求
 *取得 /Groups？ excludedAttributes = 成員 filter = displayName eq"displayName"HTTP/1.1*
 
-##### <a name="response"></a>回應
+##### <a name="response"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -549,7 +549,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 }
 ```
 
-##### <a name="response"></a>回應
+##### <a name="response"></a>Response
 *HTTP/1.1 204 沒有內容*
 
 ### <a name="update-group-add-members"></a>更新群組 [新增成員]
@@ -570,7 +570,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 }
 ```
 
-##### <a name="response"></a>回應
+##### <a name="response"></a>Response
 *HTTP/1.1 204 沒有內容*
 
 #### <a name="update-group-remove-members"></a>更新群組 [移除成員]
@@ -591,7 +591,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 }
 ```
 
-##### <a name="response"></a>回應
+##### <a name="response"></a>Response
 *HTTP/1.1 204 沒有內容*
 
 #### <a name="delete-group"></a>刪除群組
@@ -599,7 +599,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 ##### <a name="request"></a>要求
 *DELETE /Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
-##### <a name="response"></a>回應
+##### <a name="response"></a>Response
 *HTTP/1.1 204 沒有內容*
 
 
@@ -623,7 +623,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 * 支援將 ASP.NET Framework 4.5 用作 SCIM 端點的 Windows 電腦。 這部電腦必須能夠從雲端中使用。
 * [具有 Azure AD Premium 試用版或授權版的 Azure 訂用帳戶](https://azure.microsoft.com/services/active-directory/)
 
-### <a name="getting-started"></a>使用者入門
+### <a name="getting-started"></a>開始使用
 實作可以接受來自 Azure AD 的佈建要求的 SCIM 端點的最簡單的方式是建置和部署會將佈建的使用者輸出至以逗號分隔值 (CSV) 檔案的程式碼範例。
 
 #### <a name="to-create-a-sample-scim-endpoint"></a>建立範例 SCIM 端點
@@ -660,25 +660,25 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 
 1. 在 [應用程式管理] 畫面中，選取**佈建**左方面板中。
 
-1. 在 [佈建模式] 功能表上，選取 [自動]。
+1. 在 [佈建模式]  功能表上，選取 [自動]  。
     
    ![][2]
    *圖 6：在 Azure 入口網站中設定佈建*
     
-1. 在 [租用戶 URL] 欄位中，輸入網際網路公開的 URL 和 SCIM 端點的連接埠。 此項目就像是 http://testmachine.contoso.com:9000 或 http://\<ip-address>:9000/，其中 \<ip-address> 是網際網路公開 IP 位址。 
+1. 在 [租用戶 URL]  欄位中，輸入網際網路公開的 URL 和 SCIM 端點的連接埠。 此項目就像是 http://testmachine.contoso.com:9000 或 http://\<ip-address>:9000/，其中 \<ip-address> 是網際網路公開 IP 位址。 
 
-1. 如果 SCIM 端點需要來自非 Azure AD 簽發者的 OAuth 持有人權杖，那麼便將所需的 OAuth 持有人權杖複製到選擇性 [祕密權杖] 欄位。 如果此欄位保留空白，則 Azure AD 會包含從每個要求的 Azure AD 簽發的 OAuth 持有人權杖。 使用 Azure AD 作為識別提供者的應用程式，可以驗證此 Azure AD 簽發的權杖。
+1. 如果 SCIM 端點需要來自非 Azure AD 簽發者的 OAuth 持有人權杖，那麼便將所需的 OAuth 持有人權杖複製到選擇性 [祕密權杖]  欄位。 如果此欄位保留空白，則 Azure AD 會包含從每個要求的 Azure AD 簽發的 OAuth 持有人權杖。 使用 Azure AD 作為識別提供者的應用程式，可以驗證此 Azure AD 簽發的權杖。
 
 1. 選取 **測試連接**，讓 Azure Active Directory 嘗試連線到 SCIM 端點。 如果嘗試失敗，則會顯示錯誤的資訊。  
 
     >[!NOTE]
-    >[測試連線] 會查詢 SCIM 端點中是否有不存在的使用者，並使用隨機 GUID 作為 Azure AD 設定中選取的比對屬性。 預期的正確回應是 HTTP 200 OK 和空白的 SCIM ListResponse 訊息
+    >[測試連線]  會查詢 SCIM 端點中是否有不存在的使用者，並使用隨機 GUID 作為 Azure AD 設定中選取的比對屬性。 預期的正確回應是 HTTP 200 OK 和空白的 SCIM ListResponse 訊息
 
 1. 如果嘗試連線到應用程式成功，然後選取**儲存**儲存管理員認證。
 
-1. 在 [對應] 區段中，有兩組可選取的屬性對應：一個用於使用者物件，一個用於群組物件。 選取其中一個以檢閱從 Azure Active Directory 同步處理至應用程式的屬性。 選取為 [比對] 屬性的屬性會用來比對應用程式中的使用者和群組以進行更新作業。 選取 [儲存] 認可任何變更。
+1. 在 [對應]  區段中，有兩組可選取的屬性對應：一個用於使用者物件，一個用於群組物件。 選取其中一個以檢閱從 Azure Active Directory 同步處理至應用程式的屬性。 選取為 [比對]  屬性的屬性會用來比對應用程式中的使用者和群組以進行更新作業。 選取 [儲存]  認可任何變更。
 
-1. 在 [設定] 底下的 [範圍] 欄位定義哪些使用者或群組會進行同步處理。 選取  **「 只同步已指派使用者和群組**（建議） 在 指派使用者和群組只同步處理**使用者和群組** 索引標籤。
+1. 在 [設定]  底下的 [範圍]  欄位定義哪些使用者或群組會進行同步處理。 選取  **「 只同步已指派使用者和群組**（建議） 在 指派使用者和群組只同步處理**使用者和群組** 索引標籤。
 
 1. 一旦完成您的設定，設定**佈建狀態**要**上**。
 
@@ -1348,7 +1348,7 @@ Azure Active Directory 可以佈建兩種類型的資源至 SCIM Web 服務。  
 | displayName |externalId |
 | mail |emails[type eq "work"].value |
 | mailNickname |displayName |
-| 成員 |成員 |
+| members |members |
 | objectId |ID |
 | proxyAddresses |emails[type eq "other"].Value |
 

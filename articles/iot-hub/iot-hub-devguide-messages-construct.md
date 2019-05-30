@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 49a28c120ae71224195edcdb3809335aeea1fa3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e80fb136220330ddc53d513b22ebcfa19a35117b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61364035"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252804"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>建立及讀取 IoT 中樞訊息
 
@@ -42,6 +42,8 @@ IoT 中樞的裝置對雲端傳訊具有下列特性：
 * IoT 中樞不允許任意進行資料分割。 裝置到雲端訊息會根據其原始的 **deviceId**進行分割。
 
 * 如[控制 IoT 中樞的存取權](iot-hub-devguide-security.md)所述，IoT 中樞會啟用每一裝置的驗證和存取控制。
+
+* 您可以戳記訊息會進入應用程式屬性的資訊。 如需詳細資訊，請參閱[訊息類](iot-hub-message-enrichments-overview.md)。
 
 了解如何使用不同通訊協定傳送的訊息編碼和解碼，請參閱 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
 

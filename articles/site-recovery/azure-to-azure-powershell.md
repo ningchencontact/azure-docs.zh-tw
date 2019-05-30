@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: f09a186ee5626718c7b5e1085dd75d8857e44bb1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c585b300a65091bee3320a21b7bce7ba94d269ec
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705168"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258793"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 來設定 Azure 虛擬機器的災害復原
 
@@ -135,19 +135,12 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 ## <a name="set-the-vault-context"></a>設定保存庫內容
 
-> [!TIP]
-> Azure Site Recovery PowerShell 模組 （Az.RecoveryServices 模組） 隨附的大多數 cmdlet 容易使用的別名。 模組中的 cmdlet 的形式*\<作業 >-**AzRecoveryServicesAsr**\<物件 >* 形式的對等別名還有 *\<作業 >-**ASR**\<物件 >*。 本文使用 Cmdlet 別名提高可讀性。
 
-設定要用於 PowerShell 工作階段的保存庫內容。 若要這樣做，請下載保存庫設定檔，並在 PowerShell 工作階段中匯入所下載的檔案來設定保存庫內容。
-
-設定後，會在所選保存庫的內容中執行 PowerShell 工作階段中的後續 Azure Site Recovery 作業。
+設定要用於 PowerShell 工作階段的保存庫內容。 設定後，會在所選保存庫的內容中執行 PowerShell 工作階段中的後續 Azure Site Recovery 作業。
 
  ```azurepowershell
-#Download the vault settings file for the vault.
-$Vaultsettingsfile = Get-AzRecoveryServicesVaultSettingsFile -Vault $vault -SiteRecovery -Path C:\users\user\Documents\
-
-#Import the downloaded vault settings file to set the vault context for the PowerShell session.
-Import-AzRecoveryServicesAsrVaultSettingsFile -Path $Vaultsettingsfile.FilePath
+#Setting the vault context.
+Set-AsrVaultSettings -Vault $vault
 
 ```
 ```

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: b-juche
-ms.openlocfilehash: fbe0b82008d7b15332c4e2cd62c49c611f20fe89
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6f5d84dea2e835fd12a062b628181354295ed9f6
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794702"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299220"
 ---
 # <a name="register-for-azure-netapp-files"></a>註冊 Azure NetApp Files
 
@@ -60,12 +60,12 @@ ms.locfileid: "65794702"
 
    命令輸出顯示如下：
    
-       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC",  
-       "name": "Microsoft.NetApp/publicPreviewADC" 
+       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
+       "name": "Microsoft.NetApp/ANFGA" 
        
    `<SubID>` 是您的訂用帳戶識別碼。
 
-    如果您看不到功能名稱`Microsoft.NetApp/publicPreviewADC`，您沒有服務的存取權。 在此步驟中停止。 遵循指示[提交存取服務的等候清單要求](#waitlist)要求服務存取，然後再繼續。 
+    如果您看不到功能名稱`Microsoft.NetApp/ANFGA`，您沒有服務的存取權。 在此步驟中停止。 遵循指示[提交存取服務的等候清單要求](#waitlist)要求服務存取，然後再繼續。 
 
 4. 在 Azure Cloud Shell 中輸入下列命令，以註冊 Azure 資源提供者： 
     
@@ -87,9 +87,9 @@ ms.locfileid: "65794702"
 
    `<SubID>` 是您的訂用帳戶識別碼。  `state` 參數值會指出 `Registered`。
 
-6. 從 Azure 入口網站中，按一下 [訂用帳戶] 刀鋒視窗。
+6. 從 Azure 入口網站中，按一下 [訂用帳戶]  刀鋒視窗。
 7. 在 [訂用帳戶] 刀鋒視窗中，按一下您的訂用帳戶識別碼。 
-8. 在訂用帳戶設定中按一下 [資源提供者]，以驗證 Microsoft.NetApp 提供者顯示為 [已註冊] 狀態： 
+8. 在訂用帳戶設定中按一下 [資源提供者]  ，以驗證 Microsoft.NetApp 提供者顯示為 [已註冊] 狀態： 
 
       ![已註冊的 Microsoft.NetApp](../media/azure-netapp-files/azure-netapp-files-registered-resource-providers.png)
 

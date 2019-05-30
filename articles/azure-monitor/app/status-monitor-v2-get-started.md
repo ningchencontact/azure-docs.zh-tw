@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c20cbf50129247fa01f10f12a99c558bc86492b8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3dcd50c3aa516f2af40c1e28a36a8039773e069c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145167"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255065"
 ---
 # <a name="getting-started-with-status-monitor-v2"></a>開始使用狀態監視器 v2
 
@@ -84,7 +84,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 - [探索計量](../../azure-monitor/app/metrics-explorer.md)以監視效能和使用量
 - [搜尋事件和記錄](../../azure-monitor/app/diagnostic-search.md)來診斷問題
 - 更多進階查詢的[分析](../../azure-monitor/app/analytics.md)
-- [建立儀表板](../../azure-monitor/app/app-insights-dashboards.md)
+- [建立儀表板](../../azure-monitor/app/overview-dashboard.md)
 
  新增更多遙測：
 

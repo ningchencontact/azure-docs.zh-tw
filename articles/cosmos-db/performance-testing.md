@@ -4,15 +4,15 @@ description: 了解使用 Azure Cosmos DB 來進行規模和效能測試。 接�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2017
+ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 6d2863e39b5f28c56e2b9045513aa83326d8b8c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5842d590a4597253bac39c0b7a6f62e6acad908
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926559"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243522"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Azure Cosmos DB 的效能和規模測試
 

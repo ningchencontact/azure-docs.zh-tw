@@ -12,33 +12,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2019
-ms.author: v-mohabe
-ms.openlocfilehash: cfe633c5251842257a0bef5237ea6b80aeaf05e9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.date: 05/29/2019
+ms.author: monhaber
+ms.openlocfilehash: e7420adfe1608df39ef72124817f1d6dadf07db8
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968578"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400143"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-iaas"></a>IaaS 上的 SQL server 的進階的資料安全性
-IaaS 上的 SQL server 的進階的資料安全性是 SQL 的進階安全性功能的整合的套件。 目前包含呈現及緩解潛在的資料庫弱點和偵測可能表示您的資料庫威脅的異常活動的功能。
+Azure 虛擬機器上的 SQL Server 的進階的資料安全性是 SQL 的進階安全性功能的整合的套件。 目前包含呈現及緩解潛在的資料庫弱點和偵測可能表示您的資料庫威脅的異常活動的功能。 
 
-此供應項目 IaaS SQL server 的安全性根據所使用的相同基本技術[Azure SQL Database 進階資料安全性封裝](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)。
+此供應項目針對 Azure Vm 的 SQL server 的安全性根據所使用的相同基本技術[Azure SQL Database 進階資料安全性封裝](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)。
 
 
 ## <a name="overview"></a>概觀
 
-進階的資料安全性 (ADS) 提供一組的進階 SQL 安全性功能，其中包含弱點評量和進階威脅防護。
+進階的資料安全性提供一組的進階 SQL 安全性功能，其中包含弱點評量和進階威脅防護。
 
 * [弱點評估](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)是容易設定的服務，可探索、追蹤及協助您修復潛在的資料庫弱點。 它提供您的安全性狀態的可視性，並包括解決安全性問題和增強資料庫攻防的步驟。
 * [進階威脅防護](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)偵測到異常活動時會不尋常且有危害的意圖存取或攻擊您的 SQL server。 持續監視您的資料庫的可疑活動，並提供動作導向的安全性警示的異常資料庫存取模式。 這些警示會提供可疑活動詳細資料，以及建議的動作，若要調查並減輕威脅。
 
-## <a name="get-started-with-ads-for-iaas"></a>開始使用 ADS iaas
+## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Sql Azure Vm 上開始使用進階的資料安全性
 
-下列步驟可協助您開始使用 ADS iaas。
+下列步驟可協助您開始具有進階資料安全性，在 Azure Vm 上的 sql。
 
-### <a name="set-up-ads-for-iaas"></a>為 IaaS 廣告設定
+### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>設定 Azure Vm 上的 sql 的進階資料安全性
 
 **開始之前**:您需要 Log Analytics 工作區來儲存要分析的安全性記錄檔。 如果您沒有的話，則您可以輕易地中所述建立一個[在 Azure 入口網站中建立 Log Analytics 工作區](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)。
 
@@ -49,7 +49,7 @@ IaaS 上的 SQL server 的進階的資料安全性是 SQL 的進階安全性功�
 
     ![IaaS 的進階的資料安全性](./media/security-center-advanced-iaas-data/sql-advanced-data-security.png)
 
-1. 按一下頁面底部的 [新增] 。 會顯示 工作場所。
+1. 按一下頁面底部的 [新增]  。 會顯示 工作場所。
 
     ![建立進階的資料安全性](./media/security-center-advanced-iaas-data/sql-advanced-data-create.png)
 
@@ -95,7 +95,7 @@ IaaS 上的 SQL server 的進階的資料安全性是 SQL 的進階安全性功�
 
 您可以設定要產生 ASC 警示時收到電子郵件通知收件者清單。 電子郵件會包含 Azure 資訊安全中心警示，以及所有相關的詳細資料的直接連結。 
 
-1. 移至**資訊安全中心** > **安全性原則**以及相關訂用帳戶按一下 資料列內**編輯設定 >**。
+1. 移至**資訊安全中心** > **安全性原則**以及相關訂用帳戶按一下 資料列內**編輯設定 >** 。
 
     ![訂用帳戶設定](./media/security-center-advanced-iaas-data/subscription-settings.png)
 
@@ -120,7 +120,7 @@ IaaS 上的 SQL server 的進階的資料安全性是 SQL 的進階安全性功�
 
 您可以檢視您的弱點可能會評估結果和報表直接從 Log Analytics。
 
-1. 瀏覽至您的 Log Analytics 工作區與廣告解決方案。
+1. 瀏覽至您的進階資料安全性解決方案的 Log Analytics 工作區。
 1. 瀏覽至**解決方案**，然後選取**SQL 弱點評量**解決方案。
 1. 在 **摘要**窗格中，按一下**檢視摘要**，然後選取您**SQL 弱點評定報告**。
 
@@ -130,7 +130,7 @@ IaaS 上的 SQL server 的進階的資料安全性是 SQL 的進階安全性功�
 
     ![將過去 7 天](./media/security-center-advanced-iaas-data/ads-sql-server-2.png)
 
-1. 若要向下鑽研，如需詳細資訊，請按一下任何儀表板項目。 例如：
+1. 若要向下鑽研，如需詳細資訊，請按一下任何儀表板項目。 例如: 
 
    1. 按一下中的弱點可能會檢查**失敗檢查摘要**區段，以檢視 Log Analytics 含有結果的資料表進行這項檢查，跨所有資料庫。 結果項目會先列出。
 
@@ -142,7 +142,7 @@ IaaS 上的 SQL server 的進階的資料安全性是 SQL 的進階安全性功�
 
 1. 您可以執行任何 Log Analytics 查詢，對您的弱點評定結果資料，來交叉分析的資料，根據您的需求。
 
-## <a name="advanced-threat-protection-for-sql-servers-on-iaas-alerts"></a>進階威脅防護，SQL server IaaS 警示
+## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>進階威脅防護，SQL server Azure Vm 警示
 不尋常且有危害意圖存取或惡意探索 SQL Server 會產生警示。 這些事件會觸發下列警示：
 
 ### <a name="anomalous-access-pattern-alerts"></a>異常存取模式的警示

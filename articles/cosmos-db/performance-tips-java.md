@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 01/02/2018
+ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: a3f194150d1ce452f79db273266d3c9d77e560fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ce8c0b369cd59ac61279fe3c7acd2cdecfc007c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60925822"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225608"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Azure Cosmos DB 和 Java 的效能祕訣
 
@@ -90,7 +90,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
 5. **依 getRetryAfterInMilliseconds 間隔實作輪詢**
 
-    在進行效能測試期間，您應該增加負載，直到系統對小部分要求進行節流處理為止。 如果受到限制，客户端应用程序应按照服务器指定的重试间隔在限制时退让。 採用降速可確保您在重試之間花費最少的等待時間。 [Java SDK](documentdb-sdk-java.md) 1.8.0 版和更新版本包含重試原則支援。 如需詳細資訊，請參閱 [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds) \(英文\)。
+    在進行效能測試期間，您應該增加負載，直到系統對小部分要求進行節流處理為止。 如果進行節流處理，用戶端應用程式應該在節流時降速，且持續時間達伺服器指定的重試間隔。 採用降速可確保您在重試之間花費最少的等待時間。 [Java SDK](documentdb-sdk-java.md) 1.8.0 版和更新版本包含重試原則支援。 如需詳細資訊，請參閱 [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds) \(英文\)。
 
 6. **相應放大用戶端工作負載**
 
@@ -113,7 +113,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
  
 1. **從索引編製中排除未使用的路徑以加快寫入速度**
 
-    Azure Cosmos DB 的索引編製原則可讓您利用檢索路徑 ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) 和 [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths))，指定要在索引編製中包含或排除的文件路徑。 在事先知道查詢模式的案例中，使用檢索路徑可改善寫入效能並降低索引儲存空間，因為檢索成本與檢索的唯一路徑數目直接相互關聯。  例如，以下程式碼示範如何將文件的整個區段 (也稱為 从索引中排除文档的整个部分（也称为子树）。
+    Azure Cosmos DB 的索引編製原則可讓您利用檢索路徑 ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) 和 [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths))，指定要在索引編製中包含或排除的文件路徑。 在事先知道查詢模式的案例中，使用檢索路徑可改善寫入效能並降低索引儲存空間，因為檢索成本與檢索的唯一路徑數目直接相互關聯。  例如，以下程式碼示範如何將文件的整個區段 (也稱為 樹狀子目錄) 自索引編製作業中排除 (透過使用 "*" 萬用字元)。
 
     ```Java
     Index numberIndex = Index.Range(DataType.Number);
@@ -127,7 +127,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
     如需詳細資訊，請參閱 [Azure Cosmos DB 索引編製原則](indexing-policies.md)。
 
-## <a name="throughput"></a>吞吐量
+## <a name="throughput"></a>Throughput
 <a id="measure-rus"></a>
 
 1. **測量和調整較低的要求單位/秒使用量**

@@ -15,18 +15,18 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 146fdc3ca2af708a96e6b9a604493eb63c2e6530
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66ff1cb57bb3317adc7ab6208ebf5029361b7c54
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348298"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235146"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步來實作密碼雜湊同步處理
 本文提供您所需資訊，以讓您將使用者密碼從內部部署 Active Directory 執行個體同步處理至雲端式 Azure Active Directory (Azure AD) 執行個體。
 
 ## <a name="how-password-hash-synchronization-works"></a>密碼雜湊同步處理如何運作
-Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格式來儲存密碼。 雜湊值是單向數學函式 (「雜湊演算法」) 的計算結果。 沒有任何方法可將單向函式的結果還原為純文字版本的密碼。 您無法使用密碼雜湊來登入您的內部部署網路。
+Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格式來儲存密碼。 雜湊值是單向數學函式 (「雜湊演算法」  ) 的計算結果。 沒有任何方法可將單向函式的結果還原為純文字版本的密碼。 您無法使用密碼雜湊來登入您的內部部署網路。
 
 為了同步密碼，Azure AD Connect 同步處理會從內部部署的 Active Directory 執行個體擷取您的密碼雜湊。 在將密碼雜湊與 Azure Active Directory 驗證服務同步之前，會進行額外的安全性處理。 密碼會以每個使用者為基礎，依照時間先後順序來進行同步處理。
 
@@ -64,7 +64,7 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 >系統不會將原始的 MD4 雜湊傳輸至 Azure AD。 而是會傳輸原始 MD4 雜湊的 SHA256 雜湊。 如此一來，如果取得儲存在 Azure AD 的雜湊，它不能在內部部署傳遞雜湊攻擊中使用。
 
 ### <a name="how-password-hash-synchronization-works-with-azure-active-directory-domain-services"></a>密碼雜湊同步處理如何與 Azure Active Directory Domain Services 搭配運作
-您也可以使用密碼雜湊同步處理功能，將內部部署密碼同步處理至 [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md)。 在此案例中，Azure Active Directory Domain Services 執行個體會以內部部署 Active Directory 執行個體中所有可用的方法，來對您在雲端中的使用者進行驗證。 此方案的体验类似于在本地环境中使用 Active Directory 迁移工具 (ADMT)。
+您也可以使用密碼雜湊同步處理功能，將內部部署密碼同步處理至 [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)。 在此案例中，Azure Active Directory Domain Services 執行個體會以內部部署 Active Directory 執行個體中所有可用的方法，來對您在雲端中的使用者進行驗證。 此案例的體驗類似於在內部部署環境中使用 Active Directory 遷移工具 (ADMT)。
 
 ### <a name="security-considerations"></a>安全性考量
 同步密碼時，不會向密碼雜湊同步處理功能、Azure AD 或任何相關的服務公開純文字版本的密碼。
@@ -75,7 +75,7 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 啟用密碼雜湊同步處理會影響兩種類型的密碼原則：
 
 * 密碼複雜性原則
-* 密码过期策略
+* 密碼到期原則
 
 #### <a name="password-complexity-policy"></a>密碼複雜性原則  
 啟用密碼雜湊同步處理時，內部部署 Active Directory 執行個體中的密碼複雜性原則，會覆寫所同步處理使用者在雲端中的複雜性原則。 您可以使用內部部署 Active Directory 執行個體的所有有效密碼，來存取 Azure AD 服務。
@@ -84,7 +84,7 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 > 直接在雲端建立的使用者的密碼仍受制於在雲端定義的密碼原則。
 
 #### <a name="password-expiration-policy"></a>密碼到期原則  
-如果使用者位於密碼雜湊同步處理範圍內，則雲端帳戶的密碼會設為「永不到期」。
+如果使用者位於密碼雜湊同步處理範圍內，則雲端帳戶的密碼會設為「永不到期」  。
 
 您可以使用內部部署環境中已過期的同步處理密碼，繼續登入雲端服務。 您的雲端密碼會於下一次您在內部部署環境中變更密碼時更新。
 
@@ -110,7 +110,7 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 >[!IMPORTANT]
 >如果您要從 AD FS (或其他同盟技術) 遷移至密碼雜湊同步處理，強烈建議您遵循我們在[此處](https://aka.ms/adfstophsdpdownload) \(英文\) 發佈的詳細部署指南。
 
-當您使用 [快速設定] 選項來安裝 Azure AD Connect 時，系統會自動啟用密碼雜湊同步處理。 如需詳細資訊，請參閱[利用快速設定開始使用 Azure AD Connect](how-to-connect-install-express.md)。
+當您使用 [快速設定]  選項來安裝 Azure AD Connect 時，系統會自動啟用密碼雜湊同步處理。 如需詳細資訊，請參閱[利用快速設定開始使用 Azure AD Connect](how-to-connect-install-express.md)。
 
 如果您在安裝 Azure AD Connect 時使用自訂設定，在使用者登入頁面上便會提供密碼雜湊同步處理。 如需詳細資訊，請參閱[自訂 Azure AD Connect 安裝](how-to-connect-install-custom.md)。
 
@@ -124,7 +124,7 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 1. 移至 %programfiles%\Azure AD Sync\Bin。
 2. 開啟 miiserver.exe.config。
 3. 移至檔案結尾處的 configuration/runtime 節點。
-4. 添加以下节点： `<enforceFIPSPolicy enabled="false"/>`
+4. 新增下列節點︰ `<enforceFIPSPolicy enabled="false"/>`
 5. 儲存您的變更。
 
 如需參考，此程式碼片段就是其大致樣貌︰

@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: a492adbf1c01271ceea736bde9de999190fc2da4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 358b835b42862bd0ceb1a5c4a48ba4b18a567f4d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789193"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235919"
 ---
 # <a name="what-is-apache-hbase-in-azure-hdinsight"></a>什麼是 Azure HDInsight 中的 Apache HBase
 
@@ -27,10 +27,10 @@ ms.locfileid: "65789193"
 
 HDInsight HBase 會以受控叢集的形式提供，並整合到 Azure 環境中。 叢集依設定會將資料直接儲存至 [Azure 儲存體](./../hdinsight-hadoop-use-blob-storage.md)中，使其在效能與成本的選擇中提供低延遲性與高度彈性。 這可讓客戶建置使用大型資料集的互動式網站、建置可儲存數百萬端點上之感應器和遙測資料的服務，以及使用 Hadoop 工作分析此資料。 HBase 和 Hadoop 是在 Azure 中處理巨量資料專案的好起點，尤其是它們讓即時應用程式能夠使用大型資料集。
 
-HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區功能、讀取和寫入的強大一致性，以及自動容錯移轉功能。 性能可通过对读取使用内存中缓存并对写入使用高吞吐量流式处理来提高。 可以在虛擬網路內建立 HBase 叢集。 如需詳細資訊，請參閱[在 Azure 虛擬網路上建立 HDInsight 叢集](./apache-hbase-provision-vnet.md)。
+HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區功能、讀取和寫入的強大一致性，以及自動容錯移轉功能。 透過在記憶體內部快取讀取和高輸送量的串流寫入，來提高效能。 可以在虛擬網路內建立 HBase 叢集。 如需詳細資訊，請參閱[在 Azure 虛擬網路上建立 HDInsight 叢集](./apache-hbase-provision-vnet.md)。
 
 ## <a name="how-is-data-managed-in-hdinsight-hbase"></a>如何在 HDInsight HBase 中管理資料？
-要管理 HBase 中的資料，可使用 HBase Shell 的 `create``get`, `put` 和 `scan` 命令。 將資料寫入資料庫，需使用 `put`，讀取則使用 `get` `scan` 命令可用來取得資料表中多個資料列裡的資料。 您也可以使用 HBase C# API 管理資料，其在 HBase REST API 之上提供用戶端程式庫。 HBase 資料庫也可使用 [Apache Hive](https://hive.apache.org/) 進行查詢。 如需這些程式設計模型的簡介，請參閱[開始在 HDInsight 中搭配使用 Apache HBase 與 Apache Hadoop](./apache-hbase-tutorial-get-started-linux.md)。 同時也提供共同處理器，其允許在主控資料庫的節點中進行資料處理。
+要管理 HBase 中的資料，可使用 HBase Shell 的 `create``get`, `put` 和 `scan` 命令。 將資料寫入資料庫，需使用 `put`，讀取則使用 `get` `scan` 命令可用來取得資料表中多個資料列裡的資料。 您也可以使用 HBase C# API 管理資料，其在 HBase REST API 之上提供用戶端程式庫。 HBase 資料庫也可使用 [Apache Hive](https://hive.apache.org/) 進行查詢。 如需這些程式設計模型的簡介，請參閱[開始在 HDInsight 中搭配使用 Apache HBase 與 Apache Hadoop](./apache-hbase-tutorial-get-started-linux.md)。 副處理器也會提供，可讓節點中的資料處理主控資料庫。
 
 > [!NOTE]  
 > Thrift 不受 HDInsight 中的 HBase 所支援。

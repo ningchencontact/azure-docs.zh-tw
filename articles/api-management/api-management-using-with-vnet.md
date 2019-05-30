@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 532c1051522410c496fb3809c06c7e3a74340adb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 73785422a7c45a12671e6cd53da89609190a8352
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66141456"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243294"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何將 Azure API 管理與虛擬網路搭配使用
 使用 Azure 虚拟网络 (VNET) 可将你的任何 Azure 资源置于可以控制其访问权限但无法通过 Internet 路由的网络中。 然後，可以使用各種 VPN 技術，將這些網路連線到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
@@ -47,7 +47,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>使用 Azure 入口網站啟用 VNET 連線能力
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您的 APIM 執行個體。
-2. 選取 [虛擬網路]。
+2. 選取 [虛擬網路]  。
 3. 將 API 管理執行個體設定為在虛擬網路內部署。
 
     ![API 管理的虛擬網路功能表][api-management-using-vnet-menu]
@@ -65,8 +65,8 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 
      > [!NOTE]
      > 上圖中的**服務端點**包括閘道/Proxy、Azure 入口網站、開發人員入口網站、GIT 及直接管理端點。
-     > 上圖中的「管理端點」是裝載在服務上以透過 Azure 入口網站和 Powershell 來管理組態的端點。
-     > 此外，請注意，即使此圖顯示其各種端點的「IP 位址」，「API 管理」服務仍然「只」會在其已設定的「主機名稱」上回應。
+     > 上圖中的「管理端點」  是裝載在服務上以透過 Azure 入口網站和 Powershell 來管理組態的端點。
+     > 此外，請注意，即使此圖顯示其各種端點的「IP 位址」，「API 管理」服務仍然「只」  會在其已設定的「主機名稱」上回應。
 
      > [!IMPORTANT]
      > 将 Azure API 管理实例部署到 资源管理器 VNET 时，该服务必须位于一个除了 Azure API 管理实例之外不包含其他资源的专用子网中。 如果嘗試將 Azure API 管理執行個體部署到含有其他資源的 Resource Manager VNET 子網路，則部署將會失敗。
@@ -93,7 +93,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 * **在 VNET 內部署現有 APIM 服務**：使用 cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) 将现有 Azure API 管理服务移到虚拟网络内。
 
 ## <a name="connect-vnet"> </a>連接到裝載於虛擬網路內的 Web 服務
-在您的「API 管理」服務連接到 VNET 之後，存取 VNET 內的後端服務與存取公用服務便沒有差別。 只要在建立新 API 或編輯現有 API 時，於 [Web 服務 URL] 欄位中輸入您 Web 服務的本機 IP 位址或主機名稱 (如果為 VNET 設定了 DNS 伺服器) 即可。
+在您的「API 管理」服務連接到 VNET 之後，存取 VNET 內的後端服務與存取公用服務便沒有差別。 只要在建立新 API 或編輯現有 API 時，於 [Web 服務 URL]  欄位中輸入您 Web 服務的本機 IP 位址或主機名稱 (如果為 VNET 設定了 DNS 伺服器) 即可。
 
 ![透過 VPN 加入 API][api-management-setup-vpn-add-api]
 
@@ -103,7 +103,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 * **自訂 DNS 伺服器設定**：APIM 服務相依於數個 Azure 服務。 當「API 管理」是裝載於具有自訂 DNS 伺服器的 VNET 中時，它必須要解析這些 Azure 服務的主機名稱。 请根据[此指南](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)进行自定义 DNS 设置。 請參閱下方的連接埠資料表和參考的其他網路需求。
 
 > [!IMPORTANT]
-> 如果您打算針對 VNET 使用「自訂 DNS 伺服器」，在將 API 管理服務部署到該伺服器**之前**，應該先將該伺服器設定妥當。 否則，每次變更 DNS 伺服器時，您都必須執行[套用網路設定作業](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)來更新 API 管理服務
+> 如果您打算針對 VNET 使用「自訂 DNS 伺服器」，在將 API 管理服務部署到該伺服器**之前**，應該先將該伺服器設定妥當。 否則，每次變更 DNS 伺服器時，您都必須執行[套用網路設定作業](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/ApiManagementService/ApplyNetworkConfigurationUpdates)來更新 API 管理服務
 
 * **APIM 所需的連接埠**︰使用[網路安全性群組][Network Security Group]可以控制到 APIM 部署於其中的子網路之輸入和輸出流量。 如果這些連接埠中有任何一個無法使用，「API 管理」可能就無法正常運作而可能變成無法存取。 搭配 VNET 使用 API 管理時，封鎖這其中一或多個連接埠是另一個常見的錯誤組態問題。
 
@@ -127,7 +127,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 | * / *                        | 輸入            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure 基礎結構負載平衡器                          | 外部和內部  |
 
 >[!IMPORTANT]
-> 要成功部署 API 管理服務，就必須有以**粗體**表示其「目的」的連接埠。 不過，封鎖其他連接埠將會降低使用和監視執行中服務的能力。
+> 要成功部署 API 管理服務，就必須有以**粗體**表示其「目的」  的連接埠。 不過，封鎖其他連接埠將會降低使用和監視執行中服務的能力。
 
 + **SSL 功能**：若要啟用 SSL 憑證鏈結建立和驗證，APIM 服務需要 ocsp.msocsp.com、mscrl.microsoft.com 和 crl.microsoft.com 的輸出網路連線。 如果您上傳至 API 管理的任何憑證包含 CA 根的完整鏈結，則不需要此相依性。
 
@@ -170,7 +170,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
   > [!IMPORTANT]
   > 驗證過連線能力後，請務必先移除子網路中部署的所有資源，再將 API 管理部署至子網路。
 
-* **累加式更新**：當您的網路進行變更，請參閱[NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus)，以確認 API 管理服務是否未遺失任何重要的資源中，其定義取決於存取權。 連線狀態應該每隔 15 分鐘更新一次。
+* **累加式更新**：當您的網路進行變更，請參閱[NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/networkstatus)，以確認 API 管理服務是否未遺失任何重要的資源中，其定義取決於存取權。 連線狀態應該每隔 15 分鐘更新一次。
 
 * **資源導覽連結**：在部署到 Resource Manager 樣式 VNet 子網路時，APIM 會藉由建立資源導覽連結來保留子網路。 如果子網路已包含來自不同提供者的資源，部署將會**失敗**。 同樣地，當您將 API 管理服務移至不同子網路或將它刪除時，我們也會移除該資源導覽連結。
 

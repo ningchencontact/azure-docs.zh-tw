@@ -1,7 +1,7 @@
 ---
 title: 快速入門：Python 和 REST Api-Azure 搜尋服務
 description: 建立、 載入和使用 Python、 Jupyter Notebook 和 Azure 搜尋服務 REST API 查詢索引。
-ms.date: 05/15/2019
+ms.date: 05/23/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: a79a5fe1632eeabee670274ebbb19c4c34bd84d2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 99b4ec0be8e9fa631c5081edd42474ea89dc5dc3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66117347"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244781"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>快速入門：建立使用 Jupyter Python notebook 的 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -36,15 +36,15 @@ ms.locfileid: "66117347"
 
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section)，提供 Python 3.x 和 Jupyter Notebook。
 
-+ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。 
++ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 本快速入門中，您可以使用免費層。 
 
 ## <a name="get-a-key-and-url"></a>取得金鑰和 URL
 
 REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
 
-1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀] 頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
+1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀]  頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
 
-1. 在 [設定]  >  [金鑰] 中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
+1. 在 [設定]   >  [金鑰]  中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
 
 ![取得 HTTP 端點和存取金鑰](media/search-fiddler/get-url-key.png "取得 HTTP 端點和存取金鑰")
 
@@ -52,7 +52,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ## <a name="connect-to-azure-search"></a>連線到 Azure 搜尋服務
 
-開啟 Jupyter notebook，並確認從您的本機工作站的連線要求的服務上的索引清單。 上 Anaconda3 與 Windows，您可以使用 Anaconda 導覽啟動 notebook。
+在這個工作中，啟動 Jupyter notebook，並確認您可以連接到 Azure 搜尋服務。 您會從您的服務要求一份索引來執行這項操作。 上 Anaconda3 與 Windows，您可以使用 Anaconda 導覽啟動 notebook。
 
 1. 建立新的 Python3 notebook。
 
@@ -73,7 +73,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
-1. 第三個資料格，制訂的要求。 這個的 GET 要求以您的搜尋服務索引集合為目標，並選取 [名稱] 屬性。
+1. 第三個資料格，制訂的要求。 此 GET 要求會以您的搜尋服務索引集合為目標，並選取現有索引的 name 屬性。
 
    ```python
    url = endpoint + "indexes" + api_version + "&$select=name"
@@ -82,20 +82,20 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
    pprint(index_list)
    ```
 
-1. 執行每個步驟。 如果索引存在，則回應會包含一份索引。 在以下的螢幕擷取畫面，服務會包含 azureblob 索引和 realestate-我們為範例索引。
+1. 執行每個步驟。 如果索引存在，則回應會包含一份索引名稱。 在以下的螢幕擷取畫面，該服務已經有 azureblob 索引和 realestate-我們為範例索引。
 
    ![使用 HTTP 的 Jupyter notebook 中的 Python 指令碼要求到 Azure 搜尋服務](media/search-get-started-python/connect-azure-search.png "Python 指令碼在 Jupyter notebook 使用 HTTP 要求到 Azure 搜尋服務")
 
-   空白的索引集合會傳回此回應： `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
+   相反地，空白的索引集合會傳回此回應： `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
 > [!Tip]
 > 上一項免費服務，您受限於三個索引、 索引子和資料來源項目。 本快速入門會各建立一個。 請確定您有空間可在進一步之前建立新的物件。
 
 ## <a name="1---create-an-index"></a>1 - 建立索引
 
-除非您使用入口網站，索引上必須有服務之前，您可以載入資料。 此步驟中使用[建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)推送至服務的索引結構描述
+除非您使用入口網站，索引上必須有服務之前，您可以載入資料。 此步驟中使用[建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)推送至服務的索引結構描述。
 
-Fields 集合定義的結構*文件*。 索引的必要項目包含一個名稱和欄位的集合。 每個欄位都有名稱、 類型和屬性，以決定其使用方式 (例如，它是否全文檢索搜尋、 可篩選，或可在搜尋結果中擷取)。 索引，其中一個類型的欄位內`Edm.String`您必須指定為*金鑰*文件的身分識別。
+索引的必要項目包括名稱、 欄位的集合，以及索引鍵。 Fields 集合定義的結構*文件*。 每個欄位都有名稱、 類型和屬性，以決定欄位的使用方式 (例如，它是否全文檢索搜尋、 可篩選，或可在搜尋結果中擷取)。 索引，其中一個類型的欄位內`Edm.String`您必須指定為*金鑰*文件的身分識別。
 
 這個索引名為"hotels py"，並具有您在下方看到的欄位定義。 它是較大子集[Hotels 索引](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON)其他逐步解說中使用。 我們在本快速入門，為求簡單明瞭修剪。
 
@@ -127,7 +127,7 @@ Fields 集合定義的結構*文件*。 索引的必要項目包含一個名稱�
     }
     ```
 
-2. 在另一個資料格中，制訂的要求。 此 PUT 要求以您的搜尋服務索引集合為目標，並建立根據您在上一個步驟中提供的索引結構描述的索引。
+2. 在另一個資料格中，制訂的要求。 此 PUT 要求以您的搜尋服務索引集合為目標，並建立根據您在上一個儲存格中提供的索引結構描述的索引。
 
    ```python
    url = endpoint + "indexes" + api_version
@@ -138,12 +138,12 @@ Fields 集合定義的結構*文件*。 索引的必要項目包含一個名稱�
 
 3. 執行每個步驟。
 
-   回應會包含結構描述的 JSON 表示法。 下列螢幕擷取畫面，讓您可以看到多個回應，會修剪索引結構描述的組的件。
+   回應會包含結構描述的 JSON 表示法。 下列螢幕擷取畫面會顯示回應的一部分。
 
     ![若要建立索引的要求](media/search-get-started-python/create-index.png "要求建立索引")
 
 > [!Tip]
-> 進行驗證，可能也檢查索引清單，在入口網站中，或重新執行服務的連線要求，來查看*hotels py*索引集合中所列的索引。
+> 若要確認建立索引的另一種方式是檢查入口網站中的索引清單。
 
 <a name="load-documents"></a>
 
@@ -211,6 +211,7 @@ Fields 集合定義的結構*文件*。 索引的必要項目包含一個名稱�
             "StateProvince": "GA",
             "PostalCode": "30326",
             "Country": "USA"
+            }
         },
         {
         "@search.action": "upload",
@@ -229,11 +230,11 @@ Fields 集合定義的結構*文件*。 索引的必要項目包含一個名稱�
             "StateProvince": "TX",
             "PostalCode": "78216",
             "Country": "USA"
-       }
-      }
-     ]
+            }
+        }
+    ]
     }
-    ```
+    ```   
 
 2. 在另一個資料格中，制訂的要求。 這個 POST 要求為目標的旅館 py 索引的文件集合，並將推入上一個步驟中提供的文件。
 
@@ -246,26 +247,7 @@ Fields 集合定義的結構*文件*。 索引的必要項目包含一個名稱�
 
 3. 執行每個步驟，將文件推送至您的搜尋服務中的索引。 結果看起來應該類似下列的範例。 
 
-   ```
-   {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#Collection(Microsoft.Azure.Search.V2019_05_06.IndexResult)",
-    'value': [{'errorMessage': None,
-            'key': '1',
-            'status': True,
-            'statusCode': 201},
-           {'errorMessage': None,
-            'key': '2',
-            'status': True,
-            'statusCode': 201},
-           {'errorMessage': None,
-            'key': '3',
-            'status': True,
-            'statusCode': 201}]},
-           {'errorMessage': None,
-            'key': '4',
-            'status': True,
-            'statusCode': 201}]}
-     ```
-
+    ![將文件傳送到索引](media/search-get-started-python/load-index.png "傳送到索引的文件")
 
 ## <a name="3---search-an-index"></a>3 - 搜尋索引
 
@@ -278,7 +260,7 @@ Fields 集合定義的結構*文件*。 索引的必要項目包含一個名稱�
    searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
    ```
 
-2. 制訂的要求。 這個的 GET 要求目標 hotels py 索引的文件集合，並附加您在上一個步驟中指定的查詢。
+2. 在另一個資料格中，制訂的要求。 這個的 GET 要求目標 hotels py 索引的文件集合，並附加您在上一個步驟中指定的查詢。
 
    ```python
    url = endpoint + "indexes/hotels-py/docs" + api_version + searchstring
@@ -287,32 +269,29 @@ Fields 集合定義的結構*文件*。 索引的必要項目包含一個名稱�
    pprint(query)
    ```
 
-   結果看起來應該類似下列的輸出。 結果會 unranked (search.score = 1.0) 因為我們並未提供任何要比對的準則。
+3. 執行每個步驟。 結果看起來應該類似下列的輸出。 
 
-   ```
-   {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#docs(*)",
-    '@odata.count': 3,
-    'value': [{'@search.score': 1.0,
-               'HotelId': '1',
-               'HotelName': 'Secret Point Motel'},
-              {'@search.score': 1.0,
-               'HotelId': '2',
-               'HotelName': 'Twin Dome Motel'},
-              {'@search.score': 1.0,
-               'HotelId': '3',
-               'HotelName': 'Triple Landscape Hotel'},
-              {'@search.score': 1.0,
-               'HotelId': '4',
-               'HotelName': 'Sublime Cliff Hotel'}]}
+    ![搜尋索引](media/search-get-started-python/search-index.png "搜尋索引")
+
+4. 請嘗試幾個其他查詢範例，以概略了語法。 您可以使用下列範例取代 searchstring，然後重新執行搜尋要求。 
+
+   套用篩選器： 
+
+   ```python
+   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'
    ```
 
-3. 請嘗試幾個其他查詢範例，以概略了語法。 您可以套用篩選器、 需要前兩個結果，或依特定欄位。
+   採取的前兩個結果：
 
-   + `searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'`
+   ```python
+   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
+   ```
 
-   + `searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'`
+    依特定欄位：
 
-   + `searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'`
+   ```python
+   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
+   ```
 
 ## <a name="clean-up"></a>清除 
 

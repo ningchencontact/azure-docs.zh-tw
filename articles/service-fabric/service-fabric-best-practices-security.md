@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 3349abfb1b7cf85247b1bb5de8eb53fa09299b74
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 449dbb04d58fe7980c845b8c5bc8d837b643c1be
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136493"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386738"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 安全性 
 
@@ -201,6 +201,14 @@ access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-v
 ```bash
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
+## <a name="windows-security-baselines"></a>Windows 安全性基準
+[我們建議您實作廣泛是已知且通過完善測試，例如 Microsoft 安全性基準，而不是自行建立基準的業界標準組態](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); 一個用於佈建這些虛擬機器上的選項擴展集為使用 Azure Desired State Configuration (DSC) 延伸模組處理常式，因為它們上線，讓它們執行生產環境的軟體設定的 Vm。
+
+## <a name="azure-firewall"></a>Azure 防火牆
+[Azure 防火牆是保護您的 Azure 虛擬網路資源的受管理的雲端架構的網路安全性服務。它可以是完全可設定狀態的防火牆即內建的高可用性和延展性不受限制的雲端服務。](https://docs.microsoft.com/azure/firewall/overview); 這可讓您限制輸出的 HTTP/S 流量，包括萬用字元的完整的網域名稱 (FQDN) 指定清單。 這項功能不需要 SSL 終止。 其建議您利用[Azure 防火牆 FQDN 標記](https://docs.microsoft.com/azure/firewall/fqdn-tags)端點的 Windows 更新，並啟用 Microsoft Windows update 的網路流量可以流經防火牆。 [部署使用範本的 Azure 防火牆](https://docs.microsoft.com/azure/firewall/deploy-template)Microsoft.Network/azureFirewalls 資源範本定義中提供的範例。
+
+## <a name="tls-12"></a>TLS 1.2
+[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
 
 ## <a name="windows-defender"></a>Windows Defender 
 

@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/14/2019
+ms.date: 05/28/2019
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: c644d81b647fc1151b10a94fb636e3eeaba1ce5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65e256b476c1e459ae937d9f6cbb43e0020fd9fe
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478291"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298140"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Azure 記錄整合簡介
 
 >[!IMPORTANT]
-> Azure 記錄整合功能將於 2019/06/01 淘汰。 AzLog 下載已在 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
+> Azure 記錄整合功能會在 2019 年 06/15/淘汰。 AzLog 下載已在 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
 
 Azure 記錄整合可讓您簡化將 Azure 記錄與您的內部部署安全性資訊與事件管理 (SIEM) 系統整合的工作。
 
@@ -66,7 +66,7 @@ Azure 記錄整合支援 ArcSight、QRadar 及 Splunk。 請向您的 SIEM 廠�
 > [!NOTE]
 > 雖然 Azure 記錄整合是免費的解決方案，但仍會有與記錄檔資訊儲存體相關的 Azure 儲存體成本。
 
-如果需要協助，您可以建立[支援要求](../azure-supportability/how-to-create-azure-support-request.md)。 [服務] 請選取 [記錄整合]。
+如果需要協助，您可以建立[支援要求](../azure-supportability/how-to-create-azure-support-request.md)。 [服務] 請選取 [記錄整合]  。
 
 ## <a name="next-steps"></a>後續步驟
 

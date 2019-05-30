@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 572f8694d31728a3ca570f6ddb60475e13d71e80
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415739"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235596"
 ---
 # <a name="combined-security-information-registration-preview"></a>合併的安全性資訊註冊 （預覽）
 
@@ -24,7 +24,7 @@ ms.locfileid: "60415739"
 
 ![我的設定檔顯示已註冊使用者的安全性資訊](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-啟用新的體驗前, 檢閱此系統管理員為焦點的文件和使用者為主的說明文件，以確保您了解這項功能的作用與功能。 您的訓練，在新體驗中準備您的使用者，並協助確保成功首度發行的使用者文件的基底。
+啟用新的體驗前, 檢閱此系統管理員為焦點的文件和使用者為主的說明文件，以確保您了解這項功能的作用與功能。 根據您的訓練[使用者文件](../user-help/user-help-security-info-overview.md)來準備您的使用者，新的體驗，並協助確保成功首度發行。
 
 Azure AD 結合註冊目前不提供如 Azure 美國政府、 Azure Germany 或 Azure 中國 21vianet 經營的國家/地區雲端的安全性資訊。
 
@@ -48,7 +48,7 @@ Azure AD 結合註冊目前不提供如 Azure 美國政府、 Azure Germany 或 
 | --- | --- | --- | --- |
 | Microsoft 驗證器 | 是 （最多 5 個） | 否 | 是 |
 | 其他驗證器應用程式 | 是 （最多 5 個） | 否 | 是 |
-| 硬體 Token | 否 | 否 | 是 |
+| 硬體權杖 | 否 | 否 | 是 |
 | 電話 | 是 | 是 | 是 |
 | 備用手機 | 是 | 是 | 是 |
 | 辦公室電話 | 否 | 否 | 否 |
@@ -84,20 +84,20 @@ Azure AD 結合註冊目前不提供如 Azure 美國政府、 Azure Germany 或 
 
 以下是幾個案例中可能會提示使用者註冊，或重新整理其安全性資訊：
 
-* 透過 Identity Protection 強制執行 Multi-factor Authentication 註冊：系統會要求使用者在登入時註冊。 （如果使用者已啟用 sspr） 註冊多重要素驗證方法和 SSPR 方法。
-* 透過每個使用者多重要素驗證強制執行 Multi-factor Authentication 註冊：系統會要求使用者在登入時註冊。 （如果使用者已啟用 sspr） 註冊多重要素驗證方法和 SSPR 方法。
-* 透過條件式存取或其他原則強制執行 Multi-factor Authentication 註冊：系統會要求使用者註冊使用時，就需要多重要素驗證的資源。 （如果使用者已啟用 sspr） 註冊多重要素驗證方法和 SSPR 方法。
-* SSPR 註冊強制執行：系統會要求使用者在登入時註冊。 註冊只有 SSPR 方法。
-* SSPR 重新整理強制執行：使用者需要檢閱其安全性資訊，系統管理員所設定的間隔使用者會顯示其資訊和可確認目前的資訊或在必要時進行變更。
+- 透過 Identity Protection 強制執行 Multi-factor Authentication 註冊：系統會要求使用者在登入時註冊。 （如果使用者已啟用 sspr） 註冊多重要素驗證方法和 SSPR 方法。
+- 透過每個使用者多重要素驗證強制執行 Multi-factor Authentication 註冊：系統會要求使用者在登入時註冊。 （如果使用者已啟用 sspr） 註冊多重要素驗證方法和 SSPR 方法。
+- 透過條件式存取或其他原則強制執行 Multi-factor Authentication 註冊：系統會要求使用者註冊使用時，就需要多重要素驗證的資源。 （如果使用者已啟用 sspr） 註冊多重要素驗證方法和 SSPR 方法。
+- SSPR 註冊強制執行：系統會要求使用者在登入時註冊。 註冊只有 SSPR 方法。
+- SSPR 重新整理強制執行：使用者需要檢閱其安全性資訊，系統管理員所設定的間隔使用者會顯示其資訊和可確認目前的資訊或在必要時進行變更。
 
 強制使用註冊時，使用者就會顯示必須符合 Multi-factor Authentication 和 SSPR 的原則，從最多到最不安全的方法數目下限。
 
-例如︰
+例如: 
 
-* 使用者已啟用 sspr。 SSPR 原則需要兩個方法來重設，且已啟用行動裝置應用程式程式碼、 電子郵件和電話。
-   * 這位使用者，才能註冊兩個方法。
-      * 使用者預設會顯示驗證器應用程式和 phone。
-      * 使用者可以選擇註冊而不是驗證器應用程式或電話的電子郵件。
+- 使用者已啟用 sspr。 SSPR 原則需要兩個方法來重設，且已啟用行動裝置應用程式程式碼、 電子郵件和電話。
+   - 這位使用者，才能註冊兩個方法。
+      - 使用者預設會顯示驗證器應用程式和 phone。
+      - 使用者可以選擇註冊而不是驗證器應用程式或電話的電子郵件。
 
 此流程圖說明哪些方法會顯示給使用者時中斷，在登入期間註冊：
 

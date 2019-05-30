@@ -11,30 +11,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/23/2019
 ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fa5c5638da390f4416afc9f4bd9c5d58c34cea8
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0f4e71bd7fd7e0ed9a220619995ba108fdccabe4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825581"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233756"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 為發佈的應用程式設定自訂首頁
 
-這篇文章討論如何設定應用程式以將使用者引導至自訂的首頁上，這可能會有所不同無論是內部或外部。 當您發行應用程式 Proxy 應用程式時，您設定內部 URL，但有時，不是使用者應該先看到的頁面。 設定自訂首頁，讓使用者存取應用程式時，會得到正確的頁面。 使用者會看到自訂的首頁上，您將設定，不論它們是否從 Azure Active Directory 存取面板或 Office 365 應用程式啟動器存取應用程式。
+這篇文章討論如何設定應用程式以將使用者引導至自訂的首頁。 當您發行應用程式 Proxy 應用程式時，您設定內部 URL，但有時，不是使用者應該先看到的頁面。 設定自訂首頁，讓使用者存取應用程式時，會得到正確的頁面。 使用者會看到自訂的首頁上，您將設定，不論它們是否從 Azure Active Directory 存取面板或 Office 365 應用程式啟動器存取應用程式。
 
 當使用者啟動應用程式時，他們導向至已發佈的應用程式的根網域 URL 的預設值。 登陸頁面通常設定為首頁 URL。 使用 Azure AD PowerShell 模組，當您想讓應用程式使用者抵達應用程式內的特定頁面時，定義自訂首頁 URL。
 
-這裡的其中一個案例，說明為何您的公司會設定自訂首頁，以及為什麼會根據使用者的類型而不同：
+以下是說明為何您的公司會設定自訂的首頁上的其中一個案例：
 
+- 使用者移至您的公司網路內部`https://ExpenseApp/login/login.aspx`登入並存取您的應用程式。
 - 因為您有其他應用程式 Proxy 需要存取的資料夾結構的高層級的資產 （例如影像），您發行應用程式與`https://ExpenseApp`作為內部 URL。
-- 不過，您的公司網路內部使用者移至`https://ExpenseApp/login/login.aspx`登入並存取您的應用程式。
 - 預設外部 URL 是`https://ExpenseApp-contoso.msappproxy.net`，這並不需要外部使用者登入頁面。
-- 您想要設定`https://ExpenseApp-contoso.msappproxy.net/login/login.aspx`做為外部的首頁 URL 相反的因此外部使用者會看到登入頁面第一次。
+- 您想要設定`https://ExpenseApp-contoso.msappproxy.net/login/login.aspx`為首頁 URL 相反的因此外部使用者會看到登入頁面第一次。
 
 >[!NOTE]
 >當您將已發佈應用程式的存取權提供給使用者時，應用程式會顯示在 [Azure AD 存取面板](../user-help/my-apps-portal-end-user-access.md)和 [Office 365 應用程式啟動器](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/)。
@@ -49,21 +49,21 @@ ms.locfileid: "65825581"
 
 - 若變更已發佈的應用程式，則變更可能會重設首頁 URL 的值。 當您未來更新應用程式時，您應該重新檢查並視需要更新首頁 URL。
 
-您可以變更 外部或內部的 首頁 頁面在 Azure 入口網站或使用 PowerShell。
+您可以設定首頁 URL，透過 Azure 入口網站或使用 PowerShell。
 
 ## <a name="change-the-home-page-in-the-azure-portal"></a>在 Azure 入口網站中變更首頁
 
-若要變更您的應用程式，透過 Azure AD 入口網站外部和內部首頁頁面，請遵循下列步驟：
+若要變更您的應用程式，透過 Azure AD 入口網站的首頁 URL，請遵循下列步驟：
 
-1. 登入[Azure Active Directory 入口網站](https://aad.portal.azure.com/)。 Azure Active Directory 系統管理中心的儀表板隨即出現。
-2. 在提要欄位中，選取**Azure Active Directory**。 Azure AD 的 [概觀] 頁面隨即出現。
-3. 在 概觀提要欄位中，選取**應用程式註冊**。 已註冊的應用程式清單隨即出現。
-4. 從清單中選擇您的應用程式。 顯示已註冊的應用程式的詳細資料頁面隨即出現。
-5. 選取下方的連結**重新導向 Uri**，其中顯示適用於 web 和公用用戶端類型的重新導向 Uri 的數目。 已註冊的應用程式的 [驗證] 頁面隨即出現。
-6. 最後一個資料列內**重新導向 Uri**資料表中，設定**型別**資料行**公開用戶端 （行動和桌面）**，然後在**重新導向 URI**資料行中，輸入您想要使用的內部 URL。 新的空白資料列會出現下方您剛才修改的資料列。
-7. 在新的資料列中，設定**型別**資料行**Web**，然後在**重新導向 URI**  欄中，輸入您想要使用的外部 URL。
-8. 如果您想要刪除任何現有的重新導向 URI 資料列，選取**刪除**每個不想要的資料列旁的圖示 （記憶體回收可以）。
-9. 選取 [ **儲存**]。
+1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
+2. 選取  **Azure Active Directory**，然後**應用程式註冊**。 已註冊的應用程式清單隨即出現。
+3. 從清單中選擇您的應用程式。 顯示已註冊的應用程式的詳細資料頁面隨即出現。
+4. 底下**管理**，選取**商標**。
+5. 更新**首頁 URL**使用新路徑。
+
+   ![顯示 [首頁 URL] 欄位為已註冊的應用程式的商標設定頁面](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
+ 
+6. 選取 [ **儲存**]。
 
 ## <a name="change-the-home-page-with-powershell"></a>使用 PowerShell 變更首頁
 
@@ -87,7 +87,7 @@ ms.locfileid: "65825581"
 
     若您以非系統管理員身分執行此命令，請使用 `-scope currentuser` 選項。
 
-2. 在安裝期間，選取 [Y] 以從 Nuget.org 安裝兩個套件。兩個套件都是必要套件。
+2. 在安裝期間，選取 [Y]  以從 Nuget.org 安裝兩個套件。兩個套件都是必要套件。
 
 ### <a name="find-the-objectid-of-the-app"></a>尋找應用程式的 ObjectId
 

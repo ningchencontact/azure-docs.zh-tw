@@ -1,5 +1,5 @@
 ---
-title: 改善資料行存放區索引效能 - Azure SQL 資料倉儲 | Microsoft Docs
+title: 改善 Azure SQL 資料倉儲中的資料行存放區索引效能 |Microsoft Docs
 description: 減少記憶體需求或增加可用的記憶體，以最大化壓縮到每個資料列群組之資料行存放區索引的資料列數目。
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0b9a4ce84544beb09431e494385f3b9d8507c418
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 39d0fe06ee0e0230411024833cac7c88308f86c7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873544"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225374"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>最大化資料行存放區的資料列群組品質
 
@@ -86,7 +86,7 @@ To view an estimate of the memory requirements to compress a rowgroup of maximum
 
 短字串資料行使用 < = 32 個位元組的字串資料類型和長字串資料行使用 > 32 個位元組的字串資料類型。
 
-會使用專為壓縮文字的壓縮方法來壓縮長字串。 這個壓縮方法會使用字典來儲存文字模式。 字典的大小上限為 16 MB。 資料列群組中的每一個長字串資料行只有一個字典。
+會使用專為壓縮文字的壓縮方法來壓縮長字串。 這個壓縮方法會使用字典  來儲存文字模式。 字典的大小上限為 16 MB。 資料列群組中的每一個長字串資料行只有一個字典。
 
 如需資料行存放區記憶體需求的深入討論，請參閱影片 [Azure SQL 資料倉儲調整︰組態和指引](https://channel9.msdn.com/Events/Ignite/2016/BRK3291)。
 

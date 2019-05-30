@@ -4,19 +4,19 @@ description: 本文說明如何新增參考資料集來擴展 Azure 時間序列
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0b9db05effe42880465310f6eb5c38e3e832266
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 62c3b35f80300a38213b089567c3f63a8a2ce8db
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606894"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235061"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>使用 Azure 入口網站建立時間序列深入解析環境的參考資料集
 
@@ -36,9 +36,9 @@ ms.locfileid: "65606894"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 找出您的現有時間序列深入解析環境。 按一下 Azure 入口網站左側功能表中的 [所有資源]。 選取 Time Series Insights 環境。
+1. 找出您的現有時間序列深入解析環境。 按一下 Azure 入口網站左側功能表中的 [所有資源]  。 選取 Time Series Insights 環境。
 
-1. 選取 [概觀] 頁面。 找出 [時間序列深入解析總管 URL] 並開啟連結。  
+1. 選取 [概觀]  頁面。 找出 [時間序列深入解析總管 URL]  並開啟連結。  
 
    檢視 TSI 環境的 [總管]。
 
@@ -46,19 +46,19 @@ ms.locfileid: "65606894"
 
    [![新增參考資料](media/add-reference-data-set/add_reference_data.png)](media/add-reference-data-set/add_reference_data.png#lightbox)
 
-1. 選取 [+ 新增資料集] 按鈕，開始新增資料集。
+1. 選取 [+ 新增資料集]  按鈕，開始新增資料集。
 
    [![新增資料集](media/add-reference-data-set/add_data_set.png)](media/add-reference-data-set/add_data_set.png#lightbox)
 
-1. 在 [新增參考資料集] 頁面上，選擇資料的格式：
-   - 針對逗號分隔資料選擇 [CSV]。 第一個資料列會視為標題資料列。
-   - 針對 javascript 物件標記法 (JSON) 格式的資料，選擇 [JSON 陣列]。
+1. 在 [新增參考資料集]  頁面上，選擇資料的格式：
+   - 針對逗號分隔資料選擇 [CSV]  。 第一個資料列會視為標題資料列。
+   - 針對 javascript 物件標記法 (JSON) 格式的資料，選擇 [JSON 陣列]  。
 
    [![選擇資料格式。](media/add-reference-data-set/add_data.png)](media/add-reference-data-set/add_data.png#lightbox)
 
 1. 使用兩種方法的其中一個來提供資料：
-   - 將資料貼到文字編輯器中。 然後，選取 [剖析參考資料] 按鈕。
-   - 選取 [選擇檔案] 按鈕，從本機文字檔新增資料。
+   - 將資料貼到文字編輯器中。 然後，選取 [剖析參考資料]  按鈕。
+   - 選取 [選擇檔案]  按鈕，從本機文字檔新增資料。
 
    例如，將 CSV 資料貼上：[![貼上的 CSV 資料](media/add-reference-data-set/csv_data_pasted.png)](media/add-reference-data-set/csv_data_pasted.png#lightbox)
 
@@ -70,31 +70,31 @@ ms.locfileid: "65606894"
 
    [![新增參考資料](media/add-reference-data-set/parse_data.png)](media/add-reference-data-set/parse_data.png#lightbox)
 
-1. 檢閱每個資料行以查看假設的資料類型，並視需要變更資料類型。  選取資料行標題中的資料類型符號：**#** 為 double (數值資料)、**T|F** 為布林值，或 **Abc** 為字串。
+1. 檢閱每個資料行以查看假設的資料類型，並視需要變更資料類型。  選取資料行標題中的資料類型符號： **#** 為 double (數值資料)、**T|F** 為布林值，或 **Abc** 為字串。
 
    [![選擇資料行標題上的資料類型。](media/add-reference-data-set/choose_datatypes.png)](media/add-reference-data-set/choose_datatypes.png#lightbox)
 
 1. 視需要將資料行標題重新命名。 索引鍵資料行名稱必須加入至事件來源中的對應屬性。 請確定參考資料索引鍵資料行名稱與您傳入資料的名稱完全符合，包括區分大小寫。 非索引鍵資料行名稱會使用對應的參考資料值來擴充傳入資料。
 
-1. 按一下 [新增資料列] 或 [新增資料行]，視需要新增更多參考資料值。
+1. 按一下 [新增資料列]  或 [新增資料行]  ，視需要新增更多參考資料值。
 
-1. 在 [篩選資料列...] 欄位中輸入值，以視需要檢閱特定資料列。 篩選對於檢視資料非常有用，但在上傳資料時不會套用。
+1. 在 [篩選資料列...]  欄位中輸入值，以視需要檢閱特定資料列。 篩選對於檢視資料非常有用，但在上傳資料時不會套用。
 
-1. 若要為資料集命名，請在資料格上方的 [資料集名稱] 欄位中填入名稱。
+1. 若要為資料集命名，請在資料格上方的 [資料集名稱]  欄位中填入名稱。
 
     [![名稱資料集。](media/add-reference-data-set/name_reference_dataset.png)](media/add-reference-data-set/name_reference_dataset.png#lightbox)
 
-1. 選取資料格上方的下拉式清單，可提供資料集中的 [主索引鍵] 資料行。
+1. 選取資料格上方的下拉式清單，可提供資料集中的 [主索引鍵]  資料行。
 
     [![選取索引鍵資料行。](media/add-reference-data-set/set_primary_key.png)](media/add-reference-data-set/set_primary_key.png#lightbox)
 
-    選擇性選取 [+] 按鈕，以新增次要索引鍵資料行，作為複合主索引鍵。 如果您需要復原選取項目，請從下拉式清單中選擇空白值，以移除次要索引鍵。
+    選擇性選取 [+]  按鈕，以新增次要索引鍵資料行，作為複合主索引鍵。 如果您需要復原選取項目，請從下拉式清單中選擇空白值，以移除次要索引鍵。
 
-1. 若要上傳資料，請選取 [上傳資料列] 按鈕。
+1. 若要上傳資料，請選取 [上傳資料列]  按鈕。
 
     [![上傳](media/add-reference-data-set/upload_rows.png)](media/add-reference-data-set/upload_rows.png#lightbox)
 
-    頁面會確認已完成上傳，並顯示 [已成功上傳資料集] 訊息。
+    頁面會確認已完成上傳，並顯示 [已成功上傳資料集]  訊息。
 
 ## <a name="next-steps"></a>後續步驟
 

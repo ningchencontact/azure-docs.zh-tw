@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: de0ba13a527569e446a44c275b7323d4487f53b6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4c2dad687d31597954b023dde9d1b9d69788fe04
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780304"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241395"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>預覽-限制輸出流量的叢集節點和控制存取權所需的連接埠和服務在 Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ ms.locfileid: "65780304"
 本文詳細說明哪些網路連接埠和完整的網域名稱 (Fqdn) 是必要和選擇性，如果您限制在 AKS 叢集中的輸出流量。  此功能目前為預覽狀態。
 
 > [!IMPORTANT]
-> AKS 预览功能是自助服务和可以选择加入的功能。 提供预览是为了从我们的社区收集反馈和 bug。 但是，Azure 技术支持部门不为其提供支持。 如果你创建一个群集，或者将这些功能添加到现有群集，则除非该功能不再为预览版并升级为公开发布版 (GA)，否则该群集不会获得支持。
+> AKS 預覽功能包括自助、 選擇加入。 它們可供收集從我們的社群的意見及 bug。 在預覽中，這些功能不適用於實際執行環境。 在公開預覽功能底下 '盡力' 支援。 AKS 技術支援小組的協助時可使用營業時間太平洋 」 (PST) 僅限 timezone。 如需詳細資訊，請參閱下列支援文章：
 >
-> 如果遇到预览版功能的问题，请[在 AKS GitHub 存储库中提交问题][aks-github]，并在 Bug 标题中填写预览版功能的名称。
+> * [AKS 支援原則][aks-support-policies]
+> * [Azure 支援常見問題集][aks-faq]
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -35,7 +36,7 @@ ms.locfileid: "65780304"
 az feature register --name AKSLockingDownEgressPreview --namespace Microsoft.ContainerService
 ```
 
-狀態需要幾分鐘的時間才會顯示「已註冊」。 您可以藉由檢查註冊狀態[az 功能清單][ az-feature-list]命令：
+狀態需要幾分鐘的時間才會顯示「已註冊」  。 您可以藉由檢查註冊狀態[az 功能清單][ az-feature-list]命令：
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSLockingDownEgressPreview')].{Name:name,State:properties.state}"
@@ -68,11 +69,11 @@ az provider register --namespace Microsoft.ContainerService
 下列的輸出連接埠 / 網路規則所需的 AKS 叢集：
 
 * TCP 連接埠*443*
-* TCP 連接埠*9000*
+* TCP 連接埠*9000*的通道前 pod 通訊通道端 API 伺服器上。
 
 下列的 FQDN / 必須要有應用程式規則：
 
-| FQDN                      | Port      | 使用情況      |
+| FQDN                      | Port      | 使用      |
 |---------------------------|-----------|----------|
 | *.azmk8s.io               | HTTPS:443 | 此位址是 API 的伺服器端點。 |
 | aksrepos.azurecr.io       | HTTPS:443 | 此位址，才能存取映像在 Azure Container Registry (ACR)。 |
@@ -90,7 +91,7 @@ az provider register --namespace Microsoft.ContainerService
 
 下列的 FQDN / 建議的 AKS 叢集，才能正確運作的應用程式規則：
 
-| FQDN                                    | Port      | 使用情況      |
+| FQDN                                    | Port      | 使用      |
 |-----------------------------------------|-----------|----------|
 | *.ubuntu.com                            | HTTP:80   | 此位址可讓您下載的必要的安全性修補程式和更新的 Linux 叢集節點。 |
 | packages.microsoft.com                  | HTTPS:443 | 此位址是使用 Microsoft 封裝存放庫的快取*apt get*作業。 |
@@ -105,9 +106,6 @@ az provider register --namespace Microsoft.ContainerService
 
 在本文中，您已了解哪些連接埠和位址，以允許則限制為叢集的輸出流量。 您也可以定義自己的 pod 可以通訊的方式和限制能在叢集內。 如需詳細資訊，請參閱 <<c0> [ 保護在 AKS 中使用網路原則的 pod 之間的流量][network-policy]。
 
-<!-- LINKS - external -->
-[aks-github]: https://github.com/azure/aks/issues]
-
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
@@ -118,3 +116,5 @@ az provider register --namespace Microsoft.ContainerService
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-upgrade]: upgrade-cluster.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

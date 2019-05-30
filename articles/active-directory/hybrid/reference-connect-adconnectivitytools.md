@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1084a3e546a234739fbede46612dce96537c7d4a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 318f21beffb401053c56576ccd9e641dc89cf559
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950648"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298811"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect：ADConnectivityTools PowerShell 參考
 
@@ -35,8 +35,7 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 
 ### <a name="description"></a>描述
 
-執行本機 DNS 連線能力測試。
-若要設定 Active Directory 連接器，使用者必須具有樹系的這兩種名稱解析在嘗試連線到也如同關聯到此樹系的網域控制站。
+執行本機 DNS 連線能力測試。 若要設定 Active Directory 連接器時，使用者必須在嘗試連線到也如同關聯到此樹系的網域控制站的樹系這兩種名稱解析。
 
 ### <a name="examples"></a>範例
 

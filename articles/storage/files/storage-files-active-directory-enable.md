@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: rogarana
-ms.openlocfilehash: d5e2f9dba3afee953d296316e990b58c536cbdae
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 26251ebd3c83f6cd44203e1d3cc5f1b523a0d8d9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602017"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237781"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>為 Azure 檔案 (預覽) 啟用「透過 SMB 進行 Azure Active Directory 驗證」
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -47,13 +47,13 @@ ms.locfileid: "65602017"
 
 2.  **在 Azure AD 租用戶上啟用 Azure AD Domain Services。**
 
-    若要支援使用 Azure AD 認證進行驗證，您必須為 Azure AD 租用戶啟用 Azure AD Domain Services。 如果您不是 Azure AD 租用戶的系統管理員，請連絡系統管理員，並遵循[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started.md) 的逐步指導。
+    若要支援使用 Azure AD 認證進行驗證，您必須為 Azure AD 租用戶啟用 Azure AD Domain Services。 如果您不是 Azure AD 租用戶的系統管理員，請連絡系統管理員，並遵循[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/create-instance.md) 的逐步指導。
 
     通常需要大約 15 分鐘才能完成 Azure AD Domain Services 部署。 請先確認 Azure AD Domain Services 的健康情況顯示**執行中**，並已啟用密碼雜湊同步，才能繼續進行下一個步驟。
 
 3.  **加入網域的 Azure VM 具有 Azure AD Domain Services。**
 
-    若要使用虛擬機器的 Azure AD 認證存取檔案共用，您的虛擬機器網域必須加入至 Azure AD Domain Services。 如需如何加入虛擬機器網域的詳細資訊，請參閱[將 Windows Server 虛擬機器加入受控網域](../../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md)。
+    若要使用虛擬機器的 Azure AD 認證存取檔案共用，您的虛擬機器網域必須加入至 Azure AD Domain Services。 如需如何加入虛擬機器網域的詳細資訊，請參閱[將 Windows Server 虛擬機器加入受控網域](../../active-directory-domain-services/join-windows-vm.md)。
 
     > [!NOTE]
     > 只有在 Windows 7 或 Windows Server 2008 R2 以上的作業系統版本上執行之 Azure 虛擬機器，才支援對 Azure 檔案使用「透過 SMB 進行 Azure AD 驗證」。
@@ -78,8 +78,8 @@ ms.locfileid: "65602017"
 若要使用 [Azure 入口網站](https://portal.azure.com)來啟用透過 SMB 進行 Azure AD 驗證，請遵循下列步驟：
 
 1. 在 Azure 入口網站中，瀏覽至您現有的儲存體帳戶，或[建立儲存體帳戶](../common/storage-quickstart-create-account.md)。
-2. 在 [設定] 區段中，選取 [組態]。
-3. 啟用 [適用於 Azure 檔案服務的 Azure Active Directory 驗證 (預覽)]。
+2. 在 [設定]  區段中，選取 [組態]  。
+3. 啟用 [適用於 Azure 檔案服務的 Azure Active Directory 驗證 (預覽)]  。
 
 下圖顯示如何針對您的儲存體帳戶啟用透過 SMB 進行 Azure AD 驗證。
 

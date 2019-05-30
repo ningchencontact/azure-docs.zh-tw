@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: c0d50f3a66d940618f2bc421537b113120a2eaca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c6e77f3afc90a8c018296db80253d8b9a22159e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475859"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234115"
 ---
 # <a name="building-scalable-cloud-databases"></a>建置可調整的雲端資料庫
 
-使用 Azure SQL Database 的可調整工具和功能，可以輕鬆地相應放大資料庫。 特別是，您可以使用 **彈性資料庫用戶端程式庫** 來建立和管理相應放大的資料庫。 這項功能可讓您使用成百上千個 Azure SQL 資料庫，輕鬆地開發分區化應用程式。 [彈性工作](sql-database-elastic-jobs-powershell.md) 則可用來協助簡化管理這些資料庫。
+使用 Azure SQL Database 的可調整工具和功能，可以輕鬆地相應放大資料庫。 特別是，您可以使用 **彈性資料庫用戶端程式庫** 來建立和管理相應放大的資料庫。 這項功能可讓您使用成百上千個 Azure SQL 資料庫，輕鬆地開發分區化應用程式。
 
 若要下載：
 
@@ -54,7 +54,7 @@ ms.locfileid: "61475859"
 - **分區對應管理**：建立了稱為「分區對應管理員」的特殊資料庫。 分區對應管理可讓應用程式管理其分區的中繼資料。 開發人員可利用此功能將資料庫註冊為分區 (描述個別分區化索引鍵或索引鍵範圍至這些資料庫的對應)，並隨著資料庫的數量和組成發展來維護此中繼資料，以反映容量變更。 若沒有彈性資料庫用戶端程式庫，實作分區化時您必須花費大量時間撰寫管理程式碼。 如需詳細資訊，請參閱 [分區對應管理](sql-database-elastic-scale-shard-map-management.md)。
 
 - **資料依存路由**：想像有一個要求進入應用程式。 以要求的分區化索引鍵值為基礎，應用程式必須根據索引鍵值判斷正確的資料庫。 接著，它會開啟資料庫連線來處理要求。 資料相依路由可讓您輕鬆地呼叫一次應用程式的分區對應，就能開啟連接。 資料相依路由是基礎結構程式碼的另一個領域，現在由彈性資料庫用戶端程式庫中的功能所涵蓋。 如需詳細資訊，請參閱 [資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)。
-- **多分區查詢 (MSQ)**：當要求牽涉到數個 (或所有) 分區時，多分區查詢就派上用場。 多分區查詢在所有分區或一組分區上執行相同的 T-SQL 程式碼。 使用 UNION ALL 語意可將參與分區的結果合併成整體的結果集。 經由用戶端程式庫公開的功能可處理許多工作，包括：連接管理、執行緒管理、錯誤處理和中繼結果處理。 MSQ 可以查詢多達數百個分區。 如需詳細資訊，請參閱 [多分區查詢](sql-database-elastic-scale-multishard-querying.md)。
+- **多分區查詢 (MSQ)** ：當要求牽涉到數個 (或所有) 分區時，多分區查詢就派上用場。 多分區查詢在所有分區或一組分區上執行相同的 T-SQL 程式碼。 使用 UNION ALL 語意可將參與分區的結果合併成整體的結果集。 經由用戶端程式庫公開的功能可處理許多工作，包括：連接管理、執行緒管理、錯誤處理和中繼結果處理。 MSQ 可以查詢多達數百個分區。 如需詳細資訊，請參閱 [多分區查詢](sql-database-elastic-scale-multishard-querying.md)。
 
 一般而言，使用彈性資料庫工具的客戶在提交分區內作業，而不是有其本身語意的跨分區作業時，就可以獲得完整的 T-SQL 功能。
 

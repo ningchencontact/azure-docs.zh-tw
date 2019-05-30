@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 93f4f74d435cc14130668da102d1246c5fad5872
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553284"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238601"
 ---
-| 限制識別碼 | 限制 | 注释 |
+| 限制識別碼 | 限制 | 註解 |
 | --- | --- | --- |
 | 儲存體帳戶認證的數目上限 |64 | |
 | 磁碟區容器的數目上限 |64 | |
@@ -21,7 +21,7 @@ ms.locfileid: "57553284"
 | Azure 中的虛擬裝置上之分層磁碟區的大小上限 |30 TB for StorSimple 8010 <br></br> 64 TB for StorSimple 8020 |StorSimple 8010 和 StorSimple 8020 會在 Azure 中分別使用標準儲存體和進階儲存體的虛擬裝置。 |
 | 實體裝置上之固定在本機的磁碟區的大小上限 |9 TB for StorSimple 8100 <br></br> 24 TB for StorSimple 8600 |StorSimple 8100 和 StorSimple 8600 為實體裝置。 |
 | iSCSI 連線的數目上限 |512 | |
-| 来自发起程序的 iSCSI 连接的最大数目 |512 | |
+| 從起始端之 iSCSI 連線的數目上限 |512 | |
 | 每個裝置的存取控制記錄的數目上限 |64 | |
 | 每個備份原則的磁碟區數目上限 |24 | |
 | 每個備份原則保留的備份數目上限 |64 | |

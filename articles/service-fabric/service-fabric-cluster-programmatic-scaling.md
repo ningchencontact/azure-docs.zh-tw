@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 128f28d2a8b97feb3d20c34b7468b60c446a78a6
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111291"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306922"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>以程式設計方式調整 Service Fabric 叢集 
 
@@ -29,16 +29,16 @@ ms.locfileid: "62111291"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>管理認證
-撰寫服務來處理調整的其中一項挑戰是，服務必須能夠不經互動式登入程序就存取虛擬機器擴展集資源。 如果調整服務是要修改自己的 Service Fabric 應用程式，存取 Service Fabric 叢集是很容易的事，但需要有認證才能存取擴展集。 若要登入，您可以使用以 [Azure CLI](https://github.com/azure/azure-cli) 建立的[服務主體](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)。
+撰寫服務來處理調整的其中一項挑戰是，服務必須能夠不經互動式登入程序就存取虛擬機器擴展集資源。 如果調整服務是要修改自己的 Service Fabric 應用程式，存取 Service Fabric 叢集是很容易的事，但需要有認證才能存取擴展集。 若要登入，您可以使用[服務主體](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)以建立[Azure CLI](https://github.com/azure/azure-cli)。
 
 您可以透過下列步驟來建立服務主體︰
 
-1. 以具有虛擬機器擴展集存取權的使用者身分登入 Azure CLI (`az login`)
+1. 登入 Azure CLI (`az login`) 做為使用者的存取權的虛擬機器擴展集
 2. 使用 `az ad sp create-for-rbac` 建立服務主體
     1. 記下 appId (在其他地方稱為「用戶端識別碼」)、名稱、密碼及租用戶，以供稍後使用。
     2. 您還需要訂用帳戶識別碼，若要檢視此識別碼，請使用 `az account list`
 
-Fluent 計算程式庫可以使用這些認證來登入 (請注意，`IAzure` 這類核心 Fluent Azure 類型是在 [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) 套件中)，如下所示：
+Fluent 計算程式庫可以登入使用這些認證，如下所示 (請注意核心 fluent Azure 類型喜歡`IAzure`處於[Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/)封裝):
 
 ```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {

@@ -4,14 +4,14 @@ description: 了解具有 Azure Cosmos DB 與其他 Azure 服務之儲存體彈�
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 36b77ff6666c2c8b0d27cbdc8552ade15b21d005
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8206bff765b59ddc5d6be2388145bf51e1000241
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446186"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256886"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 跨足社交
 
@@ -220,7 +220,7 @@ Azure 搜尋服務會實作[索引子](https://msdn.microsoft.com/library/azure/
 
 ## <a name="a-planet-scale-social-experience"></a>全球規模的社交體驗
 
-最後，還有一項重要的主題必須和各位分享，那就是「延展性」。 在設計架構時，每個元件都應該自行調整。 您最終會需要處理更多資料，或者，會想要有更廣泛的地理涵蓋範圍。 幸好，透過 Cosmos DB，您便能**輕鬆完成**這兩項工作。
+最後，還有一項重要的主題必須和各位分享，那就是「延展性」  。 在設計架構時，每個元件都應該自行調整。 您最終會需要處理更多資料，或者，會想要有更廣泛的地理涵蓋範圍。 幸好，透過 Cosmos DB，您便能**輕鬆完成**這兩項工作。
 
 Cosmos DB 預設支援動態分割。 它會根據特定**資料分割索引鍵** (定義為您文件中的其中一項屬性) 自動建立資料分割。 定義正確的分割區索引鍵必須在設計階段完成。 如需詳細資訊，請參閱 [Azure Cosmos DB 中的資料分割](partitioning-overview.md)。
 

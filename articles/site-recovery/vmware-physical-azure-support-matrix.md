@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: raynew
-ms.openlocfilehash: 2d1999077f6315658dbfd69473ddf5561bd76e0b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 514aaaf7a274e60a17bbae62b3c62e7cf3668e7a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540595"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237310"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
@@ -43,17 +43,17 @@ VMware | vCenter Server 6.5、6.7、6.0 或 5.5 或 vSphere 6.7、6.5、6.0 或 
 --- |---
 CPU 核心 | 8
 RAM | 16 GB
-磁碟數 | 3 個磁碟<br/><br/> 磁碟包括作業系統磁碟、處理序伺服器快取磁碟和用於容錯回復的保留磁碟機。
+磁碟數量 | 3 個磁碟<br/><br/> 磁碟包括作業系統磁碟、處理序伺服器快取磁碟和用於容錯回復的保留磁碟機。
 磁碟可用空間 | 處理序伺服器快取需要 600 GB 的空間。
 磁碟可用空間 | 保留磁碟機需要 600 GB 的空間。
-作業系統  | Windows Server 2012 R2 或 Windows Server 2016 |
+作業系統  | Windows Server 2012 R2 或 Windows Server 2016，含桌面體驗 |
 作業系統地區設定 | 英文 (en-us)
 PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")不需要設定伺服器版本[9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)。
 Windows Server 角色 | 未啟用： <br/> - Active Directory Domain Services <br/>- 網際網路資訊服務 <br/> - Hyper-V |
 群組原則| 未啟用： <br/> - 防止存取命令提示字元。 <br/> - 防止存取登錄編輯工具。 <br/> - 檔案附件的信任邏輯。 <br/> - 開啟指令碼執行。 <br/> [深入了解](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | 請確定您已執行下列動作：<br/><br/> - 沒有預先存在的預設網站 <br/> - 啟用[匿名驗證](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> - 啟用 [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 設定  <br/> - 沒有預先存在的網站/應用程式接聽連接埠 443<br/>
 NIC 類型 | VMXNET3 (部署為 VMware VM 時)
-IP 位址類型 | 靜態
+IP 位址類型 | Static
 連接埠 | 443 (用於控制通道協調流程)<br/>9443 (用於資料傳輸)
 
 ## <a name="replicated-machines"></a>複寫的電腦
@@ -148,77 +148,77 @@ BTRFS |9.22 版本中，從 BTRFS 支援，但下列情況除外</br>如果在�
 
 **元件** | **支援**
 --- | ---
-Azure ExpressRoute | 有
-ILB | 有
-ELB | 有
-Azure 流量管理員 | 有
-多 NIC | 有
-保留的 IP 位址 | 有
-IPv4 | 有
-保留來源 IP 位址 | 有
-Azure 虛擬網路服務端點<br/> | 有
-加速網路 | 無
+Azure ExpressRoute | 是
+ILB | 是
+ELB | 是
+Azure 流量管理員 | 是
+多個 NIC | 是
+保留的 IP 位址 | 是
+IPv4 | 是
+保留來源 IP 位址 | 是
+Azure 虛擬網路服務端點<br/> | 是
+加速網路 | 否
 
 ## <a name="storage"></a>儲存體
 **元件** | **支援**
 --- | ---
 動態磁碟 | 作業系統磁碟必須是基本磁碟。 <br/><br/>資料磁碟可以是動態磁碟
-Docker 磁碟設定 | 無
+Docker 磁碟設定 | 否
 主機 NFS | VMware 為是<br/><br/> 實體伺服器為否
-主機 SAN (iSCSI/FC) | 有
+主機 SAN (iSCSI/FC) | 是
 主機 vSAN | VMware 為是<br/><br/> 實體伺服器為 N/A
 主機多重路徑 (MPIO) | 是，通過 Microsoft DSM、EMC PowerPath 5.7 SP4、EMC PowerPath DSM for CLARiiON 測試
 主機虛擬磁碟區 (VVol) | VMware 為是<br/><br/> 實體伺服器為 N/A
-客體/伺服器 VMDK | 有
-客體/伺服器共用叢集磁碟 | 無
-客體/伺服器加密磁碟 | 無
-客體/伺服器 NFS | 無
-客體/伺服器 iSCSI | 無
-客體/伺服器 SMB 3.0 | 無
-客體/伺服器 RDM | 有<br/><br/> 實體伺服器為 N/A
-客體/伺服器磁碟 > 1 TB | 有<br/><br/>最多 4,095 GB<br/><br/> 磁碟必須大於 1024 MB。
-客體/伺服器磁碟使用 4K 邏輯與 4k 實體磁區大小 | 有
-客體/伺服器磁碟使用 4K 邏輯與 512 位元組實體磁區大小 | 有
-客體/伺服器磁碟區使用等量磁碟 > 4 TB <br/><br/>邏輯磁碟區管理 (LVM)| 有
-客體/伺服器 - 儲存體空間 | 無
-客體/伺服器 熱新增/移除磁碟 | 無
-客體/伺服器 - 排除磁碟 | 有
-客體/伺服器多重路徑 (MPIO) | 無
+客體/伺服器 VMDK | 是
+客體/伺服器共用叢集磁碟 | 否
+客體/伺服器加密磁碟 | 否
+客體/伺服器 NFS | 否
+客體/伺服器 iSCSI | 否
+客體/伺服器 SMB 3.0 | 否
+客體/伺服器 RDM | 是<br/><br/> 實體伺服器為 N/A
+客體/伺服器磁碟 > 1 TB | 是<br/><br/>最多 4,095 GB<br/><br/> 磁碟必須大於 1024 MB。
+客體/伺服器磁碟使用 4K 邏輯與 4k 實體磁區大小 | 是
+客體/伺服器磁碟使用 4K 邏輯與 512 位元組實體磁區大小 | 是
+客體/伺服器磁碟區使用等量磁碟 > 4 TB <br/><br/>邏輯磁碟區管理 (LVM)| 是
+客體/伺服器 - 儲存體空間 | 否
+客體/伺服器 熱新增/移除磁碟 | 否
+客體/伺服器 - 排除磁碟 | 是
+客體/伺服器多重路徑 (MPIO) | 否
 客體/伺服器 EFI/UEFI 開機 | 當移轉 VMware Vm 或實體伺服器執行 Windows Server 2012 或更新版本支援至 Azure。<br/><br/> 您只能複寫 Vm 移轉。 不支援容錯回復至內部部署。<br/><br/> 伺服器的 OS 磁碟上不應有超過 4 個磁碟分割。<br/><br/> 需要行動服務 9.13 版或更新版本。<br/><br/> 只支援 NTFS。
 
 ## <a name="replication-channels"></a>複寫通道
 
 |**複寫類型**   |**支援**  |
 |---------|---------|
-|卸載的資料傳輸 (ODX)    |       無  |
-|離線植入        |   無      |
-| Azure 資料箱 | 無
+|卸載的資料傳輸 (ODX)    |       否  |
+|離線植入        |   否      |
+| Azure 資料箱 | 否
 
 
 ## <a name="azure-storage"></a>Azure 儲存體
 
 **元件** | **支援**
 --- | ---
-本地備援儲存體 | 有
-異地備援儲存體 | 有
-讀取權限異地備援儲存體 | 有
-非經常性儲存體 | 無
-經常性存取儲存體| 無
-區塊 Blob | 無
-待用資料加密 (儲存體服務加密)| 有
-進階儲存體 | 有
-匯入/匯出服務 | 無
-設定在目標儲存體/快取儲存體帳戶 (用於儲存複寫資料) 上適用於虛擬網路的 Azure 儲存體防火牆 | 有
-一般用途 v2 儲存體帳戶 (經常性存取層和非經常性存取層) | 無
+本地備援儲存體 | 是
+異地備援儲存體 | 是
+讀取權限異地備援儲存體 | 是
+非經常性儲存體 | 否
+經常性存取儲存體| 否
+區塊 Blob | 否
+待用資料加密 (儲存體服務加密)| 是
+進階儲存體 | 是
+匯入/匯出服務 | 否
+設定在目標儲存體/快取儲存體帳戶 (用於儲存複寫資料) 上適用於虛擬網路的 Azure 儲存體防火牆 | 是
+一般用途 v2 儲存體帳戶 (經常性存取層和非經常性存取層) | 否
 
 ## <a name="azure-compute"></a>Azure 計算
 
 **功能** | **支援**
 --- | ---
-可用性設定組 | 有
-可用性區域 | 無
-中樞 | 有
-受控磁碟 | 有
+可用性設定組 | 是
+可用性區域 | 否
+中樞 | 是
+受控磁碟 | 是
 
 ## <a name="azure-vm-requirements"></a>Azure VM 需求
 
@@ -263,16 +263,16 @@ VM 上所有磁碟的尖峰資料變換 | 54 MB/秒
 
 **動作** | **支援**
 --- | ---
-在資源群組間移動保存庫<br/><br/> 订阅内和跨订阅移动 | 無
-跨資源群組間移動儲存體、網路、Azure VM<br/><br/> 內及跨訂用帳戶 | 無
+在資源群組間移動保存庫<br/><br/> 內及跨訂用帳戶 | 否
+跨資源群組間移動儲存體、網路、Azure VM<br/><br/> 內及跨訂用帳戶 | 否
 
 
 ## <a name="download-latest-azure-site-recovery-components"></a>下載最新的 Azure Site Recovery 元件
 
 **名稱** | **說明** | **最新版本下載指示**
 --- | --- | ---
-設定伺服器 | 協調內部部署 VMware 伺服器與 Azure 之間的通訊  <br/><br/> 安裝在內部部署 VMware 伺服器上 | 如需詳細資訊，請造訪我們的指引[全新安裝](vmware-azure-deploy-configuration-server.md)並[升級至最新版本的現有元件的](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。
-處理伺服器|預設會安裝在組態伺服器上。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。 隨著部署規模擴大，您可以新增額外的個別處理序伺服器，以處理日較大的複寫流量。| 如需詳細資訊，請造訪我們的指引[全新安裝](vmware-azure-set-up-process-server-scale.md)並[升級至最新版本的現有元件的](vmware-azure-manage-process-server.md#upgrade-a-process-server)。
+組態伺服器 | 協調內部部署 VMware 伺服器與 Azure 之間的通訊  <br/><br/> 安裝在內部部署 VMware 伺服器上 | 如需詳細資訊，請造訪我們的指引[全新安裝](vmware-azure-deploy-configuration-server.md)並[升級至最新版本的現有元件的](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。
+處理序伺服器|預設會安裝在組態伺服器上。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。 隨著部署規模擴大，您可以新增額外的個別處理序伺服器，以處理日較大的複寫流量。| 如需詳細資訊，請造訪我們的指引[全新安裝](vmware-azure-set-up-process-server-scale.md)並[升級至最新版本的現有元件的](vmware-azure-manage-process-server.md#upgrade-a-process-server)。
 行動服務 | 協調內部部署 VMware 伺服器/實體伺服器和 Azure/次要站台間複寫<br/><br/> 安裝於 VMware VM 上或您想要複寫的實體伺服器上 | 如需詳細資訊，請造訪我們的指引[全新安裝](vmware-azure-install-mobility-service.md)並[升級至最新版本的現有元件的](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal)。
 
 若要深入了解最新的功能，請瀏覽[最新版本資訊](https://aka.ms/ASR_latest_release_notes)。

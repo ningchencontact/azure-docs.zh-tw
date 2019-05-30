@@ -1,5 +1,5 @@
 ---
-title: 连接到 SAP 系统 - Azure 逻辑应用
+title: 連接到 SAP 系統-Azure Logic Apps
 description: 存取和管理自動化使用 Azure Logic Apps 的工作流程的 SAP 資源
 services: logic-apps
 ms.service: logic-apps
@@ -10,16 +10,16 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 05/09/2019
 tags: connectors
-ms.openlocfilehash: 3fb39103fc9cb0f38bca56dcaeea4837ff4dfabe
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: bccefec80ef3afd6d312bb1048d3be5d8e708728
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541498"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258156"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SAP 系統
 
-本文說明如何存取您內部部署 SAP 資源從邏輯應用程式內使用 SAP 連接器。 該連接器適用於 SAP 的傳統版本，例如 R/3、ECC 系統內部部署。 連接器也可讓具有例如 S/4 HANA、 SAP 的較新 HANA 為基礎的 SAP 系統的整合，只要它們裝載-在內部部署或雲端中。 SAP 連接器支援 SAP NetWeaver 為基礎的系統，透過中繼文件 (IDoc) 或商務應用程式發展介面 (BAPI) 或遠端函式呼叫 (RFC) 來回的訊息或資料整合。
+本文說明如何存取您內部部署 SAP 資源從邏輯應用程式內使用 SAP 連接器。 連接器適用於 SAP 的 R/3、ECC 系統內部部署等傳統版本。 連接器也可讓具有例如 S/4 HANA、 SAP 的較新 HANA 為基礎的 SAP 系統的整合，只要它們裝載-在內部部署或雲端中。 SAP 連接器支援 SAP NetWeaver 為基礎的系統，透過中繼文件 (IDoc) 或商務應用程式發展介面 (BAPI) 或遠端函式呼叫 (RFC) 來回的訊息或資料整合。
 
 使用 SAP 連接器[SAP.NET 連接器 (NCo) 程式庫](https://support.sap.com/en/product/connectors/msnet.html)，並提供這些作業或動作：
 
@@ -27,7 +27,7 @@ ms.locfileid: "65541498"
 * **從 SAP 接收**：透過 tRFC 接收 IDoc、 tRFC，透過呼叫 BAPI 函式或呼叫 RFC/tRFC 的 SAP 系統中。
 * **產生結構描述**：產生 IDoc、 BAPI 或 RFC 的 SAP 成品的結構描述。
 
-針對上述所有作業，SAP 連接器透過使用者名稱和密碼支援基本驗證。 連接器也支援[安全網路通訊 (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true)，可用的 SAP NetWeaver 單一登入或外部的安全性產品所提供的額外的安全性功能。
+針對上述所有作業，SAP 連接器都支援透過使用者名稱和密碼進行的基本驗證。 連接器也支援[安全網路通訊 (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true)，可用的 SAP NetWeaver 單一登入或外部的安全性產品所提供的額外的安全性功能。
 
 SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gateway-connection.md)與內部部署 SAP 系統整合。 在傳送的情況下，比方說，SAP 系統，從邏輯應用程式傳送訊息時資料閘道做為 RFC 用戶端，並將要求從 logic apps 接收到 SAP 轉送。
 同樣地，在接收的情況下，部署資料閘道做為 RFC 伺服器，會從 SAP 接收要求，並將轉送至邏輯應用程式。
@@ -78,11 +78,11 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，建立空白的邏輯應用程式，以開啟邏輯應用程式設計工具。
 
-1. 在搜尋方塊中，輸入「http 要求」做為篩選條件。 從觸發程序清單中，選取此觸發程序：**收到 HTTP 请求时**
+1. 在搜尋方塊中，輸入「http 要求」做為篩選條件。 從觸發程序清單中，選取此觸發程序：**收到 HTTP 要求時**
 
    ![新增 HTTP 要求觸發程序](./media/logic-apps-using-sap-connector/add-trigger.png)
 
-1. 現在請儲存邏輯應用程式，即可產生邏輯應用程式的端點 URL。 在設計工具的工具列上，選擇 [儲存]。
+1. 現在請儲存邏輯應用程式，即可產生邏輯應用程式的端點 URL。 在設計工具的工具列上，選擇 [儲存]  。
 
    端點 URL 現在會出現在您的觸發程序中，例如：
 
@@ -102,7 +102,7 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
   
    ![選取 SAP 傳送動作](media/logic-apps-using-sap-connector/select-sap-send-action.png)
 
-   或者不要搜尋，而是選擇 [企業] 索引標籤，然後選取 SAP 動作。
+   或者不要搜尋，而是選擇 [企業]  索引標籤，然後選取 SAP 動作。
 
    ![從 [企業] 索引標籤選取 SAP 傳送動作](media/logic-apps-using-sap-connector/select-sap-send-action-ent-tab.png)
 
@@ -110,17 +110,19 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
    **建立內部部署 SAP 連線**
 
-   1. 提供 SAP 伺服器的連線資訊。 針對 [資料閘道] 屬性，請選取您在 Azure 入口網站中建立用於安裝閘道的資料閘道。
+   1. 提供 SAP 伺服器的連線資訊。 針對 [資料閘道]  屬性，請選取您在 Azure 入口網站中建立用於安裝閘道的資料閘道。
 
-      如果 [登入類型] 屬性設定為 [應用程式伺服器]，則需要這些通常會顯示為選擇性項目的屬性：
+      如果 [登入類型]  屬性設定為 [應用程式伺服器]  ，則需要這些通常會顯示為選擇性項目的屬性：
 
       ![建立 SAP 應用程式伺服器連線](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-      如果 [登入類型] 屬性設定為 [群組]，則需要這些通常會顯示為選擇性項目的屬性：
+      如果 [登入類型]  屬性設定為 [群組]  ，則需要這些通常會顯示為選擇性項目的屬性：
 
       ![建立 SAP 訊息伺服器連線](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-   1. 完成之後，請選擇 [建立]。
+      根據預設，強型別用來檢查有無效的值，藉由執行 XML 結構描述的驗證。 此行為可協助您稍早偵測出問題。 **安全輸入**選項適用於回溯相容性，而且只會檢查字串的長度。 深入了解[**安全輸入**選項](#safe-typing)。
+
+   1. 完成之後，請選擇 [建立]  。
 
       Logic Apps 會設定並測試連線，以確定連線運作正常。
 
@@ -141,7 +143,7 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
       如需有關 IDoc 作業的詳細資訊，請參閱 [IDOC 作業的訊息結構描述](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)。
 
-   1. 在 [輸入訊息] 方塊內按一下，動態內容清單隨即顯示。 在該清單中的 [收到 HTTP 要求時] 之下，選取 [內文] 欄位。
+   1. 在 [輸入訊息]  方塊內按一下，動態內容清單隨即顯示。 在該清單中的 [收到 HTTP 要求時]  之下，選取 [內文]  欄位。
 
       此步驟包含來自 HTTP 要求觸發程序的內文內容，且可傳送該輸出結果至您的 SAP 伺服器。
 
@@ -151,7 +153,7 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
       ![完整的 SAP 動作](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
 
-1. 儲存您的邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]。
+1. 儲存您的邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]  。
 
 <a name="add-response"></a>
 
@@ -163,7 +165,7 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
 1. 在搜尋方塊中，輸入「回應」做為篩選條件。 從 [動作] 清單中，選取此動作：**回應**
 
-1. 在 [內文] 方塊內按一下，動態內容清單隨即顯示。 從該清單下方**傳送訊息至 SAP**，選取**主體**欄位。
+1. 在 [內文]  方塊內按一下，動態內容清單隨即顯示。 從該清單下方**傳送訊息至 SAP**，選取**主體**欄位。
 
    ![完整的 SAP 動作](./media/logic-apps-using-sap-connector/select-sap-body-for-response-action.png)
 
@@ -171,9 +173,9 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
 ### <a name="test-your-logic-app"></a>測試應用程式邏輯
 
-1. 如果邏輯應用程式尚未啟用，請在邏輯應用程式功能表上，選擇 [概觀]。 在工具列上，選擇 [啟用]。
+1. 如果邏輯應用程式尚未啟用，請在邏輯應用程式功能表上，選擇 [概觀]  。 在工具列上，選擇 [啟用]  。
 
-1. 在「邏輯應用程式設計工具」的工具列上，選擇 [執行]。 此步驟會手動啟動您的邏輯應用程式。
+1. 在「邏輯應用程式設計工具」的工具列上，選擇 [執行]  。 此步驟會手動啟動您的邏輯應用程式。
 
 1. 將 HTTP POST 要求傳送至 HTTP 要求觸發程序中的 URL，以觸發邏輯應用程式，然後再透過要求加入訊息內容。 若要傳送內容，您可使用 [Postman](https://www.getpostman.com/apps) 之類的工具。
 
@@ -215,15 +217,17 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
    **建立內部部署 SAP 連線**
 
-   1. 提供 SAP 伺服器的連線資訊。 針對 [資料閘道] 屬性，請選取您在 Azure 入口網站中建立用於安裝閘道的資料閘道。
+   1. 提供 SAP 伺服器的連線資訊。 針對 [資料閘道]  屬性，請選取您在 Azure 入口網站中建立用於安裝閘道的資料閘道。
 
-      如果 [登入類型] 屬性設定為 [應用程式伺服器]，則需要這些通常會顯示為選擇性項目的屬性：
+      如果 [登入類型]  屬性設定為 [應用程式伺服器]  ，則需要這些通常會顯示為選擇性項目的屬性：
 
       ![建立 SAP 應用程式伺服器連線](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-      如果 [登入類型] 屬性設定為 [群組]，則需要這些通常會顯示為選擇性項目的屬性：
+      如果 [登入類型]  屬性設定為 [群組]  ，則需要這些通常會顯示為選擇性項目的屬性：
 
       ![建立 SAP 訊息伺服器連線](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
+
+      根據預設，強型別用來檢查有無效的值，藉由執行 XML 結構描述的驗證。 此行為可協助您稍早偵測出問題。 **安全輸入**選項適用於回溯相容性，而且只會檢查字串的長度。 深入了解[**安全輸入**選項](#safe-typing)。
 
 1. 根據 SAP 系統設定提供必要的參數。
 
@@ -244,7 +248,7 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
    如需 SAP 動作的詳細資訊，請參閱 [IDOC 作業的訊息結構描述](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)
 
 1. 現在儲存邏輯應用程式，以便可以開始從 SAP 系統接收訊息。
-在設計工具的工具列上，選擇 [儲存]。
+在設計工具的工具列上，選擇 [儲存]  。
 
 邏輯應用程式現在已準備好從 SAP 系統接收訊息。
 
@@ -255,7 +259,7 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
 1. 若要觸發邏輯應用程式，請從 SAP 系統傳送訊息。
 
-1. 在邏輯應用程式的功能表上，選擇 [概觀]，並檢閱 [執行歷程記錄] 以了解邏輯應用程式是否有任何新的執行。
+1. 在邏輯應用程式的功能表上，選擇 [概觀]  ，並檢閱 [執行歷程記錄]  以了解邏輯應用程式是否有任何新的執行。
 
 1. 開啟最近的執行，其會在觸發程序的輸出區段中顯示從 SAP 系統傳送的訊息。
 
@@ -267,12 +271,12 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
 1. 在 Azure 入口網站中，建立空白的邏輯應用程式，以開啟邏輯應用程式設計工具。
 
-1. 在搜尋方塊中，輸入「http 要求」做為篩選條件。 從觸發程序清單中，選取此觸發程序：**收到 HTTP 请求时**
+1. 在搜尋方塊中，輸入「http 要求」做為篩選條件。 從觸發程序清單中，選取此觸發程序：**收到 HTTP 要求時**
 
    ![新增 HTTP 要求觸發程序](./media/logic-apps-using-sap-connector/add-trigger.png)
 
 1. 現在請儲存邏輯應用程式，即可產生邏輯應用程式的端點 URL。
-在設計工具的工具列上，選擇 [儲存]。
+在設計工具的工具列上，選擇 [儲存]  。
 
    端點 URL 現在會出現在您的觸發程序中，例如：
 
@@ -288,7 +292,7 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
   
    ![選取 SAP 傳送動作](media/logic-apps-using-sap-connector/select-sap-schema-generator-action.png)
 
-   或者您也可以選擇 [企業] 索引標籤，然後選取 SAP 動作。
+   或者您也可以選擇 [企業]  索引標籤，然後選取 SAP 動作。
 
    ![從 [企業] 索引標籤選取 SAP 傳送動作](media/logic-apps-using-sap-connector/select-sap-schema-generator-ent-tab.png)
 
@@ -296,17 +300,21 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
    **建立內部部署 SAP 連線**
 
-   1. 提供 SAP 伺服器的連線資訊。 針對 [資料閘道] 屬性，請選取您在 Azure 入口網站中建立用於安裝閘道的資料閘道。
+   1. 提供 SAP 伺服器的連線資訊。 針對 [資料閘道]  屬性，請選取您在 Azure 入口網站中建立用於安裝閘道的資料閘道。
 
-      如果 [登入類型] 屬性設定為 [應用程式伺服器]，則需要這些通常會顯示為選擇性項目的屬性：
+      如果 [登入類型]  屬性設定為 [應用程式伺服器]  ，則需要這些通常會顯示為選擇性項目的屬性：
 
       ![建立 SAP 應用程式伺服器連線](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-      如果 [登入類型] 屬性設定為 [群組]，則需要這些通常會顯示為選擇性項目的屬性：
+      如果 [登入類型]  屬性設定為 [群組]  ，則需要這些通常會顯示為選擇性項目的屬性：
 
       ![建立 SAP 訊息伺服器連線](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-   1. 完成之後，請選擇 [建立]。 Logic Apps 會設定並測試連線，以確定連線運作正常。
+      根據預設，強型別用來檢查有無效的值，藉由執行 XML 結構描述的驗證。 此行為可協助您稍早偵測出問題。 **安全輸入**選項適用於回溯相容性，而且只會檢查字串的長度。 深入了解[**安全輸入**選項](#safe-typing)。
+
+   1. 完成之後，請選擇 [建立]  。 
+   
+      Logic Apps 會設定並測試連線，以確定連線運作正常。
 
 1. 針對您要產生結構描述的成品提供其路徑。
 
@@ -326,11 +334,11 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
    如需 SAP 動作的詳細資訊，請參閱 [IDOC 作業的訊息結構描述](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)。
 
-1. 儲存您的邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]。
+1. 儲存您的邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]  。
 
 ### <a name="test-your-logic-app"></a>測試應用程式邏輯
 
-1. 在設計工具的工具列上，選擇 [執行] 來觸發邏輯應用程式的執行。
+1. 在設計工具的工具列上，選擇 [執行]  來觸發邏輯應用程式的執行。
 
 1. 開啟 [執行]，並檢查輸出**產生結構描述**動作。
 
@@ -340,7 +348,7 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
 (選擇性) 您可以在存放庫 (例如，Blob、儲存體或企業整合帳戶) 下載或儲存產生的結構描述。 企業整合帳戶搭配其他 XML 動作可提供一流的體驗，因此這個範例會說明如何使用 Azure Resource Manager 連接器，將相同邏輯應用程式的結構描述上傳到企業整合帳戶。
 
-1. 在邏輯應用程式設計工具中的觸發程序之下，選擇 [新增步驟]。
+1. 在邏輯應用程式設計工具中的觸發程序之下，選擇 [新增步驟]  。
 
 1. 在 [搜尋] 方塊中，輸入 「 資源管理員 」 作為篩選條件。 選取此動作：**建立或更新資源**
 
@@ -369,11 +377,11 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
    > }
    > ```
 
-1. 儲存您的邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]。
+1. 儲存您的邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]  。
 
 ### <a name="test-your-logic-app"></a>測試應用程式邏輯
 
-1. 在設計工具的工具列上，選擇 [執行] 來手動觸發邏輯應用程式。
+1. 在設計工具的工具列上，選擇 [執行]  來手動觸發邏輯應用程式。
 
 1. 成功之後執行，請移至 整合帳戶，並檢查產生的結構描述存在。
 
@@ -391,7 +399,7 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
    ![在 連線設定 SAP SNC](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
-   | 屬性 | 說明 |
+   | 屬性 | 描述 |
    |----------| ------------|
    | **SNC 程式庫** | SNC 程式庫名稱或相對於 NCo 安裝位置的路徑或絕對路徑。 例如，`sapsnc.dll`或`.\security\sapsnc.dll`或 `c:\security\sapsnc.dll` |
    | **SNC SSO** | 當透過 SNC 連接，SNC 身分識別通常用於驗證呼叫者。 另一個選項是覆寫，讓使用者名稱和密碼的資訊可用來驗證呼叫者，但仍屬於加密列。 |
@@ -402,6 +410,53 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
    > [!NOTE]
    > SNC_LIB 和 SNC_LIB_64 的環境變數不應該設定在電腦上擁有部署資料閘道和 SNC 程式庫。 如果設定，它們會優先於傳遞透過連接器的 SNC 程式庫值。
+
+<a name="safe-typing"></a>
+
+## <a name="safe-typing"></a>設定輸入的安全
+
+根據預設，當您建立您的 SAP 連線，強型別用來檢查有無效的值，藉由執行 XML 結構描述的驗證。 此行為可協助您稍早偵測出問題。 **安全輸入**選項適用於回溯相容性，而且只會檢查字串的長度。 如果您選擇**安全輸入**，DATS 型別和 TIMS SAP 中的型別為字串而非 XML 的對應項，處理`xs:date`並`xs:time`其中`xmlns:xs="http://www.w3.org/2001/XMLSchema"`。 安全輸入將會影響所有的結構描述產生，用於 「 已傳送 」 裝載和 「 已收到 」 回應，而且觸發程序傳送訊息的行為。 
+
+當使用強型別 (**安全輸入**未啟用)，以更簡單的 XML 型別對應 DATS 和 TIMS 類型的結構描述：
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true" type="xs:date"/>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true" type="xs:time"/>
+```
+
+傳送訊息使用強型別時，DATS 和 TIMS 回應就會符合比對的 XML 型別格式：
+
+```xml
+<DATE>9999-12-31</DATE>
+<TIME>23:59:59</TIME>
+```
+
+當**安全輸入**已啟用，結構描述對應 DATS 和 TIMS 型別，以 XML 字串的欄位長度限制，例如：
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="8" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+```
+
+當傳送的訊息**安全輸入**啟用，DATS 和 TIMS 回應看起來像此範例中：
+
+```xml
+<DATE>99991231</DATE>
+<TIME>235959</TIME>
+```
+
 
 ## <a name="known-issues-and-limitations"></a>已知問題與限制
 

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9ee8800d84d1090f97fb72980123f59d5aa0375
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cf8e7fed30a9b25b2960e3321eca5c4398911f35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783486"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236256"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>使用 Azure Active Directory 應用程式 Proxy 時的網路拓撲考量
 
@@ -102,7 +102,7 @@ ms.locfileid: "65783486"
 
 雖然本文的重點是連接器放置，但您也可以變更應用程式的位置，以取得較佳的延遲特性。
 
-有愈來愈多的組織將其網路移至託管環境。 這可讓它們將自己的應用程式放在託管環境中，這也是其公司網路的一部分，並仍在網域內。 在此情況下，前幾節中所討論的模式可以套用至新的應用程式位置。 如果您正在考慮此選項，請參閱 [AD Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md)。
+有愈來愈多的組織將其網路移至託管環境。 這可讓它們將自己的應用程式放在託管環境中，這也是其公司網路的一部分，並仍在網域內。 在此情況下，前幾節中所討論的模式可以套用至新的應用程式位置。 如果您正在考慮此選項，請參閱 [AD Domain Services](../../active-directory-domain-services/overview.md)。
 
 此外，請考慮使用[連接器群組](application-proxy-connector-groups.md)來組織連接器，以鎖定位於不同位置和網路的應用程式。 
 

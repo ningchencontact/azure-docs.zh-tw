@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b808654baded5bbe721866441a8d1115eff7bcaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 842d3146bf1927871e29eb750cde09e9029b7c12
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308871"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242093"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>檢視活動記錄中 Azure 資源的各種 RBAC 變更
 
@@ -121,9 +121,9 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 1. [建立 Log Analytics 工作區](../azure-monitor/learn/quick-create-workspace.md)。
 
-1. 為您的工作區[設定活動記錄分析解決方案](../azure-monitor/platform/collect-activity-logs.md#configuration)。
+1. 為您的工作區[設定活動記錄分析解決方案](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution)。
 
-1. [檢視活動記錄](../azure-monitor/platform/collect-activity-logs.md#using-the-solution)。 若要瀏覽至 [活動 Log Analytics 解決方案概觀] 頁面的快速方法是按一下**Log Analytics**選項。
+1. [檢視活動記錄](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution)。 若要瀏覽至 [活動 Log Analytics 解決方案概觀] 頁面的快速方法是按一下**Log Analytics**選項。
 
    ![Azure 監視器登入入口網站的選項](./media/change-history-report/azure-log-analytics-option.png)
 

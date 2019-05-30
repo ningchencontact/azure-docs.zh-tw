@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04-04-2019
-ms.author: barbaraselden
+ms.date: 04/04/2019
+ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: d8686b9296c8b1d7c5232e2e46a0e66a9896656b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 04a2e9968e8716818637a34adea86de88e1f848c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113015"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388316"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>規劃 Azure AD 應用程式 Proxy 部署
 
@@ -92,8 +92,8 @@ Azure Active Directory (Azure AD) 應用程式 Proxy 是在內部部署應用程
 
 | 資訊類型| 若要收集的資訊 |
 |---|---|
-| 服務類型| 例如：SharePoint、 SAP、 CRM、 自訂的 Web 應用程式、 API |
-| 應用程式平台 | 例如：Windows IIS、 Apache 在 Linux、 Tomcat、 NGINX |
+| 服務類型| 例如: SharePoint、 SAP、 CRM、 自訂的 Web 應用程式、 API |
+| 應用程式平台 | 例如: Windows IIS、 Apache 在 Linux、 Tomcat、 NGINX |
 | 網域成員資格| 網頁伺服器的完整的網域名稱 (FQDN) |
 | 應用程式位置 | Web 伺服器或伺服陣列基礎結構中位於何處 |
 | 內部存取 | 在內部存取應用程式時，使用正確的 URL。 <br> 如果伺服陣列中，負載平衡類型正在使用？ <br> 是否在應用程式會從本身以外的來源，繪製內容。<br> 如果應用程式的運作透過 WebSockets 的決定。 |
@@ -232,9 +232,9 @@ Azure Active Directory (Azure AD) 應用程式 Proxy 是在內部部署應用程
 
 請確認您的應用程式可透過存取透過外部 URL 的應用程式 Proxy 存取。 
 
-1. 瀏覽至 [Azure Active Directory] > [企業應用程式] > [所有應用程式]，然後選擇您要管理的應用程式。
+1. 瀏覽至 [Azure Active Directory]   > [企業應用程式]   > [所有應用程式]  ，然後選擇您要管理的應用程式。
 
-2. 選取 [應用程式 Proxy]。
+2. 選取 [應用程式 Proxy]  。
 
 3. 在 **預先驗證**欄位中，使用下拉式清單中選取**Azure Active Directory**，然後選取**儲存**。
 
@@ -280,7 +280,7 @@ Microsoft 是代表授與執行所需的工作，與 Azure AD 的最低可能權
 
 | 商務角色| 商業工作| Azure AD 角色 |
 |---|---|---|
-| 協助服務中心系統管理員 | 通常僅限於合格的使用者報告問題並執行有限的工作，例如變更使用者的密碼，讓重新整理權杖失效和監視服務健康情況。 | 技術服務管理員 |
+| 協助服務中心系統管理員 | 通常僅限於合格的使用者報告問題並執行有限的工作，例如變更使用者的密碼，讓重新整理權杖失效和監視服務健康情況。 | 服務台系統管理員 |
 | 身分識別管理| 讀取 Azure AD 登入報告和稽核記錄檔偵錯應用程式 Proxy 的相關問題。| 安全性讀取者 |
 | 應用程式擁有者| 建立和管理企業應用程式、 應用程式註冊和應用程式 proxy 設定的所有層面。| 應用程式系統管理員 |
 | 基礎結構系統管理員 | 憑證變換的擁有者 | 應用程式系統管理員 |

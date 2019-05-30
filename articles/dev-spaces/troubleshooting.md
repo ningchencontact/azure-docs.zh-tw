@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
-ms.openlocfilehash: 39ef23d04dc1cf1b48297ecf8f0accfef4935cd2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 693abccd7e54a1dfef92cd57a715ac96bfd56a8c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158946"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234012"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -32,7 +32,7 @@ ms.locfileid: "66158946"
 
 ## <a name="debugging-services-with-multiple-instances"></a>針對具有多個執行個體的服務進行偵錯
 
-目前 Azure Dev Spaces 在針對單一執行個體 (或 Pod) 進行偵錯時效果最佳。 azds.yaml 檔案包含一個 replicaCount 設定，此設定會指出 Kubernetes 將為服務執行的 Pod 數目。 如果您變更 replicaCount 以將應用程式設定成針對指定的服務執行多個 Pod，偵錯工具將會連結至第一個 Pod (依字母順序列出時)。 偵錯工具會在該原始 Pod 回收時連結至不同的 Pod，而可能導致非預期的行為。
+目前 Azure Dev Spaces 在針對單一執行個體 (或 Pod) 進行偵錯時效果最佳。 azds.yaml 檔案包含一個 replicaCount  設定，此設定會指出 Kubernetes 將為服務執行的 Pod 數目。 如果您變更 replicaCount 以將應用程式設定成針對指定的服務執行多個 Pod，偵錯工具將會連結至第一個 Pod (依字母順序列出時)。 偵錯工具會在該原始 Pod 回收時連結至不同的 Pod，而可能導致非預期的行為。
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>錯誤「無法建立 Azure Dev Spaces 控制器」
 
@@ -71,13 +71,13 @@ azds up --verbose --output json
 
 在 Visual Studio 中：
 
-1. 開啟 [工具] > [選項]，然後在 [專案和解決方案] 底下選擇 [建置並執行]。
-2. 將 **MSBuild 專案建置輸出詳細資訊**的設定變更為 [詳細] 或 [診斷]。
+1. 開啟 [工具] > [選項]  ，然後在 [專案和解決方案]  底下選擇 [建置並執行]  。
+2. 將 **MSBuild 專案建置輸出詳細資訊**的設定變更為 [詳細]  或 [診斷]  。
 
     ![工具選項對話方塊的螢幕擷取畫面](media/common/VerbositySetting.PNG)
     
 ### <a name="multi-stage-dockerfiles"></a>多階段 Dockerfile：
-在使用多階段 Dockerfile 時，您會收到「服務無法啟動」的錯誤。 在此情況下，詳細資訊輸出會包含下列文字：
+在使用多階段 Dockerfile 時，您會收到「服務無法啟動」  的錯誤。 在此情況下，詳細資訊輸出會包含下列文字：
 
 ```cmd
 $ azds up -v
@@ -95,7 +95,7 @@ Service cannot be started.
 之所以會發生此錯誤，是因為 AKS 節點執行的是較舊版 Docker，不支援多階段組建。 若要避免多階段組建，請重寫 Dockerfile。
 
 ### <a name="rerunning-a-service-after-controller-re-creation"></a>在重新建立控制器之後重新執行服務
-在將與此叢集關聯的 Azure Dev Spaces 控制器移除並再予以重新建立之後，嘗試重新執行服務時，您會收到「服務無法啟動」的錯誤。 在此情況下，詳細資訊輸出會包含下列文字：
+在將與此叢集關聯的 Azure Dev Spaces 控制器移除並再予以重新建立之後，嘗試重新執行服務時，您會收到「服務無法啟動」  的錯誤。 在此情況下，詳細資訊輸出會包含下列文字：
 
 ```cmd
 Installing Helm chart...
@@ -111,7 +111,7 @@ Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already ex
 
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>與 Dev Spaces 服務相關聯的公用 URL 進行 DNS 名稱解析失敗
 
-您可以藉由對 `azds prep` 命令指定 `--public` 參數，或藉由在 Visual Studio 中選取 `Publicly Accessible` 核取方塊，來為服務設定公用 URL 端點。 當您在 Dev Spaces 中執行服務時，公用 DNS 名稱會自動完成註冊。 如果此 DNS 名稱未完成註冊，您就會在連線至公用 URL 時，於網頁瀏覽器中看到「頁面無法顯示」或「網站無法連線」的錯誤。
+您可以藉由對 `azds prep` 命令指定 `--public` 參數，或藉由在 Visual Studio 中選取 `Publicly Accessible` 核取方塊，來為服務設定公用 URL 端點。 當您在 Dev Spaces 中執行服務時，公用 DNS 名稱會自動完成註冊。 如果此 DNS 名稱未完成註冊，您就會在連線至公用 URL 時，於網頁瀏覽器中看到「頁面無法顯示」  或「網站無法連線」  的錯誤。
 
 ### <a name="try"></a>請嘗試︰
 
@@ -121,9 +121,9 @@ Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already ex
 azds list-uris
 ```
 
-如果 URL 處於「擱置」狀態，表示 Dev Spaces 仍在等候 DNS 註冊完成。 有時需要幾分鐘的時間才能完成註冊。 Dev Spaces 也會為每個服務開啟一個 localhost 通道，您在等候 DNS 登錄完成時可以使用此通道。
+如果 URL 處於「擱置」  狀態，表示 Dev Spaces 仍在等候 DNS 註冊完成。 有時需要幾分鐘的時間才能完成註冊。 Dev Spaces 也會為每個服務開啟一個 localhost 通道，您在等候 DNS 登錄完成時可以使用此通道。
 
-如果 URL 處於「擱置」狀態超過 5 分鐘，可能表示建立公用端點的外部 DNS Pod 或取得公用端點的 nginx 輸入控制器 Pod 有問題。 您可以使用下列命令來刪除這些 Pod。 AKS 會自動重新建立已刪除的 Pod。
+如果 URL 處於「擱置」  狀態超過 5 分鐘，可能表示建立公用端點的外部 DNS Pod 或取得公用端點的 nginx 輸入控制器 Pod 有問題。 您可以使用下列命令來刪除這些 Pod。 AKS 會自動重新建立已刪除的 Pod。
 
 ```cmd
 kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
@@ -167,7 +167,7 @@ kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-in
 ## <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>「因語言不受支援而無法產生 Dockerfile」的警告
 Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中執行 *azds prep*，而該目錄包含以其中一種語言撰寫的程式碼，Azure Dev Spaces 將自動為您建立適當的 Dockerfile。
 
-您仍可透過以其他語言撰寫的程式碼來使用 Azure Dev Spaces，但在第一次執行 azds up 之前，您必須先手動建立 Dockerfile。
+您仍可透過以其他語言撰寫的程式碼來使用 Azure Dev Spaces，但在第一次執行 azds up  之前，您必須先手動建立 Dockerfile。
 
 ### <a name="try"></a>請嘗試︰
 如果您的應用程式是以 Azure Dev Spaces 未原生支援的語言所撰寫，您就必須提供適當的 Dockerfile，建置用來執行程式碼的容器映像。 Docker 提供[撰寫 Dockerfile 的最佳做法清單](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)及 [Dockerfile 參考](https://docs.docker.com/engine/reference/builder/)，可協助您撰寫符合需求的 Dockerfile。
@@ -242,13 +242,13 @@ VS Code 延伸模組預設會使用 `src` 作為容器上專案的工作目錄�
 ### <a name="try"></a>請嘗試︰
 必須執行什麼動作：
 1. 修改 _azds.yaml_ 檔案以將建置內容設定到解決方案層級。
-2. 修改 _Dockerfile_ 和 _Dockerfile.develop_ 檔案，以相對於新建置內容的方式，正確參考專案 (_.csproj_) 檔案。
+2. 修改 _Dockerfile_ 和 _Dockerfile.develop_ 檔案，以相對於新建置內容的方式，正確參考專案 ( _.csproj_) 檔案。
 3. 將 _.dockerignore_ 檔案放在 .sln 檔案旁邊，並且視需要加以修改。
 
 您可以在 https://github.com/sgreenmsft/buildcontextsample 中找到範例
 
 ## <a name="microsoftdevspacesregisteraction-authorization-error"></a>'Microsoft.DevSpaces/register/action' 授權錯誤
-您需要 Azure 訂用帳戶中的「擁有者」或「參與者」權限才能管理 Azure Dev Spaces。 如果您嘗試管理 Dev Spaces，卻沒有相關聯 Azure 訂用帳戶的「擁有者」或「參與者」權限，就可能會看到此錯誤。
+您需要 Azure 訂用帳戶中的「擁有者」  或「參與者」  權限才能管理 Azure Dev Spaces。 如果您嘗試管理 Dev Spaces，卻沒有相關聯 Azure 訂用帳戶的「擁有者」  或「參與者」  權限，就可能會看到此錯誤。
 `The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
 ### <a name="reason"></a>`Reason`
@@ -261,7 +261,7 @@ VS Code 延伸模組預設會使用 `src` 作為容器上專案的工作目錄�
 az provider register --namespace Microsoft.DevSpaces
 ```
 
-## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>AKS 虛擬節點在執行到「正在等待容器映像組建...」步驟時，Dev Spaces 發生逾時
+## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>AKS 虛擬節點在執行到「正在等待容器映像組建...」  步驟時，Dev Spaces 發生逾時
 
 ### <a name="reason"></a>`Reason`
 當您嘗試執行設定上執行的 service fabric 中使用開發人員空間時，就會發生此逾時[AKS 虛擬節點](https://docs.microsoft.com/azure/aks/virtual-nodes-portal)。 Dev Spaces 目前不支援在虛擬節點上建置服務或對服務進行偵錯。
@@ -281,7 +281,7 @@ Container image build failed
 上述命令會顯示服務的 pod 已指派給*虛擬節點-aci-linux*，這是虛擬節點。
 
 ### <a name="try"></a>請嘗試︰
-更新服務的 Helm 圖表，以移除任何允許服務在虛擬節點上執行的 nodeSelector 及/或 tolerations 值。 這些值通常會定義在圖表的 `values.yaml` 檔案中。
+更新服務的 Helm 圖表，以移除任何允許服務在虛擬節點上執行的 nodeSelector  及/或 tolerations  值。 這些值通常會定義在圖表的 `values.yaml` 檔案中。
 
 如果您想要透過 Dev Spaces 建置/偵錯的服務是在 VM 節點上執行的，則仍可使用已啟用虛擬節點功能的 AKS 叢集。 這是預設組態。
 
@@ -309,15 +309,15 @@ Container image build failed
 當您在 AKS 叢集中的命名空間上啟用 Dev Spaces 時，即會在每個於該命名空間內執行的 Pod 中額外安裝名為 _mindaro proxy_ 的容器。 此容器會攔截對 Pod 中之服務的呼叫，這對 Dev Spaces 小組開發功能而言是不可或缺的；不過，其可能會干擾在這些 Pod 中執行的特定服務。 它稱為適用於 Redis 執行 Azure 快取，這將導致連線錯誤和失敗的主要/次要通訊的 pod 會干擾。
 
 ### <a name="try"></a>請嘗試︰
-您可以將受影響的 Pod 移至未啟用 Dev Spaces 的叢集內所含的命名空間。 應用程式的其餘部分則可繼續在已啟用 Dev Spaces 的命名空間內執行。 Dev Spaces 將不會在啟用非 Dev Spaces 的命名空間內安裝 _mindaro-proxy_ 容器。
+您可以將受影響的 Pod 移至未  啟用 Dev Spaces 的叢集內所含的命名空間。 應用程式的其餘部分則可繼續在已啟用 Dev Spaces 的命名空間內執行。 Dev Spaces 將不會在啟用非 Dev Spaces 的命名空間內安裝 _mindaro-proxy_ 容器。
 
 ## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev Spaces 似乎未使用我現有的 Dockerfile 來建置容器
 
 ### <a name="reason"></a>`Reason`
-Azure Dev Spaces 可以設定為指向您專案中的特定 _Dockerfile_。 如果發生 Azure Dev Spaces 未使用您預期的 Dockerfile 來建置容器的情形，您可能需要明確告訴 Azure Dev Spaces 要使用哪個 Dockerfile。 
+Azure Dev Spaces 可以設定為指向您專案中的特定 _Dockerfile_。 如果發生 Azure Dev Spaces 未使用您預期的 Dockerfile  來建置容器的情形，您可能需要明確告訴 Azure Dev Spaces 要使用哪個 Dockerfile。 
 
 ### <a name="try"></a>請嘗試︰
-在專案中開啟 Azure Dev Spaces 所產生的 azds.yaml 檔案。 使用 *configurations->develop->build->dockerfile* 指示詞，以指向您想要使用的 Dockerfile：
+在專案中開啟 Azure Dev Spaces 所產生的 azds.yaml  檔案。 使用 *configurations->develop->build->dockerfile* 指示詞，以指向您想要使用的 Dockerfile：
 
 ```
 ...
@@ -388,7 +388,7 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
     * 針對*角色*選取*參與者*或是*擁有者*。
     * 針對*存取權指派給*選取*Azure AD 使用者、 群組或服務主體*。
     * 針對*選取*搜尋您想要授與權限的使用者。
-1. 按一下 [檔案] 。
+1. 按一下 [檔案]  。
 
 ## <a name="controller-create-failing-due-to-controller-name-length"></a>控制站建立失敗的原因是控制器名稱長度
 
@@ -404,3 +404,8 @@ Azure 開發人員空格控制站的名稱長度不能超過 31 個字元。 如
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
 ```
+
+## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>啟用 Windows 節點的集區新增至 AKS 叢集時，開發人員空間失敗
+
+### <a name="reason"></a>`Reason`
+目前，Azure 開發人員的空格被要在 Linux 上的 pod 和僅限節點上執行。 在這個階段中，您無法在 AKS 叢集與 Windows 節點集區上啟用 Azure 開發人員的空格。

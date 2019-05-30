@@ -7,38 +7,38 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: fc731b1abec9c101356a0fa57eef498b58612ab9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791369"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399722"
 ---
 # <a name="throttling-resource-manager-requests"></a>對 Resource Manager 要求進行節流
 
 針對每個 Azure 訂用帳戶和租用戶，Resource Manager 允許每小時最多有 12,000 個讀取要求和 1,200 個寫入要求。 這些限制之範圍包括提出要求的主體識別碼，以及訂用帳戶識別碼或租用戶識別碼。 如果您的要求來自多個主體識別碼，則訂用帳戶或租用戶之間的限制會大於每小時 12,000 個和 1,200 個。
 
-要求數適用於您的訂用帳戶或您的租用戶。 訂用帳戶要求是涉及傳遞訂用帳戶識別碼的要求，例如擷取訂用帳戶中的資源群組。 租用戶要求則未包含訂用帳戶識別碼，例如擷取有效的 Azure 位置。
+要求數適用於您的訂用帳戶或您的租用戶。 訂用帳戶的要求是涉及傳遞您的訂用帳戶識別碼，例如擷取訂用帳戶中的資源群組。 租用戶要求則未包含訂用帳戶識別碼，例如擷取有效的 Azure 位置。
 
 這些限制適用於每個 Azure Resource Manager 執行個體。 每個 Azure 區域中都有多個執行個體，且 Azure Resource Manager 會部署到所有 Azure 區域。  因此，實際上的限制比這些限制還要高，因為通常是由多個不同的執行個體來服務使用者要求。
 
-如果應用程式或指令碼到達這些限制，便需要對要求進行節流。 本文说明如何在达到限制之前确定剩余的请求数，以及达到限制时如何做出响应。
+如果應用程式或指令碼到達這些限制，便需要對要求進行節流。 這篇文章說明如何判斷剩餘的要求，您必須先達到限制，以及您已達到限制時如何回應。
 
 當您到達限制時，您會收到 HTTP 狀態碼 **429 太多要求**。
 
 Azure 資源的圖表會限制其作業的要求數目。 若要判斷剩餘的要求以及如何回應達到限制時的這篇文章中的步驟也適用於資源的圖形。 不過，資源圖表會將自己限制和重設的速率。 如需詳細資訊，請參閱 <<c0> [ 在 Azure 資源 Graph 節流](../governance/resource-graph/overview.md#throttling)。
 
 ## <a name="remaining-requests"></a>剩餘的要求
-您可以藉由檢查回應標頭來判斷剩餘的要求數。 读取请求在标头中返回一个值，表示剩余读取请求的数目。 写入请求包含的值表示剩余写入请求的数目。 下表描述可供檢查這些值的回應標頭︰
+您可以藉由檢查回應標頭來判斷剩餘的要求數。 讀取要求會傳回其餘的讀取要求數之標頭中的值。 寫入要求包含其餘的寫入要求數目的值。 下表描述可供檢查這些值的回應標頭︰
 
-| 回應標頭 | 說明 |
+| 回應標頭 | 描述 |
 | --- | --- |
 | x-ms-ratelimit-remaining-subscription-reads |受訂用帳戶限制的剩餘讀取。 讀取作業會傳回此值。 |
 | x-ms-ratelimit-remaining-subscription-writes |受訂用帳戶限制的剩餘寫入。 寫入作業會傳回此值。 |
 | x-ms-ratelimit-remaining-tenant-reads |受租用戶限制的剩餘讀取 |
 | x-ms-ratelimit-remaining-tenant-writes |受租用戶限制的剩餘寫入 |
 | x-ms-ratelimit-remaining-subscription-resource-requests |受訂用帳戶限制的剩餘資源類型要求。<br /><br />只有在服務已覆寫預設限制時，才會傳回此標頭值。 Resource Manager 會新增此值，而非訂用帳戶讀取或寫入。 |
-| x-ms-ratelimit-remaining-subscription-resource-entities-read |受訂用帳戶限制的剩餘資源類型集合要求。<br /><br />仅当服务重写了默认限制时，才返回此标头值。 這個值會提供剩餘的集合要求 (列出資源) 數目。 |
+| x-ms-ratelimit-remaining-subscription-resource-entities-read |受訂用帳戶限制的剩餘資源類型集合要求。<br /><br />只有在服務已覆寫預設限制時，才會傳回此標頭值。 這個值會提供剩餘的集合要求 (列出資源) 數目。 |
 | x-ms-ratelimit-remaining-tenant-resource-requests |受租用戶限制的剩餘資源類型要求。<br /><br />只有租用戶層級的要求且在服務已覆寫預設限制時，才會新增此標頭。 Resource Manager 會新增此值，而非租用戶讀取或寫入。 |
 | x-ms-ratelimit-remaining-tenant-resource-entities-read |受租用戶限制的剩餘資源類型集合要求。<br /><br />只有租用戶層級的要求且在服務已覆寫預設限制時，才會新增此標頭。 |
 

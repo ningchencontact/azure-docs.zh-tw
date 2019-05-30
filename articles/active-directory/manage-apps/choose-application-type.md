@@ -15,19 +15,19 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6e1a1c614bfa126d58cf9343f945d16fd1c2733
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 30a4bfa2cf7a39a28db0575a6851f5b7b481524c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65781020"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388179"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>在 Azure Active Directory 中新增應用程式時，選擇應用程式類型
 了解您可以對 Azure Active Directory (Azure AD) 新增的 4 個應用程式類型。 當您在 Azure Active Directory 中新增應用程式時，系統會提示您選擇四個應用程式類型中的其中一個。 
 
 ## <a name="what-are-the-types-of-applications"></a>應用程式類型是什麼？
 
-Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用程式]下的 [新增] 功能新增這幾種類型。 其中包含：
+Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用程式]  下的 [新增]  功能新增這幾種類型。 其中包含：
 
 -   **Azure AD 資源庫應用程式** – 與 Azure AD 預先整合以啟用單一登入的應用程式。
 
@@ -80,7 +80,7 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
   >
   >
 
-- **以標頭為基礎的登入** – 如果有您想要執行單一登入的應用程式，且它使用的 PingAccess 支援以 HTTP 標頭為基礎的驗證 ，請選擇這個[以標頭為基礎的登入](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad)單一登入模式 
+- **以標頭為基礎的登入** – 如果有您想要執行單一登入的應用程式，且它使用的 PingAccess 支援以 HTTP 標頭為基礎的驗證 ，請選擇這個[以標頭為基礎的登入](application-proxy-configure-single-sign-on-with-ping-access.md)單一登入模式 
 
   >[!NOTE]
   >只有在已設定應用程式的應用程式 Proxy 和 PingAccess 時，才能使用此選項。
@@ -112,21 +112,21 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 若要設定應用程式的**單一登入**模式，請遵循下列指示：
 
-1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
+1. 開啟 [Azure 入口網站  ](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]  ，以開啟 [Azure Active Directory 延伸模組]  。
 
-3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory]  項目。
 
-4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]  。
 
-5. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
+5. 按一下 [所有應用程式]  ，以檢視所有應用程式的清單。
 
-   * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
+   * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單]  頂端的 [篩選]  控制項，並將 [顯示]  選項設定為 [所有應用程式]  。
 
 6. 選取您要設定單一登入的應用程式。
 
-7. 應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
+7. 應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]  。
 
 ## <a name="how-to-choose-a-provisioning-mode"></a>如何選擇佈建模式
 
@@ -152,21 +152,21 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 若要設定應用程式的**單一登入**模式，請遵循下列指示：
 
-1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
+1. 開啟 [Azure 入口網站  ](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]  ，以開啟 [Azure Active Directory 延伸模組]  。
 
-3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory]  項目。
 
-4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]  。
 
-5. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
+5. 按一下 [所有應用程式]  ，以檢視所有應用程式的清單。
 
-   * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
+   * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單]  頂端的 [篩選]  控制項，並將 [顯示]  選項設定為 [所有應用程式]  。
 
 6. 選取您要設定佈建的應用程式。
 
-7. 應用程式載入之後，按一下應用程式左側導覽功能表中的 [佈建]。
+7. 應用程式載入之後，按一下應用程式左側導覽功能表中的 [佈建]  。
 
 ## <a name="next-steps"></a>後續步驟
 [使用 Azure Active Directory 管理應用程式](what-is-application-management.md)

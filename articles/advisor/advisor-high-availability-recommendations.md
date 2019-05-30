@@ -8,16 +8,16 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 793c881d08e8feb038cc6e7ac82b7e95384e1b55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bdba3f135f852312af1692f77643095d865f1d06
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467722"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254676"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>利用 Azure Advisor 改善應用程式的可用性
 
-Azure Advisor 可協助您確保和改善業務關鍵應用程式的持續性。 您可以從 [建議程式] 儀表板的 [高可用性] 索引標籤，利用建議程式取得高可用性建議。
+Azure Advisor 可協助您確保和改善業務關鍵應用程式的持續性。 您可以從 [建議程式] 儀表板的 [高可用性]  索引標籤，利用建議程式取得高可用性建議。
 
 ## <a name="ensure-virtual-machine-fault-tolerance"></a>確保虛擬機器的容錯
 
@@ -70,11 +70,35 @@ Azure Advisor 可協助您確保和改善業務關鍵應用程式的持續性。
 
 Azure 建議程式會檢查的 VPN 閘道的基本 SKU，並建議您改為使用生產 SKU。 基本 SKU 專為開發和測試用途。 生產環境 Sku 提供較高數目的通道、 BGP 支援、 主動-主動組態選項、 自訂 Ipsec/IKE 原則和更高穩定性和可用性。
 
+## <a name="repair-invalid-log-alert-rules"></a>修復無效的記錄警示規則
+
+Azure Advisor 會偵測有無效的查詢，其條件區段中指定的警示規則。 記錄警示規則會在 Azure 監視器中建立，並用來執行分析查詢，以指定的間隔。 查詢的結果會判斷是否需要觸發警示。 分析查詢可能會變成無效的加班，因為參照的資源、 資料表或命令中的變更。 Advisor 會建議您更正警示規則，所以無法取得自動停用，並確保您在 Azure 中的資源的監視的涵蓋範圍中的查詢。 [深入了解疑難排解警示規則](https://aka.ms/aa_logalerts_queryrepair)
+
+## <a name="configure-consistent-indexing-mode-on-your-cosmos-db-collection"></a>Cosmos DB 集合上設定一致的編製索引模式
+
+使用延遲索引編製模式設定的 azure Cosmos DB 容器可能會影響查詢結果的有效性。 Advisor 會偵測這種方式設定容器，並建議您先切換到一致的模式。 [深入了解編製索引原則，在 Cosmos DB](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+
+## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>設定您的 Azure Cosmos DB 容器資料分割索引鍵
+
+Azure Advisor 會識別 Azure Cosmos DB 非資料分割集合，即將其佈建儲存體配額。 它會建議這些集合移轉至新的集合，使用資料分割索引鍵定義，以便它們可以自動相應放大服務。 [深入了解選擇資料分割索引鍵](https://aka.ms/cosmosdb/choose-partitionkey)
+
+## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>從 Nuget，升級為最新版本的 Azure Cosmos DB.NET SDK
+
+Azure Advisor 會識別 Azure Cosmos DB 帳戶，使用.NET SDK 的舊版本，並建議升級至最新版本從 Nuget 的最新的修正、 效能改進和功能的新功能。 [深入了解 Cosmos DB.NET SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+
+## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>從 Maven 將您的 Azure Cosmos DB Java SDK 升級為最新版本
+
+Azure Advisor 會識別 Azure Cosmos DB 帳戶，使用 Java SDK 的舊版本，並建議升級至最新版本從 Maven 最新的修正、 效能改進和功能的新功能。 [深入了解 Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+
+## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>升級至最新版本的 Azure Cosmos DB Spark 連接器，從 Maven
+
+Azure Advisor 會識別 Azure Cosmos DB 帳戶，使用 Cosmos DB Spark 連接器的舊版本，並建議升級至最新版本從 Maven 最新的修正、 效能改進和功能的新功能。 [深入了解 Cosmos DB Spark 連接器](https://aka.ms/cosmosdb/spark-connector)
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>如何存取建議程式中的高可用性建議
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後開啟 [Advisor](https://aka.ms/azureadvisordashboard)。
 
-2.  在 Advisor 儀表板上，按一下 [高可用性] 索引標籤。
+2.  在 Advisor 儀表板上，按一下 [高可用性]  索引標籤。
 
 ## <a name="next-steps"></a>後續步驟
 

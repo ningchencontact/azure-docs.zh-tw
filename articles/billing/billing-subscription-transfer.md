@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 05/24/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f070cafa026679eb9322ac7ba2eafe4c7e233d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 33d0e5f92d5de104530882b204b1f196360511b2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826750"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236448"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>將 Azure 訂用帳戶的擁有權轉移給另一個帳戶
 
@@ -37,10 +37,10 @@ ms.locfileid: "65826750"
 
 1. 選取要移轉的訂用帳戶。
 
-1. 將 [供應項目] 和 [供應項目識別碼][與支援供應項目清單對照](#supported)，確認您的訂閱是否符合自助式移轉的資格。
+1. 將 [供應項目]  和 [供應項目識別碼]  [與支援供應項目清單對照](#supported)，確認您的訂閱是否符合自助式移轉的資格。
 
    ![在帳戶中心裡確認訂閱的供應項目識別碼](./media/billing-subscription-transfer/image0.png)
-1. 按一下 [移轉訂用帳戶]。
+1. 按一下 [移轉訂用帳戶]  。
 
    ![Azure 帳戶的訂用帳戶索引標籤](./media/billing-subscription-transfer/image1.png)
 1. 指定接受者。
@@ -51,7 +51,7 @@ ms.locfileid: "65826750"
 
    ![移轉訂用帳戶對話方塊](./media/billing-subscription-transfer/image2.PNG)
 
-1. 接收方会自动收到含有接受链接的电子邮件。
+1. 接受者會自動收到含有接受連結的電子郵件。
 
    ![給接受者的訂用帳戶移轉電子郵件](./media/billing-subscription-transfer/image3.png)
 1. 接受者按一下連結並遵循指示進行，包括輸入他們的付款資訊。
@@ -72,7 +72,7 @@ ms.locfileid: "65826750"
 1. 您現在是帳戶管理員。請檢閱並更新服務管理員、共同管理員和其他 RBAC 角色。 若要深入了解，請參閱[新增或變更 Azure 訂用帳戶管理員](billing-add-change-azure-subscription-administrator.md)和[使用 RBAC 和 Azure 入口網站來管理存取權](../role-based-access-control/role-assignments-portal.md)。
 1. 更新與此訂用帳戶服務相關聯的認證，包括：
    1. 可將使用者管理權限授與給訂用帳戶資源的管理憑證。 如需詳細資訊，請參閱 [建立和上傳 Azure 的管理憑證](../cloud-services/cloud-services-certs-create.md)
-   1. 存储空间等服务的访问密钥。 如需詳細資訊，請參閱[關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)
+   1. 服務 (例如儲存體) 的存取金鑰。 如需詳細資訊，請參閱[關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)
    1. 服務 (例如 Azure 虛擬機器) 的遠端存取認證。
 1. 如果您正與合作夥伴協力作業，請考慮更新此訂用帳戶的合作夥伴 ID。 您可以在 [Azure 入口網站](https://portal.azure.com)更新合作夥伴識別碼。
 
@@ -102,11 +102,13 @@ ms.locfileid: "65826750"
 
 ### <a name="whoisaa"></a> 訂用帳戶的帳戶管理員是誰？
 
-帳戶管理員就是註冊或購買 Azure 訂閱的人員。 他們已獲得授權存取[帳戶中心](https://account.azure.com/Subscriptions)並可執行各種管理工作，像是建立訂用帳戶、取消訂用帳戶、變更訂用帳戶的計費方式，或變更服務管理員。 如果您不確定誰是訂用帳戶的帳戶管理員，請使用下列步驟來找出帳戶管理員。
+帳戶管理員就是註冊或購買 Azure 訂閱的人員。 他們已獲得授權存取[帳戶中心](https://account.azure.com/Subscriptions)並可執行各種管理工作，像是建立訂用帳戶、取消訂用帳戶、變更訂用帳戶的計費方式，或變更服務管理員。 如需有關了解系統管理員角色和權限的詳細資訊，請參閱[Azure Active Directory 中的系統管理員角色權限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+
+如果您不確定誰是訂用帳戶的帳戶管理員，請使用下列步驟來找出帳戶管理員。
 
 1. 瀏覽 [Azure 入口網站中的 [訂用帳戶] 頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)。
-1. 選取您想要檢查的訂用帳戶，然後查看 [設定]。
-1. 選取 [屬性] 。 該訂用帳戶的帳戶管理員會顯示在 [帳戶管理員]  方塊中。
+1. 選取您想要檢查的訂用帳戶，然後查看 [設定]  。
+1. 選取 [屬性]  。 該訂用帳戶的帳戶管理員會顯示在 [帳戶管理員]  方塊中。
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>所有項目都會移轉嗎？ 包括資源群組、VM、磁碟和其他執行中的服務？
 
@@ -140,9 +142,9 @@ Azure 訂用帳戶建立在帳戶管理員所屬的目錄中。 若要變更目�
 如果接受者需要限制對其資源的存取權，則應考慮更新所有與服務相關聯的密碼。 您可以使用下列步驟來更新大部分的資源：
 
   1. 移至 [Azure 入口網站](https://portal.azure.com)。
-  2. 在 [中樞] 功能表中，選取 [所有資源]。
+  2. 在 [中樞] 功能表中，選取 [所有資源]  。
   3. 選取資源。
-  4. 在資源刀鋒視窗中，按一下 [設定] 。 您可以在這裡檢視並更新現有的密碼。
+  4. 在資源刀鋒視窗中，按一下 [設定]  。 您可以在這裡檢視並更新現有的密碼。
 
 ### <a name="if-i-transfer-the-subscription-in-the-middle-of-the-billing-cycle-does-the-recipient-pay-for-the-entire-billing-cycle"></a>如果我在計費週期中途移轉訂閱，接受者需要支付整個計費週期的費用嗎？
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
-ms.openlocfilehash: 13183282e5e607f0052194a474203f97e0160adb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c100bd6815e003d49efcdca65b16d7efa35ac34
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610902"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234244"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Azure 可用的安全性服務與技術
 
@@ -69,7 +69,7 @@ ms.locfileid: "60610902"
 | [Azure&nbsp;角色&nbsp;型&nbsp;存取控制](../active-directory/role-based-access-control-configure.md)|存取控制功能，旨在根據使用者在其組織內的角色，只允許他們存取必須存取的資源。  |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)|雲端式驗證存放庫，可支援多租用戶、雲端式目錄，以及 Azure 內的多項身分識別管理服務。  |
 | [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)|身分識別管理服務，可控制客戶在使用以 Azure 為基礎的應用程式時如何註冊、登入及管理其設定檔。   |
-| [Azure Active Directory 網域服務](../active-directory-domain-services/active-directory-ds-overview.md)| Active Directory Domain Services 的雲端式受控版本。 |
+| [Azure Active Directory 網域服務](../active-directory-domain-services/overview.md)| Active Directory Domain Services 的雲端式受控版本。 |
 | [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)| 安全性佈建，其在允許存取受保護的資訊前，採用數種不同形式的驗證。 |
 
 ## <a name="backup-and-disaster-recovery"></a>備份和災害復原

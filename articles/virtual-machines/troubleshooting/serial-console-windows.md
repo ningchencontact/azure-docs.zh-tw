@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 6fd7f36510bdc7ed56ede6a5743a5f131149472e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 32d385416c83f81553e734d9471d0b502a458b07
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834744"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390497"
 ---
 # <a name="azure-serial-console-for-windows"></a>Windows azure 的序列主控台
 
@@ -39,7 +39,7 @@ ms.locfileid: "65834744"
 
 - 您會使用序列主控台的帳戶必須具備[虛擬機器參與者 」 角色](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)vm 並[開機診斷](boot-diagnostics.md)儲存體帳戶
 
-- 您的 VM 或虛擬機器擴展集執行個體必須具有以密碼為基礎的使用者。 您可以使用 VM 存取擴充的[重設密碼](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password)功能來建立一個帳戶。 然後，選取 [支援與疑難排解] 區段中的 [重設密碼]。
+- 您的 VM 或虛擬機器擴展集執行個體必須具有以密碼為基礎的使用者。 您可以使用 VM 存取擴充的[重設密碼](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password)功能來建立一個帳戶。 然後，選取 [支援與疑難排解]  區段中的 [重設密碼]  。
 
 * 您正在其中存取序列主控台的 VM 必須啟用[開機診斷](boot-diagnostics.md)。
 
@@ -54,7 +54,7 @@ ms.locfileid: "65834744"
 
   1. 瀏覽至**的所有資源**選取虛擬機器。 將會開啟該 VM 的概觀頁面。
 
-  1. 向下捲動至 [支援與疑難排解] 區段，然後選取 [序列主控台]。 這會開啟含有序列主控台的新窗格，並開始連線。
+  1. 向下捲動至 [支援與疑難排解]  區段，然後選取 [序列主控台]  。 這會開啟含有序列主控台的新窗格，並開始連線。
 
 ### <a name="serial-console-for-virtual-machine-scale-sets"></a>虛擬機器擴展集的序列主控台
 每個執行個體為基礎的虛擬機器擴展集上使用序列主控台。 您必須瀏覽至虛擬機器擴展集的個別執行個體，才可以看到**序列主控台** 按鈕。 如果您的虛擬機器擴展集並沒有啟用開機診斷，請確定您更新您的虛擬機器擴展集模型，以啟用開機診斷，然後才能存取序列主控台再升級至新的模型的所有執行個體。
@@ -122,7 +122,7 @@ Azure 上的新版 Windows Server 映像預設會啟用[特殊系統管理主控
 
 ### <a name="use-cmd-or-powershell-in-serial-console"></a>使用 CMD 或 PowerShell，在序列主控台
 
-1. 連線到序列主控台。 如果連線成功，則提示為 **SAC>**：
+1. 連線到序列主控台。 如果連線成功，則提示為 **SAC>** ：
 
     ![連線到 SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
@@ -170,7 +170,9 @@ Windows Server 2019 或更新版本已支援適用於 Linux 的 Windows 子系�
 > 若要啟用或停用訂用帳戶的序列主控台，您必須有該訂用帳戶的寫入權限。 這些權限包括 (但不限於) 系統管理員或擁有者角色。 自訂角色也可以有寫入權限。
 
 ### <a name="subscription-level-disable"></a>訂用帳戶層級的停用
-透過[停用主控台 REST API 呼叫](/rest/api/serialconsole/console/disableconsole)，即可針對整個訂用帳戶停用序列主控台。 您可以使用 [API 文件] 頁面上提供的 [試用] 功能，針對訂用帳戶停用和啟用序列主控台。 針對 **subscriptionId** 輸入您的訂用帳戶識別碼，針對 **default** 輸入 "default"，然後選取 [執行]。 Azure CLI 命令尚未提供使用。
+透過[停用主控台 REST API 呼叫](/rest/api/serialconsole/console/disableconsole)，即可針對整個訂用帳戶停用序列主控台。 這個動作需要層級的參與者存取或更新版本的訂用帳戶。 您可以使用 [API 文件] 頁面上提供的 [試用]  功能，針對訂用帳戶停用和啟用序列主控台。 針對 **subscriptionId** 輸入您的訂用帳戶識別碼，針對 **default** 輸入 "default"，然後選取 [執行]  。 Azure CLI 命令尚未提供使用。
+
+若要重新啟用訂用帳戶的序列主控台，使用[啟用主控台 REST API 呼叫](/rest/api/serialconsole/console/enableconsole)。
 
 ![REST API 試用](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
@@ -262,9 +264,10 @@ Web 通訊端已關閉或無法開啟。 | 您可能需要將 `*.console.azure.c
 在連線橫幅之後按下 **Enter** 鍵並不會顯示登入提示。 | 如需詳細資訊，請參閱[按 Enter 鍵沒有任何作用](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md) \(英文\)。 如果您執行的是自訂 VM、強化設備，或是導致 Windows 無法正確地連線至序列埠的開機組態，則可能發生此錯誤。 如果您執行的是 Windows 10 用戶端 VM，也將發生此錯誤，因為只會將 Windows Server VM 設定為已啟用 EMS。
 在核心偵錯啟用時，無法在出現 SAC 提示時輸入。 | 透過 RDP 連線至 VM，並從更高權限的命令提示字元執行 `bcdedit /debug {current} off`。 如果您無法執行 RDP 連線，可以改為將作業系統磁碟連結至另一個 Azure VM，並在連結作為資料磁碟時透過執行 `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off` 加以修改，然後再將磁碟交換回來。
 在 SAC 中貼到 PowerShell 中時，如果原始內容中有重複字元，就會產生第三個字元。 | 因應措施是執行 `Remove-Module PSReadLine` 從目前的工作階段中卸載 PSReadLine 模組。 此動作不會刪除或解除安裝模組。
-某些鍵盤輸入會產生奇怪的 SAC 輸出 (例如 **[A**、**[3~**)。 | SAC 提示字元不支援 [VT100](https://aka.ms/vtsequences) 逸出序列。
+某些鍵盤輸入會產生奇怪的 SAC 輸出 (例如 **[A**、 **[3~** )。 | SAC 提示字元不支援 [VT100](https://aka.ms/vtsequences) 逸出序列。
 貼上長字串沒有作用。 | 序列主控台會將貼上至終端機的字串長度限制為 2048 個字元，以防止多載序列連接埠頻寬。
 序列主控台無法與儲存體帳戶防火牆搭配使用。 | 根據設計，序列主控台無法與開機診斷儲存體帳戶上啟用的儲存體帳戶防火牆搭配使用。
+序列主控台不適用於階層式命名空間搭配使用 Azure Data Lake 儲存體 Gen2 儲存體帳戶。 | 這是階層式命名空間的已知的問題。 若要減輕，確保您的 VM 開機診斷儲存體帳戶無法建立使用 Azure Data Lake 儲存體 Gen2。 只可以在儲存體帳戶建立時設定這個選項。 您可能不必建立個別的開機診斷儲存體帳戶，而不需要 Azure Data Lake 儲存體 Gen2 啟用來解決這個問題。
 
 
 ## <a name="frequently-asked-questions"></a>常見問題集

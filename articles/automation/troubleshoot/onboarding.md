@@ -4,16 +4,16 @@ description: 了解如何針對將更新管理、變更追蹤和清查解決方�
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8867912d98897a695c1e59ebd4177301230281bb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145154"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399764"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>針對將解決方案上線時的錯誤進行疑難排解
 
@@ -43,6 +43,24 @@ The solution cannot be enabled on this VM because the permission to read the wor
 
 確定您有正確的權限可讓虛擬機器上線。 檢閱[讓機器上線所需的權限](../automation-role-based-access-control.md#onboarding)，嘗試讓解決方案再次上線。 如果您收到錯誤`The solution cannot be enabled on this VM because the permission to read the workspace is missing`，請確定您有`Microsoft.OperationalInsights/workspaces/read`能夠找出 VM 是否為上的架到工作區的權限。
 
+### <a name="diagnostic-logging"></a>案例：上架失敗且顯示訊息-無法為診斷記錄設定自動化帳戶
+
+#### <a name="issue"></a>問題
+
+當您嘗試讓虛擬機器在解決方案上線時，您會收到下列訊息：
+
+```error
+Failed to configure automation account for diagnostic logging
+```
+
+#### <a name="cause"></a>原因
+
+如果定價層的訂用帳戶的計費模型不符，就可能造成此錯誤。 如需詳細資訊，請參閱 <<c0> [ 監視使用量和估計的成本，Azure 監視器中](http://aka.ms/PricingTierWarning)。
+
+#### <a name="resolution"></a>解決方案
+
+手動建立您的 Log Analytics 工作區，並重複執行上架程序，以選取 建立工作區。
+
 ### <a name="computer-group-query-format-error"></a>案例：ComputerGroupQueryFormatError
 
 #### <a name="issue"></a>問題
@@ -55,7 +73,7 @@ The solution cannot be enabled on this VM because the permission to read the wor
 
 #### <a name="resolution"></a>解決方案
 
-您可以刪除此解決方案的查詢，然後將解決方案重新上線，這樣會重新建立查詢。 您可以在工作區內的 [儲存的搜尋] 下方找到該查詢。 查詢的名稱是 **MicrosoftDefaultComputerGroup**，而查詢的類別是與這個查詢相關聯的解決方案名稱。 如果已啟用多個解決方案，**MicrosoftDefaultComputerGroup** 會在 [儲存的搜尋] 下方多次顯示。
+您可以刪除此解決方案的查詢，然後將解決方案重新上線，這樣會重新建立查詢。 您可以在工作區內的 [儲存的搜尋]  下方找到該查詢。 查詢的名稱是 **MicrosoftDefaultComputerGroup**，而查詢的類別是與這個查詢相關聯的解決方案名稱。 如果已啟用多個解決方案，**MicrosoftDefaultComputerGroup** 會在 [儲存的搜尋]  下方多次顯示。
 
 ### <a name="policy-violation"></a>案例：PolicyViolation
 
@@ -204,4 +222,4 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 * 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
 * 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。
-* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
+* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。

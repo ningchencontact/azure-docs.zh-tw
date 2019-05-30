@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2242c6fc46f5556de0b0dd63659670e9c3f998d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 399f72c7819378ddc1566c2bdde94801b2c71687
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540195"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235308"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>作法：設定應用程式的服務及隱私權聲明條款
 
@@ -44,7 +44,7 @@ ms.locfileid: "65540195"
 
 在新增應用程式的服務條款和隱私權聲明文件連結前，請確定 URL 符合下列指導方針。
 
-| 指導方針     | 說明                           |
+| 指導方針     | 描述                           |
 |---------------|---------------------------------------|
 | 格式        | 有效的 URL                             |
 | 有效的結構描述 | HTTP 和 HTTPS<br/>建議使用 HTTPS |
@@ -56,33 +56,20 @@ ms.locfileid: "65540195"
 
 準備好服務條款和隱私權聲明時，即可使用下列其中一種方法在應用程式中新增這些文件的連結：
 
-* [透過 Azure 入口網站](#registered-in-azure-portal)
-* [在應用程式註冊入口網站或開發人員中心](#registered-in-app-reg-portal)
+* [透過 Azure 入口網站](#azure-portal)
 * [使用應用程式物件 JSON](#app-object-json)
 * [使用 MSGraph 搶鮮版 (Beta) REST API](#msgraph-beta-rest-api)
 
-### <a name="registered-in-azure-portal"></a>如果您之前在 Azure 入口網站中註冊應用程式
-
-如果您之前在 Azure 入口網站中註冊應用程式，請遵循下列步驟。
+### <a name="azure-portal"></a>使用 Azure 入口網站
+遵循下列步驟在 Azure 入口網站中。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 瀏覽至 [應用程式註冊] 區段，然後選取應用程式。
-3. 開啟應用程式的 [屬性] 區段。
-4. 填妥 [服務條款 URL] 和 [隱私權聲明 URL] 欄位。
+2. 瀏覽至 [應用程式註冊]  區段，然後選取應用程式。
+3. 開啟**商標**窗格。
+4. 填妥 [服務條款 URL]  和 [隱私權聲明 URL]  欄位。
 5. 儲存您的變更。
 
     ![具有服務條款和隱私權聲明 URL 的應用程式屬性區段](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
-
-### <a name="registered-in-app-reg-portal"></a>如果您之前在應用程式註冊入口網站中註冊應用程式
-
-如果您之前在應用程式註冊入口網站或開發人員中心註冊應用程式，請遵循下列步驟。
-
-1. 登入[應用程式註冊入口網站](https://apps.dev.microsoft.com/)。
-2. 選取應用程式，然後捲動至 **[設定檔]** 區段。
-3. 填妥 [服務條款 URL] 和 [隱私權聲明 URL] 欄位。
-4. 儲存您的變更。
-
-    ![具有服務條款和隱私權聲明 URL 的應用程式設定檔區段](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>使用應用程式物件 JSON
 

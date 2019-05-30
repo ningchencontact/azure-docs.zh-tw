@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: 59cb14c86963d956b0bd63f65b10776dff4aa97f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ada62fbfa51604a6b3188c27d5c14da40c8ac116
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452716"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400215"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure 監視器 PowerShell 快速入門範例
 本文說明可協助您存取 Azure 監視器 功能的範例 PowerShell 命令。
@@ -42,6 +42,11 @@ Connect-AzAccount
 Get-AzSubscription
 ```
 
+若要查看使用中的內容 （的訂用帳戶會針對執行您的命令），請使用下列命令：
+
+```powershell
+Get-AzContext
+```
 若要將使用中的內容變更為不同的訂用帳戶，請使用下列命令：
 
 ```powershell
@@ -50,18 +55,23 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log-for-a-subscription"></a>擷取訂用帳戶的活動記錄檔
-使用 `Get-AzLog` Cmdlet。  以下是一些常見的範例。
+使用[Get AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet。  以下是一些常見的範例。 活動記錄檔會保留過去 90 天的作業。 錯誤訊息中使用此時間會產生之前的日期。  
+
+請參閱目前的日期/時間會以確認哪些時候將在下列命令：
+```powershell
+Get-Date
+```
 
 取得此時間/日期迄今的記錄檔項目︰
 
 ```powershell
-Get-AzLog -StartTime 2016-03-01T10:30
+Get-AzLog -StartTime 2019-03-01T10:30
 ```
 
 取得某個時間/日期範圍間的記錄檔項目︰
 
 ```powershell
-Get-AzLog -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
+Get-AzLog -StartTime 2019-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
 取得特定資源群組中的記錄檔項目︰
@@ -85,13 +95,13 @@ Get-AzLog -Caller 'myname@company.com'
 下列命令會擷取活動記錄檔中的最後 1000 個事件︰
 
 ```powershell
-Get-AzLog -MaxEvents 1000
+Get-AzLog -MaxRecord 10
 ```
 
 `Get-AzLog` 支援其他許多參數。 如需詳細資訊，請參閱 `Get-AzLog` 參考。
 
 > [!NOTE]
-> `Get-AzLog` 只提供 15 天的歷程記錄。 使用 **-MaxEvents** 參數可讓您查詢超過 15 天的前 N 個事件。 若要访问超过 15 天的事件，请使用 REST API 或 SDK（使用 SDK 的 C# 示例）。 如果您未包含 **StartTime**，則預設值是 **EndTime** 減去一小時。 如果您未包含 **EndTime**，則預設值是目前的時間。 所有時間都是採用 UTC 格式。
+> `Get-AzLog` 只提供 15 天的歷程記錄。 使用 **-MaxRecords**參數可讓您查詢的前 n 個事件，超過 15 天。 若要访问超过 15 天的事件，请使用 REST API 或 SDK（使用 SDK 的 C# 示例）。 如果您未包含 **StartTime**，則預設值是 **EndTime** 減去一小時。 如果您未包含 **EndTime**，則預設值是目前的時間。 所有時間都是採用 UTC 格式。
 > 
 > 
 
@@ -136,7 +146,7 @@ Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resou
 ## <a name="create-metric-alerts"></a>建立計量警示
 您可以使用 `Add-AlertRule` Cmdlet 建立、更新或停用警示規則。
 
-您可以分別使用 `New-AzAlertRuleEmail` 和 `New-AzAlertRuleWebhook` 建立電子郵件和 Webhook 屬性。 在警示規則 Cmdlet 中，將這些屬性當做動作，指派給警示規則的 [動作] 屬性。
+您可以分別使用 `New-AzAlertRuleEmail` 和 `New-AzAlertRuleWebhook` 建立電子郵件和 Webhook 屬性。 在警示規則 Cmdlet 中，將這些屬性當做動作，指派給警示規則的 [動作]  屬性。
 
 下表描述使用計量建立警示所使用的參數和值。
 
@@ -379,7 +389,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-in
 
 ```
 
-請注意，工作區識別碼屬性會接受工作區的資源識別碼。 您可以使用下列命令取得 Log Analytics 工作區的資源識別碼：
+請注意，工作區識別碼屬性會接受工作區的資源識別碼  。 您可以使用下列命令取得 Log Analytics 工作區的資源識別碼：
 
 ```powershell
 (Get-AzOperationalInsightsWorkspace).ResourceId

@@ -1,19 +1,19 @@
 ---
-title: 進階威脅防護 - 適用於 PostgreSQL 的 Azure 資料庫
+title: 進階的威脅防護-適用於 PostgreSQL 的 Azure 資料庫-單一伺服器
 description: 「進階威脅防護」會偵測出暗示對資料庫有潛在安全性威脅的異常資料庫活動。
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: 0521283f917d05a56d26503dc6f0af349f1ac1e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 81f42183276f95ddfb24fbdc388fef59acbe680e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560025"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073532"
 ---
-# <a name="azure-database-for-postgresql-advanced-threat-protection"></a>適用於 PostgreSQL 的 Azure 資料庫進階威脅防護
+# <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL-單一伺服器的 Azure 資料庫中的進階的威脅防護
 
 適用於 PostgreSQL 的 Azure 資料庫進階威脅防護偵測到異常活動，指出有不尋常及可能有害的活動試圖存取或惡意探索資料庫。
 

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: ce4a6ab24aaa5ed693f8d64782fb025a2ca9ce30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9979cb97ec578a59ba8263f2eb1fe53d41db862f
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251194"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399451"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>常見問題 - 從 Hyper-V 至 Azure 的災害復原
 
@@ -50,7 +50,7 @@ ms.locfileid: "60251194"
 是。 Site Recovery 會在容錯移轉時從第 2 代轉換成第 1 代。 在容錯回復時，機器會轉換回第 2 代。 [閱讀更多](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。
 
 
-### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>如果只有一个 VMM 服务器，可以部署带 VMM 的 Site Recovery 吗？
+### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>如果我只有一部 VMM 伺服器，可以部署 Site Recovery 搭配 VMM 嗎？
 
 是。 您可以將 VMM 雲端 Hyper-V 伺服器中的 VM 複寫至 Azure，或是在同一部伺服器上的 VMM 雲端之間進行複寫。 若要在內部部署環境之間進行複寫，建議您在主要站台與次要站台都要有 VMM 伺服器。 
 

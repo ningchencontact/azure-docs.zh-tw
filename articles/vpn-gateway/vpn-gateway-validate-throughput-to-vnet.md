@@ -2,31 +2,24 @@
 title: 驗證傳輸到 Microsoft Azure 虛擬網路的 VPN 輸送量 | Microsoft Docs
 description: 本文件的目的是在協助使用者驗證從其內部部署資源到 Azure 虛擬機器的網路輸送量。
 services: vpn-gateway
-documentationcenter: na
-author: chadmath
+author: cherylmc
 manager: jasmc
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/15/2018
+ms.date: 05/29/2019
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1117afcf6254c32ebe0a4e72ad5619606098253
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457503"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388620"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>如何驗證傳輸到虛擬網路的 VPN 輸送量
 
 VPN 閘道連線可讓您在 Azure 內的虛擬網路和內部部署 IT 基礎結構之間建立安全的跨單位連線。
 
-本文章說明如何驗證從內部部署資源到 Azure 虛擬機器 (VM) 的網路輸送量。 本文章也提供疑難排解指引。
+本文章說明如何驗證從內部部署資源到 Azure 虛擬機器 (VM) 的網路輸送量。 本文章也提供疑難排解指引。 
 
 >[!NOTE]
 >本文章旨在協助診斷和修正常見的問題。 如果您在使用下列資訊後仍無法解決問題，[請連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
@@ -49,7 +42,7 @@ VPN 閘道連線涉及下列元件：
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>計算最大預期輸入/輸出
 
 1.  判斷您應用程式的基準輸送量需求。
-2.  判斷您的 Azure VPN 閘道輸送量限制。 如需帮助，请参阅[关于 VPN 网关](vpn-gateway-about-vpngateways.md#gwsku)的“网关 SKU”部分。
+2.  判斷您的 Azure VPN 閘道輸送量限制。 如需說明，請參閱 「 閘道 Sku 」 一節[關於 VPN 閘道](vpn-gateway-about-vpngateways.md#gwsku)。
 3.  判斷 VM 大小的 [Azure VM 輸送量指引](../virtual-machines/virtual-machines-windows-sizes.md)。
 4.  決定您網際網路服務提供者 (ISP) 的頻寬。
 5.  計算您預期的輸送量 - 最小頻寬的 (VM、閘道、ISP) * 0.8。
@@ -77,7 +70,7 @@ iPerf 是我們用於此測試的工作，分別在 Windows 與 Linux 上工作�
 
 2. 在這兩個節點上，啟用連接埠 5001 的防火牆例外狀況。
 
-    **Windows：** 以管理员身份运行以下命令：
+    **Windows：** 系統管理員身分執行下列命令：
 
     ```CMD
     netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
@@ -89,7 +82,7 @@ iPerf 是我們用於此測試的工作，分別在 Windows 與 Linux 上工作�
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
      
-    **Azure Linux：** Azure Linux 映像具有限制性较低的防火墙。 如果有應用程式接聽連接埠，則允許通過流量。 受保護的自訂映像可能需要明確開啟連接埠。 常見的 Linux OS 層防火牆包括 `iptables`、`ufw` 或 `firewalld`。
+    **Azure Linux:** Azure 的 Linux 映像有寬鬆的防火牆。 如果有應用程式接聽連接埠，則允許通過流量。 受保護的自訂映像可能需要明確開啟連接埠。 常見的 Linux OS 層防火牆包括 `iptables`、`ufw` 或 `firewalld`。
 
 3. 在伺服器節點上，請變更至將 iperf3.exe 解壓縮的目錄。 然後在伺服器模式中執行 iPerf，並以下列命令設為接聽連接埠 5001︰
 
@@ -122,12 +115,12 @@ iPerf 是我們用於此測試的工作，分別在 Windows 與 Linux 上工作�
 ## <a name="address-slow-file-copy-issues"></a>處理檔案複製變慢的問題
 使用 Windows 檔案總管或透過 RDP 工作階段拖放時，您可能會遇到檔案複製變慢的問題。 此問題一般是因為下列一個或多個因素造成︰
 
-- 如 Windows 檔案總管與 RDP 的檔案應用程式，並未在複製檔案時使用多執行緒。 為了提升效能，請使用如 [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) 等多執行緒的檔案複製應用程式，以 16 或 32 條執行緒複製檔案。 如果要在 Richcopy 內變更用於檔案複製的執行緒數量，請按一下 [動作]  >  [複製選項]  >  [檔案複製] 。<br><br>
+- 如 Windows 檔案總管與 RDP 的檔案應用程式，並未在複製檔案時使用多執行緒。 為了提升效能，請使用如 [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) 等多執行緒的檔案複製應用程式，以 16 或 32 條執行緒複製檔案。 如果要在 Richcopy 內變更用於檔案複製的執行緒數量，請按一下 [動作]   >  [複製選項]   >  [檔案複製]  。<br><br>
 ![檔案複製變慢的問題](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - VM 磁碟讀取/寫入速度不足。 如需詳細資訊，請參閱 [Azure 儲存體疑難排解](../storage/common/storage-e2e-troubleshooting.md)。
 
 ## <a name="on-premises-device-external-facing-interface"></a>內部部署裝置的外部對應介面
-如果內部部署 VPN 裝置連結網際網路的 IP 位址包含在 Azure 中的 [區域網路](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) 定義內，您可能會遇到無法呼叫 VPN、零星中斷連線或效能問題。
+如果內部部署 VPN 裝置的網際網路對應 IP 位址包含在[本機網路](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway)在 Azure 中的位址空間定義，您可能會遇到無法呼叫 VPN、 零星中斷連線或效能問題。
 
 ## <a name="checking-latency"></a>檢查延遲
 使用 tracert 追蹤至 Microsoft Azure Edge 裝置，以判斷躍點之間是否有任何超過 100 ms 的延遲。

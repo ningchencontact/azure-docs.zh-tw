@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/23/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 82c438ea246ba18fa7dac2281d68a3ea7ba41db8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93b2cd3a2565b14ea07d6db6b14dd146e4223528
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60930195"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236908"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>媒體服務帳戶的角色型存取控制 (RBAC)
 
@@ -43,6 +43,7 @@ foreach (Microsoft.Azure.Management.Media.Models.Operation a in client.Operation
 - [傳統訂用帳戶管理員角色、Azure RBAC 角色和 Azure AD 管理員角色](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 - [什麼是適用於 Azure 資源的 RBAC？](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [使用 RBAC 管理存取](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
+- [媒體服務資源提供者作業](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftmedia)
 
 ## <a name="next-steps"></a>後續步驟
 
