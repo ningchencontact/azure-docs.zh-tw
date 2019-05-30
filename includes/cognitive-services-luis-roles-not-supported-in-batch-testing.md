@@ -11,10 +11,10 @@ ms.custom: include file
 ms.date: 03/29/2019
 ms.author: diberry
 ms.openlocfilehash: edfbd8a803404b32be0624fd14165d25061d14b7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "66123528"
 ---
 ## <a name="roles-in-batch-testing"></a>在批次測試的角色

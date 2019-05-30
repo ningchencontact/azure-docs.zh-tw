@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 9bc18157a6f60555ea18901796199a3fe9dc4c22
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 26ebeb463f42dce06c29a5bd3f69585430a2ee90
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891239"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306645"
 ---
 # <a name="install-and-run-face-containers"></a>安裝並執行臉部的容器
 
@@ -32,7 +32,7 @@ Azure 認知服務臉部偵測人臉映像中的 Docker 提供標準化的 Linux
 |--|--|
 |Docker 引擎| 必須安裝 Docker 引擎[主機電腦](#the-host-computer)。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> 在 Windows、 Docker 也必須設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 您需要 Docker 的概念，例如登錄、 存放庫、 容器和容器映像的基本知識。 您也需要的基本知識`docker`命令。| 
-|Azure`Cognitive Services`資源 |若要使用容器，您必須具備：<br><br>在 Azure 認知服務資源和相關聯的計費金鑰和計費的端點 URI。 這兩個值都位於**概觀**並**金鑰**資源的頁面。 需要他們以啟動容器。 新增`face/v1.0`BILLING_ENDPOINT_URI 下例所示，路由傳送至端點 URI: <br><br>**{BILLING_KEY}**：資源金鑰<br><br>**{BILLING_ENDPOINT_URI}**： 端點的 URI 範例 `https://westus.api.cognitive.microsoft.com/face/v1.0`|
+|Azure`Cognitive Services`資源 |若要使用容器，您必須具備：<br><br>在 Azure 認知服務資源和相關聯的計費金鑰和計費的端點 URI。 這兩個值都位於**概觀**並**金鑰**資源的頁面。 需要他們以啟動容器。 新增`face/v1.0`BILLING_ENDPOINT_URI 下例所示，路由傳送至端點 URI: <br><br>**{BILLING_KEY}** ：資源金鑰<br><br>**{BILLING_ENDPOINT_URI}** ： 端點的 URI 範例 `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
 ## <a name="request-access-to-the-private-container-registry"></a>要求私人容器登錄的存取
 
@@ -143,6 +143,10 @@ ApiKey={BILLING_KEY}
 
 如需這些選項的詳細資訊，請參閱[設定容器](./face-resource-container-config.md)。
 
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
+
 ## <a name="summary"></a>總結
 
 在本文中，您已了解概念及如何下載、 安裝及執行人臉識別 API 容器的工作流程。 摘要說明：
@@ -154,7 +158,7 @@ ApiKey={BILLING_KEY}
 * 當您具現化的容器，您必須指定帳單資訊。
 
 > [!IMPORTANT]
-> 認知服務的容器未獲授權執行而不必連接至 Azure 中的計量。 客戶必須啟用要通訊隨時都與計量的服務的帳單資訊的容器。 認知服務容器不要將客戶資料，例如影像或文字分析，傳送給 Microsoft。
+> 認知服務的容器未獲授權執行而不必連接至 Azure 中的計量。 客戶必須啟用要通訊隨時都與計量的服務的帳單資訊的容器。 認知服務容器不會將客戶資料 (例如正在分析的影像或文字) 傳送至 Microsoft。
 
 ## <a name="next-steps"></a>後續步驟
 

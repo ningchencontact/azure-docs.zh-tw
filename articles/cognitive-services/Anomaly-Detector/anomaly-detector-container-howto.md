@@ -7,14 +7,14 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/28/2019
 ms.author: aahi
-ms.openlocfilehash: cc82e091ae4c033bda7f1d91c9aed36bb081de88
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: ec32d5de9e3af14abbf14f79f37ab00f3346b1c1
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233628"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306988"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>安裝並執行異常偵測器的容器
 
@@ -37,7 +37,7 @@ ms.locfileid: "65233628"
 |--|--|
 |Docker 引擎| 您必須在[主機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> **在 Windows 上**，也必須將 Docker 設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 您應具備對 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。| 
-|異常偵測器資源 |若要使用這些容器，您必須具備：<br><br>_異常偵測器_Azure 資源，以取得相關聯的計費金鑰和計費的端點 URI。 這兩個值可在 Azure 入口網站的異常偵測器的概觀和 [金鑰] 頁面上，才能啟動容器。<br><br>**{BILLING_KEY}**：資源金鑰<br><br>**{BILLING_ENDPOINT_URI}**：端點 URI 範例為：`https://westus2.api.cognitive.microsoft.com`|
+|異常偵測器資源 |若要使用這些容器，您必須具備：<br><br>_異常偵測器_Azure 資源，以取得相關聯的計費金鑰和計費的端點 URI。 這兩個值可在 Azure 入口網站的異常偵測器的概觀和 [金鑰] 頁面上，才能啟動容器。<br><br>**{BILLING_KEY}** ：資源金鑰<br><br>**{BILLING_ENDPOINT_URI}** ：端點 URI 範例為：`https://westus2.api.cognitive.microsoft.com`|
 
 ## <a name="request-access-to-the-container-registry"></a>要求存取容器登錄
 
@@ -122,9 +122,9 @@ ApiKey={BILLING_KEY}
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](#billing)。
 
-### <a name="running-multiple-containers-on-the-same-host"></a>在同一主机上运行多个容器
+### <a name="running-multiple-containers-on-the-same-host"></a>在相同主機上執行多個容器
 
-如果打算使用所公开的端口运行多个容器，请确保使用不同的端口运行每个容器。 例如，在連接埠 5000 上執行第一個容器，以及在連接埠 5001 上執行第二個容器。
+如果您打算使用公開的連接埠執行多個容器，請務必使用不同的連接埠執行每個容器。 例如，在連接埠 5000 上執行第一個容器，以及在連接埠 5001 上執行第二個容器。
 
 以您使用的容器值，取代 `<container-registry>` 和 `<container-name>`。 這些容器值不必是相同的容器。 「 異常偵測器容器和 LUIS 容器主機上執行的同時，您可以有或您可以有多個執行的異常偵測器的容器。 
 
@@ -176,6 +176,10 @@ ApiKey={BILLING_KEY}
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 如需這些選項的詳細資訊，請參閱[設定容器](anomaly-detector-container-configuration.md)。
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>總結
 

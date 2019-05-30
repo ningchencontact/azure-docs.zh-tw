@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: eebe3ed15d21b08b208667a571bd59eac98a674d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a31921e229a4bbfccd6fdd871666aad1eeef3232
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190262"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243852"
 ---
 # <a name="what-is-conversation-transcription"></a>交談文字記錄是什麼？
 
@@ -67,6 +67,11 @@ ms.locfileid: "65190262"
 > 規格和設計的詳細資訊，請參閱[Microsoft 語音裝置 SDK 麥克風](https://aka.ms/cts/microphone)。 若要了解更多或購買一種開發套件，請參閱[取得 Microsoft 語音裝置 SDK](https://aka.ms/cts/getsdk)。
 
 若要了解如何使用語音裝置 SDK 中的交談文字記錄，請參閱[如何使用交談文字記錄](https://aka.ms/cts/howto)。
+
+
+## <a name="quick-start-with-a-sample-app"></a>範例應用程式的快速入門
+
+Microsoft 語音裝置 SDK 快速入門範例應用程式的所有裝置的相關範例。 交談文字記錄是其中一個。 您可以找到它[語音裝置 SDK android 快速入門](https://aka.ms/sdsdk-quickstart)範例應用程式和其原始碼，供您參考。
 
 ## <a name="next-steps"></a>後續步驟
 

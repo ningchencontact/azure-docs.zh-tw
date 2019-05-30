@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 5fa922cb91d34483256faf4dcf70569aa2f17b97
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 318e71b68bbabeeef34c75a412f9fdd5b6db754a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522481"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073017"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>實體內容的子類型的角色
 
-角色可讓實體必須有具名的子類型。 角色可以搭配任何預先建置或自訂實體型別，並用於範例的發音和模式。 
+角色可讓實體必須有具名的子類型。 角色可以與任何預先建置或自訂實體型別一起使用，並在範例表達和模式中使用。 
 
 <a name="example-role-for-entities"></a>
 <a name="roles-with-prebuilt-entities"></a>
@@ -48,7 +48,7 @@ buy a ticket from New York to London
 Schedule the meeting from 8 to 9
 ```
 
-|實體類型|角色名稱|值|
+|實體類型|角色名稱|Value|
 |--|--|--|
 |預先建置的 datetimeV2|starttime|8|
 |預先建置的 datetimeV2|結束時間|9|
@@ -79,12 +79,6 @@ Schedule the meeting from 8 to 9
 |--|--|
 |我要興趣進一步了解**西雅圖**|我想要深入了解 {Location}|
 |來自西雅圖的票證購買紐約|購買票證 {位置： 原始} 到 {位置： 目的地}|
-
-## <a name="how-are-roles-related-to-hierarchical-entities"></a>階層式實體關聯角色的方式？
-
-角色現在可供範例談話，以及先前使用的模式中的所有實體。 它們可用的所有位置，因為它們會取代階層式實體的需求。 應該與角色，而不是使用階層式實體建立新的實體。 
-
-階層式實體最終會被取代。
 
 ## <a name="how-are-roles-used-in-patterns"></a>如何在模式中使用角色？
 在模式的範本語句中，角色會使用於語句內： 

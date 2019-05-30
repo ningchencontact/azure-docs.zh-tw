@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 5fb62c38bde98d946694790adb860240eaa59fa9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d59020eb45f7dcced5ea8da04b3b908def34fb70
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530172"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072234"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的 URL 預先建置實體
 URL 實體會擷取含有網域名稱或 IP 位址的 URL。 因為此實體已經定型，所以您不需要將包含 URL 的範例語句加入應用程式。 只有 `en-us` 文化特色才支援 URL 實體。 
@@ -25,6 +25,9 @@ URL 實體會擷取含有網域名稱或 IP 位址的 URL。 因為此實體已�
 URL 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) GitHub 存放庫管理
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>解析預先建置的 URL 實體
+
+### <a name="api-version-2x"></a>API 版本 2.x
+
 下列範例顯示解析的 **builtin.url** 實體。
 
 ```json
@@ -48,6 +51,64 @@ URL 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob
       "endIndex": 17
     }
   ]
+}
+```
+
+### <a name="preview-api-version-3x"></a>預覽 API 版本 3.x
+
+下列 JSON 是以`verbose`參數設定為`false`:
+
+```json
+{
+    "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
+    "prediction": {
+        "normalizedQuery": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.421936184
+            }
+        },
+        "entities": {
+            "url": [
+                "https://www.luis.ai"
+            ]
+        }
+    }
+}
+```
+
+下列 JSON 是以`verbose`參數設定為`true`:
+
+```json
+{
+    "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
+    "prediction": {
+        "normalizedQuery": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.421936184
+            }
+        },
+        "entities": {
+            "url": [
+                "https://www.luis.ai"
+            ],
+            "$instance": {
+                "url": [
+                    {
+                        "type": "builtin.url",
+                        "text": "https://www.luis.ai",
+                        "startIndex": 0,
+                        "length": 19,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

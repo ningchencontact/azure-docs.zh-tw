@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: af801600eebed7c0d4ff01dd1edf01fa595840eb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: de2f1009c574d9768330d4e6a38a219ba1f81daa
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785780"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237945"
 ---
 # <a name="prepare-data-for-custom-speech"></a>準備資料以自訂語音
 
@@ -64,10 +64,10 @@ ms.locfileid: "65785780"
 
 如果您音訊不滿足這些屬性，或您想要檢查 如果沒有，我們建議您下載[sox](http://sox.sourceforge.net)檢查或轉換音訊。 以下是如何完成這些活動的每個透過命令列的一些範例：
 
-| 活動 | 說明 | Sox 命令 |
+| activities | 說明 | Sox 命令 |
 |----------|-------------|-------------|
-| 核取音訊格式 | 您可以使用此命令來檢查音訊檔案格式。 | `soxi <filename>.wav` |
-| 將音訊格式轉換 | 使用此命令將音訊檔案轉換成單一通道，16 位元、 48 KHz。 | `sox <filename>.wav -b 16 -3 signed-integer -c l -r 48k -t wav <filename>.wav` |
+| 核取音訊格式 | 您可以使用此命令來檢查音訊檔案格式。 | `sox --i <filename>` |
+| 將音訊格式轉換 | 使用此命令將音訊檔案轉換成單一通道，16 位元，16 KHz。 | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
 
 ## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>用於測試/定型的音訊 + 人類看得標示的文字記錄資料
 

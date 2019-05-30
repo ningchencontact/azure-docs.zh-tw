@@ -8,17 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/07/2018
-ms.author: gracez
-ms.openlocfilehash: f915a03e2596e6439cbe184bfc8405910f56e2bd
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.date: 05/22/2019
+ms.author: wellsi
+ms.openlocfilehash: fab23c86ee2e8f654ac4a9619c39d05ee4e9e4c1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002294"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237943"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>認知服務語音裝置 SDK 的版本資訊
 下列各節列出最新版本中的變更。
+
+## <a name="speech-devices-sdk-151"></a>語音裝置 SDK 1.5.1:
+
+*   包含[交談文字記錄](conversation-transcription-service.md)範例應用程式。
+*   更新[語音 SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 1.5.1 版的元件。 如需詳細資訊，請參閱其[版本資訊](https://aka.ms/csspeech/whatsnew)。
 
 ## <a name="cognitive-services-speech-devices-sdk-150-2019-may-release"></a>SDK 1.5.0 認知服務語音裝置：2019 年發行
 

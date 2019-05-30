@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 2adcbad55236917685ddcdbabe4809f36ab5a730
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b620cbb8e51fbe41defb6bdbdc66ba4a7e539aa0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153056"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306563"
 ---
 # <a name="install-and-run-speech-service-containers"></a>安裝並執行語音服務的容器
 
@@ -23,9 +23,9 @@ ms.locfileid: "65153056"
 
 兩個語音容器**語音轉換文字**並**文字轉換語音**。 
 
-|函式|特性|最新|
+|函式|功能|最新|
 |-|-|--|
-|語音轉文字| <li>連續的即時語音謄寫成文字。<li>可以分批謄寫錄音中的語音。 <li>支援的中繼結果、語音結束偵測、自動文字格式，和不雅內容遮罩。 <li>可呼叫 [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS)，從謄寫的語音衍生使用者意圖。\*|1.1.1|
+|語音轉換文字| <li>連續的即時語音謄寫成文字。<li>可以分批謄寫錄音中的語音。 <li>支援的中繼結果、語音結束偵測、自動文字格式，和不雅內容遮罩。 <li>可呼叫 [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS)，從謄寫的語音衍生使用者意圖。\*|1.1.1|
 |文字轉語音| <li>將文字轉換成自然發音語音。 <li>為多種支援的語言提供多個性別和/或方言。 <li>支援純文字輸入或語音合成標記語言 (SSML)。 |1.1.0|
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
@@ -38,9 +38,9 @@ ms.locfileid: "65153056"
 |--|--|
 |Docker 引擎| 您必須在[主機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> **在 Windows 上**，也必須將 Docker 設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 您應具備對 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。| 
-|語音資源 |若要使用這些容器，您必須具備：<br><br>A_語音_Azure 資源，以取得相關聯的計費金鑰和計費的端點 URI。 這兩個值都位於 Azure 入口網站**語音**概觀] 和 [索引鍵頁面且需要啟動容器。<br><br>**{BILLING_KEY}**：資源金鑰<br><br>**{BILLING_ENDPOINT_URI}**：端點 URI 範例為：`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|語音資源 |若要使用這些容器，您必須具備：<br><br>A_語音_Azure 資源，以取得相關聯的計費金鑰和計費的端點 URI。 這兩個值都位於 Azure 入口網站**語音**概觀] 和 [索引鍵頁面且需要啟動容器。<br><br>**{BILLING_KEY}** ：資源金鑰<br><br>**{BILLING_ENDPOINT_URI}** ：端點 URI 範例為：`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
-## <a name="request-access-to-the-container-registry"></a>要求存取的容器登錄
+## <a name="request-access-to-the-container-registry"></a>要求存取容器登錄
 
 您必須先完成與提交[認知服務語音容器要求表單](https://aka.ms/speechcontainerspreview/)要求存取至容器。 
 
@@ -110,7 +110,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 |語言地區設定|Tags|
 |--|--|
 |中文|`zh-cn`|
-|English |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
+|英文 |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
 |法文 |`fr-ca`<br>`fr-fr`|
 |德文|`de-de`|
 |義大利文|`it-it`|
@@ -139,10 +139,10 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 |語言地區設定|Tags|支援的語音|
 |--|--|--|
 |中文|`zh-cn`|huihuirus<br>kangkang-apollo<br>yaoyao apollo|
-|English |`en-au`|catherine<br>hayleyrus|
-|English |`en-gb`|george-apollo<br>hazelrus<br>susan-apollo|
-|English |`en-in`|heera apollo<br>priyarus<br>ravi-apollo<br>|
-|English |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
+|英文 |`en-au`|catherine<br>hayleyrus|
+|英文 |`en-gb`|george-apollo<br>hazelrus<br>susan-apollo|
+|英文 |`en-in`|heera apollo<br>priyarus<br>ravi-apollo<br>|
+|英文 |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
 |法文|`fr-ca`|caroline<br>harmonierus|
 |法文|`fr-fr`|hortenserus<br>julie-apollo<br>paul-apollo|
 |德文|`de-de`|hedda<br>heddarus<br>stefan-apollo|
@@ -155,7 +155,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ### <a name="docker-pull-for-the-speech-containers"></a>適用於語音容器的 docker 提取
 
-#### <a name="speech-to-text"></a>語音轉文字
+#### <a name="speech-to-text"></a>語音轉換文字
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest
@@ -171,7 +171,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 容器位於[主機電腦](#the-host-computer)上時，請透過下列程序來使用容器。
 
-1. [執行容器](#run-the-container-with-docker-run)，使用必要的但未使用的計費設定。 `docker run` 命令有相關[範例](speech-container-configuration.md#example-docker-run-commands)可供參考。 
+1. 使用必要但未使用的計費設定[執行容器](#run-the-container-with-docker-run)。 `docker run` 命令有相關[範例](speech-container-configuration.md#example-docker-run-commands)可供參考。 
 1. [查詢容器的預測端點](#query-the-containers-prediction-endpoint)。 
 
 ## <a name="run-the-container-with-docker-run"></a>透過 `docker run` 執行容器
@@ -180,7 +180,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 **在預覽期間**，計費的設定必須是有效啟動容器，但您不需支付使用方式。
 
-| Placeholder | Value |
+| 預留位置 | Value |
 |-------------|-------|
 |{BILLING_KEY} | 此金鑰用來啟動容器時，並可在 Azure 入口網站的 [語音金鑰] 頁面上取得。  |
 |{BILLING_ENDPOINT_URI} | 使用 Azure 入口網站的 [語音概觀] 頁面上的帳單寄送的端點 URI 值。|
@@ -197,7 +197,7 @@ Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} 
 ```
 
-### <a name="speech-to-text"></a>語音轉文字
+### <a name="speech-to-text"></a>語音轉換文字
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 2 \
@@ -221,16 +221,16 @@ ApiKey={BILLING_KEY}
 
 |容器|端點|
 |--|--|
-|語音轉文字|ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1|
+|語音轉換文字|ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1|
 |文字轉換語音|http://localhost:5000/speech/synthesize/cognitiveservices/v1|
 
-### <a name="speech-to-text"></a>語音轉文字
+### <a name="speech-to-text"></a>語音轉換文字
 
 容器提供 websocket 為基礎的查詢端點的 Api，可透過存取[語音 SDK](index.yml)。
 
-根據預設，語音 SDK 會使用線上語音服務。 若要使用容器，您需要變更初始設定方法。 請參閱下面的範例。
+根據預設，語音 SDK 會使用線上語音服務。 若要使用容器，您必須變更初始化方法。 請參閱以下範例。
 
-#### <a name="for-c"></a>針對C#
+#### <a name="for-c"></a>針對 C#
 
 從使用此 Azure 雲端初始化呼叫變更：
 
@@ -238,21 +238,21 @@ ApiKey={BILLING_KEY}
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-此呼叫使用容器端點：
+為使用容器端點的這項呼叫：
 
 ```C#
 var config = SpeechConfig.FromEndpoint("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1", "YourSubscriptionKey");
 ```
 
-#### <a name="for-python"></a>適用於 Python
+#### <a name="for-python"></a>針對 Python
 
-從使用此 Azure 雲端初始化呼叫
+從使用此 Azure 雲端初始化呼叫變更
 
 ```python
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 ```
 
-此呼叫使用容器端點：
+為使用容器端點的這項呼叫：
 
 ```python
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1")
@@ -272,7 +272,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 
 ## <a name="troubleshooting"></a>疑難排解
 
-當您執行的容器時，容器會使用**stdout**並**stderr**是很有幫助啟動或執行容器時所發生的問題進行疑難排解的輸出資訊。 
+當您執行容器時，容器會使用 **stdout** 和 **stderr** 來輸出資訊，該資訊有助於排解在啟動或執行容器時所發生的問題。 
 
 ## <a name="billing"></a>計費
 
@@ -282,12 +282,16 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 
 如需這些選項的詳細資訊，請參閱[設定容器](speech-container-configuration.md)。
 
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
+
 ## <a name="summary"></a>總結
 
 在本文中，您已了解概念和下載、 安裝及執行語音容器的工作流程。 摘要說明：
 
 * 語音提供兩個 Linux 容器的 Docker，將語音轉換文字和文字轉換語音的封裝。
-* 從 Azure 中的私人容器登錄下載容器映像。
+* 容器映像是從 Azure 中的私人容器登錄下載。
 * 容器映像是在 Docker 中執行。
 * 您可以使用 REST API 或 SDK，藉由指定主應用程式的容器 URI 呼叫語音容器中的作業。
 * 將容器具現化時，您必須指定帳單資訊。

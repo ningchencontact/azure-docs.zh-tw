@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524254"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072843"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>將實體新增至範例語句 
 
@@ -47,7 +47,7 @@ Are there any SQL server jobs?
     > * 對於單一字組，只需要選取它。 
     > * 對於兩個或多個字組的集合，請選取集合開頭與集合結尾。
 
-1. 在 [What type of entity do you want to create?] \(您要建立哪種類型的實體?\) 快顯方塊中驗證實體名稱，並選取 [Simple] \(簡單\) 實體類型，然後選取 [Done] \(完成\)。
+1. 在 [What type of entity do you want to create?]  \(您要建立哪種類型的實體?\) 快顯方塊中驗證實體名稱，並選取 [Simple]  \(簡單\) 實體類型，然後選取 [Done]  \(完成\)。
 
     [片語清單](luis-concept-feature.md)常被用來提升簡單實體的訊號。
 
@@ -59,11 +59,11 @@ Are there any SQL server jobs?
 
 1. 在範例 [utterance] 上**意圖**頁面上，選取的單字或片語，您想要在新的清單。 [實體] 下拉式清單出現時，請在頂端的文字方塊中，輸入新的清單中實體的名稱，然後選取**建立新的實體**。   
 
-1. 在 [What type of entity do you want to create?] \(您要建立哪種類型的實體?\) 快顯方塊中為實體命名，並選取 [List] \(清單\) 作為類型。 新增此清單項目的同義字，然後選取 [Done] \(完成\)。 
+1. 在 [What type of entity do you want to create?]  \(您要建立哪種類型的實體?\) 快顯方塊中為實體命名，並選取 [List]  \(清單\) 作為類型。 新增此清單項目的同義字，然後選取 [Done]  \(完成\)。 
 
     ![輸入清單實體同義字的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/hr-create-list-2.png)
 
-    您可以透過標示其他語句，或從左導覽的 [Entities] \(實體\) 中編輯實體，來新增更多清單項目或項目同義字。 [編輯](luis-how-to-add-entities.md#add-list-entities)實體可讓您選擇輸入具有對應同義字的其他項目，或匯入清單。 
+    您可以透過標示其他語句，或從左導覽的 [Entities]  \(實體\) 中編輯實體，來新增更多清單項目或項目同義字。 [編輯](luis-how-to-add-entities.md#add-list-entities)實體可讓您選擇輸入具有對應同義字的其他項目，或匯入清單。 
 
 ## <a name="add-composite-entity"></a>新增複合實體
 
@@ -81,32 +81,13 @@ Are there any SQL server jobs?
 
     當您正確地包裝實體時，整個片語下方會有綠色線條。
 
-1. 在 [What type of entity do you want to create?] \(您要建立哪種類型的實體?\) 快顯方塊中驗證複合實體的詳細資料，然後選取 [Done] \(完成\)。
+1. 在 [What type of entity do you want to create?]  \(您要建立哪種類型的實體?\) 快顯方塊中驗證複合實體的詳細資料，然後選取 [Done]  \(完成\)。
 
     ![實體詳細資料快顯方塊的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/hr-create-composite-3.png)
 
 1. 複合實體會同時顯示針對個別實體的藍色醒目提示，以及針對整個複合實體的綠色底線。 
 
     ![意圖詳細資料頁面的螢幕擷取畫面，其中具有複合實體](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
-
-## <a name="add-hierarchical-entity"></a>新增階層式實體
-
-**階層式實體最終會被取代。使用[實體的角色](luis-concept-roles.md)來判斷實體子型別，而不是階層式實體。**
-
-階層式實體是內容學習和內容相關實體的分類。 在下列範例中，實體包含來源和目的地位置。 
-
-在語句 `Move John Smith from Seattle to Cairo` 中，Seattle 是來源位置，而 Cairo 是目的地位置。 每個位置的內容都不同，並且學習自語句中的字組順序和字組選擇。
-
-1. 在 [Intent] \(意圖\) 頁面上，於語句中選取 `Seattle`，並輸入實體名稱 `Location`，然後選取鍵盤上的 Enter。
-
-1. 在 [What type of entity do you want to create?] \(您要建立哪種類型的實體?\) 快顯方塊中，針對 [Entity type] \(實體類型\) 選取 [hierarchical] \(階層式\)，並新增 `Origin` 和 `Destination` 作為子系，然後選取 [Done] \(完成\)。
-
-    ![意圖詳細資料頁面的螢幕擷取畫面 (已醒目提示 ToLocation 實體)](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
-
-1. 語句中的字組已標上父階層式實體。 您需要將字組指派給子實體。 返回 [utterance] 意圖的詳細資料頁面上。 選取字組，並從下拉式清單中選擇您所建立的實體名稱，然後遵循右側的功能表來選擇正確的子實體。
-
-    >[!CAUTION]
-    >在單一應用程式的所有實體中，子實體名稱必須是唯一的。 兩個不同的階層式實體不能包含同名的子實體。 
 
 ## <a name="add-entitys-role-to-utterance"></a>將實體的角色新增至 [utterance]
 
@@ -124,7 +105,7 @@ Are there any SQL server jobs?
 
 選取語句中以紅色底線標示的字組。 
 
-如果有預測差異，實體方塊會顯示具有紅色驚嘆號的 [實體狀態]。 若要查看實體狀態和有關標示實體和預測實體之間的差異資訊，請選取 [實體狀態]，然後選取右邊的項目。
+如果有預測差異，實體方塊會顯示具有紅色驚嘆號的 [實體狀態]  。 若要查看實體狀態和有關標示實體和預測實體之間的差異資訊，請選取 [實體狀態]  ，然後選取右邊的項目。
 
 ![螢幕擷取畫面的實體狀態選項](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
 
@@ -144,9 +125,6 @@ Are there any SQL server jobs?
 |已正確標示的文字|以藍色醒目提示實體，有紅色底線|不正確的預測|以各種位置和用法提供更多實體標示正確的語句。 目前語句不足以教導 LUIS 此實體是 (或類似) 相同內容中出現的實體。 類似的實體應該合併成單一實體，才不會讓 LUIS 混淆。 另一個解決方案是新增片語清單，以大幅提升字組的精確度。 |
 |未正確標示的文字|以藍色醒目提示實體，有紅色底線|正確的預測| 以各種位置和用法提供更多實體標示正確的語句。 
 
-> [!Note]
-> 範例 [utterance] 的資料列中加上標籤的意圖周圍的紅色方塊時[意圖的預測誤差](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors)發生。 您需要修正它。 
-
 ## <a name="other-actions"></a>其他動作
 
 您能以選取群組或個別項目的形式對範例語句執行動作。 選取範例語句群組會變更清單上的內容功能表。 單一項目可以使用清單上的內容功能表，也可以使用位於每個語句列末端的個別內容相關省略符號。 
@@ -155,7 +133,7 @@ Are there any SQL server jobs?
 
 您可以在 [意圖] 頁面上從語句移除機器學習實體標籤。 若實體不是機器學習實體，則無法從語句中予以移除。 若您需要從語句中移除非機器學習實體，則需要刪除整個應用程式中的實體。 
 
-若要從語句中移除機器學習實體標籤，請選取語句中的實體。 然後選取所出現實體下拉式方塊中的 [移除標籤]。
+若要從語句中移除機器學習實體標籤，請選取語句中的實體。 然後選取所出現實體下拉式方塊中的 [移除標籤]  。
 
 ### <a name="add-prebuilt-entity-label"></a>新增預先建置的實體標籤
 

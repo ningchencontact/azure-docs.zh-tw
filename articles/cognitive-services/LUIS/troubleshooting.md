@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: b4c1de8edf04e15b540adeac01bcbf0cb1d1b8af
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b114b1c3b1c421c6e6944666e3fd928d2aced966
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65766938"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225866"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding 常見問題集 (FAQ)
 
@@ -49,7 +49,7 @@ ms.locfileid: "65766938"
 若要以程式設計方式編輯 LUIS 應用程式，請使用[撰寫 API](https://go.microsoft.com/fwlink/?linkid=2092087)。 如需如何呼叫撰寫 API 的範例，請參閱[呼叫 LUIS 撰寫 API](./luis-quickstart-node-add-utterance.md)和[使用 Node.js 以程式設計方式建置 LUIS 應用程式](./luis-tutorial-node-import-utterances-csv.md)。 撰寫 API 需要您使用[撰寫金鑰](luis-concept-keys.md#authoring-key)，而非端點金鑰。 以程式設計撰寫允許每個月有最多 1,000,000 次呼叫，而且每秒五次交易。 如需與 LUIS 搭配使用之金鑰的詳細資訊，請參閱[管理金鑰](./luis-concept-keys.md)。
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>提供規則運算式比對的模式功能位置為何？
-先前的**模式功能**目前已淘汱，並取代為**[模式](luis-concept-patterns.md)**。
+先前的**模式功能**目前已淘汱，並取代為 **[模式](luis-concept-patterns.md)** 。
 
 ### <a name="how-do-i-use-an-entity-to-pull-out-the-correct-data"></a>如何使用實體拉出正確的資料？
 請參閱[實體](luis-concept-entity-types.md)和[資料擷取](luis-concept-data-extraction.md)。
@@ -106,7 +106,7 @@ Azure 中針對[服務](https://azure.microsoft.com/pricing/details/cognitive-se
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>為什麼在應用程式儀表板中看不到我的端點叫用？
 應用程式儀表板中的端點叫用總數均會定期更新，但會更頻繁地更新 Azure 入口網站中與 LUIS 端點金鑰相關聯的計量。
 
-若您在儀表板中看不到已更新的端點叫用，請登入 Azure 入口網站，並找到與您 LUIS 端點金鑰相關聯的資源，然後開啟 [計量] 來選取 [呼叫總計] 計量。 若將端點金鑰用於多個 LUIS 應用程式，Azure 入口網站中的計量會顯示使用該計量之所有 LUIS 應用程式的呼叫彙總次數。
+若您在儀表板中看不到已更新的端點叫用，請登入 Azure 入口網站，並找到與您 LUIS 端點金鑰相關聯的資源，然後開啟 [計量]  來選取 [呼叫總計]  計量。 若將端點金鑰用於多個 LUIS 應用程式，Azure 入口網站中的計量會顯示使用該計量之所有 LUIS 應用程式的呼叫彙總次數。
 
 ### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>端點配額是否有 PowerShell 命令？
 
@@ -164,7 +164,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ## <a name="app-publishing"></a>應用程式發佈
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>[Add a key to your app] \(將金鑰新增至應用程式\) 視窗中的租用戶識別碼是什麼？
-在 Azure 中，租用戶代表與服務建立關聯的用戶端或組織。 選取 [Azure Active Directory] > [管理] > [內容]，以在 Azure 入口網站的 [目錄識別碼] 方塊中找到您的租用戶識別碼。
+在 Azure 中，租用戶代表與服務建立關聯的用戶端或組織。 選取 [Azure Active Directory]   > [管理]   > [內容]  ，以在 Azure 入口網站的 [目錄識別碼]  方塊中找到您的租用戶識別碼。
 
 ![Azure 入口網站中的租用戶識別碼](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
@@ -196,7 +196,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ## <a name="app-management"></a>應用程式管理
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>如何下載使用者語句的記錄？
-LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳送給 LUIS 應用程式的語句記錄，請前往 [我的應用程式]，然後選取應用程式。 在關聯式工作列中，選取 [匯出端點記錄]。 記錄會格式化為逗號分隔值 (CSV) 檔案。
+LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳送給 LUIS 應用程式的語句記錄，請前往 [我的應用程式]  ，然後選取應用程式。 在關聯式工作列中，選取 [匯出端點記錄]  。 記錄會格式化為逗號分隔值 (CSV) 檔案。
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>如何停用語句的記錄？
 您可以在用戶端應用程式用來查詢 LUIS 的端點 URL 中設定 `log=false`，以關閉使用者語句記錄。 不過，關閉記錄會停用 LUIS 應用程式建議語句的能力，或根據[主動學習](luis-concept-review-endpoint-utterances.md#what-is-active-learning)來改善效能。 若您因資料隱私考量而設定 `log=false`，則無法從 LUIS 下載這些使用者語句的記錄，或使用者這些語句來改善應用程式。
@@ -211,7 +211,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 ### <a name="can-i-delete-data-from-luis"></a>可以從 LUIS 刪除資料嗎？
 
 * 您一律可以刪除用於訓練 LUIS 的範例語句。 若您從 LUIS 應用程式刪除範例語句，則會從 LUIS Web 服務中予以移除，而且無法用於匯出。
-* 您可以在 [Review endpoint utterances] \(檢閱端點語句\) 頁面中，從 LUIS 所建議的使用者語句清單中刪除語句。 從此清單中刪除語句可防止系統建議這些語句，但並不會從記錄中刪除它們。
+* 您可以在 [Review endpoint utterances] \(檢閱端點語句\)  頁面中，從 LUIS 所建議的使用者語句清單中刪除語句。 從此清單中刪除語句可防止系統建議這些語句，但並不會從記錄中刪除它們。
 * 如果您刪除帳戶，系統就會刪除所有應用程式及其範例語句和記錄。 資料會在伺服器上保留 60 天後再永久刪除。
 
 ### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>Microsoft 如何管理我傳送至 LUIS 的資料？
@@ -246,11 +246,11 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 
 如果您使用的是 Azure Bot Service，且問題是**網路聊天中的測試**傳回 `Sorry, my bot code is having an issue`，請檢查您的記錄：
 
-1. 在 Azure 入口網站中，針對您的 Bot，從 [Bot 管理] 區段中選取 [建置]。
+1. 在 Azure 入口網站中，針對您的 Bot，從 [Bot 管理]  區段中選取 [建置]  。
 1. 開啟線上程式碼編輯器。 
 1. 在最上層的藍色導覽列中，選取 Bot 名稱 (右側的第二個項目)。
-1. 在產生的下拉式清單中，選取 [開啟 Kudu 主控台]。
-1. 選取 [記錄檔]，然後選取 [應用程式]。 檢閱所有記錄檔。 如果您在應用程式資料夾中沒有看到錯誤，請檢閱 [記錄檔]。 
+1. 在產生的下拉式清單中，選取 [開啟 Kudu 主控台]  。
+1. 選取 [記錄檔]  ，然後選取 [應用程式]  。 檢閱所有記錄檔。 如果您在應用程式資料夾中沒有看到錯誤，請檢閱 [記錄檔]  。 
 1. 如果您正在使用已編譯的語言，例如 C#，請記得重建您的專案。
 
 > [!Tip] 
@@ -263,7 +263,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 ## <a name="integrating-luis"></a>整合 LUIS
 
 ### <a name="where-is-my-luis-app-created-during-the-azure-web-app-bot-subscription-process"></a>在 Azure Web 應用程式 Bot 訂用帳戶程序期間，於何處建立 LUIS 應用程式？
-若您選取 LUIS 範本，然後在範本窗格中選取 [選取] 按鈕，則左側窗格會變更成包括範本類型，並詢問在哪個區域建立 LUIS 範本。 Web 應用程式 Bot 程序並不會建立 LUIS 訂用帳戶。
+若您選取 LUIS 範本，然後在範本窗格中選取 [選取]  按鈕，則左側窗格會變更成包括範本類型，並詢問在哪個區域建立 LUIS 範本。 Web 應用程式 Bot 程序並不會建立 LUIS 訂用帳戶。
 
 ![LUIS 範本 Web 應用程式 Bot 區域](./media/luis-faq/web-app-bot-location.png)
 
@@ -297,6 +297,10 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 * [改善預先建置的網域](luis-reference-prebuilt-domains.md) 
 * [動態清單的實體](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [外部實體](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
+
+影片：
+
+* [如何使用 Azure 交談式 AI 來調整您的企業下, 一代](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>後續步驟
 
