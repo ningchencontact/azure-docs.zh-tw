@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: e7ab2eba54aafda6bb00696939bf9bc32bb627ca
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 5a2192c4555c2d84587ec8e39ce9ba94c985b541
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796997"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235822"
 ---
 # <a name="translator-text-api-30-translate"></a>翻譯工具文字 API 3.0：轉譯
 
@@ -54,7 +54,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>category</td>
-    <td>選擇性參數。<br/>字串，指定翻譯的分類 (定義域)。 此參數用來從使用 <a href="../customization.md">Custom Translator</a> 所建置的自訂系統取得翻譯。 將來自自訂翻譯專案的類別識別碼新增至此參數，以使用您部署的自訂系統。 預設值為：<code>general</code>。</td>
+    <td>選擇性參數。<br/>字串，指定翻譯的分類 (定義域)。 此參數用來從使用 <a href="../customization.md">Custom Translator</a> 所建置的自訂系統取得翻譯。 從您的自訂轉譯器加入類別目錄識別碼<a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">專案詳細資料</a>到此參數，以使用您已部署自訂的系統。 預設值為：<code>general</code>。</td>
   </tr>
   <tr>
     <td>profanityAction</td>

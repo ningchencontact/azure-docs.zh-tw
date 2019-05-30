@@ -1,7 +1,7 @@
 ---
 title: 儀表板-Language Understanding
 titleSuffix: Azure Cognitive Services
-description: 修正 「 意圖 」 分析摘要儀表板，視覺化的報告工具。
+description: 修正 「 意圖 」 分析儀表板，視覺化的報告工具。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: a518a697369ff74689a0c4ac05af96453b6a5ca4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072514"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236952"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>如何使用儀表板，以改善您的應用程式
 
-尋找和修正定型應用程式的意圖的問題，當您使用範例的發音。 摘要儀表板會顯示整體的應用程式資訊，以反白顯示的對應方式，必須先解決。 
+尋找和修正定型應用程式的意圖的問題，當您使用範例的發音。 儀表板會顯示整體的應用程式資訊，以反白顯示的對應方式，必須先解決。 
 
 檢閱儀表板分析是反覆的程序，一再重複，您變更，並改善您的模型。
 
@@ -33,16 +33,16 @@ ms.locfileid: "65072514"
 |問題|圖表色彩|說明|
 |--|--|--|
 |資料不平衡|-|會發生這種情況時大幅範例談話數量而有所不同。 所有的對應方式必須能夠_大約_相同數目的範例談話-無的意圖 除外。 它應該只有 10%-15%的總數量的表達方式在應用程式。<br><br> 如果資料不平衡，但意圖精確度高於某個臨界值，此不平衡並不會報告為問題。<br><br>**開始本文承蒙-它可能是其他問題的根本原因。**|
-|不清楚的預測|橙色|這發生前的意圖和下一步 的意圖分數時關閉它們可能翻轉的下一步 的訓練課程，因為[negative 取樣](luis-how-to-train.md#train-with-all-data)或加入意圖的詳細範例談話。 |
+|不清楚的預測|橘色|這發生前的意圖和下一步 的意圖分數時關閉它們可能翻轉的下一步 的訓練課程，因為[negative 取樣](luis-how-to-train.md#train-with-all-data)或加入意圖的詳細範例談話。 |
 |不正確的預測|紅色|會發生這種情況是當範例 [utterance] 不會加上標籤的意圖 （在意圖） 的預測。|
 
 正確的預測是以藍色表示。
 
-摘要儀表板會顯示這些問題並告訴您哪一個意圖會受到影響，並建議您應該如何改善應用程式。 
+儀表板會顯示這些問題並告訴您哪一個意圖會受到影響，並建議您應該如何改善應用程式。 
 
 ## <a name="before-app-is-trained"></a>應用程式在定型之前 
 
-訓練應用程式之前，摘要儀表板不包含任何建議的修正程式。 訓練您的應用程式，以查看這些建議。  
+訓練應用程式之前，請在儀表板不包含任何建議的修正程式。 訓練您的應用程式，以查看這些建議。  
 
 ## <a name="check-your-publishing-status"></a>檢查您的發佈狀態
 
@@ -50,7 +50,7 @@ ms.locfileid: "65072514"
 
 請檢查使用中的版本是您想要修正的版本。 
 
-![摘要儀表板會顯示應用程式的外部服務，發行區域，並彙總端點叫用。](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![儀表板會顯示應用程式的外部服務，發行區域，並彙總端點叫用。](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
 這也會顯示任何外部服務]、 [已發佈的區域，並彙總端點叫用。 
 
@@ -62,7 +62,7 @@ ms.locfileid: "65072514"
 
 圖表會指出正確預測的意圖和問題區域，以不同的色彩。 因為您改善應用程式與建議，此分數會增加。 
 
-建議的修正的問題類型會被分，是最重要的應用程式。 如果您想要檢閱並修正問題，每個使用的意圖**[發生錯誤的意圖](#intents-with-errors)** 卡片底部的頁面。 
+建議的修正的問題類型會被分，是最重要的應用程式。 如果您想要檢閱並修正問題，每個使用的意圖 **[發生錯誤的意圖](#intents-with-errors)** 卡片底部的頁面。 
 
 每個問題 區域則需要修正的意圖。 當您選取的意圖的名稱，**意圖**頁面開啟時套用至的發音的篩選。 此篩選器可讓您專注於造成此問題的發音。
 
@@ -96,7 +96,7 @@ ms.locfileid: "65072514"
 
 * 新增更多的表達方式與意圖，然後重新定型。 
 
-除非所建議的摘要儀表板，請勿為 None 的意圖新增表達方式。
+除非所建議的儀表板上，請勿為 None 的意圖新增表達方式。
 
 > [!Tip]
 > 在頁面上，使用第三個區段**發音意圖每**使用**談話 （數字）** 設定，其中對應方式需要更多的表達方式的快速視覺輔助線為。  
@@ -113,7 +113,7 @@ ms.locfileid: "65072514"
 
 ### <a name="review-unclear-predictions"></a>檢閱不清楚的預測
 
-**清楚預測**意圖清單會顯示與使用預測分數不是從其最接近的競爭對手，[utterance] 的最上層的意圖可能變更的下一步] 的訓練課程，因為夠遠方式的發音的意圖[negative 取樣](luis-how-to-train.md#train-with-all-data)。
+**清楚預測**意圖清單會顯示與使用預測分數不是從其最接近的競爭對手，[utterance] 的最上層的意圖可能變更的下一步的訓練課程，因為夠遠方式的發音的意圖[negative 取樣](luis-how-to-train.md#train-with-all-data)。
 
 **若要修正此問題**;
 
