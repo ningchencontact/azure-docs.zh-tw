@@ -173,7 +173,7 @@ ms.locfileid: "61347644"
 | Decimal |Decimal |
 | Double |Double |
 | 圖形 |String |
-| 整數  |Int32 |
+| Integer |Int32 |
 | Interval Day |TimeSpan |
 | Interval Day To Hour |TimeSpan |
 | Interval Day To Minute |TimeSpan |

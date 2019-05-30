@@ -64,9 +64,9 @@
 - name: 參考
   items:
     - name: Bing 影片搜尋 API v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference'
     - name: Bing 影片搜尋 API v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v5-reference'
     - name: SDK
       items:
         - name: .NET

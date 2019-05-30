@@ -62,13 +62,13 @@
 - name: 參考
   items:
     - name: Bing 自訂自動建議 API 參考
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference'
     - name: Bing 自訂影像搜尋 API 參考
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference'
     - name: Bing 自訂搜尋 API 參考
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference'
     - name: Bing 自訂影搜尋 API 參考
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference'
     - name: Bing 搜尋 API 使用和顯示需求
       href: ../Bing-Web-Search/use-display-requirements.md
       maintainContext: true

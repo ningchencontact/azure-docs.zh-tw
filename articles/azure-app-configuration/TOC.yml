@@ -47,6 +47,10 @@
       href: concept-point-time-snapshot.md
     - name: 功能管理
       href: concept-feature-management.md
+    - name: 高可用性
+      items:
+        - name: 復原和災害復原
+          href: concept-disaster-recovery.md
 - name: 使用說明指南
   items:
     - name: 與 Azure 受控服務識別整合
@@ -66,7 +70,7 @@
         - name: .NET Framework 建立器
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
         - name: Java Spring 提供者
-          href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
         - name: .NET Azure SDK
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
         - name: REST
@@ -74,8 +78,6 @@
     - name: 功能管理
       items:
         - name: .NET Core 程式庫
-          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
-        - name: ASP.NET Core 程式庫
           href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
         - name: .NET Core 篩選程式庫
           href: 'https://go.microsoft.com/fwlink/?linkid=2091601'

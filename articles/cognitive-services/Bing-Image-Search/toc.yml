@@ -67,9 +67,9 @@
 - name: 參考
   items:
     - name: Bing 影像搜尋 API v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference'
     - name: Bing 影像搜尋 API v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference'
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference'
     - name: Azure PowerShell 參考
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
     - name: Azure CLI 參考
