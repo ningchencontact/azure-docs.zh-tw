@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ca78e7a9ce44b492dafcc00c1663d54718ca7fac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9e8718d9216bb2f4a83f8e0373b4788210015b75
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705091"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253767"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -124,7 +124,7 @@ ms.locfileid: "64705091"
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| 影響範圍 | 是 | 單一登入行為的範圍。 可能的值：`Suppressed`、`Tenant`、`Application` 或 `Policy`。 `Suppressed` 值表示會抑制行為。 例如，在單一登入工作階段的情況下，不會為使用者保留任何工作階段，而且一律會提示使用者選取識別提供者。 `TrustFramework` 值表示會針對信任架構中的所有原則套用行為。 例如，如果使用者瀏覽信任架構的兩個原則旅程圖，系統不會提示該使用者選取識別提供者。 `Tenant` 值表示會將行為套用到租用戶中的所有原則。 例如，如果使用者瀏覽租用戶的兩個原則旅程圖，系統不會提示該使用者選取識別提供者。 `Application` 值表示會將行為套用到適用於提出要求之應用程式的所有原則。 例如，如果使用者瀏覽應用程式的兩個原則旅程圖，系統不會提示該使用者選取識別提供者。 `Policy` 值表示只會將行為套用到某個原則。 例如，如果使用者瀏覽信任架構的兩個原則旅程圖，系統會在該使用者於原則之間進行切換時提示其選取識別提供者。 |
+| `Scope` | 是 | 單一登入行為的範圍。 可能的值：`Suppressed`、`Tenant`、`Application` 或 `Policy`。 `Suppressed` 值表示會抑制行為。 例如，在單一登入工作階段的情況下，不會為使用者保留任何工作階段，而且一律會提示使用者選取識別提供者。 `TrustFramework` 值表示會針對信任架構中的所有原則套用行為。 例如，如果使用者瀏覽信任架構的兩個原則旅程圖，系統不會提示該使用者選取識別提供者。 `Tenant` 值表示會將行為套用到租用戶中的所有原則。 例如，如果使用者瀏覽租用戶的兩個原則旅程圖，系統不會提示該使用者選取識別提供者。 `Application` 值表示會將行為套用到適用於提出要求之應用程式的所有原則。 例如，如果使用者瀏覽應用程式的兩個原則旅程圖，系統不會提示該使用者選取識別提供者。 `Policy` 值表示只會將行為套用到某個原則。 例如，如果使用者瀏覽信任架構的兩個原則旅程圖，系統會在該使用者於原則之間進行切換時提示其選取識別提供者。 |
 | KeepAliveInDays | 是 | 會控制使用者保持登入的時間長度。 將值設為 0 會關閉 KMSI 功能。 如需詳細資訊，請參閱[讓我保持登入](active-directory-b2c-reference-kmsi-custom.md)。 |
 
 ## <a name="journeyinsights"></a>JourneyInsights
@@ -208,7 +208,7 @@ ms.locfileid: "64705091"
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 使用 **SubjectNameingInfo** 元素，您可以控制權杖主體的值：
-- **JTW 權杖**：`sub` 宣告。 這是權杖判斷資訊時所針對的主體，例如應用程式的使用者。 這個值不可變，而且無法重新指派或重複使用。 它可用來執行安全的授權檢查，例如，將權杖用於存取資源時。 根據預設，主體宣告會填入目錄中使用者的物件識別碼。 如需詳細資訊，請參閱[權杖、工作階段及單一登入設定](active-directory-b2c-token-session-sso.md)。
+- **JWT 權杖**-`sub`宣告。 這是權杖判斷資訊時所針對的主體，例如應用程式的使用者。 這個值不可變，而且無法重新指派或重複使用。 它可用來執行安全的授權檢查，例如，將權杖用於存取資源時。 根據預設，主體宣告會填入目錄中使用者的物件識別碼。 如需詳細資訊，請參閱[權杖、工作階段及單一登入設定](active-directory-b2c-token-session-sso.md)。
 - **SAML 權杖**：可識別主體元素的 `<Subject><NameID>` 元素。
 
 **SubjectNamingInfo** 元素包含下列屬性：

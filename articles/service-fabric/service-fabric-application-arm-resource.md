@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: e2e1b2ae354d26c3d9729e3a3fdf39bee43647ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db515454c68fe3a7eb1a4616c3278d9fc93ddb2c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621457"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258670"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>將應用程式和服務視為 Azure Resource Manager 進行管理
 
@@ -28,8 +28,8 @@ ms.locfileid: "60621457"
 這是部署叢集所需之任何設定、治理或叢集管理應用程式的建議方法。 包括[修補程式協調流程應用程式](service-fabric-patch-orchestration-application.md)、監視程式，或是任何需要在叢集中執行其他應用程式或服務才能部署的應用程式。 
 
 當可行時，將應用程式視為 Resource Manager 資源來管理有助於改善：
-* 审核线索：资源管理器审核所有操作，并记录详细的活动日志，有助于跟踪对这些应用程序和群集做出的任何更改。
-* 基于角色的访问控制 (RBAC)：可通过同一个资源管理器模板，管理对群集及其上部署的应用程序的访问。
+* 稽核記錄︰Resource Manager 會稽核每一項作業，並保留詳細*活動記錄檔*，可協助您追蹤這些應用程式與您的叢集所做的變更。
+* 角色型存取控制 (RBAC):管理叢集，以及在叢集上部署的應用程式的存取權可以透過相同的 Resource Manager 範本來完成。
 * Azure Resource Manager (透過 Azure 入口網站) 能一次滿足您管理叢集和重要應用程式部署的需求。
 
 下列程式碼片段展示可透過範本管理的各種資源：
@@ -258,6 +258,17 @@ ms.locfileid: "60621457"
    > *apiVersion* 必須設定為 `"2017-07-01-preview"`。 這個範本也能與叢集分開部署，只要叢集已部署完成即可。
 
 5. 部署！ 
+
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>移除 Service Fabric 資源提供者應用程式資源
+以下將會觸發解除佈建叢集，從應用程式套件，這會清除使用的磁碟空間：
+```powershell
+Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
+```
+只要從您的 ARM 範本移除 Microsoft.ServiceFabric/clusters/application 將無法解除佈建應用程式
+
+>[!NOTE]
+> 移除完成後應該不不再會看到在 SFX 或 ARM 中的封裝版本。 您無法刪除應用程式類型版本資源; 正在執行的應用程式ARM/SFRP 會造成這。 如果您嘗試解除佈建執行中的封裝，SF 執行階段會使它。
+
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>透過 Resource Manager 管理現有應用程式
 

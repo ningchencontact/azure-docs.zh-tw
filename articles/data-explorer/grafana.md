@@ -7,16 +7,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: 188cb310cfc13fe2fc41ba3e01deb01068c0184d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 135f8f1c9c352f9d2307a8bf9ad1bec892aac179
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446855"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399920"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>在 Grafana 中從 Azure 資料總管將資料視覺化
 
-Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的視覺效果建立並共用儀表板。 Grafana 提供 Azure 資料總管「外掛程式」，可讓您從 Azure 資料總管連線到資料並加以視覺化。 在本文中，您將了解如何將 Azure 資料總管設定為 Grafana 的資料來源，然後從叢集範例中將資料視覺化。
+Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的視覺效果建立並共用儀表板。 Grafana 提供 Azure 資料總管「外掛程式」  ，可讓您從 Azure 資料總管連線到資料並加以視覺化。 在本文中，您將了解如何將 Azure 資料總管設定為 Grafana 的資料來源，然後從叢集範例中將資料視覺化。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -36,7 +36,7 @@ Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的
 
 1. 建立 Azure Active Directory (Azure AD) 服務主體。 Grafana 會使用服務主體來存取 Azure 資料總管服務。
 
-1. 將 Azure AD 服務主體新增至Azure 資料總管資料庫中的「檢視者」角色。
+1. 將 Azure AD 服務主體新增至Azure 資料總管資料庫中的「檢視者」  角色。
 
 1. 根據 Azure AD 服務主體中的資訊指定 Grafana 連線屬性，然後測試連線。
 
@@ -52,7 +52,7 @@ Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的
 
     1. 在[取得值以便登入](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)區段中，複製步驟中包含的三個屬性值：**目錄識別碼**(租用戶識別碼)、**應用程式識別碼**及**密碼**。
 
-1. 在 Azure 入口網站中，選取 [訂用帳戶]，然後對您已在其中建立服務主體的訂用帳戶複製其識別碼。
+1. 在 Azure 入口網站中，選取 [訂用帳戶]  ，然後對您已在其中建立服務主體的訂用帳戶複製其識別碼。
 
     ![訂用帳戶識別碼 - 入口網站](media/grafana/subscription-id-portal.png)
 
@@ -91,21 +91,21 @@ Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的
 
 ### <a name="add-the-service-principal-to-the-viewers-role"></a>將服務主體新增至檢視者角色
 
-您現在已有服務主體，您可以將其新增至Azure 資料總管資料庫中的「檢視者」角色。 您可以在 Azure 入口網站中的 [權限] 底下執行此工作，或在 [查詢] 底下使用管理命令來執行。
+您現在已有服務主體，您可以將其新增至Azure 資料總管資料庫中的「檢視者」  角色。 您可以在 Azure 入口網站中的 [權限]  底下執行此工作，或在 [查詢]  底下使用管理命令來執行。
 
 #### <a name="azure-portal---permissions"></a>Azure 入口網站 - 權限
 
 1. 在 Azure 入口網站中，移至您的 Azure 資料總管叢集。
 
-1. 在 [概觀] 區段中，選取具有 StormEvents 範例資料的資料庫。
+1. 在 [概觀]  區段中，選取具有 StormEvents 範例資料的資料庫。
 
     ![選取資料庫](media/grafana/select-database.png)
 
-1. 選取 [權限]，然後 [新增]。
+1. 選取 [權限]  ，然後 [新增]  。
 
     ![資料庫權限](media/grafana/database-permissions.png)
 
-1. 在 [新增資料庫權限] 底下，選取 [檢視者] 角色，然後**選取主體**。
+1. 在 [新增資料庫權限]  底下，選取 [檢視者]  角色，然後**選取主體**。
 
     ![新增資料庫權限](media/grafana/add-permission.png)
 
@@ -119,7 +119,7 @@ Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的
 
 #### <a name="management-command---query"></a>管理命令 - 查詢
 
-1. 在 Azure 入口網站中，移至您的 Azure 資料總管叢集，然後選取 [查詢]。
+1. 在 Azure 入口網站中，移至您的 Azure 資料總管叢集，然後選取 [查詢]  。
 
     ![查詢](media/grafana/query.png)
 
@@ -135,15 +135,15 @@ Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的
 
 ### <a name="specify-properties-and-test-the-connection"></a>指定屬性並測試連線
 
-將服務主體指派給「檢視者」角色後，您現在要在 Grafana 執行個體中指定屬性，並測試與 Azure 資料總管的連線。
+將服務主體指派給「檢視者」  角色後，您現在要在 Grafana 執行個體中指定屬性，並測試與 Azure 資料總管的連線。
 
-1. 在 Grafana 的左側功能表中，選取齒輪圖示，然後選取 [資料來源]。
+1. 在 Grafana 的左側功能表中，選取齒輪圖示，然後選取 [資料來源]  。
 
     ![資料來源](media/grafana/data-sources.png)
 
-1. 選取 [新增資料來源] 。
+1. 選取 [新增資料來源]  。
 
-1. 在 [資料來源] / [新增] 頁面上，輸入資料來源名稱，然後選取 [Azure 資料總管資料來源] 類別。
+1. 在 [資料來源] / [新增]  頁面上，輸入資料來源名稱，然後選取 [Azure 資料總管資料來源]  類別。
 
     ![連線名稱和類型](media/grafana/connection-name-type.png)
 
@@ -159,7 +159,7 @@ Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的
     | 用戶端密碼 | 密碼 | password |
     | | | |
 
-1. 選取 [儲存並測試]。
+1. 選取 [儲存並測試]  。
 
     如果測試成功，請移至下一節。 如果您遇到任何問題，請檢查您在 Grafana 中指定的值，並檢閱先前的步驟。
 
@@ -167,23 +167,23 @@ Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的
 
 現在您已將 Azure 資料總管設為 Grafana 的資料來源，是時候將資料視覺化了。 我們將在此示範基本範例，但您可以做的事還很多。 我們建議您查看[撰寫 Azure 資料總管的查詢](write-queries.md)，以取得其他針對範例資料集執行的查詢範例。
 
-1. 在 Grafana 的左側功能表中，選取加號圖示，然後選取 [儀表板]。
+1. 在 Grafana 的左側功能表中，選取加號圖示，然後選取 [儀表板]  。
 
     ![建立儀表板](media/grafana/create-dashboard.png)
 
-1. 在 [新增] 索引標籤底下，選取 [圖表]。
+1. 在 [新增]  索引標籤底下，選取 [圖表]  。
 
     ![新增圖表](media/grafana/add-graph.png)
 
-1. 在 [圖表] 面板中，依序選取 [面板標題] 和 [編輯]。
+1. 在 [圖表] 面板中，依序選取 [面板標題]  和 [編輯]  。
 
     ![編輯面板](media/grafana/edit-panel.png)
 
-1. 在面板底部，選取 [資料來源]，然後選取您所設定的資料來源。
+1. 在面板底部，選取 [資料來源]  ，然後選取您所設定的資料來源。
 
     ![選取資料來源](media/grafana/select-data-source.png)
 
-1. 在 [查詢] 窗格中，複製下列查詢，然後選取 [執行]。 查詢會包含範例資料集的每日事件計數。
+1. 在 [查詢] 窗格中，複製下列查詢，然後選取 [執行]  。 查詢會包含範例資料集的每日事件計數。
 
     ```kusto
     StormEvents
@@ -192,11 +192,11 @@ Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的
 
     ![執行查詢](media/grafana/run-query.png)
 
-1. 圖表未顯示任何結果，因為其預設的資料範圍是過去六小時。 在頂端功能表上，選取 [過去 6 小時]。
+1. 圖表未顯示任何結果，因為其預設的資料範圍是過去六小時。 在頂端功能表上，選取 [過去 6 小時]  。
 
     ![過去六小時](media/grafana/last-six-hours.png)
 
-1. 指定自訂範圍以涵蓋 2007 年，也就是 StormEvents 範例資料集包含的年份。 選取 [套用] 。
+1. 指定自訂範圍以涵蓋 2007 年，也就是 StormEvents 範例資料集包含的年份。 選取 [套用]  。
 
     ![自訂日期範圍](media/grafana/custom-date-range.png)
 
@@ -208,6 +208,6 @@ Grafana 是分析平台，可讓您查詢和視覺化資料，然後根據您的
 
 ## <a name="next-steps"></a>後續步驟
 
-[撰寫 Azure 資料總管的查詢](write-queries.md)
+* [撰寫 Azure 資料總管的查詢](write-queries.md)
 
-[教學課程：在 Power BI 中從 Azure 資料總管將資料視覺化](visualize-power-bi.md)
+* [教學課程：在 Power BI 中從 Azure 資料總管將資料視覺化](visualize-power-bi.md)

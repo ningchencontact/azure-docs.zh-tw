@@ -1,18 +1,18 @@
 ---
 title: 在 Azure 上的 Kubernetes 中運用 Helm 部署容器
-description: 了解如何使用 Helm 打包工具在 Azure Kubernetes 服务 (AKS) 群集中部署容器
+description: 了解如何部署 Azure Kubernetes Service (AKS) 叢集中的容器使用 Helm 封裝工具
 services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 05/23/2019
 ms.author: zarhoads
-ms.openlocfilehash: 2fcdb72fa2717659e78e6f767bdc73b0d7be0886
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76a5391cbe142851d9b1f60ea9346af2e7a35d6a
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465031"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392147"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中使用 Helm 安裝應用程式
 
@@ -24,7 +24,10 @@ ms.locfileid: "60465031"
 
 此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
 
-您也必須安裝 Helm CLI，這是在開發系統上執行的用戶端，可讓您透過 Helm 啟動、停止和管理應用程式。 如果您使用 Azure Cloud Shell，則已安裝 Helm CLI。 如需本機平台的安裝指示，請參閱[安裝 Helm][helm-install]。
+您也需要 Helm CLI 安裝，也就是在您的開發系統執行的用戶端。 它可讓您啟動、 停止及管理應用程式，使用 Helm。 如果您使用 Azure Cloud Shell，則已安裝 Helm CLI。 如需本機平台的安裝指示，請參閱[安裝 Helm][helm-install]。
+
+> [!IMPORTANT]
+> Helm 被要在 Linux 節點上執行。 如果您將 Windows 伺服器節點，在您的叢集時，您必須確定 Helm pod 只會排程在 Linux 節點上執行。 您也需要確保您安裝任何 Helm 圖表也會排程在正確的節點上執行。 在此命令本文使用[節點選取器][ k8s-node-selector]確保 pod 會排定至正確的節點，但並非所有的 Helm 圖表可能會公開 （expose） 的節點選取器。 您也可以考慮使用您的叢集上的其他選項，例如[taints][taints]。
 
 ## <a name="create-a-service-account"></a>建立服務帳戶
 
@@ -70,7 +73,7 @@ Helm 用戶端和 Tiller 服務會使用 TLS/SSL 互相驗證及通訊。 這個
 若要將基本 Tiller 部署到 AKS 叢集，請使用 [helm init][helm-init] 命令。 如果您的叢集並未啟用 RBAC，請移除 `--service-account` 引數和值。 如果您已為 Tiller 和 Helm 設定 TLS/SSL，請略過這個基本初始化步驟，改為提供必要的 `--tiller-tls-`，如接下來的範例所示。
 
 ```console
-helm init --service-account tiller
+helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux"
 ```
 
 如果您已在 Helm 與 Tiller 之間設定 TLS/SSL，請提供 `--tiller-tls-*` 參數和您自己的憑證名稱，如下列範例所示：
@@ -82,7 +85,8 @@ helm init \
     --tiller-tls-key tiller.key.pem \
     --tiller-tls-verify \
     --tls-ca-cert ca.cert.pem \
-    --service-account tiller
+    --service-account tiller \
+    --node-selectors "beta.kubernetes.io/os"="linux"
 ```
 
 ## <a name="find-helm-charts"></a>尋找 Helm 圖表
@@ -141,78 +145,62 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## <a name="run-helm-charts"></a>執行 Helm 圖表
 
-若要使用 Helm 來安裝圖表，請使用 [helm install][helm-install] 命令並且指定要安裝的圖表名稱。 為了查看這個動作，讓我們使用 Helm 圖表來安裝基本 Wordpress 部署。 如果您已設定 TLS/SSL，請新增 `--tls` 參數以使用 Helm 用戶端憑證。
+若要使用 Helm 來安裝圖表，請使用 [helm install][helm-install] 命令並且指定要安裝的圖表名稱。 若要查看作用中安裝 Helm 圖表，讓我們來安裝基本的 nginx 部署使用 Helm 圖表。 如果您已設定 TLS/SSL，請新增 `--tls` 參數以使用 Helm 用戶端憑證。
 
 ```console
-helm install stable/wordpress
+helm install stable/nginx-ingress \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 下列扼要範例輸出顯示 Helm 圖表所建立的 Kubernetes 資源部署狀態：
 
 ```
-$ helm install stable/wordpress
+$ helm install stable/nginx-ingress --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 
-NAME:   wishful-mastiff
-LAST DEPLOYED: Wed Mar  6 19:11:38 2019
+NAME:   flailing-alpaca
+LAST DEPLOYED: Thu May 23 12:55:21 2019
 NAMESPACE: default
 STATUS: DEPLOYED
 
 RESOURCES:
-==> v1beta1/Deployment
-NAME                       DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
-wishful-mastiff-wordpress  1        1        1           0          1s
-
-==> v1beta1/StatefulSet
-NAME                     DESIRED  CURRENT  AGE
-wishful-mastiff-mariadb  1        1        1s
+==> v1/ConfigMap
+NAME                                      DATA  AGE
+flailing-alpaca-nginx-ingress-controller  1     0s
 
 ==> v1/Pod(related)
-NAME                                        READY  STATUS   RESTARTS  AGE
-wishful-mastiff-wordpress-6f96f8fdf9-q84sz  0/1    Pending  0         1s
-wishful-mastiff-mariadb-0                   0/1    Pending  0         1s
-
-==> v1/Secret
-NAME                       TYPE    DATA  AGE
-wishful-mastiff-mariadb    Opaque  2     2s
-wishful-mastiff-wordpress  Opaque  2     2s
-
-==> v1/ConfigMap
-NAME                           DATA  AGE
-wishful-mastiff-mariadb        1     2s
-wishful-mastiff-mariadb-tests  1     2s
-
-==> v1/PersistentVolumeClaim
-NAME                       STATUS   VOLUME   CAPACITY  ACCESS MODES  STORAGECLASS  AGE
-wishful-mastiff-wordpress  Pending  default  2s
+NAME                                                            READY  STATUS             RESTARTS  AGE
+flailing-alpaca-nginx-ingress-controller-56666dfd9f-bq4cl       0/1    ContainerCreating  0         0s
+flailing-alpaca-nginx-ingress-default-backend-66bc89dc44-m87bp  0/1    ContainerCreating  0         0s
 
 ==> v1/Service
-NAME                       TYPE          CLUSTER-IP   EXTERNAL-IP  PORT(S)                     AGE
-wishful-mastiff-mariadb    ClusterIP     10.1.116.54  <none>       3306/TCP                    2s
-wishful-mastiff-wordpress  LoadBalancer  10.1.217.64  <pending>    80:31751/TCP,443:31264/TCP  2s
+NAME                                           TYPE          CLUSTER-IP  EXTERNAL-IP  PORT(S)                     AGE
+flailing-alpaca-nginx-ingress-controller       LoadBalancer  10.0.109.7  <pending>    80:31219/TCP,443:32421/TCP  0s
+flailing-alpaca-nginx-ingress-default-backend  ClusterIP     10.0.44.97  <none>       80/TCP                      0s
 ...
 ```
 
-需要一兩分鐘的時間讓 Wordpress 服務的 EXTERNAL-IP 位址填入，讓您可以使用網頁瀏覽器來加以存取。
+它需要幾分鐘的兩個*EXTERNAL-IP*會填入，並可讓您存取的網頁瀏覽器的 nginx 輸入控制器服務的位址。
 
 ## <a name="list-helm-releases"></a>列出 Helm 版本
 
-若要查看安裝於叢集上的版本清單，請使用 [helm list][helm-list] 命令。 下列範例顯示在上一個步驟中部署的 Wordpress 版本。 如果您已設定 TLS/SSL，請新增 `--tls` 參數以使用 Helm 用戶端憑證。
+若要查看安裝於叢集上的版本清單，請使用 [helm list][helm-list] 命令。 下列範例會顯示在上一個步驟中部署 nginx 輸入版本。 如果您已設定 TLS/SSL，請新增 `--tls` 參數以使用 Helm 用戶端憑證。
 
 ```console
 $ helm list
 
-NAME                REVISION    UPDATED                     STATUS      CHART            APP VERSION    NAMESPACE
-wishful-mastiff   1         Wed Mar  6 19:11:38 2019    DEPLOYED    wordpress-2.1.3  4.9.7          default
+NAME                REVISION    UPDATED                     STATUS      CHART                 APP VERSION   NAMESPACE
+flailing-alpaca   1         Thu May 23 12:55:21 2019    DEPLOYED    nginx-ingress-1.6.13    0.24.1      default
 ```
 
 ## <a name="clean-up-resources"></a>清除資源
 
-部署 Helm 圖表時會建立一些 Kubernetes 資源。 這些資源包含 Pod、部署和服務。 若要清除這些資源，請使用 `helm delete` 命令，並指定在先前 `helm list` 命令中找到的版本名稱。 下列範例會刪除名為 wishful mastiff 的版本：
+部署 Helm 圖表時會建立一些 Kubernetes 資源。 這些資源包含 Pod、部署和服務。 若要清除這些資源，請使用 `helm delete` 命令，並指定在先前 `helm list` 命令中找到的版本名稱。 下列範例會刪除名為 release *flailing alpaca*:
 
 ```console
-$ helm delete wishful-mastiff
+$ helm delete flailing-alpaca
 
-release "wishful-mastiff" deleted
+release "flailing-alpaca" deleted
 ```
 
 ## <a name="next-steps"></a>後續步驟
@@ -239,3 +227,5 @@ release "wishful-mastiff" deleted
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors
+[taints]: operator-best-practices-advanced-scheduler.md

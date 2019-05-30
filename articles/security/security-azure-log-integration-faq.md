@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 01/14/2019
+ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 4f6a724fe6c1e8668084f1c1cefbaa01cffba181
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f7d482b088003e3800debb2db9f6f26bda1672a
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444582"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298178"
 ---
 # <a name="azure-log-integration-faq"></a>Azure 記錄整合常見問題集
 
 本文提供 Azure 記錄整合的常見問題集 (FAQ) 解答。
 
 >[!IMPORTANT]
-> Azure 記錄整合功能將於 2019/06/01 淘汰。 AzLog 下載已在 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
+> Azure 記錄整合功能會在 2019 年 06/15/淘汰。 AzLog 下載已在 2018 年 6 月 27 日停用。 如需繼續進行的指導，請檢閱 [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (使用 Azure 監視器與 SIEM 工具整合) 一文 
 
 Azure 記錄整合是 Windows 作業系統服務，您可以使用此服務將來自 Azure 資源的未經處理記錄，整合到內部部署安全性資訊及事件管理 (SIEM) 系統內。 這項整合為您在內部部署或雲端中的所有資產，提供一個整合儀表板。 您可以接著彙總、相互關聯、分析與應用程式建立關聯的安全性事件，並發出警示。
 
@@ -142,7 +142,7 @@ Error:
 
 完成變更之後，請檢查儲存體帳戶，以確保會收集正確的事件。
 
-如果您在安裝和設定期間有任何問題，請開啟[支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 選取 [記錄整合] 作為您要求支援的服務。
+如果您在安裝和設定期間有任何問題，請開啟[支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 選取 [記錄整合]  作為您要求支援的服務。
 
 ## <a name="can-i-use-azure-log-integration-to-integrate-network-watcher-logs-into-my-siem"></a>可以使用 Azure 記錄整合將網路監看員記錄整合到 SIEM 嗎？
 

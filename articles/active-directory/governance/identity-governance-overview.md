@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d30bbddd044d1aea70e43825035c94b69a46f1f8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 1be6fc2b7d6da85778524cb8986f399c341370c1
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935820"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66307057"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>什麼是 Azure AD 身分識別控管？
 
@@ -60,7 +60,7 @@ Azure Active Directory (Azure AD) 身分識別管理可讓您正確的程序與�
 
 組織可以透過[動態群組](../users-groups-roles/groups-dynamic-membership.md)這類技術，並結合使用者佈建至 [SaaS 應用程式](../saas-apps/tutorial-list.md)或[與 SCIM 整合的應用程式](../manage-apps/use-scim-to-provision-users-and-groups.md)來自動存取生命週期程序。  組織也可以控制哪些[來賓使用者能夠存取內部部署應用程式](../b2b/hybrid-cloud-to-on-premises.md)。  接著可以利用週期性 [Azure AD 存取權檢閱](access-reviews-overview.md)，定期檢閱這些存取權限。
 
-當使用者嘗試存取應用程式時，Azure AD 會強制執行[條件式存取](/azure/active-directory/conditional-access/)原則。 例如，條件式存取原則可以包含顯示[使用規定](../conditional-access/terms-of-use.md)並[確保使用者已經同意這些條款](../conditional-access/require-tou.md)才能夠存取應用程式。
+當使用者嘗試存取應用程式時，Azure AD 會強制執行[條件式存取](/azure/active-directory/conditional-access/)原則。 例如，條件式存取原則可以包含先顯示[使用規定](../conditional-access/terms-of-use.md)並[確保使用者已同意這些規定](../conditional-access/require-tou.md)，才能夠存取應用程式。
 
 ## <a name="privileged-access-lifecycle"></a>特殊權限的存取生命週期
 
@@ -84,6 +84,6 @@ Azure AD Privileged Identity Management (PIM) 提供量身訂做的其他控制�
 ## <a name="next-steps"></a>後續步驟
 
 - [什麼是 Azure AD 權限管理？(預覽)](entitlement-management-overview.md)
-- [什麼是 Azure AD 存取權檢閱嗎？](access-reviews-overview.md)
+- [什麼是 Azure AD 存取權檢閱？](access-reviews-overview.md)
 - [什麼是 Azure AD Privileged Identity Management？](../privileged-identity-management/pim-configure.md)
 - [使用規定對我有何幫助？](active-directory-tou.md)

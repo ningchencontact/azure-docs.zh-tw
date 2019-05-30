@@ -4,14 +4,14 @@ description: 了解 Azure Cosmos DB 如何為您的資料提供資料庫保護�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 5007e19e8e9bb9baf59dc0bfb70150d98115c8f6
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: b82f7fed2407da86c036237a2de10363c4706d67
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65070772"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241138"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 的安全性 - 概觀
 
@@ -75,8 +75,8 @@ ms.locfileid: "65070772"
 |受保護的設施|Azure Cosmos DB 中的資料儲存在 Azure 受保護資料中心內的 SSD 上。<br><br>請參閱 [Microsoft 全球資料中心](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)以深入了解|
 |HTTPS/SSL/TLS 加密|用戶端對服務的所有 Azure Cosmos DB 互動都支援 SSL/TLS 1.2。 此外，所有內部資料中心和跨資料中心複寫都都強制使用 SSL/TLS 1.2。|
 |待用加密|所有儲存至 Azure Cosmos DB 的資料都會進行待用加密。 若要深入了解，請參閱 [Azure Cosmos DB 待用加密](./database-encryption-at-rest.md)|
-|修补的服务器|Azure Cosmos DB 是受控資料庫，會自動替您管理和修補伺服器。|
-|使用強式密碼的系統管理帳戶|很難相信我們需要提到這個需求，但是與一些競爭者不同，Azure Cosmos DB 中的系統管理帳戶一定會有密碼。<br><br> DocumentDB 中默认融入了基于 SSL 和 HMAC 机密的身份验证安全性。|
+|修補的伺服器|Azure Cosmos DB 是受控資料庫，會自動替您管理和修補伺服器。|
+|使用強式密碼的系統管理帳戶|很難相信我們需要提到這個需求，但是與一些競爭者不同，Azure Cosmos DB 中的系統管理帳戶一定會有密碼。<br><br> 依預設已內建透過 SSL 和 HMAC 密碼型驗證的安全性。|
 |安全性和資料保護認證| 如需認證的最新清單，請參閱整體[Azure 合規性的站台](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)以及最新[Azure 合規性文件](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)所有認證 （適用於 Cosmos 搜尋）。 如更受關注，請閱讀 2018 年 4 月 25 日文章的核取 [Azure #CosmosDB:安全、 私用、 符合規範，其中包含 SOC 1/2 類型 2、 HITRUST、 PCI DSS Level 1、 ISO 27001、 HIPAA、 FedRAMP High 和許多其他項目。
 
 以下螢幕擷取畫面顯示如何使用稽核記錄和活動記錄來監視您的帳戶：![Azure Cosmos DB 的活動記錄](./media/database-security/nosql-database-security-application-logging.png)

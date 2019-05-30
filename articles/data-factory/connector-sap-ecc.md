@@ -3,22 +3,21 @@ title: 使用 Azure Data Factory 從 SAP ECC 複製資料 | Microsoft Docs
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 SAP ECC 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 04/26/2018
-ms.date: 04/22/2019
-ms.author: v-jay
-ms.openlocfilehash: d86264b632daa09a899fae28e73e117b16322617
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 04/26/2018
+ms.author: jingwang
+ms.openlocfilehash: 7c75793a696137a1d4cc24fa94877a7fb4e4247a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128112"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243912"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP ECC 複製資料
 
@@ -33,6 +32,9 @@ ms.locfileid: "62128112"
 - 在 SAP NetWeaver 7.0 版和更新版本上從 SAP ECC 複製資料。 
 - 從 SAP ECC OData 服務 (例如 SAP 資料表/檢視表、BAPI、資料擷取器等) 所公開的任何物件複製資料，或複製傳送至 SAP PI 而可透過相對配接器以 OData 的形式接收的資料/IDOC。
 - 使用基本驗證來複製資料。
+
+>[!TIP]
+>若要從 SAP ECC 複製資料，透過 SAP 資料表/檢視表，您可以使用[SAP 資料表](connector-sap-table.md)連接器效能更好且可調整規模。
 
 ## <a name="prerequisites"></a>必要條件
 

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f9a1e82cb60bf0ec32165294e7f4af3e93d042b0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 44f16b3334b991e071fa85ca4cffbc0837f0a6ec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158533"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244436"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>在 Azure 搜尋服務中連結認知服務資源與技能 
 
 AI 演算法磁碟機[認知的索引編製管線](cognitive-search-concept-intro.md)用於 Azure 搜尋服務中的文件擴充。 這些演算法會根據 Azure 認知服務資源，包括[Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)影像分析和光學字元辨識 (OCR) 及[文字分析](https://azure.microsoft.com/services/cognitive-services/text-analytics/)實體辨識關鍵片語擷取和其他類。 使用 Azure 搜尋服務文件擴充基於，演算法會包裝內*技能*、 在放置*技能集*，和所參考*索引子*期間編製索引。
 
-您可以免費擴充數目有限的文件，或是針對較大型且較頻繁的工作負載附加計費的「認知服務」資源。 本文中，您將學習如何將計費的認知服務資源使用認知技能集來擴充文件期間[Azure 搜尋服務編製索引](search-what-is-an-index.md)。
+您可以免費擴充有限的數目的文件。 或者，您可以將計費的認知服務資源，來附加*技能集*更大、 更頻繁的工作負載。 本文中，您將學習如何將計費的認知服務資源，以加強 Azure 搜尋服務文件[編製索引](search-what-is-an-index.md)。
 
 > [!NOTE]
 > 計費的事件包括呼叫認知服務 Api 和映像一部分的文件破解階段擷取 Azure 搜尋服務中。 沒有任何文件中的文字擷取或會呼叫認知服務技術的費用。
@@ -30,7 +30,9 @@ AI 演算法磁碟機[認知的索引編製管線](cognitive-search-concept-intr
 
 ## <a name="same-region-requirement"></a>相同區域的需求
 
-我們會要求 Azure 搜尋服務和 Azure 認知服務存在於相同的區域。 否則，就會出現此訊息在執行階段：`"Provided key is not a valid CognitiveServices type key for the region of your search service."` 沒有任何方法，跨區域移動服務。 如果您收到這個錯誤，您應該在相同的區域中建立新的服務，並據以重新發佈您的索引。
+我們會要求 Azure 搜尋服務和 Azure 認知服務存在於相同的區域。 否則，就會出現此訊息在執行階段： `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+
+沒有任何方法，跨區域移動服務。 如果您收到這個錯誤，您應該在 Azure 搜尋服務位於相同區域中建立新的認知服務資源。
 
 ## <a name="use-free-resources"></a>使用免費資源
 
@@ -44,7 +46,7 @@ AI 演算法磁碟機[認知的索引編製管線](cognitive-search-concept-intr
 
 1. 選擇資料來源，並繼續**認知搜尋 （選擇性） 新增**。 如需此精靈的逐步解說，請參閱[匯入、 索引和查詢，藉由使用入口網站工具](search-get-started-portal.md)。
 
-1. 依序展開**附加的認知服務**，然後選取**Free （有限類）**:
+1. 依序展開**附加的認知服務**，然後選取**Free （有限類）** :
 
    ![展開連結的認知服務區段](./media/cognitive-search-attach-cognitive-services/attach1.png "展開連結的認知服務區段")
 
@@ -88,11 +90,11 @@ AI 演算法磁碟機[認知的索引編製管線](cognitive-search-concept-intr
 
    ![技能索引標籤](./media/cognitive-search-attach-cognitive-services/attach-existing1.png "技能索引標籤")
 
-1. 選取名稱的技能組合，然後選取現有的資源，或建立新的。 按一下 [確定] 確認變更。
+1. 選取名稱的技能組合，然後選取現有的資源，或建立新的。 按一下 [確定]  確認變更。
 
    ![技能資源清單](./media/cognitive-search-attach-cognitive-services/attach-existing2.png "技能資源清單")
 
-   請記住**免費 （有限類）** 選項限制為 20 的文件每日，並可供您**建立新的認知服務資源**佈建一個新的計費資源。 如果您建立新資源，請選取 [重新整理] 以重新整理「認知服務」資源的清單，然後選取資源。
+   請記住**免費 （有限類）** 選項限制為 20 的文件每日，並可供您**建立新的認知服務資源**佈建一個新的計費資源。 如果您建立新資源，請選取 [重新整理]  以重新整理「認知服務」資源的清單，然後選取資源。
 
 ## <a name="attach-cognitive-services-programmatically"></a>透過程式設計方式附加認知服務
 

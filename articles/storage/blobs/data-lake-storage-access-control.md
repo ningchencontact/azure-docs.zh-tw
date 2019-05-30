@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5ad7ef714147616fe55a9b978d501b974323e251
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5adba958ed3bcb9efbf66c079b541e11ceed570c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949566"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243599"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中的存取控制
 
@@ -26,9 +26,9 @@ Azure Data Lake 儲存體 Gen2 實作支援 Azure 角色型存取控制 (RBAC) �
 
 RBAC 會有效地套用的權限集來使用角色指派*安全性主體*。 A*安全性主體*是代表使用者、 群組、 服務主體或定義在 Azure Active Directory (AD) 所要求存取 Azure 資源的受管理身分識別的物件。
 
-一般而言，這些 Azure 資源都受限於最上層資源 (例如：Azure 儲存體帳戶）。 就 Azure 儲存體和隨之採用的 Azure Data Lake Storage Gen2 而言，這項機制已擴充至檔案系統資源。
+一般而言，這些 Azure 資源都受限於最上層資源 (例如：Azure 儲存體帳戶）。 在 Azure 儲存體，因此 Azure Data Lake 儲存體 Gen2 的情況下這項機制已經擴充成容器 （檔案系統） 資源。
 
-若要了解如何將角色指派給範圍內的儲存體帳戶的安全性主體，請參閱[驗證存取 Azure blob 和佇列使用 Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+若要了解如何將角色指派給範圍內的儲存體帳戶的安全性主體，請參閱[授與存取 Azure blob 和佇列資料使用 RBAC 在 Azure 入口網站中](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>影響的檔案和目錄的層級存取控制清單上的角色指派
 
@@ -49,7 +49,7 @@ SAS 權杖會在其權杖中包含允許的權限。 SAS 權杖中包含的權�
 
 ## <a name="access-control-lists-on-files-and-directories"></a>檔案和目錄的存取控制清單
 
-您可以關聯的檔案和目錄的存取層級的安全性主體。 這些關聯會擷取*存取控制清單 (ACL)*。 每個檔案和儲存體帳戶中的目錄有存取控制清單。
+您可以關聯的檔案和目錄的存取層級的安全性主體。 這些關聯會擷取*存取控制清單 (ACL)* 。 每個檔案和儲存體帳戶中的目錄有存取控制清單。
 
 如果您在儲存體帳戶層級的安全性主體指派角色，您可以使用存取控制清單來授與特定的檔案和目錄的安全性主體較高的存取。
 
@@ -77,31 +77,32 @@ SAS 權杖會在其權杖中包含允許的權限。 SAS 權杖中包含的權�
 
 存取 ACL 和預設 ACL 有相同的結構。
 
-存取 ACL 和預設 ACL 有相同的結構。
-
 > [!NOTE]
 > 變更父代的預設 ACL 並不會影響現存子項目的存取 ACL 或預設 ACL。
 
 ### <a name="levels-of-permission"></a>層級權限
 
-檔案系統物件的權限為 [讀取]、[寫入] 和 [執行]，這些權限可以用於下表所示的檔案和目錄：
+檔案系統物件的權限為 [讀取]  、[寫入]  和 [執行]  ，這些權限可以用於下表所示的檔案和目錄：
 
 |            |    檔案     |   目錄 |
 |------------|-------------|----------|
-| **讀取 (R)** | 可以讀取檔案的內容 | 需要 [讀取] 和 [執行] 才能列出目錄內容 |
-| **寫入 (W)** | 可寫入或附加至檔案 | 需要 [寫入] 和 [執行] 才能在目錄中建立子項目 |
+| **讀取 (R)** | 可以讀取檔案的內容 | 需要 [讀取]  和 [執行]  才能列出目錄內容 |
+| **寫入 (W)** | 可寫入或附加至檔案 | 需要 [寫入]  和 [執行]  才能在目錄中建立子項目 |
 | **執行 (X)** | 不表示 Data Lake Storage Gen2 內容中的任何項目 | 需要周遊目錄的子項目 |
+
+> [!NOTE]
+> 如果您使用 Acl (沒有 RBAC)，授與權限，則若要授與服務主體讀取或寫入檔案的存取權，您將需要為服務主體**Execute**檔案系統中，並在每個資料夾的權限指向檔案的資料夾階層。
 
 #### <a name="short-forms-for-permissions"></a>權限的簡短形式
 
-**RWX** 用來表示 [讀取 + 寫入 + 執行]。 有更壓縮的數字形式存在，其中 [讀取 = 4]、[寫入 = 2] 和 [執行 = 1]，其總和代表各種權限。 以下有一些範例。
+**RWX** 用來表示 [讀取 + 寫入 + 執行]  。 有更壓縮的數字形式存在，其中 [讀取 = 4]  、[寫入 = 2]  和 [執行 = 1]  ，其總和代表各種權限。 以下有一些範例。
 
 | 數值形式 | 簡短形式 |      意義     |
 |--------------|------------|------------------------|
 | 7            | `RWX`        | 讀取 + 寫入 + 執行 |
 | 5            | `R-X`        | 讀取 + 執行         |
-| 4            | `R--`        | 閱讀                   |
-| 0            | `---`        | 沒有任何權限         |
+| 4            | `R--`        | 讀取                   |
+| 0            | `---`        | 沒有權限         |
 
 #### <a name="permissions-inheritance"></a>權限繼承
 
@@ -146,7 +147,7 @@ SAS 權杖會在其權杖中包含允許的權限。 SAS 權杖中包含的權�
 * 只要擁有使用者也是目標群組的成員，請變更所擁有檔案的擁有群組。
 
 > [!NOTE]
-> 擁有使用者「無法」變更檔案或目錄的擁有使用者。 只有超級使用者可以變更檔案或目錄的擁有使用者。
+> 擁有使用者「無法」  變更檔案或目錄的擁有使用者。 只有超級使用者可以變更檔案或目錄的擁有使用者。
 
 #### <a name="the-owning-group"></a>擁有群組
 

@@ -19,22 +19,22 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e9daebf46093e38858feff87ca5c4ba89638aa74
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: b670b5aeffcd699226a088d8db21a12dbaf40042
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951899"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242806"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>將自訂分析器新增至 Azure 搜尋服務索引
 
-「自訂分析器」是特定類型的[文字分析器](search-analyzers.md)，其包含使用者定義的現有權杖化工具和選擇性篩選組合。 透過以新方式結合權杖化工具和篩選，您便可以自訂搜尋引擎中的文字處理來達成特定結果。 例如，您可以使用「字元篩選器 (char filter)」 建立自訂分析器，讓文字輸入在變成語彙基元 (token) 之前能移除 HTML 標記。
+「自訂分析器」  是特定類型的[文字分析器](search-analyzers.md)，其包含使用者定義的現有權杖化工具和選擇性篩選組合。 透過以新方式結合權杖化工具和篩選，您便可以自訂搜尋引擎中的文字處理來達成特定結果。 例如，您可以使用「字元篩選器 (char filter)」  建立自訂分析器，讓文字輸入在變成語彙基元 (token) 之前能移除 HTML 標記。
 
  您可以定義多個自訂分析器來變更篩選器的組合，但是每個欄位只能針對索引分析使用一個分析器、針對搜尋分析使用一個分析器。 如需自訂分析器的相關說明，請參閱[自訂分析器範例](search-analyzers.md#Custom-analyzer-example)。
 
 ## <a name="overview"></a>概觀
 
- 簡單地說，[全文檢索搜尋引擎](search-lucene-query-architecture.md)是處理和儲存文件的角色，而目的是要達到有效率的查詢和擷取。 概括而言，這一切包括從文件中擷取重要的字組、將其放在索引中，然後使用索引來尋找符合指定查詢中字組的文件。 從文件和搜尋查詢中擷取文字的程序稱為「語彙分析」。 執行語彙分析的元件稱為「分析器」。
+ 簡單地說，[全文檢索搜尋引擎](search-lucene-query-architecture.md)是處理和儲存文件的角色，而目的是要達到有效率的查詢和擷取。 概括而言，這一切包括從文件中擷取重要的字組、將其放在索引中，然後使用索引來尋找符合指定查詢中字組的文件。 從文件和搜尋查詢中擷取文字的程序稱為「語彙分析」  。 執行語彙分析的元件稱為「分析器」  。
 
  在 Azure 搜尋服務中，您可以在[分析器](#AnalyzerTable)表格中選取預先定義的不限語言分析器，或是選擇列於[語言分析器 &#40;Azure搜尋服務 REST API&#41;](index-add-language-analyzers.md)中的特定語言分析器。 您也可以定義自己的自訂分析器。  
 
@@ -214,18 +214,21 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |||  
 |-|-|  
 |名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
-|Type|可支援分析器清單中的分析器類型。 請參閱下方[分析器](#AnalyzerTable)表格中的 **analyzer_type** 資料行。|  
-|選項|必須是下方[分析器](#AnalyzerTable)表格中有效的預先定義分析器選項。|  
+|類型|可支援分析器清單中的分析器類型。 請參閱下方[分析器](#AnalyzerTable)表格中的 **analyzer_type** 資料行。|  
+|選項。|必須是下方[分析器](#AnalyzerTable)表格中有效的預先定義分析器選項。|  
 
 #### <a name="custom-analyzers"></a>自訂分析器
 
 |||  
 |-|-|  
 |名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
-|Type|必須是 "#Microsoft.Azure.Search.CustomAnalyzer"。|  
+|類型|必須是 "#Microsoft.Azure.Search.CustomAnalyzer"。|  
 |CharFilters|設定為[字元篩選器](#char-filters-reference)表格內其中一個預先定義的字元篩選器，或設定為索引定義中指定的自訂字元篩選器。|  
 |權杖化工具|必要。 設定為下方 [Token 化工具](#Tokenizers) 表格內其中一個預先定義的 Token 化工具或設定為索引定義中指定的自訂 Token 化工具。|  
 |語彙基元篩選器|設定為[語彙基元篩選器](#TokenFilters)表格內其中一個預先定義的語彙基元篩選器，或設定為索引定義中指定的自訂語彙基元篩選器。|  
+
+> [!NOTE]
+> 必須將您的自訂分析器設定為不會產生超過 300 個字元的語彙基元。 使用這類語彙基元的文件會使編製索引失敗。 若要縮短或略過這些語彙基元，請分別使用 **TruncateTokenFilter** 和 **LengthTokenFilter**。  請檢查[**語彙基元篩選**](#TokenFilters)供參考。
 
 <a name="CharFilter"></a>
 
@@ -236,8 +239,8 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |||  
 |-|-|  
 |名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
-|Type|可支援字元篩選器清單中的字元篩選器類型。 請參閱下方[字元篩選器](#char-filters-reference)表格中的 **char_filter_type** 資料行。|  
-|選項|必須是指定[字元篩選器](#char-filters-reference)類型的有效選項。|  
+|類型|可支援字元篩選器清單中的字元篩選器類型。 請參閱下方[字元篩選器](#char-filters-reference)表格中的 **char_filter_type** 資料行。|  
+|選項。|必須是指定[字元篩選器](#char-filters-reference)類型的有效選項。|  
 
 ### <a name="tokenizers"></a>Tokenizers
 
@@ -249,8 +252,8 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |||  
 |-|-|  
 |名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
-|Type|可支援 Token 化工具清單中的 Token 化工具名稱。 請參閱下方 [Token 化工具](#Tokenizers) 表格中的 **tokenizer_type** 資料行。|  
-|選項|必須是下方 [Token 化工具](#Tokenizers) 表格中指定 Token 化工具類型的有效選項。|  
+|類型|可支援 Token 化工具清單中的 Token 化工具名稱。 請參閱下方 [Token 化工具](#Tokenizers) 表格中的 **tokenizer_type** 資料行。|  
+|選項。|必須是下方 [Token 化工具](#Tokenizers) 表格中指定 Token 化工具類型的有效選項。|  
 
 ### <a name="token-filters"></a>權杖篩選器
 
@@ -260,8 +263,8 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |||  
 |-|-|  
 |名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
-|Type|可支援語彙基元篩選器清單中的語彙基元篩選器名稱。 請參閱下方[語彙基元篩選器](#TokenFilters)表格中的 **token_filter_type** 資料行。|  
-|選項|必須是指定語彙基元篩選器類型的[語彙基元篩選器](#TokenFilters)。|  
+|類型|可支援語彙基元篩選器清單中的語彙基元篩選器名稱。 請參閱下方[語彙基元篩選器](#TokenFilters)表格中的 **token_filter_type** 資料行。|  
+|選項。|必須是指定語彙基元篩選器類型的[語彙基元篩選器](#TokenFilters)。|  
 
 <a name="PropertyReference"></a>  
 
@@ -319,7 +322,7 @@ analyzer_type 僅提供給可自訂的分析器使用。 如果沒有任何選�
 | microsoft_language_stemming_tokenizer | MicrosoftLanguageStemmingTokenizer| 使用語言特有的規則來分割文字，並將字組縮減到其基本形式<br /><br /> **選項**<br /><br />maxTokenLength (類型：int) - 語彙基元長度的上限，預設值：255，最大值：300。 超過長度上限的權杖會進行分割。 超過 300 個字元的語彙基元會先分割成長度為 300 個字元的語彙基元，然後再根據設定的 maxTokenLength 分割這每一個語彙基元。<br /><br /> isSearchTokenizer (類型：bool) - 如果作為搜尋 Token 化工具使用，則設定為 true，如果作為索引 Token 化工具使用，則設為 false。<br /><br /> language (類型：字串) - 要使用的語言，預設值是 "english"。 允許的值包括：<br />"arabic"、"bangla"、"bulgarian"、"catalan"、"croatian"、"czech"、"danish"、"dutch"、"english"、"estonian"、finnish"、"french"、"german"、"greek"、"gujarati"、"hebrew"、"hindi"、"hungarian"、"icelandic"、"indonesian"、"italian"、"kannada"、"latvian"、"lithuanian"、"malay"、"malayalam"、"marathi"、"norwegianBokmaal"、"polish"、"portuguese"、"portugueseBrazilian"、"punjabi"、"romanian"、"russian"、"serbianCyrillic"、"serbianLatin"、"slovak"、"slovenian"、"spanish"、"swedish"、"tamil"、"telugu"、"turkish"、"ukrainian"、"urdu" |
 |[nGram](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenizer.html)|NGramTokenizer|將輸入 Token 化到指定的 n-gram 大小。<br /><br /> **選項**<br /><br /> minGram (類型：int) - 預設值：1，最大值：300。<br /><br /> maxGram (類型：int) - 預設值：2，最大值：300。 必須大於 minGram。 <br /><br /> tokenChars (類型：字串陣列) - 要在語彙基元中保留的字元類別。 允許的值："letter"、"digit"、"whitespace"、"punctuation"、"symbol"。 預設為空陣列 - 保留所有字元。 |  
 |[path_hierarchy_v2](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/path/PathHierarchyTokenizer.html)|PathHierarchyTokenizerV2|路徑類階層的 Token 化工具。<br /><br /> **選項**<br /><br /> delimiter (類型：字串) - 預設值：'/。<br /><br /> replacement (類型：字串) - 如有設定，則會取代分隔符號字元。 預設值與分隔符號的值相同。<br /><br /> maxTokenLength (類型：int) - 語彙基元長度的上限。 預設值：300，最大值：300。 長度超過 maxTokenLength 的路徑會遭到忽略。<br /><br /> reverse (類型：bool) - 如果為 true，則會以反向順序產生語彙基元。 預設：false。<br /><br /> skip (類型：bool) - 要略過的起始語彙基元數目。 預設值為 0。|  
-|[pattern](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|此 Token 化工具會使用 RegEx 模式比對來建構不同的語彙基元。<br /><br /> **選項**<br /><br /> pattern (類型：字串) - 規則運算式模式。 預設值為 \w+。<br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (類型：字串) - 規則運算式旗標。 預設值是空字串。 允許的值：CANON_EQ、CASE_INSENSITIVE、COMMENTS、DOTALL、LITERAL、MULTILINE、UNICODE_CASE、UNIX_LINES<br /><br /> group (類型：int) - 要將哪個群組擷取至語彙基元。 預設值為 -1 (分割)。|  
+|[pattern](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|此 Token 化工具會使用 RegEx 模式比對來建構不同的語彙基元。<br /><br /> **選項**<br /><br /> [模式](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html)(型別： 字串)-規則運算式模式。 預設為 \W+。 <br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (類型：字串) - 規則運算式旗標。 預設值是空字串。 允許的值：CANON_EQ、CASE_INSENSITIVE、COMMENTS、DOTALL、LITERAL、MULTILINE、UNICODE_CASE、UNIX_LINES<br /><br /> group (類型：int) - 要將哪個群組擷取至語彙基元。 預設值為 -1 (分割)。|
 |[standard_v2](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|遵循 [Unicode 文字分割規則](https://unicode.org/reports/tr29/)來分解文字。<br /><br /> **選項**<br /><br /> maxTokenLength (類型：int) - 語彙基元長度的上限。 預設值：255，最大值：300。 超過長度上限的權杖會進行分割。|  
 |[uax_url_email](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|將 URL 和電子郵件 Token 化為一個語彙基元。<br /><br /> **選項**<br /><br /> maxTokenLength (類型：int) - 語彙基元長度的上限。 預設值：255，最大值：300。 超過長度上限的權杖會進行分割。|  
 |[whitespace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|(有選項時才需套用類型) |在空白字元處分割文字。 分割長度超過 255 個字元的語彙基元。|  
@@ -377,9 +380,6 @@ analyzer_type 僅提供給可自訂的分析器使用。 如果沒有任何選�
 |[word_delimiter](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/WordDelimiterFilter.html)|WordDelimiterTokenFilter|將字組分割成部分字組，並對部分字組群組執行選擇性的轉換。<br /><br /> **選項**<br /><br /> generateWordParts (類型：bool) - 產生部分字組，例如，"AzureSearch" 會變成 "Azure" "Search"。 預設值是 true。<br /><br /> generateNumberParts (類型：bool) - 產生數字的部分字組。 預設值是 true。<br /><br /> catenateWords (類型：bool) - 將所能連接的最多字組部分合併，例如，"Azure-Search" 會變成 "AzureSearch"。 預設值為 false。<br /><br /> catenateNumbers (類型：bool) - 將所能連接的最多數字部分合併，例如，"1-2" 會變成 "12"。 預設值為 false。<br /><br /> catenateAll (類型：bool) - 將所有部分字組合併，例如，"Azure-Search-1" 會變成 "AzureSearch1"。 預設值為 false。<br /><br /> splitOnCaseChange (類型：bool) - 如果為 true，則根據大小寫變更來分割字組，例如，"AzureSearch" 會變成 "Azure" "Search"。 預設值是 true。<br /><br /> preserveOriginal - 保留原始子組並新增至部分字組清單。 預設值為 false。<br /><br /> splitOnNumerics (類型：bool) - 如果為 true，則根據數字來分割，例如 "Azure1Search" 會變成 "Azure" "1" "Search"。 預設值是 true。<br /><br /> stemEnglishPossessive (類型：bool) - 移除每個字組部分尾端的 "s"。 預設值是 true。<br /><br /> protectedWords (類型：字串陣列) - 要防止分隔的語彙基元。 預設值是空白清單。|  
 
  <sup>1</sup> 語彙基元篩選器類型在程式碼中一律會以 "#Microsoft.Azure.Search" 作為前置詞，因此 "ArabicNormalizationTokenFilter" 實際上會指定為 "#Microsoft.Azure.Search.ArabicNormalizationTokenFilter"。  為縮短表格寬度，我們已移除前置詞，但請務必將其包含在您的程式碼中。  
-
-> [!NOTE]
-> 必須將您的自訂分析器設定為不會產生超過 300 個字元的語彙基元。 使用這類語彙基元的文件會使編製索引失敗。 若要縮短或略過這些語彙基元，請分別使用 **TruncateTokenFilter** 和 **LengthTokenFilter**。
 
 
 ## <a name="see-also"></a>請參閱  

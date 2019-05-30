@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9e1b1953520c5502668fbbae70a37a140253b035
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657978"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241698"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>如何在 Azure API 管理原則中使用具名值
 API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定來變更 API 的行為。 原則是陳述式的集合，會因 API 的要求或回應循序執行。 原則陳述式可以使用常值文字值、原則運算式和具名值來建構。 
@@ -27,10 +27,10 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 
 | 屬性 | 類型 | 描述 |
 | --- | --- | --- |
-| Display name |string |用於參考原則中屬性的英數字元字串。 |
-| Value |string |屬性的值。 不能是空白或只由空白字元組成。 |
-|Secret|boolean|決定該值是否為密碼且是否應該加密。|
-| Tags |字串陣列 |若有提供選用的標記，則可用來篩選屬性清單。 |
+| `Display name` |string |用於參考原則中屬性的英數字元字串。 |
+| `Value`        |string |屬性的值。 不能是空白或只由空白字元組成。 |
+| `Secret`       |boolean|決定該值是否為密碼且是否應該加密。|
+| `Tags`         |字串陣列 |若有提供選用的標記，則可用來篩選屬性清單。 |
 
 ![具名值](./media/api-management-howto-properties/named-values.png)
 
@@ -46,16 +46,16 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 
 ![新增屬性](./media/api-management-howto-properties/add-property.png)
 
-1. 選取 [API 管理] 下方的 [API]。
-2. 選取 [具名值]。
-3. 按 [+新增]。
+1. 選取 [API 管理]  下方的 [API]  。
+2. 選取 [具名值]  。
+3. 按 [+新增]  。
 
    [名稱] 和 [值] 都是必要值。 如果此屬性值是祕密，請勾選 [這是祕密] 核取方塊。 輸入一或多個選擇性標籤來協助組織您的具名值，然後按一下 [儲存]。
-4. 按一下頁面底部的 [新增] 。
+4. 按一下頁面底部的 [新增]  。
 
 屬性建立之後，您可以按一下屬性來加以編輯。 如果您變更屬性名稱，任何參照該屬性的原則會自動更新以使用新的名稱。
 
-如需使用 REST API 編輯屬性的詳細資訊，請參閱 [使用 REST API 編輯屬性](/rest/api/apimanagement/property?Patch)。
+如需使用 REST API 編輯屬性的詳細資訊，請參閱 [使用 REST API 編輯屬性](/rest/api/apimanagement/2019-01-01/property?patch)。
 
 ## <a name="to-delete-a-property"></a>刪除屬性
 
@@ -66,13 +66,13 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 > 
 > 
 
-如需使用 REST API 刪除屬性的詳細資訊，請參閱 [使用 REST API 刪除屬性](/rest/api/apimanagement/property?Delete)。
+如需使用 REST API 刪除屬性的詳細資訊，請參閱 [使用 REST API 刪除屬性](/rest/api/apimanagement/2019-01-01/property/delete)。
 
 ## <a name="to-search-and-filter-named-values"></a>搜尋與篩選具名值
 
-[具名值] 索引標籤包括可協助您管理具名值的搜尋與篩選功能。 若要按照屬性名稱篩選屬性清單，請在 [搜尋屬性]  文字方塊中輸入搜尋字詞。 若要顯示所有具名值，請清除 [搜尋屬性] 文字方塊，然後按 Enter 鍵。
+[具名值]  索引標籤包括可協助您管理具名值的搜尋與篩選功能。 若要按照屬性名稱篩選屬性清單，請在 [搜尋屬性]  文字方塊中輸入搜尋字詞。 若要顯示所有具名值，請清除 [搜尋屬性]  文字方塊，然後按 Enter 鍵。
 
-若要按照標籤值篩選屬性清單，請在 [依標籤篩選]  文字方塊中輸入一或多個標籤。 若要顯示所有具名值，請清除 [依標記篩選] 文字方塊，然後按 Enter 鍵。
+若要按照標籤值篩選屬性清單，請在 [依標籤篩選]  文字方塊中輸入一或多個標籤。 若要顯示所有具名值，請清除 [依標記篩選]  文字方塊，然後按 Enter 鍵。
 
 ## <a name="to-use-a-property"></a>使用屬性
 

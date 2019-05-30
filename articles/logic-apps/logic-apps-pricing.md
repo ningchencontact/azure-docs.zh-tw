@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: b37a6b6995df6f784b5f1b4a7a3f54d91faafc13
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 20e84482b31c4da991f3fdc9c7bbf6ee0e7f902a
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990197"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299093"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps 的定價模式
 
@@ -38,14 +38,14 @@ Azure Logic Apps 會測量執行邏輯應用程式中的所有動作。 深入�
 
 ## <a name="fixed-pricing-model"></a>固定定價模式
 
-[ *Integration service 環境*(ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)提供私用、 隔離和專用的方法，讓您建立和執行可存取 Azure 虛擬網路中的資源的邏輯應用程式。 針對新的邏輯應用程式在 ISE 中執行，您會支付每月費用固定的內建動作和觸發程序以及標準連接器。
+[ *Integration service 環境*(ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)提供私用、 隔離和專用的方法，讓您建立和執行可存取 Azure 虛擬網路中的資源的邏輯應用程式。 針對新的邏輯應用程式在 ISE 中執行，您需支付[每月固定價格](https://azure.microsoft.com/pricing/details/logic-apps)的內建動作和觸發程序以及標準連接器。
 
-您的 ISE 也包括一個免費的企業連接器，其中包含您想要的連線數目上限。 其他企業連接器的使用方式是依據 Enterprise 耗用量價格來收費的。
+您的 ISE 也包括一個免費的企業連接器，其中包含多個*連線*視需要。 其他企業連接器的使用量為收費依據[企業耗用量價格](https://azure.microsoft.com/pricing/details/logic-apps)。 只有通常可以使用企業連接器收費企業耗用量價格。 公開預覽企業連接器收費[標準連接器速率](https://azure.microsoft.com/pricing/details/logic-apps)。
 
 > [!NOTE]
 > 在 ISE、 內建的觸發程序和動作顯示**Core**加上標籤，並在您的 logic apps 為相同的 ISE 中執行。 標準和企業連接器，顯示**ISE**在為您的 logic apps 相同的 ISE 中執行的標籤。 不會顯示在全域的 Logic Apps 服務中執行的 ISE 標籤的連接器。
 
-ISE 基底單元有固定的容量，因此如果您需要更多的輸送量，您可以[新增更多縮放單位](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity)，請在建立期間或之後。 
+ISE 基底單元有固定的容量，因此如果您需要更多的輸送量，您可以[新增更多縮放單位](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity)，請在建立期間或之後。 在 ISE 中執行的邏輯應用程式不會產生資料保留成本。
 
 如需特定的定價資訊，請參閱 < [Azure Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps)。
 
@@ -108,7 +108,7 @@ Azure Logic Apps 提供了免費、 基本和標準整合帳戶。 基本和標�
 
 ## <a name="data-retention"></a>資料保留
 
-所有的輸入和輸出而儲存邏輯應用程式的執行歷程記錄中取得計費依據為邏輯應用程式的[執行保留期間](logic-apps-limits-and-config.md#run-duration-retention-limits)。 如需特定的定價資訊，請參閱 < [Azure Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps)。
+除了邏輯應用程式，執行 integration service 環境 (ISE) 中，所有輸入和輸出而儲存邏輯應用程式的執行歷程記錄中取得都計費基礎的邏輯應用程式[執行保留期間](logic-apps-limits-and-config.md#run-duration-retention-limits)。 在 ISE 中執行的邏輯應用程式不會產生資料保留成本。 如需特定的定價資訊，請參閱 < [Azure Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps)。
 
 為了協助您監視邏輯應用程式的儲存體耗用量，您可以：
 

@@ -9,12 +9,12 @@ ms.date: 10/24/2018
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 3d4c40e172352fc2d92ea5523cad2aebe5468e1e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 111167584fb2e0e2ee5977e0e24b3ebf07b170c1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65961435"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237996"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>區域備援儲存體 (ZRS)：高可用性 Azure 儲存體應用程式
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -49,7 +49,7 @@ Microsoft 會持續在其他 Azure 區域啟用 ZRS。 如需新區域的詳細�
 ## <a name="converting-to-zrs-replication"></a>轉換成 ZRS 複寫
 以 LRS、GRS 及 RA-GRS 作為目標或來源進行移轉相當簡單。 請使用 Azure 入口網站或「儲存體資源提供者 API」來變更帳戶的備援類型。 接著，Azure 便會相應地複寫您的資料。 
 
-以 ZRS 作為目標或來源來移轉資料需要採取不同的策略。 ZRS 移轉涉及將資料從單一儲存體戳記實際移至區域內的多個戳記。
+將資料移轉至 ZRS 需要不同的策略。 ZRS 移轉涉及將資料從單一儲存體戳記實際移至區域內的多個戳記。
 
 有兩個移轉至 ZRS 的主要選項： 
 
@@ -78,18 +78,18 @@ Microsoft 強烈建議您執行手動移轉。 手動移轉比即時移轉更具
 - 受控的磁碟僅適用於 LRS，且無法移轉至 ZRS。 針對可用性的整合設定，請參閱[Introduction to Azure 受控磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets)。 您可以對於標準 SSD 受控磁碟儲存快照集和映像，在標準的 HDD 儲存體和[LRS 與 ZRS 選項當中作選擇](https://azure.microsoft.com/pricing/details/managed-disks/)。 
 
 您可以透過 [Azure 支援入口網站](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)要求即時移轉。 從入口網站中，選取您想要轉換成 ZRS 的儲存體帳戶。
-1. 選取 [新增支援要求]
-2. 根據您的帳戶資訊，完成 [基本] 資訊。 在 [服務] 區段中，選取 [儲存體帳戶管理] 和您想要轉換成 ZRS 的資源。 
-3. 選取 [下一步] 。 
-4. 在 [問題] 區段中，指定下列值︰ 
+1. 選取 [新增支援要求] 
+2. 根據您的帳戶資訊，完成 [基本]  資訊。 在 [服務]  區段中，選取 [儲存體帳戶管理]  和您想要轉換成 ZRS 的資源。 
+3. 選取 [下一步]  。 
+4. 在 [問題]  區段中，指定下列值︰ 
     - **嚴重性**：將預設值保持不變。
-    - **問題類型**：選取 [資料移轉]。
-    - **類別**：選取 [移轉至區域內的 ZRS]。
+    - **問題類型**：選取 [資料移轉]  。
+    - **類別**：選取 [移轉至區域內的 ZRS]  。
     - **標題**：輸入描述性標題，例如 **ZRS 帳戶移轉**。
-    - **詳細資料**：在 [詳細資料] 方塊中輸入額外的詳細資料，例如：我想要從 \_\_ 區域中的 [LRS、GRS] 移轉至 ZRS。 
-5. 選取 [下一步] 。
-6. 確認 [連絡人資訊] 刀鋒視窗上的連絡人資訊正確。
-7. 選取 [建立] 。
+    - **詳細資料**：在 [詳細資料]  方塊中輸入額外的詳細資料，例如：我想要從 \_\_ 區域中的 [LRS、GRS] 移轉至 ZRS。 
+5. 選取 [下一步]  。
+6. 確認 [連絡人資訊]  刀鋒視窗上的連絡人資訊正確。
+7. 選取 [建立]  。
 
 支援人員將會與您連絡，並提供您所需的一切協助。
 

@@ -4,17 +4,17 @@ description: 進行驗證以使用 Azure 地圖服務。
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/12/2019
-ms.topic: tutorial
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9dfe4024607e106565984d6d49de94d793bf7a8f
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
-ms.translationtype: HT
+ms.openlocfilehash: 22aba19e16e4349a5b495b307c9906f7ded5a636
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010407"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393667"
 ---
 # <a name="authentication-with-azure-maps"></a>向 Azure 地圖服務驗證
 
@@ -41,7 +41,7 @@ Azure 地圖服務現在提供 [Azure Active Directory (Azure AD)](https://docs.
 * 使用使用者所委派權限的夥伴應用程式。
 * 適用於 Azure 資源的受控識別。
 
-Azure 地圖服務會為每個 Azure 地圖服務帳戶產生「唯一識別碼 (用戶端識別碼)」。 當您結合此用戶端識別碼與其他參數時，您可藉由指定下列值來向 Azure AD 要求權杖：
+Azure 地圖服務會為每個 Azure 地圖服務帳戶產生「唯一識別碼 (用戶端識別碼)」  。 當您結合此用戶端識別碼與其他參數時，您可藉由指定下列值來向 Azure AD 要求權杖：
 
 ```
 https://login.microsoftonline.com
@@ -54,10 +54,10 @@ https://login.microsoftonline.com
 
 從 Azure AD 接收權杖後，便可將設定了下列兩個必要要求標頭的要求傳送至 Azure 地圖服務：
 
-| 要求標頭    |    值    |
+| 要求標頭    |    Value    |
 |:------------------|:------------|
 | x-ms-client-id    | 30d7cc….9f55|
-| Authorization     | Bearer eyJ0e….HNIVN |
+| 授權     | Bearer eyJ0e….HNIVN |
 
 > [!Note]
 > `x-ms-client-id` 是以 Azure 地圖服務帳戶為基礎的 GUID，其顯示在 Azure 地圖服務的驗證頁面上。

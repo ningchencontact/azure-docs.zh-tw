@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: bac57b18ec5474cfe3c27ad1079c5af7e1d2c451
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4949391aded58f27ba8acd5c9ec437e8933f9843
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453059"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243429"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>開始使用 Azure 監視器的角色、權限和安全性
 
@@ -28,11 +28,11 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 受指派監視讀取器角色的人員可以檢視訂用帳戶中所有的監視資料，但無法修改任何資源或編輯與監視資源相關的任何設定。 這個角色適用於組織中的使用者，例如支援或作業工程師，這些人員必須能夠︰
 
 * 在入口網站中檢視監視儀表板，並建立自己的私人監視儀表板。
-* 檢視 [Azure 警示](../../azure-monitor/platform/alerts-overview.md)中定義的警示規則
-* 使用 [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)、[PowerShell cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md) 或[跨平台 CLI](../../azure-monitor/platform/cli-samples.md) 查詢度量。
+* 檢視 [Azure 警示](alerts-overview.md)中定義的警示規則
+* 使用 [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)、[PowerShell cmdlets](powershell-quickstart-samples.md) 或[跨平台 CLI](cli-samples.md) 查詢度量。
 * 使用入口網站、Azure 監視器 REST API、PowerShell Cmdlets 或跨平台 CLI 查詢活動記錄檔。
-* 檢視用於資源的 [診斷設定](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) 。
-* 檢視用於訂用帳戶的 [記錄檔設定檔](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) 。
+* 檢視用於資源的 [診斷設定](diagnostic-logs-overview.md#diagnostic-settings) 。
+* 檢視用於訂用帳戶的 [記錄檔設定檔](activity-log-export.md) 。
 * 檢視自動調整設定。
 * 檢視警示活動和設定。
 * 存取 Application Insights 資料，並檢視 AI 分析中的資料。
@@ -52,9 +52,9 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 受指派監視參與者角色的人員可以檢視訂用帳戶中所有的監視資料，並建立或修改監視設定，但無法修改任何其他資源。 此角色是監視讀取者角色的超集，且適用於組織的監視團隊成員或受控服務提供者，這些服務提供者除了上述的權限之外，也必須能夠︰
 
 * 將監視儀表板發佈為共用儀表板。
-* 設定[診斷設定](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)資源。\*
-* 設定[記錄檔設定檔](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)訂用帳戶。\*
-* 透過 [Azure 警示](../../azure-monitor/platform/alerts-overview.md)設定警示規則活動和設定。
+* 設定[診斷設定](diagnostic-logs-overview.md#diagnostic-settings)資源。\*
+* 設定[記錄檔設定檔](activity-log-export.md)訂用帳戶。\*
+* 透過 [Azure 警示](alerts-overview.md)設定警示規則活動和設定。
 * 建立 Application Insights web 測試和元件。
 * 列出 Log Analytics 工作區共用金鑰。
 * 啟用或停用 Log Analytics 工作區中的監視組件。

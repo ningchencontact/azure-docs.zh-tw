@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eebb68218fd6f9cbda229aae3d9e544e87441562
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5a0e0508babdd9ae703e38d58b079ab5fa16f68c
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192439"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397870"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory 中群組的動態成員資格規則
 
@@ -60,7 +60,7 @@ user.department -eq "Sales"
 
 有三種類型的屬性可用來建構成員資格規則。
 
-* Boolean
+* BOOLEAN
 * 字串
 * 字串集合
 
@@ -68,14 +68,14 @@ user.department -eq "Sales"
 
 ### <a name="properties-of-type-boolean"></a>布林型別的屬性
 
-| properties | 允许的值 | 使用量 |
+| properties | 允許的值 | 使用量 |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>字串類型的屬性
 
-| properties | 允许的值 | 使用量 |
+| properties | 允許的值 | 使用量 |
 | --- | --- | --- |
 | city |任何字串值或 *null* |(user.city -eq "value") |
 | country |任何字串值或 *null* |(user.country -eq "value") |
@@ -106,7 +106,7 @@ user.department -eq "Sales"
 
 ### <a name="properties-of-type-string-collection"></a>字串集合類型的屬性
 
-| properties | 允许的值 | 使用量 |
+| properties | 允許的值 | 使用量 |
 | --- | --- | --- |
 | otherMails |任何字串值 |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -120,7 +120,7 @@ user.department -eq "Sales"
 | 運算子 | 語法 |
 | --- | --- |
 | Not Equals |-ne |
-| 等于 |-eq |
+| Equals |-eq |
 | Not Starts With |-notStartsWith |
 | 開頭為 |-startsWith |
 | Not Contains |-notContains |
@@ -291,9 +291,9 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 下列秘訣可協助您正確使用此規則。
 
-* [經理識別碼]是經理的物件識別碼。 在經理的**設定檔**可找到它。
-* 若要讓規則得以運作，請確定已對您租用戶中的使用者正確設定 [經理] 屬性。 您可以在使用者的 [設定檔] 中檢查目前值。
-* 此規則僅支援經理的直屬員工。 換句話說，您建立的群組無法「同時」包含經理的直屬員工及其員工。
+* [經理識別碼]  是經理的物件識別碼。 在經理的**設定檔**可找到它。
+* 若要讓規則得以運作，請確定已對您租用戶中的使用者正確設定 [經理]  屬性。 您可以在使用者的 [設定檔]  中檢查目前值。
+* 此規則僅支援經理的直屬員工。 換句話說，您建立的群組無法「同時」  包含經理的直屬員工及其員工。
 * 此規則無法與任何其他成員資格規則結合。
 
 ### <a name="create-an-all-users-rule"></a>建立「所有使用者」規則
@@ -335,7 +335,7 @@ device.objectid -ne null
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 ```
 
-使用 [Graph 總管] 查詢使用者的屬性並搜尋屬性名稱，即可在目錄中找到自訂屬性名稱。 此外，您現在可以在動態使用者群組規則建立器中選取 [取得自訂擴充屬性] 連結，輸入唯一的應用程式識別碼，然後接收在建立動態成員資格規則時所要使用的自訂擴充屬性完整清單。 您也可以重新整理這份清單，來針對該應用程式取得任何新的自訂擴充屬性。
+使用 [Graph 總管] 查詢使用者的屬性並搜尋屬性名稱，即可在目錄中找到自訂屬性名稱。 此外，您現在可以在動態使用者群組規則建立器中選取 [取得自訂擴充屬性]  連結，輸入唯一的應用程式識別碼，然後接收在建立動態成員資格規則時所要使用的自訂擴充屬性完整清單。 您也可以重新整理這份清單，來針對該應用程式取得任何新的自訂擴充屬性。
 
 ## <a name="rules-for-devices"></a>裝置的規則
 
@@ -353,7 +353,6 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
  deviceManufacturer | 任何字串值 | (device.deviceManufacturer -eq "Samsung")
  deviceModel | 任何字串值 | (device.deviceModel -eq "iPad Air")
  deviceOwnership | 個人、公司、未知 | (device.deviceOwnership -eq "Company")
- domainName | 任何字串值 | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Apple 裝置註冊設定檔或 Windows Autopilot 設定檔名稱 | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (適用於行動裝置)<br>PC (適用於 Intune PC 代理程式管理的電腦) | (device.managementType -eq "MDM")
@@ -372,4 +371,4 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 * [建立新群組並新增成員](../fundamentals/active-directory-groups-create-azure-portal.md)
 * [管理群組的設定](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [管理群組的成員資格](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [管理群組中使用者的動態規則](groups-dynamic-membership.md)
+* [管理群組中使用者的動態規則](groups-create-rule.md)

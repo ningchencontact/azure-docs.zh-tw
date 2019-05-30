@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b03197fb0d4d97756e5a3fe88de78c11a816b5ec
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 4a6a6249f3edca30ab3d3f9a213b4282b4323d15
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951282"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258341"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 儲存體簡介
 
@@ -85,7 +85,9 @@ Azure 資料表儲存體現在屬於 Azure Cosmos DB。 若要查看 Azure 資�
 
 ## <a name="disk-storage"></a>磁碟儲存體
 
-Azure 儲存體也包含虛擬機器所使用的受控和非受控磁碟功能。 如需有關這些功能的詳細資訊，請參閱[計算服務文件](https://docs.microsoft.com/azure/#pivot=products&panel=Compute)。
+Azure 受控磁碟是虛擬硬碟 (VHD)。 您可以將它視為內部部署伺服器中虛擬化的實體磁碟。 Azure 受控磁碟會儲存為分頁 Blob，它是 Azure 中的隨機 IO 儲存物件。 我們稱受控磁碟為「受控」，因為它是對分頁 Blob、Blob 容器和 Azure 儲存體帳戶的抽象概念。 使用受控磁碟，您所要做的就是佈建磁碟，Azure 會負責執行剩餘的部分。
+
+如需有關受控磁碟的詳細資訊，請參閱[Introduction to Azure 受控磁碟](../../virtual-machines/windows/managed-disks-overview.md)。
 
 ## <a name="types-of-storage-accounts"></a>儲存體帳戶類型
 

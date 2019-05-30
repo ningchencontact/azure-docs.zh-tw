@@ -7,13 +7,13 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 05/13/2019
-ms.openlocfilehash: 44b6f099b5b17329976b9fec3c0ac38b5e394221
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: HT
+ms.date: 05/24/2019
+ms.openlocfilehash: c40bae6ac1af2489e4e77d2c280b95cccf8b5603
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978006"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257839"
 ---
 # <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>設定 Azure HDInsight 叢集 （預覽） 的輸出網路流量限制
 
@@ -32,38 +32,23 @@ Azure HDInsight 叢集通常會在您自己的虛擬網路中部署。 叢集中
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>使用 HDInsight 中設定 Azure 防火牆
 
 鎖住您現有的 HDInsight 與 Azure 防火牆的輸出的步驟摘要如下：
-1. 啟用服務端點。
 1. 建立防火牆規則。
 1. 加入至防火牆的應用程式規則
 1. 將網路規則新增至防火牆。
 1. 建立路由表。
 
-### <a name="enable-service-endpoints"></a>啟用服務端點
-
-如果您想略過防火牆 (例如來節省成本的資料傳輸) 則可以在您的 HDInsight 子網路上的 SQL 和儲存體啟用服務端點。 當您啟用到 Azure SQL 服務端點時，必須設定您的叢集有任何 Azure SQL 相依性以及服務端點。
-
-若要啟用正確的服務端點，請完成下列步驟：
-
-1. 登入 Azure 入口網站，然後選取 虛擬網路中部署您的 HDInsight 叢集。
-1. 選取 **子網路**下方**設定**。
-1. 選取您的叢集部署所在的子網路。
-1. 在要編輯的子網路的設定畫面上，按一下**Microsoft.SQL**及/或**Microsoft.Storage**從**服務端點** >  **服務**下拉式方塊。
-1. 如果您使用 ESP 的叢集，則您也必須選取**Microsoft.AzureActiveDirectory**服務端點。
-1. 按一下 [檔案] 。
-
 ### <a name="create-a-new-firewall-for-your-cluster"></a>建立新的防火牆，為您的叢集
 
 1. 建立名為的子網路**AzureFirewallSubnet**叢集所在的虛擬網路中。 
 1. 建立新的防火牆**測試 FW01**中的步驟[教學課程：使用 Azure 入口網站部署和設定 Azure 防火牆](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall)。
-1. 從 Azure 入口網站中選取新的防火牆。 按一下 **規則**下方**設定** > **應用程式規則集合** > **新增應用程式規則集合**.
-
-    ![標題:新增應用程式規則集合](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 ### <a name="configure-the-firewall-with-application-rules"></a>設定防火牆的應用程式規則
 
 建立可讓叢集以傳送和接收重要通訊的應用程式規則集合。
 
 選取新的防火牆**測試 FW01**從 Azure 入口網站。 按一下 **規則**下方**設定** > **應用程式規則集合** > **新增應用程式規則集合**.
+
+![標題：新增應用程式規則集合](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 在 **新增應用程式規則集合**畫面上，完成下列步驟：
 
@@ -75,22 +60,16 @@ Azure HDInsight 叢集通常會在您自己的虛擬網路中部署。 叢集中
     1. 允許 Windows 登入活動的規則：
         1. 在 **目標 Fqdn**區段中，提供**名稱**，並設定**來源地址**至`*`。
         1. 輸入`https:443`底下**通訊協定： 連接埠**並`login.windows.net`之下**目標 FQDN**。
-    1. 規則以允許 SQM 遙測：
-        1. 在 **目標 Fqdn**區段中，提供**名稱**，並設定**來源地址**至`*`。
-        1. 輸入`https:443`底下**通訊協定： 連接埠**並`sqm.telemetry.microsoft.com`之下**目標 FQDN**。
     1. 如果您的叢集做為後盾 WASB，而且您不想要使用上述的服務端點，然後新增規則的 WASB:
         1. 在 **目標 Fqdn**區段中，提供**名稱**，並設定**來源地址**至`*`。
-        1. 輸入`http`或 [https] 取決於您是否正在使用 wasb: / / 或 wasbs: / / 底下**通訊協定： 連接埠**下的儲存體帳戶 url 並**目標 FQDN**。
-1. 按一下 [新增] 。
+        1. 輸入`http`或是`https`視您想要使用 wasb: / / 或 wasbs: / / 底下**通訊協定： 連接埠**和下方的儲存體帳戶 url**目標 FQDN**。
+1. 按一下 [新增]  。
 
-![標題:輸入應用程式規則集合的詳細資料](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
+![標題：輸入應用程式規則集合的詳細資料](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
 ### <a name="configure-the-firewall-with-network-rules"></a>設定防火牆與網路規則
 
 建立網路規則，以正確地設定您的 HDInsight 叢集。
-
-> [!Important]
-> 您可以選擇在防火牆中使用網路規則，如下所示本節中，使用 SQL 服務標籤或 SQL 中的服務端點所述[服務端點上的一節](#enable-service-endpoints)。 如果您選擇在網路規則中使用 SQL 標記，您可以記錄和稽核 SQL 流量。 使用服務端點可以略過防火牆的 SQL 流量。
 
 1. 選取新的防火牆**測試 FW01**從 Azure 入口網站。
 1. 按一下 **規則**下方**設定** > **網路規則集合** > **新增網路規則集合**。
@@ -112,12 +91,7 @@ Azure HDInsight 叢集通常會在您自己的虛擬網路中部署。 叢集中
         1. 設定**來源地址** `*`。
         1. 輸入您的儲存體帳戶中的 IP 位址**目的地位址**。
         1. 設定**目的地連接埠**至`*`。
-    1. 網路規則，以啟用與金鑰管理服務的 Windows 啟用的通訊。
-        1. 在下一個資料列中**規則**區段中，提供**名稱**，然後選取**任何**從**通訊協定**下拉式清單。
-        1. 設定**來源地址** `*`。
-        1. 設定**目的地位址**至`*`。
-        1. 設定**目的地連接埠**至`1688`。
-    1. 如果您使用 Log Analytics，然後建立網路規則，以啟用您的 Log Analytics 工作區的通訊。
+    1. （選擇性）如果您使用 Log Analytics，然後建立網路規則，以啟用您的 Log Analytics 工作區的通訊。
         1. 在下一個資料列中**規則**區段中，提供**名稱**，然後選取**任何**從**通訊協定**下拉式清單。
         1. 設定**來源地址** `*`。
         1. 設定**目的地位址**至`*`。
@@ -130,7 +104,7 @@ Azure HDInsight 叢集通常會在您自己的虛擬網路中部署。 叢集中
         1. 設定**目的地連接埠**至`1433,11000-11999,14000-14999`。
 1. 按一下 **新增**以完成建立網路規則集合。
 
-![標題:輸入應用程式規則集合的詳細資料](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+![標題：輸入應用程式規則集合的詳細資料](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 ### <a name="create-and-configure-a-route-table"></a>建立及設定路由表
 
@@ -152,24 +126,24 @@ Azure HDInsight 叢集通常會在您自己的虛擬網路中部署。 叢集中
 
 | 路由名稱 | 位址首碼 | 下一個躍點類型 | 下一個躍點位址 |
 |---|---|---|---|
-| 168.61.49.99 | 168.61.49.99/32 | 網際網路 | NA |
-| 23.99.5.239 | 23.99.5.239/32 | 網際網路 | NA |
-| 168.61.48.131 | 168.61.48.131/32 | 網際網路 | NA |
-| 138.91.141.162 | 138.91.141.162/32 | 網際網路 | NA |
-| 13.67.223.215 | 13.67.223.215/32 | 網際網路 | NA |
-| 40.86.83.253 | 40.86.83.253/32 | 網際網路 | NA |
-| 168.63.129.16 | 168.63.129.16/32 | 網際網路 | NA |
+| 168.61.49.99 | 168.61.49.99/32 | Internet | NA |
+| 23.99.5.239 | 23.99.5.239/32 | Internet | NA |
+| 168.61.48.131 | 168.61.48.131/32 | Internet | NA |
+| 138.91.141.162 | 138.91.141.162/32 | Internet | NA |
+| 13.67.223.215 | 13.67.223.215/32 | Internet | NA |
+| 40.86.83.253 | 40.86.83.253/32 | Internet | NA |
+| 168.63.129.16 | 168.63.129.16/32 | Internet | NA |
 | 0.0.0.0 | 0.0.0.0/0 | 虛擬設備 | 10.1.1.4 |
 
-![標題:建立路由表](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-route-table.png)
+![標題：建立路由表](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-route-table.png)
 
 完成將路由表的組態：
 
 1. 指派您按一下 建立與您的 HDInsight 子網路的路由表**子網路**下方**設定**，然後**關聯**。
 1. 在上**子網路建立關聯**畫面上，選取您的叢集建立到虛擬網路並**AzureFirewallSubnet**您建立使用您的防火牆。
-1. 按一下 [確定]。
+1. 按一下 [確定]  。
 
-![標題:建立路由表](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-route-table-associate-subnet.png)
+![標題：建立路由表](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-route-table-associate-subnet.png)
 
 ## <a name="edge-node-application-traffic"></a>邊緣節點的應用程式流量
 

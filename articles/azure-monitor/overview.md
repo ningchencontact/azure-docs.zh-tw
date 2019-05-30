@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0485f8e3b377ce94ec23a4a1a94eb7e189b0232b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c72ac62b55b2b08be5aaad563933bcb2b703cba9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787053"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245068"
 ---
 # <a name="azure-monitor-overview"></a>Azure 監視器概觀
 
@@ -55,7 +55,7 @@ Azure 監視器可以從各種來源收集資料。 您可以考慮為各層中�
 - **Azure 訂用帳戶監視資料**：有關 Azure 訂用帳戶作業和管理的資料，以及有關 Azure 本身健康情況和作業的資料。 
 - **Azure 租用戶監視資料**：租用戶層級 Azure 服務的作業相關資料，例如 Azure Active Directory。
 
-當您建立 Azure 訂用帳戶並開始新增資源 (例如虛擬機器和 Web 應用程式) 時，Azure 監視器就會開始收集資料。  [活動記錄](platform/activity-logs-overview.md)會記錄資源的建立或修改時間。 [計量](platform/data-platform.md)會告訴您如何執行資源以及它所取用的資源。 
+當您建立 Azure 訂用帳戶並開始新增資源 (例如虛擬機器和 Web 應用程式) 時，Azure 監視器就會開始收集資料。  [活動記錄](platform/activity-logs-overview.md)記錄資源建立或修改的時。 [計量](platform/data-platform.md)會告訴您如何執行資源以及它所取用的資源。 
 
 [啟用診斷](platform/diagnostic-logs-overview.md)並[新增代理程式](platform/agent-windows.md)來計算資源，以將您所收集的資料擴展至實際資源運作。 這會收集資源內部作業的遙測資料，並可讓您設定不同的[資料來源](platform/agent-data-sources.md)，以從 Windows 和 Linux 客體作業系統收集記錄和計量。 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: c69e925913d4dcb3a8bec34cbf25dac184ea65c5
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5b719566ce42639c0c435a8d631e12541d0a0e9d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595581"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256631"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>設定 ASP.NET 網站的 Application Insights
 
@@ -43,7 +43,7 @@ ms.locfileid: "65595581"
 
 ![醒目提示 [設定 Application Insights] 的 [方案總管] 螢幕擷取畫面](./media/asp-net/add-telemetry-new.png)
 
-(根據您的 Application Insights SDK 版本，系統可能會提示您升級至最新的 SDK 版本。 如果出現提示，請選取 [更新 SDK]。)
+(根據您的 Application Insights SDK 版本，系統可能會提示您升級至最新的 SDK 版本。 如果出現提示，請選取 [更新 SDK]  。)
 
 ![螢幕擷取畫面：有新版的 Microsoft Application Insights SDK 可供使用。 醒目提示的更新 SDK](./media/asp-net/0002-update-sdk.png)
 
@@ -53,9 +53,9 @@ Application Insights 設定畫面：
 
 ![[向 Application Insights 註冊您的應用程式] 頁面的螢幕擷取畫面](./media/asp-net/00004-start-free.png)
 
-如果您想要設定資源群組，或資料的儲存位置，請按一下 [進行設定]。 資源群組用來控制資料的存取。 例如，如果您有數個應用程式組成相同系統時，您可能會將其 Application Insights 資料放在相同的資源群組中。
+如果您想要設定資源群組，或資料的儲存位置，請按一下 [進行設定]  。 資源群組用來控制資料的存取。 例如，如果您有數個應用程式組成相同系統時，您可能會將其 Application Insights 資料放在相同的資源群組中。
 
- 選取 [註冊]。
+ 選取 [註冊]  。
 
 ![[向 Application Insights 註冊您的應用程式] 頁面的螢幕擷取畫面](./media/asp-net/00005-register-ed.png)
 
@@ -75,7 +75,7 @@ Application Insights 設定畫面：
 
 ### <a name="see-your-telemetry-in-visual-studio"></a>在 Visual Studio 中查看遙測
 
-在 Visual Studio 中，若要檢視 Application Insights 資料：  選取 [方案總管] > [已連線的服務] > 以滑鼠右鍵按一下 [Application Insights]，然後按一下 [搜尋即時遙測]。
+在 Visual Studio 中，若要檢視 Application Insights 資料：  選取 [方案總管]   > [已連線的服務]  > 以滑鼠右鍵按一下 [Application Insights]  ，然後按一下 [搜尋即時遙測]  。
 
 在 Visual Studio 的 [Application Insights 搜尋] 視窗中，您可以在應用程式的資料中查看應用程式的伺服器端所產生的遙測。 試驗篩選器，然後按一下任何事件以查看更多詳細資料。
 
@@ -91,7 +91,7 @@ Application Insights 設定畫面：
 
 您也可以在 Application Insights Web 入口網站中看到遙測 (除非您選擇只安裝 SDK)。 此入口網站中的圖表、分析工具和跨元件檢視比 Visual Studio 還多。 此入口網站也提供警示。
 
-開啟 Application Insights 資源。 您可以登入 [Azure 入口網站](https://portal.azure.com/)加以尋找，或選取 [方案總管] > [已連線的服務] > 以滑鼠右鍵按一下 [Application Insights] > [開啟 Application Insights 入口網站]，而移至該處。
+開啟 Application Insights 資源。 您可以登入 [Azure 入口網站](https://portal.azure.com/)加以尋找，或選取 [方案總管]   > [已連線的服務]  > 以滑鼠右鍵按一下 [Application Insights]   > [開啟 Application Insights 入口網站]  ，而移至該處。
 
 入口網站會從您的應用程式開啟遙測檢視。
 
@@ -99,12 +99,10 @@ Application Insights 設定畫面：
 
 在入口網站中，按一下任何圖格或圖表以查看詳細資料。
 
-[深入了解在 Azure 入口網站中使用 Application Insights](../../azure-monitor/app/app-insights-dashboards.md)。
-
-## <a name="step-4-publish-your-app"></a>步驟 4：發行您的應用程式
+## <a name="step-4-publish-your-app"></a>步驟 4：發佈您的應用程式
 將您的應用程式發佈至 IIS 伺服器或 Azure。 監看 [即時計量串流](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) 以確定一切順利執行。
 
-您的遙測會累積在 Application Insights 入口網站，您可以在此監視計量，搜尋您的遙測，以及設定[儀表板](../../azure-monitor/app/app-insights-dashboards.md)。 您也可以使用功能強大的 [Kusto 查詢語言](/azure/kusto/query/)，分析使用狀況和效能或尋找特定事件。
+您的遙測組建設定中 Application Insights 入口網站中，您可以在其中監視計量，搜尋您的遙測。 您也可以使用功能強大的 [Kusto 查詢語言](/azure/kusto/query/)，分析使用狀況和效能或尋找特定事件。
 
 您也可以繼續在 [Visual Studio](../../azure-monitor/app/visual-studio.md) 中，以診斷搜尋和[趨勢](../../azure-monitor/app/visual-studio-trends.md)等工具來分析您的遙測。
 
@@ -117,11 +115,11 @@ Application Insights 設定畫面：
 
 恭喜！ 您在應用程式中安裝了 Application Insights 套件，並將其設定為將遙測傳送至 Azure 上的 Application Insights 服務。
 
-接收您應用程式遙測的 Azure 資源會由檢測金鑰識別。 您可以在 ApplicationInsights.config 檔案中找到此金鑰。
+接收您應用程式遙測的 Azure 資源會由檢測金鑰  識別。 您可以在 ApplicationInsights.config 檔案中找到此金鑰。
 
 
 ## <a name="upgrade-to-future-sdk-versions"></a>升級至未來的 SDK 版本
-若要升級至[新版的 SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases)，請開啟 **NuGet 套件管理員**，並篩選已安裝的套件。 選取 **Microsoft.ApplicationInsights.Web**，然後選擇 [升級]。
+若要升級至[新版的 SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases)，請開啟 **NuGet 套件管理員**，並篩選已安裝的套件。 選取 **Microsoft.ApplicationInsights.Web**，然後選擇 [升級]  。
 
 如果您已對 ApplicationInsights.config 進行任何的自訂，請在升級前儲存複本。 然後，將您的變更合併至新版本中。
 
@@ -146,7 +144,6 @@ Application Insights 設定畫面：
 ### <a name="analysis"></a>分析
 
 * **[在 Visual Studio 中使用 Application Insights](../../azure-monitor/app/visual-studio.md)**<br/>包括使用遙測來偵錯、診斷搜尋及鑽研程式碼的相關資訊。
-* **[使用 Application Insights 入口網站](../../azure-monitor/app/app-insights-dashboards.md)**<br/> 包括儀表板、功能強大的診斷和分析工具、警示、即時的應用程式相依性對應，以及遙測匯出的相關資訊。
 * **[分析 - ](../../azure-monitor/log-query/get-started-portal.md)** - 功能強大的查詢語言。
 
 ### <a name="alerts"></a>警示

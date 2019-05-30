@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/29/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 82672136d6f9af50a3d91da2044f6e0ced4b44a6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ddaead7a0e616b3138dca0b18a58d64e38a46f9e
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409371"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356419"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure Blob 儲存體
 
@@ -58,43 +58,43 @@ ms.locfileid: "65409371"
 6.  若要準備磁碟，請執行下列命令。 **視資料大小而定，這可能需要數小時到數天的時間。** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite /enablecontentmd5 
     ```
-    日誌檔案會建立在執行此工具的相同資料夾中。 還會建立其他兩個檔案 - .xml 檔案 (您執行工具的資料夾) 和 drive-manifest.xml 檔案 (資料所在的資料夾)。
+    日誌檔案會建立在執行此工具的相同資料夾中。 還會建立其他兩個檔案 - .xml  檔案 (您執行工具的資料夾) 和 drive-manifest.xml  檔案 (資料所在的資料夾)。
     
     下表會說明使用的參數：
 
-    |選項  |說明  |
+    |選項  |描述  |
     |---------|---------|
     |/j:     |日誌檔案的名稱 (具有 .jrn 副檔名)。 每個磁碟機都會產生日誌檔案。 我們建議您使用磁碟序號作為日誌檔案名稱。         |
     |/id:     |工作階段識別碼。 針對命令的每個執行個體使用唯一的工作階段號碼。      |
-    |/sk:     |Azure 儲存體帳戶金鑰。         |
     |/t:     |要寄送之磁碟的磁碟機代號。 例如，磁碟機 `D`。         |
     |/bk:     |磁碟機的 BitLocker 金鑰。 其數字密碼來自 `manage-bde -protectors -get D:` 的輸出      |
     |/srcdir:     |要寄送之磁碟的磁碟機代號，其後緊接著 `:\`。 例如： `D:\`。         |
     |/dstdir:     |Azure 儲存體中目的地容器的名稱。         |
     |/skipwrite：     |此選項表示不需要複製新資料，且即將準備磁碟上的現有資料。          |
+    |/enablecontentmd5:     |選項啟用時，可確保您的 azure 區塊 blob 上傳期間，會計算 MD5。          |
 7. 為每個要寄送的磁碟重複上述步驟。 每次執行命令列時，都會使用提供的名稱來建立日誌檔案。
     
     > [!IMPORTANT]
     > - 與日誌檔案一起，`<Journal file name>_DriveInfo_<Drive serial ID>.xml` 檔案也會建立在工具所在的相同資料夾中。 如果日誌檔案太大，建立作業時會使用 .xml 檔案代替日誌檔案。 
 
-## <a name="step-2-create-an-import-job"></a>步驟 2：建立匯入工作
+## <a name="step-2-create-an-import-job"></a>步驟 2：建立匯入作業
 
 在 Azure 入口網站中執行下列步驟，以建立匯入作業。
 
 1. 登入 https://portal.azure.com/。
-2. 移至 [所有服務] > [儲存體] > [匯入/匯出作業]。 
+2. 移至 [所有服務] > [儲存體] > [匯入/匯出作業]  。 
     
     ![移至匯入/匯出作業](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. 按一下 [建立匯入/匯出作業]。
+3. 按一下 [建立匯入/匯出作業]  。
 
     ![按一下 [建立匯入/匯出作業]](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
-4. 在 [基本] 中：
+4. 在 [基本]  中：
 
-   - 選取 [匯入至 Azure]。
+   - 選取 [匯入至 Azure]  。
    - 輸入匯入作業的描述性名稱。 使用此名稱來追蹤作業進度。
        - 名稱只可包含小寫字母、數字和連字號。
        - 名稱必須以字母開頭，並且不能包含空格。
@@ -103,7 +103,7 @@ ms.locfileid: "65409371"
 
      ![建立匯入作業 - 步驟 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-3. 在 [作業詳細資料] 中：
+3. 在 [作業詳細資料]  中：
 
     - 上傳在磁碟機準備步驟中取得的磁碟機日誌檔案。 如果已使用 `waimportexport.exe version1`，您需要針對已備妥的每個磁碟機上傳一個檔案。 如果日誌檔案大小超過 2 MB，則您可以使用與日誌檔案一起建立的 `<Journal file name>_DriveInfo_<Drive serial ID>.xml`。 
     - 選取將存放資料的目的地儲存體帳戶。 
@@ -111,7 +111,7 @@ ms.locfileid: "65409371"
    
    ![建立匯入作業 - 步驟 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-4. 在 [寄返資訊] 中：
+4. 在 [寄返資訊]  中：
 
    - 從下拉式清單中選取貨運公司。 如果您想要使用非 FedEx/DHL 貨運公司，請從下拉式清單中選擇現有的選項。 連絡 Azure 資料方塊作業小組`adbops@microsoft.com`您打算使用貨運公司的相關資訊。
    - 輸入您在該貨運公司中建立的有效貨運帳戶號碼。 當匯入作業完成時，Microsoft 會透過此帳戶將磁碟機寄還給您。 如果您沒有帳戶號碼，請建立 [FedEx](https://www.fedex.com/us/oadr/) 或 [DHL](https://www.dhl.com/) 貨運帳戶。
@@ -122,10 +122,10 @@ ms.locfileid: "65409371"
 
      ![建立匯入工作 - 步驟 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
-5. 在 [摘要] 中：
+5. 在 [摘要]  中：
 
    - 檢閱摘要中提供的作業資訊。 記下作業名稱和 Azure 資料中心寄送地址，以將磁碟寄回 Azure。 這項資訊稍後會用在出貨標籤上。
-   - 按一下 [確定] 以完成建立匯入作業。
+   - 按一下 [確定]  以完成建立匯入作業。
 
      ![建立匯入作業 - 步驟 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 65ff96ba3aea889ff5b2e2431578f9344f6d840b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 258d21eae5af50b5dc0bed6887618e2999cae45a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938071"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257391"
 ---
 # <a name="virtual-machine-prerequisites"></a>虛擬機器先決條件
 
@@ -36,7 +36,7 @@ ms.locfileid: "64938071"
 <!-- TD: Aren't most of these business requirements common to all AMP offerings?  If yes, then move to higher level, perhaps to the AMP section "Become a Cloud Marketplace Publisher" -->
 <!-- TD: Need references for remaining docs/business reqs!-->
 
-- 您必須是已註冊的雲端 Marketplace 發行者。  如果您尚未註冊，請遵循下列文章中的步驟：[成為雲端 Marketplace 發行者](../../become-publisher.md)。
+- 您必須是已註冊的雲端 Marketplace 發行者。  如果您尚未註冊，請遵循下列文章中的步驟：[成為雲端 Marketplace 發行者](https://docs.microsoft.com/azure/marketplace/become-publisher)。
 
     > [!NOTE]
     > 您需要使用與註冊 Microsoft 開發人員中心相同的帳戶來登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com)。

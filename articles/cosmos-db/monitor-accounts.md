@@ -4,15 +4,15 @@ description: 了解如何監視 Azure Cosmos DB 帳戶的效能計量 (如要求
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a12e0f567747b67c67f7bc825df1079d852e2f16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02bbde9a2d744c79cc8a7e95b0732b775c4dc695
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61330922"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241632"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>監視 Azure Cosmos DB 中的效能和儲存體計量
 
@@ -21,39 +21,39 @@ ms.locfileid: "61330922"
 您可以在 [帳戶] 頁面、新的 [度量] 頁面，或 Azure 監視器中檢閱度量。
 
 ## <a name="view-performance-metrics-on-the-metrics-page"></a>在度量頁面上檢視效能度量
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [所有服務]，捲動至 [資料庫]，按一下 [Azure Cosmos DB]，然後按一下您想要檢視其效能計量的 Azure Cosmos DB 帳戶名稱。
-2. 當新頁面載入時，於 [資源] 功能表的 [監視] 下，按一下 [度量]。
-3. 當 [度量] 頁面開啟時，請從 [集合] 下拉式清單選取要檢閱的集合。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [所有服務]  ，捲動至 [資料庫]  ，按一下 [Azure Cosmos DB]  ，然後按一下您想要檢視其效能計量的 Azure Cosmos DB 帳戶名稱。
+2. 當新頁面載入時，於 [資源] 功能表的 [監視]  下，按一下 [度量]  。
+3. 當 [度量] 頁面開啟時，請從 [集合]  下拉式清單選取要檢閱的集合。
 
    Azure 入口網站會顯示可用集合度量的套件。 請注意，輸送量、儲存體、可用性、延遲和一致性度量會提供個別索引標籤上。 若要取得所提供度量的其他詳細資料，請按一下每個度量窗格右上角的雙箭頭。
 
-   ![显示指标套件的“监视”可重用功能区的屏幕截图](./media/monitor-accounts/metrics-suite.png)
+   ![顯示度量套件 [監視] 功能濾鏡的螢幕擷取畫面](./media/monitor-accounts/metrics-suite.png)
 
 ## <a name="view-performance-metrics-by-using-azure-monitoring"></a>使用 Azure 監視器檢視效能度量
-1. 在 [Azure 入口網站](https://portal.azure.com/)，按一下左側列中的 [監視器]。
-2. 在資源功能表中，按一下 [度量]。
-3. 在 [監視 - 計量] 視窗的 [資源群組] 下拉式功能表中，選取與您要監視的 Azure Cosmos DB 帳戶相關聯的資源群組。 
-4. 在 [資源] 下拉式功能表中，選取要監視的資料庫帳戶。
-5. 在 [可用的度量] 清單中，選取要顯示的度量。 使用 CTRL 按鈕同時選取多項。 
+1. 在 [Azure 入口網站](https://portal.azure.com/)，按一下左側列中的 [監視器]  。
+2. 在資源功能表中，按一下 [度量]  。
+3. 在 [監視 - 計量]  視窗的 [資源群組]  下拉式功能表中，選取與您要監視的 Azure Cosmos DB 帳戶相關聯的資源群組。 
+4. 在 [資源]  下拉式功能表中，選取要監視的資料庫帳戶。
+5. 在 [可用的度量]  清單中，選取要顯示的度量。 使用 CTRL 按鈕同時選取多項。 
 
 ## <a name="view-performance-metrics-on-the-account-page"></a>在帳戶頁面上檢視效能度量
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [所有服務]，捲動至 [資料庫]，按一下 [Azure Cosmos DB]，然後按一下您想要檢視其效能計量的 Azure Cosmos DB 帳戶名稱。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [所有服務]  ，捲動至 [資料庫]  ，按一下 [Azure Cosmos DB]  ，然後按一下您想要檢視其效能計量的 Azure Cosmos DB 帳戶名稱。
 2. [監視]  功能濾鏡預設會顯示以下圖格：
    
    * 當日的要求總數。
    * 已使用儲存體。
    
-   ![“监视”可重用功能区的屏幕截图，其中显示请求数和存储使用情况](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
-3. 按一下 [要求] 磚右上方的雙箭號上會開啟詳細的 [度量] 頁面。
-4. [度量] 頁面會顯示要求總數的相關詳細資料。 
+   ![顯示要求和儲存體使用量 [監視] 功能濾鏡的螢幕擷取畫面](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
+3. 按一下 [要求]  磚右上方的雙箭號上會開啟詳細的 [度量]  頁面。
+4. [度量]  頁面會顯示要求總數的相關詳細資料。 
 
 ## <a name="set-up-alerts-in-the-portal"></a>在入口網站中設定警示
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [所有服務]，按一下 [Azure Cosmos DB]，然後按一下您想要設定其效能計量警示的 Azure Cosmos DB 帳戶名稱。
-2. 在資源功能表中，按一下 [警示規則] 以開啟 [警示規則] 頁面。  
-   ![所选的警报规则部件的屏幕截图](./media/monitor-accounts/madocdb10.5.png)
-3. 在 [警示規則] 頁面中，按一下 [新增警示]。  
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [所有服務]  ，按一下 [Azure Cosmos DB]  ，然後按一下您想要設定其效能計量警示的 Azure Cosmos DB 帳戶名稱。
+2. 在資源功能表中，按一下 [警示規則]  以開啟 [警示規則] 頁面。  
+   ![選取 警示規則組件的螢幕擷取畫面](./media/monitor-accounts/madocdb10.5.png)
+3. 在 [警示規則]  頁面中，按一下 [新增警示]  。  
    ![包含反白顯示 [新增警示] 按鈕的 [警示規則] 頁面螢幕擷取畫面](./media/monitor-accounts/madocdb11.png)
-4. 在 [新增警示規則] 頁面中，指定：
+4. 在 [新增警示規則]  頁面中，指定：
    
    * 您設定之警示規則的名稱。
    * 新警示規則的描述。
@@ -61,7 +61,7 @@ ms.locfileid: "61330922"
    * 決定警示何時啟動的條件、臨界值和期間。 例如，過去 15 分鐘伺服器錯誤計算大於 5。
    * 警示引發時是否傳送電子郵件給服務管理員和共同管理員。
    * 警示通知的其他電子郵件地址。  
-     ![“添加警报规则”页的屏幕截图](./media/monitor-accounts/madocdb12.png)
+     ![[新增警示規則] 頁面的螢幕擷取畫面](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>以程式設計方式監視 Azure Cosmos DB
 可在入口網站中取得的帳戶層級計量 (例如，帳戶儲存體使用量和要求總數) 無法透過 SQL API 取得。 不過，您可以使用 SQL API 來擷取集合層級的使用量資料。 若要擷取集合層級的資料，請執行下列動作：
@@ -69,7 +69,7 @@ ms.locfileid: "61330922"
 * 若要使用 REST API，請 [在集合上執行 GET](https://msdn.microsoft.com/library/mt489073.aspx)。 集合的配額和使用量資訊會在回應的 x-ms-resource-quota 和 x-ms-resource-usage 標頭中傳回。
 * 若要使用 .NET SDK，請使用 [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) 方法，此方法會傳回包含 **CollectionSizeUsage**、**DatabaseUsage**、**DocumentUsage** 等幾個使用量屬性的 [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx)。
 
-若要存取其他度量，請使用 [Azure 監視器 SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights)。 可以通过调用以下命令检索可用的指标定义：
+若要存取其他度量，請使用 [Azure 監視器 SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights)。 您可以呼叫下列程式碼來擷取可用的度量定義：
 
     https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metricDefinitions?api-version=2015-04-08
 

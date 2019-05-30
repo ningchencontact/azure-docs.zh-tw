@@ -4,7 +4,7 @@ description: 本文說明如何調整您的 Azure Time Series Insights 環境規
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: f7d9827b11136370bcb401073a4d9cc4871c1cc9
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: be06fd5a6f05d750e6ca9801a6004f7180a12d5c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472779"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238981"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>如何調整您的 Time Series Insights 環境規模
 
@@ -47,17 +47,17 @@ ms.locfileid: "65472779"
 
 1. 在 Azure 入口網站中，找到並選取您的時間序列深入解析環境。
 
-1. 在時間序列深入解析環境的功能表中，選取 [設定]。
+1. 在時間序列深入解析環境的功能表中，選取 [設定]  。
 
    [![configure.png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
 
-1. 調整 [容量] 滑桿來選取符合您所需輸入速率和儲存容量的容量。 請注意，**輸入速率**、**儲存容量**和**估計成本**會動態更新，以顯示變更的影響。
+1. 調整 [容量]  滑桿來選取符合您所需輸入速率和儲存容量的容量。 請注意，**輸入速率**、**儲存容量**和**估計成本**會動態更新，以顯示變更的影響。
 
    [![滑桿](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
 
    或者，您可以在滑桿右邊的文字方塊中，輸入容量乘數的數值。
 
-1. 選取 [儲存] 來調整環境。 認可變更之後，系統就會立即顯示進度列指示器。
+1. 選取 [儲存]  來調整環境。 認可變更之後，系統就會立即顯示進度列指示器。
 
 ## <a name="next-steps"></a>後續步驟
 

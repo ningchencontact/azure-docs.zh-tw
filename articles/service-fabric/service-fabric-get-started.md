@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/30/2019
+ms.date: 05/24/2019
 ms.author: aljo
-ms.openlocfilehash: 463b05f57ce0c85ebf1732791cb024335103b780
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 68a91bfba07b31117f553e4d689adc51bf51824c
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153610"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297256"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上準備您的開發環境
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ ms.locfileid: "65153610"
 
 > [!NOTE]
 > Windows 7 支援：
-> - 根據預設，Windows 7 只包含 Windows PowerShell 2.0。 Service Fabric PowerShell cmdlet 需要 PowerShell 3.0 或更高版本。 您可以從 Microsoft 下載中心[下載 Windows PowerShell 5.0][powershell5-download]。
+> - 根據預設，Windows 7 只包含 Windows PowerShell 2.0。 Service Fabric PowerShell Cmdlet 需要 PowerShell 3.0 或更新版本。 您可以從 Microsoft 下載中心[下載 Windows PowerShell 5.0][powershell5-download]。
 > - 無法在 Windows 7 上使用 Service Fabric 反向 Proxy。
 >
 
@@ -69,8 +69,8 @@ Service Fabric 工具屬於 Visual Studio 2017 中的 Azure 開發工作負載�
 * [安裝 Microsoft Azure Service Fabric SDK][core-sdk]
 
 目前的版本如下︰
-* Service Fabric SDK 和工具 3.3.658
-* Service Fabric 執行階段 6.4.658
+* Service Fabric SDK 和工具 3.3.664
+* Service Fabric 執行階段 6.4.664
 * Service Fabric Tools for Visual Studio 2015 2.4.11116.1
 * Visual Studio 2017 15.9 包含 Service Fabric Tools for Visual Studio 2.4.11024.1 
 
@@ -86,7 +86,7 @@ Service Fabric 會使用 Windows PowerShell 指令碼，以便建立本機開發
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 ## <a name="install-docker-optional"></a>安裝 Docker (選擇性)
-[Service Fabric 是容器協調者](service-fabric-containers-overview.md)，可用於將微服務部署至整個機器叢集。 若要在本機開發叢集上執行 Windows 容器應用程式，您必須先安裝 Docker for Windows。 取得 [Docker CE for Windows (穩定)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)。 安裝並啟動 Docker 之後，以滑鼠右鍵按一下系統匣圖示，然後選取 [切換至 Windows 容器]。 這是執行以 Windows 為基礎的 Docker 映像時的必要步驟。
+[Service Fabric 是容器協調者](service-fabric-containers-overview.md)，可用於將微服務部署至整個機器叢集。 若要在本機開發叢集上執行 Windows 容器應用程式，您必須先安裝 Docker for Windows。 取得 [Docker CE for Windows (穩定)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)。 安裝並啟動 Docker 之後，以滑鼠右鍵按一下系統匣圖示，然後選取 [切換至 Windows 容器]  。 這是執行以 Windows 為基礎的 Docker 映像時的必要步驟。
 
 ## <a name="next-steps"></a>後續步驟
 現在您的開發環境已完成設定，您可以開始建置和執行應用程式。
@@ -95,7 +95,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 * [了解程式設計模型：Reliable Services 和 Reliable Actors](service-fabric-choose-framework.md)
 * [請查看 GitHub 上的 Service Fabric 程式碼範例](https://aka.ms/servicefabricsamples)
 * [使用 Service Fabric 總管將叢集視覺化](service-fabric-visualizing-your-cluster.md)
-* 了解 [Service Fabric 支持选项](service-fabric-support.md)
+* 了解 [Service Fabric 支援選項](service-fabric-support.md)
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric 活動頁面"
 [2]: https://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1c7712fc2ce55a3d22995bb119a9ee485a064903
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b1a9b3dee999a35950559a049230f7fdbbc47b6
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683400"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399194"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>疑難排解在 Azure 監視器中的記錄警示  
 
@@ -38,7 +38,7 @@ ms.locfileid: "64683400"
 
 中所述的文件上[記錄警示的術語](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types)，組態中所述的時間週期指定查詢的時間範圍。 查詢會傳回此範圍內所建立的記錄。 
 
-時間週期會限制記錄的查詢，以避免不當使用，提取的資料和其規避任何時間命令 (例如**前**) 的記錄檔查詢中使用。 例如，如果時間週期設定為 60 分鐘，且查詢會在下午 1:15 執行，則只有在下午 12:15 與下午 1:15 之間所建立的記錄會用於記錄查詢。 如果記錄檔查詢會使用這類時間命令**前 (1d)**，查詢仍然只會使用 12:15 與下午 1:15 之間的資料，因為期間會設定為該間隔。
+時間週期會限制記錄的查詢，以避免不當使用，提取的資料和其規避任何時間命令 (例如**前**) 的記錄檔查詢中使用。 例如，如果時間週期設定為 60 分鐘，且查詢會在下午 1:15 執行，則只有在下午 12:15 與下午 1:15 之間所建立的記錄會用於記錄查詢。 如果記錄檔查詢會使用這類時間命令**前 (1d)** ，查詢仍然只會使用 12:15 與下午 1:15 之間的資料，因為期間會設定為該間隔。
 
 請檢查組態中的時間週期符合您的查詢。 如先前範例所示，如果記錄檔查詢會使用**前 (1d)** 綠色的標記，時間週期應該設為 24 小時或 1440 分鐘 （以紅色表示）。 此設定可確保查詢如預期般執行。
 
@@ -89,7 +89,7 @@ ms.locfileid: "64683400"
 
 ### <a name="alert-triggered-by-partial-data"></a>警示被部分資料觸發
 
-Log Analytics 和 Application Insights 會有所延遲擷取和處理。 當您執行的記錄警示查詢時，您可能會發現使用的任何資料或只有部分資料可用。 有关详细信息，请参阅 [Azure Monitor 中的日志数据引入时间](../platform/data-ingestion-time.md)。
+Log Analytics 和 Application Insights 會有所延遲擷取和處理。 當您執行的記錄警示查詢時，您可能會發現使用的任何資料或只有部分資料可用。 如需詳細資訊，請參閱 < [Azure 監視器中的記錄資料擷取時間](../platform/data-ingestion-time.md)。
 
 根據設定的警示規則的方式，misfiring 可能會發生如果沒有任何資料或記錄檔中的部分資料警示執行的時間。 在此情況下，我們建議您變更警示的查詢或設定。 
 
@@ -181,6 +181,7 @@ Azure 活動記錄檔中的下列取樣事件是因為持續失敗，所以已�
 在 Azure 監視器中建立作為其組態的一部分的每個記錄警示規則必須指定警示的服務會定期執行分析查詢。 分析查詢可能有正確的語法，在規則建立或更新的時間。 但有時候，經過一段時間，記錄警示規則中所提供的查詢可以開發語法問題，而使規則執行失敗。 為什麼要記錄的警示規則中所提供的分析查詢可以開發錯誤一些常見原因如下：
 
 - 若要撰寫查詢[跨多個資源執行](../log-query/cross-workspace-query.md)。 與一或多個指定的資源不存在。
+- [計量測量型記錄警示](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules)設定警示查詢不符合最語法規範
 - 沒有任何分析平台的資料流程。 [查詢執行會產生錯誤](https://dev.loganalytics.io/documentation/Using-the-API/Errors)因為沒有提供查詢資料。
 - 中的變更[查詢語言](https://docs.microsoft.com/azure/kusto/query/)包含修訂過的格式的命令和函式。 因此稍早在警示規則中所提供的查詢不再有效。
 
@@ -192,4 +193,4 @@ Azure 活動記錄檔中的下列取樣事件是因為持續失敗，所以已�
 
 - 了解 [Azure 中的記錄警示](../platform/alerts-unified-log.md)。
 - 深入了解 [Application Insights](../../azure-monitor/app/analytics.md)。
-- 了解有关[日志查询](../log-query/log-query-overview.md)的详细信息。
+- 深入了解[記錄查詢](../log-query/log-query-overview.md)。

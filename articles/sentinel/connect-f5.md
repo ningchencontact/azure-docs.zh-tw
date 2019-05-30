@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: ee864a264ae9012b64b7dab5cd19467d8d66791c
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: d018ce4164c50f5d21c8ab3e833bba7055ad9753
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921903"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385054"
 ---
 # <a name="connect-your-f5-appliance"></a>連接您的 F5 應用裝置
 
@@ -121,7 +121,7 @@ ms.locfileid: "65921903"
 
 3. 請確定您所傳送的記錄檔遵守[RFC 5424](https://tools.ietf.org/html/rfc542)。
 
-4. 在電腦上執行 Syslog 代理程式，請確定這些連接埠 514、 25226 會開啟並在接聽，使用命令`netstat -a -n:`。 如需使用此命令的詳細資訊，請參閱[netstat(8)-Linux man 頁面](https://linux.die.netman/8/netstat)。 如果它正在接聽正確，您會看到這個：
+4. 在電腦上執行 Syslog 代理程式，請確定這些連接埠 514、 25226 會開啟並在接聽，使用命令`netstat -a -n:`。 如需使用此命令的詳細資訊，請參閱[netstat(8)-Linux man 頁面](https://linux.die.net/man/8/netstat)。 如果它正在接聽正確，您會看到這個：
 
    ![Azure 的 Sentinel 連接埠](./media/connect-cef/ports.png) 
 

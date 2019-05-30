@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 17609212fcc7620dc0d6d617e7626d12c8bb0592
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 5c8a15aa5198983a56a0238c1bb56f9345d07acc
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852137"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258600"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 受控執行個體的 T-SQL 差異
 
@@ -27,12 +27,13 @@ ms.locfileid: "65852137"
 - [安全性](#security)包含的差異[稽核](#auditing)，[憑證](#certificates)，[認證](#credential)，[密碼編譯提供者](#cryptographic-providers)，[登入和使用者](#logins-and-users)，而[服務金鑰和服務主要金鑰](#service-key-and-service-master-key)。
 - [組態](#configuration)包含的差異[緩衝集區延伸模組](#buffer-pool-extension)，[定序](#collation)，[相容性層級](#compatibility-levels)，[資料庫鏡像](#database-mirroring)，[資料庫選項](#database-options)， [SQL Server Agent](#sql-server-agent)，和[資料表選項](#tables)。
 - [功能](#functionalities)包含[大量插入/OPENROWSET](#bulk-insert--openrowset)， [CLR](#clr)， [DBCC](#dbcc)，[分散式交易](#distributed-transactions)， [擴充事件](#extended-events)，[外部程式庫](#external-libraries)， [filestream 和 FileTable](#filestream-and-filetable)，[全文檢索語意搜尋](#full-text-semantic-search)， [連結的伺服器](#linked-servers)， [PolyBase](#polybase)，[複寫](#replication)，[還原](#restore-statement)， [Service Broker](#service-broker)， [預存程序、 函數和觸發程序](#stored-procedures-functions-and-triggers)。
+- [環境設定](#Environment)例如 Vnet 和子網路組態。
 - [中具有不同行為的功能受管理的執行個體](#Changes)。
 - [暫時性限制與已知的問題](#Issues)。
 
 受控執行個體的部署選項提供對內部部署 SQL Server 資料庫引擎的高度相容性。 受控執行個體支援大部分的 SQL Server 資料庫引擎功能。
 
-![遷移](./media/sql-database-managed-instance/migration.png)
+![移轉](./media/sql-database-managed-instance/migration.png)
 
 ## <a name="availability"></a>可用性
 
@@ -454,6 +455,19 @@ MSDTC 和[彈性交易](sql-database-elastic-transactions-overview.md)目前並�
 - 不支援 `xp_cmdshell`。 請參閱 [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)。
 - `Extended stored procedures` 不支援，其中包含`sp_addextendedproc` 和`sp_dropextendedproc`。 請參閱[擴充預存程序](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)。
 - 不支援 `sp_attach_db`、`sp_attach_single_file_db` 和 `sp_detach_db`。 請參閱 [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql)、[sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 和 [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)。
+
+## <a name="Environment"></a>Environmet 條件約束
+
+### <a name="subnet"></a>子網路
+- 在 保留供您受控執行個體的子網路中，您不能放置任何其他資源 （例如虛擬機器）。 將這些資源放在其他子網路。
+- 子網路必須有足夠數目的可用[IP 位址](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。 最小值會是 16，而建議是將在至少 32 個 IP 位址子網路中。
+- [服務端點不能與受管理的執行個體子網路相關聯](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。 請確定當您建立虛擬網路服務端點選項已停用。
+- 您可以將它放在子網路中的執行個體的類型與數量有一些[條件約束和限制](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- 有一些[子網路必須套用的安全性規則](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。
+
+### <a name="vnet"></a>VNET
+- 您可以使用資源模型部署 VNet-不支援 vnet 的傳統模型。
+- 某些服務，例如 App Service 環境、 Logic apps 和 （使用異地複寫，異動複寫，或透過連結的伺服器） 的受控執行個體無法存取在不同區域中的 受控執行個體，如果其會使用連線的 Vnet [全域對等互連](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)。 您可以連接到這些資源，透過 ExpressRoute 或 VNet 對 VNet 透過 VNet 閘道。
 
 ## <a name="Changes"></a> 行為變更
 

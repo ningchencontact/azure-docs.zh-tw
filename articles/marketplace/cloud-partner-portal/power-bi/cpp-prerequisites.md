@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: c6b9f54d073b671b55f259bfbb2aa70d9eacfdc4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c436522bd5f1a9d52b71d85b7b47ac9a089c0b25
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943315"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258174"
 ---
 # <a name="power-bi-app-offer-prerequisites"></a>Power BI 應用程式提供的必要條件
 
@@ -29,7 +29,7 @@ ms.locfileid: "64943315"
 
 商務需求包括程序、 契約效應，和法律義務。  您必須：
 
-- 要註冊的雲端 marketplace 發行者。 如果您未註冊，請依照下列中的步驟[成為雲端 Marketplace 發行者](../../become-publisher.md)。
+- 要註冊的雲端 marketplace 發行者。 如果您未註冊，請依照下列中的步驟[成為雲端 Marketplace 發行者](https://docs.microsoft.com/azure/marketplace/become-publisher)。
 
     > [!NOTE] 
     > 使用相同的 Microsoft 開發人員中心註冊帳戶來登入[Cloud Partner 入口網站](https://cloudpartner.azure.com)。 您的 AppSource 供應項目應該只會共有一個 Microsoft 帳戶。 帳戶不能是個別的服務或供應項目特有的。

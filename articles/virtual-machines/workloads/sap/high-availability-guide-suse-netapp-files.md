@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: 3bd8600d0839c31a17221bb5421dc36165deb434
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b3b5a89b43eaa5c0851962aef414ec9c9b7440da
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142971"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357738"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>適用於 SUSE Linux Enterprise Server for SAP 應用程式的 Azure NetApp 檔案上的 Azure Vm 上的 SAP NetWeaver 的高可用性
 
@@ -58,7 +58,7 @@ ms.locfileid: "65142971"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-這篇文章說明如何部署虛擬機器設定虛擬機器、 安裝叢集架構，並安裝高可用性的 SAP NetWeaver 7.50 系統，使用[（公開預覽） 中的 Azure NetApp 檔案](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/)。
+這篇文章說明如何部署虛擬機器設定虛擬機器、 安裝叢集架構，並安裝高可用性的 SAP NetWeaver 7.50 系統，使用[Azure NetApp 檔案](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/)。
 在範例組態、 安裝命令等、 ASCS 執行個體號碼 00、 ERS 執行個體號碼 01、 主要的應用程式執行個體 (PAS) 是 02 且應用程式執行個體 (AAS) 是 03。 SAP 系統識別碼 QAS 會使用。 
 
 這篇文章說明如何使用 Azure NetApp 檔案達到高可用性的 SAP NetWeaver 應用程式。 資料庫層級未涵蓋在本文中詳述。
@@ -139,13 +139,13 @@ SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP Hana 資料�
 
 SAP NetWeaver 需要傳輸和設定檔目錄的共用儲存體。  繼續進行 Azure NetApp 檔案基礎結構的安裝程式之前，先熟悉[Azure NetApp 檔案文件][anf-azure-doc]。 如果您選取的 Azure 區域提供 Azure NetApp 檔案的檢查。 下列連結會顯示依 Azure 區域的 Azure NetApp 檔案的可用性：[Azure 的 NetApp 檔案 Azure 區域可用性][anf-avail-matrix]。
 
-「 Azure NetApp 檔案 」 功能是在數個 Azure 區域為公開預覽狀態。 在部署 Azure NetApp 檔案時，註冊 Azure NetApp 檔案預覽中，遵循[註冊 Azure NetApp 檔案指示][anf-register]。 
+Azure 的 NetApp 檔案位於數個[Azure 區域](https://azure.microsoft.com/global-infrastructure/services/?products=netapp)。 在部署 Azure NetApp 檔案時，要求上的架到 Azure NetApp 檔案，遵循[註冊 Azure NetApp 檔案指示][anf-register]。 
 
 ### <a name="deploy-azure-netapp-files-resources"></a>部署 Azure NetApp 檔案資源  
 
-步驟假設您有已部署[Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)。 請記住 Azure NetApp 檔案資源和 Vm，可掛接的 Azure NetApp 檔案資源必須部署在相同的 Azure 虛擬網路中。  
+步驟假設您有已部署[Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)。 在相同的 Azure 虛擬網路，或對等互連的 Azure 虛擬網路中，必須部署 Azure NetApp 檔案資源和 Vm，可掛接的 Azure NetApp 檔案資源。  
 
-1. 如果您還沒有已完成，要求[註冊 Azure NetApp 預覽版](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)。  
+1. 如果您還沒有已完成，要求[上的架到 Azure NetApp 檔案](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)。  
 
 2. 在選取的 Azure 區域，依照建立 NetApp 帳戶[建立 NetApp 帳戶指示](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account)。  
 3. 設定 Azure NetApp 檔案容量集區，遵循[有關如何設定 Azure NetApp 檔案容量集區](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool)。  
@@ -153,7 +153,7 @@ SAP NetWeaver 需要傳輸和設定檔目錄的共用儲存體。  繼續進行 
 
 4. 委派 Azure NetApp 檔案的子網路中所述[指示委派至 Azure NetApp 檔案的子網路](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet)。  
 
-5. 部署 Azure NetApp 檔案磁碟區，遵循[指示 Azure NetApp 檔案建立磁碟區](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)。 部署中指定的 Azure NetApp 檔案的磁碟區[子網路](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)。 請記住 Azure NetApp 檔案資源和 Azure Vm 必須位於相同的 Azure 虛擬網路。 例如 sapmnt<b>QAS</b>，usrsap<b>QAS</b>等是磁碟區名稱和 sapmnt<b>qas</b>，usrsap<b>qas</b>等 filepaths 對於 AzureNetApp 檔案的磁碟區。  
+5. 部署 Azure NetApp 檔案磁碟區，遵循[指示 Azure NetApp 檔案建立磁碟區](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)。 部署中指定的 Azure NetApp 檔案的磁碟區[子網路](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)。 請記住 Azure NetApp 檔案資源和 Azure Vm 必須位於相同的 Azure 虛擬網路或對等互連的 Azure 虛擬網路中。 例如 sapmnt<b>QAS</b>，usrsap<b>QAS</b>等是磁碟區名稱和 sapmnt<b>qas</b>，usrsap<b>qas</b>等 filepaths 對於 AzureNetApp 檔案的磁碟區。  
 
    1. 磁碟區 sapmnt<b>QAS</b> (nfs://10.1.0.4/sapmnt<b>qas</b>)
    2. 磁碟區 usrsap<b>QAS</b> (nfs://10.1.0.4/usrsap<b>qas</b>)
@@ -238,7 +238,7 @@ SAP NetWeaver 需要傳輸和設定檔目錄的共用儲存體。  繼續進行 
          1. 開啟負載平衡器、 選取負載平衡規則然後按一下 [新增]
          1. 輸入新的負載平衡器規則的名稱 (例如**lb。QAS。ASCS.3200**)
          1. 針對 ASCS、 後端集區，以及您稍早建立的健康情況探查選取前端 IP 位址 (例如**前端。QAS。ASCS**)
-         1. 保留通訊協定 [TCP]，輸入連接埠 **3200**
+         1. 保留通訊協定 [TCP]  ，輸入連接埠 **3200**
          1. 將閒置逾時增加為 30 分鐘
          1. **務必啟用浮動 IP**
          1. Click OK
@@ -256,7 +256,7 @@ SAP NetWeaver 需要傳輸和設定檔目錄的共用儲存體。  繼續進行 
 
 ### <a name="installation"></a>安裝
 
-下列項目會加上下列其中一個前置詞：**[A]** - 適用於所有節點、**[1]** - 僅適用於節點 1 或 **[2]** - 僅適用於節點 2。
+下列項目會加上下列其中一個前置詞： **[A]** - 適用於所有節點、 **[1]** - 僅適用於節點 1 或 **[2]** - 僅適用於節點 2。
 
 1. **[A]** 安裝 SUSE 連接器
 
@@ -364,7 +364,7 @@ SAP NetWeaver 需要傳輸和設定檔目錄的共用儲存體。  繼續進行 
    > [!NOTE]
    > Azure NetApp 檔案服務目前支援僅 NFSv3。 不省略 nfsvers = 3 個參數。
    
-   重新啟動 autofs 來裝載新的共用
+   重新啟動`autofs`掛接新的共用
     <pre><code>
       sudo systemctl enable autofs
       sudo service autofs restart
@@ -734,7 +734,7 @@ SAP NetWeaver 需要傳輸和設定檔目錄的共用儲存體。  繼續進行 
    /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind,sync <b>10.1.0.5</b>:/ursap<b>qas</b>pas
    </code></pre>
 
-   重新啟動 autofs 來裝載新的共用
+   重新啟動`autofs`掛接新的共用
 
    <pre><code>
    sudo systemctl enable autofs
@@ -759,7 +759,7 @@ SAP NetWeaver 需要傳輸和設定檔目錄的共用儲存體。  繼續進行 
    /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/usrsap<b>qas</b>aas
    </code></pre>
 
-   重新啟動 autofs 來裝載新的共用
+   重新啟動`autofs`掛接新的共用
 
    <pre><code>
    sudo systemctl enable autofs
@@ -1230,7 +1230,7 @@ SAP NetWeaver 需要傳輸和設定檔目錄的共用儲存體。  繼續進行 
    <pre><code>anftstsapcl1:~ # pgrep er.sapQAS | xargs kill -9
    </code></pre>
 
-   如果您只執行此命令一次，sapstart 會重新啟動處理程序。 如果您執行命令的次數足夠，則 sapstart 將不會重新啟動處理程序，而資源會處於停止狀態。 以 root 身份執行下列命令，以在測試之後清除 ERS 執行個體的資源狀態。
+   如果您只執行此命令一次，`sapstart`會重新啟動處理程序。 如果您執行它通常足以，`sapstart`不會重新啟動處理程序和資源會處於停止狀態。 以 root 身份執行下列命令，以在測試之後清除 ERS 執行個體的資源狀態。
 
    <pre><code>anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
    </code></pre>

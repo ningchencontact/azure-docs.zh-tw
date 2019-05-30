@@ -1,5 +1,5 @@
 ---
-title: 使用 RBAC 和 REST API 管理对 Azure 资源的访问 - Azure | Microsoft Docs
+title: 管理存取 Azure 資源使用 RBAC 和 REST API-Azure |Microsoft Docs
 description: 了解如何使用角色型存取控制 (RBAC) 和 REST API 來管理使用者、群組和應用程式對 Azure 資源的存取權。 這包括如何列出存取權、授與存取權以及移除存取權。
 services: active-directory
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9c307b2b2e720881acb983a2a1b00ac8e03dac4
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60531835"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357066"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>使用 RBAC 和 REST API 管理對 Azure 資源的存取
 
@@ -38,12 +38,16 @@ ms.locfileid: "60531835"
 
 1. 在 URI 中，將 *{scope}* 取代為要列出角色指派的範圍。
 
-    | 影響範圍 | 類型 |
+    | `Scope` | 類型 |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
-
+    
+       
+     > [!NOTE]
+     > 在上述範例中 Microsoft.web 是使用資源提供者就是指應用程式服務執行個體。 同樣地，您可以使用任何其他資源提供者，並建置範圍 URI。 若要了解請方案，請參閱[Azure 資源提供者和類型](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)且支援[Azure RM 資源提供者作業](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations)。  
+     
 1. 將 *{filter}* 取代為您要針對角色指派清單篩選套用的條件。
 
     | Filter | 描述 |
@@ -77,7 +81,7 @@ ms.locfileid: "60531835"
     
 1. 在 URI 中，將 *{scope}* 取代為角色指派的範圍。
 
-    | 影響範圍 | 類型 |
+    | `Scope` | 類型 |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
@@ -105,7 +109,7 @@ ms.locfileid: "60531835"
 
 1. 在 URI 中，將 *{scope}* 取代為要移除角色指派的範圍。
 
-    | 影響範圍 | 類型 |
+    | `Scope` | 類型 |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |

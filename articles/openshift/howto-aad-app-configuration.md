@@ -1,20 +1,20 @@
 ---
 title: Azure Active Directory for Azure 的 Red Hat OpenShift 的整合 |Microsoft Docs
 description: 了解如何建立用於測試 Microsoft Azure 的 Red Hat OpenShift 叢集上的應用程式的 Azure AD 安全性群組和使用者。
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.service: openshift
 manager: jeconnoc
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/13/2019
-ms.openlocfilehash: f6b87748c33c1afd047ae25dfb7df3670a73e7c8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: adc5a601a04936a376d7c69b26c2429940ebdf6e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779688"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306463"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Active Directory for Azure 的 Red Hat OpenShift 的整合
 
@@ -52,7 +52,7 @@ Microsoft Azure 的 Red Hat OpenShift 需要代表您的叢集執行工作的權
 
 6. 按一下 **成員**來開啟**選取成員**窗格。
 7. 在 [成員] 清單中，選取您先前建立的 Azure AD 使用者。
-8. 在入口網站底部，按一下**選取 ** ，然後**建立**建立安全性群組。
+8. 在入口網站底部，按一下**選取**  ，然後**建立**建立安全性群組。
 
     請記下的群組識別碼值
 

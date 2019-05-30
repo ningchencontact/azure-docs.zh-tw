@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 931e44f85131e8cbdd7aecddd6398f6f59d1b166
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 90577ea9f24bc5f36113bc1bdb913949772325c9
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937282"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305509"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory 新增功能的封存檔
 
@@ -70,7 +70,7 @@ ms.locfileid: "64937282"
 
 - Jamf Pro
 
-若要開始使用這個一鍵式體驗，請移至應用程式的 **Azure 入口網站** > [SSO 組態] 頁面。 如需詳細資訊，請參閱 [SaaS 應用程式與 Azure Active Directory 的整合](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+若要開始使用這個一鍵式體驗，請移至應用程式的 **Azure 入口網站** > [SSO 組態]  頁面。 如需詳細資訊，請參閱 [SaaS 應用程式與 Azure Active Directory 的整合](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
 
 ---
 
@@ -80,7 +80,7 @@ ms.locfileid: "64937282"
 **服務類別：** 其他  
 **產品功能：** GoLocal
 
-從 [Azure Active Directory - 資料位於何處] 頁面選取公司的區域，以檢視是哪一個 Azure 資料中心裝載了所有 Azure AD 服務的 Azure AD 待用資料。 您可以根據貴公司區域的特定 Azure AD 服務來篩選資訊。
+從 [Azure Active Directory - 資料位於何處]  頁面選取公司的區域，以檢視是哪一個 Azure 資料中心裝載了所有 Azure AD 服務的 Azure AD 待用資料。 您可以根據貴公司區域的特定 Azure AD 服務來篩選資訊。
 
 若要存取這項功能以及需要詳細資訊，請參閱 [Azure Active Directory - 資料位於何處](https://aka.ms/AADDataMap)。
 
@@ -105,7 +105,7 @@ ms.locfileid: "64937282"
 **服務類別：** 報告  
 **產品功能：** 監視與報告
 
-Azure 入口網站的 [登入] 頁面上有新的 [疑難排解和支援] 索引標籤，其目的是要協助系統管理員和支援工程師針對與 Azure AD 登入相關的問題進行疑難排解。這個新的索引標籤會提供錯誤碼、錯誤訊息和補救建議 (如果有的話) 來協助您解決問題。 如果您無法解決問題，我們也提供了新的辦法供您使用**複製到剪貼簿**體驗來新建支援票證，其會在支援票證的記錄檔中填入 [要求識別碼] 和 [日期 (UTC)] 欄位。  
+Azure 入口網站的 [登入]  頁面上有新的 [疑難排解和支援]  索引標籤，其目的是要協助系統管理員和支援工程師針對與 Azure AD 登入相關的問題進行疑難排解。這個新的索引標籤會提供錯誤碼、錯誤訊息和補救建議 (如果有的話) 來協助您解決問題。 如果您無法解決問題，我們也提供了新的辦法供您使用**複製到剪貼簿**體驗來新建支援票證，其會在支援票證的記錄檔中填入 [要求識別碼]  和 [日期 (UTC)]  欄位。  
 
 ![顯示新的索引標籤的登入記錄](media/whats-new/troubleshooting-and-support.png)
 
@@ -117,7 +117,7 @@ Azure 入口網站的 [登入] 頁面上有新的 [疑難排解和支援] 索引
 **服務類別：** 群組管理  
 **產品功能：** 共同作業
 
-經由此更新，您現在可以從動態使用者群組規則建立器按一下 [取得自訂擴充屬性] 連結，輸入唯一的應用程式識別碼，然後接收在為使用者建立動態成員資格規則時所要使用的自訂擴充屬性完整清單。 您也可以重新整理這份清單，來針對該應用程式取得任何新的自訂擴充屬性。
+經由此更新，您現在可以從動態使用者群組規則建立器按一下 [取得自訂擴充屬性]  連結，輸入唯一的應用程式識別碼，然後接收在為使用者建立動態成員資格規則時所要使用的自訂擴充屬性完整清單。 您也可以重新整理這份清單，來針對該應用程式取得任何新的自訂擴充屬性。
 
 如需針對動態成員資格規則使用自訂擴充屬性的詳細資訊，請參閱[擴充屬性和自訂擴充屬性](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership#extension-properties-and-custom-extension-properties)
 
@@ -147,7 +147,7 @@ Azure 入口網站的 [登入] 頁面上有新的 [疑難排解和支援] 索引
 **服務類別：** SSPR  
 **產品功能：** 使用者驗證
 
-在設定這項新功能之後，使用者就會在執行 Windows 7、Windows 8 或 Windows 8.1 的裝置中，從其 [鎖定] 畫面看到用以重設其密碼的連結。 藉由按一下該連結，系統就會引導使用者完成密碼重設流程，過程就和透過網頁瀏覽器所進行的一樣。
+在設定這項新功能之後，使用者就會在執行 Windows 7、Windows 8 或 Windows 8.1 的裝置中，從其 [鎖定]  畫面看到用以重設其密碼的連結。 藉由按一下該連結，系統就會引導使用者完成密碼重設流程，過程就和透過網頁瀏覽器所進行的一樣。
 
 如需詳細資訊，請參閱[如何從 Windows 7、8 和 8.1 啟用密碼重設](https://aka.ms/ssprforwindows78)
 
@@ -187,7 +187,7 @@ Azure 入口網站的 [登入] 頁面上有新的 [疑難排解和支援] 索引
 **服務類別：** 企業應用程式  
 **產品功能：** SSO
 
-我們已導入新的宣告轉換方法 ToLower() 和 ToUpper()，您可從以 SAML 為基礎的 [單一登入設定] 頁面套用至 SAML 權杖。
+我們已導入新的宣告轉換方法 ToLower() 和 ToUpper()，您可從以 SAML 為基礎的 [單一登入設定]  頁面套用至 SAML 權杖。
 
 如需詳細資訊，請參閱[如何針對 Azure AD 中的企業應用程式自訂 SAML 權杖中發出的宣告](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)
 
@@ -213,7 +213,7 @@ Azure 入口網站的 [登入] 頁面上有新的 [疑難排解和支援] 索引
 
 - 有辦法設定 SAML 應用程式的 NameID 格式以及將 NameID 值設定為目錄擴充。
 
-若要開啟此更新後的檢視，請從 [單一登入] 頁面頂端按一下 [試用新的體驗] 連結。 如需詳細資訊，請參閱[教學課程：為應用程式設定透過 Azure Active Directory 進行的 SAML 型單一登入](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal)。
+若要開啟此更新後的檢視，請從 [單一登入]  頁面頂端按一下 [試用新的體驗]  連結。 如需詳細資訊，請參閱[教學課程：為應用程式設定透過 Azure Active Directory 進行的 SAML 型單一登入](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal)。
 
 ---
 
@@ -271,7 +271,7 @@ Azure 入口網站的 [登入] 頁面上有新的 [疑難排解和支援] 索引
 **服務類別：** 應用程式 Proxy  
 **產品功能：** 存取控制
 
-您的應用程式 Proxy 應用程式中有新的設定，名為「僅限 HTTP Cookies」。 此設定有助於提供更高的安全性，因為它可在應用程式 Proxy 存取和工作階段 Cookie 的 HTTP 回應標頭中加入 HTTPOnly 旗標，以禁止透過用戶端指令碼存取 Cookie，並進一步防止複製或修改 Cookie 之類的動作。 雖然過去並未使用此旗標，但您的 Cookie 一向都會加密，並使用 SSL 連線進行傳輸，以利防止不當的修改。
+您的應用程式 Proxy 應用程式中有新的設定，名為「僅限 HTTP Cookies」  。 此設定有助於提供更高的安全性，因為它可在應用程式 Proxy 存取和工作階段 Cookie 的 HTTP 回應標頭中加入 HTTPOnly 旗標，以禁止透過用戶端指令碼存取 Cookie，並進一步防止複製或修改 Cookie 之類的動作。 雖然過去並未使用此旗標，但您的 Cookie 一向都會加密，並使用 SSL 連線進行傳輸，以利防止不當的修改。
 
 此設定與使用 ActiveX 控制項的應用程式不相容，例如遠端桌面。 面臨此情況時，建議您關閉這項設定。
 
@@ -483,10 +483,10 @@ Azure AD Connect 的最新版本包括：
 
 ---
 
-### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>使用規定 (ToU) 使用者 UI 的更新
+### <a name="updates-to-the-terms-of-use-end-user-ui"></a>更新的條款使用使用者 UI
 
 **類型：** 已變更的功能  
-**服務類別：** 使用條款  
+**服務類別：** 使用規定  
 **產品功能：** 控管
 
 我們正在更新 TOU 終端使用者 UI 中的接受字串。
@@ -557,10 +557,10 @@ Azure AD Connect 的最新版本包括：
 
 **更新您的應用程式權限**
 
-1. 登入 Azure 入口網站、選取 [Azure Active Directory]，然後選取 [應用程式註冊]。
-2. 選取使用 Azure AD 活動記錄 API 的應用程式、選取 [設定]、選取 [必要權限]，然後選取 [Windows Azure Active Directory] API。
-3. 在 [啟用存取] 刀鋒視窗的 [委派權限] 區域中，選取 [讀取目錄] 資料旁的方塊，然後選取 [儲存]。
-4. 選取 [授與權限]，然後選取 [是]。
+1. 登入 Azure 入口網站、選取 [Azure Active Directory]  ，然後選取 [應用程式註冊]  。
+2. 選取使用 Azure AD 活動記錄 API 的應用程式、選取 [設定]  、選取 [必要權限]  ，然後選取 [Windows Azure Active Directory]  API。
+3. 在 [啟用存取]  刀鋒視窗的 [委派權限]  區域中，選取 [讀取目錄]  資料旁的方塊，然後選取 [儲存]  。
+4. 選取 [授與權限]  ，然後選取 [是]  。
     
     >[!Note]
     >您必須是全域管理員，才能授與權限給應用程式。
@@ -579,28 +579,28 @@ Azure AD Connect 的最新版本包括：
 
 [PCI 安全性標準委員會](https://www.pcisecuritystandards.org/)判定 TLS 和安全通訊端層 (SSL) 的早期版本必須停用，以利啟用更安全的全新應用程式通訊協定，此合規性自 **2018 年 6 月 30 日**起開始。 這項變更意味著如果連線到 Azure AD 服務並要求符合 PCI DSS，就必須停用 TLS 1.0。 TLS 有許多版本可用，但 TLS 1.2 是 Azure Active Directory 服務最新的可用版本。 若是結合使用用戶端/伺服器及瀏覽器/伺服器，強烈建議您直接使用 TLS 1.2。
 
-過時的瀏覽器可能不支援較新的 TLS 版本，例如 TLS 1.2。 若要查看瀏覽器支援的 TLS 版本，請前往 [Qualys SSL 實驗室](https://www.ssllabs.com/)網站並按一下 [測試您的瀏覽器]。 建議您升級到最新版本的網頁瀏覽器，最好只啟用 TLS 1.2。
+過時的瀏覽器可能不支援較新的 TLS 版本，例如 TLS 1.2。 若要查看瀏覽器支援的 TLS 版本，請前往 [Qualys SSL 實驗室](https://www.ssllabs.com/)網站並按一下 [測試您的瀏覽器]  。 建議您升級到最新版本的網頁瀏覽器，最好只啟用 TLS 1.2。
 
 **透過瀏覽器啟用 TLS 1.2**
 
 - **Microsoft Edge 和 Internet Explorer (這兩者都使用 Internet Explorer 設定)**
 
-    1. 開啟 [Internet Explorer]，然後選取 [工具]、 > [網際網路選項] > 、[進階]。
-    2. 在 [安全性] 區域中，選取 [使用 TLS 1.2]，然後選取 [確定]。
+    1. 開啟 [Internet Explorer]，然後選取 [工具]  、 > [網際網路選項]   > 、[進階]  。
+    2. 在 [安全性]  區域中，選取 [使用 TLS 1.2]  ，然後選取 [確定]  。
     3. 關閉所有瀏覽器視窗，並重新啟動 Internet Explorer。 
 
 - **Google Chrome**
 
-    1. 開啟 Google Chrome、在位址列輸入 *chrome://settings/*，然後按 **Enter** 鍵。
-    2. 展開 [進階] 選項、前往 [系統] 區域，然後選取 [開啟 Proxy 設定]。
-    3. 在 [網際網路內容] 方塊中，選取 [進階] 索引標籤、前往 [安全性] 區域、選取 [使用 TLS 1.2]，然後選取 [確定]。
+    1. 開啟 Google Chrome、在位址列輸入 *chrome://settings/* ，然後按 **Enter** 鍵。
+    2. 展開 [進階]  選項、前往 [系統]  區域，然後選取 [開啟 Proxy 設定]  。
+    3. 在 [網際網路內容]  方塊中，選取 [進階]  索引標籤、前往 [安全性]  區域、選取 [使用 TLS 1.2]  ，然後選取 [確定]  。
     4. 關閉所有瀏覽器視窗，並重新啟動 Google Chrome。
 
 - **Mozilla Firefox**
 
     1. 開啟 Firefox、在位址列輸入 *about:config*，然後按 **Enter** 鍵。
-    2. 搜尋字詞 *TLS*，然後選取 [security.tls.version.max] 項目。
-    3. 將值設為 **3** 以強制瀏覽器使用最新版本 TLS 1.2，然後選取 [確定]。
+    2. 搜尋字詞 *TLS*，然後選取 [security.tls.version.max]  項目。
+    3. 將值設為 **3** 以強制瀏覽器使用最新版本 TLS 1.2，然後選取 [確定]  。
 
         >[!NOTE]
         >Firefox 60.0 版本支援 TLS 1.3，因此也可以將 security.tls.version.max 值設為 **4**。
@@ -641,25 +641,25 @@ Azure AD Connect 的最新版本包括：
 
 ---
 
-### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>在建立使用規定 (ToU) 期間所擬定的全新「所有來賓」條件式存取原則範本
+### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-creation"></a>新的 「 所有來賓 」 條件式存取原則範本的使用建立期間建立
 
 **類型：** 新功能  
-**服務類別：** 使用條款  
+**服務類別：** 使用規定  
 **產品功能：** 控管
 
-在建立使用規定 (ToU) 期間，也會針對「所有來賓」和「所有應用程式」擬定全新的條件式存取原則範本。 這個全新原則範本適用於新建立的 ToU，簡化了來賓建立和強制程序。
+在建立期間的使用規定，也會建立新的條件式存取原則範本的 「 所有來賓 」 和 「 所有的應用程式 」。 這個全新原則範本適用於新建立的 ToU，簡化了來賓建立和強制程序。
 
 如需詳細資訊，請參閱 [Azure Active Directory 使用規定功能](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)。
 
 ---
 
-### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>在建立使用規定 (ToU) 期間所擬定的全新「自訂」條件式存取原則範本
+### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-creation"></a>新的使用建立期間建立的 「 自訂 」 的條件式存取原則範本
 
 **類型：** 新功能  
-**服務類別：** 使用條款  
+**服務類別：** 使用規定  
 **產品功能：** 控管
 
-在建立使用規定 (ToU) 期間，也會擬定全新的「自訂」條件式存取原則範本。 這個全新原則範本可讓您建立 ToU，然後立即前往條件式存取原則建立刀鋒視窗，無須手動瀏覽入口網站。
+在建立期間的使用規定，也會建立新的 「 自訂 」 的條件式存取原則範本。 這個全新原則範本可讓您建立 ToU，然後立即前往條件式存取原則建立刀鋒視窗，無須手動瀏覽入口網站。
 
 如需詳細資訊，請參閱 [Azure Active Directory 使用規定功能](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)。
 
@@ -691,7 +691,7 @@ Azure AD Connect 的最新版本包括：
 
     - **雲端應用程式系統管理員。** 授予所有應用程式系統管理員的能力，但應用程式 Proxy 除外，因為應用程式 Proxy 不提供內部存取。
 
-    - **應用程式開發人員。** 授予建立應用程式註冊的權限，即使已關閉 [允許使用者註冊應用程式] 選項亦同。
+    - **應用程式開發人員。** 授予建立應用程式註冊的權限，即使已關閉 [允許使用者註冊應用程式]  選項亦同。
 
 - **擁有權 (設定每個應用程式註冊與每個企業應用程式，類似群組擁有權的程序：**
  
@@ -726,10 +726,10 @@ Azure Active Directory (Azure AD) 等這類 SaaS 供應項目旨在設計為適�
 ### <a name="microsoft-graph-apis-for-administrative-scenarios-for-tou"></a>Microsoft Graph API 適用於 TOU 的系統管理案例
 
 **類型：** 新功能  
-**服務類別：** 使用條款  
+**服務類別：** 使用規定  
 **產品功能：** 開發人員體驗
  
-我們已新增 Microsoft Graph API 的 Azure AD 使用規定系統管理作業。 您可以建立、更新、刪除使用規定物件。
+我們已新增 Microsoft Graph Api 的 Azure AD 使用規定的管理作業。 您可建立、 更新及刪除物件使用規定。
 
 ---
 
@@ -849,7 +849,7 @@ Azure AD Premium P2 中現已正式提供群組和應用程式的存取權檢閱
 **服務類別：** 企業應用程式  
 **產品功能：** SSO
  
-尋找您的應用程式/服務主體時發生問題嗎？ 我們已新增讓您載入企業應用程式清單中更多應用程式的功能。 根據預設，我們會顯示 20 項應用程式。 您現在可以按一下 [載入更多] 來檢視其他應用程式。 
+尋找您的應用程式/服務主體時發生問題嗎？ 我們已新增讓您載入企業應用程式清單中更多應用程式的功能。 根據預設，我們會顯示 20 項應用程式。 您現在可以按一下 [載入更多]  來檢視其他應用程式。 
 
 ---
  
@@ -914,10 +914,10 @@ Azure AD Premium P2 中現已正式提供群組和應用程式的存取權檢閱
 
 ---
  
-### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>Azure AD 使用規定現在具備每位使用者回報
+### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>Azure AD 使用規定現在具有每個使用者報告
 
 **類型：** 新功能  
-**服務類別：** 使用條款  
+**服務類別：** 使用規定  
 **產品功能：** 法規遵循
  
 系統管理員現在可以選取特定 ToU，並查看同意該 ToU 的所有使用者以及其發生日期/時間。
@@ -959,11 +959,11 @@ Connect Health 現在能夠支援每小時或每日偵測超出失敗 U/P 登入
 ### <a name="azure-ad-terms-of-use-now-generally-available"></a>Azure AD 使用規定現已正式推出
 
 **類型：** 新功能  
-**服務類別：** 使用條款  
+**服務類別：** 使用規定  
 **產品功能：** 法規遵循
  
 
-Azure AD 使用規定已經從公用預覽移至正式推出。
+Azure AD 使用規定已從公用預覽版到正式推出。
 
 如需詳細資訊，請參閱 [Azure AD 使用規定特性](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)。
 
@@ -1463,13 +1463,13 @@ Azure AD Connect 是在 Azure AD 與內部部署資料來源 (包括 Windows Ser
 
 ---
 
-### <a name="terms-of-use-update-to-mobile-experience"></a>更新行動體驗的使用規定 
+### <a name="terms-of-use-update-to-mobile-experience"></a>使用 update，行動裝置體驗中的條款 
 
 **類型：** 已變更的功能  
-**服務類別：** 使用條款  
+**服務類別：** 使用規定  
 **產品功能：** 法規遵循
 
-顯示使用規定時，您現在可以按一下 [檢視時發生問題嗎?請按一下這裡]。 按一下此連結會在您裝置上以原生方式開啟使用規定。 不論文件中的字型大小或裝置的螢幕大小為何，您都可以視需要縮放並閱讀文件。 
+顯示使用規定時，您現在可以按一下 [檢視時發生問題嗎?  請按一下這裡]。 按一下此連結會在您裝置上以原生方式開啟使用規定。 不論文件中的字型大小或裝置的螢幕大小為何，您都可以視需要縮放並閱讀文件。 
 
 ---
  
@@ -1511,7 +1511,7 @@ Azure AD Connect 是在 Azure AD 與內部部署資料來源 (包括 Windows Ser
 **服務類別：** 我的應用程式  
 **產品功能：** SSO
 
-您現在可以透過新的使用者設定，以更好的方式管理 Office 365 應用程式在使用者存取面板上的顯示方式。 如果您偏好只在 Office 入口網站中顯示 Office 應用程式，此選項將有助於減少使用者存取面板中的應用程式數量。 此設定位於 [使用者設定] 中，並且標示為 [使用者只能在 Office 365 入口網站中看見 Office 365 應用程式]。
+您現在可以透過新的使用者設定，以更好的方式管理 Office 365 應用程式在使用者存取面板上的顯示方式。 如果您偏好只在 Office 入口網站中顯示 Office 應用程式，此選項將有助於減少使用者存取面板中的應用程式數量。 此設定位於 [使用者設定]  中，並且標示為 [使用者只能在 Office 365 入口網站中看見 Office 365 應用程式]  。
 
 如需詳細資訊，請參閱[從 Azure Active Directory 的使用者體驗中隱藏應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app)。
 
@@ -1591,9 +1591,9 @@ MFA 設定位於：**Azure Active Directory \> MFA 伺服器**
 
 1. 前往 [MyApp 入口網站](https://myapps.microsoft.com)並登入。
 
-2. 在右上角中，選取您的名稱，然後從清單中選取 [設定檔]。 
+2. 在右上角中，選取您的名稱，然後從清單中選取 [設定檔]  。 
 
-3. 在您的 [設定檔] 上，選取 [檢閱使用規定]。 
+3. 在您的 [設定檔]  上，選取 [檢閱使用規定]  。 
 
 4. 現在您可以檢閱您已接受的使用規定。 
 
@@ -1619,9 +1619,9 @@ Azure AD 和 Microsoft 帳戶身分識別系統 UI 已經過重新設計，具�
 **服務類別：** Azure AD  
 **產品功能：** 使用者驗證
  
-Azure AD 登入頁面上的 [讓我保持登入] 核取方塊已被新的提示取代，此提示會在您成功驗證之後出現。 
+Azure AD 登入頁面上的 [讓我保持登入]  核取方塊已被新的提示取代，此提示會在您成功驗證之後出現。 
 
-如果您對此提示的回應是 [是]，服務就會提供您一個持續性的重新整理權杖。 此行為與在舊體驗中選取 [讓我保持登入] 核取方塊相同。 針對同盟租用戶，此提示會在您已成功向同盟服務驗證之後顯示。
+如果您對此提示的回應是 [是]  ，服務就會提供您一個持續性的重新整理權杖。 此行為與在舊體驗中選取 [讓我保持登入]  核取方塊相同。 針對同盟租用戶，此提示會在您已成功向同盟服務驗證之後顯示。
 
 如需詳細資訊，請參閱[較少的登入提示次數：適用於 Azure AD 登入的新「讓我保持登入」體驗](https://cloudblogs.microsoft.com/enterprisemobility/2017/09/19/fewer-login-prompts-the-new-keep-me-signed-in-experience-for-azure-ad-is-in-preview/) \(英文\)。 
 
@@ -1635,7 +1635,7 @@ Azure AD 登入頁面上的 [讓我保持登入] 核取方塊已被新的提示�
  
 一個系統管理員選項，可要求其使用者在接受使用規定之前，先展開該規定。
 
-請選取 [開啟] 或 [關閉] 來要求使用者展開使用規定。 [開啟] 設定會要求使用者必須先檢視使用規定，才能接受該規定。
+請選取 [開啟]  或 [關閉]  來要求使用者展開使用規定。 [開啟]  設定會要求使用者必須先檢視使用規定，才能接受該規定。
 
 如需詳細資訊，請參閱 [Azure AD 使用規定特性 (預覽)](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)。
  
@@ -1731,7 +1731,7 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 
 您現在可以為應用程式型條件式存取設定下列條件：
 
-**用戶端應用程式：**[瀏覽器]
+**用戶端應用程式：** [瀏覽器]
 
 **變更的影響為何？**
 
@@ -1777,7 +1777,7 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 **服務類別：** 自助式密碼重設  
 **產品功能：** 使用者驗證
 
-您現在可以檢閱內部部署密碼回寫用戶端的狀態。 [[密碼重設](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)] 頁面的 [內部部署整合] 區段中有提供此選項。 
+您現在可以檢閱內部部署密碼回寫用戶端的狀態。 [[密碼重設](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)] 頁面的 [內部部署整合]  區段中有提供此選項。 
 
 如果您在連線至內部部署回寫用戶端時遇到問題，將會看見包含下列資訊的錯誤訊息：
 
@@ -1880,9 +1880,9 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 
 **試用此功能：**
 
-1. 在 Azure AD 系統管理中心內，於 [管理] 區段中選取 [[所有使用者](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All)]。 
+1. 在 Azure AD 系統管理中心內，於 [管理]  區段中選取 [[所有使用者](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All)]。 
 
-2. 從 [顯示] 清單，選取 [最近刪除的使用者]。 
+2. 從 [顯示]  清單，選取 [最近刪除的使用者]  。 
 
 3. 選取一或多個最近刪除的使用者，然後將這些使用者還原或是永久刪除。
  
@@ -1953,7 +1953,7 @@ Azure 入口網站可讓您使用：
 **服務類別：** 我的應用程式  
 **產品功能：** 單一登入  
 
-Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支援自動登入欄位偵測。 [如何自動擷取應用程式的登入欄位](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application)記錄下列步驟。 您可以在藉由在 [Azure 入口網站](https://aad.portal.azure.com) 的 [企業應用程式] 頁面上新增 [非資源庫] 應用程式來尋找此功能。 此外，您也可以在此新應用程式上將 [單一登入] 模式設定為 [密碼單一登入]，輸入 Web URL，然後再儲存頁面。
+Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支援自動登入欄位偵測。 [如何自動擷取應用程式的登入欄位](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application)記錄下列步驟。 您可以在藉由在 [Azure 入口網站](https://aad.portal.azure.com) 的 [企業應用程式]  頁面上新增 [非資源庫]  應用程式來尋找此功能。 此外，您也可以在此新應用程式上將 [單一登入]  模式設定為 [密碼單一登入]  ，輸入 Web URL，然後再儲存頁面。
  
 之前因為服務問題，而將此功能暫時停用。 此問題已解決，因此已恢復自動登入欄位偵測功能。
 
@@ -2002,7 +2002,7 @@ Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支�
 
 有了 Azure AD Privileged Identity Management，您便可以管理、控制及監視下列項目對組織內 Azure 資源 (預覽) 的存取行為：
 
-- 訂用帳戶
+- Subscriptions
 - 資源群組
 - 虛擬機器 
 
@@ -2035,7 +2035,7 @@ Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支�
 **服務類別：** 我的應用程式  
 **產品功能：** 單一登入  
 
-您現在可以透過新的**隱藏應用程式**屬性，以更好的方式管理在使用者入口網站上顯示的應用程式。 當出現後端服務的應用程式圖格或重複的圖格，而造成使用者的應用程式啟動器凌亂時，您可以隱藏應用程式來協助改善此情況。 該切換參數位於協力廠商應用程式的 [屬性] 區段，標示為 [是否要向使用者顯示?] 您也可以透過 PowerShell 以程式設計方式隱藏應用程式。 
+您現在可以透過新的**隱藏應用程式**屬性，以更好的方式管理在使用者入口網站上顯示的應用程式。 當出現後端服務的應用程式圖格或重複的圖格，而造成使用者的應用程式啟動器凌亂時，您可以隱藏應用程式來協助改善此情況。 該切換參數位於協力廠商應用程式的 [屬性]  區段，標示為 [是否要向使用者顯示?]  您也可以透過 PowerShell 以程式設計方式隱藏應用程式。 
 
 如需詳細資訊，請參閱[從 Azure AD 的使用者體驗中隱藏協力廠商應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app)。 
 

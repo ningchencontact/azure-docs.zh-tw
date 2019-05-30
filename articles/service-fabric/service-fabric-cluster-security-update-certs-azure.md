@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f1998ec2fe82b9fd52547fbccb208542b22bc949
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66161890"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306906"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>新增或移除 Azure 中 Service Fabric 叢集的憑證
 建議您熟悉 Service Fabric 使用 X.509 憑證的方式，以及熟悉[叢集安全性案例](service-fabric-cluster-security.md)。 您必須瞭解什麼是叢集憑證及其用途，方可繼續進行後續作業。
@@ -48,7 +48,7 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>使用 Resource Manager Powershell 來新增次要憑證
 > [!TIP]
-> 現在很好也更容易的方式來新增次要憑證，使用[新增 AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet。 您不需要遵循本節中的其餘步驟。  此外，您不需要原本用來建立及部署叢集時使用的範本[新增 AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet。
+> 還有現在更好且更輕鬆的方法來新增次要憑證，使用[新增 AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet。 您不需要遵循本節中的其餘步驟。  此外，您不需要原本用來建立及部署叢集時使用的範本[新增 AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet。
 
 這些步驟是假設您已熟悉 Resource Manager 的運作方式，並已使用 Resource Manager 範本至少部署一個 Service Fabric 叢集，而且已讓您使用的範本將叢集設定妥當。 此外亦假設您可輕鬆自如地使用 JSON。
 
@@ -106,7 +106,7 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
          }
     ``` 
 
-    如果您想要「變換憑證」，請將新憑證指定為主要憑證，並將目前的主要憑證移轉為次要憑證。 這可讓您透過單一部署步驟，就將目前的主要憑證變換成新憑證。
+    如果您想要「變換憑證」  ，請將新憑證指定為主要憑證，並將目前的主要憑證移轉為次要憑證。 這可讓您透過單一部署步驟，就將目前的主要憑證變換成新憑證。
     
     ```JSON
           "properties": {
@@ -138,7 +138,7 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
     
     ![Json_Pub_Setting2][Json_Pub_Setting2]
     
-    如果您想要「變換憑證」，請將新憑證指定為主要憑證，並將目前的主要憑證移轉為次要憑證。 這可讓您在單一部署步驟中，將目前的憑證變換為新憑證。     
+    如果您想要「變換憑證」  ，請將新憑證指定為主要憑證，並將目前的主要憑證移轉為次要憑證。 這可讓您在單一部署步驟中，將目前的憑證變換為新憑證。     
 
     ```json
                    "certificate": {
@@ -195,7 +195,7 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
 ### <a name="deploy-the-template-to-azure"></a>將範本部署到 Azure
 
 - 您現在已可將範本部署至 Azure。 開啟 Azure PS 版本 1+ 命令提示字元。
-- 登入您的 Azure 帳戶，並選取特定的 Azure 訂用帳戶。 對於擁有多個 Azure 訂用帳戶存取權的使用者而言，這是一個重要步驟。
+- 登入您的 Azure 帳戶，並選取特定的 azure 訂用帳戶。 對於擁有多個 Azure 訂用帳戶存取權的使用者而言，這是一個重要步驟。
 
 ```powershell
 Connect-AzAccount

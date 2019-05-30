@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 28378b4b769e0d0e70a82a45baac0872d1476036
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 154efffcb1f86907fefecc060419c1d9450470f8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413632"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237333"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>在 Azure Service Fabric 中定期備份和還原
 > [!div class="op_single_selector"]
@@ -73,7 +73,7 @@ Service Fabric 提供一組 API，可實現下列和定期備份與復原功能�
 ```
 
 ## <a name="enabling-backup-and-restore-service"></a>啟用備份與還原服務
-首先，您必須在叢集啟用「備份與還原服務」。 取得您想要部署之叢集的範本。 您可以使用[範例範本](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)。 請使用下列步驟來啟用「備份與還原服務」：
+首先，您必須在叢集啟用「備份與還原服務」  。 取得您想要部署之叢集的範本。 您可以使用[範例範本](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)。 請使用下列步驟來啟用「備份與還原服務」  ：
 
 1. 檢查叢集設定檔中的 `apiversion` 是否已設定為 `10-2017`，如果不是，請更新它，如下列程式碼片段所示：
 
@@ -86,7 +86,7 @@ Service Fabric 提供一組 API，可實現下列和定期備份與復原功能�
     }
     ```
 
-2. 現在，在 `properties` 區段底下新增下列 `addonFeatures` 區段來啟用「備份與還原服務」，如下列程式碼片段所示： 
+2. 現在，在 `properties` 區段底下新增下列 `addonFeatures` 區段來啟用「備份與還原服務」  ，如下列程式碼片段所示： 
 
     ```json
         "properties": {
@@ -115,11 +115,11 @@ Service Fabric 提供一組 API，可實現下列和定期備份與復原功能�
     }
     ```
 
-4. 在您更新叢集設定檔以反映先前的變更之後，請套用它們，然後讓部署/升級完成。 完成之後，「備份與還原服務」就會開始在您的叢集中執行。 此服務的 URI 是 `fabric:/System/BackupRestoreService`，此服務可能位於 Service Fabric 總管中的系統服務區段底下。 
+4. 在您更新叢集設定檔以反映先前的變更之後，請套用它們，然後讓部署/升級完成。 完成之後，「備份與還原服務」  就會開始在您的叢集中執行。 此服務的 URI 是 `fabric:/System/BackupRestoreService`，此服務可能位於 Service Fabric 總管中的系統服務區段底下。 
 
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>啟用可靠具狀態服務和 Reliable Actors 的定期備份
 以下步驟將逐步解說如何啟用可靠具狀態服務和 Reliable Actors 的定期備份。 這些步驟假設
-- 已為叢集設定「備份與還原服務」。
+- 已為叢集設定「備份與還原服務」  。
 - 叢集上已部署可靠具狀態服務。 基於本快速入門指南的目的，應用程式 URI 是 `fabric:/SampleApp`，而屬於此應用程式的可靠具狀態服務 URI 是 `fabric:/SampleApp/MyStatefulService`。 已為此服務部署單一分割區，而分割區識別碼是 `23aebc1e-e9ea-4e16-9d5c-e91a614fefa7`。  
 
 ### <a name="create-backup-policy"></a>建立備份原則
@@ -169,9 +169,6 @@ $url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
-
-> [!IMPORTANT]
-> 因為執行階段發生問題，請確定保留原則中的保留持續時間設定為小於 24 天，否則它會導致備份還原服務在複本容錯移轉後進入仲裁遺失狀態。
 
 ### <a name="enable-periodic-backup"></a>啟用定期備份
 定義可滿足應用程式資料保護需求的原則之後，應該將該備份原則與應用程式建立關聯。 視需求而定，備份原則可以與應用程式、服務或分割區建立關聯。
@@ -265,11 +262,6 @@ LsnOfLastBackupRecord   : 2437
 CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
-
-## <a name="known-issues"></a>已知問題
-- 請確定保留持續時間已設定為小於 24 天。 
-- 「備份還原」服務不會出現在小數點分隔符號不是 '.' 的地區設定上
-- 使用 gMSA 基礎安全性保護叢集時，「備份還原」服務無法啟動。
 
 ## <a name="limitation-caveats"></a>限制 / 注意事項
 - Service Fabric PowerShell cmdlet 目前處於預覽模式。

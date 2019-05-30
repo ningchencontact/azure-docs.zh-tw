@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 182a936e97cd6ed2527d618dfe777ae861c757e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bb95b80e12c818641e2be2b929cdfd01f8f5b5c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66119640"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304219"
 ---
 # <a name="filter-events-for-event-grid"></a>針對事件格線篩選事件
 
@@ -184,8 +184,6 @@ az eventgrid event-subscription create \
 ## <a name="filter-by-operators-and-data"></a>依運算子和資料進行篩選
 
 若要以更有彈性的方式進行篩選，您可以使用運算子和資料屬性來篩選事件。
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ### <a name="subscribe-with-advanced-filters"></a>搭配進階篩選進行訂閱
 

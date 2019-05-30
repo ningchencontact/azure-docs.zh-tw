@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 398b7a78c9bc13631e15c8725efb8cc0fba3f127
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 62261e46dc4744597acd10c32f0a835f4a597d4d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806472"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243962"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>擴充 SQL Server 2008 和 SQL Server 2008 R2 與 Azure 的支援
 
@@ -47,7 +47,7 @@ SQL Server 2008 和 SQL Server 2008 R2 兩者即將[支援 (EOS) 生命週期結
 
 Azure VM 上自行安裝的 SQL Server 2008 或 SQL Server 2008 R2 執行個體可以與 SQL 資源提供者註冊，並將其授權類型轉換成隨用隨付。
 
-## <a name="migration"></a>遷移
+## <a name="migration"></a>移轉
 您可以使用手動備份/還原方法，Azure vm 移轉 EOS SQL Server 執行個體這是最常見移轉方法從內部部署至 Azure VM。
 
 ### <a name="azure-site-recovery"></a>Azure Site Recovery
@@ -56,11 +56,11 @@ Azure VM 上自行安裝的 SQL Server 2008 或 SQL Server 2008 R2 執行個體�
 
 SQL Server 需要應用程式一致的 Azure Site Recovery 快照集，以確保復原;和 Azure Site Recovery 支援與最小值 1 小時間隔內的應用程式一致快照集。 使用 Azure Site Recovery 移轉可能適用於 SQL Server 最低的 RPO 為 1 小時和 RTO 是 2 小時再加上 SQL Server 復原時間。
 
-### <a name="database-migration-service"></a>資料庫移轉服務
+### <a name="database-migration-service"></a>Database Migration Service
 
-[資料庫移轉服務](/dms/dms-overview)是客戶的選項，如果從內部部署移轉至 Azure VM，藉由升級至 SQL Server 2012 的 SQL Server 和更新版本。
+[資料庫移轉服務](/azure/dms/dms-overview)是客戶的選項，如果從內部部署移轉至 Azure VM，藉由升級至 SQL Server 2012 的 SQL Server 和更新版本。
 
-## <a name="disaster-recovery"></a>嚴重損壞修復
+## <a name="disaster-recovery"></a>災害復原
 
 EOS 上的 SQL Server Azure VM 的災害復原解決方案如下所示：
 

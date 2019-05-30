@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1d8c8fcf84cd008957fcdb7cd14c4a07d9f3643
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 59af4e20c7fe838f7c725b47e45968941fa85cb7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074901"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254063"
 ---
 # <a name="protected-web-api---app-registration"></a>受保護的 web API-應用程式註冊
 
@@ -34,12 +34,12 @@ ms.locfileid: "65074901"
 Microsoft 身分識別平台端點可以發出權杖的兩種： v1.0 權杖和 v2.0 權杖。 您可以深入了解在這些語彙基元[存取權杖](access-tokens.md)。 接受語彙基元的版本取決於**支援的帳戶類型**您選擇您在建立您的應用程式時：
 
 - 如果值**支援的帳戶類型**是**中任何組織的目錄和個人 Microsoft 帳戶 (例如 Skype、 Xbox、 Outlook.com) 帳戶**，接受語彙基元的版本將會 v2.0。
-- 否則，可接受權杖的版本將會 v2.0。
+- 否則，可接受權杖的版本將會 v1.0。
 
 一旦您已建立應用程式，您可以依照下列步驟來變更接受語彙基元的版本：
 
 1. 在 Azure 入口網站中，選取您的應用程式，然後選取**資訊清單**應用程式。
-2. 在 資訊清單中，搜尋 **"accessTokenAcceptedVersion 」**，並查看其值是**2**。 這個屬性可讓 Azure AD 知道 web API 接受 v2.0 權杖。 如果它是**null**，接受語彙基元的版本將會 v1.0。
+2. 在 資訊清單中，搜尋 **"accessTokenAcceptedVersion 」** ，並查看其值是**2**。 這個屬性可讓 Azure AD 知道 web API 接受 v2.0 權杖。 如果它是**null**，接受語彙基元的版本將會 v1.0。
 3. 選取 [ **儲存**]。
 
 > [!NOTE]
@@ -70,7 +70,7 @@ Web Api 不需要任何使用者身分登入以互動方式註冊的重新導向
 ### <a name="how-to-expose-the-api"></a>如何公開 API
 
 1. 選取 **公開 API**在應用程式註冊中，區段和：
-   1. 選取 [新增範圍]。
+   1. 選取 [新增範圍]  。
    1. 接受建議的應用程式識別碼 URI (api:// {clientId}) 藉由選取**儲存並繼續**。
    1. 輸入下列參數：
       - 針對**領域名稱**，使用`access_as_user`。

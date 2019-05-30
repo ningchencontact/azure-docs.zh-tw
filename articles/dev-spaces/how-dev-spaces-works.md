@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: 該 power Azure 開發人員空格和 azds.yaml 組態檔中的設定方式說明的程序
 keywords: azds.yaml，Azure 開發人員空格、 開發空格、 Docker、 Kubernetes、 Azure，AKS，Azure Kubernetes Service，容器
-ms.openlocfilehash: f7cf5ae875fa0fb87322052df036d35e8e5e89a4
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: e437a53d640bbdad3cdeeba8fd73e1f9ffef4023
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605422"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399841"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 開發空間的運作方式，並已設定
 
@@ -80,7 +80,7 @@ Azure 的 Dev 空間有兩個不同的元件，與您互動： 控制器和用�
 ## <a name="prepare-your-aks-cluster"></a>準備您的 AKS 叢集
 
 準備您的 AKS 叢集包含：
-* 正在驗證您的 AKS 叢集所在的區域[支援的 Azure 開發人員空格](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)。
+* 正在驗證您的 AKS 叢集所在的區域[支援的 Azure 開發人員空格][supported-regions]。
 * 確認您執行 Kubernetes 1.10.3 或更新版本。
 * 啟用 Azure 開發人員空格，在您的叢集使用 `az aks use-dev-spaces`
 
@@ -272,13 +272,13 @@ azds up
 
 ### <a name="how-routing-works"></a>路由的運作方式
 
-開發空間建置在 AKS 之上，並使用相同[網路功能概念](../aks/concepts-network.md)。 Azure 開發人員的空格也有一種集中式*ingressmanager*服務，並將它自己的輸入控制器部署至 AKS 叢集。 *Ingressmanager*服務的監視 AKS 叢集與開發人員的空格，然後再行 Azure 開發人員空間輸入控制器，在叢集中使用的路由傳送至應用程式 pod 的輸入物件。 Devspaces proxy 容器，每個 pod 中的新增`azds-route-as`根據 URL 的 HTTP 流量的開發空間的 HTTP 標頭。 例如，要求至 URL *http://azureuser.s.default.serviceA.fedcba09...azds.io*會取得與 HTTP 標頭`azds-route-as: azureuser`。 不會加入 devspaces proxy 容器`azds-route-as`如果已有的標頭。
+開發空間建置在 AKS 之上，並使用相同[網路功能概念](../aks/concepts-network.md)。 Azure 開發人員的空格也有一種集中式*ingressmanager*服務，並將它自己的輸入控制器部署至 AKS 叢集。 *Ingressmanager*服務的監視 AKS 叢集與開發人員的空格，然後再行 Azure 開發人員空間輸入控制器，在叢集中使用的路由傳送至應用程式 pod 的輸入物件。 Devspaces proxy 容器，每個 pod 中的新增`azds-route-as`根據 URL 的 HTTP 流量的開發空間的 HTTP 標頭。 例如，要求至 URL *http://azureuser.s.default.serviceA.fedcba09...azds.io* 會取得與 HTTP 標頭`azds-route-as: azureuser`。 不會加入 devspaces proxy 容器`azds-route-as`如果已有的標頭。
 
 從叢集外部的服務對 HTTP 要求，要求會以輸入控制器。 輸入控制器的要求會直接路由至適當的 pod，依據其輸入物件和規則。 Devspaces proxy 容器 pod 中的收到要求時，將`azds-route-as`標頭根據 URL，並再將要求路由傳送至應用程式容器。
 
 HTTP 要求對服務中，從叢集內的另一個服務，要求第一次會透過呼叫服務的 devspaces proxy 容器。 Devspaces proxy 容器會查看 HTTP 要求和檢查`azds-route-as`標頭。 根據標頭，將會查詢與標頭值相關聯之服務的 IP 位址 devspaces proxy 容器。 如果找到的 IP 位址，則 devspaces proxy 容器 device-mapper 該 IP 位址的要求。 如果找不到的 IP 位址，devspaces proxy 容器會傳送要求至父系應用程式容器。
 
-例如，應用程式*serviceA*並*serviceB*會部署到稱為父開發空間*預設*。 *serviceA*依賴*serviceB*和 HTTP 呼叫。 Azure 的使用者建立的子系開發空間，以根據*預設*稱為空間*azureuser*。 Azure 的使用者也會部署其自己的版本*serviceA*及其子空間。 若要提出要求時*http://azureuser.s.default.serviceA.fedcba09...azds.io*:
+例如，應用程式*serviceA*並*serviceB*會部署到稱為父開發空間*預設*。 *serviceA*依賴*serviceB*和 HTTP 呼叫。 Azure 的使用者建立的子系開發空間，以根據*預設*稱為空間*azureuser*。 Azure 的使用者也會部署其自己的版本*serviceA*及其子空間。 若要提出要求時 *http://azureuser.s.default.serviceA.fedcba09...azds.io* :
 
 ![Azure 開發人員空間路由](media/how-dev-spaces-works/routing.svg)
 
@@ -337,13 +337,13 @@ install:
 
 在上述範例中， *install.set.replicaCount*屬性就會告知控制器，您的應用程式開發人員空間中執行的執行個體數目。 根據您的案例中，您可以增加此值，但其會影響偵錯工具附加至您的應用程式 pod。 如需詳細資訊，請參閱 <<c0> [ 疑難排解文章](troubleshooting.md)。
 
-在產生的 Helm 圖表中，容器映像設定為 *{{。Values.image.repository}}:{{。Values.image.tag}}*。 `azds.yaml`檔案會定義*install.set.image.tag*屬性設為 *$(tag)* 預設情況下，它會使用做為值 *{{。Values.image.tag}}*。 藉由設定*install.set.image.tag*以這種方式的屬性，它可讓您的應用程式執行 Azure 開發人員空格時，要以不同方式標記容器映像。 這種情況下，將映像會標記為 *\<image.repository 值 >: $(tag)*。 您必須使用 *$(tag)* 變數的值設定為*install.set.image.tag*為了讓開發人員空間辨識，並找出在 AKS 叢集中的容器。
+在產生的 Helm 圖表中，容器映像設定為 *{{。Values.image.repository}}:{{。Values.image.tag}}* 。 `azds.yaml`檔案會定義*install.set.image.tag*屬性設為 *$(tag)* 預設情況下，它會使用做為值 *{{。Values.image.tag}}* 。 藉由設定*install.set.image.tag*以這種方式的屬性，它可讓您的應用程式執行 Azure 開發人員空格時，要以不同方式標記容器映像。 這種情況下，將映像會標記為 *\<image.repository 值 >: $(tag)* 。 您必須使用 *$(tag)* 變數的值設定為*install.set.image.tag*為了讓開發人員空間辨識，並找出在 AKS 叢集中的容器。
 
-在上述範例中，`azds.yaml`定義*install.set.ingress.hosts*。 *Install.set.ingress.hosts*屬性會定義公用端點的主機名稱格式。 這個屬性也會使用 *$(spacePrefix)*， *$(rootSpacePrefix)*，並 *$(hostSuffix)*，這是控制器所提供的值。 
+在上述範例中，`azds.yaml`定義*install.set.ingress.hosts*。 *Install.set.ingress.hosts*屬性會定義公用端點的主機名稱格式。 這個屬性也會使用 *$(spacePrefix)* ， *$(rootSpacePrefix)* ，並 *$(hostSuffix)* ，這是控制器所提供的值。 
 
 *$(SpacePrefix)* 的子系開發空間，其使用的格式名稱*SPACENAME.s*。 *$(RootSpacePrefix)* 父空間的名稱。 例如，如果*azureuser*的子空間*預設*，值 *$(rootSpacePrefix)* 是*預設*的值 *$(spacePrefix)* 是*azureuser.s*。 如果沒有子空間，這種空間。 *$(spacePrefix)* 是空白。 比方說，如果*預設*空間有沒有父空間，而值 *$(rootSpacePrefix)* 會*預設*的值 *$(spacePrefix)* 是空白。 *$(HostSuffix)* 是指向 Azure 開發人員空間輸入控制器在 AKS 叢集中執行的 DNS 尾碼。 此 DNS 尾碼對應到萬用字元 DNS 項目，例如 *\*。RANDOM_VALUE.eus.azds.io*，Azure 開發人員空格控制站新增至您的 AKS 叢集時所建立。
 
-在上述`azds.yaml`檔案中，您可以也更新*install.set.ingress.hosts*若要變更您的應用程式的主機名稱。 例如，如果您想要簡化您的應用程式的主機名稱 *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* 到 *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)*.
+在上述`azds.yaml`檔案中，您可以也更新*install.set.ingress.hosts*若要變更您的應用程式的主機名稱。 例如，如果您想要簡化您的應用程式的主機名稱 *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* 到 *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)* .
 
 若要建置您的應用程式的容器，控制器會使用下列各節的`azds.yaml`組態檔：
 
@@ -408,7 +408,7 @@ ingress:
 
 ![偵錯您的程式碼](media/get-started-node/debug-configuration-nodejs2.png)
 
-當您啟動您使用 Visual Studio Code 或 Visual Studio 進行偵錯的應用程式時，它們會處理啟動並執行相同的方式連接到您的開發人員空間`azds up`。 Visual Studio Code 和 Visual Studio 中的用戶端工具也會提供額外的參數，以偵錯的特定資訊。 參數會包含偵錯工具映像，在偵錯工具的映像，在偵錯工具的位置和目的地位置掛接偵錯工具資料夾的應用程式的容器內的名稱。 
+當您啟動您使用 Visual Studio Code 或 Visual Studio 進行偵錯的應用程式時，它們會處理啟動並執行相同的方式連接到您的開發人員空間`azds up`。 Visual Studio Code 和 Visual Studio 中的用戶端工具也會提供額外的參數，以偵錯的特定資訊。 參數會包含偵錯工具映像，在偵錯工具的映像，在偵錯工具的位置和目的地位置掛接偵錯工具資料夾的應用程式的容器內的名稱。
 
 偵錯工具的映像自動取決於用戶端工具。 它會使用的方法類似於用於 Dockerfile 和 Helm 圖表產生執行時`azds prep`。 偵錯工具會在應用程式的映像掛接後，就會執行使用`azds exec`。
 
@@ -420,7 +420,7 @@ ingress:
 
 衍生的開發空間也以智慧方式會將它自己的應用程式和從其父代共用的應用程式之間的要求路由傳送。 嘗試衍生的開發空間中的應用程式的路由要求，並回到共用的應用程式從父代的開發人員空間路由的運作。 路由會回復為祖系空間中共用的應用程式如果應用程式不在父空間中。
 
-例如：
+例如: 
 * 開發空間*預設*的應用程式*serviceA*並*serviceB* 。
 * 開發空間*azureuser*衍生自*預設*。
 * 更新的版本*serviceA*部署到*azureuser*。
@@ -442,3 +442,7 @@ ingress:
 * [小組開發-使用 CLI 和 Visual Studio Code 的.NET Core](team-development-netcore.md)
 * [小組開發-使用 Visual Studio 的.NET Core](team-development-netcore-visualstudio.md)
 * [小組開發-使用 CLI 和 Visual Studio Code 的 Node.js](team-development-nodejs.md)
+
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

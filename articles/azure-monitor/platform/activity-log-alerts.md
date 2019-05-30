@@ -8,31 +8,31 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 3459ef4caa99a2147144354165bef7d2852e87cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d0819f71405b1bf1d4bef57a8b93d57bc879087
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777809"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244976"
 ---
 # <a name="alerts-on-activity-log"></a>活動記錄警示 
 
 ## <a name="overview"></a>概觀
-活動記錄警示是發生符合警示中指定條件的新活動記錄事件時所啟動的警示。 它們是 Azure 資源，因此可以使用 Azure Resource Manager 範本來加以建立。 也可以在 Azure 入口網站中將它們建立、更新或刪除。 本文介紹活動記錄警示背後的概念。 然後將說明如何使用 Azure 入口網站來設定活動記錄事件的警示。 如需有關使用方式的詳細資訊，請參閱[建立和管理活動記錄警示](../../azure-monitor/platform/alerts-activity-log.md)。
+活動記錄警示是發生符合警示中指定條件的新活動記錄事件時所啟動的警示。 它們是 Azure 資源，因此可以使用 Azure Resource Manager 範本來加以建立。 也可以在 Azure 入口網站中將它們建立、更新或刪除。 本文介紹活動記錄警示背後的概念。 然後將說明如何使用 Azure 入口網站來設定活動記錄事件的警示。 如需有關使用方式的詳細資訊，請參閱[建立和管理活動記錄警示](alerts-activity-log.md)。
 
 > [!NOTE]
-> 活動記錄 Alert 類別中的事件**不能**建立警示
+> 警示**無法**在活動記錄檔的警示類別目錄中建立的事件。
 
 通常，您在下列情況要建立活動記錄警示來接收通知：
 
 * Azure 訂用帳戶中的資源發生特定操作時，通常會將範圍限定在特定資源群組或資源。 例如，在 myProductionResourceGroup 中的任何虛擬機器被刪除時，您可能需要收到通知。 或者，您需要在將任何新角色指派給訂用帳戶中的使用者時收到通知。
 * 隨即發生服務健康情況事件。 服務健康狀態事件包括適用於訂用帳戶中資源的事件 (incident) 和維護事件 (event) 通知。
 
-有一個簡單類比可用來了解哪些警示規則可在活動記錄上建立，就是透過 [Azure 入口網站中的活動記錄](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal)探索或篩選事件。 在 Azure 監視器 - 活動記錄中，您可以篩選或尋找必要事件，然後透過使用 [新增活動記錄警示] 按鈕來建立警示。
+簡單的比喻可以在其上的警示規則上建立活動記錄檔，了解狀況，就是瀏覽或篩選事件，透過[Azure 入口網站中的活動記錄](activity-log-view.md#azure-portal)。 在 [Azure 監視-活動記錄檔，可以篩選或尋找必要的事件並使用，以建立警示**新增活動記錄警示**] 按鈕。
 
 在任一情況下，活動記錄警示只會監視建立警示所在之訂用帳戶中的事件。
 
-您可以針對活動記錄事件，以 JSON 物件中任何最上層屬性作為基礎設定活動記錄警示。 如需詳細資訊，請參閱 [Azure 活動記錄概觀](./../../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log)。 若要深入了解服務健康情況事件，請參閱[在服務通知上接收活動記錄警示](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。 
+您可以針對活動記錄事件，以 JSON 物件中任何最上層屬性作為基礎設定活動記錄警示。 如需詳細資訊，請參閱 [Azure 活動記錄概觀](./activity-logs-overview.md#categories-in-the-activity-log)。 若要深入了解服務健康情況事件，請參閱[在服務通知上接收活動記錄警示](./alerts-activity-log-service-notifications.md)。 
 
 活動記錄警示有幾個常見的選項：
 
@@ -57,12 +57,13 @@ ms.locfileid: "60777809"
 * 在您的活動記錄警示中使用現有的動作群組。
 * 建立新的動作群組。
 
-若要深入了解動作群組，請參閱[在 Azure 入口網站中建立和管理動作群組](../../azure-monitor/platform/action-groups.md)。
+若要深入了解動作群組，請參閱[在 Azure 入口網站中建立和管理動作群組](action-groups.md)。
 
 
 ## <a name="next-steps"></a>後續步驟
-- 取得[警示概觀](../../azure-monitor/platform/alerts-overview.md)。
-- 深入了解[建立和修改活動記錄警示](../../azure-monitor/platform/alerts-activity-log.md)。
+- 取得[警示概觀](alerts-overview.md)。
+- 深入了解[建立和修改活動記錄警示](alerts-activity-log.md)。
 - 檢閱[活動記錄警示 Webhook 結構描述](activity-log-alerts-webhook.md)。
-- 深入了解[服務健康狀態通知](../../azure-monitor/platform/service-notifications.md)。
+- 深入了解[服務健康狀態通知](service-notifications.md)。
+
 

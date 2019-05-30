@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: aljo
-ms.openlocfilehash: b4d3699c0327bb2771a358d3e3c2921bdc39ee5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb0f750f4049a1ce652c829f43928a95f30e6973
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621539"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302230"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 應用程式和服務安全性
 微服務架構可以帶來[許多優點](service-fabric-overview-microservices.md)。 不過，管理微服務的安全性是一種挑戰，而且與管理傳統的整合型應用程式安全性有所不同。 
@@ -36,7 +36,7 @@ ms.locfileid: "60621539"
 
 如果可以直接存取服務，則驗證服務 (例如 Azure Active Directory 或專用驗證微服務) 會作為安全性權杖服務 (STS)，可用來驗證使用者。 信任決策會在服務與安全性權杖或 Cookie 之間共用。 
 
-針對 ASP.NET Core，[驗證使用者](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/)的主要機制是 ASP.NET Core 身分識別成員資格系統。 ASP.NET Core 身分識別會將使用者資訊 (包括登入資訊、角色及宣告) 儲存在由開發人員設定的資料存放區中。 ASP.NET Core 身分識別支援雙因素驗證。  另外也支援外部驗證提供者，以便使用者使用 Microsoft、Google、Facebook 或 Twitter 等提供者的現有驗證程序進行登入。 
+針對 ASP.NET Core，[驗證使用者](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/)的主要機制是 ASP.NET Core 身分識別成員資格系統。 ASP.NET Core 身分識別會將使用者資訊 (包括登入資訊、角色及宣告) 儲存在由開發人員設定的資料存放區中。 ASP.NET Core 身分識別支援雙因素驗證。  也支援外部驗證提供者，讓使用者可以登入使用來自 Microsoft、 Google、 Facebook 或 Twitter 等提供者的現有驗證程序。
 
 ### <a name="authorization"></a>授權
 驗證之後，服務需要授權使用者存取權，或判斷使用者可以執行哪些作業。 這個程序允許服務讓 API 可供某些已驗證的使用者使用，而不是所有使用者都可使用。 授權與驗證彼此獨立且互不影響，後者是查明使用者是誰的程序。 驗證可為目前使用者建立一或多個身分識別。
@@ -53,18 +53,18 @@ ms.locfileid: "60621539"
 ## <a name="manage-application-secrets"></a>管理應用程式密碼
 密碼可以是任何機密資訊，例如儲存體連接字串、密碼或其他不會以純文字處理的值。 本文使用 Azure Key Vault 來管理金鑰和祕密。 不過，應用程式中的密碼「使用」  是由平台驗證，讓應用程式可部署至裝載在任何位置的叢集。
 
-建議透過[服務組態套件][config-package]來管理服務組態設定。 可以通过包含运行状况验证和自动回滚的托管滚动升级机制来控制配置包版本以及对其进行更新。 這是慣用的全域組態，因為可以減少全域服務中斷的機會。 加密的密碼也不例外。 Service Fabric 具有內建的功能，可使用憑證加密來加密或解密組態套件 Settings.xml 檔案中的值。
+建議透過[服務組態套件][config-package]來管理服務組態設定。 組態套件會有各種版本，並可透過含有健全狀況驗證和自動復原的受控輪流升級來進行升級。 這是慣用的全域組態，因為可以減少全域服務中斷的機會。 加密的密碼也不例外。 Service Fabric 具有內建的功能，可使用憑證加密來加密或解密組態套件 Settings.xml 檔案中的值。
 
 下圖說明 Service Fabric 應用程式中密碼管理的基本流程︰
 
 ![密碼管理概觀][overview]
 
-此流程包括四个主要步骤：
+此流程有四個主要步驟︰
 
 1. 取得資料編密憑證。
 2. 在叢集中安裝憑證。
 3. 在部署應用程式時以憑證來加密密碼的值，並將其插入服務的 Settings.xml 組態檔。
-4. 通过使用相同的加密证书进行解密，从 Settings.xml 中读取加密值。 
+4. 藉由以相同的編密憑證進行解密，從 Settings.xml 讀取加密的值。 
 
 [Azure Key Vault][key-vault-get-started] 在此是當做憑證的安全儲存位置，以及讓憑證安裝在 Azure 中的 Service Fabric 叢集上的方法。 如果您沒有要部署至 Azure，您不需要使用金鑰保存庫管理 Service Fabric 應用程式中的密碼。
 

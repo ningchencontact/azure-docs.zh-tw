@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 1259e755642563a7baad5496bc84ed736d5499f8
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ee901fdcae9717cc6d03d7653bcaacc0c32518e0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849814"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254311"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>SSL 終止和端對端 SSL，與應用程式閘道概觀
 
@@ -50,7 +50,7 @@ ms.locfileid: "65849814"
 如需詳細資訊，請參閱 <<c0> [ 使用應用程式閘道設定 SSL 終止](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)。
 
 ### <a name="size-of-the-certificate"></a>憑證的大小
-使用 SSL 憑證資訊的個人資訊交換 (PFX) 檔案的長度不應超過 10 KB 的大小。
+請檢查[應用程式閘道限制](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits)一節，以了解最大的 SSL 憑證支援的大小。
 
 ## <a name="end-to-end-ssl-encryption"></a>端對端 SSL 加密
 

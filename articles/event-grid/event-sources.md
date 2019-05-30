@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: b6abb0048dcc722241a2cd87354224b0fd7fa2f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6c00f4ada0590df91fce0c36281d0c0cac67b77
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561540"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257958"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure 事件方格中的事件來源
 
@@ -74,7 +74,7 @@ ms.locfileid: "60561540"
 
 ## <a name="iot-hub"></a>IoT 中樞
 
-訂閱 IoT 中樞事件，以回應裝置建立、刪除、連線和中斷連線事件。
+若要建立、 刪除、 連結、 中斷連線的裝置回應的 IoT 中樞事件和遙測事件訂閱。
 
 |標題  |描述  |
 |---------|---------|

@@ -11,51 +11,43 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/23/2019
 ms.author: juliako
-ms.openlocfilehash: bfe4bbae7953479f9b5b5ce9653fb3b8d4b2d092
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002373"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225418"
 ---
 # <a name="filters"></a>篩選器
 
-當您將內容傳遞給客戶 （即時資料流的事件或隨選視訊） 您的用戶端可能需要更多的彈性比預設資產資訊清單檔中所述。 Azure 媒體服務可讓您為您的內容定義帳戶篩選器與資產篩選器。 
+當您將內容傳遞給客戶 （即時資料流的事件或隨選視訊） 您的用戶端可能需要更多的彈性比預設資產資訊清單檔中所述。 Azure 媒體服務提供[動態資訊清單](filters-dynamic-manifest-overview.md)根據預先定義的篩選條件。 
 
 篩選器是伺服器端規則，可讓您的客戶執行下列動作： 
 
-- 僅播放視訊的某個區段 (而非播放整個視訊)。 例如：
+- 僅播放視訊的某個區段 (而非播放整個視訊)。 例如: 
   - 縮小資訊清單以顯示即時事件的子剪輯 (「子剪輯篩選」)，或者
   - 修剪視訊開頭 (「修剪視訊」)。
 - 只傳遞用來播放內容的裝置所支援的指定轉譯和/或指定的語言資料軌 (轉譯篩選)。 
 - 調整簡報視窗 (DVR)，以在播放程式中提供長度有限的 DVR 視窗 (「調整簡報視窗」)。
 
-媒體服務根據預先定義的篩選器提供[動態資訊清單](filters-dynamic-manifest-overview.md)。 定義篩選條件後，您的用戶端就可以在串流 URL 中使用它們。 篩選器可以套用至自適性串流通訊協定：Apple HTTP 即時串流 (HLS)、MPEG-DASH 和 Smooth Streaming。
+媒體服務可讓您建立**帳戶篩選器**並**資產篩選器**對您的內容。 此外，您可以將您預先建立的篩選條件**串流定位器**。
 
-下表顯示包含篩選器之 URL 的一些範例：
+## <a name="defining-filters"></a>定義篩選器
 
-|Protocol|範例|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>針對 HLS 第 3 版中，使用： `format=m3u8-aapl-v3`。|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
-## <a name="define-filters"></a>定義篩選條件
-
-資產篩選器有兩種： 
+有兩種篩選： 
 
 * [帳戶篩選器](https://docs.microsoft.com/rest/api/media/accountfilters) (全域) - 可以套用到 Azure 媒體服務帳戶中的任何資產，存留期和帳戶的相同。
 * [資產篩選器](https://docs.microsoft.com/rest/api/media/assetfilters) (本機) - 只能套用篩選器建立時與其相關聯的資產，存留期和資產的相同。 
 
-[帳戶篩選器](https://docs.microsoft.com/rest/api/media/accountfilters)和[資產篩選器](https://docs.microsoft.com/rest/api/media/assetfilters)類型對於定義/描述篩選器有完全相同的屬性。 除了在建立**資產篩選器**的時候，因為您需要指定要與篩選器相關聯之資產的名稱。
+**帳戶篩選**並**資產篩選器**類型有完全相同的屬性來定義/描述篩選。 除了在建立**資產篩選器**的時候，因為您需要指定要與篩選器相關聯之資產的名稱。
 
 視您的案例而定，您會決定哪個類型的篩選器較合適 (資產篩選器或帳戶篩選器)。 帳戶篩選器適合裝置設定檔 (轉譯篩選)，資產篩選器可用於修剪特定資產。
 
 您可以使用下列屬性來描述篩選器。 
 
-|名稱|說明|
+|名稱|描述|
 |---|---|
 |firstQuality|篩選器的首次品質位元速率。|
 |presentationTimeRange|簡報時間範圍。 此屬性用於篩選資訊清單起始/結束點、簡報視窗長度，以及即時起始位置。 <br/>如需詳細資訊，請參閱 [PresentationTimeRange](#presentationtimerange)。|
@@ -65,7 +57,7 @@ ms.locfileid: "66002373"
 
 將此屬性與**資產篩選器**搭配使用。 不建議搭配**帳戶篩選器**設定此屬性。
 
-|名稱|說明|
+|名稱|描述|
 |---|---|
 |**endTimestamp**|適用於點播視訊 (VoD)。<br/>Live Streaming 展示檔，它會以無訊息方式忽略並且套用簡報結束，然後再將資料流時 VoD。<br/>這是簡報的長數值，表示絕對結束點，四捨五入為最接近的下一個 GOP 入門。 單位為的時幅，因此 endTimestamp 1800000000 的會是 3 分鐘。<br/>使用 startTimestamp 和 endTimestamp 修剪會播放清單 （資訊清單） 中的片段。<br/>比方說，startTimestamp = 40000000 和 endTimestamp = 100000000 使用預設的時幅，將會產生包含片段介於 4 秒和 VoD 簡報的 10 秒的播放清單。 如果片段跨越界限，則整個片段都會包含在資訊清單中。|
 |**forceEndTimestamp**|適用於僅即時的資料流。<br/>指出是否必須存在 endTimestamp 屬性。 如果為 true，必須指定 endTimestamp 或傳回不正確的要求程式碼。<br/>允許的值：false、true。|
@@ -80,7 +72,7 @@ ms.locfileid: "66002373"
 
 篩選器資料軌屬性條件描述資料軌類型、值 (下表中所述) 和運算 (Equal、NotEqual)。 
 
-|名稱|說明|
+|名稱|描述|
 |---|---|
 |**Bitrate**|使用資料軌的位元速率來篩選。<br/><br/>建議的值是位元速率範圍 (以每秒位元數為單位)。 例如，"0-2427000"。<br/><br/>注意：雖然您可以使用特定的位元速率值，如 250000 (每秒位元數)，但不建議使用此方法，因為資產之間的確切位元速率可能會變動。|
 |**FourCC**|將資料軌的 FourCC 值用於篩選。<br/><br/>該值是轉碼器格式的第一個元素，如 [RFC 6381](https://tools.ietf.org/html/rfc6381) \(英文\) 中所指定。 目前支援下列轉碼器： <br/>視訊："avc1"、"hev1"、"hvc1"<br/>音訊："mp4a"、"ec-3"<br/><br/>若要判斷在資產中的資料軌的 FourCC 值，取得，並檢查資訊清單檔案。|
@@ -145,14 +137,22 @@ ms.locfileid: "66002373"
 }
 ```
 
-## <a name="associate-filters-with-streaming-locator"></a>串流定位器相關聯的篩選器
+## <a name="associating-filters-with-streaming-locator"></a>篩選關聯串流定位器
 
-您可以指定一份[資產或帳戶篩選器](filters-concept.md)，而這會套用至您[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body)。 [動態封裝程式](dynamic-packaging-overview.md)適用於這份清單，以及那些用戶端在 URL 中所指定的篩選條件。 這個組合會產生[動態資訊清單](filters-dynamic-manifest-overview.md)，根據在 URL 中的篩選器 + 串流定位器指定的篩選條件。 我們建議您使用這項功能，如果您想要套用篩選，但不是想要公開 （expose） 在 URL 中的篩選條件名稱。
+您可以指定一份[資產或帳戶篩選器](filters-concept.md)在您[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body)。 [動態封裝程式](dynamic-packaging-overview.md)適用於這份清單，以及那些用戶端在 URL 中所指定的篩選條件。 這個組合會產生[動態資訊清單](filters-dynamic-manifest-overview.md)，根據在 URL 中的篩選器 + 串流定位器您指定的篩選器。 
 
 請參閱下列範例：
 
 * [篩選關聯串流定位器-.NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
 * [篩選關聯串流定位器-CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
+
+## <a name="updating-filters"></a>更新篩選器
+ 
+**串流定位器**可以更新篩選器時，為不可更新。 
+
+不建議更新主動發佈相關聯的篩選條件的定義**串流定位器**，特別是在啟用 CDN。 串流處理伺服器和 Cdn 可以有可能會導致傳回過時的快取資料的內部快取。 
+
+如果必須變更篩選定義，請考慮建立新的篩選器，並將它加入至**串流定位器**URL 或發行新**串流定位器**直接參考篩選條件。
 
 ## <a name="next-steps"></a>後續步驟
 

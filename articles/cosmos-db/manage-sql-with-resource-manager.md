@@ -4,20 +4,23 @@ description: 使用 Azure Resource Manager 範本來建立和設定 Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/24/2019
 ms.author: mjbrown
-ms.openlocfilehash: a3798ac0c73c7bc6c4012dbb089275254f4c3504
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 5683fd072961c7793d8f4bbeb9ecc16a93dd7373
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968844"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242597"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>管理 Azure Cosmos DB SQL （核心） API 使用 Azure Resource Manager 範本的資源
 
 ## 建立 Azure Cosmos 帳戶、 資料庫和容器 <a id="create-resource"></a>
 
 建立使用 Azure Resource Manager 範本的 Azure Cosmos DB 資源。 此範本會建立 Azure Cosmos 帳戶，有兩個共用 400 RU/秒的輸送量，在資料庫層級的容器。 複製範本和部署，如下所示，或瀏覽[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/)並從 Azure 入口網站部署。 您可以也將範本下載至本機電腦或建立新的範本並指定本機路徑`--template-file`參數。
+
+> [!NOTE]
+> 目前您無法使用 Resource Manager 範本來部署使用者定義 Functions(UDFs)、 預存程序和觸發程序。 
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 

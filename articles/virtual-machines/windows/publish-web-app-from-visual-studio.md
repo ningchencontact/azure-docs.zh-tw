@@ -13,16 +13,16 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 5298721b7f60cec677c22faf1b35011aab02defb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b8e3ddf1cf5d61f730ce01a35ee0813b47ad2d2
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60204281"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305924"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>從 Visual Studio 將 ASP.NET Web 應用程式發行到 Azure VM
 
-本文件說明如何使用 Visual Studio 2017 中的 [Microsoft Azure 虛擬機器] 發佈功能，將 ASP.NET Web 應用程式發行到 Azure 虛擬機器 (VM)。  
+本文件說明如何將 Azure 虛擬機器 (VM) 使用 ASP.NET web 應用程式發佈**Microsoft Azure 虛擬機器**在 Visual Studio 2019 的發佈功能。  
 
 ## <a name="prerequisites"></a>必要條件
 若要使用 Visual Studio 將 ASP.NET 專案發行到 Azure VM，必須正確設定 VM。
@@ -34,13 +34,13 @@ ms.locfileid: "60204281"
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>使用 Visual Studio 將您的 ASP.NET Web 應用程式發行到 Azure VM
 下列章節說明如何將現有的 ASP.NET Web 應用程式發行到 Azure 虛擬機器。
 
-1. 在 Visual Studio 2017 中開啟您的 Web 應用程式。
-2. 在方案總管中以滑鼠右鍵按一下專案，並選擇 [發行...]
-3. 使用頁面右邊的箭頭捲動發行選項，直到您找到 [Microsoft Azure 虛擬機器] 為止。  
+1. 在 Visual Studio 2019 中開啟 web 應用程式方案。
+2. 在方案總管中以滑鼠右鍵按一下專案，並選擇 [發行...] 
+3. 使用頁面右邊的箭頭捲動發行選項，直到您找到 [Microsoft Azure 虛擬機器]  為止。  
 
    ![發行頁面 - 發行按鈕]
 
-4. 選取 [Microsoft Azure 虛擬機器] 圖示，然後選擇 [發行]。
+4. 選取 [Microsoft Azure 虛擬機器]  圖示，然後選擇 [發行]  。
 
    ![發行頁面 - Microsoft Azure 虛擬機器圖示]
 
@@ -58,7 +58,7 @@ ms.locfileid: "60204281"
 
 7. 按一下 [確定] 以開始發行。
 
-8. 系統提示您輸入認證時，請提供已設定發佈權限的目標 VM 上使用者帳戶的使用者名稱密碼 (通常是建立 VM 時使用的管理員使用者名稱和密碼)。  
+8. 當系統提示輸入認證，提供使用者名稱和目標設定發佈權限的 VM 上的使用者帳戶的密碼。 這些認證通常是系統管理員使用者名稱和密碼建立 VM 時使用。  
 
    ![WebDeploy 登入]
 
@@ -82,7 +82,7 @@ ms.locfileid: "60204281"
 
 ### <a name="re-publish"></a>重新發行
 
-若要將更新發佈到 Web 應用程式，請選取發行頁面上的 [發行] 按鈕。  
+若要將更新發佈到 Web 應用程式，請選取發行頁面上的 [發行]  按鈕。  
 - 若出現提示，請輸入使用者名稱和密碼。  
 - 會立即開始發行。
 
@@ -90,7 +90,7 @@ ms.locfileid: "60204281"
 
 ### <a name="modify-publish-profile-settings"></a>修改發行設定檔設定
 
-若要檢視和修改發行設定檔設定，請選取 [設定...]。  
+若要檢視和修改發行設定檔設定，請選取 [設定...]  。  
 
 ![發行頁面 - 設定按鈕]
 
@@ -99,14 +99,14 @@ ms.locfileid: "60204281"
 ![發行設定 - 連線頁面]
 
 #### <a name="save-user-name-and-password"></a>儲存使用者名稱和密碼
-- 若要避免每次發行都需提供驗證資訊，您可以填入 [使用者名稱] 和 [密碼] 欄位，然後勾選 [儲存密碼] 方塊。
-- 使用 [驗證連線] 按鈕可確認您已輸入正確的資訊。
+- 請避免每次發行，提供驗證資訊。 若要這樣做，填入**使用者名**並**密碼**欄位，然後選取**儲存密碼** 方塊中。
+- 使用 [驗證連線]  按鈕可確認您已輸入正確的資訊。
 
 #### <a name="deploy-to-clean-web-server"></a>部署到乾淨的 Web 伺服器
 
-- 如果您想要確保每次上傳後 Web 伺服器都會有乾淨的 Web 應用程式副本 (且不會有先前部署所留下的其他檔案)，可以勾選 [設定] 索引標籤中的 [移除目的地的其他檔案] 核取方塊。
+- 如果您想要確保 web 伺服器已在每次上傳後 web 應用程式的全新複本，而且，沒有其他檔案未從先前的部署，您可以檢查**移除目的地上的其他檔案**中的核取方塊**設定** 索引標籤。
 
-- 警告:發行使用此設定會刪除存在於 web 伺服器 （wwwroot 目錄） 的所有檔案。 請確定您知道啟用這個選項下，發行前的電腦狀態。 
+- 警告：發行使用此設定會刪除存在於 web 伺服器 （wwwroot 目錄） 的所有檔案。 請確定您知道啟用這個選項下，發行前的電腦狀態。 
 
 ![發行設定 - 設定頁面]
 

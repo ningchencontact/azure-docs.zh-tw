@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 976545f588895421e7c2be7e18b844d7994bc1ff
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2adc706c5da4fa53ace2a8a471789e276878c491
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779985"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255848"
 ---
 # <a name="status-monitor-v2"></a>狀態監視器 v2
 
@@ -34,7 +34,7 @@ ms.locfileid: "65779985"
 https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 
 
-## <a name="instructions"></a>指示
+## <a name="instructions"></a>範例的指示
 - 檢閱我們[快速入門指示](status-monitor-v2-get-started.md)立即開始使用簡潔的程式碼範例。
 - 檢閱我們[的詳細指示](status-monitor-v2-detailed-instructions.md)深入了解如何開始使用。
 
@@ -74,7 +74,7 @@ https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 * [探索計量](../../azure-monitor/app/metrics-explorer.md)以監視效能和使用量
 * [搜尋事件和記錄](../../azure-monitor/app/diagnostic-search.md)來診斷問題
 * 更多進階查詢的[分析](../../azure-monitor/app/analytics.md)
-* [建立儀表板](../../azure-monitor/app/app-insights-dashboards.md)
+* [建立儀表板](../../azure-monitor/app/overview-dashboard.md)
 
 新增更多遙測：
 

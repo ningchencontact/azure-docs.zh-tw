@@ -1,54 +1,36 @@
 ---
-title: 針對您的 Azure 資料箱上的問題進行疑難排解 |Microsoft Docs
-description: 描述如何將資料上傳至 Azure 時看到 Azure 資料箱的問題進行疑難排解。
+title: 針對您 Azure 資料箱，Azure 資料大量方塊上的問題進行疑難排解 |Microsoft Docs
+description: 描述如何將資料複製到這些裝置時看到 Azure 資料箱 」 和 「 Azure 資料方塊沈重的問題進行疑難排解。
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 1126002a93419371be3216c55114385c9c600419
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 0c454c5f19ebefc7f91df62511448dbedb93dfc4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594010"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257295"
 ---
-# <a name="troubleshoot-issues-related-to-azure-data-box"></a>針對 Azure 資料箱的相關問題進行疑難排解
+# <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>針對 Azure 資料箱 」 和 「 Azure 資料方塊大量相關的問題進行疑難排解
 
-本文詳細說明使用 Azure Data Box 時，可能會看到有關如何針對問題進行疑難排解資訊。
+本文詳細說明使用 Azure 資料 Boxn，或選取 Azure 資料方塊沈重時，您可能會看到有關如何針對問題進行疑難排解資訊。
 
 ## <a name="errors-during-data-copy"></a>資料複製期間發生的錯誤
 
 下列各節摘要說明資料在複製期間發現的所有錯誤。
 
-### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH 
-
-**錯誤說明：** 容器或共用名稱必須介於 3 到 63 個字元之間。
-
-**建議的解決方式：** 您要複製資料的資料方塊 (SMB/NFS) 共用下的資料夾會變成您的儲存體帳戶中的 Azure 容器。 
-
-- 在 **連線 和 複製**頁面資料箱本機 web UI、 下載及檢閱錯誤檔來找出資料夾名稱的問題。
-- 變更資料 方塊中共用，並確定下的資料夾名稱：
-
-    - 名稱必須介於 3 到 63 個字元之間。
-    - 名稱只能包含字母、 數字和連字號。
-    - 名稱不能啟動，或連字號結尾。
-    - 名稱不能有連續的連字號。
-    - 有效名稱的範例： `my-folder-1`， `my-really-extra-long-folder-111`。
-    - 不是有效的名稱的範例： `my-folder_1`， `my`， `--myfolder`， `myfolder--`， `myfolder!`
-
-    如需詳細資訊，請參閱 Azure 命名慣例[容器名稱](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names)並[共用名稱](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)。
-
 ### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
 
 **錯誤說明：** 容器或共用名稱必須介於 3 到 63 個字元之間。 
 
-**建議的解決方式：** 您要複製資料的資料方塊 (SMB/NFS) 共用下的資料夾會變成您的儲存體帳戶中的 Azure 容器。 
+**建議的解決方式：** 您要複製資料的資料 方塊或大量資料方塊 share(SMB/NFS) 下的資料夾會變成您的儲存體帳戶中的 Azure 容器。 
 
-- 在 **連線 和 複製**頁面資料箱本機 web UI、 下載及檢閱錯誤檔來找出資料夾名稱的問題。
-- 變更資料 方塊中共用，並確定下的資料夾名稱：
+- 在上**連線] 和 [複製**頁面的裝置本機 web UI、 下載及檢閱錯誤檔來找出資料夾名稱的問題。
+- 變更資料箱 」 或 「 大量資料方塊中，確定共用下的資料夾名稱：
 
     - 名稱必須介於 3 到 63 個字元之間。
     - 名稱只能包含字母、 數字和連字號。
@@ -64,10 +46,10 @@ ms.locfileid: "65594010"
 
 **錯誤說明：** 容器或共用名稱只能包含字母、數字或連字號。
 
-**建議的解決方式：** 您要複製資料的資料方塊 (SMB/NFS) 共用下的資料夾會變成您的儲存體帳戶中的 Azure 容器。 
+**建議的解決方式：** 您要複製資料的資料 方塊或大量資料方塊 share(SMB/NFS) 下的資料夾會變成您的儲存體帳戶中的 Azure 容器。 
 
-- 在 **連線 和 複製**頁面資料箱本機 web UI、 下載及檢閱錯誤檔來找出資料夾名稱的問題。
-- 變更資料 方塊中共用，並確定下的資料夾名稱：
+- 在上**連線] 和 [複製**頁面的裝置本機 web UI、 下載及檢閱錯誤檔來找出資料夾名稱的問題。
+- 變更資料箱 」 或 「 大量資料方塊中，確定共用下的資料夾名稱：
 
     - 名稱必須介於 3 到 63 個字元之間。
     - 名稱只能包含字母、 數字和連字號。
@@ -82,10 +64,10 @@ ms.locfileid: "65594010"
 
 **錯誤說明：** 無法啟動的容器名稱和共用名稱，或以連字號結尾，而且不能有連續的連字號。
 
-**建議的解決方式：** 您要複製資料的資料方塊 (SMB/NFS) 共用下的資料夾會變成您的儲存體帳戶中的 Azure 容器。 
+**建議的解決方式：** 您要複製資料的資料 方塊或大量資料方塊 share(SMB/NFS) 下的資料夾會變成您的儲存體帳戶中的 Azure 容器。 
 
-- 在 **連線 和 複製**頁面資料箱本機 web UI、 下載及檢閱錯誤檔來找出資料夾名稱的問題。
-- 變更資料 方塊中共用，並確定下的資料夾名稱：
+- 在上**連線] 和 [複製**頁面的裝置本機 web UI、 下載及檢閱錯誤檔來找出資料夾名稱的問題。
+- 變更資料箱 」 或 「 大量資料方塊中，確定共用下的資料夾名稱：
 
     - 名稱必須介於 3 到 63 個字元之間。
     - 名稱只能包含字母、 數字和連字號。
@@ -112,7 +94,7 @@ ms.locfileid: "65594010"
 
 **錯誤說明：** Azure 檔案共用限制的共用 5TB 的資料。 一些共用已超過此限制。
 
-**建議的解決方式：** 在上**連線] 和 [複製**頁面的資料箱本機 web UI，請下載並檢閱檔案時發生錯誤。
+**建議的解決方式：** 在上**連線] 和 [複製**頁面上的本機 web UI 中，請下載並檢閱檔案時發生錯誤。
 
 識別發生此問題，從錯誤記錄檔，並確定該資料夾中的檔案會低於 5 TB 的資料夾。
 
@@ -194,7 +176,7 @@ ms.locfileid: "65594010"
 
 **錯誤說明：** Blob 或檔案未正確地對齊。
 
-**建議的解決方式：** 頁面 blob 上共用資料 方塊中唯一支援的檔案是 512 位元組對齊 （例如 VHD/VHDX）。 複製到分頁 blob 的共用的任何資料上傳至 Azure 做為分頁 blob。
+**建議的解決方式：** 資料箱 」 或 「 大量資料中唯一支援的檔案上 512 位元組頁面 blob 共用對齊 （例如 VHD/VHDX）。 複製到分頁 blob 的共用的任何資料上傳至 Azure 做為分頁 blob。
 
 從頁面 blob 共用中移除任何非 VHD/VHDX 的資料。 您可以使用共用的區塊 blob 或 Azure 的一般資料的檔案。
 

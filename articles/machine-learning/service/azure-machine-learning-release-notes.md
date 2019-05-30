@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3acaf86123f2cab871bc2f99cc873a73015875e2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 2dd397e879dd76cabd119a3cbedff34041be2d13
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989854"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298492"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
@@ -24,6 +24,21 @@ ms.locfileid: "65989854"
 + Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
 若要了解已知的 Bug 和因應措施，請參閱[已知問題的清單](resource-known-issues.md)。
+
+## <a name="2019-05-28"></a>2019-05-28
+
+### <a name="azure-machine-learning-data-prep-sdk-v114"></a>Azure Machine Learning 資料準備 SDK v1.1.4
+
++ **新功能**
+  + 您現在可以使用下列的運算式語言函式來擷取及剖析成新的資料行的 datetime 值。
+    + `RegEx.extract_record()` 新的資料行中擷取日期時間的項目。
+    + `create_datetime()` 從不同的日期時間的項目，會建立 datetime 物件。
+  + 當呼叫`get_profile()`，您現在可以看到分位數的資料行已標示為 (est)，以清楚指出值是約略估算而已。
+  + 您現在可以使用 * * 從 Azure Blob 儲存體讀取時的萬用字元。
+    + 例如，`dprep.read_csv(path='https://yourblob.blob.core.windows.net/yourcontainer/**/data/*.csv')`
+
++ **錯誤修正**
+  + 已修正從遠端來源 (Azure Blob) 中讀取的 Parquet 檔案與相關的錯誤。
 
 ## <a name="2019-05-14"></a>2019-05-14
 
@@ -457,8 +472,8 @@ Azure Machine Learning 服務現已正式運作。
 ### <a name="azure-machine-learning-sdk-for-python-v0180"></a>Azure Machine Learning SDK for Python v0.1.80
 
 + **重大變更** 
-  * azureml.train.widgets 命名空間已移至 azureml.widgets。
-  * azureml.core.compute.AmlCompute 取代了下列類別 - azureml.core.compute.BatchAICompute 和 azureml.core.compute.DSVMCompute。 第二個類別將會在後續版本中移除。 AmlCompute 類別現在有更簡易的定義，只需 vm_size 和 max_nodes 即可，並且會在提交作業時自動將叢集規模調整為 0 到 max_nodes。 我們已對[範例 Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/training) 更新此資訊，這應該能提供使用範例給您參考。 希望您喜歡此簡化功能和後續版本中的許多有趣功能！
+  * azureml.train.widgets  命名空間已移至 azureml.widgets  。
+  * azureml.core.compute.AmlCompute  取代了下列類別 - azureml.core.compute.BatchAICompute  和 azureml.core.compute.DSVMCompute  。 第二個類別將會在後續版本中移除。 AmlCompute 類別現在有更簡易的定義，只需 vm_size 和 max_nodes 即可，並且會在提交作業時自動將叢集規模調整為 0 到 max_nodes。 我們已對[範例 Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/training) 更新此資訊，這應該能提供使用範例給您參考。 希望您喜歡此簡化功能和後續版本中的許多有趣功能！
 
 ### <a name="azure-machine-learning-data-prep-sdk-v051"></a>Azure Machine Learning Data Prep SDK v0.5.1 
 
@@ -492,13 +507,13 @@ Azure Machine Learning 服務現已正式運作。
 
 ### <a name="azure-portal"></a>Azure 入口網站 
 Azure Machine Learning 服務的 Azure 入口網站含有下列更新：
-  * 用於已發佈管線的新 [管線] 索引標籤。
+  * 用於已發佈管線的新 [管線]  索引標籤。
   * 已增加附加現有的 HDInsight 叢集作為計算目標的支援。
 
 ### <a name="azure-machine-learning-sdk-for-python-v0174"></a>Azure Machine Learning SDK for Python v0.1.74
 
 + **重大變更** 
-  * *Workspace.compute_targets、datastores、experiments、images、models 以及 *webservices* 是屬性而非方法。 例如，將 Workspace.compute_targets() 取代為 Workspace.compute_targets。
+  * *Workspace.compute_targets、datastores、experiments、images、models 以及 *webservices* 是屬性而非方法。 例如，將 Workspace.compute_targets()  取代為 Workspace.compute_targets  。
   * *Run.get_context* 取代 *Run.get_submitted_run*。 第二個方法將會在後續版本中移除。
   * *PipelineData* 類別現在預期將 datastore 物件而不是 datastore_name 當作參數。 同樣地，*管線* 接受 default_datastore，而不是 default_datastore_name。
 

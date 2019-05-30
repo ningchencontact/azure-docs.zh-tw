@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 5eb2ba509983918a55370ae0deafd019e03f53d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a52d05c77d0aeb8ebeba196df60e59f0647fea9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60740279"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233927"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>適用於 MariaDB 的 Azure 資料庫定價層
 
@@ -20,7 +20,7 @@ ms.locfileid: "60740279"
 |    | **基本** | **一般用途** | **記憶體最佳化** |
 |:---|:----------|:--------------------|:---------------------|
 | 計算世代 | Gen 5 |Gen 5 | Gen 5 |
-| 虛擬核心 | 1、2 | 2、4、8、16、32、64 |2、4、8、16、32 |
+| 虛擬核心 | 1, 2 | 2、4、8、16、32、64 |2、4、8、16、32 |
 | 每個虛擬核心的記憶體 | 2 GB | 5 GB | 10 GB |
 | 儲存體大小 | 5 GB 至 1 TB | 5 GB 至 4 TB | 5 GB 至 4 TB |
 | 儲存體類型 | Azure 標準儲存體 | Azure 進階儲存體 | Azure 進階儲存體 |
@@ -51,19 +51,25 @@ ms.locfileid: "60740279"
 | 儲存體遞增大小 | 1 GB | 1 GB | 1 GB |
 | IOPS | 變數 |3 IOPS/GB<br/>最小值為 100 IOPS<br/>最大值為 6000 IOPS | 3 IOPS/GB<br/>最小值為 100 IOPS<br/>最大值為 6000 IOPS |
 
-您可以在建立伺服器期間或之後，新增額外的儲存體容量。 基本層不提供 IOPS 保證。 在一般用途和記憶體最佳化定價層中，IOPS 與佈建的儲存體大小會以 3:1 的比例調整。
+您可以新增額外的儲存體容量，期間或之後建立的伺服器，並允許成長自動根據您的工作負載的儲存體耗用量的儲存體系統。 基本層不提供 IOPS 保證。 在一般用途和記憶體最佳化定價層中，IOPS 與佈建的儲存體大小會以 3:1 的比例調整。
 
 您可以在 Azure 入口網站或使用 Azure CLI 命令來監視 I/O 耗用量。 要監視的相關計量包括[儲存體限制、儲存體百分比、已使用的儲存體和 IO 百分比](concepts-monitoring.md)。
 
 ### <a name="reaching-the-storage-limit"></a>到達儲存體限制
 
-當可用的儲存體數量低於 5 GB 或 5% 的佈建儲存體時 (以較低者為準)，伺服器會標記為唯讀狀態。 例如，如果您已佈建 100 GB 的儲存體，並且實際的使用率超過 95 GB，伺服器會標示為唯讀。 或者，如果您已佈建 5 GB 的儲存體，則當可用儲存體小於 250 MB時，伺服器會標示為唯讀。  
+具有少於 100 GB 佈建儲存體的伺服器會標示為唯讀的可用儲存體是否小於 512 MB 或 5%的已佈建的儲存體大小。 具有多個佈建 100 GB 的儲存空間的伺服器會標示為唯讀時，才可用的儲存體小於 5 GB。
+
+例如，如果您已佈建的儲存體，110 GB，而且實際使用率超過 105 GB，伺服器會標示為唯讀。 或者，如果您已佈建 5 GB 的儲存體，伺服器會標示為唯讀時可用的存放裝置到達少於 512 MB。
 
 當服務嘗試讓伺服器變為唯讀時，會封鎖所有新的寫入交易要求，而現有的使用中交易會繼續執行。 當伺服器設為唯讀時，所有後續的寫入作業和交易認可都會失敗。 讀取查詢將會繼續運作，不會中斷。 當您增加佈建的儲存體之後，伺服器就可以再次接受寫入交易。
 
-我們建議您設定警示，讓系統可在伺服器儲存容量接近閾值時發出通知，以避免進入唯讀狀態。 
+我們建議您開啟儲存體自動成長，或若要設定警示，您的伺服器儲存體已接近閾值時通知您因此您可以避免進入唯讀狀態。 如需詳細資訊，請參閱[如何設定警示](howto-alert-metric.md)的文件。
 
-如需詳細資訊，請參閱[如何設定警示](howto-alert-metric.md)的文件。
+### <a name="storage-auto-grow"></a>儲存體自動成長
+
+儲存體自動成長，才會啟用，存放裝置會自動成長而不會影響工作負載。 針對具有小於 100 GB 佈建儲存體的伺服器，佈建的儲存體大小會增加 5 GB 的可用儲存體未達 1 GB 或 10%的已佈建的儲存體的較大者為。 針對具有超過 100GB 的佈建的儲存體的伺服器，佈建的儲存體大小會增加 5%，低於佈建儲存體大小的 5%的可用儲存空間時。 如上述所指定的最大儲存體限制會套用。
+
+例如，如果您已佈建 1000 GB 的儲存體，以及實際的使用率超過 950 GB，伺服器儲存體大小會增加至 1050 GB。 或者，如果您已佈建 10 GB 的儲存體，儲存體大小是增加到 15GB 免費小於 1 GB 的儲存體時。
 
 ## <a name="backup"></a>Backup 
 
@@ -81,7 +87,7 @@ ms.locfileid: "60740279"
 
 ## <a name="pricing"></a>價格
 
-如需最新的定價資訊，請參閱服務的[定價頁面](https://azure.microsoft.com/pricing/details/mariadb/)。 若要查看您所需的設定成本，[Azure 入口網站](https://portal.azure.com/#create/Microsoft.MariaDBServer)會根據您選取的選項，在 [定價層] 索引標籤中顯示每月成本。 如果您沒有 Azure 訂用帳戶，則可以使用 Azure 價格計算機來取得估計的價格。 在 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)網站上選取 [新增項目]，展開 [資料庫] 類別，並選擇 [適用於 MariaDB 的 Azure 資料庫] 以自訂選項。
+如需最新的定價資訊，請參閱服務的[定價頁面](https://azure.microsoft.com/pricing/details/mariadb/)。 若要查看您所需的設定成本，[Azure 入口網站](https://portal.azure.com/#create/Microsoft.MariaDBServer)會根據您選取的選項，在 [定價層]  索引標籤中顯示每月成本。 如果您沒有 Azure 訂用帳戶，則可以使用 Azure 價格計算機來取得估計的價格。 在 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)網站上選取 [新增項目]  ，展開 [資料庫]  類別，並選擇 [適用於 MariaDB 的 Azure 資料庫]  以自訂選項。
 
 ## <a name="next-steps"></a>後續步驟
 - 了解[服務限制](concepts-limits.md)。

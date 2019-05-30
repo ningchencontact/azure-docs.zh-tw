@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 33604a16f5895e20d4475d1dd8b27c34184feb72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 915d1284d66438219fc9aba893512e5f6a5b02b3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345476"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305037"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure 事件方格中的事件處理常式
 
@@ -71,6 +71,28 @@ ms.locfileid: "60345476"
 | [教學課程：使用 Azure 事件方格和 Logic Apps 監視虛擬機器變更](monitor-virtual-machine-changes-event-grid-logic-app.md) | 邏輯應用程式會監視虛擬機器的變更，並傳送有關這些變更的電子郵件。 |
 | [教學課程：使用 Logic Apps 來傳送 Azure IoT 中樞事件的相關電子郵件通知](publish-iot-hub-events-to-logic-apps.md) | 每當有裝置新增至您的 IoT 中樞時，邏輯應用程式就會傳送電子郵件通知。 |
 | [教學課程：Azure 服務匯流排與 Azure 事件方格的整合範例](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 事件方格會從服務匯流排主題傳送訊息至函式應用程式和邏輯應用程式。 |
+
+## <a name="service-bus-queue-preview"></a>服務匯流排佇列 （預覽）
+
+使用服務匯流排做為事件處理常式，Event Grid 中路由事件，直接至緩衝處理 [收件者] 或命令與控制的情況下，企業應用程式中使用的服務匯流排佇列。 預覽未使用服務匯流排主題和工作階段，但它使用服務匯流排佇列的所有層級。
+
+請注意，服務匯流排時因為處理常式處於公開預覽中，您必須安裝的 CLI 或 PowerShell 延伸模組時使用其來建立事件訂用帳戶。
+
+### <a name="using-cli"></a>使用 CLI
+
+針對 Azure CLI，下列範例可訂閱連接至服務匯流排佇列的 Event Grid 主題和：
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid event-subscription create \
+    --name <my-event-subscription> \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
+    --endpoint-type servicebusqueue \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
+```
 
 ## <a name="queue-storage"></a>佇列儲存體
 

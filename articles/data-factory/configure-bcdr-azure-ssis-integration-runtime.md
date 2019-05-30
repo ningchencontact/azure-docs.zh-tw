@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: dea0153b9ca6d8e751fd94cc558abd44b2591907
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0612a688bb1e0fd79325b9a1f9b43731a210d10
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66120431"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399231"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>設定具有 Azure SQL Database 異地複寫和容錯移轉的 Azure-SSIS Integration Runtime
 
@@ -38,7 +38,7 @@ ms.locfileid: "66120431"
 
   AND
 
-- SQL Database 伺服器不是使用虛擬網路服務端點規則來設定的。
+- SQL Database 伺服器不是  使用虛擬網路服務端點規則來設定的。
 
 ### <a name="solution"></a>解決方法
 
@@ -100,6 +100,59 @@ ms.locfileid: "66120431"
     如需此 PowerShell 命令的詳細資訊，請參閱[在 Azure Data Factory 中建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)
 
 3. 重新啟動整合執行階段。
+
+## <a name="scenario-3---attaching-an-existing-ssisdb-ssis-catalog-to-a-new-azure-ssis-ir"></a>案例 3-將現有的 SSISDB （SSIS 目錄） 附加至新的 Azure SSIS IR
+
+ADF 或 AZURE-SSIS 整合執行階段發生災害時目前的區域中，您可以讓您使用新的 Azure SSIS IR，新的區域中的 SSISDB 會保留。
+
+### <a name="prerequisites"></a>必要條件
+
+- 如果您在目前的區域中使用虛擬網路，那麼您需要在新區域中使用另一個虛擬網路來與 Azure SSIS 整合執行階段連線。 如需詳細資訊，請參閱[將 Azure-SSIS 整合執行階段加入虛擬網路](join-azure-ssis-integration-runtime-virtual-network.md)。
+
+- 如果您使用自訂安裝，可能需要為儲存自訂安裝指令碼和相關檔案的 blob 容器準備另一個 SAS URI，如此一來，發生中斷時仍可繼續存取此 blob 容器。 如需詳細資訊，請參閱[在 Azure-SSIS 整合執行階段上設定自訂安裝](how-to-configure-azure-ssis-ir-custom-setup.md)。
+
+### <a name="steps"></a>步驟
+
+請遵循下列步驟來停止 Azure SSIS 整合執行階段，並將整合執行階段切換到新區域，然後重新啟動該整合執行階段。
+
+1. 執行預存程序，讓附加至 SSISDB **\<new_data_factory_name\>** 或是 **\<new_integration_runtime_name\>** 。
+   
+  ```SQL
+    EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
+   ```
+
+2. 建立名為新的 data factory **\<new_data_factory_name\>** 新區域中。 如需詳細資訊，請參閱 < 建立資料處理站。
+
+     ```powershell
+     Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
+                         -Location "new region"`
+                         -Name "<new_data_factory_name>"
+     ```
+    如需此 PowerShell 命令的詳細資訊，請參閱[建立使用 PowerShell 的 Azure data factory](quickstart-create-data-factory-powershell.md)
+
+3. 建立名為新的 Azure SSIS IR **\<new_integration_runtime_name\>** 中使用 Azure PowerShell 的新區域。
+
+    ```powershell
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
+                                           -DataFactoryName "new data factory name" `
+                                           -Name "<new_integration_runtime_name>" `
+                                           -Description $AzureSSISDescription `
+                                           -Type Managed `
+                                           -Location $AzureSSISLocation `
+                                           -NodeSize $AzureSSISNodeSize `
+                                           -NodeCount $AzureSSISNodeNumber `
+                                           -Edition $AzureSSISEdition `
+                                           -LicenseType $AzureSSISLicenseType `
+                                           -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
+                                           -VnetId "new vnet" `
+                                           -Subnet "new subnet" `
+                                           -CatalogServerEndpoint $SSISDBServerEndpoint `
+                                           -CatalogPricingTier $SSISDBPricingTier
+    ```
+
+    如需此 PowerShell 命令的詳細資訊，請參閱[在 Azure Data Factory 中建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)
+
+4. 重新啟動整合執行階段。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -3,18 +3,18 @@ title: 設定 Azure 的 Red Hat OpenShift 開發環境 |Microsoft Docs
 description: 以下是使用 Microsoft Azure 的 Red Hat OpenShift 的必要條件。
 services: openshift
 keywords: red hat openshift 設定設定
-author: TylerMSFT
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: 6ba7e67620ebfd7ff98c1ba81c7cecb133288be7
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: f0ef421d7954aa33cf69e7de2f4902a86ed8b580
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962132"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306411"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>設定您的 Azure Red Hat OpenShift 開發環境
 
@@ -65,31 +65,43 @@ az --version
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
-2. 註冊 Microsoft.ContainerService openshiftmanagedcluster 功能：
+1. 註冊 Microsoft.ContainerService openshiftmanagedcluster 功能：
 
     ```bash
     az feature register --namespace Microsoft.ContainerService -n openshiftmanagedcluster
     ```
 
-3. 註冊 Microsoft.Solutions 提供者：
+1. 註冊 Microsoft.Storage 提供者：
+
+    ```bash
+    az provider register -n Microsoft.Storage --wait
+    ```
+    
+1. 註冊 Microsoft.Compute 提供者：
+
+    ```bash
+    az provider register -n Microsoft.Compute --wait
+    ```
+
+1. 註冊 Microsoft.Solutions 提供者：
 
     ```bash
     az provider register -n Microsoft.Solutions --wait
     ```
 
-4. 註冊 Microsoft.Network 提供者：
+1. 註冊 Microsoft.Network 提供者：
 
     ```bash
     az provider register -n Microsoft.Network --wait
     ```
 
-5. 註冊 Microsoft.KeyVault 提供者：
+1. 註冊 Microsoft.KeyVault 提供者：
 
     ```bash
     az provider register -n Microsoft.KeyVault --wait
     ```
 
-6. 重新整理 Microsoft.ContainerService 資源提供者註冊：
+1. 重新整理 Microsoft.ContainerService 資源提供者註冊：
 
     ```bash
     az provider register -n Microsoft.ContainerService --wait

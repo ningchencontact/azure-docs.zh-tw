@@ -4,15 +4,15 @@ description: 了解各種記錄與監視儲存在 Azure Cosmos DB 中資料的�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 67a6eec938a4a18455e4063925e21e26fe362f76
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66148698"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243476"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的診斷記錄 
 
@@ -74,11 +74,11 @@ Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐�
 
 若要在 Azure 入口網站中啟用診斷記錄，請執行下列步驟：
 
-1. 進入 [Azure 入口網站](https://portal.azure.com)，在您 Azure Cosmos DB 帳戶的左側導覽區中選取 [診斷記錄]，然後選取 [開啟診斷]。
+1. 進入 [Azure 入口網站](https://portal.azure.com)，在您 Azure Cosmos DB 帳戶的左側導覽區中選取 [診斷記錄]  ，然後選取 [開啟診斷]  。
 
     ![在 Azure 入口網站中開啟 Azure Cosmos DB 的診斷記錄](./media/logging/turn-on-portal-logging.png)
 
-2. 在 [診斷設定] 頁面中，執行下列步驟： 
+2. 在 [診斷設定]  頁面中，執行下列步驟： 
 
     * **名稱**：輸入要建立之記錄的名稱。
 
@@ -346,26 +346,26 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 
 * 請使用標準的 Azure 存取控制方法保護您的記錄，並限制可存取記錄的人員。
 * 刪除不想繼續保留在儲存體帳戶中的記錄。
-* 封存到儲存體帳戶之資料平面要求的保留期限，可在入口網站中藉由選取 [記錄 DataPlaneRequests] 設定來設定。 若要變更該設定，請參閱[在 Azure 入口網站中開啟記錄](#turn-on-logging-in-the-azure-portal)。
+* 封存到儲存體帳戶之資料平面要求的保留期限，可在入口網站中藉由選取 [記錄 DataPlaneRequests]  設定來設定。 若要變更該設定，請參閱[在 Azure 入口網站中開啟記錄](#turn-on-logging-in-the-azure-portal)。
 
 
 <a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-azure-monitor-logs"></a>檢視 Azure 監視器記錄中的記錄
 
-如果在启用诊断日志记录时选择了“发送到 Log Analytics”选项，则容器中的诊断数据会在两个小时内转发到 Azure Monitor 日志。 如果在启用日志记录之后立即查看 Azure Monitor 日志，将看不到任何数据。 只需等待兩個小時，然後再試一次。 
+如果在启用诊断日志记录时选择了“发送到 Log Analytics”选项，则容器中的诊断数据会在两个小时内转发到 Azure Monitor 日志  。 如果在启用日志记录之后立即查看 Azure Monitor 日志，将看不到任何数据。 只需等待兩個小時，然後再試一次。 
 
-在查看日志之前，请检查并确定 Log Analytics 工作区是否已升级为使用新的 Kusto 查询语言。 若要检查，请打开 [Azure 门户](https://portal.azure.com)，在最左侧选择“Log Analytics 工作区”，然后选择工作区名称，如下图所示。 [Log Analytics 工作區] 頁面隨即顯示：
+在查看日志之前，请检查并确定 Log Analytics 工作区是否已升级为使用新的 Kusto 查询语言。 若要检查，请打开 [Azure 门户](https://portal.azure.com)，在最左侧选择“Log Analytics 工作区”，然后选择工作区名称，如下图所示。  [Log Analytics 工作區]  頁面隨即顯示：
 
 ![Azure 门户中的 Azure Monitor 日志](./media/logging/azure-portal.png)
 
 >[!NOTE]
 >OMS 工作區現在稱為 Log Analytics 工作區。  
 
-如果您在 [Log Analytics 工作區] 頁面上看到下列訊息，表示您的工作區尚未升級為使用新語言。 如需關於如何升級至新查詢語言的詳細資訊，請參閱[將 Azure Log Analytics 工作區升級至新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md)。 
+如果您在 [Log Analytics 工作區]  頁面上看到下列訊息，表示您的工作區尚未升級為使用新語言。 如需關於如何升級至新查詢語言的詳細資訊，請參閱[將 Azure Log Analytics 工作區升級至新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md)。 
 
 ![Azure Monitor 日志升级消息](./media/logging/upgrade-notification.png)
 
-若要查看 Azure Monitor 日志中的诊断数据，请打开左侧菜单中的“日志搜索”页或该页的“管理”区域，如下图所示：
+若要查看 Azure Monitor 日志中的诊断数据，请打开左侧菜单中的“日志搜索”页或该页的“管理”区域，如下图所示：  
 
 ![Azure 入口網站中的記錄搜尋選項](./media/logging/log-analytics-open-log-search.png)
 
@@ -376,7 +376,7 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 <a id="#queries"></a>
 ### <a name="queries"></a>查詢
 
-以下是一些您可以在 [記錄搜尋] 方塊中輸入以利監視 Azure Cosmos DB 容器的其他查詢。 這些查詢使用[新語言](../log-analytics/log-analytics-log-search-upgrade.md)。 
+以下是一些您可以在 [記錄搜尋]  方塊中輸入以利監視 Azure Cosmos DB 容器的其他查詢。 這些查詢使用[新語言](../log-analytics/log-analytics-log-search-upgrade.md)。 
 
 若要深入了解每個記錄搜尋傳回的資料所代表的涵義，請參閱[解讀 Azure Cosmos DB 記錄](#interpret)。
 
@@ -438,7 +438,7 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 
 下表說明每個記錄項目的內容。
 
-| Azure 儲存體欄位或屬性 | Azure Monitor 日志属性 | 說明 |
+| Azure 儲存體欄位或屬性 | Azure Monitor 日志属性 | 描述 |
 | --- | --- | --- |
 | **time** | **TimeGenerated** | 作業發生的日期和時間 (UTC)。 |
 | **resourceId** | **Resource** | 啟用記錄的 Azure Cosmos DB 帳戶。|

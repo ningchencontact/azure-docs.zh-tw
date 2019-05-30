@@ -10,18 +10,26 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 05/29/2019
 ms.author: bwren
-ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130673"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357584"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解決方案 (預覽)
 
 ![Office 365 標誌](media/solution-office-365/icon.png)
+
+
+> [!NOTE]
+> 安裝和設定 Office 365 解決方案的建議的方法讓[Office 365 連接器](../../sentinel/connect-office-365.md)中[Azure Sentinel](../../sentinel/overview.md)而不是使用這篇文章中的步驟。 這是 Office 365 解決方案，具有改良的設定經驗的更新的版本。 若要將 Azure AD 記錄檔的連線，使用[Azure Sentinel Azure AD 連接器](../../sentinel/connect-azure-active-directory.md)，以提供更豐富的記錄資料，與 Office 365 管理事件的記錄。 
+>
+> 當您[上架 Azure Sentinel](../../sentinel/quickstart-onboard.md)，指定您想要安裝在 Office 365 解決方案的 Log Analytics 工作區。 一旦您啟用連接器時，解決方案將會出現在工作區，並做為其他您已安裝的監視解決方案使用完全相同。
+>
+> Azure government 雲端的使用者必須安裝在這篇文章中使用的步驟，因為 Azure Sentinel 尚無法使用政府雲端中的 Office 365。
 
 Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 環境。
 
@@ -30,6 +38,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 - 偵測並調查的不必要的使用者行為，並可以針對貴組織的需求進行自訂。
 - 示範稽核與合規性。 例如，您可以監視機密檔案的檔案存取作業，以協助進行稽核與合規性流程。
 - 針對組織的 Office 365 活動資料使用[記錄查詢](../log-query/log-query-overview.md)，執行作業疑難排解。
+
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -73,46 +82,46 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 第一個步驟在 Azure Active Directory 中建立應用程式，讓管理解決方案用來存取 Office 365 解決方案。
 
 1. 在 [https://portal.azure.com](https://portal.azure.com/) 上登入 Azure 入口網站。
-1. 選取 [Azure Active Directory]，然後選取 [應用程式註冊]。
-1. 按一下 [新增應用程式註冊]。
+1. 選取 [Azure Active Directory]  ，然後選取 [應用程式註冊]  。
+1. 按一下 [新增應用程式註冊]  。
 
     ![新增應用程式註冊](media/solution-office-365/add-app-registration.png)
 1. 輸入應用程式**名稱**和**登入 URL**。  名稱應具有描述性。  使用`http://localhost`的 URL，並保留_Web 應用程式 / API_如**應用程式類型**
     
     ![建立應用程式](media/solution-office-365/create-application.png)
-1. 按一下 [建立] 並驗證應用程式資訊。
+1. 按一下 [建立]  並驗證應用程式資訊。
 
     ![註冊的應用程式](media/solution-office-365/registered-app.png)
 
 ### <a name="configure-application-for-office-365"></a>設定 Office 365 的應用程式
 
-1. 按一下 [設定] 以開啟 [設定] 功能表。
-1. 選取 [屬性] 。 將 [多重租用戶] 變更為 [是]。
+1. 按一下 [設定]  以開啟 [設定]  功能表。
+1. 選取 [屬性]  。 將 [多重租用戶]  變更為 [是]  。
 
     ![設定多租用戶](media/solution-office-365/settings-multitenant.png)
 
-1. 在 [設定] 功能表中，選取 [必要權限]，然後按一下 [新增]。
-1. 按一下 [選取 API]，然後按一下 [Office 365 管理 API]。 按一下 [Office 365 管理 API]。 按一下 [選取] 。
+1. 在 [設定]  功能表中，選取 [必要權限]  ，然後按一下 [新增]  。
+1. 按一下 [選取 API]  ，然後按一下 [Office 365 管理 API]  。 按一下 [Office 365 管理 API]  。 按一下 [選取]  。
 
     ![選取 API](media/solution-office-365/select-api.png)
 
-1. 在 [選取權限] 下，為 [應用程式權限] 和 [委派的權限] 選取下列選項：
+1. 在 [選取權限]  下，為 [應用程式權限]  和 [委派的權限]  選取下列選項：
    - 讀取您組織的服務健康情況資訊
    - 讀取您組織的活動資料
    - 讀取您組織的活動報告
 
      ![選取 API](media/solution-office-365/select-permissions.png)
 
-1. 按一下 [選取]，然後按一下 [完成]。
-1. 按一下 [授與權限]，然後在出現驗證要求時，按一下 [是]。
+1. 按一下 [選取]  ，然後按一下 [完成]  。
+1. 按一下 [授與權限]  ，然後在出現驗證要求時，按一下 [是]  。
 
     ![授與權限](media/solution-office-365/grant-permissions.png)
 
 ### <a name="add-a-key-for-the-application"></a>新增應用程式的金鑰
 
-1. 在 [設定] 功能表中，選取 [金鑰]。
-1. 輸入新金鑰的 [描述] 和 [持續時間]。
-1. 按一下 [儲存]，然後複製所產生的**值**。
+1. 在 [設定]  功能表中，選取 [金鑰]  。
+1. 輸入新金鑰的 [描述]  和 [持續時間]  。
+1. 按一下 [儲存]  ，然後複製所產生的**值**。
 
     ![金鑰](media/solution-office-365/keys.png)
 
@@ -120,7 +129,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 
 初次啟用系統管理帳戶時，您必須提供應用程式的管理員同意。 您可以利用 PowerShell 指令碼來完成此作業。 
 
-1. 將下列指令碼儲存為 office365_consent.ps1。
+1. 將下列指令碼儲存為 office365_consent.ps1  。
 
     ```powershell
     param (
@@ -179,7 +188,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
     .\office365_consent.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631- yyyyyyyyyyyy'
     ```
 
-1. 您會看到類似下圖的視窗。 按一下 [接受]。
+1. 您會看到類似下圖的視窗。 按一下 [接受]  。
     
     ![系統管理員同意](media/solution-office-365/admin-consent.png)
 
@@ -187,7 +196,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 
 最後一個步驟將應用程式訂閱到您的 Log Analytics 工作區。 您也可以利用 PowerShell 指令碼來完成此作業。
 
-1. 將下列指令碼儲存為 office365_subscription.ps1。
+1. 將下列指令碼儲存為 office365_subscription.ps1  。
 
     ```powershell
     param (
@@ -392,7 +401,7 @@ At line:12 char:18
 
 您可以使用[移除管理解決方案](solutions.md#remove-a-monitoring-solution)中的程序移除 Office 365 管理解決方案。 但這不會停止從 Office 365 收集資料到 Azure 監視器。 請遵循底下程序，從 Office 365 取消訂閱並停止收集資料。
 
-1. 將下列指令碼儲存為 office365_unsubscribe.ps1。
+1. 將下列指令碼儲存為 office365_unsubscribe.ps1  。
 
     ```powershell
     param (
@@ -503,10 +512,10 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-當您將 Office 365 解決方案新增至 Log Analytics 工作區時，[Office 365] 圖格會新增至儀表板。 此圖格會顯示計數並以圖形表示環境中的電腦數目及其更新合規性。<br><br>
+當您將 Office 365 解決方案新增至 Log Analytics 工作區時，[Office 365]  圖格會新增至儀表板。 此圖格會顯示計數並以圖形表示環境中的電腦數目及其更新合規性。<br><br>
 ![Office 365 摘要圖格](media/solution-office-365/tile.png)  
 
-按一下 [Office 365] 圖格以開啟 [Office 365] 儀表板。
+按一下 [Office 365]  圖格以開啟 [Office 365]  儀表板。
 
 ![Office 365 儀表板](media/solution-office-365/dashboard.png)  
 
@@ -524,7 +533,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 ## <a name="azure-monitor-log-records"></a>Azure 監視器記錄
 
-由 Office 365 解決方案在 Azure 監視器 Log Analytics 工作區中建立的所有記錄，都具有 **OfficeActivity** 的「類型」。  **OfficeWorkload** 屬性可決定該記錄所指的 Office 365 服務：Exchange、AzureActiveDirectory、SharePoint 或 OneDrive。  **RecordType** 屬性指定作業的類型。  每種作業類型會有不同的屬性，如下表所示。
+由 Office 365 解決方案在 Azure 監視器 Log Analytics 工作區中建立的所有記錄，都具有 **OfficeActivity** 的「類型」  。  **OfficeWorkload** 屬性可決定該記錄所指的 Office 365 服務：Exchange、AzureActiveDirectory、SharePoint 或 OneDrive。  **RecordType** 屬性指定作業的類型。  每種作業類型會有不同的屬性，如下表所示。
 
 ### <a name="common-properties"></a>通用屬性
 

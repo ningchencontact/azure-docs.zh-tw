@@ -3,7 +3,7 @@ title: 使用 LDAP (LDAPS) 繫結到 Azure AD Domain Services 受控網域 | Mic
 description: 使用 LDAP (LDAPS) 繫結到 Azure AD Domain Services 受控網域
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: ergreenl
-ms.openlocfilehash: 62776408675acba1ee8a57252c794e5a1c840155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: 47c9553b4191fe6dbae8d92d75dfae83f191a063
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417025"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234861"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>使用 LDAP (LDAPS) 繫結到 Azure AD Domain Services 受控網域
 
@@ -31,11 +31,11 @@ ms.locfileid: "60417025"
 ## <a name="task-5-bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>工作 5：使用 LDP.exe 透過 LDAP 繫結到受控網域
 您可以使用「遠端伺服器管理工具」套件隨附的 LDP.exe 工具，來透過 LDAP 繫結和搜尋。
 
-首先，開啟 LDP 並連線到受控網域。 按一下功能表中的 [連線]，然後按一下 [連線...]。 指定受控網域的 DNS 網域名稱。 指定連線用的連接埠。 若是 LDAP 連線，請使用連接埠 389。 針對 LDAPS 連線，請使用連接埠 636。 按一下 [確定] 按鈕以連線至受控網域。
+首先，開啟 LDP 並連線到受控網域。 按一下功能表中的 [連線]  ，然後按一下 [連線...]  。 指定受控網域的 DNS 網域名稱。 指定連線用的連接埠。 若是 LDAP 連線，請使用連接埠 389。 針對 LDAPS 連線，請使用連接埠 636。 按一下 [確定]  按鈕以連線至受控網域。
 
-接著繫結至受控網域。 按一下功能表中的 [連線]，然後按一下 [繫結...]。 提供屬於「AAD DC 系統管理員」群組之使用者帳戶的認證。
+接著繫結至受控網域。 按一下功能表中的 [連線]  ，然後按一下 [繫結...]  。 提供屬於「AAD DC 系統管理員」群組之使用者帳戶的認證。
 
-選取功能表中的 [檢視]，然後選取 [樹狀]。 「基準 DN」欄位保持空白，然後按一下 [確定]。 瀏覽至要搜尋的容器，以滑鼠右鍵按一下該容器，然後選取 [搜尋]。
+選取功能表中的 [檢視]  ，然後選取 [樹狀]  。 「基準 DN」欄位保持空白，然後按一下 [確定]。 瀏覽至要搜尋的容器，以滑鼠右鍵按一下該容器，然後選取 [搜尋]。
 
 > [!TIP]
 > - 從 Azure AD 同步的使用者和群組會儲存在 **AADDC 使用者**組織單位中。 這個組織單位的搜尋路徑看起來像是 ```OU=AADDC Users,DC=CONTOSO100,DC=COM```。
@@ -64,13 +64,13 @@ ms.locfileid: "60417025"
 
 
 ## <a name="related-content"></a>相關內容
-* [Azure AD Domain Services - 入門指南](active-directory-ds-getting-started.md)
-* [Administer an Azure AD Domain Services managed domain (管理 Azure AD 網域服務受控網域)](active-directory-ds-admin-guide-administer-domain.md)
+* [Azure AD Domain Services - 入門指南](create-instance.md)
+* [管理 Azure AD Domain Services 網域](manage-domain.md)
 * [LDAP 查詢基本概念](https://technet.microsoft.com/library/aa996205.aspx)
-* [管理 Azure AD Domain Services 受控網域上的群組原則](active-directory-ds-admin-guide-administer-group-policy.md)
+* [管理 Azure AD Domain services 的群組原則](manage-group-policy.md)
 * [網路安全性群組](../virtual-network/security-overview.md)
 * [建立網路安全性群組](../virtual-network/tutorial-filter-network-traffic.md)
 
 
 ## <a name="next-step"></a>後續步驟
-[針對受控網域上的安全 LDAP 進行疑難排解](active-directory-ds-ldaps-troubleshoot.md)
+[針對受控網域上的安全 LDAP 進行疑難排解](tshoot-ldaps.md)

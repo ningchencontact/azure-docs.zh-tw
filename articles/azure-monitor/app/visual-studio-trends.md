@@ -15,12 +15,12 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 898f0974a6a29abde5c84d611adc8d50c3873141
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b08dfd87910cbb9f23f6b108a970d160612e1a7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60372709"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255894"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>在 Visual Studio 中分析趨勢 | Microsoft Azure
 「Application Insights 趨勢」工具會以視覺化方式呈現 Web 應用程式的重要遙測事件如何隨著時間變更，協助您快速識別問題和異常。 將您連結至更詳細的診斷資訊，「趨勢」可協助您改善應用程式效能、追蹤例外狀況的原因，以及揭露您的自訂事件情資。
@@ -36,11 +36,11 @@ ms.locfileid: "60372709"
 ## <a name="open-application-insights-trends"></a>開啟 Application Insights 趨勢
 若要開啟 [Application Insights 趨勢] 視窗：
 
-* 從 Application Insights 工具列按鈕，選擇 [探索遙測趨勢] ，或
-* 從專案操作功能表，選擇 [Application Insights] > [探索遙測趨勢]，或
-* 從 Visual Studio 功能表列，選擇 [檢視] > [其他視窗] > [Application Insights 趨勢]。
+* 從 Application Insights 工具列按鈕，選擇 [探索遙測趨勢]  ，或
+* 從專案操作功能表，選擇 [Application Insights] > [探索遙測趨勢]  ，或
+* 從 Visual Studio 功能表列，選擇 [檢視] > [其他視窗] > [Application Insights 趨勢]  。
 
-您可能會看到選取資源的提示。 按一下 [選取資源] ，登入 Azure 訂用帳戶，然後從您要分析遙測趨勢的清單中選擇 Application Insights 資源。
+您可能會看到選取資源的提示。 按一下 [選取資源]  ，登入 Azure 訂用帳戶，然後從您要分析遙測趨勢的清單中選擇 Application Insights 資源。
 
 ## <a name="choose-a-trend-analysis"></a>選擇趨勢分析
 ![趨勢分析的常見類型功能表](./media/visual-studio-trends/app-insights-trends-1-750.png)
@@ -87,14 +87,14 @@ Application Insights 趨勢會從您的應用程式的遙測建立時間序列�
 1. 套用第一個篩選器。 
 2. 按一下第一個篩選器的維度名稱旁邊的 [套用選取的篩選器並再次查詢]  按鈕。 這只會重新查詢您的遙測中符合第一個篩選條件的事件。 
 3. 套用第二個篩選器。 
-4. 重複此程序以在遙測的特定子集中尋找趨勢。 例如，名為 "GET Home/Index"「且」來自德國「且」收到 500 回應碼的伺服器要求。 
+4. 重複此程序以在遙測的特定子集中尋找趨勢。 例如，名為 "GET Home/Index"「且」  來自德國「且」  收到 500 回應碼的伺服器要求。 
 
 若要取消套用上述其中一個篩選器，請按一下維度的 [移除選取的篩選器並再次查詢]  按鈕。
 
 ![多個篩選器](./media/visual-studio-trends/TrendsFiltering2-750.png)
 
 ## <a name="find-anomalies"></a>尋找異常
-「趨勢」工具會醒目提示異常的事件泡泡 (相較於同一個時間序列中的其他泡泡)。 在 [檢視類型] 下拉式清單中，選擇 [時間值區中的計數 (醒目提示異常)] 或 [時間值區中的百分比 (醒目提示異常)]。 紅色泡泡為異常。 異常的定義是計數/百分比超過 2.1 乘以在過去兩個時間週期 (如果您正在檢視過去 24 小時的資料，則為 48 小時) 內發生之計數/百分比的標準差的泡泡。
+「趨勢」工具會醒目提示異常的事件泡泡 (相較於同一個時間序列中的其他泡泡)。 在 [檢視類型] 下拉式清單中，選擇 [時間值區中的計數 (醒目提示異常)]  或 [時間值區中的百分比 (醒目提示異常)]  。 紅色泡泡為異常。 異常的定義是計數/百分比超過 2.1 乘以在過去兩個時間週期 (如果您正在檢視過去 24 小時的資料，則為 48 小時) 內發生之計數/百分比的標準差的泡泡。
 
 ![彩色的點表示異常](./media/visual-studio-trends/TrendsAnomalies-750.png)
 
@@ -108,5 +108,5 @@ Application Insights 趨勢會從您的應用程式的遙測建立時間序列�
 | --- | --- |
 | **[在 Visual Studio 中使用 Application Insights](../../azure-monitor/app/visual-studio.md)**<br/>搜尋遙測、查看 CodeLens 中的資料，以及設定 Application Insights。 盡在 Visual Studio 中。 |![以滑鼠右鍵按一下專案，然後選擇 [Application Insights]、[搜尋]](./media/visual-studio-trends/34.png) |
 | **[新增更多測試](../../azure-monitor/app/asp-net-more.md)**<br/>監視使用狀況、可用性、相依性、例外狀況。 整合來自記錄架構的追蹤。 撰寫自訂遙測。 |![Visual Studio](./media/visual-studio-trends/64.png) |
-| **[使用 Application Insights 入口網站](../../azure-monitor/app/app-insights-dashboards.md)**<br/>儀表板、功能強大的診斷和分析工具、警示、即時的應用程式相依性對應，以及遙測匯出等功能。 |![Visual Studio](./media/visual-studio-trends/62.png) |
+| **[使用 Application Insights 入口網站](../../azure-monitor/app/overview-dashboard.md)**<br/>儀表板、功能強大的診斷和分析工具、警示、即時的應用程式相依性對應，以及遙測匯出等功能。 |![Visual Studio](./media/visual-studio-trends/62.png) |
 

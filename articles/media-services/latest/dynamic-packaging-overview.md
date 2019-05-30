@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2019
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: 78e3897ec653326bcd88a538a6ea7d33938659b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 25c0fe7a179db484f18c1aca16471e39a739052c
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65761955"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299176"
 ---
 # <a name="dynamic-packaging"></a>動態封裝
 
@@ -31,6 +31,9 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS 
 因此，您只需要儲存及支付一種儲存格式之檔案的費用，媒體服務會根據用戶端的要求建置及提供適當的回應。 
 
 在 Media Services 會使用動態封裝，是否您串流處理實況或點播。 
+
+> [!NOTE]
+> 目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](media-services-apis-overview.md#sdks)。
 
 ## <a name="common-on-demand-workflow"></a>常見的依需求工作流程
 
@@ -63,7 +66,7 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS 
 1. 取得內嵌 URL，並設定您的內部部署編碼器，以使用 URL 來傳送發佈摘要。
 1. 取得預覽 URL 並使用它來確認實際上已收到來自編碼器的輸入。
 1. 建立新**資產**。
-1. 建立 [即時輸出] 並使用您建立的資產名稱。<br/>**實況輸出**會將資料流封存到**資產**中。
+1. 建立 [即時輸出]  並使用您建立的資產名稱。<br/>**實況輸出**會將資料流封存到**資產**中。
 1. 使用內建的**串流原則**類型來建立**串流定位器**。<br/>若您想要將內容加密，請檢閱[內容保護概觀](content-protection-overview.md)。
 1. 列出**串流定位器**上的路徑，以取回要使用的 URL。
 1. 取得您想要串流的來源**串流端點**主機名稱。
@@ -92,10 +95,32 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS 
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>動態封裝支援的音訊轉碼器
 
-动态打包支持 MP4 文件，其中包含使用 [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding)（AAC-LC、HE-AAC v1、HE-AAC v2）、[Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)（增强版 AC-3 或 E-AC3）、Dolby Atmos 或 [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)（DTS Express、DTS LBR、DTS HD、DTS HD 无损）编码的音频。 流式传输 Dolby Atmos 内容适用于特定的标准（例如 MPEG-DASH 协议），采用通用流式传输格式 (CSF) 或通用媒体应用程序格式 (CMAF) 分段 MP4，在使用 CMAF 的情况通过 HTTP 实时传送视频流 (HLS) 来进行。
+### <a name="mp4-files-support"></a>MP4 檔案支援
 
-> [!NOTE]
-> 動態封裝不支援包含 [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) 音訊的檔案 (它是舊版的轉碼器)。
+動態封裝支援包含以編碼的音訊的 MP4 檔案 
+
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC、 HE-AAC v1、 HE-AAC v2)
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)（增強 ac-3 或 E-AC3）
+* Dolby Atmos
+   
+   適用於標準，例如 MPEG DASH 通訊協定，與一般串流格式 (CSF) 或一般媒體應用程式格式 (CMAF) 分散的 MP4，並透過 HTTP Live Streaming (HLS) 與 CMAF 支援 Dolby Atmos 內容的串流。
+
+* [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)
+
+    DTS 轉碼器支援的 DASH CSF、 DASH CMAF、 HLS-M2TS 和 HLS CMAF 封裝格式如下：  
+
+    * DTS 數位範圍陳述式 (dtsc)
+    * DTS HD 高解析度和 DTS HD Master 音訊 (dtsh)
+    * DTS Express (dtse)
+    * DTS HD 不失真 （沒有核心） (dtsl)
+
+### <a name="hls-support"></a>HLS 支援
+
+動態封裝支援 HLS (第 4 版或更新版本) 有多個具有多個轉碼器和語言的音訊資料軌的資產。
+
+### <a name="not-supported"></a>不支援
+
+動態封裝不支援包含 [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) 音訊的檔案 (它是舊版的轉碼器)。
 
 ## <a name="dynamic-encryption"></a>動態加密
 
@@ -193,10 +218,7 @@ Smooth Streaming 資訊清單的範例如下：
 
 ## <a name="dynamic-manifest"></a>動態資訊清單
 
-動態篩選用來控制播放軌、 格式、 位元速率，以及展示給玩家送出的時間範圍的數目。 如需詳細資訊，請參閱 <<c0> [ 篩選器與動態資訊清單](filters-dynamic-manifest-overview.md)。
-
-> [!NOTE]
-> 目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](media-services-apis-overview.md#sdks)。
+動態篩選用來控制播放軌、 格式、 位元速率，以及展示給玩家送出的時間範圍的數目。 如需詳細資訊，請參閱 <<c0> [ 預先篩選與動態封裝程式資訊清單](filters-dynamic-manifest-overview.md)。
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、提供意見反應、取得更新
 

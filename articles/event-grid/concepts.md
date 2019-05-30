@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 1c77d0ea9e67c8d69f3f632cace164d8a0c4d921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562350"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305262"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid 中的概念
 
@@ -22,7 +22,8 @@ ms.locfileid: "60562350"
 
 事件是完整說明系統中發生內容的最小量資訊。 每個事件都有一般資訊，例如：事件來源、事件發生的時間，以及唯一識別碼。 每個事件也有只與特定事件類型相關的特定資訊。 例如，在 Azure 儲存體中建立新檔案的相關事件含有該檔案的相關詳細資料，例如 `lastTimeModified` 值。 或者，事件中樞事件含有「擷取」檔案的 URL。 
 
-每個事件會限制為 64 KB 資料。
+事件的大小最多 64 KB 涵蓋由公開上市 (GA) 服務等級協定 (SLA)。 之事件的大小最多支援 1 MB 目前為預覽狀態。 事件超過 64 KB 收取 64 KB 的增量方式。 
+
 
 關於事件中傳送的屬性，請參閱 [Azure Event Grid 事件結構描述](event-schema.md)。
 
@@ -59,9 +60,6 @@ Event Grid 主題提供來源傳送事件的端點。 發行者會建立 Event G
 如需取得目前 Event Grid 訂用帳戶的資訊，請參閱[查詢 Event Grid 訂用帳戶](query-event-subscriptions.md)。
 
 ## <a name="event-subscription-expiration"></a>事件訂閱過期
-
-適用於 Azure CLI 的[事件方格擴充功能](/cli/azure/azure-cli-extensions-list)可讓您在建立事件訂閱時設定到期日。 如果您使用 REST API，請使用 `api-version=2018-09-15-preview`
-
 事件訂閱會在該日期之後自動過期。 針對只在限定期間內需要的事件訂閱設定到期，而您不需擔心如何清理那些訂閱。 例如，建立事件訂閱來測試案例時，您可能想要設定到期。 
 
 如需設定到期的範例，請參閱[搭配進階篩選進行訂閱](how-to-filter-events.md#subscribe-with-advanced-filters)。
@@ -82,7 +80,10 @@ Event Grid 提供訂閱主題和發佈主題的安全性。 訂閱時，您必�
 
 ## <a name="batching"></a>批次處理
 
-在使用自訂主題時，事件必須一律發佈在陣列中。 在低輸送量的案例中，這可以是單一批次，但在大量使用案例中，建議您在每次發佈時一併批次處理數個事件，以達到更高的效率。 批次最多可達 1 MB。 每個事件仍不應大於 64 KB。
+在使用自訂主題時，事件必須一律發佈在陣列中。 在低輸送量的案例中，這可以是單一批次，但在大量使用案例中，建議您在每次發佈時一併批次處理數個事件，以達到更高的效率。 批次最多可達 1 MB。 每個事件應該仍不能大於 64 KB （正式運作） 或 1 MB （預覽）。
+
+> [!NOTE]
+> 事件的大小最多 64 KB 涵蓋由公開上市 (GA) 服務等級協定 (SLA)。 之事件的大小最多支援 1 MB 目前為預覽狀態。 事件超過 64 KB 收取 64 KB 的增量方式。 
 
 ## <a name="next-steps"></a>後續步驟
 

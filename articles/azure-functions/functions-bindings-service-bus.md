@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: e1cd7d9e135f5e3196f02237076c5c8069048fb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 199ce2fe24d76595493dc2128cebb3fcb642fcab
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442727"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241155"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服務匯流排繫結
 
@@ -80,7 +80,7 @@ public static void Run(
 
 ### <a name="trigger---c-script-example"></a>觸發程序 - C# 指令碼範例
 
-下列範例示範 function.json 檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式可讀取[訊息中繼資料](#trigger---message-metadata)和記錄服務匯流排佇列訊息。
+下列範例示範 function.json  檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式可讀取[訊息中繼資料](#trigger---message-metadata)和記錄服務匯流排佇列訊息。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -120,7 +120,7 @@ public static void Run(string myQueueItem,
 
 ### <a name="trigger---f-example"></a>觸發程序 - F# 範例
 
-下列範例示範 function.json 檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [F# 函式](functions-reference-fsharp.md)。 此函式可記錄服務匯流排佇列訊息。 
+下列範例示範 function.json  檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [F# 函式](functions-reference-fsharp.md)。 此函式可記錄服務匯流排佇列訊息。 
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -148,7 +148,7 @@ let Run(myQueueItem: string, log: ILogger) =
 
 ### <a name="trigger---java-example"></a>觸發程序 - Java 範例
 
-以下 Java 函数使用 [Java 函数运行时库](/java/api/overview/azure/functions/runtime)中的 `@ServiceBusQueueTrigger` 注释来说明服务总线队列触发器的配置。 此函数获取放置在队列上的消息，然后将其添加到日志。
+下列 Java 函式會使用`@ServiceBusQueueTrigger`註解表單[Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)描述服務匯流排佇列觸發程序組態。 函式會抓取放置在佇列的訊息，並將它加入至記錄檔。
 
 ```java
 @FunctionName("sbprocessor")
@@ -162,7 +162,7 @@ let Run(myQueueItem: string, log: ILogger) =
  }
 ```
 
-将消息添加到服务总线主题时，也可触发 Java 函数。 以下示例使用 `@ServiceBusTopicTrigger` 注释来说明触发器配置。
+訊息新增至服務匯流排主題時，也會觸發 Java 函式。 下列範例會使用`@ServiceBusTopicTrigger`描述觸發程序組態的註解。
 
 ```java
 @FunctionName("sbtopicprocessor")
@@ -181,7 +181,7 @@ let Run(myQueueItem: string, log: ILogger) =
 
 ### <a name="trigger---javascript-example"></a>觸發程序 - JavaScript 範例
 
-下列範例示範 function.json 檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式可讀取[訊息中繼資料](#trigger---message-metadata)和記錄服務匯流排佇列訊息。 
+下列範例示範 function.json  檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式可讀取[訊息中繼資料](#trigger---message-metadata)和記錄服務匯流排佇列訊息。 
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -330,7 +330,7 @@ Functions 執行階段會在 [PeekLock 模式](../service-bus-messaging/service-
 |`CorrelationId`|`string`|相互關連識別碼。|
 
 > [!NOTE]
-> 目前，觸發程序僅適用於不會使用工作階段的佇列和訂用帳戶。 如需任何有關此功能的進一步更新，請追蹤[此功能項目](https://github.com/Azure/azure-functions-host/issues/563) \(英文\)。 
+> 目前，服務匯流排觸發程序可搭配已啟用的工作階段佇列和訂用帳戶會處於預覽狀態。 請追蹤[此項目](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458)有任何關於此的進一步更新。 
 
 請參閱稍早在本文中使用這些屬性的[程式碼範例](#trigger---example)。
 
@@ -384,7 +384,7 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 
 ### <a name="output---c-script-example"></a>輸出 - C# 指令碼範例
 
-下列範例示範 function.json 檔案中的服務匯流排輸出繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會使用計時器觸發程序，每隔 15 秒傳送一則佇列訊息。
+下列範例示範 function.json  檔案中的服務匯流排輸出繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會使用計時器觸發程序，每隔 15 秒傳送一則佇列訊息。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -435,7 +435,7 @@ public static void Run(TimerInfo myTimer, ILogger log, ICollector<string> output
 
 ### <a name="output---f-example"></a>輸出 - F# 範例
 
-下列範例示範 function.json 檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [F# 指令碼函式](functions-reference-fsharp.md)。 此函式會使用計時器觸發程序，每隔 15 秒傳送一則佇列訊息。
+下列範例示範 function.json  檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [F# 指令碼函式](functions-reference-fsharp.md)。 此函式會使用計時器觸發程序，每隔 15 秒傳送一則佇列訊息。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -488,7 +488,7 @@ public String pushToQueue(
 
  在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值要寫入至服務匯流排佇列的函式參數使用 `@QueueOutput` 註釋。  參數類型應為 `OutputBinding<T>`，其中 T 是任何原生 Java 類型的 POJO。
 
-Java 函数也可将内容写入服务总线主题。 以下示例使用 `@ServiceBusTopicOutput` 注释来说明输出绑定的配置。 
+Java 函式也可以寫入服務匯流排主題。 下列範例會使用`@ServiceBusTopicOutput`註解來描述輸出繫結的組態。 
 
 ```java
 @FunctionName("sbtopicsend")
@@ -507,7 +507,7 @@ Java 函数也可将内容写入服务总线主题。 以下示例使用 `@Servi
 
 ### <a name="output---javascript-example"></a>輸出 - JavaScript 範例
 
-下列範例示範 function.json 檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會使用計時器觸發程序，每隔 15 秒傳送一則佇列訊息。
+下列範例示範 function.json  檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會使用計時器觸發程序，每隔 15 秒傳送一則佇列訊息。
 
 以下是 *function.json* 檔案中的繫結資料：
 

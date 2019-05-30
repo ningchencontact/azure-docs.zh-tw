@@ -5,14 +5,14 @@ ms.service: cosmos-db
 author: kanshiG
 ms.author: sngun
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: ff6e0b6084eebf236d01b4dd00a46897687938c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7633b75bbb6d37c68a562560a6459e35d03b810
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765781"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242545"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的計量進行監視及偵錯
 
@@ -22,7 +22,7 @@ Azure Cosmos DB 為輸送量、儲存體、一致性、可用性和延遲提供�
 
 ## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>了解有多少要求成功或導致錯誤
 
-若要開始，請前往 [Azure 入口網站](https://portal.azure.com)，並瀏覽至 [計量] 刀鋒視窗。 在刀鋒視窗中，尋找**每分鐘超過容量的要求數目**圖表。 此圖表依狀態碼分段顯示每分鐘的要求總數。 如需 HTTP 狀態碼的詳細資訊，請參閱 [Azure Cosmos DB 的 HTTP 狀態碼](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) \(英文\)。
+若要開始，請前往 [Azure 入口網站](https://portal.azure.com)，並瀏覽至 [計量]  刀鋒視窗。 在刀鋒視窗中，尋找**每分鐘超過容量的要求數目**圖表。 此圖表依狀態碼分段顯示每分鐘的要求總數。 如需 HTTP 狀態碼的詳細資訊，請參閱 [Azure Cosmos DB 的 HTTP 狀態碼](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) \(英文\)。
 
 最常見的錯誤狀態碼是 429 (速率限制/節流)。 此錯誤表示對 Azure Cosmos DB 的要求數目多於佈建的輸送量。 此問題最常見的解決方案是為指定的集合[相應增加 RU](./set-throughput.md)。
 
@@ -30,11 +30,11 @@ Azure Cosmos DB 為輸送量、儲存體、一致性、可用性和延遲提供�
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>判斷所有磁碟分割中的輸送量分佈
 
-良好的磁碟分割索引鍵基數對於任何種類的可調整應用程式都很重要。 若要判斷任何分割容器的輸送量分佈且能細分至分割區，請瀏覽至 [Azure 入口網站](https://portal.azure.com)中的 [計量] 刀鋒視窗。 在 [輸送量] 索引標籤上，儲存體細目顯示在**每個實體磁碟分割每秒使用的最多 RU** 圖表中。 下圖說明資料分佈不佳的範例，如最左側有誤差的磁碟分割所示。
+良好的磁碟分割索引鍵基數對於任何種類的可調整應用程式都很重要。 若要判斷任何分割容器的輸送量分佈且能細分至分割區，請瀏覽至 [Azure 入口網站](https://portal.azure.com)中的 [計量]  刀鋒視窗。 在 [輸送量]  索引標籤上，儲存體細目顯示在**每個實體磁碟分割每秒使用的最多 RU** 圖表中。 下圖說明資料分佈不佳的範例，如最左側有誤差的磁碟分割所示。
 
 ![在下午 3:05 使用量飆升的單一磁碟分割](media/use-metrics/metrics-17.png)
 
-輸送量分佈不平均可能會造成磁碟分割過度使用，這可能會導致節流要求，而且可能需要重新分割磁碟。 如需有關在 Azure Cosmos DB 中進行磁碟分割的詳細資訊，請參閱[在 Azure Cosmos DB 中進行磁碟分割和調整](./partition-data.md)。
+輸送量分佈不平均可能會造成磁碟分割過度使用  ，這可能會導致節流要求，而且可能需要重新分割磁碟。 如需有關在 Azure Cosmos DB 中進行磁碟分割的詳細資訊，請參閱[在 Azure Cosmos DB 中進行磁碟分割和調整](./partition-data.md)。
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>判斷所有磁碟分割中的儲存體分佈
 

@@ -2,16 +2,16 @@
 title: 如何變更、 刪除或管理您的管理群組-Azure 治理
 description: 了解如何檢視、維護、更新及刪除您的管理群組階層。
 author: rthorn17
-ms.service: azure-resource-manager
-ms.date: 04/04/2019
+ms.service: governance
+ms.date: 05/22/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: b3798ec7578530e04ec9e00086fffaec9a58a7cd
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 028b4cbf62bf9ed0b3b38f54d3b787a8c1368da0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950202"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242956"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>利用管理群組來管理您的資源
 
@@ -31,13 +31,13 @@ ms.locfileid: "65950202"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 選取 [所有服務] > [管理群組]。
+1. 選取 [所有服務]   > [管理群組]  。
 
 1. 選取您需要重新命名的管理群組。
 
 1. 選取 **詳細資料**。
 
-1. 選取頁面頂端的 [重新命名群組] 選項。
+1. 選取頁面頂端的 [重新命名群組]  選項。
 
    ![在管理群組頁面上的 [重新命名群組] 選項](./media/detail_action_small.png)
 
@@ -79,13 +79,13 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 選取 [所有服務] > [管理群組]。
+1. 選取 [所有服務]   > [管理群組]  。
 
 1. 選取您要刪除的管理群組。
 
 1. 選取 **詳細資料**。
 
-1. 選取 [刪除]
+1. 選取 [刪除] 
 
     > [!TIP]
     > 如果無法使用圖示，將您的滑鼠選取器停留在圖示上會顯示原因。
@@ -96,7 +96,7 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
    ![[刪除群組] 確認視窗](./media/delete_confirm.png)
 
-1. 選取 [是]。
+1. 選取 [是]  。
 
 ### <a name="delete-in-powershell"></a>在 PowerShell 中刪除
 
@@ -122,13 +122,13 @@ az account management-group delete --name 'Contoso'
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 選取 [所有服務] > [管理群組]。
+1. 選取 [所有服務]   > [管理群組]  。
 
 1. [管理群組階層] 頁面會載入。 其中您可以瀏覽所有管理群組和訂用帳戶可以存取此頁面。 選取群組名稱即可前往階層中的下一個層級。 瀏覽方式與檔案總管相同。
 
 1. 若要查看管理群組的詳細資訊，請選取管理群組標題旁的 **(詳細資料)** 連結。 如果此連結無法使用，表示您沒有檢視該管理群組的權限。
 
-   ![主要](./media/main.png)
+   ![主要區段](./media/main.png)
 
 ### <a name="view-in-powershell"></a>在 PowerShell 中檢視
 
@@ -206,10 +206,12 @@ az account management-group show --name 'Contoso' -e -r
 若要移動訂用帳戶，下列的 RBAC 權限的所有需要為 true:
 
 - 子訂用帳戶上的「擁有者」角色。
-- 在 目標父管理 group.* 上的 「 擁有者 」、 「 參與者 」 或 「 管理群組參與者 」 角色
-- 在現有的父管理 group.* 上的 「 擁有者 」、 「 參與者 」 或 「 管理群組參與者 」 角色
+- 目標父管理群組上的 「 擁有者 」、 「 參與者 」 或 「 管理群組參與者 」 角色。
+- 在現有的父管理群組上的 「 擁有者 」、 「 參與者 」 或 「 管理群組參與者 」 角色。
 
-*：除非目標或現有的父管理群組是根管理群組。 由於根管理群組的預設登陸找出所有新的管理群組和訂用帳戶，使用者不需要移動項目在其上的權限。
+如果目標或現有的父管理群組是根管理群組，則不適用的權限需求。 由於根管理群組的預設登陸找出所有新的管理群組和訂用帳戶，您不需要移動項目在其上的權限。
+
+如果訂用帳戶擁有者角色繼承自目前的管理群組中，您的移動目標會受到限制。 您只能移動訂用帳戶至另一個管理群組必須擁有者角色。 您無法將它移至管理群組您是因為您會失去訂用帳戶的擁有權的參與者。 如果您直接指派 （未繼承自管理群組） 的訂用帳戶的擁有者角色，您可以移到任何管理群組，您會為參與者。
 
 若要查看哪些權限您在 Azure 入口網站中，選取管理群組，然後選取**IAM**。 若要深入了解 RBAC 角色，請參閱[使用 RBAC 管理存取權與權限](../../role-based-access-control/overview.md)。
 
@@ -219,11 +221,11 @@ az account management-group show --name 'Contoso' -e -r
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 選取 [所有服務] > [管理群組]。
+1. 選取 [所有服務]   > [管理群組]  。
 
 1. 選取您計畫要作為父代的管理群組。
 
-1. 在頁面頂端，選取 [新增訂用帳戶]。
+1. 在頁面頂端，選取 [新增訂用帳戶]  。
 
 1. 在清單中選取具有正確識別碼的訂用帳戶。
 
@@ -235,7 +237,7 @@ az account management-group show --name 'Contoso' -e -r
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 選取 [所有服務] > [管理群組]。
+1. 選取 [所有服務]   > [管理群組]  。
 
 1. 選取您正在規劃且目前為父代的管理群組。  
 
@@ -243,7 +245,7 @@ az account management-group show --name 'Contoso' -e -r
 
    ![移動管理群組上的選項](./media/move_small.png)
 
-1. 選取 [移動]。
+1. 選取 [移動]  。
 
 1. 在開啟的功能表上，選取**父管理群組**。
 
@@ -287,11 +289,11 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 選取 [所有服務] > [管理群組]。
+1. 選取 [所有服務]   > [管理群組]  。
 
 1. 選取您計畫要作為父代的管理群組。
 
-1. 在頁面頂端，選取 [新增管理群組]。
+1. 在頁面頂端，選取 [新增管理群組]  。
 
 1. 在開啟的功能表中，選取是要新的管理群組還是使用現有管理群組。
 
@@ -325,7 +327,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 ![使用管理群組的活動記錄](media/al-mg.png)
 
-在 Azure 入口網站外部查詢管理群組時，管理群組的目標範圍像是 **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**。
+在 Azure 入口網站外部查詢管理群組時，管理群組的目標範圍像是 **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** 。
 
 ## <a name="referencing-management-groups-from-other-resource-providers"></a>參考來自其他資源提供者的管理群組
 

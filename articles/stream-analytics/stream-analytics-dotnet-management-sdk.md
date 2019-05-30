@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4fa4a9a8d01d499dc431c8b182401226aa72bf1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2da78f5c750dbc694085bb46a6ed43e74884d45
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479995"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303043"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>管理 .NET SDK：透過適用於 .NET 的 Azure 串流分析 API 來設定及執行分析作業
 了解如何使用管理 .NET SDK，透過適用於 .NET 的串流分析 API 來設定及執行分析作業。 設定專案，建立輸入與輸出來源、轉換，以及開始和停止工作。 對於您的分析工作，您可以從 Blob 儲存體或從事件中樞串流資料。
@@ -27,11 +27,11 @@ Azure 資料流分析是完全受控的服務，可用來對雲端中的串流�
 > 我們已將本文中的範例程式碼更新為 Azure 串流分析管理 .NET SDK v2.x 版本。 如需查看使用舊版 (1.x) SDK 的範例程式碼，請參閱[使用適用於串流分析的管理 .NET SDK v1.x](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1)。
 
 ## <a name="prerequisites"></a>必要條件
-開始閱讀本文之前，您必須符合下列必要條件：
+開始閱讀本文之前，您必須具有下列需求：
 
-* 安裝 Visual Studio 2017 或 2015。
+* 安裝 Visual Studio 2019 或 2015年。
 * 下載並安裝 [Azure .NET SDK](https://azure.microsoft.com/downloads/)。
-* 在您的訂用帳戶中建立「Azure 資源群組」。 下列是 PowerShell 指令碼範例。 如需 Azure PowerShell 資訊，請參閱 [安裝並設定 Azure PowerShell](/powershell/azure/overview)。  
+* 在您的訂用帳戶中建立「Azure 資源群組」。 下列範例是 Azure PowerShell 指令碼範例。 如需 Azure PowerShell 資訊，請參閱 [安裝並設定 Azure PowerShell](/powershell/azure/overview)。  
 
    ```powershell
    # Log in to your Azure account
@@ -50,7 +50,7 @@ Azure 資料流分析是完全受控的服務，可用來對雲端中的串流�
 * 設定要讓工作連線的輸入來源和輸出目標。
 
 ## <a name="set-up-a-project"></a>設定專案
-您必須先設定自己的專案，才能透過適用於 .NET 的串流分析 API 來建立分析工作。
+若要建立的分析作業，使用 Stream Analytics API for.NET，第一次設定您的專案。
 
 1. 建立 Visual Studio C# .NET 主控台應用程式。
 2. 在 Package Manager Console 中，執行下列命令以安裝 NuGet 封裝。 第一個是 Azure 串流分析管理 .NET SDK。 第二個用於 Azure 用戶端驗證。
@@ -211,7 +211,7 @@ Azure 資料流分析是完全受控的服務，可用來對雲端中的串流�
    ```
 
 ## <a name="create-a-stream-analytics-output-target"></a>建立資料流分析輸出目標
-建立輸出目標與建立資料流分析輸入來源非常類似。 和輸入來源一樣，輸出目標會繫結至特定工作。 若要在不同的工作中使用相同的輸出目標，您必須重新呼叫此方法，並指定不同的工作名稱。
+建立輸出目標是類似於建立 Stream Analytics 的輸入的來源。 和輸入來源一樣，輸出目標會繫結至特定工作。 若要在不同的工作中使用相同的輸出目標，您必須重新呼叫此方法，並指定不同的工作名稱。
 
 下列程式碼會建立輸出目標 (Azure SQL 資料庫)。 您可以自訂輸出目標的資料類型和/或序列化類型。
 

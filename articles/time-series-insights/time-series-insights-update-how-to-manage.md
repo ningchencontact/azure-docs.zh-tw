@@ -2,7 +2,7 @@
 title: 佈建及管理 Azure 時間序列深入解析預覽版 | Microsoft Docs
 description: 了解如何佈建及管理 Azure 時間序列深入解析預覽版。
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce24fb8c62432e50fe04de23d2abbee1ec120c6c
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 6251df2317ceff9dded92f2d829bfab0503fdf1b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471634"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237595"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>佈建及管理 Azure 時間序列深入解析預覽版
 
@@ -43,7 +43,7 @@ Azure 時間序列深入解析預覽版環境是預付型 (PAYG) 環境。
 
 下列步驟說明如何建立 Azure 時間序列深入解析預覽版環境：
 
-1. 選取 [SKU] 功能表下的 [預付型]。 提供環境名稱，並選擇要使用的訂用帳戶群組與資源群組。 接著，選取要在其中裝載環境的支援位置。
+1. 選取 [SKU]  功能表下的 [預付型]  。 提供環境名稱，並選擇要使用的訂用帳戶群組與資源群組。 接著，選取要在其中裝載環境的支援位置。
 
    [![建立 Azure Time Series Insights 執行個體。](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
 
@@ -77,16 +77,16 @@ Azure 時間序列深入解析預覽版環境是預付型 (PAYG) 環境。
 
 您可以使用 Azure 入口網站管理 Azure 時間序列深入解析預覽版環境。 這裡提供使用 Azure 入口網站，管理預付型 Azure 時間序列深入解析預覽版環境與 S1 或 S2 環境的主要差異：
 
-* Azure 入口網站的 [概觀] 刀鋒視窗在 Azure 時間序列深入解析中不會變更，但下列方式除外：
+* Azure 入口網站的 [概觀]  刀鋒視窗在 Azure 時間序列深入解析中不會變更，但下列方式除外：
   * 已移除容量，因為此概念不適用於預付型環境。
   * 已新增時間序列識別碼屬性。 它會決定分割您的資料的方式。
   * 已移除參考資料集。
   * 顯示的 URL 會將您導向 [Azure 時間序列深入解析預覽版總管](./time-series-insights-update-explorer.md)。
   * 已列出您的 Azure 儲存體帳戶名稱。
 
-* 在 Azure 時間序列深入解析預覽版中，已移除 Azure 入口網站的 [設定] 刀鋒視窗，因為無法設定預付型環境。
+* 在 Azure 時間序列深入解析預覽版中，已移除 Azure 入口網站的 [設定]  刀鋒視窗，因為無法設定預付型環境。
 
-* 在 Azure 時間序列深入解析預覽版中，已移除 Azure 入口網站的 [參考] 資料刀鋒視窗，因為參考資料不是預付型環境的元件。
+* 在 Azure 時間序列深入解析預覽版中，已移除 Azure 入口網站的 [參考]  資料刀鋒視窗，因為參考資料不是預付型環境的元件。
 
 [![在 Azure 入口網站中的時間序列深入解析預覽環境](media/v2-update-manage/manage_four.PNG)](media/v2-update-manage/manage_four.PNG#lightbox)
 

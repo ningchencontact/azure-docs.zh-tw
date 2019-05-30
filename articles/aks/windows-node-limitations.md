@@ -2,17 +2,17 @@
 title: Windows Server 節點集區 Azure Kubernetes Service (AKS) 中的限制
 description: 了解已知的限制，當您執行 Windows Server 的節點集區和應用程式工作負載在 Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: tylermsft
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: 3d249271995d96307722dadf6b3e012e63565e6a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.author: twhitney
+ms.openlocfilehash: 34ece6e49332f781f688a8741db3514faf8c9a25
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956273"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304400"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Windows Server 節點集區和應用程式工作負載在 Azure Kubernetes Service (AKS) 目前的限制
 
@@ -21,9 +21,10 @@ Azure Kubernetes Service (AKS) 中，您可以建立在節點執行客體 OS 的
 這篇文章會說明一些限制和 AKS 中的 Windows 伺服器節點的作業系統概念。 適用於 Windows Server 的節點集區目前為預覽狀態。
 
 > [!IMPORTANT]
-> AKS 預覽功能是自助服務和選用功能。 預覽可供收集從我們的社群的意見及 bug。 不過，它們不是支援 Azure 技術支援。 如果您建立叢集，或將這些功能加入到現有的叢集，該叢集不支援此功能不再處於預覽狀態，並發展至公開上市 (GA) 之前。
+> AKS 預覽功能包括自助、 選擇加入。 它們可供收集從我們的社群的意見及 bug。 在預覽中，這些功能不適用於實際執行環境。 在公開預覽功能底下 '盡力' 支援。 AKS 技術支援小組的協助時可使用營業時間太平洋 」 (PST) 僅限 timezone。 如需詳細資訊，請參閱下列支援文章：
 >
-> 如果您遇到問題，使用預覽功能[開立 AKS GitHub 儲存機制][ aks-github] bug 標題中的預覽功能的名稱。
+> * [AKS 支援原則][aks-support-policies]
+> * [Azure 支援常見問題集][aks-faq]
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>適用於在 Kubernetes 中的 Windows Server 的限制
 
@@ -57,6 +58,8 @@ Windows Server 容器必須在以 Windows 為基礎的容器主機上執行。 �
 - 在 AKS 中的預覽功能，例如網路原則與叢集 autoscaler 未背書、 適用於 Windows Server 節點。
 - 輸入控制器，始應排程在使用 NodeSelector 的 Linux 節點上。
 - Azure 開發人員空間是目前僅適用於以 Linux 為基礎的節點集區。
+- 群組受管理的服務帳戶 (gMSA) 支援的 Windows Server 節點未加入 Active Directory 網域時不 AKS 中目前可用。
+    - 開放原始碼，上游[aks 引擎][ aks-engine]專案目前並未提供 gMSA 的支援，如果您要使用這項功能。
 
 ## <a name="os-concepts-that-are-different"></a>不同的 OS 概念
 
@@ -74,11 +77,13 @@ Kubernetes 是過去以 Linux 為主。 許多範例用於上游[Kubernetes.io] 
 
 <!-- LINKS - external -->
 [upstream-limitations]: https://kubernetes.io/docs/setup/windows/#limitations
-[aks-github]: https://github.com/azure/aks/issues]
 [kubernetes]: https://kubernetes.io
+[aks-engine]: https://github.com/azure/aks-engine
 
 <!-- LINKS - internal -->
 [azure-network-models]: concepts-network.md#azure-virtual-networks
 [configure-azure-cni]: configure-azure-cni.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [windows-node-cli]: windows-container-cli.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

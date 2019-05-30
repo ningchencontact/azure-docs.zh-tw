@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3167f60cca9997c9713efad0fbb8a51b20def76b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: e57133a750e282484271261d8e4ddb9a12de2a0e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151170"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242430"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -37,6 +37,7 @@ ms.locfileid: "66151170"
 您執行這些步驟，使用下列其中一項：
 + [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
++ [Azure Machine Learning VS Code 擴充功能](how-to-vscode-tools.md)
 +  [Azure Machine Learning 服務的視覺化介面 （預覽）](ui-concept-visual-interface.md)
 
 > [!NOTE]
@@ -162,7 +163,7 @@ Azure Machine Learning 資料集 （預覽） 讓您更輕鬆地存取及處理�
 
 提交回合時，Azure Machine Learning 會將包含指令碼的目錄壓縮成 zip 檔案，然後傳送至計算目標。 接著會將 zip 檔案解壓縮並在該處執行指令碼。 Azure Machine Learning 也會將 zip 檔案以快照方式儲存在回合記錄中。 任何擁有工作區存取權的人都能瀏覽回合記錄並下載快照集。
 
-## <a name="activity"></a>活動
+## <a name="activity"></a>activities
 
 活動代表長時間執行的作業。 下列作業為活動範例：
 

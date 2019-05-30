@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: 8142caf867ffe811726677fb1dcbadc7d1458251
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0582fa8b26bee05e4d2948037cc39a71ed656fce
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793557"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243959"
 ---
 # <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>什麼是 Azure HDInsight 中的企業安全性套件
 
@@ -36,7 +36,7 @@ ms.locfileid: "65793557"
 透過 VPN 閘道服務可以達成另一層的周邊安全性。 閘道是做為第一道防線，可抵禦任何對於 HDInsight 叢集的連入要求。 它會接受要求，驗證要求，之後才讓要求傳遞給叢集中的其他節點。 如此一來，閘道就可提供叢集中其他名稱和資料節點的周邊安全性。
 
 ## <a name="authentication"></a>Authentication
-企業系統管理員可以在[虛擬網路](https://azure.microsoft.com/services/virtual-network/)中建立具有 ESP 的 HDInsight 叢集。 HDInsight 叢集的所有節點都會加入企業所管理的網域。 透過使用 [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md) 即可達成此目的。 
+企業系統管理員可以在[虛擬網路](https://azure.microsoft.com/services/virtual-network/)中建立具有 ESP 的 HDInsight 叢集。 HDInsight 叢集的所有節點都會加入企業所管理的網域。 透過使用 [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md) 即可達成此目的。 
 
 透過此設定，企業員工可以登入叢集節點使用其網域認證。 他們也可以使用其網域認證向其他已核准的端點 (例如 Apache Ambari 檢視、ODBC、JDBC、PowerShell 和 REST API) 進行驗證，以與叢集進行互動。 系統管理員可以完全控制透過這些端點與叢集互動的使用者數量。
 

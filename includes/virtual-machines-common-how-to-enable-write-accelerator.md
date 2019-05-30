@@ -5,15 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/22/2019
+ms.date: 05/23/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 72d9ec52732a78e39f6481e2cb2d40f17f86f028
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 7b9b30f1598f7e50d25b15aaf2fda896ee9e5012
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147421"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248916"
 ---
 # <a name="enable-write-accelerator"></a>啟用寫入加速器
 
@@ -48,13 +48,14 @@ ms.locfileid: "66147421"
 
 | VM SKU | 寫入加速器磁碟的數目 | 每個 VM 的寫入加速器磁碟 IOPS |
 | --- | --- | --- |
+| M208ms_v2, M208s_v2| 8 | 10000 |
 | M128ms，128s | 16 | 20000 |
 | M64ms，M64ls，M64s | 8 | 10000 |
 | M32ms，M32ls，M32ts，M32s | 4 | 5000 |
 | M16ms，M16s | 2 | 2500 |
 | M8ms，M8s | 1 | 1250 |
 
-IOPS 限制是針對每部虛擬機器而「不是」每個磁碟。 所有寫入加速器磁碟都會共用相同的每部虛擬機器 IOPS 限制。
+IOPS 限制是針對每部虛擬機器而「不是」  每個磁碟。 所有寫入加速器磁碟都會共用相同的每部虛擬機器 IOPS 限制。
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>在特定磁碟上啟用寫入加速器
 

@@ -3,16 +3,16 @@ title: 診斷和 Azure Functions 中使用 Azure Cosmos DB 觸發程序時，針
 description: 常見的問題、 因應措施，並使用 Azure Functions 使用 Azure Cosmos DB 觸發程序時的診斷步驟
 author: ealsur
 ms.service: cosmos-db
-ms.date: 04/16/2019
+ms.date: 05/23/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e8f0b9c8bf1bfb846f13306f58bcb1721ed6b422
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 66eff6ee603ced03a8f4d75d4569752e0b11a6e7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510535"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242523"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>診斷和 Azure Functions 中使用 Azure Cosmos DB 觸發程序時，針對問題進行疑難排解
 

@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd78e98c37bea0fed1787e1e07a026fa35597f47
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 24e933399454942f4ee50440cffd791599679074
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65593921"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299151"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>作法：在您的應用程式中新增應用程式角色，並且在權杖中接收這些角色
 
@@ -39,15 +39,15 @@ ms.locfileid: "65593921"
 ### <a name="declare-app-roles-using-azure-portal"></a>使用 Azure 入口網站宣告應用程式角色
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 在頂端列上，選取您的帳戶，然後 [切換目錄]。
-1. [目錄 + 訂用帳戶] 窗格開啟後，從 [我的最愛] 或 [所有目錄] 清單中，選擇您要註冊應用程式的 Active Directory 租用戶。
-1. 選取左側導覽區中的 [所有服務]，然後選擇 [Azure Active Directory]。
-1. 在 [Azure Active Directory] 窗格中，選取 [應用程式註冊] 以檢視所有應用程式的清單。
+1. 在頂端列上，選取您的帳戶，然後 [切換目錄]  。
+1. [目錄 + 訂用帳戶]  窗格開啟後，從 [我的最愛]  或 [所有目錄]  清單中，選擇您要註冊應用程式的 Active Directory 租用戶。
+1. 選取左側導覽區中的 [所有服務]  ，然後選擇 [Azure Active Directory]  。
+1. 在 [Azure Active Directory]  窗格中，選取 [應用程式註冊]  以檢視所有應用程式的清單。
 
-     如果看不到您希望在此顯示的應用程式，請使用 [應用程式註冊] 清單頂端的各種篩選條件來限制清單，或向下捲動清單以找出您的應用程式。
+     如果看不到您希望在此顯示的應用程式，請使用 [應用程式註冊]  清單頂端的各種篩選條件來限制清單，或向下捲動清單以找出您的應用程式。
 
 1. 選取您要在其中定義應用程式角色的應用程式。
-1. 在應用程式的刀鋒視窗中，選取 [資訊清單]。
+1. 在應用程式的刀鋒視窗中，選取 [資訊清單]  。
 1. 找出 `appRoles` 設定並新增所有的應用程式角色，以編輯應用程式資訊清單。
 
      > [!NOTE]
@@ -84,7 +84,7 @@ ms.locfileid: "65593921"
 > [!NOTE]
 >`displayName`不能包含空格。
 
-您可以將應用程式角色定義成以 `users`、`applications` 或兩者為目標。 可供 `applications` 使用時，應用程式角色就會在 [必要權限] 刀鋒視窗中顯示為應用程式權限。 下列範例顯示以 `Application` 為目標的應用程式角色。
+您可以將應用程式角色定義成以 `users`、`applications` 或兩者為目標。 可供 `applications` 使用時，應用程式角色就會在 [必要權限]  刀鋒視窗中顯示為應用程式權限。 下列範例顯示以 `Application` 為目標的應用程式角色。
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -93,7 +93,7 @@ ms.locfileid: "65593921"
       "allowedMemberTypes": [
         "Application"
       ],
-      "displayName": "Consumer Apps",
+      "displayName": "ConsumerApps",
       "id": "47fbb575-859a-4941-89c9-0f7a6c30beac",
       "isEnabled": true,
       "description": "Consumer apps have access to the consumer data.",
@@ -109,23 +109,23 @@ ms.locfileid: "65593921"
 
 在應用程式中新增應用程式角色之後，您即可將使用者和群組指派給這些角色。
 
-1. 在 [Azure Active Directory] 窗格中，選取 [Azure Active Directory] 左側導覽功能表中的 [企業應用程式]。
-1. 選取 [所有應用程式]，以檢視所有應用程式的清單。
+1. 在 [Azure Active Directory]  窗格中，選取 [Azure Active Directory]  左側導覽功能表中的 [企業應用程式]  。
+1. 選取 [所有應用程式]  ，以檢視所有應用程式的清單。
 
-     如果看不到您希望在此顯示的應用程式，請使用 [所有應用程式] 清單頂端的各種篩選條件來限制清單，或向下捲動清單以找出您的應用程式。
+     如果看不到您希望在此顯示的應用程式，請使用 [所有應用程式]  清單頂端的各種篩選條件來限制清單，或向下捲動清單以找出您的應用程式。
 
 1. 選取您想要在其中將使用者或安全性群組指派給角色的應用程式。
-1. 選取應用程式左側導覽功能表中的 [使用者和群組] 窗格。
-1. 在 [使用者和群組] 清單頂端，選取 [新增使用者] 按鈕，以開啟 [新增指派] 窗格。
-1. 選取 [新增指派] 窗格中的 [使用者和群組] 選取器。
+1. 選取應用程式左側導覽功能表中的 [使用者和群組]  窗格。
+1. 在 [使用者和群組]  清單頂端，選取 [新增使用者]  按鈕，以開啟 [新增指派]  窗格。
+1. 選取 [新增指派]  窗格中的 [使用者和群組]  選取器。
 
      將會顯示使用者和安全性群組清單，以及用來搜尋並找出特定使用者或群組的文字方塊。 此畫面可讓您一次選取多個使用者和群組。
 
-1. 在您選好使用者和群組後，請按 [選取] 底部的按鈕以移至下一個部分。
-1. 選擇 [新增指派] 窗格中的 [選取角色] 選取器。 將會顯示先前在應用程式資訊清單中宣告的所有角色。
-1. 選擇角色，然後按 [選取] 按鈕。
-1. 按底部的 [指派] 按鈕，即可將使用者和群組指派給應用程式。
-1. 確認您新增的使用者和群組有顯示在更新後的 [使用者和群組] 清單中。
+1. 在您選好使用者和群組後，請按 [選取]  底部的按鈕以移至下一個部分。
+1. 選擇 [新增指派]  窗格中的 [選取角色]  選取器。 將會顯示先前在應用程式資訊清單中宣告的所有角色。
+1. 選擇角色，然後按 [選取]  按鈕。
+1. 按底部的 [指派]  按鈕，即可將使用者和群組指派給應用程式。
+1. 確認您新增的使用者和群組有顯示在更新後的 [使用者和群組]  清單中。
 
 ## <a name="more-information"></a>詳細資訊
 

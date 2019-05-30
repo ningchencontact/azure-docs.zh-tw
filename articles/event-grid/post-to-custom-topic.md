@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 14ae5f2a0b6a950889d8587cd4d03ff4fc9a171b
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162044"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304203"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>針對 Azure Event Grid 張貼到自訂主題
 
@@ -76,7 +76,10 @@ az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --quer
 ]
 ```
 
-如需這些屬性的說明，請參閱 [Azure Event Grid 事件結構描述](event-schema.md)。 張貼事件到事件方格主題時，陣列總大小最大為 1 MB。 陣列中的每個事件會限制為 64 KB。
+如需這些屬性的說明，請參閱 [Azure Event Grid 事件結構描述](event-schema.md)。 張貼事件到事件方格主題時，陣列總大小最大為 1 MB。 陣列中的每個事件會限制為 64 KB （正式運作） 或 1 MB （預覽）。
+
+> [!NOTE]
+> 事件的大小最多 64 KB 涵蓋由公開上市 (GA) 服務等級協定 (SLA)。 之事件的大小最多支援 1 MB 目前為預覽狀態。 事件超過 64 KB 收取 64 KB 的增量方式。 
 
 例如，有效的事件資料結構描述為：
 
@@ -94,11 +97,11 @@ az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --quer
 }]
 ```
 
-## <a name="response"></a>回應
+## <a name="response"></a>Response
 
 在張貼到主題端點之後，您會收到回應。 回應是標準的 HTTP 回應碼。 一些常見回應有：
 
-|結果  |回應  |
+|結果  |Response  |
 |---------|---------|
 |成功  | 200 確定  |
 |事件資料的格式不正確 | 400 不正確的要求 |

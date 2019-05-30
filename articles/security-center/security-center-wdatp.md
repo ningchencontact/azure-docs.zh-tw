@@ -3,7 +3,7 @@ title: Windows Defender 進階威脅防護與 Azure 資訊安全中心
 description: 本文件會介紹 Azure 資訊安全中心與 Windows Defender 進階威脅防護的整合。
 services: security-center
 documentationcenter: na
-author: barclayn
+author: monhaber
 manager: barbkess
 editor: ''
 ms.service: security-center
@@ -11,21 +11,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
-ms.author: barclayn
-ms.openlocfilehash: 75ca1401f72e00454dc3355d31c8b8ea64669a72
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/27/2018
+ms.author: monhaber
+ms.openlocfilehash: 8511f8987368d5746373f71e9f553013e385e0ee
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129122"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258560"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender 進階威脅防護與 Azure 資訊安全中心
 
 Azure 資訊安全中心正在透過與 [Windows Defender 進階威脅防護](https://www.microsoft.com/en-us/WindowsForBusiness/windows-atp) (ATP) 進行整合，來擴展其雲端工作負載防護平台的服務。
 這項變革可讓端點偵測和回應 (EDR) 功能更臻完善。 進行 Windows Defender ATP 整合後，您可以找出異常狀況。 您也可以偵測及回應 Azure 資訊安全中心監視的伺服器端點上的進階攻擊。
 
-Azure 資訊安全中心的客戶現在可以使用 Windows Defender ATP 中的功能：
+## <a name="windows-defender-atp-features-in-security-center"></a>在資訊安全中心的 Windows Defender ATP 功能
+
+當您使用 Windows Defender ATP 可以：
 
 - **新一代後缺口偵測感應器**：Windows 伺服器的 Windows Defender ATP 感應器可收集大量行為訊號陣列。
 
@@ -53,23 +55,23 @@ Azure 資訊安全中心的客戶現在可以使用 Windows Defender ATP 中的�
 
 ## <a name="platform-support"></a>平台支援
 
-這項功能支援 Windows Server 2012 R2 和 Windows Server 2016 的偵測作業。
+在資訊安全中心的 Windows Defender ATP 支援偵測在 Windows Server 2012 R2 和 Windows Server 2016 作業系統屬於標準服務訂用帳戶。
 
-僅支援標準服務層級的訂用帳戶伺服器。
+> [!NOTE]
+> 當您使用 Azure 資訊安全中心監視的伺服器時，會自動建立 Windows Defender ATP 租用戶與 Windows Defender ATP 資料根據預設，會儲存在歐洲。 如果您需要將資料移至另一個位置，您需要連絡 Microsoft 支援服務以重設租用戶。
 
 ## <a name="onboarding-servers-to-security-center"></a>讓伺服器在資訊安全中心上線 
 
-若要讓伺服器在資訊安全中心上線，從 Windows Defender ATP 伺服器上線按一下 [移至 Azure 資訊安全中心以讓伺服器上線]。
+若要讓伺服器在資訊安全中心上線，從 Windows Defender ATP 伺服器上線按一下 [移至 Azure 資訊安全中心以讓伺服器上線]  。
 
-1. 在 [上線] 刀鋒視窗中，選取或建立工作區 (即資料儲存位置)。 <br>
+1. 在 [上線]  刀鋒視窗中，選取或建立工作區 (即資料儲存位置)。 <br>
 2. 如果您看不到所有的工作區，可能是因為權限不足，請確定您的工作區設定為 Azure 安全性標準層。 如需詳細資訊，請參閱[升級為 Azure 資訊安全中心標準層以增強安全性](security-center-pricing.md)。
     
-3. 選取 [新增伺服器] 以檢視如何安裝 Microsoft Monitoring Agent 的指示。 
+3. 選取 [新增伺服器]  以檢視如何安裝 Microsoft Monitoring Agent 的指示。 
 
-4. 上線之後，您可以在 [計算與應用程式] 底下監視電腦。
+4. 上線之後，您可以在 [計算與應用程式]  底下監視電腦。
 
    ![上線的電腦](media/security-center-wdatp/onboard-computers.png)
-
 
 ## <a name="enable-windows-defender-atp-integration"></a>啟用 Windows Defender ATP 整合
 

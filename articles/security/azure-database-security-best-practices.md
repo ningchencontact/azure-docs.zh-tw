@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: b4744201f506730303e190783acc60bfaa383720
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9cd02172af5246c60b93a6e4696988268abed506
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409815"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258689"
 ---
 # <a name="azure-database-security-best-practices"></a>Azure 資料庫安全性最佳做法
 這篇文章描述資料庫安全性最佳的作法。
@@ -165,6 +165,10 @@ Azure AD 驗證是使用 Azure AD 中的身分識別來連線到 Azure SQL Datab
 - 偵測並回應潛在威脅。
 
 此外，威脅偵測整合警示與 Azure 資訊安全中心，可以集中檢視所有 Azure 資源的安全性狀態。
+
+## <a name="enable-feature-restrictions"></a>啟用功能的限制
+
+在您的資料庫中所包含的資料可以公開使用運用資料庫錯誤，以及查詢執行時間的攻擊媒介的攻擊者。 Azure SQL Database 提供功能限制機制來保護您的資料庫的數目。 若要進一步了解，請參閱[SQL Database 功能限制](../sql-database/sql-database-feature-restrictions.md)。
 
 ## <a name="next-steps"></a>後續步驟
 如需更多安全性最佳做法，請參閱 [Azure 安全性最佳做法與模式](security-best-practices-and-patterns.md)，以便在使用 Azure 設計、部署和管理雲端解決方案時使用。

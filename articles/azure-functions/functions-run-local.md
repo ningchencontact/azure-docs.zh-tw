@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: fe483f00c5711c2b2b62add32e951d26f732de2f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 3c8d64f34f01e4339b27bdeba455fac143ad53ff
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131420"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241163"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -151,7 +151,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` 支援下列選項 (僅限用於 2.x 版，除非另有指定)：
 
-| 選項     | 說明                            |
+| 選項     | 描述                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | 初始化 C# 指令碼 (.csx) 專案。 您必須在後續的命令中指定 `--csx`。 |
 | **`--docker`** | 使用以選擇的 `--worker-runtime` 為基礎的基底映像，為容器建立 Dockerfile。 如果您要發佈至自訂 Linux 容器，請使用此選項。 |
@@ -186,8 +186,8 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
   },
   "Host": {
     "LocalHttpPort": 7071,
-    "CORS": "*"
-    "CORSCredentials": true
+    "CORS": "*",
+    "CORSCredentials": false
   },
   "ConnectionStrings": {
     "SQLConnectionString": "<sqlclient-connection-string>"
@@ -195,7 +195,7 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 }
 ```
 
-| 設定      | 說明                            |
+| 設定      | 描述                            |
 | ------------ | -------------------------------------- |
 | **`IsEncrypted`** | 當設定為`true`，所有的值會使用本機電腦金鑰加密。 需搭配 `func settings` 命令使用。 預設值為 `false`。 |
 | **`Values`** | 於本機執行時使用的應用程式設定集合與連接字串。 這些值會對應至在 Azure 中，函數應用程式中的應用程式設定這類[ `AzureWebJobsStorage` ]。 許多觸發程序和繫結具有的屬性，是指連接字串的應用程式設定，像是`Connection`for [Blob 儲存體觸發程序](functions-bindings-storage-blob.md#trigger---configuration)。 對於這類屬性中，您需要應用程式設定中定義`Values`陣列。 <br/>[`AzureWebJobsStorage`] 必要的應用程式，設定 HTTP 以外的觸發程序。 <br/>版本 2.x 的 Functions 執行階段需要[ `FUNCTIONS_WORKER_RUNTIME` ]核心工具為您的專案產生的設定。 <br/> 當您擁有[Azure 儲存體模擬器](../storage/common/storage-use-emulator.md)安裝在本機，您可以設定[ `AzureWebJobsStorage` ]至`UseDevelopmentStorage=true`和 Core Tools 會使用模擬器。 此功能在開發期間非常實用，但您應在部署前先透過實際的儲存體連接進行測試。 |
@@ -221,7 +221,7 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 
 即使使用儲存體模擬器進行開發，您可能想要透過實際的儲存體連接進行測試。 假設您已經[建立了儲存體帳戶](../storage/common/storage-create-storage-account.md)，您可以透過下列其中一種方式取得有效的儲存體連接字串：
 
-+ 從 [Azure 入口網站]。 瀏覽至您的儲存體帳戶，並在 **[設定]** 中選取 **[存取金鑰]**，然後複製其中一個**連接字串**值。
++ 從 [Azure 入口網站]。 瀏覽至您的儲存體帳戶，並在 **[設定]** 中選取 **[存取金鑰]** ，然後複製其中一個**連接字串**值。
 
   ![從 Azure 入口網站複製連接字串](./media/functions-run-local/copy-storage-connection-portal.png)
 
@@ -280,7 +280,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 您也可以使用下列引數，在命令中指定這些選項：
 
-| 引數     | 說明                            |
+| 引數     | 描述                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (2.x 版) 產生 1.x 版中和入口網站中所使用的相同 C# 指令碼 (.csx) 範本。 |
 | **`--language -l`**| 範本程式語言，例如 C#、F# 或 JavaScript。 這是 1.x 版中的必要選項。 在 2.x 版中請勿使用此選項，或選擇符合背景工作執行階段的語言。 |
@@ -311,7 +311,7 @@ func host start
 
 `func host start` 支援下列選項：
 
-| 選項     | 說明                            |
+| 選項     | 描述                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | 執行前請勿建置目前的專案。 僅適用於 dotnet 專案。 預設會設定為 false。 僅限 2.x 版。 |
 | **`--cert`** | 包含私密金鑰的 .pfx 檔案路徑。 僅能與 `--useHttps` 搭配使用。 僅限 2.x 版。 |
@@ -374,7 +374,7 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azu
 
 #### <a name="non-http-triggered-functions"></a>非 HTTP 觸發函式
 
-對於 HTTP 觸發程序和 Webhook 以外的所有函式類型，您可以呼叫管理端點在本機測試函式。 在本機伺服器上使用 HTTP POST 要求來呼叫此端點會觸發函式。 您可以在 POST 要求本文中選擇性地傳遞測試資料到執行程序。 這項功能類似於 Azure 入口網站中的 [測試] 索引標籤。
+對於 HTTP 觸發程序和 Webhook 以外的所有函式類型，您可以呼叫管理端點在本機測試函式。 在本機伺服器上使用 HTTP POST 要求來呼叫此端點會觸發函式。 您可以在 POST 要求本文中選擇性地傳遞測試資料到執行程序。 這項功能類似於 Azure 入口網站中的 [測試]  索引標籤。
 
 您可以呼叫下列系統管理員端點來觸發非 HTTP 函式：
 
@@ -399,11 +399,11 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 >[!IMPORTANT]
 > 工具的版本 2.x 不支援 `func run` 命令。 如需詳細資訊，請參閱[如何設定 Azure Functions 執行階段版本目標](set-runtime-version.md)主題。
 
-您也可以使用 `func run <FunctionName>` 直接叫用函式，並為函式提供輸入資料。 此命令類似於使用 Azure 入口網站中的 [測試] 索引標籤執行函式。
+您也可以使用 `func run <FunctionName>` 直接叫用函式，並為函式提供輸入資料。 此命令類似於使用 Azure 入口網站中的 [測試]  索引標籤執行函式。
 
 `func run` 支援下列選項：
 
-| 選項     | 說明                            |
+| 選項     | 描述                            |
 | ------------ | -------------------------------------- |
 | **`--content -c`** | 內嵌內容。 |
 | **`--debug -d`** | 在執行函式之前，請先將偵錯工具附加到主機處理序。|
@@ -443,14 +443,14 @@ func azure functionapp publish <FunctionAppName>
 
 下列專案發佈選項同時適用於 1.x 和 2.x 版：
 
-| 選項     | 說明                            |
+| 選項     | 描述                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  將 local.settings.json 中的設定發佈至 Azure，若設定已經存在，則提示進行覆寫。 如果您使用儲存體模擬器，請將應用程式設定變更為[實際的儲存體連接](#get-your-storage-connection-strings)。 |
 | **`--overwrite-settings -y`** | 在使用 `--publish-local-settings -i` 時隱藏覆寫應用程式設定的提示。|
 
 下列專案發佈選項僅在 2.x 版中受到支援：
 
-| 選項     | 說明                            |
+| 選項     | 描述                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  僅發佈設定而略過內容。 預設值為提示。 |
 |**`--list-ignored-files`** | 顯示在發佈期間忽略的檔案清單，以 .funcignore 檔案為準。 |
@@ -473,7 +473,7 @@ func deploy
 
 以下是可用的自訂容器部署選項：
 
-| 選項     | 說明                            |
+| 選項     | 描述                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | 目前的使用者所登入的 Docker 登錄名稱。 |
 | **`--platform`** | 函式應用程式的裝載平台。 有效選項為 `kubernetes` |

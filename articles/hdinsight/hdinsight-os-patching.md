@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 5b8ed75863087e077d483c792ac4134a0c3e1eb0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: cfbd68e66730fc338130bc16849fe0b2f4abd6be
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203646"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244415"
 ---
 # <a name="os-patching-for-hdinsight"></a>HDInsight 的作業系統修補 
 
@@ -45,6 +45,7 @@ HDInsight 叢集中的虛擬機器有時候需要重新開機，以便系統可�
 
 > [!NOTE]  
 > 在對現有叢集套用此指令碼時，您必須將其標示為持續性。 否則，透過調整作業所建立的新節點會使用預設的修補排程。  如果您在進行叢集建立程序時套用指令碼，該指令碼會自動成為持續性狀態。
+
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/18/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f72ce02a8655ea97497098dc1412f69e07686861
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 42c94188c0c38448660998bcfc122ae626285566
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147098"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248771"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>在我的點對站台組態中可以有多少個 VPN 用戶端端點？
 
@@ -38,9 +38,11 @@ ms.locfileid: "66147098"
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>是否可以使用點對站台功能周遊 Proxy 和防火牆？
 
-Azure 支援兩種點對站 VPN 選項：
+Azure 支援三種類型的點對站 VPN 選項：
 
 * 安全通訊端通道通訊協定 (SSTP)。 SSTP 是 Microsoft 專屬的 SSL 型解決方案，因為大部分的防火牆都會開啟 443 SSL 所使用的 TCP 連接埠，所以 SSTP 可以穿透防火牆。
+
+* OpenVPN。 OpenVPN 是以 SSL 為基礎的解決方案，可以穿透防火牆，因為大部分防火牆都會開啟 443 SSL 所使用的 TCP 連接埠。
 
 * IKEv2 VPN。 IKEv2 VPN 是標準型 IPsec VPN 解決方案，會使用 UDP 連接埠 500 和 4500 以及 50. 防火牆不一定會開啟這些連接埠，因此 IKEv2 VPN 有可能無法周遊 Proxy 和防火牆。
 
@@ -66,7 +68,7 @@ Azure 支援兩種點對站 VPN 選項：
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>是否可以對支援 SSTP 和 (或) IKEv2 的點對站使用任何軟體 VPN 用戶端？
 
-沒有。 在 Windows 上，您只能對 SSTP 使用原生 VPN 用戶端，而在 Mac 上，則只能對 IKEv2 使用原生 VPN 用戶端。 請參閱支援的用戶端作業系統清單。
+沒有。 在 Windows 上，您只能對 SSTP 使用原生 VPN 用戶端，而在 Mac 上，則只能對 IKEv2 使用原生 VPN 用戶端。 不過，您可以在所有平台上使用 OpenVPN 用戶端，透過 OpenVPN 通訊協定連線。 請參閱支援的用戶端作業系統清單。
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure 支援採用 Windows 的 IKEv2 VPN 嗎？
 

@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27309c08fe4419197faa17dcceb3645b00387e93
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 98588e0c25439fd4988fe39e06e7042cfa9113cb
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65227916"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305669"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的位置條件？ 
 
@@ -38,7 +38,7 @@ Azure AD 可讓單一登入裝置、 應用程式，並從任何位置服務在�
 
 使用具名位置，您可以建立 IP 位址範圍或國家/地區和區域的邏輯群組。
 
-您可以在 [條件式存取] 頁面的 [管理] 區段中存取您的具名位置。
+您可以在 [條件式存取] 頁面的 [管理]  區段中存取您的具名位置。
 
 ![條件式存取中的具名的位置](./media/location-condition/02.png)
 
@@ -56,7 +56,7 @@ Azure AD 可讓單一登入裝置、 應用程式，並從任何位置服務在�
 - **國家/地區** - 此選項可讓您選取一或多個國家或地區，以定義具名位置。
 - **包括未知的區域**-部分 IP 位址未對應至特定國家或地區。 此選項可讓您選擇這些 IP 位址是否應包含在具名位置中。 當使用具名位置的原則應套用到未知位置時，請使用此設定。
 
-您可以設定的具名位置數目受到 Azure AD 中相關物件大小的限制。 組織可以設定最高達 90 的具名的位置，每個設定最多 12000 IP 範圍。
+您可以設定的具名位置數目受到 Azure AD 中相關物件大小的限制。 組織可以設定最高達 90 的具名的位置，每個設定最多 1200年個 IP 範圍。
 
 條件式存取原則適用於 IPv4 和 IPv6 流量。 目前具名的位置不允許設定的 IPv6 範圍。 這項限制會導致下列情況：
 
@@ -65,7 +65,7 @@ Azure AD 可讓單一登入裝置、 應用程式，並從任何位置服務在�
 
 如果原則設定將套用至 「 任何位置 」，它會套用到 IPv4 和 IPv6 流量。 具名的位置設定為指定的國家/地區和區域僅支援 IPv4 位址。 IPv6 流量才包含如果選取 [包含未知的區域] 的選項。
 
-## <a name="trusted-ips"></a>可信任 IP
+## <a name="trusted-ips"></a>信任的 IP
 
 您也可以在[多重要素驗證服務設定](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx)中設定代表您組織的近端內部網路的 IP 位址範圍。 這項功能可讓您設定最多 50 個 IP 位址範圍。 IP 位址範圍是 CIDR 格式。 如需詳細資訊，請參閱 <<c0> [ 信任的 Ip](../authentication/howto-mfa-mfasettings.md#trusted-ips)。  
 
@@ -96,7 +96,7 @@ Azure AD 可讓單一登入裝置、 應用程式，並從任何位置服務在�
 
 ### <a name="any-location"></a>任何位置
 
-根據預設，選取 [任何位置] 會將原則套用到所有 IP 位址，而這意味著網際網路上的所有位址。 這項設定不限於您已設為具名位置的 IP 位址。 當您選取 [任何位置] 時，您仍然可以從原則中排除特定位置。 例如，您可以將原則套用到受信任位置以外的所有位置，以將範圍設為公司網路以外的所有位置。
+根據預設，選取 [任何位置]  會將原則套用到所有 IP 位址，而這意味著網際網路上的所有位址。 這項設定不限於您已設為具名位置的 IP 位址。 當您選取 [任何位置]  時，您仍然可以從原則中排除特定位置。 例如，您可以將原則套用到受信任位置以外的所有位置，以將範圍設為公司網路以外的所有位置。
 
 ### <a name="all-trusted-locations"></a>所有信任的位置
 
@@ -107,7 +107,7 @@ Azure AD 可讓單一登入裝置、 應用程式，並從任何位置服務在�
 
 ### <a name="selected-locations"></a>選取的位置
 
-使用此選項，您可以選取一或多個具名位置。 將套用的原則若有此設定，使用者必須從任一選取的位置連線。 當您按一下 [選取] 時，顯示具名網路清單的具名網路選取控制項隨即開啟。 此清單也會顯示網路位置是否已標示為受信任。 稱為 [MFA 信任的 IP] 的具名位置是用來包含可在多重要素驗證服務設定頁面中設定的 IP 設定。
+使用此選項，您可以選取一或多個具名位置。 將套用的原則若有此設定，使用者必須從任一選取的位置連線。 當您按一下 [選取]  時，顯示具名網路清單的具名網路選取控制項隨即開啟。 此清單也會顯示網路位置是否已標示為受信任。 稱為 [MFA 信任的 IP]  的具名位置是用來包含可在多重要素驗證服務設定頁面中設定的 IP 設定。
 
 ## <a name="what-you-should-know"></a>您應該知道的事情
 

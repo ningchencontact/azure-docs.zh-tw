@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: da594ca5793bbf61f393fb1380309403fd808cef
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8c32043d9bf3ca68563ae01d415bdc0e1f6993f7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942224"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258135"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>在 Cloud Partner 入口網站上的帳戶管理的必要條件 
 
@@ -23,12 +23,13 @@ ms.locfileid: "64942224"
 
 請仔細檢閱您的權限和責任之下[Microsoft 服務合約](https://www.microsoft.com/servicesagreement)並[Microsoft 使用規定](https://www.microsoft.com/legal/intellectualproperty/copyright)建立帳戶之前。  
 
-請小心選擇您的帳戶名稱。  因此它不應包含任何受著作權保護或競爭的字，它會代表您的組織。  例如，Microsoft 會禁止使用其受著作權保護中的詞彙，例如 「 Azure 」 和 「 Microsoft 」 帳戶名稱。  如需詳細資訊，請參閱[Azure Marketplace 指導方針](../../guidelines.md)
+請小心選擇您的帳戶名稱。  因此它不應包含任何受著作權保護或競爭的字，它會代表您的組織。  例如，Microsoft 會禁止使用其受著作權保護中的詞彙，例如 「 Azure 」 和 「 Microsoft 」 帳戶名稱。  如需詳細資訊，請參閱[Azure Marketplace 指導方針](https://docs.microsoft.com/azure/marketplace/guidelines)
 
 
 ## <a name="registration-steps"></a>註冊步驟
 
-下表列出完整註冊為 Microsoft 雲端發行者所需的步驟。  如需完整指示，請參閱[成為雲端 Marketplace 發行者](../../become-publisher.md)。 
+下表列出完整註冊為 Microsoft 雲端發行者所需的步驟。  如需完整指示，請參閱[成為雲端 Marketplace 發行者](https://docs.microsoft.com/azure/marketplace/become-publisher
+)。 
 
 
 |                   步驟                   |  產生註冊或資源                     |

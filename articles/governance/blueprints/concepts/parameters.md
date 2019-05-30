@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ac7b662bc9ef4f3ae675c4cbde18e159383d3d8e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5c1bb1f959f920ea9bce23082ec531dc83d873ad
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711810"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356990"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>透過參數建立動態藍圖
 
@@ -33,8 +33,8 @@ ms.locfileid: "64711810"
 
 ### <a name="using-securestring-and-secureobject-parameters"></a>使用 secureString 與 secureObject 參數
 
-雖然 Resource Manager 範本「成品」支援 **secureString** 與 **secureObject** 類型的參數，Azure 藍圖要求每個都要與 Azure Key Vault 連線。
-此安全性措施可防止將祕密與藍圖儲存在一起的這種不安全做法，並鼓勵採用安全模式。 Azure 藍圖支援此種安全性措施，並在 Resource Manager 範本「成品」中偵測是否包含任何一個安全參數。 服務接著會在指派期間，針對每個偵測到的安全參數提示下列 Key Vault 屬性：
+雖然 Resource Manager 範本「成品」  支援 **secureString** 與 **secureObject** 類型的參數，Azure 藍圖要求每個都要與 Azure Key Vault 連線。
+此安全性措施可防止將祕密與藍圖儲存在一起的這種不安全做法，並鼓勵採用安全模式。 Azure 藍圖支援此種安全性措施，並在 Resource Manager 範本「成品」  中偵測是否包含任何一個安全參數。 服務接著會在指派期間，針對每個偵測到的安全參數提示下列 Key Vault 屬性：
 
 - Key Vault 資源識別碼
 - Key Vault 祕密名稱
@@ -44,7 +44,8 @@ ms.locfileid: "64711810"
 
 如果使用藍圖指派**指派使用者給受控身分識別**，則參考金鑰保存庫_可能_集中式的訂用帳戶中存在。 受管理的身分識別必須被授與金鑰保存庫之前藍圖指派的適當權限。
 
-在這兩種情況下，必須具有金鑰保存庫**啟用存取至 Azure Resource Manager 範本部署**上設定**存取原則**頁面。 如需如何啟用此功能的相關指示，請參閱 [Key Vault - 啟用範本部署](../../../managed-applications/key-vault-access.md#enable-template-deployment)。
+> [!IMPORTANT]
+> 在這兩種情況下，必須具有金鑰保存庫**啟用存取至 Azure Resource Manager 範本部署**上設定**存取原則**頁面。 如需如何啟用此功能的相關指示，請參閱 [Key Vault - 啟用範本部署](../../../managed-applications/key-vault-access.md#enable-template-deployment)。
 
 如需 Azure Key Vault 的詳細資訊，請參閱 [Azure Key Vault 概觀](../../../key-vault/key-vault-overview.md)。
 
@@ -56,19 +57,19 @@ ms.locfileid: "64711810"
 
 #### <a name="setting-static-parameters-in-the-portal"></a>在入口網站中設定靜態參數
 
-1. 在左側窗格中選取 [所有服務]。 搜尋並選取 [藍圖]。
+1. 在左側窗格中選取 [所有服務]  。 搜尋並選取 [藍圖]  。
 
-1. 在頁面左側選取 [藍圖定義]。
+1. 在頁面左側選取 [藍圖定義]  。
 
 1. 在現有的藍圖上按一下，然後按一下**編輯藍圖**，或按一下 **+ 建立藍圖**並填寫資訊上**基本概念** 索引標籤。
 
-1. 按一下 **[下一步成品]** ，或按一下 [成品] 索引標籤。
+1. 按一下 **[下一步成品]** ，或按一下 [成品]  索引標籤。
 
-1. 新增到具有參數選項之藍圖的成品會在 [參數] 欄中顯示 [已填入 X 個參數 (共 Y 個)]。 按一下成品列來編輯成品參數。
+1. 新增到具有參數選項之藍圖的成品會在 [參數]  欄中顯示 [已填入 X 個參數 (共 Y 個)]  。 按一下成品列來編輯成品參數。
 
    ![藍圖定義上的藍圖參數](../media/parameters/parameter-column.png)
 
-1. [編輯成品] 頁面會顯示適用於所按下之成品的值選項。 成品中的每個參數都有標題、值方塊與核取方塊。 將此方塊設定為未選取狀態，以使其成為**靜態參數**。 在下列範例中，只有「位置」是**靜態參數**，因為它已取消選取且 [資源群組名稱] 已選取。
+1. [編輯成品]  頁面會顯示適用於所按下之成品的值選項。 成品中的每個參數都有標題、值方塊與核取方塊。 將此方塊設定為未選取狀態，以使其成為**靜態參數**。 在下列範例中，只有「位置」  是**靜態參數**，因為它已取消選取且 [資源群組名稱]  已選取。
 
    ![Blueprint （藍圖） 的靜態參數藍圖成品](../media/parameters/static-parameter.png)
 
@@ -173,13 +174,13 @@ ms.locfileid: "64711810"
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>在入口網站中設定動態參數
 
-1. 在左側窗格中選取 [所有服務]。 搜尋並選取 [藍圖]。
+1. 在左側窗格中選取 [所有服務]  。 搜尋並選取 [藍圖]  。
 
-1. 在頁面左側選取 [藍圖定義]。
+1. 在頁面左側選取 [藍圖定義]  。
 
 1. 以滑鼠右鍵按一下您想要指派的藍圖。 選取 [**指派藍圖**或按一下您想要指派，的藍圖，然後按一下**指派藍圖**] 按鈕。
 
-1. 在 **指派藍圖**頁面上，尋找**構件參數**一節。 至少具有一個**動態參數**的每個成品都會顯示成品與設定選項。 指派藍圖之前，請先為參數提供所需的值。 在下列範例中，「名稱」是必須先定義才能完成藍圖指派的**動態參數**。
+1. 在 **指派藍圖**頁面上，尋找**構件參數**一節。 至少具有一個**動態參數**的每個成品都會顯示成品與設定選項。 指派藍圖之前，請先為參數提供所需的值。 在下列範例中，「名稱」  是必須先定義才能完成藍圖指派的**動態參數**。
 
    ![Blueprint （藍圖） 期間藍圖指派的動態參數](../media/parameters/dynamic-parameter.png)
 

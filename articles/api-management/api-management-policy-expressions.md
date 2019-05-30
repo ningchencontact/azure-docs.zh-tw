@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: b8bd6e7c77faa54a8ebf0842cf140ef8aa73e953
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 9a19165f9ac15f7a40aea0501f960b06efbd63a3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834536"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304368"
 ---
 # <a name="api-management-policy-expressions"></a>API 管理原則運算式
 本文討論的原則運算式語法是 C# 7。 每個運算式皆可存取以隱含方式提供的[內容](api-management-policy-expressions.md#ContextVariables)變數，以及允許的 .NET Framework 類型[子集](api-management-policy-expressions.md#CLRTypes)。
@@ -74,7 +74,7 @@ ms.locfileid: "65834536"
 ## <a name="CLRTypes"></a>原則運算式中允許的 .NET Framework 類型
 下表列出原則運算式中允許的 .NET Framework 類型和其成員。
 
-|Type|支援的成員|
+|類型|支援的成員|
 |--------------|-----------------------|
 |Newtonsoft.Json.Formatting|全部|
 |Newtonsoft.Json.JsonConvert|SerializeObject DeserializeObject|
@@ -210,26 +210,26 @@ ms.locfileid: "65834536"
 
 |內容變數|允許的方法、屬性和參數值|
 |----------------------|-------------------------------------------------------|
-|context|Api：IApi<br /><br /> 部署<br /><br /> Elapsed：TimeSpan - 時間戳記值與目前時間之間的時間間隔<br /><br /> LastError<br /><br /> 作業<br /><br /> 產品<br /><br /> 要求<br /><br /> RequestId：Guid - 唯一要求識別碼<br /><br /> 回應<br /><br /> 訂用帳戶<br /><br /> Timestamp：日期時間 - 收到要求的時間點<br /><br /> 追蹤：bool - 指出追蹤是開啟還是關閉 <br /><br /> 使用者<br /><br /> Variables：IReadOnlyDictionary<string, object><br /><br /> void Trace(訊息：字串)|
-|context.Api|識別碼︰字串<br /><br /> IsCurrentRevision: bool<br /><br />  名稱︰字串<br /><br /> 路徑︰字串<br /><br /> 修訂：字串<br /><br /> ServiceUrl：IUrl<br /><br /> 版本：字串 |
-|context.Deployment|區域︰字串<br /><br /> ServiceName︰字串<br /><br /> Certificates：IReadOnlyDictionary<string, X509Certificate2>|
-|context.LastError|來源︰字串<br /><br /> 原因︰字串<br /><br /> 訊息︰字串<br /><br /> 範圍︰字串<br /><br /> 區段︰字串<br /><br /> 路徑︰字串<br /><br /> PolicyId︰字串<br /><br /> 如需 context.LastError 的詳細資訊，請參閱[錯誤處理](api-management-error-handling-policies.md)。|
-|context.Operation|識別碼︰字串<br /><br /> 方法︰字串<br /><br /> 名稱︰字串<br /><br /> UrlTemplate︰字串|
-|context.Product|Apis：IEnumerable<IApi\><br /><br /> ApprovalRequired：bool<br /><br /> Groups：IEnumerable<IGroup\><br /><br /> 識別碼︰字串<br /><br /> 名稱︰字串<br /><br /> 狀態︰列舉 ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit：int?<br /><br /> SubscriptionRequired：bool|
-|context.Request|本文:IMessageBody<br /><br /> Certificate：System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Headers：IReadOnlyDictionary<string, string[]><br /><br /> IpAddress︰字串<br /><br /> MatchedParameters︰IReadOnlyDictionary<string, string[]><br /><br /> 方法︰字串<br /><br /> OriginalUrl︰IUrl<br /><br /> URL：IUrl|
-|string context.Request.Headers.GetValueOrDefault(headerName︰字串、defaultValue︰字串)|headerName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到標頭，則傳回以逗號分隔的要求標頭值或 `defaultValue`。|
-|context.Response|本文:IMessageBody<br /><br /> Headers：IReadOnlyDictionary<string, string[]><br /><br /> StatusCode：int<br /><br /> StatusReason︰字串|
-|string context.Response.Headers.GetValueOrDefault(headerName︰字串、defaultValue︰字串)|headerName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到標頭，則傳回以逗號分隔的回應標頭值或 `defaultValue`。|
-|context.Subscription|CreatedTime：DateTime<br /><br /> EndDate：DateTime?<br /><br /> 識別碼︰字串<br /><br /> 索引鍵︰字串<br /><br /> 名稱︰字串<br /><br /> PrimaryKey︰字串<br /><br /> SecondaryKey︰字串<br /><br /> StartDate：DateTime?|
-|context.User|電子郵件︰字串<br /><br /> FirstName︰字串<br /><br /> Groups：IEnumerable<IGroup\><br /><br /> 識別碼︰字串<br /><br /> Identities：IEnumerable<IUserIdentity\><br /><br /> LastName︰字串<br /><br /> 附註︰字串<br /><br /> RegistrationDate：DateTime|
-|IApi|識別碼︰字串<br /><br /> 名稱︰字串<br /><br /> 路徑︰字串<br /><br /> 通訊協定：IEnumerable<string\><br /><br /> ServiceUrl：IUrl<br /><br /> subscriptionKeyParameterNames：ISubscriptionKeyParameterNames|
-|IGroup|識別碼︰字串<br /><br /> 名稱︰字串|
-|IMessageBody|作為 < T\>(preserveContent: bool = false)：其中 T：string、JObject、JToken、JArray、XNode、XElement、XDocument<br /><br /> `context.Request.Body.As<T>` 和 `context.Response.Body.As<T>` 方法是用來讀取指定類型 `T` 的要求和回應訊息主體。 根據預設，該方法會使用原始訊息本文資料流，並使它在傳回後無法使用。 若要避免那種情況，並讓方法在本文資料流的複本上進行操作，請將 `preserveContent` 參數設定為 `true`。 請移至[這裡](api-management-transformation-policies.md#SetBody)來查看範例。|
-|IUrl|主機︰字串<br /><br /> 路徑︰字串<br /><br /> 連接埠︰int<br /><br /> 查詢: IReadOnlyDictionary<string, string[]><br /><br /> QueryString︰字串<br /><br /> 配置︰字串|
-|IUserIdentity|識別碼︰字串<br /><br /> 提供者︰字串|
-|ISubscriptionKeyParameterNames|標頭︰字串<br /><br /> 查詢︰字串|
-|string IUrl.Query.GetValueOrDefault(queryParameterName︰字串、defaultValue︰字串)|queryParameterName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到參數，則傳回以逗號分隔的查詢參數值或 `defaultValue`。|
-|T context.Variables.GetValueOrDefault<T\>(variableName︰string、defaultValue：T)|variableName︰字串<br /><br /> defaultValue：T<br /><br /> 如果找不到變數，則傳回轉換為 `T` 或 `defaultValue` 的變數值。<br /><br /> 如果指定的類型不符合所傳回變數的實際類型，此方法便會擲回例外狀況。|
+|context|[Api](#ref-context-api):[IApi](#ref-iapi)<br /><br /> [部署](#ref-context-deployment)<br /><br /> Elapsed：TimeSpan - 時間戳記值與目前時間之間的時間間隔<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [作業](#ref-context-operation)<br /><br /> [產品](#ref-context-product)<br /><br /> [要求](#ref-context-request)<br /><br /> RequestId：Guid - 唯一要求識別碼<br /><br /> [回應](#ref-context-response)<br /><br /> [訂用帳戶](#ref-context-subscription)<br /><br /> Timestamp：日期時間 - 收到要求的時間點<br /><br /> 追蹤：bool - 指出追蹤是開啟還是關閉 <br /><br /> [使用者](#ref-context-user)<br /><br /> [變數](#ref-context-variables)：IReadOnlyDictionary<string, object><br /><br /> void Trace(訊息：字串)|
+|<a id="ref-context-api"></a>context.Api|識別碼︰字串<br /><br /> IsCurrentRevision: bool<br /><br />  名稱︰字串<br /><br /> 路徑︰字串<br /><br /> 修訂：字串<br /><br /> ServiceUrl：[IUrl](#ref-iurl)<br /><br /> 版本：字串 |
+|<a id="ref-context-deployment"></a>context.Deployment|區域︰字串<br /><br /> ServiceName︰字串<br /><br /> Certificates：IReadOnlyDictionary<string, X509Certificate2>|
+|<a id="ref-context-lasterror"></a>context.LastError|來源︰字串<br /><br /> 原因︰字串<br /><br /> 訊息︰字串<br /><br /> 範圍︰字串<br /><br /> 區段︰字串<br /><br /> 路徑︰字串<br /><br /> PolicyId︰字串<br /><br /> 如需 context.LastError 的詳細資訊，請參閱[錯誤處理](api-management-error-handling-policies.md)。|
+|<a id="ref-context-operation"></a>context.Operation|識別碼︰字串<br /><br /> 方法︰字串<br /><br /> 名稱︰字串<br /><br /> UrlTemplate︰字串|
+|<a id="ref-context-product"></a>context.Product|Apis：IEnumerable<[IApi](#ref-iapi)\><br /><br /> ApprovalRequired：bool<br /><br /> Groups：IEnumerable <[Ienumerable<igroup](#ref-igroup)\><br /><br /> 識別碼︰字串<br /><br /> 名稱︰字串<br /><br /> 狀態︰列舉 ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit：int?<br /><br /> SubscriptionRequired：bool|
+|<a id="ref-context-request"></a>context.Request|主體：[IMessageBody](#ref-imessagebody)<br /><br /> Certificate：System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [標頭](#ref-context-request-headers):IReadOnlyDictionary<string, string[]><br /><br /> IpAddress︰字串<br /><br /> MatchedParameters︰IReadOnlyDictionary<string, string[]><br /><br /> 方法︰字串<br /><br /> OriginalUrl:[IUrl](#ref-iurl)<br /><br /> URL：[IUrl](#ref-iurl)|
+|<a id="ref-context-request-headers"></a>字串內容。Request.Headers.GetValueOrDefault (headerName︰ 字串、 defaultValue︰ 字串)|headerName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到標頭，則傳回以逗號分隔的要求標頭值或 `defaultValue`。|
+|<a id="ref-context-response"></a>context.Response|主體：[IMessageBody](#ref-imessagebody)<br /><br /> [標頭](#ref-context-response-headers):IReadOnlyDictionary<string, string[]><br /><br /> StatusCode：int<br /><br /> StatusReason︰字串|
+|<a id="ref-context-response-headers"></a>字串內容。Response.Headers.GetValueOrDefault (headerName︰ 字串、 defaultValue︰ 字串)|headerName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到標頭，則傳回以逗號分隔的回應標頭值或 `defaultValue`。|
+|<a id="ref-context-subscription"></a>context.Subscription|CreatedTime：DateTime<br /><br /> EndDate：DateTime?<br /><br /> 識別碼︰字串<br /><br /> 索引鍵︰字串<br /><br /> 名稱︰字串<br /><br /> PrimaryKey︰字串<br /><br /> SecondaryKey︰字串<br /><br /> StartDate：DateTime?|
+|<a id="ref-context-user"></a>context.User|電子郵件︰字串<br /><br /> FirstName︰字串<br /><br /> Groups：IEnumerable <[Ienumerable<igroup](#ref-igroup)\><br /><br /> 識別碼︰字串<br /><br /> Identities：IEnumerable <[Ienumerable<iuseridentity](#ref-iuseridentity)\><br /><br /> LastName︰字串<br /><br /> 附註︰字串<br /><br /> RegistrationDate：DateTime|
+|<a id="ref-iapi"></a>IApi|識別碼︰字串<br /><br /> 名稱︰字串<br /><br /> 路徑︰字串<br /><br /> 通訊協定：IEnumerable<string\><br /><br /> ServiceUrl：[IUrl](#ref-iurl)<br /><br /> subscriptionKeyParameterNames：[ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
+|<a id="ref-igroup"></a>Ienumerable<igroup|識別碼︰字串<br /><br /> 名稱︰字串|
+|<a id="ref-imessagebody"></a>IMessageBody|作為 < T\>(preserveContent: bool = false)：其中 T：string、JObject、JToken、JArray、XNode、XElement、XDocument<br /><br /> `context.Request.Body.As<T>` 和 `context.Response.Body.As<T>` 方法是用來讀取指定類型 `T` 的要求和回應訊息主體。 根據預設，該方法會使用原始訊息本文資料流，並使它在傳回後無法使用。 若要避免那種情況，並讓方法在本文資料流的複本上進行操作，請將 `preserveContent` 參數設定為 `true`。 請移至[這裡](api-management-transformation-policies.md#SetBody)來查看範例。|
+|<a id="ref-iurl"></a>IUrl|主機︰字串<br /><br /> 路徑︰字串<br /><br /> 連接埠︰int<br /><br /> [查詢](#ref-iurl-query)：IReadOnlyDictionary<string, string[]><br /><br /> QueryString︰字串<br /><br /> 配置︰字串|
+|<a id="ref-iuseridentity"></a>IUserIdentity|識別碼︰字串<br /><br /> 提供者︰字串|
+|<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|標頭︰字串<br /><br /> 查詢︰字串|
+|<a id="ref-iurl-query"></a>string IUrl.Query.GetValueOrDefault(queryParameterName: string, defaultValue: string)|queryParameterName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到參數，則傳回以逗號分隔的查詢參數值或 `defaultValue`。|
+|<a id="ref-context-variables"></a>T 的內容。Variables.GetValueOrDefault < T\>(variableName︰ 字串、 defaultValue:T)|variableName︰字串<br /><br /> defaultValue：T<br /><br /> 如果找不到變數，則傳回轉換為 `T` 或 `defaultValue` 的變數值。<br /><br /> 如果指定的類型不符合所傳回變數的實際類型，此方法便會擲回例外狀況。|
 |BasicAuthCredentials AsBasic(輸入：此字串)|輸入︰字串<br /><br /> 如果輸入參數包含有效的 HTTP 基本驗證授權要求標頭值，則方法會傳回類型為 `BasicAuthCredentials` 的物件；否則方法會傳回 null。|
 |bool TryParseBasic(輸入：此字串、結果：out BasicAuthCredentials)|輸入︰字串<br /><br /> 結果︰out BasicAuthCredentials<br /><br /> 如果輸入參數包含要求標頭中的有效 HTTP 基本驗證授權值，則方法會傳回 `true`，且結果參數包含類型為 `BasicAuthCredentials` 的值；否則方法會傳回 `false`。|
 |BasicAuthCredentials|密碼︰字串<br /><br /> UserId︰字串|

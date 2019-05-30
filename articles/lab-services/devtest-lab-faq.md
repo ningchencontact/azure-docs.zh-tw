@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 91c598bde0912cffb8aa1dd7ba022c86a9084faa
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a46d816c04d9f5629c2ee9538016d42c53f9a331
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713011"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244396"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs 常見問題集
 獲得一些關於 Azure DevTest Labs 最常見問題的解答。
@@ -109,7 +109,7 @@ DevTest Labs 資源應該由接近專案/應用程式小組的擁有者所擁有
 
 
 ### <a name="how-do-i-create-a-role-to-allow-users-to-do-a-specific-task"></a>如何建立可讓使用者執行特定工作的角色？
-如需如何建立自訂角色並指派權限給該角色的完整文章，請參閱[將特定實驗室原則的權限授與使用者](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)。 以下指令碼範例會建立「DevTest Labs 進階使用者」角色，其具有啟動和停止實驗室中所有 VM 的權限︰
+如需如何建立自訂角色並指派權限給該角色的完整文章，請參閱[將特定實驗室原則的權限授與使用者](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)。 以下指令碼範例會建立「DevTest Labs 進階使用者」  角色，其具有啟動和停止實驗室中所有 VM 的權限︰
 
 
 ```powershell
@@ -280,18 +280,18 @@ foreach($labVM in $labVMs)
 
 若要自動上傳 VHD 檔案以建立自訂映像，您有兩個選擇：
 
-- 使用 [AzCopy](../storage/common/storage-use-azcopy.md#upload-blobs-to-blob-storage) 將 VHD 檔案複製或上傳到與實驗室相關聯的儲存體帳戶。
+- 使用 [AzCopy](../storage/common/storage-use-azcopy-v10.md) 將 VHD 檔案複製或上傳到與實驗室相關聯的儲存體帳戶。
 - 使用 [Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md)。 儲存體總管是在 Windows、OSX 和 Linux 上執行的獨立應用程式。
 
 若要尋找與實驗室相關聯的目的地儲存體帳戶︰
 
 1.  登入 [Azure 入口網站](https://portal.azure.com)。
-2.  在左功能表上選取 [資源群組]。
+2.  在左功能表上選取 [資源群組]  。
 3.  尋找並選取與您的實驗室相關聯的資源群組。
-4.  在 [概觀] 底下，選取其中一個儲存體帳戶。
-5.  選取 [Blob] 。
+4.  在 [概觀]  底下，選取其中一個儲存體帳戶。
+5.  選取 [Blob]  。
 6.  在清單中尋找要上傳的項目。 如果不存在任何項目，請返回步驟 4，然後嘗試另一個儲存體帳戶。
-7.  在 AzCopy 命令中使用 [URL] 作為目的地。
+7.  在 AzCopy 命令中使用 [URL]  作為目的地。
 
 何時應使用 Azure Marketplace 映像，而何時應使用我自己自訂的組織映像？
 
@@ -388,7 +388,7 @@ VM 是資源群組中實驗室下的子資源。 當您使用 Resource Manager �
 ### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>當 VM 部署失敗時，我可以在哪裡找到更多錯誤資訊？
 VM 部署錯誤會擷取至活動記錄中。 您可以找到實驗室 VM 活動記錄檔底下**稽核記錄檔**或**虛擬機器診斷**實驗室的 VM 上的 [資源] 功能表上 (頁面隨即出現在您選取的 VM 之後我的虛擬機器的清單)。
 
-系統有時候會在 VM 部署開始之前就發生部署錯誤。 舉例來說，如果您超過隨 VM 一起建立之資源的訂用帳戶限制時。 在此情況下，系統會將錯誤詳細資料擷取到實驗室層級的活動記錄中。 活動記錄位於 [組態和原則] 設定底部。 如需在 Azure 中使用活動記錄的詳細資訊，請參閱[檢視活動記錄以稽核對資源的動作](../azure-resource-manager/resource-group-audit.md)。
+系統有時候會在 VM 部署開始之前就發生部署錯誤。 舉例來說，如果您超過隨 VM 一起建立之資源的訂用帳戶限制時。 在此情況下，系統會將錯誤詳細資料擷取到實驗室層級的活動記錄中。 活動記錄位於 [組態和原則]  設定底部。 如需在 Azure 中使用活動記錄的詳細資訊，請參閱[檢視活動記錄以稽核對資源的動作](../azure-resource-manager/resource-group-audit.md)。
 
 
 

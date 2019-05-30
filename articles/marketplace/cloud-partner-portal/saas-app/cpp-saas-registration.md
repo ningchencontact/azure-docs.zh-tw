@@ -7,16 +7,20 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 1edaf89c056918f640a905b99d01775273b2c133
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e31efb9a52ff004e6e35ddfc251732c014eedae9
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941934"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257456"
 ---
-# <a name="register-a-saas-application"></a>註冊的 SaaS 應用程式
+# <a name="register-a-saas-application"></a>註冊 SaaS 應用程式
 
 這篇文章說明如何註冊使用 Microsoft 的 SaaS 應用程式[Azure 入口網站](https://portal.azure.com/)。  成功註冊之後，您會收到可用來存取 SaaS 履行 Api 的 Azure Active Directory (Azure AD) 的安全性權杖。  如需有關 Azure AD 的詳細資訊，請參閱[什麼是驗證？](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
+
+> [!IMPORTANT] 
+> SaaS 提供的功能已移轉到[Microsoft 合作夥伴中心](https://partner.microsoft.com/dashboard/directory)。  所有新的發行者必須使用合作夥伴中心建立新的 SaaS 供應項目，以及管理現有的供應項目。  SaaS 供應項目目前的發行者 batchwise 移轉從 Cloud Partner 入口網站來合作夥伴中心。  Cloud Partner 入口網站會顯示狀態訊息，指出何時已移轉特定的現有供應項目。
+> 如需詳細資訊，請參閱 <<c0> [ 建立新的 SaaS 供應項目](../../partner-center-portal/create-new-saas-offer.md)。
 
 
 ## <a name="service-to-service-authentication-flow"></a>服務對服務驗證流程
@@ -34,24 +38,24 @@ Azure 不會對 SaaS 服務向終端使用者顯示的驗證施加任何限制�
 
 1.  登入 [Azure 入口網站](https://portal.azure.com/)。
 2.  如果您的帳戶可讓您存取多個帳戶，請在右上角按一下您的帳戶，並將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
-3.  在左側導覽窗格中，依序按一下 [Azure Active Directory] 服務、[應用程式註冊] 和 [新增應用程式註冊]。
+3.  在左側導覽窗格中，依序按一下 [Azure Active Directory]  服務、[應用程式註冊]  和 [新增應用程式註冊]  。
 
     ![SaaS AD 應用程式註冊](./media/saas-offer-app-registration-v1.png)
 
 4.  在 [建立] 頁面中，輸入您的應用程式\'註冊資訊：
     -   **名稱**：請輸入有意義的應用程式名稱
     -   **應用程式類型**： 
-        - 針對在裝置本機上安裝的[用戶端應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)選取 [原生]。 此設定適用於 OAuth 公用[原生用戶端](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client)。
-        - 針對安裝在安全伺服器上的[用戶端應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)和[資源/API 應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server)選取 [Web 應用程式/API]。 此設定適用於 OAuth 機密 [Web 用戶端](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client)和公用[使用者代理程式型用戶端](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client)。
+        - 針對在裝置本機上安裝的[用戶端應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)選取 [原生]  。 此設定適用於 OAuth 公用[原生用戶端](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client)。
+        - 針對安裝在安全伺服器上的[用戶端應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)和[資源/API 應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server)選取 [Web 應用程式/API]  。 此設定適用於 OAuth 機密 [Web 用戶端](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client)和公用[使用者代理程式型用戶端](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client)。
         相同的應用程式也可以公開用戶端和資源/API。
-    -   **登入 URL**：針對 Web 應用程式/API 應用程式，請提供應用程式的基底 URL。 例如，**http://localhost:31544** 可能是在您的本機電腦上執行之 Web 應用程式的 URL。 接著，使用者會使用此 URL 來登入 Web 用戶端應用程式。
-    -   **重新導向 URI**：針對原生應用程式，請提供 Azure AD 用來傳回權杖回應的 URI。 輸入應用程式特定的值，例如 **http://MyFirstAADApp**。
+    -   **登入 URL**：針對 Web 應用程式/API 應用程式，請提供應用程式的基底 URL。 例如， **http://localhost:31544** 可能是在您的本機電腦上執行之 Web 應用程式的 URL。 接著，使用者會使用此 URL 來登入 Web 用戶端應用程式。
+    -   **重新導向 URI**：針對原生應用程式，請提供 Azure AD 用來傳回權杖回應的 URI。 輸入應用程式特定的值，例如 **http://MyFirstAADApp** 。
 
         ![SaaS AD 應用程式註冊](./media/saas-offer-app-registration-v1-2.png)
 
         如需 web 應用程式或原生應用程式的特定範例，查看此快速入門引導式設定中所提供*開始*一節[Azure AD 開發人員指南](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)。
 
-5.  完成後，按一下 [建立]。 Azure AD 會指派一個唯一*應用程式識別碼*至您的應用程式，而您\'重新進入您的應用程式\'主要註冊頁面。 根據您的應用程式是 Web 還是原生應用程式，系統會提供您不同選項以供您在應用程式中新增其他功能。
+5.  完成後，按一下 [建立]  。 Azure AD 會指派一個唯一*應用程式識別碼*至您的應用程式，而您\'重新進入您的應用程式\'主要註冊頁面。 根據您的應用程式是 Web 還是原生應用程式，系統會提供您不同選項以供您在應用程式中新增其他功能。
 
 >[!Note]
 >根據預設，新註冊的應用程式被設定為只允許使用者從相同的租用戶登入您的應用程式。
@@ -72,7 +76,7 @@ HTTP 方法
 
 *Request URL (要求 URL)*
 
-**https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
+**https://login.microsoftonline.com/ *{tenantId}* /oauth2/token**
 
 *URI 參數*
 

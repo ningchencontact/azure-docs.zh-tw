@@ -8,16 +8,16 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 5850b683189136eac70451075933b0c57ecc37cd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8fdae1e12e56dcbcb56941726b0c089ad59b8fc8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920454"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254658"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>利用 Azure Advisor 改善 Azure 應用程式的效能
 
-Advisor 效能建議有助於提升業務關鍵應用程式的速度和回應能力。 您可以在 Advisor 儀表板的 [效能] 索引標籤上，取得 Advisor 的效能建議。
+Advisor 效能建議有助於提升業務關鍵應用程式的速度和回應能力。 您可以在 Advisor 儀表板的 [效能]  索引標籤上，取得 Advisor 的效能建議。
 
 ## <a name="reduce-dns-time-to-live-on-your-traffic-manager-profile-to-fail-over-to-healthy-endpoints-faster"></a>減少 DNS 在流量管理員設定檔上的存留時間，以更快速容錯移轉至健康情況良好的端點上
 
@@ -94,11 +94,27 @@ Azure Advisor 會利用工作負載為基礎啟發學習法例如讀取與寫入
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>調整您的 Azure MySQL、 Azure PostgreSQL 或 Azure MariaDB 伺服器，以較高的 SKU，以防止連接條件約束
 每個新連線到您的資料庫伺服器會佔一些記憶體。 如果因為無法連線到您的伺服器，就會降低資料庫伺服器的效能 [上限](https://docs.microsoft.com/azure/postgresql/concepts-limits)在記憶體中。 Azure Advisor 會識別伺服器執行具有許多連接失敗，並建議升級您的伺服器連線限制，藉由相應增加計算，或使用記憶體最佳化的 Sku，具有更多的運算，每個核心，提供更多記憶體到您的伺服器。
 
+## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>調整您的快取為不同大小或 SKU，以改善快取與應用程式效能
+
+當不高的記憶體不足的壓力、 高的伺服器負載或高網路頻寬可能會讓其變成沒有回應、 發生資料遺失，或變成無法使用其下執行時，快取執行個體的表現最好。 Advisor 會識別在這些情況的快取執行個體，並建議套用最佳作法，以減少記憶體不足的壓力、 伺服器負載或網路頻寬，或使用更多容量調整到不同的大小或 SKU。
+
+## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>將流量的區域新增至您的 Azure Cosmos DB 帳戶
+
+Advisor 會偵測目前未設定的地區有流量的 Azure Cosmos DB 帳戶，並建議您新增該區域。 這會改善來自該區域之要求的延遲，並可確保發生區域中斷時的可用性。 [深入了解使用 Azure Cosmos DB 的全域資料發佈](https://aka.ms/cosmos/globaldistribution)
+
+## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>設定您的 Azure Cosmos DB 與客戶編製索引原則中包含或排除路徑
+
+Azure Advisor 會識別使用的預設檢索原則，但無法受益於工作負載模式為基礎的自訂索引編製原則的 Cosmos DB 容器。 編製索引原則的預設編製索引的所有屬性，但用於查詢篩選條件的明確包含或排除路徑中使用自訂的編製索引原則，可以減少 Ru 及編製索引所耗用的儲存體。 [深入了解修改索引原則](https://aka.ms/cosmosdb/modify-index-policy)
+
+## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>設定您 Azure Cosmos DB 查詢頁面大小 (MaxItemCount) 為-1 
+
+Azure Advisor 會識別 Azure Cosmos DB 容器會使用查詢頁面大小為 100，建議使用的頁面大小為-1 的快速掃描。 [深入了解最大項目計數](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>如何在建議程式中存取效能建議
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後開啟 [Advisor](https://aka.ms/azureadvisordashboard)。
 
-2.  在 Advisor 儀表板上，按一下 [效能] 索引標籤。
+2.  在 Advisor 儀表板上，按一下 [效能]  索引標籤。
 
 ## <a name="next-steps"></a>後續步驟
 
