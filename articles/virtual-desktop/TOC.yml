@@ -48,6 +48,8 @@
       href: delegated-access-virtual-desktop.md
     - name: 主機集區負載平衡方法
       href: host-pool-load-balancing.md
+    - name: FSLogix 設定檔容器和 Azure 檔案
+      href: fslogix-containers-azure-files.md
 - name: 疑難排解
   items:
     - name: 疑難排解概觀、意見反應和支援

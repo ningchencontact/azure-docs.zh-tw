@@ -65,7 +65,7 @@
           href: batch-aad-auth.md
         - name: 包含 Batch 管理的 Azure AD
           href: batch-aad-auth-management.md
-    - name: 建立應用程式套件
+    - name: 使用應用程式封裝
       href: batch-application-packages.md
     - name: 建立和管理集區
       items:

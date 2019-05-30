@@ -101,6 +101,8 @@
       href: event-sources.md
     - name: 事件處理常式
       href: event-handlers.md
+    - name: 地區災害復原
+      href: geo-disaster-recovery.md
 - name: 使用說明指南
   items:
     - name: 張貼到自訂主題

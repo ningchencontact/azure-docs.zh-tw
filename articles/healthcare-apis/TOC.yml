@@ -23,6 +23,8 @@
       href: fhir-oss-cli-quickstart.md
     - name: 設定 CORS
       href: configure-cross-origin-resource-sharing.md
+    - name: 設定 Cosmos DB
+      href: configure-cosmos-db.md
 - name: 教學課程
   expanded: false
   items:

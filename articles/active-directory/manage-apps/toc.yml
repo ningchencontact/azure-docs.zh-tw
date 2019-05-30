@@ -13,6 +13,8 @@
       href: view-applications-portal.md
 - name: 教學課程
   items:
+    - name: Saas 應用程式教學課程
+      href: 'https://docs.microsoft.com/azure/active-directory/saas-apps/'
     - name: 設定單一登入 - 入口網站
       href: configure-single-sign-on-portal.md
     - name: 新內部部署應用程式 - 入口網站
@@ -77,19 +79,13 @@
       href: end-user-experiences.md
 - name: 使用說明指南
   items:
-    - name: 雲端應用程式整合
+    - name: 新增雲端應用程式
       items:
-        - name: 新增應用程式
-          items:
-            - name: 選擇應用程式類型
-              href: choose-application-type.md
-            - name: 常見問題 - 資源庫應用程式
-              href: adding-gallery-app-common-problems.md
-            - name: 常見問題 - 非資源庫應用程式
-              href: adding-non-gallery-app-common-problems.md
+        - name: 選擇應用程式類型
+          href: choose-application-type.md
         - name: 變更名稱或標誌
           href: change-name-or-logo-portal.md
-    - name: 內部部署應用程式整合
+    - name: 整合內部部署應用程式
       items:
         - name: 設定連接器
           href: application-proxy-configure-connectors-with-proxy-servers.md
@@ -125,7 +121,139 @@
               href: application-proxy-integrate-with-tableau.md
             - name: 與 OIik 整合
               href: application-proxy-qlik.md
-        - name: 應用程式 Proxy 疑難排解
+    - name: 設定單一登入
+      items:
+        - name: 設定非資源庫應用程式
+          href: configure-single-sign-on-non-gallery-applications.md
+        - name: 設定同盟 - 資源庫應用程式
+          href: configure-federated-single-sign-on-gallery-applications.md
+        - name: 設定同盟 - 非資源庫應用程式
+          href: configure-federated-single-sign-on-non-gallery-applications.md
+        - name: 設定密碼 - 資源庫應用程式
+          href: configure-password-single-sign-on-gallery-applications.md
+        - name: 設定密碼 - 非資源庫應用程式
+          href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: 使用應用程式 Proxy 進行單一登入
+          items:
+            - name: Kerberos 限制委派 (KCD)
+              href: application-proxy-configure-single-sign-on-with-kcd.md
+            - name: 密碼保存庫
+              href: application-proxy-configure-single-sign-on-password-vaulting.md
+            - name: headers
+              href: application-proxy-configure-single-sign-on-with-ping-access.md
+            - name: SAML SSO
+              href: application-proxy-configure-single-sign-on-on-premises-apps.md
+    - name: 設定使用者佈建
+      items:
+        - name: 佈建時間長短
+          href: application-provisioning-when-will-provisioning-finish-specific-user.md
+        - name: 設定使用者佈建 - 資源庫應用程式
+          href: application-provisioning-config-how-to.md
+        - name: 同步屬性以對應 - 資源庫應用程式
+          href: user-provisioning-sync-attributes-for-mapping.md
+    - name: 指派使用者和管理應用程式存取
+      items:
+        - name: 設定使用者同意
+          href: configure-user-consent.md
+        - name: 將使用者和群組指派給應用程式的方法
+          href: methods-for-assigning-users-and-groups.md
+        - name: 將使用者指派給應用程式
+          href: assign-user-or-group-access-portal.md
+        - name: 使用服務應用程式存取
+          href: access-panel-manage-self-service-access.md
+        - name: 將使用者存取權從應用程式移除的方法
+          href: methods-for-removing-user-access.md
+        - name: 移除使用者或群組存取權
+          href: remove-user-or-group-access-portal.md
+        - name: 隱藏來自使用者的應用程式
+          href: hide-application-from-user-portal.md
+        - name: 停用使用者登入
+          href: disable-user-sign-in-portal.md
+        - name: 設定自助式應用程式指派
+          href: manage-self-service-access.md
+        - name: 主領域探索
+          href: configure-authentication-for-federated-users-portal.md
+    - name: 將應用程式遷移至 Azure AD
+      items:
+        - name: 移轉資源
+          href: migration-resources.md
+        - name: 將 ADFS 應用程式遷移至 Azure
+          href: migrate-adfs-apps-to-azure.md
+    - name: 疑難排解
+      items:
+        - name: 新增應用程式疑難排解
+          items:
+            - name: 常見問題 - 資源庫應用程式
+              href: adding-gallery-app-common-problems.md
+            - name: 常見問題 - 非資源庫應用程式
+              href: adding-non-gallery-app-common-problems.md
+        - name: 使用者登入疑難排解
+          items:
+            - name: 未預期的同意提示
+              href: application-sign-in-unexpected-user-consent-prompt.md
+            - name: 使用者同意錯誤
+              href: application-sign-in-unexpected-user-consent-error.md
+            - name: 從自訂入口網站登入時發生問題
+              href: application-sign-in-other-problem-deeplink.md
+            - name: 從存取面板登入時發生問題
+              href: application-sign-in-other-problem-access-panel.md
+            - name: 應用程式登入頁面發生錯誤
+              href: application-sign-in-problem-application-error.md
+            - name: 密碼單一登入問題 - 非資源庫應用程式
+              href: application-sign-in-problem-password-sso-non-gallery.md
+            - name: 密碼單一登入問題 - 資源庫應用程式
+              href: application-sign-in-problem-password-sso-gallery.md
+            - name: 登入 Microsoft 應用程式時發生問題
+              href: application-sign-in-problem-first-party-microsoft.md
+            - name: 同盟單一登入問題 - 非資源庫應用程式
+              href: application-sign-in-problem-federated-sso-non-gallery.md
+            - name: 同盟單一登入問題 - 資源庫應用程式
+              href: application-sign-in-problem-federated-sso-gallery.md
+            - name: 自訂開發應用程式問題
+              href: application-sign-in-problem-custom-dev.md
+        - name: 單一登入疑難排解
+          items:
+            - name: 設定同盟常見問題 - 資源庫應用程式
+              href: configure-federated-single-sign-on-gallery-applications-problems.md
+            - name: 設定同盟常見問題 - 非資源庫應用程式
+              href: configure-federated-single-sign-on-non-gallery-applications-problems.md
+            - name: 設定密碼常見問題 - 資源庫應用程式
+              href: configure-password-single-sign-on-gallery-applications-problems.md
+            - name: 設定密碼常見問題 - 非資源庫應用程式
+              href: configure-password-single-sign-on-non-gallery-applications-problems.md
+        - name: 針對使用者佈建進行疑難排解
+          items:
+            - name: 所需時間 - 資源庫應用程式
+              href: application-provisioning-when-will-provisioning-finish.md
+            - name: 設定使用者佈建時發生問題 - 資源庫應用程式
+              href: application-provisioning-config-problem.md
+            - name: 在設定使用者佈建資源庫應用程式的情況下儲存管理員認證時發生問題
+              href: application-provisioning-config-problem-storage-limit.md
+            - name: 未佈建使用者 - 資源庫應用程式
+              href: application-provisioning-config-problem-no-users-provisioned.md
+            - name: 佈建錯誤的使用者 - 資源庫應用程式
+              href: application-provisioning-config-problem-wrong-users-provisioned.md
+        - name: 應用程式清單和指派疑難排解
+          items:
+            - name: 管理租用戶應用程式清單
+              href: application-types.md
+            - name: 指派未預期的使用者
+              href: ways-users-get-assigned-to-applications.md
+        - name: 存取面板疑難排解
+          items:
+            - name: 管理瀏覽器延伸模組
+              href: manage-access-panel-browser-extension.md
+            - name: 未顯示的應用程式
+              href: access-panel-troubleshoot-application-not-appearing.md
+            - name: 出現未預期的應用程式
+              href: access-panel-troubleshoot-unexpected-application.md
+            - name: 無法登入
+              href: access-panel-troubleshoot-web-sign-in-problem.md
+            - name: 安裝瀏覽器擴充功能時發生錯誤
+              href: access-panel-extension-problem-installing.md
+            - name: 使用自助應用程式存取時發生錯誤
+              href: access-panel-troubleshoot-self-service-access.md
+        - name: 疑難排解應用程式 Proxy
           items:
             - name: 連接器疑難排解流程圖
               href: application-proxy-debug-connectors.md
@@ -159,124 +287,6 @@
               href: application-proxy-connector-installation-problem.md
             - name: 登入問題
               href: application-sign-in-problem-on-premises-application-proxy.md
-    - name: 使用者佈建
-      items:
-        - name: 所需時間
-          href: application-provisioning-when-will-provisioning-finish-specific-user.md
-        - name: 所需時間 - 資源庫應用程式
-          href: application-provisioning-when-will-provisioning-finish.md
-        - name: 設定使用者佈建 - 資源庫應用程式
-          href: application-provisioning-config-how-to.md
-        - name: 設定使用者佈建時發生問題 - 資源庫應用程式
-          href: application-provisioning-config-problem.md
-        - name: 在設定使用者佈建資源庫應用程式的情況下儲存管理員認證時發生問題
-          href: application-provisioning-config-problem-storage-limit.md
-        - name: 同步屬性以對應 - 資源庫應用程式
-          href: user-provisioning-sync-attributes-for-mapping.md
-        - name: 未佈建使用者 - 資源庫應用程式
-          href: application-provisioning-config-problem-no-users-provisioned.md
-        - name: 佈建錯誤的使用者 - 資源庫應用程式
-          href: application-provisioning-config-problem-wrong-users-provisioned.md
-    - name: 應用程式存取
-      items:
-        - name: 應用程式類型
-          href: application-types.md
-        - name: 設定使用者同意
-          href: configure-user-consent.md
-        - name: 將使用者和群組指派給應用程式的方法
-          href: methods-for-assigning-users-and-groups.md
-        - name: 將使用者指派給應用程式
-          href: assign-user-or-group-access-portal.md
-        - name: 將使用者存取權從應用程式移除的方法
-          href: methods-for-removing-user-access.md
-        - name: 指派未預期的使用者
-          href: ways-users-get-assigned-to-applications.md
-        - name: 移除使用者或群組存取權
-          href: remove-user-or-group-access-portal.md
-        - name: 隱藏來自使用者的應用程式
-          href: hide-application-from-user-portal.md
-        - name: 停用使用者登入
-          href: disable-user-sign-in-portal.md
-        - name: 設定自助式應用程式指派
-          href: manage-self-service-access.md
-        - name: 主領域探索
-          href: configure-authentication-for-federated-users-portal.md
-    - name: 單一登入
-      items:
-        - name: 設定非資源庫應用程式
-          href: configure-single-sign-on-non-gallery-applications.md
-        - name: 設定同盟 - 資源庫應用程式
-          href: configure-federated-single-sign-on-gallery-applications.md
-        - name: 設定同盟常見問題 - 資源庫應用程式
-          href: configure-federated-single-sign-on-gallery-applications-problems.md
-        - name: 設定同盟 - 非資源庫應用程式
-          href: configure-federated-single-sign-on-non-gallery-applications.md
-        - name: 設定同盟常見問題 - 非資源庫應用程式
-          href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-        - name: 設定密碼 - 資源庫應用程式
-          href: configure-password-single-sign-on-gallery-applications.md
-        - name: 設定密碼常見問題 - 資源庫應用程式
-          href: configure-password-single-sign-on-gallery-applications-problems.md
-        - name: 設定密碼 - 非資源庫應用程式
-          href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: 設定密碼常見問題 - 非資源庫應用程式
-          href: configure-password-single-sign-on-non-gallery-applications-problems.md
-        - name: 應用程式 Proxy
-          items:
-            - name: Kerberos 限制委派 (KCD)
-              href: application-proxy-configure-single-sign-on-with-kcd.md
-            - name: 密碼保存庫
-              href: application-proxy-configure-single-sign-on-password-vaulting.md
-            - name: headers
-              href: application-proxy-configure-single-sign-on-with-ping-access.md
-            - name: SAML SSO
-              href: application-proxy-configure-single-sign-on-on-premises-apps.md
-    - name: 存取面板
-      items:
-        - name: 管理瀏覽器延伸模組
-          href: manage-access-panel-browser-extension.md
-        - name: 未顯示的應用程式
-          href: access-panel-troubleshoot-application-not-appearing.md
-        - name: 出現未預期的應用程式
-          href: access-panel-troubleshoot-unexpected-application.md
-        - name: 無法登入
-          href: access-panel-troubleshoot-web-sign-in-problem.md
-        - name: 安裝瀏覽器擴充功能時發生錯誤
-          href: access-panel-extension-problem-installing.md
-        - name: 如何使用自助應用程式存取
-          href: access-panel-manage-self-service-access.md
-        - name: 使用自助應用程式存取時發生錯誤
-          href: access-panel-troubleshoot-self-service-access.md
-    - name: 移轉
-      items:
-        - name: 移轉資源
-          href: migration-resources.md
-        - name: 將 ADFS 應用程式遷移至 Azure
-          href: migrate-adfs-apps-to-azure.md
-    - name: 使用者登入疑難排解
-      items:
-        - name: 未預期的同意提示
-          href: application-sign-in-unexpected-user-consent-prompt.md
-        - name: 使用者同意錯誤
-          href: application-sign-in-unexpected-user-consent-error.md
-        - name: 從自訂入口網站登入時發生問題
-          href: application-sign-in-other-problem-deeplink.md
-        - name: 從存取面板登入時發生問題
-          href: application-sign-in-other-problem-access-panel.md
-        - name: 應用程式登入頁面發生錯誤
-          href: application-sign-in-problem-application-error.md
-        - name: 密碼單一登入問題 - 非資源庫應用程式
-          href: application-sign-in-problem-password-sso-non-gallery.md
-        - name: 密碼單一登入問題 - 資源庫應用程式
-          href: application-sign-in-problem-password-sso-gallery.md
-        - name: 登入 Microsoft 應用程式時發生問題
-          href: application-sign-in-problem-first-party-microsoft.md
-        - name: 同盟單一登入問題 - 非資源庫應用程式
-          href: application-sign-in-problem-federated-sso-non-gallery.md
-        - name: 同盟單一登入問題 - 資源庫應用程式
-          href: application-sign-in-problem-federated-sso-gallery.md
-        - name: 自訂開發應用程式問題
-          href: application-sign-in-problem-custom-dev.md
 - name: 參考
   items:
     - name: 應用程式 Proxy 版本記錄

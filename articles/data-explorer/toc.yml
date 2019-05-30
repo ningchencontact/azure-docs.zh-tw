@@ -41,14 +41,6 @@
           href: web-query-data.md
         - name: Python
           href: python-query-data.md
-    - name: 顯現資料
-      items:
-        - name: Power BI - 連接器
-          href: power-bi-connector.md
-        - name: "Power BI - \_已匯入查詢"
-          href: power-bi-imported-query.md
-        - name: Power BI - SQL 查詢
-          href: power-bi-sql-query.md
 - name: 教學課程
   items:
     - name: 無需使用程式碼也能內嵌資料
@@ -80,6 +72,20 @@
           href: anomaly-detection.md
         - name: 機器學習服務
           href: machine-learning-clustering.md
+    - name: 顯現資料
+      items:
+        - name: Power BI
+          items:
+            - name: 連接器
+              href: power-bi-connector.md
+            - name: 已匯入查詢
+              href: power-bi-imported-query.md
+            - name: SQL 查詢
+              href: power-bi-sql-query.md
+        - name: Sisense
+          href: sisense.md
+        - name: Grafana
+          href: grafana.md
     - name: 管理
       items:
         - name: 管理資料庫權限
@@ -108,8 +114,6 @@
           href: kqlmagic.md
         - name: 使用 Azure Data Factory 複製資料
           href: data-factory-load-data.md
-        - name: 在 Grafana 中將資料視覺化
-          href: grafana.md
         - name: 與 ODBC 連線
           href: connect-odbc.md
     - name: 疑難排解

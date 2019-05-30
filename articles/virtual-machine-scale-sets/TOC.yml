@@ -223,6 +223,14 @@
               href: virtual-machine-scale-sets-manage-cli.md
             - name: 使用 Azure PowerShell
               href: virtual-machine-scale-sets-manage-powershell.md
+        - name: 修改擴展集
+          href: virtual-machine-scale-sets-upgrade-scale-set.md
+        - name: 擴展集的網路功能
+          href: virtual-machine-scale-sets-networking.md
+        - name: 作業系統自動升級
+          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: 執行個體保護 (預覽)
+          href: virtual-machine-scale-sets-instance-protection.md
         - name: 共用映像資源庫
           items:
             - name: 概觀
@@ -237,14 +245,8 @@
               href: troubleshooting-shared-images.md
         - name: 擴展集內的垂直縮放比例
           href: virtual-machine-scale-sets-vertical-scale-reprovision.md
-        - name: 作業系統自動升級
-          href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: 修改擴展集
-          href: virtual-machine-scale-sets-upgrade-scale-set.md
         - name: 使用 DSC 與擴展集
           href: virtual-machine-scale-sets-dsc.md
-        - name: 擴展集的網路功能
-          href: virtual-machine-scale-sets-networking.md
         - name: 將範本轉換為受控磁碟
           href: virtual-machine-scale-sets-convert-template-to-md.md
         - name: 預定的維修

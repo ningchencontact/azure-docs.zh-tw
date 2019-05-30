@@ -22,6 +22,8 @@
   items:
     - name: SSO 至內部部署資源
       href: azuread-join-sso.md
+    - name: Azure 受控工作站
+      href: concept-azure-managed-workstation.md
 - name: 使用說明指南
   expanded: true
   items:
@@ -39,6 +41,8 @@
       href: assign-local-admin.md
     - name: 啟用企業狀態漫遊
       href: enterprise-state-roaming-enable.md
+    - name: 部署 Azure 受控工作站
+      href: howto-azure-managed-workstation.md
     - name: 針對目前與混合式 Azure AD 聯結的 Windows 裝置進行疑難排解
       href: troubleshoot-hybrid-join-windows-current.md
     - name: 針對已與混合式 Azure AD 聯結的舊版 Windows 裝置進行疑難排解
