@@ -8,12 +8,12 @@ manager: barbkess
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: d003e851dcfa77b18a67450946a71e4a13ce495c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00274f8e15006f6f58a7c5f153bf0bbc0d26afb9
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700963"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416434"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault 的虛擬網路服務端點
 
@@ -39,9 +39,9 @@ Azure Key Vault 的虛擬網路服務端點可讓您將存取權限制為指定�
 以下是設定防火牆和虛擬網路所需的步驟。 不論您是使用 PowerShell、Azure CLI 或 Azure 入口網站，都適用這些步驟。
 
 1. 啟用[金鑰保存庫記錄](key-vault-logging.md)，以查看詳細的存取記錄。 當防火牆和虛擬網路規則防止存取金鑰保存庫時，這有助於進行診斷。 (此步驟為選擇性步驟，但強烈建議執行。)
-2. 針對目標虛擬網路和子網路中啟用 [金鑰保存庫的服務端點]。
+2. 針對目標虛擬網路和子網路中啟用 [金鑰保存庫的服務端點]  。
 3. 設定金鑰保存庫的防火牆和虛擬網路規則，以限制從特定的虛擬網路、子網路和 IPv4 位址範圍存取該金鑰保存庫。
-4. 如果有任何信任的 Microsoft 服務必須存取此金鑰保存庫，啟用此選項，讓 [信任的 Azure 服務] 連線能夠至 Key Vault。
+4. 如果有任何信任的 Microsoft 服務必須存取此金鑰保存庫，啟用此選項，讓 [信任的 Azure 服務]  連線能夠至 Key Vault。
 
 如需詳細資訊，請參閱[設定 Azure Key Vault 防火牆和虛擬網路](key-vault-network-security.md)。
 
@@ -53,12 +53,12 @@ Azure Key Vault 的虛擬網路服務端點可讓您將存取權限制為指定�
 > 請留意下列組態限制：
 > * 最多允許 127 條虛擬網路規則和 127 條 IPv4 規則。 
 > * 不支援使用 "/31" 或 "/32" 前置詞大小的小型位址範圍。 而是，使用個別 IP 位址規則設定這些範圍。
-> * 只有公用 IP 位址允許使用 IP 網路規則。 IP 規則中不允許保留私人網路的 IP 位址範圍 (如 RFC 1918 中所定義)。 私人網路包含位址開頭**10。**， **172.16 31**，並**192.168**。 
+> * 只有公用 IP 位址允許使用 IP 網路規則。 IP 規則中不允許保留私人網路的 IP 位址範圍 (如 RFC 1918 中所定義)。 私人網路包含位址開頭**10。** ， **172.16 31**，並**192.168**。 
 > * 目前僅支援 IPv4 位址。
 
 ## <a name="trusted-services"></a>信任的服務
 
-以下是已啟用 [允許信任的服務] 選項的情況下，允許存取金鑰保存庫的信任服務清單。
+以下是已啟用 [允許信任的服務]  選項的情況下，允許存取金鑰保存庫的信任服務清單。
 
 |信任的服務|使用案例|
 | --- | --- |
@@ -68,7 +68,7 @@ Azure Key Vault 的虛擬網路服務端點可讓您將存取權限制為指定�
 |Azure 備份|使用 [Azure 備份](../backup/backup-introduction-to-azure-backup.md)，在 Azure 虛擬機器備份期間，允許相關金鑰和祕密的備份和還原。|
 |Exchange Online 和 SharePoint Online|允許使用[客戶金鑰](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697)存取 Azure 儲存體服務加密的客戶金鑰。|
 |Azure 資訊保護|允許存取 [Azure 資訊保護](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)的租用戶金鑰|
-|Azure App Service|[透過 Key Vault 部署 Azure Web 應用程式憑證](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)。|
+|Azure App Service|[透過 Key Vault 部署 Azure Web 應用程式憑證](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)。|
 |Azure SQL Database|[Azure SQL Database 和資料倉儲具有「攜帶您自己的金鑰」支援的的透明資料加密](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current)。|
 |Azure 儲存體|[使用 Azure Key Vault 中客戶管理的金鑰進行儲存體服務加密](../storage/common/storage-service-encryption-customer-managed-keys.md)。|
 |Azure Data Lake Store|使用客戶管理的金鑰[在 Azure Data Lake Store 中加密資料](../data-lake-store/data-lake-store-encryption.md)。|

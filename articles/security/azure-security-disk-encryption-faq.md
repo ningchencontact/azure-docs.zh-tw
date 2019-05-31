@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6fd9ce1947b8207aced44204fc2989622a1998f2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5c49a639c0426b4535c4c2e88d36d447c10826f1
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65761911"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416701"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM 適用的 Azure 磁碟加密常見問題集
 
@@ -48,13 +48,13 @@ Azure 磁碟加密可用於標準層 VM，包括 [A、D、DS、G、GS 及 F](htt
 | Ubuntu | 18.04| 作業系統和資料磁碟 |
 | Ubuntu | 16.04| 作業系統和資料磁碟 |
 | Ubuntu | 14.04.5</br>[搭配更新至 4.15 或更新版本的 Azure 調整核心](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | 作業系統和資料磁碟 |
-| RHEL | 7.6 | 作業系統和資料磁碟* |
-| RHEL | 7.5 | 作業系統和資料磁碟* |
-| RHEL | 7.4 | 作業系統和資料磁碟* |
-| RHEL | 7.3 | 作業系統和資料磁碟* |
-| RHEL | 7.2 | 作業系統和資料磁碟* |
-| RHEL | 6.8 | 資料磁碟* |
-| RHEL | 6.7 | 資料磁碟* |
+| RHEL | 7.6 | 作業系統和資料磁碟 （請參閱下列附註） |
+| RHEL | 7.5 | 作業系統和資料磁碟 （請參閱下列附註） |
+| RHEL | 7.4 | 作業系統和資料磁碟 （請參閱下列附註） |
+| RHEL | 7.3 | 作業系統和資料磁碟 （請參閱下列附註） |
+| RHEL | 7.2 | 作業系統和資料磁碟 （請參閱下列附註） |
+| RHEL | 6.8 | 資料磁碟 （請參閱下列附註） |
+| RHEL | 6.7 | 資料磁碟 （請參閱下列附註） |
 | CentOS | 7.5 | 作業系統和資料磁碟 |
 | CentOS | 7.4 | 作業系統和資料磁碟 |
 | CentOS | 7.3 | 作業系統和資料磁碟 |
@@ -65,7 +65,7 @@ Azure 磁碟加密可用於標準層 VM，包括 [A、D、DS、G、GS 及 F](htt
 | SLES | 12-SP3 | 資料磁碟 |
 
 > [!NOTE]
-> 新的 ADE 實作適用於 RHEL OS 和資料磁碟 RHEL7 隨用隨付映像的支援。 ADE 目前不支援 RHEL 自備訂用帳戶 (BYOS) 映像。 另請參閱[適用於 Linux 的 Azure 磁碟加密](azure-security-disk-encryption-linux.md)如需詳細資訊的發行項。 __
+> 新的 ADE 實作適用於 RHEL OS 和資料磁碟 RHEL7 隨用隨付映像的支援。 ADE 目前不支援 RHEL 自備訂用帳戶 (BYOS) 映像。 請參閱[適用於 Linux 的 Azure 磁碟加密](azure-security-disk-encryption-linux.md)如需詳細資訊。
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>如何開始使用 Azure 磁碟加密？
 
@@ -115,7 +115,7 @@ Azure 磁碟加密有其先決條件。 請參閱 [Azure 磁碟加密的先決�
 
 ## <a name="what-version-of-azure-powershell-does-azure-disk-encryption-support"></a>Azure 磁碟加密支援 Azure PowerShell 的什麼版本？
 
-使用最新版的 Azure PowerShell SDK 來設定 Azure 磁碟加密。 下載最新版的 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)。 Azure SDK 1.1.0 版「不」支援 Azure 磁碟加密。
+使用最新版的 Azure PowerShell SDK 來設定 Azure 磁碟加密。 下載最新版的 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)。 Azure SDK 1.1.0 版「不」  支援 Azure 磁碟加密。
 
 > [!NOTE]
 > Linux Azure 磁碟加密預覽擴充功能已被取代。 如需詳細資訊，請參閱[淘汰 Linux IaaS VM 適用的 Azure 磁碟加密預覽擴充功能](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/12/deprecating-azure-disk-encryption-preview-extension-for-linux-iaas-vms/)。

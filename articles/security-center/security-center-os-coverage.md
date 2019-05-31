@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/02/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 910e9acaea5c8f95dd344bc8e5454cd2bd3b7a25
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.date: 5/27/2019
+ms.author: monhaber
+ms.openlocfilehash: 807bde76bb6bb50490ee599768273a59c49d5e45
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968321"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258696"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure 資訊安全中心所支援的平台和功能
 
@@ -27,7 +27,6 @@ ms.locfileid: "65968321"
 
 > [!NOTE]
 > 深入了解 Azure 資源的[傳統和 Resource Manager 部署模型](../azure-classic-rm.md)。
->
 >
 
 ## <a name="platforms-that-support-the-data-collection-agent"></a>可支援資料收集代理程式的平台 
@@ -46,20 +45,29 @@ ms.locfileid: "65968321"
 
 > [!NOTE]
 > 與 Windows Defender ATP 整合僅支援 Windows Server 2012 R2 和 Windows Server 2016。
->
->
 
 ### <a name="supported-platforms-for-linux-computers-and-vms"></a>Linux 電腦和 VM 支援的平台
+
 以下為支援的 Linux 作業系統：
 
-* Ubuntu 版本 12.04 LTS、14.04 LTS 和 16.04 LTS。
-* Debian 版本 6、7、8 和 9。
-* CentOS 版本 5、6 和 7。
-* Red Hat Enterprise Linux (RHEL) 版本 5、6 和 7。
-* SUSE Linux Enterprise Server (SLES) 版本 11 和 12。
-* Oracle Linux 版本 5、6 和 7。
-* Amazon Linux 2012.09 到 2017。
-* 只有 x86_64 平台 (64 位元) 支援 OpenSSL 1.1.0。
+> [!NOTE]
+> 由於經常變更支援的 Linux 作業系統的清單，如果想要的話，按一下[此處](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems)若要檢視支援的版本中，最新清單，如果已有變更本主題最後發行之後。
+
+64 位元
+* CentOS 6 和 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 和 7
+* Red Hat Enterprise Linux Server 6 和 7
+* Debian GNU/Linux 8 和 9
+* Ubuntu Linux 14.04 LTS、16.04 LTS 和 18.04 LTS
+* SUSE Linux Enterprise Server 12
+
+32 位元
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 和 9
+* Ubuntu Linux 14.04 LTS 和 16.04 LTS
 
 ## <a name="vms-and-cloud-services"></a>VM 和雲端服務
 也支援在雲端服務中執行的 VM。 只監視在生產位置中執行的雲端服務 Web 角色和背景工作角色。 若要深入了解雲端服務，請參閱 [Azure 雲端服務概觀](../cloud-services/cloud-services-choose-me.md)。
@@ -70,25 +78,27 @@ ms.locfileid: "65968321"
 > [!div class="mx-tableFixed"]
 > 
 
-|伺服器| Windows|| Linux||
-|----|----|----|----|----|
-|環境|Azure|非 Azure|Azure|非 Azure|
-|VMBA 威脅偵測警示|✔|✔|✔ (在支援的版本上)|✔|
-|網路型威脅偵測警示|✔|X|✔|X|
-|Windows Defender ATP 整合|✔ (在支援的版本上)|✔|X|X|
-|遺漏修補程式|✔|✔|✔|✔|
-|安全性設定|✔|✔|✔|✔|
-|Endpoint Protection|✔|✔|X|X|
-|JIT VM 存取|✔|X|✔|X|
-|自適性應用程式控制|✔|✔|✔|✔|
-|FIM|✔|✔|✔|✔|
-|磁碟加密|✔|X|✔|X|
-|第三方部署|✔|X|✔|X|
-|NSG|✔|X|✔|X|
-|無檔案型威脅偵測|✔|✔|X|X|
-|網路對應|✔|X|✔|X|
-|自適性網路控制措施|✔|X|✔|X|
-
+|伺服器| Windows|| Linux||||價格|
+|----|----|----|----|----|----|----|----|
+|**環境**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
+||**虛擬機器**|**虛擬機器擴展集**||**虛擬機器**|**虛擬機器擴展集**|
+|VMBA 威脅偵測警示|✔|✔|✔|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|建議 （免費） 的威脅偵測 （標準）|
+|網路型威脅偵測警示|✔|✔|X|✔|✔|X|標準|
+|Windows Defender ATP 整合|✔ (在支援的版本上)|✔ (在支援的版本上)|✔|X|X|X|標準|
+|遺漏修補程式|✔|✔|✔|✔|✔|✔|免費|
+|安全性設定|✔|✔|✔|✔|✔|✔|免費|
+|Endpoint protection 評估|✔|✔|✔|X|X|X|免費|
+|JIT VM 存取|✔|X|X|✔|X|X|標準|
+|自適性應用程式控制|✔|X|✔|✔|X|✔|標準|
+|FIM|✔|✔|✔|✔|✔|✔|標準|
+|磁碟加密評估|✔|✔|X|✔|✔|X|免費|
+|第三方部署|✔|X|X|✔|X|X|免費|
+|Nsg 評量|✔|✔|X|✔|✔|X|免費|
+|無檔案型威脅偵測|✔|✔|✔|X|X|X|標準|
+|網路地圖|✔|✔|X|✔|✔|X|標準|
+|自適性網路控制措施|✔|✔|X|✔|✔|X|標準|
+|法規合規性儀表板和報表|✔|✔|✔|✔|✔|✔|標準|
+|建議和 Docker 裝載 IaaS 容器上的威脅偵測|X|X|X|✔|✔|✔|標準|
 
 ### <a name="supported-endpoint-protection-solutions"></a>支援的端點保護解決方案
 
@@ -96,25 +106,25 @@ ms.locfileid: "65968321"
  - 您是否可以使用 Azure 資訊安全中心安裝適用於您的每個解決方案。
  - 資訊安全中心可以探索哪些端點保護解決方案。 如果探索到這些端點保護解決方案的其中一個，資訊安全中心不會建議安裝。
 
-| Endpoint Protection| 平台 | 資訊安全中心安裝 | 資訊安全中心探索 |
+如需這些保護的每個產生建議時，請參閱[Endpoint Protection 評定與建議](security-center-endpoint-protection.md)。
+
+| 端點保護| 平台 | 資訊安全中心安裝 | 資訊安全中心探索 |
 |------|------|-----|-----|
-| Windows Defender (Microsoft 反惡意程式碼軟體)| Windows Server 2016| 否，內建於 OS| 有 |
-| System Center Endpoint Protection (Microsoft 反惡意程式碼軟體) | Windows Server 2012 R2、2012、2008 R2 (請參閱下列附註) | 透過延伸模組 | 有 |
-| Trend Micro – 所有版本 | Windows Server 系列  | 無 | 有 |
-| Symantec v12.1.1100+| Windows Server 系列  | 無 | 有 |
-| McAfee v10+ | Windows Server 系列  | 無 | 有 |
-| Kaspersky| Windows Server 系列  | 無 | 無  |
-| Sophos| Windows Server 系列  | 無 | 無  |
+| Windows Defender (Microsoft 反惡意程式碼軟體)| Windows Server 2016| 否，內建於 OS| 是 |
+| System Center Endpoint Protection (Microsoft 反惡意程式碼軟體) | Windows Server 2012 R2、2012、2008 R2 (請參閱下列附註) | 透過延伸模組 | 是 |
+| Trend Micro – 所有版本 | Windows Server 系列  | 否 | 是 |
+| Symantec v12.1.1100+| Windows Server 系列  | 否 | 是 |
+| McAfee v10+ | Windows Server 系列  | 否 | 是 |
+| Kaspersky| Windows Server 系列  | 否 | 否  |
+| Sophos| Windows Server 系列  | 否 | 否  |
 
 > [!NOTE]
 > - 在 Windows Server 2008 R2 虛擬機器上偵測 System Center Endpoint Protection (SCEP) 需要安裝 SCEP (PowerShell 3.0 或更高版本)。
->
->
 
-## <a name="supported-paas-features"></a>支援的 PaaS 功能 
+## <a name="supported-paas-features"></a>支援的 PaaS 功能
 
 
-|服務|建議|威脅偵測|
+|服務|建議 （免費）|威脅偵測 （標準）|
 |----|----|----|
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
@@ -124,11 +134,35 @@ ms.locfileid: "65968321"
 |雲端服務|✔| X|
 |VNets|✔| NA|
 |子網路|✔| NA|
-|NIC|✔| ✔|
+|NIC|✔| NA|
 |NSG|✔| NA|
-|訂用帳戶|✔| ✔|
+|訂用帳戶|✔ **| ✔|
+|App Service|✔| NA|
+|Batch|✔| NA|
+|Service Fabric|✔| NA|
+|自動化帳戶|✔| NA|
+|負載平衡器|✔| NA|
+|Search|✔| NA|
+|服務匯流排|✔| NA|
+|串流分析|✔| NA|
+|事件中樞|✔| NA|
+|邏輯應用程式|✔| NA|
+|子網路|✔| NA|
+|Vnet|✔| NA|
+|儲存體帳戶|✔| NA|
+|Redis|✔| NA|
+|SQL|✔| NA|
+|Data Lake 分析|✔| NA|
+|儲存體帳戶|✔| NA|
+|訂用帳戶|✔| NA|
+|金鑰保存庫|✔| NA|
 
-\* 這些功能目前以公開預覽形式支援。 
+
+
+
+\* 這些功能目前以公開預覽形式支援。
+
+\*\* AAD 建議僅適用於標準訂用帳戶
 
 
 

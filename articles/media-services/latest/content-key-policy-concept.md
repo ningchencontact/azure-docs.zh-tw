@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a1d2cc50b405df2c71d94e74973b3291a4e908cb
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393475"
+ms.locfileid: "66417994"
 ---
 # <a name="content-key-policies"></a>內容金鑰原則
 
@@ -25,7 +25,7 @@ ms.locfileid: "66393475"
 
 若要指定您的資料流上的加密選項，您需要建立[串流原則](streaming-policy-concept.md)和其關聯您[串流定位器](streaming-locators-concept.md)。 您建立[內容金鑰原則](https://docs.microsoft.com/rest/api/media/contentkeypolicies)來設定如何內容金鑰 (可提供安全存取您[資產](assets-concept.md)) 傳遞給終端用戶端。 您需要設定的需求 （限制） 上的索引鍵的順序必須符合傳遞給用戶端指定的組態與內容金鑰原則。 此內容的索引鍵原則就不需要清除的串流或下載。 
 
-通常，您建立的關聯您**內容的索引鍵原則**與您**串流定位器**。 或者，您可以指定內容的索引鍵原則，在資料流的原則 （當建立自訂資料流處理原則，在進階案例）。 
+通常，您建立的關聯您**內容的索引鍵原則**與您[串流定位器](streaming-locators-concept.md)。 或者，您可以在其中指定內容金鑰原則內[串流原則](streaming-policy-concept.md)（當建立自訂資料流處理原則，針對進階案例）。 
 
 建議您讓媒體服務自動產生內容金鑰。 一般而言，您會使用長時間執行的金鑰，並檢查原則是否存在**取得**。 若要取得金鑰，您必須呼叫個別的動作方法，以取得秘密或認證，請參閱下列範例。
 

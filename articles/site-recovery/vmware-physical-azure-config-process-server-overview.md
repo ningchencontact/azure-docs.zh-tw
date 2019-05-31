@@ -5,20 +5,20 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 6f501e251f0b006bbbb4f64090cac5c3d61b7bf2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8b3815fc9dc44484779a70b51ebff4802265d53a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523555"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417734"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>關於 Site Recovery 元件 （設定、 處理程序、 主要目標）
 
 這篇文章描述組態、 程序，以及將 VMware Vm 和實體伺服器複寫至 Azure 時所使用的主要目標伺服器[Site Recovery](site-recovery-overview.md)服務。
 
-## <a name="configuration-server"></a>設定伺服器
+## <a name="configuration-server"></a>組態伺服器
 
 針對內部部署 VMware Vm 和實體伺服器災害復原，您需要 Site Recovery 組態伺服器部署在內部部署環境。
 
@@ -32,7 +32,7 @@ ms.locfileid: "65523555"
 **實體伺服器部署** | 如果無法安裝做為 VMware VM，您可以在實體伺服器上安裝它。 | [部署](physical-azure-set-up-source.md#set-up-the-source-environment)組態伺服器以手動方式。
 
 
-## <a name="process-server"></a>處理伺服器
+## <a name="process-server"></a>處理序伺服器
 
 **設定** | **詳細資料** | **Links**
 --- | --- | ---

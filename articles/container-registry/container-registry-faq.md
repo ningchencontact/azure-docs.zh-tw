@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 5/13/2019
 ms.author: sajaya
-ms.openlocfilehash: 86efb6b655405500f994a5a5ec7acbd18c645004
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 1400c023e43179a9c8490334e262711486c75a2d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957846"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417934"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>關於 Azure Container Registry 的常見問題集
 
@@ -253,10 +253,11 @@ az acr login -n MyRegistry
 - [新的使用者權限可能不會生效之後立即更新](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [正確的格式，直接的 REST API 呼叫中未指定驗證資訊](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [為什麼不會在 Azure 入口網站列出我所有的存放庫或標記？](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [如何收集 Windows 上的 http 追蹤？](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>docker 提取失敗，發生錯誤： net/http： 要求取消時等候連接 (Client.Timeout 超過等待標頭)
 
- - 如果此錯誤是暫時性的問題，然後重試將會成功。 
+ - 如果此錯誤是暫時性的問題，然後重試將會成功。
  - 如果`docker pull`持續失敗，則可能有問題，並使用 docker 精靈。 重新啟動 docker 精靈通常可以降低問題。 
  - 如果您繼續看到此問題，重新啟動 docker 精靈之後，問題可能是某些與機器的網路連線問題。 若要檢查電腦上的一般網路是否狀況良好，請嘗試命令這類`ping www.bing.com`。
  - 您一律應該有重試機制在所有的 docker 用戶端作業。
@@ -283,7 +284,7 @@ unauthorized: authentication required
 ```
 
 若要解決此錯誤：
-1. 將選項加入`--signature-verification=false`至 docker 精靈組態檔`/etc/sysconfig/docker`。 例如：
+1. 將選項加入`--signature-verification=false`至 docker 精靈組態檔`/etc/sysconfig/docker`。 例如:
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
@@ -386,7 +387,29 @@ curl $redirect_url
 
 ### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>為什麼不會在 Azure 入口網站列出我所有的存放庫或標記？ 
 
-如果您使用 microsoft Edge 瀏覽器，您可以看到最多 100 個存放庫或列出的標記。 如果您的登錄具有 100 個以上的存放庫或標記，我們建議您若要列出所有使用 Firefox 或 Chrome 瀏覽器。
+如果您使用 Microsoft Edge 瀏覽器，您可以看到最多 100 個存放庫或列出的標記。 如果您的登錄具有 100 個以上的存放庫或標記，我們建議您若要列出所有使用 Firefox 或 Chrome 瀏覽器。
+
+### <a name="how-do-i-collect-http-traces-on-windows"></a>如何收集 Windows 上的 http 追蹤？
+
+#### <a name="prerequisites"></a>必要條件
+
+- 啟用在 fiddler 中的解密 https:  <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
+- 啟用 Docker 以使用 proxy，以透過 Docker ui: <https://docs.docker.com/docker-for-windows/#proxies>
+- 請務必還原完成時。  Docker 將不會啟用此工作並不在執行 fiddler。
+
+#### <a name="windows-containers"></a>Windows 容器
+
+設定 Docker proxy 127.0.0.1: 8888
+
+#### <a name="linux-containers"></a>Linux 容器
+
+找到的 ip 的 Docker vm 的虛擬交換器：
+
+```powershell
+(Get-NetIPAddress -InterfaceAlias "*Docker*" -AddressFamily IPv4).IPAddress
+```
+
+設定 Docker proxy 前, 一個命令和連接埠 8888 (例如 10.0.75.1:8888) 的輸出
 
 ## <a name="tasks"></a>工作
 

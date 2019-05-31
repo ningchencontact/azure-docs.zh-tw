@@ -10,18 +10,20 @@ ms.author: minxia
 author: mx-iao
 ms.date: 05/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: f3d675d0eac1255974995fd7717192ec6a21bac1
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 314917ce91407206d786b191df118893696ac82c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400220"
+ms.locfileid: "66417137"
 ---
-# <a name="use-azure-machine-learning-service-to-train-and-register-tensorflow-models"></a>使用 Azure Machine Learning 服務來定型和註冊 TensorFlow 模型
+# <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>定型，並向 Azure Machine Learning 服務的規模 TensorFlow 模型
 
 這篇文章會示範如何訓練及註冊 Azure Machine Learning 服務在 TensorFlow 模型。 我們將使用熱門[MNIST 資料集](http://yann.lecun.com/exdb/mnist/)來分類使用 TensorFlow 上建置的深度類神經網路的手寫數字。
 
-使用 Azure Machine Learning 服務時，您將能夠快速相應放大您使用彈性的雲端計算資源的開放原始碼訓練作業。 您也可以追蹤您的定型執行、 版本模型、 部署模型，以及其他更多。 不論您正在開發從頭 TensorFlow 模型，或是您要將現有的模型帶到雲端，Azure Machine Learning 服務這裡是協助您建立可實際執行的模型。
+使用 Azure Machine Learning 服務時，您將能夠快速相應放大您使用彈性的雲端計算資源的開放原始碼訓練作業。 您也可以追蹤您的定型執行、 版本模型、 部署模型，以及其他更多。 
+
+不論您正在開發從頭 TensorFlow 模型，或是您要將現有的模型帶到雲端，您可以建置使用 Azure Machine Learning 服務的生產就緒模型。
 
 ## <a name="prerequisites"></a>必要條件
 

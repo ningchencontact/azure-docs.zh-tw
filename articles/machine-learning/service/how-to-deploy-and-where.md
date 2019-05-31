@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/21/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 4685d02fa9a1f08d86bdbe2915b94f177235b864
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 929a4ae2e954933bf00550770ba9d41319dc6241
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016426"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418054"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -92,7 +92,7 @@ ms.locfileid: "66016426"
 
 下列計算目標，或計算資源，可用來裝載您的 web 服務部署。 
 
-| 計算目標 | 使用量 | 說明 |
+| 計算目標 | 使用量 | 描述 |
 | ----- | ----- | ----- |
 | [本機 web 服務](#local) | 測試/偵錯 | 適用於有限的測試和疑難排解。
 | [Azure Kubernetes Service (AKS)](#aks) | 即時推斷 | 適用於大規模生產環境部署。 提供自動調整和快速的回應時間。 |
@@ -235,9 +235,6 @@ inference_config = InferenceConfig(source_directory="C:/abc",
 ### <a id="local"></a> 本機部署
 
 若要在本機部署，您需要有**安裝 Docker**本機電腦上。
-
-本節的範例中使用[deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-)，而這需要您註冊的模型和映像之前進行部署。 如需有關其他部署方法的詳細資訊，請參閱 <<c0> [ 部署](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-)並[deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-)。
-
 
 + **使用 SDK**
 

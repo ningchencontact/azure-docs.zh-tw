@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 05/30/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cdef62fabdaf3b76effba380c38fa7b8b3c9a87b
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: eefb5f3ea10d72cdf355fc810147414fe1714d67
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399724"
+ms.locfileid: "66417017"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>什麼是 Azure 中的可用性區域？
 「可用性區域」是高可用性供應項目，可保護您的應用程式和資料不受資料中心故障影響。 「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。 地區內「可用性區域」的實體區隔可保護應用程式和資料不受資料中心故障影響。 區域備援服務會將應用程式和資料複寫至所有「可用性區域」，以防出現單一失敗點。 使用「可用性區域」時，Azure 可提供業界最佳的 99.99% VM 執行時間 SLA。 完整 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 說明保證的 Azure 整體可用性。
@@ -86,7 +86,7 @@ Azure 區域中的可用性區域是由容錯網域和更新網域組成。 例�
 - [事件中樞地理災害復原](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [服務匯流排地理災害復原](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [建立區域備援虛擬網路閘道](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
-- [適用於 Azure Cosmos DB 中新增區域備援區域](../cosmos-db/high-availability.md##availability-zone-support)
+- [適用於 Azure Cosmos DB 中新增區域備援區域](../cosmos-db/high-availability.md#availability-zone-support)
 
 
 ## <a name="next-steps"></a>後續步驟

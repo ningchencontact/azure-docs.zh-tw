@@ -8,15 +8,17 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 56ec4d867abd5f2767c64b0800eeb017c0fb9923
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2a4d636ccb03e36f7c495f3c10c90033d7c3c93c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792995"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417907"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 變更摘要處理器 SDK：下載和版本資訊
+
 > [!div class="op_single_selector"]
+>
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 變更摘要](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
@@ -156,8 +158,8 @@ ms.locfileid: "65792995"
 * GA SDK
 * 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.14.1 或以上版本相容。
 
-
 ## <a name="release--retirement-dates"></a>發行和停用日期
+
 Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供順利轉換至較新/支援的版本。
 
 新的功能與最佳化項目只會新增至目前的 SDK，因此建議您一律盡早升級至最新的 SDK 版本。 
@@ -183,10 +185,10 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 | [1.1.0](#1.1.0) |2017 年 8 月 13 日 |--- |
 | [1.0.0](#1.0.0) |2017 年 7 月 7 日 |--- |
 
-
 ## <a name="faq"></a>常見問題集
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>請參閱
-若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。 
 
+若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。

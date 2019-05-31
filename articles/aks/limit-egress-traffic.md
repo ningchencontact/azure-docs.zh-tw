@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 4c2dad687d31597954b023dde9d1b9d69788fe04
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 13fbb20cde454a0aaab156a74a9fbcbac2d90d07
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241395"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418125"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>預覽-限制輸出流量的叢集節點和控制存取權所需的連接埠和服務在 Azure Kubernetes Service (AKS)
 
@@ -69,7 +69,7 @@ az provider register --namespace Microsoft.ContainerService
 下列的輸出連接埠 / 網路規則所需的 AKS 叢集：
 
 * TCP 連接埠*443*
-* TCP 連接埠*9000*的通道前 pod 通訊通道端 API 伺服器上。
+* TCP 連接埠*9000*和 TCP 連接埠*22*的通道前 pod 通訊通道端 API 伺服器上。
 
 下列的 FQDN / 必須要有應用程式規則：
 

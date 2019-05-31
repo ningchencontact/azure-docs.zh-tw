@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e79082056403460a7f1be50c386960ce1476c8ad
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 5044567396d832d3c3b2b46e3c3e90e053834595
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66397905"
+ms.locfileid: "66417891"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -51,13 +51,15 @@ ms.locfileid: "66397905"
 
   驗證系統管理員角色目前為公開預覽狀態。 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-  <b>重要</b>：對於可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員，具備此角色的使用者可以變更認證。 變更使用者的認證表示可承擔該使用者身分識別和權限。 例如: 
+  <b>重要</b>：對於可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員，具備此角色的使用者可以變更認證。 變更使用者的認證表示可承擔該使用者身分識別和權限。 例如:
 
   * 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與驗證系統管理員。 透過此路徑驗證系統管理員可以擔任應用程式擁有者的身分識別，並進一步假設藉由更新應用程式的認證的特殊權限的應用程式的識別。
   * Azure 訂用帳戶擁有者，他們具有機密或私人資訊或者 Azure 中重要組態的存取權。
   * 安全性群組和 Office 365 群組擁有者，他們可以管理群組成員資格。 這個群組可以存取機密或私人資訊或者 Azure AD 和其他位置中的重要組態。
   * Azure AD 外部其他服務 (例如，Exchange Online、Office 安全性與合規性中心和人力資源系統) 中的系統管理員。
   * 非系統管理員，例如主管、法律顧問和人力資源員工，他們可以存取機密或私人資訊。
+
+* **[Azure 資訊保護系統管理員](#azure-information-protection-administrator)** :具有此角色的使用者在 Azure 資訊保護服務上擁有所有權限。 此角色允許設定「Azure 資訊保護」原則的標籤、管理保護範本，以及啟用保護。 此角色並未授與「Identity Protection 中心」、Privileged Identity Management、「監視 Office 365 服務健康情況」及「Office 365 安全與規範中心」中的任何權限。
 
 * **[B2C 使用者流量管理員](#b2c-user-flow-administrator)** :具備此角色的使用者可以建立和管理 B2C 使用者流程 （也稱為 「 內建 」 原則） 在 Azure 入口網站中。 藉由建立或編輯使用者流程，這些使用者可以變更的使用者體驗的 html/CSS/javascript 內容、 變更每個使用者流程的 MFA 需求、 變更權杖中的宣告和調整租用戶中的所有原則的工作階段設定。 相反地，此角色不包含可以讓您查看使用者資料，或對租用戶結構描述中包含的屬性進行變更。 變更為身分識別體驗架構 （也稱為自訂） 原則也是此角色的範圍之外。
 
@@ -135,8 +137,6 @@ ms.locfileid: "66397905"
 
 * **[來賓邀請者](#guest-inviter)** ：當 [成員可邀請]  使用者設定為 [否] 時，此角色中的使用者可以管理 Azure Active Directory B2B 來賓使用者的邀請 在[關於 Azure AD B2B 共同作業](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)中查看 B2B 共同作業的詳細資訊。 這不包含任何其他權限。
 
-* **[資訊保護管理員](#information-protection-administrator)** ：具有此角色的使用者在 Azure 資訊保護服務上擁有所有權限。 此角色允許設定「Azure 資訊保護」原則的標籤、管理保護範本，以及啟用保護。 此角色並未授與「Identity Protection 中心」、Privileged Identity Management、「監視 Office 365 服務健康情況」及「Office 365 安全與規範中心」中的任何權限。
-
 * **[Intune 系統管理員](#intune-service-administrator)** ：此角色的使用者具有 Microsoft Intune Online (如其存在) 的全域權限。 此外，此角色包含管理使用者和裝置的能力，可相關聯原則以及建立和管理群組。 如需詳細資訊，請參閱[將角色型系統管理控制用於 Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
   > [!NOTE]
   > 在 Microsoft Graph API、Azure AD Graph API 和 Azure AD PowerShell 中，會將此角色識別為「Intune 服務管理員」。 在 [Azure 入口網站](https://portal.azure.com)中則是「Intune 管理員」。
@@ -161,7 +161,7 @@ ms.locfileid: "66397905"
   * 訊息中心讀取者
   * 報告讀者
   
-  <b>重要</b>：具備此角色的使用者可以變更可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員密碼。 變更使用者的密碼表示可承擔該使用者身分識別和權限。 例如: 
+  <b>重要</b>：具備此角色的使用者可以變更可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員密碼。 變更使用者的密碼表示可承擔該使用者身分識別和權限。 例如:
   * 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與技術支援中心系統管理員。 技術支援中心系統管理員可以透過此路徑承擔應用程式擁有者的身分識別，然後藉由更新應用程式的認證，進一步承擔特殊權限應用程式的身分識別。
   * Azure 訂用帳戶擁有者，他們具有機密或私人資訊或者 Azure 中重要組態的存取權。
   * 安全性群組和 Office 365 群組擁有者，他們可以管理群組成員資格。 這個群組可以存取機密或私人資訊或者 Azure AD 和其他位置中的重要組態。
@@ -185,7 +185,7 @@ ms.locfileid: "66397905"
   * 強制使用者必須重新註冊針對現有的非密碼認證 (例如 MFA，FIDO)
   * 撤銷 '在裝置上記住 MFA，' 在下次登入時提示 mfa
 
-* **[特殊權限角色管理員](#privileged-role-administrator)** ：具備此角色的使用者可以管理 Azure Active Directory 中，以及 Azure AD Privileged Identity Management 內的角色指派。 此外，這個角色允許各個層面的 Privileged Identity Management 管理。
+* **[特殊權限角色管理員](#privileged-role-administrator)** ：具備此角色的使用者可以管理 Azure Active Directory 中，以及 Azure AD Privileged Identity Management 內的角色指派。 此外，這個角色允許各個層面的 Privileged Identity Management 和系統管理單位管理。
 
   <b>重要</b>：此角色授與管理的所有 Azure AD 角色，包括全域系統管理員角色指派的能力。 此角色不包含 Azure AD 中的任何其他特殊權限能力，例如建立或更新使用者。 不過，指派給這個角色的使用者可以藉由指派額外的角色，來授與自己或其他人額外權限。
 
@@ -268,7 +268,7 @@ ms.locfileid: "66397905"
   |<p>所有使用者，包括所有管理員</p>|<p>管理授權</p><p>管理使用者主體名稱以外的所有使用者屬性</p>
   |只有非管理員或者下列任何有限管理員角色的使用者：<ul><li>目錄讀取器<li>來賓邀請者<li>服務台系統管理員<li>訊息中心讀取者<li>報告讀者<li>使用者管理員|<p>刪除及還原</p><p>停用和啟用</p><p>使重新整理權杖失效</p><p>管理包含使用者主體名稱的所有使用者屬性</p><p>重設密碼</p><p>更新 (FIDO) 裝置金鑰</p>
   
-  <b>重要</b>：具備此角色的使用者可以變更可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員密碼。 變更使用者的密碼表示可承擔該使用者身分識別和權限。 例如: 
+  <b>重要</b>：具備此角色的使用者可以變更可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員密碼。 變更使用者的密碼表示可承擔該使用者身分識別和權限。 例如:
   * 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與使用者系統管理員。 使用者系統管理員可以透過此路徑承擔應用程式擁有者的身分識別，然後藉由更新應用程式的認證，進一步承擔特殊權限應用程式的身分識別。
   * Azure 訂用帳戶擁有者，他們具有機密或私人資訊或者 Azure 中重要組態的存取權。
   * 安全性群組和 Office 365 群組擁有者，他們可以管理群組成員資格。 這個群組可以存取機密或私人資訊或者 Azure AD 和其他位置中的重要組態。
@@ -341,6 +341,22 @@ ms.locfileid: "66397905"
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
+| microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
+| microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
+
+### <a name="azure-information-protection-administrator"></a>Azure 資訊保護系統管理員
+可以管理 Azure 資訊保護服務的所有層面。
+
+  > [!NOTE]
+  > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
+  >
+  >
+
+| **動作** | **說明** |
+| --- | --- |
+| microsoft.azure.informationProtection/allEntities/allTasks | 管理 Azure 資訊保護的所有層面。 |
+| microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
+| microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
 
@@ -770,22 +786,6 @@ ms.locfileid: "66397905"
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
 
-### <a name="information-protection-administrator"></a>資訊保護管理員
-可管理 Azure 資訊保護產品的所有層面。
-
-  > [!NOTE]
-  > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
-  >
-  >
-
-| **動作** | **說明** |
-| --- | --- |
-| microsoft.azure.informationProtection/allEntities/allTasks | 管理 Azure 資訊保護的所有層面。 |
-| microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
-| microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
-| microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
-| microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
-
 ### <a name="intune-service-administrator"></a>Intune 服務管理員
 可管理 Intune 產品的所有層面。
 
@@ -998,8 +998,12 @@ ms.locfileid: "66397905"
 
 | **動作** | **說明** |
 | --- | --- |
-| microsoft.aad.directory/directoryRoles/update | 更新 Azure Active Directory 中的 directoryRoles。 |
 | microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | 建立和刪除所有資源，以及讀取和更新 microsoft.aad.privilegedIdentityManagement 中的標準屬性。 |
+| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/allTasks | 讀取及設定 Azure Active Directory 中的 servicePrincipals.appRoleAssignedTo 屬性。 |
+| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | 讀取及設定 Azure Active Directory 中的 servicePrincipals.oAuth2PermissionGrants 屬性。 |
+| microsoft.aad.directory/administrativeUnits/allProperties/allTasks | 建立和管理 （包括成員） 的管理單位 |
+| microsoft.aad.directory/roleAssignments/allProperties/allTasks | 建立及管理角色指派。 |
+| microsoft.aad.directory/roleDefinitions/allProperties/allTasks | 建立及管理角色定義。 |
 
 ### <a name="reports-reader"></a>報告讀者
 可讀取登入與稽核報告。
@@ -1251,6 +1255,7 @@ ms.locfileid: "66397905"
 應用程式系統管理員 | 應用程式管理員 | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 應用程式開發人員 | 應用程式開發人員 | CF1C38E5-3621-4004-A7CB-879624DCED7C
 驗證系統管理員 | 驗證系統管理員 | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Azure 資訊保護系統管理員 | Azure 資訊保護系統管理員 | 7495fdc4-34c4-4d15-a289-98788ce399fd
 系統管理員的 B2C 使用者流程 | 系統管理員的 B2C 使用者流程 | 6e591065-9bad-43ed-90f3-e9424366d2f0
 B2C 使用者流程屬性管理員 | B2C 使用者流程屬性管理員 | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 B2C IEF 索引鍵集管理員 | B2C IEF 索引鍵集管理員 | aaf43236-0c0d-4d5f-883a-6955382ac081
@@ -1275,7 +1280,6 @@ Exchange 服務管理員 | Exchange 系統管理員 | 29232cdf-9323-42fd-ade2-1d
 外部身分識別提供者系統管理員 | 外部身分識別提供者系統管理員 | be2f45a1-457d-42af-a067-6ec1fa63bc45
 來賓邀請者 | 來賓邀請者 | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 服務台系統管理員 | 密碼管理員 | 729827e3-9c14-49f7-bb1b-9608f156bbb8
-資訊保護管理員 | 資訊保護系統管理員 | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Intune 服務管理員 | Intune 管理員 | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Kaizala 系統管理員 | Kaizala 系統管理員 | 74ef975b-6605-40af-a5d2-b9539d836353
 授權管理員 | 授權管理員 | 4d6ac14f-3453-41d0-bef9-a3e0c569773a

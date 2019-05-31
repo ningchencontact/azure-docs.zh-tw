@@ -1,6 +1,6 @@
 ---
 title: 轉換 Azure 受控磁碟儲存體從標準，為進階或標準的進階 |Microsoft Docs
-description: 如何使用 Azure CLI 将 Azure 托管磁盘存储从标准类型转换为高级类型，或者从高级类型转换为标准类型。
+description: 如何轉換 Azure 受控磁碟儲存體從標準為進階或標準的進階使用 Azure CLI。
 services: virtual-machines-linux
 documentationcenter: ''
 author: roygara
@@ -16,28 +16,30 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 2e7eb455a53abbe2df6ff72f091a599665732429
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bc42bcbf7149f88eb895317a411c7acd5913d63d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724907"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417688"
 ---
-# <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>将 Azure 托管磁盘存储从标准类型转换为高级类型，或者从高级类型转换为标准类型
+# <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>轉換 Azure 受控磁碟儲存體從標準，為進階或標準的進階
 
-共有四種[磁碟類型](disks-types.md)適用於 Azure 受控磁碟：Azure 的強力磁碟儲存體、 進階 SSD、 標準的 SSD 和標準 HDD。 可以根据性能需求，轻松在高级 SSD、标准 SSD 和标准 HDD 之间切换，此过程只会造成短暂的停机。 這項功能不支援非受控的磁碟或強力的磁碟儲存體。 但您可以輕鬆地[轉換為受控磁碟的 unmanaged](convert-unmanaged-to-managed-disks.md)能夠切換磁碟類型。
+有四個磁碟類型的 Azure 受控磁碟：Azure 的強力 Ssd （預覽）、 進階 SSD、 標準的 SSD 和 HDD 標準。 您可以切換的三種 GA 磁碟類型 (進階 SSD、 標準的 SSD 和 HDD 標準) 根據效能需求。 您尚不能夠切換或強力的 SSD，您必須部署新的資源。
 
-本文介绍如何使用 Azure CLI 将托管磁盘从标准类型转换为高级类型，或者从高级类型转换为标准类型。 若要安装或升级 CLI 工具，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。
+這項功能不支援非受控磁碟的功能。 但您可以輕鬆地[將非受控的磁碟轉換為受控磁碟](convert-unmanaged-to-managed-disks.md)能夠切換磁碟類型。
+
+這篇文章會示範如何將受控的磁碟從標準轉換至進階或標準的 Premium，使用 Azure CLI。 若要安裝或升級工具，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 ## <a name="before-you-begin"></a>開始之前
 
-* 磁盘转换需要重启虚拟机 (VM)，因此请在预先存在的维护时段内计划磁盘存储迁移。
-* 对于非托管磁盘，请先[转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，以便可以在存储选项之间切换。
+* 磁碟轉換需要重新啟動虛擬機器 (VM)，所以排定移轉的磁碟儲存體在預先存在的維護期間。
+* 針對非受控磁碟，第一個[轉換為受控磁碟](convert-unmanaged-to-managed-disks.md)讓您可以切換儲存體選項。
 
 
-## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>将 VM 的所有托管磁盘在高级类型与标准类型之间切换
+## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>切換所有受控的磁碟的進階和標準之間的 VM
 
-此示例演示如何将 VM 的所有磁盘从标准存储转换为高级存储，或者从高级存储转换为标准存储。 若要使用進階受控磁碟，VM 必須使用可支援進階儲存體的 [VM 大小](sizes.md)。 此示例还会切换到支持高级存储的大小。
+此範例示範如何將轉換的所有 VM 的磁碟從標準到進階儲存體或從 Premium 升級到標準儲存體。 若要使用進階受控磁碟，VM 必須使用可支援進階儲存體的 [VM 大小](sizes.md)。 此範例也會切換為支援進階儲存體的大小。
 
  ```azurecli
 
@@ -72,9 +74,9 @@ az vm show -n $vmName -g $rgName --query storageProfile.osDisk.managedDisk -o ts
 az vm start --name $vmName --resource-group $rgName
 
 ```
-## <a name="switch-individual-managed-disks-between-standard-and-premium"></a>在标准类型与高级类型之间切换单个托管磁盘
+## <a name="switch-individual-managed-disks-between-standard-and-premium"></a>切換 Standard 和 Premium 之間個別的受控的磁碟
 
-对于开发/测试工作负荷，可以混合使用标准磁盘和高级磁盘来降低成本。 可以选择仅升级需要更高性能的磁盘。 此示例演示如何将单个 VM 磁盘从标准存储转换为高级存储，或者从高级存储转换为标准存储。 若要使用進階受控磁碟，VM 必須使用可支援進階儲存體的 [VM 大小](sizes.md)。 此示例还会切换到支持高级存储的大小。
+您的開發/測試工作負載，您可以混合使用標準和進階磁碟，以降低成本。 您可以選擇升級那些需要更佳的效能的磁碟。 此範例示範如何將轉換的單一 VM 磁碟從標準到進階儲存體或從 Premium 升級到標準儲存體。 若要使用進階受控磁碟，VM 必須使用可支援進階儲存體的 [VM 大小](sizes.md)。 此範例也會切換為支援進階儲存體的大小。
 
  ```azurecli
 
@@ -107,9 +109,9 @@ az disk update --sku $sku --name $diskName --resource-group $rgName
 az vm start --ids $vmId 
 ```
 
-## <a name="switch-managed-disks-between-standard-hdd-and-standard-ssd"></a>在标准 HDD 与标准 SSD 之间切换托管磁盘
+## <a name="switch-managed-disks-between-standard-hdd-and-standard-ssd"></a>切換之間標準 HDD 和 SSD 標準受控的磁碟
 
-此示例演示如何将单个 VM 磁盘从标准 HDD 转换为标准 SSD，或者从标准 SSD 转换为标准 HDD。
+此範例示範如何將轉換的單一 VM 磁碟從標準的 HDD 變成標準的 SSD 或標準 SSD 至標準的 HDD。
 
  ```azurecli
 
@@ -134,21 +136,21 @@ az disk update --sku $sku --name $diskName --resource-group $rgName
 az vm start --ids $vmId 
 ```
 
-## <a name="switch-managed-disks-between-standard-and-premium-in-azure-portal"></a>使用 Azure 门户在标准类型与高级类型之间切换托管磁盘
+## <a name="switch-managed-disks-between-standard-and-premium-in-azure-portal"></a>切換 Standard 和 Premium 之間在 Azure 入口網站中的受控的磁碟
 
 請遵循下列步驟：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在“虚拟机”列表中选择 VM。
-3. 如果该 VM 未停止，请在 VM“概述”窗格的顶部选择“停止”，然后等待该 VM 停止。
-4. 在 VM 对应的窗格中，从菜单中选择“磁盘”。
-5. 选择要转换的磁盘。
-6. 在菜单中选择“配置”。
-7. 将“帐户类型”从“标准 HDD”更改为“高级 SSD”，或者从“高级 SSD”更改为“标准 HDD”。
-8. 选择“保存”并关闭磁盘窗格。
+2. 從清單中選取 VM**虛擬機器**。
+3. 如果未停止 VM，請選取**停止**頂端的 [VM**概觀**] 窗格中，並停止 VM 的等候。
+4. 在 [vm] 窗格中選取**磁碟**從功能表。
+5. 選取您想要轉換的磁碟。
+6. 選取 **組態**從功能表。
+7. 變更**帳戶類型**從**標準 HDD**來**進階 SSD**進出**進階 SSD**到**標準 HDD**.
+8. 選取 **儲存**，並關閉 磁碟 窗格。
 
-磁盘类型会即时更新。 转换后，可以重启 VM。
+磁碟類型的更新是在瞬間完成。 您可以在轉換之後，重新啟動您的 VM。
 
 ## <a name="next-steps"></a>後續步驟
 
-使用[快照](snapshot-copy-managed-disk.md)创建 VM 的只读副本。
+使用時，進行 VM 的唯讀副本[快照集](snapshot-copy-managed-disk.md)。

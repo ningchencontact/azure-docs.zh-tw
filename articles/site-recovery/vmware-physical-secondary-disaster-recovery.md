@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 1a61a825ce223282e85c9262c613814530ba130f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9a1cb63bd2a209c72af608d23515723a63b180e1
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60565886"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417720"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>設定內部部署 VMware 虛擬機器或實體伺服器至次要網站的災害復原
 
@@ -268,7 +268,7 @@ Scout Update 4 是累積更新。 包含 Update 1 到 Update 3 的所有修正�
 * 針對實體叢集，修正當壓縮來源磁碟區時，導致無法在 vContinuum 精靈中調整磁碟區大小的問題。
 * 修正當叢集磁碟是 PRDM 磁碟時，叢集保護會因發生「找不到磁碟簽章」錯誤而失敗的問題。
 * 修正超出範圍例外狀況所造成的 cxps 傳輸伺服器當機。
-* 現在在 vContinuum 精靈的 [推送安裝] 頁面中可以調整 [伺服器名稱] 和 [IP 位址] 欄的大小。
+* 現在在 vContinuum 精靈的 [推送安裝]  頁面中可以調整 [伺服器名稱] 和 [IP 位址] 欄的大小。
 * RX API 增強功能：
   * 現已推出五個最新可用的共同一致性點 (僅限保證標記)。
   * 顯示所有受保護裝置的容量和可用空間詳細資料。
@@ -326,7 +326,7 @@ Update 1 包含下列錯誤修正和新功能：
 
 * 每個伺服器執行個體享有 31 天的免費保護。 這可讓您測試功能或設定概念證明。
 * 伺服器上的所有作業 (包括容錯移轉和容錯回復) 在前 31 天都是免費的。 此時間是從第一次使用 Site Recovery Scout 保護伺服器開始計算。 從第 32 天起，每部受保護的伺服器都會依照標準執行個體費率，向客戶擁有的網站收取 Site Recovery 保護費用。
-* 在保存庫的 [儀表板] 上，隨時可取得目前計費的受保護伺服器數目。
+* 在保存庫的 [儀表板]  上，隨時可取得目前計費的受保護伺服器數目。
 * 新增對 vSphere 命令列介面 (vCLI) 5.5 Update 2 的支援。
 * 新增對來源伺服器上下列 Linux 作業系統的支援：
     * RHEL 6 Update 6
@@ -341,7 +341,7 @@ Update 1 包含下列錯誤修正和新功能：
   * 不會如預期般強制執行重新同步處理閾值，因而導致不一致的複寫行為。
   * RPO 設定並未正確地顯示在設定伺服器主控台中。 未壓縮的資料值未正確地顯示壓縮的值。
   * 未如預期在 vContinuum 精靈中刪除移除作業，而且未從設定伺服器主控台中刪除複寫作業。
-  * 在 vContinuum 精靈中，於 MSCS VM 的保護期間，按一下磁碟檢視中的 [詳細資料]，磁碟會自動取消選取。
+  * 在 vContinuum 精靈中，於 MSCS VM 的保護期間，按一下磁碟檢視中的 [詳細資料]  ，磁碟會自動取消選取。
   * 在實體到虛擬 (P2V) 案例中，必要的 HP 服務 (例如 CIMnotify 和 CqMgHost) 不會移至 VM 復原中的 [手動]。 此問題會導致額外的開機時間。
   * 主要目標伺服器上有超過 26 個磁碟時，Linux VM 的保護就會失敗。
 
