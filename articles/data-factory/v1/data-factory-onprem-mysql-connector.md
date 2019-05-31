@@ -69,9 +69,9 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | type |類型屬性必須設定為：**OnPremisesMySql** |是 |
-| 伺服器 |MySQL 伺服器的名稱。 |是 |
-| 資料庫 |MySQL 資料庫的名稱。 |是 |
-| 結構描述 |在資料庫中的結構描述名稱。 |否 |
+| server |MySQL 伺服器的名稱。 |是 |
+| database |MySQL 資料庫的名稱。 |是 |
+| schema |在資料庫中的結構描述名稱。 |否 |
 | authenticationType |用來連接到 MySQL 資料庫的驗證類型。 可能的值為：`Basic`。 |是 |
 | username |指定要連線到 MySQL 資料庫的使用者名稱。 |是 |
 | password |指定您所指定使用者帳戶的密碼。 |是 |
@@ -305,41 +305,41 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 | bigint |Int64 |
 | bit |Decimal |
 | blob |Byte[] |
-| 布林 |Boolean |
-| char |字串 |
+| bool |Boolean |
+| char |String |
 | date |DateTime |
 | Datetime |DateTime |
 | decimal |Decimal |
 | 雙精度 |Double |
-| 兩倍 |Double |
-| 列舉 |字串 |
+| double |Double |
+| enum |String |
 | float |Single |
 | 不帶正負號的 int |Int64 |
 | int |Int32 |
 | 不帶正負號的整數 |Int64 |
 | integer |Int32 |
-| 長 varbinary |Byte[] |
-| 長 varchar |字串 |
+| long varbinary |Byte[] |
+| long varchar |String |
 | longblob |Byte[] |
-| longtext |字串 |
+| longtext |String |
 | mediumblob |Byte[] |
 | 不帶正負號的 mediumint |Int64 |
 | mediumint |Int32 |
-| mediumtext |字串 |
+| mediumtext |String |
 | numeric |Decimal |
 | real |Double |
-| set |字串 |
+| set |String |
 | 不帶正負號的 smallint |Int32 |
 | smallint |Int16 |
-| text |字串 |
+| text |String |
 | time |TimeSpan |
 | timestamp |DateTime |
 | tinyblob |Byte[] |
 | 不帶正負號的 tinyint |Int16 |
 | tinyint |Int16 |
-| tinytext |字串 |
-| varchar |字串 |
-| 年 |Int |
+| tinytext |String |
+| varchar |String |
+| year |Int |
 
 ## <a name="map-source-to-sink-columns"></a>將來源對應到接收資料行
 若要了解如何將來源資料集內的資料行與接收資料集內的資料行對應，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
