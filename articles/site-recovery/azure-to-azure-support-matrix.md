@@ -5,16 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: de2e57901becad68f3fad16967faf3ae4833177a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 928d741132623bd92dae1097724295691d7f3808
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797879"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398341"
 ---
-# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Azure Vm 從一個區域複寫到另一個的支援矩陣
+# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>將 Azure VM 從一個區域複寫至另一個區域的支援矩陣
 
 當您設定的災害復原 Azure Vm 從一個 Azure 區域到另一個，並使用此文章摘要說明其支援和必要條件[Azure Site Recovery](site-recovery-overview.md)服務。
 
@@ -182,6 +182,7 @@ RBAC 原則 | 不支援 | 角色型的存取控制 (RBAC) 原則，在 Vm 上的
 OS 磁碟的大小上限 | 2048 GB | [深入了解](../virtual-machines/windows/managed-disks-overview.md) VM 磁碟。
 暫存磁碟 | 不支援 | 暫存磁碟一律排除在複寫之外。<br/><br/> 請不要將任何永續性資料儲存於暫存磁碟上。 [深入了解](../virtual-machines/windows/managed-disks-overview.md)。
 資料磁碟的大小上限 | 4095 GB |
+資料磁碟大小下限 | 針對非受控磁碟沒有限制。 受控磁碟的 2 GB | 
 資料磁碟的數目上限 | 最多 64 個 (根據特定的 Azure VM 大小支援) | [深入了解](../virtual-machines/windows/sizes.md) VM 大小。
 資料磁碟的變更率 | 進階儲存體的每個磁碟最多 10 MBps。 標準儲存體的每個磁碟最多 2 MBps。 | 如果磁碟的平均資料變更率持續高於最大值，複寫將趕不上進度。<br/><br/>  不過，如果是偶而超過最大值，則複寫可以趕上進度，但您可能會看到稍有延遲的復原點。
 資料磁碟 - 標準儲存體帳戶 | 支援 |
@@ -192,7 +193,7 @@ OS 磁碟的大小上限 | 2048 GB | [深入了解](../virtual-machines/windows/
 備援性 | 支援 LRS 和 GRS。<br/><br/> 不支援 ZRS。
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援 VM 磁碟
 儲存空間 | 支援 |
-静态加密 (SSE) | 支援 | SSE 是儲存體帳戶上的預設設定。   
+待用加密 (SSE) | 支援 | SSE 是儲存體帳戶上的預設設定。   
 適用於 Windows OS 的 Azure 磁碟加密 (ADE) | 支援啟用[使用 Azure AD 應用程式加密](https://aka.ms/ade-aad-app)的 VM |
 適用於 Linux OS 的 Azure 磁碟加密 (ADE) | 不支援 |
 熱新增 | 支援 | 啟用資料磁碟加入至複寫的 Azure VM 的複寫支援使用受控的磁碟的 Vm。
@@ -206,7 +207,7 @@ RA-GRS | 支援 |
 ZRS | 不支援 |
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援虛擬機器磁碟
 適用於虛擬網路的 Azure 儲存體防火牆  | 支援 | 如果虛擬網路的存取限於儲存體帳戶，啟用[允許信任的 Microsoft 服務](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。
-一般用途 V2 儲存體帳戶 (經常性存取層和非經常性存取層) | 無 | 與一般用途 V1 儲存體帳戶相比，交易成本大幅增加
+一般用途 V2 儲存體帳戶 (經常性存取層和非經常性存取層) | 否 | 與一般用途 V1 儲存體帳戶相比，交易成本大幅增加
 
 >[!IMPORTANT]
 > 若要避免效能問題，請確定您遵循 VM 磁碟延展性和效能目標[Linux](../virtual-machines/linux/disk-scalability-targets.md)或是[Windows](../virtual-machines/windows/disk-scalability-targets.md) Vm。 如果您使用預設設定，Site Recovery 會建立所需的磁碟和儲存體帳戶，根據來源組態。 如果您自訂並選取您自己的設定，請依照您的來源 Vm 磁碟延展性和效能目標。
@@ -238,7 +239,7 @@ NIC | 針對特定 Azure VM 大小支援的數目上限 | 在容錯移轉期間�
 公用 IP 位址 | 支援 | 將現有公用 IP 位址與 NIC 產生關聯。 或者，建立公用 IP 位址，然後使用復原方案中的 Azure 自動化指令碼讓它與 NIC 產生關聯。
 NIC 上的 NSG | 支援 | 使用復原方案中的 Azure 自動化指令碼，使 NSG 與 NIC 產生關聯。
 子網路上的 NSG | 支援 | 使用復原方案中的 Azure 自動化指令碼，使 NSG 與子網路產生關聯。
-保留 (靜態) IP 位址 | 支援 | 如果來源 VM 上的 NIC 有靜態 IP 位址，而目標子網路有相同的 IP 位址可用，則會將它指派給容錯移轉 VM。<br/><br/> 如果目標子網路沒有相同的 IP 位址，子網路中一個可用的 IP 位址會被保留供 VM 使用。<br/><br/> 您也可以在 [複寫的項目] > [設定] > [計算與網路] > [網路介面] 中指定固定的 IP 位址和子網路。
+保留 (靜態) IP 位址 | 支援 | 如果來源 VM 上的 NIC 有靜態 IP 位址，而目標子網路有相同的 IP 位址可用，則會將它指派給容錯移轉 VM。<br/><br/> 如果目標子網路沒有相同的 IP 位址，子網路中一個可用的 IP 位址會被保留供 VM 使用。<br/><br/> 您也可以在 [複寫的項目]   > [設定]   > [計算與網路]   > [網路介面]  中指定固定的 IP 位址和子網路。
 動態 IP 位址 | 支援 | 如果來源上的 NIC 有動態 IP 位址，則容錯移轉 VM 上的 NIC 預設也是動態。<br/><br/> 如有需要，您可以將此修改為固定的 IP 位址。
 多個 IP 位址 | 不支援 | 當您容錯移轉具有多個 IP 位址的 NIC 的 VM 時，則會保留在來源區域中的 nic 只能主要 IP 位址。 若要指派多個 IP 位址，您可以新增 Vm 來[復原計劃](recovery-plan-overview.md)以及附加的指令碼，以將其他 IP 位址指派給計劃，或您可以在容錯移轉之後進行變更以手動方式或使用指令碼。 
 流量管理員     | 支援 | 您可以預先設定流量管理員，定期將流量傳輸到來源區域中的端點，如果發生容錯移轉，則傳輸到目標區域中的端點。

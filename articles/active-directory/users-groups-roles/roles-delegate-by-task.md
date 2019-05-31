@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 05/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e65f7ca0a01e0ceee6448ea49e1d6d6da696cf6
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468312"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417070"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>在 Azure Active Directory 中依管理工作區分的系統管理員角色
 
@@ -150,8 +150,8 @@ Task | 最低特殊權限角色 | 其他角色
 管理群組到期日 | 使用者管理員 | 
 管理群組設定 | 全域管理員 | 
 讀取所有設定 (隱藏的成員資格除外) | 目錄讀取器 | 預設使用者角色 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-讀取隱藏的成員資格 | 群組成員 | 组所有者、密码管理员、Exchange 管理员、SharePoint 管理员、Teams 管理员、用户管理员
-讀取具有隱藏成員資格之群組的成員資格 | 服務台系統管理員 | 用户管理员、Teams 管理员
+讀取隱藏的成員資格 | 群組成員 | 群組擁有者、 密碼管理員、 Exchange 系統管理員、 SharePoint 系統管理員、 小組系統管理員、 使用者管理員
+讀取具有隱藏成員資格之群組的成員資格 | 服務台系統管理員 | 小組系統管理員使用者管理員
 撤銷授權 | 授權管理員 | 使用者管理員
 更新群組成員資格 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者管理員
 更新群組擁有者 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者管理員
@@ -338,7 +338,7 @@ Task | 最低特殊權限角色 | 其他角色
 
 Task | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
-提交支援票證 | 服務管理員 | 應用程式系統管理員、計費管理員、雲端應用程式系統管理員、規範管理員、Dynamics 365 系統管理員、電腦分析管理員、Exchange 系統管理員、密碼管理員、資訊保護管理員、Intune 系統管理員、商務用 Skype 系統管理員、Power BI 系統管理員、具特殊權限的驗證管理員、SharePoint 系統管理員、Teams 通訊管理員、Teams 管理員、使用者管理員、工作場所分析管理員
+提交支援票證 | 服務管理員 | 應用程式系統管理員，Azure 資訊保護系統管理員，計費管理員、 雲端應用程式管理員，合規性系統管理員，Dynamics 365 系統管理員，桌面分析管理員、 Exchange 管理員密碼系統管理員，Intune 系統管理員、 Skype 商務系統管理員、 Power BI 系統管理員、 特殊權限驗證管理員、 SharePoint 系統管理員、 小組通訊的系統管理員、 小組系統管理員、 使用者管理員工作場所分析系統管理員
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 0c85685f9ace70ea94eea158d91f0d8b01827a43
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 5123ee3f65744f3d0c255712efe990b01be58e26
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391455"
+ms.locfileid: "66420749"
 ---
 儲存體最佳化 VM 大小提供高磁碟輸送量和 IO，適用於巨量資料、SQL、NoSQL 資料庫、資料倉儲及大型交易資料庫。  範例包括 Cassandra、MongoDB、Cloudera 及 Redis。 本文提供有關每個最佳化大小的 vCPU、資料磁碟和 NIC 數量，以及本機儲存體輸送量和網路頻寬的資訊。
 
@@ -41,7 +41,7 @@ ACU：150-175
 | Standard_L16s_v2  | 16 | 128 | 160 |  2 x 1.92 TB  | 800000 / 4000 | 16000/320 | 32 | 4 / 6400  |
 | Standard_L32s_v2  | 32 | 256 | 320 |  4 x 1.92 TB  | 1.5M / 8000    | 32000/640 | 32 | 8 / 12800 |
 | Standard_L64s_v2  | 64 | 512 | 640 |  8 x 1.92 TB  | 2.9M / 16000   | 64000/1280 | 32 | 8 / 16000+ |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10 x 1.92 TB   | 3.8M / 20000   | 80000/1400 | 32 | 8 / 16000+ |
+| Standard_L80s_v2<sup>5</sup> | 80 | 640 | 800 | 10 x 1.92 TB   | 3.8M / 20000   | 80000/1400 | 32 | 8 / 16000+ |
 
 <sup>1</sup> Lsv2 系列 VM 具有一個適用於 OS 分頁檔使用的標準 SCSI 型暫存資源磁碟 (在 Windows 上為 D:，在 Linux 上為 /dev/sdb)。 此磁碟針對每 8 個 vCPU 提供 80 GiB 的儲存體、4,000 IOPS 及 80 MBps 傳輸率 (例如 Standard_L80s_v2 提供 40,000 IOPS 和 800 MBPS 的 800 GiB)。 這可確保 NVMe 磁碟機可完全專供應用程式使用。 此磁碟為暫時磁碟，所有資料在停止/解除配置時都會遺失。
 
@@ -50,6 +50,18 @@ ACU：150-175
 <sup>3</sup> Hyper-V NVMe Direct 技術對已安全對應至客體 VM 空間的本機 NVMe 磁碟機提供未節流存取。  若要達到最大效能，必須使用來自 Azure Marketplace 的最新 WS2019 組建或是 Ubuntu 18.04 或 16.04。  寫入效能會依據 IO 大小、磁碟機負載及容量使用率而有所不同。
 
 <sup>4</sup> Lsv2 系列 VM 並未針對資料磁碟提供主機快取，因為這對 Lsv2 工作負載沒有幫助。  不過，Lsv2 VM 可通融 Azure 的「暫時性 VM」OS 磁碟選項 (最多 30 GiB)。
+
+<sup>5</sup>具有超過 64 個 Vcpu 的 Vm 需要這些支援的客體作業系統的其中一個：
+- Windows Server 2016 或更新版本
+- Ubuntu 16.04 LTS 或更新版本中，使用 Azure 調整核心 (4.15 核心或更新版本)
+- SLES 12 SP2 或更新版本
+- RHEL 或 CentOS 6.7 版透過 6.10，與 Microsoft 所提供的 LIS 封裝 4.3.1 （或更新版本） 安裝
+- RHEL 或 CentOS 7.3 版，與 Microsoft 所提供的 LIS 封裝 4.2.1 （或更新版本） 安裝
+- RHEL 或 CentOS 7.4 版或更新版本
+- UEK4 或更新版本的 oracle Linux
+- 具有反向移植核心，Debian 10 或更新版本的 debian 9
+- CoreOS 4.14 核心或更新版本
+
 
 ## <a name="size-table-definitions"></a>資料表大小定義
 

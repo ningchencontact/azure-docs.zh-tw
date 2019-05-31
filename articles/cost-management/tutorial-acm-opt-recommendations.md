@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 67cf15b00e597131afe421bf8306a5df4511af9a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 81180d6930816a4a7715ce60313347019029fccd
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965528"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416085"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>教學課程：透過建議最佳化成本
 
@@ -47,9 +47,19 @@ Azure 成本管理可搭配 Azure Advisor，提供成本最佳化建議。 Azure
 
 ![顯示在 Azure 入口網站中的成本管理 Advisor 建議](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 
-建議清單會識別使用效率不足的情況，或是顯示能協助您節省額外成本的購買建議。 合計 [潛在每年節省成本] 會顯示關機或解除配置您所有符合建議規則的 VM 時，所能節省的總金額。 若您不想要將它們關機，建議您考慮將其大小調整至較不昂貴的 VM SKU。
+建議清單會識別使用效率不足的情況，或是顯示能協助您節省額外成本的購買建議。 合計 [潛在每年節省成本]  會顯示關機或解除配置您所有符合建議規則的 VM 時，所能節省的總金額。 若您不想要將它們關機，建議您考慮將其大小調整至較不昂貴的 VM SKU。
 
-[影響] 類別與 [潛在每年節省成本] 旨在協助您識別具有潛力，可以盡量節省成本的建議。 影響程度較大的建議包括[購買保留的虛擬機器執行個體以節省超出預付型方案成本](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)，以及[透過調整大小或關閉使用量過低的執行個體來最佳化虛擬機器支出](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)。 影響程度中等的建議包括[移除未佈建的 ExpressRoute 線路來降低成本](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits)，以及[刪除或重新設定閒置虛擬網路閘道來降低成本](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)。
+[影響]  類別與 [潛在每年節省成本]  旨在協助您識別具有潛力，可以盡量節省成本的建議。
+
+高影響建議包括：
+- [購買保留的虛擬機器執行個體以省下較隨用隨付成本](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
+- [最佳化虛擬機器調整大小，或正在關閉使用量過低的執行個體的費用](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
+- [使用標準儲存體來儲存受控磁碟快照集 ](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+
+中度影響建議如下：
+- [刪除失敗的 Azure Data Factory 管線](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)
+- [降低成本，藉由消除未佈建 ExpressRoute 線路](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits)
+- [藉由刪除或重新設定閒置虛擬網路閘道，降低成本](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)
 
 ## <a name="act-on-a-recommendation"></a>針對建議採取行動
 
@@ -59,7 +69,7 @@ Azure Advisor 可監視過去 14 天的虛擬機器使用量，並找出使用�
 
 雖然根據設計，某些案例可能會導致低使用量，但您通常可以藉由將虛擬機器的大小變更為較不昂貴的大小，來節省費用。 若您選擇調整大小動作，則您實際節省的成本可能會有所不同。 讓我們逐步完成調整虛擬機器大小的範例。
 
-在建議清單中，按一下 [調整大小或關閉使用量過低的虛擬機器] 建議。 在虛擬機器候選項目清單中，選擇要調整大小的虛擬機器，然後按一下虛擬機器。 隨即顯示虛擬機器的詳細資料，讓您可以確認使用量計量。 [潛在每年節省成本] 值是關機或移除 VM 時您所能節省的金額。 調整 VM 的大小可能可以節省成本，但是您將無法節省 [潛在每年節省成本] 的完整金額。
+在建議清單中，按一下 [調整大小或關閉使用量過低的虛擬機器]  建議。 在虛擬機器候選項目清單中，選擇要調整大小的虛擬機器，然後按一下虛擬機器。 隨即顯示虛擬機器的詳細資料，讓您可以確認使用量計量。 [潛在每年節省成本]  值是關機或移除 VM 時您所能節省的金額。 調整 VM 的大小可能可以節省成本，但是您將無法節省 [潛在每年節省成本] 的完整金額。
 
 ![建議詳細資料的範例](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
 
@@ -69,14 +79,14 @@ Azure Advisor 可監視過去 14 天的虛擬機器使用量，並找出使用�
 
 請注意目前虛擬機器的大小。 在確認虛擬機器的大小應該進行調整之後，請關閉 VM 詳細資料，讓您可以查看虛擬機器清單。
 
-在要關機或調整大小的候選項目清單中，選取 [調整虛擬機器大小]。
+在要關機或調整大小的候選項目清單中，選取 [調整虛擬機器大小]  。
 ![使用選項調整虛擬機器大小的範例建議](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
 接下來，您會看到一份可用的調整大小選項清單。 選擇可為您帶來最佳效能，並且可讓案例最符合成本效益的選項。 在下列範例中，選擇的選項會將 **DS14\_V2** 大小調整至 **DS13\_V2**。 下列建議可每月節省美金 $551.30 元，或每年節省美金 $6,615.60 元。
 
 ![可供您選擇大小的可用 VM 大小範例清單](./media/tutorial-acm-opt-recommendations/choose-size.png)
 
-在您選擇適合的大小後，按一下 [選取] 以開始調整大小動作。
+在您選擇適合的大小後，按一下 [選取]  以開始調整大小動作。
 
 調整大小需要重新開機正在使用中的執行中虛擬機器。 若虛擬機器位於生產環境，我們建議您在上班時間結束之後再執行調整大小作業。 排程重新開機可減少因暫時無法使用而導致的中斷。
 

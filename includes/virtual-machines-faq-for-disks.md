@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0ad006ca966cfcc2c817ae4e8bfd3dc2d477259e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 0e361edfea6365c3d3fe072e12bb303e71bb8d63
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145904"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66249039"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -141,19 +141,9 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 
 GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS 磁碟必須使用 MBR 分割區樣式。
 
-## <a name="uploading-to-a-managed-disk"></a>上傳至受控磁碟
+**磁碟類型支援快照集？**
 
-**我可以上載資料到現有的受控磁碟嗎？**
-
-否上, 傳僅適用於新的空磁碟，以建立期間**ReadyToUpload**狀態。
-
-**是否可以連接的磁碟到 VM 時它是在上傳狀態？**
-
-沒有。
-
-**可能需要受控磁碟快照的集上傳狀態？**
-
-沒有。
+進階 SSD、 標準的 SSD 和標準的 SSD 支援快照集，而不需要任何大小限制。 因此您可以使用大型磁碟 (最多 32 TiB) 的快照集。 強力的 Ssd 不支援快照集。
 
 ## <a name="standard-ssd-disks"></a>標準 SSD 磁碟
 
@@ -169,10 +159,10 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 **如何建立標準 SSD 磁碟？**
 您可以建立標準的 SSD 磁碟使用 Azure Resource Manager 範本、 SDK、 PowerShell 或 CLI。 以下是在 Resource Manager 範本中建立標準 SSD 磁碟所需的參數：
 
-* Microsoft.Compute 的 apiVersion 必須設定為 `2018-04-01` (或更新版本)
-* 將 managedDisk.storageAccountType 指定為 `StandardSSD_LRS`
+* Microsoft.Compute 的 apiVersion  必須設定為 `2018-04-01` (或更新版本)
+* 將 managedDisk.storageAccountType  指定為 `StandardSSD_LRS`
 
-下列範例示範使用標準 SSD 磁碟的虛擬機器 properties.storageProfile.osDisk 區段：
+下列範例示範使用標準 SSD 磁碟的虛擬機器 properties.storageProfile.osDisk  區段：
 
 ```json
 "osDisk": {
@@ -201,7 +191,7 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 **標準 SSD 是否支援「單一執行個體虛擬機器 SLA」？**
 否，標準 SSD 沒有單一執行個體虛擬機器 SLA。 請針對單一執行個體虛擬機器 SLA 使用進階 SSD 磁碟。
 
-## <a name="migrate-to-managed-disks"></a>遷移到受控磁碟
+## <a name="migrate-to-managed-disks"></a>移轉到受控磁碟
 
 **移轉對於受控磁碟的效能是否有任何影響？**
 
@@ -237,7 +227,7 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 
 **我是否可以將具有非受控磁碟 (位於之前已加密的儲存體帳戶上) 的 VM 移轉至受控磁碟？**
 
-有
+是
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>受控磁碟和儲存體服務加密
 
@@ -274,7 +264,7 @@ Microsoft 負責管理加密金鑰。
 
 **我是否可以將具有非受控磁碟 (位於之前已加密的儲存體帳戶上) 的 VM 轉換為受控磁碟？**
 
-有
+是
 
 **從受控磁碟或快照集匯出的 VHD 是否也會加密？**
 
@@ -353,7 +343,7 @@ Azure 支援的分頁 Blob 大小上限是 8 TiB (8,191 GiB)。 連結至 VM 作
 
 **Azure 備份和 Azure Site Recovery 服務所支援的最大磁碟大小為何？**
 
-Azure 備份和 Azure Site Recovery 服務支援的最大磁碟大小為 4 TiB。 即將新增最多 32 TiB 較大的磁碟支援。
+Azure 備份和 Azure Site Recovery 服務支援的最大磁碟大小為 4 TiB。 支援較大的磁碟，最多 32 TiB 尚無法使用。
 
 **什麼是建議的 VM 大小的較大的磁碟大小 (> 4 TiB) 標準的 SSD 和標準 HDD 磁碟，以達到最佳化的磁碟 IOPS 和頻寬嗎？**
 

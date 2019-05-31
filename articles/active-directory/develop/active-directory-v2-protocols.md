@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536210922d13f66aaa5a09bd87bd2d92da8d416c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: cfc9c027806cb1a3f65e67eda771894a7250ee67
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546122"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417660"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft 身分識別平台通訊協定
 
@@ -47,8 +47,8 @@ Microsoft 身分識別平台服務的端點身分識別-為-a-使用業界標準
 
 每個想要接受同時個人和工作或學校帳戶的應用程式必須透過註冊**應用程式註冊**體驗[Azure 入口網站](https://aka.ms/appregistrations)它可以將這些使用者在使用 OAuth 2.0 登入之前或 OpenID Connect。 應用程式註冊處理序會收集與指派一些值給您的應用程式：
 
-* 可唯一識別應用程式的「應用程式識別碼」
-* 可將回應導回至應用程式的**重新導向 URI**或**套件識別碼**
+* 可唯一識別應用程式的「應用程式識別碼」 
+* A**重新導向 URI** （選擇性），可用來將回應導回到您的應用程式
 * 其他幾個狀況特定的值。
 
 如需詳細資訊，請瞭解如何 [註冊應用程式](quickstart-register-app.md)。
@@ -64,7 +64,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 其中 `{tenant}` 可以接受下列這四個不同值的其中一個：
 
-| Value | 說明 |
+| Value | 描述 |
 | --- | --- |
 | `common` | 允許使用者使用個人的 Microsoft 帳戶和工作/學校帳戶，從 Azure AD 登入應用程式。 |
 | `organizations` | 僅允許使用者使用工作/學校帳戶，從 Azure AD 登入應用程式。 |
@@ -78,7 +78,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 ## <a name="tokens"></a>權杖
 
-Microsoft 身分識別平台實作 OAuth 2.0 和 OpenID Connect 進行廣泛運用持有人權杖，包括以 Jwt 表示的持有人權杖。 持有人權杖是輕巧型的安全性權杖，授權「持有者」存取受保護的資源。 從這個意義上說，「持有者」是可出示權杖的任何一方。 合作對象必須先向 Microsoft 身分識別平台，以收到持有人權杖，如果所需的步驟不會採取來保護傳輸和儲存體中的權杖，但它可以攔截和非預期的合作對象使用。 雖然某些安全性權杖都有內建的機制，可防止未經授權的人士使用權杖，但持有者權杖沒有這項機制，而必須以安全通道來傳輸，例如傳輸層安全性 (HTTPS)。 如果持有人權杖以未加密狀態傳輸，惡意人士就可以使用中間人攻擊來取得該權杖，並在未獲得授權的情況下用它存取受保護的資源。 儲存或快取持有者權杖供以後使用時，也適用相同的安全性原則。 请始终确保应用以安全的方式传输和存储持有者令牌。 關於持有者權杖的其他安全性考量，請參閱 [RFC 6750 第 5 節](https://tools.ietf.org/html/rfc6750)。
+Microsoft 身分識別平台實作 OAuth 2.0 和 OpenID Connect 進行廣泛運用持有人權杖，包括以 Jwt 表示的持有人權杖。 持有人權杖是輕巧型的安全性權杖，授權「持有者」存取受保護的資源。 從這個意義上說，「持有者」是可出示權杖的任何一方。 合作對象必須先向 Microsoft 身分識別平台，以收到持有人權杖，如果所需的步驟不會採取來保護傳輸和儲存體中的權杖，但它可以攔截和非預期的合作對象使用。 雖然某些安全性權杖都有內建的機制，可防止未經授權的人士使用權杖，但持有者權杖沒有這項機制，而必須以安全通道來傳輸，例如傳輸層安全性 (HTTPS)。 如果持有人權杖以未加密狀態傳輸，惡意人士就可以使用中間人攻擊來取得該權杖，並在未獲得授權的情況下用它存取受保護的資源。 儲存或快取持有者權杖供以後使用時，也適用相同的安全性原則。 務必確定您的應用程式以安全的方式傳輸和儲存持有人權杖。 關於持有者權杖的其他安全性考量，請參閱 [RFC 6750 第 5 節](https://tools.ietf.org/html/rfc6750)。
 
 進一步的詳細資料的不同類型的身分識別平台端點會提供在 Microsoft 中使用 token [Microsoft 身分識別平台端點權杖參考](v2-id-and-access-tokens.md)。
 

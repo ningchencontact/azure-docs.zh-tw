@@ -13,31 +13,31 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 12cd1caa4cb96dbd5862776589d4a34aeb294ca1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7a390c5231f715ce778c0cc267211b8bfb5934d2
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689725"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418412"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>將 Azure VM 移轉至 Azure 中的受控磁碟
 
-Azure 托管磁盘无需单独管理存储帐户，从而简化了存储管理。  您也可以將現有的 Azure VM 移轉至受控磁碟，以便受惠於可用性設定組中更佳的 VM 可靠性。 它可確保可用性設定組中不同 VM 的磁碟完全彼此隔離，以避免單一失敗點。 它會自動以不同的儲存體縮放單位 (戳記) 將不同 VM 的磁碟放在一個可用性設定組中，以限制硬體和軟體失敗所引起之單一儲存體縮放單位失敗的影響。
+Azure 受控磁碟可免除個別管理儲存體帳戶的需求，進而簡化儲存體管理。  您也可以將現有的 Azure VM 移轉至受控磁碟，以便受惠於可用性設定組中更佳的 VM 可靠性。 它可確保可用性設定組中的不同 Vm 的磁碟完全彼此隔離以避免單一失敗點。 它會自動以不同的儲存體縮放單位 (戳記) 將不同 VM 的磁碟放在一個可用性設定組中，以限制硬體和軟體失敗所引起之單一儲存體縮放單位失敗的影響。
 根據您的需求，您可從四種類型的儲存體選項中選擇。 若要了解可用的磁碟類型，請參閱[選取磁碟類型](disks-types.md)一文
 
-## <a name="migrate-scenarios"></a>迁移方案
+## <a name="migration-scenarios"></a>移轉案例
 
 您可以在下列案例中移轉到受控磁碟︰
 
-| **移轉...**                                            | **文件連結**                                                                                                                                                                                                                                                                  |
-|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 將獨立 VM 和可用性設定組中的 VM 轉換成受控磁碟   | [將 VM 轉換成使用受控磁碟](convert-unmanaged-to-managed-disks.md) |
-| 將單一 VM 由受控磁碟上的傳統部署移轉到 Resource Manager 部署     | [從傳統 VHD 建立 VM](create-vm-specialized-portal.md)  | 
-| 將 vNet 中的所有 VM 由受控磁碟上的傳統部署移轉到 Resource Manager 部署     | [將 IaaS 資源從傳統部署移轉至 Resource Manager 部署](migration-classic-resource-manager-ps.md)，然後[將 VM 從非受控磁碟轉換為受控磁碟](convert-unmanaged-to-managed-disks.md) | 
-
+|案例  |文章  |
+|---------|---------|
+|將獨立 VM 和可用性設定組中的 VM 轉換成受控磁碟     |[將 VM 轉換成使用受控磁碟](convert-unmanaged-to-managed-disks.md)         |
+|單一 VM 從傳統至 Resource Manager 上轉換受控磁碟     |[從傳統 VHD 建立 VM](create-vm-specialized-portal.md)         |
+|VNet 中的所有 Vm 從傳統至 Resource Manager 上都轉換受控磁碟     |[將 IaaS 資源從傳統部署移轉至 Resource Manager 部署](migration-classic-resource-manager-ps.md)，然後[將 VM 從非受控磁碟轉換為受控磁碟](convert-unmanaged-to-managed-disks.md)         |
+|升級具有標準非受控磁碟 vm 與受管理的進階磁碟的 Vm     | 首先， [Windows 虛擬機器從非受控磁碟轉換為受控磁碟](convert-unmanaged-to-managed-disks.md)。 然後[更新受控磁碟的儲存體類型](convert-disk-storage.md)。         |
 
 ## <a name="next-steps"></a>後續步驟
 

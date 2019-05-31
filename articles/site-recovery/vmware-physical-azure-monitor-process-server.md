@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/24/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: f3ba08bc1d557d53bca2421b5052f496c740b185
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 4ff52e737438210296b8f2201d5e66e1d38b7bc9
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969334"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418277"
 ---
 # <a name="monitor-the-process-server"></a>監視處理序伺服器
 
@@ -53,7 +53,7 @@ ms.locfileid: "65969334"
 
 **警示類型** | **詳細資料**
 --- | ---
-![狀況良好][green] | 處理序伺服器已連線且狀況良好。
+![Healthy][green] | 處理序伺服器已連線且狀況良好。
 ![警告][yellow] | 過去 15 分鐘內的 CPU 使用率 > 80%
 ![警告][yellow] | 過去 15 分鐘內的記憶體使用方式 > 80%
 ![警告][yellow] | 快取資料夾的可用空間 < 30%的過去 15 分鐘

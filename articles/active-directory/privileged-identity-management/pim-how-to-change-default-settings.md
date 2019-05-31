@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 05/31/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cb8944578caf00fac5ca430e411f044a875f6af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bc7d3ffcb56251825bf5f6d760de647938f1ead
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288669"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417885"
 ---
 # <a name="configure-azure-ad-role-settings-in-pim"></a>在 PIM 中設定 Azure AD 角色設定
 
@@ -31,13 +31,13 @@ ms.locfileid: "60288669"
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure AD 角色]。
+1. 按一下 [Azure AD 角色]  。
 
-1. 按一下 [設定] 。
+1. 按一下 [設定]  。
 
     ![Azure AD 角色-設定](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
-1. 按一下 [角色]。
+1. 按一下 [角色]  。
 
 1. 按一下您想要設定其設定的角色。
 
@@ -47,13 +47,13 @@ ms.locfileid: "60288669"
 
 ## <a name="activations"></a>啟用
 
-使用 [啟用] 滑桿，設定角色在到期前維持作用中狀態的最長時間 (以小時為單位)。 此值可介於 1 到 72 小時。
+使用 [啟用]  滑桿，設定角色在到期前維持作用中狀態的最長時間 (以小時為單位)。 此值可介於 1 到 72 小時。
 
 ## <a name="notifications"></a>通知
 
-使用 [通知] 參數來指定啟動角色時，系統管理員是否會收到電子郵件通知。 這對偵測未經授權或不合法的啟用而言相當有用。
+使用 [通知]  參數來指定啟動角色時，系統管理員是否會收到電子郵件通知。 這對偵測未經授權或不合法的啟用而言相當有用。
 
-設定為 [已啟用] 時，就會傳送通知給：
+設定為 [已啟用]  時，就會傳送通知給：
 
 - 特殊權限角色管理員
 - 安全性系統管理員
@@ -63,15 +63,16 @@ ms.locfileid: "60288669"
 
 ## <a name="incidentrequest-ticket"></a>事件/要求票證
 
-使用 [事件/要求票證] 的切換，指定是否要要求合格系統管理員在啟用其角色時包含票證號碼。 當您執行角色存取稽核時，這會相當有用。
+使用 [事件/要求票證]  的切換，指定是否要要求合格系統管理員在啟用其角色時包含票證號碼。 當您執行角色存取稽核時，這會相當有用。
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-使用 [Multi-Factor Authentication] 的切換，指定是否要要求使用者在啟用其角色之前，先以 MFA 驗證其身分識別。 他們只需在每一工作階段進行一次驗證，而不需在每次啟用角色時都進行驗證。 啟用 MFA 時，需要記住兩個秘訣：
+使用 [Multi-Factor Authentication]  的切換，指定是否要要求使用者在啟用其角色之前，先以 MFA 驗證其身分識別。 他們只需在每一工作階段進行一次驗證，而不需在每次啟用角色時都進行驗證。 啟用 MFA 時，需要記住兩個秘訣：
 
 * 使用 Microsoft 帳戶作為電子郵件地址 (通常是 @outlook.com，但不一定) 的使用者無法註冊 Azure MFA。 如果您想要將角色指派給使用 Microsoft 帳戶的使用者，您應該將他們設為永久系統管理員，或是停用該角色的 MFA。
 * 您無法將 Azure AD 和 Office365 中高特殊權限角色的 MFA 停用。 這是一項安全功能，因為這些角色應該嚴密地受到保護：  
   
+  * Azure 資訊保護系統管理員
   * 計費管理員
   * 雲端應用程式系統管理員
   * 規範管理員
@@ -81,7 +82,6 @@ ms.locfileid: "60288669"
   * 目錄撰寫者
   * Exchange 系統管理員
   * 全域管理員
-  * 資訊保護管理員
   * Intune 服務管理員
   * Power BI 服務管理員
   * 特殊權限角色管理員
@@ -96,21 +96,21 @@ ms.locfileid: "60288669"
 
 如果您想要在啟用角色前先經過核准，請遵循下列步驟。
 
-1. 將 [需要核准] 切換為 [啟用]。 展開的窗格會有選取核准者的選項。
+1. 將 [需要核准]  切換為 [啟用]  。 展開的窗格會有選取核准者的選項。
 
     ![Azure AD 角色-設定-需要核准](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     如果您**尚未**指定任何核准者，特殊權限角色管理員就會變成預設核准者。 需要有特殊權限角色管理員，才能核准此角色的**所有**啟用要求。
 
-1. 若要指定核准者，請按一下 [選取核准者]。
+1. 若要指定核准者，請按一下 [選取核准者]  。
 
     ![Azure AD 角色-設定-需要核准](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
-1. 選取一個或多個核准者，然後按一下 [選取]。 您可以選取使用者或群組。 建議至少選取 2 個核准者。 不允許自我核准。
+1. 選取一個或多個核准者，然後按一下 [選取]  。 您可以選取使用者或群組。 建議至少選取 2 個核准者。 不允許自我核准。
 
     您的選項將出現在所選取的核准者清單中。
 
-1. 指定所有角色設定後，按一下 [儲存] 以儲存變更。
+1. 指定所有角色設定後，按一下 [儲存]  以儲存變更。
 
 
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
