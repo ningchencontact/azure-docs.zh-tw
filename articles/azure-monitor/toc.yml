@@ -837,6 +837,8 @@
                   href: platform/action-groups-create-resource-manager-template.md
                 - name: 實作邏輯應用程式動作
                   href: platform/action-groups-logic-app.md
+                - name: 整合常見警示結構描述和 Logic Apps
+                  href: platform/alerts-common-schema-integrations.md
             - name: 警示管理解決方案
               href: platform/alert-management-solution.md
             - name: 警示使用者介面
