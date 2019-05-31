@@ -67,8 +67,8 @@ ms.locfileid: "60824179"
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | type |類型屬性必須設定為：**OnPremisesMongoDb** |是 |
-| 伺服器 |MongoDB 伺服器的 IP 位址或主機名稱。 |是 |
-| 連接埠 |MongoDB 伺服器用來接聽用戶端連線的 TCP 連接埠。 |選用，預設值︰27017 |
+| server |MongoDB 伺服器的 IP 位址或主機名稱。 |是 |
+| port |MongoDB 伺服器用來接聽用戶端連線的 TCP 連接埠。 |選用，預設值︰27017 |
 | authenticationType |基本或匿名。 |是 |
 | username |用來存取 MongoDB 的使用者帳戶。 |是 (如果使用基本驗證)。 |
 | password |使用者的密碼。 |是 (如果使用基本驗證)。 |
