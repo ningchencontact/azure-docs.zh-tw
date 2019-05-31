@@ -83,7 +83,7 @@
           displayName: roles
         - name: 擷取自由格式的資料
           href: luis-tutorial-pattern-any.md
-    - name: 使用 Bot
+    - name: 使用 V4 Bot Framework
       items:
         - name: '搭配 C#'
           href: luis-csharp-tutorial-bf-v4.md
@@ -198,7 +198,7 @@
           href: luis-tutorial-bing-spellcheck.md
         - name: 具有語音服務
           href: luis-tutorial-speech-to-intent.md
-        - name: 具有 Bot
+        - name: 使用 V3 Bot Framework
           items:
             - name: Web 應用程式 Bot
               items:
@@ -279,6 +279,8 @@
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: 界線
       href: luis-boundaries.md
+    - name: 應用程式設定
+      href: luis-reference-application-settings.md
     - name: 預先建置的實體參考
       items:
         - name: 根據文化特性的實體
