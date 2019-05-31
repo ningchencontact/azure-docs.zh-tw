@@ -102,8 +102,8 @@ ms.locfileid: "59994481"
 
 | Name | 描述 |
 |------|-------------|
-| 名人 | 支援 `people_` 類別中分類影像的名人辨識 |
-| 地標 | 支援 `outdoor_` 或 `building_` 類別中分類影像的地標辨識 |
+| celebrities | 支援 `people_` 類別中分類影像的名人辨識 |
+| landmarks | 支援 `outdoor_` 或 `building_` 類別中分類影像的地標辨識 |
 
 呼叫 [Models](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) API 會傳回此資訊，以及每個模型可以套用的類別：
 
