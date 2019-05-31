@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 05/10/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 4cc305e51113e67eb389bde8cb4cd28a3de8e3df
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 59be8e0585f0bedcafc868ee42f5113509c9c4ef
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969308"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417768"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>有關常見問題 VMware 複寫至 Azure
 
@@ -201,7 +201,7 @@ Site Recovery 會遵循到 N-4 支援模型。 [了解更多](https://aka.ms/asr
 
 建議，但為每個升級並非必要的重新開機。 [深入了解](https://aka.ms/asr_vmware_upgrades)。
 
-## <a name="configuration-server"></a>設定伺服器
+## <a name="configuration-server"></a>組態伺服器
 
 ### <a name="what-does-the-configuration-server-do"></a>組態伺服器有何功用？
 
@@ -255,7 +255,7 @@ Site Recovery 會遵循到 N-4 支援模型。 [了解更多](https://aka.ms/asr
 
 ### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>在設定組態伺服器時，是否可以手動下載並安裝 MySQL？
 
-是。 下載 MySQL，並將它放在 C:\Temp\ASRSetup 資料夾中。 然後，手動安裝。 當您設定組態伺服器 VM 時，如果您接受條款，MySQL 在 [下載並安裝] 中就會列示為 [已安裝]。
+是。 下載 MySQL，並將它放在 C:\Temp\ASRSetup 資料夾中。 然後，手動安裝。 當您設定組態伺服器 VM 時，如果您接受條款，MySQL 在 [下載並安裝]  中就會列示為 [已安裝]  。
 
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>是否可以不要下載 MySQL 而讓 Site Recovery 加以安裝？
 
@@ -285,7 +285,7 @@ Site Recovery 會遵循到 N-4 支援模型。 [了解更多](https://aka.ms/asr
 
 在 復原服務保存庫中，選取**組態伺服器**中**Site Recovery 基礎結構** > **管理**。 然後，在**伺服器**，選取**下載註冊金鑰**下載保存庫認證檔。
 
-## <a name="process-server"></a>處理伺服器
+## <a name="process-server"></a>處理序伺服器
 
 ### <a name="why-am-i-unable-to-select-the-process-server-when-i-enable-replication"></a>為什麼我無法啟用複寫時，請選取處理序伺服器？
 

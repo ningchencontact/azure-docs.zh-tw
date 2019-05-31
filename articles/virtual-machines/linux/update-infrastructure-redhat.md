@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 5/7/2019
+ms.date: 5/28/2019
 ms.author: borisb
-ms.openlocfilehash: 7909ee1dc3980a5a4ff2418d4d6790361a66a65e
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e950a92925e77fa05708d2af3e04e7991243f613
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410724"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357753"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>適用於 Azure 中隨選 Red Hat Enterprise Linux VM 的 Red Hat Update Infrastructure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) 允許雲端提供者 (例如 Azure) 鏡像 Red Hat 代管的存放庫內容、建立具有 Azure 特定內容的自訂存放庫，以及讓它可供使用者 VM 使用。
@@ -37,7 +37,7 @@ Red Hat Enterprise Linux (RHEL) 預付型方案 (PAYG) 映像預先設定為存�
 
     若要避免此行為，您必須如[建立與上傳適用於 Azure 的 Red Hat 型虛擬機器](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)一文中所述，建置自己的映像。 之後，您需要將它連線至不同的更新基礎結構，像是[直接連線至 Red Hat 內容傳遞伺服器](https://access.redhat.com/solutions/253273) \(英文\) 或 [Red Hat 附屬伺服器](https://access.redhat.com/products/red-hat-satellite) \(英文\) 。
 
-* 對 Azure 代管之 RHUI 的存取，包含在 RHEL PAYG 映像價格中。 如果您將 PAYG RHEL VM 從 Azure 代管的 RHUI 取消註冊，這樣並不會將虛擬機器轉換成自備授權 (BYOL) 類型的虛擬機器。 如果您以另一個更新來源註冊相同的 VM，可能會產生「間接」雙重費用。 您需要支付 Azure RHEL 軟體費用， 而且還需要支付先前已購買的 Red Hat 訂用帳戶費用。 如果您持續需要使用非 Azure 代管 RHUI 的更新基礎結構，請考慮建立及部署您自己的 (BYOL 類型) 映像。 [建立與上傳適用於 Azure 的 Red Hat 型虛擬機器](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)一文中有描述此流程。
+* 對 Azure 代管之 RHUI 的存取，包含在 RHEL PAYG 映像價格中。 如果您將 PAYG RHEL VM 從 Azure 代管的 RHUI 取消註冊，這樣並不會將虛擬機器轉換成自備授權 (BYOL) 類型的虛擬機器。 如果您以另一個更新來源註冊相同的 VM，可能會產生「間接」  雙重費用。 您需要支付 Azure RHEL 軟體費用， 而且還需要支付先前已購買的 Red Hat 訂用帳戶費用。 如果您持續需要使用非 Azure 代管 RHUI 的更新基礎結構，請考慮建立及部署您自己的 (BYOL 類型) 映像。 [建立與上傳適用於 Azure 的 Red Hat 型虛擬機器](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)一文中有描述此流程。
 
 * Azure 中 RHEL PAYG 映像 (RHEL for SAP、RHEL for SAP HANA 和 RHEL for SAP Business Applications) 會連線至專用 RHUI 通道，以維持在 SAP 認證所需的特定 RHEL 次要版本。
 
@@ -102,7 +102,7 @@ Red Hat Enterprise Linux (RHEL) 預付型方案 (PAYG) 映像預先設定為存�
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>更新虛擬機器上已過期的 RHUI 用戶端憑證
 
-如果您使用的是較舊的 RHEL VM 映像，例如 RHEL 7.4 (映像 URN：`RedHat:RHEL:7.4:7.4.2018010506`)，因為 SSL 用戶端憑證已過期，所以會碰到對 RHUI 的連線問題。 您會看到如下錯誤：「SSL 同儕節點拒絕了您已過期的憑證」或「錯誤:無法擷取存放庫的存放庫中繼資料 (repomd.xml): ...請確認其路徑正確，然後再試一次」_。 若要解決這個問題，請使用下列命令來更新虛擬機器上的 RHUI 用戶端套件：
+如果您使用的是較舊的 RHEL VM 映像，例如 RHEL 7.4 (映像 URN：`RedHat:RHEL:7.4:7.4.2018010506`)，因為 SSL 用戶端憑證已過期，所以會碰到對 RHUI 的連線問題。 您會看到如下錯誤：「SSL 同儕節點拒絕了您已過期的憑證」  或「錯誤:無法擷取存放庫的存放庫中繼資料 (repomd.xml): ...請確認其路徑正確，然後再試一次」_ 。 若要解決這個問題，請使用下列命令來更新虛擬機器上的 RHUI 用戶端套件：
 
 ```bash
 sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
@@ -138,89 +138,15 @@ sudo yum makecache
 ### <a name="manual-update-procedure-to-use-the-azure-rhui-servers"></a>使用 Azure RHUI 伺服器的手動更新程序
 此程序僅供參考。 RHEL PAYG 映像已設定成能夠連線至 Azure RHUI。 若要手動更新設定以使用 Azure RHUI 伺服器，請完成下列步驟：
 
-1. 透過 curl 下載公開金鑰簽章。
-
-   ```bash
-   curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc
-   ```
-
-1. 驗證已下載金鑰的有效性。
-
-   ```bash
-   gpg --list-packets --verbose < RPM-GPG-KEY-microsoft-azure-release
-   ```
-
-1. 檢查輸出，然後驗證 `keyid` 和 `user ID packet`。
-
-   ```bash
-   Version: GnuPG v1.4.7 (GNU/Linux)
-   :public key packet:
-           version 4, algo 1, created 1446074508, expires 0
-           pkey[0]: [2048 bits]
-           pkey[1]: [17 bits]
-           keyid: EB3E94ADBE1229CF
-   :user ID packet: "Microsoft (Release signing) <gpgsecurity@microsoft.com>"
-   :signature packet: algo 1, keyid EB3E94ADBE1229CF
-           version 4, created 1446074508, md5len 0, sigclass 0x13
-           digest algo 2, begin of digest 1a 9b
-           hashed subpkt 2 len 4 (sig created 2015-10-28)
-           hashed subpkt 27 len 1 (key flags: 03)
-           hashed subpkt 11 len 5 (pref-sym-algos: 9 8 7 3 2)
-           hashed subpkt 21 len 3 (pref-hash-algos: 2 8 3)
-           hashed subpkt 22 len 2 (pref-zip-algos: 2 1)
-           hashed subpkt 30 len 1 (features: 01)
-           hashed subpkt 23 len 1 (key server preferences: 80)
-           subpkt 16 len 8 (issuer key ID EB3E94ADBE1229CF)
-           data: [2047 bits]
-   ```
-
-1. 安裝公開金鑰。
-
-   ```bash
-   sudo install -o root -g root -m 644 RPM-GPG-KEY-microsoft-azure-release /etc/pki/rpm-gpg
-   sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-microsoft-azure-release
-   ```
-
-1. 下載、驗證並安裝用戶端 RPM 套件管理員 (RPM)。
-
-    >[!NOTE]
-    >套件版本變更。 如果是手動連線至 Azure RHUI，藉由佈建資源庫最新映像，便可找到每個 RHEL 系列的最新版本用戶端套件。
-
-   a. 下載。
-
-    - RHEL 6：
-        ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/Packages/r/rhui-azure-rhel6-2.2-74.noarch.rpm
-        ```
-
-    - RHEL 7：
-        ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/Packages/r/rhui-azure-rhel7-2.2-74.noarch.rpm
-        ```
-
-   b. 驗證。
-
-   ```bash
-   rpm -Kv azureclient.rpm
-   ```
-
-   c. 檢查輸出，以確認套件簽章無誤。
-
-   ```bash
-   azureclient.rpm:
-       Header V3 RSA/SHA256 Signature, key ID be1229cf: OK
-       Header SHA1 digest: OK (927a3b548146c95a3f6c1a5d5ae52258a8859ab3)
-       V3 RSA/SHA256 Signature, key ID be1229cf: OK
-       MD5 digest: OK (c04ff605f82f4be8c96020bf5c23b86c)
-   ```
-
-   d. 安裝 RPM。
-
-    ```bash
-    sudo rpm -U azureclient.rpm
-    ```
-
-1. 完成之後，請確認您可以從 VM 存取 Azure RHUI。
+- RHEL 6：
+  ```bash
+  yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel6.config' install 'rhui-azure-rhel6'
+  ```
+        
+- RHEL 7：
+  ```bash
+  yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
+  ```
 
 ## <a name="next-steps"></a>後續步驟
 * 若要從 Azure Marketplace PAYG 映像建立 Red Hat Enterprise Linux VM 並使用 Azure 代管的 RHUI，請移至 [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/)。

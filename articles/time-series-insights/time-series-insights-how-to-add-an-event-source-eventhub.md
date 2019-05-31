@@ -4,19 +4,19 @@ description: 此文章說明如何將與 Azure 事件中樞連線的事件來源
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 41d3e72d978a210c2d68365ade5d8cb42c24aad5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8040368f4cbd6d264070aa3db0a8e6b07a866480
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147595"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239016"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>新增事件中樞事件來源到您的時間序列深入解析環境
 
@@ -40,35 +40,35 @@ ms.locfileid: "65147595"
 
 1. 在 Azure 入口網站中，找出事件中樞並開啟。
 
-1. 在 [實體] 下，選取 [取用者群組]，然後選取 [取用者群組]。
+1. 在 [實體]  下，選取 [取用者群組]  ，然後選取 [取用者群組]  。
 
    [![事件中樞-新增取用者群組](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png#lightbox)
 
-1. 在 [取用者群組] 頁面上，在 [名稱] 中輸入新的唯一值。  在時間序列深入解析環境中建立新的事件來源時，使用此相同名稱。
+1. 在 [取用者群組]  頁面上，在 [名稱]  中輸入新的唯一值。  在時間序列深入解析環境中建立新的事件來源時，使用此相同名稱。
 
-1. 選取 [建立] 。
+1. 選取 [建立]  。
 
 ## <a name="add-a-new-event-source"></a>新增事件來源
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 找出您的現有時間序列深入解析環境。 在左側功能表中，選取 [所有資源]，然後選取您的時間序列深入解析環境。
+1. 找出您的現有時間序列深入解析環境。 在左側功能表中，選取 [所有資源]  ，然後選取您的時間序列深入解析環境。
 
-1. 在 [環境拓撲] 下，選取 [事件來源],，然後選取 [新增]。
+1. 在 [環境拓撲]  下，選取 [事件來源]  ,，然後選取 [新增]  。
 
    [![事件來源 下選取 [新增] 按鈕](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png#lightbox)
 
-1. 在 [事件來源名稱] 中輸入對此時間序列深入解析環境而言為唯一的值，例如 **event-stream**。
+1. 在 [事件來源名稱]  中輸入對此時間序列深入解析環境而言為唯一的值，例如 **event-stream**。
 
-1. 在 [來源] 中，選取 [事件中樞]。
+1. 在 [來源]  中，選取 [事件中樞]  。
 
-1. 為 [匯入選項] 選取適當的值：
-   - 若您的其中一個訂用帳戶中有現有的事件中樞，請選取 [來自可用訂閱的使用事件中樞]。 此選項是最簡單的方法。
-   - 若事件中樞對於您的訂用帳戶而言是外部，或您想要選取進階選項，請選取 [手動提供事件中樞設定]。
+1. 為 [匯入選項]  選取適當的值：
+   - 若您的其中一個訂用帳戶中有現有的事件中樞，請選取 [來自可用訂閱的使用事件中樞]  。 此選項是最簡單的方法。
+   - 若事件中樞對於您的訂用帳戶而言是外部，或您想要選取進階選項，請選取 [手動提供事件中樞設定]  。
 
    [![在 [新增事件來源] 窗格中，輸入前三個參數值](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
 
-1. 下表說明 [來自可用訂閱的使用事件中樞] 選項的必要屬性：
+1. 下表說明 [來自可用訂閱的使用事件中樞]  選項的必要屬性：
 
    [![訂用帳戶和事件中樞詳細資料](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
@@ -77,13 +77,13 @@ ms.locfileid: "65147595"
    | 訂用帳戶識別碼 | 選取建立此事件中樞的訂用帳戶。
    | 服務匯流排命名空間 | 選取包含事件中樞的 Azure 服務匯流排命名空間。
    | 事件中樞名稱 | 選取事件中樞的名稱。
-   | 事件中樞原則名稱 | 選取共用存取原則。 您可以在事件中樞的 [設定] 索引標籤上建立共用存取原則。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須有**讀取**權限。
+   | 事件中樞原則名稱 | 選取共用存取原則。 您可以在事件中樞的 [設定]  索引標籤上建立共用存取原則。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須  有**讀取**權限。
    | 事件中樞原則金鑰 | 系統可能會預先填入金鑰值。
    | 事件中樞取用者群組 | 從事件中樞讀取事件的取用者群組。 強烈建議您使用專屬於您事件來源的取用者群組。 |
    | 事件序列化格式 | 目前，JSON 是目前唯一可用的序列化格式。 事件訊息必須是這種格式，否則無法讀取任何資料。 |
    | 時間戳記屬性名稱 | 若要判斷此值，您需要了解傳送至事件中樞之訊息資料的訊息格式。 這個值是您想要使用作為事件時間戳記之訊息資料中特定事件屬性的**名稱**。 此值區分大小寫。 若保留空白，會使用事件來源內的**事件加入佇列時間**作為事件時間戳記。 |
 
-1. 下表說明 [手動提供事件中樞設定] 選項的必要屬性：
+1. 下表說明 [手動提供事件中樞設定]  選項的必要屬性：
 
    | 屬性 | 描述 |
    | --- | --- |
@@ -91,7 +91,7 @@ ms.locfileid: "65147595"
    | 資源群組 | 建立此事件中樞所在的資源群組。
    | 服務匯流排命名空間 | 服務匯流排命名空間是一個容器，包含一組訊息實體。 建立新的事件中樞時，也會建立服務匯流排命名空間。
    | 事件中樞名稱 | 事件中樞的名稱。 當您建立事件中心時，您也會指定特定名稱。
-   | 事件中樞原則名稱 | 共用存取原則。 您可以在事件中樞的 [設定] 索引標籤上建立共用存取原則。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須有**讀取**權限。
+   | 事件中樞原則名稱 | 共用存取原則。 您可以在事件中樞的 [設定]  索引標籤上建立共用存取原則。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須  有**讀取**權限。
    | 事件中樞原則金鑰 | 用來驗證服務匯流排命名空間之存取權的共用存取金鑰。 在這裡輸入主要金鑰或次要金鑰。
    | 事件中樞取用者群組 | 從事件中樞讀取事件的取用者群組。 強烈建議您使用專屬於您事件來源的取用者群組。
    | 事件序列化格式 | 目前，JSON 是目前唯一可用的序列化格式。 事件訊息必須是這種格式，否則無法讀取任何資料。 |
@@ -99,7 +99,7 @@ ms.locfileid: "65147595"
 
 1. 新增您新增至事件中樞的專用時間序列深入解析取用者群組名稱。
 
-1. 選取 [建立] 。
+1. 選取 [建立]  。
 
    [![選取 [建立]](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png#lightbox)
 

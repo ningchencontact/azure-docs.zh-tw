@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93ac5ef5f03f800a8f90259db3e382b3bc5c5e2c
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: e82a78953c4385f7688705d4ab3f697be9c3ddbd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875630"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235172"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Azure Active Directory 中歐洲客戶的身分識別資料儲存體
 身分識別資料會儲存 Azure ad 中，在地理位置為基礎的 Microsoft 線上服務，例如 Office 365 和 Azure 訂閱時，您的組織所提供的位址。 如需有關您的身分識別資料的儲存位置，您可以使用[其中是您的資料所在？](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) Microsoft 信任中心 的區段。
@@ -27,8 +27,10 @@ ms.locfileid: "64875630"
 ## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure multi-factor authentication (MFA)
     
 - 所有的雙因素驗證使用通話或 SMS 來自於美國資料中心，而且也會路由傳送的全球其他提供者。
-- 推播通知使用 Microsoft Authenticator 應用程式是來自我們資料中心。 此外，裝置廠商特定的服務可能也會隨附到婧矔菛  或許外部歐洲這些服務。
-- OATH 代碼一律會在美國進行驗證。 
+- 推播通知使用 Microsoft Authenticator 應用程式是來自我們資料中心。 此外，裝置廠商特定的服務可能也會隨附到或許外部歐洲這些服務。
+- OATH 代碼一律會在美國進行驗證。
+
+如需所收集的 Azure Multi-factor Authentication Server (MFA Server) 和雲端 Azure MFA 的使用者資訊的詳細資訊，請參閱[Azure Multi-factor Authentication 使用者資料收集](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection)。
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 08ea0081c84ea31b2b71d03679b1b527cf94c075
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e5b5876fa6277d1bad0989c543de667f75a066c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556775"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258736"
 ---
 # <a name="sfctl-node"></a>sfctl node
 管理形成叢集的節點。
@@ -180,6 +180,8 @@ ms.locfileid: "60556775"
 通知 Service Fabric 某個節點上的永續性狀態已永久移除或遺失。
 
 這意謂著無法復原該節點的永續性狀態。 通常如果已將硬碟抹除乾淨或硬碟損毀，就會發生這種情況。 節點必須停止運作，此作業才能成功。 此作業可讓 Service Fabric 知道該節點上的複本已不存在，而 Service Fabric 應該停止等候這些複本恢復運作。 如果節點上的狀態尚未移除，而節點能夠在其狀態保持不變的情況下恢復運作，則請勿執行此 Cmdlet。
+
+從 Service Fabric 6.5，才能使用這個指令程式對於種子節點，請將種子節點變更為一般 （非種子） 節點，然後叫用這個指令程式可移除節點狀態。 如果叢集在 Azure 上執行之後種子節點發生故障，Service Fabric 會嘗試自動將它變更為非種子節點。 若要這會發生，請確定主要節點類型中的非種子節點數目不是小於下種子節點的數目。 如有必要，請在主要節點類型，以達到此目的新增更多節點。 針對獨立叢集，如果不應該向下種子節點恢復運作與其保持不變的狀態，請從叢集移除節點，請參閱[從 Service Fabric 獨立叢集中移除節點](/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes) 
 
 ### <a name="arguments"></a>引數
 
