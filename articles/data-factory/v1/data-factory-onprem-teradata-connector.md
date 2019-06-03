@@ -65,7 +65,7 @@ ms.locfileid: "60610747"
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | type |類型屬性必須設定為：**OnPremisesTeradata** |是 |
-| 伺服器 |Teradata 伺服器的名稱。 |是 |
+| server |Teradata 伺服器的名稱。 |是 |
 | authenticationType |用來連接到 Teradata 資料庫的驗證類型。 可能的值包括：匿名、基本及 Windows。 |是 |
 | username |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
@@ -285,11 +285,11 @@ ms.locfileid: "60610747"
 
 | Teradata 資料庫類型 | .NET Framework 類型 |
 | --- | --- |
-| Char |字串 |
-| Clob |字串 |
-| 圖形 |字串 |
-| VarChar |字串 |
-| VarGraphic |字串 |
+| Char |String |
+| Clob |String |
+| Graphic |String |
+| VarChar |String |
+| VarGraphic |String |
 | Blob |Byte[] |
 | Byte |Byte[] |
 | VarByte |Byte[] |
@@ -297,33 +297,33 @@ ms.locfileid: "60610747"
 | ByteInt |Int16 |
 | Decimal |Decimal |
 | Double |Double |
-| 整數  |Int32 |
-| 數字 |Double |
+| Integer |Int32 |
+| Number |Double |
 | SmallInt |Int16 |
-| date |DateTime |
-| 時間 |TimeSpan |
-| 時區的時間 |字串 |
+| Date |DateTime |
+| Time |TimeSpan |
+| Time With Time Zone |String |
 | Timestamp |DateTime |
-| 時區的時間戳記 |DateTimeOffset |
-| 間隔日 |TimeSpan |
-| 間隔日至小時 |TimeSpan |
-| 間隔日至分鐘 |TimeSpan |
-| 間隔日至秒鐘 |TimeSpan |
-| 間隔小時 |TimeSpan |
-| 間隔小時至分鐘 |TimeSpan |
-| 間隔小時至秒鐘 |TimeSpan |
-| 間隔分鐘 |TimeSpan |
-| 間隔分鐘至秒鐘 |TimeSpan |
-| 間隔第二 |TimeSpan |
-| 間隔年 |字串 |
-| 間隔年至月 |字串 |
-| 間隔月 |字串 |
-| Period(Date) |字串 |
-| Period(Time) |字串 |
-| Period(Time With Time Zone) |字串 |
-| Period(Timestamp) |字串 |
-| Period(Timestamp With Time Zone) |字串 |
-| Xml |字串 |
+| Timestamp With Time Zone |DateTimeOffset |
+| Interval Day |TimeSpan |
+| Interval Day To Hour |TimeSpan |
+| Interval Day To Minute |TimeSpan |
+| Interval Day To Second |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval Hour To Minute |TimeSpan |
+| Interval Hour To Second |TimeSpan |
+| Interval Minute |TimeSpan |
+| Interval Minute To Second |TimeSpan |
+| Interval Second |TimeSpan |
+| Interval Year |String |
+| Interval Year To Month |String |
+| Interval Month |String |
+| Period(Date) |String |
+| Period(Time) |String |
+| Period(Time With Time Zone) |String |
+| Period(Timestamp) |String |
+| Period(Timestamp With Time Zone) |String |
+| Xml |String |
 
 ## <a name="map-source-to-sink-columns"></a>將來源對應到接收資料行
 若要了解如何將來源資料集內的資料行與接收資料集內的資料行對應，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
