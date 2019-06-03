@@ -86,14 +86,14 @@ Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Pig 活�
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | name |活動的名稱 |是 |
-| 說明 |說明活動用途的文字 |否 |
+| description |說明活動用途的文字 |否 |
 | type |HDInsightPig |是 |
-| 輸入 |Pig 活動所取用的一或多項輸入 |否 |
-| 輸出 |Pig 活動所產生的一或多項輸出 |是 |
-| 預設容器 |參考 HDInsight 叢集註冊為 Data Factory 中的連結服務 |是 |
+| inputs |Pig 活動所取用的一或多項輸入 |否 |
+| outputs |Pig 活動所產生的一或多項輸出 |是 |
+| linkedServiceName |參考 HDInsight 叢集註冊為 Data Factory 中的連結服務 |是 |
 | script |指定 Pig 指令碼內嵌 |否 |
-| 指令碼路徑 |在 Azure blob 儲存體中儲存 Pig 指令碼，並提供檔案的路徑。 使用 'script' 或 'scriptPath' 屬性。 兩者無法同時使用。 檔案名稱有區分大小寫。 |否 |
-| 定義 |在使用 Pig 指令碼內指定參數做為參考的機碼/值組 |否 |
+| scriptPath |在 Azure blob 儲存體中儲存 Pig 指令碼，並提供檔案的路徑。 使用 'script' 或 'scriptPath' 屬性。 兩者無法同時使用。 檔案名稱有區分大小寫。 |否 |
+| defines |在使用 Pig 指令碼內指定參數做為參考的機碼/值組 |否 |
 
 ## <a name="example"></a>範例
 讓我們思考一下一個遊戲記錄分析範例，在此範例中，您想要了解遊戲玩家花費多少時間玩貴公司所推出的遊戲。
