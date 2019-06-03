@@ -67,9 +67,9 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Sybase
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | type |類型屬性必須設定為：**OnPremisesSybase** |是 |
-| 伺服器 |Sybase 伺服器的名稱。 |是 |
-| 資料庫 |Sybase 資料庫的名稱。 |是 |
-| 結構描述 |在資料庫中的結構描述名稱。 |否 |
+| server |Sybase 伺服器的名稱。 |是 |
+| database |Sybase 資料庫的名稱。 |是 |
+| schema |在資料庫中的結構描述名稱。 |否 |
 | authenticationType |用來連接到 Sybase 資料庫的驗證類型。 可能的值包括：匿名、基本及 Windows。 |是 |
 | username |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
