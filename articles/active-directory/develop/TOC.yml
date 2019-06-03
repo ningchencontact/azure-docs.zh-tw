@@ -229,8 +229,6 @@
                   href: msal-js-initializing-client-applications.md
             - name: 處理錯誤和例外狀況
               href: msal-handling-exceptions.md
-            - name: 測試 MSAL 應用程式
-              href: msal-testing.md
             - name: 記錄
               href: msal-logging.md
             - name: 單一登入 (JS)
@@ -366,6 +364,12 @@
                   href: msal-net-user-gets-consent-for-multiple-resources.md
                 - name: 提供您自己的 HttpClient
                   href: msal-net-provide-httpclient.md
+            - name: MSAL.js
+              items:
+                - name: 避免頁面重新載入
+                  href: msal-js-avoid-page-reloads.md
+                - name: 在驗證狀態中傳遞自訂要求
+                  href: msal-js-pass-custom-state-authentication-request.md
         - name: 使用 Visual Studio
           items:
             - name: 使用 Active Directory 連線服務

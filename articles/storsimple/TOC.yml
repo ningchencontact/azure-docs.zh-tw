@@ -87,14 +87,16 @@
           href: storsimple-ova-web-ui-admin.md
     - name: 版本資訊
       items:
-        - name: Update 1.1 - 目前
+        - name: Update 1.2
+          href: storsimple-virtual-array-update-12-release-notes.md
+        - name: Update 1.1
           href: storsimple-virtual-array-update-11-release-notes.md
         - name: Update 1
           href: storsimple-virtual-array-update-1-release-notes.md
-        - name: Update 0.6
-          href: storsimple-virtual-array-update-06-release-notes.md
         - name: 封存
           items:
+            - name: Update 0.6
+              href: storsimple-virtual-array-update-06-release-notes.md
             - name: Update 0.5
               href: storsimple-virtual-array-update-05-release-notes.md
             - name: Update 0.4
@@ -103,7 +105,7 @@
               href: storsimple-ova-update-03-release-notes.md
             - name: Update 0.2 和 0.1
               href: storsimple-ova-update-01-release-notes.md
-- name: StorSimple 8000 系列 (Azure 入口網站)
+- name: StorSimple 8000 系列
   items:
     - name: 概觀
       items:

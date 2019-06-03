@@ -22,6 +22,8 @@
   items:
     - name: SSO 至內部部署資源
       href: azuread-join-sso.md
+    - name: 主要重新整理權杖
+      href: concept-primary-refresh-token.md
     - name: Azure 受控工作站
       href: concept-azure-managed-workstation.md
 - name: 使用說明指南
@@ -35,7 +37,7 @@
       href: azureadjoin-plan.md
     - name: 規劃混合式 Azure AD 聯結實作
       href: hybrid-azuread-join-plan.md
-    - name: 控制裝置的混合式 Azure AD 聯結
+    - name: 混合式 Azure AD 聯結的受控驗證
       href: hybrid-azuread-join-control.md
     - name: 將本機系統管理員指派給已加入 Azure AD 的裝置
       href: assign-local-admin.md

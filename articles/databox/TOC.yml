@@ -111,7 +111,7 @@
           items:
             - name: 透過 Azure 入口網站管理
               href: data-box-portal-ui-admin.md
-            - name: 針對磁碟問題進行疑難排解
+            - name: Data Box Heavy 問題疑難排解
               href: data-box-disk-troubleshoot.md
             - name: 請連絡支援人員
               href: data-box-disk-contact-microsoft-support.md
@@ -121,12 +121,32 @@
           items:
             - name: 什麼是 Data Box Heavy？
               href: data-box-heavy-overview.md
+        - name: 教學課程
+          items:
+            - name: 1 - 訂購
+              href: data-box-heavy-deploy-ordered.md
+            - name: 2 - 設定
+              href: data-box-heavy-deploy-set-up.md
+            - name: 3 - 連線和複製
+              items:
+                - name: 透過 SMB
+                  href: data-box-heavy-deploy-copy-data.md
+            - name: 4 - 傳回、上傳並確認
+              href: data-box-heavy-deploy-picked-up.md
         - name: 概念
           items:
             - name: 檢閱需求
               href: data-box-heavy-system-requirements.md
             - name: 了解限制
               href: data-box-heavy-limits.md
+        - name: 作法
+          items:
+            - name: 透過 Azure 入口網站管理
+              href: data-box-portal-admin.md
+            - name: 裝置問題疑難排解
+              href: data-box-troubleshoot.md
+            - name: 請連絡支援人員
+              href: data-box-disk-contact-microsoft-support.md
     - name: 資源
       items:
         - name: 資料箱產品

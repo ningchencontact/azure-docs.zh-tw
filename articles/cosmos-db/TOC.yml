@@ -210,6 +210,8 @@
         - name: 角色型存取控制
           displayName: rbac
           href: role-based-access-control.md
+        - name: 安全性屬性
+          href: cosmos-db-security-attributes.md
     - name: 企業整備
       items:
         - name: 線上備份與隨選還原

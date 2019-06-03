@@ -122,7 +122,7 @@ ms.locfileid: "66243232"
 
 |名稱|描述|必要項|預設值|
 |----------|-----------------|--------------|-------------|
-|kind|此屬性必須設為下列其中一個值。<br /><br /> -   javascript-friendly - 轉換後的 JSON 有 JavaScript 開發人員熟悉的格式。<br />-   direct -  | 轉換後的 JSON 可反映原始 XML 文件的結構。|是|N/A|
+|kind|此屬性必須設為下列其中一個值。<br /><br /> -   javascript-friendly - 轉換後的 JSON 有 JavaScript 開發人員熟悉的格式。<br />-   direct - 轉換後的 JSON 可反映原始 XML 文件的結構。|是|N/A|
 |apply|此屬性必須設為下列其中一個值。<br /><br /> -   always - 一律轉換。<br />-   content-type-xml - 只有當回應中的 Content-type 標頭指出 XML 存在時才轉換。|是|N/A|
 |consider-accept-header|此屬性必須設為下列其中一個值。<br /><br /> -   true - 如果在要求的 Accept 標頭中要求 XML，才套用轉換。<br />-   false - 一律套用轉換。|否|true|
 

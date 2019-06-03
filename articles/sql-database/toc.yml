@@ -101,7 +101,7 @@
       href: sql-database-get-started-sql-data-sync.md
     - name: 機器學習服務
       items:
-        - name: 使用 R 建置和部署預測模型
+        - name: 使用 R 建置預測模型
           items:
             - name: 1 - 準備資料
               href: sql-database-tutorial-predictive-model-prepare-data.md
@@ -109,6 +109,14 @@
               href: sql-database-tutorial-predictive-model-build-compare.md
             - name: 3 - 部署模型
               href: sql-database-tutorial-predictive-model-deploy.md
+        - name: 使用 R 建置叢集模型
+          items:
+            - name: 1 - 準備資料
+              href: sql-database-tutorial-clustering-model-prepare-data.md
+            - name: 2 - 建立模型
+              href: sql-database-tutorial-clustering-model-build.md
+            - name: 3 - 部署模型
+              href: sql-database-tutorial-clustering-model-deploy.md
 - name: 範例
   items:
     - name: 程式碼範例

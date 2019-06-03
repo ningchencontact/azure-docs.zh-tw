@@ -213,6 +213,10 @@
       href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
     - name: 網路存取
       items:
+        - name: HDInsight 虛擬網路架構
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: 使用防火牆限制輸出流量
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: Azure VNet 中的 HDInsight
           href: ../hdinsight-extend-hadoop-virtual-network.md
         - name: 將 HDInsight 與內部部署網路連線

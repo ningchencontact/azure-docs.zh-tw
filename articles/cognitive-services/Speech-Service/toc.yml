@@ -222,6 +222,8 @@
           displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
         - name: 案例可用性
           href: scenario-availability.md
+        - name: 交付應用程式
+          href: ship-application.md
         - name: 版本資訊
           href: releasenotes.md
         - name: C++

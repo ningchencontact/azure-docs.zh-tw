@@ -275,6 +275,8 @@
           href: storage-blob-event-overview.md
         - name: 分頁 Blob 功能
           href: storage-blob-pageblob-overview.md
+        - name: 靜態網站
+          href: storage-blob-static-website.md
     - name: 作法
       items:
         - name: 建立及管理儲存體帳戶
@@ -353,7 +355,7 @@
         - name: 設定並擷取屬性和中繼資料
           href: storage-properties-metadata.md
         - name: 託管靜態網站
-          href: storage-blob-static-website.md
+          href: storage-blob-static-website-how-to.md
         - name: 將 Azure CDN 對應至自訂網域以便透過 HTTPS 存取
           href: storage-https-custom-domain-cdn.md
         - name: 設定自訂網域
