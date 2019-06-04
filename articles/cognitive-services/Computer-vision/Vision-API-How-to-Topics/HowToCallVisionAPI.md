@@ -166,10 +166,10 @@ POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?details=cele
 
 欄位 | 類型 | 內容
 ------|------|------|
-標記  | `object` | 標籤陣列的最上層物件
+Tags  | `object` | 標籤陣列的最上層物件
 tags[].Name | `string`  | 標籤分類器的關鍵字
 tags[].Score    | `number`  | 信賴分數，介於 0 到 1 之間。
-說明  | `object` | 描述的最上層物件。
+description  | `object` | 描述的最上層物件。
 description.tags[] |    `string`    | 標籤清單。  如果能否產生標題的信賴度不足，呼叫者可能僅有標籤的資訊可用。
 description.captions[].text | `string`  | 描述影像的片語。
 description.captions[].confidence   | `number`  | 片語的信賴度。
@@ -228,7 +228,7 @@ description.captions[].confidence   | `number`  | 片語的信賴度。
 
 欄位   | 類型  | 內容
 ------|------|------|
-類別 | `object`   | 最上層物件
+categories | `object`   | 最上層物件
 categories[].name    | `string` | 86 個類別分類法的名稱
 categories[].score  | `number`  | 信賴分數，介於 0 到 1 之間
 categories[].detail  | `object?`      | 選擇性的詳細資料物件
