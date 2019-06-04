@@ -17,7 +17,7 @@ ms.locfileid: "65779919"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>在您的 Azure IoT 中樞中設定 X.509 安全性
 
-本教學課程中會使用 X.509 憑證驗證來模擬您保護 Azure IoT 中樞所需的步驟。 為了說明起見，我們將示範如何使用開放原始碼工具 OpenSSL 在 Windows 電腦上本機建立憑證。 建議您僅將本教學課程用於測試目的。 針對生產環境，您應該向根憑證授權單位 (CA) 購買憑證。
+本教學課程中會使用 X.509 憑證驗證  來模擬您保護 Azure IoT 中樞所需的步驟。 為了說明起見，我們將示範如何使用開放原始碼工具 OpenSSL 在 Windows 電腦上本機建立憑證。 建議您僅將本教學課程用於測試目的。 針對生產環境，您應該向根憑證授權單位 (CA) 購買憑證  。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -33,7 +33,7 @@ ms.locfileid: "65779919"
 
 您可以選擇下列其中一個方式來取得您的憑證：
 
-* 從根憑證授權單位 (CA) 購買 X.509 憑證。 建議用於生產環境。
+* 從根憑證授權單位 (CA)  購買 X.509 憑證。 建議用於生產環境。
 
 * 使用第三方工具建立您自己的 X.509 憑證，例如 [OpenSSL](https://www.openssl.org/)。 這適合進行測試和開發。 如需使用 PowerShell 或 Bash 產生測試 CA 憑證的相關資訊，請參閱[管理用於範例和教學課程的測試 CA 憑證](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)產生的相關資訊。 本教學課程的其餘部分會使用依照[管理用於範例和教學課程的測試 CA 憑證](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)中的指示而產生的測試 CA 憑證。
 
@@ -44,21 +44,21 @@ ms.locfileid: "65779919"
 
 這些步驟示範如何透過入口網站將新的「憑證授權單位」新增至您的 IoT 中樞。
 
-1. 在 Azure 入口網站中，瀏覽至您的 IoT 中樞，並開啟 [設定] > [憑證] 功能表。
+1. 在 Azure 入口網站中，瀏覽至您的 IoT 中樞，並開啟 [設定]   > [憑證]  功能表。
 
-2. 按一下 [新增] 以新增新的憑證。
+2. 按一下 [新增]  以新增新的憑證。
 
-3. 將好記的顯示名稱輸入到您的憑證。 從您的電腦中選取前一個區段中所建立名為 RootCA.cer 的根憑證檔案。 按一下 [上傳] 。
+3. 將好記的顯示名稱輸入到您的憑證。 從您的電腦中選取前一個區段中所建立名為 RootCA.cer  的根憑證檔案。 按一下 [上傳]  。
 
-4. 一旦取得您的憑證已成功上傳的通知後，請按一下 [儲存]。
+4. 一旦取得您的憑證已成功上傳的通知後，請按一下 [儲存]  。
 
     ![上傳憑證](./media/iot-hub-security-x509-get-started/add-new-cert.png)  
 
-   這會在 [憑證總管] 清單中顯示您的憑證。 請注意，這個憑證的 [狀態] 是 [未驗證]。
+   這會在 [憑證總管]  清單中顯示您的憑證。 請注意，這個憑證的 [狀態]  是 [未驗證]  。
 
 5. 按一下您在上一個步驟中新增的憑證。
 
-6. 在 [憑證詳細資料] 刀鋒視窗中，按一下 [產生驗證碼]。
+6. 在 [憑證詳細資料]  刀鋒視窗中，按一下 [產生驗證碼]  。
 
 7. 它會建立**驗證碼**來驗證憑證的擁有權。 將程式碼複製到剪貼簿。
 
@@ -66,19 +66,19 @@ ms.locfileid: "65779919"
 
 8. 現在，您必須使用與 X.509 憑證相關聯的私密金鑰來簽署這個*驗證碼*，如此就會產生簽章。 有一些工具可用來執行此簽署程序，例如 OpenSSL。 這稱為[所有權的證明](https://tools.ietf.org/html/rfc5280#section-3.1)。 [管理用於範例和教學課程的測試 CA 憑證](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)中的步驟 3 會產生驗證碼。
 
-9. 將步驟 8 所產生的簽章上傳至入口網站中的 IoT 中樞。 在 Azure 入口網站的 [憑證詳細資料] 刀鋒視窗中，瀏覽至**驗證憑證 .pem 或.cer 檔案**，並選取簽章，例如，使用它旁邊的 [檔案總管] 圖示，由範例 PowerShell 命令所建立的 VerifyCert4.cer。
+9. 將步驟 8 所產生的簽章上傳至入口網站中的 IoT 中樞。 在 Azure 入口網站的 [憑證詳細資料]  刀鋒視窗中，瀏覽至**驗證憑證 .pem 或.cer 檔案**，並選取簽章，例如，使用它旁邊的 [檔案總管]  圖示，由範例 PowerShell 命令所建立的 VerifyCert4.cer  。
 
-10. 一旦憑證上傳成功後，按一下 [確認]。 憑證的 [狀態]在 [憑證]刀鋒視窗中會變更為**_已驗證_**。 如果無法自動更新，請按一下 [重新整理]。
+10. 一旦憑證上傳成功後，按一下 [確認]  。 憑證的 [狀態]  在 [憑證]  刀鋒視窗中會變更為 **_已驗證_** 。 如果無法自動更新，請按一下 [重新整理]  。
 
     ![上傳憑證驗證](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 
 ## <a name="create-an-x509-device-for-your-iot-hub"></a>建立 IoT 中樞的 X.509 裝置
 
-1. 在 Azure 入口網站中，瀏覽至 IoT 中樞的 [總管] > [IoT 裝置] 頁面。
+1. 在 Azure 入口網站中，瀏覽至 IoT 中樞的 [總管] > [IoT 裝置]  頁面。
 
-2. 按一下 [+ 新增] 以新增新的裝置。
+2. 按一下 [+ 新增]  以新增新的裝置。
 
-3. 為 [裝置識別碼] 提供好記的顯示名稱，然後選取 [X.509 CA 簽署] 作為 [驗證類型]。 按一下 [檔案] 。
+3. 為 [裝置識別碼]  提供好記的顯示名稱，然後選取 [X.509 CA 簽署]  作為 [驗證類型]  。 按一下 [檔案]  。
 
    ![在入口網站中建立 X.509 裝置](./media/iot-hub-security-x509-get-started/create-x509-device.png)
 
@@ -92,11 +92,11 @@ ms.locfileid: "65779919"
 
    ![在 Visual Studio 中建立 X.509 裝置專案](./media/iot-hub-security-x509-get-started/create-device-project.png)
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 **SimulateX509Device** 專案，然後按一下 [管理 NuGet 套件]。在 [NuGet 套件管理員] 視窗中，選取 [瀏覽]，並搜尋 **microsoft.azure.devices.client**。 選取 [安裝] 來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 Azure IoT 裝置 SDK NuGet 套件與其相依項目，並新增對它的參考。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 **SimulateX509Device** 專案，然後按一下 [管理 NuGet 套件]  。在 [NuGet 套件管理員] 視窗中，選取 [瀏覽]  ，並搜尋 **microsoft.azure.devices.client**。 選取 [安裝]  來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 Azure IoT 裝置 SDK NuGet 套件與其相依項目，並新增對它的參考。
 
    ![在 Visual Studio 中新增裝置 SDK NuGet 套件](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 
-3. 在 Program.cs 檔案開頭處新增下列程式碼：
+3. 在 Program.cs  檔案開頭處新增下列程式碼：
 
     ```CSharp
         using Microsoft.Azure.Devices.Client;
@@ -167,7 +167,7 @@ ms.locfileid: "65779919"
     ```
 
    此程式碼會連線到 IoT 中樞，方法為建立 X.509 裝置的連接字串。 一旦成功連線後，就會將氣溫和溼度事件傳送至中樞，並等候其回應。 
-7. 此應用程式會存取 .pfx 檔案，因此您可能必須在 Admin 模式中加以執行。 建置 Visual Studio 解決方案。 以**管理員**身分開啟新的命令視窗，並瀏覽至包含此解決方案的資料夾。 瀏覽至 bin/Debug 解決方案資料夾內的路徑。 從 _Admin_ 命令視窗執行應用程式 **SimulateX509Device.exe**。 您應該會看到裝置成功連線至中樞並傳送事件。 
+7. 此應用程式會存取 .pfx  檔案，因此您可能必須在 Admin  模式中加以執行。 建置 Visual Studio 解決方案。 以**管理員**身分開啟新的命令視窗，並瀏覽至包含此解決方案的資料夾。 瀏覽至 bin/Debug  解決方案資料夾內的路徑。 從 _Admin_ 命令視窗執行應用程式 **SimulateX509Device.exe**。 您應該會看到裝置成功連線至中樞並傳送事件。 
 
    ![运行设备应用](./media/iot-hub-security-x509-get-started/device-app-success.png)
 
