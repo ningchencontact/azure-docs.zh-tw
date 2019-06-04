@@ -97,7 +97,7 @@ ms.locfileid: "65546194"
 | domain_dns_name |
 | domain_netbios_name |
 | e_exp |
-| 电子邮件 |
+| email |
 | endpoint |
 | enfpolids |
 | exp |
@@ -156,10 +156,10 @@ ms.locfileid: "65546194"
 | refresh_token |
 | refreshtoken |
 | request_nonce |
-| 資源 |
+| resource |
 | role |
-| 角色 |
-| 範圍 |
+| roles |
+| scope |
 | scp |
 | sid |
 | signature |
