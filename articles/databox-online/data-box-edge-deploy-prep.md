@@ -54,7 +54,7 @@ ms.locfileid: "64924763"
 
 在您開始前，請確定：
 
-- 已針對 Data Box Edge 資源啟用您的 Microsoft Azure 訂用帳戶。 不支援預付型訂用帳戶。
+- 已針對 Data Box Edge 資源啟用您的 Microsoft Azure 訂用帳戶。 不支援隨用隨付訂用帳戶。
 - 您有您訂用帳戶的擁有者或參與者存取權。
 - 您有 Azure Active Directory 圖形 API 的管理員或使用者存取權。 如需詳細資訊，請參閱 [Azure Active Directory 圖形 API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)。
 - 您擁有的 Microsoft Azure 儲存體帳戶具有存取認證。

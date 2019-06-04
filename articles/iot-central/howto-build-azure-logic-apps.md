@@ -25,7 +25,7 @@ ms.locfileid: "60887052"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 預付型方案應用程式
+- 隨用隨付應用程式
 - 用來建立及管理邏輯應用程式的 Azure 帳戶和訂用帳戶
 
 ## <a name="trigger-a-workflow-when-a-rule-is-triggered"></a>在觸發規則時觸發工作流程
@@ -34,25 +34,25 @@ ms.locfileid: "60887052"
 
 1. 首先，[在 IoT Central 中建立規則](howto-create-telemetry-rules.md)。 儲存規則條件之後，請選取**Azure Logic Apps**圖格以新的動作。 選取  **Azure 入口網站中的建立**。 若要建立新的邏輯應用程式，您會前往 Azure 入口網站。 您可能需要登入您的 Azure 帳戶。
 
-1. 輸入必要資訊以建立新的邏輯應用程式。 您可以選擇 Azure 訂用帳戶來佈建新的邏輯應用程式。 該訂用帳戶不必和您用來建立 IoT Central 應用程式的訂用帳戶相同。 選取 [建立] 。
+1. 輸入必要資訊以建立新的邏輯應用程式。 您可以選擇 Azure 訂用帳戶來佈建新的邏輯應用程式。 該訂用帳戶不必和您用來建立 IoT Central 應用程式的訂用帳戶相同。 選取 [建立]  。
 
     ![在 Azure 入口網站中建立邏輯應用程式](./media/howto-build-azure-logic-apps/createinazureportal.png)
 
-1. 已成功建立邏輯應用程式之後，您會自動巡覽到 Logic Apps 設計工具。 選取 [空白邏輯應用程式]。 
+1. 已成功建立邏輯應用程式之後，您會自動巡覽到 Logic Apps 設計工具。 選取 [空白邏輯應用程式]  。 
 
     ![建立空白邏輯應用程式](./media/howto-build-azure-logic-apps/blanklogicapp.png)
 
-1. 在設計工具中搜尋 "iot central"，然後選擇 [當規則觸發時] 觸發程序。 使用您登入 IoT Central 應用程式的帳戶登入連接器。
+1. 在設計工具中搜尋 "iot central"，然後選擇 [當規則觸發時]  觸發程序。 使用您登入 IoT Central 應用程式的帳戶登入連接器。
 
     ![登入 IoT Central 連接器](./media/howto-build-azure-logic-apps/addtrigger.png)
 
-1. 成功登入之後，畫面應該會顯示欄位。 從下拉式清單選取 [應用程式] 和 [規則]。
+1. 成功登入之後，畫面應該會顯示欄位。 從下拉式清單選取 [應用程式]  和 [規則]  。
 
     ![挑選應用程式和規則](./media/howto-build-azure-logic-apps/pickappandrule.png)
 
-1. 新增動作。 搜尋「張貼訊息 teams」，然後從 Microsoft Teams 連接器選擇 [張貼訊息]。 使用您用於 Microsoft Teams 的帳戶登入連接器。
+1. 新增動作。 搜尋「張貼訊息 teams」  ，然後從 Microsoft Teams 連接器選擇 [張貼訊息]  。 使用您用於 Microsoft Teams 的帳戶登入連接器。
 
-1. 在該動作中，選擇 [小組] 和 [通道]。 將所需的訊息內容填入 [訊息] 欄位。 您可以納入 IoT Central 規則中的「動態內容」，將裝置名稱和時間戳記等重要資訊傳至您的通知。
+1. 在該動作中，選擇 [小組]  和 [通道]  。 將所需的訊息內容填入 [訊息]  欄位。 您可以納入 IoT Central 規則中的「動態內容」  ，將裝置名稱和時間戳記等重要資訊傳至您的通知。
     > [!NOTE]
     > 選取 **查看更多**動態內容視窗以取得觸發此規則的度量和屬性值中的文字。
 
@@ -69,7 +69,7 @@ ms.locfileid: "60887052"
 當您在邏輯應用程式中建置工作流程時，您可以使用 IoT Central 連接器新增動作。 可用的動作**建立裝置**，**更新裝置**，並**刪除裝置**。
 
 > [!NOTE]
-> 針對 [更新裝置] 和 [刪除裝置]，您將會需要想要更新或刪除之現有裝置的識別碼。 您可以在**裝置總管**中取得 IoT Central 裝置的識別碼
+> 針對 [更新裝置]  和 [刪除裝置]  ，您將會需要想要更新或刪除之現有裝置的識別碼。 您可以在**裝置總管**中取得 IoT Central 裝置的識別碼
 
 ![IoT Central Device Explorer 裝置識別碼](./media/howto-build-azure-logic-apps/iotcdeviceid.png)
 

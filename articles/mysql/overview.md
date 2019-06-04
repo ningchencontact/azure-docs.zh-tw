@@ -19,7 +19,7 @@ ms.locfileid: "61226202"
 適用於 MySQL 的 azure 資料庫是在 Microsoft 雲端為基礎的關聯式資料庫服務[MySQL Community Edition](https://www.mysql.com/products/community/) （可用 GPLv2 license） 資料庫引擎、 5.6 和 5.7 版。 Azure Database for MySQL 提供：
 
 - 內建高可用性但沒有任何額外成本。
-- 可預測的效能，使用預付型方案計價方式。
+- 可預測的效能，使用隨用隨付計價方式。
 - 視需要在幾秒內進行縮放。
 - 受到保護，可保護機密的靜止資料和移動中資料。
 - 最多 35 天的自動化備份和時間點還原。

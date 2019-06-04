@@ -28,7 +28,7 @@ ms.locfileid: "64683993"
 --- | --- | --- | --- | ---
 Enterprise 合約 (EA) | 是 | 是 | 是 | 否
 Microsoft 客戶合約 (MCA) | 是 | 是 | 是 | 是
-預付型方案 (PAYG) | 是 | 否 | 否 | 否
+隨用隨付 (PAYG) | 是 | 否 | 否 | 否
 
 若要深入了解 Marketplace 訂單 （也稱為外部服務），請參閱[了解您的 Azure 外部服務費用](billing-understand-your-azure-marketplace-charges.md)。
 

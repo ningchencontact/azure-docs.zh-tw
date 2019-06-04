@@ -26,7 +26,7 @@ ms.locfileid: "66136183"
 
 本文列出在 Azure App Service 中為 Web 應用程式設定網域或 SSL 憑證時，可能會遇到的常見問題。 文中也會描述這些問題的可能原因和解決方案。
 
-如果您在本文中有任何需要協助的地方，您可以連絡 [MSDN 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
+如果您在本文中有任何需要協助的地方，您可以連絡 [MSDN 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -90,14 +90,14 @@ ms.locfileid: "66136183"
 
 - 訂用帳戶已達到單一訂用帳戶允許的購買限制。
 
-    **解決方案**：預付型方案和 EA 訂用帳戶類型的 App Service 憑證有購買 10 個憑證的限制。 其他訂用帳戶類型的限制則為 3 個。 若要提高限制，請連絡 [Azure支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+    **解決方案**：隨用隨付和 EA 訂用帳戶類型的 App Service 憑證有購買 10 個憑證的限制。 其他訂用帳戶類型的限制則為 3 個。 若要提高限制，請連絡 [Azure支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 - App Service 憑證已標示為詐騙。 您收到下列錯誤訊息：「您的憑證已標示為可能的詐欺。 要求目前正在進行檢閱。 如果憑證未變為可用在 24 小時內，請連絡 Azure 支援。 」
 
     **解決方案**：如果憑證已標示為詐騙，且在 24 小時後仍未解決，請依照下列步驟進行操作：
 
     1. 登入 [Azure 入口網站](https://portal.azure.com)。
-    2. 前往 [App Service 憑證]，然後選取憑證。
-    3. 選取 [憑證組態] > [步驟 2：驗證] > [網域驗證]。 此步驟會傳送電子郵件通知給 Azure 憑證提供者，尋求解決問題。
+    2. 前往 [App Service 憑證]  ，然後選取憑證。
+    3. 選取 [憑證組態]   > [步驟 2：  驗證] > [網域驗證]  。 此步驟會傳送電子郵件通知給 Azure 憑證提供者，尋求解決問題。
 
 ## <a name="custom-domain-problems"></a>自訂網域的問題
 
@@ -197,14 +197,14 @@ Azure App Service 會每隔八小時執行一次背景作業，如果憑證資�
 
 您可以強制同步處理憑證：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。 選取 [App Service 憑證]，然後選取憑證。
-2. 選取 [重設金鑰與同步]，然後選取 [同步]。同步需要一些時間才能完成。 
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 選取 [App Service 憑證]  ，然後選取憑證。
+2. 選取 [重設金鑰與同步]  ，然後選取 [同步]  。同步需要一些時間才能完成。 
 3. 同步完成時，您會看到下列通知：「已成功以最新憑證更新所有資源。」
 
 ### <a name="domain-verification-is-not-working"></a>網域驗證無法運作 
 
 #### <a name="symptom"></a>徵狀 
-App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 時，程序會失敗。
+App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證]  時，程序會失敗。
 
 #### <a name="solution"></a>解決方法
 新增 TXT 記錄來手動驗證網域：
@@ -212,13 +212,13 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 1.  前往主控網域名稱的網域名稱服務 (DNS) 提供者。
 2.  為您的網域新增一筆 TXT 記錄，並且使用 Azure 入口網站中顯示的網域權杖值。 
 
-請稍候幾分鐘等待 DNS 傳播執行，然後選取 [重新整理] 按鈕來觸發驗證。 
+請稍候幾分鐘等待 DNS 傳播執行，然後選取 [重新整理]  按鈕來觸發驗證。 
 
 或者，您可以使用 HTML 網頁方法，以手動方式驗證您的網域。 此方法可讓憑證授權單位確認憑證發行目標網域的網域擁有權。
 
 1.  建立名為 {domain verification token}.html 的 HTML 檔案。 此檔案的內容應為網域驗證權杖的值。
 3.  在主控網域的 Web 伺服器根目錄上傳此檔案。
-4.  選取 [重新整理] 檢查憑證狀態。 驗證可能需要數分鐘才能完成。
+4.  選取 [重新整理]  檢查憑證狀態。 驗證可能需要數分鐘才能完成。
 
 例如，如果您為 azure.com 購買網域驗證權杖為 1234abcd 的標準憑證，驗證作業就會向 https://azure.com/1234abcd.html 發出 Web 要求，並且應傳回 1234abcd。 
 
@@ -248,7 +248,7 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
     **解決方案**：若要申請提高限制，請連絡 [Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 - 您的 Azure 訂用帳戶類型不支援購買 App Service 網域。
 
-    **解決方案**：將 Azure 訂用帳戶升級為另一種訂用帳戶類型，例如預付型方案訂用帳戶。
+    **解決方案**：將 Azure 訂用帳戶升級為另一種訂用帳戶類型，例如隨用隨付訂用帳戶。
 
 ### <a name="you-cant-add-a-host-name-to-an-app"></a>您無法將主機名稱新增至應用程式 
 
@@ -269,7 +269,7 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 
     |記錄類型|Host|指向|
     |------|------|-----|
-    |A |@|應用程式的 IP 位址|
+    |A|@|應用程式的 IP 位址|
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 

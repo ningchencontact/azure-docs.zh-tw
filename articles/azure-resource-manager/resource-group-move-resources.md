@@ -8,7 +8,7 @@ ms.date: 05/17/2019
 ms.author: tomfitz
 ms.openlocfilehash: 4b836faef4630f6bee914478aecaed1bb4db7d71
 ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/27/2019
 ms.locfileid: "66225896"
@@ -22,9 +22,9 @@ ms.locfileid: "66225896"
 移動資源只會將它移動到新的資源群組。 移動作業無法變更資源的位置。 新的資源群組可能會有不同的位置，但那樣不會變更資源的位置。
 
 > [!NOTE]
-> 本文說明如何在現有的 Azure 訂用帳戶之間移動資源。 如果您實際上是想要升級 Azure 訂用帳戶 (例如從免費切換成預付型方案)，則必須轉換您的訂用帳戶。
+> 本文說明如何在現有的 Azure 訂用帳戶之間移動資源。 如果您實際上是想要升級 Azure 訂用帳戶 (例如從免費切換成隨用隨付)，則必須轉換您的訂用帳戶。
 > * 若要將免費試用升級，請參閱[將免費試用或 Microsoft Imagine Azure 訂用帳戶升級至隨用隨付](..//billing/billing-upgrade-azure-subscription.md)。
-> * 若要變更預付型方案帳戶，請參閱[將您的 Azure 預付型方案訂閱變更為其他供應項目](../billing/billing-how-to-switch-azure-offer.md)。
+> * 若要變更隨用隨付帳戶，請參閱[將您的 Azure 隨用隨付訂閱變更為其他供應項目](../billing/billing-how-to-switch-azure-offer.md)。
 > * 如果您無法轉換訂用帳戶，請[建立 Azure 支援要求](../azure-supportability/how-to-create-azure-support-request.md)。 針對問題類型選取 [訂用帳戶管理]  。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

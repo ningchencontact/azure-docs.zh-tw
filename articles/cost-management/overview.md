@@ -33,7 +33,7 @@ Azure 成本管理可提供與 Cloudyn 類似的功能。 「Azure 成本管理�
 
 Microsoft 已收購 Cloudyn，並且以原生方式將其成本管理功能從 Cloudyn 入口網站遷移至 Azure。 若要使用新功能，請登入 Azure 入口網站並瀏覽至 Azure 服務清單中的[成本管理與計費](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview)。 相較於 Cloudyn，原生體驗會提供更佳的效能和較低的資料延遲 (大約八小時)。
 
-我們已將 Enterprise 合約、預付型方案及 MSDN 供應項目類別的重要功能遷移到 Azure 成本管理。 將 CSP 訂用帳戶遷移至 Azure 成本管理的作業正在進行中。
+我們已將 Enterprise 合約、隨用隨付及 MSDN 供應項目類別的重要功能遷移到 Azure 成本管理。 將 CSP 訂用帳戶遷移至 Azure 成本管理的作業正在進行中。
 
 如果您有尚未遷移的供應項目類別，您應該繼續使用 Cloudyn 入口網站。 其他人則可以使用 Azure 成本管理。
 

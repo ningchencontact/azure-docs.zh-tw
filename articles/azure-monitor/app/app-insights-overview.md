@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8648042c114c514df2218249719faa3ff19df5ec
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ec595e23fbbf3ace5bfd0786d88250a88b61453c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669817"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256639"
 ---
 # <a name="what-is-application-insights"></a>什麼是 Application Insights？
 Application Insights 是多個平台上的 Web 開發人員所適用的可延伸「應用程式效能管理」(APM) 服務。 您可以使用它來監視即時 Web 應用程式。 它將會自動偵測效能異常。 其中包括強大的分析工具可協助您診斷問題，並了解使用者實際如何運用您的應用程式。  它是設計來協助您持續改善效能和可用性。 它適用於各種不同平台上的應用程式，包括裝載在內部部署、混合式或任何公用雲端的 .NET、Node.js 和 Java EE。 它可與您的 DevOps 程序整合，並有各種開發工具的連接點。 透過與 Visual Studio App Center 整合，還可以從行動應用程式監視並分析遙測資料。
@@ -52,7 +52,7 @@ Application Insights 是以開發小組為目標，以協助您了解您的應�
 * **使用者和工作階段計數**。
 * Windows 或 Linux 伺服器電腦中的**效能計數器**，例如 CPU、記憶體和網路使用量。 
 * 來自 Docker 或 Azure 的**主機診斷**。 
-* 來自您應用程式的**診斷追蹤記錄檔** - 讓您使追蹤事件與要求相互關聯。
+* 來自您應用程式的**診斷追蹤記錄** - 讓您使追蹤事件與要求相互關聯。
 * 您在用戶端或伺服器程式碼中自行撰寫的**自訂事件和計量**，可追蹤商業事件，例如售出的項目或獲勝的遊戲。
 
 ## <a name="where-do-i-see-my-telemetry"></a>哪裡可以查看我的遙測？
@@ -67,7 +67,7 @@ Application Insights 是以開發小組為目標，以協助您了解您的應�
 | [**使用量分析**](../../azure-monitor/app/usage-overview.md)<br/>分析使用者區隔和保留期。|![保留期工具](./media/app-insights-overview/retention.png) |
 | [**執行個體資料的診斷搜尋**](../../azure-monitor/app/diagnostic-search.md)<br/>搜尋和篩選事件，例如要求、例外狀況、相依性呼叫、記錄追蹤，以及頁面檢視。  |![搜尋遙測](./media/app-insights-overview/search-tn.png) |
 | [**彙總資料的計量瀏覽器**](../../azure-monitor/app/metrics-explorer.md)<br/>瀏覽、篩選和分割彙總的資料，例如，要求、錯誤和例外狀況的比率；回應時間、頁面載入時間。 |![度量](./media/app-insights-overview/metrics-tn.png) |
-| [**儀表板**](../../azure-monitor/app/app-insights-dashboards.md#dashboards)<br/>來自多個資源的交互式資料並與其他人員共用。 非常適用於多元件的應用程式，以及小組聊天室中的連續顯示。 |![儀表板範例](./media/app-insights-overview/dashboard-tn.png) |
+| [**儀表板**](../../azure-monitor/app/overview-dashboard.md)<br/>來自多個資源的交互式資料並與其他人員共用。 非常適用於多元件的應用程式，以及小組聊天室中的連續顯示。 |![儀表板範例](./media/app-insights-overview/dashboard-tn.png) |
 | [**即時計量串流**](../../azure-monitor/app/live-stream.md)<br/>當您部署新的組建時，請觀看這些近乎即時的效能指標，以確定一切如預期運作。 |![即時計量範例](./media/app-insights-overview/live-metrics-tn.png) |
 | [**分析**](../../azure-monitor/app/analytics.md)<br/>使用這個功能強大的查詢語言，回答有關您應用程式效能和使用方式的艱難問題。 |![分析範例](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](../../azure-monitor/app/visual-studio.md)<br/>查看程式碼中的效能資料。 從堆疊追蹤移至程式碼。|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
@@ -81,7 +81,7 @@ Application Insights 是以開發小組為目標，以協助您了解您的應�
 ### <a name="monitor"></a>監視
 在應用程式中安裝 Application Insights、設定[可用性 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md)，以及︰
 
-* 設定小組聊天室的[儀表板](../../azure-monitor/app/app-insights-dashboards.md)，以持續關注相依項目、頁面載入和 AJAX 呼叫的載入、回應性和效能。
+* 查看小組聊天室的預設[應用程式儀表板](../../azure-monitor/app/overview-dashboard.md)，以持續關注相依項目、頁面載入和 AJAX 呼叫的載入、回應性和效能。
 * 探索哪些是最慢和最失敗的要求。
 * 在部署新版本時觀看[即時串流](../../azure-monitor/app/live-stream.md)，立即知曉任何效能降低情形。
 
@@ -113,7 +113,7 @@ Application Insights 是 Microsoft Azure 中裝載的多項服務之一，而遙
   * [Node.js](../../azure-monitor/app/nodejs.md)
   * [其他平台](../../azure-monitor/app/platforms.md)
 * **[檢測您的網頁](../../azure-monitor/app/javascript.md)** 的頁面檢視、AJAX 和其他用戶端遙測。
-* 藉由與 Visual Studio App Center 整合，來**[分析行動應用程式使用方式](../../azure-monitor/learn/mobile-center-quickstart.md)**。
+* 藉由與 Visual Studio App Center 整合，來 **[分析行動應用程式使用方式](../../azure-monitor/learn/mobile-center-quickstart.md)** 。
 * **[可用性集合](../../azure-monitor/app/monitor-web-app-availability.md)** - 定期從我們的伺服器 ping 您的網站。
 
 ## <a name="next-steps"></a>後續步驟
@@ -149,7 +149,6 @@ Application Insights 是 Microsoft Azure 中裝載的多項服務之一，而遙
 [azure]: ../../insights-perf-analytics.md
 [client]: ../../azure-monitor/app/javascript.md
 [desktop]: ../../azure-monitor/app/windows-desktop.md
-[detect]: ../../azure-monitor/app/detect-triage-diagnose.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
 [ios]: ../../azure-monitor/learn/mobile-center-quickstart.md
 [java]: ../../azure-monitor/app/java-get-started.md

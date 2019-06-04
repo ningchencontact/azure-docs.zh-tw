@@ -144,7 +144,7 @@ Azure Migrate 支援兩種探索，分別是設備為基礎及代理程式為基
 
 ### <a name="i-changed-my-machine-size-can-i-rerun-the-assessment"></a>我已變更機器大小。 是否可以重新執行評量？
 
-如果您已針對要評估的虛擬機器變更設定，觸發程序將使用收集器設備再次探索。 請在設備中使用 [重新開始收集] 選項來執行此動作。 收集完成後，請在入口網站中選取 [重新計算] 選項進行評估，以取得更新的評估結果。
+如果您已針對要評估的虛擬機器變更設定，觸發程序將使用收集器設備再次探索。 請在設備中使用 [重新開始收集]  選項來執行此動作。 收集完成後，請在入口網站中選取 [重新計算]  選項進行評估，以取得更新的評估結果。
 
 ### <a name="how-can-i-discover-a-multi-tenant-environment-in-azure-migrate"></a>如何在 Azure Migrate 中探索多租用戶環境？
 
@@ -159,7 +159,7 @@ Azure Migrate 支援兩種探索，分別是設備為基礎及代理程式為基
 
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Azure Migrate 是否支援以 Enterprise 合約 (EA) 為基礎的成本估計？
 
-Azure Migrate 目前不支援 [Enterprise 合約支援方案供應項目](https://azure.microsoft.com/offers/enterprise-agreement-support/)的成本估計。 因應措施是指定「預付型方案」做為供應項目，並在評量屬性的 [折扣] 欄位中手動指定折扣百分比 (適用於訂用帳戶)。
+Azure Migrate 目前不支援 [Enterprise 合約支援方案供應項目](https://azure.microsoft.com/offers/enterprise-agreement-support/)的成本估計。 因應措施是指定「隨用隨付」做為供應項目，並在評量屬性的 [折扣] 欄位中手動指定折扣百分比 (適用於訂用帳戶)。
 
   ![折扣](./media/resources-faq/discount.png)
 

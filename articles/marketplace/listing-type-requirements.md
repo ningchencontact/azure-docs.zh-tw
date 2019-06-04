@@ -157,7 +157,7 @@ ms.locfileid: "64937883"
 
 | 需求 | 詳細資料 |  
 |:--- |:--- | 
-| 計費和計量 | 您的 VM 必須支援 BYOL 或每月計費「預付型方案」。 |  
+| 計費和計量 | 您的 VM 必須支援 BYOL 或每月計費「隨用隨付」。 |  
 | Azure 相容的虛擬硬碟 (VHD) | VM 必須建置在 Windows 或 Linux 上。<ul> <li>如需建立 Linux VHD 的詳細資訊，請參閱 [Azure 背書的 Linux 散發套件](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)。</li> <li>如需建立 Windows VHD 的詳細資訊，請參閱[建立與 Azure 相容的 VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)。</li> </ul> |  
 
 ## <a name="next-steps"></a>後續步驟

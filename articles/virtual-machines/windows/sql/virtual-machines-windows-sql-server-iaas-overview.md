@@ -56,7 +56,7 @@ Azure 虛擬機器提供不同的機器大小，以符合各種工作負載需�
 > 如需了解 SQL 映像定價的詳細資訊，請參閱 [SQL Server Azure VM 的定價指導方針](virtual-machines-windows-sql-server-pricing-guidance.md)。 
 
 ### <a id="payasyougo"></a> 預付型方案
-下表提供預付型 SQL Server 映像的對照表。
+下表提供隨用隨付 SQL Server 映像的對照表。
 
 | Version | 作業系統 | 版本 |
 | --- | --- | --- |
@@ -99,7 +99,7 @@ Azure 虛擬機器提供不同的機器大小，以符合各種工作負載需�
 如果您有現有的資料庫，您會想要將該資料庫移到新佈建的 SQL VM。 如需移轉選項的清單和指引，請參閱 [將資料庫移轉至 Azure VM 上的 SQL Server](virtual-machines-windows-migrate-sql.md)。
 
 ## <a id="lifecycle"></a> SQL VM 映像重新整理原則
-Azure 只會針對每個支援的作業系統、版本和版次組合，維護一個虛擬機器映像。 這表示經過一段時間會重新整理映像，而且會移除舊的映像。 如需詳細資訊，請參閱 [SQL Server VM 常見問題集](virtual-machines-windows-sql-server-iaas-faq.md#images)的「映像」一節。
+Azure 只會針對每個支援的作業系統、版本和版次組合，維護一個虛擬機器映像。 這表示經過一段時間會重新整理映像，而且會移除舊的映像。 如需詳細資訊，請參閱 [SQL Server VM 常見問題集](virtual-machines-windows-sql-server-iaas-faq.md#images)的「映像」  一節。
 
 ## <a name="customer-experience-improvement-program-ceip"></a>客戶經驗改進計畫 (CEIP)
 預設會啟用「客戶經驗改進計畫」(CEIP)。 這會定期將報表傳送至 Microsoft 以協助改進 SQL Server。 CEIP 不需要管理工作，除非您要在佈建之後將它停用。 您可以透過遠端桌面連接到 VM，以自訂或停用 CEIP。 然後執行 [SQL Server 錯誤和使用情況報告]  公用程式。 請遵循指示來停用報告功能。 如需有關資料收集的詳細資訊，請參閱 [SQL Server 隱私權聲明](https://docs.microsoft.com/sql/getting-started/microsoft-sql-server-privacy-statement)。

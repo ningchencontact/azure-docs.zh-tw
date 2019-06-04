@@ -86,7 +86,7 @@ ms.locfileid: "61477258"
 
 1. **如果是從其中一個隨收隨付資源庫映像建立，可以將 VM 變更為使用自己的 SQL Server 授權嗎？**
 
-   是。 如果您最初開始使用預付型方案資源庫映像，則可輕鬆地在兩個授權模型中切換。 不過，如果您最初開始使用 BYOL 映像，則無法將您的授權切換為 PAYG。 如需詳細資訊，請參閱[如何變更 SQL Server VM 的授權模式](virtual-machines-windows-sql-ahb.md)。
+   是。 如果您最初開始使用隨用隨付資源庫映像，則可輕鬆地在兩個授權模型中切換。 不過，如果您最初開始使用 BYOL 映像，則無法將您的授權切換為 PAYG。 如需詳細資訊，請參閱[如何變更 SQL Server VM 的授權模式](virtual-machines-windows-sql-ahb.md)。
 
    > [!Note]
    > 目前，此功能僅提供給公用雲端客戶。
@@ -101,7 +101,7 @@ ms.locfileid: "61477258"
 
 1. **CSP 訂用帳戶是否能啟用 Azure Hybrid Benefit？**
 
-   是，Azure Hybrid Benefit 適用於 CSP 訂用帳戶。 CSP 客戶應該先部署預付型方案映像，然後將[授權模式變更](virtual-machines-windows-sql-ahb.md)為自備授權。  
+   是，Azure Hybrid Benefit 適用於 CSP 訂用帳戶。 CSP 客戶應該先部署隨用隨付映像，然後將[授權模式變更](virtual-machines-windows-sql-ahb.md)為自備授權。  
 
 1. **使用新的 SQL VM 資源提供者註冊我的 VM 是否會產生額外的成本？**
 
@@ -121,7 +121,7 @@ ms.locfileid: "61477258"
 
 1. **是否可以向 SQL VM 資源提供者註冊自我部署 SQL Server VM？**
 
-    是。 若您從自己的媒體部署 SQL Server，而且已安裝 SQL IaaS 延伸模組，您可以向資源提供者註冊您自己的 SQL Server VM，以取得 SQL IaaS 延伸模組所提供的管理能力優點。 不過，您無法將自我部署 SQL VM 轉換為預付型方案。
+    是。 若您從自己的媒體部署 SQL Server，而且已安裝 SQL IaaS 延伸模組，您可以向資源提供者註冊您自己的 SQL Server VM，以取得 SQL IaaS 延伸模組所提供的管理能力優點。 不過，您無法將自我部署 SQL VM 轉換為隨用隨付。
 
 ## <a name="administration"></a>系統管理
 

@@ -157,7 +157,7 @@ Azure 媒體服務的 SLA 涵蓋影片索引器，並可以在 [SLA](https://azu
 
 ### <a name="how-much-does-video-indexer-cost"></a>影片索引器的費用是多少？
 
-影片索引器會使用簡單的預付型方案定價模型，其以您編製索引之內容輸入的持續時間為基礎。 對於編碼、資料流、儲存體、網路使用量和媒體保留單元，可能須支付額外的費用。 如需詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/)頁面。
+影片索引器會使用簡單的隨用隨付定價模型，其以您編製索引之內容輸入的持續時間為基礎。 對於編碼、資料流、儲存體、網路使用量和媒體保留單元，可能須支付額外的費用。 如需詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/)頁面。
 
 ### <a name="when-am-i-billed-for-using-video-indexer"></a>何時我的付費使用影片索引器？
 

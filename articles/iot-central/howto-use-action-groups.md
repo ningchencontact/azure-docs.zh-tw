@@ -23,7 +23,7 @@ ms.locfileid: "60517256"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 預付型方案應用程式
+- 隨用隨付應用程式
 - Azure 帳戶和訂用帳戶來建立和管理 Azure 監視器的動作群組
 
 ## <a name="create-action-groups"></a>建立動作群組

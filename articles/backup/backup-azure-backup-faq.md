@@ -63,7 +63,7 @@ ms.locfileid: "65551373"
 您不需要針對 VMware/HYPER-V 保護進行個別授權。
 
 - 如果您是 System Center 客戶，請使用 System Center Data Protection Manager (DPM) 來保護 VMware VM。
-- 如果您不是 System Center 客戶，您可使用 Azure 備份伺服器 (預付型方案) 來保護 VMware VM。
+- 如果您不是 System Center 客戶，您可使用 Azure 備份伺服器 (隨用隨付) 來保護 VMware VM。
 
 ## <a name="dpm-and-azure-backup-server-backup"></a>DPM 和 Azure 備份伺服器備份
 
@@ -175,7 +175,7 @@ BMR/系統狀態 |所要備份之機器的 BMR 或系統狀態的每個個別複
 典型的長期保留復原點產品會將備份資料儲存為完整的復原點。
 
 - 完整的復原點是「效率不佳的」  儲存體，但可以更輕鬆且更快速地進行還原。
-- 增量複本「符合儲存體效益」，但需要您還原一連串的資料，而這會影響復原時間
+- 增量複本「符合儲存體效益」  ，但需要您還原一連串的資料，而這會影響復原時間
 
 Azure 備份的儲存體架構透過最佳化儲存資料以進行快速還原，並降低儲存體成本支出，可讓您魚與熊掌兼得。 這可確保有效率地使用您的輸入和輸出頻寬。 資料儲存體數量及復原資料所需的時間都會維持在最低。 深入了解[增量備份](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/)。
 

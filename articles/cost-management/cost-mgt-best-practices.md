@@ -177,7 +177,7 @@ Azure 有許多組織可以利用的折扣以節省成本。
 
 #### <a name="azure-reservations"></a>Azure Reservations
 
-Azure 保留可讓您預付一年或三年期的虛擬機器或 SQL Database 計算容量。 預付費用可讓您在所使用的資源上取得折扣。 Azure 保留可以大幅降低虛擬機器或 SQL Database 的計算成本。透過預付一年或三年期的承諾用量費用，即可節省高達預付型方案價格的 72%。 保留會提供計費折扣，且不會影響虛擬機器或 SQL Database 的執行階段狀態。
+Azure 保留可讓您預付一年或三年期的虛擬機器或 SQL Database 計算容量。 預付費用可讓您在所使用的資源上取得折扣。 Azure 保留可以大幅降低虛擬機器或 SQL Database 的計算成本。透過預付一年或三年期的承諾用量費用，即可節省高達隨用隨付價格的 72%。 保留會提供計費折扣，且不會影響虛擬機器或 SQL Database 的執行階段狀態。
 
 如需詳細資訊，請參閱[什麼是 Azure 保留？](../billing/billing-save-compute-costs-reservations.md)。
 

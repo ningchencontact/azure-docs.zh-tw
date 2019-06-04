@@ -26,7 +26,7 @@ ms.locfileid: "60542436"
 如需所有 RHEL 版本的 Red Hat 支援原則資訊，請參閱 [Red Hat Enterprise Linux 生命週期](https://access.redhat.com/support/policy/updates/errata)頁面。
 
 >[!Important]
-> 目前可在 Azure Marketplace 中取得的 RHEL 映像支援自備訂用帳戶 (BYOS) 或預付型 (PAYG) 授權模型。 不支援 [Azure Hybrid Use Benefit](../windows/hybrid-use-benefit-licensing.md)和 BYOS 與 PAYG 之間的動態切換。 切換授權模式時，需要從對應的映像重新部署 VM。
+> 目前可在 Azure Marketplace 中取得的 RHEL 映像支援自備訂用帳戶 (BYOS) 或隨用隨付 (PAYG) 授權模型。 不支援 [Azure Hybrid Use Benefit](../windows/hybrid-use-benefit-licensing.md)和 BYOS 與 PAYG 之間的動態切換。 切換授權模式時，需要從對應的映像重新部署 VM。
 
 >[!Note]
 > 對於 Azure Marketplace 資源庫中 RHEL 映像的任何相關問題，請向 Microsoft 提出支援票證。
@@ -63,7 +63,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 > 一般而言，比較版本以決定最新版本的程序會遵循 [CompareTo 方法](https://msdn.microsoft.com/library/a5ts8tb6.aspx)來進行。
 
 ### <a name="current-naming-convention"></a>目前的命名慣例
-所有目前已發行的 RHEL 映像都是使用預付型方案模型，並連線至 [Azure 中的 Red Hat Update Infrastructure (RHUI)](https://aka.ms/rhui-update)。 由於 RHUI 的設計限制，目前已針對 RHEL 7 系列映像採用新的命名慣例。 RHEL 6 系列的命名目前尚未變更。
+所有目前已發行的 RHEL 映像都是使用隨用隨付模型，並連線至 [Azure 中的 Red Hat Update Infrastructure (RHUI)](https://aka.ms/rhui-update)。 由於 RHUI 的設計限制，目前已針對 RHEL 7 系列映像採用新的命名慣例。 RHEL 6 系列的命名目前尚未變更。
 
 該限制為在針對已連線至 RHUI 的 VM 執行非選擇性的 `yum update` 時，RHEL 版本會被更新至目前系列中的最新版本。 如需詳細資訊，請參閱[此連結](https://aka.ms/rhui-update)。 這在已佈建的 RHEL 7.2 映像於更新後變成 RHEL 7.6 的情況下，可能會導致混淆。 如上述範例所示，您仍然可以透過明確指定所需版本，來從較舊的映像進行佈建。 如果在佈建新的 RHEL 7 映像期間沒有指定所需版本，系統將會佈建最新的映像。
 
@@ -110,7 +110,7 @@ Microsoft 和 Red Hat 會在發行新的次要版本時更新映像以解決特�
 我們只會更新特定映像系列中的最新次要版本。 在發行較新的次要版本之後，我們將會停止更新較舊的次要版本。 例如，在發行 RHEL 7.6 之後，便不會再次更新 RHEL 7.5 映像。
 
 >[!NOTE]
-> 從 RHEL 預付型方案映像佈建的作用中 Azure VM 會連線至 Azure RHUI，並可以在 Red Hat 發行更新和修正，並將它們複寫至 Azure RHUI (這通常會在 Red Hat 正式發行後的 24 小時內發生) 後立即接收到它們。 這些 VM 不需要新的已發行映像以取得更新，且客戶能完全控制該更新的起始時機。
+> 從 RHEL 隨用隨付映像佈建的作用中 Azure VM 會連線至 Azure RHUI，並可以在 Red Hat 發行更新和修正，並將它們複寫至 Azure RHUI (這通常會在 Red Hat 正式發行後的 24 小時內發生) 後立即接收到它們。 這些 VM 不需要新的已發行映像以取得更新，且客戶能完全控制該更新的起始時機。
 
 ## <a name="image-retention-policy"></a>映像保留原則
 我們目前的原則是保留先前所發行的所有映像。 我們保留移除已知會造成任何類型問題之映像的權利。 例如，我們可能會移除因後續平台或元件更新而具有不正確設定的映像。 可能會被移除的映像將會遵循目前的 Marketplace 原則，並在移除映像之前，於最多 30 天前提供通知。

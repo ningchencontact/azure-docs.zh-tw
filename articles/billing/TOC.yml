@@ -79,7 +79,7 @@
               href: billing-understand-suse-reservation-charges.md
         - name: 並未包含軟體成本
           href: billing-reserved-instance-windows-software-costs.md
-        - name: 預付型方案使用量
+        - name: 隨用隨付使用量
           href: billing-understand-reserved-instance-usage.md
         - name: Enterprise 使用量
           href: billing-understand-reserved-instance-usage-ea.md

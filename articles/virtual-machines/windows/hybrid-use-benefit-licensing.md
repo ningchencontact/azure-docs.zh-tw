@@ -16,7 +16,7 @@ ms.date: 4/22/2018
 ms.author: xujing-ms
 ms.openlocfilehash: 64e9350606748116d2eef247790e88ed0d576c3f
 ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57570363"
@@ -103,7 +103,7 @@ az vm create \
     Update-AzVM -ResourceGroupName rg-name -VM $vm
     ```
     
-- 將具有權益的 Windows Server VM 轉換回預付型方案
+- 將具有權益的 Windows Server VM 轉換回隨用隨付
 
     ```powershell
     $vm = Get-AzVM -ResourceGroup "rg-name" -Name "vm-name"

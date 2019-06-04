@@ -12,7 +12,7 @@ ms.date: 05/17/2019
 ms.author: byvinyal
 ms.openlocfilehash: 3bdc8580749761242b1fc811b2182d73a2d46328
 ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 05/27/2019
 ms.locfileid: "66238153"
@@ -25,7 +25,7 @@ ms.locfileid: "66238153"
 > [!NOTE]
 > 如果您想要限制或配額超過預設限制，會引發[開啟線上客戶支援要求，不另外加收費用](azure-resource-manager/resource-manager-quota-errors.md)。 無法將限制提升到高於下表所示的最大限制值。 如果没有最大限制列，则资源没有可调整的限制。
 >
-> [免費試用版訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0044p)不符合限制或配額增加的資格。 如果您有[免費試用訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0044p)，則可以升級到[預付型方案](https://azure.microsoft.com/offers/ms-azr-0003p/)訂用帳戶。 如需詳細資訊，請參閱 < [Azure 免費試用訂用帳戶升級為隨用隨付訂用帳戶](billing/billing-upgrade-azure-subscription.md)並[免費試用訂用帳戶常見問題集](https://azure.microsoft.com/free/free-account-faq)。
+> [免費試用版訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0044p)不符合限制或配額增加的資格。 如果您有[免費試用訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0044p)，則可以升級到[隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/)訂用帳戶。 如需詳細資訊，請參閱 < [Azure 免費試用訂用帳戶升級為隨用隨付訂用帳戶](billing/billing-upgrade-azure-subscription.md)並[免費試用訂用帳戶常見問題集](https://azure.microsoft.com/free/free-account-faq)。
 >
 
 ## <a name="limits-and-azure-resource-manager"></a>限制和 Azure Resource Manager

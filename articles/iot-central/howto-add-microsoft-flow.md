@@ -30,7 +30,7 @@ ms.locfileid: "66235813"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 預付型方案應用程式
+- 隨用隨付應用程式
 - 可登入 Flow 的 Microsoft 的個人、公司或學校帳戶 ([深入了解 Microsoft Flow 計劃](https://aka.ms/microsoftflowplans))
 
 ## <a name="trigger-a-workflow"></a>觸發程序工作流程

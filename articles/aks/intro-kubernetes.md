@@ -5,21 +5,21 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: overview
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a147d95701af166c650411a91fb24e3448cfec09
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: b14e4b452c1dcd92cc3e5447428c28f1d2c5b18e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995025"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073820"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
 Azure Kubernetes Service (AKS) 可讓您輕鬆地在 Azure 中部署受控 Kubernetes 叢集。 AKS 可降低管理 Kubernetes 的複雜性和作業負荷，因為是由 Azure 負責大部分的工作。 以主控的 Kubernetes 服務形式，Azure 會為您處理像是健康狀態監視和維護等重要工作。 Kubernetes 主機是由 Azure 管理。 您只管理及維護代理程式節點。 由於是受控 Kubernetes 服務，AKS 是免費的，您只需要針對叢集中的代理程式節點付費，而不用為主機付費。
 
-您可以使用 Azure CLI 或 Resource Manager 範本與 Terraform 等以範本為基礎的部署選項，在 Azure 入口網站中建立 AKS 叢集。 部署 AKS 叢集時，系統會為您部署及設定 Kubernetes 主機與所有節點。 部署程序中也可以設定其他功能，例如進階網路功能、Azure Active Directory 整合及監視功能。
+您可以使用 Azure CLI 或 Resource Manager 範本與 Terraform 等以範本為基礎的部署選項，在 Azure 入口網站中建立 AKS 叢集。 部署 AKS 叢集時，系統會為您部署及設定 Kubernetes 主機與所有節點。 部署程序中也可以設定其他功能，例如進階網路功能、Azure Active Directory 整合及監視功能。 AKS 中的 Windows Server 容器支援目前為預覽版。
 
 如需 Kubernetes 基本概念的詳細資訊，請參閱 [AKS 的 Kubernetes 核心概念][concepts-clusters-workloads]。
 
@@ -43,9 +43,9 @@ Azure Kubernetes Service (AKS) 可讓您輕鬆地在 Azure 中部署受控 Kuber
 
 如需詳細資訊，請參閱[監視 Azure Kubernetes Service 的容器健康情況][container-health]。
 
-## <a name="cluster-and-node"></a>叢集與節點
+## <a name="clusters-and-nodes"></a>叢集和節點
 
-AKS 節點是在 Azure 虛擬機器上執行的。 您可以將儲存體連接到節點和 Pod、升級叢集節點，以及使用 GPU。
+AKS 節點是在 Azure 虛擬機器上執行的。 您可以將儲存體連接到節點和 Pod、升級叢集節點，以及使用 GPU。 AKS 支援的 Kubernetes 叢集可執行多個節點集區，以支援混合式作業系統和 Windows Server 容器 (目前為預覽版)。 Linux 節點會執行自訂的 Ubuntu OS 映像，Windows Server 節點則會執行自訂的 Windows Server 2019 OS 映像。
 
 ### <a name="cluster-node-and-pod-scaling"></a>調整叢集節點與 Pod
 

@@ -27,7 +27,7 @@ ms.locfileid: "57791421"
 
 ## <a name="prerequisites"></a>必要條件
 
-您需要預付型訂用帳戶或其他 Azure 購買選項，以按使用量付費的方式，在 Batch 中使用轉譯應用程式。 如果您使用提供信用額度金額的免費 Azure 方案，則不支援按使用量付費授權。
+您需要隨用隨付訂用帳戶或其他 Azure 購買選項，以按使用量付費的方式，在 Batch 中使用轉譯應用程式。 如果您使用提供信用額度金額的免費 Azure 方案，則不支援按使用量付費授權。
 
 您需要具有關聯之儲存體帳戶的 Azure Batch 帳戶。  請參閱任何 Batch 快速入門文章以建立 Batch 帳戶，例如 [CLI 文章](https://docs.microsoft.com/azure/batch/quick-create-cli)。
 

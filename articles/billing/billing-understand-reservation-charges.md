@@ -37,13 +37,13 @@ ms.locfileid: "60370282"
 
 下列範例說明根據所購買的核心數目，以及在您執行時，SQL Database 保留容量折扣的套用方式。
 
-- 案例 1：您為 8 核心的 SQL Database 購買 SQL Database 保留容量。 您所執行的 16 核心 SQL Database 符合保留的其餘屬性。 您需要就 8 核心 SQL Database 計算使用量的預付型方案價格支付費用。 您會就一小時的 8 核心 SQL Database 計算使用量獲得保留折扣。
+- 案例 1：您為 8 核心的 SQL Database 購買 SQL Database 保留容量。 您所執行的 16 核心 SQL Database 符合保留的其餘屬性。 您需要就 8 核心 SQL Database 計算使用量的隨用隨付價格支付費用。 您會就一小時的 8 核心 SQL Database 計算使用量獲得保留折扣。
 
 針對下列其餘範例，假設您所購買的 SQL Database 保留容量適用於 16 核心的 SQL Database，而且其餘保留屬性符合執行中的 SQL Database。
 
 - 案例 2：您執行了兩個各有 8 核心的 SQL Database 達一小時。 16 核心的保留折扣會套用至這兩個 8 核心 SQL Database 的計算使用量。
 - 案例 3：您執行了一個 16 核心的 SQL Database，時間從下午 1 點到下午 1:30。 您執行了另一個 16 核心的 SQL Database，時間從下午 1:30 到下午 2 點。 兩者都在保留折扣的涵蓋範圍內。
-- 案例 4：您執行了一個 16 核心的 SQL Database，時間從下午 1 點到下午 1:45。 您執行了另一個 16 核心的 SQL Database，時間從下午 1:30 到下午 2 點。 您需要就 15 分鐘的重疊時間支付預付型方案價格的費用。 保留折扣會套用至其餘時間的計算使用量。
+- 案例 4：您執行了一個 16 核心的 SQL Database，時間從下午 1 點到下午 1:45。 您執行了另一個 16 核心的 SQL Database，時間從下午 1:30 到下午 2 點。 您需要就 15 分鐘的重疊時間支付隨用隨付價格的費用。 保留折扣會套用至其餘時間的計算使用量。
 
 若要在計費使用量報告中了解及檢視 Azure Reservations 的應用，請參閱[了解 Azure 保留使用量](billing-understand-reserved-instance-usage-ea.md)。
 

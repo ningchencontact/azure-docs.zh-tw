@@ -32,7 +32,7 @@ ms.locfileid: "65851127"
 
 + 您的配額由訂用帳戶中的所有服務所共用，包括 Azure Machine Learning 服務。 唯一的例外是 Azure Machine Learning Compute，它具有核心計算配額以外的個別配額。 當評估您的容量需求時，請務必計算所有服務的配額使用量。
 
-+ 預設限制會因供應項目類別類型 (例如免費試用、預付型方案) 和系列 (例如 Dv2、F、G 等) 而有所差異。
++ 預設限制會因供應項目類別類型 (例如免費試用、隨用隨付) 和系列 (例如 Dv2、F、G 等) 而有所差異。
 
 ## <a name="default-resource-quotas"></a>預設資源配額
 
@@ -91,7 +91,7 @@ ms.locfileid: "65851127"
 
 透過 Azure 入口網站檢視各種資源 (例如虛擬機器、儲存體、網路) 的配額非常簡單。
 
-1. 在左窗格中，選取 [所有服務]，然後選取 [一般] 類別底下的 [訂用帳戶]。
+1. 在左窗格中，選取 [所有服務]  ，然後選取 [一般] 類別底下的 [訂用帳戶]  。
 
 1. 從訂用帳戶清單中，選取您要尋找其配額的訂用帳戶。
 
@@ -99,7 +99,7 @@ ms.locfileid: "65851127"
 
 1. 在左窗格中，選取**Machine Learning 服務**然後從顯示的清單中選取任何工作區
 
-1. 在下一個刀鋒視窗的 [支援與疑難排解] 區段下方，選取 [使用量 + 配額]，以檢視目前配額限制與使用量。
+1. 在下一個刀鋒視窗的 [支援與疑難排解]  區段下方，選取 [使用量 + 配額]  ，以檢視目前配額限制與使用量。
 
 1. 選取訂用帳戶以檢視配額限制。 請記得篩選出您感興趣的區域。
 
@@ -110,7 +110,7 @@ ms.locfileid: "65851127"
 
 您無法將限制提升到高於下表中所示的上限值。 如果沒有上限，資源即沒有可調整的限制。 [這篇](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors)文章涵蓋配額增加程序的詳細資料。
 
-要求增加配額時，您必須選取您要求提升配額的服務，這可以是 Machine Learning 服務配額、容器執行個體或儲存體的配額。 除了 Azure Machine Learning Compute 以外，您也可以在依照前述步驟檢視配額時直接按一下 [要求配額] 按鈕。
+要求增加配額時，您必須選取您要求提升配額的服務，這可以是 Machine Learning 服務配額、容器執行個體或儲存體的配額。 除了 Azure Machine Learning Compute 以外，您也可以在依照前述步驟檢視配額時直接按一下 [要求配額]  按鈕。
 
 > [!NOTE]
-> [免費試用訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0044p)無法增加限制或配額。 如果您有[免費試用訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0044p)，則可以升級到[預付型方案](https://azure.microsoft.com/offers/ms-azr-0003p/)訂用帳戶。 如需詳細資訊，請參閱[將 Azure 免費試用升級至預付型方案](../../billing/billing-upgrade-azure-subscription.md)和[免費試用訂用帳戶常見問題集](https://azure.microsoft.com/free/free-account-faq)。
+> [免費試用訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0044p)無法增加限制或配額。 如果您有[免費試用訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0044p)，則可以升級到[隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/)訂用帳戶。 如需詳細資訊，請參閱[將 Azure 免費試用升級至隨用隨付](../../billing/billing-upgrade-azure-subscription.md)和[免費試用訂用帳戶常見問題集](https://azure.microsoft.com/free/free-account-faq)。

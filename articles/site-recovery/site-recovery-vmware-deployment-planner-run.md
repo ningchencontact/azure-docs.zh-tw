@@ -53,7 +53,7 @@ ms.locfileid: "61276679"
 
             Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
-6. 在「記事本」中開啟輸出檔案，然後將您要剖析的所有 VM 名稱複製到另一個檔案 (例如 ProfileVMList.txt)，每一行一個 VM 名稱。 此檔案可做為命令列工具之 -VMListFile 參數的輸入。
+6. 在「記事本」中開啟輸出檔案，然後將您要剖析的所有 VM 名稱複製到另一個檔案 (例如 ProfileVMList.txt)，每一行一個 VM 名稱。 此檔案可做為命令列工具之 -VMListFile  參數的輸入。
 
     ![Deployment Planner 中的 VM 名稱清單
 ](media/site-recovery-vmware-deployment-planner-run/profile-vm-list-v2a.png)
@@ -90,7 +90,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 
 您可以針對不同組的 VM 執行多個工具執行個體。 確保 VM 名稱不會在任何分析集中重複出現。 例如，若已剖析 10 部 VM (VM1 到 VM10)，而在幾天後您想要剖析另外 5 部 VM (VM11 到 VM15)，您可以針對第二組的 VM (VM11 到 VM15) 從另一個命令列主控台執行此工具。 確保第二組的 VM 沒有任何來自第一個分析執行個體的 VM 名稱，或您使用不同的輸出目錄進行第二次執行。 如有兩個工具執行個體用於分析相同的 VM 並使用相同的輸出目錄，所產生的報告則會不正確。
 
-根據預設，此工具設定為分析並產生最多 1000 個 VM 的報告。 您可以藉由變更 ASRDeploymentPlanner.exe.config 檔案中的 MaxVMsSupported 索引鍵值來變更限制。
+根據預設，此工具設定為分析並產生最多 1000 個 VM 的報告。 您可以藉由變更 ASRDeploymentPlanner.exe.config  檔案中的 MaxVMsSupported 索引鍵值來變更限制。
 ```
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
@@ -159,16 +159,16 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 |-Protocol|(選用) 指定用來連線至 vCenter 的通訊協定 ('http' 或 'https')。 預設通訊協定為 https。|
 | -DesiredRPO | (選用) 以分鐘為單位的所需復原點目標。 預設值是 15 分鐘。|
 | -Bandwidth | 以 Mbps 为单位的带宽。 此參數用來計算指定的頻寬可達成的 RPO。 |
-| -StartDate | (選用) 採用 MM-DD-YYYY:HH:MM 格式 (24 小時制) 的開始日期和時間。 StartDate 必須與 EndDate 一起指定。 若已指定 StartDate，則會針對在 StartDate 與 EndDate 之間收集的剖析資料產生報告。 |
-| -EndDate | (選用) 採用 MM-DD-YYYY:HH:MM 格式 (24 小時制) 的結束日期和時間。 EndDate 必須與 StartDate 一起指定。 若已指定 EndDate，則會針對在 StartDate 與 EndDate 之間收集的剖析資料產生報告。 |
+| -StartDate | (選用) 採用 MM-DD-YYYY:HH:MM 格式 (24 小時制) 的開始日期和時間。 StartDate  必須與 EndDate  一起指定。 若已指定 StartDate，則會針對在 StartDate 與 EndDate 之間收集的剖析資料產生報告。 |
+| -EndDate | (選用) 採用 MM-DD-YYYY:HH:MM 格式 (24 小時制) 的結束日期和時間。 EndDate  必須與 StartDate  一起指定。 若已指定 EndDate，則會針對在 StartDate 與 EndDate 之間收集的剖析資料產生報告。 |
 | -GrowthFactor | (選用) 以百分比表示的成長因子。 預設值為 30%。 |
 | -UseManagedDisks | (選擇性) UseManagedDisks - 是/否。 預設值為 [是]。 計算可以放入單一儲存體帳戶的虛擬機器數目時，請考慮在受控磁碟而不是非受控磁碟上進行虛擬機器的容錯移轉/測試容錯移轉。 |
 |-SubscriptionId |(選用) 訂用帳戶 GUID。 請注意，當您需要產生成本估計報告時需要此參數，其中包含以您的訂用帳戶為基礎的最新價格 (以**指定的貨幣**計價)，與您的訂用帳戶相關聯的供應項目，以及適用於您特定目標 Azure 區域的供應項目。|
 |-TargetRegion|(選用) 複寫的目標 Azure 區域。 因為 Azure 在每個區域有不同的成本，若要產生特定目標 Azure 區域的報告，請使用此參數。<br>預設值是 WestUS2 或上次使用的目標區域。<br>請參閱[支援的目標區域](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions)清單。|
-|-OfferId|(選用) 與指定訂用帳戶相關聯的供應項目。 預設值為 MS-AZR-0003P (預付型方案)。|
+|-OfferId|(選用) 與指定訂用帳戶相關聯的供應項目。 預設值為 MS-AZR-0003P (隨用隨付)。|
 |-Currency|(選用) 在所產生的報告中用於顯示成本的貨幣。 預設值是美元 ($) 或上次使用的貨幣。<br>請參閱[支援的貨幣](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies)清單。|
 
-根據預設，此工具設定為分析並產生最多 1000 個 VM 的報告。 您可以藉由變更 ASRDeploymentPlanner.exe.config 檔案中的 MaxVMsSupported 索引鍵值來變更限制。
+根據預設，此工具設定為分析並產生最多 1000 個 VM 的報告。 您可以藉由變更 ASRDeploymentPlanner.exe.config  檔案中的 MaxVMsSupported 索引鍵值來變更限制。
 ```xml
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
@@ -218,7 +218,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 
 此工具預設為在所有 VM 的分析期間收集之讀/寫 IOPS、寫入 IOPS 及資料變換的第 95 個百分位數值。 此計量可確保您的 VM 可以看到第 100 個百分位數尖峰，因為暫存事件不會用來判斷您的目標儲存體帳戶和來源頻寬需求。 例如，暫存事件可能是一天執行一次的備份作業、定期資料庫檢索或分析報告產生活動，或其他類似的短期時間點事件。
 
-使用第 95 個百分位數值可提供實際工作負載特性的真實情況，並且讓您在 Azure 上執行這些工作負載時獲得最佳效能。 我們不希望您會需要變更這個數字。 如果您變更此數字 (例如，變更為第 90 個百分位數)，您可以更新預設資料夾中的組態檔 ASRDeploymentPlanner.exe.config 並加以儲存，以產生現有剖析資料的新報告。
+使用第 95 個百分位數值可提供實際工作負載特性的真實情況，並且讓您在 Azure 上執行這些工作負載時獲得最佳效能。 我們不希望您會需要變更這個數字。 如果您變更此數字 (例如，變更為第 90 個百分位數)，您可以更新預設資料夾中的組態檔 ASRDeploymentPlanner.exe.config  並加以儲存，以產生現有剖析資料的新報告。
 ```xml
 <add key="WriteIOPSPercentile" value="95" />      
 <add key="ReadWriteIOPSPercentile" value="95" />      
@@ -263,7 +263,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 |-Virtualization|指定虛擬化類型 (VMware 或 Hyper-V)。|
 | -Directory | (選用) 儲存分析資料 (分析期間產生的檔案) 的 UNC 或本機目錄路徑。 產生報告時需要這項資料。 如未指定目錄，則會使用 ‘ProfiledData’ 目錄。 |
 | -StorageAccountName | 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫所耗用的頻寬。 此工具會將測試資料上傳到此儲存體帳戶，以找出所耗用的頻寬。 儲存體帳戶必須是一般用途 v1 (GPv1) 類型。|
-| -StorageAccountKey | 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 Azure 入口網站 > 儲存體帳戶 > <儲存體帳戶名稱> > 設定 > 存取金鑰 > Key1 (或傳統儲存體帳戶的主要存取金鑰)。 |
+| -StorageAccountKey | 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 Azure 入口網站 > 儲存體帳戶 > <儲存體帳戶名稱>  > 設定 > 存取金鑰 > Key1 (或傳統儲存體帳戶的主要存取金鑰)。 |
 | -VMListFile | 包含要剖析之 VM 清單的檔案，以便計算所耗用的頻寬。 此檔案路徑可以是絕對或相對路徑。 此檔案的每一行應包含一個 VM 名稱/IP 位址。 檔案中指定的 VM 名稱應該與 vCenter Server/vSphere ESXi 主機上的 VM 名稱相同。<br>例如，VMList.txt 檔案包含下列 VM︰<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
 | -Environment | (選擇性) 這是您的目標 Azure 儲存體帳戶環境。 可以是下列三個值之一 - AzureCloud、AzureUSGovernment、AzureChinaCloud。 預設值為 AzureCloud。 當目標 Azure 區域是 Azure US Government 或 Azure 中國 21Vianet 時，請使用參數。 |
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: d42e266de9c958c8a71cc5fa680a78c2278cec6e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 1a1acde81baa596e71b7e39763b0464c8de2fb86
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956786"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244166"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>教學課程：Azure Active Directory 與 NetDocuments 整合
 
@@ -109,7 +109,7 @@ NetDocuments 與 Azure AD 整合提供下列優點：
     b. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的「登入 URL」和「回覆 URL」來更新這些值。 存放庫識別碼是一個以 CA- 開頭，後面再加上與您的 NetDocuments 存放庫相關聯的 8 字元代碼所組成的值。 您可以查看 [NetDocuments 同盟身分識別支援文件](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login)，以取得詳細資訊。 或者，如果您無法使用上述資訊進行設定，您可以連絡 [NetDocuments 用戶端支援小組](https://support.netdocuments.com/hc/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的「登入 URL」和「回覆 URL」來更新這些值。 存放庫識別碼是一個以 **CA-** 開頭，後面再加上與您 NetDocuments 存放庫相關聯的 8 字元代碼所組成的值。 您可以查看 [NetDocuments 同盟身分識別支援文件](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login)，以取得詳細資訊。 或者，如果您無法使用上述資訊進行設定，您可以連絡 [NetDocuments 用戶端支援小組](https://support.netdocuments.com/hc/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中按一下 [下載]  ，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 

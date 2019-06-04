@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2018
 ms.author: kumud
-ms.openlocfilehash: 44094a38fff17908fd5ea851209130f89a49c988
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 23093cd8bcb5793b9e5b9abc835f64233e666ce1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707018"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241736"
 ---
 # <a name="what-is-azure-virtual-network"></a>什麼是 Azure 虛擬網路？
 
-Azure 虛擬網路可讓多種類型的 Azure 資源 (例如 Azure 虛擬機器 (VM)) 安全地彼此通訊，以及與網際網路和內部部署網路通訊。 虛擬網路的範圍為單一區域；不過，您可以使用虛擬網路對等互連將不同區域的多個虛擬網路連在一起。
+Azure 虛擬網路可讓多種類型的 Azure 資源 (例如 Azure 虛擬機器 (VM)) 安全地彼此通訊，以及與網際網路和內部部署網路通訊。 虛擬網路的範圍限定在單一 Azure 區域。 Azure [區域](https://azure.microsoft.com/global-infrastructure/regions/)包含一組資料中心，部署在定義有延遲的邊緣網路，並透過區域低延遲網路進行連線。 
+
+虛擬網路由子網路所構成。 子網路是虛擬網路中的某個 IP 位址範圍。 子網路 (如虛擬網路) 的範圍限定在單一 Azure 區域。 
+
+您可以使用虛擬網路對等互連將不同區域的多個虛擬網路連在一起。
 
 Azure 虛擬網路提供下列主要功能：
 

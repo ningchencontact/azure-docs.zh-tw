@@ -97,7 +97,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Directory|(選用) 用來儲存分析期間所產生之分析資料的 UNC 或本機目錄路徑。 如果未指定名稱，目前路徑下名為 ProfiledData 的目錄將會作為預設目錄。|
 |-Password|(選用) 用於連線到 Hyper-V 主機的密碼。 如果您未將其指定為參數，您會在執行命令時收到提示。|
 |-StorageAccountName|(選用) 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫可達成的輸送量。 此工具會將測試資料上傳到此儲存體帳戶，以計算輸送量。 儲存體帳戶必須是一般用途 v1 (GPv1) 類型。|
-|-StorageAccountKey|(選用) 用來存取儲存體帳戶的金鑰。 移至 Azure 入口網站 > [儲存體帳戶] > 儲存體帳戶名稱 > [設定] > [存取金鑰] > [Key1] \(或傳統儲存體帳戶的主要存取金鑰)。|
+|-StorageAccountKey|(選用) 用來存取儲存體帳戶的金鑰。 移至 Azure 入口網站 > [儲存體帳戶]   > 儲存體帳戶名稱   > [設定]   > [存取金鑰]   > [Key1]  \(或傳統儲存體帳戶的主要存取金鑰)。|
 |-Environment|(選用) Azure 儲存體帳戶的目標環境。 可以是下列其中一個值：AzureCloud、AzureUSGovernment 或 AzureChinaCloud。 預設值為 AzureCloud。 當目標區域是 Azure US Government 或 Azure 中國 21Vianet 時，請使用參數。|
 
 我們建議至少分析您的 VM 7 天以上。 如果變換模式在一個月內改變，我們建議在您看到最大變換的一週內進行分析。 最好的方法是分析 31 天，以取得更好的建議。 
@@ -157,7 +157,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Dire
 Azure Site Recovery 不支援具有 iSCSI 和傳遞磁碟的 VM。 此工具也無法偵測及分析虛擬機器所連結的 iSCSI 和傳遞磁碟。
 
 ## <a name="generate-a-report"></a>產生報告
-此工具會產生啟用巨集的 Microsoft Excel 檔案 (XLSM 檔) 作為報告輸出。 其中會摘要說明所有的部署建議。 此報告的名稱為 DeploymentPlannerReport_唯一數值識別碼.xlsm 且置於指定的目錄中。
+此工具會產生啟用巨集的 Microsoft Excel 檔案 (XLSM 檔) 作為報告輸出。 其中會摘要說明所有的部署建議。 此報告的名稱為 DeploymentPlannerReport_唯一數值識別碼  .xlsm 且置於指定的目錄中。
 
 分析完成後，您可以在報告產生模式中執行工具。 
 
@@ -183,7 +183,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | -UseManagedDisks | (選擇性) UseManagedDisks：是/否。 預設值為 [是]。 計算可以放入單一儲存體帳戶的虛擬機器數目時，是依據是否可以在受控磁碟 (不是非受控磁碟) 上進行虛擬機器的容錯移轉/測試容錯移轉。 |
 |-SubscriptionId |(選用) 訂用帳戶 GUID。 使用這個參數來產生成本估計報告，其中包含以您訂用帳戶為基礎的最新價格 (以指定的貨幣計價)，與您的訂用帳戶相關聯的供應項目，以及您特定目標 Azure 區域的供應項目。|
 |-TargetRegion|(選用) 複寫的目標 Azure 區域。 因為 Azure 在每個區域有不同的成本，若要產生特定目標 Azure 區域的報告，請使用此參數。 預設值是 WestUS2 或上次使用的目標區域。 請參閱[支援的目標區域](hyper-v-deployment-planner-cost-estimation.md#supported-target-regions)清單。|
-|-OfferId|(選用) 與訂用帳戶相關聯的供應項目。 預設值為 MS-AZR-0003P (預付型方案)。|
+|-OfferId|(選用) 與訂用帳戶相關聯的供應項目。 預設值為 MS-AZR-0003P (隨用隨付)。|
 |-Currency|(選用) 在所產生的報告中用於顯示成本的貨幣。 預設值是美元 ($) 或上次使用的貨幣。 請參閱[支援的貨幣](hyper-v-deployment-planner-cost-estimation.md#supported-currencies)清單。|
 
 根據預設，此工具設定為分析並產生最多 1000 個虛擬機器的報告。 您可以藉由變更 ASRDeploymentPlanner.exe.config 檔案中的 MaxVMsSupported 索引鍵值來變更限制。

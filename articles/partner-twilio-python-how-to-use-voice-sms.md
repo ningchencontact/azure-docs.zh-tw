@@ -34,7 +34,7 @@ Twilio 正在形塑商業環境的未來，可讓開發人員將語音、VoIP �
 ## <a id="Pricing"></a>Twilio 定價和特別供應項目
 Azure 客戶可在升級 Twilio 帳戶時獲得價值 10 元美金的 Twilio 點數[特殊供應項目][special_offer]。 此 Twilio 點數可用來折抵任何 Twilio 使用量 ($10 點數相當於最多傳送 1,000 則簡訊，或最多接收 1000 分鐘的撥入語音，視電話號碼所在地點或通話目的地而定)。 請兌換此 [Twilio 點數][special_offer]，並開始使用。
 
-Twilio 是隨收隨付的服務。 不需要設定費，隨時都可結清帳戶。 如需詳細資訊，請參閱 [Twilio 價格][twilio_pricing]。
+Twilio 是隨用隨付的服務。 不需要設定費，隨時都可結清帳戶。 如需詳細資訊，請參閱 [Twilio 價格][twilio_pricing]。
 
 ## <a id="Concepts"></a>概念
 Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。 用戶端程式庫有多種語言版本，相關清單請參閱 [Twilio API 程式庫][twilio_libraries]。
@@ -42,21 +42,21 @@ Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。
 Twilio API 的兩大重點是 Twilio 動詞和 Twilio 標記語言 (TwiML)。
 
 ### <a id="Verbs"></a>Twilio 動詞
-API 採用 Twilio 動詞。例如，**&lt;Say&gt;** 動詞指示 Twilio 在通話中用語音傳遞訊息。
+API 採用 Twilio 動詞。例如， **&lt;Say&gt;** 動詞指示 Twilio 在通話中用語音傳遞訊息。
 
 以下是 Twilio 動詞清單。 如需了解其他動詞和功能，請參閱 [Twilio 標記語言文件][twiml]。
 
-* **&lt;撥打&gt;**：使撥號者接通另一支電話。
-* **&lt;Gather&gt;**：收集電話按鍵上輸入的號碼。
-* **&lt;Hangup&gt;**：結束通話。
-* **&lt;暫停&gt;**：靜候一段指定的秒數。
-* **&lt;播放&gt;**：播放音訊檔案。
-* **&lt;佇列&gt;**：新增至呼叫端佇列。
-* **&lt;錄音&gt;**：錄製來電者的語音並傳回含有錄音的檔案 URL。
-* **&lt;重新導向&gt;**：將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
-* **&lt;拒絕&gt;**：拒絕 Twilio 號碼的來電而不計費。
-* **&lt;說話&gt;**：將來電的文字轉換成語音。
-* **&lt;Sms&gt;**：傳送簡訊。
+* **&lt;撥打&gt;** ：使撥號者接通另一支電話。
+* **&lt;Gather&gt;** ：收集電話按鍵上輸入的號碼。
+* **&lt;Hangup&gt;** ：結束通話。
+* **&lt;暫停&gt;** ：靜候一段指定的秒數。
+* **&lt;播放&gt;** ：播放音訊檔案。
+* **&lt;佇列&gt;** ：新增至呼叫端佇列。
+* **&lt;錄音&gt;** ：錄製來電者的語音並傳回含有錄音的檔案 URL。
+* **&lt;重新導向&gt;** ：將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
+* **&lt;拒絕&gt;** ：拒絕 Twilio 號碼的來電而不計費。
+* **&lt;說話&gt;** ：將來電的文字轉換成語音。
+* **&lt;Sms&gt;** ：傳送簡訊。
 
 ### <a id="TwiML"></a>TwiML
 TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如何處理來電或簡訊。
@@ -90,7 +90,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 ### <a name="set-the-dns-name-label"></a>設定 DNS 名稱標籤
   1. 移至 [公用 IP 位址][azure_ips] 頁面。
   2. 選取與您的虛擬機器對應的公用 IP 位址。
-  3. 在 [組態] 區段中設定 [DNS 名稱標籤]。 在此範例的情況下，它看起來類似 *your-domain-label*.centralus.cloudapp.azure.com
+  3. 在 [組態]  區段中設定 [DNS 名稱標籤]  。 在此範例的情況下，它看起來類似 *your-domain-label*.centralus.cloudapp.azure.com
 
 可透過 SSH 連線到虛擬機器連線之後，就可以安裝您所選擇的 Web 架構 (Python 中最廣為人知的兩個為 [Flask](http://flask.pocoo.org/) 和 [Django](https://www.djangoproject.com))。 只要執行 `pip install` 命令即可安裝其中一項。
 

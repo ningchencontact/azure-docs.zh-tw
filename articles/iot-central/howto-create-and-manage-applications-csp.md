@@ -33,7 +33,7 @@ Azure IoT Central 會列為可供系統管理員使用的服務。 選取的頁�
 
 ![建立 CSP 的管理員](media/howto-create-application-csp/image3.png)
 
-若要建立 Azure IoT Central 應用程式，請選取**新的應用程式**圖格。 這會載入 [應用程式建立] 頁面。 您必須完成此頁面上的所有欄位，然後選擇 [建立]。 您可以在下方找到更多關於每個欄位的詳細資訊。
+若要建立 Azure IoT Central 應用程式，請選取**新的應用程式**圖格。 這會載入 [應用程式建立] 頁面。 您必須完成此頁面上的所有欄位，然後選擇 [建立]  。 您可以在下方找到更多關於每個欄位的詳細資訊。
 
 ![建立 CSP 的應用程式頁面](media/howto-create-application-csp/image4.png)
 
@@ -41,11 +41,11 @@ Azure IoT Central 會列為可供系統管理員使用的服務。 選取的頁�
 
 ## <a name="payment-plan"></a>付款計劃
 
-您只能以 CSP 的身分，建立預付型方案應用程式。 若要為客戶展示 Azure IoT Central，您可以個別建立試用應用程式。 在 [Azure IoT Central 定價頁面](https://azure.microsoft.com/pricing/details/iot-central/)上深入了解試用版和預付型方案應用程式。
+您只能以 CSP 的身分，建立隨用隨付應用程式。 若要為客戶展示 Azure IoT Central，您可以個別建立試用應用程式。 在 [Azure IoT Central 定價頁面](https://azure.microsoft.com/pricing/details/iot-central/)上深入了解試用版和隨用隨付應用程式。
 
 ## <a name="application-name"></a>應用程式名稱
 
-您的應用程式名稱會顯示在 [應用程式管理員] 頁面上以及每個 Azure IoT 中心應用程式內。 您可以為 Azure IoT 中心應用程式選擇任何名稱。 選擇對您和組織中其他人有意義的名稱。
+您的應用程式名稱會顯示在 [應用程式管理員]  頁面上以及每個 Azure IoT 中心應用程式內。 您可以為 Azure IoT 中心應用程式選擇任何名稱。 選擇對您和組織中其他人有意義的名稱。
 
 ## <a name="application-url"></a>應用程式 URL
 
@@ -63,9 +63,9 @@ Azure Active Directory 租用戶包含使用者身分識別、認證和其他組
 
 ## <a name="azure-subscription"></a>Azure 訂用帳戶
 
-Azure 訂用帳戶可讓您建立 Azure 服務執行個體。 Azure IoT Central 會自動尋找您可以存取的客戶所擁有的所有 Azure 訂用帳戶，並顯示於 [建立應用程式] 頁面的下拉式清單中。 選擇 Azure 訂用帳戶，以建立新的 Azure IoT 中心應用程式。
+Azure 訂用帳戶可讓您建立 Azure 服務執行個體。 Azure IoT Central 會自動尋找您可以存取的客戶所擁有的所有 Azure 訂用帳戶，並顯示於 [建立應用程式]  頁面的下拉式清單中。 選擇 Azure 訂用帳戶，以建立新的 Azure IoT 中心應用程式。
 
-如果您沒有 Azure 訂用帳戶，您可以在 Microsoft 合作夥伴中心建立一個。 建立 Azure 訂用帳戶之後，請瀏覽回到 [建立應用程式] 頁面。 新的訂用帳戶會出現在 [Azure 訂用帳戶] 下拉式清單中。
+如果您沒有 Azure 訂用帳戶，您可以在 Microsoft 合作夥伴中心建立一個。 建立 Azure 訂用帳戶之後，請瀏覽回到 [建立應用程式]  頁面。 新的訂用帳戶會出現在 [Azure 訂用帳戶]  下拉式清單中。
 
 若要深入了解，請參閱 [Azure 訂用帳戶](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)。
 

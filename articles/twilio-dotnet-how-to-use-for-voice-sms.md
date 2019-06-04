@@ -25,14 +25,14 @@ ms.locfileid: "60329477"
 本指南示範如何在 Azure 上透過 Twilio API 服務執行常見的程式設計工作。 涵蓋的案例包括打電話和傳送簡訊 (SMS)。 如需有關如何在應用程式中使用 Twilio 語音和 SMS 的詳細資訊，請參閱[後續步驟](#NextSteps)一節。
 
 ## <a id="WhatIs"></a>什麼是 Twilio？
-Twilio 正在形塑商業環境的未來，可讓開發人員將語音、VoIP 和訊息傳送內嵌到應用程式中。 它們將雲端、全球化環境中所需的整個基礎結構虛擬化，透過 Twilio 通訊 API 平台來揭露基礎結構。 輕鬆就可建立和擴充應用程式。 享受隨收隨付定價的彈性和雲端可靠性的好處。
+Twilio 正在形塑商業環境的未來，可讓開發人員將語音、VoIP 和訊息傳送內嵌到應用程式中。 它們將雲端、全球化環境中所需的整個基礎結構虛擬化，透過 Twilio 通訊 API 平台來揭露基礎結構。 輕鬆就可建立和擴充應用程式。 享受隨用隨付定價的彈性和雲端可靠性的好處。
 
 **Twilio 語音** 可讓應用程式撥打和接聽電話。 **Twilio 簡訊**可讓應用程式收發簡訊。 **Twilio 用戶端**可讓您從任何電話、平板電腦或瀏覽器撥打 VoIP 電話，且支援 WebRTC。
 
 ## <a id="Pricing"></a>Twilio 定價和特別供應項目
 升級 Twilio 帳戶的 Azure 客戶，可 [特別獲贈](https://www.twilio.com/azure)價值 $10 的 Twilio 點數。 此 Twilio 點數可用來折抵任何 Twilio 使用量 ($10 點數相當於最多傳送 1,000 則簡訊，或最多接收 1000 分鐘的撥入語音，視電話號碼所在地點或通話目的地而定)。 兌換 Twilio 點數來開始[twilio.com/azure](https://twilio.com/azure)。
 
-Twilio 是隨收隨付的服務。 不需要設定費，隨時都可結清帳戶。 如需詳細資訊，請參閱 [Twilio 價格](https://www.twilio.com/voice/pricing)。
+Twilio 是隨用隨付的服務。 不需要設定費，隨時都可結清帳戶。 如需詳細資訊，請參閱 [Twilio 價格](https://www.twilio.com/voice/pricing)。
 
 ## <a id="Concepts"></a>概念
 Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。 用戶端程式庫有多種語言版本，相關清單請參閱 [Twilio API 程式庫][twilio_libraries]。
@@ -40,7 +40,7 @@ Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。
 Twilio API 的兩大重點是 Twilio 動詞和 Twilio 標記語言 (TwiML)。
 
 ### <a id="Verbs"></a>Twilio 動詞
-API 採用 Twilio 動詞。例如，**&lt;Say&gt;** 動詞指示 Twilio 在通話中用語音傳遞訊息。
+API 採用 Twilio 動詞。例如， **&lt;Say&gt;** 動詞指示 Twilio 在通話中用語音傳遞訊息。
 
 以下是 Twilio 動詞清單。  如需了解其他動詞和功能，請參閱 [Twilio 標記語言文件](https://www.twilio.com/docs/api/twiml)。
 
@@ -109,10 +109,10 @@ Twilio 為 .NET 開發人員提供五套程式庫：
 
 ### <a id="use_nuget"></a>將 Twilio 程式庫新增至 Visual Studio 專案：
 1. 在 Visual Studio 中開啟方案。
-2. 以滑鼠右鍵按一下 [參考]。
-3. 按一下 [管理 NuGet 套件...]
-4. 按一下 [線上]。
-5. 在搜尋線上方塊中，輸入 twilio。
+2. 以滑鼠右鍵按一下 [參考]  。
+3. 按一下 [管理 NuGet 套件...] 
+4. 按一下 [線上]  。
+5. 在搜尋線上方塊中，輸入 twilio  。
 6. 在 Twilio 套件上按一下 [安裝]  。
 
 ## <a id="howto_make_call"></a>操作說明：撥出電話

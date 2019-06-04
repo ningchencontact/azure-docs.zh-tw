@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 24869981595cd68eb833f7b176e17a2683127945
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cbf6409efa2fbb56500c6919edc6c741c4a2c45a
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787920"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306765"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>教學課程：建置採用 Blob 儲存體的高可用性應用程式
 
@@ -40,7 +40,7 @@ RA-GRS 的運作方式是將交易從主要區域複寫到次要區域。 此複
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-* 使用下列工作負載安裝 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
+* 使用下列工作負載安裝 [Visual Studio 2019](https://www.visualstudio.com/downloads/)：
   - **Azure 開發**
 
   ![Azure 開發 (在 [Web 和 Cloud] 之下)](media/storage-create-geo-redundant-storage/workloads.png)
@@ -82,6 +82,8 @@ RA-GRS 的運作方式是將交易從主要區域複寫到次要區域。 此複
    | **部署模型** | Resource Manager  | Resource Manager 含有最新的功能。|
    | **帳戶類型** | StorageV2 | 如需帳戶類型的詳細資訊，請參閱[儲存體帳戶的類型](../common/storage-introduction.md#types-of-storage-accounts) |
    | **效能** | 標準 | 標準便足供此案例範例使用。 |
+   | **複寫**| 讀取權限異地備援儲存體 (RA-GRS) | 此設定是讓範例起作用的必要項目。 |
+   |**訂用帳戶** | 您的訂用帳戶 |如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
    | **複寫**| 讀取權限異地備援儲存體 (RA-GRS) | 這是讓範例起作用的必要項目。 |
    |**訂用帳戶** | 您的訂用帳戶 |如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.azure.com/Subscriptions)。 |
    |**ResourceGroup** | myResourceGroup |如需有效的資源群組名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 |
@@ -133,13 +135,13 @@ git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 
 在 Azure 入口網站中，瀏覽至您的儲存體帳戶。 在儲存體帳戶中選取 [設定]  下的 [存取金鑰]  。 從主要或次要金鑰複製**連接字串**。 根據您的作業系統執行下列其中一個命令，將 \<yourconnectionstring\> 取代為實際的連接字串。 此命令會將一個環境變數儲存至本機電腦。 在 Windows 中，必須重新載入**命令提示字元**或您所使用的殼層，才能使用此環境變數。
 
-### <a name="linux"></a> Linux
+### <a name="linux"></a>Linux
 
 ```
 export storageconnectionstring=<yourconnectionstring>
 ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```powershell
 setx storageconnectionstring "<yourconnectionstring>"
@@ -151,14 +153,14 @@ setx storageconnectionstring "<yourconnectionstring>"
 
 在 Azure 入口網站中，瀏覽至您的儲存體帳戶。 在儲存體帳戶中選取 [設定]  下的 [存取金鑰]  。 將 [儲存體帳戶名稱]  和 [金鑰]  值貼到下列命令中，取代 \<youraccountname\> 和 \<youraccountkey\> 預留位置。 此命令會將環境變數儲存至本機電腦。 在 Windows 中，必須重新載入**命令提示字元**或您所使用的殼層，才能使用此環境變數。
 
-### <a name="linux"></a> Linux
+### <a name="linux"></a>Linux
 
 ```
 export accountname=<youraccountname>
 export accountkey=<youraccountkey>
 ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```powershell
 setx accountname "<youraccountname>"
@@ -194,7 +196,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 您可以在 Azure 入口網站中，瀏覽至儲存體帳戶，然後在 [設定]  區段中選取 [存取金鑰]  ，即可找到此資訊。
 
-您也必須安裝必要的相依項目。 若要這樣做，請開啟命令提示字元，瀏覽至範例資料夾，然後輸入 `npm install`。
+安裝必要的相依性。 若要這樣做，請開啟命令提示字元，瀏覽至範例資料夾，然後輸入 `npm install`。
 
 ---
 
@@ -220,7 +222,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 儲存物件重試函式會設為線性重試原則。 重試函式會決定是否要重試要求，並指定重試要求之前所等待的秒數。 如果對主要端點的初始要求失敗時應對次要端點重試，請將 [對次要端點重試] **\_\_** 的值設為 true。 在範例應用程式中，自訂重試原則會定義於儲存體物件的 `retry_callback` 函式中。
 
-在下載之前，會定義服務物件 [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 和 [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 函式。 這些函式會定義事件處理常式，當下載作業成功完成，或下載作業失敗而正在重試時，便會引發這些處理常式。
+在下載之前，服務物件 [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 和 [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 函式會先加以定義。 這些函式會定義事件處理常式，當下載作業成功完成，或下載作業失敗而正在重試時，便會引發這些處理常式。
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
@@ -231,11 +233,11 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 此範例會在您的預設目錄中建立測試檔案。 如果是 Windows 使用者，此目錄是 **AppData\Local\Temp**。此範例接著會顯示您可以輸入的下列命令選項：
 
-- 輸入 **P** 以執行放置 Blob 作業，這會將暫存檔案上傳至儲存體帳戶。
-- 輸入 **L** 以執行列出 Blob 作業，這會列出目前在您容器中的 Blob。
-- 輸入 **G** 以執行取得 Blob 作業，這會將檔案從儲存體帳戶下載到本機電腦。
-- 輸入 **D** 以執行刪除 Blob 作業，這會從儲存體帳戶中刪除 Blob。
-- 輸入 **E** 以關閉範例，這也會刪除範例建立的所有資源。
+- 輸入 **P** 以執行放置 Blob 作業，此命令會將暫存檔案上傳至儲存體帳戶。
+- 輸入 **L** 以執行列出 Blob 作業，此命令會列出目前在您容器中的 Blob。
+- 輸入 **G** 以執行取得 Blob 作業，此命令會將檔案從儲存體帳戶下載到本機電腦。
+- 輸入 **D** 以執行刪除 Blob 作業，此命令會從儲存體帳戶中刪除 Blob。
+- 輸入 **E** 以關閉範例，此命令也會刪除範例建立的所有資源。
 
 此範例顯示您在 Windows 上執行應用程式時的輸出。
 

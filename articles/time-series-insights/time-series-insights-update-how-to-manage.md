@@ -23,7 +23,7 @@ ms.locfileid: "66237595"
 
 ## <a name="overview"></a>概觀
 
-Azure 時間序列深入解析預覽版環境是預付型 (PAYG) 環境。
+Azure 時間序列深入解析預覽版環境是隨用隨付 (PAYG) 環境。
 
 當您佈建 Azure 時間序列深入解析預覽版環境時，您會建立兩個 Azure 資源：
 

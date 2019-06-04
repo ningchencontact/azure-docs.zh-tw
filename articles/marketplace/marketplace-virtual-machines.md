@@ -47,7 +47,7 @@ ms.locfileid: "64937731"
 
 ## <a name="virtual-machine-offer"></a>虛擬機器供應項目
 
-當您要將虛擬設備部署到與客戶相關的訂用帳戶時，請使用「虛擬機器」供應項目類型。 使用「預付型方案」或「自備授權」(BYOL) 授權模型，即可啟用完整的 VM 商務功能。 Microsoft 會主控商務交易，並代表您向客戶收費。 您獲得的好處是，可以使用客戶與 Microsoft 之間慣用的付款關係，包括任何 Enterprise 合約。
+當您要將虛擬設備部署到與客戶相關的訂用帳戶時，請使用「虛擬機器」供應項目類型。 使用「隨用隨付」或「自備授權」(BYOL) 授權模型，即可啟用完整的 VM 商務功能。 Microsoft 會主控商務交易，並代表您向客戶收費。 您獲得的好處是，可以使用客戶與 Microsoft 之間慣用的付款關係，包括任何 Enterprise 合約。
 
 > [!NOTE]
 > 目前與 Enterprise 合約相關的承諾用量金額可用於您 VM 的 Azure 使用量，但不能用於您的軟體授權費用。  
@@ -58,7 +58,7 @@ ms.locfileid: "64937731"
 
 | 需求 | 詳細資料 |  
 |:--- |:--- | 
-| 計費和計量 | 您的 VM 必須支援 BYOL 或每月計費「預付型方案」。 |  
+| 計費和計量 | 您的 VM 必須支援 BYOL 或每月計費「隨用隨付」。 |  
 | Azure 相容的虛擬硬碟 (VHD) | VM 必須建置在 Windows 或 Linux 上。 <ul> <li>如需建立 Linux VHD 的詳細資訊，請參閱 [Azure 背書的 Linux 散發套件](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)。</li> <li>如需建立 Windows VHD 的詳細資訊，請參閱[建立與 Azure 相容的 VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)。</li> </ul> |  
 
 >[!Note]
