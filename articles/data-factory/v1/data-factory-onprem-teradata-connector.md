@@ -297,7 +297,7 @@ ms.locfileid: "60610747"
 | ByteInt |Int16 |
 | Decimal |Decimal |
 | Double |Double |
-| 整數 |Int32 |
+| Integer |Int32 |
 | Number |Double |
 | SmallInt |Int16 |
 | Date |DateTime |

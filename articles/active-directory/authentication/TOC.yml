@@ -43,8 +43,6 @@
       items:
         - name: MFA 的運作方式
           href: concept-mfa-howitworks.md
-        - name: 我應該使用哪個版本？
-          href: concept-mfa-whichversion.md
         - name: 授權您的使用者
           href: concept-mfa-licensing.md
         - name: 管理驗證提供者
@@ -160,7 +158,7 @@
       items:
         - name: 部署 MFA 內部部署
           href: howto-mfaserver-deploy.md
-        - name: '安裝使用者入口網站 '
+        - name: 安裝使用者入口網站
           href: howto-mfaserver-deploy-userportal.md
         - name: Mobile App Web 服務
           href: howto-mfaserver-deploy-mobileapp.md

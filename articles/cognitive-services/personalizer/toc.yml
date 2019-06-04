@@ -27,6 +27,9 @@
         - name: 功能動作和內容
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set'
+        - name: 主動學習
+          href: concept-active-learning.md
+          displayName: 'active, inactive'
         - name: 獎勵
           href: concept-rewards.md
           displayName: 'reward, wait time, default reward'
@@ -44,7 +47,7 @@
   items:
     - name: 建立和設定個人化工具
       href: how-to-settings.md
-      displayName: 'azure, portal, settings, evaluation, offline, policy'
+      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model'
     - name: 分析
       items:
         - name: 離線評估

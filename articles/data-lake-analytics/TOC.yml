@@ -48,6 +48,8 @@
           href: data-lake-analytics-diagnostic-logs.md
         - name: 調整配額限制
           href: data-lake-analytics-quota-limits.md
+        - name: 規劃災害復原
+          href: data-lake-analytics-disaster-recovery.md
     - name: 開發 U-SQL 程式
       items:
         - name: U-SQL 語言

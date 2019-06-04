@@ -15,7 +15,7 @@
         - name: 設定私人雲端環境
           href: quickstart-create-private-cloud.md
         - name: 在私人雲端上建立 VMware VM
-          href: 'https://docs.azure.cloudsimple.com/quickstart-create-private-cloud-vmware-virtual-machine/'
+          href: quickstart-create-private-cloud-vmware-virtual-machine.md
         - name: 在 Azure 上取用 VMware VM
           href: quickstart-create-vmware-virtual-machine.md
     - name: 概念

@@ -5,6 +5,8 @@
   items:
     - name: 何謂 Language Understanding？
       href: what-is-luis.md
+    - name: 新功能
+      href: whats-new.md
 - name: 快速入門
   items:
     - name: 建置預先建置的網域應用程式
@@ -197,8 +199,9 @@
         - name: 使用 Bing 拼字檢查 v7
           href: luis-tutorial-bing-spellcheck.md
         - name: 具有語音服務
-          href: luis-tutorial-speech-to-intent.md
-        - name: 使用 V3 Bot Framework
+          maintainContext: true
+          href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
+        - name: 具有 Bot
           items:
             - name: Web 應用程式 Bot
               items:
@@ -400,8 +403,6 @@
       href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
 - name: 資源
   items:
-    - name: 新功能
-      href: whats-new.md
     - name: 區域可用性
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: 語言與區域支援
