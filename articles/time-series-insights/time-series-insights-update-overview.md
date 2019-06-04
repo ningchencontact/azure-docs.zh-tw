@@ -4,30 +4,30 @@ description: Azure 時間序列深入解析預覽概觀。
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 04/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: a742e9f235812cdbdafdcb0a39581e0779fcd040
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6bcf0155be87a5b36c6b850fa889e23a340ac7ec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572923"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237502"
 ---
-# <a name="the-azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽
+# <a name="azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽
 
-Azure 時間序列深入解析預覽版為端對端的平台即服務供應項目。 它可用來收集、處理、儲存、分析及查詢高度內容相關且已進行時間序列最佳化的 IoT 級別資料。 時間序列深入解析十分適用於特定資料探索及營運分析。 時間序列深入解析是唯一可延伸且可自訂符合產業 IoT 部署廣泛需求的服務供應項目。
+Azure 時間序列深入解析預覽版為端對端的平台即服務 (PaaS) 供應項目。 它可用來收集、處理、儲存、分析及查詢高度內容相關且已進行時間序列最佳化的 IoT 級別資料。 時間序列深入解析十分適用於特定資料探索及營運分析。 時間序列深入解析是唯一可延伸且可自訂符合產業 IoT 部署廣泛需求的服務供應項目。
 
 > [!TIP]
-> 如需了解已正式運作的功能，請參閱 [Azure 時間序列深入解析 GA 概觀](time-series-insights-overview.md)。
+> 如需了解已正式運作 (GA) 的功能，請參閱 [Azure 時間序列深入解析 GA 概觀](time-series-insights-overview.md)。
 
 ## <a name="video"></a>影片
 
-### <a name="learn-more-about-the-azure-time-series-insights-preview-br"></a>深入了解「Azure 時間序列深入解析預覽」。 </br>
+### <a name="learn-more-about-azure-time-series-insights-preview-br"></a>深入了解「Azure 時間序列深入解析預覽」。 </br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player]
 
@@ -55,13 +55,13 @@ IoT 資料通常僅在來自第一方來源 (如 CRM 或 ERP) 的其他資料輸
 - 儲存數十年份的時間序列資料的能力。
 - 能夠明確建模和最佳化以資產為基礎的營運智慧能力。
 
-時間序列深入解析是全方位的端對端平台即服務供應項目，適用於 IoT 資料探索及營運見解。 時間序列深入解析提供完全受控雲端服務來分析 IoT 規模的時間序列資料。
+時間序列深入解析是全方位的端對端 PaaS 供應項目，適用於 IoT 資料探索及營運見解。 時間序列深入解析提供完全受控雲端服務來分析 IoT 規模的時間序列資料。
 
 您可以將原始資料儲存在無結構描述的記憶體內部存放區中。 然後，您可以透過分散式查詢引擎和 API 執行互動式的臨機操作查詢。 利用豐富的使用者體驗，在幾秒鐘內視覺化數十億個事件。 深入了解[資料探索功能](./time-series-insights-overview.md)。
 
 時間序列深入解析也會提供目前處於預覽狀態的營運智慧功能。 結合互動式資料探索和營運智慧功能，您可以使用時間序列深入解析從 IoT 資產收集的資料衍生出更多價值。 預覽提供項目支援：
 
-* 可調整、效能和成本最佳化的時間序列資料存放區。 這種雲端式 IoT 解決方案可以在幾秒鐘內推出數年的時間序列資料。
+* 可調整且已完成效能和成本最佳化的時間序列資料存放區。 這種雲端式 IoT 解決方案可以在幾秒鐘內推出數年的時間序列資料。
 * 支援語意模型，用於描述與衍生和非衍生訊號 (來自資產和裝置) 相關聯的網域和中繼資料。
 * 結合資產型資料深入解析與豐富的特定資料分析的強化使用者體驗。 此組合可推動商務及營運智慧。
 * 使用進階的機器學習服務與分析工具整合。 工具包括 Azure Databricks、Apache Spark、Azure Machine Learning、Jupyter Notebook 和 Power BI。 這些工具可協助您解決時間序列資料挑戰，並提升操作效率。
@@ -76,12 +76,12 @@ IoT 資料通常僅在來自第一方來源 (如 CRM 或 ERP) 的其他資料輸
 
 | | |
 | ---| ---|
-| **適用於 IoT 規模時間序列資料的多層式儲存體** | 透過適用於擷取資料的常見資料處理管線，您可以將資料儲存在經常性儲存體中以進行互動式查詢。 您還可以將資料儲存在非經常性儲存體中以儲存大量資料。 利用以資產為基礎的高效能[查詢](./time-series-insights-update-tsq.md)。 |
-| **用於情境化原始遙測資料和衍生資產型深入解析的時間序列模型** | 使用描述性[時間序列模型](./time-series-insights-update-tsm.md)對原始遙測資料進行背景化。 透過高效能和成本最佳化的裝置型查詢，衍生豐富的營運智慧。 |
-| **與其他資料解決方案順暢地持續整合** |  時間序列深入解析中的資料[儲存](./time-series-insights-update-storage-ingress.md)在開放原始碼的 Apache Parquet 檔案中。 無論是第一方還是協力廠商，這種與其他資料解決方案的整合對於端對端案例都很容易。 這些案例包括商業智慧、進階的機器學習服務和預測性分析。 |
-| **近乎即時的資料探索** | 藉由 [Azure 時間序列深入解析預覽版總管](./time-series-insights-update-explorer.md)的使用者體驗，您可以為透過擷取管線串流的所有資料提供視覺效果。 連線事件來源後不久，您可以檢視、探索及查詢事件資料。 如此一來，您可以驗證裝置是否如預期般發出資料。 您也可以監視 IoT 資產的健康情況、生產力和整體效率。 |
-| **根本原因分析和異常偵測** | [Azure 時間序列深入解析預覽版總管](./time-series-insights-update-explorer.md)同時支援模式和透視檢視，可進行和儲存多步驟的根本原因分析。 透過與 Azure 串流分析結合，您可使用時間序列深入解析來近乎即時地偵測警示與異常狀況。 |
-| **在時間序列深入解析平台上建置自訂應用程式** | 「時間序列深入解析」支援 [JavaScript SDK](./tutorial-explore-js-client-lib.md)。 SDK 提供豐富的控制項和簡化的存取查詢。 使用 SDK 在時間序列深入解析上建置自訂 IoT 應用程式，以符合您的特定業務需求。 您也可以直接使用時間序列深入解析[查詢 API](./time-series-insights-update-tsq.md)，將資料導到自訂 IoT 應用程式中。 |
+| 適用於 IoT 規模時間序列資料的多層式儲存體 | 透過適用於擷取資料的常見資料處理管線，您可以將資料儲存在經常性儲存體中以進行互動式查詢。 您還可以將資料儲存在非經常性儲存體中以儲存大量資料。 利用以資產為基礎的高效能[查詢](./time-series-insights-update-tsq.md)。 |
+| 用於情境化原始遙測資料和衍生資產型深入解析的時間序列模型 | 使用描述性[時間序列模型](./time-series-insights-update-tsm.md)對原始遙測資料進行背景化。 透過高效能和成本最佳化的裝置型查詢，衍生豐富的營運智慧。 |
+| 與其他資料解決方案順暢地持續整合 | 時間序列深入解析中的資料[儲存](./time-series-insights-update-storage-ingress.md)在開放原始碼的 Apache Parquet 檔案中。 無論是第一方還是協力廠商，這種與其他資料解決方案的整合對於端對端案例都很容易。 這些案例包括商業智慧、進階的機器學習服務和預測性分析。 |
+| 近乎即時的資料探索 | 藉由 [Azure 時間序列深入解析預覽版總管](./time-series-insights-update-explorer.md)的使用者體驗，您可以為透過擷取管線串流的所有資料提供視覺效果。 連線事件來源後不久，您可以檢視、探索及查詢事件資料。 如此一來，您可以驗證裝置是否如預期般發出資料。 您也可以監視 IoT 資產的健康情況、生產力和整體效率。 |
+| 根本原因分析和異常偵測 | [Azure 時間序列深入解析預覽版總管](./time-series-insights-update-explorer.md)同時支援模式和透視檢視，可進行和儲存多步驟的根本原因分析。 透過與 Azure 串流分析結合，您可使用時間序列深入解析來近乎即時地偵測警示與異常狀況。 |
+| 在時間序列深入解析平台上建置自訂應用程式 | 「時間序列深入解析」支援 [JavaScript SDK](./tutorial-explore-js-client-lib.md)。 SDK 提供豐富的控制項和簡化的存取查詢。 使用 SDK 在時間序列深入解析上建置自訂 IoT 應用程式，以符合您的特定業務需求。 您也可以直接使用時間序列深入解析[查詢 API](./time-series-insights-update-tsq.md)，將資料導到自訂 IoT 應用程式中。 |
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: a8f4e89adec0a6be001f3e6d6df1a252677c5916
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48dd09bf70e99adc250027df872266bea39a786b
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158171"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302416"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>教學課程：使用 Kestrel 將 HTTPS 端點新增至 ASP.NET Core Web API 前端服務
 
@@ -52,12 +52,12 @@ ms.locfileid: "66158171"
 開始進行本教學課程之前：
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [安裝 Visual Studio 2017](https://www.visualstudio.com/) 15.5 版或更新版本，其中包含 **Azure 開發**及 **ASP.NET 和 Web 開發**工作負載。
+* [安裝 Visual Studio 2019](https://www.visualstudio.com/) 15.5 版或更新版本，其中包含 **Azure 開發**及 **ASP.NET 和 Web 開發**工作負載。
 * [安裝 Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>取得憑證或建立自我簽署的開發憑證
 
-對於生產應用程式，使用[憑證授權單位 (CA)](https://wikipedia.org/wiki/Certificate_authority) 提供的憑證。 基於開發和測試目的，您可以建立和使用自我簽署憑證。 Service Fabric SDK 會提供 CertSetup.ps1指令碼，該指令碼可建立自我簽署的憑證並將它匯入到 `Cert:\LocalMachine\My` 憑證存放區中。 以系統管理員身分開啟命令提示字元，然後執行下列命令以建立主體為 "CN=mytestcert" 的憑證：
+對於生產應用程式，使用[憑證授權單位 (CA)](https://wikipedia.org/wiki/Certificate_authority) 提供的憑證。 基於開發和測試目的，您可以建立和使用自我簽署憑證。 Service Fabric SDK 會提供 CertSetup.ps1  指令碼，該指令碼可建立自我簽署的憑證並將它匯入到 `Cert:\LocalMachine\My` 憑證存放區中。 以系統管理員身分開啟命令提示字元，然後執行下列命令以建立主體為 "CN=mytestcert" 的憑證：
 
 ```powershell
 PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=mytestcert
@@ -79,7 +79,7 @@ Thumbprint                                Subject
 
 ## <a name="define-an-https-endpoint-in-the-service-manifest"></a>在服務資訊清單中定義 HTTPS 端點
 
-以**系統管理員**身分啟動 Visual Studio，並開啟投票解決方案。 在 [方案總管] 中，開啟 VotingWeb/PackageRoot/ServiceManifest.xml。 服務資訊清單會定義服務端點。  尋找 **Endpoints** 區段並編輯現有的 "ServiceEndpoint" 端點。  將名稱變更為 "EndpointHttps"、將通訊協定設定為 https，將類型設定為 Input，以即將連接埠設定為 443。  儲存您的變更。
+以**系統管理員**身分啟動 Visual Studio，並開啟投票解決方案。 在 [方案總管] 中，開啟 VotingWeb/PackageRoot/ServiceManifest.xml  。 服務資訊清單會定義服務端點。  尋找 **Endpoints** 區段並編輯現有的 "ServiceEndpoint" 端點。  將名稱變更為 "EndpointHttps"、將通訊協定設定為 https  ，將類型設定為 Input  ，以即將連接埠設定為 443  。  儲存您的變更。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -113,7 +113,7 @@ Thumbprint                                Subject
 
 ## <a name="configure-kestrel-to-use-https"></a>將 Kestrel 設定為使用 HTTPS
 
-在 [方案總管] 中開啟 VotingWeb/VotingWeb.cs 檔案。  將 Kestrel 設定為使用 HTTPS，並且在 `Cert:\LocalMachine\My` 存放區中查閱憑證。 加入下列 using 陳述式：
+在 [方案總管] 中開啟 VotingWeb/VotingWeb.cs  檔案。  將 Kestrel 設定為使用 HTTPS，並且在 `Cert:\LocalMachine\My` 存放區中查閱憑證。 加入下列 using 陳述式：
 
 ```csharp
 using System.Net;
@@ -121,7 +121,7 @@ using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography.X509Certificates;
 ```
 
-更新 `ServiceInstanceListener` 以使用新的 EndpointHttps 端點，並且在通訊埠 443 上接聽。 將 Web 主機設定為使用 Kestrel 伺服器時，您必須設定 Kestrel 以接聽所有網路介面上的 IPv6 位址：`opt.Listen(IPAddress.IPv6Any, port, listenOptions => {...}`。
+更新 `ServiceInstanceListener` 以使用新的 EndpointHttps  端點，並且在通訊埠 443 上接聽。 將 Web 主機設定為使用 Kestrel 伺服器時，您必須設定 Kestrel 以接聽所有網路介面上的 IPv6 位址：`opt.Listen(IPAddress.IPv6Any, port, listenOptions => {...}`。
 
 ```csharp
 new ServiceInstanceListener(
@@ -185,11 +185,11 @@ private X509Certificate2 GetCertificateFromStore()
 
 ## <a name="give-network-service-access-to-the-certificates-private-key"></a>將憑證的私密金鑰存取權給予網路服務
 
-在上一個步驟中，您已將憑證匯入到開發電腦上的 `Cert:\LocalMachine\My` 存放區中。  您也必須將憑證的私密金鑰存取權明確地授與執行服務 (預設為「網路服務」) 的帳戶。 您可以手動執行 (使用 certlm.msc 工具)，但是最好在服務資訊清單的 **SetupEntryPoint** 中 [設定啟動指令碼](service-fabric-run-script-at-service-startup.md)，以便自動執行 PowerShell 指令碼。
+在上一個步驟中，您已將憑證匯入到開發電腦上的 `Cert:\LocalMachine\My` 存放區中。  現在，將憑證的私密金鑰存取權明確地授與執行服務 (預設為「網路服務」) 的帳戶。 您可以手動執行此步驟 (使用 certlm.msc 工具)，但是最好在服務資訊清單的 **SetupEntryPoint** 中 [設定啟動指令碼](service-fabric-run-script-at-service-startup.md)，以便自動執行 PowerShell 指令碼。
 
 ### <a name="configure-the-service-setup-entry-point"></a>設定服務安裝程式進入點
 
-在 [方案總管] 中，開啟 VotingWeb/PackageRoot/ServiceManifest.xml。  在 **CodePackage** 區段中，新增 **SetupEntryPoint** 節點，然後新增 **ExeHost** 節點。  在 **ExeHost** 中，將 **Program** 設定為 "Setup.bat" 以即將 **WorkingFolder** 設定為 "CodePackage"。  當 VotingWeb 服務啟動時，在 VotingWeb.exe 啟動之前，Setup.bat 指令碼會在 CodePackage 資料夾中執行。
+在 [方案總管] 中，開啟 VotingWeb/PackageRoot/ServiceManifest.xml  。  在 **CodePackage** 區段中，新增 **SetupEntryPoint** 節點，然後新增 **ExeHost** 節點。  在 **ExeHost** 中，將 **Program** 設定為 "Setup.bat" 以即將 **WorkingFolder** 設定為 "CodePackage"。  當 VotingWeb 服務啟動時，在 VotingWeb.exe 啟動之前，Setup.bat 指令碼會在 CodePackage 資料夾中執行。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -230,17 +230,17 @@ private X509Certificate2 GetCertificateFromStore()
 
 ### <a name="add-the-batch-and-powershell-setup-scripts"></a>新增批次和 PowerShell 設定指令碼
 
-若要從 **SetupEntryPoint** 點執行 PowerShell，您可以在指向 PowerShell 檔案的批次檔中執行 PowerShell.exe。 首先，新增服務專案的批次檔案。  在 [方案總管] 中，以滑鼠右鍵按一下 **VotingWeb**，選取 [新增]-> [新項目]，然後新增名為 "Setup.bat" 的檔案。  編輯 Setup.bat 檔案並新增以下組態：
+若要從 **SetupEntryPoint** 點執行 PowerShell，您可以在指向 PowerShell 檔案的批次檔中執行 PowerShell.exe。 首先，新增服務專案的批次檔案。  在 [方案總管] 中，以滑鼠右鍵按一下 **VotingWeb**，選取 [新增]  -> [新項目]  ，然後新增名為 "Setup.bat" 的檔案。  編輯 Setup.bat  檔案並新增以下組態：
 
 ```bat
 powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 
-修改 Setup.bat 檔案屬性，以將 [複製到輸出目錄] 設為 [有更新時才複製]。
+修改 Setup.bat  檔案屬性，以將 [複製到輸出目錄]  設為 [有更新時才複製]。
 
 ![設定檔案屬性][image1]
 
-在 [方案總管] 中，以滑鼠右鍵按一下 **VotingWeb**，選取 [新增]-> [新項目]，然後新增名為 "SetCertAccess.ps1" 的檔案。  編輯 SetCertAccess.ps1 檔案，然後新增下列指令碼：
+在 [方案總管] 中，以滑鼠右鍵按一下 **VotingWeb**，選取 [新增]  -> [新項目]  ，然後新增名為 "SetCertAccess.ps1" 的檔案。  編輯 SetCertAccess.ps1  檔案，然後新增下列指令碼：
 
 ```powershell
 $subject="mytestcert"
@@ -289,13 +289,13 @@ if ($cert -eq $null)
 
 ```
 
-修改 SetCertAccess.ps1 檔案屬性，以將 [複製到輸出目錄] 設為 [有更新時才複製]。
+修改 SetCertAccess.ps1  檔案屬性，以將 [複製到輸出目錄]  設為 [有更新時才複製]。
 
 ### <a name="run-the-setup-script-as-a-local-administrator"></a>以本機系統管理員身分執行設定指令碼
 
-依預設，服務安裝程式進入點的可執行檔會在與 Service Fabric 相同的認證 (通常為 NetworkService 帳戶) 下執行。 SetCertAccess.ps1 必須有系統管理員權限。 在應用程式資訊清單中，您可以變更安全性權限，在本機系統管理員帳戶下執行啟動指令碼。
+依預設，服務安裝程式進入點的可執行檔會在與 Service Fabric 相同的認證 (通常為 NetworkService 帳戶) 下執行。 SetCertAccess.ps1  必須有系統管理員權限。 在應用程式資訊清單中，您可以變更安全性權限，在本機系統管理員帳戶下執行啟動指令碼。
 
-在 [方案總管] 中，開啟 Voting/ApplicationPackageRoot/ApplicationManifest.xml。 首先，建立 **Principals** 區段並新增使用者 (例如 "SetupAdminUser")。 將 SetupAdminUser 使用者帳戶新增至 Administrators 系統群組。
+在 [方案總管] 中，開啟 Voting/ApplicationPackageRoot/ApplicationManifest.xml  。 首先，建立 **Principals** 區段並新增使用者 (例如 "SetupAdminUser")。 將 SetupAdminUser 使用者帳戶新增至 Administrators 系統群組。
 接下來，在 VotingWebPkg **ServiceManifestImport**區段中，設定 **RunAsPolicy** 以將 SetupAdminUser 主體套用至安裝程式進入點。 此原則會告知 Service Fabric：Setup.bat 檔案會以 SetupAdminUser (具備系統管理員權限) 身分執行。
 
 ```xml
@@ -344,7 +344,7 @@ if ($cert -eq $null)
 
 ## <a name="run-the-application-locally"></a>在本機執行應用程式
 
-在 [方案總管] 中，選取 [投票] 應用程式，並將 [應用程式 URL] 屬性設定為 "https:\//localhost:443"。
+在 [方案總管] 中，選取 [投票]  應用程式，並將 [應用程式 URL]  屬性設定為 "https:\//localhost:443"。
 
 儲存所有檔案，然後按 F5 在本機執行應用程式。  在應用程式部署之後，Web 瀏覽器會開啟至 https:\//localhost:443。 如果您使用自我簽署的憑證，您會看到您的電腦不信任此網站安全性的警告。  繼續在網頁上執行。
 
@@ -354,11 +354,11 @@ if ($cert -eq $null)
 
 將應用程式部署至 Azure 之前，將憑證安裝到所有遠端叢集節點的 `Cert:\LocalMachine\My` 存放區中。  服務可以移至叢集的不同節點。  當前端 Web 服務在叢集節點上啟動時，啟動指令碼會查閱憑證並設定存取權限。
 
-首先，將憑證匯出至 PFX 檔案。 開啟 certlm.msc 應用程式，並巡覽至 **Personal**>**Certificates**。  以滑鼠右鍵按一下 mytestcert，然後選取 [所有工作]>[匯出]。
+首先，將憑證匯出至 PFX 檔案。 開啟 certlm.msc 應用程式，並巡覽至 **Personal**>**Certificates**。  以滑鼠右鍵按一下 mytestcert  ，然後選取 [所有工作]  >[匯出]  。
 
 ![匯出憑證][image4]
 
-在匯出精靈中，選擇 [是，匯出私密金鑰]，然後選擇個人資訊交換 (PFX) 格式。  將檔案匯出至 C:\Users\sfuser\votingappcert.pfx。
+在匯出精靈中，選擇 [是，匯出私密金鑰]  ，然後選擇個人資訊交換 (PFX) 格式。  將檔案匯出至 C:\Users\sfuser\votingappcert.pfx  。
 
 接下來，使用 [Add-AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) Cmdlet，在遠端叢集上安裝憑證。
 
@@ -429,7 +429,7 @@ $slb | Set-AzLoadBalancer
 
 ## <a name="deploy-the-application-to-azure"></a>將應用程式部署至 Azure
 
-儲存所有檔案、從 [偵錯] 切換至 [發行]，然後按 F6 重建。  在 [方案總管] 中，以滑鼠右鍵按一下 [投票] 並選取 [發佈]。 選取在[將應用程式部署到叢集](service-fabric-tutorial-deploy-app-to-party-cluster.md)中建立之叢集的連線端點。，或選取另一個叢集。  按一下 [發佈]，將應用程式發佈至遠端叢集。
+儲存所有檔案、從 [偵錯] 切換至 [發行]，然後按 F6 重建。  在 [方案總管] 中，以滑鼠右鍵按一下 [投票]  並選取 [發佈]  。 選取在[將應用程式部署到叢集](service-fabric-tutorial-deploy-app-to-party-cluster.md)中建立之叢集的連線端點。，或選取另一個叢集。  按一下 [發佈]  ，將應用程式發佈至遠端叢集。
 
 當應用程式部署時，開啟網頁瀏覽器並巡覽至 [https://mycluster.region.cloudapp.azure.com:443](https://mycluster.region.cloudapp.azure.com:443) (以您叢集的連線端點更新此 URL)。 如果您使用自我簽署的憑證，您會看到您的電腦不信任此網站安全性的警告。  繼續在網頁上執行。
 

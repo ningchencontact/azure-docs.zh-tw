@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 3959eb789102cd3d54fc7bab32e585b3c09d897b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7870322746d8cb647547e5c85036579611ac3292
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792145"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303312"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>快速入門：在 Visual Studio 使用 .NET 和 C# 連線和查詢 Azure SQL 資料庫
 
@@ -43,7 +43,7 @@ ms.locfileid: "65792145"
   > [!IMPORTANT]
   > 本文中已撰寫的指令碼會使用 Adventure Works 資料庫。 對於受控執行個體，您必須將 Adventure Works 資料庫匯入執行個體資料庫中，或將本文中的指令碼修改為使用 Wide World Importers 資料庫。
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community、Professional 或 Enterprise 版。
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) Community、Professional 或 Enterprise 版。
 
 ## <a name="get-sql-server-connection-information"></a>取得 SQL Server 連線資訊
 
@@ -51,29 +51,29 @@ ms.locfileid: "65792145"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 瀏覽至 [SQL 資料庫] 或 [SQL 受控執行個體] 頁面。
+2. 瀏覽至 [SQL 資料庫]  或 [SQL 受控執行個體]  頁面。
 
-3. 在 [概觀] 頁面上，針對單一資料庫檢閱 [伺服器名稱] 旁的完整伺服器名稱，若為受控執行個體，則檢閱 [主機] 旁的完整伺服器名稱。 若要複製伺服器名稱或主機名稱，請將滑鼠暫留在其上方，然後選取 [複製] 圖示。 
+3. 在 [概觀]  頁面上，針對單一資料庫檢閱 [伺服器名稱]  旁的完整伺服器名稱，若為受控執行個體，則檢閱 [主機]  旁的完整伺服器名稱。 若要複製伺服器名稱或主機名稱，請將滑鼠暫留在其上方，然後選取 [複製]  圖示。 
 
 ## <a name="create-code-to-query-the-sql-database"></a>建立程式碼以查詢 SQL Database
 
-1. 在 Visual Studio 中，選取 [檔案]  >  [新增]  >  [專案]。 
+1. 在 Visual Studio 中，選取 [檔案]   >  [新增]   >  [專案]  。 
    
-1. 在 [新增專案] 對話方塊中，選取 [Visual C#]，然後選取 [主控台應用程式 (.NET Framework)]。
+1. 在 [新增專案]  對話方塊中，選取 [Visual C#]  ，然後選取 [主控台應用程式 (.NET Framework)]  。
    
-1. 輸入 *sqltest* 作為專案名稱，然後選取 [確定]。 隨即建立新專案。 
+1. 輸入 *sqltest* 作為專案名稱，然後選取 [確定]  。 隨即建立新專案。 
    
-1. 選取 [專案] > [管理 NuGet 套件]。 
+1. 選取 [專案]   > [管理 NuGet 套件]  。 
    
-1. 在 [NuGet 套件管理員] 中，選取 [瀏覽] 索引標籤，然後搜尋並選取 **System.Data.SqlClient**。
+1. 在 [NuGet 套件管理員]  中，選取 [瀏覽]  索引標籤，然後搜尋並選取 **System.Data.SqlClient**。
    
-1. 在 **System.Data.SqlClient** 頁面上，選取 [安裝]。 
-   - 出現提示時，選取 [確定] 以繼續安裝。 
-   - 如果 [接受授權] 視窗出現時，選取 [我接受]。
+1. 在 **System.Data.SqlClient** 頁面上，選取 [安裝]  。 
+   - 出現提示時，選取 [確定]  以繼續安裝。 
+   - 如果 [接受授權]  視窗出現時，選取 [我接受]  。
    
-1. 當安裝完成時，您可以關閉 [NuGet 套件管理員]。 
+1. 當安裝完成時，您可以關閉 [NuGet 套件管理員]  。 
    
-1. 在程式碼編輯器中，以下列程式碼取代 **Program.cs** 內容。 請將 `<server>`、`<username>`、`<password>` 及 `<database>` 替換為您的值。
+1. 在程式碼編輯器中，以下列程式碼取代 **Program.cs** 內容。 將 `<server>`、`<username>`、`<password>` 及 `<database>` 取代為您的值。
    
    >[!IMPORTANT]
    >此範例中的程式碼使用範例 AdventureWorksLT 資料，您可以在建立資料庫時選擇這些範例資料作為來源。 如果您的資料庫中有不同的資料，請在 SELECT 查詢中使用來自您自己資料庫的資料表。 
@@ -134,7 +134,7 @@ ms.locfileid: "65792145"
 
 ## <a name="run-the-code"></a>執行程式碼
 
-1. 若要執行應用程式，請選取 [偵錯] > [開始偵錯]，或在工具列上選取 [開始]，或按下 **F5**。
+1. 若要執行應用程式，請選取 [偵錯]   > [開始偵錯]  ，或在工具列上選取 [開始]  ，或按下 **F5**。
 1. 請確認會傳回資料庫的前 20 個「類別/產品」資料列，然後關閉應用程式視窗。
 
 ## <a name="next-steps"></a>後續步驟

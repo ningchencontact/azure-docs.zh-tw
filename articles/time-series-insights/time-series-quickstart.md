@@ -4,59 +4,59 @@ description: 本快速入門會示範如何開始使用網頁瀏覽器中的 Azu
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 04/22/2019
-ms.openlocfilehash: be663520c9c1afd11ace57cd9dcb8ffb8219b86b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 17aee2555a0d0364ca5eb8e260ae10432a19bce6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696964"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244049"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>快速入門：探索 Azure 時間序列深入解析
 
-系統會提供一個快速入門總管，讓您在免費的示範環境中開始使用「Azure 時間序列深入解析」。 透過它，您將了解如何使用網頁瀏覽器將大量的 IoT 資料視覺化，並巡覽目前已正式運作的主要功能。
+這個 Azure 時間序列深入解析總管快速入門可協助您在免費的示範環境中開始使用時間序列深入解析。 透過它，您將了解如何使用網頁瀏覽器將大量的 IoT 資料視覺化，並巡覽目前已正式運作的主要功能。
 
-「Azure 時間序列深入解析」是一項完全受控的分析、儲存體及視覺化服務，可讓您更輕鬆地同時探索及分析數十億個 IoT 事件。 它可為您提供全域資料檢視來讓您快速驗證 IoT 解決方案，並避免關鍵任務裝置發生成本高昂的停機狀況。 透過「Azure 時間序列深入解析」，您可以近乎即時的方式探索隱藏趨勢、找出異常狀況，並進行根本原因分析。
+「Azure 時間序列深入解析」是一項完全受控的分析、儲存體及視覺化服務，可讓您更輕鬆地同時探索及分析數十億個 IoT 事件。 它可為您提供全域資料檢視來讓您快速驗證 IoT 解決方案，並避免關鍵任務裝置發生成本高昂的停機狀況。 Azure 時間序列深入解析可讓您以近乎即時的方式探索隱藏趨勢、找出異常狀況，並進行根本原因分析。
 
-如需額外的彈性，還您可以將「Azure 時間序列深入解析」透過其強大的 [REST API](./time-series-insights-update-tsq.md) 和[用戶端 SDK](./tutorial-create-tsi-sample-spa.md) 新增至既存的應用程式。 API 可讓您儲存、查詢時間序列資料，以及取用所選用戶端應用程式中的時間序列資料。 您也可以選擇使用用戶端 SDK 將 UI 元件新增至現有的應用程式。
+如需額外的彈性，您還可以將「Azure 時間序列深入解析」透過其強大的 [REST API](./time-series-insights-update-tsq.md) 和[用戶端 SDK](./tutorial-create-tsi-sample-spa.md) 新增至既存的應用程式。 您可以使用 API 來儲存、查詢和取用所選用戶端應用程式中的時間序列資料。 您也可以使用用戶端 SDK 將 UI 元件新增至現有的應用程式。
 
-「時間序列深入解析」總管是目前已正式運作之功能的導覽。
+這個時間序列深入解析總管可提供目前已正式運作功能的導覽。
 
 ## <a name="prepare-the-demo-environment"></a>準備示範環境
 
-1. 建立[免費的 Azure 帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) (如果尚未建立)。
+1. 若您尚未建立 Azure 帳戶，請建立[免費的 Azure 帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
-1. 在瀏覽器中，瀏覽至[正式運作示範](https://insights.timeseries.azure.com/demo)。
+1. 在瀏覽器中，移至[正式運作示範](https://insights.timeseries.azure.com/demo)。
 
 1. 如果出現提示，請使用您的 Azure 帳戶認證來登入「時間序列深入解析」總管。
 
-1. 時間序列深入解析快速導覽頁面隨即出現。 按 [下一步]  開始快速導覽。
+1. 時間序列深入解析快速導覽頁面隨即顯示。 選取 [下一步]  開始快速導覽。
 
-   [![按 [下一步]](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
+   [![選取 [下一步]](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
 
 ## <a name="explore-the-demo-environment"></a>探索示範環境
 
-1. [時間選取面板]  隨即出現。 您可以使用這個面板來選取要視覺化的時間範圍。
+1. [時間選取面板]  隨即顯示。 您可以使用這個面板來選取要視覺化的時間範圍。
 
    [![時間選取面板](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
 
-1. 在區域中按一下並拖曳，然後按一下 [搜尋]  按鈕。
+1. 選取時間範圍，並將其拖曳至區域中。 然後選取 [搜尋]  。
 
    [![選取時間範圍](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
 
-   時間序列深入解析會顯示您所指定之時間範圍的圖表視覺效果。 您可以在折線圖內執行各種動作，例如篩選、釘選、排序和堆疊。
+   時間序列深入解析會顯示您所指定之時間範圍的圖表視覺效果。 您可以在折線圖內執行各種動作。 例如，您可以篩選、釘選、排序和堆疊。
 
-   若要返回 [時間選取面板]  ，請按一下向下箭號，如下所示：
+   若要返回 [時間選取面板]  ，請選取向下箭號，如下所示：
 
    [![圖表](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
 
-1. 按一下 [字詞面板]  中的 [新增]  以新增新的搜尋字詞。
+1. 選取 [字詞面板]  中的 [新增]  以新增新的搜尋字詞。
 
    [![新增項目](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png#lightbox)
 
@@ -64,13 +64,13 @@ ms.locfileid: "64696964"
 
    [![探索事件](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png#lightbox)
 
-   您探索的區域中會顯示未經處理資料的格線：
+   您探索的區域中會顯示未經處理資料的格線。
 
    [![格線檢視](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
 
 ## <a name="select-and-filter-data"></a>選取和篩選資料
 
-1. 編輯您的字詞以變更圖表中的值，並新增另一個字詞來交叉關聯不同類型的值：
+1. 編輯您的字詞以變更圖表中的值。 新增另一個字詞來交叉關聯不同類型的值。
 
    [![新增字詞](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png#lightbox)
 

@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 05/22/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: seodec18
-ms.openlocfilehash: 7320f5cd8d012973139adb099785cddae123f775
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 2b0bb94be2ba8ea983cda8fd015d05fcd532f2bc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949612"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226139"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>教學課程：使用 Azure CDN 為靜態網站啟用與 SSL 搭配運作的自訂網域
 
@@ -38,15 +38,27 @@ ms.locfileid: "65949612"
 
 ## <a name="create-a-cdn-endpoint-on-the-static-website-endpoint"></a>在靜態網站端點上建立 CDN 端點
 
-1. 在網頁瀏覽器中開啟 [Azure 入口網站](https://portal.azure.com/)。 
-1. 找出您的儲存體帳戶，然後顯示帳戶概觀。
+1. 在 Azure 入口網站中找出您的儲存體帳戶，然後顯示帳戶概觀。
 1. 選取 [Blob 服務]  功能表底下的 [Azure CDN]  以設定 Azure CDN。
-1. 在 [新增端點]  區段中，填寫欄位以建立新的 CDN 端點。
-1. 輸入端點名稱，例如 *mystaticwebsiteCDN*。
-1. 輸入您的網站網域作為 CDN 端點的主機名稱。
-1. 針對來源主機名稱，輸入您的靜態網站端點。 若要尋找您的靜態網站端點，請瀏覽至您儲存體帳戶的 [靜態網站]  區段，然後複製該端點 (請移除前面的 https:// )
-1. 在瀏覽器中瀏覽至 *mywebsitecdn.azureedge.net* 以測試您的 CDN 端點。
-1. 此外，請瀏覽至設定下方的 [新增端點]  、來源，以確認來源類型是否設為 [自訂來源]  ，並確認 [來源主機名稱]  顯示靜態網站端點名稱。
+1. 在 [CDN 設定檔]  區段中，指定新的或現有的 CDN 設定檔。 如需詳細資訊，請參閱[快速入門：建立 Azure CDN 設定檔和端點](../../cdn/cdn-create-new-endpoint.md)。
+1. 指定 CDN 端點的定價層。 本教學課程會使用**標準 Akamai** 定價層，此層的傳播速度快，通常在幾分鐘內就能完成。 其他定價層可能需要較久的傳播時間，但也可能提供其他優點。 如需詳細資訊，請參閱[比較 Azure CDN 產品功能](../../cdn/cdn-features.md)。
+1. 在 [CDN 端點名稱]  欄位中，指定 CDN 端點的名稱。 CDN 端點在整個 Azure 中必須是唯一的。
+1. 在 [原始主機名稱]  欄位中指定靜態網站端點。 若要尋找靜態網站端點，請瀏覽至儲存體帳戶的 [靜態網站]  設定。 複製主要端點，然後將其貼至 CDN 設定中，並移除通訊協定識別碼 (例如  ，HTTPS)。
+
+    下圖顯示端點設定範例：
+
+    ![螢幕擷取畫面：顯示 CDN 端點設定範例](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
+
+1. 建立 CDN 端點，並等待其進行傳播。
+1. 為了確認 CDN 端點是否已正確設定，請按一下端點以瀏覽至其設定。 從儲存體帳戶的 CDN 概觀，找出端點主機名稱，並瀏覽到端點，如下圖所示。 CDN 端點的格式會類似 `https://staticwebsitesamples.azureedge.net`。
+
+    ![螢幕擷取畫面：顯示 CDN 端點概觀](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
+
+    CDN 端點傳播完成後，瀏覽至 CDN 端點便會顯示您先前上傳至靜態網站的 index.html 檔案內容。
+
+1. 若要檢閱 CDN 端點的原始設定，請瀏覽至 CDN 端點 [設定]  區段底下的 [原始來源]  。 您會看到 [原始來源類型]  欄位設定為 [自訂原始來源]  且 [原始主機名稱]  欄位會顯示靜態網站端點。
+
+    ![螢幕擷取畫面：顯示 CDN 端點的原始來源設定](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
 
 ## <a name="enable-custom-domain-and-ssl"></a>啟用自訂網域和 SSL
 
@@ -54,17 +66,19 @@ ms.locfileid: "65949612"
 
     ![為 www 子網域指定 CNAME 記錄](media/storage-blob-static-website-custom-domain/subdomain-cname-record.png)
 
-1. 在 Azure 入口網站中，按一下新建立的端點以設定自訂網域和 SSL 憑證。
+1. 在 Azure 入口網站中，顯示 CDN 端點的設定。 瀏覽至 [設定]  底下的 [自訂網域]  來設定自訂網域和 SSL 憑證。
 1. 選取 [新增自訂網域]  並輸入您的網域名稱，然後按一下 [新增]  。
-1. 選取新建立的自訂網域對應以佈建 SSL 憑證。
-1. 將 [自訂網域 HTTPS]  設定為 [開啟]  。 選取 [由 CDN 管理]  以讓 Azure CDN 管理您的 SSL 憑證。 按一下 [檔案]  。
-1. 存取網站 URL 來測試您的網站。
+1. 選取新的自訂網域對應以佈建 SSL 憑證。
+1. 將 [自訂網域 HTTPS]  設定為 [開啟]  ，然後按一下 [儲存]  。 可能需要數小時才能設定好自訂網域。 入口網站會顯示進度，如下圖所示。
+
+    ![螢幕擷取畫面：顯示自訂網域設定的進度](media/storage-blob-static-website-custom-domain/configure-custom-domain-https.png)
+
+1. 存取自訂網域的 URL，以測試靜態網站對自訂網域的對應。
+
+如需如何為自訂網域啟用 HTTPS 的詳細資訊，請參閱[教學課程：在 Azure CDN 自訂網域上設定 HTTPS](../../cdn/cdn-custom-ssl.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程的第二部分中，您已了解如何在 Azure CDN 中為靜態網站設定與 SSL 搭配運作的自訂網域。
 
-請依循此連結來深入了解「Azure 儲存體」上的靜態網站代管。
-
-> [!div class="nextstepaction"]
-> [深入了解靜態網站](storage-blob-static-website.md)
+如需如何設定和使用 Azure CDN 的詳細資訊，請參閱[什麼是 Azure CDN？](../../cdn/cdn-overview.md)。

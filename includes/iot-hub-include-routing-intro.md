@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 400f12237ae8b8cbaf6d66bda1663ecb680136f3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d0accd01926743d64fa4911dfe56806537170c2d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66162579"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271533"
 ---
 [訊息路由](../articles/iot-hub/iot-hub-devguide-messages-d2c.md)可讓您將遙測資料從 IoT 裝置傳送至內建事件中樞相容端點或自訂端點 (例如 Blob 儲存體、服務匯流排佇列、服務匯流排主題和事件中樞)。 若要設定自訂的訊息路由，您可以建立[路由查詢](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md)來自訂符合特定條件的路由。 設定好之後，IoT 中樞就會自動將內送資料路由至端點。 如果訊息不符合任何已定義的路由查詢，系統就會將其路由傳送至預設端點。
 
 在這個有兩個部分的教學課程中，您將了解如何透過 IoT 中樞設定和使用這些自訂的路由查詢。 您會將訊息從 IoT 裝置路由至多個端點的其中一個，包括 Blob 儲存體和服務匯流排佇列。 邏輯應用程式會挑選傳送至服務匯流排佇列的訊息，並透過電子郵件傳送。 未定義自訂訊息路由的訊息會傳送到預設端點，然後由 Azure 串流分析挑選並在 Power BI 視覺效果中檢視。
 
- 若要完成本教學課程的第 1 和第 2 部分，請執行下列工作：
+為完成本教學課程的第 1 和第 2 部分，您已執行下列工作：
 
 **第一部分：建立資源、設定訊息路由**
 > [!div class="checklist"]

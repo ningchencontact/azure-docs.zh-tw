@@ -3,15 +3,15 @@ title: Azure Cosmos DB 中使用 Apache Spark 的內建作業分析簡介
 description: 了解如何在 Azure Cosmos DB 中使用 Apache Spark 內建支援執行作業分析與 AI
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 05/10/2019
+ms.date: 05/23/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: c62639feed7ced9d92e29715e350b952465a94a1
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: b392f7fd6438b25a741aecb86a72f142d785f0e3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517740"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237907"
 ---
 # <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Azure Cosmos DB 中使用 Apache Spark (預覽) 的內建作業分析 
 
@@ -20,7 +20,7 @@ Azure Cosmos DB 中的 Apache Spark 內建支援可讓您從 Apache Spark 對 Az
 與 Azure Cosmos 帳戶相關聯的所有 Azure 區域中都會自動提供 Spark 計算功能。 Spark 作業會使用 Azure Cosmos DB 的多重主機功能，而且它們可以在每個區域中寫入或查詢本機複本。 
 
 > [!NOTE]
-> Azure Cosmos DB 中的 Apache Spark 內建支援目前以有限預覽形式提供。 若要註冊預覽版，請巡覽至[註冊預覽版](https://portal.azure.com/?feature.customportal=false#create/Microsoft.DocumentDB)頁面。 
+> Azure Cosmos DB 中的 Apache Spark 內建支援目前以有限預覽形式提供。 若要註冊預覽版，請巡覽至[註冊預覽版頁面](https://portal.azure.com/?feature.customportal=false#create/Microsoft.DocumentDB)。 
 
 Azure Cosmos DB 中的 Apache Spark 支援提供下列優點：
 
@@ -67,7 +67,7 @@ Azure Cosmos DB 為多模型資料庫，現在透過索引鍵值、文件、圖�
 
 由於 Apache Spark 作業是在 Azure Cosmos 資料庫的資料分割區中執行，所以查詢會取得[五個定義完善的一致性選項](consistency-levels.md)。 這些一致性模型讓您有選擇嚴格一致性的彈性，以提供最精確的機器學習演算法結果，而不會危害延遲和高可用性。 
 
-### <a name="slas"></a>SLA
+### <a name="comprehensive-slas"></a>完整 SLA
 
 Apache Spark 作業會有 Azure Cosmos DB 優點，例如領先業界的全方位 [SLA](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/) (99.999)，不會有管理個別 Apache Spark 叢集的額外負荷。 這些 SLA 涵蓋輸送量、第 99 百分位的延遲、一致性和高可用性。 
 
@@ -77,7 +77,7 @@ Apache Spark 作業會有 Azure Cosmos DB 優點，例如領先業界的全方�
 
 ## <a name="built-in-jupyter-notebooks-support"></a>內建 Jupyter Notebook 支援
 
-Azure Cosmos DB 支援所有 API 的 Jupyter Notebook，例如 SQL、MongoDB、Cassandra、Gremlin 和資料表。 Jupyter Notebook 會在 Azure Cosmos DB 帳戶內執行，而且它們可強化開發人員的經驗。 所有 Azure Cosmos DB API 和資料模型內建的 Notebook 支援可讓您以互動方式執行查詢。 您也可以執行機器學習模型，並分析您的 Azure Cosmos 資料庫中儲存的資料。 藉由使用 Jupyter Notebook 的體驗，您可以分析儲存的資料、建置及定型機器學習模型，以及在 Azure 入口網站中的資料上執行推斷，如下圖所示：
+Azure Cosmos DB 支援所有 API 的內建 Jupyter Notebook，例如 SQL、MongoDB、Cassandra、Gremlin 和資料表。 Jupyter Notebook 會在 Azure Cosmos 帳戶內執行，而且它們可強化開發人員的經驗。 所有 Azure Cosmos DB API 和資料模型內建的 Notebook 支援可讓您以互動方式執行查詢。 您也可以執行機器學習模型，並分析您的 Azure Cosmos 資料庫中儲存的資料。 藉由使用 Jupyter Notebook 的體驗，您可以分析儲存的資料、建置及定型機器學習模型，以及在 Azure 入口網站中的資料上執行推斷，如下圖所示：
 
 ![Azure Cosmos DB 中的 Jupyter Notebook 支援](./media/spark-api-introduction/jupyter-notebooks-portal.png)
 

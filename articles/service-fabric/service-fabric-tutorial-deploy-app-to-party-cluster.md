@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: aljo,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 451cfde133955b987b97bc2447724d2e00010892
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4b3922ea97391a83d729bcf8b25c489a45119046
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667373"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302445"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>教學課程：將 Service Fabric 應用程式部署至 Azure 中的叢集
 
@@ -44,7 +44,7 @@ ms.locfileid: "58667373"
 開始進行本教學課程之前：
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
-* [安裝 Visual Studio 2017](https://www.visualstudio.com/)，並安裝 **Azure 開發**以及 **ASP.NET 和 Web 開發**工作負載。
+* [安裝 Visual Studio 2019](https://www.visualstudio.com/)，並安裝 **Azure 開發**以及 **ASP.NET 和 Web 開發**工作負載。
 * [安裝 Service Fabric SDK](service-fabric-get-started.md)。
 
 ## <a name="download-the-voting-sample-application"></a>下載投票應用程式範例
@@ -78,23 +78,23 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 請記下服務端點，稍後的步驟將會用到這項資料。  如果您要部署至現有的叢集，請使用 [PowerShell 指令碼](./scripts/service-fabric-powershell-open-port-in-load-balancer.md)，或在 [Azure 入口網站](https://portal.azure.com)中透過此叢集的負載平衡器，在 Azure 負載平衡器中建立負載平衡規則和探查，以開啟此連接埠。
 
 ### <a name="create-a-test-cluster-in-azure"></a>在 Azure 中建立測試叢集
-在 [方案總管] 中，以滑鼠右鍵按一下 [投票] 並選取 [發佈]。
+在 [方案總管] 中，以滑鼠右鍵按一下 [投票]  並選取 [發佈]  。
 
-在 [連線端點] 中，選取 [建立新的叢集]。  如果您要部署至現有的叢集，請從清單中選取叢集端點。  [建立 Service Fabric 叢集] 對話方塊隨即開啟。
+在 [連線端點]  中，選取 [建立新的叢集]  。  如果您要部署至現有的叢集，請從清單中選取叢集端點。  [建立 Service Fabric 叢集] 對話方塊隨即開啟。
 
-在 [叢集] 索引標籤中輸入 [叢集名稱] (例如 "mytestcluster")、選取您的訂用帳戶、選取叢集的區域 (例如美國中南部)、輸入叢集節點數目 (建議測試叢集使用三個節點)，然後輸入資源群組 (例如 "mytestclustergroup")。 按 [下一步] 。
+在 [叢集]  索引標籤中輸入 [叢集名稱]  (例如 "mytestcluster")、選取您的訂用帳戶、選取叢集的區域 (例如美國中南部)、輸入叢集節點數目 (建議測試叢集使用三個節點)，然後輸入資源群組 (例如 "mytestclustergroup")。 按 [下一步]  。
 
 ![建立叢集](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-在 [憑證] 索引標籤中，輸入叢集憑證的密碼和輸出路徑。 自我簽署的憑證會以 PFX 檔案的形式建立，並儲存至指定的輸出路徑。  此憑證可用來確保節點對節點和用戶端對節點的安全性。  自我簽署的憑證不可用於生產叢集。  Visual Studio 會使用此憑證對叢集進行驗證，以及部署應用程式。 請選取 [匯入憑證]，將 PFX 安裝在電腦的 CurrentUser\My certificate 存放區中。  按 [下一步] 。
+在 [憑證]  索引標籤中，輸入叢集憑證的密碼和輸出路徑。 自我簽署的憑證會以 PFX 檔案的形式建立，並儲存至指定的輸出路徑。  此憑證可用來確保節點對節點和用戶端對節點的安全性。  請勿對生產叢集使用自我簽署的憑證。  Visual Studio 會使用此憑證對叢集進行驗證，以及部署應用程式。 請選取 [匯入憑證]  ，將 PFX 安裝在電腦的 CurrentUser\My certificate 存放區中。  按 [下一步]  。
 
 ![建立叢集](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 
-在 [VM 詳細資料] 索引標籤中，輸入叢集管理員帳戶的 [使用者名稱] 和 [密碼]。  選取叢集節點的 [虛擬機器映像] 和每個叢集節點的 [虛擬機器大小]。  按一下 [Advanced (進階)]  索引標籤。
+在 [VM 詳細資料]  索引標籤中，輸入叢集管理員帳戶的 [使用者名稱]  和 [密碼]  。  選取叢集節點的 [虛擬機器映像]  和每個叢集節點的 [虛擬機器大小]  。  按一下 [Advanced (進階)]  索引標籤。
 
 ![建立叢集](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
 
-在 [連接埠] 中，輸入先前步驟中的 VotingWeb 服務端點 (例如 8080)。  叢集建立後，這些應用程式連接埠即會在 Azure 負載平衡器中開啟，以將流量轉送至叢集。  請按一下 [建立] 以建立叢集，這需要幾分鐘的時間。
+在 [連接埠]  中，輸入先前步驟中的 VotingWeb 服務端點 (例如 8080)。  叢集建立後，這些應用程式連接埠即會在 Azure 負載平衡器中開啟，以將流量轉送至叢集。  請按一下 [建立]  以建立叢集，這需要幾分鐘的時間。
 
 ![建立叢集](./media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png)
 
@@ -102,12 +102,12 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 在新叢集準備就緒後，您即可直接從 Visual Studio 部署投票應用程式。
 
-在 [方案總管] 中，以滑鼠右鍵按一下 [投票] 並選取 [發佈]。 [發佈] 對話方塊隨即出現。
+在 [方案總管] 中，以滑鼠右鍵按一下 [投票]  並選取 [發佈]  。 [發佈]  對話方塊隨即出現。
 
-在 [連線端點] 中，為您在先前的步驟中建立的叢集選取端點。  例如 "mytestcluster.southcentral.cloudapp.azure.com:19000"。 如果您選取 [進階連線參數]，憑證資訊應該會自動填入。  
+在 [連線端點]  中，為您在先前的步驟中建立的叢集選取端點。  例如 "mytestcluster.southcentral.cloudapp.azure.com:19000"。 如果您選取 [進階連線參數]  ，憑證資訊應該會自動填入。  
 ![發佈 Service Fabric 應用程式](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
-選取 [發佈] 。
+選取 [發佈]  。
 
 應用程式部署後，請開啟瀏覽器，並輸入叢集位址和尾隨的 **:8080**。 或者，輸入其他已設定的連接埠。 例如 `http://mytestcluster.southcentral.cloudapp.azure.com:8080`。 您應該會看到應用程式在 Azure 的叢集中執行。 在投票網頁中，嘗試新增和刪除投票選項，並投票表決一或多個選項。
 

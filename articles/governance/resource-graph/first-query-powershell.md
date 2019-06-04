@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 17003864c7bcc5f8be6acf17d40ce2039f031313
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: dfe4f226302b6bb6a010d9d4348fde05b2d31193
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823254"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356947"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 執行您的第一個 Resource Graph 查詢
 
@@ -90,6 +90,10 @@ Azure Resource Graph 模組需要下列軟體：
 
 執行最終查詢數次後，假設您的環境中未變更任何內容，傳回的結果將會一致且符合預期 - 依照**名稱**屬性排序，但仍限制為前五個結果。
 
+> [!NOTE]
+> 如果查詢未從您可存取的訂用帳戶傳回結果，請注意，`Search-AzGraph` Cmdlet 是為預設內容中的訂用帳戶所預設。 若要查看屬於預設內容的訂用帳戶識別碼清單，請執行 `(Get-AzContext).Account.ExtendedProperties.Subscriptions`。如果您想要搜尋您可存取的所有訂用帳戶，您可以為 `Search-AzGraph' cmdlet by running 
+> `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID }` 設定 PSDefaultParameterValues
+   
 ## <a name="clean-up-resources"></a>清除資源
 
 如果您想要從 Azure PowerShell 環境中移除 Resource Graph 模組，則可以使用下列命令：

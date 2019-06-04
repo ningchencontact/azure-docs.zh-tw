@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 7b1e972b5516aa79d1754e32e487e17c9e68ac1d
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 437dc1fba2502602109483aa9d6f25b4265af26f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035431"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239878"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>負責任地實作個人化工具的指導方針
 
@@ -128,17 +128,13 @@ Microsoft 會持續將心力投注於其工具和文件，以協助您善盡相�
 * 封存個人化工具賴以重現結果的資訊和資產，例如模型、學習原則和其他資料。
 
 ### <a name="transparency"></a>透明度
-*AI 系統必須是可理解的*。 透過個人化工具
+*AI 系統必須是可理解的*。 透過個人化工具：
 
-•   為使用者提供有關於內容如何個人化的資訊。 例如，您可以向使用者顯示標示為「為何提供這些建議？」的按鈕， 說明使用者和動作有哪些最高排名的特性會對個人化工具的結果產生影響。
-•   確定您的使用規定提及您將使用使用者及其行為的相關資訊將體驗個人化。
-
-
-* *為使用者提供有關於內容如何個人化的資訊。* 例如，您可以向使用者顯示標示為 `Why These Suggestions?` 的按鈕，說明使用者和動作有哪些最高排名的特性會對個人化產生影響。
-* 確定您的使用規定提及您將使用使用者的相關資訊將體驗個人化。
+* *為使用者提供有關於內容如何個人化的資訊。* 例如，您可以向使用者顯示標示為 `Why These Suggestions?` 的按鈕，說明使用者和動作有哪些最高排名的特性會影響個人化工具的結果。
+* 確定您的使用規定提及您將使用使用者及其行為的相關資訊將體驗個人化。
 
 ### <a name="fairness"></a>公平性
-*AI 系統應將所有人一視同仁。
+AI 系統應將所有人一視同仁  。
 
 * 請勿將個人化工具用於結果屬長期、必然性或涉及實質損害的使用案例。
 * 請勿使用不適合用於內容個人化或可能助長不當偏見傳播的特性。 例如，財務情況類似的每一個人，在金融產品方面應獲得相同的個人化建議。

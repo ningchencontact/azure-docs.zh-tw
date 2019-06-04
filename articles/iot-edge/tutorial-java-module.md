@@ -9,12 +9,12 @@ ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 7f659240e7de729c6f64acf41d76530475fb810f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 95fab84fb6472339c9d6b847f8c09139b55e1466
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64569463"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303835"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>教學課程：開發適用於 Linux 裝置的 Java IoT Edge 模組
 
@@ -37,7 +37,7 @@ ms.locfileid: "64569463"
 
 使用下表來了解開發及部署 Java 模組的選項： 
 
-| Java | Visual Studio Code | Visual Studio 2017 | 
+| Java | Visual Studio Code | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![在 Linux AMD64 上將 VS Code 使用於 Java 模組](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![在 Linux ARM32 上將 VS Code 使用於 Java 模組](./media/tutorial-c-module/green-check.png) |  |
@@ -94,9 +94,9 @@ ms.locfileid: "64569463"
 
 ### <a name="select-your-target-architecture"></a>選取您的目標架構
 
-目前，Visual Studio Code 可以開發適用於 Linux AMD64 和 Linux ARM32v7 裝置的 Java 模組。 您必須為每個解決方案都選取要作為目標的架構，因為容器是針對每個架構類型，以不同方式建置和執行。 預設為 Linux AMD64。 
+目前，Visual Studio Code 可以開發適用於 Linux AMD64 和 Linux ARM32v7 裝置的 Java 模組。 您必須為每個解決方案都選取要作為目標的架構，因為容器是針對每個架構類型，以不同方式建置和執行。 預設值為 Linux AMD64。 
 
-1. 開啟命令選擇區並搜尋 **Azure IoT Edge:Set Default Target Platform for Edge Solution**，選取視窗底部側邊欄的捷徑圖示。 
+1. 開啟命令選擇區並搜尋 **Azure IoT Edge:Set Default Target Platform for Edge Solution**，或選取視窗底部側邊欄的捷徑圖示。 
 
 2. 在命令選擇區中，從選項清單中選取目標架構。 針對此教學課程，我們是使用 Ubuntu 虛擬機器作為 IoT Edge 裝置，因此會保留預設 **amd64**。 
 
@@ -227,7 +227,7 @@ ms.locfileid: "64569463"
 
 1. 選取 [檢視]   > [終端機]  ，以開啟 VS Code 整合式終端機。
 
-1. 在終端機中輸入下列命令來登入 Docker。 使用您 Azure 容器登錄中的使用者名稱、密碼和登入伺服器登入。 您可以在 Azure 入口網站中，從登錄的 [存取金鑰]  區段擷取這些資料。
+1. 在終端機中輸入下列命令來登入 Docker。 使用您 Azure 容器登錄中的使用者名稱、密碼和登入伺服器登入。 您可以在 Azure 入口網站中，從登錄的 [存取金鑰]  區段擷取這些值。
      
    ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -237,7 +237,7 @@ ms.locfileid: "64569463"
 
 2. 在 VS Code 總管中，以滑鼠右鍵按一下 **deployment.template.json** 檔案，然後選取 [建置並推送 IoT Edge 解決方案]  。
 
-   建置和推送命令會啟動三項作業。 首先，它會在名為 **config** 的解決方案中建立新資料夾，以保存完整部署資訊清單 (根據部署範本中的資訊建立)，以及其他解決方案檔案。 接著，它會執行 `docker build`，以根據目標架構的適當 dockerfile 建置容器映像。 然後，它會執行 `docker push` 以將映像存放庫推送至容器登錄。
+   建置和推送命令會啟動三項作業。 首先，它會在解決方案中建立名為 **config** 的新資料夾，以保存完整部署資訊清單 (根據部署範本中的資訊建立)，以及其他解決方案檔案。 接著，它會執行 `docker build`，以根據目標架構的適當 dockerfile 建置容器映像。 然後，它會執行 `docker push` 以將映像存放庫推送至您的容器登錄。
 
 ## <a name="deploy-modules-to-device"></a>將模組部署到裝置
 
@@ -259,7 +259,7 @@ ms.locfileid: "64569463"
 
 您可以使用 Visual Studio Code 總管的 [Azure IoT 中樞裝置]  區段，檢視 IoT Edge 裝置的狀態。 請展開裝置的詳細資料，以查看已部署且執行中的模組清單。
 
-1. 在 Visual Studio Code 總管中，以滑鼠右鍵按一下 IoT Edge 裝置的名稱，然後選取 [開始監視 D2C 訊息]  。
+1. 在 Visual Studio Code 總管中，以滑鼠右鍵按一下 IoT Edge 裝置的名稱，然後選取 [開始監視內建事件端點]  。
 
 2. 檢視送達 IoT 中樞的訊息。 訊息可能需要一段時間才能送達，因為 IoT Edge 裝置必須接收其新的部署和啟動所有模組。 然後，我們對 JavaModule 程式碼所做的變更會等到機器溫度達到 25 度時才會傳送訊息。 它也會將 [警示]  訊息類型新增至任何觸達該溫度閾值的訊息。 
 
@@ -275,10 +275,10 @@ ms.locfileid: "64569463"
 
 4. 儲存模組對應項檔案。
 
-5. 以滑鼠右鍵按一下模組對應項編輯窗格中的任意處，然後選取 [更新模組對應項]  。 
+5. 以滑鼠右鍵按一下模組對應項編輯窗格中的任意位置，然後選取 [更新模組對應項]  。 
 
-5. 監視傳入的裝置到雲端訊息。 在新的溫度閾值送達前，您應該會看到訊息停止。 
- 
+6. 監視傳入的裝置到雲端訊息。 在新的溫度閾值送達前，您應該會看到訊息停止。 
+
 ## <a name="clean-up-resources"></a>清除資源 
 
 如果您打算繼續閱讀下一篇建議的文章，則可以保留您所建立的資源和組態，並加以重複使用。 您可以也繼續使用相同的 IoT Edge 裝置作為測試裝置。 

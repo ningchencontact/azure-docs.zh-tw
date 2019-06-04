@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 17bb5f5d8fe7ee407caf0ea5c34dc5380dbd79b0
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5bc326bbc16ef93d484425f26b6f8226150c77c6
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670297"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302430"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>教學課程：將應用程式部署在 Service Fabric 獨立叢集上
 
@@ -38,7 +38,7 @@ Service Fabric 獨立叢集讓您能夠選擇自己的環境，並且在 Service
 
 開始進行本教學課程之前：
 
-* [安裝 Visual Studio 2017](https://www.visualstudio.com/) 並安裝 **Azure 開發**以及 **ASP.NET 和 Web 開發**工作負載。
+* [安裝 Visual Studio 2019](https://www.visualstudio.com/)，並安裝 **Azure 開發**以及 **ASP.NET 和 Web 開發**工作負載。
 * [安裝 Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="download-the-voting-sample-application"></a>下載投票應用程式範例
@@ -55,13 +55,13 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 1. 開啟 Visual Studio
 
-2. 選取 [檔案] > [開啟]
+2. 選取 [檔案]   > [開啟] 
 
 3. 瀏覽至您複製 git 存放庫的資料夾，並選取 Voting.sln
 
-4. 以滑鼠右鍵按一下 [方案總管] 中的 `Voting` 應用程式專案，然後選擇 [發佈]。
+4. 以滑鼠右鍵按一下 [方案總管] 中的 `Voting` 應用程式專案，然後選擇 [發佈]  。
 
-5. 選取 [連線端點] 的下拉式清單，並輸入叢集中一個節點的公開 DNS 名稱。  例如， `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`
+5. 選取 [連線端點]  的下拉式清單，並輸入叢集中一個節點的公開 DNS 名稱。  例如， `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`
 
 6. 開啟您偏好的瀏覽器，並輸入叢集位址 (連線端點，此應用程式部署於連接埠 8080 - 例如 ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080)。
 

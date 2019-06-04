@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: d98fd0c3417d54321c492b1e47679ec63f8c1603
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: b9ced0b08ed26057a45959f759fb90cbd7efe2a5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835172"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239808"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>教學課程：開發適用於 Linux 裝置的 C# IoT Edge 模組
 
@@ -50,7 +50,7 @@ ms.locfileid: "65835172"
 * Azure 中的免費或標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
 * [執行 Azure IoT Edge 的 Linux 裝置](quickstart-linux.md)。
 * 容器登錄，像是 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)。
-* 已設定 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)擴充功能的 [Visual Studio Code](https://code.visualstudio.com/)。
+* 已設定 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 的 [Visual Studio Code](https://code.visualstudio.com/)。
 * [Docker CE](https://docs.docker.com/install/) 設定為執行 Linux 容器。
 
 若要完成下列教學課程，請在您的開發機器上備妥下列其他必要條件： 
@@ -298,7 +298,7 @@ ms.locfileid: "65835172"
 
 您可以使用 Visual Studio Code 總管的 [Azure IoT 中樞裝置]  區段，檢視 IoT Edge 裝置的狀態。 請展開裝置的詳細資料，以查看已部署且執行中的模組清單。
 
-1. 在 Visual Studio Code 總管中，以滑鼠右鍵按一下 IoT Edge 裝置的名稱，然後選取 [開始監視 D2C 訊息]  。
+1. 在 Visual Studio Code 總管中，以滑鼠右鍵按一下 IoT Edge 裝置的名稱，然後選取 [開始監視內建事件端點]  。
 
 2. 檢視送達 IoT 中樞的訊息。 訊息可能需要一段時間才能送達，因為 IoT Edge 裝置必須接收其新的部署和啟動所有模組。 然後，我們對 CModule 程式碼所做的變更會等到機器溫度達到 25 度時才會傳送訊息。 它也會將 [警示]  訊息類型新增至任何觸達該溫度閾值的訊息。 
 

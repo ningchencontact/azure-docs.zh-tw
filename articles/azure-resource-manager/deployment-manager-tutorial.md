@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/02/2019
+ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a4f14a1e68042704ca8e8c49f1bd76b722c90d4d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: aa58d0405176a63ff9d1cc25b572f3f3754dbbdc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466308"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238859"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>教學課程：使用 Azure 部署管理員搭配 Resource Manager 範本 (公開預覽)
 
@@ -55,7 +55,6 @@ ms.locfileid: "65466308"
 若要完成本文，您需要：
 
 * 開發 [Azure Resource Manager 範本](./resource-group-overview.md)的某些體驗。
-* Azure Deployment Manager 為個人預覽版。 若要使用 Azure 部署管理員進行註冊，請填寫[註冊表](https://aka.ms/admsignup)。 
 * Azure PowerShell。 如需詳細資訊，請參閱[開始使用 Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
 * 部署管理員 Cmdlet。 若要安裝這些發行前版本的 Cmdlet，您需要最新版的 PowerShellGet。 若要取得最新版本，請參閱[安裝 PowerShellGet](/powershell/gallery/installing-psget)。 安裝 PowerShellGet 之後，請關閉 PowerShell 視窗。 開啟已提升權限的新 PowerShell 視窗，然後使用下列命令：
 
@@ -106,18 +105,18 @@ ms.locfileid: "65466308"
 
 兩個版本 (1.0.0.0 和 1.0.0.1) 會用於[修訂部署](#deploy-the-revision)。 雖然範本成品和二進位成品都有兩個版本，但只有二進位成品的兩個版本會有不同。 在實務上，二進位成品會比較範本成品更頻繁地更新。
 
-1. 在文字編輯器中開啟 **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json**。 這是用來建立儲存體帳戶的基本範本。  
-2. 開啟 **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**。 
+1. 在文字編輯器中開啟 **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json**。 這是用來建立儲存體帳戶的基本範本。
+2. 開啟 **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**。
 
     ![Azure 部署管理員教學課程建立 Web 應用程式範本](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
     範本會呼叫部署套件，其中包含 Web 應用程式的檔案。 在本教學課程中，壓縮套件僅包含 index.html 檔案。
-3. 開啟 **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**。 
+3. 開啟 **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**。
 
     ![Azure 部署管理員教學課程建立 Web 應用程式範本參數 containerRoot](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
 
     deployPackageUri 的值是部署套件的路徑。 此參數包含 **$containerRoot** 變數。 $containerRoot 的值會藉由串連成品來源 SAS 位置、成品根目錄和 deployPackageUri 提供於[首度發行範本](#create-the-rollout-template)中。
-4. 開啟 **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**。  
+4. 開啟 **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**。
 
     ```html
     <html>
@@ -142,9 +141,9 @@ ms.locfileid: "65466308"
 4. 使用下列指示取得容器的 SAS 位置：
 
     1. 在 Azure 儲存體總管中，瀏覽至 Blob 容器。
-    2. 在左窗格中以滑鼠右鍵按一下 Blob 容器，然後選取 [取得共用存取簽章]。
-    3. 設定 [開始時間] 和 [到期時間]。
-    4. 選取 [建立] 。
+    2. 在左窗格中以滑鼠右鍵按一下 Blob 容器，然後選取 [取得共用存取簽章]  。
+    3. 設定 [開始時間]  和 [到期時間]  。
+    4. 選取 [建立]  。
     5. 複製 URL。 此 URL 必須填入下列兩個參數檔案的欄位中：[拓樸參數檔案](#topology-parameters-file)和[首度發行參數檔案](#rollout-parameters-file)。
 
 ## <a name="create-the-user-assigned-managed-identity"></a>建立使用者指派的受控識別
@@ -158,14 +157,14 @@ ms.locfileid: "65466308"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 建立[使用者指派的受控識別](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)。
-3. 在入口網站中，從左側功能表中選取 [訂用帳戶]，然後選取您的訂用帳戶。
-4. 選取 [存取控制 (IAM)]，然後選取 [新增角色指派]。
+3. 在入口網站中，從左側功能表中選取 [訂用帳戶]  ，然後選取您的訂用帳戶。
+4. 選取 [存取控制 (IAM)]  ，然後選取 [新增角色指派]  。
 5. 輸入或選取下列值：
 
     ![Azure 部署管理員教學課程指派使用者的受控識別存取控制](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-access-control.png)
 
-    * **角色**：授與足夠的權限以完成成品部署 (Web 應用程式和儲存體帳戶)。 在本教學課程中請選取 [參與者]。 在實務上，您可以限定為最低權限。
-    * **存取權指派對象**：選取 [使用者指派的受控識別]。
+    * **角色**：授與足夠的權限以完成成品部署 (Web 應用程式和儲存體帳戶)。 在本教學課程中請選取 [參與者]  。 在實務上，您可以限定為最低權限。
+    * **存取權指派對象**：選取 [使用者指派的受控識別]  。
     * 選取您在先前本教學課程中建立的使用者指派受控識別。
 6. 選取 [ **儲存**]。
 
@@ -257,7 +256,7 @@ ms.locfileid: "65466308"
 
 ![Azure 部署管理員教學課程首度發行範本資源等候步驟](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-resources-wait-step.png)
 
-持續時間採用 [ISO 8601 標準](https://en.wikipedia.org/wiki/ISO_8601#Durations)。 **PT1M** (必須使用大寫字母) 是等候 1 分鐘的範例。 
+持續時間採用 [ISO 8601 標準](https://en.wikipedia.org/wiki/ISO_8601#Durations)。 **PT1M** (必須使用大寫字母) 是等候 1 分鐘的範例。
 
 下列螢幕擷取畫面僅顯示首度發行定義的某些部分：
 
@@ -292,13 +291,13 @@ ms.locfileid: "65466308"
 
 ## <a name="deploy-the-templates"></a>部署範本
 
-Azure PowerShell 可用來部署範本。 
+Azure PowerShell 可用來部署範本。
 
 1. 執行部署服務拓撲的指令碼。
 
     ```azurepowershell
     $resourceGroupName = "<Enter a Resource Group Name>"
-    $location = "Central US"  
+    $location = "Central US"
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
 
     # Create a resource group
@@ -318,7 +317,7 @@ Azure PowerShell 可用來部署範本。
 
     ![Azure 部署管理員教學課程已部署的服務拓撲資源](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-deployed-topology-resources.png)
 
-    必須選取 [顯示隱藏的類型] 才能檢視資源。
+    必須選取 [顯示隱藏的類型]  才能檢視資源。
 
 3. <a id="deploy-the-rollout-template"></a>部署首度發行範本：
 
@@ -422,15 +421,15 @@ Azure PowerShell 可用來部署範本。
 
 不再需要 Azure 資源時，可藉由刪除資源群組來清除您所部署的資源。
 
-1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]。
-2. 使用 [依名稱篩選] 欄位，縮減在本教學課程中建立的資源群組數目。 應該會有 3-4 個：
+1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]  。
+2. 使用 [依名稱篩選]  欄位，縮減在本教學課程中建立的資源群組數目。 應該會有 3-4 個：
 
     * **&lt;namePrefix>rg**：包含部署管理員資源。
     * **&lt;namePrefix>ServiceWUSrg**：包含 ServiceWUS 所定義的資源。
     * **&lt;namePrefix>ServiceEUSrg**：包含 ServiceEUS 所定義的資源。
     * 使用者定義受控識別的資源群組。
-3. 選取資源群組名稱。  
-4. 從頂端功能表中選取 [刪除資源群組]。
+3. 選取資源群組名稱。
+4. 從頂端功能表中選取 [刪除資源群組]  。
 5. 重複最後兩個步驟，刪除本教學課程所建立的其他資源群組。
 
 ## <a name="next-steps"></a>後續步驟

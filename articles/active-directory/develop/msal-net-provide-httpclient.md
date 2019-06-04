@@ -17,15 +17,15 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 234c9d0724021017ec8c411d637420b05284ea52
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 72ab8a85ecc5649352382469e09d7dfd83a5ddfa
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544166"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305730"
 ---
 # <a name="providing-your-own-httpclient-and-proxy-using-msalnet"></a>使用 MSAL.NET 提供您自己的 HttpClient 和 Proxy
-將公用用戶端應用程式初始化時，您可以使用 `.WithHttpClientFactory method` 來提供自己的 HttpClient。  提供您自己的 HttpClient 會啟用如下的進階案例：精確控制 HTTP Proxy、自訂使用者代理程式標頭，或強制 MSAL 使用特定的 HttpClient (例如，在 ASP.NET Core Web 應用程式/API 中)。
+[將公用用戶端應用程式初始化](msal-net-initializing-client-applications.md)時，您可以使用 `.WithHttpClientFactory method` 來提供自己的 HttpClient。  提供您自己的 HttpClient 會啟用如下的進階案例：精確控制 HTTP Proxy、自訂使用者代理程式標頭，或強制 MSAL 使用特定的 HttpClient (例如，在 ASP.NET Core Web 應用程式/API 中)。
 
 ## <a name="initialize-with-httpclientfactory"></a>使用 HttpClientFactory 初始化
 下列範例示範如何建立 `HttpClientFactory`，然後使用它來將公用用戶端應用程式初始化：

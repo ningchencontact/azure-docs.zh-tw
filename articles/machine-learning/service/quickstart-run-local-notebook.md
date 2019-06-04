@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53e495a3c2d82738e1008ead84a4124e44435c9a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: c814f4bb0cc24350e45400d141c97d1b2eb4998d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864370"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237803"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>快速入門：使用您自有的 Notebook 伺服器來開始使用 Azure Machine Learning
 
@@ -33,14 +33,29 @@ ms.locfileid: "65864370"
 
 * 已安裝 Azure Machine Learning SDK 的 Python 3.6 Notebook 伺服器
 * Azure Machine Learning 服務工作區
-* 工作區組態檔 ( **.azureml/config.json**)。
+* 工作區設定檔 ( **.azureml/config.json**)。
 
-從[建立 Azure Machine Learning 服務工作區](setup-create-workspace.md#portal)取得上述所有必要條件。
+從[建立 Azure Machine Learning 服務工作區](setup-create-workspace.md#sdk)取得上述所有必要條件。
+
 
 
 ## <a name="use-the-workspace"></a>使用工作區
 
-在與工作區組態檔相同的目錄中建立指令碼或啟動 Notebook。 執行使用基本 SDK API 的程式碼以追蹤實驗執行。
+在與工作區設定檔 ( **.azureml/config.json**) 相同的目錄中建立指令碼或啟動 Notebook。
+
+### <a name="attach-to-workspace"></a>連結到工作區
+
+此程式碼會從設定檔讀取資訊以連結到工作區。
+
+```
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+### <a name="log-values"></a>記錄值
+
+執行使用基本 SDK API 的程式碼以追蹤實驗執行。
 
 1. 在工作區中建立實驗。
 1. 將單一值記錄到實驗中。

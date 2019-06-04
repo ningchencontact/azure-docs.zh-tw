@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 01/03/2019
+ms.date: 05/24/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 498dd3be75cb27263c811d9db541b2e040599156
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e8a68ca87307e1265c200f2e05464ff87983c1e6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788013"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258414"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob 儲存體簡介
 
@@ -68,8 +68,8 @@ Azure 儲存體支援三種 blob 類型：
 - **Azure 儲存體資料移動程式庫**是用於在 Azure 儲存體服務之間移動資料的 .NET 程式庫。 AzCopy 公用程式已內建資料移動程式庫。 如需詳細資訊，請參閱資料移動程式庫的[參考文件](/dotnet/api/microsoft.azure.storage.datamovement)。 
 - **Azure Data Factory**使用「帳戶金鑰」、「共用存取簽章」、「服務主體」或「Azure 資源的受控識別」驗證來複製資料至 Blob 儲存體，或從該處複製資料。 如需詳細資訊，請參閱[使用 Azure Data Factory 將資料複製到 Azure Blob 或從該處複製資料](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。 
 - **Blobfuse** 是 Azure Blob 儲存體的虛擬檔案系統驅動程式。 您可以使用 Blobfuse 透過 Linux 檔案系統存取您儲存體帳戶中現有的區塊 Blob 資料。 如何詳細資訊，請參閱[如何使用 Blobfuse 將 Blob 儲存體掛接為檔案系統](storage-how-to-mount-container-linux.md)。
-- **Azure 資料箱磁碟**是一項服務，可在因為要上傳大型資料集，或因網路限制而難以透過網路上傳資料時，將內部部署資料傳輸至 Blob 儲存體。 您可以使用 [Azure 資料箱磁碟](../../databox/data-box-disk-overview.md)要求 Microsoft 提供固態硬碟 (SSD)。 接著，您可以將資料複製到這些磁碟，並將其寄回給 Microsoft，以上傳至 Blob 儲存體。
-- **Azure 匯入/匯出服務**提供一種方便的方式，可讓您從儲存體帳戶將大量資料匯出至您自行提供的硬碟，並由 Microsoft 在完成資料移轉作業後，將硬碟和資料寄回去給您。 如需詳細資訊，請參閱[使用 Microsoft Azure 匯入/匯出服務將資料移轉至 Blob 儲存體](../common/storage-import-export-service.md)。
+- **Azure 資料箱**服務可在因為要上傳大型資料集，或因網路限制而難以透過網路上傳資料時，將內部部署資料傳輸至 Blob 儲存體。 根據您的資料大小，您可以向 Microsoft 要求 [Azure 資料箱磁碟](../../databox/data-box-disk-overview.md)、[Azure 資料箱](../../databox/data-box-overview.md)或 [Azure Data Box Heavy](../../databox/data-box-heavy-overview.md)。 接著，您可以將資料複製到這些裝置，並將其寄回給 Microsoft，以上傳至 Blob 儲存體。
+- **Azure 匯入/匯出服務**提供一種方便的方式，可讓您使用自行提供的硬碟在儲存體帳戶中匯入或匯出大量資料。 如需詳細資訊，請參閱[使用 Microsoft Azure 匯入/匯出服務將資料移轉至 Blob 儲存體](../common/storage-import-export-service.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

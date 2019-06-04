@@ -4,14 +4,14 @@ description: 了解如何在 Azure Cosmos DB 中管理一致性
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/17/2019
+ms.date: 05/23/2019
 ms.author: rimman
-ms.openlocfilehash: 4a444631de4bc26881ab195333b1b798a7ee6719
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 68a1a757b5c5e4ce63d7f12a8502d57942d4ec42
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925323"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240903"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的一致性層級
 
@@ -35,7 +35,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### <a name="powershell"></a>PowerShell
 
-這個範例會建立新的 Azure Cosmos 帳戶，並在主美國東部和美國西部區域中啟用多個寫入區域。 預設一致性層級會設定為「工作階段」一致性。
+這個範例會建立新的 Azure Cosmos 帳戶，並在主美國東部和美國西部區域中啟用多個寫入區域。 預設一致性層級會設定為「工作階段」  一致性。
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -61,7 +61,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-若要檢視或修改預設一致性層級，請登入 Azure 入口網站。 尋找您的 Azure Cosmos 帳戶，然後開啟 [預設一致性] 窗格。 選取要作為新預設值的一致性層級，然後選取 [儲存]。
+若要檢視或修改預設一致性層級，請登入 Azure 入口網站。 尋找您的 Azure Cosmos 帳戶，然後開啟 [預設一致性]  窗格。 選取要作為新預設值的一致性層級，然後選取 [儲存]  。 Azure 入口網站也會提供不同一致性層級 (含音符) 的視覺效果。 
 
 ![Azure 入口網站中的一致性功能表](./media/how-to-manage-consistency/consistency-settings.png)
 
@@ -132,7 +132,7 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ## <a name="utilize-session-tokens"></a>使用工作階段權杖
 
-Azure Cosmos DB 中的其中一個一致性層級是「工作階段」一致性。 這是預設套用至 Cosmos 帳戶的預設層級。 使用「工作階段」一致性時，用戶端會搭配每個讀取/查詢要求在內部使用工作階段權杖，以確保維持已設定的一致性層級。
+Azure Cosmos DB 中的其中一個一致性層級是「工作階段」  一致性。 這是預設套用至 Cosmos 帳戶的預設層級。 使用「工作階段」  一致性時，用戶端會搭配每個讀取/查詢要求在內部使用工作階段權杖，以確保維持已設定的一致性層級。
 
 若要手動管理工作階段權杖，請從回應中取得工作階段權杖，並就個別要求加以設定。 如果不需要手動管理工作階段權杖，則不需要使用下列範例。 SDK 會自動持續追蹤工作階段權杖。 如果未手動設定工作階段權杖，則 SDK 預設會使用最新的工作階段權杖。
 
@@ -211,7 +211,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>監視機率限定過期 (PBS) 計量
 
-最終一致性的界定標準為何？ 針對平均案例，我們可根據版本記錄和時間來提供過期界限。 [**機率限定過期 (PBS)**](https://pbs.cs.berkeley.edu/) 計量會嘗試量化過期的機率，並將其顯示為計量。 若要檢視 PBS 計量，請在 Azure 入口網站中移至您的 Azure Cosmos 帳戶。 開啟 [計量] 窗格，然後選取 [一致性] 索引標籤。查看名為「依據您的工作負載，強式一致讀取的可能性 (請參閱 PBS)」的圖形。
+最終一致性的界定標準為何？ 針對平均案例，我們可根據版本記錄和時間來提供過期界限。 [**機率限定過期 (PBS)** ](https://pbs.cs.berkeley.edu/) 計量會嘗試量化過期的機率，並將其顯示為計量。 若要檢視 PBS 計量，請在 Azure 入口網站中移至您的 Azure Cosmos 帳戶。 開啟 [計量]  窗格，然後選取 [一致性]  索引標籤。查看名為「依據您的工作負載，強式一致讀取的可能性 (請參閱 PBS)」  的圖形。
 
 ![Azure 入口網站中的 PBS 圖形](./media/how-to-manage-consistency/pbs-metric.png)
 

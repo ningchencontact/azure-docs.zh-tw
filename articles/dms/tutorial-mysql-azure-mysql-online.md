@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 409fa3a501b80e225fff299980f374f73f0dbf13
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 05/24/2019
+ms.openlocfilehash: 5a35df5b72f51f4ef725b3d764e7dc2c80c19ec2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415720"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240757"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>教學課程：使用 DMS 在線上將 MySQL 移轉至適用於 MySQL 的 Azure 資料庫
 
@@ -24,6 +24,7 @@ ms.locfileid: "65415720"
 
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
+>
 > * 使用 mysqldump 公用程式移轉範例結構描述。
 > * 建立 Azure 資料庫移轉服務的執行個體。
 > * 使用 Azure 資料庫移轉服務來建立移轉專案。
@@ -67,20 +68,18 @@ ms.locfileid: "65415720"
 
 * 使用下列組態，在來源資料庫的 my.ini (Windows) 或 my.cnf (Unix) 檔案中啟用二進位記錄：
 
-    * **server_id** = 1 或更大 (僅與 MySQL 5.6 有關)
-    * **log-bin** =\<path> (僅與 MySQL 5.6 有關)
-
-        例如：log-bin = E:\MySQL_logs\BinLog
-    * **binlog_format** = row
-    * **Expire_logs_days** = 5 (建議不要使用零；僅與 MySQL 5.6 有關)
-    * **Binlog_row_image** = full (僅與 MySQL 5.6 有關)
-    * **log_slave_updates** = 1
+  * **server_id** = 1 或更大 (僅與 MySQL 5.6 有關)
+  * **log-bin** =\<path> (relevant only for MySQL 5.6)    例如：log-bin = E:\MySQL_logs\BinLog
+  * **binlog_format** = row
+  * **Expire_logs_days** = 5 (建議不要使用零；僅與 MySQL 5.6 有關)
+  * **Binlog_row_image** = full (僅與 MySQL 5.6 有關)
+  * **log_slave_updates** = 1
 
 * 使用者必須有具備下列權限的 ReplicationAdmin 角色：
 
-    * **REPLICATION CLIENT** - 只有變更處理工作需要此權限。 換句話說，「僅限完整載入」工作並不需要此權限。
-    * **REPLICATION REPLICA** - 只有變更處理工作需要此權限。 換句話說，「僅限完整載入」工作並不需要此權限。
-    * **SUPER** - 只有 MySQL 5.6.6 之前的版本需要此權限。
+  * **REPLICATION CLIENT** - 只有變更處理工作需要此權限。 換句話說，「僅限完整載入」工作並不需要此權限。
+  * **REPLICATION REPLICA** - 只有變更處理工作需要此權限。 換句話說，「僅限完整載入」工作並不需要此權限。
+  * **SUPER** - 只有 MySQL 5.6.6 之前的版本需要此權限。
 
 ## <a name="migrate-the-sample-schema"></a>移轉範例結構描述
 
@@ -145,29 +144,29 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>註冊 Microsoft.DataMigration 資源提供者
 
-1. 登入 Azure 入口網站，選取 [所有服務]，然後選取 [訂用帳戶]。
+1. 登入 Azure 入口網站，選取 [所有服務]  ，然後選取 [訂用帳戶]  。
 
    ![顯示入口網站訂用帳戶](media/tutorial-mysql-to-azure-mysql-online/portal-select-subscriptions.png)
 
-2. 選取您要在其中建立 Azure 資料庫移轉服務執行個體的訂用帳戶，然後選取 [資源提供者]。
+2. 選取您要在其中建立 Azure 資料庫移轉服務執行個體的訂用帳戶，然後選取 [資源提供者]  。
 
     ![顯示資源提供者](media/tutorial-mysql-to-azure-mysql-online/portal-select-resource-provider.png)
 
-3. 搜尋移轉，然後在 [Microsoft.DataMigration] 的右邊，選取 [註冊]。
+3. 搜尋移轉，然後在 [Microsoft.DataMigration]  的右邊，選取 [註冊]  。
 
     ![註冊資源提供者](media/tutorial-mysql-to-azure-mysql-online/portal-register-resource-provider.png)
 
 ## <a name="create-a-dms-instance"></a>建立 DMS 執行個體
 
-1. 在 Azure 入口網站中，選取 [+ 建立資源]，搜尋「Azure 資料庫移轉服務」，然後從下拉式清單選取 [Azure 資料庫移轉服務]。
+1. 在 Azure 入口網站中，選取 [+ 建立資源]  ，搜尋「Azure 資料庫移轉服務」，然後從下拉式清單選取 [Azure 資料庫移轉服務]  。
 
     ![Azure Marketplace](media/tutorial-mysql-to-azure-mysql-online/portal-marketplace.png)
 
-2. 在 [Azure 資料庫移轉服務] 畫面上，選取 [建立]。
+2. 在 [Azure 資料庫移轉服務]  畫面上，選取 [建立]  。
 
     ![建立 Azure 資料庫移轉服務執行個體](media/tutorial-mysql-to-azure-mysql-online/dms-create1.png)
   
-3. 在 [建立移轉服務] 畫面上，指定服務的名稱、訂用帳戶，以及新的或現有的資源群組。
+3. 在 [建立移轉服務]  畫面上，指定服務的名稱、訂用帳戶，以及新的或現有的資源群組。
 
 4. 選取現有 VNet 或建立新的 VNet。
 
@@ -181,66 +180,66 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
     ![設定 Azure 資料庫移轉服務執行個體設定](media/tutorial-mysql-to-azure-mysql-online/dms-settings3.png)
 
-6. 選取 [建立] 以建立服務。
+6. 選取 [建立]  以建立服務。
 
 ## <a name="create-a-migration-project"></a>建立移轉專案
 
 建立服務之後，請在 Azure 入口網站中找出該服務，然後建立新的移轉專案。
 
-1. 在 Azure 入口網站中，選取 [所有服務]，搜尋 Azure 資料庫移轉服務，然後選取 [Azure 資料庫移轉服務]。
+1. 在 Azure 入口網站中，選取 [所有服務]  ，搜尋 Azure 資料庫移轉服務，然後選取 [Azure 資料庫移轉服務]  。
 
       ![找出 Azure 資料庫移轉服務的所有執行個體](media/tutorial-mysql-to-azure-mysql-online/dms-search.png)
 
-2. 在 [Azure 資料庫移轉服務] 畫面上，搜尋您建立的 Azure 資料庫移轉服務執行個體名稱，然後選取該執行個體。
+2. 在 [Azure 資料庫移轉服務]  畫面上，搜尋您建立的 Azure 資料庫移轉服務執行個體名稱，然後選取該執行個體。
 
-     ![找出您的 Azure 資料庫移轉服務執行個體](media/tutorial-mysql-to-azure-mysql-online/dms-instance-search.png)
+     ![找出 Azure 資料庫移轉服務的執行個體](media/tutorial-mysql-to-azure-mysql-online/dms-instance-search.png)
 
-3. 選取 [+ 新增移轉專案]。
-4. 在 [新增移轉專案] 畫面上指定專案名稱，並在 [來源伺服器類型] 文字方塊中中選取 [MySQL]，然後在 [目標伺服器類型] 文字方塊中選取 [AzureDbForMySQL]。
-5. 在 [選擇活動類型] 區段中，選取 [線上資料移轉]
+3. 選取 [+ 新增移轉專案]  。
+4. 在 [新增移轉專案]  畫面上指定專案名稱，並在 [來源伺服器類型]  文字方塊中中選取 [MySQL]  ，然後在 [目標伺服器類型]  文字方塊中選取 [AzureDbForMySQL]  。
+5. 在 [選擇活動類型]  區段中，選取 [線上資料移轉] 
 
     ![建立資料庫移轉服務專案](media/tutorial-mysql-to-azure-mysql-online/dms-create-project4.png)
 
     > [!NOTE]
-    > 或者，您可以選擇 [僅建立專案] 以立即建立移轉專案，並於後續再執行移轉。
+    > 或者，您可以選擇 [僅建立專案]  以立即建立移轉專案，並於後續再執行移轉。
 
-6. 選取 [儲存]，並記下使用 DMS 成功移轉資料的需求，然後選取 [建立及執行活動]。
+6. 選取 [儲存]  ，並記下使用 DMS 成功移轉資料的需求，然後選取 [建立及執行活動]  。
 
 ## <a name="specify-source-details"></a>指定來源詳細資料
 
-1. 在 [新增來源詳細資料] 畫面上，指定來源 MySQL 執行個體的連線詳細資料。
+1. 在 [新增來源詳細資料]  畫面上，指定來源 MySQL 執行個體的連線詳細資料。
 
     ![新增來源詳細資料畫面](media/tutorial-mysql-to-azure-mysql-online/dms-add-source-details.png)
 
 ## <a name="specify-target-details"></a>指定目標詳細資料
 
-1. 選取 [儲存]，然後在 [目標詳細資料] 畫面上指定目標「適用於 MySQL 的 Azure 資料庫」伺服器的連線詳細資料；此伺服器是使用 mysqldump 將 **Employees** 結構描述部署到的預先佈建「適用於 MySQL 的 Azure 資料庫」執行個體。
+1. 選取 [儲存]  ，然後在 [目標詳細資料]  畫面上指定目標「適用於 MySQL 的 Azure 資料庫」伺服器的連線詳細資料；此伺服器是使用 mysqldump 將 **Employees** 結構描述部署到的預先佈建「適用於 MySQL 的 Azure 資料庫」執行個體。
 
     ![目標詳細資料畫面](media/tutorial-mysql-to-azure-mysql-online/dms-add-target-details.png)
 
-2. 選取 [儲存]，然後在 [對應到目標資料庫] 畫面上，對應要進行移轉的來源和目標資料庫。
+2. 選取 [儲存]  ，然後在 [對應到目標資料庫]  畫面上，對應要進行移轉的來源和目標資料庫。
 
     如果目標資料庫包含與來源資料庫相同的資料庫名稱，Azure 資料庫移轉服務依預設會選取目標資料庫。
 
     ![對應到目標資料庫](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
 
-3. 選取 [儲存]，在 [移轉摘要] 畫面的 [活動名稱] 文字方塊中，指定移轉活動的名稱，然後檢閱摘要，以確定來源和目標詳細資料都與您先前的指定相符。
+3. 選取 [儲存]  ，在 [移轉摘要]  畫面的 [活動名稱]  文字方塊中，指定移轉活動的名稱，然後檢閱摘要，以確定來源和目標詳細資料都與您先前的指定相符。
 
     ![移轉摘要](media/tutorial-mysql-to-azure-mysql-online/dms-migration-summary.png)
 
 ## <a name="run-the-migration"></a>執行移轉
 
-* 選取 [執行移轉]。
+* 選取 [執行移轉]  。
 
-    [移轉活動] 視窗隨即出現，且活動的 [狀態] 為 [正在初始化]。
+    [移轉活動] 視窗隨即出現，且活動的 [狀態]  為 [正在初始化]  。
 
 ## <a name="monitor-the-migration"></a>監視移轉
 
-1. 在移轉活動畫面上，選取 [重新整理] 以更新顯示，直到移轉的 [狀態] 顯示為 [完成] 為止。
+1. 在移轉活動畫面上，選取 [重新整理]  以更新顯示，直到移轉的 [狀態]  顯示為 [完成]  為止。
 
      ![活動狀態 - 完成](media/tutorial-mysql-to-azure-mysql-online/dms-activity-completed.png)
 
-2. 在 [資料庫名稱] 下方選取特定資料庫，以顯示 [載入完整資料] 和 [累加式資料同步] 作業的移轉狀態。
+2. 在 [資料庫名稱]  下方選取特定資料庫，以顯示 [載入完整資料]  和 [累加式資料同步]  作業的移轉狀態。
 
     完整資料載入會顯示初始載入移轉狀態，而累加式資料同步會顯示異動資料擷取 (CDC) 狀態。
 
@@ -250,18 +249,18 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
 ## <a name="perform-migration-cutover"></a>執行完全移轉
 
-初始完整載入完成後，資料庫會標示為 [已可執行完全移轉]。
+初始完整載入完成後，資料庫會標示為 [已可執行完全移轉]  。
 
-1. 當您準備好要完成資料庫移轉後，請選取 [開始完全移轉]。
+1. 當您準備好要完成資料庫移轉後，請選取 [開始完全移轉]  。
 
     ![開始完全移轉](media/tutorial-mysql-to-azure-mysql-online/dms-start-cutover.png)
 
-2. 確實停止所有傳入來源資料庫的交易；等到 [暫止的變更] 計數器顯示為 **0** 為止。
-3. 選取 [確認]，然後選取 [套用]。
-4. 當資料庫移轉狀態顯示為 [已完成] 後，請將應用程式連線至新的目標 Azure SQL Database。
+2. 確實停止所有傳入來源資料庫的交易；等到 [暫止的變更]  計數器顯示為 **0** 為止。
+3. 選取 [確認]  ，然後選取 [套用]  。
+4. 當資料庫移轉狀態顯示為 [已完成]  後，請將應用程式連線至新的目標 Azure SQL Database。
 
 ## <a name="next-steps"></a>後續步驟
 
 * 如需在線上移轉至「適用於 MySQL 的 Azure 資料庫」時的已知問題和限制，請參閱[適用於 MySQL 的 Azure 資料庫線上移轉的已知問題和因應措施](known-issues-azure-mysql-online.md)一文。
 * 如需 Azure 資料庫移轉服務的相關資訊，請參閱[什麼是 Azure 資料庫移轉服務？](https://docs.microsoft.com/azure/dms/dms-overview)一文。
-* 如需「適用於 MySQL 的 Azure 資料庫」的相關資訊，請參閱[什麼是適用於 MySQL 的 Azure 資料庫？](https://docs.microsoft.com/azure/mysql/overview)一文。
+* 如需適用於 MySQL 的 Azure 資料庫相關資訊，請參閱[什麼是適用於 MySQL 的 Azure 資料庫？](https://docs.microsoft.com/azure/mysql/overview)一文。

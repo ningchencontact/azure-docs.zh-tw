@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c081a6296e1fae89f24a2c3ddb1ae66f7a3f94aa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: fe01d55b17c0f6f6dd6a621fbac0cf4d3a268ee3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662538"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306773"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>教學課程：在 Linux Service Fabric 叢集上建立容器映像
 
@@ -77,7 +77,7 @@ docker build -t azure-vote-front .
 docker images
 ```
 
-請注意，已下載或建立兩個映像。 azure-vote-front 映像包含應用程式。 它衍生自 Docker Hub 的 python 映像。
+請注意，已下載或建立兩個映像。 azure-vote-front  映像包含應用程式。 它衍生自 Docker Hub 的 python  映像。
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
@@ -102,7 +102,7 @@ az account set --subscription <subscription_id>
 
 部署 Azure Container Registry 時，您必須先有資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
-使用 **az group create** 命令來建立資源群組。 在此範例中，會在 westus 區域中建立名為 myResourceGroup 的資源群組。
+使用 **az group create** 命令來建立資源群組。 在此範例中，會在 westus  區域中建立名為 myResourceGroup  的資源群組。
 
 ```bash
 az group create --name <myResourceGroup> --location westus
@@ -116,9 +116,9 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 在本教學課程的其餘部分，我們使用 "acrName" 作為您選擇之容器登錄名稱的預留位置。 請記住這個值。
 
-## <a name="log-in-to-your-container-registry"></a>登入您的容器登錄
+## <a name="sign-in-to-your-container-registry"></a>登入您的容器登錄
 
-請登入您的 ACR 執行個體，再將映像推送到它。 使用 **az acr login** 命令來完成此作業。 在建立容器登錄時，為它提供唯一名稱。
+請登入您的 ACR 執行個體，再將映像推送到該執行個體。 使用 **az acr login** 命令來完成此作業。 在建立容器登錄時，為它提供唯一名稱。
 
 ```bash
 az acr login --name <acrName>

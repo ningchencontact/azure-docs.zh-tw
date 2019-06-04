@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 7e48684024d370d64f44b55cb4df0efb8f16cd3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8bb8a635c3699828376390c489697b6315030937
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66157955"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306683"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>教學課程：在 Azure 中升級 Service Fabric 叢集的執行階段
 
@@ -55,7 +55,7 @@ ms.locfileid: "66157955"
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * 安裝 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 或 [Azure CLI](/cli/azure/install-azure-cli)。
 * 在 Azure 上建立安全的 [Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* 設定 Windows 開發環境。 安裝 [Visual Studio 2017](https://www.visualstudio.com) 和 **Azure 開發**、**ASP.NET 和 Web 開發**以及 **.NET Core 跨平台開發**工作負載。  然後設定 [.NET 開發環境](service-fabric-get-started.md)。
+* 設定 Windows 開發環境。 安裝 [Visual Studio 2019](https://www.visualstudio.com) 和 **Azure 開發**、**ASP.NET 和 Web 開發**以及 **.NET Core 跨平台開發**工作負載。  然後設定 [.NET 開發環境](service-fabric-get-started.md)。
 
 ### <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -76,7 +76,7 @@ Get-AzServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztes
     | Select-Object ClusterCodeVersion
 ```
 
-或者，您也可以使用下列方法，直接取得訂用帳戶中所有叢集的清單：
+或者，您也可以使用下列範例，直接取得訂用帳戶中所有叢集的清單：
 
 ```powershell
 Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion
@@ -207,8 +207,7 @@ sfctl cluster upgrade-status
 > * 升級叢集執行階段
 > * 對升級進行監視
 
-[!div class="checklist"]
-> * 取得叢集執行階段版本
-> * 升級叢集執行階段
-> * 對升級進行監視
+前進到下一個教學課程：
 
+> [!div class="nextstepaction"]
+> [刪除叢集](service-fabric-tutorial-delete-cluster.md)

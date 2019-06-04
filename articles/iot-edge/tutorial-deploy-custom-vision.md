@@ -9,12 +9,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 194ebcc1f1779c927503e09e9c42a96afddb12c9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a0530739428e18d01209f94345ae53dfb743d80b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575815"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239694"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>教學課程：使用自訂視覺服務在邊緣執行影像分類
 
@@ -173,7 +173,7 @@ Visual Studio Code 視窗會載入 IoT Edge 解決方案工作區。
 
 ### <a name="select-your-target-architecture"></a>選取您的目標架構
 
-目前，Visual Studio Code 可以開發適用於 Linux AMD64 和 Linux ARM32v7 裝置的模組。 您必須為每個解決方案都選取要作為目標的架構，因為容器是針對每個架構類型，以不同方式建置和執行。 預設為 Linux AMD64。 
+目前，Visual Studio Code 可以開發適用於 Linux AMD64 和 Linux ARM32v7 裝置的模組。 您必須為每個解決方案都選取要作為目標的架構，因為容器是針對每個架構類型，以不同方式建置和執行。 預設值為 Linux AMD64。 
 
 1. 開啟命令選擇區並搜尋 **Azure IoT Edge:Set Default Target Platform for Edge Solution**，或選取視窗底部側邊欄的捷徑圖示。 
 
@@ -437,7 +437,7 @@ Visual Studio Code 的 IoT Edge 擴充功能會在每個 IoT Edge 解決方案�
    iotedge logs cameraCapture
    ```
 
-從 Visual Studio Code 中，以滑鼠右鍵按一下 IoT Edge 裝置的名稱，然後選取 [開始監視 D2C 訊息]  。 
+從 Visual Studio Code 中，以滑鼠右鍵按一下 IoT Edge 裝置的名稱，然後選取 [開始監視內建事件端點]  。 
 
 來自自訂視覺模組的結果 (從 cameraCapture 模組以訊息形式傳來)，會包含影像屬於鐵杉還是櫻花的機率。 由於影像是鐵杉，您應該看到機率為 1.0。 
 

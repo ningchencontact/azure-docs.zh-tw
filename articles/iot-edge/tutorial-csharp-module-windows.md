@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 046398af8678e708784614dfdc231778454ed945
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7678415b7ce505da7678a00a4bcf2d933e260530
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576195"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303943"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教學課程：開發適用於 Windows 裝置的 C# IoT Edge 模組
 
@@ -34,11 +34,11 @@ ms.locfileid: "64576195"
 
 ## <a name="solution-scope"></a>解決方案範圍
 
-本教學課程示範如何使用 **Visual Studio 2017** 以 **C#** 開發模組，以及如何將其部署到 **Windows 裝置**。 如果您要開發適用於 Linux 裝置的模組，請改為移至[開發適用於 Linux 裝置的 C# IoT Edge 模組](tutorial-csharp-module.md)。 
+本教學課程示範如何使用 **Visual Studio 2019** 以 **C#** 開發模組，以及如何將其部署到 **Windows 裝置**。 如果您要開發適用於 Linux 裝置的模組，請改為移至[開發適用於 Linux 裝置的 C# IoT Edge 模組](tutorial-csharp-module.md)。 
 
 使用下表來了解開發 C 模組並將其部署到 Windows 裝置的選項： 
 
-| C# | Visual Studio Code | Visual Studio 2017 | 
+| C# | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Windows AMD64 開發** | ![在 VS Code 中開發適用於 WinAMD64 的 C# 模組](./media/tutorial-c-module/green-check.png) | ![在 Visual Studio 中開發適用於 WinAMD64 的 C# 模組](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64 偵錯** |   | ![在 Visual Studio 中對適用於 WinAMD64 的 C# 模組進行偵錯](./media/tutorial-c-module/green-check.png) |
@@ -50,8 +50,11 @@ ms.locfileid: "64576195"
 * Azure 中的免費或標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
 * [執行 Azure IoT Edge 的 Windows 裝置](quickstart.md)。
 * 容器登錄，像是 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)。
-* [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017) 15.7 版或更高版本，其設有 [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) 擴充功能。
+* 已設定 [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) 擴充功能的 [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio)。
 * 已設定要執行 Windows 容器的 [Docker CE](https://docs.docker.com/install/)。
+
+> [!TIP]
+> 如果您使用 Visual Studio 2017 (15.7 或更高版本)，請從 Visual Studio 市集下載並安裝適用於 VS 2017 的 [Azure IoT Edge Tools (預覽)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)
 
 ## <a name="create-a-module-project"></a>建立模組專案
 
@@ -59,21 +62,22 @@ ms.locfileid: "64576195"
 
 ### <a name="create-a-new-project"></a>建立新專案
 
-Azure IoT Tools 擴充功能會針對 Visual Studio 2017 中所有支援的 IoT Edge 模組語言，提供專案範本。 這些範本具有您部署運作中模組以測試 IoT Edge 時需要的所有檔案和程式碼，或可成為您利用自己的商務邏輯自訂此範本的起點。 
+Azure IoT Edge Tools 會針對 Visual Studio 中所有支援的 IoT Edge 模組語言，提供專案範本。 這些範本具有您部署運作中模組以測試 IoT Edge 時需要的所有檔案和程式碼，或可成為您利用自己的商務邏輯自訂此範本的起點。 
 
-1. 以系統管理員身分執行 Visual Studio。
+1. 啟動 Visual Studio 2019，然後選取 [建立新專案]  。
 
-2. 選取 [檔案]   > [新增]   > [專案]  。 
-
-3. 在新的專案視窗中，選取 [Azure IoT]  專案類型，然後選擇 [Azure IoT Edge]  專案。 將專案和解決方案重新命名為 **CSharpTutorialApp** 之類的描述性項目。 選取 [確定]  以建立專案。 
+2. 在新的專案視窗中，搜尋 [IoT Edge]  專案，然後選擇 [Azure IoT Edge (Windows amd64)]  專案。 按 [下一步]  。 
 
    ![建立新的 Azure IoT Edge 專案](./media/tutorial-csharp-module-windows/new-project.png)
+
+3. 在設定新專案的視窗中，將專案和解決方案重新命名為 **CSharpTutorialApp** 之類的描述性項目。 按一下 [建立]  以建立專案。 
+
+   ![設定新的 Azure IoT Edge 專案](./media/tutorial-csharp-module-windows/configure-project.png)
 
 4. 在 IoT Edge 應用程式和模組視窗中，使用下列值設定您的專案： 
 
    | 欄位 | 值 |
    | ----- | ----- |
-   | 應用程式平台 | 取消核取 [Linux Amd64]  ，然後核取 [WindowsAmd64]  。 |
    | 選取範本 | 選取 [C# 模組]  。 | 
    | 模組專案名稱 | 將模組命名為 **CSharpModule**。 | 
    | Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會從模組專案名稱值預先填入容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 <br><br> 最終的映像存放庫看起來類似於：\<登錄名稱\>.azurecr.io/csharpmodule。 |
@@ -296,7 +300,7 @@ The default module code receives messages on an input queue and passes them alon
 
 3. 選取 [建置和推送 IoT Edge 模組]  。 
 
-   建置和推送命令會啟動三項作業。 首先，它會在名為 **config** 的解決方案中建立新資料夾，以保存完整部署資訊清單 (根據部署範本中的資訊建立)，以及其他解決方案檔案。 接著，它會執行 `docker build`，以根據目標架構的適當 dockerfile 建置容器映像。 然後，它會執行 `docker push` 以將映像存放庫推送至容器登錄。 
+   建置和推送命令會啟動三項作業。 首先，它會在解決方案中建立名為 **config** 的新資料夾，以保存完整部署資訊清單 (根據部署範本中的資訊建立)，以及其他解決方案檔案。 接著，它會執行 `docker build`，以根據目標架構的適當 dockerfile 建置容器映像。 然後，它會執行 `docker push` 以將映像存放庫推送至您的容器登錄。 
 
 ## <a name="deploy-modules-to-device"></a>將模組部署到裝置
 
@@ -322,7 +326,7 @@ The default module code receives messages on an input queue and passes them alon
 
 1. 在 Visual Studio 雲端總管中，選取您的 IoT Edge 裝置名稱。 
 
-2. 在 [動作]  清單中，選取 [開始監視 D2C 訊息]  。 
+2. 在 [動作]  清單中，選取 [開始監視內建事件端點]  。 
 
 3. 檢視送達 IoT 中樞的訊息。 訊息可能需要一段時間才會送達，因為我們對 CSharpModule 程式碼所做的變更會等到機器溫度達到 25 度時才會傳送訊息。 它也會將 [警示]  訊息類型新增至任何觸達該溫度閾值的訊息。 
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: a947b5983f4a7d58878fc15785cfbcbcbba7f226
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 698714990b9b34567d918d3b8c536bc3e39d66b8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66156214"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257687"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>快速入門：使用 Azure CLI 建立負載平衡器以平衡 VM 的負載
 
@@ -35,7 +35,7 @@ ms.locfileid: "66156214"
 
 使用 [az group create](https://docs.microsoft.com/cli/azure/group) 來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
-下列範例會在 eastus 位置建立名為 myResourceGroupLB 的資源群組：
+下列範例會在 eastus  位置建立名為 myResourceGroupLB  的資源群組：
 
 ```azurecli-interactive
   az group create \
@@ -45,7 +45,7 @@ ms.locfileid: "66156214"
 
 ## <a name="create-a-public-ip-address"></a>建立公用 IP 位址
 
-若要在網際網路上存取您的 Web 應用程式，您需要負載平衡器的公用 IP 位址。 使用 [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip)，在 myResourceGroupLB 中建立名為 myPublicIP 的公用 IP 位址。
+若要在網際網路上存取您的 Web 應用程式，您需要負載平衡器的公用 IP 位址。 使用 [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip)，在 myResourceGroupLB  中建立名為 myPublicIP  的公用 IP 位址。
 
 ```azurecli-interactive
   az network public-ip create --resource-group myResourceGroupLB --name myPublicIP
@@ -146,7 +146,7 @@ ms.locfileid: "66156214"
 ```
 ### <a name="create-nics"></a>建立 NIC
 
-使用 [az network nic create](/cli/azure/network/nic#az-network-nic-create) 建立三個網路介面，並使其與公用 IP 位址和網路安全性群組產生關聯。 
+使用 [az network nic create](/cli/azure/network/nic#az-network-nic-create) 建立兩個網路介面，並使其與公用 IP 位址和網路安全性群組產生關聯。 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -164,7 +164,7 @@ done
 
 ## <a name="create-backend-servers"></a>建立後端伺服器
 
-在此範例中，您要建立三個虛擬機器，作為負載平衡器的後端伺服器。 若要確認已成功建立負載平衡器，您也可在虛擬機器上安裝 NGINX。
+在此範例中，您會建立兩個虛擬機器，作為負載平衡器的後端伺服器。 若要確認已成功建立負載平衡器，您也可在虛擬機器上安裝 NGINX。
 
 ### <a name="create-an-availability-set"></a>建立可用性設定組
 

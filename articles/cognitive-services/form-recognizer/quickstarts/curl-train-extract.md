@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: bd68e2803b3b538011cfa37378890f2cc7b22223
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 942f84723bc207c200b36a63ca7f65cb9d7dab59
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65907003"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235600"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>快速入門：搭配使用 REST API 與 cURL 將表單辨識器模型定型並擷取表單資料
 
@@ -108,7 +108,7 @@ curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "C
 
 1. 將 `<Endpoint>` 取代為您從表單辨識器訂用帳戶金鑰中取得的端點。 您可以在表單辨識器的資源 [概觀]  索引標籤上找到此項目。
 1. 將 `<modelID>` 取代為您在上一節中取得的模型識別碼。
-1. 將 `<path to your form>` 取代為表單的檔案路徑。
+1. 將 `<path to your form>` 取代為表單的檔案路徑。 例如，c:\temp\file.pdf。 
 1. 將 `<file type>` 取代為檔案類型。 支援的類型為 pdf、影像/jpeg、影像/png。
 1. 將 `<subscription key>` 取代為訂用帳戶金鑰。
 

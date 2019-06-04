@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 825f667029aeb1d75bfdaf52b1084ff5133b5774
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: ce063d8a256cbf2507e19d459aafe13150eccce7
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527331"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306939"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>教學課程：使用範本將應用程式部署到 Service Fabric Mesh
 
@@ -70,7 +70,7 @@ az account set --subscription "<subscriptionName>"
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 使用下列命令，在 eastus 位置中，建立名為 myResourceGroup 的資源群組。
+Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 使用下列命令，在 eastus  位置中，建立名為 myResourceGroup  的資源群組。
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

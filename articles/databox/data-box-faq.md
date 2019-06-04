@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/22/2019
+ms.date: 05/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 2b021975983858386cd7c847ba11a26f4feb9562
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 18c6175ede1e8459d3a9ca60f7890cc43d75e5ba
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150466"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236290"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure 資料箱：常見問題集
 
@@ -184,7 +184,7 @@ A. 如果您收到的裝置已損毀，或是有遭到竄改的跡象，請勿�
 A. 針對資料箱服務，Microsoft 會處理進出 Azure 資料中心的物流。 如果您想要使用自己的貨運公司，可以使用 Azure 匯入/匯出服務。 如需詳細資訊，請移至[什麼是 Azure 匯入/匯出服務？](../storage/common/storage-import-export-service.md)
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>問： 我的資料箱服務在運送期間可以跨國家/地區邊界使用嗎？
-A. 所有的資料箱裝置都是在與目的地相同的國家/地區內寄送，並不會跨越任何跨國界。 唯一的例外狀況是位於歐盟 (EU) 的訂單，該地區的裝置可以在任何歐盟國家/地區之間運送。
+A. 所有的資料箱裝置都是在與目的地相同的國家/地區內寄送，並不會跨越任何跨國界。 唯一的例外狀況是位於歐盟 (EU) 的訂單，該地區的裝置可以在任何歐盟國家/地區之間運送。 這適用於資料箱及 Data Box Heavy 裝置。
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>問： 電子墨水顯示器並未顯示寄回用的出貨標籤。 我該怎麼辦？
 A. 如果電子墨水顯示器並未顯示寄回用的出貨標籤，請執行下列步驟：

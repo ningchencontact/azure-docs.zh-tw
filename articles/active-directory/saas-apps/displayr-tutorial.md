@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a2d793a1fbd68d6a71f48b556a77ddcaaaf111
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 93a1ad1f9fbc01cd06b3aaffc8a718634e8454d6
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66112160"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357036"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>教學課程：整合 Displayr 與 Azure Active Directory
 
@@ -91,11 +91,11 @@ ms.locfileid: "66112160"
 
    ![憑證下載連結](common/certificatebase64.png)
 
-1. Displayr 應用程式需要特定格式的 SAML 判斷提示，需要您加入自訂屬性對應到您的 SAML token 屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示以開啟 [使用者屬性] 對話方塊。
+1. Displayr 應用程式需要特定格式的 SAML 判斷提示，需要您加入自訂屬性對應到您的 SAML token 屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示以開啟 [使用者屬性] 對話方塊。
 
     ![image](common/edit-attribute.png)
 
-1. 除了以上屬性外，Displayr 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [群組宣告 (預覽)] ****   對話方塊的 [使用者屬性與宣告] ****   區段中，執行下列步驟：
+1. 除了以上屬性外，Displayr 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [群組宣告 (預覽)]  對話方塊的 [使用者屬性與宣告]  區段中，執行下列步驟：
 
     a. 按一下 [宣告中傳回的群組]  旁的**筆**。
 

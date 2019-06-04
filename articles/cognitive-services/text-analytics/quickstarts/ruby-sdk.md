@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: tasharm
-ms.openlocfilehash: 7def77c0b1cf99fcc2cee77a28782dddaf2ac45d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 688887826fa803b616ca737bc8558aa17ed80e37
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992959"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297764"
 ---
 # <a name="quickstart-call-the-text-analytics-service-using-the-ruby-sdk"></a>快速入門：使用 Ruby SDK 來呼叫文字分析服務
 
@@ -28,18 +28,12 @@ ms.locfileid: "65992959"
 
 ## <a name="prerequisites"></a>必要條件
 
+* [Ruby 2.5.5 或更新版本](https://www.ruby-lang.org/)
+* [適用於 Ruby 的文字分析 SDK](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
+ 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 您也必須具備在註冊時產生的[端點和存取金鑰](../How-tos/text-analytics-how-to-access-key.md)。 
-
-根據系統架構從[這裡](https://rubyinstaller.org/downloads/)下載並安裝 Ruby 2.5.5 版。
-
-> [!Tip]
->  雖然您可以直接使用 Ruby 呼叫 [REST API 端點](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)，但 `Microsoft.Azure.CognitiveServices.TextAnalytics` SDK 可讓您輕鬆地呼叫服務，而不需要將 JSON 序列化和還原序列化。
->
-> 以下是幾個實用的連結：
-> - [Ruby gem 頁面](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
-> - [GitHub 上的 SDK 程式碼](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics/lib/v2.1/generated/azure_cognitiveservices_textanalytics)
 
 <a name="RubyProject"></a>
 

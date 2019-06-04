@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2019
+ms.date: 05/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b6d84a07de408cedb0e21181c70e5c1481ac62bc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269283"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225907"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概觀
 
@@ -91,7 +91,7 @@ Azure 提供四個管理範圍層級：[管理群組](../governance/management-g
 
 每個資源提供者都會提供一組資源和作業，以便能運用這些資源。 例如，如果想要儲存金鑰和密碼，您會使用 **Microsoft.KeyVault** 資源提供者。 此資源提供者會提供稱為**保存庫**的資源類型來建立金鑰保存庫。
 
-資源類型名稱的格式：**{resource-provider}/{resource-type}**。 金鑰保存庫的資源類型是 **Microsoft.KeyVault/vaults**。
+資源類型名稱的格式： **{resource-provider}/{resource-type}** 。 金鑰保存庫的資源類型是 **Microsoft.KeyVault/vaults**。
 
 在開始部署資源之前，您應該先了解可用的資源提供者。 了解資源提供者和資源的名稱可協助您定義想要部署至 Azure 的資源。 此外，您需要知道有效的位置，以及每個資源類型的 API 版本。 如需詳細資訊，請參閱[資源提供者和類型](resource-manager-supported-services.md)。
 
@@ -174,7 +174,21 @@ Azure Resource Manager 會分析相依性，確保以正確的順序建立資源
 
 當您在將複雜的服務部署到 Azure 時，您可能需要將服務部署到多個區域，並且在進行下一步之前，先檢查其健康情況。 使用 [Azure 部署管理員](deployment-manager-overview.md)來協調服務的分段推出。 透過將服務分段推出，您可以在服務部署到所有區域之前，先找出潛在的問題。 如果您不需要這些預防措施，則上一節中的部署作業會是比較好的選項。
 
-Deployment Manager 目前為個人預覽版。
+「部署管理員」目前為公開預覽狀態。
+
+## <a name="resiliency-of-azure-resource-manager"></a>Azure Resource Manager 的復原
+
+Azure Resource Manager 服務專門設計來提供復原和持續可用性。 REST API 中的 Resource Manager 和控制平面作業 (傳送給 management.azure.com 的要求)：
+
+* 會跨區域分散。 有些服務是區域性的。
+
+* 會在有多個可用性區域的位置中跨可用性區域 (以及區域) 分散。
+
+* 不依賴單一邏輯資料中心。
+
+* 永遠不會停機進行維護活動。
+
+這項復原能力適用於透過 Resource Manager 接收要求的服務。 例如，Key Vault 便會受惠於這項復原能力。
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 

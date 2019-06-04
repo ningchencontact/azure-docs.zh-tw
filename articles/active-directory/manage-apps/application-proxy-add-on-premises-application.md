@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ae8b9709e7294e8cb7819afe3ec9f6eb5a06427
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 7110d7004ae9be58bb150674d516692049507608
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015414"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299086"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>教學課程：新增內部部署應用程式以便透過 Azure Active Directory 中的應用程式 Proxy 進行遠端存取
 
@@ -51,9 +51,9 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
 2. 連接器伺服器和 Web 應用程式伺服器應該屬於相同的 Active Directory 網域或橫跨信任網域。 伺服器必須位於相同網域或信任網域，才能搭配使用單一登入 (SSO) 與整合式 Windows 驗證 (IWA) 和 Kerberos 限制委派 (KCD) 的需求。 如果連接器伺服器和 Web 應用程式伺服器位於不同的 Active Directory 網域，則必須使用以資源為基礎的委派才能實現單一登入。 如需詳細資訊，請參閱[使用應用程式 Proxy 進行單一登入的 KCD](application-proxy-configure-single-sign-on-with-kcd.md)。
 
-#### <a name="software-requirements"></a>軟體需求
+#### <a name="tls-requirements"></a>TLS 需求
 
-您安裝「應用程式 Proxy」連接器之前，Windows 連接器伺服器需要先啟用 TLS 1.2。 版本低於 1.5.612.0 的現有連接器可以繼續在先前的 TLS 版本上運作，直到進一步通知。 
+您安裝「應用程式 Proxy」連接器之前，Windows 連接器伺服器需要先啟用 TLS 1.2。
 
 啟用 TLS 1.2：
 
@@ -67,6 +67,9 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
     ```
 
 2. 重新啟動伺服器。
+
+>[!Important] 
+> 為了將頂級的加密提供給客戶，我們即將更新應用程式 Proxy 服務，將其限制為僅接受 TLS 1.2 通訊協定的存取。 根據客戶的整備程度，變更會逐漸推廣到只使用 TLS 1.2 通訊協定的客戶，而您不會看到這項變更的任何影響。 TLS 1.0 和 1.1 的淘汰作業將於 2019 年 8 月 31 日完成，而客戶將會收到因應這項變更的事先通知。 若要針對此變更做好準備，請確定所有用戶端-伺服器和瀏覽器-伺服器組合都已更新為使用 TLS 1.2，以保持與應用程式 Proxy 服務的連線。 其中包括使用者存取透過應用程式 Proxy 發佈的應用程式時，所使用的用戶端。 請參閱準備 [Office 365 中的 TLS 1.2](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365)，以取得實用的參考和資源。
 
 ## <a name="prepare-your-on-premises-environment"></a>準備內部部署環境
 

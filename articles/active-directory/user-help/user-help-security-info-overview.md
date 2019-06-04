@@ -12,23 +12,23 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e471f447b0c50c9c65923d7135b2b48789728df
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: a8a200df2f474cead197a0e74ae7e27927f814d2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470701"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242265"
 ---
 # <a name="security-info-preview-overview"></a>安全性資訊 (預覽) 概觀
 
-[安全性資訊] 頁面可協助您設定雙步驟驗證方法和密碼重設資訊。 也可協助您更新個人安全性資訊和預設驗證方法。
+[安全性資訊]  頁面可協助您設定雙步驟驗證方法和密碼重設資訊。 也可協助您更新個人安全性資訊和預設驗證方法。
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Important]
 >本內容適用於使用者。 I如果您是系統管理員，可以在 [Azure Active Directory 文件](https://docs.microsoft.com/azure/active-directory)中找到更多關於如何設定和管理 Azure Active Directory (Azure AD) 環境的資訊。
 
-## <a name="security-info-articles"></a>安全性資訊文章
+## <a name="security-info-related-articles"></a>安全性資訊相關文章
 
 如需關於新增、更新及刪除安全性資訊的詳細資訊和相關指示，請參閱下列文章 (根據您想要使用的方法)：
 

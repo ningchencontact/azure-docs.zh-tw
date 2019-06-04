@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 631338c0217eb61f4f98cd06ffa16cb2500f246b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 891b64b8e31266360d718255dcd8e8a1f9fb597c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146740"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306613"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>教學課程：開發適用於 Windows 裝置的 IoT Edge 模組
 
-使用 Visual Studio 2017 開發程式碼並將其部署至執行 IoT Edge 的 Windows 裝置。
+使用 Visual Studio 開發程式碼並將其部署至執行 IoT Edge 的 Windows 裝置。
 
 在快速入門中，您已使用 Windows 虛擬機器建立 IoT Edge 裝置，並部署了來自 Azure Marketplace 的預先建置模組。 本教學課程會逐步引導您了解要如何做才能開發您自己的程式碼並將其部署至 IoT Edge 裝置。 本教學課程是其他所有教學課程的實用先決條件，其內容會深入探討特定的程式設計語言或 Azure 服務。 
 
@@ -28,7 +28,7 @@ ms.locfileid: "66146740"
 
 > [!div class="checklist"]
 > * 設定開發機器。
-> * 使用 IoT Edge Tools for Visual Studio 2017 來建立新專案。
+> * 使用 IoT Edge Tools for Visual Studio 來建立新專案。
 > * 將專案建置為容器，並儲存在 Azure Container Registry。
 > * 將程式碼部署至 IoT Edge 裝置。 
 
@@ -41,17 +41,17 @@ ms.locfileid: "66146740"
 
 在開發 IoT Edge 模組時，請務必了解開發機器和作為模組最終部署位置的目標 IoT Edge 裝置之間有何差異。 為了保存模組程式碼所建置的容器必須符合「目標裝置」  的作業系統 (OS)。 在開發 Windows 容器時，這個概念會比較簡單，因為 Windows 容器只會在 Windows 作業系統上執行。 但是，您也可以 (舉例來說) 使用 Windows 開發機器來建置適用於 Linux IoT Edge 裝置的模組。 在該情況下，您必須確定開發機器執行的是 Linux 容器。 當您進行本教學課程時，請牢記「開發機器 OS」  和「容器 OS」  之間的差異。
 
-本教學課程是以執行 IoT Edge 的 Windows 裝置作為適用對象。 Windows IoT Edge 裝置會使用 Windows 容器。 建議您使用 Visual Studio 2017 來針對 Windows 裝置進行開發，本教學課程也是這麼做的。 您也可以使用 Visual Studio Code，但這兩種工具的支援有所差異。
+本教學課程是以執行 IoT Edge 的 Windows 裝置作為適用對象。 Windows IoT Edge 裝置會使用 Windows 容器。 建議您使用 Visual Studio 來針對 Windows 裝置進行開發，本教學課程也是這麼做的。 您也可以使用 Visual Studio Code，但這兩種工具的支援有所差異。
 
-下表列出在 Visual Studio Code 和 Visual Studio 2017 中的 **Windows 容器**所支援的開發案例。
+下表列出在 Visual Studio Code 和 Visual Studio 中 **Windows 容器**所支援的開發案例。
 
-|   | Visual Studio Code | Visual Studio 2017 |
+|   | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Azure 服務** | Azure Functions <br> Azure 串流分析 |   |
 | **語言** | C# (不支援偵錯) | C <br> C# |
-| **詳細資訊** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
+| **詳細資訊** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [適用於 Visual Studio 2017 的 Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)、[適用於 Visual Studio 2019 的 Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-本教學課程會教授 Visual Studio 2017 的開發步驟。 如果您比較想要使用 Visual Studio Code，請參閱[使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的模組並針對其進行偵錯](how-to-vs-code-develop-module.md)中的指示。
+本教學課程會教授 Visual Studio 2019 的開發步驟。 如果您比較想要使用 Visual Studio Code，請參閱[使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的模組並針對其進行偵錯](how-to-vs-code-develop-module.md)中的指示。 如果您使用 Visual Studio 2017 (15.7 或更高版本)，請下載並安裝[適用於 Visual Studio 2017 的 Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -94,19 +94,19 @@ IoT Edge 模組會封裝為容器，因此開發機器上必須有容器引擎�
 
 ## <a name="set-up-visual-studio-and-tools"></a>設定 Visual Studio 和工具
 
-使用適用於 Visual Studio 2017 的 IoT 擴充功能來開發 IoT Edge 模組。 這些擴充功能會提供專案範本、自動執行部署資訊清單的建立程序，並可讓您監視和管理 IoT Edge 裝置。 在本節中，您會安裝 Visual Studio 和 IoT Edge 擴充功能，然後設定 Azure 帳戶以便從 Visual Studio 內部管理 IoT 中樞資源。 
+使用適用於 Visual Studio 2019 的 IoT 擴充功能來開發 IoT Edge 模組。 這些擴充功能會提供專案範本、自動執行部署資訊清單的建立程序，並可讓您監視和管理 IoT Edge 裝置。 在本節中，您會安裝 Visual Studio 和 IoT Edge 擴充功能，然後設定 Azure 帳戶以便從 Visual Studio 內部管理 IoT 中樞資源。 
 
-1. 如果開發機器上還沒有 Visual Studio，請使用下列工作負載來[安裝 Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017)： 
+1. 如果開發機器上還沒有 Visual Studio，請使用下列工作負載來[安裝 Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio)： 
 
    * Azure 開發
    * 使用 C++ 的桌面開發
    * .NET Core 跨平台開發
 
-1. 如果開發機器上已有 Visual Studio 2017，請確定其版本是 15.7 或更高版本。 請遵循[修改 Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2017) 中的步驟來新增所需的工作負載 (如果您還沒有這些工作負載)。
+1. 如果開發機器上已有 Visual Studio 2019。 請遵循[修改 Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) 中的步驟來新增所需的工作負載 (如果您還沒有這些工作負載)。
 
-2. 下載並安裝適用於 Visual Studio 2017 的 [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) 擴充功能。 
+2. 下載並安裝適用於 Visual Studio 2019 的 [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) 擴充功能。 
 
-3. 安裝完成時，請開啟 Visual Studio。
+3. 安裝完成時，請開啟 Visual Studio 2019，並選取 [繼續但不使用程式碼]  。
 
 4. 選取 [檢視]   > [Cloud Explorer]  。 
 
@@ -122,24 +122,25 @@ IoT Edge 模組會封裝為容器，因此開發機器上必須有容器引擎�
 
 ## <a name="create-a-new-module-project"></a>建立新的模組專案
 
-Azure IoT Edge Tools 擴充功能會針對 Visual Studio 2017 中所有支援的 IoT Edge 模組語言，提供專案範本。 這些範本具有您部署運作中模組以測試 IoT Edge 時需要的所有檔案和程式碼，或可成為您利用自己的商務邏輯自訂此範本的起點。 
+Azure IoT Edge Tools 擴充功能會針對 Visual Studio 中所有支援的 IoT Edge 模組語言，提供專案範本。 這些範本具有您部署運作中模組以測試 IoT Edge 時需要的所有檔案和程式碼，或可成為您利用自己的商務邏輯自訂此範本的起點。 
 
-1. 以系統管理員身分執行 Visual Studio。
+1. 選取 [檔案]   > [新增]   > [專案...] 
 
-2. 選取 [檔案]   > [新增]   > [專案]  。 
-
-3. 在新的專案視窗中，選取 [Azure IoT]  專案類型，然後選擇 [Azure IoT Edge]  專案。 為專案和解決方案重新命名，或接受預設值 **AzureIoTEdgeApp1**。 選取 [確定]  以建立專案。 
+2. 在 [新增專案] 視窗中，2. 在新的專案視窗中，搜尋 [IoT Edge]  專案，然後選擇 [Azure IoT Edge (Windows amd64)]  專案。 按 [下一步]  。 
 
    ![建立新的 Azure IoT Edge 專案](./media/tutorial-develop-for-windows/new-project.png)
+
+3. 在設定新專案的視窗中，將專案和解決方案重新命名為 **CTutorialApp** 之類的描述性項目。 按一下 [建立]  以建立專案。
+
+   ![設定新的 Azure IoT Edge 專案](./media/tutorial-develop-for-windows/configure-project.png)
+ 
 
 4. 在 IoT Edge 應用程式和模組視窗中，使用下列值設定您的專案： 
 
    | 欄位 | 值 |
    | ----- | ----- |
-   | 應用程式平台 | 取消核取 [Linux Amd64]  ，然後核取 [WindowsAmd64]  。 |
-   | 選取範本 | 選取 [C 模組]  。 | 
-   | 模組專案名稱 | 接受預設值 **IoTEdgeModule1**。 | 
-   | Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會從模組專案名稱值預先填入容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 <br><br> 最終的映像存放庫看起來類似於：\<登錄名稱\>.azurecr.io/iotedgemodule1。 |
+
+   |選取範本 |選取 [C 模組]  。 | | 模組專案名稱 | 接受預設值 **IoTEdgeModule1**。 | | Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會從模組專案名稱值預先填入容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 <br><br> 最終的映像存放庫看起來類似於：\<登錄名稱\>.azurecr.io/iotedgemodule1。 |
 
    ![針對目標裝置、模組類型和容器登錄設定您的專案](./media/tutorial-develop-for-windows/add-application-and-module.png)
 
@@ -298,7 +299,7 @@ IotEdgeModule1 程式碼會透過其輸入佇列接收訊息，並透過其輸�
 
 1. 在 Visual Studio Cloud Explorer 中，選取已作為您部署目的地 IoT Edge 裝置的名稱。 
 
-2. 在 [動作]  功能表中，選取 [開始監視 D2C 訊息]  。
+2. 在 [動作]  功能表中，選取 [開始監視內建事件端點]  。
 
 3. 觀看 Visual Studio 中的 [輸出]  區段，以查看抵達 IoT 中樞的訊息。 
 
@@ -332,7 +333,7 @@ IotEdgeModule1 程式碼會透過其輸入佇列接收訊息，並透過其輸�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已在開發機器上設定 Visual Studio 2017，並從中部署第一個 IoT Edge 模組。 您已知道基本概念，接下來請嘗試對模組新增功能，使其可以分析其中通過的資料。 請選擇您慣用的語言： 
+在本教學課程中，您已在開發機器上設定 Visual Studio 2019，並從中部署第一個 IoT Edge 模組。 您已知道基本概念，接下來請嘗試對模組新增功能，使其可以分析其中通過的資料。 請選擇您慣用的語言： 
 
 > [!div class="nextstepaction"] 
 > [C](tutorial-c-module-windows.md)

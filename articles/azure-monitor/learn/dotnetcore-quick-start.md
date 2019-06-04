@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: e6afd342a27fa13ae79e037e6e42e582dd9856cc
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: a4bbb43cb00eeb5a9e741016e1648ce915935eb9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015301"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236585"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>開始監視 ASP.NET Core Web 應用程式
 
@@ -102,6 +102,7 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 ## <a name="video"></a>影片
 
 - 關於如何從頭開始[使用 .NET Core 和 Visual Studio 設定 Application Insights](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) 的外部逐步說明影片。
+- 關於如何從頭開始[使用 .NET Core 和 Visual Studio Code 設定 Application Insights](https://youtu.be/ygGt84GDync) 的外部逐步說明影片。
 
 ## <a name="clean-up-resources"></a>清除資源
 當您完成測試時，您可以刪除資源群組和所有相關資源。 若要這樣做，請依照下列步驟執行。

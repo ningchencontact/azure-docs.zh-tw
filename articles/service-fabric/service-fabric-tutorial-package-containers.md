@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 01/31/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0dbd0445f4167485172a2b98cec3bb2b2a47ac20
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: a54ec7349317fdd8621fecec57cb06ad98f4660b
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668410"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306742"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>教學課程：使用 Yeoman 封裝和部署容器作為 Service Fabric 應用程式
 
@@ -111,7 +111,7 @@ Service Fabric 提供 Scaffolding 工具，可協助您使用 Yeoman 範本產�
    create TestContainer/azurevotebackPkg/code/Dummy.txt
 ```
 
-針對本教學課程的其餘部分，我們會在 **TestContainer** 目錄中運作。 例如，*./TestContainer/TestContainer*。 此目錄的內容應該如下所示。
+針對本教學課程的其餘部分，我們會在 **TestContainer** 目錄中運作。 例如， *./TestContainer/TestContainer*。 此目錄的內容應該如下所示。
 
 ```bash
 $ ls
@@ -150,7 +150,7 @@ az acr credential show -n <acrName> --query passwords[0].value
 
 ### <a name="configure-communication-port"></a>設定通訊連接埠
 
-設定 HTTP 端點，讓用戶端可以與您的服務通訊。 開啟 ./TestContainer/azurevotefrontPkg/ServiceManifest.xml 檔案，並在 **ServiceManifest** 元素中宣告端點資源。  新增通訊協定、連接埠和名稱。 在本教學課程中，服務會接聽連接埠 80。 下列程式碼片段放在資源中的 *ServiceManifest* 標記下方。
+設定 HTTP 端點，讓用戶端可以與您的服務通訊。 開啟 ./TestContainer/azurevotefrontPkg/ServiceManifest.xml  檔案，並在 **ServiceManifest** 元素中宣告端點資源。  新增通訊協定、連接埠和名稱。 在本教學課程中，服務會接聽連接埠 80。 下列程式碼片段放在資源中的 *ServiceManifest* 標記下方。
 
 ```xml
 <Resources>

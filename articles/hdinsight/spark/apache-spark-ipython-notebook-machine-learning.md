@@ -6,20 +6,20 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 11/06/2018
+ms.date: 05/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 87efac96aa0120bfcc804f7a2a49a5ac3da1036b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ed6a8f83d2ef31513aeadbc6741dd77c30c30070
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719061"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252890"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>教學課程：在 HDInsight 中建置 Apache Spark 機器學習應用程式 
 
 在本教學課程中，您將了解如何使用 [Jupyter Notebook](https://jupyter.org/) 為 Azure HDInsight 建置 [Apache Spark](https://spark.apache.org/) 機器學習應用程式。 
 
-[MLib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) 是 Spark 的可調整機器學習程式庫，由常見的學習演算法和公用程式 (包括分類、迴歸、群集、協同篩選、維度縮減，以及基礎最佳化基本項目) 所組成。
+[MLib](https://spark.apache.org/docs/latest/ml-guide.html) 是 Spark 的可調整機器學習程式庫，由常見的學習演算法和公用程式 (包括分類、迴歸、群集、協同篩選、維度縮減，以及基礎最佳化基本項目) 所組成。
 
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
@@ -27,15 +27,15 @@ ms.locfileid: "64719061"
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件：
+## <a name="prerequisites"></a>必要條件
 
-您必須擁有下列項目：
+* HDInsight 上的 Apache Spark 叢集。 請參閱[建立 Apache Spark 叢集](./apache-spark-jupyter-spark-sql-use-portal.md)。
 
-* 完成[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
+* 熟悉如何搭配使用 Jupyter Notebook 和 HDInsight 上的 Spark。 如需詳細資訊，請參閱[使用 HDInsight 上的 Apache Spark 載入資料及執行查詢](./apache-spark-load-data-run-query.md)。
 
 ## <a name="understand-the-data-set"></a>了解資料集
 
-應用程式使用所有叢集預設提供的範例 HVAC.csv 資料。 檔案位於 **\HdiSamples\HdiSamples\SensorSampleData\hvac**。 這項資料會顯示某些已安裝 HVAC 系統之建築物的目標溫度和實際溫度。 [System] 資料行代表系統識別碼，而 [SystemAge] 資料行代表 HVAC 系統安裝在建築物中的年數。 在指定系統識別碼和系統年期的情況下，您可以使用這項資料來預測建築物的溫度會比目標溫度高或低。
+應用程式使用所有叢集預設提供的範例 HVAC.csv 資料。 檔案位於 `\HdiSamples\HdiSamples\SensorSampleData\hvac`。 這項資料會顯示某些已安裝 HVAC 系統之建築物的目標溫度和實際溫度。 [System]  資料行代表系統識別碼，而 [SystemAge]  資料行代表 HVAC 系統安裝在建築物中的年數。 在指定系統識別碼和系統年期的情況下，您可以使用這項資料來預測建築物的溫度會比目標溫度高或低。
 
 ![用於 Spark 機器學習服務範例的資料快照集](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "用於 Spark 機器學習服務範例的資料快照集")
 
@@ -60,6 +60,7 @@ ms.locfileid: "64719061"
     from pyspark.mllib.regression import LabeledPoint
     from numpy import array
     ```
+
 3. 載入資料 (hvac.csv)、剖析資料，以及利用它來為模型定型。 
 
     ```PySpark
@@ -96,7 +97,7 @@ ms.locfileid: "64719061"
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    如需有關管線及其運作方式的詳細資訊，請參閱 <a href="https://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Apache Spark 機器學習管線</a> \(英文\)。
+    如需有關管線及其運作方式的詳細資訊，請參閱 [Apache Spark 機器學習管線](https://spark.apache.org/docs/latest/ml-pipeline.html) \(英文\)。
 
 5. 讓管線符合訓練文件。
    
@@ -143,7 +144,7 @@ ms.locfileid: "64719061"
 
     ![適用於 Spark 機器學習服務範例的輸出資料快照集](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "適用於 Spark 機器學習服務範例的輸出資料快照集")
 
-    請注意，實際溫度比目標溫度低的情況代表建築物處於低溫狀態。 因此在訓練輸出中，第一個資料列的 [label] 值為 [0.0]，這代表建築物不是熱的。
+    請注意，實際溫度比目標溫度低的情況代表建築物處於低溫狀態。 因此在訓練輸出中，第一個資料列的 [label]  值為 [0.0]  ，這代表建築物不是熱的。
 
 7. 準備要做為定型模型之執行依據的資料集。 方法是傳遞系統識別碼和系統年期 (在訓練輸出中以 **SystemInfo** 來代表)，然後模型會預測該系統識別碼和系統年期所屬的建築物溫度會較熱 (以 1.0 表示) 或較冷 (以 0.0 表示)。
    
@@ -180,19 +181,14 @@ ms.locfileid: "64719061"
     ```
    
    從預測的第一個資料列可看出，對於識別碼為 20 且年期為 25 年的 HVAC 系統而言，建築物會是熱的 (**prediction=1.0**)。 DenseVector (0.49999) 的第一個值對應到預測 0.0，而第二個值 (0.5001) 對應到預測 1.0。 在輸出中，即使第二個值只是稍微高一點，模型仍舊顯示 **prediction=1.0**。
-10. 關閉 Notebook 來釋放資源。 若要這麼做，請從 Notebook 的 [檔案] 功能表中，選取 [關閉並終止]。 此動作會關機並且關閉 Notebook。
+10. 關閉 Notebook 來釋放資源。 若要這麼做，請從 Notebook 的 [檔案]  功能表中，選取 [關閉並終止]  。 此動作會關機並且關閉 Notebook。
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>使用適用於 Spark 機器學習的 Anaconda scikit-learn 程式庫
 HDInsight 中的 Apache Spark 叢集包含 Anaconda 程式庫。 其中也包含適用於機器學習的 **scikit-learn** 程式庫。 此程式庫另包含用來直接從 Jupyter Notebook 建置範例應用程式的各種資料集。 如需使用 sscikit-learn 程式庫的詳細資訊，請參閱 [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html)。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
-
-* 開發 Apache Spark 機器學習應用程式
-
-繼續進行下一個教學課程，以了解如何將 IntelliJ IDEA 用於 Spark 作業。 
+在本教學課程中，您已了解如何使用 Jupyter Notebook 為 Azure HDInsight 建置 Apache Spark 機器學習應用程式。 繼續進行下一個教學課程，以了解如何將 IntelliJ IDEA 用於 Spark 作業。 
 
 > [!div class="nextstepaction"]
 > [使用 IntelliJ 建立 Scala Maven 應用程式](./apache-spark-create-standalone-application.md)
-

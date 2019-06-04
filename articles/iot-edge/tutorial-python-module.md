@@ -10,12 +10,12 @@ ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 82da44409c4500ff097805efec33cec8cf6bbedd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6ec429bc7c1598e947b798c30e7992e3d357d00c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575636"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303821"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>教學課程：為 Linux 裝置開發及部署 Python IoT Edge 模組
 
@@ -40,7 +40,7 @@ ms.locfileid: "64575636"
 
 請使用下表了解開發 Python 模組並部署至 Linux 的選項： 
 
-| Python | Visual Studio Code | Visual Studio 2017 | 
+| Python | Visual Studio Code | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![在 Linux AMD64 上將 VS Code 使用於 Python 模組](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![在 Linux ARM32 上將 VS Code 使用於 Python 模組](./media/tutorial-c-module/green-check.png) |  |
@@ -52,7 +52,7 @@ ms.locfileid: "64575636"
 * Azure 中的免費或標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
 * [執行 Azure IoT Edge 的 Linux 裝置](quickstart-linux.md)
 * 容器登錄，像是 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)。
-* 已使用 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 設定 [Visual Studio Code](https://code.visualstudio.com/)。
+* 已設定 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 的 [Visual Studio Code](https://code.visualstudio.com/)。
 * [Docker CE](https://docs.docker.com/install/) 已設定為執行 Linux 容器。
 
 若要以 Python 開發 IoT Edge 模組，請在您的開發機器上安裝下列其他必要條件： 
@@ -110,11 +110,11 @@ ms.locfileid: "64575636"
 
 ### <a name="select-your-target-architecture"></a>選取您的目標架構
 
-目前，Visual Studio Code 可以開發適用於 Linux AMD64 和 Linux ARM32v7 裝置的 C 模組。 您必須為每個解決方案都選取要作為目標的架構，因為容器是針對每個架構類型，以不同方式建置和執行。 預設為 Linux AMD64。 
+目前，Visual Studio Code 可以開發適用於 Linux AMD64 和 Linux ARM32v7 裝置的 C 模組。 您必須為每個解決方案都選取要作為目標的架構，因為容器是針對每個架構類型，以不同方式建置和執行。 預設值為 Linux AMD64。 
 
 1. 開啟命令選擇區並搜尋 **Azure IoT Edge:Set Default Target Platform for Edge Solution**，或選取視窗底部側邊欄的捷徑圖示。 
 
-2. 在命令選擇區中，從選項清單中選取目標架構。 針對此教學課程，我們是使用 Ubuntu 虛擬機器作為 IoT Edge 裝置，因此會保留預設的 **amd64**。 
+2. 在命令選擇區中，從選項清單中選取目標架構。 針對此教學課程，我們是使用 Ubuntu 虛擬機器作為 IoT Edge 裝置，因此會保留預設 **amd64**。 
 
 ### <a name="update-the-module-with-custom-code"></a>使用自訂程式碼來更新模組
 
@@ -242,7 +242,7 @@ ms.locfileid: "64575636"
 
 您可以使用 Visual Studio Code 總管的 [Azure IoT 中樞裝置]  區段，檢視 IoT Edge 裝置的狀態。 請展開裝置的詳細資料，以查看已部署且執行中的模組清單。
 
-1. 在 Visual Studio Code 總管中，以滑鼠右鍵按一下 IoT Edge 裝置的名稱，然後選取 [開始監視 D2C 訊息]  。
+1. 在 Visual Studio Code 總管中，以滑鼠右鍵按一下 IoT Edge 裝置的名稱，然後選取 [開始監視內建事件端點]  。
 
 2. 檢視送達 IoT 中樞的訊息。 訊息可能需要一段時間才能送達，因為 IoT Edge 裝置必須接收其新的部署和啟動所有模組。 然後，我們對 PythonModule 程式碼所做的變更會等到機器溫度達到 25 度時才會傳送訊息。 它也會將 [警示]  訊息類型新增至任何觸達該溫度閾值的訊息。 
 
@@ -260,7 +260,7 @@ ms.locfileid: "64575636"
 
 5. 以滑鼠右鍵按一下模組對應項編輯窗格中的任意位置，然後選取 [更新模組對應項]  。 
 
-5. 監視傳入的裝置到雲端訊息。 在新的溫度閾值送達前，您應該會看到訊息停止。 
+6. 監視傳入的裝置到雲端訊息。 在新的溫度閾值送達前，您應該會看到訊息停止。 
 
 ## <a name="clean-up-resources"></a>清除資源 
 
@@ -269,7 +269,6 @@ ms.locfileid: "64575636"
 否則，可以刪除您在本文中使用的本機設定和 Azure 資源，以避免產生費用。 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
 
 ## <a name="next-steps"></a>後續步驟
 

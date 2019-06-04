@@ -1,26 +1,26 @@
 ---
-title: 與 Azure Logic Apps 進行企業整合 | Microsoft Docs
-description: 本概觀說明如何自動化跨企業和組織整合應用程式、資料、服務和系統的工作、工作流程和商務程序，以建置企業整合解決方案。 建立資料整合、系統整合、企業應用程式整合 (EAI) 和協調流程案例的解決方案。
+title: 利用 Azure Logic Apps 進行企業整合
+description: 概述如何透過自動化及協調跨企業和組織整合應用程式、資料、服務和系統的工作、工作流程和商務程序，建置企業整合解決方案。 建立資料整合、系統整合、企業應用程式整合 (EAI) 和協調流程案例的解決方案。
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+manager: carmonm
+ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 6/29/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d9f3bb33ab0638fddfcf64e61642c236a03d6293
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 2892dc3b8f25624e7925c9b4aa86110c167ad616
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065256"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299117"
 ---
 # <a name="what-is-azure-logic-apps"></a>什麼是 Azure Logic Apps？
 
-[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) 是一項雲端服務，可在您需要跨企業或組織整合應用程式、資料、系統和服務時，協助您自動化及協調工作、商務程序和[工作流程](#logic-app-concepts)。 Logic Apps 會簡化設計和建立可調整解決方案的方式，以便在雲端、內部部署環境或兩者中進行應用程式[整合](https://azure.microsoft.com/product-categories/integration/)、資料整合、系統整合、企業應用程式整合 (EAI) 和企業對企業 (B2B) 通訊。
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) 是一項雲端服務，可在您需要跨企業或組織整合應用程式、資料、系統和服務時，協助您排程、自動化及協調工作、商務程序和[工作流程](#logic-app-concepts)。 Logic Apps 會簡化設計和建立可調整解決方案的方式，以便在雲端、內部部署環境或兩者中進行應用程式[整合](https://azure.microsoft.com/product-categories/integration/)、資料整合、系統整合、企業應用程式整合 (EAI) 和企業對企業 (B2B) 通訊。
 
 例如，以下是可利用邏輯應用程式自動執行的幾項工作負載：
 
@@ -35,7 +35,7 @@ ms.locfileid: "54065256"
 
 ## <a name="how-does-logic-apps-work"></a>Logic Apps 如何運作？ 
 
-每個邏輯應用程式都會使用觸發程序啟動，而該觸發程序會在特定事件發生時，或在可用的新資料符合特定準則時引發。 許多觸發程序都包含基本排程功能，以便您指定工作負載定期執行的方式。 如需更多自訂排程案例，請使用排程觸發程序啟動您的工作流程。 深入了解[如何建立以排程為基礎的工作流程](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)。
+每個邏輯應用程式都會使用觸發程序啟動，而該觸發程序會在特定事件發生時，或在可用的新資料符合特定準則時引發。 Logic Apps 中連接器提供的許多觸發程序都包含基本排程功能，以便您設定工作負載定期執行的方式。 如需更複雜的排程或進階的週期，可以在任何工作流程中使用循環觸發程序作為第一步。 深入了解[以排程為基礎的工作流程](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)。
 
 每次引發觸發程序時，Logic Apps 引擎就會建立可執行工作流程動作的邏輯應用程式執行個體。 這些動作也可以包含資料轉換和流程控制，例如條件陳述式、切換陳述式、迴圈和分支。 例如，此邏輯應用程式會使用具有「在記錄更新時」內建準則的 Dynamics 365 觸發程序啟動。 如果觸發程序偵測到符合此準則的事件，則觸發程序會引發並執行工作流程的動作。 這些動作包括 XML 轉換、資料更新、決策分支和電子郵件通知。
 
@@ -132,14 +132,9 @@ BizTalk Server 可以透過另一種方式，使用[適用於 Logic Apps 的 Mic
 
 ## <a name="get-started"></a>開始使用 
 
-Logic Apps 是裝載於 Microsoft Azure 的許多服務之一。 因此開始使用前，您需要有 Azure 訂用帳戶。 如果您沒有訂用帳戶，請<a href="https://azure.microsoft.com/free/" target="_blank">註冊一個免費的 Azure 帳戶</a>。 
+Logic Apps 是裝載於 Microsoft Azure 的許多服務之一。 因此開始使用前，您需要有 Azure 訂用帳戶。 如果您沒有訂用帳戶，請[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 如果您有 Azure 訂用帳戶，請嘗試此[快速入門以建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)，該邏輯應用程式會透過 RSS 摘要監視網站上的新內容，以及在新內容出現時傳送電子郵件。
-
-## <a name="support-and-feedback"></a>支援與意見反應
-
-* 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>後續步驟
 

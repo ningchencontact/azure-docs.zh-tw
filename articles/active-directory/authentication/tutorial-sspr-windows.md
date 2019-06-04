@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ea65120a2a735477d048b9012e160e0cdafe8835
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861522"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253077"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>教學課程：從登入畫面重設 Azure AD 密碼
 
@@ -29,7 +29,7 @@ ms.locfileid: "65861522"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 您必須執行至少 Windows 10 (2018 年 4 月更新版)，且裝置必須是：
+* 您必須執行至少是 2018 年 4 月更新版 (v1803) 的 Windows 10 ，且裝置必須是：
    * [已加入 Azure AD](../device-management-azure-portal.md) 或
    * [已加入混合式 Azure AD](../device-management-hybrid-azuread-joined-devices-setup.md) (可透過網路連線至網域控制站)。
 * 您必須啟用 Azure AD 自助式密碼重設。
@@ -122,7 +122,7 @@ Azure AD 稽核記錄會包含 IP 位址相關資訊以及發生密碼重設的 
 
 * 目前不支援從遠端桌面進行密碼重設。
 
-如果 1809 前的 Windows 10 版本中的原則需要 Ctrl+Alt+Del，[重設密碼]  將無法運作。
+如果 v1809 前的 Windows 10 版本中的原則需要 Ctrl+Alt+Del，[重設密碼]  將無法運作。
 
 如果鎖定螢幕通知已關閉，[重設密碼]  將無法運作。
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 05/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 69068304a6bc72f503ed85edf05229f10e4a8bc0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258771"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236357"
 ---
 # <a name="what-is-azure-data-box-disk"></a>什麼是 Azure 資料箱磁碟？
 
@@ -56,6 +56,9 @@ A.  若要查看目前何處可以使用資料箱磁碟，請前往[區域可用
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>問： 在哪些區域中可以使用資料箱磁碟來儲存資料？
 A. 美國、加拿大、澳大利亞、西歐和北歐、韓國和日本內的所有區域均支援資料箱磁碟。 只有 Azure 公用雲端區域受到支援。 Azure Government 或其他主權雲端不受支援。
 
+### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>問： 我的資料箱磁碟在運送期間可以跨國家/地區邊界使用嗎？
+A. 資料箱磁碟是在與目的地相同的國家/地區內寄送，並不會跨越任何跨國界。 唯一的例外狀況是位於歐盟 (EU) 的訂單，該地區的磁碟可以在任何歐盟國家/地區之間運送。
+
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>問： 如果遇到任何資料箱磁碟方面的問題，該與誰連絡？
 A. 如果您遇到任何資料箱磁碟方面的問題，請[連絡 Microsoft 支援服務](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support)。
 
@@ -65,7 +68,7 @@ A. 如果您遇到任何資料箱磁碟方面的問題，請[連絡 Microsoft �
 A.  沒有。 您會根據磁碟的資料大小和可用性取得 8 TB 磁碟 (最多 5 個磁碟)。  
 
 ### <a name="q-how-do-i-unlock-the-data-box-disks"></a>問： 如何將資料箱磁碟解除鎖定？ 
-A.  在 Azure 入口網站中，移至您的資料箱磁碟訂單，並瀏覽至 [裝置詳細資料]。 複製通行金鑰。 從 Azure 入口網站下載及擷取您作業系統適用的資料箱磁碟解鎖工具。 在有資料要複製到磁碟的電腦上執行此工具。 請提供用來將磁碟解除鎖定的通行金鑰。 所有磁碟均可用相同的通行金鑰解除鎖定。 
+A.  在 Azure 入口網站中，移至您的資料箱磁碟訂單，並瀏覽至 [裝置詳細資料]  。 複製通行金鑰。 從 Azure 入口網站下載及擷取您作業系統適用的資料箱磁碟解鎖工具。 在有資料要複製到磁碟的電腦上執行此工具。 請提供用來將磁碟解除鎖定的通行金鑰。 所有磁碟均可用相同的通行金鑰解除鎖定。 
 
 如需逐步指示，請移至[解除鎖定 Windows 用戶端上的磁碟](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client)或[解除鎖定 Linux 用戶端上的磁碟](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client)。
 
@@ -84,7 +87,7 @@ A. 是。 您可以將多個資料箱磁碟連線至相同的主機電腦以傳�
 A.  您可以在 Azure 入口網站中追蹤資料箱磁碟訂單的狀態。 當您建立訂單時，系統也會提示您提供通知電子郵件。 如果您有提供的話，您將會透過電子郵件獲知訂單的所有狀態變更。 請取得關於如何[設定通知電子郵件](data-box-portal-ui-admin.md#edit-notification-details)的資訊。
 
 ### <a name="q-how-do-i-return-the-disks"></a>問： 如何送回磁碟？ 
-A.  Microsoft 會在寄送包裹中提供隨附於資料箱磁碟的出貨標籤。 請將標籤黏貼於寄送包裹，並將密封的包裹投遞到貨運公司地點。 如果標籤受損或遺失，請移至 [概觀] > [下載出貨標籤]，並下載新的寄返標籤。
+A.  Microsoft 會在寄送包裹中提供隨附於資料箱磁碟的出貨標籤。 請將標籤黏貼於寄送包裹，並將密封的包裹投遞到貨運公司地點。 如果標籤受損或遺失，請移至 [概觀] > [下載出貨標籤]  ，並下載新的寄返標籤。
 
 ## <a name="migrate-data"></a>移轉資料
 
@@ -148,7 +151,7 @@ A.  當您在磁碟上的 *BlockBlob* 和 *PageBlob* 資料夾下複製資料後
 A. 如果容器名稱包含大寫字母，這些字母會自動轉換為小寫。 如果名稱在其他方面不符合規範 (特殊字元、其他語言等等)，則會上傳失敗。 如需詳細資訊，請移至 [Azure 命名慣例](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)。
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-multiple-data-box-disks"></a>問： 如何驗證我複製到多個資料箱磁碟上的資料？
-A.  資料複製完成後，您可以執行 DataBoxDiskImport 資料夾中提供的 `DataBoxDiskValidation.cmd`，以產生驗證的總和檢查碼。 如果您有多個磁碟，您必須為每個磁碟開啟一個命令視窗，並執行此命令。 請記住，此作業可能十分耗時 (數小時)，視資料大小而定。
+A.  資料複製完成後，您可以執行 DataBoxDiskImport  資料夾中提供的 `DataBoxDiskValidation.cmd`，以產生驗證的總和檢查碼。 如果您有多個磁碟，您必須為每個磁碟開啟一個命令視窗，並執行此命令。 請記住，此作業可能十分耗時 (數小時)，視資料大小而定。
 
 ### <a name="q-what-happens-to-my-data-after-i-have-returned-the-disks"></a>問： 在我送回磁碟之後，我的資料將會如何？
 A.  當資料複製到 Azure 之後，磁碟中的資料將會根據 NIST SP 800-88 修訂 1 指導方針安全地清除。  
