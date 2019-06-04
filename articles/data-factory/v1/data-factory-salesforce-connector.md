@@ -286,24 +286,24 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 | Salesforce 類型 | 以 .NET 為基礎的類型 |
 | --- | --- |
-| 自動編號 |String |
-| 核取方塊 |Boolean |
-| 貨幣 |Decimal |
-| date |Datetime |
-| 日期/時間 |Datetime |
-| 電子郵件 |String |
-| id |String |
-| 查閱關聯性 |String |
-| 複選挑選清單 |String |
-| 數字 |Decimal |
-| 百分比 |Decimal |
-| 電話 |String |
-| 挑選清單 |String |
+| Auto Number |String |
+| Checkbox |Boolean |
+| Currency |Decimal |
+| Date |DateTime |
+| Date/Time |DateTime |
+| Email |String |
+| Id |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
+| Number |Decimal |
+| Percent |Decimal |
+| Phone |String |
+| Picklist |String |
 | Text |String |
-| 文字區域 |String |
-| 文字區域 (完整) |String |
-| 文字區域 (豐富) |String |
-| 文字 (加密) |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
 | URL |String |
 
 > [!NOTE]
