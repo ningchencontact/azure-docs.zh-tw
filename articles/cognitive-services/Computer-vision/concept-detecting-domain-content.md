@@ -13,7 +13,7 @@ ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
 ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/22/2019
 ms.locfileid: "59994481"
@@ -57,7 +57,7 @@ ms.locfileid: "59994481"
 
 ### <a name="enhanced-categorization-analysis"></a>強化分類分析
 
-也可以使用特定領域模型，來補足一般的影像分析。 您可以在 [Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API 呼叫的 details 參數中指定特定領域模型，做為[高階分類](concept-categorizing-images.md)的一環來進行。
+也可以使用特定領域模型，來補足一般的影像分析。 您可以在 [Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API 呼叫的 details  參數中指定特定領域模型，做為[高階分類](concept-categorizing-images.md)的一環來進行。
 
 在此情況下，必須先呼叫 86 類別分類器。 如果任何偵測到的類別符合特定領域模型，即會透過該模型傳遞影像，並新增結果。
 

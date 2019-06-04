@@ -211,7 +211,7 @@ Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/
       }
     }
     ```
-* 在 Pig 指令碼中，使用 '**$parameterName**' 參考參數，如下列範例所示：
+* 在 Pig 指令碼中，使用 ' **$parameterName**' 參考參數，如下列範例所示：
 
     ```
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);

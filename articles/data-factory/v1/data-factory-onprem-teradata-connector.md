@@ -47,7 +47,7 @@ ms.locfileid: "60610747"
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 Cassandra 資料存放區移動資料。
 
 - 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
-- 您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+- 您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -287,7 +287,7 @@ ms.locfileid: "60610747"
 | --- | --- |
 | Char |String |
 | Clob |String |
-| Graphic |String |
+| 圖形 |String |
 | VarChar |String |
 | VarGraphic |String |
 | Blob |Byte[] |
@@ -297,12 +297,12 @@ ms.locfileid: "60610747"
 | ByteInt |Int16 |
 | Decimal |Decimal |
 | Double |Double |
-| Integer |Int32 |
+| 整數 |Int32 |
 | Number |Double |
 | SmallInt |Int16 |
 | Date |DateTime |
 | Time |TimeSpan |
-| Time With Time Zone |String |
+| 時區的時間 |String |
 | Timestamp |DateTime |
 | Timestamp With Time Zone |DateTimeOffset |
 | Interval Day |TimeSpan |
@@ -315,9 +315,9 @@ ms.locfileid: "60610747"
 | Interval Minute |TimeSpan |
 | Interval Minute To Second |TimeSpan |
 | Interval Second |TimeSpan |
-| Interval Year |String |
-| Interval Year To Month |String |
-| Interval Month |String |
+| 間隔年 |String |
+| 間隔年至月 |String |
+| 間隔月 |String |
 | Period(Date) |String |
 | Period(Time) |String |
 | Period(Time With Time Zone) |String |

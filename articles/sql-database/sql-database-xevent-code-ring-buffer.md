@@ -30,7 +30,7 @@ ms.locfileid: "60331021"
 1. 使用資料建立要示範的資料表。
 2. 建立現有擴充事件的工作階段，名稱為 **sqlserver.sql_statement_starting**。
    
-   * 此事件僅限於包含特定 Update 字串的 SQL 陳述式： **statement LIKE '%UPDATE tabEmployee%'**。
+   * 此事件僅限於包含特定 Update 字串的 SQL 陳述式： **statement LIKE '%UPDATE tabEmployee%'** 。
    * 選擇要將事件的輸出傳送給信號緩衝區類型的目標，名稱為 **package0.ring_buffer**。
 3. 啟動事件工作階段。
 4. 發出幾個簡單的 SQL UPDATE 陳述式。
@@ -223,7 +223,7 @@ GO
 
 然後在結果窗格中，我們按了 **target_data_XML** 資料欄標題下的儲存格。 這個點按動作在 ssms.exe 中以 XML 格式建立了另一個檔案索引標籤，其中顯示了結果儲存格的內容。
 
-輸出如下列區塊所示。 它看起來很長，但它只是兩個**\<事件 >** 項目。
+輸出如下列區塊所示。 它看起來很長，但它只是兩個 **\<事件 >** 項目。
 
 &nbsp;
 

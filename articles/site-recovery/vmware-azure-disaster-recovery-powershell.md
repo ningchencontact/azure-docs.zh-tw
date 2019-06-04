@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 使用 Set-ASRVaultContext Cmdlet 設定保存庫內容。 設定後，會在所選保存庫的內容中執行 PowerShell 工作階段中的後續 Azure Site Recovery 作業。
 
 > [!TIP]
-> Azure Site Recovery PowerShell 模組 （Az.RecoveryServices 模組） 隨附的大多數 cmdlet 容易使用的別名。 模組中的 cmdlet 的形式*\<作業 >-**AzRecoveryServicesAsr**\<物件 >* 形式的對等別名還有 *\<作業 >-**ASR**\<物件 >*。 本文使用 Cmdlet 別名提高可讀性。
+> Azure Site Recovery PowerShell 模組 （Az.RecoveryServices 模組） 隨附的大多數 cmdlet 容易使用的別名。 模組中的 cmdlet 的形式 *\<作業 >-**AzRecoveryServicesAsr**\<物件 >* 形式的對等別名還有  *\<作業 >-**ASR**\<物件 >* 。 本文使用 Cmdlet 別名提高可讀性。
 
 在下列範例中，來自 $vault 變數的保存庫詳細資料用於指定 PowerShell 工作階段的保存庫內容。
 
@@ -279,7 +279,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 
 ## <a name="add-a-vcenter-server-and-discover-vms"></a>新增 vCenter 伺服器並探索 VM
 
-依照 IP 位址或主機名稱新增 vCenter Server。 **-port** 參數會指定連接的 vCenter Server 連接埠，**-Name** 參數會指定用於 vCenter Server 的易記名稱，**-Account** 參數會指定設定伺服器上的帳戶控點，用來探索 vCenter Server 管理的虛擬機器。
+依照 IP 位址或主機名稱新增 vCenter Server。 **-port** 參數會指定連接的 vCenter Server 連接埠， **-Name** 參數會指定用於 vCenter Server 的易記名稱， **-Account** 參數會指定設定伺服器上的帳戶控點，用來探索 vCenter Server 管理的虛擬機器。
 
 ```azurepowershell
 # The $AccountHandles[0] variable holds details of vCenter_account
