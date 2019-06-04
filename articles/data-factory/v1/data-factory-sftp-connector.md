@@ -53,7 +53,7 @@ ms.locfileid: "61257184"
 | --- | --- | --- |
 | type | 類型屬性必須設為 `Sftp`。 |是 |
 | host | SFTP 伺服器的名稱或 IP 位址。 |是 |
-| 連接埠 |SFTP 伺服器所接聽的連接埠。 預設值為：21 |否 |
+| port |SFTP 伺服器所接聽的連接埠。 預設值為：21 |否 |
 | authenticationType |指定驗證類型。 允許的值：**Basic**、**SshPublicKey**。 <br><br> 請參閱[使用基本驗證](#using-basic-authentication)和[使用 SSH 公開金鑰驗證](#using-ssh-public-key-authentication)章節，分別取得更多屬性和 JSON 範例。 |是 |
 | skipHostKeyValidation | 指定是否略過主機金鑰驗證。 | 沒有。 預設值：false |
 | hostKeyFingerprint | 指定主機金鑰的指紋。 | 如果 `skipHostKeyValidation` 設為 false，則為 [是]。  |
