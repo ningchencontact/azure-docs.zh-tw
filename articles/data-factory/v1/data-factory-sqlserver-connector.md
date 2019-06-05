@@ -56,7 +56,7 @@ ms.locfileid: "66156484"
 
 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
 
-您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -542,18 +542,18 @@ ms.locfileid: "66156484"
 ```
 
 ## <a name="troubleshooting-connection-issues"></a>疑難排解連線問題
-1. 將 SQL Server 設定成接受遠端連線。 啟動 [SQL Server Management Studio]、用滑鼠右鍵按一下 [伺服器]，然後按一下 [屬性]。 選取清單中 [連接]，然後核取 [允許此伺服器的遠端連接]。
+1. 將 SQL Server 設定成接受遠端連線。 啟動 [SQL Server Management Studio]  、用滑鼠右鍵按一下 [伺服器]  ，然後按一下 [屬性]  。 選取清單中 [連接]  ，然後核取 [允許此伺服器的遠端連接]  。
 
     ![啟用遠端連線](./media/data-factory-sqlserver-connector/AllowRemoteConnections.png)
 
     如需詳細步驟，請參閱 [設定 remote access 伺服器組態選項](https://msdn.microsoft.com/library/ms191464.aspx) 。
-2. 啟動 [SQL Server 組態管理員] 。 展開您想要之執行個體的 [SQL Server 網路組態]，然後選取 [MSSQLSERVER 的通訊協定]。 您應該會在右窗格中看到通訊協定。 用滑鼠右鍵按一下 [TCP/IP]，然後按一下 [啟用] 來啟用 TCP/IP。
+2. 啟動 [SQL Server 組態管理員]  。 展開您想要之執行個體的 [SQL Server 網路組態]  ，然後選取 [MSSQLSERVER 的通訊協定]  。 您應該會在右窗格中看到通訊協定。 用滑鼠右鍵按一下 [TCP/IP]  ，然後按一下 [啟用]  來啟用 TCP/IP。
 
     ![啟用 TCP/IP](./media/data-factory-sqlserver-connector/EnableTCPProptocol.png)
 
     如需啟用 TCP/IP 通訊協定的詳細資料及替代方式，請參閱 [啟用或停用伺服器網路通訊協定](https://msdn.microsoft.com/library/ms191294.aspx) 。
-3. 在相同的視窗中，按兩下 [TCP/IP] 來啟動 [TCP/IP 屬性] 視窗。
-4. 切換到 [IP 位址] 索引標籤。向下捲動到 [IPAll] 區段。 請記下**TCP 連接埠**(預設值是**1433年**)。
+3. 在相同的視窗中，按兩下 [TCP/IP]  來啟動 [TCP/IP 屬性]  視窗。
+4. 切換到 [IP 位址]  索引標籤。向下捲動到 [IPAll]  區段。 請記下**TCP 連接埠**(預設值是**1433年**)。
 5. 在電腦上建立 **Windows 防火牆規則** ，來允許透過此連接埠的連入流量。
 6. **驗證連線**：若要使用完整名稱來連線到 SQL Server，請使用來自不同機器的 SQL Server Management Studio。 例如："\<machine\>.\<domain\>.corp.\<company\>.com,1433"。
 
@@ -657,9 +657,9 @@ create table dbo.TargetTbl
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
-| datetime2 |DateTime |
+| date |Datetime |
+| Datetime |Datetime |
+| datetime2 |Datetime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
@@ -673,7 +673,7 @@ create table dbo.TargetTbl
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Datetime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object * |
@@ -684,7 +684,7 @@ create table dbo.TargetTbl
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| Xml |Xml |
 
 ## <a name="mapping-source-to-sink-columns"></a>將來源對應到接收資料行
 若要將來源資料集中的資料行對應至接收資料集中的資料行，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
