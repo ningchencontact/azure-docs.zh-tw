@@ -19,16 +19,6 @@
       href: app-service-web-get-started-dotnet-framework.md
     - name: 建立 Node.js 應用程式
       href: app-service-web-get-started-nodejs.md
-    - name: 使用 Visual Studio Code 建立 Node.js 應用程式
-      items:
-        - name: 開始使用
-          href: tutorial-javascript-vscode-get-started.md
-        - name: 建立應用程式
-          href: tutorial-javascript-vscode-create-app.md
-        - name: 部署網站
-          href: tutorial-javascript-vscode-deploy-app.md
-        - name: 檢視記錄
-          href: tutorial-javascript-vscode-tail-logs.md
     - name: 建立 PHP 應用程式
       href: app-service-web-get-started-php.md
     - name: 建立 Java 應用程式

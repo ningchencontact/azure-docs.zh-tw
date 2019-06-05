@@ -55,11 +55,11 @@
     - name: 教學課程
       items:
         - name: 啟用資源提供者
-          href: 'https://docs.azure.cloudsimple.com/enable-cloudsimple-service/'
+          href: enable-cloudsimple-service.md
         - name: 建立 CloudSimple 服務
-          href: 'https://docs.azure.cloudsimple.com/create-cloudsimple-service/'
+          href: create-cloudsimple-service.md
         - name: 存取 CloudSimple 入口網站
-          href: 'https://docs.azure.cloudsimple.com/access-cloudsimple-portal/'
+          href: access-cloudsimple-portal.md
         - name: 管理節點
           items:
             - name: 購買節點

@@ -15,16 +15,6 @@
       href: functions-create-your-first-function-visual-studio.md
     - name: 建立函式 - Visual Studio Code
       href: functions-create-first-function-vs-code.md
-    - name: 建立函式 - Node.js with Visual Studio Code
-      items:
-        - name: 開始使用
-          href: tutorial-javascript-vscode-get-started.md
-        - name: 建立應用程式
-          href: tutorial-javascript-vscode-create-app.md
-        - name: 在本機執行及測試應用程式
-          href: tutorial-javascript-vscode-run-app.md
-        - name: 部署網站
-          href: tutorial-javascript-vscode-deploy-app.md
     - name: 建立函式 - Java/Maven
       href: functions-create-first-java-maven.md
     - name: 建立函式 - Python

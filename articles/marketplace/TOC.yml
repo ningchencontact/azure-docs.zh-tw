@@ -58,8 +58,6 @@
         - name: 您的 Marketplace 權益
           href: ./gtm-your-marketplace-benefits.md
           items:
-            - name: 透過 Microsoft 推廣您的業務
-              href: ./gtm-promote-your-business.md
             - name: 慣用的解決方案
               href: ./preferred-solutions.md
             - name: 整合式解決方案
