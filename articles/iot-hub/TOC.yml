@@ -347,7 +347,7 @@
               href: iot-hub-visual-studio-cloud-device-messaging.md
             - name: Power BI 中的資料視覺效果
               href: iot-hub-live-data-visualization-in-power-bi.md
-            - name: Web Apps 的資料視覺效果
+            - name: Web 應用程式中的資料視覺效果
               href: iot-hub-live-data-visualization-in-web-apps.md
             - name: 使用 Azure Machine Learning 進行天氣預測
               href: iot-hub-weather-forecast-machine-learning.md
@@ -419,9 +419,9 @@
           href: /azure/azure-maps
         - name: 時間序列深入解析
           href: /azure/time-series-insights
-    - name: Edge
+    - name: IoT Edge
       items:
-        - name: IoT Edge
+        - name: Azure IoT Edge
           href: /azure/iot-edge
         - name: IoT 裝置 SDK
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

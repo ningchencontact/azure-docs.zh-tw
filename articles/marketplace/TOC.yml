@@ -470,8 +470,12 @@
           href: ./partner-center-portal/manage-account.md
         - name: 尋找或建立公司工作帳戶
           href: ./partner-center-portal/company-work-accounts.md
+        - name: 將帳戶從 CPP 移轉到合作夥伴中心
+          href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
     - name: 建立新的供應項目
       items:
+        - name: 供應項目建立檢查清單
+          href: ./partner-center-portal/offer-creation-checklist.md
         - name: 建立 SaaS 供應項目
           href: ./partner-center-portal/create-new-saas-offer.md
         - name: SaaS 履行 API

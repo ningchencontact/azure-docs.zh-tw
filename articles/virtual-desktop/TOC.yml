@@ -64,6 +64,8 @@
       href: troubleshoot-client-connection.md
     - name: Windows 虛擬桌面 PowerShell
       href: troubleshoot-powershell.md
+    - name: 診斷圖表效能問題
+      href: remotefx-graphics-performance-counters.md
 - name: 參考
   items:
     - name: PowerShell

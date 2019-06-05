@@ -42,7 +42,7 @@
       href: cdn-pop-list-api.md
     - name: 從標準 Verizon 標準移轉至進階 Verizon
       href: cdn-migrate.md
-    - name: DDoS保護
+    - name: DDoS 保護
       href: cdn-ddos.md
 - name: 使用說明指南
   items:
@@ -94,7 +94,7 @@
         - name: 監視資源
           href: cdn-resource-health.md
         - name: 使用規則覆寫行為
-          href: cdn-rules-engine.md
+          href: cdn-verizon-premium-rules-engine.md
         - name: 使用流量管理員
           href: cdn-traffic-manager.md
     - name: 分析
@@ -134,15 +134,15 @@
           href: cdn-troubleshoot-allowed-ca.md
 - name: 參考
   items:
-    - name: 規則引擎參考
-      href: cdn-rules-engine-reference.md
+    - name: Verizon Premium 規則引擎參考
+      href: cdn-verizon-premium-rules-engine-reference.md
       items:
         - name: 規則引擎條件運算式
-          href: cdn-rules-engine-reference-conditional-expressions.md
+          href: cdn-verizon-premium-rules-engine-reference-conditional-expressions.md
         - name: 規則引擎比對條件
-          href: cdn-rules-engine-reference-match-conditions.md
+          href: cdn-verizon-premium-rules-engine-reference-match-conditions.md
         - name: 規則引擎功能
-          href: cdn-rules-engine-reference-features.md
+          href: cdn-verizon-premium-rules-engine-reference-features.md
         - name: HTTP 變數
           href: cdn-http-variables.md
     - name: Verizon 特定的 HTTP 標題
@@ -158,8 +158,6 @@
       href: /java/api/com.microsoft.azure.management.cdn
     - name: REST
       href: /rest/api/cdn/
-    - name: Resource Manager 範本
-      href: /azure/templates/microsoft.cdn/allversions
 - name: 資源
   items:
     - name: Azure CDN POP 位置

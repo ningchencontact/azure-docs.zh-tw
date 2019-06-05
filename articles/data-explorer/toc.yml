@@ -7,34 +7,10 @@
 - name: 快速入門
   expanded: true
   items:
-    - name: 建立叢集和資料庫
-      items:
-        - name: Azure 入口網站
-          href: create-cluster-database-portal.md
-        - name: Azure CLI
-          href: create-cluster-database-cli.md
-        - name: PowerShell
-          href: create-cluster-database-powershell.md
-        - name: 'C#'
-          href: create-cluster-database-csharp.md
-        - name: Python
-          href: create-cluster-database-python.md
-    - name: 擷取資料
-      items:
-        - name: 串流處理資料 - 事件中樞
-          href: ingest-data-event-hub.md
-        - name: 串流資料 - 事件方格
-          href: ingest-data-event-grid.md
-        - name: 串流資料 - Kafka
-          href: ingest-data-kafka.md
-        - name: 批次處理資料 - Python
-          href: python-ingest-data.md
-        - name: 批次處理資料 - Node SDK
-          href: node-ingest-data.md
-        - name: 批次處理資料 - .NET Standard SDK
-          href: net-standard-ingest-data.md
-        - name: 批次處理資料 - Logstash
-          href: ingest-data-logstash.md
+    - name: 建立叢集和資料庫 - Azure 入口網站
+      href: create-cluster-database-portal.md
+    - name: 內嵌範例資料
+      href: ingest-sample-data.md
     - name: 查詢資料
       items:
         - name: Web UI
@@ -52,12 +28,38 @@
     - name: 資料擷取概觀
       displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
       href: ingest-data-overview.md
+    - name: 資料視覺效果概觀
+      href: viz-overview.md
 - name: 使用說明指南
   items:
-    - name: 開始使用
+    - name: 建立叢集和資料庫
       items:
-        - name: 內嵌範例資料
-          href: ingest-sample-data.md
+        - name: Azure CLI
+          href: create-cluster-database-cli.md
+        - name: PowerShell
+          href: create-cluster-database-powershell.md
+        - name: 'C#'
+          href: create-cluster-database-csharp.md
+        - name: Python
+          href: create-cluster-database-python.md
+    - name: 擷取資料
+      items:
+        - name: 事件中樞
+          href: ingest-data-event-hub.md
+        - name: Event Grid
+          href: ingest-data-event-grid.md
+        - name: Kafka
+          href: ingest-data-kafka.md
+        - name: Python
+          href: python-ingest-data.md
+        - name: Node SDK
+          href: node-ingest-data.md
+        - name: .NET Standard SDK
+          href: net-standard-ingest-data.md
+        - name: Logstash
+          href: ingest-data-logstash.md
+        - name: 使用 Azure Data Factory 複製資料
+          href: data-factory-load-data.md
     - name: 部署
       items:
         - name: DevOps 工作
@@ -82,10 +84,14 @@
               href: power-bi-imported-query.md
             - name: SQL 查詢
               href: power-bi-sql-query.md
+        - name: ODBC 連接器
+          href: connect-odbc.md
         - name: Sisense
           href: sisense.md
         - name: Grafana
           href: grafana.md
+        - name: Tableau
+          href: tableau.md
     - name: 管理
       items:
         - name: 管理資料庫權限
@@ -104,7 +110,7 @@
       items:
         - name: 使用計量來監視叢集健康情況
           href: using-metrics.md
-    - name: 使用其他工具
+    - name: 與其他工具整合
       items:
         - name: Apache Spark 連接器
           href: spark-connector.md
@@ -112,10 +118,6 @@
           href: connect-from-databricks.md
         - name: 在 Jupyter Notebook 和 Kqlmagic 中分析資料
           href: kqlmagic.md
-        - name: 使用 Azure Data Factory 複製資料
-          href: data-factory-load-data.md
-        - name: 與 ODBC 連線
-          href: connect-odbc.md
     - name: 疑難排解
       items:
         - name: 建立叢集

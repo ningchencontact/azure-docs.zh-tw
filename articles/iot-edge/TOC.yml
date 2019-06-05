@@ -43,7 +43,7 @@
       items:
         - name: 使用 Azure Functions 篩選資料
           href: tutorial-deploy-function.md
-        - name: 使用 ASA 尋找平均值
+        - name: 使用 Azure 串流分析尋找平均值
           href: tutorial-deploy-stream-analytics.md
         - name: 使用 Azure Machine Learning 服務為資料評分
           href: tutorial-deploy-machine-learning.md

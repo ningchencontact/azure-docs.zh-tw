@@ -74,7 +74,11 @@
         - name: 設定 SAML 權杖加密 (預覽)
           href: howto-saml-token-encryption.md
     - name: 單一登入
-      href: what-is-single-sign-on.md
+      items:
+        - name: 什麼是單一登入
+          href: what-is-single-sign-on.md
+        - name: 規劃單一登入部署
+          href: plan-sso-deployment.md
     - name: 使用者入口網站
       href: end-user-experiences.md
 - name: 使用說明指南
@@ -93,7 +97,9 @@
           href: application-proxy-configure-for-claims-aware-applications.md
         - name: 註冊連接器 - 無訊息安裝
           href: application-proxy-register-connector-powershell.md
-        - name: 設定原生用戶端應用程式
+        - name: 提供內部部署 API 行動和桌面應用程式存取權
+          href: application-proxy-secure-api-access.md
+        - name: 設定行動和桌面用戶端應用程式
           href: application-proxy-configure-native-client-application.md
         - name: 設定自訂首頁
           href: application-proxy-configure-custom-home-page.md

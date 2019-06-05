@@ -19,6 +19,16 @@
       href: app-service-web-get-started-dotnet-framework.md
     - name: 建立 Node.js 應用程式
       href: app-service-web-get-started-nodejs.md
+    - name: 使用 Visual Studio Code 建立 Node.js 應用程式
+      items:
+        - name: 開始使用
+          href: tutorial-javascript-vscode-get-started.md
+        - name: 建立應用程式
+          href: tutorial-javascript-vscode-create-app.md
+        - name: 部署網站
+          href: tutorial-javascript-vscode-deploy-app.md
+        - name: 檢視記錄
+          href: tutorial-javascript-vscode-tail-logs.md
     - name: 建立 PHP 應用程式
       href: app-service-web-get-started-php.md
     - name: 建立 Java 應用程式
@@ -78,8 +88,12 @@
           href: overview-patch-os-runtime.md
         - name: 安全性屬性
           href: app-service-security-attributes.md
+    - name: 網路功能
+      href: networking-features.md
     - name: 輸入和輸出 IP
       href: overview-inbound-outbound-ips.md
+    - name: 虛擬網路整合
+      href: web-sites-integrate-with-vnet.md
     - name: 混合式連線
       href: app-service-hybrid-connections.md
     - name: 流量管理員整合
@@ -98,8 +112,6 @@
           href: web-sites-php-configure.md
         - name: 設定 Java
           href: configure-language-java.md
-        - name: 連線到內部部署資源
-          href: web-sites-integrate-with-vnet.md
     - name: 部署至 Azure
       items:
         - name: 部署應用程式

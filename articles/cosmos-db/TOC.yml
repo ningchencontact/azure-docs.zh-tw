@@ -600,6 +600,8 @@
       items:
         - name: 效能秘訣
           items:
+            - name: 取得查詢執行計量
+              href: profile-sql-api-query.md
             - name: 微調查詢效能
               href: sql-api-query-metrics.md
             - name: .NET SDK 的效能秘訣

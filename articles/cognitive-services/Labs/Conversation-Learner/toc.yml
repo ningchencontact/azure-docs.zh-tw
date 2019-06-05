@@ -34,6 +34,8 @@
       href: tutorials/08-pre-trained-entities.md
     - name: 實體解析程式
       href: tutorials/09-entity-resolvers.md
+    - name: 列舉實體
+      href: tutorials/tutorial-enum-set-entity.md
     - name: 替代輸入
       href: tutorials/10-alternative-inputs.md
     - name: 記錄對話方塊
