@@ -332,7 +332,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 | name | 管線中的活動名稱。 | 是 |
 | description | 說明活動用途的文字。 | 否 |
 | type | 這個屬性必須設為 HDInsightSpark。 | 是 |
-| 預設容器 | Spark 程式執行所在的 HDInsight 連結服務名稱。 | 是 |
+| linkedServiceName | Spark 程式執行所在的 HDInsight 連結服務名稱。 | 是 |
 | rootPath | 包含 Spark 檔案的 Blob 容器和資料夾。 檔案名稱有區分大小寫。 | 是 |
 | entryFilePath | Spark 程式碼/套件之根資料夾的相對路徑。 | 是 |
 | className | 應用程式的 Java/Spark 主要類別。 | 否 |
