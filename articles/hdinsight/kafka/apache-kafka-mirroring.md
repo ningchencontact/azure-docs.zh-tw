@@ -63,12 +63,12 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Azure Resource Manager 範本位於 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**。
+    Azure Resource Manager 範本位於 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json** 。
 
     > [!WARNING]  
     > 若要保證 Kafka 在 HDInsight 上的可用性，您的叢集必須包含至少三個背景工作角色節點。 此範本會建立包含三個背景工作角色節點的 Kafka 叢集。
 
-2. 使用下列資訊來填入 [自訂部署] 刀鋒視窗上的項目︰
+2. 使用下列資訊來填入 [自訂部署]  刀鋒視窗上的項目︰
     
     ![HDInsight 自訂部署](./media/apache-kafka-mirroring/parameters.png)
     
@@ -86,9 +86,9 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
 
     * **SSH 密碼**：來源和目的地 Kafka 叢集的 SSH 使用者密碼。
 
-3. 讀取**條款及條件**，然後選取 [我同意上方所述的條款及條件]。
+3. 讀取**條款及條件**，然後選取 [我同意上方所述的條款及條件]  。
 
-4. 最後，核取 [釘選到儀表板]，然後選取 [購買]。 大約需要 20 分鐘的時間來建立叢集。
+4. 最後，核取 [釘選到儀表板]  ，然後選取 [購買]  。 大約需要 20 分鐘的時間來建立叢集。
 
 > [!IMPORTANT]  
 > HDInsight 叢集的名稱是 **source-BASENAME** 和 **dest-BASENAME**，其中 BASENAME 是您提供給範本的名稱。 連接到叢集時，您會在稍後步驟中使用這些名稱。
@@ -232,12 +232,12 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
         若要設定目的地叢集來自動建立主題，請執行下列步驟：
 
         1. 從 [Azure 入口網站](https://portal.azure.com)，選取 Kafka 目的地叢集。
-        2. 從叢集概觀，選取 [叢集儀表板]。 然後選取 [HDInsight 叢集儀表板]。 出現提示時，使用叢集的登入 (系統管理員) 認證進行驗證。
-        3. 從頁面左邊的清單中，選取 [Kafka] 服務。
-        4. 選取頁面中間的 [設定]。
-        5. 在 [篩選] 欄位中，輸入 `auto.create` 的值。 這會篩選屬性清單並顯示 `auto.create.topics.enable` 設定。
-        6. 將 `auto.create.topics.enable` 的值變更為 true，然後選取 [儲存]。 新增附註，然後再次選取 [儲存]。
-        7. 依序選取 [Kafka] 服務、[重新啟動] 和 [重新啟動所有受影響的]。 出現提示時，選取 [確認全部重新啟動]。
+        2. 從叢集概觀，選取 [叢集儀表板]  。 然後選取 [HDInsight 叢集儀表板]  。 出現提示時，使用叢集的登入 (系統管理員) 認證進行驗證。
+        3. 從頁面左邊的清單中，選取 [Kafka]  服務。
+        4. 選取頁面中間的 [設定]  。
+        5. 在 [篩選]  欄位中，輸入 `auto.create` 的值。 這會篩選屬性清單並顯示 `auto.create.topics.enable` 設定。
+        6. 將 `auto.create.topics.enable` 的值變更為 true，然後選取 [儲存]  。 新增附註，然後再次選取 [儲存]  。
+        7. 依序選取 [Kafka]  服務、[重新啟動]  和 [重新啟動所有受影響的]  。 出現提示時，選取 [確認全部重新啟動]  。
 
 ## <a name="start-mirrormaker"></a>啟動 MirrorMaker
 

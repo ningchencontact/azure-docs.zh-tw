@@ -49,7 +49,7 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 2. 在上一個步驟中識別的伺服器上，安裝[最新版本的 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)。 如果您已執行 Azure AD Connect，請確定版本是 1.1.750.0 或更新版本。
 
     >[!NOTE]
-    >Azure AD Connect 版本 1.1.557.0、1.1.558.0、1.1.561.0 和 1.1.614.0 具有與密碼雜湊同步處理相關的問題。 如果您「不」想要使用密碼雜湊同步處理搭配傳遞驗證，請閱讀 [Azure AD Connect 版本資訊](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470)。
+    >Azure AD Connect 版本 1.1.557.0、1.1.558.0、1.1.561.0 和 1.1.614.0 具有與密碼雜湊同步處理相關的問題。 如果您「不」  想要使用密碼雜湊同步處理搭配傳遞驗證，請閱讀 [Azure AD Connect 版本資訊](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470)。
 
 3. 識別一或多部額外伺服器 (執行 Windows Server 2012 R2 或更新版本並啟用 TLS 1.2) 來執行獨立驗證代理程式。 需要有這些額外的伺服器，才能確保登入要求的高可用性。 根據需要驗證密碼之使用者所在的 Active Directory 樹系，將伺服器新增至同一個樹系。
 
@@ -63,7 +63,7 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
      | --- | --- |
      | **80** | 驗證 SSL 憑證時下載憑證撤銷清單 (CRL) |
      | **443** | 處理所有與服務之間的輸出通訊 |
-     | **8080** (選擇性) | 如果無法使用連接埠 443，則驗證代理程式會透過連接埠 8080 每隔十分鐘報告其狀態。 此狀態會顯示在 Azure 入口網站上。 連接埠 8080 「不」會用於使用者登入。 |
+     | **8080** (選擇性) | 如果無法使用連接埠 443，則驗證代理程式會透過連接埠 8080 每隔十分鐘報告其狀態。 此狀態會顯示在 Azure 入口網站上。 連接埠 8080 「不」  會用於使用者登入。 |
      
      如果您的防火牆會根據原始使用者強制執行規則，請開啟這些連接埠，讓來自以網路服務形式執行之 Windows 服務的流量得以通行。
    - 如果您的防火牆或 Proxy 允許建立 DNS 允許清單，便可將對 **\*.msappproxy.net** 與 **\*.servicebus.windows.net** 的連線加入允許清單。 如果不允許建立，請允許存取每週更新的 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。
@@ -77,26 +77,26 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 >[!IMPORTANT]
 >您可以在 Azure AD Connect 主要或暫存伺服器上啟用傳遞驗證。 強烈建議您從主要伺服器啟用此功能。 如果您未來要設定 Azure AD Connect 預備伺服器，您**必須**繼續選擇傳遞驗證做為登入選項；選擇另一個選項將會**停用**租用戶上的傳遞驗證，並覆寫主要伺服器中的設定。
 
-如果您是第一次安裝 Azure AD Connect，請選擇[自訂安裝路徑](how-to-connect-install-custom.md)。 在 [使用者登入] 頁面上，選擇 [傳遞驗證] 作為 [登入方法]。 成功完成時，傳遞驗證代理程式會安裝在 Azure AD Connect 所在的同一部伺服器上。 此外，您的租用戶上也會啟用傳遞驗證功能。
+如果您是第一次安裝 Azure AD Connect，請選擇[自訂安裝路徑](how-to-connect-install-custom.md)。 在 [使用者登入]  頁面上，選擇 [傳遞驗證]  作為 [登入方法]  。 成功完成時，傳遞驗證代理程式會安裝在 Azure AD Connect 所在的同一部伺服器上。 此外，您的租用戶上也會啟用傳遞驗證功能。
 
 ![Azure AD Connect：使用者登入](./media/how-to-connect-pta-quick-start/sso3.png)
 
-如果您已安裝 Azure AD Connect (使用[快速安裝](how-to-connect-install-express.md)或[自訂安裝](how-to-connect-install-custom.md)路徑)，請在 Azure AD Connect 上選取 [變更使用者登入] 工作，並選取 [下一步]。 然後選取 [傳遞驗證] 作為登入方法。 成功完成時，傳遞驗證代理程式會安裝在 Azure AD Connect 所在的同一部伺服器上，且您的租用戶上會啟用此功能。
+如果您已安裝 Azure AD Connect (使用[快速安裝](how-to-connect-install-express.md)或[自訂安裝](how-to-connect-install-custom.md)路徑)，請在 Azure AD Connect 上選取 [變更使用者登入]  工作，並選取 [下一步]  。 然後選取 [傳遞驗證]  作為登入方法。 成功完成時，傳遞驗證代理程式會安裝在 Azure AD Connect 所在的同一部伺服器上，且您的租用戶上會啟用此功能。
 
 ![Azure AD Connect：變更使用者登入](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
->傳遞驗證是租用戶層級的功能。 開啟此功能會影響租用戶中「所有」受控網域的使用者登入。 如果您從 Active Directory Federation Services (AD FS) 改為使用傳遞驗證，應等候至少 12 個小時再關閉 AD FS 基礎結構。 這裡的等候時間可確保使用者在轉換期間依然可以繼續登入 Exchange ActiveSync。 如需從 AD FS 遷移到傳遞驗證的詳細說明，請查看我們在[這裡](https://aka.ms/adfstoptadpdownload)發佈的詳細部署計劃。
+>傳遞驗證是租用戶層級的功能。 開啟此功能會影響租用戶中「所有」  受控網域的使用者登入。 如果您從 Active Directory Federation Services (AD FS) 改為使用傳遞驗證，應等候至少 12 個小時再關閉 AD FS 基礎結構。 這裡的等候時間可確保使用者在轉換期間依然可以繼續登入 Exchange ActiveSync。 如需從 AD FS 遷移到傳遞驗證的詳細說明，請查看我們在[這裡](https://aka.ms/adfstoptadpdownload)發佈的詳細部署計劃。
 
 ## <a name="step-3-test-the-feature"></a>步驟 3：測試功能
 
 請遵循下列指示來確認您已正確啟用傳遞驗證：
 
 1. 使用租用戶的全域管理員認證來登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。
-2. 在左窗格中，選取 [Azure Active Directory]。
-3. 選取 [Azure AD Connect]。
-4. 確認 [傳遞驗證] 功能顯示為 [已啟用]。
-5. 選取 [傳遞驗證]。 [傳遞驗證] 窗格會列出安裝驗證代理程式的伺服器。
+2. 在左窗格中，選取 [Azure Active Directory]  。
+3. 選取 [Azure AD Connect]  。
+4. 確認 [傳遞驗證]  功能顯示為 [已啟用]  。
+5. 選取 [傳遞驗證]  。 [傳遞驗證]  窗格會列出安裝驗證代理程式的伺服器。
 
 ![Azure Active Directory 系統管理中心：[Azure AD Connect] 窗格](./media/how-to-connect-pta-quick-start/pta7.png)
 
@@ -106,7 +106,7 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 
 ## <a name="step-4-ensure-high-availability"></a>步驟 4：確保高可用性
 
-如果您打算在生產環境中部署傳遞驗證，您應該安裝額外的獨立驗證代理程式。 請在執行 Azure AD Connect「以外」的伺服器上安裝這些「驗證代理程式」。 此設定可提供高可用性來滿足使用者登入要求。
+如果您打算在生產環境中部署傳遞驗證，您應該安裝額外的獨立驗證代理程式。 請在執行 Azure AD Connect「以外」  的伺服器上安裝這些「驗證代理程式」。 此設定可提供高可用性來滿足使用者登入要求。
 
 >[!IMPORTANT]
 >在生產環境中，我們建議至少要有 3 個驗證代理程式在您的租用戶上執行。 系統限制每個租用戶只能有 40 個驗證代理程式。 因此，最佳做法是將執行驗證代理程式的所有伺服器視為階層 0 的系統 (請參閱[參考](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) \(機器翻譯\))。
@@ -122,9 +122,9 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 若要開始，請遵循下列指示來下載驗證代理程式軟體：
 
 1. 若要下載最新版「驗證代理程式」(1.5.193.0 版或更新版本)，請使用您租用戶的全域管理員認證來登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。
-2. 在左窗格中，選取 [Azure Active Directory]。
-3. 依序選取 [Azure AD Connect]、[傳遞驗證] 及 [下載代理程式]。
-4. 選取 [接受條款並下載] 按鈕。
+2. 在左窗格中，選取 [Azure Active Directory]  。
+3. 依序選取 [Azure AD Connect]  、[傳遞驗證]  及 [下載代理程式]  。
+4. 選取 [接受條款並下載]  按鈕。
 
 ![Azure Active Directory 系統管理中心：[下載驗證代理程式] 按鈕](./media/how-to-connect-pta-quick-start/pta9.png)
 
@@ -140,7 +140,7 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 第二種，您可以建立並執行自動部署指令碼。 當您想要一次部署多個「驗證代理程式」，或是在未啟用使用者介面或您無法使用「遠端桌面」來存取的 Windows 伺服器上安裝「驗證代理程式」時，這會相當有用。 以下是有關如何使用此方法的指示：
 
 1. 執行下列命令來安裝「驗證代理程式」：`AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`。
-2. 您可以使用 Windows PowerShell 來向我們的服務註冊「驗證代理程式」。 建立 PowerShell 認證物件 `$cred`，其中含有租用戶的全域管理員使用者名稱和密碼。 執行下列命令，取代 *\<使用者名稱\>* 和*\<密碼\>*：
+2. 您可以使用 Windows PowerShell 來向我們的服務註冊「驗證代理程式」。 建立 PowerShell 認證物件 `$cred`，其中含有租用戶的全域管理員使用者名稱和密碼。 執行下列命令，取代 *\<使用者名稱\>* 和 *\<密碼\>* ：
 
         $User = "<username>"
         $PlainPassword = '<password>'
