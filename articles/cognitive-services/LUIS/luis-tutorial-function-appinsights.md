@@ -9,19 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 1c44d2e41d37a9236ee6d6936c349acf5ca5e44c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bde1983f89cb2fcd0a6fddadc2c3379dee4310be
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098758"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399623"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>將 LUIS 結果新增至 Application Insights 和 Azure 函式
-本教學課程將 LUIS 要求和回應資訊新增至 [Application Insights](https://azure.microsoft.com/services/application-insights/) 遙測資料存放區。 在您擁有該資料之後，即可使用 Kusto 語言或 PowerBi 查詢它，以即時分析、彙總以及報告意圖和語句實體。 此分析可協助您判斷應該新增還是編輯 LUIS 應用程式的意圖和實體。
+本教學課程將 LUIS 要求和回應資訊新增至 [Application Insights](https://azure.microsoft.com/services/application-insights/) 遙測資料存放區。 一旦您擁有該資料，可以查詢與 Kusto 語言或來分析、 彙總，Power BI 和報告的意圖，並即時 utterance 的實體。 此分析可協助您判斷應該新增還是編輯 LUIS 應用程式的意圖和實體。
 
-此 Bot 是使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 所建置的。
+此 Bot 是使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 所建置的。 A [Bot Framework LUIS 教學課程的 4.x](luis-nodejs-tutorial-bf-v4.md)也會提供。
 
 在本教學課程中，您了解如何：
 
@@ -49,11 +49,11 @@ ms.locfileid: "58098758"
 
 若要擷取 LUIS 要求和回應，Web 應用程式 Bot 需要在 **app.js** 檔案中安裝和設定 **[Application Insights](https://www.npmjs.com/package/applicationinsights)** NPM 套件。 接著意圖對話處理常式需要將 LUIS 要求和回應資訊傳送給 Application Insights。 
 
-1. 在 Azure 入口網站中，於 Web 應用程式 Bot 服務中，選取 [Bot Management] \(Bot 管理\) 區段下方的 [建置]。 
+1. 在 Azure 入口網站中，於 Web 應用程式 Bot 服務中，選取 [Bot Management] \(Bot 管理\)  區段下方的 [建置]  。 
 
     ![在 Azure 入口網站中，於 Web 應用程式 Bot 服務中，選取 [Bot 管理] 區段下方的 [建置]。](./media/luis-tutorial-appinsights/build.png)
 
-2. 新的瀏覽器索引標籤與 App Service 編輯器隨即開啟。 選取頂端列中的應用程式名稱，然後選取 [Open Kudu Console] \(開啟 Kudu 主控台\)。 
+2. 新的瀏覽器索引標籤與 App Service 編輯器隨即開啟。 選取頂端列中的應用程式名稱，然後選取 [Open Kudu Console] \(開啟 Kudu 主控台\)  。 
 
     ![選取頂端列中的應用程式名稱，然後選取 [Open Kudu Console] \(開啟 Kudu 主控台\)。](./media/luis-tutorial-appinsights/kudu-console.png)
 
@@ -105,14 +105,14 @@ ms.locfileid: "58098758"
 
    [!code-javascript[Use the appInsightsLog function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/nodejs/app.js?range=117-118 "Use the appInsightsLog function")]
 
-6. 若要測試 Web 應用程式 Bot，請使用 [Test in Web Chat] \(在網路聊天中測試\) 功能。 因為所有工作都是在 Application Insights 中進行，而不是在 Bot 回應中，所以您應該看不出有任何差異。
+6. 若要測試 Web 應用程式 Bot，請使用 [Test in Web Chat] \(在網路聊天中測試\)  功能。 因為所有工作都是在 Application Insights 中進行，而不是在 Bot 回應中，所以您應該看不出有任何差異。
 
 ## <a name="view-luis-entries-in-application-insights"></a>在 Application Insights 中檢視 LUIS 項目
 開啟 Application Insights 以查看 LUIS 項目。 
 
-1. 在入口網站中，選取 [所有資源]，然後依 Web 應用程式 Bot 名稱篩選。 按一下類型為 **Application Insights** 的資源。 Application Insights 的圖示為燈泡。 
+1. 在入口網站中，選取 [所有資源]  ，然後依 Web 應用程式 Bot 名稱篩選。 按一下類型為 **Application Insights** 的資源。 Application Insights 的圖示為燈泡。 
 
-    ![[在 Azure 入口網站中搜尋應用程式深入解析](./media/luis-tutorial-appinsights/search-for-app-insights.png)
+    ![[搜尋在 Azure 入口網站中的應用程式深入解析](./media/luis-tutorial-appinsights/search-for-app-insights.png)
 
 2. 當資源開啟時，按一下最右側面板中放大鏡的**搜尋**圖示。 即會顯示右側新面板。 根據找到的遙測資料量，此面板可能需要一秒才會顯示。 搜尋 `LUIS-results`，然後按鍵盤上的 Enter 鍵。 這份清單的範圍會縮小為只有使用本教學課程所新增的 LUIS 查詢結果。
 
@@ -126,12 +126,12 @@ ms.locfileid: "58098758"
 
 
 > [!Tip]
-> 若您想要儲存相依性清單，並於稍後返回，則請按一下 [...More] \(...其他\)，然後按一下 [儲存我的最愛]。
+> 若您想要儲存相依性清單，並於稍後返回，則請按一下 [...More] \(...其他\)  ，然後按一下 [儲存我的最愛]  。
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>查詢 Application Insights 中的意圖、分數和語句
-Application Insights 可讓您使用 [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) 語言查詢資料，以及將它匯出至 [PowerBI](https://powerbi.microsoft.com)。 
+Application Insights 可讓您查詢資料與 power [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics)語言，以及匯出它[Power BI](https://powerbi.microsoft.com)。 
 
-1. 按一下相依性清單頂端且於篩選方塊上方的 [Analytics]。 
+1. 按一下相依性清單頂端且於篩選方塊上方的 [Analytics]  。 
 
     ![[Analytics] 按鈕](./media/luis-tutorial-appinsights/analytics-button.png)
 
@@ -152,7 +152,7 @@ Application Insights 可讓您使用 [Kusto](https://docs.microsoft.com/azure/ap
     ![分析最上層意圖](./media/luis-tutorial-appinsights/app-insights-top-intent.png)
 
 
-深入了解 [Kusto 查詢語言](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)或[將資料匯出至 PowerBi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)。 
+深入了解[Kusto 查詢語言](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)或是[將資料匯出至 Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)。 
 
 ## <a name="next-steps"></a>後續步驟
 

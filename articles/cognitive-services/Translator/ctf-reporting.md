@@ -3,19 +3,19 @@ title: Collaborative Translation Framework (CTF) 報告 - 翻譯工具文字 API
 titlesuffix: Azure Cognitive Services
 description: 如何使用 Collaborative Translation Framework (CTF) 報告。
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
-ms.openlocfilehash: 178747ffddbadb06751ce0db7d16701c3cea7416
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.author: v-pawal
+ms.openlocfilehash: 166c152828a91889d7d1d7eb6f8c03dac48172f5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712826"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389380"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>如何使用 Collaborative Translation Framework (CTF) 報告
 
@@ -34,7 +34,7 @@ ms.locfileid: "64712826"
 
 
 ## <a name="methods"></a>方法
-| 名稱 |    描述|
+| Name |    描述|
 |:---|:---|
 | GetUserTranslationCounts 方法 | 取得使用者所建立的翻譯計數。 |
 | GetUserTranslations 方法 | 擷取使用者所建立的翻譯。 |
@@ -105,7 +105,7 @@ ms.locfileid: "64712826"
 
 **例外狀況**
 
-| 例外狀況 | 訊息 | 條件 |
+| 例外狀況 | Message | 條件 |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | '**maxDateUtc**' 參數必須大於或等於 '**minDateUtc**'。| **maxDateUtc** 參數的值小於 **minDateUtc** 參數的值。|
 | TranslateApiException | IP 超出配額。| <ul><li>已達到每分鐘的要求數目限制。</li><li>要求大小維持限制在 10000 個字元。</li><li>每小時和每日配額會限制 Microsoft Translator API 將接受的字元數目。</li></ul>|
@@ -178,7 +178,7 @@ ms.locfileid: "64712826"
 
 **例外狀況**
 
-| 例外狀況 | 訊息 | 條件 |
+| 例外狀況 | Message | 條件 |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | '**maxDateUtc**' 參數必須大於或等於 '**minDateUtc**'。| **maxDateUtc** 參數的值小於 **minDateUtc** 參數的值。|
 | TranslateApiException | IP 超出配額。| <ul><li>已達到每分鐘的要求數目限制。</li><li>要求大小維持限制在 10000 個字元。</li><li>每小時和每日配額會限制 Microsoft Translator API 將接受的字元數目。</li></ul>|

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 46507562ab5a31f377b8c3a11902abf9aeccd846
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 748f8cfa1e105b5c6d7b9b3fc073eac9f38a63dd
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176441"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514859"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>快速入門：搭配使用翻譯工具文字 API 與 Java 來判斷句子長度
 
@@ -44,7 +44,7 @@ cd length-sentence-sample
 gradle init --type basic
 ```
 
-出現選擇 **DSL** 的提示時，請選取 [Kotlin]。
+出現選擇 **DSL** 的提示時，請選取 [Kotlin]  。
 
 ## <a name="configure-the-build-file"></a>設定組建檔案
 

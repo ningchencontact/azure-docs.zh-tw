@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 01/10/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: a28445199c47c666fb2323a70317f81f3302c765
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e02f81ef6bdf8bf4dc39b70cb7a2d9330660d1d6
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877094"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390304"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>什麼是 Bing 新聞搜尋 API？
 
@@ -54,6 +54,6 @@ Bing 新聞搜尋 API 是一種 RESTful Web 服務，因此可輕易地從任何
 
 ## <a name="see-also"></a>另請參閱
 
-* [Bing 新聞搜尋 API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) 參考章節包含您在要求以影像為基礎的搜尋結果時所能使用的端點、標頭、API 回應和查詢參數的定義和資訊。
+* [Bing 新聞搜尋 API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) 參考章節包含您在要求以影像為基礎的搜尋結果時所能使用的端點、標頭、API 回應和查詢參數的定義和資訊。
 
 * [Bing 使用和顯示需求](./useanddisplayrequirements.md)指定了透過 Bing 搜尋 API 取得的內容和資訊可行的用法。

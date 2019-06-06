@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: c53b84f31100ab72458ab6fb79b2009450eda15c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3e005677f6a21c0f795f649f43407b55bec2a40a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789937"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383578"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>調整大小和裁剪縮圖映像
 
@@ -28,7 +28,7 @@ ms.locfileid: "59789937"
 ![Expanded view of thumbnail image](../bing-web-search/media/cognitive-services-bing-web-api/bing-web-image-thumbnail-expansion.PNG)
 -->
 
-如果使用者按一下縮圖，您可以使用 [contentUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-contenturl) 向使用者顯示完整大小的影像。 請務必限定影像。
+如果使用者按一下縮圖，您可以使用 [contentUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-contenturl) 向使用者顯示完整大小的影像。 請務必限定影像。
 
 如果 `shoppingSourcesCount` 或 `recipeSourcesCount` 大於零，請將徽章 (例如購物車) 新增至縮圖，以表示影像中項目的購物或配方。
 
@@ -36,12 +36,12 @@ ms.locfileid: "59789937"
 ![Shopping sources badge](./media/cognitive-services-bing-images-api/bing-images-shopping-source.PNG)
 -->
 
-若要取得影像的見解 (例如包含此影像或影像中所辨識人員的網頁)，請使用 [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-imageinsightstoken)。 如需詳細資訊，請參閱[影像見解](image-insights.md)。
+若要取得影像的見解 (例如包含此影像或影像中所辨識人員的網頁)，請使用 [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-imageinsightstoken)。 如需詳細資訊，請參閱[影像見解](image-insights.md)。
 
 ## <a name="resizing-and-cropping-thumbnails"></a>調整大小和裁剪縮圖
 
 您也可以調整大小並展開縮圖，例如當使用者的游標停留在縮圖上方時。
 > [!NOTE]
-> 如果要展開影像，請務必標註影像的屬性。 例如，藉由從 [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl) 擷取主機，並將它顯示在影像下方。
+> 如果要展開影像，請務必標註影像的屬性。 例如，藉由從 [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-hostpagedisplayurl) 擷取主機，並將它顯示在影像下方。
 
 [!INCLUDE [cognitive-services-bing-resize-crop-thumbnails](../../../includes/cognitive-services-bing-resize-crop-thumbnails.md)]

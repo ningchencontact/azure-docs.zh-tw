@@ -8,35 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/30/2019
-ms.openlocfilehash: edf4a3e9d9e9b51ac44f839cababa9d14bc0d17a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.date: 05/29/2019
+ms.openlocfilehash: 21209548d1cfe7b6eebb1757e817a12c797e78a9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228059"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688831"
 ---
 # <a name="moderate-text-from-the-api-console"></a>從 API 主控台仲裁文字
 
-您可以使用 Azure Content Moderator 中的[文字仲裁 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) 來掃描文字內容。 作業會掃描您的不雅內容的內容，並比較對自訂和共用的黑名單內容。
+使用[文字審核 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) Azure 內容仲裁來掃描您的文字內容的不雅內容，並比較對自訂和共用的清單中。
 
 ## <a name="get-your-api-key"></a>取得 API 金鑰
 
-您需要有訂用帳戶金鑰，才能在線上主控台中試用 API。 這位於 [設定] 索引標籤的 [Ocp-Apim-Subscription-Key] 方塊中。 如需詳細資訊，請參閱[概觀](overview.md)。
+您需要有訂用帳戶金鑰，才能在線上主控台中試用 API。 這位於 [設定]  索引標籤的 [Ocp-Apim-Subscription-Key]  方塊中。 如需詳細資訊，請參閱[概觀](overview.md)。
 
 ## <a name="navigate-to-the-api-reference"></a>瀏覽至 API 參考
 
 移至[文字仲裁 API 參考](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f)。 
 
-  [Text - Screen] \(文字 - 過濾\) 頁面隨即開啟。
+  [Text - Screen] \(文字 - 過濾\)  頁面隨即開啟。
 
 ## <a name="open-the-api-console"></a>開啟 API 主控台
 
-針對 [Open API testing console] \(開啟 API 測試主控台\) 中，選取最能描述您位置的區域。 
+針對 [Open API testing console] \(開啟 API 測試主控台\)  中，選取最能描述您位置的區域。 
 
   ![[Text - Screen] \(文字 - 過濾\) 頁面區域選取項目](images/test-drive-region.png)
 
-  [Text - Screen] \(文字 - 過濾\) API 主控台隨即開啟。
+  [Text - Screen] \(文字 - 過濾\)  API 主控台隨即開啟。
 
 ## <a name="select-the-inputs"></a>選取輸入
 
@@ -49,17 +49,17 @@ ms.locfileid: "65228059"
 >
 > 針對**粗話字詞**偵測，請使用本文中所列支援語言的 [ISO 639-3 代碼](http://www-01.sil.org/iso639-3/codes.asp)或將其保留空白。
 
-針對 **autocorrect** **PII**及 **classify (預覽版)**，請選取 **true**。 將 [ListId] 欄位保留空白。
+針對 **autocorrect** **PII**及 **classify (預覽版)** ，請選取 **true**。 將 [ListId]  欄位保留空白。
 
   ![[Text - Screen] \(文字 - 過濾\) 主控台查詢參數](images/text-api-console-inputs.PNG)
 
 ### <a name="content-type"></a>內容類型
 
-針對 **Content-Type**，選取您想要過濾的內容類型。 就此範例而言，請使用預設的 **text/plain** 內容類型。 在 [Ocp-Apim-Subscription-Key] 中，輸入您的訂用帳戶金鑰。
+針對 **Content-Type**，選取您想要過濾的內容類型。 就此範例而言，請使用預設的 **text/plain** 內容類型。 在 [Ocp-Apim-Subscription-Key]  中，輸入您的訂用帳戶金鑰。
 
 ### <a name="sample-text-to-scan"></a>要掃描的範例文字
 
-在 [Request body] \(要求本文\) 方塊中，輸入一些文字。 以下範例示範文字中刻意安排的錯字。
+在 [Request body] \(要求本文\)  方塊中，輸入一些文字。 以下範例示範文字中刻意安排的錯字。
 
 > [!NOTE]
 > 以下範例文字中的無效社會安全號碼是刻意安排的。 目的是要傳達範例輸入和輸出格式。
@@ -72,7 +72,7 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## <a name="analyze-the-response"></a>分析回應
 
-以下回應顯示來自 API 的各種深入解析。 它包含可能的粗話、PII、分類 (預覽版) 及自動校正後的版本。
+以下回應顯示來自 API 的各種深入解析。 它包含潛在的不雅內容、 個人資料、 分類 （預覽），以及自動更正的版本。
 
 > [!NOTE]
 > 電腦輔助「分類」功能目前為預覽版且僅支援英文。

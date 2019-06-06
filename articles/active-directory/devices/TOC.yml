@@ -1,8 +1,8 @@
-- name: 裝置管理文件
+- name: 裝置身分識別文件
   href: index.yml
 - name: 概觀
   items:
-    - name: Azure AD 中的裝置管理是什麼？
+    - name: 什麼是裝置身分識別？
       href: overview.md
     - name: 企業狀態漫遊是什麼？
       href: enterprise-state-roaming-overview.md
@@ -29,7 +29,7 @@
 - name: 使用說明指南
   expanded: true
   items:
-    - name: 使用 Azure 入口網站管理裝置
+    - name: 管理裝置身分識別
       href: device-management-azure-portal.md
     - name: 管理過時的裝置
       href: manage-stale-devices.md

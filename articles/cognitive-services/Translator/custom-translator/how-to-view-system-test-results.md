@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: ccd31a0e8b91bc95ac364fe5bc0ec0ecdfaa4618
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 675ae10e304bd22c441740a87e8033136ff63ebd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438609"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389307"
 ---
 # <a name="view-system-test-results"></a>檢視系統測試結果
 
@@ -73,7 +73,7 @@ ms.locfileid: "58438609"
     ![部署模型](media/how-to/how-to-deploy-model.png)
 
 3.  按一下 [部署]。
-4.  針對您要部署模型的區域選取 [已部署]，然後按一下 [儲存]。 您可以對多個區域選取 [已部署]。
+4.  針對您要部署模型的區域選取 [已部署]  ，然後按一下 [儲存]。 您可以對多個區域選取 [已部署]  。
 
     ![部署模型](media/how-to/how-to-deploy-model-regions.png)
 
@@ -86,19 +86,19 @@ ms.locfileid: "58438609"
 
 若要更新部署設定：
 
-1.  選取專案，然後移至 [模型] 索引標籤。
+1.  選取專案，然後移至 [模型]  索引標籤。
 
-2. 針對成功部署的模型會顯示 [更新] 按鈕。
+2. 針對成功部署的模型會顯示 [更新]  按鈕。
 
     ![部署模型](media/how-to/how-to-update-undeploy-model.png)
 
-3.  選取 [更新]。
-4.  對您想要部署或解除部署模型的區域選取 [已部署] 或 [已解除部署]，然後按一下 [儲存]。
+3.  選取 [更新]  。
+4.  對您想要部署或解除部署模型的區域選取 [已部署]  或 [已解除部署]  ，然後按一下 [儲存]  。
 
     ![部署模型](media/how-to/how-to-undeploy-model.png)
 
 >[!Note]
->如果您對所有區域選取 [已解除部屬]，則模型會從所有區域中解除部署，並進入已解除部署的狀態。 現在無法使用。
+>如果您對所有區域選取 [已解除部屬]  ，則模型會從所有區域中解除部署，並進入已解除部署的狀態。 現在無法使用。
 
 ## <a name="next-steps"></a>後續步驟
 

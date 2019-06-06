@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: dd2bf11781a6dd013f033fc535b068d449dd04d4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 991eae9a83325118caaea5c7e3fdb64c6caa1f16
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238125"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386619"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-java"></a>快速入門：使用適用於 Java 的 Bing 影像搜尋 SDK 來搜尋影像
 
@@ -25,7 +25,7 @@ Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同，您可以�
 此範例的原始程式碼可從 [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch/Quickstart) 取得，其中含有其他錯誤處理和註釋。
 
 ## <a name="prerequisites"></a>必要條件
-在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
+在「搜尋」  下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
 最新版的 [Java Development Kit](https://aka.ms/azure-jdks) (JDK)
 
@@ -106,4 +106,4 @@ else {
 * [取得免費的認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
 * [Azure 認知服務 SDK 的 Java 範例](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 * [Azure 認知服務文件](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing 影像搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing 影像搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

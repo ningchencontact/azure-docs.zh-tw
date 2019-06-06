@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: diberry
-ms.openlocfilehash: 0aab2250d6692d7db99c55b23604c08f5fe619a6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 3ca166b287858b3e42aeda1421d1733fe24c81ab
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235705"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479691"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>若要建立多個開啟的交談使用後續的提示
 
@@ -389,7 +389,11 @@ QnA Maker _GenerateAnswer_ JSON 回應中會包含在後續的提示`context`屬
 
 [顯示的文字，以及顯示順序](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto)JSON 回應中傳回，支援編輯[更新 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update)。 
 
-修正-需要移至父代，則回應資料行，然後編輯回應。 
+<!--
+
+FIX - Need to go to parent, then answer column, then edit answer. 
+
+-->
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -3,19 +3,19 @@ title: 如何搭配對話學習模組模型使用等候與非等候動作 - Micr
 titleSuffix: Azure
 description: 了解如何搭配對話學習模組模型使用等候與非等候動作。
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 2869e6c59388adf548e5f239d3a831a5a3f060dd
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.author: nitinme
+ms.openlocfilehash: 57a58b008792130c82a86ff4a5801f4bb39aabad
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214257"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387896"
 ---
 # <a name="wait-and-non-wait-actions"></a>等候與非等候動作
 

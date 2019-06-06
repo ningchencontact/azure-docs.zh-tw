@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: d546951cf283cf15874b1b6d95da75549a8a93ac
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 56ceb48be9d5cc9d1cdceed7505e2e3e918a7286
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884931"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399666"
 ---
 # <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>在 C# 中的 Bot 將 LUIS 結果新增至 Application Insights
 
-本教學課程將 LUIS 回應資訊新增至 [Application Insights](https://azure.microsoft.com/services/application-insights/) 遙測資料存放區。 在您擁有該資料之後，即可使用 Kusto 語言或 PowerBi 查詢它，以即時分析、彙總以及報告意圖和語調實體。 此分析可協助您判斷應該新增還是編輯 LUIS 應用程式的意圖和實體。
+本教學課程將 LUIS 回應資訊新增至 [Application Insights](https://azure.microsoft.com/services/application-insights/) 遙測資料存放區。 一旦您擁有該資料，可以查詢與 Kusto 語言或來分析、 彙總，Power BI 和報告的意圖，並即時 utterance 的實體。 此分析可協助您判斷應該新增還是編輯 LUIS 應用程式的意圖和實體。
 
-此 Bot 是使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 所建置的。
+此 Bot 是使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 所建置的。 A [Bot Framework LUIS 教學課程的 4.x](luis-csharp-tutorial-bf-v4.md)也會提供。
 
 在本教學課程中，您了解如何：
 
@@ -51,21 +51,21 @@ ms.locfileid: "55884931"
 
 目前，在 Web 應用程式 Bot 服務建立過程中新增的 Application Insights 服務會收集 Bot 的一般狀態遙測。 它不會收集 LUIS 回應資訊。 若要分析及改善 LUIS，您需要 LUIS 回應資訊。  
 
-若要擷取 LUIS 回應，Web 應用程式 Bot 需要針對專案安裝及設定 **[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)**。
+若要擷取 LUIS 回應，Web 應用程式 Bot 需要針對專案安裝及設定 **[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** 。
 
 ## <a name="download-web-app-bot"></a>下載 Web 應用程式 Bot
 
 使用 [Visual Studio 2017](https://www.visualstudio.com/downloads/)為 Web 應用程式 Bot 來新增及設定 Application Insights。 若要在 Visual Studio 中使用 Web 應用程式 Bot，請下載 Web 應用程式 Bot 程式碼。
 
-1. 在 Azure 入口網站中，針對 Web 應用程式 Bot選取 [建置]。
+1. 在 Azure 入口網站中，針對 Web 應用程式 Bot選取 [建置]  。
 
     ![在入口網站中選取建置](./media/luis-tutorial-bot-csharp-appinsights/download-build-menu.png)
 
-2. 選取 [下載 zip 檔案] 並等等檔案備妥為止。
+2. 選取 [下載 zip 檔案]  並等等檔案備妥為止。
 
     ![下載 zip 檔](./media/luis-tutorial-bot-csharp-appinsights/download-link.png)
 
-3. 在快顯視窗中選取 [下載 zip 檔案]。 請記住在您電腦上的位置，您在下一節中需要用到它。
+3. 在快顯視窗中選取 [下載 zip 檔案]  。 請記住在您電腦上的位置，您在下一節中需要用到它。
 
     ![下載 zip 檔案快顯視窗](./media/luis-tutorial-bot-csharp-appinsights/download-popup.png)
 
@@ -77,11 +77,11 @@ ms.locfileid: "55884931"
 
     ![在 Visual Studio 2017 中開啟解決方案](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-security-warning.png)
 
-3. Visual Studio 必須將相依性新增至解決方案。 在 [解決方案總管] 中，以滑鼠右鍵按一下 [參考]，然後選取 [管理 NuGet 套件...]。
+3. Visual Studio 必須將相依性新增至解決方案。 在 [解決方案總管]  中，以滑鼠右鍵按一下 [參考]  ，然後選取 [管理 NuGet 套件...]  。
 
     ![Manage NuGet packages](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-manage-nuget-packages.png)
 
-4. NuGet 套件管理員會顯示已安裝的套件清單。 選取黃色列中的 [還原]。 等候還原程序完成。
+4. NuGet 套件管理員會顯示已安裝的套件清單。 選取黃色列中的 [還原]  。 等候還原程序完成。
 
     ![還原 NuGet 套件](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-restore-packages.png)
 
@@ -89,9 +89,9 @@ ms.locfileid: "55884931"
 
 在 Visual Studio 中安裝及設定 Application Insights。
 
-1. 在 Visual Studio 2017 中，選取頂端功能表上的 [專案]，然後選取 [新增 Application Insights 遙測...]。
+1. 在 Visual Studio 2017 中，選取頂端功能表上的 [專案]  ，然後選取 [新增 Application Insights 遙測...]  。
 
-2. 在 [Application Insights 設定] 視窗中，選取 [開始免費使用]
+2. 在 [Application Insights 設定]  視窗中，選取 [開始免費使用] 
 
     ![開始設定 Application Insights](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-configure-app-insights.png)
 
@@ -101,15 +101,15 @@ ms.locfileid: "55884931"
 
     ![Application Insights 狀態](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-adding-application-insights-to-project.png)
 
-    處理完成時，[Application Insights 設定] 會顯示進度狀態。
+    處理完成時，[Application Insights 設定]  會顯示進度狀態。
 
     ![Application Insights 進度狀態](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-configured-application-insights-to-project.png)
 
-    [啟用追蹤收集] 為紅色，表示並未啟用。 本教學課程不會使用此功能。
+    [啟用追蹤收集]  為紅色，表示並未啟用。 本教學課程不會使用此功能。
 
 ## <a name="build-and-resolve-errors"></a>建置及解決錯誤
 
-1. 選取 [建置] 功能表，然後選取 [重建解決方案]，以建置解決方案。 等待建置完成。
+1. 選取 [建置]  功能表，然後選取 [重建解決方案]  ，以建置解決方案。 等待建置完成。
 
 2. 如果建置因為 `CS0104` 錯誤而失敗，您必須加以修正。 在 `Controllers` 資料夾的 `MessagesController.cs file` 中，在活動類型前面加上連接器類型，以修正模稜兩可的 `Activity` 類型使用方式。 若要這樣做，請將行 22 和 36 上的名稱 `Activity` 從 `Activity` 變更為 `Connector.Activity`。 再次建置解決方案。 應該不再有建置錯誤。
 
@@ -121,21 +121,21 @@ ms.locfileid: "55884931"
 
 **Application Insights** 套件現在位於專案中，並已在 Azure 入口網站中針對您的認證正確設定。 專案變更必須發佈回到 Azure。
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下專案名稱，然後選取 [發佈]。
+1. 在 [方案總管]  中，以滑鼠右鍵按一下專案名稱，然後選取 [發佈]  。
 
     ![將專案發佈至入口網站](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish.png)
 
-2. 在 [發佈] 視窗中，選取 [建立新設定檔]。
+2. 在 [發佈]  視窗中，選取 [建立新設定檔]  。
 
     ![在發佈期間建立新的設定檔。](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-1.png)
 
-3. 選取 [匯入設定檔]，然後選取 [確定]。
+3. 選取 [匯入設定檔]  ，然後選取 [確定]  。
 
     ![在發佈期間匯入設定檔](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-2.png)
 
-4. 在 [匯入發佈設定檔] 視窗中，瀏覽至您的專案資料夾，瀏覽至 `PostDeployScripts` 資料夾，選取以 `.PublishSettings` 結尾的檔案，然後選取 `Open`。 您現在已針對這個專案設定發佈。
+4. 在 [匯入發佈設定檔]  視窗中，瀏覽至您的專案資料夾，瀏覽至 `PostDeployScripts` 資料夾，選取以 `.PublishSettings` 結尾的檔案，然後選取 `Open`。 您現在已針對這個專案設定發佈。
 
-5. 選取 [發佈] 按鈕，將您的本機原始程式碼發佈到 Bot 服務。 [輸出]  視窗會顯示狀態。 已在 Azure 入口網站中完成本教學課程的其餘部分。 關閉 Visual Studio 2017。
+5. 選取 [發佈]  按鈕，將您的本機原始程式碼發佈到 Bot 服務。 [輸出]  視窗會顯示狀態。 已在 Azure 入口網站中完成本教學課程的其餘部分。 關閉 Visual Studio 2017。
 
 ## <a name="open-three-browser-tabs"></a>開啟三個瀏覽器索引標籤
 
@@ -147,7 +147,7 @@ ms.locfileid: "55884931"
 
 ## <a name="modify-basicluisdialogcs-code"></a>修改 BasicLuisDialog.cs 程式碼
 
-1. 在 [App Service 編輯器] 瀏覽器索引標籤中，開啟 `BasicLuisDialog.cs` 檔案。
+1. 在 [App Service 編輯器]  瀏覽器索引標籤中，開啟 `BasicLuisDialog.cs` 檔案。
 
 2. 在現有 `using` 行下方，新增下列 NuGet 相依性：
 
@@ -167,9 +167,9 @@ ms.locfileid: "55884931"
 
 ## <a name="build-web-app-bot"></a>建置 Web 應用程式 Bot
 
-1. 以兩種方式之一建置 Web 應用程式 Bot。 第一個方法是以滑鼠右鍵按一下 [App Service 編輯器] 中的 `build.cmd`，然後選取 [從主控台執行]。 主控台的輸出會顯示 `Finished successfully.` 並完成。
+1. 以兩種方式之一建置 Web 應用程式 Bot。 第一個方法是以滑鼠右鍵按一下 [App Service 編輯器]  中的 `build.cmd`，然後選取 [從主控台執行]  。 主控台的輸出會顯示 `Finished successfully.` 並完成。
 
-2. 如果未順利完成，您需要開啟主控台，瀏覽到指令碼，並使用下列步驟加以執行。 在 [App Service 編輯器] 的頂端藍色列上，選取您的 Bot 名稱，然後選取下拉式清單中的 [開啟 Kudu 主控台]。
+2. 如果未順利完成，您需要開啟主控台，瀏覽到指令碼，並使用下列步驟加以執行。 在 [App Service 編輯器]  的頂端藍色列上，選取您的 Bot 名稱，然後選取下拉式清單中的 [開啟 Kudu 主控台]  。
 
     ![開啟 Kudu 主控台](./media/luis-tutorial-bot-csharp-appinsights/open-kudu-console.png)
 
@@ -183,7 +183,7 @@ ms.locfileid: "55884931"
 
 ## <a name="test-the-web-app-bot"></a>測試 Web 應用程式 Bot
 
-1. 若要測試 Web 應用程式 Bot，請使用入口網站中的 [在網路聊天中測試] 功能。
+1. 若要測試 Web 應用程式 Bot，請使用入口網站中的 [在網路聊天中測試]  功能。
 
 2. 輸入片語 `Coffee bar on please`。  
 
@@ -202,9 +202,9 @@ ms.locfileid: "55884931"
 
 開啟 Application Insights 以查看 LUIS 項目。
 
-1. 在入口網站中，選取 [所有資源]，然後依 Web 應用程式 Bot 名稱篩選。 按一下類型為 **Application Insights** 的資源。 Application Insights 的圖示為燈泡。
+1. 在入口網站中，選取 [所有資源]  ，然後依 Web 應用程式 Bot 名稱篩選。 按一下類型為 **Application Insights** 的資源。 Application Insights 的圖示為燈泡。
 
-    ![在 Azure 入口網站中搜尋應用程式深入解析](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
+    ![在 Azure 入口網站中的 app insights 適用的搜尋](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
 
 2. 當資源開啟時，按一下最右側面板中放大鏡的**搜尋**圖示。 即會顯示右側新面板。 根據找到的遙測資料量，此面板可能需要一秒才會顯示。 搜尋 `LUIS`。 這份清單的範圍會縮小為只有使用本教學課程所新增的 LUIS 查詢結果。
 
@@ -217,13 +217,13 @@ ms.locfileid: "55884931"
     當您完成時，請選取最右上方的 **X** 回到相依性項目清單。
 
 > [!Tip]
-> 若您想要儲存相依性清單，並於稍後返回，則請按一下 [...More] \(...其他\)，然後按一下 [儲存我的最愛]。
+> 若您想要儲存相依性清單，並於稍後返回，則請按一下 [...More] \(...其他\)  ，然後按一下 [儲存我的最愛]  。
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>查詢 Application Insights 中的意圖、分數和語句
 
-Application Insights 可讓您使用 [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) 語言查詢資料，以及將它匯出至 [PowerBI](https://powerbi.microsoft.com)。
+Application Insights 可讓您查詢資料與 power [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics)語言，以及匯出它[Power BI](https://powerbi.microsoft.com)。
 
-1. 按一下相依性清單頂端且於篩選方塊上方的 [Analytics]。
+1. 按一下相依性清單頂端且於篩選方塊上方的 [Analytics]  。
 
     ![[Analytics] 按鈕](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-analytics-button.png)
 
@@ -243,7 +243,7 @@ Application Insights 可讓您使用 [Kusto](https://docs.microsoft.com/azure/ap
 
     ![自訂分析報告](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-2.png)
 
-深入了解 [Kusto 查詢語言](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)或[將資料匯出至 PowerBi](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)。
+深入了解[Kusto 查詢語言](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)或是[將資料匯出至 Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)。
 
 ## <a name="learn-more-about-bot-framework"></a>深入了解 Bot Framework
 

@@ -3,19 +3,19 @@ title: 使用對話學習模組管理使用者資料 - Microsoft 認知服務 | 
 titleSuffix: Azure
 description: 了解如何使用對話學習模組管理使用者資料。
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 83c7e808e48733487e84d668236cdb327c21c44c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.author: nitinme
+ms.openlocfilehash: 7ea0b246a16ff196a4160d9822b5db15cd39a4a6
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249073"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385206"
 ---
 # <a name="managing-user-data"></a>管理使用者資料
 

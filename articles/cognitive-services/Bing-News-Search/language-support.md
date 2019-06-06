@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: e8a7f6d20ed36c4b3e900602fb52e31dceefae88
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799338"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384975"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Bing 新聞搜尋 API 支援的語言和區域
 
@@ -31,7 +31,7 @@ Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一�
 
 如需可在 `cc` 查詢參數中指定的國家/地區代碼，請參閱[國家/地區代碼](#countrycodes)。  
 
-|國家/地區|語言|市場代碼|  
+|國家/區域|語言|市場代碼|  
 |---------------------|--------------|-----------------|
 |丹麥|丹麥文|da-DK|
 |奧地利|德文|de-AT|
@@ -47,7 +47,7 @@ Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一�
 |紐西蘭|英文|en-NZ|
 |菲律賓共和國|英文|en-PH|
 |新加坡|英文|en-SG|
-|美國|英文|zh-TW|
+|美國|英文|en-US|
 |英文|一般|en-WW|
 |英文|一般|en-XA|
 |南非|英文|en-ZA|
@@ -80,13 +80,13 @@ Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一�
 
 如需可在 `cc` 查詢參數中指定的國家/地區代碼，請參閱[國家/地區代碼](#countrycodes)。  
 
-|國家/地區|語言|市場代碼|  
+|國家/區域|語言|市場代碼|  
 |---------------------|--------------|-----------------|
 |丹麥|丹麥文|da-DK|
 |德國|德文|de-DE|
 |澳大利亞|英文|en-AU|
 |英國|英文|en-GB|
-|美國|英文|zh-TW|
+|美國|英文|en-US|
 |英文|一般|en-WW|
 |智利|西班牙文|es-CL|
 |墨西哥|西班牙文|es-MX|
@@ -103,12 +103,12 @@ Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一�
 
 如需可在 `cc` 查詢參數中指定的國家/地區代碼，請參閱[國家/地區代碼](#countrycodes)。  
 
-|國家/地區|語言|市場代碼|  
+|國家/區域|語言|市場代碼|  
 |---------------------|--------------|-----------------|
 |德國|德文|de-DE|
 |澳大利亞|英文|en-AU|
 |英國|英文|en-GB|
-|美國|英文|zh-TW|
+|美國|英文|en-US|
 |加拿大|英文|en-CA|
 |印度|英文|en-IN|
 |法國|法文|fr-FR|
@@ -118,11 +118,11 @@ Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一�
 
 
 <a name="countrycodes"></a>   
-### <a name="country-codes"></a>國碼 (地區碼)  
+### <a name="country-codes"></a>國碼  
 
 以下是可以在 `cc` 查詢參數中指定的國家/地區代碼。 清單會隨時變動。  
 
-|國家/區域|國碼/區碼|  
+|國家/區域|國碼 (地區碼)|  
 |---------------------|------------------|  
 |阿根廷|AR|  
 |澳大利亞|AU|  
@@ -162,4 +162,4 @@ Bing 新聞搜尋 API 支援多個國家/地區，許多國家/地區具有一�
 |美國|US|
 
 ## <a name="next-steps"></a>後續步驟
-如需 Bing 新聞搜尋端點的詳細資訊，請參閱[新聞搜尋 API v7 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) \(英文\)。
+如需 Bing 新聞搜尋端點的詳細資訊，請參閱[新聞搜尋 API v7 參考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) \(英文\)。

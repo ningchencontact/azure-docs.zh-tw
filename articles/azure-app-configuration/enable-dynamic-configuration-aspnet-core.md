@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: ee539b87c08dd00545060cb30d28ac7fcd01e61b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 9cbdfe957587977b01bc46b46818856f789f46d8
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518995"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393624"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>教學課程：在 ASP.NET Core 應用程式中使用動態設定
 
@@ -167,7 +167,7 @@ ASP.NET Core 具有插入式設定系統，可從各種來源讀取設定資料�
 
     ![快速入門應用程式啟動本機](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. 登入 [Azure 入口網站](https://aka.ms/azconfig/portal)。 選取 [所有資源]  ，然後選取您在快速入門中建立的應用程式組態存放區執行個體。
+4. 登入 [Azure 入口網站](https://portal.azure.com)。 選取 [所有資源]  ，然後選取您在快速入門中建立的應用程式組態存放區執行個體。
 
 5. 選取 [組態總管]  ，然後更新下列索引鍵的值：
 

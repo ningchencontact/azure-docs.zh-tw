@@ -5,16 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5de6ba8ab64797da24039718ca7f2c0b88d1d33d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c449b74a9d6185b0616f62d31926feb6ff218cbb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881336"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400088"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>將執行 Windows Server 2008 的伺服器移轉到 Azure
 
@@ -90,16 +89,16 @@ ms.locfileid: "58881336"
 
 ## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 
-1. 登入 [Azure 入口網站](https://portal.azure.com) > [復原服務]。
-2. 按一下 [建立資源] > [管理工具] > [備份和 Site Recovery]。
-3. 在 [名稱] 中，指定易記名稱 [W2K8-migration]。 如果您有多個訂用帳戶，請選取適當的一個。
+1. 登入 [Azure 入口網站](https://portal.azure.com) > [復原服務]  。
+2. 按一下 [建立資源]   > [管理工具]   > [備份和 Site Recovery]  。
+3. 在 [名稱]  中，指定易記名稱 [W2K8-migration]  。 如果您有多個訂用帳戶，請選取適當的一個。
 4. 建立資源群組 **w2k8migrate**。
 5. 指定 Azure 區域。 若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](https://azure.microsoft.com/pricing/details/site-recovery/)。
-6. 若要從儀表板快速存取保存庫，請按一下 [釘選到儀表板]，然後按一下 [建立]。
+6. 若要從儀表板快速存取保存庫，請按一下 [釘選到儀表板]  ，然後按一下 [建立]  。
 
    ![新增保存庫](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
 
-新的保存庫會新增到主要 [復原服務保存庫] 頁面上 [所有資源] 之下的 [儀表板]。
+新的保存庫會新增到主要 [復原服務保存庫]  頁面上 [所有資源]  之下的 [儀表板]  。
 
 
 ## <a name="prepare-your-on-premises-environment-for-migration"></a>準備內部部署環境以便進行移轉
@@ -111,23 +110,23 @@ ms.locfileid: "58881336"
 
 選取並確認目標資源。
 
-1. 按一下 [準備基礎結構] > [目標]，然後選取您要使用的 Azure 訂用帳戶。
+1. 按一下 [準備基礎結構]   > [目標]  ，然後選取您要使用的 Azure 訂用帳戶。
 2. 指定 Resource Manager 部署模型。
 3. Site Recovery 會檢查您是否有一或多個相容的 Azure 儲存體帳戶和網路。
 
 
 ## <a name="set-up-a-replication-policy"></a>設定複寫原則
 
-1. 若要建立新的複寫原則，請按一下 [Site Recovery 基礎結構] > [複寫原則] > [+複寫原則]。
-2. 在 [建立複寫原則]中，指定原則名稱。
-3. 在 [RPO 閾值] 中，指定復原點目標 (RPO) 限制。 如果複寫 RPO 超過此限制，則會產生警示。
-4. 在 [復原點保留] 中，指定每個復原點的保留週期長度 (以小時為單位)。 複寫的 VM 可以還原至此時間範圍內的任何時間點。 複寫至進階儲存體的電腦支援最長保留 24 小時，標準儲存體則是 72 小時。
-5. 在 [應用程式一致的快照頻率] 中，指定 [關閉]。 按一下 [確定]  以建立原則。
+1. 若要建立新的複寫原則，請按一下 [Site Recovery 基礎結構]   > [複寫原則]   > [+複寫原則]  。
+2. 在 [建立複寫原則]  中，指定原則名稱。
+3. 在 [RPO 閾值]  中，指定復原點目標 (RPO) 限制。 如果複寫 RPO 超過此限制，則會產生警示。
+4. 在 [復原點保留]  中，指定每個復原點的保留週期長度 (以小時為單位)。 複寫的 VM 可以還原至此時間範圍內的任何時間點。 複寫至進階儲存體的電腦支援最長保留 24 小時，標準儲存體則是 72 小時。
+5. 在 [應用程式一致的快照頻率]  中，指定 [關閉]  。 按一下 [確定]  以建立原則。
 
 此原則會自動與設定伺服器產生關聯。
 
 > [!WARNING]
-> 請務必要在複寫原則的 [應用程式一致的快照頻率] 設定中指定 [關閉]。 在複寫執行 Windows Server 2008 的伺服器時，只支援「當機時保持一致」復原點。 若為 [應用程式一致的快照頻率] 指定任何其他值，將會由於應用程式一致復原點不足，讓伺服器的複寫健康情況變得嚴重，而產生錯誤警示。
+> 請務必要在複寫原則的 [應用程式一致的快照頻率] 設定中指定 [關閉]  。 在複寫執行 Windows Server 2008 的伺服器時，只支援「當機時保持一致」復原點。 若為 [應用程式一致的快照頻率] 指定任何其他值，將會由於應用程式一致復原點不足，讓伺服器的複寫健康情況變得嚴重，而產生錯誤警示。
 
    ![建立複寫原則](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
@@ -152,11 +151,11 @@ ms.locfileid: "58881336"
 
 針對您要移轉的機器執行容錯移轉。
 
-1. 在 [設定] > [複寫的項目] 中，按一下機器 > [容錯移轉]。
-2. 在 [容錯移轉] 中，選取要容錯移轉的目標**復原點**。 選取最新的復原點。
-3. 選取 [Shut down machine before beginning failover] \(先將機器關機再開始容錯移轉)。 Site Recovery 會先嘗試關閉伺服器，再觸發容錯移轉。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。
+1. 在 [設定]   > [複寫的項目]  中，按一下機器 > [容錯移轉]  。
+2. 在 [容錯移轉]  中，選取要容錯移轉的目標**復原點**。 選取最新的復原點。
+3. 選取 [Shut down machine before beginning failover] \(先將機器關機再開始容錯移轉)  。 Site Recovery 會先嘗試關閉伺服器，再觸發容錯移轉。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業]  頁面上追蹤容錯移轉進度。
 4. 確認 Azure VM 如預期般出現在 Azure 中。
-5. 在 [複寫的項目] 中，以滑鼠右鍵按一下伺服器 > [完成移轉]。 這會執行以下動作：
+5. 在 [複寫的項目]  中，以滑鼠右鍵按一下伺服器 > [完成移轉]  。 這會執行以下動作：
 
     - 完成移轉程序、停止伺服器的複寫，並停止伺服器的 Site Recovery 計費。
     - 此步驟會清除複寫資料。 但並不會刪除已遷移的 VM。

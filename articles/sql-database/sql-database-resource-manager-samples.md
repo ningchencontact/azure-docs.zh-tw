@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 1e2f55d334d432544ffc185e5c68dfe4325b2b09
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b967dc872529ec8b045df81542eec4c555b17a6c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59356814"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418445"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>適用於 Azure SQL Database 的 Azure Resource Manager 範本
 
@@ -33,7 +33,6 @@ Azure Resource Manager 範本可讓您定義基礎結構即程式碼，並將解
 | [邏輯伺服器](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | 此 Azure Resource Manager 範本可建立 Azure SQL Database 的邏輯伺服器。 |
 | [彈性集區](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | 此範本可讓您部署新的彈性集區，並為其指派新的相關 SQL Server 和新的 SQL Database。 |
 | [容錯移轉群組](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | 此範本可建立兩個 Azure SQL 邏輯伺服器、一個 SQL 資料庫和一個容錯移轉群組。|
-| [進階威脅防護](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-advanced-threat-protection-server-policy) | 此範本可讓您部署啟用進階威脅防護的 Azure SQL 邏輯伺服器，以及選擇性的 Azure SQL Database。 「SQL 進階威脅防護」是進階 SQL 安全性功能的整合套件。|
 | [威脅偵測](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | 此範本可讓您部署啟用「威脅偵測」的 Azure SQL 邏輯伺服器和一組 Azure SQL Database，並且為每個資料庫部署警示的電子郵件地址。 「威脅偵測」包含在 SQL 進階威脅防護 (ATP) 供應項目中，可提供一層安全性來防禦 SQL 伺服器和資料庫所受到的潛在威脅。|
 | [將稽核資料移至 Azure Blob 儲存體](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | 此範本可讓您部署啟用稽核的 Azure SQL Server 邏輯伺服器，以將稽核記錄寫入至 Blob 儲存體。 Azure SQL Database 的稽核可追蹤資料庫事件，並將其寫入至可存放在 Azure 儲存體帳戶、OMS 工作區或事件中樞的稽核記錄中。|
 | [將稽核資料移至 Azure 事件中樞](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | 此範本可讓您部署啟用稽核的 Azure SQL Server 伺服器，以將稽核記錄寫入至現有的事件中樞。 若要將稽核事件傳送到事件中樞，請設定 `Enabled` `State` 的稽核設定，並將 `IsAzureMonitorTargetEnabled` 設為 `true`。 此外，請在 `master` 資料庫上設定 `SQLSecurityAuditEvents` 診斷記錄類別的診斷設定 (用於服務層級稽核)。 Azure SQL Database 和 SQL 資料倉儲的稽核可追蹤資料庫事件，並將其寫入至可存放在 Azure 儲存體帳戶、OMS 工作區或事件中樞的稽核記錄中。|

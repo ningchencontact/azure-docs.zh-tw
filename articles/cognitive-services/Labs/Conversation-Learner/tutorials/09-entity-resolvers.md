@@ -1,21 +1,21 @@
 ---
-title: 對話學習模組模型-Microsoft 認知服務中的實體解析程式 |Microsoft Docs
+title: 對話學習模組模型-Azure 認知服務中的實體解析程式 |Microsoft Docs
 titleSuffix: Azure
 description: 了解如何使用 Conversation Learner 中的實體解析程式。
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: cca78e2536a922165f40bbcbabcae005021aa70b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: nitinme
+ms.openlocfilehash: 51f74f504f0ad70c8c7f73be8ee6a05add685824
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58167842"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475748"
 ---
 # <a name="entity-resolvers"></a>實體解析程式
 
@@ -43,14 +43,14 @@ ms.locfileid: "58167842"
 
 1. 選取 **新的模型**。
 2. 請輸入**實體的解析程式**for**名稱**。
-3. 選取 [建立] 。
+3. 選取 [建立]  。
 
 ### <a name="create-a-pair-of-entities"></a>建立一組實體
 
 1. 選取 **實體**在左窗格中，然後**新實體**。
 2. 請輸入**起飛**for**實體名稱**。
 3. 選取  **datetimeV2** for**解析程式類型**。
-4. 選取 [建立] 。 關閉選取的資訊快顯**確定**。
+4. 選取 [建立]  。 關閉選取的資訊快顯**確定**。
 5. 重複步驟 1-4，以建立名為的第二個實體**會傳回**具有**datetimeV2**解析程式類型。
 
 ![](../media/T09_entities.png)
@@ -58,14 +58,14 @@ ms.locfileid: "58167842"
 ### <a name="create-a-pair-of-actions"></a>建立一組動作
 
 1. 選取 **動作**在左窗格中，然後**新動作**。
-2. 請輸入**您會在 $departure 留下，並傳回 $return**如**機器人的回應...**.
+2. 請輸入**您會在 $departure 留下，並傳回 $return**如**機器人的回應...** .
     - 重要事項-輸入您要叫用的 $[entityName] 中輸入或按一下下拉式清單則對話學習模組中的實體會認為這是文字，而不是實體時。
     - 請注意，**所需的實體**欄位也會取得這些實體，且無法移除它們。 這可防止在兩個必要實體都存在之前執行此動作。
-3. 選取 [建立] 。
+3. 選取 [建立]  。
 4. 選取 **新的動作**建立第二個動作。
-5. 輸入**當您打算移動？** 如**機器人的回應...**.
+5. 輸入**當您打算移動？** 如**機器人的回應...** .
 6. 請輸入**起飛**並**傳回**如**Disqualifying 實體**。 這些內容會告訴 Bot，當這些實體中任何一個包含值的時候，「不要」採取此動作。
-7. 選取 [建立] 。
+7. 選取 [建立]  。
 
 ![](../media/T09_actions.png)
 
@@ -94,4 +94,4 @@ ms.locfileid: "58167842"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [替代輸入](./10-alternative-inputs.md)
+> [列舉實體](./tutorial-enum-set-entity.md)

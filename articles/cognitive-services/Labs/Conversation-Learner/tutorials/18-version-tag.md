@@ -1,21 +1,21 @@
 ---
-title: 如何搭配對話學習模組模型使用版本標記 - Microsoft 認知服務 | Microsoft Docs
+title: 如何使用版本標記對話學習模組模型-Azure 認知服務 |Microsoft Docs
 titleSuffix: Azure
 description: 了解如何搭配對話學習模組模型使用版本控制和標記。
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 5073d3ab967c4c4e1b90636c247839875a6aa0d7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: nitinme
+ms.openlocfilehash: 4067c7fb43cc200b8f49dbc14151c69a188e4e8e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086304"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475718"
 ---
 # <a name="how-to-use-version-tagging"></a>如何使用版本標記
 
@@ -109,4 +109,4 @@ ms.locfileid: "58086304"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [示範 - 密碼重設](./demo-password-reset.md)
+> [列舉實體和集合的實體動作](./tutorial-enum-set-entity.md)

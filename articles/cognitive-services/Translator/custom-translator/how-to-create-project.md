@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 2e49a8c40396b03c231fa7fd484331b0e28d4cf6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 456860c74810a692b4839e4204ec0b78d5620864
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762699"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383000"
 ---
 # <a name="create-a-project"></a>建立專案
 
@@ -40,7 +40,7 @@ ms.locfileid: "57762699"
 
     e.  類別描述：使用此欄位來更明確地描述您要翻譯的特定領域或產業。 比方說，如果您的類別是醫學，您可能會新增手術或小兒科等方面的特定文件。 此描述並不會影響自訂翻譯工具或所產生自訂系統的行為。
 
-    f.  專案標籤：[專案標籤](workspace-and-project.md#project-labels)可區分具有相同語言組和類別的專案。 最佳做法是「只」在您打算為相同語言組和相同類別建置多個專案，並且想以不同 CategoryID 來存取這些專案時，再使用標籤。 如果您只要為一個類別建置系統，請勿使用此欄位。 區別語言組不需使用專案標籤，而且也沒幫助。 您可以對多個專案使用相同標籤。
+    f.  專案標籤：[專案標籤](workspace-and-project.md#project-labels)可區分具有相同語言組和類別的專案。 最佳做法是「只」  在您打算為相同語言組和相同類別建置多個專案，並且想以不同 CategoryID 來存取這些專案時，再使用標籤。 如果您只要為一個類別建置系統，請勿使用此欄位。 區別語言組不需使用專案標籤，而且也沒幫助。 您可以對多個專案使用相同標籤。
 
     ![建立專案對話方塊](media/how-to/how-to-create-project-dialog.png)
 

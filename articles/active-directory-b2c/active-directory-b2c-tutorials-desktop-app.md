@@ -2,20 +2,20 @@
 title: 教學課程 - 在原生用戶端應用程式中啟用驗證 - Azure Active Directory B2C | Microsoft Docs
 description: 關於如何使用 Azure Active Directory B2C 為 .NET 傳統型應用程式提供使用者登入的教學課程。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
-ms.author: davidmu
+ms.author: marsma
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 7ca7a670e8d660efb43861312b2670efbaac6638
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 474aad3b4b2019c9f79f8f1316dd88769e0fabbd
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190261"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508209"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 在原生用戶端應用程式中啟用驗證
 
@@ -38,18 +38,18 @@ ms.locfileid: "65190261"
 ## <a name="add-the-native-client-application"></a>新增原生用戶端應用程式
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
-4. 選取 [應用程式]，然後選取 [新增]。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
+4. 選取 [應用程式]  ，然後選取 [新增]  。
 5. 輸入應用程式的名稱。 例如，*nativeapp1*。
-6. 針對 [包含 Web 應用程式/Web API]，選取 [否]。
-7. 針對 [包含原生用戶端]，選取 [是]。
-8. 針對 [重新導向 URI]，輸入具有自訂配置的有效重新導向 URI。 選擇重新導向 URI 時，有兩個重要考量︰
+6. 針對 [包含 Web 應用程式/Web API]  ，選取 [否]  。
+7. 針對 [包含原生用戶端]  ，選取 [是]  。
+8. 針對 [重新導向 URI]  ，輸入具有自訂配置的有效重新導向 URI。 選擇重新導向 URI 時，有兩個重要考量︰
 
     - **唯一** - 每個應用程式的重新導向 URI 的配置都應該是唯一。 在範例 `com.onmicrosoft.contoso.appname://redirect/path`中，`com.onmicrosoft.contoso.appname` 為配置。 應該遵循這個模式。 如果兩個應用程式共用相同配置，系統會讓使用者選擇應用程式。 如果使用者做出錯誤的選擇，登入便會失敗。
     - **完成** - 重新導向 URI 必須有配置和路徑。 路徑的網域後面必須至少包含一個正斜線。 例如，`//contoso/` 可正常運作，而 `//contoso` 會失敗。 確定重新導向 URI 未包含特殊字元 (例如底線)。
 
-9. 按一下頁面底部的 [新增] 。
+9. 按一下頁面底部的 [新增]  。
 10. 在 [屬性] 頁面上，記錄您會在設定範例時使用的應用程式識別碼。
 
 ## <a name="configure-the-sample"></a>設定範例
@@ -82,20 +82,20 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 
 ### <a name="sign-up-using-an-email-address"></a>使用電子郵件地址註冊
 
-1. 按一下 [登入] 以使用者身分註冊。 這會使用 **B2C_1_signupsignin1** 使用者流程。
-2. Azure AD B2C 會顯示含有註冊連結的登入頁面。 由於您還沒有帳戶，因此請按一下 [立即註冊] 連結。 
+1. 按一下 [登入]  以使用者身分註冊。 這會使用 **B2C_1_signupsignin1** 使用者流程。
+2. Azure AD B2C 會顯示含有註冊連結的登入頁面。 由於您還沒有帳戶，因此請按一下 [立即註冊]  連結。 
 3. 註冊工作流程會顯示一個使用電子郵件地址來收集並驗證使用者身分識別的頁面。 註冊工作流程也會收集使用者的密碼，以及在使用者流程中定義的要求屬性。
 
     請使用有效的電子郵件地址，並使用驗證碼進行驗證。 設定密碼。 輸入要求的屬性值。 
 
     ![註冊工作流程](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
 
-4. 按一下 [建立]，在 Azure AD B2C 租用戶中建立本機帳戶。
+4. 按一下 [建立]  ，在 Azure AD B2C 租用戶中建立本機帳戶。
 
 現在，使用者可以使用電子郵件地址登入並使用傳統型應用程式。
 
 > [!NOTE]
-> 如果您按一下 [呼叫 API] 按鈕，您會收到「未經授權」錯誤。 因為您嘗試從示範租用戶存取資源，所以會收到這個錯誤。 因為您的存取權杖只對您的 Azure AD 租用戶有效，所以此 API 呼叫未經授權。 繼續進行下一個教學課程，為您的租用戶建立受保護的 Web API。
+> 如果您按一下 [呼叫 API]  按鈕，您會收到「未經授權」錯誤。 因為您嘗試從示範租用戶存取資源，所以會收到這個錯誤。 因為您的存取權杖只對您的 Azure AD 租用戶有效，所以此 API 呼叫未經授權。 繼續進行下一個教學課程，為您的租用戶建立受保護的 Web API。
 
 ## <a name="next-steps"></a>後續步驟
 

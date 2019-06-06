@@ -3,19 +3,19 @@ title: 如何使用 Node.js 建立對話學習模組模型 - Microsoft 認知服
 titleSuffix: Azure
 description: 了解如何使用 Node.js 建立對話學習模組模型。
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 743b4d4888738579a023e879dc7b6e95cd23ccc7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: nitinme
+ms.openlocfilehash: cc071d59a387c8ae4982eacbce6812526f447788
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994363"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388775"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>如何使用 Node.js 建立對話學習模組模型
 

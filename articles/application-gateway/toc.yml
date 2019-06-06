@@ -73,6 +73,8 @@
           href: waf-overview.md
         - name: WAF 設定
           href: application-gateway-waf-configuration.md
+        - name: 自訂規則
+          href: custom-waf-rules-overview.md
     - name: 健康狀況監視
       items:
         - name: 健全狀況探查
@@ -141,6 +143,12 @@
           href: application-gateway-customize-waf-rules-powershell.md
         - name: Azure CLI
           href: application-gateway-customize-waf-rules-cli.md
+    - name: WAF 自訂規則
+      items:
+        - name: 自訂規則範例
+          href: create-custom-waf-rules.md
+        - name: 使用自訂規則設定 WAF
+          href: configure-waf-custom-rules.md
     - name: 藉由 URL 路由傳送
       items:
         - name: Azure PowerShell

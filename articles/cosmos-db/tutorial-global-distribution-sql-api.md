@@ -4,15 +4,15 @@ description: 了解如何使用 SQL API 來設定 Azure Cosmos DB 全域散發�
 author: rimman
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 05/10/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 19e0dd8a60155272f2e338c760db409d20a9f755
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 4f97d1f052cd8684674eecf479133051f2cfb76e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157236"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480545"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>使用 SQL API 來設定 Azure Cosmos DB 全域散發
 

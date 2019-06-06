@@ -2,21 +2,21 @@
 title: 快速入門 - 設定使用 Azure Active Directory B2C 登入傳統型應用程式 | Microsoft Docs
 description: 執行範例 ASP.NET 傳統型應用程式，而該應用程式使用 Azure Active Directory B2C 來提供帳戶登入。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 94e7972530afee15937b13ae35239a64d9bc986e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: dd0679cc418cb1a15a69c01d3267d5d11b20fd3e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190535"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509843"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>快速入門：設定使用 Azure Active Directory B2C 登入傳統型應用程式 
 
@@ -41,7 +41,7 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 
 ## <a name="sign-in-using-your-account"></a>使用您的帳戶登入
 
-1. 按一下 [登入] 以開始「註冊或登入」工作流程。
+1. 按一下 [登入]  以開始「註冊或登入」  工作流程。
 
     ![範例應用程式](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
@@ -62,19 +62,19 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 
 Azure AD B2C 提供讓使用者更新其設定檔的功能。 範例 Web 應用程式會對工作流程使用 Azure AD B2C 編輯設定檔使用者流程。 
 
-1. 在應用程式功能表列中，按一下 [編輯設定檔] 以編輯您建立的設定檔。
+1. 在應用程式功能表列中，按一下 [編輯設定檔]  以編輯您建立的設定檔。
 
     ![編輯設定檔](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
 
 2. 選擇與您建立的帳戶相關聯的識別提供者。 例如，如果建立您的帳戶時使用 Twitter 作為識別提供者，請選擇 Twitter 以修改相關聯的設定檔詳細資料。
 
-3. 變更您的 [顯示名稱] 或 [縣/市]，然後按一下 [繼續]。
+3. 變更您的 [顯示名稱]  或 [縣/市]  ，然後按一下 [繼續]  。
 
-    新的存取權杖會顯示在 [權杖資訊] 文字方塊。 如果您想要檢查對設定檔所作的變更，請將存取權杖複製並貼到權杖解碼器 https://jwt.ms 。
+    新的存取權杖會顯示在 [權杖資訊]  文字方塊。 如果您想要檢查對設定檔所作的變更，請將存取權杖複製並貼到權杖解碼器 https://jwt.ms 。
 
 ## <a name="access-a-protected-api-resource"></a>存取受保護的 API 資源
 
-按一下 [呼叫 API] 向受保護的資源提出要求。 
+按一下 [呼叫 API]  向受保護的資源提出要求。 
 
     ![Call API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
 

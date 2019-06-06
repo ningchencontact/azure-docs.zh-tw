@@ -11,16 +11,16 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: fa02c0913329ec740e3066b05b2e44a36ad379ce
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a038dc2706c7cb128751630f8997851409886290
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797812"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384817"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>如何逐頁檢視 Bing Web 搜尋 API 的搜尋結果
 
-當您呼叫 Web 搜尋 API 時，Bing 會傳回結果清單。 此清單是查詢相關結果總數的子集。 若要取得可用結果的預估總數，請存取解答物件的 [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) 欄位。  
+當您呼叫 Web 搜尋 API 時，Bing 會傳回結果清單。 此清單是查詢相關結果總數的子集。 若要取得可用結果的預估總數，請存取解答物件的 [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) 欄位。  
 
 下列範例顯示 Web 解答包含的 `totalEstimatedMatches` 欄位。  
 
@@ -35,7 +35,7 @@ ms.locfileid: "65797812"
 }  
 ```
 
-若要逐頁瀏覽可用的網頁，請使用 [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#count) 和 [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#offset) 查詢參數。  
+若要逐頁瀏覽可用的網頁，請使用 [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#count) 和 [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#offset) 查詢參數。  
 
 `count` 參數指定要在回應中傳回的結果數目。 您可能在回應中要求的結果數目上限為 50。 預設值為 10。 傳遞的實際數目可能小於所要求的數目。
 
@@ -59,7 +59,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-Web 搜尋 API 會傳回包含網頁的結果，其中可能包含影像、影片和新聞。 當您逐頁瀏覽搜尋結果時，您會逐頁瀏覽 [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) 解答，而不是逐頁瀏覽其他解答 (例如影像或新聞)。 例如，如果您將 `count` 設定為 50，您會得到 50 筆網頁結果，但回應可能也包含其他解答的結果。 例如，回應可能包含 15 個影像和 4 篇新聞文章。 此外，結果也可能包含第一頁 (但不是第二頁) 上的新聞，反之亦然。   
+Web 搜尋 API 會傳回包含網頁的結果，其中可能包含影像、影片和新聞。 當您逐頁瀏覽搜尋結果時，您會逐頁瀏覽 [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) 解答，而不是逐頁瀏覽其他解答 (例如影像或新聞)。 例如，如果您將 `count` 設定為 50，您會得到 50 筆網頁結果，但回應可能也包含其他解答的結果。 例如，回應可能包含 15 個影像和 4 篇新聞文章。 此外，結果也可能包含第一頁 (但不是第二頁) 上的新聞，反之亦然。   
 
 如果您指定 `responseFilter` 查詢參數且未在篩選條件清單中包含網頁，請勿使用 `count` 和 `offset` 參數。 
 

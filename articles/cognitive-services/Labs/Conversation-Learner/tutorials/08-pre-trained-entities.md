@@ -3,19 +3,19 @@ title: 如何將預先定型的實體新增至對話學習模組模型 - Microso
 titleSuffix: Azure
 description: 了解如何將預先定型的實體新增至對話學習模組模型。
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: dade442cb04f79ef75e65d6eb29128b105e72b40
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.author: nitinme
+ms.openlocfilehash: fb70983c2f9fd20368bb8c6803c9568b27141af7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565405"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389263"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>如何新增預先定型的實體
 本教學課程說明如何將預先定型的實體新增至對話學習模組模型。
@@ -41,29 +41,29 @@ ms.locfileid: "59565405"
 
 1. 選取 **新的模型**。
 2. 請輸入**PretrainedEntities** for**名稱**。
-3. 選取 [建立] 。
+3. 選取 [建立]  。
 
 ### <a name="entity-creation"></a>建立實體
 
 1. 選取 **實體**在左窗格中，然後**新實體**。
 2. 選取 **前 Trained/datetimeV2** for**實體類型**。
 3. 請檢查**多重值**啟用實體累積一或多個值。 請注意，無法 negatable Pre-Trained 實體。
-4. 選取 [建立] 。
+4. 選取 [建立]  。
 
 ![](../media/T08_entity_create.png)
 
 1. 選取 **動作**在左窗格中，然後**新動作**。
-2. 請輸入**的日期是 $builtin-datetimev2**如**機器人的回應...**.
-3. 選取 [建立] 。
+2. 請輸入**的日期是 $builtin-datetimev2**如**機器人的回應...** .
+3. 選取 [建立]  。
 
 ![](../media/T08_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>建立第二個動作
 
 1. 選取 **動作**在左窗格中，然後**新動作**。
-2. 請輸入**什麼是日期？** 如**機器人的回應...**.預先定型的實體不能**所需的實體**因為預設會針對所有的發音都辨識。
+2. 請輸入**什麼是日期？** 如**機器人的回應...** .預先定型的實體不能**所需的實體**因為預設會針對所有的發音都辨識。
 3. 請輸入**builtin datetimev2** for **Disqualifying 實體**。
-4. 選取 [建立] 。
+4. 選取 [建立]  。
 
 ![](../media/T08_action_create_2.png)
 

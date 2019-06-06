@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 06/03/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 807045089f70e117d46754412d974be7fba5a77a
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: ead81dfec5c98e810abfe4b88accb9aa9092fc90
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65832504"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472712"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Microsoft 身分識別平台的演化
 
@@ -50,7 +50,7 @@ Microsoft 身分識別平台是 Azure Active Directory (Azure AD) 開發人員�
 
 ### <a name="app-registration-experience"></a>應用程式註冊體驗
 
-Azure 入口網站**[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)** 體驗是一項入口網站體驗，可用來管理已與 Microsoft 身分識別平台整合的所有應用程式。 如果您過去都使用應用程式註冊入口網站，請開始改用 Azure 入口網站應用程式註冊體驗。
+Azure 入口網站 **[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)** 體驗是一項入口網站體驗，可用來管理已與 Microsoft 身分識別平台整合的所有應用程式。 如果您過去都使用應用程式註冊入口網站，請開始改用 Azure 入口網站應用程式註冊體驗。
 
 若要與 Azure AD B2C 整合 (在驗證社交或本機身分識別時)，您必須在 B2C 租用戶中註冊您的應用程式。 這項體驗也是 Azure 入口網站的一部分。
 

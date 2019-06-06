@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: c00b805a8a702828f6d6402478ed8d2a79d3966e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2f26392bdac34dd831e04c772e5357f5e41fc746
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862874"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390218"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>快速入門：使用 Python 來呼叫 Bing Web 搜尋 API  
 
@@ -55,7 +55,7 @@ search_term = "Azure Cognitive Services"
 
 ## <a name="make-a-request"></a>發出要求
 
-下列區塊會使用 `requests` 程式庫呼叫 Bing Web 搜尋 API，並以 JSON 物件的形式傳回結果。 API 金鑰會透過 `headers` 字典傳入，而搜尋字詞和查詢參數則會透過 `params` 字典傳入。 如需選項和參數的完整清單，請參閱 [Bing Web 搜尋 API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) (英文) 文件。
+下列區塊會使用 `requests` 程式庫呼叫 Bing Web 搜尋 API，並以 JSON 物件的形式傳回結果。 API 金鑰會透過 `headers` 字典傳入，而搜尋字詞和查詢參數則會透過 `params` 字典傳入。 如需選項和參數的完整清單，請參閱 [Bing Web 搜尋 API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) (英文) 文件。
 
 ```python
 import requests

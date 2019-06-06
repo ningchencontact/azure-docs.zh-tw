@@ -10,16 +10,16 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1d344f388b03acb3a81fcfde0e214eb7d82dc9b9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1eab92dcc9c1890e82f9999e26e54378a3687c6d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885067"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390486"
 ---
 # <a name="how-to-page-through-news-search-results"></a>如何逐頁檢視新聞搜尋結果
 
-當您呼叫「新聞搜尋 API」時，Bing 會傳回與您查詢相關結果的清單。 若要取得可用結果的預估總數，請存取解答物件的 [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-totalmatches) 欄位。  
+當您呼叫「新聞搜尋 API」時，Bing 會傳回與您查詢相關結果的清單。 若要取得可用結果的預估總數，請存取解答物件的 [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-totalmatches) 欄位。  
   
 下列範例顯示新聞解答包含的 `totalEstimatedMatches` 欄位。  
 
@@ -32,10 +32,10 @@ ms.locfileid: "55885067"
 }  
 ```  
   
-若要逐頁瀏覽可用的文章，請使用 [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#count) 和 [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#offset) 查詢參數。  
+若要逐頁瀏覽可用的文章，請使用 [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#count) 和 [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#offset) 查詢參數。  
  
 
-|參數  |說明  |
+|參數  |描述  |
 |---------|---------|
 |`count`     | 指定要在回應中傳回的結果數目。 您可能在回應中要求的結果數目上限為 100。 預設值為 10。 傳遞的實際數目可能小於所要求的數目。        |
 |`offset`     | 指定要略過的結果數目。 `offset` 是以零為起始，而且應該小於 (`totalEstimatedMatches` - `count`)。          |

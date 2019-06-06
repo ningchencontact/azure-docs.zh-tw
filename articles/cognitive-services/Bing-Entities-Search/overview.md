@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: scottwhi
-ms.openlocfilehash: 0755688d1cc2f00ffef253b7695d9cb504f9e169
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 679a3d9efbeeb75e0aa8e3986fa85b7ecf0d77bd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866849"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388505"
 ---
 # <a name="what-is-bing-entity-search-api"></a>什麼是 Bing 實體搜尋 API？
 
@@ -39,5 +39,5 @@ Bing 實體搜尋 API 是一種 RESTful Web 服務，可讓您輕鬆地從任何
 
 * 嘗試使用 Bing 實體搜尋 API 的[互動式示範](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/)。 
 * 若要快速開始使用您的第一個要求，請嘗試使用[快速入門](quickstarts/csharp.md)。
-* [Bing 實體搜尋 API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) 參考小節。
+* [Bing 實體搜尋 API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) 參考小節。
 * [Bing 使用和顯示需求](./use-display-requirements.md)指定了透過 Bing 搜尋 API 取得的內容和資訊可行的用法。

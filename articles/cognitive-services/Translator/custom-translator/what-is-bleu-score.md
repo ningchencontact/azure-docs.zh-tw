@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.author: v-rada
-ms.openlocfilehash: 8d249d29841466c40c0fd96df92cccecdce2dc62
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.author: v-pawal
+ms.openlocfilehash: 08be79dde62a1d624fa59816cf855e702245b622
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760336"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385173"
 ---
 # <a name="what-is-a-bleu-score"></a>什麼是 BLEU 分數？
 

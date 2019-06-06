@@ -2,20 +2,20 @@
 title: Azure SQL 資料倉儲速查表 | Microsoft Docs
 description: 尋找快速建置 Azure SQL 資料倉儲解決方案的連結和最佳做法。
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: ad205fbbd17b291bf45e0c0b057ee81b80c0730b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 38d353541b233f3cd9466e8dcf6c2b84083bd859
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762799"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515793"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲的速查表
 本速查表提供實用的秘訣和最佳作法，協助您建立 Azure SQL 資料倉儲解決方案。 開始之前，請先閱讀 [Azure SQL 資料倉儲工作負載模式和反向模式](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns)，詳細瞭解每個步驟，文內會說明何謂 SQL 資料倉儲，何者又不屬於 SQL 資料倉儲。
@@ -101,7 +101,7 @@ ms.locfileid: "65762799"
 至於歷程資料中的大型批次更新，請先刪除有疑慮的資料。 之後，您可以大量插入新的資料。 這個 2 個步驟的方法會更有效率。
 
 ## <a name="maintain-statistics"></a>維護統計資料
- 在普遍提供自動統計資料之前，SQL 資料倉儲都需要手動維護統計資料。 對您的資料做重大變更時，同時更新統計資料很重要。 這可協助最佳化您的查詢計劃。 如果您發現維護所有統計資料所需時間太長，可能要更謹慎選擇為哪些資料行統計資料。 
+ 在普遍提供自動統計資料之前，SQL 資料倉儲都需要手動維護統計資料。 對您的資料做重大變更  時，同時更新統計資料很重要。 這可協助最佳化您的查詢計劃。 如果您發現維護所有統計資料所需時間太長，可能要更謹慎選擇為哪些資料行統計資料。 
 
 您也可以定義更新的頻率。 例如，您可能想要更新每天都要加入新值的日期資料行。 對於牽涉聯結的資料行、WHERE 子句中使用的資料行、在 GROUP BY 中找到的資料行，統計資料可以獲得最大效益。
 

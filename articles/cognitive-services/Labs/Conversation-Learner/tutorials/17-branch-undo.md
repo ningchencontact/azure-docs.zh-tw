@@ -3,19 +3,19 @@ title: 如何搭配對話學習模組模型使用分支與復原作業 - Microso
 titleSuffix: Azure
 description: 了解如何搭配對話學習模組模型使用分支與復原作業。
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: cca7b42c83be3ca428509ea48c387a1c35ddb35a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.author: nitinme
+ms.openlocfilehash: 6ffa0881df07e453c8beb175b8580deebbfc1ec9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206725"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389899"
 ---
 # <a name="how-to-use-branching-and-undo-operations"></a>如何使用分支與復原作業
 在本教學課程中，我們將介紹復原與分支作業。

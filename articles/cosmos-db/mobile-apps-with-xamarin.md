@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 11/15/2018
 ms.author: sngun
-ms.openlocfilehash: 0580129d8a1e8500a7be1b0728bacc947f4ece5a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a9b1952ed981b0ec522ff3bd607bbef275ff93b8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043867"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479641"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式
 
@@ -45,7 +45,7 @@ Azure Cosmos DB 為行動應用程式開發人員提供了下列重要功能：
 下列教學課程示範如何使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式。 您可以在 [GitHub 上的 Xamarin 和 Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin) 中找到本教學課程的完整原始程式碼。
 
 ### <a name="get-started"></a>開始使用
-您可以輕鬆地開始使用 Azure Cosmos DB。 移至 Azure 入口網站，然後建立新的 Azure Cosmos DB 帳戶。 按一下 [快速入門] 索引標籤。下載已連接至您 Azure Cosmos DB 帳戶的 Xamarin 表單待辦事項清單範例。 
+您可以輕鬆地開始使用 Azure Cosmos DB。 移至 Azure 入口網站，然後建立新的 Azure Cosmos DB 帳戶。 按一下 [快速入門]  索引標籤。下載已連接至您 Azure Cosmos DB 帳戶的 Xamarin 表單待辦事項清單範例。 
 
 ![適用於行動應用程式的 Azure Cosmos DB 快速入門](media/mobile-apps-with-xamarin/cosmos-db-quickstart.png)
 
@@ -90,7 +90,7 @@ Azure Cosmos DB 為行動應用程式開發人員提供了下列重要功能：
 如果您想讓兩位使用者存取同一份待辦事項清單，您可以在資源權杖訊息代理程式的存取權杖中新增額外的權限。
 
 ### <a name="scale-on-demand"></a>依需求進行調整
-Azure Cosmos DB 是受控資料庫即服務。 隨著使用者人數成長，您不必為佈建 VM 或增加核心而煩惱。 您只需告訴 Azure Cosmos DB 您的應用程式每秒需要多少作業數 (輸送量)。 您可以透過入口網站的 [調整] 索引標籤，使用稱為每秒要求單位數 (RU) 的量值來指定輸送量。 例如，對 1-KB 文件進行的讀取作業需要 1 RU。 您也可以為 [輸送量] 計量新增警示來監視流量成長，並以設計程式方式在引發警示時變更輸送量。
+Azure Cosmos DB 是受控資料庫即服務。 隨著使用者人數成長，您不必為佈建 VM 或增加核心而煩惱。 您只需告訴 Azure Cosmos DB 您的應用程式每秒需要多少作業數 (輸送量)。 您可以透過入口網站的 [調整]  索引標籤，使用稱為每秒要求單位數 (RU) 的量值來指定輸送量。 例如，對 1-KB 文件進行的讀取作業需要 1 RU。 您也可以為 [輸送量]  計量新增警示來監視流量成長，並以設計程式方式在引發警示時變更輸送量。
 
 ![Azure Cosmos DB 依需求調整輸送量](media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png)
 

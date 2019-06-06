@@ -3,19 +3,19 @@ title: 翻譯工具文字 API 字典查閱方法
 titlesuffix: Azure Cognitive Services
 description: 使用翻譯工具文字 API 字典查閱方法。
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
-ms.openlocfilehash: b844ac4018ef768527ca17bd68ca53baaf5d9552
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.author: v-pawal
+ms.openlocfilehash: 10ccdcf0fda424e67b993c7c9300f0b84c56121f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578334"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389798"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>翻譯工具文字 API 3.0：字典查閱
 
@@ -38,15 +38,15 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
   <th>描述</th>
   <tr>
     <td>api-version</td>
-    <td>必要參數。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
+    <td>必要參數  。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
   </tr>
   <tr>
     <td>from</td>
-    <td>必要參數。<br/>指定輸入文字的語言。 來源語言必須是 `dictionary` 範圍內包含的[支援語言](./v3-0-languages.md)之一。</td>
+    <td>必要參數  。<br/>指定輸入文字的語言。 來源語言必須是 `dictionary` 範圍內包含的[支援語言](./v3-0-languages.md)之一。</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>必要參數。<br/>指定輸出文字的語言。 目標語言必須是 `dictionary` 範圍內包含的[支援語言](./v3-0-languages.md)之一。</td>
+    <td>必要參數  。<br/>指定輸出文字的語言。 目標語言必須是 `dictionary` 範圍內包含的[支援語言](./v3-0-languages.md)之一。</td>
   </tr>
 </table>
 
@@ -61,15 +61,15 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>必要的要求標頭。<br/>指定承載的內容類型。 可能的值為：`application/json`。</td>
+    <td>必要的要求標頭  。<br/>指定承載的內容類型。 可能的值為：`application/json`。</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>必要的要求標頭。<br/>要求本文的長度。</td>
+    <td>必要的要求標頭  。<br/>要求本文的長度。</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>可选。<br/>用於識別唯一要求的 GUID，由用戶端產生。 若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
+    <td>可选  。<br/>用於識別唯一要求的 GUID，由用戶端產生。 若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
   </tr>
 </table> 
 

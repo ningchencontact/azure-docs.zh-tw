@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: f54003f4e1c60b80b500f49bb83d4b7adf2bc12a
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f169f969a1acf4cefc8cee27f74a99730491176a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340570"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389421"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>使用 Bing 影像搜尋 API 從 Web 取得影像
 
@@ -45,7 +45,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghi
 ```
 
 > [!NOTE]
-> 不論是否有 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) 設定，使用 `site:` 運算子的查詢回應都可能包含成人內容。 請只在您知曉網域上的內容時，才使用 `site:`。
+> 不論是否有 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) 設定，使用 `site:` 運算子的查詢回應都可能包含成人內容。 請只在您知曉網域上的內容時，才使用 `site:`。
 
 下列範例示範如何從 Bing 在過去一週中探索的 ContosoSailing.com 取得小型影像。  
 
@@ -62,19 +62,19 @@ Host: api.cognitive.microsoft.com
 
  根據預設，影像搜尋 API 會傳回與查詢相關的所有影像。 如果您想要篩選 Bing 所傳回的影像 (例如，只傳回具有透明背景或特定大小的影像)，請使用下列查詢參數：
 
-* [aspect](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#aspect)：依照外觀比例篩選影像 (例如，標準或寬螢幕影像)。
-* [color](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#color)：依照主色或黑白篩選影像。
-* [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#freshness)：依照存在時間篩選影像 (例如，Bing 在過去一週中探索的影像)。
-* [height](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#height)、[width](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#width)：依照寬度和高度篩選影像。
-* [imageContent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagecontent)：依照內容篩選影像 (例如只顯示人臉的影像)。
-* [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype)：依照類型篩選影像 (例如，美工圖案、動畫 GIF 或透明背景)。
-* [license](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license)：依照與網站相關聯的授權類型篩選影像。
-* [size](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#size)：依照大小篩選影像，例如最大 200 x 200 像素的小型影像。
+* [aspect](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#aspect)：依照外觀比例篩選影像 (例如，標準或寬螢幕影像)。
+* [color](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#color)：依照主色或黑白篩選影像。
+* [freshness](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#freshness)：依照存在時間篩選影像 (例如，Bing 在過去一週中探索的影像)。
+* [height](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#height)、[width](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#width)：依照寬度和高度篩選影像。
+* [imageContent](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagecontent)：依照內容篩選影像 (例如只顯示人臉的影像)。
+* [imageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype)：依照類型篩選影像 (例如，美工圖案、動畫 GIF 或透明背景)。
+* [license](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#license)：依照與網站相關聯的授權類型篩選影像。
+* [size](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#size)：依照大小篩選影像，例如最大 200 x 200 像素的小型影像。
 
 若要從特定網域取得影像，請使用 [site:](https://msdn.microsoft.com/library/ff795613.aspx) 查詢運算子。
 
  > [!NOTE]
- > 不論是否有 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) 設定，使用 `site:` 運算子的查詢回應都可能包含成人內容。 請只在您知曉網域上的內容時，才使用 `site:`。
+ > 不論是否有 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) 設定，使用 `site:` 運算子的查詢回應都可能包含成人內容。 請只在您知曉網域上的內容時，才使用 `site:`。
 
 下列範例示範如何從 Bing 在過去一週中探索的 ContosoSailing.com 取得小型影像。  
 
@@ -89,7 +89,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="bing-image-search-response-format"></a>Bing 影像搜尋的回應格式
 
-從 Bing 傳回的回應訊息包含[影像](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images)答案，其中包含認知服務判斷為與查詢相關的影像清單。 清單中的每個[影像](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image)物件包含下列影像相關資訊：URL、影像大小、影像維度、影像編碼格式、影像縮圖的 URL 及縮圖的維度。
+從 Bing 傳回的回應訊息包含[影像](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images)答案，其中包含認知服務判斷為與查詢相關的影像清單。 清單中的每個[影像](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image)物件包含下列影像相關資訊：URL、影像大小、影像維度、影像編碼格式、影像縮圖的 URL 及縮圖的維度。
 
 ```json
 {
