@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 2fde25e4d21081d350fb2a7ecf07b66f348e7ab1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fbbe139160a7efd528e63e206aa37ac72b2542df
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736476"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515196"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>快速入門：搭配使用翻譯工具文字 API 與 Java 來翻譯字串
 
@@ -44,7 +44,7 @@ cd translator-sample
 gradle init --type basic
 ```
 
-出現選擇 **DSL** 的提示時，請選取 [Kotlin]。
+出現選擇 **DSL** 的提示時，請選取 [Kotlin]  。
 
 ## <a name="configure-the-build-file"></a>設定組建檔案
 

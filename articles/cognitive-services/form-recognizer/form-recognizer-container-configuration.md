@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 05/15/2019
+ms.date: 05/31/2019
 ms.author: pafarley
-ms.openlocfilehash: 17cf1d88701370c4f81eab4f0d2df33ee2e94af5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 28acc2d1eafacb9e53fac3e3cce092738401f838
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796404"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475395"
 ---
 # <a name="configure-form-recognizer-containers"></a>設定表單辨識器容器
 
@@ -31,11 +31,11 @@ ms.locfileid: "65796404"
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 組態設定
 
-`ApiKey` 設定會指定用來追蹤容器帳單資訊的 Azure資源金鑰。 您必須指定 ApiKey 的值，該值必須是有效金鑰，且適用於為 [`Billing`](#billing-configuration-setting) 組態設定而指定的「表單辨識器」資源。
+`ApiKey` 設定會指定用來追蹤容器帳單資訊的 Azure資源金鑰。 您必須指定 ApiKey 的值，該值必須是有效金鑰，且適用於為 [`Billing`](#billing-configuration-setting) 組態設定而指定的「表單辨識器」  資源。
 
 此設定可在下列位置找到：
 
-* Azure 入口網站：**表單辨識器**資源管理，位於 [金鑰] 下方
+* Azure 入口網站：**表單辨識器**資源管理，位於 [金鑰]  下方
 
 ## <a name="applicationinsights-setting"></a>ApplicationInsights 設定
 
@@ -43,7 +43,7 @@ ms.locfileid: "65796404"
 
 ## <a name="billing-configuration-setting"></a>Billing 組態設定
 
-`Billing` 設定會指定 Azure 上用來計量容器帳單資訊的「表單辨識器」資源端點 URI。 您必須為此組態設定指定值，且該值必須是適用於 Azure 上「表單辨識器」資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
+`Billing` 設定會指定 Azure 上用來計量容器帳單資訊的「表單辨識器」  資源端點 URI。 您必須為此組態設定指定值，且該值必須是適用於 Azure 上「表單辨識器」  資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
 
 此設定可在下列位置找到：
 
@@ -111,10 +111,10 @@ ms.locfileid: "65796404"
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
-Eula=accept \
 --mount type=bind,source=c:\input,target=/input  \
 --mount type=bind,source=c:\output,target=/output \
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
+Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
 FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
@@ -125,10 +125,10 @@ FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
-Eula=accept \
 --mount type=bind,source=c:\input,target=/input  \
 --mount type=bind,source=c:\output,target=/output \
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
+Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} \
 FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \

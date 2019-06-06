@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e77c7ea6036e92c33c975f8180053a8880db55a0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa253f95c01e35505e154d9709ca88033735fa52
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090520"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390474"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>快速入門：使用 PHP 和 Bing 新聞搜尋 REST API 來執行新聞搜尋
 
@@ -34,7 +34,7 @@ ms.locfileid: "58090520"
 
 ## <a name="run-the-application"></a>執行應用程式
 
-[Bing 新聞搜尋 API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) 會從 Bing 搜尋引擎傳回新聞結果。
+[Bing 新聞搜尋 API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) 會從 Bing 搜尋引擎傳回新聞結果。
 
 1. 請確定 `php.ini` 中已啟用安全 HTTP 支援，如程式碼註解中所述。
 2. 在您最愛的 IDE 或編輯器中建立新的 PHP 專案。

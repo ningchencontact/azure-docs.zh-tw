@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2deaa0ed8b21d5e091fe5d3b3e6986eaf2340281
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078120"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514717"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>教學課程：使用 WPF 建立翻譯應用程式
 
@@ -59,10 +59,10 @@ ms.locfileid: "58078120"
 
 我們的首要工作是在 Visual Studio 中設定專案。
 
-1. 開啟 Visual Studio。 然後，選取 [檔案] > [新增] > [專案]。
-2. 在左面板中找出 **Visual C#**，並加以選取。 然後，選取中央面板中的 [WPF 應用程式 (.NET Framework)]。
+1. 開啟 Visual Studio。 然後，選取 [檔案] > [新增] > [專案]  。
+2. 在左面板中找出 **Visual C#** ，並加以選取。 然後，選取中央面板中的 [WPF 應用程式 (.NET Framework)]  。
    ![在 Visual Studio 中建立 WPF 應用程式](media/create-wpf-project-visual-studio.png)
-3. 為您的專案命名，並將 Framework 版本設為 **.NET Framework 4.5.2 或更新版本**，然後按一下 [確定]。
+3. 為您的專案命名，並將 Framework 版本設為 **.NET Framework 4.5.2 或更新版本**，然後按一下 [確定]  。
 4. 您的專案已建立。 您會發現有兩個開啟的索引標籤：`MainWindow.xaml` 和 `MainWindow.xaml.cs`。 在本教學課程中，我們都將在這兩個檔案中新增程式碼。 第一個檔案用於應用程式的使用者介面；第二個檔案則用來呼叫翻譯工具文字和 Bing 拼字檢查。
    ![檢查您的環境](media/blank-wpf-project.png)
 
@@ -76,13 +76,13 @@ ms.locfileid: "58078120"
 
 我們將在專案中新增組件，用以序列化和還原序列化物件，以及管理 HTTP 要求和回應。
 
-1. 在 Visual Studio 的方案總管中 (右面板) 找出您的專案。 以滑鼠右鍵按一下您的專案，然後選取 [新增] > [參考...]，以開啟 [參考管理員]。
+1. 在 Visual Studio 的方案總管中 (右面板) 找出您的專案。 以滑鼠右鍵按一下您的專案，然後選取 [新增] > [參考...]  ，以開啟 [參考管理員]  。
    ![新增組件參考](media/add-assemblies-sample.png)
 2. [組件] 索引標籤會列出所有可供參考的 .NET Framework 組件。 使用畫面右上角的搜尋列來搜尋這些參考，並將其新增至您的專案：
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization?view=netframework-4.7.2)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
-   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
-3. 將這些參考新增至專案後，您可以按一下 [確定] 以關閉 [參考管理員]。
+   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
+   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
+3. 將這些參考新增至專案後，您可以按一下 [確定]  以關閉 [參考管理員]  。
 
 > [!NOTE]
 > 如果您想要深入了解組件參考，請參閱[操作說明：使用參考管理員新增或移除參考](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2017)。
@@ -91,11 +91,11 @@ ms.locfileid: "58078120"
 
 我們的應用程式會使用 NewtonSoft.Json 將 JSON 物件還原序列化。 請依照下列指示來安裝套件。
 
-1. 在 Visual Studio 的方案總管中找出您的專案，並以滑鼠右鍵按一下該專案。 選取 [管理 NuGet 套件...]。
-2. 找出 [瀏覽] 索引標籤並加以選取。
+1. 在 Visual Studio 的方案總管中找出您的專案，並以滑鼠右鍵按一下該專案。 選取 [管理 NuGet 套件...]  。
+2. 找出 [瀏覽]  索引標籤並加以選取。
 3. 在搜尋列中輸入 [NewtonSoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)。
    ![找出 NewtonSoft.Json 並加以安裝](media/add-nuget-packages.png)
-4. 選取套件並按一下 [安裝]。
+4. 選取套件並按一下 [安裝]  。
 5. 安裝完成後，請關閉索引標籤。
 
 ## <a name="create-a-wpf-form-using-xaml"></a>使用 XAML 建立 WPF 表單
@@ -170,7 +170,7 @@ ms.locfileid: "58078120"
 `MainWindow.xaml.cs` 包含可控制應用程式的程式碼。 在接下來的幾節中，我們將新增程式碼以填入下拉式功能表中，並呼叫翻譯工具文字和 Bing 拼字檢查所公開的幾個 API。
 
 * 當程式啟動時，`MainWindow` 會具現化，然後呼叫翻譯工具文字 API 的 `Languages` 方法來擷取並填入我們的語言選取下拉式清單。 此作業只會在每個工作階段開始時執行一次。
-* 按一下 [翻譯] 按鈕後，即會擷取使用者選取的語言和文字，然後對輸入進行拼字檢查，並且為使用者顯示翻譯和偵測到的語言。
+* 按一下 [翻譯]  按鈕後，即會擷取使用者選取的語言和文字，然後對輸入進行拼字檢查，並且為使用者顯示翻譯和偵測到的語言。
   * 系統會呼叫翻譯工具文字 API 的 `Translate` 方法，以翻譯 `TextToTranslate` 中的文字。 此呼叫也包含使用下拉式功能表選取的 `to` 和 `from` 語言。
   * 系統會呼叫翻譯工具文字 API 的 `Detect` 方法，以判定 `TextToTranslate` 的文字語言。
   * 系統會使用 Bing 拼字檢查來驗證 `TextToTranslate` 並調整拼字錯誤。
@@ -322,7 +322,7 @@ JSON 回應經剖析後會轉換為字典。 然後，語言代碼會新增至 `
 
 ## <a name="populate-language-drop-down-menus"></a>填入語言下拉式功能表
 
-使用者介面都是以 XAML 定義的，因此除了呼叫 `InitializeComponent()` 以外，不需費太多功夫即可完成設定。 您需要做的，就是將易記語言名稱新增至 [翻譯來源] 和 [翻譯目標] 下拉式功能表；此作業可用 `PopulateLanguageMenus()` 方法完成。
+使用者介面都是以 XAML 定義的，因此除了呼叫 `InitializeComponent()` 以外，不需費太多功夫即可完成設定。 您需要做的，就是將易記語言名稱新增至 [翻譯來源]  和 [翻譯目標]  下拉式功能表；此作業可用 `PopulateLanguageMenus()` 方法完成。
 
 1. 在 Visual Studio 中，開啟 `MainWindow.xaml.cs` 的索引標籤。
 2. 將下列程式碼新增至專案的 `GetLanguagesForTranslate()` 方法下方：
@@ -347,12 +347,12 @@ JSON 回應經剖析後會轉換為字典。 然後，語言代碼會新增至 `
    // In the following sections, we'll add code below this.
    ```
 
-此方法會逐一查看 `languageCodesAndTitles` 字典，並將每個索引鍵新增至這兩個功能表。 填入功能表之後，預設的來源和目標語言會分別設為 [偵測] 和 [英文]。
+此方法會逐一查看 `languageCodesAndTitles` 字典，並將每個索引鍵新增至這兩個功能表。 填入功能表之後，預設的來源和目標語言會分別設為 [偵測]  和 [英文]  。
 
 > [!TIP]
-> 如果功能表沒有預設選取項目，使用者將無須先選擇 [目標] 或 [來源] 語言，便可按一下 [翻譯]。 如果有預設值，便不需要處理這個問題。
+> 如果功能表沒有預設選取項目，使用者將無須先選擇 [目標] 或 [來源] 語言，便可按一下 [翻譯]  。 如果有預設值，便不需要處理這個問題。
 
-現在，`MainWindow` 已初始化，且使用者介面已建立，必須在按下 [翻譯] 按鈕後，此程式碼才會執行。
+現在，`MainWindow` 已初始化，且使用者介面已建立，必須在按下 [翻譯]  按鈕後，此程式碼才會執行。
 
 ## <a name="detect-language-of-source-text"></a>偵測來源文字的語言
 
@@ -412,7 +412,7 @@ JSON 回應經剖析後會轉換為字典。 然後，語言代碼會新增至 `
 
 ## <a name="spell-check-the-source-text"></a>對來源文字進行拼字檢查
 
-現在，我們將建立使用 Bing 拼字檢查 API 對來源文字進行拼字檢查的方法。 這可確保翻譯工具文字 API 能夠產生正確的翻譯。 對來源文字所做的任何校正，都會在我們按下 [翻譯] 按鈕時隨著翻譯要求一起傳遞。
+現在，我們將建立使用 Bing 拼字檢查 API 對來源文字進行拼字檢查的方法。 這可確保翻譯工具文字 API 能夠產生正確的翻譯。 對來源文字所做的任何校正，都會在我們按下 [翻譯]  按鈕時隨著翻譯要求一起傳遞。
 
 1. 在 Visual Studio 中，開啟 `MainWindow.xaml.cs` 的索引標籤。
 2. 將下列程式碼新增至專案的 `DetectLanguage()` 方法下方：
@@ -476,7 +476,7 @@ private string CorrectSpelling(string text)
 
 ## <a name="translate-text-on-click"></a>經點選時翻譯文字
 
-最後，我們必須建立在使用者介面中的 [翻譯] 按鈕經點選時所叫用的方法。
+最後，我們必須建立在使用者介面中的 [翻譯]  按鈕經點選時所叫用的方法。
 
 1. 在 Visual Studio 中，開啟 `MainWindow.xaml.cs` 的索引標籤。
 2. 將下列程式碼新增至專案的 `CorrectSpelling()` 方法下方，並加以儲存：  
@@ -553,7 +553,7 @@ private string CorrectSpelling(string text)
    }
    ```
 
-第一個步驟是取得「來源」和「目標」語言，以及使用者在表單中輸入的文字。 如果來源語言設為 [偵測]，則會呼叫 `DetectLanguage()` 以判斷來源文字的語言。 該文字有可能屬於翻譯工具 API 不支援的語言。 在此情況下會顯示訊息來通知使用者，並返回而不翻譯文字。
+第一個步驟是取得「來源」和「目標」語言，以及使用者在表單中輸入的文字。 如果來源語言設為 [偵測]  ，則會呼叫 `DetectLanguage()` 以判斷來源文字的語言。 該文字有可能屬於翻譯工具 API 不支援的語言。 在此情況下會顯示訊息來通知使用者，並返回而不翻譯文字。
 
 如果來源語言是英文 (不論是指定的，還是偵測到的)，請使用 `CorrectSpelling()` 來檢查文字拼字，並套用任何校正。 校正後的文字會重新新增至文字區域中，讓使用者知道已進行校正。
 
@@ -563,7 +563,7 @@ private string CorrectSpelling(string text)
 
 ## <a name="run-your-wpf-app"></a>執行您的 WPF 應用程式
 
-如此，您即有使用 WPF 建置的有效翻譯應用程式。 若要執行應用程式，請按一下 Visual Studio 中的 [啟動] 按鈕。
+如此，您即有使用 WPF 建置的有效翻譯應用程式。 若要執行應用程式，請按一下 Visual Studio 中的 [啟動]  按鈕。
 
 ## <a name="source-code"></a>原始程式碼
 

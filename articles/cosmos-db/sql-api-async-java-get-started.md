@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 12/15/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: 80146c7ec7b496b33bede8172d9945c78b26511e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: b46914728c684fe4b28cb1325afb1e0b662522ad
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039022"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475805"
 ---
 # <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>教學課程：使用 Async Java SDK 建置 Java 應用程式以管理 SQL API 帳戶中儲存的資料
 
@@ -82,7 +82,7 @@ cd azure-cosmosdb-get-started
 
 接下來，回到 [Azure 入口網站](https://portal.azure.com)以擷取您的端點和主要金鑰。 必須提供 Azure Cosmos DB 端點 URL 和主要金鑰，您的應用程式才能了解所要連線的位置，而 Azure Cosmos DB 才會信任您的應用程式連線。 `AccountSettings.java` 檔案會保存主要金鑰和 URI 值。 
 
-在 Azure 入口網站中，移至 Azure Cosmos 帳戶，然後按一下 [金鑰]。 從入口網站複製 URI 和「主要金鑰」，並將其貼到 `AccountSettings.java` 檔案中。 
+在 Azure 入口網站中，移至 Azure Cosmos 帳戶，然後按一下 [金鑰]  。 從入口網站複製 URI 和「主要金鑰」，並將其貼到 `AccountSettings.java` 檔案中。 
 
 ```java
 public class AccountSettings 
@@ -275,7 +275,7 @@ mvn exec:java -DACCOUNT_HOST=<YOUR_COSMOS_DB_HOSTNAME> -DACCOUNT_KEY= <YOUR_COSM
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若不再需要資源，您可以刪除資源群組、Azure Cosmos 帳戶和所有相關資源。 請選取虛擬機器的資源群組，選取 [刪除]，然後確認要刪除的資源群組名稱，即可刪除資源。
+若不再需要資源，您可以刪除資源群組、Azure Cosmos 帳戶和所有相關資源。 請選取虛擬機器的資源群組，選取 [刪除]  ，然後確認要刪除的資源群組名稱，即可刪除資源。
 
 
 ## <a name="next-steps"></a>後續步驟
