@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 75ac8a45eb49ac5c4ec3b39667542f4f454a9954
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ccf60a333dcc83e27702d572f922ef6aec741c14
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66111311"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730301"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 建立 Azure DNS 區域和記錄
 
@@ -24,7 +24,7 @@ DNS 區域用來裝載特定網域的 DNS 記錄。 若要開始將網域裝載�
 
 Azure DNS 也支援建立私人網域。 如需有關如何建立第一個私人 DNS 區域與記錄的逐步指示，請參閱[透過 PowerShell 開始使用 Azure DNS 私人區域 ](private-dns-getstarted-powershell.md)。
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -38,7 +38,7 @@ New-AzResourceGroup -name MyResourceGroup -location "eastus"
 
 ## <a name="create-a-dns-zone"></a>建立 DNS 區域
 
-使用 `New-AzDnsZone` Cmdlet 建立 DNS 區域。 下列範例會在稱為 MyResourceGroup 的資源群組中建立稱為 contoso.xyz 的 DNS 區域。 使用範例來建立 DNS 區域，並將值替換為您自己的值。
+使用 `New-AzDnsZone` Cmdlet 建立 DNS 區域。 下列範例會在稱為 MyResourceGroup  的資源群組中建立稱為 contoso.xyz  的 DNS 區域。 使用範例來建立 DNS 區域，並將值替換為您自己的值。
 
 ```powershell
 New-AzDnsZone -Name contoso.xyz -ResourceGroupName MyResourceGroup

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0eb5a33b91925260c89e0b1c23800614ed637bdb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 694fc0ba6d59497cfc53efb6f2607bc6a7d4ad2d
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990656"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728687"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立及管理虛擬機器擴展集
 
@@ -36,14 +36,14 @@ ms.locfileid: "57990656"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 
 ## <a name="create-a-resource-group"></a>建立資源群組
-Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 資源群組必須在虛擬機器擴展集之前建立。 使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 命令來建立資源群組。 在此範例中，會在 EastUS 區域中建立名為 myResourceGroup 的資源群組。 
+Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 資源群組必須在虛擬機器擴展集之前建立。 使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 命令來建立資源群組。 在此範例中，會在 EastUS  區域中建立名為 myResourceGroup  的資源群組。 
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
@@ -140,7 +140,7 @@ IpAddress
 52.168.121.216
 ```
 
-建立您第一個 VM 執行個體的遠端連線。 請指定必要 VM 執行個體的公用 IP 位址和連接埠號碼，如先前的命令所示。 出現提示時，請輸入您在建立擴展集時所使用的認證 (在範例命令中預設為 *azureuser* 和 *P\@ssw0rd!*)。 如果您使用 Azure Cloud Shell，請從本機 PowerShell 提示字元或遠端桌面用戶端執行此步驟。 下列範例會連線至 VM 執行個體 *1*：
+建立您第一個 VM 執行個體的遠端連線。 請指定必要 VM 執行個體的公用 IP 位址和連接埠號碼，如先前的命令所示。 出現提示時，請輸入您在建立擴展集時所使用的認證 (在範例命令中預設為 *azureuser* 和 *P\@ssw0rd!* )。 如果您使用 Azure Cloud Shell，請從本機 PowerShell 提示字元或遠端桌面用戶端執行此步驟。 下列範例會連線至 VM 執行個體 *1*：
 
 ```powershell
 mstsc /v 52.168.121.216:50001
@@ -239,7 +239,7 @@ Standard_NV6                       6      57344               24        1047552 
 Standard_NV12                     12     114688               48        1047552               696320
 ```
 
-當您在教學課程一開始建立擴展集時，您為 VM 執行個體提供了預設的 VM SKU Standard_DS1_v2。 您可以根據 [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize) 的輸出指定不同的 VM 執行個體大小。 下列範例會使用 `-VmSize` 參數指定 VM 執行個體大小 *Standard_F1*，以建立擴展集。 建立及設定所有擴展集資源和 VM 執行個體需要幾分鐘的時間，而您並不需要部署下列擴展集：
+當您在教學課程一開始建立擴展集時，您為 VM 執行個體提供了預設的 VM SKU Standard_DS1_v2  。 您可以根據 [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize) 的輸出指定不同的 VM 執行個體大小。 下列範例會使用 `-VmSize` 參數指定 VM 執行個體大小 *Standard_F1*，以建立擴展集。 建立及設定所有擴展集資源和 VM 執行個體需要幾分鐘的時間，而您並不需要部署下列擴展集：
 
 ```azurepowershell-interactive
 New-AzVmss `

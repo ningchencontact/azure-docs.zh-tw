@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 513d3931c31ca94b4089139992bceb6f679caa98
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 04db0232e14ccac7938d7062d77c36a54526489c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467709"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730479"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 來建立 Standard Load Balancer
 
@@ -29,13 +29,13 @@ ms.locfileid: "65467709"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 如果您選擇在本機安裝和使用 PowerShell，本文會要求使用 Azure PowerShell 模組版本 5.4.1 或更新版本。 執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-您必須使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 建立資源群組，才可建立負載平衡器。 下列範例會在 EastUS 位置建立名為 myResourceGroupSLB 的資源群組：
+您必須使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 建立資源群組，才可建立負載平衡器。 下列範例會在 EastUS  位置建立名為 myResourceGroupSLB  的資源群組：
 
 ```azurepowershell
 $rgName='MyResourceGroupSLB'
@@ -45,7 +45,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 
 ## <a name="create-a-public-ip-address"></a>建立公用 IP 位址
 
-若要存取網際網路上您的應用程式，您需要負載平衡器的公用 IP 位址。 使用 [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 建立公用 IP 位址。 下列範例會在 myResourceGroupSLB 資源群組中建立名為 myPublicIP 的公用 IP 位址：
+若要存取網際網路上您的應用程式，您需要負載平衡器的公用 IP 位址。 使用 [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 建立公用 IP 位址。 下列範例會在 myResourceGroupSLB  資源群組中建立名為 myPublicIP  的公用 IP 位址：
 
 ```azurepowershell
 $publicIp = New-AzPublicIpAddress `
@@ -62,7 +62,7 @@ $publicIp = New-AzPublicIpAddress `
 
 ### <a name="create-front-end-ip"></a>建立前端 IP
 
-使用 [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) 建立前端 IP。 下列範例會建立名為 myFrontEnd 的前端 IP 組態，並連結 myPublicIP 位址：
+使用 [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) 建立前端 IP。 下列範例會建立名為 myFrontEnd  的前端 IP 組態，並連結 myPublicIP  位址：
 
 ```azurepowershell
 $feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEndPool' -PublicIpAddress $publicIp
@@ -70,7 +70,7 @@ $feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEndPool' -PublicIpAddre
 
 ### <a name="configure-back-end-address-pool"></a>設定後端位址集區
 
-使用 [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) 建立後端位址集區。 在其餘步驟中，VM 會連結至此後端集區。 下列範例會建立名為 myBackEndPool 的後端位址集區：
+使用 [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) 建立後端位址集區。 在其餘步驟中，VM 會連結至此後端集區。 下列範例會建立名為 myBackEndPool  的後端位址集區：
 
 ```azurepowershell-interactive
 $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
@@ -79,9 +79,9 @@ $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 ### <a name="create-a-health-probe"></a>建立健康狀態探查
 若要讓負載平衡器監視您應用程式的狀態，請使用健康狀態探查。 健康狀態探查會根據 VM 對健康狀態檢查的回應，以動態方式從負載平衡器輪替中新增或移除 VM。 根據預設，在 15 秒的間隔內連續發生兩次失敗後，VM 就會從負載平衡器分配中移除。 您可根據通訊協定或您應用程式的特定健康狀態檢查頁面，建立健康狀態探查。
 
-下列範例會建立 TCP 探查。 您也可以建立自訂 HTTP 探查，以進行更精細的健康狀態檢查。 使用自訂 HTTP 探查時，您必須建立健康狀態檢查頁面，例如 healthcheck.aspx。 此探查必須對負載平衡器傳回 **HTTP 200 OK** 回應，以將主機保留在輪替中。
+下列範例會建立 TCP 探查。 您也可以建立自訂 HTTP 探查，以進行更精細的健康狀態檢查。 使用自訂 HTTP 探查時，您必須建立健康狀態檢查頁面，例如 healthcheck.aspx  。 此探查必須對負載平衡器傳回 **HTTP 200 OK** 回應，以將主機保留在輪替中。
 
-若要建立 TCP 健康狀態探查，請使用 [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig)。 下列範例會建立名為 *myHealthProbe* 的健康狀態探查，以在 HTTP 連接埠 80 上監視每部 VM：
+若要建立 TCP 健康狀態探查，請使用 [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig)。 下列範例會建立名為 *myHealthProbe* 的健康狀態探查，以在 HTTP  連接埠 80  上監視每部 VM：
 
 ```azurepowershell
 $probe = New-AzLoadBalancerProbeConfig `
@@ -105,7 +105,7 @@ $rule = New-AzLoadBalancerRuleConfig `
 
 ### <a name="create-the-nat-rules"></a>建立 NAT 規則
 
-使用 [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) 建立 NAT 規則。 下列範例會建立名為 myLoadBalancerRDP1 和 myLoadBalancerRDP2 的 NAT 規則，以允許透過 4221 和 4222 連接埠與後端伺服器進行 RDP 連線：
+使用 [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) 建立 NAT 規則。 下列範例會建立名為 myLoadBalancerRDP1  和 myLoadBalancerRDP2  的 NAT 規則，以允許透過 4221 和 4222 連接埠與後端伺服器進行 RDP 連線：
 
 ```azurepowershell
 $natrule1 = New-AzLoadBalancerInboundNatRuleConfig `
@@ -150,7 +150,7 @@ $lb = New-AzLoadBalancer `
 您必須先建立支援的網路資源 - 虛擬網路和虛擬 NIC，才可部署一些 VM 及測試您的平衡器。 
 
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
-使用 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) 建立虛擬網路。 下列範例會建立名為 myVnet 的虛擬網路和 mySubnet：
+使用 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) 建立虛擬網路。 下列範例會建立名為 myVnet  的虛擬網路和 mySubnet  ：
 
 ```azurepowershell
 # Create subnet config
@@ -332,7 +332,7 @@ $vm3 = New-AzVM -ResourceGroupName $rgName -Zone 3 -Location $location -VM $vmCo
 
 
 ## <a name="test-load-balancer"></a>測試負載平衡器
-使用 [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) 取得負載平衡器的公用 IP 位址。 下列範例會取得稍早建立的 myPublicIP IP 位址︰
+使用 [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) 取得負載平衡器的公用 IP 位址。 下列範例會取得稍早建立的 myPublicIP  IP 位址︰
 
 ```azurepowershell
 Get-AzPublicIPAddress `

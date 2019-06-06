@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a3b0f9b2b158bd36259ee96633682e1777333499
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: bd605ac3a4dd3f878dd3d5b861374816243f3467
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981038"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728560"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立及使用虛擬機器擴展集的自訂映像
 
@@ -35,9 +35,9 @@ ms.locfileid: "55981038"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-and-configure-a-source-vm"></a>建立並設定來源 VM
@@ -45,7 +45,7 @@ ms.locfileid: "55981038"
 >[!NOTE]
 > 本教學課程將逐步說明建立及使用一般化 VM 映像的程序。 不支援從特製化 VM 建立擴展集。
 
-首先，使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 建立資源群組，然後使用 [New-AzVM](/powershell/module/az.compute/new-azvm) 建立 VM。 接著，此 VM 會用來當作自訂 VM 映像的來源。 下列範例會在名為 myResourceGroup 的資源群組中建立名為 myCustomVM 的 VM。 出現提示時，請輸入使用者名稱和密碼以作為 VM 的登入認證：
+首先，使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 建立資源群組，然後使用 [New-AzVM](/powershell/module/az.compute/new-azvm) 建立 VM。 接著，此 VM 會用來當作自訂 VM 映像的來源。 下列範例會在名為 myResourceGroup  的資源群組中建立名為 myCustomVM  的 VM。 出現提示時，請輸入使用者名稱和密碼以作為 VM 的登入認證：
 
 ```azurepowershell-interactive
 # Create a resource a group
@@ -100,7 +100,7 @@ Set-AzVM -ResourceGroupName "myResourceGroup" -Name "myCustomVM" -Generalized
 
 解除配置及一般化 VM 可能需要幾分鐘的時間。
 
-現在，使用 [New-AzImageConfig](/powershell/module/az.compute/new-azimageconfig) 和 [New-AzImage](/powershell/module/az.compute/new-azimage) 建立 VM 的映象。 下列範例會從您的 VM 建立名為 myImage 的映像：
+現在，使用 [New-AzImageConfig](/powershell/module/az.compute/new-azimageconfig) 和 [New-AzImage](/powershell/module/az.compute/new-azimage) 建立 VM 的映象。 下列範例會從您的 VM 建立名為 myImage  的映像：
 
 ```azurepowershell-interactive
 # Get VM object

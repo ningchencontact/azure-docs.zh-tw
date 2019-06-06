@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: a040f3895f710f4ebbdcd3f73568775a909aa64c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 3a21bff9e4c696063458d5734a579fc7c37258a7
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258280"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730089"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>快速入門：使用 PowerShell 建立虛擬網路
 
@@ -27,7 +27,7 @@ ms.locfileid: "66258280"
 
 如果您沒有 Azure 訂用帳戶，請立即建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 如果您決定在本機安裝和使用 PowerShell，則在進行此快速入門時，您必須使用 Azure PowerShell 模組 1.0.0 版或更新版本。 若要尋找已安裝的版本，請執行 `Get-Module -ListAvailable Az`。 如需安裝和升級的資訊，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
 

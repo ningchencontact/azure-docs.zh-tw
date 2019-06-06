@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f3b49efa5e28eab2168c9a85d17e39ca7f0fce4a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6035a6ddd690db456edfa5777ca2d41e4be8b919
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984778"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728591"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立及使用虛擬機器擴展集所適用的磁碟
 
@@ -36,17 +36,17 @@ ms.locfileid: "55984778"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="default-azure-disks"></a>預設 Azure 磁碟
 建立或調整擴展集後，有兩個磁碟會自動連結到各個 VM 執行個體。 
 
-**作業系統磁碟** - 作業系統磁碟可裝載 VM 執行個體的作業系統，其大小可以高達 2 TB。 OS 磁碟預設會標示為 /dev/sda。 OS 磁碟的磁碟快取組態已針對 OS 效能進行最佳化。 因為此組態，OS 磁碟**不得**裝載應用程式或資料。 請對應用程式和資料使用資料磁碟，本文稍後會詳細說明。 
+**作業系統磁碟** - 作業系統磁碟可裝載 VM 執行個體的作業系統，其大小可以高達 2 TB。 OS 磁碟預設會標示為 /dev/sda  。 OS 磁碟的磁碟快取組態已針對 OS 效能進行最佳化。 因為此組態，OS 磁碟**不得**裝載應用程式或資料。 請對應用程式和資料使用資料磁碟，本文稍後會詳細說明。 
 
-**暫存磁碟** - 暫存磁碟會使用與 VM 執行個體位於相同 Azure 主機的固態磁碟機。 暫存磁碟的效能非常好，可用於暫存資料處理等作業。 不過，如果 VM 執行個體移至新的主機，則會移除儲存在暫存磁碟上的任何資料。 暫存磁碟的大小取決於 VM 執行個體大小。 暫存磁碟會標示為 /dev/sdb，其掛接點為 /mnt。
+**暫存磁碟** - 暫存磁碟會使用與 VM 執行個體位於相同 Azure 主機的固態磁碟機。 暫存磁碟的效能非常好，可用於暫存資料處理等作業。 不過，如果 VM 執行個體移至新的主機，則會移除儲存在暫存磁碟上的任何資料。 暫存磁碟的大小取決於 VM 執行個體大小。 暫存磁碟會標示為 /dev/sdb  ，其掛接點為 /mnt  。
 
 ### <a name="temporary-disk-sizes"></a>暫存磁碟大小
 | 類型 | 一般大小 | 暫存磁碟大小上限 (GiB) |

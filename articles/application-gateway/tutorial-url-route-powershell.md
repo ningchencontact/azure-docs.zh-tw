@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2d82b2669fef638144f1c584350b1526d36d5006
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: c636ab9956b369702c8319d67a83e33070113857
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "66133220"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729511"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>使用 Azure PowerShell 根據 URL 路由網路流量
 
@@ -38,7 +38,7 @@ ms.locfileid: "66133220"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 如果您選擇在本機安裝和使用 PowerShell，本教學課程會要求使用 Azure PowerShell 模組 1.0.0 版或更新版本。 若要尋找版本，請執行 `Get-Module -ListAvailable Az`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzAccount` 以建立與 Azure 的連線。
 
@@ -86,9 +86,9 @@ $pip = New-AzPublicIpAddress `
 
 在本節中，您會建立支援應用程式閘道的資源，並在最後建立應用程式閘道。 您所建立的資源包括：
 
-- IP 組態和前端連接埠 - 將您先前建立的子網路與應用程式閘道產生關聯，並且指派用來存取它的連接埠。
-- 預設集區 - 所有應用程式閘道都必須具有至少一個伺服器後端集區。
-- 預設接聽程式和規則 - 預設接聽程式會接聽所指派連接埠上的流量，而預設規則會將流量傳送到預設集區。
+- IP 組態和前端連接埠  - 將您先前建立的子網路與應用程式閘道產生關聯，並且指派用來存取它的連接埠。
+- 預設集區  - 所有應用程式閘道都必須具有至少一個伺服器後端集區。
+- 預設接聽程式和規則  - 預設接聽程式會接聽所指派連接埠上的流量，而預設規則會將流量傳送到預設集區。
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>建立 IP 設定與前端連接埠
 
@@ -312,7 +312,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>建立虛擬機器擴展集
 
-在此範例中，您要建立三個虛擬機器擴展集，以支援您所建立的三個後端集區。 您所建立的擴展集名為 myvmss1、myvmss2 和 myvmss3。 當您設定 IP 設定時，要將擴展集指派給後端集區。
+在此範例中，您要建立三個虛擬機器擴展集，以支援您所建立的三個後端集區。 您所建立的擴展集名為 myvmss1  、myvmss2  和 myvmss3  。 當您設定 IP 設定時，要將擴展集指派給後端集區。
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `

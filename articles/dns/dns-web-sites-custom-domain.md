@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: d2cb0ef904935d1736c23aeaf23030da99e41a71
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 9d7a277db7550c1850ec0c9d555553064ab19f7c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665945"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730279"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>教學課程：在自訂網域中建立 Web 應用程式的 DNS 記錄 
 
@@ -41,7 +41,7 @@ ms.locfileid: "58665945"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -63,11 +63,11 @@ A 記錄可用來將名稱對應到其 IP 位址。 在下列範例中，我們�
 
 ### <a name="get-the-ipv4-address"></a>取得 IPV4 位址
 
-在 Azure 入口網站的應用程式服務頁面左側導覽中，選取 [自訂網域]。 
+在 Azure 入口網站的應用程式服務頁面左側導覽中，選取 [自訂網域]  。 
 
 ![[自訂網域] 功能表](../app-service/./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-在 [自訂網域] 頁面中，複製應用程式的 IPv4 位址：
+在 [自訂網域]  頁面中，複製應用程式的 IPv4 位址：
 
 ![入口網站瀏覽至 Azure 應用程式](../app-service/./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 

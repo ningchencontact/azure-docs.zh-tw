@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/08/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f2097532284373763fcac21ecee00477527d6018
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4c6216f3dff3cbf4c8d838810c4dd786f1c34ec1
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979576"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728647"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 在虛擬機器擴展集中安裝應用程式
 
@@ -34,9 +34,9 @@ ms.locfileid: "55979576"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="what-is-the-azure-custom-script-extension"></a>Azure 自訂指令碼擴充功能是什麼？
@@ -157,7 +157,7 @@ Update-AzVmss `
 
 
 ## <a name="test-your-scale-set"></a>測試您的擴展集
-若要查看作用中的 Web 伺服器，可使用 [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) 取得負載平衡器的公用 IP 位址。 下列範例會顯示 myResourceGroup 資源群組中建立的 IP 位址：
+若要查看作用中的 Web 伺服器，可使用 [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) 取得負載平衡器的公用 IP 位址。 下列範例會顯示 myResourceGroup  資源群組中建立的 IP 位址：
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
@@ -171,9 +171,9 @@ Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
 
 
 ## <a name="update-app-deployment"></a>更新應用程式部署
-在擴展集的整個生命週期中，您可能需要部署更新版的應用程式。 透過自訂指令碼擴充功能，您可以參考已更新的部署指令碼，然後將擴充功能重新套用至擴展集。 在上一個步驟中建立擴展集時，`-UpgradePolicyMode` 已設定為「自動」。 此設定可讓擴展集中的 VM 執行個體自動更新並套用最新版的應用程式。
+在擴展集的整個生命週期中，您可能需要部署更新版的應用程式。 透過自訂指令碼擴充功能，您可以參考已更新的部署指令碼，然後將擴充功能重新套用至擴展集。 在上一個步驟中建立擴展集時，`-UpgradePolicyMode` 已設定為「自動」  。 此設定可讓擴展集中的 VM 執行個體自動更新並套用最新版的應用程式。
 
-建立名為 customConfigv2 的新組態定義。 此定義會執行已更新的 v2 版應用程式安裝指令碼：
+建立名為 customConfigv2  的新組態定義。 此定義會執行已更新的 v2  版應用程式安裝指令碼：
 
 ```azurepowershell-interactive
 $customConfigv2 = @{
@@ -182,7 +182,7 @@ $customConfigv2 = @{
 }
 ```
 
-將自訂指令碼延伸組態更新到擴展集中的 VM 執行個體。 CustomConfigv2 定義會用來套用更新版的應用程式：
+將自訂指令碼延伸組態更新到擴展集中的 VM 執行個體。 CustomConfigv2  定義會用來套用更新版的應用程式：
 
 ```azurepowershell-interactive
 $vmss = Get-AzVmss `

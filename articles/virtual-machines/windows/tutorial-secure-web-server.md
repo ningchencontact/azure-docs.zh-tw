@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5b3f352528087c427a05aac4c5162f90a423b793
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b92700caab27b527ae58cc0c7e8deca89c4d43f
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711951"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66727926"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>教學課程：在 Azure 中使用 Key Vault 內儲存的 SSL 憑證，來保護 Windows 虛擬機器上的網頁伺服器
 
@@ -33,13 +33,13 @@ ms.locfileid: "60711951"
 > * 建立 VM 並安裝 IIS 網頁伺服器
 > * 將憑證插入 VM 並使用 SSL 繫結來設定 IIS
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="launch-azure-cloud-shell"></a>啟動 Azure Cloud Shell
 
 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 
 
-若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看] 即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製] 即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
+若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看]  即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製]  即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
 
 
 ## <a name="overview"></a>概觀
@@ -49,7 +49,7 @@ Azure Key Vault 會保護密碼編譯金鑰和祕密，這類憑證或密碼。 
 
 
 ## <a name="create-an-azure-key-vault"></a>建立 Azure Key Vault
-建立 Key Vault 和憑證之前，請先使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 來建立資源群組。 下列範例會在「美國東部」位置建立名為 myResourceGroupSecureWeb 的資源群組：
+建立 Key Vault 和憑證之前，請先使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 來建立資源群組。 下列範例會在「美國東部」  位置建立名為 myResourceGroupSecureWeb  的資源群組：
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroupSecureWeb"
@@ -161,7 +161,7 @@ Set-AzVMExtension -ResourceGroupName $resourceGroup `
 Get-AzPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress" | select "IpAddress"
 ```
 
-現在，您可以開啟 Web 瀏覽器，並在網址列輸入 `https://<myPublicIP>`。 若要在使用自我簽署憑證時接受安全性警告，請依序按一下 [詳細資料] 與 [繼續瀏覽網頁]：
+現在，您可以開啟 Web 瀏覽器，並在網址列輸入 `https://<myPublicIP>`。 若要在使用自我簽署憑證時接受安全性警告，請依序按一下 [詳細資料]  與 [繼續瀏覽網頁]  ：
 
 ![接受 Web 瀏覽器安全性警告](./media/tutorial-secure-web-server/browser-warning.png)
 

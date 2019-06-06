@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: cac68506803cda2c4e537feac84da2a82bc128bd
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b59d58eb2c387e5ba1f71748751110bf932837b9
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444298"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66727115"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>教學課程：使用 PowerShell 建立和管理 S2S VPN 連線
 
@@ -31,7 +31,7 @@ Azure S2S VPN 連線提供客戶組織內部與 Azure 之間的跨單位安全�
 
 ![端對端 VPN 連線圖表](./media/vpn-gateway-tutorial-vpnconnection-powershell/site-to-site-diagram.png)
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="requirements"></a>需求
 
@@ -102,7 +102,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1
   -ConnectionType IPsec -SharedKey "Azure@!b2C3"
 ```
 
-如果您使用 BGP，請新增選用的 "**-EnableBGP $True**" 屬性，以啟用連線的 BGP。 此選項預設為停用。
+如果您使用 BGP，請新增選用的 " **-EnableBGP $True**" 屬性，以啟用連線的 BGP。 此選項預設為停用。
 
 ## <a name="update-the-vpn-connection-pre-shared-key-bgp-and-ipsecike-policy"></a>更新 VPN 連線預先共用的金鑰、BGP、IPsec/IKE 原則
 

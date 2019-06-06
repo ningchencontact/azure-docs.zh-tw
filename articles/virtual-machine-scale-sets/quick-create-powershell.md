@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: cynthn
-ms.openlocfilehash: ac350ac890b747d332f60909e03995a14d813b33
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2e9f850183c0e5ee5ab883848e7b02afbfde2bae
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668765"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728982"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-azure-powershell"></a>快速入門：使用 Azure PowerShell 建立虛擬機器擴展集
 
@@ -31,11 +31,11 @@ ms.locfileid: "56668765"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-a-scale-set"></a>建立擴展集
-使用 [New-AzVmss](/powershell/module/az.compute/new-azvmss) 建立虛擬機器擴展集。 下列範例會建立使用 Windows Server 2016 資料中心平台映像，名為 myScaleSet 的擴展集。 系統會自動建立虛擬網路、公用 IP 位址和負載平衡器的 Azure 網路資源。 出現提示時，您可以為擴展集中的 VM 執行個體設定自己的系統管理認證：
+使用 [New-AzVmss](/powershell/module/az.compute/new-azvmss) 建立虛擬機器擴展集。 下列範例會建立使用 Windows Server 2016 資料中心  平台映像，名為 myScaleSet  的擴展集。 系統會自動建立虛擬網路、公用 IP 位址和負載平衡器的 Azure 網路資源。 出現提示時，您可以為擴展集中的 VM 執行個體設定自己的系統管理認證：
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -135,7 +135,7 @@ Update-AzVmss `
  ```
 
 ## <a name="test-your-scale-set"></a>測試您的擴展集
-若要查看有效的擴展集，請在網頁瀏覽器中存取範例 Web 應用程式。 使用 [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) 取得負載平衡器的公用 IP 位址。 下列範例會顯示 myResourceGroup 資源群組中建立的 IP 位址：
+若要查看有效的擴展集，請在網頁瀏覽器中存取範例 Web 應用程式。 使用 [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) 取得負載平衡器的公用 IP 位址。 下列範例會顯示 myResourceGroup  資源群組中建立的 IP 位址：
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
