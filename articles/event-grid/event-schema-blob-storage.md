@@ -90,8 +90,8 @@ blob 刪除事件的結構描述如下：
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| 主題 | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| 主旨 | string | 發行者定義事件主體的路徑。 |
+| topic | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
+| subject | string | 發行者定義事件主體的路徑。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | id | string | 事件的唯一識別碼。 |
@@ -106,12 +106,12 @@ blob 刪除事件的結構描述如下：
 | api | string | 觸發事件的作業。 |
 | clientRequestId | string | 用戶端產生的不透明值，具有 1 KB 的字元限制。 當您啟用儲存體分析記錄時，它會記錄在分析記錄中。 |
 | requestId | string | 要求的唯一識別碼。 使用它針對要求進行疑難排解。 |
-| etag | string | 此值可讓您依條件執行作業。 |
+| eTag | string | 此值可讓您依條件執行作業。 |
 | contentType | string | 為 blob 指定內容類型。 |
 | contentLength | integer | Blob 大小 (以位元組為單位)。 |
 | blobType | string | Blob 的類型。 有效值為 "BlockBlob" 或 "PageBlob"。 |
 | url | string | blob 的路徑。 |
-| 排序器 | string | 使用者控制的值，可用來追蹤要求。 |
+| sequencer | string | 使用者控制的值，可用來追蹤要求。 |
 | storageDiagnostics | 物件 | 儲存體診斷的相關資訊。 |
  
 ## <a name="next-steps"></a>後續步驟
