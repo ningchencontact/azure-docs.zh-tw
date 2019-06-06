@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
-ms.openlocfilehash: dbc8363052556f29633c069bcd82af5249a3406f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 3bc67d7fdc582b6d45596b152bb5d58e41152a46
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306884"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428106"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 建立第一個 Service Fabric 容器應用程式
 
@@ -38,7 +38,7 @@ ms.locfileid: "66306884"
 ## <a name="prerequisites"></a>必要條件
 
 * 執行下列項目的開發電腦︰
-  * Visual Studio 2015 或 Visual Studio 2017。
+  * Visual Studio 2015 或 Visual Studio 2019。
   * [Service Fabric SDK 和工具](service-fabric-get-started.md)。
   *  Docker for Windows。 [取得 Docker CE for Windows (穩定)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)。 安裝並啟動 Docker 之後，以滑鼠右鍵按一下系統匣圖示，然後選取 [切換至 Windows 容器]  。 這是執行以 Windows 為基礎的 Docker 映像時的必要步驟。
 
@@ -479,15 +479,15 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Windows Server 容器作業系統和主機作業系統的相容性
 
-Windows Server 容器在主機 OS 的所有版本之間不相容。 例如: 
+Windows Server 容器在主機 OS 的所有版本之間不相容。 例如:
  
 - 使用 Windows Server 1709 版本所建置的 Windows Server 容器無法在執行 Windows Server 2016 版本的主機上運作。 
-- 使用 Windows Server 2016 版本所建置的 Windows Server 容器在執行 Windows Server 1709 版本的主機上只能以 hyperv 隔離模式運作。 
+- 使用 Windows Server 2016 所建置的 Windows Server 容器工作只能在執行 Windows Server 1709 版本的主機上的 HYPER-V 隔離模式。 
 - 透過使用 Windows Server 2016 所建置的 Windows Server 容器，可能必須確保在執行 Windows Server 2016 的主機上以程序隔離模式執行時，容器 OS 和主機 OS 的修訂版本相同。
  
 若要深入了解，請參閱 [Windows 容器版本相容性](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility)。
 
-在建置容器並部署到 Service Fabric 叢集時，請考慮主機 OS 和容器 OS 的相容性。 例如: 
+在建置容器並部署到 Service Fabric 叢集時，請考慮主機 OS 和容器 OS 的相容性。 例如:
 
 - 請確定您部署的容器具有的 OS 與您叢集節點上的 OS 相容。
 - 請確定為容器應用程式所指定的隔離模式，與其部署所在節點上的容器 OS 支援一致。

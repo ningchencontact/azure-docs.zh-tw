@@ -1,6 +1,6 @@
 ---
 title: Azure 狀態監視器 v2 API 參考：若要啟用監視 |Microsoft Docs
-description: 狀態監視器 v2 API 參考啟用-ApplicationInsightsMonitoring。 監視網站效能，而不必重新部署網站。 使用裝載於內部部署、VM 中或 Azure 上的 ASP.NET Web 應用程式。
+description: 狀態監視器 v2 API 參考。 啟用 ApplicationInsightsMonitoring。 監視網站效能，而不必重新部署網站。 使用 ASP.NET web 應用程式裝載於內部，在 Vm，或在 Azure 上。
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,61 +12,58 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 0a443df0c55dc916ef6d12d53811e9d9932370e7
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: e87bfad11eee5b86d35e6b4f2846b094c467e0ef
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66255909"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734174"
 ---
 # <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v021-alpha"></a>狀態監視器 v2 API:啟用 ApplicationInsightsMonitoring (v0.2.1-alpha)
 
-本文件說明 cmdlet 所隨附的成員身分[Az.ApplicationMonitor PowerShell 模組](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)。
+本文說明的 cmdlet 時的成員[Az.ApplicationMonitor PowerShell 模組](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)。
 
 > [!IMPORTANT]
 > 狀態監視器 v2 目前處於公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
-> 如需詳細資訊，請參閱[補充使用條款的 Microsoft Azure 預覽版](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> 此預覽版不提供的服務等級協定，且我們不建議用於生產工作負載。 可能不支援某些功能，以及一些可能已經限制功能。
+> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="description"></a>描述
 
-啟用程式碼較不附加的目標電腦上的 IIS 應用程式監視。
+啟用無程式碼會附加在目標電腦上的 IIS 應用程式的監視。
+
 此 cmdlet 會修改 IIS applicationHost.config，並設定一些登錄機碼。
-此 cmdlet 也會建立 applicationinsights.ikey.config，定義哪些應用程式所使用的檢測金鑰。
-IIS 會載入在啟動時，這會是將 Application Insights SDK 插入應用程式，這些應用程式啟動 RedfieldModule。
+它也會建立一個 applicationinsights.ikey.config 檔案，定義每個應用程式所使用的檢測金鑰。
+IIS 會載入在啟動時，這會是將 Application Insights SDK 插入應用程式，當應用程式開始 RedfieldModule。
 重新啟動 IIS，您的變更才會生效。
 
-啟用監視之後, 我們建議您使用[即時計量](live-stream.md)來快速地觀察 是否您的應用程式會傳送給我們的遙測。
+啟用監視之後，我們建議您使用[即時計量](live-stream.md)快速檢查 如果您的應用程式會傳送給我們的遙測。
 
 
 > [!NOTE] 
-> 若要開始，您必須使用檢測金鑰。 如需詳細資訊，請參閱[建立新的資源](create-new-resource.md#copy-the-instrumentation-key)。
-
+> - 若要開始，您需要檢測金鑰。 如需詳細資訊，請參閱 <<c0> [ 建立資源](create-new-resource.md#copy-the-instrumentation-key)。
+> - 此 cmdlet 需要您檢閱並接受我們的授權及隱私權聲明陳述式。
 
 > [!IMPORTANT] 
-> 此 cmdlet 需要 PowerShell 工作階段與系統管理員權限和更高的執行原則。 讀取[此處](status-monitor-v2-detailed-instructions.md#run-powershell-as-administrator-with-an-elevated-execution-policy)如需詳細資訊。
-
-> [!NOTE] 
-> 此 cmdlet 會要求您檢閱並接受我們的授權及隱私權聲明陳述式。
-
+> 此 cmdlet 需要系統管理員權限的 PowerShell 工作階段和更高的執行原則。 如需詳細資訊，請參閱 <<c0> [ 提升權限的執行原則的系統管理員身分執行的 PowerShell](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy)。
 
 ## <a name="examples"></a>範例
 
-### <a name="example-with-single-instrumentation-key"></a>使用單一的檢測金鑰的範例
-在此範例中，目前的電腦上的所有應用程式將會指派單一檢測金鑰。
+### <a name="example-with-a-single-instrumentation-key"></a>使用單一的檢測金鑰的範例
+在此範例中，目前的電腦上的所有應用程式會指派單一檢測金鑰。
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-### <a name="example-with-instrumentation-key-map"></a>使用檢測索引鍵對應的範例
-在此範例中， 
-- `MachineFilter` 會比對目前的電腦使用`'.*'`萬用字元。
-- `AppFilter='WebAppExclude'` 提供`null`InstrumentationKey。 此應用程式將不會進行檢測。
-- `AppFilter='WebAppOne'` 將會指派此特定的應用程式的唯一檢測金鑰。
-- `AppFilter='WebAppTwo'` 也會將指派此特定的應用程式的唯一檢測金鑰。
-- 最後，`AppFilter`也會使用`'.*'`萬用字元來符合所有其他 web 應用程式不符合先前的規則，並指派預設的檢測金鑰。
-- 只為了便於閱讀的空間。
+### <a name="example-with-an-instrumentation-key-map"></a>使用檢測索引鍵對應的範例
+在此範例中：
+- `MachineFilter` 使用符合目前的電腦`'.*'`萬用字元。
+- `AppFilter='WebAppExclude'` 提供`null`檢測金鑰。 指定的應用程式將不會進行檢測。
+- `AppFilter='WebAppOne'` 將指定的應用程式指派唯一的檢測金鑰。
+- `AppFilter='WebAppTwo'` 將指定的應用程式指派唯一的檢測金鑰。
+- 最後，`AppFilter`也會使用`'.*'`萬用字元比對所有的 web 應用程式，不符合先前的規則，並指派預設的檢測金鑰。
+- 加入空格，以提高可讀性。
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
@@ -78,38 +75,41 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ```
 
 
-## <a name="parameters"></a>參數 
+## <a name="parameters"></a>參數
 
 ### <a name="-instrumentationkey"></a>-InstrumentationKey
-**必要。** 您可以使用這個參數來提供在目標電腦上的所有應用程式使用單一 iKey。
+**必要。** 您可以使用這個參數來提供單一的檢測金鑰，供目標電腦上的所有應用程式。
 
 ### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
-**必要。** 您可以使用這個參數來提供多個 ikey，以及要使用的 ikey 的應用程式對應。 您可以藉由設定 MachineFilter 建立多部電腦的單一安裝指令碼。 
+**必要。** 您可以使用這個參數來提供多個檢測金鑰和對應的每個應用程式所使用的檢測金鑰。
+您可以建立多部電腦的單一安裝指令碼，藉由設定`MachineFilter`。
 
-> [!IMPORTANT] 
-> 應用程式會比對規則，它們會提供的順序。 因此您應該先指定最特殊的規則，並持續最一般的規則。
+> [!IMPORTANT]
+> 應用程式會比對規則提供規則的順序。 因此您應該先指定最特殊的規則，並持續最一般的規則。
 
 #### <a name="schema"></a>結構描述
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
-- **MachineFilter**是必要的 c# regex 的電腦或 vm 名稱。
+- **MachineFilter**需要C#的電腦或 VM 名稱的 regex。
     - '。 *' 會比對所有
-    - 'ComputerName'，會比對只具有相同名稱的電腦。
-- **AppFilter**是必要的 c# regex 的電腦或 vm 名稱。
+    - 'ComputerName' 會使用指定的確切名稱符合的電腦。
+- **AppFilter**需要C#的電腦或 VM 名稱的 regex。
     - '。 *' 會比對所有
-    - 'ApplicationName' 會比對只具有相同名稱的 IIS 應用程式。
-- **InstrumentationKey** ，才可啟用符合上述兩個篩選條件的應用程式的監視。
-    - 將此值保留為 null，如果您想要定義規則，以排除監視
+    - 'ApplicationName' 會使用指定的確切名稱符合只為 IIS 應用程式。
+- **InstrumentationKey** ，才可啟用監視的應用程式符合上述兩個篩選條件。
+    - 將此值保留為 null，如果您想要定義規則，以排除監視。
 
 
 ### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
-**選用。** 若要啟用檢測引擎來收集事件和訊息的發生什麼情況的受管理的程序執行期間使用此參數。 其中包括但不是限於相依性的結果碼、 HTTP 指令動詞，與 SQL 命令文字。 檢測引擎將會增加額外的負荷，並預設為關閉。
+**選用。** 使用此參數來啟用檢測引擎來收集事件和相關的受管理的程序執行期間發生的訊息。 這些事件和訊息包括相依性的結果碼、 HTTP 動詞命令，以及 SQL 命令文字。
+
+檢測引擎會增加額外負荷，並預設為關閉。
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
 **選用。** 您可以使用此參數可以接受授權及隱私權聲明中的陳述式無周邊的安裝。
 
 ### <a name="-verbose"></a>-Verbose
-**常見的參數。** 您可以使用這個參數，輸出的詳細的記錄。
+**常見的參數。** 使用此參數來顯示詳細的記錄檔。
 
 ### <a name="-whatif"></a>-WhatIf 
 **常見的參數。** 測試並驗證您的輸入的參數，而不實際啟用 監視中使用此參數。
@@ -153,15 +153,15 @@ Successfully enabled Application Insights Status Monitor
 ## <a name="next-steps"></a>後續步驟
 
   檢視遙測：
- - [探索計量](../../azure-monitor/app/metrics-explorer.md)以監視效能和使用量
-- [搜尋事件和記錄](../../azure-monitor/app/diagnostic-search.md)來診斷問題
-- 更多進階查詢的[分析](../../azure-monitor/app/analytics.md)
-- [建立儀表板](../../azure-monitor/app/overview-dashboard.md)
+ - [探索度量](../../azure-monitor/app/metrics-explorer.md)來監視效能和使用方式。
+- [搜尋事件和記錄](../../azure-monitor/app/diagnostic-search.md)來診斷問題。
+- [使用分析](../../azure-monitor/app/analytics.md)以進行進階的查詢。
+- [建立儀表板](../../azure-monitor/app/overview-dashboard.md)。
  
  新增更多遙測：
  - [建立 web 測試](monitor-web-app-availability.md)藉此確定您的網站保持即時狀態。
-- [新增 web 用戶端遙測](../../azure-monitor/app/javascript.md)以查看網頁程式碼中的例外狀況，並讓您插入追蹤呼叫。
-- [將 Application Insights SDK 新增至您的程式碼](../../azure-monitor/app/asp-net.md)，讓您插入追蹤和記錄呼叫
+- [新增 web 用戶端遙測](../../azure-monitor/app/javascript.md)以查看網頁程式碼中的例外狀況，並啟用追蹤呼叫。
+- [將 Application Insights SDK 新增至您的程式碼](../../azure-monitor/app/asp-net.md)讓您插入追蹤和記錄呼叫。
  
  進一步運用狀態監視器 v2:
  - 使用我們的指南，來[疑難排解](status-monitor-v2-troubleshoot.md)狀態監視器 v2。

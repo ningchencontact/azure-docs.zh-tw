@@ -8,16 +8,18 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e88977cc4d99df176116e6be7d8e06adb6297782
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 9d29445054848d798476fed8184b89f9b6c1210f
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209569"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497561"
 ---
 # <a name="vlans-and-subnets-overview"></a>Vlan 和子網路的概觀
 
 CloudSimple 提供每個 CloudSimple 服務部署所在的區域網路。  網路已啟用預設路由的單一 TCP 第 3 層位址空間。  所有私人雲端，並在此區域中建立的子網路可以彼此通訊，而不需要任何額外的設定。  您可以使用 Vlan vCenter 上建立分散式的通訊埠群組。
+
+![CloudSimple 網路拓撲](media/cloudsimple-network-topology.png)
 
 ## <a name="vlans"></a>VLAN
 
@@ -34,6 +36,10 @@ CloudSimple 提供每個 CloudSimple 服務部署所在的區域網路。  網�
 私用雲端會建立為獨立的 VMware 堆疊 （ESXi 主機、 vCenter、 vSAN 和 NSX） 由 vCenter 伺服器管理的環境。  管理元件部署在網路中選取**vSphere/vSAN 子網路 CIDR**。  在部署期間，網路 CIDR 範圍會分成不同的子網路。
 
 最小的 vSphere/vSAN 子網路 CIDR 範圍前置詞： **/24**上限 vSphere/vSAN 子網路 CIDR 範圍前置詞：   **/21**
+
+> [!CAUTION]
+> 在 vSphere/vSAN CIDR 範圍內的 IP 位址被保留供私用雲端基礎結構。 請勿使用任何虛擬機器上的這個範圍內的 IP 位址。
+
 
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>vSphere/vSAN 子網路 CIDR 範圍限制
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9da031fd4b35c2fa9126f545eecacf6143b18a1
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61045208"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478848"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process 實務：使用 SQL 資料倉儲
 在本教學課程中，我們將引導您使用 SQL 資料倉儲 (SQL DW)，針對可公開使用的資料集 ( [NYC 計程車車程](https://www.andresmh.com/nyctaxitrips/) 資料集) 建置和部署機器學習服務模型。 所建構的二元分類模型可預測是否已針對某趟車程支付小費，並且也會討論預測支付的小費金額分佈的多元分類模型和迴歸模型。
@@ -43,7 +43,7 @@ ms.locfileid: "61045208"
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-聯結 trip\_data 和 trip\_fare 的「唯一索引鍵」是由下列三個欄位所組成：
+聯結 trip\_data 和 trip\_fare 的「唯一索引鍵」  是由下列三個欄位所組成：
 
 * medallion、
 * hack\_license 和
@@ -53,7 +53,7 @@ ms.locfileid: "61045208"
 我們根據 *tip\_amount* 將三個預測問題公式化來說明三種類型的模型化工作：
 
 1. **二元分類**：預測是否已支付某趟車程的小費，例如，大於美金 0 元的 *tip\_amount* 為正面範例，而等於美金 0 元的 *tip\_amount* 為負面範例。
-2. **多元分類**：預測針對該趟車程支付的小費範圍。 我們將 tip\_amount 分成五個分類收納組或類別：
+2. **多元分類**：預測針對該趟車程支付的小費範圍。 我們將 tip\_amount  分成五個分類收納組或類別：
 
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -67,7 +67,7 @@ ms.locfileid: "61045208"
 
 **建立自己的 Azure Blob 儲存體帳戶**
 
-* 當您在佈建自己的 Azure Blob 儲存體時，請為 Azure Blob 儲存體選擇位於或最接近「美國中南部」 的地理位置 (即儲存 NYC 計程車資料的位置)。 該資料會使用 AzCopy 從公用 Blob 儲存體容器複製到您自己的儲存體帳戶中的容器。 您的 Azure Blob 儲存體越接近美國中南部，就能越快完成這項工作 (步驟 4)。
+* 當您在佈建自己的 Azure Blob 儲存體時，請為 Azure Blob 儲存體選擇位於或最接近「美國中南部」  的地理位置 (即儲存 NYC 計程車資料的位置)。 該資料會使用 AzCopy 從公用 Blob 儲存體容器複製到您自己的儲存體帳戶中的容器。 您的 Azure Blob 儲存體越接近美國中南部，就能越快完成這項工作 (步驟 4)。
 * 若要建立自己的 Azure 儲存體帳戶，請遵循 [關於 Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md)中概述的步驟。 請務必記下下列儲存體帳戶認證的值，因為我們會在本逐步解說稍後的地方用到它們。
 
   * **儲存體帳戶名稱**
@@ -153,7 +153,7 @@ ms.locfileid: "61045208"
                     $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
                     $env_path = $env:Path
                 }
-* **將資料複製到私人 Blob 儲存體帳戶** 
+* **將資料複製到私人 Blob 儲存體帳戶**
 
         Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"
         $start_time = Get-Date
@@ -342,7 +342,7 @@ ms.locfileid: "61045208"
 使用 Visual Studio 與 SQL DW 登入名稱和密碼連接到您的 Azure SQL DW，然後開啟 **SQL 物件總管** 確認資料庫和資料表已匯入。 擷取 *SQLDW_Explorations.sql* 檔案。
 
 > [!NOTE]
-> 若要開啟 Parallel Data Warehouse (PDW) 查詢編輯器，請於在 [SQL 物件總管] 中選取 PDW 時使用「新增查詢」命令。 PDW 不支援標準的 SQL 查詢編輯器。
+> 若要開啟 Parallel Data Warehouse (PDW) 查詢編輯器，請於在 [SQL 物件總管]  中選取 PDW 時使用「新增查詢」  命令。 PDW 不支援標準的 SQL 查詢編輯器。
 >
 >
 
@@ -578,17 +578,17 @@ ms.locfileid: "61045208"
 3. 按一下新的 IPython Notebook 左上角的 [Jupyter] 符號。
 
     ![按一下 [Jupyter] 符號][24]
-4. 將範例 IPython Notebook 拖放到 AzureML IPython Notebook 服務的 [樹狀結構] 頁面，然後按一下 [上傳]。 然後，範例 IPython Notebook 就會上傳到 AzureML IPython Notebook 服務。
+4. 將範例 IPython Notebook 拖放到 AzureML IPython Notebook 服務的 [樹狀結構]  頁面，然後按一下 [上傳]  。 然後，範例 IPython Notebook 就會上傳到 AzureML IPython Notebook 服務。
 
     ![按一下 [上傳]。][25]
 
 若要執行範例 IPython Notebook 或 Python 指令碼檔案，您需要下列 Python 封裝。 如果您使用 AzureML IPython Notebook 服務，則已預先安裝這些封裝。
 
-    - pandas
-    - numpy
-    - matplotlib
-    - pyodbc
-    - PyTables
+- pandas
+- numpy
+- matplotlib
+- pyodbc
+- PyTables
 
 以下是在 AzureML 中使用大型資料建置進階分析解決方案時的建議順序：
 
@@ -830,13 +830,13 @@ ms.locfileid: "61045208"
 
 在這個練習中，我們已經探索了 SQL 資料倉儲中的資料並進行處理，並且決定了要在 Azure Machine Learning Studio 中擷取的取樣大小。 以下是建置一或多個預測模型的程序：
 
-1. 使用[匯入資料][import-data] 模組 (可在 [資料輸入與輸出] 區段中取得) 將資料匯入 Azure Machine Learning Studio。 如需詳細資訊，請參閱[匯入資料][import-data]模組參考頁面。
+1. 使用[匯入資料][import-data] 模組 (可在 [資料輸入與輸出]  區段中取得) 將資料匯入 Azure Machine Learning Studio。 如需詳細資訊，請參閱[匯入資料][import-data]模組參考頁面。
 
     ![Azure ML 匯入資料][17]
-2. 在 [屬性] 面板中，選取 [Azure SQL Database] 做為 [資料來源]。
+2. 在 [屬性]  面板中，選取 [Azure SQL Database]  做為 [資料來源]  。
 3. 在 [ **資料庫伺服器名稱** ] 欄位中輸入資料庫的 DNS 名稱。 格式： `tcp:<your_virtual_machine_DNS_name>,1433`
 4. 在對應欄位中輸入 **資料庫名稱** 。
-5. 在 [伺服器使用者帳戶名稱] 中輸入「SQL 使用者名稱」，並在 [伺服器使用者帳戶密碼] 中輸入「密碼」。
+5. 在 [伺服器使用者帳戶名稱]  中輸入「SQL 使用者名稱」  ，並在 [伺服器使用者帳戶密碼]  中輸入「密碼」  。
 7. 在 [ **資料庫查詢** ] 中編輯文字區域、貼上可擷取必要資料庫欄位的查詢 (包括任何經過計算的欄位，例如標籤)，以及向下取樣所需大小的資料。
 
 下圖是直接從 SQL 資料倉儲資料庫讀取資料的二元分類實驗範例 (請記得用您在逐步解說中所使用的結構描述名稱和資料表名稱來取代資料表名稱 nyctaxi_trip 和 nyctaxi_fare)。 您可以針對多類別分類和迴歸問題建構類似的實驗。
@@ -858,7 +858,7 @@ ms.locfileid: "61045208"
 1. 建立計分實驗。
 2. 部署 Web 服務。
 
-若要從「已完成」的訓練實驗建立評分實驗，請按一下下方動作列中的 [建立評分實驗]。
+若要從「已完成」  的訓練實驗建立評分實驗，請按一下下方動作列中的 [建立評分實驗]  。
 
 ![Azure 評分][18]
 
@@ -868,7 +868,7 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。 �
 2. 識別邏輯 **輸入連接埠** ，表示預期的輸入資料結構描述。
 3. 識別邏輯 **輸出連接埠** ，表示預期的 Web 服務輸出結構描述。
 
-建立計分實驗時，請檢閱它並視需要進行調整。 典型的調整是使用某一個會排除標籤欄位的輸入資料集和 (或) 查詢來取代它們，因為在呼叫服務時將無法使用這些欄位。 若要將輸入資料集和 (或) 查詢的大小縮減為只有幾筆足以表示輸入結構描述的記錄，這也是個很好的練習。 針對輸出連接埠，通常會使用[選取資料集中的資料行][select-columns]模組，在輸出中排除所有輸入欄位，只包含 [評分標籤]和 [評分機率]。
+建立計分實驗時，請檢閱它並視需要進行調整。 典型的調整是使用某一個會排除標籤欄位的輸入資料集和 (或) 查詢來取代它們，因為在呼叫服務時將無法使用這些欄位。 若要將輸入資料集和 (或) 查詢的大小縮減為只有幾筆足以表示輸入結構描述的記錄，這也是個很好的練習。 針對輸出連接埠，通常會使用[選取資料集中的資料行][select-columns]模組，在輸出中排除所有輸入欄位，只包含 [評分標籤]  和 [評分機率]  。
 
 下圖提供評分實驗範例。 準備部署時，請按下方動作列中的 [發佈 Web 服務]  按鈕。
 

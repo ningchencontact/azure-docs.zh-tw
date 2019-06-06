@@ -15,18 +15,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 4f721dc4fda5bef002c794d79dfd2f054f9eaf38
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 52e092e6e48f004656860cb5d078e780039584ab
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511186"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730230"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>事件中樞專用的概觀
 
 *事件中樞叢集*提供客戶最嚴苛的資料流處理需求的單一租用戶部署。 此單一租用戶供應項目具有保證的 99.99 %sla，而且僅適用於我們的定價層的專用。 事件中樞叢集可輸入數百萬個事件每秒容量保證與秒的延遲。 命名空間和事件中樞建立專用的叢集內包含標準的供應項目及其他資源，但沒有任何輸入限制的所有功能。 它也包含熱門[事件中樞擷取](event-hubs-capture-overview.md)，完全免費，可讓您將會自動批次和記錄資料串流至 Azure 儲存體或 Azure Data Lake 的功能。 
 
-叢集進行佈建和依計費**容量單位 (Cu)**，預先配置的 CPU 和記憶體資源數量。 您可以為每個叢集購買 1、2、4、8、12、16 或 20 個 CU。 您可以在多少內嵌和串流處理每個 CU 取決於各種因素，例如生產者和取用者，裝載圖形輸出數目評等 （請參閱下方的基準測試結果，如需詳細資訊）。 
+叢集進行佈建和依計費**容量單位 (Cu)** ，預先配置的 CPU 和記憶體資源數量。 您可以為每個叢集購買 1、2、4、8、12、16 或 20 個 CU。 您可以在多少內嵌和串流處理每個 CU 取決於各種因素，例如生產者和取用者，裝載圖形輸出數目評等 （請參閱下方的基準測試結果，如需詳細資訊）。 
 
 > [!NOTE]
 > 所有事件中樞叢集依預設啟用 Kafka，而且支援 Kafka 端點可以使用您現有的 Kafka 架構的應用程式。 需要啟用上的 Kafka 叢集不會影響您的非 Kafka 使用案例;沒有任何選項或停用叢集上的 Kafka 需要。
@@ -54,18 +54,18 @@ ms.locfileid: "65511186"
 | --- |:---:|:---:|
 | 頻寬 | 20 Tu （最多 40 Tu) | 20 Cu |
 | 命名空間 |  1 | 每個 CU 50 |
-| 事件中樞 |  10 | 在 事件中樞/主題上沒有限制 |
+| 事件中樞 |  每個命名空間的 10 | 每個命名空間的 1000 |
 | 輸入事件 | 按百萬個事件付費 | 已包括 |
 | 訊息大小 | 1 百萬個位元組 | 1 百萬個位元組 |
-| 分割區 | 每個命名空間的 40 | 每個 CU 2000 |
+| 分割數 | 每個命名空間的 40 | 每個 CU 2000 |
 | 用戶群組 | 每一個事件中樞的 20 | 無限制每個 CU，每一個事件中樞的 1000 |
-| 代理連線 | 包含 1,000 個 | 包含 10 萬個 |
+| 代理連線 | 包含 1000，最多 5,000 | 包含 100k 和 max |
 | 訊息保留期 | 7 天，每個 TU 內含 84 GB | 90 天，每個 CU 包含 10 TB |
 | 擷取 | 按小時付費 | 已包括 |
 
 ## <a name="how-to-onboard"></a>如何加入
 
-若要開始使用事件中樞專用，請連絡[事件中樞小組](mailto:askeventhubs@microsoft.com)。 專用方案的獨特之處在於可從事件中樞產品小組獲得更為實際的加入體驗，以最適合您的方式彈性部署。 
+自助式體驗[建立事件中樞叢集](event-hubs-dedicated-cluster-create-portal.md)透過[Azure 入口網站](https://aka.ms/eventhubsclusterquickstart)現在處於預覽狀態。 如果您有任何疑問或需要協助上架到事件中樞專用時，請連絡[事件中樞小組](mailto:askeventhubs@microsoft.com)。
 
 ## <a name="faqs"></a>常見問題集
 
@@ -87,20 +87,21 @@ ms.locfileid: "65511186"
 - 用於擷取的事件中樞具有 200 個分割區。 
 - 已擷取的資料會透過接收自所有分割區的兩個接收者應用程式來接收。
 
-#### <a name="can-i-scale-down-my-cluster"></a>我可以相應減少叢集嗎？
+#### <a name="can-i-scale-updown-my-cluster"></a>我可以相應增加/減少我的叢集嗎？
 
-建立之後，叢集會收取最少 4 小時的使用量而定。 在自助式體驗的預覽版本中，您可以提交[支援要求](https://ms.portal.azure.com/#create/Microsoft.Support)向下事件中樞小組*技術 > 配額 > 要求相應增加或減少專用叢集的規模*。 可能需要最多 7 天，以完成相應減少叢集的要求。 
+建立之後，叢集會收取最少 4 小時的使用量而定。 在自助式體驗的預覽版本中，您可以提交[支援要求](https://ms.portal.azure.com/#create/Microsoft.Support)向下事件中樞小組*技術 > 配額 > 要求相應增加或減少專用叢集的規模*標尺增加或相應減少叢集。 可能需要最多 7 天，以完成相應減少叢集的要求。 
 
 #### <a name="how-will-geo-dr-work-with-my-cluster"></a>如何將異地災害復原使用我的叢集？
 
 您可以地理配對專用層叢集底下的命名空間，與專用層叢集底下的另一個命名空間。 不建議配對的命名空間中我們標準供應項目，由於輸送量限制會為不相容錯誤使得專用層命名空間。 
 
 #### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>可以移轉我的標準命名空間，以屬於專用層叢集嗎？
-我們目前不支援自動的移轉程序從標準的命名空間，您的事件中樞資料移轉到其中一個專用。 若要移轉到專用層的叢集，我們會建議清空留在標準層事件中樞中的任何訊息，並取代您專用的命名空間的連接端點。
+我們目前不支援自動的移轉程序從標準的命名空間，您的事件中樞資料移轉到其中一個專用。 
 
 ## <a name="next-steps"></a>後續步驟
 
-請連絡 Microsoft 銷售代表或 Microsoft 支援服務，以取得事件中樞專用容量的其他詳細資料。 您也可以造訪下列連結以深入了解事件中樞定價層︰
+請連絡您的 Microsoft 業務代表或 Microsoft 支援服務以取得有關事件中樞專用的其他詳細資料。 您也可以建立叢集，或深入了解事件中樞定價層，請造訪下列連結：
 
+- [建立事件中樞叢集透過 Azure 入口網站](https://aka.ms/eventhubsclusterquickstart) 
 - [事件中樞專用價格](https://azure.microsoft.com/pricing/details/event-hubs/)。 您也可以連絡 Microsoft 銷售代表或 Microsoft 支援服務，以取得事件中樞專用容量的其他詳細資料。
 - [事件中樞常見問題集](event-hubs-faq.md)包含價格資訊，並提供一些常見問題的解答。

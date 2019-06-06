@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: a468c2f3b1b3034c817ac19988420b68e18deb83
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 54f1455467295e786d9e634b64dfab0933d948db
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849857"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475599"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中叢集安全性和升級的最佳做法
 
@@ -40,7 +40,7 @@ Azure Active Directory (AD) 提供符合企業需求且能與 AKS 叢集整合�
 
 使用 Kubernetes RBAC 和 Azure AD 整合來保護 API 伺服器，並提供存取限定範圍資源集合所需的最低權限，例如單一命名空間。 Azure AD 中的不同使用者或群組可被授與不同的 RBAC 角色。 這些細微的權限可讓您限制對 API 伺服器的存取，並提供所執行動作的清楚稽核記錄。
 
-建議的最佳做法是使用群組提供檔案和資料夾的存取，而不使用個人身分識別來提供；使用 Azure AD「群組」成員資格將使用者繫結至 RBAC 角色，而非個別的「使用者」。 由於使用者的群組成員資格會變更，其位在 AKS 叢集上的存取權限也會隨之變更。 如果您將使用者直接繫結在角色上，其工作職責可能會變更。 Azure AD 群組成員資格會更新，但 AKS 叢集上的權限不會反映該更新。 在這種情況下，使用者最後會被授與比所需更多的權限。
+建議的最佳做法是使用群組提供檔案和資料夾的存取，而不使用個人身分識別來提供；使用 Azure AD「群組」  成員資格將使用者繫結至 RBAC 角色，而非個別的「使用者」  。 由於使用者的群組成員資格會變更，其位在 AKS 叢集上的存取權限也會隨之變更。 如果您將使用者直接繫結在角色上，其工作職責可能會變更。 Azure AD 群組成員資格會更新，但 AKS 叢集上的權限不會反映該更新。 在這種情況下，使用者最後會被授與比所需更多的權限。
 
 如需 Azure AD 整合和 RBAC 的詳細資訊，請參閱 [AKS 中驗證和授權的最佳做法][aks-best-practices-identity]。
 
@@ -48,7 +48,7 @@ Azure Active Directory (AD) 提供符合企業需求且能與 AKS 叢集整合�
 
 **最佳做法指導方針**：限制容器可執行的存取動作。 提供最低的權限，並且避免使用根/特殊權限提升。
 
-就如同您應授與使用者或群組所需的最低權限一樣，也應限制容器只能執行所需的動作和處理。 為了將攻擊風險降到最低，請勿將應用程式和容器設定為需要提升權限或根存取。 例如，在 Pod 資訊清單中設定 `allowPrivilegeEscalation: false`。 這些「Pod 資訊安全內容」內建在 Kubernetes 中，並可讓您定義其他權限，例如要執行的使用者或群組身分，或要公開哪些 Linux 功能。 如需最佳做法詳細資訊，請參閱[保護 Pod 對資源的存取][pod-security-contexts]。
+就如同您應授與使用者或群組所需的最低權限一樣，也應限制容器只能執行所需的動作和處理。 為了將攻擊風險降到最低，請勿將應用程式和容器設定為需要提升權限或根存取。 例如，在 Pod 資訊清單中設定 `allowPrivilegeEscalation: false`。 這些「Pod 資訊安全內容」  內建在 Kubernetes 中，並可讓您定義其他權限，例如要執行的使用者或群組身分，或要公開哪些 Linux 功能。 如需最佳做法詳細資訊，請參閱[保護 Pod 對資源的存取][pod-security-contexts]。
 
 若要針對容器動作進行更細微的控制，您也可以使用內建的 Linux 安全性功能，例如 *AppArmor* 和 *Seccomp*。 這些功能在節點層級定義，然後透過 Pod 資訊清單實作。 內建的 Linux 安全性功能僅適用於 Linux 節點和 pod。
 
@@ -117,7 +117,7 @@ command terminated with exit code 1
 
 ### <a name="secure-computing"></a>安全運算
 
-AppArmor 適用於任何的 Linux 應用程式，而 [Seccomp (安全運算)][seccomp] 則適用於處理序層級。 Seccomp 也是 Linux 核心安全性模組，且 AKS 節點使用的 Docker 執行階段原生支援。 使用 Seccomp，容器可執行的處理序呼叫便會受限。 您要建立定義要允許或拒絕之動作的篩選，然後使用 Pod YAML 資訊清單中的註釋，來與 Seccomp 篩選建立關聯。 這符合僅授與容器執行所需之最低權限的最佳做法。
+AppArmor 適用於任何的 Linux 應用程式，而 [Seccomp (安全運算   )][seccomp] 則適用於處理序層級。 Seccomp 也是 Linux 核心安全性模組，且 AKS 節點使用的 Docker 執行階段原生支援。 使用 Seccomp，容器可執行的處理序呼叫便會受限。 您要建立定義要允許或拒絕之動作的篩選，然後使用 Pod YAML 資訊清單中的註釋，來與 Seccomp 篩選建立關聯。 這符合僅授與容器執行所需之最低權限的最佳做法。
 
 若要看 Seccomp 實際運作，請建立一個防止變更檔案權限的篩選。 使用 [SSH][aks-ssh] 連線到 AKS 節點，然後建立名為 */var/lib/kubelet/seccomp/prevent-chmod* 的 Seccomp 篩選，並貼上下列內容：
 
@@ -175,7 +175,7 @@ chmod-prevented           0/1       Error     0          7s
 
 **最佳做法指導方針**：為了持續取得最新功能和錯誤 (bug) 修正，請定期將 AKS 叢集中的 Kubernetes 升級至最新版本。
 
-Kubernetes 發行新功能的步調，比大部分傳統的基礎結構平台還快。 Kubernetes 更新包含新功能和錯誤 (bug) 或安全性修正。 新功能通常會會經過「Alpha 版本」，接著「搶鮮版 (Beta)」，然後才會成為「穩定版本」，並提供給大眾和建議生產環境使用。 此發行週期應可讓您更新 Kubernetes，而不會定期發生中斷性變更，或調整部署和範本。
+Kubernetes 發行新功能的步調，比大部分傳統的基礎結構平台還快。 Kubernetes 更新包含新功能和錯誤 (bug) 或安全性修正。 新功能通常會會經過「Alpha 版本」  ，接著「搶鮮版 (Beta)」  ，然後才會成為「穩定版本」  ，並提供給大眾和建議生產環境使用。 此發行週期應可讓您更新 Kubernetes，而不會定期發生中斷性變更，或調整部署和範本。
 
 AKS 支援 Kubernetes 的四個次要版本。 這表示引入新的次要修補程式版本時，最舊的次要版本和支援的修補程式版本會被淘汰。 Kubernetes 的次要更新會定期發生。 請確定您有控管程序來檢查並視需要升級，如此才不會被排除在支援之外。 如需詳細資訊，請參閱[支援的 Kubernetes 版本 AKS][aks-supported-versions]
 
@@ -218,7 +218,7 @@ Weaveworks 的開放原始碼 [Kured (KUbernetes REboot Daemon)][kured] 專案�
 <!-- EXTERNAL LINKS -->
 [kured]: https://github.com/weaveworks/kured
 [k8s-apparmor]: https://kubernetes.io/docs/tutorials/clusters/apparmor/
-[seccomp]: https://docs.docker.com/engine/security/seccomp/
+[seccomp]: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#seccomp
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

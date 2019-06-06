@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: e57133a750e282484271261d8e4ddb9a12de2a0e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8bb06d04aec8e98308c0f5595b6b39e4b98302ff
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242430"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480053"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -162,6 +162,9 @@ Azure Machine Learning 資料集 （預覽） 讓您更輕鬆地存取及處理�
 ## <a name="snapshot"></a>快照
 
 提交回合時，Azure Machine Learning 會將包含指令碼的目錄壓縮成 zip 檔案，然後傳送至計算目標。 接著會將 zip 檔案解壓縮並在該處執行指令碼。 Azure Machine Learning 也會將 zip 檔案以快照方式儲存在回合記錄中。 任何擁有工作區存取權的人都能瀏覽回合記錄並下載快照集。
+
+> [!NOTE]
+> 若要避免不必要的檔案快照集所包含，請略過檔案 （.gitignore 或.amlignore）。 將此檔案放在快照集目錄，並新增要忽略的檔案名稱。 .Amlignore 檔案使用相同[語法和模式的.gitignore 檔案](https://git-scm.com/docs/gitignore)。 如果這兩個檔案存在，.amlignore 檔案的優先順序較高。
 
 ## <a name="activity"></a>activities
 

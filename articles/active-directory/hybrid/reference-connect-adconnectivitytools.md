@@ -5,17 +5,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 318f21beffb401053c56576ccd9e641dc89cf559
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298811"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473797"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect：ADConnectivityTools PowerShell 參考
 
@@ -35,7 +35,8 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 
 ### <a name="description"></a>描述
 
-執行本機 DNS 連線能力測試。 若要設定 Active Directory 連接器時，使用者必須在嘗試連線到也如同關聯到此樹系的網域控制站的樹系這兩種名稱解析。
+執行本機 DNS 連線能力測試。
+若要設定 Active Directory 連接器，使用者必須具有這兩個名稱 resolutionthe，他們嘗試連線到也如同關聯到此樹系的網域控制站的樹系。
 
 ### <a name="examples"></a>範例
 
@@ -309,7 +310,7 @@ Accept wildcard characters: False
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
 如果使用者未使用 AD 站台所提供的 DNS 服務 / 登入 DC，則系統可能會想要跳過檢查連接埠 53。
-使用者必須仍能夠解析 _.ldap._tcp.\<forestfqdn\>，Active Directory Connector 設定才會成功。
+使用者仍必須能夠解析 _.ldap._tcp。\<forestfqdn\>為了讓 Active Directory 連接器設定，才會成功。
 
 ```yml
 Type: SwitchParameter

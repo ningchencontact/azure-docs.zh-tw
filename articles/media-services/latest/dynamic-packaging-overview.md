@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 25c0fe7a179db484f18c1aca16471e39a739052c
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: c25aef76b5559b6d00ccf60675d61ea5ea346773
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299176"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494356"
 ---
 # <a name="dynamic-packaging"></a>動態封裝
 
@@ -114,10 +114,10 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS 
     * DTS Express (dtse)
     * DTS HD 不失真 （沒有核心） (dtsl)
 
-### <a name="hls-support"></a>HLS 支援
+### <a name="multi-audio-tracks"></a>多重音訊資料軌
 
-動態封裝支援 HLS (第 4 版或更新版本) 有多個具有多個轉碼器和語言的音訊資料軌的資產。
-
+動態封裝串流處理時有多個具有多個轉碼器和語言的音訊資料軌的資產，支援 HLS 輸出多重音訊資料軌 (第 4 版或更新版本)。
+ 
 ### <a name="not-supported"></a>不支援
 
 動態封裝不支援包含 [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) 音訊的檔案 (它是舊版的轉碼器)。

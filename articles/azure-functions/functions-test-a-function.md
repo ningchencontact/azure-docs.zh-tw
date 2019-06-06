@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 9a078579fff355d7ddb996316af2a2136fb62335
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 7489f42719223dbd7f9cc2908f666dca53fe7c04
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473322"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496397"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中測試程式碼的策略
 
@@ -43,7 +43,7 @@ ms.locfileid: "65473322"
 1. [建立新的 Functions 應用程式](./functions-create-first-azure-function.md)，並將它命名為 *Functions*
 2. [從範本建立 HTTP 函式](./functions-create-first-azure-function.md)，並將它命名為 *HttpTrigger*。
 3. [從範本建立計時器函式](./functions-create-scheduled-function.md)，並將它命名為 *TimerTrigger*。
-4. 在 Visual Studio 中按一下 [檔案] > [新增] > [專案] > [Visual C#] > [.NET Core] > [xUnit 測試專案] 來[建立 xUnit 測試應用程式](https://xunit.github.io/docs/getting-started-dotnet-core)，並將它命名為 *Functions.Test*。 
+4. 在 Visual Studio 中按一下 [檔案] > [新增] > [專案] > [Visual C#] > [.NET Core] > [xUnit 測試專案]  來[建立 xUnit 測試應用程式](https://xunit.github.io/docs/getting-started-dotnet-core)，並將它命名為 *Functions.Test*。 
 5. 使用 Nuget 將參考加入測試應用程式從[Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. 從 *Functions.Test* 應用程式[參考 *Functions* 應用程式](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017)。
 
@@ -119,7 +119,7 @@ namespace Functions.Tests
 
 `Logs` 集合是 `List<string>` 的執行個體，且在建構函式中初始化。
 
-接下來，**以滑鼠右鍵按一下** *Functions.Test* 應用程式，並選取 [新增] > [類別]，將它命名為 **ListTypes.cs**，然後輸入下列程式碼：
+接下來，**以滑鼠右鍵按一下** *Functions.Test* 應用程式，並選取 [新增] > [類別]  ，將它命名為 **ListTypes.cs**，然後輸入下列程式碼：
 
 ```csharp
 namespace Functions.Tests
@@ -133,7 +133,7 @@ namespace Functions.Tests
 ```
 此列舉指定測試使用的記錄器類型。 
 
-接下來，**以滑鼠右鍵按一下** *Functions.Test* 應用程式，並選取 [新增] > [類別]，將它命名為 **TestFactory.cs**，然後輸入下列程式碼：
+接下來，**以滑鼠右鍵按一下** *Functions.Test* 應用程式，並選取 [新增] > [類別]  ，將它命名為 **TestFactory.cs**，然後輸入下列程式碼：
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -204,7 +204,7 @@ namespace Functions.Tests
 
 - **CreateLogger**：根據記錄器類型，此方法會傳回用於測是的記錄器類別。 `ListLogger` 會保留已記錄訊息的追蹤以提供給測試的評估使用。
 
-接下來，**以滑鼠右鍵按一下** *Functions.Test* 應用程式，並選取 [新增] > [類別]，將它命名為 **FunctionsTests.cs**，然後輸入下列程式碼：
+接下來，**以滑鼠右鍵按一下** *Functions.Test* 應用程式，並選取 [新增] > [類別]  ，將它命名為 **FunctionsTests.cs**，然後輸入下列程式碼：
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
@@ -257,13 +257,13 @@ namespace Functions.Tests
 
 ### <a name="run-tests"></a>執行測試
 
-若要執行測試，請瀏覽至 [測試總管]，然後按一下 [全部執行]。
+若要執行測試，請瀏覽至 [測試總管]  ，然後按一下 [全部執行]  。
 
 ![使用 Visual Studio 中的 C# 測試 Azure Functions](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
 ### <a name="debug-tests"></a>偵錯測試
 
-若要針對測試偵錯，請在測試上設定中斷點，瀏覽至 [測試總管] 然後按一下 [執行] > [對上一個回合偵錯]。
+若要針對測試偵錯，請在測試上設定中斷點，瀏覽至 [測試總管]  然後按一下 [執行] > [對上一個回合偵錯]  。
 
 ## <a name="javascript-in-vs-code"></a>VS Code 中的 JavaScript
 
@@ -312,7 +312,7 @@ module.exports = {
 ```
 此模組實作 `IsPastDue` 屬性，以作為假計時器執行個體。
 
-接下來，使用 VS Code Functions 延伸模組[建立新的 JavaScript HTTP 函式](https://code.visualstudio.com/tutorials/functions-extension/getting-started)，並將它命名為 *HttpTrigger*。 一旦函式建立之後，在相同資料夾中新增名為 **index.test.js** 的檔案，並加入下列程式碼：
+接下來，使用 VS Code Functions 延伸模組[建立新的 JavaScript HTTP 函式](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started)，並將它命名為 *HttpTrigger*。 一旦函式建立之後，在相同資料夾中新增名為 **index.test.js** 的檔案，並加入下列程式碼：
 
 ```javascript
 const httpFunction = require('./index');

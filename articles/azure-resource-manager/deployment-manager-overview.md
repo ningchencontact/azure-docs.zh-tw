@@ -1,23 +1,18 @@
 ---
 title: 跨區域的安全部署實務 - Azure Deployment Manager
 description: 描述如何使用 Azure 部署管理員在許多區域中部署服務。 它會顯示安全部署實務，以便在推出到所有區域之前確認部署的穩定性。
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/13/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 52b132b45bd90d7d21bb072e9a94d8588d5cf301
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595795"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431162"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>啟用安全部署實務與 Azure 部署管理員 （公開預覽）
 
@@ -25,7 +20,7 @@ ms.locfileid: "65595795"
 
 部署管理員是 Resource Manager 的一項功能。 此功能可在部署期間延展您的功能。 當您有複雜的服務必須部署到數個區域時，可使用部署管理員。 透過將服務分段推出，您可以在服務部署到所有區域之前，先找出潛在的問題。 如果您不需要分段推出的額外預防措施，請使用適用於 Resource Manager 的標準[部署選項](resource-group-template-deploy-portal.md)。 部署管理員會與支援 Resource Manager 部署的所有現有第三方工具緊密整合，例如持續整合與持續傳遞 (CI/CD) 供應項目。 
 
-Azure Deployment Manager 為個人預覽版。 若要使用 Azure 部署管理員，請完成[報名表](https://aka.ms/admsignup)。 請提供[意見反應](https://aka.ms/admfeedback)協助改進功能。
+Azure Deployment Manager 處於預覽狀態。 協助我們改進所提供的功能[意見反應](https://aka.ms/admfeedback)。
 
 若要使用部署管理員，您必須建立四個檔案：
 
@@ -217,7 +212,7 @@ Azure Deployment Manager 為個人預覽版。 若要使用 Azure 部署管理�
 
 持續時間屬性使用 [ISO 8601 標準](https://en.wikipedia.org/wiki/ISO_8601#Durations)。 上述範例會指定一分鐘的等候。
 
-如需有關健全狀況檢查步驟的詳細資訊，請參閱[導入健康情況整合首度發行至 Azure 部署管理員](./deployment-manager-health-check.md)和[教學課程：使用 Azure 部署管理員 」 中的健康情況檢查](./deployment-manager-tutorial-health-check.md)。
+如需有關健全狀況檢查步驟的詳細資訊，請參閱[導入健康情況整合首度發行至 Azure 部署管理員](./deployment-manager-health-check.md)和[教學課程：在 Azure 部署管理員中使用健康情況檢查](./deployment-manager-tutorial-health-check.md)。
 
 如需詳細資訊，請參閱[步驟範本參考](/azure/templates/Microsoft.DeploymentManager/steps)。
 

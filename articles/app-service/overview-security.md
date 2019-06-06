@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 374fd700f3ac99c00b922f4fca330fee9acfd704
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 0e592c03da222e5265ed53aab8ef73f3b477f33a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955737"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475857"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service 中的安全性
 
@@ -111,9 +111,8 @@ App Service 驗證和授權支援多個驗證提供者，包括 Azure Active Dir
 
 ## <a name="network-isolation"></a>網路隔離
 
-除了 [隔離式] 定價層，所有定價層都會在 App Service 中的共用網路基礎結構上執行您的應用程式。 例如，公用 IP 位址與前端負載平衡器會與其他租用戶共用。 [隔離式] 定價層可讓您在專屬 [App Service 環境](environment/intro.md)中執行您的應用程式，藉此完成網路隔離。 App Service 環境就會在您擁有的 [Azure 虛擬網路](/azure/virtual-network/)執行個體中執行。 它可讓您： 
+除了 [隔離式]  定價層，所有定價層都會在 App Service 中的共用網路基礎結構上執行您的應用程式。 例如，公用 IP 位址與前端負載平衡器會與其他租用戶共用。 [隔離式]  定價層可讓您在專屬 [App Service 環境](environment/intro.md)中執行您的應用程式，藉此完成網路隔離。 App Service 環境就會在您擁有的 [Azure 虛擬網路](/azure/virtual-network/)執行個體中執行。 它可讓您： 
 
-- 使用[網路安全性群組](../virtual-network/virtual-networks-dmz-nsg.md)來限制網路存取。 
 - 透過具有專屬前端的專屬公用端點來提供您的應用程式。
 - 使用內部負載平衡器 (ILB) 來提供內部應用程式，只允許從 Azure 虛擬網路內部進行存取。 ILB 有來自私人子網路的 IP 位址，這可讓您的應用程式與網際網路完全隔離。
 - [使用 Web 應用程式防火牆 (WAF) 後方的 ILB](environment/integrate-with-application-gateway.md)。 WAF 可為您的公開應用程式提供企業層級保護，例如 DDoS 保護、URI 篩選和 SQL 插入式攻擊的防護。

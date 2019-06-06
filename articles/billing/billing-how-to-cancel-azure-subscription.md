@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 06/03/2019
 ms.author: banders
-ms.openlocfilehash: 235d93de56289bb2daaa661ee9806732da3b6d6a
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8f4279d9ac085cdd1ded0dfdda4fad9d3fe12fb8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417603"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480229"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>取消您的 Azure 訂用帳戶
 
@@ -29,6 +29,7 @@ ms.locfileid: "66417603"
 * 關閉您的服務。 移至[管理入口網站中的資源頁面](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources)，並**停止**任何執行中的虛擬機器、應用程式或其他服務。
 * 考慮移轉您的資料。 請參閱[將資源移動到新的資源群組或訂用帳戶](../azure-resource-manager/resource-group-move-resources.md)。
 * 您必須刪除所有資源和所有的資源群組。 需要刪除它們，才可以取消訂用帳戶。 必須個別刪除每個資源群組。 期間刪除資源群組，您必須輸入資源群組名稱，以確認刪除。
+* 如果您有參考此訂用帳戶的任何自訂角色`AssignableScopes`，您應該更新這些自訂的角色，以移除訂用帳戶。 如果您嘗試更新自訂角色，在取消訂用帳戶之後，您可能會發生錯誤。 如需詳細資訊，請參閱 <<c0> [ 疑難排解問題的自訂角色](../role-based-access-control/troubleshooting.md#problems-with-custom-roles)並[適用於 Azure 資源的自訂角色](../role-based-access-control/custom-roles.md)。
 
 如果您取消付費 Azure 支援方案，剩餘的訂閱期間仍會計費。 如需詳細資訊，請參閱 [Azure 支援方案](https://azure.microsoft.com/support/plans/)。
 
@@ -43,11 +44,9 @@ ms.locfileid: "66417603"
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>取消訂用帳戶之後會發生什麼情況？
 
-當您取消之後，計費會立即停止。 不過，最多可能需要 10 分鐘，取消作業才會在入口網站中顯示。
+取消之後，就會立即停止計費。 不過，最多可能需要 10 分鐘，取消作業才會在入口網站中顯示。 如果您在計費期間中途取消訂用帳戶，我們會在該期間結束後的一般發票核發日傳送最後一張帳單。
 
-在這之後，您的服務將會停用。 這表示系統會解除配置您的虛擬機器、釋出暫時 IP 位址，且儲存體會變成唯讀。
-
-如果您在計費期間中途取消訂用帳戶，我們會在該期間結束後的一般發票核發日傳送最後一張帳單。
+取消之後，會停用您的服務。 這表示系統會解除配置您的虛擬機器、釋出暫時 IP 位址，且儲存體會變成唯讀。
 
 我們會在 90 天後才永久刪除您的資料，以防您需要存取該資料或改變心意。 我們不會向您收取保留資料的費用。 若要深入了解，請參閱 [Microsoft 信任中心 - 我們如何管理您的資料](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) \(英文\)。
 

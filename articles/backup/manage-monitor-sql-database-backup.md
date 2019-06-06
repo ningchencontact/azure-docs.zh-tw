@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: f5ec5a64f1de39cd0d196242fb1a93669dbab15d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d850cb222b0028f862cdba302140ce12af8576db
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681852"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492731"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>管理和監視備份的 SQL Server 資料庫
 
@@ -46,11 +46,11 @@ Azure 備份會顯示在所有手動觸發的作業**備份作業**入口網站�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 在保存庫儀表板上，選取 [警示與事件]。
+2. 在保存庫儀表板上，選取 [警示與事件]  。
 
    ![選取 [警示和事件]](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
 
-3. 在 [警示和事件] 中，選取 [備份警示]。
+3. 在 [警示和事件]  中，選取 [備份警示]  。
 
    ![選取 [備份警示]](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
 
@@ -79,7 +79,7 @@ Azure 備份會顯示在所有手動觸發的作業**備份作業**入口網站�
 
     ![選取要停止保護的資料庫](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
 
-4. 在資料庫功能表上，選取 [停止備份]。
+4. 在資料庫功能表上，選取 [停止備份]  。
 
     ![選取 [停止備份]](./media/backup-azure-sql-database/stop-db-button.png)
 
@@ -89,6 +89,14 @@ Azure 備份會顯示在所有手動觸發的作業**備份作業**入口網站�
     ![保留或刪除 [停止備份] 功能表上的資料](./media/backup-azure-sql-database/stop-backup-button.png)
 
 6. 選取 **停止備份**。
+
+>
+> [!NOTE]
+請參閱下方常見問題集，如需有關刪除資料的選項： <br/>
+* [如果我從 autoprotected 執行個體刪除資料庫，備份會發生什麼事？](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)<br/>
+* [如果我執行停止 autoprotected 資料庫的備份作業會有什麼行為？](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>
+>
 
 
 ## <a name="resume-protection-for-a-sql-database"></a>繼續保護 SQL 資料庫
@@ -101,7 +109,7 @@ Azure 備份會顯示在所有手動觸發的作業**備份作業**入口網站�
 
     ![選取 [繼續備份] 以繼續保護資料庫](./media/backup-azure-sql-database/resume-backup-button.png)
 
-2. 在 [備份原則] 功能表上選取原則，然後選取 [儲存]。
+2. 在 [備份原則]  功能表上選取原則，然後選取 [儲存]  。
 
 ## <a name="run-an-on-demand-backup"></a>執行隨選備份
 
@@ -123,11 +131,11 @@ Azure 備份會顯示在所有手動觸發的作業**備份作業**入口網站�
 
    ![選取 [備份基礎結構]](./media/backup-azure-sql-database/backup-infrastructure-button.png)
 
-2. 在 [管理伺服器] 底下，選取 [受保護的伺服器]。
+2. 在 [管理伺服器]  底下，選取 [受保護的伺服器]  。
 
    ![選取 [受保護的伺服器]](./media/backup-azure-sql-database/protected-servers.png)
 
-3. 在 [受保護的伺服器] 中，選取要取消註冊的伺服器。 若要刪除保存庫，您必須將所有伺服器取消註冊。
+3. 在 [受保護的伺服器]  中，選取要取消註冊的伺服器。 若要刪除保存庫，您必須將所有伺服器取消註冊。
 
 4. 以滑鼠右鍵按一下 受保護的伺服器，然後選取**取消註冊**。
 

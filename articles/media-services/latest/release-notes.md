@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 06/04/2019
 ms.author: juliako
-ms.openlocfilehash: a5ce6467a547b9fded03b3b5a6f40f84d29d3618
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: e34e0f9fee1d09e66dcdd5069e800dc1f3f750cb
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66385154"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688659"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒體服務 v3 版本資訊
 
@@ -36,11 +36,18 @@ ms.locfileid: "66385154"
 
 ## <a name="may-2019"></a>2019 年 5 月
 
-### <a name="hls-v4-and-above-support-in-dynamic-packaging"></a>HLS v4 和更新版本，在動態封裝的支援 
+### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Azure 媒體服務的診斷記錄和度量的監視器支援
 
-已新增 HLS (第 4 版或更新版本) 支援中有多個具有多個轉碼器和語言的音訊資料軌的資產的動態封裝。
+您現在可以使用 Azure 監視器來檢視由媒體服務的遙測資料 emmited。
 
-如需詳細資訊，請參閱 <<c0> [ 動態封裝](dynamic-packaging-overview.md)。
+* 您可以使用 Azure 監視器診斷記錄來監視媒體服務金鑰傳遞端點所傳送的要求。 
+* 監視媒體服務所發出的度量[串流端點](streaming-endpoint-concept.md)。   
+
+如需詳細資訊，請參閱 <<c0> [ 監視媒體服務的計量和診斷記錄](media-services-metrics-diagnostic-logs.md)。
+
+### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>支援動態封裝中的多重音訊資料軌 
+
+串流處理資產有多個具有多個轉碼器和語言的音訊資料軌時[動態封裝](dynamic-packaging-overview.md)現在支援 HLS 輸出多重音訊資料軌 (第 4 版或更新版本)。
 
 ### <a name="korea-regional-pair-is-open-for-media-services"></a>韓國區域配對會開啟用於媒體服務 
 

@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: b699379448863c8df84fda0e059fc10846c09931
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f02d2eed2030a5d2f54b3bee85885bbb572ac762
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230085"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476684"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>在本機偵錯 PowerShell Azure 函式
 
@@ -95,15 +95,28 @@ if($name) {
 
 ## <a name="debug-in-visual-studio-code"></a>Visual Studio Code 中偵錯
 
-若要偵錯您的 PowerShell 函式，在 Visual Studio Code 中，您必須具備下列延伸模組適用於 Visual Studio Code:
+若要偵錯您的 PowerShell 函式，在 Visual Studio Code 中，您必須安裝下列項目：
 
-* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
-* [Azure Functions](functions-create-first-function-vs-code.md)
+* [適用於 Visual Studio Code 的 PowerShell 延伸模組](/powershell/scripting/components/vscode/using-vscode)
+* [適用於 Visual Studio Code 的 Azure Functions 擴充功能](functions-create-first-function-vs-code.md)
+* [6.2 或更新版本的 PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core)
 
-在安裝後的 PowerShell 和 Azure Functions 的延伸模組，會載入現有的函式應用程式專案。 您也可以[建立函式專案](functions-create-first-function-vs-code.md)。
+安裝這些相依性之後, 載入現有的 PowerShell 函式專案，或[建立第一個 PowerShell 函式專案](functions-create-first-function-powershell.md)。
 
 >[!NOTE]
 > 您的專案不應有的所需的組態檔，系統會提示您將它們加入。
+
+### <a name="set-the-powershell-version"></a>設定 PowerShell 版本
+
+PowerShell Core 會與 Windows PowerShell 並存安裝。 設定 PowerShell Core 使用 Visual Studio Code 的 PowerShell 延伸模組的 PowerShell 版本。
+
+1. 按 F1，以顯示這個命令棧板，然後搜尋`Session`。
+
+1. 選擇**PowerShell:顯示工作階段功能表**。
+
+1. 如果您**目前的工作階段**不**PowerShell Core 6**，選擇**切換至：PowerShell Core 6**。
+
+當您有開啟的 PowerShell 檔案時，您會看到綠色的視窗底部顯示的版本。 選取這段文字，也會顯示工作階段 功能表。 若要進一步了解，請參閱[選擇的擴充功能搭配使用的 PowerShell 版本](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension)。
 
 ### <a name="start-the-function-app"></a>啟動函數應用程式
 
@@ -140,7 +153,7 @@ Invoke-RestMethod "http://localhost:7071/api/HttpTrigger?Name=Functions"
 * PowerShell 主控台執行`Invoke-RestMethod`已傳回的結果
 * Visual Studio Code 中的 PowerShell 整合式主控台正在等候執行的指令碼
 
-當您叫用相同的函式，用來偵錯工具擴充功能會中斷之後的 PowerShell 中的後續階段`Wait-Debugger`。
+稍後當您叫用相同的功能，PowerShell 延伸模組的偵錯工具中斷之後`Wait-Debugger`。
 
 ## <a name="debugging-in-a-powershell-console"></a>在 PowerShell 主控台中偵錯
 

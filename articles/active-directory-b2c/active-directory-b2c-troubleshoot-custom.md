@@ -2,20 +2,20 @@
 title: 在 Azure Active Directory B2C 中用以針對自訂原則進行疑難排解的 Application Insights | Microsoft Docs
 description: 如何設定 Application Insights 以追蹤自訂原則的執行。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9b25e5dc5d090ad7aab3d61e2c303a465b5d7443
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: df5d710792d8c47e491f5b06d88f4050e8eb4a01
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703924"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508060"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C：收集記錄
 
@@ -32,12 +32,12 @@ Azure AD B2C 支援將資料傳送至 Application Insights 的功能。  Applica
 ### <a name="setup-application-insights"></a>設定 Application Insights
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。 確定您所在的租用戶具有您的 Azure 訂用帳戶 (不是 Azure AD B2C 租用戶)。
-1. 在左側導覽功能表中按一下 [+新增]。
-1. 搜尋並選取 [Application Insights]，然後按一下 [建立]。
-1. 完成表單，然後按一下 [建立]。 在 [應用程式類型] 中，選取 [一般]。
+1. 在左側導覽功能表中按一下 [+新增]  。
+1. 搜尋並選取 [Application Insights]  ，然後按一下 [建立]  。
+1. 完成表單，然後按一下 [建立]  。 在 [應用程式類型]  中，選取 [一般]  。
 1. 建立資源後，開啟 Application Insights 資源。
-1. 在左邊功能表中尋找 [屬性]並按一下它。
-1. 複製 [檢測金鑰]，將它儲存起來供下一節使用。
+1. 在左邊功能表中尋找 [屬性]  並按一下它。
+1. 複製 [檢測金鑰]  ，將它儲存起來供下一節使用。
 
 ### <a name="set-up-the-custom-policy"></a>設定自訂原則
 
@@ -50,7 +50,7 @@ Azure AD B2C 支援將資料傳送至 Application Insights 的功能。  Applica
    ```
 
 1. 將子節點 `<UserJourneyBehaviors>` (如果尚未存在) 新增至 `<RelyingParty>` 節點。 它必須緊接在 `<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />` 之後
-2. 新增下列節點作為 `<UserJourneyBehaviors>` 元素的子節點。 務必以您在上一節中從 Application Insights 取得的 [檢測金鑰] 取代 `{Your Application Insights Key}`。
+2. 新增下列節點作為 `<UserJourneyBehaviors>` 元素的子節點。 務必以您在上一節中從 Application Insights 取得的 [檢測金鑰]  取代 `{Your Application Insights Key}`。
 
    ```XML
    <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
@@ -87,7 +87,7 @@ Azure AD B2C 支援將資料傳送至 Application Insights 的功能。  Applica
 > 短暫延遲之後 (五分鐘之內)，您在 Application Insights 中才會看到新的記錄。
 
 1. 開啟您在 [Azure 入口網站](https://portal.azure.com)中建立的 Application Insights 資源。
-1. 在 [概觀] 功能表中，按一下 [分析]。
+1. 在 [概觀]  功能表中，按一下 [分析]  。
 1. 在 Application Insights 入口網站中開啟新的索引標籤。
 1. 以下是您可以用來檢視記錄的查詢清單
 

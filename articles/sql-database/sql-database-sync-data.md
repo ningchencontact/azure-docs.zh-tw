@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f83eb87d2eecb91aa18b1caceb42f9d8bd6c2a0e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: cfa94fc1c75bcd1eaa9a076cfe63369f60ce5f1c
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939577"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693076"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料
 
@@ -62,7 +62,7 @@ ms.locfileid: "64939577"
 同步群組具有下列屬性：
 
 - **同步結構描述**說明要同步的資料。
-- **同步處理方向**可以是雙向或只有單向。 也就是說，同步處理方向可以是「中樞到成員」或是「成員到中樞」，或兩者皆可。
+- **同步處理方向**可以是雙向或只有單向。 也就是說，同步處理方向可以是「中樞到成員」  或是「成員到中樞」  ，或兩者皆可。
 - **同步處理間隔**說明了進行同步處理的頻率。
 - **衝突解決原則**是群組層級原則，可以是*中樞獲勝*或*成員獲勝*。
 
@@ -70,9 +70,9 @@ ms.locfileid: "64939577"
 
 - **追蹤資料變更：** 資料同步會追蹤使用 insert、update 和 delete 觸發程序的變更。 變更會記錄在使用者資料庫中的資料表。 請留意，BULK INSERT 預設不會引發觸發程序。 如果沒有指定 FIRE_TRIGGERS，就不會執行 insert 觸發程序。 新增 FIRE_TRIGGERS 選項，資料同步就能追蹤那些插入。 
 - **同步處理資料：** 資料同步是以中樞與輪幅模型來設計。 中樞會與每個成員個別同步。 中樞的變更會下載到成員，然後成員的變更會上傳到中樞。
-- **解決衝突：** 資料同步提供兩個衝突解決選項：「中樞獲勝」或「成員獲勝」。
-  - 如果您選取 [中樞獲勝]，中樞的變更永遠會覆寫成員的變更。
-  - 如果您選取 [成員獲勝]，成員的變更永遠會覆寫中樞的變更。 如果有多個成員，最終的值則取決於哪一個成員先同步。
+- **解決衝突：** 資料同步提供兩個衝突解決選項：「中樞獲勝」  或「成員獲勝」  。
+  - 如果您選取 [中樞獲勝]  ，中樞的變更永遠會覆寫成員的變更。
+  - 如果您選取 [成員獲勝]  ，成員的變更永遠會覆寫中樞的變更。 如果有多個成員，最終的值則取決於哪一個成員先同步。
 
 ## <a name="compare-data-sync-with-transactional-replication"></a>比較資料同步與異動複寫
 
@@ -129,6 +129,7 @@ ms.locfileid: "64939577"
 - 物件 (資料庫、資料表和資料行) 的名稱不能包含可列印的字元句點 (.)、左括弧 (\[\)，或右括弧 (\]\)。
 - 不支援 Azure Active Directory 驗證。
 - 不支援具有相同名稱但結構描述不同 (例如，dbo.customers 和 sales.customers) 的資料表。
+- 不支援使用者定義資料類型的資料行
 
 #### <a name="unsupported-data-types"></a>不支援的資料類型
 
@@ -201,7 +202,7 @@ SQL 資料同步會在以下所有區域內上市。
 
 ### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>資料同步是否可以同步加密的資料表和資料行？
 
-- 如果資料庫是使用 Always Encrypted，您就只能同步「未」加密的資料表和資料行。 您無法同步加密的資料行，因為資料同步無法解密資料。
+- 如果資料庫是使用 Always Encrypted，您就只能同步「未」  加密的資料表和資料行。 您無法同步加密的資料行，因為資料同步無法解密資料。
 - 如果資料行是使用資料行層級加密 (CLE)，則只要資料列大小小於 24 Mb 的大小上限，您就可以同步資料行。 資料同步會將金鑰加密的資料行 (CLE) 視為一般的二進位資料。 若要解密其他同步成員中的資料，您必須具有相同的憑證。
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>SQL 資料同步是否支援定序？

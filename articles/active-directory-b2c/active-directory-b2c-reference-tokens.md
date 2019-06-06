@@ -2,20 +2,20 @@
 title: 權杖-Azure Active Directory B2C 概觀 |Microsoft Docs
 description: 深入了解 Azure Active Directory B2C 中使用 token。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ac3c2132fc28d9813a9322898f79c7cdfffa12d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b0a5eca4823bd6ec7d1197adb205f7fb98f8d67e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681900"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509086"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的語彙基元的概觀
 
@@ -50,7 +50,7 @@ A[註冊應用程式](tutorial-register-applications.md)接收權杖，並會將
 
 下表列出您可以預期在 ID 權杖和存取 Azure AD B2C 所簽發的權杖的宣告。
 
-| 名稱 | 宣告 | 範例值 | 描述 |
+| Name | 宣告 | 範例值 | 描述 |
 | ---- | ----- | ------------- | ----------- |
 | 對象 | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | 識別權杖的預定接收者。 Azure AD B2C 中，對象是應用程式識別碼。 您的應用程式應該驗證此值，並拒絕權杖，如果它不符合。 對象是資源的同義詞。 |
 | 簽發者 | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | 識別負責建構並傳回權杖的 Security Token Service (STS)。 它也會識別在其中驗證使用者的目錄。 您的應用程式應該驗證簽發者宣告，以確保權杖來自適當的端點。 |
@@ -65,8 +65,8 @@ A[註冊應用程式](tutorial-register-applications.md)接收權杖，並會將
 | 驗證內容類別參考 | `acr` | 不適用 | 只搭配使用較舊的原則。 |
 | 信任架構原則 | `tfp` | `b2c_1_signupsignin1` | 用來取得識別碼權杖的原則名稱。 |
 | 驗證期間 | `auth_time` | `1438535543` | 時間的使用者上次輸入認證，以新紀元時間表示。 |
-| 影響範圍 | `scp` | `Read`| 權限，授與存取權杖的資源。 以空格分隔多個授與的權限。 |
-| 授權的合作對象 | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | 起始要求之用戶端應用程式的應用程式識別碼。 |
+| `Scope` | `scp` | `Read`| 權限，授與存取權杖的資源。 以空格分隔多個授與的權限。 |
+| 授權的合作對象 | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | 起始要求之用戶端應用程式的應用程式識別碼  。 |
 
 ## <a name="configuration"></a>組態
 
@@ -76,11 +76,11 @@ A[註冊應用程式](tutorial-register-applications.md)接收權杖，並會將
 
 - **重新整理權杖存留期 （天）** -之前重新整理權杖可用來取得新的存取或識別碼權杖的最大的時間週期。 時間週期也涵蓋了取得新的重新整理權杖，如果您的應用程式已被授與`offline_access`範圍。 預設值為 14 天。 最小值 （含） 是一天。 （含） 之間的最大值為 90 天。
 
-- **重新整理權杖滑動視窗存留期 （天）** -之後這次經過這段期間強制使用者重新驗證，無論有效期間的最新重新整理應用程式取得的權杖。 唯有將參數設定為 [受限制] 時才能提供。 它必須大於或等於 [重新整理權杖存留期 (天)]  值。 如果將參數設定為 [無限制] ，您便無法提供特定的值。 預設為 90 天。 最小值 （含） 是一天。 （含） 之間的最大值為 365 天。
+- **重新整理權杖滑動視窗存留期 （天）** -之後這次經過這段期間強制使用者重新驗證，無論有效期間的最新重新整理應用程式取得的權杖。 唯有將參數設定為 [受限制]  時才能提供。 它必須大於或等於 [重新整理權杖存留期 (天)]  值。 如果將參數設定為 [無限制]  ，您便無法提供特定的值。 預設為 90 天。 最小值 （含） 是一天。 （含） 之間的最大值為 365 天。
 
 使用這些屬性可啟用以下使用案例：
 
-- 只要使用者持續使用行動應用程式，便允許他們無限期地維持已登入應用程式的狀態。 您可以在登入使用者流程中將 [重新整理權杖滑動視窗存留期 (天)] 設定為 [無限制]。
+- 只要使用者持續使用行動應用程式，便允許他們無限期地維持已登入應用程式的狀態。 您可以在登入使用者流程中將 [重新整理權杖滑動視窗存留期 (天)]  設定為 [無限制]  。
 - 請設定適當的存取權杖存留期，以滿足業界的安全性和循規規範。
 
 這些設定不適用於密碼重設使用者流程。 

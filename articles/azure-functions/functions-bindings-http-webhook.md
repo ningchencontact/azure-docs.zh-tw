@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a1d66cf4506e3b8f58572576db908812f4e2be07
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: fb219316afa798dfda777c4d0d406d5b8cabf7f9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62104354"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472374"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 觸發程序和繫結
 
@@ -85,7 +85,7 @@ public static async Task<IActionResult> Run(
 
 ### <a name="trigger---c-script-example"></a>觸發程序 - C# 指令碼範例
 
-下列範例示範 function.json 檔案中的觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會尋找 `name` 參數，其位於查詢字串或 HTTP 要求的主體。
+下列範例示範 function.json  檔案中的觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會尋找 `name` 參數，其位於查詢字串或 HTTP 要求的主體。
 
 以下是 *function.json* 檔案：
 
@@ -161,7 +161,7 @@ public class Person {
 
 ### <a name="trigger---f-example"></a>觸發程序 - F# 範例
 
-下列範例示範 function.json 檔案中的觸發程序繫結，以及使用此繫結的 [F# 函式](functions-reference-fsharp.md)。 函式會尋找 `name` 參數，其位於查詢字串或 HTTP 要求的主體。
+下列範例示範 function.json  檔案中的觸發程序繫結，以及使用此繫結的 [F# 函式](functions-reference-fsharp.md)。 函式會尋找 `name` 參數，其位於查詢字串或 HTTP 要求的主體。
 
 以下是 *function.json* 檔案：
 
@@ -227,7 +227,7 @@ let Run(req: HttpRequestMessage) =
 
 ### <a name="trigger---javascript-example"></a>觸發程序 - JavaScript 範例
 
-下列範例示範的是使用繫結之 function.json 檔案，以及 [JavaScript 函式](functions-reference-node.md)中的觸發程序繫結。 函式會尋找 `name` 參數，其位於查詢字串或 HTTP 要求的主體。
+下列範例示範的是使用繫結之 function.json  檔案，以及 [JavaScript 函式](functions-reference-node.md)中的觸發程序繫結。 函式會尋找 `name` 參數，其位於查詢字串或 HTTP 要求的主體。
 
 以下是 *function.json* 檔案：
 
@@ -666,7 +666,7 @@ module.exports = function (context, req) {
 
 您也可以從繫結資料來讀取這項資訊。 這項功能僅適用於 Functions 2.x 執行階段。 它目前也僅適用於 .NET 語言。
 
-在 .NET 語言中，此資訊會以 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0) 形式提供。 ClaimsPrincipal 可作為要求內容的一部分提供，如下列範例所示：
+在 .NET 語言中，此資訊會以 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) 形式提供。 ClaimsPrincipal 可作為要求內容的一部分提供，如下列範例所示：
 
 ```csharp
 using System.Net;
@@ -723,7 +723,7 @@ Functions 可讓您使用金鑰來提高開發期間存取 HTTP 函式端點的�
 
 ### <a name="obtaining-keys"></a>取得金鑰
 
-金鑰會當作您函數應用程式的一部分儲存於 Azure 中，並在加密後靜置。 若要檢視您的金鑰，請建立新的金鑰或將金鑰輪替為新的值，瀏覽至您在 [Azure 入口網站](https://portal.azure.com)中的其中一個 HTTP 觸發函式，然後選取 [管理]。
+金鑰會當作您函數應用程式的一部分儲存於 Azure 中，並在加密後靜置。 若要檢視您的金鑰，請建立新的金鑰或將金鑰輪替為新的值，瀏覽至您在 [Azure 入口網站](https://portal.azure.com)中的其中一個 HTTP 觸發函式，然後選取 [管理]  。
 
 ![在入口網站中管理函式金鑰。](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
@@ -765,7 +765,7 @@ Functions 可讓您使用金鑰來提高開發期間存取 HTTP 函式端點的�
 
 #### <a name="github-webhooks"></a>GitHub Webhook
 
-若要回應 GitHub Webhook，請先建立含有 HTTP 觸發程序的函式，然後將 **webHookType** 屬性設定為 `github`。 接著將其 URL 和 API 金鑰複製到您 GitHub 存放庫的 [新增 Webhook] 頁面。 
+若要回應 GitHub Webhook，請先建立含有 HTTP 觸發程序的函式，然後將 **webHookType** 屬性設定為 `github`。 接著將其 URL 和 API 金鑰複製到您 GitHub 存放庫的 [新增 Webhook]  頁面。 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
@@ -798,7 +798,7 @@ HTTP 要求長度的限制為 100 MB (104,857,600 個位元組)，而 URL 長度
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
-下表說明您在 function.json 檔案中設定的繫結設定屬性。 就 C# 類別程式庫而言，沒有任何屬性 (Attribute) 的屬性 (Property) 與這些 *function.json* 屬性 (Property) 對應。
+下表說明您在 function.json  檔案中設定的繫結設定屬性。 就 C# 類別程式庫而言，沒有任何屬性 (Attribute) 的屬性 (Property) 與這些 *function.json* 屬性 (Property) 對應。
 
 |屬性  |描述  |
 |---------|---------|

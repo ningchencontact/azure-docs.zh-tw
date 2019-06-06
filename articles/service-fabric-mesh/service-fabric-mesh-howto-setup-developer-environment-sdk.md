@@ -9,19 +9,19 @@ ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chakdan
-ms.openlocfilehash: 70c32f5e54fa7e71c0884ceba48c84af782b3f41
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5ab817c65ab562f37b456cc3589624c1876084f0
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418983"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428192"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>設定 Windows 開發環境以建置 Service Fabric Mesh 應用程式
 
 若要在 Windows 開發機器上建置並執行 Azure Service Fabric Mesh 應用程式，您需要：
 
 * Docker
-* Visual Studio 2017
+* Visual Studio 2017 或更新版本
 * Service Fabric Mesh 執行階段
 * Service Fabric Mesh SDK 和工具。
 
@@ -31,28 +31,28 @@ ms.locfileid: "60418983"
 * Windows Server 1709 版
 * Windows Server 1803 版
 
-下列指示可協助您根據您所執行的 Windows 版本，來安裝好所有項目。
+下列指示將協助您安裝的所有項目會根據您正在執行的 Windows 版本。
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
 ## <a name="visual-studio"></a>Visual Studio
 
-必須使用 Visual Studio 2017 才能部署 Service Fabric Mesh 應用程式。 [安裝 15.6.0 版][download-visual-studio]或更新版本，並啟用下列工作負載：
+Visual Studio 2017 或更新版本，才能部署 Service Fabric 的 Mesh 應用程式。 [安裝 15.6.0 版][download-visual-studio]或更新版本，並啟用下列工作負載：
 
 * ASP.NET 和 Web 開發
 * Azure 開發
 
 ## <a name="install-docker"></a>安裝 Docker
 
-如果您已安裝 Docker，請確定您的是最新版本。 Docker 可能會在推出新版本時提示您，但請手動檢查以確定您有最新版本。
+如果您已安裝 Docker，請確定您的是最新版本。 Docker 可能會提示您時的新版本，但手動檢查並確定您有最新版本。
 
 #### <a name="install-docker-on-windows-10"></a>在 Windows 10 上安裝 Docker
 
 下載並安裝最新版的 [Docker Community Edition for Windows][download-docker]，以支援 Service Fabric Mesh 所使用的容器化 Service Fabric 應用程式。
 
-在安裝期間，當系統詢問時，請選取 [使用 Windows 容器，而非 Linux 容器]。
+在安裝期間，當系統詢問時，請選取 [使用 Windows 容器，而非 Linux 容器]  。
 
-如果您的電腦上未啟用 Hyper-V，Docker 的安裝程式會建議您加以啟用。 如果出現提示，請按一下 [確定] 以執行此作業。
+如果您的電腦上未啟用 HYPER-V，Docker 的安裝程式會提供啟用它。 如果出現提示，請按一下 [確定]  以執行此作業。
 
 #### <a name="install-docker-on-windows-server-2016"></a>在 Windows Server 2016 上安裝 Docker
 
@@ -89,9 +89,9 @@ Install-WindowsFeature Containers
 > 如果您是在 Windows Fall Creators Update (1709 版) 機器上進行開發，則只能使用 Windows 1709 版 Docker 映像。
 > 如果您是在 Windows 10 April 2018 update (1803 版) 機器上進行開發，則可以使用 Windows 1709 版或 1803 版的 Docker 映像。
 
-如果您使用 Visual Studio，則可以略過本節，因為如果您沒有本機叢集，Visual Studio 將會為您建立。
+如果您使用 Visual Studio，因為 Visual Studio 會建立本機叢集，如果您沒有帳戶，所以您可以略過本節。
 
-在一次建立和執行一個 Service Fabric 應用程式時若要有最佳的偵錯效能，請建立單一節點的本機開發叢集。 如果您一次執行多個應用程式，則請建立五個節點的本機開發叢集。 每當您部署或偵錯 Service Fabric Mesh 專案時，都必須執行此叢集。
+為了獲得最佳的偵錯效能，當您建立並執行一次的單一的 Service Fabric 應用程式，建立單一節點本機開發叢集。 如果您一次執行多個應用程式，建立五個節點的本機開發叢集。 每當您部署或偵錯 Service Fabric Mesh 專案時，都必須執行此叢集。
 
 在您安裝執行階段、SDK、Visual Studio 工具、Docker，且 Docker 開始執行後，請建立開發叢集。
 
@@ -107,7 +107,7 @@ Install-WindowsFeature Containers
     ```powershell
     . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
     ```
-5. 當服務叢集管理員工具開始執行 (它會出現在系統匣中) 後，請以滑鼠右鍵按一下該工具，然後按一下 [啟動本機叢集]。
+5. 當服務叢集管理員工具開始執行 (它會出現在系統匣中) 後，請以滑鼠右鍵按一下該工具，然後按一下 [啟動本機叢集]  。
 
 ![圖 1 - 啟動本機叢集](./media/service-fabric-mesh-howto-setup-developer-environment-sdk/start-local-cluster.png)
 

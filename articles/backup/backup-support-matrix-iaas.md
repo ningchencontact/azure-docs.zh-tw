@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2f48e0d8b46684d067fe2e32f241e28d94c2edbd
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: ef522785d5074187871c25c54deae84b156d69b1
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399683"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743184"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 您可以使用[Azure 備份服務](backup-overview.md)備份內部部署機器和工作負載和 Azure 虛擬機器 (Vm)。 本文摘要說明支援設定和限制，當您使用 Azure 備份的 Azure Vm 備份。
@@ -38,7 +38,7 @@ ms.locfileid: "66399683"
 
 ## <a name="supported-backup-actions"></a>支援的備份動作
 
-**動作** | **支援**
+**Action** | **支援**
 --- | ---
 建立 Windows Azure VM 時啟用備份 | 支援： <br/><br/> Windows Server 2019 (資料中心/Datacenter Core/Standard) <br/><br/> Windows Server 2016 (資料中心/Datacenter Core/Standard) <br/><br/> Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> Windows Server 2008 R2 （RTM 和 SP1 Standard）
 建立 Linux VM 時啟用備份 | 支援：<br/><br/> - Ubuntu Server：18.04 17.10、 17.04，16.04 (LTS)、 14.04 (LTS)<br/><br/> - Red Hat：RHEL 6.7、6.8、6.9、7.2、7.3、7.4<br/><br/> - SUSE Linux Enterprise Server：11 SP4，12 SP2，12 SP3，15 <br/><br/> - Debian：8、9<br/><br/> - CentOS：6.9、7.3<br/><br/> -Oracle Linux:6.7、6.8、6.9、7.2、7.3
@@ -54,6 +54,8 @@ ms.locfileid: "66399683"
 每月/每年備份   | 在使用 Azure VM 擴充功能進行備份時不支援。 僅支援每日和每週備份。<br/><br/> 您可以設定依每月/每年的保留期間來保留每日/每週備份的原則。
 自動時鐘調整 | 不支援。<br/><br/> 備份 VM 時，azure 備份不會自動調整日光節約時間變更。<br/><br/>  請視需要手動修改原則。
 [混合式備份的安全性功能](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |  不支援停用的安全性功能。
+備份 VM 的機器有時間變更 | 不支援。<br/><br/> 如果機器有時間變更為未來日期時間之後啟用該 VM; 備份不過即使還原時間變更，是不會保證成功的備份。  
+
 
 ## <a name="operating-system-support-windows"></a>作業系統支援 (Windows)
 
@@ -69,7 +71,7 @@ ms.locfileid: "66399683"
 
 以下是您備份 Linux 機器時所支援的項目。
 
-**動作** | **支援**
+**Action** | **支援**
 --- | ---
 使用 Linux Azure VM 代理程式備份 Linux Azure VM | 檔案一致備份。<br/><br/> 使用[自訂指令碼](backup-azure-linux-app-consistent.md)進行應用程式一致備份。<br/><br/> 在還原期間，您可以建立新的 VM，還原磁碟並使用它來建立 VM 時，或還原磁碟並使用它來取代現有的 VM 上的磁碟。 您也可以還原個別檔案和資料夾。
 使用 MARS 代理程式備份 Linux Azure VM | 不支援。<br/><br/> MARS 代理程式只能安裝在 Windows 機器上。
@@ -146,7 +148,7 @@ VM 大小 |   至少有 2 個 CPU 核心和 1 GB RAM 的任何 Azure VM 大小�
 備份[可用性區域](https://docs.microsoft.com/azure/availability-zones/az-overview)中的 VM |  不支援。
 使用部署的 Vm 備份[Hybrid Use Benefit (HUB)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | 支援。
 在中部署的 Vm 備份[擴展集](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |  不支援。
-從部署的 Vm 備份[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> （由 Microsoft、 協力廠商發行） |  支援。<br/><br/> VM 必須執行支援的作業系統。<br/><br/> 復原 VM 上的檔案時，只能還原至相容的作業系統 (而非較舊或較新版的作業系統)。
+從部署的 Vm 備份[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> （由 Microsoft、 協力廠商發行） |  支援。<br/><br/> VM 必須執行支援的作業系統。<br/><br/> 復原 VM 上的檔案時，只能還原至相容的作業系統 (而非較舊或較新版的作業系統)。 我們不要還原備份做為 Vm，因為這些需求購買資訊，但只為磁碟的 Azure Marketplace Vm。
 將自訂映像 （第三方） 從備份部署的 Vm |   支援。<br/><br/> VM 必須執行支援的作業系統。<br/><br/> 復原 VM 上的檔案時，只能還原至相容的作業系統 (而非較舊或較新版的作業系統)。
 將 Vm 移轉至 Azure 備份  | 支援。<br/><br/> 若要備份 VM，必須在已移轉的機器上安裝 VM 代理程式。
 備份多部 VM 一致性 | Azure 備份不提供跨多個 Vm 的資料和應用程式的一致性。

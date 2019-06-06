@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 05/31/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ddaead7a0e616b3138dca0b18a58d64e38a46f9e
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 68f62a6945f3b651781414e3194104b6d2e6295c
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66356419"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455804"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure Blob 儲存體
 
@@ -58,7 +58,7 @@ ms.locfileid: "66356419"
 6.  若要準備磁碟，請執行下列命令。 **視資料大小而定，這可能需要數小時到數天的時間。** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite /enablecontentmd5 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite /enablecontentmd5 
     ```
     日誌檔案會建立在執行此工具的相同資料夾中。 還會建立其他兩個檔案 - .xml  檔案 (您執行工具的資料夾) 和 drive-manifest.xml  檔案 (資料所在的資料夾)。
     
@@ -72,6 +72,7 @@ ms.locfileid: "66356419"
     |/bk:     |磁碟機的 BitLocker 金鑰。 其數字密碼來自 `manage-bde -protectors -get D:` 的輸出      |
     |/srcdir:     |要寄送之磁碟的磁碟機代號，其後緊接著 `:\`。 例如： `D:\`。         |
     |/dstdir:     |Azure 儲存體中目的地容器的名稱。         |
+    |/blobtype:     |此選項會指定您要匯入之資料的 blob 的類型。 若為區塊 blob，則`BlockBlob`分頁 blob，則為`PagaBlob`。         |
     |/skipwrite：     |此選項表示不需要複製新資料，且即將準備磁碟上的現有資料。          |
     |/enablecontentmd5:     |選項啟用時，可確保您的 azure 區塊 blob 上傳期間，會計算 MD5。          |
 7. 為每個要寄送的磁碟重複上述步驟。 每次執行命令列時，都會使用提供的名稱來建立日誌檔案。

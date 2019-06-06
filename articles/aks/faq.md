@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 6bfcd11dd6bfd31583fb2d0cd3f4229d3dd70065
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 1cc03cbcffc5253e8b357b6702cd21c45740ff81
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65887357"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514497"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
@@ -66,7 +66,7 @@ Azure 會自動套用至您在夜間排程上的叢集中的 Linux 節點的安�
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>提供我自己 AKS 基礎結構資源群組的名稱？
 
-是。 根據預設，AKS 資源提供者會自動建立次要的資源群組 (例如*MC_myResourceGroup_myAKSCluster_eastus*) 在部署期間。 為了符合公司原則，您可以提供您自己的名稱，此受管理的叢集 (*MC_*) 的資源群組。
+是。 根據預設，AKS 資源提供者會自動建立次要的資源群組 (例如*MC_myResourceGroup_myAKSCluster_eastus*) 在部署期間。 為了符合公司原則，您可以提供您自己的名稱，此受管理的叢集 (*MC_* ) 的資源群組。
 
 若要指定您自己的資源群組名稱，請安裝[aks 預覽][ aks-preview-cli] Azure CLI 擴充功能版本*0.3.2*或更新版本。 當您使用建立 AKS 叢集時[az aks 建立][ az-aks-create]命令，使用 *-節點資源群組*參數並指定資源群組的名稱。 如果您[使用 Azure Resource Manager 範本][ aks-rm-template]來部署 AKS 叢集，您可以利用定義的資源群組名稱*nodeResourceGroup*屬性。
 
@@ -129,6 +129,10 @@ Windows Server 容器是以預覽形式提供。 若要在 AKS 中執行 Windows
 
 使用者無法覆寫最小值`maxPods`驗證。
 
+## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>可以套用 Azure 保留折扣至我的 AKS 代理程式節點嗎？
+
+AKS 代理程式節點計費作為標準的 Azure 虛擬機器，因此，如果您已購買[Azure 保留的項目][ reservation-discounts] AKS 中使用的 VM 大小，這些折扣會自動套用。
+
 <!-- LINKS - internal -->
 
 [aks-regions]: ./quotas-skus-regions.md#region-availability
@@ -145,6 +149,7 @@ Windows Server 容器是以預覽形式提供。 若要在 AKS 中執行 Windows
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
 [aks-windows-limitations]: windows-node-limitations.md
+[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
 
 <!-- LINKS - external -->
 

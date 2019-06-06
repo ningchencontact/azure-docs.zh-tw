@@ -2,18 +2,17 @@
 title: 使用 Azure 監視器記錄來監視 Azure HDInsight 叢集
 description: 了解如何使用 Azure 監視器記錄來監視在 HDInsight 叢集中執行的作業。
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/20/2019
-ms.author: hrasheed
-ms.openlocfilehash: 610843d325744aec8ad944075f06c63c90b6fe4d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 06/03/2019
+ms.openlocfilehash: 16659a335ef6126e75f5a9a99784e71afa056bef
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203671"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479258"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>使用 Azure 監視器記錄以監視 HDInsight 叢集
 
@@ -49,21 +48,15 @@ ms.locfileid: "65203671"
 
 在本節中，您會設定現有 HDInsight Hadoop 叢集，以使用 Azure Log Analytics 工作區來監視作業、偵錯記錄等等。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 從[Azure 入口網站](https://portal.azure.com/)，選取您的叢集。  請參閱[列出和顯示叢集](./hdinsight-administer-use-portal-linux.md#showClusters)以取得指示。 在新的入口網站頁面中開啟叢集。
 
-2. 從左側功能表中選取 [所有服務]。
+1. 在左邊的 [監視]  下方，選取 [Operations Management Suite]  。
 
-3. 在 [分析] 底下，選取 [HDInsight 叢集]。
+1. 從主要檢視中的 [OMS 監視]  下方，選取 [啟用]  。
 
-4. 從清單中選取您的叢集。
+1. 從 [選取工作區]  下拉式清單中，選取現有的 Log Analytics 工作區。
 
-5. 在左邊的 [監視]下方，選取 [Operations Management Suite]。
-
-6. 從主要檢視中的 [OMS 監視] 下方，選取 [啟用]。
-
-7. 從 [選取工作區] 下拉式清單中，選取現有的 Log Analytics 工作區。
-
-8. 選取 [ **儲存**]。  需要一些時間來儲存設定。
+1. 選取 [ **儲存**]。  需要一些時間來儲存設定。
 
     ![針對 HDInsight 叢集啟用監視](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "針對 HDInsight 叢集啟用監視")
 
@@ -107,7 +100,7 @@ HDInsight 提供叢集特定的管理解決方案，您可以新增 「 Azure �
 * HDInsight Spark 監視
 * HDInsight Storm 監視
 
-如需安裝管理解決方案的指示，請參閱[在 Azure 中的管理解決方案](../azure-monitor/insights/solutions.md#install-a-monitoring-solution)。 若要進行實驗時，安裝的 HDInsight Hadoop 監視解決方案。 完成後，您會看到 **HDInsightHadoop** 圖格列示於 [摘要] 下方。 選取 **HDInsightHadoop** 圖格。 HDInsightHadoop 解決方案顯示如下：
+如需安裝管理解決方案的指示，請參閱[在 Azure 中的管理解決方案](../azure-monitor/insights/solutions.md#install-a-monitoring-solution)。 若要進行實驗時，安裝的 HDInsight Hadoop 監視解決方案。 完成後，您會看到 **HDInsightHadoop** 圖格列示於 [摘要]  下方。 選取 **HDInsightHadoop** 圖格。 HDInsightHadoop 解決方案顯示如下：
 
 ![HDInsight 監視解決方案檢視](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 

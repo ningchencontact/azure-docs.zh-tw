@@ -11,56 +11,77 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 05/29/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 763aadc50a8760b4265dbfc21e9278f909b68433
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ead1892062912840c9931ae60d11c90975ad26ac
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60851086"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475118"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>在 Azure App Service 中的應用程式程式碼中使用 SSL 憑證
 
-此作法指南會示範如何將其中一種您上傳或匯入至 App Service 應用程式的 SSL 憑證，用於應用程式的程式碼中。 使用案例的範例是應用程式要存取需要驗證憑證的外部服務。 
+本操作說明指南示範如何在您的應用程式程式碼中使用公用或私用憑證。 使用案例的範例是應用程式要存取需要驗證憑證的外部服務。
 
-要在程式碼中使用 SSL 憑證的方法會利用 App Service 中的 SSL 功能，而這需要您的應用程式處於**基本**層或更高層級。 另一個替代方案是在應用程式目錄中包含憑證檔案，並將其直接載入 (請參閱[替代方案：載入檔案形式的憑證](#file))。 不過，此替代方案無法讓您隱藏憑證的私密金鑰，不讓應用程式的程式碼或開發人員知道。 此外，如果您的應用程式程式碼位於開放原始碼存放庫中，請勿選擇將帶有私密金鑰的憑證放在該存放庫中。
+若要使用憑證在您的程式碼中這個方法會使用 SSL 在應用程式服務中，這需要您的應用程式中的功能**基本**層或更高版本。 或者，您可以[納入您的應用程式存放庫中的憑證檔案](#load-certificate-from-file)，但它不是私用憑證的建議的作法。
 
 當您讓 App Service 管理您的 SSL 憑證時，您可以分開維護憑證以及應用程式程式碼，並保護您的敏感性資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="upload-a-private-certificate"></a>上傳私人憑證
 
-若要完成本作法指南：
+在之前上傳私人憑證，請確定[它符合所有需求](app-service-web-tutorial-custom-ssl.md#prepare-a-private-certificate)，不同之處在於它不需要設定伺服器驗證。
 
-- [建立 App Service 應用程式](/azure/app-service/)
-- [將自訂 DNS 名稱對應至 Web 應用程式](app-service-web-tutorial-custom-domain.md)
-- [上傳 SSL 憑證](app-service-web-tutorial-custom-ssl.md)或[匯入 App Service 憑證](web-sites-purchase-ssl-web-site.md)至您的 Web 應用程式
+當您準備好上傳時時，請執行下列命令<a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>。
 
+```azurecli-interactive
+az webapp config ssl upload --name <app-name> --resource-group <resource-group-name> --certificate-file <path-to-PFX-file> --certificate-password <PFX-password> --query thumbprint
+```
 
-## <a name="load-your-certificates"></a>載入您的憑證
+複製憑證指紋，並查看[讓憑證可供存取](#make-the-certificate-accessible)。
 
-若要使用上傳至或匯入至 App Service 的憑證，請先讓該憑證可供您的應用程式程式碼存取。 您可以使用 `WEBSITE_LOAD_CERTIFICATES` 應用程式設定來完成此動作。
+## <a name="upload-a-public-certificate"></a>上傳公開憑證
 
-在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>中，開啟 Web 應用程式頁面。
+中支援的公開憑證 *.cer*格式。 若要上傳公開憑證<a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，並瀏覽至您的應用程式。
 
-在左側導覽中，按一下 [SSL 憑證]。
+按一下  **SSL 設定** > **公開憑證 (.cer)**  > **上傳公開憑證**從您的應用程式的左側導覽。
 
-![Certificate uploaded](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
+在 **名稱**，輸入憑證的名稱。 在  **CER 憑證檔案**，選取您的 CER 檔案。
 
-所有針對此 Web 應用程式上傳和匯入的 SSL 憑證，皆會以這些憑證的指紋顯示。 複製您要使用的憑證指紋。
+按一下 [上傳]  。
 
-在左側導覽中，按一下 [應用程式設定]。
+![上傳公開憑證](./media/app-service-web-ssl-cert-load/private-cert-upload.png)
 
-新增名為 `WEBSITE_LOAD_CERTIFICATES` 的應用程式，並將其值設定為憑證的指紋。 若要讓多個憑證可供存取，請使用逗號來分隔指紋值。 若要讓所有憑證都可供存取，請將值設定為 `*`。 請記住，這會將憑證放入 `CurrentUser\My` 存放區。
+一旦上傳憑證，複製憑證指紋，並查看[讓憑證可供存取](#make-the-certificate-accessible)。
+
+## <a name="import-an-app-service-certificate"></a>匯入 App Service 憑證
+
+請參閱[購買並設定 Azure App Service 的 SSL 憑證](web-sites-purchase-ssl-web-site.md)。
+
+一旦匯入憑證，複製憑證指紋，並查看[讓憑證可供存取](#make-the-certificate-accessible)。
+
+## <a name="make-the-certificate-accessible"></a>讓憑證可供存取
+
+若要使用您的應用程式程式碼上傳或匯入的憑證，供其憑證指紋與`WEBSITE_LOAD_CERTIFICATES`應用程式設定，在中執行下列命令<a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
+```
+
+若要存取您的憑證，請將值設定為`*`。
+
+> [!NOTE]
+> 這項設定會在指定的憑證[目前 User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores)大部分的定價層，但在網上**隔離**層 (也就是應用程式執行[App Service Environment](environment/intro.md))，它會放在憑證[本機 Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores)儲存。
+>
 
 ![設定應用程式設定](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
 
-完成時，按一下 [儲存]。
+完成時，按一下 [儲存]  。
 
-設定的憑證現在已可供程式碼使用。
+設定的憑證現在已準備好可供您的程式碼的。
 
-## <a name="use-certificate-in-c-code"></a>在 C# 程式碼中使用憑證
+## <a name="load-the-certificate-in-code"></a>載入程式碼中的憑證
 
 一旦憑證可供存取之後，您可以透過憑證指紋在 C# 程式碼中存取憑證。 下列程式碼會載入指紋為 `E661583E8FABEF4C0BEF694CBC41C28FB81CD870` 的憑證。
 
@@ -88,11 +109,17 @@ certStore.Close();
 ```
 
 <a name="file"></a>
-## <a name="alternative-load-certificate-as-a-file"></a>替代方案：以檔案形式載入憑證
+## <a name="load-certificate-from-file"></a>從檔案載入憑證
 
-此區段會示範如何載入應用程式目錄中的憑證檔案。 
+如果您需要從您的應用程式的目錄載入憑證檔案，最好是使用上傳[FTPS](deploy-ftp.md)而不是[Git](deploy-local-git.md)，例如。 您應該保留機密的資料，例如出原始檔控制的私用憑證。
 
-下列 C# 範例會從應用程式存放庫的 `certs` 目錄載入名為 `mycert.pfx` 的憑證。
+即使您直接在您的.NET 程式碼中載入檔案，媒體櫃仍會確認是否載入目前的使用者設定檔。 若要載入目前的使用者設定檔，設定`WEBSITE_LOAD_USER_PROFILE`使用下列命令中的應用程式設定<a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>。
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
+```
+
+此設定會設定後，下列C#範例會載入憑證，稱為`mycert.pfx`從`certs`您的應用程式儲存機制的目錄。
 
 ```csharp
 using System;
@@ -105,4 +132,3 @@ string certPath = Server.MapPath("~/certs/mycert.pfx");
 X509Certificate2 cert = GetCertificate(certPath, signatureBlob.Thumbprint);
 ...
 ```
-

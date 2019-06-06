@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 51b394043f88789865edea5be6376ae536f88848
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: fba969b70ae052c928f33888d3c93eb7683ae9f7
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420434"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455762"
 ---
-# <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中設定共用的映像庫
-DevTest Labs 現已支援[共用映像庫](/virtual-machines/windows/shared-image-galleries.md)功能。 它可讓實驗室使用者從共用位置存取映像建立實驗室資源時。 此外，它也可協助您建立結構和組織周圍自訂受控 VM 映像。 共用映像庫功能支援：
+# <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中設定共用映像庫
+DevTest Labs 現已支援[共用映像庫](/virtual-machines/windows/shared-image-galleries.md)功能。 其能讓實驗室使用者在建立實驗室資源期間，可以存取共用位置中的映像。 也可協助您圍繞著自訂的受控 VM 映像，來建置結構和組織。 共用映像庫功能支援：
 
-- 受管理的全域複寫的映像
-- 版本控制和映像，以便更容易管理的群組
-- 讓您的映像支援可用性區域的區域中使用區域備援儲存體 (ZRS) 帳戶成為高可用性。 ZRS 提供較佳的彈性，防範區域性失敗。
-- 跨訂用帳戶，以及甚至是租用戶，使用角色型存取控制 (RBAC) 之間共用。
+- 映像的受控全域複製
+- 映像的版本設定及分組，讓管理更加容易
+- 在支援可用性區域的區域中，使用區域備援儲存體 (ZRS) 帳戶，讓映像具備高可用性。 面對區域性故障時，ZRS 能提供更佳的復原力。
+- 使用以角色區分的存取控制 (RBAC)，在訂用帳戶和甚至是租用戶之間，進行共用。
 
 如需詳細資訊，請參閱 <<c0> [ 共用映像庫文件](../virtual-machines/windows/shared-image-galleries.md)。 
  
-如果您有大量需要維護的受控映像，而且想要提供給全公司使用時，便可使用共用映像庫作為存放庫，以便輕鬆地更新及共用映像。 身為實驗室擁有者，您可以將現有的共用的映像庫附加至您的實驗室。 一旦附加這個組件庫時，實驗室使用者可以從這些最新的映像來建立機器。 這項功能的主要優點是，DevTest Labs 可以立即利用共用映像，在實驗室、 跨訂用帳戶，和跨區域。 
+如果您有大量需要維護的受控映像，而且想要提供給全公司使用時，便可使用共用映像庫作為存放庫，以便輕鬆地更新及共用映像。 您身為實驗室擁有者，可以對您的實驗室附加現有的映像庫。 一旦附加了此映像庫之後，實驗室使用者即可利用最新的映像來建立電腦。 此功能最主要的好處是，DevTest Labs 現已可在實驗室之間、訂用帳戶之間以及區域之間，使用共用映像功能。 
 
 ## <a name="considerations"></a>考量
 - 您只可以附加至實驗室的一個共用的映像庫一次。 如果您想要附加另一個資源庫，您必須中斷現有的連結，並將附加另一個。 
@@ -46,10 +46,17 @@ DevTest Labs 現已支援[共用映像庫](/virtual-machines/windows/shared-imag
 1. 從實驗室清單中，選取您**實驗室**。
 1. 選取 **組態和原則**中**設定**左側功能表上的一節。
 1. 選取 **共用映像資源庫**下方**虛擬機器基底**左側功能表上。
+
+    ![共用映像組件庫功能表](./media/configure-shared-image-gallery/shared-image-galleries-menu.png)
 1. 附加至您的實驗室的現有共用的映像庫上即可**附加**按鈕和下拉式清單中選取您的資源庫。
+
+    ![連結](./media/configure-shared-image-gallery/attach-options.png)
 1. 移至連結的資源庫並設定您要的資源庫**啟用或停用**共用映像來建立 VM。
+
+    ![啟用或停用](./media/configure-shared-image-gallery/enable-disable.png)
 1. 實驗室使用者接著可以建立虛擬機器上的 使用已啟用的映像 **+ 新增**並找出中的映像**選擇您的基底**頁面。
 
+    ![實驗室使用者](./media/configure-shared-image-gallery/lab-users.png)
 ## <a name="use-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本
 
 ### <a name="attach-a-shared-image-gallery-to-your-lab"></a>將共用的映像庫連結至您的實驗室

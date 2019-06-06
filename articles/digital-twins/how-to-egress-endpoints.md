@@ -17,9 +17,9 @@ ms.locfileid: "60924800"
 ---
 # <a name="egress-and-endpoints"></a>輸出和端點
 
-Azure Digital Twins 的「端點」代表使用者 Azure 訂用帳戶內的訊息或事件代理程式。 事件和訊息可以傳送至 Azure 事件中樞、Azure 事件方格和 Azure 服務匯流排主題。
+Azure Digital Twins 的「端點」  代表使用者 Azure 訂用帳戶內的訊息或事件代理程式。 事件和訊息可以傳送至 Azure 事件中樞、Azure 事件方格和 Azure 服務匯流排主題。
 
-事件會根據預先定義的路由喜好設定來路由至端點。 使用者會指定每個端點可收到的「事件類型」。
+事件會根據預先定義的路由喜好設定來路由至端點。 使用者會指定每個端點可收到的「事件類型」  。
 
 若要深入了解事件、路由與事件類型，請參閱 [Azure Digital Twins 中的路由事件和訊息](./concepts-events-routing.md)。
 
@@ -77,7 +77,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 
 ### <a name="topologyoperation"></a>TopologyOperation
 
-**TopologyOperation** 適用於圖表變更。 subject 屬性會指定受影響的物件類型。 下列類型的物件可能會觸發此事件：
+**TopologyOperation** 適用於圖表變更。 subject  屬性會指定受影響的物件類型。 下列類型的物件可能會觸發此事件：
 
 - 裝置
 - DeviceBlobMetadata

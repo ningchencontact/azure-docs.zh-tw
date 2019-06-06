@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: aa42371692cd5d0dc96835db5b66fe0877b90665
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66b9342f1a67c4c9d35fda447a297cc64d048c1e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61280361"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480305"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>設定多層式 IIS 型 Web 應用程式的災害復原
 
@@ -69,7 +69,7 @@ Azure|NA|是
 
 若要開始將所有 IIS Web 伺服陣列虛擬機器複寫至 Azure，請遵循[在 Site Recovery 中測試容錯移轉到 Azure](site-recovery-test-failover-to-azure.md)中的指引。
 
-如果您使用靜態 IP 位址，您可以指定您想要虛擬機器使用的 IP 位址。 若要設定 IP 位址，請移至 [計算和網路] 設定 > [目標 IP]。
+如果您使用靜態 IP 位址，您可以指定您想要虛擬機器使用的 IP 位址。 若要設定 IP 位址，請移至 [計算和網路] 設定   > [目標 IP]  。
 
 ![顯示如何在 Site Recovery 計算和網路窗格中設定目標 IP 的螢幕擷取畫面](./media/site-recovery-active-directory/dns-target-ip.png)
 
@@ -109,14 +109,14 @@ Azure|NA|是
         </connectionStrings>
         </configuration>
 
-若要更新 Web 層中的連接字串，請在復原方案中的群組 3 之後新增 [IIS 連線更新指令碼](https://aka.ms/asr-update-webtier-script-classic)。
+若要更新 Web 層中的連接字串，請在復原方案中的群組 3 之後新增 [IIS 連線更新指令碼](https://gallery.technet.microsoft.com/Update-IIS-connection-2579aadc)。
 
 #### <a name="site-bindings-for-the-application"></a>應用程式的網站繫結
 每個網站都包含繫結資訊。 繫結資訊包括繫結的類型、IIS 伺服器接聽網站要求的 IP 位址、連接埠號碼，以及網站的主機名稱。 在容錯移轉期間，如果與這些繫結相關聯的 IP 位址發生變更，您可能需要更新這些繫結。
 
 > [!NOTE]
 >
-> 如果您將網站繫結設定為 [全未指派]，則在容錯移轉後，就不需要更新此繫結。 此外，如果與網站相關聯的 IP 位址並未在容錯移轉後變更，您就不需要更新網站繫結。 (IP 位址的保留取決於網路架構以及指派給主要和復原網站的子網路。 對您的組織而言，更新它們可能不可行。)
+> 如果您將網站繫結設定為 [全未指派]  ，則在容錯移轉後，就不需要更新此繫結。 此外，如果與網站相關聯的 IP 位址並未在容錯移轉後變更，您就不需要更新網站繫結。 (IP 位址的保留取決於網路架構以及指派給主要和復原網站的子網路。 對您的組織而言，更新它們可能不可行。)
 
 ![示範如何設定 SSL 繫結的螢幕擷取畫面](./media/site-recovery-iis/sslbinding.png)
 
@@ -142,10 +142,10 @@ Azure|NA|是
 
 1. 在 Azure 入口網站中，選取您的復原服務保存庫。
 2. 選取您為 IIS Web 伺服陣列建立的復原方案。
-3. 選取 [測試容錯移轉]。
+3. 選取 [測試容錯移轉]  。
 4. 若要啟動測試容錯移轉程序，請選取復原點和 Azure 虛擬網路。
 5. 當次要環境啟動時，您即可執行驗證。
-6. 完成驗證時，若要清除測試容錯移轉環境，請選取 [驗證完成]。
+6. 完成驗證時，若要清除測試容錯移轉環境，請選取 [驗證完成]  。
 
 如需詳細資訊，請參閱[在 Site Recovery 中測試容錯移轉至 Azure](site-recovery-test-failover-to-azure.md)。
 
@@ -153,7 +153,7 @@ Azure|NA|是
 
 1. 在 Azure 入口網站中，選取您的復原服務保存庫。
 1. 選取您為 IIS Web 伺服陣列建立的復原方案。
-1. 選取 [容錯移轉]。
+1. 選取 [容錯移轉]  。
 1. 若要啟動容錯移轉程序，請選取復原點。
 
 如需詳細資訊，請參閱[在 Site Recovery 中容錯移轉](site-recovery-failover.md)。

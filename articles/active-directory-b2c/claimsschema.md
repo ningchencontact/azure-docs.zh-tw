@@ -2,20 +2,20 @@
 title: ClaimsSchema  - Azure Active Directory B2C | Microsoft Docs
 description: 指定 Azure Active Directory B2C 中自訂原則的 ClaimsSchema 元素。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 81df3532ee466f32ee42f0010de9aa74dbeb6d85
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721758"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511856"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -44,7 +44,7 @@ ms.locfileid: "64721758"
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| id | 是 | 要用於宣告類型的識別碼。 其他元素可以在原則中使用這個識別碼。 |
+| Id | 是 | 要用於宣告類型的識別碼。 其他元素可以在原則中使用這個識別碼。 |
 
 **ClaimType** 元素包含下列元素：
 
@@ -107,7 +107,7 @@ PredicateValidationReference| 0:1 | 對 **PredicateValidationsInput** 元素的�
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | `Type` | 是 | 宣告遮罩的類型。 可能的值：`Simple` 或 `Regex`。 `Simple` 值表示會將簡單的文字遮罩套用到字串宣告的前置部分。 `Regex` 值表示會將規則運算式套用到整個字串宣告。  如果指定 `Regex` 值，也必須透過要使用的規則運算式來定義選擇性屬性。 |
-| `Regex` | 否 | 如果**`Type`** 設定為`Regex`，指定要使用的規則運算式。
+| `Regex` | 否 | 如果 **`Type`** 設定為`Regex`，指定要使用的規則運算式。
 
 下列範例會使用 `Simple` 遮罩來設定 **PhoneNumber** 宣告：
 

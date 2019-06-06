@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 90c7e4653b879c2432f08506cea08646e84bb69a
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 46be01c57be0e4f5fa74f8e8b0d91db3d78f441c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297709"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480409"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>對應資料的流程效能及微調指南
 
@@ -29,15 +29,28 @@ Azure Data Factory 對應資料流程提供設計、 部署和協調大規模的
 
 ![偵錯 按鈕](media/data-flow/debugb1.png "偵錯")
 
+## <a name="monitor-data-flow-performance"></a>監視資料流程效能
+
+設計您的對應資料流動瀏覽器中，您可以單元測試每個個別的轉換在底部設定 窗格，針對每個轉換的資料預覽 索引標籤，即可。 您應該採取的下一個步驟是測試您的資料流程端對端管線設計師 」 中。 新增執行資料流活動，並使用偵錯 按鈕來測試在資料流程的效能。 在 [管線] 視窗的下方窗格中，您會看到 eyeglass 圖示，在 [動作] 下：
+
+![監視資料流程](media/data-flow/mon002.png "資料流程監視器 2")
+
+按一下該圖示會顯示執行計畫，在資料流程的後續的效能設定檔。 您可以使用這項資訊來預估您針對不同大小的資料來源的資料流程的效能。 請注意，您可以假設 1 分鐘，叢集作業執行設定時間的整體效能計算的而且如果您使用預設的 Azure Integration Runtime，您可能需要新增叢集啟動時間的 5 分鐘。
+
+![資料流監視](media/data-flow/mon003.png "資料流程監視 3")
+
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>最佳化 Azure SQL Database 和 Azure SQL 資料倉儲
 
 ![來源組件](media/data-flow/sourcepart2.png "來源組件")
 
-### <a name="you-can-match-spark-data-partitioning-to-your-source-database-partitioning-based-on-a-database-table-column-key-in-the-source-transformation"></a>您可以對應到您來源資料庫資料分割的資料分割以 「 來源 」 轉換中的資料庫資料表資料行索引鍵為基礎的 Spark
+### <a name="partition-your-source-data"></a>將來源資料分割
 
 * 請移至 「 最佳化 」，然後選取 「 來源 」。 在查詢中設定特定的資料表資料行或類型。
 * 如果您選擇 [資料行]，然後挑選資料分割資料行。
 * 此外，設您的 Azure SQL DB 的連線數目上限。 您可以嘗試較高的設定，以取得平行連線到您的資料庫。 不過，某些情況下可能會導致更快的效能，數量有限的連線。
+* 來源資料庫資料表不需要進行資料分割。
+* 設定您的來源轉換符合您的資料庫資料表的資料分割配置中的查詢，可讓來源資料庫引擎，以利用分割區刪除。
+* 如果您的來源不已資料分割，ADF 會仍然會使用 Spark 轉換環境，根據您選取 來源轉換中的索引鍵中的資料分割。
 
 ### <a name="set-batch-size-and-query-on-source"></a>設定批次大小與來源上的查詢
 
@@ -51,7 +64,7 @@ Azure Data Factory 對應資料流程提供設計、 部署和協調大規模的
 
 ![接收](media/data-flow/sink4.png "接收")
 
-* 為了避免資料 floes 逐列處理，請在 接收設定，適用於 Azure SQL DB 中設定 「 批次大小 」。 這會告知 ADF 來處理資料庫寫入提供的大小為基礎的批次。
+* 為了避免逐列處理的資料流，請在 接收設定，適用於 Azure SQL DB 中設定 「 批次大小 」。 這會告知 ADF 來處理資料庫寫入提供的大小為基礎的批次。
 
 ### <a name="set-partitioning-options-on-your-sink"></a>設定資料分割的接收器上的選項
 
@@ -84,7 +97,7 @@ Azure Data Factory 對應資料流程提供設計、 部署和協調大規模的
 
 ### <a name="use-staging-to-load-data-in-bulk-via-polybase"></a>使用暫存來透過 Polybase 的大量資料載入
 
-* 為了避免資料 floes 逐列處理，以便 ADF 可以利用以避免逐列插入至 DW 的 Polybase，接收設定中設定 「 預備 」 選項。 這會指示要使用 Polybase，因此可以將資料載入大量的 ADF。
+* 為了避免逐列處理的資料流，以便 ADF 可以利用以避免逐列插入至 DW 的 Polybase，接收設定中設定 「 預備 」 選項。 這會指示要使用 Polybase，因此可以將資料載入大量的 ADF。
 * 當您執行來自您資料的流程活動上開啟的管線，使用接移，您必須選取的暫存大量載入資料的 Blob 存放區位置。
 
 ### <a name="increase-the-size-of-your-azure-sql-dw"></a>增加您的 Azure SQL DW 的大小
@@ -113,4 +126,4 @@ Azure Data Factory 對應資料流程提供設計、 部署和協調大規模的
 
 - [資料的流程概觀](concepts-data-flow-overview.md)
 - [Data Flow 活動](control-flow-execute-data-flow-activity.md)
-
+- [監視資料流程效能](concepts-data-flow-monitoring.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 464d01b7b818b461024737a83d88c78947453c37
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736134"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428495"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>連線到媒體服務 v3 API-.NET
 
@@ -27,7 +27,7 @@ ms.locfileid: "60736134"
 ## <a name="prerequisites"></a>必要條件
 
 - [建立媒體服務帳戶](create-account-cli-how-to.md)。 請務必記住的資源群組名稱和媒體服務帳戶名稱
-- 安裝您想要使用適用於.NET 開發的工具。 這篇文章中的步驟示範如何使用[Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 您可以使用 Visual Studio Code，請參閱[使用C# ](https://code.visualstudio.com/docs/languages/csharp)。 或者，您可以使用不同的程式碼編輯器。
+- 安裝您想要使用適用於.NET 開發的工具。 這篇文章中的步驟示範如何使用[Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 您可以使用 Visual Studio Code，請參閱[使用C# ](https://code.visualstudio.com/docs/languages/csharp)。 或者，您可以使用不同的程式碼編輯器。
 
 ## <a name="create-a-console-application"></a>建立主控台應用程式
 
@@ -42,7 +42,7 @@ ms.locfileid: "60736134"
 1. 在 Visual Studio 中，選取**工具** > **NuGet 套件管理員** > **NuGet 管理員主控台**。
 2. 在  **Package Manager Console**視窗中，使用`Install-Package`命令以新增以下 NuGet 套件。 例如： `Install-Package Microsoft.Azure.Management.Media`。
 
-|Package|描述|
+|封裝|描述|
 |---|---|
 |`Microsoft.Azure.Management.Media`|Azure 媒體服務 SDK。 <br/>若要確定您使用最新的 Azure 媒體服務封裝，請檢查[Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media)。|
 |`Microsoft.Rest.ClientRuntime.Azure.Authentication`|Azure SDK for.NET 的 ADAL 驗證程式庫|

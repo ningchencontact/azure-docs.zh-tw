@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4aaf56a00669dbf7e312e2a6f8787ccc664d1190
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8fd7af7c2a075258e337b51c3aaca3da9e3d497f
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023823"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692856"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>使用部署為 Web 服務的 Azure Machine Learning 模型
 
@@ -486,3 +486,11 @@ print(resp.text)
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
+
+## <a name="consume-the-service-from-power-bi"></a>使用從 Power BI 服務
+
+Power BI 支援 Azure Machine Learning web 服務，以擴充 Power BI 中的資料，預測的耗的用量。 
+
+若要產生 web 服務支援的 Power BI 中的耗用量，結構描述必須支援所需的 Power BI 的格式。 [了解如何建立 Power BI 支援的結構描述](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#Example-script-with-dictionary-input-Support-consumption-from-Power-BI)。
+
+一旦部署 web 服務時，就從 Power BI 的資料流程。 [了解如何使用 Azure Machine Learning web 服務從 Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)。

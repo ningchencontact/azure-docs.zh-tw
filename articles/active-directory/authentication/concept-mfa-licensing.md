@@ -1,22 +1,22 @@
 ---
-title: Azure MFA 版本和使用计划 - Azure Active Directory
+title: Azure MFA 版本和耗用量計劃-Azure Active Directory
 description: Multi-Factor Authentication 用戶端、不同的方法及可用版本的詳細資訊。
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 06/03/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 765b9aff898cbea763d66a20db91b3390cc48bb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a1ee55dd3aebca869da47bbc994f546aa4fe528
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415674"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496761"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication
 
@@ -32,16 +32,16 @@ ms.locfileid: "60415674"
 
 | Version | 描述 |
 | --- | --- |
-| Multi-Factor Authentication for Office 365 <br> Microsoft 365 商務版 |這個版本專門搭配 Office 365 應用程式運作，並且可從 Office 365 或 Microsoft 365 入口網站管理。 系統管理員可以[使用雙步驟驗證來保護 Office 365 資源的安全](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)。 此版本是 Office 365 或 Microsoft 365 商務版訂用帳戶的一部分。 |
-| 適用於 Azure AD 系統管理員的 Multi-Factor Authentication | Azure AD 租用戶中指派為 Azure AD 全域管理員角色的使用者，可以啟用雙步驟驗證，而不需要額外收費。|
-| Azure Multi-Factor Authentication | 通常稱為「完整」版本，Azure Multi-Factor Authentication 提供最豐富的功能。 它能透過 [Azure 入口網站](https://portal.azure.com)、進階報告及支援一系列內部部署和雲端應用程式來提供其他設定選項。 Azure Multi-Factor Authentication 是 [Azure Active Directory Premium ](https://www.microsoft.com/cloud-platform/azure-active-directory-features) 的一項功能，並可以在雲端中部署或進行內部部署。 |
+| Multi-Factor Authentication for Office 365 <br> Microsoft 365 商務版 | 此版本是從 Office 365 或 Microsoft 365 入口網站管理。 系統管理員可以[使用雙步驟驗證來保護 Office 365 資源的安全](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)。 此版本是 Office 365 或 Microsoft 365 商務版訂用帳戶的一部分。 |
+| 適用於 Azure AD 系統管理員的 Multi-Factor Authentication | Azure AD 租用戶中指派為 Azure AD 全域管理員角色的使用者，可以啟用雙步驟驗證，而不需要額外收費。 |
+| Azure Multi-Factor Authentication | 通常稱為「完整」版本，Azure Multi-Factor Authentication 提供最豐富的功能。 它能透過 [Azure 入口網站](https://portal.azure.com)、進階報告及支援一系列內部部署和雲端應用程式來提供其他設定選項。 Azure Multi-factor Authentication 是一項功能[Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features)。 |
 
 > [!NOTE]
 > 自 2018 年 9 月 1 日起，新客戶無法再將 Azure Multi-Factor Authentication 當做獨立供應項目購買。 多重要素驗證將繼續為 Azure AD Premium 授權中的可用功能。
 
 ## <a name="feature-comparison-of-versions"></a>版本的功能比較
 
-下表提供了 Azure 多重身份验证的各个版本中可用的功能列表。
+下表提供 Azure Multi-Factor Authentication 各版本中可用的功能清單。
 
 > [!NOTE]
 > 此比較表會討論每個 Multi-Factor Authentication 版本中所包含的功能。 如果您擁有完整的 Azure Multi-Factor Authentication 服務，則依您使用的是[雲端中的 MFA 或內部部署 MFA](concept-mfa-whichversion.md) 而定，某些功能可能無法使用。
@@ -55,7 +55,7 @@ ms.locfileid: "60415674"
 | 以 SMS 做為第二個因素 |● |● |● |
 | 用戶端應用程式密碼不支援 MFA |● |● |● |
 | 系統管理員控制驗證方法 |● |● |● |
-| 透過 MFA 保護非系統管理員帳戶 |● (僅適用於 Office 365 應用程式) | |● |
+| 透過 MFA 保護非系統管理員帳戶 |● | |● |
 | PIN 模式 | | |● |
 | 詐騙警示 | | |● |
 | MFA 報告 | | |● |
@@ -75,17 +75,13 @@ Azure AD 租用戶中指派為全域管理員角色的使用者，可以為其 A
 
 ## <a name="how-to-purchase-azure-multi-factor-authentication"></a>如何購買 Azure Multi-Factor Authentication
 
-如果您想要 Azure Multi-Factor Authentication 所提供的完整功能，有數個選項︰
+購買隨附 Azure Multi-factor Authentication，例如 Azure Active Directory Premium 或授權的組合，其中包含 Azure AD Premium 或條件式存取，並將它們指派給 Azure Active Directory 中使用者的授權。
 
-### <a name="option-1---licenses-that-include-mfa"></a>選項 1 - 包括 MFA 的授權
+### <a name="consumption-based-licensing"></a>耗用量為基礎的授權
 
-購買隨附 Azure Multi-Factor Authentication 的授權 (例如 Azure Active Directory Premium 或是包括 Azure AD Premium 的授權配套)，並將其指派給您 Azure Active Directory 中的使用者。
+耗用量為基礎的授權不再有效的新客戶可以使用 2018 年 9 月 1 日。
 
-### <a name="option-2---mfa-consumption-based-model"></a>選項 2 - MFA 耗用量為基礎的模型
-
-此選項已無法再提供給新客戶，2018 年 9 月 1 日起生效。
-
-自 2018 年 9 月 1 日起，不再建立新的驗證提供者。 現有的驗證提供者可繼續使用與更新。 多重要素驗證將繼續為 Azure AD Premium 授權中的可用功能。
+有效 2018 年 9 月 1 日起新驗證提供者可能不會再建立。 現有的驗證提供者可繼續使用與更新。 多重要素驗證將繼續為 Azure AD Premium 授權中的可用功能。
 
 使用 Azure Multi-Factor Authentication 提供者時，有兩種使用量模型可透過您的 Azure 訂用帳戶計費：
 

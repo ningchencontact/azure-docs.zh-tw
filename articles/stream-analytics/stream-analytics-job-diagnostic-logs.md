@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: e784cfd2956479327cff9c97a09dd0ada6a154c2
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: ff2930fbe0e53c4b3c1223f87919c0913296d07c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826585"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515926"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>使用析診斷記錄對 Azure 串流分進行疑難排解
 
@@ -28,7 +28,7 @@ ms.locfileid: "65826585"
 * [診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (可設定) 可讓您更深入地了所有與作業相關的發生事件。 診斷記錄會在作業建立時開始執行，並在作業刪除時結束。 這些記錄涵蓋作業更新時與作業執行時的情形。
 
 > [!NOTE]
-> 可以使用 Azure 存储、Azure 事件中心和 Azure Monitor 日志等服务分析不一致的数据。 這些服務將會依據各自的計價模式向您收取費用。
+> 您可以使用服務，例如 Azure 儲存體、 Azure 事件中樞和 Azure 監視器記錄來分析不一致的資料。 這些服務將會依據各自的計價模式向您收取費用。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -36,17 +36,17 @@ ms.locfileid: "65826585"
 
 活動記錄預設會開啟，可以對 Stream Analytics 作業所執行的作業提供高層級的見解。 活動記錄中出現的資訊可能有助於找出影響您工作之問題的根本原因。 執行下列步驟，以在 Stream Analytics 中使用活動記錄：
 
-1. 登入 Azure 入口網站，並在 [概觀] 下選取 [活動記錄]。
+1. 登入 Azure 入口網站，並在 [概觀]  下選取 [活動記錄]  。
 
    ![Stream Analytics 活動記錄](./media/stream-analytics-job-diagnostic-logs/stream-analytics-menu.png)
 
 2. 您可以看到一份已執行的作業清單。 任何造成您的作業 (job) 失敗的任何作業 (operation) 都會出現紅色的資訊泡泡。
 
-3. 按一下作業，以查看其摘要檢視。 這裡的資訊通常是有限的。 若要深入了解作業的相關資訊，請按一下 [JSON]。
+3. 按一下作業，以查看其摘要檢視。 這裡的資訊通常是有限的。 若要深入了解作業的相關資訊，請按一下 [JSON]  。
 
    ![Stream Analytics 活動記錄作業摘要](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. 向下捲動至 JSON 的 [屬性] 區段，該區段提供導致作業失敗的錯誤的詳細資料。 在此範例中，失敗是由於超出範圍的緯度值的執行階段錯誤。
+4. 向下捲動至 JSON 的 [屬性]  區段，該區段提供導致作業失敗的錯誤的詳細資料。 在此範例中，失敗是由於超出範圍的緯度值的執行階段錯誤。 資料處理的 Stream Analytics 作業中的差異會導致資料錯誤。 您可以了解不同[輸入和輸出資料錯誤和發生的原因](https://docs.microsoft.com/azure/stream-analytics/data-errors)。
 
    ![JSON 錯誤詳細資料](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
@@ -54,27 +54,27 @@ ms.locfileid: "65826585"
 
 6. 如果活動記錄檔中的錯誤訊息不是很有幫助識別根本原因，請啟用診斷記錄檔，並使用 Azure 監視器記錄檔。
 
-## <a name="send-diagnostics-to-azure-monitor-logs"></a>将诊断发送到 Azure Monitor 日志
+## <a name="send-diagnostics-to-azure-monitor-logs"></a>將診斷傳送至 Azure 監視器記錄檔
 
-强烈建议打开诊断日志并将它们发送到 Azure Monitor 日志。 診斷記錄預設為 [關閉]。 若要開啟診斷記錄，請完成下列步驟︰
+強烈建議您開啟診斷記錄檔，並將它們傳送到 Azure 監視器記錄檔。 診斷記錄預設為 [關閉]  。 若要開啟診斷記錄，請完成下列步驟︰
 
-1.  登入 Azure 入口網站，然後瀏覽至您的 Stream Analytics 作業。 在 [監視] 下，選取 [診斷記錄]。 然後選取 [開啟診斷]。
+1.  登入 Azure 入口網站，然後瀏覽至您的 Stream Analytics 作業。 在 [監視]  下，選取 [診斷記錄]  。 然後選取 [開啟診斷]  。
 
     ![瀏覽到診斷記錄的刀鋒視窗](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  在 [診斷設定] 中建立 [名稱]，然後核取 [傳送至 Log Analytics] 旁邊的方塊。 然後，新增現有的 Log Analytics 工作區或建立新的 **Log Analytics 工作區**。 核取 [記錄] 下的 [執行] 和 [編寫]，以及 [計量] 下的 [AllMetrics] 核取方塊。 按一下 [檔案] 。
+2.  在 [診斷設定]  中建立 [名稱]  ，然後核取 [傳送至 Log Analytics]  旁邊的方塊。 然後，新增現有的 Log Analytics 工作區或建立新的 **Log Analytics 工作區**。 核取 [記錄]  下的 [執行]  和 [編寫]  ，以及 [計量]  下的 [AllMetrics]  核取方塊。 按一下 [檔案]  。
 
     ![診斷記錄的設定](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
-3. 當您的 Stream Analytics 作業啟動時，診斷記錄會路由傳送至 Log Analytics 工作區。 瀏覽至 Log Analytics 工作區，然後選擇 [一般] 區段下的 [記錄]。
+3. 當您的 Stream Analytics 作業啟動時，診斷記錄會路由傳送至 Log Analytics 工作區。 瀏覽至 Log Analytics 工作區，然後選擇 [一般]  區段下的 [記錄]  。
 
-   ![“常规”部分下的 Azure Monitor 日志](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![在 [一般] 區段下的 azure 監視器記錄檔](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
 4. 您可以[撰寫自己的查詢](../azure-monitor/log-query/get-started-portal.md)來搜尋字詞、識別趨勢、分析模式，以及提供以資料為基礎的深入解析。 例如，您可以撰寫查詢以篩選僅具有訊息「串流處理工作失敗」的診斷記錄。 Azure Stream Analytics 的診斷記錄會儲存在 **AzureDiagnostics** 資料表中。
 
    ![診斷查詢和結果](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-query.png)
 
-5. 如果您的查詢正在搜尋正確的記錄，請選取 [儲存] 並提供 [名稱] 和 [類別] 進行儲存。 然後，您可以透過選取 [新增警示規則] 來建立警示。 接下來，指定警示條件。 選取 [條件]，並輸入臨界值以及評估此自訂記錄搜尋的頻率。  
+5. 如果您的查詢正在搜尋正確的記錄，請選取 [儲存]  並提供 [名稱] 和 [類別] 進行儲存。 然後，您可以透過選取 [新增警示規則]  來建立警示。 接下來，指定警示條件。 選取 [條件]  ，並輸入臨界值以及評估此自訂記錄搜尋的頻率。  
 
    ![診斷記錄搜尋查詢](./media/stream-analytics-job-diagnostic-logs/search-query.png)
 
@@ -97,10 +97,10 @@ Azure Stream Analytics 會擷取診斷記錄的兩個的類別：
 
 所有記錄會儲存為 JSON 格式。 每個項目皆包含下列常見的字串欄位︰
 
-名稱 | 說明
+Name | 描述
 ------- | -------
 time | 記錄的時間戳記 (UTC 時間)。
-resourceId | 作業執行資源的識別碼 (大寫)。 其中包含訂用帳戶識別碼、資源群組，以及作業名稱。 例如，**/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**。
+ResourceId | 作業執行資源的識別碼 (大寫)。 其中包含訂用帳戶識別碼、資源群組，以及作業名稱。 例如， **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**。
 category | 記錄類別 (**執行**或**編寫**)。
 operationName | 記錄的作業名稱。 例如，**傳送事件︰SQL 輸出寫入失敗至 mysqloutput**。
 status | 作業的狀態。 例如，**失敗**或**成功**。
@@ -115,11 +115,11 @@ properties | 記錄項目特定詳細資料 (序列化為 JSON 字串)。 如需
 
 作業處理資料時發生的任何錯誤皆包含於此類記錄中。 這些記錄最常於資料讀取、序列化和寫入作業時建立。 這些記錄不包含連線錯誤。 連線錯誤視為一般事件。
 
-名稱 | 說明
+Name | 描述
 ------- | -------
 `Source` | 發生錯誤的作業輸入或輸出名稱。
-`Message` | 與錯誤相關的訊息。
-Type | 錯誤類型。 例如，**DataConversionError**、**CsvParserError** 或 **ServiceBusPropertyColumnMissingError**。
+Message | 與錯誤相關的訊息。
+類型 | 錯誤類型。 例如，**DataConversionError**、**CsvParserError** 或 **ServiceBusPropertyColumnMissingError**。
 資料 | 包含有助於正確找到錯誤來源的資料。 視其大小，資料可能會遭到截斷。
 
 資料錯誤會隨 **operationName** 值的不同而有下列結構描述：
@@ -136,11 +136,11 @@ Type | 錯誤類型。 例如，**DataConversionError**、**CsvParserError** 或
 
 一般事件涵蓋所有其他事件。
 
-名稱 | 說明
+Name | 描述
 -------- | --------
 Error | (選用) 錯誤資訊。 這通常是例外狀況資訊 (如果有的話)。
-`Message`| 記錄訊息。
-Type | 訊息類型。 對應至錯誤的內部分類。 例如，**JobValidationError**或 **BlobOutputAdapterInitializationFailure**。
+Message| 記錄訊息。
+類型 | 訊息類型。 對應至錯誤的內部分類。 例如，**JobValidationError**或 **BlobOutputAdapterInitializationFailure**。
 相互關連識別碼 | 唯一識別作業執行的 [GUID (英文)](https://en.wikipedia.org/wiki/Universally_unique_identifier)。 從作業開始直到作業停止的所有執行記錄項目皆具有同一個**相互關聯識別碼**值。
 
 ## <a name="next-steps"></a>後續步驟

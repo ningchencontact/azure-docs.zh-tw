@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: e55d596cfaf34c177f6dc43c27aaac37da87d2f7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f60146e4e11e50b2f2254a0d8d7f59c01ba74464
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024875"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479944"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>使用 Azure 搜尋服務在 Azure Blob 儲存體中對文件編制索引
 本文說明如何使用 Azure 搜尋服務對儲存在 Azure Blob 儲存體的文件編製索引 (例如 PDF、Microsoft Office 文件和數種其他通用格式)。 首先，它會說明安裝和設定 blob 索引子的基本概念。 然後，它會提供可能會發生之行為和案例的更深入探索。
@@ -28,7 +28,7 @@ blob 索引子可以從下列文件格式擷取文字：
 ## <a name="setting-up-blob-indexing"></a>設定 blob 編製索引
 您可以使用下列項目設定 Azure Blob 儲存體索引子︰
 
-* [Azure 门户](https://ms.portal.azure.com)
+* [Azure 入口網站](https://ms.portal.azure.com)
 * Azure 搜尋服務 [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Azure 搜尋服務 [.NET SDK](https://aka.ms/search-sdk)
 
@@ -134,17 +134,18 @@ blob 索引子可以從下列文件格式擷取文字：
 * 標準 blob 中繼資料屬性會擷取到下列欄位：
 
   * **metadata\_storage\_name** (Edm.String) - blob 的檔案名稱。 例如，如果您有 blob /my-container/my-folder/subfolder/resume.pdf，這個欄位的值是 `resume.pdf`。
-  * **metadata\_storage\_path** (Edm.String) - blob 的完整 URI，包括儲存體帳戶。 例如， `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  * **metadata\_storage\_path** (Edm.String) - blob 的完整 URI，包括儲存體帳戶。 例如： `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
   * **metadata\_storage\_content\_type** (Edm.String) - 內容類型，如同您用來上傳 blob 的程式碼所指定。 例如： `application/octet-stream`。
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - 上次修改 blob 的時間戳記。 Azure 搜尋服務會使用此時間戳記來識別已變更的 blob，以避免在初始編製索引之後重新對所有項目編制索引。
   * **metadata\_storage\_size** (Edm.Int64) - blob 大小 (位元組)。
   * **metadata\_storage\_content\_md5** (Edm.String) - blob 內容的 MD5 雜湊，如果有的話。
+  * **中繼資料\_儲存體\_sas\_語彙基元**(Edm.String)-可供暫存語彙基元[自訂技術](cognitive-search-custom-skill-interface.md)取得正確的存取權的 blob。 此 sas 權杖不應該儲存供稍後使用，因為它可能會過期。
 * 每個文件格式特有的中繼資料屬性會擷取到[這裡](#ContentSpecificMetadata)列出的欄位。
 
 您不需要在您的搜尋索引中針對上述所有屬性定義欄位 - 只擷取您的應用程式所需的屬性。
 
 > [!NOTE]
-> 通常，您現有的索引中的欄位名稱會與文件擷取期間所產生的欄位名稱不同。 您可以使用 [欄位對應] 將 Azure 搜尋服務提供的屬性名稱對應至您的搜尋索引中的欄位名稱。 您會在下面看到使用欄位對應的範例。
+> 通常，您現有的索引中的欄位名稱會與文件擷取期間所產生的欄位名稱不同。 您可以使用 [欄位對應]  將 Azure 搜尋服務提供的屬性名稱對應至您的搜尋索引中的欄位名稱。 您會在下面看到使用欄位對應的範例。
 >
 >
 
@@ -272,7 +273,7 @@ Azure 搜尋服務會限制編列索引的 Blob 大小。 這些限制記載於 
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-如果在處理期間發生任何錯誤，當剖析 blob 或是將文件新增至索引時，您還是可以繼續編製索引。 若要忽略特定錯誤數目，請將 `maxFailedItems` 和 `maxFailedItemsPerBatch` 組態參數設定為所需的值。 例如︰
+如果在處理期間發生任何錯誤，當剖析 blob 或是將文件新增至索引時，您還是可以繼續編製索引。 若要忽略特定錯誤數目，請將 `maxFailedItems` 和 `maxFailedItemsPerBatch` 組態參數設定為所需的值。 例如:
 
     {
       ... other parts of indexer definition
@@ -338,7 +339,7 @@ Azure 搜尋服務會限制編列索引的 Blob 大小。 這些限制記載於 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>編制純文字的索引 
 
-如果所有的 Blob 都包含相同編碼的純文字，您可以使用「文字剖析模式」來大幅提升編制索引的效能。 若要使用文字剖析模式，請將 `parsingMode` 設定屬性設定為 `text`：
+如果所有的 Blob 都包含相同編碼的純文字，您可以使用「文字剖析模式」  來大幅提升編制索引的效能。 若要使用文字剖析模式，請將 `parsingMode` 設定屬性設定為 `text`：
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json

@@ -16,12 +16,12 @@ ms.date: 04/23/2018
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76177972cbd002793f5d9fc4ab8bbe6ef2121e91
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: ce1d2aaed85f61e2e18f696d749219a1b951c862
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106686"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474335"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>針對已加入混合式 Azure Active Directory 的下層裝置進行疑難排解 
 
@@ -51,7 +51,7 @@ ms.locfileid: "62106686"
 
 - 每一使用者的裝置數目上限目前也適用於已加入舊版混合式 Azure AD 的裝置。 
 
-- 當多位網域使用者登入已加入舊版混合式 Azure AD 的裝置時，相同的實體裝置會在 Azure AD 中出現多次。  舉例來說：如果 *jdoe* 和 *jharnett* 登入裝置，在 [使用者] 資訊索引標籤中就會為每位使用者建立個別的註冊 (DeviceID)。 
+- 當多位網域使用者登入已加入舊版混合式 Azure AD 的裝置時，相同的實體裝置會在 Azure AD 中出現多次。  舉例來說：如果 *jdoe* 和 *jharnett* 登入裝置，在 [使用者]  資訊索引標籤中就會為每位使用者建立個別的註冊 (DeviceID)。 
 
 - 在使用者資訊索引標籤上，也可能因重新安裝作業系統或手動重新註冊，而導致一個裝置有多個項目。
 
@@ -87,7 +87,7 @@ ms.locfileid: "62106686"
     
   - Autoworkplace.exe 無法以無訊息方式使用 Azure AD 或 AD FS 進行驗證。 造成此情況的原因可能是 AD FS (適用於同盟網域) 遺漏或設定不正確、「Azure AD 無縫單一登入」(適用於受控網域) 遺漏或設定不正確，或網路問題。 
     
-    - 也可能是已針對使用者啟用/設定多重要素驗證 (MFA)，但未在 AD FS 伺服器設定 WIAORMUTLIAUTHN。 
+    - 可能是 multi-factor authentication (MFA) 是針對使用者啟用/設定，而且 WIAORMULTIAUTHN 未設定 AD FS 伺服器上。 
      
     - 另一個可能原因是主領域探索 (HRD) 頁面正在等候使用者互動，而導致 **autoworkplace.exe** 無法以無訊息方式要求權杖。
      
@@ -97,7 +97,7 @@ ms.locfileid: "62106686"
      
     - **Autoworkplace.exe**需要用戶端具有直接直視從用戶端組織的內部部署 AD 網域控制站，這表示該混合式 Azure AD 聯結成功只有當用戶端在連接至組織的內部網路。
      
-    - 貴組織使用的是 Azure AD 無縫單一登入，`https://autologon.microsoftazuread-sso.com` 或 `https://aadg.windows.net.nsatc.net` 不在裝置的 IE 內部網路設定中，並且未針對內部網路區域啟用 [允許透過指令碼更新至狀態列]。
+    - 貴組織使用的是 Azure AD 無縫單一登入，`https://autologon.microsoftazuread-sso.com` 或 `https://aadg.windows.net.nsatc.net` 不在裝置的 IE 內部網路設定中，並且未針對內部網路區域啟用 [允許透過指令碼更新至狀態列]  。
 
 - 您不是以網域使用者身分登入
 

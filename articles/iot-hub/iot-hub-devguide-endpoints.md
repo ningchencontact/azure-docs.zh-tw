@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: fe913f057d00fd18b1b163f124d9dd0b83abf0de
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5854a795ba7ceeeb4512f1e2fd16d98826d55dd5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925889"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477982"
 ---
 # <a name="reference---iot-hub-endpoints"></a>參考 - IoT 中樞端點
 
@@ -21,13 +21,13 @@ ms.locfileid: "64925889"
 
 ## <a name="iot-hub-names"></a>IoT 中樞名稱
 
-您可以在入口網站中，於 IoT 中樞的 [概觀] 頁面上找到端點裝載所在的 IoT 中樞主機名稱。 根據預設，IoT 中樞的 DNS 名稱看起來像：`{your iot hub name}.azure-devices.net`。
+您可以在入口網站中，於 IoT 中樞的 [概觀]  頁面上找到端點裝載所在的 IoT 中樞主機名稱。 根據預設，IoT 中樞的 DNS 名稱看起來像：`{your iot hub name}.azure-devices.net`。
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>內建 IoT 中樞端點清單
 
 Azure IoT 中樞是一項多租用戶服務，可將其功能公開給各種動作項目。 下圖顯示 IoT 中樞公開的各種端點。
 
-![IoT 中心终结点](./media/iot-hub-devguide-endpoints/endpoints.png)
+![IoT 中樞端點](./media/iot-hub-devguide-endpoints/endpoints.png)
 
 下列清單說明這些端點：
 
@@ -41,9 +41,9 @@ Azure IoT 中樞是一項多租用戶服務，可將其功能公開給各種動�
 
 * **裝置端點**。 針對身分識別登錄中的每個裝置，IoT 中樞會公開一組端點：
 
-  * 傳送裝置到雲端的訊息。 裝置會使用這個端點來[傳送裝置到雲端的訊息](iot-hub-devguide-messages-d2c.md)。
+  * 傳送裝置到雲端的訊息  。 裝置會使用這個端點來[傳送裝置到雲端的訊息](iot-hub-devguide-messages-d2c.md)。
 
-  * 接收雲端到裝置的訊息。 使用此端點來接收目標[雲端到裝置訊息](iot-hub-devguide-messages-c2d.md)的裝置。
+  * 接收雲端到裝置的訊息  。 使用此端點來接收目標[雲端到裝置訊息](iot-hub-devguide-messages-c2d.md)的裝置。
 
   * *起始檔案上傳*。 裝置會使用這個端點從 IoT 中樞接收 Azure 儲存體 SAS URI，以[上傳檔案](iot-hub-devguide-file-upload.md)。
 
@@ -59,7 +59,7 @@ Azure IoT 中樞是一項多租用戶服務，可將其功能公開給各種動�
   
   * *傳送雲端到裝置的訊息及接收傳遞通知*。 這些端點可讓您的解決方案後端傳送可靠的[雲端到裝置訊息](iot-hub-devguide-messages-c2d.md)，以及接收相對應的傳遞或到期通知。
   
-  * *接收檔案通知*。 此消息传递终结点允许在设备成功上传文件时接收通知。 
+  * *接收檔案通知*。 此訊息的端點可讓您接收您的裝置已成功上傳檔案的通知。 
   
   * *直接方法叫用*。 此端點可讓後端服務在裝置上叫用[直接方法](iot-hub-devguide-direct-methods.md)。
   
@@ -82,18 +82,18 @@ IoT 中樞目前支援下列 Azure 服務做為額外的端點︰
 
 如需您可以新增的端點數目限制，請參閱[配額和節流](iot-hub-devguide-quotas-throttling.md)。
 
-可以使用 REST API [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 获取终结点的运行状况状态。 当终结点运行状况为故障或不正常时，建议使用与路由消息延迟相关的 [IoT 中心指标](iot-hub-metrics.md)来标识并调试错误。
+您可以使用 REST API[取得的端點健全狀況](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth)取得端點的健全狀況狀態。 我們建議您使用[IoT 中樞度量](iot-hub-metrics.md)相關路由的訊息延遲，找出並偵錯錯誤，當端點健康狀態無作用或狀況不良，我們預期在這些狀態的其中一個端點時要較高的延遲。
 
-|运行状况状态|描述|
+|健全狀況狀態|描述|
 |---|---|
-|healthy|终结点按预期方式接受消息。|
-|不正常|终结点未按预期方式接受消息，IoT 中心正重试将数据发送到此终结点。 当 IoT 中心建立了最终一致的运行状况状态以后，系统会将不正常终结点的状态更新为正常。|
-|未知|IoT 中心尚未建立与该终结点的连接。 尚未向该终结点传送任何消息，也未拒绝该终结点发送的任何消息。|
-|不活动|重试期间，在 IoT 中心重试发送消息以后，终结点不接受消息。|
+|healthy|端點會接受訊息，如預期般運作。|
+|狀況不良|端點不接受訊息，如預期般，IoT 中樞正在重試將資料傳送至這個端點。 IoT 中樞已建立最終一致的健全狀況狀態時，將更新的狀況不良的端點狀態為狀況良好。|
+|未知|IoT 中樞已不會建立與端點的連線。 已傳遞到任何訊息或拒絕此端點。|
+|無效信件|端點不接受訊息，IoT 中樞重試傳送訊息的 retrial 期間之後。|
 
 ## <a name="field-gateways"></a>現場閘道器
 
-在 IoT 解決方案中， *現場閘道*位於裝置和 IoT 中樞端點之間。 它通常位于靠近设备的位置。 您的裝置會使用裝置所支援的通訊協定，直接與現場閘道器通訊。 現場閘道會使用 IoT 中樞所支援的通訊協定來連線到 IoT 中樞端點。 現場閘道可能是專用的硬體裝置或是執行自訂閘道軟體的低功率電腦。
+在 IoT 解決方案中， *現場閘道*位於裝置和 IoT 中樞端點之間。 它通常位於接近您的裝置的位置。 您的裝置會使用裝置所支援的通訊協定，直接與現場閘道器通訊。 現場閘道會使用 IoT 中樞所支援的通訊協定來連線到 IoT 中樞端點。 現場閘道可能是專用的硬體裝置或是執行自訂閘道軟體的低功率電腦。
 
 您可以使用 [Azure IoT Edge](/azure/iot-edge/) 來實作現場閘道。 IoT Edge 提供某些功能，例如對從多個裝置到相同 IoT 中樞連線的通訊進行多工處理。
 

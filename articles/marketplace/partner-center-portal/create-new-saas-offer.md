@@ -7,27 +7,28 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9750aa924ba4b6e4e5f3a51e5b34531d3fab0a6e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9c8b8a6ad8a10a65a05b46bf433d00b4e3ecb402
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243331"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455670"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應項目
 
-若要開始建立服務 (SaaS) 提供的軟體，請確定您第一次[建立合作夥伴中心帳戶](./create-account.md)，然後開啟[商業 Marketplace 儀表板](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)，使用**提供**選取的索引標籤。 
+若要開始建立服務 (SaaS) 提供的軟體，請確定您第一次[建立合作夥伴中心帳戶](./create-account.md)，然後開啟[商業 Marketplace 儀表板](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)，使用**概觀**選取的索引標籤。
 
-![在合作夥伴中心上的商業 Marketplace 儀表板](./media/commercial-marketplace-offers.png)
+![在合作夥伴中心上的商業 Marketplace 儀表板](./media/new-offer-overview.png)
 
 選取 +**建立新的...** 按鈕，然後選取**軟體即服務**功能表項目。 
 
 如果您選取其中一個其他供應項目類型，您將會重新導向至較舊[Cloud Partner 入口網站](https://cloudpartner.azure.com/)。  唯一的 SaaS 供應項目可在合作夥伴中心商業 Marketplace 入口網站中這一次。 
 
-![在合作夥伴中心建立供應項目 視窗](./media/new-offer.png)
+![在合作夥伴中心建立供應項目 視窗](./media/new-offer-click.png)
 
+**新的供應項目**對話方塊隨即出現。 
 
-**新的供應項目**對話方塊隨即出現。 ![[新增供應項目] 對話方塊](./media/new-offer-popup.png)
+![[新增供應項目] 對話方塊](./media/new-offer-popup.png)
 
 
 ## <a name="offer-id-and-name"></a>供應項目識別碼和名稱
@@ -171,7 +172,7 @@ SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結�
 
 選取 **儲存**完成這些欄位之後。 
 
-### <a name="category"></a>類別
+### <a name="category"></a>Category
 選取最少的一 （1），最多三 （3） 用於將您的供應項目分組為適當的 marketplace 搜尋區域的類別。 請呼叫您的供應項目如何支援這些類別在供應項目描述中。 
 
 ### <a name="industry"></a>業界

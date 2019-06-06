@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/13/2019
-ms.openlocfilehash: 622261d0f7e602635aa6a638357278a9c63a6ecd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.date: 06/03/2019
+ms.openlocfilehash: eb68421c4f62d94eedf266a0c34a0e276eacc4a6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990479"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479273"
 ---
 # <a name="scale-hdinsight-clusters"></a>調整 HDInsight 叢集
 
@@ -26,7 +26,7 @@ HDInsight 具有彈性，可讓您選擇相應增加和相應減少叢集中的�
 
 Microsoft 提供下列的公用程式，來調整叢集：
 
-|公用程式 | 說明|
+|公用程式 | 描述|
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
@@ -58,13 +58,12 @@ Microsoft 提供下列的公用程式，來調整叢集：
 1. 手動結束作業。
 1. 調整作業結束後，請重新提交這些工作。
 
-若要查看擱置中的清單，以及正在執行的作業，您可以使用 YARN **ResourceManager UI**，遵循下列步驟：
+若要查看擱置中的清單，以及正在執行的作業，您可以使用 YARN **Resource Manager UI**，遵循下列步驟：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 從左側瀏覽至**所有的服務** > **Analytics** > **HDInsight 叢集**，然後選取您的叢集。
-3. 從主要檢視中，瀏覽至**叢集儀表板** > **Ambari 首頁**。 輸入您的叢集認證。
-4. 從 Ambari UI 中，選取**YARN**上左側功能表上的服務清單。  
-5. 從 [YARN] 頁面中，選取**快速連結**暫留在作用中前端節點，然後選取**ResourceManager UI**。
+1. 從[Azure 入口網站](https://portal.azure.com/)，選取您的叢集。  請參閱[列出和顯示叢集](./hdinsight-administer-use-portal-linux.md#showClusters)以取得指示。 在新的入口網站頁面中開啟叢集。
+2. 從主要檢視中，瀏覽至**叢集儀表板** > **Ambari 首頁**。 輸入您的叢集認證。
+3. 從 Ambari UI 中，選取**YARN**上左側功能表上的服務清單。  
+4. 從 [YARN] 頁面中，選取**快速連結**暫留在作用中前端節點，然後選取**ResourceManager UI**。
 
     ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
@@ -80,7 +79,7 @@ Microsoft 提供下列的公用程式，來調整叢集：
 yarn application -kill <application_id>
 ```
 
-例如：
+例如:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

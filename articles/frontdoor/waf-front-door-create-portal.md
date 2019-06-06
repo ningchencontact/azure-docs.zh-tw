@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/8/2019
+ms.date: 05/31/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 26db3a67c3efbd0ba2a5c58facd0c07175f7ed12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15a80dac0e0601480e22ad960f2827f3d8f290c0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460205"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479043"
 ---
 # <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>使用 Azure 入口網站建立 WAF 原則的 Azure 大門
 
@@ -63,17 +63,19 @@ ms.locfileid: "61460205"
 
  ![變更 WAF 原則模式](./media/waf-front-door-create-portal/policy.png)
 
+### <a name="custom-rules"></a>自訂規則
+
+您可以選取來建立自訂規則**新增的自訂規則**下方**自訂規則**一節。 這會啟動 [自訂規則組態] 頁面。 以下是設定自訂規則來封鎖要求，如果查詢字串中包含的範例**blockme**。
+
+![變更 WAF 原則模式](./media/waf-front-door-create-portal/customquerystring2.png)
+
 ### <a name="default-rule-set-drs"></a>預設規則集 (DRS)
 
-預設會啟用 azure 受管理預設規則集。 若要停用個別規則的規則群組中，展開 內該規則群組中，選取的規則** 核取方塊**前面規則編號，然後選取**停用**上述 索引標籤上。 若要變更動作類型的規則中的個別規則設定，選取規則數目，前面的核取方塊，然後選取**變更動作**上述 索引標籤。
+預設會啟用 azure 受管理預設規則集。 若要停用個別規則的規則群組中，展開 內該規則群組中，選取的規則 **核取方塊**前面規則編號，然後選取**停用**上述 索引標籤上。 若要變更動作類型的規則中的個別規則設定，選取規則數目，前面的核取方塊，然後選取**變更動作**上述 索引標籤。
 
- ![變更 WAF 規則集](./media/waf-front-door-create-portal/managed.png)
+ ![變更 WAF 規則集](./media/waf-front-door-create-portal/managed2.png)
 
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解[Azure web 應用程式防火牆](waf-overview.md)。
 - 深入了解[Azure 大門](front-door-overview.md)。
-
-
-
-

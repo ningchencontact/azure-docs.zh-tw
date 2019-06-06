@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: a597ab3519f4ba1696e111622541bcab89488558
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417994"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425425"
 ---
 # <a name="content-key-policies"></a>內容金鑰原則
 
@@ -35,7 +35,7 @@ ms.locfileid: "66417994"
 > * 屬於日期時間類型的**內容金鑰原則**屬性一律為 UTC 格式。
 > * 您應該為媒體服務帳戶設計一組受限的原則，並且在需要相同的選項時，對串流定位器重新使用這些原則。 如需詳細資訊，請參閱 [配額和限制](limits-quotas-constraints.md)。
 
-## <a name="example"></a>範例
+### <a name="example"></a>範例
 
 若要取得索引鍵，請使用**GetPolicyPropertiesWithSecretsAsync**，如下所示[從現有的原則取得簽署金鑰](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets)範例。
 

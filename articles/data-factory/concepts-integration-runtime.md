@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 6a7daae90254bb4192dbaf13e1c2f9202e2d2baa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7c86577abe1e8e158299e3a6aee2cff7f3568241
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232421"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427147"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory 中的整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可跨不同網路環境提供下列資料整合功能：
@@ -114,11 +114,11 @@ Data Factory 位置中儲存資料處理站的中繼資料，也是觸發管道�
 ### <a name="azure-ir-location"></a>Azure IR 位置
 您可以設定特定的 Azure IR 位置，在此情況下，資料移動或活動分派將會在該區域中執行。 
 
-如果您選擇使用自動解析 Azure IR (此為預設值)， 
+如果您選擇使用**自動解決 Azure IR**這是預設值， 
 
 - 針對複製活動，ADF 會盡可能地自動偵測您的接收和來源資料存放區，以選擇位於相同區域中的最佳位置 (如果有的話) 或相同地理位置中最接近的位置；如果未偵測到，則使用資料處理站區域作為替代區域。
 
-- 針對查閱/GetMetadata 活動執行與轉換活動分派，ADF 將會在資料處理站區域中使用 IR。
+- 查閱/GetMetadata/刪除活動執行 （也就是管線活動），轉換活動分派 （也稱為外部活動），並撰寫作業 （測試連線，瀏覽資料夾清單和資料表清單中，預覽資料），ADF整合執行階段將在 data factory 磁碟區域。
 
 - 適用於資料流程，ADF 會使用 data factory 磁碟區域中的整合執行階段。 
 

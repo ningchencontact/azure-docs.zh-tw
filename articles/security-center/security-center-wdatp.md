@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: 8511f8987368d5746373f71e9f553013e385e0ee
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 15232c92e60d21d759bec59597cb161480b8c2ea
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258560"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743222"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender 進階威脅防護與 Azure 資訊安全中心
 
@@ -44,10 +44,6 @@ Azure 資訊安全中心正在透過與 [Windows Defender 進階威脅防護](ht
 - **詳細的機器調查**：Azure 資訊安全中心的客戶可以存取 Windows Defender ATP 主控台，以執行詳細的調查，找出缺口的範圍。
 
 ![Azure 資訊安全中心會顯示一份警示和每個警示的一般資訊的清單](media/security-center-wdatp/image1.png)
-
-您可以在 Azure 資訊安全中心[調查警示](security-center-investigation.md)：
-
-![Azure 資訊安全中心警示調查儀表板](media/security-center-wdatp/image2.png)
 
 您可以藉由 Windows Defender ATP 樞紐分析進一步調查警示。 您會看到額外的資訊，例如警示流程樹狀圖和事件圖表。 您也可以查看詳細的機器時間軸，其中會顯示最多六個月歷程記錄期間的每項行為。
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9ecf6d04056a91f1f9dd62a5238f60177d2bf59
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 16e4a5f63ba80b02a967888ad76fedf165a576c8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420584"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473393"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>主要重新整理權杖是什麼？
 
@@ -111,8 +111,11 @@ PRT 受到繫結到裝置的使用者已登入。 Azure AD 和 Windows 10 啟用
 PRT 可以在特定情況下取得 multi-factor authentication (MFA) 宣告。 MFA 型 PRT 來要求應用程式的權杖，則會將 MFA 宣告傳輸至這些應用程式權杖。 這項功能為使用者提供順暢的體驗，藉由防止需要每個應用程式的 MFA 挑戰。 PRT 可以下列方式取得之 MFA 宣告：
 
 * **使用 Windows Hello 登入商務**:Windows hello 企業版會取代密碼並使用密碼編譯金鑰來提供強大的雙因素驗證。 Windows hello 企業版是一個特定使用者在裝置上，並自行佈建需要 MFA。 當使用者登入 Windows hello 企業版中時，使用者的 PRT 取得之 MFA 宣告。 此案例也適用於使用者登入智慧卡，如果智慧卡驗證會產生從 ADFS MFA 宣告。
+   * Windows hello 企業版會被視為多重要素驗證，MFA 宣告被更新重新整理 PRT 本身時，這樣當使用 WIndows hello 企業版的使用者登入時，會持續擴充 MFA 持續時間
 * **WAM 互動式登入期間的 MFA**:在透過 WAM 權杖要求時，使用者是否需要進行 MFA，才能存取應用程式中，更新此類互動期間 PRT 是 imprinted 具有 MFA 宣告。
+   * 在此情況下，MFA 宣告不會持續更新，因此 MFA 持續時間為基礎的目錄上設定的存留期。
 * **裝置註冊期間的 MFA**:系統管理員已在 Azure AD 中設定其裝置設定[需要 MFA 才可註冊裝置](device-management-azure-portal.md#configure-device-settings)，使用者必須執行以完成註冊的 MFA。 在此過程中，會發給該使用者 PRT 會有在註冊期間取得的 MFA 宣告。 這項功能僅適用於執行聯結作業，不供其他使用者登入該裝置的使用者。
+   * 類似於 WAM 互動式登入，MFA 宣告不會持續更新，因此 MFA 持續時間為基礎的目錄上設定的存留期。
 
 Windows 10 維護 Prt 一個資料分割的清單，每個認證。 因此，會有每個 Windows Hello for Business、 密碼或智慧卡 PRT。 這項分割可確保 MFA 宣告隔離使用，且不混在權杖要求期間的認證為基礎。
 

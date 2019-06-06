@@ -11,18 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 0d85bad5328c9d28c8690b389fca18731ea17644
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 2bcb8762b94347f4409507fb89a18cb6c9d0dacd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002366"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494303"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>使用媒體服務 .NET SDK 建立篩選器
 
-當提供您的內容給客戶 (串流處理即時活動或點播視訊) 時，您的用戶端可能需要比預設資產資訊清單檔中所述還大的彈性。 Azure 媒體服務可讓您為您的內容定義帳戶篩選器與資產篩選器。 如需詳細資訊，請參閱 <<c0> [ 篩選條件](filters-concept.md)並[動態資訊清單](filters-dynamic-manifest-overview.md)。
+當提供您的內容給客戶 (串流處理即時活動或點播視訊) 時，您的用戶端可能需要比預設資產資訊清單檔中所述還大的彈性。 Azure 媒體服務可讓您為您的內容定義帳戶篩選器與資產篩選器。 
+
+如需詳細的這個功能和使用的案例的詳細說明，請參閱[動態資訊清單](filters-dynamic-manifest-overview.md)並[篩選](filters-concept.md)。
 
 本主題說明如何使用媒體服務 .NET SDK 為點播視訊資產定義篩選器，以及如何建立[帳戶篩選器](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet)與[資產篩選器](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet)。 
 

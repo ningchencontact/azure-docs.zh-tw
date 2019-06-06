@@ -1,26 +1,18 @@
 ---
-title: Azure 應用程式閘道 PowerShell 範例 | Microsoft Docs
+title: Azure 應用程式閘道 PowerShell 範例
 description: Azure 應用程式閘道 PowerShell 範例
 services: application-gateway
-documentationcenter: networking
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-origin.date: 01/29/2018
-ms.date: 07/02/2018
-ms.author: v-junlch
-ms.custom: mvc
-ms.openlocfilehash: 1616d153dbf27912757eb88fdfc6c4196f3d3a87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 6/7/2019
+ms.author: victorh
+ms.openlocfilehash: 4f747bd570f02d90718766b5cf35d363c08594e4
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60715702"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743070"
 ---
 # <a name="azure-application-gateway-powershell-samples"></a>Azure 應用程式閘道 PowerShell 範例
 
@@ -29,7 +21,6 @@ ms.locfileid: "60715702"
 | | |
 |---|---|
 | [管理網路流量](./scripts/create-vmss-powershell.md) | 建立應用程式閘道和所有相關的資源。|
-| [限制網路流量](./scripts/create-vmss-waf-powershell.md) | 建立使用 OWASP 規則限制網路流量的應用程式閘道。|
+| [限制網路流量](./scripts/create-vmss-waf-powershell.md) | 建立應用程式閘道，可限制使用 OWASP 規則的流量。|
+|[WAF 自訂規則](scripts/waf-custom-rules-powershell.md)|建立自訂規則的應用程式閘道 Web 應用程式防火牆。
 | | |
-
-
