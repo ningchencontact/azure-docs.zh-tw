@@ -50,13 +50,13 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 | 屬性 | 類型 | 描述 |
 | --- | --- | --- |
 | id | string | 事件的唯一識別碼。 |
-| 主旨 | string | 發行者定義事件主體的路徑。 |
+| subject | string | 發行者定義事件主體的路徑。 |
 | data | 物件 | 資源提供者特有的事件資料。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
 | metadataVersion | string | 事件中繼資料的結構描述版本。 Event Grid 會定義最上層屬性的結構描述。 Event Grid 提供此值。 |
-| 主題 | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
+| topic | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
 
 如需有關事件方格事件結構描述的詳細資訊：
 
