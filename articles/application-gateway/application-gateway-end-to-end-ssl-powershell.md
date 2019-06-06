@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 8c715cb84dff6e2e739de59aba33041ec1b8db52
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d9851f6b3e32d0c7ab0d7774458ba5bc4d9ba823
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786290"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729667"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>使用 PowerShell 以應用程式閘道設定端對端 SSL
 
@@ -44,7 +44,7 @@ Azure 應用程式閘道支援為流量進行端對端加密。 應用程式閘�
 
 若要對應用程式閘道設定端對端 SSL，則需要閘道憑證和後端伺服器憑證。 閘道憑證用來根據 SSL 通訊協定規格衍生對稱金鑰。 接下來，對稱金鑰可以用來加密和解密傳送至閘道的流量。 閘道憑證必須採用「個人資訊交換」(PFX) 格式。 此檔案格式可允許將私密金鑰匯出，而應用程式閘道需要這個匯出的金鑰來執行流量的加密和解密。
 
-若要加密端對端 SSL，後端必須已加入到應用程式閘道的允許清單。 將後端伺服器的公開憑證上傳至應用程式閘道。 新增憑證可確保應用程式閘道只會與已知的後端執行個體通訊。 這會進而保護端對端通訊。
+端對端 SSL 加密後, 端必須明確地允許應用程式閘道。 將後端伺服器的公開憑證上傳至應用程式閘道。 新增憑證可確保應用程式閘道只會與已知的後端執行個體通訊。 這會進而保護端對端通訊。
 
 下列各節將說明設定程序。
 
@@ -72,7 +72,7 @@ Azure 應用程式閘道支援為流量進行端對端加密。 應用程式閘�
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>建立應用程式閘道的虛擬網路和子網路
 
-以下示例创建一个虚拟网络和两个子网。 一個子網路用來保留應用程式閘道。 另一個子網路則用於裝載 Web 應用程式的後端。
+下列範例會建立虛擬網路和兩個子網路。 一個子網路用來保留應用程式閘道。 另一個子網路則用於裝載 Web 應用程式的後端。
 
 1. 指派要用於應用程式閘道的子網路位址範圍。
 
@@ -170,7 +170,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01'
    > 如果您在後端上使用主機標頭和伺服器名稱指示 (SNI)，擷取的公開金鑰不一定就是流量要流向的預定網站。 如果不能確定，請在後端伺服器造訪 https://127.0.0.1/ 以確認要將哪一個憑證用於*預設* SSL 繫結。 請使用來自本節該要求的公開金鑰。 如果您在 HTTPS 繫結上使用主機標頭和 SNI，且並未從對於後端伺服器上 https://127.0.0.1/ 的手動瀏覽器要求收到回應和憑證，您必須在後端伺服器上設定預設 SSL 繫結。 如果您未這麼做，探查將會失敗，而且後端不會加入允許清單。
 
    ```powershell
-   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\cert.cer
+   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
    ```
 
    > [!NOTE]

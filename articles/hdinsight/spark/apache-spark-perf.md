@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: dfbbdf3f2414f7b00445b271b667ad761ba93df0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5701bb534d0fd0e25aab90f9d1035c96bb55c518
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724378"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476093"
 ---
 # <a name="optimize-apache-spark-jobs"></a>最佳化 Apache Spark 作業
 
@@ -59,14 +59,14 @@ Spark 支援許多格式，例如 csv、json、xml、parquet、orc 和 avro。 S
 
 | 存放區類型 | 檔案系統 | 速度 | 暫時性 | 使用案例 |
 | --- | --- | --- | --- | --- |
-| Azure Blob 儲存體 | **wasb[s]:**//url/ | **標準** | 是 | 暫時性叢集 |
-| Azure Data Lake 儲存體第 2 代| **abfs[s]:**//url/ | **更快** | 是 | 暫時性叢集 |
-| Azure Data Lake Storage Gen 1| **adl:**//url/ | **更快** | 是 | 暫時性叢集 |
-| 本機 HDFS | **hdfs:**//url/ | **最快** | 否 | 互動式全天候叢集 |
+| Azure Blob 儲存體 | **wasb:** //url/ | **標準** | 是 | 暫時性叢集 |
+| Azure Data Lake 儲存體第 2 代| **abfs[s]:** //url/ | **更快** | 是 | 暫時性叢集 |
+| Azure Data Lake Storage Gen 1| **adl:** //url/ | **更快** | 是 | 暫時性叢集 |
+| 本機 HDFS | **hdfs:** //url/ | **最快** | 否 | 互動式全天候叢集 |
 
 ## <a name="use-the-cache"></a>使用快取
 
-Spark 提供本身的原生快取機制，可透過 `.persist()`、`.cache()` 和 `CACHE TABLE` 等不同的方式使用。 對於較小型資料集，以及需要快取中繼結果的 ETL 管線，此原生快取相當有效。 不過，Spark 原生快取目前不適用於資料分割，因為快取的資料表不會保留分割資料。 較通用且可靠的快取技術是「儲存層快取」。
+Spark 提供本身的原生快取機制，可透過 `.persist()`、`.cache()` 和 `CACHE TABLE` 等不同的方式使用。 對於較小型資料集，以及需要快取中繼結果的 ETL 管線，此原生快取相當有效。 不過，Spark 原生快取目前不適用於資料分割，因為快取的資料表不會保留分割資料。 較通用且可靠的快取技術是「儲存層快取」  。
 
 * 原生 Spark 快取 (不建議使用)
     * 適用於小型資料集。
@@ -127,7 +127,7 @@ Spark 作業相當分散，因此適當資料序列化對於達到最佳效能�
 
 ## <a name="optimize-joins-and-shuffles"></a>最佳化聯結和重組
 
-如果在聯結或重組有緩慢的作業，原因可能是「資料扭曲」，也就是作業資料不對稱。 例如，對應作業可能需要 20 秒，但是執行連結或重組資料的作業需要數小時。   若要修正資料扭曲，您應該將整個索引鍵設定為 salt，或僅針對一部分的索引鍵使用「隔離 salt」。  如果您使用隔離 salt，應該進一步篩選來隔離對應聯結中一部分的 salt 索引鍵。 另一個選項是導入貯體資料行並先在貯體中預先彙總。
+如果在聯結或重組有緩慢的作業，原因可能是「資料扭曲」  ，也就是作業資料不對稱。 例如，對應作業可能需要 20 秒，但是執行連結或重組資料的作業需要數小時。   若要修正資料扭曲，您應該將整個索引鍵設定為 salt，或僅針對一部分的索引鍵使用「隔離 salt」  。  如果您使用隔離 salt，應該進一步篩選來隔離對應聯結中一部分的 salt 索引鍵。 另一個選項是導入貯體資料行並先在貯體中預先彙總。
 
 造成緩慢聯結的另一個因素可能是聯結類型。 Spark 預設使用 `SortMerge` 聯結類型。 這種聯結最適用於大型資料集，但是佔用大量運算資源，因為它必須先將左邊和右邊的資料排序，再合併資料。
 

@@ -6,40 +6,38 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 06/05/2019
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: 6122cd4507ed0883d1b78ca519269c25098e55ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 455e78c63960103f5facae764aff3d2b3b2a590d
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60924851"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735191"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>如何為 Azure Digital Twins 中的使用者定義函式偵錯
 
-本文摘要說明如何診斷及偵錯使用者定義函式。 接著，它會找出偵錯這些函式時的一些最常見案例。
+本文摘要說明如何診斷和偵錯 Azure 數位對應項中的 使用者定義函式。 接著，它會找出偵錯這些函式時的一些最常見案例。
 
 >[!TIP]
 > 若要深入了解如何在 Azure Digital Twins 中使用活動記錄、診斷記錄和 Azure 監視器來設定偵錯工具，請閱讀[如何設定監視和記錄](./how-to-configure-monitoring.md)。
 
 ## <a name="debug-issues"></a>為問題偵錯
 
-了解如何診斷 Azure Digital Twins 執行個體內所發生的任何問題，能協助您有效地找出問題、問題的原因和解決方案。
+了解如何診斷 Azure 數位對應項中的問題，可讓您有效地分析問題、 識別問題的原因以及為它們提供適當的解決方案。
 
-### <a name="enable-log-analytics-for-your-instance"></a>啟用適用於您執行個體的記錄分析
+為此提供各種不同的記錄、 分析和診斷工具。
 
-Azure Digital Twins 執行個體的記錄和計量顯示在 Azure 監視器中。 這份文件假設您已建立[Azure 監視器記錄](../azure-monitor/log-query/log-query-overview.md)工作區透過[Azure 入口網站](../azure-monitor/learn/quick-create-workspace.md)，透過[Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md)，或透過[PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md)。
+### <a name="enable-logging-for-your-instance"></a>啟用您的執行個體的記錄
 
-> [!NOTE]
-> 第一次將事件傳送至 Azure 監視器記錄檔時，可能會遇到有 5 分鐘的延遲。
+Azure Digital Twins 支援強固的記錄、監視與分析功能。 方案開發人員可以使用 Azure 監視器記錄檔、 診斷記錄檔、 活動記錄和其他服務，以支援複雜的監視需求的 IoT 應用程式。 您可以合併記錄選項以查詢或檢視跨多的服務的記錄，並提供許多服務的精細記錄涵蓋範圍。
 
-若要針對 Azure Digital Twins 資源設定監視和記錄，請閱讀[如何設定監視和記錄](./how-to-configure-monitoring.md)。
+* 針對特定 Azure 數位對應項的記錄組態，請閱讀[如何設定監視和記錄](./how-to-configure-monitoring.md)。
+* 請參閱[Azure 監視器](../azure-monitor/overview.md)若要了解透過 Azure 監視器已啟用的功能強大的記錄檔設定的概觀。
+* 檢閱文件[收集並取用來自 Azure 資源的記錄資料](../azure-monitor/platform/diagnostic-logs-overview.md)Azure 透過 Azure 入口網站、 Azure CLI 或 PowerShell 的數位對應項中設定診斷記錄設定。
 
-閱讀[收集並取用來自 Azure 資源的記錄資料](../azure-monitor/platform/diagnostic-logs-overview.md)一文，以便透過 Azure 入口網站、Azure CLI 或 PowerShell，在 Azure Digital Twins 中設定診斷記錄設定。
-
->[!IMPORTANT]
-> 請務必選取所有記錄檔類別、計量，以及您的 Azure Log Analytics 工作區。
+一旦設定之後，您可以選取所有的記錄檔分類，計量，並支援偵錯的工作中使用功能強大的 Azure 監視 log analytics 工作區。
 
 ### <a name="trace-sensor-telemetry"></a>追蹤感應器遙測
 
@@ -47,7 +45,7 @@ Azure Digital Twins 執行個體的記錄和計量顯示在 Azure 監視器中�
 
 若要使感應器遙測訊息與其各自的記錄相符，您可以針對所傳送的事件資料指定相互關聯識別碼。 若要這樣做，將 `x-ms-client-request-id` 屬性設為 GUID。
 
-在傳送遙測資料之後, 開啟 log analytics 中使用的記錄檔查詢來相互關聯識別碼：
+之後傳送遙測資料，請開啟 log analytics 中使用的記錄檔查詢來相互關聯識別碼：
 
 ```Kusto
 AzureDiagnostics
@@ -209,4 +207,6 @@ function process(telemetry, executionContext) {
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何在 Azure Digital Twins 中啟用[監視和記錄](../azure-monitor/platform/activity-logs-overview.md)。
+- 了解如何在 Azure Digital Twins 中啟用[監視和記錄](./how-to-configure-monitoring.md)。
+
+- 讀取[概觀的 Azure 活動記錄檔](../azure-monitor/platform/activity-logs-overview.md)更多 Azure 記錄選項的發行項。

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: 99ca7e82a11687d25355589e7ea539a14cdb493b
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: a7c994f85d90e94d514bb4e4f91a6644ed45432c
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420751"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66455143"
 ---
 1. 下載用戶端 SDK 快速入門，為下列平台：
     
@@ -94,7 +94,7 @@ ms.locfileid: "66420751"
 
         2. 建置.NET 伺服器專案，Visual Studio 在本機。
 
-        3. 在 Visual Studio 中，開啟 [方案總管] 中，以滑鼠右鍵按一下`ZUMOAPPNAMEService`專案中，按一下**發佈**，您會看到`Publish to App Service`視窗。 如果您使用 Mac 上，請參閱其他方式來部署應用程式[此處](https://docs.microsoft.com/en-us/azure/app-service/deploy-local-git)。
+        3. 在 Visual Studio 中，開啟 [方案總管] 中，以滑鼠右鍵按一下`ZUMOAPPNAMEService`專案中，按一下**發佈**，您會看到`Publish to App Service`視窗。 如果您使用 Mac 上，請參閱其他方式來部署應用程式[此處](https://docs.microsoft.com/azure/app-service/deploy-local-git)。
         
            ![Visual studio 發行](./media/app-service-mobile-configure-new-backend/visual-studio-publish.png)
 

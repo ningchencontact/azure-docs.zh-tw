@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7f6dbc869db4a0a444d09a2dc234e171758c706
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 28201e09a4025c0c8820abc6836a5923e48eb885
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414849"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742298"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>設定自訂禁用密碼清單
 
@@ -24,17 +24,17 @@ ms.locfileid: "60414849"
 
 ## <a name="add-to-the-custom-list"></a>新增自訂清單
 
-要設定自訂禁用密碼清單，需要有 Azure Active Directory Premium P1 或 P2 授權。 如需 Azure Active Directory 授權的詳細資訊，請參閱 [Azure Active Directory 定價頁面](https://azure.microsoft.com/pricing/details/active-directory/)。
+要設定自訂禁用密碼清單，需要有 Azure Active Directory Premium P1 或 P2 授權。 如需詳細的 Azure Active Directory 授權的相關資訊，請參閱[Azure Active Directory 定價頁面](https://azure.microsoft.com/pricing/details/active-directory/)。
 
 1. 登入[Azure 入口網站](https://portal.azure.com)並瀏覽至**Azure Active Directory**，**驗證方法**，然後**密碼保護**。
-1. 將 [強制使用自訂清單] 選項設定為 [是]。
-1. 在 [自訂禁用密碼清單] 中新增字串，每行一個字串
+1. 將 [強制使用自訂清單]  選項設定為 [是]  。
+1. 在 [自訂禁用密碼清單]  中新增字串，每行一個字串
    * 自訂禁用密碼清單最多可以包含 1000 個字組。
    * 自訂禁用密碼清單不會區分大小寫。
    * 自訂禁用密碼清單會考量常見字元替代。
       * 範例："o" 和 "0"，或是 "a" 和 "\@"
    * 最小字串長度為 4 個字元，最大長度為 16 個字元。
-1. 新增完所有字串時，按一下 [儲存]。
+1. 新增完所有字串時，按一下 [儲存]  。
 
 > [!NOTE]
 > 可能需要數小時才會套用自訂禁用密碼清單的更新。

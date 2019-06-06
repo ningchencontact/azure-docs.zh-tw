@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C 中的使用者帳戶概觀 | Microsoft Docs
 description: 了解 Azure Active Directory B2C 中的使用者帳戶。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7e9e046ef4fcba81d5a8c330180a6e0831a7dcdd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 42a38b47f9e49652b5fe80aa5bbd0047dc7d1e74
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718059"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511954"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的使用者帳戶概觀
 
@@ -29,11 +29,11 @@ ms.locfileid: "64718059"
 
 ## <a name="work-account"></a>公司帳戶
 
-所有以 Azure AD 為基礎的租用戶，會有相同的公司帳戶建立方式。 若要建立公司帳戶，您可以使用[快速入門：將使用者新增至 Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md) 中的資訊。 在 Azure 入口網站中使用 [新增使用者] 選項即可建立公司帳戶。
+所有以 Azure AD 為基礎的租用戶，會有相同的公司帳戶建立方式。 若要建立公司帳戶，您可以使用[快速入門：將使用者新增至 Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md) 中的資訊。 在 Azure 入口網站中使用 [新增使用者]  選項即可建立公司帳戶。
 
 在新增公司帳戶時，您需要考慮下列組態設定：
 
-- **名稱**和**使用者名稱** - **名稱**屬性包含使用者的姓名。 **使用者名稱**是使用者為了登入所輸入的識別碼。 使用者名稱包括完整網域。 使用者名稱的網域名稱部分必須是初始預設網域名稱「your-domain.onmicrosoft.com」，或是已驗證的非同盟[自訂網域](../active-directory/fundamentals/add-custom-domain.md)名稱，例如 contoso.com。
+- **名稱**和**使用者名稱** - **名稱**屬性包含使用者的姓名。 **使用者名稱**是使用者為了登入所輸入的識別碼。 使用者名稱包括完整網域。 使用者名稱的網域名稱部分必須是初始預設網域名稱「your-domain.onmicrosoft.com」  ，或是已驗證的非同盟[自訂網域](../active-directory/fundamentals/add-custom-domain.md)名稱，例如 contoso.com  。
 - **設定檔** - 帳戶會使用使用者資料設定檔來進行設定。 您可以輸入名字、姓氏、職稱和部門名稱。 您可以在建立帳戶之後編輯設定檔。
 - **群組** - 您可以使用群組來執行管理工作，例如將授權或權限一次指派給數個使用者或裝置。 您可以將新的帳戶放到租用戶中的現有[群組](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。 
 - **目錄角色** - 您需要指定使用者帳戶所具有的租用戶資源存取權層級。 可用的權限層級如下：
@@ -46,28 +46,28 @@ ms.locfileid: "64718059"
 
 您可以使用下列資訊來建立新的公司帳戶：
 
-- [Azure 门户](../active-directory/fundamentals/add-users-azure-active-directory.md)
+- [Azure 入口網站](../active-directory/fundamentals/add-users-azure-active-directory.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>更新使用者設定檔
 
 您可以使用下列資訊來更新使用者的設定檔：
 
-- [Azure 门户](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+- [Azure 入口網站](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>重設使用者的密碼
 
 您可以使用下列資訊來重設使用者的密碼： 
 
-- [Azure 门户](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
+- [Azure 入口網站](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>來賓使用者
 
 您可以邀請外部使用者成為租用戶的來賓使用者。 將來賓使用者邀請到 Azure AD B2C 租用戶的典型案例是為了分擔管理責任。 如需使用來賓帳戶的範例，請參閱 [Azure Active Directory B2B 共同作業使用者的屬性](../active-directory/b2b/user-properties.md)。
 
-將來賓使用者邀請到租用戶時，您必須提供收件者的電子郵件地址和描述邀請詳情的訊息。 邀請連結會將使用者帶往同意頁面，該頁面已選取 [開始使用] 按鈕，並已接受權限檢閱。 如果收件匣並未連結至電子郵件地址，使用者可以使用受邀認證移至 Microsoft 頁面以瀏覽至同意頁面。 接著，系統會強制使用者兌換邀請，方式和在電子郵件中按一下連結時相同。 例如： `https://myapps.microsoft.com/B2CTENANTNAME` 。
+將來賓使用者邀請到租用戶時，您必須提供收件者的電子郵件地址和描述邀請詳情的訊息。 邀請連結會將使用者帶往同意頁面，該頁面已選取 [開始使用]  按鈕，並已接受權限檢閱。 如果收件匣並未連結至電子郵件地址，使用者可以使用受邀認證移至 Microsoft 頁面以瀏覽至同意頁面。 接著，系統會強制使用者兌換邀請，方式和在電子郵件中按一下連結時相同。 例如： `https://myapps.microsoft.com/B2CTENANTNAME` 。
 
 您也可以使用 [Microsoft Graph API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta) 邀請來賓使用者。
 

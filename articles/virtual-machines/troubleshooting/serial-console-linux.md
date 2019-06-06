@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 52c79a0b883ff4c9ac77d7523764384b88c06a08
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a561d29f462d44eb6bc440bb6110430cc5c51688
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389028"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735248"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azure 適用於 Linux 的序列主控台
 
@@ -47,6 +47,7 @@ ms.locfileid: "66389028"
 
 - 如需有關 Linux 發行版本的特定設定，請參閱[序列主控台 Linux 發行版本可用性](#serial-console-linux-distribution-availability)。
 
+- 您的 VM 或虛擬機器擴展集執行個體上必須設定為序列輸出`ttys0`。 這是針對 Azure 映像，預設值，但您會想要再次檢查這個自訂映像上。 詳細資料[以下](#custom-linux-images)。
 
 
 ## <a name="get-started-with-the-serial-console"></a>開始使用序列主控台
@@ -84,6 +85,9 @@ ms.locfileid: "66389028"
 ## <a name="serial-console-linux-distribution-availability"></a>序列主控台 Linux 發佈可用性
 若要讓序列主控台正確運作，必須設定讓客體作業系統將主控台訊息讀取並寫入至序列連接埠。 大多數[已背書的 Azure Linux 發行版本](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)都已預設設定序列主控台。 在 Azure 入口網站的 [支援與疑難排解]  區段中選取 [序列主控台]  ，可以存取序列主控台。
 
+> [!NOTE]
+> 如果您在序列主控台中沒有看到任何項目，請確定您的 VM 上已啟用開機診斷。 按下**Enter**會經常修正問題，執行任何動作是否出現序列主控台。
+
 配送映像      | 序列主控台存取
 :-----------|:---------------------
 Red Hat Enterprise Linux    | 預設啟用的序列主控台存取。
@@ -92,10 +96,13 @@ Ubuntu      | 預設啟用的序列主控台存取。
 CoreOS      | 預設啟用的序列主控台存取。
 SUSE        | Azure 上提供的較新 SLES 映像已預設啟用序列主控台存取。 如果您使用 Azure 上較舊的 SLES 版本 (10 或更舊)，請依照這篇 [KB 文章](https://www.novell.com/support/kb/doc.php?id=3456486) \(英文\) 來啟用序列主控台。
 Oracle Linux        | 預設啟用的序列主控台存取。
-自訂 Linux 映像     | 若要啟用自訂 Linux VM 映像的序列主控台，請在 */etc/inittab* 檔案中啟用主控台存取以在 `ttyS0` 上執行終端機。 例如： `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` 。 如需有關如何正確建立自訂映像的詳細資訊，請參閱[在 Azure 中建立及上傳 Linux VHD](https://aka.ms/createuploadvhd)。 如果您正在建置自訂核心，則可以考慮啟用這些核心旗標：`CONFIG_SERIAL_8250=y` 與 `CONFIG_MAGIC_SYSRQ_SERIAL=y`。 組態檔通常位於 */boot/* 路徑中。
 
-> [!NOTE]
-> 如果您在序列主控台中沒有看到任何項目，請確定您的 VM 上已啟用開機診斷。 按下**Enter**會經常修正問題，執行任何動作是否出現序列主控台。
+### <a name="custom-linux-images"></a>自訂 Linux 映像
+若要啟用自訂 Linux VM 映像的序列主控台，請在 */etc/inittab* 檔案中啟用主控台存取以在 `ttyS0` 上執行終端機。 例如： `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` 。
+
+您也要將 ttys0 新增為序列輸出的目的地。 如需有關如何設定序列主控台所使用的自訂映像的詳細資訊，請參閱在一般的系統需求[建立及上傳 Linux VHD 在 Azure 中](https://aka.ms/createuploadvhd#general-linux-system-requirements)。
+
+如果您正在建置自訂核心，則可以考慮啟用這些核心旗標：`CONFIG_SERIAL_8250=y` 與 `CONFIG_MAGIC_SYSRQ_SERIAL=y`。 組態檔通常位於 */boot/* 路徑中。 |
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>存取序列主控台的常見案例
 
@@ -201,6 +208,7 @@ Web 通訊端已關閉或無法開啟。 | 您可能需要將 `*.console.azure.c
 貼上長字串沒有作用。 | 序列主控台會將貼上至終端機的字串長度限制為 2048 個字元，以防止多載序列連接埠頻寬。
 序列主控台無法與儲存體帳戶防火牆搭配使用。 | 根據設計，序列主控台無法與開機診斷儲存體帳戶上啟用的儲存體帳戶防火牆搭配使用。
 序列主控台不適用於階層式命名空間搭配使用 Azure Data Lake 儲存體 Gen2 儲存體帳戶。 | 這是階層式命名空間的已知的問題。 若要減輕，確保您的 VM 開機診斷儲存體帳戶無法建立使用 Azure Data Lake 儲存體 Gen2。 只可以在儲存體帳戶建立時設定這個選項。 您可能不必建立個別的開機診斷儲存體帳戶，而不需要 Azure Data Lake 儲存體 Gen2 啟用來解決這個問題。
+不穩定的鍵盤，輸入 SLES 的 BYOS 映像中。 只會偶爾辨識鍵盤輸入。 | 這是普利茅斯封裝發生問題。 不應該將普利茅斯執行在 Azure 中，您不需要啟動顯示畫面和普利茅斯干擾平台能夠使用序列主控台。 移除與普利茅斯`sudo zypper remove plymouth`然後重新開機。 或者，修改 GRUB 組態的核心一行附加`plymouth.enable=0`一行的結尾。 您可以執行這項操作[在開機時編輯的開機項目](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)，或藉由編輯中的 GRUB_CMDLINE_LINUX 一行`/etc/default/grub`，重建 GRUB 使用`grub2-mkconfig -o /boot/grub2/grub.cfg`，然後重新開機。
 
 
 ## <a name="frequently-asked-questions"></a>常見問題集

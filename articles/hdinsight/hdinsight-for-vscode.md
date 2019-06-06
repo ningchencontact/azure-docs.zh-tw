@@ -1,20 +1,18 @@
 ---
-title: Azure HDInsight 工具 - 使用適用於 Hive、LLAP 或 PySpark 的 Visual Studio Code | Microsoft Docs
+title: Azure HDInsight 工具-使用適用於 Hive、 LLAP 或 PySpark 的 Visual Studio Code
 description: 了解如何使用適用於 Visual Studio Code 的 Azure HDInsight 工具來建立及提交查詢和指令碼。
-Keywords: Visual Studio Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,交互式 Hive,交互式查询
-documentationcenter: ''
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/04/2019
-ms.openlocfilehash: 04e607517bc806b60d7e76e5076f9d3518e530eb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/30/2019
+ms.openlocfilehash: d114a1e62ae0d28e7d4a3ad453d5d7bd3e1d5b7a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681756"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427681"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -40,24 +38,24 @@ Azure HDInsight 工具可以安裝在 Visual Studio Code 支援的平台上，�
 
 1. 開啟 Visual Studio Code。
 
-2. 從功能表列，瀏覽至 [檢視]  >  [延伸模組]。
+2. 從功能表列，瀏覽至 [檢視]   >  [延伸模組]  。
 
 3. 在搜尋方塊中輸入 **HDInsight**。
 
-4. 從搜尋結果中選取 [Azure HDInsight 工具]，然後選取 [安裝]。  
+4. 從搜尋結果中選取 [Azure HDInsight 工具]  ，然後選取 [安裝]  。  
 
    ![HDInsight for Visual Studio Code Python 安裝](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
-5. 安裝之後，選取 [重新載入] 來啟動 **Azure HDInsight 工具**延伸模組。
+5. 安裝之後，選取 [重新載入]  來啟動 **Azure HDInsight 工具**延伸模組。
 
 
 ## <a name="open-hdinsight-work-folder"></a>開啟 HDInsight 工作資料夾
 
 完成下列步驟，以開啟工作資料夾，並且在 Visual Studio Code 中建立檔案：
 
-1. 從功能表列，瀏覽至 [檔案]  >  [開啟資料夾...]  >  **C:\HD\HDexample**，然後選取 [選取資料夾] 按鈕。 資料夾會出現在左側的 [總管] 檢視中。
+1. 從功能表列，瀏覽至 [檔案]   >  [開啟資料夾...]   >  **C:\HD\HDexample**，然後選取 [選取資料夾]  按鈕。 資料夾會出現在左側的 [總管]  檢視中。
 
-2. 從 [總管] 檢視中，選取資料夾 **HDexample**，然後選取工作資料夾旁邊的 [新增檔案]圖示。
+2. 從 [總管]  檢視中，選取資料夾 **HDexample**，然後選取工作資料夾旁邊的 [新增檔案]  圖示。
 
    ![新增檔案](./media/hdinsight-for-vscode/new-file.png)
 
@@ -67,16 +65,16 @@ Azure HDInsight 工具可以安裝在 Visual Studio Code 支援的平台上，�
 
 將指令碼從 Visual Studio Code 提交到 HDInsight 叢集之前，您需要先連線 Azure 帳戶或叢集 (使用 Ambari 使用者名稱/密碼或加入網域的帳戶)。  完成下列步驟以連線至 Azure：
 
-1. 從功能表列中，瀏覽至 檢視  >  命令選擇區...，然後輸入 **HDInsight:** 登入。
+1. 從功能表列中，瀏覽至 檢視   >  命令選擇區...  ，然後輸入 **HDInsight:** 登入。
 
     ![「適用於 Visual Studio Code 的 HDInsight 工具」登入](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
-2. 請遵循 [輸出] 窗格中的登入指示。
+2. 請遵循登入中的指示**輸出**窗格。
     + 對於 Azure 全域環境，**HDInsight：登入**命令將會在 HDInsight 總管中觸發**登入 Azure** 動作，反之亦然。
 
         ![Azure 的登入指示](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
 
-    + 在其他環境中，請依照登入指示操作。
+    + 對於其他環境中，請遵循登入指示。
 
         ![其他環境的登入指示](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
@@ -87,7 +85,7 @@ Azure HDInsight 工具可以安裝在 Visual Studio Code 支援的平台上，�
 
 您可以使用 [Apache Ambari](https://ambari.apache.org/) 受控使用者名稱來連結正常的叢集，或可以使用網域使用者名稱 (例如：user1@contoso.com) 來連結企業安全性套件保護 Hadoop 叢集。
 
-1. 從功能表列中，瀏覽至 檢視  >  命令選擇區...，然後輸入 **HDInsight:** 連結叢集。
+1. 從功能表列中，瀏覽至 檢視   >  命令選擇區...  ，然後輸入 **HDInsight:** 連結叢集。
 
    ![連結叢集命令](./media/hdinsight-for-vscode/link-cluster-command.png)
 
@@ -101,7 +99,7 @@ Azure HDInsight 工具可以安裝在 Visual Studio Code 支援的平台上，�
 
 6. 選取叢集類型。
 
-7. 檢閱 [輸出] 檢視以進行驗證。
+7. 檢閱 [輸出]  檢視以進行驗證。
 
    > [!NOTE]  
    > 如果叢集已登入 Azure 訂用帳戶並連結叢集，則會使用連結的使用者名稱和密碼。  
@@ -109,25 +107,25 @@ Azure HDInsight 工具可以安裝在 Visual Studio Code 支援的平台上，�
 
 ## <a name="create-link-generic-livy-endpoint"></a>建立連結：泛型 Livy 端點
 
-1. 從功能表列中，瀏覽至 檢視  >  命令選擇區...，然後輸入 **HDInsight:** 連結叢集。
+1. 從功能表列中，瀏覽至 檢視   >  命令選擇區...  ，然後輸入 **HDInsight:** 連結叢集。
 
-2. 選取連結的叢集類型 [泛型 Livy 端點]。
+2. 選取連結的叢集類型 [泛型 Livy 端點]  。
 
 3. 輸入泛型 Livy 端點，例如：http\://10.172.41.42:18080。
 
-4. 選取授權類型 [基本] 或 [無]。  如果是 [基本]，則：  
+4. 選取授權類型 [基本]  或 [無]  。  如果是 [基本]  ，則：  
     &emsp;a. 輸入 Ambari 使用者名稱，預設值是 **admin**。  
     &emsp;b. 輸入 Ambari 密碼。
 
-5. 檢閱 [輸出] 檢視以進行驗證。
+5. 檢閱 [輸出]  檢視以進行驗證。
 
 ## <a name="list-hdinsight-clusters"></a>列出 HDInsight 叢集
 
-1. 從功能表列中，瀏覽至 [檢視]  >  [命令選擇區...]，然後輸入 **HDInsight:列出叢集**。
+1. 從功能表列中，瀏覽至 [檢視]   >  [命令選擇區...]  ，然後輸入 **HDInsight:列出叢集**。
 
 2. 選取所需的訂用帳戶。
 
-3. 檢閱 [輸出] 檢視。  檢視會顯示您的 Azure 訂用帳戶下的連結叢集和所有叢集。
+3. 檢閱 [輸出]  檢視。  檢視會顯示您的 Azure 訂用帳戶下的連結叢集和所有叢集。
 
     ![設定預設叢集組態](./media/hdinsight-for-vscode/list-cluster-result.png)
 
@@ -139,7 +137,7 @@ Azure HDInsight 工具可以安裝在 Visual Studio Code 支援的平台上，�
 
 3. [連線](#connect-to-hdinsight-cluster)到 Azure 帳戶 (如果您尚未這樣做)。
 
-4. 在指令碼編輯器上按一下滑鼠右鍵，然後選取 [HDInsight:設定預設叢集]。  
+4. 在指令碼編輯器上按一下滑鼠右鍵，然後選取 [HDInsight:  設定預設叢集]。  
 
 5. 選取某個叢集來作為目前指令碼檔案的預設叢集。 工具會自動更新組態檔 **.VSCode\settings.json**。 
 
@@ -149,7 +147,7 @@ Azure HDInsight 工具可以安裝在 Visual Studio Code 支援的平台上，�
 
 1. [連線](#connect-to-hdinsight-cluster)到 Azure 帳戶 (如果您尚未這樣做)。
 
-2. 從功能表列中，瀏覽至 檢視  >  命令選擇區...，然後輸入 **HDInsight:** 設定 Azure 環境。
+2. 從功能表列中，瀏覽至 檢視   >  命令選擇區...  ，然後輸入 **HDInsight:** 設定 Azure 環境。
 
 3. 選取環境作為預設登入項目。
 
@@ -174,15 +172,15 @@ Azure HDInsight 工具可以安裝在 Visual Studio Code 支援的平台上，�
     SELECT * FROM hivesampletable;
     ```
 
-5. 在指令碼編輯器上按一下滑鼠右鍵，選取 [HDInsight：Hive 互動式] 以提交查詢，或使用快速鍵 **Ctrl + Alt + I**。選取 [HDInsight：Hive 批次] 以提交指令碼，或使用快速鍵 **Ctrl + Alt + H**。  
+5. 在指令碼編輯器上按一下滑鼠右鍵，選取 [HDInsight：  Hive 互動式] 以提交查詢，或使用快速鍵 **Ctrl + Alt + I**。選取 [HDInsight：  Hive 批次] 以提交指令碼，或使用快速鍵 **Ctrl + Alt + H**。  
 
 6. 如果您還未指定預設的叢集，請選取叢集。 工具也可讓您使用快顯功能表來提交程式碼區塊，而非整個指令碼檔案。 在幾分鐘之後，查詢結果就會顯示在新的索引標籤中。
 
    ![互動式 Hive 結果](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
-    - [結果] 面板：您可以將整個結果以 CSV、JSON 或 Excel 檔案的形式儲存到本機路徑，或只選取多行。
+    - [結果]  面板：您可以將整個結果以 CSV、JSON 或 Excel 檔案的形式儲存到本機路徑，或只選取多行。
 
-    - [訊息] 面板：當您選取 [行號] 時，它就會跳至執行中指令碼的第一行。
+    - [訊息]  面板：當您選取 [行號]  時，它就會跳至執行中指令碼的第一行。
 
 ## <a name="submit-interactive-pyspark-queries"></a>提交互動式 PySpark 查詢
 
@@ -211,7 +209,7 @@ Azure HDInsight 工具可以安裝在 Visual Studio Code 支援的平台上，�
         print(sortedCollection[i])
    ```
 
-6. 在指令碼編輯器上按一下滑鼠右鍵，選取 [HDInsight：PySpark 互動式] 以提交查詢，或使用快速鍵 **Ctrl + Alt + I**。  
+6. 在指令碼編輯器上按一下滑鼠右鍵，選取 [HDInsight：  PySpark 互動式] 以提交查詢，或使用快速鍵 **Ctrl + Alt + I**。  
 
 7. 如果您還未指定預設的叢集，請選取叢集。 工具也可讓您使用快顯功能表來提交程式碼區塊，而非整個指令碼檔案。 在幾分鐘之後，查詢結果就會顯示在新的索引標籤中。
 
@@ -219,7 +217,7 @@ Azure HDInsight 工具可以安裝在 Visual Studio Code 支援的平台上，�
 
 8. 此工具也支援 **SQL 子句**查詢。
 
-   ![提交 Python 作業結果](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) 當您執行查詢時，提交狀態會顯示在底部狀態列的左邊。 當狀態為 [PySpark 核心 (忙碌)] 時，請勿提交其他查詢。  
+   ![提交 Python 作業結果](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) 當您執行查詢時，提交狀態會顯示在底部狀態列的左邊。 當狀態為 [PySpark 核心 (忙碌)]  時，請勿提交其他查詢。  
 
 >[!NOTE]  
 >叢集可以維護工作階段資訊。 已定義的變數、函式和對應值會保留在工作階段中，以便相同叢集的多個服務呼叫進行參考。 
@@ -272,13 +270,13 @@ Spark 2.2 叢集和 Spark2.3 叢集已不再支援 PySpark3，只有 Python 支�
         spark.stop()
     ```
 
-4. 在指令碼編輯器上按一下滑鼠右鍵，然後從快顯功能表選取 [HDInsight：PySpark 批次]，或使用快速鍵 **Ctrl + Alt + H**。 
+4. 在指令碼編輯器上按一下滑鼠右鍵，然後從快顯功能表選取 [HDInsight：  PySpark 批次]，或使用快速鍵 **Ctrl + Alt + H**。 
 
 5. 選取一個叢集來提交 PySpark 作業。 
 
    ![提交 Python 作業結果](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
 
-在提交 Python 作業後，提交記錄會出現在 Visual Studio Code 的 [輸出] 視窗中。 此外也會顯示 **Spark UI URL** 和 **Yarn UI URL**。 您可以在網頁瀏覽器中開啟 URL 來追蹤作業狀態。
+在提交 Python 作業後，提交記錄會出現在 Visual Studio Code 的 [輸出]  視窗中。 此外也會顯示 **Spark UI URL** 和 **Yarn UI URL**。 您可以在網頁瀏覽器中開啟 URL 來追蹤作業狀態。
 
 ## <a name="apache-livy-configuration"></a>Apache Livy 設定
 
@@ -287,9 +285,9 @@ Spark 2.2 叢集和 Spark2.3 叢集已不再支援 PySpark3，只有 Python 支�
 <a id="triggerlivyconf"></a>**如何觸發 Livy 設定**
 
 方法 1  
-1. 從功能表，瀏覽至 [檔案]  >  [喜好設定]  >  [設定]。  
-2. 在 [搜尋設定] 文字方塊中輸入 **HDInsight Job Sumission：Livy Conf**。  
-3. 選取 [在 settings.json 中編輯] 以取得相關搜尋結果。
+1. 從功能表，瀏覽至 [檔案]   >  [喜好設定]   >  [設定]  。  
+2. 在 [搜尋設定]  文字方塊中輸入 **HDInsight Job Sumission：Livy Conf**。  
+3. 選取 [在 settings.json 中編輯]  以取得相關搜尋結果。
 
 方法 2   
 提交檔案，但請注意，.vscode 資料夾會自動新增至工作資料夾。 您可以按一下 **.vscode\settings.json** 以尋找 Livy 組態。
@@ -306,32 +304,32 @@ Spark 2.2 叢集和 Spark2.3 叢集已不再支援 PySpark3，只有 Python 支�
     **POST /batches**   
     要求本文
 
-    | name | description | type | 
+    | NAME | description | type | 
     | :- | :- | :- | 
     | file | 要執行的應用程式所在的檔案 | 路徑 (必要) | 
-    | proxyUser | 要在執行作業時模擬的使用者 | string | 
-    | className | 應用程式 Java/Spark 主要類別 | string |
+    | proxyUser | 要在執行作業時模擬的使用者 | 字串 | 
+    | className | 應用程式 Java/Spark 主要類別 | 字串 |
     | args | 應用程式的命令列引數 | 字串的清單 | 
     | jars | 要在此工作階段中使用的 jar | 字串清單 | 
     | pyFiles | 要在此工作階段中使用的 Python 檔案 | 字串清單 |
     | 檔案 | 要在此工作階段中使用的檔案 | 字串清單 |
-    | driverMemory | 要用於驅動程式處理序的記憶體數量 | string |
+    | driverMemory | 要用於驅動程式處理序的記憶體數量 | 字串 |
     | driverCores | 要用於驅動程式處理序的核心數量 | int |
     | executorMemory | 每一個執行程式處理序所要使用的記憶體數量 | string |
     | executorCores | 每個執行程式所要使用的核心數量 | int |
     | numExecutors | 要為此工作階段啟動的執行程式數量 | int |
     | archives | 要在此工作階段中使用的封存 | 字串清單 |
-    | 佇列 | 所提交到的 YARN 佇列名稱 | string |
-    | name | 此工作階段的名稱 | string |
+    | 佇列 | 所提交到的 YARN 佇列名稱 | 字串 |
+    | NAME | 此工作階段的名稱 | 字串 |
     | conf | Spark 組態屬性 | key=val 的對應 |
 
     回應本文   
     所建立的 Batch 物件。
 
-    | name | description | type | 
+    | NAME | description | type | 
     | :- | :- | :- | 
     | id | 工作階段識別碼 | int | 
-    | appId | 此工作階段的應用程式識別碼 |  字串 |
+    | appId | 此工作階段的應用程式識別碼 |  String |
     | appInfo | 詳細的應用程式資訊 | key=val 的對應 |
     | log | 記錄行 | 字串的清單 |
     | state |   批次狀態 | string |
@@ -345,7 +343,7 @@ Spark 2.2 叢集和 Spark2.3 叢集已不再支援 PySpark3，只有 Python 支�
 
 1. [連線](#connect-to-hdinsight-cluster)到 Azure 帳戶 (如果您尚未這樣做)。
 
-2. 從功能表列，瀏覽至 [檢視]  >  [總管]。
+2. 從功能表列，瀏覽至 [檢視]   >  [總管]  。
 
 3. 從左窗格中，展開 **AZURE HDINSIGHT**。  可用的訂用帳戶和叢集 (支援 Spark、Hadoop 和 HBase) 將會列出。 
 
@@ -371,16 +369,16 @@ HDInsight for Visual Studio Code 支援下列功能︰
 
 ## <a name="unlink-cluster"></a>取消連結叢集
 
-1. 從功能表列中，瀏覽至 [檢視]  >  [命令選擇區...]，然後輸入 **HDInsight:Unlink a Cluster**。  
+1. 從功能表列中，瀏覽至 [檢視]   >  [命令選擇區...]  ，然後輸入 **HDInsight:Unlink a Cluster**。  
 
 2. 選取要取消連結的叢集。  
 
-3. 檢閱 [輸出] 檢視以進行驗證。  
+3. 檢閱 [輸出]  檢視以進行驗證。  
 
 
 ## <a name="logout"></a>logout  
 
-從功能表列中，瀏覽至 [檢視]  >  [命令選擇區...]，然後輸入 **HDInsight:Logout**。  在右側底部會有快顯，指出**登入成功！**。
+從功能表列中，瀏覽至 [檢視]   >  [命令選擇區...]  ，然後輸入 **HDInsight:Logout**。  在右側底部會有快顯，指出**登入成功！** 。
 
 
 ## <a name="next-steps"></a>後續步驟

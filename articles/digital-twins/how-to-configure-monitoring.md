@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 06/03/2018
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 3c35633c9b25eafdb738ed591c7c7022fbd8149a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 9765af13a22a0ae9db8a45c396e7d5a32b71b79c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967816"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730329"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中設定監視
 
@@ -38,19 +38,19 @@ Azure [活動記錄](../azure-monitor/platform/activity-logs-overview.md)提供 
 Azure Digital Twins 的活動記錄預設會啟用，而且可以透過下列方式在 Azure 入口網站中找到：
 
 1. 選取您的 Azure Digital Twins 執行個體。
-1. 選擇 [活動記錄] 以帶出顯示面板：
+1. 選擇 [活動記錄]  以帶出顯示面板：
 
-    ![活動記錄檔][1]
+    [![活動記錄檔](media/how-to-configure-monitoring/activity-log.png)](media/how-to-configure-monitoring/activity-log.png#lightbox)
 
 針對進階活動記錄：
 
-1. 選取 [記錄] 選項以顯示 [活動記錄分析概觀]：
+1. 選取 [記錄]  選項以顯示 [活動記錄分析概觀]  ：
 
-    ![選取範圍][2]
+    [![選取項目](media/how-to-configure-monitoring/activity-log-select.png)](media/how-to-configure-monitoring/activity-log-select.png#lightbox)
 
-1. [活動記錄分析概觀] 會摘要說明基本活動記錄資料：
+1. [活動記錄分析概觀]  會摘要說明基本活動記錄資料：
 
-    ![活動記錄分析概觀][3]
+    [![活動 log analytics 概觀]( media/how-to-configure-monitoring/log-analytics-overview.png)]( media/how-to-configure-monitoring/log-analytics-overview.png#lightbox)
 
 >[!TIP]
 >使用**活動記錄**來取得訂用帳戶層級事件的快速見解。
@@ -68,14 +68,14 @@ Azure Digital Twins 的活動記錄預設會啟用，而且可以透過下列方
 針對執行個體啟用診斷記錄：
 
 1. 在 Azure 入口網站中讓資源上線。
-1. 按一下 [診斷設定]：
+1. 按一下 [診斷設定]  ：
 
-    ![診斷設定一][4]
+    [![診斷設定一個](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
 
-1. 按一下 [開啟診斷] 以收集資料 (若先前未啟用)。
+1. 按一下 [開啟診斷]  以收集資料 (若先前未啟用)。
 1. 填入要求的欄位，並選取如何儲存資料以及要將資料儲存在何處：
 
-    ![診斷設定二][5]
+    [![兩個的診斷設定](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
 
     診斷記錄檔通常會儲存使用[Azure 檔案儲存體](../storage/files/storage-files-deployment-guide.md)且與共用[Azure 監視器記錄](../azure-monitor/log-query/get-started-portal.md)。 您可以同時選取這兩個選項。
 
@@ -97,17 +97,17 @@ Azure 監視器包含功能強大的 log analytics 服務，可讓記錄以供�
 完整的記錄檔查詢透過提供[Azure 監視器記錄](../azure-monitor/log-query/log-query-overview.md)。 設定這些強大的功能：
 
 1. 在 Azure 入口網站中搜尋 **Log Analytics**。
-1. 您會看到您可用**Log Analytics 工作區**執行個體。 選擇一個並選取 [記錄] 以查詢：
+1. 您會看到您可用**Log Analytics 工作區**執行個體。 選擇一個並選取 [記錄]  以查詢：
 
-    ![Log Analytics][6]
+    [![Log analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
 1. 如果您還沒有**Log Analytics 工作區**執行個體，您可以按一下 建立工作區**新增**按鈕：
 
-    ![建立 OMS][7]
+    [![建立 OMS](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
 
 一旦您**Log Analytics 工作區**執行個體佈建，您可以使用功能強大的查詢來尋找多個記錄檔中的項目，或使用特定準則，使用搜尋**記錄檔管理**:
 
-   ![記錄管理][8]
+   [![記錄管理](media/how-to-configure-monitoring/log-analytics-management.png)](media/how-to-configure-monitoring/log-analytics-management.png#lightbox)
 
 如需有關強大的查詢作業的詳細資訊，請參閱[開始使用查詢](../azure-monitor/log-query/get-started-queries.md)。
 
@@ -116,7 +116,7 @@ Azure 監視器包含功能強大的 log analytics 服務，可讓記錄以供�
 
 Azure 監視器記錄檔也會提供功能強大的錯誤和警示通知服務，可檢視依序按一下**診斷並解決問題**:
 
-   ![警示與錯誤通知][9]
+   [![警示和錯誤的通知](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
 
 >[!TIP]
 >使用**Log Analytics 工作區**來查詢多個應用程式功能、 訂用帳戶，或服務的記錄檔記錄。
@@ -132,14 +132,3 @@ Azure Digital Twins 也支援應用程式特定記錄與安全性稽核。 如�
 - 透過閱讀[診斷記錄概觀](../azure-monitor/platform/diagnostic-logs-overview.md)以深入了解 Azure 診斷設定。
 
 - 深入了解[Azure 監視器記錄](../azure-monitor/log-query/get-started-portal.md)。
-
-<!-- Images -->
-[1]: media/how-to-configure-monitoring/activity-log.png
-[2]: media/how-to-configure-monitoring/activity-log-select.png
-[3]: media/how-to-configure-monitoring/log-analytics-overview.png
-[4]: media/how-to-configure-monitoring/diagnostic-settings-one.png
-[5]: media/how-to-configure-monitoring/diagnostic-settings-two.png
-[6]: media/how-to-configure-monitoring/log-analytics.png
-[7]: media/how-to-configure-monitoring/log-analytics-oms.png
-[8]: media/how-to-configure-monitoring/log-analytics-management.png
-[9]: media/how-to-configure-monitoring/log-analytics-notifications.png

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 47b9ede2d529f78b14c21f53c6cd18ed691a3df3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 81a5f99b0babd79af0034f684c45bfcf1bb25bd8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60768133"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425616"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>複製活動的效能及微調指南
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 ## <a name="performance-reference"></a>效能參考
 
-下表顯示根據內部測試中「單一複製活動執行」之給定來源與接收配對的複製輸送量數字 (以 **MBps** 為單位)，以供參考。 為了進行比較，該表格也會示範[資料整合單位](#data-integration-units)或[自我裝載 Integration Runtime 延展性](concepts-integration-runtime.md#self-hosted-integration-runtime) (多個節點) 的不同設定如何協助複製效能。
+下表顯示根據內部測試中「單一複製活動執行」  之給定來源與接收配對的複製輸送量數字 (以 **MBps** 為單位)，以供參考。 為了進行比較，該表格也會示範[資料整合單位](#data-integration-units)或[自我裝載 Integration Runtime 延展性](concepts-integration-runtime.md#self-hosted-integration-runtime) (多個節點) 的不同設定如何協助複製效能。
 
 ![效能矩陣](./media/copy-activity-performance/CopyPerfRef.png)
 
@@ -79,7 +79,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 ## <a name="data-integration-units"></a>資料整合單位
 
-**資料整合單位 (DIU)** (先前稱為雲端資料移動單位或 DMU) 是一項量值，代表 Data Factory 中單一單位的能力 (CPU、記憶體和網路資源配置的組合)。 **DIU 僅適用於 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**，而非[自我裝載 Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime)。
+**資料整合單位 (DIU)** (先前稱為雲端資料移動單位或 DMU) 是一項量值，代表 Data Factory 中單一單位的能力 (CPU、記憶體和網路資源配置的組合)。 **DIU 僅適用於 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)** ，而非[自我裝載 Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime)。
 
 **複製活動執行所需的最小資料整合單位是兩個。** 如果未指定，下表列出用於不同複製案例中的預設 DIU：
 
@@ -93,7 +93,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 監視活動執行時，您可以在複製活動輸出中查看每個複製執行實際使用的資料整合單位。 請參閱[複製活動監視](copy-activity-overview.md#monitoring)了解詳細資料。
 
 > [!NOTE]
-> 目前只有在**將多個檔案從 Blob 儲存體/Data Lake Store/Amazon S3/雲端 FTP/雲端 SFTP 複製到任一其他雲端資料存放區**時，**超過 4 個 DIU 的設定**才有作用。
+> 設定 DIUs**大於 4**目前適用於只有當您**將多個檔案從 Azure 儲存體 /data Lake 儲存體/Amazon S3/Google 雲端儲存體/雲端 FTP/雲端 SFTP 複製到任何其他雲端資料存放區**.
 >
 
 **範例：**
@@ -171,7 +171,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 從來源資料存放區將資料複製到接收資料存放區時，您可以選擇使用 Blob 儲存體做為過渡暫存存放區。 暫存在下列情況下特別有用︰
 
 - **您想要透過 PolyBase 將資料從各種資料存放區內嵌至 SQL 資料倉儲**。 SQL 資料倉儲使用 PolyBase 做為高輸送量機制，將大量資料載入 SQL 資料倉儲。 不過，來源資料必須位於 Blob 儲存體或 Azure Data Lake Store，並符合額外的條件。 當您從 Blob 儲存體或 Azure Data Lake Store 以外的資料存放區載入資料時，您可以啟用透過過渡暫存 Blob 儲存體的資料複製。 在該情況下，Data Factory 會執行必要的資料轉換，以確保它符合 PolyBase 的需求。 然後，它會使用 PolyBase 將資料有效率地載入到 SQL 資料倉儲。 如需詳細資訊，請參閱[使用 PolyBase 將資料載入 Azure SQL 資料倉儲](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)。
-- **有時透過慢速網路連接執行混合式資料移動 (也就是，從內部部署資料存放區複製到雲端資料存放區)**，需要一段時間。 若要改善效能，您可以使用分段複製壓縮內部部署資料，將資料移到雲端中的暫存資料存放區所需的時間就會減少，然後在暫存存放區中先解壓資料後，再載入到目的地資料存放區。
+- **有時透過慢速網路連接執行混合式資料移動 (也就是，從內部部署資料存放區複製到雲端資料存放區)** ，需要一段時間。 若要改善效能，您可以使用分段複製壓縮內部部署資料，將資料移到雲端中的暫存資料存放區所需的時間就會減少，然後在暫存存放區中先解壓資料後，再載入到目的地資料存放區。
 - **由於公司 IT 原則，您不想要在您的防火牆中開啟 80 和 443 以外的連接埠**。 例如，從內部部署資料存放區將資料複製到 Azure SQL Database 接收或 Azure SQL 資料倉儲接收時，您必須針對 Windows 防火牆和公司防火牆啟用連接埠 1433 上的輸出 TCP 通訊。 在此案例中，分段複製可利用自我裝載整合執行階段，先透過 HTTP 或 HTTPS 在連接埠 443 將資料複製到 Blob 儲存體暫存執行個體，然後從 Blob 暫存儲存體將資料載入到 SQL Database 或 SQL 資料倉儲。 在此流程中，您不需要啟用連接埠 1433。
 
 ### <a name="how-staged-copy-works"></a>分段複製的運作方式
@@ -243,7 +243,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 2. **效能診斷與最佳化**。 如果您觀察到的效能不符預期，您必須找出效能瓶頸。 然後將效能最佳化，以消除或減少瓶頸的影響。 
 
-    在某些情況下，當您在 ADF 中執行複製活動，您會在[複製活動監控頁面](copy-activity-overview.md#monitor-visually)上方直接看到「效能調整秘訣」，如下列範例所示。 這不僅告訴您針對指定複製執行所識別的瓶頸，也會引導進行變更以大幅提升複製輸送量。 效能微調秘訣目前提供下列建議：將資料複製到 Azure SQL 資料倉儲時使用 PolyBase、當資料存放區端上的資源為瓶頸時增加 Azure Cosmos DB RU 或 Azure SQL DB DTU、移除不必要的分段複製等等。效能調整規則也會逐漸變豐富。
+    在某些情況下，當您在 ADF 中執行複製活動，您會在[複製活動監控頁面](copy-activity-overview.md#monitor-visually)上方直接看到「效能調整秘訣」  ，如下列範例所示。 這不僅告訴您針對指定複製執行所識別的瓶頸，也會引導進行變更以大幅提升複製輸送量。 效能微調秘訣目前提供下列建議：將資料複製到 Azure SQL 資料倉儲時使用 PolyBase、當資料存放區端上的資源為瓶頸時增加 Azure Cosmos DB RU 或 Azure SQL DB DTU、移除不必要的分段複製等等。效能調整規則也會逐漸變豐富。
 
     **範例：使用效能調整秘訣複製到 Azure SQL DB**
 
@@ -284,9 +284,9 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 針對 Microsoft 資料存放區，請參閱資料存放區特定的 [監視和微調主題](#performance-reference) ，以協助您了解資料存放區的效能特性、最小化回應時間和最大化輸送量。
 
-* 如果您要從 Blob 儲存體複製資料到 SQL 資料倉儲，請考慮使用 **PolyBase** 以提升效能。 如需詳細資訊，請參閱 [使用 PolyBase 將資料載入 Azure SQL 資料倉儲](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) 。
-* 如果您將資料從 HDFS 複製到 Azure Blob/Azure Data Lake Store，請考慮使用 **DistCp** 以提高效能。 如需詳細資料，請參閱[使用 DistCp 從 HDFS 複製資料](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs)。
-* 如果您將資料從 Redshift 複製到 Azure SQL 資料倉儲/Azure BLob/Azure Data Lake Store，請考慮使用 **UNLOAD** 以提高效能。 如需詳細資料，請參閱[使用 UNLOAD 複製 Amazon Redshift 中的資料](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)。
+* 如果您要從 Blob 儲存體複製資料到 SQL 資料倉儲  ，請考慮使用 **PolyBase** 以提升效能。 如需詳細資訊，請參閱 [使用 PolyBase 將資料載入 Azure SQL 資料倉儲](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) 。
+* 如果您將資料從 HDFS 複製到 Azure Blob/Azure Data Lake Store  ，請考慮使用 **DistCp** 以提高效能。 如需詳細資料，請參閱[使用 DistCp 從 HDFS 複製資料](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs)。
+* 如果您將資料從 Redshift 複製到 Azure SQL 資料倉儲/Azure BLob/Azure Data Lake Store  ，請考慮使用 **UNLOAD** 以提高效能。 如需詳細資料，請參閱[使用 UNLOAD 複製 Amazon Redshift 中的資料](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)。
 
 ### <a name="file-based-data-stores"></a>以檔案為基礎的資料存放區
 
@@ -306,9 +306,9 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 針對 Microsoft 資料存放區，請參閱資料存放區特定的 [監視和微調主題](#performance-reference) 。 這些主題可協助您了解資料存放區的效能特性，以及如何最小化回應時間和最大化輸送量。
 
-* 如果您要從 Blob 儲存體複製資料到 SQL 資料倉儲，請考慮使用 **PolyBase** 以提升效能。 如需詳細資訊，請參閱 [使用 PolyBase 將資料載入 Azure SQL 資料倉儲](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) 。
-* 如果您將資料從 HDFS 複製到 Azure Blob/Azure Data Lake Store，請考慮使用 **DistCp** 以提高效能。 如需詳細資料，請參閱[使用 DistCp 從 HDFS 複製資料](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs)。
-* 如果您將資料從 Redshift 複製到 Azure SQL 資料倉儲/Azure BLob/Azure Data Lake Store，請考慮使用 **UNLOAD** 以提高效能。 如需詳細資料，請參閱[使用 UNLOAD 複製 Amazon Redshift 中的資料](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)。
+* 如果您要從 Blob 儲存體複製資料到 SQL 資料倉儲  ，請考慮使用 **PolyBase** 以提升效能。 如需詳細資訊，請參閱 [使用 PolyBase 將資料載入 Azure SQL 資料倉儲](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) 。
+* 如果您將資料從 HDFS 複製到 Azure Blob/Azure Data Lake Store  ，請考慮使用 **DistCp** 以提高效能。 如需詳細資料，請參閱[使用 DistCp 從 HDFS 複製資料](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs)。
+* 如果您將資料從 Redshift 複製到 Azure SQL 資料倉儲/Azure BLob/Azure Data Lake Store  ，請考慮使用 **UNLOAD** 以提高效能。 如需詳細資料，請參閱[使用 UNLOAD 複製 Amazon Redshift 中的資料](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)。
 
 ### <a name="file-based-data-stores"></a>以檔案為基礎的資料存放區
 
@@ -337,7 +337,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 **複製行為**：
 
 * 在以檔案為基礎的資料存放區之間複製檔案：
-  * 如果輸入和輸出資料集同時具有相同的檔案格式設定，或者都沒有這些設定，資料移動服務會執行「二進位複製」，而不執行任何序列化或還原序列化。 此情況的輸送量會高於來源和接收檔案格式設定彼此不同的案例。
+  * 如果輸入和輸出資料集同時具有相同的檔案格式設定，或者都沒有這些設定，資料移動服務會執行「二進位複製」  ，而不執行任何序列化或還原序列化。 此情況的輸送量會高於來源和接收檔案格式設定彼此不同的案例。
   * 如果輸入和輸出資料集都是文字格式，只有編碼類型不同，則資料移動服務只會執行編碼轉換， 而不會執行任何序列化和還原序列化，因此和二進位複製相較之下，會產生一些效能負荷。
   * 如果輸入和輸出資料集皆有不同的檔案格式或不同的組態 (例如分隔符號)，則資料移動服務會將來源資料還原序列化，以進行串流、轉換然後再序列化為您所指出的輸出格式。 此作業會導致遠高於其他案例的效能負荷。
 * 對 (從) 不是以檔案為基礎的資料存放區複製檔案時 (例如，從以檔案為基礎的存放區複製到關聯式存放區)，必須執行序列化或還原序列化步驟。 此步驟會導致很高的效能負荷。

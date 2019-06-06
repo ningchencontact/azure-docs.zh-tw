@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: ff8f8c6656c4cd095749b3e048c72572d113f1ad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f4baab6e0909144efc613572207e7f24c4b4fe1f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015257"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743298"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 排序來自 Azure IoT 中樞的裝置連線事件
 
@@ -34,7 +34,7 @@ Azure 事件方格可協助您建置以事件為基礎的應用程式，並輕�
 
 首先，建立預存程序並加以設定，使其執行會比較傳入事件的序號，並將每個裝置的最新事件記錄在資料庫中的邏輯。
 
-1. 在您的 Cosmos DB SQL API 中，選取 [資料總管] > [項目] > [新增預存程序]。
+1. 在您的 Cosmos DB SQL API 中，選取 [資料總管]   > [項目]   > [新增預存程序]  。
 
    ![建立預存程序](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
@@ -145,7 +145,7 @@ Azure 事件方格可協助您建置以事件為基礎的應用程式，並輕�
 
    ![新的邏輯應用程式](./media/iot-hub-how-to-order-connection-state-events/new-logic-app.png)
 
-3. 選取 [建立] 以建立邏輯應用程式。
+3. 選取 [建立]  以建立邏輯應用程式。
 
    您現在已經為您的應用程式邏輯建立一項 Azure 資源。 在 Azure 部署您的邏輯應用程式之後，Logic Apps 設計工具會顯示常見模式的範本，以便您更快開始使用。
 
@@ -160,15 +160,15 @@ Azure 事件方格可協助您建置以事件為基礎的應用程式，並輕�
 
 1. 在連接器和觸發程序搜尋列中，輸入**HTTP**按 enter 鍵。
 
-2. 選取 [要求 - 收到 HTTP 要求時] 作為觸發程序。
+2. 選取 [要求 - 收到 HTTP 要求時]  作為觸發程序。
 
    ![選取 HTTP 要求觸發程序](./media/iot-hub-how-to-order-connection-state-events/http-request-trigger.png)
 
-3. 選取 [使用範例承載來產生結構描述]。
+3. 選取 [使用範例承載來產生結構描述]  。
 
    ![使用範例承載來產生結構描述](./media/iot-hub-how-to-order-connection-state-events/sample-payload.png)
 
-4. 將下列 JSON 程式碼範例貼到文字方塊中，然後選取 [完成]：
+4. 將下列 JSON 程式碼範例貼到文字方塊中，然後選取 [完成]  ：
 
    ```json
    [{
@@ -242,9 +242,9 @@ Azure 事件方格可協助您建置以事件為基礎的應用程式，並輕�
 
 離開 Logic Apps 設計工具之前，為觸發程序複製邏輯應用程式正在接聽的 URL。 您可以使用此 URL 來設定 Event Grid。
 
-1. 按一下以展開 [收到 HTTP 要求時] 觸發程序設定方塊。
+1. 按一下以展開 [收到 HTTP 要求時]  觸發程序設定方塊。
 
-2. 選取 [HTTP POST URL] 旁的複製按鈕來複製其值。
+2. 選取 [HTTP POST URL]  旁的複製按鈕來複製其值。
 
    ![複製 HTTP POST URL](./media/iot-hub-how-to-order-connection-state-events/copy-url.png)
 
@@ -256,7 +256,7 @@ Azure 事件方格可協助您建置以事件為基礎的應用程式，並輕�
 
 1. 在 Azure 入口網站中，瀏覽至您的 IoT 中樞。
 
-2. 選取 [事件]。
+2. 選取 [事件]  。
 
    ![開啟 Event Grid 詳細資料](./media/iot-hub-how-to-order-connection-state-events/event-grid.png)
 
@@ -264,21 +264,21 @@ Azure 事件方格可協助您建置以事件為基礎的應用程式，並輕�
 
    ![建立新的事件訂用帳戶](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
-4. 填寫**事件的訂用帳戶詳細資料**:提供描述性的名稱，然後選取 [事件方格結構描述]。
+4. 填寫**事件的訂用帳戶詳細資料**:提供描述性的名稱，然後選取 [事件方格結構描述]  。
 
-5. 填寫**事件類型**欄位。 取消核取**訂閱所有事件類型**，然後選取**裝置連線**並**裝置中斷連接**從功能表。
+5. 填寫**事件類型**欄位。 在下拉式清單中，選取 僅**裝置連接**並**裝置中斷連接**從功能表。 按一下以關閉清單並儲存您的選取項目在螢幕上的其他地方。
 
    ![設定要尋找的事件類型](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
 6. 針對**端點詳細資料**，選取端點類型為**Web Hook**和按一下選取的端點，然後貼上您從邏輯應用程式複製的 URL 並確認選取項目。
 
-   ![選取的端點 url](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+   ![選取的端點 url](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
 7. 表單現在看起來應該類似下列的範例：
 
    ![事件訂用帳戶表單範例](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
 
-   選取 [建立] 以儲存事件訂用帳戶。
+   選取 [建立]  以儲存事件訂用帳戶。
 
 ## <a name="observe-events"></a>觀察事件
 
@@ -286,11 +286,11 @@ Azure 事件方格可協助您建置以事件為基礎的應用程式，並輕�
 
 ### <a name="register-a-device-in-iot-hub"></a>在 IoT 中樞登錄裝置
 
-1. 從您的 IoT 中樞，選取 [IoT 裝置]。
+1. 從您的 IoT 中樞，選取 [IoT 裝置]  。
 
 2. 選取  **+ 新增**窗格的頂端。
 
-3. 在 [裝置識別碼] 中，輸入 `Demo-Device-1`。
+3. 在 [裝置識別碼]  中，輸入 `Demo-Device-1`。
 
 4. 選取 [ **儲存**]。
 
@@ -302,11 +302,9 @@ Azure 事件方格可協助您建置以事件為基礎的應用程式，並輕�
 
    ![裝置的連接字串](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
-HostName=test-eventgrid-hub.azure-devices.net;DeviceId=Demo-Device-1;SharedAccessKey=cv8uPNixe7E2R9EHtimoY/PlJfBV/lOYCMajVOp/Cuw=
-
 ### <a name="start-raspberry-pi-simulator"></a>啟動 Raspberry Pi 模擬器
 
-1. 我們將使用 Raspberry Pi Web 模擬器來模擬裝置連線。
+我們將使用 Raspberry Pi Web 模擬器來模擬裝置連線。
 
 [啟動 Raspberry Pi 模擬器](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 
@@ -324,7 +322,7 @@ HostName=test-eventgrid-hub.azure-devices.net;DeviceId=Demo-Device-1;SharedAcces
 
    ![執行應用程式](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
 
-   按一下 [停止] 以停止模擬器，然後觸發 [裝置中斷連線] 事件。
+   按一下 [停止]  以停止模擬器，然後觸發 [裝置中斷連線]  事件。
 
 現在，您已執行範例應用程式以收集感應器資料，並將其傳送至 IoT 中樞。
 
@@ -340,29 +338,29 @@ HostName=test-eventgrid-hub.azure-devices.net;DeviceId=Demo-Device-1;SharedAcces
 
 ## <a name="clean-up-resources"></a>清除資源
 
-本教學課程使用了會使您的 Azure 訂用帳戶產生費用的資源。 完成教學課程試用和結果測試時，請停用或刪除不想保留的資源。
+本教學課程使用了會使您的 Azure 訂用帳戶產生費用的資源。 當您完成教學課程試用和測試您的結果，停用或刪除您不想保留的資源。
 
 如果不想遺失您在應用程式邏輯上所做的工作，請將它停用，而非刪除它。
 
 1. 瀏覽至您的邏輯應用程式。
 
-2. 在 [概觀] 刀鋒刀鋒視窗上選取 [刪除] 或 [停用]。
+2. 在 [概觀]  刀鋒刀鋒視窗上選取 [刪除]  或 [停用]  。
 
     每個訂用帳戶都可以有一個免費的 IoT 中樞。 如果您為本教學課程建立了免費中樞，則不必為了避免費用而將它刪除。
 
 3. 瀏覽至您的 IoT 中樞。
 
-4. 在 [概觀] 刀鋒視窗上選取 [刪除]。
+4. 在 [概觀]  刀鋒視窗上選取 [刪除]  。
 
     即使要保留 IoT 中樞，您也可以刪除您所建立的事件訂用帳戶。
 
-5. 在 IoT 中樞中，選取 [Event Grid]。
+5. 在 IoT 中樞中，選取 [Event Grid]  。
 
 6. 選取您想要移除的事件訂用帳戶。
 
-7. 選取 [刪除] 。
+7. 選取 [刪除]  。
 
-若要從 Azure 入口網站中移除 Azure Cosmos DB 帳戶，請以滑鼠右鍵按一下帳戶名稱，然後按一下 [刪除帳戶]。 請參閱[刪除 Azure Cosmos DB 帳戶](https://docs.microsoft.com/azure/cosmos-db/manage-account)中的詳細指示。
+若要從 Azure 入口網站中移除 Azure Cosmos DB 帳戶，請以滑鼠右鍵按一下帳戶名稱，然後按一下 [刪除帳戶]  。 請參閱[刪除 Azure Cosmos DB 帳戶](https://docs.microsoft.com/azure/cosmos-db/manage-account)中的詳細指示。
 
 ## <a name="next-steps"></a>後續步驟
 

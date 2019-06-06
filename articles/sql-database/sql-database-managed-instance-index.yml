@@ -69,7 +69,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '（預覽）<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">設定時區</a>期間建立執行個體。'
+          - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">設定時區</a>期間建立執行個體。'
           - html: '建立具有執行個體<a href="https://aka.ms/managed-instance-collation">您選擇的伺服器層級定序</a>。'
           - html: '異地還原功能可讓您<a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">將資料庫還原至另一個資料中心使用 PowerShell</a>。'
           - html: '（預覽）<a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">重新建立卸除資料庫時使用 PowerShell</a>'

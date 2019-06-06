@@ -1,6 +1,6 @@
 ---
 title: 強制執行群組命名原則，在 Office 365 群組-Azure Active Directory |Microsoft Docs
-description: 如何在 Azure Active Directory 中設定 Office 365 群組的命名原則 (預覽)
+description: 如何設定 Azure Active Directory 中的 Office 365 群組命名原則
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d21616938978e501cc112fde105be4db4499b2a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 0c13b95028975c5463217455c940bb84c3867899
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605560"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734794"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>強制執行命名原則，在 Azure Active Directory 中的 Office 365 群組
 
@@ -74,30 +74,30 @@ ms.locfileid: "65605560"
 - 合作夥伴第 1 層支援
 - 合作夥伴第 2 層支援
 - 使用者管理員
-- 目錄撰寫者
+- 目錄寫入器
 
-## <a name="configure-naming-policy-in-azure-portal-preview"></a>在 Azure 入口網站 （預覽） 中設定命名原則
+## <a name="configure-naming-policy-in-azure-portal"></a>在 Azure 入口網站中設定命名原則
 
 1. 使用使用者管理員帳戶登入 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
-1. 選取 **群組**，然後選取**命名原則**以開啟 命名原則 頁面。
+1. 選取 [群組]  ，然後選取 [命名原則]  以開啟 [命名原則] 頁面。
 
-    ![在管理中心開啟命名原則頁面](./media/groups-naming-policy/policy-preview.png)
+    ![在管理中心開啟 [命名原則] 頁面](./media/groups-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>檢視或編輯前置詞後置詞命名原則
 
-1. 在 **命名原則**頁面上，選取**群組命名原則**。
-1. 您可以檢視或編輯目前的前置詞或後置詞命名原則個別選取的屬性或您想要強制執行命名原則一部分的字串。
-1. 從清單中移除前置詞或後置詞，選取 前置詞或後置字元，然後選取**刪除**。 在此同時，可以刪除多個項目。
+1. 在 [命名原則]  頁面上，選取 [群組命名原則]  。
+1. 您可以選取您想要在命名原則時強制執行的屬性或字串，以個別檢視或編輯目前的前置詞或後置詞命名原則。
+1. 若要從清單中移除前置詞或後置詞，請選取該前置詞或後置詞，然後選取 [刪除]  。 您同時可以刪除多個項目。
 1. 儲存您的變更生效所選取新的原則**儲存**。
 
 ### <a name="edit-custom-blocked-words"></a>編輯自訂封鎖字組
 
-1. 在 **命名原則**頁面上，選取**封鎖字組**。
+1. 在 [命名原則]  頁面上，選取 [封鎖的字組]  。
 
-    ![編輯和上傳的命名原則的封鎖字組清單](./media/groups-naming-policy/blockedwords-preview.png)
+    ![編輯和上傳命名原則的封鎖字組清單](./media/groups-naming-policy/blockedwords.png)
 
-1. 檢視或編輯目前的自訂封鎖字組清單，選取**下載**。
-1. 選取 [檔案] 圖示來上傳新的自訂封鎖字組清單。
+1. 選取 [下載]  可檢視或編輯目前的自訂封鎖字組清單。
+1. 選取 [檔案] 圖示可上傳新的自訂封鎖字組清單。
 1. 儲存您的變更生效所選取新的原則**儲存**。
 
 ## <a name="install-powershell-cmdlets"></a>安裝 PowerShell Cmdlet
@@ -130,7 +130,7 @@ ms.locfileid: "65605560"
    Connect-AzureAD
    ```
 
-   在所開啟的 [登入帳戶] 畫面中，輸入系統管理員帳戶和密碼以連線到服務，然後選取 [登入]。
+   在所開啟的 [登入帳戶]  畫面中，輸入系統管理員帳戶和密碼以連線到服務，然後選取 [登入]  。
 
 1. 請遵循[用於進行群組設定的 Azure Active Directory Cmdlet](groups-settings-cmdlets.md) 中的步驟，建立此租用戶的群組設定。
 
@@ -198,10 +198,10 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ## <a name="remove-the-naming-policy"></a>移除命名原則
 
-### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>移除命名的原則，使用 Azure 入口網站 （預覽）
+### <a name="remove-the-naming-policy-using-azure-portal"></a>移除命名的原則，使用 Azure 入口網站
 
-1. 在 **命名原則**頁面上，選取**刪除原則**。
-1. 確認刪除之後，命名原則移除，包括所有前置詞後置詞命名原則和任何自訂封鎖字組。
+1. 在 [命名原則]  頁面上，選取 [刪除原則]  。
+1. 確認刪除之後，命名原則就會遭到移除，包括所有前置詞後置詞命名原則以及任何自訂封鎖字組。
 
 ### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>移除命名的原則，使用 Azure AD PowerShell
 
@@ -251,7 +251,7 @@ StaffHub  | StaffHub 小組不會遵守命名原則，但基礎 Office 365 群�
 Exchange PowerShell | Exchange PowerShell Cmdlet 會遵守命名原則。 使用者若未在群組名稱和群組別名 (mailNickname) 中遵守命名原則，將會收到適當的錯誤訊息以及針對自訂封鎖字組所建議的前置詞和後置詞。
 Azure Active Directory PowerShell Cmdlet | Azure Active Directory PowerShell Cmdlet 會遵守命名原則。 使用者若未在群組名稱和群組別名中遵守命名慣例，將會收到適當的錯誤訊息以及針對自訂封鎖字組所建議的前置詞和後置詞。
 Exchange 系統管理中心 | Exchange 系統管理中心會遵守命名原則。 使用者若未在群組名稱和群組別名中遵守命名慣例，將會收到適當的錯誤訊息以及針對自訂封鎖字組所建議的前置詞和後置詞。
-Microsoft 365 管理中心 | Microsoft 365 系統管理中心會遵守命名原則。 當使用者建立或編輯群組名稱時，系統會自動套用命名原則，而且使用者會在輸入自訂封鎖字組時收到適當的錯誤。 Microsoft 365 系統管理中心還不會顯示命名原則預覽，並不會在使用者輸入群組名稱時傳回自訂封鎖字組錯誤。
+Microsoft 365 系統管理中心 | Microsoft 365 系統管理中心會遵守命名原則。 當使用者建立或編輯群組名稱時，系統會自動套用命名原則，而且使用者會在輸入自訂封鎖字組時收到適當的錯誤。 Microsoft 365 系統管理中心還不會顯示命名原則預覽，並不會在使用者輸入群組名稱時傳回自訂封鎖字組錯誤。
 
 ## <a name="next-steps"></a>後續步驟
 

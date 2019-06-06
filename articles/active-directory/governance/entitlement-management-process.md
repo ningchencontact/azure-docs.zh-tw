@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/26/2019
+ms.date: 05/30/2019
 ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ab18c8f165fc30636cd05091be1181743f9972d
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: aede5e315141251026867f7028ebf989d44da4d5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873616"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473041"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>要求 Azure AD 權限管理 （預覽） 中的程序和電子郵件通知
 
@@ -42,10 +42,10 @@ ms.locfileid: "64873616"
 
 | State | 描述 |
 | --- | --- |
-| 已送出 | 使用者提交要求。 |
+| 提交 | 使用者提交要求。 |
 | 等待核准 | 如果存取封裝的原則需要核准，要求將移至擱置的核准。 |
-| 已過期 | 如果任何核准者不檢閱核准的要求逾時內的要求，要求就會到期。 若要再試一次，使用者必須重新提交要求。 |
-| 已遭拒 | 核准者拒絕要求。 |
+| 已過期 | 如果任何核准者不核准要求核准的要求逾時內時，要求就會到期。 若要再試一次，使用者必須重新提交要求。 |
+| 拒絕 | 核准者拒絕要求。 |
 | 已核准 | 核准者核准要求。 |
 | 傳遞 | 使用者擁有**不**已指派的存取權存取封裝中的所有資源。 如果這是外部使用者，使用者有尚未存取的資源目錄，並接受權限提示字元。 |
 | 已傳遞 | 使用者已獲得存取存取封裝中的所有資源。 |
@@ -71,7 +71,7 @@ ms.locfileid: "64873616"
 | 7 | 您的存取權 *[存取套件]* 於 X 天後過期 | 存取封裝的要求者的權限前的 X 天到期 | 要求者 |
 | 8 | 您的存取權 *[存取套件]* 已過期 | 要求者的權限存取套件的到期時 | 要求者 |
 
-### <a name="review-access-request-emails"></a>檢閱存取要求的電子郵件
+### <a name="access-request-emails"></a>存取要求的電子郵件
 
 當要求者提交存取要求設定為需要核准存取封裝時，原則中設定的所有核准者會收到電子郵件通知的要求詳細資料。 詳細資料包括要求者的名稱、 組織、 存取開始和結束日期，如果提供業務正當理由，當已提交的要求，並要求的到期時間。 電子郵件會包含核准者可以在其中核准或拒絕存取要求的連結。 以下是要求者提交存取要求時，會傳送給核准者的範例電子郵件通知。
 
@@ -79,7 +79,7 @@ ms.locfileid: "64873616"
 
 ### <a name="approved-or-denied-emails"></a>核准或拒絕的電子郵件
 
-當他們存取要求核准並且可供存取，或其存取要求遭到拒絕時，系統會通知要求者。 當核准者檢閱提交的要求者的存取要求時，它們可以核准或拒絕存取要求。 核准者必須將他們的決策的業務理由。
+當他們存取要求核准並且可供存取，或其存取要求遭到拒絕時，系統會通知要求者。 當核准者收到所要求者提交存取要求時，它們可以核准或拒絕存取要求。 核准者必須將他們的決策的業務理由。
 
 存取要求獲准後，權利管理就會啟動程序中存取套件的資源的每個要求者存取權授與。 要求者已授與存取封裝中的每個資源的存取權之後，會傳送電子郵件通知給要求者已核准存取要求，以及他們已擁有存取套件的存取權。 以下是它們會授與存取套件的存取權時，會傳送給要求者的範例電子郵件通知。
 

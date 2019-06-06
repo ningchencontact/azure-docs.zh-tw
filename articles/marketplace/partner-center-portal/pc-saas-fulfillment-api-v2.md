@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: ae477068e2413678d5dd755cb5a7334f85655c74
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 1aba0ab7083c437210166d2d5a2d77e7a657afe9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66259250"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474597"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>第 2 版的 SaaS 履行 Api 
 
@@ -774,26 +774,35 @@ Response body:
 
 ```json
 {
-    "operationId": "<guid>",
-    "activityId": "<guid>",
-    "subscriptionId":"<guid>",
-    "offerId": "offer1",
-    "publisherId": "contoso",
-    "planId": "silver",
-    "quantity": "20"  ,
-    "action": "Subscribe",
-    "timeStamp": "2018-12-01T00:00:00"
+  "id": "<this is a Guid operation id, you can call operations API with this to get status>",
+  "activityId": "<this is a Guid correlation id>",
+  "subscriptionId": "<Guid to uniquely identify this resource>",
+  "publisherId": "<this is the publisher’s name>",
+  "offerId": "<this is the offer name>",
+  "planId": "<this is the plan id>",
+  "quantity": "<the number of seats, will be null if not per-seat saas offer>",
+  "timeStamp": "2019-04-15T20:17:31.7350641Z",
+  "action": "Unsubscribe",
+  "status": "NotStarted"  
+
 }
 ```
+其中可以是其中一個動作： 
+- `Subscribe`（當資源已啟用）
+- `Unsubscribe`（當資源已刪除）
+- `ChangePlan`（當變更計劃作業已完成）
+- `ChangeQuantity`（當變更數量作業完成時）
+- `Suspend`（當資源已暫止）
+- `Reinstate`（當資源具有已恢復暫停之後）
 
-其中可以是下列其中一個動作： 
-- `Subscribe`  （當資源已啟用）
-- `Unsubscribe` （當資源已刪除）
-- `ChangePlan` （當變更計劃作業已完成）
-- `ChangeQuantity` （當變更數量作業已完成）
-- `Suspend` （當資源已暫止）
-- `Reinstate` （當資源具有已恢復暫停之後）
+其中可以是其中一種狀態： <br>
+        -NotStarted， <br>
+        -InProgress、 <br>
+        成功， <br>
+        失敗， <br>
+        -衝突 <br>
 
+可採取動作的狀態會是 Succeeded 和 Failed webhook 通知中。 作業的生命週期是從 NotStarted 終止狀態，例如成功/失敗/衝突。 如果您收到未啟動或進行中，請繼續要求的狀態，透過 GET 作業 API，等到作業到達終止狀態之前採取任何動作。 
 
 ## <a name="mock-api"></a>模擬 （mock) 的 API
 

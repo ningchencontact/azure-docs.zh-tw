@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 05/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 16d100256f9252b478500488c2dc5a01c7e6a0b5
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 93eb0fba91ce5064d04a340e8b3e5b984ee73081
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418072"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515558"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
@@ -155,11 +155,11 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error (�
 
 自動化的 ML 中也會提供其他 Microsoft 解決方案這類：
 
-|整合|描述
-|------------|-----------
-|ML.NET|自動的模型選擇和定型 ML.NET 中使用 Visual Studio 和 Visual Studio Code 的.NET 應用程式中自動化 ML （預覽）。 [深入了解](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)。
-|HDIsnight|相應放大您在 HDInsight 叢集中，以平行方式在 Spark 上自動化 ML 訓練作業。 [深入了解](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)。
-|PowerBI|叫用直接在 Power BI （預覽） 中的機器學習服務模型。 [深入了解](https://docs.microsoft.com/power-bi/service-machine-learning-automated)。
+|整合|描述|
+|------------|-----------|
+|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|自動的模型選擇和定型 ML.NET 中使用 Visual Studio 和 Visual Studio Code 的.NET 應用程式中自動化 ML （預覽）。|
+|[HDIsnight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|相應放大您在 HDInsight 叢集中，以平行方式在 Spark 上自動化 ML 訓練作業。|
+|[PowerBI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|叫用直接在 Power BI （預覽） 中的機器學習服務模型。|
 
 ## <a name="next-steps"></a>後續步驟
 

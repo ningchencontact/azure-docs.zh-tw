@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7eb4d80933e06b9eceb072bee93e2b127cfa9ffe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 67720256cfac68c350c800291653a4a0c1d7ee46
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727431"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427828"
 ---
 # <a name="certificate-creation-methods"></a>憑證建立方式
 
@@ -82,7 +82,7 @@ KV 憑證的建立是非同步流程。 此作業會建立 KV 憑證要求，並
 |提供者|憑證類型|  
 |--------------|----------------------|  
 |DigiCert|Key Vault 透過 DigiCert 提供 OV 或 EV SSL 憑證|
-|GlobalCert|Key Vault 透過 GlobalSign 提供 OV 或 EV SSL 憑證|
+|GlobalCert|Key Vault 提供 Globaltrust 關於或 EV SSL 憑證 |
 
  憑證簽發者是 Azure Key Vault (KV) 中以 CertificateIssuer 資源表示的實體。 它用來提供 KV 憑證來源相關資訊；簽發者名稱、提供者、認證和其他系統管理詳細資訊。
 

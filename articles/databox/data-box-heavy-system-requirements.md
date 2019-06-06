@@ -8,14 +8,14 @@ ms.subservice: heavy
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 8cd2f96954cde367eb99d89e89bcf672b53dd590
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b9e249885bd0e930773d4b374f85d72e60abdbdc
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247990"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427732"
 ---
-# <a name="azure-data-box-heavy-system-requirements"></a>Azure 資料方塊繁重的系統需求
+# <a name="azure-data-box-heavy-system-requirements-preview"></a>Azure 資料方塊繁重的系統需求 （預覽）
 
 本文說明 Azure 資料方塊大量裝置及連接到裝置的用戶端的重要的系統需求。 我們建議您仔細檢閱資訊，再部署您的資料方塊 （大量），然後參考回，視需要在部署和後續作業期間。
 

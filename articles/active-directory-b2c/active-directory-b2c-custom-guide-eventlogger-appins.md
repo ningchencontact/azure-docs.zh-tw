@@ -2,20 +2,20 @@
 title: 使用 Application Insights 中的事件從 Azure Active Directory B2C 追蹤使用者行為 | Microsoft Docs
 description: 了解如何使用自訂原則，從 Azure AD B2C 使用者旅程圖，在 Application Insights 中啟用事件記錄 (預覽)。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/12/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8284be21db01ed7bd3215f7a67c8bfb40e0d73de
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0c2f9a2a3d431e2948c7d50541b576b23c3ece6a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705143"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507544"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>使用 Application Insights 在 Azure Active Directory B2C 中追蹤使用者行為
 
@@ -45,20 +45,20 @@ Application Insights 可以使用相互關聯識別碼來記錄使用者工作�
 當您使用 Application Insights 搭配 Azure AD B2C 時，您只需要建立資源並取得檢測金鑰。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您訂用帳戶的目錄，以確定您使用的是包含 Azure 訂用帳戶的目錄。 此租用戶不是您的 Azure AD B2C 租用戶。
-3. 選擇 Azure 入口網站左上角的 [建立資源]，然後搜尋並選取 [Application Insights]。
-4. 按一下頁面底部的 [新增] 。
-5. 輸入資源的 [名稱]。
-6. 針對 [應用程式類型]，選取 [ASP.NET Web 應用程式]。
-7. 針對 [資源群組]，選取現有的群組或輸入新群組的名稱。
-8. 按一下頁面底部的 [新增] 。
-4. 建立 Application Insights 資源後，開啟資源、展開 [基本資訊]，並複製檢測金鑰。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您訂用帳戶的目錄，以確定您使用的是包含 Azure 訂用帳戶的目錄。 此租用戶不是您的 Azure AD B2C 租用戶。
+3. 選擇 Azure 入口網站左上角的 [建立資源]  ，然後搜尋並選取 [Application Insights]  。
+4. 按一下頁面底部的 [新增]  。
+5. 輸入資源的 [名稱]  。
+6. 針對 [應用程式類型]  ，選取 [ASP.NET Web 應用程式]  。
+7. 針對 [資源群組]  ，選取現有的群組或輸入新群組的名稱。
+8. 按一下頁面底部的 [新增]  。
+4. 建立 Application Insights 資源後，開啟資源、展開 [基本資訊]  ，並複製檢測金鑰。
 
 ![Application Insights 概觀與檢測金鑰](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-insights.png)
 
 ## <a name="add-new-claimtype-definitions"></a>新增 ClaimType 定義
 
-從入門套件開啟 TrustFrameworkExtensions.xml 檔案，並將下列元素新增至 [BuildingBlocks](buildingblocks.md) 元素：
+從入門套件開啟 TrustFrameworkExtensions.xml  檔案，並將下列元素新增至 [BuildingBlocks](buildingblocks.md) 元素：
 
 ```xml
 <ClaimsSchema>
@@ -116,7 +116,7 @@ Application Insights 可以使用相互關聯識別碼來記錄使用者工作�
 | AzureInsights-UserSignup | 當使用者觸發註冊/登入旅程圖中的註冊選項時，建立 UserSignup 事件。 | 
 | AzureInsights-SignInComplete | 將權杖傳送到信賴憑證者應用程式之後，記錄驗證已成功完成。 | 
 
-從入門套件將設定檔新增至 TrustFrameworkExtensions.xml 檔案。 將這些元素新增至 **ClaimsProviders** 元素：
+從入門套件將設定檔新增至 TrustFrameworkExtensions.xml  檔案。 將這些元素新增至 **ClaimsProviders** 元素：
 
 ```xml
 <ClaimsProvider>
@@ -220,11 +220,11 @@ Application Insights 可以使用相互關聯識別碼來記錄使用者工作�
 
 ## <a name="upload-your-file-run-the-policy-and-view-events"></a>上傳檔案、執行原則，並檢視事件
 
-儲存並上傳 TrustFrameworkExtensions.xml 檔案。 然後，從您的應用程式或使用 Azure 入口網站中的**立即執行**呼叫信賴憑證者原則。 您的事件將在數秒內於 Application Insights 中變成可用狀態。
+儲存並上傳 TrustFrameworkExtensions.xml  檔案。 然後，從您的應用程式或使用 Azure 入口網站中的**立即執行**呼叫信賴憑證者原則。 您的事件將在數秒內於 Application Insights 中變成可用狀態。
 
 1. 在 Azure Active Directory 租用戶中開啟 **Application Insights** 資源。
-2. 選取 [使用量] > [事件]。
-3. 將 [期間] 設定為 [過去一小時內]，將 [間隔] 設定為 [3 分鐘]。  您可能需要選取 [重新整理] 才能檢視結果。
+2. 選取 [使用量]   > [事件]  。
+3. 將 [期間]  設定為 [過去一小時內]  ，將 [間隔]  設定為 [3 分鐘]  。  您可能需要選取 [重新整理]  才能檢視結果。
 
 ![Application Insights 使用量事件刀鋒視窗](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-graphic.png)
 

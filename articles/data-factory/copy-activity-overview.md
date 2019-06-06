@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 8f5a7d3f6300be100feffd23b98bd7dcd8f48148
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/06/2019
 ms.locfileid: "65150891"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory 中的複製活動
 
 ## <a name="overview"></a>概觀
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-data-movement-activities.md)
 > * [目前的版本](copy-activity-overview.md)
 
@@ -52,7 +52,7 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 
 ### <a name="supported-file-formats"></a>支援的檔案格式
 
-您可以使用「複製活動」在兩個以檔案為基礎的資料存放區之間「依原狀複製檔案」，資料就會有效率地複製，而不需經過序列化/還原序列化。
+您可以使用「複製活動」在兩個以檔案為基礎的資料存放區之間「依原狀複製檔案」  ，資料就會有效率地複製，而不需經過序列化/還原序列化。
 
 複製活動也支援以指定格式讀取和寫入檔案︰**文字、 JSON、 Avro、 ORC 和 Parquet**，壓縮和解壓縮檔案使用下列轉碼器：**GZip、 Deflate，Gzip、deflate、bzip2 和 ZipDeflate**。 如需詳細資訊，請參閱[支援的檔案和壓縮格式](supported-file-formats-and-compression-codecs.md)。
 
@@ -148,18 +148,18 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 
 ### <a name="monitor-visually"></a>以視覺化方式監視
 
-若要以視覺化方式監視複製活動執行，請移至您的資料處理站 -> [編寫與監視] -> [監視] 索引標籤，您會看到管線執行清單，而其中的 [動作] 資料行中有「檢視活動回合」連結。
+若要以視覺化方式監視複製活動執行，請移至您的資料處理站 -> [編寫與監視]   -> [監視]  索引標籤，您會看到管線執行清單，而其中的 [動作]  資料行中有「檢視活動回合」連結。
 
 ![監視管線回合](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
-按一下以查看此管線執行中的活動清單。 在 [動作] 資料行中，您會有複製活動輸入、輸出、錯誤 (如果複製活動執行失敗) 及詳細資料的連結。
+按一下以查看此管線執行中的活動清單。 在 [動作]  資料行中，您會有複製活動輸入、輸出、錯誤 (如果複製活動執行失敗) 及詳細資料的連結。
 
 ![監視活動回合](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-按一下 [動作] 下方的「詳細資料」連結，可查看複製活動的執行詳細資料及效能特性。 其中顯示的資訊包括從來源複製到接收端的資料量/資料列/檔案、輸送量、複製活動在對應期間內經歷的步驟，以及您的複製案例所使用的組態。
+按一下 [動作]  下方的「詳細資料」  連結，可查看複製活動的執行詳細資料及效能特性。 其中顯示的資訊包括從來源複製到接收端的資料量/資料列/檔案、輸送量、複製活動在對應期間內經歷的步驟，以及您的複製案例所使用的組態。
 
 >[!TIP]
->在某些情況下，您也會在複製監視頁面上方看到「效能微調秘訣」 ，這會告訴您已識別的瓶頸並引導您進行變更，以大幅提升複製輸送量，請參閱[此處](#performance-and-tuning)的範例詳細資料。
+>在某些情況下，您也會在複製監視頁面上方看到「效能微調秘訣」  ，這會告訴您已識別的瓶頸並引導您進行變更，以大幅提升複製輸送量，請參閱[此處](#performance-and-tuning)的範例詳細資料。
 
 **範例：從 Amazon S3 複製到 Azure Data Lake Store**
 ![監視活動執行詳細資料](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
@@ -239,7 +239,7 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 
 請參閱 [複製活動的效能及微調指南](copy-activity-performance.md)，其中說明在 Azure Data Factory 中會影響資料移動 (複製活動) 效能的重要因素。 它也列出在內部測試期間所觀察到的效能，並討論各種可將「複製活動」效能最佳化的方式。
 
-在某些情況下，當您在 ADF 中執行複製活動，您會在[複製活動監控頁面](#monitor-visually)上方直接看到「效能調整秘訣」，如下列範例所示。 這不僅告訴您針對指定複製執行所識別的瓶頸，也會引導進行變更以大幅提升複製輸送量。 效能微調秘訣目前提供下列建議：將資料複製到 Azure SQL 資料倉儲時使用 PolyBase、當資料存放區端上的資源為瓶頸時增加 Azure Cosmos DB RU 或 Azure SQL DB DTU、移除不必要的分段複製等等。效能調整規則也會逐漸變豐富。
+在某些情況下，當您在 ADF 中執行複製活動，您會在[複製活動監控頁面](#monitor-visually)上方直接看到「效能調整秘訣」  ，如下列範例所示。 這不僅告訴您針對指定複製執行所識別的瓶頸，也會引導進行變更以大幅提升複製輸送量。 效能微調秘訣目前提供下列建議：將資料複製到 Azure SQL 資料倉儲時使用 PolyBase、當資料存放區端上的資源為瓶頸時增加 Azure Cosmos DB RU 或 Azure SQL DB DTU、移除不必要的分段複製等等。效能調整規則也會逐漸變豐富。
 
 **範例：使用效能調整秘訣複製到 Azure SQL DB**
 

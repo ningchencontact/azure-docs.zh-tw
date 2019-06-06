@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 13580289144d798a57e636f15ab5bce629ff3572
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 06/05/2019
+ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242285"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734659"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-單一伺服器中讀取複本
 
@@ -60,17 +60,15 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 在出現提示時，請輸入使用者帳戶的密碼。
 
 ## <a name="monitor-replication"></a>監視複寫
-適用於 PostgreSQL 的 Azure 資料庫會在 Azure 監視器中提供**複本之間的最大延隔時間**計量。 此計量僅適用於主要伺服器。 此計量會顯示主要伺服器和最大延隔複本之間的延隔 (位元組)。 
+適用於 PostgreSQL 的 azure 資料庫提供兩個計量來監視複寫。 兩個計量**最大延隔跨複本**並**複本延遲**。 若要了解如何檢視這些計量，請參閱**監視複本**一節[讀取複本的操作說明文章](howto-read-replicas-portal.md)。
 
-適用於 PostgreSQL 的 Azure 資料庫也會在 Azure 監視器中提供**複本延隔時間**計量。 此計量僅適用於複本。 
+**最大延隔跨複本**計量會顯示延隔時間，以位元組為單位的主機與大部分延遲複本。 此計量僅適用於主要伺服器。
 
-這個計量會從 `pg_stat_wal_receiver` 檢視中計算：
+**複本延遲**計量顯示的時間，因為最後一個重新執行交易。 如果主要伺服器上沒有發生交易，計量會反映此時間延隔。 此計量為適用於只在複本伺服器。 複本延隔時間會計算從`pg_stat_wal_receiver`檢視：
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
-
-[複本延隔時間] 計量會顯示自最後一次重新執行交易已經過的時間。 如果主要伺服器上沒有發生交易，計量會反映此時間延隔。
 
 請設定警示，以在複本延隔時間接近您工作負載無法接受的值時通知您。 
 

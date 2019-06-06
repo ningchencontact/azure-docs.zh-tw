@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: de1915c7efb4bd8634228f341df2c57c443dd28e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: dab7561db8f223bff87f41ef756605359c3478e4
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242311"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492707"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions 的進階方案 （預覽）
 
@@ -56,7 +56,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### <a name="private-network-connectivity"></a>私人網路連線能力
 
-部署到進階方案的 azure Functions 會利用[新的 VNet 整合的 web 應用程式](../app-service/web-sites-integrate-with-vnet.md#new-vnet-integration)。  設定時，您的應用程式可以與您的 VNet 內的資源通訊，或透過服務端點保護。  IP 限制也有應用程式，可限制連入流量。
+部署到進階方案的 azure Functions 會利用[新的 VNet 整合的 web 應用程式](../app-service/web-sites-integrate-with-vnet.md)。  設定時，您的應用程式可以與您的 VNet 內的資源通訊，或透過服務端點保護。  IP 限制也有應用程式，可限制連入流量。
 
 指派給函式應用程式的子網路，在進階方案，您會需要有足夠的 IP 位址的子網路的每個可能的執行個體。 雖然執行個體數目上限可能有所差異，在預覽期間，我們需要至少 100 個可用的位址與 IP 區塊。
 

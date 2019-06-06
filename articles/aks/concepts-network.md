@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 2d51699138914e4a8ad5d2a133161fcfce71e9fe
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5ce3290f7af32b10e1dfbf9b72686e5d30c885bb
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074056"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431327"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的網路概念
 
@@ -29,13 +29,13 @@ ms.locfileid: "65074056"
 
 為了提供對您應用程式的存取能力，或讓應用程式元件能夠彼此通訊，Kubernetes 提供了虛擬網路的抽象層。 Kubernetes 節點會連線至虛擬網路，並且可提供 Pod 的輸入和輸出連線能力。 *Kube-proxy* 元件會在每個節點上執行以提供這些網路功能。
 
-在 Kubernetes 中，「服務」會按邏輯將 Pod 分組，以允許透過 IP 位址或 DNS 名稱和特定連接埠上的直接存取。 您也可以使用*負載平衡器*來分散流量。 您也可以透過*輸入控制器*執行更複雜的應用程式流量路由。 使用 Kubernetes 网络策略可提供安全性，还可筛选 Pod 网络流量（在 AKS 中，为预览版）。
+在 Kubernetes 中，「服務」  會按邏輯將 Pod 分組，以允許透過 IP 位址或 DNS 名稱和特定連接埠上的直接存取。 您也可以使用*負載平衡器*來分散流量。 您也可以透過*輸入控制器*執行更複雜的應用程式流量路由。 安全性和 pod 的網路流量篩選，可透過 Kubernetes*網路原則*（在 AKS 中為預覽版）。
 
 Azure 平台也有助於簡化 AKS 叢集的虛擬網路。 當您建立 Kubernetes 負載平衡器時，將會建立並設定基礎的 Azure Load Balancer資源。 當您對 Pod 開啟網路連接埠時，即會設定對應的 Azure 網路安全性群組規則。 對於 HTTP 應用程式路由，Azure 也會將*外部 DNS* 設定為新的輸入路由。
 
 ## <a name="services"></a>服務
 
-為了簡化應用程式工作負載的網路設定，Kubernetes 會使用「服務」按邏輯將一組 Pod 分組在一起，並提供網路連線。 以下是可用的服務類型：
+為了簡化應用程式工作負載的網路設定，Kubernetes 會使用「服務」  按邏輯將一組 Pod 分組在一起，並提供網路連線。 以下是可用的服務類型：
 
 - **叢集 IP** - 建立在 AKS 叢集內使用的內部 IP 位址。 這非常適用於支援叢集內其他工作負載的內部專用應用程式。
 
@@ -55,7 +55,7 @@ Azure 平台也有助於簡化 AKS 叢集的虛擬網路。 當您建立 Kuberne
 
 您可以動態指派負載平衡器和服務的 IP 位址，或指定要使用的現有靜態 IP 位址。 內部和外部的靜態 IP 位址都可指派。 這個現有的靜態 IP 位址通常會繫結至 DNS 項目。
 
-您可以指派內部和外部負載平衡器。 對內部負載平衡器只會指派私人 IP 位址，因此無法從網際網路加以存取。
+您可以指派內部  和外部  負載平衡器。 對內部負載平衡器只會指派私人 IP 位址，因此無法從網際網路加以存取。
 
 ## <a name="azure-virtual-networks"></a>Azure 虛擬網路
 
@@ -68,7 +68,7 @@ Azure 平台也有助於簡化 AKS 叢集的虛擬網路。 當您建立 Kuberne
 
 *Kubenet* 網路選項是建立 AKS 叢集時的預設組態。 使用 *kubenet*，節點會從 Azure 虛擬網路子網路取得 IP 位址。 Pod 會從邏輯上不同的位址空間接收至節點的 Azure 虛擬網路子網路的 IP 位址。 然後設定網路位址轉譯 (NAT)，以便 Pod 可以連線到 Azure 虛擬網路上的資源。 流量的來源 IP 位址會被轉譯為節點的主要 IP 位址。
 
-節點會使用 [kubenet][kubenet] Kubernetes 外掛程式。 您可以讓 Azure 平台為您建立及設定虛擬網路，或選擇部署 AKS 叢集到現有的虛擬網路子網路。 同样，只有 Pod 和接收可路由 IP 地址的节点才能使用 NAT 与 AKS 群集外的其他资源进行通信。 這種方法可大幅減少您需要在網路空間中保留，以供 Pod 使用的 IP 位址數目。
+節點會使用 [kubenet][kubenet] Kubernetes 外掛程式。 您可以讓 Azure 平台為您建立及設定虛擬網路，或選擇部署 AKS 叢集到現有的虛擬網路子網路。 同樣地，只有節點接收的可路由傳送的 IP 位址，和 pod 使用 NAT 與 AKS 叢集外的其他資源通訊。 這種方法可大幅減少您需要在網路空間中保留，以供 Pod 使用的 IP 位址數目。
 
 如需詳細資訊，請參閱[為 AKS 叢集設定 kubenet 網路][aks-configure-kubenet-networking]。
 
@@ -100,9 +100,11 @@ Azure CNI 透過 kubenet 網路提供下列功能：
 
 輸入的另一個常見功能是終止 SSL/TLS。 在透過 HTTPS 存取的大型 Web 應用程式上，可由輸入資源來處理 TLS 終止，而無須由應用程式本身處理。 若要提供自動 TLS 憑證產生和設定的功能，您可以將輸入資源設定為使用 Let's Encrypt 之類的資源提供者。 如需為 NGINX 輸入控制器設定 Let's Encrypt 的詳細資訊，請參閱[輸入和 TLS][aks-ingress-tls]。
 
+您也可以設定您的輸入控制器，以保留用戶端的來源 IP 的要求在 AKS 叢集中的容器。 當用戶端的要求會路由傳送至您的 AKS 叢集，透過輸入控制器中的容器時，該要求的原始來源 ip 將無法使用的目標容器。 當您啟用*用戶端來源 IP 保留*，用戶端的來源 IP 是可在要求標頭底下*X 轉送的*。 如果您使用用戶端來源 IP 保留在您輸入控制器上，您無法使用 SSL 傳遞。 用戶端來源 IP 保留和 SSL 傳遞可以搭配其他服務，例如*負載平衡器*型別。
+
 ## <a name="network-security-groups"></a>網路安全性群組
 
-網路安全性群組可篩選 VM 的流量，例如 AKS 節點。 當您建立服務 (例如 LoadBalancer) 時，Azure 平台會自動設定任何所需的網路安全性群組規則。 請勿以手動方式設定對 AKS 叢集中的 Pod 進行流量篩選的網路安全性群組規則。 請將任何必要的連接埠和轉送定義為 Kubernetes 服務資訊清單的一部分，然後由 Azure 平台建立或更新適當的規則。 还可以使用网络策略（如下一部分中所述）来自动向 Pod 应用流量筛选器规则。
+網路安全性群組可篩選 VM 的流量，例如 AKS 節點。 當您建立服務 (例如 LoadBalancer) 時，Azure 平台會自動設定任何所需的網路安全性群組規則。 請勿以手動方式設定對 AKS 叢集中的 Pod 進行流量篩選的網路安全性群組規則。 請將任何必要的連接埠和轉送定義為 Kubernetes 服務資訊清單的一部分，然後由 Azure 平台建立或更新適當的規則。 您也可以使用網路原則 下一節所述自動將流量篩選規則套用到 pod。
 
 ## <a name="network-policies"></a>網路原則
 
@@ -116,7 +118,7 @@ Azure CNI 透過 kubenet 網路提供下列功能：
 
 若要開始使用 AKS 網路功能，請使用 [kubenet][aks-configure-kubenet-networking] 或 [Azure CNI][aks-configure-advanced-networking] 以您自己的 IP 位址範圍建立及設定 AKS 叢集。
 
-如需相关的最佳做法，请参阅 [AKS 中的网络连接和安全性的最佳做法][operator-best-practices-network]。
+如需相關聯的最佳作法，請參閱[的網路連線和 AKS 中的安全性最佳做法][operator-best-practices-network]。
 
 如需關於 Kubernetes 及 AKS 核心概念的詳細資訊，請參閱下列文章：
 

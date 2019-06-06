@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e476f27e2a1945135bd90435078d5bcd47c4b3de
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c918abdc635e7a4a831e367e159354bb752e95e6
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073130"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743113"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>在最短停機時間的情況下動態調整資料庫資源
 
@@ -55,6 +55,9 @@ Azure SQL Database 的三個特性全部都提供某種動態調整資料庫的�
 - 在[單一資料庫](sql-database-single-database-scale.md)中，您可以使用 [DTU](sql-database-dtu-resource-limits-single-databases.md) 或 [vCore](sql-database-vcore-resource-limits-single-databases.md) 模型定義將指派給每個資料庫的資源數量上限。
 - [受控執行個體](sql-database-managed-instance.md)使用 [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) 模式，並可讓您定義配置給您執行個體的 CPU 核心上限和儲存體上限。 執行個體內的所有資料庫都會共用配置給執行個體的資源。
 - [彈性集區](sql-database-elastic-pool-scale.md)可讓您定義集區中每個資料庫群組的資源上限。
+
+> [!NOTE]
+> 您可以預期短期的連線中斷時相應增加/相應減少程序完成。 如果您已實作[標準的暫時性錯誤的重試邏輯](sql-database-connectivity-issues.md#retry-logic-for-transient-errors)，您將不會注意到在容錯移轉。
 
 ## <a name="alternative-scale-methods"></a>替代調整方法
 

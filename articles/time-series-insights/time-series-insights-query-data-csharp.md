@@ -10,18 +10,18 @@ reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e91c6fb4949a4902194bb95f98e49327434cdbfd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 250dd691c3ef3146d6768123de52bf0628b10e42
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244103"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728956"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>從 Azure 時間序列深入解析 GA 環境使用的查詢資料C#
 
-這個C#範例示範如何從 Azure 時間序列深入解析 ga 版環境查詢資料。 
+這個C#範例示範如何從 Azure 時間序列深入解析 ga 版環境查詢資料。
 
 範例會顯示查詢 API 使用方式的數個基本範例︰
 
@@ -31,7 +31,7 @@ ms.locfileid: "66244103"
 1. 在 Web 通訊端要求的範例中，要求感興趣環境的事件彙總資料。 要求整個可用性時間範圍內的資料。
 
 > [!NOTE]
-> 範例程式碼位於[ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample)。
+> 範例程式碼位於[ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)。
 
 ## <a name="project-dependencies"></a>專案相依性
 

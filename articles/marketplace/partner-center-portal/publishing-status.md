@@ -7,22 +7,34 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 461c9f3f3725ba27410088ca19f1ec050375adf2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9bf3136969974abbe9a99a5632478e3cbb22307e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806142"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474516"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>檢查發佈狀態的商業的 Marketplace 供應項目
 
 您可以檢視您目前**發佈狀態**上**提供概觀**索引標籤[商業 Marketplace 入口網站](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)在合作夥伴中心。
 
+每個供應項目應該都會顯示下列狀態指標的其中一個。
+
+| **狀態**    | **說明**  |
+| :---------- | :-------------------|
+| **Draft**(英文\) | 已建立供應項目，但是它不正在發行。 |
+| **正在發行** | 供應項目/計劃開始一路逐步完成發行程序。 |
+| **需要注意** | 嚴重的問題在憑證期間探索到的 Microsoft 或其任何發佈的步驟。 |
+| **預覽** | 供應項目已由 Microsoft 認證，並立即等候最終的驗證由 「 發行者 」。 若要讓供應項目選取上線 live。 |
+| **Live** | 供應項目在 marketplace 中已上線並可以看到，取得客戶。 |
+| **暫止的停止銷售** | 發行者的供應項目或方案，選取 「 停止銷售 」，但尚未完成的動作。 |
+| **在 marketplace 中無法使用** | 已移除先前發佈的供應項目/計劃在 marketplace 中。 |
+
 ## <a name="automated-validation"></a>自動化的驗證
 
 發佈程序的第一個步驟是一份自動驗證。 每個驗證步驟對應至您選擇要在建立您的供應項目中啟用的功能。 如果未啟用該功能，驗證會跳至下一個發佈的步驟。 發佈狀態為已核准之前，必須先完成每個驗證檢查。
 
-- **提供採購流程安裝程式 (> 10 分鐘)**
+- **提供採購流程安裝程式 (< 10 分鐘)**
 
 在此步驟中，我們會確保客戶透過 Azure 入口網站購買時，可以滿足您的供應項目。 此步驟才適用的銷售，透過 Microsoft 的供應項目。
 
@@ -34,7 +46,7 @@ ms.locfileid: "65806142"
 
 在此步驟中，驗證的資料和功能測試磁碟機在上一個步驟中之後, 我們會部署及複寫您的試用產品的執行個體，使其可供客戶使用。  使用試用產品啟用，才適用供應項目的這個步驟。
 
-- **潛在客戶管理驗證和註冊 (> 15 分鐘)**
+- **潛在客戶管理驗證和註冊 (< 15 分鐘)**
 
 在此步驟中，我們可以確認您的潛在客戶管理系統可以收到根據提供的供應項目設定的詳細資料的潛在客戶。 這是步驟只適用於供應項目且已啟用潛在客戶管理。
 

@@ -5,28 +5,28 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/05/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b3f4e1ddc041691ba68e14660ec5fa4cc39ddec1
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: db2557bd34cace220b1c9e5f7e6932dd63d9f89c
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518184"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734539"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>可供連接到 Azure Analysis Services 的用戶端程式庫
 
-用戶端程式庫是用戶端應用程式和工具連接到 Analysis Services 伺服器的必備條件。 Microsoft 客户端应用程序（例如 Power BI Desktop、Excel、SQL Server Management Studio (SSMS) 和 SQL Server Data Tools (SSDT)）会安装全部三个客户端库并通过定期的应用程序更新来更新它们。 在某些情况下，可能需要安装较新版本的客户端库。 自定义客户端应用程序还需要安装客户端库。
+用戶端程式庫是用戶端應用程式和工具連接到 Analysis Services 伺服器的必備條件。 Microsoft 用戶端應用程式，例如 Power BI Desktop、 Excel、 SQL Server Management Studio (SSMS)，和 SQL Server Data Tools (SSDT) 安裝所有三個用戶端程式庫，並加以更新，以及一般的應用程式更新。 在某些情況下，您可能需要安裝較新版的用戶端程式庫。 自訂用戶端應用程式也需要安裝用戶端程式庫。
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>下載最新的用戶端程式庫 (Windows Installer)  
 
 |下載  |產品版本  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.19.24    |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.19.24      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   16.1.0.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    16.1.0.0     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.24.20    |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.24.20      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   16.3.0.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    16.3.0.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO 和 ADOMD (NuGet 套件)
 
@@ -34,8 +34,8 @@ Analysis Services 管理物件 (AMO) 和 ADOMD 用戶端文件庫可從 [NuGet.o
 
 |封裝  | 產品版本  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    16.1.0     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   16.1.0      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    16.3.0     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   16.3.0      |
 
 NuGet 套件組件 AssemblyVersion 會遵循語意化版本控制系統：MAJOR.MINOR.PATCH。 NuGet 參考會載入預期的版本，即使是 GAC (產生自 MSI 安裝) 中的不同版本也一樣。 PATCH 會針對每個版本遞增。 AMO 和 ADOMD 版本會保持同步。
 
@@ -45,7 +45,7 @@ Analysis Services 會利用三個用戶端程式庫，也稱為資料提供者�
 
 Microsoft 用戶端應用程式 (像是 Power BI Desktop 和 Excel) 會安裝這三個用戶端程式庫，並在新版本可用時加以更新。 部分用戶端程式庫可能不是 Azure Analysis Services 所需的最新版本，需依更新的版本或頻率而定。 同樣適用於自訂應用程式或其他介面，例如 AsCmd、TOM、ADOMD.NET。 這些應用程式需要手動或以程式設計方式安裝程式庫。 手動安裝的用戶端程式庫會以可散發的套件形式包含在 SQL Server 功能套件中。 不過，這些會用戶端程式庫與 SQL Server 版本繫結，而可能不是最新版本。  
 
-用于客户端连接的客户端库不同于从 Azure Analysis Services 服务器连接到数据源时所需的数据提供程序。 若要深入了解資料來源連接，請參閱[資料來源連接](analysis-services-datasource.md)。
+用於用戶端連線的用戶端程式庫，與從 Azure Analysis Services 伺服器連接到資料來源所需的資料提供者不同。 若要深入了解資料來源連接，請參閱[資料來源連接](analysis-services-datasource.md)。
 
 ## <a name="client-library-types"></a>用戶端程式庫類型
 
@@ -75,7 +75,7 @@ Microsoft 用戶端應用程式 (像是 Power BI Desktop 和 Excel) 會安裝這
   
 1.  移至 `C:\Program Files\Microsoft Analysis Services\AS OLEDB\`。 如果您有多個資料夾，請選擇較高的數字。
   
-2.  以滑鼠右鍵按一下 [msolap.dll] > [屬性] > [詳細資料]。 如果檔名為 msolap140.dll，就會比最新版本還舊，而應進行升級。
+2.  以滑鼠右鍵按一下 [msolap.dll]   > [屬性]   > [詳細資料]  。 如果檔名為 msolap140.dll，就會比最新版本還舊，而應進行升級。
     
     ![用戶端程式庫詳細資料](media/analysis-services-data-providers/aas-msolap-details.png)
     
@@ -83,12 +83,12 @@ Microsoft 用戶端應用程式 (像是 Power BI Desktop 和 Excel) 會安裝這
 ### <a name="amo"></a>AMO
 
 1. 移至 `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\`。 如果您有多個資料夾，請選擇較高的數字。
-2. 以滑鼠右鍵按一下 [Microsoft.AnalysisServices] > [屬性] > [詳細資料]。  
+2. 以滑鼠右鍵按一下 [Microsoft.AnalysisServices]   > [屬性]   > [詳細資料]  。  
 
 ### <a name="adomd"></a>ADOMD
 
 1. 移至 `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\`。 如果您有多個資料夾，請選擇較高的數字。
-2. 以滑鼠右鍵按一下 [Microsoft.AnalysisServices.AdomdClient] > [屬性] > [詳細資料]。  
+2. 以滑鼠右鍵按一下 [Microsoft.AnalysisServices.AdomdClient]   > [屬性]   > [詳細資料]  。  
 
 
 ## <a name="next-steps"></a>後續步驟

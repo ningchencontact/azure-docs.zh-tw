@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 05/30/2019
-ms.openlocfilehash: 94309a019800b560cf6731d84cea324932e3f357
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 4f1dd0bfc0637c6681b513860a63df2b8c35fe5e
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66398539"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430868"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務的模型 interpretability
 
@@ -462,7 +462,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x
 
 自動化的機器學習服務包含解譯自動定型的模型中的功能重要性的封裝。 此外，分類案例可讓您擷取類別層級的功能重要性。 有兩種方法可以啟用此自動化的 machine learning 中的行為：
 
-* 若要啟用已定型的集團模型的特徵重要性，請使用[ `explain_model()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py)函式。
+* 若要啟用已定型的集團模型的特徵重要性，請使用[ `explain_model()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py)函式。
 
     ```python
     from azureml.train.automl.automlexplainer import explain_model
@@ -471,7 +471,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x
         per_class_summary, per_class_imp = explain_model(fitted_model, X_train, X_test)
     ```
 
-* 若要啟用每個個別的執行，在訓練之前的特徵重要性，將`model_explainability`參數來`True`在`AutoMLConfig`物件，以及提供驗證資料。 然後使用[ `retrieve_model_explanation()` ](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py)函式。
+* 若要啟用每個個別的執行，在訓練之前的特徵重要性，將`model_explainability`參數來`True`在`AutoMLConfig`物件，以及提供驗證資料。 然後使用[ `retrieve_model_explanation()` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py)函式。
 
     ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation

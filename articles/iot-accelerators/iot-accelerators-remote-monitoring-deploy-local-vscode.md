@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: bfe28f3ff994d518cb744233e88a6f04b5771a83
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: ed3301eb0e723e05e2a642ffea2f1609032553b4
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967524"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730179"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>本機部署遠端監視解決方案加速器 - Visual Studio Code
 
@@ -62,13 +62,14 @@ dotnet build -c Release
 下列步驟會示範如何在 Visual Studio Code 中執行遠端監視微服務：
 
 1. 啟動 Visual Studio Code。
-1. 從您在 VS Code 中的本機複本開啟 **azure-iot-pcs-remote-monitoring-dotnet** 模組。
-1. 從 scripts\local\launch\idesettings\vscode\. 複製 **launch.json** 和 **tasks.json** 檔案。 建立新的資料夾 **azure-iot-pcs-remote-monitoring-dotnet\.vscode** 並在其中貼上檔案。
-1. 在 VS Code 中開啟偵錯面板，然後執行 [執行所有微服務] 組態。 此組態會在 Docker 中執行裝置模擬微服務，並且在偵錯工具中執行其他微服務。
+1. 在 VS Code 中開啟**azure-iot-pcs-remote-monitoring-dotnet**資料夾。
+1. 建立新資料夾，稱為 **.vscode**中**azure-iot-pcs-remote-monitoring-dotnet**資料夾。
+1. 將檔案複製**launch.json**並**tasks.json** services\scripts\local\launch\idesettings\vscode，若要從 **.vscode**您剛才建立的資料夾。
+1. 開啟**偵錯面板**VS 程式碼以及執行**全部執行微服務**組態。 此組態會在 Docker 中執行裝置模擬微服務，並且在偵錯工具中執行其他微服務。
 
-例如，[偵錯主控台] 中 [驗證] 服務的輸出如下所示：
+執行的輸出**全部執行微服務**在偵錯主控台中看起來如下所示：
 
-[![Deploy-Local-Auth-Service](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
+[![Deploy-Local-Microservices](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
 
 ### <a name="run-the-web-ui"></a>執行 Web UI
 

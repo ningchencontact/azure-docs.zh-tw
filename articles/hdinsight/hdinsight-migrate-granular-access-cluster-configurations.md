@@ -6,13 +6,13 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/26/2019
-ms.openlocfilehash: 8bcb20ec5c85c3cfa2e481a4a5848f404a2fb4eb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/03/2019
+ms.openlocfilehash: 9a592533a92ec724c9a332bef5fdfcf385cb7b2c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685451"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730676"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>移轉至叢集組態中以角色為基礎的細微存取
 
@@ -20,8 +20,8 @@ ms.locfileid: "64685451"
 
 ## <a name="what-is-changing"></a>變更內容為何？
 
-以前，密碼無法透過 HDInsight API 來取得具有擁有者、 參與者或讀取器的叢集使用者[RBAC 角色](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)。
-從現在開始，這些機密資料將不再可供讀取者角色的使用者存取。 可用來取得更高的存取於使用者的角色權限的值應該允許被定義祕密。 這些包含值，例如叢集閘道 HTTP 認證、 儲存體帳戶金鑰和資料庫認證。
+以前，密碼無法透過 HDInsight API 來取得具有擁有者、 參與者或讀取器的叢集使用者[RBAC 角色](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)，因為它們是可供任何使用`*/read`所需的權限。
+接下來，存取這些機密資料將會需要`Microsoft.HDInsight/clusters/configurations/*`權限，這表示它們無法再存取讀取者角色的使用者。 可用來取得更高的存取於使用者的角色權限的值應該允許被定義祕密。 這些包含值，例如叢集閘道 HTTP 認證、 儲存體帳戶金鑰和資料庫認證。
 
 我們也引進新[HDInisght 叢集操作員](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator)能夠擷取祕密，但不授與 「 參與者 」 或 「 擁有者的系統管理權限的角色。 總結：
 
@@ -41,13 +41,15 @@ ms.locfileid: "64685451"
 - [API](#api)：使用使用者`/configurations`或`/configurations/{configurationName}`端點。
 - [適用於 Visual Studio Code 的 azure HDInsight 工具](#azure-hdinsight-tools-for-visual-studio-code)1.1.1 版或以下版本。
 - [適用於 IntelliJ 的 azure 工具組](#azure-toolkit-for-intellij)版本 3.20.0 或以下版本。
+- [Azure Data Lake 和 Stream Analytics Tools for Visual Studio](#azure-data-lake-and-stream-analytics-tools-for-visual-studio)低於 2.3.9000.1 的版本。
+- [適用於 Eclipse 的 azure 工具組](#azure-toolkit-for-eclipse)版本 3.15.0 或以下版本。
 - [適用於.NET 的 SDK](#sdk-for-net)
     - [版本 1.x 或 2.x](#versions-1x-and-2x):使用使用者`GetClusterConfigurations`， `GetConnectivitySettings`， `ConfigureHttpSettings`，`EnableHttp`或`DisableHttp`ConfigurationsOperationsExtensions 類別的方法。
     - [版本 3.x 版與](#versions-3x-and-up):使用使用者`Get`， `Update`， `EnableHttp`，或`DisableHttp`方法，從`ConfigurationsOperationsExtensions`類別。
 - [適用於 Python SDK](#sdk-for-python):使用使用者`get`或是`update`方法從`ConfigurationsOperations`類別。
 - [SDK for Java](#sdk-for-java):使用使用者`update`或是`get`方法從`ConfigurationsInner`類別。
 - [SDK for Go](#sdk-for-go):使用使用者`Get`或是`Update`方法從`ConfigurationsClient`結構。
-
+- [Az.HDInsight PowerShell](#azhdinsight-powershell)下方 2.0.0 版。
 請參閱下節 (或使用上方連結) 以了解案例的移轉步驟。
 
 ### <a name="api"></a>API
@@ -60,7 +62,7 @@ ms.locfileid: "64685451"
 - [**取得 /configurations** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configurations) （已過時）
     - 先前用來取得所有設定 （包括密碼）
     - 將不再支援這個 API 呼叫。 若要取得所有的設定，接下來，使用新的 POST /configurations 呼叫。 取得組態省略的敏感性參數使用，請使用 GET /configurations/ {configurationName} 呼叫。
-- [**POST /configurations/{configurationName}**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#change-connectivity-settings) (deprecated)
+- [**POST /configurations/{configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#change-connectivity-settings) (deprecated)
     - 先前用來更新閘道的認證。
     - 將已被取代，不再支援這個 API 呼叫。 請改用新的 POST /updateGatewaySettings。
 
@@ -80,6 +82,14 @@ Api 已新增下列取代：</span>
 ### <a name="azure-toolkit-for-intellij"></a>Azure Toolkit for IntelliJ
 
 如果您使用版本 3.20.0 或下面，更新[最新版的 Azure Toolkit for IntelliJ 外掛程式](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij)以避免中斷。
+
+### <a name="azure-data-lake-and-stream-analytics-tools-for-visual-studio"></a>Azure Data Lake 和 Stream Analytics Tools for Visual Studio
+
+更新或更新版本的版本 2.3.9000.1 [Azure Data Lake 和 Stream Analytics Tools for Visual Studio](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools&ssr=false#overview)以避免中斷。  使用更新的說明，請參閱我們的文件[更新 Data Lake Tools for Visual Studio](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started#update-data-lake-tools-for-visual-studio)。
+
+### <a name="azure-toolkit-for-eclipse"></a>適用於 Eclipse 的 Azure 工具組
+
+如果您使用版本 3.15.0 或下面，更新[最新版的 Azure Toolkit for Eclipse](https://marketplace.eclipse.org/content/azure-toolkit-eclipse)以避免中斷。
 
 ### <a name="sdk-for-net"></a>適用於 .NET 的 SDK
 
@@ -114,7 +124,7 @@ Api 已新增下列取代：</span>
 - [`ConfigurationsOperations.get`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurations_operations.configurationsoperations?view=azure-python#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-) 將會**不會再傳回敏感性參數**，例如儲存體金鑰 （核心站台） 或 HTTP 認證 （閘道）。
     - 若要擷取所有的設定，包括敏感性參數，使用[ `ConfigurationsOperations.list` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurations_operations.configurationsoperations?view=azure-python#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-)從現在開始。  請注意，'讀者 」 角色的使用者將無法使用這個方法。 這可讓您更精確地控制哪些使用者可以存取叢集的機密資訊。 
     - 若要擷取只 HTTP 閘道的認證，請使用[ `ConfigurationsOperations.get_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-)。
-- [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-resource-group-name--cluster-name--tags-none--custom-headers-none--raw-false----operation-config-) 現在已被取代，並已被取代[ `ClusterOperationsExtensions.update_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-)。
+- [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-resource-group-name--cluster-name--tags-none--custom-headers-none--raw-false----operation-config-) 現在已被取代，並已被取代[ `ClusterOperations.update_gateway_settings` ](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-)。
 
 ### <a name="sdk-for-java"></a>SDK For Java
 
@@ -122,8 +132,8 @@ Api 已新增下列取代：</span>
 
 - [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get) 將會**不會再傳回敏感性參數**，例如儲存體金鑰 （核心站台） 或 HTTP 認證 （閘道）。
     - 若要擷取所有的設定，包括敏感性參數，使用[ `ConfigurationsInner.list` ](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.configurationsinner.list?view=azure-java-stable)從現在開始。  請注意，'讀者 」 角色的使用者將無法使用這個方法。 這可讓您更精確地控制哪些使用者可以存取叢集的機密資訊。 
-    - 若要擷取只 HTTP 閘道的認證，請使用[ `ConfigurationsOperations.get_gateway_settings` ](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.getgatewaysettings?view=azure-java-stable)。
-- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update) 現在已被取代，並已被取代[ `ClusterOperationsExtensions.update_gateway_settings` ](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.updategatewaysettings?view=azure-java-stable)。
+    - 若要擷取只 HTTP 閘道的認證，請使用[ `ClustersInner.getGatewaySettings` ](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.getgatewaysettings?view=azure-java-stable)。
+- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update) 現在已被取代，並已被取代[ `ClustersInner.updateGatewaySettings` ](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.updategatewaysettings?view=azure-java-stable)。
 
 ### <a name="sdk-for-go"></a>SDK For Go
 
@@ -133,6 +143,15 @@ Api 已新增下列取代：</span>
     - 若要擷取所有的設定，包括敏感性參數，使用[ `ConfigurationsClient.list` ](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.List)從現在開始。  請注意，'讀者 」 角色的使用者將無法使用這個方法。 這可讓您更精確地控制哪些使用者可以存取叢集的機密資訊。 
     - 若要擷取只 HTTP 閘道的認證，請使用[ `ClustersClient.get_gateway_settings` ](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.GetGatewaySettings)。
 - [`ConfigurationsClient.update`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Update) 現在已被取代，並已被取代[ `ClustersClient.update_gateway_settings` ](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.UpdateGatewaySettings)。
+
+### <a name="azhdinsight-powershell"></a>Az.HDInsight PowerShell
+若要更新[Az PowerShell 版本 2.0.0](https://www.powershellgallery.com/packages/Az)或更新版本，以避免中斷。  如果您使用的方法，這些變更的影響，可能需要最少程式碼修改。
+- `Grant-AzHDInsightHttpServicesAccess` 現在已被取代，並已由新取代`Set-AzHDInsightGatewayCredential`cmdlet。
+- `Get-AzHDInsightJobOutput` 已更新為支援細微角色型存取儲存體金鑰。
+    - 與 HDInsight 叢集操作員、 參與者或擁有者角色的使用者不會受到影響。
+    - 讀取者角色的使用者必須指定`DefaultStorageAccountKey`參數明確。
+- `Revoke-AzHDInsightHttpServicesAccess` 現在已被取代。 HTTP 現在永遠啟用，因此不再需要這個指令程式。
+ 請參閱[az。HDInsight 移轉指南](https://github.com/Azure/azure-powershell/blob/master/documentation/migration-guides/Az.2.0.0-migration-guide.md#azhdinsight)如需詳細資訊。
 
 ## <a name="add-the-hdinsight-cluster-operator-role-assignment-to-a-user"></a>將 HDInsight 叢集操作員角色指派新增至使用者
 

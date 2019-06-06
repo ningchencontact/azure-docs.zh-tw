@@ -2,20 +2,20 @@
 title: 在 Azure Active Directory B2C 中設定資源擁有者密碼認證流程 | Microsoft Docs
 description: 了解如何在 Azure Active Directory B2C 中設定資源擁有者密碼認證流程。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d86caf5e5c6df29e00f17462f6a06602ff1245d8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7a802354f20998c87ac8c2ef1f2c1dbdf47f6930
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688869"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66733652"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>在 Azure Active Directory B2C 中使用自訂原則來設定資源擁有者密碼認證流程
 
@@ -42,12 +42,12 @@ ms.locfileid: "64688869"
 ## <a name="register-an-application"></a>註冊應用程式
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
-4. 選取 [應用程式]，然後選取 [新增]。
-5. 輸入應用程式的名稱，例如 ROPC_Auth_app。
-6. 針對 [Web 應用程式/Web API] 選取 [否]，然後針對 [原生用戶端] 選取 [是]。
-7. 保留所有其他值，然後選取 [建立]。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
+4. 選取 [應用程式]  ，然後選取 [新增]  。
+5. 輸入應用程式的名稱，例如 ROPC_Auth_app  。
+6. 針對 [Web 應用程式/Web API]  選取 [否]  ，然後針對 [原生用戶端]  選取 [是]  。
+7. 保留所有其他值，然後選取 [建立]  。
 8. 選取新的應用程式，並記錄「應用程式識別碼」以供稍後使用。
 
 ##  <a name="create-a-resource-owner-policy"></a>建立資源擁有者原則
@@ -140,7 +140,7 @@ ms.locfileid: "64688869"
     </TechnicalProfile>
     ```
 
-    以您在先決條件教學課程中所建立 ProxyIdentityExperienceFramework 應用程式的「應用程式識別碼」取代 **client_id** 和 **resource_id** 的 **DefaultValue**。
+    取代**DefaultValue**的**client_id** ProxyIdentityExperienceFramework 應用程式在必要的教學課程中所建立的應用程式識別碼。 然後取代**DefaultValue**的**resource_id** IdentityExperienceFramework 應用程式，也會建立必要的教學課程中的應用程式識別碼。  
 
 5. 將下列 **ClaimsProvider** 元素及其技術設定檔一起新增至 **ClaimsProviders** 元素：
 
@@ -233,9 +233,9 @@ ms.locfileid: "64688869"
     </UserJourney>
     ```
 
-7. 在 Azure AD B2C 租用戶的 [自訂原則] 頁面上，選取 [上傳原則]。
-8. 啟用 [覆寫現有的原則]，然後瀏覽並選取 *TrustFrameworkExtensions.xml* 檔案。
-9. 按一下 [上傳] 。
+7. 在 Azure AD B2C 租用戶的 [自訂原則]  頁面上，選取 [上傳原則]  。
+8. 啟用 [覆寫現有的原則]  ，然後瀏覽並選取 *TrustFrameworkExtensions.xml* 檔案。
+9. 按一下 [上傳]  。
 
 ## <a name="create-a-relying-party-file"></a>建立信賴憑證者檔案
 
@@ -254,9 +254,9 @@ ms.locfileid: "64688869"
     <OutputClaim ClaimTypeReferenceId="surname" DefaultValue="" />
     ```
 
-5. 在 Azure AD B2C 租用戶的 [自訂原則] 頁面上，選取 [上傳原則]。
-6. 啟用 [覆寫現有的原則]，然後瀏覽並選取 *TrustFrameworkExtensions.xml* 檔案。
-7. 按一下 [上傳] 。
+5. 在 Azure AD B2C 租用戶的 [自訂原則]  頁面上，選取 [上傳原則]  。
+6. 啟用 [覆寫現有的原則]  ，然後瀏覽並選取 *TrustFrameworkExtensions.xml* 檔案。
+7. 按一下 [上傳]  。
 
 ## <a name="test-the-policy"></a>測試原則
 

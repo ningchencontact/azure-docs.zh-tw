@@ -7,12 +7,12 @@ ms.date: 05/23/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 66eff6ee603ced03a8f4d75d4569752e0b11a6e7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 09ea70ac302806b4cb0e97fde92dda4208e3d659
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242523"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734507"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>診斷和 Azure Functions 中使用 Azure Cosmos DB 觸發程序時，針對問題進行疑難排解
 
@@ -88,6 +88,12 @@ Azure 函式會失敗，錯誤訊息 「 任一來源 '集合-name' （資料庫
 此外，可驗證的案例中，如果您知道多少 Azure 函式應用程式執行個體已執行。 如果您檢查您的租用容器，並計算租用項目內的相異值數目`Owner`中這些屬性應該等於函式應用程式的執行個體數目。 如果有多個比已知的 Azure 函式應用程式執行個體的擁有者，這表示這些額外的擁有者是一個 「 竊取 」 所做的變更。
 
 要套用的一個簡單的方法，若要解決此情況下，是`LeaseCollectionPrefix/leaseCollectionPrefix`到您的函式，以新/不同的值或，或者，使用新的租用容器進行測試。
+
+### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>繫結只能與 IReadOnlyList<Document>或 JArray
+
+如果您的 Azure Functions 專案 （或任何參考的專案） 包含 Azure Cosmos DB SDK，使用不同的版本與所提供的手動 NuGet 參考，就會發生此錯誤[Azure Functions Cosmos DB 的擴充功能](./troubleshoot-changefeed-functions.md#dependencies)。
+
+若要解決此情況下，手動 NuGet 參考，已加入，並讓 Azure Cosmos DB SDK 參考解析，透過 Azure Functions Cosmos DB 延伸模組套件移除。
 
 ## <a name="next-steps"></a>後續步驟
 
