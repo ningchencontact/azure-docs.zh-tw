@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/10/2019
+ms.date: 06/04/2019
 ms.author: magoedte
-ms.openlocfilehash: 376a7f3f83cc7fcf7490675d9c0aef1513862e8a
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8d4cc5e46066ad2f18d596d0484f62f478b4cc23
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521724"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514332"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>如何檢視記錄檔和事件，即時 （預覽）
 適用於容器的 azure 監視器包含的功能，目前為預覽狀態，而不需執行 kubectl 命令提供您的 Azure Kubernetes Service (AKS) 容器記錄檔 (stdout/stderr) 和事件的即時檢視。 當您選取其中一個選項時，新的窗格會出現下方的效能資料的資料表上**節點**，**控制站**，並**容器**檢視。 它會顯示即時記錄和容器引擎，進一步協助疑難排解問題所產生的事件。 
@@ -27,7 +27,7 @@ ms.locfileid: "65521724"
 >**參與者**叢集資源的存取權是需要這項功能才能運作。
 >
 
-即時記錄支援三種不同的方法來控制記錄的存取：
+即時記錄檔支援三種不同的方法，來控制存取記錄檔：
 
 1. 已啟用不具 Kubernetes RBAC 授權的 AKS 
 2. 已使用 Kubernetes RBAC 授權啟用的 AKS
@@ -66,10 +66,13 @@ ms.locfileid: "65521724"
          apiGroup: rbac.authorization.k8s.io
     ```
 
-2. 如果您要將它設定在第一次，您執行下列命令來建立叢集規則繫結： `kubectl create -f LogReaderRBAC.yaml`。 如果您先前已啟用支援即時記錄檔預覽之前，我們介紹了即時的事件記錄檔，以更新您的設定，執行下列命令： `kubectl apply -f LiveLogRBAC.yml`。 
+2. 如果您要設定其第一次，執行下列命令來建立叢集規則繫結： `kubectl create -f LogReaderRBAC.yaml`。 如果您先前已啟用支援即時記錄檔預覽之前，我們介紹了即時的事件記錄檔，以更新您的設定，執行下列命令： `kubectl apply -f LogReaderRBAC.yml`。 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>使用 Azure Active Directory 設定 AKS
-AKS 可設定為使用 Azure Active Directory (AD) 進行使用者驗證。 如果您第一次設定此項，請參閱[將 Azure Active Directory 與 Azure Kubernetes Service 整合](../../aks/azure-ad-integration.md)。 在執行建立[用戶端應用程式](../../aks/azure-ad-integration.md#create-client-application)並指定**重新導向 URI** 的步驟期間，您需要將另一個 URI 新增至清單 `https://ininprodeusuxbase.microsoft.com/*`。  
+AKS 可設定為使用 Azure Active Directory (AD) 進行使用者驗證。 如果您要設定其第一次，請參閱[整合 Azure Active Directory 與 Azure Kubernetes Service](../../aks/azure-ad-integration.md)。 若要建立步驟期間[用戶端應用程式](../../aks/azure-ad-integration.md#create-client-application)，您必須指定兩個**重新導向 URI**項目。 兩個 Uri 是：
+
+- https://ininprodeusuxbase.microsoft.com/*
+- https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html  
 
 >[!NOTE]
 >使用 Azure Active Directory 設定驗證以進行單一登入，只能在新 AKS 叢集的初始部署期間完成。 您無法針對已經部署的 AKS 叢集設定單一登入。 您必須設定的驗證 **（傳統） 的應用程式註冊**選項，以便在 URI 中，支援使用萬用字元，並同時的 Azure AD 中將它新增至清單中，將其註冊為**原生**應用程式。
@@ -77,7 +80,7 @@ AKS 可設定為使用 Azure Active Directory (AD) 進行使用者驗證。 如�
 
 ## <a name="view-live-logs-and-events"></a>檢視即時記錄檔和事件
 
-從容器引擎產生時，您可以檢視即時記錄檔事件**節點**，**控制站**，並**容器**檢視。 從 [屬性] 窗格中您選取**檢視即時資料 （預覽）** 選項和一個窗格顯示如下供您檢視記錄檔和事件的連續資料流中的效能資料資料表。 
+從容器引擎產生時，您可以檢視即時記錄檔事件**節點**，**控制站**，並**容器**檢視。 您從 [屬性] 窗格中，選取**檢視即時資料 （預覽）** 選項和一個窗格顯示如下供您檢視記錄檔和事件的連續資料流中的效能資料資料表。 
 
 ![節點屬性 窗格檢視即時記錄檔選項](./media/container-insights-live-logs/node-properties-live-logs-01.png)  
 
@@ -87,8 +90,8 @@ AKS 可設定為使用 Azure Active Directory (AD) 進行使用者驗證。 如�
 |------|---------------|--------------|----------------|
 | 節點 | 節點 | Event | 選取節點時不會篩選事件，並顯示整個叢集的 Kubernetes 事件。 窗格標題將會顯示叢集的名稱。 |
 | 節點 | Pod | Event | 選取的 pod 時為其命名空間篩選事件。 窗格標題將會顯示 pod 的命名空間。 | 
-| 控制器 | Pod | Event | 選取的 pod 時為其命名空間篩選事件。 窗格標題將會顯示 pod 的命名空間。 |
-| 控制器 | 控制器 | Event | 選取控制站時為其命名空間篩選事件。 窗格標題將會顯示控制器的命名空間。 |
+| Controllers | Pod | Event | 選取的 pod 時為其命名空間篩選事件。 窗格標題將會顯示 pod 的命名空間。 |
+| Controllers | Controller | Event | 選取控制站時為其命名空間篩選事件。 窗格標題將會顯示控制器的命名空間。 |
 | 節點/控制站/容器 | 容器 | 記錄 | 窗格標題將會顯示用來分組的 pod 容器名稱。 |
 
 如果使用 AAD 搭配 SSO 設定 AKS 叢集，系統會在您第一次使用時，於該瀏覽器工作階段期間提示您進行驗證。 選取您的帳戶，然後向 Azure 完成驗證。  

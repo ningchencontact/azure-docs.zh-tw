@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 06/03/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: a4ed3ec823982bf3977edf9939d98419e1c4b01f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: cde7d692e8bb37e874c6e55e5584d96e3b13af31
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956383"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497197"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中使用 kubenet 網路與您自己的 IP 位址範圍
 
@@ -28,7 +28,7 @@ ms.locfileid: "65956383"
 
 ## <a name="before-you-begin"></a>開始之前
 
-您必須安裝並設定 Azure CLI 版本 2.0.56 或更新版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
+您需要 Azure CLI 2.0.65 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>使用您自己的子網路的 Kubenet 網路概觀
 
@@ -48,7 +48,7 @@ Azure 在 UDR 中最多支援 400 條路由，因此您不能擁有超過 400 �
 
 作為折衷方案，您可以建立使用 *kubenet* 並連接到現有虛擬網路子網路的 AKS 叢集。 此方法可讓節點接收定義的 IP 位址，而無需事先為叢集中可能執行的所有潛在 Pod 保留大量的 IP 位址。
 
-使用 *kubenet*，您可以使用更小的 IP 位址範圍，並能夠支援大型叢集和應用程式需求。 例如，即使具有 */27* IP 位址範圍，您也可以執行具有足夠擴充或升級空間的 20-25 節點叢集。 此叢集大小可支援最多 *2,200-2,750* 個 Pod (每個節點預設最多 110 個 Pod)。
+使用 *kubenet*，您可以使用更小的 IP 位址範圍，並能夠支援大型叢集和應用程式需求。 例如，即使具有 */27* IP 位址範圍，您也可以執行具有足夠擴充或升級空間的 20-25 節點叢集。 此叢集大小可支援最多 *2,200-2,750* 個 Pod (每個節點預設最多 110 個 Pod)。 每個節點，您可以使用設定的 pod 的最大數目*kubenet* AKS 中為 250。
 
 下列基本計算會比較網路模型中的差異：
 
@@ -86,13 +86,13 @@ Azure 在 UDR 中最多支援 400 條路由，因此您不能擁有超過 400 �
 
 ## <a name="create-a-virtual-network-and-subnet"></a>建立虛擬網路和子網路
 
-若要開始使用 *kubenet* 和您自己的虛擬網路子網路，請首先使用 [az group create][az-group-create] 命令建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+若要開始使用 *kubenet* 和您自己的虛擬網路子網路，請首先使用 [az group create][az-group-create] 命令建立資源群組。 下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-如果您沒有要使用的現有虛擬網路和子網路，請使用 [az network vnet create][az-network-vnet-create] 命令建立這些網路資源。 在下列範例中，虛擬網路的名稱為 myVnet，位址首碼為 10.0.0.0/8。 建立名為 myAKSSubnet 的子網路，位址首碼為 10.240.0.0/16。
+如果您沒有要使用的現有虛擬網路和子網路，請使用 [az network vnet create][az-network-vnet-create] 命令建立這些網路資源。 在下列範例中，虛擬網路的名稱為 myVnet  ，位址首碼為 10.0.0.0/8  。 建立名為 myAKSSubnet  的子網路，位址首碼為 10.240.0.0/16  。
 
 ```azurecli-interactive
 az network vnet create \
@@ -132,7 +132,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-現在，使用 [az role assignment create][az-role-assignment-create] 命令為虛擬網路上的 AKS 叢集「參與者」權限指派服務主體。 提供您自己 *\<appId >* 從前一個命令來建立服務主體輸出所示：
+現在，使用 [az role assignment create][az-role-assignment-create] 命令為虛擬網路上的 AKS 叢集「參與者」  權限指派服務主體。 提供您自己 *\<appId >* 從前一個命令來建立服務主體輸出所示：
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -140,15 +140,15 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>在虛擬網路中建立 AKS 叢集
 
-您現在已經建立虛擬網路和子網路，並為服務主體建立並指派使用這些網路資源的權限。 現在，使用 [az aks create][az-aks-create] 命令在虛擬網路和子網路中建立 AKS 叢集。 定義您自己的服務主體 *\<appId >* 並*\<密碼 >* 從前一個命令來建立服務主體輸出所示。
+您現在已經建立虛擬網路和子網路，並為服務主體建立並指派使用這些網路資源的權限。 現在，使用 [az aks create][az-aks-create] 命令在虛擬網路和子網路中建立 AKS 叢集。 定義您自己的服務主體 *\<appId >* 並 *\<密碼 >* 從前一個命令來建立服務主體輸出所示。
 
 下列 IP 位址範圍也定義為叢集建立程序的一部分：
 
-* *--service-cidr* 用於為 AKS 叢集中的內部服務指派 IP 位址。 此 IP 位址範圍應該是您的網路環境中其他未使用的位址空間。 如果您使用 Express Route 或站對站 VPN 連線連接或計劃連接 Azure 虛擬網路，這會包括任何內部部署網路範圍。
+* *--service-cidr* 用於為 AKS 叢集中的內部服務指派 IP 位址。 此 IP 位址範圍應該是您的網路環境中其他未使用的位址空間。 如果您連線時，或想要連線，請使用 Express Route 或站對站 VPN 連接 Azure 虛擬網路，此範圍會包含任何內部部署網路的範圍。
 
 * *--dns-service-ip* 位址應該是服務 IP 位址範圍的 *.10* 位址。
 
-* *--pod-cidr* 應該是您的網路環境中未使用的大型位址空間。 如果您使用 Express Route 或站對站 VPN 連線連接或計劃連接 Azure 虛擬網路，這會包括任何內部部署網路範圍。
+* *--pod-cidr* 應該是您的網路環境中未使用的大型位址空間。 如果您連線時，或想要連線，請使用 Express Route 或站對站 VPN 連接 Azure 虛擬網路，此範圍會包含任何內部部署網路的範圍。
     * 此位址範圍必須大到足以容納您希望相應增加的節點數目。 如果您需要更多位址用於其他節點，則無法在部署叢集之後變更此位址範圍。
     * Pod IP 位址範圍用來為叢集中的每個節點指派 */24* 位址空間。 在下列範例中，*192.168.0.0/16* 的 *--pod-cidr* 指派第一個節點 *192.168.0.0/24*、第二個節點 *192.168.1.0/24* 和第三個節點 *192.168.2.0/24*。
     * 隨著叢集縮放比例或升級，Azure 平台會繼續為每個新的節點指派一個 Pod IP 位址範圍。

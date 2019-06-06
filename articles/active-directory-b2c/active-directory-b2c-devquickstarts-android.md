@@ -2,20 +2,20 @@
 title: 在 Azure Active Directory B2C 中使用 Android 應用程式取得權杖 | Microsoft Docs
 description: 本文將說明如何建立 Android 應用程式，以使用 AppAuth 和 Azure Active Directory B2C 來管理使用者身分識別和驗證使用者。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: acd0e9616f830d9378709e67f0d05e3ae549700d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4db4806b6be018bfc53a155627de825bf62d8395
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703342"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510102"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用 Android 應用程式登入
 
@@ -44,9 +44,9 @@ Microsoft 身分識別平台會使用開放式標準，例如 OAuth2 和 OpenID 
 
 在 Azure AD B2C 中，使用者體驗是由[使用者流程](active-directory-b2c-reference-policies.md)所定義，這是一組用來控制 Azure AD 行為的原則。 此應用程式需要登入和註冊使用者流程。 建立使用者流程時，請務必：
 
-* 在使用者流程中選擇 [顯示名稱] 作為註冊屬性。
-* 在每個使用者流程中，選擇 [顯示名稱] 和 [物件識別碼] 應用程式宣告。 您也可以選擇其他宣告。
-* 建立每個使用者流程之後，請複製其 [名稱]。 其前置詞應該為 `b2c_1_`。  您稍後需要用到此使用者流程名稱。
+* 在使用者流程中選擇 [顯示名稱]  作為註冊屬性。
+* 在每個使用者流程中，選擇 [顯示名稱]  和 [物件識別碼]  應用程式宣告。 您也可以選擇其他宣告。
+* 建立每個使用者流程之後，請複製其 [名稱]  。 其前置詞應該為 `b2c_1_`。  您稍後需要用到此使用者流程名稱。
 
 建立您的使用者流程後，就可以開始建置您的應用程式。
 

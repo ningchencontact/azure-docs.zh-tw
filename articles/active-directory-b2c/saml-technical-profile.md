@@ -2,20 +2,20 @@
 title: 在 Azure Active Directory B2C 的自訂原則中定義 SAML 技術設定檔 | Microsoft Docs
 description: 在 Azure Active Directory B2C 的自訂原則中定義 SAML 技術設定檔。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/21/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4a2e8938aeaf75b3b0237962d16f2702968358f9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dca330f20548d3a93091f89dc8ab2b3cb92f50e2
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695586"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512701"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義 SAML 技術設定檔
 
@@ -128,7 +128,7 @@ Protocol 元素的 **Name** 屬性必須設定為 `SAML2`。
 | XmlSignatureAlgorithm | 否 | Azure AD B2C 用來簽署 SAML 要求的方法。 此中繼資料會控制 SAML 要求中 **SigAlg** 參數 (查詢字串或張貼參數) 的值。 可能的值：`Sha256`、`Sha384`、`Sha512` 或 `Sha1`。 請確定您會使用相同的值來設定這兩端的簽章演算法。 僅使用您憑證支援的演算法。 | 
 | WantsSignedAssertions | 否 | 指出技術設定檔是否需要所有傳入的判斷提示都要經過簽署。 可能的值：`true` 或 `false`。 預設值為 `true`。 如果將值設定為 `true`，由識別提供者傳送到 Azure AD B2C 的所有判斷提示區段 `saml:Assertion` 都必須經過簽署。 如果將值設定為 `false`，則識別提供者不應該簽署判斷提示，但即使是這樣，Azure AD B2C 還是不會驗證簽章。 此中繼資料也會控制中繼資料旗標 **WantsAssertionsSigned**，其為要與識別提供者共用之 Azure AD B2C 技術設定檔中繼資料內的輸出。 如果您停用判斷提示驗證，您可能也想要停用回應簽章驗證 (如需詳細資訊，請參閱 **ResponsesSigned**)。 |
 | ResponsesSigned | 否 | 可能的值：`true` 或 `false`。 預設值為 `true`。 如果將值設定為 `false`，則識別提供者不應該簽署 SAML 回應，但即使是這樣，Azure AD B2C 還是不會驗證簽章。 如果將值設定為 `true`，由識別提供者傳送到 Azure AD B2C 的 SAML 回應會經過簽署且必須進行驗證。 如果您停用 SAML 回應驗證，您可能也想要停用判斷提示簽章驗證 (如需詳細資訊，請參閱 **WantsSignedAssertions**)。 |
-| WantsEncryptedAssertions | 否 | 指出技術設定檔是否需要所有傳入的判斷提示都要加密。 可能的值：`true` 或 `false`。 預設值為 `false`。 如果將值設定為 `true`，由識別提供者傳送到 Azure AD B2C 的判斷提示都必須經過簽署，而且必須指定 **SamlAssertionDecryption** 密碼編譯金鑰。 如果將值設定為 `true`，Azure AD B2C 技術設定檔的中繼資料就會包含 [加密] 區段。 識別提供者會讀取中繼資料，並使用 Azure AD B2C 技術設定檔中繼資料內提供的公開金鑰來加密 SAML 回應判斷提示。 如果您啟用判斷提示加密，您可能也需要停用回應簽章驗證 (如需詳細資訊，請參閱 **ResponsesSigned**)。 | 
+| WantsEncryptedAssertions | 否 | 指出技術設定檔是否需要所有傳入的判斷提示都要加密。 可能的值：`true` 或 `false`。 預設值為 `false`。 如果將值設定為 `true`，由識別提供者傳送到 Azure AD B2C 的判斷提示都必須經過簽署，而且必須指定 **SamlAssertionDecryption** 密碼編譯金鑰。 如果將值設定為 `true`，Azure AD B2C 技術設定檔的中繼資料就會包含 [加密]  區段。 識別提供者會讀取中繼資料，並使用 Azure AD B2C 技術設定檔中繼資料內提供的公開金鑰來加密 SAML 回應判斷提示。 如果您啟用判斷提示加密，您可能也需要停用回應簽章驗證 (如需詳細資訊，請參閱 **ResponsesSigned**)。 | 
 | IdpInitiatedProfileEnabled | 否 | 指出由 SAML 識別提供者設定檔所起始的單一登入工作階段設定檔是否已啟用。 可能的值：`true` 或 `false`。 預設值為 `false`。 在識別提供者所起始的流程中，使用者會在外部進行驗證，而未經要求的回應會傳送到 Azure AD B2C，其接著會取用權杖、執行協調流程步驟，然後將回應傳送到信賴憑證者應用程式。 |
 | NameIdPolicyFormat | 否 | 針對代表要求主體的名稱識別碼指定限制。 如果省略，則可能會使用識別提供者所支援的任何識別碼類型來代表要求主體。 例如，`urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`。 **NameIdPolicyFormat** 可與 **NameIdPolicyAllowCreate** 搭配使用。 請查看您識別提供者的文件，以了解哪些名稱識別碼原則可受到支援。 |
 | NameIdPolicyAllowCreate | 否 | 使用 **NameIdPolicyFormat** 時，您也可以指定 **NameIDPolicy** 的 `AllowCreate` 屬性。 此中繼資料的值會是 `true` 或 `false`，用來指出是否允許識別提供者在登入流程期間建立新的帳戶。 請查看您的識別提供者文件，以取得如何執行此操作的指導方針。 |

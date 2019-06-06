@@ -2,20 +2,20 @@
 title: 在 Azure Active Directory B2C 中的 iOS 應用程式使用 AppAuth | Microsoft Docs
 description: 本文說明如何建立 iOS 應用程式，以使用 AppAuth 和 Azure Active Directory B2C 來管理使用者身分識別和驗證使用者。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dc429861d97715505ed48e06d216bd2c8292addf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1f7c864102a4985aa1b2c66e12b42cbe3bc19bca
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703091"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510090"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C：使用 iOS 應用程式登入
 
@@ -41,9 +41,9 @@ Microsoft 身分識別平台會使用開放式標準，例如 OAuth2 和 OpenID 
 ## <a name="create-your-user-flows"></a>建立使用者流程
 在 Azure AD B2C 中，每個使用者體驗皆是由某個[使用者流程](active-directory-b2c-reference-policies.md)所定義。 此應用程式包含一個身分識別體驗：合併登入和註冊。 建立使用者流程時，請務必：
 
-* 在 [註冊屬性] 下方，選取 [顯示名稱] 屬性。  您也可以選取其他屬性。
-* 在 [應用程式宣告] 下方，選取 [顯示名稱] 和 [使用者的物件識別碼] 宣告。 您也可以選取其他宣告。
-* 建立每個使用者流程之後，請複製其 [名稱]。 當您儲存使用者流程時，使用者流程名稱前面會加上 `b2c_1_`。  您稍後需要用到此使用者流程名稱。
+* 在 [註冊屬性]  下方，選取 [顯示名稱]  屬性。  您也可以選取其他屬性。
+* 在 [應用程式宣告]  下方，選取 [顯示名稱]  和 [使用者的物件識別碼]  宣告。 您也可以選取其他宣告。
+* 建立每個使用者流程之後，請複製其 [名稱]  。 當您儲存使用者流程時，使用者流程名稱前面會加上 `b2c_1_`。  您稍後需要用到此使用者流程名稱。
 
 建立您的使用者流程後，就可以開始建置您的應用程式。
 

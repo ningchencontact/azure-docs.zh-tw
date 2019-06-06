@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C 中的區域可用性和資料落地 | Microsoft Docs
 description: 有關 Azure Active Directory B2C 租用戶類型的主題。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/10/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8c5d39244c835de7d46c074e62dae32d4ace0f67
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 30f13a3b85e68babcaef62b9200a296105b3ce83
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719782"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508995"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C：區域可用性與資料落地
 區域可用性和資料存留處是兩個非常不同的概念，這些概念套用到 Azure AD B2C 的方式與套用到其餘 Azure 的方式不同。 本文將說明這兩個概念之間的差異，並比較它們如何套用在 Azure 與 Azure AD B2C。
@@ -24,8 +24,8 @@ ms.locfileid: "64719782"
 Azure AD B2C 是**在全球正式運作**，具有**資料存留處在美國或歐洲**的選項。
 
 ## <a name="concepts"></a>概念
-* 「區域可用性」係指一項服務是否可供使用。
-* 「資料存留處」係指使用者資料的儲存位置。
+* 「區域可用性」  係指一項服務是否可供使用。
+* 「資料存留處」  係指使用者資料的儲存位置。
 
 ## <a name="region-availability"></a>區域可用性
 Azure AD B2C 是透過 Azure 公用雲端在全球提供使用。 
@@ -52,7 +52,7 @@ Azure AD B2C 會將使用者資料儲存在美國或歐洲。
 > 阿富汗、阿根廷、澳洲、巴西、智利、哥倫比亞、厄瓜多、香港特別行政區、印度、印尼、伊拉克、日本、南韓、馬來西亞、紐西蘭、巴拉圭、祕魯、菲律賓、新加坡、斯里蘭卡、台灣、泰國、烏拉圭和委內瑞拉。
 
 ## <a name="preview-tenant"></a>預覽租用戶
-如果您已在 Azure AD B2C 的預覽期間建立 B2C 租用戶，您的 [租用戶類型] 可能會顯示為 [預覽租用戶]。 如果情況如此，您只能將租用戶用於開發和測試用途，而不能用於生產應用程式。
+如果您已在 Azure AD B2C 的預覽期間建立 B2C 租用戶，您的 [租用戶類型]  可能會顯示為 [預覽租用戶]  。 如果情況如此，您只能將租用戶用於開發和測試用途，而不能用於生產應用程式。
 
 > [!IMPORTANT]
 > 預覽 B2C 租用戶沒有任何途徑可以移轉到生產級別 B2C 租用戶。 請注意，當您刪除預覽 B2C 租用戶並使用相同的網域名稱重建生產級別 B2C 租用戶時，會發生已知的問題。 您必須使用不同的網域名稱建立生產級別 B2C 租用戶。

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2018
+ms.date: 05/31/2019
 ms.author: genli
-ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cab40284f36f21f9de72ee4dc1faf78153621d26
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457471"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475968"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>疑難排解：點對站連線問題
 
@@ -29,23 +29,23 @@ ms.locfileid: "60457471"
 
 ### <a name="symptom"></a>徵狀
 
-尝试使用 VPN 客户端连接到 Azure 虚拟网络时，看到以下错误消息：
+當您嘗試使用 VPN 用戶端來連線到 Azure 虛擬網路時，會收到下列錯誤訊息：
 
-**找不到可用于此可扩展身份验证协议的证书。(錯誤 798)**
+**找不到可以使用這個可延伸的驗證通訊協定的憑證。(錯誤 798)**
 
 ### <a name="cause"></a>原因
 
-如果 [憑證 - 目前的使用者\個人\憑證] 中遺失了用戶端憑證，就會發生此問題。
+如果 [憑證 - 目前的使用者\個人\憑證]  中遺失了用戶端憑證，就會發生此問題。
 
 ### <a name="solution"></a>解決方法
 
 若要解決此問題，請遵循下列步驟：
 
-1. 開啟 [憑證管理員]：按一下 [開始]，輸入**管理電腦憑證**，然後按一下搜尋結果中的**管理電腦憑證**。
+1. 開啟 [憑證管理員]：按一下 [開始]  ，輸入**管理電腦憑證**，然後按一下搜尋結果中的**管理電腦憑證**。
 
 2. 請確定下列憑證位於正確的位置：
 
-    | 证书 | 位置 |
+    | 憑證 | 位置 |
     | ------------- | ------------- |
     | AzureClient.pfx  | 目前的使用者\個人\憑證 |
     | Azuregateway-*GUID*.cloudapp.net  | 目前的使用者\受信任的根憑證授權單位|
@@ -56,13 +56,13 @@ ms.locfileid: "60457471"
 如需如何安裝用戶端憑證的詳細資訊，請參閱[產生並匯出點對站連線的憑證](vpn-gateway-certificates-point-to-site.md)。
 
 > [!NOTE]
-> 匯入用戶端憑證時，請勿選取 [啟用加強私密金鑰保護] 選項。
+> 匯入用戶端憑證時，請勿選取 [啟用加強私密金鑰保護]  選項。
 
 ## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>無法建立您的電腦和 VPN 伺服器之間的網路連線，因為遠端伺服器沒有回應
 
 ### <a name="symptom"></a>徵狀
 
-當您嘗試，並連接到 Azure 虛擬網路 gteway，在 Windows 上使用 IKEv2 時，您會收到下列的錯誤訊息：
+當您嘗試，並連接到在 Windows 上使用 ikev2 做為 Azure 虛擬網路閘道時，您會收到下列的錯誤訊息：
 
 **無法建立您的電腦和 VPN 伺服器之間的網路連線，因為遠端伺服器沒有回應**
 
@@ -78,7 +78,7 @@ Windows 10 和 Server 2016 都支援 IKEv2。 不過，若要使用 IKEv2，您�
 
 1. 安裝更新。
 
-   | 作業系統版本 | date | 號碼/連結 |
+   | 作業系統版本 | Date | 號碼/連結 |
    |---|---|---|---|
    | Windows Server 2016<br>Windows 10 版本 1607 | 2018 年 1 月 17 日 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10 版本 1703 | 2018 年 1 月 17 日 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
@@ -122,7 +122,7 @@ Windows 10 和 Server 2016 都支援 IKEv2。 不過，若要使用 IKEv2，您�
 
 1. 請確定下列憑證位於正確的位置：
 
-    | 证书 | 位置 |
+    | 憑證 | 位置 |
     | ------------- | ------------- |
     | AzureClient.pfx  | 目前的使用者\個人\憑證 |
     | Azuregateway-*GUID*.cloudapp.net  | 目前的使用者\受信任的根憑證授權單位|
@@ -173,10 +173,10 @@ VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 擷取 VPN 用戶端組態套件，並尋找 .cer 檔案。 若要安裝憑證，請遵循下列步驟：
 
 1. 開啟 mmc.exe。
-2. 添加“证书”管理单元。
-3. 選取本機電腦的 [電腦] 帳戶。
-4. 以滑鼠右鍵按一下 [受信任的根憑證授權單位] 節點。 按一下 [所有工作] > [匯入]，然後瀏覽至您從 VPN 用戶端組態套件擷取的 .cer 檔案。
-5. 重启计算机。 
+2. 新增 [憑證]  嵌入式管理單元。
+3. 選取本機電腦的 [電腦]  帳戶。
+4. 以滑鼠右鍵按一下 [受信任的根憑證授權單位]  節點。 按一下 [所有工作]   > [匯入]  ，然後瀏覽至您從 VPN 用戶端組態套件擷取的 .cer 檔案。
+5. 重新啟動電腦。 
 6. 嘗試安裝 VPN 用戶端。
 
 ## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-data-is-invalid"></a>Azure 入口網站錯誤：無法儲存 VPN 閘道且資料無效
@@ -264,11 +264,11 @@ VPN 用戶端範圍屬於 10.0.0.0/8 的較小子網路，例如 10.0.12.0/24。
 
 ### <a name="cause"></a>原因
 
-此行为专为 Windows 客户端设计。 當用戶端使用 PPP IPCP 通訊協定時，其會從伺服器 (在此例中為 VPN 閘道) 取得通道介面的 IP 位址。 不過，由於通訊協定中的限制緣故，因此用戶端並沒有子網路遮罩。 因為沒有任何其他方式可取得此遮罩，所以用戶端會嘗試根據通道介面 IP 位址的類別來猜測子網路遮罩。 
+這是針對 Windows 用戶端設計的行為。 當用戶端使用 PPP IPCP 通訊協定時，其會從伺服器 (在此例中為 VPN 閘道) 取得通道介面的 IP 位址。 不過，由於通訊協定中的限制緣故，因此用戶端並沒有子網路遮罩。 因為沒有任何其他方式可取得此遮罩，所以用戶端會嘗試根據通道介面 IP 位址的類別來猜測子網路遮罩。 
 
 因此，會根據下列靜態對應新增路由： 
 
-如果地址属于 A 类 --> 应用 /8
+如果位址屬於類別 A --> 套用 /8
 
 如果位址屬於類別 B --> 套用 /16
 
@@ -301,7 +301,7 @@ VPN 用戶端已連線到 Azure 虛擬網路。 不過，用戶端無法存取�
 
 ### <a name="symptom"></a>徵狀
 
-您移除點對站 VPN 連線，然後重新安裝 VPN 用戶端。 在这种情况下，VPN 连接未成功配置。 您在 Windows 的 [網路連線] 設定中看不到 VPN 連線。
+您移除點對站 VPN 連線，然後重新安裝 VPN 用戶端。 在此情況下，並未成功設定 VPN 連線。 您在 Windows 的 [網路連線]  設定中看不到 VPN 連線。
 
 ### <a name="solution"></a>解決方法
 
@@ -366,9 +366,9 @@ NIC 驅動程式已過時。
 
 更新 NIC 驅動程式：
 
-1. 按一下 [開始]，輸入**裝置管理員**，然後從結果清單中選取它。 如果系統提示您輸入系統管理員密碼或確認，請輸入密碼或提供確認。
-2. 在 [網路介面卡] 類別中，尋找您想要更新的 NIC。  
-3. 按兩下裝置名稱，選取 [更新驅動程式]，選取 [自動搜尋更新的驅動程式軟體]。
+1. 按一下 [開始]  ，輸入**裝置管理員**，然後從結果清單中選取它。 如果系統提示您輸入系統管理員密碼或確認，請輸入密碼或提供確認。
+2. 在 [網路介面卡]  類別中，尋找您想要更新的 NIC。  
+3. 按兩下裝置名稱，選取 [更新驅動程式]  ，選取 [自動搜尋更新的驅動程式軟體]  。
 4. 如果 Windows 找不到新的驅動程式，您可以嘗試前往裝置製造商的網站尋找，並遵循他們的指示更新驅動程式。
 5. 重新啟動電腦，然後嘗試重新連線。
 

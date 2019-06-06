@@ -12,20 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: jingwang
-ms.openlocfilehash: 80ef8870bafa00f3debda99db299018a39d42a82
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1a8d622aa280794d9a4d6fe7320ddcc21ac044f4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245044"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475661"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Office 365 中的資料複製到 Azure 中使用 Azure Data Factory
 
-Azure Data Factory 可讓您將 Office 365 租用戶中豐富的組織資料以可調式方法帶入 Azure，並建置分析應用程式，以及根據這些寶貴的資料資產擷取深入解析。 與 Privileged Access Management 整合可針對 Office 365 中的重要策劃資料提供安全的存取控制。  如需 Microsoft Graph 資料連線的相關資訊，請參閱[此連結](https://docs.microsoft.com/graph/data-connect-concept-overview)。
+Azure Data Factory 整合[Microsoft Graph 的資料連接](https://docs.microsoft.com/graph/data-connect-concept-overview)、 可讓您將組織的資料，在 Office 365 租用戶至 Azure，可調整的方式，並建置分析應用程式的豐富及擷取為基礎的深入解析這些重要的資料資產。 與 Privileged Access Management 整合可針對 Office 365 中的重要策劃資料提供安全的存取控制。  請參閱[此連結](https://docs.microsoft.com/graph/data-connect-concept-overview)如需 Microsoft Graph 資料的概觀連接和指[此連結](https://docs.microsoft.com/graph/data-connect-policies#licensing)如需授權資訊。
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Office 365 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 ## <a name="supported-capabilities"></a>支援的功能
+ADF Office 365 連接器和 Microsoft Graph 資料的可讓在不同類型的資料集的規模擷取則會從啟用的 Exchange 電子郵件信箱，包括通訊錄的連絡人、 行事曆事件、 電子郵件訊息，使用者資訊、 信箱設定連線和等等。  請參閱[此處](https://docs.microsoft.com/graph/data-connect-datasets)若要查看可用的資料集的完整清單。
 
 現在，在單一複製活動中只可**的資料複製到 Office 365 [Azure Blob 儲存體](connector-azure-blob-storage.md)， [Azure Data Lake 儲存體 Gen1](connector-azure-data-lake-store.md)，和[Azure Data Lake 儲存體 Gen2](connector-azure-data-lake-storage.md) JSON 格式**（輸入 setOfObjects）。 如果您想要將 Office 365 載入其他類型的資料存放區，或以其他格式載入，可以將第一個複製活動與後續的複製活動鏈結，進一步將資料載入任何[支援的 ADF 目的地存放區](copy-activity-overview.md#supported-data-stores-and-formats) (請參閱「支援的資料存放區和格式」資料表中的「支援作為接收器」)。
 

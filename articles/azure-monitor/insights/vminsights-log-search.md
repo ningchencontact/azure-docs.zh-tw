@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 38979aa5cbb7eff0a949dfb77d6a29b2cdb5c67b
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 23ce57add0d55ba5901e2f5fcf82b3279d349cdc
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602087"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472585"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>如何從適用於 VM 的 Azure 監視器 (預覽) 查詢記錄
 適用於 Vm 的 azure 監視器會收集效能和連線計量、 電腦和處理程序清查資料，以及健全狀況狀態資訊，並將它轉送至 Log Analytics 工作區，在 Azure 監視器中。  這項資料可供[查詢](../../azure-monitor/log-query/log-query-overview.md)Azure 監視器中。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。
@@ -43,18 +43,18 @@ ms.locfileid: "65602087"
 
 - 電腦：報告電腦的完整網域名稱 
 - AgentID:Log Analytics 代理程式的機器唯一識別碼  
-- 電腦:機器由 ServiceMap Azure Resource Manager 資源的名稱。 它是表單*m-{GUID}*，其中*GUID*是 AgentID 為相同的 GUID  
-- 處理序：程序由 ServiceMap Azure Resource Manager 資源名稱。 它是表單*p-{十六進位字串}*。 程序是唯一的電腦範圍內，若要跨電腦產生唯一的處理序識別碼，將機器和處理程序的欄位組合。 
+- 電腦：機器由 ServiceMap Azure Resource Manager 資源的名稱。 它是表單*m-{GUID}* ，其中*GUID*是 AgentID 為相同的 GUID  
+- 處理序：程序由 ServiceMap Azure Resource Manager 資源名稱。 它是表單*p-{十六進位字串}* 。 程序是唯一的電腦範圍內，若要跨電腦產生唯一的處理序識別碼，將機器和處理程序的欄位組合。 
 - ProcessName︰報告的程序的可執行檔的名稱。
 - 所有 IP 位址都的字串格式 IPv4 標準，例如*13.107.3.160* 
 
 為了管理成本和複雜度，連線記錄不代表個別的實體網路連線。 將多個實體網路連線群組為一個邏輯連線，其接著會反映於各自的資料表中。  這表示，*VMConnection* 資料表中的記錄代表一個邏輯群組，而非觀測到的個別實體連線。 在指定的一分鐘時間間隔內，共用下列屬性相同值的實體網路連線會彙總為 *VMConnection* 中的單一邏輯記錄。 
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 |Direction |連線的方向，值為 *inbound* 或 *outbound* |
 |Machine |電腦 FQDN |
-|流程圖 |處理序或處理序群組的身分識別，會起始/接受連線 |
+|Process |處理序或處理序群組的身分識別，會起始/接受連線 |
 |SourceIp |來源的 IP 位址 |
 |DestinationIp |目的地的 IP 位址 |
 |DestinationPort |目的地的連接埠號碼 |
@@ -62,18 +62,18 @@ ms.locfileid: "65602087"
 
 為了說明群組的影響，會在記錄的下列屬性中提供群組實體連線數目的相關資訊：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 |LinksEstablished |已在報告時間範圍內建立的實體網路連線數目 |
 |LinksTerminated |已在報告時間範圍內終止的實體網路連線數目 |
 |LinksFailed |在報告時間範圍內失敗的實體網路連線數目。 此資訊目前僅適用於輸出連線。 |
 |LinksLive |已在報告時間範圍結束時開啟的實體網路連線數目|
 
-#### <a name="metrics"></a>指标
+#### <a name="metrics"></a>度量
 
 除了連線計數計量，在指定邏輯連線或網路連接埠上傳送與接收的資料量相關資訊也會包含於記錄的下列屬性中：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 |BytesSent |已在報告時間範圍內傳送的位元組總數 |
 |BytesReceived |已在報告時間範圍內接收的位元組總數 |
@@ -99,20 +99,20 @@ ms.locfileid: "65602087"
 #### <a name="geolocation"></a>地理位置
 *VMConnection* 也會在記錄的下列屬性中，包含每個連線記錄遠端的地理位置資訊： 
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 |RemoteCountry |裝載 RemoteIp 國家/地區名稱。  例如，*United States* |
 |RemoteLatitude |地理位置緯度。 例如，*47.68* |
-|RemoteLongitude |地理位置經度。 例如：*-122.12* |
+|RemoteLongitude |地理位置經度。 例如： *-122.12* |
 
 #### <a name="malicious-ip"></a>惡意 IP
 *VMConnection* 資料表中的每個 RemoteIp 屬性均會根據一組具有已知惡意活動的 IP 進行檢查。 如果 RemoteIp 被識別為惡意的，將在記錄的下列屬性中填入下列屬性 (如果 IP 被視為不是惡意的，則它們是空的)：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 |MaliciousIP |RemoteIp 位址 |
 |IndicatorThreadType |偵測到的威脅指標是下列值之一：*殭屍網路*、*C2*、*CryptoMining*、*Darknet*、*DDos*、*MaliciousUrl*、*惡意程式碼*、*網路釣魚*、*Proxy*、*PUA*、*關注清單*。   |
-|說明 |觀察到的威脅的說明。 |
+|描述 |觀察到的威脅的說明。 |
 |TLPLevel |號誌燈通訊協定 (TLP) 層級是已定義的值 (*白色*、*綠色*、*琥珀色*、*紅色*) 之一。 |
 |Confidence |值為 *0 – 100*。 |
 |Severity |值為 *0 – 5*，其中 *5* 為最嚴重，*0* 為根本不嚴重。 預設值為 *3*。  |
@@ -125,25 +125,18 @@ ms.locfileid: "65602087"
 ### <a name="ports"></a>連接埠 
 在電腦上，主動接受連入流量，或可能無法接受流量，但在報告的時間期間，會處於閒置狀態的連接埠會寫入 VMBoundPort 資料表。  
 
->[!NOTE]
->適用於 Vm 的 azure 監視器不支援收集和記錄的 Log Analytics 工作區，在以下區域內的連接埠資料：  
->- 美國東部  
->- 西歐
->
-> 此資料收集已啟用另[支援的區域](vminsights-enable-overview.md#log-analytics)適用於 Vm 的 Azure 監視。 
-
 VMBoundPort 中的每一筆記錄識別下列欄位： 
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
-|流程圖 | 處理序 （或處理程序群組） 與連接埠是與相關聯的識別。|
+|Process | 處理序 （或處理程序群組） 與連接埠是與相關聯的識別。|
 |Ip | 連接埠 IP 位址 (可以是萬用字元 IP *0.0.0.0*) |
 |Port |連接埠號碼 |
 |Protocol | 通訊協定。  範例中， *tcp*或是*udp* (只有*tcp*目前支援)。|
  
 身分識別連接埠衍生自上述的五個欄位，並會儲存在 PortId 屬性。 這個屬性可用來跨時間快速尋找特定的連接埠的記錄。 
 
-#### <a name="metrics"></a>指标 
+#### <a name="metrics"></a>度量 
 連接埠記錄包含計量代表與其相關聯的連線。 下列計量目前報告 （每個度量的詳細資料會在上一節中所述）： 
 
 - BytesSent 和 BytesReceived 
@@ -164,7 +157,7 @@ VMBoundPort 中的每一筆記錄識別下列欄位：
 |:--|:--|
 | Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | 工作區中機器的唯一識別碼 |
+| resourceId | 工作區中機器的唯一識別碼 |
 | ResourceName_s | 工作區中機器的唯一識別碼 |
 | ComputerName_s | 電腦 FQDN |
 | Ipv4Addresses_s | 伺服器的 IPv4 位址清單 |
@@ -176,7 +169,7 @@ VMBoundPort 中的每一筆記錄識別下列欄位：
 | PhysicalMemory_d | 實體記憶體 (MB) |
 | Cpus_d | CPU 數目 |
 | CpuSpeed_d | CPU 速度 (MHz)|
-| VirtualizationState_s | *unknown**physical**virtual* *hypervisor* |
+| VirtualizationState_s | *unknown* *physical* *virtual* *hypervisor* |
 | VirtualMachineType_s | *hyperv*、*vmware* 等等 |
 | VirtualMachineNativeMachineId_g | VM 識別碼 (由其 Hypervisor 指派) |
 | VirtualMachineName_s | VM 的名稱 |
@@ -189,7 +182,7 @@ VMBoundPort 中的每一筆記錄識別下列欄位：
 |:--|:--|
 | Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | 工作區中處理序的唯一識別碼 |
+| resourceId | 工作區中處理序的唯一識別碼 |
 | ResourceName_s | 在執行處理序的機器上，處理序的唯一識別碼|
 | MachineResourceName_s | 機器的資源名稱 |
 | ExecutableName_s | 處理序可執行檔的名稱 |

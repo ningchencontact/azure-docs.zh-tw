@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 5d11d5c0da350b9abf2e2b06a11a1690cf3f6922
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 69d7136396c3d989e63b8956d3e703cc7f9666c8
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247105"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687943"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>使用 AzCopy 和檔案儲存體傳輸資料 
 
@@ -32,13 +32,13 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 
 ## <a name="upload-files"></a>上傳檔案
 
-您可以使用 AzCopy`copy`命令來上傳檔案和資料夾從本機電腦。
+您可以使用 AzCopy`copy`命令來上傳檔案和目錄從本機電腦。
 
 本區段包含下列範例：
 
 > [!div class="checklist"]
 > * 上傳檔案
-> * 上傳資料夾
+> * 上傳目錄
 > * 將檔案上傳使用萬用字元
 
 > [!NOTE]
@@ -49,46 +49,46 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 |    |     |
 |--------|-----------|
 | **語法** | `azcopy cp "<local-file-path>" "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-name>?<SAS-token>"` |
-| **範例** | `azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
+| **範例** | `azcopy copy "C:\myDirectory\myTextFile.txt" "https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
 
-### <a name="upload-a-folder"></a>上傳資料夾
+### <a name="upload-a-directory"></a>上傳目錄
 
-此範例會將資料夾 （及其所有該資料夾中的檔案） 複製到檔案共用。 結果是相同名稱的檔案共用的資料夾中。
-
-|    |     |
-|--------|-----------|
-| **語法** | `azcopy copy "<local-folder-path>" "https://<storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>" --recursive` |
-| **範例** | `azcopy copy "C:\myFolder" "https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
-
-若要複製至檔案共用中的資料夾，只要命令字串中指定該資料夾的名稱。
+此範例會將目錄 （以及所有在該目錄中的檔案） 複製到檔案共用。 結果是相同名稱的檔案共用中的目錄。
 
 |    |     |
 |--------|-----------|
-| **範例** | `azcopy copy "C:\myFolder" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
+| **語法** | `azcopy copy "<local-directory-path>" "https://<storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>" --recursive` |
+| **範例** | `azcopy copy "C:\myDirectory" "https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
 
-如果您指定不存在的資料夾名稱中的檔案共用時，AzCopy 會建立新的資料夾，該名稱。
-
-### <a name="upload-the-contents-of-a-folder"></a>上傳資料夾的內容
-
-您可以上傳資料夾的內容，而不使用萬用字元符號 （*） 來複製包含資料夾本身。
+若要複製到檔案共用內的目錄，只要命令字串中指定該目錄的名稱。
 
 |    |     |
 |--------|-----------|
-| **語法** | `azcopy copy "<local-folder-path>/*" "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<folder-path>?<SAS-token>` |
-| **範例** | `azcopy copy "C:\myFolder\*" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
+| **範例** | `azcopy copy "C:\myDirectory" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
+
+如果您指定的目錄不存在名稱中的檔案共用時，AzCopy 會建立新目錄，該名稱。
+
+### <a name="upload-the-contents-of-a-directory"></a>上傳目錄的內容
+
+您可以上傳目錄的內容，而不使用萬用字元符號 （*） 複製本身的上層目錄。
+
+|    |     |
+|--------|-----------|
+| **語法** | `azcopy copy "<local-directory-path>/*" "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>` |
+| **範例** | `azcopy copy "C:\myDirectory\*" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
 
 > [!NOTE]
-> 附加`--recursive`旗標，以將所有的子資料夾中的檔案上傳。
+> 附加`--recursive`旗標，以將所有的子目錄中的檔案上傳。
 
 ## <a name="download-files"></a>下載檔案
 
-您可以使用 AzCopy`copy`到本機電腦的命令，以下載檔案、 資料夾和檔案共用。
+您可以使用 AzCopy`copy`到本機電腦的命令，以下載檔案、 目錄和檔案共用。
 
 本區段包含下列範例：
 
 > [!div class="checklist"]
 > * 下載檔案
-> * 將資料夾下載
+> * 下載目錄
 > * 使用萬用字元來下載檔案
 
 > [!NOTE]
@@ -99,28 +99,28 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 |    |     |
 |--------|-----------|
 | **語法** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-path>?<SAS-token>" "<local-file-path>"` |
-| **範例** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myFolder\myTextFile.txt"` |
+| **範例** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory\myTextFile.txt"` |
 
-### <a name="download-a-folder"></a>將資料夾下載
-
-|    |     |
-|--------|-----------|
-| **語法** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<folder-path>?<SAS-token>" "<local-folder-path>" --recursive` |
-| **範例** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myFolder"  --recursive` |
-
-此範例會產生名為的資料夾`C:\myFolder\myFileShareFolder`，其中包含所有下載的檔案。
-
-### <a name="download-the-contents-of-a-folder"></a>下載資料夾的內容
-
-您可以下載資料夾的內容，而不使用萬用字元符號 （*） 來複製包含資料夾本身。
+### <a name="download-a-directory"></a>下載目錄
 
 |    |     |
 |--------|-----------|
-| **語法** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/*?<SAS-token>" "<local-folder-path>/"` |
-| **範例** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder/*?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myFolder"` |
+| **語法** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>" "<local-directory-path>" --recursive` |
+| **範例** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"  --recursive` |
+
+此範例會產生名為`C:\myDirectory\myFileShareDirectory`，其中包含所有下載的檔案。
+
+### <a name="download-the-contents-of-a-directory"></a>下載目錄的內容
+
+您可以下載目錄的內容，而不使用萬用字元符號 （*） 複製本身的上層目錄。
+
+|    |     |
+|--------|-----------|
+| **語法** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/*?<SAS-token>" "<local-directory-path>/"` |
+| **範例** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory/*?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"` |
 
 > [!NOTE]
-> 附加`--recursive`旗標，以下載所有的子資料夾中的檔案。
+> 附加`--recursive`旗標，以下載所有子目錄中的檔案。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -128,8 +128,8 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 
 - [開始使用 AzCopy](storage-use-azcopy-v10.md)
 
-- [使用 AzCopy 和 blob 儲存體傳輸資料](storage-use-azcopy-blobs.md)
+- [使用 AzCopy 和 Blob 儲存體轉送資料](storage-use-azcopy-blobs.md)
 
-- [使用 AzCopy 和 Amazon S3 貯體傳輸資料](storage-use-azcopy-s3.md)
+- [使用 AzCopy 和 Amazon S3 貯體轉送資料](storage-use-azcopy-s3.md)
 
-- [設定、 最佳化和疑難排解 AzCopy](storage-use-azcopy-configure.md)
+- [對 AzCopy 進行設定、最佳化及疑難排解](storage-use-azcopy-configure.md)

@@ -2,20 +2,20 @@
 title: 在 Azure Active Directory B2C 中使用自訂原則新增 ADFS 作為 SAML 識別提供者 | Microsoft Docs
 description: 在 Azure Active Directory B2C 中使用 SAML 通訊協定和自訂原則來設定 ADFS 2016
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: df4acf72a1a6ea134e1192512fda1d8cf1e92f0a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4510074619ff513b7284819d88fdb2532e4ce33a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65767999"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510439"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則將 ADFS 新增為 SAML 識別提供者
 
@@ -34,13 +34,13 @@ ms.locfileid: "65767999"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 請確定您使用包含 Azure AD B2C 租用戶的目錄。 選取 **目錄和訂用帳戶篩選**上方功能表中，然後選擇包含您的租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
-4. 在 [概觀] 頁面上，選取 [識別體驗架構]。
-5. 選取 [原則金鑰]，然後選取 [新增]。
-6. 針對 [選項] 選擇 `Upload`。
-7. 輸入原則金鑰的 [名稱]。 例如： `SamlCert`。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
+3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
+4. 在 [概觀] 頁面上，選取 [識別體驗架構]  。
+5. 選取 [原則金鑰]  ，然後選取 [新增]  。
+6. 針對 [選項]  選擇 `Upload`。
+7. 輸入原則金鑰的 [名稱]  。 例如： `SamlCert`。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
 8. 瀏覽至包含私密金鑰的憑證 .pfx 檔案，並選取該檔案。
-9. 按一下頁面底部的 [新增] 。
+9. 按一下頁面底部的 [新增]  。
 
 ## <a name="add-a-claims-provider"></a>新增宣告提供者
 
@@ -98,15 +98,15 @@ ms.locfileid: "65767999"
 
 到目前為止，您已設定原則，讓 Azure AD B2C 知道如何與 ADFS 帳戶進行通訊。 嘗試上傳原則的擴充檔案，這只是為了確認它到目前為止沒有任何問題。
 
-1. 在 Azure AD B2C 租用戶的 [自訂原則] 頁面上，選取 [上傳原則]。
-2. 啟用 [覆寫現有的原則]，然後瀏覽並選取 *TrustFrameworkExtensions.xml* 檔案。
-3. 按一下 [上傳] 。
+1. 在 Azure AD B2C 租用戶的 [自訂原則]  頁面上，選取 [上傳原則]  。
+2. 啟用 [覆寫現有的原則]  ，然後瀏覽並選取 *TrustFrameworkExtensions.xml* 檔案。
+3. 按一下 [上傳]  。
 
 ## <a name="register-the-claims-provider"></a>註冊宣告提供者
 
 此時，識別提供者已設定妥當，但還未出現在任何註冊或登入畫面中。 若要讓它可供使用，您需建立現有範本使用者旅程圖的複本，然後加以修改，讓它也包含 ADFS 識別提供者。
 
-1. 從 Starter Pack 開啟 TrustFrameworkBase.xml 檔案。
+1. 從 Starter Pack 開啟 TrustFrameworkBase.xml  檔案。
 2. 尋找並複製包含 `Id="SignUpOrSignIn"` 之 **UserJourney** 元素的整個內容。
 3. 開啟 *TrustFrameworkExtensions.xml*，並尋找 **UserJourneys** 元素。 如果此元素不存在，請新增。
 4. 貼上您複製的整個 **UserJourney** 元素內容作為 **UserJourneys** 元素的子系。
@@ -136,7 +136,7 @@ ms.locfileid: "65767999"
     
     將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的識別碼。 例如： `Contoso-SAML2`。
 
-3. 儲存 TrustFrameworkExtensions.xml 檔案，並再次上傳它以供驗證。
+3. 儲存 TrustFrameworkExtensions.xml  檔案，並再次上傳它以供驗證。
 
 
 ## <a name="configure-an-adfs-relying-party-trust"></a>設定 ADFS 信賴憑證者信任
@@ -144,7 +144,7 @@ ms.locfileid: "65767999"
 若要在 Azure AD B2C 中使用 ADFS 作為識別提供者，您必須使用 Azure AD B2C SAML 中繼資料建立 ADFS 信賴憑證者信任。 下列範例顯示 Azure AD B2C 技術設定檔 SAML 中繼資料的 URL 位址：
 
 ```
-https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 取代下列值：
@@ -155,50 +155,50 @@ https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idpt
  
 開啟瀏覽器並瀏覽至此 URL。 請確定您輸入正確的 URL，而且您可以存取 XML 中繼資料檔案。 若要使用 ADFS 管理嵌入式管理單元來新增新的信賴憑證者信任並手動進行設定，請在同盟伺服器上執行下列程序。 必須至少具有本機電腦上的**管理員**或同等成員資格，才能完成此程序。
 
-1. 在 [伺服器管理員] 中選取 [工具]，然後選取 [ADFS 管理]。
-2. 選取 [新增信賴憑證者信任] 。
-3. 在 [歡迎] 頁面上選擇 [宣告感知]，然後按一下 [開始]。
-4. 在 [選取資料來源] 頁面上，選取 [匯入線上或區域網路上發行的信賴憑證者相關資料]，提供您的 Azure AD B2C 中繼資料 URL，然後按 [下一步]。
-5. 在 [指定顯示名稱] 頁面上輸入**顯示名稱**、在 [備忘稿] 下輸入此信賴憑證者信任的描述，然後按 [下一步]。
-6. 在 [選擇存取控制原則] 頁面上選擇原則，然後按 [下一步]。
-7. 在 [準備新增信任] 頁面上檢閱設定，然後按 [下一步] 以儲存您的信賴憑證者信任資訊。
-8. 在 [完成] 頁面上按一下 [關閉]，此動作就會自動顯示 [編輯宣告規則] 對話方塊。
-9. 選取 [新增規則]。  
-10. 在 [宣告規則範本] 中，選取 [傳送 LDAP 屬性作為宣告]。
-11. 提供**宣告規則名稱**。 針對 [屬性存放區]，選取 [選取 Active Directory] 來新增下列宣告，然後按一下 [完成] 和 [確定]。
+1. 在 [伺服器管理員] 中選取 [工具]  ，然後選取 [ADFS 管理]  。
+2. 選取 [新增信賴憑證者信任]  。
+3. 在 [歡迎]  頁面上選擇 [宣告感知]  ，然後按一下 [開始]  。
+4. 在 [選取資料來源]  頁面上，選取 [匯入線上或區域網路上發行的信賴憑證者相關資料]  ，提供您的 Azure AD B2C 中繼資料 URL，然後按 [下一步]  。
+5. 在 [指定顯示名稱]  頁面上輸入**顯示名稱**、在 [備忘稿]  下輸入此信賴憑證者信任的描述，然後按 [下一步]  。
+6. 在 [選擇存取控制原則]  頁面上選擇原則，然後按 [下一步]  。
+7. 在 [準備新增信任]  頁面上檢閱設定，然後按 [下一步]  以儲存您的信賴憑證者信任資訊。
+8. 在 [完成]  頁面上按一下 [關閉]  ，此動作就會自動顯示 [編輯宣告規則]  對話方塊。
+9. 選取 [新增規則]  。  
+10. 在 [宣告規則範本]  中，選取 [傳送 LDAP 屬性作為宣告]  。
+11. 提供**宣告規則名稱**。 針對 [屬性存放區]  ，選取 [選取 Active Directory]  來新增下列宣告，然後按一下 [完成]  和 [確定]  。
 
     | LDAP 屬性 | 傳出宣告類型 |
     | -------------- | ------------------- |
     | 使用者主體名稱 | userPrincipalName |
-    | 姓氏 | family_name |
+    | Surname | family_name |
     | 指定的名稱 | given_name |
     | 電子郵件地址 | email |
-    | 顯示名稱 | name |
+    | 顯示名稱 | NAME |
     
-12.  根據不同憑證類型，您可能需要設定雜湊演算法。 在信賴憑證者信任 (B2C 示範) 屬性視窗上，選取 [進階] 索引標籤、將 [安全雜湊演算法] 變更為 `SHA-256`，然後按一下 [確定]。  
-13. 在 [伺服器管理員] 中選取 [工具]，然後選取 [ADFS 管理]。
-14. 選取您建立的信賴憑證者信任，並選取 [從同盟中繼資料中更新]，然後按一下 [更新]。 
+12.  根據不同憑證類型，您可能需要設定雜湊演算法。 在信賴憑證者信任 (B2C 示範) 屬性視窗上，選取 [進階]  索引標籤、將 [安全雜湊演算法]  變更為 `SHA-256`，然後按一下 [確定]  。  
+13. 在 [伺服器管理員] 中選取 [工具]  ，然後選取 [ADFS 管理]  。
+14. 選取您建立的信賴憑證者信任，並選取 [從同盟中繼資料中更新]  ，然後按一下 [更新]  。 
 
 ## <a name="create-an-azure-ad-b2c-application"></a>建立 Azure AD B2C 應用程式
 
 與 Azure AD B2C 的通訊會透過您在租用戶中建立的應用程式進行。 此節會列出您可以視需要完成以建立測試應用程式的步驟 (如果您尚未這麼做)。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
-4. 選取 [應用程式]，然後選取 [新增]。
-5. 輸入應用程式的名稱，例如 testapp1。
-6. 針對 [Web 應用程式 / Web API] ，選取 `Yes`，然後y在 [回覆 URL] 欄位輸入 `https://jwt.ms`。
-7. 按一下頁面底部的 [新增] 。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
+4. 選取 [應用程式]  ，然後選取 [新增]  。
+5. 輸入應用程式的名稱，例如 testapp1  。
+6. 針對 [Web 應用程式 / Web API]  ，選取 `Yes`，然後y在 [回覆 URL]  欄位輸入 `https://jwt.ms`。
+7. 按一下頁面底部的 [新增]  。
 
 ### <a name="update-and-test-the-relying-party-file"></a>更新並測試信賴憑證者檔案
 
 更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖。
 
-1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml 複本，並將它重新命名。 例如，將它重新命名為 SignUpSignInADFS.xml。
+1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml  複本，並將它重新命名。 例如，將它重新命名為 SignUpSignInADFS.xml  。
 2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInADFS`。
 3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如：`http://contoso.com/B2C_1A_signup_signin_adfs`
 4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignInADFS) 的識別碼。
 5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。
-6. 確定 [選取應用程式] 欄位中已選取您所建立的 Azure AD B2C 應用程式，然後按一下 [立即執行] 來進行測試。
+6. 確定 [選取應用程式]  欄位中已選取您所建立的 Azure AD B2C 應用程式，然後按一下 [立即執行]  來進行測試。
 

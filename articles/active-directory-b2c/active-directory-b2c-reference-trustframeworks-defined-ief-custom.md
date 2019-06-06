@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C 中的參考 - 信任架構 | Microsoft Docs
 description: 關於 Azure Active Directory B2C 自訂原則和識別體驗架構的主題。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 20767c8903cd6617db4d37b756c3d8ae95cfb6ad
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 47e45a7dac8abc65f414fedd0fd910e3a7a78113
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701214"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508814"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>使用 Azure AD B2C 識別體驗架構定義信任架構
 
@@ -52,10 +52,10 @@ TF 是 Open Identity Exchange (OIX) 信任架構模型的關鍵，在此模型�
 - **參與者所提供/要求之數位身分識別資訊的說明**。
 
 - **相關技術原則，適用於生產和取用數位身分識別資訊，乃至於測量 LOA 和 LOP。這些書面原則通常包含以下幾類原則：**
-    - 身分識別證明原則，例如：個人的身分識別資訊受到多嚴格的審查？
-    - 安全性原則，例如：資訊的完整性和機密性受到多嚴格的保護？
-    - 隱私權原則，例如：使用者對於個人識別資訊 (PII) 擁有什麼樣的控制權？
-    - 生存能力原則，例如︰若提供者停止營業，PII 功能的持續性和保護如何運作？
+    - 身分識別證明原則，例如：個人的身分識別資訊受到多嚴格的審查？ 
+    - 安全性原則，例如：資訊的完整性和機密性受到多嚴格的保護？ 
+    - 隱私權原則，例如：使用者對於個人識別資訊 (PII) 擁有什麼樣的控制權？ 
+    - 生存能力原則，例如︰若提供者停止營業，PII 功能的持續性和保護如何運作？ 
 
 - **適用於生產和取用數位身分識別資訊的技術設定檔。這些設定檔包括：**
     - 界定在指定的 LOA 下，數位身分識別資訊所適用的介面。
@@ -116,7 +116,7 @@ TF 規格是一或多份文件，可供您參考如何對管制社群內數位�
 
 這些原則會在利用識別體驗架構的 Azure AD B2C 自訂原則中，構成 TF 建構中電腦可讀取的部分。 它們包含所有作業的詳細資料，包括宣告提供者的中繼資料和技術設定檔、宣告結構描述定義、宣告轉換函式，以及可填入的使用者旅程圖，以利作業的協調流程和自動化。  
 
-它們會被假設為「即時文件」，因為其關於原則中宣告之有效參與者的內容很可能會隨著時間變更。 此外，作為參與者的條款及條件也可能會變更。  
+它們會被假設為「即時文件」  ，因為其關於原則中宣告之有效參與者的內容很可能會隨著時間變更。 此外，作為參與者的條款及條件也可能會變更。  
 
 藉由讓信賴憑證者不會因為不同的宣告提供者/驗證者加入或離開原則集 (所代表的社群) 而不斷重新設定信任和連線，同盟的設定和維護已大幅簡化。
 

@@ -9,19 +9,19 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker、Kubernetes、Azure、AKS、Azure Container Service、容器
-ms.openlocfilehash: 8ee50289083b12b7b2abd3b9ece2c8de345df9fe
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 900529d54a26729d9d0fb949d9217d5e2d618254
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851423"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515300"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>如何在使用 Azure 開發人員空間時管理祕密
 
 您的服務可能需要特定密碼、連接字串和其他祕密，例如資料庫或其他安全的 Azure 服務。 藉由在組態檔中設定這些祕密的值，您可以使用這些值作為程式碼中的環境變數。  請務必小心處理，以避免洩漏祕密的安全性。
 
-Azure 開發人員空間提供兩個儲存秘密的建議選項：儲存在 values.dev.yaml 檔案中和直接內嵌在 azds.yaml 中。 不建議將祕密儲存在 values.yaml 中。
- 
+Azure 開發人員的空間會提供兩個將祕密儲存在 Azure 開發人員的空間用戶端工具所產生的 Helm 圖表建議、 簡化選項： 在 values.dev.yaml 檔案，並直接在 azds.yaml 內嵌。 不建議將祕密儲存在 values.yaml 中。 Helm 的兩種方法之外的用戶端工具所產生的圖表中定義這篇文章中，如果您建立您自己的 Helm 圖表，您可以使用 Helm 圖表，直接以管理並儲存祕密。
+
 ## <a name="method-1-valuesdevyaml"></a>方法 1：values.dev.yaml
 1. 透過可使用 Azure 開發人員空間的專案來開啟 VS Code。
 2. 新增名為的檔案_values.dev.yaml_現有的相同資料夾中_azds.yaml_並定義您的祕密金鑰和值，如下列範例所示：
@@ -82,7 +82,7 @@ Azure 開發人員空間提供兩個儲存秘密的建議選項：儲存在 valu
                 key: "$REDIS_KEY"
     ```
      
-2.  在 _azds.yaml_ 所在的資料夾中建立 _.env_ 檔案。 使標準的「索引鍵=值」標記法來輸入祕密。 請不要將 _.env_ 檔案認可至原始檔控制。 (若要從 git 版控制系統的原始檔控制中移除，請將該檔案新增至 _.gitignore_ 檔案。)_.env_ 檔案如下列範例所示：
+2.  在 _azds.yaml_ 所在的資料夾中建立 _.env_ 檔案。 使標準的「索引鍵=值」標記法來輸入祕密。 請不要將 _.env_ 檔案認可至原始檔控制。 (若要從 git 版控制系統的原始檔控制中移除，請將該檔案新增至 _.gitignore_ 檔案。) _.env_ 檔案如下列範例所示：
 
     ```
     REDIS_PORT=3333

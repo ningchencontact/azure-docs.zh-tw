@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: da8433e6c03aec5c5b2ff5d290065804816ac724
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb01aa84201c1e0727414215974a343e8cf3b724
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66122308"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475895"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>使用 Azure CLI 來建立內部負載平衡器以平衡 VM 的負載
 
@@ -60,7 +60,7 @@ ms.locfileid: "66122308"
 
 ### <a name="create-the-load-balancer"></a>建立負載平衡器
 
-使用 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 建立名為 **myLoadBalancer** 的公用基本負載平衡器，包含名為 **myFrontEnd** 的前端 IP 組態、名為 **myBackEndPool** 的後端集區，與私人 IP 位址 **10.0.0.7 相關聯。
+建立具有內部負載平衡器[建立 az 網路 lb](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)名為**myLoadBalancer** ，其中包含名為的前端 IP 組態**myFrontEnd**，名為後端集區**myBackEndPool**相關聯的私人 IP 位址 * * 10.0.0.7。
 
 ```azurecli-interactive
   az network lb create \
@@ -72,7 +72,7 @@ ms.locfileid: "66122308"
     --vnet-name myVnet \
     --subnet mySubnet      
   ```
-### <a name="create-the-health-probe"></a>建立健康情況探查
+### <a name="create-the-health-probe"></a>建立健康狀態探查
 
 健全狀況探查會檢查所有虛擬機器執行個體，確認它們可以接收網路流量。 探查檢查失敗的虛擬機器執行個體會從負載平衡器上移除，直到其恢復正常運作且探查判斷其健全狀況良好為止。 使用 [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) 建立健康狀態探查，以檢視虛擬機器的健康狀態。 
 
@@ -87,7 +87,7 @@ ms.locfileid: "66122308"
 
 ### <a name="create-the-load-balancer-rule"></a>建立負載平衡器規則
 
-負載平衡器規則可定義連入流量的前端 IP 組態及接收流量的後端 IP 集區，以及所需的來源和目的地連接埠。 使用 [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) 建立負載平衡器規則 myHTTPRule，用來接聽前端集區 myFrontEnd 中的連接埠 80，以及用來將負載平衡的網路流量傳送到後端位址集區 myBackEndPool (也是使用連接埠 80)。 
+負載平衡器規則可定義連入流量的前端 IP 組態及接收流量的後端 IP 集區，以及所需的來源和目的地連接埠。 使用 [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) 建立負載平衡器規則 myHTTPRule  ，用來接聽前端集區 myFrontEnd  中的連接埠 80，以及用來將負載平衡的網路流量傳送到後端位址集區 myBackEndPool  (也是使用連接埠 80)。 
 
 ```azurecli-interactive
   az network lb rule create \

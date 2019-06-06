@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 5/13/2019
 ms.author: victorh
-ms.openlocfilehash: 847ad271dac4afc8c8baa2faa8702b3a3ab6cefa
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: b34baa6f1ba91935fc6307dbb1617393786043b9
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596711"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692843"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS 別名記錄概觀
 
@@ -20,7 +20,7 @@ DNS 記錄集必須要有 Azure DNS 別名記錄。 它們可以參考您的 DNS
 
 Azure DNS 區域中的下列記錄類型支援別名記錄集： 
 
-- A 
+- A
 - AAAA
 - CNAME
 
@@ -67,6 +67,9 @@ DNS 通訊協定可防止在區域頂點指派 CNAME 記錄。 例如，如果�
 比方說，如果您的靜態網站名稱為 www.contoso.com，您的使用者可以存取您的網站使用 contoso.com，而不需要在前面加上 www 的 DNS 名稱。
 
 如先前所述，在區域頂點不支援 CNAME 記錄。 因此，您無法使用的 CNAME 記錄以指向您的 CDN 端點的 contoso.com。 相反地，您可以使用別名記錄，以直接指向 CDN 端點的區域頂點。
+
+> [!NOTE]
+> 目前不支援來自 Akamai 的 Azure CDN 指向區域頂點至 CDN 端點。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -2,20 +2,20 @@
 title: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的 StringCollection 宣告轉換範例 | Microsoft Docs
 description: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的 StringCollection 宣告轉換範例。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 37102a231f1741b9e488cca101f4a5411f89de44
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 98453daeb34d093b49cdcc636f68c3d7ae017126
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681994"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512444"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection 宣告轉換
 
@@ -29,7 +29,7 @@ ms.locfileid: "64681994"
 
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | string | 要新增至輸出宣告的 ClaimType。 |
+| InputClaim | item | 字串 | 要新增至輸出宣告的 ClaimType。 |
 | InputClaim | collection | stringCollection | [選擇性] 如果指定，宣告轉換就會複製此集合中的項目，並將項目新增至輸出集合宣告的結尾。 |
 | OutputClaim | collection | stringCollection | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 |
 
@@ -64,7 +64,7 @@ ms.locfileid: "64681994"
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | [選擇性] 如果指定，宣告轉換就會複製此集合中的項目，並將項目新增至輸出集合宣告的結尾。 |
-| InputParameter | item | string | 要新增至輸出宣告的值。 |
+| InputParameter | item | 字串 | 要新增至輸出宣告的值。 |
 | OutputClaim | collection | stringCollection | 叫用此 ClaimsTransformation 之後將產生的 ClaimType。 |
 
 使用此宣告轉換來將字串值新增至新的或現有的 stringCollection。 下列範例會將常數的電子郵件地址 (admin@contoso.com) 新增至 **otherMails** 宣告。 

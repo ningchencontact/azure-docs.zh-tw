@@ -2,20 +2,20 @@
 title: 將 REST API 宣告交換整合到 Azure Active Directory B2C 使用者旅程圖中 | Microsoft Docs
 description: 將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為使用者輸入的驗證。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/30/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e44bb1ed6a7a090b4b1213ca14be2b42642475e4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3b896b2c423f2f9155ddb7803e59e719bd027cf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717286"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510727"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為使用者輸入的驗證
 
@@ -43,7 +43,7 @@ ms.locfileid: "64717286"
    * 送回輸出宣告。
 
 ## <a name="restful-walkthrough"></a>RESTful 逐步解說
-在本逐步解說中，您將開發會驗證使用者輸入並提供使用者忠誠度號碼的 .NET Framework Web API。 例如，您的應用程式可以根據忠誠度號碼來授與「白金權益」的存取權。
+在本逐步解說中，您將開發會驗證使用者輸入並提供使用者忠誠度號碼的 .NET Framework Web API。 例如，您的應用程式可以根據忠誠度號碼來授與「白金權益」  的存取權。
 
 概觀：
 * 開發 RESTful 服務 (.NET Framework Web API)。
@@ -58,21 +58,21 @@ ms.locfileid: "64717286"
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>步驟 1：建立 ASP.NET Web API
 
-1. 在 Visual Studio 中，選取 [檔案] > [新增] > [專案] 以建立專案。
+1. 在 Visual Studio 中，選取 [檔案]   > [新增]   > [專案]  以建立專案。
 
-2. 在 [新增專案] 視窗中，選取 [Visual C#] > [Web] > [ASP.NET Web 應用程式 (.NET Framework)]。
+2. 在 [新增專案]  視窗中，選取 [Visual C#]   > [Web]   > [ASP.NET Web 應用程式 (.NET Framework)]  。
 
-3. 在 [名稱] 方塊中，輸入應用程式的名稱 (例如 *Contoso.AADB2C.API*)，然後選取 [確定]。
+3. 在 [名稱]  方塊中，輸入應用程式的名稱 (例如 *Contoso.AADB2C.API*)，然後選取 [確定]  。
 
     ![建立新的 Visual Studio 專案](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-create-project.png)
 
-4. 在 [新的 ASP.NET Web 應用程式] 視窗中，選取 [Web API] 或 [Azure API 應用程式] 範本。
+4. 在 [新的 ASP.NET Web 應用程式]  視窗中，選取 [Web API]  或 [Azure API 應用程式]  範本。
 
     ![選取 Web API 範本](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
 
-5. 確定驗證已設為 [沒有驗證]。
+5. 確定驗證已設為 [沒有驗證]  。
 
-6. 選取 [確定] 以建立專案。
+6. 選取 [確定]  以建立專案。
 
 ## <a name="step-2-prepare-the-rest-api-endpoint"></a>步驟 2：準備 REST API 端點
 
@@ -81,8 +81,8 @@ ms.locfileid: "64717286"
 
 執行下列步驟建立一個代表輸入宣告的模型：
 
-1. 如果尚未開啟 [方案總管]，請選取 [檢視] > [方案總管]。
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 **Models** 資料夾，選取 [新增]，然後選取 [類別]。
+1. 如果尚未開啟 [方案總管]，請選取 [檢視]   > [方案總管]  。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 **Models** 資料夾，選取 [新增]  ，然後選取 [類別]  。
 
     ![新增模型](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
 
@@ -136,19 +136,19 @@ ms.locfileid: "64717286"
 ### <a name="step-22-add-a-controller"></a>步驟 2.2：新增控制器
 在 Web API 中，_控制器_是處理 HTTP 要求的物件。 控制器會傳回輸出宣告，或如果名字無效，則會擲回「衝突」HTTP 錯誤訊息。
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，選取 [新增]，然後選取 [控制器]。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，選取 [新增]  ，然後選取 [控制器]  。
 
     ![新增控制器](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
 
-2. 在 [新增 Scaffold] 視窗中，選取 [Web API 控制器 - 空白]，然後選取 [新增]。
+2. 在 [新增 Scaffold]  視窗中，選取 [Web API 控制器 - 空白]  ，然後選取 [新增]  。
 
     ![選取 Web API 2 控制器 - 空的](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
 
-3. 在 [新增控制器]視窗中，將控制器命名為 **IdentityController**，然後選取 [新增]。
+3. 在 [新增控制器]  視窗中，將控制器命名為 **IdentityController**，然後選取 [新增]  。
 
     ![輸入控制器名稱](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
 
-    Scaffolding 會在 [控制器] 資料夾中建立名為 *IdentityController.cs* 的檔案。
+    Scaffolding 會在 [控制器]  資料夾中建立名為 *IdentityController.cs* 的檔案。
 
 4. 如果 *IdentityController.cs* 檔案尚未開啟，請按兩下該檔案，然後將檔案中的程式碼取代為下列程式碼：
 
@@ -204,24 +204,24 @@ ms.locfileid: "64717286"
     ```
 
 ## <a name="step-3-publish-the-project-to-azure"></a>步驟 3：將專案發佈到 Azure
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 **Contoso.AADB2C.API** 專案，然後選取 [發佈]。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 **Contoso.AADB2C.API** 專案，然後選取 [發佈]  。
 
     ![發佈至 Microsoft Azure App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
 
-2. 在 [發佈] 視窗中，選取 [Microsoft Azure App Service]，然後選取 [發佈]。
+2. 在 [發佈]  視窗中，選取 [Microsoft Azure App Service]  ，然後選取 [發佈]  。
 
     ![建立新的 Microsoft Azure App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
 
-    [建立 App Service] 視窗隨即開啟。 在其中，您可以建立要在 Azure 中執行 ASP.NET Web 應用程式所需的所有 Azure 資源。
+    [建立 App Service]  視窗隨即開啟。 在其中，您可以建立要在 Azure 中執行 ASP.NET Web 應用程式所需的所有 Azure 資源。
 
     > [!NOTE]
     >如需如何發佈的詳細資訊，請參閱[在 Azure 中建立 ASP.NET Web 應用程式](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)。
 
-3. 在 [Web 應用程式名稱] 方塊中，輸入唯一的應用程式名稱 (有效字元為 a-z、0-9 及連字號 (-))。 Web 應用程式的 URL 是 http://<app_name>.azurewebsites.NET，其中 *app_name* 是 Web 應用程式的名稱。 您可以接受自動產生的名稱 (這是唯一的)。
+3. 在 [Web 應用程式名稱]  方塊中，輸入唯一的應用程式名稱 (有效字元為 a-z、0-9 及連字號 (-))。 Web 應用程式的 URL 是 http://<app_name>.azurewebsites.NET，其中 *app_name* 是 Web 應用程式的名稱。 您可以接受自動產生的名稱 (這是唯一的)。
 
     ![提供 App Service 屬性](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
 
-4. 若要開始建立 Azure 資源，請選取 [建立]。  
+4. 若要開始建立 Azure 資源，請選取 [建立]  。  
     在建立了 ASP.NET Web 應用程式之後，精靈會將其發佈至 Azure，然後在預設瀏覽器中啟動應用程式。
 
 6. 複製 Web 應用程式的 URL。
@@ -248,13 +248,13 @@ ms.locfileid: "64717286"
 
 下列 XML 程式碼片段包含一個宣告提供者節點，其中具有兩個技術設定檔：
 
-* **TechnicalProfile Id="REST-API-SignUp"**：定義您的 RESTful 服務。
+* **TechnicalProfile Id="REST-API-SignUp"** ：定義您的 RESTful 服務。
   * `Proprietary` 會描述為以 RESTful 為基礎之提供者的通訊協定。
   * `InputClaims` 會定義將從 Azure AD B2C 傳送至 REST 服務的宣告。
 
     在此範例中，`givenName` 宣告的內容會傳送至 REST 服務做為 `firstName`，宣告 `surname` 的內容會傳送至 REST 服務做為 `lastName`，而 `email` 會依原狀傳送。 `OutputClaims` 元素定義的宣告會從 RESTful 服務擷取回 Azure AD B2C。
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**：將驗證技術的設定檔新增至現有的技術設定檔 (於基底原則中定義)。 在註冊旅程期間，驗證技術設定檔會叫用上述技術設定檔。 如果 RESTful 服務傳回 HTTP 錯誤 409 (衝突錯誤)，錯誤訊息會顯示給使用者。
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"** ：將驗證技術的設定檔新增至現有的技術設定檔 (於基底原則中定義)。 在註冊旅程期間，驗證技術設定檔會叫用上述技術設定檔。 如果 RESTful 服務傳回 HTTP 錯誤 409 (衝突錯誤)，錯誤訊息會顯示給使用者。
 
 找出 `<ClaimsProviders>` 節點，然後在 `<ClaimsProviders>` 節點下方新增下列 XML 程式碼片段：
 
@@ -325,36 +325,36 @@ ms.locfileid: "64717286"
 
 ## <a name="step-7-upload-the-policy-to-your-tenant"></a>步驟 7：將原則上傳至您的租用戶
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，切換至[您的 Azure AD B2C 租用戶環境](active-directory-b2c-navigate-to-b2c-context.md)，然後開啟 [Azure AD B2C]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，切換至[您的 Azure AD B2C 租用戶環境](active-directory-b2c-navigate-to-b2c-context.md)，然後開啟 [Azure AD B2C]  。
 
-2. 選取 [識別體驗架構]。
+2. 選取 [識別體驗架構]  。
 
-3. 開啟 [所有原則]。
+3. 開啟 [所有原則]  。
 
-4. 選取 [上傳原則]。
+4. 選取 [上傳原則]  。
 
-5. 選取 [覆寫已存在的原則] 核取方塊。
+5. 選取 [覆寫已存在的原則]  核取方塊。
 
 6. 上傳 TrustFrameworkExtensions.xml 檔案，確定它通過驗證。
 
 7. 使用 SignUpOrSignIn.xml 檔重複上述步驟。
 
 ## <a name="step-8-test-the-custom-policy-by-using-run-now"></a>步驟 8：使用 [立即執行] 測試自訂原則
-1. 選取 [Azure AD B2C 設定]，然後移至 [識別體驗架構]。
+1. 選取 [Azure AD B2C 設定]  ，然後移至 [識別體驗架構]  。
 
     > [!NOTE]
-    > [立即執行] 需要在租用戶上至少預先註冊一個應用程式。 若要了解如何註冊應用程式，請參閱 Azure AD B2C [開始使用](active-directory-b2c-get-started.md)一文或[應用程式註冊](active-directory-b2c-app-registration.md)一文。
+    > [立即執行]  需要在租用戶上至少預先註冊一個應用程式。 若要了解如何註冊應用程式，請參閱 Azure AD B2C [開始使用](active-directory-b2c-get-started.md)一文或[應用程式註冊](active-directory-b2c-app-registration.md)一文。
 
-2. 開啟 **B2C_1A_signup_signin** (此為您上傳的信賴憑證者 (RP) 自訂原則)，然後選取 [立即執行]。
+2. 開啟 **B2C_1A_signup_signin** (此為您上傳的信賴憑證者 (RP) 自訂原則)，然後選取 [立即執行]  。
 
     ![B2C_1A_signup_signin 視窗](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
 
-3. 在 [名字] 方塊中，輸入 **Test** 來測試流程。  
+3. 在 [名字]  方塊中，輸入 **Test** 來測試流程。  
     Azure AD B2C 會在視窗頂端顯示錯誤訊息。
 
     ![測試您的原則](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4. 在 [名字] 方塊中輸入名字 ("Test" 除外)。  
+4. 在 [名字]  方塊中輸入名字 ("Test" 除外)。  
     Azure AD B2C 會註冊使用者，然後將 loyaltyNumber傳送至您的應用程式。 記下此 JWT 中的數字。
 
 ```

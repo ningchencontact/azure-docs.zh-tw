@@ -2,20 +2,20 @@
 title: 在 Azure Active Directory B2C 中管理使用者資料 | Microsoft Docs
 description: 了解如何在 Azure AD B2C 中刪除或匯出使用者資料。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/06/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 18e0f102ba1447a734045d5225bb09f019016139
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: eb99cd94dca2a463c275dd5d4fab540b4fc55318
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683913"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510452"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中管理使用者資料
 
@@ -33,7 +33,7 @@ ms.locfileid: "64683913"
 
 下列範例示範可能的資料刪除流程：
 
-1. 使用者登入並選取 [刪除我的資料]。
+1. 使用者登入並選取 [刪除我的資料]  。
 2. 應用程式在應用程式系統管理區段內，提供刪除資料的選項。
 3. 應用程式強制向 Azure AD B2C 驗證。 Azure AD B2C 將包含使用者物件識別碼的權杖提供給應用程式。 
 4. 應用程式接收權杖，並呼叫 Azure AD Graph API，以便使用物件識別碼來刪除使用者資料。 Azure AD Graph API 刪除使用者資料並傳回 200 OK 的狀態碼。

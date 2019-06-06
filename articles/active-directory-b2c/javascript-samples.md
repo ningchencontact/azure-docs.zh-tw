@@ -2,20 +2,20 @@
 title: JavaScript 範例-Azure Active Directory B2C |Microsoft Docs
 description: 了解在 Azure Active Directory B2C 中使用 JavaScript。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 972c8ec1b67161a3998a1b165072f584db2f7fbb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9e19df7c50ca9d2c57ab385a567f4911b200c5e2
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570517"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510898"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>適用於 Azure Active Directory B2C 中的 JavaScript 範例
 
@@ -72,7 +72,7 @@ ms.locfileid: "64570517"
 
 ### <a name="show-or-hide-a-password"></a>顯示或隱藏密碼
 
-協助客戶成功註冊的常見方式，便是允許他們查看自己所輸入的密碼。 此選項可讓使用者輕鬆地查看其密碼，並視需要做出更正，以協助他們完成註冊。 任何輸入密碼的欄位都會有具有 [顯示密碼] 標籤的核取方塊。  這可讓使用者以純文字的形式查看密碼。 將此程式碼片段包含到您適用於自我判斷頁面的註冊或登入範本：
+協助客戶成功註冊的常見方式，便是允許他們查看自己所輸入的密碼。 此選項可讓使用者輕鬆地查看其密碼，並視需要做出更正，以協助他們完成註冊。 任何輸入密碼的欄位都會有具有 [顯示密碼]  標籤的核取方塊。  這可讓使用者以純文字的形式查看密碼。 將此程式碼片段包含到您適用於自我判斷頁面的註冊或登入範本：
 
 ```Javascript
 function makePwdToggler(pwd){
@@ -118,7 +118,7 @@ setupPwdTogglers();
 
 ### <a name="add-terms-of-use"></a>新增使用規定
 
-將下列程式碼包含到您在自己的頁面中想包含 [使用規定] 核取方塊的位置。 在您的本機帳戶註冊和社交帳戶註冊頁面中，通常會需要這個核取方塊。
+將下列程式碼包含到您在自己的頁面中想包含 [使用規定]  核取方塊的位置。 在您的本機帳戶註冊和社交帳戶註冊頁面中，通常會需要這個核取方塊。
 
 ```Javascript
 function addTermsOfUseLink() {

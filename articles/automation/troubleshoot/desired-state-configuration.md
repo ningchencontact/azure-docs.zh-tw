@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 63bb5c6338cf230c2bb47cb0a2c03810053f970a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7cb0d77a266dbe8afd331782965e7e9a44663671
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61087263"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514453"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>針對 Desired State Configuration (DSC) 問題進行疑難排解
 
@@ -22,11 +22,11 @@ ms.locfileid: "61087263"
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>使用 Desired State Configuration (DSC) 時的常見錯誤
 
-### <a name="unsupported-characters"></a>案例：无法从门户删除带有特殊字符的配置
+### <a name="unsupported-characters"></a>案例：無法從入口網站中刪除具有特殊字元的組態
 
 #### <a name="issue"></a>問題
 
-尝试通过门户删除 DSC 配置时，将看到以下错误：
+嘗試將從入口網站中刪除 DSC 設定時，您會看到下列錯誤：
 
 ```error
 An error occurred while deleting the DSC configuration '<name>'.  Error-details: The argument configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
@@ -38,7 +38,7 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 #### <a name="resolution"></a>解決方案
 
-* 使用 Az Cmdlet "Remove-AzAutomationDscConfiguration" 删除配置。
+* 若要刪除的組態使用 Az Cmdlet 」 移除 AzAutomationDscConfiguration"。
 * 此 cmdlet 的文件尚未更新。  在那之前，請參閱文件以取得 AzureRM 模組。
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
@@ -71,7 +71,7 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 
 #### <a name="issue"></a>問題
 
-節點的報告具有「失敗」狀態且包含錯誤：
+節點的報告具有「失敗」  狀態且包含錯誤：
 
 ```error
 The attempt to get the action from server https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction failed because a valid configuration <guid> cannot be found.
@@ -146,10 +146,29 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 * 請確認傳入適當**ConfigurationData**來設定**PSDscAllowPlainTextPassword**設為 true，每個節點組態設定中所述。 如需詳細資訊，請參閱 [Azure 自動化 DSC 中的資產](../automation-dsc-compile.md#assets)。
 
+### <a name="failure-processing-extension"></a>案例：上架的 dsc 擴充功能，「 失敗的處理延伸模組 」 的錯誤
+
+#### <a name="issue"></a>問題
+
+使用 DSC 延伸模組，失敗的登入發生包含錯誤時：
+
+```error
+VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
+```
+
+#### <a name="cause"></a>原因
+
+節點指派節點組態名稱不存在服務中時，通常就會發生此錯誤。
+
+#### <a name="resolution"></a>解決方案
+
+* 請確定您要指派具有完全符合的名稱，在服務中的節點組態名稱的節點。
+* 您可以選擇不包含節點，但未指派節點設定，將會導致上架的節點組態名稱
+
 ## <a name="next-steps"></a>後續步驟
 
 如果您沒有看到您的問題，或無法解決您的問題，請瀏覽下列其中一個管道以取得更多支援：
 
 * 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
 * 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。
-* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
+* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。

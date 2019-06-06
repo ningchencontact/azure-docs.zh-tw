@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C 中的使用者流程 | Microsoft Docs
 description: 深入了解 Azure Active Directory B2C 的可延伸原則架構，以及如何建立各種使用者流程。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3bb7b5d4126cde854da01451fd62ba969e605c1f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 54677dc0771f65b7636b4d1cac77f53f9c04a09d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703714"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508927"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的使用者流程
 
@@ -61,7 +61,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="user-flow-versions"></a>使用者流程版本
 
-在 Azure 入口網站中，一直會新增[新版的使用者流程](user-flow-versions.md)。 當您開始使用 Azure AD B2C 時，建議使用經過測試的使用者流程。 當您建立新的使用者流程時，可從 [建議] 索引標籤選擇您所需的使用者流程。
+在 Azure 入口網站中，一直會新增[新版的使用者流程](user-flow-versions.md)。 當您開始使用 Azure AD B2C 時，建議使用經過測試的使用者流程。 當您建立新的使用者流程時，可從 [建議]  索引標籤選擇您所需的使用者流程。
 
 目前建議使用下列使用者流程：
 
@@ -71,7 +71,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="linking-user-flows"></a>連結使用者流程
 
-使用本機帳戶的**註冊或登入**使用者流程在體驗的第一個頁面上包含[忘記密碼?] 連結。 按一下此連結並不會自動觸發密碼重設使用者流程。 
+使用本機帳戶的**註冊或登入**使用者流程在體驗的第一個頁面上包含[忘記密碼?]  連結。 按一下此連結並不會自動觸發密碼重設使用者流程。 
 
 相反地，系統會將錯誤碼 `AADB2C90118` 傳回您的應用程式。 您的應用程式必須藉由執行可重設密碼的特定使用者流程來處理此錯誤碼。 若要查看範例，請看看[簡單的 ASP.NET 範例](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI)，該範例示範如何連結使用者流程。
 

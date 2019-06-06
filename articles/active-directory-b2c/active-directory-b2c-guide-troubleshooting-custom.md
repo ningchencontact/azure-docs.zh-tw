@@ -2,20 +2,20 @@
 title: 在 Azure Active Directory B2C 中針對自訂原則進行疑難排解 | Microsoft Docs
 description: 了解在 Azure Active Directory B2C 中使用自訂原則時，解決錯誤的方法。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5345069005f9161ff04fffb063fda99b7594ec08
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 552f056a6637b3ebacfbd15eb878c28adbec6b88
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703047"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509964"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>針對 Azure AD B2C 自訂原則和身分識別體驗架構進行疑難排解
 
@@ -31,7 +31,7 @@ ms.locfileid: "64703047"
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Notepad++](https://notepad-plus-plus.org/)
 
-在您上傳 XML 檔案之前，XML 結構描述驗證會識別錯誤。 在入門套件的根資料夾中，取得 XML 結構描述定義 TrustFrameworkPolicy_0.3.0.0.xsd。 如需詳細資訊，請在 XML 編輯器的文件中尋找「XML 工具」和「XML 驗證」。
+在您上傳 XML 檔案之前，XML 結構描述驗證會識別錯誤。 在入門套件的根資料夾中，取得 XML 結構描述定義 TrustFrameworkPolicy_0.3.0.0.xsd。 如需詳細資訊，請在 XML 編輯器的文件中尋找「XML 工具」  和「XML 驗證」  。
 
 您可能會發現檢閱 XML 規則很有幫助。 Azure AD B2C 會拒絕它所偵測到的任何 XML 格式錯誤。 格式錯誤的 XML 有時可能會產生令人誤解的錯誤訊息。
 

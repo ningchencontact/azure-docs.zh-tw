@@ -2,16 +2,16 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 3/26/2019
+ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 65ed28c967164be4d239cd4d59b6b36f06caeced
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 592e1973344b231693077f8286a41dfd67a8d188
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238401"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66689113"
 ---
-| Resource | 預設值/最大限制 | 附註 |
+| 資源 | 預設值/最大限制 | 附註 |
 | --- | --- | --- |
 | Azure 應用程式閘道 |訂用帳戶每 1,000 個 | |
 | 前端 IP 組態 |2 |公用 1 個和私用 1 個 |
@@ -37,5 +37,6 @@ ms.locfileid: "66238401"
 | 檔案上傳大小上限標準 |2 GB | |
 | WAF 檔案上傳大小上限 |中型 WAF 閘道、 100 MB<br>大型的 WAF 閘道、 500 MB| |
 | WAF 主體大小上限，如果沒有檔案|128 KB||
+|最大的 WAF 自訂規則|100||
 
 <sup>1</sup>時已啟用 WAF 的 Sku，我們建議您限制為 40，以獲得最佳效能的資源數目。

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 6ec85e840f8e61c46e86b0fa8fb947fb763a4265
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 410990ecdca8a94be9c7c3d0b48a5092fcaa6060
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518851"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515898"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 預期狀態設定延伸模組處理常式簡介
 
@@ -47,7 +47,7 @@ Azure Desired State Configuration (DSC) 扩展的主要用例是让 VM 启动到
 本指南假設您已熟悉下列概念︰
 
 - **設定**：DSC 設定文件。
-- **節點**：DSC 設定的目標。 在本文件中，「節點」一律是指 Azure VM。
+- **節點**：DSC 設定的目標。 在本文件中，「節點」  一律是指 Azure VM。
 - **設定資料**：具有設定之環境資料的 .psd1 檔案。
 
 ## <a name="architecture"></a>架構
@@ -81,7 +81,7 @@ Azure DSC 延伸模組包含預設設定指令碼，可在將 VM 上線至 Azure
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-对于节点配置名称，请确保使用“节点配置”而不是“配置”的名称。
+節點組態名稱，請確定 Azure 狀態組態中存在的節點組態。  如果不存在，延伸模組部署便會傳回失敗。  也請確定您使用名稱*節點設定*並沒有組態。
 配置在用于[编译节点配置（MOF 文件）](https://docs.microsoft.com/azure/automation/automation-dsc-compile)的脚本中定义。
 该名称始终为 Configuration 后接句点 `.` 以及 `localhost` 或特定计算机名。
 
@@ -103,7 +103,7 @@ Azure DSC 延伸模組包含預設設定指令碼，可在將 VM 上線至 Azure
 
 **Get-AzVMDscExtensionStatus** Cmdlet 會擷取 DSC 延伸模組處理常式所制定之 DSC 設定的狀態。 此動作可在單一 VM 上執行，也可在一組 VM 上執行。
 
-**Remove-AzVMDscExtension** Cmdlet 會從特定虛擬機器中移除延伸模組處理常式。 此 Cmdlet「不會」移除設定、將 WMF 解除安裝，或變更已在 VM 上套用的設定。 它只會移除延伸模組處理常式。 
+**Remove-AzVMDscExtension** Cmdlet 會從特定虛擬機器中移除延伸模組處理常式。 此 Cmdlet「不會」  移除設定、將 WMF 解除安裝，或變更已在 VM 上套用的設定。 它只會移除延伸模組處理常式。 
 
 Resource Manager DSC 延伸模組 Cmdlet 相關的重要資訊：
 
@@ -114,7 +114,7 @@ Resource Manager DSC 延伸模組 Cmdlet 相關的重要資訊：
 
 ### <a name="get-started-with-cmdlets"></a>開始使用 Cmdlet
 
-Azure DSC 延伸模組可以使用 DSC 設定文件，在部署期間直接設定 Azure VM。 此步驟不會向「自動化」註冊節點。 該節點「不會」受到集中管理。
+Azure DSC 延伸模組可以使用 DSC 設定文件，在部署期間直接設定 Azure VM。 此步驟不會向「自動化」註冊節點。 該節點「不會」  受到集中管理。
 
 下列範例說明一個簡單的設定範例。 將設定以 IisInstall.ps1 名稱儲存在本機。
 
@@ -177,9 +177,9 @@ az vm extension set \
 在入口網站中設定 DSC：
 
 1. 前往 VM。
-2. 在 [設定] 底下，選取 [延伸模組]。
-3. 在建立的新頁面中，選取 [新增]，然後選取 [PowerShell 預期狀態設定]。
-4. 在延伸模組資訊頁面底端，按一下 [建立]。
+2. 在 [設定]  底下，選取 [延伸模組]  。
+3. 在建立的新頁面中，選取 [新增]  ，然後選取 [PowerShell 預期狀態設定]  。
+4. 在延伸模組資訊頁面底端，按一下 [建立]  。
 
 入口網站會收集以下輸入資訊：
 
@@ -197,7 +197,7 @@ az vm extension set \
 
 - **版本**：指定要安裝的 DSC 延伸模組版本。 如需版本的相關資訊，請參閱 [DSC 延伸模組版本歷程記錄](/powershell/dsc/azuredscexthistory) (英文)。
 
-- **自動升級次要版本**：此欄位會對應至 Cmdlet 中的 **AutoUpdate** 參數，並允許延伸模組在安裝時自動更新為最新版本。 [是] 會指示延伸模組在處理延伸模組常式時，要使用最新版本，[否] 將強制安裝指定的 [版本]。 未選取 [是] 亦未選取 [否]，等同選取 [否]。
+- **自動升級次要版本**：此欄位會對應至 Cmdlet 中的 **AutoUpdate** 參數，並允許延伸模組在安裝時自動更新為最新版本。 [是]  會指示延伸模組在處理延伸模組常式時，要使用最新版本，[否]  將強制安裝指定的 [版本]  。 未選取 [是]  亦未選取 [否]  ，等同選取 [否]  。
 
 ## <a name="logs"></a>記錄
 

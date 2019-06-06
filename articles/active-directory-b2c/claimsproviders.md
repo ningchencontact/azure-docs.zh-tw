@@ -2,20 +2,20 @@
 title: ClaimsProvider  - Azure Active Directory B2C | Microsoft Docs
 description: 指定 Azure Active Directory B2C 中自訂原則的 ClaimsProvider 元素。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ababd7e9f1de33eb8679e583c2db18d2992cfb1c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8d2570af6abb34a87ac4c69dd63408c8ec2e8005
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699636"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511511"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -51,7 +51,7 @@ ms.locfileid: "64699636"
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ---------- | ----------- |
-| 網域 | 0:1 | 一個字串，其中包含宣告提供者的網域名稱。 例如，如果您的宣告提供者包含 Facebook 技術設定檔，則網域名稱為 Facebook.com。 此網域名稱會用於宣告提供者中定義的所有技術設定檔，除非技術設定檔加以覆寫。 網域名稱也可在 **domain_hint** 中受到參考。 如需詳細資訊，請參閱[使用 Azure Active Directory B2C 設定直接登入](direct-signin.md)的**將登入重新導向至社交提供者**一節。 |
+| Domain | 0:1 | 一個字串，其中包含宣告提供者的網域名稱。 例如，如果您的宣告提供者包含 Facebook 技術設定檔，則網域名稱為 Facebook.com。 此網域名稱會用於宣告提供者中定義的所有技術設定檔，除非技術設定檔加以覆寫。 網域名稱也可在 **domain_hint** 中受到參考。 如需詳細資訊，請參閱[使用 Azure Active Directory B2C 設定直接登入](direct-signin.md)的**將登入重新導向至社交提供者**一節。 |
 | DisplayName | 0:1 | 一個字串，其中包含可對使用者顯示的宣告提供者名稱。 |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | 受到宣告提供者支援的一組技術設定檔 |
 

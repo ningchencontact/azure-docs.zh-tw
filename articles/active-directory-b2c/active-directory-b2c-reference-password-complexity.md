@@ -2,20 +2,20 @@
 title: 密碼複雜度 - Azure Active Directory B2C | Microsoft Docs
 description: 如何設定 Azure Active Directory B2C 中取用者所提供的密碼複雜度需求。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5c47a22883de4a3b28a42b390ef78368277e22be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 37f8305d8ed212cf2c6678b35220d823611b9d7a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703746"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509023"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>設定 Azure Active Directory B2C 中的密碼複雜度需求
 
@@ -37,11 +37,11 @@ Azure Active Directory (Azure AD) B2C 支援在建立帳戶時變更終端使用
 ## <a name="configure-password-complexity"></a>設定密碼複雜度
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
-4. 選取 [使用者流程]。
-2. 選取一個使用者流程，然後按一下 [屬性]。
-3. 在 [密碼複雜度] 之下，將這個使用者流程的密碼複雜度變更為 [簡單]、[強式] 或 [自訂]。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
+4. 選取 [使用者流程]  。
+2. 選取一個使用者流程，然後按一下 [屬性]  。
+3. 在 [密碼複雜度]  之下，將這個使用者流程的密碼複雜度變更為 [簡單]  、[強式]  或 [自訂]  。
 
 ### <a name="comparison-chart"></a>比較圖表
 

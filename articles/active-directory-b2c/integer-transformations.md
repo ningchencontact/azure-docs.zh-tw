@@ -2,20 +2,20 @@
 title: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的整數宣告轉換範例 | Microsoft Docs
 description: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的整數宣告轉換範例。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 20c109f188acfe37292aa31dfe057ced8b73199b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 976cf55dd8f1c11d1ea605b25086fa644afec980
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694756"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510810"
 ---
 # <a name="integer-claims-transformations"></a>整數宣告轉換
 
@@ -30,7 +30,7 @@ ms.locfileid: "64694756"
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | long | 要轉換為字串的 ClaimType。 |
-| OutputClaim | outputClaim | string | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 |
+| OutputClaim | outputClaim | 字串 | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 |
 
 在此範例中，值類型為 Long 的 `numericUserId` 宣告會轉換為值類型為 String (字串) 的 `UserId` 宣告。
 

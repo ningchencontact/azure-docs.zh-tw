@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 3843b5022aaf218bf91e25ecf6d9c36bb2db2dee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0a80630ffa363d2b633667d8104cc0326c4afa2e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575416"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478601"
 ---
 # <a name="plan-virtual-networks"></a>規劃虛擬網路
 
@@ -37,7 +37,7 @@ ms.locfileid: "64575416"
 - 您是否有資料存留、主權、合規性或復原等需求？ 如果是，選擇能符合這些需求的區域很重要。 如需詳細資訊，請參閱 [Azure 的地理區](https://azure.microsoft.com/global-infrastructure/geographies/)。
 - 針對您部署資源的 Azure 區域，相同區域內的 Azure 可用性區域之間是否有復原需求？ 您可以將虛擬機器 (VM) 等資源部署到相同虛擬網路內的不同可用性區域。 不過，並非所有的 Azure 區域都支援可用性區域。 若要深入了解可用性區域和支援此功能的區域，請參閱[可用性區域](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
-## <a name="subscriptions"></a>訂用帳戶
+## <a name="subscriptions"></a>Subscriptions
 
 您可以在每個訂用帳戶內，部署[限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)之內的多個虛擬網路。 例如，有些組織針對不同部門會有不同的訂用帳戶。 如需訂用帳戶的詳細資訊和相關考量，請參閱[訂用帳戶治理](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy)。
 
@@ -77,7 +77,7 @@ ms.locfileid: "64575416"
 - 如果子網路內不同的 VM 需要套用不同的安全性規則，您可以將 VM 中的網路介面與一或多個應用程式安全性群組建立關聯。 安全性規則可以在其來源、目的地，或是上述兩者中指定應用程式安全性群組。 該規則接著只會套用到身為該應用程式安全性群組成員的網路介面。 深入了解[網路安全性群組](security-overview.md)和[應用程式安全性群組](security-overview.md#application-security-groups)。
 - Azure 會在每個網路安全性群組內建立數個預設的安全性規則。 其中一個預設規則會允許流量流經虛擬網路中所有資源。 若要覆寫這個行為，請使用網路安全性群組、透過自訂路由將流量路由傳送到 NVA，或是上述兩者。 建議您熟悉 Azure 的所有[預設安全性規則](security-overview.md#default-security-rules)，並了解網路安全性群組規則套用到資源的方法。
 
-您可以檢視範例來實作周邊網路 (也稱為 DMZ) 的設計，Azure 和網際網路使用之間[NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json)或是[網路安全性群組](virtual-networks-dmz-nsg.md)。
+您可以檢視範例來實作周邊網路 (也稱為 DMZ) 的設計，Azure 和網際網路使用之間[NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json)。
 
 ### <a name="traffic-routing"></a>流量路由
 

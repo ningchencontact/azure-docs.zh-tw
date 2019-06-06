@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jnoller
-ms.openlocfilehash: 9c67902f8a6c10552ea60fed145afc24f82b01a1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 9f3a62c5782724f14f10b5875fc8db31dbffe67c
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594300"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693397"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>自訂 CoreDNS 搭配 Azure Kubernetes Service
 
@@ -27,7 +27,7 @@ AKS 為受管理的服務，您無法修改 CoreDNS 的主要組態 ( *CoreFile*
 
 ## <a name="before-you-begin"></a>開始之前
 
-此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱 [使用 Azure CLI] AKS 快速入門 [aks-快速入門-cli] [使用 Azure 入口網站] 或 [aks 快速入門-入口網站]。
+此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
 
 ## <a name="what-is-supportedunsupported"></a>什麼是支援/不支援
 
@@ -192,5 +192,7 @@ data:
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [coredns hosts]: https://coredns.io/plugins/hosts/
 
-<!-- LINKS - external -->
+<!-- LINKS - internal -->
 [concepts-network]: concepts-network.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md

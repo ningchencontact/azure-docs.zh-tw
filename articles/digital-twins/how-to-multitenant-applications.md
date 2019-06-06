@@ -6,24 +6,24 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 06/04/2019
 ms.author: mavoge
-ms.openlocfilehash: 2b4f9bf87122f047e496dca1dbd425db8ad7c16c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03b5693fe016cfb11d6f685f9088fe6e94f03b90
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60925977"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688607"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>使用 Azure Digital Twins 啟用多租用戶應用程式
 
-在 Azure Digital Twins 上建置解決方案的開發人員，可能會發現他們想要使用單一服務或解決方案來支援多個客戶。 事實上，「多租用戶」應用程式是最常見的 Azure Digital Twins 設定。
+在 Azure Digital Twins 上建置解決方案的開發人員，可能會發現他們想要使用單一服務或解決方案來支援多個客戶。 事實上，「多租用戶」  應用程式是最常見的 Azure Digital Twins 設定。
 
 本文件描述如何設定 Azure Digital Twins 應用程式，以支援數個 Azure Active Directory 租用戶和客戶。
 
 ## <a name="multitenancy"></a>多租用戶
 
-「多租用戶」資源是可支援多個客戶的單一佈建執行個體。 每個客戶都各自擁有自己的資料和權限。 每個客戶的體驗都彼此隔離，使其應用程式「檢視」皆不同。
+「多租用戶」  資源是可支援多個客戶的單一佈建執行個體。 每個客戶都各自擁有自己的資料和權限。 每個客戶的體驗都彼此隔離，使其應用程式「檢視」皆不同。
 
 若要深入了解多租用戶，請閱讀 [Azure 中的多租用戶應用程式](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications)。
 
@@ -49,19 +49,19 @@ ms.locfileid: "60925977"
 
 - 如果**客戶**尚未有包含 Azure Active Directory 租用戶的 Azure 訂用帳戶：
 
-  - **客戶**的 Azure Active Directory 租用戶管理員必須取得[預付型方案 Azure 訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0003p/)。
+  - **客戶**的 Azure Active Directory 租用戶管理員必須取得[隨用隨付 Azure 訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0003p/)。
   - **客戶**的 Azure Active Directory 租用戶管理員接著必須[連結其租用戶與新訂用帳戶](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)。
 
 - **客戶**的 Azure Active Directory 租用戶管理員必須在 [Azure 入口網站](https://portal.azure.com)上執行下列步驟：
 
-  1. 開啟 [訂用帳戶]。
+  1. 開啟 [訂用帳戶]  。
   1. 選取有要用於**開發人員**之應用程式的 Azure Active Directory 租用戶的訂用帳戶。
 
      ![Azure Active Directory 訂用帳戶][1]
 
-  1. 選取 [資源提供者]。
+  1. 選取 [資源提供者]  。
   1. 搜尋 **Microsoft.IoTSpaces**。
-  1. 選取 [註冊]。
+  1. 選取 [註冊]  。
 
      ![Azure Active Directory 資源提供者][2]
   

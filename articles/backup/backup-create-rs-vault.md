@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: sogup
-ms.openlocfilehash: b345f5e7f6f32d7fbb76d4f0227c8f4f925ff884
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 9fba7d679b7d0edb3c99207c99b23f9616c6fa0e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400292"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477581"
 ---
 # <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 
@@ -76,7 +76,7 @@ Azure 備份會自動處理保存庫的儲存體。 您必須指定該儲存體�
    - 深入了解[異地](../storage/common/storage-redundancy-grs.md)並[本機](../storage/common/storage-redundancy-lrs.md)備援。
 
 > [!NOTE]
-> 一旦您選擇**儲存體複寫類型**從**read-access geo-redundant**來**本地備援**，您無法還原。
+> 變更**儲存體複寫類型**（本機備援 / 地理備援） 有復原服務保存庫已完成之前先設定備份保存庫中。 一旦您設定備份，來修改選項會停用，而您無法變更**儲存體複寫類型**。 
 
 ## <a name="next-steps"></a>後續步驟
 

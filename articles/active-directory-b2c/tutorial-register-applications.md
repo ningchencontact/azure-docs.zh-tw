@@ -2,20 +2,20 @@
 title: 教學課程 - 註冊應用程式 - Azure Active Directory B2C | Microsoft Docs
 description: 了解如何使用 Azure 入口網站在 Azure Active Directory B2C 中註冊 Web 應用程式。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/05/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3858a6eac349a13ef122a723b3cc13964415ac55
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 380fc1633f94f2365162c1a4e4087c9113e5f663
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697832"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511950"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中註冊應用程式
 
@@ -35,23 +35,23 @@ ms.locfileid: "64697832"
 
 ## <a name="register-a-web-application"></a>註冊 Web 應用程式
 
-1. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-2. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
-3. 選取 [應用程式]，然後選取 [新增]。
+1. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+2. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
+3. 選取 [應用程式]  ，然後選取 [新增]  。
 4. 輸入應用程式的名稱。 例如，*webapp1*。
-5. 針對 [包含 Web 應用程式/Web API] 和 [允許隱含流程]，選取 [是]。
+5. 針對 [包含 Web 應用程式/Web API]  和 [允許隱含流程]  ，選取 [是]  。
 6. 針對**回覆 URL**，請輸入 Azure AD B2C 應傳回您的應用程式所要求任何權杖的端點。 例如，您可以將它設定為在本機的 `https://localhost:44316` 接聽。如果還不知道連接埠號碼，您可以輸入預留位置值，之後再變更。 若要用於測試，您可以將它設為 `https://jwt.ms`，這會顯示權杖內容以進行檢測。 針對本教學課程，請將它設為 `https://jwt.ms`。 
 
     回覆 URL 必須以配置 `https` 開頭，而且所有回覆 URL 值必須共用單一 DNS 網域。 例如，如果應用程式的回覆 URL 為 `https://login.contoso.com`，您可以新增它，如這個 URL 所示：`https://login.contoso.com/new`。 或者，您可以參照 `login.contoso.com` 的 DNS 子網域，例如 `https://new.login.contoso.com`。 如果您想要有以 `login-east.contoso.com` 和 `login-west.contoso.com` 作為回覆 URL 的應用程式，您必須依照以下順序新增這些回覆 URL：`https://contoso.com`、`https://login-east.contoso.com`、`https://login-west.contoso.com`。 您可以新增後面兩個，因為它們是第一個回覆 URL (`contoso.com`) 的子網域。
 
-7. 按一下頁面底部的 [新增] 。
+7. 按一下頁面底部的 [新增]  。
 
 ## <a name="create-a-client-secret"></a>建立用戶端密碼
 
 如果您的應用程式交換權杖的程式碼，您需要建立應用程式祕密。
 
-1. 選取 [金鑰]，然後按一下 [產生金鑰]。
-2. 選取 [儲存] 以檢視金鑰。 請記下 [應用程式金鑰] 值。 您可以使用此值，作為應用程式程式碼中的應用程式祕密。
+1. 選取 [金鑰]  ，然後按一下 [產生金鑰]  。
+2. 選取 [儲存]  以檢視金鑰。 請記下 [應用程式金鑰]  值。 您可以使用此值，作為應用程式程式碼中的應用程式祕密。
 
 ## <a name="next-steps"></a>後續步驟
 

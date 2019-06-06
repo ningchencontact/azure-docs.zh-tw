@@ -2,20 +2,20 @@
 title: JavaScript 和頁面合約版本-Azure Active Directory B2C |Microsoft Docs
 description: 了解如何啟用 JavaScript，並在 Azure Active Directory B2C 中使用頁面合約版本。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 91b4b621fc3dcedb52f88372fbfac222a744dbd1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ef474bec71a9015209b5748b6947816002bd4a5d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570619"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511986"
 ---
 # <a name="javascript-and-page-contract-versions-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的 JavaScript 和頁面合約版本
 
@@ -31,7 +31,7 @@ Azure AD B2C 提供一組使用者流程和自訂原則中的使用者介面項�
 
 ![啟用 JavaScript 設定](media/user-flow-javascript-overview/javascript-settings.png)
 
-無論是否在使用者流程的屬性中啟用 JavaScript，都可以為使用者流程頁面指定頁面合約版本。 開啟使用者流程，然後選取 [頁面配置]。 在 [配置名稱] 下，選取使用者流程頁面，然後選擇**頁面合約版本**。
+無論是否在使用者流程的屬性中啟用 JavaScript，都可以為使用者流程頁面指定頁面合約版本。 開啟使用者流程，然後選取 [頁面配置]  。 在 [配置名稱]  下，選取使用者流程頁面，然後選擇**頁面合約版本**。
 
 ![啟用 JavaScript 設定](media/user-flow-javascript-overview/page-contract-version.png)
 

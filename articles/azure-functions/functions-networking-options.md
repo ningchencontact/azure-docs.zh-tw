@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 49f89d39b3b917ec6357b241d7c413c2790eca25
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f13e498859986d5ee697cbd67907fd344147ed0c
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575612"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492844"
 ---
 # <a name="azure-functions-networking-options"></a>Azure 網路功能選項的函式
 
@@ -61,7 +61,7 @@ ms.locfileid: "64575612"
 
 您可以使用虛擬網路整合，以從應用程式存取資料庫和虛擬網路中執行的 web 服務。 與虛擬網路整合，您不需要公開 VM 上的應用程式的公用端點。 您可以改為使用私用、 非網際網路可路由傳送位址。
 
-虛擬網路整合的正式運作版本會依賴函式應用程式連接至虛擬網路的 VPN 閘道。 在裝載於 App Service 方案中的函式中使用。 若要了解如何設定這項功能，請參閱[整合您的應用程式與 Azure 虛擬網路](../app-service/web-sites-integrate-with-vnet.md#enabling-vnet-integration)。
+虛擬網路整合的正式運作版本會依賴函式應用程式連接至虛擬網路的 VPN 閘道。 在裝載於 App Service 方案中的函式中使用。 若要了解如何設定這項功能，請參閱[整合您的應用程式與 Azure 虛擬網路](../app-service/web-sites-integrate-with-vnet.md)。
 
 ### <a name="preview-version-of-virtual-network-integration"></a>預覽版本的虛擬網路整合
 

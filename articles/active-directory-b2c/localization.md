@@ -2,20 +2,20 @@
 title: 當地語系化 - Azure Active Directory B2C | Microsoft Docs
 description: 指定 Azure Active Directory B2C 中自訂原則的 Localization 元素。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2291bdd270a15c4932d79b124616400d2667c891
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a02983c5019870e8b17db48184b2f238a82f8a40
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705840"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510589"
 ---
 # <a name="localization"></a>當地語系化
 
@@ -73,7 +73,7 @@ ms.locfileid: "64705840"
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| id | 是 | 用來唯一識別當地語系化資源的識別碼。 |
+| Id | 是 | 用來唯一識別當地語系化資源的識別碼。 |
 
 **LocalizedResources** 元素包含下列元素：
 

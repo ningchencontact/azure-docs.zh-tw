@@ -7,13 +7,13 @@ ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: f11d1c6b727799f2cc67c6f5012dc4d117556d2e
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+manager: philmea
+ms.openlocfilehash: 533327ca1d202f15376e580d20317ddaf0b1d302
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467821"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693182"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central 中的裝置連線能力
 
@@ -113,7 +113,7 @@ IoT 中心可讓主要案例就是 oem 大量製造裝置可以連線到 IoT Cen
 
 1. 設定您的連線設定：
 
-    - **X.509 憑證：**[新增並驗證根/中繼憑證](#connect-devices-using-x509-certificates)並用它來產生下一個步驟中的裝置憑證。
+    - **X.509 憑證：** [新增並驗證根/中繼憑證](#connect-devices-using-x509-certificates)並用它來產生下一個步驟中的裝置憑證。
     - **SAS：** 將複製的主索引鍵。 這個金鑰是 IoT Central 應用程式的群組 SAS 索引鍵。 使用金鑰來產生下一個步驟中的裝置的 SAS 金鑰。
     ![連線設定 SAS](media/concepts-connectivity/connection-settings-sas.png)
 
@@ -137,7 +137,7 @@ IoT 中心可讓主要案例就是 oem 大量製造裝置可以連線到 IoT Cen
 
 1. 然後開啟裝置，讓它連接到您的 IoT Central 應用程式。 當您切換裝置上時，它會先連接至 DPS 擷取其 IoT Central 註冊資訊。
 
-1. 連接的裝置一開始顯示成**關聯的裝置**上**Device Explorer**頁面。 裝置佈建狀態為 [已註冊]。 **關聯**裝置，以適當的裝置範本及核准的裝置連線到您的 IoT Central 應用程式。 裝置可以從 IoT 中樞擷取連接字串，並開始傳送資料。 裝置佈建現已完成，現已佈建狀態**已佈建**。
+1. 連接的裝置一開始顯示成**關聯的裝置**上**Device Explorer**頁面。 裝置佈建狀態為 [已註冊]  。 **關聯**裝置，以適當的裝置範本及核准的裝置連線到您的 IoT Central 應用程式。 裝置可以從 IoT 中樞擷取連接字串，並開始傳送資料。 裝置佈建現已完成，現已佈建狀態**已佈建**。
 
 ## <a name="provisioning-status"></a>佈建狀態
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c80b821d6bd0263473ba0178eea148f7a2d5773
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 769d3dda7b1e49612279c9bfa6a3dd586e50e4c2
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123928"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479115"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在執行 Linux 的 N 系列 VM 上安裝 NVIDIA GPU 驅動程式
 
@@ -152,7 +152,7 @@ sudo reboot
 
 若要查詢 GPU 裝置狀態，請透過 SSH 連線至 VM 並執行與驅動程式一起安裝的 [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) 命令列公用程式。 
 
-如果已安裝驅動程式，您會看到類似以下的輸出。 請注意，除非您正在 VM 上執行 GPU 工作負載，否則 [GPU-Util] 會顯示 0%。 您的驅動程式版本和 GPU 詳細資料可能會與顯示的不同。
+如果已安裝驅動程式，您會看到類似以下的輸出。 請注意，除非您正在 VM 上執行 GPU 工作負載，否則 [GPU-Util]  會顯示 0%。 您的驅動程式版本和 GPU 詳細資料可能會與顯示的不同。
 
 ![NVIDIA 裝置狀態](./media/n-series-driver-setup/smi.png)
 
@@ -160,7 +160,7 @@ sudo reboot
 
 可以在支援 RDMA 的 N 系列 VM (例如部署在同一個可用性設定組或 VM 擴展集的單一放置群組中的 NC24r) 上啟用 RDMA 網路連線能力。 RDMA 網路可針對搭配 Intel MPI 5.x 或更新版本執行的應用程式，支援訊息傳遞介面 (MPI) 流量。 其他需求如下：
 
-### <a name="distributions"></a>散發
+### <a name="distributions"></a>分佈
 
 從 Azure Marketplace 中支援 N 系列 VM 上 RDMA 連線的其中一個映像，部署支援 RDMA 的 N 系列 VM：
   
@@ -187,8 +187,8 @@ sudo reboot
 
    sudo apt-get dist-upgrade -y
 
-  sudo apt-get install build-essential ubuntu-desktop -y
-  ```
+   sudo apt-get install build-essential ubuntu-desktop -y
+   ```
 3. 停用與 NVIDIA 驅動程式不相容的 Nouveau 核心驅動程式。 (僅在 NV 或 NVv2 VM 上使用 NVIDIA 驅動程式。)若要這樣做，請建立中的檔案`/etc/modprobe.d`名為`nouveau.conf`含有下列內容：
 
    ```
@@ -214,7 +214,7 @@ sudo reboot
    sudo ./NVIDIA-Linux-x86_64-grid.run
    ``` 
 
-6. 當系統詢問您是否要執行 nvidia-xconfig 公用程式來更新您的 X 組態檔時，選取 [是]。
+6. 當系統詢問您是否要執行 nvidia-xconfig 公用程式來更新您的 X 組態檔時，選取 [是]  。
 
 7. 安裝完成後，請將 /etc/nvidia/gridd.conf.template 複製到位於 /etc/nvidia/ 的新檔案 gridd.conf
 
@@ -278,7 +278,7 @@ sudo reboot
 
    sudo ./NVIDIA-Linux-x86_64-grid.run
    ``` 
-6. 當系統詢問您是否要執行 nvidia-xconfig 公用程式來更新您的 X 組態檔時，選取 [是]。
+6. 當系統詢問您是否要執行 nvidia-xconfig 公用程式來更新您的 X 組態檔時，選取 [是]  。
 
 7. 安裝完成後，請將 /etc/nvidia/gridd.conf.template 複製到位於 /etc/nvidia/ 的新檔案 gridd.conf
   
@@ -298,7 +298,7 @@ sudo reboot
 
 若要查詢 GPU 裝置狀態，請透過 SSH 連線至 VM 並執行與驅動程式一起安裝的 [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) 命令列公用程式。 
 
-如果已安裝驅動程式，您會看到類似以下的輸出。 請注意，除非您正在 VM 上執行 GPU 工作負載，否則 [GPU-Util] 會顯示 0%。 您的驅動程式版本和 GPU 詳細資料可能會與顯示的不同。
+如果已安裝驅動程式，您會看到類似以下的輸出。 請注意，除非您正在 VM 上執行 GPU 工作負載，否則 [GPU-Util]  會顯示 0%。 您的驅動程式版本和 GPU 詳細資料可能會與顯示的不同。
 
 ![NVIDIA 裝置狀態](./media/n-series-driver-setup/smi-nv.png)
  

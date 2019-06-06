@@ -2,20 +2,20 @@
 title: 定義 Azure Active Directory B2C 自訂原則中的 Azure Active Directory 技術設定檔 | Microsoft Docs
 description: 定義 Azure Active Directory B2C 自訂原則中的 Azure Active Directory 技術設定檔。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 433307791201e3799b3bc9e54aec765d9fbeb4af
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b8bbe540d9e296b0f6a0c11a62d3b861e0115d3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718696"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507438"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定義 Azure Active Directory B2C 自訂原則中的 Azure Active Directory 技術設定檔
 
@@ -120,7 +120,7 @@ Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者
 
 ## <a name="azure-ad-technical-provider-operations"></a>Azure AD 技術提供者作業
 
-### <a name="read"></a>讀取
+### <a name="read"></a>閱讀
 
 **讀取**作業可讀取單一使用者帳戶的相關資料。 若要讀取使用者資料，需要提供索引碼做為輸入宣告，例如 **objectId** **userPrincipalName**、**signInNames** (任何類型、使用者名稱和以電子郵件為基礎的帳戶) 或 **alternativeSecurityId**。  
 
@@ -152,7 +152,7 @@ Azure Active Directory (Azure AD) B2C 可支援 Azure Active Directory 使用者
 </TechnicalProfile>
 ```
 
-### <a name="write"></a>寫入
+### <a name="write"></a>撰寫
 
 **寫入**作業可建立或更新單一使用者帳戶。 若要寫入使用者資料，需要提供索引碼做為輸入宣告，例如 **objectId** **userPrincipalName**、**signInNames.emailAddress** 或 **alternativeSecurityId**。  
 

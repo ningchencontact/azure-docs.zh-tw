@@ -2,20 +2,20 @@
 title: 利用 OpenID Connect 的 Web 登入 - Azure Active Directory B2C | Microsoft Docs
 description: 建立 Azure Active Directory B2C 中使用的 OpenID Connect 驗證通訊協定的 web 應用程式。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4137360fadab0206c6569b58d6a9a0519ce74450
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 85639e2648131f9475ad2ae77f31d43e64bf82e7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703940"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509211"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中利用 OpenID Connect 的 Web 登入
 
@@ -114,7 +114,7 @@ error=access_denied
 
 | 參數 | 描述 |
 | --------- | ----------- |
-| 錯誤 | 可用來分類發生的錯誤類型的程式碼。 |
+| error | 可用來分類發生的錯誤類型的程式碼。 |
 | error_description | 可協助您識別驗證錯誤的根本原因的特定錯誤訊息。 |
 | state | 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應該確認`state`要求和回應中的值完全相同。 |
 
@@ -204,7 +204,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | 參數 | 描述 |
 | --------- | ----------- |
-| 錯誤 | 可用來分類發生的錯誤類型的程式碼。 |
+| error | 可用來分類發生的錯誤類型的程式碼。 |
 | error_description | 可協助您識別驗證錯誤的根本原因的訊息。 |
 
 ## <a name="use-the-token"></a>使用權杖
@@ -271,7 +271,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 | 參數 | 描述 |
 | --------- | ----------- |
-| 錯誤 | 可用來分類發生的錯誤類型的程式碼。 |
+| error | 可用來分類發生的錯誤類型的程式碼。 |
 | error_description | 可協助您識別驗證錯誤的根本原因的訊息。 |
 
 ## <a name="send-a-sign-out-request"></a>傳送登出要求

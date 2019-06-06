@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
-ms.openlocfilehash: 4cbc0b399bddbaebd4cb951dcd116e090c2e0c09
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 363cd9319db0477e9b5ba2d2dd03a7e995a26fef
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938017"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515623"
 ---
 # <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>在 Azure Marketplace 和 AppSource 中的整合式的解決方案
 
@@ -30,6 +30,15 @@ ms.locfileid: "64938017"
 
 ## <a name="next-steps"></a>後續步驟
 
-您可以探索整合的解決方案，並與這些重要的合作夥伴連接瀏覽的諮詢服務區段[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services)。
+您可以探索整合的解決方案，並瀏覽他們的清單，與這些重要的合作夥伴連接：
+
+* [Customer 360 由 Zero2Hero](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
+* [快速的商務](https://azuremarketplace.microsoft.com/marketplace/consulting-services/publicis-sapient.rapid_commerce)
+* [信用額度分析](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rcg-us.rcg-enable-credit-analytics)
+* [醫療保健的 Cloud Security 堆疊](https://azuremarketplace.microsoft.com/marketplace/consulting-services/xentit.azure-xentit-trendmicro-qualys-hcss-12months)
+* [DevOps 加速引擎](https://azuremarketplace.microsoft.com/marketplace/consulting-services/sirrus7.sirrus7-devops-acceleration-engine?search=devops%20acceleration%20engine&page=1)
+* [Windows 伺服器端支援](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
+
+並也瀏覽的諮詢服務區段[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services)。
 
 ---

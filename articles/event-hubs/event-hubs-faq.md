@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: acc756ac04e5127d07760746bd0178f0f6cb1d6f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c5e58f7bc89fbe2d93f6610465abf4a92fd31406
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789254"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476126"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中樞常見問題集
 
@@ -72,13 +72,13 @@ Azure 事件中樞的標準層提供比基本層更多的功能。 標準層包�
 | Protocol | 連接埠 | 詳細資料 | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 和 5672 | 請參閱[AMQP 通訊協定指南](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
-| HTTP、HTTPS | 80、443 |  |
-| Kafka | 9092 | 請參閱[從 Kafka 的應用程式的使用事件中樞](event-hubs-for-kafka-ecosystem-overview.md)
+| HTTP、 HTTPS | 80、443 |  |
+| Kafka | 9093 | 請參閱[從 Kafka 的應用程式的使用事件中樞](event-hubs-for-kafka-ecosystem-overview.md)
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>哪些 IP 位址需要列入白名單嗎？
 若要尋找您的連線正確的 IP 位址到允許清單，請遵循下列步驟：
 
-1. 从命令提示符处运行以下命令： 
+1. 從命令提示字元中執行下列命令： 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
@@ -182,7 +182,7 @@ bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>如何建立事件中樞專用叢集？
 您可以藉由提交[加大配額支援要求](https://portal.azure.com/#create/Microsoft.Support)或連絡[事件中樞小組](mailto:askeventhubs@microsoft.com)，來建立事件中樞專用叢集。 通常需要大約兩週的時間，才能部署該叢集並將控制權移交給您以供使用。 在透過 Azure 入口網站或 Azure Resource Manager 範本讓完整的自助功能可供使用之前，此程序是暫時性，大約需要兩個小時來部署叢集。
 
-## <a name="best-practices"></a>最佳做法
+## <a name="best-practices"></a>最佳作法
 
 ### <a name="how-many-partitions-do-i-need"></a>我需要多少個分割區？
 
@@ -200,7 +200,7 @@ bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=
 
 ### <a name="is-there-a-charge-for-retaining-event-hubs-events-for-more-than-24-hours"></a>保留事件中樞事件超過 24 小時需要計費嗎？
 
-事件中樞標準層允許 24 小時以上的訊息保留期間，最多達七天。 如果儲存之事件總數的大小超過選定輸送量單位數目的儲存額度 (每個輸送量單位 84 GB)，超過額度的大小將以已發佈的 Azure Blob 儲存體費率計費。 每个吞吐量单元的存储限制包括 24 小时（默认值）的保留期期间的所有存储成本，即使吞吐量单元已经用到了最大入口限制。
+事件中樞標準層允許 24 小時以上的訊息保留期間，最多達七天。 如果儲存之事件總數的大小超過選定輸送量單位數目的儲存額度 (每個輸送量單位 84 GB)，超過額度的大小將以已發佈的 Azure Blob 儲存體費率計費。 即使您已將輸送量單位的最大輸入額度用盡，每個輸送量單位的儲存額度依然涵蓋 24 小時保留期間 (預設值) 的所有儲存費用。
 
 ### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>事件中樞儲存空間大小如何計算及收費？
 
@@ -208,7 +208,7 @@ bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=
 
 ### <a name="how-are-event-hubs-ingress-events-calculated"></a>事件中樞輸入事件的計算方式為何？
 
-每個傳送到事件中樞的事件都算是可計費訊息。 *入口事件* 定义为小于等于 64 KB 的数据单位。 任何大小小於或等於 64 KB 的事件均視為一個可計費事件。 如果事件大於 64 KB，可計費事件的數目乃根據事件大小來計算 (64 KB 的倍數)。 例如，一個傳送到事件中樞的 8 KB 事件將視為一個事件來計費，不過，一則傳送到事件中樞的 96 KB 訊息將視為兩個事件來計費。
+每個傳送到事件中樞的事件都算是可計費訊息。 *輸入事件*的定義為小於或等於 64 KB 的資料單位。 任何大小小於或等於 64 KB 的事件均視為一個可計費事件。 如果事件大於 64 KB，可計費事件的數目乃根據事件大小來計算 (64 KB 的倍數)。 例如，一個傳送到事件中樞的 8 KB 事件將視為一個事件來計費，不過，一則傳送到事件中樞的 96 KB 訊息將視為兩個事件來計費。
 
 自事件中樞取用的事件，以及管理作業和控制呼叫 (如檢查點)，不會計入可計費輸入事件，但會累積在輸送量單位額度內。
 

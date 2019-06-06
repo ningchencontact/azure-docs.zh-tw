@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 59a35e44c78ea86f3b02eb4ad99dc1fd8fcb4870
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 054aaf6f607bba216f979665a0b0672ec253ba7f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236629"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475976"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>設定計算目標進行模型定型 
 
@@ -31,22 +31,22 @@ ms.locfileid: "66236629"
 
 
 >[!NOTE]
-> 本文中的程式碼已使用 Azure Machine Learning SDK 1.0.6 版進行測試。
+> 測試與 Azure 機器學習服務 SDK 版本 1.0.39 的這篇文章中的程式碼。
 
 ## <a name="compute-targets-for-training"></a>訓練用的計算目標
 
 Azure Machine Learning 服務在不同計算目標上提供不同的支援。 一般模型開發生命週期會先開始開發/測試少量的資料。 在這個階段，我們建議使用本機環境。 例如，您的本機電腦或雲端式虛擬機器。 您對於較大的資料集相應增加您的定型或進行分散式定型時，建議使用 Azure Machine Learning Compute 建立單一或多重節點叢集，在每次提交執行時自動調整。 您也可以附加您自己的計算資源，不過支援的各種情節可能會有所不同，詳述如下：
 
 
-|訓練用的計算目標| GPU 加速 | 自動化<br/> 超參數微調 | 自動化<br/> 機器學習服務 | Azure Machine Learning 管線 |
+|訓練&nbsp;目標| GPU 支援 |自動化 ML | ML 管線 | 視覺化介面
 |----|:----:|:----:|:----:|:----:|
-|[本機電腦](#local)| 可能 | &nbsp; | ✓ | &nbsp; |
-|[Azure Machine Learning Compute](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
-|[遠端虛擬機器](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
-|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[本機電腦](#local)| 或許 | 是 | &nbsp; | &nbsp; |
+|[Azure Machine Learning Compute](#amlcompute)| 是 | 是 （& s) <br/>hyperparameter&nbsp;tuning | 是 | 是 |
+|[遠端虛擬機器](#vm) |是 | 是 （& s) <br/>超參數微調 | 是 | &nbsp; |
+|[Azure&nbsp;Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | 是 | 是 | &nbsp; |
+|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | 是 | &nbsp; |
+|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | 是 | &nbsp; |
+|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | 是 | &nbsp; |
 
 **所有計算目標皆可用於多個定型作業**。 例如，將遠端 VM 連結至您的工作區之後，您可以將它重複用於多個作業。
 

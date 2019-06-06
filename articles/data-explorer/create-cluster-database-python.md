@@ -1,18 +1,18 @@
 ---
-title: 快速入門：使用 Python 建立 Azure 資料總管叢集與資料庫
+title: 使用 Python 建立 Azure 資料總管叢集與資料庫
 description: 了解如何使用 Python 建立 Azure 資料總管叢集與資料庫。
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 408b34db16f0d6d22340f0483b90ce5d72ffa613
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: caac53aec08e234f320ee4278a5a58bbc62bff68
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045196"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494586"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>使用 Python 建立 Azure 資料總管叢集與資料庫
 
@@ -24,7 +24,7 @@ ms.locfileid: "59045196"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure 資料總管是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 在本快速入門中，您會使用 Python 建立叢集與資料庫。
+Azure 資料總管是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 在本文中，您使用 Python 建立叢集和資料庫。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -119,7 +119,7 @@ pip install azure-mgmt-kusto
 
 ## <a name="clean-up-resources"></a>清除資源
 
-* 如果您打算按照其他快速入門和教學課程繼續進行，請保留您建立的資源。
+* 如果您打算遵循我們的其他文章，讓您建立的資源。
 * 若要清除資源，請刪除叢集。 您刪除叢集時，也會刪除其中的所有資料庫。 使用下列命令刪除您的叢集：
 
     ```Python
@@ -128,5 +128,4 @@ pip install azure-mgmt-kusto
 
 ## <a name="next-steps"></a>後續步驟
 
-> [!div class="nextstepaction"]
-> [快速入門：使用 Azure 資料總管 Python 程式庫內嵌資料](python-ingest-data.md)
+* [使用 Azure 資料總管 Python 程式庫內嵌資料](python-ingest-data.md)

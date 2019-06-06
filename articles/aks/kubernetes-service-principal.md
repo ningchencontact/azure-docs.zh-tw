@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: eeb9f5fa91252bbc3c3038ab88bd2d7e802f263f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d8a8a2f005a92988158b3f9c36ce24936fb020b4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786402"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475622"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>服務主體與 Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ ms.locfileid: "65786402"
 
 如果您使用服務主體從不同的 Azure AD 租用戶，有可用的權限的其他考量當您部署叢集。 您可能沒有適當的權限來讀取和寫入目錄資訊。 如需詳細資訊，請參閱[什麼是 Azure Active Directory 中的預設使用者權限？][azure-ad-permissions]
 
-还需安装并配置 Azure CLI 2.0.59 或更高版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
+您也需要 Azure CLI 2.0.59 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>自動建立並使用服務主體
 
@@ -70,7 +70,7 @@ az aks create \
     --client-secret <password>
 ```
 
-若使用 Azure 入口網站來部署 AKS 叢集，請在 [建立 Kubernetes 叢集] 對話方塊的 [驗證] 頁面選擇 [設定服務主體]。 選取 [一般] 索引標籤，並指定下列值：
+若使用 Azure 入口網站來部署 AKS 叢集，請在 [建立 Kubernetes 叢集]  對話方塊的 [驗證]  頁面選擇 [設定服務主體]  。 選取 [一般]  索引標籤，並指定下列值：
 
 - **服務主體用戶端識別碼**是您的 *appId*
 - **服務主體用戶端祕密** 是 *password* 值
@@ -91,9 +91,9 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 下列各節將詳細說明您可能需要執行的一般委派。
 
-### <a name="azure-container-registry"></a>Azure 容器登錄
+### <a name="azure-container-registry"></a>Azure Container Registry
 
-如果您使用 Azure Container Registry (ACR) 作為您的容器映像存放區，則必須對 AKS 叢集授與可讀取和提取映像的權限。 AKS 叢集的服務主體必須獲派登錄上的「讀者」角色。 如需詳細步驟，請參閱[對 AKS 授與 ACR 的存取權][aks-to-acr]。
+如果您使用 Azure Container Registry (ACR) 作為您的容器映像存放區，則必須對 AKS 叢集授與可讀取和提取映像的權限。 AKS 叢集的服務主體必須獲派登錄上的「讀者」  角色。 如需詳細步驟，請參閱[對 AKS 授與 ACR 的存取權][aks-to-acr]。
 
 ### <a name="networking"></a>網路功能
 
@@ -118,7 +118,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
-如果您使用 Virtual Kubelet 來與 AKS 整合，並選擇在與 AKS 叢集不同的資源群組中執行「Azure 容器執行個體」(ACI)，就必須將 ACI 資源群組的「參與者」權限授與 AKS 服務主體。
+如果您使用 Virtual Kubelet 來與 AKS 整合，並選擇在與 AKS 叢集不同的資源群組中執行「Azure 容器執行個體」(ACI)，就必須將 ACI 資源群組的「參與者」  權限授與 AKS 服務主體。
 
 ## <a name="additional-considerations"></a>其他考量
 
@@ -126,16 +126,34 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 - Kubernetes 的服務主體是叢集組態的一部分。 不過，請勿使用身分識別來部署叢集。
 - 根據預設，服務主體認證的有效期為一年。 您可以[更新或替換服務主體認證][ update-credentials]在任何時間。
-- 每個服務主體都會與 Azure AD 應用程式相關聯。 Kubernetes 叢集的服務主體可與任何有效的 Azure AD 應用程式名稱相關聯 (例如：*https://www.contoso.org/example*)。 應用程式的 URL 不一定是實際端點。
+- 每個服務主體都會與 Azure AD 應用程式相關聯。 Kubernetes 叢集的服務主體可與任何有效的 Azure AD 應用程式名稱相關聯 (例如： *https://www.contoso.org/example* )。 應用程式的 URL 不一定是實際端點。
 - 當您指定服務主體**用戶端識別碼**時，請使用 `appId` 的值。
 - 在 Kubernetes 叢集中的代理程式節點 Vm，服務主體認證會儲存在檔案中 `/etc/kubernetes/azure.json`
 - 當您使用 [az aks create][az-aks-create] 命令自動產生服務主體時，服務主體認證會寫入用來執行命令之電腦上的 `~/.azure/aksServicePrincipal.json` 檔案。
 - 當您刪除使用 [az aks create][az-aks-create] 建立的叢集時，不會刪除自動建立的服務主體。
-    - 若要刪除服務主體，請查詢您的叢集 servicePrincipalProfile.clientId，然後使用 [az ad app delete][az-ad-app-delete] 來刪除。 請將下列資源群組和叢集名稱更換為您自己的值：
+    - 若要刪除服務主體，請查詢您的叢集 servicePrincipalProfile.clientId  ，然後使用 [az ad app delete][az-ad-app-delete] 來刪除。 請將下列資源群組和叢集名稱更換為您自己的值：
 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
+
+## <a name="troubleshoot"></a>疑難排解
+
+Azure CLI，AKS 叢集中的服務主體認證會快取。 如果這些認證已過期，您會遇到部署 AKS 叢集時發生錯誤。 下列的錯誤訊息時執行[az aks 建立][ az-aks-create]可能表示發生問題的快取的服務主體認證：
+
+```console
+Operation failed with status: 'Bad Request'.
+Details: The credentials in ServicePrincipalProfile were invalid. Please see https://aka.ms/aks-sp-help for more details.
+(Details: adal: Refresh request failed. Status Code = '401'.
+```
+
+請使用下列命令的認證檔案的存在時間：
+
+```console
+ls -la $HOME/.azure/aksServicePrincipal.json
+```
+
+服務主體認證的預設到期時間是一年。 如果您*aksServicePrincipal.json*檔案已超過一年中，刪除檔案，然後嘗試再次部署 AKS 叢集。
 
 ## <a name="next-steps"></a>後續步驟
 

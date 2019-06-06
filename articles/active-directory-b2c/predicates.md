@@ -2,20 +2,20 @@
 title: Predicates 與 PredicateValidations - Azure Active Directory B2C | Microsoft Docs
 description: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的社交帳戶宣告轉換範例。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eff8e2cedd6f9388d811002a622dbcdcd0e7ed6c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 06879164c6f72891b734da077c667c6f90448fe4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714160"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512956"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 與 PredicateValidations
 
@@ -41,7 +41,7 @@ ms.locfileid: "64714160"
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| id | 是 | 要用於述詞的識別碼。 其他元素可以在原則中使用這個識別碼。 |
+| Id | 是 | 要用於述詞的識別碼。 其他元素可以在原則中使用這個識別碼。 |
 | 方法 | 是 | 要用於驗證的方法類型。 可能的值：**IsLengthRange**、**MatchesRegex**、**IncludesCharacters** 或 **IsDateRange**。 **IsLengthRange** 值可讓您檢查字串宣告值的長度是否位於所指定 Minimum 和 Maximum 參數的範圍內。 **MatchesRegex** 值會檢查字串宣告值是否符合規則運算式。 **IncludesCharacters** 值會檢查字串宣告值是否包含字元集。 **IsDateRange** 值會檢查日期宣告值是否介於所指定 Minimum 和 Maximum 參數的範圍之間。 |
 
 **Predicate** 元素包含下列元素：
@@ -61,7 +61,7 @@ ms.locfileid: "64714160"
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| id | 1:1 | 參數的識別碼。 |
+| Id | 1:1 | 參數的識別碼。 |
 
 下列範例顯示 `IsLengthRange` 方法，以及可指定字串長度範圍的 `Minimum` 和 `Maximum` 參數：
 
@@ -140,7 +140,7 @@ ms.locfileid: "64714160"
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| id | 是 | 要用於述詞驗證的識別碼。 **ClaimType** 元素可以在原則中使用這個識別碼。 |
+| Id | 是 | 要用於述詞驗證的識別碼。 **ClaimType** 元素可以在原則中使用這個識別碼。 |
 
 **PredicateValidation** 元素包含下列元素：
 
@@ -158,7 +158,7 @@ ms.locfileid: "64714160"
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| id | 是 | 要用於述詞群組的識別碼。  |
+| Id | 是 | 要用於述詞群組的識別碼。  |
 
 **PredicateGroup** 元素包含下列元素：
 
@@ -183,7 +183,7 @@ ms.locfileid: "64714160"
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| id | 是 | 要用於述詞驗證的識別碼。  |
+| Id | 是 | 要用於述詞驗證的識別碼。  |
 
 
 ## <a name="configure-password-complexity"></a>設定密碼複雜度

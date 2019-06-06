@@ -2,20 +2,20 @@
 title: Azure SQL 資料倉儲 - MPP 架構 | Microsoft Docs
 description: 了解 Azure SQL 資料倉儲如何將大量平行處理 (MPP) 與 Azure 儲存體結合，以達到高效能和延展性。
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: c3cdd464dffc810e76cf101ac70c2a14bbc4f9ff
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 25dc469c9f50dee7d088fccd214020791ff73def
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790708"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515802"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL 資料倉儲 - 大量平行處理 (MPP) 架構
 了解 Azure SQL 資料倉儲如何將大量平行處理 (MPP) 與 Azure 儲存體結合，以達到高效能和延展性。 
@@ -56,7 +56,7 @@ SQL 資料倉儲會使用 Azure 儲存體來保護您使用者資料的安全。
 ### <a name="data-movement-service"></a>資料移動服務
 資料移動服務 (DMS) 是資料傳輸技術，可協調計算節點之間的資料移動。 某些查詢需要資料移動，以確保平行查詢會傳回精確的結果。 若資料移動是必要的，DMS 確保正確的資料會到達正確的位置。 
 
-## <a name="distributions"></a>散發
+## <a name="distributions"></a>分佈
 
 散發是儲存體的基本單位，可處理在分散式資料上執行的平行查詢。 當 SQL 資料倉儲執行查詢時，會將工作分成 60 個平行執行的較小查詢。 這 60 個較小查詢中的每一個都會在其中一個資料散發中執行。 每個計算節點都會管理這 60 個散發中的一或多個。 具有最大計算資源的資料倉儲，在每個計算節點上都有一個散發。 具有最小計算資源的資料倉儲，其所有散發都會在一個計算節點上。  
 
@@ -84,21 +84,21 @@ SQL 資料倉儲會使用 Azure 儲存體來保護您使用者資料的安全。
 ## <a name="replicated-tables"></a>複寫的資料表
 複寫的資料表會為小型資料表提供最快速的查詢效能。
 
-複寫的資料表會在每個計算節點上快取一份完整的資料表複本。 因此，複寫資料表就不需在進行聯結或彙總之前，於計算節點之間傳輸資料。 複寫的資料表最好能與小型資料表搭配使用。 它需要额外存储并且在写入数据时会产生额外负载，因此不适用于大型表。  
+複寫的資料表會在每個計算節點上快取一份完整的資料表複本。 因此，複寫資料表就不需在進行聯結或彙總之前，於計算節點之間傳輸資料。 複寫的資料表最好能與小型資料表搭配使用。 須有額外的儲存體，而且沒有寫入讓大型資料表並不實用的資料時造成的額外負擔。  
 
 下圖顯示複寫的資料表。 對於 SQL 資料倉儲，會在每個計算節點中的第一個散發上快取複寫的資料表。  
 
 ![複寫的資料表](media/sql-data-warehouse-distributed-data/replicated-table.png "複寫的資料表") 
 
 ## <a name="next-steps"></a>後續步驟
-对 SQL 数据仓库有了初步的认识后，请继续学习如何快速[创建 SQL 数据仓库][create a SQL Data Warehouse]和[加载示例数据][load sample data]。 如果您不熟悉 Azure，您可能會發現 [Azure 詞彙][Azure glossary]在您遇到新術語時很有幫助。 或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  
+現在您已稍微了解 SQL 資料倉儲，請了解如何快速[建立 SQL 資料倉儲][create a SQL Data Warehouse]和[載入範例資料][load sample data]。 如果您不熟悉 Azure，您可能會發現 [Azure 詞彙][Azure glossary]在您遇到新術語時很有幫助。 或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  
 
 * [客戶成功案例]
 * [博客]
 * [功能要求]
 * [视频]
 * [客戶諮詢小組部落格]
-* [创建支持票证]
+* [建立支援票證]
 * [MSDN 論壇]
 * [Stack Overflow 論壇]
 * [Twitter]
@@ -107,7 +107,7 @@ SQL 資料倉儲會使用 Azure 儲存體來保護您使用者資料的安全。
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[创建支持票证]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[建立支援票證]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [load sample data]: ./sql-data-warehouse-load-sample-databases.md
 [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Migration documentation]: ./sql-data-warehouse-overview-migrate.md
