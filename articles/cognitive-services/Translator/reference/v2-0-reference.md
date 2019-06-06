@@ -3,19 +3,19 @@ title: 翻譯工具文字 API V2.0
 titleSuffix: Azure Cognitive Services
 description: 翻譯工具文字 API V2.0 參考文件。
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
-ms.author: v-jansko
-ms.openlocfilehash: 961dd277034db7e5406e671233f26b4fd8fe5f26
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.author: v-pawal
+ms.openlocfilehash: d2ff61908d7901fc464b58ee1ef9b5605b3026a3
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527280"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389837"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
@@ -28,11 +28,18 @@ ms.locfileid: "59527280"
 若要存取翻譯工具語音 API，您需要[註冊 Microsoft Azure](../translator-text-how-to-signup.md)。
 
 ## <a name="authorization"></a>授權
-所有翻譯工具文字 API 呼叫都需要驗證訂用帳戶金鑰。 API 支援兩種驗證模式：
+所有翻譯工具文字 API 呼叫都需要驗證訂用帳戶金鑰。 此 API 支援三種驗證模式：
 
-* 使用存取權杖。 使用**步驟** 9 中所參考的訂用帳戶金鑰，以對授權服務提出 POST 要求來產生存取權杖。 如需詳細資料，請參閱權杖服務文件。 使用 Authorization 標頭或 access_token 查詢參數，將存取權杖傳遞給 Translator 服務。 存取權杖的有效時間為 10 分鐘。 每隔 10 分鐘取得新的存取權杖一次，並在這 10 分鐘內針對重複的要求持續使用相同的存取權杖。
+- 存取權杖。 使用**步驟** 9 中所參考的訂用帳戶金鑰，以對授權服務提出 POST 要求來產生存取權杖。 如需詳細資料，請參閱權杖服務文件。 將存取權杖傳遞至使用授權標頭的轉譯器服務或`access_token`查詢參數。 存取權杖的有效時間為 10 分鐘。 取得新存取權杖每隔 10 分鐘，並繼續使用相同的存取權的重複要求的語彙基元在這 10 分鐘內。
+- 直接訂用帳戶金鑰。 將您的訂用帳戶金鑰傳遞中的值為`Ocp-Apim-Subscription-Key`隨附 Translator API 的要求標頭。 在此模式中，您不需要呼叫產生存取權杖的驗證權杖服務。
+- A[認知服務多服務訂用帳戶](https://azure.microsoft.com/pricing/details/cognitive-services/)。 此模式可讓您使用單一的祕密金鑰來驗證多個服務的要求。 <br/>
+當您使用多服務的祕密金鑰時，您必須在您的要求包含兩個驗證標頭。 第一個標頭會傳遞的祕密金鑰。 第二個標頭會指定與您的訂用帳戶相關聯的區域：
+   - `Ocp-Apim-Subscription-Key`
+   - `Ocp-Apim-Subscription-Region`
 
-* 直接使用訂用帳戶金鑰。 以值形式將要求所含之 `Ocp-Apim-Subscription-Key` 標頭中的訂用帳戶金鑰傳遞給 Translator API。 在此模式中，您不需要呼叫驗證權杖服務來產生存取權杖。
+需要多服務的文字 API 訂用帳戶的區域。 選取的區域是使用多服務的訂用帳戶金鑰時，您可以使用文字翻譯的唯一地區，而且必須是您選取多服務透過 Azure 入口網站訂用帳戶註冊時的相同區域。
+
+可用的區域都`australiaeast`， `brazilsouth`， `canadacentral`， `centralindia`， `centraluseuap`， `eastasia`， `eastus`， `eastus2`， `japaneast`， `northeurope`， `southcentralus`， `southeastasia`，`uksouth`， `westcentralus`， `westeurope`， `westus`，和`westus2`。
 
 請考慮使用您的訂用帳戶金鑰和存取權杖作為應該隱藏不予檢視的祕密。
 
@@ -42,7 +49,7 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
 若您想要在翻譯中避免粗話，則不論來源文字中是否有粗話，都可以針對支援它的方法使用粗話篩選選項。 此選項可讓您選擇要查看刪除的粗話或標記為適當的標籤，還是不採取任何動作。 接受的 `ProfanityAction` 值為 `NoAction` (預設)、Marked 和 `Deleted`。
 
 
-|ProfanityAction    | 動作 |範例來源 (日文)  |範例翻譯 (英文)  |
+|ProfanityAction    |動作 |範例來源 (日文)  |範例翻譯 (英文)  |
 |:--|:--|:--|:--|
 |NoAction   |預設值。 與未設定此選項時相同。 粗話會從來源傳遞到目標。        |彼はジャッカスです。     |He is a jackass.   |
 |Marked     |會以 XML 標記括住不雅的字眼\<不雅內容 > 和\</profanity >。       |彼はジャッカスです。 |他\<不雅內容 > jackass\</profanity >。  |
@@ -76,21 +83,21 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
 
 ### <a name="parameters"></a>參數
 
-|參數|值|描述    |參數類型|数据类型|
+|參數|Value|描述    |參數類型|数据类型|
 |:--|:--|:--|:--|:--|
 |appid  |(空白)    |必要。 若使用 Authorization 或 Ocp-Apim-Subscription-Key 標頭，請將 appid 欄位空白，或是包括內含 "Bearer" + " " + "access_token" 的字串。|query|字串|
 |text|(空白)   |必要。 字串，代表要翻譯的文字。 文字大小不得超過 10000 個字元。|query|字串|
 |from|(空白)   |選用。 字串，代表翻譯文字的語言代碼。 例如，en 代表「英文」。|query|字串|
 |to|(空白) |必要。 字串，代表目標翻譯文字的語言代碼。|query|字串|
-|contentType|(空白)    |選用。 要翻譯文字的格式。 支援的格式為 text/plain (預設) 和 text/html。 任何 HTML 都需要是格式正確的完整項目。|query|字串|
+|contentType|(空白)    |選用。 要翻譯文字的格式。 支援的格式為 text/plain (預設) 和 text/html。 任何 HTML 都需要是格式正確的完整項目。|query|string|
 |category|(空白)   |選用。 字串，包含翻譯的分類 (網域)。 預設為 "general"。|query|字串|
-|授權|(空白)  |若未指定 appid 欄位或 Ocp-Apim-Subscription-Key 標頭，則為必要項目。 授權權杖：「Bearer」+「 」+「access_token」。|頁首|字串|
+|授權|(空白)  |若未指定 appid 欄位或 Ocp-Apim-Subscription-Key 標頭，則為必要項目。 授權權杖：「Bearer」+「 」+「access_token」。|頁首|string|
 |Ocp-Apim-Subscription-Key|(空白)  |若未指定 appid 欄位或 Authorization 標頭，則為必要項目。|頁首|字串|
 
 
 ### <a name="response-messages"></a>回應訊息
 
-|HTTP 狀態碼|原因|
+|HTTP 狀態碼|`Reason`|
 |:--|:--|
 |400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
@@ -132,7 +139,7 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
 * `appid`:必要。 若使用 `Authorization` 或 `Ocp-Apim-Subscription-Key` 標頭，請將 appid 欄位空白，或是包括內含 `"Bearer" + " " + "access_token"` 的字串。
 * `from`:選用。 字串，代表來源翻譯文字的語言代碼。 若保留空白，則回應將會包括語言自動偵測的結果。
 * `options`:選用。 `Options` 物件，包含下面列出的值。 它們都是選擇性項目，且預設為最常見設定。 指定的項目必須以字母順序列出。
-    - `Category`:字串，包含翻譯的分類 (網域)。 預設為 `general`。
+    - `Category`:字串，包含翻譯的分類 (網域)。 預設值為 `general`。
     - `ContentType`:要翻譯文字的格式。 支援的格式為 `text/plain` (預設)、`text/xml` 和 `text/html`。 任何 HTML 都需要是格式正確的完整項目。
     - `ProfanityAction`:指定如何處理粗語，如上所示。 接受的 `ProfanityAction` 值為 `NoAction` (預設)、`Marked` 和 `Deleted`。
     - `State`:使用者狀態，協助建立要求與回應的關聯。 將在回應中傳回相同的內容。
@@ -145,7 +152,7 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
 
 TranslateArray 方法會接受 `Content-Type` 的 `application/xml` 或 `text/xml`。
 
-**傳回值：**`TranslateArrayResponse` 陣列。 每個 `TranslateArrayResponse` 都會有下列項目：
+**傳回值：** `TranslateArrayResponse` 陣列。 每個 `TranslateArrayResponse` 都會有下列項目：
 
 * `Error`:指出發生其中一種情況時發生錯誤。 否則設定為 null。
 * `OriginalSentenceLengths`:整數陣列，指出原始來源文字中每個句子的長度。 陣列長度，指出句子數目。
@@ -181,14 +188,14 @@ TranslateArray 方法會接受 `Content-Type` 的 `application/xml` 或 `text/xm
 
 ### <a name="parameters"></a>參數
 
-|參數|值|描述|參數類型|数据类型|
+|參數|Value|描述|參數類型|数据类型|
 |:--|:--|:--|:--|:--|
 |授權|(空白) |若未指定 appid 欄位或 Ocp-Apim-Subscription-Key 標頭，則為必要項目。 授權權杖：「Bearer」+「 」+「access_token」。|頁首|字串|
-|Ocp-Apim-Subscription-Key|(空白)|若未指定 appid 欄位或 Authorization 標頭，則為必要項目。|頁首|字串|
+|Ocp-Apim-Subscription-Key|(空白)|若未指定 appid 欄位或 Authorization 標頭，則為必要項目。|頁首|string|
 
 ### <a name="response-messages"></a>回應訊息
 
-|HTTP 狀態碼   |原因|
+|HTTP 狀態碼   |`Reason`|
 |:--|:--|
 |400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。 常見錯誤包括： <ul><li>陣列項目不可空白</li><li>分類無效</li><li>From 語言無效</li><li>To 語言無效</li><li>要求包含太多項目</li><li>From 語言不受支援</li><li>To 語言不受支援</li><li>翻譯要求有太多資料</li><li>HTML 的格式不正確</li><li>翻譯要求中傳遞的字串太多</li></ul>|
 |401    |認證無效|
@@ -202,7 +209,7 @@ TranslateArray 方法會接受 `Content-Type` 的 `application/xml` 或 `text/xm
 
 要求 URI 為 `https://api.microsofttranslator.com/V2/Http.svc/GetLanguageNames`。
 
-要求本文包含字串陣列，代表要擷取其易記名稱的 ISO 639-1 語言代碼。 例如︰
+要求本文包含字串陣列，代表要擷取其易記名稱的 ISO 639-1 語言代碼。 例如:
 
 ```
 <ArrayOfstring xmlns:i="https://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -222,7 +229,7 @@ TranslateArray 方法會接受 `Content-Type` 的 `application/xml` 或 `text/xm
  
 ### <a name="parameters"></a>參數
 
-|參數|值|描述|參數類型|数据类型|
+|參數|Value|描述|參數類型|数据类型|
 |:--|:--|:--|:--|:--|
 |appid|(空白)|必要。 若使用 `Authorization` 或 `Ocp-Apim-Subscription-Key` 標頭，請將 appid 欄位空白，或是包括內含 `"Bearer" + " " + "access_token"` 的字串。|query|字串|
 |地區設定|(空白) |必要。 字串，代表與語言建立關聯的 ISO 639 兩個字母小寫文化特性代碼以及 ISO 3166 兩個字母大寫子文化特性代碼的組合，自行當地語系化語言名稱或 ISO 639 小寫文化特性代碼。|query|字串|
@@ -231,7 +238,7 @@ TranslateArray 方法會接受 `Content-Type` 的 `application/xml` 或 `text/xm
 
 ### <a name="response-messages"></a>回應訊息
 
-|HTTP 狀態碼|原因|
+|HTTP 狀態碼|`Reason`|
 |:--|:--|
 |400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
@@ -256,15 +263,15 @@ TranslateArray 方法會接受 `Content-Type` 的 `application/xml` 或 `text/xm
  
 ### <a name="parameters"></a>參數
 
-|參數|值|描述|參數類型|数据类型|
+|參數|Value|描述|參數類型|数据类型|
 |:--|:--|:--|:--|:--|
-|appid|(空白)|必要。 若使用 `Authorization` 或 `Ocp-Apim-Subscription-Key` 標頭，請將 appid 欄位空白，或是包括內含 `"Bearer" + " " + "access_token"` 的字串。|query|字串|
+|appid|(空白)|必要。 若使用 `Authorization` 或 `Ocp-Apim-Subscription-Key` 標頭，請將 appid 欄位空白，或是包括內含 `"Bearer" + " " + "access_token"` 的字串。|query|string|
 |授權|(空白)  |若未指定 `appid` 欄位或 `Ocp-Apim-Subscription-Key` 標頭，則為必要項目。 授權權杖：`"Bearer" + " " + "access_token"`。|頁首|字串|
 |Ocp-Apim-Subscription-Key|(空白)|若未指定 `appid` 欄位或 `Authorization` 標頭，則為必要項目。|頁首|字串|
 
 ### <a name="response-messages"></a>回應訊息
 
-|HTTP 狀態碼|原因|
+|HTTP 狀態碼|`Reason`|
 |:--|:--|
 |400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
@@ -289,15 +296,15 @@ TranslateArray 方法會接受 `Content-Type` 的 `application/xml` 或 `text/xm
 
 ### <a name="parameters"></a>參數
 
-|參數|值|描述|參數類型|数据类型|
+|參數|Value|描述|參數類型|数据类型|
 |:--|:--|:--|:--|:--|
 |appid|(空白)|必要。 若使用 `Authorization` 或 `Ocp-Apim-Subscription-Key` 標頭，請將 appid 欄位空白，或是包括內含 `"Bearer" + " " + "access_token"` 的字串。|query|字串|
 |授權|(空白)|若未指定 `appid` 欄位或 `Ocp-Apim-Subscription-Key` 標頭，則為必要項目。 授權權杖：`"Bearer" + " " + "access_token"`。|頁首|字串|
-|Ocp-Apim-Subscription-Key|(空白)|若未指定 `appid` 欄位或 `Authorization` 標頭，則為必要項目。|頁首|字串|
+|Ocp-Apim-Subscription-Key|(空白)|若未指定 `appid` 欄位或 `Authorization` 標頭，則為必要項目。|頁首|string|
  
 ### <a name="response-messages"></a>回應訊息
 
-|HTTP 狀態碼|原因|
+|HTTP 狀態碼|`Reason`|
 |:--|:--|
 |400|不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401|認證無效|
@@ -321,11 +328,11 @@ binary
 
 ### <a name="parameters"></a>參數
 
-|參數|值|描述|參數類型|数据类型|
+|參數|Value|描述|參數類型|数据类型|
 |:--|:--|:--|:--|:--|
-|appid|(空白)|必要。 若使用 `Authorization` 或 `Ocp-Apim-Subscription-Key` 標頭，請將 appid 欄位空白，或是包括內含 `"Bearer" + " " + "access_token"` 的字串。|query|字串|
-|text|(空白)   |必要。 字串，包含要針對 wave 串流說出之指定語言的一或多個句子。 要說出的文字大小不得超過 2000 個字元。|query|字串|
-|語言|(空白)   |必要。 字串，代表支援用來說出文字的語言代碼。 程式碼必須存在於從 `GetLanguagesForSpeak` 方法所傳回的程式碼清單。|query|字串|
+|appid|(空白)|必要。 若使用 `Authorization` 或 `Ocp-Apim-Subscription-Key` 標頭，請將 appid 欄位空白，或是包括內含 `"Bearer" + " " + "access_token"` 的字串。|query|string|
+|text|(空白)   |必要。 字串，包含要針對 wave 串流說出之指定語言的一或多個句子。 要說出的文字大小不得超過 2000 個字元。|query|string|
+|語言|(空白)   |必要。 字串，代表支援用來說出文字的語言代碼。 程式碼必須存在於從 `GetLanguagesForSpeak` 方法所傳回的程式碼清單。|query|string|
 |format|(空白)|選用。 字串，指定 Content-Type 識別碼。 目前可以使用 `audio/wav` 和 `audio/mp3`。 預設值為 `audio/wav`。|query|字串|
 |options|(空白)    |<ul><li>選用。 字串，指定合成語音的內容：<li>`MaxQuality` 和 `MinSize` 可用來指定音訊訊號品質。 使用 `MaxQuality`，您可以取得最高品質的語音，而使用 `MinSize`，您可以取得最小大小的語音。 預設為 `MinSize`。</li><li>`female` 和 `male` 可用來指定語音的所需性別。 預設值為 `female`。 使用分隔線 <code>\|</code> 包含多個選項。 例如：`MaxQuality|Male`。</li></li></ul> |query|字串|
 |授權|(空白)|若未指定 `appid` 欄位或 `Ocp-Apim-Subscription-Key` 標頭，則為必要項目。 授權權杖：`"Bearer" + " " + "access_token"`。|頁首|字串|
@@ -333,7 +340,7 @@ binary
 
 ### <a name="response-messages"></a>回應訊息
 
-|HTTP 狀態碼|原因|
+|HTTP 狀態碼|`Reason`|
 |:--|:--|
 |400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
@@ -357,16 +364,16 @@ binary
 
 ### <a name="parameters"></a>參數
 
-|參數|值|描述|參數類型|数据类型|
+|參數|Value|描述|參數類型|数据类型|
 |:--|:--|:--|:--|:--|
-|appid|(空白)  |必要。 若使用 `Authorization` 或 `Ocp-Apim-Subscription-Key` 標頭，請將 appid 欄位空白，或是包括內含 `"Bearer" + " " + "access_token"` 的字串。|query|字串|
-|text|(空白)|必要。 字串，包含要識別其語言的一些文字。 文字大小不得超過 10000 個字元。|query| 字串|
+|appid|(空白)  |必要。 若使用 `Authorization` 或 `Ocp-Apim-Subscription-Key` 標頭，請將 appid 欄位空白，或是包括內含 `"Bearer" + " " + "access_token"` 的字串。|query|string|
+|text|(空白)|必要。 字串，包含要識別其語言的一些文字。 文字大小不得超過 10000 個字元。|query| string|
 |授權|(空白)|若未指定 `appid` 欄位或 `Ocp-Apim-Subscription-Key` 標頭，則為必要項目。 授權權杖：`"Bearer" + " " + "access_token"`。|頁首|字串|
-|Ocp-Apim-Subscription-Key  |(空白)    |若未指定 `appid` 欄位或 `Authorization` 標頭，則為必要項目。|頁首|字串|
+|Ocp-Apim-Subscription-Key  |(空白)    |若未指定 `appid` 欄位或 `Authorization` 標頭，則為必要項目。|頁首|string|
 
 ### <a name="response-messages"></a>回應訊息
 
-|HTTP 狀態碼|原因|
+|HTTP 狀態碼|`Reason`|
 |:--|:--|
 |400|不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
@@ -412,15 +419,15 @@ DetectArray 成功。 傳回字串陣列，包含輸入陣列每個資料列的�
  
 ### <a name="parameters"></a>參數
 
-|參數|值|描述|參數類型|数据类型|
+|參數|Value|描述|參數類型|数据类型|
 |:--|:--|:--|:--|:--|
-|appid|(空白)|必要。 若使用 `Authorization` 或 `Ocp-Apim-Subscription-Key` 標頭，請將 appid 欄位空白，或是包括內含 `"Bearer" + " " + "access_token"` 的字串。|query|字串|
+|appid|(空白)|必要。 若使用 `Authorization` 或 `Ocp-Apim-Subscription-Key` 標頭，請將 appid 欄位空白，或是包括內含 `"Bearer" + " " + "access_token"` 的字串。|query|string|
 |授權|(空白)|若未指定 `appid` 欄位或 `Ocp-Apim-Subscription-Key` 標頭，則為必要項目。 授權權杖：`"Bearer" + " " + "access_token"`。|頁首|字串|
 |Ocp-Apim-Subscription-Key|(空白)|若未指定 `appid` 欄位或 Authorization 標頭，則為必要項目。|頁首|字串|
 
 ### <a name="response-messages"></a>回應訊息
 
-|HTTP 狀態碼|原因|
+|HTTP 狀態碼|`Reason`|
 |:--|:--|
 |400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
@@ -440,18 +447,18 @@ DetectArray 成功。 傳回字串陣列，包含輸入陣列每個資料列的�
 
 ### <a name="response-class-status-200"></a>回應類別 (狀態 200)
 
-字串
+string
 
 回應內容類型：application: xml
  
 ### <a name="parameters"></a>參數
 
-|參數|值|描述|參數類型|数据类型   |
+|參數|Value|描述|參數類型|数据类型   |
 |:--|:--|:--|:--|:--|
 |appid|(空白)|必要。 若使用 `Authorization` 或 `Ocp-Apim-Subscription-Key` 標頭，請將 appid 欄位空白，或是包括內含 `"Bearer" + " " + "access_token"` 的字串。|query|字串|
 |originalText|(空白)|必要。 字串，包含要翻譯的來源文字。 字串長度上限為 1000 個字元。|query|字串|
 |translatedText|(空白) |必要。 字串，包含目標語言的翻譯文字。 字串長度上限為 2000 個字元。|query|字串|
-|from|(空白)   |必要。 字串，代表翻譯文字的語言代碼。 en = english, de = german etc...|query|字串|
+|from|(空白)   |必要。 字串，代表翻譯文字的語言代碼。 en = english, de = german etc...|query|string|
 |to|(空白)|必要。 字串，代表目標翻譯文字的語言代碼。|query|字串|
 |rating|(空白) |選用。 整數，代表此字串的品質評分。 -10 與 10 之間的值。 預設值為 1。|query|integer|
 |contentType|(空白)    |選用。 要翻譯文字的格式。 支援的格式為 "text/plain" 和 "text/html"。 任何 HTML 都需要是格式正確的完整項目。   |query|字串|
@@ -463,7 +470,7 @@ DetectArray 成功。 傳回字串陣列，包含輸入陣列每個資料列的�
 
 ### <a name="response-messages"></a>回應訊息
 
-|HTTP 狀態碼|原因|
+|HTTP 狀態碼|`Reason`|
 |:--|:--|
 |400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
@@ -523,14 +530,14 @@ AddTranslationArray 方法成功。 在 2018 年 1 月 31 日之後，將不會�
  
 ### <a name="parameters"></a>參數
 
-|參數|值|描述|參數類型|数据类型|
+|參數|Value|描述|參數類型|数据类型|
 |:--|:--|:--|:--|:--|
 |授權|(空白)|若未指定 appid 欄位或 Ocp-Apim-Subscription-Key 標頭，則為必要項目。 授權權杖：「Bearer」+「 」+「access_token」。|頁首|字串|
-|Ocp-Apim-Subscription-Key|(空白)|若未指定 appid 欄位或 Authorization 標頭，則為必要項目。|頁首|字串|
+|Ocp-Apim-Subscription-Key|(空白)|若未指定 appid 欄位或 Authorization 標頭，則為必要項目。|頁首|string|
 
 ### <a name="response-messages"></a>回應訊息
 
-|HTTP 狀態碼|原因|
+|HTTP 狀態碼|`Reason`|
 |:--|:--|
 |400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
@@ -556,17 +563,17 @@ integer
 
 ### <a name="parameters"></a>參數
 
-|參數|值|描述|參數類型|数据类型|
+|參數|Value|描述|參數類型|数据类型|
 |:--|:--|:--|:--|:--|
 |appid|(空白)  |必要。 若使用 Authorization 或 Ocp-Apim-Subscription-Key 標頭，請將 appid 欄位空白，或是包括內含 "Bearer" + " " + "access_token" 的字串。|query| 字串|
-|text|(空白)   |必要。 字串，代表要分割為句子的文字。 文字大小不得超過 10000 個字元。|query|字串|
+|text|(空白)   |必要。 字串，代表要分割為句子的文字。 文字大小不得超過 10000 個字元。|query|string|
 |語言   |(空白)    |必要。 字串，代表輸入文字的語言代碼。|query|字串|
 |授權|(空白)|若未指定 appid 欄位或 Ocp-Apim-Subscription-Key 標頭，則為必要項目。 授權權杖：「Bearer」+「 」+「access_token」。    |頁首|字串|
-|Ocp-Apim-Subscription-Key|(空白)|若未指定 appid 欄位或 Authorization 標頭，則為必要項目。|頁首|字串|
+|Ocp-Apim-Subscription-Key|(空白)|若未指定 appid 欄位或 Authorization 標頭，則為必要項目。|頁首|string|
 
 ### <a name="response-messages"></a>回應訊息
 
-|HTTP 狀態碼|原因|
+|HTTP 狀態碼|`Reason`|
 |:--|:--|
 |400|不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401|認證無效|
@@ -650,10 +657,10 @@ MatchedOriginalText：此結果相符的原始文字。 只有在相符的原始
  
 ### <a name="parameters"></a>參數
 
-|參數|值|描述|參數類型|数据类型|
+|參數|Value|描述|參數類型|数据类型|
 |:--|:--|:--|:--|:--|
 |appid|(空白)|必要。 若使用 `Authorization` 或 `Ocp-Apim-Subscription-Key` 標頭，請將 appid 欄位空白，或是包括內含 `"Bearer" + " " + "access_token"` 的字串。|query|字串|
-|text|(空白)|必要。 字串，代表要翻譯的文字。 文字大小不得超過 10000 個字元。|query|字串|
+|text|(空白)|必要。 字串，代表要翻譯的文字。 文字大小不得超過 10000 個字元。|query|string|
 |from|(空白)|必要。 字串，代表翻譯文字的語言代碼。|query|字串|
 |to |(空白)    |必要。 字串，代表目標翻譯文字的語言代碼。|query|字串|
 |maxTranslations|(空白)|必要。 整數，代表要傳回的最大翻譯數目。|query|integer|
@@ -662,7 +669,7 @@ MatchedOriginalText：此結果相符的原始文字。 只有在相符的原始
 
 ### <a name="response-messages"></a>回應訊息
 
-|HTTP 狀態碼|原因|
+|HTTP 狀態碼|`Reason`|
 |:--|:--|
 |400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
@@ -770,14 +777,14 @@ MatchedOriginalText：此結果相符的原始文字。 只有在相符的原始
  
 ### <a name="parameters"></a>參數
 
-|參數|值|描述|參數類型|数据类型|
+|參數|Value|描述|參數類型|数据类型|
 |:--|:--|:--|:--|:--|
-|授權  |(空白)    |若未指定 `appid` 欄位或 `Ocp-Apim-Subscription-Key` 標頭，則為必要項目。 授權權杖：`"Bearer" + " " + "access_token"`。|頁首|字串|
+|授權  |(空白)    |若未指定 `appid` 欄位或 `Ocp-Apim-Subscription-Key` 標頭，則為必要項目。 授權權杖：`"Bearer" + " " + "access_token"`。|頁首|string|
 |Ocp-Apim-Subscription-Key|(空白)  |若未指定 `appid` 欄位或 `Authorization` 標頭，則為必要項目。|頁首|字串|
 
 ### <a name="response-messages"></a>回應訊息
 
-|HTTP 狀態碼|原因|
+|HTTP 狀態碼|`Reason`|
 |:--|:--|
 |400    |不正確的要求。 檢查輸入參數和詳細錯誤回應。|
 |401    |認證無效|
