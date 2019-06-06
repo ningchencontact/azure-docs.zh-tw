@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: bking
-ms.openlocfilehash: 7c074d5d25453e2b2a1ddfc32422790235815f1c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 6afaa2f497fa1a23d083c3ddd76359a49105732d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872512"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384846"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>使用 C# 建置主控台應用程式搜尋用戶端
 
@@ -38,26 +38,26 @@ ms.locfileid: "55872512"
 
 在 Visual Studio 中，使用 `Ctrl`+`Shift`+`N` 建立專案。
 
-在 [新增專案] 對話方塊中，按一下 [Visual C#] > [Windows 傳統桌面] > [主控台應用程式 (.NET Framework)]。
+在 [新增專案]  對話方塊中，按一下 [Visual C#] > [Windows 傳統桌面] > [主控台應用程式 (.NET Framework)]  。
 
-將應用程式命名為 **MyConsoleSearchApp**，然後按一下 [確定]。
+將應用程式命名為 **MyConsoleSearchApp**，然後按一下 [確定]  。
 
 ## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>將 JSON.net Nuget 套件新增到專案
 
 JSON.net 讓您能夠使用 API 所傳回的 JSON 回應。 將它的 NuGet 套件新增到您的專案：
 
-- 在 [方案總管] 中，以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]。
-- 在 [瀏覽] 索引標籤上，搜尋 `Newtonsoft.Json`。 選取最新版本，然後按一下 [安裝]。
-- 按一下 [檢閱變更] 視窗上的 [確定] 按鈕。
+- 在 [方案總管]  中，以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]  。
+- 在 [瀏覽]  索引標籤上，搜尋 `Newtonsoft.Json`。 選取最新版本，然後按一下 [安裝]  。
+- 按一下 [檢閱變更]  視窗上的 [確定]  按鈕。
 - 關閉標題為 **NuGet:MyConsoleSearchApp** 的 Visual Studio 索引標籤。
 
 ## <a name="add-a-reference-to-systemweb"></a>新增對 System.Web 的參考
 
 本教學課程依賴 `System.Web` 組件。 將對這個組件的參考新增到您的專案：
 
-- 在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後選取 [新增參考]
-- 選取 [組件] > [架構]，然後向下捲動並勾選 [System.Web]
-- 選取 [確定]
+- 在 [方案總管]  中，以滑鼠右鍵按一下 [參考]  ，然後選取 [新增參考] 
+- 選取 [組件] > [架構]  ，然後向下捲動並勾選 [System.Web] 
+- 選取 [確定] 
 
 ## <a name="add-some-necessary-using-statements"></a>新增一些必要的 using 陳述式
 
@@ -70,7 +70,7 @@ using System.Net.Http;
 
 ## <a name="ask-the-user-for-a-query"></a>要求使用者查詢
 
-在 [方案總管] 中開啟 **Program.cs**。 更新 `Main()` 方法：
+在 [方案總管]  中開啟 **Program.cs**。 更新 `Main()` 方法：
 
 ```csharp
 static void Main()
@@ -221,11 +221,11 @@ static void RunQueryAndDisplayResults(string userQuery)
 }
 ```
 
-`rankingResponse` JSON 物件 ([文件](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) 會說明搜尋結果的適當顯示順序。 它會包含下列一或多個已設定優先順序的群組：
+`rankingResponse` JSON 物件 ([文件](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) 會說明搜尋結果的適當顯示順序。 它會包含下列一或多個已設定優先順序的群組：
 
-- `pole`：獲得最明顯處理的搜尋結果 (例如，顯示在主線和資訊看板上方)。
-- `mainline`：要顯示在主線中的搜尋結果。
-- `sidebar`：要顯示在資訊看板中的搜尋結果。 如果沒有資訊看板，則會在主線下方顯示結果。
+- `pole`:獲得最明顯處理的搜尋結果 (例如，顯示在主線和資訊看板上方)。
+- `mainline`:要顯示在主線中的搜尋結果。
+- `sidebar`:要顯示在資訊看板中的搜尋結果。 如果沒有資訊看板，則會在主線下方顯示結果。
 
 已設定順位的回應 JSON 可能包括一或多個群組。
 
