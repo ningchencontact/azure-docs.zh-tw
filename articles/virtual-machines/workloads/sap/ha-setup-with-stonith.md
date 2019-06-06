@@ -24,7 +24,7 @@ ms.locfileid: "62123564"
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>使用 STONITH 在 SUSE 中進行高可用性設定
 本文件提供使用 STONITH 裝置在 SUSE 作業系統上進行高可用性設定的詳細逐步指示。
 
-**免責聲明：***本指南係在 Microsoft HANA 大型執行個體環境中測試設定 (可成功運作) 後所衍生。由於 HANA 大型執行個體的 Microsoft 服務管理小組不支援作業系統，您可能需要連絡 SUSE 以針對作業系統層進行進一步疑難排解或釐清。Microsoft 服務管理小組會設定 STONITH 裝置並傾力支援，而且會參與對於 STONITH 裝置問題的疑難排解。*
+**免責聲明：** *本指南係在 Microsoft HANA 大型執行個體環境中測試設定 (可成功運作) 後所衍生。由於 HANA 大型執行個體的 Microsoft 服務管理小組不支援作業系統，您可能需要連絡 SUSE 以針對作業系統層進行進一步疑難排解或釐清。Microsoft 服務管理小組會設定 STONITH 裝置並傾力支援，而且會參與對於 STONITH 裝置問題的疑難排解。*
 ## <a name="overview"></a>概觀
 若要使用 SUSE 叢集進行高可用性設定，必須符合下列先決條件。
 ### <a name="pre-requisites"></a>先決條件
@@ -140,13 +140,13 @@ zypper in SAPHanaSR SAPHanaSR-doc
 依序選取 [yast2] > [High Availability] > [Cluster] \([yast2] > [ 高可用性] > [叢集]\) ![yast-control-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 ![yast-hawk-install.png](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
 
-因為已經安裝 halk2 套件，請按一下 [取消]。
+因為已經安裝 halk2 套件，請按一下 [取消]  。
 
 ![yast-hawk-continue.png](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
 
-按一下 [繼續]
+按一下 [繼續] 
 
-預期值=已部署的節點數 (在此案例中為 2) ![yast-Cluster-Security.png](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) 按一下 [下一步]
+預期值=已部署的節點數 (在此案例中為 2) ![yast-Cluster-Security.png](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) 按一下 [下一步]  
 ![yast-cluster-configure-csync2.png](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) 新增節點名稱，然後按一下 [Add suggested files] \(新增建議的檔案\)
 
 按一下 [Turn csync2 ON] \(開啟 csync2\)
@@ -161,16 +161,16 @@ zypper in SAPHanaSR SAPHanaSR-doc
 
 ![yast-cluster-conntrackd.png](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
 
-按一下 [下一步]
+按一下 [下一步]  
 ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
 在預設選項中，[Booting] \(開機\) 處於關閉狀態，請將它變更為 [on] \(開啟\)，以在開機時啟動 Pacemaker。 您可以根據自己的設定需求來選擇。
-按一下 [下一步]，叢集設定就完成了。
+按一下 [下一步]  ，叢集設定就完成了。
 
 ## <a name="4---setting-up-the-softdog-watchdog"></a>4. 設定 Softdog 監視程式
 本節說明監視程式 (softdog) 的設定。
 
-4.1 在這**兩個**節點上將下行加入至 /etc/init.d/boot.local。
+4.1 在這**兩個**節點上將下行加入至 /etc/init.d/boot.local  。
 ```
 modprobe softdog
 ```
@@ -436,15 +436,15 @@ zypper -n install libyui-qt
 ![yast-pattern1.png](media/HowToHLI/HASetupWithStonith/yast-pattern1.png)
 ![yast-pattern2.png](media/HowToHLI/HASetupWithStonith/yast-pattern2.png)
 
-按一下 [接受]
+按一下 [接受] 
 
 ![yast-changed-packages.png](media/HowToHLI/HASetupWithStonith/yast-changed-packages.png)
 
-按一下 [繼續]
+按一下 [繼續] 
 
 ![yast2-performing-installation.png](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
 
-安裝完成時，按 [下一步]
+安裝完成時，按 [下一步] 
 
 ![yast2-installation-report.png](media/HowToHLI/HASetupWithStonith/yast2-installation-report.png)
 

@@ -30,7 +30,7 @@ ms.locfileid: "64681939"
 * 啟用叢集的遠端存取、登入，然後開啟 Hadoop 命令列主控台。 如需指示，請參閱[管理 Apache Hadoop 叢集](../../hdinsight/hdinsight-administer-use-portal-linux.md)。
 
 ## <a name="upload-data-to-azure-blob-storage"></a>將資料上傳至 Azure Blob 儲存體
-如果您遵循[設定適用於進階分析的 Azure 虛擬機器](../../machine-learning/data-science-virtual-machine/overview.md)中所提供的指示建立了 Azure 虛擬機器，應該已將這個指令碼檔案下載至虛擬機器上的 C:\\Users\\\<使用者名稱\>\\Documents\\Data Science Scripts 目錄中。 這些 Hive 查詢只要求您插入自己的資料結構描述，以及已準備好進行提交之適當欄位中的 Azure Blob 儲存體設定。
+如果您遵循[設定適用於進階分析的 Azure 虛擬機器](../../machine-learning/data-science-virtual-machine/overview.md)中所提供的指示建立了 Azure 虛擬機器，應該已將這個指令碼檔案下載至虛擬機器上的 C:\\Users\\\<使用者名稱\>\\Documents\\Data Science Scripts  目錄中。 這些 Hive 查詢只要求您插入自己的資料結構描述，以及已準備好進行提交之適當欄位中的 Azure Blob 儲存體設定。
 
 我們假設 Hive 資料表的資料為 **未壓縮的** 表格格式，而且資料已上傳至 Hadoop 叢集所使用之儲存體帳戶的預設 (或其他) 容器。
 
@@ -137,19 +137,19 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
 
 以下是您需要插入的欄位和其他設定的說明：
 
-* **\<資料庫名稱\>**：您要建立之資料庫的名稱。 如果您只想要使用預設資料庫，則可省略「create database...」  查詢。
-* **\<資料表名稱\>**：您想要在指定資料庫內建立之資料表的名稱。 如果您想要使用預設資料庫，可透過*\<資料表名稱\>* 直接參考資料表，而不需要使用\<資料庫名稱\>。
-* **\<欄位分隔符號\>**：上傳至 Hive 資料表的資料檔中分隔欄位的分隔符號。
-* **\<資料行分隔符號\>**：用來分隔資料檔中各行的分隔符號。
-* **\<儲存體位置\>**：用來儲存 Hive 資料表資料的 Azure 儲存體位置。 如果您未指定 *LOCATION\< 儲存體位置\>*，資料庫和資料表預設會儲存在 Hive 叢集之預設容器的 *hive/warehouse/* 目錄中。 如果您想要指定儲存體位置，儲存體位置必須位於資料庫和資料表的預設容器內。 這個位置必須是叢集之預設容器的相對位置，其格式為 'wasb:///<directory 1>/' 或 'wasb:///<directory 1>/<directory 2>/' 等。執行查詢之後，系統會在預設容器內建立相對目錄。
-* **TBLPROPERTIES("skip.header.line.count"="1")**：如果資料檔案有標頭行，您就必須在*建立資料表*查詢的**結尾**處新增這個屬性。 否則，載入的標頭行會做為資料表的記錄。 如果資料檔不含標頭行，則可在查詢中省略此設定。
+* **\<資料庫名稱\>** ：您要建立之資料庫的名稱。 如果您只想要使用預設資料庫，則可省略「create database...」  查詢。
+* **\<資料表名稱\>** ：您想要在指定資料庫內建立之資料表的名稱。 如果您想要使用預設資料庫，可透過 *\<資料表名稱\>* 直接參考資料表，而不需要使用\<資料庫名稱\>。
+* **\<欄位分隔符號\>** ：上傳至 Hive 資料表的資料檔中分隔欄位的分隔符號。
+* **\<資料行分隔符號\>** ：用來分隔資料檔中各行的分隔符號。
+* **\<儲存體位置\>** ：用來儲存 Hive 資料表資料的 Azure 儲存體位置。 如果您未指定 *LOCATION\< 儲存體位置\>* ，資料庫和資料表預設會儲存在 Hive 叢集之預設容器的 *hive/warehouse/* 目錄中。 如果您想要指定儲存體位置，儲存體位置必須位於資料庫和資料表的預設容器內。 這個位置必須是叢集之預設容器的相對位置，其格式為 'wasb:///<directory 1>/'  或 'wasb:///<directory 1>/<directory 2>/'  等。執行查詢之後，系統會在預設容器內建立相對目錄。
+* **TBLPROPERTIES("skip.header.line.count"="1")** ：如果資料檔案有標頭行，您就必須在*建立資料表*查詢的**結尾**處新增這個屬性。 否則，載入的標頭行會做為資料表的記錄。 如果資料檔不含標頭行，則可在查詢中省略此設定。
 
 ## <a name="load-data"></a>將資料載入至 Hive 資料表
 以下是將資料載入 Hive 資料表的 Hive 查詢。
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<Blob 資料路徑\>**：如果是在 HDInsight Hadoop 叢集的預設容器中的 blob 檔案上傳至 Hive 資料表 *\<blob 資料路徑\>* 的格式應該是 *' wasb: / /\<在此容器中的目錄 > /\<blob 檔案名稱 >'*。 Blob 檔案也可以位於 HDInsight Hadoop 叢集的其他容器中。 在此情況下，  *\<blob 資料路徑\>* 的格式應該是 *' wasb: / /\<容器名稱 >\<儲存體帳戶名稱 >.blob.core.windows.net/\<blob 檔案名稱 >'*。
+* **\<Blob 資料路徑\>** ：如果是在 HDInsight Hadoop 叢集的預設容器中的 blob 檔案上傳至 Hive 資料表 *\<blob 資料路徑\>* 的格式應該是 *' wasb: / /\<在此容器中的目錄 > /\<blob 檔案名稱 >'* 。 Blob 檔案也可以位於 HDInsight Hadoop 叢集的其他容器中。 在此情況下，  *\<blob 資料路徑\>* 的格式應該是 *' wasb: / /\<容器名稱 >\<儲存體帳戶名稱 >.blob.core.windows.net/\<blob 檔案名稱 >'* 。
 
   > [!NOTE]
   > 上傳至 Hive 資料表的 Blob 資料必須位於 Hadoop 叢集儲存體帳戶的預設或其他容器中。 否則，「LOAD DATA」  查詢會失敗並提報它無法存取資料。
@@ -225,7 +225,7 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-將所有資料插入*\<資料庫名稱\>.\<ORC 資料表名稱\>* 之後，當您使用下列查詢時，即可安全捨棄*\<外部文字檔資料表名稱\>*：
+將所有資料插入 *\<資料庫名稱\>.\<ORC 資料表名稱\>* 之後，當您使用下列查詢時，即可安全捨棄 *\<外部文字檔資料表名稱\>* ：
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 

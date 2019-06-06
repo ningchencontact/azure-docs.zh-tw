@@ -24,7 +24,7 @@ ms.locfileid: "60469697"
 
 ## <a name="troubleshooting-group-creation-issues"></a>群組建立問題進行疑難排解
 
-**我已停用安全性的群組建立在 Azure 入口網站中，但仍然可以透過 Powershell 建立群組****使用者可以在 Azure 入口網站中建立安全性群組**設定在 Azure 入口網站的控制項，zda bude 非系統管理員使用者可以在 「 存取面板或 Azure 入口網站中建立安全性群組。 它不會控制透過 Powershell 建立安全性的群組。
+**我已停用安全性的群組建立在 Azure 入口網站中，但仍然可以透過 Powershell 建立群組** **使用者可以在 Azure 入口網站中建立安全性群組** 設定在 Azure 入口網站的控制項，zda bude 非系統管理員使用者可以在 「 存取面板或 Azure 入口網站中建立安全性群組。 它不會控制透過 Powershell 建立安全性的群組。
 
 若要停用的非系統管理員身分在 Powershell 中的使用者群組建立：
 1. 請確認允許非管理使用者建立群組：
