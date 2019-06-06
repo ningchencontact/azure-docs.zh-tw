@@ -157,8 +157,8 @@ Azure Container Registry 會發出下列事件類型：
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| 主題 | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| 主旨 | string | 發行者定義事件主體的路徑。 |
+| topic | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
+| subject | string | 發行者定義事件主體的路徑。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | id | string | 事件的唯一識別碼。 |
@@ -173,8 +173,8 @@ Azure Container Registry 會發出下列事件類型：
 | id | string | 事件識別碼。 |
 | timestamp | string | 事件發生的時間。 |
 | action | string | 包含所提供事件的動作。 |
-| 目標 | 物件 | 事件的目標。 |
-| 要求 | 物件 | 產生事件的要求。 |
+| target | 物件 | 事件的目標。 |
+| request | 物件 | 產生事件的要求。 |
 
 target 物件具有下列屬性：
 
@@ -197,7 +197,7 @@ request 物件具有下列屬性：
 | addr | string | 用戶端連線 (用於起始事件) 的 IP 或主機名稱，也可能是連接埠。 在標準 http 要求中，此值是 RemoteAddr。 |
 | host | string | 登錄執行個體的外部可存取主機名稱，如內送要求上的 http 主機標頭所指定。 |
 | method | string | 產生事件的要求方法。 |
-| userAgent | string | 要求的使用者代理程式標頭。 |
+| useragent | string | 要求的使用者代理程式標頭。 |
 
 ## <a name="next-steps"></a>後續步驟
 
