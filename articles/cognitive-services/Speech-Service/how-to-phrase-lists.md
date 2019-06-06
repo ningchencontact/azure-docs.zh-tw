@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 5/02/2019
 ms.author: rhurey
-ms.openlocfilehash: 576d3c4a70c8870a31bc352b9f7723d2c2e69854
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a3be5d28ebe394771a2d8b492f1f6a9c8a82fb9e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026710"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515313"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>語音轉換文字的片語清單
 
@@ -65,7 +65,7 @@ phraseListGrammar.addPhrase("Move to Ted");
 ```
 
 >[!Note]
-> 語音服務會使用來比對語音片語清單的最大數目為 1024年。
+> 語音服務會使用來比對語音片語清單的最大數目是 1024年片語。
 
 您也可以清除相關聯的片語`PhraseListGrammar`藉由呼叫 clear （）。
 
