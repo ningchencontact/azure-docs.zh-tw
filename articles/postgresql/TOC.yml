@@ -90,6 +90,8 @@
               href: concepts-data-access-and-security-threat-protection.md
             - name: 虛擬網路
               href: concepts-data-access-and-security-vnet.md
+            - name: 連線架構
+              href: concepts-connectivity-architecture.md
         - name: 業務持續性
           items:
             - name: 概觀

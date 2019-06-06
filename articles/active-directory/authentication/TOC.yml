@@ -142,10 +142,6 @@
               href: active-directory-certificate-based-authentication-android.md
             - name: iOS 裝置上的 CBA
               href: active-directory-certificate-based-authentication-ios.md
-    - name: 開發
-      items:
-        - name: 將 MFA 建置到自訂應用程式中
-          href: howto-mfa-sdk.md
     - name: 報告
       items:
         - name: SSPR 報告
