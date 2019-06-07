@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/27/2019
+ms.date: 6/03/2019
 ms.author: monhaber
-ms.openlocfilehash: 807bde76bb6bb50490ee599768273a59c49d5e45
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: c5b5b88ee1334ac6d7b39b8ad53bd020e6042454
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258696"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480530"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure 資訊安全中心所支援的平台和功能
 
@@ -78,7 +78,7 @@ ms.locfileid: "66258696"
 > [!div class="mx-tableFixed"]
 > 
 
-|伺服器| Windows|| Linux||||價格|
+|伺服器|Windows||Linux||||價格|
 |----|----|----|----|----|----|----|----|
 |**環境**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
 ||**虛擬機器**|**虛擬機器擴展集**||**虛擬機器**|**虛擬機器擴展集**|
@@ -93,7 +93,7 @@ ms.locfileid: "66258696"
 |FIM|✔|✔|✔|✔|✔|✔|標準|
 |磁碟加密評估|✔|✔|X|✔|✔|X|免費|
 |第三方部署|✔|X|X|✔|X|X|免費|
-|Nsg 評量|✔|✔|X|✔|✔|X|免費|
+|NSG 評量|✔|✔|X|✔|✔|X|免費|
 |無檔案型威脅偵測|✔|✔|✔|X|X|X|標準|
 |網路地圖|✔|✔|X|✔|✔|X|標準|
 |自適性網路控制措施|✔|✔|X|✔|✔|X|標準|
@@ -129,7 +129,7 @@ ms.locfileid: "66258696"
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|Azure Blob 儲存體帳戶*|✔| ✔|
+|Azure Blob 儲存體帳戶|✔| ✔|
 |應用程式服務|✔| ✔|
 |雲端服務|✔| X|
 |VNets|✔| NA|
@@ -137,7 +137,6 @@ ms.locfileid: "66258696"
 |NIC|✔| NA|
 |NSG|✔| NA|
 |訂用帳戶|✔ **| ✔|
-|App Service|✔| NA|
 |Batch|✔| NA|
 |Service Fabric|✔| NA|
 |自動化帳戶|✔| NA|
@@ -147,14 +146,9 @@ ms.locfileid: "66258696"
 |串流分析|✔| NA|
 |事件中樞|✔| NA|
 |邏輯應用程式|✔| NA|
-|子網路|✔| NA|
-|Vnet|✔| NA|
 |儲存體帳戶|✔| NA|
 |Redis|✔| NA|
-|SQL|✔| NA|
 |Data Lake 分析|✔| NA|
-|儲存體帳戶|✔| NA|
-|訂用帳戶|✔| NA|
 |金鑰保存庫|✔| NA|
 
 

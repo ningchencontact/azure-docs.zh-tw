@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 885c5266e80114b54007d05d2220fbf5ea5ab84e
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 4df40febefa872fa52afdfaaf31b94dba7000af5
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66397644"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729491"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -79,9 +79,6 @@ ms.locfileid: "66397644"
 |SUSE Linux Enterprise Server 11 (x86/x64) 和 12 (x64)     | Linux 代理程式必須能夠存取更新存放庫。        |
 |Ubuntu 14.04 LTS、16.04 LTS 和 18.04 (x86/x64)      |Linux 代理程式必須能夠存取更新存放庫。         |
 
-> [!NOTE]
-> Azure 虛擬機器擴展集可以使用更新管理來管理。 更新管理適用於執行個體本身並不是的基底映像。 您必須以累加的方式，並不會更新所有 VM 執行個體一次排程更新。
-
 ### <a name="unsupported-client-types"></a>不支援的用戶端類型
 
 下表列出不支援的作業系統：
@@ -93,11 +90,11 @@ ms.locfileid: "66397644"
 
 ### <a name="client-requirements"></a>用戶端需求
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 Windows 代理程式必須設定為可與 WSUS 伺服器通訊，或必須能夠存取 Microsoft Update。 您可以搭配 System Center Configuration Manager 使用「更新管理」。 若要深入了解整合案例，請參閱[整合 System Center Configuration Manager 與更新管理](oms-solution-updatemgmt-sccmintegration.md#configuration)。 需要 [Windows 代理程式](../azure-monitor/platform/agent-windows.md)。 此代理程式會在您讓 Azure 虛擬機器上線時自動安裝。
 
-#### <a name="linux"></a> Linux
+#### <a name="linux"></a>Linux
 
 針對 Linux，機器必須能夠存取更新存放庫。 更新存放庫可以是私人或公用。 必須使用 TLS 1.1 或 TLS 1.2，才能與更新管理互動。 此解決方案不支援已設定為向多個 Log Analytics 工作區回報的「適用於 Linux 的 Log Analytics 代理程式」。
 
@@ -148,14 +145,14 @@ Windows 代理程式必須設定為可與 WSUS 伺服器通訊，或必須能夠
 
 若要確認直接連線的機器會在幾分鐘的時間之後, 通訊與 Azure 監視器記錄檔，您可以執行其中一個下列的記錄搜尋。
 
-#### <a name="linux"></a> Linux
+#### <a name="linux"></a>Linux
 
 ```loganalytics
 Heartbeat
 | where OSType == "Linux" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```loganalytics
 Heartbeat
@@ -195,7 +192,7 @@ Heartbeat
 
 針對每部受控 Windows 電腦，每天會掃描兩次。 系統會每隔 15 分鐘呼叫一次 Windows API 來查詢上次更新時間，以判斷狀態是否已變更。 如果狀態已變更，則會起始合規性掃描。
 
-針對每部受控 Linux 電腦，每 3 小時會掃描一次。
+會掃描每隔一小時的每個受管理的 Linux 電腦。
 
 儀表板可能需要 30 分鐘到 6 小時，才能顯示來自受控電腦的已更新資料。
 
@@ -272,7 +269,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 下表列出「更新管理」中的更新分類清單，以及每個分類的定義。
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 |分類  |描述  |
 |---------|---------|
@@ -285,7 +282,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 |工具     | 有助於完成一或多個工作的公用程式或功能。        |
 |更新     | 目前安裝之應用程式或檔案的更新。        |
 
-### <a name="linux"></a> Linux
+### <a name="linux"></a>Linux
 
 |分類  |描述  |
 |---------|---------|
@@ -492,7 +489,7 @@ Update
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Approved) by Computer, SourceComputerId, UpdateID
 | where UpdateState=~"Needed" and Approved!=false
 | summarize by UpdateID, Classification )
-| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security"
+| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security")
 ```
 
 ##### <a name="computers-list"></a>電腦清單
@@ -584,7 +581,7 @@ Update
 * 訂用帳戶
 * 資源群組
 * 位置
-* Tags
+* 標記
 
 ![選取群組](./media/automation-update-management/select-groups.png)
 

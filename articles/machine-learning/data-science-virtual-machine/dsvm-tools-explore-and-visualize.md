@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 165df03ec06081fe9b2e1ab84ffe7579ac457758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 693be80e493a0ba259d147f432dc9d6c07ba876d
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502225"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427526"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>資料科學虛擬機器上的資料探索和視覺效果工具
 
-資料科學的關鍵步驟是了解資料。 視覺效果和資料探索工具有助於加速資料了解。 以下是 DSVM 提供且有利於進行此關鍵步驟的一些工具。 
+資料科學的關鍵步驟是了解資料。 視覺效果和資料探索工具有助於加速資料了解。 以下是 DSVM 提供的簡化此重要步驟的一些工具。 
 
 ## <a name="apache-drill"></a>Apache 深入探詢
 |    |           |
@@ -42,7 +42,7 @@ ms.locfileid: "60502225"
 | 這是什麼？   |  Weka 是資料採礦工作的機器學習演算法集合。 該演算法可以直接套用於資料集，也可從您自己的 Java 程式碼呼叫。 Weka 包含資料前置處理、分類、迴歸、群集、關聯規則和視覺效果的工具。 |
 | 支援的 DSVM 版本     | Windows、Linux     |
 | 典型的使用案例      | 一般 ML 工具     |
-| 如何使用/執行它？      | 在 Windows 上，在 [開始] 功能表中搜尋 Weka。 在 Linux 上，登入 X2Go，然後巡覽至 [應用程式] -> [開發] -> [Weka]。 |
+| 如何使用/執行它？      | 在 Windows 上，在 [開始] 功能表中搜尋 Weka。 在 Linux 上，登入 X2Go，然後瀏覽至應用程式]-> [開發]-> [Weka。 |
 | 範例的連結      | [Weka 範例](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) \(英文\) |
 | DSVM 上的相關工具      |LightGBM、Rattle、Xgboost   |
 
@@ -56,12 +56,12 @@ ms.locfileid: "60502225"
 | 範例的連結      | [Rattle](https://togaware.com/onepager/) \(英文\) |
 | DSVM 上的相關工具      |LightGBM、Weka、Xgboost   |
 
-## <a name="powerbi-desktop"></a>PowerBI Desktop 
+## <a name="power-bi-desktop"></a>Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 互動式資料視覺效果和 BI 工具    |
-| 支援的 DSVM 版本      |  Windows  |
+| 支援的 DSVM 版本      | Windows  |
 | 典型的使用案例      |  資料視覺效果和建立儀表板   |
 | 如何使用/執行它？      | 桌面捷徑 (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| DSVM 上的相關工具      |   Visual Studio 2017、Visual Studio Code、Juno      |
+| DSVM 上的相關工具      |   Visual Studio 2019, Visual Studio Code, Juno      |
 
