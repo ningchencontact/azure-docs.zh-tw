@@ -2,20 +2,20 @@
 title: 當地語系化字串識別碼 - Azure Active Directory B2C | Microsoft Docs
 description: 在 Azure Active Directory B2C 的自訂原則中，使用 api.signuporsignin 的識別碼來指定適用於內容定義的識別碼。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c6cabcc89e66e9fbf153f2931bfe8b9b70c5f426
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41a72013f1538b0a857c76bc949a7109e1cd54b4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682713"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510931"
 ---
 # <a name="localization-string-ids"></a>當地語系化字串識別碼
 
@@ -33,7 +33,7 @@ ms.locfileid: "64682713"
 | **logonIdentifier_email** | 電子郵件地址 |
 | **requiredField_email** | 請輸入您的電子郵件 |
 | **invalid_email** | 請輸入有效的電子郵件地址 |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
+| **email_pattern** | ^ [a-A-za-a-za-z0-9。 ！#$%（& s) ' *+ =？ ^ _\`{\|} ~-]+@[a-zA-Z0-9-]+ (？:\\。 [-zA-a-za-z0 9-] +)* $ |
 | **local_intro_username** | 使用您的使用者名稱登入 |
 | **logonIdentifier_username** | 使用者名稱 |
 | **requiredField_username** | 請輸入您的使用者名稱 |

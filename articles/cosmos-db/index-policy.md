@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: thweiss
-ms.openlocfilehash: c45beb3ed6f87e95d171e2299c533b4be2827f27
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 4206fba8297672a1a24415169cfd19ff89344038
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954045"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431176"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB 中編製索引原則
 
@@ -94,7 +94,7 @@ Azure Cosmos DB 支援兩個編製索引模式：
 
 | **複合索引**     | **範例`ORDER BY`查詢**      | **索引的支援？** |
 | ----------------------- | -------------------------------- | -------------- |
-| ```(a asc, b asc)```         | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
+| ```(a asc, b asc)```         | ```ORDER BY  a asc, b asc```        | ```Yes```            |
 | ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
 | ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
 | ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
@@ -114,7 +114,7 @@ Azure Cosmos DB 支援兩個編製索引模式：
 
 ## <a name="indexing-policies-and-ttl"></a>索引編製原則與 TTL
 
-[-存留時間 (TTL) 功能](time-to-live.md)需要編製索引設為 [開啟] 容器中的 作用。 這表示：
+[-存留時間 (TTL) 功能](time-to-live.md)需要編製索引設為 [開啟] 容器中的 [作用。 這表示：
 
 - 不可能啟用編製索引模式設為 無的其中一個容器上的 TTL
 - 您不可能的索引編製模式設定為 無在容器上啟用 TTL 的位置。
