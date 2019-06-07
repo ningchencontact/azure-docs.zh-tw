@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 7c770aced36e4c90f654de8d31c12d55ad80c8d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e932048b41e9af149f14a814a1c92d86bd26f29
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60779967"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479879"
 ---
-# <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>使用 Power BI 可视化 Azure IoT 中心的实时传感器数据
+# <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>使用 Power BI 將 Azure IoT 中樞的即時感應器資料視覺化
 
 ![端對端圖表](./media/iot-hub-live-data-visualization-in-power-bi/1_end-to-end-diagram.png)
 
@@ -25,7 +25,7 @@ ms.locfileid: "60779967"
 
 ## <a name="what-you-learn"></a>您學到什麼
 
-您可了解如何藉由使用 Power BI 將 Azure IoT 中樞收到的即時感應器資料視覺化。 如果您想嘗試使用 Web Apps 將 IoT 中樞的資料視覺化，請參閱[使用 Azure Web Apps 將 Azure IoT 中樞的即時感應器資料視覺化](iot-hub-live-data-visualization-in-web-apps.md)。
+您可了解如何藉由使用 Power BI 將 Azure IoT 中樞收到的即時感應器資料視覺化。 如果您想要嘗試 toe 視覺化您的 IoT 中樞與 web 應用程式中的資料，請參閱[使用 web 應用程式的 Azure IoT 中樞的即時感應器資料視覺化](iot-hub-live-data-visualization-in-web-apps.md)。
 
 ## <a name="what-you-do"></a>您要做什麼
 
@@ -40,7 +40,7 @@ ms.locfileid: "60779967"
 * 完成[Raspberry Pi 線上模擬器](iot-hub-raspberry-pi-web-simulator-get-started.md)教學課程中，或其中一個裝置教學課程中，例如[搭配 node.js 的 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)。 這些會涵蓋下列需求：
   
   * 有效的 Azure 訂用帳戶。
-  * 已在订阅中创建一个 Azure IoT 中心。
+  * 位於您訂用帳戶中的 Azure IoT 中樞。
   * 將訊息傳送到您 Azure IoT 中樞的用戶端應用程式。
 
 * Power BI 帳戶。 ([免費試用 Power BI](https://powerbi.microsoft.com/))
@@ -53,7 +53,7 @@ ms.locfileid: "60779967"
 
 ### <a name="create-a-stream-analytics-job"></a>建立串流分析作業
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [建立資源] > [物聯網] > [串流分析作業]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [建立資源]   > [物聯網]   > [串流分析作業]  。
 
 2. 輸入作業的以下資訊。
 
@@ -67,33 +67,33 @@ ms.locfileid: "60779967"
 
    ![在 Azure 中建立串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/2_create-stream-analytics-job-azure.png)
 
-3. 单击“创建”。
+3. 按一下頁面底部的 [新增]  。
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>將輸入新增至串流分析作業
 
 1. 開啟串流分析作業。
 
-2. 在 [作業拓撲] 之下，按一下 [輸入]。
+2. 在 [作業拓撲]  之下，按一下 [輸入]  。
 
-3. 在 [輸入] 窗格中，按一下 [新增資料流輸入]，然後輸入下列資訊︰
+3. 在 [輸入]  窗格中，按一下 [新增資料流輸入]  ，然後輸入下列資訊︰
 
-   **輸入別名**：輸入的唯一別名，然後選取下面的 [手動提供 IoT 中樞設定]。
+   **輸入別名**：輸入的唯一別名，然後選取下面的 [手動提供 IoT 中樞設定]  。
 
-   **來源**：選取 [IoT 中樞]。
+   **來源**：選取 [IoT 中樞]  。
    
-   **端點**：按一下 [傳訊]。
+   **端點**：按一下 [傳訊]  。
 
    **取用者群組**：選取您剛建立的取用者群組。
 
-4. 按一下頁面底部的 [新增] 。
+4. 按一下頁面底部的 [新增]  。
 
    ![在 Azure 中將輸入新增至串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/3_add-input-to-stream-analytics-job-azure.png)
 
-### <a name="add-an-output-to-the-stream-analytics-job"></a>向流分析作业添加输出
+### <a name="add-an-output-to-the-stream-analytics-job"></a>將輸出新增至串流分析作業
 
-1. 在 [作業拓撲] 之下，按一下 [輸出]。
+1. 在 [作業拓撲]  之下，按一下 [輸出]  。
 
-2. 在 [輸出] 窗格中，按一下 [新增] 和 [Power BI]，然後輸入下列資訊︰
+2. 在 [輸出]  窗格中，按一下 [新增]  和 [Power BI]  ，然後輸入下列資訊︰
 
    **輸出別名**：輸出的唯一別名。
 
@@ -103,27 +103,27 @@ ms.locfileid: "60779967"
 
    **資料表名稱**：輸入資料表名稱。
 
-3. 按一下 [授權]，然後登入您的 Power BI 帳戶。
+3. 按一下 [授權]  ，然後登入您的 Power BI 帳戶。
 
-4. 按一下頁面底部的 [新增] 。
+4. 按一下頁面底部的 [新增]  。
 
    ![在 Azure 中將輸出新增至串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
 
-### <a name="configure-the-query-of-the-stream-analytics-job"></a>配置流分析作业的查询
+### <a name="configure-the-query-of-the-stream-analytics-job"></a>設定串流分析作業的查詢
 
-1. 在 [作業拓撲] 之下，按一下 [查詢]。
+1. 在 [作業拓撲]  之下，按一下 [查詢]  。
 
-2. 将 `[YourInputAlias]` 替换为作业的输入别名。
+2. 使用作業的輸入別名取代 `[YourInputAlias]`。
 
 3. 使用作業的輸出別名取代 `[YourOutputAlias]`。
 
-4. 按一下 [檔案] 。
+4. 按一下 [檔案]  。
 
    ![在 Azure 中將查詢新增至串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/5_add-query-stream-analytics-job-azure.png)
 
-### <a name="run-the-stream-analytics-job"></a>运行流分析作业
+### <a name="run-the-stream-analytics-job"></a>執行串流分析作業
 
-在串流分析作業中，按一下 [啟動] > [立即] > [啟動]。 成功啟動作業後，作業狀態會從 [已停止] 變更為 [執行中]。
+在串流分析作業中，按一下 [啟動]   > [立即]   > [啟動]  。 成功啟動作業後，作業狀態會從 [已停止]  變更為 [執行中]  。
 
 ![在 Azure 中執行串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/6_run-stream-analytics-job-azure.png)
 
@@ -133,13 +133,13 @@ ms.locfileid: "60779967"
 
 2. 登入您的 [Power BI](https://powerbi.microsoft.com/en-us/) 帳戶。
 
-3. 按一下您所使用的工作區 [我的工作區]。
+3. 按一下您所使用的工作區 [我的工作區]  。
 
-4. 按一下 [資料集]。
+4. 按一下 [資料集]  。
 
    您應該會看到在建立串流分析作業輸出時所指定的資料集。
 
-5. 對於您所建立的資料集，按一下 [新增報告] (資料集名稱右邊的第一個圖示)。
+5. 對於您所建立的資料集，按一下 [新增報告]  (資料集名稱右邊的第一個圖示)。
 
    ![建立 Microsoft Power BI 報告](./media/iot-hub-live-data-visualization-in-power-bi/7_create-power-bi-report-microsoft.png)
 
@@ -147,11 +147,11 @@ ms.locfileid: "60779967"
 
    1. 在報告建立頁面上，新增折線圖。
 
-   2. 在 [欄位] 窗格上，展開您建立串流分析作業輸出時指定的資料表。
+   2. 在 [欄位]  窗格上，展開您建立串流分析作業輸出時指定的資料表。
    
-   3. 將 **EventEnqueuedUtcTime** 拖放至 [視覺效果] 窗格上的 [軸]。
+   3. 將 **EventEnqueuedUtcTime** 拖放至 [視覺效果]  窗格上的 [軸]  。
    
-   4. 將 **temperature** 拖放至 [值]。
+   4. 將 **temperature** 拖放至 [值]  。
 
       折線圖已建立。 x 軸會顯示 UTC 時區的日期和時間。 y 軸會顯示感應器的溫度。
 
@@ -161,13 +161,13 @@ ms.locfileid: "60779967"
 
    ![將溼度的折線圖新增至 Microsoft Power BI 報告](./media/iot-hub-live-data-visualization-in-power-bi/9_add-line-chart-for-humidity-to-power-bi-report-microsoft.png)
 
-8. 按一下 [儲存] 以儲存報告。
+8. 按一下 [儲存]  以儲存報告。
 
-9. 按一下左窗格中的 [報告]，然後按一下您剛建立的報告。
+9. 按一下左窗格中的 [報告]  ，然後按一下您剛建立的報告。
 
-10. 按一下 [檔案] > [發佈到網站]。
+10. 按一下 [檔案]   > [發佈到網站]  。
 
-11. 按一下 [建立內嵌程式碼]，然後按一下 [發佈]。
+11. 按一下 [建立內嵌程式碼]  ，然後按一下 [發佈]  。
 
 您會取得可與任何人共用以供存取報告的報告連結，以及取得程式碼片段以將報告整合到您的部落格或網站。
 
@@ -179,6 +179,6 @@ Microsoft 也會提供 [Power BI 行動應用程式](https://powerbi.microsoft.c
 
 您已成功使用 Power BI 將 Azure IoT 中樞的即時感應器資料視覺化。
 
-有替代方法可將 Azure IoT 中樞的資料視覺化。 请参阅[使用 Azure Web 应用可视化 Azure IoT 中心的实时传感器数据](iot-hub-live-data-visualization-in-web-apps.md)。
+另一種方式，以視覺化方式檢視來自 Azure IoT 中樞的資料，請參閱 <<c0> [ 使用 web 應用程式的 Azure IoT 中樞的即時感應器資料視覺化](iot-hub-live-data-visualization-in-web-apps.md)。
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

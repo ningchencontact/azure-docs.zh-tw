@@ -2,20 +2,20 @@
 title: 在 Azure Active Directory B2C 中使用 HTTP 基本驗證保護 RESTful 服務 | Microsoft Docs
 description: 使用 HTTP 基本驗證在您的 Azure AD B2C 中保護您的自訂 REST API 宣告交換。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: db5642abfca03f97ed258d287f5279cad0a32015
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e07a3fee2cc6c588dee608a68415b554e6fc77f3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694671"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507597"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>使用 HTTP 基本驗證保護 RESTful 服務
 
@@ -68,17 +68,17 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="step-13-add-an-authentication-middleware-class"></a>步驟 1.3：新增驗證中介軟體類別
 
-在 App_Start 資料夾下新增 `ClientAuthMiddleware.cs` 類別。 若要這樣做：
+在 App_Start  資料夾下新增 `ClientAuthMiddleware.cs` 類別。 方法如下：
 
-1. 以滑鼠右鍵按一下 App_Start 資料夾，選取 [新增]，然後選取 [類別]。
+1. 以滑鼠右鍵按一下 App_Start  資料夾，選取 [新增]  ，然後選取 [類別]  。
 
    ![在 App_Start 資料夾中新增 ClientAuthMiddleware.cs 類別](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup-auth1.png)
 
-2. 在 [名稱] 方塊中，輸入 **ClientAuthMiddleware.cs**。
+2. 在 [名稱]  方塊中，輸入 **ClientAuthMiddleware.cs**。
 
    ![建立新的 C# 類別](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup-auth2.png)
 
-3. 開啟 App_Start\ClientAuthMiddleware.cs 檔案，並以下列程式碼取代檔案內容：
+3. 開啟 App_Start\ClientAuthMiddleware.cs  檔案，並以下列程式碼取代檔案內容：
 
     ```csharp
     
@@ -192,12 +192,12 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="step-14-add-an-owin-startup-class"></a>步驟 1.4：新增 OWIN 啟動類別
 
-將名為 `Startup.cs` 的 OWIN 啟動類別新增至 API。 若要這樣做：
-1. 在專案上按一下滑鼠右鍵，選取 [新增] > [新增項目]，然後搜尋 **OWIN**。
+將名為 `Startup.cs` 的 OWIN 啟動類別新增至 API。 方法如下：
+1. 在專案上按一下滑鼠右鍵，選取 [新增]   > [新增項目]  ，然後搜尋 **OWIN**。
 
    ![新增 OWIN 啟動類別](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-OWIN-startup.png)
 
-2. 開啟 Startup.cs 檔案，並以下列程式碼取代檔案內容：
+2. 開啟 Startup.cs  檔案，並以下列程式碼取代檔案內容：
 
     ```csharp
     using Microsoft.Owin;
@@ -224,7 +224,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 ## <a name="step-2-publish-to-azure"></a>步驟 2：發佈至 Azure
 
-若要發佈您的專案，請在 [方案總管] 中，以滑鼠右鍵按一下 **Contoso.AADB2C.API**專案，然後選取 [發佈]。
+若要發佈您的專案，請在 [方案總管] 中，以滑鼠右鍵按一下 **Contoso.AADB2C.API**專案，然後選取 [發佈]  。
 
 ## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>步驟 3：將 RESTful 服務應用程式識別碼及應用程式祕密新增至 Azure AD B2C
 
@@ -232,44 +232,44 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="step-31-add-a-restful-services-client-id"></a>步驟 3.1：新增 RESTful 服務用戶端識別碼
 
-1. 在您的 Azure AD B2C 租用戶中，選取 [B2C 設定] > [識別體驗架構]。
+1. 在您的 Azure AD B2C 租用戶中，選取 [B2C 設定]   > [識別體驗架構]  。
 
 
-2. 若要檢視租用戶中可用的金鑰，請選取 [原則金鑰]。
+2. 若要檢視租用戶中可用的金鑰，請選取 [原則金鑰]  。
 
-3. 選取 [新增] 。
+3. 選取 [新增]  。
 
-4. 針對 [選項]，選取 [手動]。
+4. 針對 [選項]  ，選取 [手動]  。
 
-5. 針對 [名稱]，輸入 **B2cRestClientId**。  
-    可能會自動新增前置詞 B2C_1A_。
+5. 針對 [名稱]  ，輸入 **B2cRestClientId**。  
+    可能會自動新增前置詞 B2C_1A_  。
 
-6. 在 [密碼] 方塊中，輸入您先前定義的應用程式識別碼。
+6. 在 [密碼]  方塊中，輸入您先前定義的應用程式識別碼。
 
-7. 針對 [金鑰使用方法] 選取 [簽章]。
+7. 針對 [金鑰使用方法]  選取 [簽章]  。
 
-8. 選取 [建立] 。
+8. 選取 [建立]  。
 
 9. 確認您已建立 `B2C_1A_B2cRestClientId` 金鑰。
 
 ### <a name="step-32-add-a-restful-services-client-secret"></a>步驟 3.2：新增 RESTful 服務用戶端祕密
 
-1. 在您的 Azure AD B2C 租用戶中，選取 [B2C 設定] > [識別體驗架構]。
+1. 在您的 Azure AD B2C 租用戶中，選取 [B2C 設定]   > [識別體驗架構]  。
 
 2. 選取**原則金鑰**以檢視您的租用戶中可用的金鑰。
 
-3. 選取 [新增] 。
+3. 選取 [新增]  。
 
-4. 針對 [選項]，選取 [手動]。
+4. 針對 [選項]  ，選取 [手動]  。
 
-5. 針對 [名稱]，輸入 **B2cRestClientSecret**。  
-    可能會自動新增前置詞 B2C_1A_。
+5. 針對 [名稱]  ，輸入 **B2cRestClientSecret**。  
+    可能會自動新增前置詞 B2C_1A_  。
 
-6. 在 [密碼] 方塊中，輸入您先前定義的應用程式密碼。
+6. 在 [密碼]  方塊中，輸入您先前定義的應用程式密碼。
 
-7. 針對 [金鑰使用方法] 選取 [簽章]。
+7. 針對 [金鑰使用方法]  選取 [簽章]  。
 
-8. 選取 [建立] 。
+8. 選取 [建立]  。
 
 9. 確認您已建立 `B2C_1A_B2cRestClientSecret` 金鑰。
 
@@ -281,7 +281,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 3. 找出 `<Metadata>` 元素。
 
-4. 將 AuthenticationType 變更為 Basic，如下所示：
+4. 將 AuthenticationType  變更為 Basic  ，如下所示：
 
     ```xml
     <Item Key="AuthenticationType">Basic</Item>
@@ -302,33 +302,33 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 ## <a name="step-5-upload-the-policy-to-your-tenant"></a>步驟 5：將原則上傳至您的租用戶
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，切換至[您的 Azure AD B2C 租用戶環境](active-directory-b2c-navigate-to-b2c-context.md)，然後開啟 [Azure AD B2C]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，切換至[您的 Azure AD B2C 租用戶環境](active-directory-b2c-navigate-to-b2c-context.md)，然後開啟 [Azure AD B2C]  。
 
-2. 選取 [識別體驗架構]。
+2. 選取 [識別體驗架構]  。
 
-3. 開啟 [所有原則]。
+3. 開啟 [所有原則]  。
 
-4. 選取 [上傳原則]。
+4. 選取 [上傳原則]  。
 
-5. 選取 [覆寫已存在的原則] 核取方塊。
+5. 選取 [覆寫已存在的原則]  核取方塊。
 
-6. 上傳 TrustFrameworkExtensions.xml 檔案，然後確定它通過驗證。
+6. 上傳 TrustFrameworkExtensions.xml  檔案，然後確定它通過驗證。
 
 ## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>步驟 6：使用 [立即執行] 測試自訂原則
 
-1. 開啟 [Azure AD B2C 設定]，然後選取 [識別體驗架構]。
+1. 開啟 [Azure AD B2C 設定]  ，然後選取 [識別體驗架構]  。
 
     >[!NOTE]
     >[立即執行] 需要在租用戶上至少預先註冊一個應用程式。 若要了解如何註冊應用程式，請參閱 Azure AD B2C [開始使用](active-directory-b2c-get-started.md)一文或[應用程式註冊](active-directory-b2c-app-registration.md)一文。
 
-2. 開啟 **B2C_1A_signup_signin** (此為您上傳的信賴憑證者 (RP) 自訂原則)，然後選取 [立即執行]。
+2. 開啟 **B2C_1A_signup_signin** (此為您上傳的信賴憑證者 (RP) 自訂原則)，然後選取 [立即執行]  。
 
-3. 在 [名字] 方塊中，輸入 **Test** 來測試流程。  
+3. 在 [名字]  方塊中，輸入 **Test** 來測試流程。  
     Azure AD B2C 會在視窗頂端顯示錯誤訊息。
 
     ![測試您的身分識別 API](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
-4. 在 [名字] 方塊中輸入名字 ("Test" 除外)。  
+4. 在 [名字]  方塊中輸入名字 ("Test" 除外)。  
     Azure AD B2C 會註冊使用者，然後將會員號碼傳送至您的應用程式。 記下此範例中的數字：
 
     ```

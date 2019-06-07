@@ -2,20 +2,20 @@
 title: 讓我在 Azure Active Directory B2C 中保持登入 | Microsoft Docs
 description: 了解如何在 Azure Active Directory B2C 中啟用「讓我保持登入 (KMSI)」。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8cd48f2c194cc643d131a7def4b96285cde0bcbf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0ae6f19ea9a04aa6b2547fa031dbb09d03b887c3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712527"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509433"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中啟用「讓我保持登入 (KMSI)」
 
@@ -57,7 +57,7 @@ ms.locfileid: "64712527"
 
 您可以使用原則擴充檔案中的 **ClaimsProvider** 元素，將本機帳戶登入定義為宣告提供者：
 
-1. 從您的工作目錄中開啟 TrustFrameworkExtensions.xml 檔案。 
+1. 從您的工作目錄中開啟 TrustFrameworkExtensions.xml  檔案。 
 2. 尋找 **ClaimsProviders** 元素。 如果該元素不存在，請在根項目下新增。 [入門套件](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip)包含本機帳戶登入宣告提供者。 
 3. 以 **DisplayName** 和 **TechnicalProfile** 來新增 **ClaimsProvider** 元素，如下列範例所示：
 
@@ -83,9 +83,9 @@ ms.locfileid: "64712527"
 
 ### <a name="add-the-application-identifiers-to-your-custom-policy"></a>將應用程式識別碼新增至您的自訂原則
 
-將至應用程式識別碼新增至 TrustFrameworkExtensions.xml 檔案。
+將至應用程式識別碼新增至 TrustFrameworkExtensions.xml  檔案。
 
-1. 在 TrustFrameworkExtensions.xml 檔案中，找到識別碼為 `login-NonInteractive` 的 **TechnicalProfile** 元素，以及識別碼為 `login-NonInteractive-PasswordChange` 的 **TechnicalProfile** 元素，並將 `IdentityExperienceFrameworkAppId` 的所有值取代為[使用者入門](active-directory-b2c-get-started-custom.md)中所述識別體驗架構應用程式的應用程式識別碼。
+1. 在 TrustFrameworkExtensions.xml  檔案中，找到識別碼為 `login-NonInteractive` 的 **TechnicalProfile** 元素，以及識別碼為 `login-NonInteractive-PasswordChange` 的 **TechnicalProfile** 元素，並將 `IdentityExperienceFrameworkAppId` 的所有值取代為[使用者入門](active-directory-b2c-get-started-custom.md)中所述識別體驗架構應用程式的應用程式識別碼。
 
     ```
     <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
@@ -98,9 +98,9 @@ ms.locfileid: "64712527"
 
 將本機帳戶的登入宣告提供者新增至使用者旅程圖。 
 
-1. 開啟原則的基底檔案。 例如，TrustFrameworkBase.xml。
+1. 開啟原則的基底檔案。 例如，TrustFrameworkBase.xml  。
 2. 尋找 **UserJourneys** 元素，並將使用 `SignUpOrSignIn` 識別碼的 **UserJourney** 元素內容整個複製。
-3. 開啟擴充檔案。 例如，TrustFrameworkExtensions.xml，並尋找 **UserJourneys** 元素。 如果此元素不存在，請新增。
+3. 開啟擴充檔案。 例如，TrustFrameworkExtensions.xml  ，並尋找 **UserJourneys** 元素。 如果此元素不存在，請新增。
 4. 貼上您複製的整個 **UserJourney** 元素，以作為 **UserJourneys** 元素的子項目。
 5. 變更新使用者旅程圖的識別碼值。 例如： `SignUpOrSignInWithKmsi`。
 6. 最後，在第一個協調流程步驟中，將 **ContentDefinitionReferenceId** 的值變更為 `api.signuporsigninwithkmsi`。 設定此值會啟用使用者旅程圖中的核取方塊。 
@@ -146,7 +146,7 @@ ms.locfileid: "64712527"
 
 更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖。
 
-1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml 檔案複本，然後重新命名。 例如，SignUpOrSignInWithKmsi.xml。
+1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml  檔案複本，然後重新命名。 例如，SignUpOrSignInWithKmsi.xml  。
 2. 開啟新檔案，並以唯一值更新 **TrustFrameworkPolicy** 的 **PolicyId** 屬性。 這是您原則的名稱。 例如： `SignUpOrSignInWithKmsi`。
 3. 變更 **DefaultUserJourney** 元素的 **ReferenceId** 屬性，以符合您建立的新使用者旅程圖識別碼。 例如： `SignUpOrSignInWithKmsi`。
 
@@ -180,7 +180,7 @@ ms.locfileid: "64712527"
     ```
 
 4. 儲存變更然後上傳檔案。
-5. 若要測試您上傳的自訂原則，在 Azure 入口網站中，移至原則視窗，然後選取 [立即執行]。
+5. 若要測試您上傳的自訂原則，在 Azure 入口網站中，移至原則視窗，然後選取 [立即執行]  。
 
 您可以在[這裡](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in)找到範例原則。
 

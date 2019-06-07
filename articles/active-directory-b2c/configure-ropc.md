@@ -2,20 +2,20 @@
 title: 在 Azure Active Directory B2C 中設定資源擁有者密碼認證流程 | Microsoft Docs
 description: 了解如何在 Azure AD B2C 中設定資源擁有者密碼認證流程。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da7fe9310f50d2d2a3c247a410db204903d3412b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e590e4765f4795123e219f8da4b3e62bc79ca30
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715878"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511352"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>在 Azure AD B2C 中設定資源擁有者密碼認證流程
 
@@ -38,13 +38,13 @@ Azure Active Directory (Azure AD) B2C 支援下列選項：
 
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 Azure 入口網站。
 2. 若要切換為您的 Azure AD B2C 租用戶，請選取入口網站右上角的 B2C 租用戶。
-3. 按一下 [使用者流程]，然後選取 [新增使用者流程]。
-4. 单击“全部”选项卡，然后选择“使用 ROPC 登录”。
+3. 按一下 [使用者流程]  ，然後選取 [新增使用者流程]  。
+4. 按一下 **所有**索引標籤，然後選取**登入使用 ROPC**。
 5. 提供使用者流程的名稱，例如 *ROPC_Auth*。
-6. 在 [應用程式宣告] 底下，按一下 [顯示更多]。
+6. 在 [應用程式宣告]  底下，按一下 [顯示更多]  。
 7. 選取您的應用程式所需的應用程式宣告，例如 [顯示名稱]、[電子郵件地址] 和 [身分識別提供者]。
-8. 選取 [確定]，然後選取 [建立]。
-9. 按一下 [執行使用者流程]。
+8. 選取 [確定]  ，然後選取 [建立]  。
+9. 按一下 [執行使用者流程]  。
 
    然後，您會看到類似於下列範例的端點：
 
@@ -53,18 +53,18 @@ Azure Active Directory (Azure AD) B2C 支援下列選項：
 
 ## <a name="register-an-application"></a>註冊應用程式
 
-1. 在 B2C 設定中選取 [應用程式]，然後選取 [新增]。
-2. 輸入應用程式的名稱，例如 ROPC_Auth_app。
-3. 針對 [Web 應用程式/Web API] 選取 [否]，然後針對 [原生用戶端] 選取 [是]。
-4. 保留所有其他值，然後選取 [建立]。
+1. 在 B2C 設定中選取 [應用程式]  ，然後選取 [新增]  。
+2. 輸入應用程式的名稱，例如 ROPC_Auth_app  。
+3. 針對 [Web 應用程式/Web API]  選取 [否]  ，然後針對 [原生用戶端]  選取 [是]  。
+4. 保留所有其他值，然後選取 [建立]  。
 5. 選取新的應用程式，並記下應用程式識別碼供稍後使用。
 
 ## <a name="test-the-user-flow"></a>測試使用者流程
 
 使用您最慣用的 API 開發應用程式產生 API 呼叫，並檢視回應以對您的使用者流程偵錯。 使用下表中的資訊作為 POST 要求的本文，以建構與此類似的呼叫：
-- 將 \<yourtenant.onmicrosoft.com> 取代為您的 B2C 租用戶名稱。
-- 將 \<B2C_1A_ROPC_Auth> 取代為資源擁有者密碼認證原則的完整名稱。
-- 將 \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> 取代為您註冊中的應用程式識別碼。
+- 將 \<yourtenant.onmicrosoft.com>  取代為您的 B2C 租用戶名稱。
+- 將 \<B2C_1A_ROPC_Auth>  取代為資源擁有者密碼認證原則的完整名稱。
+- 將 \<bef2222d56-552f-4a5b-b90a-1988a7d634c3>  取代為您註冊中的應用程式識別碼。
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 

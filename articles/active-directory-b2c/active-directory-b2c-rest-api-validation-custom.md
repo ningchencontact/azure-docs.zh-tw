@@ -2,20 +2,20 @@
 title: 在 Azure Active Directory B2C 中使用 REST API 宣告交換作為驗證 | Microsoft Docs
 description: Azure Active Directory B2C 自訂原則的主題。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/24/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 090b0ef4d4f5f3d883ba1255e6f30d2bb0566274
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0779e4a93230a90b8eee76f1898154c1a5b82661
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681257"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508735"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>逐步解說：將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為對使用者輸入的驗證
 
@@ -113,7 +113,7 @@ IEF 預期 Azure 函式會傳回 `userMessage` 宣告。 如果驗證失敗，�
 
 ## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>步驟 3：在您想要用來驗證使用者輸入的自我判斷技術設定檔中納入 RESTful 服務宣告交換
 
-驗證步驟最常用於與使用者互動。 使用者應該在其中提供輸入的所有互動就是「自我判斷的技術設定檔」。 在此範例中，我們會將此驗證新增到 Self-Asserted-ProfileUpdate 技術設定檔。 這是信賴憑證者 (RP) 原則檔案 `Profile Edit` 使用的技術設定檔。
+驗證步驟最常用於與使用者互動。 使用者應該在其中提供輸入的所有互動就是「自我判斷的技術設定檔」  。 在此範例中，我們會將此驗證新增到 Self-Asserted-ProfileUpdate 技術設定檔。 這是信賴憑證者 (RP) 原則檔案 `Profile Edit` 使用的技術設定檔。
 
 在自我判斷的技術設定檔中新增宣告交換：
 
@@ -125,7 +125,7 @@ IEF 預期 Azure 函式會傳回 `userMessage` 宣告。 如果驗證失敗，�
 
 1. 上傳新版的 TrustFrameworkExtensions.xml 檔案。
 2. 使用**立即執行**來測試設定檔編輯 RP 原則檔案。
-3. 在 [名字] 欄位中提供一個現有名稱 (例如︰mcvinny) 來測試驗證。 如果一切設定皆正確，您應該會收到訊息，通知使用者，該玩家標記已在使用中。
+3. 在 [名字]  欄位中提供一個現有名稱 (例如︰mcvinny) 來測試驗證。 如果一切設定皆正確，您應該會收到訊息，通知使用者，該玩家標記已在使用中。
 
 ## <a name="next-steps"></a>後續步驟
 

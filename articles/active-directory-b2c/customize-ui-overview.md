@@ -2,26 +2,26 @@
 title: 關於 Azure Active Directory B2C 中的使用者介面自訂 | Microsoft Docs
 description: 了解如何為使用 Azure Active Directory B2C 的應用程式自訂使用者介面。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 26dea1b636fce9e7f5defddd5cf4bc4c7d78d5da
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6c9109cf4d6d67d3d8001a9de1d54e24622a9286
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682009"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511183"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>關於 Azure Active Directory B2C 中的使用者介面自訂
 
 有能力自訂 Azure Active Directory (Azure AD) B2C 為您的應用程式提供服務的使用者介面 (UI)，並設定其品牌，深切關係到您能否為客戶提供順暢的體驗。 這些體驗包括註冊、登入、設定檔編輯和密碼重設。 本文將提供有助於您自訂應用程式 UI 的資訊。
 
-根據您在這些體驗方面的需求，您可以透過不同的方式自訂應用程式的 UI。 例如︰
+根據您在這些體驗方面的需求，您可以透過不同的方式自訂應用程式的 UI。 例如:
 
 - 如果您要使用[使用者流程](active-directory-b2c-reference-policies.md)來提供應用程式中的註冊或登入、密碼重設或設定檔編輯的體驗，您可以使用 [Azure 入口網站來自訂 UI](tutorial-customize-ui.md)。
 - 如果您使用的是 v2 使用者流程，則可以使用[頁面配置範本](#page-layout-templates)變更使用者流程頁面的外觀，而不需要進一步的自訂。 例如，您可以將「海藍」或「岩灰」佈景主題套用至使用者流程中的所有頁面。
@@ -48,7 +48,7 @@ Azure AD B2C 會在客戶的瀏覽器中執行程式碼，並使用名為[跨原
 
 針對 v2 使用者流程，您可以選擇預先設計的範本，，可讓您的預設頁面外觀更好，並為您的自訂提供良好的基礎。
 
-在左側功能表的 [自訂] 下方，選取 [頁面配置]。 然後選取 [範本 (預覽)]。
+在左側功能表的 [自訂]  下方，選取 [頁面配置]  。 然後選取 [範本 (預覽)]  。
 
 ![選擇頁面配置範本](media/customize-ui-overview/template.png)
 
@@ -56,7 +56,7 @@ Azure AD B2C 會在客戶的瀏覽器中執行程式碼，並使用名為[跨原
 
 ![海藍範本](media/customize-ui-overview/ocean-blue.png)
 
-選擇範本時，選取的配置將套用到使用者流程中的所有頁面，並且每一頁的 URI 會顯示在 [自訂頁面 URI] 欄位中。
+選擇範本時，選取的配置將套用到使用者流程中的所有頁面，並且每一頁的 URI 會顯示在 [自訂頁面 URI]  欄位中。
 
 ## <a name="where-do-i-store-ui-content"></a>UI 內容應儲存於何處？
 

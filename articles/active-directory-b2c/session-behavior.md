@@ -2,20 +2,20 @@
 title: 設定工作階段行為-Azure Active Directory B2C |Microsoft Docs
 description: 設定 Azure Active Directory B2C 中的工作階段行為。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7bfa34f44ca8ba53b89e4218303a7cd77cd0add9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3167a63be46e0d777fbec0c6a3301684fb7636bd
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700994"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512554"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>設定 Azure Active Directory B2C 中的工作階段行為
 
@@ -34,7 +34,7 @@ Azure AD B2C 支援以 [OpenID Connect 驗證通訊協定](active-directory-b2c-
     - 預設值 = 1440 分鐘。
     - 最小值 (含) = 15 分鐘。
     - 最大值 (含) = 1440 分鐘。
-- **Web 應用程式工作階段逾時** - 如果將此參數設定為 [絕對]，使用者必須在 [Web 應用程式工作階段存留期 (分鐘)] 指定的期間結束後再度驗證。 如果將此參數設定為 **[循環]** \(預設設定)，只要使用者在 Web 應用程式中持續保持作用狀態，他們便能維持登入狀態。
+- **Web 應用程式工作階段逾時** - 如果將此參數設定為 [絕對]  ，使用者必須在 [Web 應用程式工作階段存留期 (分鐘)]  指定的期間結束後再度驗證。 如果將此參數設定為 **[循環]** \(預設設定)，只要使用者在 Web 應用程式中持續保持作用狀態，他們便能維持登入狀態。
 - **單一登入設定**如果您的 B2C 租用戶中有多個應用程式和使用者流程，您還可以管理使用者互動，在它們之間使用**單一登入設定**屬性。 您可以將屬性配置為以下任一設定︰
     - **Tenant** - 這項設定是預設值。 此設定可允許 B2C 租用戶中的多個應用程式和使用者流程共用同一個使用者工作階段。 例如，一旦使用者登入應用程式，就可以在存取另一個應用程式 Contoso Pharmacy 時順暢地登入。
     - **應用程式** - 這項設定可讓您保留應用程式專用的使用者工作階段，不受其他應用程式所限制。 例如，如果您想讓使用者登入 Contoso Pharmacy (使用相同的認證)，即使使用者已登入 Contoso Shopping (同一個 B2C 租用戶上的另一個應用程式)。 
@@ -49,16 +49,16 @@ Azure AD B2C 支援以 [OpenID Connect 驗證通訊協定](active-directory-b2c-
 ## <a name="configure-the-properties"></a>設定屬性
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶篩選]，然後選擇包含您 Azure AD B2C 租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶篩選]  ，然後選擇包含您 Azure AD B2C 租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
 4. 選取  **（原則） 的使用者流程**。
 5. 開啟您先前建立的使用者流程。 
-6. 選取 [屬性] 。
-7. 設定**Web 應用程式工作階段存留期 （分鐘）**， **Web 應用程式工作階段逾時**，**單一登入組態**，和**要求識別碼權杖在登出要求**視。
+6. 選取 [屬性]  。
+7. 設定**Web 應用程式工作階段存留期 （分鐘）** ， **Web 應用程式工作階段逾時**，**單一登入組態**，和**要求識別碼權杖在登出要求**視。
 
     ![設定工作階段行為](./media/session-behavior/session-behavior.png)
     
-8. 按一下 [檔案] 。
+8. 按一下 [檔案]  。
 
 
 

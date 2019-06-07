@@ -2,20 +2,20 @@
 title: 如何連結 Azure 訂用帳戶 - Azure Active Directory B2C | Microsoft Docs
 description: 啟用 Azure 訂用帳戶內 Azure AD B2C 租用戶計費的逐步指南。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/24/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8f9e3e63942c8fac5fc24ca26969b71e6ef4257f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d2440b638a9c8eb27505b747d26917de8032e6cd
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706811"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510134"
 ---
 # <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>將 Azure 訂用帳戶連結至 Azure Active Directory B2C 租用戶
 
@@ -45,17 +45,17 @@ Azure AD B2C 支援 Azure 雲端解決方案提供者 (CSP) 訂用帳戶。 針�
 
 ## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>在 Azure Marketplace 中尋找 Azure AD B2C
 
-按一下 [建立資源] 按鈕。 在 [搜尋 Marketplace] 欄位中，輸入 `B2C`。
+按一下 [建立資源]  按鈕。 在 [搜尋 Marketplace]  欄位中，輸入 `B2C`。
 
 ![在 [搜尋 Marketplace] 欄位中新增醒目提示的按鈕和 Azure AD B2C 文字](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
-在結果清單中選取 [Azure AD B2C]。
+在結果清單中選取 [Azure AD B2C]  。
 
 ![結果清單中選取的 Azure AD B2C](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
 
-系統會顯示有關 Azure AD B2C 的詳細資訊。 若要開始設定新的 Azure Active Directory B2C 租用戶，請按一下 [建立] 按鈕。
+系統會顯示有關 Azure AD B2C 的詳細資訊。 若要開始設定新的 Azure Active Directory B2C 租用戶，請按一下 [建立]  按鈕。
 
-在資源建立畫面中，選取 [將現有的 Azure AD B2C 租用戶連結至我的 Azure 訂用帳戶]。
+在資源建立畫面中，選取 [將現有的 Azure AD B2C 租用戶連結至我的 Azure 訂用帳戶]  。
 
 ## <a name="create-an-azure-ad-b2c-resource-within-the-azure-subscription"></a>在 Azure 訂用帳戶內建立 Azure AD B2C 資源
 
