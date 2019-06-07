@@ -137,6 +137,10 @@
               href: /rest/api/time-series-insights/preview-env
             - name: 時間序列運算式和語法
               href: /rest/api/time-series-insights/preview-tsx
+    - name: 用戶端 SDK
+      items:
+        - name: JavaScript 用戶端 SDK
+          href: 'https://github.com/microsoft/tsiclient/blob/master/docs/API.md'
 - name: 相關參考
   items:
     - name: 解決方案

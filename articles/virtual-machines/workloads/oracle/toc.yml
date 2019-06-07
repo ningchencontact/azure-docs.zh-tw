@@ -1,7 +1,11 @@
 - name: 概觀
   items:
-    - name: Oracle VM 的考量
-      href: oracle-considerations.md
+    - name: Oracle 解決方案概觀
+      href: oracle-overview.md
+    - name: Azure VM 中的解決方案
+      href: oracle-vm-solutions.md
+    - name: OCI 解決方案 - 預覽
+      href: oracle-oci-overview.md
 - name: 快速入門
   items:
     - name: 建立 Oracle DB
@@ -10,7 +14,7 @@
   items:
     - name: 設定 Oracle ASM
       href: configure-oracle-asm.md
-    - name: 設定 Oracle DataGuard
+    - name: 設定 Oracle Data Guard
       href: configure-oracle-dataguard.md
     - name: 設定 Oracle GoldenGate
       href: configure-oracle-golden-gate.md
