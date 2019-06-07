@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 9a592533a92ec724c9a332bef5fdfcf385cb7b2c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 1ec4786291d6e2e5be6785e52cf3ab5bb5bbc690
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730676"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754545"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>移轉至叢集組態中以角色為基礎的細微存取
 
@@ -59,10 +59,10 @@ ms.locfileid: "66730676"
 - [**取得 /configurations/ {configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) （移除機密資訊）
     - 先前用來取得個別的組態類型 （包括密碼）。
     - 此 API 呼叫現在會傳回個別的組態類型，對省略的祕密。 若要取得所有的設定，包括祕密，使用新的 POST /configurations 呼叫。 若要取得剛閘道設定，請使用新的 POST /getGatewaySettings 呼叫。
-- [**取得 /configurations** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configurations) （已過時）
+- [**取得 /configurations** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) （已過時）
     - 先前用來取得所有設定 （包括密碼）
     - 將不再支援這個 API 呼叫。 若要取得所有的設定，接下來，使用新的 POST /configurations 呼叫。 取得組態省略的敏感性參數使用，請使用 GET /configurations/ {configurationName} 呼叫。
-- [**POST /configurations/{configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#change-connectivity-settings) (deprecated)
+- [**POST /configurations/{configurationName}** ](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings) (deprecated)
     - 先前用來更新閘道的認證。
     - 將已被取代，不再支援這個 API 呼叫。 請改用新的 POST /updateGatewaySettings。
 

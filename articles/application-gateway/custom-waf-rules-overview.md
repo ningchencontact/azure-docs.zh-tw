@@ -7,18 +7,14 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 62259749e04d66d78206a0bba77ce88f2c08c82f
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: d35e1dc96f65e51ab14c4962d1824334cbdb1616
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688997"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752039"
 ---
 # <a name="custom-rules-for-web-application-firewall"></a>Web 應用程式防火牆的自訂規則
-
-> [!IMPORTANT]
-> Azure 應用程式閘道 WAF 的自訂規則目前為公開預覽狀態。 **自訂的規則是僅適用於 WAF_v2 SKU**。
-> 此公開預覽版是在沒有服務等級協定的情況下提供，不得用於生產工作負載。 特定功能可能不受支援、功能可能受限，或者可能無法在所有 Azure 位置提供使用。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 Azure 應用程式閘道 web 應用程式防火牆 (WAF) 會隨附預先設定的平台管理的規則集，可從許多不同類型的攻擊的防護。 這些攻擊，包括跨網站指令碼、 SQL 插入式攻擊，與其他人。 如果您是 WAF 的系統管理員，您可能想要撰寫您自己的規則，以加強核心規則集 (CRS) 規則。 您的規則可以封鎖或允許根據比對準則的要求的流量。
 

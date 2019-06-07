@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 6ab6ec6a88dbba066be9ecf9919be876090cfdff
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: edadb369461bb3865dd6894c3329e7079fa9d13f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121496"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752564"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 記錄與稽核
 
@@ -228,7 +228,7 @@ Azure 中的網路記錄和監視功能相當完善，主要涵蓋分類有二�
 除了先前所提的記錄功能，網路監看員目前具有下列功能：
 - [拓撲](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview)：提供網路層級檢視，顯示資源群組中的網路資源之間的各種相互連線和關聯。
 
-- [變數封包擷取](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview)：擷取進出虛擬機器的封包資料。 進階篩選選項和微調控制項 (例如時間和大小限制設定) 可讓您靈活擷取資料。 封包資料可以 .cap 格式儲存在 Blob 存放區或本機磁碟上。
+- [變數封包擷取](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview)：擷取進出虛擬機器的封包資料。 進階篩選選項和微調控制項 (例如時間和大小限制設定) 可讓您靈活擷取資料。 封包資料可以 .cap  格式儲存在 Blob 存放區或本機磁碟上。
 
 - [IP 流程驗證](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview)：根據流程資訊 5 個 Tuple 封包參數 (也就是目的地 IP、來源 IP、目的地連接埠、來源連接埠和通訊協定)，查看允許或拒絕封包。 如果封包遭到安全性群組拒絕，則會傳回拒絕封包的規則和群組。
 
@@ -279,7 +279,7 @@ Application Insights 是以開發小組為目標，以協助您了解您的應�
 |[應用程式對應](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|應用程式的元件，包含重要計量和警示。|
 |[執行個體資料的診斷搜尋](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| 搜尋和篩選事件，例如要求、例外狀況、相依性呼叫、記錄追蹤，以及頁面檢視。|
 |[彙總資料的計量瀏覽器](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|瀏覽、篩選和分割彙總的資料，例如，要求、錯誤和例外狀況的比率；回應時間、頁面載入時間。|
-|[儀表板](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|來自多個資源的交互式資料並與其他人員共用。 非常適用於多元件的應用程式，以及小組聊天室中的連續顯示。|
+|[儀表板](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard)|來自多個資源的交互式資料並與其他人員共用。 非常適用於多元件的應用程式，以及小組聊天室中的連續顯示。|
 |[即時計量串流](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|當您部署新的組建時，請觀看這些近乎即時的效能指標，以確定一切如預期運作。|
 |[分析](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|使用這個功能強大的查詢語言，回答有關您應用程式效能和使用方式的艱難問題。|
 |[自動和手動警示](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|如果在常見模式之外發生一些狀況，則自動警示會適應您應用程式的一般遙測和觸發程式模式。 您也可以在自訂或標準計量的特定層級上設定警示。|
@@ -330,7 +330,7 @@ Azure 監視器的中心記錄檔是裝載於 Azure 的 Log Analytics 工作區�
 
 | 服務 | 資源類型 | 記錄 | 度量 | 解決方法 |
 | :------ | :------------ | :--- | :------ | :------- |
-|Azure 應用程式閘道| Microsoft.Network/<br>applicationGateways|  診斷|診斷|    [Azure 應用程式](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)[閘道分析](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Azure 應用程式閘道| Microsoft.Network/<br>applicationGateways|  診斷|診斷|    [Azure 應用程式](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics)[閘道分析](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-analytics-solution-in-azure-monitor)|
 |Application Insights||     連接器|  連接器|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [ 連接器 (預覽) (英文)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Azure 自動化帳戶| Microsoft.Automation/<br>AutomationAccounts|    診斷||       [詳細資訊](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Azure Batch 帳戶|  Microsoft.Batch/<br>batchAccounts|  診斷|    診斷||
@@ -344,7 +344,7 @@ Azure 監視器的中心記錄檔是裝載於 Azure 的 Log Analytics 工作區�
 |Azure Load Balancer|   Microsoft.Network/<br>loadBalancers|    診斷|||
 |Azure Logic Apps|  Microsoft.Logic/<br>workflows|  診斷|    診斷||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|網路安全性群組|   Microsoft.Network/<br>networksecuritygroups|診斷||   [Azure 網路安全性群組分析](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|網路安全性群組|   Microsoft.Network/<br>networksecuritygroups|診斷||   [Azure 網路安全性群組分析](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-and-network-security-group-analytics)|
 |復原保存庫|   Microsoft.RecoveryServices/<br>vaults|||[Azure 復原服務分析 (預覽)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |搜尋服務|   Microsoft.Search/<br>searchServices|    診斷|    診斷||
 |服務匯流排命名空間| Microsoft.ServiceBus/<br>namespaces|    診斷|診斷|    [服務匯流排分析 (預覽)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: b4b7759d1dc23c1a1b3a9b5aeb2a181923e14d40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5997526098980220014d9bb2d47efe6c9aedee3d
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60543731"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752344"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Service Fabric 叢集獨立叢集的概觀
 
@@ -51,7 +51,7 @@ Service Fabric 也支援存取控制來限制不同使用者群組對特定叢�
 
 如需詳細資訊，請參閱[角色型存取控制 (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac)。
 
-## <a name="scaling"></a>調整大小
+## <a name="scaling"></a>縮放
 
 應用程式需求會隨著時間而變更。 您可能需要增加叢集資源以因應增加的應用程式工作負載或網路流量，或是在需要下降時減少叢集資源。 在建立 Service Fabric 叢集之後，您可以水平調整叢集 (變更節點數目)，或以垂直方式調整 (變更節點的資源)。 您可以隨時調整叢集，即使正在叢集上執行工作負載，也是如此。 在叢集進行調整時，您的應用程式也會自動調整。
 
@@ -68,6 +68,7 @@ Service Fabric 也支援存取控制來限制不同使用者群組對特定叢�
 
 * Windows Server 2012 R2
 * Windows Server 2016 
+* Windows Server 2019
 
 ## <a name="next-steps"></a>後續步驟
 深入了解[保護](service-fabric-cluster-security.md)、[調整](service-fabric-cluster-scaling-standalone.md)及[升級](service-fabric-cluster-upgrade-standalone.md)獨立叢集。

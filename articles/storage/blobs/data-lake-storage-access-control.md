@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5adba958ed3bcb9efbf66c079b541e11ceed570c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 72a72e385217178cb6afee237cc3a3e5c5d1248b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243599"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751647"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中的存取控制
 
@@ -53,7 +53,7 @@ SAS 權杖會在其權杖中包含允許的權限。 SAS 權杖中包含的權�
 
 如果您在儲存體帳戶層級的安全性主體指派角色，您可以使用存取控制清單來授與特定的檔案和目錄的安全性主體較高的存取。
 
-您無法使用存取控制清單來提供的較低層級角色指派所授與的存取層級。 例如，如果您指派[儲存體 Blob 資料參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)角色安全性主體，則您無法使用存取控制清單來防止寫入 目錄安全性主體。
+您無法使用存取控制清單來提供的較低層級角色指派所授與的存取層級。 例如，如果您指派[儲存體 Blob 資料參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)角色安全性主體，則您無法使用存取控制清單來防止寫入 目錄安全性主體。
 
 ### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>設定檔案和目錄層級權限使用存取控制清單
 
@@ -101,7 +101,7 @@ SAS 權杖會在其權杖中包含允許的權限。 SAS 權杖中包含的權�
 |--------------|------------|------------------------|
 | 7            | `RWX`        | 讀取 + 寫入 + 執行 |
 | 5            | `R-X`        | 讀取 + 執行         |
-| 4            | `R--`        | 讀取                   |
+| 4            | `R--`        | 閱讀                   |
 | 0            | `---`        | 沒有權限         |
 
 #### <a name="permissions-inheritance"></a>權限繼承

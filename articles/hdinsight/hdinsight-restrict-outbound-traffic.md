@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 0e3a35c2ceed5f3bb08b2d332f05bbaf416c94b2
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 4ce3ca31163c286f54b9630e5d4779e2e47a032f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743252"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754595"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>設定 Azure HDInsight 叢集使用的防火牆 （預覽） 的輸出網路流量
 
@@ -162,7 +162,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 第一次取得 應用程式，運作時您不知道的所有應用程式相依性存在時，與 Azure 監視器記錄檔整合您的 Azure 防火牆很有用的。 您可以從[分析 Azure 監視器中的記錄資料](../azure-monitor/log-query/log-query-overview.md)深入了解 Azure 監視器記錄
 
 ## <a name="access-to-the-cluster"></a>叢集的存取權
-已成功有防火牆安裝程式之後，您可以使用內部端點 (https://<clustername>-int.azurehdinsight.net) 來存取 VNET 中的從 Ambari。 若要使用的公用端點 (https://<clustername>。 azurehdinsight.net) 或 ssh 端點 (<clustername>-ssh.azurehdinsight.net)，請確定您有正確的路由的路由表中，而且 NSG 規則設定，以避免 asymetric 路由問題說明[此處](https://docs.microsoft.com/azure/firewall/integrate-lb)。
+已成功有防火牆安裝程式之後，您可以使用內部端點 (`https://<clustername>-int.azurehdinsight.net`) 來存取 VNET 中的從 Ambari。 若要使用的公用端點 (`https://<clustername>.azurehdinsight.net`) 或 ssh 端點 (`<clustername>-ssh.azurehdinsight.net`)，請確定您有正確的路由的路由表中，而且 NSG 規則設定，以避免 asymetric 路由問題說明[這裡](https://docs.microsoft.com/azure/firewall/integrate-lb)。
 
 ## <a name="configure-another-network-virtual-appliance"></a>設定另一個網路虛擬設備
 

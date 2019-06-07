@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 59a45791676f62f42763e0e834d327b0c0c4106d
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025349"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755092"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>連線至 Azure SQL Database 並使用 Azure 搜尋服務索引子為內容編製索引
 
@@ -158,23 +158,7 @@ ms.locfileid: "65025349"
 
 **間隔** 參數是必需的。 間隔指兩個連續索引子開始執行的時間。 允許的最小間隔為 5 分鐘；最長間隔為一天。 其必須格式化為 XSD "dayTimeDuration" 值 ( [ISO 8601 持續時間](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。 間隔的模式為： `P(nD)(T(nH)(nM))`。 範例：`PT15M` 代表每隔 15 分鐘，`PT2H` 代表每隔 2 個小時。
 
-選用的 **startTime** 表示排定執行應開始的時間。 如果省略選用時間，則會使用您目前的 UTC 時間。 開始時間可以設定為過去的時間 (在這種情況下，可以假設索引子從 startTime 已持續執行一段時間，以排定第一次執行的時間)。  
-
-索引子一次僅能執行一個。 如果索引子在排定執行的時間已在運作，其執行會延遲到下一個排定的時間。
-
-讓我們參考一個範例，讓您更具體了解詳情。 我們假設下列排程已設定為每小時執行：
-
-    "schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
-
-排程狀況如下：
-
-1. 第一次索引子執行開始時間約於 2015年 3 月 1 日 上午 12:00 UTC。
-2. 假設此執行需要 20 分鐘 (或任何小於 1 小時的時間)。
-3. 第二次執行開始時間約於 2015 年 3 月 1 日 上午 1:00。
-4. 現在，假設此執行需要超過一小時 (例如 70 分鐘)，因此會在上午 2:10 左右完成。
-5. 目前為上午 2:00，為第三個執行的開始時間。 不過，因為從上午 1 點的第二次執行 仍在執行，會略過第三次執行。 第三次執行時間改於上午 3 點開始。
-
-您可以使用 **PUT 索引子** 要求，加入、 變更或刪除現有之索引子的排程。
+如需定義索引子排程的詳細資訊，請參閱[如何排程 Azure 搜尋服務索引子](search-howto-schedule-indexers.md)。
 
 <a name="CaptureChangedRows"></a>
 
@@ -303,9 +287,9 @@ Azure 搜尋服務會使用**累加式編製索引**，以避免每次索引子�
 ## <a name="configuration-settings"></a>組態設定
 SQL 索引子公開數個組態設定︰
 
-| 設定 | 資料類型 | 目的 | 預設值 |
+| 設定 | 数据类型 | 目的 | 預設值 |
 | --- | --- | --- | --- |
-| queryTimeout |string |設定 SQL 查詢執行的逾時 |5 分鐘 ("00:05:00") |
+| queryTimeout |字串 |設定 SQL 查詢執行的逾時 |5 分鐘 ("00:05:00") |
 | disableOrderByHighWaterMarkColumn |布林 |導致上限標準原則所使用的 SQL 查詢省略 ORDER BY 子句。 請參閱[上限標準原則](#HighWaterMarkPolicy) |false |
 
 這些設定會用於索引子定義中的 `parameters.configuration` 物件。 例如，若要將查詢逾時設定為 10 分鐘，請使用下列組態建立或更新索引子︰

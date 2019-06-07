@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 5106b22500b73b650742e7fe0f881c2a4c984eff
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 4501a343b406f07b4775f3ad0e84d71825412a4b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937722"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752733"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS 應用程式供應項目發行指南
 
@@ -27,7 +27,7 @@ SaaS 應用程式可以在市集中透過三種不同的呼籲行動來發行：
 | AppSource | 是 (與我連絡) | 是 (PowerBI/Dynamics) |
 | Azure Marketplace | 否 | 是 (SaaS 應用程式) |   
 
-**列出清單：**「列出清單」發行選項包含「與我連絡」的供應項目類型，當試用版層級或交易層級的參與方式不可行時，適用此方法。 此方法的優點是可讓發行者的解決方案上市，立即開始接收可能產生交易的潛在客戶，進而提升業績。  
+**列出清單：** 「列出清單」發行選項包含「與我連絡」的供應項目類型，當試用版層級或交易層級的參與方式不可行時，適用此方法。 此方法的優點是可讓發行者的解決方案上市，立即開始接收可能產生交易的潛在客戶，進而提升業績。  
 **試用版/交易：** 客戶可以選擇直接購買或要求試用您的解決方案。 提供試用版體驗會提升客戶的參與度，並可讓客戶先探索您的解決方案，再進行購買。 使用試用版體驗，較可能在店面獲得推廣機會，而且從客戶參與而來的潛在客戶也應會更多、更廣泛。 試用版必須至少包括在試用期間提供免費支援。  
 
 | SaaS 應用程式供應項目 | 商業需求 | 技術需求 |  
@@ -148,4 +148,4 @@ Microsoft 主控商務交易。 Microsoft 代表您向客戶收費。 若要將 
 如果您已註冊，且要建立新供應項目或使用現有供應項目，請
 
 - [登入 Cloud Partner 入口網站](https://cloudpartner.azure.com)以建立或完成您的供應項目。
-- 如需詳細資訊，請參閱 [Azure SaaS 應用程式供應項目](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-offer)。
+- 如需詳細資訊，請參閱 [Azure SaaS 應用程式供應項目](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer)。

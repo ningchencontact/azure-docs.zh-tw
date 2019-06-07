@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5d964ebd40ac1bd8817bc93d5e4f78096f221be2
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 427c4615fcbb036ffff56a8fc592f258fb98845e
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65977757"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755119"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 
@@ -33,7 +33,7 @@ ms.locfileid: "65977757"
 下表提供每個內建角色的簡短說明。 按一下角色名稱，即可查看每個角色的 `Actions`、`NotActions`、`DataActions` 及 `NotDataActions` 清單。 如需這些動作的意義以及它們如何套用在管理和資料平面的相關資訊，請參閱[了解 Azure 資源的角色定義](role-definitions.md)。
 
 
-| 內建角色 | 說明 |
+| 內建角色 | 描述 |
 | --- | --- |
 | [擁有者](#owner) | 可讓您管理一切，包括對資源的存取。 |
 | [參與者](#contributor) | 可讓您管理一切，但無法管理對資源的存取。 |
@@ -56,14 +56,14 @@ ms.locfileid: "65977757"
 | [Avere Operator](#avere-operator) | Avere vFXT 叢集用來管理叢集 |
 | [Azure Kubernetes Service 叢集管理員角色](#azure-kubernetes-service-cluster-admin-role) | 列出叢集管理員認證動作。 |
 | [Azure Kubernetes Service 叢集使用者角色](#azure-kubernetes-service-cluster-user-role) | 列出叢集使用者認證動作。 |
-| [Azure 地圖服務資料讀者 （預覽）](#azure-maps-data-reader-preview) | 授與從 Azure 地圖服務帳戶讀取地圖相關資料的存取權。 |
+| [Azure 地圖服務資料讀者 （預覽）](#azure-maps-data-reader-preview) | 授與的讀取權限將對應從 Azure 地圖服務帳戶的相關的資料。 |
 | [Azure Stack 註冊擁有者](#azure-stack-registration-owner) | 可讓您管理 Azure Stack 註冊。 |
 | [備份參與者](#backup-contributor) | 可讓您管理備份服務，但無法建立保存庫及為其他人提供存取權 |
 | [備份操作員](#backup-operator) | 可讓您管理備份服務，但無法移除備份、建立保存庫及為其他人提供存取權 |
 | [備份讀取者](#backup-reader) | 可以檢視備份服務，但無法進行變更 |
 | [帳單讀取器](#billing-reader) | 允許對計費資料進行讀取存取 |
 | [BizTalk 參與者](#biztalk-contributor) | 可讓您管理 BizTalk 服務，但無法存取它們。 |
-| [區塊鏈成員節點存取 （預覽）](#blockchain-member-node-access-preview) | 允許存取區塊鏈成員節點 |
+| [區塊鏈成員節點存取 （預覽）](#blockchain-member-node-access-preview) | 允許的區塊鏈成員節點的存取 |
 | [CDN 端點參與者](#cdn-endpoint-contributor) | 可管理 CDN 端點，但無法對其他使用者授與存取權。 |
 | [CDN 端點讀者](#cdn-endpoint-reader) | 可檢視 CDN 端點，但無法進行變更。 |
 | [CDN 設定檔參與者](#cdn-profile-contributor) | 可管理 CDN 設定檔及其端點，但無法對其他使用者授與存取權。 |
@@ -158,11 +158,11 @@ ms.locfileid: "65977757"
 > | **動作** |  |
 > | * | 建立和管理所有類型的資源 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="contributor"></a>參與者
 > [!div class="mx-tableFixed"]
@@ -179,9 +179,9 @@ ms.locfileid: "65977757"
 > | Microsoft.Blueprint/blueprintAssignments/write | 建立或更新任何藍圖成品 |
 > | Microsoft.Blueprint/blueprintAssignments/delete | 刪除任何藍圖成品 |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="reader"></a>讀取者
 > [!div class="mx-tableFixed"]
@@ -192,11 +192,11 @@ ms.locfileid: "65977757"
 > | **動作** |  |
 > | */read | 讀取密碼以外的所有類型的資源。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="acrdelete"></a>AcrDelete
 > [!div class="mx-tableFixed"]
@@ -207,11 +207,11 @@ ms.locfileid: "65977757"
 > | **動作** |  |
 > | Microsoft.ContainerRegistry/registries/artifacts/delete | 刪除容器登錄中的成品。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="acrimagesigner"></a>AcrImageSigner
 > [!div class="mx-tableFixed"]
@@ -222,11 +222,11 @@ ms.locfileid: "65977757"
 > | **動作** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | 推送/提取容器登錄的內容信任中繼資料。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="acrpull"></a>AcrPull
 > [!div class="mx-tableFixed"]
@@ -237,11 +237,11 @@ ms.locfileid: "65977757"
 > | **動作** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | 從容器登錄中提取或取得映像。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="acrpush"></a>AcrPush
 > [!div class="mx-tableFixed"]
@@ -253,11 +253,11 @@ ms.locfileid: "65977757"
 > | Microsoft.ContainerRegistry/registries/pull/read | 從容器登錄中提取或取得映像。 |
 > | Microsoft.ContainerRegistry/registries/push/write | 將映像推送或寫入至容器登錄。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -268,11 +268,11 @@ ms.locfileid: "65977757"
 > | **動作** |  |
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | 從容器登錄中提取或取得隔離的映像 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="acrquarantinewriter"></a>AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
@@ -284,11 +284,11 @@ ms.locfileid: "65977757"
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | 從容器登錄中提取或取得隔離的映像 |
 > | Microsoft.ContainerRegistry/registries/quarantineWrite/write | 寫入/修改已隔離映像的隔離狀態 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="api-management-service-contributor"></a>API 管理服務參與者
 > [!div class="mx-tableFixed"]
@@ -305,11 +305,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="api-management-service-operator-role"></a>API 管理服務操作員角色
 > [!div class="mx-tableFixed"]
@@ -336,9 +336,9 @@ ms.locfileid: "65977757"
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | 取得使用者相關聯的金鑰 |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="api-management-service-reader-role"></a>API 管理服務讀取者角色
 > [!div class="mx-tableFixed"]
@@ -358,9 +358,9 @@ ms.locfileid: "65977757"
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | 取得使用者相關聯的金鑰 |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="application-insights-component-contributor"></a>Application Insights 元件參與者
 > [!div class="mx-tableFixed"]
@@ -378,11 +378,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="application-insights-snapshot-debugger"></a>Application Insights 快照集偵錯工具
 > [!div class="mx-tableFixed"]
@@ -398,11 +398,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="automation-job-operator"></a>自動化作業運算子
 > [!div class="mx-tableFixed"]
@@ -425,11 +425,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="automation-operator"></a>自動化運算子
 > [!div class="mx-tableFixed"]
@@ -460,11 +460,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="automation-runbook-operator"></a>自動化 Runbook 運算子
 > [!div class="mx-tableFixed"]
@@ -480,11 +480,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="avere-contributor"></a>Avere 參與者
 > [!div class="mx-tableFixed"]
@@ -513,13 +513,13 @@ ms.locfileid: "65977757"
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | Microsoft.Resources/subscriptions/resourceGroups/resources/read | 取得資源群組的資源。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | 傳回刪除 Blob 的結果 |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 Blob 或 Blob 清單 |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | 傳回寫入 Blob 的結果 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="avere-operator"></a>Avere Operator
 > [!div class="mx-tableFixed"]
@@ -540,13 +540,13 @@ ms.locfileid: "65977757"
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器的清單 |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | 傳回放置 Blob 容器的結果 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | 傳回刪除 Blob 的結果 |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 Blob 或 Blob 清單 |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | 傳回寫入 Blob 的結果 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="azure-kubernetes-service-cluster-admin-role"></a>Azure Kubernetes Service 叢集管理員角色
 > [!div class="mx-tableFixed"]
@@ -557,11 +557,11 @@ ms.locfileid: "65977757"
 > | **動作** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | 列出受控叢集的 clusterAdmin 認證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="azure-kubernetes-service-cluster-user-role"></a>Azure Kubernetes Service 叢集使用者角色
 > [!div class="mx-tableFixed"]
@@ -572,26 +572,26 @@ ms.locfileid: "65977757"
 > | **動作** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | 列出受控叢集的 clusterUser 認證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="azure-maps-data-reader-preview"></a>Azure 地圖服務資料讀者 (預覽)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 授與從 Azure 地圖服務帳戶讀取地圖相關資料的存取權。 |
+> | **說明** | 授與的讀取權限將對應從 Azure 地圖服務帳戶的相關的資料。 |
 > | **Id** | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | **動作** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.Maps/accounts/data/read | 將資料讀取權限授與地圖服務帳戶。 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="azure-stack-registration-owner"></a>Azure Stack 註冊擁有者
 > [!div class="mx-tableFixed"]
@@ -604,11 +604,11 @@ ms.locfileid: "65977757"
 > | Microsoft.AzureStack/registrations/products/read | 取得 Azure Stack Marketplace 產品的屬性 |
 > | Microsoft.AzureStack/registrations/read | 取得 Azure Stack 註冊的屬性 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="backup-contributor"></a>備份參與者
 > [!div class="mx-tableFixed"]
@@ -661,11 +661,11 @@ ms.locfileid: "65977757"
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | 列出所有的備份保護用途 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="backup-operator"></a>備份操作員
 > [!div class="mx-tableFixed"]
@@ -733,11 +733,11 @@ ms.locfileid: "65977757"
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | 列出所有的備份保護用途 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="backup-reader"></a>備份讀取者
 > [!div class="mx-tableFixed"]
@@ -786,11 +786,11 @@ ms.locfileid: "65977757"
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | 列出所有的備份保護用途 |
 > | Microsoft.RecoveryServices/Vaults/usages/read | 傳回復原服務保存庫的使用量詳細資料。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="billing-reader"></a>帳單讀取器
 > [!div class="mx-tableFixed"]
@@ -807,11 +807,11 @@ ms.locfileid: "65977757"
 > | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="biztalk-contributor"></a>BizTalk 參與者
 > [!div class="mx-tableFixed"]
@@ -828,26 +828,26 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
-## <a name="blockchain-member-node-access-preview"></a>區塊鏈成員節點存取權 (預覽)
+## <a name="blockchain-member-node-access-preview"></a>區塊鏈成員節點存取 （預覽）
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 允許存取區塊鏈成員節點 |
+> | **說明** | 允許的區塊鏈成員節點的存取 |
 > | **Id** | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
 > | **動作** |  |
 > | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | 取得或列出現有的區塊鏈成員交易節點。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | 連線到區塊鏈成員交易節點。 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="cdn-endpoint-contributor"></a>CDN 端點參與者
 > [!div class="mx-tableFixed"]
@@ -865,11 +865,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="cdn-endpoint-reader"></a>CDN 端點讀者
 > [!div class="mx-tableFixed"]
@@ -887,11 +887,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="cdn-profile-contributor"></a>CDN 設定檔參與者
 > [!div class="mx-tableFixed"]
@@ -909,11 +909,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="cdn-profile-reader"></a>CDN 設定檔讀者
 > [!div class="mx-tableFixed"]
@@ -931,11 +931,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="classic-network-contributor"></a>傳統網路參與者
 > [!div class="mx-tableFixed"]
@@ -952,11 +952,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="classic-storage-account-contributor"></a>傳統儲存體帳戶參與者
 > [!div class="mx-tableFixed"]
@@ -973,11 +973,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="classic-storage-account-key-operator-service-role"></a>傳統儲存體帳戶金鑰操作員服務角色
 > [!div class="mx-tableFixed"]
@@ -989,11 +989,11 @@ ms.locfileid: "65977757"
 > | Microsoft.ClassicStorage/storageAccounts/listkeys/action | 列出儲存體帳戶的存取金鑰。 |
 > | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | 重新產生儲存體帳戶的現有存取金鑰。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="classic-virtual-machine-contributor"></a>傳統虛擬機器參與者
 > [!div class="mx-tableFixed"]
@@ -1020,11 +1020,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="cognitive-services-contributor"></a>認知服務參與者
 > [!div class="mx-tableFixed"]
@@ -1051,11 +1051,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="cognitive-services-data-reader-preview"></a>認知服務資料讀者 (預覽)
 > [!div class="mx-tableFixed"]
@@ -1064,13 +1064,13 @@ ms.locfileid: "65977757"
 > | **說明** | 讓您可讀取認知服務資料。 |
 > | **Id** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | **動作** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.CognitiveServices/*/read |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="cognitive-services-user"></a>認知服務使用者
 > [!div class="mx-tableFixed"]
@@ -1093,11 +1093,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.CognitiveServices/* |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="cosmos-db-account-reader-role"></a>Cosmos DB 帳戶讀者角色
 > [!div class="mx-tableFixed"]
@@ -1114,11 +1114,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="cosmos-db-operator"></a>Cosmos DB 運算子
 > [!div class="mx-tableFixed"]
@@ -1140,9 +1140,9 @@ ms.locfileid: "65977757"
 > | Microsoft.DocumentDB/databaseAccounts/listKeys/* |  |
 > | Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/* |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="cosmosbackupoperator"></a>CosmosBackupOperator
 > [!div class="mx-tableFixed"]
@@ -1154,11 +1154,11 @@ ms.locfileid: "65977757"
 > | Microsoft.DocumentDB/databaseAccounts/backup/action | 提交要求以設定備份 |
 > | Microsoft.DocumentDB/databaseAccounts/restore/action | 提交還原要求 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="cost-management-contributor"></a>成本管理參與者
 > [!div class="mx-tableFixed"]
@@ -1176,11 +1176,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Advisor/configurations/read | 取得組態 |
 > | Microsoft.Advisor/recommendations/read | 讀取建議 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="cost-management-reader"></a>成本管理讀者
 > [!div class="mx-tableFixed"]
@@ -1198,11 +1198,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Advisor/configurations/read | 取得組態 |
 > | Microsoft.Advisor/recommendations/read | 讀取建議 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="data-box-contributor"></a>資料箱參與者
 > [!div class="mx-tableFixed"]
@@ -1218,11 +1218,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | Microsoft.Databox/* |  |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="data-box-reader"></a>資料箱讀者
 > [!div class="mx-tableFixed"]
@@ -1240,11 +1240,11 @@ ms.locfileid: "65977757"
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="data-factory-contributor"></a>Data Factory 參與者
 > [!div class="mx-tableFixed"]
@@ -1262,11 +1262,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="data-lake-analytics-developer"></a>Data Lake Analytics 開發人員
 > [!div class="mx-tableFixed"]
@@ -1299,9 +1299,9 @@ ms.locfileid: "65977757"
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | 建立或更新計算原則。 |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | 刪除計算原則。 |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="data-purger"></a>資料清除者
 > [!div class="mx-tableFixed"]
@@ -1315,11 +1315,11 @@ ms.locfileid: "65977757"
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | 從工作區刪除指定的資料 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="devtest-labs-user"></a>DevTest Labs 使用者
 > [!div class="mx-tableFixed"]
@@ -1363,9 +1363,9 @@ ms.locfileid: "65977757"
 > | **NotActions** |  |
 > | Microsoft.Compute/virtualMachines/vmSizes/read | 列出虛擬機器所能更新成的大小 |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="dns-zone-contributor"></a>DNS 區域參與者
 > [!div class="mx-tableFixed"]
@@ -1382,11 +1382,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="documentdb-account-contributor"></a>DocumentDB 帳戶參與者
 > [!div class="mx-tableFixed"]
@@ -1403,11 +1403,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="event-hubs-data-owner"></a>事件中樞資料擁有者
 
@@ -1419,11 +1419,11 @@ ms.locfileid: "65977757"
 > | **動作** |  |
 > | Microsoft.EventHubs/* | 可讓事件中樞命名空間的完整管理存取 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.EventHubs/* | 可讓您完整的資料存取事件中樞命名空間 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription 參與者
 > [!div class="mx-tableFixed"]
@@ -1442,11 +1442,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="eventgrid-eventsubscription-reader"></a>EventGrid EventSubscription 讀者
 > [!div class="mx-tableFixed"]
@@ -1462,11 +1462,11 @@ ms.locfileid: "65977757"
 > | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | 依主題類型列出區域事件訂用帳戶 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="hdinsight-cluster-operator"></a>HDInsight 叢集操作員
 > [!div class="mx-tableFixed"]
@@ -1485,11 +1485,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Authorization/*/read | 读取角色和角色分配 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="hdinsight-domain-services-contributor"></a>HDInsight 網域服務參與者
 > [!div class="mx-tableFixed"]
@@ -1502,11 +1502,11 @@ ms.locfileid: "65977757"
 > | Microsoft.AAD/domainServices/*/read |  |
 > | Microsoft.AAD/domainServices/oucontainer/* |  |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="intelligent-systems-account-contributor"></a>Intelligent Systems 帳戶參與者
 > [!div class="mx-tableFixed"]
@@ -1523,11 +1523,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="key-vault-contributor"></a>Key Vault 參與者
 > [!div class="mx-tableFixed"]
@@ -1546,9 +1546,9 @@ ms.locfileid: "65977757"
 > | Microsoft.KeyVault/locations/deletedVaults/purge/action | 清除虛刪除的 Key Vault |
 > | Microsoft.KeyVault/hsmPools/* |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="lab-creator"></a>實驗室建立者
 > [!div class="mx-tableFixed"]
@@ -1565,11 +1565,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="log-analytics-contributor"></a>Log Analytics 參與者
 > [!div class="mx-tableFixed"]
@@ -1592,11 +1592,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Storage/storageAccounts/listKeys/action | 傳回指定儲存體帳戶的存取金鑰。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="log-analytics-reader"></a>Log Analytics 讀者
 > [!div class="mx-tableFixed"]
@@ -1612,9 +1612,9 @@ ms.locfileid: "65977757"
 > | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | 擷取工作區的共用金鑰。 這些金鑰可用來將 Microsoft Operational Insights 代理程式連線到工作區。 |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="logic-app-contributor"></a>邏輯應用程式參與者
 > [!div class="mx-tableFixed"]
@@ -1644,11 +1644,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Web/serverFarms/read | 取得 App Service 方案的屬性 |
 > | Microsoft.Web/sites/functions/listSecrets/action | 列出祕密 Web Apps 函式。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="logic-app-operator"></a>邏輯應用程式操作員
 > [!div class="mx-tableFixed"]
@@ -1674,11 +1674,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Web/customApis/*/read | 讀取「自訂 API」。 |
 > | Microsoft.Web/serverFarms/read | 取得 App Service 方案的屬性 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="managed-application-operator-role"></a>受控應用程式操作員角色
 > [!div class="mx-tableFixed"]
@@ -1691,11 +1691,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Solutions/applications/read | 擷取應用程式清單。 |
 > | Microsoft.Solutions/*/action |  |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="managed-applications-reader"></a>受控應用程式讀者
 > [!div class="mx-tableFixed"]
@@ -1708,11 +1708,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Solutions/jitRequests/* |  |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="managed-identity-contributor"></a>受控身分識別參與者
 > [!div class="mx-tableFixed"]
@@ -1730,11 +1730,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="managed-identity-operator"></a>受控身分識別操作員
 > [!div class="mx-tableFixed"]
@@ -1751,11 +1751,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="management-group-contributor"></a>管理群組參與者
 > [!div class="mx-tableFixed"]
@@ -1770,11 +1770,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Management/managementGroups/subscriptions/write | 將現有的訂用帳戶關聯至管理群組。 |
 > | Microsoft.Management/managementGroups/write | 建立或更新管理群組。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="management-group-reader"></a>管理群組讀者
 > [!div class="mx-tableFixed"]
@@ -1785,11 +1785,11 @@ ms.locfileid: "65977757"
 > | **動作** |  |
 > | Microsoft.Management/managementGroups/read | 列出已驗證之使用者的管理群組。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="monitoring-contributor"></a>监视参与者
 > [!div class="mx-tableFixed"]
@@ -1823,11 +1823,11 @@ ms.locfileid: "65977757"
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="monitoring-metrics-publisher"></a>監視計量發行者
 > [!div class="mx-tableFixed"]
@@ -1840,11 +1840,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.Insights/Metrics/Write | 寫入計量 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="monitoring-reader"></a>監視讀取器
 > [!div class="mx-tableFixed"]
@@ -1857,11 +1857,11 @@ ms.locfileid: "65977757"
 > | Microsoft.OperationalInsights/workspaces/search/action | 執行搜尋查詢 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="network-contributor"></a>網路參與者
 > [!div class="mx-tableFixed"]
@@ -1878,11 +1878,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="new-relic-apm-account-contributor"></a>New Relic APM 帳戶參與者
 > [!div class="mx-tableFixed"]
@@ -1899,11 +1899,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | NewRelic.APM/accounts/* |  |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="reader-and-data-access"></a>讀取者及資料存取
 > [!div class="mx-tableFixed"]
@@ -1916,11 +1916,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Storage/storageAccounts/ListAccountSas/action | 傳回指定儲存體帳戶的帳戶 SAS 權杖。 |
 > | Microsoft.Storage/storageAccounts/read | 傳回儲存體帳戶清單，或取得指定儲存體帳戶的屬性。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="redis-cache-contributor"></a>Redis 快取參與者
 > [!div class="mx-tableFixed"]
@@ -1937,11 +1937,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="resource-policy-contributor-preview"></a>資源原則參與者 (預覽)
 > [!div class="mx-tableFixed"]
@@ -1957,11 +1957,11 @@ ms.locfileid: "65977757"
 > | Microsoft.PolicyInsights/* |  |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="scheduler-job-collections-contributor"></a>排程器工作集合參與者
 > [!div class="mx-tableFixed"]
@@ -1978,11 +1978,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Scheduler/jobcollections/* | 建立和管理工作集合 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="search-service-contributor"></a>搜尋服務參與者
 > [!div class="mx-tableFixed"]
@@ -1999,11 +1999,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Search/searchServices/* | 建立和管理搜尋服務 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="security-admin"></a>安全性系統管理員
 > [!div class="mx-tableFixed"]
@@ -2024,11 +2024,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Security/* |  |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="security-manager-legacy"></a>安全性管理員 (舊版)
 > [!div class="mx-tableFixed"]
@@ -2048,11 +2048,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Security/* | 建立和管理安全性元件和原則 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="security-reader"></a>安全性讀取者
 > [!div class="mx-tableFixed"]
@@ -2070,11 +2070,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | Microsoft.Management/managementGroups/read | 列出已驗證之使用者的管理群組。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="service-bus-data-owner"></a>服務匯流排資料擁有者
 
@@ -2086,11 +2086,11 @@ ms.locfileid: "65977757"
 > | **動作** |  |
 > | Microsoft.ServiceBus/* | 可讓服務匯流排命名空間的完整管理存取 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.ServiceBus/* | 可讓您完整的資料存取服務匯流排命名空間 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="site-recovery-contributor"></a>Site Recovery 參與者
 > [!div class="mx-tableFixed"]
@@ -2127,11 +2127,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Storage/storageAccounts/read | 傳回儲存體帳戶清單，或取得指定儲存體帳戶的屬性。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="site-recovery-operator"></a>Site Recovery 操作員
 > [!div class="mx-tableFixed"]
@@ -2198,11 +2198,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Storage/storageAccounts/read | 傳回儲存體帳戶清單，或取得指定儲存體帳戶的屬性。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="site-recovery-reader"></a>Site Recovery 讀取者
 > [!div class="mx-tableFixed"]
@@ -2243,11 +2243,11 @@ ms.locfileid: "65977757"
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | 「保存庫權杖」作業可用來取得保存庫層級後端作業的保存庫權杖。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="spatial-anchors-account-contributor"></a>空間錨點帳戶參與者
 > [!div class="mx-tableFixed"]
@@ -2256,9 +2256,9 @@ ms.locfileid: "65977757"
 > | **說明** | 讓您可管理帳戶中的空間錨點，但無法將其刪除 |
 > | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
 > | **動作** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | 创建空间定位点 |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | 发现附近的空间定位点 |
@@ -2267,7 +2267,7 @@ ms.locfileid: "65977757"
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | 提交诊断数据以帮助提高 Azure 空间定位点服务的质量 |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/write | 更新空间定位点属性 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="spatial-anchors-account-owner"></a>空間錨點帳戶擁有者
 > [!div class="mx-tableFixed"]
@@ -2276,9 +2276,9 @@ ms.locfileid: "65977757"
 > | **說明** | 讓您可管理帳戶中的空間錨點，包含將其刪除 |
 > | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
 > | **動作** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | 创建空间定位点 |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | 删除空间定位点 |
@@ -2288,7 +2288,7 @@ ms.locfileid: "65977757"
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | 提交诊断数据以帮助提高 Azure 空间定位点服务的质量 |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/write | 更新空间定位点属性 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="spatial-anchors-account-reader"></a>空間錨點帳戶讀者
 > [!div class="mx-tableFixed"]
@@ -2297,16 +2297,16 @@ ms.locfileid: "65977757"
 > | **說明** | 讓您可找出及讀取帳戶中空間錨點的屬性 |
 > | **Id** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
 > | **動作** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | 发现附近的空间定位点 |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | 获取空间定位点的属性 |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | 找到空间定位点 |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | 提交诊断数据以帮助提高 Azure 空间定位点服务的质量 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="sql-db-contributor"></a>SQL DB 參與者
 > [!div class="mx-tableFixed"]
@@ -2352,9 +2352,9 @@ ms.locfileid: "65977757"
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="sql-managed-instance-contributor"></a>SQL 受管理的執行個體參與者
 > [!div class="mx-tableFixed"]
@@ -2378,11 +2378,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Insights/metrics/read | 讀取計量 |
 > | Microsoft.Insights/metricDefinitions/read | 讀取計量定義 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="sql-security-manager"></a>SQL 安全性管理員
 > [!div class="mx-tableFixed"]
@@ -2433,11 +2433,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="sql-server-contributor"></a>SQL Server 參與者
 > [!div class="mx-tableFixed"]
@@ -2486,9 +2486,9 @@ ms.locfileid: "65977757"
 > | Microsoft.Sql/servers/securityAlertPolicies/* | 編輯 SQL Server 安全性警示原則 |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="storage-account-contributor"></a>儲存體帳戶參與者
 > [!div class="mx-tableFixed"]
@@ -2507,11 +2507,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Storage/storageAccounts/* | 建立及管理儲存體帳戶 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="storage-account-key-operator-service-role"></a>儲存體帳戶金鑰操作員服務角色
 > [!div class="mx-tableFixed"]
@@ -2523,125 +2523,125 @@ ms.locfileid: "65977757"
 > | Microsoft.Storage/storageAccounts/listkeys/action | 傳回指定儲存體帳戶的存取金鑰。 |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | 重新產生指定的儲存體帳戶的存取金鑰。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="storage-blob-data-contributor"></a>儲存體 Blob 資料參與者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 讀取、 寫入和刪除 Azure 儲存體容器和 blob。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。 |
+> | **說明** | 讀取、 寫入和刪除 Azure 儲存體容器和 blob。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **動作** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 刪除容器。 |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器的清單。 |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | 修改容器的中繼資料或屬性。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | 刪除 Blob。 |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 blob 清單。 |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | 寫入至 blob。 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="storage-blob-data-owner"></a>儲存體 Blob 資料擁有者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 提供 Azure 儲存體 blob 容器與資料，包括指派 POSIX 存取控制的完整存取。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。 |
+> | **說明** | 提供 Azure 儲存體 blob 容器與資料，包括指派 POSIX 存取控制的完整存取。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **動作** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/* | 在容器上的完整權限。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* | 在 blob 上的完整權限。 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="storage-blob-data-reader"></a>儲存體 Blob 資料讀者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 讀取，並列出 Azure 儲存體容器和 blob。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。 |
+> | **說明** | 讀取，並列出 Azure 儲存體容器和 blob。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **動作** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器的清單。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 blob 清單。 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="storage-queue-data-contributor"></a>儲存體佇列資料參與者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 讀取、 寫入和刪除 Azure 儲存體佇列和佇列訊息。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。 |
+> | **說明** | 讀取、 寫入和刪除 Azure 儲存體佇列和佇列訊息。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 > | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | **動作** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | 刪除佇列。 |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | 傳回佇列清單。 |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/write | 修改佇列中繼資料或屬性。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | 從佇列刪除一或多個訊息。 |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 查看，或從佇列擷取一或多個訊息。 |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | 將訊息加入佇列。 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="storage-queue-data-message-processor"></a>儲存體佇列資料訊息處理者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 查看、 擷取和從 Azure 儲存體佇列刪除訊息。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。 |
+> | **說明** | 查看、 擷取和從 Azure 儲存體佇列刪除訊息。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 > | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | **動作** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 查看訊息。 |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | 擷取並刪除訊息。 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="storage-queue-data-message-sender"></a>儲存體佇列資料訊息傳送者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 將訊息新增至 Azure 儲存體佇列中。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。 |
+> | **說明** | 將訊息新增至 Azure 儲存體佇列中。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 > | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | **動作** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | 將訊息加入佇列。 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="storage-queue-data-reader"></a>儲存體佇列資料讀者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 讀取，並列出 Azure 儲存體佇列和佇列訊息。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。 |
+> | **說明** | 讀取，並列出 Azure 儲存體佇列和佇列訊息。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
 > | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **動作** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | 傳回佇列或佇列清單。 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 查看，或從佇列擷取一或多個訊息。 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="support-request-contributor"></a>支援要求參與者
 > [!div class="mx-tableFixed"]
@@ -2654,11 +2654,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="traffic-manager-contributor"></a>流量管理員參與者
 > [!div class="mx-tableFixed"]
@@ -2675,11 +2675,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="user-access-administrator"></a>使用者存取系統管理員
 > [!div class="mx-tableFixed"]
@@ -2692,11 +2692,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Authorization/* | 管理授權 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="virtual-machine-administrator-login"></a>虛擬機器系統管理員登入
 > [!div class="mx-tableFixed"]
@@ -2711,12 +2711,12 @@ ms.locfileid: "65977757"
 > | Microsoft.Network/networkInterfaces/read | 取得網路介面定義。  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | 以一般使用者身分登入虛擬機器 |
 > | Microsoft.Compute/virtualMachines/loginAsAdmin/action | 以 Windows 系統管理員或 Linux 根使用者權限登入虛擬機器 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="virtual-machine-contributor"></a>虛擬機器參與者
 > [!div class="mx-tableFixed"]
@@ -2764,11 +2764,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Storage/storageAccounts/read | 傳回儲存體帳戶清單，或取得指定儲存體帳戶的屬性。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="virtual-machine-user-login"></a>虛擬機器使用者登入
 > [!div class="mx-tableFixed"]
@@ -2783,11 +2783,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Network/networkInterfaces/read | 取得網路介面定義。  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | 以一般使用者身分登入虛擬機器 |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="web-plan-contributor"></a>Web 方案參與者
 > [!div class="mx-tableFixed"]
@@ -2805,11 +2805,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Web/serverFarms/* | 建立和管理伺服器陣列 |
 > | Microsoft.Web/hostingEnvironments/Join/Action | 加入 App Service Environment |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="website-contributor"></a>網站參與者
 > [!div class="mx-tableFixed"]
@@ -2831,11 +2831,11 @@ ms.locfileid: "65977757"
 > | Microsoft.Web/serverFarms/read | 取得 App Service 方案的屬性 |
 > | Microsoft.Web/sites/* | 建立和管理網站 (建立網站也需要相關聯應用程式服務方案的寫入權限) |
 > | **NotActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **DataActions** |  |
-> | 無 |  |
+> | 無  |  |
 > | **NotDataActions** |  |
-> | 無 |  |
+> | 無  |  |
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e65f7ca0a01e0ceee6448ea49e1d6d6da696cf6
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: f3f21f552add551ac2434618b184eb18c53ad5be
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417070"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752228"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>在 Azure Active Directory 中依管理工作區分的系統管理員角色
 
@@ -56,6 +56,9 @@ Task | 最低特殊權限角色 | 其他角色
 建立、讀取、更新及刪除使用者 | 全域系統管理員 ([請參閱文件](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
 讀取所有設定 | 全域管理員 | 
 讀取 B2C 稽核記錄 | 全域系統管理員 ([請參閱文件](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+
+> [!NOTE]
+> Azure AD B2C 的全域系統管理員並沒有相同的 Azure AD 全域系統管理員權限。 如果您有 Azure AD B2C 全域系統管理員權限，請確定您是在 Azure AD B2C 目錄，而非 Azure AD 目錄。
 
 ## <a name="company-branding"></a>公司商標
 

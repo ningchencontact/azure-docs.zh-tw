@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: cdc1b07b93386c0225c1e6c5f570ea1247e450b5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e9092fb91ad98e6147647717e11d1a64bcff580e
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924401"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754189"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Azure Data Box Gateway 的使用案例
 
@@ -50,7 +50,7 @@ Data Box Gateway 的主要優點之一是能夠持續將資料嵌入裝置，然
 - 將資料上傳之後，您必須將資料移至封存層。 設定 Blob 層有兩種方法：Azure PowerShell 指令碼或 Azure 儲存體生命週期管理原則。  
     - 如果使用 Azure PowerShell，請遵循這些[步驟](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier)來將資料移至封存層。
     - 如果使用 Azure 生命週期管理，請遵循這些步驟來將資料移至封存層。
-        - [註冊](/azure/storage/common/storage-lifecycle-management-concepts#register-for-preview) Blob 生命週期管理服務預覽版，以使用封存層。
+        - [註冊](/azure/storage/common/storage-lifecycle-management-concepts) Blob 生命週期管理服務預覽版，以使用封存層。
         - 使用下列原則來[封存內嵌資料](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest)。
 - 標示為封存的 Blob 將無法再由閘道進行修改，除非將其移至經常性存取層或非經常性存取層。 如果檔案位在本機儲存體中，對本機複本所做的變更 (包括刪除) 不會上傳到封存層中。
 - 若要讀取封存儲存體中的資料，則必須將 Blob 層變更為經常性存取或非經常性存取，才能將資料解除凍結。 在閘道上[重新整理共用](data-box-gateway-manage-shares.md#refresh-shares)不會將 Blob 解除凍結。
@@ -79,11 +79,11 @@ Data Box Gateway 的主要優點之一是能夠持續將資料嵌入裝置，然
 
 請依照下列步驟使用 Data Box Gateway 進行持續擷取。
 
-1. 在 Data Box Gateway 上建立雲端共用。 此共用會自動將任何資料上傳至 Azure 儲存體帳戶。 移至 Data Box Gateway 資源中的 [共用]，然後按一下 [+ 新增共用]。
+1. 在 Data Box Gateway 上建立雲端共用。 此共用會自動將任何資料上傳至 Azure 儲存體帳戶。 移至 Data Box Gateway 資源中的 [共用]  ，然後按一下 [+ 新增共用]  。
 
     ![按一下 [新增共用]](media/data-box-gateway-use-cases/add-share1.png)
 
-2. 請確定此共用會對應到包含植入資料的容器。 針對 [選取 Blob 容器]，請選擇 [使用現有項目]，並瀏覽至其中有資料箱所傳輸資料的容器。
+2. 請確定此共用會對應到包含植入資料的容器。 針對 [選取 Blob 容器]  ，請選擇 [使用現有項目]  ，並瀏覽至其中有資料箱所傳輸資料的容器。
 
     ![共用設定](media/data-box-gateway-use-cases/share-settings-select-existing-container1.png)
 

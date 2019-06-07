@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2019
+ms.date: 06/06/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 5a08c2ae0b82841fd15aac4af06a8874cf64ba53
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 04ceac3b06972687ef6cdeac4dad1f07fea611cb
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950002"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754898"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>了解適用於 Azure 資源的角色定義
 
@@ -28,7 +28,7 @@ ms.locfileid: "65950002"
 
 ## <a name="role-definition-structure"></a>角色定義結構
 
-「角色定義」是權限集合。 有時簡稱為「角色」。 角色定義會列出可執行的作業，例如讀取、寫入和刪除。 也可能列出無法執行的作業或與基礎資料相關的作業。 角色定義的結構如下：
+「角色定義」  是權限集合。 有時簡稱為「角色」  。 角色定義會列出可執行的作業，例如讀取、寫入和刪除。 也可能列出無法執行的作業或與基礎資料相關的作業。 角色定義的結構如下：
 
 ```
 Name
@@ -48,7 +48,7 @@ AssignableScopes []
 
 作業字串的 `{action}` 部分指定您可以對資源類型執行的作業類型。 例如，您將會在 `{action}` 中看到下列子字串：
 
-| 動作子字串    | 說明         |
+| 動作子字串    | 描述         |
 | ------------------- | ------------------- |
 | `*` | 此萬用字元會授與所有符合字串之作業的存取權。 |
 | `read` | 啟用讀取作業 (GET)。 |
@@ -157,7 +157,7 @@ Bob 的權限會限制為只`Actions`並`DataActions`中指定[儲存體 Blob �
 
 若要檢視及使用資料作業，您必須有正確版本的工具或 SDK：
 
-| Tool  | 版本  |
+| 工具  | Version  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 或更新版本 |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 或更新版本 |
@@ -171,7 +171,7 @@ Bob 的權限會限制為只`Actions`並`DataActions`中指定[儲存體 Blob �
 
 - 2018-01-01-preview
 
-Azure 入口網站也可讓使用者透過 Azure AD 預覽體驗來瀏覽及管理佇列與 Blob 容器的內容。 若要查看及管理佇列或 Blob 容器的內容，請按一下儲存體帳戶概觀上的 [使用 Azure AD 預覽版探索資料]。
+Azure 入口網站也可讓使用者透過 Azure AD 預覽體驗來瀏覽及管理佇列與 Blob 容器的內容。 若要查看及管理佇列或 Blob 容器的內容，請按一下儲存體帳戶概觀上的 [使用 Azure AD 預覽版探索資料]  。
 
 ![使用 Azure AD 預覽版探索佇列和 Blob 容器](./media/role-definitions/rbac-dataactions-browsing.png)
 
@@ -179,7 +179,7 @@ Azure 入口網站也可讓使用者透過 Azure AD 預覽體驗來瀏覽及管�
 
 `Actions` 權限會指定角色所允許執行的管理作業。 它是識別 Azure 資源提供者的安全性實體作業的作業字串集合。 以下是可用於 `Actions` 中的一些管理作業範例。
 
-| 作業字串    | 說明         |
+| 作業字串    | 描述         |
 | ------------------- | ------------------- |
 | `*/read` | 授與所有 Azure 資源提供者的所有資源類型之讀取作業的存取權。|
 | `Microsoft.Compute/*` | 授與對 Microsoft.Compute 資源提供者中所有資源類型之所有作業的存取權。|
@@ -199,7 +199,7 @@ Azure 入口網站也可讓使用者透過 Azure AD 預覽體驗來瀏覽及管�
 
 `DataActions` 權限會指定角色允許對物件內資料執行的管理作業。 例如，如果使用者有儲存體帳戶的讀取 Blob 資料存取權，則他們可讀取該儲存體帳戶中的 Blob。 以下是可用於 `DataActions` 中的一些資料作業範例。
 
-| 作業字串    | 說明         |
+| 作業字串    | 描述         |
 | ------------------- | ------------------- |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | 傳回 Blob 或 Blob 清單。 |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | 傳回寫入 Blob 的結果。 |
@@ -216,7 +216,7 @@ Azure 入口網站也可讓使用者透過 Azure AD 預覽體驗來瀏覽及管�
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-`AssignableScopes` 屬性指定角色可指派的範圍 (訂用帳戶、資源群組或資源)。 您可以讓角色僅指派給需要它的訂用帳戶或資源群組，不會干擾其餘訂用帳戶或資源群組的使用者體驗。 您至少必須使用一個訂用帳戶、資源群組或資源識別碼。
+`AssignableScopes`屬性會指定擁有此角色定義可用的範圍 （訂用帳戶、 資源群組或資源）。 您可以將角色指派在只有訂用帳戶或資源群組需要它，並不會干擾其餘訂用帳戶或資源群組的使用者體驗。 您至少必須使用一個訂用帳戶、資源群組或資源識別碼。
 
 內建角色的 `AssignableScopes` 設定為根目錄範圍 (`"/"`)。 根目錄範圍表示角色可指派給所有範圍。 有效的可指派範圍範例包括：
 

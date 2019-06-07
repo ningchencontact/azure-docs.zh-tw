@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/06/2019
 ms.author: twhitney
-ms.openlocfilehash: 5f727cb5c56c31e769edcb365f6d571253174567
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: cdcc1b985c570d1af4bbb33ac29a37e63b1dfa90
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305290"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752386"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>預覽-使用 Azure CLI 在 Azure Kubernetes Service (AKS) 叢集上建立 Windows Server 容器
 
@@ -86,7 +86,6 @@ az provider register --namespace Microsoft.ContainerService
 * AKS 叢集中可以有最多八個節點的集區。
 * AKS 叢集中可以有最多 400 個節點的跨這八個節點的集區。
 * Windows Server 的節點集區名稱有 6 個字元的限制。
-* Windows Server 的節點集區沒有可用在加拿大地區這一次。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 

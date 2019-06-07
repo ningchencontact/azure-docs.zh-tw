@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8bb06d04aec8e98308c0f5595b6b39e4b98302ff
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: f369f899d4a383205ad124e4fcd8dabf9f92f63f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480053"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753184"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -27,7 +27,7 @@ ms.locfileid: "66480053"
 
 機器學習服務工作流程通常會遵循此順序：
 
-1. 使用 **Python** 開發機器學習服務定型指令碼。
+1. 開發機器學習服務訓練中的指令碼**Python**或透過視覺化介面。
 1. 建立並設定**計算目標**。
 1. **提交指令碼**至設定的計算目標以在該環境中執行。 在訓練期間，可以從**資料存放區**讀取或寫入指令碼。 而執行的記錄會在**工作區**中儲存為**執行**，並歸類在**實驗**之下。
 1. **查詢實驗**取得目前和過去回合的記錄計量。 如果計量未指出所要的結果，請回到步驟 1 並逐一查看您的指令碼。
@@ -107,34 +107,7 @@ Azure Machine Learning 資料集 （預覽） 讓您更輕鬆地存取及處理�
 
 ## <a name="compute-target"></a>計算目標
 
-計算目標是用來執行定型指令碼，或裝載服務部署的計算資源。 支援的計算目標包括：
-
-| 計算目標 | 訓練 | 部署 |
-| ---- |:----:|:----:|
-| 您的本機電腦 | ✓ | &nbsp; |
-| Azure Machine Learning Compute | ✓ | &nbsp; |
-| Azure 中的 Linux VM</br>(例如資料科學虛擬機器) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; |
-| Azure Data Lake Analytics | ✓ | &nbsp; |
-| Apache Spark for HDInsight | ✓ | &nbsp; |
-| Azure Container Instances | &nbsp; | ✓ |
-| Azure Kubernetes Service | &nbsp; | ✓ |
-| Azure IoT Edge | &nbsp; | ✓ |
-| 現場可程式化閘陣列 (FPGA) | &nbsp; | ✓ |
-
-計算目標會附加至工作區。 本機電腦以外的計算目標會由工作區的使用者共用。
-
-### <a name="managed-and-unmanaged-compute-targets"></a>受控和非受控計算目標
-
-* **受控**：由 Azure Machine Learning 服務所建立和管理的計算目標。 這些計算目標已針對機器學習工作負載進行最佳化。 Azure Machine Learning Compute 是截至 2018 年 12 月 4 日為止，唯一的受控計算目標。 未來可能會新增其他受控計算目標。
-
-    您可以使用 Azure 入口網站、Azure Machine Learning SDK 或 Azure CLI，直接透過工作區來建立機器學習計算執行個體。 其他所有計算目標則必須在工作區外建立，然後再與其連結。
-
-* **非受控**：*不是*由 Azure Machine Learning 服務所管理的計算目標。 您可能需要在 Azure Machine Learning 外建立它們，然後再將其連結到您的工作區，才能使用它們。 非受控的計算目標可能需要額外的步驟來進行維護，或針對機器學習工作負載提升效能。
-
-如需有關選取計算目標以進行定型的資訊，請參閱[選取並使用計算目標以將模型定型](how-to-set-up-training-targets.md)。
-
-如需有關選取計算目標以進行部署的資訊，請參閱[使用 Azure Machine Learning 服務部署模型](how-to-deploy-and-where.md)。
+A[計算目標](concept-compute-target.md)可讓您指定您執行您的定型指令碼或主機服務部署的計算資源。 此位置可能是您的本機或雲端式計算資源。 計算目標，讓您輕鬆變更計算環境，而不需要變更您的程式碼。 
 
 ## <a name="training-script"></a>定型指令碼
 

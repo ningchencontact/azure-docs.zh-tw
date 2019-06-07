@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: 15232c92e60d21d759bec59597cb161480b8c2ea
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: d42b929807bf67b73d0587232608efc0cea6d717
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743222"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752582"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender 進階威脅防護與 Azure 資訊安全中心
 
@@ -93,7 +93,7 @@ Azure 資訊安全中心正在透過與 [Windows Defender 進階威脅防護](ht
 
 ## <a name="set-the-firewall-configuration"></a>設置防火牆設定
 
-如果您具有封鎖匿名流量的 proxy 或防火牆，Windows Defender ATP 感應器會從系統內容連接，請務必允許匿名流量。 請依照指示[在 proxy 伺服器啟用 Windows Defender ATP 服務網址的存取權](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-windows-defender-atp-service-urls-in-the-proxy-server)。
+如果您具有封鎖匿名流量的 proxy 或防火牆，Windows Defender ATP 感應器會從系統內容連接，請務必允許匿名流量。 請依照指示[在 proxy 伺服器啟用 Windows Defender ATP 服務網址的存取權](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server)。
 
 ## <a name="test-the-feature"></a>測試功能
 

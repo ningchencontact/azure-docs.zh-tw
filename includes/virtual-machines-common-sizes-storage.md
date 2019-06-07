@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 5123ee3f65744f3d0c255712efe990b01be58e26
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: de998265188b1482be22225bba3c6ab3d58e562b
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420749"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66755633"
 ---
 儲存體最佳化 VM 大小提供高磁碟輸送量和 IO，適用於巨量資料、SQL、NoSQL 資料庫、資料倉儲及大型交易資料庫。  範例包括 Cassandra、MongoDB、Cloudera 及 Redis。 本文提供有關每個最佳化大小的 vCPU、資料磁碟和 NIC 數量，以及本機儲存體輸送量和網路頻寬的資訊。
 
@@ -57,7 +57,7 @@ ACU：150-175
 - SLES 12 SP2 或更新版本
 - RHEL 或 CentOS 6.7 版透過 6.10，與 Microsoft 所提供的 LIS 封裝 4.3.1 （或更新版本） 安裝
 - RHEL 或 CentOS 7.3 版，與 Microsoft 所提供的 LIS 封裝 4.2.1 （或更新版本） 安裝
-- RHEL 或 CentOS 7.4 版或更新版本
+- RHEL 或 CentOS 版本 7.6 或更新版本
 - UEK4 或更新版本的 oracle Linux
 - 具有反向移植核心，Debian 10 或更新版本的 debian 9
 - CoreOS 4.14 核心或更新版本

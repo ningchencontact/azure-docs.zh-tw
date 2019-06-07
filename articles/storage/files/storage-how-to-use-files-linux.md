@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 73ed98bf950f7c9f52e2b8eeb431fe4b36bfe324
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 375d0de60b916becc8e86a1e33cf4ed46f12c077
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427934"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754828"
 ---
 # <a name="use-azure-files-with-linux"></a>搭配 Linux 使用 Azure 檔案
 
@@ -75,7 +75,10 @@ ms.locfileid: "66427934"
 
     在其他發行版本上，請使用適當的封裝管理員或[從來源編譯](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **決定裝載共用的目錄/檔案使用權限**：下列範例使用權限 `0777` 提供所有使用者的讀取、寫入和執行權限。 您可以視需要將它取代為其他 [chmod 權限](https://en.wikipedia.org/wiki/Chmod)。
+* **決定裝載共用的目錄/檔案使用權限**：下列範例使用權限 `0777` 提供所有使用者的讀取、寫入和執行權限。 您可以將該值與其他[chmod 權限](https://en.wikipedia.org/wiki/Chmod)所需，但這表示可能會限制存取。 如果您使用其他權限，您應該考慮也使用 uid 與 gid，以保留您所選擇的本機群組的存取權。
+
+> [!NOTE]
+> 如果未明確指派 dir_mode=0777,file_mode=0777,sec=ntlmssp 和 file_mode 目錄和檔案權限，它們會預設為 0755年。
 
 * **請確定已開啟連接埠 445**：SMB 透過 TCP 通訊埠 445 進行通訊 - 請檢查您的防火牆不會將 TCP 通訊埠 445 從用戶端電腦封鎖。
 
@@ -89,7 +92,7 @@ ms.locfileid: "66427934"
     mkdir -p <storage_account_name>/<file_share_name>
     ```
 
-1. **使用掛接命令裝載 Azure 檔案共用**：請記得取代 **< storage_account_name >** ， **< share_name >** ， **< smb_version >** ， **< storage_account_key >** ，並 **< mount_point >** 為您的環境的適當資訊。 如果您的 Linux 散發套件支援使用加密的 SMB 3.0 (請參閱[了解 SMB 用戶端需求](#smb-client-reqs)如需詳細資訊)，使用**3.0** for **< smb_version >** 。 不支援 SMB 3.0 加密的 Linux 發行版本，使用**2.1** for **< smb_version >** 。 只可以 Azure 區域之外掛接 Azure 檔案共用 （包括內部部署或在不同的 Azure 區域中） 使用 SMB 3.0。 
+1. **使用掛接命令裝載 Azure 檔案共用**：請記得取代 **< storage_account_name >** ， **< share_name >** ， **< smb_version >** ， **< storage_account_key >** ，並 **< mount_point >** 為您的環境的適當資訊。 如果您的 Linux 散發套件支援使用加密的 SMB 3.0 (請參閱[了解 SMB 用戶端需求](#smb-client-reqs)如需詳細資訊)，使用**3.0** for **< smb_version >** 。 不支援 SMB 3.0 加密的 Linux 發行版本，使用**2.1** for **< smb_version >** 。 只可以 Azure 區域之外掛接 Azure 檔案共用 （包括內部部署或在不同的 Azure 區域中） 使用 SMB 3.0。 如有需要，您可以變更掛接的共用的目錄和檔案權限但這表示限制的存取。
 
     ```bash
     sudo mount -t cifs //<storage_account_name>.file.core.windows.net/<share_name> <mount_point> -o vers=<smb_version>,username=<storage_account_name>,password=<storage_account_key>,dir_mode=0777,file_mode=0777,serverino

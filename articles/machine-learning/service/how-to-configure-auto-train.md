@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0f8a56df5b41236256115ced0d46a87c5ee91a5
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: df05bd984667283b0ccc143ba14fff6b35d69144
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400239"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753170"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>在 Python 中設定自動化的 ML 實驗
 
@@ -134,7 +134,7 @@ y_valid |   Pandas 資料框架或 Numpy 陣列 | data_train、標籤 | _選擇�
 sample_weight | Pandas 資料框架或 Numpy 陣列 |   data_train、標籤、資料行| _選擇性_ 每個範例的加權值。 如果您想要為資料點指派不同的加權，則應使用
 sample_weight_valid | Pandas 資料框架或 Numpy 陣列 | data_train、標籤、資料行 |    _選擇性_ 每個驗證範例的加權值。 如果未指定，則 sample_weight 會分割至訓練和驗證之間
 data_train |    Pandas 資料框架 |  X、y、X_valid、y_valid |    所有要用於訓練的資料 (特徵+標籤)
-標籤 | string  | X、y、X_valid、y_valid |  data_train 中的哪個資料行代表標籤
+標籤 | 字串  | X、y、X_valid、y_valid |  data_train 中的哪個資料行代表標籤
 columns | 字串的陣列  ||  _選擇性_ 要用於特徵的資料行白名單
 cv_splits_indices   | 一連串整數 ||  _選擇性_ 用來分割交叉驗證資料的索引清單
 
@@ -158,7 +158,7 @@ cv_splits_indices   | 一連串整數 ||  _選擇性_ 用來分割交叉驗證�
 
 接下來，請決定要在何處訓練模型。 自動化機器學習訓練實驗可在下列計算選項上執行：
 *   您的本機電腦，例如本機桌上型電腦或膝上型電腦 – 通常適用於資料集並不大，且您尚在探索階段時。
-*   雲端中的遠端機器 – [Azure Machine Learning 受控計算](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets)是一項受控服務，能夠在 Azure 虛擬機器叢集上定型機器學習模型。
+*   雲端中的遠端機器 – [Azure Machine Learning 受控計算](concept-compute-target.md#amlcompute)是一項受控服務，能夠在 Azure 虛擬機器叢集上定型機器學習模型。
 
 如需具有本機與遠端計算目標的範例筆記本，請參閱 [GitHub 網站](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)。
 

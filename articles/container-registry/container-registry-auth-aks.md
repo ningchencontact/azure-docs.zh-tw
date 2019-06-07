@@ -7,18 +7,20 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: 1d7e130d619f580aeb82939e19ea5abf680ff039
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a541af77daf4136c0056cf9919d69c538d1dc5b6
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61333611"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754470"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>從 Azure Kubernetes Service 對 Azure Container Registry 進行驗證
 
 當您搭配使用 Azure Container Service (AKS) 與 Azure Kubernetes Registry (ACR) 時，必須建立驗證機制。 本文詳細說明在這兩個 Azure 服務之間進行驗證所建議的組態。
 
-本文假設您已建立 AKS 叢集，且您能夠使用 `kubectl` 命令列用戶端存取與叢集。 
+您只需要設定下列其中一種驗證方法。 最常見的方法是將[授與使用 AKS 服務主體的存取權](#grant-aks-access-to-acr)。 如果您有特定需求，您可以選擇性地[授與使用 Kubernetes 祕密的存取權](#access-with-kubernetes-secret)。
+
+本文假設您已建立 AKS 叢集，且您能夠使用 `kubectl` 命令列用戶端存取與叢集。
 
 ## <a name="grant-aks-access-to-acr"></a>將 AKS 存取權授與 ACR
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f63087d107b9db30e2af6273afde7f51f1c72404
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7583a0fda2fca0d8ff80879389b824a7b352a84
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817564"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752883"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>使用 REST 將檔案上傳至媒體服務帳戶  
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ ms.locfileid: "60817564"
 使用媒體服務 REST API 時，適用下列考量事項：
  
 * 使用媒體服務 REST API 存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。 <br/>本教學課程中使用的 Postman 集合會負責設定所有必要的標頭。
-* 建置串流內容的 URL (例如， http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters) 時，媒體服務會使用 IAssetFile.Name 屬性的值。出于这个原因，不允许使用百分号编码。 **Name** 屬性的值不能有下列任何[百分比編碼保留字元](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 而且，副檔名只能有一個 '.'。
+* 建置串流內容的 URL (例如， http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters) 時，媒體服務會使用 IAssetFile.Name 屬性的值。基於這個理由，不允許 percent-encoding。 **Name** 屬性的值不能有下列任何[百分比編碼保留字元](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 而且，副檔名只能有一個 '.'。
 * 名稱長度不應超過 260 個字元。
 * 對於在媒體服務處理檔案，支援的檔案大小有上限。 請參閱[這篇](media-services-quotas-and-limitations.md)文章，以取得有關檔案大小限制的詳細資料。
 
@@ -86,13 +86,13 @@ ms.locfileid: "60817564"
         ]
     }
     ```
-4. 在 **Postman** 視窗的左側，按一下 [1.取得 AAD 驗證權杖] -> [取得服務主體的 Azure AD 權杖]。
+4. 在 **Postman** 視窗的左側，按一下 [1.  取得 AAD 驗證權杖] -> [取得服務主體的 Azure AD 權杖]  。
 
     URL 部分會填入 **AzureADSTSEndpoint** 環境變數 (在稍早的教學課程中，您已設定了支援集合環境變數的值)。
 
     ![上傳檔案](./media/media-services-rest-upload-files/postment-get-token.png)
 
-5. 按 [傳送]。
+5. 按 [傳送]  。
 
     您可以看到包含 "access_token" 的回應。 "test" 指令碼會採用此值，並設定 **AccessToken** 環境變數 (如上方所述)。 如果檢查您的環境變數，您會看到此變數現在包含其餘作業中使用的存取權杖 (持有人權杖) 值。 
 
@@ -109,8 +109,8 @@ ms.locfileid: "60817564"
 
 ### <a name="create-an-access-policy"></a>建立存取原則
 
-1. 選取 [AccessPolicy] -> 為上傳檔案建立 AccessPolicy。
-2. 按 [傳送]。
+1. 選取 [AccessPolicy]   -> 為上傳檔案建立 AccessPolicy  。
+2. 按 [傳送]  。
 
     ![上傳檔案](./media/media-services-rest-upload-files/postman-access-policy.png)
 
@@ -130,8 +130,8 @@ ms.locfileid: "60817564"
 
 ### <a name="create-an-asset"></a>建立資產
 
-1. 選取 [資產] -> [建立資產]。
-2. 按 [傳送]。
+1. 選取 [資產]   -> [建立資產]  。
+2. 按 [傳送]  。
 
     ![上傳檔案](./media/media-services-rest-upload-files/postman-create-asset.png)
 
@@ -141,11 +141,11 @@ ms.locfileid: "60817564"
 
 ### <a name="overview"></a>概觀
 
-一旦設定 AccessPolicy 與 Locator，實際檔案會使用 Azure 儲存體 REST API 上傳至 Azure Blob 儲存容器。 必须将文件作为块 blob 上传。 「Azure 媒體服務」不支援分頁 Blob。  
+一旦設定 AccessPolicy 與 Locator，實際檔案會使用 Azure 儲存體 REST API 上傳至 Azure Blob 儲存容器。 您必須將檔案以區塊 Blob 形式上傳。 「Azure 媒體服務」不支援分頁 Blob。  
 
 如需使用 Azure 儲存體 blob 的詳細資訊，請參閱 [Blob 服務 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)。
 
-若要接收實際的上傳 URL，請建立 SAS 定位器 (如下所示)。 定位器為想要存取資產中之檔案的用戶端定義連線端點的開始時間和類型。 您可以為指定的 AccessPolicy 與 Asset 配對建立多個 Locator 實體，以處理不同的用戶端要求與需求。 這些 Locator 每個都會使用 StartTime 值加上 AccessPolicy 的 DurationInMinutes 值，以判斷可以使用 URL 的時間長度。 有关详细信息，请参阅 [定位符](https://docs.microsoft.com/rest/api/media/operations/locator)。
+若要接收實際的上傳 URL，請建立 SAS 定位器 (如下所示)。 定位器為想要存取資產中之檔案的用戶端定義連線端點的開始時間和類型。 您可以為指定的 AccessPolicy 與 Asset 配對建立多個 Locator 實體，以處理不同的用戶端要求與需求。 這些 Locator 每個都會使用 StartTime 值加上 AccessPolicy 的 DurationInMinutes 值，以判斷可以使用 URL 的時間長度。 如需詳細資訊，請參閱 [定位器](https://docs.microsoft.com/rest/api/media/operations/locator)。
 
 SAS URL 具有下列格式：
 
@@ -161,8 +161,8 @@ SAS URL 具有下列格式：
 
 ### <a name="create-a-sas-locator"></a>建立 SAS 定位器
 
-1. 選取 [定位器] -> [建立 SAS 定位器]。
-2. 按 [傳送]。
+1. 選取 [定位器]   -> [建立 SAS 定位器]  。
+2. 按 [傳送]  。
 
     "test" 指令碼會根據您指定的媒體檔案名稱和 SAS 定位器資訊建立「上傳 URL」，並設定適當的環境變數。
 
@@ -176,7 +176,7 @@ SAS URL 具有下列格式：
 
 - [使用 Azure 儲存體 REST API](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [PUT Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [將 blob 上傳至 blob 儲存體](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [將 blob 上傳至 blob 儲存體](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>使用 Postman 上傳檔案
 
@@ -185,13 +185,13 @@ SAS URL 具有下列格式：
 上傳要求不是 **AzureMedia** 集合的一部份。 
 
 建立並設定新的要求：
-1. 按 **+**，以建立新的要求索引標籤。
-2. 選取 **PUT** 作業並在 URL 中貼上 **{{UploadURL}}**。
-2. [授權] 索引標籤保持不變 (請勿將其設為**持有人權杖**)。
-3. 在 [標題] 索引標籤中，指定：**索引鍵**："x-ms-blob-type" 以及**值**："BlockBlob"。
-2. 在 [本文] 索引標籤上，按一下 [二進位]。
+1. 按 **+** ，以建立新的要求索引標籤。
+2. 選取 **PUT** 作業並在 URL 中貼上 **{{UploadURL}}** 。
+2. [授權]  索引標籤保持不變 (請勿將其設為**持有人權杖**)。
+3. 在 [標題]  索引標籤中，指定：**索引鍵**："x-ms-blob-type" 以及**值**："BlockBlob"。
+2. 在 [本文]  索引標籤上，按一下 [二進位]  。
 4. 根據您在 **MediaFileName** 環境變數中指定的名稱選擇檔案。
-5. 按 [傳送]。
+5. 按 [傳送]  。
 
     ![上傳檔案](./media/media-services-rest-upload-files/postman-upload-file.png)
 
@@ -199,8 +199,8 @@ SAS URL 具有下列格式：
 
 一旦檔案已上傳，您需要針對上傳到 blob 儲存體 (與資產相關聯) 的媒體檔案，在資產中建立中繼資料。
 
-1. 選取 [Assetfile] -> [CreateFileInfos]。
-2. 按 [傳送]。
+1. 選取 [Assetfile]   -> [CreateFileInfos]  。
+2. 按 [傳送]  。
 
     ![上傳檔案](./media/media-services-rest-upload-files/postman-create-file-info.png)
 
@@ -223,7 +223,7 @@ SAS URL 具有下列格式：
             
 ## <a name="next-steps"></a>後續步驟
 
-您現在可以將上傳的資產編碼。 有关详细信息，请参阅[对资产进行编码](media-services-portal-encode.md)。
+您現在可以將上傳的資產編碼。 如需詳細資訊，請參閱 [為資產編碼](media-services-portal-encode.md)。
 
-您也可以使用 Azure Functions，以根據在所設定容器到達的檔案來觸發編碼作業。 有关详细信息，请参阅[此示例](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ )。
+您也可以使用 Azure Functions，以根據在所設定容器到達的檔案來觸發編碼作業。 如需詳細資訊，請參閱[此範例](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ )。
 

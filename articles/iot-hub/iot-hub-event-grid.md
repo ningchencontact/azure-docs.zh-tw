@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: f08845dbf4168627d0198e81d2092a1fe56c6c89
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 73a9aebfd0c5338f63927860ce3f6c57b20428a4
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733877"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754784"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>使用事件方格來觸發動作以回應 IoT 中樞事件
 
@@ -25,7 +25,7 @@ ms.locfileid: "66733877"
 
 ## <a name="regional-availability"></a>區域可用性
 
-位於支援「事件格線」之區域中的 IoT 中樞都可使用「事件格線」整合。 所有的裝置事件，但裝置遙測事件是正式推出。 裝置遙測事件處於公開預覽狀態，並會在美國東部、 美國西部、 西歐、 以外的所有區域內上市[Azure Government](/azure/azure-government/documentation-government-welcome)， [Azure 中國 21Vianet](/azure/china/china-welcome)，和[Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/). 如需最新的區域清單，請參閱 [Azure 事件方格簡介](../event-grid/overview.md)。
+位於支援「事件格線」之區域中的 IoT 中樞都可使用「事件格線」整合。 所有的裝置事件，但裝置遙測事件是正式推出。 裝置遙測事件處於公開預覽狀態，並會在美國東部、 美國西部、 西歐、 以外的所有區域內上市[Azure Government](/azure/azure-government/documentation-government-welcome)， [Azure 中國 21Vianet](/azure/china)，和[Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/). 如需最新的區域清單，請參閱 [Azure 事件方格簡介](../event-grid/overview.md)。
 
 ## <a name="event-types"></a>事件類型
 

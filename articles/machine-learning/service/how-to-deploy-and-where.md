@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1be9d11db9a1c614614e0a4023f84b15588ba5f0
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 89539509e759da7f041ce0216397b1a9c8ff1f16
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742950"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753085"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -92,14 +92,7 @@ ms.locfileid: "66742950"
 
 下列計算目標，或計算資源，可用來裝載您的 web 服務部署。 
 
-| 計算目標 | 使用量 | 描述 |
-| ----- | ----- | ----- |
-| [本機 web 服務](#local) | 測試/偵錯 | 適用於有限的測試和疑難排解。
-| [Azure Kubernetes Service (AKS)](#aks) | 即時推斷 | 適用於大規模生產環境部署。 提供自動調整和快速的回應時間。 |
-| [Azure 容器執行個體 (ACI)](#aci) | 測試 | 適用於低規模，以 CPU 為基礎的工作負載。 |
-| [Azure Machine Learning Compute](how-to-run-batch-predictions.md) | 批次推斷 | 執行無伺服器計算的批次推斷。 支援一般 vm 和低優先順序 Vm。 |
-| [Azure IoT Edge](#iotedge) | （預覽）IoT 模組 | 部署與提供在 IoT 裝置上的 ML 模型。 |
-
+[!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
 ## <a name="prepare-to-deploy"></a>準備部署
 

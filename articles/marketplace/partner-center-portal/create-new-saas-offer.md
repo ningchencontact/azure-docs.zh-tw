@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9c8b8a6ad8a10a65a05b46bf433d00b4e3ecb402
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: 897634ac0c30b4a2cc496c225965f465a94fe4e9
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455670"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751890"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應項目
 
@@ -74,7 +74,7 @@ ms.locfileid: "66455670"
 
 - 您的供應項目必須與 Azure 的用戶端相容。 (通常 SaaS 應用程式也會裝載於 Azure 上取得最佳的效能及相容性，但這不一定需要。) 
 - 必須使用您的供應項目[Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/)身分識別管理和驗證。
-- 必須使用您的供應項目[履行的 SaaS Api](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2)整合與 Azure Marketplace。
+- 必須使用您的供應項目[履行的 SaaS Api](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2)整合與 Azure Marketplace。
 
 #### <a name="billing-infrastructure-costs"></a>基礎結構成本計費
 SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結構使用費用，以及軟體授權費用為單一的成本項目。 這項成本被以客戶的一般每月費用。 管理，且直接會計入您的合作夥伴，azure 基礎結構使用方式。 客戶不會看到實際的基礎結構使用量費用。 發行者通常選擇將 Azure 基礎結構使用量費用算在他們的軟體授權定價中。 

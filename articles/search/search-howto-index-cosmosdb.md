@@ -10,18 +10,18 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 07989b06b756e1e360ac3c37927a8267c84d9162
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 0610f57e264189961a6803bee5bb93c1ec9fb103
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522843"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753994"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>如何使用 Azure 搜尋服務索引子的 Cosmos DB 編製索引
 
 
 > [!Note]
-> MongoDB API 支援是處於預覽階段，應用程式不是用於生產環境而定。 [REST API 版本 2019年-05-06-Preview](search-api-preview.md)提供這項功能。 沒有任何入口網站或.NET SDK 支援此功能。
+> MongoDB API 支援是處於預覽階段，應用程式不是用於生產環境而定。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 沒有任何入口網站或.NET SDK 支援此功能。
 >
 > SQL API 已正式推出。
 
@@ -91,7 +91,7 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
 
 ### <a name="5---set-index-attributes"></a>5 - 設定索引屬性
 
-在 [索引] 頁面上，您應該會看到欄位清單，其中有資料類型以及一系列用於設定索引屬性的核取方塊。 精靈可以產生根據中繼資料，並藉由取樣來源資料的欄位 清單。 
+在 [索引]  頁面上，您應該會看到欄位清單，其中有資料類型以及一系列用於設定索引屬性的核取方塊。 精靈可以產生根據中繼資料，並藉由取樣來源資料的欄位 清單。 
 
 您可以大量選取屬性，即可在屬性資料行頂端的核取方塊。 選擇**可擷取**並**Searchable**應該傳回至用戶端應用程式，並受限於全文檢索搜尋處理的每一個欄位。 您會注意到整數不是完整的文字或模糊搜尋 （數字會逐字評估及通常可用於篩選）。
 
@@ -105,7 +105,7 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
 
 若完整指定，精靈會在搜尋服務中建立三個不同的物件。 資料來源物件和索引物件會在 Azure 搜尋服務中儲存為具名資源。 最後一個步驟則會建立索引子物件。 為索引子命名可讓索引子以獨立資源的形式存在，索引子可以獨立地排程及管理，而不會受制於索引和資料來源物件 (這兩個物件會在相同的精靈序列中建立)。
 
-如果您不熟悉索引子，「索引子」是 Azure 搜尋服務中的資源，其會搜耙外部資料來源中的可搜尋內容。 輸出**匯入資料**精靈是可搜耙您 Cosmos DB 資料來源、 擷取可搜尋的內容，並將其匯入到 Azure 搜尋服務索引的索引子。
+如果您不熟悉索引子，「索引子」  是 Azure 搜尋服務中的資源，其會搜耙外部資料來源中的可搜尋內容。 輸出**匯入資料**精靈是可搜耙您 Cosmos DB 資料來源、 擷取可搜尋的內容，並將其匯入到 Azure 搜尋服務索引的索引子。
 
 下列螢幕擷取畫面顯示預設索引子組態。 您可以切換到**一次**如果您想要執行索引子一次。 按一下 **送出**執行精靈並建立所有物件。 編製索引的程序會立即開始。
 
@@ -174,7 +174,7 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
 
 要求的主體包含資料來源定義，其中應包含下列欄位：
 
-| 欄位   | 說明 |
+| 欄位   | 描述 |
 |---------|-------------|
 | **name** | 必要。 選擇任何名稱，以代表您的資料來源物件。 |
 |**type**| 必要。 必須是 `cosmosdb`。 |
@@ -258,11 +258,11 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
 | Bool |Edm.Boolean、Edm.String |
 | 看起來像是整數的數字 |Edm.Int32、Edm.Int64、Edm.String |
 | 看起來像是浮點的數字 |Edm.Double、Edm.String |
-| 字串 |Edm.String |
+| String |Edm.String |
 | 基本類型的陣列，例如 ["a", "b", "c"] |Collection(Edm.String) |
 | 看起來像是日期的字串 |Edm.DateTimeOffset、Edm.String |
 | GeoJSON 物件，例如 { "type":"Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
-| 其他 JSON 对象 |N/A |
+| 其他 JSON 物件 |N/A |
 
 ### <a name="4---configure-and-run-the-indexer"></a>4-設定及執行索引子
 
@@ -282,6 +282,8 @@ Azure Cosmos 項目編製索引的最簡單方法是使用中的精靈[Azure 入
 這個索引子每隔兩小時就會執行一次 (已將排程間隔設為 "PT2H")。 若每隔 30 分鐘就要執行索引子，可將間隔設為 "PT30M"。 支援的最短間隔為 5 分鐘。 排程為選擇性 - 如果省略，索引子只會在建立時執行一次。 不過，您隨時都可依需求執行索引子。   
 
 如需建立索引子 API 的詳細資訊，請參閱 [建立索引子](https://docs.microsoft.com/rest/api/searchservice/create-indexer)。
+
+如需定義索引子排程的詳細資訊，請參閱[如何排程 Azure 搜尋服務索引子](search-howto-schedule-indexers.md)。
 
 ## <a name="use-net"></a>使用 .NET
 
