@@ -50,7 +50,7 @@ CNAME 記錄對應*特定*網域，例如**contoso.com**或是**www\.contoso.com
 > 某些網域註冊機構只允許您對應子網域，當使用 CNAME 記錄，例如 www\.contoso.com，並不是根名稱，例如 contoso.com。 如需 CNAME 記錄的詳細資訊，請參閱註冊機構提供的文件、[維基百科 CNAME 記錄條目](https://en.wikipedia.org/wiki/CNAME_record)，或 [IETF 網域名稱 - 實作與規格](https://tools.ietf.org/html/rfc1035)文件。
 
 ### <a name="a-record"></a>A 記錄
-*A* 記錄將網域對應，例如 **contoso.com** 或是 **www\.contoso.com**， *或萬用字元網域* 例如 **\*。 contoso.com** ，為 IP 位址。 以 Azure 雲端服務而言，就是指服務的虛擬 IP。 因此於 CNAME 記錄，A 記錄的主要優點是，您可以有一個項目使用萬用字元，例如\* **。 contoso.com**，例如處理多個子網域的要求**mail.contoso.com**， **login.contoso.com**，或**www\.contso.com**。
+*A* 記錄將網域對應，例如 **contoso.com** 或是 **www\.contoso.com**， *或萬用字元網域* 例如 **\*。contoso.com** ，為 IP 位址。 以 Azure 雲端服務而言，就是指服務的虛擬 IP。 因此於 CNAME 記錄，A 記錄的主要優點是，您可以有一個項目使用萬用字元，例如\* **。 contoso.com**，例如處理多個子網域的要求**mail.contoso.com**， **login.contoso.com**，或**www\.contso.com**。
 
 > [!NOTE]
 > 因為 A 記錄會對應至靜態 IP 位址，所以無法自動解析雲端服務 IP 位址的變更。 第一次將雲端服務部署到空的位置時 (生產或預備)，將會配置雲端服務所使用的 IP 位址。如果刪除此位置的部署，則 Azure 會釋放此 IP 位址，而未來再部署到此位置時，可能會給予新的 IP 位址。

@@ -61,19 +61,18 @@
       href: security-center-policies-overview.md
     - name: 使用檔案完整性監視比較基準
       href: security-center-file-integrity-monitoring-baselines.md
-      items:
-        - name: 資料收集
-          href: security-center-enable-data-collection.md
-        - name: 內建安全性原則
-          href: security-center-policy-definitions.md
-        - name: 電子郵件通知
-          href: security-center-provide-security-contact-details.md
-        - name: 定價層
-          href: security-center-pricing.md
-        - name: 安全性設定
-          href: security-center-customize-os-security-config.md
-        - name: 跨租用戶可見性
-          href: security-center-management-groups.md
+    - name: 資料收集
+      href: security-center-enable-data-collection.md
+    - name: 內建安全性原則
+      href: security-center-policy-definitions.md
+    - name: 電子郵件通知
+      href: security-center-provide-security-contact-details.md
+    - name: 定價層
+      href: security-center-pricing.md
+    - name: 安全性設定
+      href: security-center-customize-os-security-config.md
+    - name: 跨租用戶可見性
+      href: security-center-management-groups.md
     - name: 實作安全性建議
       href: security-center-recommendations.md
       items:
