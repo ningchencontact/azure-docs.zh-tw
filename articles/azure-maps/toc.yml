@@ -154,6 +154,8 @@
           href: 'https://docs.microsoft.com/rest/api/maps/data'
         - name: 地理位置服務
           href: 'https://docs.microsoft.com/rest/api/maps/geolocation'
+        - name: 行動服務
+          href: 'https://docs.microsoft.com/rest/api/maps/mobility'
         - name: 轉譯服務
           href: 'https://docs.microsoft.com/rest/api/maps/render'
         - name: 路線規劃服務
