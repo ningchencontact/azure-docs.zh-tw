@@ -35,7 +35,7 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| 目的地 | 物件 | 定義端點的物件。 |
+| destination | 物件 | 定義端點的物件。 |
 | filter | 物件 | 篩選事件類型的選擇性欄位。 |
 
 ### <a name="destination-object"></a>目的地物件
