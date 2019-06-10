@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 76d18b6a942ed9b8c6871b0ff7cbc1c83917ada4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c84c3eb74d214a5c98aabef7b2e2987dfdf67c0f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66130473"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472601"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>啟用 Azure 監視器的 Vm （預覽） 概觀
 
@@ -40,6 +40,7 @@ ms.locfileid: "66130473"
 適用於 Vm 的 azure 監視器支援 Log Analytics 工作區，在下列區域：
 
 - 美國中西部
+- 美國西部 2<sup>1</sup>
 - 美國東部
 - 加拿大中部<sup>1</sup>
 - 英國南部<sup>1</sup>
@@ -160,8 +161,8 @@ ms.locfileid: "66130473"
 
 | 檔案 | 作業系統 | 版本 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) |  Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) |  Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
 
 ## <a name="role-based-access-control"></a>角色型存取控制
 
@@ -177,7 +178,7 @@ ms.locfileid: "66130473"
 
 您啟用 Azure 監視器，您可以針對 Vm 使用下表中所述的下列方法之一。
 
-| 部署狀態 | 方法 | 說明 |
+| 部署狀態 | 方法 | 描述 |
 |------------------|--------|-------------|
 | 單一 Azure VM 或虛擬機器擴展集 | [直接從 VM](vminsights-enable-single-vm.md) | 您可以選取來啟用單一 Azure 虛擬機器**Insights （預覽）** 直接從 VM 或虛擬機器擴展集。 |
 | 多個 Azure Vm 或虛擬機器擴展集 | [Azure 原則](vminsights-enable-at-scale-policy.md) | 您可以啟用多個 Azure Vm 使用 Azure 原則和可用的原則定義。 |
@@ -197,8 +198,8 @@ ms.locfileid: "66130473"
 |LogicalDisk |Avg.Disk sec/Transfer |
 |LogicalDisk |Avg.Disk sec/Write |
 |LogicalDisk |Disk Bytes/sec |
-|LogicalDisk |Disk Read Bytes/sec  |
-|LogicalDisk |Disk Reads/sec  |
+|LogicalDisk |Disk Read Bytes/sec |
+|LogicalDisk |Disk Reads/sec |
 |LogicalDisk |Disk Transfers/sec |
 |LogicalDisk |Disk Write Bytes/sec |
 |LogicalDisk |Disk Writes/sec |
@@ -213,8 +214,8 @@ ms.locfileid: "66130473"
 |物件名稱 |計數器名稱 |
 |------------|-------------|
 |Logical Disk |% Used Space |
-|Logical Disk |Disk Read Bytes/sec  |
-|Logical Disk |Disk Reads/sec  |
+|Logical Disk |Disk Read Bytes/sec |
+|Logical Disk |Disk Reads/sec |
 |Logical Disk |Disk Transfers/sec |
 |Logical Disk |Disk Write Bytes/sec |
 |Logical Disk |Disk Writes/sec |

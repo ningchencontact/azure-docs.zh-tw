@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 02/26/2018
-ms.openlocfilehash: dfb1e0093893fadf22c7a92ef5f351ae8920a977
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/26/2019
+ms.openlocfilehash: 8fc66d70b840578bff086519a7b39e5f389a3de3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929282"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479609"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>如何使用 Azure Cosmos DB 適用於 MongoDB 的 API 來設定全域散發讀取
 
@@ -144,7 +144,7 @@ MongoClient.connect(url, function(err, client) {
       }
 ```
 
-因此，MongoClient 可以將 `region` 標記和區域名稱一起使用，將讀取作業導向至特定區域。 針對 Cosmos 帳戶，您可以在 Azure 入口網站左邊的 [設定] -> [全域複寫資料] 下找到區域名稱。 此設定對於達成**讀取隔離**很有幫助，但只限用戶端應用程式想要將讀取作業導向至特定區域的情況。 此設定適用於在背景中執行且不是實際執行的重要服務之類的非生產/分析類型案例。
+因此，MongoClient 可以將 `region` 標記和區域名稱一起使用，將讀取作業導向至特定區域。 針對 Cosmos 帳戶，您可以在 Azure 入口網站左邊的 [設定] -> [全域複寫資料]  下找到區域名稱。 此設定對於達成**讀取隔離**很有幫助，但只限用戶端應用程式想要將讀取作業導向至特定區域的情況。 此設定適用於在背景中執行且不是實際執行的重要服務之類的非生產/分析類型案例。
 
 下列來自範例應用程式的程式碼片段示範如何在 NodeJS 中搭配標記來設定讀取喜好設定：
 
@@ -165,8 +165,8 @@ MongoClient.connect(url, function(err, client) {
 
 如果您將不繼續使用此應用程式，請使用下列步驟，在 Azure 入口網站中刪除此文章所建立的所有資源：
 
-1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的名稱。 
-2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]。
+1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]  ，然後按一下您所建立資源的名稱。 
+2. 在資源群組頁面上，按一下 [刪除]  ，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2019
+ms.date: 06/06/2019
 ms.author: roiyz
-ms.openlocfilehash: 538eb492829c8ad171d1d27b51405725f53f352a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b24af016349db0fcfb4106a1e69da395e3d0150
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60743574"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755146"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>適用於 Linux 的 azure 監視虛擬機器擴充功能
 
@@ -53,11 +53,27 @@ Azure 監視器記錄檔會提供跨雲端和內部部署資產的監視、 警�
 >任何平台皆不支援低於 1.x 版的 OpenSSL，且 1.10 版只受到 x86_64 平台 (64 位元) 的支援。  
 >
 
+### <a name="agent-prerequisites"></a>代理程式先決條件
+
+下表強調支援的 Linux 散發版本，將會安裝代理程式所需的套件。
+
+|必要的套件 |描述 |最小版本 |
+|-----------------|------------|----------------|
+|Glibc |    GNU C 程式庫 | 2.5-12 
+|Openssl    | OpenSSL 程式庫 | 1.0.x 或 1.1.x |
+|Curl | cURL Web 用戶端 | 7.15.5 |
+|Python-ctypes | | 
+|PAM | 插入式驗證模組 | | 
+
+>[!NOTE]
+>需要有 rsyslog 或 syslog-ng，才能收集 syslog 訊息。 Red Hat Enterprise Linux 第 5 版、CentOS 和 Oracle Linux 版本 (sysklog) 不支援預設 syslog 精靈，進行 syslog 事件收集。 若要從此版的這些散發套件收集 syslog 資料，rsyslog 精靈應該安裝和設定為取代 sysklog。
+
 ### <a name="agent-and-vm-extension-version"></a>代理程式和 VM 擴充功能版本
 下表提供 Azure 監視 VM 擴充功能和每個版本的 Log Analytics 代理程式套件組合的版本的對應。 隨附 Log Analytics 代理程式套件組合版本的版本資訊連結。 版本資訊包含錯誤修正和適用於指定代理程式版本的新功能詳細資料。  
 
 | Azure 監視 Linux VM 擴充功能版本 | Log Analytics 代理程式套件組合版本 | 
 |--------------------------------|--------------------------|
+|1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
 | 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
 | 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 
@@ -126,7 +142,7 @@ Azure 資訊安全中心會自動佈建 Log Analytics 代理程式，並且將�
 | workspaceKey (例如) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 
-## <a name="template-deployment"></a>模板部署
+## <a name="template-deployment"></a>範本部署
 
 也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 部署需要 post 部署設定，例如上架到 Azure 監視器記錄檔的一或多個虛擬機器時，很適合使用範本。 在 [Azure 快速啟動資源庫](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm)上可找到包含 Log Analytics 代理程式 VM 擴充功能的範例 Resource Manager 範本。 
 
@@ -184,7 +200,7 @@ Azure 資訊安全中心會自動佈建 Log Analytics 代理程式，並且將�
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 部署
 
-Azure CLI 可以用來將 Log Analytics 代理程式 VM 擴充功能部署到現有的虛擬機器。 將 workspaceId 和 workspaceKey 取代為您的 Log Analytics 工作區的值。 
+Azure CLI 可以用來將 Log Analytics 代理程式 VM 擴充功能部署到現有的虛擬機器。 將 workspaceId  和 workspaceKey  取代為您的 Log Analytics 工作區的值。 
 
 ```azurecli
 az vm extension set \

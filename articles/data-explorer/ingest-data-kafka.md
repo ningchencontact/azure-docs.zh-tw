@@ -1,20 +1,20 @@
 ---
-title: 快速入門：將資料從 Kafka 內嵌至 Azure 資料總管
-description: 在本快速入門中，您會學習到如何將資料從 Kafka 內嵌 (載入) 至 Azure 資料總管。
+title: 將資料從 Kafka 擷取至 Azure 資料總管
+description: 在本文中，您會學習如何 （負載） 資料內嵌至 Azure 資料總管從 Kafka。
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 05/17/2019
-ms.openlocfilehash: f36acb7237438848a53fdf91c291c4f67233af5d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901034"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497274"
 ---
-# <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>快速入門：將資料從 Kafka 擷取至 Azure 資料總管
+# <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>將資料從 Kafka 擷取至 Azure 資料總管
  
 Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管會提供從 Kafka 擷取資料 (資料載入) 的功能。 Kafka 是分散式串流平台，可用於建置即時串流資料管線，可靠地在系統或應用程式之間移動資料。
  
@@ -162,5 +162,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="next-steps"></a>後續步驟
  
-> [!div class="nextstepaction"]
-> [快速入門：在 Azure 資料總管中查詢資料](web-query-data.md)
+* [在 Azure 資料總管中查詢資料](web-query-data.md)

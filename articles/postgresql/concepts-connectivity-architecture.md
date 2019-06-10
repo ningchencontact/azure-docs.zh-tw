@@ -1,0 +1,70 @@
+---
+title: 適用於 PostgreSQL 的 Azure 資料庫中的連線架構
+description: 描述您的 Azure Database for PostgreSQL 伺服器的連線架構。
+author: kummanish
+ms.author: manishku
+ms.service: PostgreSQL
+ms.topic: conceptual
+ms.date: 05/23/2019
+ms.openlocfilehash: 73c23c471cb12ca3a3a7df4380779b464b8d86d4
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735732"
+---
+# <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的連線架構
+這篇文章會說明 Azure Database for PostgreSQL 連線架構以及如何將流量導向至 Azure Database for PostgreSQL 資料庫執行個體來自 Azure 內外的用戶端。
+
+## <a name="connectivity-architecture"></a>連線架構
+適用於 PostgreSQL 的 Azure 資料庫的連接是透過閘道路由連入連線您的伺服器，在我們的叢集中的實體位置負責建立。 下圖說明的流量。
+
+![連線架構的概觀](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
+
+為用戶端連接到資料庫，他們會取得連接字串連接到閘道。 此閘道會有公用 IP 位址接聽連接埠 5432。 在資料庫內 clusterz 流量轉送給適當的 Azure 資料庫適用於 PostgreSQL。 因此，若要連線到您的伺服器，例如從公司網路，就必須以開啟 設定用戶端端防火牆以允許輸出流量會無法連線到我們的閘道。 您可以在以下找到我們的閘道，每個區域所使用的 IP 位址的完整清單。
+
+## <a name="azure-database-for-postgresql-gateway-ip-addresses"></a>適用於 PostgreSQL 的閘道 IP 位址的 azure 資料庫
+下表列出 Azure Database for PostgreSQL 閘道的所有資料區域的主要和次要 Ip。 主要 IP 位址是目前的閘道的 IP 位址及第二個 IP 位址是主要的失敗時的容錯移轉 IP 位址。 如前所述，客戶應允許輸出這兩個 IP 位址。 第二個 IP 位址不會接聽的任何服務之前被啟動的 Azure Database for PostgreSQL 來接受連線。
+
+| **區域名稱** | **主要 IP 位址** | **次要 IP 位址** |
+|:----------------|:-------------|:------------------------|
+| 澳洲東部 | 13.75.149.87 | 40.79.161.1 |
+| 澳大利亞東南部 | 191.239.192.109 | 13.73.109.251 |
+| 巴西南部 | 104.41.11.5 | |
+| 加拿大中部 | 40.85.224.249 | |
+| 加拿大東部 | 40.86.226.166 | |
+| 美國中部 | 23.99.160.139 | 13.67.215.62 |
+| 中國東部 1 | 139.219.130.35 | |
+| 中國東部 2 | 40.73.82.1 | |
+| 中國北部 1 | 139.219.15.17 | |
+| 中國北部 2 | 40.73.50.0 | |
+| 東亞 | 191.234.2.139 | 52.175.33.150 |
+| 美國東部 1 | 191.238.6.43 | 40.121.158.30 |
+| 美國東部 2 | 191.239.224.107 | 40.79.84.180 * |
+| 法國中部 | 40.79.137.0 | 40.79.129.1 |
+| 德國中部 | 51.4.144.100 | |
+| 印度中部 | 104.211.96.159 | |
+| 印度南部 | 104.211.224.146 | |
+| 印度西部 | 104.211.160.80 | |
+| 日本東部 | 191.237.240.43 | 13.78.61.196 |
+| 日本西部 | 191.238.68.11 | 104.214.148.156 |
+| 南韓中部 | 52.231.32.42 | |
+| 南韓南部 | 52.231.200.86 |  |
+| 美國中北部 | 23.98.55.75 | 23.96.178.199 |
+| 北歐 | 191.235.193.75 | 40.113.93.91 |
+| 美國中南部 | 23.98.162.75 | 13.66.62.124 |
+| 東南亞 | 23.100.117.95 | 104.43.15.0 |
+| 英國南部 | 51.140.184.11 | |
+| 英國西部 | 51.141.8.11| |
+| 西歐 | 191.237.232.75 | 40.68.37.158 |
+| 美國西部 1 | 23.99.34.75 | 104.42.238.205 |
+| 美國西部 2 | 13.66.226.202 | |
+||||
+
+> [!NOTE]
+> *美國東部 2* 也有第三 IP 位址 `52.167.104.0`。
+
+## <a name="next-steps"></a>後續步驟
+
+* [使用 Azure 入口網站建立和管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則](./howto-manage-firewall-using-portal.md)
+* [使用 Azure CLI 建立和管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則](./howto-manage-firewall-using-cli.md)

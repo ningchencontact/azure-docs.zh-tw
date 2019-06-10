@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 24e0b61dfd9950a5c5990f8341e32d048453c5d6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6e0192029decef95dcaecc0c60dce5fd5b6f99ff
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689572"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479914"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Azure 儲存體
 
@@ -53,7 +53,7 @@ HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可
 
 此外，HDInsight 也能讓您存取儲存在 Azure 儲存體中的資料。 語法為：
 
-    wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
+    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
 
 以下是搭配 HDInsight 叢集使用 Azure 儲存體帳戶時的一些考量。
 
@@ -96,10 +96,10 @@ Blob 可使用於結構化和非結構化資料。 Blob 容器以機碼/值組�
 從 HDInsight 存取 Azure 儲存體中的檔案的 URI 配置如下：
 
 ```config
-wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
+wasb://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 ```
 
-URI 配置提供未加密存取 (使用 wasb: 首碼) 和 SSL 加密存取 (使用 wasbs)。 建议尽量使用 *wasbs* ，即使在访问位于同一 Azure 区域内的数据时也是如此。
+URI 配置提供未加密存取 (使用 wasb:  首碼) 和 SSL 加密存取 (使用 wasbs  )。 建议尽量使用 *wasbs* ，即使在访问位于同一 Azure 区域内的数据时也是如此。
 
 `<BlobStorageContainerName>`可識別 Azure 儲存體中的 blob 容器名稱。
 `<StorageAccountName>`可識別 Azure 儲存體帳戶名稱。 需要使用完整網域名稱 (FQDN)。
@@ -137,9 +137,9 @@ example/jars/hadoop-mapreduce-examples.jar
 
 Microsoft 提供下列工具，可使用 Azure 儲存體：
 
-| 工具 |  Linux | OS X |  Windows |
+| 工具 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure 门户](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure 入口網站](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |

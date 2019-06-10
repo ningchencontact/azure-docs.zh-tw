@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgan
-ms.openlocfilehash: 1a13bda37c5bfac4efe6bd6109cb1dfcd5f7d2a9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 271e3c31c3e08d170add84ca4995f4876d4d3a33
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925679"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753765"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>常見問題：Azure 至 Azure 災害復原
 
@@ -52,14 +52,14 @@ Site Recovery 小組會搭配 Azure 的容量管理小組規劃足夠的基礎�
 
 ### <a name="can-i-exclude-disks"></a>是否可排除磁碟嗎？
 
-是的，您可以使用 Power Shell 在設定防護時排除磁碟。 有关详细信息，请参阅[此文章](azure-to-azure-exclude-disks.md)
+是的，您可以使用 Power Shell 在設定防護時排除磁碟。 如需詳細資訊，請參閱[文章](azure-to-azure-exclude-disks.md)
 
 ### <a name="can-i-add-new-disks-to-replicated-vms-and-enable-replication-for-them"></a>我是否可以將新的磁碟新增到複寫的 Vm 並為其啟用複寫？
 
 是，這被支援 Azure Vm 使用受控磁碟。 當您將新的磁碟加入 Azure VM 啟用複寫時，vm 的複寫健康狀態會顯示警告，請注意，指定一或多個 VM 上的磁碟可供保護。 您可以啟用新增的磁碟複寫。
 - 如果您啟用新增的磁碟保護時，警告就會消失之後的初始複寫。
 - 如果您選擇不啟用磁碟的複寫，您可以選取要解除警告。
-- 當您容錯移轉 VM 的方法，您可以新增磁碟，並為其啟用複寫時，複寫點就會顯示可用於復原的磁碟。 比方說，如果 VM 有單一磁碟，您將新增一個新加入的磁碟之前所建立的複寫點就會顯示複寫點組成"的 2 個磁碟 1"。
+- 當您容錯移轉 VM 的方法，您可以新增磁碟，並為其啟用複寫時，複寫點就會顯示可用於復原的磁碟。 例如，如果 VM 有單一磁碟，而且您新增磁碟，則新增磁碟之前建立的複寫點就會顯示複寫點包含「1 個磁碟，共 2 個」。
 
 Site Recovery 不支援 [熱移除] 的磁碟從複寫的 VM。 如果您移除 VM 磁碟，您要停用然後再重新啟用 VM 的複寫。
 
@@ -129,7 +129,7 @@ Site Recovery 會每 5 分鐘建立一次當機時保持一致復原點。 使�
 不會，Site Recovery 會保留您先前所有的復原點。 根據復原點保留期間 (在此案例中為 24 小時)，只有在新的復原點產生時，Site Recovery 才會替換掉最舊的復原點。 在此情況下，由於不會因某些問題而產生任何新的復原點，因此在到達保留期間後，舊的復原點仍將維持不變。
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>在 VM 上啟用複寫之後，我要如何變更複寫原則？
-移至 [Site Recovery 保存庫] > [Site Recovery 基礎結構] > [複寫原則]。 選取您想要編輯的原則，然後儲存變更。 此外，任何變更都會套用到現有的所有複寫。
+移至 [Site Recovery 保存庫]   > [Site Recovery 基礎結構]   > [複寫原則]  。 選取您想要編輯的原則，然後儲存變更。 此外，任何變更都會套用到現有的所有複寫。
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>所有復原點都是 VM 的完整複本？還是會有差異？
 所產生的第一個復原點會具有完整複本。 所有後續復原點則具有差異變更。
@@ -143,7 +143,7 @@ Site Recovery 會每 5 分鐘建立一次當機時保持一致復原點。 使�
 這意謂著確保復原點在所有複寫的虛擬機器之間都保持一致。
 Site Recovery 提供 [多 VM 一致性] 選項，當您選取此選項時，會建立一個複寫群組將屬於此群組的所有機器一起複寫。
 所有虛擬機器在容錯移轉後，都會有共用的當機時保持一致和應用程式一致復原點。
-請瀏覽教學課程來[啟用多 VM 一致性](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication)。
+請瀏覽教學課程來[啟用多 VM 一致性](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm)。
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>我是否可以容錯移轉位於多 VM 一致性複寫群組內的單一虛擬機器？
 選取 [多 VM 一致性] 選項後，即表示應用程式與群組內的所有虛擬機器相依。 因此，不允許進行單一虛擬機器容錯移轉。
@@ -181,13 +181,13 @@ Site Recovery 會在容錯移轉時嘗試提供 IP 位址。 如果另一部虛�
 深入了解[設定網路對應 」 和 「 Vnet 的 IP 位址](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms)。
 
 ### <a name="what-are-latest-lowest-rpo-recovery-points"></a>什麼是**最新 (最低 RPO)** 復原點？
-[最新 (最低 RPO)] 選項會先處理已傳送到 Site Recovery 服務的所有資料來為每部 VM 建立復原點，然後才進行容錯移轉。 此選項會提供最低的復原點目標 (RPO)，因為在容錯移轉後建立的 VM 具有在觸發容錯移轉時複寫到 Site Recovery 的所有資料。
+[最新 (最低 RPO)]  選項會先處理已傳送到 Site Recovery 服務的所有資料來為每部 VM 建立復原點，然後才進行容錯移轉。 此選項會提供最低的復原點目標 (RPO)，因為在容錯移轉後建立的 VM 具有在觸發容錯移轉時複寫到 Site Recovery 的所有資料。
 
 ### <a name="do-latest-lowest-rpo-recovery-points-have-an-impact-on-failover-rto"></a>**最新 (最低 RPO)** 復原點對容錯移轉 RTO 是否有影響？
 是。 Site Recovery 會在容錯移轉前處理所有待處理的資料，因此與其他選項相比，此選項具有較高的復原時間目標 (RTO)。
 
 ### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>復原點中的**最新處理**選項是什麼意思？
-[最近處理]選項會將方案中的所有 VM 容錯移轉至 Site Recovery 所處理的最新復原點。 若要查看特定 VM 的最新復原點，請檢查 VM 設定中的 [最新復原點]。 此選項提供低 RTO，因為不會花費任何時間來處理未處理的資料。
+[最近處理]  選項會將方案中的所有 VM 容錯移轉至 Site Recovery 所處理的最新復原點。 若要查看特定 VM 的最新復原點，請檢查 VM 設定中的 [最新復原點]  。 此選項提供低 RTO，因為不會花費任何時間來處理未處理的資料。
 
 ### <a name="what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>如果我的主要區域發生未預期的中斷發生什麼事？
 您可以在中斷之後觸發容錯移轉。 Site Recovery 不需要來自主要區域的連線即可執行容錯移轉。
@@ -195,7 +195,7 @@ Site Recovery 會在容錯移轉時嘗試提供 IP 位址。 如果另一部虛�
 ### <a name="what-is-a-rto-of-a-vm-failover-"></a>VM 容錯移轉的 RTO 為何？
 Site Recovery 有 [2 小時的 RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)。 不過在大部分情況下，Site Recovery 會在幾分鐘內容錯移轉虛擬機器。 若要計算 RTO，您可以移置容錯移轉作業查看它啟動 VM 所花的時間。 針對復原計畫 RTO，請參閱下節。
 
-## <a name="recovery-plans"></a>復原方案
+## <a name="recovery-plans"></a>復原計劃
 
 ### <a name="what-is-a-recovery-plan"></a>什麼是復原方案？
 Site Recovery 中的復原方案會協調 VM 的容錯移轉復原。 這有助於讓復原「保持一致精確」、「可重複執行」及「自動化」。 復原方案可滿足使用者的下列需求：
@@ -211,7 +211,7 @@ Site Recovery 中的復原方案會協調 VM 的容錯移轉復原。 這有助�
 在復原方案中，您可以建立多個群組來進行排序。 每個群組會各在一個時間容錯移轉。 屬於相同群組的 VM 會一起容錯移轉，後面再接著另一個群組。 若要了解如何使用復原方案來建立應用程式模型，請參閱[關於復原方案](recovery-plan-overview.md#model-apps)。
 
 ### <a name="how-can-i-find-the-rto-of-a-recovery-plan"></a>如何找到復原方案的 RTO？
-若要檢查復原方案的 RTO，請為復原方案進行測試容錯移轉，然後移至 [Site Recovery 作業]。
+若要檢查復原方案的 RTO，請為復原方案進行測試容錯移轉，然後移至 [Site Recovery 作業]  。
 在以下範例中，名為 SAPTestRecoveryPlan 的作業花費了 8 分鐘 59 秒來容錯移轉所有虛擬機器及執行指定的動作。
 
 ![Site Recovery 作業清單](./media/azure-to-azure-troubleshoot-errors/recoveryplanrto.PNG)

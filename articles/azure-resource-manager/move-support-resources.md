@@ -4,14 +4,14 @@ description: 列出可移至新資源群組或訂用帳戶的 Azure 資源類型
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 5/17/2019
+ms.date: 6/6/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcac557f29a987ea732744c1b82f90f858623ec5
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 314b28edbd5770186d96fb2a2b203f26ff27bda0
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872563"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752346"
 ---
 # <a name="move-operation-support-for-resources"></a>資源的移動作業支援
 此文章列出 Azure 資源類型是否支援移動作業。 雖然資源類型支援作業，但可能會有導致無法移動資源的情況。 如需有關影響移動作業之情況的詳細資料，請參閱[將資源移動到新的資源群組或訂用帳戶](resource-group-move-resources.md)。
@@ -21,841 +21,841 @@ ms.locfileid: "65872563"
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| domainservices | 無 | 無 |
+| domainservices | 否 | 否 |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| tenants | 無 | 無 |
+| tenants | 否 | 否 |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| actionrules | 有 | 有 |
+| actionrules | 是 | 是 |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 伺服器 | 有 | 有 |
+| servers | 是 | 是 |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 服務 | 有 | 有 |
+| service | 是 | 是 |
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| configurationstores | 有 | 有 |
+| configurationstores | 是 | 是 |
 
 ## <a name="microsoftappservice"></a>Microsoft.AppService
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| apiapps | 無 | 無 |
-| appidentities | 無 | 無 |
-| gateways | 無 | 無 |
+| apiapps | 否 | 否 |
+| appidentities | 否 | 否 |
+| gateways | 否 | 否 |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| policyassignments | 無 | 無 |
+| policyassignments | 否 | 否 |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| automationaccounts | 有 | 有 |
-| automationaccounts/configurations | 有 | 有 |
-| automationaccounts/runbooks | 有 | 有 |
+| automationaccounts | 是 | 是 |
+| automationaccounts/configurations | 是 | 是 |
+| automationaccounts/runbooks | 是 | 是 |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| b2cdirectories | 有 | 有 |
+| b2cdirectories | 是 | 是 |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| registrations | 有 | 有 |
+| registrations | 是 | 是 |
 
 ## <a name="microsoftbackup"></a>Microsoft.Backup
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| backupvault | 無 | 無 |
+| backupvault | 否 | 否 |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| batchaccounts | 有 | 有 |
+| batchaccounts | 是 | 是 |
 
 ## <a name="microsoftbatchai"></a>Microsoft.BatchAI
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| clusters | 無 | 無 |
-| fileservers | 無 | 無 |
-| 工作 | 無 | 無 |
-| workspaces | 無 | 無 |
+| clusters | 否 | 否 |
+| fileservers | 否 | 否 |
+| jobs | 否 | 否 |
+| workspaces | 否 | 否 |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| mapapis | 無 | 無 |
+| mapapis | 否 | 否 |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| biztalk | 有 | 有 |
+| biztalk | 是 | 是 |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| blockchainmembers | 有 | 有 |
+| blockchainmembers | 是 | 是 |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| blueprintassignments | 無 | 無 |
+| blueprintassignments | 否 | 否 |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| botservices | 有 | 有 |
+| botservices | 是 | 是 |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| redis | 有 | 有 |
+| redis | 是 | 是 |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 設定檔 | 有 | 有 |
-| profiles/endpoints | 有 | 有 |
+| 設定檔 | 是 | 是 |
+| profiles/endpoints | 是 | 是 |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| certificateorders | 有 | 有 |
+| certificateorders | 是 | 是 |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| domainnames | 有 | 無 |
-| virtualmachines | 有 | 無 |
+| domainnames | 是 | 否 |
+| virtualmachines | 是 | 否 |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| networksecuritygroups | 無 | 無 |
-| reservedips | 無 | 無 |
-| virtualnetworks | 無 | 無 |
+| networksecuritygroups | 否 | 否 |
+| reservedips | 否 | 否 |
+| virtualnetworks | 否 | 否 |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| storageaccounts | 有 | 無 |
+| storageaccounts | 是 | 否 |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 帳戶 | 有 | 有 |
+| accounts | 是 | 是 |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| availabilitysets | 有 | 有 |
-| 磁碟 | 有 | 有 |
-| galleries | 無 | 無 |
-| galleries/images | 無 | 無 |
-| galleries/images/versions | 無 | 無 |
-| hostgroups | 無 | 無 |
-| hostgroups/主機 | 無 | 無 |
-| 映像 | 有 | 有 |
-| proximityplacementgroups | 無 | 無 |
-| restorepointcollections | 無 | 無 |
-| sharedvmimages | 無 | 無 |
-| sharedvmimages/versions | 無 | 無 |
-| 快照集 | 有 | 有 |
-| virtualmachines | 有 | 有 |
-| virtualmachines/extensions | 有 | 有 |
-| virtualmachinescalesets | 有 | 有 |
+| availabilitysets | 是 | 是 |
+| disks | 是 | 是 |
+| galleries | 否 | 否 |
+| galleries/images | 否 | 否 |
+| galleries/images/versions | 否 | 否 |
+| hostgroups | 否 | 否 |
+| hostgroups/主機 | 否 | 否 |
+| images | 是 | 是 |
+| proximityplacementgroups | 否 | 否 |
+| restorepointcollections | 否 | 否 |
+| sharedvmimages | 否 | 否 |
+| sharedvmimages/versions | 否 | 否 |
+| snapshots | 是 | 是 |
+| virtualmachines | 是 | 是 |
+| virtualmachines/extensions | 是 | 是 |
+| virtualmachinescalesets | 是 | 是 |
 
 ## <a name="microsoftcontainer"></a>Microsoft.Container
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| containergroups | 無 | 無 |
+| containergroups | 否 | 否 |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| containergroups | 無 | 無 |
+| containergroups | 否 | 否 |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| registries | 有 | 有 |
-| registries/buildtasks | 有 | 有 |
-| registries/replications | 有 | 有 |
-| registries/tasks | 有 | 有 |
-| registries/webhooks | 有 | 有 |
+| registries | 是 | 是 |
+| registries/buildtasks | 是 | 是 |
+| registries/replications | 是 | 是 |
+| registries/tasks | 是 | 是 |
+| registries/webhooks | 是 | 是 |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| containerservices | 無 | 無 |
-| managedclusters | 無 | 無 |
-| openshiftmanagedclusters | 無 | 無 |
+| containerservices | 否 | 否 |
+| managedclusters | 否 | 否 |
+| openshiftmanagedclusters | 否 | 否 |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 應用程式 | 有 | 有 |
+| 應用程式所需 | 是 | 是 |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 帳戶 | 無 | 無 |
+| accounts | 否 | 否 |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 連接器 | 有 | 有 |
+| 連接器 | 是 | 是 |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| hubs | 有 | 有 |
+| hubs | 是 | 是 |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 工作 | 無 | 無 |
+| jobs | 否 | 否 |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| databoxedgedevices | 無 | 無 |
+| databoxedgedevices | 否 | 否 |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| workspaces | 無 | 無 |
+| workspaces | 否 | 否 |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| catalogs | 有 | 有 |
-| datacatalogs | 無 | 無 |
+| catalogs | 是 | 是 |
+| datacatalogs | 否 | 否 |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| connectionmanagers | 無 | 無 |
+| connectionmanagers | 否 | 否 |
 
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| packages | 無 | 無 |
-| plans | 無 | 無 |
+| packages | 否 | 否 |
+| plans | 否 | 否 |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| datafactories | 有 | 有 |
-| factories | 有 | 有 |
+| datafactories | 是 | 是 |
+| factories | 是 | 是 |
 
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| datalakeaccounts | 無 | 無 |
+| datalakeaccounts | 否 | 否 |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 帳戶 | 有 | 有 |
+| accounts | 是 | 是 |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 帳戶 | 有 | 有 |
+| accounts | 是 | 是 |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 服務 | 無 | 無 |
-| services/projects | 無 | 無 |
-| slots | 無 | 無 |
+| 服務 | 否 | 否 |
+| services/projects | 否 | 否 |
+| slots | 否 | 否 |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 伺服器 | 有 | 有 |
+| servers | 是 | 是 |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 伺服器 | 有 | 有 |
+| servers | 是 | 是 |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| servergroups | 無 | 無 |
-| 伺服器 | 有 | 有 |
-| serversv2 | 有 | 有 |
+| servergroups | 否 | 否 |
+| servers | 是 | 是 |
+| serversv2 | 是 | 是 |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| artifactsources | 有 | 有 |
-| rollouts | 有 | 有 |
-| servicetopologies | 有 | 有 |
-| servicetopologies/services | 有 | 有 |
-| servicetopologies/services/serviceunits | 有 | 有 |
-| steps | 有 | 有 |
+| artifactsources | 是 | 是 |
+| rollouts | 是 | 是 |
+| servicetopologies | 是 | 是 |
+| servicetopologies/services | 是 | 是 |
+| servicetopologies/services/serviceunits | 是 | 是 |
+| steps | 是 | 是 |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| elasticpools | 無 | 無 |
-| elasticpools/iothubtenants | 無 | 無 |
-| iothubs | 有 | 有 |
-| provisioningservices | 有 | 有 |
+| elasticpools | 否 | 否 |
+| elasticpools/iothubtenants | 否 | 否 |
+| iothubs | 是 | 是 |
+| provisioningservices | 是 | 是 |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| controllers | 無 | 無 |
+| controllers | 否 | 否 |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| labcenters | 無 | 無 |
-| labs | 有 | 無 |
-| 實驗室/環境 | 有 | 有 |
-| labs/servicerunners | 有 | 有 |
-| labs/virtualmachines | 有 | 無 |
-| schedules | 有 | 有 |
+| labcenters | 否 | 否 |
+| labs | 是 | 否 |
+| 實驗室/環境 | 是 | 是 |
+| labs/servicerunners | 是 | 是 |
+| labs/virtualmachines | 是 | 否 |
+| schedules | 是 | 是 |
 
 ## <a name="microsoftdns"></a>microsoft.dns
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| dnszones | 無 | 無 |
-| dnszones/a | 無 | 無 |
-| dnszones/aaaa | 無 | 無 |
-| dnszones/cname | 無 | 無 |
-| dnszones/mx | 無 | 無 |
-| dnszones/ptr | 無 | 無 |
-| dnszones/srv | 無 | 無 |
-| dnszones/txt | 無 | 無 |
-| trafficmanagerprofiles | 無 | 無 |
+| dnszones | 否 | 否 |
+| dnszones/a | 否 | 否 |
+| dnszones/aaaa | 否 | 否 |
+| dnszones/cname | 否 | 否 |
+| dnszones/mx | 否 | 否 |
+| dnszones/ptr | 否 | 否 |
+| dnszones/srv | 否 | 否 |
+| dnszones/txt | 否 | 否 |
+| trafficmanagerprofiles | 否 | 否 |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| databaseaccounts | 有 | 有 |
+| databaseaccounts | 是 | 是 |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| domains | 有 | 有 |
+| domains | 是 | 是 |
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 服務 | 有 | 有 |
+| 服務 | 是 | 是 |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| domains | 有 | 有 |
-| topics | 有 | 有 |
+| domains | 是 | 是 |
+| topics | 是 | 是 |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| clusters | 有 | 有 |
-| 命名空間 | 有 | 有 |
+| clusters | 是 | 是 |
+| namespaces | 是 | 是 |
 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 帳戶 | 無 | 無 |
+| accounts | 否 | 否 |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| hanainstances | 有 | 有 |
+| hanainstances | 是 | 是 |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| clusters | 有 | 有 |
+| clusters | 是 | 是 |
 
 ## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 服務 | 有 | 有 |
+| 服務 | 是 | 是 |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 電腦 | 無 | 無 |
+| 機器 | 否 | 否 |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| datamanagers | 有 | 有 |
+| datamanagers | 是 | 是 |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 工作 | 有 | 有 |
+| jobs | 是 | 是 |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 帳戶 | 無 | 無 |
-| actiongroups | 有 | 有 |
-| activitylogalerts | 無 | 無 |
-| alertrules | 有 | 有 |
-| autoscalesettings | 有 | 有 |
-| components | 有 | 有 |
-| guestdiagnosticsettings | 無 | 無 |
-| metricalerts | 無 | 無 |
-| notificationgroups | 無 | 無 |
-| notificationrules | 無 | 無 |
-| scheduledqueryrules | 無 | 無 |
-| webtests | 有 | 有 |
-| workbooks | 有 | 有 |
+| accounts | 否 | 否 |
+| actiongroups | 是 | 是 |
+| activitylogalerts | 否 | 否 |
+| alertrules | 是 | 是 |
+| autoscalesettings | 是 | 是 |
+| components | 是 | 是 |
+| guestdiagnosticsettings | 否 | 否 |
+| metricalerts | 否 | 否 |
+| notificationgroups | 否 | 否 |
+| notificationrules | 否 | 否 |
+| scheduledqueryrules | 是 | 是 |
+| webtests | 是 | 是 |
+| workbooks | 是 | 是 |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| iotapps | 有 | 有 |
+| iotapps | 是 | 是 |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| checknameavailability | 有 | 有 |
-| 圖表 | 有 | 有 |
+| checknameavailability | 是 | 是 |
+| graph | 是 | 是 |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| hsmpools | 無 | 無 |
-| vaults | 有 | 有 |
+| hsmpools | 否 | 否 |
+| vaults | 是 | 是 |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| clusters | 有 | 有 |
+| clusters | 是 | 是 |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| labaccounts | 有 | 有 |
+| labaccounts | 是 | 是 |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 帳戶 | 有 | 有 |
+| accounts | 是 | 是 |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 帳戶 | 無 | 無 |
+| accounts | 否 | 否 |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| hostingenvironments | 無 | 無 |
-| integrationaccounts | 有 | 有 |
-| integrationserviceenvironments | 無 | 無 |
-| isolatedenvironments | 無 | 無 |
-| workflows | 有 | 有 |
+| hostingenvironments | 否 | 否 |
+| integrationaccounts | 是 | 是 |
+| integrationserviceenvironments | 否 | 否 |
+| isolatedenvironments | 否 | 否 |
+| workflows | 是 | 是 |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| commitmentplans | 有 | 有 |
-| webservices | 有 | 無 |
-| workspaces | 有 | 有 |
+| commitmentplans | 是 | 是 |
+| webservices | 是 | 否 |
+| workspaces | 是 | 是 |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| operationalizationclusters | 有 | 有 |
+| operationalizationclusters | 是 | 是 |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 帳戶 | 無 | 無 |
-| accounts/workspaces | 無 | 無 |
-| accounts/workspaces/projects | 無 | 無 |
-| teamaccounts | 無 | 無 |
-| teamaccounts/workspaces | 無 | 無 |
-| teamaccounts/workspaces/projects | 無 | 無 |
+| accounts | 否 | 否 |
+| accounts/workspaces | 否 | 否 |
+| accounts/workspaces/projects | 否 | 否 |
+| teamaccounts | 否 | 否 |
+| teamaccounts/workspaces | 否 | 否 |
+| teamaccounts/workspaces/projects | 否 | 否 |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 帳戶 | 有 | 有 |
+| accounts | 是 | 是 |
 
 ## <a name="microsoftmachinelearningoperationalization"></a>Microsoft.MachineLearningOperationalization
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| hostingaccounts | 無 | 無 |
+| hostingaccounts | 否 | 否 |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| workspaces | 無 | 無 |
+| workspaces | 否 | 否 |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| userassignedidentities | 無 | 無 |
+| userassignedidentities | 否 | 否 |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 帳戶 | 有 | 有 |
+| accounts | 是 | 是 |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| classicdevservices | 無 | 無 |
+| classicdevservices | 否 | 否 |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| mediaservices | 有 | 有 |
-| mediaservices/liveevents | 有 | 有 |
-| mediaservices/streamingendpoints | 有 | 有 |
+| mediaservices | 是 | 是 |
+| mediaservices/liveevents | 是 | 是 |
+| mediaservices/streamingendpoints | 是 | 是 |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| assessmentprojects | 無 | 無 |
-| migrateprojects | 無 | 無 |
-| projects | 無 | 無 |
+| assessmentprojects | 否 | 否 |
+| migrateprojects | 否 | 否 |
+| projects | 否 | 否 |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| netappaccounts | 無 | 無 |
-| netappaccounts/capacitypools | 無 | 無 |
-| netappaccounts/capacitypools/volumes | 無 | 無 |
-| netappaccounts/capacitypools/volumes/mounttargets | 無 | 無 |
-| netappaccounts/capacitypools/volumes/snapshots | 無 | 無 |
+| netappaccounts | 否 | 否 |
+| netappaccounts/capacitypools | 否 | 否 |
+| netappaccounts/capacitypools/volumes | 否 | 否 |
+| netappaccounts/capacitypools/volumes/mounttargets | 否 | 否 |
+| netappaccounts/capacitypools/volumes/snapshots | 否 | 否 |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| applicationgateways | 無 | 無 |
-| applicationgatewaywebapplicationfirewallpolicies | 無 | 無 |
-| applicationsecuritygroups | 有 | 有 |
-| azurefirewalls | 有 | 有 |
-| bastionhosts | 無 | 無 |
-| 連接 | 有 | 有 |
-| ddoscustompolicies | 有 | 有 |
-| ddosprotectionplans | 無 | 無 |
-| dnszones | 有 | 有 |
-| expressroutecircuits | 無 | 無 |
-| expressroutecrossconnections | 無 | 無 |
-| expressroutegateways | 無 | 無 |
-| expressrouteports | 無 | 無 |
-| 前門 | 有 | 有 |
-| frontdoorwebapplicationfirewallpolicies | 有 | 有 |
-| loadbalancers | 有 | 有 |
-| localnetworkgateways | 有 | 有 |
-| natgateways | 有 | 有 |
-| networkintentpolicies | 有 | 有 |
-| networkinterfaces | 有 | 有 |
-| networkprofiles | 無 | 無 |
-| networksecuritygroups | 有 | 有 |
-| networkwatchers | 有 | 有 |
-| networkwatchers/connectionmonitors | 有 | 有 |
-| networkwatchers/lenses | 有 | 有 |
-| networkwatchers/pingmeshes | 有 | 有 |
-| p2svpngateways | 無 | 無 |
-| privatednszones | 有 | 有 |
-| privatednszones/virtualnetworklinks | 有 | 有 |
-| privateendpoints | 無 | 無 |
-| privatelinkservices | 無 | 無 |
-| publicipaddresses | 有 | 有 |
-| publicipprefixes | 有 | 有 |
-| routefilters | 無 | 無 |
-| routetables | 有 | 有 |
-| securegateways | 有 | 有 |
-| serviceendpointpolicies | 有 | 有 |
-| trafficmanagerprofiles | 有 | 有 |
-| virtualhubs | 無 | 無 |
-| virtualnetworkgateways | 有 | 有 |
-| virtualnetworks | 有 | 有 |
-| virtualnetworktaps | 無 | 無 |
-| virtualwans | 無 | 無 |
-| vpngateways | 無 | 無 |
-| vpnsites | 無 | 無 |
-| webapplicationfirewallpolicies | 有 | 有 |
+| applicationgateways | 否 | 否 |
+| applicationgatewaywebapplicationfirewallpolicies | 否 | 否 |
+| applicationsecuritygroups | 是 | 是 |
+| azurefirewalls | 是 | 是 |
+| bastionhosts | 否 | 否 |
+| connections | 是 | 是 |
+| ddoscustompolicies | 是 | 是 |
+| ddosprotectionplans | 否 | 否 |
+| dnszones | 是 | 是 |
+| expressroutecircuits | 否 | 否 |
+| expressroutecrossconnections | 否 | 否 |
+| expressroutegateways | 否 | 否 |
+| expressrouteports | 否 | 否 |
+| frontdoors | 是 | 是 |
+| frontdoorwebapplicationfirewallpolicies | 是 | 是 |
+| loadbalancers | 是 | 是 |
+| localnetworkgateways | 是 | 是 |
+| natgateways | 是 | 是 |
+| networkintentpolicies | 是 | 是 |
+| networkinterfaces | 是 | 是 |
+| networkprofiles | 否 | 否 |
+| networksecuritygroups | 是 | 是 |
+| networkwatchers | 是 | 是 |
+| networkwatchers/connectionmonitors | 是 | 是 |
+| networkwatchers/lenses | 是 | 是 |
+| networkwatchers/pingmeshes | 是 | 是 |
+| p2svpngateways | 否 | 否 |
+| privatednszones | 是 | 是 |
+| privatednszones/virtualnetworklinks | 是 | 是 |
+| privateendpoints | 否 | 否 |
+| privatelinkservices | 否 | 否 |
+| publicipaddresses | 是 | 是 |
+| publicipprefixes | 是 | 是 |
+| routefilters | 否 | 否 |
+| routetables | 是 | 是 |
+| securegateways | 是 | 是 |
+| serviceendpointpolicies | 是 | 是 |
+| trafficmanagerprofiles | 是 | 是 |
+| virtualhubs | 否 | 否 |
+| virtualnetworkgateways | 是 | 是 |
+| virtualnetworks | 是 | 是 |
+| virtualnetworktaps | 否 | 否 |
+| virtualwans | 否 | 否 |
+| vpngateways | 否 | 否 |
+| vpnsites | 否 | 否 |
+| webapplicationfirewallpolicies | 是 | 是 |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 命名空間 | 有 | 有 |
-| namespaces/notificationhubs | 有 | 有 |
+| namespaces | 是 | 是 |
+| namespaces/notificationhubs | 是 | 是 |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| workspaces | 有 | 有 |
+| workspaces | 是 | 是 |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| managementconfigurations | 有 | 有 |
-| solutions | 有 | 有 |
-| 檢視 | 有 | 有 |
+| managementconfigurations | 是 | 是 |
+| solutions | 是 | 是 |
+| 檢視 | 是 | 是 |
 
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 對等 | 無 | 無 |
+| 對等互連 | 否 | 否 |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| dashboards | 有 | 有 |
+| dashboards | 是 | 是 |
 
 ## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| rootresources | 無 | 無 |
+| rootresources | 否 | 否 |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| workspacecollections | 有 | 有 |
+| workspacecollections | 是 | 是 |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| capacities | 有 | 有 |
+| capacities | 是 | 是 |
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 帳戶 | 無 | 無 |
+| accounts | 否 | 否 |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| vaults | 有 | 有 |
+| vaults | 是 | 是 |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 命名空間 | 有 | 有 |
+| namespaces | 是 | 是 |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 應用程式 | 有 | 無 |
+| 應用程式所需 | 是 | 否 |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 流量 | 有 | 有 |
-| jobcollections | 有 | 有 |
+| flows | 是 | 是 |
+| jobcollections | 是 | 是 |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| searchservices | 有 | 有 |
+| searchservices | 是 | 是 |
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| iotsecuritysolutions | 有 | 有 |
+| iotsecuritysolutions | 是 | 是 |
 
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| gateways | 無 | 無 |
-| nodes | 無 | 無 |
+| gateways | 否 | 否 |
+| nodes | 否 | 否 |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 命名空間 | 有 | 有 |
+| namespaces | 是 | 是 |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 應用程式 | 無 | 無 |
-| clusters | 有 | 有 |
-| containergroups | 無 | 無 |
-| containergroupsets | 無 | 無 |
-| edgeclusters | 無 | 無 |
-| 網路 | 無 | 無 |
-| secretstores | 無 | 無 |
-| 磁碟區 | 無 | 無 |
+| 應用程式所需 | 否 | 否 |
+| clusters | 是 | 是 |
+| containergroups | 否 | 否 |
+| containergroupsets | 否 | 否 |
+| edgeclusters | 否 | 否 |
+| networks | 否 | 否 |
+| secretstores | 否 | 否 |
+| 磁碟區 | 否 | 否 |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 應用程式 | 有 | 有 |
-| containergroups | 無 | 無 |
-| gateways | 有 | 有 |
-| 網路 | 有 | 有 |
-| 祕密 | 有 | 有 |
-| 磁碟區 | 有 | 有 |
+| 應用程式所需 | 是 | 是 |
+| containergroups | 否 | 否 |
+| gateways | 是 | 是 |
+| networks | 是 | 是 |
+| 密碼 | 是 | 是 |
+| 磁碟區 | 是 | 是 |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| signalr | 有 | 有 |
+| signalr | 是 | 是 |
 
 ## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| siterecoveryvault | 無 | 無 |
+| siterecoveryvault | 否 | 否 |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| appliancedefinitions | 無 | 無 |
-| appliances | 無 | 無 |
-| applicationdefinitions | 無 | 無 |
-| 應用程式 | 無 | 無 |
-| jitrequests | 無 | 無 |
+| appliancedefinitions | 否 | 否 |
+| appliances | 否 | 否 |
+| applicationdefinitions | 否 | 否 |
+| 應用程式所需 | 否 | 否 |
+| jitrequests | 否 | 否 |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| instancepools | 有 | 有 |
-| managedinstances | 有 | 有 |
-| managedinstances/databases | 有 | 有 |
-| 伺服器 | 有 | 有 |
-| servers/databases | 有 | 有 |
-| servers/elasticpools | 有 | 有 |
-| virtualclusters | 有 | 有 |
+| instancepools | 是 | 是 |
+| managedinstances | 是 | 是 |
+| managedinstances/databases | 是 | 是 |
+| servers | 是 | 是 |
+| servers/databases | 是 | 是 |
+| servers/elasticpools | 是 | 是 |
+| virtualclusters | 是 | 是 |
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| sqlvirtualmachinegroups | 有 | 有 |
-| sqlvirtualmachines | 有 | 有 |
+| sqlvirtualmachinegroups | 是 | 是 |
+| sqlvirtualmachines | 是 | 是 |
 
 ## <a name="microsoftsqlvm"></a>Microsoft.SqlVM
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| dwvm | 無 | 無 |
+| dwvm | 否 | 否 |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| storageaccounts | 有 | 有 |
+| storageaccounts | 是 | 是 |
 
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 快取 | 無 | 無 |
+| 快取 | 否 | 否 |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| storagesyncservices | 有 | 有 |
+| storagesyncservices | 是 | 是 |
 
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| storagesyncservices | 無 | 無 |
+| storagesyncservices | 否 | 否 |
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| storagesyncservices | 無 | 無 |
+| storagesyncservices | 否 | 否 |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| managers | 無 | 無 |
+| managers | 否 | 否 |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| streamingjobs | 有 | 有 |
+| streamingjobs | 是 | 是 |
 
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| environments | 無 | 無 |
-| environments/eventsources | 無 | 無 |
-| 執行個體 | 無 | 無 |
-| instances/environments | 無 | 無 |
-| instances/environments/eventsources | 無 | 無 |
+| environments | 否 | 否 |
+| environments/eventsources | 否 | 否 |
+| 執行個體 | 否 | 否 |
+| instances/environments | 否 | 否 |
+| instances/environments/eventsources | 否 | 否 |
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| providerregistrations | 無 | 無 |
-| 資源 | 無 | 無 |
+| providerregistrations | 否 | 否 |
+| resources | 否 | 否 |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| environments | 有 | 有 |
-| environments/eventsources | 有 | 有 |
-| environments/referencedatasets | 有 | 有 |
+| environments | 是 | 是 |
+| environments/eventsources | 是 | 是 |
+| environments/referencedatasets | 是 | 是 |
 
 ## <a name="microsofttoken"></a>Microsoft.Token
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 存放區 | 無 | 無 |
+| 存放區 | 否 | 否 |
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| imagetemplates | 無 | 無 |
+| imagetemplates | 否 | 否 |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 帳戶 | 有 | 有 |
-| account/extension | 有 | 有 |
-| account/project | 有 | 有 |
+| 帳戶 | 是 | 是 |
+| account/extension | 是 | 是 |
+| account/project | 是 | 是 |
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| dedicatedcloudnodes | 有 | 有 |
-| dedicatedcloudservices | 有 | 有 |
-| virtualmachines | 有 | 有 |
+| dedicatedcloudnodes | 是 | 是 |
+| dedicatedcloudservices | 是 | 是 |
+| virtualmachines | 是 | 是 |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| 憑證 | 無 | 有 |
-| connectiongateways | 有 | 有 |
-| 連接 | 有 | 有 |
-| customapis | 有 | 有 |
-| hostingenvironments | 無 | 無 |
-| serverfarms | 有 | 有 |
-| 網站 | 有 | 有 |
-| sites/premieraddons | 有 | 有 |
-| sites/slots | 有 | 有 |
+| certificates | 否 | 是 |
+| connectiongateways | 是 | 是 |
+| connections | 是 | 是 |
+| customapis | 是 | 是 |
+| hostingenvironments | 否 | 否 |
+| serverfarms | 是 | 是 |
+| sites | 是 | 是 |
+| sites/premieraddons | 是 | 是 |
+| sites/slots | 是 | 是 |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| deviceservices | 無 | 無 |
+| deviceservices | 否 | 否 |
 
 ## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft.WindowsVirtualDesktop
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | ----------- | ---------- |
-| applicationgroups | 無 | 無 |
-| hostpools | 無 | 無 |
-| workspaces | 無 | 無 |
+| applicationgroups | 否 | 否 |
+| hostpools | 否 | 否 |
+| workspaces | 否 | 否 |
 
 ## <a name="third-party-services"></a>協力廠商服務
 

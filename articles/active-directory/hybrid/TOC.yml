@@ -18,6 +18,10 @@
       href: tutorial-phs-backup.md
 - name: 概念
   items:
+    - name: 混合式身分識別
+      items:
+        - name: 內部部署工作負載的雲端治理管理
+          href: cloud-governed-management-for-on-premises.md
     - name: Azure AD Connect 和 Connect Health
       items:
         - name: 什麼是 Azure AD Connect 和 Connect Health？

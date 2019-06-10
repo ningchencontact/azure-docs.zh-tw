@@ -38,10 +38,6 @@
       items:
         - name: 使用百度雲推送傳送推播通知
           href: notification-hubs-baidu-china-android-notifications-get-started.md
-    - name: Chrome
-      items:
-        - name: 向 Chrome 應用程式傳送推播通知
-          href: notification-hubs-chrome-push-notifications-get-started.md
     - name: iOS
       items:
         - name: 向 iOS 使用者傳送推播通知
@@ -68,7 +64,7 @@
           href: notification-hubs-windows-mobile-push-notifications-mpns.md
         - name: 將推播通知傳送至特定裝置
           href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
-    - name: ' Windows'
+    - name: Windows
       items:
         - name: 將推播通知傳送至通用 Windows 平台應用程式
           href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md

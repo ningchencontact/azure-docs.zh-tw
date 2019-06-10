@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 1f5aab607c5046df0dee4db5caf36b0b7de53c4d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: feb4622be14b51cfa72c33cda6c2477f799758c6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998753"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473583"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>LUIS 中的撰寫與查詢預測端點金鑰
 LUIS 使用兩個金鑰：[撰寫](#programmatic-key)和[端點](#endpoint-key)。 當您建立 LUIS 帳戶時，系統會自動為您建立撰寫金鑰。 當您已做好發佈 LUIS 應用程式的準備時，必須[建立端點金鑰](luis-how-to-azure-subscription.md)、[將它指派](luis-how-to-azure-subscription.md)給 LUIS 應用程式，然後[將它與端點查詢搭配使用](#use-endpoint-key-in-query)。 
@@ -33,7 +33,7 @@ LUIS 使用兩個金鑰：[撰寫](#programmatic-key)和[端點](#endpoint-key)�
 
 撰寫金鑰也稱為入門金鑰，會在您建立 LUIS 帳戶時自動為您建立，並且是免費的。 針對每個撰寫[區域](luis-reference-regions.md)，您都會有一個跨所有 LUIS 應用程式的撰寫金鑰。 提供撰寫金鑰的目的是要撰寫 LUIS 應用程式或測試端點查詢。 
 
-若要尋找撰寫金鑰，請登入 [LUIS](luis-reference-regions.md#luis-website)，然後按一下右上方瀏覽列中的帳戶名稱以開啟 [帳戶設定]。
+若要尋找撰寫金鑰，請登入 [LUIS](luis-reference-regions.md#luis-website)，然後按一下右上方瀏覽列中的帳戶名稱以開啟 [帳戶設定]  。
 
 ![撰寫金鑰](./media/luis-concept-keys/programatic-key.png)
 
@@ -49,11 +49,11 @@ LUIS 使用兩個金鑰：[撰寫](#programmatic-key)和[端點](#endpoint-key)�
 
 Azure 資源建立程序完成時，請[將金鑰指派](luis-how-to-azure-subscription.md)給應用程式。 
 
-    * 端點金鑰會根據您建立金鑰時所指定的使用量方案，來允許端點叫用次數配額。 如需定價資訊，請參閱[認知服務定價](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h)。
+* 端點金鑰會根據您建立金鑰時所指定的使用量方案，來允許端點叫用次數配額。 如需定價資訊，請參閱[認知服務定價](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h)。
 
-    * 端點金鑰可以用於您所有 LUIS 應用程式，也可以用於特定 LUIS 應用程式。 
+* 端點金鑰可以用於您所有 LUIS 應用程式，也可以用於特定 LUIS 應用程式。 
 
-    * 請勿將端點金鑰用於撰寫 LUIS 應用程式。 
+* 請勿將端點金鑰用於撰寫 LUIS 應用程式。 
 
 ## <a name="use-endpoint-key-in-query"></a>在查詢中使用端點金鑰
 LUIS 端點接受兩種樣式的查詢，兩者都使用端點金鑰，但使用位置不同：
@@ -71,12 +71,12 @@ LUIS API 會使用 `Ocp-Apim-Subscription-Key` 標頭。 此標頭名稱並不�
 您無法傳遞端點金鑰來撰寫 API。 如果您這樣做，就會收到 401 錯誤 - 存取被拒，因為端點金鑰無效。 
 
 ## <a name="key-limits"></a>金鑰限制
-請參閱[金鑰限制](luis-boundaries.md#key-limits)和 [Azure 區域](luis-reference-regions.md)。 撰寫金鑰是免費金鑰並用於撰寫。 LUIS 端點金鑰具有免費層，但必須由您建立，並在 [發佈] 頁面上與您的 LUIS 應用程式建立關聯。 它無法用於撰寫，只能用於端點查詢。
+請參閱[金鑰限制](luis-boundaries.md#key-limits)和 [Azure 區域](luis-reference-regions.md)。 撰寫金鑰是免費金鑰並用於撰寫。 LUIS 端點金鑰具有免費層，但必須由您建立，並在 [發佈]  頁面上與您的 LUIS 應用程式建立關聯。 它無法用於撰寫，只能用於端點查詢。
 
 發佈區域與撰寫區域不同。 請務必在與您想要的發佈區域對應的撰寫區域中建立應用程式。
 
 ## <a name="key-limit-errors"></a>金鑰限制錯誤
-如果您超出每秒配額，就會收到 HTTP 429 錯誤。 如果您超出每月配額，則會收到 HTTP 403 錯誤。 藉由取得 LUIS [端點](#endpoint-key)金鑰、在 [LUIS](luis-reference-regions.md#luis-website) 網站的 [發佈] 頁面上將金鑰[指派](luis-how-to-azure-subscription.md)給應用程式，來修正這些問題。
+如果您超出每秒配額，就會收到 HTTP 429 錯誤。 如果您超出每月配額，則會收到 HTTP 403 錯誤。 藉由取得 LUIS [端點](#endpoint-key)金鑰、在 [LUIS](luis-reference-regions.md#luis-website) 網站的 [發佈]  頁面上將金鑰[指派](luis-how-to-azure-subscription.md)給應用程式，來修正這些問題。
 
 ## <a name="assignment-of-the-endpoint-key"></a>指派端點金鑰
 

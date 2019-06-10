@@ -2,20 +2,20 @@
 title: 在 Azure Active Directory B2C 中使用自訂原則來設定密碼變更 | Microsoft Docs
 description: 了解如何在 Azure Active Directory B2C 中使用自訂原則以讓使用者變更其密碼。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1d05a5c4fa13b83abd26ee06123028f75a725582
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a49f62b6fc1ea00084266d4c5405f8bf96d034cb
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729468"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509264"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定密碼變更
 
@@ -29,7 +29,7 @@ ms.locfileid: "64729468"
 
 ## <a name="add-the-elements"></a>新增元素 
 
-1. 開啟 TrustframeworkExtensions.xml 檔案，並將下列識別碼為 `oldPassword` 的 **ClaimType** 元素新增到 [ClaimsSchema](claimsschema.md) 元素： 
+1. 開啟 TrustframeworkExtensions.xml  檔案，並將下列識別碼為 `oldPassword` 的 **ClaimType** 元素新增到 [ClaimsSchema](claimsschema.md) 元素： 
 
     ```XML
     <BuildingBlocks>
@@ -165,19 +165,19 @@ ms.locfileid: "64729468"
 ### <a name="upload-the-files"></a>上傳檔案
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
-4. 選取 [識別體驗架構]。
-5. 在 [自訂原則] 頁面上，按一下 [上傳原則]。
-6. 選取 [覆寫現有的原則]，然後搜尋並選取 TrustframeworkExtensions.xml 檔案。
-7. 按一下 [上傳] 。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
+4. 選取 [識別體驗架構]  。
+5. 在 [自訂原則] 頁面上，按一下 [上傳原則]  。
+6. 選取 [覆寫現有的原則]  ，然後搜尋並選取 TrustframeworkExtensions.xml  檔案。
+7. 按一下 [上傳]  。
 8. 針對信賴憑證者檔案 (例如 *ProfileEditPasswordChange.xml*) 重複步驟 5 到 7。
 
 ### <a name="run-the-policy"></a>執行原則
 
 1. 開啟您所變更的原則。 例如 *B2C_1A_profile_edit_password_change*。
-2. 針對**應用程式**，請選取您先前註冊的應用程式。 若要查看權杖，[回覆 URL] 應該顯示 `https://jwt.ms`。
-3. 按一下 [立即執行] 。 使用您先前建立的帳戶進行登入。 您現在應該有機會變更密碼。 
+2. 針對**應用程式**，請選取您先前註冊的應用程式。 若要查看權杖，[回覆 URL]  應該顯示 `https://jwt.ms`。
+3. 按一下 [立即執行]  。 使用您先前建立的帳戶進行登入。 您現在應該有機會變更密碼。 
 
 ## <a name="next-steps"></a>後續步驟
 

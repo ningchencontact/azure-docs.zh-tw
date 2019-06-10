@@ -3,21 +3,21 @@ title: 翻譯工具文字 API 語言方法
 titlesuffix: Azure Cognitive Services
 description: 使用翻譯工具文字 API 語言方法。
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 6e0342d876db424454526637322d67d55c0432a8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 415093610bfbc314e569eeeb658508bdfb021d9c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797286"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389721"
 ---
-# <a name="translator-text-api-30-languages"></a>翻譯工具文字 API 3.0：語言
+# <a name="translator-text-api-30-languages"></a>翻譯工具文字 API 3.0：Languages
 
 取得翻譯工具文字 API 其他作業目前支援的語言集合。 
 
@@ -34,22 +34,22 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 <table width="100%">
   <th width="20%">查詢參數</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
     <td>api-version</td>
     <td>必要參數。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
   </tr>
   <tr>
-    <td>範圍</td>
-    <td>選擇性參數。<br/>以逗號分隔的名稱列表，用於定義要傳回的語言群組。 允許的群組名稱為：`translation`、`transliteration` 和 `dictionary`。 如果未提供任何範圍，則會傳回所有群組，相當於傳遞 `scope=translation,transliteration,dictionary`。 若想要決定哪一組支援語言適合您的案例使用，請參閱[回應物件](#response-body)的說明。</td>
+    <td>scope</td>
+    <td>選擇性參數  。<br/>以逗號分隔的名稱列表，用於定義要傳回的語言群組。 允許的群組名稱為：`translation`、`transliteration` 和 `dictionary`。 如果未提供任何範圍，則會傳回所有群組，相當於傳遞 `scope=translation,transliteration,dictionary`。 若想要決定哪一組支援語言適合您的案例使用，請參閱[回應物件](#response-body)的說明。</td>
   </tr>
 </table> 
 
 要求標頭為：
 
 <table width="100%">
-  <th width="20%">標頭</th>
-  <th>說明</th>
+  <th width="20%">headers</th>
+  <th>描述</th>
   <tr>
     <td>Accept-Language</td>
     <td>*選擇性要求標頭*。<br/>用於使用者介面字串的語言。 回應中的某些欄位是語言名稱或區域名稱。 您可以使用此參數來定義傳回這些名稱的語言。 提供語式正確的的 BCP 47 語言標記即可指定語言。 舉例而言，值 `fr` 可要求傳回法文名稱，使用值 `zh-Hant` 則可要求繁體中文的名稱。<br/>未指定目標語言或無法進行當地語系化時，會提供英文名稱。
@@ -229,8 +229,8 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 ## <a name="response-headers"></a>回應標頭
 
 <table width="100%">
-  <th width="20%">標頭</th>
-  <th>說明</th>
+  <th width="20%">headers</th>
+  <th>描述</th>
   <tr>
     <td>ETag</td>
     <td>所要求之支援語言群組的實體標記目前的值。 為了使後續要求更有效率，用戶端可以在 `If-None-Match` 標頭欄位中傳送 `ETag` 值。
@@ -248,7 +248,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 <table width="100%">
   <th width="20%">狀態碼</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
     <td>200</td>
     <td>成功。</td>
@@ -267,7 +267,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   </tr>
   <tr>
     <td>500</td>
-    <td>發生未預期的錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
+    <td>發生意外錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
   </tr>
   <tr>
     <td>503</td>

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: a98f65db3739cf3f4771df7a2ef864008f7dbaa9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ebeb7e109584726dcd2505fbd9d4c1d7bfde7aba
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66170931"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387687"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>快速入門：使用 Azure CLI 建立標準負載平衡器以平衡 VM 的負載
 
@@ -36,7 +36,7 @@ ms.locfileid: "66170931"
 
 使用 [az group create](https://docs.microsoft.com/cli/azure/group) 來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
-下列範例會在 eastus 位置建立名為 myResourceGroupSLB 的資源群組：
+下列範例會在 eastus  位置建立名為 myResourceGroupSLB  的資源群組：
 
 ```azurecli-interactive
   az group create \
@@ -46,7 +46,7 @@ ms.locfileid: "66170931"
 
 ## <a name="create-a-public-standard-ip-address"></a>建立公用標準 IP 位址
 
-若要在網際網路上存取您的 Web 應用程式，您需要負載平衡器的公用 IP 位址。 標準負載平衡器只支援標準公用 IP 位址。 使用 [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip)，在 myResourceGroupSLB 中建立名為 myPublicIP 的標準公用 IP 位址。
+若要在網際網路上存取您的 Web 應用程式，您需要負載平衡器的公用 IP 位址。 標準負載平衡器只支援標準公用 IP 位址。 使用 [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip)，在 myResourceGroupSLB  中建立名為 myPublicIP  的標準公用 IP 位址。
 
 ```azurecli-interactive
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard
@@ -89,7 +89,7 @@ ms.locfileid: "66170931"
 
 ### <a name="create-the-load-balancer-rule"></a>建立負載平衡器規則
 
-負載平衡器規則可定義連入流量的前端 IP 組態及接收流量的後端 IP 集區，以及所需的來源和目的地連接埠。 使用 [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) 建立負載平衡器規則 myLoadBalancerRuleWeb，用來接聽前端集區 myFrontEnd 中的連接埠 80，以及用來將負載平衡的網路流量傳送到後端位址集區 myBackEndPool (也是使用連接埠 80)。 
+負載平衡器規則可定義連入流量的前端 IP 組態及接收流量的後端 IP 集區，以及所需的來源和目的地連接埠。 使用 [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) 建立負載平衡器規則 myLoadBalancerRuleWeb  ，用來接聽前端集區 myFrontEnd  中的連接埠 80，以及用來將負載平衡的網路流量傳送到後端位址集區 myBackEndPool  (也是使用連接埠 80)。 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -236,9 +236,9 @@ for i in `seq 1 2`; do
     --nics myNic$i \
     --image UbuntuLTS \
     --generate-ssh-keys \
-    --custom-data cloud-init.txt
+    --custom-data cloud-init.txt \
     --no-wait
-    done
+done
 ```
 部署 VM 可能需要幾分鐘的時間。
 

@@ -2,20 +2,20 @@
 title: 工作階段及單一登入設定-Azure Active Directory B2C |Microsoft Docs
 description: 工作階段並在 Azure Active Directory B2C 中的單一登入設定。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: daff37ca803a7eebdc07a78d6d02f5cee36de2f5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 472e494d445ae4a22c988076994649543ec1f7f8
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703806"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508127"
 ---
 # <a name="session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>工作階段和 Azure Active Directory B2C 中的單一登入設定
 
@@ -32,7 +32,7 @@ Azure AD B2C 支援以 [OpenID Connect 驗證通訊協定](active-directory-b2c-
     - 預設值 = 1440 分鐘。
     - 最小值 (含) = 15 分鐘。
     - 最大值 (含) = 1440 分鐘。
-- **Web 應用程式工作階段逾時** - 如果將此參數設定為 [絕對]，使用者必須在 [Web 應用程式工作階段存留期 (分鐘)] 指定的期間結束後再度驗證。 如果將此參數設定為 **[循環]** \(預設設定)，只要使用者在 Web 應用程式中持續保持作用狀態，他們便能維持登入狀態。
+- **Web 應用程式工作階段逾時** - 如果將此參數設定為 [絕對]  ，使用者必須在 [Web 應用程式工作階段存留期 (分鐘)]  指定的期間結束後再度驗證。 如果將此參數設定為 **[循環]** \(預設設定)，只要使用者在 Web 應用程式中持續保持作用狀態，他們便能維持登入狀態。
 
 使用這些屬性可啟用以下使用案例：
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: b6e546130efd52312fca62ab4e6a22626778a19e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 65e28b557a3708c155bf80f21a784374c4497783
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60648126"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383045"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>什麼是 Bing Web 搜尋 API？
 
@@ -50,5 +50,5 @@ Bing Web 搜尋 API 可輕易地從任何可發出 HTTP 要求及剖析 JSON 回
 
 * 使用我們的 [Python 快速入門](quickstarts/python.md)，發出您對 Bing Web 搜尋 API 的第一個呼叫。  
 * [建置單頁 Web 應用程式](tutorial-bing-web-search-single-page-app.md)。
-* 檢閱 [Web 搜尋 API v7 參考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)文件。  
+* 檢閱 [Web 搜尋 API v7 參考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)文件。  
 * 深入了解 Bing Web 搜尋的[使用和顯示需求](UseAndDisplayRequirements.md)。  

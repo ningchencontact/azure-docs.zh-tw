@@ -1,6 +1,6 @@
 ---
-title: Azure 安全性技術功能 | Microsoft Docs
-description: 了解雲端式計算服務，其中包含各式各樣的計算執行個體和服務，可自動相應增加或縮小以符合您應用程式或企業的需求。
+title: Azure-Microsoft Azure 中的安全性技術功能
+description: 簡介 Azure 中的安全性服務，協助您保護您的資料、 資源和雲端中的應用程式。
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: c904d8306c145bad57ca7d77b139a2ad6d216b0b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2dad1caeba8a0417b7ac16ebaa45f4f291f54495
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121550"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480757"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全性技術功能
-
-為了協助目前和潛在的 Azure 客戶了解和利用可在 Azure 平台上和周圍取得的各種安全性相關功能，Microsoft 開發了一系列的技術白皮書、安全性概觀、最佳做法及檢查清單。 主題範圍兼具廣度與深度，並會定期更新。 本文件是該系列的一部分，以下的＜摘要＞一節將會摘要說明。 如果您需要關於此 Azure 安全性系列的進一步資訊，您可以在 (URL) 找到。
+這篇文章介紹安全性在 Azure 中的服務，可協助您保護您的資料、 資源和雲端中的應用程式並符合您企業的安全性需求。
 
 ## <a name="azure-platform"></a>Azure 平台
 
@@ -41,29 +40,19 @@ ms.locfileid: "62121550"
 
 - 保護其業務。
 
-## <a name="scope"></a>影響範圍
+## <a name="security-technical-capabilities-to-fulfil-your-responsibility"></a>安全性技術功能來滿足您的責任
 
-本白皮書的焦點放在可支援 Microsoft Azure 核心元件 (亦即 [Microsoft Azure 儲存體](https://docs.microsoft.com/azure/storage/storage-introduction)、[Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)、[Microsoft Azure 的虛擬機器模型](https://docs.microsoft.com/azure/virtual-machines/)) 的安全性特性與功能，以及用以管理這一切的工具和基礎結構。 這份白皮書聚焦在 Microsoft Azure 的技術功能，這些功能可供身為客戶的您使用，以履行其保護其資料安全性和隱私權的角色。
-
-對於即將轉移到雲端的客戶來說，最重要的事就是了解此共同責任模型。 雲端提供者會對安全性和合規性方面的工作帶來相當多的優勢，但這些優勢不會就此讓客戶不必再保護他們的使用者、應用程式和服務供應項目。
-
-對於 IaaS 解決方案，客戶要負責或共用負責保護和管理作業系統、網路設定、應用程式、身分識別、用戶端以及資料。  PaaS 解決方案是以 IaaS 部署為基礎所組建，但客戶仍要負責或共用負責保護和管理應用程式、身分識別、用戶端和資料。 儘管如此，對於 SaaS 解決方案，客戶仍肩負責任。 客戶必須確保資料的分類正確，且需共同負責管理其使用者和端點裝置。
-
-這份文件不會詳細說明所有相關的 Microsoft Azure 平台元件，例如 Azure 網站、Azure Active Directory、HDInsight、媒體服務，以及其他位在核心元件層之上的服務。 雖然我們只提供最低程度的一般資訊，但我們認為讀者應該已熟悉各項 Azure 基本概念 (如 Microsoft 所提供的其他參考資料所述以及本白皮書所提供之連結中所包含的概念)。
-
-## <a name="available-security-technical-capabilities-to-fulfil-user-customer-responsibility---big-picture"></a>用以履行使用者 (客戶) 責任的可用安全性技術功能 - 概略圖
-
-Microsoft Azure 提供的服務可協助客戶滿足安全性、隱私權和合規性方面的需求。 下圖有助於說明各種可用的 Azure 服務，使用者可以使用這些服務來根據業界標準建置安全且符合規範的應用程式基礎結構。
+Microsoft Azure 提供服務，可協助您符合您的安全性、 隱私權和合規性需求。 下圖有助於說明各種 Azure 服務可供您建置安全且符合規範的應用程式基礎結構，根據業界標準。
 
 ![可用的安全性技術功能 - 概略圖](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig1.png)
 
-## <a name="manage-and-control-identity-and-user-access-protect"></a>管理和控制身分識別與使用者存取 (保護)
+## <a name="manage-and-control-identity-and-user-access"></a>管理和控制身分識別與使用者存取
 
 Azure 可讓您管理使用者的身分識別和認證並控制存取權，協助您保護商務及個人資訊。
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Microsoft 身分識別與存取管理解決方案會協助 IT 保護應用程式和跨公司資料中心和到雲端的存取，啟用其他層級的驗證，例如 Multi-Factor Authentication 和條件式存取原則。 透過進階的安全性報告、稽核和警示來監視可疑活動，有助於減緩潛在的安全性問題。 [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) 可以提供數千個雲端 (SaaS) 應用程式的單一登入及存取您在內部部署執行的 Web 應用程式。
+Microsoft 身分識別與存取管理解決方案會協助 IT 保護應用程式和跨公司資料中心和到雲端的存取，啟用其他層級的驗證，例如 Multi-Factor Authentication 和條件式存取原則。 透過進階的安全性報告、稽核和警示來監視可疑活動，有助於減緩潛在的安全性問題。 [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions)提供單一登入至數千個雲端應用程式，並存取您內部部署環境上執行 web 應用程式。
 
 Azure Active Directory (Azure AD) 的安全性優點包括下列功能：
 
@@ -75,11 +64,11 @@ Azure Active Directory (Azure AD) 的安全性優點包括下列功能：
 
 - 透過 Azure AD 應用程式 Proxy 佈建對內部部署 Web 應用程式的安全遠端存取。
 
-[Azure Active Directory 入口網站](https://aad.portal.azure.com/)可作為 Azure 入口網站的一部分。 透過這個儀表板，您可以概略了解您組織的狀態，並輕鬆地開始管理目錄、使用者或應用程式存取。
+[Azure Active Directory 入口網站](https://aad.portal.azure.com/)使用 Azure 入口網站的一部分。 此儀表板，您可以取得您組織的狀態概觀，並輕鬆地管理目錄、 使用者或應用程式存取。
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
-Azure 身分識別管理核心功能如下：
+以下是核心 Azure 身分識別管理功能：
 
 - 單一登入
 
@@ -99,7 +88,7 @@ Azure 身分識別管理核心功能如下：
 
 [單一登入 (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) 表示只要使用單一使用者帳戶登入，就能夠存取所有進行工作所需的應用程式和資源。 登入之後，您可以存取所有需要的應用程式，而不需要再驗證一次 (例如，輸入密碼)。
 
-許多組織依賴軟體即服務 (SaaS) 應用程式，例如 Office 365、Box 和 Salesforce 來提升使用者生產力。 在過去，IT 人員必須在每個 SaaS 應用程式中個別建立並更新使用者帳戶，使用者則必須記住每個 SaaS 應用程式的密碼。
+許多組織依賴軟體即服務 (SaaS) 應用程式等 Office 365、 Box 和 Salesforce 來提升使用者生產力。 在過去，IT 人員必須在每個 SaaS 應用程式中個別建立並更新使用者帳戶，使用者則必須記住每個 SaaS 應用程式的密碼。
 
 [Azure AD 將內部部署的 Active Directory 延伸到雲端](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)，讓使用者不只能夠使用主要的組織帳戶登入加入網域的裝置和公司資源，也能登入作業所需的所有 Web 和 SaaS 應用程式。
 
@@ -107,7 +96,7 @@ Azure 身分識別管理核心功能如下：
 
 #### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-[Azure Multi-Factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) \(機器翻譯\) 是需要使用多種驗證方法，並在使用者登入和交易中新增重要的第二層安全性的驗證方法。 [MFA 有助於保護](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。 它可以透過一些驗證選項 (例如電話、文字訊息，或行動應用程式通知或驗證代碼，以及第三方 OAuth 權杖) 來提供強大的驗證功能。
+[Azure Multi-factor Authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication)是一種方法的驗證需要使用一個以上的驗證方法，並在使用者登入和交易加入重要的第二層安全性。 [MFA 有助於保護](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。 它可以透過一些驗證選項 (例如電話、文字訊息，或行動應用程式通知或驗證代碼，以及第三方 OAuth 權杖) 來提供強大的驗證功能。
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>安全性監視、警示以及機器學習服務型報告
 
@@ -121,7 +110,7 @@ Azure 身分識別管理核心功能如下：
 
 - 錯誤報告 – 指出將帳戶佈建至外部應用程式時可能發生的錯誤。
 
-- 使用者特定報告 – 顯示特定使用者的裝置/登入活動資料。
+- 使用者特定報告 – 顯示裝置，並登入的特定使用者活動資料。
 
 - 活動記錄 – 包含過去 24 小時、過去 7 天或過去 30 天內所有稽核事件的記錄，以及群組活動變更、密碼重設和登錄活動。
 
@@ -159,7 +148,7 @@ Azure AD Privileged Identity Management 可讓您：
 
 [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) 是一項安全性服務，可供整合檢視會影響組織身分識別的風險事件和潛在弱點。 Identity Protection 使用現有 Azure Active Directory 的異常偵測功能 (可透過 Azure AD 的異常活動報告取得)，並引進可即時偵測異常的新風險事件類型。
 
-## <a name="secured-resource-access-in-azure"></a>Azure 中受保護的資源存取
+## <a name="secure-resource-access"></a>安全存取公司資源
 
 在 Azure 中從計費觀點著手的存取控制。 Azure 帳戶的擁有者 (藉由造訪 [Azure 帳戶中心](https://account.windowsazure.com/subscriptions)來存取) 為帳戶管理員 (AA)。 訂用帳戶是計費容器，但它們也可做為安全性界限：每個訂用帳戶都有一個服務管理員 (SA)，此管理員可以使用 Azure 入口網站來新增、移除及修改該訂用帳戶中的 Azure 資源。 新訂用帳戶的預設 SA 為 AA，但 AA 可以在 Azure 帳戶中心變更 SA。
 
@@ -175,7 +164,7 @@ RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需
 
 ![Azure 中受保護的資源存取 (RBAC)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
-## <a name="azure-data-security-and-encryption-protect"></a>Azure 資料安全性和加密 (保護)
+## <a name="data-security-and-encryption"></a>資料安全性與加密
 
 在雲端保護資料的其中一個關鍵是考慮您的資料可能會發生的狀態，以及哪些控制項適用於該狀態。 如要了解 Azure 資料安全性和加密最佳做法，相關建議將以下列資料的狀態為主。
 
@@ -199,9 +188,9 @@ RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需
 
 **找出資料的所有存放位置**
 
-待用加密的目標是加密所有資料。 這樣做可以避免遺失重要資料或所有存放位置。 列舉應用程式所儲存的所有資料。 
+待用加密的目標是加密所有資料。 這樣做可以避免遺失重要資料或所有存放位置。 列舉應用程式所儲存的所有資料。
 
-> [!Note] 
+> [!Note]
 > 不只是「應用程式資料」或「PII」，而是所有與應用程式相關的資料，包括帳戶的中繼資料 (訂用帳戶對應、合約資訊、PII)。
 
 請細想您使用了哪些存放區來儲存資料。 例如︰
@@ -214,7 +203,7 @@ RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需
 
 ### <a name="leverage-the-existing-encryption-at-rest-support-in-azure"></a>在 Azure 中利用現有的待用加密支援
 
-對於您所使用的每個存放區，利用現有的待用加密支援。
+如您所使用的每個存放區，利用現有待用加密支援。
 
 - Azure 儲存體：請參閱[待用資料的 Azure 儲存體服務加密](https://docs.microsoft.com/azure/storage/storage-service-encryption)
 
@@ -288,10 +277,10 @@ PaaS v1 目前不支援 Azure 磁碟加密。 因此，您必須使用應用程�
 > [!Note]
 > 若要深入了解 Azure RMS，請閱讀[開始使用 Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx) 一文。
 
-## <a name="secure-your-application-protect"></a>保護應用程式 (保護)
+## <a name="secure-your-application"></a>保護您的應用程式
 Azure 負責保護您的應用程式執行所在的基礎結構和平台，而保護您的應用程式本身是您的責任。 換句話說，您需要以安全的方式來開發、部署及管理您的應用程式程式碼和內容。 如果沒有這麼做，您的應用程式程式碼或內容仍然可能受到威脅。
 
-### <a name="web-application-firewall-waf"></a>Web 應用程式防火牆 (WAF)
+### <a name="web-application-firewall"></a>Web 應用程式防火牆
 [Web 應用程式防火牆 (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) 是一項[應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)功能，可提供 Web 應用程式的集中式保護，免於遭遇常見的攻擊和弱點。
 
 Web 應用程式防火牆會根據 [OWASP 核心規則集](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 或 2.2.9 中的規則提供保護。 Web 应用程序已逐渐成为利用常见已知漏洞的恶意攻击的目标。 這些攻擊中最常見的是 SQL 插入式攻擊、跨網站指令碼攻擊等等。 想要防止應用程式的程式碼受到這類攻擊會非常困難，而且可能需要對多層次的應用程式拓撲執行嚴格的維護、修補和監視工作。 集中式 Web 應用程式防火牆有助於簡化安全性管理作業，且更加確保應用程式管理員能夠對抗威脅或入侵。 相較於保護每個個別的 Web 應用程式，WAF 方案還可透過在中央位置修補已知弱點，更快地因應安全性威脅。 現有的應用程式閘道可以輕易地轉換成已啟用 Web 應用程式防火牆的應用程式閘道。
@@ -343,7 +332,7 @@ Azure 也提供幾項簡單易用的功能，可協助保護您的應用程式�
 
 Azure App Service 會使用 Azure 雲端服務和虛擬機器使用的相同反惡意程式碼方案。 若要深入了解此方案，請參閱 [反惡意程式碼文件](https://docs.microsoft.com/azure/security/azure-security-antimalware)。
 
-## <a name="secure-your-network-protect"></a>保護網路 (保護)
+## <a name="secure-your-network"></a>保護網路安全
 Microsoft Azure 包括強大網路基礎結構以支援您的應用程式和服務連線需求。 在 Azure 的資源之間、內部部署與 Azure 託管資源之間，以及到網際網路和 Azure 與來自網際網路和 Azure，可能會有網路連線。
 
 [Azure 網路基礎結構](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines)可讓 Azure 資源與[虛擬網路 (VNet)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 彼此安全地連線。 VNet 是您的網路在雲端中的身分。 VNet 是專屬於您訂用帳戶的 Azure 雲端網路邏輯隔離。 您可以將 VNet 連線到內部部署網路。
@@ -358,7 +347,7 @@ Azure 網路支援自訂您 Azure 虛擬網路上網路流量之路由行為的�
 
 Azure 支援內部部署網路的專用 WAN 連結連線以及採用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)的 Azure 虛擬網路。 Azure 與網站之間的連結會使用不經由公用網際網路的專用連線。 如果 Azure 應用程式正在多個資料中心內執行，您可使用 [Azure 流量管理員](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)，以智慧方式將使用者的要求路由傳送到應用程式的各執行個體。 您也可以將流量路由傳送到不在 Azure 中執行的服務，只要可以從網際網路存取這些服務即可。
 
-## <a name="virtual-machine-security-protect"></a>虛擬機器安全性 (保護)
+## <a name="virtual-machine-security"></a>虛擬機器安全性
 
 您可利用 [Azure 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/)以敏捷的方式部署範圍廣泛的許多運算解決方案。 利用 Microsoft Windows、Linux、Microsoft SQL Server、Oracle、IBM、SAP 與 Azure BizTalk 服務的支援，就可以在近乎所有的作業系統上，使用任何語言部署所有工作負載。
 
@@ -370,7 +359,7 @@ Azure 支援內部部署網路的專用 WAN 連結連線以及採用 [ExpressRou
 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 有助於協調工作負載和應用程式的複寫、容錯移轉及復原，因此能夠在主要位置發生故障時，透過次要位置提供工作負載和應用程式。
 
-## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>確保合規性：雲端服務審查評鑑檢查表 (保護)
+## <a name="ensure-compliance-cloud-services-due-diligence-checklist"></a>確保合規性：雲端服務審查評鑑檢查表
 
 Microsoft 開發了[雲端服務審查評鑑檢查表](https://aka.ms/cloudchecklist.download)以協助組織在考慮移轉至雲端時練習審查評鑑程序。 它所提供的結構適用於任何規模和類型的組織 (私人企業及公部門組織，包括各層級的政府組織與非營利機構)，可讓他們找出自己的效能、服務、資料管理和控管目標與需求。 這可讓他們比較不同雲端服務提供者所提供的供應項目，最終形成雲端服務合約的的基礎。
 
@@ -390,7 +379,7 @@ Microsoft 開發了[雲端服務審查評鑑檢查表](https://aka.ms/cloudcheck
 
 - 使用相同的詞彙、定義、度量和交付成果對每個提供者提供一組一致的問題，以簡化不同雲端服務提供者供應項目的比較程序。
 
-## <a name="azure-infrastructure-and-application-security-validation-detect"></a>Azure 基礎結構和應用程式安全性驗證 (偵測)
+## <a name="azure-infrastructure-and-application-security-validation"></a>Azure 基礎結構和應用程式的安全性驗證
 
 [Azure 作業安全性](https://docs.microsoft.com/azure/security/azure-operational-security)是指使用者可在 Microsoft Azure 中用來保護其資料、應用程式和其他資產的服務、控制及功能。
 

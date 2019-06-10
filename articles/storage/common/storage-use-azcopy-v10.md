@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: cc65d6d3f7e7dcc08ea29ecc8a299b556563135b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bfa3e5a943ee59b1ed335f45e113a60f62572675
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236342"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735021"
 ---
 # <a name="get-started-with-azcopy"></a>開始使用 AzCopy
 
@@ -28,7 +28,7 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 
 ## <a name="download-azcopy"></a>下載 AzCopy
 
-首先，下載到您的電腦上的任何資料夾的 AzCopy V10 可執行檔。 為了方便起見，請考慮將 AzCopy 的資料夾位置新增至您的系統路徑，以方便使用。
+首先，下載到您的電腦上的任何目錄的 AzCopy V10 可執行檔。 
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
@@ -39,13 +39,15 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 
 ## <a name="run-azcopy"></a>執行 AzCopy
 
-在命令提示字元中，瀏覽至您下載檔案的目錄。
+為了方便起見，請考慮將 AzCopy 可執行檔的目錄位置新增至您的系統路徑，以方便使用。 如此一來您可以輸入`azcopy`從您的系統上的任何目錄。
 
-若要檢視 AzCopy 命令的清單，請輸入`azCopy`，然後按下 ENTER 鍵。
+如果您選擇不要將 AzCopy 目錄新增至您的路徑，您必須將目錄變更至 AzCopy 可執行檔和類型的位置`azcopy`或`.\azcopy`在 Windows PowerShell 命令提示字元。
 
-若要深入了解特定命令，輸入`azCopy`後面接著命令名稱。
+若要查看命令的清單，請輸入`azcopy -h`然後按下 ENTER 鍵。
 
-例如，若要深入了解`copy`命令中，輸入`azcopy copy`，然後按下 ENTER 鍵。
+若要深入了解特定命令，只包含命令的名稱 (例如： `azcopy list -h`)。
+
+![內嵌說明](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
 您可以執行使用 AzCopy 有意義的任何項目之前，您必須決定如何將提供的儲存體服務的授權認證。
 
@@ -81,7 +83,7 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 
 若要了解如何驗證和指派角色，請參閱[授與存取 Azure blob 和佇列資料使用 RBAC 在 Azure 入口網站中](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
-您不需要有其中一個角色指派給您的身分識別，如果您的身分識別新增至目標容器或資料夾的存取控制清單 (ACL)。 在 ACL 中，您的身分識別會需要寫入權限，在 [目標] 資料夾中，並執行容器和每個父資料夾的權限。
+您不需要有其中一個角色指派給您的身分識別，如果您的身分識別新增至目標容器或目錄的存取控制清單 (ACL)。 在 ACL 中，您的身分識別會需要寫入權限的目標目錄上，並執行容器和每個父目錄的權限。
 
 若要進一步了解，請參閱[存取控制，在 Azure Data Lake 儲存體 Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
 
@@ -102,7 +104,7 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 
 若要了解如何驗證和指派角色，請參閱[授與存取 Azure blob 和佇列資料使用 RBAC 在 Azure 入口網站中](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
-您不需要有其中一個角色指派給您的身分識別，如果您的身分識別新增至目標容器或資料夾的存取控制清單 (ACL)。 在 ACL 中，您的身分識別會需要讀取權限，在 [目標] 資料夾中，並執行容器和每個父資料夾的權限。
+您不需要有其中一個角色指派給您的身分識別，如果您的身分識別新增至目標容器或目錄的存取控制清單 (ACL)。 在 ACL 中，您的身分識別會需要目標目錄中，讀取權限，以及執行容器和每個父目錄的權限。
 
 若要進一步了解，請參閱[存取控制，在 Azure Data Lake 儲存體 Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)。
 
@@ -114,11 +116,11 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 azcopy login
 ```
 
-此命令傳回的驗證碼和網站的 URL。 開啟網站，提供的程式碼，然後選擇**下一步**  按鈕。
+此命令傳回驗證碼和網站的 URL。 開啟網站，提供程式碼，然後選擇 [下一步]  按鈕。
 
 ![建立容器](media/storage-use-azcopy-v10/azcopy-login.png)
 
-登入時會出現一個視窗。 在該視窗中，使用您的 Azure 帳戶認證登入 Azure 帳戶。 已成功登入之後，您可以關閉瀏覽器視窗，並開始使用 AzCopy。
+隨即會出現登入視窗。 在該視窗中，使用您的 Azure 帳戶認證登入 Azure 帳戶。 順利登入之後，您可以關閉瀏覽器視窗，然後開始使用 AzCopy。
 
 ### <a name="option-2-use-a-sas-token"></a>選項 2：使用 SAS 權杖
 
@@ -138,11 +140,11 @@ azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?s
 
 若要尋找的命令範例，請參閱這些文件。
 
-- [使用 AzCopy 和 blob 儲存體傳輸資料](storage-use-azcopy-blobs.md)
+- [使用 AzCopy 和 Blob 儲存體轉送資料](storage-use-azcopy-blobs.md)
 
-- [使用 AzCopy 和檔案儲存體傳輸資料](storage-use-azcopy-files.md)
+- [使用 AzCopy 和檔案儲存體轉送資料](storage-use-azcopy-files.md)
 
-- [使用 AzCopy 和 Amazon S3 貯體傳輸資料](storage-use-azcopy-s3.md)
+- [使用 AzCopy 和 Amazon S3 貯體轉送資料](storage-use-azcopy-s3.md)
 
 ## <a name="configure-optimize-and-troubleshoot-azcopy"></a>設定、 最佳化和疑難排解 AzCopy
 

@@ -1,6 +1,6 @@
 ---
-title: 在 .NET 中開始使用 Azure 轉送混合式連線 Websocket | Microsoft Docs
-description: 為 Azure 轉送混合式連線 Websocket 撰寫 C# 主控台應用程式。
+title: 開始使用 Azure 轉送混合式連線 Websocket 在.NET 中 |Microsoft Docs
+description: 寫入C#主控台的 Azure 轉送混合式連線 WebSockets 的應用程式。
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 88d540f274d8b07bfbdbb566c670adf6ddfefd74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ad1d5415feefcf30ebae860bc8f4d8a3e2261d5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749686"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428350"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>在 .NET 中開始使用轉送混合式連線 WebSocket
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -64,7 +64,7 @@ ms.locfileid: "60749686"
 
     ![執行應用程式](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-恭喜您，您已建立端對端混合式連線應用程式！
+恭喜，您已建立完整的混合式連線應用程式 ！
 
 ## <a name="next-steps"></a>後續步驟
 在本快速入門中，您已建立 .NET 用戶端和使用 WebSocket 來傳送和接收訊息的伺服器應用程式。 Azure 轉送的混合式連線功能也支援使用 HTTP 來傳送和接收訊息。 若要了解如何搭配使用 HTTP 和 Azure 轉送混合式連線，請參閱 [HTTP 快速入門](relay-hybrid-connections-http-requests-dotnet-get-started.md)。

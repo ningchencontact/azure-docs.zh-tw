@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e491f0c452b7b51eac4e8cccab1cc7ed8430e49
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c5eff7925599931104440213112ce288fd521b61
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783452"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473769"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 啟用 SharePoint 的遠端存取
 
@@ -54,14 +54,14 @@ ms.locfileid: "65783452"
 
 若要確定網站是根據所定義的服務帳戶來執行，請執行下列步驟︰
 
-1. 開啟 [SharePoint 管理中心] 頁面。
-2. 移至 [安全性]，然後選取 [設定服務帳戶]。
-3. 選取 [Web 應用程式集區 - SharePoint - 80]。 根據 Web 集區的名稱或是否 Web 集區預設使用 SSL，選項可能會稍有不同。
+1. 開啟 [SharePoint 管理中心]  頁面。
+2. 移至 [安全性]  ，然後選取 [設定服務帳戶]  。
+3. 選取 [Web 應用程式集區 - SharePoint - 80]  。 根據 Web 集區的名稱或是否 Web 集區預設使用 SSL，選項可能會稍有不同。
 
    ![設定服務帳戶的選項](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
 
-4. 如果 [選取此元件的帳戶] 欄位是設定為 [本機服務] 或 [網路服務]，則需要建立帳戶。 若不是，則您已完成，可以進行下一節。
-5. 選取 [註冊新的受控帳戶]。 帳戶建立之後，您必須設定 [Web 應用程式集區] 才能使用該帳戶。
+4. 如果 [選取此元件的帳戶]  欄位是設定為 [本機服務]  或 [網路服務]  ，則需要建立帳戶。 若不是，則您已完成，可以進行下一節。
+5. 選取 [註冊新的受控帳戶]  。 帳戶建立之後，您必須設定 [Web 應用程式集區]  才能使用該帳戶。
 
 ### <a name="set-a-service-principal-name-for-the-sharepoint-service-account"></a>為 SharePoint 服務帳戶設定服務主體名稱
 
@@ -102,11 +102,11 @@ setspn -S HTTP/SharePoint demo\spAppPoolAccount
 
 1. 以網域系統管理員身分登入 DC，然後開啟 **Active Directory 使用者和電腦**。
 2. 尋找連接器執行所在的電腦。 在此範例中，它與 SharePoint 伺服器相同。
-3. 按兩下該電腦，然後按一下 [委派] 索引標籤。
-4. 確定委派設定已設為 [只針對指定服務的委派信任這台電腦]。 然後，選取 [使用任何驗證通訊協定]。
-5. 按一下 [新增]按鈕，再按一下 [使用者或電腦]，並找出 SharePoint 應用程式集區帳戶，例如 _demo\spAppPoolAccount_。
+3. 按兩下該電腦，然後按一下 [委派]  索引標籤。
+4. 確定委派設定已設為 [只針對指定服務的委派信任這台電腦]  。 然後，選取 [使用任何驗證通訊協定]  。
+5. 按一下 [新增]  按鈕，再按一下 [使用者或電腦]  ，並找出 SharePoint 應用程式集區帳戶，例如 _demo\spAppPoolAccount_。
 6. 在 SPN 的清單中，選取您稍早針對服務帳戶建立的 SPN。
-7. 按一下 [確定]。 再按一下 [確定] 以儲存變更。
+7. 按一下 [確定]  。 再按一下 [確定]  以儲存變更。
   
    ![委派設定](./media/application-proxy-integrate-with-sharepoint-server/delegation-box2.png)
 
@@ -114,26 +114,26 @@ setspn -S HTTP/SharePoint demo\spAppPoolAccount
 
 現在您已設定 KCD，就準備好要設定 Azure AD 應用程式 Proxy。
 
-1. 請使用下列設定發佈您的 SharePoint 網站。 如需逐步指示，請參閱[使用 Azure AD 應用程式 Proxy 發佈應用程式](application-proxy-publish-azure-portal.md)。
-   * **內部 URL**：稍早所選擇的 SharePoint 內部 URL，例如 **<https://SharePoint/>**。
+1. 請使用下列設定發佈您的 SharePoint 網站。 如需逐步指示，請參閱[使用 Azure AD 應用程式 Proxy 發佈應用程式](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad)。
+   * **內部 URL**：稍早所選擇的 SharePoint 內部 URL，例如 **<https://SharePoint/>** 。
    * **預先驗證方法**：Azure Active Directory
    * **轉譯標頭中的 URL**：否
 
    >[!TIP]
-   >SharePoint 會使用 [主機標頭] 值來查閱網站。 它也會根據此值產生連結。 最後的結果是，SharePoint 所產生的任何連結都是已正確設定為使用外部 URL 的已發佈 URL。 將值設定為 [是] 也可讓連接器將要求轉送至後端應用程式。 不過，將值設定為 [否] 表示連接器不會傳送內部主機名稱。 相反地，連接器會傳送主機標頭作為對後端應用程式發佈的 URL。
+   >SharePoint 會使用 [主機標頭]  值來查閱網站。 它也會根據此值產生連結。 最後的結果是，SharePoint 所產生的任何連結都是已正確設定為使用外部 URL 的已發佈 URL。 將值設定為 [是]  也可讓連接器將要求轉送至後端應用程式。 不過，將值設定為 [否]  表示連接器不會傳送內部主機名稱。 相反地，連接器會傳送主機標頭作為對後端應用程式發佈的 URL。
 
    ![將 SharePoint 發佈為應用程式](./media/application-proxy-integrate-with-sharepoint-server/publish-app.png)
 
 2. 發佈您的應用程式之後，請按照下列步驟設定單一登入設定：
 
-   1. 在入口網站的應用程式頁面上，選取 [單一登入]。
-   2. 對於單一登入模式，選取 [整合式 Windows 驗證]。
+   1. 在入口網站的應用程式頁面上，選取 [單一登入]  。
+   2. 對於單一登入模式，選取 [整合式 Windows 驗證]  。
    3. 將內部應用程式 SPN 設定為您先前設定的值。 在此範例中是 **HTTP/SharePoint**。
    4. 在「委派的登入身分識別」中，選取**內部部署 SAM 帳戶名稱**。
 
    ![設定 SSO 的整合式 Windows 驗證](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 
-3. 若要完成您的應用程式設定，請移至 [使用者和群組]區段，並指派使用者存取此應用程式。 
+3. 若要完成您的應用程式設定，請移至 [使用者和群組]  區段，並指派使用者存取此應用程式。 
 
 ## <a name="step-3-configure-sharepoint-to-use-kerberos-and-azure-ad-proxy-urls"></a>步驟 3：設定 SharePoint 以使用 Kerberos 與 Azure AD Proxy URL
 
@@ -149,16 +149,16 @@ setspn -S HTTP/SharePoint demo\spAppPoolAccount
    Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "SharePoint - AAD Proxy" -SecureSocketsLayer -Zone "Extranet" -Url "https://sharepoint-f128.msappproxy.net/" -AuthenticationProvider $winAp
    ```
 
-3. 開啟 [SharePoint 管理中心] 網站。
-4. 在 [系統設定] 下，選取 [設定備用存取對應]。 [備用存取對應] 方塊隨即開啟。
+3. 開啟 [SharePoint 管理中心]  網站。
+4. 在 [系統設定]  下，選取 [設定備用存取對應]  。 [備用存取對應] 方塊隨即開啟。
 5. 選取您的網站，例如 **SharePoint - 80**。 目前為止，外部網路區域尚未有正確設定的內部 URL：
 
    ![[備用存取對應] 方塊](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
 
-6. 按一下 [新增內部 URL] 。
+6. 按一下 [新增內部 URL]  。
 7. 在 **URL 通訊協定、 主機和連接埠**文字方塊中，輸入 Azure AD Proxy 中設定的**內部 URL**，例如<https://SharePoint/>。
 8. 在下拉式清單中，選取區域**外部網路**。
-9. 按一下 [檔案] 。
+9. 按一下 [檔案]  。
 10. 備用存取對應現在看起來應該像這樣：
 
     ![正確的備用存取對應](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
@@ -179,9 +179,9 @@ SharePoint 組態現在已完成，但因為外部網路區域的內部 URL 是 
    > 自我簽署憑證僅適合供測試使用。 在生產環境中，強烈建議使用由憑證授權單位發出的憑證。
 
 3. 開啟「Internet Information Services 管理員」主控台。
-4. 展開樹狀檢視中的伺服器及「網站」，選取站台的「SharePoint - AAD Proxy」，然後按一下 [繫結]。
-5. 選取 https 繫結，然後按一下 [編輯...]。
-6. 在 [SSL 憑證] 欄位中，選擇 [SharePoint]憑證，並按一下 [確定]。
+4. 展開樹狀檢視中的伺服器及「網站」，選取站台的「SharePoint - AAD Proxy」，然後按一下 [繫結]  。
+5. 選取 https 繫結，然後按一下 [編輯...]  。
+6. 在 [SSL 憑證] 欄位中，選擇 [SharePoint]  憑證，並按一下 [確定]。
 
 您現在可以透過 Azure AD 應用程式 Proxy 從外部存取 SharePoint 網站。
 

@@ -13,6 +13,9 @@
       href: quick-backup-vm-powershell.md
     - name: 備份 VM - CLI
       href: quick-backup-vm-cli.md
+    - name: 備份 VM - Resource Manager 範本
+      displayName: ARM
+      href: quick-backup-vm-template.md
 - name: 教學課程
   items:
     - name: 大規模備份 Azure VM
@@ -249,6 +252,8 @@
           href: troubleshoot-azure-files.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
+        - name: 系統狀態
+          href: backup-azure-system-state-troubleshoot.md
     - name: 監視 Azure 備份工作負載
       items:
         - name: 使用 Azure 入口網站

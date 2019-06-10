@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/04/2019
 ms.author: twhitney
-ms.openlocfilehash: 6b5ebbab717a3db7c9b50549d2762df61c274131
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 11f6869d4d5a2ee0ef2e986ee8268c7a001ea015
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307343"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688627"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>透過 RDP 連接到 Azure Kubernetes Service (AKS) 叢集 Windows 伺服器節點，進行維護或疑難排解
 
@@ -32,7 +32,18 @@ Windows Server 節點支援目前為預覽狀態，AKS 中。
 
 Windows 伺服器節點，您的 AKS 叢集不需要從外部存取的 IP 位址。 若要讓 RDP 連線，您可以部署具有可公開存取的 IP 位址的虛擬機器相同的子網路，為您的 Windows 伺服器節點。
 
-下列範例會建立名為的虛擬機器*myVM*中*myResourceGroup*資源群組。 取代 *$SUBNET_ID*與 Windows Server 的節點集區所使用的子網路識別碼。
+下列範例會建立名為的虛擬機器*myVM*中*myResourceGroup*資源群組。
+
+首先，取得 Windows Server 的節點集區所使用的子網路。 若要取得子網路識別碼，您需要的子網路名稱。 若要取得之子網路名稱，您需要 vnet 的名稱。 查詢您的叢集網路的清單，以取得 vnet 的名稱。 若要查詢的叢集，您需要它的名稱。 您可以取得所有這些 Azure Cloud Shell 中執行下列命令：
+
+```azurecli-interactive
+CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+VNET_NAME=$(az network vnet list -g $CLUSTER_RG --query [0].name -o tsv)
+SUBNET_NAME=$(az network vnet subnet list -g $CLUSTER_RG --vnet-name $VNET_NAME --query [0].name -o tsv)
+SUBNET_ID=$(az network vnet subnet show -g $CLUSTER_RG --vnet-name $VNET_NAME --name $SUBNET_NAME --query id -o tsv)
+```
+
+已 SUBNET_ID 之後，請在建立 VM 相同的 Azure Cloud Shell 視窗執行下列命令：
 
 ```azurecli-interactive
 az vm create \

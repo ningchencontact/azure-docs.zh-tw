@@ -2,20 +2,20 @@
 title: 教學課程 - 在單頁應用程式中啟用驗證 - Azure Active Directory B2C | Microsoft Docs
 description: 關於如何使用 Azure Active Directory B2C 為單頁應用程式 (JavaScript) 提供使用者登入的教學課程。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
-ms.author: davidmu
+ms.author: marsma
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 3773efdbe47c045dccf74ace3e1b53936c9400fe
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6e4be3a14a6cfba6b32bea8a77975e3e34ea012d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190311"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507821"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 在單頁應用程式中啟用驗證
 
@@ -42,13 +42,13 @@ ms.locfileid: "65190311"
 在已完成的必要教學課程中，您在 Azure AD B2C 中新增了 Web 應用程式。 若要啟用範例與教學課程中的通訊，您需要新增 Azure AD B2C 中應用程式的重新導向 URI。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
-4. 選取 [應用程式]，然後選取 [webapp1] 應用程式。
-5. 在 [回覆 URL] 下方，新增 `http://localhost:6420`。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
+4. 選取 [應用程式]  ，然後選取 [webapp1]  應用程式。
+5. 在 [回覆 URL]  下方，新增 `http://localhost:6420`。
 6. 選取 [ **儲存**]。
 7. 在 [屬性] 頁面上，記錄您會在設定 Web 應用程式時使用的應用程式識別碼。
-8. 依序選取 [金鑰]、[產生金鑰] 和 [儲存]。 記錄您會在設定 Web 應用程式時使用的金鑰。
+8. 依序選取 [金鑰]  、[產生金鑰]  和 [儲存]  。 記錄您會在設定 Web 應用程式時使用的金鑰。
 
 ## <a name="configure-the-sample"></a>設定範例
 
@@ -100,15 +100,15 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ### <a name="sign-up-using-an-email-address"></a>使用電子郵件地址註冊
 
-1. 按一下 [登入] 以應用程式的使用者身分註冊。 這會使用您在上一個步驟中定義的 **B2C_1_signupsignin1** 使用者流程。
-2. Azure AD B2C 會顯示含有註冊連結的登入頁面。 由於您還沒有帳戶，因此請按一下 [立即註冊] 連結。 
+1. 按一下 [登入]  以應用程式的使用者身分註冊。 這會使用您在上一個步驟中定義的 **B2C_1_signupsignin1** 使用者流程。
+2. Azure AD B2C 會顯示含有註冊連結的登入頁面。 由於您還沒有帳戶，因此請按一下 [立即註冊]  連結。 
 3. 註冊工作流程會顯示一個使用電子郵件地址來收集並驗證使用者身分識別的頁面。 註冊工作流程也會收集使用者的密碼，以及在使用者流程中定義的要求屬性。
 
     請使用有效的電子郵件地址，並使用驗證碼進行驗證。 設定密碼。 輸入要求的屬性值。 
 
     ![註冊工作流程](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
 
-4. 按一下 [建立]，在 Azure AD B2C 目錄中建立本機帳戶。
+4. 按一下 [建立]  ，在 Azure AD B2C 目錄中建立本機帳戶。
 
 現在，使用者可使用電子郵件地址登入並使用 SPA 應用程式。
 

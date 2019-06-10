@@ -1,6 +1,6 @@
 ---
-title: 一般用途服務層 - Azure SQL Database | Microsoft Docs
-description: 了解 Azure SQL Database 一般用途層
+title: 一般用途服務層-Azure SQL Database |Microsoft Docs
+description: 了解 Azure SQL Database 的一般用途階層
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -12,17 +12,17 @@ ms.author: jovanpop-msft
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: dc379f1ee67174cd806840e4244054701d18f0d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b972ea985a09457d8b6a17a292e18754761f5a6e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709142"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479188"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>一般用途服務層 - Azure SQL Database
 
 > [!NOTE]
-> 以虛擬核心為基礎的購買模型中的一般用途服務層，在以 DTU 為基礎的購買模型中，稱為標準服務層。 如需以虛擬核心為基礎的購買模型與以 DTU 為基礎的購買模型的比較，請參閱 [Azure SQL Database 購買模型和資源](sql-database-purchase-models.md)。
+> 以 vCore 為基礎的購買模型中的一般用途服務層會呼叫標準服務層，在以 DTU 為基礎的購買模型。 如需以虛擬核心為基礎的購買模型與以 DTU 為基礎的購買模型的比較，請參閱 [Azure SQL Database 購買模型和資源](sql-database-purchase-models.md)。
 
 Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引擎架構為基礎，以確保 99.99% 的可用性 (即使在基礎結構失敗的情況下)。 Azure SQL Database 中使用三個服務層，每個服務層具有不同的架構模型。 這些服務層為：
 
@@ -30,7 +30,7 @@ Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引�
 - 業務關鍵
 - 超大規模資料庫
 
-一般用途架構模型是以計算和儲存體分隔為基礎。 此架構模型仰賴 Azure Blob 儲存體的高可用性和可靠性，可以透明的方式複寫資料庫檔案，並保證當基礎結構發生失敗時也不會遺失資料。
+一般用途服務層的架構模型是以隔離的計算和儲存體為基礎。 此架構模型仰賴 Azure Blob 儲存體的高可用性和可靠性，可以透明的方式複寫資料庫檔案，並保證當基礎結構發生失敗時也不會遺失資料。
 
 下圖顯示標準架構模型中具有分隔計算和儲存體層的四個節點。
 
@@ -45,10 +45,11 @@ Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引�
 
 ## <a name="when-to-choose-this-service-tier"></a>選擇此服務層的時機
 
-一般目的服務層是 Azure SQL Database 中的預設服務層，專供大部分的一般工作負載使用。 如果您需要具有 99.99% SLA 且儲存體延遲介於 5 到 10 毫秒之間的完全受控資料庫引擎，以符合大部分情況下的 Azure SQL IaaS，則一般目的層就是適合您使用的選項。
+一般目的服務層是 Azure SQL Database 中的預設服務層，專供大部分的一般工作負載使用。 如果您需要具有 99.99%的 SLA，以符合 Azure SQL IaaS，在大部分情況下的 5 到 10 毫秒之間的儲存體延遲的完全受控的資料庫引擎，一般用途層會是您的選項。
 
 ## <a name="next-steps"></a>後續步驟
 
+- 尋找資源特性 （數字的核心，IO、 記憶體） 中的一般用途/標準層[受控執行個體](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)的單一資料庫[vCore 模型](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)或[DTU 模型](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)，或在彈性集區[虛擬核心模型](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)並[DTU 模型](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits)。
 - 了解[業務關鍵](sql-database-service-tier-business-critical.md)和[超大規模資料庫](sql-database-service-tier-hyperscale.md)層。
 - 了解 [Service Fabric](../service-fabric/service-fabric-overview.md)。
 - 如需其他高可用性和災害復原的選項，請參閱[商務持續性](sql-database-business-continuity.md)。

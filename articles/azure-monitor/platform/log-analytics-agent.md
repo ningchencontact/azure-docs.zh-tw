@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 06/06/2019
 ms.author: magoedte
-ms.openlocfilehash: b410dab40d5434a6f23950a9f151e50240ace63b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 436685f3bba58ed7d06dfe834d808e7fe422176b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916369"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751972"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>使用 Azure Log Analytics 代理程式收集記錄資料
 
@@ -44,8 +44,8 @@ Windows 代理程式可以回報到最多四個 Log Analytics 工作區，而 Li
 Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 * Windows Server 2019
-* Windows Server 2008 R2、2012、2012 R2、2016，版本 1709 和 1803
-* Windows 7 SP1 及更高版本
+* Windows Server 2008 R2、 2012、 2012 R2，2016 年 1709年和 1803年版
+* Windows 7 SP1 和更新版本
 
 ## <a name="supported-linux-operating-systems"></a>支援的 Linux 作業系統
 本節提供有關所支援 Linux 散發套件的詳細資料。    
@@ -59,7 +59,8 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 * 不支援新版 AMI。  
 * 只支援預設執行 SSL 1.x 的版本。
 
-如果您使用的散發版本或版本目前不受支援，且不符合支援模型，建議您為此存放庫建立分支，以認可 Microsoft 支援服務將不會對分支代理程式版本提供協助。
+>[!NOTE]
+>如果您使用的散發版本或版本目前不受支援，且不符合支援模型，建議您為此存放庫建立分支，以認可 Microsoft 支援服務將不會對分支代理程式版本提供協助。
 
 * Amazon Linux 2017.09 (x64)
 * CentOS Linux 6 (x86/x64) 和 7 (x64)  
@@ -72,6 +73,21 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 >[!NOTE]
 >OpenSSL 1.1.0 只支援用於 x86_x64 平台 (64 位元)，1.x 之前的 OpenSSL 則不支援用於任何平台。
 >
+
+### <a name="agent-prerequisites"></a>代理程式先決條件
+
+下表強調支援的 Linux 散發版本，將會安裝代理程式所需的套件。
+
+|必要的套件 |描述 |最小版本 |
+|-----------------|------------|----------------|
+|Glibc |    GNU C 程式庫 | 2.5-12 
+|Openssl    | OpenSSL 程式庫 | 1.0.x 或 1.1.x |
+|Curl | cURL Web 用戶端 | 7.15.5 |
+|Python-ctypes | | 
+|PAM | 插入式驗證模組 | | 
+
+>[!NOTE]
+>需要有 rsyslog 或 syslog-ng，才能收集 syslog 訊息。 Red Hat Enterprise Linux 第 5 版、CentOS 和 Oracle Linux 版本 (sysklog) 不支援預設 syslog 精靈，進行 syslog 事件收集。 若要從此版的這些散發套件收集 syslog 資料，rsyslog 精靈應該安裝和設定為取代 sysklog。
 
 ## <a name="tls-12-protocol"></a>TLS 1.2 通訊協定
 為了確保資料在傳輸至 Azure 監視器記錄檔的安全性，強烈建議您設定代理程式至少使用傳輸層安全性 (TLS) 1.2。 我們已發現較舊版本的 TLS/安全通訊端層 (SSL) 較易受到攻擊，而且在其目前的運作中仍允許回溯相容性，因此並**不建議使用**這些版本。  如需其它資訊，請檢閱[使用 TLS 1.2 安全地傳送](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)。 
@@ -105,7 +121,7 @@ Windows 和 Linux 代理程式支援透過 proxy 伺服器或 Azure 監視器使
 |user | 用於驗證 Proxy 的選擇性使用者名稱 |
 |password | 用於驗證 Proxy 的選擇性密碼 |
 |proxyhost | Proxy 伺服器/Log Analytics 閘道的位址或 FQDN |
-|連接埠 | Proxy 伺服器/Log Analytics 閘道的選擇性連接埠號碼 |
+|port | Proxy 伺服器/Log Analytics 閘道的選擇性連接埠號碼 |
 
 例如：`https://user01:password@proxy01.contoso.com:30443`
 
@@ -115,7 +131,7 @@ Windows 和 Linux 代理程式支援透過 proxy 伺服器或 Azure 監視器使
 ## <a name="install-and-configure-agent"></a>安裝及設定代理程式 
 在您的 Azure 訂用帳戶或混合式環境中的機器連接直接與 Azure 監視器記錄檔即可使用不同的方法，根據您的需求。 下表說明每個方法，您可以判斷哪個方法最適合您的組織。
 
-|來源 | 方法 | 描述|
+|`Source` | 方法 | 描述|
 |-------|-------------|-------------|
 |Azure VM| - 適用於 [Windows](../../virtual-machines/extensions/oms-windows.md) 或 [Linux](../../virtual-machines/extensions/oms-linux.md) 的 Log Analytics VM 擴充功能，使用 Azure CLI 或 Azure Resource Manager 範本<br>- [從 Azure 入口網站手動執行](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json)。 | 擴充功能會在 Azure 虛擬機器上安裝 Log Analytics 代理程式，並且在現有的 Azure 監視器工作區中註冊這些機器。|
 | 混合式 Windows 電腦|- [手動安裝](agent-windows.md)<br>- [Azure 動化 DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [搭配 Azure Stack 的資源管理員範本](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |從命令列或使用自動化方法 (例如 Azure 自動化 DSC、[System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications)) 來安裝 Microsoft Monitoring 代理程式，或者如果您已經在您的資料中心部署 Microsoft Azure Stack，請使用 Azure Resource Manager 範本。| 

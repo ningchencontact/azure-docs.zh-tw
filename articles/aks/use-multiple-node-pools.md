@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a295dfa1f7f2c58b3e45036212434837ac4bfb4d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235762"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475460"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>預覽-建立和管理 Azure Kubernetes Service (AKS) 叢集的多個節點集區
 
@@ -74,6 +74,7 @@ az provider register --namespace Microsoft.ContainerService
 * 您無法刪除第一個節點集區。
 * 無法使用的 HTTP 應用程式路由附加元件。
 * 您無法新增/更新/刪除節點的集區使用現有的 Resource Manager 範本，如同大部分的作業。 相反地，[使用不同的 Resource Manager 範本](#manage-node-pools-using-a-resource-manager-template)對在 AKS 叢集中的節點集區進行變更。
+* （目前在預覽 AKS） 叢集中自動調整程式無法使用。
 
 雖然這項功能處於預覽狀態，其他的限制如下：
 
@@ -222,7 +223,7 @@ VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>指定節點的集區的 VM 大小
 
-在上述範例中建立的節點集區，建立叢集中的節點使用的預設 VM 大小。 更常見的案例是為您建立具有不同的 VM 大小和功能 節點的集區。 例如，您可以建立包含大量的 CPU 或記憶體節點的節點集區或節點集區可提供 GPU 支援。 在下一個步驟中，您 [使用 taints 和 tolerations][#schedule-pods-using-taints-and-tolerations] 告訴 Kubernetes 排程器如何限制對 pod 的存取可在這些節點上執行。
+在上述範例中建立的節點集區，建立叢集中的節點使用的預設 VM 大小。 更常見的案例是為您建立具有不同的 VM 大小和功能 節點的集區。 例如，您可以建立包含大量的 CPU 或記憶體節點的節點集區或節點集區可提供 GPU 支援。 在下一個步驟中，您[使用 taints 和 tolerations](#schedule-pods-using-taints-and-tolerations)告訴 Kubernetes 排程器如何限制存取權可在這些節點執行的 pod。
 
 在下列範例中，建立會使用以 GPU 為基礎的節點集區*Standard_NC6* VM 大小。 這些 Vm 是由 NVIDIA Tesla K80 卡提供。 如需可用 VM 大小的資訊，請參閱[在 Azure 中 Linux 虛擬機器的大小][vm-sizes]。
 
@@ -332,7 +333,7 @@ Events:
 
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>管理使用 Resource Manager 範本的節點集區
 
-當您使用 Azure Resource Manager 範本來建立和受管理的資源，您通常可以更新在您的範本和重新部署的設定，以更新資源。 使用 AKS 中 nodepools，一旦建立 AKS 叢集無法更新初始 nodepool 設定檔。 這個行為表示您無法更新現有的 Resource Manager 範本、 節點集區進行變更並重新部署。 相反地，您必須建立個別的 Resource Manager 範本，以更新僅適用於現有的 AKS 叢集的代理程式集區。
+當您使用 Azure Resource Manager 範本來建立和受管理的資源，您通常可以更新在您的範本和重新部署的設定，以更新資源。 使用 AKS 中的節點集區，一旦建立 AKS 叢集無法更新的初始節點集區設定檔。 這個行為表示您無法更新現有的 Resource Manager 範本、 節點集區進行變更並重新部署。 相反地，您必須建立個別的 Resource Manager 範本，以更新僅適用於現有的 AKS 叢集的代理程式集區。
 
 建立範本，例如`aks-agentpools.json`並貼上下列範例資訊清單。 此範例範本會設定下列設定：
 
@@ -437,7 +438,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>後續步驟
 
-在這篇文章中，您學會如何建立和管理 AKS 叢集中的多個節點集區。 如需如何控制跨節點集區的 pod 的詳細資訊，請參閱[AKS 中的進階排程器功能的最佳做法][operator-best-practices-advanced-scheduler]。
+在本文中，您已了解如何建立和管理 AKS 叢集中的多個節點集區。 如需如何控制跨節點集區的 pod 的詳細資訊，請參閱[AKS 中的進階排程器功能的最佳做法][operator-best-practices-advanced-scheduler]。
 
 若要建立及使用 Windows Server 容器節點集區，請參閱[AKS 中建立 Windows Server 容器][aks-windows]。
 

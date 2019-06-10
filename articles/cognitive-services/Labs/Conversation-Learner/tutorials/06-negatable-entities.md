@@ -3,19 +3,19 @@ title: 如何搭配對話學習模組模型使用 Negatable 實體 - Microsoft �
 titleSuffix: Azure
 description: 了解如何搭配對話學習模組模型使用 Negatable 實體。
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 78dc759632c4fc3116a59ea1e5bc0b93200bca45
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: nitinme
+ms.openlocfilehash: 2c758d1dd5d4d1e7ab25faccd5280963211181d1
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58168182"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388797"
 ---
 # <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>如何搭配對話學習模組模型使用 Negatable 實體
 
@@ -41,7 +41,7 @@ ms.locfileid: "58168182"
 
 1. 選取 **新的模型**。
 2. 請輸入**NegatableEntity** for**名稱**。
-3. 選取 [建立] 。
+3. 選取 [建立]  。
 
 ### <a name="entity-creation"></a>建立實體
 
@@ -49,24 +49,24 @@ ms.locfileid: "58168182"
 2. 選取 **自訂訓練**for**實體類型**。
 3. 請輸入**名稱**for**實體名稱**。
 4. 請檢查**Negatable**若要讓使用者提供實體的值，或者，假設有*不*實體值以便刪除相符的實體值。
-5. 選取 [建立] 。
+5. 選取 [建立]  。
 
 ![](../media/T06_entity_create.png)
 
 ### <a name="create-the-first-action"></a>建立第一個動作
 
 1. 選取 **動作**在左窗格中，然後**新動作**。
-2. 輸入**我不知道您的名稱。** 針對**機器人的回應...**.
+2. 輸入**我不知道您的名稱。** 針對**機器人的回應...** .
 3. 請輸入**名稱**for **Disqualifying 享有**。
-4. 選取 [建立] 。
+4. 選取 [建立]  。
 
 ![](../media/T06_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>建立第二個動作
 
 1. 選取 **動作**在左窗格中，然後**新動作**。
-2. 輸入**我知道您的名稱。它是 $name。** 針對**機器人的回應...**.
-3. 選取 [建立] 。
+2. 輸入**我知道您的名稱。它是 $name。** 針對**機器人的回應...** .
+3. 選取 [建立]  。
 
 > [!NOTE]
 > **名稱**實體已自動加入做**所需的實體**回應 [utterance] 中的參考。

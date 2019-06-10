@@ -123,8 +123,6 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator'
     - name: Azure 網路研討會系列
       href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
-    - name: 常見問題集
-      href: FAQs.md
     - name: 價格和限制
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator'
     - name: UserVoice

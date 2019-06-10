@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7687abf5fc4af0eea9fa6aa210cfd6734cec2b36
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410579"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755141"
 ---
 # <a name="automatically-scale-session-hosts"></a>自動調整工作階段主機
 
@@ -26,7 +26,7 @@ ms.locfileid: "65410579"
 
 - Windows 虛擬桌面的租用戶和帳戶或查詢 （例如 RDS 參與者） 該租用戶的權限的服務主體。
 - 工作階段主應用程式集區 Vm 設定和註冊的 Windows 虛擬桌面服務。
-- 其他虛擬機器透過工作排程器執行排定的工作，並具有工作階段主機的網路存取權。 這將會以文件中稍後的 reffered scaler VM。
+- 其他虛擬機器透過工作排程器執行排定的工作，並具有工作階段主機的網路存取權。 這會被指文件中稍後 scaler VM。
 - [Microsoft Azure Resource Manager PowerShell 模組](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)執行排定的工作在 VM 上安裝。
 - [Windows 虛擬桌面的 PowerShell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)執行排定的工作在 VM 上安裝。
 
@@ -81,7 +81,7 @@ ms.locfileid: "65410579"
 
 要更新調整指令碼設定在 config.xml 中的下列欄位中輸入相關的值：
 
-| 欄位                     | 說明                    |
+| 欄位                     | 描述                    |
 |-------------------------------|------------------------------------|
 | AADTenantId                   | 將工作階段主機的 Vm 執行所在的訂用帳戶相關聯的 azure AD 租用戶識別碼     |
 | AADApplicationId              | 服務主體的應用程式識別碼                                                       |

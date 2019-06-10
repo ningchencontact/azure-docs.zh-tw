@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 93af2e4c373701383a674c694f7799ba890414dd
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4afc1231e6c9fa49c04c7bf6dfe26ee5eb87cc31
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65887436"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475159"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>因應 Azure Kubernetes Service (AKS) 中商務持續性和災害復原的最佳做法
 
@@ -115,7 +115,7 @@ AKS 區域可用性與配對的區域是聯合的考量。 請將 AKS 叢集部�
 
 如果您使用 Azure 受控磁碟，您可以選擇複寫和 DR 解決方案，例如這些：
 
-* [Azure 上的 Ark](https://github.com/heptio/ark/blob/master/docs/azure-config.md)
+* [在 Azure 上的 Velero](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
 * [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
 
 ### <a name="application-based-asynchronous-replication"></a>以應用程式為基礎的非同步複寫

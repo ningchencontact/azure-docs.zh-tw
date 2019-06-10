@@ -6,18 +6,20 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 72eaa18d570e85274efbea80f12e9a7301eecbfa
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 25779cd62f70df41a7734d2f8097504923dcb3a3
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947076"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430879"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>關於應用程式閘道的常見問題集
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+以下是詢問 Azure 應用程式閘道的常見問題。
 
 ## <a name="general"></a>一般
 
@@ -187,15 +189,20 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 [主機] 欄位指定探查来送達時已設定多站台上的應用程式閘道的名稱。 否則，請使用 '127.0.0.1'。 這個值是虛擬機器主機名稱不同。 其格式是\<通訊協定\>://\<主機\>:\<連接埠\>\<路徑\>。
 
-### <a name="can-i-whitelist-application-gateway-access-to-only-a-few-source-ips"></a>我可以將一些來源 Ip 的應用程式閘道存取的允許清單嗎？
+### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>我可以允許只有幾個來源 IP 位址的應用程式閘道存取？
 
-是。 請參閱[限制存取特定的來源 Ip](https://docs.microsoft.com/azure/application-gateway/configuration-overview#whitelist-application-gateway-access-to-a-few-source-ips)。
+是。 請參閱[限制存取特定的來源 Ip](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips)。
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>可以使用相同的連接埠公開和私用對向的接聽程式嗎？
 
 沒有。
 
-## <a name="configuration---ssl"></a>配置 - SSL
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>有可從 v1 SKU 移轉至 v2 SKU 的指引嗎？
+
+是。 如需詳細資訊，請參閱[移轉的 Azure 應用程式閘道和從 v1 」 為 v2 中的 Web 應用程式防火牆](migrate-v1-v2.md)。
+
+
+## <a name="configuration---ssl"></a>設定-SSL
 
 ### <a name="what-certificates-does-application-gateway-support"></a>應用程式閘道支援哪些憑證？
 
@@ -312,6 +319,10 @@ WAF 目前支援 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 ### <a name="does-waf-support-ddos-protection"></a>WAF 是否支援 DDoS 保護？
 
 是。 您可以讓應用程式閘道部署所在的虛擬網路的 DDoS 保護。 此設定可確保 Azure DDoS 保護服務也會保護應用程式閘道虛擬 IP (VIP)。
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>有可從 v1 SKU 移轉至 v2 SKU 的指引嗎？
+
+是。 如需詳細資訊，請參閱[移轉的 Azure 應用程式閘道和從 v1 」 為 v2 中的 Web 應用程式防火牆](migrate-v1-v2.md)。
 
 ## <a name="diagnostics-and-logging"></a>診斷和記錄
 

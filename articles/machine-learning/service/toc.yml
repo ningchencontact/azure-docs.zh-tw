@@ -86,24 +86,27 @@
     - name: 工作區
       displayName: concept definitions architecture
       href: concept-workspace.md
+    - name: 計算目標
+      displayName: concept definitions architecture
+      href: concept-compute-target.md
     - name: 視覺化介面
       displayName: concept
       href: ui-concept-visual-interface.md
-    - name: 自動化機器學習
+    - name: 自動化 ML
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
     - name: 模型管理 (MLOps)
       displayName: 'deploy, deployment, mlops, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
+    - name: 可重複使用的 ML 管線
+      href: concept-ml-pipelines.md
     - name: 模型可解釋性
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
-    - name: 使用 FPGA 加速
+    - name: FPGA 概觀
       href: concept-accelerate-with-fpgas.md
-    - name: 透過 ONNX 和 ONNX 執行階段最佳化
+    - name: ONNX 和 ONNX 執行階段
       href: concept-onnx.md
-    - name: 機器學習管線
-      href: concept-ml-pipelines.md
     - name: 安全性
       items:
         - name: 企業安全性概觀

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fa7730247ddc5f30c3d21a32421a6c55ec4ef72e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 9b2630614e549181f4dd2f4e79871c4594d09201
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872755"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496852"
 ---
 # <a name="vpn-gateways-overview"></a>VPN 閘道概觀
 
@@ -36,6 +36,8 @@ VPN 閘道可讓您從內部部署私人雲端，在使用服務，與您的私�
 * 使用您的內部部署 Active Directory 作為 vCenter 身分識別來源。
 * 方便的傳輸 VM 範本、 Iso、 和其他檔案從您的內部部署資源到私用雲端 vCenter。
 * 從您的內部部署網路，在您的私人雲端上執行的工作負載的存取範圍。
+
+![站對站 VPN 連線拓撲](media/cloudsimple-site-to-site-vpn-connection.png)
 
 ### <a name="cryptographic-parameters"></a>密碼編譯參數
 

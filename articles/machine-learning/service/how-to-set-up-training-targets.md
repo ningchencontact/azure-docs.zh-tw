@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 59a35e44c78ea86f3b02eb4ad99dc1fd8fcb4870
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a815ec4ac97f8476403f773aeedb19ff84092b03
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236629"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752954"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>設定計算目標進行模型定型 
 
@@ -31,24 +31,14 @@ ms.locfileid: "66236629"
 
 
 >[!NOTE]
-> 本文中的程式碼已使用 Azure Machine Learning SDK 1.0.6 版進行測試。
+> 測試與 Azure 機器學習服務 SDK 版本 1.0.39 的這篇文章中的程式碼。
 
 ## <a name="compute-targets-for-training"></a>訓練用的計算目標
 
 Azure Machine Learning 服務在不同計算目標上提供不同的支援。 一般模型開發生命週期會先開始開發/測試少量的資料。 在這個階段，我們建議使用本機環境。 例如，您的本機電腦或雲端式虛擬機器。 您對於較大的資料集相應增加您的定型或進行分散式定型時，建議使用 Azure Machine Learning Compute 建立單一或多重節點叢集，在每次提交執行時自動調整。 您也可以附加您自己的計算資源，不過支援的各種情節可能會有所不同，詳述如下：
 
+[!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
-|訓練用的計算目標| GPU 加速 | 自動化<br/> 超參數微調 | 自動化<br/> 機器學習服務 | Azure Machine Learning 管線 |
-|----|:----:|:----:|:----:|:----:|
-|[本機電腦](#local)| 可能 | &nbsp; | ✓ | &nbsp; |
-|[Azure Machine Learning Compute](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
-|[遠端虛擬機器](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
-|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-
-**所有計算目標皆可用於多個定型作業**。 例如，將遠端 VM 連結至您的工作區之後，您可以將它重複用於多個作業。
 
 > [!NOTE]
 > 您可以將 Azure Machine Learning Compute 建立成持續性資源，也可以在要求回合時才以動態方式建立。 回合型建立會在定型回合完成後移除計算目標，因此您無法重複使用以此方式建立的計算目標。

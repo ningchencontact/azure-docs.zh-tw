@@ -74,6 +74,6 @@ git submodule foreach git pull origin master
 * **PCS_AAD_APPID** -AAD 應用程式識別碼
 * **PCS_AAD_APPSECRET** -AAD 應用程式祕密
 
-組態值將會讀取此 Azure 金鑰保存庫資源。 這些環境變數可能會儲存在**\<主資料夾\>\\.pcs\\\<方案名稱\>.env**從部署的檔案。 請注意，當您執行 **docker-compose** 時，您本機電腦上設定的環境變數會覆寫 **services\\scripts\\local\\.env** 檔案中的值。
+組態值將會讀取此 Azure 金鑰保存庫資源。 這些環境變數可能會儲存在 **\<主資料夾\>\\.pcs\\\<方案名稱\>.env** 從部署的檔案。 請注意，當您執行 **docker-compose** 時，您本機電腦上設定的環境變數會覆寫 **services\\scripts\\local\\.env** 檔案中的值。
 
 某些微服務所需的設定會儲存在執行個體**Key Vault**所建立的初始部署。 在 keyvault 中對應的變數應該視需要修改。

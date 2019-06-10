@@ -91,6 +91,8 @@
               href: howto-export-data-blob-storage.md
         - name: 建立自訂規則
           href: howto-create-custom-rules.md
+        - name: 建立自訂分析
+          href: howto-create-custom-analytics.md
         - name: 在 Power BI 中將資料視覺化
           href: howto-connect-powerbi.md
         - name: 連線其他 IoT 雲端
@@ -105,6 +107,8 @@
           href: howto-configure-homepage.md
         - name: 自訂應用程式 UI
           href: howto-customize-ui.md
+        - name: 使用應用程式範本
+          href: howto-use-app-templates.md
         - name: 從 Azure 入口網站管理
           href: howto-manage-iot-central-from-portal.md
         - name: 從 Azure CLI 管理
@@ -141,9 +145,9 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: 時間序列深入解析
           href: /azure/time-series-insights
-    - name: Edge
+    - name: IoT Edge
       items:
-        - name: IoT Edge
+        - name: Azure IoT Edge
           href: /azure/iot-edge
         - name: IoT 裝置 SDK
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

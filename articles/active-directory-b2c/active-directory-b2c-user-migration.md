@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C 中的使用者移轉方法 | Microsoft Docs
 description: 討論有關使用圖形 API (以及選擇性地使用 Azure AD B2C 自訂原則) 來進行使用者移轉的核心概念和進階概念。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a4195d7c292100712e6d68831443369ab793bb95
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1e913b02f99095afb7ee1a3f2122e3c1fe1a60b5
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726128"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507656"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C：使用者移轉
 當您將識別提供者移轉到 Azure Active Directory B2C (Azure AD B2C) 時，可能也需要移轉使用者帳戶。 本文說明如何將任何識別提供者的現有使用者帳戶移轉至 Azure AD B2C。 本文章並非是為了做出規定，而是要說明數個案例。 每種方法是否適合則屬開發人員的責任。
@@ -25,7 +25,7 @@ ms.locfileid: "64726128"
 
 - **移轉前**：當您能夠完全存取使用者認證 (使用者名稱和密碼) 時，或是認證已加密，但您可以將認證解密時，便適用此流程。 此移轉前程序包括從舊識別提供者讀取使用者，然後在 Azure AD B2C 目錄中建立新的帳戶。
 
-- **移轉前和密碼重設**：當您無法存取使用者的密碼時，便適用此流程。 例如︰
+- **移轉前和密碼重設**：當您無法存取使用者的密碼時，便適用此流程。 例如:
    - 密碼以 HASH 格式儲存。
    - 密碼儲存在您無法存取的識別提供者中。 舊識別提供者會呼叫 Web 服務來驗證使用者認證。
 
@@ -52,46 +52,46 @@ Azure AD B2C 的本機帳戶密碼原則是以 Azure AD 原則為基礎的。 Az
    
 1. 在視窗右上角選取您的帳戶，以選擇您的 Azure AD **B2C** 租用戶。
    
-1. 在左側窗格中，選取 [Azure Active Directory] (不是 Azure AD B2C)。 您可能需要選取 [更多服務]，才能找到它。
+1. 在左側窗格中，選取 [Azure Active Directory]  (不是 Azure AD B2C)。 您可能需要選取 [更多服務]  ，才能找到它。
    
-1. 選取 [應用程式註冊]。
+1. 選取 [應用程式註冊]  。
    
-1. 選取 [新增應用程式註冊]。
+1. 選取 [新增應用程式註冊]  。
    
    ![新增應用程式註冊](media/active-directory-b2c-user-migration/pre-migration-app-registration.png)
    
 1. 執行下列動作建立新的應用程式：
-   - 在 [名稱] 中使用 **B2CUserMigration** 或其他任何您想要的名稱。
-   - 針對 [應用程式類型] 使用 [Web 應用程式/API]。
+   - 在 [名稱]  中使用 **B2CUserMigration** 或其他任何您想要的名稱。
+   - 針對 [應用程式類型]  使用 [Web 應用程式/API]  。
    - 針對**登入 URL**，使用`https://localhost`（因為它不是此應用程式相關）。
-   - 選取 [建立] 。
+   - 選取 [建立]  。
    
-1. 在應用程式建立後，於 [應用程式] 清單中選取新建立的 **B2CUserMigration** 應用程式。
+1. 在應用程式建立後，於 [應用程式]  清單中選取新建立的 **B2CUserMigration** 應用程式。
    
-1. 選取 [屬性]，複製**應用程式識別碼**並加以儲存，以供稍後使用。
+1. 選取 [屬性]  ，複製**應用程式識別碼**並加以儲存，以供稍後使用。
 
 ### <a name="step-12-create-the-application-secret"></a>步驟 1.2：建立應用程式祕密
-1. 在 Azure 入口網站的 [註冊的應用程式] 視窗中，選取 [金鑰]。
+1. 在 Azure 入口網站的 [註冊的應用程式]  視窗中，選取 [金鑰]  。
    
 1. 加入新的金鑰 (也稱為用戶端密碼)，並複製金鑰供之後使用。
    
    ![應用程式識別碼和金鑰](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
    
 ### <a name="step-13-grant-administrative-permission-to-your-application"></a>步驟 1.3：對您的應用程式授與系統管理權限
-1. 在 Azure 入口網站的 [註冊的應用程式] 視窗中，選取 [必要權限]。
+1. 在 Azure 入口網站的 [註冊的應用程式]  視窗中，選取 [必要權限]  。
 
-1. 選取 [Windows Azure Active Directory]。
+1. 選取 [Windows Azure Active Directory]  。
    
-1. 在 [啟用存取] 窗格的 [應用程式權限] 底下，選取 [讀取及寫入目錄資料]，然後選取 [儲存]。
+1. 在 [啟用存取]  窗格的 [應用程式權限]  底下，選取 [讀取及寫入目錄資料]  ，然後選取 [儲存]  。
    
-1. 在 [必要權限] 窗格中，選取 [授與權限]。
+1. 在 [必要權限]  窗格中，選取 [授與權限]  。
    
    ![應用程式權限](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
    
 現在，您的應用程式具有從 Azure AD B2C 租用戶建立、讀取和更新使用者的權限。
 
 ### <a name="step-14-optional-environment-cleanup"></a>步驟 1.4：(選用) 環境清除
-讀取和寫入目錄資料權限「不」包含刪除使用者的能力。 若要讓您的應用程式能夠刪除使用者 (清除您的環境)，您必須執行額外的步驟，這牽涉到執行 PowerShell 設定使用者帳戶系統管理員權限。 否則，您可以跳到下一節。
+讀取和寫入目錄資料權限「不」  包含刪除使用者的能力。 若要讓您的應用程式能夠刪除使用者 (清除您的環境)，您必須執行額外的步驟，這牽涉到執行 PowerShell 設定使用者帳戶系統管理員權限。 否則，您可以跳到下一節。
 
 > [!IMPORTANT]
 > 您必須使用 B2C 租用戶*本機*的 B2C 租用戶系統管理員帳戶。 帳戶名稱語法是*系統管理員\@contosob2c.onmicrosoft.com*。
@@ -145,7 +145,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 ![使用者資料檔案](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
 
 如您所見，此檔案包含使用者實體的清單。 每個使用者實體都有下列屬性：
-- 電子郵件
+- email
 - displayName
 - firstName
 - lastName
@@ -169,7 +169,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 
 > [!NOTE]
 > - 後面幾節會說明如何使用 Azure 資料表的連接字串。
-> - B2C 租用戶名稱是您在租用戶建立期間輸入的網域，並且會顯示在 Azure 入口網站中。 租用戶名稱通常以尾碼 *.onmicrosoft.com* 結尾 (例如，*.contosob2c.onmicrosoft.com*)。
+> - B2C 租用戶名稱是您在租用戶建立期間輸入的網域，並且會顯示在 Azure 入口網站中。 租用戶名稱通常以尾碼 *.onmicrosoft.com* 結尾 (例如， *.contosob2c.onmicrosoft.com*)。
 
 ### <a name="step-23-run-the-pre-migration-process"></a>步驟 2.3：執行移轉前程序
 以滑鼠右鍵按一下 `AADB2C.UserMigration` 方案，然後重建範例。 如果成功，您現在應該有一個 `UserMigration.exe` 可執行檔位於 `AADB2C.UserMigration\bin\Debug\net461`。 若要執行移轉程序，請使用下列其中一個命令列參數：
@@ -185,7 +185,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 
 - 若要依顯示名稱搜尋使用者，請使用 Azure 入口網站：
    
-   1. 開啟 **Azure AD B2C**，選取 [使用者和群組]。
+   1. 開啟 **Azure AD B2C**，選取 [使用者和群組]  。
    
    1. 在搜尋方塊中輸入使用者的顯示名稱，然後檢視使用者的設定檔。
    
@@ -219,16 +219,16 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 
 若要取得密碼重設原則的連結，請執行下列動作：
 
-1. 選取 [Azure AD B2C 設定]，然後選取 [重設密碼] 原則屬性。
+1. 選取 [Azure AD B2C 設定]  ，然後選取 [重設密碼]  原則屬性。
 
 1. 選取您的應用程式。
 
     > [!NOTE]
     > [立即執行] 需要在租用戶上至少預先註冊一個應用程式。 若要了解如何註冊應用程式，請參閱 Azure AD B2C [開始使用][B2C-GetStarted]一文或[應用程式註冊][B2C-AppRegister]一文。
 
-1. 選取 [立即執行]，然後檢查原則。
+1. 選取 [立即執行]  ，然後檢查原則。
 
-1. 複製 [立即執行端點] 方塊中的 URL，然後將它傳送給您的使用者。
+1. 複製 [立即執行端點]  方塊中的 URL，然後將它傳送給您的使用者。
 
     ![設定診斷記錄](media/active-directory-b2c-user-migration/pre-migration-policy-uri.png)
 
@@ -238,7 +238,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 > 若要檢查並變更使用者移轉狀態，您必須使用自訂原則。 您必須完成[開始使用自訂原則][B2C-GetStartedCustom]提供的安裝指示。
 >
 
-當使用者不先重設密碼就嘗試登入時，您的原則應該會傳回易懂的錯誤訊息。 例如︰
+當使用者不先重設密碼就嘗試登入時，您的原則應該會傳回易懂的錯誤訊息。 例如:
 >*您的密碼已到期。若要重設，請選取 [重設密碼] 連結。*
 
 此選用步驟需要使用 Azure AD B2C 自訂原則，如[開始使用自訂原則][B2C-GetStartedCustom]一文所述。
@@ -247,7 +247,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 
 若要追蹤密碼的變更，您可以使用 Azure 資料表。 當您使用命令列參數 `2` 執行移轉前程序時，就是在 Azure 資料表中建立使用者實體。 您的服務會執行下列動作：
 
-- 在登入時，Azure AD B2C 原則會叫用您的移轉 RESTful 服務，傳送電子郵件訊息作為輸入宣告。 此服務會在 Azure 資料表中搜尋電子郵件地址。 如果已有地址，服務會擲回錯誤訊息：「您必須變更密碼」。
+- 在登入時，Azure AD B2C 原則會叫用您的移轉 RESTful 服務，傳送電子郵件訊息作為輸入宣告。 此服務會在 Azure 資料表中搜尋電子郵件地址。 如果已有地址，服務會擲回錯誤訊息：「您必須變更密碼」  。
 
 - 使用者成功變更密碼之後，請從 Azure 資料表移除實體。
 
@@ -316,41 +316,41 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
 在為 RESTful API 定義技術設定檔之後，請指示 Azure AD B2C 原則呼叫該技術設定檔。 XML 程式碼片段會覆寫定義於基底原則中的 `SelfAsserted-LocalAccountSignin-Email`。 XML 程式碼片段也會新增 ReferenceId 是指向技術設定檔 `LocalAccountUserMigration` 的 `ValidationTechnicalProfile`。
 
 ### <a name="step-44-upload-the-policy-to-your-tenant"></a>步驟 4.4：將原則上傳至您的租用戶
-1. 在 [Azure 入口網站][Portal]中，切換至[您的 Azure AD B2C 租用戶環境][B2C-NavContext]，然後選取 [Azure AD B2C]。
+1. 在 [Azure 入口網站][Portal]中，切換至[您的 Azure AD B2C 租用戶環境][B2C-NavContext]，然後選取 [Azure AD B2C]  。
 
-1. 選取 [識別體驗架構]。
+1. 選取 [識別體驗架構]  。
 
-1. 選取 [所有原則]。
+1. 選取 [所有原則]  。
 
-1. 選取 [上傳原則]。
+1. 選取 [上傳原則]  。
 
-1. 選取 [覆寫已存在的原則] 核取方塊。
+1. 選取 [覆寫已存在的原則]  核取方塊。
 
-1. 上傳 TrustFrameworkExtensions.xml 檔案，確定它通過驗證。
+1. 上傳 TrustFrameworkExtensions.xml  檔案，確定它通過驗證。
 
 ### <a name="step-45-test-the-custom-policy-by-using-run-now"></a>步驟 4.5：使用 [立即執行] 測試自訂原則
-1. 選取 [Azure AD B2C 設定]，然後移至 [識別體驗架構]。
+1. 選取 [Azure AD B2C 設定]  ，然後移至 [識別體驗架構]  。
 
-1. 開啟 **B2C_1A_signup_signin** (此為您上傳的信賴憑證者 (RP) 自訂原則)，然後選取 [立即執行]。
+1. 開啟 **B2C_1A_signup_signin** (此為您上傳的信賴憑證者 (RP) 自訂原則)，然後選取 [立即執行]  。
 
-1. 嘗試使用其中一個已移轉的使用者登入，然後選取 [登入]。 您的 REST API 應該會擲回下列錯誤訊息：
+1. 嘗試使用其中一個已移轉的使用者登入，然後選取 [登入]  。 您的 REST API 應該會擲回下列錯誤訊息：
 
     ![設定診斷記錄](media/active-directory-b2c-user-migration/pre-migration-error-message.png)
 
 ### <a name="step-46-optional-troubleshoot-your-rest-api"></a>步驟 4.6：(選用) 針對 REST API 進行疑難排解
 您可以近乎即時地檢視和監視記錄資訊。
 
-1. 在 RESTful 應用程式 [設定] 功能表的 [監視] 底下，選取 [診斷記錄]。
+1. 在 RESTful 應用程式 [設定] 功能表的 [監視]  底下，選取 [診斷記錄]  。
 
-1. 將 [應用程式記錄 (檔案系統)] 設定為 [開啟]。
+1. 將 [應用程式記錄 (檔案系統)]  設定為 [開啟]  。
 
-1. 將 [層級] 設定為 [詳細資訊]。
+1. 將 [層級]  設定為 [詳細資訊]  。
 
-1. 選取 [儲存]。
+1. 選取 [儲存]  。
 
     ![設定診斷記錄](media/active-directory-b2c-user-migration/pre-migration-diagnostic-logs.png)
 
-1. 在 [設定] 功能表上，選取 [記錄資料流]。
+1. 在 [設定]  功能表上，選取 [記錄資料流]  。
 
 1. 檢查 RESTful API 的輸出。
 

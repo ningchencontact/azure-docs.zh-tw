@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 30625423553b71e848d27d047d4b7bc3add6eaff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: e180192ed8375e00464ed9ec96080cde10295e5c
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60238730"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754046"
 ---
 # <a name="quickstart-clone-a-notebook"></a>快速入門：複製筆記本
 
@@ -28,17 +28,17 @@ ms.locfileid: "60238730"
 
 ## <a name="clone-azure-cognitive-services-notebooks"></a>複製 Azure 認知服務筆記本
 
-1. 前往 [Azure Notebooks](https://notebooks.azure.com) 並登入  (如需詳細資訊，請參閱[快速入門 - 登入 Azure Notebooks](quickstart-sign-in-azure-notebooks.md))。
+1. 前往 [Azure Notebooks](https://notebooks.azure.com) 並登入 (如需詳細資訊，請參閱[快速入門 - 登入 Azure Notebooks](quickstart-sign-in-azure-notebooks.md))。
 
-1. 從您的公用設定檔頁面中，選取頁面頂端的 [我的專案]：
+1. 從您的公用設定檔頁面中，選取頁面頂端的 [我的專案]  ：
 
     ![瀏覽器視窗頂端的 [我的專案] 連結](media/quickstarts/my-projects-link.png)
 
-1. 在 [我的專案] 頁面上，選取向上鍵按鈕 (鍵盤快速鍵：U；當瀏覽器視窗夠寬時，此按鈕會顯示為 [上傳 GitHub 存放庫])：
+1. 在 [我的專案]  頁面上，選取向上鍵按鈕 (鍵盤快速鍵：U；當瀏覽器視窗夠寬時，此按鈕會顯示為 [上傳 GitHub 存放庫]  )：
 
     ![[我的專案] 頁面上的 [上傳 GitHub 存放庫] 命令](media/quickstarts/upload-github-repo-command.png)
 
-1. 在顯示的 [上傳 GitHub 存放庫] 中，輸入或設定下列詳細資料，然後選取 [匯入]：
+1. 在顯示的 [上傳 GitHub 存放庫]  中，輸入或設定下列詳細資料，然後選取 [匯入]  ：
 
    - **GitHub 存放庫**：Microsoft/cognitive-services-notebooks (此名稱可在 [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks) 複製 Azure 認知服務的 Jupyter 筆記本)。
    - **以遞迴方式複製**：(已清除)
@@ -56,17 +56,17 @@ ms.locfileid: "60238730"
 
 ## <a name="share-a-notebook"></a>共用筆記本
 
-1. 若要共用已複製專案的複本，請使用 [共用] 控制或取得連結、取得包含連結的 HTML 或 Markdown 程式碼，或建立包含結的電子郵件訊息：
+1. 若要共用已複製專案的複本，請使用 [共用]  控制或取得連結、取得包含連結的 HTML 或 Markdown 程式碼，或建立包含結的電子郵件訊息：
 
     ![專案共用命令](media/quickstarts/share-project-command.png)
 
-1. 因為您在複製專案時清除了 [公用] 選項，因此複本是私密的。 若要將您的複本設為公用，選取 [專案設定]、在快顯視窗中設定 [公用專案] 選項，然後選取 [儲存]。
+1. 因為您在複製專案時清除了 [公用]  選項，因此複本是私密的。 若要將您的複本設為公用，選取 [專案設定]  、在快顯視窗中設定 [公用專案]  選項，然後選取 [儲存]  。
 
 1. 在專案中選取要執行的筆記本。 例如，Azure 認知服務存放庫中的每個筆記本都是自己獨立的快速入門。 下圖顯示新增認知服務 API 訂用帳戶金鑰，並將搜尋字詞從 "puppies" 變更為 "bunnies" 之後，使用 BingImageSearchAPI 筆記本的結果：
 
     ![執行從 GitHub 複製的 Jupyter 筆記本](media/quickstarts/clone-notebook-result.png)
 
-1. 當您執行筆記本完畢之後，選取 [檔案] > [關閉並終止] 來關閉筆記本及其瀏覽器視窗。
+1. 當您執行筆記本完畢之後，選取 [檔案]   > [關閉並終止]  來關閉筆記本及其瀏覽器視窗。
 
 1. 若要共用專案中的個別筆記本，以滑鼠右鍵按一下筆記本，然後選取 **複製連結** (鍵盤快速鍵：y)：
 

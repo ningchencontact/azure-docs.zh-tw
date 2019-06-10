@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 4376db8cdfa90b8d29ecd9b210e683848b4c94b4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: a82d9e6e1d5ffa9b97bb0c1a4272375d4a71863c
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072595"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742802"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>在 Azure 入口網站中建立和設定 Azure Kubernetes Service (AKS) 叢集以使用虛擬節點
 
@@ -22,7 +22,7 @@ ms.locfileid: "65072595"
 
 ## <a name="before-you-begin"></a>開始之前
 
-虛擬節點能夠進行在 ACI 與 AKS 叢集中執行的 pod 之間的網路通訊。 為了提供此通訊功能，需要建立虛擬網路子網路並指派委派權限。 虛擬節點只能與使用「進階」網路所建立的 AKS 叢集搭配運作。 但根據預設，系統會使用「基本」網路來建立 AKS 叢集。 本文說明如何建立虛擬網路和子網路，然後部署使用進階網路的 AKS 叢集。
+虛擬節點能夠進行在 ACI 與 AKS 叢集中執行的 pod 之間的網路通訊。 為了提供此通訊功能，需要建立虛擬網路子網路並指派委派權限。 虛擬節點只能與使用「進階」  網路所建立的 AKS 叢集搭配運作。 但根據預設，系統會使用「基本」  網路來建立 AKS 叢集。 本文說明如何建立虛擬網路和子網路，然後部署使用進階網路的 AKS 叢集。
 
 如果您先前未使用 ACI，請向您的訂用帳戶註冊服務提供者。 您可以使用 [az provider list][az-provider-list] 命令來檢查 ACI 提供者註冊狀態，如以下範例所示：
 
@@ -69,6 +69,7 @@ az provider register --namespace Microsoft.ContainerInstance
 * [主機別名](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [引數](../container-instances/container-instances-exec.md#restrictions)在 ACI 中執行的
 * [Daemonset](concepts-clusters-workloads.md#statefulsets-and-daemonsets)將無法部署到虛擬節點的 pod
+* [（目前在 AKS 中的預覽） 的 Windows Server 節點](windows-container-cli.md)虛擬節點，以及不支援。 您可以使用虛擬節點，來排程 Windows Server 容器，而不需要在 AKS 叢集中的 Windows 伺服器節點。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -76,14 +77,14 @@ az provider register --namespace Microsoft.ContainerInstance
 
 ## <a name="create-an-aks-cluster"></a>建立 AKS 叢集
 
-在 Azure 入口網站的左上角，選取 [建立資源] > [Kubernetes 服務]。
+在 Azure 入口網站的左上角，選取 [建立資源]   > [Kubernetes 服務]  。
 
-在 [基本資料] 頁面上設定下列選項：
+在 [基本資料]  頁面上設定下列選項：
 
-- 專案詳細資料：選取 Azure 訂用帳戶，然後選取或建立 Azure 資源群組，例如 *myResourceGroup*。 輸入 **Kubernetes 叢集名稱**，例如 myAKSCluster。
-- 叢集詳細資料：選取 AKS 叢集的區域、Kubernetes 版本及 DNS 名稱前置詞。
+- 專案詳細資料  ：選取 Azure 訂用帳戶，然後選取或建立 Azure 資源群組，例如 *myResourceGroup*。 輸入 **Kubernetes 叢集名稱**，例如 myAKSCluster  。
+- 叢集詳細資料  ：選取 AKS 叢集的區域、Kubernetes 版本及 DNS 名稱前置詞。
 - *主要節點的集區*:選取 AKS 節點的 VM 大小。 VM 大小**無法**在 AKS 叢集部署完畢後變更。
-     - 選取要部署到叢集的節點數目。 本文將 [節點計數] 設為 1。 節點計數**可以**在叢集部署完畢後調整。
+     - 選取要部署到叢集的節點數目。 本文將 [節點計數]  設為 1  。 節點計數**可以**在叢集部署完畢後調整。
 
 按一下 **下一步擴展**。
 
@@ -95,7 +96,7 @@ az provider register --namespace Microsoft.ContainerInstance
 
 叢集也會針對進階網路功能進行設定。 虛擬節點會設定為使用自己的 Azure 虛擬網路子網路。 此子網路具有委派的權限，可連線 AKS 叢集之間的 Azure 資源。 如果您還沒有委派的子網路，Azure 入口網站會建立並設定 Azure 虛擬網路和子網路，以搭配虛擬節點使用。
 
-選取 [檢閱 + 建立]。 驗證完成之後，請選取 [建立]。
+選取 [檢閱 + 建立]  。 驗證完成之後，請選取 [建立]  。
 
 從建立 AKS 叢集到可供使用需要幾分鐘的時間。
 
@@ -103,9 +104,9 @@ az provider register --namespace Microsoft.ContainerInstance
 
 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 若要管理 Kubernetes 叢集，請使用 Kubernetes 命令列用戶端：[kubectl][kubectl]。 `kubectl` 用戶端會預先安裝在 Azure Cloud Shell 中。
 
-若要開啟 Cloud Shell，請選取程式碼區塊右上角的 [試試看]。 您也可以移至 [https://shell.azure.com/bash](https://shell.azure.com/bash)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製] 即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
+若要開啟 Cloud Shell，請選取程式碼區塊右上角的 [試試看]  。 您也可以移至 [https://shell.azure.com/bash](https://shell.azure.com/bash)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製]  即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
 
-若要設定 `kubectl` 來連線到 Kubernetes 叢集，請使用 [az aks get-credentials][az-aks-get-credentials] 命令。 下列範例會針對 myResourceGroup 資源群組中的叢集名稱 myAKSCluster 取得認證：
+若要設定 `kubectl` 來連線到 Kubernetes 叢集，請使用 [az aks get-credentials][az-aks-get-credentials] 命令。 下列範例會針對 myResourceGroup  資源群組中的叢集名稱 myAKSCluster  取得認證：
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -117,7 +118,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl get nodes
 ```
 
-下列輸出範例顯示單一 VM 節點已建立，然後是適用於 Linux 的虛擬節點 (virtual-node-aci-linux)：
+下列輸出範例顯示單一 VM 節點已建立，然後是適用於 Linux 的虛擬節點 (virtual-node-aci-linux  )：
 
 ```
 $ kubectl get nodes
@@ -196,7 +197,7 @@ kubectl run -it --rm virtual-node-test --image=debian
 apt-get update && apt-get install -y curl
 ```
 
-現在您可以使用 `curl` (例如 http://10.241.0.4) 來存取 Pod 的位址。 提供前述 `kubectl get pods` 命令中您自己的 IP 位址：
+現在您可以使用 `curl` (例如 http://10.241.0.4  ) 來存取 Pod 的位址。 提供前述 `kubectl get pods` 命令中您自己的 IP 位址：
 
 ```azurecli-interactive
 curl -L http://10.241.0.4

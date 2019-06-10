@@ -6,18 +6,18 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 5131329f6675bc86374f5a5c081e0aaa7d36c0fe
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 08cdaafe00b7dc586ea75f6ff03fdb89107edee9
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66155246"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430766"
 ---
 # <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Azure data factory 的對應資料流資料行模式
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-數個 Azure Data Factory 資料流程轉換支援「資料行模式」的概念，因此您可以根據模式建立範本資料行，而不是硬式編碼的資料行名稱。 您可以在運算式產生器中使用此功能來定義符合要轉換之資料行的模式，而不需要進行擷取特定的欄位名稱。 模式是如果連入的來源欄位經常變更，特別是如果變更文字檔案或 NoSQL 資料庫中的資料行是很有用。 這種情況有時稱為 「 結構描述漂移 」。
+數個 Azure Data Factory 資料流程轉換支援「資料行模式」的概念，因此您可以根據模式建立範本資料行，而不是硬式編碼的資料行名稱。 您可以使用 「 運算式產生器 」 這項功能，來定義以符合資料行 」 轉換，而不需要完全符合、 特定的欄位名稱的模式。 模式是如果連入的來源欄位經常變更，特別是如果變更文字檔案或 NoSQL 資料庫中的資料行是很有用。 這種情況有時稱為 「 結構描述漂移 」。
 
 ![資料行模式](media/data-flow/columnpattern2.png "資料行模式")
 
@@ -27,6 +27,6 @@ ms.locfileid: "66155246"
 
 建置範本資料行模式時，在運算式中使用 `$$` 以代表每個相符欄位的參考都來自輸入資料流。
 
-如果您選擇使用某個運算式產生器 Regex 函式，可以接著連續使用 $1、$2、$3 等來參考與您 Regex 運算式相符的子模式。
+如果您選擇使用其中一種運算式產生器的 regex 函式，您可以接著使用 $1、 $2、 3 美元...若要參考從您的 regex 運算式比對的子模式。
 
-資料行模式案例的範例是使用 SUM 搭配一系列的輸入欄位。 彙總 SUM 計算是在「彙總」轉換中。 您可以接著針對每個相符的欄位類型 (符合 "integer") 使用 SUM，然後使用 $$ 參考運算式中的每個相符項目。
+資料行模式案例的範例是使用 SUM 搭配一系列的輸入欄位。 彙總 SUM 計算是在「彙總」轉換中。 然後，您就可以使用加總每個相符項目之型別的欄位比對"integer"，然後使用 $$ 參考您的運算式中的每個相符項目。

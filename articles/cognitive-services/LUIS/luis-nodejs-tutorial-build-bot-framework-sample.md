@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 27ebe827e97c8361c7f93a125f09aa9e339a6a14
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8bd6a9df9518cb1b2312b525e8876629a2189bd2
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087103"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399609"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Node.js 中使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 建置的 LUIS Bot
 
 使用 Node.js，建置與 Language Understanding (LUIS) 整合的聊天機器人。 此聊天機器人會使用預先建置的 HomeAutomation 領域來快速實作聊天機器人解決方案。 此 Bot 是使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 所建置的。
+
+A [Bot Framework LUIS 教學課程的 4.x](luis-nodejs-tutorial-bf-v4.md)也會提供。
 
 ## <a name="prerequisite"></a>必要條件
 
@@ -36,7 +38,7 @@ Bot 會回應來自 LUIS 應用程式中 HomeAutomation 定義域的意圖。 �
 
 ## <a name="create-a-language-understanding-bot-with-bot-service"></a>使用 Bot 服務來建立 Language Understanding Bot
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取功能表刀鋒視窗中的 [建立新資源]，然後選取 [查看全部]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取功能表刀鋒視窗中的 [建立新資源]  ，然後選取 [查看全部]  。
 
     ![在 Azure 入口網站中查看所有資源](./media/luis-tutorial-node-bot/bot-service-creation.png)
 
@@ -44,38 +46,38 @@ Bot 會回應來自 LUIS 應用程式中 HomeAutomation 定義域的意圖。 �
 
     ![選取 Web 應用程式 Bot 來開始資源建立程序](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
-3. 在 [Bot 服務] 刀鋒視窗中提供必要資訊，然後選取 [建立]。 這會建立 Bot 服務和 LUIS 應用程式，並將其部署到 Azure。 如果您想要使用[語音促發](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)，請先檢閱[區域需求](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming)，再建立您的 Bot。 
-   * 將 [應用程式名稱] 設定為您 Bot 的名稱。 將 Bot 部署到雲端時，此名稱會用來作為子網域 (例如 mynotesbot.azurewebsites.net)。 <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+3. 在 [Bot 服務]  刀鋒視窗中提供必要資訊，然後選取 [建立]  。 這會建立 Bot 服務和 LUIS 應用程式，並將其部署到 Azure。 如果您想要使用[語音促發](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)，請先檢閱[區域需求](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming)，再建立您的 Bot。 
+   * 將 [應用程式名稱]  設定為您 Bot 的名稱。 將 Bot 部署到雲端時，此名稱會用來作為子網域 (例如 mynotesbot.azurewebsites.net)。 <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
    * 選取訂用帳戶、[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)、App Service 方案，以及[位置](https://azure.microsoft.com/regions/)。
-   * 針對 [Bot 範本]，請選取：
+   * 針對 [Bot 範本]  ，請選取：
        * **SDK v3**
        * **Node.js**
        * **語言理解**
-   * 選取 [LUIS 應用程式位置]。 這是用來建立應用程式的撰寫[區域][LUIS]。
+   * 選取 [LUIS 應用程式位置]  。 這是用來建立應用程式的撰寫[區域][LUIS]。
    * 選取法律聲明的確認核取方塊。 法律聲明的條款在此核取方塊下方。
 
      ![Bot 服務刀鋒視窗](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
 
 
 4. 確認已部署 Bot 服務。
-    * 選取 [通知] (位於 Azure 入口網站頂端邊緣的鈴鐺圖示)。 通知會從 [部署已開始] 變更為 [部署成功]。
-    * 在通知變更為 [部署成功] 之後，選取該通知上的 [前往資源]。
+    * 選取 [通知] (位於 Azure 入口網站頂端邊緣的鈴鐺圖示)。 通知會從 [部署已開始]  變更為 [部署成功]  。
+    * 在通知變更為 [部署成功]  之後，選取該通知上的 [前往資源]  。
 
 ## <a name="try-the-default-bot"></a>試用預設 Bot
 
-勾選 [通知] 來確認已部署 Bot。 通知會從 [部署進行中] 變更為 [部署成功]。 選取 [前往資源] 按鈕以開啟 Bot 的資源刀鋒視窗。
+勾選 [通知]  來確認已部署 Bot。 通知會從 [部署進行中]  變更為 [部署成功]  。 選取 [前往資源]  按鈕以開啟 Bot 的資源刀鋒視窗。
 
 <!-- this step isn't supposed to be necessary -->
 ## <a name="install-npm-resources"></a>安裝 NPM 資源
 使用下列步驟來安裝 NPM 套件：
 
-1. 從「Web 應用程式 Bot」的 [Bot 管理] 區段中選取 [建置]。 
+1. 從「Web 應用程式 Bot」的 [Bot 管理]  區段中選取 [建置]  。 
 
-2. 一個新的第二瀏覽器視窗隨即開啟。 選取 [開啟線上程式碼編輯器]。
+2. 一個新的第二瀏覽器視窗隨即開啟。 選取 [開啟線上程式碼編輯器]  。
 
 3. 在頂端導覽列中，選取 Web 應用程式 Bot 名稱 `homeautomationluisbot`。 
 
-4. 在下拉式清單中，選取 [開啟 Kudu 主控台]。
+4. 在下拉式清單中，選取 [開啟 Kudu 主控台]  。
 
 5. 一個新的瀏覽器視窗隨即開啟。 在主控台中，輸入下列命令：
 
@@ -86,7 +88,7 @@ Bot 會回應來自 LUIS 應用程式中 HomeAutomation 定義域的意圖。 �
     等候安裝程序完成。 返回第一個瀏覽器視窗。 
 
 ## <a name="test-in-web-chat"></a>在網路聊天中測試
-註冊 Bot 之後，選取 [在網路聊天中測試] 來開啟 [網路聊天] 窗格。 在網路聊天中輸入 "hello"。
+註冊 Bot 之後，選取 [在網路聊天中測試]  來開啟 [網路聊天] 窗格。 在網路聊天中輸入 "hello"。
 
   ![在網路聊天中測試 Bot](./media/luis-tutorial-node-bot/bot-service-web-chat.png)
 
@@ -94,23 +96,23 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。 �
 
 ## <a name="connect-your-luis-app-to-the-bot"></a>將您的 LUIS 應用程式連線至 Bot
 
-在第一個瀏覽器視窗中開啟 [應用程式設定]，然後編輯 [LuisAppId] 欄位以包含您 LUIS 應用程式的應用程式識別碼。
+在第一個瀏覽器視窗中開啟 [應用程式設定]  ，然後編輯 [LuisAppId]  欄位以包含您 LUIS 應用程式的應用程式識別碼。
 
   ![在 Azure 中更新 LUIS 應用程式識別碼](./media/luis-tutorial-node-bot/bot-service-app-id.png)
 
-如果您沒有 LUIS 應用程式識別碼，請使用您用來登入 Azure 的相同帳戶來登入 [LUIS](luis-reference-regions.md) 網站。 選取 [My apps] \(我的應用程式\)。 
+如果您沒有 LUIS 應用程式識別碼，登入[LUIS](luis-reference-regions.md)網站使用您用來登入 Azure 的相同帳戶。 選取 [My apps] \(我的應用程式\)  。 
 
 1. 尋找您先前建立並包含來自 HomeAutomation 定義域之意圖和實體的 LUIS 應用程式。
 
-2. 在 LUIS 應用程式的 [Settings] \(設定\) 頁面中，尋找並複製應用程式識別碼。
+2. 在 LUIS 應用程式的 [Settings] \(設定\)  頁面中，尋找並複製應用程式識別碼。
 
-3. 如果您尚未進行應用程式定型，請選取右上方的 [Train] \(定型\) 按鈕來進行應用程式定型。
+3. 如果您尚未進行應用程式定型，請選取右上方的 [Train] \(定型\)  按鈕來進行應用程式定型。
 
-4. 如果您尚未發佈應用程式，請選取頂端導覽列中的 [PUBLISH] \(發佈\) 來開啟 [Publish] \(發佈\) 頁面。 選取 [Production] \(生產\) 位置和 [Publish] \(發佈\) 按鈕。
+4. 如果您尚未發佈應用程式，請選取頂端導覽列中的 [PUBLISH] \(發佈\)  來開啟 [Publish] \(發佈\)  頁面。 選取 [Production] \(生產\) 位置和 [Publish] \(發佈\)  按鈕。
 
 ## <a name="modify-the-bot-code"></a>修改 Bot 程式碼
 
-移至第二個瀏覽器視窗 (如果仍處於開啟狀態) 或在第一個瀏覽器視窗中，選取 [建置]，然後選取 [開啟線上程式碼編輯器]。
+移至第二個瀏覽器視窗 (如果仍處於開啟狀態) 或在第一個瀏覽器視窗中，選取 [建置]  ，然後選取 [開啟線上程式碼編輯器]  。
 
    ![開啟線上程式碼編輯器](./media/luis-tutorial-node-bot/bot-service-build.png)
 
@@ -236,7 +238,7 @@ bot.dialog('TurnOff',
 ```
 ## <a name="test-the-bot"></a>測試 Bot
 
-在 Azure 入口網站中，選取 [在網路聊天中測試] 來測試 Bot。 嘗試輸入 "Turn on the lights" 和 "turn off my heater" 之類的訊息，來叫用您已新增至 Bot 的意圖。
+在 Azure 入口網站中，選取 上**測試中 Web 對談**測試 bot。 嘗試輸入 "Turn on the lights" 和 "turn off my heater" 之類的訊息，來叫用您已新增至 Bot 的意圖。
    ![在網路聊天中測試 HomeAutomation Bot](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]

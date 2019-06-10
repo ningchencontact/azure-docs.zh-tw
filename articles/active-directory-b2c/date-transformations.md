@@ -2,20 +2,20 @@
 title: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的日期宣告轉換範例 | Microsoft Docs
 description: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的日期宣告轉換範例。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 22484adcc709c1d2726d8086ac75300f189bcc41
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ad4c6c78556f98e2905b3583910e498055257c36
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710434"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511136"
 ---
 # <a name="date-claims-transformations"></a>日期宣告轉換
 
@@ -29,7 +29,7 @@ ms.locfileid: "64710434"
 
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | string | 第一個宣告的類型，應該晚於第二個宣告。 |
+| inputClaim | leftOperand | 字串 | 第一個宣告的類型，應該晚於第二個宣告。 |
 | inputClaim | rightOperand | string | 第二個宣告的類型，應該早於第一個宣告。 |
 | InputParameter | AssertIfEqualTo | boolean | 指定當左運算元等於右運算元時，是否應該傳遞這個判斷提示。 |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | 指定當右運算元遺失時，是否應該傳遞這個判斷提示。 |
@@ -143,7 +143,7 @@ ms.locfileid: "64710434"
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | dateTime | 第一個 dateTime，比較早於或晚於第二個 dateTime。 Null 值會擲回例外狀況。 |
 | InputClaim | secondDateTime | dateTime | 第二個 dateTime，用來比較早於或晚於第一個 dateTime。 Null 值會被視為目前的 datetTime。 |
-| InputParameter | operator | string | 下列值之一：相同、晚於或早於。 |
+| InputParameter | operator | 字串 | 下列值之一：相同、晚於或早於。 |
 | InputParameter | timeSpanInSeconds | int | 將時間範圍新增至第一個日期時間。 |
 | OutputClaim | 結果 | boolean | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 |
 

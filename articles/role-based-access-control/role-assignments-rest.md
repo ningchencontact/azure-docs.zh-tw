@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 05/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e9c307b2b2e720881acb983a2a1b00ac8e03dac4
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 3602e4ca83e828270ebef56c688670b896ca58a4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357066"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472742"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>使用 RBAC 和 REST API 管理對 Azure 資源的存取
 
@@ -42,7 +42,7 @@ ms.locfileid: "66357066"
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
     
        
      > [!NOTE]
@@ -52,9 +52,9 @@ ms.locfileid: "66357066"
 
     | Filter | 描述 |
     | --- | --- |
-    | `$filter=atScope()` | 僅列出指定範圍的角色指派，不包括子範圍內的角色指派。 |
-    | `$filter=principalId%20eq%20'{objectId}'` | 列出所指定使用者、群組或服務主體的角色指派。 |
-    | `$filter=assignedTo('{objectId}')` | 列出所指定使用者的角色指派，包括從群組繼承的角色指派。 |
+    | `$filter=atScope()` | 列出範圍僅限於指定，不包括子範圍內的角色指派的角色指派。 |
+    | `$filter=principalId%20eq%20'{objectId}'` | 列出指定的使用者、 群組或服務主體的角色指派。 |
+    | `$filter=assignedTo('{objectId}')` | 列出指定的使用者或服務主體的角色指派。 如果使用者是有角色指派群組的成員，則該角色指派也會列出。 此篩選器是群組的可轉移的群組，這表示，如果使用者是群組的群組的成員，該群組是群組的另一個有角色指派的成員，該角色指派會也會列出項目。 此篩選器只會接受使用者或服務主體物件識別碼。 您無法傳遞的物件識別碼群組。 |
 
 ## <a name="grant-access"></a>授與存取權
 
@@ -85,7 +85,7 @@ ms.locfileid: "66357066"
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
 
 1. 將 *{roleAssignmentName}* 取代為角色指派的 GUID 識別碼。
 
@@ -113,7 +113,7 @@ ms.locfileid: "66357066"
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
 
 1. 將 *{roleAssignmentName}* 取代為角色指派的 GUID 識別碼。
 

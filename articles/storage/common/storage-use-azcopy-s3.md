@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: c0bc74ac0fe45f2502064340a0c3ce5b82694b06
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b18c4c039b615c7c88268b6e668df9f7fec9fabf
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245695"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687921"
 ---
 # <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>將資料從 Amazon S3 貯體，使用 AzCopy 複製
 
-AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔案。 這篇文章可協助您的物件、 資料夾和貯體將從 Amazon Web Services (AWS) S3 複製到 Azure blob 儲存體使用 AzCopy。
+AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔案。 這篇文章可協助您的物件、 目錄和貯體將從 Amazon Web Services (AWS) S3 複製到 Azure blob 儲存體使用 AzCopy。
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>選擇您要如何提供授權認證
 
@@ -46,7 +46,7 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 | **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
 | **MacOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 
-## <a name="copy-objects-folders-and-buckets"></a>複製物件、 資料夾和貯體
+## <a name="copy-objects-directories-and-buckets"></a>複製物件、 目錄和貯體
 
 AzCopy 會使用[從 URL 將區塊](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url)API，以便直接在 AWS S3 與存放區伺服器之間複製資料。 這些複製作業不會使用您電腦的網路頻寬。
 
@@ -64,12 +64,12 @@ AzCopy 會使用[從 URL 將區塊](https://docs.microsoft.com/rest/api/storages
 >
 > 若要深入了解虛擬裝載的貯體，請參閱 [虛擬裝載的貯體]] (https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html)。
 
-### <a name="copy-a-folder"></a>將資料夾複製
+### <a name="copy-a-directory"></a>複製目錄
 
 |    |     |
 |--------|-----------|
-| **語法** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>/<folder-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<folder-name>" --recursive=true` |
-| **範例** | `azcopy cp "https://s3.amazonaws.com/mybucket/myfolder" "https://mystorageaccount.blob.core.windows.net/mycontainer/myfolder" --recursive=true` |
+| **語法** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>/<directory-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>" --recursive=true` |
+| **範例** | `azcopy cp "https://s3.amazonaws.com/mybucket/mydirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory" --recursive=true` |
 
 ### <a name="copy-a-bucket"></a>複製的貯體
 
@@ -134,8 +134,8 @@ AzCopy 會執行下列步驟：
 
 - [開始使用 AzCopy](storage-use-azcopy-v10.md)
 
-- [使用 AzCopy 和 blob 儲存體傳輸資料](storage-use-azcopy-blobs.md)
+- [使用 AzCopy 和 Blob 儲存體轉送資料](storage-use-azcopy-blobs.md)
 
-- [使用 AzCopy 和檔案儲存體傳輸資料](storage-use-azcopy-files.md)
+- [使用 AzCopy 和檔案儲存體轉送資料](storage-use-azcopy-files.md)
 
-- [設定、 最佳化和疑難排解 AzCopy](storage-use-azcopy-configure.md)
+- [對 AzCopy 進行設定、最佳化及疑難排解](storage-use-azcopy-configure.md)

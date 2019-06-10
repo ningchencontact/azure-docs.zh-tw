@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a690ea350ea98589e9134cd6f401c6ac3c58083
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 9204b0d8513d4adbb9c93be94284d7d46de41e06
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851017"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479574"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga"></a>欄位可程式化閘陣列 (FPGA) 有哪些？
 
@@ -30,7 +30,7 @@ FPGA 包含可程式化邏輯區塊的陣列，以及可重新設定互連的階
 
 ![Azure Machine Learning 服務 FPGA 比較圖](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
-|處理器||說明|
+|處理器||描述|
 |---|:-------:|------|
 |應用程式特定的積體電路|ASIC|自訂電路 (例如，Google 的 TensorFlow 處理器 (TPU)) 可提供最高效率。 它們無法隨著您需求的變更加以重新設定。|
 |現場可程式化閘陣列|FPGA|FPGA (例如 Azure 上所提供的那些陣列) 可提供接近 ASIC 的效能。 它們也會隨著時間而具有彈性且可重新設定，以實作新邏輯。|
@@ -80,7 +80,7 @@ Azure Fpga 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評�
 
 請參閱這些影片與部落格：
 
-+ [超大規模資料庫的硬體：Azure + FPGA 上大規模的 ML：組建 2018 (影片)](https://www.youtube.com/watch?v=BMgQAHIx2eY) \(英文\)
++ [超大規模資料庫的硬體：Azure + FPGA 上大規模的 ML：組建 2018 (影片)](https://channel9.msdn.com/events/Build/2018/BRK3202) \(英文\)
 
 + [深入了解 Microsoft FPGA 架構的可設定雲端 (英文影片)](https://channel9.msdn.com/Events/Build/2017/B8063)
 

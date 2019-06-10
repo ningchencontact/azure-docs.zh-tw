@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 9316ca0dfaa2d550ea9a2b89d2c93e0e37230f62
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 46fa1c5a4874508cf8e2d288a99c908744347b69
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388349"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480078"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -268,11 +268,12 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
     > [!IMPORTANT]  
     > 如果未列出您使用的 Azure 區域，就只能使用步驟 1 中的四個 IP 位址。
 
-    | 國家 (地區) | 區域 | 允許的來源 IP 位址 | 允許的目的地 | Direction |
+    | 国家/地区 | 區域 | 允許的來源 IP 位址 | 允許的目的地 | Direction |
     | ---- | ---- | ---- | ---- | ----- |
     | 亞洲 | 東亞 | 23.102.235.122</br>52.175.38.134 | \*:443 | 輸入 |
     | &nbsp; | 東南亞 | 13.76.245.160</br>13.76.136.249 | \*:443 | 輸入 |
-    | 澳大利亞 | 澳洲東部 | 104.210.84.115</br>13.75.152.195 | \*:443 | 輸入 |
+    | 澳大利亞 | 澳大利亞中部 | 20.36.36.33</br>20.36.36.196 | \*:443 | 輸入 |
+    | &nbsp; | 澳洲東部 | 104.210.84.115</br>13.75.152.195 | \*:443 | 輸入 |
     | &nbsp; | 澳大利亞東南部 | 13.77.2.56</br>13.77.2.94 | \*:443 | 輸入 |
     | 巴西 | 巴西南部 | 191.235.84.104</br>191.235.87.113 | \*:443 | 輸入 |
     | 加拿大 | 加拿大東部 | 52.229.127.96</br>52.229.123.172 | \*:443 | 輸入 |

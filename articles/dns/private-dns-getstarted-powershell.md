@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: b4d75c7a6db89b19d88cddcc564fd4e6a9ad0f49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b88454f06d2e2d42298e52feeaa26ae9d1a4902
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65916872"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730252"
 ---
 # <a name="tutorial-create-an-azure-dns-private-zone-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立 Azure DNS 私人區域
 
@@ -22,7 +22,7 @@ ms.locfileid: "65916872"
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
-DNS 區域用來裝載特定網域的 DNS 記錄。 若要開始將網域裝載到 Azure DNS 中，您必須建立該網域名稱的 DNS 區域。 接著在此 DNS 區域內，建立網域的每筆 DNS 記錄。 若要將私人 DNS 區域發佈至虛擬網路，指定可以在區域內解析記錄的虛擬網路清單。  這稱為「解析虛擬網路」。 您也可以指定一個虛擬網路，每當 VM 建立、變更 IP 或刪除時，Azure DNS 就會維護其主機名稱記錄。  這稱為「註冊虛擬網路」。
+DNS 區域用來裝載特定網域的 DNS 記錄。 若要開始將網域裝載到 Azure DNS 中，您必須建立該網域名稱的 DNS 區域。 接著在此 DNS 區域內，建立網域的每筆 DNS 記錄。 若要將私人 DNS 區域發佈至虛擬網路，指定可以在區域內解析記錄的虛擬網路清單。  這稱為「解析虛擬網路」  。 您也可以指定一個虛擬網路，每當 VM 建立、變更 IP 或刪除時，Azure DNS 就會維護其主機名稱記錄。  這稱為「註冊虛擬網路」  。
 
 在本教學課程中，您了解如何：
 
@@ -41,7 +41,7 @@ These instructions assume you have already installed and signed in to Azure Powe
 
 <!---[!INCLUDE [dns-powershell-setup](../../includes/dns-powershell-setup-include.md)] -->
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-the-resource-group"></a>建立資源群組
 
@@ -53,7 +53,7 @@ New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 
 ## <a name="create-a-dns-private-zone"></a>建立 DNS 私人區域
 
-使用 `New-AzDnsZone` Cmdlet 搭配值為 "Private" 的 ZoneType 參數來建立 DNS 區域。 下列範例會在 **MyAzureResourceGroup** 資源群組中建立名為 **private.contoso.com** 的 DNS 區域，並使 **MyAzureVnet** 虛擬網路能夠使用此 DNS 區域。
+使用 `New-AzDnsZone` Cmdlet 搭配值為 "Private"  的 ZoneType  參數來建立 DNS 區域。 下列範例會在 **MyAzureResourceGroup** 資源群組中建立名為 **private.contoso.com** 的 DNS 區域，並使 **MyAzureVnet** 虛擬網路能夠使用此 DNS 區域。
 
 如果省略 **ZoneType** 參數，則會將區域建立為公用區域，因此，這就是建立私人區域的必要參數。 
 
@@ -71,7 +71,7 @@ New-AzDnsZone -Name private.contoso.com -ResourceGroupName MyAzureResourceGroup 
    -RegistrationVirtualNetworkId @($vnet.Id)
 ```
 
-如果您只想要建立名稱解析的區域 (沒有自動建立主機名稱)，可以使用 ResolutionVirtualNetworkId 參數，而不是 RegistrationVirtualNetworkId 參數。
+如果您只想要建立名稱解析的區域 (沒有自動建立主機名稱)，可以使用 ResolutionVirtualNetworkId  參數，而不是 RegistrationVirtualNetworkId  參數。
 
 > [!NOTE]
 > 您將無法看到自動建立的主機名稱記錄。 但稍後，您將測試以確保它們存在。

@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 891a8389d7e34c48a00dda8fdebd251a698e5937
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: ffeb60f5476a540e3da46a82c240b0dda9aa6be2
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420644"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480474"
 ---
-# <a name="security-attributes-azure-cosmos-db"></a>安全性屬性的 Azure Cosmos DB
+# <a name="security-attributes-for-azure-cosmos-db"></a>適用於 Azure Cosmos DB 的安全性屬性
 
 這篇文章說明 Azure Cosmos DB 內建的一般安全性屬性。
 

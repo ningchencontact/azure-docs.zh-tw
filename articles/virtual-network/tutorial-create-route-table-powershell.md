@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: bbb614f9a540131ea25f53b8d566a4a5ee8c197b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cd13b3a7a3bc4d5a80e44d146e08c14e81ffdb60
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692270"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730057"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>使用 PowerShell 以路由表路由傳送網路流量
 
@@ -40,19 +40,19 @@ ms.locfileid: "64692270"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇要安裝在本機使用 PowerShell，本文需要 Azure PowerShell 模組版本 1.0.0 或更新版本。 執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
+如果您選擇在本機安裝和使用 PowerShell，本文會要求使用 Azure PowerShell 模組 1.0.0 版或更新版本。 執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 
 ## <a name="create-a-route-table"></a>建立路由表
 
-您可以建立路由表之前，建立的資源群組[新增 AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)。 下列範例會針對在本文中建立的所有資源，建立名為 myResourceGroup 的資源群組。
+您可以建立路由表之前，建立的資源群組[新增 AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)。 下列範例會針對在本文中建立的所有資源，建立名為 myResourceGroup  的資源群組。
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-建立路由表與[新增 AzRouteTable](/powershell/module/az.network/new-azroutetable)。 下列範例會建立名為 myRouteTablePublic 的路由表。
+建立路由表與[新增 AzRouteTable](/powershell/module/az.network/new-azroutetable)。 下列範例會建立名為 myRouteTablePublic  的路由表。
 
 ```azurepowershell-interactive
 $routeTablePublic = New-AzRouteTable `
@@ -79,7 +79,7 @@ Get-AzRouteTable `
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>建立路由表與子網路的關聯
 
-您必須先建立虛擬網路和子網路，才能讓路由表與子網路產生關聯。 使用 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) 建立虛擬網路。 下列範例會建立名為 myVirtualNetwork 的虛擬網路，位址首碼為 10.0.0.0/16。
+您必須先建立虛擬網路和子網路，才能讓路由表與子網路產生關聯。 使用 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) 建立虛擬網路。 下列範例會建立名為 myVirtualNetwork  的虛擬網路，位址首碼為 10.0.0.0/16  。
 
 ```azurepowershell-interactive
 $virtualNetwork = New-AzVirtualNetwork `
@@ -89,7 +89,7 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-建立三個子網路建立具有三個子網路組態[新增 AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)。 下列範例會針對「公用」、「私人」和「DMZ」子網路建立三個子網路組態：
+建立三個子網路建立具有三個子網路組態[新增 AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)。 下列範例會針對「公用」  、「私人」  和「DMZ」  子網路建立三個子網路組態：
 
 ```azurepowershell-interactive
 $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
@@ -178,7 +178,7 @@ $vmConfig = New-AzVMConfig `
   Add-AzVMNetworkInterface -Id $nic.Id
 ```
 
-使用的 VM 組態建立 VM [New-azvm](/powershell/module/az.compute/new-azvm)。 下列範例會建立名為 myVmNva 的虛擬機器。
+使用的 VM 組態建立 VM [New-azvm](/powershell/module/az.compute/new-azvm)。 下列範例會建立名為 myVmNva  的虛擬機器。
 
 ```azurepowershell-interactive
 $vmNva = New-AzVM `
@@ -192,9 +192,9 @@ $vmNva = New-AzVM `
 
 ## <a name="create-virtual-machines"></a>建立虛擬機器
 
-在虛擬網路中建立兩部虛擬機器，您就可以在後續步驟中驗證來自「公用」子網路的流量是否透過網路虛擬設備路由傳送至「私人」子網路。
+在虛擬網路中建立兩部虛擬機器，您就可以在後續步驟中驗證來自「公用」  子網路的流量是否透過網路虛擬設備路由傳送至「私人」  子網路。
 
-建立的虛擬機器*公開金鑰*子網路[New-azvm](/powershell/module/az.compute/new-azvm)。 下列範例會在 myVirtualNetwork 虛擬網路的「公用」子網路中建立名為 myVmPublic 的虛擬機器。
+建立的虛擬機器*公開金鑰*子網路[New-azvm](/powershell/module/az.compute/new-azvm)。 下列範例會在 myVirtualNetwork  虛擬網路的「公用」  子網路中建立名為 myVmPublic  的虛擬機器。
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -207,7 +207,7 @@ New-AzVm `
   -AsJob
 ```
 
-在「私人」子網路中建立虛擬機器。
+在「私人」  子網路中建立虛擬機器。
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -223,7 +223,7 @@ New-AzVm `
 
 ## <a name="route-traffic-through-an-nva"></a>透過 NVA 路由傳送流量
 
-使用[Get AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)傳回的公用 IP 位址*myVmPrivate* VM。 以下範例會傳回 myVmPrivate 虛擬機器的公用 IP 位址：
+使用[Get AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)傳回的公用 IP 位址*myVmPrivate* VM。 以下範例會傳回 myVmPrivate  虛擬機器的公用 IP 位址：
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress `
@@ -232,17 +232,17 @@ Get-AzPublicIpAddress `
   | Select IpAddress
 ```
 
-請從您的本機電腦使用下列命令，來建立與 myVmPrivate 虛擬機器的遠端桌面工作階段。 以上一個命令傳回的 IP 位址取代 `<publicIpAddress>`。
+請從您的本機電腦使用下列命令，來建立與 myVmPrivate  虛擬機器的遠端桌面工作階段。 以上一個命令傳回的 IP 位址取代 `<publicIpAddress>`。
 
 ```
 mstsc /v:<publicIpAddress>
 ```
 
-開啟所下載的 RDP 檔案。 如果出現提示，請選取 [連接]。
+開啟所下載的 RDP 檔案。 如果出現提示，請選取 [連接]  。
 
-輸入您在建立虛擬機器時指定的使用者名稱和密碼 (您可能需要選取 [更多選擇]，然後選取 [使用不同的帳戶] 以指定您在建立虛擬機器時輸入的認證)，然後選取 [確定]。 您可能會在登入過程中收到憑證警告。 選取 [是] 以繼續進行連線。
+輸入您在建立虛擬機器時指定的使用者名稱和密碼 (您可能需要選取 [更多選擇]  ，然後選取 [使用不同的帳戶]  以指定您在建立虛擬機器時輸入的認證)，然後選取 [確定]  。 您可能會在登入過程中收到憑證警告。 選取 [是]  以繼續進行連線。
 
-在稍後步驟中，`tracert.exe`命令用來測試路由。 Tracert 會使用網際網路控制訊息通訊協定 (ICMP)，它在通過 Windows 防火牆時會遭到拒絕。 從 myVmPrivate VM 上的 PowerShell 中輸入下列命令，讓 ICMP 通過 Windows 防火牆：
+在稍後步驟中，`tracert.exe`命令用來測試路由。 Tracert 會使用網際網路控制訊息通訊協定 (ICMP)，它在通過 Windows 防火牆時會遭到拒絕。 從 myVmPrivate  VM 上的 PowerShell 中輸入下列命令，讓 ICMP 通過 Windows 防火牆：
 
 ```powershell
 New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
@@ -250,35 +250,35 @@ New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 
 雖然本文使用追蹤路由來測試路由，但不建議在生產環境部署中允許 ICMP 通過 Windows 防火牆。
 
-您已在啟用 IP 轉送中針對虛擬機器的網路介面啟用在 Azure 內 IP 轉送。 在虛擬機器內，作業系統或在虛擬機器內執行的應用程式也必須能夠轉送網路流量。 在 myVmNva 的作業系統內啟用 IP 轉送。
+您已在啟用 IP 轉送中針對虛擬機器的網路介面啟用在 Azure 內 IP 轉送。 在虛擬機器內，作業系統或在虛擬機器內執行的應用程式也必須能夠轉送網路流量。 在 myVmNva  的作業系統內啟用 IP 轉送。
 
-從 myVmPrivate 虛擬機器的命令提示字元中，使用遠端桌面連線到 myVmNva：
+從 myVmPrivate  虛擬機器的命令提示字元中，使用遠端桌面連線到 myVmNva  ：
 
 ``` 
 mstsc /v:myvmnva
 ```
 
-若要在作業系統內啟用 IP 轉送，請從 myVmNva 虛擬機器在 PowerShell 中輸入下列命令：
+若要在作業系統內啟用 IP 轉送，請從 myVmNva  虛擬機器在 PowerShell 中輸入下列命令：
 
 ```powershell
 Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
 ```
 
-重新啟動 myVmNva VM，也會中斷與遠端桌面工作階段的連線。
+重新啟動 myVmNva  VM，也會中斷與遠端桌面工作階段的連線。
 
-在連線至 myVmPrivate VM 的狀態下，在 myVmNva VM 重新啟動後建立 myVmPublic VM 的遠端桌面工作階段：
+在連線至 myVmPrivate  VM 的狀態下，在 myVmNva  VM 重新啟動後建立 myVmPublic  VM 的遠端桌面工作階段：
 
 ``` 
 mstsc /v:myVmPublic
 ```
 
-從 myVmPublic VM 上的 PowerShell 中輸入下列命令，讓 ICMP 通過 Windows 防火牆：
+從 myVmPublic  VM 上的 PowerShell 中輸入下列命令，讓 ICMP 通過 Windows 防火牆：
 
 ```powershell
 New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 ```
 
-若要測試從 myVmPublic VM 到 myVmPrivate VM 的網路流量路由，請在 myVmPublic VM 上的 PowerShell 中輸入下列命令：
+若要測試從 myVmPublic  VM 到 myVmPrivate  VM 的網路流量路由，請在 myVmPublic  VM 上的 PowerShell 中輸入下列命令：
 
 ```
 tracert myVmPrivate
@@ -296,11 +296,11 @@ over a maximum of 30 hops:
 Trace complete.
 ```
 
-您可以看到第一個躍點是 10.0.2.4，也就是 NVA 的私人 IP 位址。 第二躍點是 10.0.1.4，也就是 myVmPrivate 虛擬機器的私人 IP 位址。 新增至 myRouteTablePublic 路由表且與「公用」子網路產生關聯的路由，會導致 Azure 透過 NVA 路由傳送流量，而不是直接路由傳送到「私人」子網路。
+您可以看到第一個躍點是 10.0.2.4，也就是 NVA 的私人 IP 位址。 第二躍點是 10.0.1.4，也就是 myVmPrivate  虛擬機器的私人 IP 位址。 新增至 myRouteTablePublic  路由表且與「公用」  子網路產生關聯的路由，會導致 Azure 透過 NVA 路由傳送流量，而不是直接路由傳送到「私人」  子網路。
 
-關閉 myVmPublic 虛擬機器的遠端桌面工作階段，但您仍然與 myVmPrivate 虛擬機器連線。
+關閉 myVmPublic  虛擬機器的遠端桌面工作階段，但您仍然與 myVmPrivate  虛擬機器連線。
 
-若要測試從 myVmPrivate VM 到 myVmPublic VM 的網路流量路由，請在 myVmPrivate VM 上的命令提示字元中輸入下列命令：
+若要測試從 myVmPrivate  VM 到 myVmPublic  VM 的網路流量路由，請在 myVmPrivate  VM 上的命令提示字元中輸入下列命令：
 
 ```
 tracert myVmPublic
@@ -317,9 +317,9 @@ over a maximum of 30 hops:
 Trace complete.
 ```
 
-您可以看到流量是直接從 myVmPrivate 虛擬機器直接路由傳送到 myVmPublic 虛擬機器。 根據預設，Azure 會直接路由傳送子網路之間的流量。
+您可以看到流量是直接從 myVmPrivate  虛擬機器直接路由傳送到 myVmPublic  虛擬機器。 根據預設，Azure 會直接路由傳送子網路之間的流量。
 
-關閉 myVmPrivate 虛擬機器的遠端桌面工作階段。
+關閉 myVmPrivate  虛擬機器的遠端桌面工作階段。
 
 ## <a name="clean-up-resources"></a>清除資源
 

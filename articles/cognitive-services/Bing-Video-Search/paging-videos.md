@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 0af36fa68b2d801eed52e6f081b040fb56929c91
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 12549bb53a21dd657f51a4a02460ddc82c47bef8
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101307"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386394"
 ---
 # <a name="paging-through-video-search-results"></a>逐頁瀏覽影片搜尋結果
 
@@ -26,7 +26,7 @@ Bing 影片搜尋 API 會傳回其針對您的查詢所找到所有搜尋結果�
 
 ## <a name="total-estimated-matches"></a>估計的相符項目總數
 
-若要取得所找到搜尋結果的估計數目，請使用 JSON 回應中的 [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) 欄位。   
+若要取得所找到搜尋結果的估計數目，請使用 JSON 回應中的 [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos-totalestimatedmatches) 欄位。   
   
 ```json  
 {
@@ -39,7 +39,7 @@ Bing 影片搜尋 API 會傳回其針對您的查詢所找到所有搜尋結果�
   
 ## <a name="paging-through-videos"></a>逐頁瀏覽影片
 
-若要逐頁瀏覽可用的影片，請在傳送要求時使用 [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count) 和 [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) 查詢參數。  
+若要逐頁瀏覽可用的影片，請在傳送要求時使用 [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#count) 和 [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) 查詢參數。  
   
 
 |參數  |描述  |
@@ -57,7 +57,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```  
 
-如果您使用 [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count) 的預設值，則只需要指定 `offset` 查詢參數，如下列範例所示。  
+如果您使用 [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#count) 的預設值，則只需要指定 `offset` 查詢參數，如下列範例所示。  
   
 ```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  
@@ -67,7 +67,7 @@ Host: api.cognitive.microsoft.com
 
 如果您要一次逐頁瀏覽 35 個影片，請在第一個要求將 `offset` 查詢參數設定為 0，然後在每個後續要求將 `offset` 遞增 35。 不過，下一個回應中的某些結果可能會包含與上一個回應重複的影片結果。 例如，此回應中的前兩部影片可能與前一個回應中的最後兩部影片相同。
 
-若要消除重複的結果，請使用 `Videos` 物件的 [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-nextoffset) 欄位。
+若要消除重複的結果，請使用 `Videos` 物件的 [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos-nextoffset) 欄位。
 
 例如，如果您想要一次逐頁瀏覽 30 部影片，您可將第一個要求中的 `count` 設定為 30 並將 `offset` 設定為 0。 在下一個要求中，請將 `offset` 查詢參數設定為 `nextOffset` 值。
 

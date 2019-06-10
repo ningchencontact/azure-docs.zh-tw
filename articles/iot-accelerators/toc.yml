@@ -147,16 +147,12 @@
       items:
         - name: OPC 對應項架構
           href: overview-opc-twin-architecture.md
-        - name: 連線的處理站架構
-          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: 使用說明指南
       items:
         - name: 連線的處理站
           items:
             - name: 使用儀表板
               href: iot-accelerators-connected-factory-dashboard.md
-            - name: 部署閘道
-              href: iot-accelerators-connected-factory-gateway-deployment.md
             - name: 使用 OPC 發行者
               href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
             - name: 設定解決方案加速器

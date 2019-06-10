@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 073166a594088bca04d81883247a5880fcbd1cb7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bd0160073898a5a83af2e7b2bba2dba007c04513
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234509"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425681"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>快速入門：在 Android 上執行語音裝置 SDK 範例應用程式
 
@@ -84,7 +84,7 @@ ms.locfileid: "66234509"
 
 1. 新增您的語音訂用帳戶金鑰的原始程式碼。 如果您想要試用意圖辨識，請一併新增您的 [Language Understanding 服務](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)訂用帳戶金鑰和應用程式識別碼。
 
-   語音和 LUIS 您的資訊會進入 MainActivity.java:
+   語音和 LUIS，您的資訊會進入 MainActivity.java:
 
    ```java
     // Subscription
@@ -95,7 +95,7 @@ ms.locfileid: "66234509"
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    如果您使用交談文字記錄中 conversation.java 也需要您的語音索引鍵和區域資訊：
+    如果您使用交談文字記錄，conversation.java 中也需要您的語音索引鍵和區域資訊：
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
@@ -145,7 +145,7 @@ ms.locfileid: "66234509"
 
    ![「語音裝置 SDK」範例應用程式和選項](media/speech-devices-sdk/qsg-8.png)
 
-1. 新加入的是交談文字記錄示範。 啟動與 '開始的工作階段' 謄寫。 依預設每個人都是來賓，，但是如果您有參與者的語音簽章它們可以放在裝置上檔案 /video/participants.properties。 若要產生語音簽章看[Ip-pbx 交談 (SDK)](how-to-use-conversation-transcription-service.md)。
+1. 請嘗試新的交談文字記錄示範。 啟動與 '開始的工作階段' 謄寫。 根據預設，每個人都是來賓。 不過，如果您有參與者的語音簽章它們可以放入檔案`/video/participants.properties`在裝置上。 若要產生的語音簽章，看看[Ip-pbx 交談 (SDK)](how-to-use-conversation-transcription-service.md)。
 
    ![示範交談文字記錄應用程式](media/speech-devices-sdk/qsg-15.png)
 

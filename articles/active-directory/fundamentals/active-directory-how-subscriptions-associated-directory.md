@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f37c501bb53b3b73c30d02d00d49515f907e4ae
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d2889af6000e77fba7a91392c0adb227588b5306
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463637"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430788"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>將 Azure 訂用帳戶關聯或新增至您的 Azure Active Directory 租用戶
 
@@ -42,6 +42,7 @@ Azure 訂用帳戶已與 Azure Active Directory (Azure AD)，這表示訂用帳�
     - 已使用 RBAC 角色指派的使用者會失去其存取權
     - 服務管理員和共同管理員，則會失去存取權
     - 如果您有任何金鑰保存庫時，它們都無法存取，而且您必須加以修正建立關聯之後
+    - 如果您有任何受管理的身分識別，例如虛擬機器或邏輯應用程式的資源，您必須重新啟用，或重新建立這些物件建立關聯之後
     - 如果您有已註冊的 Azure Stack，您必須重新註冊它建立關聯之後
 
 1. 使用符合下列條件的帳戶登入：
@@ -54,11 +55,11 @@ Azure 訂用帳戶已與 Azure Active Directory (Azure AD)，這表示訂用帳�
 
 1. 在 [Azure 入口網站的 [訂用帳戶] 頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)登入並選取您要使用的訂用帳戶。
 
-2. 按一下 [變更目錄]。
+2. 按一下 [變更目錄]  。
 
     ![已反白顯示 [變更目錄] 選項的 [訂用帳戶] 頁面](media/active-directory-how-subscriptions-associated-directory/change-directory-button.png)
 
-3. 檢閱出現的任何警告，然後選取 [變更]。
+3. 檢閱出現的任何警告，然後選取 [變更]  。
 
     ![顯示要變更之目錄的 [變更目錄] 頁面](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
@@ -76,7 +77,9 @@ Azure 訂用帳戶已與 Azure Active Directory (Azure AD)，這表示訂用帳�
 
 1. 如果您有任何金鑰保存庫，您必須變更金鑰保存庫租用戶識別碼。 如需詳細資訊，請參閱 <<c0> [ 訂用帳戶移動之後變更金鑰保存庫租用戶識別碼](../../key-vault/key-vault-subscription-move-fix.md)。
 
-2. 如果您已註冊 Azure Stack 中使用此訂用帳戶，您必須重新註冊。 如需詳細資訊，請參閱 <<c0> [ 向 Azure 註冊 Azure Stack](/azure-stack/operator/azure-stack-registration)。
+2. 如果您使用系統指派給受控身分識別的資源，您必須重新啟用這些。 如果您使用使用者指派給受控身分識別，您必須重新建立這些。 重新啟用，或重新建立受控身分識別之後，您必須重新建立這些身分識別指派的權限。 如需詳細資訊，請參閱[什麼是適用於 Azure 資源管理的身分識別？](../managed-identities-azure-resources/overview.md)。
+
+3. 如果您已註冊 Azure Stack 中使用此訂用帳戶，您必須重新註冊。 如需詳細資訊，請參閱 <<c0> [ 向 Azure 註冊 Azure Stack](/azure-stack/operator/azure-stack-registration)。
 
 
 

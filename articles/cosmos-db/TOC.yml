@@ -362,6 +362,8 @@
               href: manage-mongodb-with-resource-manager.md
             - name: 使用 Powershell 管理
               href: powershell-samples-mongodb.md
+            - name: 針對常見問題進行疑難排解
+              href: mongodb-troubleshoot.md
     - name: Gremlin API
       displayName: 'graph, graph database'
       items:
@@ -531,8 +533,8 @@
           href: how-to-sql-subquery.md
     - name: 變更摘要
       items:
-        - name: Azure Cosmos DB 觸發記錄
-          href: how-to-configure-cosmos-db-trigger-logs.md
+        - name: Azure Cosmos DB 觸發程序連線原則
+          href: how-to-configure-cosmos-db-trigger-connection-policy.md
         - name: 多個 Azure Cosmos DB 觸發程序
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: 針對 Azure Cosmos DB 觸發程序進行疑難排解
@@ -600,6 +602,8 @@
       items:
         - name: 效能秘訣
           items:
+            - name: 取得查詢執行計量
+              href: profile-sql-api-query.md
             - name: 微調查詢效能
               href: sql-api-query-metrics.md
             - name: .NET SDK 的效能秘訣

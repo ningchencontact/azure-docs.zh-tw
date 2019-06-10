@@ -11,65 +11,63 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/23/2019
+ms.date: 6/6/2019
 ms.author: raiye
-ms.openlocfilehash: 4c0f364e596fbe2bf9083cbcf521902523c92a70
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ecf898d331ec426aa343441d29084b4f2c656fa0
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241314"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743044"
 ---
 # <a name="azure-guest-os"></a>Azure 客體作業系統
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。 請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。 已引進更新的特定[系列][family-explain]會持續推出更新。
 
 ## <a name="may-2019-guest-os"></a>2019 年客體 OS
 
->[!NOTE]
->可能的客體 OS 是目前正在發行到設定為自動更新的雲端服務 Vm。 推展完成時，我們會透過 Azure 入口網站和組態檔來提供此版本，以便您可以手動更新。 可能的客體 OS 包含下列項目。 此清單會隨時變動。
-
 | 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
 | --- | --- | --- | --- | --- |
-|  Rel 19-05   |  [4498206 ]  |  五月份 IE 彙總套件   |  2,86, 3.73, 4.66  |  2019 5 月 14日日  |
-|  Rel 19-05   |  [4505050 ]  |  五月份 IE 彙總套件   |  2,86, 3.73, 4.66  |  2019 5 月 18日日  |
-|  Rel 19-05   |  [4497932 ]  |  可能會閃爍更新   |  3.73, 4.66, 5.31  |  2019 5 月 14日日  |
-|  Rel 19-05   |  [4499175 ]  |  五月份的安全性彙總套件   |  2.86  |  2019 5 月 14日日  |
-|  Rel 19-05   |  [4495612 ]  |  五月份的安全性彙總套件.NET 3.5   |  2.86  |  2019 5 月 14日日  |
-|  Rel 19-05   |  [4495593 ]  |  五月份.NET 4.5.2 安全性彙總套件   |  2.86  |  2019 5 月 14日日  |
-|  Rel 19-05   |  [4499158 ]  |  五月份的安全性彙總套件   |  3.73  |  2019 5 月 14日日  |
-|  Rel 19-05   |  [4495607 ]  |  五月份的安全性彙總套件.NET 3.5   |  3.73  |  2019 5 月 14日日  |
-|  Rel 19-05   |  [4495591 ]  |  五月份.NET 4.5.2 安全性彙總套件   |  3.73  |  2019 5 月 14日日  |
-|  Rel 19-05   |  [4492872 ]  |  IE 彙總套件   |  3.73  |  2019 年 4 月 16日日  |
-|  Rel 19-05   |  [4499165 ]  |  年 3 月安全性彙總套件   |  4.66  |  2019 5 月 14日日  |
-|  Rel 19-05   |  [4495615 ]  |  五月份的安全性彙總套件.NET 3.5   |  4.66  |  2019 5 月 14日日  |
-|  Rel 19-05   |  [4495589 ]  |  五月份.NET 4.5.2 安全性彙總套件   |  4.66  |  2019 5 月 14日日  |
-|  Rel 19-05   |  [4498947 ]  |  五月份 SSU   |  5.31  |  2019 5 月 14日日  |
-|  Rel 19-05   |  [4494175 ]  |  可能的微碼更新   |  5.31  |  2019 5 月 14日日  |
-|  Rel 19-05   |  [4505052 ]  |  五月份的安全性彙總套件   |  5.31  |  2019 5 月 19日日  |
-|  Rel 19-05   |  [4499728 ]  |  五月份 SSU   |  6.7  |  2019 5 月 19日日  |
-|  Rel 19-05   |  [4505056 ]  |  五月份的安全性彙總套件   |  6.7  |  2019 5 月 19日日  |
-|  Rel 19-05   |  [4494174 ]  |  可能的微碼更新   |  6.7  |  2019 5 月 14日日  |
-|  Rel 19-05   |  [4495590 ]  |  五月份.NET 安全性彙總套件   |  6.7  |  2019 5 月 14日日  |
+|  Rel 19-05   |  [4498206]  |  五月份 IE 彙總套件   |  2,86, 3.73, 4.66  |  2019 5 月 14日日  |
+|  Rel 19-05   |  [4505050]  |  五月份 IE 彙總套件   |  2,86, 3.73, 4.66  |  2019 5 月 18日日  |
+|  Rel 19-05   |  [4497932]  |  可能會閃爍更新   |  3.73, 4.66, 5.31  |  2019 5 月 14日日  |
+|  Rel 19-05   |  [4499175]  |  五月份的安全性彙總套件   |  2.86  |  2019 5 月 14日日  |
+|  Rel 19-05   |  [4495612]  |  五月份的安全性彙總套件.NET 3.5   |  2.86  |  2019 5 月 14日日  |
+|  Rel 19-05   |  [4495593]  |  五月份.NET 4.5.2 安全性彙總套件   |  2.86  |  2019 5 月 14日日  |
+|  Rel 19-05   |  [4499158]  |  五月份的安全性彙總套件   |  3.73  |  2019 5 月 14日日  |
+|  Rel 19-05   |  [4495607]  |  五月份的安全性彙總套件.NET 3.5   |  3.73  |  2019 5 月 14日日  |
+|  Rel 19-05   |  [4495591]  |  五月份.NET 4.5.2 安全性彙總套件   |  3.73  |  2019 5 月 14日日  |
+|  Rel 19-05   |  [4492872]  |  IE 彙總套件   |  3.73  |  2019 年 4 月 16日日  |
+|  Rel 19-05   |  [4499165]  |  年 3 月安全性彙總套件   |  4.66  |  2019 5 月 14日日  |
+|  Rel 19-05   |  [4495615]  |  五月份的安全性彙總套件.NET 3.5   |  4.66  |  2019 5 月 14日日  |
+|  Rel 19-05   |  [4495589]  |  五月份.NET 4.5.2 安全性彙總套件   |  4.66  |  2019 5 月 14日日  |
+|  Rel 19-05   |  [4498947]  |  五月份 SSU   |  5.31  |  2019 5 月 14日日  |
+|  Rel 19-05   |  [4494175]  |  可能的微碼更新   |  5.31  |  2019 5 月 14日日  |
+|  Rel 19-05   |  [4505052]  |  五月份的安全性彙總套件   |  5.31  |  2019 5 月 19日日  |
+|  Rel 19-05   |  [4499728]  |  五月份 SSU   |  6.7  |  2019 5 月 19日日  |
+|  Rel 19-05   |  [4505056]  |  五月份的安全性彙總套件   |  6.7  |  2019 5 月 19日日  |
+|  Rel 19-05   |  [4494174]  |  可能的微碼更新   |  6.7  |  2019 5 月 14日日  |
+|  Rel 19-05   |  [4495590]  |  五月份.NET 安全性彙總套件   |  6.7  |  2019 5 月 14日日  |
 
-[KB4493510]: https://support.microsoft.com/kb/KB4493510
-[KB4493472]: https://support.microsoft.com/kb/KB4493472
-[KB4493451]: https://support.microsoft.com/kb/KB4493451
-[KB4493446]: https://support.microsoft.com/kb/KB4493446
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[4498206]: https://support.microsoft.com/kb/4498206
+[4505050]: https://support.microsoft.com/kb/4505050
+[4497932]: https://support.microsoft.com/kb/4497932
+[4499175]: https://support.microsoft.com/kb/4499175
+[4495612]: https://support.microsoft.com/kb/4495612
+[4495593]: https://support.microsoft.com/kb/4495593
+[4499158]: https://support.microsoft.com/kb/4499158
+[4495607]: https://support.microsoft.com/kb/4495607
+[4495591]: https://support.microsoft.com/kb/4495591
+[4492872]: https://support.microsoft.com/kb/4492872
+[4499165]: https://support.microsoft.com/kb/4499165
+[4495615]: https://support.microsoft.com/kb/4495615
+[4495589]: https://support.microsoft.com/kb/4495589
+[4498947]: https://support.microsoft.com/kb/4498947
+[4494175]: https://support.microsoft.com/kb/4494175
+[4505052]: https://support.microsoft.com/kb/4505052
+[4499728]: https://support.microsoft.com/kb/4499728
+[4505056]: https://support.microsoft.com/kb/4505056
+[4494174]: https://support.microsoft.com/kb/4494174
+[4495590]: https://support.microsoft.com/kb/4495590
 
 
 ## <a name="april-2019-guest-os"></a>2019 年 4 月客體 OS
@@ -83,11 +81,11 @@ ms.locfileid: "66241314"
 | Rel 19-04 | [4493448] | Windows 安全性 | 2.85 | 2019 年 4 月 9 日 |
 | Rel 19-04 | [4493478] | 閃爍 | 3.72, 4.65, 5.30, 6.6 | 2019 年 4 月 9 日 |
 | Rel 19-04 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | 2019 年 4 月 9 日 |
-| Rel 19-04 | [KB4490628] | 服務堆疊更新 | 2.85 | 2019 年 3 月 12日 |
-| Rel 19-04 | [KB4474419] | SHA2 支援 | 2.85 | 2019 年 3 月 12日 |
-| Rel 19-04 | [KB4489878] | 年 3 月非安全性彙總套件 | 2.85 | 2019 年 3 月 12日 |
-| Rel 19-04 | [KB4489891] | 年 3 月非安全性彙總套件 | 3.72 | 2019 年 3 月 12日 |
-| Rel 19-04 | [KB4489881] | 年 3 月非安全性彙總套件 | 4.65 | 2019 年 3 月 12日 |
+| Rel 19-04 | [4490628] | 服務堆疊更新 | 2.85 | 2019 年 3 月 12日 |
+| Rel 19-04 | [4474419] | SHA2 支援 | 2.85 | 2019 年 3 月 12日 |
+| Rel 19-04 | [4489878] | 年 3 月非安全性彙總套件 | 2.85 | 2019 年 3 月 12日 |
+| Rel 19-04 | [4489891] | 年 3 月非安全性彙總套件 | 3.72 | 2019 年 3 月 12日 |
+| Rel 19-04 | [4489881] | 年 3 月非安全性彙總套件 | 4.65 | 2019 年 3 月 12日 |
 
 [4493509]: https://support.microsoft.com/kb/4493509
 [4493470]: https://support.microsoft.com/kb/4493470
@@ -96,11 +94,11 @@ ms.locfileid: "66241314"
 [4493448]: https://support.microsoft.com/kb/4493448
 [4493478]: https://support.microsoft.com/kb/4493478
 [4493435]: https://support.microsoft.com/kb/4493435
-[KB4490628]: https://support.microsoft.com/kb/KB4490628
-[KB4474419]: https://support.microsoft.com/kb/KB4474419
-[KB4489878]: https://support.microsoft.com/kb/KB4489878
-[KB4489891]: https://support.microsoft.com/kb/KB4489891
-[KB4489881]: https://support.microsoft.com/kb/KB4489881
+[4490628]: https://support.microsoft.com/kb/KB4490628
+[4474419]: https://support.microsoft.com/kb/KB4474419
+[4489878]: https://support.microsoft.com/kb/KB4489878
+[4489891]: https://support.microsoft.com/kb/KB4489891
+[4489881]: https://support.microsoft.com/kb/KB4489881
 
 ## <a name="march-2019-guest-os"></a>2019 年 3 月客體 OS
 

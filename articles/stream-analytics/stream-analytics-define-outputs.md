@@ -7,16 +7,16 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 3/25/2019
-ms.custom: seodec18
-ms.openlocfilehash: 3fab76613bb992b29ceeef12cf5f410c5c3b208d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/31/2019
+ms.openlocfilehash: b29f3168b7ecc1ec8f783a7ce7a6dea83318fa14
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205537"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455705"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
+
 本文說明適用於 Azure Stream Analytics 作業輸出的類型。 輸出可讓您存放並儲存串流分析作業的結果。 使用輸出資料，您可以執行進一步的商務分析與資料倉儲的資料。
 
 當您設計您的 Stream Analytics 查詢時，請參閱輸出的名稱使用[INTO 子句](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics)。 您可以使用單一的輸出，每個作業或每個串流作業 （如果您需要它們時） 提供在查詢中的多個 INTO 子句的多個輸出。
@@ -26,28 +26,18 @@ ms.locfileid: "65205537"
 某些輸出型別支援[分割](#partitioning)。 [輸出批次大小](#output-batch-size)會變化，以達到最佳輸送量。
 
 
-## <a name="azure-data-lake-store"></a>Azure Data Lake Store
-串流分析支援 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。 Azure Data Lake Store 是巨量資料分析工作負載的企業級超大規模存放庫。 您可以使用 Data Lake Store 來儲存資料的任何大小、 類型和擷取速度的運作和探究分析。 Stream Analytics 的授權，才能存取 Data Lake Store。
+## <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen 1
 
-Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前無法從串流分析產生 Azure Data Lake Store 輸出。
+Stream Analytics 支援[Azure Data Lake 儲存體 Gen 1](../data-lake-store/data-lake-store-overview.md)。 Azure Data Lake 儲存體是巨量資料分析工作負載的企業級超大規模存放庫。 您可以使用 Data Lake 儲存體來儲存資料的任何大小、 類型和擷取速度的運作和探究分析。 Stream Analytics 必須授權，才能存取 Data Lake 儲存體。
 
-### <a name="authorize-an-azure-data-lake-store-account"></a>授權 Azure Data Lake Store 帳戶
+從 Stream Analytics 的 azure Data Lake 儲存體輸出目前不是適用於 Azure China (21Vianet) 和 Azure 德國 (T-systems International) 區域。
 
-1. 當您選取 Data Lake Store 做為輸出在 Azure 入口網站中時，系統會提示您授權與現有的 Data Lake Store 執行個體的連線。
-
-   ![授權與 Data Lake Store 的連線](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)
-
-2. 如果您有權存取 Data Lake Store，請選取**立即授權**。 頁面隨即顯示，指出**重新導向至授權**。 授權成功後，您會有可讓您設定 Data Lake Store 輸出的頁面。
-
-3. 驗證 Data Lake Store 帳戶之後，您可以設定 Data Lake Store 輸出的屬性。
-
-   ![將 Data Lake Store 定義為串流分析輸出](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)
-
-下表列出屬性名稱和其描述若要設定您的 Data Lake Store 輸出。   
+下表列出屬性名稱和其描述若要設定您 Data Lake 儲存體 Gen 1 的輸出。   
 
 | 屬性名稱 | 描述 |
 | --- | --- |
 | 輸出別名 | 易記名稱，用於在查詢中將查詢輸出導向至 Data Lake Store。 |
+| 訂用帳戶 | 訂用帳戶，其中包含您的 Azure Data Lake 儲存體帳戶。 |
 | 帳戶名稱 | 您要在其中傳送輸出的 Data Lake Store 帳戶的名稱。 您會看到您的訂用帳戶中可用的 Data Lake Store 帳戶的下拉式清單。 |
 | 路徑前置詞模式 | 用來寫入您指定的 Data Lake Store 帳戶中的檔案之檔案路徑。 您可以指定一或多個執行個體的 {date} 與 {time} 變數：<br /><ul><li>範例 1：folder1/logs/{date}/{time}</li><li>範例 2：folder1/logs/{date}</li></ul><br />UTC 與不當地時間，就會遵循建立的資料夾結構的時間戳記。<br /><br />如果檔案路徑模式不包含斜線 （/），會將檔案路徑中的最後一個模式視為檔案名稱前置詞。 <br /><br />系統會在下列情況下建立新檔案：<ul><li>輸出結構描述中出現變更</li><li>外部或內部重新啟動作業</li></ul> |
 | 日期格式 | 選用。 如果前置詞路徑中使用日期權杖，您可以選取組織檔案要用的日期格式。 範例：YYYY/MM/DD |
@@ -56,24 +46,10 @@ Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前�
 | 編碼 | 如果您使用 CSV 或 JSON 格式，必須指定編碼。 UTF-8 是目前唯一支援的編碼格式。|
 | 分隔符號 | 只適用於 CSV 序列化。 串流分析可支援多種序列化 CSV 資料常用的分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。|
 | 格式 | 只適用於 JSON 序列化。 **分行**指定由以新行分隔每個 JSON 物件的格式化輸出。 **陣列**指定，則會將輸出格式化為 JSON 物件的陣列。 只有在作業停止或串流分析已移動到下一個時間範圍時，才會關閉這個陣列。 一般情況下，最好是使用以行分隔的 JSON，因為它不需要任何特殊處理，而正在以寫入輸出檔。|
-
-### <a name="renew-data-lake-store-authorization"></a>更新 Data Lake Store 授權
-如果您在建立作業之後或上次驗證過後變更了密碼，則需要重新驗證您的 Data Lake Store 帳戶。 如果您不重新驗證，您的作業不會產生輸出結果，並顯示錯誤，指出作業記錄檔中的授權需求。 
-
-目前，驗證權杖必須手動重新整理具有 Data Lake Store 輸出的所有工作每隔 90 天。 您可以克服這項限制所[驗證透過受控身分識別 （預覽）](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-managed-identities-adls)。
-
-若要更新授權：
-
-1. 選取 **停止**停止您的作業。
-1. 請移至 Data Lake Store 輸出，然後選取**更新授權**連結。
-
-   簡短的時間，快顯的頁面會指出**重新導向至授權**。 授權是否成功，則頁面會指出**已成功更新授權**並會自動關閉。 
-   
-1. 選取 **儲存**在頁面底部。 您可以重新啟動您的作業，從**上次停止時間**以避免資料遺失。
-
-![更新輸出中的 Data Lake Store 授權](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)
+| 驗證模式 | 您可以使用 Data Lake 儲存體帳戶存取權授權[受控身分識別](stream-analytics-managed-identities-adls.md)或使用者語彙基元。 一旦您授與存取權，您可以藉由變更使用者帳戶密碼、 刪除 Data Lake 儲存體輸出，此工作中，或刪除 Stream Analytics 工作中撤銷存取權。 |
 
 ## <a name="sql-database"></a>SQL Database
+
 您可以使用[Azure SQL Database](https://azure.microsoft.com/services/sql-database/)做為輸出的本質是關聯式的資料或應用程式是依賴主控關聯式資料庫中的內容。 Stream Analytics 作業寫入至 SQL Database 中現有的資料表。 資料表結構描述必須完全符合的欄位和其作業的輸出中的型別。 您也可以指定[Azure SQL 資料倉儲](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)做為輸出，透過 SQL Database 輸出選項而定。 若要深入了解如何改善寫入輸送量，請參閱[使用 Azure SQL Database 做為輸出的 Stream Analytics](stream-analytics-sql-output-perf.md)文章。 
 
 下表列出的是屬性名稱及其描述以建立 SQL Database 輸出。
@@ -90,11 +66,11 @@ Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前�
 |符合批次計數| 每個大量傳送的記錄數目的建議的限制插入的交易。|
 
 > [!NOTE]
-> 目前「串流分析」中的工作輸出支援 Azure SQL Database 供應項目。 不支援使用附加的資料庫執行 SQL Server 的 Azure 虛擬機器。 這在未來的版本中有可能變更。
->
+> 供應項目 支援的作業，輸出 Stream Analytics 在內，但不是支援執行 SQL Server 資料庫，附加與 Azure 虛擬機器在 Azure SQL Database。
 
 ## <a name="blob-storage"></a>Blob 儲存體
-Azure Blob 儲存體提供符合成本效益且可擴充的解決方案，用於在雲端中儲存大量非結構化資料。 如需 Blob 儲存體和其使用方式的簡介，請參閱 <<c0> [ 如何使用 blob](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。
+
+Azure Blob 儲存體提供符合成本效益且可擴充的解決方案，用於在雲端中儲存大量非結構化資料。 如需 Blob 儲存體和其使用方式的簡介，請參閱 <<c0> [ 上傳、 下載及列出 blob，使用 Azure 入口網站](../storage/blobs/storage-quickstart-blobs-portal.md)。
 
 下表列出的屬性名稱及其描述以建立 blob 輸出。
 
@@ -124,6 +100,7 @@ Azure Blob 儲存體提供符合成本效益且可擴充的解決方案，用於
 * 如果輸出經過分割的自訂欄位，其中資料分割索引鍵基數超過 8000，和每個資料分割索引鍵建立新的 blob。
 
 ## <a name="event-hubs"></a>事件中樞
+
 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/) 服務是具高延展性的發佈-訂閱事件擷取器。 它每秒可以收集數百萬個事件。 一個使用事件中樞作為輸出時，Stream Analytics 作業的輸出會變成另一個串流工作的輸入。
 
 您需要設定從事件中樞的資料流，做為輸出的幾個參數。
@@ -143,23 +120,12 @@ Azure Blob 儲存體提供符合成本效益且可擴充的解決方案，用於
 | 屬性資料行 | 選用。 以逗號分隔的資料行必須附加為外寄訊息，而不是承載的使用者屬性。 這項功能的詳細資訊位於區段[輸出的自訂中繼資料屬性](#custom-metadata-properties-for-output)。 |
 
 ## <a name="power-bi"></a>Power BI
+
 您可以使用[Power BI](https://powerbi.microsoft.com/)做為輸出的 Stream Analytics 作業，以提供豐富的視覺效果體驗的分析結果。 您可以使用這項功能的操作儀表板、 報告產生及度量驅動的報告。
 
 Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前無法從串流分析產生 Power BI 輸出。
 
-### <a name="authorize-a-power-bi-account"></a>授權 Power BI 帳戶
-1. 做為輸出在 Azure 入口網站中選取 Power BI 時，系統會提示授權現有的 Power BI 使用者，或建立新的 Power BI 帳戶。
-   
-   ![授權 Power BI 使用者來設定輸出](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
-
-2. 建立新的帳戶，如果您不尚未有一個、，然後選取**立即授權**。 會出現下列頁面：
-   
-   ![從 Azure 帳戶驗證至 Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)
-
-3. 提供工作或學校帳戶用於授權 Power BI 輸出。 如果您尚未註冊 Power BI，請選取**立即註冊**。 您用於 Power BI 的公司或學校帳戶可能與您目前已登入 Azure 訂用帳戶不同。
-
-### <a name="configure-the-power-bi-output-properties"></a>設定 Power BI 輸出屬性
-驗證 Power BI 帳戶之後，您可以設定 Power BI 輸出的屬性。 下表列出屬性名稱和其描述若要設定您的 Power BI 輸出。
+下表列出屬性名稱和其描述若要設定您的 Power BI 輸出。
 
 | 屬性名稱 | 描述 |
 | --- | --- |
@@ -167,8 +133,9 @@ Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前�
 | 群組工作區 |若要啟用與其他 Power BI 使用者共用資料，您可以選取您的 Power BI 帳戶內的群組，或選擇**我的工作區**若不想寫入群組。 更新現有的群組需要更新 Power BI 驗證。 |
 | 資料集名稱 |提供您想要使用 Power BI 輸出資料集名稱。 |
 | 資料表名稱 |提供 Power BI 輸出資料集的資料表名稱。 目前，串流分析作業的 Power BI 輸出在資料集內只能有一個資料表。 |
+| 授權連接 | 您需要使用 Power BI 授權，才能進行輸出設定。 一旦您此輸出存取權授與 Power BI 儀表板，您可以藉由變更使用者帳戶密碼，刪除作業輸出，或刪除 Stream Analytics 作業中撤銷存取權。 | 
 
-設定 Power BI 輸出和儀表板的逐步解說，請參閱[Azure Stream Analytics 與 Power BI](stream-analytics-power-bi-dashboard.md)文章。
+設定 Power BI 輸出和儀表板的逐步解說，請參閱[Azure Stream Analytics 與 Power BI](stream-analytics-power-bi-dashboard.md)教學課程。
 
 > [!NOTE]
 > 不要明確建立資料集和資料表在 Power BI 儀表板。 當作業開始並將輸出提取至 Power BI 時，資料集和資料表會自動填入。 如果作業查詢沒有產生任何結果，不被建立資料集和資料表。 如果 Power BI 已經有資料集和具有相同名稱與此 Stream Analytics 作業中所提供的資料表，則會覆寫現有的資料。
@@ -203,19 +170,10 @@ float | Double
 Int64 | Int64 | 字串 | 字串 | Double
 Double | Double | 字串 | 字串 | Double
 字串 | 字串 | 字串 | 字串 | 字串 
-datetime | 字串 | 字串 |  datetime | 字串
-
-
-### <a name="renew-power-bi-authorization"></a>更新 Power BI 授權
-建立您的 Stream Analytics 作業之後或上次驗證之後，就會變更您的 Power BI 帳戶密碼，如果您需要重新驗證 Stream Analytics。 如果您在 Azure Active Directory (Azure AD) 租用戶上設定 Azure Multi-Factor Authentication，則也需要每 2 週更新一次 Power BI 授權。 此問題發生時的徵兆就是沒有工作輸出，且作業記錄中出現「驗證使用者錯誤」：
-
-  ![Power BI 驗證使用者錯誤](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)
-
-若要解決這個問題，請停止執行工作並移至 Power BI 輸出。 選取 [更新授權] 連結，並從 [上次停止時間] 重新啟動作業以避免資料遺失。
-
-  ![更新輸出的 Power BI 授權](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)
+datetime | 字串 | 字串 |  datetime | String
 
 ## <a name="table-storage"></a>表格儲存體
+
 [Azure 資料表儲存體](../storage/common/storage-introduction.md) 提供高可用性且可大幅擴充的儲存體，可讓應用程式自動調整來滿足使用者需求。 資料表儲存體是 Microsoft 的 NoSQL 索引鍵/屬性存放區，您可以使用結構化資料與結構描述的限制較少。 使用 Azure 資料表儲存資料時，資料可長期儲存而且調閱方便。
 
 下表列出屬性名稱及描述建立資料表輸出。
@@ -231,7 +189,8 @@ datetime | 字串 | 字串 |  datetime | 字串
 | 批大小 |批次作業的記錄數目。 預設值 (100)通常足以應付大部分的作業。 請參閱[資料表的批次作業規格](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation)如需詳細資訊修改此設定。 |
 
 ## <a name="service-bus-queues"></a>服務匯流排佇列
-[服務匯流排佇列](https://msdn.microsoft.com/library/azure/hh367516.aspx)提供 FIFO 訊息傳遞至一或多個競爭取用者。 一般而言，訊息會由接收和處理已新增至佇列的時間順序的接收者。 每個訊息是由接收和處理一個訊息取用者。
+
+[服務匯流排佇列](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)提供 FIFO 訊息傳遞至一或多個競爭取用者。 一般而言，訊息會由接收和處理已新增至佇列的時間順序的接收者。 每個訊息是由接收和處理一個訊息取用者。
 
 下表列出的屬性名稱及其描述以建立佇列輸出。
 
@@ -288,7 +247,7 @@ Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前�
 | 帳戶識別碼 | Azure Cosmos DB 帳戶的名稱或端點 URI。 |
 | 帳戶金鑰 | Azure Cosmos DB 帳戶的共用存取金鑰。 |
 | 資料庫 | Azure Cosmos DB 資料庫名稱。 |
-| 集合名稱模式 | 集合名稱或要使用集合的模式。 <br />您可以使用選擇性 {partition} 語彙基元中，資料分割會從 0 開始建構集合名稱的格式。 兩個範例：  <br /><ul><li> _MyCollection_:一個名為"MyCollection"集合必須存在。</li>  <li> _MyCollection {partition}_:根據資料分割的資料行。</li></ul> 資料分割的資料行集合必須存在：「 MyCollection0，""MyCollection1，""MyCollection2，"，依此類推。 |
+| 集合名稱模式 | 集合名稱或要使用集合的模式。 <br />您可以使用選擇性 {partition} 語彙基元中，資料分割會從 0 開始建構集合名稱的格式。 兩個範例：  <br /><ul><li> _MyCollection_:一個名為"MyCollection"集合必須存在。</li>  <li> _MyCollection {partition}_ :根據資料分割的資料行。</li></ul> 資料分割的資料行集合必須存在：「 MyCollection0，""MyCollection1，""MyCollection2，"，依此類推。 |
 | 資料分割索引鍵 | 選用。 您需要這只有當您在您的集合名稱模式中使用 {partition} 權杖。<br /> 資料分割索引鍵是欄位的輸出事件中，用來指定跨集合分割輸出的索引鍵名稱。<br /> 為單一集合輸出，您可以使用任何任意的輸出資料行。 例如，PartitionId。 |
 | 文件識別碼 |選用。 輸出事件中，用來指定主索引鍵的 insert 或 update 作業所依據的欄位名稱。
 

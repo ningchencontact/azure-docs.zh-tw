@@ -2,20 +2,20 @@
 title: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的 JSON 宣告轉換範例 | Microsoft Docs
 description: 適用於 Azure Active Directory B2C 識別體驗架構結構描述的 JSON 宣告轉換範例。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7574327f8acbd2215080e43a57b0b9c7cdd8b423
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9a026d205d3ab855ecbb51048e7464df6fb4a094
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710245"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510757"
 ---
 # <a name="json-claims-transformations"></a>JSON 宣告轉換
 
@@ -29,9 +29,9 @@ ms.locfileid: "64710245"
 
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJson | string | 宣告轉換用來取得項目的 ClaimType。 |
-| InputParameter | claimToExtract | string | 要擷取的 JSON 元素名稱。 |
-| OutputClaim | extractedClaim | string | 叫用此宣告轉換之後所產生的 ClaimType，元素值指定於 _claimToExtract_ 輸入參數中。 |
+| InputClaim | inputJson | 字串 | 宣告轉換用來取得項目的 ClaimType。 |
+| InputParameter | claimToExtract | 字串 | 要擷取的 JSON 元素名稱。 |
+| OutputClaim | extractedClaim | 字串 | 叫用此宣告轉換之後所產生的 ClaimType，元素值指定於 _claimToExtract_ 輸入參數中。 |
 
 在下列範例中，宣告轉換會從 JSON 資料擷取 `emailAddress` 元素：`{"emailAddress": "someone@example.com", "displayName": "Someone"}`
 
@@ -67,9 +67,9 @@ ms.locfileid: "64710245"
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | jsonSourceClaim | string | 宣告轉換用來取得宣告的 ClaimType。 |
 | InputParameter | errorOnMissingClaims | boolean | 指定如果遺漏其中一個宣告，是否要擲回錯誤。 |
-| InputParameter | includeEmptyClaims | string | 指定是否要包含空的宣告。 |
+| InputParameter | includeEmptyClaims | 字串 | 指定是否要包含空的宣告。 |
 | InputParameter | jsonSourceKeyName | string | 元素索引鍵名稱 |
-| InputParameter | jsonSourceValueName | string | 元素值名稱 |
+| InputParameter | jsonSourceValueName | 字串 | 元素值名稱 |
 | OutputClaim | 集合 | string、int、boolean 及 datetime |要擷取的宣告清單。 宣告的名稱應該等於 _jsonSourceClaim_ 輸入宣告中所指定的宣告名稱。 |
 
 在下列範例中，宣告轉換會從 JSON 資料中擷取下列宣告：email (string)、displayName (string)、membershipNum (int)、active (boolean) 及 birthdate (datetime)。
@@ -119,8 +119,8 @@ ms.locfileid: "64710245"
 
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJson | string | 宣告轉換用來取得宣告的 ClaimType。 |
-| InputParameter | claimToExtract | string | 要擷取的 JSON 元素名稱。 |
+| InputClaim | inputJson | 字串 | 宣告轉換用來取得宣告的 ClaimType。 |
+| InputParameter | claimToExtract | 字串 | 要擷取的 JSON 元素名稱。 |
 | OutputClaim | extractedClaim | long | 叫用此 ClaimsTransformation 之後所產生的 ClaimType，元素的值指定於 _claimToExtract_ 輸入參數中。 |
 
 在下列範例中，宣告轉換會從 JSON 資料中擷取 `id` 元素。
@@ -191,8 +191,8 @@ ms.locfileid: "64710245"
 
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Xml | string | 宣告轉換用來將資料從 XML 轉換為 JSON 格式的 ClaimType。 |
-| OutputClaim | json | string | 叫用此 ClaimsTransformation 之後所產生的 ClaimType，JSON 格式的資料。 |
+| InputClaim | Xml | 字串 | 宣告轉換用來將資料從 XML 轉換為 JSON 格式的 ClaimType。 |
+| OutputClaim | json | 字串 | 叫用此 ClaimsTransformation 之後所產生的 ClaimType，JSON 格式的資料。 |
 
 ```XML
 <ClaimsTransformation Id="ConvertXmlToJson" TransformationMethod="XmlStringToJsonString">

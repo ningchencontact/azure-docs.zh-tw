@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 06/05/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: b77960961a7c032faad7000f7a2ce297802a1497
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 9490772226ecdb90cdd2e0b98fe8336b91db6044
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967041"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754528"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>在 Azure Digital Twins 中將 Blob 新增到物件
 
@@ -36,7 +36,7 @@ Azure Digital Twins 支援將 Blob 連結到裝置、空間和使用者。 Blob 
 
 四個主要 JSON 結構描述是：
 
-![JSON 結構描述][1]
+[![JSON 結構描述](media/how-to-add-blobs/blob-models.PNG)](media/how-to-add-blobs/blob-models.PNG#lightbox)
 
 JSON blob 中繼資料符合下列模型：
 
@@ -51,14 +51,14 @@ JSON blob 中繼資料符合下列模型：
   }
 ```
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | --- | --- | --- |
-| **parentId** | String | 與 blob 相關聯的父實體 (空間、裝置或使用者) |
+| **parentId** | 字串 | 與 blob 相關聯的父實體 (空間、裝置或使用者) |
 | **name** |String | blob 的人類易記名稱 |
 | **type** | String | Blob 的類型 - 不能使用 *type* 與 *typeId*  |
-| **typeId** | 整數  | Blob 類型識別碼 - 不能使用 *type* 與 *typeId* |
+| **typeId** | Integer | Blob 類型識別碼 - 不能使用 *type* 與 *typeId* |
 | **subtype** | String | Blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
-| **subtypeId** | 整數  | blob 的子類型識別碼 - 不能使用 *subtype* 與 *subtypeId* |
+| **subtypeId** | Integer | blob 的子類型識別碼 - 不能使用 *subtype* 與 *subtypeId* |
 | **description** | String | 自訂的 blob 描述 |
 | **sharing** | String | 是否可以共用 blob - enum [`None`, `Tree`, `Global`] |
 
@@ -108,20 +108,20 @@ Swagger 文件會完整詳細說明這些模型結構描述。
 }
 ```
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | --- | --- | --- |
-| **id** | String | Blob 的專屬識別碼 |
+| **id** | 字串 | Blob 的專屬識別碼 |
 | **name** |String | Blob 的人類易記名稱 |
-| **parentId** | String | 與 Blob 相關聯的父實體 (空間、裝置或使用者) |
-| **type** | String | Blob 的類型 - 不能使用 *type* 與 *typeId*  |
-| **typeId** | 整數  | Blob 類型識別碼 - 不能使用 *type* 與 *typeId* |
-| **subtype** | String | Blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
-| **subtypeId** | 整數  | Blob 的子類型識別碼 - 不能使用 *subtype* 與 *subtypeId* |
+| **parentId** | 字串 | 與 Blob 相關聯的父實體 (空間、裝置或使用者) |
+| **type** | 字串 | Blob 的類型 - 不能使用 *type* 與 *typeId*  |
+| **typeId** | Integer | Blob 類型識別碼 - 不能使用 *type* 與 *typeId* |
+| **subtype** | 字串 | Blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
+| **subtypeId** | Integer | Blob 的子類型識別碼 - 不能使用 *subtype* 與 *subtypeId* |
 | **sharing** | String | 是否可以共用 blob - enum [`None`, `Tree`, `Global`] |
-| **description** | String | 自訂的 Blob 描述 |
+| **description** | 字串 | 自訂的 Blob 描述 |
 | **contentInfos** | 陣列 | 指定非結構化的中繼資料資訊，包括版本 |
 | **fullName** | String | Blob 的完整名稱 |
-| **spacePaths** | String | 空間路徑 |
+| **spacePaths** | 字串 | 空間路徑 |
 
 一律提供 Blob 中繼資料作為 **Content-Type** 為 `application/json` 的第一個區塊，或作為 `.json` 檔案。 檔案資料是在第二個區塊中提供的，可以是任何支援的 MIME 類型。
 
@@ -183,7 +183,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 最後，[cURL](https://curl.haxx.se/) 使用者可以相同的方式提出多部分表單要求：
 
-![裝置 Blob][5]
+[![裝置的 blob](media/how-to-add-blobs/curl.PNG)](media/how-to-add-blobs/curl.PNG#lightbox)
 
 ```bash
 curl
@@ -211,7 +211,7 @@ curl
 
 您可以將 blob 連結到裝置。 下圖顯示管理 API 的 Swagger 參考文件。 其中指定裝置相關 API 端點以供 Blob 取用，以及任何要傳入的必要路徑參數。
 
-![裝置 Blob][2]
+[![裝置的 blob](media/how-to-add-blobs/blobs-device-api.PNG)](media/how-to-add-blobs/blobs-device-api.PNG#lightbox)
 
 例如，若要更新或建立 Blob 並將 Blob 連結到裝置，請發出已驗證的 HTTP PATCH 要求至：
 
@@ -225,11 +225,11 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 
 成功的要求傳回 JSON 物件，如[先前所述](#blobModel)。
 
-### <a name="spaces"></a>空間
+### <a name="spaces"></a>空格
 
 您也可以江 Blob 連結道空間。 下圖列出負責處理 Blob 的所有空間 API 端點。 也會列出要傳入這些端點的任何路徑參數。
 
-![空間 Blob][3]
+[![空間 blob](media/how-to-add-blobs/blobs-space-api.PNG)](media/how-to-add-blobs/blobs-space-api.PNG#lightbox)
 
 例如，若要傳回連結到空間的 Blob，請發出已驗證的 HTTP GET 要求至：
 
@@ -249,7 +249,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 
 您可以將 Blob 連結到使用者模型 (例如，與個人檔案的圖片建立關聯)。 下圖顯示相關使用者 API 端點和任何必要的路徑參數，例如 `id`：
 
-![使用者 Blob][4]
+[![使用者的 blob](media/how-to-add-blobs/blobs-users-api.PNG)](media/how-to-add-blobs/blobs-users-api.PNG#lightbox)
 
 例如，若要擷取連結至使用者的 Blob，請發出已驗證的 HTTP GET 要求，並搭配任何必要的表單資料：
 
@@ -288,10 +288,3 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 - 若要深入了解 Azure Digital Twins 的 Swagger 參考文件，請參閱[使用 Azure Digital Twins Swagger](how-to-use-swagger.md)。
 
 - 若要透過 Postman 上傳 Blob，請參閱[如何設定 Postman](./how-to-configure-postman.md)。
-
-<!-- Images -->
-[1]: media/how-to-add-blobs/blob-models.PNG
-[2]: media/how-to-add-blobs/blobs-device-api.PNG
-[3]: media/how-to-add-blobs/blobs-space-api.PNG
-[4]: media/how-to-add-blobs/blobs-users-api.PNG
-[5]: media/how-to-add-blobs/curl.PNG

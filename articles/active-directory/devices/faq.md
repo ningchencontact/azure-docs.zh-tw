@@ -27,10 +27,10 @@ ms.locfileid: "60353120"
 
 ### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>問：我最近註冊了裝置。 為什麼在 Azure 入口網站中我的使用者資訊底下看不到該裝置？ 或是為何要將裝置擁有者標示為不適用於混合式 Azure Active Directory (Azure AD) 已加入裝置嗎？
 
-**答：** 已加入混合式 Azure AD 的 Windows 10 裝置不會顯示在 [使用者裝置] 底下。
-請使用 Azure 入口網站中的 [所有裝置] 檢視。 您也可以使用 PowerShell [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) Cmdlet。
+**答：** 已加入混合式 Azure AD 的 Windows 10 裝置不會顯示在 [使用者裝置]  底下。
+請使用 Azure 入口網站中的 [所有裝置]  檢視。 您也可以使用 PowerShell [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) Cmdlet。
 
-只有下列裝置會列在 [使用者裝置] 底下：
+只有下列裝置會列在 [使用者裝置]  底下：
 
 - 所有未加入混合式 Azure AD 的個人裝置。 
 - 所有非 Windows 10 或 Windows Server 2016 裝置。
@@ -40,7 +40,7 @@ ms.locfileid: "60353120"
 
 ### <a name="q-how-do-i-know-what-the-device-registration-state-of-the-client-is"></a>問：我如何才能知道用戶端的裝置註冊狀態為何？
 
-**答：** 在 Azure 入口網站中，移至 [所有裝置]。 使用裝置識別碼來搜尋裝置。 檢查加入類型資料行中的值。 有時，可能會將裝置重設或重新安裝映像。 因此，檢查裝置上的裝置註冊狀態也很重要：
+**答：** 在 Azure 入口網站中，移至 [所有裝置]  。 使用裝置識別碼來搜尋裝置。 檢查加入類型資料行中的值。 有時，可能會將裝置重設或重新安裝映像。 因此，檢查裝置上的裝置註冊狀態也很重要：
 
 - 針對 Windows 10 和 Windows Server 2016 或更新的裝置，請執行 `dsregcmd.exe /status`。
 - 針對舊版 OS 版本，請執行`%programFiles%\Microsoft Workplace Join\autoworkplace.exe`。
@@ -49,7 +49,7 @@ ms.locfileid: "60353120"
 
 ### <a name="q-i-see-the-device-record-under-the-user-info-in-the-azure-portal-and-i-see-the-state-as-registered-on-the-device-am-i-set-up-correctly-to-use-conditional-access"></a>問：我在 Azure 入口網站中的 [使用者資訊] 底下看到裝置記錄。 並且看到該裝置上的狀態為已註冊。 要設定正確使用條件式存取？
 
-**答：****deviceID** 所顯示的裝置加入狀態必須與 Azure AD 上的狀態相符，並滿足條件式存取的所有評估準則。 如需詳細資訊，請參閱[透過條件式存取要求必須從受控裝置存取雲端應用程式](../conditional-access/require-managed-devices.md)。
+**答：** **deviceID** 所顯示的裝置加入狀態必須與 Azure AD 上的狀態相符，並滿足條件式存取的所有評估準則。 如需詳細資訊，請參閱[透過條件式存取要求必須從受控裝置存取雲端應用程式](../conditional-access/require-managed-devices.md)。
 
 ---
 
@@ -81,7 +81,7 @@ ms.locfileid: "60353120"
 
 -   就 Windows 10 和 Windows Server 2016 而言，如果重複嘗試將同一個裝置取消加入再重新加入，就可能導致產生重複的項目。 
 
--   每個使用 [新增工作或學校帳戶] 的 Windows 使用者都會以相同的裝置名稱建立一個新裝置記錄。
+-   每個使用 [新增工作或學校帳戶]  的 Windows 使用者都會以相同的裝置名稱建立一個新裝置記錄。
 
 -   針對已加入內部部署 Active Directory 網域的舊版 Windows OS 版本，自動註冊會為每個登入裝置的網域使用者，以相同的裝置名稱建立一個新裝置記錄。 
 
@@ -111,7 +111,7 @@ ms.locfileid: "60353120"
 **答：** 
 - 針對已加入混合式 Azure AD 的裝置，請務必關閉自動註冊。 如此一來，排定的工作就不會重新註冊該裝置。 接著，以系統管理員身分開啟命令提示字元，然後輸入 `dsregcmd.exe /debug /leave`。 或者，若要進行大量退出，請以指令碼方式跨多個裝置執行此命令。
 
-- 針對純粹的已加入 Azure AD 裝置，請確定您具有離線的本機系統管理員帳戶，或建立一個這樣的帳戶。 您無法使用任何 Azure AD 使用者認證來登入。 接下來，移至 [設定] > [帳戶] > [存取公司或學校資源]。 選取您的帳戶，然後選取 [中斷連線]。 遵循提示，然後在系統提示您時提供本機系統管理員認證。 重新啟動裝置以完成退出程序。
+- 針對純粹的已加入 Azure AD 裝置，請確定您具有離線的本機系統管理員帳戶，或建立一個這樣的帳戶。 您無法使用任何 Azure AD 使用者認證來登入。 接下來，移至 [設定]   > [帳戶]   > [存取公司或學校資源]  。 選取您的帳戶，然後選取 [中斷連線]  。 遵循提示，然後在系統提示您時提供本機系統管理員認證。 重新啟動裝置以完成退出程序。
 
 ---
 
@@ -222,7 +222,7 @@ ms.locfileid: "60353120"
  
 ### <a name="q-why-do-i-see-a-duplicate-azure-ad-registered-record-for-my-windows-10-hybrid-azure-ad-joined-device-in-the-azure-ad-devices-list"></a>問：為什麼看到重複的 Azure AD 註冊的記錄我的 Windows 10 混合式 Azure AD 已加入 Azure AD 的 [裝置] 清單中的裝置？
 
-**答：** 當使用者在已加入網域的裝置上將其帳戶新增至應用程式時，系統可能會對他們顯示「將帳戶新增至 Windows？」提示。 如果他們在出現提示時輸入**是**，裝置就會向 Azure AD 註冊。 信任類型會標示為 [Azure AD 已註冊]。 在您於組織中啟用混合式 Azure AD Join 之後，裝置也會加入混合式 Azure AD。 如此一來，針對同一個裝置就會顯示兩個裝置狀態。 
+**答：** 當使用者在已加入網域的裝置上將其帳戶新增至應用程式時，系統可能會對他們顯示「將帳戶新增至 Windows？」  提示。 如果他們在出現提示時輸入**是**，裝置就會向 Azure AD 註冊。 信任類型會標示為 [Azure AD 已註冊]。 在您於組織中啟用混合式 Azure AD Join 之後，裝置也會加入混合式 Azure AD。 如此一來，針對同一個裝置就會顯示兩個裝置狀態。 
 
 混合式 Azure AD Join 的優先順序會高於 Azure AD 已註冊狀態。 所以就任何驗證和條件式存取評估而言，都會將您的裝置視為已加入混合式 Azure AD。 您可以從 Azure AD 入口網站中放心地刪除 Azure AD 已註冊裝置記錄。 了解如何[在 Windows 10 機器上避免或清除此雙重狀態](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know)。 
 

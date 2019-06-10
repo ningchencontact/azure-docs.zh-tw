@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6e20aef77625fe426526884c3fcee83019afd0c0
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 5194b9e6f40dbcd5e48b33c12db4b3cd94f75de3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299257"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478412"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>自訂事件和度量的 Application Insights API
 
@@ -153,7 +153,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 [Application Insights 分析](analytics.md)的 `customEvents` 資料表中有提供遙測資料。 每個資料列各代表應用程式中的一個 `trackEvent(..)` 呼叫。
 
-如果[取樣](../../azure-monitor/app/sampling.md)運作中，itemCount 屬性會顯示大於 1 的值。 例如，itemCount==10 表示在 trackEvent() 的 10 個呼叫中，取樣處理序只會傳輸其中一個。 若要取得正確的自訂事件計數，您應該使用程式碼，例如 `customEvents | summarize sum(itemCount)`。
+如果[取樣](../../azure-monitor/app/sampling.md)運作中，itemCount 屬性會顯示大於 1 的值。 例如，itemCount==10 表示在 trackEvent() 的 10 個呼叫中，取樣處理序只會傳輸其中一個。 若要取得正確的自訂事件計數，因此，您應該使用程式碼這類`customEvents | summarize sum(itemCount)`。
 
 ## <a name="getmetric"></a>GetMetric
 
@@ -1164,7 +1164,7 @@ telemetry.Context.Operation.Name = "MyOperationName";
 如果您自行設定這些值，請考慮從 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 移除相關的程式碼行，讓您的值和標準值不致混淆。
 
 * **元件**：應用程式及其版本。
-* **裝置**：應用程式執行所在裝置的相關資料  (在 Web 應用程式中，這是傳送遙測的伺服器或用戶端裝置)。
+* **裝置**：應用程式執行所在裝置的相關資料 (在 Web 應用程式中，這是傳送遙測的伺服器或用戶端裝置)。
 * **InstrumentationKey**：Azure 中遙測顯示之位置的 Application Insights 資源。 通常會揀選自 ApplicationInsights.config。
 * **位置**：裝置的地理位置。
 * **作業**：在 Web 應用程式中，目前的 HTTP 要求。 在其他應用程式類型中，您可以設定以將事件群組在一起。

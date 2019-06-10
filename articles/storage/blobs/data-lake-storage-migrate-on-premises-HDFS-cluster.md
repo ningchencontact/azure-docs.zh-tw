@@ -4,26 +4,26 @@ description: 將資料從內部部署 HDFS 存放區移轉到 Azure 儲存體
 services: storage
 author: normesta
 ms.service: storage
-ms.date: 03/01/2019
+ms.date: 06/05/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 1eac7ecce88dc817b9bd7bd5330d10b019cc7dd2
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 9a42135df38cde91cc6626a3f7d0328334af0a5d
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939238"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729056"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>使用 Azure 資料箱來將資料從內部部署 HDFS 存放區移轉到 Azure 儲存體
 
-您可以使用資料箱裝置，從內部部署 HDFS 存放區到 Azure 儲存體 （blob 儲存體或 Data Lake 儲存體 Gen2） Hadoop 叢集的移轉資料。
+您可以使用資料箱裝置，從內部部署 HDFS 存放區到 Azure 儲存體 （blob 儲存體或 Data Lake 儲存體 Gen2） Hadoop 叢集的移轉資料。 您可以選擇從 80 TB 的資料 方塊中選取或 770 TB 資料方塊沈重。
 
 這篇文章可協助您完成這些工作：
 
-:heavy_check_mark:將資料複製到資料箱裝置。
+:heavy_check_mark:將資料複製到資料箱 」 或 「 大量資料方塊中的裝置。
 
-:heavy_check_mark:資料箱裝置寄給 Microsoft。
+:heavy_check_mark:將裝置寄回給 Microsoft。
 
 :heavy_check_mark:移動資料至 Data Lake 儲存體 Gen2 儲存體帳戶。
 
@@ -37,10 +37,10 @@ ms.locfileid: "64939238"
 
 * 在內部部署 Hadoop 叢集，其中包含您的來源資料。
 
-* [Azure 資料箱裝置](https://azure.microsoft.com/services/storage/databox/)。 
+* [Azure 資料箱裝置](https://azure.microsoft.com/services/storage/databox/)。
 
-    - [訂購資料箱](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered)。 時排序您的 Box，請務必選擇 儲存體帳戶**不**有在其上啟用的階層式命名空間。 這是因為資料箱尚不支援直接擷取到 Azure Data Lake 儲存體 Gen2。 您必須複製到儲存體帳戶，然後執行 ADLS Gen2 考量的第二個複本。 下列步驟提供相關指示。
-    - [纜線，並連接您的資料箱](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up)到內部部署網路。
+    - [訂購資料箱](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered)或是[資料箱繁重](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered)。 在排序您的裝置，請務必選擇 儲存體帳戶**不**有在其上啟用的階層式命名空間。 這是因為資料箱裝置尚不支援直接擷取到 Azure Data Lake 儲存體 Gen2。 您必須複製到儲存體帳戶，然後執行 ADLS Gen2 考量的第二個複本。 下列步驟提供相關指示。
+    - 纜線，並連接您[Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up)或[大量資料方塊](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up)到內部部署網路。
 
 如果您準備好，讓我們開始。
 
@@ -48,12 +48,12 @@ ms.locfileid: "64939238"
 
 若要您的內部部署 HDFS 存放區的資料複製到資料箱裝置，您會設定幾件事，，然後使用[DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html)工具。
 
-如果您要複製的資料量超過一個單一的 [資料] 方塊的容量，您必須中斷您的資料集到符合您的資料方塊的大小。
+如果您要複製的資料量超過單一的 [資料] 方塊的容量或單一節點上大量資料方塊中，分解到您的裝置符合您的資料集。
 
-請遵循下列步驟來透過 REST Api 的 Blob/物件儲存體的資料複製到資料箱。 REST API 介面將會顯示為您叢集的 HDFS 存放區的 [資料] 方塊。 
+請遵循下列步驟來透過 REST Api 的 Blob/物件儲存體的資料複製到您的資料箱裝置。 REST API 介面將會顯示為您叢集的 HDFS 存放裝置。 
 
 
-1. 您將透過 REST 資料複製之前，找出的安全性和連線的基本連接到資料箱上的 REST 介面。 登入本機 web UI 的資料 方塊中，並移至**連線 和 複製**頁面。 對 Azure 儲存體帳戶資料方塊中，如底下**存取設定**，找出並選取**REST(Preview)**。
+1. 您將透過 REST 資料複製之前，找出的安全性和連線的基本連接到資料箱 」 或 「 大量資料方塊上的 REST 介面。 登入本機 web UI 的資料 方塊中，並移至**連線 和 複製**頁面。 對 Azure 儲存體帳戶為您的裝置，低於**存取設定**，找出並選取**REST**。
 
     ![「 連線並複製 」 的頁面](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
 
@@ -63,7 +63,7 @@ ms.locfileid: "64939238"
 
      ![「 存取儲存體帳戶和將資料上傳 」 對話方塊](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
-3. 將端點和資料方塊的 IP 位址，以新增`/etc/hosts`每個節點上。
+3. 將端點和資料 方塊或資料方塊大量節點 IP 位址，以新增`/etc/hosts`每個節點上。
 
     ```    
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
@@ -122,22 +122,30 @@ ms.locfileid: "64939238"
   
 若要改善複製速度：
 - 請嘗試變更的對應程式數目。 (上述範例使用`m`= 4 的對應程式。)
-- 嘗試執行多個`distcp`以平行方式。
-- 請記住大型檔案的執行較小的檔案。       
+- 請嘗試執行多個`distcp`以平行方式。
+- 請記住大型檔案的執行較小的檔案。
     
 ## <a name="ship-the-data-box-to-microsoft"></a>出貨給 Microsoft 的 [資料] 方塊
 
 請遵循下列步驟來準備並寄送至 Microsoft 資料箱裝置。
 
-1. 將資料複製完成之後，執行[準備寄送](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest)資料方塊上。 裝置準備完成之後，下載 BOM 的檔案。 您將會使用這些 BOM 或資訊清單檔案，稍後若要確認資料上傳至 Azure。 關閉裝置，並移除纜線。 
-2.  排定取貨與 UPS[寄送回給 Azure 您資料箱](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up)。 
-3.  當 Microsoft 收到您的裝置連線到網路的資料中心的資料上傳至您指定 （使用停用的階層式命名空間） 的儲存體帳戶後，您所訂購資料箱。 驗證您的資料上傳至 Azure 的 BOM 的檔案。 您現在可以繼續這項資料的 Data Lake 儲存體 Gen2 儲存體帳戶。
+1. 將資料複製完成之後，執行：
+    
+    - [準備寄送您的資料方塊 」 或 「 大量資料方塊上](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest)。
+    - 裝置準備完成之後，下載 BOM 的檔案。 您將會使用這些 BOM 或資訊清單檔案，稍後若要確認資料上傳至 Azure。 
+    - 關閉裝置，並移除纜線。
+2.  與 UPS 排定取貨時間。 依照指示執行以：
+
+    - [出貨資料箱](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up) 
+    - [寄送您的資料方塊繁重](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up)。
+3.  Microsoft 會接收您的裝置連接到資料中心網路資料上傳至您指定 （使用停用的階層式命名空間） 的儲存體帳戶後，當您放置裝置順序。 驗證您的資料上傳至 Azure 的 BOM 的檔案。 您現在可以繼續這項資料的 Data Lake 儲存體 Gen2 儲存體帳戶。
+
 
 ## <a name="move-the-data-onto-your-data-lake-storage-gen2-storage-account"></a>移動資料至 Data Lake 儲存體 Gen2 儲存體帳戶
 
 如果您使用 Azure Data Lake 儲存體 Gen2 作為您的資料存放區，則需要這個步驟。 如果您使用只是 blob 儲存體帳戶而不需要階層式命名空間做為您的資料存放區，您不需要執行此步驟。
 
-您可以在 2 種方式可以執行這項操作。 
+兩種方式，您可以執行這項操作。
 
 - 使用[Azure Data Factory 將資料移至 ADLS Gen2](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2)。 您必須指定**Azure Blob 儲存體**做為來源。
 

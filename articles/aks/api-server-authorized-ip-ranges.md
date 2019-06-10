@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c27d47a918939d012abee3c2317eba39587d734
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 185c16e76094fe55a54fb17bef24fcd03d7b54f0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243572"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475152"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>預覽-對 API 伺服器中使用的安全存取授權的 Azure Kubernetes Service (AKS) 中的 IP 位址範圍
 
@@ -74,8 +74,6 @@ az provider register --namespace Microsoft.ContainerService
 Kubernetes API 伺服器為基礎的 Kubernetes Api 公開的方式。 此元件可提供管理工具的互動，例如 `kubectl` 或 Kubernetes 儀表板。 AKS 提供單一租用戶叢集主機，使用專用的 API 伺服器。 根據預設，API 伺服器指派公用 IP 位址，而且您應該控制使用角色型存取控制 (RBAC) 的存取。
 
 否則可公開存取的 AKS 控制平面的安全存取 / API 伺服器，您可以啟用和使用授權的 IP 範圍。 這些授權的 IP 範圍只允許已定義的 IP 位址範圍，以使用 API 伺服器進行通訊。 對 API 伺服器不屬於這些授權的 IP 範圍的 IP 位址的要求會遭到封鎖。 您應該繼續使用 RBAC，然後授權給使用者和它們所要求的動作。
-
-若要使用已獲授權的 IP 範圍功能，公用 IP 位址會公開在節點集區上，藉由部署基本的 NGINX 服務。 API 伺服器會透過此授權的公用 IP 位址的節點集區與通訊。 然後，您會定義可以存取的 API 伺服器的其他 IP 位址範圍。
 
 如需 API 伺服器和其他叢集元件的詳細資訊，請參閱[Kubernetes AKS 的核心概念][concepts-clusters-workloads]。
 

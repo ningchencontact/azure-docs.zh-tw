@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 79d2062f0e174eeb7550205f90c1650185e1623a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 955b0e36c63b181e2fe6d2f87e7b015196fceff9
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236976"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455595"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>新增 IoT 中樞事件來源到您的時間序列深入解析環境
 
@@ -34,13 +34,13 @@ ms.locfileid: "66236976"
 
 ### <a name="add-a-consumer-group-to-your-iot-hub"></a>將取用者群組新增至 IoT 中樞
 
-應用程式會使用取用者群組從 Azure IoT 中樞提取資料。 請提供只有此時間序列深入解析環境才會使用的專用取用者群組，以便可靠地從 IoT 中樞讀取資料。
+應用程式會使用取用者群組從 Azure IoT 中樞提取資料。 若要可靠地從 IoT 中樞讀取資料，提供專用取用者群組，僅供此時間序列深入解析環境。
 
 新增取用者群組至 IoT 中樞：
 
 1. 在 Azure 入口網站中，尋找並開啟您的 IoT 中樞。
 
-1. 在功能表中的 [設定]  下選取 [內建端點]  ，然後選取 [事件]  端點。
+1. 底下**設定**，選取**內建端點**，然後選取**事件**端點。
 
    [![在 [內建端點] 頁面中，選取 [事件] 按鈕](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png#lightbox)
 
@@ -65,36 +65,37 @@ ms.locfileid: "66236976"
 1. 為 [輸入選項]  選取一個值：
 
    * 如果您的其中一個訂用帳戶已經有 IoT 中樞，請選取 [從可用的訂閱帳戶使用 IoT 中樞]  。 此選項是最簡單的方法。
-   * 如果 IoT 中樞對於您的訂用帳戶是外部，或如果想要選擇進階選項，請選取 [手動提供 IoT 中樞設定]  。
+   
+     [![在 [新的事件來源] 窗格中選取選項](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png#lightbox)
 
-   [![在 [新的事件來源] 窗格中選取選項](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png#lightbox)
+    * 下表說明 [從可用的訂用帳戶使用 Iot 中樞]  選項的必要屬性：
 
-1. 下表說明 [從可用的訂用帳戶使用 Iot 中樞]  選項的必要屬性：
+       [![新的事件來源窗格-設定中使用的 IoT 中樞，從可用的訂用帳戶選項的屬性](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png#lightbox)
 
-   [![新的事件來源窗格-設定中使用的 IoT 中樞，從可用的訂用帳戶選項的屬性](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png#lightbox)
+       | 屬性 | 描述 |
+       | --- | --- |
+       | 订阅 ID | 選取建立 IoT 中樞的訂用帳戶。
+       | IoT 中樞名稱 | 選取 IoT 中樞的名稱。
+       | IoT 中樞原則名稱 | 選取共用存取原則。 您可以在 [IoT 中樞設定] 索引標籤中找到共用存取原則。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須  有**服務連線**權限。
+       | IoT 中樞原則金鑰 | 索引鍵已預先填入。
+       | IoT 中樞取用者群組 | 從 IoT 中樞讀取事件的取用者群組。 強烈建議您使用專屬於您事件來源的取用者群組。
+       | 事件序列化格式 | 目前，JSON 是目前唯一可用的序列化格式。 事件訊息必須是這種格式，否則無法讀取任何資料。 |
+       | 時間戳記屬性名稱 | 若要判斷此值，您需要了解傳送至 IoT 中樞的訊息資料採用那一種訊息格式。 這個值是您想要使用作為事件時間戳記之訊息資料中特定事件屬性的**名稱**。 此值區分大小寫。 若保留空白，會使用事件來源中的**事件加入佇列時間**作為事件時間戳記。 |
 
-   | 屬性 | 描述 |
-   | --- | --- |
-   | 订阅 ID | 選取建立 IoT 中樞的訂用帳戶。
-   | IoT 中樞名稱 | 選取 IoT 中樞的名稱。
-   | IoT 中樞原則名稱 | 選取共用存取原則。 您可以在 [IoT 中樞設定] 索引標籤中找到共用存取原則。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須  有**服務連線**權限。
-   | IoT 中樞原則金鑰 | 索引鍵已預先填入。
-   | IoT 中樞取用者群組 | 從 IoT 中樞讀取事件的取用者群組。 強烈建議您使用專屬於您事件來源的取用者群組。
-   | 事件序列化格式 | 目前，JSON 是目前唯一可用的序列化格式。 事件訊息必須是這種格式，否則無法讀取任何資料。 |
-   | 時間戳記屬性名稱 | 若要判斷此值，您需要了解傳送至 IoT 中樞的訊息資料採用那一種訊息格式。 這個值是您想要使用作為事件時間戳記之訊息資料中特定事件屬性的**名稱**。 此值區分大小寫。 若保留空白，會使用事件來源中的**事件加入佇列時間**作為事件時間戳記。 |
+    * 如果 IoT 中樞對於您的訂用帳戶是外部，或如果想要選擇進階選項，請選取 [手動提供 IoT 中樞設定]  。
 
-1. 下表說明 [手動提供 Iot 中樞設定]  的必要屬性：
+      下表說明 [手動提供 Iot 中樞設定]  的必要屬性：
 
-   | 屬性 | 描述 |
-   | --- | --- |
-   | 订阅 ID | 建立 IoT 中樞的訂用帳戶。
-   | 資源群組 | 建立 IoT 中樞所在的資源群組名稱。
-   | IoT 中樞名稱 | 您 IoT 中樞的名稱。 當您建立 IoT 中樞時，也會輸入 IoT 中樞的名稱。
-   | IoT 中樞原則名稱 | 共用存取原則。 您可以在 [IoT 中樞設定] 索引標籤中建立共用存取原則。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須  有**服務連線**權限。
-   | IoT 中樞原則金鑰 | 用來驗證 Azure 服務匯流排命名空間存取權的共用存取金鑰。 在這裡輸入主要金鑰或次要金鑰。
-   | IoT 中樞取用者群組 | 從 IoT 中樞讀取事件的取用者群組。 強烈建議您使用專屬於您事件來源的取用者群組。
-   | 事件序列化格式 | 目前，JSON 是目前唯一可用的序列化格式。 事件訊息必須是這種格式，否則無法讀取任何資料。 |
-   | 時間戳記屬性名稱 | 若要判斷此值，您需要了解傳送至 IoT 中樞的訊息資料採用那一種訊息格式。 這個值是您想要使用作為事件時間戳記之訊息資料中特定事件屬性的**名稱**。 此值區分大小寫。 若保留空白，會使用事件來源中的**事件加入佇列時間**作為事件時間戳記。 |
+       | 屬性 | 描述 |
+       | --- | --- |
+       | 订阅 ID | 建立 IoT 中樞的訂用帳戶。
+       | 資源群組 | 建立 IoT 中樞所在的資源群組名稱。
+       | IoT 中樞名稱 | 您 IoT 中樞的名稱。 當您建立 IoT 中樞時，也會輸入 IoT 中樞的名稱。
+       | IoT 中樞原則名稱 | 共用存取原則。 您可以在 [IoT 中樞設定] 索引標籤中建立共用存取原則。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須  有**服務連線**權限。
+       | IoT 中樞原則金鑰 | 用來驗證 Azure 服務匯流排命名空間存取權的共用存取金鑰。 在這裡輸入主要金鑰或次要金鑰。
+       | IoT 中樞取用者群組 | 從 IoT 中樞讀取事件的取用者群組。 強烈建議您使用專屬於您事件來源的取用者群組。
+       | 事件序列化格式 | 目前，JSON 是目前唯一可用的序列化格式。 事件訊息必須是這種格式，否則無法讀取任何資料。 |
+       | 時間戳記屬性名稱 | 若要判斷此值，您需要了解傳送至 IoT 中樞的訊息資料採用那一種訊息格式。 這個值是您想要使用作為事件時間戳記之訊息資料中特定事件屬性的**名稱**。 此值區分大小寫。 若保留空白，會使用事件來源中的**事件加入佇列時間**作為事件時間戳記。 |
 
 1. 新增您新增至 IoT 中樞的專用時間序列深入解析取用者群組名稱。
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: bdf2d87e558726937fa4221a0d95179216c66051
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a148c849d0935978f049e01dd254c4c18800ee3b
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859195"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496992"
 ---
 # <a name="convert-data-format-of-utterances"></a>轉換語句的資料格式
 LUIS 會使用認知服務語音服務，在預測之前將口語語句轉換成文字語句。 
@@ -36,5 +36,5 @@ LUIS 的語音轉換文字功能可讓您將口頭語句傳送到端點並接收
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [使用語音轉換文字](luis-tutorial-speech-to-intent.md)
+> [將資料擷取](luis-concept-data-extraction.md)
 

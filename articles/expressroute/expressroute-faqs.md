@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/06/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 1a6f3fbc0160a78fb76f810257d3285725445eba
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: adffb18272d10c579f8b28bef055813b1074a237
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257971"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754734"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常見問題集
 
@@ -288,7 +288,7 @@ ExpressRoute Premium 是下列功能的集合：
 
 ## <a name="expressroute-local"></a>ExpressRoute 本機
 ### <a name="what-is-expressroute-local"></a>什麼是 ExpressRoute 本機？
-ExpressRoute 本機是 SKU 的 ExpressRoute 線路。 本機的主要功能是的 ExpressRoute 對等互連位置可讓您在本機循環存取只以一或兩個 Azure 區域，或接近相同的城市。 相反地，標準線路可讓您存取地緣政治區域和 Premium 循環，所有的 Azure 區域中的所有 Azure 區域全域。 
+ExpressRoute 本機是上可用的 SKU 的 ExpressRoute 電路[ExpressRoute 直接](expressroute-erdirect-about.md)。 本機的主要功能是的 ExpressRoute 對等互連位置可讓您在本機循環存取只以一或兩個 Azure 區域，或接近相同的城市。 相反地，標準線路可讓您存取地緣政治區域和 Premium 循環，所有的 Azure 區域中的所有 Azure 區域全域。 
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>ExpressRoute 本機的優點有哪些？
 當您需要輸出資料傳輸需支付您的 Standard 或 Premium ExpressRoute 線路時，您不需要支付輸出資料傳輸分開本機 ExpressRoute 線路。 換句話說，ExpressRoute 當地的價格包括資料傳輸費用。 如果您有大量的資料傳輸，而您也可以透過私人連線的 ExpressRoute 對等互連位置讓您的資料接近您所需的 Azure 區域，ExpressRoute 本機會是更具經濟效益的解決方案。 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bd3b9fe80a57a6a0dd824d92ae14a863ced240b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: eaf594286e5ffc101ad2d24e808fcb806998d053
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793548"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471571"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>快速入門：使用 Postman 探索 Azure 搜尋服務 REST API
 > [!div class="op_single_selector"]
@@ -73,13 +73,13 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 在 Azure 搜尋服務中，您通常會先建立索引，然後再載入資料。 這項工作會使用[建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\)。 
 
-我們已延長 URL 來加入 `hotel` 索引名稱。
+我們已延長 URL 來加入 `hotels` 索引名稱。
 
 若要在 Postman 中執行這項操作：
 
 1. 將動詞變更為 **PUT**。
 
-2. 複製此 URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`。
+2. 複製此 URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`。
 
 3. 在要求本文中提供索引定義 (如下所示)。
 
@@ -257,7 +257,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ### <a name="1---create-an-index"></a>1 - 建立索引
 
-將動詞變更為 **PUT**。 複製此 URL 的已修改版本：`https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`。 將上面提供的索引定義複製到要求本文。 您的頁面應該會看起來如下列螢幕擷取畫面所示。 按一下右上方的 [執行]  ，即可傳送完成的要求。
+將動詞變更為 **PUT**。 複製此 URL 的已修改版本：`https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`。 將上面提供的索引定義複製到要求本文。 您的頁面應該會看起來如下列螢幕擷取畫面所示。 按一下右上方的 [執行]  ，即可傳送完成的要求。
 
 ![Fiddler 要求本文][7]
 

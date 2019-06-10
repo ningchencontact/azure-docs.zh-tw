@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 23aeeb8cd14ec2d0654525af42b48f59a6f7564f
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 46376091649a2c2b1498fd13e8775fb161de32c1
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520314"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399537"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>設定 Azure VM 到次要 Azure 區域的災害復原        
 
@@ -33,11 +33,11 @@ ms.locfileid: "65520314"
 
 ## <a name="enable-replication-for-the-azure-vm"></a>啟用 Azure VM 的複寫
 
-1. 在 Azure 入口網站中，按一下 [虛擬機器]，然後選取您想要複寫的 VM。
-2. 在 [作業] 中，按一下 [災害復原]。
-3. 在 [設定災害復原] >  [目標區域] 中，選取您要複寫至的目標區域。
+1. 在 Azure 入口網站中，按一下 [虛擬機器]  ，然後選取您想要複寫的 VM。
+2. 在 [作業]  中，按一下 [災害復原]  。
+3. 在 [設定災害復原]   >  [目標區域]  中，選取您要複寫至的目標區域。
 4. 在本快速入門中，接受其他預設設定。
-5. 按一下 [啟用複寫]。 這會開始一項作業來啟用 VM 的複寫。
+5. 按一下 [啟用複寫]  。 這會開始一項作業來啟用 VM 的複寫。
 
     ![啟用複寫](media/azure-to-azure-quickstart/enable-replication1.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "65520314"
 
 在複寫作業完成之後，您可以檢查複寫狀態、修改複寫設定，以及測試部署。
 
-1. 在 [作業] 中，按一下 [災害復原]。
+1. 在 [作業]  中，按一下 [災害復原]  。
 2. 您可以確認複寫健康情況、已建立的復原點，以及地圖上的來源和目標區域。
 
    ![複寫狀態](media/azure-to-azure-quickstart/replication-status.png)
@@ -60,7 +60,7 @@ ms.locfileid: "65520314"
 停止複寫，如下所示
 
 1. 選取 VM。
-2. 在 [災害復原] 中，按一下 [停用複寫]。
+2. 在 [災害復原]  中，按一下 [停用複寫]  。
 
    ![停用複寫](media/azure-to-azure-quickstart/disable2-replication.png)
 

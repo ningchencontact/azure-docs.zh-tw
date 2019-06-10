@@ -2,20 +2,20 @@
 title: 使用自訂原則新增宣告並自訂使用者輸入 - Azure Active Directory B2C | Microsoft Docs
 description: 了解如何自訂使用者輸入並向 Azure Active Directory B2C 中的註冊或登錄旅程中新增宣告。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a64c58d23543279a3a32d2d7b612b43dee8741eb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c15d315d186af5622d9fa988945750d93e8eb11f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768017"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507550"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來新增宣告並自訂使用者輸入
 
@@ -261,11 +261,11 @@ ms.locfileid: "65768017"
 ## <a name="test-the-custom-policy"></a>測試自訂原則
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶篩選]，然後選擇包含您 Azure AD 租用戶的目錄，以確定您使用的是包含 Azure AD 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [應用程式註冊]。
-4. 選取 [識別體驗架構 (預覽)]。
-5. 選取 [上傳自訂原則]，然後上傳您所變更的兩個原則檔案。
-2. 選取您上傳的註冊或登入原則，按一下 [立即執行] 按鈕。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶篩選]  ，然後選擇包含您 Azure AD 租用戶的目錄，以確定您使用的是包含 Azure AD 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [應用程式註冊]  。
+4. 選取 [識別體驗架構 (預覽)]  。
+5. 選取 [上傳自訂原則]  ，然後上傳您所變更的兩個原則檔案。
+2. 選取您上傳的註冊或登入原則，按一下 [立即執行]  按鈕。
 3. 您應該可以使用電子郵件地址註冊。
 
 註冊畫面看起來應該像這樣：

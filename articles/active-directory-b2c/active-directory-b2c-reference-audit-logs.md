@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C 中的稽核記錄範例和定義 | Microsoft Docs
 description: 存取 Azure AD B2C 稽核記錄的指南和範例。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fdc3578fe78e60086a148e4204019a8293030b83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 27c91185bacea839ec73a3f4bd06f5df43bd4edf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688756"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509644"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>存取 Azure AD B2C 稽核記錄
 
@@ -33,7 +33,7 @@ Azure Active Directory B2C (Azure AD B2C) 會發出稽核記錄，其中包含�
 |目錄 |當系統管理員使用 Azure 入口網站登入時，所擷取目錄屬性的相關活動 |
 |Application | B2C 應用程式上的 CRUD 作業 |
 |Key |B2C 金鑰容器所儲存金鑰上的 CRUD 作業 |
-|Resource |B2C 資源 (例如，原則和身分識別提供者) 上的 CRUD 作業
+|資源 |B2C 資源 (例如，原則和身分識別提供者) 上的 CRUD 作業
 |Authentication |使用者認證和權杖發行的驗證|
 
 > [!NOTE]
@@ -44,24 +44,24 @@ Azure Active Directory B2C (Azure AD B2C) 會發出稽核記錄，其中包含�
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>透過 Azure 入口網站來存取稽核記錄
 1. 移至 [Azure 入口網站](https://portal.azure.com)。 確定您位於 B2C 目錄中。
-2. 在左邊 [我的最愛] 列中，按一下 [Azure Active Directory]
+2. 在左邊 [我的最愛] 列中，按一下 [Azure Active Directory] 
     
     ![稽核記錄 - AAD 按鈕](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
-1. 在 [活動] 下，按一下 [稽核記錄]
+1. 在 [活動]  下，按一下 [稽核記錄] 
 
     ![稽核記錄 - 記錄區段](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
 
-2. 在 [類別] 投寄箱中，選取 [B2C]
-3. 按一下 [套用]
+2. 在 [類別]  投寄箱中，選取 [B2C] 
+3. 按一下 [套用] 
 
     ![稽核記錄 - 類別](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
 您會看到過去七天所記錄活動的清單。
-- 使用 [活動資源類型] 下拉式清單，根據上述活動類型來進行篩選
-- 使用 [日期範圍] 下拉式清單，以篩選所要顯示活動的日期範圍
+- 使用 [活動資源類型]  下拉式清單，根據上述活動類型來進行篩選
+- 使用 [日期範圍]  下拉式清單，以篩選所要顯示活動的日期範圍
 - 如果您按一下清單中的特定列，右邊的關聯式方塊會顯示與該活動相關的額外屬性
-- 按一下 [下載]，將活動下載為 csv 檔案
+- 按一下 [下載]  ，將活動下載為 csv 檔案
 
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>透過 Azure AD 報告 API 來存取稽核記錄
 稽核記錄的發行管線與 Azure Active Directory 的其他活動相同，因此可以透過 [Azure Active Directory 報告 API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference) \(機器翻譯\) 來存取。

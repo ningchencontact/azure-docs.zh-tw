@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8672bc28ea5e8562472408810a38ea0de6778cfd
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e0f2d3491db24ecbb49c189232dbc7f698e09fb1
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65200630"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430780"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>将作业状态和作业流从自动化转发到 Azure Monitor 日志
 
@@ -52,11 +52,11 @@ Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 
 如果您有多個「自動化」帳戶或工作區，請在先前命令的輸出中，尋找您需要設定的 *Name*，並複製 *ResourceId* 的值。
 
-如果您需要尋找自動化帳戶的 Name，可在 Azure 入口網站中，從 [自動化帳戶] 刀鋒視窗選取您的自動化帳戶，然後選取 [所有設定]。 在 [所有設定] 刀鋒視窗中，選取 [帳戶設定] 之下的 [屬性]。  在 [屬性] 刀鋒視窗中，您可以記下這些值。<br> ![自動化帳戶屬性](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png)。
+如果您需要尋找自動化帳戶的 Name  ，可在 Azure 入口網站中，從 [自動化帳戶]  刀鋒視窗選取您的自動化帳戶，然後選取 [所有設定]  。 在 [所有設定]  刀鋒視窗中，選取 [帳戶設定]  之下的 [屬性]  。  在 [屬性]  刀鋒視窗中，您可以記下這些值。<br> ![自動化帳戶屬性](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png)。
 
 ## <a name="set-up-integration-with-azure-monitor-logs"></a>设置与 Azure Monitor 日志的集成
 
-1. 在您的電腦上，從 [開始] 畫面啟動 **Windows PowerShell**。
+1. 在您的電腦上，從 [開始]  畫面啟動 **Windows PowerShell**。
 2. 執行下列 PowerShell，然後使用先前步驟的值來編輯 `[your resource id]` 和 `[resource id of the log analytics workspace]` 的值。
 
    ```powershell-interactive
@@ -68,7 +68,7 @@ Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 
 运行此脚本后，可能需要一小时才能开始在 Azure Monitor 日志中看到写入新 JobLogs 或 JobStreams 的记录。
 
-若要查看日志，请在 Log Analytics 日志搜索中运行以下查询：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+若要查看記錄檔，請在 log analytics 記錄搜尋中執行下列查詢： `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>驗證組態
 
@@ -96,11 +96,11 @@ Get-AzDiagnosticSetting -ResourceId $automationAccountId
 | Caller_s |起始作業的人員。 可能的值為電子郵件地址或排程作業的系統。 |
 | Tenant_g | 識別呼叫端租用戶的 GUID。 |
 | JobId_g |Runbook 作業之識別碼的 GUID。 |
-| ResultType |Runbook 作業的狀態。 可能的值包括：<br>- New (新增)<br>- Started (已啟動)<br>- Stopped (已停止)<br>- Suspended (暫止)<br>- Failed (失敗)<br>- Completed (已完成) |
+| ResultType |Runbook 作業的狀態。 可能的值包括：<br>- New (新增)<br>-建立<br>- Started (已啟動)<br>- Stopped (已停止)<br>- Suspended (暫止)<br>- Failed (失敗)<br>- Completed (已完成) |
 | Category | 数据类型的分类。 對自動化來說，該值是 JobLogs。 |
 | OperationName | 指定在 Azure 中執行的作業類型。 對自動化來說，該值是 Job。 |
 | Resource | 自動化帳戶的名稱 |
-| SourceSystem | Azure Monitor 日志收集数据的方式。 針對 Azure 診斷，一律為 Azure 。 |
+| SourceSystem | Azure Monitor 日志收集数据的方式。 針對 Azure 診斷，一律為 Azure  。 |
 | ResultDescription |說明 Runbook 作業的結果狀態。 可能的值包括：<br>- Job is started (工作已啟動)<br>- Job Failed (工作失敗)<br>- Job Completed |
 | CorrelationId |Runbook 作業之相互關聯識別碼的 GUID。 |
 | ResourceId |指定 Runbook 的 Azure 自動化帳戶資源識別碼。 |
@@ -123,7 +123,7 @@ Get-AzDiagnosticSetting -ResourceId $automationAccountId
 | Category | 資料類型的分類。 對自動化來說，該值是 JobStreams。 |
 | OperationName | 指定在 Azure 中執行的作業類型。 對自動化來說，該值是 Job。 |
 | Resource | 自動化帳戶的名稱 |
-| SourceSystem | Azure Monitor 日志收集数据的方式。 針對 Azure 診斷，一律為 Azure 。 |
+| SourceSystem | Azure Monitor 日志收集数据的方式。 針對 Azure 診斷，一律為 Azure  。 |
 | ResultDescription |包含來自 Runbook 的輸出串流。 |
 | CorrelationId |Runbook 作業之相互關聯識別碼的 GUID。 |
 | ResourceId |指定 Runbook 的 Azure 自動化帳戶資源識別碼。 |
@@ -141,19 +141,19 @@ Get-AzDiagnosticSetting -ResourceId $automationAccountId
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>在 Runbook 工作失敗或暫停時傳送電子郵件
 客戶最常要求的其中一項功能便是希望系統能在 Runbook 作業發生問題時，傳送電子郵件或文字通知。   
 
-若要建立警示規則，首先針對應叫用警示的 Runbook 工作記錄，建立記錄檔搜尋。 按一下 [警示] 按鈕，以建立並設定警示規則。
+若要建立警示規則，首先針對應叫用警示的 Runbook 工作記錄，建立記錄檔搜尋。 按一下 [警示]  按鈕，以建立並設定警示規則。
 
-1. 在“Log Analytics 工作区概述”页中，单击“查看日志”。
+1. 在“Log Analytics 工作区概述”页中，单击“查看日志”  。
 2. 在查詢欄位中鍵入下列搜尋內容來為您的警示建立記錄搜尋查詢：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  您也可以透過使用下列內容來依 RunbookName 分組：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    如果您將來自多個「自動化」帳戶或訂用帳戶的記錄設定到您的工作區，就能依訂用帳戶或「自動化」帳戶來將警示分組。 您可以在搜尋 JobLogs 時，在 [資源] 欄位中找到「自動化」帳戶名稱。
-3. 若要開啟 [建立規則] 畫面，按一下頁面頂端的 [+ 新增警示規則]。 如需設定警示選項的詳細資訊，請參閱 [Azure 中的記錄警示](../azure-monitor/platform/alerts-unified-log.md)。
+3. 若要開啟 [建立規則]  畫面，按一下頁面頂端的 [+ 新增警示規則]  。 如需設定警示選項的詳細資訊，請參閱 [Azure 中的記錄警示](../azure-monitor/platform/alerts-unified-log.md)。
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>尋找所有已完成但發生錯誤的工作
 除了失敗的警示，您還可以尋找 Runbook 作業發生非終止錯誤的時間。 在這些情況下，PowerShell 會產生錯誤串流，但非終止錯誤不會造成您的作業暫止或失敗。    
 
-1. 在 Log Analytics 工作区中单击“日志”。
-2. 在查詢欄位中，輸入 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g`，然後按一下 [搜尋] 按鈕。
+1. 在 Log Analytics 工作区中单击“日志”  。
+2. 在查詢欄位中，輸入 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g`，然後按一下 [搜尋]  按鈕。
 
 ### <a name="view-job-streams-for-a-job"></a>檢視工作的工作資料流
 當您在針對作業進行偵錯時，也可以深入查看作業串流。 下列查詢會顯示單一作業具有 GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0 的所有資料流：   

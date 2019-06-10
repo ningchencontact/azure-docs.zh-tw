@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 38b2244d68de25f53d59dd4eb0a6beba03f0e51d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9368abe7d3b6ad6cf6e86b503dca4fca4f18739c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339533"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388465"
 ---
 # <a name="page-through-the-images-results"></a>逐頁瀏覽影像結果
 
-當您呼叫影像搜尋 API 時，Bing 會傳回結果清單。 此清單是查詢相關結果總數的子集。 若要取得可用結果的預估總數，請存取解答物件的 [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#totalestimatedmatches) 欄位。  
+當您呼叫影像搜尋 API 時，Bing 會傳回結果清單。 此清單是查詢相關結果總數的子集。 若要取得可用結果的預估總數，請存取解答物件的 [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#totalestimatedmatches) 欄位。  
 
 下列範例顯示影像解答包含的 `totalEstimatedMatches` 欄位。  
 
@@ -34,7 +34,7 @@ ms.locfileid: "57339533"
 }  
 ```  
 
-若要逐頁瀏覽可用的影像，請使用 [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#count) 和 [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offset) 查詢參數。  
+若要逐頁瀏覽可用的影像，請使用 [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#count) 和 [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offset) 查詢參數。  
 
 `count` 參數指定要在回應中傳回的結果數目。 您可能在回應中要求的結果數目上限為 150。 預設值為 35。 傳遞的實際數目可能小於所要求的數目。
 
@@ -58,7 +58,7 @@ Host: api.cognitive.microsoft.com
 
 如果您想要一次逐頁瀏覽 35 個影像，您應該在第一個要求將 `offset` 查詢參數設定為 0，然後在每個後續要求將 `offset` 遞增 35。 不過，後續回應中的某些結果可能與前一個回應重複。 例如，此回應中的前兩個影像可能與前一個回應中的最後兩個影像相同。
 
-若要消除重複的結果，請使用 `Images` 物件的 [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#nextoffset) 欄位。 `nextOffset` 欄位會告訴您要用於下一個要求的 `offset`。 例如，如果您想要一次逐頁瀏覽 30 個影像，您可將第一個要求中的 `count` 設定為 30 並將 `offset` 設定為 0。 在下一個要求中，您可將 `count` 設定為 30 並將 `offset` 設定為前一個回應的 `nextOffset` 值。 若要向後逐頁瀏覽，我們建議維護先前位移的堆疊並快顯最近使用的堆疊。
+若要消除重複的結果，請使用 `Images` 物件的 [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#nextoffset) 欄位。 `nextOffset` 欄位會告訴您要用於下一個要求的 `offset`。 例如，如果您想要一次逐頁瀏覽 30 個影像，您可將第一個要求中的 `count` 設定為 30 並將 `offset` 設定為 0。 在下一個要求中，您可將 `count` 設定為 30 並將 `offset` 設定為前一個回應的 `nextOffset` 值。 若要向後逐頁瀏覽，我們建議維護先前位移的堆疊並快顯最近使用的堆疊。
 
 > [!NOTE]
 > 逐頁瀏覽只適用於影像搜尋 (/images/search)，不適用於影像見解或發燒影像 (/images/trending)。

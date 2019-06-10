@@ -3,19 +3,19 @@ title: 翻譯工具文字 API V3.0 參考
 titlesuffix: Azure Cognitive Services
 description: 翻譯工具文字 API V3.0 參考文件。
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
-ms.openlocfilehash: b59e4d574264f82a5875edad65e99bfb57150197
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 973d38413fa39fec1c50b5e9770b6114fa2c4c3d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796869"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387505"
 ---
 # <a name="translator-text-api-v30"></a>Microsoft Translator Text API v3.0
 
@@ -41,7 +41,7 @@ Microsoft Translator 透過多個資料中心位置來提供服務。 它們目�
 
 若要強制讓特定資料中心來處理要求，請將 API 要求中的全域端點變更為所需的區域端點：
 
-|說明|區域|基底 URL|
+|描述|區域|基底 URL|
 |:--|:--|:--|
 |Azure|全域|  api.cognitive.microsofttranslator.com|
 |Azure|北美洲|   api-nam.cognitive.microsofttranslator.com|
@@ -55,10 +55,10 @@ Microsoft Translator 透過多個資料中心位置來提供服務。 它們目�
 
 有三個標頭可供用來驗證您的訂用帳戶。 下表提供其各自的使用方式說明：
 
-|標頭|說明|
+|headers|描述|
 |:----|:----|
-|Ocp-Apim-Subscription-Key|如果您要傳遞祕密金鑰，請使用認知服務訂用帳戶。<br/>此值是您 Translator Text API 訂用帳戶的 Azure 祕密金鑰。|
-|授權|如果您要傳遞驗證權杖，請使用認知服務訂用帳戶。<br/>此值是持有人權杖：`Bearer <token>`。|
+|Ocp-Apim-Subscription-Key|如果您要傳遞祕密金鑰，請使用認知服務訂用帳戶  。<br/>此值是您 Translator Text API 訂用帳戶的 Azure 祕密金鑰。|
+|授權|如果您要傳遞驗證權杖，請使用認知服務訂用帳戶  。<br/>此值是持有人權杖：`Bearer <token>`。|
 |Ocp-Apim-Subscription-Region|*如果您要傳遞多服務的祕密金鑰，請使用與認知服務多服務訂用帳戶。*<br/>值為多服務的訂用帳戶的區域。 不使用多服務的訂用帳戶時，這個值是選擇性的。|
 
 ###  <a name="secret-key"></a>祕密金鑰
@@ -126,7 +126,7 @@ Authorization: Bearer <Base64-access_token>
 ```
 錯誤碼是 6 位數的數字，其中結合了 3 位數的 HTTP 狀態碼，後面接著將錯誤進一步分類的 3 位數數字。 常見的錯誤碼包括：
 
-| 代碼 | 說明 |
+| 代碼 | 描述 |
 |:----|:-----|
 | 400000| 其中一個要求輸入無效。|
 | 400001| "scope" 參數無效。|
@@ -144,7 +144,7 @@ Authorization: Bearer <Base64-access_token>
 | 400036| 目標語言 ("To" 欄位) 無效。|
 | 400042| 其中一個指定的選項 ("Options" 欄位) 無效。|
 | 400043| 用戶端追蹤識別碼 ID (ClientTraceId 欄位或 X-ClientTranceId 標頭) 遺漏或無效。|
-| 400050| 輸入文字太長。|
+| 400050| 輸入文字太長。 檢視[要求限制](../request-limits.md)。|
 | 400064| "translation" 參數遺漏或無效。|
 | 400070| 目標指令碼 (ToScript 參數) 數目與目標語言 (To 參數) 數目不符。|
 | 400071| 值不是有效的 TextType 值。|
@@ -152,16 +152,17 @@ Authorization: Bearer <Base64-access_token>
 | 400073| 指令碼參數無效。|
 | 400074| 要求本文不是有效的 JSON。|
 | 400075| 語言組與類別組合無效。|
-| 400077| 已超過要求大小上限。|
+| 400077| 已超過要求大小上限。 檢視[要求限制](../request-limits.md)。|
 | 400079| 所要求用來在來源與目標語言之間進行翻譯的自訂系統不存在。|
 | 401000| 要求未獲授權，因為認證遺漏或無效。|
 | 401015| 「提供的認證是 Speech API 的認證。 此要求需要的是「文字 API」的認證。 請使用「翻譯工具文字 API」的訂用帳戶。」|
 | 403000| 不允許此作業。|
 | 403001| 不允許此作業，因為訂用帳戶已超出其可用配額。|
 | 405000| 要求方法不是所要求資源支援的方法。|
-| 408001| 所要求的自訂翻譯系統尚無法使用。 請稍待數分鐘後重試。|
+| 408001| 正在準備要求翻譯系統。 請稍待數分鐘後重試。|
+| 408002| 要求已逾時等候內送資料流。 用戶端未在伺服器已備妥要等待的時間內產生要求。 用戶端可能會於稍後隨時重複的要求，而不需要修改。|
 | 415000| Content-Type 標頭遺漏或無效。|
 | 429000、429001、429002| 伺服器拒絕要求，因為用戶端已超過要求限制。|
-| 500000| 發生未預期的錯誤。 如果錯誤持續存在，請回報錯誤並提供錯誤的日期/時間、來自回應標頭 X-RequestId 的要求識別碼，以及來自要求標頭 X-ClientTraceId 的用戶端識別碼。|
+| 500000| 發生意外錯誤。 如果錯誤持續存在，請回報錯誤並提供錯誤的日期/時間、來自回應標頭 X-RequestId 的要求識別碼，以及來自要求標頭 X-ClientTraceId 的用戶端識別碼。|
 | 503000| 服務暫時無法使用。 請再試一次。 如果錯誤持續存在，請回報錯誤並提供錯誤的日期/時間、來自回應標頭 X-RequestId 的要求識別碼，以及來自要求標頭 X-ClientTraceId 的用戶端識別碼。|
 

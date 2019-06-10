@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: 420705ef6b2e38d147b7033d2fb3ad57bbc216ac
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.date: 05/30/2019
+ms.openlocfilehash: 1822bfe9f2d6d337db74ba94d43644b0b3567c71
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159292"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455626"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>將資料作為輸入串流處理至串流分析中
 
 串流分析與 Azure 資料流做了絕佳的整合，並透過三種資源將其作為輸入：
+
 - [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)
 - [Azure IoT 中心](https://azure.microsoft.com/services/iot-hub/) 
 - [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/) 
@@ -26,25 +26,29 @@ ms.locfileid: "66159292"
 這些輸入來源可存在於與串流分析作業相同的 Azure 訂用帳戶中，也可存在於不同的訂用帳戶。
 
 ### <a name="compression"></a>壓縮
-串流分析支援跨所有資料流輸入來源的壓縮。 目前支援的壓縮類型為：無、GZip 及 Deflate 壓縮。 支援壓縮無法用於參考資料。 如果輸入格式為已壓縮的 Avro 資料，資料將以透明的方式處理。 您不需要使用 Avro 序列化來指定壓縮類型。 
+
+串流分析支援跨所有資料流輸入來源的壓縮。 支援的壓縮類型包括：無、GZip 及 Deflate 壓縮。 支援壓縮無法用於參考資料。 如果輸入格式為已壓縮的 Avro 資料，資料將以透明的方式處理。 您不需要使用 Avro 序列化來指定壓縮類型。 
 
 ## <a name="create-edit-or-test-inputs"></a>建立、編輯或測試輸入
-您可以使用 [Azure 入口網站](https://portal.azure.com)來[建立新的輸入](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input)，並檢視或編輯串流作業上的現有輸入。 您也可以測試輸入連線並透過範例資料[測試查詢](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query)。 當您撰寫查詢時，您會在 FROM 子句中列出輸入。 您可以從入口網站的 [查詢] 頁面取得可用輸入的清單。 如果您想要使用多個輸入，則可 `JOIN` 它們或撰寫多個 `SELECT` 查詢。
+
+您可以使用[Azure 入口網站](stream-analytics-quick-create-portal.md)， [Visual Studio](stream-analytics-quick-create-vs.md)，並[Visual Studio Code](quick-create-vs-code.md)來新增並檢視或編輯現有的輸入資料流的作業。 您也可以測試輸入的連線並[測試查詢](stream-analytics-manage-job.md#test-your-query)範例資料從 Azure 入口網站中，從[Visual Studio](stream-analytics-vs-tools-local-run.md)，並[Visual Studio Code](vscode-local-run.md)。 當您撰寫查詢時，您就會列出在 FROM 子句中的輸入。 您可以從入口網站的 [查詢]  頁面取得可用輸入的清單。 如果您想要使用多個輸入，則可 `JOIN` 它們或撰寫多個 `SELECT` 查詢。
 
 
 ## <a name="stream-data-from-event-hubs"></a>來自事件中樞的串流資料
 
-Azure 事件中樞提供高延展性的發佈-訂閱事件擷取器。 事件中樞每秒可收集數百萬個事件，可讓您處理和分析連接的裝置和應用程式所產生的大量資料。 事件中樞和串流分析搭配在一起，可提供即時分析所需的端對端解決方案。 事件中樞可讓您即時將事件饋送至 Azure，而串流分析作業則可即時處理這些事件。 例如，您可以將網頁點擊、感應器讀數或線上記錄事件傳送至事件中樞。 然後，您可以建立串流分析作業，將事件中樞當作輸入資料流來即時篩選、彙總和相互關聯。
+Azure 事件中樞提供高延展性的發佈-訂閱事件擷取器。 事件中樞可以收集數百萬個事件每秒，以便您能夠處理和分析連接的裝置和應用程式所產生的資料量很大。 事件中樞和串流分析搭配在一起，可提供即時分析所需的端對端解決方案。 事件中樞可讓您即時將事件饋送至 Azure，而串流分析作業則可即時處理這些事件。 例如，您可以將網頁點擊、感應器讀數或線上記錄事件傳送至事件中樞。 然後，您可以建立串流分析作業，將事件中樞當作輸入資料流來即時篩選、彙總和相互關聯。
 
 `EventEnqueuedUtcTime` 是事件在事件中樞的抵達時間戳記，也是事件從事件中樞到達串流分析的預設時間戳記。 若要使用事件裝載中的時間戳記，將資料當作資料流處理，您必須使用 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 關鍵字。
 
-### <a name="consumer-groups"></a>用戶群組
-您應該將每一個串流分析事件中樞輸入設定為有自己的取用者群組。 當作業包含自我聯結或有多個輸入時，某些輸入可能由下游的多個讀取器所讀取。 這種情況會影響單一取用者群組中的讀取器數目。 若要避免超出每個分割區的每個取用者群組最多有 5 個讀取器的事件中樞限制，最好為每個串流分析作業指定取用者群組。 另外也限制每一個事件中樞最多有 20 個取用者群組。 如需詳細資訊，請參閱[對 Azure 串流分析輸入進行疑難排解](stream-analytics-troubleshoot-input.md)。
+### <a name="event-hubs-consumer-groups"></a>事件中樞取用者群組
 
-### <a name="stream-data-from-event-hubs"></a>來自事件中樞的串流資料
-下表說明 Azure 入口網站的 [新的輸入] 頁面中用來從事件中樞串流處理資料輸入的每個屬性：
+您應該將每一個串流分析事件中樞輸入設定為有自己的取用者群組。 當作業包含自我聯結或有多個輸入時，某些輸入可能由下游的多個讀取器所讀取。 這種情況會影響單一取用者群組中的讀取器數目。 若要避免超出每個分割區的每個取用者群組最多有 5 個讀取器的事件中樞限制，最好為每個串流分析作業指定取用者群組。 另外還有 20 個標準層事件中樞取用者群組的限制。 如需詳細資訊，請參閱[對 Azure 串流分析輸入進行疑難排解](stream-analytics-troubleshoot-input.md)。
 
-| 屬性 | 說明 |
+### <a name="create-an-input-from-event-hubs"></a>從事件中樞建立輸入
+
+下表說明 Azure 入口網站的 [新的輸入]  頁面中用來從事件中樞串流處理資料輸入的每個屬性：
+
+| 屬性 | 描述 |
 | --- | --- |
 | **輸入別名** |在作業查詢中用來參考這個輸入的易記名稱。 |
 | **訂用帳戶** | 選擇事件中樞資源所在的訂用帳戶。 | 
@@ -58,7 +62,7 @@ Azure 事件中樞提供高延展性的發佈-訂閱事件擷取器。 事件中
 
 如果您的資料來自事件中樞資料流輸入，您將可在串流分析查詢中存取下列中繼資料欄位：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | **EventProcessedUtcTime** |資料流分析處理事件的日期與時間。 |
 | **EventEnqueuedUtcTime** |事件中樞收到事件的日期與時間。 |
@@ -79,17 +83,20 @@ FROM Input
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>來自 IoT 中樞的串流資料
-Azure IoT 中樞是已針對 IoT 案例最佳化的高延展性發佈/訂閱事件擷取器。
+
+Azure IoT 中樞是高擴充性的發行訂閱事件擷取器適用於 IoT 案例。
 
 在串流分析中，來自 IoT 中樞之事件的預設時間戳記是事件抵達 IoT 中樞的時間戳記，也就是 `EventEnqueuedUtcTime`。 若要使用事件裝載中的時間戳記，將資料當作資料流處理，您必須使用 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 關鍵字。
 
-### <a name="consumer-groups"></a>用戶群組
+### <a name="iot-hub-consumer-groups"></a>Iot 中樞取用者群組
+
 您應將每個串流分析 IoT 中樞輸入設定為有其本身的取用者群組。 當作業包含自我聯結或有多個輸入時，某些輸入可能由下游的多個讀取器所讀取。 這種情況會影響單一取用者群組中的讀取器數目。 若要避免超出每個分割區的每個取用者群組最多有 5 個讀取器的 Azure IoT 中樞限制，最好為每個串流分析作業指定取用者群組。
 
 ### <a name="configure-an-iot-hub-as-a-data-stream-input"></a>將 IoT 中樞設定為資料流輸入
-下表說明在 Azure 入口網站中將 IoT 中樞設定為資料流輸入時，[新的輸入] 頁面中的每個屬性。
 
-| 屬性 | 說明 |
+下表說明在 Azure 入口網站中將 IoT 中樞設定為資料流輸入時，[新的輸入]  頁面中的每個屬性。
+
+| 屬性 | 描述 |
 | --- | --- |
 | **輸入別名** | 在作業查詢中用來參考這個輸入的易記名稱。|
 | **訂用帳戶** | 選擇 IoT 中樞資源所在的訂用帳戶。 | 
@@ -105,7 +112,7 @@ Azure IoT 中樞是已針對 IoT 案例最佳化的高延展性發佈/訂閱事�
 
 當您使用來自 IoT 中樞的串流資料時，您將可在串流分析查詢中存取下列中繼資料欄位：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | **EventProcessedUtcTime** | 處理事件的日期與時間。 |
 | **EventEnqueuedUtcTime** | IoT 中心收到事件的日期與時間。 |
@@ -124,21 +131,18 @@ Azure IoT 中樞是已針對 IoT 案例最佳化的高延展性發佈/訂閱事�
 
 在串流分析中，Blob 儲存體事件的預設時間戳記是上次修改 blob 的時間戳記，也就是 `BlobLastModifiedUtcTime`。 若要使用事件裝載中的時間戳記，將資料當作資料流處理，您必須使用 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 關鍵字。 串流分析作業在 Blob 檔案可用時，會每秒從 Azure Blob 儲存體輸入中提取資料。 如果 Blob 檔案無法使用，則會執行時間延遲上限為 90 秒的指數輪詢。
 
-CSV 格式的輸入*需要*以標頭資料列來定義資料集的欄位，且所有標頭資料列欄位都必須是唯一的。
-
-串流分析目前不支援將事件中樞擷取或 IoT 中樞 Azure 儲存體容器自訂端點產生的 AVRO 訊息還原序列化。
+CSV 格式的輸入需要的標頭資料列，來定義欄位的資料集，而且所有標頭資料列欄位必須是唯一。
 
 > [!NOTE]
 > 串流分析不支援將內容加入現有的 blob 檔案。 串流分析只會檢視每個檔案一次，在作業讀取資料之後，不會處理檔案中發生的任何變更。 最佳做法是一次上傳 blob 檔案的所有資料，然後將其他較新的事件新增到不同的新 blob 檔案。
-> 
 
 一次上傳非常大量的 blob 可能會導致 Stream Analytics，以略過讀取在少數情況下的幾個 blob。 建議您將 blob 上傳至少 2 秒間隔至 Blob 儲存體。 如果此選項不是可行的您可以使用事件中樞的事件資料流大型的磁碟區。 
 
 ### <a name="configure-blob-storage-as-a-stream-input"></a>將 Blob 儲存體設定為資料流輸入 
 
-下表說明在 Azure 入口網站中將 Blob 儲存體設定為資料流輸入時，[新的輸入] 頁面中的每個屬性。
+下表說明在 Azure 入口網站中將 Blob 儲存體設定為資料流輸入時，[新的輸入]  頁面中的每個屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | **輸入別名** | 在作業查詢中用來參考這個輸入的易記名稱。 |
 | **訂用帳戶** | 選擇 IoT 中樞資源所在的訂用帳戶。 | 
@@ -154,7 +158,7 @@ CSV 格式的輸入*需要*以標頭資料列來定義資料集的欄位，且�
 
 當您的資料來自 Blob 儲存體來源時，您可以在串流分析查詢中存取下列中繼資料欄位：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | **BlobName** |事件來源的輸入 Blob 名稱。 |
 | **EventProcessedUtcTime** |資料流分析處理事件的日期與時間。 |

@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/23/2019
+  ms.date: 06/03/2019
   ms.author: anshan
 abstract:
   description: 歡迎使用 Azure 時間序列深入解析。 Azure 時間序列深入解析提供強大的資料探索和各種遙測工具，協助您改進操作上的分析。 本文件會說明服務的各項功能、如何開始使用、用戶端 SDK、並介紹各種強大的時間序列深入解析 API。 文件中提供兩種版本的資訊，分別是與已推出的時間序列深入解析 GA 相關的資訊，以及時間序列深入解析預覽版本的重大服務更新資訊。
@@ -46,9 +46,9 @@ sections:
         className: cardsD
         items:
           - title: Azure 時間序列深入解析 GA
-            html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">建立一個環境</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">建立單頁 Web 應用程式</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">探索 JavaScript 用戶端程式庫</a></p>
+            html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">建立 Azure 時間序列深入解析環境</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">建立單頁 Web 應用程式</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">探索 JavaScript 用戶端程式庫</a></p>
           - title: Azure 時間序列深入解析預覽
-            html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">預覽教學課程</a></p>
+            html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">設定 Azure 時間序列深入解析預覽版環境</a></p>
   - title: 參考
     items:
       - type: list
@@ -56,6 +56,8 @@ sections:
         className: cardsD
         items:
           - title: 時間序列深入解析 GA API
-            html: <p><a href="/rest/api/time-series-insights-management">資源管理 API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">查詢 API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">查詢語法</a></p>
+            html: <p><a href="/rest/api/time-series-insights/ga">資料存取</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">查詢 API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">查詢語法</a></p>
           - title: 時間序列深入解析預覽 API
             html: <p><a href="/rest/api/time-series-insights/preview-query">查詢 API</a></p> <p><a href="/rest/api/time-series-insights/preview-model">模型 API</a></p> <p><a href="/rest/api/time-series-insights/preview-env">環境 API</a></p> <p><a href="/rest/api/time-series-insights/preview-tsx">時間序列運算式 API</a></p>
+          - title: 用戶端 SDK
+            html: '<p><a href="https://github.com/microsoft/tsiclient/blob/master/docs/API.md">JavaScript 用戶端 SDK</a></p>'

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 6bd7a014e765d32349951d99d3027c90f61f7eb7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 2befe553cc19fc2a20f506fa8e505623c3f3f452
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726128"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514608"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>如何註冊翻譯工具文字 API
 
@@ -29,20 +29,20 @@ ms.locfileid: "56726128"
 
 登入入口網站之後，您可以建立翻譯工具文字 API 的訂用帳戶，如下所示：
 
-1. 選取 [+ 建立資源]。
-1. 在 [搜尋 Marketplace] 搜尋方塊中，輸入**翻譯工具文字**，然後從結果中選取它。
-1. 選取 [建立] 定義訂用帳戶的詳細資料。
-1. 從 [定價層] 清單中，選取最符合您需求的定價層。
+1. 選取 [+ 建立資源]  。
+1. 在 [搜尋 Marketplace]  搜尋方塊中，輸入**翻譯工具文字**，然後從結果中選取它。
+1. 選取 [建立]  定義訂用帳戶的詳細資料。
+1. 從 [定價層]  清單中，選取最符合您需求的定價層。
     1. 每個訂用帳戶都有一個免費層。 免費層與付費方案的特色與功能都相同，但是不會過期。
     1. 您的帳戶只能有一個免費的訂用帳戶。
-1. 選取 [建立] 即可完成建立訂用帳戶。
+1. 選取 [建立]  即可完成建立訂用帳戶。
 
 ## <a name="authentication-key"></a>驗證金鑰
 
 當您註冊翻譯工具文字時，就是取得訂用帳戶獨有的一個個人化存取金鑰。 每次呼叫翻譯工具文字 API 時，都需要這個金鑰。
 
 1. 先選取適當的訂用帳戶，擷取驗證金鑰。
-1. 在訂用帳戶詳細資料的 [資源管理] 區段中，選取 [金鑰]。
+1. 在訂用帳戶詳細資料的 [資源管理]  區段中，選取 [金鑰]  。
 1. 複製訂用帳戶所列的其中一個金鑰。
 
 ## <a name="learn-test-and-get-support"></a>了解、測試和取得支援

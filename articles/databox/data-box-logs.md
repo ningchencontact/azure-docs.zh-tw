@@ -1,43 +1,43 @@
 ---
-title: 追蹤及記錄 Azure 資料箱事件 |Microsoft Docs
-description: 說明如何追蹤和記錄您的 Azure 資料箱訂單的各種階段的事件。
+title: 追蹤及記錄 Azure 資料箱，Azure 資料方塊大量事件 |Microsoft Docs
+description: 說明如何追蹤和記錄您的 Azure 資料方塊繁重而 Azure 資料箱訂單的各種階段的事件。
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 7a6adc72c1dfbe67311ae2ca98d5b07dfab41719
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 108d17d3e0ca5f32648f9d4f6cf4b5f9a2984d0c
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806502"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495814"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box"></a>追蹤和事件記錄，您的 Azure 資料箱
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>追蹤與您 Azure 資料箱 」 和 「 Azure 資料方塊大量的事件記錄
 
-資料箱訂單會執行下列步驟： 訂購時，設定好之後，資料複製、 傳回、 上傳至 Azure 和驗證，並清除資料。 對應至每個步驟的順序，您可以採取多個動作，以控制的存取權的順序、 稽核的事件、 追蹤訂單，並解譯所產生的各種記錄檔。
+資料箱 」 或 「 大量資料方塊的順序會經歷下列步驟： 訂購時，設定好之後，資料複製、 傳回、 上傳至 Azure 和驗證，和資料清除。 對應至每個步驟的順序，您可以採取多個動作，以控制的存取權的順序、 稽核的事件、 追蹤訂單，並解譯所產生的各種記錄檔。
 
-下表顯示的資料箱訂單的步驟和工具可用來追蹤和稽核順序在每個步驟的摘要。
+下表顯示的資料箱 」 或 「 大量資料方塊的 「 順序 」 步驟和工具可用來追蹤和稽核順序在每個步驟的摘要。
 
 | 資料方塊順序的階段       | 追蹤和稽核工具                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | 建立訂單               | [設定存取控制，透過 RBAC 的順序](#set-up-access-control-on-the-order)                                                    |
 | 處理順序            | [追蹤順序](#track-the-order)透過 <ul><li> Azure 入口網站 </li><li> 出貨承運業者網站 </li><li>電子郵件通知</ul> |
 | 設定裝置              | 裝置認證登入存取[活動記錄](#query-activity-logs-during-setup)                                              |
-| 資料複製到裝置        | [檢視*error.xml*檔案](#view-error-log-during-data-copy-to-data-box)進行的資料複製                                                             |
+| 資料複製到裝置        | [檢視*error.xml*檔案](#view-error-log-during-data-copy)進行的資料複製                                                             |
 | 準備寄送            | [檢查 BOM 的檔案](#inspect-bom-during-prepare-to-ship)或在裝置上的資訊清單檔案                                      |
 | 資料上傳至 Azure       | [檢閱*copylogs* ](#review-copy-log-during-upload-to-azure)錯誤期間的資料上傳，Azure 資料中心                         |
 | 從裝置的資料清除   | [檢視的監督鏈記錄鏈結](#get-chain-of-custody-logs-after-data-erasure)包括稽核記錄檔和訂購歷程記錄                                                   |
 
-本文會說明詳細資料，不同的機制或工具可用來追蹤和稽核資料箱訂單。
+本文會說明詳細資料，不同的機制或工具可用來追蹤和稽核資料箱 」 或 「 大量資料方塊的順序。 這篇文章中的資訊適用於，方塊中的資料和大量資料方塊中。 在後續章節中，任何參考資料 方塊也適用於大量資料方塊中。
 
 ## <a name="set-up-access-control-on-the-order"></a>設定存取控制的順序
 
 您可以控制誰可以存取您的訂單，當第一次建立訂單。 設定角色型存取控制 (RBAC) 角色在不同範圍來控制存取資料箱訂單。 RBAC 角色會決定存取 – 讀寫、 唯讀、 讀寫子集的作業類型。
 
-您可以定義兩個資料方塊角色如下：
+可以針對 Azure 資料箱服務定義兩個角色如下：
 
 - **資料中讀取器**-具有唯讀存取 order(s) 範圍所定義。 他們只能檢視訂單的詳細資料。 它們無法存取儲存體帳戶相關的其他詳細資料，或編輯訂單詳細資料，例如地址，依此類推。
 - **資料方塊參與者**-只能建立順序，將資料傳送至指定的儲存體帳戶*如果他們已經有儲存體帳戶的寫入權限*。 如果不是使用儲存體帳戶的存取權，即使無法建立資料箱訂單將資料複製到帳戶。 此角色沒有定義任何儲存體帳戶與儲存體帳戶的權限也授與的存取。  
@@ -70,9 +70,9 @@ ms.locfileid: "65806502"
 
 - 每個登入 Data Box 是記錄的實際時間。 不過，這項資訊僅供以[稽核記錄檔](#audit-logs)順序順利完成之後。
 
-## <a name="view-error-log-during-data-copy-to-data-box"></a>檢視錯誤記錄檔，在資料複製到資料箱
+## <a name="view-error-log-during-data-copy"></a>檢視資料複製期間的錯誤記錄檔
 
-在將資料複製到 [資料] 方塊中的說明，如果有任何問題所複製的資料，就會產生檔案時發生錯誤。
+在將資料複製到資料箱 」 或 「 大量資料方塊的說明，如果有任何問題所複製的資料，就會產生檔案時發生錯誤。
 
 ### <a name="errorxml-file"></a>Error.xml 檔案
 
@@ -147,7 +147,7 @@ ms.locfileid: "65806502"
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\Starting with Capital</file>
 ```
 
-在每個上述所有情況下，請解決錯誤，再繼續進行下一個步驟。 如需有關透過 SMB 或 NFS 的通訊協定的資料複製到資料箱期間收到的錯誤的詳細資訊，請移至[疑難排解資料箱發出](data-box-troubleshoot.md)。 如需有關在資料複製到資料箱，透過 REST 期間所收到的錯誤，請移至[疑難排解資料 Blob 儲存體問題](data-box-troubleshoot-rest.md)。
+在每個上述所有情況下，請解決錯誤，再繼續進行下一個步驟。 如需有關透過 SMB 或 NFS 的通訊協定的資料複製到資料箱期間收到的錯誤的詳細資訊，請移至[疑難排解 Data Box 和大量資料方塊問題](data-box-troubleshoot.md)。 如需有關在資料複製到資料箱，透過 REST 期間所收到的錯誤，請移至[疑難排解資料 Blob 儲存體問題](data-box-troubleshoot-rest.md)。
 
 ## <a name="inspect-bom-during-prepare-to-ship"></a>檢查 BOM 期間準備寄送
 
@@ -157,7 +157,7 @@ ms.locfileid: "65806502"
 - 使用此檔案來驗證檔案的實際大小。
 - 確認*crc64*對應到非零的字串。 <!--A null value for crc64 indicates that there was a reparse point error)-->
 
-如需有關期間收到的錯誤準備寄送，請前往[疑難排解資料箱發出](data-box-troubleshoot.md)。
+如需有關期間收到的錯誤準備寄送，請前往[疑難排解 Data Box 和大量資料方塊問題](data-box-troubleshoot.md)。
 
 ### <a name="bom-or-manifest-file"></a>BOM 或資訊清單檔案
 
@@ -253,7 +253,7 @@ Data Box 上傳已順利完成，如下列範例會說明 copylog 檔案的一�
 
 ### <a name="audit-logs"></a>稽核記錄
 
-稽核記錄檔包含在電源上的資訊和 Azure 資料中心外部時，共用 Data Box 上的存取。 這些記錄檔位於： `storage-account/azuredatabox-chainofcustodylogs`
+稽核記錄檔包含在電源上的資訊和外部 Azure 資料中心時，共用上的資料箱 」 或 「 大量資料方塊的存取。 這些記錄檔位於： `storage-account/azuredatabox-chainofcustodylogs`
 
 從資料中的稽核記錄檔的範例如下：
 
@@ -308,9 +308,9 @@ The authentication information fields provide detailed information about this sp
 ```
 
 
-## <a name="download-order-history"></a>下載訂購記錄
+## <a name="download-order-history"></a>下載訂單記錄
 
-使用 Azure 入口網站中訂單歷程記錄。 如果順序完成，且裝置清除 （資料清除的磁碟） 已完成，然後移至 **資料箱訂單 > 訂單詳細資料**。 **在下載訂單歷程記錄** 會提供選項。 如需詳細資訊，請參閱 <<c0> [ 下載訂單記錄](data-box-portal-admin.md#download-order-history)。
+使用 Azure 入口網站中訂單歷程記錄。 如果順序完成，且裝置清除 （資料清除的磁碟） 已完成，然後移至您的裝置順序，並瀏覽至**訂單詳細資料**。 **在下載訂單歷程記錄** 會提供選項。 如需詳細資訊，請參閱 <<c0> [ 下載訂單記錄](data-box-portal-admin.md#download-order-history)。
 
 如果您捲動訂單歷程記錄時，您會看到：
 
@@ -324,7 +324,7 @@ The authentication information fields provide detailed information about this sp
 -------------------------------
 Microsoft Data Box Order Report
 -------------------------------
-Name                                               : gus-pinto                              
+Name                                               : gus-poland                              
 StartTime(UTC)                              : 9/19/2018 8:49:23 AM +00:00                       
 DeviceType                                     : DataBox                                           
 -------------------
@@ -362,11 +362,11 @@ Time(UTC)                 | Activity                       | Status          | D
 Data Box Log Links
 ------------------
 Account Name         : gusacct
-Copy Logs Path       : databoxcopylog/gus-pinto_<Device-serial-no>_CopyLog_<GUID>.xml
+Copy Logs Path       : databoxcopylog/gus-poland_<Device-serial-no>_CopyLog_<GUID>.xml
 Audit Logs Path      : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何[針對您的資料箱上的問題進行疑難排解](data-box-troubleshoot.md)。
+- 了解如何[ 方塊中的資料和大量資料方塊上的問題的疑難排解](data-box-troubleshoot.md)。

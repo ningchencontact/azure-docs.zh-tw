@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 439a1c60942b1540328bf9972d74d7dd4d573a65
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e32aead791fb84415da1b00f1e979a6ac0f28155
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700654"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729027"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>快速入門：使用 Azure PowerShell 建立及管理 Azure 檔案共用 
 本指南會逐步說明透過 PowerShell 來使用 [Azure 檔案共用](storage-files-introduction.md)的基本概念。 Azure 檔案共用與其他檔案共用類似，但它儲存在雲端中，並且由 Azure 平台支援。 Azure 檔案共用支援業界標準 SMB 通訊協定，並可在多個機器、應用程式及執行個體上啟用檔案共用。 
@@ -22,7 +22,7 @@ ms.locfileid: "64700654"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 如果您想要在本機安裝和使用 PowerShell，則本指南將需要 Azure PowerShell 模組 Az 0.7 版或更新版本。 若要確認您所執行的 Azure PowerShell 模組版本，請執行 `Get-Module -ListAvailable Az`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzAccount` 來登入 Azure 帳戶。
 
@@ -40,7 +40,7 @@ New-AzResourceGroup `
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
 儲存體帳戶是可用來部署 Azure 檔案共用或其他儲存體資源 (例如 Blob 或佇列) 的共用儲存體集區。 儲存體帳戶可包含無限制數目的共用，而共用可儲存無限制數目的檔案，最多可達儲存體帳戶的容量限制。
 
-此範例會使用 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) Cmdlet 來建立儲存體帳戶。 儲存體帳戶的名稱為 *mystorageaccount\<隨機數字>*，而且該儲存體帳戶的參考會儲存在 **$storageAcct** 變數中。 儲存體帳戶名稱必須是唯一的，因此，請使用 `Get-Random` 為名稱附加一個數字，使其成為唯一名稱。 
+此範例會使用 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) Cmdlet 來建立儲存體帳戶。 儲存體帳戶的名稱為 *mystorageaccount\<隨機數字>* ，而且該儲存體帳戶的參考會儲存在 **$storageAcct** 變數中。 儲存體帳戶名稱必須是唯一的，因此，請使用 `Get-Random` 為名稱附加一個數字，使其成為唯一名稱。 
 
 ```azurepowershell-interactive 
 $storageAcct = New-AzStorageAccount `

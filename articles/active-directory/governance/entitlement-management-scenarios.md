@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96442a9d49581da6841fa7acb8329354ec727f60
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6a50f4a8a63022668dac68c974f8c828c72777c9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918483"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473229"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management-preview"></a>Azure AD 權限管理 （預覽） 中的常見案例
 
@@ -46,19 +46,19 @@ ms.locfileid: "64918483"
 > [!div class="mx-tableFixed"]
 > | 步驟 | 範例 |
 > | --- | --- |
-> | **1.**[在目錄中建立新的存取封裝](entitlement-management-access-package-create.md#start-new-access-package) | ![建立存取套件](./media/entitlement-management-scenarios/access-package.png) |
-> | **2.**[加入資源的角色，以存取套件](entitlement-management-access-package-edit.md#add-resource-roles)<ul><li>群組</li><li>[應用程式]</li><li>SharePoint 網站</li></ul> | ![新增資源角色](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **3.**[新增原則](entitlement-management-access-package-edit.md#policy-for-users-in-your-directory)<ul><li>您的目錄中的使用者</li><li>需要核准</li><li>到期設定</li></ul> | ![Add policy](./media/entitlement-management-scenarios/policy.png) |
+> | **1.** [在目錄中建立新的存取封裝](entitlement-management-access-package-create.md#start-new-access-package) | ![建立存取套件](./media/entitlement-management-scenarios/access-package.png) |
+> | **2.** [加入資源的角色，以存取套件](entitlement-management-access-package-edit.md#add-resource-roles)<ul><li>群組</li><li>[應用程式]</li><li>SharePoint 網站</li></ul> | ![新增資源角色](./media/entitlement-management-scenarios/resource-roles.png) |
+> | **3.** [新增原則](entitlement-management-access-package-edit.md#policy-for-users-in-your-directory)<ul><li>您的目錄中的使用者</li><li>需要核准</li><li>到期設定</li></ul> | ![Add policy](./media/entitlement-management-scenarios/policy.png) |
 
-### <a name="i-want-to-allow-users-from-my-business-partners-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>我想要允許使用者從我 （包括使用者尚未我的目錄） 的商業夥伴群組、 應用程式，或 SharePoint 網站的要求存取權
+### <a name="i-want-to-allow-users-from-my-business-partners-directory-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>我想要允許從我的業務的合作夥伴目錄 （包括使用者尚未我的目錄） 的使用者群組、 應用程式或 SharePoint 網站的要求存取
 
 > [!div class="mx-tableFixed"]
 > | 步驟 | 範例 |
 > | --- | --- |
-> | **1.**[在目錄中建立新的存取封裝](entitlement-management-access-package-create.md#start-new-access-package) | ![建立存取套件](./media/entitlement-management-scenarios/access-package.png) |
-> | **2.**[加入資源的角色，以存取套件](entitlement-management-access-package-edit.md#add-resource-roles) | ![新增資源角色](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **3.**[新增外部使用者的原則](entitlement-management-access-package-edit.md#policy-for-users-not-in-your-directory)<ul><li>不在您的目錄中的使用者</li><li>需要核准</li><li>到期設定</li></ul> | ![新增外部使用者的原則](./media/entitlement-management-scenarios/policy-external.png) |
-> | **4.**[傳送要求給您的商務夥伴存取封裝我存取入口網站] 連結](entitlement-management-access-package-edit.md#copy-my-access-portal-link)<ul><li>商務夥伴可以與使用者共用連結</li></ul> |  |
+> | **1.** [在目錄中建立新的存取封裝](entitlement-management-access-package-create.md#start-new-access-package) | ![建立存取套件](./media/entitlement-management-scenarios/access-package.png) |
+> | **2.** [加入資源的角色，以存取套件](entitlement-management-access-package-edit.md#add-resource-roles) | ![新增資源角色](./media/entitlement-management-scenarios/resource-roles.png) |
+> | **3.** [新增外部使用者的原則](entitlement-management-access-package-edit.md#policy-for-users-not-in-your-directory)<ul><li>不在您的目錄中的使用者</li><li>需要核准</li><li>到期設定</li></ul> | ![新增外部使用者的原則](./media/entitlement-management-scenarios/policy-external.png) |
+> | **4.** [傳送要求給您的商務夥伴存取封裝我存取入口網站] 連結](entitlement-management-access-package-edit.md#copy-my-access-portal-link)<ul><li>商務夥伴可以與使用者共用連結</li></ul> |  |
 
 ### <a name="i-want-to-change-the-groups-applications-or-sharepoint-sites-in-an-access-package"></a>我想要變更群組、 應用程式或存取封裝中的 SharePoint 網站
 
@@ -66,7 +66,7 @@ ms.locfileid: "64918483"
 > | 步驟 | 範例 |
 > | --- | --- |
 > | **1.** 開啟存取封裝 | ![新增資源角色](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **2.**[新增或移除資源角色](entitlement-management-access-package-edit.md#add-resource-roles) | ![新增資源角色](./media/entitlement-management-scenarios/resource-roles-add.png) |
+> | **2.** [新增或移除資源角色](entitlement-management-access-package-edit.md#add-resource-roles) | ![新增資源角色](./media/entitlement-management-scenarios/resource-roles-add.png) |
 
 ### <a name="i-want-to-view-who-has-an-assignment-to-groups-applications-or-sharepoint-sites"></a>我想要檢視誰可以指派給群組、 應用程式或 SharePoint 網站
 
@@ -74,7 +74,7 @@ ms.locfileid: "64918483"
 > | 步驟 | 範例 |
 > | --- | --- |
 > | **1.** 開啟存取封裝 | ![新增資源角色](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **2.**[檢視指派](entitlement-management-access-package-edit.md#view-who-has-an-assignment)<ul><li>檢視哪些使用者可以存取套件的存取權</li><li>檢視哪些使用者的存取權已過期</li></ul> |  |
+> | **2.** [檢視指派](entitlement-management-access-package-edit.md#view-who-has-an-assignment)<ul><li>檢視哪些使用者可以存取套件的存取權</li><li>檢視哪些使用者的存取權已過期</li></ul> |  |
 
 ### <a name="i-want-to-view-groups-applications-or-sharepoint-sites-a-user-has-access-to"></a>我想要檢視群組、 應用程式或使用者有權存取的 SharePoint 網站
 
@@ -90,8 +90,8 @@ ms.locfileid: "64918483"
 > [!div class="mx-tableFixed"]
 > | 步驟 | 範例 |
 > | --- | --- |
-> | **1.**[在我存取入口網站中開啟的要求](entitlement-management-request-approve.md#open-request) | [![我存取入口網站圖示](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
-> | **2.**[核准存取要求](entitlement-management-request-approve.md#approve-or-deny-request) | ![核准存取](./media/entitlement-management-scenarios/approve-access.png) |
+> | **1.** [在我存取入口網站中開啟的要求](entitlement-management-request-approve.md#open-request) | [![我存取入口網站圖示](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
+> | **2.** [核准存取要求](entitlement-management-request-approve.md#approve-or-deny-request) | ![核准存取](./media/entitlement-management-scenarios/approve-access.png) |
 
 ## <a name="requestors"></a>要求者
 
@@ -100,28 +100,28 @@ ms.locfileid: "64918483"
 > [!div class="mx-tableFixed"]
 > | 步驟 | 範例 |
 > | --- | --- |
-> | **1.**[登入我存取入口網站](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | [![我存取入口網站圖示](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
+> | **1.** [登入我存取入口網站](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | [![我存取入口網站圖示](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
 > | **2.** 尋找存取套件 |  |
-> | **3.**[要求存取](entitlement-management-request-access.md#request-an-access-package) | ![要求存取](./media/entitlement-management-scenarios/request-access.png) |
+> | **3.** [要求存取](entitlement-management-request-access.md#request-an-access-package) | ![要求存取](./media/entitlement-management-scenarios/request-access.png) |
 
 ### <a name="im-an-external-user-and-i-want-to-request-access-to-groups-applications-or-sharepoint-sites-with-a-direct-link"></a>我是外部使用者，而我想要要求存取群組、 應用程式或 SharePoint 網站，直接連結
 
 > [!div class="mx-tableFixed"]
 > | 步驟 | 範例 |
 > | --- | --- |
-> | **1.**[尋找您所收到的我存取入口網站連結](entitlement-management-access-package-edit.md#copy-my-access-portal-link) |  |
-> | **2.**[登入我存取入口網站](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | [![我存取入口網站圖示](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
-> | **3.**[要求存取](entitlement-management-request-access.md#request-an-access-package) | ![要求存取的外部使用者](./media/entitlement-management-scenarios/request-access-external.png) |
+> | **1.** [尋找您所收到的我存取入口網站連結](entitlement-management-access-package-edit.md#copy-my-access-portal-link) |  |
+> | **2.** [登入我存取入口網站](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | [![我存取入口網站圖示](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
+> | **3.** [要求存取](entitlement-management-request-access.md#request-an-access-package) | ![要求存取的外部使用者](./media/entitlement-management-scenarios/request-access-external.png) |
 
 ### <a name="i-want-to-view-the-groups-applications-or-sharepoint-sites-i-already-have-access-to"></a>我想要檢視我已經有存取權的群組、 應用程式或 SharePoint 網站
 
 > [!div class="mx-tableFixed"]
 > | 步驟 | 範例 |
 > | --- | --- |
-> | **1.**[登入我存取入口網站](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | [![我存取入口網站圖示](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
+> | **1.** [登入我存取入口網站](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | [![我存取入口網站圖示](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
 > | **2.** 檢視作用中存取套件 |  |
 
 ## <a name="next-steps"></a>後續步驟
 
 - [教學課程：建立您第一次存取封裝](entitlement-management-access-package-first.md)
-- [編輯和管理現有的存取封裝](entitlement-management-access-package-edit.md)
+- [編輯和管理現有的存取套件](entitlement-management-access-package-edit.md)

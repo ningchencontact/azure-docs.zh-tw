@@ -4,15 +4,15 @@ description: 提供 Azure Migrate 中收集器設備的相關資訊。
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/31/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: d00899e0ca358b4e2970caa8c63c98e375ea970c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 865e0679ed05823d115baeb9eea3c01d7fb5f2a5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728016"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428472"
 ---
 # <a name="about-the-collector-appliance"></a>關於收集器設備
 
@@ -32,7 +32,7 @@ ms.locfileid: "64728016"
 - 此模型並不倚賴 vCenter Server 統計資料設定來收集效能資料。
 - 您可以隨時從收集器停止連續分析。
 
-**快速評估：** 透過連續探索設備，探索完成後 (視 VM 數目而定，需要幾個小時)，您可以立即建立評量。 由於效能資料收集會在您開始探索時開始進行，如果您要尋求快速評估，則應將評量中的調整大小準則選取為「內部部署」。 對於以效能為基礎的評量，建議等待至少一天後開始探索，以取得可靠的大小建議。
+**快速評估：** 透過連續探索設備，探索完成後 (視 VM 數目而定，需要幾個小時)，您可以立即建立評量。 由於效能資料收集會在您開始探索時開始進行，如果您要尋求快速評估，則應將評量中的調整大小準則選取為「內部部署」  。 對於以效能為基礎的評量，建議等待至少一天後開始探索，以取得可靠的大小建議。
 
 設備只會持續收集效能資料，不會偵測內部部署環境中的任何組態變更 (也就是新增、刪除 VM 或新增磁碟等)。 如果內部部署環境中有組態變更，您可以執行下列動作，以在入口網站中反映變更：
 
@@ -85,18 +85,18 @@ ms.locfileid: "64728016"
 - 應指定 Proxy 伺服器 IP 位址/FQDN *http:\//IPaddress*或是*http:\//FQDN*。
 - 僅支援 HTTP Proxy。 收集器不支援 HTTPS 型 Proxy 伺服器。
 - 如果 Proxy 伺服器是攔截 Proxy，您就必須將 Proxy 憑證匯入至收集器 VM。
-  1. 在收集器 VM 中，移至 [開始] 功能表 > [管理電腦憑證]。
-  2. 在 [憑證] 工具中的 [憑證 - 本機電腦] 底下，尋找 [受信任的發行者] > [憑證]。
+  1. 在收集器 VM 中，移至 [開始] 功能表   > [管理電腦憑證]  。
+  2. 在 [憑證] 工具中的 [憑證 - 本機電腦]  底下，尋找 [受信任的發行者]   > [憑證]  。
 
       ![憑證工具](./media/concepts-intercepting-proxy/certificates-tool.png)
 
   3. 將 Proxy 憑證複製到收集器 VM。 您可能需要向網路管理員取得該憑證。
-  4. 按兩下來開啟憑證，然後按一下 [安裝憑證]。
-  5. 在 [憑證匯入精靈] > [儲存位置] 中，選擇 [本機電腦]。
+  4. 按兩下來開啟憑證，然後按一下 [安裝憑證]  。
+  5. 在 [憑證匯入精靈] > [儲存位置] 中，選擇 [本機電腦]  。
 
      ![憑證存放區位置](./media/concepts-intercepting-proxy/certificate-store-location.png)
 
-  6. 選取 [將所有憑證放入以下的存放區] > [瀏覽] > [受信任的發行者]。 按一下 [完成]  以匯入憑證。
+  6. 選取 [將所有憑證放入以下的存放區]   > [瀏覽]   > [受信任的發行者]  。 按一下 [完成]  以匯入憑證。
 
      ![憑證存放區](./media/concepts-intercepting-proxy/certificate-store.png)
 
@@ -111,7 +111,7 @@ ms.locfileid: "64728016"
 --- | --- | ---
 *.portal.azure.com | 適用於 Azure 全球。 檢查是否能夠與 Azure 服務連線及時間是否同步。 | 必須具備 URL 存取權。<br/><br/> 如果無法連線，先決條件檢查就會失敗。
 *.portal.azure.us | 僅適用於 Azure Government。 檢查是否能夠與 Azure 服務連線及時間是否同步。 | 必須具備 URL 存取權。<br/><br/> 如果無法連線，先決條件檢查就會失敗。
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| 用來下載 PowerShell vCenter PowerCLI 模組。 | 需要存取 Url。<br/><br/> 先決條件檢查不會失敗。<br/><br/> 收集器 VM 上的自動模組安裝將會失敗。 您必須在具有網際網路連線的電腦，以手動方式安裝模組，然後將模組複製到該設備。 [進一步了解這份疑難排解指南中移至步驟 4](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception)。
+*.oneget.org:443<br/><br/> *.github.com/oneget/oneget<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.azure.microsoft.com<br/><br/> *.azure.microsoft.com/en-us<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443<br/><br/> *.visualstudio.microsoft.com | 用來下載 PowerShell vCenter PowerCLI 模組。 | 需要存取 Url。<br/><br/> 先決條件檢查不會失敗。<br/><br/> 收集器 VM 上的自動模組安裝將會失敗。 您必須在具有網際網路連線的電腦，以手動方式安裝模組，然後將模組複製到該設備。 [進一步了解這份疑難排解指南中移至步驟 4](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception)。
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>手動安裝 VMware PowerCLI 模組
@@ -131,7 +131,7 @@ ms.locfileid: "64728016"
 
 #### <a name="account-permissions"></a>帳戶權限
 
-**帳戶** | **權限**
+**帳戶** | **Permissions**
 --- | ---
 至少一個唯讀使用者帳戶 | 資料中心物件 –> 傳播至子物件、role=Read-only   
 
@@ -182,7 +182,7 @@ net.transmitted.average | 計算 VM 大小
 
 以下是 Azure Migrate 所收集的 VMware 計數器完整清單：
 
-**類別** |  **Metadata** | **vCenter 資料點**
+**分類** |  **Metadata** | **vCenter 資料點**
 --- | --- | ---
 電腦詳細資料 | VM 識別碼 | vm.Config.InstanceUuid
 電腦詳細資料 | VM 名稱 | vm.Config.Name
@@ -214,7 +214,7 @@ net.transmitted.average | 計算 VM 大小
 網路介面卡詳細資料 (每一 NIC) | IPv6 位址 | vm.Guest.Net
 網路介面卡詳細資料 (每一 NIC) | 讀取輸送量的每秒 MB 數 | net.received.average
 網路介面卡詳細資料 (每一 NIC) | 寫入輸送量的每秒 MB 數 | net.transmitted.average
-清查路徑詳細資料 | 名稱 | container.GetType().Name
+清查路徑詳細資料 | Name | container.GetType().Name
 清查路徑詳細資料 | 子物件的類型 | container.ChildType
 清查路徑詳細資料 | 參考詳細資料 | container.MoRef
 清查路徑詳細資料 | 完整的清查路徑 | container.Name (具有完整路徑)

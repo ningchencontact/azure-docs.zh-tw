@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
-ms.openlocfilehash: 935d2e1c96705506636c2883113a64bb70c39336
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5cb4caa6f0f8098e68d693be6cc2f33b5ccbeb32
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806187"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752841"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>如何管理您的商業的 Marketplace 帳戶在合作夥伴中心 
 
@@ -63,7 +63,7 @@ ms.locfileid: "65806187"
 
 在發行者識別碼 區段中，您可以看到您**賣方識別碼**， **MPN 識別碼**，並**發行者識別碼**。 這些值 Microsoft 指派的唯一識別您的開發人員帳戶，而且無法編輯。
 
-### <a name="contact-info"></a>連絡人資訊
+### <a name="contact-info"></a>連絡資訊
 
 在 [連絡人資訊] 區段中，您可以看到您**發行者顯示名稱**，**銷售人員的連絡資訊**（連絡人姓名、 電子郵件、 電話號碼和公司銷售者的地址），而**公司核准者**（名稱、 電子郵件和電話號碼，以核准為公司的決策的授權單位的個人）。 
 
@@ -279,7 +279,7 @@ United States 個別納稅人識別碼 （或 ITIN） 不需要從 Microsoft 接
 1.  從**使用者**網頁 (底下**帳戶設定**)，選取**加入 Azure AD 應用程式**。
 2.  在下一步 頁面上，選取**新增 Azure AD 應用程式**。
 3.  請輸入**回覆 URL**新的 Azure AD 應用程式。 這是使用者可以登入並使用 Azure AD 應用程式 （有時也稱為應用程式 URL 或登入 URL） 的 URL。 **回覆 URL**不能超過 256 個字元，而且必須是唯一在您的目錄。
-4.  請輸入**應用程式識別碼 URI**新的 Azure AD 應用程式。 這是單一登入要求傳送至 Azure AD 時，會顯示 Azure AD 應用程式的邏輯識別碼。 請注意，**應用程式識別碼 URI**必須是唯一的目錄中的每個 Azure AD 應用程式。 此識別碼不得超過 256 個字元。 如需應用程式識別碼 URI 的詳細資訊，請參閱[整合應用程式與 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#changing-the-application-registration-to-support-multi-tenant)。
+4.  請輸入**應用程式識別碼 URI**新的 Azure AD 應用程式。 這是單一登入要求傳送至 Azure AD 時，會顯示 Azure AD 應用程式的邏輯識別碼。 請注意，**應用程式識別碼 URI**必須是唯一的目錄中的每個 Azure AD 應用程式。 此識別碼不得超過 256 個字元。 如需應用程式識別碼 URI 的詳細資訊，請參閱[整合應用程式與 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts)。
 5.  在 **角色**區段中，指定的角色或 Azure AD 應用程式的自訂權限。
 6.  選取 [ **儲存**]。
 
@@ -313,7 +313,7 @@ United States 個別納稅人識別碼 （或 ITIN） 不需要從 Microsoft 接
 |      |• 建立支援票證，如合作夥伴中心
 ||• 檢視協議、 價格清單和供應項目
 ||• 檢視中，建立和管理合作夥伴使用者|
-|經理|• 可以存取所有的 Microsoft 帳戶功能，除了稅務和付款設定
+|Manager|• 可以存取所有的 Microsoft 帳戶功能，除了稅務和付款設定
 |      |• 可以管理使用者、 角色和工作帳戶 （租用戶）|
 |開發人員|• 可以上傳套件、 提交應用程式和附加元件，並檢視遙測的詳細資料的使用方式報表
 |      |• 無法存取財務資訊] 或 [帳戶設定|
@@ -367,7 +367,7 @@ United States 個別納稅人識別碼 （或 ITIN） 不需要從 Microsoft 接
 > 如果您目前登入合作夥伴中心使用相同的租用戶中的帳戶，您無法移除租用戶。 若要移除租用戶，您必須登入合作夥伴中心**Manager**與帳戶相關聯的其他租用戶。 如果只有一個租用戶帳戶相關聯，該租用戶只有開啟該帳戶的 Microsoft 帳戶登入之後移除。
 
 
-## <a name="agreements"></a>協議
+## <a name="agreements"></a>合約
 
 **協議**一節的合作夥伴中心 (在**帳戶設定**) 讓您檢視您已獲授權發佈協議的清單。 根據名稱和版本號碼，包括它所接受的日期和使用者接受授權合約的名稱，會列出這些協議。 
 

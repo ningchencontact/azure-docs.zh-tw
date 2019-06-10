@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e7405e48307091ff5df12096d49a00c011e2de3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66155253"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480440"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory 支援的計算環境
 本文說明您可用來處理或轉換資料的各種計算環境。 其中還提供在設定將這些計算環境連結至 Azure Data Factory 的連結服務時，Data Factory 所支援的不同組態 (隨選與自備) 的詳細資料。
@@ -290,8 +290,8 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 | clusterUri        | HDInsight 叢集的 URI。                            | 是      |
 | username          | 指定要用來連接到現有 HDInsight 叢集的使用者名稱。 | 是      |
 | password          | 指定使用者帳戶的密碼。                       | 是      |
-| 預設容器 | 參照 HDInsight 叢集所使用 Azure Blob 儲存體的 Azure 儲存體連結服務名稱。 <p>目前，您無法針對此屬性指定 Azure Data Lake Store 連結服務。 如果 HDInsight 叢集可存取 Data Lake Store，您可以透過 Hive/Pig 指令碼存取 Azure Data Lake Store 中的資料。 </p> | 是      |
-| isEspEnabled      | 如果 HDInsight 叢集已啟用[企業安全性套件](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)，請指定 '*true*'。 預設值為 ’false’。 | 否       |
+| linkedServiceName | 參照 HDInsight 叢集所使用 Azure Blob 儲存體的 Azure 儲存體連結服務名稱。 <p>目前，您無法針對此屬性指定 Azure Data Lake Store 連結服務。 如果 HDInsight 叢集可存取 Data Lake Store，您可以透過 Hive/Pig 指令碼存取 Azure Data Lake Store 中的資料。 </p> | 是      |
+| isEspEnabled      | 如果 HDInsight 叢集已啟用[企業安全性套件](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)，請指定 '*true*'。 預設值為 ’false’  。 | 否       |
 | connectVia        | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的 Azure Integration Runtime。 <br />針對已啟用企業安全性套件 (ESP) 的 HDInsight 叢集，使用自我裝載整合執行階段，該執行階段可供您察看叢集，或應該部署在與 ESP HDInsight 叢集相同的虛擬網路內。 | 否       |
 
 > [!IMPORTANT]
@@ -351,7 +351,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 | accessKey         | Azure Batch 帳戶的存取金鑰。  | 是      |
 | batchUri          | 您 Azure Batch 帳戶的 URL，格式為 https://*batchaccountname.region*.batch.azure.com。 | 是      |
 | poolName          | 虛擬機器的集區名稱。    | 是      |
-| 預設容器 | 與此 Azure Batch 連結服務相關聯的 Azure 儲存體服務連結名稱。 此連結服務用於執行活動所需的暫存檔案。 | 是      |
+| linkedServiceName | 與此 Azure Batch 連結服務相關聯的 Azure 儲存體服務連結名稱。 此連結服務用於執行活動所需的暫存檔案。 | 是      |
 | connectVia        | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否       |
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 連結服務
@@ -494,6 +494,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 | newClusterNumOfWorker| 此叢集應有的背景工作角色節點數目。 一個叢集有一個 Spark 驅動程式、num_workers 個執行程式、總共 num_workers + 1 個 Spark 節點 。 Int32 格式的字串，例如 "1" 表示 numOfWorker 為 1，或者 "1:10" 表示在最小值 1 和最大值 10 之間自動調整。  | 否                |
 | newClusterNodeType   | 此欄位透過單一值，將對此叢集中每個 Spark 節點可使用的資源編碼。 例如，Spark 節點可以佈建，並針對記憶體或計算密集型工作負載最佳化。新叢集的此欄位為必要欄位                | 否               |
 | newClusterSparkConf  | 一組選擇性的、使用者指定的 Spark 設定機碼值組。 使用者也可以用字串將額外的 JVM 選項分別透過 spark.driver.extraJavaOptions 和 spark.executor.extraJavaOptions 傳遞給驅動程式和執行程式。 | 否  |
+| newClusterInitScripts| 一組選擇性的使用者定義的初始化指令碼，針對新叢集。 指定 init 指令碼的 DBFS 路徑。 | 否  |
 
 
 ## <a name="azure-sql-database-linked-service"></a>Azure SQL Database 的連結服務

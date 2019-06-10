@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/22/2019
+ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 8e17c5e34ec3e2397c3054b1d0e0d97dbf410db2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 40564e52cbcde0e835ed97132196bf7ed084f5b7
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65986878"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431208"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>自動調整和區域備援應用程式閘道 
 
@@ -26,8 +26,8 @@ ms.locfileid: "65986878"
   區域備援可只所在 Azure 區域可用。 在其他區域，支援所有其他功能。 如需詳細資訊，請參閱[什麼是 Azure 中可用性區域？](../availability-zones/az-overview.md#services-support-by-region)
 - **靜態 VIP**：應用程式閘道 v2 SKU 支援靜態 VIP 以獨佔方式輸入。 這可確保應用程式閘道相關聯的 VIP 不會變更生命週期的部署，即使重新啟動。
 - **標頭重寫**:應用程式閘道可讓您新增、 移除或更新 HTTP 要求和回應標頭與 v2 SKU。 如需詳細資訊，請參閱[重寫的 HTTP 標頭，與應用程式閘道](rewrite-http-headers.md)
-- **金鑰保存庫整合 （預覽）**:應用程式閘道 v2 支援與整合 Key Vault （公開預覽） 中的之伺服器憑證附加到啟用 HTTPS 接聽程式。 如需詳細資訊，請參閱 < [Key Vault 憑證與 SSL 終止](key-vault-certs.md)。
-- **Azure Kubernetes 服務輸入控制器 （預覽）**:應用程式閘道 v2 輸入控制器可讓 Azure 應用程式閘道，來作為輸入的 Azure Kubernetes Service (AKS) 稱為 AKS 叢集。 如需詳細資訊，請參閱 <<c0> [ 文件頁面](https://azure.github.io/application-gateway-kubernetes-ingress/)。
+- **金鑰保存庫整合 （預覽）** :應用程式閘道 v2 支援與整合 Key Vault （公開預覽） 中的之伺服器憑證附加到啟用 HTTPS 接聽程式。 如需詳細資訊，請參閱 < [Key Vault 憑證與 SSL 終止](key-vault-certs.md)。
+- **Azure Kubernetes 服務輸入控制器 （預覽）** :應用程式閘道 v2 輸入控制器可讓 Azure 應用程式閘道，來作為輸入的 Azure Kubernetes Service (AKS) 稱為 AKS 叢集。 如需詳細資訊，請參閱 <<c0> [ 文件頁面](https://azure.github.io/application-gateway-kubernetes-ingress/)。
 - **效能增強功能**：V2 SKU 提供最多 5 個 X 更好 SSL 卸載相較於標準/WAF SKU 的效能。
 - **更快速的部署和更新時間**v2 SKU 可提供更快速的部署和更新時間相較於標準/WAF SKU。 這也包括 WAF 組態變更。
 
@@ -54,6 +54,8 @@ V2 SKU 的定價模型驅動耗用量與不再附加至執行個體計數或大�
 > [!NOTE]
 > 每個執行個體目前都能支援大約 10 個容量單位。
 > 計算單位可以處理的要求數目取決於各種不同的準則，TLS 憑證金鑰大小、 金鑰交換演算法、 標頭重寫，以及發生 WAF 傳入的要求大小。 我們建議您執行應用程式測試，以判斷每個計算單位的要求率。 容量單位和計算單位都可以做為計量之前開始的計費。
+
+下表顯示範例價格，並會僅供說明用途。
 
 **在美國東部定價**:
 
@@ -106,11 +108,11 @@ V2 SKU 的定價模型驅動耗用量與不再附加至執行個體計數或大�
 
 |                                                   | v1 SKU   | v2 SKU   |
 | ------------------------------------------------- | -------- | -------- |
-| 自動調整規模                                       |          | &#x2713; |
+| 自動調整                                       |          | &#x2713; |
 | 區域備援                                   |          | &#x2713; |
-| 靜態的 VIP                                        |          | &#x2713; |
+| 靜態 VIP                                        |          | &#x2713; |
 | Azure Kubernetes Service (AKS) 輸入控制器 |          | &#x2713; |
-| Azure Key Vault 整合                       |          | &#x2713; |
+| Azure 金鑰保存庫整合                       |          | &#x2713; |
 | 請重寫 HTTP (S) 標頭                           |          | &#x2713; |
 | URL 型路由                                 | &#x2713; | &#x2713; |
 | 多網站裝載                             | &#x2713; | &#x2713; |
@@ -142,9 +144,12 @@ V2 SKU 的定價模型驅動耗用量與不再附加至執行個體計數或大�
 |Netwatcher 整合|不支援。|
 |Azure 支援中心整合|尚未提供。
 
+## <a name="migrate-from-v1-to-v2"></a>從 v1 遷移至 v2
+
+Azure PowerShell 指令碼適用於 「 PowerShell 資源庫，可協助您移轉從 v1 應用程式閘道/WAF SKU v2 自動調整。 此指令碼可協助您將設定複製從 v1 閘道。 流量移轉仍是您的責任。 如需詳細資訊，請參閱 <<c0> [ 移轉 Azure 應用程式閘道從 v1 v2](migrate-v1-v2.md)。
 ## <a name="next-steps"></a>後續步驟
 
-- [快速入門：使用 Azure 應用程式閘道-Azure 入口網站的直接網路流量](quick-create-portal.md)
+- [快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure 入口網站](quick-create-portal.md)
 - [使用 Azure PowerShell 建立具有保留虛擬 IP 位址的自動調整規模、區域備援應用程式閘道](tutorial-autoscale-ps.md)
 - 深入了解[應用程式閘道](overview.md)。
 - 深入了解 [Azure 防火牆](../firewall/overview.md)。

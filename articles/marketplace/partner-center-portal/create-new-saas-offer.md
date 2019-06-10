@@ -7,27 +7,28 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9750aa924ba4b6e4e5f3a51e5b34531d3fab0a6e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 897634ac0c30b4a2cc496c225965f465a94fe4e9
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243331"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751890"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應項目
 
-若要開始建立服務 (SaaS) 提供的軟體，請確定您第一次[建立合作夥伴中心帳戶](./create-account.md)，然後開啟[商業 Marketplace 儀表板](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)，使用**提供**選取的索引標籤。 
+若要開始建立服務 (SaaS) 提供的軟體，請確定您第一次[建立合作夥伴中心帳戶](./create-account.md)，然後開啟[商業 Marketplace 儀表板](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)，使用**概觀**選取的索引標籤。
 
-![在合作夥伴中心上的商業 Marketplace 儀表板](./media/commercial-marketplace-offers.png)
+![在合作夥伴中心上的商業 Marketplace 儀表板](./media/new-offer-overview.png)
 
 選取 +**建立新的...** 按鈕，然後選取**軟體即服務**功能表項目。 
 
 如果您選取其中一個其他供應項目類型，您將會重新導向至較舊[Cloud Partner 入口網站](https://cloudpartner.azure.com/)。  唯一的 SaaS 供應項目可在合作夥伴中心商業 Marketplace 入口網站中這一次。 
 
-![在合作夥伴中心建立供應項目 視窗](./media/new-offer.png)
+![在合作夥伴中心建立供應項目 視窗](./media/new-offer-click.png)
 
+**新的供應項目**對話方塊隨即出現。 
 
-**新的供應項目**對話方塊隨即出現。 ![[新增供應項目] 對話方塊](./media/new-offer-popup.png)
+![[新增供應項目] 對話方塊](./media/new-offer-popup.png)
 
 
 ## <a name="offer-id-and-name"></a>供應項目識別碼和名稱
@@ -73,7 +74,7 @@ ms.locfileid: "66243331"
 
 - 您的供應項目必須與 Azure 的用戶端相容。 (通常 SaaS 應用程式也會裝載於 Azure 上取得最佳的效能及相容性，但這不一定需要。) 
 - 必須使用您的供應項目[Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/)身分識別管理和驗證。
-- 必須使用您的供應項目[履行的 SaaS Api](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2)整合與 Azure Marketplace。
+- 必須使用您的供應項目[履行的 SaaS Api](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2)整合與 Azure Marketplace。
 
 #### <a name="billing-infrastructure-costs"></a>基礎結構成本計費
 SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結構使用費用，以及軟體授權費用為單一的成本項目。 這項成本被以客戶的一般每月費用。 管理，且直接會計入您的合作夥伴，azure 基礎結構使用方式。 客戶不會看到實際的基礎結構使用量費用。 發行者通常選擇將 Azure 基礎結構使用量費用算在他們的軟體授權定價中。 
@@ -171,7 +172,7 @@ SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結�
 
 選取 **儲存**完成這些欄位之後。 
 
-### <a name="category"></a>類別
+### <a name="category"></a>Category
 選取最少的一 （1），最多三 （3） 用於將您的供應項目分組為適當的 marketplace 搜尋區域的類別。 請呼叫您的供應項目如何支援這些類別在供應項目描述中。 
 
 ### <a name="industry"></a>業界

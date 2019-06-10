@@ -7,15 +7,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 05/24/2019
-ms.openlocfilehash: c40bae6ac1af2489e4e77d2c280b95cccf8b5603
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.date: 05/30/2019
+ms.openlocfilehash: 4ce3ca31163c286f54b9630e5d4779e2e47a032f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257839"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754595"
 ---
-# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>設定 Azure HDInsight 叢集 （預覽） 的輸出網路流量限制
+# <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>設定 Azure HDInsight 叢集使用的防火牆 （預覽） 的輸出網路流量
 
 這篇文章提供您保護輸出流量從您的 HDInsight 叢集使用 Azure 防火牆的步驟。 下列步驟假設您要設定現有叢集的 Azure 防火牆。 如果您要部署新的叢集，而且在防火牆後面，先建立您的 HDInsight 叢集和子網路，並依照本指南中的步驟。
 
@@ -60,9 +60,9 @@ Azure HDInsight 叢集通常會在您自己的虛擬網路中部署。 叢集中
     1. 允許 Windows 登入活動的規則：
         1. 在 **目標 Fqdn**區段中，提供**名稱**，並設定**來源地址**至`*`。
         1. 輸入`https:443`底下**通訊協定： 連接埠**並`login.windows.net`之下**目標 FQDN**。
-    1. 如果您的叢集做為後盾 WASB，而且您不想要使用上述的服務端點，然後新增規則的 WASB:
+    1. 如果您的叢集做為後盾 WASB，然後新增規則的 WASB:
         1. 在 **目標 Fqdn**區段中，提供**名稱**，並設定**來源地址**至`*`。
-        1. 輸入`http`或是`https`視您想要使用 wasb: / / 或 wasbs: / / 底下**通訊協定： 連接埠**和下方的儲存體帳戶 url**目標 FQDN**。
+        1. 輸入`http:80,https:443`底下**通訊協定： 連接埠**下的儲存體帳戶 url 並**目標 FQDN**。 格式會類似於 < storage_account_name.blob.core.windows.net >。 若要使用僅限 https 連線確定[「 需要安全傳輸 」](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)啟用儲存體帳戶。
 1. 按一下 [新增]  。
 
 ![標題：輸入應用程式規則集合的詳細資料](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
@@ -75,29 +75,29 @@ Azure HDInsight 叢集通常會在您自己的虛擬網路中部署。 叢集中
 1. 按一下 **規則**下方**設定** > **網路規則集合** > **新增網路規則集合**。
 1. 在上**新增網路規則集合**畫面上，輸入**名稱**，**優先順序**，然後按一下**允許**從**動作**下拉式功能表中。
 1. 建立下列規則：
-    1. 網路規則，可讓叢集以執行使用 NTP 的時鐘同步處理。
-        1. 在 **規則**區段中，提供**名稱**，然後選取**任何**從**通訊協定**下拉式清單。
+    1. 在 [IP 位址] 區段，可讓叢集以執行使用 NTP 的時鐘同步處理網路規則。
+        1. 在 **規則**區段中，提供**名稱**，然後選取**UDP**從**通訊協定**下拉式清單。
         1. 設定**來源位址**並**目的地位址**到`*`。
         1. 設定**目的地連接埠**為 123。
-    1. 如果您使用企業安全性套件 」 (ESP)，然後新增網路規則，允許與 AAD DS ESP 叢集的通訊。
+    1. 如果您使用企業安全性套件 」 (ESP)，然後可允許與 AAD DS ESP 叢集進行通訊的 IP 位址區段中新增網路規則。
         1. 判斷兩個 IP 位址讓網域控制站。
         1. 在下一個資料列中**規則**區段中，提供**名稱**，然後選取**任何**從**通訊協定**下拉式清單。
         1. 設定**來源地址** `*`。
         1. 輸入您的網域控制站中的所有 IP 位址**目的地位址**以逗號分隔。
         1. 設定**目的地連接埠**至`*`。
-    1. 如果您使用 Azure Data Lake 儲存體，您可以新增網路規則，以處理 ADLS sku:gen1 和 Gen2 SNI 問題。 此選項會將流量路由傳送到防火牆，可能會導致較高的成本，對於大型資料載入，但流量將會進行記錄，並可稽核。
+    1. 如果您使用 Azure Data Lake 儲存體，您可以解決 ADLS sku:gen1 和 Gen2 SNI 問題的 IP 位址 區段中新增網路規則。 此選項會將流量路由傳送到防火牆，可能會導致較高的成本，對於大型資料載入，但流量將會進行記錄，並可稽核防火牆記錄檔中。
         1. 判斷您的 Data Lake 儲存體帳戶的 IP 位址。 您可以使用 powershell 命令，例如`[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")`來將 FQDN 解析到 IP 位址。
-        1. 在下一個資料列中**規則**區段中，提供**名稱**，然後選取**任何**從**通訊協定**下拉式清單。
+        1. 在下一個資料列中**規則**區段中，提供**名稱**，然後選取**TCP**從**通訊協定**下拉式清單。
         1. 設定**來源地址** `*`。
         1. 輸入您的儲存體帳戶中的 IP 位址**目的地位址**。
         1. 設定**目的地連接埠**至`*`。
-    1. （選擇性）如果您使用 Log Analytics，然後建立網路規則，以啟用您的 Log Analytics 工作區的通訊。
-        1. 在下一個資料列中**規則**區段中，提供**名稱**，然後選取**任何**從**通訊協定**下拉式清單。
+    1. （選擇性）如果您使用 Log Analytics，然後與您的 Log Analytics 工作區進行通訊的 IP 位址 區段中建立網路規則。
+        1. 在下一個資料列中**規則**區段中，提供**名稱**，然後選取**TCP**從**通訊協定**下拉式清單。
         1. 設定**來源地址** `*`。
         1. 設定**目的地位址**至`*`。
         1. 設定**目的地連接埠**至`12000`。
-    1. 設定可讓您記錄和稽核 SQL 流量的 SQL 服務標籤。
-        1. 在下一個資料列中**規則**區段中，提供**名稱**，然後選取**任何**從**通訊協定**下拉式清單。
+    1. 在 [服務標記] 區段中設定網路規則，可讓您記錄和稽核 SQL 流量，除非您對 SQL Server 設定服務端點將會略過防火牆之 HDInsight 子網路上的 sql。
+        1. 在下一個資料列中**規則**區段中，提供**名稱**，然後選取**TCP**從**通訊協定**下拉式清單。
         1. 設定**來源地址** `*`。
         1. 設定**目的地位址**至`*`。
         1. 選取  **Sql**從**服務標籤**下拉式清單。
@@ -110,10 +110,9 @@ Azure HDInsight 叢集通常會在您自己的虛擬網路中部署。 叢集中
 
 使用下列項目中建立路由表：
 
-1. 從 7 個位址範圍[這份必要的 HDInsight 管理 IP 位址](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)使用的下一個躍點**網際網路**:
+1. 從六個位址範圍[這份必要的 HDInsight 管理 IP 位址](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)使用的下一個躍點**網際網路**:
     1. 在所有區域中的所有叢集的四個 IP 位址
     1. 兩個都有專用的叢集建立所在的區域的 IP 位址
-    1. Azure 的遞迴解析程式的一個 IP 位址
 1. 正在您的 Azure 防火牆私人 IP 位址的下一個躍點 IP 位址 0.0.0.0/0 的一個虛擬設備路由。
 
 比方說，若要設定的路由表中的 「 美國中部 」 美國地區建立的叢集，請使用下列步驟：
@@ -132,20 +131,15 @@ Azure HDInsight 叢集通常會在您自己的虛擬網路中部署。 叢集中
 | 138.91.141.162 | 138.91.141.162/32 | Internet | NA |
 | 13.67.223.215 | 13.67.223.215/32 | Internet | NA |
 | 40.86.83.253 | 40.86.83.253/32 | Internet | NA |
-| 168.63.129.16 | 168.63.129.16/32 | Internet | NA |
 | 0.0.0.0 | 0.0.0.0/0 | 虛擬設備 | 10.1.1.4 |
-
-![標題：建立路由表](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-route-table.png)
 
 完成將路由表的組態：
 
 1. 指派您按一下 建立與您的 HDInsight 子網路的路由表**子網路**下方**設定**，然後**關聯**。
-1. 在上**子網路建立關聯**畫面上，選取您的叢集建立到虛擬網路並**AzureFirewallSubnet**您建立使用您的防火牆。
+1. 在上**子網路建立關聯**畫面上，選取您的叢集建立到虛擬網路並**HDInsight 子網路**您使用於您的 HDInsight 叢集。
 1. 按一下 [確定]  。
 
-![標題：建立路由表](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-route-table-associate-subnet.png)
-
-## <a name="edge-node-application-traffic"></a>邊緣節點的應用程式流量
+## <a name="edge-node-or-custom-application-traffic"></a>邊緣節點或自訂應用程式流量
 
 上述的步驟可讓叢集操作，而不發生問題。 您仍然需要設定相依性，以便容納在邊緣節點上執行的自訂應用程式，如果適用的話。
 
@@ -166,6 +160,9 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
 第一次取得 應用程式，運作時您不知道的所有應用程式相依性存在時，與 Azure 監視器記錄檔整合您的 Azure 防火牆很有用的。 您可以從[分析 Azure 監視器中的記錄資料](../azure-monitor/log-query/log-query-overview.md)深入了解 Azure 監視器記錄
+
+## <a name="access-to-the-cluster"></a>叢集的存取權
+已成功有防火牆安裝程式之後，您可以使用內部端點 (`https://<clustername>-int.azurehdinsight.net`) 來存取 VNET 中的從 Ambari。 若要使用的公用端點 (`https://<clustername>.azurehdinsight.net`) 或 ssh 端點 (`<clustername>-ssh.azurehdinsight.net`)，請確定您有正確的路由的路由表中，而且 NSG 規則設定，以避免 asymetric 路由問題說明[這裡](https://docs.microsoft.com/azure/firewall/integrate-lb)。
 
 ## <a name="configure-another-network-virtual-appliance"></a>設定另一個網路虛擬設備
 

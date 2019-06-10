@@ -3,17 +3,17 @@ title: Azure IoT 中心的架構概念 | Microsoft Docs
 description: 本文介紹 Azure IoT 中心架構的重要相關概念
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/26/2019
+ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: 4f4b917808f4973dc83294391f58d7e0e2d01c4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+manager: philmea
+ms.openlocfilehash: 4bc9a79576c3165585a4a2c897bd41bfb77c080c
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887389"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693143"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT 中心架構
 
@@ -71,13 +71,21 @@ Azure IoT 中心會使用時間序列來儲存您的裝置所傳送的量值資�
 
 在裝置範本中：
 
-- [量值] 可指定裝置傳送給應用程式的遙測。
-- [設定] 可指定操作者可以設定的組態。
-- [屬性] 可指定操作者可以設定的中繼資料。
-- [規則] 可根據裝置傳送的資料，讓應用程式的行為自動化。
-- [儀表板] 是應用程式中可自訂的裝置檢視。
+- [量值]  可指定裝置傳送給應用程式的遙測。
+- [設定]  可指定操作者可以設定的組態。
+- [屬性]  可指定操作者可以設定的中繼資料。
+- [規則]  可根據裝置傳送的資料，讓應用程式的行為自動化。
+- [儀表板]  是應用程式中可自訂的裝置檢視。
 
 根據每個裝置範本，應用程式可以有一或多個模擬與真實裝置。
+
+## <a name="data-export"></a>匯出資料
+
+Azure IoT Central 應用程式中，您可以[您的資料持續匯出](howto-export-data-event-hubs-service-bus.md)您自己的 Azure 事件中樞和 Azure 服務匯流排執行個體。 您也會定期可以將資料匯出到您的 Azure Blob 儲存體帳戶中。 IoT 中心可以匯出度量、 裝置和裝置範本。
+
+## <a name="batch-device-updates"></a>批次的裝置更新
+
+Azure IoT Central 應用程式中，您可以[建立及執行作業](howto-run-a-job.md)來管理連接的裝置。 這些工作可讓您執行大量更新裝置屬性或設定值，或執行命令。 例如，您可以建立作業，以提高多個 refrigerated 販賣的風扇速度。
 
 ## <a name="role-based-access-control-rbac"></a>角色型存取控制 (RBAC)
 
@@ -95,7 +103,10 @@ Azure IoT 中心內的安全性功能包括：
 ## <a name="ui-shell"></a>UI Shell
 
 UI Shell 是現代化、回應式、HTML5 瀏覽器型應用程式。
+系統管理員可以自訂應用程式的 UI，藉由套用自訂佈景主題及修改為指向您自己的自訂說明資源的說明連結。 若要深入了解 UI 自訂，請參閱[來自訂 Azure IoT Central UI](howto-customize-ui.md)文章。
+
+操作員可以建立個人化的應用程式儀表板。 您可以有數個儀表板，顯示不同的資料，並在它們之間切換。
 
 ## <a name="next-steps"></a>後續步驟
 
-您現在已了解 Azure IoT 中心的架構，建議的後續步驟是了解 Azure IoT 中心的[裝置連線能力](concepts-connectivity.md)。
+既然您已了解 Azure IoT Central 的架構，建議的下一個步驟是了解[裝置連線能力](concepts-connectivity.md)在 Azure IoT Central。

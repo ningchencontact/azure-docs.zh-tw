@@ -3,19 +3,19 @@ title: 如何搭配對話學習模組模型使用多重值實體 - Microsoft 認
 titleSuffix: Azure
 description: 了解如何搭配對話學習模組模型使用多重值實體。
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 07550ed9c78aa584e55403d225eef4bcff33b057
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: nitinme
+ms.openlocfilehash: 1f62def5e498f3f744beaed0cda207e1a75bfdf2
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58167417"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387952"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>如何搭配對話學習模組模型使用多重值實體
 本教學課程說明實體的「多重值」屬性。
@@ -42,7 +42,7 @@ ms.locfileid: "58167417"
 
 1. 選取 **新的模型**。
 2. 請輸入**MultiValueEntities** for**名稱**。
-3. 選取 [建立] 。
+3. 選取 [建立]  。
 
 ### <a name="entity-creation"></a>建立實體
 
@@ -51,24 +51,24 @@ ms.locfileid: "58167417"
 3. 請輸入**配料**for**實體名稱**。
 4. 請檢查**多重值**啟用實體累積一或多個值。
 5. 請檢查**Negatable**。
-6. 選取 [建立] 。
+6. 選取 [建立]  。
 
 ![](../media/T07_entity_create.png)
 
 ### <a name="create-the-first-action"></a>建立第一個動作
 
 1. 選取 **動作**在左窗格中，然後**新動作**。
-2. 請輸入**以下是您的配料： $toppings**如**機器人的回應...**.前置的錢幣符號表示實體參考。
-3. 選取 [建立] 。
+2. 請輸入**以下是您的配料： $toppings**如**機器人的回應...** .前置的錢幣符號表示實體參考。
+3. 選取 [建立]  。
 
 ![](../media/T07_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>建立第二個動作
 
 1. 選取 **動作**在左窗格中，然後**新動作**。
-2. 輸入**哪些配料？** 如**機器人的回應...**.
+2. 輸入**哪些配料？** 如**機器人的回應...** .
 3. 請輸入**配料**for **Disqualifying 享有**。
-4. 選取 [建立] 。
+4. 選取 [建立]  。
 
 現在您有兩個動作。
 

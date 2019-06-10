@@ -2,20 +2,20 @@
 title: 快速入門 - 使用 Azure Active Directory B2C 為單一頁面應用程式設定登入 | Microsoft Docs
 description: 執行範例單一頁面應用程式，而該應用程式使用 Azure Active Directory B2C 來提供帳戶登入。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 10/24/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2e5f16fa42e86442f6600e375df343f3b6369986
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: dff1716e8886d1ef72f4d2ad4fbca4bcab86a348
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190396"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509783"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>快速入門：設定使用 Azure Active Directory B2C 的單頁應用程式登入
 
@@ -54,7 +54,7 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 
 ## <a name="sign-in-using-your-account"></a>使用您的帳戶登入
 
-1. 按一下 [登入] 以啟動工作流程。
+1. 按一下 [登入]  以啟動工作流程。
 
     ![瀏覽器中的範例應用程式](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
@@ -70,7 +70,7 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 
 ## <a name="access-a-protected-api-resource"></a>存取受保護的 API 資源
 
-按一下 [呼叫 Web API]，使您的顯示名稱從 Web API 呼叫以 JSON 物件傳回。 
+按一下 [呼叫 Web API]  ，使您的顯示名稱從 Web API 呼叫以 JSON 物件傳回。 
 
 ![Web API 回應](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 

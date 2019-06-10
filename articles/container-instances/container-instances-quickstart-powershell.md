@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8c131f6aa9189a84be23d3ee42e9265aaea050a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6baf10308f04d5f08ba651bd70ac2b48dfc013c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66149063"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729456"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 部署容器執行個體
 
@@ -27,7 +27,7 @@ ms.locfileid: "66149063"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 如果您選擇在本機安裝和使用 PowerShell，本教學課程需要 Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 
@@ -53,7 +53,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
-在幾秒內，您應該會從 Azure 收到回應。 一開始，容器會 `ProvisioningState` 會處於 [建立中] 狀態，但應該會在一兩分鐘內變成 [成功]。 請使用 [Get-AzContainerGroup][Get-AzContainerGroup] Cmdlet 來查看部署狀態：
+在幾秒內，您應該會從 Azure 收到回應。 一開始，容器會 `ProvisioningState` 會處於 [建立中]  狀態，但應該會在一兩分鐘內變成 [成功]  。 請使用 [Get-AzContainerGroup][Get-AzContainerGroup] Cmdlet 來查看部署狀態：
 
  ```azurepowershell-interactive
 Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -85,7 +85,7 @@ State                    : Pending
 Events                   : {}
 ```
 
-如果容器的 `ProvisioningState` 為 [成功]，請在瀏覽器中瀏覽至其 `Fqdn`。 如果您看到如下的網頁，恭喜您！ 您已將 Docker 容器中執行的應用程式成功部署至 Azure。
+如果容器的 `ProvisioningState` 為 [成功]  ，請在瀏覽器中瀏覽至其 `Fqdn`。 如果您看到如下的網頁，恭喜您！ 您已將 Docker 容器中執行的應用程式成功部署至 Azure。
 
 ![在瀏覽器中檢視使用 Azure Container Instances 所部署的 IIS][qs-powershell-01]
 

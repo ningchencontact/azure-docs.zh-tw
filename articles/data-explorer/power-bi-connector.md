@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: 6147269ab38ac14c2a2ecadaac3448a491af7c20
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.date: 06/04/2019
+ms.openlocfilehash: 0bfacc968a04f8ef9e39a31cff5e81cf4e04c6fb
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399300"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494644"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>使用適用於 Power BI 的 Azure 資料總管連接器將資料視覺化
 
@@ -38,13 +38,11 @@ Azure 資料總管提供三個選項以便連線到 Power BI 中的資料：使�
 
     ![取得資料](media/power-bi-connector/get-data-more.png)
 
-1. 搜尋 [Azure 資料總管]  ，選取 [Azure 資料總管 (Beta)]  ，然後選取 [連線]  。
+1. 搜尋*Azure 資料總管*，選取**Azure 資料總管**然後**Connect**。
 
     ![搜尋並取得資料](media/power-bi-connector/search-get-data.png)
 
-1. 在 [預覽版連接器]  畫面上，選取 [繼續]  。
-
-1. 在下一個畫面的表單中，填寫以下資訊。
+1. 在  **Azure 資料總管 (Kusto)** 畫面上，填妥表單中使用下列資訊。
 
     ![叢集、資料庫、資料表選項](media/power-bi-connector/cluster-database-table.png)
 

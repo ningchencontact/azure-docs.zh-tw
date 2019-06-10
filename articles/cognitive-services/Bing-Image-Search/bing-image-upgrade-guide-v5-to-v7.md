@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 123c5556dc76b35cf4a6b4b34e0c3e2fe437cebe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e014910bc34d2c6aaf9904c5a3670e7d7b496e84
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996451"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384387"
 ---
 # <a name="bing-image-search-api-v7-upgrade-guide"></a>Bing 影像搜尋 API v7 升級指南
 
@@ -74,83 +74,83 @@ Blocked|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>查詢參數
 
-- 將 `modulesRequested` 查詢參數重新命名為 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)。  
+- 將 `modulesRequested` 查詢參數重新命名為 [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)。  
 
-- 將 Annotations 重新命名為 Tags。 請參閱 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) 查詢參數上的 Tags。  
+- 將 Annotations 重新命名為 Tags。 請參閱 [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) 查詢參數上的 Tags。  
 
-- 將支援的 ShoppingSources 篩選值市場清單變更為僅限 en-US。 請參閱 [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype)。  
+- 將支援的 ShoppingSources 篩選值市場清單變更為僅限 en-US。 請參閱 [imageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype)。  
 
 
 ### <a name="image-insights-changes"></a>影像深入解析變更
 
-- 將 [ImagesInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse) 的 `annotations` 欄位重新命名為 `imageTags`。  
+- 將 [ImagesInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse) 的 `annotations` 欄位重新命名為 `imageTags`。  
 
-- 將 `AnnotationModule` 物件重新命名為 [ImageTagsModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetagsmodule)。  
+- 將 `AnnotationModule` 物件重新命名為 [ImageTagsModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetagsmodule)。  
 
-- 將 `Annotation` 物件重新命名為 [Tag](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#tag)，並移除 `confidence` 欄位。  
+- 將 `Annotation` 物件重新命名為 [Tag](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#tag)，並移除 `confidence` 欄位。  
 
-- 將 [Image](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) 物件的 `insightsSourcesSummary` 欄位重新命名為 `insightsMetadata`。  
+- 將 [Image](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) 物件的 `insightsSourcesSummary` 欄位重新命名為 `insightsMetadata`。  
 
-- 將 `InsightsSourcesSummary` 物件重新命名為 [InsightsMetadata](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightsmetadata)。  
+- 將 `InsightsSourcesSummary` 物件重新命名為 [InsightsMetadata](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightsmetadata)。  
 
 - 新增 `https://api.cognitive.microsoft.com/bing/v7.0/images/details` 端點。 使用此端點來要求影像深入解析，而不是使用 /images/search 端點。 請參閱[影像深入解析](./image-insights.md)。
 
 - 下列查詢參數目前只有搭配 `/images/details` 端點才有效。  
 
-    -   [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken)  
-    -   [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)  
-    -   [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imgurl)  
-    -   [cab](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cab)  
-    -   [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  
-    -   [car](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#car)  
-    -   [cat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat)  
-    -   [ct](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#ct)  
+    -   [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken)  
+    -   [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)  
+    -   [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl)  
+    -   [cab](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)  
+    -   [cal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal)  
+    -   [car](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car)  
+    -   [cat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat)  
+    -   [ct](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#ct)  
 
-- 將 `ImageInsightsResponse` 物件重新命名為 [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsights)。  
+- 將 `ImageInsightsResponse` 物件重新命名為 [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsights)。  
 
-- 變更 [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsights) 物件中下列欄位的資料類型。  
+- 變更 [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsights) 物件中下列欄位的資料類型。  
 
-    -   將 `relatedCollections` 欄位的類型從 `ImageGallery[]` 變更為 [RelatedCollectionsModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#relatedcollectionsmodule)。  
+    -   將 `relatedCollections` 欄位的類型從 `ImageGallery[]` 變更為 [RelatedCollectionsModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#relatedcollectionsmodule)。  
 
-    -   將 `pagesIncluding` 欄位的類型從 `Image[]` 變更為 [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagesmodule)。  
+    -   將 `pagesIncluding` 欄位的類型從 `Image[]` 變更為 [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule)。  
 
-    -   將 `relatedSearches` 欄位的類型從 `Query[]` 變更為 [RelatedSearchesModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#relatedsearchesmodule)。  
+    -   將 `relatedSearches` 欄位的類型從 `Query[]` 變更為 [RelatedSearchesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#relatedsearchesmodule)。  
 
-    -   將 `recipes` 欄位的類型從 `Recipe[]` 變更為 [RecipesModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#recipesmodule)。  
+    -   將 `recipes` 欄位的類型從 `Recipe[]` 變更為 [RecipesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#recipesmodule)。  
 
-    -   將 `visuallySimilarImages` 欄位的類型從 `Image[]` 變更為 [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagesmodule)。  
+    -   將 `visuallySimilarImages` 欄位的類型從 `Image[]` 變更為 [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule)。  
 
-    -   將 `visuallySimilarProducts` 欄位的類型從 `ProductSummaryImage[]` 變更為 [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagesmodule)。  
+    -   將 `visuallySimilarProducts` 欄位的類型從 `ProductSummaryImage[]` 變更為 [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule)。  
 
-    -   移除 `ProductSummaryImage` 物件，並將產品相關欄位移至 [Image](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) 物件中。 只有在影像屬於影像深入解析回應中的視覺相似產品時，`Image` 物件才會包含產品相關欄位。  
+    -   移除 `ProductSummaryImage` 物件，並將產品相關欄位移至 [Image](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) 物件中。 只有在影像屬於影像深入解析回應中的視覺相似產品時，`Image` 物件才會包含產品相關欄位。  
 
-    -   將 `recognizedEntityGroups` 欄位的類型從 `RecognizedEntityGroup[]` 變更為 [RecognizedEntitiesModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#recognizedentitiesmodule)。  
+    -   將 `recognizedEntityGroups` 欄位的類型從 `RecognizedEntityGroup[]` 變更為 [RecognizedEntitiesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#recognizedentitiesmodule)。  
 
--   將 [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse) 的 `categoryClassification` 欄位重新命名為 `annotations`，並將其類型變更為 `AnnotationsModule`。  
+-   將 [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse) 的 `categoryClassification` 欄位重新命名為 `annotations`，並將其類型變更為 `AnnotationsModule`。  
 
 ### <a name="images-answer"></a>影像回應
 
--   從 [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) 中移除 displayShoppingSourcesBadges 和 displayRecipeSourcesBadges 欄位。  
+-   從 [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) 中移除 displayShoppingSourcesBadges 和 displayRecipeSourcesBadges 欄位。  
 
--   將 [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) 的 `nextOffsetAddCount` 欄位重新命名為 `nextOffset`。 使用 offset 的方式也會跟著變更。 先前，您已將 [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offset) 查詢參數設定為 `nextOffsetAddCount` 值，以在結果中加上前一個 offset 值和影像數目。 現在，您會將 `offset` 設定為 `nextOffset` 值。  
+-   將 [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) 的 `nextOffsetAddCount` 欄位重新命名為 `nextOffset`。 使用 offset 的方式也會跟著變更。 先前，您已將 [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offset) 查詢參數設定為 `nextOffsetAddCount` 值，以在結果中加上前一個 offset 值和影像數目。 現在，您會將 `offset` 設定為 `nextOffset` 值。  
 
 
 ## <a name="non-breaking-changes"></a>非中斷性變更
 
 ### <a name="query-parameters"></a>查詢參數
 
-- 將 Transparent 新增為可能的 [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype) 篩選值。 Transparent 篩選只會傳回具有透明背景的影像。
+- 將 Transparent 新增為可能的 [imageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype) 篩選值。 Transparent 篩選只會傳回具有透明背景的影像。
 
-- 將 Any 新增為可能的 [license](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license) 篩選值。 Any 篩選只會傳回授權下的影像。
+- 將 Any 新增為可能的 [license](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#license) 篩選值。 Any 篩選只會傳回授權下的影像。
 
-- 新增 [maxFileSize](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#maxfilesize) 和 [minFileSize](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#minfilesize) 查詢參數。 您可以使用這些篩選來傳回檔案大小範圍內的影像。  
+- 新增 [maxFileSize](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxfilesize) 和 [minFileSize](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minfilesize) 查詢參數。 您可以使用這些篩選來傳回檔案大小範圍內的影像。  
 
-- 新增 [maxHeight](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#maxheight)、[minHeight](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#minheight)、[maxWidth](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#maxwidth)、[minWidth](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#minwidth) 查詢參數。 您可以使用這些篩選來傳回高度與寬度範圍內的影像。  
+- 新增 [maxHeight](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxheight)、[minHeight](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minheight)、[maxWidth](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxwidth)、[minWidth](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minwidth) 查詢參數。 您可以使用這些篩選來傳回高度與寬度範圍內的影像。  
 
 ### <a name="object-changes"></a>物件變更
 
-- 將 `description` 和 `lastUpdated` 欄位新增至 [Offer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offer) 物件。  
+- 將 `description` 和 `lastUpdated` 欄位新增至 [Offer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offer) 物件。  
 
-- 將 `name` 欄位新增至 [ImageGallery](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagegallery) 物件。  
+- 將 `name` 欄位新增至 [ImageGallery](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagegallery) 物件。  
 
-- 將 `similarTerms` 新增至 [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) 物件。 此欄位會包含與使用者查詢字串有類似意思的字詞清單。  
+- 將 `similarTerms` 新增至 [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) 物件。 此欄位會包含與使用者查詢字串有類似意思的字詞清單。  

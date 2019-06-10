@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: 47c83e6bc700f972e6dff83e4d067e61218c04bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255642"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497157"
 ---
 # <a name="application-insights-overview-dashboard"></a>Azure Application Insights 概觀儀表板
 
@@ -35,7 +35,7 @@ Application Insights 一直以來都在提供摘要概覽窗格，以便一眼�
 
 ![時間範圍](./media/overview-dashboard/app-insights-overview-dashboard-03.png)
 
-整體效能已大幅提升。 只要按一下，就能存取常用功能，例如**搜尋**和**分析**。 預設的每個動態更新 KPI 圖格均可讓您了解對應的 Application Insights 功能。 若要深入了解失敗的要求，請選取 [調查] 標題下的 [失敗]：
+整體效能已大幅提升。 只要按一下，就能存取常用功能，例如**搜尋**和**分析**。 預設的每個動態更新 KPI 圖格均可讓您了解對應的 Application Insights 功能。 若要深入了解失敗的要求，請選取 [調查]  標題下的 [失敗]  ：
 
 ![失敗](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
 
@@ -43,7 +43,7 @@ Application Insights 一直以來都在提供摘要概覽窗格，以便一眼�
 
 應用程式儀表板會使用 Azure 中現有的儀表板技術，提供可完全自訂的單一窗格，讓您檢視應用程式的健康情況和效能。
 
-若要使用預設儀表板，請選取左上角的 [應用程式儀表板]。
+若要使用預設儀表板，請選取左上角的 [應用程式儀表板]  。
 
 ![儀表板檢視](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
 
@@ -60,9 +60,12 @@ Application Insights 一直以來都在提供摘要概覽窗格，以便一眼�
 
 ![[概觀] 按鈕](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
+## <a name="troubleshooting"></a>疑難排解
+
+如果您選取**圖格設定**並且設定了自訂時間範圍，超過 31 天的儀表板將不會超過 31 天的資料，即使有 90 天的預設資料保留期的方式顯示。 目前這個問題沒有因應措施。
+
 ## <a name="next-steps"></a>後續步驟
 
 - [漏斗圖](../../azure-monitor/app/usage-funnels.md)
 - [保留](../../azure-monitor/app/usage-retention.md)
 - [使用者流程](../../azure-monitor/app/usage-flows.md)
-- [儀表板](../../azure-monitor/app/app-insights-dashboards.md)

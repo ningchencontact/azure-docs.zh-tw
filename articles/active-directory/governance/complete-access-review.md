@@ -16,12 +16,12 @@ ms.date: 05/22/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae204ec1789f227150adc560d4a292404d23b7e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ec3909ffbb624284f999360140b7454098643062
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113330"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473360"
 ---
 # <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>完成群組的存取權檢閱，或在 Azure AD 中的應用程式存取權檢閱
 
@@ -40,7 +40,7 @@ ms.locfileid: "66113330"
 
 當檢閱者完成其檢閱時，您可以追蹤進度。
 
-1. 登入 Azure 入口網站，然後開啟[存取權檢閱頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)。
+1. 登入 Azure 入口網站，然後開啟[身分識別控管頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)。
 
 1. 在左側功能表中，按一下**存取權檢閱**。
 
@@ -68,7 +68,7 @@ ms.locfileid: "66113330"
 
 檢閱的狀態將會變更**已完成**歷經中繼狀態，例如**套用**最後狀態**結果套用**。 您應該會看到遭到拒絕的使用者 (若有的話)，在幾分鐘內從群組成員資格或應用程式指派中移除。
 
-已設定的自動套用檢閱，或選取 [套用] 並不會影響源自內部部署目錄中的群組，或動態群組。 如果您想要變更源自於內部部署的群組，請下載結果，並將那些變更套用至該目錄中的群組圖像。
+已設定的自動套用檢閱，或選取 [套用]  並不會影響源自內部部署目錄中的群組，或動態群組。 如果您想要變更源自於內部部署的群組，請下載結果，並將那些變更套用至該目錄中的群組圖像。
 
 ## <a name="retrieve-the-results"></a>擷取結果
 

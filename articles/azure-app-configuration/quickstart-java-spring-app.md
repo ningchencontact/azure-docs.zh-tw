@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: 9137262ffc7c172e6a99920a7abb31459a8703fe
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: a91c61edd773b5742b092f5d72a5a22f1d90e63b
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408569"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393558"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>快速入門：使用應用程式設定建立 Java Spring 應用程式
 
@@ -29,7 +29,7 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 
 ## <a name="prerequisites"></a>必要條件
 
-若要進行本快速入門，請安裝支援的 [Java Development Kit (JDK)](https://aka.ms/azure-jdks) 第 8 版和 [Apache Maven](https://maven.apache.org/) 3.0 版或更新版本。
+若要進行本快速入門，請安裝支援的 [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) 第 8 版和 [Apache Maven](https://maven.apache.org/) 3.0 版或更新版本。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -37,13 +37,13 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. 選取 [組態總管]  >  [+ 建立] 來新增下列索引鍵/值組：
+6. 選取 [組態總管]   >  [+ 建立]  來新增下列索引鍵/值組：
 
     | Key | 值 |
     |---|---|
     | /application/config.message | 您好 |
 
-    目前會先讓 [標籤] 和 [內容類型] 保持空白。
+    目前會先讓 [標籤]  和 [內容類型]  保持空白。
 
 ## <a name="create-a-spring-boot-app"></a>建立 Spring Boot 應用程式
 
@@ -58,13 +58,13 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
    * 指定應用程式的**群組**和**成品**名稱。
    * 新增 **Web** 相依性。
 
-3. 在指定先前的選項之後，選取 [產生專案]。 出現提示時，將專案下載至本機電腦上的路徑。
+3. 在指定先前的選項之後，選取 [產生專案]  。 出現提示時，將專案下載至本機電腦上的路徑。
 
 ## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式設定存放區
 
-1. 當您在本機系統上擷取檔案之後，就可以開始編輯簡單的 Spring Boot 應用程式。 在應用程式的根目錄中尋找 pom.xml 檔案。
+1. 當您在本機系統上擷取檔案之後，就可以開始編輯簡單的 Spring Boot 應用程式。 在應用程式的根目錄中尋找 pom.xml  檔案。
 
-2. 在文字編輯器中開啟 pom.xml 檔案，並將 Spring Cloud Azure 設定 Starter 新增至 `<dependencies>` 的清單中：
+2. 在文字編輯器中開啟 pom.xml  檔案，並將 Spring Cloud Azure 設定 Starter 新增至 `<dependencies>` 的清單中：
 
     ```xml
     <dependency>
@@ -74,7 +74,7 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
     </dependency>
     ```
 
-3. 在應用程式的 package 目錄中建立名為 MessageProperties.java 的新 Java 檔案。 加入下列幾行：
+3. 在應用程式的 package 目錄中建立名為 MessageProperties.java  的新 Java 檔案。 加入下列幾行：
 
     ```java
     @ConfigurationProperties(prefix = "config")
@@ -91,7 +91,7 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
     }
     ```
 
-4. 在應用程式的 package 目錄中建立名為 HelloController.java 的新 Java 檔案。 加入下列幾行：
+4. 在應用程式的 package 目錄中建立名為 HelloController.java  的新 Java 檔案。 加入下列幾行：
 
     ```java
     @RestController

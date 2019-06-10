@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3fa463cb7178fa5cc2108383047a7ca94ffb48a3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: bac897178c8220abe72a92a5cf14fc4767cdd3bf
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797387"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755069"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>監視 Azure 搜尋服務中的資源耗用量和查詢活動
 
@@ -28,17 +28,17 @@ ms.locfileid: "65797387"
 
 ## <a name="metrics-at-a-glance"></a>計量一目了然
 
-[概觀] 頁面中內建的 [使用量] 和 [監視] 區段會報告資源耗用量和查詢執行計量。 在您開始使用此服務之後，此資訊就會立即可用，無須進行任何設定。 此頁面每隔幾分鐘就會重新整理一次。 如果您要完成有關[要針對生產環境工作負載使用哪個定價層](search-sku-tier.md)或是否要[調整作用中複本和分割區的數量](search-capacity-planning.md)的決策，這些計量可透過顯示資源消耗速度及目前設定處理現有負載的情況，協助您進行這些決策。
+[概觀] 頁面中內建的 [使用量]  和 [監視]  區段會報告資源耗用量和查詢執行計量。 在您開始使用此服務之後，此資訊就會立即可用，無須進行任何設定。 此頁面每隔幾分鐘就會重新整理一次。 如果您要完成有關[要針對生產環境工作負載使用哪個定價層](search-sku-tier.md)或是否要[調整作用中複本和分割區的數量](search-capacity-planning.md)的決策，這些計量可透過顯示資源消耗速度及目前設定處理現有負載的情況，協助您進行這些決策。
 
-[使用量] 索引標籤會顯示相對於目前[限制](search-limits-quotas-capacity.md)的資源可用性。 以下是一個免費服務的圖例，其上限為每個類型 3 個物件且儲存體為 50 MB。 「基本」或「標準」服務的上限較高，且如果您增加分割區計數，儲存體上限也會按比例增加。
+[使用量]  索引標籤會顯示相對於目前[限制](search-limits-quotas-capacity.md)的資源可用性。 以下是一個免費服務的圖例，其上限為每個類型 3 個物件且儲存體為 50 MB。 「基本」或「標準」服務的上限較高，且如果您增加分割區計數，儲存體上限也會按比例增加。
 
 ![相對於有效限制的使用量狀態](./media/search-monitor-usage/usage-tab.png
  "相對於有效限制的使用量狀態")
 
 ## <a name="queries-per-second-qps-and-other-metrics"></a>每秒查詢數目 (QPS) 及其他計量
 
-[監視] 索引標籤會顯示計量 (例如「每秒查詢數目」(QPS)) 的移動平均，每分鐘彙總一次。 
-「搜尋延遲」是搜尋服務處理搜尋查詢所需的時間，每分鐘彙總一次。 「已節流的搜尋查詢百分比」 (未顯示) 是已節流的搜尋查詢百分比，也是每分鐘彙總一次。
+[監視]  索引標籤會顯示計量 (例如「每秒查詢數目」  (QPS)) 的移動平均，每分鐘彙總一次。 
+「搜尋延遲」  是搜尋服務處理搜尋查詢所需的時間，每分鐘彙總一次。 「已節流的搜尋查詢百分比」  (未顯示) 是已節流的搜尋查詢百分比，也是每分鐘彙總一次。
 
 這些數字是近似值，目的是要讓您概略了解您系統為要求提供服務的情況。 實際 QPS 可能比入口網站中回報的數字更高或更低。
 
@@ -46,9 +46,9 @@ ms.locfileid: "65797387"
 
 ## <a name="activity-logs"></a>活動記錄
 
-[活動記錄] 會從 Azure Resource Manager 收集資訊。 可在 [活動記錄] 中找到的資訊範例包括建立或刪除服務、更新資源群組、檢查名稱可用性，或是取得用以處理要求的服務存取金鑰。 
+[活動記錄]  會從 Azure Resource Manager 收集資訊。 可在 [活動記錄] 中找到的資訊範例包括建立或刪除服務、更新資源群組、檢查名稱可用性，或是取得用以處理要求的服務存取金鑰。 
 
-您可以從左側導覽窗格、從頂端視窗命令列中的 [通知] 或從 [診斷並解決問題] 頁面，存取 [活動記錄]。
+您可以從左側導覽窗格、從頂端視窗命令列中的 [通知] 或從 [診斷並解決問題]  頁面，存取 [活動記錄]  。
 
 針對服務內的工作 (例如建立索引或刪除資料來源)，您會看到每個要求的一般通知 (例如「取得管理員金鑰」)，但不會看到特定動作本身。 針對此層級的資訊，您必須啟用附加的監視解決方案。
 
@@ -79,7 +79,7 @@ Azure 監視器記錄檔和 Blob 儲存體是免費的共用服務的形式提�
 
    您的儲存體帳戶必須存在於 Azure 搜尋服務與相同的區域。
 
-2. 開啟您的搜尋服務 [概觀] 頁面。 在左側導覽窗格中，向下捲動至 [監視]，然後按一下 [啟用監視]。
+2. 開啟您的搜尋服務 [概觀] 頁面。 在左側導覽窗格中，向下捲動至 [監視]  ，然後按一下 [啟用監視]  。
 
    ![啟用監視](./media/search-monitor-usage/enable-monitoring.png "啟用監視")
 
@@ -111,41 +111,41 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ## <a name="log-schema"></a>記錄檔結構描述
 包含您搜尋服務流量記錄的 Blob 會結構化，如本節所述。 每個 Blob 都有一個名為**記錄**的根物件，其中包含記錄物件的陣列。 每個 Blob 都包含在同一小時內發生之所有作業的記錄。
 
-| 名稱 | Type | 範例 | 注意 |
+| 名稱 | 類型 | 範例 | 注意 |
 | --- | --- | --- | --- |
-| time |datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的 ResourceId |
-| operationName |string |"Query.Search" |作業的名稱 |
-| operationVersion |string |"2019-05-06" |使用的 api-version |
-| category |string |"OperationLogs" |常數 |
-| resultType |string |"Success" |可能的值:成功或失敗 |
+| time |Datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
+| ResourceId |字串 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的 ResourceId |
+| operationName |字串 |"Query.Search" |作業的名稱 |
+| operationVersion |字串 |"2019-05-06" |使用的 api-version |
+| category |字串 |"OperationLogs" |常數 |
+| resultType |字串 |"Success" |可能的值：成功或失敗 |
 | resultSignature |int |200 |HTTP 結果碼 |
 | durationMS |int |50 |作業的持續時間 (以毫秒為單位) |
 | properties |物件 |請參閱下表 |包含作業特定資料的物件 |
 
 **屬性結構描述**
 
-| 名稱 | Type | 範例 | 注意 |
+| 名稱 | 類型 | 範例 | 注意 |
 | --- | --- | --- | --- |
-| 說明 |string |"GET /indexes('content')/docs" |作業的端點 |
-| 查詢 |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |查詢參數 |
+| 描述 |string |"GET /indexes('content')/docs" |作業的端點 |
+| 查詢 |字串 |"?search=AzureSearch&$count=true&api-version=2019-05-06" |查詢參數 |
 | 文件 |int |42 |處理的文件數目 |
-| IndexName |string |"testindex" |與作業相關聯的索引名稱 |
+| IndexName |字串 |"testindex" |與作業相關聯的索引名稱 |
 
 ## <a name="metrics-schema"></a>度量結構描述
 
 針對查詢要求，會擷取計量。
 
-| 名稱 | Type | 範例 | 注意 |
+| Name | 類型 | 範例 | 注意 |
 | --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的資源識別碼 |
-| metricName |string |"Latency" |度量的名稱 |
-| 分析 |datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
-| 平均 |int |64 |度量時間間隔中原始範例的平均值 |
-| 最小值 |int |37 |度量時間間隔中原始範例的最小值 |
-| 最大值 |int |78 |度量時間間隔中原始範例的最大值 |
-| 總計 |int |258 |度量時間間隔中原始範例的總和值 |
-| 計數 |int |4 |用來產生度量的原始樣本數 |
+| ResourceId |字串 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的資源識別碼 |
+| metricName |字串 |"Latency" |度量的名稱 |
+| 分析 |Datetime |"2018-12-07T00:00:43.6872559Z" |作業的時間戳記 |
+| average |int |64 |度量時間間隔中原始範例的平均值 |
+| minimum |int |37 |度量時間間隔中原始範例的最小值 |
+| maximum |int |78 |度量時間間隔中原始範例的最大值 |
+| total |int |258 |度量時間間隔中原始範例的總和值 |
+| count |int |4 |用來產生度量的原始樣本數 |
 | timegrain |string |"PT1M" |採用 ISO 8601 的度量時間粒紋 |
 
 每隔一分鐘就會回報所有計量。 每個度量會顯示每分鐘的最小值、最大值和平均值。
@@ -161,7 +161,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 
 1. 在 Azure 入口網站中，開啟您的儲存體帳戶。 
 
-2. 在左側導覽窗格中，按一下 [Blob]。 您應該會看到 **insights-logs-operationlogs** 和 **insights-metrics-pt1m**。 這些容器是將記錄資料匯出至 Blob 儲存體時，「Azure 搜尋服務」所建立的容器。
+2. 在左側導覽窗格中，按一下 [Blob]  。 您應該會看到 **insights-logs-operationlogs** 和 **insights-metrics-pt1m**。 這些容器是將記錄資料匯出至 Blob 儲存體時，「Azure 搜尋服務」所建立的容器。
 
 3. 在資料夾階層中一路往下點選，直到抵達 .json 檔案為止。  請使用操作功能表來下載檔案。
 
@@ -175,7 +175,7 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 * [文件計數](/rest/api/searchservice/count-documents)
 * [取得索引子狀態](/rest/api/searchservice/get-indexer-status)
 
-若要使用 PowerShell 或 Azure CLI 來啟用，請參閱[這裡](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs)的文件。
+若要使用 PowerShell 或 Azure CLI 來啟用，請參閱[這裡](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)的文件。
 
 ## <a name="next-steps"></a>後續步驟
 

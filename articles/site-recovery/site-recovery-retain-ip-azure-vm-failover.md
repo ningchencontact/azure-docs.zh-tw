@@ -6,12 +6,12 @@ ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 618d60417aa6b582eaef94bf75dcf16c74750f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b7772bad5bb1c5b43a4bcc8d727a22c82547043
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61277186"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479953"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>在容錯轉移期間保留 IP 位址
 
@@ -43,7 +43,7 @@ ms.locfileid: "61277186"
         - 東亞有一個 VNet (**來源 VNet**)，位址空間為 10.1.0.0/16。
         - 東亞的工作負載分為 VNet 中的三個子網路：
             - **子網路 1**：10.1.1.0/24
-            - **子網路 2**：10.1.2.0/24，
+            - **子網路 2**：10.1.2.0/24
             - **子網路 3**：10.1.3.0/24
     - 次要 (目標) 區域是 Azure 東南亞
         - 東南亞有一個復原 VNet (**復原 VNet**) 與**來源 VNet** 相同。
@@ -60,7 +60,7 @@ ms.locfileid: "61277186"
 
 如果發生來源區域性中斷，則公司 A 可以將其所有資源容錯移轉至目標區域。
 
-- 如果在容錯移轉之前已有目標 IP 位址，則公司 A 可以協調容錯移轉，並在**復原 VNet** 和 **Azure VNet** 之間進行容錯移轉之後自動建立連線。 下圖提供相關說明..
+- 如果在容錯移轉之前已有目標 IP 位址，則公司 A 可以協調容錯移轉，並在**復原 VNet** 和 **Azure VNet** 之間進行容錯移轉之後自動建立連線。 下圖提供相關說明.
 - 根據應用程式需求，可在容錯移轉之前、期間 (作為中繼步驟) 或之後於目標區域上建立兩個 VNet 之間 (**復原 VNet** 和 **Azure VNet**) 的連線。
   - 公司可以使用[復原計劃](site-recovery-create-recovery-plans.md)來指定何時建立連線。
   - 他們可以使用 VNet 對等互連或站對站 VPN 在 VNet 之間進行連線。
@@ -131,11 +131,11 @@ ms.locfileid: "61277186"
 - 東亞有一個 VNet (**來源 VNet**)，位址空間為 10.1.0.0/16。
   - 東亞的工作負載分為**來源 VNet** 中的三個子網路：
     - **子網路 1**：10.1.1.0/24
-    - **子網路 2**：10.1.2.0/24，
-    - **子網路 3**：10.1.3.0/24 使用位址空間為 10.1.0.0/16 的 Azure 虛擬網路。 此虛擬網路稱為**來源 VNet**
+    - **子網路 2**：10.1.2.0/24
+    - **子網路 3**：10.1.3.0/24，利用具有位址空間 10.1.0.0/16 的 Azure 虛擬網路。 此虛擬網路稱為**來源 VNet**
       - 次要 (目標) 區域是 Azure 東南亞：
   - 東南亞有一個復原 VNet (**復原 VNet**) 與**來源 VNet** 相同。
-- 位於東亞的 VM 會透過 Azure ExpressRoute 或站對站 VPN 連線到內部部署資料中心。
+- 在東亞的 Vm 會連線至內部部署資料中心與 Azure ExpressRoute 或站對站 VPN。
 - 為了降低 RTO，公司 B 在容錯移轉之前於 Azure 東南亞的復原 VNet 上佈建閘道。
 - 公司 B 會針對已複寫的 VM 指派/驗證目標 IP 位址。 每個 VM 的目標 IP 皆等同於來源 IP 位址。
 

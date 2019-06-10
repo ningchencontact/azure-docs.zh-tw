@@ -1,29 +1,25 @@
 ---
-title: 透過 HTTP 端點呼叫、觸發或巢狀處理工作流程 - Azure Logic Apps | Microsoft Docs
+title: 呼叫、 觸發或巢狀處理具有 HTTP 端點-Azure Logic Apps 工作流程
 description: 設定 HTTP 端點來呼叫、觸發或巢狀處理 Azure Logic Apps 的工作流程
 services: logic-apps
-keywords: 工作流程, HTTP 端點
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: integration
+author: ecfan
+ms.author: klam; LADocs
+ms.reviewer: jehollan, klam, LADocs
+manager: carmonm
+ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
+ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: klam; LADocs
-ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b091fb8c6f0b2b655ce0595188c362206f79d702
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304052"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495047"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程
+# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>呼叫、 觸發程序或透過 Azure Logic Apps 中的 HTTP 端點的巢狀工作流程
 
 您可以在邏輯應用程式中利用原生方式公開同步的 HTTP 端點作為觸發程序，以透過 URL 來觸發或呼叫邏輯應用程式。 您也可以使用可呼叫端點的模式，以在邏輯應用程式中巢狀處理工作流程。
 
@@ -36,7 +32,7 @@ ms.locfileid: "60304052"
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > 雖然這些範例使用 [要求] 觸發程序，但是您可以使用任何列出的 HTTP 觸發程序，而且所有的原則都會同樣地套用到其他觸發程序類型。
+   > 雖然這些範例使用 [要求]  觸發程序，但是您可以使用任何列出的 HTTP 觸發程序，而且所有的原則都會同樣地套用到其他觸發程序類型。
 
 ## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>設定邏輯應用程式的 HTTP 端點
 
@@ -46,7 +42,7 @@ ms.locfileid: "60304052"
 
 2. 新增可讓邏輯應用程式接收傳入要求的觸發程序。 例如，將**要求**觸發程序新增至邏輯應用程式。
 
-3.  在 [要求本文 JSON 結構描述] 下方，您可以選擇針對預期要觸發程序收到的承載 (資料) 輸入 JSON 結構描述。
+3.  在 [要求本文 JSON 結構描述]  下方，您可以選擇針對預期要觸發程序收到的承載 (資料) 輸入 JSON 結構描述。
 
     設計工具會使用此結構描述來產生權杖，而邏輯應用程式可以使用權杖以透過工作流程從觸發程序中取用、剖析和傳遞資料。 
     深入了解[從 JSON 結構描述產生的權杖](#generated-tokens)。
@@ -71,8 +67,8 @@ ms.locfileid: "60304052"
 
     > [!TIP]
     > 
-    > 您可以從 [jsonschema.net](https://jsonschema.net/) 這類工具產生範例 JSON 承載的結構描述，或在 [要求] 觸發程序中選擇 [請使用範例承載產生結構描述] 來產生範例 JSON 承載的結構描述。 
-    > 輸入您的範例承載，然後選擇 [完成]。
+    > 您可以從 [jsonschema.net](https://jsonschema.net/) 這類工具產生範例 JSON 承載的結構描述，或在 [要求]  觸發程序中選擇 [請使用範例承載產生結構描述]  來產生範例 JSON 承載的結構描述。 
+    > 輸入您的範例承載，然後選擇 [完成]  。
 
     例如，此範例裝載︰
 
@@ -95,12 +91,12 @@ ms.locfileid: "60304052"
     }
     ```
 
-4.  儲存您的邏輯應用程式。 在 [此 URL 的 HTTP POST] 下方，您現在應該會找到產生的回呼 URL，如下列範例所示：
+4.  儲存您的邏輯應用程式。 在 [此 URL 的 HTTP POST]  下方，您現在應該會找到產生的回呼 URL，如下列範例所示：
 
     ![為端點產生的回呼 URL](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
     此 URL 的查詢參數中包含用於驗證的共用存取簽章 (SAS) 金鑰。 
-    您也可以從 Azure 入口網站的邏輯應用程式概觀中取得 HTTP 端點 URL。 在 [觸發程序記錄] 下方，選取觸發程序：
+    您也可以從 Azure 入口網站的邏輯應用程式概觀中取得 HTTP 端點 URL。 在 [觸發程序記錄]  下方，選取觸發程序：
 
     ![從 Azure 入口網站取得 HTTP 端點 URL][2]
 
@@ -112,14 +108,14 @@ ms.locfileid: "60304052"
 
 ## <a name="change-the-http-method-for-your-trigger"></a>變更觸發程序的 HTTP 方法
 
-根據預設，[要求] 觸發程序會預期 HTTP POST 要求，但您可以使用不同的 HTTP 方法。 
+根據預設，[要求]  觸發程序會預期 HTTP POST 要求，但您可以使用不同的 HTTP 方法。 
 
 > [!NOTE]
 > 您只能指定一種方法類型。
 
-1. 在 [要求] 觸發程序上，選擇 [顯示進階選項]。
+1. 在 [要求]  觸發程序上，選擇 [顯示進階選項]  。
 
-2. 開啟 [方法] 清單。 在此範例中，選取 **GET**，稍後測試 HTTP 端點的 URL。
+2. 開啟 [方法]  清單。 在此範例中，選取 **GET**，稍後測試 HTTP 端點的 URL。
 
     > [!NOTE]
     > 您可以選取任何其他 HTTP 方法，或指定專屬邏輯應用程式的自訂方法。
@@ -130,27 +126,27 @@ ms.locfileid: "60304052"
 
 當您想要 HTTP 端點 URL 接受參數時，請自訂觸發程序的相對路徑。
 
-1. 在 [要求] 觸發程序上，選擇 [顯示進階選項]。 
+1. 在 [要求]  觸發程序上，選擇 [顯示進階選項]  。 
 
-2. 在 [方法] 下方，指定您想要要求使用的 HTTP 方法。 在此範例中，選取 **GET** 方法 (如果還沒有這麼做的話)，以測試 HTTP 端點的 URL。
+2. 在 [方法]  下方，指定您想要要求使用的 HTTP 方法。 在此範例中，選取 **GET** 方法 (如果還沒有這麼做的話)，以測試 HTTP 端點的 URL。
 
       > [!NOTE]
       > 當您指定觸發程序的相對路徑時，也必須明確地指定觸發程序的 HTTP 方法。
 
-3. 在 [相對路徑] 下方，指定您 URL 應該接受之參數的相對路徑，例如，`customers/{customerID}`。
+3. 在 [相對路徑]  下方，指定您 URL 應該接受之參數的相對路徑，例如，`customers/{customerID}`。
 
     ![指定參數的 HTTP 方法和相對路徑](./media/logic-apps-http-endpoint/relativeurl.png)
 
-4. 若要使用參數，請將 [回應] 動作新增至邏輯應用程式 (在觸發程序下方，選擇 [新增步驟] > [新增動作] > [回應])。 
+4. 若要使用參數，請將 [回應]  動作新增至邏輯應用程式 (在觸發程序下方，選擇 [新增步驟]   > [新增動作]   > [回應]  )。 
 
-5. 在您回應的 [本文] 中，包括觸發程序相對路徑中所指定參數的權杖。
+5. 在您回應的 [本文]  中，包括觸發程序相對路徑中所指定參數的權杖。
 
-    例如，若要傳回 `Hello {customerID}`，請使用 `Hello {customerID token}` 來更新回應的 [本文]。 
+    例如，若要傳回 `Hello {customerID}`，請使用 `Hello {customerID token}` 來更新回應的 [本文]  。 
     動態內容清單應該會出現，並顯示 `customerID` 權杖以供您選取。
 
     ![將參數新增至回應本文](./media/logic-apps-http-endpoint/relativeurlresponse.png)
 
-    您的 [本文] 應該如下列範例所示：
+    您的 [本文]  應該如下列範例所示：
 
     ![含參數的回應本文](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
@@ -170,7 +166,7 @@ ms.locfileid: "60304052"
 
 ### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>從 JSON 結構描述產生邏輯應用程式的權杖
 
-在 [要求] 觸發程序中提供 JSON 結構描述時，邏輯應用程式設計工具會產生該結構描述中屬性的權杖。 您接著可以使用這些權杖，透過邏輯應用程式工作流程來傳遞資料。
+在 [要求]  觸發程序中提供 JSON 結構描述時，邏輯應用程式設計工具會產生該結構描述中屬性的權杖。 您接著可以使用這些權杖，透過邏輯應用程式工作流程來傳遞資料。
 
 在此範例中，如果您將 `title` 和 `name` 屬性新增至 JSON 結構描述，則現在可以將其權杖用於稍後的工作流程步驟。 
 
@@ -200,7 +196,7 @@ ms.locfileid: "60304052"
 
 ## <a name="create-nested-workflows-for-logic-apps"></a>建立邏輯應用程式的巢狀工作流程
 
-您可以新增其他可接收要求的邏輯應用程式，以在邏輯應用程式中巢狀處理工作流程。 若要包括這些邏輯應用程式，請將 [Azure Logic Apps - 選擇 Logic Apps 工作流程] 動作新增至觸發程序。 您接著可以從合格的邏輯應用程式中進行選取。
+您可以新增其他可接收要求的邏輯應用程式，以在邏輯應用程式中巢狀處理工作流程。 若要包括這些邏輯應用程式，請將 [Azure Logic Apps - 選擇 Logic Apps 工作流程]  動作新增至觸發程序。 您接著可以從合格的邏輯應用程式中進行選取。
 
 ![新增另一個邏輯應用程式](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
@@ -209,7 +205,7 @@ ms.locfileid: "60304052"
 建立 HTTP 端點之後，您可以透過完整 URL 的 `POST` 方法來觸發邏輯應用程式。 邏輯應用程式具有直接存取端點的內建支援。
 
 > [!NOTE] 
-> 若要隨時手動執行邏輯應用程式，請在邏輯應用程式設計工具或邏輯應用程式程式碼檢視工具列上選擇 [執行]。
+> 若要隨時手動執行邏輯應用程式，請在邏輯應用程式設計工具或邏輯應用程式程式碼檢視工具列上選擇 [執行]  。
 
 ## <a name="reference-content-from-an-incoming-request"></a>參考來自傳入要求的內容
 
@@ -232,14 +228,14 @@ ms.locfileid: "60304052"
 
 ## <a name="respond-to-requests"></a>回應要求
 
-您可能想要將內容傳回給呼叫端，以回應可啟動邏輯應用程式的特定要求。 若要建構回應的狀態碼、標頭和本文，您可以使用 [回應] 動作。 這個動作可以出現在邏輯應用程式的任何位置，而不只是工作流程的結尾。
+您可能想要將內容傳回給呼叫端，以回應可啟動邏輯應用程式的特定要求。 若要建構回應的狀態碼、標頭和本文，您可以使用 [回應]  動作。 這個動作可以出現在邏輯應用程式的任何位置，而不只是工作流程的結尾。
 
 > [!NOTE] 
-> 如果邏輯應用程式未包括 [回應]，則 HTTP 端點會「立即」回應 [202 已接受] 狀態。 而且，為了讓原始要求取得回應，除非您呼叫工作流程作為巢狀邏輯應用程式，否則回應所需的所有步驟都必須在[要求逾時限制](./logic-apps-limits-and-config.md)內完成。 如果未在此限制內產生任何回應，傳入要求就會逾時，並收到 HTTP 回應 [408 用戶端逾時]。 針對巢狀邏輯應用程式，無論需要多少時間，父邏輯應用程式都會繼續等候回應，直到完成為止。
+> 如果邏輯應用程式未包括 [回應]  ，則 HTTP 端點會「立即」  回應 [202 已接受]  狀態。 而且，為了讓原始要求取得回應，除非您呼叫工作流程作為巢狀邏輯應用程式，否則回應所需的所有步驟都必須在[要求逾時限制](./logic-apps-limits-and-config.md)內完成。 如果未在此限制內產生任何回應，傳入要求就會逾時，並收到 HTTP 回應 [408 用戶端逾時]  。 針對巢狀邏輯應用程式，無論需要多少時間，父邏輯應用程式都會繼續等候回應，直到完成為止。
 
 ### <a name="construct-the-response"></a>建構回應
 
-您可以在回應本文中包括數個標頭和任何類型的內容。 在範例回應中，標頭指定回應的內容類型為 `application/json`。 而根據先前針對 [要求] 觸發程序所更新的 JSON 結構描述，本文會包含 `title` 和 `name`。
+您可以在回應本文中包括數個標頭和任何類型的內容。 在範例回應中，標頭指定回應的內容類型為 `application/json`。 而根據先前針對 [要求]  觸發程序所更新的 JSON 結構描述，本文會包含 `title` 和 `name`。
 
 ![HTTP 回應動作][3]
 
@@ -251,7 +247,7 @@ ms.locfileid: "60304052"
 | headers |定義要包含於回應中的標頭，且數目不限。 |
 | body |指定本文物件可以是字串、JSON 物件，甚至是上一個步驟中所參考的二進位內容。 |
 
-以下是 [回應] 動作之 JSON 結構描述目前的外觀：
+以下是 [回應]  動作之 JSON 結構描述目前的外觀：
 
 ``` json
 "Response": {
@@ -271,7 +267,7 @@ ms.locfileid: "60304052"
 ```
 
 > [!TIP]
-> 若要檢視邏輯應用程式的完整 JSON 定義，請在邏輯應用程式設計工具上選擇 [程式碼檢視]。
+> 若要檢視邏輯應用程式的完整 JSON 定義，請在邏輯應用程式設計工具上選擇 [程式碼檢視]  。
 
 ## <a name="q--a"></a>問答集
 
@@ -300,13 +296,13 @@ ms.locfileid: "60304052"
 
 | 2014 年 12 月 1 日預覽版 | 2016 年 6 月 1 日 |
 | --- | --- |
-| 按一下 [HTTP 接聽程式] API 應用程式 |按一下 [手動觸發程序] \(不需要 API 應用程式) |
-| HTTP 接聽程式設定 [自動傳送回應] |包括 [回應] 動作，或不在工作流程定義中 |
+| 按一下 [HTTP 接聽程式]  API 應用程式 |按一下 [手動觸發程序]  \(不需要 API 應用程式) |
+| HTTP 接聽程式設定 [自動傳送回應]  |包括 [回應]  動作，或不在工作流程定義中 |
 | 設定基本或 OAuth 驗證 |透過 API 管理 |
-| 設定 HTTP 方法 |在 [顯示進階選項] 下方，選擇 HTTP 方法。 |
-| 設定相對路徑 |在 [顯示進階選項] 下方，新增相對路徑。 |
+| 設定 HTTP 方法 |在 [顯示進階選項]  下方，選擇 HTTP 方法。 |
+| 設定相對路徑 |在 [顯示進階選項]  下方，新增相對路徑。 |
 | 透過 `@triggerOutputs().body.Content` 參考傳入本文 |透過 `@triggerOutputs().body` 參考 |
-| **傳送 HTTP 回應** 動作 |按一下 [回應 HTTP 要求] \(不需要 API 應用程式) |
+| **傳送 HTTP 回應** 動作 |按一下 [回應 HTTP 要求]  \(不需要 API 應用程式) |
 
 ## <a name="get-help"></a>取得說明
 

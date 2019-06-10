@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C 中的語言自訂 | Microsoft Docs
 description: 深入瞭解自訂語言體驗。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3c319349d721a390562faac0fc6f90a7b471db0f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 48633b195df997f0e9a8f06bd4f5c553ca620e98
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703427"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509401"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的語言自訂
 
@@ -27,7 +27,7 @@ Azure Active Directory B2C (Azure AD B2C) 中的語言自訂可讓您的使用�
 您可能不需要對客戶會看見哪種語言擁有這種程度的控制力。 如果您沒有提供 `ui_locales` 參數，則客戶的使用體驗會由其瀏覽器的設定來決定。  您仍可將各種語言新增為支援的語言，以控制要將使用者流程翻譯為何種語言。 如果客戶瀏覽器所設定要顯示的語言不是您想要支援的語言，則系統會改為顯示您選取作為支援的文化特性預設值語言。
 
 - **ui_locales 所指定的語言**：在啟用語言自訂後，您的使用者流程會翻譯為此處指定的語言。
-- **瀏覽器所要求的語言**：如果未指定 `ui_locales`，則使用者流程會翻譯為瀏覽器所要求的語言 (如果有支援該語言)。
+- **瀏覽器所要求的語言**：如果未指定 `ui_locales`，則使用者流程會翻譯為瀏覽器所要求的語言 (如果有支援該語言  )。
 - **原則的預設語言**：如果瀏覽器未指定語言，或指定不支援的語言，使用者流程就會翻譯為使用者流程預設語言。
 
 >[!NOTE]
@@ -38,17 +38,17 @@ Azure Active Directory B2C (Azure AD B2C) 中的語言自訂可讓您的使用�
 在語言自訂公開發行前所建立的原則必須先啟用此功能。 之後所建立的原則和使用者流程預設會啟用語言自訂。 
 
 當您對使用者流程啟用語言自訂時，您可藉由新增 `ui_locales` 參數來控制使用者流程的語言。
-1. 在 Azure AD B2C 租用戶中，選取 [使用者流程]。
+1. 在 Azure AD B2C 租用戶中，選取 [使用者流程]  。
 2. 按一下您想要啟用翻譯的使用者流程。
-3. 選取 [語言]。  
-4. 選取 [啟用語言自訂]。
+3. 選取 [語言]  。  
+4. 選取 [啟用語言自訂]  。
 
 ## <a name="select-which-languages-in-your-user-flow-are-enabled"></a>選取您的使用者流程中啟用的語言 
 啟用一組使用者流程的語言，以在瀏覽器要求但未使用 `ui_locales` 參數時，翻譯成該語言。
 1. 透過前面的指示來確定您的使用者流程已啟用語言自訂。
-2. 在使用者流程的 [語言] 頁面上，選取您想要支援的語言。
-3. 在 [屬性] 窗格中，將 [已啟用] 變更為 [是]。  
-4. 選取 [屬性] 窗格頂端的 [儲存]。
+2. 在使用者流程的 [語言]  頁面上，選取您想要支援的語言。
+3. 在 [屬性] 窗格中，將 [已啟用]  變更為 [是]  。  
+4. 選取 [屬性] 窗格頂端的 [儲存]  。
 
 >[!NOTE]
 >如果您未提供 `ui_locales` 參數，則頁面會翻譯為客戶的瀏覽器語言 (但前提是已啟用該語言)。
@@ -57,9 +57,9 @@ Azure Active Directory B2C (Azure AD B2C) 中的語言自訂可讓您的使用�
 ## <a name="customize-your-strings"></a>自訂您的字串
 語言自訂可讓您自訂使用者流程中的任何字串。
 1. 透過前面的指示來確定您的使用者流程已啟用語言自訂。
-2. 在使用者流程的 [語言] 頁面上，選取您想要自訂的語言。
-3. 在 [Page-level-resources 檔案] 之下，選取您想要編輯的頁面。
-4. 選取 [下載預設值] (如果您先前已編輯這個語言，請按一下 [下載覆寫])。
+2. 在使用者流程的 [語言]  頁面上，選取您想要自訂的語言。
+3. 在 [Page-level-resources 檔案]  之下，選取您想要編輯的頁面。
+4. 選取 [下載預設值]  (如果您先前已編輯這個語言，請按一下 [下載覆寫]  )。
 
 上述步驟會向您提供 JSON 檔案，以供您用來開始編輯字串。
 
@@ -125,8 +125,8 @@ Azure Active Directory B2C (Azure AD B2C) 中的語言自訂可讓您的使用�
 
 ### <a name="upload-your-changes"></a>上傳您的變更
 1. 對 JSON 檔案完成變更後，請瀏覽回到 B2C 租用戶。
-2. 選取 [使用者流程]，然後按一下您想要啟用翻譯的使用者流程。
-3. 選取 [語言]。
+2. 選取 [使用者流程]  ，然後按一下您想要啟用翻譯的使用者流程。
+3. 選取 [語言]  。
 4. 選取您想要轉譯成什麼語言。
 5. 選取您想要提供翻譯的頁面。
 6. 選取資料夾圖示，然後選取要上傳的 JSON 檔案。
@@ -151,13 +151,13 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 您也可以新增 Microsoft 目前不提供翻譯的語言。 您必須提供使用者流程中所有字串的翻譯。  僅限 ISO 639-1 標準中的語言和地區設定代碼。 
 
-1. 在 Azure AD B2C 租用戶中，選取 [使用者流程]。
-2. 按一下您想要新增自訂語言的使用者流程，然後按一下 [語言]。
-3. 從頁面頂端選取 [新增自訂語言]。
+1. 在 Azure AD B2C 租用戶中，選取 [使用者流程]  。
+2. 按一下您想要新增自訂語言的使用者流程，然後按一下 [語言]  。
+3. 從頁面頂端選取 [新增自訂語言]  。
 4. 在開啟的內容窗格中，輸入有效的地區設定代碼，以識別您提供哪種語言的翻譯。
 5. 針對每一頁，您可以下載適用於英文的一組覆寫並處理翻譯。
 6. 處理好 JSON 檔案後，您可以為每一頁上傳它們。
-7. 選取 [啟用]，而您的使用者流程現在可以為您的使用者顯示此語言。
+7. 選取 [啟用]  ，而您的使用者流程現在可以為您的使用者顯示此語言。
 8. 儲存語言。
 
 >[!IMPORTANT]
@@ -191,7 +191,7 @@ Chrome 和 Firefox 都會要求使用其設定的語言。 如果該語言受到
 | 芬蘭文               | fi            |
 | 法文                | fr            |
 | 古吉拉特文              | gu            |
-| 北印度文                 | hi            |
+| Hindi                 | hi            |
 | 克羅埃西亞文              | hr            |
 | 匈牙利文             | hu            |
 | 義大利文               | it            |
@@ -199,7 +199,7 @@ Chrome 和 Firefox 都會要求使用其設定的語言。 如果該語言受到
 | 坎那達文               | kn            |
 | 韓文                | ko            |
 | 馬來亞拉姆文             | ml            |
-| 馬拉地文               | mr            |
+| 馬拉提文               | mr            |
 | 馬來文                 | ms            |
 | 挪威文 (巴克摩)      | nb            |
 | 荷蘭文                 | nl            |

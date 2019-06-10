@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 9385ed5127b8cc1aaf84c887b652fd8970883ba6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: b881a645a42d92407aa39d0f4896629f799e6928
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524034"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66426918"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>將建議或自動完成功能新增至您的 Azure 搜尋服務應用程式
 
@@ -46,7 +46,7 @@ Azure 搜尋服務是針對此練習中選擇性的因為解決方案會使用�
 
 * 下載[DotNetHowToAutoComplete 範例](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)。
 
-此範例是全方位、 涵蓋建議、 自動完成、 多面向導覽，和用戶端快取。 您應該檢閱的讀我檔案和如需完整的範例所提供的功能描述的註解。
+此範例是全方位、 涵蓋建議、 自動完成、 多面向導覽，和用戶端快取。 檢閱讀我檔案和完整的範例所提供的功能描述的註解。
 
 ## <a name="run-the-sample"></a>執行範例
 
@@ -70,7 +70,7 @@ JavaScript 選項會直接從瀏覽器呼叫 Azure 搜尋服務 REST API。 此�
 <input class="searchBox" type="text" id="example1a" placeholder="search">
 ```
 
-這是簡單的輸入的文字方塊中的類別樣式、 JavaScript 和預留位置文字所要參考的識別碼。  Magic 位於內嵌的 JavaScript。
+這個範例是簡單的輸入的文字方塊中的類別樣式、 JavaScript 和預留位置文字所要參考的識別碼。  Magic 位於內嵌的 JavaScript。
 
 C#語言的範例使用在 Index.cshtml 中運用 JavaScript [jQuery UI 自動完成程式庫](https://jqueryui.com/autocomplete/)。 此程式庫會新增至搜尋方塊自動完成體驗，藉由對 MVC 控制器的非同步呼叫，以擷取建議。 JavaScript 語言版本處於 IndexJavaScript.cshtml。 它包含下列指令碼搜尋列中，以及 Azure 搜尋服務 REST API 呼叫。
 
@@ -95,7 +95,7 @@ $(function () {
 source: "/home/suggest?highlights=false&fuzzy=false&",
 ```
 
-上述程式碼說明的 jQuery UI 自動完成函式來取得要在搜尋方塊中顯示的項目清單的位置。 由於這是 MVC 專案時，它會呼叫中包含的邏輯傳回查詢建議 （在下一節中的建議相關的更多） 的 HomeController.cs 建議函式。 此函式也會將控制項反白顯示、 模糊比對和詞彙的幾個參數。 自動完成 JavaScript API 會新增字詞參數。
+上述程式碼說明的 jQuery UI 自動完成函式來取得要在搜尋方塊中顯示的項目清單的位置。 因為這個專案的 MVC 專案時，它會呼叫中包含的邏輯傳回查詢建議 （在下一節中的建議相關的更多） 的 HomeController.cs 建議函式。 此函式也會將控制項反白顯示、 模糊比對和詞彙的幾個參數。 自動完成 JavaScript API 會新增字詞參數。
 
 ### <a name="extending-the-sample-to-support-fuzzy-matching"></a>延伸範例以支援模糊比對
 
@@ -162,7 +162,7 @@ $(function () {
 
 開啟**HomeController.cs** [Controllers] 目錄下的檔案。 
 
-您可能會注意到第一件事是一種方法呼叫的類別頂端`InitSearch`。 此方法會建立已對 Azure 搜尋服務進行驗證的 HTTP 索引用戶端。 如需詳細資訊，請參閱 <<c0> [ 如何使用 Azure 搜尋服務.NET 應用程式](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)。
+您可能會注意到第一件事是一種方法呼叫的類別頂端`InitSearch`。 這個方法會建立 Azure 搜尋服務的經驗證的 HTTP 索引用戶端。 如需詳細資訊，請參閱 <<c0> [ 如何使用 Azure 搜尋服務.NET 應用程式](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)。
 
 該行 41 時，請注意建議函式。 它根據[DocumentsOperationsExtensions.Suggest 方法](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet)。
 
@@ -271,7 +271,7 @@ $(function () {
 });
 ```
 
-如果您比較這個範例與上述會呼叫首頁控制器的範例，您會發現幾個相似之處。  `minLength` 和 `position` 的自動完成設定完全相同。 
+如果您比較上述範例中呼叫主控制器，此範例時，您會發現幾個相似之處。  `minLength` 和 `position` 的自動完成設定完全相同。 
 
 這邊的重大變更是來源。 而不是呼叫在首頁控制器的建議方法，REST 要求中的 JavaScript 函式會建立，並且使用 Ajax 來執行。 回應接著會「成功」處理，並作為來源。
 
@@ -302,7 +302,7 @@ var autocompleteUri = "https://" + searchServiceName + ".search.windows.net/inde
 
 1. 在 為 NYCJobs 範例程式碼的 DataLoader 資料夾中，開啟**DataLoader.sln** Visual Studio 中。
 
-1. 新增 Azure 搜尋服務的連接資訊。 開啟 DataLoader 專案中的 App.config，然後變更 TargetSearchServiceName 和 TargetSearchServiceApiKey appSettings 以反映 Azure 搜尋服務和 Azure 搜尋服務 API 金鑰。 這些資料可以在 Azure 入口網站中找到。
+1. 新增 Azure 搜尋服務的連接資訊。 開啟 DataLoader 專案中的 App.config，然後變更 TargetSearchServiceName 和 TargetSearchServiceApiKey appSettings 以反映 Azure 搜尋服務和 Azure 搜尋服務 API 金鑰。 可以在 Azure 入口網站中找到此資訊。
 
 1. 按 F5 以啟動應用程式，建立兩個索引和匯入 NYCJob 範例資料。
 

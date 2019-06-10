@@ -3,19 +3,19 @@ title: 字元計數 - 翻譯工具文字 API
 titlesuffix: Azure Cognitive Services
 description: 翻譯工具文字 API 如何計算字元。
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: c88eb56288d3a7cf46ce84430a53c12a4ee31c7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/04/2019
+ms.author: v-pawal
+ms.openlocfilehash: eccd0c47c1bfc071f43a6329406cd14f704d019e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917408"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514298"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>翻譯工具文字 API 如何計算字元
 
@@ -35,7 +35,7 @@ ms.locfileid: "58917408"
 
 對於以中文和日文漢字等表意文字為基礎的指令碼，翻譯工具文字 API 仍會計算 Unicode 字碼指標的數目，每一個表意文字計為一個字元。 例外狀況：Unicode Surrogate 會算成兩個字元。
 
-要求、字組、位元組或句子的數目與字元計數無關。 
+要求、字組、位元組或句子的數目與字元計數無關。
 
 對 Detect 和 BreakSentence 方法的呼叫不會計入字元使用量中。 不過，我們預期在這些對 Detect 和 BreakSentence 方法的呼叫，與其他被計入使用量之函式的使用之間，會有合理的比例。 如果您發出的 Detect 或 BreakSentence 呼叫數目超過其他計數方法的數目 100 倍，則 Microsoft 會保留限制您使用 Detect 和 BreakSentence 方法的權利。
 

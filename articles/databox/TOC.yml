@@ -36,7 +36,7 @@
           items:
             - name: 閱讀安全性方針
               href: data-box-safety.md
-            - name: 追蹤和記錄
+            - name: 檢閱追蹤和記錄
               href: data-box-logs.md
             - name: 檢閱需求
               items:
@@ -111,7 +111,7 @@
           items:
             - name: 透過 Azure 入口網站管理
               href: data-box-portal-ui-admin.md
-            - name: Data Box Heavy 問題疑難排解
+            - name: 資料箱磁碟問題疑難排解
               href: data-box-disk-troubleshoot.md
             - name: 請連絡支援人員
               href: data-box-disk-contact-microsoft-support.md
@@ -121,6 +121,10 @@
           items:
             - name: 什麼是 Data Box Heavy？
               href: data-box-heavy-overview.md
+        - name: 快速入門
+          items:
+            - name: 設定 - Azure 入口網站
+              href: data-box-heavy-quickstart-portal.md
         - name: 教學課程
           items:
             - name: 1 - 訂購
@@ -135,6 +139,8 @@
               href: data-box-heavy-deploy-picked-up.md
         - name: 概念
           items:
+            - name: 檢閱追蹤和記錄
+              href: data-box-logs.md
             - name: 檢閱需求
               href: data-box-heavy-system-requirements.md
             - name: 了解限制
@@ -143,10 +149,22 @@
           items:
             - name: 透過 Azure 入口網站管理
               href: data-box-portal-admin.md
+            - name: 透過本機 Web UI 管理
+              href: data-box-local-web-ui-admin.md
             - name: 裝置問題疑難排解
               href: data-box-troubleshoot.md
+            - name: 將資料移至 Blob 層
+              href: data-box-how-to-set-data-tier.md
             - name: 請連絡支援人員
               href: data-box-disk-contact-microsoft-support.md
+            - name: 移轉
+              items:
+                - name: 至 SharePoint Online
+                  href: data-box-heavy-migrate-spo.md
+                - name: 至 Azure 檔案同步
+                  href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+                - name: 從 HDFS 存放區
+                  href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
     - name: 資源
       items:
         - name: 資料箱產品

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 77908e24a19a48bf9b84d5d5b664bf0443159118
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 256101cce5588f56a8094a7a9a98e5fe69e6ec73
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128697"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497264"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中啟用並檢閱 Kubernetes 主要節點記錄
 
@@ -26,23 +26,22 @@ ms.locfileid: "62128697"
 
 為了協助從多個來源收集並檢閱資料，Azure 監視器記錄提供能針對您的環境提供見解的查詢語言和分析引擎。 工作區可用來收集並分析資料，並可與其他 Azure 服務 (例如 Application Insights 和資訊安全中心) 整合。 若要使用不同的平台來分析記錄，您可以選擇將診斷記錄傳送至 Azure 儲存體帳戶或事件中樞。 如需詳細資訊，請參閱[何謂 Azure 監視器記錄][log-analytics-overview]。
 
-Azure 監視器記錄的啟用和管理是在 Azure 入口網站中進行。 若要在 AKS 叢集中啟用 Kubernetes 主要元件的記錄收集，請在網頁瀏覽器中開啟 Azure 入口網站並完成下列步驟：
+Azure 監視器記錄檔會啟用，並在 Azure 入口網站中管理。 若要在 AKS 叢集中啟用 Kubernetes 主要元件的記錄收集，請在網頁瀏覽器中開啟 Azure 入口網站並完成下列步驟：
 
 1. 選取適用於您 AKS 叢集的資源群組，例如 *myResourceGroup*。 請勿選取包含個別 AKS 叢集資源的資源群組，例如 *MC_myResourceGroup_myAKSCluster_eastus*。
-1. 選擇左邊的 [診斷設定]。
-1. 選取您的 AKS 叢集 (例如 *myAKSCluster*)，然後選擇 [開啟診斷]。
-1. 輸入名稱 (例如 *myAKSClusterLogs*)，然後選取 [傳送至 Log Analytics 工作區] 選項。
-    * 選擇要 [設定] Log Analytics 工作區，然後選取現有工作區或 [建立新工作區]。
-    * 若您需要建立工作區，請提供名稱、資源群組和位置。
-1. 在可用的記錄清單中，選取想要啟用的記錄。 預設會啟用 kube-apiserver、kube-controller-manager 和 kube-scheduler 記錄。 您可以啟用其他記錄，例如 kube-audit 和 cluster-autoscaler。 您可以在啟用 Log Analytics 工作區之後返回這裡並變更收集的記錄。
-1. 準備好後，請選取 [儲存] 以啟用所選取記錄的收集。
+1. 選擇左邊的 [診斷設定]  。
+1. 選取您的 AKS 叢集，例如*myAKSCluster*，然後選擇**新增診斷設定**。
+1. 輸入名稱 (例如 myAKSClusterLogs  )，然後選取 [傳送至 Log Analytics]  選項。
+1. 選取現有的工作區或建立新的。 如果您建立工作區，提供工作區名稱、 資源群組和位置。
+1. 在可用的記錄清單中，選取想要啟用的記錄。 常見的記錄檔包含*kube apiserver*， *kube 控制器管理員*，並*kubernetes 排程器*。 您可以啟用其他記錄，例如 kube-audit  和 cluster-autoscaler  。 您可以在啟用 Log Analytics 工作區之後返回這裡並變更收集的記錄。
+1. 準備好後，請選取 [儲存]  以啟用所選取記錄的收集。
 
 > [!NOTE]
-> AKS 只會針對在訂用帳戶上啟用功能旗標後所建立或升級的叢集，擷取其稽核記錄。 若要註冊 AKSAuditLog 功能旗標，請使用 [az feature register][az-feature-register] 命令，如下列範例所示：
+> AKS 只會針對在訂用帳戶上啟用功能旗標後所建立或升級的叢集，擷取其稽核記錄。 若要註冊 AKSAuditLog  功能旗標，請使用 [az feature register][az-feature-register] 命令，如下列範例所示：
 >
 > `az feature register --name AKSAuditLog --namespace Microsoft.ContainerService`
 >
-> 等候狀態顯示 Registered。 您可以使用 [az feature list][az-feature-list] 命令檢查註冊狀態：
+> 等候狀態顯示 Registered  。 您可以使用 [az feature list][az-feature-list] 命令檢查註冊狀態：
 >
 > `az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAuditLog')].{Name:name,State:properties.state}"`
 >
@@ -50,7 +49,7 @@ Azure 監視器記錄的啟用和管理是在 Azure 入口網站中進行。 若
 >
 > `az provider register --namespace Microsoft.ContainerService`
 
-下列範例入口網站螢幕擷取畫面顯示 [診斷設定] 視窗，以及建立 Log Analytics 工作區的選項：
+下列範例入口網站的螢幕擷取畫面所示*診斷設定*視窗：
 
 ![針對 AKS 叢集的 Azure 監視器記錄啟用 Log Analytics 工作區](media/view-master-logs/enable-oms-log-analytics.png)
 
@@ -88,11 +87,11 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>檢視收集的記錄
 
-診斷記錄可能需要幾分鐘的時間才會啟用並出現在 Log Analytics 工作區中。 在 Azure 门户中，选择 Log Analytics 工作区的资源组（例如 *myResourceGroup*），然后选择 Log Analytics 资源（例如 *myAKSLogs*）。
+診斷記錄可能需要幾分鐘的時間才會啟用並出現在 Log Analytics 工作區中。 在 Azure 入口網站中，選取您的 Log Analytics 工作區的資源群組這類*myResourceGroup*，然後選擇您的 log analytics 資源，例如*myAKSLogs*。
 
 ![選擇適用於 AKS 叢集的 Log Analytics 工作區](media/view-master-logs/select-log-analytics-workspace.png)
 
-選擇左邊的 [記錄]。 若要檢視 *kube-apiserver*，請在文字方塊中輸入下列查詢：
+選擇左邊的 [記錄]  。 若要檢視 *kube-apiserver*，請在文字方塊中輸入下列查詢：
 
 ```
 AzureDiagnostics
@@ -130,7 +129,7 @@ AzureDiagnostics
 | *properties.log*         | 來自元件之記錄的全文 |
 | *properties.stream*      | *stderr* 或 *stdout* |
 | *properties.pod*         | 作為記錄來源的 Pod 名稱 |
-| *properties.containerID* | 作為此記錄來源之 Docker 容器的識別碼 |
+| *properties.containerID* | 此記錄檔所來自的 docker 容器的識別碼 |
 
 ## <a name="next-steps"></a>後續步驟
 

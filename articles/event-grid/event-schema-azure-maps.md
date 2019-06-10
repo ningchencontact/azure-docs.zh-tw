@@ -104,8 +104,8 @@ Azure 地圖服務帳戶會發出下列事件類型：
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| 主題 | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| 主旨 | string | 發行者定義事件主體的路徑。 |
+| topic | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
+| subject | string | 發行者定義事件主體的路徑。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | id | string | 事件的唯一識別碼。 |
@@ -119,7 +119,7 @@ Azure 地圖服務帳戶會發出下列事件類型：
 | -------- | ---- | ----------- |
 | apiCategory | string | 事件的 API 類別。 |
 | apiName | string | API 的名稱。 |
-| 問題 | 物件 | 列出在處理期間遇到的問題。 如果傳回任何問題，則不會有任何幾何隨回應傳回。 |
+| issues | 物件 | 列出在處理期間遇到的問題。 如果傳回任何問題，則不會有任何幾何隨回應傳回。 |
 | responseCode | number | HTTP 回應碼 |
 | geometries | 物件 | 列出包含該座標位置或在該位置與 searchBuffer 周圍重疊的柵欄幾何。 |
 
@@ -127,14 +127,14 @@ Azure 地圖服務帳戶會發出下列事件類型：
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| 錯誤 | ErrorDetails |在地圖服務 API 中發生錯誤時，會傳回物件  |
+| error | ErrorDetails |在地圖服務 API 中發生錯誤時，會傳回物件  |
 
 在地圖服務 API 中發生錯誤時，會傳回 ErrorDetails 物件。 ErrorDetails 或物件具有下列屬性：
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | code | string | HTTP 狀態碼。 |
-| Message | string | 人類看得懂的錯誤描述 (若可取得)。 |
+| message | string | 人類看得懂的錯誤描述 (若可取得)。 |
 | innererror | InnerError | 包含有關錯誤之服務特定資訊的物件 (若可取得)。 |
 
 InnerError 是物件，其中包含有關錯誤的服務特定資訊。 InnerError 物件具有下列屬性： 

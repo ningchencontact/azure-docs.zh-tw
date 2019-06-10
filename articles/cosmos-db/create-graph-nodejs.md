@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 01/08/2018
+ms.date: 01/08/2019
 ms.author: lbosq
-ms.openlocfilehash: b81cedc9376b33b27f3a742fbe5d7410535fa727
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 923d39a87340ffd26b6cc34d412edfbb97c13bbf
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587798"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480499"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>快速入門：使用 Azure Cosmos DB Gremlin API 帳戶建置 Node.js 應用程式
 
@@ -138,17 +138,17 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 1. 更新 config.js 檔案。 
 
-2. 在 config.js 中，替 `config.endpoint` 金鑰填入 Azure 入口網站的 [概觀] 頁面中的 [Gremlin URI] 值。 
+2. 在 config.js 中，替 `config.endpoint` 金鑰填入 Azure 入口網站的 [概觀]  頁面中的 [Gremlin URI]  值。 
 
     `config.endpoint = "GRAPHENDPOINT";`
 
     ![在 Azure 入口網站的 [金鑰] 刀鋒視窗中檢視並複製存取金鑰](./media/create-graph-nodejs/gremlin-uri.png)
 
-   如果 **Gremlin URI** 值是空的，您可以從入口網站的 [索引鍵]頁面產生值。 使用 **URI** 值、移除 https://，然後將文件變更為 gremlin.cosmosdb。 如果您的圖形帳戶是在 2017 年 12 月 20 日之前建立的，請將文件變更為圖形。 
+   如果 **Gremlin URI** 值是空的，您可以從入口網站的 [索引鍵]  頁面產生值。 使用 **URI** 值、移除 https://，然後將文件變更為 gremlin.cosmosdb。 如果您的圖形帳戶是在 2017 年 12 月 20 日之前建立的，請將文件變更為圖形。 
 
    Gremlin 端點必須是沒有通訊協定/連接埠號碼的主機名稱，像是 `mygraphdb.gremlin.cosmosdb.azure.com` (而不是 `https://mygraphdb.gremlin.cosmosdb.azure.com` 或 `mygraphdb.gremlin.cosmosdb.azure.com:433`)。
 
-3. 在 config.js 中，使用 Azure 入口網站 [索引鍵] 頁面中的 [主索引鍵] 值填入 config.primaryKey 值。 
+3. 在 config.js 中，使用 Azure 入口網站 [索引鍵]  頁面中的 [主索引鍵]  值填入 config.primaryKey 值。 
 
     `config.primaryKey = "PRIMARYKEY";`
 
@@ -182,9 +182,9 @@ module.exports = config;
 
 您現在可以回到 Azure 入口網站中的 [資料總管]，檢視、查詢、修改並使用新的圖形資料。
 
-在 [資料總管] 中，新的資料庫會出現在 [圖形] 窗格中。 展開資料庫，後面接著該容器，然後選取 [圖形]。
+在 [資料總管] 中，新的資料庫會出現在 [圖形]  窗格中。 展開資料庫，後面接著該容器，然後選取 [圖形]  。
 
-當您選取 [套用篩選條件] 時，範例應用程式所產生的資料會顯示在 [圖形] 索引標籤內的下一個窗格中。
+當您選取 [套用篩選條件]  時，範例應用程式所產生的資料會顯示在 [圖形]  索引標籤內的下一個窗格中。
 
 試著使用 `.has('firstName', 'Thomas')` 完成 `g.V()` 以測試篩選條件。 請注意此值會區分大小寫。
 

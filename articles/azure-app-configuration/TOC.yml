@@ -47,6 +47,8 @@
       href: concept-point-time-snapshot.md
     - name: 功能管理
       href: concept-feature-management.md
+    - name: 事件處理
+      href: concept-app-configuration-event.md
     - name: 高可用性
       items:
         - name: 復原和災害復原
@@ -57,6 +59,8 @@
       href: howto-integrate-azure-managed-service-identity.md
     - name: 匯入或匯出設定資料
       href: howto-import-export-data.md
+    - name: 將事件路由至自訂端點
+      href: howto-app-configuration-event.md
     - name: 最佳作法
       href: howto-best-practices.md
 - name: 參考

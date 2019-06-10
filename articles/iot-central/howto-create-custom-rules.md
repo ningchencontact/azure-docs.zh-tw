@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 6140a8aea3fe0fe0a8f1c01cd1c97404c41f7a69
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5248b9546ffe931b72123778d0d23574e5238405
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805977"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742420"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>使用自訂規則傳送通知，來擴充 Azure IoT Central
 
@@ -40,8 +40,8 @@ ms.locfileid: "65805977"
 
 | 設定 | Value |
 | ------- | ----- |
-| 付款計劃 | 預付型方案 |
-| 應用程式範本 | 範例 Contoso |
+| 付款計劃 | Pay-As-You-Go |
+| 應用程式範本 | Contoso 範例 |
 | 應用程式名稱 | 接受預設值，或選擇您自己的名稱 |
 | URL | 接受預設值，或選擇您自己唯一的 URL 前置詞 |
 | 目錄 | Azure Active Directory 租用戶 |
@@ -54,31 +54,31 @@ ms.locfileid: "65805977"
 
 使用[Azure 入口網站來建立資源群組](https://portal.azure.com/#create/Microsoft.ResourceGroup)稱為**DetectStoppedDevices**以包含您所建立的其他資源。 在您的 IoT Central 應用程式的相同位置中建立您的 Azure 資源。
 
-### <a name="event-hubs-namespace"></a>Event Hubs 命名空間
+### <a name="event-hubs-namespace"></a>事件中樞命名空間
 
 使用[Azure 入口網站來建立事件中樞命名空間](https://portal.azure.com/#create/Microsoft.EventHub)使用下列設定：
 
 | 設定 | 值 |
 | ------- | ----- |
-| 名稱    | 選擇您的命名空間名稱 |
+| Name    | 選擇您的命名空間名稱 |
 | 定價層 | 基本 |
 | 訂用帳戶 | 您的訂用帳戶 |
 | 資源群組 | DetectStoppedDevices |
 | 位置 | 美國東部 |
 | 輸送量單位 | 1 |
 
-### <a name="stream-analytics-job"></a>串流分析工作
+### <a name="stream-analytics-job"></a>Stream Analytics 作業
 
 使用[Azure 入口網站來建立 Stream Analytics 作業](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob)使用下列設定：
 
 | 設定 | 值 |
 | ------- | ----- |
-| 名稱    | 選擇您的作業名稱 |
+| Name    | 選擇您的作業名稱 |
 | 訂用帳戶 | 您的訂用帳戶 |
 | 資源群組 | DetectStoppedDevices |
 | 位置 | 美國東部 |
-| 主控環境 | 雲端 |
-| 資料流單位 | 3 |
+| 裝載環境 | 雲端 |
+| 串流單位 | 3 |
 
 ### <a name="function-app"></a>函式應用程式
 
@@ -89,8 +89,8 @@ ms.locfileid: "65805977"
 | 應用程式名稱    | 選擇您的函式應用程式名稱 |
 | 訂用帳戶 | 您的訂用帳戶 |
 | 資源群組 | DetectStoppedDevices |
-| 作業系統 |  Windows |
-| 主控方案 | 使用情況方案 |
+| 作業系統 | Windows |
+| 主控方案 | 取用方案 |
 | 位置 | 美國東部 |
 | 執行階段堆疊 | .NET |
 | 儲存體 | 新建 |
@@ -101,12 +101,12 @@ ms.locfileid: "65805977"
 
 | 設定 | 值 |
 | ------- | ----- |
-| 名稱    | 選擇您的 SendGrid 帳戶名稱 |
+| Name    | 選擇您的 SendGrid 帳戶名稱 |
 | 密碼 | 建立密碼 |
 | 訂用帳戶 | 您的訂用帳戶 |
 | 資源群組 | DetectStoppedDevices |
 | 定價層 | F1 免費 |
-| 連絡資訊 | 填寫必要資訊 |
+| 連絡人資訊 | 填寫必要資訊 |
 
 當您已建立所有必要的資源，您**DetectStoppedDevices**資源群組看起來像下列螢幕擷取畫面：
 
@@ -121,7 +121,7 @@ ms.locfileid: "65805977"
 
 您的事件中樞命名空間看起來像下列螢幕擷取畫面：
 
-![Event Hubs 命名空間](media/howto-create-custom-rules/event-hubs-namespace.png)
+![事件中樞命名空間](media/howto-create-custom-rules/event-hubs-namespace.png)
 
 ## <a name="get-sendgrid-api-key"></a>取得 SendGrid API 金鑰
 
@@ -152,10 +152,10 @@ ms.locfileid: "65805977"
 
 若要傳送使用 SendGrid 電子郵件，您需要設定您的函式繫結，如下所示：
 
-1. 選取 **整合**，選擇 輸出**HTTP ($return)**，然後選取**刪除**。
+1. 選取 **整合**，選擇 輸出**HTTP ($return)** ，然後選取**刪除**。
 1. 選擇 **+ 新輸出**，然後選擇**SendGrid**，然後選擇**選取**。 選擇**安裝**安裝 SendGrid 延伸模組。
 1. 安裝完成時，選取**使用函式傳回值**。 新增有效**位址**接收電子郵件通知。  新增有效**地址**來做為電子郵件寄件者。
-1. 選取 **新**旁**SendGrid API 金鑰應用程式設定**。 請輸入**SendGridAPIKey**做為金鑰，以及您先前記下做為值的 SendGrid API 金鑰。 然後選取 [建立]。
+1. 選取 **新**旁**SendGrid API 金鑰應用程式設定**。 請輸入**SendGridAPIKey**做為金鑰，以及您先前記下做為值的 SendGrid API 金鑰。 然後選取 [建立]  。
 1. 選擇**儲存**以儲存您的函式的 SendGrid 繫結。
 
 整合設定看起來像下列螢幕擷取畫面：
@@ -313,10 +313,10 @@ test-device-3   2019-05-02T14:24:28.919Z
     | 設定 | Value |
     | ------- | ----- |
     | 顯示名稱 | 匯出至事件中樞 |
-    | Enabled | 開啟 |
-    | Event Hubs 命名空間 | 事件中樞命名空間名稱 |
+    | Enabled | 另一 |
+    | 事件中樞命名空間 | 事件中樞命名空間名稱 |
     | 事件中樞 | centralexport |
-    | 度量 | 開啟 |
+    | 度量 | 另一 |
     | 裝置 | 關閉 |
     | 裝置範本 | 關閉 |
 
@@ -353,4 +353,4 @@ test-device-3   2019-05-02T14:24:28.919Z
 * 建立裝置停止傳送資料時偵測到的 Stream Analytics 查詢。
 * 傳送電子郵件通知使用 Azure Functions 和 SendGrid 服務。
 
-既然您已經知道如何建立自訂規則和通知時，建議的下一個步驟是了解如何[視覺化及分析您在 Power BI 儀表板中的 Azure IoT Central 資料](howto-connect-powerbi.md)。
+既然您已經知道如何建立自訂規則和通知時，建議的下一個步驟是了解如何[擴充 Azure IoT Central 自訂的分析與](howto-create-custom-analytics.md)。

@@ -11,18 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 69399513291a47f7109003e825052314f447125a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 01c1711fb70d31fe84c7e20272de0eb7ce82c879
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002334"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494227"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>使用媒體服務 REST API 建立篩選器
 
-當提供您的內容給客戶 (串流即時活動或點播視訊) 時，您的用戶端可能需要比預測資產資訊清單檔案中所述還大的彈性。 Azure 媒體服務可讓您為您的內容定義帳戶篩選器與資產篩選器。 如需詳細資訊，請參閱 <<c0> [ 篩選條件](filters-concept.md)並[動態資訊清單](filters-dynamic-manifest-overview.md)。
+當提供您的內容給客戶 (串流即時活動或點播視訊) 時，您的用戶端可能需要比預測資產資訊清單檔案中所述還大的彈性。 Azure 媒體服務可讓您為您的內容定義帳戶篩選器與資產篩選器。 
+
+如需詳細的這個功能和使用的案例的詳細說明，請參閱[動態資訊清單](filters-dynamic-manifest-overview.md)並[篩選](filters-concept.md)。
 
 此主題說明如何為點播視訊資產建立篩選器，以及如何使用 REST API 來建立[帳戶篩選器](https://docs.microsoft.com/rest/api/media/accountfilters) \(英文\) 與[資產篩選器](https://docs.microsoft.com/rest/api/media/assetfilters) \(英文\)。 
 
@@ -81,7 +83,7 @@ ms.locfileid: "66002334"
 
 ## <a name="create-account-filters"></a>建立帳戶篩選器
 
-在您下載的 Postman 集合中，選取 [帳戶篩選器]->[建立或更新帳戶篩選器]。
+在您下載的 Postman 集合中，選取 [帳戶篩選器]  ->[建立或更新帳戶篩選器]  。
 
 **PUT** HTTP 要求方法類似：
 
@@ -89,9 +91,9 @@ ms.locfileid: "66002334"
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/accountFilters/{filterName}?api-version=2018-07-01
 ```
 
-選取 [本文] 索引標籤，並貼上您[稍早定義的 json 程式碼](#define-a-filter)。
+選取 [本文]  索引標籤，並貼上您[稍早定義的 json 程式碼](#define-a-filter)。
 
-選取 [傳送]。 
+選取 [傳送]  。 
 
 篩選器已建立。
 
@@ -99,7 +101,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-asset-filters"></a>建立資產篩選器  
 
-在您下載的 "Media Services v3" Postman 集合中，選取 [資產]->[建立或更新資產篩選器]。
+在您下載的 "Media Services v3" Postman 集合中，選取 [資產]  ->[建立或更新資產篩選器]  。
 
 **PUT** HTTP 要求方法類似：
 
@@ -107,9 +109,9 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/assets/{assetName}/assetFilters/{filterName}?api-version=2018-07-01
 ```
 
-選取 [本文] 索引標籤，並貼上您[稍早定義的 json 程式碼](#define-a-filter)。
+選取 [本文]  索引標籤，並貼上您[稍早定義的 json 程式碼](#define-a-filter)。
 
-選取 [傳送]。 
+選取 [傳送]  。 
 
 資產篩選器已建立。
 

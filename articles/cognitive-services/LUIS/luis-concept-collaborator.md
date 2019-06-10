@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 8c2ed8932e67a2e0c83fe4e3fdf6783c24e56a6e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 294905ccfd0ce8db6da8737277b0ce978ba837ea
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956991"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473524"
 ---
 # <a name="collaborating-with-other-authors"></a>其他作者與共同作業
 
@@ -31,7 +31,7 @@ LUIS 帳戶會與單一 [Microsoft Live](https://login.live.com/) 帳戶關聯�
 
 ## <a name="luis-app-owner"></a>LUIS 應用程式擁有者
 
-建立應用程式的帳戶是擁有者和每個應用程式都有單一的擁有者。 擁有者會列在應用程式**[設定](luis-how-to-collaborate.md)** 頁面。 擁有者可以刪除應用程式端點配額達到 75%的每月限制時，收到電子郵件。 
+建立應用程式的帳戶是擁有者和每個應用程式都有單一的擁有者。 擁有者會列在應用程式 **[設定](luis-how-to-collaborate.md)** 頁面。 當端點配額達到 75%的每月限制時，擁有者會收到電子郵件。 
 
 ## <a name="authorization-roles"></a>授權角色
 對於擁有者和共同作業者，LUIS 不支援不同的角色，但有一個例外。 擁有者是可以刪除應用程式的唯一帳戶。
@@ -42,7 +42,7 @@ LUIS 帳戶會與單一 [Microsoft Live](https://login.live.com/) 帳戶關聯�
 LUIS 不提供擁有權轉移，不過任何共同作業者都可以匯出應用程式，然後再將其匯入來建立應用程式。 請注意，新應用程式會有不同的應用程式識別碼。 您必須將新應用程式定型、發佈，然後使用新端點。
 
 ## <a name="luis-app-collaborators"></a>LUIS 應用程式共同作業者
-應用程式擁有者可以將共同作業者新增至應用程式。 擁有者必須在應用程式 [[Settings](luis-how-to-collaborate.md)] \(設定\) 上新增共同作業者的電子郵件地址。 共同作業者具備應用程式的完整存取權。 如果共同作業者刪除應用程式，該應用程式會從共同作業者的帳戶中刪除，但會留存在擁有者的帳戶中。 
+應用程式擁有者可以將共同作業者新增至應用程式。 擁有者必須在應用程式 [[Settings](luis-how-to-collaborate.md)  ] \(設定\) 上新增共同作業者的電子郵件地址。 共同作業者具備應用程式的完整存取權。 如果共同作業者刪除應用程式，該應用程式會從共同作業者的帳戶中刪除，但會留存在擁有者的帳戶中。 
 
 如果您想要與共同作業者共用多個應用程式，則須為每個應用程式新增共同作業者的電子郵件。 
 

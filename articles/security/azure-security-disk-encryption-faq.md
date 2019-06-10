@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/16/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c49a639c0426b4535c4c2e88d36d447c10826f1
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 149452bd7d43ce46f320b9bae63a6f9cd48d98d4
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416701"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730690"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM 適用的 Azure 磁碟加密常見問題集
 
@@ -43,7 +43,7 @@ Azure 磁碟加密可用於標準層 VM，包括 [A、D、DS、G、GS 及 F](htt
 
 不由 Azure 背書的 Linux 伺服器散發套件不支援 Azure 磁碟加密，而且這些所背書的只有下列散發套件和版本支援 Azure 磁碟加密：
 
-| Linux 散發套件 | 版本 | 支援加密的磁碟區類型|
+| Linux 散發套件 | Version | 支援加密的磁碟區類型|
 | --- | --- |--- |
 | Ubuntu | 18.04| 作業系統和資料磁碟 |
 | Ubuntu | 16.04| 作業系統和資料磁碟 |
@@ -82,6 +82,9 @@ Azure 磁碟加密可用於標準層 VM，包括 [A、D、DS、G、GS 及 F](htt
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>如何旋轉祕密或加密金鑰？
 
 若要輪替使用祕密，只會呼叫您原先用來啟用磁碟加密的相同命令，指定不同的金鑰保存庫。 若要輪替金鑰加密金鑰，呼叫相同的命令，您原先用來啟用磁碟加密，指定新的金鑰加密。 
+
+>[!WARNING]
+> - 如果您先前使用過[與 Azure AD 應用程式的 Azure 磁碟加密](azure-security-disk-encryption-prerequisites-aad.md)藉由指定 Azure AD 認證來加密此 VM，您必須繼續使用此選項來加密您的 VM。 您無法在此加密的 VM 上使用 [Azure 磁碟加密](azure-security-disk-encryption-prerequisites.md)，因為這不是支援的案例，表示尚未對此加密的 VM 支援從 AAD 應用程式離開。
 
 ## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>如何新增或移除金鑰加密金鑰，如果我原本未使用其中一個？
 

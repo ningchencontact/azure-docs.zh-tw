@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 387f1e0bf6461b5e87da1de35e74c5e49c5dc632
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: e6a66aefec69a0551f85b11a380c90d1915bd776
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305534"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474199"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -39,6 +39,192 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 
 ---
 
+## <a name="may-2019"></a>2019 年 5 月
+
+### <a name="service-change-future-support-for-only-tls-12-protocols-on-the-application-proxy-service"></a>服務的變更：只在應用程式 Proxy 服務的 TLS 1.2 通訊協定的未來支援
+
+**類型：** 針對變更做規劃  
+**服務類別：** 應用程式 Proxy  
+**產品功能：** 存取控制
+
+為了提供客戶的同級產品中加密，我們要限制只在應用程式 Proxy 服務的 TLS 1.2 通訊協定存取。 這項變更會逐漸即將推出以供客戶已經只使用 TLS 1.2 通訊協定，因此您不應該看到的任何變更。
+
+已被取代的 TLS 1.0 與 TLS 1.1 會於 2019 年 8 月 31 日，但我們將提供其他進階的通知，因此您必須做好這項變更的時間。 若要準備這項變更請確定您的用戶端伺服器和瀏覽器 / 伺服器組合，包括任何使用者用來存取已發佈的應用程式透過應用程式 Proxy 的用戶端，已更新為使用 TLS 1.2 通訊協定來維護應用程式的連線Proxy 服務。 如需詳細資訊，請參閱 < [Azure Active Directory 中新增透過應用程式 Proxy 遠端存取內部部署應用程式](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#before-you-begin)。
+
+---
+
+### <a name="use-the-usage-and-insights-report-to-view-your-app-related-sign-in-data"></a>使用使用量和深入解析報告來檢視您應用程式相關登入資料
+
+**類型：** 新功能  
+**服務類別：** 企業應用程式  
+**產品功能：** 監視與報告
+
+您現在可以使用 [使用量和 insights] 報告，位於**企業應用程式**區域的 Azure 入口網站中，以取得應用程式為中心的登入資料，包括相關的資訊檢視：
+
+- 頂端會用於您的組織中的應用程式
+
+- 使用最失敗的登入應用程式
+
+- 每個應用程式的主要登入錯誤
+
+如需這項功能的詳細資訊，請參閱[在 Azure Active Directory 入口網站中報告的使用量和深入解析](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-usage-insights-report)
+
+---
+
+### <a name="automate-your-user-provisioning-to-cloud-apps-using-azure-ad"></a>自動化使用者佈建雲端使用 Azure AD 的應用程式
+
+**類型：** 新功能  
+**服務類別：** 企業應用程式  
+**產品功能：** 監視與報告
+
+請遵循這些新的教學課程，以自動化建立、 刪除、 使用 Azure AD 佈建服務和更新的下列雲端式應用程式的使用者帳戶：
+
+- [Comeet](https://docs.microsoft.com/azure/active-directory/saas-apps/comeet-recruiting-software-provisioning-tutorial)
+
+- [DynamicSignal](https://docs.microsoft.com/azure/active-directory/saas-apps/dynamic-signal-provisioning-tutorial)
+
+- [KeeperSecurity](https://docs.microsoft.com/azure/active-directory/saas-apps/keeper-password-manager-digitalvault-provisioning-tutorial)
+
+您也可以遵循這個新[Dropbox 教學課程](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial)，其中提供如何佈建群組物件的相關資訊。
+
+如需如何更妥善地保護您的組織，透過自動化的使用者帳戶佈建的詳細資訊，請參閱[自動化使用者佈建到 SaaS 應用程式與 Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)。
+
+---
+
+### <a name="identity-secure-score-is-now-available-in-azure-ad-general-availability"></a>身分識別安全分數現已推出 Azure AD （正式上市）
+
+**類型：** 新功能  
+**服務類別：** N/A  
+**產品功能：** 身分識別安全性與保護
+
+您現在可以監視並改善您的身分識別所使用的身分識別的安全性狀態安全分數功能在 Azure AD 中。 身分識別安全分數 」 功能會使用單一的儀表板，可協助您：
+
+- 客觀地測量您的身分識別安全性狀態，根據 1 與 223 之間的分數。
+
+- 規劃您的身分識別的安全性增強功能
+
+- 檢閱您的安全性增強功能的成功
+
+如需身分識別安全性分數功能的詳細資訊，請參閱[什麼是 Azure Active Directory 中的身分識別安全分數？](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score)。
+
+---
+
+### <a name="new-app-registrations-experience-is-now-available-general-availability"></a>新的應用程式註冊體驗現已可用 （正式上市）
+
+**類型：** 新功能  
+**服務類別：** 驗證 (登入)  
+**產品功能：** 開發人員體驗
+
+新[應用程式註冊](https://aka.ms/appregistrations)體驗已現在正式運作。 這個新體驗包含您已熟悉 Azure 入口網站和應用程式註冊入口網站的所有重要功能，並透過為基礎加以改進：
+
+- **更好的應用程式管理。** 而不是跨不同的入口網站中看到您的應用程式，您現在可以看到所有放在一個位置的應用程式。
+
+- **簡化應用程式註冊。** 從上全新面貌的權限選取項目體驗改善的瀏覽體驗，現在正是您更輕鬆地註冊及管理您的應用程式。
+
+- **更詳細的資訊。** 您可以找到更多詳細資料，您的應用程式，包括快速入門指南，以及更多有關。
+
+如需詳細資訊，請參閱 < [Microsoft 身分識別平台](https://docs.microsoft.com/azure/active-directory/develop/)而[應用程式註冊體驗現在已正式推出 ！](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) 部落格公告。
+
+---
+
+### <a name="new-capabilities-available-in-the-risky-users-api-for-identity-protection"></a>Identity protection 有風險的使用者 API 中新功能
+
+**類型：** 新功能  
+**服務類別：** 身分識別保護  
+**產品功能：** 身分識別安全性與保護
+
+我們很高興地宣布，您現在可以使用具風險的使用者 API 擷取使用者的風險歷程記錄，請關閉具風險的使用者，並確認使用者遭到入侵。 這項變更可協助您更有效率地更新您的使用者風險狀態，並了解其風險歷程記錄。
+
+如需詳細資訊，請參閱 <<c0> [ 有風險的使用者 API 參考文件](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)。
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---may-2019"></a>新同盟應用程式可以使用 Azure AD app 資源庫-2019 年中
+
+**類型：** 新功能  
+**服務類別：** 企業應用程式  
+**產品功能：** 協力廠商整合
+
+在 2019 年，我們新增了這些 21 的新應用程式具有同盟支援新增至應用程式庫：
+
+[Freedcamp](https://docs.microsoft.com/azure/active-directory/saas-apps/freedcamp-tutorial)，[實際連結](https://docs.microsoft.com/azure/active-directory/saas-apps/real-links-tutorial)， [Kianda](https://app.kianda.com/sso/OpenID/AzureAD/)，[簡單登](https://docs.microsoft.com/azure/active-directory/saas-apps/simple-sign-tutorial)， [Braze](https://docs.microsoft.com/azure/active-directory/saas-apps/braze-tutorial)， [Displayr](https://docs.microsoft.com/azure/active-directory/saas-apps/displayr-tutorial)，[Templafy](https://docs.microsoft.com/azure/active-directory/saas-apps/templafy-tutorial)， [Marketo 銷售吸引](https://toutapp.com/login)， [ACLP](https://docs.microsoft.com/azure/active-directory/saas-apps/aclp-tutorial)， [OutSystems](https://docs.microsoft.com/azure/active-directory/saas-apps/outsystems-tutorial)， [Meta4 全域 HR](https://docs.microsoft.com/azure/active-directory/saas-apps/meta4-global-hr-tutorial)，[配量 Workplace](https://docs.microsoft.com/azure/active-directory/saas-apps/quantum-workplace-tutorial)，[鈷](https://docs.microsoft.com/azure/active-directory/saas-apps/cobalt-tutorial)， [webMethods API 雲端](https://docs.microsoft.com/azure/active-directory/saas-apps/webmethods-integration-cloud-tutorial)， [RedFlag](https://pocketstop.com/redflag/)， [Whatfix](https://docs.microsoft.com/azure/active-directory/saas-apps/whatfix-tutorial)，[控制](https://docs.microsoft.com/azure/active-directory/saas-apps/control-tutorial)， [JOBHUB](https://docs.microsoft.com/azure/active-directory/saas-apps/jobhub-tutorial)， [NEOGOV](https://docs.microsoft.com/azure/active-directory/saas-apps/neogov-tutorial)， [Foodee](https://docs.microsoft.com/azure/active-directory/saas-apps/foodee-tutorial)， [MyVR](https://docs.microsoft.com/azure/active-directory/saas-apps/myvr-tutorial)
+
+如需應用程式的詳細資訊，請參閱[與 Azure Active Directory 整合的 SaaS 應用程式](https://aka.ms/appstutorial)。 如需在 Azure AD 應用程式庫中列出應用程式的詳細資訊，請參閱[在 Azure Active Directory 應用程式庫中列出您的應用程式](https://aka.ms/azureadapprequest)。
+
+---
+
+### <a name="improved-groups-creation-and-management-experiences-in-the-azure-ad-portal"></a>在 Azure AD 入口網站中的改善的群組建立和管理體驗
+
+**類型：** 新功能  
+**服務類別：** 群組管理  
+**產品功能：** 共同作業
+
+我們已改進的群組相關的體驗在 Azure AD 入口網站中。 這些增強功能允許系統管理員更有效地管理群組清單中，成員的清單，並提供其他的建立選項。
+
+改善項目包括：
+
+- 基本篩選依成員資格類型和群組類型。
+
+- 新增新的資料行，例如來源和電子郵件地址。
+
+- 多重選取的群組、 成員和擁有者的能力，列出以方便刪除。
+
+- 選擇 電子郵件地址，並在群組建立期間新增擁有者的能力。
+
+如需詳細資訊，請參閱 <<c0> [ 建立基本的群組，並加入使用 Azure Active Directory 的成員](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)。
+
+---
+
+### <a name="configure-a-naming-policy-for-office-365-groups-in-azure-ad-portal-general-availability"></a>Azure AD 入口網站 （正式上市） 中設定 Office 365 群組命名原則
+
+**類型：** 已變更的功能  
+**服務類別：** 群組管理  
+**產品功能：** 共同作業
+
+系統管理員現在可以設定為使用 Azure AD 入口網站的 Office 365 群組命名原則。 這項變更有助於強制執行一致的命名慣例，對您組織中使用者所建立或編輯的 Office 365 群組。
+
+您可以在兩個不同的方式設定 Office 365 群組命名原則：
+
+- 定義前置詞或後置詞，會自動新增至群組名稱。
+
+- 上傳一組自訂封鎖字組為您的組織不允許在 群組名稱 (例如，「 CEO，Payroll，HR 」)。
+
+如需詳細資訊，請參閱 <<c0> [ 強制執行的 Office 365 群組命名原則](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-naming-policy)。
+
+---
+
+### <a name="microsoft-graph-api-endpoints-are-now-available-for-azure-ad-activity-logs-general-availability"></a>Microsoft Graph API 端點現已提供 Azure AD 活動記錄 （一般可用性）
+
+**類型：** 已變更的功能  
+**服務類別：** 報告  
+**產品功能：** 監視與報告
+
+我們很高興宣布正式運作的 Microsoft Graph API 端點支援的 Azure AD 活動記錄檔。 此版本中，您現在可以的使用 1.0 版的 Azure AD 稽核記錄，以及登入記錄檔的 Api。
+
+如需詳細資訊，請參閱 < [Azure AD 稽核記錄 API 概觀](https://docs.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0)。
+
+---
+
+### <a name="administrators-can-now-use-conditional-access-for-the-combined-registration-process-public-preview"></a>系統管理員現在可以使用條件式存取在合併的註冊程序 （公開預覽）
+
+**類型：** 新功能  
+**服務類別：** 條件式存取  
+**產品功能：** 身分識別安全性與保護  
+
+系統管理員現在可以建立合併的註冊頁面使用的條件式存取原則。 這包括套用原則以允許註冊，如果：
+
+- 使用者位於受信任的網路。
+
+- 使用者會有較低的登入風險。
+
+- 使用者是受管理的裝置上。
+
+- 使用者同意的組織使用規定 (TOU)。
+
+如需有關條件式存取和密碼重設的詳細資訊，您可以看到[的 Azure AD 條件式存取結合 MFA 和密碼重設註冊體驗部落格文章](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Conditional-access-for-the-Azure-AD-combined-MFA-and-password/ba-p/566348)。 如需有關在合併的註冊程序的條件式存取原則的詳細資訊，請參閱[條件式存取原則結合註冊](https://docs.microsoft.com/azure/active-directory/authentication/howto-registration-mfa-sspr-combined#conditional-access-policies-for-combined-registration)。 使用功能的 Azure AD 詞彙的相關資訊，請參閱[Azure Active Directory 使用規定特性](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)。
+
+---
+
 ## <a name="april-2019"></a>2019 年 4 月
 
 ### <a name="new-azure-ad-threat-intelligence-detection-is-now-available-in-refreshed-azure-ad-identity-protection"></a>新 Azure AD 威脅智慧偵測現已在重新整理的 Azure AD Identity Protection
@@ -53,7 +239,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 
 ---
 
-### <a name="azure-active-directory-azure-ad-entitlement-management-is-now-available-public-preview"></a>Azure Active Directory (Azure AD) 權利管理現在為可用 （公開預覽）
+### <a name="azure-ad-entitlement-management-is-now-available-public-preview"></a>Azure AD 權限管理目前可用的 （公開預覽）
 
 **類型：** 新功能  
 **服務類別：** Identity Governance  
@@ -69,7 +255,7 @@ Azure AD 權限管理，現處於公開預覽狀態，可協助客戶委派管�
 **服務類別：** 群組管理  
 **產品功能：** 共同作業
 
-系統管理員現在可以設定為使用 Azure AD 入口網站的 Office 365 群組命名原則。 這項變更有助於強制執行一致的命名慣例，對您組織中使用者所建立或編輯的 Office 365 群組。 
+系統管理員現在可以設定為使用 Azure AD 入口網站的 Office 365 群組命名原則。 這項變更有助於強制執行一致的命名慣例，對您組織中使用者所建立或編輯的 Office 365 群組。
 
 您可以在兩個不同的方式設定 Office 365 群組命名原則：
 
@@ -388,10 +574,10 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統，可能會顯示
 **類型：** 已變更的功能  
 **服務類別：** 自助式密碼重設  
 **產品功能：** 使用者驗證
- 
+
 為了回應客戶的意見反應，我們已增強結合的 MFA/SSPR 註冊預覽版體驗，協助使用者更快速地 MFA 和 SSPR 註冊他們的安全性資訊。 
 
-**若要立即開啟增強的體驗，為您的使用者，請遵循下列步驟：**
+**若要開啟上增強的體驗，為您的使用者現在，請遵循下列步驟：**
 
 1. 身為全域管理員或使用者系統管理員，登入 Azure 入口網站並移至**Azure Active Directory > 使用者設定 > 管理的存取面板的預覽功能設定**。 
 
@@ -752,59 +938,5 @@ Azure AD 系統管理員現在可以使用 Microsoft Authenticator 應用程式�
 [CoreStack](https://cloud.corestack.io/site/login)、[HubSpot](https://docs.microsoft.com/azure/active-directory/saas-apps/HubSpot-tutorial)、[GetThere](https://docs.microsoft.com/azure/active-directory/saas-apps/getthere-tutorial)、[Gra-Pe](https://docs.microsoft.com/azure/active-directory/saas-apps/grape-tutorial)、[eHour](https://getehour.com/try-now)、[Consent2Go](https://docs.microsoft.com/azure/active-directory/saas-apps/Consent2Go-tutorial)、[Appinux](https://docs.microsoft.com/azure/active-directory/saas-apps/appinux-tutorial)、[DriveDollar](https://azuremarketplace.microsoft.com/marketplace/apps/savitas.drivedollar-azuread?tab=Overview)、[Useall](https://docs.microsoft.com/azure/active-directory/saas-apps/useall-tutorial)、[Infinite Campus](https://docs.microsoft.com/azure/active-directory/saas-apps/infinitecampus-tutorial)、[Alaya](https://alayagood.com/en/demo/)、[HeyBuddy](https://docs.microsoft.com/azure/active-directory/saas-apps/heybuddy-tutorial)、[Wrike SAML](https://docs.microsoft.com/azure/active-directory/saas-apps/wrike-tutorial)、[Drift](https://docs.microsoft.com/azure/active-directory/saas-apps/drift-tutorial)、[Zenegy for Business Central 365](https://accounting.zenegy.com/)、[Everbridge 成員入口網站](https://docs.microsoft.com/azure/active-directory/saas-apps/everbridge-tutorial)、[IDEO](https://profile.ideo.com/users/sign_up)、[Ivanti Service Manager (ISM)](https://docs.microsoft.com/azure/active-directory/saas-apps/ivanti-service-manager-tutorial)、[Peakon](https://docs.microsoft.com/azure/active-directory/saas-apps/peakon-tutorial)、[Allbound SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/allbound-sso-tutorial)、[Plex 應用程式 - 傳統測試](https://test.plexonline.com/signon)、[Plex 應用程式 – 傳統 ](https://www.plexonline.com/signon)、[Plex 應用程式 - UX 測試](https://test.cloud.plex.com/sso)、[Plex 應用程式 – UX](https://cloud.plex.com/sso)、[Plex 應用程式 – IAM](https://accounts.plex.com/)、[CRAFTS - 育兒記錄、出席與財務追蹤系統](https://getcrafts.ca/craftsregistration) 
 
 如需應用程式的詳細資訊，請參閱[與 Azure Active Directory 整合的 SaaS 應用程式](https://aka.ms/appstutorial)。 如需在 Azure AD 應用程式庫中列出應用程式的詳細資訊，請參閱[在 Azure Active Directory 應用程式庫中列出您的應用程式](https://aka.ms/azureadapprequest)。
-
----
-
-## <a name="october-2018"></a>2018 年 10 月
-
-### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Azure AD 記錄現在適用於 Azure Log Analytics (公開預覽)
-
-**類型：** 新功能  
-**服務類別：** 報告  
-**產品功能：** 監視與報告
-
-我們很高興宣佈您現在可以將您的 Azure AD 記錄轉送到 Azure Log Analytics！ 此呼聲最高的功能可讓您更容易存取業務、作業和安全性的分析，以及提供協助監視基礎結構的方法。 如需詳細資訊，請參閱 [Azure Active Directory Activity logs in Azure Log Analytics now available](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-Activity-logs-in-Azure-Log-Analytics-now/ba-p/274843) (現在可以使用 Azure Log Analytics 中的 Azure Active Directory 記錄) 部落格。
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---october-2018"></a>Azure AD 應用程式資源庫中有新的同盟應用程式可用 - 2018 年 10 月
-
-**類型：** 新功能  
-**服務類別：** 企業應用程式  
-**產品功能：** 協力廠商整合
- 
-我們已在 2018 年 10 月將下列這 14 個提供同盟支援的全新應用程式新增至應用程式資源庫：
-
-[My Award Points](https://docs.microsoft.com/azure/active-directory/saas-apps/myawardpoints-tutorial)、[Vibe HCM](https://docs.microsoft.com/azure/active-directory/saas-apps/vibehcm-tutorial)、Ambyint、[MyWorkDrive](https://docs.microsoft.com/azure/active-directory/saas-apps/myworkdrive-tutorial)、[BorrowBox](https://docs.microsoft.com/azure/active-directory/saas-apps/borrowbox-tutorial)、Dialpad、[ON24 Virtual Environment](https://docs.microsoft.com/azure/active-directory/saas-apps/on24-tutorial)、[RingCentral](https://docs.microsoft.com/azure/active-directory/saas-apps/ringcentral-tutorial)、[Zscaler Three](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-three-tutorial)、[Phraseanet](https://docs.microsoft.com/azure/active-directory/saas-apps/phraseanet-tutorial)、[Appraisd](https://docs.microsoft.com/azure/active-directory/saas-apps/appraisd-tutorial)、[Workspot Control](https://docs.microsoft.com/azure/active-directory/saas-apps/workspotcontrol-tutorial)、[Shuccho Navi](https://docs.microsoft.com/azure/active-directory/saas-apps/shucchonavi-tutorial)、[Glassfrog](https://docs.microsoft.com/azure/active-directory/saas-apps/glassfrog-tutorial)
-
-如需應用程式的詳細資訊，請參閱[與 Azure Active Directory 整合的 SaaS 應用程式](https://aka.ms/appstutorial)。 如需在 Azure AD 應用程式庫中列出應用程式的詳細資訊，請參閱[在 Azure Active Directory 應用程式庫中列出您的應用程式](https://aka.ms/azureadapprequest)。
-
----
-
-### <a name="azure-ad-domain-services-email-notifications"></a>Azure AD Domain Services 電子郵件通知
-
-**類型：** 新功能  
-**服務類別：** Azure AD 網域服務  
-**產品功能：** Azure AD 網域服務
-
-Azure Active Directory Domain Services 會在 Azure 入口網站上提供有關受控網域設定錯誤或問題的相關警示。 這些警示包含逐步指南，因此您可以嘗試修正問題，而不需連絡支援人員。
-
-從十月開始，您就能夠自訂受控網域的通知設定，以便在出現新的警示時，將電子郵件傳送給指定的一群人，而不需要經常檢查入口網站中是否有更新。
-
-如需詳細資訊，請參閱 [Azure AD Domain Services 中的通知設定](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-notifications)。
-
----
-
-### <a name="azure-ad-portal-supports-using-the-forcedelete-domain-api-to-delete-custom-domains"></a>Azure AD 入口網站支援使用 ForceDelete 網域 API 來刪除自訂網域 
-
-**類型：** 已變更的功能  
-**服務類別：** 目錄管理  
-**產品功能：** 目錄
-
-我們很高興宣佈您現在可以使用 ForceDelete 網域 API，以非同步方式將參考資料 (例如使用者、群組和應用程式) 從自訂網域名稱 (contoso.com) 重新命名回初始預設網域名稱 (contoso.onmicrosoft.com)，藉此刪除自訂網域名稱。
-
-如果貴組織不再使用您的自訂網域名稱，或如果您需要在另一個 Azure AD 中使用該網域名稱，此變更可協助您更快速地刪除該網域名稱。
-
-如需詳細資訊，請參閱[刪除自訂網域名稱](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-manage#delete-a-custom-domain-name)。
 
 ---

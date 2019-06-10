@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 2de945d2ef1d87b47ea81aac034916466d3c9bda
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 13e35ab93fc37541548785c6355489eaf3a3efc2
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258845"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754559"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>當裝置到雲端的 IoT 中樞訊息 （預覽） 的訊息類
 
@@ -49,6 +49,8 @@ ms.locfileid: "66258845"
 
 您可以新增類要內建的 IoT 中樞，端點的訊息或訊息會路由傳送至自訂端點，例如 Azure Blob 儲存體、 服務匯流排佇列或服務匯流排主題。
 
+您也可以新增類訊息會由 Event Grid 為選取的端點發佈至 Event Grid。 如需詳細資訊，請參閱 < [Iot 中樞與 Event Grid](iot-hub-event-grid.md)。
+
 類會套用每個端點。 如果您指定特定端點加上戳記的五個類，移至該端點的所有訊息都會都加上相同的五個類。
 
 若要了解如何試用類訊息，請參閱[訊息類教學課程](tutorial-message-enrichments.md)
@@ -75,7 +77,7 @@ ms.locfileid: "66258845"
 
 ## <a name="availability"></a>可用性
 
-這項功能為預覽狀態，並會在美國東部、 美國西部、 西歐、 以外的所有區域內上市[Azure Government](/azure-government/documentation-government-welcome.md)， [Azure 中國 21Vianet](/azure/china/china-welcome.md)，和[Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
+這項功能為預覽狀態，並會在美國東部、 美國西部、 西歐、 以外的所有區域內上市[Azure Government](/azure/azure-government/documentation-government-welcome)， [Azure 中國 21Vianet](/azure/china)，和[Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>後續步驟
 

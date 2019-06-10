@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 23922ec02f7406b5cbc482c938dbcf6a56cad6d7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 58552914f369c49eed33ccefbb7736cf8dbf1fc6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234168"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475640"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>預覽-自動調整以符合應用程式需求在 Azure Kubernetes Service (AKS) 叢集
 
@@ -28,11 +28,11 @@ ms.locfileid: "66234168"
 
 ## <a name="before-you-begin"></a>開始之前
 
-本文需要您執行 Azure CLI 2.0.55 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
+本文會要求您執行 Azure CLI 2.0.65 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
 
 ### <a name="install-aks-preview-cli-extension"></a>安裝 aks-preview CLI 擴充功能
 
-支援叢集自動調整程式的 AKS 叢集必須使用虛擬機器擴展集，並執行 Kubernetes 版本 *1.12.4* 或更新版本。 此擴展集支援處於預覽狀態。 若要加入並建立使用擴展集的叢集，首先請使用 [az extension add][az-extension-add] 命令，安裝 *aks-preview* Azure CLI 擴充功能，如以下範例所示：
+支援叢集 autoscaler 的 AKS 叢集必須使用虛擬機器擴展集，並執行 Kubernetes 版本*1.12.7*或更新版本。 此擴展集支援處於預覽狀態。 若要加入並建立使用擴展集的叢集，首先請使用 [az extension add][az-extension-add] 命令，安裝 *aks-preview* Azure CLI 擴充功能，如以下範例所示：
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -63,9 +63,10 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="limitations"></a>限制
 
-當您建立和管理 AKS 叢集中使用虛擬機器擴展集時，就會套用下列限制：
+當您建立和管理 AKS 叢集中使用叢集自動調整程式時，就會套用下列限制：
 
 * 無法使用的 HTTP 應用程式路由附加元件。
+* 目前無法使用 （目前在 AKS 中的預覽） 的多個節點集區。
 
 ## <a name="about-the-cluster-autoscaler"></a>關於叢集自動調整程式
 

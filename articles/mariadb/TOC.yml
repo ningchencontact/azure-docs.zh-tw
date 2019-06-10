@@ -51,6 +51,8 @@
           href: concepts-ssl-connection-security.md
         - name: VNet
           href: concepts-data-access-security-vnet.md
+        - name: 連線架構
+          href: concepts-connectivity-architecture.md
     - name: 業務持續性
       items:
         - name: 概觀
@@ -105,6 +107,10 @@
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-cli.md
+    - name: 自動成長的儲存體
+      items:
+        - name: Azure 入口網站
+          href: howto-auto-grow-storage-portal.md
     - name: 存取伺服器記錄
       items:
         - name: Azure 入口網站

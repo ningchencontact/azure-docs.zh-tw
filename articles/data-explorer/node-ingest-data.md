@@ -1,28 +1,28 @@
 ---
-title: 快速入門：使用 Azure 資料總管 Node 程式庫擷取資料
-description: 在本快速入門中，您將了解如何使用 Node.js 將資料擷取 (載入) 至 Azure 資料總管。
+title: 使用 Azure 資料總管 Node 程式庫擷取資料
+description: 在本文中，您會學習如何使用 Node.js 的 Azure 資料總管中嵌入 （負載） 的資料。
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/25/2018
-ms.openlocfilehash: 42a4d2e34eab3679f98d5a62099ab57e5924fcc3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 19da42437cfe1d7b63dfed4bd2b30716d691a0e3
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800430"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494488"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>快速入門：使用 Azure 資料總管 Node 程式庫擷取資料
+# <a name="ingest-data-using-the-azure-data-explorer-node-library"></a>使用 Azure 資料總管 Node 程式庫擷取資料
 
-Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供兩個適用於 Node 的用戶端程式庫：[擷取程式庫](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest)和[資料程式庫](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data)。 這些程式庫可讓您將資料內嵌 (載入) 至叢集，並從您的程式碼查詢資料。 在本快速入門中，您先在測試叢集中建立資料表和資料對應。 然後，您將叢集的擷取排入佇列並驗證結果。
+Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供兩個適用於 Node 的用戶端程式庫：[擷取程式庫](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest)和[資料程式庫](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data)。 這些程式庫可讓您將資料內嵌 (載入) 至叢集，並從您的程式碼查詢資料。 在本文中，您先建立資料表並在測試叢集中的資料對應。 然後，您將叢集的擷取排入佇列並驗證結果。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
-除了 Azure 訂用帳戶之外，您還需要下列項目，才能完成本快速入門：
+除了 Azure 訂用帳戶中，您需要下列項目完成這篇文章：
 
 * [測試叢集和資料庫](create-cluster-database-portal.md)
 
@@ -158,7 +158,7 @@ kustoClient.execute(kustoDatabase, query, (err, results) => {
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算按照其他快速入門和教學課程繼續進行，請保留您建立的資源。 否則，請在資料庫中執行下列命令，來清除 `StormEvents` 資料表。
+如果您打算遵循我們的其他文章，讓您建立的資源。 否則，請在資料庫中執行下列命令，來清除 `StormEvents` 資料表。
 
 ```Kusto
 .drop table StormEvents
@@ -166,5 +166,4 @@ kustoClient.execute(kustoDatabase, query, (err, results) => {
 
 ## <a name="next-steps"></a>後續步驟
 
-> [!div class="nextstepaction"]
-> [撰寫查詢](write-queries.md)
+* [撰寫查詢](write-queries.md)

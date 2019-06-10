@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: fc49081c765834a0ed0e5199923606ced7daa081
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 4a28e9f1f911e274f9a53275afa577024405b336
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522072"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474692"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>教學課程：影片及文字記錄仲裁
 
@@ -44,15 +44,15 @@ ms.locfileid: "58522072"
 
 編輯 `App.config` 檔案，並新增 Active Directory 租用戶名稱、服務端點和以 `#####` 表示的訂用帳戶金鑰。 您需要下列資訊：
 
-    |Key|說明|
-    |-|-|
-    |`AzureMediaServiceRestApiEndpoint`|Azure 媒體服務 (AMS) API 的端點|
-    |`ClientSecret`|Azure 媒體服務的訂用帳戶金鑰|
-    |`ClientId`|Azure 媒體服務的用戶端識別碼|
-    |`AzureAdTenantName`|代表您組織的 Active Directory 租用戶名稱|
-    |`ContentModeratorReviewApiSubscriptionKey`|Content Moderator 檢閱 API 的訂用帳戶金鑰|
-    |`ContentModeratorApiEndpoint`|Content Moderator API 的端點|
-    |`ContentModeratorTeamId`|Content Moderator 小組 API|
+|Key|說明|
+|-|-|
+|`AzureMediaServiceRestApiEndpoint`|Azure 媒體服務 (AMS) API 的端點|
+|`ClientSecret`|Azure 媒體服務的訂用帳戶金鑰|
+|`ClientId`|Azure 媒體服務的用戶端識別碼|
+|`AzureAdTenantName`|代表您組織的 Active Directory 租用戶名稱|
+|`ContentModeratorReviewApiSubscriptionKey`|Content Moderator 檢閱 API 的訂用帳戶金鑰|
+|`ContentModeratorApiEndpoint`|Content Moderator API 的端點|
+|`ContentModeratorTeamId`|Content Moderator 小組 API|
 
 ## <a name="examine-the-main-code"></a>檢查主要程式碼
 
@@ -318,7 +318,7 @@ ms.locfileid: "58522072"
 
 `TextScreen()` 是內容充實的方法，所以讓我們來分解它。
 
-1. 首先，此方法會一行一行地讀取文字記錄檔案。 它會忽略空白行和其中有信賴分數的 `NOTE` 行。 它會從檔案中的「提示」擷取時間戳記和文字項目。 「提示」表示來自音軌的文字，並且包含開始和結束時間。 提示會以包含 `-->` 字串的時間戳記行開頭。 其後方會跟著一行或多行文字。
+1. 首先，此方法會一行一行地讀取文字記錄檔案。 它會忽略空白行和其中有信賴分數的 `NOTE` 行。 它會從檔案中的「提示」  擷取時間戳記和文字項目。 「提示」表示來自音軌的文字，並且包含開始和結束時間。 提示會以包含 `-->` 字串的時間戳記行開頭。 其後方會跟著一行或多行文字。
 
 1. `CaptionScreentextResult` 的執行個體 (定義於`TranscriptProfanity.cs`) 會用來保存從每個提示剖析的資訊。  當偵測到新的時間戳記行時，或達到最大文字長度 1024 個字元時，新的 `CaptionScreentextResult` 會新增至 `csrList`。 
 

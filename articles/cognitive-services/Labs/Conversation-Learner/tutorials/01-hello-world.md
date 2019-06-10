@@ -3,19 +3,19 @@ title: 如何建立 "Hello World" 對話學習模組模型 - Microsoft 認知服
 titleSuffix: Azure
 description: 了解如何建立 "Hello World" 對話學習模組模型。
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: b2c43ad2475ab75d251e57fca6009eb1fa2e1f00
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.author: nitinme
+ms.openlocfilehash: fe5d21fadef8f4452ba36259dbf89cefc78230de
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225290"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388050"
 ---
 # <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>如何使用對話學習模組建立 "Hello World" 模型
 

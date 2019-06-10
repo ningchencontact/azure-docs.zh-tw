@@ -50,7 +50,7 @@ CNAME 記錄對應*特定*網域，例如**contoso.com**或是**www\.contoso.com
 > 某些網域註冊機構只允許您對應子網域，當使用 CNAME 記錄，例如 www\.contoso.com，並不是根名稱，例如 contoso.com。 如需 CNAME 記錄的詳細資訊，請參閱註冊機構提供的文件、[維基百科 CNAME 記錄條目](https://en.wikipedia.org/wiki/CNAME_record)，或 [IETF 網域名稱 - 實作與規格](https://tools.ietf.org/html/rfc1035)文件。
 
 ### <a name="a-record"></a>A 記錄
-*A*記錄將網域對應，例如**contoso.com**或是**www\.contoso.com**，*或萬用字元網域*例如**\*。 contoso.com**，為 IP 位址。 以 Azure 雲端服務而言，就是指服務的虛擬 IP。 因此於 CNAME 記錄，A 記錄的主要優點是，您可以有一個項目使用萬用字元，例如\* **。 contoso.com**，例如處理多個子網域的要求**mail.contoso.com**， **login.contoso.com**，或**www\.contso.com**。
+*A* 記錄將網域對應，例如 **contoso.com** 或是 **www\.contoso.com**， *或萬用字元網域* 例如 **\*。contoso.com** ，為 IP 位址。 以 Azure 雲端服務而言，就是指服務的虛擬 IP。 因此於 CNAME 記錄，A 記錄的主要優點是，您可以有一個項目使用萬用字元，例如\* **。 contoso.com**，例如處理多個子網域的要求**mail.contoso.com**， **login.contoso.com**，或**www\.contso.com**。
 
 > [!NOTE]
 > 因為 A 記錄會對應至靜態 IP 位址，所以無法自動解析雲端服務 IP 位址的變更。 第一次將雲端服務部署到空的位置時 (生產或預備)，將會配置雲端服務所使用的 IP 位址。如果刪除此位置的部署，則 Azure 會釋放此 IP 位址，而未來再部署到此位置時，可能會給予新的 IP 位址。
@@ -64,7 +64,7 @@ CNAME 記錄對應*特定*網域，例如**contoso.com**或是**www\.contoso.com
 
 1. 使用其中一種方法來尋找指派給雲端服務的 **.cloudapp.net** 網域名稱。
 
-   * 登录到 [Azure 门户]，选择云服务，查看“概述”部分，然后找到“站点 URL”条目。
+   * 登录到 [Azure 门户]，选择云服务，查看“概述”部分，然后找到“站点 URL”条目   。
 
        ![快速瀏覽區段，其中顯示網站 URL][csurl]
 
@@ -78,7 +78,7 @@ CNAME 記錄對應*特定*網域，例如**contoso.com**或是**www\.contoso.com
      請將任一方法傳回的 URL 中所使用的網域名稱儲存下來，建立 CNAME 記錄時需要用到。
 2. 登入 DNS 註冊機構的網站，並移至 DNS 管理頁面。 在網站中尋找標示為 **Domain Name**、**DNS** 或 **Name Server Management** 的連結或區域。
 3. 現在找出可選取或輸入 CNAME 的地方。 您可能需要從下拉式清單中或移至進階設定頁面，才能選取記錄類型。 請尋找 **CNAME**、**Alias** 或 **Subdomains** 之類的字。
-4. 您也必須提供網域或子網域別名的 CNAME，例如**www**如果您想要建立別名**www\.customdomain.com**。 如果要建立根網域的別名，註冊機構的 DNS 工具中可能會以 '**\@**' 符號列出此別名。
+4. 您也必須提供網域或子網域別名的 CNAME，例如**www**如果您想要建立別名**www\.customdomain.com**。 如果要建立根網域的別名，註冊機構的 DNS 工具中可能會以 ' **\@** ' 符號列出此別名。
 5. 接著，您必須提供正式主機名稱，在此案例中為應用程式的 **cloudapp.net** 網域。
 
 例如，下列 CNAME 記錄會轉送所有的流量，從**www\.contoso.com**要**contoso.cloudapp.net**，您已部署的應用程式的自訂網域名稱：
@@ -90,14 +90,14 @@ CNAME 記錄對應*特定*網域，例如**contoso.com**或是**www\.contoso.com
 > [!NOTE]
 > 訪客**www\.contoso.com**絕對看真正的主機 (contoso.cloudapp.net)，所以不會看不到使用者轉送過程。
 > 
-> 上述範例僅適用於 **www** 子網域的流量。 因為 CNAME 記錄不能使用萬用字元，所以您必須為每一個網域/子網域建立一個 CNAME。 如果要將來自子網域 (例如 *.contoso.com) 的流量導向您的 cloudapp.net 位址，您可以在 DNS 設定中設定 [URL 重新導向] 或 [URL 轉送] 項目，或建立 A 記錄。
+> 上述範例僅適用於 **www** 子網域的流量。 因為 CNAME 記錄不能使用萬用字元，所以您必須為每一個網域/子網域建立一個 CNAME。 如果要將來自子網域 (例如 *.contoso.com) 的流量導向您的 cloudapp.net 位址，您可以在 DNS 設定中設定 [URL 重新導向]  或 [URL 轉送]  項目，或建立 A 記錄。
 
 ## <a name="add-an-a-record-for-your-custom-domain"></a>新增自訂網域的 A 記錄
 若要建立 A 記錄，您必須先找出雲端服務的虛擬 IP 位址。 然後，利用註冊機構提供的工具，在 DNS 表格中為自訂網域新增項目。 每个注册机构指定 A 记录的方法类似但略有不同，但概念是相同的。
 
 1. 使用下列其中一種方法取得雲端服務的 IP 位址。
 
-   * 登录到 [Azure 门户]，选择云服务，查看“概述”部分，然后找到“公共 IP 地址”条目。
+   * 登录到 [Azure 门户]，选择云服务，查看“概述”部分，然后找到“公共 IP 地址”条目   。
 
        ![快速瀏覽區段，其中顯示 VIP][vip]
 
@@ -113,7 +113,7 @@ CNAME 記錄對應*特定*網域，例如**contoso.com**或是**www\.contoso.com
 3. 現在找出可選取或輸入 A 記錄的地方。 您可能需要從下拉式清單中或移至進階設定頁面，才能選取記錄類型。
 4. 選取或輸入將使用此 A 記錄的網域或子網域。 例如，選取**www**如果您想要建立別名**www\.customdomain.com**。 如果要為所有子網域建立萬用字元項目，請輸入 '*****'。 這會涵蓋所有子網域，例如**mail.customdomain.com**， **login.customdomain.com**，並**www\.customdomain.com**。
 
-    如果要建立根網域的 A 記錄，註冊機構的 DNS 工具中可能會以 '**\@**' 符號列出此別名。
+    如果要建立根網域的 A 記錄，註冊機構的 DNS 工具中可能會以 ' **\@** ' 符號列出此別名。
 5. 在提供的欄位中，輸入雲端服務的 IP 位址。 這樣會將 A 記錄中使用的網域項目與雲端服務部署的 IP 位址產生關聯。
 
 例如，下列 A 記錄會將來自 **contoso.com** 的所有流量轉送至 **137.135.70.239** (已部署之應用程式的 IP 位址)：

@@ -1,6 +1,6 @@
 ---
-title: Azure Key Vault 受控儲存體帳戶 - CLI
-description: 儲存體帳戶金鑰提供 Azure Key Vault 與 Azure 儲存體帳戶的金鑰型存取之間的完美整合。
+title: 管理 Azure 金鑰保存庫和 Azure CLI 與儲存體帳戶金鑰
+description: 儲存體帳戶金鑰提供 Azure Key Vault 和金鑰為基礎的存取，Azure 儲存體帳戶之間的緊密整合。
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
@@ -8,160 +8,169 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 190375700f65cf2d3ea47335a646562eb46b2d49
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 91cc3f96f9cdd231c38232c972c2628d12b9f4b3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232571"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476161"
 ---
-# <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault 受控儲存體帳戶 - CLI
+# <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>管理 Azure 金鑰保存庫和 Azure CLI 與儲存體帳戶金鑰 
+
+Azure Key Vault 會管理 Azure 儲存體帳戶和傳統儲存體帳戶的金鑰。 您可以使用 Key Vault 受控儲存體帳戶功能，為您完成幾個重要的管理功能。
+
+[Azure 儲存體帳戶](/azure/storage/storage-create-storage-account)會使用包含帳戶名稱和金鑰的認證。 索引鍵會自動產生，並做為密碼，而不是做為密碼編譯金鑰。 Key Vault 會管理儲存體帳戶金鑰，藉以儲存這些做[Key Vault 祕密](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets)。 列出 （同步處理） 的 Azure 儲存體帳戶金鑰，並定期重新產生或_旋轉_。 
+
+當您使用受控儲存體帳戶金鑰功能時，請考慮下列幾點：
+
+- 索引鍵的值永遠不會傳回給呼叫者的回應。
+- 只為金鑰保存庫應管理儲存體帳戶金鑰。 不會自行管理金鑰，並避免干擾 Key Vault 的處理程序。
+- 只有單一的 Key Vault 物件應該管理儲存體帳戶金鑰。 不允許從多個物件的金鑰管理。
+- 您可以要求 Key Vault 來管理儲存體帳戶，使用者主體，但不是使用服務主體。
+- 重新產生金鑰，只會使用金鑰保存庫。 不以手動方式重新產生儲存體帳戶金鑰。 
 
 > [!NOTE]
-> [Azure 儲存體整合與 Azure Active Directory (Azure AD)] 是 Microsoft 的雲端式身分識別和存取管理服務。 Azure AD 的整合是適用於 Blob 和佇列服務。(https://docs.microsoft.com/azure/storage/common/storage-auth-aad). 我們建議使用 Azure AD 進行驗證和授權，因為其和 Azure Key Vault 相同，能針對 Azure 儲存體提供以 OAuth2 權杖為基礎的存取。 這可讓您：
-> - 使用應用程式或使用者身分識別來驗證用戶端應用程式，而非使用儲存體帳戶認證。 
-> - 在 Azure 上執行時，使用 [Azure AD 受控識別](/azure/active-directory/managed-identities-azure-resources/)。 受控識別能直接移除用戶端驗證，以及使用應用程式儲存認證或將認證儲存於應用程式中的需求。
-> - 使用同時也受 Key Vault 支援的角色型存取控制 (RBAC) 來管理授權。
+> Azure 儲存體整合與 Azure Active Directory (Azure AD) 是 Microsoft 的雲端式身分識別和存取管理服務。
+> Azure AD 整合可供[Azure blob 和佇列](https://docs.microsoft.com/azure/storage/common/storage-auth-aad)。
+> 使用 Azure AD 進行驗證和授權。
+> Azure AD 提供 OAuth2 權杖為基礎的存取，就像 Azure Key Vault 的 Azure 儲存體。
+>
+> Azure AD 可讓您使用的應用程式或使用者的身分識別，而不儲存體帳戶認證來驗證用戶端應用程式。
+> 您可以使用[受管理的 Azure AD 識別](/azure/active-directory/managed-identities-azure-resources/)您在 Azure 上執行的時機。 受管理的身分識別會移除用戶端驗證，並儲存認證，或您的應用程式的需求。
+> Azure AD 會使用角色型存取控制 (RBAC) 來管理授權，這也會受到金鑰保存庫。
 
-[Azure 儲存體帳戶](/azure/storage/storage-create-storage-account)會使用包含帳戶名稱和金鑰的認證。 該金鑰是由系統自動產生，且比單純作為「密碼」的密碼編譯金鑰還具有更多功能。 Key Vault 可透過將這些儲存體帳戶金鑰儲存為 [Key Vault 祕密](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets)來管理它們。 
+### <a name="service-principal-application-id"></a>服務主體的應用程式識別碼
 
-## <a name="overview"></a>概觀
+Azure AD 租用戶提供每個已註冊的應用程式與[服務主體](/azure/active-directory/develop/developer-glossary#service-principal-object)。 服務主體做為應用程式識別碼 (ID)。 應用程式識別碼用於授權安裝期間透過 RBAC 其他 Azure 資源的存取權。
 
-Key Vault 受控儲存體帳戶功能會代表您執行數個管理功能：
+Key Vault 是 Microsoft 應用程式在所有 Azure AD 租用戶中預先註冊。 在相同的應用程式識別碼，並在每個 Azure 雲端內，會註冊金鑰保存庫。
 
-- 搭配 Azure 儲存體帳戶列出 (同步) 金鑰。
-- 定期重新產生 (輪替) 金鑰。
-- 同時管理儲存體帳戶和傳統儲存體帳戶的金鑰。
-- 永遠不會傳回金鑰值以回應呼叫者。
+| 租用戶 | 雲端 | 應用程式識別碼 |
+| --- | --- | --- |
+| Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
+| Azure AD | Azure 公用 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| 其他  | 任意 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-當您使用受控儲存體帳戶金鑰功能時：
+<!-- Add closing sentences to summarize what the user accomplished in this section. -->
 
-- **只允許 Key Vault 管理您的儲存體帳戶金鑰。** 請勿嘗試自行管理，因為您會干擾 Key Vault 的處理序。
-- **不要允許多個 Key Vault 物件管理儲存體帳戶金鑰**。
-- **不要手動重新產生儲存體帳戶金鑰**。 建議您透過 Key Vault 重新產生它們。
-- 要求 Key Vault 來管理儲存體帳戶可以由目前的使用者主體和服務主體
+## <a name="prerequisites"></a>必要條件
 
-下列範例會示範如何允許 Key Vault 管理您的儲存體帳戶金鑰。
+管理儲存體帳戶金鑰的情況下，您在使用金鑰保存庫之前，檢閱必要條件：
 
-> [!IMPORTANT]
-> Azure AD 租用戶會為每個已註冊的應用程式提供一個**[服務主體](/azure/active-directory/develop/developer-glossary#service-principal-object)**，其能作為應用程式的識別碼。 透過角色型存取控制 (RBAC) 將授權授與服務主體以存取其他 Azure 資源時，會使用服務主體的應用程式識別碼。 由於 Key Vault 是 Microsoft 應用程式，因此它已經在 Azure 雲端內以相同的應用程式識別碼，預先註冊在所有 Azure AD 租用戶中：
-> - Azure 政府雲端中的 Azure AD 租用戶會使用應用程式識別碼 `7e7c393b-45d0-48b1-a35e-2905ddf8183c`。
-> - Azure 公用雲端中的 Azure AD 租用戶和所有其他用戶端都會使用應用程式識別碼 `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`。
-
-<a name="prerequisites"></a>必要條件
---------------
-1. [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 安裝 Azure CLI   
-2. [建立儲存體帳戶](https://azure.microsoft.com/services/storage/)
-    - 請依照本[文件](https://docs.microsoft.com/azure/storage/)中的步驟來建立儲存體帳戶  
-    - **命名指導方針：** 儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。        
+- 安裝 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
+- 建立[Azure 儲存體帳戶](https://azure.microsoft.com/services/storage/)。 請遵循[這些步驟](https://docs.microsoft.com/azure/storage/)。
+- 儲存體帳戶名稱必須使用小寫字母和數字。 名稱的長度必須介於 3 到 24 個字元之間。        
       
-<a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>如何使用 Key Vault 管理儲存體帳戶金鑰的逐步指示
---------------------------------------------------------------------------------
-在概念上，遵循的步驟清單是
-- 我們先取得 (現有的) 儲存體帳戶
-- 我們再擷取 (現有的) 金鑰保存庫
-- 然後，我們將 KeyVault 管理的儲存體帳戶新增到保存庫，將 Key1 設定為作用中金鑰，且重新產生週期為 180 天
-- 最後，我們使用 Key1 為指定的儲存體帳戶設定儲存體內容
+## <a name="manage-storage-account-keys"></a>管理儲存體帳戶金鑰
 
-在下面的指示中，我們會將 Key Vault 指派為服務，以便擁有儲存體帳戶的操作員權限
+有四個基本步驟，以使用 Key Vault 來管理儲存體帳戶金鑰：
+
+1. 取得現有的儲存體帳戶。
+1. 擷取現有的 key vault。
+1. 將受管理的金鑰保存庫儲存體帳戶新增至保存庫。 設定`key1`為作用中金鑰重新產生期間為 180 天。
+1. 使用`key1`設定指定的儲存體帳戶的儲存體內容。
 
 > [!NOTE]
-> 請注意，一旦您已經設定 Azure Key Vault 受控儲存體帳戶金鑰之後，除非透過 Key Vault，否則應該**無法**再變更。 受控儲存體帳戶金鑰意旨 Key Vault 可以管理輪替儲存體帳戶金鑰
+> 以服務的金鑰保存庫指派操作員權限，您的儲存體帳戶。
+> 
+> 您設定受管理的 Azure Key Vault 儲存體帳戶金鑰之後，只使用金鑰保存庫之後變更金鑰。
+> 對於受管理的儲存體帳戶金鑰，Key Vault 會管理儲存體帳戶金鑰的輪替。
 
-> [!IMPORTANT]
-> Azure AD 租用戶會為每個已註冊的應用程式提供一個**[服務主體](/azure/active-directory/develop/developer-glossary#service-principal-object)**，其能作為應用程式的識別碼。 透過角色型存取控制 (RBAC) 將授權授與服務主體以存取其他 Azure 資源時，會使用服務主體的應用程式識別碼。 由於 Key Vault 是 Microsoft 應用程式，因此它已經在 Azure 雲端內以相同的應用程式識別碼，預先註冊在所有 Azure AD 租用戶中：
-> - Azure 政府雲端中的 Azure AD 租用戶會使用應用程式識別碼 `7e7c393b-45d0-48b1-a35e-2905ddf8183c`。
-> - Azure 公用雲端中的 Azure AD 租用戶和所有其他用戶端都會使用應用程式識別碼 `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`。
-
-> - 目前您可以使用要求 Key Vault 來管理儲存體帳戶的使用者主體和服務主體
-
-
-1. 建立儲存體帳戶之後，執行下列命令來取得您想要管理的儲存體帳戶的資源識別碼
-
+1. 建立儲存體帳戶之後，執行下列命令來取得儲存體帳戶的資源識別碼，來管理：
     ```
-    az storage account show -n storageaccountname 
+    az storage account show -n storageaccountname
     ```
-    從上述命令如下所示的結果複製 [識別碼] 欄位
+
+    複製命令輸出中的資源 ID 值：
     ```
-    /subscriptions/0xxxxxx-4310-48d9-b5ca-0xxxxxxxxxx/resourceGroups/ResourceGroup/providers/Microsoft.Storage/storageAccounts/StorageAccountName
+    /subscriptions/<subscription ID>/resourceGroups/ResourceGroup/providers/Microsoft.Storage/storageAccounts/StorageAccountName
     ```
-            "objectId": "93c27d83-f79b-4cb2-8dd4-4aa716542e74"
+
+    範例輸出︰
+    ```
+    "objectId": "93c27d83-f79b-4cb2-8dd4-4aa716542e74"
+    ```
     
-2. 將 儲存體帳戶金鑰操作員服務角色 」 的 RBAC 角色指派至金鑰保存庫，限制儲存體帳戶的存取範圍。 對於傳統儲存體帳戶，使用 「 傳統儲存體帳戶金鑰操作員服務角色。 」
+1. 儲存體帳戶金鑰操作員服務角色 」 將 RBAC 角色指派至金鑰保存庫。 此角色會限制您的儲存體帳戶的存取範圍。 對於傳統儲存體帳戶，使用 傳統儲存體帳戶金鑰操作員服務角色 」 角色。
+
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope 93c27d83-f79b-4cb2-8dd4-4aa716542e74
     ```
     
-    ' 93c27d83-f79b-4cb2-8dd4-4aa716542e74' 是公用雲端中的金鑰保存庫的物件識別碼。 若要取得國家/地區雲端中的 Key Vault 物件識別碼請參閱上述的重要區段
+    `93c27d83-f79b-4cb2-8dd4-4aa716542e74` 為 Azure 公用雲端中的金鑰保存庫中的物件識別碼。 若要在 Azure Government 雲端中取得金鑰保存庫的物件識別碼，請參閱[服務主體應用程式識別碼](#service-principal-application-id)。
     
-3. 建立 Key Vault 受控儲存體帳戶。     <br /><br />
-   下面我們會設定 90 天的重新產生期間。 90 天之後，Key Vault 會重新產生 'key1'，並將作用中的金鑰從 'key2' 交換為 'key1'。 現在它會將 Key1 標示為作用中金鑰。 
+1. 建立金鑰保存庫管理儲存體帳戶：
+
+    設定重新產生期間的 90 天。 90 天之後，Key Vault 會重新產生`key1`及交換的作用中的索引鍵，從`key2`至`key1`。 `key1` 然後標示為作用中金鑰。 
    
     ```
     az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id <Id-of-storage-account>
     ```
 
-<a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>如何使用 Key Vault 來建立及產生 SAS 權杖的逐步指示
---------------------------------------------------------------------------------
-您也可以要求 Key Vault 產生 SAS (共用存取簽章) 權杖。 共用存取簽章可提供您儲存體帳戶中資源的委派存取。 透過 SAS，您可以對用戶端授與儲存體帳戶中資源的存取權，而不必共用帳戶金鑰。 這是在您應用程式中使用共用存取簽章的重點 - SAS 是共用儲存體資源的安全方式，而不會危害您的帳戶金鑰。
+<!-- Add closing sentences to summarize what the user accomplished in this section. -->
 
-當您完成上面所列的步驟之後，可以執行下列命令，以要求 Key Vault 為您產生 SAS 權杖。 
+## <a name="create-and-generate-tokens"></a>建立並產生權杖
 
-會在以下步驟中完成的事項清單為
-- 設定帳戶 SAS 定義名為`<YourSASDefinitionName>`KeyVault 受控儲存體帳戶`<YourStorageAccountName>`在您的保存庫`<VaultName>`。 
-- 透過 Https 並使用指定的開始和結束日期，為資源型「服務」、「容器」和「物件」，建立服務 Blob、檔案、資料表和佇列的帳戶 SAS 權杖
-- 使用如上面所建立 SAS 權杖的範本 URI，在保存庫中設定 KeyVault 管理的儲存體 SAS 定義，其 SAS 類型為 'account' 且有效期為 N 天
-- 從與 SAS 定義相對應的 KeyVault 祕密擷取實際的存取權杖
+您也可以要求 Key Vault 來產生共用的存取簽章權杖。 共用存取簽章可提供您儲存體帳戶中資源的委派存取。 您可以授與用戶端存取資源在儲存體帳戶而不必共用帳戶金鑰。 共用的存取簽章為您提供安全的方式來共用儲存體資源，而不會危害您的帳戶金鑰。
 
-1. 我們將在此步驟中建立 SAS 定義。 建立 SAS 定義之後，您可以要求 Key Vault 為您產生更多 SAS 權杖。 此作業需要 storage/setsas 權限。
+在本節中的命令會完成下列動作：
 
-```
-$sastoken = az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
-```
-您可以在[這裡](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas)查看上述作業的更多說明
+- 設定帳戶共用存取簽章定義`<YourSASDefinitionName>`。 定義受管理的金鑰保存庫儲存體帳戶上設定`<YourStorageAccountName>`金鑰保存庫`<VaultName>`。
+- 建立 Blob、 檔案、 資料表和佇列服務的帳戶共用的存取簽章權杖。 服務、 容器和物件，會建立資源類型的語彙基元。 所有的權限，透過 https，與指定的開始和結束日期，會建立權杖。
+- 設定保存庫的受管理的金鑰保存庫儲存體共用存取簽章定義。 定義具有範本所建立的共用的存取簽章權杖的 URI。 定義具有共用的存取簽章類型`account`，有效期為 N 天前發生。
+- 擷取對應至共用的存取簽章定義金鑰保存庫密碼的實際存取權杖。
 
-當此作業執行成功時，您應該會看到如下的輸出。 複製它
+完成上一節中的步驟之後，執行下列命令，以要求 Key Vault 來產生共用的存取簽章權杖。 
 
-```console
-   "se=2020-01-01&sp=***"
-```
+1. 建立共用的存取簽章定義。 建立共用的存取簽章定義之後，要求以產生更多共用的存取簽章權杖的金鑰保存庫。 這項作業需要`storage`和`setsas`權限。
+    ```
+    $sastoken = az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
+    ```
 
-1. 在此步驟中，我們將使用上面產生的輸出 ($sasToken) 來建立 SAS 定義。 如需詳細文件，請參閱[這裡](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+    如需有關作業的說明，請參閱[az 儲存體帳戶產生 sas](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas)參考文件。
 
-```
-az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
-```
-                        
+    作業成功執行之後，複製的輸出。
+    ```console
+       "se=2020-01-01&sp=***"
+    ```
 
- > [!NOTE] 
- > 在使用者沒有儲存體帳戶權限的情況下，我們會先取得使用者的物件識別碼
+1. 使用`$sasToken`先前命令所產生，並建立共用的存取簽章定義。 如需命令參數的詳細資訊，請參閱[az keyvault 儲存體 sas 定義建立](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)參考文件。
+    ```
+    az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
+    ```
 
- ```
- az ad user show --upn-or-object-id "developer@contoso.com"
+    當使用者不需要儲存體帳戶的權限時，第一次收到使用者的物件識別碼：
+    ```
+    az ad user show --upn-or-object-id "developer@contoso.com"
 
- az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
- ```
-    
-## <a name="fetch-sas-tokens-in-code"></a>在程式碼中擷取 SAS 權杖
+    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
+    ```
 
-在這一節中，我們將討論如何藉由從 Key Vault 擷取 [SAS 權杖](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)，在您的儲存體帳戶上執行作業
+<!-- Add closing sentences to summarize what the user accomplished in this section. -->
 
-在以下小節中，我們會示範當上述 SAS 權杖建立之後，如何擷取 SAS 權杖。
+## <a name="fetch-tokens-in-code"></a>擷取程式碼中的權杖
 
-> [!NOTE]
->   如[基本概念](key-vault-whatis.md#basic-concepts)所述，向 Key Vault 驗證的方法有 3 種：
-> - 使用受控服務識別 (不建議)
-> - 使用服務主體和憑證 
-> - 使用服務主體和密碼 (不建議)
+執行您的儲存體帳戶上的作業擷取[共用存取簽章權杖](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)從金鑰保存庫。
+
+有三種方式可向 Key Vault:
+
+- 使用受控的服務識別。 強烈建議這種方法。
+- 使用服務主體和憑證。 
+- 使用服務主體和密碼。 不建議這種方法。
+
+如需詳細資訊，請參閱[Azure 金鑰保存庫：基本概念](key-vault-whatis.md#basic-concepts)。
+
+下列範例示範如何擷取共用的存取簽章權杖。 建立共用的存取簽章定義之後，您會擷取權杖。 
 
 ```cs
-// Once you have a security token from one of the above methods, then create KeyVaultClient with vault credentials
+// After you get a security token, create KeyVaultClient with vault credentials.
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(securityToken));
 
-// Get a SAS token for our storage from Key Vault. SecretUri is of the format https://<VaultName>.vault.azure.net/secrets/<ExamplePassword>
+// Get a shared access signature token for your storage from Key Vault.
+// The format for SecretUri is https://<VaultName>.vault.azure.net/secrets/<ExamplePassword>
 var sasToken = await kv.GetSecretAsync("SecretUri");
 
-// Create new storage credentials using the SAS token.
+// Create new storage credentials by using the shared access signature token.
 var accountSasCredential = new StorageCredentials(sasToken.Value);
 
 // Use the storage credentials and the Blob storage endpoint to create a new Blob service client.
@@ -170,19 +179,22 @@ var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("htt
 var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
 ```
 
-如果您的 SAS 權杖即將到期，您會從 Key Vault 再次擷取 SAS 權杖並更新程式碼
+如果您的共用的存取簽章權杖即將到期，再次從 Key Vault 擷取共用的存取簽章權杖，並更新程式碼。
 
 ```cs
-// If your SAS token is about to expire, get the SAS Token again from Key Vault and update it.
+// If your shared access signature token is about to expire,
+// get the shared access signature token again from Key Vault and update it.
 sasToken = await kv.GetSecretAsync("SecretUri");
 accountSasCredential.UpdateSASToken(sasToken);
 ```
 
-### <a name="relevant-azure-cli-commands"></a>相關的 Azure CLI 命令
+<!-- Add closing sentences to summarize what the user accomplished in this section. -->
 
-[Azure CLI 儲存體命令](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
+### <a name="azure-cli-commands"></a>Azure CLI 命令
 
-## <a name="see-also"></a>請參閱
+與受管理的儲存體帳戶的 Azure CLI 命令的相關資訊，請參閱[az keyvault 儲存體](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)參考文件。
 
-- [關於金鑰、密碼與憑證](https://docs.microsoft.com/rest/api/keyvault/)
-- [Key Vault 小組部落格](https://blogs.technet.microsoft.com/kv/)
+## <a name="next-steps"></a>後續步驟
+
+- 深入了解[金鑰、 祕密和憑證](https://docs.microsoft.com/rest/api/keyvault/)。
+- 檢閱文件上[Azure Key Vault 小組部落格](https://blogs.technet.microsoft.com/kv/)。

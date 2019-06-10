@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: b51b9f08819a4c496e051d375f6d52aaa985c8e6
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 13cb3880662e1665b03dd63f009645acbe97fc75
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66394127"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734897"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>如何使用 Logic Apps 整合的常見的警示結構描述
 
@@ -21,7 +21,7 @@ ms.locfileid: "66394127"
 
 ## <a name="overview"></a>概觀
 
-[常見的警示結構描述](https://aka.ms/commonAlertSchemaDocs)提供標準化、 可延伸的 JSON 結構描述所有您不同警示類型。 常見的警示結構描述是利用程式設計的方式 – 透過 webhook、 runbook 以及邏輯應用程式時最有用的。 在本文中，我們會示範如何撰寫單一邏輯應用程式，來處理所有警示。 相同的原則可以套用至其他以程式設計的方式。 這篇文章中所述的邏輯應用程式會建立定義完善的變數，如['基本' 欄位](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields)，，同時描述如何處理[警示類型]('https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields')特定邏輯。
+[常見的警示結構描述](https://aka.ms/commonAlertSchemaDocs)提供標準化、 可延伸的 JSON 結構描述所有您不同警示類型。 常見的警示結構描述是利用程式設計的方式 – 透過 webhook、 runbook 以及邏輯應用程式時最有用的。 在本文中，我們會示範如何撰寫單一邏輯應用程式，來處理所有警示。 相同的原則可以套用至其他以程式設計的方式。 這篇文章中所述的邏輯應用程式會建立定義完善的變數，如['基本' 欄位](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields)，，同時描述如何處理[警示類型](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields)特定邏輯。
 
 
 ## <a name="prerequisites"></a>必要條件 
@@ -125,7 +125,7 @@ ms.locfileid: "66394127"
 
     ![邏輯應用程式的運算式](media/alerts-common-schema-integrations/logic-app-expressions.png "邏輯應用程式的運算式")
     
-     ['MonitoringService' 欄位]('https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields')可讓您用來唯一識別警示的類型，以在您可以建立條件式邏輯。
+     ['MonitoringService' 欄位](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields)可讓您用來唯一識別警示的類型，以在您可以建立條件式邏輯。
 
     
     例如，以下程式碼片段會檢查是否 Application Insights 型記錄警示，並警示的話會列印搜尋結果。 否則，它會列印 'NA'。

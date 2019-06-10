@@ -9,22 +9,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.date: 05/31/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 17cf6629aca6c73bc96e4cf0c172a2e87a7aafb8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 122e9687ee313edff34e5a4fd9a44b1026a63811
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61459332"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478764"
 ---
-# <a name="what-is-azure-web-application-firewall-for-azure-front-door-preview"></a>什麼是 Azure web 應用程式防火牆的 Azure 大門？ (預覽)
+# <a name="what-is-azure-web-application-firewall-for-azure-front-door"></a>什麼是 Azure web 應用程式防火牆的 Azure 大門？
 
-Azure web 應用程式防火牆 (WAF) （預覽） 提供集中式的保護，您 web 應用程式的全域提供使用 Azure 的大門。 用於設計及保護您的 web 服務，針對常見的攻擊和弱點，並保持您的使用者，除了協助您符合合規性需求的高可用性服務的操作。
+Azure Web 應用程式防火牆 (WAF) 會以集中保護的方式，保護透過使用 Azure Front Door 向全球提供的 Web 應用程式。 其作用是協助 Web 服務抵禦常見的惡意攻擊和弱點，並為您的使用者維持服務的高可用性，以及協助您符合法規需求。
 
-> [!IMPORTANT]
-> Azure web 應用程式防火牆 (WAF) 的 Azure 大門目前處於公開預覽狀態。
-> 此預覽版服務等級協定，不提供，且不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 Web 應用程式已逐漸成為惡意的攻擊，例如阻絕服務洪水攻擊、 SQL 插入式攻擊和跨網站指令碼攻擊的目標。 這些惡意的攻擊可能會導致服務中斷和資料遺失，造成重大的威脅，web 應用程式擁有者。
 
@@ -32,17 +29,21 @@ Web 應用程式已逐漸成為惡意的攻擊，例如阻絕服務洪水攻擊�
 
 WAF 大門是全域和集中式解決方案。 它部署在世界各地的 Azure 網路邊緣位置上，並由前端的 web 應用程式已啟用 WAF 的每個傳入要求會檢查在網路邊緣。 這允許 WAF，防止惡意攻擊的攻擊來源、 接近，才能進入您的虛擬網路，並提供大規模的整體保護，而不會犧牲效能。 WAF 原則可以輕易地連結到您的訂用帳戶中任何前端設定檔和新的規則可以部署分鐘內，可讓您因應瞬息萬變的威脅模式。
 
-![Azure web 應用程式防火牆](./media/waf-overview/web-application-firewall-overview.png)
+![Azure web 應用程式防火牆](./media/waf-overview/web-application-firewall-overview2.png)
 
 Azure WAF 也能夠與應用程式閘道。 如需詳細資訊，請參閱 < [Web 應用程式防火牆](../application-gateway/waf-overview.md)。
 
 ## <a name="waf-policy-and-rules"></a>WAF 原則和規則
 
 您可以設定 WAF 原則，並建立一或多個前端前端來保護該原則的關聯。 WAF 原則是由兩種類型的安全性規則所組成：
-- 由客戶所撰寫的自訂規則。
-- 是的 Azure 受控組預先設定的規則集合的受管理的規則集。 當兩者同時存在時，自訂規則會執行之前執行規則中的受管理的規則集。 規則是由比對條件、 優先權和動作。 支援的動作類型包括：允許、 封鎖、 LOG 和重新導向。 您可以建立完全自訂的原則，藉由結合受管理和自訂規則符合您特定的應用程式的保護需求。
 
-以優先順序排列，其中的優先順序是唯一的整數，定義規則執行的順序執行原則的規則。 較小的整數值表示較高的優先順序，這些會更高版本的整數值的規則優先評估。 一旦符合規則時，會在規則中定義的對應動作套用到要求。 一旦處理這類相符項目之後，較低優先順序的規則都不會進一步處理。
+- 由客戶所撰寫的自訂規則。
+
+- 是的 Azure 受控組預先設定的規則集合的受管理的規則集。
+
+當兩者同時存在時，會處理中的受管理的規則集的規則之前，先處理自訂的規則。 規則是由比對條件、 優先權和動作。 支援的動作類型包括：允許、 封鎖、 LOG 和重新導向。 您可以建立完全自訂的原則，藉由結合受管理和自訂規則符合您特定的應用程式的保護需求。
+
+原則的規則處理以優先順序排列優先順序的定義的規則處理順序的唯一整數。 較小的整數值表示較高的優先順序，這些會更高版本的整數值的規則優先評估。 一旦符合規則時，會在規則中定義的對應動作套用到要求。 一旦處理這類相符項目之後，較低優先順序的規則都不會進一步處理。
 
 前門所傳遞的 web 應用程式可以有與其相關聯，一次只能有一個 WAF 原則。 不過，您可以在沒有任何與其相關聯的 WAF 原則有前端組態。 如果 WAF 原則存在，它會複寫到所有我們以確保安全性原則中的一致性在世界各地的邊緣位置。
 
@@ -57,17 +58,18 @@ Azure WAF 也能夠與應用程式閘道。 如需詳細資訊，請參閱 < [We
 ## <a name="waf-actions"></a>WAF 動作
 
 WAF 客戶可以選擇要求符合規則條件時執行的其中一個動作：
+
 - **允許：** 要求通過 WAF，然後轉送到後端。 沒有進一步較低的優先順序規則可以封鎖這項要求。
 - **封鎖：** 要求被封鎖，WAF 會傳送回應給用戶端，而不將要求轉送到後端。
 - **記錄檔：** 要求會記錄在 WAF 記錄，WAF 會繼續評估較低優先順序的規則。
 - **重新導向：** WAF 會將要求重新導向至指定的 URI。 指定的 URI 是原則層級設定。 設定後，所有的要求符合**重新導向**動作將會傳送至該 URI。
-
 
 ## <a name="waf-rules"></a>WAF 規則
 
 WAF 原則可以包含兩種類型的安全性規則-自訂規則，依客戶及受管理的 ruleset，撰寫 Azure 受管理預先設定的規則集。
 
 ### <a name="custom-authored-rules"></a>撰寫的自訂規則
+
 您可以設定 WAF 的自訂規則，如下所示：
 
 - **IP 允許清單和封鎖清單：** 您可以設定自訂規則來控制存取權的用戶端 IP 位址或 IP 位址範圍清單為基礎的 web 應用程式。 支援 IPv4 和 IPv6 位址類型。 這份清單可以設定為封鎖或允許這些要求的來源 IP 符合 IP 清單中的位置。
@@ -82,7 +84,6 @@ WAF 原則可以包含兩種類型的安全性規則-自訂規則，依客戶及
 
 - **速率限制規則：** 速率控制規則是要限制來自任何用戶端 IP 的異常高流量。 您可以設定臨界值一分鐘期間允許從用戶端 IP 的 web 要求的數目。 這是不同的 IP 清單架構允許/封鎖自訂規則，是讓所有要求從用戶端 IP 的區塊。 速率限制可以結合其他的比對條件，例如 HTTP (S) 的細微速率控制相符的參數。
 
-
 ### <a name="azure-managed-rule-sets"></a>Azure 受管理的規則集
 
 Azure 受管理的規則集提供簡單的方式部署一組常見的安全性威脅的防護。 因為這類的 ruleset，並由 Azure 管理，視需要以防止新的攻擊簽章，會更新規則。 在公開預覽期間，Azure 受控預設規則集包含針對下列的威脅類別的規則：
@@ -95,26 +96,32 @@ Azure 受管理的規則集提供簡單的方式部署一組常見的安全性�
 - 遠端檔案引入
 - 工作階段 fixation
 - SQL 注入保护
+- 通訊協定攻擊者
 
 新的攻擊簽章新增至規則集時，預設規則集的版本號碼會遞增。
 在您的 WAF 原則中的偵測模式中的預設會啟用預設規則集。 您可以停用或啟用預設規則設定為符合您的應用程式內的個別規則。 您也可以設定每個規則的特定動作 （允許/封鎖/重新導向/記錄）。 預設動作是區塊。 此外，自訂規則會設定位於相同的 WAF 原則上，如果您想略過任何預先設定的規則，在 預設規則集。
 之前在預設規則集的規則會進行評估，一律會套用自訂規則。 如果要求符合自訂規則，套用相對應的規則動作，並要求封鎖或傳遞到後端，而不需要任何進一步的自訂規則或規則在預設規則集的引動過程。 此外，您可以選擇從您的 WAF 原則中移除 預設規則集。
 
 
+### <a name="bot-protection-rule-preview"></a>Bot 保護規則 （預覽）
+
+WAF 擔任來自已知惡意 IP 位址的要求中的自訂動作時，可以啟用受管理的 Bot 保護規則集。 IP 位址被來自 Microsoft 威脅情報摘要。 [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence)提供 Microsoft 威脅情報，並由多個服務，包括 Azure 資訊安全中心。
+
+![Bot 保護規則集](./media/waf-front-door-configure-bot-protection/BotProtect2.png)
+
+> [!IMPORTANT]
+> Bot 保護規則集目前處於公開預覽狀態，並提供預覽服務等級協定。 可能不支援特定功能，或可能已經限制功能。  如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+
+如果已啟用 Bot 保護，符合惡意 Bot 用戶端 Ip 的連入要求都會記錄在 FrontdoorWebApplicationFirewallLog 記錄檔中。 您可以從儲存體帳戶存取 WAF 記錄事件中樞或 log analytics。 
+
 ## <a name="configuration"></a>組態
-在公開預覽：
-- 設定和部署所有的 WAF 規則型別完全支援使用 REST Api、 Azure Resource Manager 範本和 Azure PowerShell。
-- 使用 Azure 入口網站，您可以設定或檢視僅 Azure 受管理預設規則集。
+
+設定和部署所有的 WAF 規則型別完全支援使用 Azure 入口網站、 REST Api、 Azure Resource Manager 範本和 Azure PowerShell。
 
 ## <a name="monitoring"></a>監視
 
 監視在前門 waf 整合 Azure 監視器來追蹤警示並輕鬆地監視流量趨勢。
 
-## <a name="pricing"></a>價格
-
-公開預覽期間，WAF 前端相關聯的任何使用量是免費的並不會收費。
-
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何[建立 Front Door](quickstart-create-front-door.md)。
-
+- 了解如何[為使用 Azure 入口網站的前端設定 WAF 原則](waf-front-door-create-portal.md)

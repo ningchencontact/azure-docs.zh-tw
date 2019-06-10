@@ -3,19 +3,19 @@ title: 如何教導對話學習模組 - Microsoft 認知服務 | Microsoft Docs
 titleSuffix: Azure
 description: 了解如何教導對話學習模組。
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 8c55bb27ce5a413c5ceae22371ad61a5acf47281
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.author: nitinme
+ms.openlocfilehash: 9e5e6594a74219a22d67af18827bfe2b7cbd0fb8
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220258"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385265"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>如何教導對話學習模組 
 

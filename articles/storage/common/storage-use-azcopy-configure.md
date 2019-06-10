@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a160591ef0a47eed097ce8db373878f32965de9b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 18dc3e224df18c900653e4549badcdd93f0df6ec
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247120"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688014"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>設定、 最佳化和疑難排解 AzCopy
 
@@ -22,9 +22,9 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 > [!NOTE]
 > 如果您要尋找的內容，可協助您開始使用 AzCopy，請參閱下列文章：
 > - [開始使用 AzCopy](storage-use-azcopy-v10.md)
-> - [使用 AzCopy 和 blob 儲存體傳輸資料](storage-use-azcopy-blobs.md)
-> - [使用 AzCopy 和檔案儲存體傳輸資料](storage-use-azcopy-files.md)
-> - [使用 AzCopy 和 Amazon S3 貯體傳輸資料](storage-use-azcopy-s3.md)
+> - [使用 AzCopy 和 Blob 儲存體轉送資料](storage-use-azcopy-blobs.md)
+> - [使用 AzCopy 和檔案儲存體轉送資料](storage-use-azcopy-files.md)
+> - [使用 AzCopy 和 Amazon S3 貯體轉送資料](storage-use-azcopy-s3.md)
 
 ## <a name="configure-proxy-settings"></a>進行 Proxy 設定
 
@@ -52,7 +52,7 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 
 ## <a name="change-the-location-of-the-log-files"></a>變更記錄檔的位置
 
-根據預設，記錄檔位於`%USERPROFILE\\.azcopy`資料夾，在 Windows，或是在`$HOME\\.azcopy`在 Mac 和 Linux 上的資料夾。 如果您需要使用下列命令，您可以變更此位置。
+根據預設，記錄檔位於`%USERPROFILE\\.azcopy`目錄，在 Windows，或是在`$HOME\\.azcopy`在 Mac 和 Linux 上的目錄。 如果您需要使用下列命令，您可以變更此位置。
 
 | 作業系統 | 命令  |
 |--------|-----------|
@@ -74,7 +74,7 @@ AzCopy 會建立每個作業的記錄檔和方案檔案。 您可以使用記錄
 
 記錄檔會包含失敗的狀態 (`UPLOADFAILED`， `COPYFAILED`，和`DOWNLOADFAILED`)，完整路徑，以及失敗的原因。
 
-根據預設，記錄檔和計劃檔案都位於`%USERPROFILE\\.azcopy`在 Windows 上的資料夾或`$HOME\\.azcopy`在 Mac 和 Linux 上的資料夾。
+根據預設，記錄檔和計劃檔案都位於`%USERPROFILE\\.azcopy`在 Windows 上的目錄或`$HOME\\.azcopy`在 Mac 和 Linux 上的目錄。
 
 > [!IMPORTANT]
 > 當將要求提交給 Microsoft 支援服務 （或疑難排解問題涉及任何第三方），共用您想要執行此命令的修訂的版本。 這可確保與任何人，不會被不小心共用 SAS。 您可以在記錄檔開頭找到編校的版本。

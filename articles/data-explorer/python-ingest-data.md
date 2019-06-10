@@ -1,24 +1,24 @@
 ---
-title: 快速入門：使用 Azure 資料總管 Python 程式庫內嵌資料
-description: 在本快速入門中，您將了解如何使用 Python 將資料內嵌 (載入) 至 Azure 資料總管。
+title: 使用 Azure 資料總管 Python 程式庫內嵌資料
+description: 在本文中，您會學習如何 （負載） 資料內嵌至使用 Python 的 Azure 資料總管。
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/16/2018
-ms.openlocfilehash: fdeae2c6b598feee0abc57c80ea32f2108504330
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: da23ec91891776e9a459b04c5718147427843991
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046456"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496928"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>快速入門：使用 Azure 資料總管 Python 程式庫內嵌資料
+# <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>使用 Azure 資料總管 Python 程式庫內嵌資料
 
-Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供兩個適用於 Python 的用戶端程式庫：[內嵌程式庫](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest)和[資料程式庫](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data)。 這些程式庫可讓您將資料內嵌 (載入) 至叢集，並從您的程式碼查詢資料。 在本快速入門中，您先在叢集中建立資料表和資料對應。 然後，您將叢集的擷取排入佇列並驗證結果。
+Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供兩個適用於 Python 的用戶端程式庫：[內嵌程式庫](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest)和[資料程式庫](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data)。 這些程式庫可讓您將資料內嵌 (載入) 至叢集，並從您的程式碼查詢資料。 在本文中，您先建立資料表和叢集中的資料對應。 然後，您將叢集的擷取排入佇列並驗證結果。
 
-本快速入門也可用來作為 [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb) \(英文\)。
+這篇文章也會當作[Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -170,7 +170,7 @@ dataframe_from_result_table(RESPONSE.primary_results[0])
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算按照其他快速入門和教學課程繼續進行，請保留您建立的資源。 否則，請在資料庫中執行下列命令，來清除 StormEvents 資料表。
+如果您打算遵循我們的其他文章，讓您建立的資源。 否則，請在資料庫中執行下列命令，來清除 StormEvents 資料表。
 
 ```Kusto
 .drop table StormEvents
@@ -178,5 +178,4 @@ dataframe_from_result_table(RESPONSE.primary_results[0])
 
 ## <a name="next-steps"></a>後續步驟
 
-> [!div class="nextstepaction"]
-> [使用 Python 查詢資料](python-query-data.md)
+* [使用 Python 查詢資料](python-query-data.md)

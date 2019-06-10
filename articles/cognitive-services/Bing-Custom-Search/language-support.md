@@ -10,26 +10,26 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 56870a63f42c10b48cc2d8f0ae2995862be46d8f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 85326ae9166f7ea15ec2f45c01755b8f9ef03aff
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790250"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388571"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing 自訂搜尋 API 支援的語言和區域
 
 Bing 自訂搜尋 API 支援三十多個國家/地區，許多國家/地區具有一個以上的語言。
 
-雖然是選用項目，但要求應指定 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#mkt) 查詢參數，此參數可識別您希望結果來自哪個市場。 如需選用查詢參數的清單，請參閱[查詢參數](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)
+雖然是選用項目，但要求應指定 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#mkt) 查詢參數，此參數可識別您希望結果來自哪個市場。 如需選用查詢參數的清單，請參閱[查詢參數](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
 
-您可以使用 `cc` 查詢參數指定國家/地區。 如果您指定國家/地區，您也必須使用 `Accept-Language` 標頭指定一或多個語言代碼。 支援的語言視國家/地區而異；[市場] 表格中提供針對每個國家/地區支援的語言。
+您可以使用 `cc` 查詢參數指定國家/地區。 如果您指定國家/地區，您也必須使用 `Accept-Language` 標頭指定一或多個語言代碼。 支援的語言視國家/地區而異；[市場]  表格中提供針對每個國家/地區支援的語言。
 
-`Accept-Language` 標頭和 `setLang` 查詢參數彼此互斥 — 請勿同時指定。 如需詳細資料，請參閱 [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage)。
+`Accept-Language` 標頭和 `setLang` 查詢參數彼此互斥 — 請勿同時指定。 如需詳細資料，請參閱 [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage)。
 
 ## <a name="countriesregions"></a>國家/地區
 
-|國家/地區|代碼|
+|國家/區域|代碼|
 |-------|----|
 |阿根廷|AR|
 |澳大利亞|AU|
@@ -71,7 +71,7 @@ Bing 自訂搜尋 API 支援三十多個國家/地區，許多國家/地區具�
 
 ## <a name="markets"></a>市場
 
-|國家/地區|語言|市場代碼|
+|國家/區域|語言|市場代碼|
 |-------|--------|-----------|
 |阿根廷|西班牙文|es-AR|
 |澳大利亞|英文|en-AU|
@@ -111,5 +111,5 @@ Bing 自訂搜尋 API 支援三十多個國家/地區，許多國家/地區具�
 |台灣|繁體中文|zh-TW|
 |土耳其|土耳其文|tr-TR|
 |英國|英文|en-GB|
-|美國|英文|zh-TW|
+|美國|英文|en-US|
 |美國|西班牙文|es-US|

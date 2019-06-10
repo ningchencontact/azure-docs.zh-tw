@@ -9,12 +9,12 @@ ms.date: 05/27/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 96a67a9a593655b3b187fe1bb0decfc7252d2d10
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 4014827366afc492d73757a0ac5e1acb64262c51
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252997"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474776"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge-preview"></a>使用 Visual Studio 2019 開發和偵錯模組，適用於 Azure IoT Edge （預覽）
 
@@ -95,20 +95,19 @@ Azure IoT Edge Tools for Visual Studio 提供下列優點：
 
 Visual Studio 中的 Azure IoT Edge 專案範本可建立可以在 Azure IoT 中樞中部署到 Azure IoT Edge 裝置的專案。 首先您建立 Azure IoT Edge 方案，然後在該解決方案中產生的第一個模組， 每個 IoT Edge 解決方案都可以包含多個模組。
 
-1. 在 Visual Studio 新專案對話方塊中，搜尋並選取**Azure IoT Edge**，輸入您專案的名稱和指定的位置，然後選取**確定**。 預設專案名稱是 **AzureIoTEdgeApp1**。
+1. 在 Visual Studio 新專案對話方塊中，搜尋並選取**Azure IoT Edge**專案，然後按一下**下一步**。 在專案組態 視窗中，輸入您的專案名稱並指定位置，然後選取**建立**。 預設專案名稱是 **AzureIoTEdgeApp1**。
 
-1. 在 **新增 IoT Edge 應用程式和模組**視窗中，選取**Linux Amd64**， **Windows Amd64**，或兩者皆為應用程式平台。 如果您選取，您會建立具有每個參考的預設程式碼模組的兩個專案的方案。
+   ![建立新專案](./media/how-to-visual-studio-develop-csharp-module/create-new.png)
 
-   > [!TIP]
-   > Visual Studio 的 Azure IoT Edge 擴充功能目前不支援建立專案，適用於 ARM 平台。 請參閱此[IoT 開發人員部落格文章](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/)如需使用 Visual Studio Code 的 ARM32v7/armhf 開發解決方案的範例。
+1. 在 [**新增 IoT Edge 應用程式和模組**] 視窗中，選取**C#模組**或**C 模組**，然後指定您的模組名稱和模組映像儲存機制。 Visual Studio 會自動以 **localhost:5000/<您的模組名稱\>** 填入模組名稱。 請使用您自己的登錄資訊加以取代。 如果您使用本機 Docker 登錄來進行測試，則可以使用 **localhost**。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像 * **\<登錄名稱\>*.azurecr.io**。 僅取代字串的 **localhost:5000** 部分即可，因此最後的結果看起來像 * *\<* 登錄名稱 *\>.azurecr.io/* \<您的模組名稱\>***。 預設的模組名稱是 **IoTEdgeModule1**
 
-1. 選取   **C#模組**或是**C 模組**，然後指定您的模組名稱和模組映像儲存機制。 Visual Studio 會自動以 **localhost:5000/<您的模組名稱\>** 填入模組名稱。 請使用您自己的登錄資訊加以取代。 如果您使用本機 Docker 登錄來進行測試，則可以使用 **localhost**。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像 * **\<登錄名稱\>*.azurecr.io**。 僅取代字串的 **localhost:5000** 部分即可，因此最後的結果看起來像 * *\<* 登錄名稱 *\>.azurecr.io/* \<您的模組名稱\>***。 預設的模組名稱是 **IoTEdgeModule1**
+   ![新增應用程式和模組](./media/how-to-visual-studio-develop-csharp-module/add-application-and-module.png)
 
 1. 選取  **確定**來建立 Azure IoT Edge 解決方案使用的模組C#或 c
 
-您現在可以**AzureIoTEdgeApp1.Linux.Amd64**專案或**AzureIoTEdgeApp1.Windows.Amd64**專案，或兩者，以及**IoTEdgeModule1**專案中您解決方案。 每個**AzureIoTEdgeApp1**專案具有`deployment.template.json`檔案，其中定義想要建置及部署您的 IoT Edge 方案的模組，而且也會定義模組之間的路由。 預設解決方案具有 **tempSensor** 模組與 **IoTEdgeModule1** 模組。 **tempSensor** 模組會產生 **IoTEdgeModule1** 模組的模擬資料，而 **IoTEdgeModule1** 模組中的預設程式碼會直接將收到的訊息透過管道傳送到 Azure IoT 中樞。
+您現在可以**AzureIoTEdgeApp1.Linux.Amd64**專案或**AzureIoTEdgeApp1.Windows.Amd64**專案，以及**IoTEdgeModule1**方案中的專案。 每個**AzureIoTEdgeApp1**專案具有`deployment.template.json`檔案，其中定義想要建置及部署您的 IoT Edge 方案的模組，而且也會定義模組之間的路由。 預設解決方案具有 **tempSensor** 模組與 **IoTEdgeModule1** 模組。 **tempSensor** 模組會產生 **IoTEdgeModule1** 模組的模擬資料，而 **IoTEdgeModule1** 模組中的預設程式碼會直接將收到的訊息透過管道傳送到 Azure IoT 中樞。
 
-**IoTEdgeModule1** 專案是 .NET Core 2.1 主控台應用程式。 它包含執行 Windows 容器或 Linux 容器之 IoT Edge 裝置所需的 Dockerfiles。 `module.json`檔案描述模組中繼資料。 實際的模組程式碼，其使用 Azure IoT 裝置 SDK，為相依性： 位於`Program.cs`或`main.c`檔案。
+**IoTEdgeModule1**專案是.NET Core 2.1 的主控台應用程式，如果是C#模組。 它包含執行 Windows 容器或 Linux 容器之 IoT Edge 裝置所需的 Dockerfiles。 `module.json`檔案描述模組中繼資料。 實際的模組程式碼，其使用 Azure IoT 裝置 SDK，為相依性： 位於`Program.cs`或`main.c`檔案。
 
 ## <a name="develop-your-module"></a>開發您的模組
 
@@ -122,7 +121,7 @@ Visual Studio 中的 Azure IoT Edge 專案範本可建立可以在 Azure IoT 中
 
    ![複製 Edge 裝置連接字串](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
 
-1. 移至**工具** > **Azure IoT Edge 工具** > **安裝 IoT Edge 模擬器**，pasten 連接字串，然後按一下  **確定**.
+1. 移至**工具** > **Azure IoT Edge 工具** > **安裝 IoT Edge 模擬器**，貼上連接字串，然後按一下 **[確定]** .
 
    ![開啟 [設定 Edge 連接字串] 視窗](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
 

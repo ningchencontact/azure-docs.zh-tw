@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 479edc11604670189b0accba67aa8f345f6260cd
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: a0a2bc58603a81ba23ff3f1feb05f4d2350cfe72
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551373"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688738"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 備份 - 常見問題集
 本文提供「Azure 備份」服務的常見問題解答。
@@ -182,8 +182,8 @@ Azure 備份的儲存體架構透過最佳化儲存資料以進行快速還原�
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>可建立的復原點數目有限制嗎？
 您可以為每個受保護的執行個體最多建立 9999 個復原點。 受保護的執行個體係指會備份至 Azure 的電腦、伺服器 (實體或虛擬) 或工作負載。
 
-- 深入了解[備份和保留](./backup-introduction-to-azure-backup.md#backup-and-retention)。
-- 了解[受保護的執行個體](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)。
+- 深入了解[備份和保留](./backup-overview.md#backup-and-retention)。
+
 
 ### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>我可以將備份至 Azure 的資料復原幾次？
 從 Azure 備份進行復原的次數沒有任何限制。

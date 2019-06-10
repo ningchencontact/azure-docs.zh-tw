@@ -3,21 +3,21 @@ title: 翻譯工具文字 API 翻譯方法
 titleSuffix: Azure Cognitive Services
 description: 使用翻譯工具文字 API 翻譯方法。
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 5a2192c4555c2d84587ec8e39ce9ba94c985b541
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: HT
+ms.author: v-pawal
+ms.openlocfilehash: be61d8932288b9a6b2cc96e53d3630124ec0f610
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235822"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389760"
 ---
-# <a name="translator-text-api-30-translate"></a>翻譯工具文字 API 3.0：轉譯
+# <a name="translator-text-api-30-translate"></a>翻譯工具文字 API 3.0：Translate
 
 翻譯文字。
 
@@ -35,13 +35,13 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 <table width="100%">
   <th width="20%">查詢參數</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
     <td>api-version</td>
     <td>必要參數。<br/>用戶端要求的 API 版本。 值必須為 <code>3.0</code>。</td>
   </tr>
   <tr>
-    <td>寄件者</td>
+    <td>from</td>
     <td>選擇性參數。<br/>指定輸入文字的語言。 使用 <code>translation</code> 範圍查閱<a href="./v3-0-languages.md">支援語言</a>，以尋找可用於翻譯的來源語言。 若未指定 <code>from</code> 參數，則會套用自動語言偵測來判斷來源語言。</td>
   </tr>
   <tr>
@@ -94,14 +94,14 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 要求標頭包括：
 
 <table width="100%">
-  <th width="20%">標頭</th>
-  <th>說明</th>
+  <th width="20%">headers</th>
+  <th>描述</th>
   <tr>
     <td>驗證標頭</td>
     <td>必要的要求標頭。<br/>請參閱<a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">可用的驗證選項</a>。</td>
   </tr>
   <tr>
-    <td>內容類型</td>
+    <td>Content-Type</td>
     <td>必要的要求標頭。<br/>指定承載的內容類型。 可能的值為：<code>application/json</code>。</td>
   </tr>
   <tr>
@@ -114,7 +114,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
 </table> 
 
-## <a name="request-body"></a>要求本文
+## <a name="request-body"></a>Request body
 
 要求的本文是 JSON 陣列。 每個陣列項目都是字串屬性名為 `Text` 的 JSON 物件，其代表要翻譯的字串。
 
@@ -172,8 +172,8 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 ## <a name="response-headers"></a>回應標頭
 
 <table width="100%">
-  <th width="20%">標頭</th>
-  <th>說明</th>
+  <th width="20%">headers</th>
+  <th>描述</th>
     <tr>
     <td>X-RequestId</td>
     <td>服務產生的值，用於識別要求。 作為疑難排解之用。</td>
@@ -190,7 +190,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 <table width="100%">
   <th width="20%">狀態碼</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
     <td>200</td>
     <td>成功。</td>
@@ -201,7 +201,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>401</td>
-    <td>無法驗證此要求。 請確認認證已指定且有效。</td>
+    <td>無法驗證要求。 請確認認證已指定且有效。</td>
   </tr>
   <tr>
     <td>403</td>
@@ -217,7 +217,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>500</td>
-    <td>發生未預期的錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 <code>X-RequestId</code> 的要求識別碼，以及來自要求標頭 <code>X-ClientTraceId</code> 的用戶端識別碼。</td>
+    <td>發生意外錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 <code>X-RequestId</code> 的要求識別碼，以及來自要求標頭 <code>X-ClientTraceId</code> 的用戶端識別碼。</td>
   </tr>
   <tr>
     <td>503</td>
@@ -374,7 +374,7 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th> 動作</th>
+  <th>動作</th>
   <tr>
     <td><code>NoAction</code></td>
     <td>此為預設行為。 粗話會從來源傳遞到目標。<br/><br/>
@@ -401,7 +401,7 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
   </tr>
 </table> 
 
-例如：
+例如:
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4f1ce8fd44a501f594f3093789d1ef03e664d018
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 69c14c6b98b572bc413f5a35696269e13344387e
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008489"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417320"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>文字分析 API 支援的語言和區域
 
@@ -23,7 +23,11 @@ ms.locfileid: "60008489"
 
 ## <a name="language-detection"></a>語言偵測
 
-文字分析 API 最多可偵測 120 種不同的語言。 語言偵測會傳回語言的「指令碼」。 例如，針對片語 "I have a dog"，它會傳回 `en` 而不是 `en-US`。 唯一的特殊案例是中文，若它可根據提供的文字決定指令碼，語言偵測功能會傳回 `zh_CHS` 或 `zh_CHT`。 若無法識別中文文件的特定指令碼，則只會傳回 `zh`。
+Text Analytics API 可以偵測到各種不同的語言、 變體，方言，以及某些地區/文化特性的語言。  語言偵測會傳回語言的「指令碼」。 例如，針對片語 "I have a dog"，它會傳回 `en` 而不是 `en-US`。 唯一的特殊案例是中文，若它可根據提供的文字決定指令碼，語言偵測功能會傳回 `zh_CHS` 或 `zh_CHT`。 若無法識別中文文件的特定指令碼，則只會傳回 `zh`。
+
+我們不發佈的語言，這項功能，確切的清單，但它可以偵測到各種不同的語言、 變體，方言，以及某些地區/文化特性的語言。 
+
+如果您有以較不常用的語言表示的內容時，您可以嘗試以查看它是否會傳回程式碼的語言偵測。 無法偵測到的語言的回應是`unknown`。
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>情感分析、 關鍵片語擷取和具名的實體辨識
 
@@ -40,7 +44,7 @@ ms.locfileid: "60008489"
 | 簡體中文 | `zh-CN`|           |             | ✔ \*        |    |
 | 丹麥文      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | 荷蘭文       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
-| English     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
+| 英文     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
 | 芬蘭文     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
 | 法文      | `fr`          | ✔        | ✔           |  ✔ \*           |     |
 | 德文      | `de`          | ✔ \*     | ✔           |  ✔ \*          |     |

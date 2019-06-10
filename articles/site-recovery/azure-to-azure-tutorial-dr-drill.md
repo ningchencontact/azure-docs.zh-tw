@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 16c791287cc50b5ac8992a86f6de1e3eeb5e329e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d058282a9e903b37505f2a762d4264efbbec3a5a
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59260267"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399508"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>執行 Azure VM 到次要 Azure 區域的災害復原演練
 
@@ -31,15 +31,15 @@ ms.locfileid: "59260267"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 在您執行測試容錯移轉之前，建議您驗證 VM 屬性並確定一切如同預期。  在 [複寫的項目] 中存取 VM 屬性。 [程式集]  刀鋒視窗會顯示機器設定與狀態的相關資訊。
+- 在您執行測試容錯移轉之前，建議您驗證 VM 屬性並確定一切如同預期。  在 [複寫的項目]  中存取 VM 屬性。 [程式集]  刀鋒視窗會顯示機器設定與狀態的相關資訊。
 - **建議您針對測試容錯移轉，使用個別的 Azure VM 網路**，而非在您啟用複寫時所設定的預設網路。
 
 
 ## <a name="run-a-test-failover"></a>執行測試容錯移轉
 
-1. 在 [設定] > [複寫的項目] 中，按一下 [VM] [+測試容錯移轉]圖示。
+1. 在 [設定]   > [複寫的項目]  中，按一下 [VM] [+測試容錯移轉]  圖示。
 
-2. 在 [測試容錯移轉] 中，選取要用於容錯移轉的復原點：
+2. 在 [測試容錯移轉]  中，選取要用於容錯移轉的復原點：
 
    - **最近處理**：將 VM 容錯移轉到 Site Recovery 服務所處理的最新復原點。 隨即顯示時間戳記。 使用此選項時，無須花費時間處理資料，因此它會提供低 RTO (復原時間目標)。
    - **最新應用程式一致**：此選項會將所有 VM 容錯移轉到最新的應用程式一致復原點。 隨即顯示時間戳記。
@@ -47,9 +47,9 @@ ms.locfileid: "59260267"
 
 3. 選取 Azure VM 在容錯移轉之後，次要地區所要連線的目標 Azure 虛擬網路。
 
-4. 若要開始容錯移轉，請按一下 [確定]。 若要追蹤進度，請按一下 VM 開啟其內容。 或者，您也可以按一下保存庫名稱中的 [測試容錯移轉] 作業 > [設定] > [作業] > [Site Recovery 作業]。
-5. 容錯移轉完成之後，複本 Azure VM 會出現在 Azure 入口網站> [虛擬機器] 中。 請確定 VM 正在執行中、大小適中，並已連線到適當的網路。
-6. 若要刪除測試容錯移轉期間建立的 VM，請按一下複寫的項目或復原計劃上的 [清除測試容錯移轉]。 在 [記事] 中，記錄並儲存關於測試容錯移轉的任何觀察。
+4. 若要開始容錯移轉，請按一下 [確定]  。 若要追蹤進度，請按一下 VM 開啟其內容。 或者，您也可以按一下保存庫名稱中的 [測試容錯移轉]  作業 > [設定]   > [作業]   > [Site Recovery 作業]  。
+5. 容錯移轉完成之後，複本 Azure VM 會出現在 Azure 入口網站> [虛擬機器]  中。 請確定 VM 正在執行中、大小適中，並已連線到適當的網路。
+6. 若要刪除測試容錯移轉期間建立的 VM，請按一下複寫的項目或復原計劃上的 [清除測試容錯移轉]  。 在 [記事]  中，記錄並儲存關於測試容錯移轉的任何觀察。
 
 ## <a name="next-steps"></a>後續步驟
 

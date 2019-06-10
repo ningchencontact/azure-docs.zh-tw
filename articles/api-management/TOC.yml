@@ -121,6 +121,8 @@
           href: api-management-howto-manage-protocols-ciphers.md
     - name: 自訂開發人員經驗
       items:
+        - name: 存取及自訂新的開發人員入口網站
+          href: api-management-howto-developer-portal.md
         - name: 修改頁面內容和版面配置
           href: api-management-modify-content-layout.md
         - name: 使用範本自訂系統頁面

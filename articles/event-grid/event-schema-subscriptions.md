@@ -236,8 +236,8 @@ Azure 訂用帳戶會從 Azure Resource Manager 發出管理事件，像是建�
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| 主題 | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| 主旨 | string | 發行者定義事件主體的路徑。 |
+| topic | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
+| subject | string | 發行者定義事件主體的路徑。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | id | string | 事件的唯一識別碼。 |
@@ -249,7 +249,7 @@ Azure 訂用帳戶會從 Azure Resource Manager 發出管理事件，像是建�
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| 授權 | 物件 | 作業的所要求授權。 |
+| authorization | 物件 | 作業的所要求授權。 |
 | claims | 物件 | 宣告的屬性。 如需詳細資訊，請參閱 [JWT 規格](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。 |
 | correlationId | string | 用於疑難排解的作業識別碼。 |
 | httpRequest | 物件 | 作業的詳細資料。 更新現有資源或刪除資源時，只會包含這個物件。 |

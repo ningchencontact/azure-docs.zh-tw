@@ -51,7 +51,7 @@ ms.locfileid: "66242502"
 
 * 不支援疏鬆的唯一索引鍵。 如果遺漏了部分唯一路徑值，則會將它們視為 Null 值，並將其納入唯一性限制式。 因此，只有具 Null 值的單一項目能夠滿足此限制式。
 
-* 唯一索引鍵名稱會區分大小寫。 例如，假设某个容器的唯一键约束设置为 `/address/zipcode`。 如果数据包含名为 `ZipCode` 的字段，则 Azure Cosmos DB 会插入“null”作为唯一键，因为 `zipcode` 与 `ZipCode` 不同。 由於這個區分大小寫的緣故，因此，無法插入包含 ZipCode 的所有其他記錄，因為重複的 "null" 違反唯一索引鍵限制式。
+* 唯一索引鍵名稱會區分大小寫。 例如，假設某個容器的唯一索引鍵條件約束設為 `/address/zipcode` 如果資料包含名為 `ZipCode` 的欄位名稱，則 Azure Cosmos DB 會插入“null” 作為唯一索引鍵鍵，因為 `zipcode` 與 `ZipCode` 不同。 由於區分大小寫的緣故，無法插入包含 ZipCode 的所有其他記錄，因為重複的 "null" 違反唯一索引鍵條件約束。
 
 ## <a name="next-steps"></a>後續步驟
 

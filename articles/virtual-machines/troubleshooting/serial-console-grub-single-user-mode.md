@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2019
 ms.author: alsin
-ms.openlocfilehash: 89cbf220c9ae32c7f63da4941ced1bdbfa1e5293
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 440d917c2ee4a51f2c8ba4b134b50508bdaf4bcb
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835030"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735270"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>使用序列主控台來存取 GRUB 與單一使用者模式
 GRUB 是 GRand Unified Bootloader 的縮寫，這可能是您在啟動 VM 時首先會見到的項目。 由於它會在作業系統啟動之前顯示，因此無法透過 SSH 存取它。 從 GRUB，您可以修改開機設定，以開機到單一使用者模式。
@@ -184,7 +184,7 @@ SLES 中的 GRUB 存取要求必須透過 YaST 設定開機載入程式。 若�
 若 SLES 無法正常開機，將會自動讓您進入緊急殼層。 若要手動進入緊急殼層，請依下列指示執行：
 
 1. 從 GRUB，按 'e' 以編輯您的開機項目 (SLES 項目)
-1. 尋找核心行，它的開頭是 `linux`
+1. 尋找包含核心一行-就會開始使用 `linux`
 1. 將 `systemd.unit=emergency.target` 附加到行尾
 1. 按 Ctrl + X 以使用者些設定重新開機並進入緊急殼層
    > 請注意，您會進入緊急殼層，而且檔案系統是_唯讀_的。 若要對任何檔案進行任何變更，您將必須使用讀取/寫入權限重新掛載檔案系統。 若要這樣做，請輸入 `mount -o remount,rw /` 到殼層

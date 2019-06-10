@@ -1,22 +1,22 @@
 ---
-title: 快速入門：使用 Azure 資料總管 .NET Standard SDK 內嵌資料 (預覽)
-description: 在本快速入門中，您將了解如何使用 .NET Standard SDK 將資料內嵌 (載入) 至 Azure 資料總管。
+title: 使用 Azure 資料總管 .NET Standard SDK 內嵌資料 (預覽)
+description: 在本文中，您會學習如何 （負載） 資料內嵌至使用.NET 標準 SDK 的 Azure 資料總管。
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 11/18/2018
-ms.openlocfilehash: 6a068c45a13bd45a09ed51fd154b5842938e0c5e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 53cf055a0900a25923fe67b961755c1f4367e1fb
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59044659"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496881"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>快速入門：使用 Azure 資料總管 .NET Standard SDK 內嵌資料 (預覽)
+# <a name="ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>使用 Azure 資料總管 .NET Standard SDK 內嵌資料 (預覽)
 
-Azure 資料總管 (ADX) 是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 ADX 提供兩個適用於 .NET Standard 的用戶端程式庫：[內嵌程式庫](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard)和[資料程式庫](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard)。 這些程式庫可讓您將資料內嵌 (載入) 至叢集，並從您的程式碼查詢資料。 在本快速入門中，您先在測試叢集中建立資料表和資料對應。 然後，您將叢集的擷取排入佇列並驗證結果。
+Azure 資料總管 (ADX) 是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 ADX 提供兩個適用於 .NET Standard 的用戶端程式庫：[內嵌程式庫](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard)和[資料程式庫](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard)。 這些程式庫可讓您將資料內嵌 (載入) 至叢集，並從您的程式碼查詢資料。 在本文中，您先建立資料表並在測試叢集中的資料對應。 然後，您將叢集的擷取排入佇列並驗證結果。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -226,7 +226,7 @@ using (var cslQueryProvider = KustoClientFactory.CreateCslQueryProvider(kustoCon
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算按照其他快速入門和教學課程繼續進行，請保留您建立的資源。 否則，請在資料庫中執行下列命令，來清除 `StormEvents` 資料表。
+如果您打算遵循我們的其他文章，讓您建立的資源。 否則，請在資料庫中執行下列命令，來清除 `StormEvents` 資料表。
 
 ```Kusto
 .drop table StormEvents
@@ -234,5 +234,4 @@ using (var cslQueryProvider = KustoClientFactory.CreateCslQueryProvider(kustoCon
 
 ## <a name="next-steps"></a>後續步驟
 
-> [!div class="nextstepaction"]
-> [撰寫查詢](write-queries.md)
+* [撰寫查詢](write-queries.md)

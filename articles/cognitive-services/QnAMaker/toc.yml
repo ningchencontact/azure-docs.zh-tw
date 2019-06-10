@@ -96,9 +96,9 @@
         - name: 建立和發佈知識庫
           href: Quickstarts/create-publish-knowledge-base.md
           displayName: 'create bot, bot, publish to bot, test, edit'
-        - name: 取得答案
+        - name: 使用中繼資料取得答案
           href: How-To/metadata-generateanswer-usage.md
-          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer'
+          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context'
         - name: 建立透過知識庫啟用的 Bot
           href: Tutorials/integrate-qnamaker-luis.md
         - name: 以不同語言建立知識庫

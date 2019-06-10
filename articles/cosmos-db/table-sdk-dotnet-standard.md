@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/18/2018
-ms.openlocfilehash: 8e8baf9ba8fca2966825620d0588ab005abd37b9
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 03/18/2019
+ms.openlocfilehash: 1c9894772f440a568cbc08890feb961471d84137
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604374"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480210"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB 資料表 .NET Standard API：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -41,9 +41,9 @@ ms.locfileid: "65604374"
 * 公開上市版本
 
 ### <a name="a-name0110-preview0110-preview"></a><a name="0.11.0-preview"/>0.11.0-preview
-* 对 CloudTableClient 的配置方式进行了更改。 它现在会在构造过程中使用 TableClientConfiguration 对象。 TableClientConfiguration 提供不同的属性来配置客户端行为，具体取决于目标终结点是 Cosmos DB 表 API 还是 Azure 存储表 API。
-* 增加了对 TableQuery 的支持，可以在自定义列中按排序顺序返回结果。 只有 Cosmos DB 表终结点支持此功能。
-* 增加了相关支持，可以在不同的结果类型上公开 RequestCharge。 只有 Cosmos DB 表终结点支持此功能。
+* 已變更設定 CloudTableClient 的方式。 它現在會在建構期間 TableClientConfiguration 物件。 TableClientConfiguration 提供不同的屬性，以設定用戶端行為，根據目標端點是 Cosmos DB 資料表 API 或 Azure 儲存體資料表 API。
+* 已新增的支援 TableQuery 以自訂的資料行上排序的順序傳回結果。 Cosmos DB 資料表端點上才支援這項功能。
+* 已新增各種結果型別上公開 RequestCharges 的支援。 Cosmos DB 資料表端點上才支援這項功能。
 
 ### <a name="a-name0101-preview0101-preview"></a><a name="0.10.1-preview"/>0.10.1 - 預覽
 * 針對 Azure 儲存體資料表端點新增 SAS 權杖、TablePermissions、ServiceProperties 和 ServiceStats 作業支援。 
@@ -65,11 +65,11 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 此跨平台的.NET Standard 程式庫[Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)將會取代.NET Framework 程式庫[Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)。
 
-| 版本 | 發行日期 | 停用日期 |
+| Version | 發行日期 | 停用日期 |
 | --- | --- | --- |
 | [1.0.1](#1.0.1) |2019 年 4 月 19日日 |--- |
 | [1.0.0](#1.0.0) |2019 年 3 月 13 日 |--- |
-| [0.11.0-preview](#0.11.0-preview) |2019 年 3 月 5 日 |--- |
+| [0.11.0-preview](#0.11.0-preview) |2019 年 3 月 5日日 |--- |
 | [0.10.1 - 預覽](#0.10.1-preview) |2019 年 1 月 22 日 |--- |
 | [0.10.0-預覽](#0.10.0-preview) |2018 年 12 月 18 日 |--- |
 | [0.9.1-預覽](#0.9.1-preview) |2018 年 10 月 18 日 |--- |

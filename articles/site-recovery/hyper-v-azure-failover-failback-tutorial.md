@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 53b2c2945062ef348104e24a352895a14eed1a04
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a4889d82ac1c837581771860f2aba86faf7650ee
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314836"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399447"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>將 Hyper-V VM 容錯移轉及容錯回復至 Azure
 
@@ -47,22 +47,22 @@ ms.locfileid: "58314836"
 
 在容錯移轉之前，請驗證 VM 屬性，並確定 VM 符合 [Azure 需求](hyper-v-azure-support-matrix.md#replicated-vms)。
 
-在 [受保護的項目] 中，按一下 [複寫的項目] > VM。
+在 [受保護的項目]  中，按一下 [複寫的項目]  > VM。
 
-1. 在 [複寫的項目] 窗格中，將會呈現 VM 資訊、健康情況狀態，以及最新可用復原點的摘要。 如需檢視詳細資訊，請按一下 [屬性]。
+1. 在 [複寫的項目]  窗格中，將會呈現 VM 資訊、健康情況狀態，以及最新可用復原點的摘要。 如需檢視詳細資訊，請按一下 [屬性]  。
 
-1. 在 [計算與網路] 中，您可以修改 Azure 的名稱、資源群組、目標大小、[可用性設定組](../virtual-machines/windows/tutorial-availability-sets.md)，及管理磁碟設定。
+1. 在 [計算與網路]  中，您可以修改 Azure 的名稱、資源群組、目標大小、[可用性設定組](../virtual-machines/windows/tutorial-availability-sets.md)，及管理磁碟設定。
 
 1. 您可以檢視及修改網路設定，包括在容錯移轉後 Azure VM 所在的網路/子網路，以及要指派給它的 IP 位址。
 
-1. 在 [磁碟] 中，您可以看見 VM 上作業系統和資料磁碟的相關資訊。
+1. 在 [磁碟]  中，您可以看見 VM 上作業系統和資料磁碟的相關資訊。
 
 ## <a name="failover-to-azure"></a>容錯移轉至 Azure
 
-1. 在 [設定] > [複寫的項目] 中，按一下 [VM] > [容錯移轉]。
-2. 在 [容錯移轉] 中，選取 [最新的] 復原點。 
-3. 選取 [Shut down machine before beginning failover] \(先將機器關機再開始容錯移轉)。 Site Recovery 會嘗試先關閉來源 VM 後，再觸發容錯移轉。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。
-4. 驗證容錯移轉之後，請按一下 [認可]。 這會刪除所有可用的復原點。
+1. 在 [設定]   > [複寫的項目]  中，按一下 [VM] > [容錯移轉]  。
+2. 在 [容錯移轉]  中，選取 [最新的]  復原點。 
+3. 選取 [Shut down machine before beginning failover] \(先將機器關機再開始容錯移轉)  。 Site Recovery 會嘗試先關閉來源 VM 後，再觸發容錯移轉。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業]  頁面上追蹤容錯移轉進度。
+4. 驗證容錯移轉之後，請按一下 [認可]  。 這會刪除所有可用的復原點。
 
 > [!WARNING]
 > **請勿取消正在進行中的容錯移轉**：如果您在進行中取消，容錯移轉會停止，但 VM 不會再次複寫。
@@ -71,11 +71,11 @@ ms.locfileid: "58314836"
 
 基本上，容錯回復作業是從 Azure 容錯移轉至內部部署網站，而在反向複寫中，此作業會再次開始將 VM 從內部部署網站複寫至 Azure。
 
-1. 在 [設定] > [複寫的項目] 中，按一下 VM > [規劃的容錯移轉]。
-2. 在 [確認規劃的容錯移轉] 中，確認容錯移轉方向 (從 Azure)，並選取來源和目標位置。
-3. 選取 [在容錯移轉前同步處理資料 (僅同步處理差異變更)]。 此選項會降低 VM 停機時間，因為它會在不關閉 VM 的情況下同步處理。
+1. 在 [設定]   > [複寫的項目]  中，按一下 VM > [規劃的容錯移轉]  。
+2. 在 [確認規劃的容錯移轉]  中，確認容錯移轉方向 (從 Azure)，並選取來源和目標位置。
+3. 選取 [在容錯移轉前同步處理資料 (僅同步處理差異變更)]  。 此選項會降低 VM 停機時間，因為它會在不關閉 VM 的情況下同步處理。
 4. 起始容錯移轉。 您可以在 [工作]  索引標籤上追蹤容錯移轉進度。
-5. 在完成初始資料同步處理且您已經準備好關閉 Azure VM 之後，請按一下 [作業] > 規劃的容錯移轉作業名稱 > [完成容錯移轉]。 這會將 Azure VM 關機、將最新變更轉送至內部部署，然後啟動內部部署 VM。
+5. 在完成初始資料同步處理且您已經準備好關閉 Azure VM 之後，請按一下 [作業]  > 規劃的容錯移轉作業名稱 > [完成容錯移轉]  。 這會將 Azure VM 關機、將最新變更轉送至內部部署，然後啟動內部部署 VM。
 6. 登入內部部署 VM 以檢查它如預期般可用。
-7. 內部部署 VM 現在處於「認可擱置」狀態。 按一下 [認可]。 這會刪除 Azure VM 和它的磁碟，並準備內部部署 VM 來反轉複寫方向。
-若要開始將內部部署 VM 複寫至 Azure，請啟用 [反向複寫]。 這會觸發複寫關閉 Azure VM 之後所發生的差異變更。  
+7. 內部部署 VM 現在處於「認可擱置」  狀態。 按一下 [認可]  。 這會刪除 Azure VM 和它的磁碟，並準備內部部署 VM 來反轉複寫方向。
+若要開始將內部部署 VM 複寫至 Azure，請啟用 [反向複寫]  。 這會觸發複寫關閉 Azure VM 之後所發生的差異變更。  

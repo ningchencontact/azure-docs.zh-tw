@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b596af8ae9fbbaee6964622df44d316a11582cb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 515dc8ed4a2fc9b3d2973d393c6894d8c7cef8f0
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686109"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729389"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>從 Azure Container Registry 部署至 Azure 容器執行個體
 
@@ -64,9 +64,9 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-在前面的命令中，`--role` 引數設定服務主體具有 acrpull 角色，授與主體僅限提取登錄的存取權。 若要同時授與發送和提取存取權，請將 `--role` 引數變更為 acrpush。
+在前面的命令中，`--role` 引數設定服務主體具有 acrpull  角色，授與主體僅限提取登錄的存取權。 若要同時授與發送和提取存取權，請將 `--role` 引數變更為 acrpush  。
 
-接下來，在保存庫中儲存服務主體的 appId，也就是您傳遞給 Azure Container Registry 進行驗證的**使用者名稱**。
+接下來，在保存庫中儲存服務主體的 appId  ，也就是您傳遞給 Azure Container Registry 進行驗證的**使用者名稱**。
 
 ```azurecli
 # Store service principal ID in AKV (the registry *username*)
@@ -138,9 +138,9 @@ $ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_L
 
 1. 在 Azure 入口網站中，瀏覽到您的容器登錄。
 
-1. 若要確認已啟用管理帳戶，請選取 [存取金鑰]，然後在 [管理使用者] 之下選取 [啟用]。
+1. 若要確認已啟用管理帳戶，請選取 [存取金鑰]  ，然後在 [管理使用者]  之下選取 [啟用]  。
 
-1. 選取 [存放庫]，接著選取您想要從中部署的存放庫、以滑鼠右鍵按一下您想要部署之容器映像的標籤，然後選取 [執行執行個體]。
+1. 選取 [存放庫]  ，接著選取您想要從中部署的存放庫、以滑鼠右鍵按一下您想要部署之容器映像的標籤，然後選取 [執行執行個體]  。
 
     ![Azure 入口網站內 Azure Container Registry 中的 [執行執行個體]][acr-runinstance-contextmenu]
 
@@ -163,7 +163,7 @@ $ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_L
 
 <!-- LINKS - External -->
 [cloud-shell-bash]: https://shell.azure.com/bash
-[cloud-shell-powershell]: https://shell.azure.com/powershell
+[cloud-shell-try-it]: https://shell.azure.com/powershell
 
 <!-- LINKS - Internal -->
 [az-acr-show]: /cli/azure/acr#az-acr-show

@@ -3,19 +3,19 @@ title: 如何部署對話學習模組聊天機器人 - Microsoft 認知服務 | 
 titleSuffix: Azure
 description: 學習如何部署對話學習模組聊天機器人。
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: ae984cc2e0f43b81b8aa2f08b3944886733c9054
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: nitinme
+ms.openlocfilehash: 5522f762f3893f1d67cd3755b1e022f0118cc004
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994648"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385326"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>如何部署對話學習模組聊天機器人
 

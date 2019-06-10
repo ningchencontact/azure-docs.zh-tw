@@ -2,18 +2,18 @@
 title: 包含檔案
 description: 包含檔案
 services: virtual-machines
-author: jonbeck7
+author: vermagit
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/26/2019
-ms.author: azcspmt;jonbeck;cynthn
+ms.author: azcspmt;jonbeck;cynthn;amverma
 ms.custom: include file
-ms.openlocfilehash: f3c1a946afb7f51a1c7543dabae7f2f42ff466be
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9b4bdee19c883252e7de140ac7b19babd43d1df8
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145841"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755209"
 ---
 Azure H 系列虛擬機器 (Vm) 專為提供領導級的效能，MPI 延展性和成本的各種不同的實際 HPC 工作負載的效率。
 
@@ -27,7 +27,11 @@ H 系列 Vm 適合用於高 CPU 頻率或每個核心需求的大型記憶體所
 
 ## <a name="hb-series"></a>HB 系列
 
-進階儲存體：支援進階儲存體快取：支援
+ACU：199-216
+
+進階儲存體：支援
+
+進階儲存體快取：支援
 
 | 大小 | vCPU | 處理器 | 記憶體 (GB) | 記憶體頻寬 GB/秒 | 基底 CPU 頻率 (GHz) | 所有核心頻率 （GHz，尖峰） | 單核心頻率 （GHz，尖峰） | RDMA 效能 （GB/秒） | MPI 支援 | 暫存儲存體 (GB) | 最大資料磁碟 | 最大乙太網路的 Nic |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -37,7 +41,11 @@ H 系列 Vm 適合用於高 CPU 頻率或每個核心需求的大型記憶體所
 
 ## <a name="hc-series"></a>HC 系列
 
-進階儲存體：支援進階儲存體快取：支援
+ACU：297-315
+
+進階儲存體：支援
+
+進階儲存體快取：支援
 
 
 | 大小 | vCPU | 處理器 | 記憶體 (GB) | 記憶體頻寬 GB/秒 | 基底 CPU 頻率 (GHz) | 所有核心頻率 （GHz，尖峰） | 單核心頻率 （GHz，尖峰） | RDMA 效能 （GB/秒） | MPI 支援 | 暫存儲存體 (GB) | 最大資料磁碟 | 最大乙太網路的 Nic |
@@ -57,13 +65,13 @@ ACU：290-300
 
 | 大小 | vCPU | 處理器 | 記憶體 (GB) | 記憶體頻寬 GB/秒 | 基底 CPU 頻率 (GHz) | 所有核心頻率 （GHz，尖峰） | 單核心頻率 （GHz，尖峰） | RDMA 效能 （GB/秒） | MPI 支援 | 暫存儲存體 (GB) | 最大資料磁碟 | 最大乙太網路的 Nic |
 | --- | --- |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 | 8 | Intel Xeon E5 2667 v3 | 56 | 40 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x，MS-MPI | 1000 | 32 | 2 |
-| Standard_H16 | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 |  56 | Intel 5.x，MS-MPI | 2000 | 64 | 4 |
-| Standard_H8m | 8 | Intel Xeon E5 2667 v3 | 112 | 40 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x，MS-MPI | 1000 | 32 | 2 |
-| Standard_H16m | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x，MS-MPI | 2000 | 64 | 4 |
+| Standard_H8 | 8 | Intel Xeon E5 2667 v3 | 56 | 40 | 3.2 | 3.3 | 3.6 | - | Intel 5.x，MS-MPI | 1000 | 32 | 2 |
+| Standard_H16 | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 |  - | Intel 5.x，MS-MPI | 2000 | 64 | 4 |
+| Standard_H8m | 8 | Intel Xeon E5 2667 v3 | 112 | 40 | 3.2 | 3.3 | 3.6 | - | Intel 5.x，MS-MPI | 1000 | 32 | 2 |
+| Standard_H16m | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3.2 | 3.3 | 3.6 | - | Intel 5.x，MS-MPI | 2000 | 64 | 4 |
 | Standard_H16r <sup>1</sup> | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x，MS-MPI | 2000 | 64 | 4 |
 | Standard_H16mr <sup>1</sup> | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x，MS-MPI | 2000 | 64 | 4 |
 
-<sup>1</sup> 對於 MPI 應用程式，FDR InfiniBand 網路會啟用專用 RDMA 後端網路，以提供超低延遲和高頻寬。
+<sup>1</sup>對於 MPI 應用程式，FDR InfiniBand 網路啟用專用的 RDMA 後端網路。
 
 <br>

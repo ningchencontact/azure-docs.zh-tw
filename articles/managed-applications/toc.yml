@@ -39,6 +39,8 @@
           href: create-uidefinition-overview.md
         - name: 測試入口網站介面
           href: test-createuidefinition.md
+        - name: 要求 Just-In-Time 存取
+          href: request-just-in-time-access.md
         - name: 更新受控資源
           href: update-managed-resources.md
         - name: 使用入口網站發佈應用程式定義
@@ -51,6 +53,8 @@
       items:
         - name: 監視受控應用程式
           href: monitor-managed-application-portal.md
+        - name: 核准 Just-In-Time 存取
+          href: approve-just-in-time-access.md
 - name: 參考
   items:
     - name: Azure CLI

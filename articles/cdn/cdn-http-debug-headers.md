@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
-ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5693e0e191b36aa8d4552824c649a38d2f17b5b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736967"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475278"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 規則引擎的 X-EC-Debug HTTP 標頭
 偵錯快取要求標頭 `X-EC-Debug` 會提供與要求的資產所套用的快取原則有關的其他資訊。 這些標頭是**來自 Verizon 的 Azure CDN 進階**產品特有的標頭。
@@ -27,7 +27,7 @@ ms.locfileid: "60736967"
 ## <a name="usage"></a>使用量
 只有在符合下列條件時，從 POP 伺服器傳送給使用者的回應才會包含 `X-EC-Debug` 標頭：
 
-- 已在指定要求的規則引擎上啟用 [偵錯快取回應標頭](cdn-rules-engine-reference-features.md#debug-cache-response-headers) 功能。
+- 已在指定要求的規則引擎上啟用 [偵錯快取回應標頭](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) 功能。
 - 指定的要求會定義一組將包含於回應中的偵錯快取回應標頭。
 
 ## <a name="requesting-debug-cache-information"></a>要求偵錯快取資訊
@@ -118,7 +118,7 @@ UNKNOWN | 指出伺服器無法評估要求的資產是否可快取。 此狀態
 ## <a name="cache-key-response-header"></a>快取索引鍵回應標頭
 `X-EC-Debug: x-ec-cache-key` 回應標頭會指出與要求的內容相關聯的實體快取索引鍵。 實體快取索引鍵包含一個基於快取目的而識別資產的路徑。 換句話說，伺服器將根據資產的路徑 (如其快取索引鍵所定義) 來檢查它的快取版本。
 
-此實體的快取索引鍵的開頭為雙正斜線 (//)，後面接著用來要求內容的通訊協定 (HTTP 或 HTTPS)。 此通訊協定後面接著所要求之資產的相對路徑，其開頭為內容存取點 (例如 _/000001/_)。
+此實體的快取索引鍵的開頭為雙正斜線 (//)，後面接著用來要求內容的通訊協定 (HTTP 或 HTTPS)。 此通訊協定後面接著所要求之資產的相對路徑，其開頭為內容存取點 (例如 _/000001/_ )。
 
 根據預設，HTTP 平台會設定為使用*標準快取*，這表示快取機制會忽略查詢字串。 這種設定可防止快取索引鍵包含查詢字串資料。
 
@@ -151,7 +151,7 @@ UNKNOWN | 指出伺服器無法評估要求的資產是否可快取。 此狀態
 
 - MATimePeriod:（例如天），則您可以將較大單位的近似對的最大壽命 」 值 (也就是 MASeconds)。 
 
-- UnixTime:所要求內容的快取時間戳記表示 Unix 時間 （也稱為 POSIX 時間或 Unix Epoch) 表示的快取時間戳記。 快取時間戳記可指出資產的 TTL 開始進行計算的日期/時間。 
+- UnixTime:以 Unix 時間 (也就是 POSIX 時間或 Unix epoch) 表示所要求內容的快取時間戳記。 快取時間戳記可指出資產的 TTL 開始進行計算的日期/時間。 
 
     如果原始伺服器未使用第三方 HTTP 快取伺服器，或該伺服器未傳回 Age 回應標頭，則在擷取或重新驗證資產時，快取時間戳記將一律為日期/時間。 否則，POP 伺服器會使用的時間欄位來計算資產的 TTL，如下所示：Retrieval/RevalidateDateTime-Age。
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 4f2d8b3246901f139695998224dfe036cccb9833
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74eddadd7fd967daa1eebb9d7cb223fdc708025f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627145"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471435"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET 大量執行程式程式庫：下載資訊 
 
@@ -42,6 +42,18 @@ ms.locfileid: "60627145"
 
 ## <a name="release-notes"></a>版本資訊
 
+### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
+
+* 新增的 graph 大量執行程式，以接受頂點和邊緣上的 ttl 的支援
+
+### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
+
+* 已修正的問題，期間可彈性調整的 Azure Cosmos DB 閘道模式中執行時造成例外狀況。 此修正可讓功能上相當於 1.4.1 版本。
+
+### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
+
+* 已新增的 BulkDelete 支援 SQL API 帳戶，以接受資料分割索引鍵，若要刪除的文件識別碼 tuple。 這項變更可讓功能上相當於 1.4.0 版。
+
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
 * 包括 MongoBulkExecutor 以支援 .NET Standard 2.0。 這項功能使其功能相當於 1.3.0 版本，加上支援 .NET Standard 2.0 目標架構。
@@ -50,10 +62,24 @@ ms.locfileid: "60627145"
 
 * 已新增 .NET Standard 2.0 為其中一個支援的目標架構，以讓 BulkExecutor 程式庫可以使用 .NET Core 應用程式。
 
+### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
+
+* 更新大量執行程式，現在會使用最新版的 Azure Cosmos DB.NET SDK (2.4.0)
+
+### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
+
+* 新增的 graph 大量執行程式，以接受頂點和邊緣上的 ttl 的支援
+
+### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
+
+* 已修正的問題，期間可彈性調整的 Azure Cosmos DB 閘道模式中執行時造成例外狀況。
+
+### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
+
+* 已新增的 BulkDelete 支援 SQL API 帳戶，以接受資料分割索引鍵，若要刪除的文件識別碼 tuple。
+
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-* 已新增 BulkDelete 作業的多載，以便 SQL API 帳戶接受資料分割索引鍵 (要刪除的文件識別碼 Tuple)。
-* 已新增 BulkDelete 作業的多載，以便 SQL API 帳戶使用 RequestOptions 作為輸入查詢的篩選條件來指定要刪除的文件，並接受 RequestOptions (其包含指定資料分割索引鍵值的資料分割索引鍵)。
 * 已修正導致 BulkExecutor 所用之使用者代理程式的格式問題。
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0

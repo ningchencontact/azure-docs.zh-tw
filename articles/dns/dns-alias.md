@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 5/13/2019
+ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: 847ad271dac4afc8c8baa2faa8702b3a3ab6cefa
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: ff71eb7d1386226e29b3f0846e0894a553f978e5
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596711"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754225"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS 別名記錄概觀
 
@@ -20,7 +20,7 @@ DNS 記錄集必須要有 Azure DNS 別名記錄。 它們可以參考您的 DNS
 
 Azure DNS 區域中的下列記錄類型支援別名記錄集： 
 
-- A 
+- A
 - AAAA
 - CNAME
 
@@ -31,7 +31,7 @@ Azure DNS 區域中的下列記錄類型支援別名記錄集：
 
 - **從 DNS A/AAAA 記錄集指向公用 IP 資源**。 您可以建立 A/AAAA 記錄集，並使其成為別名記錄集來指向公用 IP 資源。 如果公用 IP 位址變更或已刪除，DNS 記錄集會是自動的。 系統會避免使用指向不正確 IP 位址的懸空 DNS 記錄。
 
-- **從 DNS A/AAAA/CNAME 記錄集指向流量管理員設定檔。** 您可以建立 A/AAAA 或 CNAME 記錄設定，並使用別名記錄將其指向流量管理員設定檔。 當您因為區域頂點不支援傳統的 CNAME 記錄，而需要在區域頂點路由傳送流量時，這點格外有用。 例如，假設您的流量管理員設定檔為 myprofile.trafficmanager.net，而您公司的 DNS 區域為 contoso.com。 您可以針對 contoso.com (區域頂點) 建立 A/AAAA 類型的別名記錄集，並指向 myprofile.trafficmanager.net。
+- **從 DNS A/AAAA/CNAME 記錄集指向流量管理員設定檔。** 您可以建立 A/AAAA 或 CNAME 記錄設定，並使用別名記錄將其指向流量管理員設定檔。 當您要在區域頂點，流量路由傳送，因為區域頂點不支援傳統的 CNAME 記錄時，它是特別有用。 例如，假設您的流量管理員設定檔為 myprofile.trafficmanager.net，而您公司的 DNS 區域為 contoso.com。 您可以針對 contoso.com (區域頂點) 建立 A/AAAA 類型的別名記錄集，並指向 myprofile.trafficmanager.net。
 - **指向 Azure 內容傳遞網路 (CDN) 端點**。 當您建立使用 Azure 儲存體和 Azure CDN 的靜態網站時，這非常有用。
 - **指向相同區域中的另一個 DNS 記錄集**。 別名記錄可以參考其他相同類型的記錄集。 例如，DNS CNAME 記錄集可以是另一個 CNAME 記錄集所用的別名。 如果您想要讓某些記錄集成為別名，某些成為非別名，便可使用這種安排。
 
@@ -41,11 +41,11 @@ Azure DNS 區域中的下列記錄類型支援別名記錄集：
 
 ### <a name="prevent-dangling-dns-records"></a>防止 DNS 記錄懸空
 
-傳統 DNS 記錄的常見問題是懸空記錄。 例如，DNS 記錄尚未更新以反映 IP 位址變更。 這類問題會特別發生於 A/AAAA 或 CNAME 記錄類型。
+傳統 DNS 記錄的常見問題是懸空記錄。 例如，DNS 記錄尚未更新以反映變更 IP 位址。 這類問題會特別發生於 A/AAAA 或 CNAME 記錄類型。
 
-使用傳統的 DNS 區域記錄，如果目標 IP 或 CNAME 不再存在，與其相關聯的 DNS 記錄必須手動更新。 在某些組織中，手動更新可能因為流程問題，或者因為將角色與相關聯的權限層級分隔開來而不會即時發生。 比方說，角色可能有權限刪除屬於應用程式的 CNAME 或 IP 位址。 但它並沒有足夠的權限可更新指向這些目標的 DNS 記錄。 DNS 記錄更新延遲可能會導致使用者中斷。
+使用傳統的 DNS 區域記錄，如果目標 IP 或 CNAME 不再存在，與其相關聯的 DNS 記錄必須手動更新。 在某些組織中，手動更新可能不會因為處理序問題的時間或個別角色和相關聯的權限等級。 比方說，角色可能有權限刪除屬於應用程式的 CNAME 或 IP 位址。 但它並沒有足夠的權限可更新指向這些目標的 DNS 記錄。 DNS 記錄更新延遲可能會導致使用者中斷。
 
-別名記錄會將 DNS 記錄的生命週期與 Azure 資源緊密結合，以避免懸空參考。 例如，限定為別名記錄以指向公用 IP 位址或流量管理員設定檔的 DNS 記錄。 如果這些基礎資源遭到刪除，則 DNS 別名記錄會同時遭到移除。
+別名記錄會將 DNS 記錄的生命週期與 Azure 資源緊密結合，以避免懸空參考。 例如，限定為別名記錄以指向公用 IP 位址或流量管理員設定檔的 DNS 記錄。 如果您刪除這些基礎的資源，DNS 別名記錄會變成空的記錄集。 它們不再參照已刪除的資源。
 
 ### <a name="update-dns-record-set-automatically-when-application-ip-addresses-change"></a>應用程式 IP 位址變更時會自動更新 DNS 記錄集
 
@@ -54,9 +54,9 @@ Azure DNS 區域中的下列記錄類型支援別名記錄集：
 ### <a name="host-load-balanced-applications-at-the-zone-apex"></a>位於區域頂點的主機負載平衡應用程式
 
 DNS 通訊協定可防止在區域頂點指派 CNAME 記錄。 例如，如果您的網域為 contoso.com；您可以建立 somelable.contoso.com 的 CNAME 記錄；但您無法為 contoso.com 本身建立 CNAME。
-此限制會為在 [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md)後面有負載平衡應用程式的應用程式擁有者帶來問題。 使用流量管理員設定檔需要建立 CNAME 記錄，因此不可能從區域頂點指向流量管理員設定檔。
+此限制會為在 [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md)後面有負載平衡應用程式的應用程式擁有者帶來問題。 使用流量管理員設定檔需要建立的 CNAME 記錄，因為您無法從區域頂點指向流量管理員設定檔。
 
-此問題可以使用別名記錄來解決。 不同於 CNAME 記錄，別名記錄可以在區域頂點建立，而且應用程式擁有者可以使用它，將區域頂點記錄指向具有外部端點的流量管理員設定檔。 應用程式擁有者可以指向相同的流量管理員設定檔，以用於其 DNS 區域內的任何其他網域。
+使用別名記錄來解決此問題。 不同於 CNAME 記錄，在區域頂點建立別名記錄，以及應用程式擁有者可以使用它以指向流量管理員設定檔具有外部端點的其區域頂點的記錄。 應用程式擁有者指向相同的流量管理員設定檔用於其 DNS 區域內的任何其他網域。
 
 例如，contoso.com 和 www\.contoso.com 可以指向相同的流量管理員設定檔。 若要深入了解使用 Azure 流量管理員設定檔的別名記錄，請參閱「後續步驟」一節。
 
@@ -66,7 +66,10 @@ DNS 通訊協定可防止在區域頂點指派 CNAME 記錄。 例如，如果�
 
 比方說，如果您的靜態網站名稱為 www.contoso.com，您的使用者可以存取您的網站使用 contoso.com，而不需要在前面加上 www 的 DNS 名稱。
 
-如先前所述，在區域頂點不支援 CNAME 記錄。 因此，您無法使用的 CNAME 記錄以指向您的 CDN 端點的 contoso.com。 相反地，您可以使用別名記錄，以直接指向 CDN 端點的區域頂點。
+如先前所述，CNAME 記錄不支援在區域頂點。 因此，您無法使用的 CNAME 記錄以指向您的 CDN 端點的 contoso.com。 相反地，您可以使用別名記錄，以直接指向 CDN 端點的區域頂點。
+
+> [!NOTE]
+> 目前不支援來自 Akamai 的 Azure CDN 指向區域頂點至 CDN 端點。
 
 ## <a name="next-steps"></a>後續步驟
 

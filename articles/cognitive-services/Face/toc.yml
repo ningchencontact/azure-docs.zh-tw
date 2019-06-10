@@ -63,6 +63,8 @@
       href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: 指定臉部辨識模式
       href: Face-API-How-to-Topics/specify-recognition-model.md
+    - name: 指定臉部偵測模式
+      href: Face-API-How-to-Topics/specify-detection-model.md
     - name: 使用大型功能
       href: Face-API-How-to-Topics/how-to-use-large-scale.md
     - name: 即時分析影片

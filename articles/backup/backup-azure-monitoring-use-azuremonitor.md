@@ -7,15 +7,15 @@ manager: shivamg
 keywords: Log Analytics;Azure 備份;警示;診斷設定。動作群組
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 94fde7714f3efe0a460983966923071bce1afcc6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2d7c158b32c15fb8be153511136eafb73147afa6
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190512"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734830"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>監視大規模使用 Azure 監視器
 
@@ -46,7 +46,7 @@ Azure Resource Manager 資源，例如 Azure 復原服務保存庫記錄的所�
 
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>將解決方案部署到 Log Analytics 工作區
 
-一旦資料位於 LA 工作區中，[部署的 github 範本](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/)到 LA 將資料視覺化。 請確定您提供相同的資源群組、 工作區名稱，以及工作區位置，適當地識別工作區，並在其上安裝此範本。
+一旦資料位於 LA 工作區中，[部署的 GitHub 範本](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/)到 LA 將資料視覺化。 請確定您提供相同的資源群組、 工作區名稱，以及工作區位置，適當地識別工作區，並在其上安裝此範本。
 
 ### <a name="view-azure-backup-data-using-log-analytics-la"></a>檢視使用 Log Analytics (LA) 的 Azure 備份資料
 
@@ -109,7 +109,7 @@ Azure 監視器 」 可讓使用者從 LA 工作區中，您可以建立自己�
 
 ![LAAzureBackupAlertCondition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-編輯 Kusto 查詢，如有必要，請選取適當的臨界值 （這會決定何時將會引發警示）、 右的期間 （時間範圍內執行查詢時），和頻率。 例如︰如果臨界值是大於 0 的期間是 5 分鐘，頻率為 5 分鐘，然後規則就會轉譯為 「 過去 5 分鐘內每隔 5 分鐘執行查詢和結果數目大於 0，如果選取的動作群組透過通知我 」
+編輯 Kusto 查詢，如有必要，請選取適當的臨界值 （這會決定何時將會引發警示）、 右的期間 （時間範圍內執行查詢時），和頻率。 例如: 如果臨界值是大於 0 的期間是 5 分鐘，頻率為 5 分鐘，然後規則就會轉譯為 「 過去 5 分鐘內每隔 5 分鐘執行查詢和結果數目大於 0，如果選取的動作群組透過通知我 」
 
 #### <a name="action-group-integration"></a>動作群組整合
 
@@ -242,13 +242,13 @@ on BackupItemUniqueId_s
 
 ![對於 Azure VM 備份的活動記錄](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-您可以按一下 [JSON] 區段來取得更多詳細資料，並將它複製並貼至文字編輯器加以檢視。 它應該會顯示保存庫詳細資料，並觸發活動的項目也就是記錄備份的項目。
+按一下該作業名稱，它會顯示作業和相關的詳細資料。
 
-然後按一下 [新增活動記錄警示] 來產生所有這類記錄的警示。
+![新增警示規則](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-您可以按一下 [新增活動記錄警示] 如上所示，它會開啟警示建立畫面類似的警示建立畫面[如上所述](#create-alerts-using-log-analytics)。
+按一下 [**新的警示規則**以開啟**建立規則**] 畫面中，您可以建立警示中所述步驟[文章](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)。
 
-以下資源是 RS 保存庫本身，因此您必須針對您想在其中透過活動記錄檔通知的所有保存庫重複相同的動作。 條件不會有任何臨界值、 句點、 頻率由於這是以事件為基礎的警示。 只要產生相關的活動記錄檔時，會在引發警示。
+以下資源是復原服務保存庫本身，因此您必須針對您想在其中透過活動記錄檔通知的所有保存庫重複相同的動作。 條件不會有任何臨界值、 句點、 頻率由於這是以事件為基礎的警示。 只要產生相關的活動記錄檔時，會在引發警示。
 
 ## <a name="recommendation"></a>建議
 

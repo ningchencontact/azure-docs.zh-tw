@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/27/2019
+ms.date: 05/30/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b9baa48c13e317ba3fb54d998ee8f125d2093c7
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: efd3ff8a6e7ddf2aa6242cc322d8a6536a6bd26b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921064"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474060"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>什麼是 Azure AD 權限管理？ (預覽)
 
@@ -42,7 +42,7 @@ Azure Active Directory (Azure AD) 權利管理可協助您管理的內部使用�
 - 使用者可能難以找出適當的人員或適當的資源
 - 一旦使用者找到並收到資源的存取權，他們可能要抓緊頭上再高於所需的商務目的存取
 
-需要從另一個目錄，例如來自供應鏈的組織或其他商務夥伴的外部使用者的存取權的使用者更難處理這些問題。 例如：
+需要從另一個目錄，例如來自供應鏈的組織或其他商務夥伴的外部使用者的存取權的使用者更難處理這些問題。 例如:
 
 - 組織可能不知道所有其他目錄中的特定個人能夠邀請他們
 - 即使組織能夠邀請這些使用者，組織可能不記得要以一致的方式管理所有使用者的存取權
@@ -70,26 +70,17 @@ Azure AD 權限管理可以協助解決這些挑戰。
 
 - Azure AD 安全性群組
 - Office 365 群組
-- Azure AD 企業應用程式
-- SaaS 應用程式
-- 自訂整合的應用程式
-- SharePoint Online 網站集合
-- SharePoint Online 網站
+- Azure AD 企業應用程式，包括 SaaS 應用程式和自訂整合的應用程式支援同盟或佈建
+- SharePoint Online 網站集合和網站
 
-## <a name="prerequisites"></a>必要條件
+您也可以控制其他依賴 Azure AD 安全性群組或 Office 365 群組的資源的存取權。  例如:
 
-若要使用 Azure AD 權限管理 （預覽），您必須具有其中一個下列授權：
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5 授權
-
-如需詳細資訊，請參閱 <<c0> [ 註冊 Azure Active Directory Premium edition](../fundamentals/active-directory-get-started-premium.md)或是[Enterprise Mobility + Security E5 試用版](https://aka.ms/emse5trial)。
-
-特製化的雲端，例如 Azure Government、 Azure 德國和 Azure 中國 21Vianet 目前不適用於此預覽版本中。
+- 您也可以為使用者授權的 Microsoft Office 365 中，提供存取封裝中使用的 Azure AD 安全性群組，並設定[群組型授權](../users-groups-roles/licensing-groups-assign.md)該群組
+- 您可以存取封裝中使用的 Azure AD 安全性群組，並建立來管理 Azure 資源的存取權授與使用者[Azure 角色指派](../../role-based-access-control/role-assignments-portal.md)該群組
 
 ## <a name="what-are-access-packages-and-policies"></a>存取封裝和原則是什麼？
 
-權利管理介紹的概念*存取套件*。 存取封裝是使用者需要處理專案，或執行其作業的所有資源的組合。 資源包括群組、 應用程式或站台的存取權。 存取封裝用來管理您的內部員工，以及在組織外部的使用者的存取。 存取封裝定義中稱為容器*目錄*。
+權利管理介紹的概念*存取套件*。 存取封裝是使用者需要處理專案，或執行其作業的所有資源的組合。 資源包括群組、 應用程式或站台的存取權。 存取封裝用來管理您的內部員工，以及在組織外部的使用者的存取。 存取套件會定義在名為*目錄*的容器中。
 
 存取封裝也包含一或多個*原則*。 原則定義的規則或 guardrails 存取套件。 啟用原則會強制執行適當的使用者會被授與存取適當的資源，並正確數量的時間。
 
@@ -124,12 +115,12 @@ Azure AD 權限管理可以協助解決這些挑戰。
 
 若要進一步了解權限管理和其文件，您應該檢閱下列詞彙。
 
-| 詞彙或概念 | 說明 |
+| 詞彙或概念 | 描述 |
 | --- | --- |
 | 權利管理 | 指派、 撤銷，並管理存取套件的服務。 |
 | 存取封裝 | 權限和使用者可以要求的資源原則的集合。 存取封裝一定會包含在目錄中。 |
 | 存取要求 | 要求存取存取套件。 要求通常會透過工作流程。 |
-| 原則 | 一組規則來定義存取生命週期，例如使用者如何取得存取、 誰可以認可，以及使用者可以存取的時間長度。 原則的範例包括員工存取，以及外部存取。 |
+| policies | 一組規則來定義存取生命週期，例如使用者如何取得存取、 誰可以認可，以及使用者可以存取的時間長度。 原則的範例包括員工存取，以及外部存取。 |
 | catalog | 相關的資源和存取封裝的容器。 |
 | 一般類別目錄 | 始終是可用的內建目錄。 若要將資源新增至一般類別目錄中，需要特定權限。 |
 | resource | 資產或使用者可以授與權限的服務 （例如群組、 應用程式或站台）。 |
@@ -143,7 +134,7 @@ Azure AD 權限管理可以協助解決這些挑戰。
 
 權利管理具有不同的角色，根據工作功能。
 
-| 角色 | 說明 |
+| 角色 | 描述 |
 | --- | --- |
 | [使用者管理員](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) | 管理權限管理的所有的層面。<br/>建立使用者和群組。 |
 | 類別目錄的建立者 | 建立及管理目錄。 通常是 IT 系統管理員或資源擁有者。 會自動建立目錄的人會成為類別目錄的第一個類別目錄的擁有者。 |
@@ -173,6 +164,12 @@ Azure AD 權限管理可以協助解決這些挑戰。
 | [新增/移除從目錄資源](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [新增目錄擁有者或存取套件管理員](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [編輯/刪除目錄](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+
+## <a name="license-requirements"></a>授權需求
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+特製化的雲端，例如 Azure Government、 Azure 德國和 Azure 中國 21Vianet 目前不適用於此預覽版本中。
 
 ## <a name="next-steps"></a>後續步驟
 

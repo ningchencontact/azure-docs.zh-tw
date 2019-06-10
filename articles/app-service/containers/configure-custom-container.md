@@ -1,5 +1,5 @@
 ---
-title: 設定客戶容器-Azure App Service |Microsoft Docs
+title: 設定自訂容器-Azure App Service |Microsoft Docs
 description: 了解如何設定 Azure App Service 中運作的 Node.js 應用程式
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: feeb9ae4472fb3439ecc5d6505860cc407f9e4d3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9bfd6c34d81e193fe31610f840474f1e4c91170d
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919722"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430921"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>針對 Azure App Service 中設定自訂的 Linux 容器
 
@@ -28,7 +28,7 @@ ms.locfileid: "64919722"
 
 ## <a name="configure-port-number"></a>設定連接埠號碼
 
-在您的自訂映像的 web 伺服器可以使用 80 以外的連接埠。 藉由使用您的自訂使用的連接埠中告訴 Azure`WEBSITES_PORT`應用程式設定。 [本教學課程中的 Python 範例](https://github.com/Azure-Samples/docker-django-webapp-linux) GitHub 頁面說明您必須將 `WEBSITES_PORT` 設定為 _8000_。 您可以執行來設定[ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set)命令在 Cloud Shell 中。 例如︰
+在您的自訂映像的 web 伺服器可以使用 80 以外的連接埠。 藉由使用您的自訂容器使用的連接埠中告訴 Azure`WEBSITES_PORT`應用程式設定。 [本教學課程中的 Python 範例](https://github.com/Azure-Samples/docker-django-webapp-linux) GitHub 頁面說明您必須將 `WEBSITES_PORT` 設定為 _8000_。 您可以執行來設定[ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set)命令在 Cloud Shell 中。 例如︰
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -82,7 +82,7 @@ SSH 可讓容器和用戶端之間進行安全通訊。 為了讓自訂容器，
     ```
 
     > [!NOTE]
-    > sshd_config 檔案必須包含下列項目︰
+    > sshd_config  檔案必須包含下列項目︰
     > - `Ciphers` 必須在此清單中包含至少一個項目：`aes128-cbc,3des-cbc,aes256-cbc`。
     > - `MACs` 必須在此清單中包含至少一個項目：`hmac-sha1,hmac-sha1-96`。
 

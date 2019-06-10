@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database - 一般用途和業務關鍵 | Microsoft Docs
-description: 本文討論虛擬核心購買模型中的一般用途和業務關鍵服務層。
+description: 本文還討論一般用途和業務關鍵服務層，在以 vCore 為基礎的購買模型。
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -12,56 +12,56 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/23/2019
-ms.openlocfilehash: e2230bc8adf13825692f93b1e2bc33a4b79076e2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e5426bb7c8eba9d58dbf0472360c6ce0b19c9bc4
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574362"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431338"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database 服務層
 
-Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引擎架構為基礎，以確保 99.99% 的可用性 (即使在基礎結構失敗的情況下)。 Azure SQL Database 中使用三個架構模型：
+Azure SQL Database 是以會進行調整的雲端環境，以確保 99.99%可用性，即使被基礎結構失敗的 SQL Server database engine 架構為基礎。 Azure SQL Database，各有不同的架構模型中，會使用三個服務層。 這些服務層為：
 
-- [一般目的](sql-database-service-tier-general-purpose.md)專門用於大部分的一般工作負載。
-- [業務關鍵](sql-database-service-tier-business-critical.md)專門用於具有一個可讀複本的低延遲工作負載。
-- [超大規模](sql-database-service-tier-hyperscale.md)專門用於具有多個可讀複本的大型資料庫 (最多 100 TB)。
+- [一般用途](sql-database-service-tier-general-purpose.md)，可用於大部分的泛型的工作負載。
+- [商務關鍵性](sql-database-service-tier-business-critical.md)，這專為低延遲工作負載，具有一個可讀取的複本。
+- [超大規模](sql-database-service-tier-hyperscale.md)，這專為非常大型的資料庫 (最多 100 TB) 與多個可讀取的複本。
 
-本文討論以虛擬核心為基礎的購買模型中，一般用途和業務關鍵服務層的儲存體和備份考量。
+這篇文章討論一般用途和以 vCore 為基礎的購買模型中的商務關鍵性服務層的儲存體和備份考量。
 
 > [!NOTE]
-> 如需以虛擬核心為基礎的購買模型中超大規模服務層的詳細資訊，請參閱[超大規模服務層](sql-database-service-tier-hyperscale.md)。 如需以虛擬核心為基礎的購買模型與以 DTU 為基礎的購買模型的比較，請參閱 [Azure SQL Database 購買模型和資源](sql-database-purchase-models.md)。
+> 以 vCore 為基礎的購買模型中的超大規模服務層的相關資訊，請參閱[超大規模的服務層](sql-database-service-tier-hyperscale.md)。 如需以虛擬核心為基礎的購買模型與以 DTU 為基礎的購買模型的比較，請參閱 [Azure SQL Database 購買模型和資源](sql-database-purchase-models.md)。
 
 ## <a name="data-and-log-storage"></a>資料和記錄儲存體
 
-請考慮下列：
+下列因素會影響用於資料和記錄檔的儲存空間量：
 
-- 所配置的儲存體是供資料檔案 (MDF) 和記錄檔 (LDF) 檔案來使用的。
-- 每個單一資料庫計算大小所支援的資料庫大小有其上限，預設大小上限為 32 GB。
-- 在設定所需的單一資料庫大小 (MDF 的大小) 時，系統會自動另外加 30% 的儲存體空間以支援 LDF
-- 受控執行個體中的儲存體大小必須指定為 32 GB 的倍數。
-- 您可以選取 10 GB 到所支援上限之間的任何單一資料庫大小
-  - 針對標準或一般用途服務層中的儲存體，增加或減少大小 (以 10 GB 為增量單位)
-  - 針對進階或商務關鍵性服務層中的儲存體，增加或減少大小 (以 250 GB 為增量單位)
-- 在一般用途服務層中，`tempdb` 會使用連結的 SSD，且這個儲存體成本會包含在虛擬核心價格中。
-- 在商務關鍵性服務層中，`tempdb` 會與 MDF 和 LDF 檔案共用連結的 SSD，且 tempDB 儲存體成本會包含在虛擬核心價格中。
+- 資料檔案 (MDF) 和記錄檔 (LDF) 會使用配置的儲存體。
+- 每個單一資料庫計算大小所支援的最大資料庫大小，預設大小上限為 32 GB。
+- 當您設定所需的單一資料庫大小 （MDF 檔的大小） 時，則百分之 30 多個額外的儲存體會自動新增以支援 LDF 檔案中。
+- SQL Database 受控執行個體的儲存體大小必須指定為 32 GB 的倍數。
+- 您可以選取 10 GB 和支援的最大值之間任何單一資料庫的大小。
+  - 標準或一般用途服務層中的儲存體，增加或減少的大小以 10 GB 為增量單位。
+  - 在進階或業務關鍵服務層、 增加或減少大小 250 GB 為增量單位中的儲存體。
+- 在一般用途服務層中，`tempdb`連結的 SSD 和此儲存體成本會包含在虛擬核心價格的使用。
+- 在業務關鍵服務層中， `tempdb` MDF 和 LDF 檔案，與共用連結的 SSD 和`tempdb`虛擬核心價格的內含儲存體費用。
 
 > [!IMPORTANT]
-> 您必須支付為 MDF 和 LDF 所配置的總儲存體費用。
+> 您會支付為 MDF 和 LDF 檔案配置的總儲存體。
 
-若要監視 MDF 和 LDF 目前總計的大小，請使用 [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql)。 若要監視個別 MDF 和 LDF 檔案的目前大小，請使用 [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql)。
+若要監視 MDF 和 LDF 檔案的目前總大小，請使用[sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql)。 若要監視個別 MDF 和 LDF 檔案的目前大小，請使用 [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql)。
 
 > [!IMPORTANT]
 > 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
 ## <a name="backups-and-storage"></a>備份和儲存體
 
-為了支援 SQL Database 的還原時間點 (PITR) 和[長期保留 (LTR)](sql-database-long-term-retention.md) 功能，系統會配置儲存體供資料庫備份使用。 這個儲存體會分別配置給每個資料庫，並以兩個不同的每一資料庫費用來計費。
+資料庫備份儲存體配置給支援時間點還原 (PITR) 和[長期保留 (LTR)](sql-database-long-term-retention.md) SQL Database 的能力。 這個儲存體會分別配置給每個資料庫，並以兩個不同的每一資料庫費用來計費。
 
-- **PITR**：個別的資料庫備份都會自動複製到 [RA-GRS 儲存體](../storage/common/storage-designing-ha-apps-with-ragrs.md)。 儲存體大小會隨著新備份的建立而動態地增加。  每週完整備份、每日差異備份以及每 5 分鐘複製一次的交易記錄備份都使用此儲存體。 儲存體耗用量取決於資料庫的變動率及保留期限。 您可以為每個資料庫設定 7 到 35 天的不同保留期限。 系統會提供等於資料大小 1 倍的最小儲存體數量，且無額外費用。 對於大多數資料庫來說，此數量就足以儲存 7 天份的備份。
-- **LTR**：SQL Database 提供選項讓您設定完整備份的長期保留期，最長可達 10 年之久。 如果啟用 LTR 原則，這些備份會自動儲存在 RA-GRS 儲存體中，但您可以控制備份的複製頻率。 為了符合不同的合規性需求，您可以針對每週、每月和/或每年備份選取不同的保留期限。 此設定會定義要將多少儲存體用於 LTR 備份。 您可以使用 LTR 定價計算機來估算 LTR 儲存體的成本。 如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
+- **PITR**：個別的資料庫備份複製到[讀取權限異地備援 (RA-GRS) 儲存體](../storage/common/storage-designing-ha-apps-with-ragrs.md)自動。 建立新的備份時，會動態地增加的儲存體大小。 每週完整備份、 每日差異備份，並複製每隔 5 分鐘的交易記錄備份，使用儲存體。 儲存體耗用量取決於資料庫和備份的保留期限的變動率。 您可以為每個資料庫設定 7 到 35 天的不同保留期限。 最小的儲存體數量等於 100%(1 x) 的資料庫大小會提供不收取額外費用。 對於大多數資料庫來說，此數量就足以儲存 7 天份的備份。
+- **LTR**：SQL Database 會提供設定完整備份的長期保留，最多 10 年的選項。 如果您設定的 LTR 原則時，這些備份會自動儲存在 RA-GRS 儲存體，但您可以控制備份複製的頻率。 為了符合不同的合規性需求，您可以選取每週、 每月和/或每年備份的不同保留週期。 您選擇的設定會決定多少儲存空間將用於 LTR 備份。 若要預估 LTR 儲存體的成本，您可以使用 LTR 定價計算機。 如需詳細資訊，請參閱 < [SQL Database 長期保留](sql-database-long-term-retention.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需特定計算大小的詳細資訊和一般用途與業務關鍵服務層中單一資料庫可用的儲存體大小選項，請參閱[單一資料庫 SQL Database 以 V 核心為基礎的資源限制](sql-database-vcore-resource-limits-single-databases.md)
-- 如需特定計算大小的詳細資訊和一般用途與業務關鍵服務層中彈性集區可用的儲存體大小選項，請參閱[彈性集區 SQL Database 以 V 核心為基礎的資源限制](sql-database-vcore-resource-limits-elastic-pools.md)。
+- 針對特定的詳細資料計算大小和一般用途和業務關鍵服務層中的單一資料庫可用的儲存體大小，請參閱[單一資料庫的 SQL Database 以 vCore 為基礎的資源限制](sql-database-vcore-resource-limits-single-databases.md)。
+- 如需特定詳細資料計算大小和可用的一般用途和業務關鍵服務層中的彈性集區的儲存體大小，請參閱[彈性集區的 SQL Database 以 vCore 為基礎的資源限制](sql-database-vcore-resource-limits-elastic-pools.md)。

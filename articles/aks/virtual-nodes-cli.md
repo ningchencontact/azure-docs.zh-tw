@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 7631a2d6aef2efedf30c0b9015913c89949d4c29
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: b149ba2bccb4bfb6f459b177096afcccbbfc3051
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506951"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742794"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>使用 Azure CLI 建立和設定 Azure Kubernetes Service (AKS) 叢集以使用虛擬節點
 
@@ -22,7 +22,7 @@ ms.locfileid: "65506951"
 
 ## <a name="before-you-begin"></a>開始之前
 
-虛擬節點能夠進行在 ACI 與 AKS 叢集中執行的 pod 之間的網路通訊。 為了提供此通訊功能，需要建立虛擬網路子網路並指派委派權限。 虛擬節點只能與使用「進階」網路所建立的 AKS 叢集搭配運作。 但根據預設，系統會使用「基本」網路來建立 AKS 叢集。 本文說明如何建立虛擬網路和子網路，然後部署使用進階網路的 AKS 叢集。
+虛擬節點能夠進行在 ACI 與 AKS 叢集中執行的 pod 之間的網路通訊。 為了提供此通訊功能，需要建立虛擬網路子網路並指派委派權限。 虛擬節點只能與使用「進階」  網路所建立的 AKS 叢集搭配運作。 但根據預設，系統會使用「基本」  網路來建立 AKS 叢集。 本文說明如何建立虛擬網路和子網路，然後部署使用進階網路的 AKS 叢集。
 
 如果您先前未使用 ACI，請向您的訂用帳戶註冊服務提供者。 您可以使用 [az provider list][az-provider-list] 命令來檢查 ACI 提供者註冊狀態，如以下範例所示：
 
@@ -69,18 +69,19 @@ az provider register --namespace Microsoft.ContainerInstance
 * [主機別名](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [引數](../container-instances/container-instances-exec.md#restrictions)在 ACI 中執行的
 * [Daemonset](concepts-clusters-workloads.md#statefulsets-and-daemonsets)將無法部署到虛擬節點的 pod
+* [（目前在 AKS 中的預覽） 的 Windows Server 節點](windows-container-cli.md)虛擬節點，以及不支援。 您可以使用虛擬節點，來排程 Windows Server 容器，而不需要在 AKS 叢集中的 Windows 伺服器節點。
 
 ## <a name="launch-azure-cloud-shell"></a>啟動 Azure Cloud Shell
 
 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。
 
-若要開啟 Cloud Shell，請選取程式碼區塊右上角的 [試試看]。 您也可以移至 [https://shell.azure.com/bash](https://shell.azure.com/bash)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製] 即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
+若要開啟 Cloud Shell，請選取程式碼區塊右上角的 [試試看]  。 您也可以移至 [https://shell.azure.com/bash](https://shell.azure.com/bash)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製]  即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
 
 如果您偏好在本機安裝和使用 CLI，本文需要有 Azure CLI 2.0.49 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-Azure 資源群組是在其中部署與管理 Azure 資源的邏輯群組。 使用 [az group create][az-group-create] 命令來建立資源群組。 下列範例會在 westus 位置建立名為 myResourceGroup 的資源群組。
+Azure 資源群組是在其中部署與管理 Azure 資源的邏輯群組。 使用 [az group create][az-group-create] 命令來建立資源群組。 下列範例會在 westus 位置建立名為 myResourceGroup 的資源群組   。
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
@@ -88,7 +89,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
-使用 [az network vnet create][az-network-vnet-create] 命令來建立虛擬網路。 下列範例會建立名為 myVnet 的虛擬網路 (位址首碼為 10.0.0.0/8)，以及名為 myAKSSubnet 的子網路。 這個子網路的位址首碼預設為 10.240.0.0/16：
+使用 [az network vnet create][az-network-vnet-create] 命令來建立虛擬網路。 下列範例會建立名為 myVnet  的虛擬網路 (位址首碼為 10.0.0.0/8  )，以及名為 myAKSSubnet  的子網路。 這個子網路的位址首碼預設為 10.240.0.0/16  ：
 
 ```azurecli-interactive
 az network vnet create \
@@ -99,7 +100,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-現在，使用 [az network vnet subnet create][az-network-vnet-subnet-create] 命令為虛擬節點建立其他子網路。 下列範例會建立名為 myVirtualNodeSubnet 且位址首碼為 10.241.0.0/16 的子網路。
+現在，使用 [az network vnet subnet create][az-network-vnet-subnet-create] 命令為虛擬節點建立其他子網路。 下列範例會建立名為 myVirtualNodeSubnet  且位址首碼為 10.241.0.0/16  的子網路。
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -131,7 +132,7 @@ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-記下 appId 和密碼。 下列步驟中會使用這些值。
+記下 appId  和密碼  。 下列步驟中會使用這些值。
 
 ## <a name="assign-permissions-to-the-virtual-network"></a>對虛擬網路指派權限
 
@@ -157,7 +158,7 @@ az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-使用 [az aks create][az-aks-create] 命令來建立 AKS 叢集。 下列範例會建立名為 myAKSCluster 並包含一個節點的叢集。 將 `<subnetId>` 替換為上一個步驟所取得的識別碼，然後將 `<appId>` 和 `<password>` 替換為 
+使用 [az aks create][az-aks-create] 命令來建立 AKS 叢集。 下列範例會建立名為 myAKSCluster  並包含一個節點的叢集。 將 `<subnetId>` 替換為上一個步驟所取得的識別碼，然後將 `<appId>` 和 `<password>` 替換為 
 
 ```azurecli-interactive
 az aks create \
@@ -177,7 +178,7 @@ az aks create \
 
 ## <a name="enable-virtual-nodes-addon"></a>啟用虛擬節點附加元件
 
-若要啟用虛擬節點，請立即使用 [az aks enable-addons][az-aks-enable-addons] 命令。 下列範例會使用上一個步驟所建立的子網路，其名稱為 myVirtualNodeSubnet：
+若要啟用虛擬節點，請立即使用 [az aks enable-addons][az-aks-enable-addons] 命令。 下列範例會使用上一個步驟所建立的子網路，其名稱為 myVirtualNodeSubnet  ：
 
 ```azurecli-interactive
 az aks enable-addons \
@@ -201,7 +202,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl get nodes
 ```
 
-下列輸出範例顯示單一 VM 節點已建立，然後是適用於 Linux 的虛擬節點 (virtual-node-aci-linux)：
+下列輸出範例顯示單一 VM 節點已建立，然後是適用於 Linux 的虛擬節點 (virtual-node-aci-linux  )：
 
 ```
 $ kubectl get nodes
@@ -280,7 +281,7 @@ kubectl run -it --rm virtual-node-test --image=debian
 apt-get update && apt-get install -y curl
 ```
 
-現在您可以使用 `curl` (例如 http://10.241.0.4) 來存取 Pod 的位址。 提供前述 `kubectl get pods` 命令中您自己的 IP 位址：
+現在您可以使用 `curl` (例如 http://10.241.0.4  ) 來存取 Pod 的位址。 提供前述 `kubectl get pods` 命令中您自己的 IP 位址：
 
 ```console
 curl -L http://10.241.0.4

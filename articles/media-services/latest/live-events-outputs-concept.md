@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/06/2019
 ms.author: juliako
-ms.openlocfilehash: c025a4c6e2a5a06e12e25ce226a327b099b95306
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: f04ae727957d988e75ea0984d0005a6a140ca63f
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550970"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732992"
 ---
 # <a name="live-events-and-live-outputs"></a>即時事件與即時輸出
 
@@ -28,7 +28,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 > 媒體服務 v2 Api，從移轉的客戶**即時事件**實體取代**通道**v2 中並**Live 輸出**取代**程式**.
 
 
-## <a name="live-events"></a>即時事件
+## <a name="live-events"></a>即時活動
 
 [實況活動](https://docs.microsoft.com/rest/api/media/liveevents)負責內嵌和處理即時視訊摘要。 當您建立「實況活動」時，系統會建立輸入端點，供您用來從遠端編碼器傳送即時訊號。 遠端即時編碼器使用 [RTMP](https://www.adobe.com/devnet/rtmp.html) 或是 [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (分散式 MP4) 通訊協定，傳送發佈摘要至該輸入端點。 針對 Smooth Streaming 內嵌通訊協定，支援的 URL 配置為 `http://` 或 `https://`。 RTMP 內嵌通訊協定支援的 URL 配置為 `rtmp://` 或 `rtmps://`。 
 
@@ -54,11 +54,11 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 ![即時編碼](./media/live-streaming/live-encoding.svg)
 
-搭配「媒體服務」使用即時編碼時，您會設定讓內部部署即時編碼器將單一位元速率視訊當作發佈摘要，傳送給「實況活動」(使用 RTMP 或分散式 MP4 通訊協定)。 「實況活動」會將該項傳入的單一位元速率資料流編碼成[多重位元速率視訊資料流](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)，使其可供透過 MPEG-DASH、HLS 及 Smooth Streaming 等通訊協定，傳遞給播放裝置。 建立這類型的「實況活動」時，請將編碼類型指定為 [標準] (LiveEventEncodingType.Standard)。
+搭配「媒體服務」使用即時編碼時，您會設定讓內部部署即時編碼器將單一位元速率視訊當作發佈摘要，傳送給「實況活動」(使用 RTMP 或分散式 MP4 通訊協定)。 「實況活動」會將該項傳入的單一位元速率資料流編碼成[多重位元速率視訊資料流](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)，使其可供透過 MPEG-DASH、HLS 及 Smooth Streaming 等通訊協定，傳遞給播放裝置。 建立這類型的「實況活動」時，請將編碼類型指定為 [標準]  (LiveEventEncodingType.Standard)。
 
 您可以使用 H.264/AVC 視訊轉碼器以及 AAC (AAC-LC、HE-AACv1 或 HE-AACv2) 音訊轉碼器，以高達 1080p 的解析度和每秒 30 個畫面的畫面播放速率傳送發佈摘要。 如需更多詳細資料，請參閱[實況活動類型比較](live-event-types-comparison.md)一文。
 
-使用即時編碼時 ([即時事件] 設定為 [標準])，編碼預設值會定義傳入的資料流如何編碼為多重位元速率或圖層。 如需相關資訊，請參閱[系統預設值](live-event-types-comparison.md#system-presets)。
+使用即時編碼時 ([即時事件] 設定為 [標準]  )，編碼預設值會定義傳入的資料流如何編碼為多重位元速率或圖層。 如需相關資訊，請參閱[系統預設值](live-event-types-comparison.md#system-presets)。
 
 > [!NOTE]
 > 目前，標準類型的即時事件唯一允許的預設值為 *Default720p*。 如果您需要使用自訂的即時編碼預設值，請連絡 amshelp@microsoft.com。 您應指定解析度和位元速率的所需資料表。 請確認只有一個圖層為 720p，且最多只有 6 個圖層。
@@ -79,48 +79,53 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 您可以使用非虛名 URL 或虛名 URL。 
 
+> [!NOTE] 
+> 要預測的內嵌 URL，設定 「 虛名 」 模式。
+
 * 非虛名 URL
 
     非虛名 URL 是 AMS v3 中的預設模式。 您可能會快速取得「實況活動」，但只有在實況活動開始時，才會知道內嵌 URL。 如果您停止/開始「實況活動」，URL 將會變更。 <br/>在使用者想要使用應用程式來進行串流處理，而該應用程式想要儘快取得實況活動且取得動態內嵌 URL 不是問題的情況下，「非虛名」會相當有用。
 * 虛名 URL
 
     大型媒體廣播者如果使用硬體廣播編碼器，而不想要在開始「實況活動」時重新設定其編碼器，就會偏好使用「虛名」模式。 他們會想要有不會隨著時間改變的預測性內嵌 URL。
+    
+    若要指定此模式中，您設定`vanityUrl`要`true`在建立時 (預設值是`false`)。 您也需要傳遞您自己的存取權杖 (`LiveEventInput.accessToken`) 在建立時。 您指定的語彙基元的值，以避免在 URL 中的隨機權杖。 存取權杖必須是有效的 GUID 字串 （不論有無連字號）。 一旦將模式設定無法更新。
 
-> [!NOTE] 
-> 為了讓內嵌 URL 可供預測，您需要使用「虛名」模式並傳遞您自己的存取權杖 (以避免在 URL 中使用隨機權杖)。
+    存取權杖必須是唯一的資料中心內。 如果您的應用程式需要使用虛名 URL，建議一律建立您的存取權杖 （而不是重複使用任何現有的 GUID） 的新 GUID 執行個體。 
 
 ### <a name="live-ingest-url-naming-rules"></a>即時內嵌 URL 命名規則
 
 下方的 *random* \(隨機\) 字串是 128 位元的十六進位數字 (由 32 個字元的 0-9 a-f 所組成)。<br/>
-下方的 *access token* \(存取金鑰\) 是您必須為固定 URL 指定的存取金鑰。 它也是 128 位元的十六進位數字。
+*存取權杖*是您需要指定固定的 url。 您必須設定存取語彙基元字串是有效的長度為 GUID 字串。 <br/>
+*資料流名稱*指出特定連線的資料流名稱。 資料流名稱值是通常由新增即時編碼器，您使用。
 
 #### <a name="non-vanity-url"></a>非虛名 URL
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/<access token>`
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/<access token>`
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/<access token>`
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
 
 #### <a name="vanity-url"></a>虛名 URL
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/<access token>`
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/<access token>`
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/<access token>`
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Smooth Streaming
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
 
 ## <a name="live-event-preview-url"></a>實況活動預覽 URL
 

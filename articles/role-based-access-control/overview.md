@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6510099f9fb145951cbce1ea168b36dba5f76e07
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: db9424ff4ddd2663ae1342294181dc885c6ed937
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540910"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479551"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>什麼是 Azure 資源的角色型存取控制 (RBAC)？
 
@@ -50,18 +50,18 @@ RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需
 
 ### <a name="security-principal"></a>安全性主體
 
-「安全性主體」是一個物件，代表要求存取 Azure 資源的使用者、群組、服務主體或受控識別。
+「安全性主體」  是一個物件，代表要求存取 Azure 資源的使用者、群組、服務主體或受控識別。
 
 ![角色指派的安全性主體](./media/overview/rbac-security-principal.png)
 
 - 使用者 - 在 Azure Active Directory 中具有設定檔的個人。 您也可以指派角色給其他租用戶中的使用者。 如需有關其他組織中使用者的資訊，請參閱 [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md)。
 - 群組 - 在 Azure Active Directory 中建立的一組使用者。 當您將角色指派給群組時，該群組內的所有使用者都具有該角色。 
-- 服務主體 - 應用程式或服務用來存取特定 Azure 資源的安全性身分識別。 您可以將它視為應用程式的「使用者身分識別」(使用者名稱和密碼或憑證)。
+- 服務主體 - 應用程式或服務用來存取特定 Azure 資源的安全性身分識別。 您可以將它視為應用程式的「使用者身分識別」  (使用者名稱和密碼或憑證)。
 - 受控識別 (MSI) - 在 Azure Active Directory 中由 Azure 自動管理的身分識別。 您通常會在開發雲端應用程式來管理 Azure 服務驗證所需的認證時，使用[受控識別](../active-directory/managed-identities-azure-resources/overview.md)。
 
 ### <a name="role-definition"></a>角色定義
 
-「角色定義」是權限集合。 有時簡稱為「角色」。 角色定義會列出可執行的作業，例如讀取、寫入和刪除。 角色可為高層級，例如擁有者或特定，例如虛擬機器讀取器。
+「角色定義」  是權限集合。 有時簡稱為「角色」  。 角色定義會列出可執行的作業，例如讀取、寫入和刪除。 角色可為高層級，例如擁有者或特定，例如虛擬機器讀取器。
 
 ![角色指派的角色定義](./media/overview/rbac-role-definition.png)
 
@@ -78,7 +78,7 @@ Azure 引進了可讓您授與物件內資料存取權的資料作業 (目前處
 
 ### <a name="scope"></a>影響範圍
 
-「範圍」是要套用存取權的一組資源。 當您指派角色時，可以藉由定義範圍來進一步限制動作。 如果您想要讓某位使用者成為[網站參與者](built-in-roles.md#website-contributor)，但僅限於某個資源群組，這會很實用。
+「範圍」  是要套用存取權的一組資源。 當您指派角色時，可以藉由定義範圍來進一步限制動作。 如果您想要讓某位使用者成為[網站參與者](built-in-roles.md#website-contributor)，但僅限於某個資源群組，這會很實用。
 
 在 Azure 中，您可以在多個層級指定範圍：[管理群組](../governance/management-groups/index.md)、訂用帳戶、資源群組或資源。 範圍的結構為父子式關聯性。
 
@@ -92,7 +92,7 @@ Azure 引進了可讓您授與物件內資料存取權的資料作業 (目前處
 
 ### <a name="role-assignments"></a>角色指派
 
-「角色指派」是一個連結程序，其為了授與存取權，而將角色定義連結至特定範圍的使用者、群組、服務主體或受控識別。 建立角色指派可授與存取權，而移除角色指派則可撤銷存取權。
+「角色指派」  是一個連結程序，其為了授與存取權，而將角色定義連結至特定範圍的使用者、群組、服務主體或受控識別。 建立角色指派可授與存取權，而移除角色指派則可撤銷存取權。
 
 下圖顯示角色指派的範例。 在此範例中，行銷群組已被指派醫藥銷售資源群組的[參與者](built-in-roles.md#contributor)角色。 這表示行銷群組中的使用者可以建立或管理醫藥銷售資源群組中的任何 Azure 資源。 行銷使用者無法存取醫藥銷售資源群組外的資源，除非他們具有另一個角色指派。
 
@@ -108,7 +108,7 @@ Azure 引進了可讓您授與物件內資料存取權的資料作業 (目前處
 
 ## <a name="deny-assignments"></a>拒絕指派
 
-在以前，RBAC 為不含拒絕的僅允許模型，但現在，RBAC 會以有限方式支援拒絕指派。 與角色指派相同，「拒絕指派」也會基於拒絕存取權的目的來連結一組在特定範圍內拒絕使用者、群組、服務主體或受控識別的動作。 角色指派會定義一組「允許」的動作，而拒絕指派會定義一組「不允許」的動作。 換句話說，拒絕指派會封鎖使用者執行指定的動作，即使角色指派授與他們存取權也一樣。 拒絕指派的優先順序高於角色指派。 如需詳細資訊，請參閱[了解 Azure 資源的拒絕指派](deny-assignments.md)和[使用 Azure 入口網站檢視 Azure 資源的拒絕指派](deny-assignments-portal.md)。
+在以前，RBAC 為不含拒絕的僅允許模型，但現在，RBAC 會以有限方式支援拒絕指派。 與角色指派相同，「拒絕指派」  也會基於拒絕存取權的目的來連結一組在特定範圍內拒絕使用者、群組、服務主體或受控識別的動作。 角色指派會定義一組「允許」  的動作，而拒絕指派會定義一組「不允許」  的動作。 換句話說，拒絕指派會封鎖使用者執行指定的動作，即使角色指派授與他們存取權也一樣。 拒絕指派的優先順序高於角色指派。 如需詳細資訊，請參閱[了解 Azure 資源的拒絕指派](deny-assignments.md)和[使用 Azure 入口網站檢視 Azure 資源的拒絕指派](deny-assignments-portal.md)。
 
 > [!NOTE]
 > 目前，您可以新增自己的拒絕指派的唯一方式是使用 Azure 藍圖。 如需詳細資訊，請參閱[使用 Azure 藍圖資源鎖定保護新資源](../governance/blueprints/tutorials/protect-new-resources.md)。
@@ -132,6 +132,10 @@ Azure 引進了可讓您授與物件內資料存取權的資料作業 (目前處
 1. 如果使用者在要求範圍內不具含有該動作的角色，則不會授與存取權。 否則，Azure Resource Manager 會檢查拒絕指派是否適用。
 
 1. 如果拒絕指派適用，則會封鎖存取。 否則會授與存取權。
+
+## <a name="license-requirements"></a>授權需求
+
+[!INCLUDE [Azure AD free license](../../includes/active-directory-free-license.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

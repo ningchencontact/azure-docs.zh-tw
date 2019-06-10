@@ -2,20 +2,20 @@
 title: 單一頁面登入使用隱含流程-Azure Active Directory B2C |Microsoft Docs
 description: 了解如何新增單一頁面登入搭配 Azure Active Directory B2C 使用 OAuth 2.0 隱含流程。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 06156b1050bbf77fbbd5be8559b3c1683c2ced24
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a66fa70f6f5615257554e98e40e605d6a7e981fe
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698939"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508966"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>單一頁面登入 Azure Active Directory B2C 中使用 OAuth 2.0 隱含流程
 
@@ -88,7 +88,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | scope | 是 | 範圍的空格分隔清單。 向 Azure AD 指出要求兩個權限的單一範圍值。 `openid` 範圍指示使用識別碼權杖形式的權限，以登入使用者及取得使用者相關資料。 對於 Web 應用程式， `offline_access` 範圍是選擇性。 它指出您的應用程式需要重新整理權杖，才能長久存取資源。 |
 | state | 否 | 包含於也會隨權杖回應傳回之要求中的值。 它可以是您想要使用之任何內容的字串。 通常會使用隨機產生的唯一值來防止跨網站偽造要求攻擊。 驗證要求出現前，也會先使用此狀態來為使用者在應用程式中的狀態相關資訊編碼，例如他們先前所在的網頁。 |
 | nonce | 是 | 要求中所含的值 (由應用程式產生)，它會以宣告形式包含於產生的識別碼權杖中。 應用程式接著便可確認此值，以減少權杖重新執行攻擊。 此值通常是隨機的唯一字串，可用以識別要求的來源。 |
-| p | 是 | 要執行的原則。 這是在您的 Azure AD B2C 租用戶中建立的原則 (使用者流程) 名稱。 原則名稱值的開頭應該為**b2c\_1\_**。 |
+| p | 是 | 要執行的原則。 這是在您的 Azure AD B2C 租用戶中建立的原則 (使用者流程) 名稱。 原則名稱值的開頭應該為**b2c\_1\_** 。 |
 | prompt | 否 | 需要的使用者互動類型。 目前唯一支援的值為 `login`。 此參數會強制使用者針對該要求輸入其認證。 單一登入，才會生效。 |
 
 此時會要求使用者完成原則的工作流程。 使用者可能必須輸入使用者名稱和密碼，註冊的社交身分識別登入的目錄中或其他任何數目的步驟。 使用者動作取決於使用者流程的定義方式。
@@ -108,7 +108,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &state=arbitrary_data_you_sent_earlier
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --------- | ----------- |
 | access_token | 應用程式要求的存取權杖。 |
 | token_type | 權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 |
@@ -129,7 +129,7 @@ error=access_denied
 
 | 參數 | 描述 |
 | --------- | ----------- |
-| 錯誤 | 程式碼，用以分類發生的錯誤類型。 |
+| error | 程式碼，用以分類發生的錯誤類型。 |
 | error_description | 可協助您識別驗證錯誤根本原因的特定錯誤訊息。 |
 | state | 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應該驗證要求和回應中的 `state` 值完全相同。|
 
@@ -152,7 +152,7 @@ Azure AD B2C 具有 OpenID Connect 中繼資料端點。 應用程式可以使�
 當您從 OpenID Connect 中繼資料端點取得中繼資料文件之後，就可以使用 RSA-256 公開金鑰 (位於此端點) 來驗證識別碼權杖的簽章。 此端點可能隨時會列出多個金鑰，每個都由 `kid` 所識別。 `id_token` 的標頭也包含 `kid` 宣告。 它指出使用了這其中哪個金鑰來簽署識別碼權杖。 如需詳細資訊 (包括了解如何[驗證權杖](active-directory-b2c-reference-tokens.md))，請參閱 [Azure AD B2C 權杖參考](active-directory-b2c-reference-tokens.md)。
 <!--TODO: Improve the information on this-->
 
-驗證識別碼權杖的簽章之後，也需要驗證數個宣告。 例如︰
+驗證識別碼權杖的簽章之後，也需要驗證數個宣告。 例如:
 
 * 驗證 `nonce` 宣告，以防止權杖重新執行攻擊。 其值應該是您在登入要求中所指定的內容。
 * 驗證 `aud` 宣告，以確保已針對您的應用程式簽發識別碼權杖。 這個值就是您應用程式的應用程式識別碼。
@@ -218,7 +218,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fapi.contoso.com%2Ftasks.read
 ```
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | access_token |應用程式要求的權杖。 |
 | token_type |權杖類型一律為持有人。 |
@@ -248,7 +248,7 @@ error=user_authentication_required
 ## <a name="send-a-sign-out-request"></a>傳送登出要求
 當您想要將使用者登出應用程式時，請將使用者重新導向到 Azure AD 進行登出。如果您不要將使用者重新導向，它們可能無法重新驗證您的應用程式，不需要再次輸入其認證，因為它們的有效單一登入工作階段與 Azure AD。
 
-您只要將使用者重新導向至 `end_session_endpoint` (列於[驗證識別碼權杖](#validate-the-id-token)中所述的相同 OpenID Connect 中繼資料文件中) 即可。 例如︰
+您只要將使用者重新導向至 `end_session_endpoint` (列於[驗證識別碼權杖](#validate-the-id-token)中所述的相同 OpenID Connect 中繼資料文件中) 即可。 例如:
 
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?

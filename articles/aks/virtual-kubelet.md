@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: f7a0269ff22987648d134cb7f4fba8e28e29fd8b
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: cc0c3becf21cb54b97a88e9ba35b38308af81a85
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956284"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475419"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>將 Virtual Kubelet 與 Azure Kubernetes Service (AKS) 搭配使用
 
@@ -30,13 +30,13 @@ Azure 容器執行個體 (ACI) 可提供託管環境，以便在 Azure 中執行
 
 本文件假設您有 AKS 叢集。 如果您需要 AKS 叢集，請參閱 [Azure Kubernetes Service (AKS) 快速入門][aks-quick-start]。
 
-您也必須需要 Azure CLI 版本 **2.0.33** 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+您也需要 Azure CLI 版本**2.0.65**或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
-若要安裝 Virtual Kubelet，也需要 [Helm](https://docs.helm.sh/using_helm/#installing-helm)。
+若要安裝 Virtual Kubelet，安裝和設定[Helm] [ aks-helm] AKS 叢集中。 請確定您 Tiller 正在[設定為搭配 Kubernetes RBAC](#for-rbac-enabled-clusters)，如有需要。
 
 ### <a name="register-container-instances-feature-provider"></a>註冊容器執行個體功能提供者
 
-如果先前未使用 Azure 容器執行個體 (ACI) 服務，請與您的訂用帳戶註冊服務提供者。 您可以檢查使用 [az provider list] [az-提供者-list] 命令，ACI 提供者註冊狀態，如下列範例所示：
+如果先前未使用 Azure 容器執行個體 (ACI) 服務，請與您的訂用帳戶註冊服務提供者。 您可以使用 [az provider list][az-provider-list] 命令來檢查 ACI 提供者註冊狀態，如以下範例所示：
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -44,13 +44,13 @@ az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" 
 
 *Microsoft.ContainerInstance* 提供者應該回報為 *Registered*，如以下範例輸出所示：
 
-```
+```console
 Namespace                    RegistrationState
 ---------------------------  -------------------
 Microsoft.ContainerInstance  Registered
 ```
 
-如果提供者會顯示成*NotRegistered*，註冊的提供者使用 [az 提供者註冊] [az 提供者-暫存器]，如下列範例所示：
+如果提供者顯示為 *NotRegistered*，請使用 [az provider register][az-provider-register] 來註冊提供者，如以下範例所示：
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -83,7 +83,7 @@ subjects:
 
 使用 [kubectl apply][kubectl-apply] 套用服務帳戶和繫結，並指定您的 *rbac-virtual-kubelet.yaml* 檔案，如下列範例所示：
 
-```
+```console
 $ kubectl apply -f rbac-virtual-kubelet.yaml
 
 clusterrolebinding.rbac.authorization.k8s.io/tiller created
@@ -102,37 +102,39 @@ helm init --service-account tiller
 使用 [az aks install-connector][aks-install-connector] 命令來安裝 Virtual Kubelet。 下列範例可部署 Linux 與 Windows 連接器。
 
 ```azurecli-interactive
-az aks install-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet --os-type Both
+az aks install-connector \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --connector-name virtual-kubelet \
+    --os-type Both
 ```
 
-`aks install-connector` 命令可使用下列引數。
+這些引數可供[az aks 安裝連接器][ aks-install-connector]命令。
 
-| 引數： | 說明 | 必要項 |
+| 引數： | 描述 | 必要項 |
 |---|---|:---:|
-| `--connector-name` | ACI 連接器的名稱。| 有 |
-| `--name` `-n` | 受控叢集的名稱。 | 有 |
-| `--resource-group` `-g` | 資源群組的名稱。 | 有 |
-| `--os-type` | 容器執行個體的作業系統類型。 允許的值：兩者、Linux、Windows。 預設值：Linux。 | 無 |
-| `--aci-resource-group` | 要在其中建立 ACI 容器群組的資源群組。 | 無 |
-| `--location` `-l` | 要建立 ACI 容器群組的位置。 | 無 |
-| `--service-principal` | 用於向 Azure API 驗證的服務主體。 | 無 |
-| `--client-secret` | 與服務主體相關聯的祕密。 | 無 |
-| `--chart-url` | 安裝 ACI 連接器的 Helm 圖表 URL。 | 無 |
-| `--image-tag` | Virtual Kubelet 容器映像的映像標記。 | 無 |
+| `--connector-name` | ACI 連接器的名稱。| 是 |
+| `--name` `-n` | 受控叢集的名稱。 | 是 |
+| `--resource-group` `-g` | 資源群組的名稱。 | 是 |
+| `--os-type` | 容器執行個體的作業系統類型。 允許的值：兩者、Linux、Windows。 預設值：Linux。 | 否 |
+| `--aci-resource-group` | 要在其中建立 ACI 容器群組的資源群組。 | 否 |
+| `--location` `-l` | 要建立 ACI 容器群組的位置。 | 否 |
+| `--service-principal` | 用於向 Azure API 驗證的服務主體。 | 否 |
+| `--client-secret` | 與服務主體相關聯的祕密。 | 否 |
+| `--chart-url` | 安裝 ACI 連接器的 Helm 圖表 URL。 | 否 |
+| `--image-tag` | Virtual Kubelet 容器映像的映像標記。 | 否 |
 
 ## <a name="validate-virtual-kubelet"></a>驗證 Virtual Kubelet
 
-若要驗證已安裝的 Virtual Kubelet，請使用 [kubectl get nodes][kubectl-get] 命令來傳回 Kubernetes 節點清單。
+若要驗證已安裝 Virtual Kubelet，傳回一份使用 Kubernetes 節點[kubectl 取得節點][ kubectl-get]命令：
 
-```
+```console
 $ kubectl get nodes
 
-NAME                                    STATUS    ROLES     AGE       VERSION
-aks-nodepool1-23443254-0                Ready     agent     16d       v1.9.6
-aks-nodepool1-23443254-1                Ready     agent     16d       v1.9.6
-aks-nodepool1-23443254-2                Ready     agent     16d       v1.9.6
-virtual-kubelet-virtual-kubelet-linux   Ready     agent     4m        v1.8.3
-virtual-kubelet-virtual-kubelet-win     Ready     agent     4m        v1.8.3
+NAME                                             STATUS   ROLES   AGE   VERSION
+aks-nodepool1-56577038-0                         Ready    agent   11m   v1.12.8
+virtual-kubelet-virtual-kubelet-linux-eastus     Ready    agent   39s   v1.13.1-vk-v0.9.0-1-g7b92d1ee-dev
+virtual-kubelet-virtual-kubelet-windows-eastus   Ready    agent   37s   v1.13.1-vk-v0.9.0-1-g7b92d1ee-dev
 ```
 
 ## <a name="run-linux-container"></a>執行 Linux 容器
@@ -178,11 +180,11 @@ kubectl create -f virtual-kubelet-linux.yaml
 
 使用 [kubectl get pods][kubectl-get] 命令搭配 `-o wide` 引數來輸出包含排定節點的 Pod 清單。 請注意，`aci-helloworld` pod 已排定在 `virtual-kubelet-virtual-kubelet-linux` 節點上。
 
-```
+```console
 $ kubectl get pods -o wide
 
-NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
-aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.179.3.180   virtual-kubelet-virtual-kubelet-linux
+NAME                              READY   STATUS    RESTARTS   AGE     IP               NODE
+aci-helloworld-7b9ffbf946-rx87g   1/1     Running   0          22s     52.224.147.210   virtual-kubelet-virtual-kubelet-linux-eastus
 ```
 
 ## <a name="run-windows-container"></a>執行 Windows 容器
@@ -226,13 +228,13 @@ spec:
 kubectl create -f virtual-kubelet-windows.yaml
 ```
 
-使用 [kubectl get pods][kubectl-get] 命令搭配 `-o wide` 引數來輸出包含排定節點的 Pod 清單。 請注意，`nanoserver-iis` pod 已排定在 `virtual-kubelet-virtual-kubelet-win` 節點上。
+使用 [kubectl get pods][kubectl-get] 命令搭配 `-o wide` 引數來輸出包含排定節點的 Pod 清單。 請注意，`nanoserver-iis` pod 已排定在 `virtual-kubelet-virtual-kubelet-windows` 節點上。
 
-```
+```console
 $ kubectl get pods -o wide
 
-NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
-nanoserver-iis-868bc8d489-tq4st     1/1       Running   8         21m       138.91.121.91   virtual-kubelet-virtual-kubelet-win
+NAME                              READY   STATUS    RESTARTS   AGE     IP               NODE
+nanoserver-iis-5d999b87d7-6h8s9   1/1     Running   0          47s     52.224.143.39    virtual-kubelet-virtual-kubelet-windows-eastus
 ```
 
 ## <a name="remove-virtual-kubelet"></a>移除 Virtual Kubelet
@@ -240,7 +242,11 @@ nanoserver-iis-868bc8d489-tq4st     1/1       Running   8         21m       138.
 使用 [az aks remove-connector][aks-remove-connector] 命令來移除 Virtual Kubelet。 以連接器、AKS 叢集和 AKS 叢集資源群組的名稱取代引數值。
 
 ```azurecli-interactive
-az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet
+az aks remove-connector \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --connector-name virtual-kubelet \
+    --os-type Both
 ```
 
 > [!NOTE]
@@ -259,6 +265,9 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
 [virtual-nodes-cli]: virtual-nodes-cli.md
 [virtual-nodes-portal]: virtual-nodes-portal.md
+[aks-helm]: kubernetes-helm.md
+[az-provider-list]: /cli/azure/provider#az-provider-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

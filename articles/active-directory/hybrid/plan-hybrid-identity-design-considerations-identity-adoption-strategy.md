@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39495e11e42853bf3cf9481475d970667c56223f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c55dc0cbc175542d0b208bbe72566a0adb55a371
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919111"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496732"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>定義混合式身分識別採用策略
 在這項工作中，您將為混合式身分識別解決方案，定義混合式身分識別採用策略，以滿足下列幾節已討論的商務需求：
@@ -54,9 +54,9 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 
 | 策略 | 優點 | 缺點 |
 | --- | --- | --- |
-| **雲端身分識別** |在小型組織中易於管理。 <br> 沒有項目可以在內部安裝或更新。 沒有其他硬體需求<br>使用者離職時輕易停用 |使用者存取雲端中的工作負載時必須登入 <br>  雲端和內部部署身分識別的密碼可能相同，也可能不相同 |
-| **已同步處理** |內部部署密碼會驗證內部部署和雲端目錄 <br>對小型、中型或大型組織來說易於管理 <br>使用者可以對一些資源進行單一登入 (SSO) <br> Microsoft 對於同步處理的慣用方法 <br>  易於管理 |基於公司的特定原則，有些客戶可能不願意將目錄與雲端同步 |
-| **同盟** |使用者可以有單一登入 (SSO)  <br>如果使用者終止或離開時，可以將帳戶立即停用並撤銷存取權。<br> 支援同步處理所無法解決的進階案例 |安裝和設定的詳細步驟 <br> 較高的維護 <br> STS 基礎結構可能需要額外的硬體 <br> 安裝同盟伺服器可能需要額外的硬體。 如果使用 AD FS，則需要額外的軟體 <br> 需要大量的設定才能使用 SSO <br> 重大失敗點是，同盟伺服器關閉時使用者會無法驗證 |
+| **雲端身分識別** |在小型組織中易於管理。 <br> 沒有項目可以在內部安裝或更新。 沒有其他硬體需求<br>使用者離職時輕易停用 |使用者存取雲端中的工作負載時必須登入 <br> 雲端和內部部署身分識別的密碼可能相同，也可能不相同 |
+| **已同步處理** |內部部署密碼會驗證內部部署和雲端目錄 <br>對小型、中型或大型組織來說易於管理 <br>使用者可以對一些資源進行單一登入 (SSO) <br> Microsoft 對於同步處理的慣用方法 <br> 易於管理 |基於公司的特定原則，有些客戶可能不願意將目錄與雲端同步 |
+| **同盟** |使用者可以有單一登入 (SSO) <br>如果使用者終止或離開時，可以將帳戶立即停用並撤銷存取權。<br> 支援同步處理所無法解決的進階案例 |安裝和設定的詳細步驟 <br> 較高的維護 <br> STS 基礎結構可能需要額外的硬體 <br> 安裝同盟伺服器可能需要額外的硬體。 如果使用 AD FS，則需要額外的軟體 <br> 需要大量的設定才能使用 SSO <br> 重大失敗點是，同盟伺服器關閉時使用者會無法驗證 |
 
 ### <a name="client-experience"></a>用戶端體驗
 您使用的策略決定使用者的登入體驗。  下表提供使用者所預期之登入體驗的相關資訊。  所有同盟識別提供者並非在所有案例中都支援 SSO。
@@ -199,8 +199,7 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 | 內部部署 AD |Multi-Factor Authentication Server |
 
 > [!NOTE]
-> 您也應該確定您選取的多重要素驗證設計選項，支援您的設計所需的功能。  如需詳細資訊，請參閱 [選擇合適的多重因素安全性解決方案](../authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure)。
-> 
+> 您也應該確定您選取的多重要素驗證設計選項，支援您的設計所需的功能。  如需詳細資訊，請參閱 [選擇合適的多重因素安全性解決方案](../authentication/concept-mfa-howitworks.md)。
 > 
 
 ## <a name="multi-factor-auth-provider"></a>Multi-Factor Auth Provider

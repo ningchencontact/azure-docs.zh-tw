@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: f8d7b00de24c566cab204c66371dac9b569c42c9
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620008"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734946"
 ---
 # <a name="action-rules-preview"></a>動作規則 （預覽）
 
@@ -33,7 +33,7 @@ ms.locfileid: "65620008"
 
 ## <a name="configuring-an-action-rule"></a>設定動作規則
 
-您可以存取此功能，方法是選取**管理動作**從登陸頁面，在 Azure 監視器中的警示。 然後選取**動作的規則 （預覽）**。 您可以存取它們，方法是選取**動作的規則 （預覽）** 警示的登陸頁面的儀表板。
+您可以存取此功能，方法是選取**管理動作**從登陸頁面，在 Azure 監視器中的警示。 然後選取**動作的規則 （預覽）** 。 您可以存取它們，方法是選取**動作的規則 （預覽）** 警示的登陸頁面的儀表板。
 
 ![從 Azure 監視器登陸頁面的動作規則](media/alerts-action-rules/action-rules-landing-page.png)
 
@@ -67,7 +67,7 @@ ms.locfileid: "65620008"
 * **警示規則識別碼**:可讓您篩選特定的警示規則，使用 Resource Manager 識別碼的警示規則。
 * **監視條件**:為監視條件篩選警示的執行個體 「 引發 」 或 「 已解決 」。
 * **描述**：Regex 比對中定義的警示規則的描述。
-* **警示的內容 （裝載）**:RegEx 的比對內[警示內容](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields)警示執行個體的欄位。
+* **警示的內容 （裝載）** :RegEx 的比對內[警示內容](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields)警示執行個體的欄位。
 
 這些篩選器套用至另一部一起使用。 例如，如果我在設定 '資源類型' = ' 虛擬機器 和 嚴重性 = 'Sev0'，則我已經在我的 Vm 上篩選 'Sev0' 的所有警示。 
 
@@ -80,7 +80,7 @@ ms.locfileid: "65620008"
 #### <a name="suppression"></a>隱藏項目
 
 如果您選取**歸併**，設定動作和通知的歸併的持續時間。 選擇下列其中一項：
-* **從現在開始 （一律）**:無限期地隱藏所有通知。
+* **從現在開始 （一律）** :無限期地隱藏所有通知。
 * **在排定的時間**:隱藏已繫結的持續時間內的通知。
 * **使用循環**:隱藏週期性排程，可以是每日、 每週或每月。
 
@@ -100,7 +100,7 @@ ms.locfileid: "65620008"
 最後，設定執行規則的下列詳細資料
 * 名稱
 * 它會儲存所在的資源群組
-* 說明 
+* 描述 
 
 ## <a name="example-scenarios"></a>範例案例
 
@@ -128,12 +128,15 @@ Contoso 想要隱藏所有記錄檔針對 ' 電腦-01' 產生的警示的通知�
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>案例 3：在資源群組定義的動作群組
 
-Contoso 已定義[訂用帳戶層級的計量警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor)，但想要定義警示，分別針對其資源群組 'ContosoRG' 的觸發程序的動作。
+Contoso 已定義[訂用帳戶層級的計量警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor)，但想要定義專為從其資源群組 'ContosoRG' 產生的警示觸發的動作。
 
 **解決方案：** 建立動作規則
 * Scope = 'ContosoRG'
 * 沒有篩選器
 * 設定為 'ContosoActionGroup' 的動作群組
+
+> [!NOTE]
+> **動作規則中定義的動作群組和警示規則分別作用，與任何重複**。 在上述的案例，如果沒有動作群組中定義的警示規則，就會觸發搭配動作規則中所定義的動作群組。 
 
 ## <a name="managing-your-action-rules"></a>管理您的動作規則
 
@@ -143,7 +146,7 @@ Contoso 已定義[訂用帳戶層級的計量警示](https://docs.microsoft.com/
 
 從這裡開始，您可以大規模的啟用/停用/刪除動作規則選取旁邊的核取方塊。 按一下任何動作的規則會開啟其 [設定] 頁面中，可讓您更新其定義，並啟用/停用它。
 
-## <a name="best-practices"></a>最佳做法
+## <a name="best-practices"></a>最佳作法
 
 記錄警示以建立['的結果數目'](alerts-unified-log.md)選項產生**單一警示的執行個體**使用整個搜尋結果 （這可能是在多部電腦為例）。 在此案例中，如果 「 動作 」 規則會使用 「 警示內容 （裝載） 」 篩選器，它將會執行警示的執行個體上，只要沒有相符項目。 在案例 2 中先前所述，如果產生的記錄警示的搜尋結果同時包含 '電腦-01' 和' 電腦-02'、 整個通知隱藏 （也就是沒有產生 ' 電腦-02' 完全沒有通知）。
 

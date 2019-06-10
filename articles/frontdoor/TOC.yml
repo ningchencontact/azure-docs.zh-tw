@@ -70,6 +70,8 @@
           href: waf-front-door-create-portal.md
         - name: 設定 WAF 原則 - Azure PowerShell
           href: waf-front-door-custom-rules-powershell.md
+        - name: 設定 Bot 保護
+          href: waf-front-door-policy-configure-bot-protection.md
         - name: 設定自訂回應碼
           href: waf-front-door-configure-custom-response-code.md
         - name: 設定 IP 限制

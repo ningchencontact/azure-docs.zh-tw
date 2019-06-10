@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8b9fe027a023cec6c816fa641beb41e5849741
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: a0678dc42d8c22c8dcc20137cf70f81a1eb4f61c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496073"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473692"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>什麼是 Azure AD Privileged Identity Management？
 
@@ -42,15 +42,6 @@ PIM 基本上可協助您管理您所關切資源的五個 W (何人、何事、
 - 進行**存取權檢閱**以確保使用者仍然需要角色
 - 下載**稽核歷程記錄**以供內部或外部稽核
 
-## <a name="prerequisites"></a>必要條件
-
-若要使用 PIM，您必須具有下列其中一個付費或試用授權。 如需詳細資訊，請參閱[什麼是 Azure Active Directory？](../fundamentals/active-directory-whatis.md)。
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5
-
-如需使用者的授權相關資訊，請參閱[使用 PIM 的授權需求](subscription-requirements.md)。
-
 ## <a name="terminology"></a>術語
 
 若要深入了解 PIM 及其文件，請檢閱下列詞彙。
@@ -71,7 +62,7 @@ PIM 基本上可協助您管理您所關切資源的五個 W (何人、何事、
 
 ## <a name="what-does-pim-look-like"></a>PIM 的外觀
 
-設定 PIM 後，您會在左側導覽功能表中看到 [工作]、[管理] 和 [活動] 選項。 身為系統管理員，您會在管理 **Azure AD 角色**和 **Azure 資源**角色之間做選擇。 當您選擇要管理的角色類型時，您會看到該角色類型適用的一組類似選項。
+設定 PIM 後，您會在左側導覽功能表中看到 [工作]  、[管理]  和 [活動]  選項。 身為系統管理員，您會在管理 **Azure AD 角色**和 **Azure 資源**角色之間做選擇。 當您選擇要管理的角色類型時，您會看到該角色類型適用的一組類似選項。
 
 ![Azure 入口網站中的 PIM 螢幕擷取畫面](./media/pim-configure/pim-overview.png)
 
@@ -104,6 +95,12 @@ PIM 支援下列案例：
 - 要求啟用需要核准的角色
 - 檢視要啟用之要求的狀態
 - 如果已核准啟用，在 Azure AD 中完成您的工作
+
+## <a name="license-requirements"></a>授權需求
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+如需使用者的授權相關資訊，請參閱[使用 PIM 的授權需求](subscription-requirements.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

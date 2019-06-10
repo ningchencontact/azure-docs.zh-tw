@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 06/03/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33d0e5f92d5de104530882b204b1f196360511b2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 91880e43382662b5d55f112455ee8f4c92ad01c5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236448"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471595"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>將 Azure 訂用帳戶的擁有權轉移給另一個帳戶
 
@@ -89,7 +89,7 @@ ms.locfileid: "66236448"
 | [MSDN 平台](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
 | [隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
 | [隨用隨付開發/測試](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
-| [Visual Studio 企業版](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
+| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
 | [Visual Studio Enterprise：BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
 | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR-0059P        |
 | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR-0060P        |
@@ -116,7 +116,8 @@ VM、磁碟和網站等所有資源都會轉移給新的擁有者。 不過，�
 
 ### <a id="no-button"></a> 為什麼看不到 [移轉訂用帳戶] 按鈕？
 
-不幸的是，自助式訂閱移轉不適用於您的供應項目。 檢視中的支援供應項目清單[支援供應項目](#supported-offers)一節。
+不幸的是，自助式訂閱移轉不適用於您的供應項目。 檢視中的支援供應項目清單[支援供應項目](#supported-offers)一節。 此外，我們不會封鎖任何國家/地區的訂用帳戶轉移。 不過，跨國家/地區不支援傳輸。 您的訂用帳戶移轉跨國家/地區[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。 
+
 
 ### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>可以移轉擁有權至另一個國家/地區中的帳戶嗎？
 

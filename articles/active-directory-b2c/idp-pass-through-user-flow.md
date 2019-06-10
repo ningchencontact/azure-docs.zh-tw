@@ -2,20 +2,20 @@
 title: 將透過使用者流程的存取權杖傳遞至您的應用程式-Azure Active Directory B2C |Microsoft Docs
 description: 了解如何透過使用者流程，將 OAuth2.0 身分識別提供者的存取權杖作為宣告傳遞給 Azure Active Directory B2C 中的應用程式。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0270ef3ff74a219442a6800b67055deda7a0583f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: db4b799aa31a4132609b0dd158b65070fb2474b7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705332"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510957"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>透過使用者流程將存取權杖傳遞到 Azure Active Directory B2C 中的應用程式
 
@@ -35,22 +35,22 @@ Azure AD B2C 目前僅支援傳遞 [OAuth 2.0](active-directory-b2c-reference-oa
 
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 請確定您使用包含 Azure AD B2C 租用戶的目錄。 選取 **目錄和訂用帳戶篩選**上方功能表中，然後選擇包含您的租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
+3. 選擇 Azure 入口網站左上角的 [所有服務]  ，搜尋並選取 [Azure AD B2C]  。
 4. 選取  **（原則） 的使用者流程**，然後選取 使用者流程。 例如， **B2C_1_signupsignin1**。
-5. 選取 [應用程式宣告]。
+5. 選取 [應用程式宣告]  。
 6. 啟用**身分識別提供者存取權杖**宣告。
 
     ![啟用身分識別提供者存取權杖的宣告](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-app-claim.png)
 
-7. 按一下 [儲存] 以儲存使用者流程。
+7. 按一下 [儲存]  以儲存使用者流程。
 
 ## <a name="test-the-user-flow"></a>測試使用者流程
 
 在 Azure AD B2C 中測試應用程式時，將 Azure AD B2C 權杖傳回到 `https://jwt.ms` 以檢閱其中的宣告很有用。
 
-1. 在使用者流程的 [概觀] 頁面中，選取 [執行使用者流程]。
+1. 在使用者流程的 [概觀] 頁面中，選取 [執行使用者流程]  。
 2. 針對**應用程式**，請選取您先前註冊的應用程式。 若要查看下面範例中的權杖，**回覆 URL** 應該會顯示 `https://jwt.ms`。
-3. 按一下 [執行使用者流程]，然後使用您的帳戶認證登入。 您應該會在 **idp_access_token** 宣告中看到識別提供者的存取權杖。
+3. 按一下 [執行使用者流程]  ，然後使用您的帳戶認證登入。 您應該會在 **idp_access_token** 宣告中看到識別提供者的存取權杖。
 
     您應該會看到類似下列範例的內容：
 

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 06/05/2019
 ms.author: juliako
-ms.openlocfilehash: 5acd9b68368f56000a0a32d1ade310cf30143950
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6b5422e2eb67eb309c086c023df9f733940e5e44
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799389"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735081"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>將影片索引子小工具內嵌到應用程式中
 
@@ -29,7 +29,7 @@ ms.locfileid: "65799389"
 
 **認知深入解析**小工具包含從您的影片索引編製程序中擷取的所有視覺化深入解析。 深入解析小工具支援下列選擇性 URL 參數：
 
-|名稱|定義|說明|
+|Name|定義|描述|
 |---|---|---|
 |widgets|以逗號分隔的字串|可讓您控制您想要呈現的深入解析。 <br/>範例：`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` 只會呈現人員和品牌 UI 深入解析<br/>可用的選項：人員、關鍵字、註解、品牌、情緒、文字記錄、搜尋。<br/>使用 version=2 時無法透過 URL 支援<br/><br/>**附註：** 第 2 版中不支援小工具的 URL 參數。 |
 
@@ -37,12 +37,12 @@ ms.locfileid: "65799389"
 
 **播放器**小工具可讓您使用調適性位元速率來串流影片。 播放器小工具支援下列選擇性 URL 參數：
 
-|名稱|定義|說明|
+|Name|定義|描述|
 |---|---|---|
 |t|開始後的秒數|可讓播放器從指定的時間點開始播放。<br/>範例：t=60|
 |captions|語言代碼|在可於標題功能表中載入小工具期間，擷取指定語言的標題。<br/>範例：captions=en-US|
 |showCaptions|布林值|可讓播放器載入已啟用的標題。<br/>範例：showCaptions=true|
-|類型||啟動音訊播放器面板 (移除影片部分)。<br/>範例：type=audio|
+|type||啟動音訊播放器面板 (移除影片部分)。<br/>範例：type=audio|
 |autoplay|布林值|指出播放器是否應在影片載入後開始播放 (預設值為 true)。<br/>範例：autoplay=false|
 |語言|語言代碼|控制播放器語言 (預設值為 en-US)<br/>範例：language=de-DE|
 
@@ -61,6 +61,9 @@ ms.locfileid: "65799389"
 5. 複製內嵌程式碼，並新增至您的應用程式。 
 
     ![小工具](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
+
+> [!NOTE]
+> 如果您有問題，以共用您影片的 Url，請嘗試將 'location' 參數新增至連結。 參數應該設定為[影片索引器所在的 Azure 區域](regions.md)。 例如： `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`。
 
 ## <a name="embedding-private-content"></a>內嵌私人內容
 
@@ -173,7 +176,7 @@ ms.locfileid: "65799389"
         </video>    
 
 2. 內嵌認知深入解析小工具。
-3. 接聽「訊息」事件，以實作播放器的通訊。 例如：
+3. 接聽「訊息」事件，以實作播放器的通訊。 例如:
 
         <script>
     
@@ -234,7 +237,7 @@ iframe 視窗的標題也可透過將 `&title=<YourTitle>` 提供給 iframe URL 
 
 在內嵌影片索引子播放器時，您可以藉由指定 iframe 的大小來選擇播放器的大小。
 
-例如：
+例如:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 

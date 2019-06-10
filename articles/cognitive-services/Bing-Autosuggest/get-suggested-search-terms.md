@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 669eaaf0eaf28c696a7ca368c02f5816054e5d10
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 24f35d795b34e7d9c214a23c040791841b4a711b
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010101"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382564"
 ---
 # <a name="what-is-bing-autosuggest"></a>什麼是 Bing 自動建議？
 
@@ -47,7 +47,7 @@ Bing 自動建議 API 是一種 RESTful Web 服務，可輕易地從任何可發
 
 若要快速開始使用您的第一個要求，請參閱[建立您的第一個查詢](quickstarts/csharp.md)。
 
-請熟悉 [Bing 自動建議 API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference) 參考。 此參考包含端點、標頭、您用來要求建議查詢字詞的查詢參數，以及回應物件定義的清單。
+請熟悉 [Bing 自動建議 API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) 參考。 此參考包含端點、標頭、您用來要求建議查詢字詞的查詢參數，以及回應物件定義的清單。
 
 了解如何使用 [Bing Web 搜尋 API](../bing-web-search/search-the-web.md) 來搜尋 Web。
 

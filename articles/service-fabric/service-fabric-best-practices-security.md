@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 449dbb04d58fe7980c845b8c5bc8d837b643c1be
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 69e51f23980aa1d4225f2e5062470f94e5ca9008
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66386738"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753798"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 安全性 
 
@@ -205,7 +205,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [我們建議您實作廣泛是已知且通過完善測試，例如 Microsoft 安全性基準，而不是自行建立基準的業界標準組態](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); 一個用於佈建這些虛擬機器上的選項擴展集為使用 Azure Desired State Configuration (DSC) 延伸模組處理常式，因為它們上線，讓它們執行生產環境的軟體設定的 Vm。
 
 ## <a name="azure-firewall"></a>Azure 防火牆
-[Azure 防火牆是保護您的 Azure 虛擬網路資源的受管理的雲端架構的網路安全性服務。它可以是完全可設定狀態的防火牆即內建的高可用性和延展性不受限制的雲端服務。](https://docs.microsoft.com/azure/firewall/overview); 這可讓您限制輸出的 HTTP/S 流量，包括萬用字元的完整的網域名稱 (FQDN) 指定清單。 這項功能不需要 SSL 終止。 其建議您利用[Azure 防火牆 FQDN 標記](https://docs.microsoft.com/azure/firewall/fqdn-tags)端點的 Windows 更新，並啟用 Microsoft Windows update 的網路流量可以流經防火牆。 [部署使用範本的 Azure 防火牆](https://docs.microsoft.com/azure/firewall/deploy-template)Microsoft.Network/azureFirewalls 資源範本定義中提供的範例。
+[Azure 防火牆是保護您的 Azure 虛擬網路資源的受管理的雲端架構的網路安全性服務。它可以是完全可設定狀態的防火牆即內建的高可用性和延展性不受限制的雲端服務。](https://docs.microsoft.com/azure/firewall/overview); 這可讓您限制輸出的 HTTP/S 流量，包括萬用字元的完整的網域名稱 (FQDN) 指定清單。 這項功能不需要 SSL 終止。 其建議您利用[Azure 防火牆 FQDN 標記](https://docs.microsoft.com/azure/firewall/fqdn-tags)端點的 Windows 更新，並啟用 Microsoft Windows update 的網路流量可以流經防火牆。 [部署使用範本的 Azure 防火牆](https://docs.microsoft.com/azure/firewall/deploy-template)Microsoft.Network/azureFirewalls 資源範本定義中提供的範例。 Service Fabric 應用程式常見的兩個防火牆規則可讓您的叢集網路通訊 * download.microsoft.com，和 * servicefabric.azure.com;若要提取 Windows 更新和 Service Fabric 計算虛擬機器延伸模組程式碼。
 
 ## <a name="tls-12"></a>TLS 1.2
 [TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)

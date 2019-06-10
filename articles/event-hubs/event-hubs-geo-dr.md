@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7b3b3b019df70b6c27833afdd0447ecf32da32ff
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: a1dafb8e4c16a59bfed51016ce9ccb0ec3eb7d6c
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305001"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754761"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure 事件中樞 - 異地災害復原 
 
@@ -98,7 +98,7 @@ Azure 事件中樞的地理災害復原功能就是一個災害復原解決方�
  
 2. 未複寫任何資料這個事實表示未複寫目前作用中工作階段。 此外，重複的偵測和排程訊息可能無法運作。 新的工作階段、排程訊息及新的重複項目會運作。 
 
-3. 容錯移轉複雜分散式基礎結構應該至少[演練](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation)一次。 
+3. 容錯移轉複雜分散式基礎結構應該至少[演練](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan)一次。 
 
 4. 同步處理實體可能需要一些時間，大約每分鐘 50-100 個實體。
 

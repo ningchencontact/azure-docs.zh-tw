@@ -2,20 +2,20 @@
 title: 快速入門 - 設定使用 Azure Active Directory B2C 登入 ASP.NET 應用程式 | Microsoft Docs
 description: 執行範例 ASP.NET Web 應用程式，而該應用程式使用 Azure Active Directory B2C 來提供帳戶登入。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1d2fbe4dbbd7f5549d6c98f8183df58fa3f34e9d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 0e38a431970613f34ee3af0fdb0eb55c5ad344bb
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190465"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509733"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>快速入門：設定使用 Azure Active Directory B2C 登入 ASP.NET 應用程式
 
@@ -41,9 +41,9 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 ## <a name="run-the-application-in-visual-studio"></a>在 Visual Studio 中執行應用程式
 
 1. 在範例應用程式專案資料夾中，於 Visual Studio 中開啟 **B2C-WebAPI-DotNet.sln** 解決方案。
-2. 在本快速入門中，您會同時執行 **TaskWebApp** 和 **TaskService** 專案。 在方案總管中以滑鼠右鍵按一下 **B2C-WebAPI-DotNet** 解決方案，然後選取 [設定啟始專案]。 
-3. 選取 [多個啟始專案]，然後將兩個專案的 [動作] 變更為 [啟動]。 
-4. 按一下 [確定]。
+2. 在本快速入門中，您會同時執行 **TaskWebApp** 和 **TaskService** 專案。 在方案總管中以滑鼠右鍵按一下 **B2C-WebAPI-DotNet** 解決方案，然後選取 [設定啟始專案]  。 
+3. 選取 [多個啟始專案]  ，然後將兩個專案的 [動作]  變更為 [啟動]  。 
+4. 按一下 [確定]  。
 5. 按 **F5** 鍵可進行兩個應用程式的偵錯。 每個應用程式會在自己的瀏覽器索引標籤中開啟：
 
     - `https://localhost:44316/` - ASP.NET Web 應用程式。 在本快速入門中，您直接與此應用程式互動。
@@ -51,7 +51,7 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 
 ## <a name="sign-in-using-your-account"></a>使用您的帳戶登入
 
-1. 按一下 ASP.NET Web 應用程式中的 [註冊/登入]，以啟動工作流程。
+1. 按一下 ASP.NET Web 應用程式中的 [註冊/登入]  ，以啟動工作流程。
 
     ![範例 ASP.NET Web 應用程式](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
 
@@ -69,19 +69,19 @@ Azure Active Directory (Azure AD) B2C 提供雲端身分識別管理，使您的
 
 Azure Active Directory B2C 提供讓使用者更新其設定檔的功能。 範例 Web 應用程式會對工作流程使用 Azure AD B2C 編輯設定檔使用者流程。 
 
-1. 在應用程式功能表列中按一下您的設定檔名稱，然後選取 [編輯設定檔] 以編輯您建立的設定檔。
+1. 在應用程式功能表列中按一下您的設定檔名稱，然後選取 [編輯設定檔]  以編輯您建立的設定檔。
 
     ![編輯設定檔](media/active-directory-b2c-quickstarts-web-app/edit-profile-web.png)
 
-2. 變更您的 [顯示名稱] 或 [縣/市]，然後按一下 [繼續] 以更新設定檔。 
+2. 變更您的 [顯示名稱]  或 [縣/市]  ，然後按一下 [繼續]  以更新設定檔。 
 
     變更會顯示在 Web 應用程式首頁的右上方。
 
 ## <a name="access-a-protected-api-resource"></a>存取受保護的 API 資源
 
-1. 按一下 [待辦事項清單]，輸入並修改您的待辦事項清單項目。 
+1. 按一下 [待辦事項清單]  ，輸入並修改您的待辦事項清單項目。 
 
-2. 在 [新項目] 文字方塊中輸入文字。 按一下 [新增] 以呼叫受 Azure AD B2C 保護的 Web API，而該 Web API 會新增待辦事項清單項目。
+2. 在 [新項目]  文字方塊中輸入文字。 按一下 [新增]  以呼叫受 Azure AD B2C 保護的 Web API，而該 Web API 會新增待辦事項清單項目。
 
     ![加入待辦事項清單項目](media/active-directory-b2c-quickstarts-web-app/add-todo-item-web.png)
 

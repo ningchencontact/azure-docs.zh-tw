@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: ae477068e2413678d5dd755cb5a7334f85655c74
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: da23b90e44869dcbd21acf9b2c4e04f30153ae09
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66259250"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751769"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>第 2 版的 SaaS 履行 Api 
 
@@ -107,7 +107,7 @@ Microsoft SaaS 服務會管理 SaaS 訂用帳戶購買的整個生命週期，�
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |  用於追蹤要求從用戶端，最好是一個 GUID 唯一的字串值。 如果未提供此值，則回應標頭中會產生並提供一個。 |
 |  x-ms-correlationid |  在用戶端上的作業的唯一字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，則回應標頭中會產生並提供一個。  |
-|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 |  x-ms-marketplace-token  |  當使用者重新導向至 SaaS ISV 的網站從 Azure URL 中的語彙基元的查詢參數 (例如： `https://contoso.com/signup?token=..`)。 *附註：* URL 解碼後才能使用它的瀏覽器中的權杖值。  |
 
 *回應碼：*
@@ -171,7 +171,7 @@ Response body:
 | Content-Type       |  `application/json`  |
 | x-ms-requestid     |  用於追蹤要求從用戶端，最好是一個 GUID 唯一的字串值。 如果未提供此值，則回應標頭中會產生並提供一個。 |
 | x-ms-correlationid |  在用戶端上的作業的唯一字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
-| 授權      |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+| 授權      |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *回應碼：*
 
@@ -198,7 +198,7 @@ Response body:
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
-          "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation. [Provisioning, Subscribed, Suspended, Unsubscribed]
+          "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
       }
   ],
   "continuationToken": ""
@@ -241,7 +241,7 @@ Response body:
 |  Content-Type      |  `application/json`  |
 |  x-ms-requestid    |  用於追蹤要求從用戶端，最好是一個 GUID 唯一的字串值。 如果未提供此值，則回應標頭中會產生並提供一個。 |
 |  x-ms-correlationid |  在用戶端上的作業的唯一字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
-|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *回應碼：*
 
@@ -305,7 +305,7 @@ Response Body:
 |   Content-Type     |  `application/json` |
 |   x-ms-requestid   |   用於追蹤要求從用戶端，最好是一個 GUID 唯一的字串值。 如果未提供此值，則回應標頭中會產生並提供一個。 |
 |  x-ms-correlationid  | 在用戶端上的作業的唯一字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，則回應標頭中會產生並提供一個。 |
-|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 
 *回應碼：*
 
@@ -359,7 +359,7 @@ Response Body:
 |  Content-Type      | `application/json`  |
 |  x-ms-requestid    | 用於追蹤要求從用戶端，最好是一個 GUID 唯一的字串值。 如果未提供此值，則回應標頭中會產生並提供一個。  |
 |  x-ms-correlationid  | 在用戶端上的作業的唯一字串值。 這個字串會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
-|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 
 *要求：*
 
@@ -416,7 +416,7 @@ Response Body:
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |   用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。  |
 |  x-ms-correlationid  |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。    |
-| 授權      |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+| 授權      |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *要求承載：*
 
@@ -482,7 +482,7 @@ Request Body:
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |   用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。  |
 |  x-ms-correlationid  |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。    |
-| 授權      |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+| 授權      |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *要求承載：*
 
@@ -548,7 +548,7 @@ Request Body:
 |   Content-Type     |  `application/json` |
 |  x-ms-requestid    |   用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，其中會產生並提供回應標頭中。   |
 |  x-ms-correlationid  |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。   |
-|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *回應碼：*
 
@@ -601,7 +601,7 @@ Request Body:
 |   Content-Type     |  `application/json` |
 |  x-ms-requestid    |  用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。  |
 |  x-ms-correlationid |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
-|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *回應碼：*
 
@@ -664,7 +664,7 @@ Request Body:
 |  Content-Type      |  `application/json`   |
 |  x-ms-requestid    |   用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。  |
 |  x-ms-correlationid |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
-|  授權     |[取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  授權     |[取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *回應碼：* 程式碼：200<br> 取得指定的暫止的 SaaS 作業<br>
 回應裝載：
@@ -727,7 +727,7 @@ Response body:
 |   Content-Type     | `application/json`   |
 |   x-ms-requestid   |   用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。 |
 |  x-ms-correlationid |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。 |
-|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+|  授權     |  [取得 JSON web 權杖 (JWT) 持有人權杖。](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *要求承載：*
 
@@ -774,26 +774,35 @@ Response body:
 
 ```json
 {
-    "operationId": "<guid>",
-    "activityId": "<guid>",
-    "subscriptionId":"<guid>",
-    "offerId": "offer1",
-    "publisherId": "contoso",
-    "planId": "silver",
-    "quantity": "20"  ,
-    "action": "Subscribe",
-    "timeStamp": "2018-12-01T00:00:00"
+  "id": "<this is a Guid operation id, you can call operations API with this to get status>",
+  "activityId": "<this is a Guid correlation id>",
+  "subscriptionId": "<Guid to uniquely identify this resource>",
+  "publisherId": "<this is the publisher’s name>",
+  "offerId": "<this is the offer name>",
+  "planId": "<this is the plan id>",
+  "quantity": "<the number of seats, will be null if not per-seat saas offer>",
+  "timeStamp": "2019-04-15T20:17:31.7350641Z",
+  "action": "Unsubscribe",
+  "status": "NotStarted"  
+
 }
 ```
+其中可以是其中一個動作： 
+- `Subscribe`（當資源已啟用）
+- `Unsubscribe`（當資源已刪除）
+- `ChangePlan`（當變更計劃作業已完成）
+- `ChangeQuantity`（當變更數量作業完成時）
+- `Suspend`（當資源已暫止）
+- `Reinstate`（當資源具有已恢復暫停之後）
 
-其中可以是下列其中一個動作： 
-- `Subscribe`  （當資源已啟用）
-- `Unsubscribe` （當資源已刪除）
-- `ChangePlan` （當變更計劃作業已完成）
-- `ChangeQuantity` （當變更數量作業已完成）
-- `Suspend` （當資源已暫止）
-- `Reinstate` （當資源具有已恢復暫停之後）
+其中可以是其中一種狀態： <br>
+        -NotStarted， <br>
+        -InProgress、 <br>
+        成功， <br>
+        失敗， <br>
+        -衝突 <br>
 
+可採取動作的狀態會是 Succeeded 和 Failed webhook 通知中。 作業的生命週期是從 NotStarted 終止狀態，例如成功/失敗/衝突。 如果您收到未啟動或進行中，請繼續要求的狀態，透過 GET 作業 API，等到作業到達終止狀態之前採取任何動作。 
 
 ## <a name="mock-api"></a>模擬 （mock) 的 API
 

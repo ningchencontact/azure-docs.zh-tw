@@ -95,10 +95,6 @@
           href: platform/alerts-overview.md
         - name: 傳統警示
           href: platform/alerts-classic.overview.md
-        - name: 智慧群組
-          href: platform/alerts-smartgroups-overview.md
-        - name: Autoscale
-          href: platform/autoscale-overview.md
         - name: 度量警示
           href: platform/alerts-metric-overview.md
         - name: 記錄警示
@@ -109,6 +105,10 @@
           href: platform/alerts-common-schema.md
         - name: 動作規則
           href: platform/alerts-action-rules.md
+        - name: 智慧群組
+          href: platform/alerts-smartgroups-overview.md
+        - name: Autoscale
+          href: platform/autoscale-overview.md
         - name: 變更分析
           href: app/change-analysis.md
     - name: 顯現資料

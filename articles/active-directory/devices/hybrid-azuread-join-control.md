@@ -1,136 +1,102 @@
 ---
-title: 控制裝置的混合式 Azure AD 聯結 | Microsoft Docs
-description: 了解如何在 Azure Active Directory 中控制裝置的混合式 Azure AD 聯結。
+title: 受控制的混合式 Azure AD 聯結 Azure AD 的驗證
+description: 了解如何受控制的驗證的混合式 Azure AD join 之前啟用它全部一次在整個組織
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 05/30/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93afc6f748ca9f464261c59e037a603ab6113bf8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd5b388f92a875fb2635037a6eae3ff3b6a95793
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353103"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513295"
 ---
-# <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>控制裝置的混合式 Azure AD 聯結
+# <a name="controlled-validation-of-hybrid-azure-ad-join"></a>混合式 Azure AD 聯結的受控驗證
 
-混合式 Azure Active Directory (Azure AD) 聯結程序可自動向 Azure AD 註冊已加入網域的內部部署裝置。 但有時候您並不想要讓所有裝置自動進行註冊。 舉例來說，在首次推出期間要確認一切都正常運作時，即屬此種情況。
+所有必要的元件時就地，將自動將 Windows 裝置註冊為 Azure AD 租用戶中的裝置。 在 Azure AD 中的這些裝置身分識別狀態稱為 「 混合式 Azure AD 聯結 」。 可以在文章中找到這篇文章所涵蓋的概念的詳細資訊[Azure Active Directory 中的裝置管理簡介](overview.md)和[規劃混合式 Azure Active Directory join 實作](hybrid-azuread-join-plan.md).
 
-本文會提供相關指引，說明如何控制裝置的混合式 Azure AD 聯結。 
+組織可能想要執行混合式 Azure AD join 控制的驗證，再讓它全部一次其整個組織。 這篇文章將說明如何完成混合式 Azure AD join 的受控制的驗證。
 
-
-## <a name="prerequisites"></a>必要條件
-
-本文假設您已熟悉以下各項：
-
--  [Azure Active Directory 中的裝置管理簡介](../device-management-introduction.md)
- 
--  [規劃混合式 Azure Active Directory Join 實作](hybrid-azuread-join-plan.md)
-
--  [設定適用於受控網域的混合式 Azure Active Directory 聯結](hybrid-azuread-join-managed-domains.md)或[設定適用於同盟網域的混合式 Azure Active Directory 聯結](hybrid-azuread-join-federated-domains.md)
-
-
-
-## <a name="control-windows-current-devices"></a>控制現行 Windows 裝置
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-current-devices"></a>Windows 目前裝置上的混合式 Azure AD join 的受控制的驗證
 
 對於執行 Windows 桌面作業系統的裝置，支援的版本為 Windows 10 年度更新版 (版本 1607) 或更新版本。 最佳做法是升級至最新版的 Windows 10。
 
-所有的現行 Windows 裝置都會在裝置啟動或使用者登入時自動向 Azure AD 進行註冊。 您可以使用群組原則物件 (GPO) 或 System Center Configuration Manager 來控制此行為。
+若要執行混合式 Azure AD 聯結在目前的 Windows 裝置上的受控制的驗證，您需要：
 
-若要控制現行 Windows 裝置，您必須： 
-
-
-1.  **對於所有裝置**：停用自動註冊裝置。
-2.  **對於選定的裝置**：啟用自動註冊裝置。
-
-在確認一切都正常運作後，即可重新為所有裝置啟用自動註冊裝置。
+1. 如果存在的話，請清除的服務連接點 (SCP) 項目從 Active Directory (AD)
+1. 使用群組原則物件 (GPO) 已加入網域的電腦上設定 SCP 用戶端登錄設定
+1. 如果您使用 AD FS，您必須在您使用 GPO 的 AD FS 伺服器上，也設定 SCP 用戶端登錄設定  
 
 
 
-### <a name="group-policy-object"></a>群組原則物件 
+### <a name="clear-the-scp-from-ad"></a>清除 從 AD SCP
 
-您可以藉由部署下列 GPO 來控制裝置的裝置註冊行為：**將已加入網域的電腦註冊為裝置**。
+若要修改的 SCP 物件在 AD 中使用 Active Directory 服務介面編輯器 (Adsi)。
 
-若要設定 GPO：
+1. 啟動**Adsi**從桌面應用程式和系統管理工作站或網域控制站做為企業系統管理員。
+1. 連接到**組態命名內容**您的網域。
+1. 瀏覽至**CN = Configuration，DC = contoso，DC = com** > **CN = Services** > **CN = Device Registration Configuration**
+1. 以滑鼠右鍵按一下底下的分葉物件**CN = Device Registration Configuration** ，然後選取**屬性**
+   1. 選取 **關鍵字**從**屬性編輯器**視窗，然後按一下**編輯**
+   1. 選取的值**azureADId**並**azureADName** （一次一個），按一下 **移除**
+1. 關閉**Adsi 編輯器**
 
-1.  開啟 [伺服器管理員]，然後移至 [工具] > [群組原則管理]。
 
-2.  移至要停用或啟用自動註冊的網域所對應的網域節點。
+### <a name="configure-client-side-registry-setting-for-scp"></a>設定 SCP 用戶端登錄設定
 
-3.  在 [群組原則物件] 上按一下滑鼠右鍵，然後選取 [新增]。
+您可以使用下列範例來建立的 「 群組原則物件 (GPO) 」，部署登錄設定，您的裝置登錄中設定 SCP 項目。
 
-4.  輸入群組原則物件的名稱 (例如**混合式 Azure AD 聯結**)。 
+1. 開啟群組原則管理主控台，並在網域中建立新的群組原則物件。
+   1. 提供您新建立的 GPO 的名稱 (例如 ClientSideSCP)。
+1. 編輯 GPO，並找出下列路徑：**電腦設定** > **喜好設定** > **Windows 設定** > **登錄**
+1. 以滑鼠右鍵按一下登錄，然後選取**的新** > **登錄項目**
+   1. 在 **一般**索引標籤上，設定下列各項
+      1. 動作：**更新**
+      1. 登錄區：**HKEY_LOCAL_MACHINE**
+      1. 機碼路徑：**SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. 值名稱：**TenantId**
+      1. 實值型別：**REG_SZ**
+      1. 數值資料：GUID 或**Directory 識別碼**您的 Azure AD 執行個體 (此值可在**Azure 入口網站** > **Azure Active Directory**  >  **屬性** > **Directory 識別碼**)
+   1. 按一下 **[確定]** 。
+1. 以滑鼠右鍵按一下登錄，然後選取**的新** > **登錄項目**
+   1. 在 **一般**索引標籤上，設定下列各項
+      1. 動作：**更新**
+      1. 登錄區：**HKEY_LOCAL_MACHINE**
+      1. 機碼路徑：**SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. 值名稱：**TenantName**
+      1. 實值型別：**REG_SZ**
+      1. 數值資料：您已驗證**網域名稱**在 Azure AD 中 (例如`contoso.onmicrosoft.com`或您的目錄中的任何其他已驗證的網域名稱)
+   1. 按一下 **[確定]** 。
+1. 關閉新建立的 gpo 編輯器
+1. 新建立的 GPO 連結到想要的 OU 包含已加入網域的電腦隸屬於您控制導入母體擴展
 
-5.  選取 [確定] 。
+### <a name="configure-ad-fs-settings"></a>設定 AD FS 設定
 
-6.  以滑鼠右鍵按一下新的 GPO，然後選取 [編輯]。
+如果您使用 AD FS，必須先設定用戶端 SCP 使用前面所提到的但將 GPO 連結到您的 AD FS 伺服器的指示。 此組態所需的 AD FS 與 Azure AD 中建立裝置身分識別的來源。
 
-7.  移至 [電腦設定]  >  [原則]  >  [系統管理範本]  >  [Windows 元件]  >  [裝置註冊]。 
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>在 Windows 舊版裝置上的混合式 Azure AD join 的受控制的驗證
 
-8.  以滑鼠右鍵按一下 [將已加入網域的電腦註冊為裝置]，然後選取 [編輯]。
+若要註冊 Windows 舊版裝置，組織必須安裝[適用於非 Windows 10 電腦的 Microsoft Workplace Join](https://www.microsoft.com/download/details.aspx?id=53554)位於 Microsoft 下載中心取得。
 
-    > [!NOTE] 
-    > 此「群組原則」範本已從舊版 [群組原則管理] 主控台重新命名。 如果您使用舊版主控台，請移至**電腦組態** > **原則** > **系統管理範本** > **Windows 元件** > **裝置註冊** > **註冊加入網域的裝置與電腦**。 
+您可以使用類似的軟體發佈系統來部署封裝 [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager)。 此套件支援使用 quiet 參數的標準無訊息安裝選項。 組態管理員的目前分支會提供勝過舊版的好處，例如能夠追蹤已完成的註冊。
 
-9.  選取下列其中一個設定，然後選取 [套用]：
+安裝程式的使用者內容中執行的系統上建立排定的工作。 此工作會在使用者登入 Windows 時觸發。 此工作會在向 Azure AD 進行驗證後，透過使用者認證以無訊息方式向 Azure AD 加入裝置。
 
-    - **已停用**：可防止自動註冊裝置。
-    - **已啟用**：可啟用自動註冊裝置。
+若要控制的裝置註冊，您應該將的 Windows Installer 套件部署到您選取 Windows 舊版裝置的群組。
 
-10. 選取 [確定] 。
+> [!NOTE]
+> 如果未在 AD 中，設定 SCP，則您應該遵循相同的方法，請依照若要[設定用戶端登錄設定 SCP](#configure-client-side-registry-setting-for-scp)) 使用群組原則物件 (GPO) 已加入網域的電腦上。
 
-您必須將 GPO 連結至您選擇的位置。 若要為組織中所有已加入網域的現行裝置設定此原則，請將 GPO 連結至網域。 若要執行受控制的部署，請為屬於組織單位或安全性群組、且已加入網域的現行 Windows 裝置設定此原則。
 
-### <a name="configuration-manager-controlled-deployment"></a>組態管理員控制的部署 
-
-您可以藉由設定下列用戶端設定來控制目前裝置的裝置註冊行為：**自動向 Azure Active Directory 註冊已加入網域的新 Windows 10 裝置**。
-
-若要設定用戶端設定：
-
-1.  開啟**Configuration Manager**，選取**管理**，然後移至**用戶端設定**。
-
-2.  開啟的內容**預設用戶端設定**，然後選取**雲端服務**。
-
-3.  在 [裝置設定] 下方，針對 [自動向 Azure Active Directory 註冊已加入網域的新 Windows 10 裝置] 選取下列其中一個設定：
-
-    - **否**：可防止自動註冊裝置。
-    - **是**：可啟用自動註冊裝置。
-
-4.  選取 [確定] 。
-
-您必須將此用戶端設定連結至您選擇的位置。 例如，若要為組織中所有的現行 Windows 裝置設定此用戶端設定，請將用戶端設定連結至網域。 若要執行受控制的部署，您可以為屬於組織單位或安全性群組、且已加入網域的現行 Windows 裝置設定此用戶端設定。
-
-> [!Important]
-> 雖然上述組態會處理已加入網域的現有 Windows 10 裝置，但由於裝置上的群組原則或組態管理員設定可能會延遲套用，所以新加入網域的裝置仍有可能會嘗試完整的混合式 Azure AD 聯結。 
->
-> 若要避免這個問題，建議您建立新的 Sysprep 映像 (作為佈建方法的範例)。 請從以前從未加入混合式 Azure AD，且已套用群組原則設定或組態管理員用戶端設定的裝置建立此映像。 您還必須使用新的映像來佈建加入組織網域的新電腦。 
-
-## <a name="control-windows-down-level-devices"></a>控制舊版 Windows 裝置
-
-若要註冊舊版 Windows 電腦，您必須從下載中心的[適用於非 Windows 10 電腦的 Microsoft Workplace Join](https://www.microsoft.com/download/details.aspx?id=53554) 頁面下載並安裝 Windows Installer 套件 (.msi)。
-
-您可以使用軟體發佈系統 (例如 [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager)) 來部署此套件。 此套件支援使用 quiet 參數的標準無訊息安裝選項。 組態管理員的目前分支會提供勝過舊版的好處，例如能夠追蹤已完成的註冊。
-
-安裝程式會在系統上建立排定的工作，此工作是在使用者的內容中執行。 此工作會在使用者登入 Windows 時觸發。 此工作會在向 Azure AD 進行驗證後，透過使用者認證以無訊息方式向 Azure AD 加入裝置。
-
-若要控制裝置註冊，您應將 Windows Installer 套件僅部署至一組選取的舊版 Windows 裝置。 如果您已確認一切都正常運作，即可對所有舊版裝置推出套件。
-
+確認一切運作正常之後，您可以與 Azure AD 自動註冊其餘 Windows 目前和舊版裝置[設定使用 Azure AD Connect 的 SCP](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join)。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Azure Active Directory 中的裝置管理簡介](../device-management-introduction.md)
-
-
-
+[規劃混合式 Azure Active Directory Join 實作](hybrid-azuread-join-plan.md)

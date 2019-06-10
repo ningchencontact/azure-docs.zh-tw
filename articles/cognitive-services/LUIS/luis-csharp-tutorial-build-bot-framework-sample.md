@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: f23cf78bfca48b3a78e234520d645abdb354038f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9d8f3461e94f04e8e82658ede5e60d53350056c5
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878463"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399644"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>C# 中使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 建置的 LUIS Bot
 
 使用 C#，建置與 Language Understanding (LUIS) 整合的聊天機器人。 此聊天機器人會使用預先建置的 HomeAutomation 領域來快速實作聊天機器人解決方案。 此 Bot 是使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 所建置的。
+
+A [Bot Framework LUIS 教學課程的 4.x](luis-csharp-tutorial-bf-v4.md)也會提供。
 
 ## <a name="prerequisite"></a>必要條件
 
@@ -35,7 +37,7 @@ ms.locfileid: "58878463"
 
 ## <a name="create-a-language-understanding-bot-with-bot-service"></a>使用 Bot 服務來建立 Language Understanding Bot
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取左上方功能表中的 [建立新資源]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取左上方功能表中的 [建立新資源]  。
 
     ![在 Azure 入口網站中建立新資源](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
 
@@ -43,33 +45,33 @@ ms.locfileid: "58878463"
 
     ![選取做為資源類型的 Web 應用程式 Bot](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
 
-3. 在 [Web 應用程式 Bot] 視窗中，按一下 [建立]。
+3. 在 [Web 應用程式 Bot] 視窗中，按一下 [建立]  。
 
-4. 在 [Bot 服務] 中提供必要資訊，然後按一下 [建立]。 這會建立 Bot 服務和 LUIS 應用程式，並將其部署到 Azure。 如果您想要使用[語音促發](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)，請先檢閱[區域需求](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming)，再建立您的 Bot。 
-   * 將 [應用程式名稱] 設定為您 Bot 的名稱。 將 Bot 部署到雲端時，此名稱會用來作為子網域 (例如 mynotesbot.azurewebsites.net)。 <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+4. 在 [Bot 服務]  中提供必要資訊，然後按一下 [建立]  。 這會建立 Bot 服務和 LUIS 應用程式，並將其部署到 Azure。 如果您想要使用[語音促發](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)，請先檢閱[區域需求](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming)，再建立您的 Bot。 
+   * 將 [應用程式名稱]  設定為您 Bot 的名稱。 將 Bot 部署到雲端時，此名稱會用來作為子網域 (例如 mynotesbot.azurewebsites.net)。 <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
    * 選取訂用帳戶、[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)、App Service 方案，以及[位置](https://azure.microsoft.com/regions/)。
-   * 針對 [Bot 範本]，請選取：
+   * 針對 [Bot 範本]  ，請選取：
        * **SDK v3**
        * **C#**
        * **語言理解**
-   * 選取 [LUIS 應用程式位置]。 這是用來建立應用程式的撰寫[區域](luis-reference-regions.md)。
+   * 選取 [LUIS 應用程式位置]  。 這是用來建立應用程式的撰寫[區域](luis-reference-regions.md)。
    * 選取法律聲明的確認核取方塊。 法律聲明的條款在此核取方塊下方。
 
      ![Bot 服務](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
 
 
 5. 確認已部署 Bot 服務。
-    * 按一下 [通知] (位於 Azure 入口網站頂端邊緣的鈴鐺圖示)。 通知會從 [部署已開始] 變更為 [部署成功]。
-    * 在通知變更為 [部署成功] 之後，按一下該通知上的 [前往資源]。
+    * 按一下 [通知] (位於 Azure 入口網站頂端邊緣的鈴鐺圖示)。 通知會從 [部署已開始]  變更為 [部署成功]  。
+    * 在通知變更為 [部署成功]  之後，按一下該通知上的 [前往資源]  。
 
 > [!Note]
 > 這個 Web 應用程式 Bot 建立程序也會為您建立一個新的 LUIS 應用程式。 此應用程式已為您進行定型並發佈。 
 
 ## <a name="try-the-default-bot"></a>試用預設 Bot
 
-選取 [通知] 核取方塊來確認已部署 Bot。 通知會從 [部署進行中] 變更為 [部署成功]。 按一下 [前往資源] 按鈕以開啟 Bot 的資源。
+選取 [通知]  核取方塊來確認已部署 Bot。 通知會從 [部署進行中]  變更為 [部署成功]  。 按一下 [前往資源]  按鈕以開啟 Bot 的資源。
 
-部署 Bot 之後，按一下 [在網路聊天中測試] 來開啟 [網路聊天] 窗格。 在網路聊天中輸入 "hello"。
+部署 Bot 之後，按一下 [在網路聊天中測試]  來開啟 [網路聊天] 窗格。 在網路聊天中輸入 "hello"。
 
   ![在網路聊天中測試 Bot](./media/luis-tutorial-cscharp-web-bot/bot-service-web-chat.png)
 
@@ -77,26 +79,26 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。  �
 
 ## <a name="connect-your-luis-app-to-the-bot"></a>將您的 LUIS 應用程式連線至 Bot
 
-開啟 [應用程式設定]，然後編輯 [LuisAppId] 欄位以包含您 LUIS 應用程式的應用程式識別碼。 如果您是在美國西部以外的區域建立 HomeAutomation LUIS 應用程式，則也必須變更 [LuisAPIHostName]。 [LuisAPIKey] 目前設定為您的撰寫金鑰。 當您的流量超出免費層配額時，請將此金鑰變更為您的端點金鑰。 
+開啟 [應用程式設定]  ，然後編輯 [LuisAppId]  欄位以包含您 LUIS 應用程式的應用程式識別碼。 如果您是在美國西部以外的區域建立 HomeAutomation LUIS 應用程式，則也必須變更 [LuisAPIHostName]  。 [LuisAPIKey]  目前設定為您的撰寫金鑰。 當您的流量超出免費層配額時，請將此金鑰變更為您的端點金鑰。 
 
   ![在 Azure 中更新 LUIS 應用程式識別碼](./media/luis-tutorial-cscharp-web-bot/bot-service-app-settings.png)
 
 > [!Note]
 > 如果您沒有[家庭自動化應用程式](luis-get-started-create-app.md)的 LUIS 應用程式識別碼，請使用您用來登入 Azure 的相同帳戶來登入 [LUIS](luis-reference-regions.md) 網站。 
-> 1. 按一下 [My apps] \(我的應用程式\)。 
+> 1. 按一下 [My apps] \(我的應用程式\)  。 
 > 2. 尋找您先前建立並包含來自 HomeAutomation 定義域之意圖和實體的 LUIS 應用程式。
-> 3. 在 LUIS 應用程式的 [Settings] \(設定\) 頁面中，尋找並複製應用程式識別碼。 確定該應用程式已[定型](luis-interactive-test.md)並[發佈](luis-how-to-publish-app.md)。 
+> 3. 在 LUIS 應用程式的 [Settings] \(設定\)  頁面中，尋找並複製應用程式識別碼。 確定該應用程式已[定型](luis-interactive-test.md)並[發佈](luis-how-to-publish-app.md)。 
 > 
 > [!WARNING]
 > 如果您刪除您的應用程式識別碼或稱 LUIS 金鑰，機器人就會停止運作。
 
 ## <a name="modify-the-bot-code"></a>修改 Bot 程式碼
 
-1. 按一下 [建置]，然後按一下 [開啟線上程式碼編輯器]。
+1. 按一下 [建置]  ，然後按一下 [開啟線上程式碼編輯器]  。
 
    ![開啟線上程式碼編輯器](./media/luis-tutorial-cscharp-web-bot/bot-service-build.png)
 
-2. 在 `build.cmd` 上按一下滑鼠右鍵，然後選擇 [從主控台執行]來建置應用程式。 服務會自動為您完成數個建置步驟。 當完成狀態為「順利完成」時，即表示建置完成。
+2. 在 `build.cmd` 上按一下滑鼠右鍵，然後選擇 [從主控台執行]  來建置應用程式。 服務會自動為您完成數個建置步驟。 當完成狀態為「順利完成」時，即表示建置完成。
 
 3. 在程式碼編輯器中，開啟 `/Dialogs/BasicLuisDialog.cs`。 其中包含下列程式碼：
 
@@ -128,7 +130,7 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。  �
    [!code-csharp[Display message in chatbot](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=73-83&dedent=8 "Display message in chatbot")]
 
 ## <a name="build-the-bot"></a>建置 Bot
-在程式碼編輯器中，於 `build.cmd` 上按一下滑鼠右鍵，然後選取 [從主控台執行]。
+在程式碼編輯器中，於 `build.cmd` 上按一下滑鼠右鍵，然後選取 [從主控台執行]  。
 
 ![建置 Web Bot](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
 
@@ -137,7 +139,7 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。  �
 ![建置 Web Bot 成功](./media/luis-tutorial-cscharp-web-bot/bot-service-build-success.png)
 
 > [!TIP]
-> 有一個建置 Bot 的替代方法，就是選取頂端藍色列中的 Bot 名稱，然後選取 [開啟 Kudu 主控台]。 主控台會開啟至 **D:\home**。 
+> 有一個建置 Bot 的替代方法，就是選取頂端藍色列中的 Bot 名稱，然後選取 [開啟 Kudu 主控台]  。 主控台會開啟至 **D:\home**。 
 > 
 > 輸入 `cd site\wwwroot` 來將目錄變更為 **D:\home\site\wwwroot**
 >
@@ -145,7 +147,7 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。  �
 
 ## <a name="test-the-bot"></a>測試 Bot
 
-在 Azure 入口網站中，按一下 [在網路聊天中測試] 來測試 Bot。 輸入 "Turn on the lights" 和 "turn off my heater" 之類的訊息，來叫用您已新增至 Bot 的意圖。
+在 Azure 入口網站中，按一下 [在網路聊天中測試]  來測試 Bot。 輸入 "Turn on the lights" 和 "turn off my heater" 之類的訊息，來叫用您已新增至 Bot 的意圖。
 
    ![在網路聊天中測試 HomeAutomation Bot](./media/luis-tutorial-cscharp-web-bot/bot-service-chat-results.png)
 

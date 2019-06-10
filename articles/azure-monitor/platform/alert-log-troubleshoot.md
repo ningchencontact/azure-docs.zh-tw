@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 8b1a9b3dee999a35950559a049230f7fdbbc47b6
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 03a6ea45577b4a4bf57501b1834f91438feb4e2b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399194"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477869"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>疑難排解在 Azure 監視器中的記錄警示  
 
 這篇文章會示範如何解決常見的問題，您要設定 Azure 監視器中的記錄警示時可能會發生。 它也提供的功能或組態的記錄警示的一些常見問題解決方案。 
 
-詞彙*的記錄警示*告訴您火災根據記錄檔查詢中的警示[Azure Log Analytics 工作區](../learn/tutorial-viewdata.md)或在[Azure Application Insights](../../azure-monitor/app/analytics.md)。 深入了解功能、 詞彙和中的型別[Azure 監視器中的記錄警示](../platform/alerts-unified-log.md)。
+詞彙*的記錄警示*描述觸發根據記錄檔查詢中的規則[Azure Log Analytics 工作區](../learn/tutorial-viewdata.md)或在[Azure Application Insights](../../azure-monitor/app/analytics.md)。 深入了解功能、 詞彙和中的型別[Azure 監視器中的記錄警示](../platform/alerts-unified-log.md)。
 
 > [!NOTE]
 > 這篇文章不會視為 Azure 入口網站會顯示觸發的警示規則，而且通知不由相關聯的動作群組中執行。 這種情況下，請參閱中的詳細資料[建立和管理 Azure 入口網站中的動作群組](../platform/action-groups.md)。

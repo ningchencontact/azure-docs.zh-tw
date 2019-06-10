@@ -9,17 +9,17 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 9d2cd2a2f4b3143d58d0ef03d67de094ea03303e
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 567f32cba76aaf2d1657b2476c4d11596d44dec5
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523084"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753896"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>在 Azure Key Vault 中使用客戶管理金鑰的 azure 搜尋服務加密
 
 > [!Note]
-> 使用客戶管理金鑰的加密是處於預覽階段，應用程式不是用於生產環境而定。 [REST API 版本 2019年-05-06-Preview](search-api-preview.md)提供這項功能。 您也可以使用.NET SDK 版本 8.0-preview。
+> 使用客戶管理金鑰的加密是處於預覽階段，應用程式不是用於生產環境而定。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 您也可以使用.NET SDK 版本 8.0-preview。
 >
 > 這項功能不適用於免費服務。 您必須使用建立當天或之後於 2019年-01-01 的可計費的搜尋服務。 沒有任何入口網站支援此功能。
 
@@ -72,7 +72,7 @@ az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --en
 
 1. 選取 **按鍵**從左側的導覽窗格中，設定，然後按一下 **+ 產生/匯入**。
 
-1. 在 [建立金鑰] 窗格中，從 [選項] 清單中選擇您要用來建立金鑰的方法。 您可以 [產生] 新的金鑰、[上傳] 現有金鑰，或使用 [還原備份] 來選取金鑰的備份。
+1. 在 [建立金鑰]  窗格中，從 [選項]  清單中選擇您要用來建立金鑰的方法。 您可以 [產生]  新的金鑰、[上傳]  現有金鑰，或使用 [還原備份]  來選取金鑰的備份。
 
 1. 請輸入**名稱**針對您的金鑰，並選擇性地選取其他的索引鍵屬性。
 
@@ -227,7 +227,7 @@ Azure 搜尋服務支援兩種方式來指派身分識別： 受管理的身分�
 
 1. [建立 Azure Active Directory 應用程式](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)。
 
-1. [取得應用程式識別碼和驗證金鑰](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key)因為這些都需要建立加密的索引。 您必須提供的值包括**應用程式識別碼**並**驗證金鑰**。
+1. [取得應用程式識別碼和驗證金鑰](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)因為這些都需要建立加密的索引。 您必須提供的值包括**應用程式識別碼**並**驗證金鑰**。
 
 >[!Important]
 > 決定要使用 AAD 應用程式的驗證，而不是受管理的身分識別時，考慮到 Azure 搜尋服務來管理您的 AAD 應用程式，代替您未獲授權，並由您管理 AAD 應用程式，例如定期輪替應用程式驗證金鑰。

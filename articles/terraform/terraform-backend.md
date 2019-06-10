@@ -7,12 +7,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: tarcher
-ms.openlocfilehash: 89108f02957990ad1c7eb736f39de89537f06db5
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: a88ad25e335026d5172c7997f62629d5ada46f6e
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297927"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693306"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>在 Azure 儲存體中儲存 Terraform 狀態
 
@@ -102,7 +102,7 @@ resource "azurerm_resource_group" "state-demo-secure" {
 
 使用 Azure 儲存體 Blob 做為狀態儲存體時，執行任何寫入狀態的作業之前 Blob 會自動鎖定。 此設定可防止多個並行處理狀態作業，並行作業可能會導致損毀。 如需詳細資訊，請參閱 Terraform 文件中的[「狀態鎖定」][terraform-state-lock]。
 
-透過 Azure 入口網站或其他 Azure 管理工具，檢查 Blob 時，可以看到鎖定圖示。
+檢查 Azure 入口網站或其他 Azure 管理工具，透過 blob 時，就可以看到鎖定。
 
 ![帶有鎖定圖示的 Azure Blob](media/terraform-backend/lock.png)
 

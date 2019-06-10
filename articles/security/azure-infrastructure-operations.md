@@ -1,8 +1,8 @@
 ---
-title: Azure 生產環境運作與管理
-description: 本文提供 Azure 生產網路管理和操作的一般描述。
+title: 管理的 Azure 生產網路-Microsoft Azure
+description: 本文說明 Microsoft 如何管理和操作來保護 Azure 資料中心的 Azure 生產網路。
 services: security
-documentationcenter: na
+documentationcenter: n
 author: TerryLanfear
 manager: barbkess
 editor: TomSh
@@ -12,16 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 05/30/2019
 ms.author: terrylan
-ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 515896851c5bf7b9c847416ebadedf1242e0eeb9
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591467"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428275"
 ---
-# <a name="azure-production-operations-and-management"></a>Azure 生產環境運作與管理    
+# <a name="management-and-operation-of-the-azure-production-network"></a>Azure 生產網路的管理和操作    
+本文說明 Microsoft 如何管理和操作來保護 Azure 資料中心的 Azure 生產網路。
+
+## <a name="monitor-log-and-report"></a>監視、 記錄和報表
+
 Azure 生產網路的管理和運作是 Azure 運作小組與 Azure SQL Database 之間的協調工作。 小組在環境中使用了數個系統和應用程式效能監視工具。 此外，他們會使用適當的工具監視網路裝置、伺服器、服務和應用程式程序。
 
 為確保能在 Azure 環境中安全地執行服務，運作小組會實作多個層級的監視、記錄和報告，包括下列動作：

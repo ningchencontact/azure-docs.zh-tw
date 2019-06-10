@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 365f017fe7d71500c17d0a9ccd9c5a0a26a78b75
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ab08c93662988655154cf300ac4ee3758fbc7872
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989487"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472810"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>使用應用程式 Proxy 與 PingAccess 的單一登入之標頭式驗證
 
@@ -94,15 +94,15 @@ Azure Active Directory (Azure AD) 應用程式 Proxy 已與 PingAccess 中合作
 
    > [!NOTE]
    > 如果這是您的第一個應用程式，請在變更 PingAccess 設定時，使用連接埠 3000 啟動並返回以更新這項設定。 對於後續的應用程式，連接埠必須符合您已在 PingAccess 中設定的接聽程式。 深入了解 [PingAccess 中的接聽程式](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html)。
-4. 選取 [新增] 。 新的應用程式的 [概觀] 頁面隨即出現。
+4. 選取 [新增]  。 新的應用程式的 [概觀] 頁面隨即出現。
 
 現在將指派的使用者應用程式測試，然後選擇標頭式單一登入：
 
-1. 從應用程式資訊看板中，選取**使用者和群組** > **新增使用者** > **使用者和群組 (\<數字 > 選取)**. 使用者和群組的清單時，會出現您選擇的。
+1. 從應用程式資訊看板中，選取**使用者和群組** > **新增使用者** > **使用者和群組 (\<數字 > 選取)** . 使用者和群組的清單時，會出現您選擇的。
 
    ![使用者和群組](./media/application-proxy-configure-single-sign-on-with-ping-access/users-and-groups.png)
 2. 選取的使用者應用程式測試，然後選取**選取**。 請確定此測試帳戶可存取內部部署應用程式。
-3. 選取 [指派]。
+3. 選取 [指派]  。
 4. 從應用程式資訊看板中，選取**單一登入** > **標頭型**。
 
    > [!TIP]
@@ -128,7 +128,7 @@ Azure Active Directory (Azure AD) 應用程式 Proxy 已與 PingAccess 中合作
 2. 選取 **委派的權限** > **使用者** > **User.Read**。
 3. 選取 **應用程式權限** > **應用程式** > **Application.ReadWrite.All**。
 4. 選取 **新增權限**。
-5. 在  **API 權限**頁面上，選取**授與系統管理員同意\<您的目錄名稱 >**。
+5. 在  **API 權限**頁面上，選取**授與系統管理員同意\<您的目錄名稱 >** 。
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>收集 PingAccess 步驟的資訊
 
@@ -150,17 +150,17 @@ Azure Active Directory (Azure AD) 應用程式 Proxy 已與 PingAccess 中合作
 4. 下一步**目錄 （租用戶） 識別碼**值，也選取**複製到剪貼簿**，然後複製並儲存它。 您指定此值稍後為 PingAccess 的簽發者。
 5. 從資訊看板**應用程式註冊**針對您的應用程式中，選取**憑證和祕密** > **新的用戶端祕密**。 **新增用戶端祕密**頁面隨即出現。
 
-   ![新增用戶端密碼](./media/application-proxy-configure-single-sign-on-with-ping-access/add-a-client-secret.png)
+   ![新增用戶端祕密](./media/application-proxy-configure-single-sign-on-with-ping-access/add-a-client-secret.png)
 6. 在 **描述**，輸入`PingAccess key`。
 7. 底下**Expires**，選擇如何設定 PingAccess 機碼：**在 1 年**， **2 年內**，或**永不**。
-8. 選取 [新增] 。 PingAccess 機碼會顯示在用戶端祕密，資料表中使用的隨機字串中的，會自動**值**欄位。
+8. 選取 [新增]  。 PingAccess 機碼會顯示在用戶端祕密，資料表中使用的隨機字串中的，會自動**值**欄位。
 9. PingAccess 金鑰旁邊**值**欄位中，選取**複製到剪貼簿**圖示，然後複製並儲存它。 您指定此值稍後為 PingAccess 的用戶端祕密。
 
 ### <a name="update-graphapi-to-send-custom-fields-optional"></a>更新 GraphAPI 以傳送自訂欄位 （選擇性）
 
-如需 Azure AD 傳送以進行驗證的安全性權杖的清單，請參閱 < [Microsoft 身分識別平台識別碼權杖](../develop/id-tokens.md)。 如果您需要自訂的宣告會傳送其他權杖，請設定`acceptMappedClaims`應用程式欄位`True`。 您可以使用 Graph Explorer 或 Azure AD 入口網站的應用程式資訊清單，以進行這項變更。
+如果您需要傳送其他權杖內的自訂宣告 PingAccess 所耗用的 access_token，設定`acceptMappedClaims`應用程式欄位`True`。 您可以使用 Graph Explorer 或 Azure AD 入口網站的應用程式資訊清單，以進行這項變更。
 
-此範例使用 Graph Explorer：
+**此範例使用 Graph Explorer:**
 
 ```
 PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
@@ -170,16 +170,37 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 
-這個範例會使用[Azure Active Directory 入口網站](https://aad.portal.azure.com/)更新`acceptMappedClaims`欄位：
+**這個範例會使用[Azure Active Directory 入口網站](https://aad.portal.azure.com/)更新`acceptMappedClaims`欄位：**
 
 1. 登入[Azure Active Directory 入口網站](https://aad.portal.azure.com/)身為應用程式系統管理員。
-2. 選取 [Azure Active Directory] > [應用程式註冊]。 應用程式清單隨即出現。
+2. 選取 [Azure Active Directory]   > [應用程式註冊]  。 應用程式清單隨即出現。
 3. 選取您的應用程式。
 4. 從資訊看板**應用程式註冊**應用程式頁面，選取**資訊清單**。 您的應用程式註冊資訊清單的 JSON 程式碼會出現。
 5. 搜尋`acceptMappedClaims`欄位，並將值變更為`True`。
 6. 選取 [ **儲存**]。
 
-### <a name="use-a-custom-claim-optional"></a>使用自訂宣告 （選擇性）
+
+### <a name="use-of-optional-claims-optional"></a>使用的選擇性宣告 （選擇性）
+選擇性宣告可讓您新增的每個使用者和租用戶都 standard-but-not-included-by-default 宣告。 您可以藉由修改應用程式資訊清單來設定您的應用程式的選擇性宣告。 如需詳細資訊，請參閱[了解 Azure AD 應用程式資訊清單的文件](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest/)
+
+將電子郵件地址包含 access_token PingAccess 將取用的範例：
+```
+    "optionalClaims": {
+        "idToken": [],
+        "accessToken": [
+            {
+                "name": "email",
+                "source": null,
+                "essential": false,
+                "additionalProperties": []
+            }
+        ],
+        "saml2Token": []
+    },
+```
+
+### <a name="use-of-claims-mapping-policy-optional"></a>使用的宣告對應原則 （選用）
+[宣告對應原則 （預覽）](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/)的屬性不存在於 azure Ad。 宣告對應可讓您藉由新增額外的自訂宣告您的 ADFS 或使用者物件所支援將舊的內部部屬應用程式移轉至雲端
 
 若要讓應用程式使用自訂宣告，並且包含其他欄位，請確定您已經也[建立自訂宣告對應原則並將它指派給應用程式](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)。
 
@@ -187,6 +208,16 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 > 若要使用自訂宣告，您必須已定義自訂原則且已指派給應用程式。 此原則應包含所有必要的自訂屬性。
 >
 > 您可以執行原則定義和透過 PowerShell、 Azure AD Graph 總管 中或 Microsoft Graph 的指派。 如果您要在 PowerShell 中執行它們，您可能需要先使用`New-AzureADPolicy`，然後將它指派給應用程式與`Add-AzureADServicePrincipalPolicy`。 如需詳細資訊，請參閱 <<c0> [ 宣告對應原則指派](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)。
+
+範例：
+```powershell
+$pol = New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","JwtClaimType":"employeeid"}]}}') -DisplayName "AdditionalClaims" -Type "ClaimsMappingPolicy"
+
+Add-AzureADServicePrincipalPolicy -Id "<<The object Id of the Enterprise Application you published in the previous step, which requires this claim>>" -RefObjectId $pol.Id 
+```
+
+### <a name="enable-pingaccess-to-use-custom-claims-optional-but-required-if-you-expect-the-application-to-consume-additional-claims"></a>啟用使用 （選用，但會需要您所預期的應用程式使用額外的宣告） 的自訂宣告的 PingAccess
+當您將設定 PingAccess 下一個步驟中時，Web 工作階段您將建立 (設定]-> [存取]-> [Web 工作階段) 必須擁有**要求的設定檔**取消選取此選項並**重新整理使用者屬性**若要設定**否**
 
 ## <a name="download-pingaccess-and-configure-your-application"></a>下載 PingAccess 及設定您的應用程式
 

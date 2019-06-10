@@ -17,12 +17,12 @@ ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0986610007f5c470589eb94d6761b8d31dd79e72
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3208afc7ec18013c6e70e148995d33114cf7e06c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463502"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513657"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>登入活動報告錯誤碼 
 
@@ -40,11 +40,11 @@ ms.locfileid: "65463502"
 
 ![登入活動](./media/reference-sign-ins-error-codes/61.png "登入活動")
 
-篩選報告以顯示所有失敗的登入，其做法是從 [登入狀態] 下拉式方塊中選取 [失敗]。
+篩選報告以顯示所有失敗的登入，其做法是從 [登入狀態]  下拉式方塊中選取 [失敗]  。
 
 ![登入活動](./media/reference-sign-ins-error-codes/06.png "登入活動")
 
-從篩選後的清單中選取一個項目，就會開啟 [活動詳細資料：登入] 刀鋒視窗。 此檢視提供有關失敗登入事件的其他資料，包括 [登入錯誤碼] 和 [失敗原因]。
+從篩選後的清單中選取一個項目，就會開啟 [活動詳細資料：  登入] 刀鋒視窗。 此檢視提供有關失敗登入事件的其他資料，包括 [登入錯誤碼]  和 [失敗原因]  。
 
 ![登入活動](./media/reference-sign-ins-error-codes/05.png "登入活動")
 
@@ -53,7 +53,7 @@ ms.locfileid: "65463502"
 ## <a name="error-codes"></a>錯誤碼
 
 
-|Error|說明|
+|Error|描述|
 |---|---|
 |16000|這是內部實作詳細資料，而不是錯誤狀況。 您可以放心地忽略此參考。|
 |20001|同盟識別提供者有問題。 請連絡 IDP 以解決此問題。|
@@ -181,6 +181,8 @@ ms.locfileid: "65463502"
 |500121| 增強式驗證要求期間驗證失敗。|
 |500133| Assert 陳述式不在其有效時間範圍內。 先確認存取權杖未過期，再將它用於使用者 Assert 陳述式，或要求新權杖。|
 |530021|應用程式不符合已核准的條件式存取應用程式需求。|
+|7000218|要求本文必須包含下列參數: 'client_assertion' 或 'client_secret'。|
+
 
 ## <a name="next-steps"></a>後續步驟
 

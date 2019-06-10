@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: f6c00f4ada0590df91fce0c36281d0c0cac67b77
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 3611072759c62f42294730405f1dc402c496acce
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257958"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735012"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure 事件方格中的事件來源
 
@@ -140,6 +140,15 @@ ms.locfileid: "66257958"
 | [使用事件方格來回應 Azure 地圖服務事件](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 整合「Azure 地圖服務」與「事件方格」的概觀。 |
 | [教學課程：設定地理柵欄](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 本教學課程會逐步引導您完成使用「Azure 地圖服務」來設定地理柵欄的基本步驟。 您會使用「Azure 事件方格」來串流處理地理柵欄結果，並根據地理柵欄結果設定通知。 |
 | [事件結構描述](event-schema-azure-maps.md) | 顯示「Azure 地圖服務」中的欄位。 |
+
+## <a name="app-configuration"></a>應用程式組態
+訂閱 Azure 應用程式設定來回應索引鍵值修改事件的事件。
+
+|標題 | 描述 |
+|---------|---------|
+| [使用 Event Grid 回應 Azure 應用程式設定事件](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 使用 Event Grid 整合 Azure 應用程式組態的概觀。 |
+| [快速入門： 將 Azure 應用程式組態事件路由至自訂的 web 端點，使用 Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 示範如何使用 Azure CLI 將 Azure 應用程式設定的事件傳送到 WebHook。 |
+| [事件結構描述](event-schema-app-configuration.md) | 在 Azure 應用程式設定事件會顯示欄位。 |
 
 
 ## <a name="next-steps"></a>後續步驟

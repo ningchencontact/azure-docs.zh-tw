@@ -11,19 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/19/2019
-ms.openlocfilehash: cbcdcfd151951334246a4e85d9f521a15bb6269d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/03/2019
+ms.openlocfilehash: 1b452fb0bac91429793f8d55e439c36c70784722
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66146119"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492729"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>使用唯讀複本，以進行負載平衡唯讀查詢工作負載
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 做為一部分[高可用性架構](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)，Premium、 業務關鍵或超大規模的服務層中每個資料庫都會自動佈建的主要複本與數個次要複本。 次要複本會成為主要複本相同的計算大小與佈建。 **讀取相應放大**功能可讓您將負載平衡的 SQL 資料庫唯讀工作負載使用其中一個唯讀複本的容量，而不共用讀寫複本。 這種方式的唯讀工作負載將會與主要讀寫工作負載隔離，而且不會影響其效能。 此功能適用於包含邏輯上分隔唯讀工作負載，例如分析的應用程式。 它們可以獲得效能優勢，使用此額外的容量不會有任何額外的費用。
 

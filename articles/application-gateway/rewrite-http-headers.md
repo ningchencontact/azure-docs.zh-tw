@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: ebb14d97273851585e491e3bcd36f776ec9b61b4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66000962"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476028"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>請重寫應用程式閘道的 HTTP 標頭
 
@@ -60,7 +60,7 @@ HTTP 標頭可讓用戶端和伺服器，將與要求或回應的其他資訊。
 
 應用程式閘道支援這些伺服器變數：
 
-| 變數名稱 | 說明                                                  |
+| 變數名稱 | 描述                                                  |
 | -------------------------- | :----------------------------------------------------------- |
 | add_x_forwarded_for_proxy  | 使用 X 轉送的用戶端要求標頭欄位`client_ip`變數 （請參閱本表中的稍後說明） 附加於格式 IP1，IP2、 lt;ip3，等等。 如果 X 轉送的欄位不是在用戶端要求標頭`add_x_forwarded_for_proxy`變數等於`$client_ip`變數。 當您想要重寫應用程式閘道所設定，以便標頭包含只有不含連接埠資訊的 IP 位址 X 轉送的標頭，此變數會特別有用。 |
 | ciphers_supported          | 一份支援的用戶端的密碼。          |
@@ -153,11 +153,11 @@ HTTP 標頭可讓用戶端和伺服器，將與要求或回應的其他資訊。
 
 ## <a name="limitations"></a>限制
 
+- 如果回應有一個以上具有相同名稱的標頭，然後重寫其中一個這些標頭的值會導致在回應中卸除其他標頭。 這通常可以進行 Set-cookie 標頭，因為您可以在回應中的多個 Set-cookie 標頭。 這類案例之一是當您使用 app service 應用程式閘道，並已在應用程式閘道上設定 cookie 型工作階段親和性。 在此情況下回應會包含 2 個 Set-cookie 標頭： 其中一個服務使用的應用程式，亦即`Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net`，而另一個應用程式閘道親和性，亦即， `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`。 重寫其中一個 Set-cookie 標頭，在此案例中可能會導致從回應中移除其他 Set-cookie 標頭。
+
 - 重寫的連線、 升級和主機標頭目前不支援。
 
 - 標頭名稱可以包含任何英數字元和特定符號，如同[RFC 7230](https://tools.ietf.org/html/rfc7230#page-27)。 我們目前不支援底線 (\_) 標頭名稱中的特殊字元。
-
-- 如果回應包含具有相同名稱的多個標頭，然後重寫其中一個這些標頭的值會導致在回應中卸除其他標頭。
 
 ## <a name="next-steps"></a>後續步驟
 

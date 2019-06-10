@@ -10,42 +10,42 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 82d49a6a82251f440c06db03edc92851fce87741
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: efa85491f4b183a044ec5d9e5e6e3d11eebedbe3
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023618"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428443"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>範例：建立使用文字翻譯 API 的自訂技能
 
-在此範例中，了解如何建立可接受任何語言文字並翻譯為英文的 Web API 自訂技能。 此範例使用 [Azure 函式](https://azure.microsoft.com/services/functions/)來包裝[翻譯文字 API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)，以便實作自訂的技能介面。
+在此範例中，了解如何建立 web API 自訂技能。 這項技術會接受以任何語言的文字，並將它轉譯為英文。 此範例使用 [Azure 函式](https://azure.microsoft.com/services/functions/)來包裝[翻譯文字 API](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)，以便實作自訂的技能介面。
 
 ## <a name="prerequisites"></a>必要條件
 
-+ 如果您不熟悉自訂技能應實作的輸入/輸出介面，請閱讀[自訂技能介面](cognitive-search-custom-skill-interface.md)一文。
++ 了解[自訂技能介面](cognitive-search-custom-skill-interface.md)發行項，如果您不熟悉如何使用自訂的技術應該實作的輸入/輸出介面。
 
 + [註冊翻譯文字 API](../cognitive-services/translator/translator-text-how-to-signup.md)，並取得 API 金鑰以使用 API。
 
-+ 安裝 [Visual Studio 2017 15.5 版](https://www.visualstudio.com/vs/)或更新版本，包括 Azure 開發工作負載。
++ 安裝[Visual Studio 2019](https://www.visualstudio.com/vs/)或更新版本，包括 Azure 開發工作負載。
 
 ## <a name="create-an-azure-function"></a>建立 Azure 函式
 
-雖然這個範例使用 Azure Function 來裝載 Web API，但並非必要。  只要您符合[認知技能的介面需求](cognitive-search-custom-skill-interface.md)，採取的方式並不重要。 不過，Azure Functions 能讓您輕鬆建立自訂技能。
+雖然此範例會使用 Azure Function 裝載 web API，不需要它。  只要您符合[認知技能的介面需求](cognitive-search-custom-skill-interface.md)，採取的方式並不重要。 不過，Azure Functions 能讓您輕鬆建立自訂技能。
 
 ### <a name="create-a-function-app"></a>建立函數應用程式
 
-1. 在 Visual Studio 中，從 [檔案] 功能表中選取 [新增] > [專案]。
+1. 在 Visual Studio 中，從 [檔案] 功能表中選取 [新增]   > [專案]  。
 
-1. 在 [新增專案] 對話方塊中，選取 [已安裝]，展開 [Visual C#] > [雲端]，選取 [Azure Functions]，輸入專案的 [名稱]，然後選取 [確定]。 函式應用程式名稱必須是有效的 C# 命名空間，因此不會使用底線、連字號或任何其他非英數字元。
+1. 在 [新增專案] 對話方塊中，選取 [已安裝]  ，展開 [Visual C#]   > [雲端]  ，選取 [Azure Functions]  ，輸入專案的 [名稱]，然後選取 [確定]  。 函式應用程式名稱必須是有效的 C# 命名空間，因此不會使用底線、連字號或任何其他非英數字元。
 
-1. 選取  **Azure Functions v2 (.NET Core)**。 您也可以使用第 1 版來執行，但下方撰寫的程式碼以 v2 範本為基礎。
+1. 選取  **Azure Functions v2 (.NET Core)** 。 您也可以使用第 1 版來執行，但下方撰寫的程式碼以 v2 範本為基礎。
 
-1. 選取 [HTTP 觸發程序] 類型
+1. 選取 [HTTP 觸發程序]  類型
 
-1. 對於儲存體帳戶，您可以選取 [無]，因為這個函式不需要任何儲存體。
+1. 對於儲存體帳戶，您可以選取 [無]  ，因為這個函式不需要任何儲存體。
 
-1. 選取 [確定] 以建立函式專案和 HTTP 觸發函式。
+1. 選取 [確定]  以建立函式專案和 HTTP 觸發函式。
 
 ### <a name="modify-the-code-to-call-the-translate-cognitive-service"></a>修改程式碼以呼叫翻譯認知服務
 
@@ -195,7 +195,7 @@ namespace TranslateFunction
 
 ## <a name="test-the-function-from-visual-studio"></a>從 Visual Studio 測試函式
 
-按 **F5** 以執行程式並測試函式行為。 在此情況下我們將使用下列函式將文字從西班牙文翻譯成英文。 使用 Postman 或 Fiddler 來發出呼叫，如下所示：
+按 **F5** 以執行程式並測試函式行為。 在此情況下，我們將使用下列函式來翻譯成英文的西班牙文的文字。 使用 Postman 或 Fiddler 來發出呼叫，如下所示：
 
 ```http
 POST https://localhost:7071/api/Translate
@@ -235,17 +235,17 @@ POST https://localhost:7071/api/Translate
 
 ## <a name="publish-the-function-to-azure"></a>將函式發佈至 Azure
 
-當您滿意函式行為時，便可以將之發佈。
+當您滿意的函數行為時，您可以發行分支。
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下專案並選取 [發佈]。 選擇 [建立新項目] > [發佈]。
+1. 在 [方案總管]  中，以滑鼠右鍵按一下專案並選取 [發佈]  。 選擇 [建立新項目]   > [發佈]  。
 
-1. 如果您尚未將 Visual Studio 連線到您的 Azure 帳戶，請選取 [新增帳戶...]。
+1. 如果您尚未將 Visual Studio 連線到您的 Azure 帳戶，請選取 [新增帳戶...]  。
 
-1. 遵循螢幕上的提示進行。 您將必須指定想要使用的 Azure 帳戶、資源群組、主控方案，以及儲存體帳戶。 如果您沒有上述項目，則可以建立新的資源群組、新的主控方案和儲存體帳戶。 完成後，請選取 [建立]
+1. 遵循螢幕上的提示進行。 系統會要求您指定的 Azure 帳戶、 資源群組、 主控方案，以及您想要使用的儲存體帳戶。 如果您沒有上述項目，則可以建立新的資源群組、新的主控方案和儲存體帳戶。 完成後，請選取 [建立] 
 
 1. 完成部署之後，請注意網站 URL。 這是 Azure 中的函數應用程式的位址。 
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至資源群組，並尋找您發佈的翻譯函式。 在 [管理] 區段下，應該會看到主機金鑰。 選取 [預設] 主機金鑰的 [複製] 圖示。  
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至資源群組，並尋找您發佈的翻譯函式。 在 [管理]  區段下，應該會看到主機金鑰。 選取 [預設]  主機金鑰的 [複製]  圖示。  
 
 ## <a name="test-the-function-in-azure"></a>在 Azure 測試函式
 
@@ -270,7 +270,7 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
 }
 ```
 
-這應該會產生與您先前在本機環境中執行函式時類似的結果。
+此範例中應會產生類似的結果，以您先前看到的本機環境中執行的函式時。
 
 ## <a name="connect-to-your-pipeline"></a>連線到您的管線
 有了新的自訂技能之後，就可以將它加入您的技能集。 下列範例示範如何呼叫技能。 因為技能無法處理批次，所以加入批次大小上限只有 ```1``` 的指示，以便一次傳送一個文件。
@@ -307,7 +307,7 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
 ```
 
 ## <a name="next-steps"></a>後續步驟
-恭喜！ 您已經建立第一個自訂擴充程式。 現在您可以遵循相同的模式，新增自己的自訂功能。 
+恭喜！ 您已建立您第一個自訂豐富器新增。 現在您可以遵循相同的模式，新增自己的自訂功能。 
 
 + [將自訂技能新增至認知搜尋管線](cognitive-search-custom-skill-interface.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md)

@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: f56893f830720c57c66eb4c17bb2771efbb73f6f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2f6be01a3aee4e156b7af184fa2537455fc73f3f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "62124625"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386526"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>什麼是 Bing 影片搜尋 API？
 
@@ -50,6 +50,6 @@ Bing 影片搜尋 API 的[互動式示範](https://azure.microsoft.com/services/
 
 ## <a name="see-also"></a>另請參閱
 
-* [Bing 影片搜尋 API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) 參考頁面包含端點、標頭，以及用來要求搜尋結果的查詢參數清單。
+* [Bing 影片搜尋 API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) 參考頁面包含端點、標頭，以及用來要求搜尋結果的查詢參數清單。
 
 * [Bing 使用和顯示需求](./useanddisplayrequirements.md)指定了透過 Bing 搜尋 API 取得的內容和資訊可行的用法。

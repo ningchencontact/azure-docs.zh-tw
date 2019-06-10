@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/21/2019
+  ms.date: 06/04/2019
   ms.author: v-jansko
 abstract:
   description: '翻譯工具文字是雲端式機器翻譯服務，可讓您透過 REST API 呼叫，近乎即時地翻譯文字。 此 API 採用先進的類神經機器翻譯技術，同時提供統計機器翻譯技術。 「自訂翻譯工具」是翻譯工具文字 API 的擴充功能，可讓您建置類神經翻譯系統。 自訂的翻譯系統可透過翻譯工具文字 API 或 <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Microsoft 語音服務</a>來翻譯文字。 如需了解包括類神經機器翻譯和統計機器翻譯的支援語言清單，請參閱<a href="languages.md">支援的語言</a>。'
