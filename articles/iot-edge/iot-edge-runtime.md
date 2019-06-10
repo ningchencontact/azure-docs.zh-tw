@@ -24,15 +24,15 @@ IoT Edge 執行階段會在 IoT Edge 裝置上執行下列功能：
 
 * 在裝置上安裝和更新工作負載。
 * 在裝置上維護 Azure IoT Edge 安全性標準。
-* 確保 [IoT Edge 模塊](iot-edge-modules.md)始終處於運行狀態。
+* 確保 [IoT Edge 模組](iot-edge-modules.md)始終處於執行狀態。
 * 將模組健康情況報告至雲端，以便進行遠端監控。
-* 促進下游設備與 IoT Edge 設備之間的通信。
-* 促進 IoT Edge 設備上的模組間的通信。
-* 促進 IoT Edge 設備和雲之間的通信。
+* 促進下游分葉裝置備與 IoT Edge 裝置之間的通訊。
+* 促進 IoT Edge 裝置上的模組間的通訊。
+* 促進 IoT Edge 裝置和雲端之間的通訊。
 
 ![執行階段會將深入見解和模組健康情況傳達到 IoT 中樞](./media/iot-edge-runtime/Pipeline.png)
 
-IoT Edge 執行階段的責任分為兩類：通訊和模組管理。 這兩個角色都是透過組成 IoT Edge 執行階段的兩個元件來執行。 IoT Edge 中心負責通信，而 IoT Edge 代理則負責部署和監視模組。 
+IoT Edge 執行階段的責任分為兩類：通訊和模組管理。這兩個角色都是透過組成 IoT Edge 執行階段的兩個元件來執行。IoT Edge 中心負責通訊，而 IoT Edge 代理程式則負責部署和監視模組。
 
 IoT Edge 中樞和 IoT Edge 代理程式都是模組，就像 IoT Edge 裝置上執行的任何其他模組。 
 
