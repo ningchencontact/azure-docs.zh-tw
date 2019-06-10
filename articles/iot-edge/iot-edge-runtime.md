@@ -26,7 +26,7 @@ IoT Edge 執行階段會在 IoT Edge 裝置上執行下列功能：
 * 在裝置上維護 Azure IoT Edge 安全性標準。
 * 請確認[IoT Edge 模組](iot-edge-modules.md)一律執行。
 * 將模組健康情況報告至雲端，以便進行遠端監控。
-* 促進下游分葉裝置與 IoT Edge 裝置之間的通訊。
+* 促進下游分葉裝置備與 IoT Edge 裝置之間的通訊。
 * 促進 IoT Edge 裝置上的模組之間的通訊。
 * 促進 IoT Edge 裝置與雲端之間的通訊。
 
