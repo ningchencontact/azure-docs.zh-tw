@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: c593b472326fc373c0b715865b839cca3b6bcf45
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 09d4038e705fb3bc4ff2c82daf5dc4c07f346f94
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480238"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751767"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>教學課程：使用 Python 建立和執行 Jupyter Notebook
 
@@ -49,7 +49,7 @@ ms.locfileid: "66480238"
 
 ## <a name="create-the-data-file"></a>建立資料檔案
 
-您在 Notebook 中建立的線性迴歸模型，會從您專案中的 cricket_chirps.csv  檔案繪製資料。 您可以藉由複製從建立此檔案[GitHub-Azure Notebook 範例](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)，或直接輸入資料。 下列幾節會說明這兩種方法。
+您在 Notebook 中建立的線性迴歸模型，會從您專案中的 cricket_chirps.csv  檔案繪製資料。 您可藉由從 [GitHub - Azure Notebooks 範例](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)複製此檔案，或直接輸入資料來建立該檔案。 下列幾節會說明這兩種方法。
 
 ### <a name="upload-the-data-file"></a>上傳資料檔案
 
@@ -150,17 +150,17 @@ Jupyter 會提供主要 UI 元素的內建導覽。 選取 [說明]   > [使用�
 
 功能表命令群組如下所示：
 
-| 功能表 | 描述 |
+| 功能表 | 說明 |
 | --- | --- |
 | 檔案 | 用以管理 Notebook 檔案的命令，包括建立和複製 Notebook、顯示預覽列印，以及使用各種格式下載 Notebook 的命令。 |
 | Edit | 用以剪下、複製和貼上資料格、尋找和取代值、管理資料格附件，以及插入映像的一般命令。  |
 | 檢視 | 用以控制 Jupyter UI 的各部分可見性的命令。 |
-| Insert | 用以在目前資料格上方或下方插入新資料格的命令。 建立 Notebook 時，您可以使用這些命令。 |
+| 插入 | 用以在目前資料格上方或下方插入新資料格的命令。 建立 Notebook 時，您可以使用這些命令。 |
 | 資料格 | 各種 [Run]  命令會以不同的組合執行一或多個資料格。 [資料格類型]  命令可變更 [程式碼]  、[Markdown]  及 [原始 NBConvert]  (純文字) 之間的資料格類型。 [目前輸出]  和 [所有輸出]  命令可控制如何顯示來自執行程式碼的輸出，並且包含清除所有輸出的命令。 |
 | 核心 | 用以管理在核心中如何執行程式碼的命令，以及 [變更核心]  用來變更語言或用來執行 Notebook 的 Python 版本。 |
 | 資料 | 從專案或工作階段上傳和下載檔案的命令。 請參閱[使用專案資料檔案](work-with-project-data-files.md) |
 | Widget | 用以管理 [Jupyter Widget](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html) 的命令，其可針對視覺效果、對應及繪圖提供額外功能。|
-| Help | 可提供 Jupyter 介面說明和文件的命令。 |
+| 說明 | 可提供 Jupyter 介面說明和文件的命令。 |
 
 工具列上大部分的命令都有對等的功能表命令。 已在[共用及呈現 Notebook](present-jupyter-notebooks-slideshow.md)討論過的 [輸入/編輯 RISE 投影片]  為其中一個例外狀況。
 

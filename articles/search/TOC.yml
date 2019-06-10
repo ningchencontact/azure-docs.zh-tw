@@ -163,25 +163,29 @@
       items:
         - name: 索引器概觀
           href: search-indexer-overview.md
-        - name: Blob 儲存體索引子
-          href: search-howto-indexing-azure-blob-storage.md
-        - name: 資料表儲存體索引子
+        - name: Azure 資料表儲存體索引器
           href: search-howto-indexing-azure-tables.md
-        - name: SQL DB 索引子
+        - name: Azure SQL DB 索引器
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-        - name: Cosmos DB 索引子
+        - name: Azure Cosmos DB 索引器
           href: search-howto-index-cosmosdb.md
-        - name: 一對多 Blob 索引
-          href: search-howto-index-one-to-many-blobs.md
-        - name: CSV Blob 索引
-          href: search-howto-index-csv-blobs.md
-        - name: JSON blob 索引
-          href: search-howto-index-json-blobs.md
+        - name: Azure Blob 儲存體索引器
+          items:
+            - name: 設定 Blob 索引器
+              href: search-howto-indexing-azure-blob-storage.md
+            - name: 針對一對多個 Bolb 編製索引
+              href: search-howto-index-one-to-many-blobs.md
+            - name: 索引 CSV Blob
+              href: search-howto-index-csv-blobs.md
+            - name: 索引 JSON Blob
+              href: search-howto-index-json-blobs.md
+        - name: 排程索引器
+          href: search-howto-schedule-indexers.md
+        - name: 對應欄位
+          href: search-indexer-field-mappings.md
         - name: 連線到 SQL Server VM
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-        - name: 欄位對應
-          href: search-indexer-field-mappings.md
-        - name: 常見問題疑難排解
+        - name: 針對常見問題進行疑難排解
           href: search-indexer-troubleshooting.md
     - name: 透過 AI 擴充
       items:

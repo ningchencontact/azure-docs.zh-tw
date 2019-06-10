@@ -13,7 +13,7 @@ metadata:
   ms.date: 02/14/2019
   ms.author: philmea
 abstract:
-  description: Azure 地圖服務為來自各個產業的開發人員提供功能強大的地理空間功能，另納入可用的最新地圖資料，可提供網路和行動應用程式地理空間內容。 Azure 地圖服務是一套符合 Azure One API 標準的 REST API，適用於地圖、搜尋、路由、流量、時區、地理位置、地理柵欄、地圖資料和空間作業，並同時隨附 Web 和 Android SDK，使開發作業更簡單、富有彈性且可攜至多個平台。
+  description: Azure 地圖服務為來自各個產業的開發人員提供功能強大的地理空間功能，另納入可用的最新地圖資料，可提供網路和行動應用程式地理空間內容。 Azure 地圖服務是一套符合 Azure One API 標準的 REST API，適用於地圖、搜尋、路由、流量、行動性、時區、地理位置、地理柵欄、地圖資料和空間作業，並同時隨附 Web 和 Android SDK，使開發作業更簡單、富有彈性且可攜至多個平台。
 sections:
   - title: 5 分鐘快速入門
     items:
@@ -54,4 +54,4 @@ sections:
           - title: JavaScript
             html: '<p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">地圖控制項</a></p>'
           - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">資料服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">地理位置服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">轉譯服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">路線規劃服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">搜尋服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">空間服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">時區服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">交通服務</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">資料服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">地理位置服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/mobility">行動服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">轉譯服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">路線規劃服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">搜尋服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">空間服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">時區服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">交通服務</a></p>'
