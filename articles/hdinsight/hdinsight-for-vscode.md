@@ -312,15 +312,15 @@ Spark 2.2 叢集和 Spark2.3 叢集已不再支援 PySpark3，只有 Python 支�
     | args | 應用程式的命令列引數 | 字串的清單 | 
     | jars | 要在此工作階段中使用的 jar | 字串清單 | 
     | pyFiles | 要在此工作階段中使用的 Python 檔案 | 字串清單 |
-    | 檔案 | 要在此工作階段中使用的檔案 | 字串清單 |
+    | files | 要在此工作階段中使用的檔案 | 字串清單 |
     | driverMemory | 要用於驅動程式處理序的記憶體數量 | 字串 |
     | driverCores | 要用於驅動程式處理序的核心數量 | int |
     | executorMemory | 每一個執行程式處理序所要使用的記憶體數量 | string |
     | executorCores | 每個執行程式所要使用的核心數量 | int |
     | numExecutors | 要為此工作階段啟動的執行程式數量 | int |
     | archives | 要在此工作階段中使用的封存 | 字串清單 |
-    | 佇列 | 所提交到的 YARN 佇列名稱 | 字串 |
-    | NAME | 此工作階段的名稱 | 字串 |
+    | queue | 所提交到的 YARN 佇列名稱 | 字串 |
+    | name | 此工作階段的名稱 | 字串 |
     | conf | Spark 組態屬性 | key=val 的對應 |
 
     回應本文   
