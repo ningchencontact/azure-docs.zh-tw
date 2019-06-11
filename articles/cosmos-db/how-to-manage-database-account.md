@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 07d177987db1dea261520e8ee2543d871d552acb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: abd50f4e2ca08bea2af491f4b3991278a6dc3b5e
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240897"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399877"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>管理 Azure Cosmos 帳戶
 
@@ -41,7 +41,7 @@ az cosmosdb create \
 
 ### <a id="create-database-account-via-ps"></a>Azure PowerShell
 ```azurepowershell-interactive
-# Create an Azure Cosmos Account for Core (SQL) API
+# Create an Azure Cosmos account for Core (SQL) API
 $resourceGroupName = "myResourceGroup"
 $location = "West US"
 $accountName = "mycosmosaccount" # must be lower case.
@@ -71,7 +71,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager 範本
 
-此 Azure Resource Manager 範本會以兩個區域和用來選取一致性層級、自動容錯移轉和多重主機的選項，為任何支援的 API 建立 Azure Cosmos DB 帳戶。 若要部署此範本，請在讀我檔案頁面的[建立 Azure Cosmos DB 帳戶](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)中，按一下 [部署至 Azure]
+此 Azure Resource Manager 範本會以兩個區域和用來選取一致性層級、自動容錯移轉和多重主機的選項，為任何支援的 API 建立 Azure Cosmos 帳戶。 若要部署此範本，請在讀我檔案頁面的[建立 Azure Cosmos 帳戶](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)中，按一下 [部署至 Azure]
 
 ## <a name="addremove-regions-from-your-database-account"></a>在資料庫帳戶中新增/移除區域
 
@@ -185,7 +185,7 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName --ena
 ### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
 ```azurepowershell-interactive
-# Update an Azure Cosmos Account from single to multi-master
+# Update an Azure Cosmos account from single to multi-master
 
 $account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
@@ -200,7 +200,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager 範本
 
-帳戶可以從單一主機移轉至多重主機，只要部署用來建立帳戶的 Resource Manager 範本並設定 `enableMultipleWriteLocations: true` 即可。 下列 Azure Resource Manager 範本是一個最低限度範本，將會為已啟用單一區域和多重主機的 SQL API 部署 Azure Cosmos DB 帳戶。
+帳戶可以從單一主機移轉至多重主機，只要部署用來建立帳戶的 Resource Manager 範本並設定 `enableMultipleWriteLocations: true` 即可。 下列 Azure Resource Manager 範本是一個最低限度範本，將會為已啟用單一區域和多重主機的 SQL API 部署 Azure Cosmos 帳戶。
 
 ```json
 {
@@ -239,13 +239,13 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 }
 ```
 
-## <a id="automatic-failover"></a>啟用 Azure Cosmos DB 帳戶的自動容錯移轉
+## <a id="automatic-failover"></a>啟用 Azure Cosmos 帳戶的自動容錯移轉
 
 [自動容錯移轉] 選項可讓 Azure Cosmos DB 在一個區域變得無法使用時，容錯移轉至具有最高容錯移轉優先順序的區域，而不需要使用者動作。 自動容錯移轉啟用時，可以修改區域的優先順序。 帳戶必須具有兩個或更多區域，才能啟用自動容錯移轉。
 
 ### <a id="enable-automatic-failover-via-portal"></a>Azure 入口網站
 
-1. 從 Azure Cosmos DB 帳戶，開啟 [全域複寫資料]  窗格。
+1. 從 Azure Cosmos 帳戶，開啟 [全域複寫資料]  窗格。
 
 2. 在窗格頂端，選取 [自動容錯移轉]  。
 
@@ -344,7 +344,7 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
 執行手動容錯移轉的程序，包括將帳戶的寫入區域 (容錯移轉優先順序 = 0) 變更為帳戶設定的另一個區域。
 
 > [!NOTE]
-> 多重主機帳戶無法以手動方式容錯移轉。 如果應用程式使用 Azure Cosmos DB SDK，此 SDK 將會偵測變得無法使用的區域，然後自動重新導向至下一個最接近的區域 (如果 SDK 中使用多路連接 API)。
+> 多重主機帳戶無法以手動方式容錯移轉。 如果應用程式使用 Azure Cosmos SDK，此 SDK 將會偵測變得無法使用的區域，然後自動重新導向至下一個最接近的區域 (如果 SDK 中使用多路連接 API)。
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure 入口網站
 

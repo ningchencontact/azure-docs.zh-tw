@@ -6,18 +6,18 @@ author: stevelas
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview
-ms.date: 04/10/2018
+ms.date: 05/24/2019
 ms.author: stevelas
-ms.openlocfilehash: 2dc314dd1d1e728f03c1d0c660d9339254ddc462
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a26b261a900dfae742e00d9540e744524b781815
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541854"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384111"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure 容器登錄中的異地複寫
 
-公司想要本機存在或熱備份時，選擇從多個 Azure 區域執行服務。 最佳做法是將容器登錄中放入每個區域，其中執行映像以允許網路關閉作業、啟用快速、可靠的映像圖層傳輸。 異地複寫可讓 Azure 容器登錄成為單一登錄、服務包含多個區域登錄的多重主要區域。
+公司想要本機存在或熱備份時，選擇從多個 Azure 區域執行服務。 最佳做法是將容器登錄中放入每個區域，其中執行映像以允許網路關閉作業、啟用快速、可靠的映像圖層傳輸。 異地複寫可讓 Azure 容器登錄成為單一登錄、服務包含多個區域登錄的多重主要區域。 
 
 異地複寫登錄提供下列優點：
 
@@ -60,10 +60,11 @@ docker push contosowesteu.azurecr.io/public/products/web:1.2
 
 * 在所有區域管理單一登錄：`contoso.azurecr.io`
 * 管理單一映像部署設定，因為所有區域都使用相同的映像 URL：`contoso.azurecr.io/public/products/web:1.2`
-* 推送至單一登錄，同時 ACR 會管理異地複寫，包括本機通知的區域 webhook
+* 推送至單一登錄，同時 ACR 會管理異地複寫。 您可以設定區域 [Webhook](container-registry-webhook.md) 通知自己有特定複本中的事件。
 
 ## <a name="configure-geo-replication"></a>設定異地複寫
-設定異地複寫是簡單的，只要按一下地圖上的區域。
+
+設定異地複寫是簡單的，只要按一下地圖上的區域。 您也可以使用某些工具來管理異地複寫，包括 Azure CLI 中的 [az acr replication](/cli/azure/acr/replication) 命令。
 
 異地複寫是[進階登錄](container-registry-skus.md)的一項功能。 如果您的登錄還不是進階，您可以在 [Azure 入口網站](https://portal.azure.com)中從基本和標準變更為進階：
 
@@ -71,7 +72,7 @@ docker push contosowesteu.azurecr.io/public/products/web:1.2
 
 若要設定進階登錄的異地複寫，請登入 Azure 入口網站 ( https://portal.azure.com )。
 
-導覽到 Azure 容器登錄，並選取 [複寫]：
+導覽到 Azure 容器登錄，並選取 [複寫]  ：
 
 ![在 Azure 入口網站的容器登錄 UI 中進行複寫](media/container-registry-geo-replication/registry-services.png)
 
@@ -83,23 +84,27 @@ docker push contosowesteu.azurecr.io/public/products/web:1.2
 * 綠色六邊形代表可能的複本區域
 * 灰色六邊形代表尚未提供複寫的 Azure 區域
 
-若要設定複本，選取綠色六邊形，然後選取 [建立]：
+若要設定複本，選取綠色六邊形，然後選取 [建立]  ：
 
  ![在 Azure 入口網站中建立複寫 UI](media/container-registry-geo-replication/create-replication.png)
 
-若要設定其他複本，請選取其他地區的綠色六邊形，然後按一下 [建立]。
+若要設定其他複本，請選取其他地區的綠色六邊形，然後按一下 [建立]  。
 
-ACR 會開始同步設定的複本之間的映像。 完成時，入口網站會反映 [準備]。 入口網站中的複本狀態不會自動更新。 使用 [重新整理] 按鈕以查看更新的狀態。
+ACR 會開始同步設定的複本之間的映像。 完成時，入口網站會反映 [準備]  。 入口網站中的複本狀態不會自動更新。 使用 [重新整理] 按鈕以查看更新的狀態。
+
+## <a name="considerations-for-using-a-geo-replicated-registry"></a>使用異地複寫登錄的考量
+
+* 異地複寫登錄中的每個區域在設定完成後，都是獨立的。 Azure Container Registry SLA 會套用至每個異地複寫的區域。
+* 當您對異地複寫的登錄推送或提取映像時，背景中的 Azure 流量管理員會將要求傳送至離您最近的區域中的登錄。
+* 當您將映像或標記更新推送至最接近的區域之後，Azure Container registry 需要一些時間將資訊清單和層複寫至您選擇加入的其餘區域。 映像愈大，複寫就愈耗時。 各個複寫區域會透過最終的一致性模型同步處理映像和標記。
+* 若要管理必須將更新推送至異地複寫登錄的工作流程，建議您設定 [Webhook](container-registry-webhook.md) 來回應推送事件。 您可以在異地複寫的登錄中設定區域 Webhook，來追蹤異地複寫區域之間的推送事件何時完成。
+
 
 ## <a name="geo-replication-pricing"></a>異地複寫價格
 
 異地複寫是 Azure Container Registry 之[進階 SKU](container-registry-skus.md) 的功能。 當您要複寫登錄到您想要的區域時，您會產生每個區域的進階登錄費用。
 
 在上述範例中，Contoso 會將兩個登錄向下合併成一個，並將複本新增至美國東部、加拿大中部和西歐。 Contoso 應支付每月的次進階費用，不含任何額外的設定或管理。 每個區域現在會在本機提取其映像，改善效能和可靠性，而不會衍生從美國西部到加拿大和美國東部的網路輸出費用。
-
-## <a name="summary"></a>總結
-
-利用異地複寫，您可以將區域資料中心作為一個全域雲端管理。 在許多 Azure 服務中使用映像，您可以從單一管理平面獲益，同時維持網路關閉、快速，及可靠提取本機映像。
 
 ## <a name="next-steps"></a>後續步驟
 

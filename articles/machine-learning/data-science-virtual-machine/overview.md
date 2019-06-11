@@ -15,33 +15,33 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: bb04d6c8b16a6b9bdbbb95b0b4f577cf4cc3ed86
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 384cb274496670e0b0b5a33e001e78a0babed3f0
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235086"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427787"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>適用於 Linux 和 Windows 的 Azure 資料科學虛擬機器簡介
 
 資料科學虛擬機器 (DSVM) 是 Microsoft Azure 雲端上的自訂 VM 映像，專為進行資料科學建置。 它已預先安裝和預先設定許多常用的資料科學和其他工具，以開始建置智慧應用程式進行進階分析。 我們提供 Windows Server 和 Linux 版。 我們提供了 Server 2016 和 Server 2012 的 Windows 版 DSVM。 我們在 Ubuntu 16.04 LTS 和 CentOS 7.4 上提供 Linux 版本的 DSVM。
 
-本主題討論您可以使用資料科學 VM 來做什麼、說明使用 VM 的一些主要案例、逐項列出 Windows 和 Linux 版本中可使用的主要功能，並提供如何開始使用的相關指示。
+本文討論您可以使用資料科學 VM 執行哪些作業。 文中提供一些使用 VM 的重要案例，並逐項列出 Windows 和 Linux 版本上提供的重要功能。 本文也提供開始使用此服務的相關指示。
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>我可以使用資料科學虛擬機器來做什麼？
 資料科學虛擬機器 (DSVM) 的目標在於提供無衝突、預先設定及完全整合的資料科學環境，讓所有技能等級和各個企業的資料專業人員使用。 與其自行推出同等級的工作區，您只要佈建 DSVM 即可，不需要花費好幾天或甚至「好幾週」  的時間來安裝、設定及完成套件管理程序。 配置 DSVM 之後，您可以立即開始進行資料科學專案。
 
-資料科學 VM 是針對使用廣泛用途案例而設計和設定的。 您可以隨著專案需求的變更來相應增加或減少環境、使用慣用語言來設計資料科學工作的程式，以及安裝其他工具來自訂系統以符合確切需求。
+資料科學 VM 是針對使用廣泛用途案例而設計和設定的。 您可以隨著專案需求的變更來相應增加或減少環境。 您也可以使用慣用語言來設計資料科學工作的程式，以及安裝其他工具來自訂系統以符合確切需求。
 
 ## <a name="key-scenarios"></a>主要案例
 本節建議一些資料科學 VM 可以部署的主要案例。
 
 ### <a name="preconfigured-analytics-desktop-in-the-cloud"></a>在雲端中預先設定分析桌面
-資料科學 VM 提供資料科學小組外觀的基準組態，將其本機桌面取代為受控雲端桌面。 此基準確保小組的所有資料科學家都有一致的設定，用來確認實驗，並提升共同作業。 它也會藉由降低系統管理員的負擔並且節省評估、安裝所需的時間，及維護執行進階分析所需的各種軟體套件，來減少成本。
+資料科學 VM 提供資料科學小組外觀的基準組態，將其本機桌面取代為受控雲端桌面。 此基準確保小組的所有資料科學家都有一致的設定，用來確認實驗，並提升共同作業。 它也可減輕系統管理員的負擔，進而降低成本。 此負擔減輕後，評估、安裝及維護各種必要的軟體套件以執行進階分析所需的時間，也得以縮短。
 
 ### <a name="data-science-training-and-education"></a>資料科學訓練和教育
-教導資料科學課程的企業訓練者和教育者，通常會提供虛擬機器映像，以確保他們的學生擁有一致的設定且範例如預期般運作。 資料科學 VM 會建立具有一致設定的隨選環境，緩解支援和不相容性挑戰。 在必須經常建置這些環境的案例中，特別是針對較短的訓練課程，可以有大幅獲益。
+教導資料科學課程的企業訓練者和教育者通常會提供虛擬機器映像。 他們之所以提供此映像，是為了確保他們的學生擁有一致的設定且範例如預期般運作。 資料科學 VM 會建立具有一致設定的隨選環境，緩解支援和不相容性挑戰。 在必須經常建置這些環境的案例中，特別是針對較短的訓練課程，可以有大幅獲益。
 
 ### <a name="on-demand-elastic-capacity-for-large-scale-projects"></a>大型專案的隨選彈性容量
 資料科學黑客松 (Hackathon)/競賽或大型資料模型化和探索需要相應放大硬體容量，通常是很短的期間。 資料科學 VM 可幫助在相應放大的伺服器上快速隨選複寫資料科學環境，允許需要強大運算資源執行的實驗。
@@ -51,13 +51,13 @@ ms.locfileid: "66235086"
 [Azure Notebooks](/azure/notebooks/azure-notebooks-overview) 是免費的託管服務，無需任何安裝程序，就能用來在雲端中開發、執行和共用 Jupyter Notebook。 不過，免費服務層級的限制為 4 GB 記憶體和 1GB 資料。 若要解除所有的限制，您接著可以將 Notebooks 專案附加至資料科學 VM 或執行 Jupyter 伺服器的任何其他 VM。 如果您以使用 Azure Active Directory 的帳戶 (例如公司帳戶) 登入 Azure Notebooks，Notebooks 會自動顯示與該帳戶相關聯之訂用帳戶中的任何資料科學 VM。 如需詳細資訊，請參閱[管理和設定專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)。
 
 ### <a name="short-term-experimentation-and-evaluation"></a>短期實驗和評估
-資料科學 VM 可以用來評估或學習工具，例如 Microsoft ML Server、SQL Server、Visual Studio 工具、Jupyter、深入學習/ML 工具組，與社群中需要最少設定的受歡迎新工具。 因為資料科學 VM 可快速設定，它可以套用至其他短期使用案例，例如複寫已發佈的實驗、執行示範、遵循線上課程和會議教學課程的逐步解說。
+資料科學 VM 可以用來評估或學習工具，例如 Microsoft ML Server、SQL Server、Visual Studio 工具、Jupyter、深入學習/ML 工具組，與社群中需要最少設定的受歡迎新工具。 資料科學 VM 可快速設定，因此可以套用至其他短期使用案例。 這些案例包括複寫已發佈的實驗、執行示範、遵循線上課程和會議教學課程的逐步解說。
 
 ### <a name="deep-learning"></a>深入學習
-資料科學 VM 可以用於在 GPU (圖形處理單元) 型硬體使用深入學習演算法的定型模型。 利用 Azure 雲端的 VM 規模調整功能，DSVM 可協助您依需求在雲端使用 GPU 型硬體。 當訓練大型模型或需要高速計算同時保留相同的 OS 磁碟時，可以切換到 GPU 型 VM。  Windows Server 2016 版的 DSVM 預先安裝了 GPU 驅動程式、架構和 GPU 版本的深入學習架構。 在 Linux 版本上，GPU 的深入學習於 CentOS 和 Ubuntu DSVM 上啟用。 您可以將 Ubuntu、CentOS 或 Windows-2016 版資料科學 VM 部署到非 GPU 型 Azure 虛擬機器，所有深入學習架構在此情況下將恢復為 CPU 模式。
+資料科學 VM 可以用於在 GPU (圖形處理單元) 型硬體使用深入學習演算法的定型模型。 利用 Azure 雲端的 VM 規模調整功能，DSVM 可協助您依需求在雲端使用 GPU 型硬體。 當訓練大型模型或需要高速計算同時保留相同的 OS 磁碟時，可以切換到 GPU 型 VM。  Windows Server 2016 版的 DSVM 預先安裝了 GPU 驅動程式、架構和 GPU 版本的深入學習架構。 在 Linux 版本上，GPU 的深入學習於 CentOS 和 Ubuntu DSVM 上啟用。 您可以將 Ubuntu、CentOS 或 Windows-2016 版資料科學 VM 部署到非 GPU 型 Azure 虛擬機器。 在此情況下，所有深度學習架構都會回復為 CPU 模式。
 
 ## <a name="whats-included-in-the-data-science-vm"></a>資料科學 VM 中包含什麼？
-資料科學虛擬機器已安裝和設定許多常用的資料科學和深入學習工具。 它也包含各項工具，讓您可以輕鬆地使用各種 Azure 資料與分析產品 (例如 Microsoft ML Server (R、Python))，來建置預測模型或 SQL Server 2017 以進行大規模資料集探索。 來自開放原始碼社群及 Microsoft 的許多其他工具也會包含在內，以及範例程式碼和筆記本。 下表列舉並比較 Windows 和 Linux 版本的資料科學虛擬機器所包含的主要元件。
+資料科學虛擬機器已安裝和設定許多常用的資料科學和深入學習工具。 它也包含各項工具，讓您可以輕鬆地使用各種 Azure 資料與分析產品 (例如 Microsoft ML Server (R、Python))，來建置預測模型或 SQL Server 2017 以進行大規模資料集探索。 資料科學 VM 包含來自開放原始碼社群及 Microsoft 的許多其他工具，以及範例程式碼和 Notebook。 下表列舉並比較 Windows 和 Linux 版本的資料科學虛擬機器所包含的主要元件。
 
 
 | **工具**                                                           | **Windows 版本** | **Linux 版本** |
@@ -80,7 +80,7 @@ ms.locfileid: "66235086"
 | JupyterHub (多使用者 Notebook 伺服器)| N | Y |
 | JupyterLab (多使用者 Notebook 伺服器) | N | Y (僅限 Ubuntu) |
 | **開發工具、IDE 和程式碼編輯器**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/)，含 Git Plugin、Azure HDInsight (Hadoop)、Data Lake、SQL Server Data Tools、[Node.js](https://github.com/Microsoft/nodejstools)、[Python](https://aka.ms/ptvs) 和 [Visual Studio R 工具 (RTVS)](https://microsoft.github.io/RTVS-docs/) | Y | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2019 (Community Edition)](https://www.visualstudio.com/community/)，含 Git Plugin、Azure HDInsight (Hadoop)、Data Lake、SQL Server Data Tools、[Node.js](https://github.com/Microsoft/nodejstools)、[Python](https://aka.ms/ptvs) 和 [Visual Studio R 工具 (RTVS)](https://microsoft.github.io/RTVS-docs/) | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | Y |

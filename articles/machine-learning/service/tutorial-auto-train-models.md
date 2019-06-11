@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: d6e478cba13c7b4cf628535a4a1ecdbec344a733
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 907383c057c0c1eebee6550a0d1e9c75dd88513c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035452"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417301"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>教學課程：使用自動機器學習建置迴歸模型
 
@@ -38,7 +38,7 @@ ms.locfileid: "65035452"
 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
 >[!NOTE]
-> 本文中的程式碼已使用 Azure Machine Learning SDK 1.0.0 版進行測試。
+> 本文中的程式碼已進行過 Azure Machine Learning SDK 1.0.39 版的測試。
 
 ## <a name="prerequisites"></a>必要條件
 

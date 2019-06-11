@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fc15db91b8f4cc6dbdecd0e7321abdbf81744f08
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: df4f89bd1b2e3c0423f5d758cfa637e4da9e04d0
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357985"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66396532"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>將內部部署機器移轉至 Azure
 
@@ -49,12 +49,12 @@ ms.locfileid: "59357985"
 ## <a name="select-a-replication-goal"></a>選取複寫目標
 
 選取您要複寫的項目以及您要複寫到的位置。
-1. 按一下 [復原服務保存庫] > 保存庫。
-2. 在 [資源功能表] 中，按一下 [Site Recovery] > [準備基礎結構] > [保護目標]。
-3. 在 [保護目標] 中，選取您需要移轉的項目。
-    - **VMware**：選取 [至 Azure] > [是，使用 VMware vSphere Hypervisor]。
-    - **實體機器**：選取 [至 Azure] > [未虛擬化/其他]。
-    - **Hyper-V**：選取 [至 Azure] > [是，使用 Hyper-V]。 如果 Hyper-V VM 是由 VMM 管理，請選取 [是]。
+1. 按一下 [復原服務保存庫]  > 保存庫。
+2. 在 [資源功能表] 中，按一下 [Site Recovery]   > [準備基礎結構]   > [保護目標]  。
+3. 在 [保護目標]  中，選取您需要移轉的項目。
+    - **VMware**：選取 [至 Azure]   > [是，使用 VMware vSphere Hypervisor]  。
+    - **實體機器**：選取 [至 Azure]   > [未虛擬化/其他]  。
+    - **Hyper-V**：選取 [至 Azure]   > [是，使用 Hyper-V]  。 如果 Hyper-V VM 是由 VMM 管理，請選取 [是]  。
 
 
 ## <a name="set-up-the-source-environment"></a>設定來源環境
@@ -69,7 +69,7 @@ Hyper-V | 設定[來源環境](hyper-v-azure-tutorial.md#set-up-the-source-envir
 
 選取並確認目標資源。
 
-1. 按一下 [準備基礎結構] > [目標]，然後選取您要使用的 Azure 訂用帳戶。
+1. 按一下 [準備基礎結構]   > [目標]  ，然後選取您要使用的 Azure 訂用帳戶。
 2. 指定 Resource Manager 部署模型。
 3. Site Recovery 會檢查 Azure 資源。
     - 如果您要遷移 VMware VM 或實體伺服器，Site Recovery 會確認您是否有 Azure 網路以作為容錯移轉後所建立 Azure VM 的所在位置。
@@ -102,12 +102,12 @@ Hyper-V | [啟用複寫](hyper-v-azure-tutorial.md#enable-replication)<br/><br/>
 
 針對您要移轉的機器執行容錯移轉。
 
-1. 在 [設定] > [複寫的項目] 中，按一下機器 > [容錯移轉]。
-2. 在 [容錯移轉] 中，選取要容錯移轉的目標**復原點**。 選取最新的復原點。
+1. 在 [設定]   > [複寫的項目]  中，按一下機器 > [容錯移轉]  。
+2. 在 [容錯移轉]  中，選取要容錯移轉的目標**復原點**。 選取最新的復原點。
 3. 加密金鑰設定不適用於此案例。
-4. 選取 [Shut down machine before beginning failover] \(先將機器關機再開始容錯移轉)。 Site Recovery 在觸發容錯移轉之前，會嘗試將虛擬機器關機。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。
+4. 選取 [Shut down machine before beginning failover] \(先將機器關機再開始容錯移轉)  。 Site Recovery 在觸發容錯移轉之前，會嘗試將虛擬機器關機。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業]  頁面上追蹤容錯移轉進度。
 5. 確認 Azure VM 如預期般出現在 Azure 中。
-6. 在 [複寫的項目] 中，以滑鼠右鍵按一下 VM > [完成移轉]。 這會執行以下動作：
+6. 在 [複寫的項目]  中，以滑鼠右鍵按一下 VM > [完成移轉]  。 這會執行以下動作：
 
    - 完成移轉程序、停止內部部署 VM 的複寫，並停止 VM 的 Site Recovery 計費。
    - 此步驟會清除複寫資料。 但並不會刪除已遷移的 VM。

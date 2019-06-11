@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea65120a2a735477d048b9012e160e0cdafe8835
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 2a4bdaba45c466b7f1f6fb8e91033f9a7665e034
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66253077"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730539"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>教學課程：從登入畫面重設 Azure AD 密碼
 
@@ -113,6 +113,8 @@ Azure AD 稽核記錄會包含 IP 位址相關資訊以及發生密碼重設的 
 當使用者從 Windows 10 裝置的登入畫面重設其密碼時，會建立稱為 “defaultuser1” 的低權限暫時帳戶。 此帳戶用來保護密碼重設程序。 此帳戶本身有隨機產生的密碼，該密碼不會針對裝置登入顯示，而在使用者重設其密碼後會自動移除。 可能存在多個 “defaultuser” 設定檔，但您可以放心忽略。
 
 ## <a name="limitations"></a>限制
+
+Windows 10 的 SSPR 不支援帳戶解除鎖定、行動裝置應用程式通知和行動裝置應用程式程式碼。
 
 使用 Hyper-V 測試這項功能時，不會出現 [重設密碼] 連結。
 

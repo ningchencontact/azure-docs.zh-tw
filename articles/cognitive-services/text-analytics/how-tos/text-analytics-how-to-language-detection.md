@@ -9,18 +9,22 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 4ccb8665c9880e21897c81ed4b4ff534e52bb6d1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 481f7a7589a58baac922001d230f95198ed45eb7
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002267"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417938"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>範例：如何使用文字分析來偵測語言
 
-[語言偵測 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) \(英文\) 會針對每份文件評估文字輸入，並傳回語言識別項，其中含有指出分析強度的分數。 文字分析最多可辨識 120 種語言。
+此 API 的[語言偵測](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)功能會針對每份文件評估文字輸入，並傳回語言識別碼，其中含有指出分析強度的分數。
 
 此功能對於收集任意文字且語言為未知的內容存放區而言非常實用。 您可以剖析此分析的結果，以判斷輸入文件中使用的是哪一種語言。 回應也會傳回分數來反映對模型的信賴度 (介於 0 和 1 之間的值)。
+
+我們未發佈這項功能確切的語言清單，但它可以偵測到多種不同的語言、變體、方言，以及某些區域性/文化語言。 
+
+如果您有以較不常用的語言表示的內容，您可以嘗試使用「語言偵測」，看它是否會傳回代碼。 對於無法偵測到的語言，會產生 `unknown` 回應。
 
 > [!TIP]
 > 文字分析也會提供可用來偵測語言的 Linux 型 Docker 容器映像，好讓您可以在接近資料的位置[安裝和執行文字分析容器](text-analytics-how-to-install-containers.md)。
@@ -206,7 +210,7 @@ ms.locfileid: "60002267"
 
 在本文中，您已了解使用認知服務中的文字分析進行語言偵測的概念和工作流程。 以下是先前所說明和示範之重點的快速提醒：
 
-+ [語言偵測 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) 可供 120 種語言使用。
++ [語言偵測](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)適用於多種不同的語言、變體、方言，以及某些區域性/文化語言。
 + 要求主體中的 JSON 文件包含識別碼和文字。
 + 使用對您訂用帳戶有效的個人化[存取金鑰和端點](text-analytics-how-to-access-key.md)，將要求 POST 到 `/languages` 端點。
 + 回應輸出 (其包含針對每個文件識別碼的語言識別項) 可以串流處理到任何可接受 JSON 的應用程式，包括 Excel 和 Power BI 等。

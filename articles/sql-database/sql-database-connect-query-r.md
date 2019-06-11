@@ -12,13 +12,13 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
-ms.date: 04/11/2019
-ms.openlocfilehash: 2b1206e3087b0573736174d4eed502653d76f7a5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 05/29/2019
+ms.openlocfilehash: 1d4b17cf1e0349bf877c676cb4e591fc20ad4113
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001180"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416357"
 ---
 # <a name="quickstart-use-r-to-query-an-azure-sql-database-preview"></a>快速入門：使用 R 查詢 Azure SQL 資料庫 (預覽)
 
@@ -32,14 +32,35 @@ ms.locfileid: "60001180"
 
 - Azure SQL 資料庫。 您可以使用其中一個快速入門，在 Azure SQL Database 中建立資料庫並加以設定：
 
-  || 單一資料庫 | 受控執行個體 |
+<!-- Managed instance is not supported during the preview
+  || Single database | Managed instance |
   |:--- |:--- |:---|
-  | 建立| [入口網站](sql-database-single-database-get-started.md) | [入口網站](sql-database-managed-instance-get-started.md) |
+  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | 設定 | [伺服器層級 IP 防火牆規則](sql-database-server-level-firewall-rule.md)| [VM 的連線能力](sql-database-managed-instance-configure-vm.md)|
-  |||[現場的連線能力](sql-database-managed-instance-configure-p2s.md)
+  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md) | [Connectivity from a VM](sql-database-managed-instance-configure-vm.md) |
+  ||| [Connectivity from on-site](sql-database-managed-instance-configure-p2s.md) |
+  | Load data | Adventure Works loaded per quickstart | [Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md) |
+  ||| Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) |
   |||
+-->
+
+  || 單一資料庫 |
+  |:--- |:--- |
+  | 建立| [入口網站](sql-database-single-database-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
+  | 設定 | [伺服器層級 IP 防火牆規則](sql-database-server-level-firewall-rule.md) |
+  | 載入資料 | 每個快速入門載入的 Adventure Works |
+  |||
+
+  > [!NOTE]
+  > 在 Azure SQL Database 機器學習服務 (搭配 R) 的預覽期間，不支援受控執行個體部署選項。
+
+<!-- Managed instance is not supported during the preview
+  > [!IMPORTANT]
+  > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
+-->
 
 - 已啟用機器學習服務 (搭配 R)。 在公開預覽期間，Microsoft 會將您加入，並為您現有的或新的資料庫啟用機器學習服務。 請遵循[註冊預覽版](sql-database-machine-learning-services-overview.md#signup)中的步驟。
 
@@ -51,9 +72,9 @@ ms.locfileid: "60001180"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 瀏覽至 [SQL 資料庫] 或 [SQL 受控執行個體] 頁面。
+2. 瀏覽至 [SQL 資料庫]  或 [SQL 受控執行個體]  頁面。
 
-3. 在 [概觀] 頁面上，針對單一資料庫檢閱 [伺服器名稱] 旁的完整伺服器名稱，若為受控執行個體，則檢閱 [主機] 旁的完整伺服器名稱。 若要複製伺服器名稱或主機名稱，請將滑鼠暫留在其上方，然後選取 [複製] 圖示。
+3. 在 [概觀]  頁面上，針對單一資料庫檢閱 [伺服器名稱]  旁的完整伺服器名稱，若為受控執行個體，則檢閱 [主機]  旁的完整伺服器名稱。 若要複製伺服器名稱或主機名稱，請將滑鼠暫留在其上方，然後選取 [複製]  圖示。
 
 ## <a name="create-code-to-query-your-sql-database"></a>建立程式碼以查詢您的 SQL Database
 
@@ -64,6 +85,9 @@ ms.locfileid: "60001180"
 1. 將完整的 R 指令碼傳遞至 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) 預存程序。
 
    此指令碼會透過 `@script` 引數傳遞。 `@script` 引數內的所有項目都必須是有效的 R 程式碼。
+   
+   >[!IMPORTANT]
+   >此範例中的程式碼使用範例 AdventureWorksLT 資料，您可以在建立資料庫時選擇這些範例資料作為來源。 如果您的資料庫中有不同的資料，請在 SELECT 查詢中使用來自您自己資料庫的資料表。 
 
     ```sql
     EXECUTE sp_execute_external_script
@@ -79,11 +103,11 @@ ms.locfileid: "60001180"
 
 1. 執行 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) 預存程序。
 
-1. 確認 [訊息] 視窗中已傳回前 20 個類別/產品資料列。
+1. 確認 [訊息]  視窗中已傳回前 20 個類別/產品資料列。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [設計您的第一個 Azure SQL Database](sql-database-design-first-database.md)
+- [設計您的第一個 Azure SQL 資料庫](sql-database-design-first-database.md)
 - [Azure SQL Database 機器學習服務 (搭配 R)](sql-database-machine-learning-services-overview.md)
 - [在 Azure SQL Database 機器學習服務中建立和執行簡單的 R 指令碼 (預覽)](sql-database-quickstart-r-create-script.md)
 - [使用機器學習服務在 Azure SQL Database 中撰寫進階的 R 函式 (預覽)](sql-database-machine-learning-services-functions.md)

@@ -5,19 +5,19 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 037f37d6a8e1c41579403dbf7c9dd265efbb5d10
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8b1a701beac867c5f331ffa1ee1dee615961c6b3
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030026"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416295"
 ---
-# <a name="quickstart-use-truffle-to-connect-to-a-an-azure-blockchain-service-network"></a>快速入門：使用 Truffle 連線至 Azure 區塊鏈服務網路
+# <a name="quickstart-use-truffle-to-connect-to-an-azure-blockchain-service-network"></a>快速入門：使用 Truffle 連線至 Azure 區塊鏈服務網路
 
 Truffle 是可用來連線至 Azure 區塊鏈服務節點的區塊鏈開發環境。
 
@@ -26,24 +26,24 @@ Truffle 是可用來連線至 Azure 區塊鏈服務節點的區塊鏈開發環�
 ## <a name="prerequisites"></a>必要條件
 
 * [建立 Azure 區塊鏈成員](create-member.md)
-* Truffle 需要安裝數個工具，包括 [Node.js](https://nodejs.org)、[Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 和 [Truffle](https://github.com/trufflesuite/truffle)。
-
-    若要在 Windows 10 上快速設定，請安裝 [Ubuntu on Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6) 來使用 Unix Bash 殼層終端機，然後安裝 [Truffle](https://github.com/trufflesuite/truffle)。 Ubuntu on Windows 散發套件包含 Node.js 和 Git。
+* 安裝 [Truffle](https://github.com/trufflesuite/truffle)。 Truffle 需要安裝數個工具，包括 [Node.js](https://nodejs.org) 和 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
+* 安裝 [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)。 Web3 需要 Python。
 
 ## <a name="create-truffle-project"></a>建立 Truffle 專案
 
-1. 開啟 Bash 殼層終端機。
-1. 將目錄切換至要建立 Truffle 專案目錄的位置。 例如，
-
-    ``` bash
-    cd /mnt/c
-    ```
-
+1. 開啟 Node.js 命令提示字元或殼層。
+1. 將目錄切換至要建立 Truffle 專案目錄的位置。
 1. 建立專案的目錄，並將您的路徑變更為新目錄。 例如，
 
     ``` bash
     mkdir truffledemo
     cd truffledemo
+    ```
+
+1. 初始化 Truffle 專案。
+
+    ``` bash
+    truffle init
     ```
 
 1. 在專案資料夾中安裝 Ethereum JavaScript API web3。 目前的必要版本為 web3 1.0.0-beta.37 版。
@@ -53,12 +53,6 @@ Truffle 是可用來連線至 Azure 區塊鏈服務節點的區塊鏈開發環�
     ```
 
     在安裝期間您可能會收到 npm 警告。
-
-1. 初始化 Truffle 專案。
-
-    ``` bash
-    truffle init
-    ```
 
 1. 啟動 Truffle 的互動式開發主控台。
 
@@ -70,15 +64,15 @@ Truffle 是可用來連線至 Azure 區塊鏈服務節點的區塊鏈開發環�
 
 ## <a name="connect-to-transaction-node"></a>連線至交易節點
 
-我們將使用 Web3 連限制交易節點。 您可以從 Azure 入口網站取得 Web3 連接字串。
+使用 *Web3* 連線至交易節點。 您可以從 Azure 入口網站取得 *Web3* 連接字串。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 瀏覽至您的 Azure 區塊鏈服務成員。 選取 [交易節點] 和預設交易節點連結。
+1. 瀏覽至您的 Azure 區塊鏈服務成員。 選取 [交易節點]  和預設交易節點連結。
 
     ![選取預設交易節點](./media/connect-truffle/transaction-nodes.png)
 
-1. 選取 [範例程式碼] > [Web3]。
-1. 從 [HTTPS (存取金鑰 1)] 複製 JavaScript。 您在 Truffle 的互動式開發主控台中將需要此程式碼。
+1. 選取 [範例程式碼] > [Web3]  。
+1. 從 [HTTPS (存取金鑰 1)]  複製 JavaScript。 您在 Truffle 的互動式開發主控台中將需要此程式碼。
 
     ![Web3 程式碼](./media/connect-truffle/web3-code.png)
 
@@ -90,8 +84,7 @@ Truffle 是可用來連線至 Azure 區塊鏈服務節點的區塊鏈開發環�
     truffle(develop)> var Web3 = require("Web3");
     truffle(develop)> var provider = new Web3.providers.HttpProvider("https://myblockchainmember.blockchain.azure.com:3200/hy5FMu5TaPR0Zg8GxiPwned");
     truffle(develop)> var web3 = new Web3(provider);
-    truffle(develop)>
-     ```
+    ```
 
     您可以在 **web3** 物件上呼叫方法，來與交易節點互動。
 

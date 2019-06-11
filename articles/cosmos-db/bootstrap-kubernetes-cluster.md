@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 43aa0956ef1f44fa5705800ff2b424608ec75499
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2c6af53aeec5d40f603d65595d93527107c0d80a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795605"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427711"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>如何使用採用 Azure Cosmos DB 的 Azure Kubernetes (預覽)
 
@@ -29,7 +29,7 @@ Azure Cosmos DB 中的 etcd API 可讓您使用 Azure Cosmos DB 作為 Azure Kub
 
 1. 安裝最新版的 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。 您可以下載專屬於您作業系統的 Azure CLI，並加以安裝。
 
-1. 安裝 [v0.32.3](https://github.com/Azure/aks-engine/releases/tag/v0.32.3) 版的 Azure Kubernetes 引擎。 您可以從 [Azure Kubernetes 引擎](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine)頁面取得不同作業系統的安裝指示。 在連結的文件中，您只需要**安裝 AKS 引擎**區段中的步驟。下載 zip 檔案之後，請將其解壓縮。
+1. 安裝[最新版的](https://github.com/Azure/aks-engine/releases) Azure Kubernetes 引擎。 您可以從 [Azure Kubernetes 引擎](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine)頁面取得不同作業系統的安裝指示。 在連結的文件中，您只需要**安裝 AKS 引擎**區段中的步驟。下載 zip 檔案之後，請將其解壓縮。
 
    Azure Kubernetes 引擎 (**aks-engine**) 會針對 Azure 上的 Kubernetes 叢集產生 Azure Resource Manager 範本。 aks-engine 的輸入是叢集定義檔，其中描述所需的叢集，包括協調器、功能和代理程式。 輸入檔案的結構類似於 Azure Kubernetes Service 的公用 API。
 
@@ -77,7 +77,7 @@ Azure Cosmos DB 中的 etcd API 可讓您使用 Azure Cosmos DB 作為 Azure Kub
 1. 從命令提示字元中，瀏覽至 Azure Kubernetes 引擎可執行檔所在的資料夾。 例如，在命令提示字元中，您可以瀏覽至如下所示的資料夾：
 
    ```cmd
-   cd "\aks-engine-v0.32.3-windows-amd64\aks-engine-v0.32.3-windows-amd64"
+   cd "\aks-engine-v0.36.3-windows-amd64\aks-engine-v0.36.3-windows-amd64"
    ```
 
 1. 開啟您選擇的文字編輯器，並定義用來以 Azure Cosmos DB etcd API 部署 Azure Kubernetes 叢集的 Resource Manager 範本。 將下列 JSON 定義複製到文字編輯器，並將檔案儲存為 `apiModel.json`：

@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 4/30/2019
+ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 78dd4b31991a15d3d946c47c5394f64bb3afea95
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: e2e29bf0068fae5d6f4987ec5c3f2a52b883e4bd
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947258"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418123"
 ---
 # <a name="what-is-azure-application-gateway"></a>什麼是 Azure 應用程式閘道？
 
@@ -29,9 +29,9 @@ Azure 應用程式閘道是網路流量負載平衡器，可讓您管理 Web 應
 
 Azure 應用程式閘道包含下列功能︰
 
-## <a name="secure-sockets-layer-ssl-termination"></a>安全通訊端層 (SSL) 終止
+## <a name="secure-sockets-layer-ssltls-termination"></a>安全通訊端層 (SSL/TLS) 終止
 
-應用程式閘道支援在閘道上終止 SSL，之後流量通常會以未加密狀態流至後端伺服器。 這項功能可讓 Web 伺服器不必再負擔昂貴的加密和解密成本。 不過，有時候無法對伺服器進行未加密的通訊。 這可能是因為安全性需求、合規性需求，或應用程式可能只接受安全連線。 對於這些應用程式，應用程式閘道可支援端對端 SSL 加密。
+應用程式閘道支援在閘道上終止 SSL/TLS，之後流量通常會以未加密狀態流至後端伺服器。 這項功能可讓 Web 伺服器不必再負擔昂貴的加密和解密成本。 不過，有時候無法對伺服器進行未加密的通訊。 這可能是因為安全性需求、合規性需求，或應用程式可能只接受安全連線。 對於這些應用程式，應用程式閘道可支援端對端 SSL/TLS 加密。
 
 ## <a name="autoscaling"></a>自動調整
 

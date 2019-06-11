@@ -9,12 +9,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 64d79abd1e142a231c08e02e7d62e8bfbab7b90e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e40a0b35cd99565bec4e26862c938f6228bf9836
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244731"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393738"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>教學課程：使用 AzCopy 將內部部署資料移轉至雲端儲存體
 
@@ -119,9 +119,12 @@ azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.wind
 
 這些範例會假設您的資料夾名稱是 `myFolder`、儲存體帳戶名稱是 `mystorageaccount`，以及您的容器名稱是 `mycontainer`。
 
+> [!NOTE]
+> Linux 範例會附加 SAS 權杖。 您必須在命令中提供該權杖。 目前版本的 AzCopy V10 不支援 Cron 作業中的 Azure AD 授權。
+
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-    azcopy sync "/mnt/myfiles" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true
+    azcopy sync "/mnt/myfiles" "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-05-30T06:57:40Z&st=2019-05-29T22:57:40Z&spr=https&sig=BXHippZxxx54hQn%2F4tBY%2BE2JHGCTRv52445rtoyqgFBUo%3D" --recursive=true
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s
 manager: mmontwil
-ms.openlocfilehash: 10f85ea697ad0ffae181112ae51eac928424ccc3
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 0677eb4c65da242f8cfcb20754ec88ffb02c5929
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861736"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393167"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>在使用 Java 的 Azure Dev Spaces 上開始使用
 
@@ -56,7 +56,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>建立已針對 Azure Dev Spaces 啟用的 Kubernetes 叢集
 
-在命令提示字元中，於[支援 Azure Dev Spaces 的區域](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)建立資源群組。
+在命令提示字元中，於[支援 Azure Dev Spaces 的區域][supported-regions]建立資源群組。
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -94,13 +94,13 @@ az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --g
 在本節中，您會建立 Java Web 應用程式，並使其在 Kubernetes 的容器中執行。
 
 ### <a name="create-a-java-web-app"></a>建立 Java Web 應用程式
-瀏覽至 https://github.com/Azure/dev-spaces 以從 GitHub 下載程式碼，然後選取 [複製或下載]，將 GitHub 存放庫下載到您的本機環境。 本指南的程式碼位於 `samples/java/getting-started/webfrontend`。
+瀏覽至 https://github.com/Azure/dev-spaces 以從 GitHub 下載程式碼，然後選取 [複製或下載]  ，將 GitHub 存放庫下載到您的本機環境。 本指南的程式碼位於 `samples/java/getting-started/webfrontend`。
 
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>準備程式碼以進行 Docker 和 Kubernetes 開發
 目前為止，您具有可以在本機執行的基本 Web 應用程式。 您現在會藉由建立資產 (定義應用程式的容器) 並將其部署到 Kubernetes 的方式，將應用程式容器化。 使用 Azure Dev Spaces 可以輕鬆完成此工作： 
 
 1. 啟動 VS Code 並開啟 `webfrontend` 資料夾。 (您可以略過要新增偵錯資產或還原專案的任何預設提示。)
-1. 在 VS Code 中開啟整合式終端機 (使用 [檢視 > 整合式終端機] 功能表)。
+1. 在 VS Code 中開啟整合式終端機 (使用 [檢視 > 整合式終端機]  功能表)。
 1. 執行這個命令 (請確定您目前的資料夾是 **webfrontend**)：
 
     ```cmd
@@ -154,7 +154,7 @@ Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 
 此命令會重建容器映像，並重新部署 Helm 圖表。 若要查看程式碼變更是否在執行中應用程式中生效，只要重新整理瀏覽器即可。
 
-但是還有「更加快速的方法」可開發程式碼，您將在下一節中加以探索。 
+但是還有「更加快速的方法」  可開發程式碼，您將在下一節中加以探索。 
 
 ## <a name="debug-a-container-in-kubernetes"></a>在 Kubernetes 中進行容器偵錯
 
@@ -168,15 +168,15 @@ Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>使用 VS Code 擴充功能初始化偵錯資產
 首先您必須設定您的程式碼專案，讓 VS Code 與我們在 Azure 中的開發人員空間通訊。 適用於 Azure Dev Spaces 的 VS Code 擴充功能提供協助程式命令，可以設定偵錯組態。 
 
-開啟 [命令選擇區] (使用 [檢視 | 命令選擇區] 功能表)，然後使用自動完成功能以輸入及選取以下命令：`Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`。 
+開啟 [命令選擇區]  (使用 [檢視 | 命令選擇區]  功能表)，然後使用自動完成功能以輸入及選取以下命令：`Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`。 
 
 這樣會為 `.vscode` 資料夾底下的 Azure Dev Spaces 新增偵錯組態。 此命令不應與 `azds prep` 命令混淆；後者會設定要部署的專案。
 
 ![](media/common/command-palette.png)
 
 ### <a name="select-the-azds-debug-configuration"></a>選取 AZDS 偵錯組態
-1. 若要開啟 [偵錯] 檢視，請按一下 VS Code 側邊的 [活動列] 中的 [偵錯] 圖示。
-1. 選取 [啟動 Java 程式 (AZDS)] 作為作用中偵錯組態。
+1. 若要開啟 [偵錯] 檢視，請按一下 VS Code 側邊的 [活動列]  中的 [偵錯] 圖示。
+1. 選取 [啟動 Java 程式 (AZDS)]  作為作用中偵錯組態。
 
 ![](media/get-started-java/debug-configuration.png)
 
@@ -207,7 +207,7 @@ public String greeting()
 }
 ```
 
-儲存檔案，然後在 [偵錯動作] 窗格中，按一下 [重新整理] 按鈕。
+儲存檔案，然後在 [偵錯動作]  窗格中，按一下 [重新整理]  按鈕。
 
 ![](media/get-started-java/debug-action-refresh.png)
 
@@ -221,3 +221,6 @@ Azure 開發人員空間會以累加方式重新編譯現有容器中的程式�
 
 > [!div class="nextstepaction"]
 > [了解多重服務開發](multi-service-java.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

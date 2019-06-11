@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: ae1d8f18705b1058c10d4720c64f624ed0ef4a3d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 7d52585b51af09c430130141c3680b5630f7b95e
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60829526"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417284"
 ---
 # <a name="what-is-text-analytics-api"></a>什麼是文字分析 API？
 
@@ -34,7 +34,7 @@ ms.locfileid: "60829526"
 可自動[擷取關鍵片語](how-tos/text-analytics-how-to-keyword-extraction.md)，以快速識別重點。 例如，若輸入文字為 "The food was delicious and there were wonderful staff"，API 即會傳回主要討論要點："food" 和 "wonderful staff"。 您可以使用這裡的 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) API 或 [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK。
 
 ## <a name="language-detection"></a>語言偵測
-您可以[偵測輸入文字是以何種語言撰寫的](how-tos/text-analytics-how-to-language-detection.md)，並按要求針對所提交的每份文件回報單一語言代碼，最多可達 120 種語言。 語言代碼各配有一個分數，表示分數的強度。 您可以使用 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API 或 [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK。
+您可以[偵測輸入文字是以何種語言撰寫的](how-tos/text-analytics-how-to-language-detection.md)，並按要求針對所提交的每份文件回報單一語言代碼，包括多種不同的語言、變體、方言，和某些區域性/文化語言。 語言代碼各配有一個分數，表示分數的強度。 您可以使用 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API 或 [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK。
 
 ## <a name="named-entity-recognition"></a>具名實體辨識
 [識別文字中的實體並分類](how-tos/text-analytics-how-to-entity-linking.md)為人員、位置、組織、日期/時間、數量、百分比、貨幣等等。 已知的實體也會辨識出來，並連結至網路上的其他資訊。 您可以使用 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634) API。

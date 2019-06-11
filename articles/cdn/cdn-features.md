@@ -5,26 +5,26 @@ services: cdn
 documentationcenter: ''
 author: mdgattuso
 manager: danielgi
-editor: sohamnchatterjee
+editor: mdgattuso
 ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/25/2019
+ms.date: 06/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 0c80abeb4aca47b3ef957c25e12c59e86d59dd94
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 5aa342700c8440e67987cd9d1b45574c02a45f47
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872886"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729807"
 ---
 # <a name="compare-azure-cdn-product-features"></a>比較 Azure CDN 產品功能
 
-Azure 內容傳遞網路 (CDN) 包含四項產品：**來自 Microsoft 的 Azure CDN 標準**、**來自 Akamai 的 Azure CDN 標準**、**來自 Verizon 的 Azure CDN 標準**和**來自 Verizon 的 Azure CDN 進階**。 如需將 [來自 Verizon 的標準 Azure CDN] 設定檔移轉至 [來自 Verizon 的進階 Azure CDN] 的相關資訊，請參閱[將 Azure CDN 設定檔從標準 Verizon 移轉至進階 Verizon](cdn-migrate.md)。
+Azure 內容傳遞網路 (CDN) 包含四項產品：**來自 Microsoft 的 Azure CDN 標準**、**來自 Akamai 的 Azure CDN 標準**、**來自 Verizon 的 Azure CDN 標準**和**來自 Verizon 的 Azure CDN 進階**。 如需將 [來自 Verizon 的標準 Azure CDN]  設定檔移轉至 [來自 Verizon 的進階 Azure CDN]  的相關資訊，請參閱[將 Azure CDN 設定檔從標準 Verizon 移轉至進階 Verizon](cdn-migrate.md)。
 
 下表將比較各項產品的可用功能。
 
@@ -52,7 +52,7 @@ Azure 內容傳遞網路 (CDN) 包含四項產品：**來自 Microsoft 的 Azure
 ||||
  **安全性** | **標準 Microsoft** | **標準 Akamai** | **標準 Verizon** | **進階 Verizon** | 
 | CDN 端點的 HTTPS 支援 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [自訂網域 HTTPS](cdn-custom-ssl.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [自訂網域 HTTPS](cdn-custom-ssl.md)  | **&#x2713;** | **&#x2713;** ，直接 CNAME 必須啟用 |**&#x2713;** |**&#x2713;** |
 | [自訂網域名稱支援](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [地理位置篩選](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [權杖驗證](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 

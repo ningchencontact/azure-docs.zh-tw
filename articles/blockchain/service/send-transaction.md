@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 0b5e39e9cf2fc3ffe91db6587bc1ed1bab079e93
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9037c7b5498a5e0a37b05e5ee09891bf8066393d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65777333"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417479"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>教學課程：使用 Azure 區塊鏈服務傳送交易
 
@@ -35,10 +35,8 @@ ms.locfileid: "65777333"
 
 * 完成[使用 Azure 入口網站建立區塊鏈成員](create-member.md)
 * 完成[快速入門：使用 Truffle 連線至聯盟網路](connect-truffle.md)
-* Truffle 需要安裝數個工具，包括 [Node.js](https://nodejs.org)、[Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 和 [Truffle](https://github.com/trufflesuite/truffle)。
-
-    若要在 Windows 10 上快速設定，請安裝 [Ubuntu on Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6) 來使用 Unix Bash 殼層終端機，然後安裝 [Truffle](https://github.com/trufflesuite/truffle)。 Ubuntu on Windows 散發套件包含 Node.js 和 Git。
-
+* 安裝 [Truffle](https://github.com/trufflesuite/truffle)。 Truffle 需要安裝數個工具，包括 [Node.js](https://nodejs.org) 和 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
+* 安裝 [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)。 Web3 需要 Python。
 * 安裝 [Visual Studio Code](https://code.visualstudio.com/Download)
 * 安裝 [Visual Studio Code Solidity 擴充功能](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)
 
@@ -65,9 +63,9 @@ ms.locfileid: "65777333"
 
 佈建節點時，您可以繼續本教學課程。 佈建完成後，您將會有三個交易節點。
 
-## <a name="open-truffle-project"></a>開啟 Truffle 專案
+## <a name="open-truffle-console"></a>開啟 Truffle 主控台
 
-1. 開啟 Bash 殼層終端機。
+1. 開啟 Node.js 命令提示字元或殼層。
 1. 在下列必要條件中，將您的路徑變更為 Truffle 專案目錄：[快速入門：使用 Truffle 連線至聯盟網路](connect-truffle.md)。 例如，
 
     ```bash
@@ -82,9 +80,9 @@ ms.locfileid: "65777333"
 
     Truffle 會建立本機開發區塊鏈，並提供互動式主控台。
 
-## <a name="connect-to-transaction-node"></a>連線到交易節點
+## <a name="create-ethereum-account"></a>建立以太坊帳戶
 
-使用 Web3 來連線至預設的交易節點並建立帳戶。 您可以從 Azure 入口網站取得 Web3 連接字串。
+使用 Web3 連線至預設的交易節點並建立 Ethereum 帳戶。 您可以從 Azure 入口網站取得 Web3 連接字串。
 
 1. 在 Azure 入口網站中，瀏覽至預設的交易節點，然後選取 [交易節點] > [程式碼範例] > [Web3]  。
 1. 從 **HTTPS (存取金鑰 1)** 複製 JavaScript ![Web3 程式碼範例](./media/send-transaction/web3-code.png)
@@ -105,7 +103,7 @@ ms.locfileid: "65777333"
     web3.eth.personal.newAccount("1@myStrongPassword");
     ```
 
-    請記下傳回的帳戶位址和您使用的密碼，以便在下一節使用。
+    請記下傳回的帳戶位址和您使用的密碼。 您在下一節將會用到 Ethereum 帳戶的位址和密碼。
 
 1. 結束 Truffle 開發環境。
 
@@ -138,101 +136,99 @@ ms.locfileid: "65777333"
 1. 開啟 Truffle 組態檔 `truffle-config.js`。
 1. 使用下列組態資訊取代檔案的內容。 新增包含端點位址和帳戶資訊的變數。 將角括號區段取代為您在上一節中收集的值。
 
-``` javascript
-var defaultnode = "<default transaction node connection string>";
-var alpha = "<alpha transaction node connection string>";
-var beta = "<beta transaction node connection string>";
-
-var myAccount = "<account address>";
-var myPassword = "<account password>";
-
-var Web3 = require("web3");
-```
-
-將組態程式碼新增至組態的 **module.exports** 區段。
-
-```javascript
-module.exports = {
-  networks: {
-    defaultnode: {
-      provider:(() =>  {
-      const AzureBlockchainProvider = new Web3.providers.HttpProvider(defaultnode);
-
-      const web3 = new Web3(AzureBlockchainProvider);
-      web3.eth.personal.unlockAccount(myAccount, myPassword);
-
-      return AzureBlockchainProvider;
-      })(),
-
-      network_id: "*",
-      gas: 0,
-      gasPrice: 0,
-      from: myAccount
-    },
-    alpha: {
-      provider: new Web3.providers.HttpProvider(alpha),
-      network_id: "*",
-      gas: 0,
-      gasPrice: 0
-    },
-    beta: {
-      provider: new Web3.providers.HttpProvider(beta),
-      network_id: "*",
-      gas: 0,
-      gasPrice: 0
+    ``` javascript
+    var defaultnode = "<default transaction node connection string>";
+    var alpha = "<alpha transaction node connection string>";
+    var beta = "<beta transaction node connection string>";
+    
+    var myAccount = "<Ethereum account address>";
+    var myPassword = "<Ethereum account password>";
+    
+    var Web3 = require("web3");
+    
+    module.exports = {
+      networks: {
+        defaultnode: {
+          provider:(() =>  {
+          const AzureBlockchainProvider = new Web3.providers.HttpProvider(defaultnode);
+    
+          const web3 = new Web3(AzureBlockchainProvider);
+          web3.eth.personal.unlockAccount(myAccount, myPassword);
+    
+          return AzureBlockchainProvider;
+          })(),
+    
+          network_id: "*",
+          gas: 0,
+          gasPrice: 0,
+          from: myAccount
+        },
+        alpha: {
+          provider: new Web3.providers.HttpProvider(alpha),
+          network_id: "*",
+          gas: 0,
+          gasPrice: 0
+        },
+        beta: {
+          provider: new Web3.providers.HttpProvider(beta),
+          network_id: "*",
+          gas: 0,
+          gasPrice: 0
+        }
+      }
     }
-  }
-}
-```
+    ```
+
+1. 將變更儲存至 `truffle-config.js`。
 
 ## <a name="create-smart-contract"></a>建立智慧型合約
 
-在**合約**資料夾中，建立名為 `SimpleStorage.sol` 的新檔案。 新增下列程式碼。
+1. 在**合約**資料夾中，建立名為 `SimpleStorage.sol` 的新檔案。 新增下列程式碼。
 
-```solidity
-pragma solidity >=0.4.21 <0.6.0;
-
-contract SimpleStorage {
-    string public storedData;
-
-    constructor(string memory initVal) public {
-        storedData = initVal;
+    ```solidity
+    pragma solidity >=0.4.21 <0.6.0;
+    
+    contract SimpleStorage {
+        string public storedData;
+    
+        constructor(string memory initVal) public {
+            storedData = initVal;
+        }
+    
+        function set(string memory x) public {
+            storedData = x;
+        }
+    
+        function get() view public returns (string memory retVal) {
+            return storedData;
+        }
     }
+    ```
+    
+1. 在**移轉**資料夾中，建立名為 `2_deploy_simplestorage.js` 的新檔案。 新增下列程式碼。
 
-    function set(string memory x) public {
-        storedData = x;
-    }
+    ```solidity
+    var SimpleStorage = artifacts.require("SimpleStorage.sol");
+    
+    module.exports = function(deployer) {
+    
+      // Pass 42 to the contract as the first constructor parameter
+      deployer.deploy(SimpleStorage, "42", {privateFor: ["<alpha node public key>"], from:"<Ethereum account address>"})  
+    };
+    ```
 
-    function get() view public returns (string memory retVal) {
-        return storedData;
-    }
-}
-```
+1. 請取代角括弧中的值。
 
-在**移轉**資料夾中，建立名為 `2_deploy_simplestorage.js` 的新檔案。 新增下列程式碼。
+    | 值 | 說明
+    |-------|-------------
+    | \<alpha 節點公開金鑰\> | alpha 節點的公開金鑰
+    | \<Ethereum 帳戶位址\> | 在預設交易節點中建立的 Ethereum 帳戶位址
 
-```solidity
-var SimpleStorage = artifacts.require("SimpleStorage.sol");
+    在此範例中，**storeData** 值的初始值會設為 42。
 
-module.exports = function(deployer) {
+    **privateFor** 會定義可使用合約的節點。 在此範例中，預設交易節點的帳戶可以將私人交易投送到 **alpha** 節點。 您應為所有私人交易參與者新增公開金鑰。 如果您未包含 **privateFor:** 和 **from:** ，則智慧型合約交易會是公開狀態，能讓所有聯盟成員看見。
 
-  // Pass 42 to the contract as the first constructor parameter
-  deployer.deploy(SimpleStorage, "42", {privateFor: ["<alpha node public key>"], from:"<Account address>"})  
-};
-```
-
-請取代角括弧中的值。
-
-| 值 | 說明
-|-------|-------------
-| \<alpha 節點公開金鑰\> | alpha 節點的公開金鑰
-| \<帳戶位址\> | 在預設交易節點中建立的帳戶位址。
-
-在此範例中，**storeData** 值的初始值會設為 42。
-
-**privateFor** 會定義可使用合約的節點。 在此範例中，預設交易節點的帳戶可以將私人交易投送到 **alpha** 節點。 您需要新增所有私人交易參與者的公開金鑰。 如果您未包含 **privateFor:** 和 **from:** ，則智慧型合約交易會是公開狀態，能讓所有聯盟成員看見。
-
-若要儲存所有檔案，請選取 [檔案] > [全部儲存]  。
+1. 若要儲存所有檔案，請選取 [檔案] > [全部儲存]  。
 
 ## <a name="deploy-smart-contract"></a>部署智慧型合約
 
@@ -247,7 +243,7 @@ Truffle 會先編譯 **SimpleStorage** 智慧型合約，然後加以部署。
 範例輸出︰
 
 ```
-pat@DESKTOP:/mnt/c/truffledemo$ truffle migrate --network defaultnode
+admin@desktop:/mnt/c/truffledemo$ truffle migrate --network defaultnode
 
 2_deploy_simplestorage.js
 =========================
@@ -279,190 +275,185 @@ Summary
 
 ## <a name="validate-contract-privacy"></a>驗證合約隱私權
 
-因為合約隱私權，您只能從我們在 **privateFor** 中宣告的節點中查詢合約值。 在此範例中，我們可以查詢預設交易節點，因為帳戶存在於該節點中。 使用 Truffle 主控台連線到預設的交易節點。
+因為合約隱私權，您只能從我們在 **privateFor** 中宣告的節點中查詢合約值。 在此範例中，我們可以查詢預設交易節點，因為帳戶存在於該節點中。 
 
-```bash
-truffle console --network defaultnode
-```
+1. 使用 Truffle 主控台連線到預設的交易節點。
 
-執行命令以傳回合約執行個體的值。
+    ```bash
+    truffle console --network defaultnode
+    ```
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+1. 在 Truffle 主控台中，執行會傳回合約執行個體值的程式碼。
 
-如果查詢預設交易節點成功，則會傳回值 42。
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
 
-範例輸出︰
+    如果查詢預設交易節點成功，則會傳回值 42。 例如︰
 
-```
-pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network defaultnode
-truffle(defaultnode)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-'42'
-```
+    ```
+    admin@desktop:/mnt/c/truffledemo$ truffle console --network defaultnode
+    truffle(defaultnode)> SimpleStorage.deployed().then(function(instance){return instance.get();})
+    '42'
+    ```
 
-結束主控台。
+1. 結束 Truffle 主控台。
 
-```bash
-.exit
-```
+    ```bash
+    .exit
+    ```
 
-由於我們已在 **privateFor** 中宣告 **alpha** 節點的公開金鑰，因此我們可以查詢 **alpha** 節點。 使用 Truffle 主控台連線到 **alpha** 節點。
+由於我們已在 **privateFor** 中宣告 **alpha** 節點的公開金鑰，因此我們可以查詢 **alpha** 節點。
 
-```bash
-truffle console --network alpha
-```
+1. 使用 Truffle 主控台連線到 **alpha** 節點。
 
-執行命令以傳回合約執行個體的值。
+    ```bash
+    truffle console --network alpha
+    ```
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+1. 在 Truffle 主控台中，執行會傳回合約執行個體值的程式碼。
 
-如果查詢 **alpha** 節點成功，則會傳回值 42。
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
 
-範例輸出︰
+    如果查詢 **alpha** 節點成功，則會傳回值 42。 例如︰
 
-```
-pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network alpha
-truffle(alpha)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-'42'
-```
+    ```
+    admin@desktop:/mnt/c/truffledemo$ truffle console --network alpha
+    truffle(alpha)> SimpleStorage.deployed().then(function(instance){return instance.get();})
+    '42'
+    ```
 
-結束主控台。
+1. 結束 Truffle 主控台。
 
-```bash
-.exit
-```
+    ```bash
+    .exit
+    ```
 
-我們並未在 **privateFor** 中宣告 **beta** 節點的公開金鑰，因此，因為合約隱私權，我們無法查詢 **beta** 節點。 使用 Truffle 主控台連線到 **beta** 節點。
+我們並未在 **privateFor** 中宣告 **beta** 節點的公開金鑰，因此，因為合約隱私權，我們無法查詢 **beta** 節點。
 
-```bash
-truffle console --network beta
-```
+1. 使用 Truffle 主控台連線到 **beta** 節點。
 
-執行命令以傳回合約執行個體的值。
+    ```bash
+    truffle console --network beta
+    ```
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+1. 執行會傳回合約執行個體值的程式碼。
 
-查詢 **beta** 節點失敗，因為合約屬於私人。
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
 
-範例輸出︰
+1. 查詢 **beta** 節點失敗，因為合約屬於私人。 例如︰
 
-```
-pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network beta
-truffle(beta)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-Thrown:
-Error: Returned values aren't valid, did it run Out of Gas?
-    at XMLHttpRequest._onHttpResponseEnd (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:345:8)
-    at XMLHttpRequest._setReadyState (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:219:8)
-    at XMLHttpRequestEventTarget.dispatchEvent (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request-event-target.ts:44:13)
-    at XMLHttpRequest.request.onreadystatechange (/mnt/c/truffledemo/node_modules/web3-providers-http/src/index.js:96:13)
-```
+    ```
+    admin@desktop:/mnt/c/truffledemo$ truffle console --network beta
+    truffle(beta)> SimpleStorage.deployed().then(function(instance){return instance.get();})
+    Thrown:
+    Error: Returned values aren't valid, did it run Out of Gas?
+        at XMLHttpRequest._onHttpResponseEnd (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:345:8)
+        at XMLHttpRequest._setReadyState (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:219:8)
+        at XMLHttpRequestEventTarget.dispatchEvent (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request-event-target.ts:44:13)
+        at XMLHttpRequest.request.onreadystatechange (/mnt/c/truffledemo/node_modules/web3-providers-http/src/index.js:96:13)
+    ```
 
-結束主控台。
+1. 結束 Truffle 主控台。
 
-```bash
-.exit
-```
-
+    ```bash
+    .exit
+    ```
+    
 ## <a name="send-a-transaction"></a>傳送交易
 
-建立名為 `sampletx.js`的檔案。 請將其儲存到您的專案的根目錄。
+1. 建立名為 `sampletx.js`的檔案。 請將其儲存到您的專案的根目錄。
+1. 下列指令碼會將合約的 **storedData** 變數值設為 65。 將程式碼加入新檔案。
 
-此指令碼會將合約的 **storedData** 變數值設為 65。 將程式碼加入新檔案。
+    ```javascript
+    var SimpleStorage = artifacts.require("SimpleStorage");
+    
+    module.exports = function(done) {
+      console.log("Getting deployed version of SimpleStorage...")
+      SimpleStorage.deployed().then(function(instance) {
+        console.log("Setting value to 65...");
+        return instance.set("65", {privateFor: ["<alpha node public key>"], from:"<Ethereum account address>"});
+      }).then(function(result) {
+        console.log("Transaction:", result.tx);
+        console.log("Finished!");
+        done();
+      }).catch(function(e) {
+        console.log(e);
+        done();
+      });
+    };
+    ```
 
-```javascript
-var SimpleStorage = artifacts.require("SimpleStorage");
+    取代角括弧中的值，然後儲存檔案。
 
-module.exports = function(done) {
-  console.log("Getting deployed version of SimpleStorage...")
-  SimpleStorage.deployed().then(function(instance) {
-    console.log("Setting value to 65...");
-    return instance.set("65", {privateFor: ["<alpha node public key>"], from:"<Account address>"});
-  }).then(function(result) {
-    console.log("Transaction:", result.tx);
-    console.log("Finished!");
-    done();
-  }).catch(function(e) {
-    console.log(e);
-    done();
-  });
-};
-```
+    | 值 | 說明
+    |-------|-------------
+    | \<alpha 節點公開金鑰\> | alpha 節點的公開金鑰
+    | \<Ethereum 帳戶位址\> | 在預設交易節點中建立的 Ethereum 帳戶位址。
 
-取代角括弧中的值，然後儲存檔案。
+    **privateFor** 會定義可使用交易的節點。 在此範例中，預設交易節點的帳戶可以將私人交易投送到 **alpha** 節點。 您需要新增所有私人交易參與者的公開金鑰。
 
-| 值 | 說明
-|-------|-------------
-| \<alpha 節點公開金鑰\> | alpha 節點的公開金鑰
-| \<帳戶位址\> | 在預設交易節點中建立的帳戶位址。
+1. 您可以使用 Truffle 來執行預設交易節點的指令碼。
 
-**privateFor** 會定義可使用交易的節點。 在此範例中，預設交易節點的帳戶可以將私人交易投送到 **alpha** 節點。 您需要新增所有私人交易參與者的公開金鑰。
+    ```bash
+    truffle exec sampletx.js --network defaultnode
+    ```
 
-您可以使用 Truffle 來執行預設交易節點的指令碼。
+1. 在 Truffle 主控台中，執行會傳回合約執行個體值的程式碼。
 
-```bash
-truffle exec sampletx.js --network defaultnode
-```
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
 
-執行命令以傳回合約執行個體的值。
+    如果交易成功，則會傳回值 65。 例如︰
+    
+    ```
+    Getting deployed version of SimpleStorage...
+    Setting value to 65...
+    Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
+    Finished!
+    ```
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+1. 結束 Truffle 主控台。
 
-如果交易成功，則會傳回值 65。
-
-範例輸出︰
-
-```
-Getting deployed version of SimpleStorage...
-Setting value to 65...
-Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
-Finished!
-```
-
-結束主控台。
-
-```bash
-.exit
-```
-
+    ```bash
+    .exit
+    ```
+    
 ## <a name="validate-transaction-privacy"></a>驗證交易隱私權
 
-由於交易隱私權，您只能在已於 **privateFor** 中宣告的節點上執行交易。 在此範例中，我們可以執行交易，因為我們已在 **privateFor** 中宣告 **alpha**節點的公開金鑰。 使用 Truffle 來執行 **alpha** 節點上的交易。
+由於交易隱私權，您只能在已於 **privateFor** 中宣告的節點上執行交易。 在此範例中，我們可以執行交易，因為我們已在 **privateFor** 中宣告 **alpha**節點的公開金鑰。 
 
-```bash
-truffle exec sampletx.js --network alpha
-```
+1. 使用 Truffle 來執行 **alpha** 節點上的交易。
 
-執行命令以傳回合約執行個體的值。
+    ```bash
+    truffle exec sampletx.js --network alpha
+    ```
+    
+1. 執行會傳回合約執行個體值的程式碼。
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
+    
+    如果交易成功，則會傳回值 65。 例如︰
 
-如果交易成功，則會傳回值 65。
+    ```
+    Getting deployed version of SimpleStorage...
+    Setting value to 65...
+    Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
+    Finished!
+    ```
+    
+1. 結束 Truffle 主控台。
 
-範例輸出︰
-
-```
-Getting deployed version of SimpleStorage...
-Setting value to 65...
-Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
-Finished!
-```
-
-結束主控台。
-
-```bash
-.exit
-```
-
-在本教學課程中，您已將兩個交易節點新增至示範合約及交易隱私權。 您已使用預設節點來部署私人的智慧型合約。 您已藉由在區塊鏈上查詢合約值和執行交易來測試隱私權。
+    ```bash
+    .exit
+    ```
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -474,6 +465,8 @@ Finished!
 1. 選取 [刪除資源群組]  。 輸入資源群組名稱並選取 [刪除]  ，以確定進行刪除。
 
 ## <a name="next-steps"></a>後續步驟
+
+在本教學課程中，您已將兩個交易節點新增至示範合約及交易隱私權。 您已使用預設節點來部署私人的智慧型合約。 您已藉由在區塊鏈上查詢合約值和執行交易來測試隱私權。
 
 > [!div class="nextstepaction"]
 > [使用 Azure 區塊鏈服務開發區塊鏈應用程式](develop.md)

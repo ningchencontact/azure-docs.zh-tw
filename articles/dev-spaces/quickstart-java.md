@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: 在 Azure 上使用容器、微服務和 Java 快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Java, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 26efa17ee699aed87ecfbbd21e7880e7538de4ea
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 2a7ff71a8143883226c10754afc9757aea310c63
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979117"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393465"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>快速入門：使用 Azure Dev Spaces 在 Kubernetes 上透過 Java 進行開發
 
@@ -37,7 +37,7 @@ ms.locfileid: "65979117"
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>建立 Azure Kubernetes Service 叢集
 
-您必須在[支援的區域](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)中建立 AKS 叢集。 下列命令會建立名為 MyResourceGroup  的資源群組與名為 MyAKS  的 AKS 叢集。
+您必須在[支援的區域][supported-regions]中建立 AKS 叢集。 下列命令會建立名為 MyResourceGroup  的資源群組與名為 MyAKS  的 AKS 叢集。
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
@@ -213,3 +213,6 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 > [!div class="nextstepaction"]
 > [使用多個容器和小組開發](multi-service-java.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

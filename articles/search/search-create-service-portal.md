@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 05/29/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9de8fa297c2b3f89f74b17e0dac3eab007367b9b
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 650dfa7284b41407e9b128a2096548d7acfc1567
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471613"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393786"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>在入口網站中建立 Azure 搜尋服務
 
@@ -36,13 +36,13 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下左上角的加號 (「+ 建立資源」)。
-3. 使用搜尋列尋找「Azure 搜尋服務」，或透過 [Web] > [Azure 搜尋服務] 瀏覽至資源。
+3. 使用搜尋列尋找「Azure 搜尋服務」，或透過 [Web]   > [Azure 搜尋服務]  瀏覽至資源。
 
 ![瀏覽至 Azure 搜尋服務資源](./media/search-create-service-portal/find-search3.png "瀏覽至 Azure 搜尋服務的路徑")
 
 ## <a name="name-the-service-and-url-endpoint"></a>為服務和 URL 端點命名
 
-服務名稱是 URL 端點的一部分，API 呼叫是根據此端點所發出：`https://your-service-name.search.windows.net`。 在 [URL] 欄位中輸入您的服務名稱。
+服務名稱是 URL 端點的一部分，API 呼叫是根據此端點所發出：`https://your-service-name.search.windows.net`。 在 [URL]  欄位中輸入您的服務名稱。
 
 例如，如果您所需的端點是 `https://my-app-name-01.search.windows.net`，則應輸入 `my-app-name-01`。
 
@@ -56,7 +56,7 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 
 ## <a name="select-a-subscription"></a>選取一個訂用帳戶
 
-如果您有一個以上的訂用帳戶，請選擇一個同樣具有資料或檔案儲存體服務的訂用帳戶。 Azure 搜尋服務可以透過[索引子](search-indexer-overview.md)自動偵測 Azure 資料表和 Blob 儲存體、SQL Database 和 Azure Cosmos DB 以進行索引編製，但只會針對相同訂用帳戶中的服務。
+如果您有一個以上的訂用帳戶，請選擇一個同樣具有資料或檔案儲存體服務的訂用帳戶。 Azure 搜尋服務可以透過[索引子  ](search-indexer-overview.md)自動偵測 Azure 資料表和 Blob 儲存體、SQL Database 和 Azure Cosmos DB 以進行索引編製，但只會針對相同訂用帳戶中的服務。
 
 ## <a name="select-a-resource-group"></a>選取資源群組
 
@@ -69,11 +69,14 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 
 ## <a name="select-a-location"></a>選取位置
 
-做為 Azure 服務，Azure 搜尋服務可以裝載於世界各地的資料中心。 各地理位置的[價格可能不同](https://azure.microsoft.com/pricing/details/search/)。
+做為 Azure 服務，Azure 搜尋服務可以裝載於世界各地的資料中心。 支援的區域清單可在[定價頁面](https://azure.microsoft.com/pricing/details/search/)中找到。 
 
-如果您要依其他 Azure 服務 (Azure 儲存體、Azure Cosmos DB、Azure SQL Database) 提供的資料編製索引，請在相同區域中建立 Azure 搜尋服務，以避免產生頻寬費用。 這些服務位於相同區域時，輸出資料無須收費。
+如果您要依其他 Azure 服務 (Azure 儲存體、Azure Cosmos DB、Azure SQL Database) 提供的資料編製索引，建議您在相同區域中建立 Azure 搜尋服務，以避免產生頻寬費用。 這些服務位於相同區域時，輸出資料無須收費。
 
 如果您使用認知服務 AI 擴充資料，請在與認知服務資源所在之相同的區域中建立服務。 服務必須位於相同位置，方可使用 AI 擴充資料。
+
+> [!Note]
+> 新的服務目前無法在印度中部使用。 對於已在印度中部提供的服務，您可以無限制地相應增加，且您的服務在該區域中受到完整的支援。 此區域的限制是暫時性的，我們將在此附註不再適用時加以移除。
 
 ## <a name="select-a-pricing-tier-sku"></a>選取定價層 (SKU)
 
@@ -97,7 +100,7 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 
    ![包含 URL 端點的服務概觀頁面](./media/search-create-service-portal/url-endpoint.png "URL 端點和其他服務詳細資料")
 
-2. 在左側導覽窗格中選取 [金鑰]，然後複製任一系統管理員金鑰 (它們是相等的)。 在您的服務上建立、更新及刪除物件時，需要系統管理員 API 金鑰。
+2. 在左側導覽窗格中選取 [金鑰]  ，然後複製任一系統管理員金鑰 (它們是相等的)。 在您的服務上建立、更新及刪除物件時，需要系統管理員 API 金鑰。
 
    ![顯示主要和次要金鑰的金鑰頁面](./media/search-create-service-portal/admin-api-keys.png "可供授權的系統管理員 API 金鑰")
 
@@ -117,7 +120,7 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 > 服務必須具有 [2 個唯讀 SLA 的複本和 3 個讀/寫 SLA 的複本](https://azure.microsoft.com/support/legal/sla/search/v1_0/)。
 
 1. 在 Azure 入口網站中移至您的搜尋服務頁面。
-2. 在左導覽窗格中，選取 [設定] > [調整]。
+2. 在左導覽窗格中，選取 [設定]   > [調整]  。
 3. 您可以使用滑桿來新增任何一種類型的資源。
 
 ![新增容量](./media/search-create-service-portal/settings-scale.png "透過複本和分割區新增容量")

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a8513344c35c14ebf06f3693da618ed20047d07b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f1eac83f2b5460bf56ddff1bf15d9180adb49a48
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792044"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382269"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>快速入門：Azure SQL Database 連線和查詢
 
@@ -39,6 +39,7 @@ ms.locfileid: "65792044"
 |[PHP](sql-database-connect-query-php.md)|此快速入門示範如何使用 PHP 建立程式以連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。|
 |[Python](sql-database-connect-query-python.md)|此快速入門示範如何使用 Python 來連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。 |
 |[Ruby](sql-database-connect-query-ruby.md)|此快速入門示範如何使用 Ruby 建立程式以連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。|
+|[R](sql-database-connect-query-r.md)|本快速入門示範如何搭配使用 R 與 Azure SQL Database 機器學習服務來建立連線至 Azure SQL 資料庫的程式，並使用 Transact-SQL 陳述式來查詢資料。|
 |||
 
 ## <a name="tls-considerations-for-sql-database-connectivity"></a>SQL Database 連線的 TLS 考量
@@ -57,7 +58,7 @@ Microsoft 針對連線至 Azure SQL Database 提供或支援的所有驅動程�
 
 您可以使用各種程式庫和架構來連線到 Azure SQL Database。 請查看我們的[快速入門教學課程](https://aka.ms/sqldev)來快速地開始使用程式設計語言，例如 C#、Java、Node.js、PHP 和 Python。 然後，在 Linux 或 Windows 上使用 SQL Server，或者在 macOS 上使用 Docker 建置應用程式。
 
-下表列出連線程式庫或驅動程式，用戶端應用程式可以用來從各種不同的語言連線到內部部署或雲端上執行之 SQL Server 並使用。 您可以在 Linux、Windows 或 Docker 上使用它們，並使用它們來連線到 Azure SQL Database 和 Azure SQL 資料倉儲。 
+下表列出連線程式庫或驅動程式  ，用戶端應用程式可以用來從各種不同的語言連線到內部部署或雲端上執行之 SQL Server 並使用。 您可以在 Linux、Windows 或 Docker 上使用它們，並使用它們來連線到 Azure SQL Database 和 Azure SQL 資料倉儲。 
 
 | 語言 | 平台 | 其他資源 | 下載 | 開始使用 |
 | :-- | :-- | :-- | :-- | :-- |

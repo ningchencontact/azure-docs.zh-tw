@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: c04a9dff55794a3e48146e8effc3627452b3db14
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f2b5a2bc3248c9f2ee0eb49e993fd55c7714367a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950160"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389159"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>如何為 Front Door 設定地區篩選 WAF 原則
 本教學課程會說明如何使用 Azure PowerShell 來建立簡單的地區篩選原則，並將此原則與現有的 Front Door 前端主機產生關聯。 此範例地區篩選原則範例會封鎖來自美國以外的所有其他國家/地區的要求。
@@ -110,6 +110,5 @@ Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 > 只需要對 WebApplicationFirewallPolicyLink 屬性設定一次，即可將 WAF 原則連結至 Front Door 前端主機。 後續的原則更新會自動套用至前端主機。
 
 ## <a name="next-steps"></a>後續步驟
-
-- 了解 [Front Door 的應用程式層安全性](front-door-application-security.md)。
+- 了解 [Azure Web 應用程式防火牆](waf-overview.md)。
 - 了解如何[建立 Front Door](quickstart-create-front-door.md)。

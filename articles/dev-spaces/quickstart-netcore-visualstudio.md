@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Dev Spaces 和 Visual Studio 2017 在 AKS 上使用 .NET Core 進行開發
+title: 使用 Azure Dev Spaces 和 Visual Studio 在 AKS 上使用 .NET Core 進行開發
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -13,30 +13,29 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm
 manager: jeconnoc
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 7a85afd3c0a00260112ef2a945b0f5c5a538194e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 110962c03f0236ebb26c9ed586981b51f36c635f
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65765310"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399214"
 ---
-# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>快速入門：使用 Azure Dev Spaces (Visual Studio 2017) 在 Kubernetes 上使用 .NET Core 進行開發
+# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio"></a>快速入門：使用 Azure Dev Spaces (Visual Studio) 在 Kubernetes 上使用 .NET Core 進行開發
 
 在本指南中，您將了解如何：
 
 - 使用 Azure 中受管理的 Kubernetes 叢集，設定 Azure Dev Spaces。
-- 使用 Visual Studio 2017 在容器中反覆開發程式碼。
-- 使用 Visual Studio 2017 對叢集中執行的程式碼進行偵錯。
+- 使用 Visual Studio 在容器中反覆開發程式碼。
+- 使用 Visual Studio 對叢集中執行的程式碼進行偵錯。
 
 ## <a name="prerequisites"></a>必要條件
 
 - Azure 訂用帳戶。 如果您沒有帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/free)。
-- 已安裝網頁程式開發工作負載的 Visual Studio 2017 (Windows 版)。 如果您尚未安裝，請在[這裡](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)下載。
-- 已安裝[適用於 Kubernetes 的 Visual Studio Tools](https://aka.ms/get-vsk8stools)。
+- 已安裝 Azure 開發工作負載的 Visual Studio 2019 (Windows 版)。 您也可以使用已安裝 Web 開發工作負載和[適用於 Kubernetes 的 Visual Studio Tools](https://aka.ms/get-vsk8stools) 的 Visual Studio 2017 (Windows 版)。 如果您尚未安裝 Visual Studio，請在[這裡](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)下載。
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>建立 Azure Kubernetes Service 叢集
 
-您必須在[支援的區域](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)中建立 AKS 叢集。 若要建立叢集：
+您必須在[支援的區域][supported-regions]中建立 AKS 叢集。 若要建立叢集：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)
 1. 選取 [+ 建立資源] > [Kubernetes Service]  。 
@@ -55,7 +54,7 @@ ms.locfileid: "65765310"
 
 ## <a name="create-a-new-aspnet-web-app"></a>建立新的 ASP.NET Web 應用程式
 
-1. 開啟 Visual Studio 2017。
+1. 開啟 Visual Studio。
 1. 建立新專案。
 1. 選擇 [ASP.NET Core Web 應用程式]  ，然後將您的專案命名為 webfrontend  。
 1. 按一下 [確定]  。
@@ -101,7 +100,7 @@ Completed warmup for project 'webfrontend' in 125 seconds.
 
 ## <a name="update-code"></a>更新程式碼
 
-如果 Visual Studio 2017 仍與您的開發人員空間保持連線，請按一下 [停止] 按鈕。 將 `Controllers/HomeController.cs` 中的第 20 行變更為：
+如果 Visual Studio 仍與您的開發人員空間保持連線，請按一下 [停止] 按鈕。 將 `Controllers/HomeController.cs` 中的第 20 行變更為：
     
 ```csharp
 ViewData["Message"] = "Your application description page in Azure.";
@@ -113,9 +112,9 @@ Azure Dev Spaces 會以累加方式重新編譯現有容器中的程式碼，以
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>設定和使用偵錯的中斷點
 
-如果 Visual Studio 2017 仍與您的開發人員空間保持連線，請按一下 [停止] 按鈕。 開啟 `Controllers/HomeController.cs`，然後在第 20 行的某處按一下來將游標放在該處。 若要設定中斷點，請按 F9  ，或依序按一下 [偵錯]  和 [切換中斷點]  。 若要在您的開發人員空間中以偵錯模式啟動您的服務，請按 F5  或依序按一下 [偵錯]  和 [開始偵錯]  。
+如果 Visual Studio 仍與您的開發人員空間保持連線，請按一下 [停止] 按鈕。 開啟 `Controllers/HomeController.cs`，然後在第 20 行的某處按一下來將游標放在該處。 若要設定中斷點，請按 F9  ，或依序按一下 [偵錯]  和 [切換中斷點]  。 若要在您的開發人員空間中以偵錯模式啟動您的服務，請按 F5  或依序按一下 [偵錯]  和 [開始偵錯]  。
 
-在瀏覽器中開啟您的服務，並注意其中並未顯示任何訊息。 返回 Visual Studio 2017，您會看到第 20 行已醒目提示。 您所設定的中斷點已讓服務在第 20 行暫停。 若要讓服務繼續，請按 F5  ，或依序按一下 [偵錯]  和 [繼續]  。 返回您的瀏覽器，並注意現在會顯示訊息。
+在瀏覽器中開啟您的服務，並注意其中並未顯示任何訊息。 返回 Visual Studio，您會看到第 20 行已醒目提示。 您所設定的中斷點已讓服務在第 20 行暫停。 若要讓服務繼續，請按 F5  ，或依序按一下 [偵錯]  和 [繼續]  。 返回您的瀏覽器，並注意現在會顯示訊息。
 
 在連結了偵錯工具的 Kubernetes 中執行您的服務時，您可以完整地存取偵錯資訊，例如呼叫堆疊、區域變數和例外狀況資訊。
 
@@ -135,3 +134,4 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [使用多個容器和小組開發](multi-service-netcore-visualstudio.md)
 
 [ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
+[supported-regions]: about.md#supported-regions-and-configurations
