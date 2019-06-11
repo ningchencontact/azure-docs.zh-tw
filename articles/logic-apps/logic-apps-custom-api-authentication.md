@@ -193,8 +193,8 @@ ms.locfileid: "66167332"
 | tenant | 有 | Azure AD 租用戶的 GUID | 
 | audience | 有 | 您想要存取之目標資源的 GUID - 這是來自您 Web 應用程式或 API 應用程式之應用程式識別碼的用戶端識別碼 | 
 | clientId | 有 | 要求存取權之用戶端的 GUID - 這是來自您邏輯應用程式之應用程式識別碼的用戶端識別碼 | 
-| 祕密 | 有 | 來自要求存取權杖的用戶端之應用程式識別碼的金鑰或密碼 | 
-| 類型 | 有 | 驗證類型。 若為 ActiveDirectoryOAuth 驗證，值為 `ActiveDirectoryOAuth`。 | 
+| secret | 有 | 來自要求存取權杖的用戶端之應用程式識別碼的金鑰或密碼 | 
+| type | 有 | 驗證類型。 若為 ActiveDirectoryOAuth 驗證，值為 `ActiveDirectoryOAuth`。 | 
 |||| 
 
 例如：
@@ -236,7 +236,7 @@ ms.locfileid: "66167332"
 
 | 元素 | 必要項 | 說明 | 
 | ------- | -------- | ----------- | 
-| 類型 | 有 | 驗證類型。 若為 SSL 用戶端憑證，值必須是 `ClientCertificate`。 | 
+| type | 有 | 驗證類型。 若為 SSL 用戶端憑證，值必須是 `ClientCertificate`。 | 
 | password | 有 | 用以存取用戶端憑證的密碼 (PFX 檔案) | 
 | pfx | 有 | 用戶端憑證的 Base64 編碼內容 (PFX 檔案) | 
 |||| 
@@ -253,7 +253,7 @@ ms.locfileid: "66167332"
 
 | 元素 | 必要項 | 說明 | 
 | ------- | -------- | ----------- | 
-| 類型 | 有 | 您想要使用的驗證類型。 若為基本驗證，值必須是 `Basic`。 | 
+| type | 有 | 您想要使用的驗證類型。 若為基本驗證，值必須是 `Basic`。 | 
 | username | 有 | 您想要用來進行驗證的使用者名稱 | 
 | password | 有 | 您想要用來進行驗證的密碼 | 
 |||| 
