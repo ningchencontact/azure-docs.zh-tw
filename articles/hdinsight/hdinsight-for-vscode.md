@@ -304,7 +304,7 @@ Spark 2.2 叢集和 Spark2.3 叢集已不再支援 PySpark3，只有 Python 支�
     **POST /batches**   
     要求本文
 
-    | NAME | description | type | 
+    | name | description | type | 
     | :- | :- | :- | 
     | file | 要執行的應用程式所在的檔案 | 路徑 (必要) | 
     | proxyUser | 要在執行作業時模擬的使用者 | 字串 | 
@@ -326,7 +326,7 @@ Spark 2.2 叢集和 Spark2.3 叢集已不再支援 PySpark3，只有 Python 支�
     回應本文   
     所建立的 Batch 物件。
 
-    | NAME | description | type | 
+    | name | description | type | 
     | :- | :- | :- | 
     | id | 工作階段識別碼 | int | 
     | appId | 此工作階段的應用程式識別碼 |  String |
