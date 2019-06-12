@@ -59,7 +59,7 @@ ms.locfileid: "60847181"
 | 屬性 | 類型 | 描述 |
 | --- | --- | --- |
 | sourceType |   | 執行來源的類型。 允許的值為 **Microsoft.Logic/workflows** 和 **custom**。 (必要) |
-| 來源 |   | 如果來源類型是 **Microsoft.Logic/workflows**，則來源資訊必須遵循此結構描述。 如果來源類型為 **custom**，則結構描述為 JToken。 (必要) |
+| source |   | 如果來源類型是 **Microsoft.Logic/workflows**，則來源資訊必須遵循此結構描述。 如果來源類型為 **custom**，則結構描述為 JToken。 (必要) |
 | systemId | 字串 | 邏輯應用程式系統識別碼。 (必要) |
 | runId | 字串 | 邏輯應用程式執行識別碼。 (必要) |
 | operationName | 字串 | 作業 (例如動作或觸發程序) 的名稱。 (必要) |
