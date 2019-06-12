@@ -73,17 +73,17 @@ ms.locfileid: "60996573"
 
 | 值 | 類型 | 描述 |
 |-------|------|-------------|
-| <retry-policy-type> | 字串 | 您想要使用的重試原則類型：`default`、`none`、`fixed` 或 `exponential` | 
-| <retry-interval> | 字串 | 值必須使用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)的重試間隔。 預設最小間隔是 `PT5S`，最大間隔則是 `PT1D`。 當您使用指數間隔原則時，您可以指定不同的最小和最大值。 | 
-| <retry-attempts> | 整數  | 重試次數必須介於 1 到 90 之間 | 
+| <retry-policy-type> | String | 您想要使用的重試原則類型：`default`、`none`、`fixed` 或 `exponential` | 
+| <retry-interval> | String | 值必須使用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)的重試間隔。 預設最小間隔是 `PT5S`，最大間隔則是 `PT1D`。 當您使用指數間隔原則時，您可以指定不同的最小和最大值。 | 
+| <retry-attempts> | Integer  | 重試次數必須介於 1 到 90 之間 | 
 ||||
 
 *選擇性*
 
 | 值 | 類型 | 描述 |
 |-------|------|-------------|
-| <minimum-interval> | 字串 | 對於指數間隔原則，此為隨機選取間隔的最小間隔，且採用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
-| <maximum-interval> | 字串 | 對於指數間隔原則，此為隨機選取間隔的最大間隔，且採用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <minimum-interval> | String | 對於指數間隔原則，此為隨機選取間隔的最小間隔，且採用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <maximum-interval> | String | 對於指數間隔原則，此為隨機選取間隔的最大間隔，且採用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 |||| 
 
 以下是不同原則類型的詳細資訊。
