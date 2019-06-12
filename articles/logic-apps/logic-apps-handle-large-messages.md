@@ -120,15 +120,15 @@ GET 要求將 "Range" 標頭設定為 "bytes=0-1023"，這是位元組範圍。 
    | Logic Apps 要求標頭欄位 | Value | 類型 | 描述 |
    |---------------------------------|-------|------|-------------|
    | **x-ms-transfer-mode** | chunked | String | 指出內容以區塊上傳 |
-   | **x-ms-content-length** | <*content-length*> | 整數  | 進行區塊化前的所有內容大小 (位元組) |
+   | **x-ms-content-length** | <*content-length*> | Integer  | 進行區塊化前的所有內容大小 (位元組) |
    ||||
 
 2. 端點回應 "200" 成功狀態碼和此選擇性資訊：
 
    | 端點回應標頭欄位 | 類型 | 必要項 | 描述 |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | 整數  | 否 | 建議的區塊大小 (位元組) |
-   | **位置** | String | 否 | 傳送 HTTP PATCH 訊息的 URL 位置 |
+   | **x-ms-chunk-size** | Integer  | 否 | 建議的區塊大小 (位元組) |
+   | **Location** | String | 否 | 傳送 HTTP PATCH 訊息的 URL 位置 |
    ||||
 
 3. 您的邏輯應用程式建立並傳送後續 HTTP PATCH 訊息，每項訊息都帶有此資訊：
