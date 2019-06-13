@@ -75,7 +75,7 @@ ms.locfileid: "60619819"
 | 名稱 | 值 / 範例 | 数据类型
 | ---- | ---- | ----
 | protocol | `http` 或 `tcp` | string |
-| 連接埠 | 通訊協定是 `http` 時為選擇性項目；通訊協定是 `tcp` 時則為必要項目 | int |
+| port | 通訊協定是 `http` 時為選擇性項目；通訊協定是 `tcp` 時則為必要項目 | int |
 | requestPath | 通訊協定是 `http` 時為必要項目；通訊協定是 `tcp` 時則不允許使用 | string |
 
 ## <a name="deploy-the-application-health-extension"></a>部署應用程式健康狀態延伸模組
