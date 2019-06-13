@@ -6,18 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: d7e66970db3397531c798bc37bf7c1f346e999bf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 364ceabc3c9e7a577bd126b81bcd5256d947bbe3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924763"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476786"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>教學課程：準備部署 Azure Data Box Edge  
-
 
 這是完整部署 Azure Data Box Edge 所需之一系列部署教學課程中的第一個教學課程。 本教學課程說明如何準備 Azure 入口網站以部署 Data Box Edge 資源。
 
@@ -31,7 +30,6 @@ ms.locfileid: "64924763"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-
 ### <a name="get-started"></a>開始使用
 
 若要部署 Data Box Edge，請依指定的順序參閱下列教學課程。
@@ -42,7 +40,7 @@ ms.locfileid: "64924763"
 | 2. |**[安裝 Data Box Edge](data-box-edge-deploy-install.md)**|打開包裝，然後接上 Data Box Edge 實體裝置的機架和纜線。  |
 | 3. |**[連線、設定及啟用 Data Box Edge](data-box-edge-deploy-connect-setup-activate.md)** |連線至本機 Web UI、完成裝置設定，並啟動裝置。 裝置已就緒，可設定 SMB 或 NFS 共用。  |
 | 4. |**[使用 Data Box Edge 傳輸資料](data-box-edge-deploy-add-shares.md)** |新增共用，並透過 SMB 或 NFS 連線至共用。 |
-| 5. |**[使用 Data Box Edge 轉換資料](data-box-edge-deploy-configure-compute.md)** |在裝置上設定 Edge 模組，以在資料移至 Azure 時加以轉換。 |
+| 5. |**[使用 Data Box Edge 轉換資料](data-box-edge-deploy-configure-compute.md)** |在裝置上設定計算模組，以在資料移至 Azure 時加以轉換。 |
 
 現在您可以開始設定 Azure 入口網站。
 
@@ -55,7 +53,11 @@ ms.locfileid: "64924763"
 在您開始前，請確定：
 
 - 已針對 Data Box Edge 資源啟用您的 Microsoft Azure 訂用帳戶。 不支援隨用隨付訂用帳戶。
-- 您有您訂用帳戶的擁有者或參與者存取權。
+- 您在 Data Box Edge/Data Box Gateway、IoT 中樞及 Azure 儲存體資源的資源群組層級上，具有擁有者或參與者存取權限。
+
+    - 若要建立任何 Data Box Edge/ Data Box Gateway 資源，您應該要有以資源群組層級作為範圍的參與者權限 (或更高權限)。 您也需要確定已註冊 `Microsoft.DataBoxEdge` 提供者。 如需有關如何註冊的資訊，請移至[註冊資源提供者](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers)。
+    - 若要建立任何 IoT 中樞資源，請確定已註冊該 Microsoft.Devices 提供者。 如需有關如何註冊的資訊，請移至[註冊資源提供者](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers)。
+    - 同樣的，若要建立儲存體帳戶資源，您需要以資源群組層級作為範圍的參與者存取權限 (或更高權限)。 根據預設，Azure 儲存體是已註冊的資源提供者。
 - 您有 Azure Active Directory 圖形 API 的管理員或使用者存取權。 如需詳細資訊，請參閱 [Azure Active Directory 圖形 API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-)。
 - 您擁有的 Microsoft Azure 儲存體帳戶具有存取認證。
 
@@ -64,7 +66,7 @@ ms.locfileid: "64924763"
 在您部署實體裝置之前，請確定：
 
 - 您已檢閱出貨套件內含的安全資訊。
-- 您在資料中心的標準 19 吋機架中有 1 U 插槽可用來以機架掛接裝置。 
+- 您在資料中心的標準 19 吋機架中有 1U 插槽可用來以機架掛接裝置。
 - 您有平穩的工作表面可供安全地放置裝置。
 - 您要安裝裝置的場地具有來自獨立來源或含不斷電供應系統 (UPS) 之機架式配電單元 (PDU) 的標準 AC 電源。
 - 您可以拆裝實體裝置。

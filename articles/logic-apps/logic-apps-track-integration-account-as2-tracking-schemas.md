@@ -123,7 +123,7 @@ ms.locfileid: "60845778"
 | isMessageFailed |Boolean | AS2 訊息是否失敗。 (必要) |
 | isMessageSigned |Boolean | AS2 訊息是否簽署。 (必要) |
 | isNrrEnabled | Boolean | 如果不知道值，則使用預設值。 (必要) |
-| statusCode | Enum | 允許的值為 **Accepted**、**Rejected** 和 **AcceptedWithErrors**。 (必要) |
+| StatusCode | Enum | 允許的值為 **Accepted**、**Rejected** 和 **AcceptedWithErrors**。 (必要) |
 | micVerificationStatus | Enum | 允許的值為 **NotApplicable**、**Succeeded** 和 **Failed**。 (必要) |
 | correlationMessageId | String | 相互關連識別碼。 原始 messaged 識別碼 (設定 MDN 之訊息的訊息識別碼)。 (選用) |
 | incomingHeaders | JToken 的字典 | 指出內送訊息標頭詳細資料。 (選用) |

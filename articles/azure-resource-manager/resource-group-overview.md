@@ -2,22 +2,18 @@
 title: Azure Resource Manager 概觀 | Microsoft Docs
 description: 描述如何使用 Azure Resource Manager 在 Azure 上進行資源的部署、管理及存取控制。
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/24/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: b6d84a07de408cedb0e21181c70e5c1481ac62bc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ad87c776bbbab9959f7c90a8d006ae7f62bde79
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225907"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514347"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概觀
 
@@ -51,13 +47,15 @@ Resource Manager 會提供數個優點：
 * 您可以將標籤套用至資源，以便以邏輯方式組織訂用帳戶中的所有資源。
 * 您可以檢視共用相同標籤之資源群組的成本，以釐清您的組織的計費方式。
 
-## <a name="understand-management-scope"></a>了解管理範圍
+## <a name="understand-scope"></a>了解範圍
 
-Azure 提供四個管理範圍層級：[管理群組](../governance/management-groups/index.md)、訂用帳戶、[資源群組](#resource-groups)和資源。 下圖顯示這些層級的範例。
+Azure 提供四個範圍層級：[管理群組](../governance/management-groups/index.md)、訂用帳戶、[資源群組](#resource-groups)和資源。 下圖顯示這些層級的範例。
 
 ![影響範圍](./media/resource-group-overview/scope-levels.png)
 
 您可以在任何範圍層級套用管理設定。 您選取的層級會決定套用設定的範圍。 較低層級會從較高層級繼承設定。 例如，當您將[原則](../governance/policy/overview.md)套用到訂用帳戶時，訂用帳戶中的所有資源群組和資源都會套用該原則。 當您在資源群組上套用原則時，資源群組及其所有資源都會套用該原則。 不過，另一個資源群組沒有該原則指派。
+
+您可以將範本部署至管理群組、訂用帳戶或資源群組。
 
 ## <a name="guidance"></a>指引
 
@@ -85,7 +83,7 @@ Azure 提供四個管理範圍層級：[管理群組](../governance/management-g
 
 建立資源群組時，您需要提供該資源群組的位置。 您可能會想：「為什麼資源群組需要位置？ 而且，如果資源可以有不同於資源群組的位置，為什麼資源群組位置這麼重要？」 資源群組會儲存資源相關中繼資料。 因此，當您指定資源群組的位置時，您便是指定中繼資料的儲存位置。 基於相容性理由，您可能需要確保您的資料存放在特定區域中。
 
-如果資源群組的區域暫時無法使用，您就無法更新資源群組中的資源，因為中繼資料無法使用。 其他區域中的資源仍可如預期般運作，但您無法更新這些資源。 若要將風險降至最低，請將資源群組和資源放在相同區域。
+如果資源群組的區域暫時無法使用，您就無法更新資源群組中的資源，因為中繼資料無法使用。 其他區域中的資源仍可如預期般運作，但您無法更新這些資源。 如需如何建置可靠應用程式的詳細資訊，請參閱[設計可靠的 Azure 應用程式](/azure/architecture/reliability/)。
 
 ## <a name="resource-providers"></a>資源提供者
 

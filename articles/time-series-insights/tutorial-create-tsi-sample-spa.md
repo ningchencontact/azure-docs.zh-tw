@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 5ee6e9aefb235feb28468798c3bd6b107f8c7c49
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2f25267b95e9ed5f7d5f6e6373fb9e3807927a7f
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244045"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735341"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>教學課程：建立 Azure 時間序列深入解析單一頁面 Web 應用程式
 
@@ -126,7 +126,7 @@ ms.locfileid: "66244045"
 
    1. 將註解 `"PROD RESOURCE LINKS"` 底下的三行取消註解，讓相依性從 DEVELOPMENT 切換到 PRODUCTION。 將註解 `"DEV RESOURCE LINKS"` 底下的三行註解化。
 
-      [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=2-20&highlight=10-13,15-18)]
+      [!code-html[head-sample](~/samples-javascript/pages/tutorial/index.html?range=2-20&highlight=10-13,15-18)]
 
       相依性應該會變為註解，如下列範例所示：
 

@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: f2984ed9a7edd36b166c0dff9aa87d86c6d2ab45
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9709d18b00d65578ca3a63fe5044e0b9f7b52d58
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800726"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515590"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>教學課程：在 Azure 容器執行個體中部署映像分類模型
 
@@ -35,7 +35,7 @@ ms.locfileid: "65800726"
 容器執行個體是很適合用來測試和了解工作流程的解決方案。 如需可調整的生產環境部署，請考慮使用 Azure Kubernetes Service。 如需詳細資訊，請參閱[部署方式和位置](how-to-deploy-and-where.md)。
 
 >[!NOTE]
-> 本文中的程式碼已進行過 Azure Machine Learning SDK 1.0.8 版的測試。
+> 本文中的程式碼已進行過 Azure Machine Learning SDK 1.0.41 版的測試。
 
 ## <a name="prerequisites"></a>必要條件
 跳至[設定開發環境](#start)以讀過所有筆記本步驟。  

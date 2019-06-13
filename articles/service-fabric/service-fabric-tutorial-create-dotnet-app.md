@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 097cb554523a9e75b265ca16e79769daf0a49b40
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 998d33730586316fe3bf423663ffae5148843ed0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665792"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515858"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>教學課程：建立和部署含有 ASP.NET Core Web API 前端服務和具狀態後端服務的應用程式
 
 本教學課程是一個系列的第一部分。  您將了解如何建立含有 ASP.NET Core Web API 前端和具狀態後端服務的 Azure Service Fabric 應用程式來儲存您的資料。 當您完成時，您會有一個投票應用程式，其 ASP.NET Core Web 前端會將投票結果儲存在叢集中具狀態的後端服務。 如果您不需要以手動建立投票應用程式，可以[下載已完成應用程式的原始程式碼](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)並直接前往[逐步解說投票範例應用程式](#walkthrough_anchor)。  您也可以視需要觀看本教學課程的[視訊逐步解說](https://channel9.msdn.com/Events/Connect/2017/E100)。
 
-![應用程式圖表](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![AngularJS+ASP.NET API 後端，連線到 Service Fabric 上的具狀態後端服務](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 在系列的第一部分中，您將了解如何：
 
@@ -58,17 +58,17 @@ ms.locfileid: "58665792"
 
 2. 使用**檔案**->**新增**->**專案**建立專案。
 
-3. 在 [新增專案]  對話方塊中，選擇 [雲端] > [Service Fabric 應用程式]。
+3. 在 [新增專案]  對話方塊中，選擇 [雲端] > [Service Fabric 應用程式]  。
 
-4. 將應用程式命名為 **Voting**，然後按一下 [確定]。
+4. 將應用程式命名為 **Voting**，然後按一下 [確定]  。
 
    ![Visual Studio 中的新增專案對話方塊](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png)
 
-5. 在 [新增 Service Fabric 服務] 頁面上，選擇 [無狀態 ASP.NET Core]，將服務命名為 **VotingWeb**，然後按一下 [確定]。
+5. 在 [新增 Service Fabric 服務]  頁面上，選擇 [無狀態 ASP.NET Core]  ，將服務命名為 **VotingWeb**，然後按一下 [確定]  。
    
    ![在新服務對話方塊中選擇 ASP.NET Web 服務](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. 下一頁會提供一組 ASP.NET Core 專案範本。 針對本教學課程，選擇 [Web 應用程式 (Model-View-Controller)]，然後按一下 [確定]。
+6. 下一頁會提供一組 ASP.NET Core 專案範本。 針對本教學課程，選擇 [Web 應用程式 (Model-View-Controller)]  ，然後按一下 [確定]  。
    
    ![選擇 ASP.NET 專案類型](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
@@ -215,7 +215,7 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 
 ### <a name="update-the-votingwebcs-file"></a>更新 VotingWeb.cs 檔案
 
-開啟 VotingWeb.cs 檔案，該檔案會使用 WebListener web 伺服器，在無狀態服務內建立 ASP.NET Core WebHost。
+開啟 VotingWeb.cs  檔案，該檔案會使用 WebListener web 伺服器，在無狀態服務內建立 ASP.NET Core WebHost。
 
 將 `using System.Net.Http;` 指示詞新增至檔案開頭處。
 
@@ -263,7 +263,7 @@ internal static Uri GetVotingDataServiceName(ServiceContext context)
 
 ### <a name="add-the-votescontrollercs-file"></a>新增 VotesController.cs 檔案
 
-新增可定義投票動作的控制器。 以滑鼠右鍵按一下 [控制器] 資料夾，然後選取 [新增 -> 新增項目 -> Visual C# -> ASP.NET Core -> 類別]。 將檔案命名為 **VotesController.cs**，然後按一下 [新增]。  
+新增可定義投票動作的控制器。 以滑鼠右鍵按一下 [控制器]  資料夾，然後選取 [新增 -> 新增項目 -> Visual C# -> ASP.NET Core -> 類別]  。 將檔案命名為 **VotesController.cs**，然後按一下 [新增]  。  
 
 將 *VotesController.cs* 檔案內容取代為下列項目，然後儲存變更。  稍後，在[更新 VotesController.cs 檔案](#updatevotecontroller_anchor)中，這個檔案會經過修改，以從後端服務讀取和寫入投票資料。  現在，控制器會將靜態字串資料傳回至檢視。
 
@@ -311,7 +311,7 @@ namespace VotingWeb.Controllers
 
 建立 VotingWeb 前端服務時，Visual Studio 會隨機選擇服務要接聽的連接埠。  VotingWeb 服務是作為此應用程式的前端，並接受外部流量，因此讓我們將該服務繫結至固定的已知連接埠。  [服務資訊清單](service-fabric-application-and-service-manifests.md)會宣告服務端點。
 
-在 [方案總管] 中，開啟 VotingWeb/PackageRoot/ServiceManifest.xml。  在 [資源] 區段中尋找 [端點] 元素，並將 [連接埠] 值變更為 **8080**。 若要在本機上部署並執行應用程式，則必須在您的電腦上開啟應用程式接聽連接埠，並讓此連接埠可供使用。
+在 [方案總管] 中，開啟 VotingWeb/PackageRoot/ServiceManifest.xml  。  在 [資源]  區段中尋找 [端點]  元素，並將 [連接埠]  值變更為 **8080**。 若要在本機上部署並執行應用程式，則必須在您的電腦上開啟應用程式接聽連接埠，並讓此連接埠可供使用。
 
 ```xml
 <Resources>
@@ -324,7 +324,7 @@ namespace VotingWeb.Controllers
   </Resources>
 ```
 
-同時更新 Voting 專案中的 [應用程式 URL] 屬性值，以便您在進行應用程式偵錯時，網頁瀏覽器會開啟至正確的連接埠。  在 [方案總管] 中，選取 [Voting] 專案，並將 [應用程式 URL] 屬性更新至 **8080**。
+同時更新 Voting 專案中的 [應用程式 URL] 屬性值，以便您在進行應用程式偵錯時，網頁瀏覽器會開啟至正確的連接埠。  在 [方案總管] 中，選取 [Voting]  專案，並將 [應用程式 URL]  屬性更新至 **8080**。
 
 ### <a name="deploy-and-run-the-voting-application-locally"></a>在本機部署和執行 Voting 應用程式
 您現在可以繼續執行 Voting 應用程式以供偵錯。 在 Visual Studio 中，按 **F5** 將應用程式部署到偵錯模式中的本機 Service Fabric 叢集。 如果您先前並未以**系統管理員**身分開啟 Visual Studio，此應用程式將會失敗。
@@ -346,13 +346,13 @@ Service Fabric 可讓您使用可靠集合，直接在服務內以一致且可�
 
 在本教學課程中，您建立服務，將計數器值儲存於可靠集合中。
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 Voting 應用程式專案中的 [服務]，然後選擇 [新增 -> 新增 Service Fabric Explorer...]。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 Voting 應用程式專案中的 [服務]  ，然後選擇 [新增 -> 新增 Service Fabric Explorer...]  。
     
-2. 在 [新增 Service Fabric 服務] 對話方塊中，選擇 [具狀態 ASP.NET Core]，將服務命名為 **VotingData**，然後按 [確定]。
+2. 在 [新增 Service Fabric 服務]  對話方塊中，選擇 [具狀態 ASP.NET Core]  ，將服務命名為 **VotingData**，然後按 [確定]  。
 
     建立服務專案後，您的應用程式中會有兩個服務。 隨著您繼續組建應用程式，您可以用相同的方式新增更多服務。 每個服務都可以獨立設定版本和升級。
 
-3. 下一頁會提供一組 ASP.NET Core 專案範本。 在本教學課程中，選擇 [API]。
+3. 下一頁會提供一組 ASP.NET Core 專案範本。 在本教學課程中，選擇 [API]  。
 
     Visual Studio 會建立 VotingData 服務專案並顯示在 [方案總管] 中。
 
@@ -360,7 +360,7 @@ Service Fabric 可讓您使用可靠集合，直接在服務內以一致且可�
 
 ### <a name="add-the-votedatacontrollercs-file"></a>新增 VoteDataController.cs 檔案
 
-在 **VotingData** 專案中，以滑鼠右鍵按一下 [控制器] 資料夾，然後選取 [新增 -> 新增項目 -> 類別]。 將檔案命名為 **VoteDataController.cs**，然後按一下 [新增]。 將檔案內容取代為下列項目，然後儲存變更。
+在 **VotingData** 專案中，以滑鼠右鍵按一下 [控制器]  資料夾，然後選取 [新增 -> 新增項目 -> 類別]  。 將檔案命名為 **VoteDataController.cs**，然後按一下 [新增]  。 將檔案內容取代為下列項目，然後儲存變更。
 
 ```csharp
 namespace VotingData.Controllers
@@ -467,14 +467,14 @@ namespace VotingData.Controllers
 ```
 若要尋找您的本機開發叢集中使用的反向 Proxy 連接埠，請檢視本機 Service Fabric 叢集資訊清單中的 **HttpApplicationGatewayEndpoint** 元素：
 1. 開啟瀏覽器視窗，並瀏覽至 http:\//localhost:19080 以開啟 Service Fabric Explorer 工具。
-2. 選取 [叢集 -> 資訊清單]。
+2. 選取 [叢集 -> 資訊清單]  。
 3. 記下 HttpApplicationGatewayEndpoint 元素連接埠。 根據預設，這應該是 19081。 如果不是 19081，您必須變更下列 VotesController.cs 程式碼的 GetProxyAddress 方法中的連接埠。
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
 ### <a name="update-the-votescontrollercs-file"></a>更新 VotesController.cs 檔案
 
-在 **VotingWeb** 專案中，開啟 Controllers/VotesController.cs 檔案。  將 `VotesController` 類別定義內容取代為下列項目，然後儲存變更。 如果您在前一個步驟中探索的反向 proxy 連接埠不是 19081，請將 GetProxyAddress 方法中使用的連接埠從 19081 變更為您探索到的連接埠。
+在 **VotingWeb** 專案中，開啟 Controllers/VotesController.cs  檔案。  將 `VotesController` 類別定義內容取代為下列項目，然後儲存變更。 如果您在前一個步驟中探索的反向 proxy 連接埠不是 19081，請將 GetProxyAddress 方法中使用的連接埠從 19081 變更為您探索到的連接埠。
 
 ```csharp
 public class VotesController : Controller
@@ -608,7 +608,7 @@ public class VotesController : Controller
 
 ## <a name="debug-in-visual-studio"></a>在 Visual Studio 中偵錯
 
-在 Visual Studio 中偵錯應用程式時，您會使用本機 Service Fabric 開發叢集。 您可以根據自己的情況選擇調整偵錯體驗。 在此應用程式中，將資料儲存在使用可靠字典的後端服務中。 當您停止偵錯工具時，Visual Studio 預設會移除應用程式。 移除應用程式也會導致移除後端服務中的資料。 若要保存偵錯工作階段之間的資料，您可以在 Visual Studio 中，將 [應用程式偵錯模式] 當做 [投票] 專案上的屬性來變更。
+在 Visual Studio 中偵錯應用程式時，您會使用本機 Service Fabric 開發叢集。 您可以根據自己的情況選擇調整偵錯體驗。 在此應用程式中，將資料儲存在使用可靠字典的後端服務中。 當您停止偵錯工具時，Visual Studio 預設會移除應用程式。 移除應用程式也會導致移除後端服務中的資料。 若要保存偵錯工作階段之間的資料，您可以在 Visual Studio 中，將 [應用程式偵錯模式]  當做 [投票]  專案上的屬性來變更。
 
 若要查看對程式碼的影響，請完成下列步驟：
 
@@ -626,8 +626,8 @@ public class VotesController : Controller
       ![新增投票前端服務](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
    2. 首先，請針對後端服務 **(1)** 建構 ReverseProxy 的 URL。
-   3. 接著，將 HTTP PUT 要求傳送至 ReverseProxy **(2)**。
-   4. 最後，將後端服務的回應傳回至用戶端 **(3)**。
+   3. 接著，將 HTTP PUT 要求傳送至 ReverseProxy **(2)** 。
+   4. 最後，將後端服務的回應傳回至用戶端 **(3)** 。
 
 5. 按 **F5** 繼續。
    1. 您現在位於後端服務的中斷點。
@@ -636,7 +636,7 @@ public class VotesController : Controller
 
    2. 在方法 **(1)** 的第一行中，使用 `StateManager` 來取得或新增名為 `counts` 的可靠字典。
    3. 與可靠字典中的值進行的所有互動，都需要交易，這會使用陳述式 **(2)** 建立該交易。
-   4. 在交易中，更新投票選項的相關索引鍵值，然後認可作業 **(3)**。 一旦傳回認可方法，字典中的資料會更新並複寫至叢集中的其他節點。 資料現在會安全地儲存在叢集中，而且後端服務可以容錯移轉到仍有可用資料的其他節點。
+   4. 在交易中，更新投票選項的相關索引鍵值，然後認可作業 **(3)** 。 一旦傳回認可方法，字典中的資料會更新並複寫至叢集中的其他節點。 資料現在會安全地儲存在叢集中，而且後端服務可以容錯移轉到仍有可用資料的其他節點。
 6. 按 **F5** 繼續。
 
 若要停止偵錯工作階段，請按 **Shift+F5**。

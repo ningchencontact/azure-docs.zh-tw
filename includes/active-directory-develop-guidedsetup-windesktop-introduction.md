@@ -14,21 +14,21 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: f0cc888eaf3724737e9c868c69a641094a19348c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ae17ef749a353cd60227e31ba4dadf328b1dc935
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121626"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482339"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>從 Windows 傳統型應用程式呼叫 Microsoft 圖形 API
 
-本指南示範原生 Windows Desktop .NET (XAML) 應用程式如何取得存取權杖，以及如何呼叫 Microsoft Graph API，或呼叫需要從適用於開發人員的 Microsoft 身分識別平台 (先前稱為 Azure AD) v2.0 端點取得存取權杖的其他 API。
+本指南示範原生 Windows Desktop .NET (XAML) 應用程式如何使用存取權杖以呼叫 Microsoft Graph API。 此應用程式也可以存取其他 API，其需要 Microsoft 身分識別平台針對開發人員 v2.0 端點提供的存取權杖。 此平台先前名為 Azure AD。
 
 當您完成本指南之後，您的應用程式就可以呼叫受保護的 API (使用個人帳戶，包括 outlook.com、live.com 等等)。 應用程式也可以使用任何公司或組織 (使用 Azure Active Directory) 的公司和學校帳戶。  
 
 > [!NOTE]
-> 本指南需要 Visual Studio 2015 Update 3 或 Visual Studio 2017。 沒有上述任一版本嗎？ [免費下載 Visual Studio 2017](https://www.visualstudio.com/downloads/)。
+> 本指南需要 Visual Studio 2015 Update 3 或 Visual Studio 2019。 沒有上述任一版本嗎？ [免費下載 Visual Studio 2019](https://www.visualstudio.com/downloads/)。
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>本指南產生之範例應用程式的運作方式
 

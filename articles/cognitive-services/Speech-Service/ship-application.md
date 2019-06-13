@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 9bb721221f8f90a39b1c84bcdd66429bbd628494
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d8330ff663a7adc2f1cae3ed6bdf1cec2fa972c5
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65912658"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808448"
 ---
 # <a name="ship-an-application"></a>交付應用程式
 
@@ -24,14 +24,14 @@ ms.locfileid: "65912658"
 
 視平台而定，有不同的相依性存在以執行您的應用程式。
 
-## <a name="windows"></a> Windows
+## <a name="windows"></a>Windows
 
 測試認知語音 SDK 會在 Windows 10 和 Windows Server 2016 上進行測試。
 
 認知服務語音 SDK 需要[Microsoft VisualC++可轉散發套件的 Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)系統上。 您可以在此下載最新版 `Microsoft Visual C++ Redistributable for Visual Studio 2019` 的安裝程式：
 
-- [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
-- [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
+- [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
+- [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 
 如果您的應用程式使用受控程式碼，則目標電腦上需要 `.NET Framework 4.6.1` 或更新版本。
 
@@ -47,7 +47,7 @@ ms.locfileid: "65912658"
 >[!NOTE]
 > 從版本 1.3.0 開始檔案`Microsoft.CognitiveServices.Speech.csharp.bindings.dll`（隨附於之前的版本），則不需要再。 功能現已整合在 SDK 的核心。
 
-## <a name="linux"></a> Linux
+## <a name="linux"></a>Linux
 
 語音 SDK 目前支援的 Ubuntu 16.04，Ubuntu 18.04 Debian 9 的散發套件。
 對於原生應用程式，您需要提供語音 SDK 程式庫 `libMicrosoft.CognitiveServices.Speech.core.so`。

@@ -30,7 +30,7 @@ ms.locfileid: "60561484"
 ## <a name="networking-and-security"></a>網路和安全性
 網路和安全性是所有組織的基石。 雖然整個企業的部署需要更深入的分析，但是成功完成概念證明的需求會減少。 一些主要領域包括：
 
-- **Azure 訂用帳戶** – 若要部署 DevTest Labs，您必須使用適當的權限存取 Azure 訂用帳戶，才能建立資源。 有數種方式可以取得 Azure 訂用帳戶的存取權，包括 Enterprise 合約和預付型方案。 如需有關取得 Azure 訂用帳戶存取權的詳細資訊，請參閱 [Azure 企業授權](https://azure.microsoft.com/pricing/enterprise-agreement/)。
+- **Azure 訂用帳戶** – 若要部署 DevTest Labs，您必須使用適當的權限存取 Azure 訂用帳戶，才能建立資源。 有數種方式可以取得 Azure 訂用帳戶的存取權，包括 Enterprise 合約和隨用隨付方案。 如需有關取得 Azure 訂用帳戶存取權的詳細資訊，請參閱 [Azure 企業授權](https://azure.microsoft.com/pricing/enterprise-agreement/)。
 - **內部部署資源的存取權** – 部分組織需要其在 DevTest Labs 中的資源能夠存取內部部署資源。 內部部署環境到 Azure 需要有安全連線。 因此，在開始使用之前設定 VPN 或 ExpressRoute 連線非常重要。 如需詳細資訊，請參閱[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 - **其他安全性需求** – 其他安全性需求，例如電腦原則、公用 IP 位址存取權，連線到網際網路都是必須要審核過後再實作概念證明的案例。 
 

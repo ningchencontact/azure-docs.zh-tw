@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7110d7004ae9be58bb150674d516692049507608
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 82c7b698f655b82ba95f66127f27a921def02cde
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299086"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472991"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>教學課程：新增內部部署應用程式以便透過 Azure Active Directory 中的應用程式 Proxy 進行遠端存取
 
@@ -34,10 +34,11 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
 ## <a name="before-you-begin"></a>開始之前
 
-若要將應用程式新增至您的租用戶，您需要：
+若要將內部部署應用程式新增至 Azure AD，您需要：
 
 * [Microsoft Azure AD 基本或進階訂用帳戶](https://azure.microsoft.com/pricing/details/active-directory)
 * 應用程式系統管理員帳戶
+* 必須從內部部署目錄同步使用者身分識別，或是直接在您的 Azure AD 租用戶內建立使用者身分識別。 身分識別同步處理可讓 Azure AD 在允許使用者存取 App Proxy 發佈的應用程式之前，先預先驗證使用者，以及具有執行單一登入 (SSO) 所需的使用者識別碼資訊。
 
 ### <a name="windows-server"></a>Windows 伺服器
 

@@ -1,6 +1,6 @@
 ---
-title: 什麼是 Azure Active Directory 中的裝置管理？ | Microsoft Docs
-description: 了解裝置管理如何協助您控制存取您環境中資源的裝置。
+title: 什麼是 Azure Active Directory 中的裝置身分識別？ | Microsoft Docs
+description: 了解裝置身分識別管理如何協助您管理存取您環境中資源的裝置。
 services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
@@ -13,35 +13,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/01/2019
+ms.date: 06/04/2019
 ms.author: joflore
-ms.reviewer: jairoc
+ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e756b260db0f6db752d345e085b16d58cee5555
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 8f91ff65d0e11ed2e9f923f94c740314c9136d99
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65997278"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688678"
 ---
-# <a name="what-is-device-management-in-azure-active-directory"></a>什麼是 Azure Active Directory 中的裝置管理？
+# <a name="what-is-a-device-identity"></a>什麼是裝置身分識別？
 
 在行動第一、雲端第一的世界中，Azure Active Directory (Azure AD) 可讓您從任何地方單一登入至裝置、應用程式和服務。 隨著裝置的激增 - 包括自備裝置 (BYOD)，IT 專業人員面臨到兩個相對的目標︰
 
 - 讓使用者隨時隨地都具有生產力
 - 隨時保護公司資產
 
-透過裝置，您的使用者可存取公司資產。 為了保護公司資產，身為 IT 管理員，您希望控制這些裝置。 這可讓您確保使用者會從符合安全性與合規性之標準的裝置來存取您的資源。
+透過 Azure AD 中的裝置，您的使用者可存取公司資產。 為了保護公司資產，身為 IT 管理員，您希望能夠管理這些裝置身分識別。 這可讓您確保使用者會從符合安全性與合規性之標準的裝置來存取您的資源。
 
-裝置管理也是[裝置型條件式存取](../conditional-access/require-managed-devices.md)的基礎。 使用裝置型條件式存取時，您可以確保只能透過受控裝置存取環境中的資源。
+裝置身分識別管理也是[裝置型條件式存取](../conditional-access/require-managed-devices.md)的基礎。 使用裝置型條件式存取時，您可以確保只能透過受控裝置存取環境中的資源。
 
-本文說明 Azure Active Directory 中的裝置管理運作方式。
+## <a name="getting-devices-in-azure-ad"></a>在 Azure AD 中取得裝置
 
-> [!VIDEO https://www.youtube.com/embed/NeezfKhomQU]
-
-## <a name="getting-devices-under-the-control-of-azure-ad"></a>取得 Azure AD 控制下的裝置
-
-若要取得 Azure AD 控制下的裝置，您有兩個選項：
+若要在 Azure AD 中取得裝置，您有兩個選項：
 
 - 註冊
 - 加入
@@ -64,9 +60,9 @@ Azure AD 註冊裝置的目標是為您提供**自備裝置 (BYOD)** 案例的�
 貴組織的使用者可以非常方便地將公司或學校帳戶新增至個人裝置：
 
 - 第一次存取工作應用程式時
-- 在 Windows 10 的情況下，手動透過 [設定] 功能表
+- 在 Windows 10 的情況下，手動透過 [設定]  功能表
 
-您可以為 Windows 10、iOS、Android 和 macOS 設定 Azure AD 註冊裝置。
+您可以為 **Windows 10、iOS、Android 和 macOS** 裝置設定 Azure AD 註冊裝置狀態。
 
 ## <a name="azure-ad-joined-devices"></a>Azure AD 加入裝置
 
@@ -93,7 +89,6 @@ Azure AD 加入裝置的目標是簡化：
 - 使用 Azure AD 帳戶**存取商務用 Windows 市集**。 您的使用者可以從組織預先選取之應用程式清查中選擇。
 - **Windows Hello** 支援安全又方便地存取工作資源。
 - **限制**僅從符合合規性原則的裝置存取應用程式。
-
 - 當裝置可以看見內部部署網域控制站時，即可**順暢地存取內部部署資源**。
 
 雖然 Azure AD Join 主要適用於沒有內部部署 Windows Server Active Directory 基礎結構的組織，但您也可以在下列情況下使用它：
@@ -129,9 +124,9 @@ Azure AD 加入裝置的目標是簡化：
 
 ## <a name="summary"></a>總結
 
-使用 Azure AD 中的裝置管理，您可以：
+使用 Azure AD 中的裝置身分識別管理，您可以：
 
-- 簡化攜帶 Azure AD 控制下的裝置的流程
+- 簡化將裝置導入 Azure AD 中進行管理的流程
 - 為使用者提供對貴組織雲端式資源易於使用的存取方式
 
 根據經驗法則，您應該使用：
@@ -156,9 +151,9 @@ Azure AD 加入裝置的目標是簡化：
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要取得在 Azure 入口網站中管理裝置的概觀，請參閱[使用 Azure 入口網站來管理裝置](device-management-azure-portal.md)
-- 若要深入了解裝置型條件式存取，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](../conditional-access/require-managed-devices.md)。
+- 若要取得在 Azure 入口網站中管理裝置身分識別的概觀，請參閱[使用 Azure 入口網站管理裝置身分識別](device-management-azure-portal.md)。
 - 若要設定：
-   - 已註冊 Azure Active Directory 的 Windows 10 裝置，請參閱[如何設定已註冊 Azure Active Directory 的 Windows 10 裝置](../user-help/device-management-azuread-registered-devices-windows10-setup.md)
-   - 已加入 Azure Active Directory 的裝置，請參閱[如何設定已加入 Azure Active Directory 的裝置](../user-help/device-management-azuread-joined-devices-setup.md)
-   - 已加入混合式 Azure AD 的裝置，請參閱[如何規劃混合式 Azure Active Directory Join 實作](hybrid-azuread-join-plan.md)。
+   - 已註冊 Azure Active Directory 的 Windows 10 裝置，請參閱[如何設定已註冊 Azure Active Directory 的 Windows 10 裝置](../user-help/device-management-azuread-registered-devices-windows10-setup.md)。
+   - 已加入 Azure Active Directory 的裝置，請參閱[如何規劃 Azure Active Directory Join 實作](azureadjoin-plan.md)。
+   - 已加入混合式 Azure AD 的裝置，請參閱[如何規劃混合式 Azure Active Directory Join 實作](hybrid-azuread-join-plan.md)。   
+- 若要深入了解裝置型條件式存取，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](../conditional-access/require-managed-devices.md)。

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: c4d0c65cfae0bb323978f4143b0058071562ddb6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c553e3f2de963abb4a3c23a4114eecfa33d0aa61
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682512"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735339"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>虛擬網路的 Azure Resource Manager 範本範例
 
@@ -29,7 +29,7 @@ ms.locfileid: "64682512"
 如需要在範本中使用的 JSON 語法和屬性，請參閱 [Microsoft.Network 資源類型](/azure/templates/microsoft.network/allversions)。
 
 
-| | |
+| Task | 說明 |
 |----|----|
 |[建立具有兩個子網路的虛擬網路](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)| 建立具有兩個子網路的虛擬網路。|
 |[透過網路虛擬設備路由傳送流量](https://github.com/Azure/azure-quickstart-templates/tree/master/201-userdefined-routes-appliance)| 建立具有三個子網路的虛擬網路。 將虛擬機器部署到每個子網路。 建立包含路由的路由表，以將流量從某個子網路透過另一個子網路中的虛擬機器導向第三個子網路。 將路由表關聯至其中一個子網路。|

@@ -25,7 +25,7 @@ ms.locfileid: "60996573"
 
 ## <a name="retry-policies"></a>重試原則
 
-對於大部分基本的例外狀況和錯誤處理，您可以在支援的動作或觸發程序中使用「重試原則」。 此重試原則會定義當原始要求逾時或失敗時 (也就是，任何造成 408、429 或 5xx 回應的要求)，動作或觸發程序是否要重試要求，以及要如何重試。 如果未使用任何其他重試原則，則會使用預設原則。 
+對於大部分基本的例外狀況和錯誤處理，您可以在支援的動作或觸發程序中使用「重試原則」  。 此重試原則會定義當原始要求逾時或失敗時 (也就是，任何造成 408、429 或 5xx 回應的要求)，動作或觸發程序是否要重試要求，以及要如何重試。 如果未使用任何其他重試原則，則會使用預設原則。 
 
 以下是重試原則的類型： 
 
@@ -45,9 +45,9 @@ ms.locfileid: "60996573"
 
 1. 在邏輯應用程式設計工具中開啟邏輯應用程式。 
 
-2. 開啟動作或觸發程序的 [設定]。
+2. 開啟動作或觸發程序的 [設定]  。
 
-3. 如果動作或觸發程序支援重試原則，請於 [重試原則] 底下選取您想要的類型。 
+3. 如果動作或觸發程序支援重試原則，請於 [重試原則]  底下選取您想要的類型。 
 
 或者，您也可以針對支援重試原則的動作或觸發程序，在其 `inputs` 區段中手動指定重試原則。 如果您未指定重試原則，則動作會使用預設原則。
 
@@ -73,17 +73,17 @@ ms.locfileid: "60996573"
 
 | 值 | 類型 | 描述 |
 |-------|------|-------------|
-| <retry-policy-type> | String | 您想要使用的重試原則類型：`default`、`none`、`fixed` 或 `exponential` | 
-| <retry-interval> | String | 值必須使用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)的重試間隔。 預設最小間隔是 `PT5S`，最大間隔則是 `PT1D`。 當您使用指數間隔原則時，您可以指定不同的最小和最大值。 | 
-| <retry-attempts> | Integer  | 重試次數必須介於 1 到 90 之間 | 
+| <retry-policy-type  > | String | 您想要使用的重試原則類型：`default`、`none`、`fixed` 或 `exponential` | 
+| <retry-interval  > | String | 值必須使用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)的重試間隔。 預設最小間隔是 `PT5S`，最大間隔則是 `PT1D`。 當您使用指數間隔原則時，您可以指定不同的最小和最大值。 | 
+| <retry-attempts  > | 整數 | 重試次數必須介於 1 到 90 之間 | 
 ||||
 
 *選擇性*
 
 | 值 | 類型 | 描述 |
 |-------|------|-------------|
-| <minimum-interval> | String | 對於指數間隔原則，此為隨機選取間隔的最小間隔，且採用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
-| <maximum-interval> | String | 對於指數間隔原則，此為隨機選取間隔的最大間隔，且採用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <minimum-interval  > | String | 對於指數間隔原則，此為隨機選取間隔的最小間隔，且採用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <maximum-interval  > | String | 對於指數間隔原則，此為隨機選取間隔的最大間隔，且採用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 |||| 
 
 以下是不同原則類型的詳細資訊。
@@ -116,11 +116,11 @@ ms.locfileid: "60996573"
 
 ### <a name="none"></a>None
 
-若要將動作或觸發程序指定為不會重試失敗的要求，請將 <retry-policy-type> 設定為 `none`。
+若要將動作或觸發程序指定為不會重試失敗的要求，請將 <retry-policy-type  > 設定為 `none`。
 
 ### <a name="fixed-interval"></a>固定間隔
 
-若要將動作或觸發程序指定為先等候指定間隔再傳送下一個要求，請將 <retry-policy-type> 設定為 `fixed`。
+若要將動作或觸發程序指定為先等候指定間隔再傳送下一個要求，請將 <retry-policy-type  > 設定為 `fixed`。
 
 *範例*
 
@@ -145,7 +145,7 @@ ms.locfileid: "60996573"
 
 ### <a name="exponential-interval"></a>指數間隔
 
-若要將動作或觸發程序指定為先等候隨機間隔再傳送下一個要求，請將 <retry-policy-type> 設定為 `exponential`。 隨機間隔會從指數成長範圍來選取。 (選擇性) 您也可以藉由指定自己的最小和最大間隔，覆寫預設的最小和最大間隔。
+若要將動作或觸發程序指定為先等候隨機間隔再傳送下一個要求，請將 <retry-policy-type  > 設定為 `exponential`。 隨機間隔會從指數成長範圍來選取。 (選擇性) 您也可以藉由指定自己的最小和最大間隔，覆寫預設的最小和最大間隔。
 
 **隨機變數範圍**
 
@@ -153,10 +153,10 @@ ms.locfileid: "60996573"
 
 | 重試數目 | 最小間隔 | 最大間隔 |
 |--------------|------------------|------------------|
-| 1 | max(0, <minimum-interval>) | min(interval, <maximum-interval>) |
-| 2 | max(interval, <minimum-interval>) | min(2 * interval, <maximum-interval>) |
-| 3 | max(2 * interval, <minimum-interval>) | min(4 * interval, <maximum-interval>) |
-| 4 | max(4 * interval, <minimum-interval>) | min(8 * interval, <maximum-interval>) |
+| 1 | max(0, <minimum-interval  >) | min(interval, <maximum-interval  >) |
+| 2 | max(interval, <minimum-interval  >) | min(2 * interval, <maximum-interval  >) |
+| 3 | max(2 * interval, <minimum-interval  >) | min(4 * interval, <maximum-interval  >) |
+| 4 | max(4 * interval, <minimum-interval  >) | min(8 * interval, <maximum-interval  >) |
 | .... | .... | .... | 
 |||| 
 
@@ -164,7 +164,7 @@ ms.locfileid: "60996573"
 
 每個邏輯應用程式動作都會在動作開始之前，宣告必須先完成的一些動作，就類似於在工作流程中指定步驟順序的方式。 在動作定義中，**runAfter** 屬性會定義此順序，並且是描述哪些動作和動作狀態會執行動作的物件。
 
-根據預設，所有您在「邏輯應用程式設計工具」中新增的動作都會設定為在前一個步驟執行後才執行，但前提是前一個步驟結果為 **Succeeded (成功)**。 不過，您可以自訂 **runAfter** 值，讓動作可以在上一個動作結果為 **Failed (失敗)**、**Skipped (略過)** 或這些值的一些組合時引發。 例如，若要在特定的 **Insert_Row** 動作失敗後，將項目新增至特定的服務匯流排主題，您可以使用此 **runAfter** 定義範例：
+根據預設，所有您在「邏輯應用程式設計工具」中新增的動作都會設定為在前一個步驟執行後才執行，但前提是前一個步驟結果為 **Succeeded (成功)** 。 不過，您可以自訂 **runAfter** 值，讓動作可以在上一個動作結果為 **Failed (失敗)** 、**Skipped (略過)** 或這些值的一些組合時引發。 例如，若要在特定的 **Insert_Row** 動作失敗後，將項目新增至特定的服務匯流排主題，您可以使用此 **runAfter** 定義範例：
 
 ```json
 "Send_message": {
@@ -203,7 +203,7 @@ ms.locfileid: "60996573"
 ```
 
 > [!TIP]
-> 在前一個動作失敗後所執行並順利完成的動作會標示為 **Succeeded (成功)**。 此行為表示如果您成功擷取到工作流程中的所有失敗，該次執行本身會標示為 **Succeeded (成功)**。
+> 在前一個動作失敗後所執行並順利完成的動作會標示為 **Succeeded (成功)** 。 此行為表示如果您成功擷取到工作流程中的所有失敗，該次執行本身會標示為 **Succeeded (成功)** 。
 
 <a name="scopes"></a>
 
@@ -211,11 +211,11 @@ ms.locfileid: "60996573"
 
 類似於使用 **runAfter** 屬性在個別動作之後執行步驟，您可以在 [scope (範圍)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) 內將動作群組在一起。 當您想要以邏輯方式將動作群組在一起、評估範圍的彙總狀態，並根據這些狀態執行動作時，即可使用範圍。 當範圍中的所有動作都執行完成之後，範圍本身會取得自己的狀態。 
 
-若要檢查範圍的狀態，您可以使用檢查邏輯應用程式執行狀態時所用的相同準則，例如 **Succeeded (成功)**、**Failed (失敗)** 等。 
+若要檢查範圍的狀態，您可以使用檢查邏輯應用程式執行狀態時所用的相同準則，例如 **Succeeded (成功)** 、**Failed (失敗)** 等。 
 
-根據預設，當範圍的所有動作都成功時，範圍的狀態會標示為 **Succeeded (成功)**。 如果範圍內的最後動作結果為 **Failed (失敗)** 或 **Aborted (中止)**，範圍的狀態會標示 **Failed (失敗)**。 
+根據預設，當範圍的所有動作都成功時，範圍的狀態會標示為 **Succeeded (成功)** 。 如果範圍內的最後動作結果為 **Failed (失敗)** 或 **Aborted (中止)** ，範圍的狀態會標示 **Failed (失敗)** 。 
 
-若要攔截 **Failed (失敗)** 範圍的例外狀況，以及執行處理這些錯誤的動作，您可以針對該 **Failed (失敗)** 範圍使用 **runAfter** 屬性。 這樣一來，如果範圍內的「任何」動作失敗，而您對該範圍使用 **runAfter** 屬性，您便可建立單一動作來擷取失敗。
+若要攔截 **Failed (失敗)** 範圍的例外狀況，以及執行處理這些錯誤的動作，您可以針對該 **Failed (失敗)** 範圍使用 **runAfter** 屬性。 這樣一來，如果範圍內的「任何」  動作失敗，而您對該範圍使用 **runAfter** 屬性，您便可建立單一動作來擷取失敗。
 
 如需範圍的限制，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md)。
 
@@ -274,7 +274,7 @@ ms.locfileid: "60996573"
 
 2. **篩選陣列**的條件是任何狀態等於 **Failed** 的 `@result()` 項目。 此條件會將具有 "My_Scope" 所有動作結果的陣列篩選成只剩失敗動作結果的陣列。
 
-3. 對篩選後陣列的輸出執行 **For each** 迴圈動作。 此步驟會對之前篩選的每個失敗動作結果執行動作。
+3. 對篩選後陣列  的輸出執行 **For each** 迴圈動作。 此步驟會對之前篩選的每個失敗動作結果執行動作。
 
    如果範圍中的單一動作失敗，**For each** 迴圈中的動作只會執行一次。 
    如果有多個失敗動作，則會導致對每個失敗執行一個動作。

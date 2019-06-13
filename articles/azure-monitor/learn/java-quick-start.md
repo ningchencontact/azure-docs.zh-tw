@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: e1574b55f9f14daba1831ba7f73b7f9ebde4c7f6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: dd1644ad9b7fcee951b31997ab549f117530f635
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006891"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808387"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>開始監視 Java Web 應用程式
 
@@ -46,7 +46,7 @@ Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、
 
 Application Insights 可以從任何連上網際網路的應用程式收集遙測資料，而不論應用程式在內部部署或雲端中執行。 請使用下列步驟來開始檢視此資料。
 
-1. 選取 [建立資源] > [開發人員工具] > [Application Insights]。
+1. 選取 [建立資源]   > [開發人員工具]   > [Application Insights]  。
 
    ![新增 Application Insights 資源](./media/java-quick-start/1createresourseappinsights.png)
 
@@ -61,54 +61,54 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
    | **資源群組**     | myResourceGroup      | 用於裝載 App Insights 資料之新資源群組的名稱 |
    | **位置** | 美國東部 | 選擇您附近或接近應用程式裝載位置的地點 |
 
-2. 按一下頁面底部的 [新增] 。
+2. 按一下頁面底部的 [新增]  。
 
 ## <a name="install-app-insights-plugin"></a>安裝 App Insights 外掛程式
 
-1. 啟用 **Eclipse** > 按一下 [說明] > 選取 [安裝新軟體]。
+1. 啟用 **Eclipse** > 按一下 [說明]  > 選取 [安裝新軟體]  。
 
    ![新增 App Insights 資源表單](./media/java-quick-start/000-j.png)
 
-2. 將 ```https://dl.microsoft.com/eclipse``` 複製到 [運用] 欄位 > 勾選 [Azure Toolkit for Java] > 選取 [Application Insights Plugin for Java] > **取消選取 [安裝期間連絡所有更新網站以尋找所需軟體]**。
+2. 將 ```https://dl.microsoft.com/eclipse``` 複製到 [運用] 欄位 > 勾選 [Azure Toolkit for Java]  > 選取 [Application Insights Plugin for Java]   > **取消選取 [安裝期間連絡所有更新網站以尋找所需軟體]** 。
 
 3. 當安裝完成之後，系統會提示您**重新啟動 Eclipse**。
 
 ## <a name="configure-app-insights-plugin"></a>設定 App Insights 外掛程式
 
-1. 啟動 **Eclipse** > 開啟您的**專案** > 在 [專案總管] 中以滑鼠右鍵按一下專案名稱 > 選取 [Azure] > 按一下 [登入]。
+1. 啟動 **Eclipse** > 開啟您的**專案** > 在 [專案總管]  中以滑鼠右鍵按一下專案名稱 > 選取 [Azure]  > 按一下 [登入]  。
 
-2. 選取 [互動] 驗證方法 > 按一下 [登入] > 出現提示時，輸入您的 [Azure 認證] > 選取您的 [Azure訂用帳戶]。
+2. 選取 [互動]  驗證方法 > 按一下 [登入]  > 出現提示時，輸入您的 [Azure 認證]  > 選取您的 [Azure訂用帳戶]  。
 
-3. 在 [專案總管] 中以滑鼠右鍵按一下您的專案名稱 > 選取 [Azure] > 按一下 [設定 Application Insights]。
+3. 在 [專案總管]  中以滑鼠右鍵按一下您的專案名稱 > 選取 [Azure]  > 按一下 [設定 Application Insights]  。
 
-4. 勾選 [對 Application Insights 啟用遙測] > 選取您想要連結至 Java 應用程式的 App Insights 資源及相關聯的**檢測金鑰**。
+4. 勾選 [對 Application Insights 啟用遙測]  > 選取您想要連結至 Java 應用程式的 App Insights 資源及相關聯的**檢測金鑰**。
 
    ![Eclipse Azure 設定功能表](./media/java-quick-start/0007-j.png)
 
-5. 設定 Application Insights 外掛程式之後，您需要再次[發佈/重新發佈](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#publish-the-web-app-to-azure)您的應用程式，它才能開始傳送遙測資料。
+5. 設定 Application Insights 外掛程式之後，您需要再次[發佈/重新發佈](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#deploy-the-app)您的應用程式，它才能開始傳送遙測資料。
 
 > [!NOTE]
 > Application Insights SDK for Java 能夠擷取及視覺化即時計量，但當您第一次啟用遙測收集時，可能需要幾分鐘的時間，資料才會出現在入口網站中。 如果此應用程式是低流量測試應用程式，請記住，只在有使用中的要求或作業時，才會擷取大部分的計量。
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>在 Azure 入口網站中開始監視
 
-1. 現在，您可以在 Azure 入口網站中重新開啟 Application Insights 的 [概觀] 頁面，以檢視目前執行中應用程式的詳細資料。
+1. 現在，您可以在 Azure 入口網站中重新開啟 Application Insights 的 [概觀]  頁面，以檢視目前執行中應用程式的詳細資料。
 
    ![Application Insights 概觀功能表](./media/java-quick-start/3overview.png)
 
-2. 按一下 [應用程式對應]，以顯示應用程式元件之間相依性關係的視覺化配置。 每個元件會顯示負載、效能、失敗和警示等 KPI。
+2. 按一下 [應用程式對應]  ，以顯示應用程式元件之間相依性關係的視覺化配置。 每個元件會顯示負載、效能、失敗和警示等 KPI。
 
    ![應用程式對應](./media/java-quick-start/4appmap.png)
 
-3.  按一下 [應用程式分析] 圖示 ![應用程式對應圖示](./media/java-quick-start/006.png) **在 Analytics 中檢視**。  這樣會開啟 **Application Insights Analytics**，它提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。 此案例中會為您產生查詢，可將要求計數以圖表呈現。 您可以撰寫自己的查詢來分析其他資料。
+3.  按一下 [應用程式分析]  圖示 ![應用程式對應圖示](./media/java-quick-start/006.png) **在 Analytics 中檢視**。  這樣會開啟 **Application Insights Analytics**，它提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。 此案例中會為您產生查詢，可將要求計數以圖表呈現。 您可以撰寫自己的查詢來分析其他資料。
 
    ![經過一段時間的使用者要求分析圖表](./media/java-quick-start/5analytics.png)
 
-4. 返回 [概觀] 頁面，檢查 [KPI 圖形]。 此儀表板會提供應用程式健康情況的統計資料，包括連入要求數量、這些要求的持續時間，以及任何發生的失敗。
+4. 返回 [概觀]  頁面，檢查 [KPI 圖形]。 此儀表板會提供應用程式健康情況的統計資料，包括連入要求數量、這些要求的持續時間，以及任何發生的失敗。
 
    ![健康情況概觀時間軸圖表](./media/java-quick-start/6kpidashboards.png)
 
-   若要在 [網頁檢視載入時間] 圖表中填入**用戶端遙測**資料，請將此指令碼新增至您要追蹤的每個頁面：
+   若要在 [網頁檢視載入時間]  圖表中填入**用戶端遙測**資料，請將此指令碼新增至您要追蹤的每個頁面：
 
    ```HTML
    <!-- 
@@ -130,7 +130,7 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
    </script>
     ```
 
-5. 按一下 [即時資料流]。 您在這裡可以找到 Java Web 應用程式效能的相關計量。 **即時計量資料流**包含連入要求數量、這些要求的持續時間及任何發生之失敗的相關資料。 您也可以即時監視重要效能計量，例如處理器和記憶體。
+5. 按一下 [即時資料流]  。 您在這裡可以找到 Java Web 應用程式效能的相關計量。 **即時計量資料流**包含連入要求數量、這些要求的持續時間及任何發生之失敗的相關資料。 您也可以即時監視重要效能計量，例如處理器和記憶體。
 
    ![伺服器計量圖表](./media/java-quick-start/7livemetrics.png)
 
@@ -140,8 +140,8 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 
 當您完成測試時，您可以刪除資源群組和所有相關資源。 若要這樣做，請依照下列步驟執行。
 
-1. 從 Azure 入口網站的左側功能表中，依序按一下 [資源群組] 和 [myResourceGroup]。
-2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入 **myResourceGroup**，然後按一下 [刪除]。
+1. 從 Azure 入口網站的左側功能表中，依序按一下 [資源群組]  和 [myResourceGroup]  。
+2. 在資源群組頁面上，按一下 [刪除]  ，在文字方塊中輸入 **myResourceGroup**，然後按一下 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 

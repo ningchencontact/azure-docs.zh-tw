@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: wellsi
-ms.openlocfilehash: fab23c86ee2e8f654ac4a9619c39d05ee4e9e4c1
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1c91cde45a6a420376af36f70487adf7fe0ee83a
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237943"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751802"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>認知服務語音裝置 SDK 的版本資訊
 下列各節列出最新版本中的變更。
@@ -49,7 +49,7 @@ ms.locfileid: "66237943"
 
 **重大變更** 
 
-*   [安裝 網路喚醒 word](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg#run-a-sample-application)已經過簡化，它現在是應用程式的一部分並不需要另外安裝在裝置上的。
+*   [安裝 網路喚醒 word](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)已經過簡化，它現在是應用程式的一部分並不需要另外安裝在裝置上的。
 *   網路喚醒字詞辨識已變更，且支援兩個事件。
     - RecognizingKeyword，表示語音結果包含文字 （未經驗證） 的關鍵字。
     - RecognizedKeyword，指出辨識給定的關鍵字該關鍵字辨識已完成。

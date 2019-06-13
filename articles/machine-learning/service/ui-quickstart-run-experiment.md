@@ -9,18 +9,18 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: 0c492424e67853f7cb4a017fb4215d38a555a8a4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 07b86138a95853673b5d54e272b40af41d58f418
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545069"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475954"
 ---
 # <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>快速入門：準備資料並加以視覺化，不需在 Azure Machine Learning 中撰寫程式碼
 
-在具備拖放功能的 Azure Machine Learning 介面中準備資料並加以視覺化。 您將使用的資料包含許多個別汽車的項目，包括製造、模型、技術規格和價格等資訊。  
+在具備拖放功能的 Azure Machine Learning 介面中準備資料並加以視覺化。 您將使用的資料包含許多個別汽車的項目，包括製造、模型、技術規格和價格等資訊。 完成本快速入門後，您就能使用此資料來預測汽車的價格。 
 
-在本快速入門中，您將瀏覽並準備資料：
+定型機器學習模型之前，您需要了解並準備您的資料。  在本快速入門中，您將：
 
 - 建立您的第一個實驗以新增和預覽資料
 - 移除遺漏的值以準備資料
@@ -131,7 +131,7 @@ ms.locfileid: "65545069"
 
      ![預覽資料](./media/ui-quickstart-run-experiment/preview-data.gif)
 
-1. 按一下每個資料行以深入了解您的資料集。
+1. 按一下每個資料行即可深入了解您的資料集，並判斷這些資料行是否有助於預測汽車的價格。
 
 ## <a name="prepare-data"></a>準備資料
 
@@ -176,7 +176,7 @@ ms.locfileid: "65545069"
 
 ### <a name="clean-missing-data"></a>清除遺漏的資料
 
-現在，再新增一個將任何含有遺漏資料的其餘資料列移除的模組。
+當您定型模型時，您必須對遺漏的資料採取某些動作。  在此案例中，您將新增模組來移除任何含有遺漏資料的其餘資料列。  
 
 1. 在搜尋方塊中輸入**清除**，以尋找**清除遺漏的資料**模組。
 
@@ -216,7 +216,7 @@ ms.locfileid: "65545069"
 
     現在有 193 個資料列和 25 個資料行。
 
-    當您按一下**車門數**時，您會看到現在仍有 2 個唯一值，但已沒有遺漏值。  
+    當您按一下**車門數**時，您會看到現在仍有 2 個唯一值，但已沒有遺漏值。 按一下其餘資料行，確認沒有任何遺漏值留在資料集中。 
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -228,7 +228,7 @@ ms.locfileid: "65545069"
 
 - 建立您的第一個實驗以新增和預覽資料
 - 移除遺漏的值以準備資料
-- 將產生的資料視覺化
+- 視覺化備妥的資料
 
 繼續進行教學課程，以使用這項資料預測汽車的價格。
 

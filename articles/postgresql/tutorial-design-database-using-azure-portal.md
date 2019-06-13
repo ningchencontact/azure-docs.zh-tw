@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 5/16/2019
-ms.openlocfilehash: 20eb5a59e98c06d7bce4623a6a8facd998d3be4c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 94988f4f287730c69b51e44bcbfa4e3d63d139fa
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069156"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515718"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站設計適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器
 
@@ -65,6 +65,9 @@ ms.locfileid: "65069156"
    > 
 
     ![[定價層] 窗格](./media/quickstart-create-database-portal/2-pricing-tier.png)
+
+    > [!TIP]
+    > 啟用**自動成長**後，您的伺服器會在接近配置的限制時增加儲存體，而不會影響您的工作負載。
 
 5. 選取 [檢閱 + 建立]  以檢閱您的選項。 選取 [建立]  以佈建伺服器。 這項作業可能需要幾分鐘的時間。
 

@@ -1,6 +1,6 @@
 ---
 title: 教學課程：Azure Active Directory 與 Control 整合 | Microsoft Docs
-description: 了解如何設定 Azure Active Directory 與 Control 之間的單一登入。
+description: 了解如何設定 Azure Active Directory 與 Continuity Control 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,18 +16,18 @@ ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 569021d79e74bc7a5a2582741109e1094ba90de8
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: aa66ae77ccc271e475d61b286e0f236429e40feb
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65874046"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507514"
 ---
-# <a name="tutorial-integrate-control-with-azure-active-directory"></a>教學課程：整合 Control 與 Azure Active Directory
+# <a name="tutorial-integrate-continuity-control-with-azure-active-directory"></a>教學課程：整合 Continuity Control 與 Azure Active Directory
 
-在本教學課程中，您將了解如何整合 Control 與 Azure Active Directory (Azure AD)。 在整合 Control 與 Azure AD 時，您可以︰
+在本教學課程中，您將了解如何整合 Continuity Control (Control) 與 Azure Active Directory (Azure AD)。 在整合 Control 與 Azure AD 時，您可以︰
 
-* 在 Azure AD 中控制可存取 Control。
+* 在 Azure AD 中管理可存取 Control 的人員。
 * 讓使用者使用其 Azure AD 帳戶自動登入 Control。
 * 在 Azure 入口網站中集中管理您的帳戶。
 
@@ -74,7 +74,7 @@ ms.locfileid: "65874046"
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Control]  應用程式整合頁面上，尋找 [管理]  區段並選取 [單一登入]  。
 1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
-1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 組態]  的編輯/畫筆圖示，以編輯設定。
+1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
@@ -83,7 +83,7 @@ ms.locfileid: "65874046"
     在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://<SUBDOMAIN>.continuity.net/auth/saml`
 
     > [!Note]
-    > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Control 用戶端支援小組](mailto:help@continuity.net)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這不是真正的值。 使用正確的子網域更新此值。 您可以在[控制驗證策略](https://control.continuity.net/settings/account_profile#tab/security)設定 SSO 子網域。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 1. 在 [SAML 簽署憑證]  區段中，按一下 [編輯]  按鈕以開啟 [SAML 簽署憑證]  對話方塊。
 
@@ -93,19 +93,13 @@ ms.locfileid: "65874046"
 
     ![複製指紋值](common/copy-thumbprint.png)
 
-1. 在 [設定 Control]  區段上，依據您的需求複製適當的 URL。
+1. 在 [設定控制]  區段上，複製 [登入 URL] 並將它儲存在您的電腦上。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
-    a. 登入 URL
-
-    b. Azure AD 識別碼
-
-    c. 登出 URL
-
 ### <a name="configure-control-sso"></a>設定 Control SSO
 
-若要在 **Control** 端設定單一登入，您必須將來自 Azure 入口網站的**指紋值** 和複製的適當 URL 傳送給 [Control 支援小組](mailto:help@continuity.net)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 [控制]  端設定單一登入，您需要在[控制驗證策略](https://control.continuity.net/settings/account_profile#tab/security)更新單一登入驗證設定。 在 Azure 入口網站中使用 [登入 URL]  更新 [SAML SSO URL]  ，以及使用 [指紋值]  更新 [憑證指紋]  。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -139,7 +133,7 @@ ms.locfileid: "65874046"
 
 ### <a name="create-control-test-user"></a>建立 Control 測試使用者
 
-在本節中，您要在 Control 中建立名為 Britta Simon 的使用者。 請與 [Control 支援小組](mailto:help@continuity.net) 合作，在 Control 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Control 中建立名為 Britta Simon 的使用者。 請與 [Control 支援小組](mailto:help@continuity.net) 合作，在 Control 平台中新增使用者。 使用 Britta Simon 的 Azure AD [使用者名聲]  ，在 Control 中填入其 [識別提供者使用者識別碼]  。 您必須先在 Control 中建立使用者，以及設定其 [識別提供者使用者識別碼]  ，才能使用單一登入。
 
 ### <a name="test-sso"></a>測試 SSO
 

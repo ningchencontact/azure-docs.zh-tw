@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 80e5feeccc4acc3e1f3dab6b815c8605332c7c71
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 976830232453eee0993e64ac445c2e6a2f7e20ef
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834331"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478588"
 ---
 # <a name="personalizer-settings"></a>個人化工具設定
 
@@ -63,7 +63,9 @@ ms.locfileid: "65834331"
 
 ### <a name="model-update-frequency"></a>模型更新頻率
 
-**模型更新頻率**會設定要將新的個人化工具模型重新定型的頻率。 
+個人化工具排名呼叫不會自動使用最新的模型 (已從每個作用中事件的獎勵 API 呼叫中進行定型)。 **模型更新頻率**會設定排名呼叫所用模型的更新頻率。 
+
+若您想要密切追蹤使用者行為的變更，可使用較高的模型更新頻率。 例如播放即時新聞、熱門內容或即時產品競標的網站。 在這些案例中，您可以使用 15 分鐘的頻率。 針對大多數使用案例，較低的更新頻率會比較有效。 一分鐘的更新頻率即適用於使用個人化工具對應用程式的程式碼進行偵錯、示範，或以互動方式測試機器學習服務的面向。
 
 ![模型更新頻率會設定要將新的個人化工具模型重新定型的頻率。](media/settings/configure-model-update-frequency-settings.png)
 
@@ -77,7 +79,7 @@ ms.locfileid: "65834331"
 
 ## <a name="export-the-personalizer-model"></a>匯出個人化工具模型
 
-從 [資源管理] 的 [模型和原則]  區段，檢閱模型的建立日期和上次更新日期，然後匯出目前的模型。
+從 [資源管理] 的 [模型和原則]  區段，檢閱模型的建立日期和上次更新日期，然後匯出目前的模型。 您可以使用 Azure 入口網站或個人化工具 API 來匯出要加以封存的模型檔案。 
 
 ![匯出目前的個人化工具模型](media/settings/export-current-personalizer-model.png)
 

@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 88e8d543e8bc3c3ae07133ec333b33c4486c2684
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ea890a49fc7b6a153ece183b153f5bc2a49760b5
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864521"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496559"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>在 Azure 中建立 HTTP 觸發的函式
 
@@ -175,7 +175,7 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 ```
 
 > [!NOTE]
-> Linux 和 Windows 應用程式無法裝載在相同的資源群組中。 如果您有名為 `myResourceGroup` 的現有資源群組，且其中包含 Windows 函式應用程式或 Web 應用程式，則必須使用不同的資源群組。
+> 適用於 Linux 的 Azure Functions 取用方案目前為預覽狀態，只在下列區域提供：美國西部、美國東部、西歐、東亞。 此外，Linux 和 Windows 應用程式無法裝載在相同的資源群組中。 如果您有名為 `myResourceGroup` 的現有資源群組，且其中包含 Windows 函式應用程式或 Web 應用程式，則必須使用不同的資源群組。
 
 您現在已準備好將本機 Functions 專案發佈至 Azure 中的函式應用程式。
 

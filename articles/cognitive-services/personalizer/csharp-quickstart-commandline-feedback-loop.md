@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/08/2019
 ms.author: edjez
-ms.openlocfilehash: b0dc8fbbb80a4d03b2cb64d09ffe9a36883c5bf9
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: a7f6c6fe25bf9dff2f102080f93fc1e0024ac660
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521379"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478609"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>快速入門：使用 C# 將內容個人化 
 
@@ -40,7 +40,9 @@ ms.locfileid: "65521379"
 
 ## <a name="change-the-model-update-frequency"></a>變更模型更新頻率
 
-在 Azure 入口網站的個人化資源中，將 [模型更新頻率]  變更為 10 秒。 如此可快速定型服務，讓您查看最上次的動作如何針對每個反覆項目變更
+在 Azure 入口網站的個人化資源中，將 [模型更新頻率]  變更為 10 秒。 如此可快速定型服務，讓您查看最上次的動作如何針對每個反覆項目變更。
+
+第一次具現化個人化工具迴圈時，因為已經沒有可進行訓練的獎勵 API 呼叫，所以沒有模型。 排名呼叫會針對每個項目傳回相等的機率。 您的應用程式應該仍會一直使用 RewardActionId 的輸出來排名內容。
 
 ![變更模型更新頻率](./media/settings/configure-model-update-frequency-settings.png)
 

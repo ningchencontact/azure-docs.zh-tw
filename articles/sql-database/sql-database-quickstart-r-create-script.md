@@ -172,7 +172,7 @@ GO
     WITH RESULT SETS(([NewColName] INT NOT NULL));
     ```
 
-    請注意，R 會區分大小寫。 R 指令碼中使用的輸入和輸出變數 (**SQL_out****SQL_in**) 必須符合使用 `@input_data_1_name` 和 `@output_data_1_name` 定義的值 (包括大小寫)。
+    請注意，R 會區分大小寫。 R 指令碼中使用的輸入和輸出變數 (**SQL_out** **SQL_in**) 必須符合使用 `@input_data_1_name` 和 `@output_data_1_name` 定義的值 (包括大小寫)。
 
    > [!TIP]
    > 只有一個輸入資料集可以傳入作為參數，而且您只能傳回一個資料集。 不過，您可以從 R 程式碼內呼叫其他資料集，而且可以在資料集以外傳回其他類型的輸出。 您也可以為任何參數加上 OUTPUT 關鍵字，使其與結果一起傳回。

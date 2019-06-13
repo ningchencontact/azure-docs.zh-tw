@@ -49,21 +49,21 @@ ms.locfileid: "66167332"
 
 **在 Azure 入口網站中建立邏輯應用程式的應用程式識別碼**
 
-1. 在 [Azure 入口網站](https://portal.azure.com "https://portal.azure.com")中，選擇 [Azure Active Directory]。 
+1. 在 [Azure 入口網站](https://portal.azure.com "https://portal.azure.com")中，選擇 [Azure Active Directory]  。 
 
 2. 請確認您與 web 應用程式或 API 應用程式位於相同的目錄中。
 
    > [!TIP]
-   > 若要切換目錄，請選擇您的設定檔，然後選取另一個目錄。 或者，選擇 [概觀] > [切換目錄]。
+   > 若要切換目錄，請選擇您的設定檔，然後選取另一個目錄。 或者，選擇 [概觀]   > [切換目錄]  。
 
-3. 在 [目錄] 功能表的 [管理] 下，選擇 [應用程式註冊] > [新增應用程式註冊]。
+3. 在 [目錄] 功能表的 [管理]  下，選擇 [應用程式註冊]   > [新增應用程式註冊]  。
 
    > [!TIP]
-   > 根據預設，應用程式註冊清單會顯示您目錄中的所有應用程式註冊。 若只要檢視您的應用程式註冊，請在搜尋方塊旁選取 [我的應用程式]。 
+   > 根據預設，應用程式註冊清單會顯示您目錄中的所有應用程式註冊。 若只要檢視您的應用程式註冊，請在搜尋方塊旁選取 [我的應用程式]  。 
 
    ![建立新的應用程式註冊](./media/logic-apps-custom-api-authentication/new-app-registration-azure-portal.png)
 
-4. 為您的應用程式識別碼指定名稱，並保留**應用程式類型**設為 **Web 應用程式 / API**，提供格式化為**登入 URL** 之網域的唯一字串，然後選擇 [建立]。
+4. 為您的應用程式識別碼指定名稱，並保留**應用程式類型**設為 **Web 應用程式 / API**，提供格式化為**登入 URL** 之網域的唯一字串，然後選擇 [建立]  。
 
    ![提供應用程式識別碼的名稱和登入 URL](./media/logic-apps-custom-api-authentication/logic-app-identity-azure-portal.png)
 
@@ -75,16 +75,16 @@ ms.locfileid: "66167332"
 
    ![複製並儲存邏輯應用程式的應用程式識別碼](./media/logic-apps-custom-api-authentication/logic-app-application-id.png)
 
-6. 如果看不到您的應用程式識別碼設定，請選擇 [設定] 或 [所有設定]。
+6. 如果看不到您的應用程式識別碼設定，請選擇 [設定]  或 [所有設定]  。
 
-7. 在 [API 存取] 下，選擇 [金鑰]。 在 [描述] 下，提供您金鑰的名稱。 在 [到期時間] 下，選取您金鑰的持續時間。
+7. 在 [API 存取]  下，選擇 [金鑰]  。 在 [描述]  下，提供您金鑰的名稱。 在 [到期時間]  下，選取您金鑰的持續時間。
 
    您要建立的金鑰會作為應用程式識別碼的「祕密」或邏輯應用程式的密碼。
 
    ![建立邏輯應用程式身分識別的金鑰](./media/logic-apps-custom-api-authentication/create-logic-app-identity-key-secret-password.png)
 
-8. 在工具列上，選擇 [儲存]。 在 [值] 下，現在會顯示您的金鑰。 
-離開 [金鑰] 頁面時，**請務必複製並儲存您的金鑰**以供稍後使用，因為系統將會隱藏此金鑰。
+8. 在工具列上，選擇 [儲存]  。 在 [值]  下，現在會顯示您的金鑰。 
+離開 [金鑰]  頁面時，**請務必複製並儲存您的金鑰**以供稍後使用，因為系統將會隱藏此金鑰。
 
    當您在第 3 部分設定邏輯應用程式時，您要指定這個金鑰作為「祕密」或密碼。
 
@@ -104,7 +104,7 @@ ms.locfileid: "66167332"
 
 3. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
-4. 請務必複製 [租用戶識別碼] \(您 Azure AD 租用戶的 GUID)、[應用程式識別碼] 和您所使用的密碼。
+4. 請務必複製 [租用戶識別碼]  \(您 Azure AD 租用戶的 GUID)、[應用程式識別碼]  和您所使用的密碼。
 
 如需詳細資訊，請了解如何[使用 PowerShell 建立用來存取資源的服務主體](../active-directory/develop/howto-authenticate-service-principal-powershell.md)。
 
@@ -116,36 +116,36 @@ ms.locfileid: "66167332"
 
 1. 在 [Azure 入口網站](https://portal.azure.com "https://portal.azure.com")中，找出並選取您的 Web 應用程式或 API 應用程式。 
 
-2. 在 [設定] 下，選擇 [驗證/授權]。 在 [App Service 驗證] 下，將驗證 [開啟]。 在 [驗證提供者] 下，選擇 [Azure Active Directory]。
+2. 在 [設定]  下，選擇 [驗證/授權]  。 在 [App Service 驗證]  下，將驗證 [開啟]  。 在 [驗證提供者]  下，選擇 [Azure Active Directory]  。
 
    ![開啟驗證](./media/logic-apps-custom-api-authentication/custom-web-api-app-authentication.png)
 
-3. 現在建立 Web 應用程式或 API 應用程式的應用程式識別碼，如下所示。 在 [Azure Active Directory 設定] 頁面上，將 [管理模式] 設定為 [快速]。 選擇 [建立新的 AD 應用程式]。 為您的應用程式識別碼提供名稱，然後選擇 **[確定]**。 
+3. 現在建立 Web 應用程式或 API 應用程式的應用程式識別碼，如下所示。 在 [Azure Active Directory 設定]  頁面上，將 [管理模式]  設定為 [快速]  。 選擇 [建立新的 AD 應用程式]  。 為您的應用程式識別碼提供名稱，然後選擇 **[確定]** 。 
 
    ![建立 Web 應用程式或 API 應用程式的應用程式識別碼](./media/logic-apps-custom-api-authentication/custom-api-application-identity.png)
 
-4. 在 [驗證/授權] 頁面上，選擇 [儲存]。
+4. 在 [驗證/授權]  頁面上，選擇 [儲存]  。
 
 現在您必須尋找的應用程式識別碼之用戶端識別碼和租用戶識別碼，是與您的 web 應用程式或 API 應用程式相關聯。 您可以在第 3 部分中使用這些識別碼。 因此，繼續執行 Azure 入口網站的下列步驟。
 
 **在 Azure 入口網站中尋找 web 應用程式或 API 應用程式的應用程式識別碼之用戶端識別碼和租用戶識別碼**
 
-1. 在 [驗證提供者] 下，選擇 [Azure Active Directory]。 
+1. 在 [驗證提供者]  下，選擇 [Azure Active Directory]  。 
 
    ![選擇 [Azure Active Directory]](./media/logic-apps-custom-api-authentication/custom-api-app-identity-client-id-tenant-id.png)
 
-2. 在 [Azure Active Directory 設定] 頁面上，將 [管理模式] 設定為 [進階]。
+2. 在 [Azure Active Directory 設定]  頁面上，將 [管理模式]  設定為 [進階]  。
 
-3. 複製 [用戶端識別碼]，並儲存用於第 3 部分的 GUID。
+3. 複製 [用戶端識別碼]  ，並儲存用於第 3 部分的 GUID。
 
    > [!TIP] 
-   > 如果未出現 [用戶端識別碼] 和 [簽發者 URL]，請嘗試重新整理 Azure 入口網站，然後重複步驟 1。
+   > 如果未出現 [用戶端識別碼]  和 [簽發者 URL]  ，請嘗試重新整理 Azure 入口網站，然後重複步驟 1。
 
-4. 在 [簽發者 URL] 下，僅複製並儲存用於第 3 部分的 GUID。 您也可以視需要在您的 web 應用程式或 API 應用程式的部署範本中使用此 GUID。
+4. 在 [簽發者 URL]  下，僅複製並儲存用於第 3 部分的 GUID。 您也可以視需要在您的 web 應用程式或 API 應用程式的部署範本中使用此 GUID。
 
    此 GUID 是您特定租用戶的 GUID (「租用戶 ID」)，且應該會出現在此 URL：`https://sts.windows.net/{GUID}`
 
-5. 無須儲存變更，關閉 [Azure Active Directory 設定] 頁面。
+5. 無須儲存變更，關閉 [Azure Active Directory 設定]  頁面。
 
 <a name="authen-deploy"></a>
 
@@ -176,7 +176,7 @@ ms.locfileid: "66167332"
 } ]
 ```
 
-若要自動將空白 web 應用程式和邏輯應用程式與 Azure Active Directory 驗證共同部署，請[在這裡檢視完整範本](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json)，或在這裡按一下 [部署至 Azure]：
+若要自動將空白 web 應用程式和邏輯應用程式與 Azure Active Directory 驗證共同部署，請[在這裡檢視完整範本](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json)，或在這裡按一下 [部署至 Azure]  ：
 
 [![部署至 Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
@@ -184,7 +184,7 @@ ms.locfileid: "66167332"
 
 前一個範本已設定此授權區段，但如果您要直接撰寫邏輯應用程式，則必須包含完整的授權區段。
 
-在程式碼檢視中開啟您的邏輯應用程式定義、移至 [HTTP] 動作區段、尋找 [授權] 區段，並納入這一行：
+在程式碼檢視中開啟您的邏輯應用程式定義、移至 [HTTP]  動作區段、尋找 [授權]  區段，並納入這一行：
 
 `{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
 
@@ -230,7 +230,7 @@ ms.locfileid: "66167332"
 
 若要驗證邏輯應用程式傳入 Web 應用程式或 API 應用程式中的要求，您可以使用用戶端憑證。 如需設定程式碼，請了解[如何設定 TLS 相互驗證](../app-service/app-service-web-configure-tls-mutual-auth.md)。
 
-在 [授權] 區段中，納入這一行： 
+在 [授權]  區段中，納入這一行： 
 
 `{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
 
@@ -247,7 +247,7 @@ ms.locfileid: "66167332"
 
 若要驗證邏輯應用程式傳入 Web 應用程式或 API 應用程式中的要求，您可以使用基本驗證，例如使用者名稱和密碼。 基本驗證的常見模式，任何用來建置 Web 應用程式或 API 應用程式的語言都可以使用此驗證。
 
-在 [授權] 區段中，納入這一行：
+在 [授權]  區段中，納入這一行：
 
 `{"type": "basic", "username": "username", "password": "password"}` 。
 

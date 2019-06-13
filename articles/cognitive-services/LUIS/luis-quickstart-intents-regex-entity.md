@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 71104ecf0514b61e4f0d224d25f2ace9457f3cd3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5e79de8dc8b4e81f427925b6e3d662bd4931804d
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145496"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497015"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>教學課程：從語句取得格式正確的資料
 在本教學課程中，您將建立應用程式，以使用**規則運算式**實體從語句中擷取格式一致的資料。
@@ -61,9 +61,9 @@ ms.locfileid: "65145496"
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. 選取 [Create new intent] \(建立新意圖\)。 
+1. 選取 [Create new intent] \(建立新意圖\)  。 
 
-1. 在快顯對話方塊方塊中輸入 `FindForm`，然後選取 [完成]。 
+1. 在快顯對話方塊方塊中輸入 `FindForm`，然後選取 [完成]  。 
 
     ![搜尋方塊中有公用程式的建立新意圖對話方塊螢幕擷取畫面](./media/luis-quickstart-intents-regex-entity/create-new-intent-ddl.png)
 
@@ -95,15 +95,15 @@ HRF 代表 `human resources form`。
 
 使用下列步驟建立規則運算式實體，以向 LUIS 告知 HRF-編號的格式：
 
-1. 在左側面板中選取 [實體]。
+1. 在左側面板中選取 [實體]  。
 
-1. 選取 [實體] 頁面上的 [建立新實體]按鈕。 
+1. 選取 [實體] 頁面上的 [建立新實體]  按鈕。 
 
-1. 在快顯對話方塊中，輸入新的實體名稱 `HRF-number`，選取 **RegEx** 作為實體類型，然後輸入 `hrf-[0-9]{6}` 作為 [Regex] 值，最後選取 [完成]。
+1. 在快顯對話方塊中，輸入新的實體名稱 `HRF-number`，選取 **RegEx** 作為實體類型，然後輸入 `hrf-[0-9]{6}` 作為 [Regex]  值，最後選取 [完成]  。
 
     ![設定新實體屬性的快顯對話方塊螢幕擷取畫面](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
 
-1. 從左側功能表選取 [意圖]，然後選取 [FindForm] 意圖，以查看語句中標示的規則運算式。 
+1. 從左側功能表選取 [意圖]  ，然後選取 [FindForm]  意圖，以查看語句中標示的規則運算式。 
 
     [![以現有實體和 RegEx 模式標示語句的螢幕擷取畫面](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png)](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png#lightbox)
 
@@ -125,7 +125,11 @@ HRF 代表 `human resources form`。
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. 移至位址中的 URL 結尾並輸入 `When were HRF-123456 and hrf-234567 published in the last year?`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回具有兩種表單編號 `HRF-123456` 和 `hrf-234567` 的 `FindForm` 意圖。
+2. 移至位址中的 URL 結尾並輸入以下語句：
+
+    `When were HRF-123456 and hrf-234567 published in the last year?`
+
+    最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回具有兩種表單編號 `HRF-123456` 和 `hrf-234567` 的 `FindForm` 意圖。
 
     ```json
     {

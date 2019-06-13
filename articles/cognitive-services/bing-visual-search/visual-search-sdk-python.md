@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: b2cb82076eb54f858fffb67d585ac2273f98583d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: eb115d1bfe033761c8dab82b693e4e694ff3bd2b
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796317"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734627"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>快速入門：使用適用於 Python 的 Bing 圖像式搜尋 SDK 來取得影像見解
 
@@ -50,6 +50,7 @@ ms.locfileid: "65796317"
         Filters,
         KnowledgeRequest,
     )
+    from msrest.authentication import CognitiveServicesCredentials
     ```
 2. 為您的訂用帳戶金鑰、自訂組態識別碼，以及您要上傳的影像，建立變數。 
     
@@ -63,7 +64,7 @@ ms.locfileid: "65796317"
 3. 具現化用戶端
 
     ```python
-    var client = new VisualSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"))
+    client = VisualSearchClient(endpoint="https://api.cognitive.microsoft.com", credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 ## <a name="send-the-search-request"></a>傳送搜尋要求

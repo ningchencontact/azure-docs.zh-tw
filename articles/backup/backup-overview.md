@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bd90d315fd5590a8bd862a1a3397cf8c254fccc8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9e926ca2625f98522652ae7e7d245ecf2ed576c4
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714293"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688724"
 ---
 # <a name="what-is-azure-backup"></a>何謂 Azure 備份？
 
@@ -32,7 +32,7 @@ Azure 備份可提供下列主要優點：
     - 如果您使用 Azure 匯入/匯出服務執行離線初始備份以匯出大量資料，則會有輸入資料的相關費用。  [深入了解](backup-azure-backup-import-export.md)。
 - **確保資料安全性**：Azure 備份提供解決方案來保護傳輸中和待用的資料。
 - **取得應用程式一致備份**：應用程式一致備份表示復原點具有還原備份複本所需的所有資料。 Azure 備份提供應用程式一致備份，確保資料還原不需要其他修正程式。 還原應用程式一致的資料會減少還原時間，讓您能夠快速回到執行狀態。
-- **保留短期和長期資料**：您可以使用復原服務保存庫進行短期和長期資料保留。 Azure 不會限制您可在復原服務保存庫中保留資料的時間長度。 您可以無限期保留資料。 Azure 備份的每個受保護執行個體上限為 9999 個復原點。 [深入了解](backup-introduction-to-azure-backup.md#backup-and-retention)這項限制對您的備份需求有何影響。
+- **保留短期和長期資料**：您可以使用復原服務保存庫進行短期和長期資料保留。 Azure 不會限制您可在復原服務保存庫中保留資料的時間長度。 您可以無限期保留資料。 Azure 備份的每個受保護執行個體上限為 9999 個復原點。 
 - **自動儲存管理** - 混合式環境通常需要異質性儲存體 - 部份在內部部署，部份在雲端。 使用 Azure 備份，使用內部部署儲存體裝置無需成本。 Azure 備份會自動配置和管理備份儲存體，且採用隨用隨付模式，因此您只需為已使用的儲存體付費。 [深入了解](https://azure.microsoft.com/pricing/details/backup)定價。
 - **多個儲存體選項** - Azure 備份提供兩種類型的複寫，讓您的儲存體/資料保有高可用性。
     - [本地備援儲存體 (LRS)](../storage/common/storage-redundancy-lrs.md) 會將資料複寫至資料中心的儲存體縮放單位三次 (建立三個資料複本)。 此資料的所有複本都存在於相同的區域內。 LRS 是保護資料免於本機硬體失敗的低成本選項。
@@ -109,6 +109,25 @@ Azure 備份可備份內部部署機器和 Azure VM。
 **我想要備份在內部部署執行的應用程式** | 若要進行應用程式感知備份，機器必須受到 DPM 或 MABS 保護。
 **我希望 Azure VM 有精細且彈性的備份和復原設定** | 在 Azure 中執行 MABS/DPM 為 Azure VM 提供保護，以提高備份排程的彈性，並且能有充分的彈性可保護及還原檔案、資料夾、磁碟區、應用程式和系統狀態。
 
+## <a name="backup-and-retention"></a>備份和保留
+
+Azure 備份每個*受保護的執行個體*上限為 9999 個復原點 (也稱為備份複本或快照集)。
+
+- 受保護的執行個體可以是電腦、(實體或虛擬) 伺服器，或設定為將資料備份至 Azure 的工作負載。 儲存資料的備份複本之後，執行個體就會受到保護。
+- 資料的備份複本就是保護。 如果來源資料已遺失或損毀，備份可以還原來源資料。
+
+下表顯示每個元件的最大備份頻率。備份原則設定決定您多快會用完復原點。 比方說，如果您每天建立復原點，則在用完之前可以保留復原點 27 年。如果您採取每月建立復原點，則在用完之前可以保留復原點 833 年。備份服務不會對復原點設定到期時間限制。
+
+|  | Azure 備份代理程式 | System Center DPM | Azure 備份伺服器 | Azure IaaS VM 備份 |
+| --- | --- | --- | --- | --- |
+| 備份頻率<br/> (到復原服務保存庫) |每天備份 3 次 |每天備份 2 次 |每天備份 2 次 |每天備份 1 次 |
+| 備份頻率<br/> (至磁碟) |不適用 |每隔 15 分鐘 (SQL Server)<br/><br/> 每隔 1 小時 (其他工作負載) |每隔 15 分鐘 (SQL Server)<br/><br/> 每隔 1 小時 (其他工作負載) |不適用 |
+| 保留選項 |每日、每週、每月、每年 |每日、每週、每月、每年 |每日、每週、每月、每年 |每日、每週、每月、每年 |
+| 每個受保護執行個體的最大復原點 |9999|9999|9999|9999|
+| 最大保留期間 |依照備份頻率而定 |依照備份頻率而定 |依照備份頻率而定 |依照備份頻率而定 |
+| 本機磁碟上的復原點 |不適用 | 64 (檔案伺服器)<br/><br/> 448 (應用程式伺服器) | 64 (檔案伺服器)<br/><br/> 448 (應用程式伺服器) |不適用 |
+| 磁帶上的復原點 |不適用 |無限 |不適用 |不適用 |
+
 ## <a name="how-does-azure-backup-work-with-encryption"></a>Azure 備份如何與加密功能搭配運作？
 
 **加密** | **備份內部部署** | **備份 Azure VM** | **在 Azure VM 上備份 SQL**
@@ -119,7 +138,7 @@ Azure 備份可備份內部部署機器和 Azure VM。
 ## <a name="next-steps"></a>後續步驟
 
 - [檢閱](backup-architecture.md)不同備份案例的架構和元件。
-- [確認](backup-support-matrix.md)備份的支援功能和設定。
+- [驗證](backup-support-matrix.md)備份 及 [Azure VM 備份](backup-support-matrix-iaas.md)的支援需求和限制。
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

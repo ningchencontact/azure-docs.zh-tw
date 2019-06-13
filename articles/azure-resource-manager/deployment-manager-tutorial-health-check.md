@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/06/2019
+ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8ffc64359faab539ab74e354caad4081f31fcd43
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d43a0e7c48db9dd42c7cf3b52e5d4072a4827898
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790116"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479172"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>教學課程：在 Azure 部署管理員 (公開預覽版) 中使用健康情況檢查
 
@@ -50,18 +50,18 @@ ms.locfileid: "65790116"
 若要完成本文，您需要：
 
 * 完成[使用 Azure 部署管理員搭配 Resource Manager 範本](./deployment-manager-tutorial.md)。
-* 下載本教學課程所使用的[範本和成品](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip)。 
+* 下載本教學課程所使用的[範本和成品](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip)。
 
 ## <a name="create-a-health-check-service-simulator"></a>建立健康情況檢查服務模擬器
 
-在生產環境中，您通常會使用一或多個監視提供者。 為了讓健康情況整合盡量簡化，Microsoft 持續與一些最頂尖的服務健康情況監視公司合作，為您提供簡單的複製/貼上解決方案，以整合健康情況檢查與您的部署。 如需這些公司的清單，請參閱[健康情況監視提供者](./deployment-manager-health-check.md#health-monitoring-providers)。 就此教學課程的目的，您會建立 [Azure 函式](/azure/azure-functions/)來模擬健康情況監視服務。 此函式會接受狀態碼，並傳回相同的代碼。 Azure 部署管理員範本會使用狀態碼來判斷如何繼續進行部署。 
+在生產環境中，您通常會使用一或多個監視提供者。 為了讓健康情況整合盡量簡化，Microsoft 持續與一些最頂尖的服務健康情況監視公司合作，為您提供簡單的複製/貼上解決方案，以整合健康情況檢查與您的部署。 如需這些公司的清單，請參閱[健康情況監視提供者](./deployment-manager-health-check.md#health-monitoring-providers)。 就此教學課程的目的，您會建立 [Azure 函式](/azure/azure-functions/)來模擬健康情況監視服務。 此函式會接受狀態碼，並傳回相同的代碼。 Azure 部署管理員範本會使用狀態碼來判斷如何繼續進行部署。
 
 下列兩個檔案用於部署 Azure 函式。 您不需要下載這些檔案，即可進行本教學課程。
 
-* Resource Manager 範本位於 [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json)。 您會部署此範本來建立 Azure 函式。  
-* Azure 函式原始程式碼的 zip 檔 [http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](http://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip)。 Resource Manager 範本會呼叫此 zip 檔。
+* Resource Manager 範本位於 [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json)。 您會部署此範本來建立 Azure 函式。
+* Azure 函式原始程式碼的 zip 檔 [http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip)。 Resource Manager 範本會呼叫此 zip 檔。
 
-若要部署 Azure 函式，請選取 [試試看] 以開啟 Azure Cloud Shell，然後將下列指令碼貼到 Shell 視窗。  若要貼上程式碼，請以滑鼠右鍵按一下 Shell 視窗，然後選取 [貼上]。 
+若要部署 Azure 函式，請選取 [試試看]  以開啟 Azure Cloud Shell，然後將下列指令碼貼到 Shell 視窗。  若要貼上程式碼，請以滑鼠右鍵按一下 Shell 視窗，然後選取 [貼上]  。
 
 > [!IMPORTANT]
 > PowerShell 指令碼中的 **projectName** 用來為本教學課程中部署的 Azure 服務產生名稱。 不同的 Azure 服務有不同的名稱需求。 若要確保成功部署，請選擇小於 12 個字元且僅有小寫字母和數字的名稱。
@@ -81,12 +81,12 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 1. 開啟 [Azure 入口網站](https://portal.azure.com)。
 1. 開啟資源群組。  預設名稱是附加 **rg** 的專案名稱。
 1. 從資源群組中選取 App Service。  App Service 的預設名稱是是附加 **webapp** 的專案名稱。
-1. 展開 [函式]，然後選取 [HttpTrigger1]。 
+1. 展開 [函式]  ，然後選取 [HttpTrigger1]  。
 
     ![Azure 部署管理員檢查 Azure 函式的健康情況](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
-1. 選取 &lt;/>[取得函式 URL]。
-1. 選取 [複製] 將 URL 複製到剪貼簿。  URL 如下所示：
+1. 選取 &lt;/>[取得函式 URL]  。
+1. 選取 [複製]  將 URL 複製到剪貼簿。  URL 如下所示：
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/{healthStatus}?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
@@ -178,7 +178,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
     },
     ```
 
-    根據定義，如果健康情況狀態是 *healthy* 或 *warning*，首度發行則會繼續執行。 
+    根據定義，如果健康情況狀態是 *healthy* 或 *warning*，首度發行則會繼續執行。
 
 1. 更新首度發行定義的 **dependsON**，以納入新定義的健康情況檢查步驟：
 
@@ -189,7 +189,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
     ],
     ```
 
-1. 更新 **stepGroups** 以納入健康情況檢查步驟。 **healthCheckStep** 會在 **stepGroup2** 的 **postDeploymentSteps** 中呼叫。 只有健康狀態為 *healthy* 或 *warning* 時，才會部署 **stepGroup3** 和 **stepGroup4**。 
+1. 更新 **stepGroups** 以納入健康情況檢查步驟。 **healthCheckStep** 會在 **stepGroup2** 的 **postDeploymentSteps** 中呼叫。 只有健康狀態為 *healthy* 或 *warning* 時，才會部署 **stepGroup3** 和 **stepGroup4**。
 
     ```json
     "stepGroups": [
@@ -240,7 +240,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 * 拓撲範本： https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
 * 成品存放區： https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
 
-若要部署拓撲，請選取 [試試看] 以開啟 Cloud Shell，然後貼上 PowerShell 指令碼。
+若要部署拓撲，請選取 [試試看]  以開啟 Cloud Shell，然後貼上 PowerShell 指令碼。
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
@@ -261,7 +261,7 @@ New-AzResourceGroupDeployment `
 
 ![Azure 部署管理員教學課程已部署的服務拓撲資源](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-deployed-topology-resources.png)
 
-必須選取 [顯示隱藏的類型] 才能檢視資源。
+必須選取 [顯示隱藏的類型]  才能檢視資源。
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>在不良狀態下部署首度發行
 
@@ -387,15 +387,15 @@ Tags                    :
 
 不再需要 Azure 資源時，可藉由刪除資源群組來清除您所部署的資源。
 
-1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]。
-2. 使用 [依名稱篩選] 欄位，縮減在本教學課程中建立的資源群組數目。 應該會有 3-4 個：
+1. 在 Azure 入口網站中，選取左側功能表中的 [資源群組]  。
+2. 使用 [依名稱篩選]  欄位，縮減在本教學課程中建立的資源群組數目。 應該會有 3-4 個：
 
     * **&lt;namePrefix>rg**：包含部署管理員資源。
     * **&lt;namePrefix>ServiceWUSrg**：包含 ServiceWUS 所定義的資源。
     * **&lt;namePrefix>ServiceEUSrg**：包含 ServiceEUS 所定義的資源。
     * 使用者定義受控識別的資源群組。
-3. 選取資源群組名稱。  
-4. 從頂端功能表中選取 [刪除資源群組]。
+3. 選取資源群組名稱。
+4. 從頂端功能表中選取 [刪除資源群組]  。
 5. 重複最後兩個步驟，刪除本教學課程所建立的其他資源群組。
 
 ## <a name="next-steps"></a>後續步驟

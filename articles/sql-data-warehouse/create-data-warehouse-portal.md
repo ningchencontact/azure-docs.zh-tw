@@ -7,15 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: development
-ms.date: 08/02/2018
+ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ee18a78aea67d0270b105f8703259b65c706d2e7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.custom: sqlfreshmay19
+ms.openlocfilehash: 9072caf29be0ebf47207266b7313e989034c3a18
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66169265"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428039"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入門：如何在 Azure 入口網站中建立及查詢 Azure SQL 資料倉儲
 
@@ -81,7 +82,7 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
 
 8. 按一下 [套用]  。
 
-9. 您現在已完成 SQL 資料倉儲表單，請按一下 [建立]  以佈建資料庫。 佈建需要幾分鐘的時間。 
+9. 您現在已完成 SQL 資料倉儲表單，請按一下 [建立]  以佈建資料庫。 佈建需要幾分鐘的時間。
 
     ![按一下 [建立]](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -91,31 +92,30 @@ Azure SQL 資料倉儲會使用一組定義的[計算資源](memory-and-concurre
 
 ## <a name="create-a-server-level-firewall-rule"></a>建立伺服器層級防火牆規則
 
-SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用程式和工具連線到伺服器或伺服器上的任何資料庫。 若要啟用連線，您可以新增防火牆規則以啟用特定 IP 位址之連線。 遵循以下步驟建立用戶端 IP 位址的[伺服器層級防火牆規則](../sql-database/sql-database-firewall-configure.md)。 
+SQL 資料倉儲服務會在伺服器層級建立防火牆。 此防火牆會防止外部應用程式和工具連線到伺服器或伺服器上的任何資料庫。 若要啟用連線，您可以新增防火牆規則以啟用特定 IP 位址之連線。 遵循以下步驟建立用戶端 IP 位址的[伺服器層級防火牆規則](../sql-database/sql-database-firewall-configure.md)。
 
 > [!NOTE]
 > SQL 資料倉儲會透過連接埠 1433 通訊。 如果您嘗試從公司網路內進行連線，您網路的防火牆可能不允許透過連接埠 1433 的輸出流量。 若情況如此，除非 IT 部門開啟連接埠 1433，否則您無法連線至 Azure SQL Database 伺服器。
 
-1. 部署完成之後，按一下左側功能表中的 [SQL 資料倉儲]  ，然後按一下 [SQL 資料倉儲]  頁面上的 [mySampleDatabase]  。 資料庫的概觀頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver-20180430.database.windows.net**)，並提供進一步的設定選項。 
+1. 完成部署之後，請從左側功能表選取 [所有服務]  。 選取 [資料庫]  ，然後選取 [SQL 資料倉儲]  旁的星號，將 SQL 資料倉儲加入 [我的最愛] 中。
+1. 從左側功能表中選取 [SQL 資料倉儲]  ，然後在 [SQL 資料倉儲]  頁面上按一下 [mySampleDatabase]  。 資料庫的概觀頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver-20180430.database.windows.net**)，並提供進一步的設定選項。
+1. 在這個及其他快速入門中，請複製此完整伺服器名稱，才能用來連線到伺服器及其資料庫。 若要開啟伺服器設定，請按一下伺服器名稱。
 
-2. 在後續的快速入門中，請複製此完整伺服器名稱，才能用來連線到伺服器及其資料庫。 若要開啟伺服器設定，請按一下伺服器名稱。
+   ![尋找伺服器名稱](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
-   ![尋找伺服器名稱](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
+1. 按一下 [顯示防火牆設定]  。
 
-3. 若要開啟伺服器設定， 
-4. 按一下伺服器名稱。
+   ![伺服器設定](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
 
-   ![伺服器設定](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
+1. SQL Database 伺服器的 [防火牆設定]  頁面隨即開啟。
 
-5. 按一下 [顯示防火牆設定]  。 SQL Database 伺服器的 [防火牆設定]  頁面隨即開啟。 
+   ![伺服器防火牆規則](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
 
-   ![伺服器防火牆規則](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
+1. 若要將目前的 IP 位址新增至新的防火牆規則，按一下工具列上的 [新增用戶端 IP]  。 防火牆規則可以針對單一 IP 位址或 IP 位址範圍開啟連接埠 1433。
 
-4. 若要將目前的 IP 位址新增至新的防火牆規則，按一下工具列上的 [新增用戶端 IP]  。 防火牆規則可以針對單一 IP 位址或 IP 位址範圍開啟連接埠 1433。
+1. 按一下 [檔案]  。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則，以便在邏輯伺服器上開啟連接埠 1433。
 
-5. 按一下 [檔案]  。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則，以便在邏輯伺服器上開啟連接埠 1433。
-
-6. 依序按一下 [確定]  ，然後關閉 [防火牆設定]  頁面。
+1. 依序按一下 [確定]  ，然後關閉 [防火牆設定]  頁面。
 
 您現在可以使用這個 IP 位址連線到 SQL Server 及其資料倉儲。 可從 SQL Server Management Studio 或您選擇的另一個工具來運作連線。 當您連線時，請使用先前建立的 ServerAdmin 帳戶。
 
@@ -127,8 +127,8 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
 請在 Azure 入口網站中取得 SQL 伺服器的完整伺服器名稱。 稍後您在連線到伺服器時，會使用完整伺服器名稱。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 從左側功能表中選取 [SQL 資料倉儲]  ，在 [SQL 資料倉儲]  頁面上按一下您的資料倉儲。 
-3. 在 Azure 入口網站中您資料庫的 [基本資訊]  窗格中，找到後複製 [伺服器名稱]  。 在此範例中，完整名稱是 mynewserver 20180430.database.windows.net。 
+2. 從左側功能表中選取 [SQL 資料倉儲]  ，在 [SQL 資料倉儲]  頁面上按一下您的資料倉儲。
+3. 在 Azure 入口網站中您資料庫的 [基本資訊]  窗格中，找到後複製 [伺服器名稱]  。 在此範例中，完整名稱是 mynewserver 20180430.database.windows.net。
 
     ![連線資訊](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
@@ -145,7 +145,7 @@ SQL 資料倉儲服務會在伺服器層級建立防火牆，防止外部應用�
    | 伺服器類型 | 資料庫引擎 | 這是必要值 |
    | 伺服器名稱 | 完整伺服器名稱 | 以下是範例：**mynewserver-20180430.database.windows.net**。 |
    | Authentication | SQL Server 驗證 | SQL 驗證是本教學課程中設定的唯一驗證類型。 |
-   | 登入 | 伺服器管理帳戶 | 這是您在建立伺服器時所指定的帳戶。 |
+   | 登入 | 伺服器管理帳戶 | 您在建立伺服器時所指定的帳戶。 |
    | 密碼 | 伺服器管理帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |
    ||||
 
@@ -183,12 +183,12 @@ SQL 資料倉儲會使用 T-SQL 作為查詢語言。 若要開啟查詢視窗�
 
 ## <a name="clean-up-resources"></a>清除資源
 
-您需對資料倉儲單位和資料倉儲上儲存的資料付費。 這些計算和儲存體資源會分開計費。 
+您需對資料倉儲單位和資料倉儲上儲存的資料付費。 這些計算和儲存體資源會分開計費。
 
 - 如果您需要將資料保留在儲存體中，可以在您不使用資料倉儲時暫停計算。 暫停計算，您只需支付資料儲存體的費用。 當您準備要使用資料時，您可以繼續計算。
-- 如果您需要移除未來的費用，可以將資料倉儲刪除。 
+- 如果您需要移除未來的費用，可以將資料倉儲刪除。
 
-遵循下列步驟，視需要清除資源。
+遵循下列步驟，清除不再需要的資源。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，按一下您的資料倉儲。
 

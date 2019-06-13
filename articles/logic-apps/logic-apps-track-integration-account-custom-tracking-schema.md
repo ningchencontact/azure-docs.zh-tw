@@ -64,7 +64,7 @@ ms.locfileid: "60847181"
 | runId | 字串 | 邏輯應用程式執行識別碼。 (必要) |
 | operationName | 字串 | 作業 (例如動作或觸發程序) 的名稱。 (必要) |
 | repeatItemScopeName | 字串 | 如果動作在 `foreach`/`until` 迴圈內，重複項目名稱。 (必要) |
-| repeatItemIndex | 整數  | 動作是否在 `foreach`/`until` 迴圈內。 指出重複的項目索引。 (必要) |
+| repeatItemIndex | 整數 | 動作是否在 `foreach`/`until` 迴圈內。 指出重複的項目索引。 (必要) |
 | trackingId | 字串 | 追蹤識別碼，使訊息相互關聯。 (選用) |
 | correlationId | 字串 | 相互關連識別碼，使訊息相互關聯。 (選用) |
 | clientRequestId | 字串 | 用戶端可以填入此值，使訊息相互關聯。 (選用) |

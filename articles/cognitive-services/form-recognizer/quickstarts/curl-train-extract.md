@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 942f84723bc207c200b36a63ca7f65cb9d7dab59
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 351cb7ba2d7a55300a0ace999792a498cf72ebbb
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235600"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475277"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>快速入門：搭配使用 REST API 與 cURL 將表單辨識器模型定型並擷取表單資料
 
@@ -26,7 +26,7 @@ ms.locfileid: "66235600"
 若要完成此快速入門，您必須：
 - 有權存取表單辨識器的有限存取預覽版。 若要存取此預覽服務，請先填寫並提交[表單辨識器存取要求](https://aka.ms/FormRecognizerRequestAccess)表單。
 - 已安裝 [cURL](https://curl.haxx.se/windows/)。
-- 至少有五個相同類型的表單。 您可以使用本快速入門的[範例資料集](https://go.microsoft.com/fwlink/?linkid=2090451)。
+- 至少有五個相同類型的表單。 您將使用此資料來定型模型。 您可以使用本快速入門的[範例資料集](https://go.microsoft.com/fwlink/?linkid=2090451)。 將資料上傳至 Azure Blob 儲存體帳戶的根目錄。
 
 ## <a name="create-a-form-recognizer-resource"></a>建立表單辨識器資源
 
@@ -47,7 +47,7 @@ ms.locfileid: "66235600"
 
 ## <a name="train-a-form-recognizer-model"></a>定型表單辨識器模型
 
-首先，您需要一組定型資料。 您可以使用 Azure Blob 中的資料或您自己的本機定型資料。 您應該至少以五個類型/結構相同的範例表單 (PDF 文件和/或影像) 作為主要輸入資料。 或者，您可以使用單一空白表單。 表單的檔案名稱必須包含「空白」一詞。
+首先，您需要一組 Azure 儲存體 Blob 中的定型資料。 您應該至少以五個類型/結構相同的範例表單 (PDF 文件和/或影像) 作為主要輸入資料。 或者，您可以使用單一空白表單和兩個已填寫的表單。 空白表單的檔案名稱必須包含「空白」一詞。
 
 若要使用 Azure Blob 容器中的文件來定型表單辨識器模型，請執行下列 cURL 命令以呼叫**定型** API。 執行命令之前，請進行下列變更：
 

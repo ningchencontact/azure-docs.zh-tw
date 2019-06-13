@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: f183fd9c9aca3e1c8ed5e2e31d2a451fae92e0a4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 05eac7e673ad01e9d3e0fb25f261444fd7bc4e6d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304489"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475508"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>教學課程：更新 Azure Kubernetes Service (AKS) 中的應用程式
 
@@ -85,7 +85,10 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-現在，使用 [docker push][docker-push] 將映像上傳至您的登錄。 將 `<acrLoginServer>` 取代為您的 ACR 登入伺服器名稱。 如果您在推送到 ACR 登錄時發生問題，請確定已執行 [az acr login][az-acr-login] 命令。
+現在，使用 [docker push][docker-push] 將映像上傳至您的登錄。 將 `<acrLoginServer>` 取代為您的 ACR 登入伺服器名稱。
+
+> [!NOTE]
+> 如果您在推送到 ACR 登錄時發生問題，請確定您仍處於登入狀態。 使用「[建立 Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry)」步驟中建立的 Azure Container Registry 名稱，執行 [az acr login][az-acr-login] 命令。 例如： `az acr login --name <azure container registry name>`。
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2

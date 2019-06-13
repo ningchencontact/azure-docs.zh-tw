@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 7a4153dd382a901db21752dd3d55a01803431791
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 763e7bc9298eee1ab602968360bbc79a58243e5b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388678"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752436"
 ---
 # <a name="install-and-run-speech-service-containers"></a>安裝並執行語音服務的容器
 
@@ -180,7 +180,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 **在預覽期間**，計費的設定必須是有效啟動容器，但您不需支付使用方式。
 
-| Placeholder | Value |
+| Placeholder | 值 |
 |-------------|-------|
 |{BILLING_KEY} | 此金鑰用來啟動容器時，並可在 Azure 入口網站的 [語音金鑰] 頁面上取得。  |
 |{BILLING_ENDPOINT_URI} | 使用 Azure 入口網站的 [語音概觀] 頁面上的帳單寄送的端點 URI 值。|
@@ -260,7 +260,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 
 ### <a name="text-to-speech"></a>文字轉換語音
 
-容器提供 REST 端點 Api，可以找到[此處](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)和您可以找到範例[這裡](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/)。
+容器提供 REST 端點 Api，可以找到[此處](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)和您可以找到範例[這裡](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/)。
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]

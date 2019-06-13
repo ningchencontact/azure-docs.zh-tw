@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.workload: data-services
 ms.topic: tutorial
-ms.custom: seodec18
-ms.date: 12/07/2018
-ms.openlocfilehash: 056e5a0f56e1a8998288e6a78f448f0f91777e1d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.custom: mvc
+ms.date: 06/03/2019
+ms.openlocfilehash: f78555b37cc82c1e97a6f51ec504bc47937ee8c4
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969294"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493423"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>使用串流分析分析通話資料並在 Power BI 儀表板中以視覺方式呈現結果
 
@@ -32,7 +32,7 @@ ms.locfileid: "65969294"
 
 ## <a name="prerequisites"></a>必要條件
 
-開始之前，請確定您具有下列項目：
+開始之前，請執行下列動作：
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/)。
 * 登入 [Azure 入口網站](https://portal.azure.com/)。
@@ -71,7 +71,7 @@ ms.locfileid: "65969294"
 
 事件中樞必須先具有允許適當存取權的原則，應用程式才能將資料傳送到 Azure 事件中樞。 存取原則會產生包含授權資訊的連接字串。
 
-1. 瀏覽至您在上一個步驟中建立的事件中樞 *MyEventHub*。 在 [設定]  下方選取 [共用存取原則]  ，然後選取 [+ 新增]  。
+1. 瀏覽至您在上一個步驟中建立的事件中樞 MyEventHub*。 在 [設定]  下方選取 [共用存取原則]  ，然後選取 [+ 新增]  。
 
 2. 將原則命名為 **MyPolicy**，並確定已核取 [管理]  。 然後選取 [建立]  。
 
@@ -140,7 +140,7 @@ ms.locfileid: "65969294"
    |訂用帳戶    |  \<您的訂用帳戶\>   |   選取您要在其中建立作業的 Azure 訂用帳戶。       |
    |資源群組   |   MyASADemoRG      |   選取 [使用現有的]  ，然後為您的帳戶輸入新的資源群組名稱。      |
    |位置   |    美國西部 2     |      可以部署作業的位置。 建議將作業和事件中樞放在相同的區域，以達到最佳效能，在區域之間傳送資料也不需要付費。      |
-   |裝載環境    | 雲端        |     串流分析作業可以部署到雲端或邊緣裝置。 雲端部分可讓您部署到 Azure 雲端，邊緣裝置部分可讓您部署到 IoT 邊緣裝置。    |
+   |裝載環境    | 雲端        |     串流分析作業可以部署到雲端或邊緣裝置。 雲端部分可讓您部署到 Azure 雲端，邊緣裝置部分可讓您部署到 IoT Edge 裝置。    |
    |串流單位     |    1       |      串流單位代表執行作業所需的計算資源。 根據預設，此值設定為 1。 若要深入了解如何調整串流單位，請參閱[了解與調整串流單位](stream-analytics-streaming-unit-consumption.md)一文。      |
 
 4. 對其餘的設定使用預設選項，選取 [建立]  並等待部署成功。
@@ -163,7 +163,7 @@ ms.locfileid: "65969294"
    |訂用帳戶    |   \<您的訂用帳戶\>      |   選取您在其中建立事件中樞的 Azure 訂用帳戶。 事件中樞可位於與串流分析作業相同或不同的訂用帳戶。       |
    |事件中樞命名空間    |  myEventHubsNS       |  選取您在上一節中建立的事件中樞命名空間。 您目前訂用帳戶中所有可用的事件中樞命名空間都會列在下拉式清單中。       |
    |事件中樞名稱    |   MyEventHub      |  選取您在上一節中建立的事件中樞。 您目前訂用帳戶中所有可用的事件中樞都會列在下拉式清單中。       |
-   |事件中樞原則名稱   |  Mypolicy       |  選取您在上一節中建立的事件中樞共用存取原則。 您目前訂用帳戶中所有可用的事件中樞原則都會列在下拉式清單中。       |
+   |事件中樞原則名稱   |  MyPolicy       |  選取您在上一節中建立的事件中樞共用存取原則。 您目前訂用帳戶中所有可用的事件中樞原則都會列在下拉式清單中。       |
 
 4. 對其餘的設定使用預設選項，並選取 [儲存]  。
 
@@ -248,7 +248,7 @@ ms.locfileid: "65969294"
 
 4. 從 Power BI 工作區中選取 [+ 建立]  ，建立名為*詐騙電話*的新儀表板。
 
-5. 在視窗頂端，選取 [新增圖格]  。 接著選取 [自訂串流資料]  ，然後選取 [下一步]  。 在 [您的資料集]  下方選擇 **ASAdataset**。 從 [視覺效果類型]  下拉式清單中選取 [卡]  ，並將 **fraudulentcalls** 新增至 [欄位]  。 選取 [下一步]  以輸入圖格的名稱，然後選取 [套用]  以建立圖格。
+5. 在視窗頂端，選取 [新增圖格]  。 接著選取 [自訂串流資料]  ，然後選取 [下一步]  。 在 [您的資料集]  下方選擇 **ASAdataset**。 從 [視覺效果類型]  下拉式清單中選取 [卡]  ，並將**詐騙變化**新增至 [欄位]  。 選取 [下一步]  以輸入圖格的名稱，然後選取 [套用]  以建立圖格。
 
    ![建立 Power BI 儀表板圖格](media/stream-analytics-manage-job/create-power-bi-dashboard-tiles.png)
 
@@ -258,18 +258,18 @@ ms.locfileid: "65969294"
    * 新增值並選取 [fraudulentcalls]  。
    * 在 [要顯示的時間範圍]  中，選取過去 10 分鐘。
 
-7. 兩個圖格都新增之後，儀表板應該會如下列範例所示。 請注意，如果您的事件中樞傳送者應用程式和串流分析應用程式正在執行，則 PowerBI 儀表板會在新資料送達時定期更新。
+7. 兩個圖格都新增之後，儀表板應該會如下列範例所示。 請注意，如果您的事件中樞傳送者應用程式和串流分析應用程式正在執行，則 Power BI 儀表板會在新資料送達時定期更新。
 
    ![在 Power BI 儀表板中檢視結果](media/stream-analytics-manage-job/power-bi-results-dashboard.png)
 
-## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>在 Web 應用程式中內嵌 PowerBI 儀表板
+## <a name="embedding-your-power-bi-dashboard-in-a-web-application"></a>在 Web 應用程式中內嵌 Power BI 儀表板
 
-在這部分的教學課程中，您將使用 PowerBI 團隊所建立的範例 [ASP.NET](https://asp.net/) Web 應用程式來內嵌您的儀表板。 如需內嵌儀表板的詳細資訊，請參閱[內嵌 Power BI](https://docs.microsoft.com/power-bi/developer/embedding) 一文。
+在這部分的教學課程中，您將使用 Power BI 團隊所建立的範例 [ASP.NET](https://asp.net/) Web 應用程式來內嵌您的儀表板。 如需內嵌儀表板的詳細資訊，請參閱[內嵌 Power BI](https://docs.microsoft.com/power-bi/developer/embedding) 一文。
 
 若要設定應用程式，請移至 [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub 存放庫，並遵循**使用者擁有資料**一節之下的指示 (使用 **integrate-dashboard-web-app** 小節之下的重新導向和首頁 URL)。 因為我們使用儀表板範例，所以使用位於 [GitHub 存放庫](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app)中的 **integrate-dashboard-web-app** 範例程式碼。
 一旦在瀏覽器中執行應用程式，請遵循下列步驟將先前建立的儀表板內嵌到網頁中：
 
-1. 選取 [登入 Power BI]  ，以將您的 PowerBI 帳戶中儀表板的存取權授與應用程式。
+1. 選取 [登入 Power BI]  ，以將您的 Power BI 帳戶中儀表板的存取權授與應用程式。
 
 2. 選取 [取得儀表板]  按鈕，即可在資料表中顯示您的帳戶儀表板。 尋找您先前建立的儀表板名稱 (**powerbi-embedded-dashboard**)，並且複製對應的 **EmbedUrl**。
 

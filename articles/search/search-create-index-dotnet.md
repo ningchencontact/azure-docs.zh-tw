@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/16/2019
-ms.openlocfilehash: 8d186ae83e1016de9c4548d4b1c39303025a5270
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0392cc6334aaf383f43d55134fa65f82c44270c3
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795808"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428399"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>快速入門：1 - 在 C# 中建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "65795808"
 > * [Postman](search-fiddler.md)
 >*
 
-本文將逐步引導您完成使用 C# 和 [.NET SDK](https://aka.ms/search-sdk) 建立 [Azure 搜尋服務索引](search-what-is-an-index.md)的程序。 這是建立、載入和查詢索引的 3 部分練習中的第 1 課。 索引建立是透過執行這些工作來完成的：
+本文將逐步引導您完成使用 C# 和 [.NET SDK](https://aka.ms/search-sdk) 建立 [Azure 搜尋服務索引](search-what-is-an-index.md)的程序。 在建立、載入和查詢索引的 3 部分練習中，此快速入門是第 1 課。 索引建立是透過執行這些工作來完成的：
 
 > [!div class="checklist"]
 > * 建立 [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) 物件以連接到搜尋服務。
@@ -39,7 +39,7 @@ ms.locfileid: "65795808"
 
 + [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
 
-+ [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)任何版本。 範例程式碼和指示已在免費的 Community 版本上經過測試。
+[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) 的任何版本。 範例程式碼和指示已在免費的 Community 版本上經過測試。
 
 + [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 會提供範例解決方案，也就是以 C# 撰寫的 .NET Core 主控台應用程式，位於 Azure 範例的 GitHub 存放庫。 下載並擷取解決方案。 根據預設，解決方案會是唯讀狀態。 以滑鼠右鍵按一下方案並清除唯讀屬性，以便您修改檔案。 資料就包含在解決方案中。
 
@@ -47,9 +47,9 @@ ms.locfileid: "65795808"
 
 在每個對服務發出呼叫的要求上，都需要 URL 端點和存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
 
-1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀] 頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
+1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀]  頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
 
-2. 在 [設定]  >  [金鑰] 中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
+2. 在 [設定]   >  [金鑰]  中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
 
 ![取得 HTTP 端點和存取金鑰](media/search-fiddler/get-url-key.png "取得 HTTP 端點和存取金鑰")
 
@@ -61,15 +61,13 @@ ms.locfileid: "65795808"
 
 1. 在 appsettings.json 中，將預設內容取代為下列範例，然後提供您服務的服務名稱和管理 API 金鑰。 
 
-
    ```json
    {
        "SearchServiceName": "Put your search service name here (not the full URL)",
        "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
     }
    ```
-
-  針對服務名稱，只需要名稱本身。 例如，如果您的 URL 是 https://mydemo.search.windows.net，請將 `mydemo` 新增至 JSON 檔案。
+   針對服務名稱，只需要名稱本身。 例如，如果您的 URL 是 https://mydemo.search.windows.net，請將 `mydemo` 新增至 JSON 檔案。
 
 1. 按 F5 可建置解決方案，然後執行主控台應用程式。 本練習中的其餘步驟和後面的步驟將探討此程式碼的工作方式。 
 
@@ -108,7 +106,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 
 1. 將 `Index` 物件的 `Name` 屬性設定為索引的名稱。
 
-2. 將 `Index` 物件的 `Fields` 屬性設定為 `Field` 物件的陣列。 建立 `Field` 物件最簡單的方式是藉由呼叫 `FieldBuilder.BuildForType` 方法，傳遞類型參數的模型類別。 模型類別具有會對應至您索引欄位的屬性。 這可讓您將來自您搜尋索引的文件繫結至模型類別的執行個體。
+2. 將 `Index` 物件的 `Fields` 屬性設定為 `Field` 物件的陣列。 建立 `Field` 物件最簡單的方式是藉由呼叫 `FieldBuilder.BuildForType` 方法，傳遞類型參數的模型類別。 模型類別具有會對應至您索引欄位的屬性。 此對應可讓您將來自您搜尋索引的文件繫結至模型類別的執行個體。
 
 > [!NOTE]
 > 如果您不打算使用模型類別，仍然可以藉由直接建立 `Field` 物件來定義您的索引。 您可以為建構函式提供欄位的名稱，以及資料類型 (或字串欄位的分析器)。 您也可以設定其他屬性，例如 `IsSearchable`、`IsFilterable` 等等。
@@ -175,7 +173,7 @@ public partial class Hotel
 
 我們已根據欄位在應用程式中的可能使用方式仔細選擇每個屬性的屬性。 例如，搜尋旅館的人很可能會對 `description` 欄位上的關鍵字相符項目感興趣，因此我們藉由將 `IsSearchable` 屬性新增至 `Description` 屬性來啟用該欄位的全文檢索搜尋。
 
-請注意，`string` 類型的索引中必須有一個欄位 (且只有一個) 指定為 key 欄位，方法是新增 `Key`屬性 (請參閱上述範例中的 `HotelId`)。
+請注意，`string` 類型的索引中必須有一個欄位 (且只有一個) 指定為 key  欄位，方法是新增 `Key` 屬性 (請參閱上述範例中的 `HotelId`)。
 
 `description_fr` 欄位會用來儲存法文文字，因此上述索引定義會對此欄位使用語言分析器。 如需詳細資訊，請參閱[將語言分析器新增至 Azure 搜尋服務索引](index-add-language-analyzers.md)。
 
@@ -184,7 +182,7 @@ public partial class Hotel
 > 
 > 
 
-現在，我們定義了模型類別，可以非常輕鬆地建立索引定義︰
+現在，我們定義了模型類別，可以輕鬆地建立索引定義︰
 
 ```csharp
 var definition = new Index()

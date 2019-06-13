@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/22/2019
+ms.date: 05/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dd8af0ed016dca5ab9c14b117a2673ca214e08c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 554a4c63c8492d69ad0899176cdc58895c5146f5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688096"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474124"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>教學課程：Azure Active Directory 與 JIRA SAML SSO by Microsoft 整合
 
@@ -44,7 +44,7 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 若要設定 Azure AD 與 JIRA SAML SSO by Microsoft 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
-- 應該在 Windows 64 位元版本上安裝及設定 JIRA Core 和 JIRA Software 6.0 到 7.12 或 JIRA Service Desk 3.0 到 3.5
+- 應該在 Windows 64 位元版本上安裝及設定 JIRA Core 和 JIRA Software 6.4 到 8.0 或 JIRA Service Desk 3.0 到 3.5
 - JIRA 伺服器已啟用 HTTPS
 - 請注意下一節提及支援的 JIRA 外掛程式版本。
 - JIRA 伺服器可從網際網路連上，特別是連線至 Azure AD 登入頁面來進行驗證，且應該能夠接收來自 Azure AD 的權杖
@@ -62,7 +62,7 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
 ## <a name="supported-versions-of-jira"></a>支援的 JIRA 版本
 
-* JIRA 核心和軟體：6.0 至 7.12
+* JIRA 核心和軟體：6.4 到 8.0
 * JIRA Service Desk 3.0.0 到 3.5.0
 * JIRA 也支援 5.2。 如需詳細資訊，請按一下[適用於 JIRA 5.2 的 Microsoft Azure Active Directory 單一登入](jira52microsoft-tutorial.md)
 
@@ -179,34 +179,40 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
 6. 在設定頁面上執行下列步驟：
 
-    ![設定單一登入](./media/jiramicrosoft-tutorial/addon52.png)
+    ![設定單一登入](./media/jiramicrosoft-tutorial/addon53.png)
 
     > [!TIP]
     > 請確定只有一個對應至應用程式的憑證，解析中繼資料時就不會發生錯誤。 如果有多個憑證，則解析中繼資料時，管理員會遇到錯誤。
 
-    a. 在 [中繼資料 URL]  文字方塊中，貼上您從 Azure 入口網站複製的**應用程式同盟中繼資料 Url**值，然後按一下 [解析]  按鈕。 這樣會讀取 IdP 中繼資料 URL 並填入所有欄位資訊。
+    1. 在 [中繼資料 URL]  文字方塊中，貼上您從 Azure 入口網站複製的**應用程式同盟中繼資料 Url**值，然後按一下 [解析]  按鈕。 這樣會讀取 IdP 中繼資料 URL 並填入所有欄位資訊。
 
-    b. 複製 [識別碼]、[回覆 URL] 和 [登入 URL]  值，然後在 Azure 入口網站的 [JIRA SAML SSO by Microsoft 網域及 URL]  中，分別貼到 [識別碼]、[回覆 URL] 和 [登入 URL]  文字方塊。
+    1. 複製 [識別碼]、[回覆 URL] 和 [登入 URL]  值，然後在 Azure 入口網站的 [JIRA SAML SSO by Microsoft 網域及 URL]  中，分別貼到 [識別碼]、[回覆 URL] 和 [登入 URL]  文字方塊。
 
-    c. 在 [登入按鈕名稱]  中，輸入您的組織要讓使用者在登入畫面上看到的按鈕名稱。
+    1. 在 [登入按鈕名稱]  中，輸入您的組織要讓使用者在登入畫面上看到的按鈕名稱。
 
-    d. 在 [SAML 使用者識別碼位置]  中，選取 [使用者識別碼在 Subject 陳述式的 NameIdentifier 元素中]  或 [使用者識別碼在 Attribute 元素中]  。  此識別碼必須為 JIRA 使用者識別碼。 如果使用者識別碼不相符，系統就不會允許使用者登入。
+    1. 在 [SAML 使用者識別碼位置]  中，選取 [使用者識別碼在 Subject 陳述式的 NameIdentifier 元素中]  或 [使用者識別碼在 Attribute 元素中]  。  此識別碼必須為 JIRA 使用者識別碼。 如果使用者識別碼不相符，系統就不會允許使用者登入。
 
-    > [!Note]
-    > 預設 SAML 使用者識別碼位置是名稱識別碼。 您可以將它變更為屬性選項，並輸入適當的屬性名稱。
+       > [!Note]
+       > 預設 SAML 使用者識別碼位置是名稱識別碼。 您可以將它變更為屬性選項，並輸入適當的屬性名稱。
 
-    e. 如果您選取 [使用者識別碼在 Attribute 元素中]  選項，請在 [屬性名稱]  文字方塊中，輸入會預期使用者識別碼的屬性名稱。
+    1. 如果您選取 [使用者識別碼在 Attribute 元素中]  選項，請在 [屬性名稱]  文字方塊中，輸入會預期使用者識別碼的屬性名稱。
 
-    f. 如果您使用同盟網域 (例如 ADFS 等) 搭配 Azure AD，請按一下 [啟用主領域探索]  選項，並設定 [網域名稱]  。
+    1. 如果您使用同盟網域 (例如 ADFS 等) 搭配 Azure AD，請按一下 [啟用主領域探索]  選項，並設定 [網域名稱]  。
 
-    g. 在 [網域名稱]  中，如果是使用以 ADFS 為基礎的登入，請在此輸入網域名稱。
+    1. 在 [網域名稱]  中，如果是使用以 ADFS 為基礎的登入，請在此輸入網域名稱。
 
-    h. 如果您想要在使用者登出 JIRA 時登出 Azure AD，請勾選 [啟用單一登出]  。
+    1. 如果您想要在使用者登出 JIRA 時登出 Azure AD，請勾選 [啟用單一登出]  。
+    
+    1. 如果您只要透過 Azure AD 認證登入，請啟用 [強制執行 Azure 登入]  核取方塊。
+    
+       > [!Note]
+       > 若要在啟用強制執行 Azure 登入時，於登入頁面上啟用系統管理員登入的預設登入表單，請在瀏覽器 URL 中加入查詢參數。
+       > `https://<domain:port>/login.action?force_azure_login=false`
 
-    i. 按一下 [儲存]  按鈕以儲存設定。
+    1. 按一下 [儲存]  按鈕以儲存設定。
 
-    > [!NOTE]
-    > 如需有關安裝和疑難排解的詳細資訊，請瀏覽 [MS JIRA SSO 連接器管理指南](../ms-confluence-jira-plugin-adminguide.md)，另外也有[常見問題集](../ms-confluence-jira-plugin-faq.md)可協助您
+       > [!NOTE]
+       > 如需有關安裝和疑難排解的詳細資訊，請瀏覽 [MS JIRA SSO 連接器管理指南](../ms-confluence-jira-plugin-adminguide.md)。 另外也有[常見問題集](../ms-confluence-jira-plugin-faq.md)可協助您。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 

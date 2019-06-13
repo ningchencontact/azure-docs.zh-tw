@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 3315af0898cb3b18af0334a433a94242b056a8bd
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1408e29793fdac77b89e3f0cc0a7be525f7fa1d2
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236204"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479799"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>教學課程：取得語句的情感
 
@@ -54,12 +54,13 @@ ms.locfileid: "65236204"
 
 ## <a name="add-personname-prebuilt-entity"></a>新增 PersonName 預建實體 
 
+1. 從導覽功能表中選取 [建置]  。
 
-1. 從左側導覽功能表中選取 [Entities] \(實體\)。
+1. 從左側導覽功能表中選取 [Entities] \(實體\)  。
 
-1. 選取 [新增預先建置的實體] 按鈕。
+1. 選取 [新增預先建置的實體]  按鈕。
 
-1. 從預先建置的實體清單中選取下列實體，然後選取 [完成]：
+1. 從預先建置的實體清單中選取下列實體，然後選取 [完成]  ：
 
    * **[PersonName](luis-reference-prebuilt-person.md)** 
 
@@ -69,11 +70,11 @@ ms.locfileid: "65236204"
 
 新增意圖，以擷取公司成員的員工意見。 
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. 選取左面板中的 [意圖]  。
 
-2. 選取 [Create new intent] \(建立新意圖\)。
+1. 選取 [Create new intent] \(建立新意圖\)  。
 
-3. 將新的意圖命名為 `EmployeeFeedback`。
+1. 將新的意圖命名為 `EmployeeFeedback`。
 
     ![以 EmployeeFeedback 作為名稱來建立新的意圖對話方塊](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
 
@@ -90,7 +91,7 @@ ms.locfileid: "65236204"
     |Mark Mathews rocked the sales pitch at Harvard|
     |Walter Williams did a great job on the presentation at Stanford|
 
-    選取 [檢視選項]，然後選取 [顯示實體值] 來查看名稱。
+    選取 [檢視選項]  ，然後選取 [顯示實體值]  來查看名稱。
 
     [![在 EmployeeFeedback 意圖中有範例語句的 LUIS 應用程式螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
@@ -104,9 +105,9 @@ ms.locfileid: "65236204"
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>設定應用程式以納入情感分析
 
-1. 選取右上方導覽列中的 [管理]，然後從左側功能表中選取 [發佈設定]。
+1. 選取右上方導覽列中的 [管理]  ，然後從左側功能表中選取 [發佈設定]  。
 
-1. 選取 [情感分析] 以啟用這項設定。 
+1. 選取 [使用情感分析判斷使用者的語句屬於正面、負面還是中性語句。]  啟用此設定。 
 
     ![開啟情感分析作為發佈設定](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
@@ -118,7 +119,11 @@ ms.locfileid: "65236204"
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-1. 移至位址中的 URL 結尾並輸入 `Jill Jones work with the media team on the public portal was amazing`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回具有所擷取情感分析的 `EmployeeFeedback` 意圖。
+1. 移至位址中的 URL 結尾並輸入以下語句：
+
+    `Jill Jones work with the media team on the public portal was amazing` 
+
+    最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回具有所擷取情感分析的 `EmployeeFeedback` 意圖。
     
     ```json
     {
@@ -153,6 +158,8 @@ ms.locfileid: "65236204"
     ```
 
     sentimentAnalysis 為正面且分數為 86%。 
+
+    藉由移除瀏覽器網址列中的 `q` 值，來嘗試另一個語句：`William Jones did a terrible job presenting his ideas.` 情感分數會藉由傳回較低的分數 (`0.18597582`) 來表示負面情感。
 
 ## <a name="clean-up-resources"></a>清除資源
 

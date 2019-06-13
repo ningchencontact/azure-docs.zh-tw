@@ -11,19 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/14/2019
+ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: ec595e23fbbf3ace5bfd0786d88250a88b61453c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: cdaae4e539d5216cf4950c15349f01b54ae8acd2
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66256639"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496380"
 ---
 # <a name="what-is-application-insights"></a>什麼是 Application Insights？
 Application Insights 是多個平台上的 Web 開發人員所適用的可延伸「應用程式效能管理」(APM) 服務。 您可以使用它來監視即時 Web 應用程式。 它將會自動偵測效能異常。 其中包括強大的分析工具可協助您診斷問題，並了解使用者實際如何運用您的應用程式。  它是設計來協助您持續改善效能和可用性。 它適用於各種不同平台上的應用程式，包括裝載在內部部署、混合式或任何公用雲端的 .NET、Node.js 和 Java EE。 它可與您的 DevOps 程序整合，並有各種開發工具的連接點。 透過與 Visual Studio App Center 整合，還可以從行動應用程式監視並分析遙測資料。
-
-[看一下簡介動畫](https://www.youtube.com/watch?v=fX2NtGrh-Y0)。
 
 ## <a name="how-does-application-insights-work"></a>Application Insights 的運作方式
 您會在應用程式中安裝小型檢測套件，並且在 Microsoft Azure 入口網站中設定 Application Insights 資源。 此檢測套件會監視您的應用程式，並將遙測資料傳送至入口網站。 (應用程式可以在任何地方執行 - 不一定要裝載於 Azure 中。)
@@ -104,11 +102,13 @@ Application Insights 是 Microsoft Azure 中裝載的多項服務之一，而遙
 
 有數種方式可以開始使用。 從最適合您的方式著手。 您可以稍後新增其他帳戶。
 
-* **在執行階段：檢測伺服器上的 Web 應用程式。** 避免對程式碼進行任何更新。 您需要您的伺服器的系統管理員存取權。
-  * [**內部部署或 VM 上的 IIS**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**Azure Web 應用程式或 VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* **在開發階段：將 Application Insights 加入至您的程式碼。** 可讓您撰寫自訂遙測及檢測後端和桌面應用程式。
-  * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 Update 2 或更新版本。
+* **在執行階段：檢測伺服器上的 Web 應用程式。** 適用於已部署的應用程式。 避免對程式碼進行任何更新。
+  * [**IIS 內部或 VM 中裝載的 ASP.NET 應用程式**](../../azure-monitor/app/monitor-performance-live-website-now.md)
+  * [**Azure Web Apps 上裝載的 ASP.NET 或 ASP.NET Core 應用程式**](../../azure-monitor/app/azure-web-apps.md)
+* **在開發階段：將 Application Insights 加入至您的程式碼。** 可讓您自訂遙測收集並傳送其他遙測。
+  * [ASP.NET 應用程式](../../azure-monitor/app/asp-net.md)
+  * [ASP.NET Core 應用程式](../../azure-monitor/app/asp-net-core.md)
+  * [.NET 主控台應用程式](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
   * [Node.js](../../azure-monitor/app/nodejs.md)
   * [其他平台](../../azure-monitor/app/platforms.md)
@@ -120,10 +120,12 @@ Application Insights 是 Microsoft Azure 中裝載的多項服務之一，而遙
 在執行階段開始使用︰
 
 * [IIS 伺服器](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
 
 在開發階段開始使用︰
 
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
+* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.js](../../azure-monitor/app/nodejs.md)
 
@@ -139,9 +141,9 @@ Application Insights 是 Microsoft Azure 中裝載的多項服務之一，而遙
 
 ## <a name="videos"></a>影片
 
-[![動畫簡介](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
+- 外部影片：[使用 .NET 應用程式設定 Application Insights](https://www.youtube.com/watch?v=blnGAVgMAfA)。
+- 外部影片：[使用 ASP.NET Core 和 Visual Studio 設定 Application Insights](https://www.youtube.com/watch?v=NoS9UhcR4gA&t)。
+- 外部影片：[使用 ASP.NET Core 和 Visual Studio Code 設定 Application Insights](https://youtu.be/ygGt84GDync)。
 
 <!--Link references-->
 

@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 7562d720b200e127fbfd56c403f0e29e28b3b5d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e26f9d344a4c11c335d1ea34998c848cbe3598a
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793748"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753757"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>將 Azure VM 移至可用性區域中
-Azure 中的可用性區域有助於讓應用程式和資料不受資料中心故障的影響。 每個可用性區域由一或多個資料中心組成，配備了電力、冷卻系統及網路系統。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。 某個地區內可用性區域的實體區隔可保護應用程式和資料不受資料中心故障影響。 搭配可用性區域後，Azure 提供虛擬機器 (VM) 運作時間達 99.99% 的服務等級協定 (SLA)。 可用性區域可在選定區域中受到支援，如[哪些是 Azure 中的可用性區域？](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones)中所述。
+Azure 中的可用性區域有助於讓應用程式和資料不受資料中心故障的影響。 每個可用性區域由一或多個資料中心組成，配備了電力、冷卻系統及網路系統。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。 某個地區內可用性區域的實體區隔可保護應用程式和資料不受資料中心故障影響。 搭配可用性區域後，Azure 提供虛擬機器 (VM) 運作時間達 99.99% 的服務等級協定 (SLA)。 可用性區域可在選定區域中受到支援，如[哪些是 Azure 中的可用性區域？](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region)中所述。
 
 如果您將 VM 以「單一執行個體」  的形式部署到特定區域中，並且想藉由將這些 VM 移至可用性區域來改善可用性，您可以使用 Azure Site Recovery 來達到此目的。 此動作可進一步細分為：
 
@@ -28,7 +28,7 @@ Azure 中的可用性區域有助於讓應用程式和資料不受資料中心�
 
 ## <a name="check-prerequisites"></a>檢查必要條件
 
-- 檢查目標區域是否[支援可用性區域](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones)。 確認您選擇的[來源/目標區域組合可受到支援](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support)。 在目標區域上做出明智的決策。
+- 檢查目標區域是否[支援可用性區域](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region)。 確認您選擇的[來源/目標區域組合可受到支援](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support)。 在目標區域上做出明智的決策。
 - 請確定您了解[情節架構和元件](azure-to-azure-architecture.md)。
 - 檢閱[支援限制和需求](azure-to-azure-support-matrix.md)。
 - 檢查帳戶權限。 如果您剛建立免費的 Azure 帳戶，您就是訂用帳戶管理員。 如果您不是訂用帳戶管理員，請與管理員合作以指派您所需的權限。 若要為 VM 啟用複寫，繼而使用 Azure Site Recovery 將資料複製到目標，您必須具備：
@@ -86,7 +86,7 @@ Azure 中的可用性區域有助於讓應用程式和資料不受資料中心�
 
 1. 在 Azure 入口網站中選取 [虛擬機器]  ，然後選取要移至可用性區域中的 VM。
 2. 在 [作業]  中，選取 [災害復原]  。
-3. 在 [設定災害復原]   > [目標區域]  中，選取要作為複寫目的地的目標區域。 請確定此區域[支援](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones)可用性區域。
+3. 在 [設定災害復原]   > [目標區域]  中，選取要作為複寫目的地的目標區域。 請確定此區域[支援](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region)可用性區域。
 
     ![選取目標區域](media/azure-vms-to-zones/enable-rep-1.PNG)
 

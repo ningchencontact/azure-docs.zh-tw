@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 03/12/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3121c7e4b1b1adfb079368aa86c272e9ea473ead
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 907d12464156f551930098f6bd6a6a24596307cb
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855209"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479930"
 ---
 # <a name="about-site-recovery"></a>關於 Site Recovery
 
@@ -56,7 +56,7 @@ Site Recovery 可以管理複寫：
 
 **支援** | **詳細資料**
 --- | ---
-**複寫案例** | 將 Azure VM 從一個 Azure 區域複寫至另一個 Azure 區域。<br/><br/>  將內部部署 VMware VM、Hyper-V VM、實體伺服器 (Windows 和 Linux)、Azure Stack VM 複寫至 Azure。<br/><br/> 將 System Center VMM 管理的內部部署 VMware VM、Hyper-V VM 和實體伺服器複寫至次要站台。
+**複寫案例** | 將 Azure VM 從一個 Azure 區域複寫至另一個 Azure 區域。<br/><br/>  將內部部署 VMware VM、Hyper-V VM、實體伺服器 (Windows 和 Linux)、Azure Stack VM 複寫至 Azure。<br/><br/> <br/><br/> 將 AWS Windows 執行個體複寫到 Azure。<br/><br/> 將 System Center VMM 管理的內部部署 VMware VM、Hyper-V VM 和實體伺服器複寫至次要站台。
 **區域** | 檢閱 Site Recovery 的[支援區域](https://azure.microsoft.com/regions/services/)。 |
 **複寫的機器** | 檢閱 [Azure VM](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) 複寫、[內部部署 VM 和實體伺服器](vmware-physical-azure-support-matrix.md#replicated-machines)及[內部部署 Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) 的複寫需求。
 **工作負載** | 您可以複寫在支援複寫之機器上執行的所有工作負載。 此外，Site Recovery 小組已經針對[應用程式數目](site-recovery-workload.md#workload-summary)執行應用程式專屬測試。

@@ -1,28 +1,29 @@
 ---
 title: 什麼是 Azure SQL 資料倉儲？ | Microsoft Docs
-description: 企業級分散式資料庫，可處理資料量高達 PB 的關聯式與非關聯式資料。 它是業界首見能在幾秒內增加、縮減和暫停的雲端資料倉儲。
+description: 企業級分散式資料庫，可處理資料量高達 PB 的關聯式與非關聯式資料。 這是業界首見能在幾秒內增加、縮減和暫停的雲端資料倉儲。
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 04/17/2018
-ms.author: nicw
+ms.date: 05/30/2019
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 29296d703e59cb234177349ca477c3fdab74ee61
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+mscustom: sqlfreshmay19
+ms.openlocfilehash: a9126e9023091dd8c3df71f2aa2558a01227a8be
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790844"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428024"
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>什麼是 Azure SQL 資料倉儲？
 
 SQL 資料倉儲是雲端式企業資料倉儲 (EDW)，利用大量平行處理 (MPP) 以快速地在數以 PB 計的資料中執行複雜的查詢。 使用 SQL 資料倉儲作為巨量資料解決方案的重要元件。 使用簡單的 [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL 查詢將巨量資料匯入 SQL 資料倉儲，然後使用 MPP 功能來執行高效能分析。 整合及分析時，資料倉儲將會變成您的企業可以信賴的真正單一版本。  
 
-
 ## <a name="key-component-of-big-data-solution"></a>巨量資料解決方案的重要元件
+
 SQL 資料倉儲是雲端中端對端巨量資料解決方案的重要元件。
 
 ![資料倉儲解決方案](media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png) 
@@ -33,19 +34,21 @@ SQL 資料倉儲會將資料儲存到具有單欄式儲存體的關聯式資料�
 
 分析結果可以移至全球報告資料庫或應用程式。 商務分析師便可充分了解，以進行靈活的商務決策。
 
-
 ## <a name="next-steps"></a>後續步驟
-現在您已稍微了解 SQL 資料倉儲，請了解如何快速[建立 SQL 資料倉儲][create a SQL Data Warehouse]和[載入範例資料][load sample data]。 如果您不熟悉 Azure，您可能會發現 [Azure 詞彙][Azure glossary]在您遇到新術語時很有幫助。 或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  
 
-* [客戶成功案例]
-* [部落格]
-* [功能要求]
-* [影片]
-* [客戶諮詢小組部落格]
+- 探索 [Azure SQL 資料倉儲架構](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
+- 快速[建立 SQL 資料倉儲][create a SQL Data Warehouse]
+- [載入範例資料][load sample data]。
+- 探索[影片](/azure/sql-data-warehouse/sql-data-warehouse-videos)
+
+或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  
+* 搜尋[部落格]
+* 提交[功能要求]
+* 搜尋[客戶諮詢小組部落格]
 * [建立支援票證]
-* [MSDN 論壇]
-* [Stack Overflow 論壇]
-* [Twitter]
+* 搜尋 [MSDN 論壇]
+* 搜尋 [Stack Overflow 論壇]
+
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
@@ -63,14 +66,13 @@ SQL 資料倉儲會將資料儲存到具有單欄式儲存體的關聯式資料�
 <!--MSDN references-->
 
 <!--Other Web references-->
-[客戶成功案例]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [部落格]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [客戶諮詢小組部落格]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [功能要求]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [MSDN 論壇]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
 [Stack Overflow 論壇]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
-[影片]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

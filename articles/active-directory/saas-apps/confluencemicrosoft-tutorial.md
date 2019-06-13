@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/22/2019
+ms.date: 05/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45c9268495ed42ca67f815615b441986cf03332f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c9c422e93a6768b764873f21ad9eab6fad4a868e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683658"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474155"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>教學課程：Azure Active Directory 與 Confluence SAML SSO by Microsoft 整合
 
@@ -78,6 +78,7 @@ Confluence SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 - Confluence：6.10.0
 - Confluence：6.11.0
 - Confluence：6.12.0
+- Confluence：6.15.3
 
 > [!NOTE]
 > 請注意，我們的 Confluence 外掛程式也適用於 Ubuntu 16.04 版
@@ -177,34 +178,40 @@ Confluence SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
 5. 在設定頁面上執行下列步驟：
 
-    ![設定單一登入](./media/confluencemicrosoft-tutorial/addon52.png)
+    ![設定單一登入](./media/confluencemicrosoft-tutorial/addon53.png)
 
     > [!TIP]
     > 請確定只有一個對應至應用程式的憑證，解析中繼資料時就不會發生錯誤。 如果有多個憑證，則在解析中繼資料時，管理員會收到錯誤。
 
-    a. 在 [中繼資料 URL]  文字方塊中，貼上您從 Azure 入口網站複製的**應用程式同盟中繼資料 Url**值，然後按一下 [解析]  按鈕。 這樣會讀取 IdP 中繼資料 URL 並填入所有欄位資訊。
+    1. 在 [中繼資料 URL]  文字方塊中，貼上您從 Azure 入口網站複製的**應用程式同盟中繼資料 Url**值，然後按一下 [解析]  按鈕。 這樣會讀取 IdP 中繼資料 URL 並填入所有欄位資訊。
 
-    b. 複製 [識別碼]、[回覆 URL] 和 [登入 URL]  值，然後在 Azure 入口網站的 [基本 SAML 組態]  區段中，分別貼到 [識別碼]、[回覆 URL] 和 [登入 URL]  文字方塊中。
+    1. 複製 [識別碼]、[回覆 URL] 和 [登入 URL]  值，然後在 Azure 入口網站的 [基本 SAML 組態]  區段中，分別貼到 [識別碼]、[回覆 URL] 和 [登入 URL]  文字方塊中。
 
-    c. 在 [登入按鈕名稱]  中，輸入您的組織要讓使用者在登入畫面上看到的按鈕名稱。
+    1. 在 [登入按鈕名稱]  中，輸入您的組織要讓使用者在登入畫面上看到的按鈕名稱。
 
-    d. 在 [SAML 使用者識別碼位置]  中，選取 [使用者識別碼在 Subject 陳述式的 NameIdentifier 元素中]  或 [使用者識別碼在 Attribute 元素中]  。  此識別碼必須為 Confluence 使用者識別碼。 如果使用者識別碼不相符，系統就不會允許使用者登入。 
+    1. 在 [SAML 使用者識別碼位置]  中，選取 [使用者識別碼在 Subject 陳述式的 NameIdentifier 元素中]  或 [使用者識別碼在 Attribute 元素中]  。  此識別碼必須為 Confluence 使用者識別碼。 如果使用者識別碼不相符，系統就不會允許使用者登入。 
 
-    > [!Note]
-    > 預設 SAML 使用者識別碼位置是名稱識別碼。 您可以將它變更為屬性選項，並輸入適當的屬性名稱。
+       > [!Note]
+       > 預設 SAML 使用者識別碼位置是名稱識別碼。 您可以將它變更為屬性選項，並輸入適當的屬性名稱。
     
-    e. 如果您選取 [使用者識別碼在 Attribute 元素中]  選項，請在 [屬性名稱]  文字方塊中，輸入會預期使用者識別碼的屬性名稱。 
+    1. 如果您選取 [使用者識別碼在 Attribute 元素中]  選項，請在 [屬性名稱]  文字方塊中，輸入會預期使用者識別碼的屬性名稱。 
 
-    f. 如果您使用同盟網域 (例如 ADFS 等) 搭配 Azure AD，請按一下 [啟用主領域探索]  選項，並設定 [網域名稱]  。
+    1. 如果您使用同盟網域 (例如 ADFS 等) 搭配 Azure AD，請按一下 [啟用主領域探索]  選項，並設定 [網域名稱]  。
     
-    g. 在 [網域名稱]  中，如果是使用以 ADFS 為基礎的登入，請在此輸入網域名稱。
+    1. 在 [網域名稱]  中，如果是使用以 ADFS 為基礎的登入，請在此輸入網域名稱。
 
-    h. 如果您想要在使用者登出 Confluence 時登出 Azure AD，請勾選 [啟用單一登出]  。 
+    1. 如果您想要在使用者登出 Confluence 時登出 Azure AD，請勾選 [啟用單一登出]  。 
 
-    i. 按一下 [儲存]  按鈕以儲存設定。
+    1. 如果您只要透過 Azure AD 認證登入，請啟用 [強制執行 Azure 登入]  核取方塊。
+    
+       > [!Note]
+       > 若要在啟用強制執行 Azure 登入時，於登入頁面上啟用系統管理員登入的預設登入表單，請在瀏覽器 URL 中加入查詢參數。
+       > `https://<domain:port>/login.action?force_azure_login=false`
+    
+    1. 按一下 [儲存]  按鈕以儲存設定。
 
-    > [!NOTE]
-    > 如需有關安裝和疑難排解的詳細資訊，請瀏覽 [MS Confluence SSO 連接器管理指南](../ms-confluence-jira-plugin-adminguide.md)，另外也有[常見問題集](../ms-confluence-jira-plugin-faq.md)可協助您
+       > [!NOTE]
+       > 如需有關安裝和疑難排解的詳細資訊，請瀏覽 [MS Confluence SSO 連接器管理指南](../ms-confluence-jira-plugin-adminguide.md)。 另外也有[常見問題集](../ms-confluence-jira-plugin-faq.md)可協助您。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 

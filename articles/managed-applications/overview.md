@@ -1,21 +1,17 @@
 ---
 title: Azure 受控應用程式概觀 | Microsoft Docs
 description: 說明 Azure 受控應用程式的概念
-services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.date: 10/04/2018
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 48bb241a7871d2a209636f66837fb2afd95fd22c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 5b6cb030c6eba5d80dfd046f1c3950609da1ed73
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001805"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479816"
 ---
 # <a name="azure-managed-applications-overview"></a>Azure 受控應用程式概觀
 
@@ -55,7 +51,9 @@ Azure 受控應用程式可讓您提供雲端解決方案，讓取用者方便�
 
 ## <a name="resource-groups-for-managed-applications"></a>受控應用程式的資源群組
 
-一般來說，受控應用程式的資源位於兩個資源群組中。 取用者會管理一個資源群組，發行者會管理另一個資源群組。 在定義受控應用程式時，發行者會指定存取的層級。 Azure 中的所有資料提供者目前都不支援限制存取[資料作業](../role-based-access-control/role-definitions.md)。
+一般來說，受控應用程式的資源位於兩個資源群組中。 取用者會管理一個資源群組，發行者會管理另一個資源群組。 在定義受控應用程式時，發行者會指定存取的層級。 發行者可以要求永久角色指派，或是針對限制在某段時間的指派，要求 [Just-In-Time](request-just-in-time-access.md) 存取。
+
+Azure 中的所有資料提供者目前都不支援限制存取[資料作業](../role-based-access-control/role-definitions.md)。
 
 下圖顯示的案例是發行者要求受控資源群組的擁有者角色。 發行者會為取用者對這個資源群組進行唯讀鎖定。 獲取受控資源群組存取權的發行者身分識別免除鎖定。
 
@@ -69,7 +67,7 @@ Azure 受控應用程式可讓您提供雲端解決方案，讓取用者方便�
 
 ### <a name="managed-resource-group"></a>受控資源群組
 
-這個資源群組會保存受控應用程式所需的所有資源。 例如，這個資源群組包含解決方案的虛擬機器、儲存體帳戶和虛擬網路。 因為取用者不會為受控應用程式管理個別資源，所以取用者具有這個資源群組的有限存取權。 這個資源群組的發行者存取權會對應至受控應用程式定義中指定的角色。 例如，發行者可能會要求這個資源群組的「擁有者」或「參與者」角色。
+這個資源群組會保存受控應用程式所需的所有資源。 例如，這個資源群組包含解決方案的虛擬機器、儲存體帳戶和虛擬網路。 因為取用者不會為受控應用程式管理個別資源，所以取用者具有這個資源群組的有限存取權。 這個資源群組的發行者存取權會對應至受控應用程式定義中指定的角色。 例如，發行者可能會要求這個資源群組的「擁有者」或「參與者」角色。 存取可以是永久或限制在特定時間。
 
 當取用者刪除受控應用程式時，也會刪除受控資源群組。
 

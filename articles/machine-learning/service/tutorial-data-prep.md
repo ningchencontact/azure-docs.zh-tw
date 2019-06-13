@@ -11,16 +11,16 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 67f3a0d10490c5c63dfe262d07985f51bb384e34
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 8b7bf5a0ece3927c7dbafdec9716b7c6f8dfbc0e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604485"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474702"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>教學課程：準備建立迴歸模型所需的資料
 
-在本教學課程中，您將了解如何使用[ Azure Machine Learning 資料準備套件](https://aka.ms/data-prep-sdk)來準備建立迴歸模型所需的資料。 您將執行各種轉換來篩選和結合兩個不同的 NYC 計程車資料集。
+在本教學課程中，您將了解如何使用 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 的[資料準備套件](https://aka.ms/data-prep-sdk)來準備建立迴歸模型所需的資料。 您將執行各種轉換來篩選和結合兩個不同的 NYC 計程車資料集。
 
 本教學課程是**兩部分教學課程系列的第一部分**。 完成教學課程系列之後，您可以訓練模型的資料特性，以預測計程車車程的費用。 這些特性包括上車的日期和時間、乘客數和上車地點。
 
@@ -38,7 +38,7 @@ ms.locfileid: "65604485"
 請跳至[設定您的開發環境](#start)閱讀完整的 Notebook 步驟，或依照下列指示取得 Notebook，並在 Azure Notebooks 或您自己的 Notebook 伺服器上加以執行。 若要執行 Notebook，您將需要：
 
 * 已安裝下列項目的 Python 3.6 Notebook 伺服器：
-    *  azureml-dataprep 套件，從適用於 Python 的 Azure Machine Learning SDK 取得
+    * Azure Machine Learning SDK 的 `azureml-dataprep` 套件
 * 教學課程筆記本
 
 * 使用[您工作區中的雲端 Notebook 伺服器](#azure) 
@@ -46,7 +46,7 @@ ms.locfileid: "65604485"
 
 ### <a name="azure"></a>使用您工作區中的雲端 Notebook 伺服器
 
-您可以輕鬆地開始使用自己的雲端式 Notebook 伺服器。 我們已在您建立此雲端資源後，為您安裝及設定[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk)。
+您可以輕鬆地開始使用自己的雲端式 Notebook 伺服器。 我們已在您建立此雲端資源後，為您安裝及設定適用於 Python 的 Azure Machine Learning SDK。
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
@@ -56,8 +56,8 @@ ms.locfileid: "65604485"
 
 使用下列步驟在您的電腦上建立本機 Jupyter Notebook 伺服器。  完成所有步驟後，請執行 **tutorials/regression-part1-data-prep.ipynb** 筆記本。
 
-1. 完成 [Azure Machine Learning Python 快速入門](setup-create-workspace.md#sdk)中的安裝步驟，以建立 Miniconda 環境。  如果您希望的話，也可以放心地略過**建立工作區**一節，但您在本教學課程系列的[第 2 部分](tutorial-auto-train-models.md)會需要該項目。
-1. 使用 `pip install azureml-dataprep` 在環境中安裝 azureml-dataprep。
+1. 完成 [Azure Machine Learning Python 快速入門](setup-create-workspace.md#sdk)中的安裝步驟，以建立 Miniconda 環境並安裝 SDK。  如果您希望的話，也可以放心地略過**建立工作區**一節，但您在本教學課程系列的[第 2 部分](tutorial-auto-train-models.md)會需要該項目。
+1. 當您安裝 SDK 時，系統便會自動安裝 `azureml-dataprep` 套件。
 1. 複製 [GitHub 存放庫](https://aka.ms/aml-notebooks)。
 
     ```
@@ -85,14 +85,14 @@ ms.locfileid: "65604485"
 pip install "azureml-dataprep[pandas]>=1.1.0,<1.2.0"
 ```
 
-匯入 SDK。
+匯入套件。
 
 ```python
 import azureml.dataprep as dprep
 ```
 
 > [!IMPORTANT]
-> 請確定您已安裝最新版本。 低於 1.1.0 的版本號碼不適用於本教學課程
+> 請確定您已安裝最新版的 azureml.dataprep 套件版本。 低於 1.1.0 的版本號碼不適用於本教學課程
 
 ## <a name="load-data"></a>載入資料
 

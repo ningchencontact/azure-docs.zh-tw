@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/20/2019
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: b96c1ada1ebb1bc53f7f55311c69a3cdc04f7574
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: b99ee8e6a379a1e86eaf37bb232176c3ca13c0d9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956436"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687957"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>快速入門：使用 Azure CLI 部署 Azure Kubernetes Service (AKS) 叢集
 
@@ -251,11 +251,11 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 ![檢視 AKS 中執行的容器健康情況](media/kubernetes-walkthrough/monitor-containers.png)
 
-若要查看 `azure-vote-front` Pod 的記錄，請選擇 [在 Analytics 中檢視]  的選項，然後選取容器清單右側的 [檢視容器記錄]  連結。 這些記錄包含來自容器的 stdout  和 stderr  資料流。
+若要查看 `azure-vote-back` Pod 的記錄，請選擇 [在 Analytics 中檢視]  的選項，然後按一下容器清單右側的 [檢視容器記錄]  連結。 這些記錄包含來自容器的 stdout  和 stderr  資料流。
 
 ![在 AKS 中檢視容器記錄](media/kubernetes-walkthrough/monitor-container-logs.png)
 
-## <a name="delete-cluster"></a>刪除叢集
+## <a name="delete-the-cluster"></a>刪除叢集
 
 若不再需要叢集，可使用 [az group delete][az-group-delete] 命令來移除資源群組、容器服務和所有相關資源。
 

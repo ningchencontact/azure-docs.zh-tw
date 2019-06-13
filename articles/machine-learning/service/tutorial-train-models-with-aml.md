@@ -10,18 +10,18 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 097fb3422ce3868d9ef499ad6c92c8b7fa12e852
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: ed2b35c5a1a0a017cb6bea086601282c83956d88
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442056"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515541"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>教學課程：使用 Azure Machine Learning，搭配 MNIST 資料和 scikit-learn 定型映像分類模型
 
 在本教學課程中，您會以遠端計算資源訓練機器學習模型。 您將使用 Python Jupyter Notebook 中的 Azure Machine Learning 服務 (預覽) 定型和部署工作流程。  然後，您可以使用 Notebook 作為範本，以自己的資料將您自己的機器學習服務模型定型。 本教學課程是**兩部分教學課程系列的第一部分**。  
 
-本教學課程會搭配 Azure Machine Learning 服務使用 [MNIST](http://yann.lecun.com/exdb/mnist/) 資料集和 [scikit-learn](https://scikit-learn.org) 來進行簡單的羅吉斯迴歸定型。 MNIST 是熱門的資料集，由 70,000 個灰階影像所組成。 每個影像都是 28 x 28 像素的手寫數字，代表 0 到 9 的數字。 目標是要建立多類別分類器，以識別特定影像所代表的數字。 
+本教學課程會搭配 Azure Machine Learning 服務使用 [MNIST](http://yann.lecun.com/exdb/mnist/) 資料集和 [scikit-learn](https://scikit-learn.org) 來進行簡單的羅吉斯迴歸定型。 MNIST 是熱門的資料集，由 70,000 個灰階影像所組成。 每個影像都是 28 x 28 像素的手寫數字，代表 0 到 9 的數字。 目標是要建立多類別分類器，以識別特定影像所代表的數字。
 
 了解如何執行下列動作：
 
@@ -31,12 +31,12 @@ ms.locfileid: "65442056"
 > * 在遠端叢集上定型簡單的羅吉斯迴歸模型。
 > * 檢閱定型結果並註冊最佳模型。
 
-您會在[本教學課程的第二部分](tutorial-deploy-models-with-aml.md)中，了解如何選取模型及部署模型。 
+您會在[本教學課程的第二部分](tutorial-deploy-models-with-aml.md)中，了解如何選取模型及部署模型。
 
 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
 >[!NOTE]
-> 本文中的程式碼已進行過 Azure Machine Learning SDK 1.0.8 版的測試。
+> 本文中的程式碼已進行過 Azure Machine Learning SDK 1.0.41 版的測試。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -50,8 +50,8 @@ ms.locfileid: "65442056"
 * 與 Notebook 位於相同目錄中的工作區組態檔
 
 請從以下各節取得前述所有必要項目。
- 
-* 使用[您工作區中的雲端 Notebook 伺服器](#azure) 
+
+* 使用[您工作區中的雲端 Notebook 伺服器](#azure)
 * 使用[您自己的 Notebook 伺服器](#server)
 
 ### <a name="azure"></a>使用您工作區中的雲端 Notebook 伺服器
@@ -61,7 +61,6 @@ ms.locfileid: "65442056"
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
 * 啟動 Notebook 網頁之後，請開啟 **tutorials/img-classification-part1-training.ipynb** Notebook。
-
 
 ### <a name="server"></a>使用您自己的 Jupyter Notebook 伺服器
 
@@ -106,7 +105,7 @@ print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 
 ### <a name="create-an-experiment"></a>建立實驗
 
-建立實驗，以追蹤您工作區中的執行。 一個工作區可以有多個實驗： 
+建立實驗，以追蹤您工作區中的執行。 一個工作區可以有多個實驗：
 
 ```python
 experiment_name = 'sklearn-mnist'
@@ -120,7 +119,6 @@ exp = Experiment(workspace=ws, name=experiment_name)
 資料科學家可藉由使用 Azure Machine Learning Compute 這項受控服務，在 Azure 虛擬機器的叢集上訓練機器學習模型。 範例包括具有 GPU 支援的 VM。 在本教學課程中，您會建立 Azure Machine Learning Compute 作為訓練環境。 如果您的工作區中還沒有計算叢集，下列程式碼將會為您建立計算叢集。
 
  **建立計算需要大約 5 分鐘的時間。** 如果工作區中已經有計算，則程式碼會加以使用而略過建立程序。
-
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -143,21 +141,21 @@ if compute_name in ws.compute_targets:
 else:
     print('creating a new compute target...')
     provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
-                                                                min_nodes = compute_min_nodes, 
+                                                                min_nodes = compute_min_nodes,
                                                                 max_nodes = compute_max_nodes)
 
     # create the cluster
     compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
-    
-    # can poll for a minimum number of nodes and for a specific timeout. 
+
+    # can poll for a minimum number of nodes and for a specific timeout.
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-    
+
      # For a more detailed view of current AmlCompute status, use get_status()
     print(compute_target.get_status().serialize())
 ```
 
-您現在具有必要的套件和計算資源，可以在雲端將模型定型。 
+您現在具有必要的套件和計算資源，可以在雲端將模型定型。
 
 ## <a name="explore-data"></a>探索資料
 
@@ -171,7 +169,6 @@ else:
 
 下載 MNIST 資料集，並將檔案儲存到 `data` 本機目錄。 這會同時下載定型和測試用的影像與標籤：
 
-
 ```python
 import urllib.request
 import os
@@ -184,13 +181,12 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-u
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename=os.path.join(data_folder, 'test-images.gz'))
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename=os.path.join(data_folder, 'test-labels.gz'))
 ```
+
 您將看到如下的輸出：```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)```
 
 ### <a name="display-some-sample-images"></a>顯示一些範例影像
 
 將壓縮的檔案載入到 `numpy` 陣列。 然後使用 `matplotlib` 來繪製 30 個來自資料集的隨機影像，並且在其上加上標籤。 此步驟需要 `util.py` 檔案中所包含的 `load_data` 函式。 這個檔案包含在範例資料夾。 請確定將它放在與此 Notebook 相同的資料夾中。 `load_data` 函式會直接將壓縮檔案剖析為 numpy 陣列：
-
-
 
 ```python
 # make sure utils.py is in the same directory as this code
@@ -234,8 +230,8 @@ print(ds.datastore_type, ds.account_name, ds.container_name)
 
 ds.upload(src_dir=data_folder, target_path='mnist', overwrite=True, show_progress=True)
 ```
-您現在已經具備開始將模型定型所需的一切。 
 
+您現在已經具備開始將模型定型所需的一切。
 
 ## <a name="train-on-a-remote-cluster"></a>在遠端叢集上定型
 
@@ -243,7 +239,7 @@ ds.upload(src_dir=data_folder, target_path='mnist', overwrite=True, show_progres
 * 建立目錄
 * 建立定型指令碼
 * 建立 estimator 物件
-* 提交工作 
+* 提交工作
 
 ### <a name="create-a-directory"></a>建立目錄
 
@@ -293,7 +289,7 @@ print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 run = Run.get_context()
 
 print('Train a logistic regression model with regularization rate of', args.reg)
-clf = LogisticRegression(C=1.0/args.reg, random_state=42)
+clf = LogisticRegression(C=1.0/args.reg, solver="liblinear", multi_class="auto", random_state=42)
 clf.fit(X_train, y_train)
 
 print('Predict the test set')
@@ -324,35 +320,31 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
   shutil.copy('utils.py', script_folder)
   ```
 
-
 ### <a name="create-an-estimator"></a>建立估計工具
 
-估計工具物件用來提交執行。 請執行下列程式碼來定義下列項目，以建立您的估算器：
+[SKLearn 估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py)物件用來提交執行。 請執行下列程式碼來定義下列項目，以建立您的估算器：
 
 * 估算器物件的名稱 (`est`)。
-* 包含指令碼的目錄。 在此目錄中的所有檔案都會上傳到叢集節點以便執行。 
+* 包含指令碼的目錄。 在此目錄中的所有檔案都會上傳到叢集節點以便執行。
 * 計算目標。 在此案例中，您會使用您所建立的 Azure Machine Learning 計算叢集。
 * 定型指令碼名稱 (**train.py**)。
-* 來自定型指令碼的必要參數。 
-* 定型所需的 Python 套件。
+* 來自定型指令碼的必要參數。
 
 在本教學課程中，這個目標會是 AmlCompute。 指令碼資料夾中的所有檔案都會上傳到叢集節點以便執行。 **data_folder** 會設定為使用資料存放區 `ds.path('mnist').as_mount()`：
 
 ```python
-from azureml.train.estimator import Estimator
+from azureml.train.sklearn import SKLearn
 
 script_params = {
     '--data-folder': ds.path('mnist').as_mount(),
-    '--regularization': 0.8
+    '--regularization': 0.5
 }
 
-est = Estimator(source_directory=script_folder,
+est = SKLearn(source_directory=script_folder,
                 script_params=script_params,
                 compute_target=compute_target,
-                entry_script='train.py',
-                conda_packages=['scikit-learn'])
+                entry_script='train.py')
 ```
-
 
 ### <a name="submit-the-job-to-the-cluster"></a>將工作提交至叢集
 
@@ -371,7 +363,7 @@ run
 
 在您等候時，會發生什麼事：
 
-- **影像建立**：系統會建立一個符合估算器所指定 Python 環境的 Docker 映像。 影像會上傳到工作區。 映像的建立和上傳會花費**大約 5 分鐘的時間**。 
+- **影像建立**：系統會建立一個符合估算器所指定 Python 環境的 Docker 映像。 影像會上傳到工作區。 映像的建立和上傳會花費**大約 5 分鐘的時間**。
 
   這個階段會針對每個 Python 環境發生一次，因為系統會快取容器以供後續執行使用。 在影像建立期間，會將記錄串流至執行歷程記錄中。 您可以使用這些記錄來監視映像建立程序。
 
@@ -381,20 +373,18 @@ run
 
 - **後處理**：執行的 **./outputs** 目錄會複製到您工作區中的執行歷程記錄，以便您存取這些結果。
 
-
-您可以透過數種方式檢查執行中作業的進度。 本教學課程會使用 Jupyter 小工具和 `wait_for_completion` 方法。 
+您可以透過數種方式檢查執行中作業的進度。 本教學課程會使用 Jupyter 小工具和 `wait_for_completion` 方法。
 
 ### <a name="jupyter-widget"></a>Jupyter 小工具
 
 使用 Jupyter 小工具觀看執行的進度。 與提交執行相同，小工具會以非同步方式作業，並且會每隔 10 到 15 秒提供即時更新，直到作業完成為止：
-
 
 ```python
 from azureml.widgets import RunDetails
 RunDetails(run).show()
 ```
 
-以下的靜止快照是定型結束時所顯示的小工具：
+在訓練結束時，小工具看起來會如下所示：
 
 ![Notebook 小工具](./media/tutorial-train-models-with-aml/widget.png)
 
@@ -402,8 +392,7 @@ RunDetails(run).show()
 
 ### <a name="get-log-results-upon-completion"></a>在完成時取得記錄檔結果
 
-模型定型和監視會在背景中發生。 請等到模型完成定型之後，再執行更多程式碼。 使用 `wait_for_completion` 可顯示模型定型何時完成： 
-
+模型定型和監視會在背景中發生。 請等到模型完成定型之後，再執行更多程式碼。 使用 `wait_for_completion` 可顯示模型定型何時完成：
 
 ```python
 run.wait_for_completion(show_output=False) # specify True for a verbose log
@@ -416,6 +405,7 @@ run.wait_for_completion(show_output=False) # specify True for a verbose log
 ```python
 print(run.get_metrics())
 ```
+
 輸出顯示遠端模型有 0.9204 的精確度：
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
@@ -435,7 +425,7 @@ print(run.get_file_names())
 請在工作區中註冊模型，以便您或其他共同作業者稍後可以查詢、檢查和部署此模型：
 
 ```python
-# register model 
+# register model
 model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
 print(model.name, model.id, model.version, sep = '\t')
 ```
@@ -445,7 +435,6 @@ print(model.name, model.id, model.version, sep = '\t')
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 您也可以只刪除 Azure Machine Learning Compute 叢集。 不過，自動調整已開啟，且叢集最小值為零。 因此，這個特定資源在不處於使用中狀態時，並不會產生額外的計算費用：
-
 
 ```python
 # optionally, delete the Azure Machine Learning Compute cluster
