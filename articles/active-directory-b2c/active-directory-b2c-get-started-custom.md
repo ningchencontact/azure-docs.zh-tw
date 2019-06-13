@@ -114,7 +114,7 @@ Azure AD B2C 會要求您註冊兩個用來註冊和登入使用者的應用程�
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-2. 在 SocialAndLocalAccounts 資料夾中，透過使用您的租用戶名稱取代 `yourtenant` 以編輯所有檔案。 例如： `contosoTenant.onmicrosoft.com`。 如果您需要 XML 編輯器，請[試用 Visual Studio 程式碼](https://code.visualstudio.com/download)，這是一個輕巧的跨平台編輯器。
+2. 在 SocialAndLocalAccounts 資料夾中，透過使用您的租用戶名稱取代 `yourtenant` 以編輯所有檔案。 例如： `contosoTenant.onmicrosoft.com`。 如果您需要 XML 編輯器，請[試用 Visual Studio Code](https://code.visualstudio.com/download)，這是一個輕巧的跨平台編輯器。
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>將應用程式識別碼新增至自訂原則
 
