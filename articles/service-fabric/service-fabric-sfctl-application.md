@@ -43,7 +43,7 @@ ms.locfileid: "60837482"
 | type | 取得 Service Fabric 叢集中完全符合指定名稱的應用程式類型清單。 |
 | type-list | 取得 Service Fabric 叢集中的應用程式類型清單。 |
 | unprovision | 從叢集移除或取消註冊 Service Fabric 應用程式類型。 |
-| 升級 | 開始在 Service Fabric 叢集中升級應用程式。 |
+| upgrade | 開始在 Service Fabric 叢集中升級應用程式。 |
 | upgrade-resume | 繼續在 Service Fabric 叢集中升級應用程式。 |
 | upgrade-rollback | 開始復原目前正在 Service Fabric 叢集中進行的應用程式升級。 |
 | upgrade-status | 取得在這個應用程式上執行之最新升級的詳細資料。 |
