@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703487"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解
@@ -209,7 +209,7 @@ SQL Database 上有多種可用的閂鎖。 為了簡單起見，系統會使用
 
 這個可偵測的效能模式表示與過去七天的工作負載基準相比，工作負載效能降低，其中發現有效能不佳的查詢。
 
-在此情況中，系統無法將效能不佳的查詢歸類至任何其他標準的可偵測效能類別，但它偵測到等候統計資料是造成迴歸的原因。 因此，系統會將那些查詢判斷為具有「增加的等候統計資料」，並同時公開造成迴歸的等候統計資料。 
+在此情況中，系統無法將效能不佳的查詢歸類至任何其他標準的可偵測效能類別，但它偵測到等候統計資料是造成迴歸的原因。 因此，系統會將那些查詢判斷為具有「增加的等候統計資料」  ，並同時公開造成迴歸的等候統計資料。 
 
 ### <a name="troubleshooting"></a>疑難排解
 
@@ -255,7 +255,7 @@ SQL Database 上的資源通常稱為 [DTU 資源](sql-database-purchase-models.
 
 SQL 資料庫會判斷出查詢執行成本最低的查詢執行計畫。 隨著查詢類型和工作負載發生變更，有時現有的計畫會變得不再有效率，或 SQL Database 可能並未做出理想的評估。 為了更正這種狀況，您可以手動強制執行查詢執行計畫。
 
-這個可偵測的效能模式結合了三種不同的計畫迴歸案例：新計畫迴歸、舊計畫迴歸，以及現有計畫變更工作負載。 所發生之計畫迴歸的特定類型，會在診斷記錄的 [詳細資料] 屬性中提供。
+這個可偵測的效能模式結合了三種不同的計畫迴歸案例：新計畫迴歸、舊計畫迴歸，以及現有計畫變更工作負載。 所發生之計畫迴歸的特定類型，會在診斷記錄的 [詳細資料]  屬性中提供。
 
 新計畫迴歸情況所指的狀態是 SQL Database 開始執行效率比舊計畫差的新查詢執行計畫。 舊計畫迴歸情況所指的狀態是 SQL Database 從使用較有效率的新計畫切換成使用效率比新計畫差的舊計畫。 現有計畫變更工作負載迴歸所指的狀態是新計畫和舊計畫會不斷交替，並逐漸朝向效能不佳的計畫方向發展。
 

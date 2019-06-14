@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: e488e742fc49102f7c58d132a66bca2347ad575c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60702090"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>使用 Azure 自動化來管理 Azure SQL 資料庫
@@ -37,7 +37,7 @@ Azure SQL 資料庫可透過 [Azure PowerShell 工具](/powershell/azure/overvie
 
 Azure 自動化也可直接與 SQL 伺服器通訊，只要使用 PowerShell 發出 SQL 命令即可。
 
-[Azure 自動化 Runbook 資源庫](https://azure.microsoft.com/blog/20../../introducing-the-azure-automation-runbook-gallery/)含有多種產品團隊與社群 Runbook，可供您開始針對 Azure SQL Database、其他 Azure 服務與協力廠商系統進行自動化管理。 資源庫 Runbook 包括：
+[Azure 自動化 Runbook 資源庫](https://azure.microsoft.com/blog/20../../introducing-the-azure-automation-runbook-gallery/)含有多種產品團隊與社群 Runbook，可供您開始針對 Azure SQL 資料庫、其他 Azure 服務與協力廠商系統進行自動化管理。 資源庫 Runbook 包括：
 
 - [針對 SQL Server 資料庫執行 SQL 查詢 (英文)](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
 - [依排程垂直調整 (向上或向下) Azure SQL Database (英文)](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
@@ -48,6 +48,6 @@ Azure 自動化也可直接與 SQL 伺服器通訊，只要使用 PowerShell 發
 
 了解 Azure 自動化的基本概念以及如何用它來管理 Azure SQL 資料庫之後，請參考下列連結，以深入了解 Azure 自動化。
 
-- [Azure 自动化概述](../automation/automation-intro.md)
+- [Azure 自動化概觀](../automation/automation-intro.md)
 - [我的第一個 Runbook](../automation/automation-first-runbook-graphical.md)
 - [Azure Automation:Your SQL Agent in the Cloud](https://azure.microsoft.com/blog/20../../azure-automation-your-sql-agent-in-the-cloud/) (Azure 自動化：雲端中的 SQL Agent) 

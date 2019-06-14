@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
 ms.openlocfilehash: b0243b37f725fc977337b72998d610e9bda71a86
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128850"
 ---
 # <a name="monitor-batch-solutions"></a>監視 Batch 解決方案
@@ -30,7 +30,7 @@ Azure 與 Batch 服務提供一系列服務、工具和 API 來監視您的 Batc
 
 具體針對 Batch 帳戶來說，活動記錄會收集關於帳戶建立和刪除及金鑰管理的事件。
 
-從活動記錄擷取事件的方法之一是使用 Azure 入口網站。 按一下 [所有服務] > [活動記錄]。 或是，使用 Azure CLI、PowerShell Cmdlet 或 Azure Monitor REST API 來查詢事件。 您也可以匯出活動記錄，或設定[活動記錄警示](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md)。
+從活動記錄擷取事件的方法之一是使用 Azure 入口網站。 按一下 [所有服務]   > [活動記錄]  。 或是，使用 Azure CLI、PowerShell Cmdlet 或 Azure Monitor REST API 來查詢事件。 您也可以匯出活動記錄，或設定[活動記錄警示](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md)。
 
 ## <a name="batch-account-level-monitoring"></a>Batch 帳戶層級監視
 
@@ -41,7 +41,7 @@ Azure 與 Batch 服務提供一系列服務、工具和 API 來監視您的 Batc
 
 ## <a name="batch-resource-monitoring"></a>Batch 資源監視
 
-在 Batch 應用程式中，使用 Batch API 監視或查詢像是作業、工作、節點和集區等資源的狀態。 例如︰
+在 Batch 應用程式中，使用 Batch API 監視或查詢像是作業、工作、節點和集區等資源的狀態。 例如:
 
 * [依照狀態計算工作和計算節點](batch-get-resource-counts.md)
 * [建立查詢以便有效率地列出 Batch 資源](batch-efficient-list-queries.md)

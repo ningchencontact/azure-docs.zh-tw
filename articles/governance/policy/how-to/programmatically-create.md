@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: c4bb06bd4c75dfeb164341d8cc5084030d3a08a7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979318"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>以程式設計方式建立原則並檢視合規性資料
@@ -214,7 +214,7 @@ ms.locfileid: "65979318"
 
    若在未指定位置參數的情況下呼叫，`az policy definition creation` 會預設儲存工作階段內容中所選訂用帳戶的原則定義。 若要將定義儲存至不同位置，請使用下列參數：
 
-   - **--subscription** - 儲存到不同的訂用帳戶。 需要一個 _GUID_ 值來用於訂用帳戶 ID，或需要一個「字串」值來用於訂用帳戶名稱。
+   - **--subscription** - 儲存到不同的訂用帳戶。 需要一個 _GUID_ 值來用於訂用帳戶 ID，或需要一個「字串」  值來用於訂用帳戶名稱。
    - **--management-group** - 儲存到管理群組。 需要_字串_值。
 
 1. 使用下列命令以建立原則指派。 以您自己的值取代 &lt;&gt; 符號中的範例資訊。

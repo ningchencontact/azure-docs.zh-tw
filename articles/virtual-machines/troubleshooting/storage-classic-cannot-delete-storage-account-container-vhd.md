@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926236"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>針對傳統儲存體資源刪除錯誤進行疑難排解
@@ -44,7 +44,7 @@ ms.locfileid: "64926236"
 當使用者嘗試刪除不再需要的傳統儲存體帳戶時，使用者可能會看到下列行為。
 
 #### <a name="azure-portal"></a>Azure 入口網站 
-使用者導覽至 [Azure 入口網站](https://portal.azure.com)上的傳統儲存體帳戶，然後按一下 [刪除]，使用者會看到下列訊息： 
+使用者導覽至 [Azure 入口網站](https://portal.azure.com)上的傳統儲存體帳戶，然後按一下 [刪除]  ，使用者會看到下列訊息： 
 
 使用「附加」到虛擬機器的磁碟
 
@@ -99,7 +99,7 @@ ms.locfileid: "64926236"
 #### <a name="azure-powershell"></a>Azure PowerShell 
 如果使用者選擇使用 PowerShell 進行刪除，則會導致下列錯誤。 
 
-> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"** </span>
 > 
 > <span style="color:red">Remove-AzureStorageBlob :遠端伺服器傳回錯誤：(412) 目前 Blob 上沒有租用，且要求中沒有指定任何租用識別碼。HTTP 狀態碼：412 - HTTP 錯誤訊息：目前 Blob 上沒有租用，且要求中沒有指定任何租用識別碼。</span>
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.openlocfilehash: eb405549ba2d1c97b16f5b465abf0dc54de3b80d
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66000920"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>在您的應用程式中設定 SSL 連線能力，以安全地連線至適用於 MySQL 的 Azure 資料庫
@@ -25,8 +25,8 @@ ms.locfileid: "66000920"
 如需特定程式設計語言的連接字串，請參閱[範例程式碼](howto-configure-ssl.md#sample-code)如下。
 
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>使用 MySQL Workbench 透過 SSL 連線至伺服器
-設定使 MySQL Workbench 安全地透過 SSL 連線。 從 [設定新連線] 對話方塊，瀏覽至 [SSL] 索引標籤。在 [SSL CA 檔案:] 欄位中輸入 **BaltimoreCyberTrustRoot.crt.pem** 的檔案位置。 
-![儲存自訂的圖格](./media/howto-configure-ssl/mysql-workbench-ssl.png) 對於現有連線，您可以透過在 [連線] 圖示上按一下滑鼠右鍵，然後選擇 [編輯] 將 SSL 繫結。 然後瀏覽至 [SSL] 索引標籤上，並繫結憑證檔案。
+設定使 MySQL Workbench 安全地透過 SSL 連線。 從 [設定新連線] 對話方塊，瀏覽至 [SSL]  索引標籤。在 [SSL CA 檔案:]  欄位中輸入 **BaltimoreCyberTrustRoot.crt.pem** 的檔案位置。 
+![儲存自訂的圖格](./media/howto-configure-ssl/mysql-workbench-ssl.png) 對於現有連線，您可以透過在 [連線] 圖示上按一下滑鼠右鍵，然後選擇 [編輯] 將 SSL 繫結。 然後瀏覽至 [SSL]  索引標籤上，並繫結憑證檔案。
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>使用 MySQL CLI 透過 SSL 連線至伺服器
 有另一個繫結 SSL 憑證的方法，就是藉由執行下列命令來使用 MySQL 命令列介面。 
@@ -40,7 +40,7 @@ mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p -
 
 ## <a name="step-3--enforcing-ssl-connections-in-azure"></a>步驟 3：強制在 Azure 中使用 SSL 連線 
 ### <a name="using-the-azure-portal"></a>使用 Azure 入口網站
-使用 Azure 入口網站，瀏覽適用於 MySQL 的 Azure 資料庫伺服器，然後按一下 [連線安全性]。 使用切換按鈕來啟用或停用 [強制使用 SSL 連線] 設定，然後按一下 [儲存]。 Microsoft 建議一律啟用 [強制使用 SSL 連線] 設定，以增強安全性。
+使用 Azure 入口網站，瀏覽適用於 MySQL 的 Azure 資料庫伺服器，然後按一下 [連線安全性]  。 使用切換按鈕來啟用或停用 [強制使用 SSL 連線]  設定，然後按一下 [儲存]  。 Microsoft 建議一律啟用 [強制使用 SSL 連線]  設定，以增強安全性。
 ![啟用 ssl](./media/howto-configure-ssl/enable-ssl.png)
 
 ### <a name="using-azure-cli"></a>使用 Azure CLI

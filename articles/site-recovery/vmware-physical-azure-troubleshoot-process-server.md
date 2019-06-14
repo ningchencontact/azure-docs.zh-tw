@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 04/29/2019
 ms.author: raynew
 ms.openlocfilehash: 6e31308800f72d60381f1e4ecd540482ba263851
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969361"
 ---
 # <a name="troubleshoot-the-process-server"></a>疑難排解處理序伺服器
@@ -51,7 +51,7 @@ ms.locfileid: "65969361"
 
 **警示類型** | **錯誤** | **疑難排解**
 --- | --- | --- 
-![狀況良好][green] | None  | 處理序伺服器已連線且狀況良好。
+![Healthy][green] | None  | 處理序伺服器已連線且狀況良好。
 ![警告][yellow] | 指定的服務未執行。 | 1.請確認服務正在執行。<br/> 2.如果服務正在執行，如預期般運作，請遵循下方的指示[針對連線能力和複寫問題進行疑難排解](#check-connectivity-and-replication)。
 ![警告][yellow]  | 過去 15 分鐘內的 CPU 使用率 > 80%。 | 1.請勿將新增新的機器。<br/>2.核取的 Vm 使用的處理序伺服器數目與對齊[定義限制](site-recovery-plan-capacity-vmware.md#capacity-considerations)，並考慮設定[額外處理序伺服器](vmware-azure-set-up-process-server-scale.md)。<br/>3.請遵循下方的指示[針對連線能力和複寫問題進行疑難排解](#check-connectivity-and-replication)。
 ![重要][red] |  過去 15 分鐘內的 CPU 使用量 > 95%。 | 1.請勿將新增新的機器。<br/>2.核取的 Vm 使用的處理序伺服器數目與對齊[定義限制](site-recovery-plan-capacity-vmware.md#capacity-considerations)，並考慮設定[額外處理序伺服器](vmware-azure-set-up-process-server-scale.md)。<br/>3.請遵循下方的指示[針對連線能力和複寫問題進行疑難排解](#check-connectivity-and-replication)。<br/> 4.如果問題持續發生，請執行[部署規劃工具](https://aka.ms/asr-v2a-deployment-planner)VMware/實體伺服器複寫。
@@ -69,7 +69,7 @@ ms.locfileid: "65969361"
 
 下表摘要說明應處理序伺服器執行的服務。 有些許差異，在服務中，根據處理序伺服器部署的方式。 
 
-Microsoft Azure 復原服務代理程式 (obengine) 以外的所有服務，請檢查 StartType 設為**自動**或是**自動 （延遲開始）**。
+Microsoft Azure 復原服務代理程式 (obengine) 以外的所有服務，請檢查 StartType 設為**自動**或是**自動 （延遲開始）** 。
  
 **部署** | **執行中的服務**
 --- | ---
@@ -113,7 +113,7 @@ Microsoft Azure 復原服務代理程式 (obengine) 以外的所有服務，請�
 3. 請確認連接是否成功。
 
 
-**連線能力** | **詳細資料** | **動作**
+**連線能力** | **詳細資料** | **Action**
 --- | --- | ---
 **Successful** | Telnet 顯示空白畫面，並處理序伺服器可供連線。 | 不需要採取進一步的動作。
 **不成功** | 您無法連線 | 請確定輸入的連接埠 9443 允許處理序伺服器上。 例如，如果您有周邊網路或遮蔽式子網路。 再次檢查連線能力。
@@ -200,7 +200,7 @@ Microsoft Azure 復原服務代理程式 (obengine) 以外的所有服務，請�
 ## <a name="step-10-check-the-process-server-connection-to-azure-public-ip-address"></a>步驟 10： 請檢查處理序伺服器連線至 Azure 的公用 IP 位址
 
 1. 在處理序伺服器上，在 **%programfiles%\Microsoft Azure Recovery Services Agent\Temp**，開啟最新的 CBEngineCurr.errlog 檔案。
-2. 在檔案中，搜尋**443**，或字串**連線嘗試失敗，**。
+2. 在檔案中，搜尋**443**，或字串**連線嘗試失敗，** 。
 
   ![在 [Temp] 資料夾中的錯誤記錄檔](./media/vmware-physical-azure-troubleshoot-process-server/logdetails1.png)
 

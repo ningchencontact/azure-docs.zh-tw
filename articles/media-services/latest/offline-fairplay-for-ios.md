@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
 ms.openlocfilehash: 58315e639a54b67bdef6751004b7a768e4f92224
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937506"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>適用於 iOS 的離線 FairPlay 串流 
@@ -54,7 +54,7 @@ ms.locfileid: "64937506"
 
     - FPS Server SDK，內含金鑰安全性模組 (KSM)、用戶端範例、規格，以及一組測試向量。
     - FPS Deployment Pack，內含 D 函式規格，以及有關如何產生 FPS 憑證、客戶專屬私密金鑰及應用程式祕密金鑰的指示。 Apple 只會將 FPS Deployment Pack 發給授權的內容提供者。
-* 複製 https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git。 
+* 複製 https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git 。 
 
     您必須修改[使用 .NET 以 DRM 加密](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM)中的程式碼，以新增 FairPlay 組態。  
 

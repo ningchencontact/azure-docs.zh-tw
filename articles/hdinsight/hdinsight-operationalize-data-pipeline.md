@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.openlocfilehash: 524386c046534b0ef0050e15d326118b84822822
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64718038"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>使用資料分析管線進行作業
@@ -39,7 +39,7 @@ ms.locfileid: "64718038"
 
 這個管線會使用在 HDInsight Hadoop 叢集上執行的 Apache Oozie。
 
-Oozie 會根據「動作」、「工作流程和「協調器」來描述其管線。 動作會決定實際要執行的工作，例如執行 Hive 查詢。 工作流程會定義動作順序。 協調器會定義工作流程的執行排程。 協調器也會等到新資料可用時，再啟動工作流程的執行個體。
+Oozie 會根據「動作」  、「工作流程  和「協調器」  來描述其管線。 動作會決定實際要執行的工作，例如執行 Hive 查詢。 工作流程會定義動作順序。 協調器會定義工作流程的執行排程。 協調器也會等到新資料可用時，再啟動工作流程的執行個體。
 
 下圖顯示此範例 Oozie 管線的高階設計。
 
@@ -53,19 +53,19 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
 
 1. 使用 Azure 入口網站，建立名為 `oozie` 的新資源群組，以包含此範例使用的所有資源。
 2. 在 `oozie` 資源群組中，佈建 Azure SQL Server 和 SQL Database。 您不需要大於 S1 標準定價層的資料庫。
-3. 使用 Azure 入口網站，瀏覽至新部署 SQL Database 的窗格，然後選取 [工具]。
+3. 使用 Azure 入口網站，瀏覽至新部署 SQL Database 的窗格，然後選取 [工具]  。
 
     ![工具按鈕](./media/hdinsight-operationalize-data-pipeline/sql-db-tools.png)
 
-4. 選取 [查詢編輯器]。
+4. 選取 [查詢編輯器]  。
 
     ![查詢編輯器按鈕](./media/hdinsight-operationalize-data-pipeline/sql-db-query-editor.png)
 
-5. 在 [查詢編輯器] 窗格中，選取 [登入]。
+5. 在 [查詢編輯器]  窗格中，選取 [登入]  。
 
     ![登入按鈕](./media/hdinsight-operationalize-data-pipeline/sql-db-login1.png)
 
-6. 輸入您的 SQL Database 認證，並選取 [確定]。
+6. 輸入您的 SQL Database 認證，並選取 [確定]  。
 
    ![登入表單](./media/hdinsight-operationalize-data-pipeline/sql-db-login2.png)
 
@@ -88,7 +88,7 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
     GO
     ```
 
-8. 選取 [執行] 以執行 SQL 陳述式。
+8. 選取 [執行]  以執行 SQL 陳述式。
 
     ![執行按鈕](./media/hdinsight-operationalize-data-pipeline/sql-db-run.png)
 
@@ -96,43 +96,43 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
 
 #### <a name="provision-an-hdinsight-hadoop-cluster"></a>佈建 HDInsight Hadoop 叢集
 
-1. 在 Azure 入口網站中，選取 [+新增]，然後搜尋 HDInsight。
-2. 選取 [建立] 。
+1. 在 Azure 入口網站中，選取 [+新增]  ，然後搜尋 HDInsight。
+2. 選取 [建立]  。
 3. 在 [基本資料] 窗格中，提供叢集的唯一名稱並選擇您的 Azure 訂用帳戶。
 
     ![HDInsight 叢集名稱和訂用帳戶](./media/hdinsight-operationalize-data-pipeline/hdi-name-sub.png)
 
-4. 在 [叢集類型] 窗格中，選取 [Hadoop] 叢集類型，[Linux] 作業系統和最新版的 HDInsight 叢集。 將 [叢集層] 保持為 [標準]。
+4. 在 [叢集類型]  窗格中，選取 [Hadoop]  叢集類型，[Linux]  作業系統和最新版的 HDInsight 叢集。 將 [叢集層]  保持為 [標準]  。
 
     ![HDInsight 叢集類型](./media/hdinsight-operationalize-data-pipeline/hdi-cluster-type.png)
 
-5. 選擇 [選取] 來套用您的叢集類型選取項目。
-6. 提供登入密碼並從清單中選取您的 `oozie` 資源群組，以完成 [基本資料] 窗格，然後選取 [下一步]。
+5. 選擇 [選取]  來套用您的叢集類型選取項目。
+6. 提供登入密碼並從清單中選取您的 `oozie` 資源群組，以完成 [基本資料]  窗格，然後選取 [下一步]  。
 
     ![HDInsight 基本資料窗格](./media/hdinsight-operationalize-data-pipeline/hdi-basics.png)
 
-7. 在 [儲存體] 窗格中，將主要儲存體類型設為 [Azure 儲存體]，選取 [建立新項目]，並提供新的帳戶名稱。
+7. 在 [儲存體]  窗格中，將主要儲存體類型設為 [Azure 儲存體]  ，選取 [建立新項目]  ，並提供新的帳戶名稱。
 
     ![HDInsight 儲存體帳戶設定](./media/hdinsight-operationalize-data-pipeline/hdi-storage.png)
 
-8. 針對 [中繼存放區設定]，在 [選取 Hive 的 SQL 資料庫] 下，選擇您先前建立的資料庫。
+8. 針對 [中繼存放區設定]  ，在 [選取 Hive 的 SQL 資料庫]  下，選擇您先前建立的資料庫。
 
     ![HDInsight Hive 中繼存放區設定](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-hive.png)
 
-9. 選取 [驗證 SQL Database]。
+9. 選取 [驗證 SQL Database]  。
 
     ![HDInsight Hive 中繼存放區驗證](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql.png)
 
-10. 輸入 SQL 資料庫使用者名稱和密碼，然後選擇 [選取]。 
+10. 輸入 SQL 資料庫使用者名稱和密碼，然後選擇 [選取]  。 
 
        ![HDInsight Hive 中繼存放區驗證登入](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql-login.png)
 
-11. 回到 [中繼存放區設定] 窗格，選取 Oozie 中繼資料存放區的資料庫並如同先前一樣進行驗證。 
+11. 回到 [中繼存放區設定]  窗格，選取 Oozie 中繼資料存放區的資料庫並如同先前一樣進行驗證。 
 
        ![HDInsight 中繼存放區設定](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-settings.png)
 
-12. 選取 [下一步] 。
-13. 在 [摘要] 窗格中，選取 [建立] 來部署您的叢集。
+12. 選取 [下一步]  。
+13. 在 [摘要]  窗格中，選取 [建立]  來部署您的叢集。
 
 ### <a name="verify-ssh-tunneling-setup"></a>確認 SSH 通道安裝
 
@@ -151,7 +151,7 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
 
     http:\//headnodehost:8080
 
-3. 若要從 Ambari 內存取 [Oozie Web 主控台]，選取 [Oozie]、[快速連結]，然後選取 [Oozie Web 主控台]。
+3. 若要從 Ambari 內存取 [Oozie Web 主控台]  ，選取 [Oozie]  、[快速連結]  ，然後選取 [Oozie Web 主控台]  。
 
 ### <a name="configure-hive"></a>設定 Hive
 
@@ -175,12 +175,12 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
 
 此範例資料目前可供使用。 不過，管線需要兩個 Hive 資料表以供處理使用，一個用於內送資料 (`rawFlights`)，另一個用於彙總資料 (`flights`)。 如下所示，在 Ambari 中建立這些資料表。
 
-1. 通过导航到 http:\//headnodehost:8080 登录 Ambari。
-2. 從服務清單中，選取 [Hive]。
+1. 瀏覽至 http 登入 Ambari:\//headnodehost:8080。
+2. 從服務清單中，選取 [Hive]  。
 
     ![在 Ambari 中選取 Hive](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
 
-3. 選取 Hive 檢視 2.0 標籤旁邊的 [移至檢視]。
+3. 選取 Hive 檢視 2.0 標籤旁邊的 [移至檢視]  。
 
     ![在 Ambari 中選取 Hive 檢視](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png)
 
@@ -209,7 +209,7 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
     LOCATION '/example/data/flights'
     ```
 
-5. 選取 [執行] 以建立資料表。
+5. 選取 [執行]  以建立資料表。
 
     ![Ambari 中的 Hive 查詢](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png)
 
@@ -239,7 +239,7 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
     );
     ```
 
-7. 選取 [執行] 以建立資料表。
+7. 選取 [執行]  以建立資料表。
 
 ### <a name="create-the-oozie-workflow"></a>建立 Oozie 工作流程
 
@@ -425,7 +425,7 @@ day=03
 | hiveDataFolder | 在 Azure 儲存體中暫存資料表內含資料的路徑。 |
 | sqlDatabaseConnectionString | Azure SQL Database 的 JDBC 語法連接字串。 |
 | sqlDatabaseTableName | 在 Azure SQL Database 中摘要資料列會插入其中的資料表名稱。 保持為 `dailyflights`。 |
-| 年 | 為其計算航班摘要之日期的年度元件。 保持原狀。 |
+| year | 為其計算航班摘要之日期的年度元件。 保持原狀。 |
 | 月 | 為其計算航班摘要之日期的月份元件。 保持原狀。 |
 | day | 為其計算航班摘要之日期的日期元件。 保持原狀。 |
 
@@ -461,11 +461,11 @@ day=03
 
         oozie job -config job.properties -run
 
-7. 使用 Oozie Web 主控台觀察狀態。 從 Ambari 內選取 [Oozie]、[快速連結]，然後選取 [Oozie Web 主控台]。 在 [工作流程作業] 索引標籤底下，選取 [所有作業]。
+7. 使用 Oozie Web 主控台觀察狀態。 從 Ambari 內選取 [Oozie]  、[快速連結]  ，然後選取 [Oozie Web 主控台]  。 在 [工作流程作業]  索引標籤底下，選取 [所有作業]  。
 
     ![Oozie Web 主控台工作流程](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png)
 
-8. 當狀態為 [已成功]，請查詢 SQL 資料庫資料表來檢視插入的資料列。 使用 Azure 入口網站，瀏覽您的 SQL Database 窗格，選取 [工具]，然後開啟 [查詢編輯器]。
+8. 當狀態為 [已成功]，請查詢 SQL 資料庫資料表來檢視插入的資料列。 使用 Azure 入口網站，瀏覽您的 SQL Database 窗格，選取 [工具]  ，然後開啟 [查詢編輯器]  。
 
         SELECT * FROM dailyflights
 
@@ -550,7 +550,7 @@ day=03
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    根據 `frequency` 屬性所指定的間隔，協調器會負責排定 `start` 和 `end` 日期範圍內的動作。 每個排定的動作會如同設定依序執行工作流程。 在上述協調器定義中，協調器設定為從 2017 年 1 月 1 日到 2017 年 1 月 5 日執行動作。 [Oozie 運算式語言](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) 頻率運算式 `${coord:days(1)}`會將頻率設定為 1 天。 這會導致協調器每天安排一次動作 (還有工作流程)。 對於過去的日期範圍，就如同此範例中，此動作會立即排定進行執行。 排定要執行動作之日期的開端稱為「名義時間」。 比方說，若要處理 2017 年 1 月 1 日的資料，協調器會安排名義時間為 2017-01-01T00:00:00 GMT 的動作。
+    根據 `frequency` 屬性所指定的間隔，協調器會負責排定 `start` 和 `end` 日期範圍內的動作。 每個排定的動作會如同設定依序執行工作流程。 在上述協調器定義中，協調器設定為從 2017 年 1 月 1 日到 2017 年 1 月 5 日執行動作。 [Oozie 運算式語言](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) 頻率運算式 `${coord:days(1)}`會將頻率設定為 1 天。 這會導致協調器每天安排一次動作 (還有工作流程)。 對於過去的日期範圍，就如同此範例中，此動作會立即排定進行執行。 排定要執行動作之日期的開端稱為「名義時間」  。 比方說，若要處理 2017 年 1 月 1 日的資料，協調器會安排名義時間為 2017-01-01T00:00:00 GMT 的動作。
 
 * 第 2 點：在工作流程的日期範圍內，`dataset` 元素會指定要在 HDFS 中的何處尋找特定日期範圍的資料，以及設定 Oozie 如何判斷資料是否已可供處理。
 
@@ -638,7 +638,7 @@ sqlDatabaseTableName=dailyflights
     oozie job -config job.properties -run
     ```
 
-5. 使用 Oozie Web 主控台確認狀態，此次選取 [協調器作業] 索引標籤，然後選取 [所有作業]。
+5. 使用 Oozie Web 主控台確認狀態，此次選取 [協調器作業]  索引標籤，然後選取 [所有作業]  。
 
     ![Oozie Web 主控台協調器作業](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-jobs.png)
 

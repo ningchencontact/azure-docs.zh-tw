@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant-msft
 ms.openlocfilehash: 5319b0ac06c4ddf1a7627a4e7fe0bfb2694f79f6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706597"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>教學課程：設定自動使用者佈建的 Zscaler One
@@ -52,11 +52,11 @@ ms.locfileid: "64706597"
 
     ![Azure Active Directory 圖示](common/select-azuread.png)
 
-2. 移至 [企業應用程式]，然後選取 [所有應用程式]。
+2. 移至 [企業應用程式]  ，然後選取 [所有應用程式]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增應用程式，請選取對話方塊頂端的 [新增應用程式]。
+3. 若要新增應用程式，請選取對話方塊頂端的 [新增應用程式]  。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
@@ -89,21 +89,21 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Zscaler One]。
+2. 在應用程式清單中，選取 [Zscaler One]  。
 
     ![應用程式清單中的 [Zscaler One] 連結](common/all-applications.png)
 
-3. 選取 [佈建] 索引標籤。
+3. 選取 [佈建]  索引標籤。
 
     ![Zscaler One 佈建](./media/zscaler-one-provisioning-tutorial/provisioning-tab.png)
 
-4. 將 [佈建模式] 設定為 [自動]。
+4. 將 [佈建模式]  設定為 [自動]  。
 
     ![Zscaler 的一種佈建模式](./media/zscaler-one-provisioning-tutorial/provisioning-credentials.png)
 
 5. 底下**系統管理員認證**區段中，填寫**租用戶 URL**並**祕密權杖**方塊以設定您 Zscaler one 帳戶步驟 6 中所述。
 
-6. 若要取得租用戶 URL 」 及 「 祕密權杖，請前往**Administration** > **驗證設定**Zscaler One 的入口網站 UI 中。 底下**驗證類型**，選取**SAML**。
+6. 若要取得租用戶 URL 」 及 「 祕密權杖，請前往**Administration** > **驗證設定**Zscaler One 的入口網站 UI 中。 在 [驗證類型]  下方，選取 [SAML]  。
 
     ![Zscaler One 的驗證設定](./media/zscaler-one-provisioning-tutorial/secret-token-1.png)
 

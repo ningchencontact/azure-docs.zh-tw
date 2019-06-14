@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: shlo
 ms.openlocfilehash: df684860cd3d1b6a002a300682ca4c6398461ba6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60716750"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>以視覺化方式監視 Azure 資料處理站
@@ -52,7 +52,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 ![監視管線回合](media/monitor-visually/pipeline-runs.png)
 
 ## <a name="monitor-activity-runs"></a>監視活動回合
-顯示對應至每個管線回合之活動回合的清單檢視。 按一下位於 [活動] 資料行底下的 [活動回合] 圖示，以檢視每個管線回合的活動回合。 包含下列資料行：
+顯示對應至每個管線回合之活動回合的清單檢視。 按一下位於 [活動]  資料行底下的 [活動回合]  圖示，以檢視每個管線回合的活動回合。 包含下列資料行：
 
 | **資料行名稱** | **說明** |
 | --- | --- |
@@ -68,7 +68,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 ![監視活動回合](media/monitor-visually/activity-runs.png)
 
 > [!IMPORTANT]
-> 您必須按一下位於上方的 [重新整理] 圖示，以重新整理管線和活動回合的清單。 目前不支援自動重新整理。
+> 您必須按一下位於上方的 [重新整理]  圖示，以重新整理管線和活動回合的清單。 目前不支援自動重新整理。
 
 ![重新整理](media/monitor-visually/refresh.png)
 
@@ -101,7 +101,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 ## <a name="promote-user-properties-to-monitor"></a>將使用者屬性升階以便監視
 
-您可以將任何管線活動屬性升階為使用者屬性，讓它變成您可以監視的實體。 例如，您可以將管線中「複製」活動的 **Source** 和 **Destination** 屬性升階為使用者屬性。 您也可以選取 [自動產生]，為「複製」活動產生 **Source** 和 **Destination** 使用者屬性。
+您可以將任何管線活動屬性升階為使用者屬性，讓它變成您可以監視的實體。 例如，您可以將管線中「複製」活動的 **Source** 和 **Destination** 屬性升階為使用者屬性。 您也可以選取 [自動產生]  ，為「複製」活動產生 **Source** 和 **Destination** 使用者屬性。
 
 ![建立使用者屬性](media/monitor-visually/monitor-user-properties-image1.png)
 
@@ -118,7 +118,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 ## <a name="rerun-activities-inside-a-pipeline"></a>在管線中重新執行活動
 
-您現在可以在管線中重新執行活動。 按一下 [檢視活動執行] 並選取管線中您想要重新執行管線的活動。
+您現在可以在管線中重新執行活動。 按一下 [檢視活動執行]  並選取管線中您想要重新執行管線的活動。
 
 ![檢視活動執行](media/monitor-visually/rerun-activities-image1.png)
 
@@ -146,7 +146,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 ## <a name="alerts"></a>警示
 
-您可以針對 Data Factory 中支援的計量提出警示。 選取 [Data Factory 監視器] 頁面上的 [監視] -> [警示和計量] ，即可開始使用。
+您可以針對 Data Factory 中支援的計量提出警示。 選取 [Data Factory 監視器] 頁面上的 [監視] -> [警示和計量]   ，即可開始使用。
 
 ![](media/monitor-visually/alerts01.png)
 
@@ -156,11 +156,11 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 ### <a name="create-alerts"></a>建立警示
 
-1.  按一下 [新增警示規則]  來新建警示。
+1.  按一下 [新增警示規則]    來新建警示。
 
     ![](media/monitor-visually/alerts02.png)
 
-1.  指定規則名稱，然後選取警示 [嚴重性]。
+1.  指定規則名稱，然後選取警示 [嚴重性]  。
 
     ![](media/monitor-visually/alerts03.png)
 
@@ -174,7 +174,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
     ![](media/monitor-visually/alerts06.png)
 
-1.  設定警示的 [電子郵件/簡訊/推送/語音] 通知。 建立或選擇警示通知的現有 [動作群組]。
+1.  設定警示的 [電子郵件/簡訊/推送/語音]  通知。 建立或選擇警示通知的現有 [動作群組]  。
 
     ![](media/monitor-visually/alerts07.png)
 

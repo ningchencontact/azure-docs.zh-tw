@@ -11,10 +11,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126354"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>使用 Azure 入口網站大規模部署和監視 IoT Edge 模組
@@ -45,8 +45,8 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 ## <a name="create-a-deployment"></a>建立部署
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，移至您的 IoT 中樞。 
-1. 選取 [IoT Edge]。
-1. 選取 [新增 IoT Edge 部署]。
+1. 選取 [IoT Edge]  。
+1. 選取 [新增 IoT Edge 部署]  。
 
 建立部署有五個步驟。 下列各節將逐步解說每一個步驟。 
 
@@ -54,7 +54,7 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 
 1. 為部署指定唯一的名稱，最長為 128 個小寫字母。 避免空格和下列無效字元：`& ^ [ ] { } \ | " < > /`。
 1. 您可以新增機碼值組形式的標籤，以協助追蹤部署。 例如，**HostPlatform** 和 **Linux**，或 **Version** 和 **3.0.1**。
-1. 選取 [下一步] 移至步驟二。 
+1. 選取 [下一步]  移至步驟二。 
 
 ### <a name="step-2-add-modules-optional"></a>步驟 2：新增模組 (選擇性)
 
@@ -67,19 +67,19 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 
 若要從 Azure 串流分析新增模組，請遵循下列步驟：
 
-1. 在頁面的 [部署模組] 區段中，按一下 [新增]。
-1. 選取 [Azure 串流分析模組]。
-1. 從下拉式功能表中選擇 [訂用帳戶]。
-1. 從下拉式功能表中選擇 [Edge 作業]。
-1. 選取 [儲存]，將您的模組新增至部署。 
+1. 在頁面的 [部署模組]  區段中，按一下 [新增]  。
+1. 選取 [Azure 串流分析模組]  。
+1. 從下拉式功能表中選擇 [訂用帳戶]  。
+1. 從下拉式功能表中選擇 [Edge 作業]  。
+1. 選取 [儲存]  ，將您的模組新增至部署。 
 
 若要新增自訂程式碼作為模組，或手動新增 Azure 服務模組，請遵循下列步驟：
 
-1. 在頁面的 [容器登錄設定] 區段中，為包含模組映像的私人容器登錄提供此部署的名稱和認證。 Edge 代理程式若找不到 Docker 映像的容器登錄認證，將會報告錯誤 500。
-1. 在頁面的 [部署模組] 區段中，按一下 [新增]。
-1. 選取 [IoT Edge 模組]。
+1. 在頁面的 [容器登錄設定]  區段中，為包含模組映像的私人容器登錄提供此部署的名稱和認證。 Edge 代理程式若找不到 Docker 映像的容器登錄認證，將會報告錯誤 500。
+1. 在頁面的 [部署模組]  區段中，按一下 [新增]  。
+1. 選取 [IoT Edge 模組]  。
 1. 為模組指定**名稱**。
-1. 針對 [映像 URI] 欄位，為您的模組輸入容器映像。 
+1. 針對 [映像 URI]  欄位，為您的模組輸入容器映像。 
 1. 指定任何應傳遞至容器的**容器建立選項**。 如需詳細資訊，請參閱 [docker create](https://docs.docker.com/engine/reference/commandline/create/)。
 1. 使用下拉式功能表來選取**重新啟動原則**。 從下列選項中選擇： 
    * **永遠**：如果模組基於任何原因而關閉，永遠都會重新啟動。
@@ -89,27 +89,27 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 1. 使用下拉功能表來選取模組的**預期狀態**。 從下列選項中選擇：
    * **執行中**：這是預設選項。 模組將會在部署後立即開始執行。
    * **已停止**：部署之後，模組將維持閒置狀態，直到您或另一個模組呼叫來啟動為止。
-1. 如果您想要將標記或其他屬性新增至模組對應項，請選取 [設定模組對應項所需的屬性]。
-1. 輸入此模組的 [環境變數]。 環境變數可為模組提供有助於進行設定程序的補充資訊。
-1. 選取 [儲存]，將您的模組新增至部署。 
+1. 如果您想要將標記或其他屬性新增至模組對應項，請選取 [設定模組對應項所需的屬性]  。
+1. 輸入此模組的 [環境變數]  。 環境變數可為模組提供有助於進行設定程序的補充資訊。
+1. 選取 [儲存]  ，將您的模組新增至部署。 
 
-設定部署的所有模組之後，選取 [下一步] 移至步驟三。
+設定部署的所有模組之後，選取 [下一步]  移至步驟三。
 
 ### <a name="step-3-specify-routes-optional"></a>步驟 3：指定路由 (選擇性)
 
 路由會定義模組在部署內彼此通訊的方式。 根據預設，精靈會提供您名為 **route** 的路由，並且定義為 **FROM /\* INTO $upstream**，這表示任何模組的任何訊息輸出都會傳送到 IoT 中樞。  
 
-請使用[宣告路由](module-composition.md#declare-routes)中的資訊來新增或更新路由，然後選取 [下一步] 繼續檢閱區段。
+請使用[宣告路由](module-composition.md#declare-routes)中的資訊來新增或更新路由，然後選取 [下一步]  繼續檢閱區段。
 
 ### <a name="step-4-specify-metrics-optional"></a>步驟 4：指定計量 (選擇性)
 
 計量能提供在套用設定內容後，裝置所回報各種狀態的摘要計數。
 
-1. 在 [計量名稱] 輸入名稱。
+1. 在 [計量名稱]  輸入名稱。
 
-1. 在 [計量準則] 輸入查詢。 查詢會以 IoT Edge 中樞模組對應項[所報告的屬性](module-edgeagent-edgehub.md#edgehub-reported-properties)作為基礎。 此計量代表查詢所傳回的資料列數目。
+1. 在 [計量準則]  輸入查詢。 查詢會以 IoT Edge 中樞模組對應項[所報告的屬性](module-edgeagent-edgehub.md#edgehub-reported-properties)作為基礎。 此計量代表查詢所傳回的資料列數目。
 
-例如︰
+例如:
 
 ```sql
 SELECT deviceId FROM devices
@@ -124,42 +124,42 @@ SELECT deviceId FROM devices
 
 1. 為部署**優先順序**輸入一個正整數。 如果兩個以上部署的目標為相同的裝置，則將會套用 [優先順序] 數值最高的部署。
 1. 輸入**目標條件**來判斷這個部署會將哪些裝置設為目標。 條件會以裝置對應項標籤或裝置對應項報告屬性為基礎，且應符合運算式格式。 例如，`tags.environment='test'` 或 `properties.reported.devicemodel='4000x'`。 
-1. 選取 [下一步] 移到最後一個步驟。
+1. 選取 [下一步]  移到最後一個步驟。
 
 ### <a name="step-6-review-deployment"></a>步驟 6：檢閱部署
 
-檢閱您的部署資訊，然後選取 [提交]。
+檢閱您的部署資訊，然後選取 [提交]  。
 
 ## <a name="deploy-modules-from-azure-marketplace"></a>從 Azure Marketplace 部署模組
 
-Azure Marketplace 是集合了應用程式和服務的線上市集，您可以在其中瀏覽各式各樣的企業應用程式和解決方案，這些項目皆已通過認證而可在 Azure 上執行並獲得最佳效能，包括 [IoT Edge 模組](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules)。 您也可以透過 Azure 入口網站，在 [建立資源] 底下存取 Azure Marketplace。
+Azure Marketplace 是集合了應用程式和服務的線上市集，您可以在其中瀏覽各式各樣的企業應用程式和解決方案，這些項目皆已通過認證而可在 Azure 上執行並獲得最佳效能，包括 [IoT Edge 模組](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules)。 您也可以透過 Azure 入口網站，在 [建立資源]  底下存取 Azure Marketplace。
 
 您可以從 Azure Marketplace 或 Azure 入口網站安裝 IoT Edge 模組：
 
 1. 尋找模組並開始部署程序。
 
-   * Azure 入口網站：尋找模組並選取 [建立]。
+   * Azure 入口網站：尋找模組並選取 [建立]  。
 
    * Azure Marketplace：
 
-     1. 尋找模組並選取 [立即取得]。
-     1. 選取 [繼續] 來確認提供者的使用規定和隱私權原則。
+     1. 尋找模組並選取 [立即取得]  。
+     1. 選取 [繼續]  來確認提供者的使用規定和隱私權原則。
 
 1. 選擇要作為目標裝置連結對象的訂用帳戶和 IoT 中樞。
 
-1. 選擇 [大規模部署]。
+1. 選擇 [大規模部署]  。
 
 1. 選擇是要將模組新增至新的部署還是現有部署的複製；如果要新增至複製，請從清單中選取現有部署。
 
-1. 選取 [建立] 來繼續進行大規模部署的建立程序。 您可以和處理任何部署一樣地指定相同的詳細資料。
+1. 選取 [建立]  來繼續進行大規模部署的建立程序。 您可以和處理任何部署一樣地指定相同的詳細資料。
 
 ## <a name="monitor-a-deployment"></a>監視部署
 
 若要檢視部署的詳細資料並監視正在執行該部署的裝置，請使用下列步驟：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 IoT 中樞。 
-1. 選取 [IoT Edge]。
-1. 選取 [IoT Edge 部署]。 
+1. 選取 [IoT Edge]  。
+1. 選取 [IoT Edge 部署]  。 
 
    ![檢視 IoT Edge 部署](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
@@ -167,7 +167,7 @@ Azure Marketplace 是集合了應用程式和服務的線上市集，您可以�
    * **識別碼**：部署的名稱。
    * **目標條件**：用來定義目標裝置的標記。
    * **優先順序**：指派給部署的優先順序號碼。
-   * **系統計量** - [設為目標] 會指定 IoT 中樞內符合目標條件的裝置對應項數目，而 [以套用] 則會指定已在 IoT 中樞內將部署內容套用到至模組對應項的裝置數目。 
+   * **系統計量** - [設為目標]  會指定 IoT 中樞內符合目標條件的裝置對應項數目，而 [以套用]  則會指定已在 IoT 中樞內將部署內容套用到至模組對應項的裝置數目。 
    * **裝置計量** - 從 IoT Edge 用戶端執行階段報告成功或錯誤部署中的 Edge 裝置數目。
    * **自訂計量** - 部署中會針對您為部署所定義計量回報資料的 Edge 裝置數目。
    * **建立時間**：建立部署時的時間戳記。 當兩個部署具有相同的優先順序時，可使用此時間戳記來中斷繫結。 
@@ -187,8 +187,8 @@ Azure Marketplace 是集合了應用程式和服務的線上市集，您可以�
 若要修改部署，請使用下列步驟： 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 IoT 中樞。 
-1. 選取 [IoT Edge]。
-1. 選取 [IoT Edge 部署]。 
+1. 選取 [IoT Edge]  。
+1. 選取 [IoT Edge 部署]  。 
 
    ![檢視 IoT Edge 部署](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
@@ -206,14 +206,14 @@ Azure Marketplace 是集合了應用程式和服務的線上市集，您可以�
 當您刪除部署時，所有裝置均會採用其下一個最高優先順序的部署。 如果您的裝置不符合任何其他部署的目標條件，則在刪除部署時不會移除模組。 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 IoT 中樞。 
-1. 選取 [IoT Edge]。
-1. 選取 [IoT Edge 部署]。 
+1. 選取 [IoT Edge]  。
+1. 選取 [IoT Edge 部署]  。 
 
    ![檢視 IoT Edge 部署](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. 使用核取方塊來選取您想要刪除的部署。 
-1. 選取 [刪除] 。
-1. 提示將會通知您，這個動作將刪除此部署，並將所有裝置還原成先前狀態。  這表示將套用優先順序較低的部署。  如果沒有將其他部署設為目標，將不會移除任何模組。 如果您想要從裝置中移除所有模組，請建立不含模組的部署，並將其部署至相同的裝置。 選取 [是] 以繼續進行。 
+1. 選取 [刪除]  。
+1. 提示將會通知您，這個動作將刪除此部署，並將所有裝置還原成先前狀態。  這表示將套用優先順序較低的部署。  如果沒有將其他部署設為目標，將不會移除任何模組。 如果您想要從裝置中移除所有模組，請建立不含模組的部署，並將其部署至相同的裝置。 選取 [是]  以繼續進行。 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pabutler
 ms.openlocfilehash: a72259e1deb97ca0256de5bfd3b2f6c78d92e3c8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935352"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>管理 'Azure Marketplace' 與 'AppSource' 發行者設定檔
@@ -33,7 +33,7 @@ ms.locfileid: "64935352"
 > [!NOTE]
 > 從 Cloud Partner 入口網站的 [使用者] 區段中左側瀏覽窗格上的 [使用者] 區段，將使用者 (參與者與擁有者) 新增到您的發行設定檔。
 
-**若要檢視及管理您的發行者設定檔**，請從右上方功能表列按一下 [發行者設定檔] 索引標籤。
+**若要檢視及管理您的發行者設定檔**，請從右上方功能表列按一下 [發行者設定檔]  索引標籤。
 
 ![[發行者設定檔] 索引標籤 - 發行者設定檔](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofilenew.png)
 
@@ -45,6 +45,6 @@ ms.locfileid: "64935352"
 >[!NOTE]
 >發佈付費的 Marketplace SKU 時，必須註冊開發中心帳戶。
 
-如果您沒有[開發人員中心帳戶](./cloud-partner-portal-dev-center-accounts-registration.md)，可以建立一個帳戶。 然後在 Cloud Partner 入口網站上，將已註冊的電子郵件地址新增為您供應項目的擁有者。 擁有者只可以從 [使用者] 區段將已註冊的電子郵件地址新增至發行設定檔。 然後，使用相同電子郵件地址登入入口網站，然後連結您的開發人員中心帳戶。
+如果您沒有[開發人員中心帳戶](./cloud-partner-portal-dev-center-accounts-registration.md)，可以建立一個帳戶。 然後在 Cloud Partner 入口網站上，將已註冊的電子郵件地址新增為您供應項目的擁有者。 擁有者只可以從 [使用者]  區段將已註冊的電子郵件地址新增至發行設定檔。 然後，使用相同電子郵件地址登入入口網站，然後連結您的開發人員中心帳戶。
 
 ![[發行者設定檔詳細資料] - 發行者設定檔描述](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledescription.png)

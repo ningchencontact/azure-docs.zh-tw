@@ -8,32 +8,32 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 26c3466080cb356ca3610d42eaaf5ee4975d3731
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61471876"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>將 Azure 自動化 Runbook 新增至復原方案
-在本文中，我們說明如何將 Azure Site Recovery 與 Azure 自動化整合在一起，以協助您擴充復原方案。 復原方案可以協調使用 Site Recovery 保護的 VM 復原。 復原方案可複寫至次要雲端，也可以複寫至 Azure。 復原方案也有助於讓復原「保持一致精確」、「可重複執行」及「自動化」。 如果您將 VM 容錯移轉至 Azure，與 Azure 自動化的整合可擴充復原方案。 您可以使用它來執行 Runbook，以提供功能強大的自動化工作。
+在本文中，我們說明如何將 Azure Site Recovery 與 Azure 自動化整合在一起，以協助您擴充復原方案。 復原方案可以協調使用 Site Recovery 保護的 VM 復原。 復原方案可複寫至次要雲端，也可以複寫至 Azure。 復原方案也有助於讓復原「保持一致精確」  、「可重複執行」  及「自動化」  。 如果您將 VM 容錯移轉至 Azure，與 Azure 自動化的整合可擴充復原方案。 您可以使用它來執行 Runbook，以提供功能強大的自動化工作。
 
 如果您是 Azure 自動化的新手，您可以[註冊](https://azure.microsoft.com/services/automation/)並[下載範例指令碼](https://azure.microsoft.com/documentation/scripts/)。 如需詳細資訊，以及了解如何使用[復原方案](./site-recovery-create-recovery-plans.md)來協調復原至 Azure，請參閱 [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)。
 
 在本文中，我們說明如何將 Azure 自動化 Runbook 整合至您的復原方案。 我們使用範例，將先前需要手動介入的基本工作自動化。 我們也會說明如何將多重步驟復原轉換成單鍵復原動作。
 
 ## <a name="customize-the-recovery-plan"></a>自訂復原方案
-1. 移至 [Site Recovery] 復原方案資源刀鋒視窗。 在此範例中，復原方案新增了兩個 VM 來進行復原。 若要開始新增 Runbook，請按一下 [自訂] 索引標籤。
+1. 移至 [Site Recovery]  復原方案資源刀鋒視窗。 在此範例中，復原方案新增了兩個 VM 來進行復原。 若要開始新增 Runbook，請按一下 [自訂]  索引標籤。
 
     ![按一下 [自訂] 按鈕](media/site-recovery-runbook-automation-new/essentials-rp.png)
 
 
-2. 右键单击“组 1: 启动”，再选择“添加后操作”。
+2. 以滑鼠右鍵按一下**群組 1:開始**，然後選取**新增後續動作**。
 
-    ![右键单击“组 1: 启动”并添加后操作](media/site-recovery-runbook-automation-new/customize-rp.png)
+    ![以滑鼠右鍵按一下群組 1:啟動，並新增後續動作](media/site-recovery-runbook-automation-new/customize-rp.png)
 
-3. 按一下 [Choose a script] \(選擇指令碼)。
+3. 按一下 [Choose a script] \(選擇指令碼)  。
 
-4. 在 [更新動作] 刀鋒視窗中，將指令碼命名為 **Hello World**。
+4. 在 [更新動作]  刀鋒視窗中，將指令碼命名為 **Hello World**。
 
     ![[更新動作] 刀鋒視窗](media/site-recovery-runbook-automation-new/update-rp.png)
 
@@ -43,7 +43,7 @@ ms.locfileid: "61471876"
 
 6. 在您的自動化帳戶中，選取一個 Runbook。 此 Runbook 是在執行復原方案時，於復原第一個群組後執行的指令碼。
 
-7. 若要儲存指令碼，請按一下 [確定]。 此时，脚本将添加到“组 1: 后步骤”。
+7. 若要儲存指令碼，請按一下 [確定]  。 指令碼新增至**群組 1:後續步驟**。
 
     ![[群組 1: 開始] 的後續動作](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
 
@@ -240,7 +240,7 @@ workflow AddPublicIPAndNSG {
 
 ## <a name="sample-scripts"></a>範例指令碼
 
-若要將範例指令碼部署至您的自動化帳戶，請按一下 [部署至 Azure] 按鈕。
+若要將範例指令碼部署至您的自動化帳戶，請按一下 [部署至 Azure]  按鈕。
 
 [![部署至 Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 

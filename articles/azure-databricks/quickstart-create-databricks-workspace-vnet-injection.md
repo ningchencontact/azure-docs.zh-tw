@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 295b64b10f9f78ca6224d60fb84c6d1310aaa42e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60770517"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>快速入門：在 虛擬網路中建立 Azure Databricks 工作區
@@ -31,10 +31,10 @@ ms.locfileid: "60770517"
 
 2. 底下**建立虛擬網路**，套用下列設定： 
 
-    |設定|建議的值|說明|
+    |設定|建議值|說明|
     |-------|---------------|-----------|
     |名稱|databricks-quickstart|選取您的虛擬網路的名稱。|
-    |位址空間|10.1.0.0/16|使用 CIDR 標記法的虛擬網路位址範圍。|
+    |位址空間|10.1.0.0/16|以 CIDR 標記法的虛擬網路的位址範圍。|
     |訂用帳戶|\<您的訂用帳戶\>|選取您要使用的 Azure 訂用帳戶。|
     |資源群組|databricks-quickstart|選取 **新建**並輸入您的帳戶的新資源群組名稱。|
     |位置|\<選取最接近使用者的區域\>|選取地理位置，您可以在其中裝載您的虛擬網路。 使用最靠近您的使用者的位置。|
@@ -53,7 +53,7 @@ ms.locfileid: "60770517"
 
 2. 底下**Azure Databricks 服務**，套用下列設定：
 
-    |設定|建議的值|描述|
+    |設定|建議值|描述|
     |-------|---------------|-----------|
     |工作區名稱|databricks-quickstart|選取您的 Azure Databricks 工作區的名稱。|
     |訂用帳戶|\<您的訂用帳戶\>|選取您要使用的 Azure 訂用帳戶。|
@@ -84,7 +84,7 @@ ms.locfileid: "60770517"
 
 1. 返回您的 Azure Databricks 服務並選取**啟動工作區**上**概觀**頁面。
 
-2. 選取 **叢集** > **+ 建立叢集**。 然後建立叢集名稱，例如*databricks 快速入門叢集*，並接受其餘預設設定。 選取 [建立叢集]。
+2. 選取 **叢集** >  **+ 建立叢集**。 然後建立叢集名稱，例如*databricks 快速入門叢集*，並接受其餘預設設定。 選取 [建立叢集]  。
 
     ![建立 Azure Databricks 叢集](./media/quickstart-create-databricks-workspace-vnet-injection/create-cluster.png)
 
@@ -98,9 +98,9 @@ ms.locfileid: "60770517"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-在完成本文後，您可以終止叢集。 若要這樣做，請從 Azure Databricks 工作區的左窗格中選取 [叢集]。 對於您想要終止的叢集，將游標移到 [動作] 資料行底下的省略符號上，然後選取 [終止] 圖示。 這樣會阻止叢集。
+在完成本文後，您可以終止叢集。 若要這樣做，請從 Azure Databricks 工作區的左窗格中選取 [叢集]  。 對於您想要終止的叢集，將游標移到 [動作]  資料行底下的省略符號上，然後選取 [終止]  圖示。 這樣會阻止叢集。
 
-如果您不手動終止叢集，叢集將會自動停止，但前提是您已在建立叢集時選取 [在停止活動 \_\_ 分鐘後終止] 核取方塊。 在這種情況下，叢集將會在停止運作達指定時間後自動停止。
+如果您不手動終止叢集，叢集將會自動停止，但前提是您已在建立叢集時選取 [在停止活動 \_\_ 分鐘後終止]  核取方塊。 在這種情況下，叢集將會在停止運作達指定時間後自動停止。
 
 如果您不想要重複使用的叢集，您可以刪除您在 Azure 入口網站中建立的資源群組。
 

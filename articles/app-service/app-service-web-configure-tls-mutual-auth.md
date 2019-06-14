@@ -16,37 +16,37 @@ ms.date: 02/22/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 5702362add6a50f2f4525afbd3649f083f34b6fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60852443"
 ---
-# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>为 Azure 应用服务配置 TLS 相互身份验证
+# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>設定 TLS 相互驗證的 Azure App Service
 
-為 Azure App Service 應用程式啟用不同類型的驗證，即可限制其存取。 若要实现此目的，一种方法是通过 TLS/SSL 发送客户端请求时请求客户端证书，然后验证该证书。 此机制称为 TLS 相互身份验证或客户端证书身份验证。 本文介绍如何将应用设置为使用客户端证书身份验证。
+為 Azure App Service 應用程式啟用不同類型的驗證，即可限制其存取。 這麼做的方法之一是透過 TLS/SSL 用戶端要求時，要求用戶端憑證來驗證憑證。 這項機制稱為 TLS 相互驗證或用戶端憑證驗證。 這篇文章會示範如何將您的應用程式設定為使用用戶端憑證驗證。
 
 > [!NOTE]
-> 如果您透過 HTTP 存取您的網站，而非 HTTPS，將不會收到任何用戶端憑證。 因此，如果应用程序需要客户端证书，则你不应允许通过 HTTP 对应用程序发出请求。
+> 如果您透過 HTTP 存取您的網站，而非 HTTPS，將不會收到任何用戶端憑證。 因此如果您的應用程式需要用戶端憑證，您應該不允許要求您的應用程式透過 HTTP。
 >
 
-## <a name="enable-client-certificates"></a>启用客户端证书
+## <a name="enable-client-certificates"></a>啟用用戶端憑證
 
-若要将应用设置为要求提供客户端证书，需要将应用的 `clientCertEnabled` 设置指定为 `true`。 若要設定的設定，請執行下列命令[Cloud Shell](https://shell.azure.com)。
+若要設定您的應用程式要求用戶端憑證，您需要設定`clientCertEnabled`設定您的應用程式`true`。 若要設定的設定，請執行下列命令[Cloud Shell](https://shell.azure.com)。
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
 ```
 
-## <a name="access-client-certificate"></a>访问客户端证书
+## <a name="access-client-certificate"></a>存取用戶端憑證
 
-在应用服务中，请求的 SSL 终端是在前端负载均衡器上发生的。 在[已启用客户端证书](#enable-client-certificates)的情况下将请求转发到应用代码时，应用服务会注入包含客户端证书的 `X-ARR-ClientCert` 请求标头。 应用服务不会对此客户端证书执行任何操作，而只会将它转发到你的应用。 应用代码负责验证客户端证书。
+在 App Service 中要求的 SSL 終止會發生在前端負載平衡器。 將要求轉送到您的應用程式程式碼時[啟用的用戶端憑證](#enable-client-certificates)，App Service 會插入`X-ARR-ClientCert`與用戶端憑證的要求標頭。 App Service 不會使用此用戶端憑證，將它轉送到您的應用程式以外的任何項目。 您的應用程式程式碼會負責驗證用戶端憑證。
 
-对于 ASP.NET，可以通过 **HttpRequest.ClientCertificate** 属性提供客户端证书。
+適用於 ASP.NET，用戶端憑證是否可透過**HttpRequest.ClientCertificate**屬性。
 
-对于其他应用程序堆栈（Node.js、PHP 等），可以通过 `X-ARR-ClientCert` 请求标头中的 base64 编码值在应用中提供客户端证书。
+針對其他應用程式堆疊 （Node.js、 PHP 等等） 中，用戶端憑證位於您的應用程式中的 base64 編碼值透過`X-ARR-ClientCert`要求標頭。
 
-## <a name="aspnet-sample"></a>ASP.NET 示例
+## <a name="aspnet-sample"></a>ASP.NET 範例
 
 ```csharp
     using System;
@@ -170,9 +170,9 @@ az webapp update --set clientCertEnabled=true --name <app_name> --resource-group
     }
 ```
 
-## <a name="nodejs-sample"></a>Node.js 示例
+## <a name="nodejs-sample"></a>Node.js 範例
 
-以下 Node.js 示例代码获取 `X-ARR-ClientCert` 标头，并使用 [node-forge](https://github.com/digitalbazaar/forge) 将 base64 编码的 PEM 字符串转换为证书对象，然后验证该对象：
+下列 Node.js 範例程式碼取得`X-ARR-ClientCert`標頭，並使用[節點冶](https://github.com/digitalbazaar/forge)base64 編碼 PEM 將字串轉換成憑證物件，並驗證它：
 
 ```javascript
 import { NextFunction, Request, Response } from 'express';

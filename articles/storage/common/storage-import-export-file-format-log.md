@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478601"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure 匯入/匯出服務記錄檔格式
@@ -33,8 +33,8 @@ ms.locfileid: "61478601"
   
 |驗證方法|`ImportExportStatesPath` 元素的值|記錄檔 Blob 的位置|  
 |---------------------------|----------------------------------------------|---------------------------|  
-|存储帐户密钥|預設值|名為 `waimportexport` 的容器，這是預設容器。 例如︰<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
-|儲存體帳戶金鑰|使用者指定值|使用者命名的容器。 例如︰<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
+|儲存體帳戶金鑰|預設值|名為 `waimportexport` 的容器，這是預設容器。 例如:<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
+|儲存體帳戶金鑰|使用者指定值|使用者命名的容器。 例如:<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
 |容器 SAS|預設值|名為 `waimportexport` 的虛擬目錄，這是預設名稱，位於 SAS 中指定的容器底下。<br /><br /> 例如，如果為工作指定的 SAS 是 `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`，記錄檔位置會是 `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |容器 SAS|使用者指定值|使用者命名的虛擬目錄，位於 SAS 中指定的容器底下。<br /><br /> 例如，如果為工作指定的 SAS 是 `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`，且指定的虛擬目錄名為 `mylogblobs`，記錄檔位置會是 `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`。|  
   
@@ -110,9 +110,9 @@ properties-status ::=
 |`Blob`|巢狀的 XML 元素|代表 Blob。|  
 |`Blob/BlobPath`|字串|Blob 的 URI。|  
 |`Blob/FilePath`|字串|磁碟機上檔案的相對路徑。|  
-|`Blob/Snapshot`|DateTime|Blob 快照集版本 (限匯出工作)。|  
-|`Blob/Length`|整數 |Blob 總長度 (以位元組為單位)。|  
-|`Blob/LastModified`|DateTime|上次修改 Blob 的日期/時間 (限匯出工作)。|  
+|`Blob/Snapshot`|Datetime|Blob 快照集版本 (限匯出工作)。|  
+|`Blob/Length`|Integer|Blob 總長度 (以位元組為單位)。|  
+|`Blob/LastModified`|Datetime|上次修改 Blob 的日期/時間 (限匯出工作)。|  
 |`Blob/ImportDisposition`|字串|Blob 的匯入配置 (限匯入工作)。|  
 |`Blob/ImportDisposition/@Status`|屬性、字串|匯入配置狀態。|  
 |`PageRangeList`|巢狀的 XML 元素|代表分頁 Blob 的頁面範圍清單。|  
@@ -204,7 +204,7 @@ properties-status ::=
 ## <a name="page-rangeblock-status-codes"></a>頁面範圍/區塊狀態碼  
 下表列出頁面範圍或區塊處理的狀態碼。  
   
-|状态代码|描述|  
+|狀態碼|描述|  
 |-----------------|-----------------|  
 |`Completed`|頁面範圍或區塊已完成處理，沒有任何錯誤。|  
 |`Committed`|區塊已認可，但不在完整區塊清單中，因為其他區塊失敗，或是放置完整區塊清單本身失敗。|  

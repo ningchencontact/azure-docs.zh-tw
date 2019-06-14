@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: 9070aee55969c1cc0fdf3870a05a065aaa5a8bf3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238330"
 ---
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | --- |
 | 每一可用性設定組的虛擬機器 | 200 |
 | 每一訂用帳戶的憑證 |無限制 <sup>1</sup> |

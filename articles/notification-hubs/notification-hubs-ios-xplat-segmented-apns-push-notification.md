@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: dd625dba0e125ccf993af524a0ab0c0cc66555fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60873127"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推播至特定 iOS 裝置
@@ -51,7 +51,7 @@ ms.locfileid: "60873127"
 
    * 具有「即時新聞」文字的標籤，
    * 具有「世界」、「政治」、「商業」、「技術」、「科學」、「體育」等類別文字的標籤，
-   * 六個參數 (一個類別一個)，預設會將每個參數 [狀態] 設為 [關閉]。
+   * 六個參數 (一個類別一個)，預設會將每個參數 [狀態]  設為 [關閉]  。
    * 一個標示為「訂閱」的按鈕
 
      您的腳本應如下所示：
@@ -153,7 +153,7 @@ ms.locfileid: "60873127"
     > [!NOTE]
     > 因為隨用戶端應用程式散佈的憑證通常不安全，您應只將接聽存取權的金鑰隨用戶端應用程式散佈。 您的應用程式可透過接聽存取權來註冊通知，但無法修改現有的註冊或無法傳送通知。 在安全的後端服務中，會使用完整存取金鑰來傳送通知和變更現有的註冊。
 
-9. 在 `AppDelegate.m` 的 `didRegisterForRemoteNotificationsWithDeviceToken` 方法中，使用下列程式碼來取代方法中的程式碼，以將裝置權杖傳遞給 `notifications` 類別。 `notifications` 類別會為通知執行與類別之間的註冊。 如果使用者變更類別選取項目，則可以呼叫 `subscribeWithCategories` 方法以回應 [subscribe] \(訂閱\) 按鈕來更新它們。
+9. 在 `AppDelegate.m` 的 `didRegisterForRemoteNotificationsWithDeviceToken` 方法中，使用下列程式碼來取代方法中的程式碼，以將裝置權杖傳遞給 `notifications` 類別。 `notifications` 類別會為通知執行與類別之間的註冊。 如果使用者變更類別選取項目，則可以呼叫 `subscribeWithCategories` 方法以回應 [subscribe]  \(訂閱\) 按鈕來更新它們。
 
     > [!NOTE]
     > 由於 Apple 推播通知服務 (APNS) 所指派的裝置權杖可能隨時會變更，因此您應經常註冊通知以避免通知失敗。 此範例會在應用程式每次啟動時註冊通知。 若是經常執行 (一天多次) 的應用程式，如果距離上次註冊的時間不到一天，則您可能可以略過註冊以保留頻寬。
@@ -242,7 +242,7 @@ ms.locfileid: "60873127"
 
 ## <a name="optional-send-tagged-notifications"></a>(選擇性) 傳送加註標記的通知
 
-如果您無法存取 Visual Studio，可以跳到下一節，並從應用程式本身傳送通知。 您也可以使用通知中樞的 [偵錯] 索引標籤，從 [Azure 门户] 傳送正確的範本通知。
+如果您無法存取 Visual Studio，可以跳到下一節，並從應用程式本身傳送通知。 您也可以使用通知中樞的 [偵錯] 索引標籤，從 [Azure 入口網站] 傳送正確的範本通知。
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -334,11 +334,11 @@ ms.locfileid: "60873127"
 
 ## <a name="run-the-app-and-generate-notifications"></a>執行應用程式並產生通知
 
-1. 按“运行”按钮生成项目并启动应用程序。 選取要訂閱的一些即時新聞選項，然後按 [訂閱]  按鈕。 您應該會看到一個對話方塊，表示已訂閱通知。
+1. 按 [執行] 按鈕，以建置專案並啟動應用程式。 選取要訂閱的一些即時新聞選項，然後按 [訂閱]  按鈕。 您應該會看到一個對話方塊，表示已訂閱通知。
 
     ![iOS 上的範例通知][1]
 
-    當您選擇 [訂閱] 時，應用程式會將選取的類別轉換成標籤，並在通知中心內為選取的標籤要求新裝置註冊。
+    當您選擇 [訂閱]  時，應用程式會將選取的類別轉換成標籤，並在通知中心內為選取的標籤要求新裝置註冊。
 
 2. 輸入要以即時新聞形式傳送的訊息，然後按下 [傳送通知]  按鈕。 或者，執行.NET 主控台應用程式來產生通知。
 
@@ -366,4 +366,4 @@ ms.locfileid: "60873127"
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Azure 门户]: https://portal.azure.com
+[Azure 入口網站]: https://portal.azure.com

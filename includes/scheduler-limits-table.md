@@ -9,15 +9,15 @@ ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
 ms.openlocfilehash: b3788ede23a423bebf96661ea88b227bfb5fdf4c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238461"
 ---
 下表描述 Azure 排程器中的每一個主要配額、限制、預設值和節流。
 
-| Resource | 限制說明 |
+| 資源 | 限制說明 |
 | -------- | ----------------- |
 | **工作大小** | 工作大小上限是 16,000。 如果 PUT 或 PATCH 作業導致大於此限制的作業大小，則會傳回「400 不正確的要求」狀態碼。 | 
 | **作業集合** | 每一 Azure 訂用帳戶的作業集合數目上限是 200,000 個。 | 

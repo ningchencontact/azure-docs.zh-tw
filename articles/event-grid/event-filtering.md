@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
 ms.openlocfilehash: 76a4c16afc9edef0a88ac9f2892de9738fd30289
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66305063"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>了解適用於事件格線訂用帳戶的事件篩選
@@ -107,7 +107,7 @@ ms.locfileid: "66305063"
 
 針對事件格線結構描述中的事件，請使用下列值作為索引鍵：
 
-* id
+* Id
 * 話題
 * Subject
 * EventType
@@ -117,7 +117,7 @@ ms.locfileid: "66305063"
 針對雲端事件結構描述中的事件，請使用下列值作為索引鍵：
 
 * EventId
-* `Source`
+* source
 * EventType
 * EventTypeVersion
 * 事件資料 (例如 Data.key1)
@@ -129,7 +129,7 @@ ms.locfileid: "66305063"
 值可以是：
 
 * number
-* string
+* 字串
 * boolean
 * array
 

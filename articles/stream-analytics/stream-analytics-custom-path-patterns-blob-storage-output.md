@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
 ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65789413"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure 串流分析自訂 Blob 輸出資料分割
@@ -30,7 +30,7 @@ Azure 串流分析支援使用自訂欄位或屬性以及自訂日期時間路�
 
 ### <a name="example"></a>範例
 
-假設作業會從連接到視訊遊戲服務的即時使用者工作階段取得輸入資料，其中所擷取的資料包含資料行 **client_id** 以識別工作階段。 若要依 **client_id** 對資料進行分割，請在建立作業時將 [Blob 路徑模式] 欄位設定為在 Blob 輸出屬性中包含分割區權杖 **{client_id}**。 由於具有各種 **client_id** 值的資料流經串流分析作業，因此輸出資料將根據每個文件夾的單一 **client_id** 值儲存到不同的資料夾中。
+假設作業會從連接到視訊遊戲服務的即時使用者工作階段取得輸入資料，其中所擷取的資料包含資料行 **client_id** 以識別工作階段。 若要依 **client_id** 對資料進行分割，請在建立作業時將 [Blob 路徑模式] 欄位設定為在 Blob 輸出屬性中包含分割區權杖 **{client_id}** 。 由於具有各種 **client_id** 值的資料流經串流分析作業，因此輸出資料將根據每個文件夾的單一 **client_id** 值儲存到不同的資料夾中。
 
 ![路徑模式與用戶端識別碼](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-path-pattern-client-id.png)
 
@@ -41,7 +41,7 @@ Azure 串流分析支援使用自訂欄位或屬性以及自訂日期時間路�
 
 ![REST API 輸出](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-rest-output.png)
 
-作業開始執行後，用戶端容器可能如下所示：  
+作業開始執行後，用戶端  容器可能如下所示：  
 
 ![用戶端容器](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
 
@@ -60,7 +60,7 @@ Azure 串流分析支援使用自訂欄位或屬性以及自訂日期時間路�
    * cluster1/{aFieldInMyData}  
    * cluster1/{date}/{time}/{aFieldInMyData} 
    
-2. 分割區索引鍵不區分大小寫，因此 "John" 和 "john" 之類的分割區索引鍵是相等的。 此外，運算式不能作為分割區索引鍵。 例如，**{columnA + columnB}** 無法運作。  
+2. 分割區索引鍵不區分大小寫，因此 "John" 和 "john" 之類的分割區索引鍵是相等的。 此外，運算式不能作為分割區索引鍵。 例如， **{columnA + columnB}** 無法運作。  
 
 3. 當輸入資料流由分割區索引鍵基數低於 8000 的記錄組成時，記錄將附加至現有的 Blob，並且僅在必要時建立新的 Blob。 如果基數超過 8000，則不保證會寫入至現有的 Blob，並且不會為具有相同分割區索引鍵的任意數目的記錄建立新的 Blob。
 
@@ -72,7 +72,7 @@ Azure 串流分析支援使用自訂欄位或屬性以及自訂日期時間路�
 
 下列格式規範權杖可以單獨使用，或者合併使用以達成自訂日期時間格式：
 
-|格式規範   |說明   |範例時間 2018-01-02T10:06:08 的結果|
+|格式規範   |描述   |範例時間 2018-01-02T10:06:08 的結果|
 |----------|-----------|------------|
 |{datetime:yyyy}|四位數的年份|2018|
 |{datetime:MM}|從 01 到 12 的月份|01|

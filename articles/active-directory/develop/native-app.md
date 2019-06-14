@@ -18,10 +18,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6bf24124c4b072a64ef59500b2f723ff6abbb0e
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545849"
 ---
 # <a name="native-apps"></a>原生應用程式
@@ -59,7 +59,7 @@ ms.locfileid: "65545849"
 
 ## <a name="token-expiration"></a>權杖到期
 
-當原生應用程式使用其授權碼來取得 JWT 存取權杖時，它也會收到 JWT 重新整理權杖。 访问令牌过期时，可以使用刷新令牌来重新对用户进行身份验证，不需要他们重新登录。 然後，此重新整理權杖用來驗證使用者，結果會產生新的存取權杖和重新整理權杖。
+當原生應用程式使用其授權碼來取得 JWT 存取權杖時，它也會收到 JWT 重新整理權杖。 當存取權杖到期時，重新整理權杖可用來重新驗證使用者，而不需要他們再次登入。 然後，此重新整理權杖用來驗證使用者，結果會產生新的存取權杖和重新整理權杖。
 
 ## <a name="next-steps"></a>後續步驟
 

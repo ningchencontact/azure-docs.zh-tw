@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
 ms.openlocfilehash: 7480dafe435e555bfba81ebd9242bb5724c0bf3f
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65861603"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 執行 Apache Hive 查詢
@@ -21,7 +21,7 @@ ms.locfileid: "65861603"
 
 ## <a id="prereq"></a>必要條件
 
-* 在 HDInsight 上 Apache Hadoop 叢集。 請參閱[開始使用 Linux 上的 HDInsight](./apache-hadoop-linux-tutorial-get-started.md)。
+* HDInsight 上的 Apache Hadoop 叢集。 請參閱[開始在 Linux 上使用 HDInsight](./apache-hadoop-linux-tutorial-get-started.md)。
 
 * Visual Studio (下列其中一個版本)：
 
@@ -53,7 +53,7 @@ ms.locfileid: "65861603"
     SELECT * FROM hivesampletable;
     ```
 
-5. 選取 [執行] 。 請注意，則預設的執行模式**Interactive**。
+5. 選取 [執行]  。 請注意，則預設的執行模式**Interactive**。
 
     ![執行互動式 Hive 查詢的螢幕擷取畫面](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
 
@@ -67,9 +67,9 @@ ms.locfileid: "65861603"
    
     ![HDInsight Visual Studio Tools IntelliSense 範例 2 的螢幕擷取畫面](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-column-name.png "U-SQL IntelliSense")
 
-7. 選取 [提交] 或 [提交 (進階)]。
+7. 選取 [提交]  或 [提交 (進階)]  。
 
-   如果您選取進階提交選項，請設定指令碼的 [作業名稱]、[引數]、[其他組態] 和 [狀態目錄]：
+   如果您選取進階提交選項，請設定指令碼的 [作業名稱]  、[引數]  、[其他組態]  和 [狀態目錄]  ：
 
     ![HDInsight Hadoop Hive 查詢的螢幕擷取畫面](./media/apache-hadoop-use-hive-visual-studio/hdinsight.visual.studio.tools.submit.jobs.advanced.png "提交查詢")
 
@@ -117,7 +117,7 @@ ms.locfileid: "65861603"
 
    ![提交列](./media/apache-hadoop-use-hive-visual-studio/toolbar.png)
 
-7. [Hive 工作摘要] 將會出現並顯示執行中工作的相關資訊。 使用 [重新整理] 連結來重新整理工作資訊，直到 [工作狀態] 變更為 [已完成] 為止。
+7. [Hive 工作摘要]  將會出現並顯示執行中工作的相關資訊。 使用 [重新整理]  連結來重新整理工作資訊，直到 [工作狀態]  變更為 [已完成]  為止。
 
    ![顯示已完成作業的作業摘要](./media/apache-hadoop-use-hive-visual-studio/jobsummary.png)
 
@@ -150,7 +150,7 @@ ms.locfileid: "65861603"
 
 3. 執行中的查詢**批次**模式。
 
-4. 若要確認作業已建立資料表，請使用 [伺服器總管] 並展開 [Azure] > [HDInsight] > 您的 HDInsight 叢集 > [Hive 資料庫] > [預設]。 會列出 **errorLogs** 資料表和 **log4jLogs** 資料表。
+4. 若要確認作業已建立資料表，請使用 [伺服器總管]  並展開 [Azure]   > [HDInsight]  > 您的 HDInsight 叢集 > [Hive 資料庫]   > [預設]  。 會列出 **errorLogs** 資料表和 **log4jLogs** 資料表。
 
 ## <a id="nextsteps"></a>接續步驟
 

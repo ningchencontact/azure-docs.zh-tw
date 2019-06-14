@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 2fad585e1d37694e37c219be210f9521dbbda3a0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241640"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派使用者註冊和產品訂閱
@@ -72,7 +72,7 @@ ms.locfileid: "66241640"
 5. 如果使用者要註冊，您必須在 API 管理中為他們建立對應的帳戶。 使用 API Management REST API [建立使用者]。 當這麼做，請確定您設定的使用者識別碼，與您的使用者存放區相同的值或您可以追蹤的識別碼。
 6. 成功驗證使用者之後：
    
-   * [要求單一登入 (SSO) 權杖] 
+   * [要求單一登入 (SSO) 權杖]
    * 將 returnUrl 查詢參數附加至您從上述 API 呼叫收到的 SSO URL：
      
      > 例如， https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 

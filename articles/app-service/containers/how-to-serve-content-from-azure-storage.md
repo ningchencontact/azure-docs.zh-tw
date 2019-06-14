@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu-msft
 ms.openlocfilehash: 6b4e145a693aabbf1a00d732e2fd602e7c887a03
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956024"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>從 Azure 儲存體在 Linux 上的 App Service 中提供內容
@@ -74,7 +74,7 @@ az webapp config storage-account list --resource-group <resource_group> --name <
 
 Azure 儲存體可以裝載多容器應用程式使用的自訂 id。若要檢視自訂識別碼名稱，請執行[ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list)。
 
-在您*docker compose.yml*檔案中，對應`volumes`選項設定為`custom-id`。 例如：
+在您*docker compose.yml*檔案中，對應`volumes`選項設定為`custom-id`。 例如:
 
 ```yaml
 wordpress:

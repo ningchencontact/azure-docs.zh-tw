@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkd;juliako
 ms.openlocfilehash: 68eeb40e905d089601208d9fc181042c7b434843
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956790"
 ---
 # <a name="filters-and-dynamic-manifests"></a>篩選器與動態資訊清單
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> [!div class="op_single_selector" title1="選取您要使用媒體服務版本："]
 > * [第 2 版](media-services-dynamic-manifest-overview.md)
 > * [第 3 版](../latest/filters-dynamic-manifest-overview.md)
 
@@ -73,14 +73,14 @@ ms.locfileid: "65956790"
     </SmoothStreamingMedia>
 
 ### <a name="dynamic-manifests"></a>動態資訊清單
-提供許多當您的用戶端需要比預設資產資訊清單檔更多彈性的 [案例](media-services-dynamic-manifest-overview.md#scenarios) 。 例如：
+提供許多當您的用戶端需要比預設資產資訊清單檔更多彈性的 [案例](media-services-dynamic-manifest-overview.md#scenarios) 。 例如:
 
 * 裝置特定：只傳遞用來播放內容的裝置所支援的指定轉譯和/或指定的語言資料軌 (轉譯篩選)。 
 * 縮小資訊清單以顯示即時事件的子剪輯 (「子剪輯篩選」)。
 * 修剪視訊開頭 (「修剪視訊」)。
 * 調整簡報視窗 (DVR)，以在播放程式中提供長度有限的 DVR 視窗 (「調整簡報視窗」)。
 
-為達到這種彈性，媒體服務會根據預先定義的 **篩選器** 提供 [動態資訊清單](media-services-dynamic-manifest-overview.md#filters)。  一旦您定義了篩選器，您的用戶端便會使用篩選器來串流視訊的特定轉譯或子剪輯。 用戶端會在資料流 URL 中指定篩選器。 篩選器可以套用到下列 [動態封裝](media-services-dynamic-packaging-overview.md)支援的自適性串流通訊協定：HLS、MPEG-DASH 和 Smooth Streaming。 例如：
+為達到這種彈性，媒體服務會根據預先定義的 **篩選器** 提供 [動態資訊清單](media-services-dynamic-manifest-overview.md#filters)。  一旦您定義了篩選器，您的用戶端便會使用篩選器來串流視訊的特定轉譯或子剪輯。 用戶端會在資料流 URL 中指定篩選器。 篩選器可以套用到下列 [動態封裝](media-services-dynamic-packaging-overview.md)支援的自適性串流通訊協定：HLS、MPEG-DASH 和 Smooth Streaming。 例如:
 
 含篩選器的 MPEG DASH URL
 

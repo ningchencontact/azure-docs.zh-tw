@@ -18,10 +18,10 @@ ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84a8c2954473401a9e57cba045907c60862ed61f
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546242"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>作法：從 Azure 存取控制服務移轉
@@ -51,7 +51,7 @@ Microsoft Azure 存取控制服務 (ACS) 是 Azure Active Directory (Azure AD) �
 - 管理服務，用以自動化入口網站功能。
 - 權杖轉換規則引擎，用以定義複雜邏輯以控制存取控制簽發之權杖的輸出格式。
 
-若要使用這些元件，您必須建立一或多個存取控制命名空間。 「命名空間」是應用程式和服務進行通訊的專用存取控制執行個體。 命名空間會與其他所有存取控制客戶隔離。 其他存取控制客戶會使用他們自己的命名空間。 存取控制中的命名空間有專用 URL，看起來像這樣：
+若要使用這些元件，您必須建立一或多個存取控制命名空間。 「命名空間」  是應用程式和服務進行通訊的專用存取控制執行個體。 命名空間會與其他所有存取控制客戶隔離。 其他存取控制客戶會使用他們自己的命名空間。 存取控制中的命名空間有專用 URL，看起來像這樣：
 
 ```HTTP
 https://<mynamespace>.accesscontrol.windows.net
@@ -105,7 +105,7 @@ https://<mynamespace>.accesscontrol.windows.net
 
     例如，如果其中一個命名空間是 contoso-test，請移至 `https://contoso-test.accesscontrol.windows.net`
 
-1. 在 [信任關係] 之下，選取 [信賴憑證者應用程式] 以查看會受 ACS 淘汰影響的應用程式清單。
+1. 在 [信任關係]  之下，選取 [信賴憑證者應用程式]  以查看會受 ACS 淘汰影響的應用程式清單。
 1. 針對您擁有的任何其他 ACS 命名空間重複步驟 1-2。
 
 ## <a name="retirement-schedule"></a>淘汰排程
@@ -187,7 +187,7 @@ Azure AD 租用戶也可以透過 AD FS，與內部部署 Active Directory 的�
 
 下表比較存取控制的 Web 應用程式相關功能，以及 Azure AD 的同等功能。 
 
-以整體而言，如果您只讓使用者用 Microsoft 工作或學校帳戶登入，Azure Active Directory 可能是最合適的移轉選擇。
+以整體而言，如果您只讓使用者用 Microsoft 工作或學校帳戶登入，Azure Active Directory 可能是最合適的移轉選擇  。
 
 | 功能 | 存取控制支援 | Azure AD 支援 |
 | ---------- | ----------- | ---------------- |
@@ -303,7 +303,7 @@ Other IDPs: use Auth0? https://auth0.com/docs/integrations/sharepoint.
 
 存取控制針對受到存取控制簽發之權杖保護的 Web 服務，提供下列功能：
 
-- 在您的存取控制命名空間中註冊一或多個服務識別。 使用服務識別要求權杖。
+- 在您的存取控制命名空間中註冊一或多個服務識別  。 使用服務識別要求權杖。
 - 可透過使用下列類型的認證，來支援 OAuth WRAP 和 OAuth 2.0 Draft 13 通訊協定要求權杖：
     - 為服務識別建立簡單密碼
     - 使用對稱金鑰或 X509 憑證的已簽署 SWT

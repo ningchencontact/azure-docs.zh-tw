@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: yushwang
 ms.openlocfilehash: 9085d5ee21b1e955b7d9416a379ee730ba26ad3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150122"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>使用 PowerShell 將 Azure VPN 閘道連線至多個內部部署以原則為基礎的 VPN 裝置
@@ -23,7 +23,7 @@ ms.locfileid: "66150122"
 
 ## <a name="about"></a>關於以原則為基礎的 VPN 閘道和以路由為基礎的 VPN 閘道
 
-以原則為基礎的 VPN 裝置「與」以路由為基礎的 VPN 裝置，其差異在於如何於連線上設定 IPsec 流量選取器：
+以原則為基礎的 VPN 裝置「與」  以路由為基礎的 VPN 裝置，其差異在於如何於連線上設定 IPsec 流量選取器：
 
 * **以原則為基礎的** VPN 裝置使用這兩個網路的前置詞組合，定義如何透過 IPsec 通道來加密/解密流量。 它通常內建在執行封包篩選的防火牆裝置上。 IPsec 通道加密和解密會新增至封包篩選和處理引擎。
 * **以路由為基礎的** VPN 裝置使用任何對任何 (萬用字元) 流量選取器，並讓路由/轉接資料表將流量導向到不同 IPsec 通道。 它通常內建在路由器平台上，其中，每個 IPsec 通道都會建模為網路介面或 VTI (虛擬通道介面)。

@@ -15,10 +15,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66137074"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本立 ASE
@@ -45,19 +45,19 @@ ASE 可以使用 Azure 入口網站或 Azure Resource Manager 範本來建立。
 
 2. 建立 ILB ASE 之後，會上傳與您的 ILB ASE 網域相符的 SSL 憑證。
 
-3. 上傳的 SSL 憑證會指派給 ILB ASE 作為其「預設」SSL 憑證。  如果 ILB ASE 上的應用程式是使用指派給 ASE 的一般根網域 (例如 https://someapp.mycustomrootdomain.com))，此憑證將使用於此應用程式的 SSL 流量。
+3. 上傳的 SSL 憑證會指派給 ILB ASE 作為其「預設」SSL 憑證。  如果 ILB ASE 上的應用程式是使用指派給 ASE 的一般根網域 (例如 https://someapp.mycustomrootdomain.com) )，此憑證將使用於此應用程式的 SSL 流量。
 
 
 ## <a name="create-the-ase"></a>建立 ASE
 在 GitHub 上的[範例][quickstartasev2create]中有可建立 ASE 的 Resource Manager 範本及其相關聯的參數檔案。
 
-如果您想要建立 ILB ASE，請使用這些 Resource Manager 範本[範例][quickstartilbasecreate]。 它們符合該使用案例。 azuredeploy.parameters.json 檔案中的大部分參數是建立 ILB ASE 和外部 ASE 的通用參數。 建立 ILB ASE 時，以下清單會呼叫特殊附註的參數或唯一參數︰
+如果您想要建立 ILB ASE，請使用這些 Resource Manager 範本[範例][quickstartilbasecreate]。 它們符合該使用案例。 azuredeploy.parameters.json  檔案中的大部分參數是建立 ILB ASE 和外部 ASE 的通用參數。 建立 ILB ASE 時，以下清單會呼叫特殊附註的參數或唯一參數︰
 
 * *internalLoadBalancingMode*：在大多數情況下，請將此屬性設定為 3，這表示連接埠 80/443 上的 HTTP/HTTPS 流量，以及 ASE 上 FTP 服務所接聽的控制/資料通道連接埠，都會繫結至已配置 ILB 的虛擬網路內部位址。 如果此屬性設定為 2，只有 FTP 服務相關的連接埠 (控制和資料通道) 會繫結至 ILB 位址， HTTP/HTTPS 流量將保留在公用 VIP 上。
-* *dnsSuffix*：此參數會定義指派給 ASE 的預設根網域。 在 Azure App Service 的公用種變化中，所有 Web 應用程式的預設根網域皆為 azurewebsites.net 。 由於 ILB ASE 位於客戶虛擬網路的內部，所以不適合使用公用服務的預設根網域。 相反地，ILB ASE 應具有適合在公司的內部虛擬網路內使用的預設根網域。 例如，Contoso Corporation 可能會將 internal-contoso.com 的預設根網域用於只能在 Contoso 虛擬網路內解析和存取的應用程式。 
+* *dnsSuffix*：此參數會定義指派給 ASE 的預設根網域。 在 Azure App Service 的公用種變化中，所有 Web 應用程式的預設根網域皆為 azurewebsites.net  。 由於 ILB ASE 位於客戶虛擬網路的內部，所以不適合使用公用服務的預設根網域。 相反地，ILB ASE 應具有適合在公司的內部虛擬網路內使用的預設根網域。 例如，Contoso Corporation 可能會將 internal-contoso.com  的預設根網域用於只能在 Contoso 虛擬網路內解析和存取的應用程式。 
 * *ipSslAddressCount*：在 *azuredeploy.json* 檔案中，此參數的值會自動預設為 0，因為 ILB ASE 只有單一 ILB 位址。 ILB ASE 沒有明確的 IP-SSL 位址。 因此，ILB ASE 的 IP-SSL 位址集區必須設定為零。 否則，就會發生佈建錯誤。 
 
-填入 azuredeploy.parameters.json 檔案後，就可以使用下列 Powershell 程式碼片段建立 ASE。 將檔案路徑變更為您電腦上 Resource Manager 範本檔案的位置。 記得提供您自己的 Resource Manager 部署名稱和資源群組名稱的值：
+填入 azuredeploy.parameters.json  檔案後，就可以使用下列 Powershell 程式碼片段建立 ASE。 將檔案路徑變更為您電腦上 Resource Manager 範本檔案的位置。 記得提供您自己的 Resource Manager 部署名稱和資源群組名稱的值：
 
 ```powershell
 $templatePath="PATH\azuredeploy.json"
@@ -69,12 +69,12 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 建立 ASE 約需一小時。 然後在入口網站中，ASE 會顯示在觸發部署之訂用帳戶的 ASE 清單中。
 
 ## <a name="upload-and-configure-the-default-ssl-certificate"></a>上傳和設定預設SSL 憑證
-SSL 憑證必須與 ASE 相關聯，作為用來建立應用程式的 SSL 連線的「預設」SSL 憑證。 如果 ASE 的預設 DNS 尾碼是 *internal-contoso.com*，則連線到 https://some-random-app.internal-contoso.com 需要 **.internal-contoso.com* 的有效 SSL 憑證。 
+SSL 憑證必須與 ASE 相關聯，作為用來建立應用程式的 SSL 連線的「預設」SSL 憑證。 如果 ASE 的預設 DNS 尾碼是 *internal-contoso.com*，則連線到 https://some-random-app.internal-contoso.com 需要 * *.internal-contoso.com* 的有效 SSL 憑證。 
 
 使用內部憑證授權單位、向外部簽發者購買憑證、或使用自我簽署的憑證，取得有效的 SSL 憑證。 無論 SSL 憑證的來源為何，都需要正確設定下列憑證屬性︰
 
-* **主體**：此屬性必須設定為 **.your-root-domain-here.com*。
-* **主體別名**：此屬性必須同時包含 **.your-root-domain-here.com* 和 **.scm.your-root-domain-here.com*。 系統將使用 your-app-name.scm.your-root-domain-here.com 形式的位址，進行與每個應用程式相關聯的 SCM/Kudu 網站的 SSL 連線。
+* **主體**：此屬性必須設定為 * *.your-root-domain-here.com*。
+* **主體別名**：此屬性必須同時包含 * *.your-root-domain-here.com* 和 * *.scm.your-root-domain-here.com*。 系統將使用 your-app-name.scm.your-root-domain-here.com  形式的位址，進行與每個應用程式相關聯的 SCM/Kudu 網站的 SSL 連線。
 
 備妥有效的 SSL 憑證，還需要兩個額外的準備步驟。 將 SSL 憑證轉換/儲存為 .pfx 檔案。 請記住，.pfx 檔案必須包含所有中繼和根憑證。 使用密碼保護其安全。
 
@@ -105,14 +105,14 @@ $fileContentEncoded | set-content ($fileName + ".b64")
 
 成功產生 SSL 憑證並轉換成 base64 編碼字串後，使用 GitHub 上的[設定預設 SSL 憑證][quickstartconfiguressl]範例 Resource Manager 範本。 
 
-azuredeploy.parameters.json 檔案中有以下參數︰
+azuredeploy.parameters.json  檔案中有以下參數︰
 
 * *appServiceEnvironmentName*：所要設定之 ILB ASE 的名稱。
-* *existingAseLocation*：包含已部署 ILB ASE 之 Azure 區域的文字字串。  例如："South Central US"。
-* *pfxBlobString*：.pfx 檔案的 based64 編碼字串表示法。 使用稍早的程式碼片段，複製 "exportedcert.pfx.b64" 中的字串。 貼上字串作為 pfxBlobString 屬性的值。
+* *existingAseLocation*：包含已部署 ILB ASE 之 Azure 區域的文字字串。  例如: "South Central US"。
+* *pfxBlobString*：.pfx 檔案的 based64 編碼字串表示法。 使用稍早的程式碼片段，複製 "exportedcert.pfx.b64" 中的字串。 貼上字串作為 pfxBlobString  屬性的值。
 * *password*：用來保護 .pfx 檔案的密碼。
-* *certificateThumbprint*：憑證的指紋。 如果您從 Powershell 擷取此值 (例如先前程式碼片段中的 $certificate.Thumbprint )，可以直接使用該值。 如果您從 Windows 憑證對話方塊中複製此值，請記得去除多餘的空格。 CertificateThumbprint 應該像這樣：AF3143EB61D43F6727842115BB7F17BBCECAECAE。
-* *certificateName*：您自己選擇的好記字串識別碼，可用來識別憑證。 Microsoft.Web/certificates 實體表示 SSL 憑證，而此名稱會作為實體的唯一 Resource Manager 識別碼的一部分。 名稱「必須」以下列尾碼結尾︰\_yourASENameHere_InternalLoadBalancingASE。 Azure 入口網站會以這個尾碼為指標，表示憑證要用於保護啟用 ILB 的 ASE。
+* *certificateThumbprint*：憑證的指紋。 如果您從 Powershell 擷取此值 (例如先前程式碼片段中的 $certificate.Thumbprint  )，可以直接使用該值。 如果您從 Windows 憑證對話方塊中複製此值，請記得去除多餘的空格。 CertificateThumbprint  應該像這樣：AF3143EB61D43F6727842115BB7F17BBCECAECAE。
+* *certificateName*：您自己選擇的好記字串識別碼，可用來識別憑證。 Microsoft.Web/certificates  實體表示 SSL 憑證，而此名稱會作為實體的唯一 Resource Manager 識別碼的一部分。 名稱「必須」  以下列尾碼結尾︰\_yourASENameHere_InternalLoadBalancingASE。 Azure 入口網站會以這個尾碼為指標，表示憑證要用於保護啟用 ILB 的 ASE。
 
 以下是 azuredeploy.parameters.json  的縮簡範例︰
 
@@ -143,7 +143,7 @@ azuredeploy.parameters.json 檔案中有以下參數︰
 }
 ```
 
-填入 azuredeploy.parameters.json 檔案後，使用下列 Powershell 程式碼片段設定預設 SSL。 將檔案路徑變更為您電腦上 Resource Manager 範本檔案的位置。 記得提供您自己的 Resource Manager 部署名稱和資源群組名稱的值：
+填入 azuredeploy.parameters.json  檔案後，使用下列 Powershell 程式碼片段設定預設 SSL。 將檔案路徑變更為您電腦上 Resource Manager 範本檔案的位置。 記得提供您自己的 Resource Manager 部署名稱和資源群組名稱的值：
 
 ```powershell
 $templatePath="PATH\azuredeploy.json"
@@ -154,7 +154,7 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 每個 ASE 前端套用變更大約需要 40 分鐘。 例如，有一個預設大小的 ASE 使用兩個前端，則範本將需要大約一小時 20 分鐘的時間才能完成。 執行範本時，無法調整 ASE。  
 
-範本完成之後，可以透過 HTTPS 存取 ILB ASE 上的應用程式。 此連線使用預設 SSL 憑證加以保護。 如果 ILB ASE 上的應用程式是使用應用程式名稱加上預設主機名稱的組合來定址，則會使用預設 SSL 憑證。 例如， https://mycustomapp.internal-contoso.com 會使用 **.internal-contoso.com* 的預設 SSL 憑證。
+範本完成之後，可以透過 HTTPS 存取 ILB ASE 上的應用程式。 此連線使用預設 SSL 憑證加以保護。 如果 ILB ASE 上的應用程式是使用應用程式名稱加上預設主機名稱的組合來定址，則會使用預設 SSL 憑證。 例如， https://mycustomapp.internal-contoso.com 會使用 * *.internal-contoso.com* 的預設 SSL 憑證。
 
 不過，就如同在公用多租用戶服務上執行的應用程式，開發人員可以為個別的應用程式設定自訂主機名稱。 他們也可以為個別的應用程式設定唯一 SNI SSL 憑證繫結。
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mayg
 ms.openlocfilehash: 42ef6087663c48cad965be768f14920efa777a62
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244335"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>關於 VMware 至 Azure 的 Azure Site Recovery 部署規劃工具
@@ -120,7 +120,7 @@ ms.locfileid: "66244335"
 
 
 ## <a name="version-history"></a>版本歷程記錄
-2.4 為最新的 Site Recovery Deployment Planner 工具版本。
+2\.4 為最新的 Site Recovery Deployment Planner 工具版本。
 請參閱 [部署規劃工具版本記錄](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history)頁面，了解每個更新中所新增的修正。
 
 ## <a name="next-steps"></a>後續步驟

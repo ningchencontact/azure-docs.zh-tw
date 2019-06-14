@@ -10,10 +10,10 @@ ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: 371cbcc50b574f95e8d9ba4efe79058b2b25a8ba
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127736"
 ---
 **組態/處理序伺服器需求**
@@ -23,7 +23,7 @@ ms.locfileid: "66127736"
 **硬體設定** | 
 CPU 核心 | 8 
 RAM | 16 GB
-磁碟數 | 3，包括作業系統磁碟、處理序伺服器快取磁碟和用於容錯回復的保留磁碟機 
+磁碟數量 | 3，包括作業系統磁碟、處理序伺服器快取磁碟和用於容錯回復的保留磁碟機 
 可用磁碟空間 (處理序伺服器快取) | 600 GB
 可用磁碟空間 (保留磁碟) | 600 GB
  | 
@@ -35,7 +35,7 @@ Windows Server 角色 | 請勿啟用這些角色： <br> - Active Directory Doma
 IIS | - 沒有預先存在的預設網站 <br> - 沒有預先存在的網站/應用程式接聽連接埠 443 <br>- 啟用[匿名驗證](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - 啟用 [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 設定 
 | 
 **網路設定** | 
-IP 位址類型 | 靜態 
+IP 位址類型 | Static 
 連接埠 | 443 (控制通道協調流程)<br>9443 (資料傳輸) 
 NIC 類型 | VMXNET3 (如果組態伺服器是 VMware 虛擬機器)
  |

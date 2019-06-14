@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: ce04e19022a9902c228079e866c192985694134c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799254"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>教學課程：使用影片索引器 API
@@ -79,7 +79,7 @@ ms.locfileid: "65799254"
 * 使用**影片索引器網站**來取得帳戶識別碼：
 
     1. 瀏覽至[影片索引器](https://www.videoindexer.ai/)網站並登入。
-    2. 瀏覽至 [設定] 頁面。
+    2. 瀏覽至 [設定]  頁面。
     3. 複製帳戶識別碼。
 
         ![帳戶識別碼](./media/video-indexer-use-apis/account-id.png)

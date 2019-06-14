@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 88051c45f21bdf11807ffcc63d8248cba81ae70b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66137068"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的設定和管理常見問題集
@@ -66,23 +66,23 @@ ms.locfileid: "66137068"
 
 若要設定 Web 應用程式的伺服器時區：
 
-1. 在 Azure 入口網站的 App Service 訂用帳戶中，移至 [應用程式設定] 功能表。
-2. 在 [應用程式設定] 底下，新增以下設定：
+1. 在 Azure 入口網站的 App Service 訂用帳戶中，移至 [應用程式設定]  功能表。
+2. 在 [應用程式設定]  底下，新增以下設定：
     * 索引鍵 = WEBSITE_TIME_ZONE
-    * 值 = 您想要的時區
+    * 值 = 您想要的時區 
 3. 選取 [ **儲存**]。
 
 請參閱[預設時區](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) \(英文\) 一文中的**時區**欄，以取得接受的值。
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>為什麼我的持續 WebJobs 有時候會失敗？
 
-根據預設，Web 應用程式如果閒置一段時間，就會卸載。 此舉有助於系統保留資源。 在「基本」和「標準」方案中，您可以開啟 [永遠開啟] 設定，讓 Web 應用程式隨時保持載入。 如果您的 Web 應用程式會執行持續的 WebJobs，就應該開啟 [永遠開啟]，否則 WebJobs 可能無法可靠地執行。 如需詳細資訊，請參閱[建立持續執行 WebJob](webjobs-create.md#CreateContinuous)。
+根據預設，Web 應用程式如果閒置一段時間，就會卸載。 此舉有助於系統保留資源。 在「基本」和「標準」方案中，您可以開啟 [永遠開啟]  設定，讓 Web 應用程式隨時保持載入。 如果您的 Web 應用程式會執行持續的 WebJobs，就應該開啟 [永遠開啟]  ，否則 WebJobs 可能無法可靠地執行。 如需詳細資訊，請參閱[建立持續執行 WebJob](webjobs-create.md#CreateContinuous)。
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>如何取得 Web 應用程式的輸出 IP 位址？
 
 若要取得 Web 應用程式的輸出 IP 位址清單：
 
-1. 在 Azure 入口網站的 Web 應用程式刀鋒視窗中，移至 [屬性] 功能表。
+1. 在 Azure 入口網站的 Web 應用程式刀鋒視窗中，移至 [屬性]  功能表。
 2. 搜尋**輸出 IP 位址**。
 
 輸出 IP 位址清單隨即出現。
@@ -134,10 +134,10 @@ PCI DSS 3.1 版憑證需要停用傳輸層安全性 (TLS) 1.0。 目前，停用
 
 1. 登入 [Kudu 網站](https://*yourwebsitename*.scm.azurewebsites.net)。
 2. 選取 WebJob。
-3. 選取 [切換輸出] 按鈕。
-4. 若要下載輸出檔案，請選取 [下載] 連結。
-5. 針對個別的執行，選取 [個別叫用]。
-6. 選取 [切換輸出] 按鈕。
+3. 選取 [切換輸出]  按鈕。
+4. 若要下載輸出檔案，請選取 [下載]  連結。
+5. 針對個別的執行，選取 [個別叫用]  。
+6. 選取 [切換輸出]  按鈕。
 7. 選取下載連結。
 
 ## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>我正在嘗試使用混合式連線與 SQL Server。 為什麼會看到「System.OverflowException：數學運算導致溢位」訊息？
@@ -185,16 +185,16 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 1. 在 Internet Explorer 中，移至您的網站。 請務必在執行下一個步驟之前登入。 否則，F12 追蹤會擷取敏感性登入資料。
 2. 按下 F12。
-3. 確認 [網路] 索引標籤已選取，然後選取綠色 [播放] 按鈕。
+3. 確認 [網路]  索引標籤已選取，然後選取綠色 [播放]  按鈕。
 4. 執行重現問題的步驟。
-5. 選取紅色 [停止] 按鈕。
-6. 選取 [儲存] 鈕 (磁片圖示)，並儲存 HAR 檔案 (在 Internet Explorer 和 Microsoft Edge 中) 或者以滑鼠右鍵按一下 HAR 檔案，然後選取 [內容另存為 HAR] \(在 Chrome 中)。
+5. 選取紅色 [停止]  按鈕。
+6. 選取 [儲存]  鈕 (磁片圖示)，並儲存 HAR 檔案 (在 Internet Explorer 和 Microsoft Edge 中) 或者  以滑鼠右鍵按一下 HAR 檔案，然後選取 [內容另存為 HAR]  \(在 Chrome 中)。
 
 ### <a name="f12-console-output"></a>F12 主控台輸出
 
-1. 選取 [主控台] 索引標籤。
+1. 選取 [主控台]  索引標籤。
 2. 對於包含零個以上項目的每個索引標籤，選取索引標籤 (**錯誤**、**警告**或**資訊**)。 如果沒有選取索引標籤，當您將資料指標移開該索引標籤時，索引標籤圖示是灰色或黑色。
-3. 以滑鼠右鍵按一下窗格的訊息區域，然後選取 [全部複製]。
+3. 以滑鼠右鍵按一下窗格的訊息區域，然後選取 [全部複製]  。
 4. 在檔案中貼上複製的文字，然後儲存檔案。
 
 若要檢視 HAR 檔案，您可以使用 [HAR 檢視器](https://www.softwareishard.com/har/viewer/)。
@@ -292,7 +292,7 @@ Invoke-AzResourceAction -ResourceGroupName "<App Service Certificate Resource Gr
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>如何將預設 *.azurewebsites.net 網域重新導向至我的 Azure Web 應用程式的自訂網域？
 
-當您使用 Azure 中的 Web 應用程式建立新網站時，預設 sitename.azurewebsites.net 網域會指派至您的網站。 如果您將自訂主機名稱新增至您的網站，且不想讓使用者能夠存取您的預設 *.azurewebsites.net 網域，您可以重新導向預設 URL。 若要深入了解如何將網站預設網域的所有流量重新導向至自訂網域，請參閱[將預設網域重新導向至 Azure Web 應用程式中的自訂網域](https://zainrizvi.io/blog/block-default-azure-websites-domain/)。
+當您使用 Azure 中的 Web 應用程式建立新網站時，預設 sitename  .azurewebsites.net 網域會指派至您的網站。 如果您將自訂主機名稱新增至您的網站，且不想讓使用者能夠存取您的預設 *.azurewebsites.net 網域，您可以重新導向預設 URL。 若要深入了解如何將網站預設網域的所有流量重新導向至自訂網域，請參閱[將預設網域重新導向至 Azure Web 應用程式中的自訂網域](https://zainrizvi.io/blog/block-default-azure-websites-domain/)。
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>如何判斷安裝在 App Service 中的是哪一個版本的 .NET？
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60629300"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple Virtual Array 系統需求
@@ -52,7 +52,7 @@ ms.locfileid: "60629300"
 | --- | --- |
 | 虛擬處理器 (核心) 的最小數目 |4 |
 | 最小記憶體 (RAM) |8 GB <br> 對於檔案伺服器，8 GB 適用於 2 百萬個以下的檔案，而 16 GB 則適用於 2 - 4 百萬個檔案|
-| 磁碟空間<sup>1</sup> |OS 磁碟 - 80 GB  <br></br>資料磁碟 - 500 GB 到 8 TB |
+| 磁碟空間<sup>1</sup> |OS 磁碟 - 80 GB <br></br>資料磁碟 - 500 GB 到 8 TB |
 | 最小網路介面數目 |1 |
 | 網際網路頻寬<sup>2</sup> |所需的最小頻寬：5 Mbps <br> 建議頻寬：100 Mbps <br> 資料傳輸的速度會隨著網際網路頻寬而調整。 例如，100 GB 的資料以 5 Mbps 傳輸需要 2 天的時間，這可能導致備份失敗，因為每日備份無法在一天內完成。 使用 100 Mbps 的頻寬，100 GB 的資料可以在 2.5 小時內傳輸完畢。   |
 

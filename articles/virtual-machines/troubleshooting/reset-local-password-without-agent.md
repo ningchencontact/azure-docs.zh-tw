@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
 ms.openlocfilehash: 3c0152726aba115e1b370838308a7bf0af08cab7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64708123"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>重設離線 Azure VM 的本機 Windows 密碼
@@ -62,29 +62,29 @@ ms.locfileid: "64708123"
 
 1. 在 Azure 入口網站中刪除受影響的 VM。 刪除 VM 只會刪除中繼資料 (Azure 內 VM 的參考)。 刪除 VM 時會保留虛擬磁碟：
    
-   * 在 Azure 入口網站中選取 VM，請按一下 [刪除]：
+   * 在 Azure 入口網站中選取 VM，請按一下 [刪除]  ：
      
      ![刪除現有的 VM](./media/reset-local-password-without-agent/delete_vm.png)
 2. 將來源 VM 的 OS 磁碟連接到疑難排解 VM。 疑難排解 VM 必須位於與來源 VM 的作業系統磁碟相同的區域 (例如 `West US`)：
    
-   * 在 Azure 入口網站中選取疑難排解 VM。 按一下 [磁碟] | [連接現有項目]：
+   * 在 Azure 入口網站中選取疑難排解 VM。 按一下 [磁碟]   | [連接現有項目]  ：
      
      ![連接現有磁碟](./media/reset-local-password-without-agent/disks_attach_existing.png)
      
-     選取 [VHD 檔案]，然後選取包含來源 VM 的儲存體帳戶：
+     選取 [VHD 檔案]  ，然後選取包含來源 VM 的儲存體帳戶：
      
      ![選取儲存體帳戶](./media/reset-local-password-without-agent/disks_select_storageaccount.PNG)
      
-     選取來源容器。 來源容器通常是 vhd：
+     選取來源容器。 來源容器通常是 vhd  ：
      
      ![選取儲存體容器](./media/reset-local-password-without-agent/disks_select_container.png)
      
-     選取要連接的 OS vhd。 按一下 [選取]，完成此程序：
+     選取要連接的 OS vhd。 按一下 [選取]  ，完成此程序：
      
      ![選取來源虛擬磁碟](./media/reset-local-password-without-agent/disks_select_source_vhd.png)
 3. 使用遠端桌面連接到疑難排解 VM，並確定看得見來源 VM 的 OS 磁碟︰
    
-   * 在 Azure 入口網站中選取疑難排解 VM，然後按一下 [連接]。
+   * 在 Azure 入口網站中選取疑難排解 VM，然後按一下 [連接]  。
    * 開啟下載的 RDP 檔案。 輸入疑難排解 VM 的使用者名稱和密碼。
    * 在檔案總管中，尋找您所連接的資料磁碟。 如果來源 VM 的 VHD 是連接到疑難排解 VM 的唯一資料磁碟，則應該是 F: 磁碟機︰
      
@@ -130,24 +130,24 @@ ms.locfileid: "64708123"
     定義新的密碼時，必須符合針對 VM 設定的密碼複雜性需求。
 7. 在 Azure 入口網站中，從疑難排解 VM 卸離磁碟：
    
-   * 在 Azure 入口網站中選取疑難排解 VM，按一下 [磁碟]。
-   * 選取在步驟 2 中連接的資料磁碟，按一下 [卸離]：
+   * 在 Azure 入口網站中選取疑難排解 VM，按一下 [磁碟]  。
+   * 選取在步驟 2 中連接的資料磁碟，按一下 [卸離]  ：
      
      ![卸離磁碟](./media/reset-local-password-without-agent/detach_disk.png)
 8. 建立 VM 之前，取得來源 OS 磁碟的 URI：
    
-   * 在 Azure 入口網站中選取儲存體帳戶，按一下 [Blob]。
-   * 選取容器。 來源容器通常是 vhd：
+   * 在 Azure 入口網站中選取儲存體帳戶，按一下 [Blob]  。
+   * 選取容器。 來源容器通常是 vhd  ：
      
      ![選取儲存體帳戶 Blob](./media/reset-local-password-without-agent/select_storage_details.png)
      
-     選取您的來源 VM OS VHD，然後按一下 [URL] 名稱旁邊的 [複製] 按鈕：
+     選取您的來源 VM OS VHD，然後按一下 [URL]  名稱旁邊的 [複製]  按鈕：
      
      ![複製磁碟 URI](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. 從來源 VM 的 OS 磁碟建立 VM：
    
    * 使用[此 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet)，從特定的 VHD 建立 VM。 按一下 `Deploy to Azure` 按鈕開啟 Azure 入口網站，其中包含為您填入的樣板化詳細資料。
-   * 如果您想要保留 VM 的所有先前設定，請選取 [編輯範本] 以提供現有的 VNet、子網路、網路介面卡或公用 IP。
+   * 如果您想要保留 VM 的所有先前設定，請選取 [編輯範本]  以提供現有的 VNet、子網路、網路介面卡或公用 IP。
    * 在 `OSDISKVHDURI` 參數文字方塊中，貼上您在前一個步驟中取得的來源 VHD URI︰
      
      ![從範本建立 VM](./media/reset-local-password-without-agent/create_new_vm_from_template.png)

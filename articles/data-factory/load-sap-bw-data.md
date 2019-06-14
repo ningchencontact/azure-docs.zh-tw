@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: jingwang
 ms.openlocfilehash: 4cd61db3ec0e8d88c9b1c6d6ba427b120b3f1af1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152424"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Business Warehouse 複製資料
@@ -29,7 +29,7 @@ ms.locfileid: "66152424"
 
 - **Azure Data Factory**:如果您沒有帳戶，請依照下列步驟來[建立資料處理站](quickstart-create-data-factory-portal.md#create-a-data-factory)。
 
-- **SAP BW 開啟中樞目的地 (OHD) 使用的目的型別 「 資料庫資料表 」**:若要建立 OHD 或檢查您 OHD 已正確設定，Data Factory 整合，請參閱[SAP BW 開放式中心目的地組態](#sap-bw-open-hub-destination-configurations)一節。
+- **SAP BW 開啟中樞目的地 (OHD) 使用的目的型別 「 資料庫資料表 」** :若要建立 OHD 或檢查您 OHD 已正確設定，Data Factory 整合，請參閱[SAP BW 開放式中心目的地組態](#sap-bw-open-hub-destination-configurations)一節。
 
 - **SAP BW 使用者需要下列權限**:
 
@@ -50,7 +50,7 @@ ms.locfileid: "66152424"
 
 1. 在 **讓我們開始**頁面上，選取**複製資料**以開啟 複製資料工具。
 
-2. 在 [**屬性**頁面上，指定**工作名稱**，然後選取**下一步]**。
+2. 在 [**屬性**頁面上，指定**工作名稱**，然後選取**下一步]** 。
 
 3. 在 **來源資料存放區**頁面上，選取 **+ 建立新的連接**。 選取  **SAP BW Open Hub**從連接器資源庫，然後選取**繼續**。 若要篩選的連接器，您可以輸入**SAP**在搜尋方塊中。
 
@@ -64,11 +64,11 @@ ms.locfileid: "66152424"
 
       中所述[必要條件](#prerequisites)，請確定您有適用於 Microsoft.NET 3.0 安裝自我裝載整合執行階段執行所在的同一部電腦上使用 SAP 連接器。
 
-   2. 填寫 SAP BW**伺服器名稱**，**系統編號**，**用戶端識別碼****語言**(如果以外**EN**)**使用者名**，並**密碼**。
+   2. 填寫 SAP BW**伺服器名稱**，**系統編號**，**用戶端識別碼** **語言**(如果以外**EN**)**使用者名**，並**密碼**。
 
    3. 選取 **測試連接**若要驗證的設定，然後選取**完成**。
 
-   4. 建立新的連線。 選取 [下一步] 。
+   4. 建立新的連線。 選取 [下一步]  。
 
 5. 在 **選取 開啟中樞目的地**頁面上，瀏覽開啟 SAP BW 中可用的中樞目的地。 選取以複製資料，然後選取 OHD**下一步**。
 
@@ -76,7 +76,7 @@ ms.locfileid: "66152424"
 
 6. 篩選條件，如果您需要指定其中一個。 如果您 OHD 只包含資料的單一資料傳輸程序 (DTP) 執行以單一要求識別碼，或您要確定您 DTP 完畢，而且您想要複製的資料清除**排除上次要求**核取方塊。
 
-   深入了解這些設定[SAP BW 開放式中心目的地組態](#sap-bw-open-hub-destination-configurations)一節。 選取 **驗證**来再次將傳回的資料。 然後，選取 [下一步]。
+   深入了解這些設定[SAP BW 開放式中心目的地組態](#sap-bw-open-hub-destination-configurations)一節。 選取 **驗證**来再次將傳回的資料。 然後，選取 [下一步]  。
 
    ![設定 SAP BW Open Hub 篩選器](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
@@ -87,9 +87,9 @@ ms.locfileid: "66152424"
    ![建立 ADLS Gen2 連結的服務頁面](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
    1. 選取 將 Data Lake 儲存體能夠 Gen2 的帳戶，從**名稱**下拉式清單。
-   2. 選取 [完成] 以建立連線。 然後，選取 [下一步]。
+   2. 選取 [完成]  以建立連線。 然後，選取 [下一步]  。
 
-9. 在 **選擇輸出檔案或資料夾**頁面上，輸入**copyfromopenhub**做為輸出資料夾名稱。 然後，選取 [下一步]。
+9. 在 **選擇輸出檔案或資料夾**頁面上，輸入**copyfromopenhub**做為輸出資料夾名稱。 然後，選取 [下一步]  。
 
    ![選擇輸出資料夾頁面](media/load-sap-bw-data/choose-output-folder.png)
 
@@ -97,11 +97,11 @@ ms.locfileid: "66152424"
 
     ![指定接收格式 頁面](media/load-sap-bw-data/specify-sink-format.png)
 
-11. 在 **設定**頁面上，展開**效能設定**。 輸入的值**複製平行處理原則程度**5 以平行方式載入從 SAP BW 等。 然後，選取 [下一步]。
+11. 在 **設定**頁面上，展開**效能設定**。 輸入的值**複製平行處理原則程度**5 以平行方式載入從 SAP BW 等。 然後，選取 [下一步]  。
 
     ![設定 複製設定](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. 在 **摘要**頁面上，檢閱設定。 然後，選取 [下一步]。
+12. 在 **摘要**頁面上，檢閱設定。 然後，選取 [下一步]  。
 
 13. 在 **部署**頁面上，選取**監視器**來監視管線。
 
@@ -111,7 +111,7 @@ ms.locfileid: "66152424"
 
     ![監視檢視的管線](media/load-sap-bw-data/pipeline-monitoring.png)
 
-15. 若要檢視與此管線執行相關聯的活動執行，請選取**檢視活動執行**中**動作**資料行。 管線中只有一個活動 (複製活動)，所以您只會看到一個項目。 若要切換回管線執行檢視，請選取**管線**頂端的連結。 選取 [重新整理] 即可重新整理清單。
+15. 若要檢視與此管線執行相關聯的活動執行，請選取**檢視活動執行**中**動作**資料行。 管線中只有一個活動 (複製活動)，所以您只會看到一個項目。 若要切換回管線執行檢視，請選取**管線**頂端的連結。 選取 [重新整理]  即可重新整理清單。
 
     ![活動監控 畫面](media/load-sap-bw-data/activity-monitoring.png)
 

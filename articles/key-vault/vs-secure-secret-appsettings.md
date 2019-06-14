@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
 ms.openlocfilehash: 9763a14e84d88be1d6f09fb9f16b6b7c9eeffd2d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506431"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地儲存 Web 應用程式的祕密應用程式設定
@@ -37,11 +37,11 @@ ms.locfileid: "65506431"
 ### <a name="save-secret-settings-in-azure-key-vault"></a>將秘密設定儲存在 Azure Key Vault 中
 如果您要開發專案，而且必須安全地共用原始程式碼，請使用 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)。
 
-1. 在您的 Azure 訂用帳戶中建立金鑰保存庫。 填寫 UI 上的所有必要欄位，然後按一下刀鋒視窗底部的 [建立]
+1. 在您的 Azure 訂用帳戶中建立金鑰保存庫。 填寫 UI 上的所有必要欄位，然後按一下刀鋒視窗底部的 [建立] 
 
     ![建立 Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. 為您和您的小組成員授與金鑰保存庫的存取權。 如果您的小組成員眾多，您可以建立 [Azure Active Directory 群組](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal)，然後新增該安全性群組對金鑰保存庫的存取權。 在 [秘密權限] 下拉式清單中，核取 [秘密管理作業] 下的 [取得] 和 [清單]。
+2. 為您和您的小組成員授與金鑰保存庫的存取權。 如果您的小組成員眾多，您可以建立 [Azure Active Directory 群組](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal)，然後新增該安全性群組對金鑰保存庫的存取權。 在 [秘密權限]  下拉式清單中，核取 [秘密管理作業]  下的 [取得]  和 [清單]  。
 
     ![新增金鑰保存庫存取原則](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 

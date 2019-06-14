@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: e8c1c2e51ca14ae9b17f0d7efb20552cdd55139b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65077286"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-preview-performance-options"></a>適用於 PostgreSQL-超大規模 (Citus) （預覽） 的 azure 資料庫效能選項
@@ -20,7 +20,7 @@ ms.locfileid: "65077286"
  
 超大規模 (Citus) 的伺服器群組中，您可以選取計算與儲存體設定的背景工作角色節點的獨立和協調器節點。  計算資源會以 vCore 的形式提供，vCore 代表了基礎硬體的邏輯 CPU。 佈建的儲存體大小是指您的超大規模 (Citus) 的伺服器群組中的協調器 」 和 「 背景工作節點都可使用的容量。 儲存體包括資料庫檔案、 暫存檔案、 交易記錄檔和 Postgres 伺服器記錄檔。 總數也佈建的儲存體定義的每個背景工作角色和協調器節點可用的 I/O 容量。
  
-|                       | 背景工作節點           | 協調器節點      |
+|                       | 背景工作角色節點           | 協調器節點      |
 |-----------------------|-----------------------|-----------------------|
 | 計算，虛擬核心       | 4, 8, 16, 32          | 4, 8, 16, 32          |
 | 每個虛擬核心，GiB 的記憶體 | 8                     | 4                     |
@@ -29,7 +29,7 @@ ms.locfileid: "65077286"
 | IOPS                  | 最多 3 個 IOPS/GiB      | 最多 3 個 IOPS/GiB      |
 
 
-## <a name="regions"></a>區域
+## <a name="regions"></a>Regions
 超大規模 (Citus) 的伺服器群組會在下列 Azure 區域上市：
 * 美國東部 2
 * 東南亞

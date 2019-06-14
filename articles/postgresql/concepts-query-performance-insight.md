@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: d45b79e2ca3b3d478102bebdcff3c8892bef2cb5
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067549"
 ---
 # <a name="query-performance-insight"></a>查詢效能深入解析 
@@ -32,13 +32,13 @@ Azure 入口網站中的[查詢效能深入解析](concepts-query-performance-in
 
 ![查詢效能深入解析長時間執行的查詢](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
 
-**長時間執行的查詢**索引標籤會顯示前五個查詢的平均持續時間，每次執行，每隔 15 分鐘彙總。 您可以從 [查詢數目] 下拉式清單中選取，以檢視更多查詢。 當您這樣做時，特定查詢識別碼的圖表色彩可能會有所變更。
+**長時間執行的查詢**索引標籤會顯示前五個查詢的平均持續時間，每次執行，每隔 15 分鐘彙總。 您可以從 [查詢數目]  下拉式清單中選取，以檢視更多查詢。 當您這樣做時，特定查詢識別碼的圖表色彩可能會有所變更。
 
 您可以在圖表中按一下並拖曳來縮小到特定時間範圍。 或者，使用放大和縮小圖示，分別檢視一段較短或較長的時間。
 
 圖表下方的資料表會提供該時間範圍內長時間執行之查詢的詳細資訊。
 
-選取 [等候統計資料] 索引標籤，以檢視伺服器中等候的對應視覺效果。
+選取 [等候統計資料]  索引標籤，以檢視伺服器中等候的對應視覺效果。
 
 ![查詢效能深入解析會等候統計資料](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 

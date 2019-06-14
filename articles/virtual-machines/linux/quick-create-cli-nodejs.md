@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
 ms.openlocfilehash: 569e90c7908ce435689a80f7917b20275703f537
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473734"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>使用 Azure 傳統 CLI 建立 Linux VM
@@ -46,11 +46,11 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 
 下列逐步解說包含要部署的 UbuntuLTS VM，說明每個步驟的執行內容。
 
-## <a name="vm-quick-create-aliases"></a>VM quick-create 别名
+## <a name="vm-quick-create-aliases"></a>VM quick-create 別名
 
 使用對應到常見作業系統散發版本的 Azure CLI 別名，可以快速選擇版本。 下表列出別名 (依 Azure CLI 0.10 版)。 所有使用 `quick-create` 建立的 VM 預設都是由固態硬碟 (SSD) 儲存空間支援，SSD 提供更快的佈建及高效能磁碟存取。 (這些別名代表 Azure 上可用 OS 散發版本的一小部分。 [在 PowerShell 中](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)、[Web 上](https://azure.microsoft.com/marketplace/virtual-machines/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)搜尋映像以在 Azure Marketplace 中尋找更多映像，或者[可以上傳您自己的自訂映像](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。)
 
-| Alias | 发布者 | 产品/服务 | SKU | Version |
+| Alias | 發行者 | 供應項目 | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |CentOS |7.2 |最新 |
 | CoreOS |CoreOS |CoreOS |Stable |最新 |
@@ -63,8 +63,8 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 
 先前的 `quick-create` 範例只呼叫 `-M` 旗標來識別要上傳的 SSH 公開金鑰，且同時停用 SSH 密碼，因此系統會提示您輸入下列引數：
 
-* 资源组名称（通常适用于第一个 Azure 资源组的任何字符串）
-* VM 名称
+* 資源群組名稱 (任何字串一般都適用於您的第一個 Azure 資源群組)
+* VM 名稱
 * 位置 (`westus` 或 `westeurope` 都是不錯的預設值)
 * Linux (讓 Azure 知道您要的作業系統)
 * username
@@ -82,7 +82,7 @@ azure vm quick-create \
   --image-urn UbuntuLTS
 ```
 
-输出应类似于以下输出块：
+輸出應該看起來像下列的輸出區塊：
 
 ```azurecli
 info:    Executing command vm quick-create
@@ -161,7 +161,7 @@ info:    vm quick-create command OK
 ```
 
 ## <a name="log-in-to-the-new-vm"></a>登入新的 VM
-使用输出中列出的公共 IP 地址登录到 VM。 您也可以使用其中列出的完整網域名稱 (FQDN)：
+使用輸出中所列的公用 IP 位址登入您的 VM。 您也可以使用其中列出的完整網域名稱 (FQDN)：
 
 ```bash
 ssh -i ~/.ssh/id_rsa.pub ahmet@138.91.247.29

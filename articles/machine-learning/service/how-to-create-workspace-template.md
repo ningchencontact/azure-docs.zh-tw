@@ -11,10 +11,10 @@ author: Blackmist
 ms.date: 04/16/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: abe497ed96515e8194fb2ddefd8e7f4cb9908758
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205142"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>使用 Azure Resource Manager 範本來建立 Azure 機器學習服務工作區
@@ -64,8 +64,8 @@ ms.locfileid: "65205142"
 
 ## <a name="use-the-azure-portal"></a>使用 Azure 入口網站
 
-1. 遵循[從自訂範本部署資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template)的步驟。 當您看見 [編輯範本] 畫面時，貼入此文件的範本。
-1. 選取 [儲存] 以使用範本。 提供下列資訊，並同意列出的條款及條件：
+1. 遵循[從自訂範本部署資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template)的步驟。 當您看見 [編輯範本]  畫面時，貼入此文件的範本。
+1. 選取 [儲存]  以使用範本。 提供下列資訊，並同意列出的條款及條件：
 
    * 訂用帳戶：選取要用於這些資源的 Azure 訂用帳戶。
    * 資源群組：選取或建立資源群組以包含服務。

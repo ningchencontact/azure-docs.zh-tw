@@ -9,10 +9,10 @@ ms.date: 3/3/2019
 ms.author: mayg
 ms.topic: conceptual
 ms.openlocfilehash: 105074892cc6dfa4da1e7c8ddd0a0aad9f1b60a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60921905"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>從 VMware VM 至 Azure 的複寫作業排除磁碟
@@ -43,9 +43,9 @@ ms.locfileid: "60921905"
 1. 將系統資料庫和 tempdb 放在兩個不同的磁碟上。
 2. 排除 tempdb 磁碟不要複寫。
 
-## <a name="how-to-exclude-disks-from-replication"></a>如何从复制中排除磁盘？
+## <a name="how-to-exclude-disks-from-replication"></a>如何排除磁碟不要複寫？
 
-從 Azure Site Recovery 入口網站，依照[啟用複寫](vmware-azure-enable-replication.md)工作流程來保護虛擬機器。 在工作流程的第四個步驟中，使用 [要複寫的磁碟] 資料行，排除磁碟不要複寫。 依預設會選取所有磁碟進行複寫。 針對您想排除而不要複寫的磁碟清除核取方塊，然後完成步驟以啟用複寫。
+從 Azure Site Recovery 入口網站，依照[啟用複寫](vmware-azure-enable-replication.md)工作流程來保護虛擬機器。 在工作流程的第四個步驟中，使用 [要複寫的磁碟]  資料行，排除磁碟不要複寫。 依預設會選取所有磁碟進行複寫。 針對您想排除而不要複寫的磁碟清除核取方塊，然後完成步驟以啟用複寫。
 
 ![排除磁碟不要複寫，並針對 VMware 到 Azure 容錯回復啟用複寫](./media/vmware-azure-exclude-disk/enable-replication-exclude-disk1.png)
 
@@ -107,7 +107,7 @@ Disk3，這是 SQL tempdb 磁碟 (tempdb 資料夾路徑 F:\MSSQL\Data\)，排�
 
 1. 容錯移轉之前，記下 SQL tempdb.mdf 和 tempdb.ldf 的路徑。
 2. 從 Azure 入口網站中，將等於或大於來源 SQL tempdb 磁碟 (Disk3) 大小的新磁碟，新增至容錯移轉虛擬機器。
-3. 登入 Azure 虛擬機器。 在磁盘管理 (diskmgmt.msc) 控制台中，初始化并格式化新添加的磁盘。
+3. 登入 Azure 虛擬機器。 從磁碟管理 (diskmgmt.msc) 主控台，初始化並格式化剛新增的磁碟。
 4. 指派 SQL tempdb 磁碟所使用的相同磁碟機代號 (F:)。
 5. 在 F: 磁碟區上建立 tempdb 資料夾 (F:\MSSQL\Data)。
 6. 從服務主控台啟動 SQL 服務。

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.openlocfilehash: fcf71bf144b559c4867303988d4c1f08b7aa5605
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62101909"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>規劃 HYPER-V 虛擬機器容量的容量和效能解決方案 （已過時） 使用
@@ -90,7 +90,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 ### <a name="review-utilization"></a>檢閱使用率
 
-按一下 [容量和效能] 圖格，即可開啟 [容量和效能] 儀表板。 此儀表板包含下表中的資料行。 每個資料行最多會列出十個符合該資料行中指定範圍和時間範圍之準則的項目。 您可以按一下資料行底部的 [查看全部]，或按一下資料行標頭，以執行記錄檔搜尋來傳回所有記錄。
+按一下 [容量和效能] 圖格，即可開啟 [容量和效能] 儀表板。 此儀表板包含下表中的資料行。 每個資料行最多會列出十個符合該資料行中指定範圍和時間範圍之準則的項目。 您可以按一下資料行底部的 [查看全部]  ，或按一下資料行標頭，以執行記錄檔搜尋來傳回所有記錄。
 
 - **主機**
     - **主機 CPU 使用率** 根據所選時段以圖表顯示主機電腦的 CPU 使用率趨勢和主機清單。 將滑鼠暫留在折線圖上，可檢視特定時間點的詳細資料。 按一下折線圖可在記錄搜尋中檢視更多詳細資料。 按一下任何主機名稱可開啟記錄搜尋並檢視所裝載 VM 的 CPU 計數器詳細資料。

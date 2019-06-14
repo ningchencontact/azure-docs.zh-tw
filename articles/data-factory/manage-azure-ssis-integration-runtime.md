@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 3c1178a20debc36fbdbbd374eaf9adb6005a93a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152375"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>重新設定 Azure-SSIS 整合執行階段
@@ -25,19 +25,19 @@ ms.locfileid: "66152375"
 ## <a name="data-factory-ui"></a>Data Factory UI 
 您可以使用 Data Factory UI 來停止、編輯/重新設定或刪除 Azure-SSIS IR。 
 
-1. 在 **Data Factory UI** 中，切換至 [編輯] 索引標籤。若要啟動 Data Factory UI，請按一下您資料處理站首頁上的 [製作與監視]。
-2. 在左窗格中，按一下 [連線]。
-3. 在右窗格中，切換至 [整合執行階段]。 
-4. 您可以使用 [動作] 資料行中的按鈕來**停止**、**編輯**或**刪除**整合執行階段。 [動作] 資料行中的 [程式碼] 按鈕可讓您檢視與整合執行階段關聯的 JSON 定義。  
+1. 在 **Data Factory UI** 中，切換至 [編輯]  索引標籤。若要啟動 Data Factory UI，請按一下您資料處理站首頁上的 [製作與監視]  。
+2. 在左窗格中，按一下 [連線]  。
+3. 在右窗格中，切換至 [整合執行階段]  。 
+4. 您可以使用 [動作] 資料行中的按鈕來**停止**、**編輯**或**刪除**整合執行階段。 [動作]  資料行中的 [程式碼]  按鈕可讓您檢視與整合執行階段關聯的 JSON 定義。  
     
     ![Azure SSIS IR 的動作](./media/manage-azure-ssis-integration-runtime/actions-for-azure-ssis-ir.png)
 
 ### <a name="to-reconfigure-an-azure-ssis-ir"></a>重新設定 Azure-SSIS IR
-1. 按一下 [動作] 資料行中的 [停止] 來停止整合執行階段。 若要重新整理清單檢視，請按一下工具列上的 [重新整理]。 在 IR 停止之後，您會看到第一個動作會讓您啟動 IR。 
+1. 按一下 [動作]  資料行中的 [停止]  來停止整合執行階段。 若要重新整理清單檢視，請按一下工具列上的 [重新整理]  。 在 IR 停止之後，您會看到第一個動作會讓您啟動 IR。 
 
     ![Azure SSIS IR 的動作 - 停止後](./media/manage-azure-ssis-integration-runtime/actions-after-ssis-ir-stopped.png)
-2. 按一下 [動作] 資料行中的 [編輯] 按鈕。 在 [整合執行階段設定] 視窗中，變更設定 (例如節點大小、節點數目，或每個節點的平行執行數上限)。 
-3. 若要重新啟動 IR，請按一下 [動作] 資料行中的 [啟動] 按鈕。     
+2. 按一下 [動作]  資料行中的 [編輯]  按鈕。 在 [整合執行階段設定]  視窗中，變更設定 (例如節點大小、節點數目，或每個節點的平行執行數上限)。 
+3. 若要重新啟動 IR，請按一下 [動作]  資料行中的 [啟動]  按鈕。     
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

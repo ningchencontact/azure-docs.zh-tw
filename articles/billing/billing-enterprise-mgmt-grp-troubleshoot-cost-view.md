@@ -14,10 +14,10 @@ ms.date: 02/22/2017
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: d35996b16d615a198b9a6039386f6b295172f388
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615787"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>為企業成本檢視疑難排解
@@ -26,15 +26,15 @@ ms.locfileid: "60615787"
 
 ## <a name="enabling-access-to-costs"></a>啟用成本存取權
 
-您查看成本資訊時，是否看見「未經授權」訊息或「成本檢視在您的註冊中停用」 ？
+您查看成本資訊時，是否看見「未經授權」訊息或「成本檢視在您的註冊中停用」  ？
 ![訂用帳戶的「目前成本」欄位顯示「未授權」的螢幕擷取畫面。](media/billing-enterprise-mgmt-groups/unauthorized.png)
 
 這可能是下列其中一個原因所造成：
 
 1. 您是經由企業夥伴購買 Azure，而該夥伴尚未發佈價格。 請連絡夥伴更新[企業版入口網站](https://ea.azure.com)內的價格設定。
 2. 如果您是 EA Direct 客戶，有幾種可能：
-    * 您是帳戶擁有者，且您的註冊管理員已停用 [AO 檢視費用] 設定。  
-    * 您是部門管理員，且您的註冊管理員已停用 [DA 檢視費用] 設定。
+    * 您是帳戶擁有者，且您的註冊管理員已停用 [AO 檢視費用]  設定。  
+    * 您是部門管理員，且您的註冊管理員已停用 [DA 檢視費用]  設定。
     * 請連絡您的註冊管理員以取得存取權。 註冊管理員可以更新[企業版入口網站](https://ea.azure.com/manage/enrollment)中的設定。
 
       ![顯示企業版入口網站檢視費用設定的螢幕擷取畫面。](media/billing-enterprise-mgmt-groups/ea-portal-settings.png)

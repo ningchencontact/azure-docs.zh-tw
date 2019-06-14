@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2b55fea69fe1affb6cab5d360f1e8355c3bb720d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66015447"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>在本機部署遠端監視解決方案加速器 - IntelliJ
@@ -106,7 +106,7 @@ git submodule foreach git pull origin master
 * **PCS_AAD_APPID** -AAD 應用程式識別碼
 * **PCS_AAD_APPSECRET** -AAD 應用程式祕密
 
-組態值將會讀取此 Azure 金鑰保存庫資源。 這些環境變數可能會儲存在**\<主資料夾\>\\.pcs\\\<方案名稱\>.env**從部署的檔案。 請注意，當您執行 **docker-compose** 時，您本機電腦上設定的環境變數會覆寫 **services\\scripts\\local\\.env** 檔案中的值。
+組態值將會讀取此 Azure 金鑰保存庫資源。 這些環境變數可能會儲存在 **\<主資料夾\>\\.pcs\\\<方案名稱\>.env** 從部署的檔案。 請注意，當您執行 **docker-compose** 時，您本機電腦上設定的環境變數會覆寫 **services\\scripts\\local\\.env** 檔案中的值。
 
 某些微服務所需的設定會儲存在執行個體**Key Vault**所建立的初始部署。 在 keyvault 中對應的變數應該視需要修改。
 
@@ -147,15 +147,15 @@ git submodule foreach git pull origin master
 #### <a name="import-project"></a>匯入專案
 
 1. 啟動 IntelliJ IDE
-1. 選取 [Import Project] \(匯入專案\)，然後選擇 **azure-iot-pcs-remote-monitoring-java\services\build.sbt**
+1. 選取 [Import Project] \(匯入專案\)  ，然後選擇 **azure-iot-pcs-remote-monitoring-java\services\build.sbt**
 
 #### <a name="create-run-configurations"></a>建立執行設定
 
-1. 選取 [Run] \(執行\) > [Edit Configurations] \(編輯設定\)
-1. 選取 [Add New Configuration] \(新增設定\) > [sbt task] \(SBT 工作\) 
-1. 輸入 [Name] \(名稱\)，然後在 [Tasks] \(工作\) 中輸入 run 
-1. 根據您想要執行的服務，選取 [Working Directory] \(工作目錄\)
-1. 按一下 [Apply] \(套用\) > [Ok] \(確定\) 以儲存您的選擇。
+1. 選取 [Run] \(執行\) > [Edit Configurations] \(編輯設定\) 
+1. 選取 [Add New Configuration] \(新增設定\) > [sbt task] \(SBT 工作\)  
+1. 輸入 [Name] \(名稱\)  ，然後在 [Tasks] \(工作\)  中輸入 run 
+1. 根據您想要執行的服務，選取 [Working Directory] \(工作目錄\) 
+1. 按一下 [Apply] \(套用\) > [Ok] \(確定\)  以儲存您的選擇。
 1. 為下列服務建立執行設定：
     * WebService (services\config)
     * WebService (services\device-telemetry)
@@ -169,15 +169,15 @@ git submodule foreach git pull origin master
 
 #### <a name="create-compound-configuration"></a>建立複合設定
 
-1. 若要將所有服務一起執行，請選取 [Add new Configuration] \(新增設定\) > [Compound] \(複合\)
-1. 輸入 [Name] \(名稱\)，然後**新增 SBT 工作**
-1. 按一下 [Apply] \(套用\) > [Ok] \(確定\) 以儲存您的選擇。
+1. 若要將所有服務一起執行，請選取 [Add new Configuration] \(新增設定\) > [Compound] \(複合\) 
+1. 輸入 [Name] \(名稱\)  ，然後**新增 SBT 工作**
+1. 按一下 [Apply] \(套用\) > [Ok] \(確定\)  以儲存您的選擇。
 
 例如下, 圖會顯示所有 sbt 工作都加入單一組態：
 
 [![新增所有服務](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
-按一下 [Run] \(執行\)以在本機電腦上建置並執行 Web 服務。
+按一下 [Run] \(執行\)  以在本機電腦上建置並執行 Web 服務。
 
 每個 Web 服務都會開啟一個命令提示字元和 Web 瀏覽器視窗。 您可以在命令提示字元中看到執行中服務的輸出，還有瀏覽器視窗可讓您監視狀態。 請不要關閉命令提示字元或網頁，這個動作會停止 Web 服務。
 
@@ -195,8 +195,8 @@ git submodule foreach git pull origin master
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
 1. 瀏覽至為解決方案建立的**資源群組**。 當您執行 **start.cmd** 指令碼時為解決方案選擇的名稱，就是資源群組的名稱。
-1. 在資源清單中，按一下 [串流分析作業]。
-1. 在串流分析作業 [概觀] 頁面上，按一下 [啟動] 按鈕。 接著，按一下 [啟動] 以立即啟動作業。
+1. 在資源清單中，按一下 [串流分析作業]  。
+1. 在串流分析作業 [概觀]  頁面上，按一下 [啟動]  按鈕。 接著，按一下 [啟動]  以立即啟動作業。
 
 ### <a name="run-the-web-ui"></a>執行 Web UI
 

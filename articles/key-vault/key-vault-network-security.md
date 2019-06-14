@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: ambapat
 ms.openlocfilehash: a6f2e899e8be39abdefaf9d4f524eae457673c1a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64694413"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>設定 Azure Key Vault 防火牆和虛擬網路
@@ -27,14 +27,14 @@ ms.locfileid: "64694413"
 以下說明如何使用 Azure 入口網站設定 Key Vault 防火牆和虛擬網路：
 
 1. 瀏覽至您要保護的金鑰保存庫。
-2. 選取 [防火牆與虛擬網路]。
-3. 在 [允許存取來源] 之下，選取 [選取的網路]。
-4. 若要將現有的虛擬網路新增至防火牆和虛擬網路規則，請選取 [+ 新增現有的虛擬網路]。
-5. 在開啟的新刀鋒視窗中，選取您要允許存取此金鑰保存庫的訂用帳戶、虛擬網路和子網路。 如果您選取的虛擬網路和子網路並未啟用服務端點，請確認您要啟用服務端點，然後選取 [啟用]。 可能需要 15 分鐘的時間才會生效。
-6. 在 [IP 網路] 下方，輸入採用 [CIDR (無類別網域間路由選擇) 表示法](https://tools.ietf.org/html/rfc4632)的 IPv4 位址範圍或個別的 IP 位址，以新增 IPv4 位址範圍。
+2. 選取 [防火牆與虛擬網路]  。
+3. 在 [允許存取來源]  之下，選取 [選取的網路]  。
+4. 若要將現有的虛擬網路新增至防火牆和虛擬網路規則，請選取 [+ 新增現有的虛擬網路]  。
+5. 在開啟的新刀鋒視窗中，選取您要允許存取此金鑰保存庫的訂用帳戶、虛擬網路和子網路。 如果您選取的虛擬網路和子網路並未啟用服務端點，請確認您要啟用服務端點，然後選取 [啟用]  。 可能需要 15 分鐘的時間才會生效。
+6. 在 [IP 網路]  下方，輸入採用 [CIDR (無類別網域間路由選擇) 表示法](https://tools.ietf.org/html/rfc4632)的 IPv4 位址範圍或個別的 IP 位址，以新增 IPv4 位址範圍。
 7. 選取 [ **儲存**]。
 
-您可以也新增虛擬網路和子網路，然後選取 [+ 新增虛擬網路]，為新建立的虛擬網路和子網路啟用服務端點。 然後遵循提示。
+您可以也新增虛擬網路和子網路，然後選取 [+ 新增虛擬網路]  ，為新建立的虛擬網路和子網路啟用服務端點。 然後遵循提示。
 
 ## <a name="use-the-azure-cli"></a>使用 Azure CLI 
 

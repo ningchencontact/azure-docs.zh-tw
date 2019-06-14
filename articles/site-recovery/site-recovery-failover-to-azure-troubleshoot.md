@@ -10,10 +10,10 @@ ms.workload: storage-backup-recovery
 ms.date: 03/04/2019
 ms.author: mayg
 ms.openlocfilehash: 2156ee6cf27ecfa32b19ad5bbef7549e99c3f7ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61280597"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>針對將 VMware VM 或實體機器容錯移轉至 Azure 時的錯誤進行疑難排解
@@ -46,7 +46,7 @@ Site Recovery 無法在 Azure 中建立已容錯移轉的虛擬機器。 這可�
 
 若要在 Azure 中顯示任何機器，Azure 環境需要某些驅動程式處於開機啟動狀態，以及 DHCP 等服務處於自動啟動狀態。 因此，序列化活動會在容錯移轉時，將 **atapi、intelide、storflt、vmbus 和 storvsc 驅動程式**的啟動類型轉換為開機啟動。 它也會將 DHCP 等一些服務的啟動類型轉換為自動啟動。 此活動可能會因為環境特定問題而失敗。 
 
-若要手動變更 [Windows 客體 OS] 驅動程式的啟動類型，請依照下列步驟進行：
+若要手動變更 [Windows 客體 OS]  驅動程式的啟動類型，請依照下列步驟進行：
 
 1. [下載](https://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) no-hydration 指令碼，並如下所示執行。 此指令碼會檢查 VM 是否需要序列化。
 
@@ -74,19 +74,19 @@ Site Recovery 無法在 Azure 中建立已容錯移轉的虛擬機器。 這可�
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>因虛擬機器上的 [連線] 按鈕變成灰色，而無法對容錯移轉的虛擬機器進行連線/RDP/SSH
 
-如果 Azure 中容錯移轉虛擬機器上的 [連線] 按鈕呈現灰色，而您未透過 Express Route 或網站間 VPN 連線來連線到 Azure，則請：
+如果 Azure 中容錯移轉虛擬機器上的 [連線]  按鈕呈現灰色，而您未透過 Express Route 或網站間 VPN 連線來連線到 Azure，則請：
 
-1. 移至 [虛擬機器] > [網路]，按一下所需網路介面的名稱。  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-2. 瀏覽至 [IP 組態]，然後按一下所需 IP 組態的名稱欄位。 ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
-3. 若要啟用公用 IP 位址，請按一下 [啟用]。 ![啟用 IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. 按一下 [設定必要設定] > [建立新項目]。 ![建立新項目](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
-5. 輸入公用位址的名稱，選擇 [SKU] 和 [指派] 的預設選項，然後按一下 [確定]。
-6. 現在，為了儲存所做的變更，請按一下 [儲存]。
-7. 關閉面板，然後瀏覽至虛擬機器的 [概觀] 區段來進行連線/RDP。
+1. 移至 [虛擬機器]   > [網路]  ，按一下所需網路介面的名稱。  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+2. 瀏覽至 [IP 組態]  ，然後按一下所需 IP 組態的名稱欄位。 ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+3. 若要啟用公用 IP 位址，請按一下 [啟用]  。 ![啟用 IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
+4. 按一下 [設定必要設定]   > [建立新項目]  。 ![建立新項目](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+5. 輸入公用位址的名稱，選擇 [SKU]  和 [指派]  的預設選項，然後按一下 [確定]  。
+6. 現在，為了儲存所做的變更，請按一下 [儲存]  。
+7. 關閉面板，然後瀏覽至虛擬機器的 [概觀]  區段來進行連線/RDP。
 
 ## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>無法連線/RDP/SSH - [VM 連線] 按鈕可供使用
 
-如果 Azure 中容錯移轉虛擬機器上的 [連線] 按鈕可供使用 (未呈現灰色)，請檢查虛擬機器上的 [開機診斷]，並檢查[本文](../virtual-machines/windows/boot-diagnostics.md)中列出的錯誤。
+如果 Azure 中容錯移轉虛擬機器上的 [連線]  按鈕可供使用 (未呈現灰色)，請檢查虛擬機器上的 [開機診斷]  ，並檢查[本文](../virtual-machines/windows/boot-diagnostics.md)中列出的錯誤。
 
 1. 如果虛擬機器尚未啟動，請嘗試容錯移轉至較舊的復原點。
 2. 如果虛擬機器內的應用程式未啟動，請嘗試容錯移轉至與應用程式一致的復原點。
@@ -110,7 +110,7 @@ Site Recovery 無法在 Azure 中建立已容錯移轉的虛擬機器。 這可�
 
 啟動 Windows VM 容錯移轉後，如果在復原的 VM 上收到非預期性關閉訊息，表示未在用於容錯移轉的復原點中擷取 VM 關閉狀態。 當您復原至 VM 未完全關閉的時間點時，就會發生這種情況。
 
-一般而言，無須擔心此問題，對於非計劃性容錯移轉，通常可忽略此問題。 如果已規劃的容錯移轉，請確定 ，適當地關閉 VM 在容錯移轉之前，並提供充足時間以暫止的複寫在內部資料傳送至 Azure。 然後使用 [容錯移轉](site-recovery-failover.md#run-a-failover) 畫面控制項 上的 [最新] 選項，以便將 Azure 上的任何擱置資料處理到復原點，然後將其用於 VM 容錯移轉。
+一般而言，無須擔心此問題，對於非計劃性容錯移轉，通常可忽略此問題。 如果已規劃的容錯移轉，請確定 ，適當地關閉 VM 在容錯移轉之前，並提供充足時間以暫止的複寫在內部資料傳送至 Azure。 然後使用 [容錯移轉](site-recovery-failover.md#run-a-failover) 畫面控制項 上的 [最新]  選項，以便將 Azure 上的任何擱置資料處理到復原點，然後將其用於 VM 容錯移轉。
 
 ## <a name="unable-to-select-the-datastore"></a>無法選取的資料存放區
 

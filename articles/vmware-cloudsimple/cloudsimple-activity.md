@@ -9,17 +9,17 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: dd073d040e6e7f149109c9988580dcd889f7c62f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160136"
 ---
 # <a name="activity-management-overview"></a>活動管理概觀
 
 CloudSimple 追蹤可能會影響您的私人雲端的運作狀況的所有活動。 這些包括警示、 事件、 工作和稽核活動的活動。 [活動頁面](https://docs.azure.cloudsimple.com/activity/)彙總所有目前的活動，可讓您向下切入其他詳細資料。
 
-## <a name="events"></a>活動
+## <a name="events"></a>Events
 
 事件追蹤 CloudSimple 入口網站上的使用者與系統活動。  事件會顯示與特定的資源和影響的嚴重性相關聯的活動。  您可以檢視從 CloudSimple 入口網站的事件。
 

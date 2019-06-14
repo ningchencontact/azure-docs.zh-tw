@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465672"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>使用 Azure 媒體內容仲裁來偵測潛在的成人和猥褻內容 
@@ -47,7 +47,7 @@ JSON 格式的仲裁輸出包含自動偵測的擷取畫面和主要畫面格。
 | 元素 | 描述 |
 | --- | --- |
 | version |內容仲裁的版本。 |
-| timescale |视频每秒的“刻度”数。 |
+| timescale |影片每秒的「刻度」數目。 |
 | Offset |時間戳記的時間位移。 在 1.0 版的影片 API 中，此值永遠是 0。 此值未來可能會變更。 |
 | framerate |影片的每秒畫面格數。 |
 | width |輸出影片畫面格的寬度 (以像素為單位)。|
@@ -224,7 +224,7 @@ The following example of a Content Moderator JSON output was truncated.
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>相關連結
-[Azure 媒体服务分析概述](media-services-analytics-overview.md)
+[Azure 媒體服務分析概觀](media-services-analytics-overview.md)
 
 [Azure 媒體分析示範](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

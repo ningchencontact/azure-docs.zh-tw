@@ -9,10 +9,10 @@ ms.date: 5/30/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: ac0747dcff4e74363a58dc9aaf6da4dbd4c6a1c7
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427603"
 ---
 Azure Data Factory 是多租用戶的服務，以確保客戶訂用帳戶受到保護免於彼此的工作負載中有下列的預設限制。 引發最多可以為您的訂用帳戶的限制，請連絡支援人員。
@@ -49,7 +49,7 @@ Azure Data Factory 是多租用戶的服務，以確保客戶訂用帳戶受到�
 
 <sup>2</sup> [azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime)是[全球](https://azure.microsoft.com/global-infrastructure/services/)以確保資料合規性、 效率和降低的網路輸出成本。 
 
-| 區域群組 | 區域 | 
+| 區域群組 | Regions | 
 | -------- | ------ |
 | 區域群組 1 | 美國中部、 美國東部、 美國東部 2、 北歐、 西歐、 美國西部、 美國西部 2 |
 | 區域群組 2 | 澳洲東部、 澳洲東南部、 巴西南部、 印度中部、 日本東部、 美國 Northcentral、 美國中南部、 東南亞、 美國西部 |

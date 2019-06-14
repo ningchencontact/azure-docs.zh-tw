@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 593f07b27fec16c3df90a073479effb130bc5721
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545288"
 ---
 # <a name="single-sign-on-saml-protocol"></a>單一登入 SAML 通訊協定
@@ -47,10 +47,10 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| 參數 |  | 說明 |
+| 參數 |  | 描述 |
 | --- | --- | --- |
 | ID | 必要項 | Azure AD 使用這個屬性來填入所傳回回應的 `InResponseTo` 屬性。 識別碼的開頭不能是數字，因此常見的策略是在 GUID 的字串表示法前面加上 "id" 等字串。 例如， `id6c1c178c166d486687be4aaf5e482730` 便是有效的識別碼。 |
-| 版本 | 必要項 | 此參數應該設定為 **2.0**。 |
+| Version | 必要項 | 此參數應該設定為 **2.0**。 |
 | IssueInstant | 必要項 | 這是具有 UTC 值和 [來回行程格式 ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx)的日期時間字串。 Azure AD 必須要有這種類型的日期時間值，但不會評估或使用此值。 |
 | AssertionConsumerServiceUrl | 選用 | 如果提供，此參數必須符合 Azure AD 中雲端服務的 `RedirectUri`。 |
 | ForceAuthn | 選用 | 這是布林值。 如果為 true，表示即使使用者在 Azure AD 中具有有效的工作階段，也會強制使用者重新驗證。 |
@@ -103,7 +103,7 @@ Azure AD 會忽略 `AllowCreate` 屬性。
 ### <a name="subject"></a>Subject
 Azure AD 會忽略 `AuthnRequest` 元素中的 `Subject` 元素。
 
-## <a name="response"></a>回應
+## <a name="response"></a>Response
 當要求的登入成功完成時，Azure AD 會將回應張貼至雲端服務。 登入嘗試成功的回應看起來會像下列範例︰
 
 ```
@@ -149,7 +149,7 @@ Azure AD 會忽略 `AuthnRequest` 元素中的 `Subject` 元素。
 </samlp:Response>
 ```
 
-### <a name="response"></a>回應
+### <a name="response"></a>Response
 
 `Response` 元素包含授權要求的結果。 Azure AD 會設定 `Response` 元素中的 `ID`、`Version` 和 `IssueInstant` 值。 它也會設定下列屬性︰
 
@@ -240,7 +240,7 @@ Azure AD 會簽署判斷提示以回應成功的登入。 `Signature` 元素包�
 
 `NotBefore` 和 `NotOnOrAfter` 屬性會指定判斷提示的有效間隔期間。
 
-* `NotBefore` 屬性值等於或稍微晚於 (不到一秒) `Assertion` 元素的 `IssueInstant` 屬性值。 Azure AD 不考虑自身与云服务（服务提供者）之间的任何时间差，并且不对此时间添加任何缓冲。
+* `NotBefore` 屬性值等於或稍微晚於 (不到一秒) `Assertion` 元素的 `IssueInstant` 屬性值。 Azure AD 不會考慮本身與雲端服務 (服務提供者) 之間的任何時間差，而且不會對此時間加上任何緩衝。
 * `NotOnOrAfter` 屬性值比 `NotBefore` 屬性值晚 70 分鐘。
 
 #### <a name="audience"></a>對象

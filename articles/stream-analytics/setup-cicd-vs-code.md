@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.openlocfilehash: fa5a57afa379c6bbe027be80f400fc176800d289
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158513"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-cicd-npm-package"></a>持續整合及開發與 Stream Analytics CI/CD npm 套件
@@ -45,7 +45,7 @@ azure-streamanalytics-cicd build -scriptPath "/Users/roger/projects/samplejob/sc
 Parameters.json 檔案中的預設參數會從您的 Visual Studio 程式碼專案中的設定。 如果您想要部署到其他環境，請據以取代參數。
 
 > [!NOTE]
-> 對於所有認證，預設值都會設為 null。 部署至雲端之前，「必須」設定這些值。
+> 對於所有認證，預設值都會設為 null。 部署至雲端之前，「必須」  設定這些值。
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {

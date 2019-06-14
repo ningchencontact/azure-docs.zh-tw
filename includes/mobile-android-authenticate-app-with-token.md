@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: deb94cab97bd9a402676cdc5c0239da8d07ed8b2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66141033"
 ---
 先前範例所示範的標準登入，在每次應用程式啟動時，皆需要用戶端連絡身分識別提供者和後端 Azure 服務。 此方法效率低，而且如果有許多客戶嘗試同時啟動應用程式，則可能會發生與使用量相關的問題。 更好的方法就是快取 Azure 服務傳回的授權權杖，然後嘗試在使用提供者形式登入前先使用此方法。

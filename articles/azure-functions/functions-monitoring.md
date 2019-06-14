@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
 ms.openlocfilehash: fecf6759dd7b277dda10fa2656e6ae9407490370
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922972"
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
@@ -67,7 +67,7 @@ ms.locfileid: "64922972"
 
    ![引動過程清單](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
-1. 若要查看特定函式引動過程的記錄，請選取該引動過程的 [日期] 資料行連結。
+1. 若要查看特定函式引動過程的記錄，請選取該引動過程的 [日期]  資料行連結。
 
    ![引動過程詳細資料連結](media/functions-monitoring/invocation-details-link-ai.png)
 
@@ -101,7 +101,7 @@ ms.locfileid: "64922972"
 | ---- | ----------- |
 | **[失敗](../azure-monitor/app/asp-net-exceptions.md)** |  建立圖表和函式失敗和伺服器例外狀況為基礎的警示。 **作業名稱**是函式名稱。 除非您實作自訂相依性遙測，不會顯示在 相依性失敗。 |
 | **[效能](../azure-monitor/app/performance-counters.md)** | 分析效能問題。 |
-| **伺服器** | 檢視資源使用率和每一部伺服器的輸送量。 如果要對函式拖累基礎資源的案例進行偵錯，此資料非常有用。 伺服器會作為「雲端角色執行個體」來參考。 |
+| **伺服器** | 檢視資源使用率和每一部伺服器的輸送量。 如果要對函式拖累基礎資源的案例進行偵錯，此資料非常有用。 伺服器會作為「雲端角色執行個體」  來參考。 |
 | **[計量](../azure-monitor/app/metrics-explorer.md)** | 建立圖表和計量為基礎的警示。 度量包括函式引動過程、 執行時間和成功率的數目。 |
 | **[即時計量串流](../azure-monitor/app/live-stream.md)** | 即時建立時，請檢視度量資料。 |
 
@@ -150,7 +150,7 @@ traces
 
 ### <a name="categories"></a>類別
 
-Azure Functions 記錄器包括每個記錄的「類別」。 類別指出寫入記錄的是哪個部分的執行階段程式碼或函式程式碼。 
+Azure Functions 記錄器包括每個記錄的「類別」  。 類別指出寫入記錄的是哪個部分的執行階段程式碼或函式程式碼。 
 
 Functions 執行階段建立的記錄檔與類別開頭為 「 主機 」。 「 函式開始，""函式已執行 」 及 「 函式已完成 」 記錄檔已分類為"Host.Executor"。 
 
@@ -176,7 +176,7 @@ Functions 執行階段建立的記錄檔與類別開頭為 「 主機 」。 「
 
 [Host.json] 檔案會設定函式應用程式傳送到 Application Insights 的記錄數量。 針對每個類別，您可以指出要傳送的最小記錄層級。 有兩個範例： 第一個範例目標[函式版本 2.x 執行階段](functions-versions.md#version-2x)(.NET Core) 和第二個範例是針對版本 1.x 執行階段。
 
-### <a name="version-2x"></a>2.x 版
+### <a name="version-2x"></a>2\.x 版
 
 v2.x 版執行階段使用的是 [.NET Core 記錄篩選階層](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)。 
 
@@ -194,7 +194,7 @@ v2.x 版執行階段使用的是 [.NET Core 記錄篩選階層](https://docs.mic
 }
 ```
 
-### <a name="version-1x"></a>1.x 版
+### <a name="version-1x"></a>1\.x 版
 
 ```json
 {
@@ -221,7 +221,7 @@ v2.x 版執行階段使用的是 [.NET Core 記錄篩選階層](https://docs.mic
 
 如果 [host.json] 包含多個以相同字串開頭的類別，則會先比對較長的類別。 假設您想要從執行階段以外的所有項目`Host.Aggregator`在登入`Error`層級，但您想要`Host.Aggregator`在登入`Information`層級：
 
-### <a name="version-2x"></a>2.x 版 
+### <a name="version-2x"></a>2\.x 版 
 
 ```json
 {
@@ -237,7 +237,7 @@ v2.x 版執行階段使用的是 [.NET Core 記錄篩選階層](https://docs.mic
 }
 ```
 
-### <a name="version-1x"></a>1.x 版 
+### <a name="version-1x"></a>1\.x 版 
 
 ```json
 {
@@ -303,7 +303,7 @@ v2.x 版執行階段使用的是 [.NET Core 記錄篩選階層](https://docs.mic
 
 Application Insights 有[取樣](../azure-monitor/app/sampling.md)可以保護您免於上產生過多的遙測資料的功能已完成執行有時的尖峰負載。 連入的執行率超過指定的臨界值時，Application Insights 就會開始隨機忽略部分傳入的執行。 預設設定的每秒執行的最大數目為 20 (5 個版本 1.x)。 您可以在 [host.json] 中設定取樣。  以下是範例：
 
-### <a name="version-2x"></a>2.x 版 
+### <a name="version-2x"></a>2\.x 版 
 
 ```json
 {
@@ -318,7 +318,7 @@ Application Insights 有[取樣](../azure-monitor/app/sampling.md)可以保護�
 }
 ```
 
-### <a name="version-1x"></a>1.x 版 
+### <a name="version-1x"></a>1\.x 版 
 
 ```json
 {
@@ -413,9 +413,9 @@ context.log.metric("TestMetric", 1234);
 
 您可以使用 [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) \(英文\) NuGet 封裝，將自訂遙測資料傳送至 Application Insights。 以下 C# 範例使用的是[自訂遙測 API](../azure-monitor/app/api-custom-events-metrics.md)。 此範例適用於 .NET 類別庫，但 Application Insights 程式碼同樣適用於 C# 指令碼。
 
-### <a name="version-2x"></a>2.x 版
+### <a name="version-2x"></a>2\.x 版
 
-2.x 版執行階段會使用 Application Insights 中的新功能，自動將遙測與目前作業相互關聯。 不需要手動設定作業`Id`， `ParentId`，或`Name`欄位。
+2\.x 版執行階段會使用 Application Insights 中的新功能，自動將遙測與目前作業相互關聯。 不需要手動設定作業`Id`， `ParentId`，或`Name`欄位。
 
 ```cs
 using System;
@@ -483,7 +483,7 @@ namespace functionapp0915
 }
 ```
 
-### <a name="version-1x"></a>1.x 版
+### <a name="version-1x"></a>1\.x 版
 
 ```cs
 using System;

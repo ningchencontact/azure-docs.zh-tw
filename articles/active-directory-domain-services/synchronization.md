@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mstephen
 ms.openlocfilehash: 295a991e610e76971413a2abdba1e2fcc5f9eba6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246685"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 受控網域中的同步處理
@@ -60,7 +60,7 @@ ms.locfileid: "66246685"
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>如何將特定屬性同步到受控網域
 下表列出一些常見的屬性並說明如何將它們同步到受控網域。
 
-| 受控網域中的屬性 | `Source` | 注意 |
+| 受控網域中的屬性 | source | 注意 |
 |:--- |:--- |:--- |
 | UPN |Azure AD 租用戶中的使用者 UPN 屬性 |來自您 Azure AD 租用戶的 UPN 屬性會依原狀同步到您的受控網域。 因此，登入您受控網域的最可靠方法是使用您的 UPN。 |
 | SAMAccountName |Azure AD 租用戶中或自動產生的使用者 mailNickname 屬性 |SAMAccountName 屬性是來自您 Azure AD 租用戶中的 mailNickname 屬性。 如果有多個使用者帳戶具有相同的 mailNickname 屬性，系統就會自動產生 SAMAccountName。 如果使用者的 mailNickname 或 UPN 前置詞長度超過 20 個字元，系統就會自動產生 SAMAccountName 來滿足 SAMAccountName 屬性上的 20 個字元限制。 |

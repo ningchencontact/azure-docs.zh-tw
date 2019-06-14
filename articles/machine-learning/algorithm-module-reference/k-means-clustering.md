@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7e9b7c8f2cf86245322679198b84b50d2c5edce8
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65464677"
 ---
 # <a name="module-k-means-clustering"></a>模組：K-Means 叢集
@@ -75,7 +75,7 @@ K-means 是一個簡單的方法，最廣為人知*非監督式*學習演算法�
 
          這個方法也稱為*隨機分割區*方法。  
   
-    -   **K-+ +**:這是初始化叢集的預設方法。  
+    -   **K-+ +** :這是初始化叢集的預設方法。  
   
          **K-+ +** 演算法已提議 2007年中，由 David Arthur 和 Sergei Vassilvitskii 避免標準 k-means 演算法不佳群集。 **K-+ +** 改良，其標準 k-means 選擇初始的群集中心使用不同的方法。  
   

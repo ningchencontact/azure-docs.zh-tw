@@ -11,14 +11,14 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: d89a701f1d4528e1f3dff08daf31873891778f07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60751323"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>適用於初學者的資料科學影片 1：資料科學可以回答的 5 個問題
-從頂尖資料科學家所提供之「適用於初學者的資料科學」的五個簡短影片中快速認識資料科學。 無論您是對從事資料科學有興趣，或您是和資料科學家一起工作，這些影片都能為您提供基本但很有用的知識。
+從頂尖資料科學家所提供之「適用於初學者的資料科學」  的五個簡短影片中快速認識資料科學。 無論您是對從事資料科學有興趣，或您是和資料科學家一起工作，這些影片都能為您提供基本但很有用的知識。
 
 第一段影片是關於資料科學可以回答何種問題。 若要充分運用這系列影片，請觀賞所有影片。 [瀏覽影片清單](#other-videos-in-this-series)
 <br>
@@ -37,7 +37,7 @@ ms.locfileid: "60751323"
 * 影片 5：[複製其他人的工作進行資料科學](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 分 18 秒)*
 
 ## <a name="transcript-the-5-questions-data-science-answers"></a>文字記錄：資料科學可以回答的 5 個問題
-大家好！ 歡迎觀賞「適用於初學者的資料科學」 系列影片。
+大家好！ 歡迎觀賞「適用於初學者的資料科學」  系列影片。
 
 資料科學可能令人卻步，因此我將在此處介紹基本概念，而且不會用到任何方程式或電腦程式設計術語。
 
@@ -45,7 +45,7 @@ ms.locfileid: "60751323"
 
 資料科學使用數字和名稱 (也就是類別或標籤) 來預測問題的答案。
 
-您可能會很驚訝，但是「資料科學只能回答下列五種問題」 ：
+您可能會很驚訝，但是「資料科學只能回答下列五種問題」  ：
 
 * 這是 A 或 B 嗎？
 * 這很奇怪嗎？
@@ -66,7 +66,7 @@ ms.locfileid: "60751323"
 
 它適用於任何只有兩個可能答案的問題。
 
-例如︰
+例如:
 
 * 這個輪胎將會在接下來的 1,000 英哩故障嗎：是或否？
 * 下列哪一種方式可以帶來更多客戶：一張 5 美元的優待券或一張 25% 的折扣券？

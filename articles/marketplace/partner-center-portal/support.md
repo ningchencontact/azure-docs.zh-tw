@@ -8,10 +8,10 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.openlocfilehash: 355694f7f1d5fe0588c6f93bcbdb47f3086aec79
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65958071"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>支援在合作夥伴中心商業的 Marketplace 方案
@@ -58,22 +58,22 @@ Microsoft 提供各式各樣的產品和服務支援。 尋找正確的支援團
 - 選取您想要獲得支援的語言。
 - 輸入您的問題 （從 3 到 200 個字元) 的標題。  
 - 輸入您的問題 （最多 2000年個字元） 的簡短描述。
-- 選取 [下一步] 。
+- 選取 [下一步]  。
 
 #### <a name="select-a-support-plan"></a>選取支援方案
 
-在不需要任何資訊**支援計劃**一節。 選取 [下一步] 。 
+在不需要任何資訊**支援計劃**一節。 選取 [下一步]  。 
 
 #### <a name="select-the-severity-of-your-issue"></a>選取您的問題的嚴重性
 
-在不需要任何資訊**嚴重性**一節。 選取 [下一步] 。 
+在不需要任何資訊**嚴重性**一節。 選取 [下一步]  。 
 
 #### <a name="who-should-we-contact"></a>我們應該與誰連絡
 
 在 **連絡人資訊**區段中，確定您的主要連絡人名稱、 電話號碼和電子郵件正確無誤。 
 - 如果您看到任何項目不正確，更新這項資訊
 - 您可能會從將新增其他連絡人貴公司到此支援要求視
-- 選取 [下一步]
+- 選取 [下一步] 
 
 #### <a name="review-and-submit-your-support-request"></a>檢閱並提交支援要求
 

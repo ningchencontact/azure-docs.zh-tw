@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
 ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65521385"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 host.json 參考  
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="選取您使用 Azure Functions 執行階段版本： "]
 > * [第 1 版](functions-host-json-v1.md)
 > * [第 2 版](functions-host-json.md)
 
@@ -30,7 +30,7 @@ ms.locfileid: "65521385"
 
 其他函數應用程式設定選項的管理是在[應用程式設定](functions-app-settings.md)中進行。
 
-[local.settings.json](functions-run-local.md#local-settings-file) 文件中的某些 host.json 设置仅在本地运行时才使用。
+有些 host.json 設定只有在本機執行時，才會在 [local.settings.json](functions-run-local.md#local-settings-file) 檔案中使用。
 
 ## <a name="sample-hostjson-file"></a>範例 host.json 檔案
 
@@ -114,7 +114,7 @@ ms.locfileid: "65521385"
 > [!NOTE]
 > 記錄取樣可能會造成一些執行不會顯示在 Application Insights 監視器刀鋒視窗。
 
-|屬性  |預設值 | 說明 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------| 
 |isEnabled|true|啟用或停用取樣。| 
 |maxTelemetryItemsPerSecond|5|取樣的開始臨界值。| 
@@ -135,9 +135,9 @@ ms.locfileid: "65521385"
 
 傳回包含所有繫結特定設定 (例如 [http](#http) 和 [eventHub](#eventhub)) 之物件的屬性。
 
-## <a name="functions"></a>函數
+## <a name="functions"></a>functions
 
-作业主机运行的函数列表。 空陣列表示已執行所有函式。 預定只能在[本機執行](functions-run-local.md)時使用。 在 Azure 的函数应用中，应改为按照[如何在 Azure Functions 中禁用函数](disable-function.md)中的步骤禁用特定函数，而不是使用此设置。
+工作主機所執行的函式清單。 空陣列表示已執行所有函式。 預定只能在[本機執行](functions-run-local.md)時使用。 在 Azure 的函數應用程式中，您應該改為依照[如何停用 Azure Functions 中的函式](disable-function.md)中的步驟來停用特定函式，而不是使用此設定。
 
 ```json
 {
@@ -147,7 +147,7 @@ ms.locfileid: "65521385"
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-指出所有函式的逾時持續期間。 在無伺服器的使用情況方案中，有效範圍是從 1 秒到 10 分鐘，而預設值是 5 分鐘。 在 App Service 方案中，並沒有整體限制，而預設值則是取決於執行階段版本。 在 2.x 版中，App Service 方案的預設值是 30 分鐘。 在版本 1.x 中，它为 *null*，表示无超时。
+指出所有函式的逾時持續期間。 在無伺服器的使用情況方案中，有效範圍是從 1 秒到 10 分鐘，而預設值是 5 分鐘。 在 App Service 方案中，並沒有整體限制，而預設值則是取決於執行階段版本。 在 2.x 版中，App Service 方案的預設值是 30 分鐘。 在 1.x 版中，則是 *null*，表示沒有逾時。
 
 ```json
 {
@@ -171,9 +171,9 @@ ms.locfileid: "65521385"
 }
 ```
 
-|屬性  |預設值 | 說明 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------| 
-|enabled|true|指定是否已启用该功能。 | 
+|enabled|true|指定是否已啟用此功能。 | 
 |healthCheckInterval|10 秒|定期背景健康情況檢查之間的時間間隔。 | 
 |healthCheckWindow|2 分鐘|與 `healthCheckThreshold` 設定搭配使用的滑動時間範圍。| 
 |healthCheckThreshold|6|在主機回收起始之前，健康情況檢查可以失敗的最大次數。| 
@@ -205,14 +205,14 @@ ms.locfileid: "65521385"
 }
 ```
 
-|屬性  |預設值 | 說明 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|定義已啟用何種檔案記錄層級。  選項為 `never`、`always`、`debugOnly`。 |
-|logLevel|n/a|為應用程式中的函式定義記錄類別篩選的物件。 2.x 版會依循 ASP.NET Core 的記錄類別篩選配置。 這可讓您篩選特定函式的記錄。 如需詳細資訊，請參閱 ASP.NET Core 文件中的[記錄篩選](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)。 |
-|主控台|n/a| [主控台](#console)記錄設定。 |
+|logLevel|n/a|為應用程式中的函式定義記錄類別篩選的物件。 2\.x 版會依循 ASP.NET Core 的記錄類別篩選配置。 這可讓您篩選特定函式的記錄。 如需詳細資訊，請參閱 ASP.NET Core 文件中的[記錄篩選](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)。 |
+|console|n/a| [主控台](#console)記錄設定。 |
 |applicationInsights|n/a| [applicationInsights](#applicationinsights) 設定。 |
 
-## <a name="console"></a>主控台
+## <a name="console"></a>console
 
 此設定是 [logging](#logging) 的子系。 它會在非處於偵錯模式時控制主控台記錄。
 
@@ -228,7 +228,7 @@ ms.locfileid: "65521385"
 }
 ```
 
-|屬性  |預設值 | 說明 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------| 
 |isEnabled|false|啟用或停用主控台記錄。| 
 
@@ -260,7 +260,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 }
 ```
 
-|屬性  |預設值 | 說明 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|取得函式層級鎖定的期間。 鎖定會自動更新。| 
 |listenerLockPeriod|00:01:00|接聽程式鎖定所需的期間。| 

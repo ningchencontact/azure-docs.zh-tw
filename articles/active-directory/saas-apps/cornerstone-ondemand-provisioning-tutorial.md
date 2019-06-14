@@ -17,11 +17,11 @@ ms.date: 03/27/2019
 ms.author: v-ant
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 85ddcf3aff7d15c946230cedb0da190bca6aeab7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127492"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721935"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>教學課程：設定 Cornerstone OnDemand 來自動佈建使用者
 
@@ -51,11 +51,11 @@ Cornerstone OnDemand 設定自動使用者佈建與 Azure AD 之前，請從 Mar
 
     ![Azure Active Directory 圖示](common/select-azuread.png)
 
-2. 移至 [企業應用程式]，然後選取 [所有應用程式]。
+2. 移至 [企業應用程式]  ，然後選取 [所有應用程式]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增應用程式，請選取對話方塊頂端的 [新增應用程式]。
+3. 若要新增應用程式，請選取對話方塊頂端的 [新增應用程式]  。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
@@ -89,11 +89,11 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
     ![應用程式清單中的 [Cornerstone OnDemand] 連結](common/all-applications.png)
 
-3. 選取 [佈建] 索引標籤。
+3. 選取 [佈建]  索引標籤。
 
     ![Cornerstone OnDemand 佈建](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningTab.png)
 
-4. 將 [佈建模式] 設定為 [自動]。
+4. 將 [佈建模式]  設定為 [自動]  。
 
     ![Cornerstone OnDemand 佈建模式](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningCredentials.png)
 
@@ -115,11 +115,11 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
 8. 選取 [ **儲存**]。
 
-9. 在 [對應] 區段中，選取 [同步處理 Azure Active Directory 使用者至 Cornerstone OnDemand]。
+9. 在 [對應]  區段中，選取 [同步處理 Azure Active Directory 使用者至 Cornerstone OnDemand]  。
 
     ![Cornerstone OnDemand 同步處理](./media/cornerstone-ondemand-provisioning-tutorial/UserMapping.png)
 
-10. 檢閱從 Azure AD 同步至 Cornerstone OnDemand 中的使用者屬性**屬性對應**一節。 選取為 [比對] 屬性的屬性會用來比對 Cornerstone OnDemand 中的使用者帳戶以進行更新作業。 若要儲存任何變更，請選取**儲存**。
+10. 檢閱從 Azure AD 同步至 Cornerstone OnDemand 中的使用者屬性**屬性對應**一節。 選取為 [比對]  屬性的屬性會用來比對 Cornerstone OnDemand 中的使用者帳戶以進行更新作業。 若要儲存任何變更，請選取**儲存**。
 
     ![Cornerstone OnDemand 屬性對應](./media/cornerstone-ondemand-provisioning-tutorial/UserMappingAttributes.png)
 

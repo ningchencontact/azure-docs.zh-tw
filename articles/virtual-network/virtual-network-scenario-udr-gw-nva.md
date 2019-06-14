@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575570"
 ---
 # <a name="virtual-appliance-scenario"></a>虛擬設備的案例
@@ -32,7 +32,7 @@ ms.locfileid: "64575570"
 
 這是標準的周邊網路 (也為 DMZ knowns) 案例的 DMZ 和受保護的網路。 使用 Nsg、 防火牆虛擬設備或兩者的組合，可以在 Azure 中建構這類案例。 下表會顯示 NSG 和防火牆虛擬設備之間的優缺點。
 
-|  | 优点 | 缺點 |
+|  | 優點 | 缺點 |
 | --- | --- | --- |
 | NSG |無成本。 <br/>整合到 Azure RBAC。 <br/>Azure Resource Manager 範本中，就可以建立規則。 |大型環境中的複雜性各有不同。 |
 | 防火牆 |完全掌控資料面。 <br/>透過防火牆主控台集中管理。 |防火牆設備的成本。 <br/>不與 Azure RBAC 相整合。 |
@@ -42,11 +42,11 @@ ms.locfileid: "64575570"
 ## <a name="considerations"></a>考量
 您可以使用目前可用的不同功能，在 Azure 中部署上述環境，如下所示。
 
-* **虛擬網路 (VNet)**。 Azure VNet 運作的方式與內部部署網路相似，可以切割成一或多個子網路提供流量隔離並區隔問題。
+* **虛擬網路 (VNet)** 。 Azure VNet 運作的方式與內部部署網路相似，可以切割成一或多個子網路提供流量隔離並區隔問題。
 * **虛擬設備**。 Azure Marketplace 中有數家合作夥伴提供的虛擬設備，可用為上述三種防火牆。 
-* **使用者定義路由 (UDR)**。 路由表可以包含 Azure 網路用來控制 VNet 中封包流程的 UDR。 這些路由表可以套用至子網路。 Azure 其中一項最新功能是能夠將路由表套用至 GatewaySubnet，讓您能夠將從混合式連線進入 Azure VNet 的所有流量都轉送至虛擬設備。
+* **使用者定義路由 (UDR)** 。 路由表可以包含 Azure 網路用來控制 VNet 中封包流程的 UDR。 這些路由表可以套用至子網路。 Azure 其中一項最新功能是能夠將路由表套用至 GatewaySubnet，讓您能夠將從混合式連線進入 Azure VNet 的所有流量都轉送至虛擬設備。
 * **IP 轉送**。 根據預設，只有封包目的地 IP 位址符合 NIC IP 位址時，Azure 網路引擎才會將封包轉送到虛擬網路介面卡 (NIC)。 因此，如果 UDR 定義封包必須傳送到指定的虛擬設備，則 Azure 網路引擎就會卸除此封包。 為確保將封包遞送到不是封包實際目的地的 VM (本例中為虛擬設備)，您需要為虛擬設備啟用 [IP 轉送]。
-* **網路安全性群組 (NSG)**。 下列範例不會使用 NSG，但是您可以在此解決方案中使用子網路所套用的 NSG 和/或 NIC，以進一步篩選出入這些子網路和 NIC 的流量。
+* **網路安全性群組 (NSG)** 。 下列範例不會使用 NSG，但是您可以在此解決方案中使用子網路所套用的 NSG 和/或 NIC，以進一步篩選出入這些子網路和 NIC 的流量。
 
 ![IPv6 網路連線](./media/virtual-network-scenario-udr-gw-nva/figure01.png)
 
@@ -57,7 +57,7 @@ ms.locfileid: "64575570"
   * **AZURERG**。 包含 Azure 虛擬網路環境所需要的所有資源。 
 * 名為 **onpremvnet** 的 VNet，用於模仿內部部署資料中心分段，如下所示。
   * **onpremsn1**。 子網路，內含執行 Ubuntu 以模擬內部部署伺服器的虛擬機器 (VM)。
-  * **onpremsn2**。 包含一个 VM 的子网，该 VM 运行 Ubuntu，用于模拟管理员使用的本地计算机。
+  * **onpremsn2**。 子網路，內含執行 Ubuntu 以模擬系統管理員所用之內部部署電腦的 VM。
 * **onpremvnet** 上有一個防火牆虛擬設備名為 **OPFW**，用來維護 **azurevnet** 的通道。
 * 名為 **azurevnet** 的 VNet 分段，如下所示。
   * **azsn1**。 專門用於外部防火牆的外部防火牆子網路。 所有的網際網路流量都會從這個子網路進入。 這個子網路只包含連結至外部防火牆的 NIC。
@@ -78,36 +78,36 @@ Azure 中的每個子網路都可以連結至 UDR 資料表，這份資料表用
 ### <a name="azgwudr"></a>azgwudr
 在這個案例中，會透過連接到 **AZF3**，使用唯一從內部部署流至 Azure 的流量來管理防火牆，且流量必須通過內部防火牆 **AZF2**。 因此， **GatewaySubnet** 中只有一個必要路由，如下所示。
 
-| 目的地 | 下一跃点 | 說明 |
+| 目的地 | 下一個躍點 | 說明 |
 | --- | --- | --- |
 | 10.0.4.0/24 |10.0.3.11 |允許內部部署流量觸達管理防火牆 **AZF3** |
 
 ### <a name="azsn2udr"></a>azsn2udr
-| 目标 | 下一跃点 | 说明 |
+| 目的地 | 下一個躍點 | 說明 |
 | --- | --- | --- |
 | 10.0.3.0/24 |10.0.2.11 |允許流量透過 **AZF2** |
 | 0.0.0.0/0 |10.0.2.10 |允許透過 **AZF1** |
 
 ### <a name="azsn3udr"></a>azsn3udr
-| 目的地 | 下一跃点 | 說明 |
+| 目的地 | 下一個躍點 | 說明 |
 | --- | --- | --- |
 | 10.0.2.0/24 |10.0.3.10 |允許 **azsn2** 的流量透過 **AZF2** 從應用程式伺服器流向 Web 伺服器 |
 
 您也必須為 **onpremvnet** 中的子網路建立路由表，以模擬內部部署資料中心。
 
 ### <a name="onpremsn1udr"></a>onpremsn1udr
-| 目的地 | 下一跃点 | 說明 |
+| 目的地 | 下一個躍點 | 說明 |
 | --- | --- | --- |
 | 192.168.2.0/24 |192.168.1.4 |允許 **onpremsn2** 的流量通過 **OPFW** |
 
 ### <a name="onpremsn2udr"></a>onpremsn2udr
-| 目的地 | 下一跃点 | 说明 |
+| 目的地 | 下一個躍點 | 說明 |
 | --- | --- | --- |
 | 10.0.3.0/24 |192.168.2.4 |允許流量透過 **OPFW** |
 | 192.168.1.0/24 |192.168.2.4 |允許 **onpremsn1** 的流量通過 **OPFW** |
 
 ## <a name="ip-forwarding"></a>IP 轉送
-UDR 和 IP 轉送兩種功能可以組合使用，以使用虛擬設備來控制 Azure VNet 中的流量流程。  虚拟设备只是一个 VM，该 VM 所运行的应用程序用于通过某种方式（例如防火墙或 NAT 设备）处理网络流量。
+UDR 和 IP 轉送兩種功能可以組合使用，以使用虛擬設備來控制 Azure VNet 中的流量流程。  虛擬應用裝置無非就是一個 VM，可執行用來以某種方式處理網路流量的應用程式，例如防火牆或 NAT 裝置。
 
 此虛擬應用裝置 VM 必須能夠接收未定址到本身的連入流量。 若要讓 VM 接收定址到其他目的地的流量，您必須針對 VM 啟用 IP 轉送。 這是 Azure 設定，不是客體作業系統中的設定。 虛擬設備仍然需要執行某些類型的應用程式，以處理連入流量並正確予以路由。
 

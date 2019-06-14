@@ -19,10 +19,10 @@ ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed4e7559ff6c3b76bbdf49b538ffebf3ad09cc58
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001222"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>適用於應用程式驗證的憑證認證
@@ -100,7 +100,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 在用戶端應用程式的 Azure 應用程式註冊中：
 1. 選取 **憑證與祕密**。 
 2. 按一下 **上傳憑證**，然後選取要上傳憑證檔案。
-3. 按一下 [新增] 。
+3. 按一下 [新增]  。
   一旦上傳憑證時，會顯示指紋、 開始日期和到期值。 
 
 ### <a name="updating-the-application-manifest"></a>更新應用程式資訊清單

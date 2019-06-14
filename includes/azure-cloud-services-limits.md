@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 0b24688b502a40e722d2fcc4436ff1824862f489
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238756"
 ---
-| Resource | 預設限制 | 上限 |
+| 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
 | [每個部署的 web 或背景工作角色](../articles/cloud-services/cloud-services-choose-me.md)<sup>1</sup> |25 |25 |
 | [執行個體輸入端點](/previous-versions/azure/reference/gg557552(v=azure.100)#instanceinputendpoint)每個部署 |25 |25 |

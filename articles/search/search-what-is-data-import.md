@@ -10,15 +10,15 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 83ca0c11ab0065929d939b7345cbd15869740bb3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024347"
 ---
 # <a name="data-import-overview---azure-search"></a>資料匯入概觀-Azure 搜尋服務
 
-在 Azure 搜尋服務中，對您的內容執行的查詢會載入並儲存於[搜尋索引](search-what-is-an-index.md)中。 本文會深入探討填入索引的兩種基本方法：以程式設計方式將資料「推送」到索引中，或指向位於支援的資料來源並且要在資料中「提取」的 [Azure 搜尋索引子](search-indexer-overview.md)。
+在 Azure 搜尋服務中，對您的內容執行的查詢會載入並儲存於[搜尋索引](search-what-is-an-index.md)中。 本文會深入探討填入索引的兩種基本方法：以程式設計方式將資料「推送」  到索引中，或指向位於支援的資料來源並且要在資料中「提取」  的 [Azure 搜尋索引子](search-indexer-overview.md)。
 
 使用任一種方法，目的是要*將資料載入*從外部資料來源到 Azure 搜尋服務索引。 Azure 搜尋服務可讓您建立空的索引，但直到您推送或提取資料時，它不是可供查詢。
 
@@ -63,7 +63,7 @@ ms.locfileid: "65024347"
 ### <a name="formulate-your-query"></a>編寫查詢
 有兩種方式可以 [使用 REST API 搜尋索引](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)。 其中一種方式是發出 HTTP POST 要求，並將查詢參數定義在要求主體的 JSON 物件中。 另一種方式是發出 HTTP GET 要求，並將查詢參數定義在要求 URL 中。 在查詢參數的大小方面，POST 比 GET 擁有[更寬鬆的限制](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)。 因此，除非您的情況特殊導致使用 GET 會比較方便，否則建議您使用 POST。
 
-不管是 POST 還是 GET，您都需要在要求 URL 中提供服務名稱、索引名稱和適當的 API 版本 (本文件發行時的最新 API 版本是 `2019-05-06`)。 若為 GET，URL 結尾的「查詢字串」是您用來提供查詢參數的位置。 URL 的格式如下所示：
+不管是 POST 還是 GET，您都需要在要求 URL 中提供服務名稱  、索引名稱  和適當的 API 版本  (本文件發行時的最新 API 版本是 `2019-05-06`)。 若為 GET，URL 結尾的「查詢字串」  是您用來提供查詢參數的位置。 URL 的格式如下所示：
 
     https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2019-05-06
 
@@ -71,12 +71,12 @@ POST 的格式同上，但查詢字串參數中只有 API 版本。
 
 
 ## <a name="pulling-data-into-an-index"></a>將資料提取到索引中
-提取模型會將支援的資料來源編目，並自動將資料上傳到您的索引。 在 Azure 搜尋服務中，這項功能是透過「索引子」來實作，目前適用於下列平台：
+提取模型會將支援的資料來源編目，並自動將資料上傳到您的索引。 在 Azure 搜尋服務中，這項功能是透過「索引子」  來實作，目前適用於下列平台：
 
 + [Blob 儲存體](search-howto-indexing-azure-blob-storage.md)
 + [資料表儲存體](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](https://aka.ms/documentdb-search-indexer)
-+ [Azure VM 上的 Azure SQL Database 和 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
++ [Azure VM 上的 Azure SQL 資料庫和 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
 索引子可將索引連接到資料來源 (通常是資料表、檢視或對等結構)，並將來源欄位對應至索引中的對等欄位。 在執行期間，資料列集會自動轉換為 JSON 並載入指定的索引。 所有索引子都支援排程，以便您指定資料重新整理的頻率。 如果資料來源支援索引子，則大部分的索引子都會提供變更追蹤。 除了辨識新文件，索引子還會追蹤現有文件的變更和刪除，讓您不必主動管理索引中的資料。 
 
@@ -89,7 +89,7 @@ POST 的格式同上，但查詢字串參數中只有 API 版本。
 
 ## <a name="verify-data-import-with-search-explorer"></a>透過搜尋總管確認資料匯入
 
-對文件上傳執行初步檢查的快速方法是使用入口網站中的 [搜尋總管]。 此總管可讓您查詢索引，而不需撰寫任何程式碼。 搜尋體驗是以預設設定為基礎，例如[簡單語法](/rest/api/searchservice/simple-query-syntax-in-azure-search)和預設 [searchMode 查詢參數](/rest/api/searchservice/search-documents)。 結果會以 JSON 格式傳回，以便您檢查整份文件。
+對文件上傳執行初步檢查的快速方法是使用入口網站中的 [搜尋總管]  。 此總管可讓您查詢索引，而不需撰寫任何程式碼。 搜尋體驗是以預設設定為基礎，例如[簡單語法](/rest/api/searchservice/simple-query-syntax-in-azure-search)和預設 [searchMode 查詢參數](/rest/api/searchservice/search-documents)。 結果會以 JSON 格式傳回，以便您檢查整份文件。
 
 > [!TIP]
 > 許多 [Azure 搜尋服務程式碼範例](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)包含內嵌或隨手可得的資料集，並提供簡單的開始使用方式。 入口網站也會提供範例索引子和資料來源 (由稱為 "realestate-us-sample" 的小型不動產資料集所組成)。 當您在範例資料來源上執行預先設定的索引子時，系統會建立索引並隨著文件載入，而後即可在 [搜尋總管] 中或由您撰寫的程式碼查詢索引。

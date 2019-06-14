@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60770541"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>教學課程：查詢的 SQL Server Linux Docker 容器中的虛擬網路，從 Azure Databricks notebook
@@ -62,32 +62,32 @@ ms.locfileid: "60770541"
 
 7. 新增規則以開啟 SSH 連接埠 22。 套用下列設定：
     
-    |設定|建議的值|描述|
+    |設定|建議值|描述|
     |-------|---------------|-----------|
-    |來源|IP 位址|IP 位址指定連入流量來自特定來源 IP 位址將允許或拒絕此規則。|
-    |來源 IP 位址|< 您的公用 ip\>|輸入您的公用 IP 位址。 您可以找到您的公用 IP 位址，請造訪[bing.com](https://www.bing.com/)並搜尋 **「 我的 IP 」**。|
+    |source|IP 位址|IP 位址指定連入流量來自特定來源 IP 位址將允許或拒絕此規則。|
+    |來源 IP 位址|< 您的公用 ip\>|輸入您的公用 IP 位址。 您可以找到您的公用 IP 位址，請造訪[bing.com](https://www.bing.com/)並搜尋 **「 我的 IP 」** 。|
     |來源連接埠範圍|*|允許從任何連接埠的流量。|
     |目的地|IP 位址|IP 位址會指定該特定來源 IP 位址將允許或拒絕此規則的連出流量。|
     |目的地 IP 位址|< 您的 vm 公用 ip\>|輸入您的虛擬機器的公用 IP 位址。 您可以找到這**概觀**您的虛擬機器的頁面。|
     |目的地連接埠範圍|22|開啟 SSH 連接埠 22。|
     |優先順序|290|指定規則的優先順序。|
-    |名稱|ssh-databricks-tutorial-vm|指定規則的名稱。|
+    |Name|ssh-databricks-tutorial-vm|指定規則的名稱。|
 
 
     ![新增連接埠 22 的輸入的安全性規則](./media/vnet-injection-sql-server/open-port.png)
 
 8. 新增規則以開啟 sql 連接埠 1433年，使用下列設定：
 
-    |設定|建議的值|描述|
+    |設定|建議值|描述|
     |-------|---------------|-----------|
-    |來源|IP 位址|IP 位址指定連入流量來自特定來源 IP 位址將允許或拒絕此規則。|
+    |source|IP 位址|IP 位址指定連入流量來自特定來源 IP 位址將允許或拒絕此規則。|
     |來源 IP 位址|10.179.0.0/16|輸入您的虛擬網路的位址範圍。|
     |來源連接埠範圍|*|允許從任何連接埠的流量。|
     |目的地|IP 位址|IP 位址會指定該特定來源 IP 位址將允許或拒絕此規則的連出流量。|
     |目的地 IP 位址|< 您的 vm 公用 ip\>|輸入您的虛擬機器的公用 IP 位址。 您可以找到這**概觀**您的虛擬機器的頁面。|
     |目的地連接埠範圍|1433|開啟 SQL Server 連接埠 22。|
     |優先順序|300|指定規則的優先順序。|
-    |名稱|sql-databricks-tutorial-vm|指定規則的名稱。|
+    |Name|sql-databricks-tutorial-vm|指定規則的名稱。|
 
     ![新增通訊埠 1433年的輸入的安全性規則](./media/vnet-injection-sql-server/open-port2.png)
 
@@ -197,9 +197,9 @@ ms.locfileid: "60770541"
 
 若不再需要，可刪除資源群組、Azure Databricks 工作區和所有相關資源。 刪除作業可避免不必要的計費。 如果您計劃在未來使用 Azure Databricks 工作區，您可以停止叢集且稍後重新啟動。 如果您不再繼續使用此 Azure Databricks 工作區，請使用下列步驟，刪除本教學課程所建立的所有資源：
 
-1. 從 Azure 入口網站的左側功能表，按一下 [資源群組]，然後按一下您所建立的資源群組名稱。
+1. 從 Azure 入口網站的左側功能表，按一下 [資源群組]  ，然後按一下您所建立的資源群組名稱。
 
-2. 在資源群組頁面上，選取 [刪除]，在文字方塊中輸入要刪除的資源名稱，然後再次選取 [刪除]。
+2. 在資源群組頁面上，選取 [刪除]  ，在文字方塊中輸入要刪除的資源名稱，然後再次選取 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 

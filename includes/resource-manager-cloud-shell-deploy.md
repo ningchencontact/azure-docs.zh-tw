@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129016"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>從 Cloud Shell 部署範本
@@ -25,15 +25,15 @@ ms.locfileid: "66129016"
 
    ![選取儲存體帳戶](./media/resource-manager-cloud-shell-deploy/select-storage.png)
 
-1. 選取 [Blob] 。
+1. 選取 [Blob]  。
 
    ![選取 Blob](./media/resource-manager-cloud-shell-deploy/select-blobs.png)
 
-1. 選取 [+ 容器]。
+1. 選取 [+ 容器]  。
 
    ![新增容器](./media/resource-manager-cloud-shell-deploy/add-container.png)
 
-1. 為您的容器提供名稱和存取層級。 本文中的範例範本不包含機密資訊，因此允許匿名讀取權限。 選取 [確定] 。
+1. 為您的容器提供名稱和存取層級。 本文中的範例範本不包含機密資訊，因此允許匿名讀取權限。 選取 [確定]  。
 
    ![提供容器值](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
 
@@ -41,7 +41,7 @@ ms.locfileid: "66129016"
 
    ![選取新容器](./media/resource-manager-cloud-shell-deploy/select-container.png)
 
-1. 選取 [上傳] 。
+1. 選取 [上傳]  。
 
    ![上傳 Blob](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
 

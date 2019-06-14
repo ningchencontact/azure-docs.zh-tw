@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66164482"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 連線架構
@@ -98,7 +98,7 @@ Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定�
 | 美國西部 2 | 13.66.226.202 | |
 ||||
 
-\* **注意：***美國東部 2* 也有第三 IP 位址 `52.167.104.0`。
+\* **注意：** *美國東部 2* 也有第三 IP 位址 `52.167.104.0`。
 
 ## <a name="change-azure-sql-database-connection-policy"></a>變更 Azure SQL Database 連線原則
 

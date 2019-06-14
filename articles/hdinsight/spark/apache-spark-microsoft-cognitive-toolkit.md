@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
 ms.openlocfilehash: 3462255311eaa6e418f97de5da598eb985b2a935
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64695074"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>使用 Microsoft 辨識工具組深入了解模型與 Azure HDInsight Spark 叢集
@@ -65,7 +65,7 @@ Jupyter Notebook 中涵蓋下列剩餘步驟。
 
 * 確定您只會在前端和背景工作節點上執行指令碼，並清除所有其他核取方塊。
 
-* 按一下頁面底部的 [新增] 。
+* 按一下頁面底部的 [新增]  。
 
 ## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>將 Jupyter Notebook 上傳至 Azure HDInsight Spark 叢集
 
@@ -77,11 +77,11 @@ Jupyter Notebook 中涵蓋下列剩餘步驟。
 
     您也可以移至 URL `https://<clustername>.azurehdinsight.net/jupyter/` 啟動 Jupyter Notebook。 將 \<clustername> 取代為 HDInsight 叢集的名稱。
 
-3. 從 Jupyter Notebook 中，於右上角按一下 [上傳]，然後瀏覽至您複製 GitHub 存放庫的位置。
+3. 從 Jupyter Notebook 中，於右上角按一下 [上傳]  ，然後瀏覽至您複製 GitHub 存放庫的位置。
 
     ![將 Jupyter Notebook 上傳至 Azure HDInsight Spark 叢集](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "將 Jupyter Notebook 上傳至 Azure HDInsight Spark 叢集")
 
-4. 再次按一下 [上傳]。
+4. 再次按一下 [上傳]  。
 
 5. 將 Notebook 上傳之後，按一下 Notebook 名稱，然後遵循 Notebook 本身有關如何載入資料集的指示，並執行教學課程中。
 

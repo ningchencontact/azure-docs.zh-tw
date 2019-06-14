@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 13a8c1ee4b7ca114211f93245d74866e5aa5d52c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067440"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-in-the-azure-portal"></a>設定和存取適用於 PostgreSQL 的 Azure 資料庫-Azure 入口網站中的單一伺服器記錄
@@ -28,19 +28,19 @@ ms.locfileid: "65067440"
 
 2. 選取適用於 PostgreSQL 的 Azure 資料庫伺服器。
 
-3. 在提要欄位的 [監視] 區段中，選取 [伺服器記錄]。 
+3. 在提要欄位的 [監視]  區段中，選取 [伺服器記錄]  。 
 
    ![選取 [伺服器記錄]，然後選取 [按一下這裡啟用...]](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
 
-4. 選取 [按一下這裡可啟用記錄，並設定記錄參數] 標題，來查看伺服器參數。
+4. 選取 [按一下這裡可啟用記錄，並設定記錄參數]  標題，來查看伺服器參數。
 
 5. 變更您需要調整的參數。 您在此工作階段中所做的所有變更都會以紫色顯示。
 
-   變更參數之後，您可以按一下 [儲存]。 或者，也可以 [捨棄] 您的變更。 
+   變更參數之後，您可以按一下 [儲存]  。 或者，也可以 [捨棄]  您的變更。 
 
    ![較長的含儲存或捨棄變更的參數清單](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-6. 按一下 [伺服器參數] 頁面上的**關閉按鈕** (X 圖示)。
+6. 按一下 [伺服器參數]  頁面上的**關閉按鈕** (X 圖示)。
 
 ## <a name="view-list-and-download-logs"></a>檢視清單並下載記錄
 一旦開始記錄，您就可以檢視可用記錄的清單，並在 [伺服器記錄] 窗格上下載個別記錄。 
@@ -49,7 +49,7 @@ ms.locfileid: "65067440"
 
 2. 選取適用於 PostgreSQL 的 Azure 資料庫伺服器。
 
-3. 在提要欄位的 [監視] 區段中，選取 [伺服器記錄]。 這個頁面會顯示記錄檔的清單，如下所示：
+3. 在提要欄位的 [監視]  區段中，選取 [伺服器記錄]  。 這個頁面會顯示記錄檔的清單，如下所示：
 
    ![伺服器記錄清單](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
 

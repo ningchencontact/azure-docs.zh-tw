@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 88b066818d53fd92e8238e270b9bc785d4275186
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233945"
 ---
 # <a name="connect-windows-security-events"></a>連線 Windows 安全性事件 
@@ -44,7 +44,7 @@ ms.locfileid: "65233945"
 
 1. 在 Azure Sentinel 入口網站中，選取**資料連接器**，然後按一下**Windows 安全性事件**圖格。 
 1. 選取您要串流處理的資料類型。
-1. 按一下 [更新] 。
+1. 按一下 [更新]  。
 6. 若要使用 Log Analytics 中的 Windows 安全性事件相關的結構描述，搜尋**SecurityEvent**。
 
 ## <a name="validate-connectivity"></a>驗證連線能力

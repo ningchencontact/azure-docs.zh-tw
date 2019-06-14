@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
 ms.openlocfilehash: 6d330340ff09ddb6c2bec04259f964f2298dbffc
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65025070"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>定義自訂 R 模組以用於 Azure Machine Learning Studio
@@ -55,7 +55,7 @@ ms.locfileid: "65025070"
     } 
 
 ### <a name="the-xml-definition-file"></a>XML 定義檔
-若要公開這個 `CustomAddRows` 函式作為 Azure Machine Learning Studio 模組，必須建立 XML 定義檔以指定 [自訂新增資料列] 模組的外觀及運作方式。 
+若要公開這個 `CustomAddRows` 函式作為 Azure Machine Learning Studio 模組，必須建立 XML 定義檔以指定 [自訂新增資料列]  模組的外觀及運作方式。 
 
     <!-- Defined a module using an R Script -->
     <Module name="Custom Add Rows">
@@ -97,7 +97,7 @@ ms.locfileid: "65025070"
 ### <a name="package-and-register-the-module"></a>封裝並註冊模組
 將這兩個檔案另存為 *CustomAddRows.R* 和 *CustomAddRows.xml*，然後一起壓縮成 *CustomAddRows.zip* 檔案。
 
-若要在 Machine Learning 工作區中註冊這兩個檔案，請移至 Machine Learning Studio 中的工作區，按一下底部的 [+ 新增] 按鈕，然後選擇 [模組] -> [從 ZIP 封裝]，以上傳新的**新增資料列**模組。
+若要在 Machine Learning 工作區中註冊這兩個檔案，請移至 Machine Learning Studio 中的工作區，按一下底部的 [+ 新增]  按鈕，然後選擇 [模組] -> [從 ZIP 封裝]  ，以上傳新的**新增資料列**模組。
 
 ![上傳 Zip 檔案](./media/custom-r-modules/upload-from-zip-package.png)
 
@@ -286,8 +286,8 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。 �
     * Numeric
     * Boolean
     * 類別
-    * String
-    * 標籤
+    * 字串
+    * ThisAddIn
     * 功能
     * 分數
     * 全部

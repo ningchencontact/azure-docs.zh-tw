@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: 5a7c16e6ac565d1660fee02cb7df178344b195e7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122918"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務 (WebJob 專案)
@@ -39,7 +39,7 @@ ms.locfileid: "62122918"
             output = input.ReadToEnd();
         }
 
-属性构造函数采用指定容器名称的字符串参数和 Blob 名称的占位符。 在此範例中，如果已在 *input* 容器中建立名為 *Blob1.txt* 的 Blob，此函數便會在 *output* 容器中建立名為 *Blob1.txt* 的 Blob。
+屬性建構函式會接受字串參數，以指定容器名稱和 Blob 名稱的預留位置。 在此範例中，如果已在 *input* 容器中建立名為 *Blob1.txt* 的 Blob，此函數便會在 *output* 容器中建立名為 *Blob1.txt* 的 Blob。
 
 您可以使用 Blob 名稱預留位置來指定名稱模式，如下列程式碼範例所示：
 
@@ -51,7 +51,7 @@ ms.locfileid: "62122918"
 
 此程式碼只會複製以 "original-" 做為名稱開頭的 Blob。 例如，*input* 容器中的*original-Blob1.txt* 會複製到 *output* 容器中的 *copy-Blob1.txt*。
 
-如果需要为名称中包含大括号的 Blob 名称指定名称模式，则使用双倍的大括号。 例如，如果想要在 *images* 容器中查找具有以下类似名称的 Blob：
+如果您需要針對名稱中包含大括號的 Blob 名稱指定名稱模式，請按兩下大括號。 例如，如果您想要在 *images* 容器中尋找具備如下名稱的 Blob：
 
         {20140101}-soundfile.mp3
 
@@ -61,7 +61,7 @@ ms.locfileid: "62122918"
 
 在此範例中，*name* 預留位置的值會是 *soundfile.mp3*。
 
-### <a name="separate-blob-name-and-extension-placeholders"></a>单独的 Blob 名称和扩展名占位符
+### <a name="separate-blob-name-and-extension-placeholders"></a>個別的 Blob 名稱和副檔名預留位置
 下列程式碼範例會在將出現於 *input* 容器中的 Blob 複製到 *output* 容器時變更副檔名。 此程式碼會記錄 *input* Blob 的副檔名，並將 *output* Blob 的副檔名設為 *.txt*。
 
         public static void CopyBlobToTxtFile([BlobTrigger("input/{name}.{ext}")] TextReader input,
@@ -144,7 +144,7 @@ ms.locfileid: "62122918"
 
 適用於有害 Blob 的佇列訊息是一個 JSON 物件，其中包含下列屬性：
 
-* FunctionId (格式 *{WebJob name}*。函式。*{Function name}*，例如：WebJob1.Functions.CopyBlob)
+* FunctionId (格式 *{WebJob name}* 。函式。 *{Function name}* ，例如：WebJob1.Functions.CopyBlob)
 * BlobType ("BlockBlob" 或 "PageBlob")
 * ContainerName
 * BlobName
@@ -189,11 +189,11 @@ WebJobs SDK 會在應用程式啟動時，掃描 **BlobTrigger** 屬性所指定
 您使用 **Blob** 屬性建立的 Blob 有例外狀況。 當 WebJobs SDK 建立新的 Blob 時，會立即將新的 Blob 傳遞到任何相符的 **BlobTrigger** 函數。 因此，如果您具有 Blob 輸入和輸出的鏈結，就能有效率地處理它們。 但是，如果您想要降低透過其他方法建立或更新的 Blob 執行 Blob 處理函數時的延遲，建議使用 **QueueTrigger** 而非 **BlobTrigger**。
 
 ### <a name="blob-receipts"></a>Blob 回條
-WebJobs SDK 可確保不會針對相同的新 Blob 或更新的 Blob，多次呼叫 **BlobTrigger** 函數。 为此，它会维护 *blob 回执* ，以确定是否已处理给定的 blob 版本。
+WebJobs SDK 可確保不會針對相同的新 Blob 或更新的 Blob，多次呼叫 **BlobTrigger** 函數。 它的運作方式是藉由維護 *Blob 回條* 來判斷指定的 Blob 版本是否已處理過。
 
 Blob 回條儲存於 AzureWebJobsStorage 連接字串所指定之 Azure 儲存體帳戶中名為 *azure-webjobs-hosts* 的容器中。 Blob 回條具有下列資訊：
 
-* 已為 blob 呼叫的函式 (「*{WebJob name}*。函式。*{Function name}*"，例如："WebJob1.Functions.CopyBlob")
+* 已為 blob 呼叫的函式 (「 *{WebJob name}* 。函式。 *{Function name}* "，例如："WebJob1.Functions.CopyBlob")
 * 容器名稱
 * Blob 類型 ("BlockBlob" 或 "PageBlob")
 * Blob 名稱
@@ -208,8 +208,8 @@ Blob 回條儲存於 AzureWebJobsStorage 連接字串所指定之 Azure 儲存�
 
 * Async 函數
 * 多個執行個體
-* 正常关闭
-* 在函数正文中使用 WebJobs SDK 属性
+* 正常關機
+* 在函式主體中使用 WebJobs SDK 屬性
 * 在程式碼中設定 SDK 連接字串。
 * 在程式碼中設定 WebJobs SDK 建構函式參數的值
 * 設定 **MaxDequeueCount** 以處理有害的 Blob。

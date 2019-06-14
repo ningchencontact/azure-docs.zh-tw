@@ -9,10 +9,10 @@ ms.date: 05/22/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7abd0ac3d95825594dffe385bccc1672d0f71c5f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142552"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
@@ -23,14 +23,14 @@ ms.locfileid: "66142552"
 
 |資料來源  |記憶體內  |DirectQuery  |
 |---------|---------|---------|
-|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   有      |    有      |
-|Azure SQL 資料倉儲     |   有      |   有       |
-|Azure Blob 儲存體<sup>[1](#tab1400a)</sup>     |   有       |    無      |
-|Azure 資料表儲存體<sup>[1](#tab1400a)</sup>    |   有       |    無      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  有        |  無        |
-|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   有       |    無      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     有     |   無       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>、<sup>[3](#databricks)</sup>     |   有       |   無       |
+|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   是      |    是      |
+|Azure SQL 資料倉儲     |   是      |   是       |
+|Azure Blob 儲存體<sup>[1](#tab1400a)</sup>     |   是       |    否      |
+|Azure 資料表儲存體<sup>[1](#tab1400a)</sup>    |   是       |    否      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  是        |  否        |
+|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   是       |    否      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     是     |   否       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>、<sup>[3](#databricks)</sup>     |   是       |   否       |
 ||||
 
 <a name="tab1400a">1</a> - 僅限 Tabular 1400 和更高模型。   
@@ -72,7 +72,7 @@ ms.locfileid: "66142552"
 |IBM Informix<sup>[1](#tab1400b)</sup> (搶鮮版 (Beta)) |
 |JSON 文件<sup>[1](#tab1400b)</sup>     |  
 |二進位檔中的程式行<sup>[1](#tab1400b)</sup>     | 
-|MySQL 資料庫     | 
+|MySQL Database     | 
 |OData 摘要<sup>[1](#tab1400b)</sup>     |  
 |ODBC 查詢     | 
 |OLE DB     |   
@@ -98,9 +98,9 @@ Azure Analysis Services 中的資料模型連線至某些資料來源時，可�
 
 **指定提供者**
 
-1. 在 SSDT > **Tabular Model Explorer** (表格式模型總管)  >  [資料來源] 中，以滑鼠右鍵按一下資料來源連線，然後按一下 [編輯資料來源]。
-2. 在 [編輯連線] 中按一下 [進階]，以開啟 [進階屬性] 視窗。
-3. 在[設定進階屬性]  >  [提供者] 中，然後選取適當的提供者。
+1. 在 SSDT > **Tabular Model Explorer** (表格式模型總管)  >  [資料來源]  中，以滑鼠右鍵按一下資料來源連線，然後按一下 [編輯資料來源]  。
+2. 在 [編輯連線]  中按一下 [進階]  ，以開啟 [進階屬性] 視窗。
+3. 在[設定進階屬性]   >  [提供者]  中，然後選取適當的提供者。
 
 ## <a name="impersonation"></a>模擬
 在某些情況下，可能需要指定不同的模擬帳戶。 模擬帳戶可以在 Visual Studio SSDT (SSDT) 或 SSMS 中指定。

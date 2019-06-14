@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c254ef3a71e95b33df2a779c728d47fff3c3759
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190348"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>如何成功推出自助式密碼重設
@@ -40,7 +40,7 @@ ms.locfileid: "65190348"
    * 本文件的下列幾節介紹範例通訊、密碼入口網站、如何強制執行註冊，以及填入驗證資料。
    * Azure Active Directory 產品群組已建立[逐步部署方案](https://aka.ms/SSPRDeploymentPlan)，組織能平行使用此方案，並搭配在此網站中找到的文件，來製作業務案例及規劃自助式重設密碼的部署。
 1. 為您的整個組織啟用自助式密碼重設。
-   * 當您準備好時，就可以為所有使用者啟用密碼重設，將 [已啟用自助式密碼重設] 切換為 [全部]。
+   * 當您準備好時，就可以為所有使用者啟用密碼重設，將 [已啟用自助式密碼重設]  切換為 [全部]  。
 
 ## <a name="sample-communication"></a>範例通訊
 
@@ -57,7 +57,7 @@ ms.locfileid: "65190348"
 
 ## <a name="create-your-own-password-portal"></a>建立您自己的密碼入口網站
 
-很多客戶都選擇裝載網頁並建立 DNS 根項目，例如 https://passwords.contoso.com。 它們會使用下列資訊的連結填入此頁面：
+很多客戶都選擇裝載網頁並建立 DNS 根項目，例如 https://passwords.contoso.com 。 它們會使用下列資訊的連結填入此頁面：
 
 * [Azure AD 密碼重設入口網站 - https://aka.ms/sspr](https://aka.ms/sspr)
 * [Azure AD 密碼重設註冊入口網站 - https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
@@ -68,9 +68,9 @@ ms.locfileid: "65190348"
 
 ## <a name="use-enforced-registration"></a>使用強制註冊
 
-如果您希望使用者註冊密碼重設，可以要求他們在透過 Azure AD 登入時進行註冊。 您可以從目錄的 [密碼重設] 窗格啟用此選項，方法是啟用 [註冊] 索引標籤上的 [要求使用者在登入時註冊] 選項。
+如果您希望使用者註冊密碼重設，可以要求他們在透過 Azure AD 登入時進行註冊。 您可以從目錄的 [密碼重設]  窗格啟用此選項，方法是啟用 [註冊]  索引標籤上的 [要求使用者在登入時註冊]  選項。
 
-系統管理員可以要求使用者在一段特定的時間之後重新註冊。 他們可以將 [要求使用者重新確認其驗證資訊的等候天數] 選項設定為 0 到 730 天。
+系統管理員可以要求使用者在一段特定的時間之後重新註冊。 他們可以將 [要求使用者重新確認其驗證資訊的等候天數]  選項設定為 0 到 730 天。
 
 啟用此選項之後，使用者會在登入時會看到一則訊息，告知系統管理員已要求他們確認其驗證資訊。
 
@@ -80,7 +80,7 @@ ms.locfileid: "65190348"
 
 ## <a name="disable-self-service-password-reset"></a>啟用自助式密碼重設
 
-如果您的組織決定停用自助式密碼重設，這是很簡單的程序。 開啟您的 Azure AD 租用戶並移至 [密碼重設] > [屬性]，然後選取 [已啟用自助式密碼重設] 之下的 [無]。 使用者仍將維持其已註冊的驗證方法，供日後使用。
+如果您的組織決定停用自助式密碼重設，這是很簡單的程序。 開啟您的 Azure AD 租用戶並移至 [密碼重設]   > [屬性]  ，然後選取 [已啟用自助式密碼重設]  之下的 [無]  。 使用者仍將維持其已註冊的驗證方法，供日後使用。
 
 ## <a name="next-steps"></a>後續步驟
 

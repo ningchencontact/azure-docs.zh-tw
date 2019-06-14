@@ -18,10 +18,10 @@ ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235327"
 ---
 # <a name="support-and-help-options-for-developers"></a>開發人員的支援和協助選項
@@ -62,7 +62,7 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 開發人員社�
 
 若無法透過搜尋找到問題的解答，請將新問題提交至 Stack Overflow。 在提出問題時使用下列其中一個標記，以協助社群更快速地識別和回答您的問題：
 
-|元件/區域  | Tags |
+|元件/區域  | 標記 |
 |---------|---------|
 | ADAL 程式庫 | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | MSAL 程式庫     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |

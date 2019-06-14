@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
 ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409291"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>存在 Azure 媒體服務 v3 的雲端和區域
@@ -26,9 +26,9 @@ Azure 媒體服務 v3 可透過 Azure Resource Manager 資訊清單在全域 Azu
 
 | 功能|全域 Azure 區域 | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
-| [Azure EventGrid](reacting-to-media-services-events.md) | 可用 | 無 | 無 | 無 |
-| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  可用 | 無 | 無 | 無 |
-| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  可用 | 無 | 無 | 無 |
+| [Azure EventGrid](reacting-to-media-services-events.md) | 可用 | 尚未提供 | 尚未提供 | 尚未提供 |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  可用 | 尚未提供 | 尚未提供 | 尚未提供 |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  可用 | 尚未提供 | 尚未提供 | 尚未提供 |
 | [StandardEncoderPreset](encoding-concept.md) | 可用 | 可用 | 可用 | 可用 |
 | [LiveEvents](live-streaming-overview.md) | 可用 | 可用 | 可用 | 可用 |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | 可用 | 可用 | 可用 | 可用 |
@@ -64,7 +64,7 @@ az account list-locations
 
 從不同國家/地區的 Azure 雲端連線到媒體服務帳戶時，下列端點非常重要。
 
-### <a name="global-azure"></a>全球 Azure
+### <a name="global-azure"></a>全域 Azure
 
 |端點 ||
 | --- | --- | 

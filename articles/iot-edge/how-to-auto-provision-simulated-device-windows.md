@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 01247dfc0046ef722d70fe48f7ab8ee63f685962
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153561"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>在 Windows 上建立及佈建模擬 TPM Edge 裝置
@@ -36,7 +36,7 @@ Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動�
 
 在 Azure 中建立 IoT 中樞裝置佈建服務的新執行個體，並將其連結至您的 IoT 中樞。 您可以依照[設定 IoT 中樞 DPS](../iot-dps/quick-setup-auto-provision.md) 中的指示操作。
 
-裝置佈建服務開始執行之後，請從 [概觀] 頁面複製 [識別碼範圍] 的值。 當您設定 IoT Edge 執行階段時會用到此值。
+裝置佈建服務開始執行之後，請從 [概觀] 頁面複製 [識別碼範圍]  的值。 當您設定 IoT Edge 執行階段時會用到此值。
 
 ## <a name="simulate-a-tpm-device"></a>模擬 TPM 裝置
 
@@ -46,7 +46,7 @@ Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動�
 
 選擇您想要用來建立模擬裝置的 SDK 語言並遵循步驟，直到您建立個別註冊。
 
-當您建立個別註冊時，請選取 [啟用] 來宣告 Windows 開發電腦上的模擬 TPM 裝置是 **IoT Edge 裝置**。
+當您建立個別註冊時，請選取 [啟用]  來宣告 Windows 開發電腦上的模擬 TPM 裝置是 **IoT Edge 裝置**。
 
 模擬裝置和個別註冊指南：
 
@@ -56,7 +56,7 @@ Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動�
 * [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
 * [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 
-建立個別註冊之後，儲存 [註冊識別碼] 的值。 當您設定 IoT Edge 執行階段時會用到此值。
+建立個別註冊之後，儲存 [註冊識別碼]  的值。 當您設定 IoT Edge 執行階段時會用到此值。
 
 ## <a name="install-the-iot-edge-runtime"></a>安裝 IoT Edge 執行階段
 

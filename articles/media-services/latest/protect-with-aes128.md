@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.openlocfilehash: c957a98cdb6c195f7ed9b41dabc66a32714f57e7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142516"
 ---
 # <a name="tutorial-use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>教學課程：使用 AES-128 動態加密和金鑰傳遞服務
@@ -83,7 +83,7 @@ ms.locfileid: "65142516"
  
 ## <a name="get-or-create-an-encoding-transform"></a>取得或建立編碼轉換
 
-建立新的[轉換](https://docs.microsoft.com/rest/api/media/transforms)執行個體時，您需要指定想要其產生的輸出是什麼。 必要的參數是 **TransformOutput** 物件，如下列程式碼所示。 每個 **TransformOutput** 都會包含 **Preset (預設)**。 **Preset** 會描述影片和/或音訊處理作業的逐步指示，以產生所需的 **TransformOutput**。 本文中所述的範例會使用稱為 **AdaptiveStreaming** 的內建 Preset。 Preset 會根據輸入解析度和位元速率，將輸入影片編碼為自動產生的位元速率階梯 (位元速率-解析度配對)，並產生 H.264 影片與 AAC 音訊標準 (對應到每個 位元速率-解析度配對) 的 ISO MP4 檔案。 
+建立新的[轉換](https://docs.microsoft.com/rest/api/media/transforms)執行個體時，您需要指定想要其產生的輸出是什麼。 必要的參數是 **TransformOutput** 物件，如下列程式碼所示。 每個 **TransformOutput** 都會包含 **Preset (預設)** 。 **Preset** 會描述影片和/或音訊處理作業的逐步指示，以產生所需的 **TransformOutput**。 本文中所述的範例會使用稱為 **AdaptiveStreaming** 的內建 Preset。 Preset 會根據輸入解析度和位元速率，將輸入影片編碼為自動產生的位元速率階梯 (位元速率-解析度配對)，並產生 H.264 影片與 AAC 音訊標準 (對應到每個 位元速率-解析度配對) 的 ISO MP4 檔案。 
 
 在建立新的[轉換](https://docs.microsoft.com/rest/api/media/transforms)之前，您應該先使用 **Get** 方法檢查是否已有轉換存在，如後續程式碼所示。  在媒體服務 v3 中，如果實體不存在，對實體執行的 **Get** 方法會傳回 **null** (檢查名稱時不區分大小寫)。
 
@@ -120,7 +120,7 @@ ms.locfileid: "65142516"
 1. 建立 [串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)
 2. 建置用戶端可使用的串流 URL。 
 
-建立的程序**串流定位器**稱為發佈。 根據預設，[串流定位器] 會在進行 API 呼叫後立即生效，而且會持續運作到遭到刪除為止 (除非您有設定選擇性的開始和結束時間)。 
+建立的程序**串流定位器**稱為發佈。 根據預設，[串流定位器]  會在進行 API 呼叫後立即生效，而且會持續運作到遭到刪除為止 (除非您有設定選擇性的開始和結束時間)。 
 
 建立[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)時，您必須指定需要的 **StreamingPolicyName**。 在本教學課程中，我們會使用其中一個 PredefinedStreamingPolicies，這會告訴 Azure 媒體服務如何發行內容以進行串流。 在此範例中，會套用 AES Envelope 加密 (也稱為 ClearKey 加密，因為金鑰傳遞至播放用戶端是透過 HTTPS 而不是 DRM 授權)。
 
@@ -139,7 +139,7 @@ ms.locfileid: "65142516"
 
 ## <a name="build-a-dash-streaming-url"></a>建置 DASH 串流 URL
 
-既然[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)已建立，您可以取得串流 Url。 若要建置的 URL，您必須串連[StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)主機名稱並**串流定位器**路徑。 此範例會使用預設的**串流端點**。 初次建立媒體服務帳戶時，此預設的**串流端點**會處於停止狀態，因此您需要呼叫 **Start**。
+既然[串流定位器](https://docs.microsoft.com/rest/api/media/streaminglocators)已建立，您可以取得串流 Url。 若要建置的 URL，您必須串連[StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)主機名稱並**串流定位器**路徑。 此範例會使用預設的  **串流端點**。 初次建立媒體服務帳戶時，此預設的  **串流端點**會處於停止狀態，因此您需要呼叫 **Start**。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetMPEGStreamingUrl)]
 
@@ -159,7 +159,7 @@ ms.locfileid: "65142516"
 az group delete --name amsResourceGroup
 ```
 
-## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、 意見、 取得更新
+## <a name="ask-questions-give-feedback-get-updates"></a>提出問題、提供意見反應、取得更新
 
 請參閱 [Azure 媒體服務社群](media-services-community.md)文章，以了解詢問問題、提供意見反應及取得媒體服務相關更新的不同方式。
 

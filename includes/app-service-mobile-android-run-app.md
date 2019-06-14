@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: crdun
 ms.openlocfilehash: 63c54f8af91b6b4a76ba49d5e6fc7b3cda9f5b98
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240328"
 ---
 1. 使用 **Android Studio**、**匯入專案 (Eclipse ADT、Gradle 等等)** 開啟專案。 請確認選取此匯入選項，以避免發生 JDK 錯誤。
 
 2. 開啟檔案`ToDoActivity.java`在此資料夾-W/app/src/main/java/com/範例/w。 應用程式名稱是`ZUMOAPPNAME`。
 
-3. 移至[Azure 入口網站](https://portal.azure.com/)並瀏覽至您所建立的行動應用程式。 在 `Overview`刀鋒視窗中，搜尋 URL，也就是您的行動裝置應用程式的公用端點。 範例-將會針對我的應用程式名稱"test123"sitename https://test123.azurewebsites.net。
+3. 移至[Azure 入口網站](https://portal.azure.com/)並瀏覽至您所建立的行動應用程式。 在 `Overview`刀鋒視窗中，搜尋 URL，也就是您的行動裝置應用程式的公用端點。 範例-將會針對我的應用程式名稱"test123"sitename https://test123.azurewebsites.net 。
 
 4. 在 `onCreate()`方法，取代`ZUMOAPPURL`與上述的公用端點的參數。
     

@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13808871d67bb47dce82c5a3493fd89b0dfe1dcd
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952855"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>電子郵件單次密碼驗證 (預覽版)
@@ -34,7 +34,7 @@ ms.locfileid: "65952855"
 > 單次密碼使用者必須使用包含租用戶內容的連結 (例如 `https://myapps.microsoft.com/?tenantid=<tenant id>` 或 `https://portal.azure.com/<tenant id>`，如果是已驗證的網域，則為 `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`) 來登入。 應用程式和資源的直接連結只要包含租用戶內容，也可有同樣作用。 來賓使用者目前無法使用沒有租用戶內容的端點來登入。 例如，使用 `https://myapps.microsoft.com`、`https://portal.azure.com` 或小組通用端點將會導致錯誤。 
 
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>單次密碼來賓使用者的使用者體驗
-使用單次密碼驗證時，來賓使用者可以兌換您的邀請，方法是按一下直接連結，或使用邀請電子郵件。 無論是哪一種方法，瀏覽器中會顯示訊息，指出驗證碼將傳送到來賓使用者的電子郵件地址。 來賓使用者可選取 [傳送驗證碼]：
+使用單次密碼驗證時，來賓使用者可以兌換您的邀請，方法是按一下直接連結，或使用邀請電子郵件。 無論是哪一種方法，瀏覽器中會顯示訊息，指出驗證碼將傳送到來賓使用者的電子郵件地址。 來賓使用者可選取 [傳送驗證碼]  ：
  
    ![顯示傳送程式碼 按鈕螢幕擷取畫面](media/one-time-passcode/otp-send-code.png)
  
@@ -56,7 +56,7 @@ ms.locfileid: "65952855"
 
 邀請時，不會指出您邀請的使用者將使用單次密碼驗證。 但當來賓使用者登入時，如果沒有其他驗證方法可使用，單次密碼驗證將作為後援方法。 
 
-您可以檢視在 Azure 入口網站中使用單次密碼驗證的來賓使用者，方法是前往 [Azure Active Directory] > [組織關係] > [其他組織的使用者]。
+您可以檢視在 Azure 入口網站中使用單次密碼驗證的來賓使用者，方法是前往 [Azure Active Directory]   > [組織關係]   > [其他組織的使用者]  。
 
 ![顯示來源 OTP 值的單次密碼使用者螢幕擷取畫面](media/one-time-passcode/otp-users.png)
 
@@ -71,10 +71,10 @@ ms.locfileid: "65952855"
 
 ### <a name="to-opt-in-using-the-azure-ad-portal"></a>使用 Azure AD 入口網站選擇加入
 1.  以 Azure AD 全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-2.  在導覽窗格中，選取 [Azure Active Directory]。
-3.  在 [管理] 下方，選取 [組織關係]。
-4.  選取 [Settings] \(設定) 。
-5.  在 [為來賓啟用電子郵件單次密碼 (預覽版)] 下方，選取 [是]。
+2.  在導覽窗格中，選取 [Azure Active Directory]  。
+3.  在 [管理]  下方，選取 [組織關係]  。
+4.  選取 [Settings] \(設定)  。
+5.  在 [為來賓啟用電子郵件單次密碼 (預覽版)]  下方，選取 [是]  。
  
 ### <a name="to-opt-in-using-powershell"></a>使用 PowerShell 選擇加入
 
@@ -138,10 +138,10 @@ $currentpolicy -ne $null
 
 ### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>使用 Azure AD 入口網站關閉預覽版
 1.  以 Azure AD 全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-2.  在導覽窗格中，選取 [Azure Active Directory]。
-3.  在 [管理] 下方，選取 [組織關係]。
-4.  選取 [Settings] \(設定) 。
-5.  在 [為來賓啟用電子郵件單次密碼 (預覽版)] 下方，選取 [否]。
+2.  在導覽窗格中，選取 [Azure Active Directory]  。
+3.  在 [管理]  下方，選取 [組織關係]  。
+4.  選取 [Settings] \(設定)  。
+5.  在 [為來賓啟用電子郵件單次密碼 (預覽版)]  下方，選取 [否]  。
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>使用 PowerShell 關閉預覽版
 如果您還未安裝最新版的 AzureADPreview 模組，請安裝 (請參閱前述的[必要條件：安裝最新的 AzureADPreview 模組](#prerequisite-install-the-latest-azureadpreview-module))。 接著，執行下列內容確認單次密碼預覽原則目前存在：

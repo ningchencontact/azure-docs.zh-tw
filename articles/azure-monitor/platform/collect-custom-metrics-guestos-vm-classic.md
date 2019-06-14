@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: ''
 ms.openlocfilehash: 57212da1a8da7ee6c57faf2413b88a413df04817
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129595"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>將客體 OS 計量傳送到 Windows 虛擬機器的 Azure 監視器資料存放區 (傳統)
@@ -42,7 +42,7 @@ Azure 監視器[診斷擴充功能](https://docs.microsoft.com/azure/monitoring-
 
 1. 建立此 VM 時，請選擇建立新傳統儲存體帳戶的選項。 我們會在稍後步驟中使用此儲存體帳戶。
 
-1. 在 Azure 入口網站中，移至 [儲存體帳戶] 資源刀鋒視窗。 選取 [金鑰]，並記下儲存體帳戶名稱和儲存體帳戶金鑰。 稍後的步驟將會需要這項資訊。
+1. 在 Azure 入口網站中，移至 [儲存體帳戶]  資源刀鋒視窗。 選取 [金鑰]  ，並記下儲存體帳戶名稱和儲存體帳戶金鑰。 稍後的步驟將會需要這項資訊。
    ![儲存體存取金鑰](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
 
 ## <a name="create-a-service-principal"></a>建立服務主體
@@ -187,9 +187,9 @@ Azure 監視器[診斷擴充功能](https://docs.microsoft.com/azure/monitoring-
 
 1.  移至 Azure 入口網站。 
 
-1.  在左側功能表上，選取 [監視]。
+1.  在左側功能表上，選取 [監視]  。
 
-1.  在 [監視] 刀鋒視窗上，選取 [計量]。
+1.  在 [監視]  刀鋒視窗上，選取 [計量]  。
 
     ![瀏覽計量](./media/collect-custom-metrics-guestos-vm-classic/navigate-metrics.png)
 
@@ -197,7 +197,7 @@ Azure 監視器[診斷擴充功能](https://docs.microsoft.com/azure/monitoring-
 
 1. 在 [命名空間] 下拉式功能表中，選取 **azure.vm.windows.guest**。
 
-1. 在 [計量] 下拉式功能表中，選取 [記憶體\認可的位元組 (使用中)]。
+1. 在 [計量] 下拉式功能表中，選取 [記憶體\認可的位元組 (使用中)]  。
    ![計量繪圖](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
 
 

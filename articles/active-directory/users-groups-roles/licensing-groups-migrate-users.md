@@ -17,10 +17,10 @@ ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 333f0ae0153073b57740446ecf47e36a1f9ce590
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192446"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>如何將個別授權的使用者移轉至群組中，授權
@@ -59,13 +59,13 @@ ms.locfileid: "65192446"
 
 1. 使用 Azure 入口網站，將 EMS 授權指派給 Azure AD 中的**所有使用者**群組。 將 E3 授權指派給**財務部門**群組，包含所有必要的使用者。
 
-2. 對於每個群組，確認針對所有使用者已完成授權指派。 移至每個群組中的刀鋒視窗，選取 [授權]，然後在 [授權] 刀鋒視窗頂端檢查處理狀態。
+2. 對於每個群組，確認針對所有使用者已完成授權指派。 移至每個群組中的刀鋒視窗，選取 [授權]  ，然後在 [授權]  刀鋒視窗頂端檢查處理狀態。
 
    - 尋找「最新的授權變更已套用至所有使用者」以確認處理已完成。
 
    - 在最上層尋找任何使用者的授權可能尚未成功指派的相關通知。 我們對於某些使用者是否已用盡授權？ 某些使用者是否有衝突的授權 SKU，使其無法繼承群組授權？
 
-3. 特別檢查某些使用者，以確認其套用直接和群組授權。 移至使用者的刀鋒視窗，選取 [授權]，然後檢查授權狀態。
+3. 特別檢查某些使用者，以確認其套用直接和群組授權。 移至使用者的刀鋒視窗，選取 [授權]  ，然後檢查授權狀態。
 
    - 這是移轉期間預期的使用者狀態︰
 

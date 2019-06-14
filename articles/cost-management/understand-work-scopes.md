@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991388"
 ---
 # <a name="understand-and-work-with-scopes"></a>了解並使用範圍
@@ -154,7 +154,7 @@ Azure 訂用帳戶發票等區段，它們的 EA 註冊帳戶的方式之下巢�
 
 當使用成本管理 Api，了解範圍很重要。 您可以使用下列資訊，成本管理 api 建置適當的範圍 URI。
 
-### <a name="billing-accounts"></a>計費帳戶
+### <a name="billing-accounts"></a>帳單帳戶
 
 1. 開啟 Azure 入口網站，然後瀏覽**成本管理 + 計費**在服務清單中。
 2. 選取 **屬性**帳單的 帳戶 功能表中。
@@ -218,7 +218,7 @@ Azure 訂用帳戶發票等區段，它們的 EA 註冊帳戶的方式之下巢�
 4. 將複製的資源識別碼 欄位值。
 5. 您的範圍是： `"/subscriptions/{id}/resourceGroups/{name}"`
 
-目前支援成本的管理[Azure 全球](https://management.azure.com)並[Azure Government](https://management.usgovcloudapi.net)。 如需有關 Azure Government 的詳細資訊，請參閱 <<c0> [ 全域 Azure 和政府 API 端點](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_。_
+目前支援成本的管理[Azure 全球](https://management.azure.com)並[Azure Government](https://management.usgovcloudapi.net)。 如需有關 Azure Government 的詳細資訊，請參閱 <<c0> [ 全域 Azure 和政府 API 端點](../azure-government/documentation-government-developer-guide.md#endpoint-mapping) _。_
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
 ms.openlocfilehash: 9cfcdc879e36b93e21bff6f91886536d799553bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60924489"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>如何使用 Azure Digital Twins 管理 API
@@ -35,11 +35,11 @@ Azure Digital Twins 管理 API 可為您的 IoT 應用程式提供強大功能�
 
 * [/ontologies](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Ontologies)：這些 API 可協助您管理主體 (即為延伸類型的集合)。 主體根據各物件類型所代表的實體空間提供名稱。 例如，*BACnet* 主體為 *sensor types*、*datatypes*、*datasubtypes* 和 *dataunittypes* 提供特定名稱。 主體是由服務所建立並管理。 使用者可以載入和卸載主體。 主體載入時，其相關聯的所有類型名稱都會啟用，並準備好可在您的空間圖形中佈建。 
 
-* [/propertyKeys](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/PropertyKeys)：您可以使用這些 API 為自己的「空間」、「裝置」、「使用者」和「感應器」建立自訂屬性。 這些屬性會建立為索引鍵/值組。 您可以設定這些屬性的 *PrimitiveDataType*，定義它們的資料類型。 例如，您可以為您的感應器類型 *uint* 定義名稱為 *BasicTemperatureDeltaProcessingRefreshTime* 的屬性，然後為每個感應器指派此屬性的值。 您也可以在建立屬性時為這些值新增條件約束，例如「最小」和「最大」範圍，以及允許的值，例如 *ValidationData*。
+* [/propertyKeys](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/PropertyKeys)：您可以使用這些 API 為自己的「空間」  、「裝置」  、「使用者」  和「感應器」  建立自訂屬性。 這些屬性會建立為索引鍵/值組。 您可以設定這些屬性的 *PrimitiveDataType*，定義它們的資料類型。 例如，您可以為您的感應器類型 *uint* 定義名稱為 *BasicTemperatureDeltaProcessingRefreshTime* 的屬性，然後為每個感應器指派此屬性的值。 您也可以在建立屬性時為這些值新增條件約束，例如「最小」  和「最大」  範圍，以及允許的值，例如 *ValidationData*。
 
 * [/matchers](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Matchers)：這些 API 可讓您指定要從傳入裝置資料評估的條件。 如需詳細資訊，請參閱[這篇文章](concepts-user-defined-functions.md#matchers)。 
 
-* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions)：這些 API 可讓您建立、刪除或更新自訂函式，自訂函式可在「比對器」定義的條件發生時執行，處理來自環境的資料。 如需自訂函式 (也稱為「使用者定義函式」) 的詳細資訊，請參閱[這篇文章](concepts-user-defined-functions.md#user-defined-functions)。 
+* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions)：這些 API 可讓您建立、刪除或更新自訂函式，自訂函式可在「比對器」  定義的條件發生時執行，處理來自環境的資料。 如需自訂函式 (也稱為「使用者定義函式」  ) 的詳細資訊，請參閱[這篇文章](concepts-user-defined-functions.md#user-defined-functions)。 
 
 * [/endpoints](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Endpoints)：這些 API 可讓您建立端點，讓您的 Digital Twins 解決方案能夠與其他 Azure 服務通訊，以進行資料儲存和分析。 如需詳細資訊，請閱讀[這篇文章](concepts-events-routing.md)。 
 

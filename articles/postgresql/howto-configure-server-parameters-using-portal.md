@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: ed19083c6a4245a1b4bf7af166ae965d956c9e37
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067125"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>設定 Azure Database for PostgreSQL-透過 Azure 入口網站的單一伺服器伺服器參數 
@@ -25,22 +25,22 @@ ms.locfileid: "65067125"
 
 2. 選取適用於 PostgreSQL 的 Azure 資料庫伺服器。
 
-3. 在 [設定] 區段下，選取 [伺服器參數]。 頁面會顯示一份參數、值和說明的清單。
+3. 在 [設定]  區段下，選取 [伺服器參數]  。 頁面會顯示一份參數、值和說明的清單。
 ![參數的概觀頁面](./media/howto-configure-server-parameters-in-portal/3-overview-of-parameters.png)
 
 4. 選取**下拉**按鈕可查看列舉型別參數 (如 client_min_messages) 的可能值。
 ![列舉下拉按鈕](./media/howto-configure-server-parameters-in-portal/4-enum-drop-down.png)
 
-5. 選取或將滑鼠停留在 [i] (資訊) 按鈕上可查看數值參數 (如 cpu_index_tuple_cost) 的可能值範圍。
+5. 選取或將滑鼠停留在 [i]  (資訊) 按鈕上可查看數值參數 (如 cpu_index_tuple_cost) 的可能值範圍。
 ![資訊按鈕](./media/howto-configure-server-parameters-in-portal/4-information-button.png)
 
-6. 如有需要，使用 [搜尋方塊] 縮小至特定參數。 搜尋作業是依據參數的名稱和說明。
+6. 如有需要，使用 [搜尋方塊]  縮小至特定參數。 搜尋作業是依據參數的名稱和說明。
 ![搜尋結果](./media/howto-configure-server-parameters-in-portal/5-search.png)
 
-7. 變更您想要調整的參數值。 您在工作階段中所做的所有變更都會以紫色顯示。 變更值之後，可以選取 [儲存]。 或者，也可以 [捨棄] 您的變更。
+7. 變更您想要調整的參數值。 您在工作階段中所做的所有變更都會以紫色顯示。 變更值之後，可以選取 [儲存]  。 或者，也可以 [捨棄]  您的變更。
 ![儲存或捨棄變更](./media/howto-configure-server-parameters-in-portal/6-save-and-discard-buttons.png)
 
-8. 儲存新的參數值後，隨時可以選取 [全部重設為預設值] 回復為所有參數的預設值。
+8. 儲存新的參數值後，隨時可以選取 [全部重設為預設值]  回復為所有參數的預設值。
 ![全部重設為預設值](./media/howto-configure-server-parameters-in-portal/7-reset-to-default-button.png)
 
 ## <a name="next-steps"></a>後續步驟

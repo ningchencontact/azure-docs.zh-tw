@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: reference
 ms.date: 05/13/2019
 ms.openlocfilehash: aa5d3a0555875571276fdf4046ad0e4dd1e69bbd
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596937"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>在 Azure Logic Apps 的工作流程定義語言觸發程序和動作類型的參考
@@ -27,9 +27,9 @@ ms.locfileid: "65596937"
 
 每個工作流程包含觸發程序，其中定義具現化，並啟動工作流程執行的呼叫。 以下是一般觸發程序類別：
 
-* 輪詢觸發程序，用來定期檢查服務的端點
+* 輪詢  觸發程序，用來定期檢查服務的端點
 
-* 推送觸發程序，用來建立端點的訂閱，並提供*回呼 URL*，讓端點在指定的事件發生或資料可供使用時，可以通知觸發程序。 然後，觸發程序會等到端點回應後才引發。 
+* 推送  觸發程序，用來建立端點的訂閱，並提供*回呼 URL*，讓端點在指定的事件發生或資料可供使用時，可以通知觸發程序。 然後，觸發程序會等到端點回應後才引發。 
 
 觸發程序具有下列最上層元素 (儘管有些是選用元素)：  
   
@@ -50,7 +50,7 @@ ms.locfileid: "65596937"
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*trigger-name*> | 字串 | 觸發程序的名稱 | 
 | <*trigger-type*> | 字串 | 觸發程序類型，例如 "Http" 或 "ApiConnection" | 
@@ -61,11 +61,11 @@ ms.locfileid: "65596937"
 
 *選擇性*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*array-with-conditions*> | 陣列 | 包含一或多個[條件](#trigger-conditions)的陣列，這類條件會決定是否要執行工作流程。 僅適用於觸發程序。 | 
 | <*runtime-config-options*> | JSON 物件 | 您可以藉由設定 `runtimeConfiguration` 屬性來變更觸發程序執行階段行為。 如需詳細資訊，請參閱[執行階段組態設定](#runtime-config-options)。 | 
-| <*splitOn-expression*> | 字串 | 針對會傳回陣列的觸發程序，您可以指定運算式，將陣列項目[分割或解除批次](#split-on-debatch)為多個工作流程執行個體，以進行處理。 | 
+| <*splitOn-expression*> | 字串 | 針對會傳回陣列的觸發程序，您可以指定運算式，將陣列項目[分割或解除批次  ](#split-on-debatch)為多個工作流程執行個體，以進行處理。 | 
 | <*operation-option*> | 字串 | 您可以藉由設定 `operationOptions` 屬性來變更預設行為。 如需詳細資訊，請參閱[作業選項](#operation-options)。 | 
 |||| 
 
@@ -75,9 +75,9 @@ ms.locfileid: "65596937"
 
 ### <a name="built-in-triggers"></a>內建觸發程序
 
-| 觸發程序類型 | 說明 | 
+| 觸發程序類型 | 描述 | 
 |--------------|-------------| 
-| [**HTTP**](#http-trigger) | 檢查或輪詢任何端點。 此端點必須藉由使用 "202" 非同步模式或藉由傳回陣列，來遵守特定觸發合約。 | 
+| [**HTTP**](#http-trigger) | 檢查或輪詢  任何端點。 此端點必須藉由使用 "202" 非同步模式或藉由傳回陣列，來遵守特定觸發合約。 | 
 | [**HTTPWebhook**](#http-webhook-trigger) | 為您的邏輯應用程式建立可呼叫的端點，但會呼叫指定的 URL 以進行註冊或取消註冊。 |
 | [**Recurrence**](#recurrence-trigger) | 根據已定義的排程來引發。 您可以設定一個未來的日期和時間來引發此觸發程序。 您也可以根據頻率來指定工作流程的執行時間和日期。 | 
 | [**Request**](#request-trigger)  | 為您的邏輯應用程式建立可呼叫的端點，也稱為「手動」觸發程序。 例如，請參閱[透過 HTTP 端點呼叫、觸發或巢狀處理工作流程](../logic-apps/logic-apps-http-endpoint.md)。 | 
@@ -85,9 +85,9 @@ ms.locfileid: "65596937"
 
 ### <a name="managed-api-triggers"></a>受控 API 觸發程序
 
-| 觸發程序類型 | 說明 | 
+| 觸發程序類型 | 描述 | 
 |--------------|-------------| 
-| [**ApiConnection**](#apiconnection-trigger) | 使用 [Microsoft 管理的 API](../connectors/apis-list.md) 來檢查或輪詢端點。 | 
+| [**ApiConnection**](#apiconnection-trigger) | 使用 [Microsoft 管理的 API](../connectors/apis-list.md) 來檢查或輪詢  端點。 | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | 藉由呼叫 [Microsoft 管理的 API](../connectors/apis-list.md) 進行訂閱及取消訂閱，為您的邏輯應用程式建立可呼叫的端點。 | 
 ||| 
 
@@ -97,7 +97,7 @@ ms.locfileid: "65596937"
 
 ### <a name="apiconnection-trigger"></a>APIConnection 觸發程序  
 
-此觸發程序會使用 [Microsoft 管理的 API](../connectors/apis-list.md)，讓此觸發程序的參數可根據端點而有所差異，以檢查或輪詢端點。 此觸發程序定義中的許多區段都是選用的。 此觸發程序的行為取決於是否包含區段。
+此觸發程序會使用 [Microsoft 管理的 API](../connectors/apis-list.md)，讓此觸發程序的參數可根據端點而有所差異，以檢查或輪詢  端點。 此觸發程序定義中的許多區段都是選用的。 此觸發程序的行為取決於是否包含區段。
 
 ```json
 "<APIConnection_trigger_name>": {
@@ -130,7 +130,7 @@ ms.locfileid: "65596937"
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*APIConnection_trigger_name*> | 字串 | 觸發程序的名稱 | 
 | <*connection-name*> | 字串 | 工作流程所使用的受控 API 連線名稱 | 
@@ -142,7 +142,7 @@ ms.locfileid: "65596937"
 
 *選擇性*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*retry-behavior*> | JSON 物件 | 自訂間歇性失敗 (狀態碼為 408、429 和 5XX) 和任何連線例外狀況的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md#retry-policies)。 | 
 | <*query-parameters*> | JSON 物件 | 要包含在 API 呼叫中的任何查詢參數。 例如，`"queries": { "api-version": "2018-01-01" }` 物件會將 `?api-version=2018-01-01` 新增至呼叫。 | 
@@ -154,10 +154,10 @@ ms.locfileid: "65596937"
 
 *輸出*
  
-| 元素 | 類型 | 說明 |
+| 元素 | 類型 | 描述 |
 |---------|------|-------------|
 | headers | JSON 物件 | 回應中的標頭 |
-| 內容 | JSON 物件 | 回應中的本文 |
+| body | JSON 物件 | 回應中的本文 |
 | 狀態碼 | Integer | 回應的狀態碼 |
 |||| 
 
@@ -224,7 +224,7 @@ ms.locfileid: "65596937"
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*connection-name*> | 字串 | 工作流程所使用的受控 API 連線名稱 | 
 | <*body-content*> | JSON 物件 | 任何要以承載的形式傳送至受控 API 的訊息內容 | 
@@ -232,7 +232,7 @@ ms.locfileid: "65596937"
 
 *選擇性*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*retry-behavior*> | JSON 物件 | 自訂間歇性失敗 (狀態碼為 408、429 和 5XX) 和任何連線例外狀況的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md#retry-policies)。 | 
 | <*query-parameters*> | JSON 物件 | 要包含在 API 呼叫中的任何查詢參數 <p>例如，`"queries": { "api-version": "2018-01-01" }` 物件會將 `?api-version=2018-01-01` 新增至呼叫。 | 
@@ -303,7 +303,7 @@ ms.locfileid: "65596937"
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*method-type*> | 字串 | 要用於輪詢指定端點的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" | 
 | <*endpoint-URL*> | 字串 | 要輪詢的端點 HTTP 或 HTTPS URL <p>字串大小上限：2 KB | 
@@ -313,7 +313,7 @@ ms.locfileid: "65596937"
 
 *選擇性*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*header-content*> | JSON 物件 | 要透過要求傳送的標頭 <p>例如，若要設定要求的語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | 字串 | 要以承載的形式透過要求傳送的訊息內容 | 
@@ -327,10 +327,10 @@ ms.locfileid: "65596937"
 
 *輸出*
 
-| 元素 | 類型 | 說明 |
+| 元素 | 類型 | 描述 |
 |---------|------|-------------| 
 | headers | JSON 物件 | 回應中的標頭 | 
-| 內容 | JSON 物件 | 回應中的本文 | 
+| body | JSON 物件 | 回應中的本文 | 
 | 狀態碼 | Integer | 回應的狀態碼 | 
 |||| 
 
@@ -338,14 +338,14 @@ ms.locfileid: "65596937"
 
 若要與邏輯應用程式妥善搭配運作，端點必須符合特定的觸發模式或合約，並辨識下列屬性：  
   
-| 回應 | 必要項 | 說明 | 
+| Response | 必要項 | 描述 | 
 |----------|----------|-------------| 
-| 狀態碼 | 有 | 「200 正常」狀態碼會啟動執行。 其他任何的狀態碼則不會啟動執行。 | 
-| Retry-after 標頭 | 無 | 邏輯應用程式再次輪詢端點前的秒數 | 
-| 位置標頭 | 無 | 在下一個輪詢間隔時所要呼叫的 URL。 如果未指定，則會使用原本的 URL。 | 
+| 狀態碼 | 是 | 「200 正常」狀態碼會啟動執行。 其他任何的狀態碼則不會啟動執行。 | 
+| Retry-after 標頭 | 否 | 邏輯應用程式再次輪詢端點前的秒數 | 
+| 位置標頭 | 否 | 在下一個輪詢間隔時所要呼叫的 URL。 如果未指定，則會使用原本的 URL。 | 
 |||| 
 
-不同要求的範例行為
+不同要求的範例行為 
 
 | 狀態碼 | 多久之後重試 | 行為 | 
 |-------------|-------------|----------|
@@ -400,7 +400,7 @@ ms.locfileid: "65596937"
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*method-type*> | 字串 | 要用於訂閱要求的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH" 或 "DELETE" | 
 | <*endpoint-subscribe-URL*> | 字串 | 要傳送訂閱要求的目標端點 URL | 
@@ -408,7 +408,7 @@ ms.locfileid: "65596937"
 
 *選擇性*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*method-type*> | 字串 | 要用於取消要求的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH" 或 "DELETE" | 
 | <*endpoint-unsubscribe-URL*> | 字串 | 要傳送取消要求的目標端點 URL | 
@@ -422,10 +422,10 @@ ms.locfileid: "65596937"
 
 *輸出* 
 
-| 元素 | 類型 | 說明 |
+| 元素 | 類型 | 描述 |
 |---------|------|-------------| 
 | headers | JSON 物件 | 回應中的標頭 | 
-| 內容 | JSON 物件 | 回應中的本文 | 
+| body | JSON 物件 | 回應中的本文 | 
 | 狀態碼 | Integer | 回應的狀態碼 | 
 |||| 
 
@@ -494,7 +494,7 @@ ms.locfileid: "65596937"
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*time-unit*> | 字串 | 描述觸發程序引發頻率的時間單位："Second"、"Minute"、"Hour"、"Day"、"Week"、"Month" | 
 | <*number-of-time-units*> | Integer | 一個值，指定觸發程序根據頻率多久會引發一次，這是觸發程序再次引發之前等待的時間單位數 <p>以下是最小和最大間隔： <p>- Month：1-16 個月 </br>- Day：1-500 天 </br>- Hour：1-12,000 小時 </br>- Minute：1-72,000 分鐘 </br>- Second：1-9,999,999 秒<p>例如，如果間隔為 6，而頻率為 [月]，則週期為每 6 個月一次。 | 
@@ -502,7 +502,7 @@ ms.locfileid: "65596937"
 
 *選擇性*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | 字串 | 使用以下格式的開始日期和時間： <p>YYYY-MM-DDThh:mm:ss (如果您指定時區) <p>-或- <p>YYYY-MM-DDThh:mm:ssZ (如果您未指定時區) <p>因此，舉例來說，如果您想要的是 2017 年 9 月 18 日下午 2:00，則請指定 "2017-09-18T14:00:00"，然後指定一個時區，例如 "Pacific Standard Time"，或指定不含時區的 "2017-09-18T14:00:00Z"。 <p>**附註：** 這個開始時間必須依照 [UTC 日期時間格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)中的 [ISO 8601 日期時間規格](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)，但不含 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 如果您不指定時區，就必須在結尾加上字母 "Z"，其中不含任何空格。 這個 "Z" 係指對等的[航海時間](https://en.wikipedia.org/wiki/Nautical_time)。 <p>就簡單排程來說，開始時間係指第一次發生的時間，而就複雜排程來說，觸發程序會在開始時間一到就立即引發。 如需有關開始日期和時間的詳細資訊，請參閱[建立及排定定期執行的工作](../connectors/connectors-native-recurrence.md)。 | 
 | <*time-zone*> | 字串 | 只有當您有指定開始時間時才適用，因為此觸發程序並不接受 [UTC 時差](https://en.wikipedia.org/wiki/UTC_offset)。 指定您要套用的時區。 | 
@@ -603,7 +603,7 @@ ms.locfileid: "65596937"
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*property-name*> | 字串 | JSON 結構描述中的屬性名稱，用以說明承載 | 
 | <*property-type*> | 字串 | 屬性的類型 | 
@@ -611,7 +611,7 @@ ms.locfileid: "65596937"
 
 *選擇性*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*method-type*> | 字串 | 傳入要求要呼叫您邏輯應用程式必須使用的方法："GET"、"PUT"、"POST"、"PATCH"、"DELETE" |
 | <*relative-path-for-accepted-parameter*> | 字串 | 端點 URL 可接受的參數相對路徑 | 
@@ -683,7 +683,7 @@ ms.locfileid: "65596937"
 
 ## <a name="trigger-multiple-runs"></a>觸發多個執行
 
-如果觸發程序傳回要讓邏輯應用程式處理的陣列，有時候 "for each" 迴圈會花太多時間來處理每個陣列項目。 您可以改用觸發程序中的 **SplitOn** 屬性來對該陣列進行「解除批次」。 解除批次會分割陣列項目，並啟動新的工作流程執行個體中執行的每個陣列項目。 例如，當您想要輪詢的端點可能在輪詢間隔之間傳回多個新項目時，就適用此方法。
+如果觸發程序傳回要讓邏輯應用程式處理的陣列，有時候 "for each" 迴圈會花太多時間來處理每個陣列項目。 您可以改用觸發程序中的 **SplitOn** 屬性來對該陣列進行「解除批次」  。 解除批次會分割陣列項目，並啟動新的工作流程執行個體中執行的每個陣列項目。 例如，當您想要輪詢的端點可能在輪詢間隔之間傳回多個新項目時，就適用此方法。
 如需 **SplitOn** 在單一邏輯應用程式中可處理的陣列項目數上限，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)。 
 
 > [!NOTE]
@@ -776,7 +776,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------|
 | <*action-name*> | 字串 | 動作的名稱 | 
 | <*action-type*> | 字串 | 動作類型，例如："Http" 或 "ApiConnection"| 
@@ -787,7 +787,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *選擇性*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------|
 | <*retry-behavior*> | JSON 物件 | 自訂間歇性失敗 (狀態碼為 408、429 和 5XX) 和任何連線例外狀況的重試行為。 如需詳細資訊，請參閱重試原則。 | 
 | <*runtime-config-options*> | JSON 物件 | 對於某些動作，您可以在執行階段藉由設定 `runtimeConfiguration` 屬性來變更動作的行為。 如需詳細資訊，請參閱[執行階段組態設定](#runtime-config-options)。 | 
@@ -820,7 +820,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 ### <a name="built-in-actions"></a>內建動作
 
-| 動作類型 | 說明 | 
+| 動作類型 | 描述 | 
 |-------------|-------------| 
 | [**撰寫**](#compose-action) | 從可具有多種類型的輸入建立單一輸出。 | 
 | [**執行 JavaScript 程式碼**](#run-javascript-code) | 執行符合特定準則的 JavaScript 程式碼片段。 如需程式碼的需求和詳細資訊，請參閱[新增並使用內嵌程式碼執行的程式碼片段](../logic-apps/logic-apps-add-run-inline-code.md)。 |
@@ -841,7 +841,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 ### <a name="managed-api-actions"></a>受控 API 動作
 
-| 動作類型 | 說明 | 
+| 動作類型 | 描述 | 
 |-------------|-------------|  
 | [**ApiConnection**](#apiconnection-action) | 使用 [Microsoft 管理的 API](../connectors/apis-list.md) 來呼叫 HTTP 端點。 | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | 運作方式與 HTTPWebhook 類似，但使用 [Microsoft 管理的 API](../connectors/apis-list.md)。 | 
@@ -853,7 +853,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 這些動作可協助您控制工作流程執行，且包含其他動作。 在控制工作流程動作以外，您可以直接參考該控制工作流程動作內的動作。 例如，如果您在範圍內有 `Http` 動作，則可以從工作流程中的任一處參考 `@body('Http')` 運算式。 不過，存在於控制工作流程動作內的動作，就只能在相同控制工作流程結構中的其他動作「之後」執行。
 
-| 動作類型 | 說明 | 
+| 動作類型 | 描述 | 
 |-------------|-------------| 
 | [**ForEach**](#foreach-action) | 以迴圈對陣列中的每個項目執行相同的動作。 | 
 | [**If**](#if-action) | 根據是否符合指定的條件來執行動作。 | 
@@ -892,7 +892,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*action-name*> | 字串 | 連接器所提供的動作名稱 | 
 | <*api-name*> | 字串 | 由 Microsoft 管理、用於連線的 API 名稱 | 
@@ -902,7 +902,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *選擇性*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*other-action-specific-input-properties*> | JSON 物件 | 任何其他套用至這個特定動作的輸入屬性 | 
 | <*retry-behavior*> | JSON 物件 | 自訂間歇性失敗 (狀態碼為 408、429 和 5XX) 和任何連線例外狀況的重試行為。 如需詳細資訊，請參閱[重試原則](../logic-apps/logic-apps-exception-handling.md#retry-policies)。 | 
@@ -972,7 +972,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*action-name*> | 字串 | 連接器所提供的動作名稱 | 
 | <*method-type*> | 字串 | 要用於訂閱或取消訂閱端點的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH" 或 "DELETE" | 
@@ -981,7 +981,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *選擇性*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*api-unsubscribe-URL*> | 字串 | 用來取消訂閱 API 的 URI | 
 | <*header-content*> | JSON 物件 | 要在要求中傳送的任何標頭 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
@@ -1012,7 +1012,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *必要* 
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*inputs-to-compose*> | 任意 | 用來建立單一輸出的輸入 | 
 |||| 
@@ -1073,7 +1073,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *必要*
 
-| 值 | 類型 | 說明 |
+| 值 | 類型 | 描述 |
 |-------|------|-------------|
 | <*JavaScript-code-snippet*> | 視情況而異 | 您想要執行的 JavaScript 程式碼。 如需程式碼的需求和詳細資訊，請參閱[新增並使用內嵌程式碼執行的程式碼片段](../logic-apps/logic-apps-add-run-inline-code.md)。 <p>在 `code`屬性，您的程式碼片段可以使用唯讀`workflowContext`物件做為輸入。 此物件具有子屬性，讓您的程式碼存取權的結果可以從觸發程序和工作流程中的上一個動作。 如需詳細資訊`workflowContext`物件，請參閱 <<c2> [ 參考程式碼中的觸發程序和動作結果](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext)。 |
 ||||
@@ -1084,7 +1084,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 針對`includeTrigger`屬性，您可以指定`true`或`false`值。
 
-| Value | 類型 | 說明 |
+| 值 | 類型 | 描述 |
 |-------|------|-------------|
 | <*previous-actions*> | 字串陣列 | 具有指定的動作名稱的陣列。 使用動作名稱出現在工作流程定義中，動作名稱使用底線 (_)，不可以有空格 ("")。 |
 ||||
@@ -1150,7 +1150,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------|  
 | <*Azure-function-ID*> | 字串 | 您想要呼叫的 Azure 函式所具備的資源識別碼。 此值得格式如下：<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
 | <*method-type*> | 字串 | 要用於呼叫函式的 HTTP 方法："GET"、"PUT"、"POST"、"PATCH" 或 "DELETE" <p>若未指定，預設方法將是 "POST"。 | 
@@ -1158,7 +1158,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *選擇性*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------|  
 | <*header-content*> | JSON 物件 | 要透過呼叫傳送的任何標頭 <p>例如，若要對要求設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | JSON 物件 | 要在要求中傳送的任何訊息內容 | 
@@ -1221,7 +1221,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*method-type*> | 字串 | 要用來傳送要求的方法："GET"、"PUT"、"POST"、"PATCH" 或 "DELETE" | 
 | <*HTTP-or-HTTPS-endpoint-URL*> | 字串 | 要呼叫的 HTTP 或 HTTPS 端點。 字串大小上限：2 KB | 
@@ -1229,7 +1229,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *選擇性*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*header-content*> | JSON 物件 | 要透過要求傳送的任何標頭 <p>例如，若要設定語言和類型︰ <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | JSON 物件 | 要在要求中傳送的任何訊息內容 | 
@@ -1272,7 +1272,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*array*> | 陣列 | 提供來源項目的陣列或運算式。 如果您指定運算式，請以雙引號括住該運算式。 | 
 | <*delimiter*> | 單一字元字串 | 分隔字串中各個項目的字元 | 
@@ -1316,7 +1316,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*JSON-source*> | JSON 物件 | 您想要剖析的 JSON 內容 | 
 | <*JSON-schema*> | JSON 物件 | 說明基礎 JSON 內容的 JSON 結構描述，動作會用它來剖析來源 JSON 內容。 <p>**秘訣**：在 Logic Apps 設計工具中，您可以提供此結構描述，或提供範例承載讓動作得以產生結構描述。 | 
@@ -1418,7 +1418,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*array*> | 陣列 | 提供來源項目的陣列或運算式。 如果您指定運算式，請以雙引號括住該運算式。 |
 | <*condition-or-filter*> | 字串 | 用來對來源陣列中的項目進行篩選的條件 <p>**注意**：如果沒有符合條件的值，則動作會建立空陣列。 |
@@ -1459,14 +1459,14 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*response-status-code*> | Integer | 要傳送至連入要求的 HTTP 狀態碼。 預設代碼為「200 確定」，但代碼可以是任何以 2xx、4xx 或 5xx (不含 3xxx) 開頭的有效狀態碼。 | 
 |||| 
 
 *選擇性*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*response-headers*> | JSON 物件 | 要隨附於回應的一個或多個標頭 | 
 | <*response-body*> | 各種類型 | 回應本文，可以是字串、JSON 物件，甚至是上一節中的二進位內容 | 
@@ -1534,7 +1534,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *必要* 
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*array*> | 陣列 | 提供來源項目的陣列或運算式。 請確實以雙引號括住運算式。 <p>**注意**：如果來源陣列是空的，動作將會建立空陣列。 | 
 | <*key-name*> | 字串 | 為 <*expression*>  的結果指派的屬性名稱<p>若要為輸出陣列中的所有物件新增屬性，請為該屬性提供 <*key-name*>，並提供 <*expression*> 作為屬性值。 <p>若要移除陣列中所有物件的屬性，請省略該屬性的 <*key-name*>。 | 
@@ -1632,7 +1632,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 *必要* 
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <CSV *或* HTML>| 字串 | 您想要建立的資料表格式 | 
 | <*array*> | 陣列 | 提供資料表來源項目的陣列或運算式 <p>**注意**：如果來源陣列是空的，動作將會建立空資料表。 | 
@@ -1642,7 +1642,7 @@ Azure Logic Apps 提供各種不同的動作類型 - 各有不同的輸入會定
 
 若要指定或自訂資料行標頭和值，請使用 `columns` 陣列。 當 `header-value` 配對具有相同的標頭名稱時，其值將會出現在具有該標頭名稱的相同資料行中。 否則，每個唯一的標頭分別會定義唯一的資料行。
 
-| Value | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*column-name*> | 字串 | 資料行的標頭名稱 | 
 | <*column-value*> | 任意 | 該資料行中的值 | 
@@ -1721,7 +1721,7 @@ ID,Product_Name
 
 以下是此動作建立的 HTML 資料表： 
 
-<table><thead><tr><th>Stock_ID</th><th>說明</th></tr></thead><tbody><tr><td>0</td><td>有機蘋果</td></tr><tr><td>1</td><td>有機橘子</td></tr></tbody></table>
+<table><thead><tr><th>Stock_ID</th><th>描述</th></tr></thead><tbody><tr><td>0</td><td>有機蘋果</td></tr><tr><td>1</td><td>有機橘子</td></tr></tbody></table>
 
 <a name="terminate-action"></a>
 
@@ -1745,7 +1745,7 @@ ID,Product_Name
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*status*> | 字串 | 針對該回合要傳回的狀態："Failed"、"Cancelled" 或 "Succeeded" |
 |||| 
@@ -1754,7 +1754,7 @@ ID,Product_Name
 
 只有在 "runStatus" 屬性設定為 [失敗] 狀態時，才適用 "runStatus" 物件的屬性。
 
-| Value | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*error-code-or-name*> | 字串 | 錯誤的代碼或名稱 |
 | <*error-message*> | 字串 | 說明錯誤和應用程式使用者可行動作的訊息或文字 | 
@@ -1815,7 +1815,7 @@ ID,Product_Name
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*number-of-units*> | Integer | 針對**延遲**動作要等候的單位數 | 
 | <*interval*> | 字串 | **Delay** 動作要等候的間隔："Second"、"Minute"、"Hour"、"Day"、"Week"、"Month" | 
@@ -1888,7 +1888,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*nested-logic-app-name*> | 字串 | 您要呼叫的邏輯應用程式所具備的名稱 | 
 | <*trigger-name*> | 字串 | 您要呼叫的巢狀邏輯應用程式中包含的觸發程序名稱 | 
@@ -1899,7 +1899,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 *選擇性*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------|  
 | <*header-content*> | JSON 物件 | 要透過呼叫傳送的任何標頭 | 
 | <*body-content*> | JSON 物件 | 要透過呼叫傳送的任何訊息內容 | 
@@ -1965,7 +1965,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 *必要* 
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*action-1...n*> | 字串 | 對每個陣列項目執行的動作名稱 | 
 | <*action-definition-1...n*> | JSON 物件 | 所執行動作的定義 | 
@@ -1974,7 +1974,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 *選擇性*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*count*> | Integer | 根據預設，"for each" 迴圈逐一查看會同時執行，或依據[預設限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)以平行方式執行。 若要藉由設定新的 <*count*> 值來變更此限制，請參閱[變更 "for each" 迴圈並行](#change-for-each-concurrency)。 | 
 | <*operation-option*> | 字串 | 若要以循序方式 (而非以平行方式) 執行 "for each" 迴圈，請將 <*operation-option*> 設定為 `Sequential` 或將 <*count*> 設定為 `1`，但勿同時設定兩者。 如需詳細資訊，請參閱[循序執行 "for each" 迴圈](#sequential-for-each)。 | 
@@ -2038,7 +2038,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 }
 ```
 
-| Value | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*condition*> | JSON 物件 | 要評估的條件，可以是運算式 | 
 | <*action-1*> | JSON 物件 | <*condition*> 評估為 true 時所要執行的動作 | 
@@ -2106,7 +2106,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 ### <a name="scope-action"></a>範圍動作
 
-此動作會按邏輯將動作分成數個「範圍」，而在該範圍中的動作執行完成後取得自己的狀態。 隨後，您可以使用範圍的狀態來判斷是否有其他動作在執行。 了解[如何建立範圍](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)。
+此動作會按邏輯將動作分成數個「範圍」  ，而在該範圍中的動作執行完成後取得自己的狀態。 隨後，您可以使用範圍的狀態來判斷是否有其他動作在執行。 了解[如何建立範圍](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)。
 
 ```json
 "Scope": {
@@ -2128,7 +2128,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------|  
 | <*inner-action-1...n*> | JSON 物件 | 在範圍內執行的一或多個動作 |
 | <*action-inputs*> | JSON 物件 | 每個動作的輸入 |
@@ -2169,7 +2169,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 *必要*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*expression-object-or-token*> | 視情況而異 | 要評估的運算式、JSON 物件或權杖 | 
 | <*action-name*> | 字串 | 要為相符案例執行的動作所具備的名稱 | 
@@ -2179,7 +2179,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 *選擇性*
 
-| 值 | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*default-action-name*> | 字串 | 沒有相符案例存在時要執行的預設動作所具備的名稱 | 
 | <*default-action-definition*> | JSON 物件 | 沒有相符案例存在時要執行的動作所具備的定義 | 
@@ -2295,7 +2295,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 }
 ```
 
-| Value | 類型 | 說明 | 
+| 值 | 類型 | 描述 | 
 |-------|------|-------------| 
 | <*action-name*> | 字串 | 您要在迴圈內執行的動作名稱 | 
 | <*action-type*> | 字串 | 您要執行的動作類型 | 
@@ -2374,7 +2374,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 您可以使用觸發程序或動作定義中的下列 `runtimeConfiguration` 屬性，變更觸發程序和動作的預設執行階段行為。
 
-| 屬性 | 類型 | 說明 | 觸發程序或動作 | 
+| 屬性 | 類型 | 描述 | 觸發程序或動作 | 
 |----------|------|-------------|-------------------| 
 | `runtimeConfiguration.concurrency.runs` | Integer | 變更[*預設限制*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)可以在此同時，或以平行方式執行的工作流程執行個體的數目。 此值有助於限制後端系統接收的要求數目。 <p>將 `runs` 屬性設定為 `1` 的效用，與將 `operationOptions` 屬性設定為 `SingleInstance` 相同。 您可以設定任一屬性，但勿同時設定。 <p>若要變更預設限制，請參閱[變更觸發程序並行](#change-trigger-concurrency)或[循序觸發執行個體](#sequential-trigger)。 | 所有觸發程序 | 
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | 變更[*預設限制*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)可等候您的工作流程已在執行的最大並行執行個體時要執行的工作流程執行個體的數目。 您可以在 `concurrency.runs` 屬性中變更並行限制。 <p>若要變更預設限制，請參閱[變更等候執行限制](#change-waiting-runs)。 | 所有觸發程序 | 
@@ -2389,7 +2389,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 您可以使用觸發程序或動作定義中的 `operationOptions` 屬性，變更觸發程序和動作的預設行為。
 
-| 作業選項 | Type | 說明 | 觸發程序或動作 | 
+| 作業選項 | 類型 | 描述 | 觸發程序或動作 | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | 字串 | 同步執行 HTTP 型動作，而不是非同步執行。 <p><p>若要設定此選項，請參閱[以同步方式執行動作](#asynchronous-patterns)。 | 動作： <p>[ApiConnection](#apiconnection-action)、 <br>[HTTP](#http-action)、 <br>[回應](#response-action) | 
 | `OptimizedForHighThroughput` | 字串 | 將每 5 分鐘的動作執行數目[預設限制](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)變更為[數目上限](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)。 <p><p>若要設定此選項，請參閱[在高輸送量模式中執行](#run-high-throughput-mode)。 | 所有動作 | 
@@ -2431,11 +2431,11 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 #### <a name="edit-in-logic-apps-designer"></a>在 Logic Apps 設計工具中編輯
 
-1. 在觸發程序的右上角，選擇省略符號 (...) 按鈕，然後選擇 [設定]。
+1. 在觸發程序的右上角，選擇省略符號 (...) 按鈕，然後選擇 [設定]  。
 
-2. 在 [並行控制] 底下，將 [限制] 設定成 [開啟]。 
+2. 在 [並行控制]  底下，將 [限制]  設定成 [開啟]  。 
 
-3. 將 [平行處理原則的程度] 滑桿拖曳至您要的值。 若要循序執行邏輯應用程式，將滑桿值拖曳至 [1]。
+3. 將 [平行處理原則的程度]  滑桿拖曳至您要的值。 若要循序執行邏輯應用程式，將滑桿值拖曳至 [1]  。
 
 <a name="change-for-each-concurrency"></a>
 
@@ -2468,11 +2468,11 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 #### <a name="edit-in-logic-apps-designer"></a>在 Logic Apps 設計工具中編輯
 
-1. 在 **For each** 動作的右上角選擇省略符號 (...) 按鈕，然後選擇 [設定]。
+1. 在 **For each** 動作的右上角選擇省略符號 (...) 按鈕，然後選擇 [設定]  。
 
-2. 在 [並行控制] 底下，將 [並行控制] 設定成 [開啟]。 
+2. 在 [並行控制]  底下，將 [並行控制]  設定成 [開啟]  。 
 
-3. 將 [平行處理原則的程度] 滑桿拖曳至您要的值。 若要循序執行邏輯應用程式，將滑桿值拖曳至 [1]。
+3. 將 [平行處理原則的程度]  滑桿拖曳至您要的值。 若要循序執行邏輯應用程式，將滑桿值拖曳至 [1]  。
 
 <a name="change-waiting-runs"></a>
 
@@ -2546,11 +2546,11 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 #### <a name="edit-in-logic-apps-designer"></a>在 Logic Apps 設計工具中編輯
 
-1. 在觸發程序的右上角，選擇省略符號 (...) 按鈕，然後選擇 [設定]。
+1. 在觸發程序的右上角，選擇省略符號 (...) 按鈕，然後選擇 [設定]  。
 
-2. 在 [並行控制] 底下，將 [限制] 設定成 [開啟]。 
+2. 在 [並行控制]  底下，將 [限制]  設定成 [開啟]  。 
 
-3. 將 [平行處理原則的程度] 滑桿拖曳至數字 `1`。 
+3. 將 [平行處理原則的程度]  滑桿拖曳至數字 `1`。 
 
 <a name="sequential-for-each"></a>
 
@@ -2597,11 +2597,11 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
 
 #### <a name="edit-in-logic-apps-designer"></a>在 Logic Apps 設計工具中編輯
 
-1. 在 **For each** 動作的右上角選擇省略符號 (...) 按鈕，然後選擇 [設定]。
+1. 在 **For each** 動作的右上角選擇省略符號 (...) 按鈕，然後選擇 [設定]  。
 
-2. 在 [並行控制] 底下，將 [並行控制] 設定成 [開啟]。 
+2. 在 [並行控制]  底下，將 [並行控制]  設定成 [開啟]  。 
 
-3. 將 [平行處理原則的程度] 滑桿拖曳至數字 `1`。 
+3. 將 [平行處理原則的程度]  滑桿拖曳至數字 `1`。 
 
 <a name="asynchronous-patterns"></a>
 
@@ -2663,11 +2663,11 @@ HTTP 端點支援各種驗證。 您可以針對這些 HTTP 觸發程序和動�
 
 針對使用 Azure Active Directory 的[基本驗證](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md)，您的觸發程序或動作定義可以包含具有下表指定屬性的 `authentication` JSON 物件。 若要在執行階段存取參數值，您可以使用 `@parameters('parameterName')` 運算式 (由[工作流程定義語言](https://aka.ms/logicappsdocs)提供)。 
 
-| 屬性 | 必要項 | Value | 說明 | 
+| 屬性 | 必要項 | Value | 描述 | 
 |----------|----------|-------|-------------| 
-| **type** | 有 | "Basic" | 要使用的驗證類型，在這裡是 "Basic" | 
-| **username** | 有 | "@parameters('userNameParam')" | 用來驗證存取目標服務端點的使用者名稱 |
-| **password** | 有 | "@parameters('passwordParam')" | 用來驗證存取目標服務端點的密碼 |
+| **type** | 是 | "Basic" | 要使用的驗證類型，在這裡是 "Basic" | 
+| **username** | 是 | "@parameters('userNameParam')" | 用來驗證存取目標服務端點的使用者名稱 |
+| **password** | 是 | "@parameters('passwordParam')" | 用來驗證存取目標服務端點的密碼 |
 ||||| 
 
 在此 HTTP 動作定義範例中，`authentication` 區段會指定 `Basic` 驗證。 如需使用及保護參數的詳細資訊，請參閱[保護您的邏輯應用程式](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。
@@ -2697,11 +2697,11 @@ HTTP 端點支援各種驗證。 您可以針對這些 HTTP 觸發程序和動�
 
 針對使用 Azure Active Directory 的[憑證式驗證](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)，您的觸發程序或動作定義可以包含具有下表指定屬性的 `authentication` JSON 物件。 若要在執行階段存取參數值，您可以使用 `@parameters('parameterName')` 運算式 (由[工作流程定義語言](https://aka.ms/logicappsdocs)提供)。 如需了解可使用的用戶端憑證數量限制，請參閱 [Azure Logic Apps 的限制和設定](../logic-apps/logic-apps-limits-and-config.md)。
 
-| 屬性 | 必要項 | Value | 說明 |
+| 屬性 | 必要項 | Value | 描述 |
 |----------|----------|-------|-------------|
-| **type** | 有 | "ClientCertificate" | 用於安全通訊端層 (SSL) 用戶端憑證的驗證類型。 雖支援自我簽署憑證，但不支援 SSL 自我簽署憑證。 |
-| **pfx** | 有 | "@parameters('pfxParam') | Base64 編碼的個人資訊交換 (PFX) 檔案內容 |
-| **password** | 有 | "@parameters('passwordParam')" | 用於存取 PFX 檔案的密碼 |
+| **type** | 是 | "ClientCertificate" | 用於安全通訊端層 (SSL) 用戶端憑證的驗證類型。 雖支援自我簽署憑證，但不支援 SSL 自我簽署憑證。 |
+| **pfx** | 是 | "@parameters('pfxParam') | Base64 編碼的個人資訊交換 (PFX) 檔案內容 |
+| **password** | 是 | "@parameters('passwordParam')" | 用於存取 PFX 檔案的密碼 |
 ||||| 
 
 在此 HTTP 動作定義範例中，`authentication` 區段會指定 `ClientCertificate` 驗證。 如需使用及保護參數的詳細資訊，請參閱[保護您的邏輯應用程式](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)。
@@ -2731,14 +2731,14 @@ HTTP 端點支援各種驗證。 您可以針對這些 HTTP 觸發程序和動�
 
 針對 [Azure AD OAuth 驗證](../active-directory/develop/authentication-scenarios.md)，您的觸發程序或動作定義可以包含具有下表指定屬性的 `authentication` JSON 物件。 若要在執行階段存取參數值，您可以使用 `@parameters('parameterName')` 運算式 (由[工作流程定義語言](https://aka.ms/logicappsdocs)提供)。
 
-| 屬性 | 必要項 | Value | 說明 |
+| 屬性 | 必要項 | Value | 描述 |
 |----------|----------|-------|-------------|
-| **type** | 有 | `ActiveDirectoryOAuth` | 要使用的驗證類型，針對 Azure AD OAuth 是 "ActiveDirectoryOAuth" |
-| **authority** | 無 | <*URL-for-authority-token-issuer*> | 提供驗證權杖的授權單位 URL |
-| **tenant** | 有 | <*tenant-ID*> | Azure AD 租用戶的租用戶識別碼 |
-| **audience** | 有 | <*resource-to-authorize*> | 您希望用於授權的資源，例如，`https://management.core.windows.net/` |
-| **clientId** | 有 | <*client-ID*> | 要求授權的應用程式用戶端識別碼 |
-| **credentialType** | 有 | "Certificate" 或 "Secret" | 用戶端用來要求授權的認證類型。 此屬性與值不會出現在您的基礎定義中，但是會決定認證類型的必要參數。 |
+| **type** | 是 | `ActiveDirectoryOAuth` | 要使用的驗證類型，針對 Azure AD OAuth 是 "ActiveDirectoryOAuth" |
+| **authority** | 否 | <*URL-for-authority-token-issuer*> | 提供驗證權杖的授權單位 URL |
+| **tenant** | 是 | <*tenant-ID*> | Azure AD 租用戶的租用戶識別碼 |
+| **audience** | 是 | <*resource-to-authorize*> | 您希望用於授權的資源，例如，`https://management.core.windows.net/` |
+| **clientId** | 是 | <*client-ID*> | 要求授權的應用程式用戶端識別碼 |
+| **credentialType** | 是 | "Certificate" 或 "Secret" | 用戶端用來要求授權的認證類型。 此屬性與值不會出現在您的基礎定義中，但是會決定認證類型的必要參數。 |
 | **pfx** | 是，僅適用於 "Certificate" 認證類型 | "@parameters('pfxParam') | Base64 編碼的個人資訊交換 (PFX) 檔案內容 |
 | **password** | 是，僅適用於 "Certificate" 認證類型 | "@parameters('passwordParam')" | 用於存取 PFX 檔案的密碼 |
 | **secret** | 是，僅適用於 "Secret" 認證類型 | "@parameters('secretParam')" | 要求授權用的用戶端密碼 |

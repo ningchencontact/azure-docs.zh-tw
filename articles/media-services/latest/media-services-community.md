@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: juliako
 ms.openlocfilehash: 6a3c02c1f14c37317a03cb6ebe63bcddc92f3253
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64710173"
 ---
 # <a name="azure-media-services-community"></a>Azure 媒體服務社群  
@@ -52,7 +52,7 @@ ms.locfileid: "64710173"
 
 下表列出功能子小組的電子郵件：
 
-| 功能 | 電子郵件 |
+| 功能 | Email |
 | --- | --- |
 | Azure 媒體播放器 |ampinfo@microsoft.com |
 | Azure 媒體瀏覽器 |amse@microsoft.com |

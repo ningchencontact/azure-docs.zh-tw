@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: cfa6a363725c35083b32d6de1dd1371777f91907
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240294"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Mobile Apps 和行動服務中的用戶端和伺服器版本控制
@@ -34,7 +34,7 @@ Mobile Apps 用戶端和伺服器 SDK 最初是以行動服務中的 SDK 為基�
 ## <a name="header-specification"></a>標頭規格
 鍵值 `ZUMO-API-VERSION` 可以在 HTTP 標頭或查詢字串中指定。 值是版本字串，格式為 **x.y.z**。
 
-例如: 
+例如:
 
 GET https://service.azurewebsites.net/tables/TodoItem
 
@@ -52,7 +52,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 ### <a name="MobileAppsClients"></a> Mobile Apps  用戶端 SDK
 版本檢查是從 **Azure Mobile Apps**下列版本的用戶端 SDK 開始引進：
 
-| 用戶端平台 | 版本 | 版本標頭值 |
+| 用戶端平台 | Version | 版本標頭值 |
 | --- | --- | --- |
 | 受控用戶端 (Windows、Xamarin) |[2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) |2.0.0 |
 | iOS |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=529823) |2.0.0 |

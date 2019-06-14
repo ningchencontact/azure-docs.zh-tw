@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
 ms.openlocfilehash: b3225d8d2f9eb7ccd0f4087d93cd9c1d940783d9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714687"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>適用於網路安全性群組的診斷記錄
@@ -38,13 +38,13 @@ ms.locfileid: "64714687"
 ### <a name="azure-portal"></a>Azure 入口網站
 
 1. 登入[入口網站](https://portal.azure.com)。
-2. 選取 [所有服務]，然後輸入*網路安全性群組*。 當 [網路安全性群組] 出現在搜尋結果中時，請選取它。
+2. 選取 [所有服務]  ，然後輸入*網路安全性群組*。 當 [網路安全性群組]  出現在搜尋結果中時，請選取它。
 3. 選取您想要啟用記錄功能的 NSG。
-4. 在 [監視] 下方，選取 [診斷記錄]，然後選取 [開啟診斷]，如下圖所示：
+4. 在 [監視]  下方，選取 [診斷記錄]  ，然後選取 [開啟診斷]  ，如下圖所示：
 
    ![開啟診斷](./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png)
 
-5. 在 [診斷設定] 下方，輸入或選取下列資訊，然後選取 [儲存]：
+5. 在 [診斷設定]  下方，輸入或選取下列資訊，然後選取 [儲存]  ：
 
     | 設定                                                                                     | 值                                                          |
     | ---------                                                                                   |---------                                                       |
@@ -69,7 +69,7 @@ $Nsg=Get-AzNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup
 ```
 
-您可以將診斷記錄寫入至三種目的地類型。 如需詳細資訊，請參閱[記錄目的地](#log-destinations)。 舉例來說，本文中的內容會將記錄傳送到 *Log Analytics* 目的地。 擷取與現有的 Log Analytics 工作區[Get AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace)。 例如，若要在名為 myWorkspaces 的資源群組中擷取名為 myWorkspace 的現有工作區，請輸入下列命令：
+您可以將診斷記錄寫入至三種目的地類型。 如需詳細資訊，請參閱[記錄目的地](#log-destinations)。 舉例來說，本文中的內容會將記錄傳送到 *Log Analytics* 目的地。 擷取與現有的 Log Analytics 工作區[Get AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace)。 例如，若要在名為 myWorkspaces  的資源群組中擷取名為 myWorkspace  的現有工作區，請輸入下列命令：
 
 ```azurepowershell-interactive
 $Oms=Get-AzOperationalInsightsWorkspace `
@@ -110,7 +110,7 @@ nsgId=$(az network nsg show \
 
 您可以將診斷記錄寫入至三種目的地類型。 如需詳細資訊，請參閱[記錄目的地](#log-destinations)。 舉例來說，本文中的內容會將記錄傳送到 *Log Analytics* 目的地。 如需詳細資訊，請參閱[記錄類別](#log-categories)。
 
-使用 [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 來針對 NSG 啟用診斷記錄。 下列範例會將事件和計數器類別資料都記錄到名為 myWorkspace 的現有工作區，該工作區存在於名為 myWorkspaces 的資源群組中，NSG 識別碼則是您先前所擷取的：
+使用 [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 來針對 NSG 啟用診斷記錄。 下列範例會將事件和計數器類別資料都記錄到名為 myWorkspace  的現有工作區，該工作區存在於名為 myWorkspaces  的資源群組中，NSG 識別碼則是您先前所擷取的：
 
 ```azurecli-interactive
 az monitor diagnostic-settings create \

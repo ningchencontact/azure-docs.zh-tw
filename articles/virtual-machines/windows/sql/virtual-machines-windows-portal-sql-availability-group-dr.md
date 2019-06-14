@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.openlocfilehash: f9e31ac7685d597c741033bc165c6a51280e3d72
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571739"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>在不同區域的 Azure 虛擬機器上設定 Always On 可用性群組
@@ -96,7 +96,7 @@ ms.locfileid: "64571739"
 
 1. 在叢集上建立 IP 位址資源。
 
-   您可以在「容錯移轉叢集管理員」中建立 IP 位址資源。 在可用性群組角色上按一下滑鼠右鍵，然後依序按一下 [加入資源]、[其他資源]、[IP 位址]。
+   您可以在「容錯移轉叢集管理員」中建立 IP 位址資源。 在可用性群組角色上按一下滑鼠右鍵，然後依序按一下 [加入資源]  、[其他資源]  、[IP 位址]  。
 
    ![建立 IP 位址](./media/virtual-machines-windows-portal-sql-availability-group-dr/20-add-ip-resource.png)
 
@@ -124,7 +124,7 @@ ms.locfileid: "64571739"
    >[!IMPORTANT]
    >叢集資源群組同時包含兩個 IP位址。 這兩個 IP 位址都是接聽程式用戶端存取點的相依性。 在叢集相依性組態中，請使用 **OR** 運算子。
 
-1. [在 PowerShell 中设置群集参数](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam)。
+1. [在 PowerShell 中設定叢集參數](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam)。
 
 使用您在新區域中負載平衡器上設定的叢集網路名稱、IP 位址及探查連接埠來執行 PowerShell 指令碼。
 
@@ -151,25 +151,25 @@ ms.locfileid: "64571739"
 
 若要測試對遠端區域的接聽程式連線能力，您可以將複本容錯移轉至遠端區域。 當複本是非同步複本時，容錯移轉容易導致潛在的資料遺失。 若要容錯移轉又不遺失資料，請將可用性模式變更為同步，並將容錯移轉模式設定為自動。 請使用下列步驟：
 
-1. 在 [物件總管] 中，連接到裝載主要複本的 SQL Server 執行個體。
-1. 在 [AlwaysOn 可用性群組]、[可用性群組] 底下，於您的可用性群組上按一下滑鼠右鍵，然後按一下 [屬性]。
-1. 在 [一般] 頁面上的 [可用性複本] 底下，將 DR 站台中的次要複本設定成使用 [同步認可] 模式和 [自動] 容錯移轉模式。
-1. 如果您在與主要複本相同的站台中有次要複本以支援高可用性，請將此複本設定為 [非同步認可] 和 [手動]。
+1. 在 [物件總管]  中，連接到裝載主要複本的 SQL Server 執行個體。
+1. 在 [AlwaysOn 可用性群組]  、[可用性群組]  底下，於您的可用性群組上按一下滑鼠右鍵，然後按一下 [屬性]  。
+1. 在 [一般]  頁面上的 [可用性複本]  底下，將 DR 站台中的次要複本設定成使用 [同步認可]  模式和 [自動]  容錯移轉模式。
+1. 如果您在與主要複本相同的站台中有次要複本以支援高可用性，請將此複本設定為 [非同步認可]  和 [手動]  。
 1. 按一下 [確定]。
-1. 在 [物件總管] 中，於可用性群組上按一下滑鼠右鍵，然後按一下 [顯示儀表板]。
+1. 在 [物件總管]  中，於可用性群組上按一下滑鼠右鍵，然後按一下 [顯示儀表板]  。
 1. 在儀表板上，確認 DR 站台上的複本已同步。
-1. 在 [物件總管] 中，於可用性群組上按一下滑鼠右鍵，然後按一下 [容錯移轉]。SQL Server Management Studio 會開啟精靈來容錯移轉 SQL Server。  
-1. 按 [下一步]，然後選取 DR 站台中的 SQL Server 執行個體。 再按一下 [下一步]  。
-1. 連接到 DR 站台中的 SQL Server 執行個體，然後按 [下一步]。
-1. 在 [摘要] 頁面上確認設定，然後按一下 [完成]。
+1. 在 [物件總管]  中，於可用性群組上按一下滑鼠右鍵，然後按一下 [容錯移轉]  。SQL Server Management Studio 會開啟精靈來容錯移轉 SQL Server。  
+1. 按 [下一步]  ，然後選取 DR 站台中的 SQL Server 執行個體。 再按一下 [下一步]  。
+1. 連接到 DR 站台中的 SQL Server 執行個體，然後按 [下一步]  。
+1. 在 [摘要]  頁面上確認設定，然後按一下 [完成]  。
 
 測試完連線之後，請將主要複本移回到您的主要資料中心，並將可用性模式設定回其一般作業設定。 下表顯示本文件所述架構的一般作業設定：
 
 | 位置 | 伺服器執行個體 | 角色 | 可用性模式 | 容錯移轉模式
 | ----- | ----- | ----- | ----- | -----
 | 主要資料中心 | SQL-1 | 主要 | 同步 | 自動
-| 主数据中心 | SQL-2 | 次要 | 同步 | 自动
-| 次要或遠端資料中心 | SQL-3 | 辅助 | 异步 | 手動
+| 主要資料中心 | SQL-2 | 次要 | 同步 | 自動
+| 次要或遠端資料中心 | SQL-3 | 次要 | 非同步的 | 手動
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>有關計劃性和強制性容錯移轉的更多詳細資訊
@@ -181,7 +181,7 @@ ms.locfileid: "64571739"
 
 ## <a name="additional-links"></a>其他連結
 
-* [Always On 可用性组](https://msdn.microsoft.com/library/hh510230.aspx)
-* [Azure 虚拟机](https://docs.microsoft.com/azure/virtual-machines/windows/)
+* [Always On 可用性群組](https://msdn.microsoft.com/library/hh510230.aspx)
+* [Azure 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Azure Load Balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Azure 可用性設定組](../manage-availability.md)

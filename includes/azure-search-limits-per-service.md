@@ -9,17 +9,17 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: b298c87d802314bd865bd6f38c35e4361eb69f3f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160490"
 ---
-儲存體受限於磁碟空間，或者索引、文件或其他高層級資源的「數目上限」，取決於何者較早出現。 下表記載儲存體限制。 如需索引、 文件和其他物件的最大限制，請參閱[資源限制](../articles/search/search-limits-quotas-capacity.md#index-limits)。
+儲存體受限於磁碟空間，或者索引、文件或其他高層級資源的「數目上限」  ，取決於何者較早出現。 下表記載儲存體限制。 如需索引、 文件和其他物件的最大限制，請參閱[資源限制](../articles/search/search-limits-quotas-capacity.md#index-limits)。
 
-| Resource | 免費 | 基本<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
+| 資源 | 免費 | 基本<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 服務等級協定 (SLA)<sup>3</sup>  |無 |yes |是 |是 |是 |是 |是 |有 |
+| 服務等級協定 (SLA)<sup>3</sup>  |否 |yes |是 |是 |是 |是 |是 |是 |
 | 每個資料分割的儲存體 |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
 | 每個服務的分割區 |N/A |1 |12 |12 |12 |3 |12 |12 |
 | 分割區大小 |N/A |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |

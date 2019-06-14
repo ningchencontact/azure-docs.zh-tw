@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a017c13008288b26ddb11bf58be1966d652bbae
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540560"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>如何尋找自訂開發應用程式所需的特定 API
@@ -28,7 +28,7 @@ ms.locfileid: "65540560"
 
 ## <a name="configuring-a-resource-application-to-expose-web-apis"></a>設定資源應用程式以公開 Web API
 
-當您公開 Web API 時，該 API 會在將權限新增到應用程式註冊時顯示於 [選取 API] 清單中。 若要新增存取範圍，請依照[新增資源應用程式的存取範圍](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)中概述的步驟執行。
+當您公開 Web API 時，該 API 會在將權限新增到應用程式註冊時顯示於 [選取 API]  清單中。 若要新增存取範圍，請依照[新增資源應用程式的存取範圍](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)中概述的步驟執行。
 
 ## <a name="configuring-a-client-application-to-access-web-apis"></a>設定用戶端應用程式以存取 Web API
 

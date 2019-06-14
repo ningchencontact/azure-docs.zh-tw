@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: chstone
 ms.openlocfilehash: e17a91a35b69102e4e0ac6025559bbc32e71d8fb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024135"
 ---
 # <a name="example-multi-level-facets-in-azure-search"></a>範例：Azure 搜尋服務中的多層級 Facet
@@ -87,7 +87,7 @@ categories.count = sum;
   ![多層級 Facet 篩選](./media/search-example-adventureworks/multi-level-facet.png "多層級 Facet 篩選")
 
  
-樹狀結構中的每個連結均應套用相關篩選。 例如︰
+樹狀結構中的每個連結均應套用相關篩選。 例如:
 
 + **taxonomy/any**`(x:x eq 'Accessories')` 會傳回「配件」分支中的所有文件
 + **taxonomy/any**`(x:x eq 'Accessories|Bike Racks')` 只會傳回「配件」分支下具有 Bike Racks 子類別的文件。

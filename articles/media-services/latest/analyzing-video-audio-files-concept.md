@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.openlocfilehash: 9154e5d58a36bde1827d63d11d57a77b4289a781
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64689352"
 ---
 # <a name="analyzing-video-and-audio-files"></a>分析視訊和音訊檔案
@@ -100,7 +100,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="ocr"></a>ocr
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|OCR 行識別碼。|
 |text|OCR 文字。|
@@ -188,7 +188,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="shots"></a>擷取畫面
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|擷取畫面識別碼。|
 |keyFrames|擷取畫面的主要畫面清單 (每個主要畫面都有一個識別碼和執行個體的時間範圍清單)。 主要畫面格執行個體中有縮圖識別碼欄位，其中包含主要畫面格的縮圖識別碼。|
@@ -245,7 +245,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="statistics"></a>統計資料
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |CorrespondenceCount|影片中的對應數目。|
 |WordCount|每個說話者的字數。|

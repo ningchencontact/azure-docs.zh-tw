@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
 ms.openlocfilehash: 2a6d670ba9f2f496cc94d2790eb6f66d46305746
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65872792"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 開發人員參考
@@ -53,7 +53,7 @@ Azure Functions 支援 C# 和 C# 指令碼程式設計語言。 如果您需要[
 此目錄會部署至 Azure 中的函數應用程式。 Functions 執行階段[版本 2.x](functions-versions.md) 中所需之繫結延伸模組會[以 NuGet 封裝形式新增至專案](./functions-bindings-register.md#c-class-library-with-visual-studio-2019)。
 
 > [!IMPORTANT]
-> 建置流程會為每個函式都建立 function.json 檔案。 這個 function.json 檔案不適合直接編輯。 您無法編輯此檔案來變更繫結設定或停用函式。 若要了解如何停用函式，請參閱[如何停用函式](disable-function.md#functions-2x---c-class-libraries)。
+> 建置流程會為每個函式都建立 function.json  檔案。 這個 function.json  檔案不適合直接編輯。 您無法編輯此檔案來變更繫結設定或停用函式。 若要了解如何停用函式，請參閱[如何停用函式](disable-function.md#functions-2x---c-class-libraries)。
 
 ## <a name="methods-recognized-as-functions"></a>辨識為函式的方法
 
@@ -156,7 +156,7 @@ public static class BindingExpressionsExample
 
 *function.json* 檔案產生是由 NuGet 套件 [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions) 執行。 
 
-Functions 執行階段的 1.x 版和 2.x 版都是使用同一個套件。 1.x 專案與 2.x 專案可依目標架構來區分。 以下是 *.csproj* 檔案的相關部分，顯示不同的目標架構和相同的 `Sdk` 套件：
+Functions 執行階段的 1.x 版和 2.x 版都是使用同一個套件。 1\.x 專案與 2.x 專案可依目標架構來區分。 以下是 *.csproj* 檔案的相關部分，顯示不同的目標架構和相同的 `Sdk` 套件：
 
 **Functions 1.x**
 
@@ -329,7 +329,7 @@ public static class EnvironmentVariablesExample
 
 ## <a name="binding-at-runtime"></a>執行階段的繫結
 
-在 C# 和其他 .NET 語言中，您可以使用相對於屬性中[宣告式](https://en.wikipedia.org/wiki/Declarative_programming)繫結的[命令式](https://en.wikipedia.org/wiki/Imperative_programming)繫結模式。 當繫結參數需要在執行階段而不是設計階段中計算時，命令式繫結非常有用。 利用此模式，您可以快速在您的函式程式碼中繫結至支援的輸入和輸出繫結。
+在 C# 和其他 .NET 語言中，您可以使用相對於屬性中[宣告式](https://en.wikipedia.org/wiki/Declarative_programming)  繫結的[命令式](https://en.wikipedia.org/wiki/Imperative_programming)繫結模式。 當繫結參數需要在執行階段而不是設計階段中計算時，命令式繫結非常有用。 利用此模式，您可以快速在您的函式程式碼中繫結至支援的輸入和輸出繫結。
 
 定義命令式繫結，如下所示︰
 
@@ -373,7 +373,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>多個屬性範例
 
-先前的範例會取得函數應用程式主要儲存體帳戶連接字串的應用程式設定 (也就是 `AzureWebJobsStorage`)。 您可以指定要用於儲存體帳戶的自訂應用程式設定，方法是新增 [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) 並將屬性陣列傳遞至 `BindAsync<T>()`。 使用 `Binder` 參數，而不是 `IBinder`。  例如：
+先前的範例會取得函數應用程式主要儲存體帳戶連接字串的應用程式設定 (也就是 `AzureWebJobsStorage`)。 您可以指定要用於儲存體帳戶的自訂應用程式設定，方法是新增 [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) 並將屬性陣列傳遞至 `BindAsync<T>()`。 使用 `Binder` 參數，而不是 `IBinder`。  例如:
 
 ```cs
 public static class IBinderExampleMultipleAttributes

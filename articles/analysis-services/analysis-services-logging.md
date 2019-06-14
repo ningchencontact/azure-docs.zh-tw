@@ -9,10 +9,10 @@ ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142596"
 ---
 # <a name="setup-diagnostic-logging"></a>設定診斷記錄
@@ -25,11 +25,11 @@ ms.locfileid: "66142596"
 
 ## <a name="whats-logged"></a>記錄的內容？
 
-您可以選取 [引擎]、[服務]，和 [計量] 類別。
+您可以選取 [引擎]  、[服務]  ，和 [計量]  類別。
 
 ### <a name="engine"></a>引擎
 
-選取 [引擎] 記錄所有 [xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events)。 您無法選取個別事件。 
+選取 [引擎]  記錄所有 [xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events)。 您無法選取個別事件。 
 
 |XEvent 類別 |事件名稱  |
 |---------|---------|
@@ -73,23 +73,23 @@ ms.locfileid: "66142596"
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-1. 在 [Azure 入口網站](https://portal.azure.com) > 伺服器中，在左側瀏覽區中按一下 [診斷記錄]，然後按一下 [開啟診斷]。
+1. 在 [Azure 入口網站](https://portal.azure.com) > 伺服器中，在左側瀏覽區中按一下 [診斷記錄]  ，然後按一下 [開啟診斷]  。
 
     ![在 Azure 入口網站中開啟 Azure Cosmos DB 的診斷記錄](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. 在 [診斷設定] 中，指定下列選項： 
+2. 在 [診斷設定]  中，指定下列選項： 
 
     * **名稱**。 輸入要建立之記錄的名稱。
 
     * **封存至儲存體帳戶**。 若要使用此選項，您需要可以連接的現有儲存體帳戶。 請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md)。 請依照指示建立資源管理員、一般用途的帳戶，然後在返回入口網站上的此頁面時，選取您的儲存體帳戶。 新建立的儲存體帳戶可能在數分鐘後才會出現在下拉式功能表中。
     * **串流處理至事件中樞**。 若要使用此選項，您需要可以連接的現有事件中樞命名空間和事件中樞。 若想深入了解，請參閱[使用 Azure 入口網站來建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。 然後返回入口網站的此頁面選取事件中樞命名空間和原則名稱。
-    * **傳送至 Azure 監視器 (Log Analytics 工作區)**。 若要使用此選項，請使用現有的工作區，或是在入口網站中[建立新的工作區](../azure-monitor/learn/quick-create-workspace.md)資源。 如需有關如何檢視記錄的詳細資訊，請參閱本文中的[檢視 Log Analytics 工作區中的記錄](#view-logs-in-log-analytics-workspace)。
+    * **傳送至 Azure 監視器 (Log Analytics 工作區)** 。 若要使用此選項，請使用現有的工作區，或是在入口網站中[建立新的工作區](../azure-monitor/learn/quick-create-workspace.md)資源。 如需有關如何檢視記錄的詳細資訊，請參閱本文中的[檢視 Log Analytics 工作區中的記錄](#view-logs-in-log-analytics-workspace)。
 
     * **引擎**。 選取此選項可記錄 xEvents。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
     * **服務**。 選取此選項可記錄服務層級事件。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
     * **計量**。 選取此選項可儲存[計量](analysis-services-monitor.md#server-metrics)中的詳細資料。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
 
-3. 按一下 [檔案] 。
+3. 按一下 [檔案]  。
 
     如果您收到錯誤，指出「無法更新 \<工作區名稱> 的診斷。 訂用帳戶 \<訂用帳戶識別碼> 未註冊為使用 microsoft.insights」， 請遵循[針對 Azure 診斷進行疑難排解](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)的指示註冊帳戶，然後重試此程序。
 
@@ -155,11 +155,11 @@ ms.locfileid: "66142596"
 
 計量和伺服器事件會與您 Log Analytics 工作區中的 xEvents 整合，以進行並列分析。 您也可以將 Log Analytics 工作區設定為接收來自其他 Azure 服務的事件，以提供整個架構之診斷記錄資料的整體檢視。
 
-若要檢視診斷資料，請開啟 Log Analytics 工作區左側功能表中的 [記錄]。
+若要檢視診斷資料，請開啟 Log Analytics 工作區左側功能表中的 [記錄]  。
 
 ![Azure 入口網站中的記錄搜尋選項](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-在查詢產生器中，展開 [LogManagement] > [AzureDiagnostics]。 AzureDiagnostics 包括「引擎」和「服務」事件。 留意到查詢是即時建立的。 EventClass\_s 的欄位包含 xEvent 名稱，如果您曾經使用 xEvents 進行內部部署記錄，這些名稱就可能看起來似曾相似。 按一下 [EventClass\_s] 或其中一個事件名稱，Log Analytics 工作區將會繼續建構查詢。 請務必儲存您的查詢，以供日後重複使用。
+在查詢產生器中，展開 [LogManagement]   > [AzureDiagnostics]  。 AzureDiagnostics 包括「引擎」和「服務」事件。 留意到查詢是即時建立的。 EventClass\_s 的欄位包含 xEvent 名稱，如果您曾經使用 xEvents 進行內部部署記錄，這些名稱就可能看起來似曾相似。 按一下 [EventClass\_s]  或其中一個事件名稱，Log Analytics 工作區將會繼續建構查詢。 請務必儲存您的查詢，以供日後重複使用。
 
 ### <a name="example-query"></a>範例查詢
 此範例會計算並傳回模型資料庫和伺服器之每個查詢結束/重新整理結束活動的 CPU：

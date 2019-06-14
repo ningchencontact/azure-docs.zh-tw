@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/25/2019
 ms.author: cshoe
 ms.openlocfilehash: 53eb5fc9389d913ecacec3729a06e47a1c2bf56b
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864556"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>註冊 Azure Functions 繫結延伸模組
@@ -29,7 +29,7 @@ ms.locfileid: "65864556"
 
 下表指出您何時及如何註冊繫結。
 
-| 開發環境 |登錄<br/> 在 Functions 1.x 中  |登錄<br/> 在 Functions 2.x 中  |
+| 開發環境 |註冊<br/> 在 Functions 1.x 中  |註冊<br/> 在 Functions 2.x 中  |
 |-------------------------|------------------------------------|------------------------------------|
 |Azure 入口網站|自動|自動|
 |非.NET 語言或本機 Azure Core Tools 開發|自動|[使用 Azure Functions Core Tools 和延伸模組套件組合](#local-development-with-azure-functions-core-tools-and-extension-bundles)|

@@ -10,10 +10,10 @@ ms.custom: seodec18
 ms.reviewer: arduppal
 manager: philmea
 ms.openlocfilehash: d844e81de9cfb556e91ab5c0d5a8074c822cce0a
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65990475"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>將 Azure Blob 儲存體，在 IoT Edge 模組部署到您的裝置
@@ -33,9 +33,9 @@ Azure 入口網站會引導您建立部署資訊清單，並將部署推送至 I
 ### <a name="select-your-device"></a>選取您的裝置
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 IoT 中樞。
-1. 選取功能表中的 [IoT Edge]。
+1. 選取功能表中的 [IoT Edge]  。
 1. 按一下裝置清單中目標裝置的識別碼。
-1. 選取 [設定模組]。
+1. 選取 [設定模組]  。
 
 ### <a name="configure-a-deployment-manifest"></a>設定部署資訊清單
 
@@ -43,7 +43,7 @@ Azure 入口網站會引導您建立部署資訊清單，並將部署推送至 I
 
 #### <a name="add-modules"></a>新增模組
 
-1. 在頁面的 [部署模組] 區段中，選取 [新增]。
+1. 在頁面的 [部署模組]  區段中，選取 [新增]  。
 
 1. 從下拉式清單中的模組類型，選取**IoT Edge 模組**。
 
@@ -82,8 +82,8 @@ Azure 入口網站會引導您建立部署資訊清單，並將部署推送至 I
 
    - 取代`<storage directory bind>`根據您容器的作業系統。 提供[磁碟區](https://docs.docker.com/storage/volumes/)的名稱，或您想要 Blob 模組儲存其資料的 IoT Edge 裝置目錄絕對路徑。 儲存體目錄繫結會對應模組中您提供要設定位置的裝置。
 
-     - 適用於 Linux 容器的格式是*\<儲存體路徑 >: / blobroot*。 例如， **/srv/containerdata: / blobroot**或是**my 磁碟區: / blobroot**。
-     - 格式是適用於 Windows 容器*\<儲存體路徑 >: C: / BlobRoot*。 例如， **c: / ContainerData:C: / BlobRoot**或是**我-磁碟區： C: / blobroot**。
+     - 適用於 Linux 容器的格式是 *\<儲存體路徑 >: / blobroot*。 例如， **/srv/containerdata: / blobroot**或是**my 磁碟區: / blobroot**。
+     - 格式是適用於 Windows 容器 *\<儲存體路徑 >: C: / BlobRoot*。 例如， **c: / ContainerData:C: / BlobRoot**或是**我-磁碟區： C: / blobroot**。
 
      > [!IMPORTANT]
      > 請勿變更儲存體目錄繫結的後半段 (指向模組中的特定位置)。 此儲存體目錄繫結的結尾對於 Linux 容器應一律為 **:/blobroot**，對於 Windows 容器應一律為 **:C:/BlobRoot**。
@@ -120,7 +120,7 @@ Azure 入口網站會引導您建立部署資訊清單，並將部署推送至 I
 
 1. 選取 [ **儲存**]。
 
-1. 選取 [下一步] 繼續前往路由區段。
+1. 選取 [下一步]  繼續前往路由區段。
 
 #### <a name="specify-routes"></a>指定路由
 
@@ -130,14 +130,14 @@ Azure 入口網站會引導您建立部署資訊清單，並將部署推送至 I
 
 檢閱區段會顯示 JSON 部署資訊清單，該清單會根據您在前兩個區段中的選項而建立。 另外還有兩個模組宣告您未新增︰ **$edgeAgent**並 **$edgeHub**。 這兩個模組組成 [IoT Edge 執行階段](iot-edge-runtime.md)，在每個部署中都是必要的預設值。
 
-檢閱您的部署資訊，然後選取 [提交]。
+檢閱您的部署資訊，然後選取 [提交]  。
 
 ### <a name="verify-your-deployment"></a>驗證您的部署
 
-提交部署之後，您會返回您 IoT 中樞的 [IoT Edge] 頁面。
+提交部署之後，您會返回您 IoT 中樞的 [IoT Edge]  頁面。
 
 1. 選取您使用部署設定為目標的 IoT Edge 裝置，以開啟其詳細資料。
-1. 在裝置詳細資料中，確認 Blob 儲存體模組列為 [指定於部署中] 和 [由裝置回報]。
+1. 在裝置詳細資料中，確認 Blob 儲存體模組列為 [指定於部署中]  和 [由裝置回報]  。
 
 模組在裝置上啟動然後向 IoT 中樞回報可能需要一點時間。 重新整理頁面來查看更新狀態。
 
@@ -145,9 +145,9 @@ Azure 入口網站會引導您建立部署資訊清單，並將部署推送至 I
 
 Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案。 若要使用 blob 儲存體模組中建立新的 IoT Edge 方案，並設定部署資訊清單，請使用下列步驟。
 
-1. 選取 [檢視] > [命令選擇區]。
+1. 選取 [檢視]   > [命令選擇區]  。
 
-1. 在命令選擇區中，輸入並執行命令 Azure IoT Edge：新增 IoT Edge 解決方案。
+1. 在命令選擇區中，輸入並執行命令 Azure IoT Edge：  新增 IoT Edge 解決方案。
 
    ![執行新的 IoT Edge 解決方案](./media/how-to-develop-csharp-module/new-solution.png)
 
@@ -157,13 +157,13 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
    | ----- | ----- |
    | 選取資料夾 | 選擇您的 Visual Studio 程式碼，以建立方案檔的開發電腦上的位置。 |
    | 提供解決方案名稱 | 輸入解決方案的描述性名稱或接受預設值 **EdgeSolution**。 |
-   | 選取模組範本 | 選擇 [現有模組 (輸入完整映像 URL)]。 |
+   | 選取模組範本 | 選擇 [現有模組 (輸入完整映像 URL)]  。 |
    | 提供模組名稱 | 為您的模組輸入全部小寫名稱，例如 **azureblobstorage**。<br /><br />針對 IoT Edge 模組上的 Azure Blob 儲存體，請務必使用小寫名稱。 IoT Edge 在參考模組時會區分大小寫，且儲存體 SDK 預設為小寫。 |
    | 提供模組的 Docker 映像 | 提供映像 URI：**mcr.microsoft.com/azure-blob-storage:latest** |
 
    Visual Studio Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將其載入至新的視窗。 解決方案範本會建立部署資訊清單範本，其中包含 Blob 儲存體模組映像，但是您需要設定模組的建立選項。
 
-1. 在新的解決方案工作區中開啟 [deployment.template.json]，並找出 [模組] 區段。 進行下列設定變更：
+1. 在新的解決方案工作區中開啟 [deployment.template.json]  ，並找出 [模組]  區段。 進行下列設定變更：
 
    1. 刪除這次部署不需要的 **tempSensor** 模組。
 
@@ -190,8 +190,8 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
 
 1. 取代`<storage directory bind>`根據您容器的作業系統。 提供[磁碟區](https://docs.docker.com/storage/volumes/)的名稱，或您想要 Blob 模組儲存其資料的 IoT Edge 裝置目錄絕對路徑。 儲存體目錄繫結會對應模組中您提供要設定位置的裝置。  
 
-      - 適用於 Linux 容器的格式是*\<儲存體路徑 >: / blobroot*。 例如， **/srv/containerdata: / blobroot**或是**my 磁碟區: / blobroot**。
-      - 格式是適用於 Windows 容器*\<儲存體路徑 >: C: / BlobRoot*。 例如， **c: / ContainerData:C: / BlobRoot**或是**我-磁碟區： C: / blobroot**。
+      - 適用於 Linux 容器的格式是 *\<儲存體路徑 >: / blobroot*。 例如， **/srv/containerdata: / blobroot**或是**my 磁碟區: / blobroot**。
+      - 格式是適用於 Windows 容器 *\<儲存體路徑 >: C: / BlobRoot*。 例如， **c: / ContainerData:C: / BlobRoot**或是**我-磁碟區： C: / blobroot**。
 
       > [!IMPORTANT]
       > 請勿變更儲存體目錄繫結的後半段 (指向模組中的特定位置)。 儲存體目錄繫結的結尾對於 Linux 容器應一律為 **:/blobroot**，對於 Windows 容器應一律為 **:C:/BlobRoot**。
@@ -225,7 +225,7 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
 
 1. 儲存 *deployment.template.json* 檔案。
 
-1. 以滑鼠右鍵按一下 **deployment.template.json**，然後選取 [產生 IoT Edge 部署資訊清單]。
+1. 以滑鼠右鍵按一下 **deployment.template.json**，然後選取 [產生 IoT Edge 部署資訊清單]  。
 
 1. Visual Studio 程式碼會採用您在中提供的資訊*deployment.template.json*並使用它來建立新的部署資訊清單檔。 隨即在解決方案工作區新 **config** 資料夾中建立部署資訊清單。 您有該檔案時，就可以依照[從 Visual Studio Code 部署 Azure IoT Edge 模組](how-to-deploy-modules-vscode.md)或[使用 Azure CLI 2.0 部署 Azure IoT Edge 模組](how-to-deploy-modules-cli.md)中的步驟進行。
 

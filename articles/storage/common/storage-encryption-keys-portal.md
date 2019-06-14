@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: baabc5a8e1d063cb51a3edea3a7218591e85aa1a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154162"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>設定客戶管理的金鑰，從 Azure 入口網站的 Azure 儲存體加密
@@ -31,7 +31,7 @@ ms.locfileid: "65154162"
 若要啟用客戶管理的金鑰，在 Azure 入口網站中，請遵循下列步驟：
 
 1. 瀏覽至儲存體帳戶。
-1. 在儲存體帳戶的 [設定] 刀鋒視窗上，按一下 [加密]。 選取 [使用您自己的金鑰] 選項，如下圖所示。
+1. 在儲存體帳戶的 [設定]  刀鋒視窗上，按一下 [加密]  。 選取 [使用您自己的金鑰]  選項，如下圖所示。
 
     ![入口網站的螢幕擷取畫面顯示 [加密] 選項](./media/storage-encryption-keys-portal/ssecmk1.png)
 
@@ -48,7 +48,7 @@ ms.locfileid: "65154162"
     ![螢幕擷取畫面顯示金鑰保存庫金鑰 URI](media/storage-encryption-keys-portal/key-uri-portal.png)
 
 1. 在 **加密**設定為您的儲存體帳戶，選擇**輸入金鑰 URI**選項。
-1. 在 [金鑰 URI] 欄位中，指定 URI。
+1. 在 [金鑰 URI]  欄位中，指定 URI。
 
    ![螢幕擷取畫面顯示如何輸入金鑰 URI](./media/storage-encryption-keys-portal/ssecmk2.png)
 
@@ -56,7 +56,7 @@ ms.locfileid: "65154162"
 
 若要指定金鑰保存庫的金鑰，請先確定您有金鑰保存庫，包含索引鍵。 若要指定從 key vault 的金鑰，請遵循下列步驟：
 
-1. 選擇 [從 Key Vault 選取] 選項。
+1. 選擇 [從 Key Vault 選取]  選項。
 2. 選擇包含您想要使用之金鑰的金鑰保存庫。
 3. 從金鑰保存庫選擇金鑰。
 

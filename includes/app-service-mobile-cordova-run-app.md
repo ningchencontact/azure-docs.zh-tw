@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: crdun
 ms.openlocfilehash: 8d7731480b6239c572d39f52b6a0217d2ac48d25
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240246"
 ---
 1. 瀏覽至用戶端專案 (.sln) 中的方案檔，並使用 Visual Studio 加以開啟。
@@ -17,7 +17,7 @@ ms.locfileid: "66240246"
 
 3. 開啟檔案`ToDoActivity.java`在此資料夾-W/app/src/main/java/com/範例/w。 應用程式名稱是`ZUMOAPPNAME`。
 
-4. 移至[Azure 入口網站](https://portal.azure.com/)並瀏覽至您所建立的行動應用程式。 在 `Overview`刀鋒視窗中，搜尋 URL，也就是您的行動裝置應用程式的公用端點。 範例-將會針對我的應用程式名稱"test123"sitename https://test123.azurewebsites.net。
+4. 移至[Azure 入口網站](https://portal.azure.com/)並瀏覽至您所建立的行動應用程式。 在 `Overview`刀鋒視窗中，搜尋 URL，也就是您的行動裝置應用程式的公用端點。 範例-將會針對我的應用程式名稱"test123"sitename https://test123.azurewebsites.net 。
 
 5. 移至`index.js`檔案在 ZUMOAPPNAME/www/js/index.js`onDeviceReady()`方法，取代`ZUMOAPPURL`與上述的公用端點的參數。
 

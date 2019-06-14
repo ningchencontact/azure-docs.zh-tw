@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: bwren
 ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60996160"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure 監視器中的自訂記錄
@@ -29,7 +29,7 @@ Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linu
 
 - 記錄檔必須是每行一個項目，或在每個項目開頭使用符合下列其中一種格式的時間戳記。
 
-    YYYY-MM-DD HH:MM:SS <br>M/D/YYYY HH:MM:SS AM/PM<br>Mon DD, YYYY HH:MM:SS<br />yyMMdd HH:mm:ss<br />ddMMyy HH:mm:ss<br />MMM d hh:mm:ss<br />dd/MMM/yyyy:HH:mm:ss zzz<br />yyyy-MM-ddTHH:mm:ssK
+    YYYY-MM-DD HH:MM:SS<br>M/D/YYYY HH:MM:SS AM/PM<br>Mon DD, YYYY HH:MM:SS<br />yyMMdd HH:mm:ss<br />ddMMyy HH:mm:ss<br />MMM d hh:mm:ss<br />dd/MMM/yyyy:HH:mm:ss zzz<br />yyyy-MM-ddTHH:mm:ssK
 
 - 記錄檔不得使用會以新的項目覆寫檔案的循環記錄或記錄輪替。
 - 記錄檔必須使用 ASCII 或 UTF-8 編碼。  不支援其他格式，例如 UTF-16。
@@ -56,8 +56,8 @@ Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linu
 ### <a name="step-1-open-the-custom-log-wizard"></a>步驟 1. 開啟自訂記錄檔精靈
 自訂記錄檔精靈會在 Azure 入口網站中執行，並可讓您定義要收集的新自訂記錄檔。
 
-1. 在 Azure 入口網站中，選取 [Log Analytics 工作區] > 您的工作區 > [進階設定]。
-2. 按一下 [資料] > [自訂記錄]。
+1. 在 Azure 入口網站中，選取 [Log Analytics 工作區]  > 您的工作區 > [進階設定]  。
+2. 按一下 [資料]   > [自訂記錄]  。
 3. 根據預設，所有組態變更都會自動發送給所有代理程式。  若是 Linux 代理程式，組態檔會傳送給 Fluentd 資料收集器。  如果您想以手動方式在每個 Linux 代理程式上修改這個檔案，只要取消核取 *[Apply below configuration to my Linux machines]* \(將下列設定套用至我的 Linux 機器) 方塊即可。
 4. 按一下 [新增+]  開啟自訂記錄檔精靈。
 
@@ -70,10 +70,10 @@ Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linu
 
 
 1. 按一下 [瀏覽]  並瀏覽至範例檔案。  請注意，在某些瀏覽器中，這個按鈕可能標示為 [選擇檔案]  。
-2. 单击“下一步”。
+2. 单击“下一步”  。
 3. 自訂記錄檔精靈會上傳檔案並列出其識別的記錄。
 4. 變更用來識別新記錄的分隔符號，並選取最能識別記錄檔中的記錄的分隔符號。
-5. 单击“下一步”。
+5. 单击“下一步”  。
 
 ### <a name="step-3-add-log-collection-paths"></a>步驟 3. 新增記錄檔收集路徑
 您必須在代理程式上定義一個或多個它可以在其中找到自訂記錄檔的路徑。  您可以提供該記錄檔的特定路徑和名稱，或者您可以使用萬用字元為該名稱指定路徑。 這可支援每天會建立一個新檔案的應用程式或在一個檔案到達特定大小時提供支援。 您也可以為單一記錄檔提供多個路徑。
@@ -101,7 +101,7 @@ Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linu
 您指定的名稱將用於如上所述的記錄檔類型。  它一定會以 _CL 結尾以將自己辨別為自訂記錄檔。
 
 1. 輸入記錄檔的名稱。  **\__CL** 尾碼會自動提供。
-2. 新增選擇性的 [描述] 。
+2. 新增選擇性的 [描述]  。
 3. 按 [下一步]  來儲存自訂記錄檔的定義。
 
 ### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>步驟 5。 驗證會收集自訂記錄
@@ -119,8 +119,8 @@ Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linu
 ## <a name="removing-a-custom-log"></a>移除自訂記錄
 在 Azure 入口網站中使用下列程序來移除您先前定義的自訂記錄。
 
-1. 從工作區 [進階設定] 的 [資料] 功能表中，選取 [自訂記錄] 以列出所有自訂記錄。
-2. 按一下要移除之自訂記錄旁邊的 [移除]。
+1. 從工作區 [進階設定]  的 [資料]  功能表中，選取 [自訂記錄]  以列出所有自訂記錄。
+2. 按一下要移除之自訂記錄旁邊的 [移除]  。
 
 
 ## <a name="data-collection"></a>資料收集
@@ -154,12 +154,12 @@ Azure 監視器會從每個自訂記錄檔收集新的項目，間隔大約為�
 ![上傳和剖析範例記錄檔](media/data-sources-custom-logs/delimiter.png)
 
 ### <a name="add-log-collection-paths"></a>新增記錄檔收集路徑
-記錄將位於 *C:\MyApp\Logs*。  每一天都會建立一個新檔案，且其名稱中包括「appYYYYMMDD.log」 模式的日期。  此記錄的完整模式為 *C:\MyApp\Logs\\\*.log*。
+記錄將位於 *C:\MyApp\Logs*。  每一天都會建立一個新檔案，且其名稱中包括「appYYYYMMDD.log」  模式的日期。  此記錄的完整模式為 *C:\MyApp\Logs\\\*.log*。
 
 ![記錄檔收集路徑](media/data-sources-custom-logs/collection-path.png)
 
 ### <a name="provide-a-name-and-description-for-the-log"></a>提供記錄檔的名稱和描述
-我們使用 *MyApp_CL* 這個名稱並輸入 [描述]。
+我們使用 *MyApp_CL* 這個名稱並輸入 [描述]  。
 
 ![記錄檔名稱](media/data-sources-custom-logs/log-name.png)
 

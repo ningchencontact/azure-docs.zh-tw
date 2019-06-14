@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0cb0fe056ff7ff4794667d6b28782daad100609f
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65921025"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的預設使用者權限是什麼？
@@ -26,9 +26,9 @@ ms.locfileid: "65921025"
 ## <a name="member-and-guest-users"></a>成員和來賓使用者
 使用者所收到的預設權限集取決於使用者是租用戶的原生成員 (成員使用者)，還是來自另一個目錄的 B2B 共同作業來賓 (來賓使用者)。 如需新增來賓使用者的詳細資訊，請參閱[什麼是 Azure AD B2B 共同作業？](../b2b/what-is-b2b.md)。
 * 成員使用者可以註冊應用程式、管理自己的設定檔相片和行動電話號碼、變更自己的密碼，以及邀請 B2B 來賓。 此外，使用者還可讀取所有目錄資訊 (但有一些例外狀況)。 
-* 來賓使用者具有受限的目錄權限。 例如，來賓使用者無法瀏覽其本身的設定檔資訊以外的租用戶資訊。 不過，來賓使用者可藉由提供使用者主體名稱或 objectId 來擷取另一位使用者的相關資訊。 不論 [來賓使用者權限受限] 設定為何，來賓使用者可以讀取所屬群組的屬性，包括群組成員資格。 來賓無法檢視任何其他租用戶物件的相關資訊。
+* 來賓使用者具有受限的目錄權限。 例如，來賓使用者無法瀏覽其本身的設定檔資訊以外的租用戶資訊。 不過，來賓使用者可藉由提供使用者主體名稱或 objectId 來擷取另一位使用者的相關資訊。 不論 [來賓使用者權限受限]  設定為何，來賓使用者可以讀取所屬群組的屬性，包括群組成員資格。 來賓無法檢視任何其他租用戶物件的相關資訊。
 
-預設會限制來賓的預設權限。 您可將來賓新增至系統管理員角色，將角色內含的完整讀取和寫入權限授予他們。 另外還有一項可用限制，就是來賓邀請其他來賓的能力。 將 [來賓可邀請] 設為 [否]，可防止來賓邀請其他來賓。 請參閱[委派 B2B 共同作業的邀請](../b2b/delegate-invitations.md)以了解詳情。 若要將與成員使用者相同的預設權限授予來賓使用者，請將 [來賓使用者權限受限] 設定為 [否]。 此設定預設會將所有成員使用者權限授予來賓使用者，以及允許將來賓新增至系統管理角色。
+預設會限制來賓的預設權限。 您可將來賓新增至系統管理員角色，將角色內含的完整讀取和寫入權限授予他們。 另外還有一項可用限制，就是來賓邀請其他來賓的能力。 將 [來賓可邀請]  設為 [否]  ，可防止來賓邀請其他來賓。 請參閱[委派 B2B 共同作業的邀請](../b2b/delegate-invitations.md)以了解詳情。 若要將與成員使用者相同的預設權限授予來賓使用者，請將 [來賓使用者權限受限]  設定為 [否]  。 此設定預設會將所有成員使用者權限授予來賓使用者，以及允許將來賓新增至系統管理角色。
 
 ## <a name="compare-member-and-guest-default-permissions"></a>比較成員與來賓預設的權限
 
@@ -37,11 +37,11 @@ ms.locfileid: "65921025"
 使用者和連絡人 | 讀取使用者和連絡人的所有公用屬性<br>邀請來賓<br>變更自己的密碼<br>管理自己的行動電話號碼<br>管理自己的相片<br>使自己的重新整理權杖失效 | 讀取自己的屬性<br>讀取顯示名稱、電子郵件、登入名稱、相片、使用者主體名稱，以及其他使用者和連絡人的使用者類型屬性<br>變更自己的密碼
 群組 | 建立安全性群組<br>建立 Office 365 群組<br>讀取群組的所有屬性<br>讀取非隱藏的群組成員資格<br>讀取已加入群組的隱藏 Office 365 群組成員資格<br>管理使用者擁有之群組的屬性、擁有權及成員資格<br>將來賓新增至擁有的群組<br>管理動態成員資格設定<br>刪除擁有的群組<br>還原擁有的 Office 365 群組 | 讀取群組的所有屬性<br>讀取非隱藏的群組成員資格<br>讀取已加入群組的隱藏 Office 365 群組成員資格<br>管理擁有的群組<br>將來賓新增至擁有的群組 (如果允許)<br>刪除擁有的群組<br>還原擁有的 Office 365 群組<br>讀取所屬群組的屬性，包括成員資格。
 [應用程式] | 註冊 (建立) 新的應用程式<br>讀取已註冊和企業應用程式的屬性<br>管理擁有之應用程式的應用程式屬性、指派及認證<br>建立或刪除使用者的應用程式密碼<br>刪除擁有的應用程式<br>還原擁有的應用程式 | 讀取已註冊和企業應用程式的屬性<br>管理擁有之應用程式的應用程式屬性、指派及認證<br>刪除擁有的應用程式<br>還原擁有的應用程式
-裝置 | 讀取裝置的所有屬性<br>管理擁有之裝置的所有屬性<br> | 沒有任何權限<br>刪除擁有的裝置<br>
+裝置 | 讀取裝置的所有屬性<br>管理擁有之裝置的所有屬性<br> | 沒有權限<br>刪除擁有的裝置<br>
 目錄 | 讀取所有公司資訊<br>讀取所有網域<br>讀取所有夥伴合約 | 讀取顯示名稱和已驗證的網域
-角色和範圍 | 讀取所有系統管理角色和成員資格<br>讀取系統管理單元的所有屬性和成員資格 | 沒有任何權限 
-Subscriptions | 讀取所有訂用帳戶<br>啟用服務方案成員 | 沒有任何權限
-原則 | 讀取原則的所有屬性<br>管理擁有之原則的所有屬性 | 沒有任何權限
+角色和範圍 | 讀取所有系統管理角色和成員資格<br>讀取系統管理單元的所有屬性和成員資格 | 沒有權限 
+Subscriptions | 讀取所有訂用帳戶<br>啟用服務方案成員 | 沒有權限
+policies | 讀取原則的所有屬性<br>管理擁有之原則的所有屬性 | 沒有權限
 
 ## <a name="to-restrict-the-default-permissions-for-member-users"></a>限制成員使用者的預設權限
 
@@ -50,10 +50,10 @@ Subscriptions | 讀取所有訂用帳戶<br>啟用服務方案成員 | 沒有任
 權限 | 設定說明
 ---------- | ------------
 使用者可以註冊應用程式 | 將此選項設定為 [否] 可防止使用者建立應用程式註冊。 能力可以再授與回特定的個人將它們新增至應用程式開發人員 」 角色。
-允許使用者利用 LinkedIn 連線公司或學校的帳戶 | 將此選項設定為 [否] 可防止使用者連線其 LinkedIn 帳戶的工作或學校帳戶。  請參閱[LinkedIn 帳戶連線資料共用和同意](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent)如需詳細資訊。
+允許使用者與 LinkedIn 連線公司或學校帳戶 | 將此選項設定為 [否] 可防止使用者連線其 LinkedIn 帳戶的工作或學校帳戶。  請參閱[LinkedIn 帳戶連線資料共用和同意](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent)如需詳細資訊。
 建立安全性群組的能力 | 將此選項設定為 [否] 可防止使用者建立安全性群組。 全域管理員和使用者管理員仍然可以建立安全性群組。 請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](../users-groups-roles/groups-settings-cmdlets.md) 以了解詳情。
 建立 Office 365 群組的能力 | 將此選項設定為 [否] 可防止使用者建立 Office 365 群組。 將此選項設定為 [部分] 可允許一組特定使用者建立 Office 365 群組。 全域管理員和使用者管理員還是能夠建立 Office 365 群組。 請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](../users-groups-roles/groups-settings-cmdlets.md) 以了解詳情。
-Azure AD 管理入口網站的存取限制 | 將此選項設定為 [是] 可防止使用者透過 Azure 入口網站存取 Azure Active Directory。
+限制 Azure AD 系統管理入口網站的存取 | 將此選項設定為 [是] 可防止使用者透過 Azure 入口網站存取 Azure Active Directory。
 讀取其他使用者的能力 | 此設定僅在 PowerShell 中可用。 將此項目設為 $false，可防止所有不是管理員的人員從目錄讀取使用者資訊。 但這樣做無法防止讀取其他 Microsoft 服務 (例如 Exchange Online) 中的使用者資訊。 這項設定適用於特殊情況，並不建議將此項目設定為 $false。
 
 ## <a name="object-ownership"></a>物件擁有權

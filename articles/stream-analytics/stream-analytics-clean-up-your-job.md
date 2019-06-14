@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: e43e1034abe4bbe3d31a46ab3b98b0efe612b852
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66159433"
 ---
 # <a name="clean-up-your-azure-stream-analytics-job"></a>清除 Azure 串流分析作業
@@ -29,7 +29,7 @@ Azure 串流分析作業可以透過 Azure 入口網站、Azure PowerShell、適
 
 2. 找到執行中的串流分析作業並加以選取。
 
-3. 在 [串流分析作業] 頁面上，選取 [停止] 以停止作業。 
+3. 在 [串流分析作業] 頁面上，選取 [停止]  以停止作業。 
 
    ![停止 Azure 串流分析作業](./media/stream-analytics-clean-up-your-job/stop-stream-analytics-job.png)
 
@@ -40,7 +40,7 @@ Azure 串流分析作業可以透過 Azure 入口網站、Azure PowerShell、適
 
 2. 找到現有的串流分析作業並加以選取。
 
-3. 在 [串流分析作業] 頁面上，選取 [刪除] 以刪除作業。 
+3. 在 [串流分析作業] 頁面上，選取 [刪除]  以刪除作業。 
 
    ![刪除 Azure 串流分析作業](./media/stream-analytics-clean-up-your-job/delete-stream-analytics-job.png)
 

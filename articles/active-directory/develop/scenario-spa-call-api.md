@@ -16,10 +16,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 77a4ed01ac55a1153a62c672b33056a543b912ed
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545603"
 ---
 # <a name="single-page-application---call-a-web-api"></a>單一頁面應用程式層 web API 的呼叫
@@ -30,7 +30,7 @@ ms.locfileid: "65545603"
 
 ### <a name="javascript"></a>JavaScript
 
-請使用為 HTTP 要求中的持有人取得的存取權杖呼叫 Microsoft 圖形 API 等任何 web API。 例如：
+請使用為 HTTP 要求中的持有人取得的存取權杖呼叫 Microsoft 圖形 API 等任何 web API。 例如:
 
 ```javascript
     var headers = new Headers();

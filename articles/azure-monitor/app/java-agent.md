@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
 ms.openlocfilehash: ce5f7ab1e6751a9ce68aa2d9c466a112c9cac182
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900603"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>監視 Java Web 應用程式中的相依性、擷取到的例外狀況和方法執行時間
@@ -144,7 +144,7 @@ public RestTemplate dcrAccessRestTemplate() {
 
 理想的狀況是，所有的服務已更新至支援 W3C 通訊協定的新版 SDK。 強烈建議儘快移至具備 W3C 支援的新版 SDK。
 
-確定**[傳入](correlation.md#w3c-distributed-tracing)與傳出 (代理程式) 設定兩者**完全相同。
+確定 **[傳入](correlation.md#w3c-distributed-tracing)與傳出 (代理程式) 設定兩者**完全相同。
 
 ## <a name="view-the-data"></a>檢視資料
 在 Application Insights 資源中，彙總的遠端相依性和方法執行時間會出現[在效能圖格下][metrics]。

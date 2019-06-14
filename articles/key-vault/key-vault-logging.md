@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
 ms.openlocfilehash: 89f9ef37ed7c53817854442b3a32b32b7d11ae27
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706017"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 記錄
@@ -168,7 +168,7 @@ resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CO
 
 因為您可以使用相同的儲存體帳戶來收集多個資源的記錄，blob 名稱中的完整資源識別碼是適合用來存取，或只是您需要將 blob 下載。 但在這麼做之前，我們要先討論如何下載所有 blob。
 
-建立資料夾來下載 blob。 例如︰
+建立資料夾來下載 blob。 例如:
 
 ```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
@@ -188,7 +188,7 @@ $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVault
 
 在執行第二個命令時，blob 名稱中的 **/** 分隔符號會在目的地資料夾下建立完整資料夾結構。 若要下載 blob 並儲存為檔案，您將使用此結構。
 
-若要有所選擇地下載 blob，請使用萬用字元。 例如︰
+若要有所選擇地下載 blob，請使用萬用字元。 例如:
 
 * 如果您有多個金鑰保存庫，並且只想下載其中的 CONTOSOKEYVAULT3 金鑰保存庫的記錄：
 
@@ -264,7 +264,7 @@ Get-AzKeyVault -VaultName 'contosokeyvault'`
 | **身分識別** |從所提供的 REST API 要求的權杖的身分識別。 這通常是 「 使用者 」，「 服務主體 」 或在要求所產生的 Azure PowerShell cmdlet 的情況下 「 使用者 + appId、 」 組合。 |
 | **properties** |不同的資訊為基礎的作業 (**operationName**)。 在大部分情況下，此欄位會包含用戶端資訊 （用戶端所傳遞的使用者代理字串）、 確切的 REST API 要求 URI 和 HTTP 狀態碼。 此外，當您傳回要求的結果物件時，才 (例如**KeyCreate**或**VaultGet**)，它也包含金鑰 URI （做為 「 識別碼 」），保存庫 URI 或密碼的 URI。 |
 
-**OperationName**欄位值位於*ObjectVerb*格式。 例如︰
+**OperationName**欄位值位於*ObjectVerb*格式。 例如:
 
 * 所有金鑰保存庫作業都有`Vault<action>`格式，例如`VaultGet`和`VaultCreate`。
 * 所有金鑰作業都有`Key<action>`格式，例如`KeySign`和`KeyList`。

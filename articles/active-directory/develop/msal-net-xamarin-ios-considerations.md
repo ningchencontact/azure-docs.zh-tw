@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf236bff2300129ec97d3b8946c4c2a2748bca77
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602142"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>Xamarin iOS 專屬 MSAL.NET 考量
@@ -57,7 +57,7 @@ public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
 ## <a name="enable-keychain-groups"></a>啟用 KeyChain 群組
 
 若要讓權杖快取的工作，並有`AcquireTokenSilentAsync`方法的工作，必須有多個步驟：
-1. 啟用金鑰鏈存取在您*`* Entitlements.plist* 檔案，並指定**Keychain 群組**中套件組合識別碼。
+1. 啟用金鑰鏈存取在您 *`* Entitlements.plist* 檔案，並指定**Keychain 群組**中套件組合識別碼。
 2. 選取  *`*Entitlements.plist*`* 中的檔案**自訂權利**iOS 專案選項 視窗中的欄位**套件組合簽署 檢視**。
 3. XCode 時簽署憑證，請確定會使用相同的 Apple id。
 
@@ -123,6 +123,6 @@ Msal 2.x 和 ADAL 4.x TeamId 用來存取可讓單一登入 (SSO) 的相同發�
 
 中提供更多詳細資料[iOS 的特定考量](https://github.com/azure-samples/active-directory-xamarin-native-v2#ios-specific-considerations)段落下面的範例的 readme.md 檔案：
 
-範例 | 平台 | 說明 
+範例 | 平台 | 描述 
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS、Android、UWP | 展示如何使用 MSAL 來驗證 MSA 與 Azure AD 透過 AAD V2.0 端點，並存取 Microsoft Graph 與產生的語彙基元的簡單 Xamarin Forms 應用程式。 <br>![拓撲](media/msal-net-xamarin-ios-considerations/topology.png)

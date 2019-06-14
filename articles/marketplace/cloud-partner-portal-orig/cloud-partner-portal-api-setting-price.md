@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: dde3e04dc8f30ea5657139d50dd4456e5dfb57c2
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935744"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>虛擬機器供應項目定價
@@ -90,7 +90,7 @@ ms.locfileid: "64935744"
      }
 ```
 
-<a name="regions"></a>區域
+<a name="regions"></a>Regions
 -------
 
 下表顯示您可以為自訂核心定價指定的不同區域，以及其相對應的貨幣代碼。
@@ -113,7 +113,7 @@ ms.locfileid: "64935744"
 | HR         | 克羅埃西亞              | HRK               |
 | CY         | 賽浦路斯               | 歐元               |
 | CZ         | 捷克共和國       | CZK               |
-| DK         | 丹麥              | 丹麥幣               |
+| DK         | 丹麥              | DKK               |
 | DO         | 多明尼加共和國   | 美元               |
 | EC         | 厄瓜多              | 美元               |
 | EG         | 埃及                | EGP               |
@@ -127,8 +127,8 @@ ms.locfileid: "64935744"
 | HK         | 香港特別行政區        | 港幣               |
 | HU         | 匈牙利              | HUF               |
 | IS         | 冰島              | ISK               |
-| IN         | 印度                | 印度幣               |
-| ID         | 印尼            | 印尼盾               |
+| IN         | 印度                | INR               |
+| ID         | 印尼            | IDR               |
 | IE         | 愛爾蘭              | 歐元               |
 | IL         | 以色列               | ILS               |
 | IT         | 義大利                | 歐元               |
@@ -145,7 +145,7 @@ ms.locfileid: "64935744"
 | MK         | 北馬其頓      | MKD               |
 | MY         | 馬來西亞             | 馬來西亞林吉特               |
 | MT         | 馬爾他                | 歐元               |
-| MX         | 墨西哥               | 墨西哥批索               |
+| MX         | 墨西哥               | MXN               |
 | ME         | 蒙特內哥羅           | 歐元               |
 | MA         | 摩洛哥              | MAD               |
 | NL         | 荷蘭          | 歐元               |
@@ -181,7 +181,7 @@ ms.locfileid: "64935744"
 | TR         | 土耳其               | 土耳其里拉               |
 | UA         | 烏克蘭              | UAH               |
 | AE         | 阿拉伯聯合大公國 | 歐元               |
-| GB         | 英國       | 英鎊               |
+| GB         | 英國       | GBP               |
 | US         | 美國        | 美元               |
 | UY         | 烏拉圭              | UYU               |
 | VE         | 委內瑞拉            | 美元               |

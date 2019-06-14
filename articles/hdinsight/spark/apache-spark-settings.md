@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: 77f4ec9cce5d02ea4cbcc4968d02773a13edfe5b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64681309"
 ---
 # <a name="configure-apache-spark-settings"></a>設定 Apache Spark 設定
@@ -57,11 +57,11 @@ Apache Spark 有三個系統組態位置：
 
 ## <a name="view-cluster-configuration-settings"></a>檢視叢集組態設定
 
-在叢集上執行效能最佳化之前，請先確認目前的 HDInsight 叢集組態設定。 按一下 Spark 叢集窗格上的 [儀表板] 連結，從 Azure 入口網站啟動 HDInsight 儀表板。 使用叢集系統管理員的使用者名稱和密碼登入。
+在叢集上執行效能最佳化之前，請先確認目前的 HDInsight 叢集組態設定。 按一下 Spark 叢集窗格上的 [儀表板]  連結，從 Azure 入口網站啟動 HDInsight 儀表板。 使用叢集系統管理員的使用者名稱和密碼登入。
 
-Apache Ambari Web UI 隨即出現，並顯示主要叢集資源使用率計量的儀表板檢視。  Ambari 儀表板會顯示 Apache Spark 組態，和其他您已安裝的服務。 儀表板會包含 [設定歷程記錄] 索引標籤，您可以在其中檢視所有已安裝的服務 (包括 Spark) 設定資訊。
+Apache Ambari Web UI 隨即出現，並顯示主要叢集資源使用率計量的儀表板檢視。  Ambari 儀表板會顯示 Apache Spark 組態，和其他您已安裝的服務。 儀表板會包含 [設定歷程記錄]  索引標籤，您可以在其中檢視所有已安裝的服務 (包括 Spark) 設定資訊。
 
-若要檢視 Apache Spark 的設定值，請選取 [設定歷程記錄]，然後選取 [Spark2]。  選取 [設定] 索引標籤，然後選取服務清單中的 `Spark` (或 `Spark2`，視您的版本而定) 連結。  您會看到叢集的設定值清單：
+若要檢視 Apache Spark 的設定值，請選取 [設定歷程記錄]  ，然後選取 [Spark2]  。  選取 [設定]  索引標籤，然後選取服務清單中的 `Spark` (或 `Spark2`，視您的版本而定) 連結。  您會看到叢集的設定值清單：
 
 ![Spark 設定](./media/apache-spark-settings/spark-config.png)
 
@@ -76,7 +76,7 @@ Apache Ambari Web UI 隨即出現，並顯示主要叢集資源使用率計量�
 如果您建立一組非預設的設定值，則也會看到設定更新的歷程記錄。  此設定歷程記錄有助於查看哪一個非預設設定具有最佳效能。
 
 > [!NOTE]  
-> 若要檢視 (但不變更) 一般 Spark 叢集組態設定，請選取最上層 [Spark 作業 UI] 介面上的 [環境] 索引標籤。
+> 若要檢視 (但不變更) 一般 Spark 叢集組態設定，請選取最上層 [Spark 作業 UI]  介面上的 [環境]  索引標籤。
 
 ## <a name="configuring-spark-executors"></a>設定 Spark 執行程式
 
@@ -86,12 +86,12 @@ Apache Ambari Web UI 隨即出現，並顯示主要叢集資源使用率計量�
 
 Spark 作業會使用背景工作角色資源 (尤其是記憶體)，因此，調整背景工作角色節點「執行程式」的 Spark 設定值，是很常見的動作。
 
-為了微調 Spark 設定以改善應用程式需求而常會調整的三個主要參數為 `spark.executor.instances`、`spark.executor.cores` 和 `spark.executor.memory`。 執行程式是針對 Spark 應用程式啟動的程序。 執行程式會在背景工作角色節點上執行，並負責處理應用程式的工作。 每個叢集的預設執行程式數目和執行程式大小，是根據背景工作角色節點數目和背景工作角色節點大小計算的。 它們儲存在叢集前端節點上的 `spark-defaults.conf` 。  您可以選取 Ambari Web UI 中的 [自訂 spark-defaults] 連結，在執行中的叢集中編輯這些值。  在您進行變更後，UI 會提示您**重新啟動**所有受影響的服務。
+為了微調 Spark 設定以改善應用程式需求而常會調整的三個主要參數為 `spark.executor.instances`、`spark.executor.cores` 和 `spark.executor.memory`。 執行程式是針對 Spark 應用程式啟動的程序。 執行程式會在背景工作角色節點上執行，並負責處理應用程式的工作。 每個叢集的預設執行程式數目和執行程式大小，是根據背景工作角色節點數目和背景工作角色節點大小計算的。 它們儲存在叢集前端節點上的 `spark-defaults.conf` 。  您可以選取 Ambari Web UI 中的 [自訂 spark-defaults]  連結，在執行中的叢集中編輯這些值。  在您進行變更後，UI 會提示您**重新啟動**所有受影響的服務。
 
 > [!NOTE]  
 > 這三個設定參數可以在叢集層級設定 (適用於在叢集執行的所有應用程式)，也可以對個別的應用程式指定。
 
-Spark 執行程式所使用之資源的另一個相關資訊來源，是 Spark 應用程式 UI。  在 Spark UI 中選取 [執行程式] 索引標籤，可顯示執行程式所使用之設定和資源的 [摘要] 和 [詳細資料] 檢視。  這些檢視可協助您判斷是要對整個叢集變更 Spark 執行程式的預設值，還是對特定的一組作業執行進行變更。
+Spark 執行程式所使用之資源的另一個相關資訊來源，是 Spark 應用程式 UI。  在 Spark UI 中選取 [執行程式]  索引標籤，可顯示執行程式所使用之設定和資源的 [摘要] 和 [詳細資料] 檢視。  這些檢視可協助您判斷是要對整個叢集變更 Spark 執行程式的預設值，還是對特定的一組作業執行進行變更。
 
 ![Spark 執行程式](./media/apache-spark-settings/spark-executors.png)
 

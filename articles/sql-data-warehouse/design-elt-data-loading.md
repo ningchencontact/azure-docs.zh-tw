@@ -11,10 +11,10 @@ ms.date: 05/10/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: de5649498dddcec8c65f2cfca6dcb39fa20a9267
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242251"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>設計 Azure SQL 資料倉儲的 PolyBase 資料載入策略
@@ -62,17 +62,17 @@ PolyBase 會從 UTF-8 和 UTF-16 編碼分隔符號文字檔載入資料。 除�
 |         float         |                             real                             |
 |        double         |                            money                             |
 |        double         |                          smallmoney                          |
-|        string         |                            nchar                             |
-|        string         |                           nvarchar                           |
-|        string         |                             char                             |
-|        string         |                           varchar                            |
+|        字串         |                            nchar                             |
+|        字串         |                           nvarchar                           |
+|        字串         |                             char                             |
+|        字串         |                           varchar                            |
 |        binary         |                            binary                            |
 |        binary         |                          varbinary                           |
 |       timestamp       |                             date                             |
 |       timestamp       |                        smalldatetime                         |
 |       timestamp       |                          datetime2                           |
-|       timestamp       |                           datetime                           |
-|       timestamp       |                             分析                             |
+|       timestamp       |                           Datetime                           |
+|       timestamp       |                             time                             |
 |       date        | 1） 當做 int 載入並轉換成日期 </br> 2)[使用 Azure Databricks SQL DW 連接器](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse)與 </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**更新即將推出**) |
 |        decimal        | [使用 Azure Databricks SQL DW 連接器](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse)與 </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**更新即將推出**) |
 

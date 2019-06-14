@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
 ms.openlocfilehash: 58af752d8b7fcec5c681e2b8975d109a0f731878
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66302269"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>在 Linux 建立第一個 Service Fabric 容器應用程式
@@ -275,7 +275,7 @@ V6.4 的最新的重新整理版本開始，您可以指定 docker HEALTHCHECK �
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-使用範本中所提供的安裝指令碼 (位於 https://github.com/Azure-Samples/service-fabric-containers/)，將應用程式套件複製到叢集的映像存放區、註冊應用程式類型，以及建立應用程式的執行個體。
+使用範本中所提供的安裝指令碼 (位於 https://github.com/Azure-Samples/service-fabric-containers/ )，將應用程式套件複製到叢集的映像存放區、註冊應用程式類型，以及建立應用程式的執行個體。
 
 
 ```bash

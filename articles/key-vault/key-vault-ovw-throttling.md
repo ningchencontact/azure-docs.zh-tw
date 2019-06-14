@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 06b96ac6ea0202b74638b9331d754c0e0cc28ad0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64695235"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 節流指導方針
@@ -31,7 +31,7 @@ Key Vault 中的服務限制是為了防止濫用資源，並確保所有 Key Va
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>如何為您的應用程式進行節流處理，以回應服務限制
 
-以下是在服务受到限制时应实施的**最佳做法**：
+以下是**最佳做法**調節您的服務時，您應該實作：
 - 減少每個要求的作業數目。
 - 減少要求的頻率。
 - 避免立即重試。 
@@ -112,7 +112,7 @@ Key Vault 中的服務限制是為了防止濫用資源，並確保所有 Key Va
 ```
 
 
-在客户端 C\# 应用程序中使用此代码很简单。 以下範例會示範如何使用 HttpClient 類別。
+使用下列程式碼中的用戶端 C\#應用程式很簡單。 以下範例會示範如何使用 HttpClient 類別。
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)

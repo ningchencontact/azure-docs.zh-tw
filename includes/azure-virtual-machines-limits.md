@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: 083d59a2d8720a08abc7ea8998c1fbe048db3f28
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238339"
 ---
-| Resource | 預設限制 | 上限 |
+| 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
 | 每一個雲端服務的[虛擬機器](../articles/virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)數量 <sup>1</sup> |50 |50 |
 | 每一雲端服務的輸入端點 <sup>2</sup> |150 |150 |

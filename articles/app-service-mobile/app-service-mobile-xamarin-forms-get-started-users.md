@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: panarasi
 ms.openlocfilehash: 2945cefc18a378b31700104049f1a14a1f320136
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66019779"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>將驗證新增至 Xamarin Forms 應用程式
@@ -37,17 +37,17 @@ ms.locfileid: "66019779"
 
 ## <a name="redirecturl"></a>將您的應用程式新增至允許的外部重新導向 URL
 
-安全的驗證會要求您為應用程式定義新的 URL 配置。 這讓驗證系統能夠在驗證程序完成之後，重新導向回到您的應用程式。 我們會在這整個教學課程中使用 URL 配置 appname。 不過，您可以使用任何您選擇的 URL 結構描述。 它對於您的行動應用程式而言應該是唯一的。 在伺服器端啟用重新導向：
+安全的驗證會要求您為應用程式定義新的 URL 配置。 這讓驗證系統能夠在驗證程序完成之後，重新導向回到您的應用程式。 我們會在這整個教學課程中使用 URL 配置 appname  。 不過，您可以使用任何您選擇的 URL 結構描述。 它對於您的行動應用程式而言應該是唯一的。 在伺服器端啟用重新導向：
 
 1. 在 [Azure 入口網站][8] 中，選取您的 App Service。
 
-2. 按一下 [驗證/授權] 功能表選項。
+2. 按一下 [驗證/授權]  功能表選項。
 
-3. 在 [允許的外部重新導向 URL] 中，輸入 `url_scheme_of_your_app://easyauth.callback`。  此字串中的 **url_scheme_of_your_app** 是您行動應用程式的 URL 配置。  它必須遵循通訊協定的標準 URL 規格 (只使用字母和數字，並以字母為開頭)。  請記下您選擇的字串，因為您將需要在數個位置中使用該 URL 配置來調整您的行動應用程式程式碼。
+3. 在 [允許的外部重新導向 URL]  中，輸入 `url_scheme_of_your_app://easyauth.callback`。  此字串中的 **url_scheme_of_your_app** 是您行動應用程式的 URL 配置。  它必須遵循通訊協定的標準 URL 規格 (只使用字母和數字，並以字母為開頭)。  請記下您選擇的字串，因為您將需要在數個位置中使用該 URL 配置來調整您的行動應用程式程式碼。
 
-4. 按一下 [確定]。
+4. 按一下 [確定]  。
 
-5. 按一下 [檔案] 。
+5. 按一下 [檔案]  。
 
 ## <a name="restrict-permissions-to-authenticated-users"></a>限制只有通過驗證的使用者具有權限
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -121,7 +121,7 @@ Mobile Apps 會使用 [MobileServiceClient][4] 的 [LoginAsync][3] 擴充方法�
 ## <a name="add-authentication-to-the-android-app"></a>將驗證加入 Android 應用程式中
 本節說明如何在 Android 應用程式專案中實作 **IAuthenticate** 介面。 如果您不要支援 Android 裝置，請略過這一節。
 
-1. 在 Visual Studio 或 Xamarin Studio 中，以滑鼠右鍵按一下 **droid** 專案，然後按一下 [設定為啟始專案]。
+1. 在 Visual Studio 或 Xamarin Studio 中，以滑鼠右鍵按一下 **droid** 專案，然後按一下 [設定為啟始專案]  。
 2. 按下 F5 在偵錯工具中啟動專案，然後確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。 產生 401 代碼是因為只有獲授權的使用者才能存取後端。
 3. 開啟 Android 專案中的 MainActivity.cs，然後加入下列 `using` 陳述式：
 
@@ -197,7 +197,7 @@ Mobile Apps 會使用 [MobileServiceClient][4] 的 [LoginAsync][3] 擴充方法�
 ## <a name="add-authentication-to-the-ios-app"></a>將驗證加入 iOS 應用程式中
 本節說明如何在 iOS 應用程式專案中實作 **IAuthenticate** 介面。 如果您不要支援 iOS 裝置，請略過這一節。
 
-1. 在 Visual Studio 或 Xamarin Studio 中，以滑鼠右鍵按一下 **iOS** 專案，然後按一下 [設定為啟始專案]。
+1. 在 Visual Studio 或 Xamarin Studio 中，以滑鼠右鍵按一下 **iOS** 專案，然後按一下 [設定為啟始專案]  。
 2. 按下 F5 在偵錯工具中啟動專案，然後確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。 產生 401 回應是因為只有獲授權的使用者才能存取後端。
 3. 開啟 iOS 專案中的 AppDelegate.cs，然後加入下列 `using` 陳述式：
 
@@ -265,7 +265,7 @@ Mobile Apps 會使用 [MobileServiceClient][4] 的 [LoginAsync][3] 擴充方法�
 ## <a name="add-authentication-to-windows-10-including-phone-app-projects"></a>將驗證新增至 Windows 10 (包括 Phone) 應用程式專案
 本節說明如何在 Windows 10 應用程式專案中實作 **IAuthenticate** 介面。 相同的步驟適用於通用 Windows 平台 (UWP) 專案，但使用 **UWP** 專案 (內含已標註的變更)。 如果您不要支援 Windows 裝置，請略過這一節。
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下 **UWP** 專案，然後按一下 [設定為啟始專案]。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下 **UWP** 專案，然後按一下 [設定為啟始專案]  。
 2. 按下 F5 在偵錯工具中啟動專案，然後確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。 發生 401 回應是因為只有獲授權的使用者才能存取後端。
 3. 開啟 Windows 應用程式專案的 MainPage.xaml.cs，然後加入下列 `using` 陳述式：
 

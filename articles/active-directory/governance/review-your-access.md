@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6b38422b22885ad96c6681abe58b897155809521
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113193"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>自行檢閱存取權給群組或 Azure AD 中的應用程式存取權檢閱
@@ -76,7 +76,7 @@ Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組或�
 
     ![執行存取權檢閱](./media/review-your-access/perform-access-review-submit.png)
 
-1. 按一下 [提交] 。
+1. 按一下 [提交]  。
 
     提交您的選擇和您回到 MyApps 入口網站。
 

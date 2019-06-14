@@ -5,25 +5,25 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 54a1bc9ce04cf10575b26cda7861c1dd458dc831
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156134"
 ---
 #### <a name="to-create-a-new-service"></a>建立新服務
 
 1. 使用您的 Microsoft 帳戶認證以登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 在 Azure 入口網站中，按一下 [建立資源]，然後在 Marketplace 中按一下 [查看全部]。
+2. 在 Azure 入口網站中，按一下 [建立資源]  ，然後在 Marketplace 中按一下 [查看全部]  。
 
     ![建立 StorSimple 裝置管理員](./media/storsimple-8000-create-new-service/createssdevman1.png)
 
-    搜尋 [StorSimple 實體]。 選取並按一下 [StorSimple 實體裝置系列]，然後按一下 [建立]。 或者，在 Azure 入口網站中按一下 [+]，然後在 [儲存體]按一下 [StorSimple 實體裝置系列]。
+    搜尋 [StorSimple 實體]  。 選取並按一下 [StorSimple 實體裝置系列]  ，然後按一下 [建立]  。 或者，在 Azure 入口網站中按一下 [+]  ，然後在 [儲存體]  按一下 [StorSimple 實體裝置系列]  。
 
     ![建立 StorSimple 裝置管理員](./media/storsimple-8000-create-new-service/createssdevman11.png)
 
-3. 在 [StorSimple 裝置管理員] 刀鋒視窗中，執行下列步驟：
+3. 在 [StorSimple 裝置管理員]  刀鋒視窗中，執行下列步驟：
    
    1. 為服務提供唯一的**資源名稱** 。 這個名聲是可用來識別服務的易記名稱。 名稱長度可介於 2 到 50 個字元之間，且可以是字母、數字和連字號。 名稱必須以字母或數字為開頭或結尾。
 
@@ -38,9 +38,9 @@ ms.locfileid: "66156134"
 
    5. 選取 [建立新的儲存體帳戶]  ，自動建立具有此服務的儲存體帳戶。 指定此儲存體帳戶的名稱。 如果您需要將資料放在不同的位置，取消核取此方塊。
 
-   6. 如果您想在儀表板上快速連結到此服務，請勾選 [釘選到儀表板]。
+   6. 如果您想在儀表板上快速連結到此服務，請勾選 [釘選到儀表板]  。
       
-   7. 按一下 [建立] 以建立 StorSimple 裝置管理員。
+   7. 按一下 [建立]  以建立 StorSimple 裝置管理員。
 
        ![建立 StorSimple 裝置管理員](./media/storsimple-8000-create-new-service/createssdevman2.png)
    

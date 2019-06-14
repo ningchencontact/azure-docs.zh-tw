@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
 ms.openlocfilehash: 9da7a3b91223b8a6fd25814a10a0cbafd645d132
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65231128"
 ---
 # <a name="securing-paas-deployments"></a>保護 PaaS 部署
@@ -117,8 +117,8 @@ Microsoft [安全性開發週期](https://www.microsoft.com/en-us/sdl)指定小�
 | 竄改 | 完整性 | 驗證 SSL 憑證。 |
 | 否認性 | 不可否認性 | 啟用 Azure [監視和診斷](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)。 |
 | 資訊洩漏 | 保密 | 使用[服務憑證](https://docs.microsoft.com/rest/api/appservice/certificates)將待用的敏感性資料加密。 |
-| 拒絕服務 | 可用性 | 監視潛在拒絕服務狀況的效能計量。 實作 IP 連線篩選。 |
-| 提高權限 | 授權 | 使用[具特殊權限身分識別管理](../active-directory/privileged-identity-management/subscription-requirements.md)。 |
+| Denial of service (拒絕服務) | 可用性 | 監視潛在拒絕服務狀況的效能計量。 實作 IP 連線篩選。 |
+| 權限提高 | 授權 | 使用[具特殊權限身分識別管理](../active-directory/privileged-identity-management/subscription-requirements.md)。 |
 
 ## <a name="develop-on-azure-app-service"></a>在 Azure App Service 上開發
 [Azure App Service](../app-service/overview.md) 是一個 PaaS 供應項目，可讓您為任何平台或裝置建立 Web 與行動應用程式，以及連線到雲端或內部部署環境中任何位置的資料。 App Service 包含先前以 Azure 網站和 Azure 行動服務形式個別提供的 Web 和行動功能。 此外，它也包含可用來自動執行商務程序及裝載雲端 API 的新功能。 App Service 會以單一整合式服務形式，為 Web、行動及整合案例提供一組豐富的功能。

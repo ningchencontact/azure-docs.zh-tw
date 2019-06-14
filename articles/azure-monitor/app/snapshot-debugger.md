@@ -13,10 +13,10 @@ ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: 4157285e8af67acd1dc3627bebc12076d7fe072c
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595578"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 應用程式中的例外狀況偵錯快照集
@@ -54,11 +54,11 @@ ms.locfileid: "65595578"
 訂用帳戶擁有者應將 `Application Insights Snapshot Debugger` 角色指派給將會檢查快照集的使用者。 這個角色可以由目標 Application Insights 資源或其資源群組或訂用帳戶的訂用帳戶擁有者，指派給個別使用者或群組。
 
 1. 在 Azure 入口網站中巡覽到 Application Insights 資源。
-1. 按一下 [存取控制 (IAM)]。
-1. 按一下 [+新增角色指派] 按鈕。
-1. 從 [角色] 下拉式清單中選取 [Application Insights 快照集偵錯工具]。
+1. 按一下 [存取控制 (IAM)]  。
+1. 按一下 [+新增角色指派]  按鈕。
+1. 從 [角色]  下拉式清單中選取 [Application Insights 快照集偵錯工具]  。
 1. 搜尋並輸入要新增的使用者名稱。
-1. 按一下 [儲存] 按鈕，將使用者新增至角色。
+1. 按一下 [儲存]  按鈕，將使用者新增至角色。
 
 
 > [!IMPORTANT]
@@ -85,7 +85,7 @@ ms.locfileid: "65595578"
 
 2. 若要開啟 `.diagsession`檔案，您必須已安裝的快照集偵錯工具 Visual Studio 元件。 快照偵錯工具元件是在 Visual Studio 中的 ASP.net 工作負載的必要的元件，並且可以從 Visual Studio 安裝程式中的個別元件清單中選取。 如果您使用 Visual Studio 2017 15.5 版之前的 Visual Studio 的版本，您必須安裝從延伸模組[Visual Studio Marketplace](https://aka.ms/snapshotdebugger)。
 
-3. 開啟快照集檔案之後，Visual Studio 中的 [小型傾印偵錯] 分頁隨即出現。 按一下 [偵錯受控碼] 以開始偵錯快照集。 快照集會開啟至擲回例外狀況的程式碼行，您可將程序的目前狀態進行偵錯。
+3. 開啟快照集檔案之後，Visual Studio 中的 [小型傾印偵錯] 分頁隨即出現。 按一下 [偵錯受控碼]  以開始偵錯快照集。 快照集會開啟至擲回例外狀況的程式碼行，您可將程序的目前狀態進行偵錯。
 
     ![檢視 Visual Studio 中的偵錯快照集](./media/snapshot-debugger/open-snapshot-visualstudio.png)
 

@@ -9,13 +9,13 @@ ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
 ms.openlocfilehash: e1f5a1c8229544d97d9ff64748390f0d5237ab97
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238432"
 ---
-| Resource | 預設值/最大限制 |
+| 資源 | 預設值/最大限制 |
 | --- | --- |
 | 每個訂用帳戶的 azure 前端服務資源 | 100 |
 | 前端主機，其中包含每個資源的自訂網域 | 100 |

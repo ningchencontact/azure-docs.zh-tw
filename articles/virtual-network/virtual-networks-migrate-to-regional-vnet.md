@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: d3bb93d12a217e6d9066d037ff92f071b6139ab3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648630"
 ---
 # <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>將虛擬網路 (傳統) 從同質群組移轉至區域
@@ -50,9 +50,9 @@ ms.locfileid: "60648630"
    
     在網路組態檔中編輯下列幾行，並取代為您需要的值： 
    
-    **舊值：**\<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
+    **舊值：** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
    
-    **新的值：**\<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
+    **新的值：** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
 3. 儲存您的變更並網路組態 [匯入](virtual-networks-using-network-configuration-file.md#import) 至 Azure。
 
 > [!NOTE]

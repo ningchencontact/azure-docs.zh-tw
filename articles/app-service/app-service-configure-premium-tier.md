@@ -17,10 +17,10 @@ ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: c85644e3cab39f9e0864af91722ee54aab6d59f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66139800"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>設定 Azure App Service 的 PremiumV2 層
@@ -49,9 +49,9 @@ az appservice list-locations --sku P1V2
 
 App Service 應用程式的定價層會定義在其執行所在的 [App Service 方案](overview-hosting-plans.md)中。 您可以單獨建立 App Service 方案，或在應用程式建立期間加以建立。
 
-在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>中設定 App Service 方案時，請選取 [定價層]。 
+在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>中設定 App Service 方案時，請選取 [定價層]  。 
 
-選取 [生產]，然後選取 [P1V2]、[P2V2] 或 [P3V2]，然後按一下 [套用]。
+選取 [生產]  ，然後選取 [P1V2]  、[P2V2]  或 [P3V2]  ，然後按一下 [套用]  。
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
@@ -66,11 +66,11 @@ App Service 應用程式的定價層會定義在其執行所在的 [App Service 
 
 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>中，開啟您的 App Service 應用程式頁面。
 
-在 App Service 應用程式頁面的左側導覽中，選取 [相應增加 (App Service 方案)]。
+在 App Service 應用程式頁面的左側導覽中，選取 [相應增加 (App Service 方案)]  。
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
-選取 [生產]，然後選取 [P1V2]、[P2V2] 或 [P3V2]，然後按一下 [套用]。
+選取 [生產]  ，然後選取 [P1V2]  、[P2V2]  或 [P3V2]  ，然後按一下 [套用]  。
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
@@ -93,7 +93,7 @@ App Service 應用程式的定價層會定義在其執行所在的 [App Service 
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    在 [複製應用程式] 頁面上，您可以使用 **PremiumV2** 在您想要的區域中建立 App Service 方案，並指定您要複製的應用程式設定和組態。
+    在 [複製應用程式]  頁面上，您可以使用 **PremiumV2** 在您想要的區域中建立 App Service 方案，並指定您要複製的應用程式設定和組態。
 
 ## <a name="automate-with-scripts"></a>使用指令碼進行自動化
 
@@ -101,7 +101,7 @@ App Service 應用程式的定價層會定義在其執行所在的 [App Service 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-下列命令會在 P1V2 建立 App Service 方案。 您可以在 Cloud Shell 中執行該命令。 `--sku` 選項包括 P1V2、P2V2 和 P3V2。
+下列命令會在 P1V2  建立 App Service 方案。 您可以在 Cloud Shell 中執行該命令。 `--sku` 選項包括 P1V2、P2V2  和 P3V2  。
 
 ```azurecli-interactive
 az appservice plan create \
@@ -114,7 +114,7 @@ az appservice plan create \
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-下列命令會在 P1V2 建立 App Service 方案。 `-WorkerSize` 選項包括 [小型]、[中型] 和 [大型]。
+下列命令會在 P1V2  建立 App Service 方案。 `-WorkerSize` 選項包括 [小型]  、[中型]  和 [大型]  。
 
 ```powershell
 New-AzAppServicePlan -ResourceGroupName <resource_group_name> `

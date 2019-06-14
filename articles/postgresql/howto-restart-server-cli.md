@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 0a7cd815724fcebd6311860576e620eb9273523b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65068985"
 ---
 # <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>重新啟動適用於 PostgreSQL-使用 Azure CLI 的單一伺服器的 Azure 資料庫
@@ -32,7 +32,7 @@ ms.locfileid: "65068985"
 
 ## <a name="restart-the-server"></a>重新啟動伺服器
 
-使用以下命令重启服务器：
+重新啟動伺服器，使用下列命令：
 
 ```azurecli-interactive
 az postgres server restart --name mydemoserver --resource-group myresourcegroup
@@ -40,4 +40,4 @@ az postgres server restart --name mydemoserver --resource-group myresourcegroup
 
 ## <a name="next-steps"></a>後續步驟
 
-了解[如何在 Azure Database for PostgreSQL 中设置参数](howto-configure-server-parameters-using-cli.md)
+深入了解[如何設定 Azure 資料庫中的參數，適用於 PostgreSQL](howto-configure-server-parameters-using-cli.md)

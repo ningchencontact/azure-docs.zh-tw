@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e25060152577e7947a78aa0e8d78c85cc7fd2fad
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65138332"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>使用 SAML 2.0 識別提供者 (IdP) 來進行單一登入
@@ -194,7 +194,7 @@ Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正�
 如需有關 “Set-MsolDomainAuthentication” 的詳細資訊，請參閱：[https://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx)。
 
 >[!NOTE]
->仅当为标识提供者设置了 ECP 扩展时，才必须使用 `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` 来运行。 Exchange Online 用戶端 (Outlook Web App (OWA) 除外) 仰賴以 POST 為基礎的作用中端點。 如果您的 SAML 2.0 STS 所實作的作用中端點，類似於 Shibboleth 以 ECP 實作的作用中端點，則這些豐富型用戶端可能可以和 Exchange Online 服務互動。
+>您必須執行，請使用`$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"`只有當您為您的身分識別提供者設定 ECP 延伸模組。 Exchange Online 用戶端 (Outlook Web App (OWA) 除外) 仰賴以 POST 為基礎的作用中端點。 如果您的 SAML 2.0 STS 所實作的作用中端點，類似於 Shibboleth 以 ECP 實作的作用中端點，則這些豐富型用戶端可能可以和 Exchange Online 服務互動。
 
 已設定同盟之後，您可以切換回「非同盟」(或「受控」) 模式，不過，系統最多需要兩個小時才能完成這項變更，而且您必須對每個使用者指派新的隨機密碼以用於雲端式登入。 在某些情況下，您可能需要切換回「受控」模式，以將設定中的錯誤重設。 如需有關網域轉換的詳細資訊，請參閱[https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx)。
 
@@ -209,7 +209,7 @@ Microsoft 藉由整合 Microsoft 雲端服務 (例如 Office 365) 和您已正�
 
 
 1. 以租用戶管理員的身分連線到您的 Azure AD 目錄：Connect-MsolService。
-2.  创建新用户主体：
+2.  建立新的使用者主體：
     ```powershell
     New-MsolUser
       -UserPrincipalName elwoodf1@contoso.com

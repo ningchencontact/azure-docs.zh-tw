@@ -9,13 +9,13 @@ ms.date: 5/3/2019
 ms.author: victorh
 ms.custom: include file
 ms.openlocfilehash: 8709d4d903bd31ff94d04ec61e226857e4190407
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238752"
 ---
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | --- |
 | 資料輸送量 |30 Gbps<sup>1</sup> |
 |規則|10000，有些規則類型結合。|

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 0755c01fe8e13e8e39c0b453198f2b67c51a2bc4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66149633"
 ---
 #### <a name="to-download-hotfixes"></a>下載 Hofix
@@ -20,13 +20,13 @@ ms.locfileid: "66149633"
 
     ![安裝目錄](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. 在 Microsoft Update Catalog 的搜尋方塊中，輸入您要下載的 Hotfix 知識庫 (KB) 編號 (例如 **4011839**)，然後按一下 [搜尋]。
+3. 在 Microsoft Update Catalog 的搜尋方塊中，輸入您要下載的 Hotfix 知識庫 (KB) 編號 (例如 **4011839**)，然後按一下 [搜尋]  。
    
     Hotfix 清單隨即出現，例如**適用於 StorSimple 8000 系列的累積軟體套件組合更新 4.0**。
    
     ![搜尋目錄](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. 按一下 [下載] 。 指定或「瀏覽」  至您想要儲存下載項目的本機位置。 按一下要下載到指定位置和資料夾的檔案。 資料夾也可以複製到裝置可連線的網路共用位置。
+4. 按一下 [下載]  。 指定或「瀏覽」  至您想要儲存下載項目的本機位置。 按一下要下載到指定位置和資料夾的檔案。 資料夾也可以複製到裝置可連線的網路共用位置。
 5. 搜尋上表所列的任何其他 Hotfix (**4011841**)，並將對應檔案下載到上表所列的特定資料夾。
 
 > [!NOTE]
@@ -39,7 +39,7 @@ ms.locfileid: "66149633"
 執行下列步驟來安裝及驗證一般模式 Hotfix。 如果您已使用 Azure 傳統入口網站安裝這些 Hotfix，請直接跳到[安裝及驗證維護模式 Hotfix](#to-install-and-verify-maintenance-mode-hotfixes)。
 
 1. 若要安裝 Hotfix，請存取 StorSimple 裝置序列主控台上的 Windows PowerShell 介面。 請依照[使用 PuTTy 連接到序列主控台](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)中的詳細指示執行作業。 在命令提示字元中，按 **Enter**鍵。
-2. 選取選項 1 [以完整存取權登入]。 建議您先在被動控制站上安裝此 Hotfix。
+2. 選取選項 1 [以完整存取權登入]  。 建議您先在被動控制站上安裝此 Hotfix。
 3. 若要安裝 Hotfix，請在命令提示字元中輸入：
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
@@ -164,7 +164,7 @@ ms.locfileid: "66149633"
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. 使用 `Get-HcsUpdateStatus` 命令監視安裝進度。 當 `RunInProgress` 變成 `False` 時，代表更新完成。
-4. 安裝完成之後，維護模式 Hotfix 安裝所在的控制器將會重新開機。 利用 [以完整存取權登入] 的選項 1 登入，並驗證磁碟韌體版本。 輸入：
+4. 安裝完成之後，維護模式 Hotfix 安裝所在的控制器將會重新開機。 利用 [以完整存取權登入]  的選項 1 登入，並驗證磁碟韌體版本。 輸入：
    
    `Get-HcsFirmwareVersion`
    

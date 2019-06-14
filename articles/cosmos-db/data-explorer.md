@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dech
 ms.openlocfilehash: 04cfdd1f96f83898710b6f292116f0afddc8df96
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237242"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>使用 Azure Cosmos 總管處理資料 
@@ -29,7 +29,7 @@ Azure Cosmos DB 總管是一個獨立的 Web 介面，可讓您檢視和管理 A
 
 2. 從 [所有資源]  中，尋找並瀏覽至您的 Azure Cosmos DB 帳戶、選取 [金鑰]，然後複製 [主要連接字串]  。  
 
-3. 移至 https://cosmos.azure.com/、貼上連接字串，然後選取 [連線]  。 藉由使用連接字串，您就能存取 Azure Cosmos DB 總管，而且完全沒有時間限制。  
+3. 移至 https://cosmos.azure.com/ 、貼上連接字串，然後選取 [連線]  。 藉由使用連接字串，您就能存取 Azure Cosmos DB 總管，而且完全沒有時間限制。  
 
    如果您想要為其他使用者提供您 Azure Cosmos DB 帳戶的暫時存取權，則可使用讀寫和讀取存取 URL 來達成此目的。 
 

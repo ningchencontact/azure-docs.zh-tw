@@ -9,13 +9,13 @@ ms.date: 10/11/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: a2729af6a689daa551fc01f585324d53a8770a9b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66143006"
 ---
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | :--- |
 | 最大的叢集，每個訂用帳戶 | 100 |
 | 每個叢集的節點上限 | 100 |

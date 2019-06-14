@@ -13,10 +13,10 @@ ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
 ms.openlocfilehash: 30e22cb786e5dc2a667fe41ca8edf398cf0b7613
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65761802"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>如何使用自訂的轉換為 REST 進行編碼
@@ -145,7 +145,7 @@ PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:r
 
 選取 **主體**索引標籤，並取代主體使用 json 程式碼[稍早定義](#define-a-custom-preset)。 若要將轉換套用至指定的視訊或音訊的媒體服務，您需要提交作業，以在該轉換。
 
-選取 [傳送]。 
+選取 [傳送]  。 
 
 若要將轉換套用至指定的視訊或音訊的媒體服務，您需要提交作業，以在該轉換。 如需示範如何提交下轉型作業的完整範例，請參閱[教學課程：Stream 視訊檔案-REST](stream-files-tutorial-with-rest.md)。
 

@@ -9,15 +9,15 @@ ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
 ms.openlocfilehash: 2823a33b25812a69ad463433bacd9710655c9176
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238835"
 ---
 #### <a name="process-automation"></a>程序自動化
 
-| Resource | 上限 |注意|
+| 資源 | 上限 |注意|
 | --- | --- |---|
 | 新的作業可以提交每個 Azure 自動化帳戶 （未排程的作業） 每隔 30 秒的最大數目 |100 |當到達這個限制時，建立作業，後續要求將會失敗。 用戶端會收到錯誤回應。|
 | 並行執行的作業，在相同的執行個體的每個自動化帳戶 （未排程的作業） 的時間的最大數目 |200 |當到達這個限制時，建立作業，後續要求將會失敗。 用戶端會收到錯誤回應。|

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: magoedte
 ms.openlocfilehash: 2d57e619ec17e183bc8c9bb155f3e111f43b85f1
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952481"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>將 Windows 電腦連線到 Azure 監視器
@@ -44,11 +44,11 @@ ms.locfileid: "65952481"
 ## <a name="obtain-workspace-id-and-key"></a>取得工作區識別碼和金鑰
 安裝適用於 Windows 的 Log Analytics 代理程式之前，您需要 Log Analytics 工作區的工作區識別碼和金鑰。  這項資訊才能正確設定代理程式，並確保與 Azure 監視器中 Azure commercial 和 US Government 雲端可以順利進行通訊的每種安裝方法安裝期間是必要的。 
 
-1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
+1. 在 Azure 入口網站中，按一下 [所有服務]  。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]  。
 2. 在您的 Log Analytics 工作區清單中，選取您要設定讓代理程式向哪個工作區報告。
-3. 選取 [進階設定]。<br><br> ![Log Analytics 進階設定](media/agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
-4. 選取 [連接的來源]，然後選取 [Windows 伺服器]。   
-5. 將 [工作區識別碼] 和 [主要金鑰] 複製並貼到您最愛的編輯器。    
+3. 選取 [進階設定]  。<br><br> ![Log Analytics 進階設定](media/agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
+4. 選取 [連接的來源]  ，然後選取 [Windows 伺服器]  。   
+5. 將 [工作區識別碼]  和 [主要金鑰]  複製並貼到您最愛的編輯器。    
    
 ## <a name="configure-agent-to-use-tls-12"></a>設定代理程式以使用 TLS 1.2
 若要設定將 [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) 通訊協定用於 Windows 代理程式和 Log Analytics 服務之間的通訊，您可以遵循下列步驟，以在將代理程式安裝於虛擬機器之前或之後啟用此功能。   
@@ -72,20 +72,20 @@ ms.locfileid: "65952481"
 ## <a name="install-the-agent-using-setup-wizard"></a>使用安裝精靈安裝代理程式
 下列步驟安裝，並在 Azure 和 Azure Government 雲端中設定 Log Analytics 代理程式，使用您的電腦上的代理程式安裝精靈。 如果您想要了解如何設定代理程式，以同時回報至 System Center Operations Manager 管理群組，請參閱[使用代理程式安裝精靈部署 Operations Manager 代理程式](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard)。
 
-1. 在 Log Analyics 工作區中，從您稍早瀏覽的 [Windows 伺服器] 頁面，根據 Windows 作業系統的處理器架構，選取適當的 [下載 Windows 代理程式] 版本來下載。   
+1. 在 Log Analyics 工作區中，從您稍早瀏覽的 [Windows 伺服器]  頁面，根據 Windows 作業系統的處理器架構，選取適當的 [下載 Windows 代理程式]  版本來下載。   
 2. 執行安裝程式以在您的電腦上安裝代理程式。
-2. 在 [歡迎] 頁面中按 [下一步]。
-3. 閱讀 [授權條款] 頁面上的授權，然後按一下 [我接受]。
-4. 在 [目的資料夾] 頁面上，變更或保留預設的安裝資料夾，然後按 [下一步]。
-5. 在 [代理程式安裝選項] 頁面上，選擇將代理程式連線到 Azure Log Analytics，然後按 [下一步]。   
-6. 在 [Azure Log Analytics] 頁面上，執行下列操作：
-   1. 貼上您先前複製的**工作區識別碼**和**工作區金鑰 (主要金鑰)**。  如果電腦應該向 Azure Government Cloud 中的 Log Analytics 工作區回報，請從 [Azure 雲端] 下拉式清單中選取 [Azure 美國政府]。  
-   2. 如果電腦需要透過 Proxy 伺服器與 Log Analytics 服務進行通訊，請按一下 [進階]，然後提供 Proxy 伺服器的 URL 和連接埠號碼。  如果您的 Proxy 伺服器會要求驗證，請輸入要向 Proxy 伺服器進行驗證的使用者名稱和密碼，然後按 [下一步]。  
-7. 提供完必要的組態設定之後，按 [下一步]。<br><br> ![貼上工作區識別碼和主索引鍵](media/agent-windows/log-analytics-mma-setup-laworkspace.png)<br><br>
-8. 在 [安裝準備就緒] 頁面上，檢閱您的選擇，然後按一下 [安裝]。
-9. 在 [設定成功完成] 頁面上，按一下 [完成]。
+2. 在 [歡迎]  頁面中按 [下一步]  。
+3. 閱讀 [授權條款]  頁面上的授權，然後按一下 [我接受]  。
+4. 在 [目的資料夾]  頁面上，變更或保留預設的安裝資料夾，然後按 [下一步]  。
+5. 在 [代理程式安裝選項]  頁面上，選擇將代理程式連線到 Azure Log Analytics，然後按 [下一步]  。   
+6. 在 [Azure Log Analytics]  頁面上，執行下列操作：
+   1. 貼上您先前複製的**工作區識別碼**和**工作區金鑰 (主要金鑰)** 。  如果電腦應該向 Azure Government Cloud 中的 Log Analytics 工作區回報，請從 [Azure 雲端]  下拉式清單中選取 [Azure 美國政府]  。  
+   2. 如果電腦需要透過 Proxy 伺服器與 Log Analytics 服務進行通訊，請按一下 [進階]  ，然後提供 Proxy 伺服器的 URL 和連接埠號碼。  如果您的 Proxy 伺服器會要求驗證，請輸入要向 Proxy 伺服器進行驗證的使用者名稱和密碼，然後按 [下一步]  。  
+7. 提供完必要的組態設定之後，按 [下一步]  。<br><br> ![貼上工作區識別碼和主索引鍵](media/agent-windows/log-analytics-mma-setup-laworkspace.png)<br><br>
+8. 在 [安裝準備就緒]  頁面上，檢閱您的選擇，然後按一下 [安裝]  。
+9. 在 [設定成功完成]  頁面上，按一下 [完成]  。
 
-完成時，[Microsoft 監視代理程式] 會出現在 [控制台] 中。 若要確認它有向 Log Analytics 報告，請檢閱[確認代理程式能夠連線到 Log Analytics](#verify-agent-connectivity-to-log-analytics)。 
+完成時，[Microsoft 監視代理程式]  會出現在 [控制台]  中。 若要確認它有向 Log Analytics 報告，請檢閱[確認代理程式能夠連線到 Log Analytics](#verify-agent-connectivity-to-log-analytics)。 
 
 ## <a name="install-the-agent-using-the-command-line"></a>使用命令列安裝代理程式
 為代理程式下載的檔案是獨立安裝套件。  套件中包含代理程式的安裝程式和支援檔案，這些檔案需要先解壓縮，才能使用命令列正確安裝，如下列範例所示。    
@@ -137,7 +137,7 @@ ms.locfileid: "65952481"
 若要直接從代理程式安裝套件擷取產品代碼，您可以使用[適用於 Windows Installer 開發人員的 Windows SDK 元件](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) (Windows 軟體開發套件的元件之一) 中的 Orca.exe，或依循 Microsoft Valuable Professional (MVP) 撰寫的[範例指令碼](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/)使用 PowerShell。  針對任一方法，您都必須先從 MMASetup 安裝套件擷取 **MOMagent.msi** 檔案。  這在前面[使用命令列安裝代理程式](#install-the-agent-using-the-command-line)一節底下的第一個步驟中有所敘述。  
 
 1. 將 xPSDesiredStateConfiguration DSC 模組從 [https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) 匯入 Azure 自動化。  
-2.  建立 Azure 自動化的 *OPSINSIGHTS_WS_ID* 和 *OPSINSIGHTS_WS_KEY* 變數資產。 將 OPSINSIGHTS_WS_ID 設定為您的 Log Analytics 工作區識別碼，將 OPSINSIGHTS_WS_KEY 設定為您的工作區主索引鍵。
+2.  建立 Azure 自動化的 *OPSINSIGHTS_WS_ID* 和 *OPSINSIGHTS_WS_KEY* 變數資產。 將 OPSINSIGHTS_WS_ID  設定為您的 Log Analytics 工作區識別碼，將 OPSINSIGHTS_WS_KEY  設定為您的工作區主索引鍵。
 3.  複製指令碼，並將其儲存為 MMAgent.ps1。
 
     ```powershell
@@ -184,11 +184,11 @@ ms.locfileid: "65952481"
 
 代理程式的安裝一旦完成，可以兩種方式確認其連線成功和報告。  
 
-在電腦的 [控制台] 中，找到 [Microsoft Monitoring Agent]。  選取它，然後代理程式應該會在 [Azure Log Analytics] 索引標籤上顯示訊息，指出：[Microsoft Monitoring Agent 已成功與 Microsoft Operations Management Suite 服務連線。]<br><br> ![MMA 對 Log Analytics 的連線狀態](media/agent-windows/log-analytics-mma-laworkspace-status.png)
+在電腦的 [控制台]  中，找到 [Microsoft Monitoring Agent]  。  選取它，然後代理程式應該會在 [Azure Log Analytics]  索引標籤上顯示訊息，指出：[Microsoft Monitoring Agent 已成功與 Microsoft Operations Management Suite 服務連線。] <br><br> ![MMA 對 Log Analytics 的連線狀態](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
 您也可以在 Azure 入口網站中執行簡單的記錄檔查詢。  
 
-1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中，輸入**Azure 監視器**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取  **Azure 監視器**。  
+1. 在 Azure 入口網站中，按一下 [所有服務]  。 在資源清單中，輸入**Azure 監視器**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取  **Azure 監視器**。  
 2. 選取 **記錄檔**功能表中。 
 2. 在 [記錄] 窗格的查詢欄位中輸入：  
 

@@ -13,10 +13,10 @@ ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
 ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66297098"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>將您的應用程式連線到 Azure SQL Database 受控執行個體
@@ -138,7 +138,7 @@ ms.locfileid: "66297098"
 
 如果您想要連線到受控執行個體，建議您至少使用下列版本的工具和驅動程式：
 
-| 驅動程式/工具 | 版本 |
+| 驅動程式/工具 | Version |
 | --- | --- |
 |.NET Framework | 4.6.1 (或 .NET Core) |
 |ODBC 驅動程式| v17 |

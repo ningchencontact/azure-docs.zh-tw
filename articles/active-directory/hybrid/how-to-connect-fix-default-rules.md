@@ -1,6 +1,6 @@
 ---
-title: 如何修复已修改的默认规则 - Azure AD Connect | Microsoft Docs
-description: 了解如何修复 Azure AD Connect 随附的经过修改的默认规则。
+title: 如何修正已修改的預設規則-Azure AD Connect |Microsoft Docs
+description: 了解如何修正 Azure AD Connect 隨附的已修改的預設規則。
 services: active-directory
 author: billmath
 manager: daveba
@@ -14,13 +14,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d2f0956b44d6df64fb73e5eee7844574237d8755
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067641"
 ---
-# <a name="fix-modified-default-rules-in-azure-ad-connect"></a>在 Azure AD Connect 中修复已修改的默认规则
+# <a name="fix-modified-default-rules-in-azure-ad-connect"></a>修正 Azure AD Connect 中的已修改的預設規則
 
 Azure Active Directory (Azure AD) Connect 會使用預設規則的同步處理。  不幸的是，這些規則都不適用於所有的組織。 根據您的需求，您可能需要加以修改。 這篇文章討論最常見的自訂項目，兩個範例，並說明完成這些自訂的正確方式。
 
@@ -40,8 +40,8 @@ Azure Active Directory (Azure AD) Connect 會使用預設規則的同步處理�
 
 ![同步處理規則編輯器，顯示標準的預設規則，並已修改的預設規則](media/how-to-connect-fix-default-rules/default2a.png)
 
-## <a name="common-customizations"></a>常见自定义操作
-下面是对默认规则执行的常见自定义操作：
+## <a name="common-customizations"></a>常見的自訂項目
+以下是常見的自訂的預設規則：
 
 - 變更屬性流程
 - 變更範圍篩選器
@@ -49,7 +49,7 @@ Azure Active Directory (Azure AD) Connect 會使用預設規則的同步處理�
 
 之前，您要變更任何規則：
 
-- 禁用同步计划程序。 默认情况下，计划程序每隔 30 分钟运行一次。 請確定未啟動，而您要進行變更，並疑難排解您的新規則。 若要暫時停用排程器，啟動 PowerShell，然後執行`Set-ADSyncScheduler -SyncCycleEnabled $false`。
+- 停用同步排程器。 排程器預設會執行每隔 30 分鐘。 請確定未啟動，而您要進行變更，並疑難排解您的新規則。 若要暫時停用排程器，啟動 PowerShell，然後執行`Set-ADSyncScheduler -SyncCycleEnabled $false`。
  ![若要停用同步排程器的 PowerShell 命令](media/how-to-connect-fix-default-rules/default3.png)
 
 - 範圍篩選器中的變更可能會導致刪除目標目錄中的物件。 請小心在領域的物件進行任何變更之前。 我們建議您到預備伺服器進行變更，再使用中伺服器上進行變更。
@@ -89,7 +89,7 @@ Azure Active Directory (Azure AD) Connect 會使用預設規則的同步處理�
 
 保持**聯結規則**空白。 這表示此規則會使用標準的預設規則中所定義的聯結條件。 這是不能停用或刪除標準的預設規則的另一個原因。 如果沒有任何聯結條件，將不會流向屬性。 
 
-新增適當的轉換屬性。 您可以指派要做為常數的常數，值流向您的目標屬性。 您可以使用的來源或目標屬性之間的直接對應。 或者，您可以使用運算式的屬性。 下面是可以使用的各种[表达式函数](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference)。
+新增適當的轉換屬性。 您可以指派要做為常數的常數，值流向您的目標屬性。 您可以使用的來源或目標屬性之間的直接對應。 或者，您可以使用運算式的屬性。 以下是各種[運算式函式](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference)您可以使用。
 
 #### <a name="add-an-outbound-sync-rule"></a>新增輸出同步處理規則
 若要連結到目標目錄的屬性，您需要建立輸出規則。 這表示來源是 metaverse，而且目標是連接的系統。 若要建立輸出規則，請啟動**同步處理規則編輯器**，變更**方向**來**輸出**，然後選取**新增規則**. 
@@ -102,7 +102,7 @@ Azure Active Directory (Azure AD) Connect 會使用預設規則的同步處理�
 
 保持**範圍設定篩選**並**聯結規則**空白。 填寫常數、 直接、 或運算式的轉換。 
 
-您現在知道如何從 Active Directory 中對 Azure Active Directory 的使用者物件流程的新屬性。 可以使用这些步骤将任意对象中的任意属性映射到源和目标。 如需詳細資訊，請參閱 <<c0> [ 建立自訂同步處理規則](how-to-connect-create-custom-sync-rule.md)並[準備將使用者佈建](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization)。
+您現在知道如何從 Active Directory 中對 Azure Active Directory 的使用者物件流程的新屬性。 您可以使用下列步驟來對應中的任何物件來源和目標的任何屬性。 如需詳細資訊，請參閱 <<c0> [ 建立自訂同步處理規則](how-to-connect-create-custom-sync-rule.md)並[準備將使用者佈建](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization)。
 
 ### <a name="override-the-value-of-an-existing-attribute"></a>覆寫現有屬性的值
 您可能想要覆寫已對應屬性的值。 比方說，如果您一定想要在 Azure AD 中設定屬性的 null 值，只要建立只有輸入的規則。 請常數值， `AuthoritativeNull`，目標屬性的流程。 
@@ -110,7 +110,7 @@ Azure Active Directory (Azure AD) Connect 會使用預設規則的同步處理�
 >[!NOTE] 
 > 使用`AuthoritativeNull`而不是`Null`在此情況下。 這是因為非 null 值取代 null 值，即使它具有較低的優先順序 （較高數字的值在規則中）。 `AuthoritativeNull`相反地，不會取代為非 null 值與其他規則。 
 
-### <a name="dont-sync-existing-attribute"></a>不同步现有属性
+### <a name="dont-sync-existing-attribute"></a>不會同步處理現有的屬性
 如果您想要同步處理時，排除屬性，請使用篩選功能在 Azure AD Connect 所提供的屬性。 啟動**Azure AD Connect**從桌面圖示，然後選取**自訂同步處理選項**。
 
 ![Azure AD Connect 其他工作選項](media/how-to-connect-fix-default-rules/default4.png)
@@ -128,7 +128,7 @@ Azure AD 同步處理會負責大部分的物件。 您可以縮小範圍的物�
 
 您可以使用其中一種下列方法來減少要同步的物件的範圍：
 
-- cloudFiltered 属性
+- cloudFiltered 屬性
 - 組織單位篩選
 
 如果您要同步的使用者的範圍減少，，密碼雜湊同步處理也會停止已篩選出使用者。 如果物件已同步處理之後您縮小範圍,，篩選出刪除的物件會從目標目錄。 基於這個理由，請確定您範圍非常謹慎。
@@ -136,7 +136,7 @@ Azure AD 同步處理會負責大部分的物件。 您可以縮小範圍的物�
 >[!IMPORTANT] 
 > 不建議增加的 Azure AD Connect 所設定的物件範圍。 這樣做會很困難，Microsoft 支援小組，以了解自訂項目。 如果您必須增加之物件的範圍，編輯現有的規則、 複製它，並停用原始的規則。 
 
-### <a name="cloudfiltered-attribute"></a>cloudFiltered 属性
+### <a name="cloudfiltered-attribute"></a>cloudFiltered 屬性
 您無法在 Active Directory 中設定這個屬性。 藉由新增新的輸入的規則設定此屬性的值。 然後您可以使用**Transformation**並**運算式**metaverse 中設定這個屬性。 下列範例示範您不想要同步處理部門名稱開頭的所有使用者**HRD** （不區分大小寫）：
 
 `cloudFiltered <= IIF(Left(LCase([department]), 3) = "hrd", True, NULL)`
@@ -146,7 +146,7 @@ Azure AD 同步處理會負責大部分的物件。 您可以縮小範圍的物�
 ![建立輸入同步處理規則選項](media/how-to-connect-fix-default-rules/default7a.png)
 
 ### <a name="organizational-unit-filtering"></a>組織單位篩選
-您可以建立一或多個組織單位 (Ou)，並將您不想要同步至這些 Ou 的物件移動。 然後，設定 Azure AD Connect 中篩選的 OU。 啟動**Azure AD Connect**從桌面圖示，選取下列選項。 也可以在安装 Azure AD Connect 时配置 OU 筛选。 
+您可以建立一或多個組織單位 (Ou)，並將您不想要同步至這些 Ou 的物件移動。 然後，設定 Azure AD Connect 中篩選的 OU。 啟動**Azure AD Connect**從桌面圖示，選取下列選項。 您也可以設定在 Azure AD connect 的安裝時進行篩選的 OU。 
 
 ![Azure AD Connect 其他工作](media/how-to-connect-fix-default-rules/default8.png)
 
@@ -157,7 +157,7 @@ Azure AD 同步處理會負責大部分的物件。 您可以縮小範圍的物�
 ## <a name="change-join-condition"></a>變更聯結條件
 使用 Azure AD Connect 所設定的預設聯結條件。 變更預設的聯結條件就難了解自訂項目，並支援產品的 Microsoft 支援服務。
 
-## <a name="validate-sync-rule"></a>验证同步规则
+## <a name="validate-sync-rule"></a>驗證同步處理規則
 您可以使用預覽功能，而不需要執行完整同步處理循環，以驗證新加入同步處理規則。 在 Azure AD Connect，請選取**同步處理服務**。
 
 ![Azure AD Connect，反白顯示的同步處理服務](media/how-to-connect-fix-default-rules/default10.png)
@@ -166,7 +166,7 @@ Azure AD 同步處理會負責大部分的物件。 您可以縮小範圍的物�
 
 ![同步處理服務管理員](media/how-to-connect-fix-default-rules/default11.png)
 
-在  **Metaverse 物件屬性**，選取**連接器**，選取對應的連接器 （樹系） 中的物件，然後選取**屬性...**.
+在  **Metaverse 物件屬性**，選取**連接器**，選取對應的連接器 （樹系） 中的物件，然後選取**屬性...** .
 
 ![Metaverse 物件屬性](media/how-to-connect-fix-default-rules/default12.png)
 
@@ -184,7 +184,7 @@ Azure AD 同步處理會負責大部分的物件。 您可以縮小範圍的物�
  
 若要比較的預設規則使用修改過的規則，將匯出這兩個規則分別為文字檔案。 這些規則會匯出為 PowerShell 指令碼檔案。 您可以使用任何檔案比較工具 (例如，windiff) 才能看到這些變更來比較它們。 
  
-請注意，在修改過的規則`msExchMailboxGuid`屬性變更為**運算式**型別，而不是**直接**。 此外，將值變更為**NULL**並**ExecuteOnce**選項。 可以忽略 Identified（已识别）和 Precedence（优先顺序）的差异。 
+請注意，在修改過的規則`msExchMailboxGuid`屬性變更為**運算式**型別，而不是**直接**。 此外，將值變更為**NULL**並**ExecuteOnce**選項。 您可以忽略 Identified 和優先順序的差異。 
 
 ![windiff 工具輸出](media/how-to-connect-fix-default-rules/default17.png)
  

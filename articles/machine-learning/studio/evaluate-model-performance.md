@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 37ab56c377bc53a7300b51ffc709ea8d1b9d6f9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60750455"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>如何在 Azure Machine Learning Studio 中評估模型效能
@@ -52,14 +52,14 @@ Azure Machine Learning Studio 支援透過兩個主要的機器學習模組來�
 * [計分模型][score-model]
 * [評估模型][evaluate-model]
 
-如下圖 1 所示連接連接埠，並將[訓練模型][train-model]模組的 [標籤] 資料行設定為 [價格]。
+如下圖 1 所示連接連接埠，並將[訓練模型][train-model]模組的 [標籤] 資料行設定為 [價格]  。
 
 ![評估迴歸模型](./media/evaluate-model-performance/1.png)
 
 圖 1. 評估迴歸模型。
 
 ### <a name="inspecting-the-evaluation-results"></a>檢查評估結果
-執行實驗之後，您可以按一下[評估模型][evaluate-model]模組的輸出連接埠，然後選取 [視覺化] 以查看評估結果。 適用於迴歸模型的評估計量包括：「平均絕對誤差」、「根平均絕對誤差」、「相對絕對誤差」、「相對平方誤差」和「決定係數」。
+執行實驗之後，您可以按一下[評估模型][evaluate-model]模組的輸出連接埠，然後選取 [視覺化]  以查看評估結果。 適用於迴歸模型的評估計量包括：「平均絕對誤差」  、「根平均絕對誤差」  、「相對絕對誤差」  、「相對平方誤差」  和「決定係數」  。
 
 「誤差」一詞代表預測的值和真正的值之間的差異。 系統通常會計算這項差異的絕對值或平方來擷取所有案例中的總誤差大小，因為在某些情況下，預測的值和真正的值之間的差異可能是負數。 誤差度量會根據預測與真正的值之間的平均偏差，測量迴歸模型的預測性效能。 誤差值越低，表示進行預測的模型越精確。 整體誤差度量為零時，表示模型完全符合資料。
 
@@ -70,7 +70,7 @@ Azure Machine Learning Studio 支援透過兩個主要的機器學習模組來�
 圖 2. 線性迴歸評估度量。
 
 ### <a name="using-cross-validation"></a>使用交叉驗證
-如先前所述，您可以使用[交叉驗證模型][cross-validate-model]模組，自動執行反覆的訓練、計分和評估。 在這種情況下，您只需要一個資料集、一個非定型模型，以及一個[交叉驗證模型][cross-validate-model]模組 (請參閱下圖)。 您必須在[交叉驗證模型][cross-validate-model]模組的屬性中，將 [標籤] 資料行設定為 [價格]。
+如先前所述，您可以使用[交叉驗證模型][cross-validate-model]模組，自動執行反覆的訓練、計分和評估。 在這種情況下，您只需要一個資料集、一個非定型模型，以及一個[交叉驗證模型][cross-validate-model]模組 (請參閱下圖)。 您必須在[交叉驗證模型][cross-validate-model]模組的屬性中，將 [標籤] 資料行設定為 [價格]  。
 
 ![交叉驗證迴歸模型](./media/evaluate-model-performance/3.png)
 
@@ -94,14 +94,14 @@ Azure Machine Learning Studio 支援透過兩個主要的機器學習模組來�
 * [計分模型][score-model]
 * [評估模型][evaluate-model]
 
-如下圖 5 所示連接連接埠，並將[訓練模型][train-model]模組的 [標籤] 資料行設定為 [收入]。
+如下圖 5 所示連接連接埠，並將[訓練模型][train-model]模組的 [標籤] 資料行設定為 [收入]  。
 
 ![評估二進位分類模型](./media/evaluate-model-performance/5.png)
 
 圖 5. 評估二進位分類模型。
 
 ### <a name="inspecting-the-evaluation-results"></a>檢查評估結果
-執行實驗之後，您可以按一下[評估模型][evaluate-model]模組的輸出連接埠，然後選取 [視覺化] 以查看評估結果 (圖 7)。 適用於二元分類模型的評估計量包括：「準確度」、「精確度」、「召回率」、「F1 分數」及 *AUC*。 此外，這個模組會輸出一個混淆矩陣，其中顯示真肯定、誤否定、誤肯定、真否定，以及 ROC、「精確度/回收和「升力」曲線的數目。
+執行實驗之後，您可以按一下[評估模型][evaluate-model]模組的輸出連接埠，然後選取 [視覺化]  以查看評估結果 (圖 7)。 適用於二元分類模型的評估計量包括：「準確度」  、「精確度」  、「召回率」  、「F1 分數」  及 *AUC*。 此外，這個模組會輸出一個混淆矩陣，其中顯示真肯定、誤否定、誤肯定、真否定，以及 ROC  、「精確度/回收  和「升力」  曲線的數目。
 
 準確性只是正確分類的案例的比例。 它通常是評估分類器時，您看到的第一個度量。 不過，當測試資料處於不平衡狀態 (其中大部分的案例都屬於其中一個類別) 時，或者您對於其中一個類別的效能更有興趣時，準確性不一定會擷取分類器的效率。 在收入層級的分類案例中，假設您要測試的特定資料中，99% 的案例代表年收入少於或等於 5 萬元的人。 預測所有案例的類別 “<=50K”，可能會達到 0.99 準確性。 在此案例中，此分類器整體而言似乎做得不錯，但事實上，它無法正確分類任何高收入的個人 (1%)。
 
@@ -122,7 +122,7 @@ Azure Machine Learning Studio 支援透過兩個主要的機器學習模組來�
 此外，您還可以在**受測者操作特徵 (ROC)** 曲線及對應的**曲線下面積 (AUC)** 值中，查看真肯定比率與誤肯定比率的比較。 此曲線越接近左上角，分類器的效能越好 (亦即，將真肯定比率提至最高，同時將誤肯定比率降至最低)。 接近繪圖對角線的曲線是因為分類器想要進行接近隨機猜測的預測所造成。
 
 ### <a name="using-cross-validation"></a>使用交叉驗證
-如同在迴歸範例中，我們可以執行交叉驗證以自動重複訓練、評分和評估不同的資料子集。 同樣地，我們可以使用[交叉驗證模型][cross-validate-model]模組、非定型的羅吉斯迴歸模型和資料集。 在[交叉驗證模型][cross-validate-model]模組的屬性中，[標籤] 資料行必須設定為 [收入]。 執行實驗並按一下[交叉驗證模型][cross-validate-model]模組右側的輸出連接埠之後，除了每次交疊的平均值和標準差，我們還可以看到每次交疊的二元分類度量值。 
+如同在迴歸範例中，我們可以執行交叉驗證以自動重複訓練、評分和評估不同的資料子集。 同樣地，我們可以使用[交叉驗證模型][cross-validate-model]模組、非定型的羅吉斯迴歸模型和資料集。 在[交叉驗證模型][cross-validate-model]模組的屬性中，[標籤] 資料行必須設定為 [收入]  。 執行實驗並按一下[交叉驗證模型][cross-validate-model]模組右側的輸出連接埠之後，除了每次交疊的平均值和標準差，我們還可以看到每次交疊的二元分類度量值。 
 
 ![交叉驗證二元分類模型](./media/evaluate-model-performance/8.png)
 
@@ -149,7 +149,7 @@ Azure Machine Learning Studio 支援透過兩個主要的機器學習模組來�
 
 將[訓練模型][train-model]模組的 [標籤] 資料行索引設定為 5。 此資料集沒有標頭資料列，但是我們知道類別標籤位於第五個資料行中。
 
-按一下 [匯入資料][import-data] 模組，並將 [資料來源] 屬性設定為 [透過 HTTP 的 Web URL]，並將 *URL* 設為 http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data。
+按一下 [匯入資料][import-data] 模組，並將 [資料來源]  屬性設定為 [透過 HTTP 的 Web URL]  ，並將 *URL* 設為 http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data 。
 
 在[分割資料][split]模組中，設定要用於訓練的執行個體分數 (例如 0.7)。
 

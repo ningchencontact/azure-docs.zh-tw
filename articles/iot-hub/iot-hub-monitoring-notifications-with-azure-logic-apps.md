@@ -10,11 +10,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/19/2019
 ms.author: robinsh
 ms.openlocfilehash: 26637468f44e12f7ad66f907e0f6be3d907e578f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126021"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64719318"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>搭配連接 IoT 中樞和信箱的 Azure Logic Apps 進行 IoT 遠端監視和通知
 
@@ -66,7 +66,7 @@ ms.locfileid: "62126021"
 
    ![在 Azure 入口網站中建立服務匯流排命名空間](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
 
-1. 選取 [建立] 。 等待部署完成再繼續進行下一個步驟。
+1. 選取 [建立]  。 等待部署完成再繼續進行下一個步驟。
 
 ### <a name="add-a-service-bus-queue-to-the-namespace"></a>命名空間中新增服務匯流排佇列
 
@@ -78,7 +78,7 @@ ms.locfileid: "62126021"
 
    ![在 Azure 入口網站中新增服務匯流排佇列](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
 
-1. 回到**服務匯流排命名空間**窗格下方**實體**，選取**佇列**。 從清單中，開啟 服務匯流排佇列，然後選取**共用存取原則** > **+ 新增**。
+1. 回到**服務匯流排命名空間**窗格下方**實體**，選取**佇列**。 從清單中，開啟 服務匯流排佇列，然後選取**共用存取原則** >  **+ 新增**。
 
 1. 輸入原則名稱，檢查**管理**，然後選取**建立**。
 
@@ -106,7 +106,7 @@ ms.locfileid: "62126021"
 
    ![將端點新增至 Azure 入口網站的 IoT 中樞](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
 
-1. 選取 [建立] 。 已成功建立端點之後，請繼續下一個步驟。
+1. 選取 [建立]  。 已成功建立端點之後，請繼續下一個步驟。
 
 ### <a name="add-a-routing-rule"></a>新增路由規則
 
@@ -144,7 +144,7 @@ ms.locfileid: "62126021"
 
    ![在 Azure 入口網站中建立邏輯應用程式](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
 
-1. 選取 [建立] 。
+1. 選取 [建立]  。
 
 ### <a name="configure-the-logic-app-trigger"></a>設定邏輯應用程式觸發程序
 
@@ -181,7 +181,7 @@ ms.locfileid: "62126021"
 
 1. 建立 SMTP 服務連接。
 
-   1. 選取 [新增步驟]。 在 [**選擇動作**，選取**所有**] 索引標籤。
+   1. 選取 [新增步驟]  。 在 [**選擇動作**，選取**所有**] 索引標籤。
 
    1. 型別`smtp`在 [搜尋] 方塊中，選取**SMTP**在搜尋結果中，服務，然後選取**傳送電子郵件**。
 
@@ -214,7 +214,7 @@ ms.locfileid: "62126021"
 
    1. 在上**smtp API 連線**窗格下方**一般**，選取**編輯 API 連線**。
 
-   1. 在 **編輯 API 連線**窗格中，選取**啟用 SSL？**，重新輸入您的電子郵件帳戶的密碼，然後選取**儲存**。
+   1. 在 **編輯 API 連線**窗格中，選取**啟用 SSL？** ，重新輸入您的電子郵件帳戶的密碼，然後選取**儲存**。
 
       ![編輯邏輯應用程式在 Azure 入口網站中的 SMTP API 連線](media/iot-hub-monitoring-notifications-with-azure-logic-apps/re-enable-smtp-connection-ssl.png)
 

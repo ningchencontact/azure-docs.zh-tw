@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 4834688496330210b273f40f1d6f11230a6ae1c8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66234135"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>使用彈性資料庫工具和資料列層級安全性的多租用戶應用程式
@@ -339,7 +339,7 @@ GO
 ```
 
 
-### <a name="maintenance"></a>維護 
+### <a name="maintenance"></a>維護
 
 - **新增分區**：執行 T-SQL 指令碼來啟用所有新分區上的 RLS，否則系統不會篩選這些分區的查詢。
 - **新增資料表**：在每次建立新資料表時，將 FILTER 和 BLOCK 述詞新增至所有分區上的安全性原則。 否則，系統不會篩選針對新資料表的查詢。 如[自動將資料列層級安全性套用至新建立的資料表 (部落格)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx) \(英文\) 中所述，此新增動作可以使用 DDL 觸發程序來自動執行。

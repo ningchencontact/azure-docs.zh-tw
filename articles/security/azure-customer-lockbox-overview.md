@@ -8,10 +8,10 @@ ms.author: cabailey
 manager: barbkess
 ms.date: 05/07/2019
 ms.openlocfilehash: 468e392cd2c45d79cbb24f8d737a6e83fbcd2725
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65079266"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>客戶 Lockbox 適用於 Microsoft Azure
@@ -64,7 +64,7 @@ ms.locfileid: "65079266"
     
     ![Azure 客戶 Lockbox-檢視暫止的要求](./media/azure-customer-lockbox/customer-lockbox-pending-requests.png)
 
-10. 指定的核准者也可以選取**服務要求識別碼**檢視由原始使用者所建立的支援票證要求。 這項資訊提供內容為什麼參與 Microsoft 支援服務，而報告的問題的歷程記錄。 例如︰
+10. 指定的核准者也可以選取**服務要求識別碼**檢視由原始使用者所建立的支援票證要求。 這項資訊提供內容為什麼參與 Microsoft 支援服務，而報告的問題的歷程記錄。 例如:
     
     ![Azure 客戶 Lockbox-檢視支援票證要求](./media/azure-customer-lockbox/customer-lockbox-support-ticket.png)
 

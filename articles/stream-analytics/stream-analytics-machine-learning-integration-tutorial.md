@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61480564"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>使用 Azure 串流分析和 Azure Machine Learning 執行情感分析
@@ -52,7 +52,7 @@ ms.locfileid: "61480564"
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>建立儲存體容器並上傳 CSV 輸入檔
 在此步驟中，您可以使用任何 CSV 檔案，例如從 GitHub 取得的檔案。
 
-1. 在 Azure 入口網站中，按一下 [建立資源] > [儲存體] > [儲存體帳戶]。
+1. 在 Azure 入口網站中，按一下 [建立資源]   > [儲存體]   > [儲存體帳戶]  。
 
 2. 提供名稱 (在範例中為 `samldemo`)。 名稱只能使用小寫字母和數字，而且在整個 Azure 中必須是唯一的。 
 
@@ -60,23 +60,23 @@ ms.locfileid: "61480564"
 
     ![提供儲存體帳戶詳細資料](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
-4. 在 Azure 入口網站中，選取儲存體帳戶。 在 [儲存體帳戶] 刀鋒視窗中，按一下 [容器]，然後按一下 [+&nbsp;容器] 建立 Blob 儲存體。
+4. 在 Azure 入口網站中，選取儲存體帳戶。 在 [儲存體帳戶] 刀鋒視窗中，按一下 [容器]  ，然後按一下 [+&nbsp;容器]  建立 Blob 儲存體。
 
     ![建立供輸入使用的 Blob 儲存體容器](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
-5. 提供容器的名稱 (在範例中為 `azuresamldemoblob`)，並確認 [存取類型] 設為 [Blob]。 完成後，按一下 [ **確定**]。
+5. 提供容器的名稱 (在範例中為 `azuresamldemoblob`)，並確認 [存取類型]  設為 [Blob]  。 完成後，按一下 [ **確定**]。
 
     ![指定 Blob 容器詳細資料](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account3.png)
 
-6. 在 [容器] 刀鋒視窗中，選取新的容器，這會開啟該容器的刀鋒視窗。
+6. 在 [容器]  刀鋒視窗中，選取新的容器，這會開啟該容器的刀鋒視窗。
 
-7. 按一下 [上傳] 。
+7. 按一下 [上傳]  。
 
     ![容器的 [上傳] 按鈕](./media/stream-analytics-machine-learning-integration-tutorial/create-sa-upload-button.png)
 
-8. 在 [上傳 Blob] 刀鋒視窗中，上傳您稍早下載的 **sampleinput.csv** 檔案。 對於 [Blob 類型]，選取 [區塊 Blob]，將區塊大小設為 4 MB，這對本教學課程已經足夠。
+8. 在 [上傳 Blob]  刀鋒視窗中，上傳您稍早下載的 **sampleinput.csv** 檔案。 對於 [Blob 類型]  ，選取 [區塊 Blob]  ，將區塊大小設為 4 MB，這對本教學課程已經足夠。
 
-9. 按一下刀鋒視窗底部的 [上傳] 按鈕。
+9. 按一下刀鋒視窗底部的 [上傳]  按鈕。
 
 ## <a name="add-the-sentiment-analytics-model-from-the-cortana-intelligence-gallery"></a>新增 Cortana 智慧資源庫中的情緒分析模型
 
@@ -84,7 +84,7 @@ ms.locfileid: "61480564"
 
 1. 移至 Cortana 智慧資源庫中的[預測情感分析模型](https://gallery.cortanaintelligence.com/Experiment/Predictive-Mini-Twitter-sentiment-analysis-Experiment-1) \(英文\) 頁面。  
 
-2. 按一下 [在 Studio 中開啟]。  
+2. 按一下 [在 Studio 中開啟]  。  
    
    ![串流分析機器學習服務, 開啟 Machine Learning Studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
 
@@ -94,11 +94,11 @@ ms.locfileid: "61480564"
 
    ![在 Machine Learning Studio 中執行實驗](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-run-experiment.png)  
 
-5. 程序成功執行之後，請選取頁面底部的 [部署 Web 服務]。
+5. 程序成功執行之後，請選取頁面底部的 [部署 Web 服務]  。
 
    ![在 Machine Learning Studio 中將實驗部署為 Web 服務](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-deploy-web-service.png)  
 
-6. 若要驗證情感分析模型是否已準備好使用，請按一下 [測試] 按鈕。 提供文字輸入，例如「我喜歡 Microsoft」。 
+6. 若要驗證情感分析模型是否已準備好使用，請按一下 [測試]  按鈕。 提供文字輸入，例如「我喜歡 Microsoft」。 
 
    ![在 Machine Learning Studio 中測試實驗](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test.png)  
 
@@ -106,7 +106,7 @@ ms.locfileid: "61480564"
 
    ![Machine Learning Studio 中的測試結果](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test-results.png)  
 
-7. 在 [應用程式] 欄中，按一下 [Excel 2010 或舊版活頁簿] 連結以下載 Excel 活頁簿。 活頁簿包含您稍後設定串流分析作業所需的 API 金鑰和 URL。
+7. 在 [應用程式]  欄中，按一下 [Excel 2010 或舊版活頁簿]  連結以下載 Excel 活頁簿。 活頁簿包含您稍後設定串流分析作業所需的 API 金鑰和 URL。
 
     ![串流分析機器學習服務, 快速概覽](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
@@ -119,7 +119,7 @@ ms.locfileid: "61480564"
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。  
 
-2. 按一下 [建立資源] > [物聯網] > [串流分析作業]。 
+2. 按一下 [建立資源]   > [物聯網]   > [串流分析作業]  。 
 
 3. 命名工作 `azure-sa-ml-demo`、指定訂用帳戶、指定現有的資源群組或建立一個新的資源群組，並選取工作的位置。
 
@@ -129,43 +129,43 @@ ms.locfileid: "61480564"
 ### <a name="configure-the-job-input"></a>設定工作輸入
 工作會從您稍早上傳到 Blob 儲存體的 CSV 檔案取得輸入。
 
-1. 作業建立之後，在作業刀鋒視窗的 [作業拓撲] 下，按一下 [輸入] 選項。    
+1. 作業建立之後，在作業刀鋒視窗的 [作業拓撲]  下，按一下 [輸入]  選項。    
 
-2. 在 [輸入] 刀鋒視窗中，按一下 [新增資料流輸入] >[Blob 儲存體]。
+2. 在 [輸入]  刀鋒視窗中，按一下 [新增資料流輸入]   >[Blob 儲存體]  。
 
-3. 使用下列值填寫 [Blob 儲存體] 刀鋒視窗：
+3. 使用下列值填寫 [Blob 儲存體]  刀鋒視窗：
 
    
-   |欄位  |Value  |
+   |欄位  |值  |
    |---------|---------|
-   |**輸入別名** | 使用名稱 `datainput`，並選取 [從您的訂用帳戶選取 Blob 儲存體]       |
+   |**輸入別名** | 使用名稱 `datainput`，並選取 [從您的訂用帳戶選取 Blob 儲存體]        |
    |**儲存體帳戶**  |  選取您稍早建立的儲存體帳戶。  |
    |**容器**  | 選取您稍早建立的容器 (`azuresamldemoblob`)        |
-   |**事件序列化格式**  |  選取 [CSV]       |
+   |**事件序列化格式**  |  選取 [CSV]        |
 
    ![新串流分析作業輸入設定](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-1. 按一下 [檔案] 。
+1. 按一下 [檔案]  。
 
 ### <a name="configure-the-job-output"></a>設定工作輸出
 工作會將結果傳送至取得輸入的相同 Blob 儲存體。 
 
-1. 在作業刀鋒視窗的 [作業拓撲] 下，按一下 [輸出] 選項。  
+1. 在作業刀鋒視窗的 [作業拓撲]  下，按一下 [輸出]  選項。  
 
-2. 在 [輸出] 刀鋒視窗中，按一下 [新增] >[Blob 儲存體]，然後使用別名 `datamloutput` 新增輸出。 
+2. 在 [輸出]  刀鋒視窗中，按一下 [新增]   >[Blob 儲存體]  ，然後使用別名 `datamloutput` 新增輸出。 
 
-3. 使用下列值填寫 [Blob 儲存體] 刀鋒視窗：
+3. 使用下列值填寫 [Blob 儲存體]  刀鋒視窗：
 
-   |欄位  |Value  |
+   |欄位  |值  |
    |---------|---------|
-   |**輸出別名** | 使用名稱 `datamloutput`，並選取 [從您的訂用帳戶選取 Blob 儲存體]       |
+   |**輸出別名** | 使用名稱 `datamloutput`，並選取 [從您的訂用帳戶選取 Blob 儲存體]        |
    |**儲存體帳戶**  |  選取您稍早建立的儲存體帳戶。  |
    |**容器**  | 選取您稍早建立的容器 (`azuresamldemoblob`)        |
-   |**事件序列化格式**  |  選取 [CSV]       |
+   |**事件序列化格式**  |  選取 [CSV]        |
 
    ![新串流分析作業輸出設定](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-output.png) 
 
-4. 按一下 [檔案] 。   
+4. 按一下 [檔案]  。   
 
 
 ### <a name="add-the-machine-learning-function"></a>新增機器學習服務函數 
@@ -175,19 +175,19 @@ ms.locfileid: "61480564"
 
 1. 請確定您有稍早下載的 Web 服務 URL 和 API 金鑰 (在 Excel 活頁簿中)。
 
-2. 瀏覽至您的作業刀鋒視窗 > [函式] > [+ 新增] > [AzureML]
+2. 瀏覽至您的作業刀鋒視窗 > [函式]   > [+ 新增]   > [AzureML] 
 
-3. 使用下列值填寫 [Azure Machine Learning 函式] 刀鋒視窗：
+3. 使用下列值填寫 [Azure Machine Learning 函式]  刀鋒視窗：
 
-   |欄位  |Value  |
+   |欄位  |值  |
    |---------|---------|
-   | **函式別名** | 使用名稱 `sentiment` 並選取 [手動提供 Azure Machine Learning 函式設定]，讓您能夠選擇輸入 URL 和金鑰。      |
+   | **函式別名** | 使用名稱 `sentiment` 並選取 [手動提供 Azure Machine Learning 函式設定]  ，讓您能夠選擇輸入 URL 和金鑰。      |
    | **URL**| 貼上 Web 服務 URL。|
    |**金鑰** | 貼上 API 金鑰。 |
   
    ![將機器學習服務函式新增至串流分析作業的設定](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
     
-4. 按一下 [檔案] 。
+4. 按一下 [檔案]  。
 
 ### <a name="create-a-query-to-transform-the-data"></a>建立查詢來轉換資料
 
@@ -195,7 +195,7 @@ ms.locfileid: "61480564"
 
 1. 回到工作概觀刀鋒視窗。
 
-2.  在 [工作拓撲] 下，按一下 [查詢] 方塊。
+2.  在 [工作拓撲]  下，按一下 [查詢]  方塊。
 
 3. 輸入下列查詢：
 
@@ -222,18 +222,18 @@ ms.locfileid: "61480564"
 ### <a name="start-the-job"></a>啟動工作
 1. 回到工作概觀刀鋒視窗。
 
-2. 按一下刀鋒視窗頂端的 [啟動]。
+2. 按一下刀鋒視窗頂端的 [啟動]  。
 
-3. 在 [啟動工作] 中，選取 [自訂]，然後選取您將 CSV 檔上傳至 Blob 儲存體的前一天。 完成後，按一下 [啟動]。  
+3. 在 [啟動工作]  中，選取 [自訂]  ，然後選取您將 CSV 檔上傳至 Blob 儲存體的前一天。 完成後，按一下 [啟動]  。  
 
 
 ### <a name="check-the-output"></a>查看輸出
-1. 讓工作執行幾分鐘，直到您在 [監視] 方塊中看到活動。 
+1. 讓工作執行幾分鐘，直到您在 [監視]  方塊中看到活動。 
 
 2. 如果您有一般用來檢查 Blob 儲存體內容的工具，請使用該工具來檢查 `azuresamldemoblob` 容器。 或者，請在 Azure 入口網站中執行下列步驟：
 
     1. 在入口網站中，尋找 `samldemo` 儲存體帳戶，並在該帳戶內，尋找 `azuresamldemoblob` 容器。 您會在容器中看到兩個檔案：包含範例推文的檔案，和串流分析工作所產生的 CSV 檔案。
-    2. 以滑鼠右鍵按一下所產生的檔案，然後選取 [下載]。 
+    2. 以滑鼠右鍵按一下所產生的檔案，然後選取 [下載]  。 
 
    ![從 Blob 儲存體下載 CSV 工作輸出](./media/stream-analytics-machine-learning-integration-tutorial/download-output-csv-file.png)  
 
@@ -243,7 +243,7 @@ ms.locfileid: "61480564"
 
 
 ### <a name="view-metrics"></a>檢視計量
-您也能檢視與 Azure Machine Learning 函數相關的度量。 下列與函數相關的計量資訊會顯示在工作刀鋒視窗的 [監視] 方塊中：
+您也能檢視與 Azure Machine Learning 函數相關的度量。 下列與函數相關的計量資訊會顯示在工作刀鋒視窗的 [監視]  方塊中：
 
 * **函數要求** 指出傳送至 Machine Learning Web 服務的要求數目。  
 * **函數事件** 指出要求中的事件數目。 根據預設，每個對 Machine Learning Web 服務的要求最多可包含 1,000 個事件。  

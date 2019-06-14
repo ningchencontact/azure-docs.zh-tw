@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
 ms.openlocfilehash: dcfcd4b55f848e1725e286e6ef2a87a2c36e5a71
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64684920"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>使用 Apache Beeline 用戶端搭配 Apache Hive
@@ -95,7 +95,7 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
 ## <a id="prereq"></a>必要條件
 
-* 在 HDInsight 上 Hadoop 叢集。 请参阅 [Linux 上的 HDInsight 入门](./apache-hadoop-linux-tutorial-get-started.md)。
+* 在 HDInsight 上 Hadoop 叢集。 請參閱[開始在 Linux 上使用 HDInsight](./apache-hadoop-linux-tutorial-get-started.md)。
 
 * 請注意[URI 配置](../hdinsight-hadoop-linux-information.md#URI-and-scheme)您叢集的主要儲存體。 比方說， `wasb://` Azure 儲存體而言`abfs://`針對 Azure Data Lake 儲存體 Gen2 或`adl://`針對 Azure Data Lake 儲存體 Gen1。 Azure 儲存體或 Data Lake 儲存體 Gen2 啟用安全傳輸，URI 是否`wasbs://`或`abfss://`分別。 如需詳細資訊，請參閱 <<c0> [ 安全傳輸](../../storage/common/storage-require-secure-transfer.md)。
 
@@ -123,7 +123,7 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
 3. Beeline 命令以 `!` 字元開頭，例如 `!help` 顯示說明。 不過，一些命令可以省略 `!`。 例如，`help` 也能運作。
 
-    會有一個 `!sql`，用來執行 HiveQL 陳述式。 但是，由于 HiveQL 非常流行，因此可以省略前面的 `!sql`。 下列兩個陳述式是相等的：
+    會有一個 `!sql`，用來執行 HiveQL 陳述式。 不過，HiveQL 如此常用，因此您可以省略前面的 `!sql`。 下列兩個陳述式是相等的：
 
     ```hiveql
     !sql show tables;
@@ -183,7 +183,7 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
     * `CREATE EXTERNAL TABLE` - 在 Hive 中建立**外部**資料表。 外部資料表只會將資料表定義儲存在 Hive 中。 資料會留在原來的位置。
 
-    * `ROW FORMAT` - 設定資料格式的方式。 在此情况下，每个日志中的字段以空格分隔。
+    * `ROW FORMAT` - 設定資料格式的方式。 在此情況下，每個記錄中的欄位會以空格隔開。
 
     * `STORED AS TEXTFILE LOCATION` - 儲存資料的所在位置以及以何種檔案格式儲存。
 
@@ -194,7 +194,7 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
    > [!NOTE]  
    > 當您預期會由外部來源來更新基礎資料時，請使用外部資料表。 例如，自動化的資料上傳程序，或透過其他 MapReduce 作業。
    >
-   > 删除外部表**不会**删除数据，只会删除表定义。
+   > 捨棄外部資料表並 **不會** 刪除資料，只會刪除資料表定義。
 
     此命令的輸出類似下列文字：
 
@@ -242,13 +242,13 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
     這些陳述式會執行下列動作：
 
    * **CREATE TABLE IF NOT EXISTS** - 如果資料表尚不存在，則會建立它。 因為未使用 **EXTERNAL** 關鍵字，這個陳述式會建立內部資料表。 內部資料表儲存在 Hive 資料倉儲中，並完全由 Hive 管理。
-   * **STORED AS ORC**：以优化行纵栏表 (ORC) 格式存储数据。 ORC 格式是高度最佳化且有效率的 Hive 資料儲存格式。
+   * **STORED AS ORC** - 以最佳化資料列單欄式 (Optimized Row Columnar, ORC) 格式儲存資料。 ORC 格式是高度最佳化且有效率的 Hive 資料儲存格式。
    * **INSERT OVERWRITE ...SELECT**- 從包含 **[ERROR]** 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表。
 
     > [!NOTE]  
     > 與外部資料表不同之處在於，捨棄內部資料表也會刪除基礎資料。
 
-3. 若要儲存檔案，請使用 **Ctrl**+**_X**，然後輸入 **Y**，最後按 **Enter**。
+3. 若要儲存檔案，請使用 **Ctrl**+ **_X**，然後輸入 **Y**，最後按 **Enter**。
 
 4. 使用下列命令，以使用 Beeline 來執行檔案：
 
@@ -259,7 +259,7 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
     > [!NOTE]  
     > `-i` 參數會啟動 Beeline 並執行 `query.hql` 檔案中的陳述式。 當查詢完成時，您會看到 `jdbc:hive2://headnodehost:10001/>` 提示字元。 您也可以使用 `-f` 參數執行檔案，它會在查詢完成後結束 Beeline。
 
-5. 若要验证是否已创建 **errorLogs** 表，请使用以下语句从 **errorLogs** 返回所有行：
+5. 若要確認 **errorLogs** 資料表已建立，請使用下列陳述式傳回 **errorLogs** 的所有資料列：
 
     ```hiveql
     SELECT * from errorLogs;

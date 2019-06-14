@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.component: autoscale
+ms.subservice: autoscale
 ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787556"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure 虛擬機器、雲端服務和 Web Apps 的自動調整概觀
@@ -30,7 +30,7 @@ Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.mic
 
  ![說明自動調整。 新增和移除 VM](./media/autoscale-overview/AutoscaleConcept.png)
 
-符合規則條件時，就會觸發一個或多個自動調整動作。 可以添加和删除虚拟机，或执行其他操作。 下面的概念关系图演示了此过程。  
+符合規則條件時，就會觸發一個或多個自動調整動作。 您可以新增和移除 VM，或執行其他動作。 以下概念圖會顯示此程序。  
 
  ![自動調整流程圖](./media/autoscale-overview/Autoscale_Overview_v4.png)
 
@@ -43,10 +43,10 @@ Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.mic
 ## <a name="custom-metrics"></a>自訂計量
 您也可以運用自己自訂的計量 (由您的應用程式發出)。 如果您已設定應用程式來將計量傳送至 Application Insights，則可以利用那些計量來決定是否要調整規模。
 
-## <a name="time"></a>時間
+## <a name="time"></a>Time
 排程型規則是以 UTC 為基礎。 設定規則時必須正確設定時區。  
 
-## <a name="rules"></a>规则
+## <a name="rules"></a>規則
 圖中只顯示一個自動調整規則，但您可以擁有多個。 您可以視情況需要建立複雜的重疊規則。  規則類型包含  
 
 * **度量型** - 例如，當 CPU 使用率高於 50% 時執行此動作。
@@ -72,7 +72,7 @@ Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.mic
     - **一組規則**，其中的每個規則包含觸發程序 (時間或度量) 和調整動作 (相應增加或相應減少)。
     - **循環**，會指出自動調整應該在何時讓此設定檔生效。
 
-      您可以擁有多個設定檔，以便處理不同的重疊需求。 例如，可以针对一天中的不同时间或者一周中的不同日期设置不同的自动缩放配置文件。
+      您可以擁有多個設定檔，以便處理不同的重疊需求。 舉例來說，您可以針對一天當中的不同時間或一週當中的不同日子擁有不同的自動調整設定檔。
 
   - **通知設定** 會定義當自動調整事件發生時，根據滿足其中一個自動調整設定之設定檔的準則，所應該發生的通知。 自動調整可以通知一或多個電子郵件地址，或呼叫一或多個 Webhook。
 
@@ -96,13 +96,12 @@ Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.mic
 ## <a name="methods-of-access"></a>存取方法
 您可以透過下列途徑設定自動調整
 
-* [Azure 门户](../../azure-monitor/platform/autoscale-get-started.md)
+* [Azure 入口網站](../../azure-monitor/platform/autoscale-get-started.md)
 * [PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 * [跨平台命令列介面 (CLI)](../../azure-monitor/platform/cli-samples.md#autoscale)
 * [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
-## <a name="supported-services-for-autoscale"></a>支持进行自动缩放的服务
-
+## <a name="supported-services-for-autoscale"></a>支援的自動調整服務
 | 服務 | 結構描述與文件 |
 | --- | --- |
 | Web Apps |[調整 Web Apps](../../azure-monitor/platform/autoscale-get-started.md) |
@@ -114,10 +113,11 @@ Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.mic
 | API 管理服務|[自動調整 Azure API 管理執行個體](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 
 ## <a name="next-steps"></a>後續步驟
-若要详细了解自动缩放，请使用前面列出的自动缩放演练，或参阅以下资源：
+若要深入了解自動調整，請使用先前所列的＜自動調整逐步解說＞或參閱下列資源︰
 
 * [Azure 監視器自動調整的常用度量](../../azure-monitor/platform/autoscale-common-metrics.md)
 * [Azure 監視器自動調整的最佳作法](../../azure-monitor/platform/autoscale-best-practices.md)
 * [使用自動調整動作傳送電子郵件和 Webhook 警示通知](../../azure-monitor/platform/autoscale-webhook-email.md)
-* [自动缩放 REST API](https://msdn.microsoft.com/library/dn931953.aspx)
+* [自動調整 REST API](https://msdn.microsoft.com/library/dn931953.aspx)
 * [排解虛擬機器擴展集自動調整的問題](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+

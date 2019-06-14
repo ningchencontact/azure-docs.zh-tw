@@ -12,17 +12,17 @@ ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
 ms.openlocfilehash: 44a9368f82e95641d3df893ba0958c6bf8cf696f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64724970"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 指令碼 (.csx) 開發人員參考
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-本文是使用 C# 指令碼 (.csx) 開發 Azure Functions 的簡介。
+本文是使用 C# 指令碼 (.csx  ) 開發 Azure Functions 的簡介。
 
 Azure Functions 支援 C# 和 C# 指令碼程式設計語言。 如果您要尋求[在 Visual Studio 類別庫專案中使用 C#](functions-develop-vs.md) 上的指引，請參閱 [C# 開發人員參考](functions-dotnet-class-library.md)。
 
@@ -32,9 +32,9 @@ Azure Functions 支援 C# 和 C# 指令碼程式設計語言。 如果您要尋�
 
 Azure Functions 的 C# 指令碼體驗是以 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction) 為基礎。 資料會透過方法引數流入您的 C# 函式。 引數名稱指定於 `function.json` 檔案中，而且有預先定義的名稱可用來存取函式記錄器和取消權杖等項目。
 
-.csx 格式可讓您撰寫較少「重複使用」文字，只專注於撰寫 C# 函式。 只需定義 `Run` 方法，而不用在命名空間和類別中包裝所有項目。 像往常一樣，在檔案開頭包含任何組件參考和命名空間。
+.csx  格式可讓您撰寫較少「重複使用」文字，只專注於撰寫 C# 函式。 只需定義 `Run` 方法，而不用在命名空間和類別中包裝所有項目。 像往常一樣，在檔案開頭包含任何組件參考和命名空間。
 
-初始化執行個體時，會編譯函數應用程式的 .csx 檔案。 此編譯步驟表示與 C# 類別庫相較之下，C# 指令碼函式的冷啟動這類項目可能需要較長的時間。 此編譯步驟也是在 Azure 入口網站中可以編輯 C# 指令碼函式但無法編輯 C# 類別庫的原因。
+初始化執行個體時，會編譯函數應用程式的 .csx  檔案。 此編譯步驟表示與 C# 類別庫相較之下，C# 指令碼函式的冷啟動這類項目可能需要較長的時間。 此編譯步驟也是在 Azure 入口網站中可以編輯 C# 指令碼函式但無法編輯 C# 類別庫的原因。
 
 ## <a name="folder-structure"></a>資料夾結構
 
@@ -55,13 +55,13 @@ FunctionsProject
  | - bin
 ```
 
-有一个共享的 [host.json](functions-host-json.md) 文件，可用于配置函数应用。 每個函數都具有本身的程式碼檔案 (.csx) 和繫結設定檔 (function.json)。
+其中有一個可用來設定函數應用程式的共用 [host.json](functions-host-json.md) 檔案。 每個函數都具有本身的程式碼檔案 (.csx) 和繫結設定檔 (function.json)。
 
 Functions 執行階段 [版本 2.x](functions-versions.md) 中所需的繫結延伸模組，是以 `bin` 資料夾中的實際程式庫檔案在 `extensions.csproj` 檔案中定義。 在本機開發時，您必須[註冊繫結擴充功能](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)。 開發 Azure 入口網站中的函式時，就會為您完成這項註冊。
 
 ## <a name="binding-to-arguments"></a>繫結至引數
 
-會透過 function.json 設定檔中的 `name` 屬性，將輸入或輸出資料繫結至 C# 指令碼函式參數。 下列範例示範佇列觸發之函式的 function.json 檔案和 run.csx 檔案。 接收來自佇列訊息之資料的參數命名為 `myQueueItem`，因為這是 `name` 屬性的值。
+會透過 function.json  設定檔中的 `name` 屬性，將輸入或輸出資料繫結至 C# 指令碼函式參數。 下列範例示範佇列觸發之函式的 function.json  檔案和 run.csx  檔案。 接收來自佇列訊息之資料的參數命名為 `myQueueItem`，因為這是 `name` 屬性的值。
 
 ```json
 {
@@ -103,7 +103,7 @@ public static void Run(CloudQueueMessage myQueueItem, ILogger log)
 
 如果您需要使用自訂簡單的 CLR 物件 (POCO) 類別，則可以包含相同檔案內的類別定義，或將它放在個別檔案中。
 
-下列範例示範內含 POCO 類別定義的 run.csx 範例。
+下列範例示範內含 POCO 類別定義的 run.csx  範例。
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -124,7 +124,7 @@ POCO 類別的每個屬性都必須定義 getter 和 setter。
 
 您可以在您的 *run.csx* 檔案中使用其他 *.csx* 檔案中定義的類別和方法。 若要這樣做，請在您的 *run.csx* 檔案中使用 `#load` 指示詞。 在下列範例中，名為 `MyLogger` 的記錄常式已在 *myLogger.csx* 中共用，並使用 `#load` 指示詞載入至 *run.csx*︰
 
-範例 run.csx ：
+範例 run.csx  ：
 
 ```csharp
 #load "mylogger.csx"
@@ -138,7 +138,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
-範例 mylogger.csx ：
+範例 mylogger.csx  ：
 
 ```csharp
 public static void MyLogger(ILogger log, string logtext)
@@ -147,7 +147,7 @@ public static void MyLogger(ILogger log, string logtext)
 }
 ```
 
-當您想要將使用 POCO 物件之函式間傳遞的資料設為強式型別時，使用共用的 .csx 檔案是常見的模式。 在下列簡化的範例中，HTTP 觸發程序和佇列觸發程序共用一個名為 `Order` 的 POCO 物件，來使排序資料成為強式類型︰
+當您想要將使用 POCO 物件之函式間傳遞的資料設為強式型別時，使用共用的 .csx  檔案是常見的模式。 在下列簡化的範例中，HTTP 觸發程序和佇列觸發程序共用一個名為 `Order` 的 POCO 物件，來使排序資料成為強式類型︰
 
 HTTP 觸發程序的範例 *run.csx*︰
 
@@ -218,9 +218,9 @@ public class Order
 
 * `#load "mylogger.csx"` 會載入位於函式資料夾中的檔案。
 * `#load "loadedfiles\mylogger.csx"` 會載入位於函式資料夾的資料夾中的檔案。
-* `#load "..\shared\mylogger.csx"` 會載入位於與函式資料夾相同層級的資料夾中的檔案 (也就是在 [wwwroot] 的正下方)。
+* `#load "..\shared\mylogger.csx"` 會載入位於與函式資料夾相同層級的資料夾中的檔案 (也就是在 [wwwroot]  的正下方)。
 
-`#load` 指示詞只適用於 .csx 檔案，而不適用於 .cs 檔案。
+`#load` 指示詞只適用於 .csx  檔案，而不適用於 .cs  檔案。
 
 ## <a name="binding-to-method-return-value"></a>繫結至方法傳回值
 
@@ -363,7 +363,7 @@ simple-name 可能會參考下列組件 (例如，`#r "AssemblyName"`)：
 
 ## <a name="referencing-custom-assemblies"></a>參考自訂組件
 
-若要參考自訂組件，您可以使用「共用」組件或「私人」組件：
+若要參考自訂組件，您可以使用「共用」  組件或「私人」  組件：
 
 * 共用組件會共用於函式應用程式內的所有函式。 若要參考自訂組件，請將組件上傳至[函式應用程式根資料夾](functions-reference.md#folder-structure) (wwwroot) 中名為 `bin` 的資料夾。
 
@@ -376,7 +376,7 @@ simple-name 可能會參考下列組件 (例如，`#r "AssemblyName"`)：
 系統會自動監看包含函式指令碼檔案之目錄中的組件變更。 若要監看其他目錄中的組件變更，請將它們新增至 [host.json](functions-host-json.md) 中的 `watchDirectories` 清單。
 
 ## <a name="using-nuget-packages"></a>使用 NuGet 套件
-若要在 2.x C# 函数中使用 NuGet 包，请将 *function.proj* 文件上传到函数应用的文件系统中的函数文件夹。 以下是範例 *function.proj* 檔案，該檔案會加入對 *Microsoft.ProjectOxford.Face* *1.1.0* 版的參考：
+若要在 2.x 中使用 NuGet 套件C#函式中上, 傳*function.proj*函式應用程式的檔案系統中的函式的資料夾的檔案。 以下是範例 *function.proj* 檔案，該檔案會加入對 *Microsoft.ProjectOxford.Face* *1.1.0* 版的參考：
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -393,9 +393,9 @@ simple-name 可能會參考下列組件 (例如，`#r "AssemblyName"`)：
 若要使用自訂 NuGet 摘要，請在函式應用程式根目錄的 *Nuget.Config* 檔案中指定摘要。 如需詳細資訊，請參閱[設定 NuGet 行為](/nuget/consume-packages/configuring-nuget-behavior)。 
 
 > [!NOTE]
-> 在 1.x C# 函数中，NuGet 包是通过 *project.json* 文件而非 *function.proj* 文件引用的。
+> 在 1.xC#函式，使用參考 NuGet 套件*project.json*而不是檔案*function.proj*檔案。
 
-对于 1.x 函数，请改用 *project.json* 文件。 下面是 *project.json* 文件示例： 
+對於 1.x 函式，使用*project.json*改為檔案。 以下是範例*project.json*檔案： 
 
 ```json
 {
@@ -409,11 +409,11 @@ simple-name 可能會參考下列組件 (例如，`#r "AssemblyName"`)：
 }
 ```
 
-### <a name="using-a-functionproj-file"></a>使用 function.proj 文件
+### <a name="using-a-functionproj-file"></a>使用 function.proj 檔案
 
 1. 在 Azure 入口網站中開啟函式。 [記錄] 索引標籤會顯示套件安裝輸出。
-2. 若要上传 *function.proj* 文件，请使用 Azure Functions 开发人员参考主题中[如何更新函数应用文件](functions-reference.md#fileupdate)部分描述的方法之一。
-3. 上传完 *function.proj* 文件后，将在函数的流日志中看到类似以下示例的输出：
+2. 若要上傳*function.proj*檔案，請使用其中一個方法中所述[如何更新函式應用程式檔案](functions-reference.md#fileupdate)在 Azure Functions 開發人員參考主題。
+3. 在後*function.proj*檔案上傳，您會看到如下列範例在您的函式的輸出的串流記錄檔：
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
@@ -488,7 +488,7 @@ public static async Task Run(string input, Binder binder)
 
 ### <a name="multiple-attribute-example"></a>多個屬性範例
 
-先前的範例會取得函數應用程式主要儲存體帳戶連接字串的應用程式設定 (也就是 `AzureWebJobsStorage`)。 您可以指定要用於儲存體帳戶的自訂應用程式設定，方法是新增 [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) 並將屬性陣列傳遞至 `BindAsync<T>()`。 使用 `Binder` 參數，而不是 `IBinder`。  例如︰
+先前的範例會取得函數應用程式主要儲存體帳戶連接字串的應用程式設定 (也就是 `AzureWebJobsStorage`)。 您可以指定要用於儲存體帳戶的自訂應用程式設定，方法是新增 [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) 並將屬性陣列傳遞至 `BindAsync<T>()`。 使用 `Binder` 參數，而不是 `IBinder`。  例如:
 
 ```cs
 using Microsoft.Azure.WebJobs;

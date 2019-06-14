@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: bb6bbd457ff372ad46091f49cf4ae7e4b34b3d83
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935429"
 ---
 <a name="retrieve-a-specific-offer"></a>擷取特定供應項目
@@ -42,9 +42,9 @@ ms.locfileid: "64935429"
 |-------------|------------------------------------------------------------------------------------------|---------------|
 | publisherId | publisherId。 例如 Contoso                                                        | 字串        |
 | offerId     | 可唯一識別供應項目的 GUID。                                                 | 字串        |
-| version     | 要擷取之供應項目的版本。 根據預設值，會擷取最新的供應項目版本。 | 整數        |
+| version     | 要擷取之供應項目的版本。 根據預設值，會擷取最新的供應項目版本。 | Integer       |
 | slotId      | 要從中擷取供應項目的位置，這可以是下列其中一個：      <br/>  - `Draft` (預設值) 會擷取目前處於草稿狀態的供應項目版本。  <br/>  -  `Preview` 會擷取目前處於預覽狀態的供應項目版本。     <br/>  -  `Production` 會擷取目前處於生產狀態的供應項目版本。          |      列舉 |
-| api-version | API 的最新版本                                                                    | date          |
+| api-version | API 的最新版本                                                                    | Date          |
 |  |  |  |
 
 
@@ -173,7 +173,7 @@ ms.locfileid: "64935429"
 |  offerTypeId    | 指出供應項目類型                                                                                                    |
 |  publisherId    | 發行者的唯一識別碼                                                                                              |
 |  status         | 供應項目的狀態。 如需可能值清單，請參閱下面的[供應項目狀態](#offer-status)。                                  |
-|  id             | 可唯一識別供應項目的 GUID                                                                                         |
+|  Id             | 可唯一識別供應項目的 GUID                                                                                         |
 |  version        | 供應項目的目前版本。 用戶端無法修改版本屬性。 每次發行時，它都會累加。    |
 |  定義     | 工作負載的實際定義                                                                                               |
 |  changedTime    | 供應項目上次修改時間 (UTC 日期時間)                                                                                   |

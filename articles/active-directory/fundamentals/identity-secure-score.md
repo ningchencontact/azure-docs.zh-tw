@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6cdff2305914ca6e4144f7784d1a60026a1d27c0
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65988703"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>什麼是 Azure Active Directory 中的身分識別安全分數？
@@ -50,7 +50,7 @@ ms.locfileid: "65988703"
 
 所有版本的 Azure AD 提供身分識別的安全分數。 若要存取分數，請移至 [Azure AD 概觀儀表板](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/IdentitySecureScore)。
 
-## <a name="how-does-it-work"></a>其運作方式為何?
+## <a name="how-does-it-work"></a>運作方式
 
 每隔 48 小時，Azure 就會查看安全性組態，並將您的設定與建議的最佳做法進行比較。 根據這項評估的結果，新的分數會計算為您的目錄。 它是可能的最佳作法指導不完全符合您的安全性組態，而僅部分符合的改進動作。 在這些情況下，您將只獲頒控制項可用的最大的分數部分。
 
@@ -110,7 +110,7 @@ ms.locfileid: "65988703"
 - 資料
 - 裝置
 - 基礎結構
-- App
+- 應用程式
 
 身分識別的安全分數表示身分識別的一部分，Microsoft 安全分數。 此重疊表示您的身分識別的建議安全分數，並在 Microsoft 的身分識別分數都相同。
 

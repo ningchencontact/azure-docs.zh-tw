@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 314d7a8e8cf6837e2b22446ba23fee03d539bf35
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235343"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft 身分識別平台開發人員詞彙
@@ -68,7 +68,7 @@ ms.locfileid: "66235343"
 
 對憑證者查問合法認證的動作，此動作可做為基礎來建立用於身分識別和存取控制的安全性主體。 例如，在 [OAuth2 授權授與](#authorization-grant)期間，憑證者驗證會根據所使用的授與，填入[資源擁有者](#resource-owner)或[用戶端應用程式](#client-application)的角色。
 
-## <a name="authorization"></a>授權
+## <a name="authorization"></a>authorization
 
 授與已驗證的安全性主體權限以執行某些工作的動作。 在 Azure AD 程式設計模型中有兩大使用案例︰
 
@@ -156,7 +156,7 @@ Microsoft 身分識別平台是 Azure Active Directory (Azure AD) 身分識別�
 
 和用戶端應用程式一樣，資源應用程式的身分識別組態是透過 Azure AD 租用戶中的 [註冊](#application-registration) 程序來建立，可提供應用程式和服務主體物件。 某些由 Microsoft 所提供的 API (例如 Azure AD 圖形 API) 會在佈建期間將所有租用戶中的預先註冊服務主體設為可用。
 
-## <a name="roles"></a>角色
+## <a name="roles"></a>roles
 
 和[範圍](#scopes)一樣，角色會提供方法讓[資源伺服器](#resource-server)控管其受保護資源的存取權。 角色有兩種類型：「使用者」角色會為需要資源存取權的使用者/群組實作角色型存取控制，「應用程式」角色則會為需要存取權的 [用戶端應用程式](#client-application) 實作相同的存取控制。
 

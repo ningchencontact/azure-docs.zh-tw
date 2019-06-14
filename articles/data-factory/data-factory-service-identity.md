@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153442"
 ---
 # <a name="managed-identity-for-data-factory"></a>適用於 Data Factory 的受控身分識別
@@ -158,8 +158,8 @@ client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 
 您可以找到受管理的身分識別資訊，從 Azure 入口網站]-> [您的 data factory]-> [屬性：
 
-- 受控識別物件識別碼
-- 受控識別租用戶
+- 受管理身分識別的物件識別碼
+- 受管理的身分識別租用戶
 - **受管理身分識別應用程式識別碼**> 複製此值
 
 ![擷取受管理的身分識別](media/data-factory-service-identity/retrieve-service-identity-portal.png)

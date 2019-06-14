@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: iainfou
 ms.openlocfilehash: 1b5d18a3dfd1181fd06b58fd58f496457e24b58e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956365"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>搭配 Azure Kubernetes Service (AKS) 使用內部負載平衡器
@@ -19,7 +19,7 @@ ms.locfileid: "65956365"
 若要限制存取您在 Azure Kubernetes Service (AKS) 中的應用程式，您可以建立內部負載平衡器來使用。 內部負載平衡器讓 Kubernetes 服務僅供在與 Kubernetes 叢集相同之虛擬網路中執行的應用程式存取。 本文說明如何透過 Azure Kubernetes Service (AKS) 來建立和使用內部負載平衡器。
 
 > [!NOTE]
-> Azure Load Balancer 有兩種 SKU -「基本」和「標準」。 AKS 目前支援「基本」SKU。 如果您想要使用「標準」SKU，可以使用上游 [aKs-engine][aks-engine]。 如需詳細資訊，請參閱 [Azure 負載平衡器 SKU 比較][azure-lb-comparison]。
+> Azure Load Balancer 有兩種 SKU -「基本」  和「標準」  。 AKS 目前支援「基本」  SKU。 如果您想要使用「標準」  SKU，可以使用上游 [aKs-engine][aks-engine]。 如需詳細資訊，請參閱 [Azure 負載平衡器 SKU 比較][azure-lb-comparison]。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -31,7 +31,7 @@ AKS 叢集服務主體需要管理網路資源，如果您使用現有的子網�
 
 ## <a name="create-an-internal-load-balancer"></a>建立內部負載平衡器
 
-若要建立內部負載平衡器，使用服務類型 LoadBalancer 和 azure-load-balancer-internal 註釋來建立名為 `internal-lb.yaml` 的服務資訊清單，如下列範例所示：
+若要建立內部負載平衡器，使用服務類型 LoadBalancer  和 azure-load-balancer-internal  註釋來建立名為 `internal-lb.yaml` 的服務資訊清單，如下列範例所示：
 
 ```yaml
 apiVersion: v1
@@ -56,7 +56,7 @@ kubectl apply -f internal-lb.yaml
 
 Azure load balancer 是節點資源群組中建立並連線到相同的虛擬網路與 AKS 叢集。
 
-當您檢視服務詳細資料時，內部負載平衡器的 IP 位址會顯示在 EXTERNAL-IP 資料行中。 在此情況下，*外部*相對於負載平衡器的外部介面不是它收到的公開、 外部 IP 位址。 IP 位址可能需要幾分鐘的時間才能從「擱置」*\<\>* 變更為實際內部 IP 位址，如下列範例所示：
+當您檢視服務詳細資料時，內部負載平衡器的 IP 位址會顯示在 EXTERNAL-IP  資料行中。 在此情況下，*外部*相對於負載平衡器的外部介面不是它收到的公開、 外部 IP 位址。 IP 位址可能需要幾分鐘的時間才能從「擱置」 *\<\>* 變更為實際內部 IP 位址，如下列範例所示：
 
 ```
 $ kubectl get service internal-app
@@ -67,7 +67,7 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 
 ## <a name="specify-an-ip-address"></a>指定 IP 位址
 
-如果您想要搭配內部負載平衡器使用特定 IP 位址，請將 loadBalancerIP 屬性新增至負載平衡器 YAML 資訊清單中。 指定的 IP 位址必須位於與 AKS 叢集相同的子網路，而且必須尚未指派給資源。
+如果您想要搭配內部負載平衡器使用特定 IP 位址，請將 loadBalancerIP  屬性新增至負載平衡器 YAML 資訊清單中。 指定的 IP 位址必須位於與 AKS 叢集相同的子網路，而且必須尚未指派給資源。
 
 ```yaml
 apiVersion: v1
@@ -108,7 +108,7 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> 您可能需要對 AKS 叢集的服務主體，授與 Azure 虛擬網路資源部署所在資源群組的「網路參與者」角色。 使用 [az aks show][az-aks-show] 檢視服務主體，例如 `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`。 若要建立角色指派，請使用 [az role assignment create][az-role-assignment-create] 命令。
+> 您可能需要對 AKS 叢集的服務主體，授與 Azure 虛擬網路資源部署所在資源群組的「網路參與者」  角色。 使用 [az aks show][az-aks-show] 檢視服務主體，例如 `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`。 若要建立角色指派，請使用 [az role assignment create][az-role-assignment-create] 命令。
 
 ## <a name="specify-a-different-subnet"></a>指定不同的子網路
 

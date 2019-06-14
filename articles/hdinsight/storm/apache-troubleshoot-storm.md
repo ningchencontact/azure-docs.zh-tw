@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 3866e25cc3c87f569e84b2d5639d25aa9386cc78
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713764"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 Apache Storm 進行疑難排解
@@ -25,8 +25,8 @@ ms.locfileid: "64713764"
 
 ### <a name="ambari-ui"></a>Ambari UI
 1. 移至 Ambari 儀表板。
-2. 在服務清單中，選取 [Storm]。
-3. 在 [快速連結] 功能表中，選取 [Storm UI]。
+2. 在服務清單中，選取 [Storm]  。
+3. 在 [快速連結]  功能表中，選取 [Storm UI]  。
 
 ### <a name="direct-link"></a>直接連結
 您可以在下列 URL 存取 Storm UI：

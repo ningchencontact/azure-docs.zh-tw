@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
 ms.openlocfilehash: a6c32058c68adbfd11a4cede6332b42076bea015
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60952054"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>對 Azure Service Fabric 進行監視和診斷
@@ -73,7 +73,7 @@ Service Fabric 平台包括健康情況模型，針對叢集中的實體狀態�
 
 您可以在[效能計量](service-fabric-diagnostics-event-generation-perf.md)找到在基礎結構層級應該收集的效能計數器清單。 
 
-Service Fabric 还为 Reliable Services 和 Reliable Actors 编程模型提供了一组性能计数器。 如果您使用上述其中一種模型，這些效能計數器可以提供資訊，以協助確保您的動作項目正確向上和向下微調，或者您的可靠服務要求處理的速度夠快。 如需詳細資訊，請參閱[可靠服務遠端的監視](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters)和 [Reliable Actors 的效能監視](service-fabric-reliable-actors-diagnostics.md#performance-counters)。 
+Service Fabric 也提供一組效能計數器，供 Reliable Services 和動作項目程式設計模型。 如果您使用上述其中一種模型，這些效能計數器可以提供資訊，以協助確保您的動作項目正確向上和向下微調，或者您的可靠服務要求處理的速度夠快。 如需詳細資訊，請參閱[可靠服務遠端的監視](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters)和 [Reliable Actors 的效能監視](service-fabric-reliable-actors-diagnostics.md#performance-counters)。 
 
 Azure 監視器的解決方案來收集這些是 Azure 監視器記錄檔，就像平台層級的監視。 您應該使用[Log Analytics 代理程式](service-fabric-diagnostics-oms-agent.md)收集適當的效能計數器，並在 Azure 監視器記錄檔中加以檢視。
 

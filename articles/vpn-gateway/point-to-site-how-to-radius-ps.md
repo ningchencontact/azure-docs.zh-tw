@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: cherylmc
 ms.openlocfilehash: 1096c120b4e7731fabd574c4096e70fe02b6272d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147124"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>使用 RADIUS 驗證設定 VNet 的點對站連線：PowerShell
@@ -80,7 +80,7 @@ RADIUS 伺服器可位於內部部署環境或 Azure VNet 中。 在驗證期間
 * **訂用帳戶：** 如果您有一個以上的訂用帳戶，請確認您使用正確的訂用帳戶。
 * **資源群組：TestRG**
 * **位置：美國東部**
-* **DNS 伺服器：** 您想要用於 VNet 名稱解析的 DNS 伺服器的 IP 位址。 (選擇性)
+* **DNS 伺服器：** 您想要用於 VNet 名稱解析的 DNS 伺服器的 IP 位址。 (選用)
 * **GW 名稱：Vnet1GW**
 * **公用 IP 名稱：VNet1GWPIP**
 * **VpnType：RouteBased**
@@ -121,7 +121,7 @@ RADIUS 伺服器可位於內部部署環境或 Azure VNet 中。 在驗證期間
    ```azurepowershell-interactive
    New-AzResourceGroup -Name "TestRG" -Location "East US"
    ```
-2. 為虛擬網路建立子網路組態，將其命名為 FrontEndBackEnd 和 GatewaySubnet。 這些前置詞必須是您宣告的 VNet 位址空間的一部分。
+2. 為虛擬網路建立子網路組態，將其命名為 FrontEnd  BackEnd  和 GatewaySubnet  。 這些前置詞必須是您宣告的 VNet 位址空間的一部分。
 
    ```azurepowershell-interactive
    $fesub = New-AzVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix "192.168.1.0/24"  
@@ -219,7 +219,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 
 VPN 用戶端組態可讓裝置透過 P2S 連線來連線至 VNet。 若要產生 VPN 用戶端組態套件及設定 VPN 用戶端，請參閱[建立 VPN 用戶端組態以便進行 RADIUS 驗證](point-to-site-vpn-client-configuration-radius.md)。
 
-## <a name="connect"></a>6.連線至 Azure
+## <a name="connect"></a>6.連接到 Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>從 Windows VPN 用戶端連線
 
@@ -232,7 +232,7 @@ VPN 用戶端組態可讓裝置透過 P2S 連線來連線至 VNet。 若要產�
 
 ### <a name="connect-from-a-mac-vpn-client"></a>從 Mac VPN 用戶端連線
 
-從 [網路] 對話方塊，找出您要使用的用戶端設定檔，然後按一下 [連線]。
+從 [網路] 對話方塊，找出您要使用的用戶端設定檔，然後按一下 [連線]  。
 
   ![Mac 連線](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 

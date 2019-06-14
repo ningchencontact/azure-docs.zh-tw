@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: barclayn
 ms.openlocfilehash: dba1fe91a635f467f4a3aeeaa048897065822869
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66236647"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure 金鑰保存庫的可用性與備援
@@ -44,6 +44,6 @@ Azure 金鑰保存庫具備多層備援功能，以確保您的金鑰和密碼�
   * 解除包裝
   * 驗證
   * 簽署
-  * Backup 
+  * Backup
 * 在容錯移轉進行容錯回復之後，所有要求類型 (包括讀取「和」  寫入要求) 都會可供使用。
 

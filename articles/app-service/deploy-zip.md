@@ -15,10 +15,10 @@ ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
 ms.openlocfilehash: aac60d3d4fd154847bdfae3dfb590b947e861e9e
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978826"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>使用 ZIP 或 WAR 檔案將您的應用程式部署至 Azure App Service
@@ -53,7 +53,7 @@ WAR 檔案部署會將您的 [WAR](https://wikipedia.org/wiki/WAR_(file_format))
 
 在本機終端機視窗中，瀏覽至應用程式專案的根目錄。 
 
-此目錄應該包含您的 web 應用程式的項目檔案，例如 index.html、index.php 和 app.js。 也可以包含套件管理檔案，像是 project.json、composer.json、package.json、bower.json 和 requirements.txt。
+此目錄應該包含您的 web 應用程式的項目檔案，例如 index.html  、index.php  和 app.js  。 也可以包含套件管理檔案，像是 project.json  、composer.json  、package.json  、bower.json  和 requirements.txt  。
 
 在專案中建立所有項目的 ZIP 封存。 下列命令會使用您終端機中的預設工具：
 

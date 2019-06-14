@@ -10,17 +10,17 @@ ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 8c88caefb0909da55de87116a23fa520c1679cc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465814"
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>在入口網站使用 Azure Media Clipper 建立剪輯  
 
-您可以在入口網站使用 Azure Media Clipper，從媒體服務帳戶中的資產建立剪輯。 若要開始，請在入口網站中瀏覽至您的媒體服務帳戶。 接下來，選取 [子剪輯] 索引標籤。
+您可以在入口網站使用 Azure Media Clipper，從媒體服務帳戶中的資產建立剪輯。 若要開始，請在入口網站中瀏覽至您的媒體服務帳戶。 接下來，選取 [子剪輯]  索引標籤。
 
-在 [子剪輯] 索引標籤上，您可以開始撰寫剪輯。 Clipper 會在入口網站中載入單一位元速率 mp4、多位元速率 mp4，以及使用有效串流定位器發佈的即時封存。 不會載入未發佈的資產。
+在 [子剪輯]  索引標籤上，您可以開始撰寫剪輯。 Clipper 會在入口網站中載入單一位元速率 mp4、多位元速率 mp4，以及使用有效串流定位器發佈的即時封存。 不會載入未發佈的資產。
 
 Clipper 目前為公開預覽狀態。 若要在 Azure 入口網站中存取 Clipper，請移至這個[公開預覽頁面](https://portal.azure.com/?feature.subclipper=true)。
 
@@ -34,7 +34,7 @@ Clipper 目前為公開預覽狀態。 若要在 Azure 入口網站中存取 Cli
 ## <a name="producing-dynamic-manifest-filters"></a>產生動態資訊清單篩選
 [動態資訊清單篩選](https://azure.microsoft.com/blog/dynamic-manifest/)描述一組規則，該規則是根據資訊清單屬性和資產時間軸。 這些規則會決定您的串流端點如何操作輸出播放清單 (資訊清單)。 篩選條件可以用於變更哪些區段要串流播放。 Clipper 所產生的篩選條件是本機篩選條件，並且專屬於來源資產。 與轉譯的剪輯不同的是，篩選條件不是新的資產，不需要產生編碼作業。 您可以透過 [.NET SDK](https://docs.microsoft.com/azure/media-services/media-services-dotnet-dynamic-manifest) 或 [REST API](https://docs.microsoft.com/azure/media-services/media-services-rest-dynamic-manifest) 快速建立，不過，它們只有 GOP 精確度。 一般而言，針對串流編碼的資產有兩秒的 GOP 大小。
 
-若要建立動態資訊清單篩選，請瀏覽至 [資產] 索引標籤，然後選取所需的資產。 選取上方功能表中的 [子短片] 按鈕。 從 [進階設定] 功能表中，選取 [動態資訊清單篩選] 作為剪輯模式。 您接著可以遵循相同程序來產生已轉譯的剪輯以建立篩選。 篩選只能從單一資產中產生。
+若要建立動態資訊清單篩選，請瀏覽至 [資產]  索引標籤，然後選取所需的資產。 選取上方功能表中的 [子短片]  按鈕。 從 [進階設定] 功能表中，選取 [動態資訊清單篩選] 作為剪輯模式。 您接著可以遵循相同程序來產生已轉譯的剪輯以建立篩選。 篩選只能從單一資產中產生。
 
 下圖說明 Azure 入口網站中處於動態資訊清單篩選模式的 Clipper：![Azure 入口網站中處於動態資訊清單篩選模式的 Azure Media Clipper](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
 

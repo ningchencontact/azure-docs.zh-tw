@@ -15,10 +15,10 @@ ms.date: 04/04/2018
 ms.author: aelnably;nicking
 ms.custom: seodec18
 ms.openlocfilehash: 8d4290f1411749e2d8d3d27fbd792ceeeea47ef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851297"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>在 Azure 中透過快照集還原應用程式
@@ -43,20 +43,20 @@ ms.locfileid: "60851297"
 
 ## <a name="restore-an-app-from-a-snapshot"></a>從快照集還原應用程式
 
-1. 在應用程式位於 [Azure 入口網站](https://portal.azure.com)的 [設定] 頁面上，按一下 [備份] 以顯示 [備份] 頁面。 然後按一下 [快照集] \(預覽\) 區段底下的 [還原]。
+1. 在應用程式位於 [Azure 入口網站](https://portal.azure.com)的 [設定]  頁面上，按一下 [備份]  以顯示 [備份]  頁面。 然後按一下 [快照集] \(預覽\)  區段底下的 [還原]  。
    
     ![](./media/app-service-web-restore-snapshots/1.png)
 
-2. 在 [還原] 頁面中，選取要還原的快照集。
+2. 在 [還原]  頁面中，選取要還原的快照集。
    
     ![](./media/app-service-web-restore-snapshots/2.png)
    
-3. 在 [還原目的地] 中指定應用程式還原目的地。
+3. 在 [還原目的地]  中指定應用程式還原目的地。
    
     ![](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
-   > 如果您選擇 [覆寫]，則系統會將應用程式目前檔案系統中的所有現有資料予以清除和覆寫。 按一下 [確定] 之前，請確定這是您想要執行的動作。
+   > 如果您選擇 [覆寫]  ，則系統會將應用程式目前檔案系統中的所有現有資料予以清除和覆寫。 按一下 [確定]  之前，請確定這是您想要執行的動作。
    > 
    > 
       
@@ -65,10 +65,10 @@ ms.locfileid: "60851297"
    > 
    > 
    
-    您可以選取將 [現有應用程式] 還原至位置。 使用此選項之前，您應該要已在應用程式中建立位置。
+    您可以選取將 [現有應用程式]  還原至位置。 使用此選項之前，您應該要已在應用程式中建立位置。
 
 4. 您可以選擇還原站台設定。
    
     ![](./media/app-service-web-restore-snapshots/4.png)
 
-5. 按一下 [確定]。
+5. 按一下 [確定]  。

@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: 6953329bfabe99fc4bb28f2494cb412ba9cbbba0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942916"
 ---
 # <a name="container-skus-tab"></a>容器 SKU 索引標籤
 
-可使用 [新增供應項目] 頁面的 [SKU] 索引標籤，建立一個或一個以上的 SKU，並建立 SKU 與新供應項目之間的關聯性。  您可以使用不同的 SKU，依功能集、帳單模式或其他特性來區分解決方案。
+可使用 [新增供應項目]  頁面的 [SKU]  索引標籤，建立一個或一個以上的 SKU，並建立 SKU 與新供應項目之間的關聯性。  您可以使用不同的 SKU，依功能集、帳單模式或其他特性來區分解決方案。
 
 ## <a name="sku-settings"></a>SKU 設定
 
 開始建立新的供應項目時，沒有任何與該供應項目相關聯的 SKU。 若要建立新的 SKU，請依照下列步驟進行：
 
-1. 在 [SKU] 索引標籤中，選取 [新增 SKU]
+1. 在 [SKU] 索引標籤中，選取 [新增 SKU] 
 
    ![新增 SKU 提示](./media/containers-sku-settings.png)
 

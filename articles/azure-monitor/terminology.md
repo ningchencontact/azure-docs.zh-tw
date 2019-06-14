@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2019
 ms.author: bwren
 ms.openlocfilehash: 8f645f7d569546a8362d0149806a2b4636567fd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61086735"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure 監視器命名和術語變更
@@ -31,7 +31,7 @@ Azure 監視器記錄資料仍儲存在 Log Analytics 工作區中，且仍由�
 字詞_記錄分析_現在主要應用於在 Azure 入口網站中撰寫和執行查詢和分析記錄資料頁面。 它在功能上與[計量瀏覽器](platform/metrics-charts.md)相同，計量瀏覽器是 Azure 入口網站中用於分析計量資料的頁面。
 
 ### <a name="log-analytics-workspaces"></a>Log Analytics 工作區
-[在 Azure 監視器中儲存記錄資料的工作區](platform/manage-access.md)仍然稱為 Log Analytics 工作區。 Azure 入口網站中的 [Log Analytics] 功能表已重新命名為 [Log Analytics 工作區]，您可以在其中[建立新的工作區](learn/quick-create-workspace.md)及設定資料來源。 分析 **Azure 監視器**中的記錄和其他監視資料，並在 **Log Analytics 工作區**中設定您的工作區。
+[在 Azure 監視器中儲存記錄資料的工作區](platform/manage-access.md)仍然稱為 Log Analytics 工作區。 Azure 入口網站中的 [Log Analytics]  功能表已重新命名為 [Log Analytics 工作區]  ，您可以在其中[建立新的工作區](learn/quick-create-workspace.md)及設定資料來源。 分析 **Azure 監視器**中的記錄和其他監視資料，並在 **Log Analytics 工作區**中設定您的工作區。
 
 ### <a name="management-solutions"></a>管理解決方案
 [管理解決方案](insights/solutions.md)已重新命名為_監視解決方案_，更清楚地描述了其功能。

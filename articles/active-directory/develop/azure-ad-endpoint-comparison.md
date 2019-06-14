@@ -17,10 +17,10 @@ ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, n
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1ccac719c78ce2844a8dd37a80445e11baa4a488
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962869"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>為什麼要更新至 Microsoft 身分識別平台 (v2.0)？
@@ -36,7 +36,7 @@ ms.locfileid: "65962869"
 
 * v1.0 端點只允許使用公司和學校帳戶登入您的應用程式 (Azure AD)
 * Microsoft 身分識別平台端點可讓工作和學校帳戶從 Azure AD 和個人 Microsoft 帳戶 (MSA)，例如 hotmail.com、 outlook.com 及 msn.com，登入。
-* 這兩個端點也會接受登入*[來賓使用者](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* 的 Azure AD 目錄的應用程式設定為*[單一租用戶](single-and-multi-tenant-apps.md)* 若是*多租用戶*設定為指向租用戶專屬端點的應用程式 (`https://login.microsoftonline.com/{TenantId_or_Name}`)。
+* 這兩個端點也會接受登入 *[來賓使用者](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* 的 Azure AD 目錄的應用程式設定為 *[單一租用戶](single-and-multi-tenant-apps.md)* 若是*多租用戶*設定為指向租用戶專屬端點的應用程式 (`https://login.microsoftonline.com/{TenantId_or_Name}`)。
 
 Microsoft 身分識別平台端點可讓您撰寫接受來自個人 Microsoft 帳戶，以及公司和學校帳戶登入的應用程式。 這可讓您撰寫完全無從驗證帳戶的應用程式。 例如，如果您的應用程式呼叫 [Microsoft Graph](https://graph.microsoft.io) \(英文\)，則公司帳戶可取得一些額外的功能和資料，例如他們的 SharePoint 網站或目錄資料。 但在許多動作 (例如[讀取使用者的郵件](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_messages)) 中，相同的程式碼可以存取個人及公司和學校帳戶的電子郵件。
 
@@ -95,7 +95,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 
 ### <a name="offline-access"></a>離線存取
 
-使用 Microsoft 身分識別平台端點的應用程式可能需要使用新的已知權限的應用程式-`offline_access`範圍。 如果應用程式需要長期代表使用者存取資源，則所有應用程式都需要要求此權限，即使使用者可能不會主動使用此應用程式亦然。 在同意對話方塊中， `offline_access` 範圍會對使用者顯示為 [隨時存取您的資料]，而使用者必須加以同意。 要求`offline_access`權限可讓您的 web 應用程式，以從 Microsoft 身分識別平台端點獲取 OAuth 2.0 refresh_token。 重新整理權杖屬於長效權杖，可用來交換新的 OAuth 2.0 存取權杖以延長存取期間。
+使用 Microsoft 身分識別平台端點的應用程式可能需要使用新的已知權限的應用程式-`offline_access`範圍。 如果應用程式需要長期代表使用者存取資源，則所有應用程式都需要要求此權限，即使使用者可能不會主動使用此應用程式亦然。 在同意對話方塊中， `offline_access` 範圍會對使用者顯示為 [隨時存取您的資料]  ，而使用者必須加以同意。 要求`offline_access`權限可讓您的 web 應用程式，以從 Microsoft 身分識別平台端點獲取 OAuth 2.0 refresh_token。 重新整理權杖屬於長效權杖，可用來交換新的 OAuth 2.0 存取權杖以延長存取期間。
 
 如果您的應用程式不要求`offline_access`範圍，則不會收到重新整理權杖。 這表示當您在 OAuth 2.0 授權碼流程中兌換授權碼時，只會從 `/token` 端點接收一個存取權杖。 該存取權杖會短時間維持有效 (通常是一小時)，但最後終將過期。 屆時，您的應用程式必須將使用者重新導向回到 `/authorize` 端點以擷取新的授權碼。 在此重新導向期間，視應用程式的類型而定，使用者或許不需要再次輸入其認證或重新同意使用權限。
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: magoedte
 ms.openlocfilehash: 0578b50952c12d4587f7a4751bc831d3134c64e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129445"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>管理 Log Analytics 工作區中使用 Azure Resource Manager 範本
@@ -119,7 +119,7 @@ ms.locfileid: "66129445"
     }
     ```
 2. 編輯範本以符合您的需求。  檢閱 [Microsoft.OperationalInsights/workspaces 範本](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces)參考，以了解支援哪些屬性和值。 
-3. 將此檔案儲存為本機資料夾的 deploylaworkspacetemplate.json。
+3. 將此檔案儲存為本機資料夾的 deploylaworkspacetemplate.json  。
 4. 您已準備好部署此範本。 您可使用 PowerShell 或命令列來建立工作區。
 
    * 對於 PowerShell，從包含範本的資料夾使用下列命令：

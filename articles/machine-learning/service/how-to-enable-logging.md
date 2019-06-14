@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
 ms.openlocfilehash: 0d75b983ad6d3b6256852335dc523b481bbe046f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60819280"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>在 Azure Machine Learning 服務中啟用記錄
@@ -27,7 +27,7 @@ Azure Machine Learning Python SDK 可讓您使用預設 Python 記錄套件以�
 > * 已部署的模型
 > * Python `logging` 設定
 
-[建立 Azure 機器學習服務工作區](setup-create-workspace.md)。 使用[指南](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)如 SDK 的詳細資訊。
+[建立 Azure Machine Learning 服務工作區](setup-create-workspace.md)。 使用[指南](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)如 SDK 的詳細資訊。
 
 ## <a name="training-models-and-compute-target-logging"></a>定型模型和計算目標記錄
 

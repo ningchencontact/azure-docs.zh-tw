@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
 ms.openlocfilehash: d7d76458601b2afecafc1313e334215bf08b6545
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713845"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>使用 Azure CLI 來管理 Key Vault 
@@ -94,7 +94,7 @@ az account set --subscription <subscription name or ID>
 
 如需設定 Azure 跨平台命令列介面的詳細資訊，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
-### <a name="create-a-new-resource-group"></a>创建新的资源组
+### <a name="create-a-new-resource-group"></a>建立新的資源群組
 
 使用 Azure 資源管理員時，會在資源群組內建立所有相關資源。 您可以在現有的資源群組中建立金鑰保存庫。 如果您想使用新的資源群組，可以建立一個新的。
 
@@ -120,7 +120,7 @@ az provider register -n Microsoft.KeyVault
 
 使用 `az keyvault create` 命令來建立金鑰保存庫。 這個指令碼包含三個必要參數：資源群組名稱、金鑰保存庫名稱和地理位置。
 
-若要在位於 [東亞] 位置的 **ContosoResourceGroup** 資源群組中，建立名稱為 **ContosoKeyVault** 的新保存庫，請輸入： 
+若要在位於 [東亞]  位置的 **ContosoResourceGroup** 資源群組中，建立名稱為 **ContosoKeyVault** 的新保存庫，請輸入： 
 
 ```azurecli
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
@@ -128,8 +128,8 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 此命令的輸出會顯示您所建立的金鑰保存庫屬性。 兩個最重要屬性是：
 
-* **name**：在此範例中，名稱是 ContosoKeyVault。 您將在其他 Key Vault 命令中使用此名稱。
-* **vaultUri**：在此範例中，URI 是 https://contosokeyvault.vault.azure.net。 透過其 REST API 使用保存庫的應用程式必須使用此 URI。
+* **名稱**：在此範例中，名稱是 ContosoKeyVault。 您將在其他 Key Vault 命令中使用此名稱。
+* **vaultUri**：在此範例中，URI 是 https://contosokeyvault.vault.azure.net 。 透過其 REST API 使用保存庫的應用程式必須使用此 URI。
 
 您的 Azure 帳戶現已取得在此金鑰保存庫上執行任何作業的授權。 而且，沒有其他人已獲授權。
 
@@ -147,7 +147,7 @@ az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" -
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-您現在可以參照您所建立或上傳至 Azure 金鑰保存庫的金鑰 (藉由使用其 URI)。 使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 一律可取得最新版本。 使用 https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] 可取得此特定版本。 例如：**https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**。 
+您現在可以參照您所建立或上傳至 Azure 金鑰保存庫的金鑰 (藉由使用其 URI)。 使用 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** 一律可取得最新版本。 使用 https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] 可取得此特定版本。 例如： **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 。 
 
 將祕密 (一個名為 SQLPassword 且其 Azure Key Vault 的值為 "hVFkk965BuUv" 的密碼) 新增至保存庫。 
 
@@ -155,7 +155,7 @@ az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" -
 az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
-使用此密碼的 URI 參考此密碼。 使用 **https://ContosoVault.vault.azure.net/secrets/SQLPassword** 一律可取得目前的版本，而使用 https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] 可取得特定版本。 例如：**https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**。
+使用此密碼的 URI 參考此密碼。 使用 **https://ContosoVault.vault.azure.net/secrets/SQLPassword** 一律可取得目前的版本，而使用 https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id] 可取得特定版本。 例如： **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** 。
 
 使用 .pem 或 .pfx 將憑證匯入至保存庫。
 
@@ -309,7 +309,7 @@ az keyvault key show --vault-name "ContosoKeyVault" --name "ContosoFirstKey"
 az keyvault secret list --vault-name "ContosoKeyVault"
 ```
 
-下面是演示如何删除特定密钥的示例：
+以下是如何移除特定金鑰的範例：
 
 ```azurecli
 az keyvault key delete --vault-name "ContosoKeyVault" --name "ContosoFirstKey"

@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4dde358f10e9ac5054297ff68a0971404c0dc135
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160241"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>CloudSimple 維護和更新
@@ -63,7 +63,7 @@ CloudSimple 備份包括：
 
 您可以開啟以要求在還原[支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
 
-## <a name="maintenance"></a>維護 
+## <a name="maintenance"></a>維護
 
 CloudSimple 會執行數種類型的已規劃的維護。
 

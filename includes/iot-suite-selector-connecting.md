@@ -9,10 +9,10 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147711"
 ---
 > [!div class="op_single_selector"]
@@ -26,8 +26,8 @@ ms.locfileid: "66147711"
 在此教學課程中，您會實作一個 **Chiller** 裝置，此裝置會將下列遙測資料傳送給遠端監視[解決方案加速器](../articles/iot-accelerators/about-iot-accelerators.md)：
 
 * 溫度
-* Pressure
-* 濕度
+* 壓力
+* 溼度
 
 為了簡單起見，程式碼會產生 **Chiller** 的範例遙測值。 您可以將實際感應器連線到您的裝置並傳送實際的遙測來擴充範例。
 
@@ -47,7 +47,7 @@ ms.locfileid: "66147711"
 
 您在本教學課程中建立的 **Chiller** 裝置會將資料傳送給[遠端監視](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)解決方案加速器的執行個體。 如果您尚未在您的 Azure 帳戶中佈建遠端監視解決方案加速器，請參閱[部署遠端監視解決方案加速器](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)
 
-當遠端監視解決方案的部署程序完成之後，請按一下 [啟動]，以在瀏覽器中開啟解決方案儀表板。
+當遠端監視解決方案的部署程序完成之後，請按一下 [啟動]  ，以在瀏覽器中開啟解決方案儀表板。
 
 ![解決方案儀表板](media/iot-suite-selector-connecting/dashboard.png)
 
@@ -64,11 +64,11 @@ ms.locfileid: "66147711"
 
     ![新增真實裝置](media/iot-suite-selector-connecting/devicesprovision.png)
 
-1. 輸入 **Physical-chiller** 作為裝置識別碼。 選擇 [對稱金鑰] 和 [自動產生金鑰] 選項：
+1. 輸入 **Physical-chiller** 作為裝置識別碼。 選擇 [對稱金鑰]  和 [自動產生金鑰]  選項：
 
     ![選擇裝置選項](media/iot-suite-selector-connecting/devicesoptions.png)
 
-1. 選擇 [套用]。 然後記下**裝置識別碼**、**主要金鑰**和**連接字串主要金鑰**值：
+1. 選擇 [套用]  。 然後記下**裝置識別碼**、**主要金鑰**和**連接字串主要金鑰**值：
 
     ![擷取認證](media/iot-suite-selector-connecting/credentials.png)
 

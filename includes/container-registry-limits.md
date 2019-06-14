@@ -9,13 +9,13 @@ ms.date: 05/14/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: ee8ff3529524a63ca2e54a64327570197f363538
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148967"
 ---
-| Resource | 基本 | 標準 | 進階 |
+| 資源 | 基本 | 標準 | 進階 |
 |---|---|---|---|
 | 儲存體<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
 | 最大的映像層大小 | 200 GiB | 200 GiB | 200 GiB |
@@ -23,7 +23,7 @@ ms.locfileid: "66148967"
 | 每分鐘的 WriteOps<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | 下載頻寬 Mbps<sup>2</sup> | 30 | 60 | 100 |
 | 上傳頻寬 Mbps<sup>2</sup> | 10 | 20 | 50 |
-| Webhooks | 2 | 10 | 100 |
+| Webhook | 2 | 10 | 100 |
 | 異地複寫 | N/A | N/A | [支援][geo-replication] |
 | 內容信任 | N/A | N/A | [支援][content-trust] |
 

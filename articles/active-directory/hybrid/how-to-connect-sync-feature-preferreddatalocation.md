@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66473018"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 同步：設定 Office 365 資源的慣用資料位置
@@ -124,7 +124,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 3. 若要建立新的輸入規則，請選取 [新增規則]  。
 4. 在 [描述]  索引標籤下，提供下列設定︰
 
-    | 屬性 | Value | 詳細資料 |
+    | 屬性 | 值 | 詳細資料 |
     | --- | --- | --- |
     | Name | 提供名稱  | 例如，“In from AD – User preferredDataLocation” |
     | 描述 | *提供自訂描述* |  |
@@ -137,7 +137,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 5. 讓 [範圍篩選器]  保持空白，以便包含所有物件。 您可能需要根據 Azure AD Connect 部署來調整範圍篩選器。
 6. 移至 [轉換]  索引標籤，並實作下列轉換規則︰
 
-    | 流程類型 | 目標屬性 | `Source` | 套用一次 | 合併類型 |
+    | 流程類型 | 目標屬性 | source | 套用一次 | 合併類型 |
     | --- | --- | --- | --- | --- |
     |直接 | preferredDataLocation | 挑選來源屬性 | 未核取 | Update |
 
@@ -153,7 +153,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 3. 選取 [新增規則]  。
 4. 在 [描述]  索引標籤下，提供下列設定︰
 
-    | 屬性 | Value | 詳細資料 |
+    | 屬性 | 值 | 詳細資料 |
     | ----- | ------ | --- |
     | Name | 提供名稱  | 例如，“Out to Azure AD – User preferredDataLocation” |
     | 描述 | 提供描述  ||
@@ -165,7 +165,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 5. 移至 [範圍篩選器]  索引標籤，並使用兩個子句來新增單一範圍篩選器群組：
 
-    | 屬性 | 運算子 | Value |
+    | 屬性 | 運算子 | 值 |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | 使用者 |
     | cloudMastered | NOTEQUAL | True |
@@ -174,7 +174,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 6. 移至 [轉換]  索引標籤，並實作下列轉換規則︰
 
-    | 流程類型 | 目標屬性 | `Source` | 套用一次 | 合併類型 |
+    | 流程類型 | 目標屬性 | source | 套用一次 | 合併類型 |
     | --- | --- | --- | --- | --- |
     | 直接 | preferredDataLocation | preferredDataLocation | 未核取 | Update |
 

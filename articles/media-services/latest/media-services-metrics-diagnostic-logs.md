@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
 ms.openlocfilehash: bbf43ecb07947fad8cc1ee064d2038e4a21d4444
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964761"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>監視媒體服務的計量和診斷記錄
@@ -34,7 +34,7 @@ ms.locfileid: "65964761"
 
 目前，下列媒體服務[串流端點](https://docs.microsoft.com/rest/api/media/streamingendpoints)azure 就會發出度量：
 
-|計量|Display name|說明|
+|計量|Display name|描述|
 |---|---|---|
 |Requests|Requests|提供的串流端點服務的要求總數的詳細資料。|
 |輸出|輸出|輸出位元組總數。 比方說，位元組資料流處理的串流端點。|
@@ -54,7 +54,7 @@ az monitor metrics list --resource \
 
 目前，您可以取得下列診斷記錄檔：
 
-|名稱|說明|
+|名稱|描述|
 |---|---|
 |金鑰傳遞服務要求|顯示金鑰傳遞服務要求資訊的記錄檔。 如需詳細資訊，請參閱 <<c0> [ 結構描述](media-services-diagnostic-logs-schema.md)。|
 
@@ -76,7 +76,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-例如：
+例如:
 
 ```cli
 az monitor diagnostic-settings create --name amsv3diagnostic \

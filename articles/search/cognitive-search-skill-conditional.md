@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: luisca
 ms.openlocfilehash: 149b701d4a1700787656448e2bdd0d92d2a93844
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65791508"
 ---
 #   <a name="conditional-skill"></a>條件式的技能
@@ -87,9 +87,9 @@ Microsoft.Skills.Util.ConditionalSkill
 ## <a name="skill-inputs"></a>技能輸入
 輸入會區分大小寫。
 
-| 輸入   | 說明 |
+| 輸入   | 描述 |
 |-------------|-------------|
-| 條件   | 此輸入是[評估欄位](#evaluated-fields)，表示要評估的條件。 這種情況應該評估為布林值 (*真*或是*false*)。   <br/>  範例： <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
+| condition (條件)   | 此輸入是[評估欄位](#evaluated-fields)，表示要評估的條件。 這種情況應該評估為布林值 (*真*或是*false*)。   <br/>  範例： <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
 | whenTrue    | 此輸入是[評估欄位](#evaluated-fields)表示要傳回如果條件評估為值 *，則為 true*。 常數字串應傳回在單引號 （' 和'）。 <br/>範例值： <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
 | whenFalse   | 此輸入是[評估欄位](#evaluated-fields)表示要傳回如果條件評估為值*false*。 <br/>範例值： <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
 

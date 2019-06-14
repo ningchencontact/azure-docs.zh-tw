@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 4/2/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60804039"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 串流分析
@@ -61,7 +61,7 @@ ASA 會使用 IoT 中樞將 Edge 作業部署到裝置。 關於 [IoT Edge 部�
 需要儲存體容器，才能匯出 ASA 已編譯查詢和作業組態。 它可用來設定包含您特定查詢的 ASA Docker 映像。 
 1. 依照[這些指示](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)從 Azure 入口網站建立儲存體帳戶。 您可以保留所有預設選項將此帳戶用於 ASA。
 2. 在新建立的儲存體帳戶中，建立 blob 儲存體容器：
-    1. 按一下 [Blob]，然後按一下 [+ 容器]。 
+    1. 按一下 [Blob]  ，然後按一下 [+ 容器]  。 
     2. 輸入名稱，並將容器保留為**私人**。
 
 #### <a name="create-an-asa-edge-job"></a>建立 ASA Edge 作業
@@ -79,7 +79,7 @@ ASA 會使用 IoT 中樞將 Edge 作業部署到裝置。 關於 [IoT Edge 部�
     3. **定義輸出資料流**。 定義適用於您作業的一或多個輸出資料流。 
     4. **定義查詢**。 使用內嵌編輯器在雲端中定義 ASA 查詢。 編譯器會自動檢查針對 ASA Edge 啟用的語法。 您也可以上傳範例資料來測試您的查詢。 
 
-4. 在 [IoT Edge 設定] 功能表中設定儲存體容器資訊。
+4. 在 [IoT Edge 設定]  功能表中設定儲存體容器資訊。
 
 5. 設定選擇性設定
     1. **事件順序**。 您可以在入口網站中設定順序錯亂的事件。 您可以在[這裡](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396)取得文件。
@@ -104,7 +104,7 @@ ASA 會使用 IoT 中樞將 Edge 作業部署到裝置。 關於 [IoT Edge 部�
 ####  <a name="deployment-asa-on-your-iot-edge-devices"></a>在 IoT Edge 裝置上部署 ASA
 ##### <a name="add-asa-to-your-deployment"></a>將 ASA 新增至您的部署
 - 在 Azure 入口網站中開啟 IoT 中樞，瀏覽至 **IoT Edge**，然後在此部署的目標裝置上按一下。
-- 選取 [設定模組]，然後選取 [+ 新增] 並選擇 [Azure 串流分析模組]。
+- 選取 [設定模組]  ，然後選取 [+ 新增]  並選擇 [Azure 串流分析模組]  。
 - 選取訂用帳戶與您建立的 ASA Edge 作業。 按一下 [儲存]。
 ![在您的部署中新增 ASA 模組](media/stream-analytics-edge/add-stream-analytics-module.png)
 
@@ -185,7 +185,7 @@ ASA Edge 作業可以從 IoT Edge 裝置上執行的其他模組取得輸入和�
 
 1. 建立作業的新輸入。
 
-2. 選擇 [參考資料] 作為 [來源類型]。
+2. 選擇 [參考資料]  作為 [來源類型]  。
 
 3. 在裝置上備妥參考資料檔案。 針對 Windows 容器，請將參考資料檔案放在本機磁碟機上，並將本機磁碟機與 Docker 容器共用。 針對 Linux 容器，請建立 Docker 磁碟區，並在磁碟區上填入資料檔案。
 

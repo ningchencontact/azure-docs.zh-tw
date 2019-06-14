@@ -10,10 +10,10 @@ ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: d7ce702bb726fb89780d251f31023c9490112c36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148797"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(已淘汰) 部署適用於 Windows 容器的 Kubernetes 叢集
@@ -36,7 +36,7 @@ Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 
 使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯群組。 
 
-下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
+下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組。
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -45,7 +45,7 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-kubernetes-cluster"></a>建立 Kubernetes 叢集
 使用 [az acs create](/cli/azure/acs#az-acs-create) 命令，在 Azure Container Service 中建立 Kubernetes 叢集。 
 
-下列範例會建立名為 myK8sCluster 的叢集，使用一個 Linux 主要節點和兩個 Windows 代理程式節點。 這個範例會建立連線到 Linux 主機所需的 SSH 金鑰。 此範例會以 azureuser 作為系統管理使用者名稱，並以 myPassword12 作為 Windows 節點上的密碼。 將這些值更新為適合您環境的值。 
+下列範例會建立名為 myK8sCluster  的叢集，使用一個 Linux 主要節點和兩個 Windows 代理程式節點。 這個範例會建立連線到 Linux 主機所需的 SSH 金鑰。 此範例會以 azureuser  作為系統管理使用者名稱，並以 myPassword12  作為 Windows 節點上的密碼。 將這些值更新為適合您環境的值。 
 
 
 
@@ -100,7 +100,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
 ## <a name="deploy-a-windows-iis-container"></a>部署 Windows IIS 容器
 
-您可以在 Kubernetes Pod 內執行 Docker 容器，其中包含一個或多個容器。 
+您可以在 Kubernetes Pod  內執行 Docker 容器，其中包含一個或多個容器。 
 
 此基本範例使用 JSON 檔案來指定 Microsoft Internet Information Server (IIS) 容器，然後使用 `kubctl apply` 命令來建立 Pod。 
 

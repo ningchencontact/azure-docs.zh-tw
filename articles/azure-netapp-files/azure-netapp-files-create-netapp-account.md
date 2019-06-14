@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: 25cae58663f6fa7ef27995c10509eb33e49dd4c7
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522819"
 ---
 # <a name="create-a-netapp-account"></a>建立 NetApp 帳戶
@@ -34,11 +34,11 @@ ms.locfileid: "65522819"
 1. 登入 Azure 入口網站。 
 2. 使用下列其中一個方法存取 [Azure NetApp Files] 刀鋒視窗：  
    * 在 Azure 入口網站搜尋方塊中搜尋 **Azure NetApp Files**。  
-   * 按一下導覽中的 [所有服務]，然後篩選為 Azure NetApp Files。  
+   * 按一下導覽中的 [所有服務]  ，然後篩選為 Azure NetApp Files。  
 
    您可以藉由按一下 [Azure NetApp Files] 刀鋒視窗旁邊的星號，將其加入「我的最愛」。 
 
-3. 按一下 [+ 新增] 以建立新的 NetApp 帳戶。  
+3. 按一下 [+ 新增]  以建立新的 NetApp 帳戶。  
    [新增 NetApp 帳戶] 視窗隨即出現。  
 
 4. 請提供 NetApp 帳戶的下列資訊： 
@@ -54,7 +54,7 @@ ms.locfileid: "65522819"
      ![新增 NetApp 帳戶](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 
 
-5. 按一下頁面底部的 [新增] 。     
+5. 按一下頁面底部的 [新增]  。     
    您剛建立的 NetApp 帳戶現在會出現在 [Azure NetApp Files] 刀鋒視窗中。 
 
 > [!NOTE] 

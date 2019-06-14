@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: b21bf1b50152130d7b6edd227c87fcaca28c1e6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61001404"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>如何探索 Azure 資料目錄中的資料資產
@@ -48,7 +48,7 @@ Azure 資料目錄是完全受控的雲端服務，可作為企業資料來源�
 當您檢視搜尋結果時，會醒目顯示符合指定搜尋字詞的任何顯示屬性 (例如資料資產名稱、描述和標記)，讓您更輕鬆地找出指定搜尋傳回指定資料資產的原因。
 
 > [!NOTE]
-> 若要關閉結果醒目提示，請使用 [醒目提示] 在資料目錄入口網站中進行切換。
+> 若要關閉結果醒目提示，請使用 [醒目提示]  在資料目錄入口網站中進行切換。
 
 當您檢視搜尋結果時，它可能不一定能明顯看出為何資料資產會包含在內，即使已啟用醒目。 因為預設會搜尋所有屬性，某個資料資產可能因為符合資料行層級的屬性而被傳回。 和多個使用者可以使用自己的標記和描述的已註冊的資料資產加上註解，因為並非所有的中繼資料會顯示在搜尋結果的清單。
 

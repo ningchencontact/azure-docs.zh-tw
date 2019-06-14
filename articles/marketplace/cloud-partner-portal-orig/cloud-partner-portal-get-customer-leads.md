@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: c3e483a33d986eff767b3529e30208319ad90b23
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64934994"
 ---
 <a name="get-customer-leads"></a>取得潛在客戶
@@ -85,7 +85,7 @@ ms.locfileid: "64934994"
 - 名字：John
 - 在 [姓氏]:Smith
 - 電子郵件： jsmith\@microsoft.com
-- 電話:1234567890
+- 電話：1234567890
 - 國家/地區:US
 - 公司：Microsoft
 - 標題：CTO

@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: e7499345f03e3deedb8972b0d51e8e676cb6c982
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683444"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>在 Power BI 工作區集合中，從資料集建立新的報告
@@ -24,7 +24,7 @@ ms.locfileid: "64683444"
 
 其驗證方法類似內嵌報告所用的方法。 會以資料集特有的存取權杖為基礎。 用於 PowerBI.com 的權杖是由 Azure Active Directory (AAD) 所發行。 Power BI 工作區集合權杖是由您自己的應用程式所發行。
 
-在建立 Embedded 報告時，權杖會針對特定資料集加以核發。 權杖應該與相同元素上的內嵌 URL 相關聯，以確保每個項目都有獨一無二的權杖。 若要建立 Embedded 報告，則必須在存取權杖中提供 Dataset.Read 和 Workspace.Report.Create 範圍。
+在建立 Embedded 報告時，權杖會針對特定資料集加以核發。 權杖應該與相同元素上的內嵌 URL 相關聯，以確保每個項目都有獨一無二的權杖。 若要建立 Embedded 報告，則必須在存取權杖中提供 Dataset.Read 和 Workspace.Report.Create  範圍。
 
 ## <a name="create-access-token-needed-to-create-new-report"></a>建立所需的存取權杖來建立新的報告
 
@@ -32,9 +32,9 @@ Power BI 工作區集合會使用內嵌權杖，其為 HMAC 簽署的 JSON Web �
 
 存取權杖應該建立在伺服器上，因為會使用存取金鑰來簽署/加密權杖。 如需如何建立存取權杖的相關資訊，請參閱[使用 Power BI 工作區集合驗證和授權](app-token-flow.md)。 您也可以檢閱 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) 方法。 以下是使用 .NET SDK for Power BI 時此方法所呈現樣貌的範例。
 
-在此範例中，我們擁有用來建立新報告所需要的資料集識別碼。 我們也需要新增 Dataset.Read 和 Workspace.Report.Create 的範圍。
+在此範例中，我們擁有用來建立新報告所需要的資料集識別碼。 我們也需要新增 Dataset.Read 和 Workspace.Report.Create  的範圍。
 
-要使用 PowerBIToken 類別，您必須安裝 [Power BI 核心 NuGut 套件](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)。
+要使用 PowerBIToken 類別  ，您必須安裝 [Power BI 核心 NuGut 套件](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)。
 
 **NuGet 套件安裝**
 
@@ -56,7 +56,7 @@ var token = embedToken.Generate("{access key}");
 
 ## <a name="create-a-new-blank-report"></a>建立新的空白報告
 
-若要建立新報告，請提供建立組態。 這應該包括存取權杖、embedURL 和我們想要用來建立報告的 datasetID。 這需要您安裝 NuGet [Power BI JavaScript 套件](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)。 embedUrl 將只是 https://embedded.powerbi.com/appTokenReportEmbed。
+若要建立新報告，請提供建立組態。 這應該包括存取權杖、embedURL 和我們想要用來建立報告的 datasetID。 這需要您安裝 NuGet [Power BI JavaScript 套件](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)。 embedUrl 將只是 https://embedded.powerbi.com/appTokenReportEmbed 。
 
 > [!NOTE]
 > 您可以使用 [JavaScript 報告內嵌範例](https://microsoft.github.io/PowerBI-JavaScript/demo/)來測試功能。 它也會提供可用之不同作業的程式碼範例。
@@ -87,7 +87,7 @@ var embedCreateConfiguration = {
 </script>
 ```
 
-呼叫 powerbi.createReport() 會讓編輯模式的空白畫布出現在 div 元素內。
+呼叫 powerbi.createReport()  會讓編輯模式的空白畫布出現在 div  元素內。
 
 ![新增空白報告](media/create-report-from-dataset/create-new-report.png)
 
@@ -199,7 +199,7 @@ var embedCreateConfiguration = {
 ## <a name="see-also"></a>請參閱
 
 [開始使用範例](get-started-sample.md)  
-[保存报表](save-reports.md)  
+[儲存報告](save-reports.md)  
 [內嵌報告](embed-report.md)  
 [在 Power BI 工作區集合中驗證和授權](app-token-flow.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  

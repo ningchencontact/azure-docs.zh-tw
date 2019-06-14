@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: 479f77791a0b035f2d1de6085dfb12f5196288ee
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979336"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Azure 資源上的陣列內容的作者原則
@@ -212,4 +212,4 @@ Azure 資源管理員屬性通常會定義為字串和布林值。 一對多關�
 - 檢閱[了解原則效果](../concepts/effects.md)。
 - 了解如何[以程式設計方式建立原則](programmatically-create.md)。
 - 了解如何[補救不符合規範的資源](remediate-resources.md)。
-- 檢閱管理群組是使用[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)。
+- 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

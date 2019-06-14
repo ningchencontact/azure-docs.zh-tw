@@ -14,13 +14,13 @@ ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: zhshang
 ms.openlocfilehash: 1d87439b7afeb946fd37c468a0853adcb674ee5a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238621"
 ---
-| Resource | 預設限制 | 上限 | 
+| 資源 | 預設限制 | 上限 | 
 | --- | --- | --- |
 | 免費層的每個執行個體的 azure SignalR 服務單位 |1 |1 |
 | Azure SignalR 服務單位，每個標準層的執行個體 |100 |100 |

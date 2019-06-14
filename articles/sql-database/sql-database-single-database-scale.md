@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
 ms.openlocfilehash: 1048b4e2ac3a8523d5539ddc1a1bdaca3ec2d912
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074267"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>在 Azure SQL Database 中調整單一資料庫資源
@@ -29,7 +29,7 @@ ms.locfileid: "65074267"
 
 ## <a name="change-compute-size-vcores-or-dtus"></a>變更計算大小 （虛擬核心或 Dtu）
 
-最初选择 vCore 或 DTU 数量后，可以使用 [Azure 门户](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1)、 [PowerShell](/powershell/module/az.sql/set-azsqldatabase)、[Azure CLI](/cli/azure/sql/db#az-sql-db-update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)，根据实际体验动态扩展或缩减单一数据库。
+一開始選取的虛擬核心或 Dtu 數目之後, 您可以單一資料庫相應增加或相應減少以動態方式根據實際經驗，使用[Azure 入口網站](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server)， [TRANSACT-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1)， [PowerShell](/powershell/module/az.sql/set-azsqldatabase)，則[Azure CLI](/cli/azure/sql/db#az-sql-db-update)，或有[REST API](https://docs.microsoft.com/rest/api/sql/databases/update)。
 
 下列影片示範如何動態變更服務層與計算大小，以提高單一資料庫的可用 DTU。
 
@@ -39,33 +39,33 @@ ms.locfileid: "65074267"
 > [!IMPORTANT]
 > 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
-### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>更改服务层级或重新缩放计算大小的影响
+### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>變更服務層或重新調整計算大小的影響
 
-更改单一数据库的服务层级或计算大小主要涉及到由服务执行的以下步骤：
+變更服務層，或計算的單一資料庫的大小主要牽涉的服務，執行下列步驟：
 
-1. 为数据库创建新的计算实例  
+1. 建立新的計算執行個體資料庫  
 
-    使用请求的服务层级和计算大小为数据库创建新的计算实例。 更改后，对于服务层级和计算大小的某些组合，必须在新的计算实例中创建数据库的副本，此过程涉及到数据复制，可能会对总体延迟造成很大的影响。 无论如何，在执行此步骤期间，数据库会保持联机，并且连接会继续定向到原始计算实例中的数据库。
+    新的計算執行個體，資料庫會建立要求的服務層與計算大小。 服務層和計算的大小變更的一些組合，資料庫的複本必須建立新的計算執行個體這牽涉到將資料複製，並會強烈影響的整體延遲。 不論如何，在此步驟中，在資料庫保持上線，連接可以繼續以導向至原始的計算執行個體中的資料庫。
 
-2. 将连接路由切换到新的计算实例
+2. 切換到新的計算執行個體的連線的路由
 
-    将删除与原始计算实例中的数据库建立的现有连接。 将与新计算实例中的数据库建立任何新的连接。 更改后，对于服务层级和计算大小的某些组合，在切换期间会分离再重新附加数据库文件。  无论如何，切换操作都可能会导致服务出现短暂的中断，此时，数据库一般会出现 30 秒以下的不可用情况（通常只有几秒钟）。 如果连接断开时有长时间运行的事务正在运行，则此步骤的持续时间可能会变长，以便恢复中止的事务。 [加速資料庫復原](sql-database-accelerated-database-recovery.md)可以減少從中止長時間執行交易的影響。
+    會卸除現有的連線至原始的計算執行個體中的資料庫。 資料庫會建立任何新的連線，新的計算執行個體中。 服務層和計算的大小變更的一些組合，資料庫檔案中斷連結，並在切換期間重新附加上。  不論如何，此參數可能會導致短暫服務中斷時資料庫是無法使用，通常對小於 30 秒，而且通常只有幾秒鐘的時間。 如果有長時間執行交易時的連接會中斷執行，此步驟的持續時間可能更久才能復原中止的交易。 [加速資料庫復原](sql-database-accelerated-database-recovery.md)可以減少從中止長時間執行交易的影響。
 
 > [!IMPORTANT]
-> 执行工作流中的任何步骤期间都不会丢失数据。
+> 在工作流程中的任何步驟期間，不會遺失任何資料。
 
-### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>更改服务层级或重新缩放计算大小所造成的延迟
+### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>變更服務層或重新調整計算大小的延遲
 
-可根据如下所述，将更改服务层级或者重新缩放单一数据库或弹性池的计算大小所造成的延迟参数化：
+若要變更服務層，或重新調整單一資料庫或彈性集區的計算大小的延遲是經過參數化，如下所示：
 
-|服務層|基本单一数据库，</br>标准 (S0-S1)|基本弹性池，</br>标准 (S2-S12)， </br>超大規模 </br>常规用途单一数据库或弹性池|高级或业务关键型单一数据库或弹性池|
+|服務層|基本的單一資料庫，</br>標準 (S0 S1)|基本的彈性集區</br>標準 (S2-S12) </br>超大規模 </br>一般用途的單一資料庫或彈性集區|進階或業務關鍵的單一資料庫或彈性集區|
 |:---|:---|:---|:---|
-|**基本单一数据库，</br>标准 (S0-S1)**|&bull; &nbsp;延迟时间较为恒定，与已用空间无关</br>&bull; &nbsp;通常小于 5 分钟|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|
-|**基本的彈性集區</br>標準 (S2-S12)</br>超大規模</br>一般用途的單一資料庫或彈性集區**|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|&bull; &nbsp;延迟时间较为恒定，与已用空间无关</br>&bull; &nbsp;通常小于 5 分钟|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|
-|**高级或业务关键型单一数据库或弹性池**|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|&bull; &nbsp;由于数据复制，延迟与已用数据库空间成比例</br>&bull; &nbsp;对于每 GB 的已用空间，延迟通常小于 1 分钟|
+|**基本的單一資料庫，</br>標準 (S0 S1)**|&bull; &nbsp;獨立的空間使用的常數時間延遲</br>&bull; &nbsp;一般而言，小於 5 分鐘|&bull; &nbsp;使用複製資料的資料庫空間成正比的延遲</br>&bull; &nbsp;一般而言，小於 1 分鐘，每 GB 的可用空間|&bull; &nbsp;使用複製資料的資料庫空間成正比的延遲</br>&bull; &nbsp;一般而言，小於 1 分鐘，每 GB 的可用空間|
+|**基本的彈性集區</br>標準 (S2-S12)</br>超大規模</br>一般用途的單一資料庫或彈性集區**|&bull; &nbsp;使用複製資料的資料庫空間成正比的延遲</br>&bull; &nbsp;一般而言，小於 1 分鐘，每 GB 的可用空間|&bull; &nbsp;獨立的空間使用的常數時間延遲</br>&bull; &nbsp;一般而言，小於 5 分鐘|&bull; &nbsp;使用複製資料的資料庫空間成正比的延遲</br>&bull; &nbsp;一般而言，小於 1 分鐘，每 GB 的可用空間|
+|**進階或業務關鍵的單一資料庫或彈性集區**|&bull; &nbsp;使用複製資料的資料庫空間成正比的延遲</br>&bull; &nbsp;一般而言，小於 1 分鐘，每 GB 的可用空間|&bull; &nbsp;使用複製資料的資料庫空間成正比的延遲</br>&bull; &nbsp;一般而言，小於 1 分鐘，每 GB 的可用空間|&bull; &nbsp;使用複製資料的資料庫空間成正比的延遲</br>&bull; &nbsp;一般而言，小於 1 分鐘，每 GB 的可用空間|
 
 > [!TIP]
-> 若要監視進行中的作業，請參閱：[使用 SQL REST API 管理作業](https://docs.microsoft.com/rest/api/sql/operations/list)、[使用 CLI 管理作業](/cli/azure/sql/db/op)、[使用 T-SQL 監視作業](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)，以及下列兩個 PowerShell 命令：[Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) 和 [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity)。
+> 若要監視進行中的作業，請參閱：[使用 SQL REST API 管理作業](https://docs.microsoft.com/rest/api/sql/operations/list)、[使用 CLI 管理作業](/cli/azure/sql/db/op)、[使用 T-SQL 監視作業](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)，以及下列兩個 PowerShell 命令：[取得 AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity)並[停止 AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity)。
 
 ### <a name="cancelling-service-tier-changes-or-compute-rescaling-operations"></a>取消服務層變更計算或重新調整作業
 
@@ -98,7 +98,7 @@ if(-not [string]::IsNullOrEmpty($OperationName))
     }
 ```
 
-### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>更改服务层级或重新缩放计算大小时的其他注意事项
+### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>其他考量事項變更服務層或重新調整運算大小
 
 - 如果您要升級到較高服務層或計算大小，除非明確指定較大的大小 (大小上限)，否則資料庫大小上限不會增加。
 - 若要將資料庫降級，資料庫已用的空間必須小於目標服務層和計算大小允許的大小上限。

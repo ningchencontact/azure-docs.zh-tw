@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
 ms.openlocfilehash: 4cae93cff594ad561973f8029ea7335dc4c60263
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66357006"
 ---
 # <a name="refresh-with-azure-automation"></a>使用 Azure 自動化重新整理
@@ -145,7 +145,7 @@ Azure Analysis Services 模型重新整理排程為基礎的觸發程序，就�
 **主體**是 JSON 文件，其中應包含下列屬性：
 
 
-|屬性  |Value  |
+|屬性  |值  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Azure Analysis Services 資料庫的名稱 <br/> 範例：AdventureWorksDB         |
 |**AnalysisServicesServer**     |Azure Analysis Services 伺服器名稱。 <br/> 範例： https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |

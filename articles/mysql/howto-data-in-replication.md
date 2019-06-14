@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.openlocfilehash: 7d56d7f8fcbd53d4f69863d260591ef80f3d7188
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459035"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>如何為適用於 MySQL 的 Azure 資料庫設定複寫中的資料
@@ -84,15 +84,15 @@ ms.locfileid: "61459035"
 
    **MySQL Workbench**
 
-   若要在 MySQL Workbench 中建立複寫角色，請從 [管理] 面板開啟 [使用者和權限] 面板。 接著，按一下 [新增帳戶]。 
+   若要在 MySQL Workbench 中建立複寫角色，請從 [管理]  面板開啟 [使用者和權限]  面板。 接著，按一下 [新增帳戶]  。 
  
    ![使用者和權限](./media/howto-data-in-replication/users_privileges.png)
 
-   在 [登入名稱] 欄位中輸入使用者名稱。 
+   在 [登入名稱]  欄位中輸入使用者名稱。 
 
    ![同步處理使用者](./media/howto-data-in-replication/syncuser.png)
  
-   按一下 [管理角色] 面板，然後從 [全域權限] 清單選取 [複寫從屬]。 然後按一下 [套用] 以建立複寫角色。
+   按一下 [管理角色]  面板，然後從 [全域權限]  清單選取 [複寫從屬]  。 然後按一下 [套用]  以建立複寫角色。
 
    ![複寫從屬](./media/howto-data-in-replication/replicationslave.png)
 

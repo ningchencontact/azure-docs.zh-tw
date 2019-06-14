@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 9d2c64479f65995c0eca756b86bd0a96a752867d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935768"
 ---
 # <a name="getting-started-with-the-cloud-partner-portal"></a>開始使用 Cloud Partner 入口網站
@@ -54,6 +54,6 @@ Cloud Partner 入口網站包含您所需的一切，能讓您在雲端中提供
 
 ![功能表列](./media/cloud-partner-portal-getting-started-with-the-cloud-partner-portal/menu-bar.png)
 
--   需要協助嗎？ - 如果您曾感到困惑並需要協助，請建立支援要求，並尋找相關文件連結。
+-   需要協助嗎？  - 如果您曾感到困惑並需要協助，請建立支援要求，並尋找相關文件連結。
 -   **意見反應** - 有話要說嗎？ 請在這裡告訴我們。 Microsoft 想要讓 Azure Marketplace、AppSource 發佈程序及整體 Cloud Partner 入口網站體驗盡可能簡單，盡可能直覺化。 我們會將所有意見反應分級並檢閱，而且我們永遠尊重您的隱私權。 我們只會在要求更多資訊時連絡您。
 - **發佈者帳戶** - 當您第一次造訪入口網站時，將會看到發佈者合約，接受合約內容即可成為發佈者。 從那之後，您便可以在此編輯發佈者設定檔，或重新閱覽合約內容。 您也能此處連結您的開發人員中心帳戶，藉此銷售您的供應項目。

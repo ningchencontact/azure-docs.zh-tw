@@ -17,10 +17,10 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 3fe1e72d277bffd4bc9b38ac377e33b341967e17
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806352"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>在 Azure Active Directory 入口網站中的使用量和 insights 報表
@@ -45,7 +45,7 @@ ms.locfileid: "65806352"
 2. 選取正確的目錄，然後選取**Azure Active Directory** ，然後選擇**企業應用程式**。
 3. 從**活動**區段中，選取**使用量和 insights**開啟報表。 
 
-![使用方式和深入解析報告](./media/concept-usage-insights-report/main-menu.png)
+![使用量和深入解析報告](./media/concept-usage-insights-report/main-menu.png)
                                      
 
 ## <a name="use-the-report"></a>使用報表
@@ -58,7 +58,7 @@ ms.locfileid: "65806352"
 
 當您的應用程式使用量圖表中選取一天時，您會取得應用程式的登入活動的詳細的清單。  
 
-![使用方式和深入解析報告](./media/concept-usage-insights-report/usage-and-insights-report.png)
+![使用量和深入解析報告](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 ## <a name="next-steps"></a>後續步驟
 

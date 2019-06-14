@@ -9,10 +9,10 @@ ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: efd2fc9d164564126b7b641ef35bbb10c4834f49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60996248"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>將 Log Analytics 警示擴充到 Azure 警示
@@ -20,7 +20,7 @@ ms.locfileid: "60996248"
 > [!NOTE]
 > Microsoft 已經完成本文中關於 Azure 的公用版本的程序。 不過仍適用於美國政府版本。  
 
-直到最近，Azure Log Analytics 剛剛加入了自己的警示功能，可根據 Log Analytics 資料主動通知您情況。 您之前可在 Microsoft Operations Management Suite 中管理警示規則。 全新警示體驗現已整合 Microsoft Azure 中各種服務之間的警示。 此功能即為 Azure 入口網站中的 Azure 監視器下的 **[警示]**，支援 Log Analytics 和 Azure Application Insights 中活動記錄、計量和記錄的警示。
+直到最近，Azure Log Analytics 剛剛加入了自己的警示功能，可根據 Log Analytics 資料主動通知您情況。 您之前可在 Microsoft Operations Management Suite 中管理警示規則。 全新警示體驗現已整合 Microsoft Azure 中各種服務之間的警示。 此功能即為 Azure 入口網站中的 Azure 監視器下的 **[警示]** ，支援 Log Analytics 和 Azure Application Insights 中活動記錄、計量和記錄的警示。
 
 Azure Government Cloud 客戶如果使用 OMS 入口網站，從**2019 年 2 月 1 日**起，可[主動將其警示規則延伸至 Azure](alerts-extend-tool.md)。 從 **2019 年 3 月 1 日**起，Microsoft 會以有條理的方式，在不停機或中斷您監視的情況下，將 Azure Government - OMS 入口網站中的所有現有警示規則自動延伸至 Azure。 任何在 **2019 年 3 月 1 日**當天或之後於 Azure Government Cloud OMS 入口網站中建立的新工作區，都會自動延伸至 Azure。
 

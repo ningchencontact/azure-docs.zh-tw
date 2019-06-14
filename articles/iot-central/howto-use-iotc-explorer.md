@@ -9,15 +9,15 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 16cb27ab330118d1bb59cf4f3d782bf55fa28d43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60517070"
 ---
 # <a name="monitor-device-connectivity-using-the-azure-iot-central-explorer"></a>使用 Azure IoT Central Explorer 監視裝置連線
 
-本主題適用於建置人員和系統管理員。
+本主題適用於建置人員和系統管理員。 
 
 使用 IoT Central Explorer CLI 查看您裝置傳送至 IoT Central 的訊息，並觀察 IoT 中樞對應項中的變更。 您可以使用這項開放原始碼工具來取得裝置連線狀態的更深入見解，並診斷裝置訊息未到達雲端或裝置未回應對應項變更的問題。
 

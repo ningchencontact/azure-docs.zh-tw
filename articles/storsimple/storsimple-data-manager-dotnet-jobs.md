@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 80f01a926b94deebab59f8ef91bfc36a4600b5f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60632296"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>使用.NET SDK 起始資料轉換
@@ -70,24 +70,24 @@ ms.locfileid: "60632296"
 3. 使用 Visual Studio 2012、2013 或 2015 建立 C# .NET 主控台應用程式。
 
     1. 啟動 **Visual Studio 2012/2013/2015**。
-    1. 選取 [檔案] > [新增] > [專案]。
+    1. 選取 [檔案] > [新增] > [專案]  。
 
         ![建立專案 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-7.png)        
-    2. 選取 [已安裝] > [範本] > [Visual C#] > [主控台應用程式]。
-    3. 輸入 **DataTransformationApp** 做為 [名稱]。
-    4. 選取 **C:\DataTransformation** 做為 [位置]。
+    2. 選取 [已安裝] > [範本] > [Visual C#] > [主控台應用程式]  。
+    3. 輸入 **DataTransformationApp** 做為 [名稱]  。
+    4. 選取 **C:\DataTransformation** 做為 [位置]  。
     6. 按一下 [確定]  以建立專案。
 
         ![建立專案 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
 
-4. 現在，在您建立的專案中，將 [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) 資料夾中出現的所有 dll 新增為 [參考]。 若要新增 dll 檔，請執行下列作業：
+4. 現在，在您建立的專案中，將 [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) 資料夾中出現的所有 dll 新增為 [參考]  。 若要新增 dll 檔，請執行下列作業：
 
-   1. 在 Visual Studio 中，移至 [檢視] > [方案總管]。
-   2. 按一下資料轉換應用程式專案左邊的箭號。 按一下 [參考]，然後按一下滑鼠右鍵以 [新增參考]。
+   1. 在 Visual Studio 中，移至 [檢視] > [方案總管]  。
+   2. 按一下資料轉換應用程式專案左邊的箭號。 按一下 [參考]  ，然後按一下滑鼠右鍵以 [新增參考]  。
     
        ![新增 dll 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
 
-   3. 瀏覽至套件資料夾的位置，選取所有 dll，按一下 [新增]，然後按一下 [確定]。
+   3. 瀏覽至套件資料夾的位置，選取所有 dll，按一下 [新增]  ，然後按一下 [確定]  。
 
        ![新增 dll 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
 

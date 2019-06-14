@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.openlocfilehash: dfb34f8c0fca792618860e0a8d5a1bf1736f3611
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65416069"
 ---
 # <a name="machine-learning-integration-in-stream-analytics-preview"></a>Machine Learning 整合，在 Stream Analytics （預覽）
@@ -21,10 +21,10 @@ ms.locfileid: "65416069"
 ## <a name="overview-azure-machine-learning-terminology"></a>概觀：Azure Machine Learning 術語
 Microsoft Azure Machine Learning 提供可共同作業的拖放工具，供您依據資料來建置、測試及部署預測性分析解決方案。 此工具稱為 *Azure Machine Learning Studio*。 您可以利用此 Studio 來與機器學習服務資源互動，並輕鬆地建置、測試和反覆調整設計。 這些資源和其定義如下。
 
-* **工作區**：「工作區」這個容器中會保有其他所有機器學習服務資源，以便集中管理和控制。
-* **實驗**：資料科學家會建立「實驗」來利用資料集和訓練機器學習服務模型。
-* **端點**：「端點」是 Azure Machine Learning 物件，可供用來將功能作為輸入、套用指定的機器學習服務模型，並傳回經過評分的輸出。
-* **評分 Web 服務**：「評分 Web 服務」是上述端點的集合。
+* **工作區**：「工作區」  這個容器中會保有其他所有機器學習服務資源，以便集中管理和控制。
+* **實驗**：資料科學家會建立「實驗」  來利用資料集和訓練機器學習服務模型。
+* **端點**：「端點」  是 Azure Machine Learning 物件，可供用來將功能作為輸入、套用指定的機器學習服務模型，並傳回經過評分的輸出。
+* **評分 Web 服務**：「評分 Web 服務」  是上述端點的集合。
 
 每個端點都有適用於批次執行和同步執行的 API。 串流分析使用同步執行。 該特定服務在 Azure Machine Learning Studio 中的名稱為 [要求/回應服務](../machine-learning/studio/consume-web-services.md)。
 

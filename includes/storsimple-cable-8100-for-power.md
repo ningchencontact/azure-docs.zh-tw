@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: db2104020e9478b1fedf68e1c9467f75e16044e2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155804"
 ---
 #### <a name="to-cable-for-power"></a>連接電源線
@@ -25,11 +25,11 @@ ms.locfileid: "66155804"
    
     **8100 裝置上的電源佈線**
    
-   | 標籤 | 說明 |
+   | ThisAddIn | 描述 |
    |:--- |:--- |
    | 1 |PCM 0 |
-   | 2 |控制站 1 |
-   | 3 |控制站 0 |
+   | 2 |控制器 1 |
+   | 3 |控制器 0 |
    | 4 |PCM 1 |
    | 5 |PDU |
 4. 將兩個 PCM 的電源開關切換到 ON (開啟) 位置，以開啟系統。

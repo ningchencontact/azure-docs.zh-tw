@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: a9ada25641e2a56beb9083b145a507c8fd41a46f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935130"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>如何透過 Cloud Partner 入口網站建立 Dynamics 365 for Operations 供應項目
@@ -51,7 +51,7 @@ ms.locfileid: "64935130"
 
 此下拉式表單，可讓您選擇您想要在什麼發行者設定檔之下發佈此供應項目。 供應項目上架後，此欄位便會鎖住。
 
-名稱
+Name
 
 您供應項目的顯示名稱。 這是會顯示在 [AppSource](https://appsource.microsoft.com) 中的名稱。 它最多不能超過 50 個字元。
 
@@ -118,7 +118,7 @@ ms.locfileid: "64935130"
 
 ### <a name="marketing-artifacts"></a>行銷成品
 
-1. 下一步是上傳您的 [標誌] 與 [螢幕擷取畫面]。 \*\*請留意上傳的檔案大小，且所有影像都應該為 PNG 格式。
+1. 下一步是上傳您的 [標誌]  與 [螢幕擷取畫面]  。 \*\*請留意上傳的檔案大小，且所有影像都應該為 PNG 格式。
 2. **示範影片**：按一下 [+新增]\"\"。 上傳解決方案的示範影片 (僅限 YouTube 或 Vimeo 連結)。\*\* 請注意，您必須上傳指定大小的縮圖，您的影片才會出現在預備環境中。
 3. **文件**：上傳任何與解決方案相關的文件，並記得輸入文件名稱。
 

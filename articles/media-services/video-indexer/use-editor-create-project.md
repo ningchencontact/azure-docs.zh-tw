@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: 725e265bb7f8c98db19971c50e690974cb38a0d2
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518145"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>使用影片索引器編輯器來建立專案
@@ -57,7 +57,7 @@ ms.locfileid: "65518145"
 
     ![Filter](./media/video-indexer-view-edit/visual-text.png)
 
-    您可以在查詢層多個篩選條件。 使用**+** / **-** 按鈕來新增/移除篩選。 使用**清除篩選**移除所有篩選。
+    您可以在查詢層多個篩選條件。 使用 **+** / **-** 按鈕來新增/移除篩選。 使用**清除篩選**移除所有篩選。
 1. 若要新增影片，請選取它們，然後選取**新增**。
 1. 現在，您會看到所有您所選擇的影片。 這些是您要選取專案的剪輯的影片。
 
@@ -89,7 +89,7 @@ ms.locfileid: "65518145"
     
     新增影片的所有區段旁邊的影片和選取清單 功能表選項，即可**選取所有區段**。 
 
-    ![全部新增](./media/video-indexer-view-edit/add-all.png)
+    ![全部加入](./media/video-indexer-view-edit/add-all.png)
 
     您可以清除所有您選取項目的選取 清除選取項目。
 

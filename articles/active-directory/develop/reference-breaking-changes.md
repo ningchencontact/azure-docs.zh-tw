@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ea3ec9024e4ea6a254fb6fe80f93886dc31a0ff
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545791"
 ---
 # <a name="whats-new-for-authentication"></a>驗證有什麼新功能？ 
@@ -45,33 +45,33 @@ ms.locfileid: "65545791"
 
 ## <a name="march-2019"></a>2019 年 3 月
 
-### <a name="looping-clients-will-be-interrupted"></a>循环客户端将会中断
+### <a name="looping-clients-will-be-interrupted"></a>迴圈的用戶端將會中斷
 
-**生效日期**：2019 年 3 月 25 日
+**生效日期**：2019 年 3 月 25日日
 
 **受影響的端點**：1.0 和 2.0 版
 
-**受影響的通訊協定**：所有流
+**受影響的通訊協定**：所有流程
 
-客户端应用程序有时可能会出现行为异常，在短时间内发出数百个相同的登录请求。  这些请求不一定会成功，但会导致用户体验变得糟糕，增大 IDP 的工作负荷，增大所有用户的延迟，并降低 IDP 的可用性。  这些应用程序的工作范围超过了正常的使用边界，应予以更新才能让其保持正常的行为。  
+用戶端應用程式可以有時行為異常，發出數以百計的相同的登入要求的時間在短時間內。  這些要求可能會或可能不會成功，但是所有包含使用者體驗不佳和增強的工作負載的增加所有使用者的延遲和降低可用性的 idp 的 IDP。  這些應用程式運作正常的使用方式的範圍之外，而且應該更新為正確的行為。  
 
-将为多次发出重复请求的客户端设置 `invalid_grant` 错误：`AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`。 
+發出多次的重複要求的用戶端將會傳送`invalid_grant`錯誤： `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`。 
 
-大多数客户端无需改变行为即可避免此错误。  此错误只会影响配置不当的客户端（没有令牌缓存的客户端，或已经出现提示循环的客户端）。  根据以下因素，在本地按实例跟踪客户端（通过 Cookie）：
+大部分的用戶端將不需要變更行為，以避免發生這個錯誤。  只有設定不正確的用戶端 （而不需要權杖快取或已經發生提示迴圈） 會受到此錯誤。  用戶端會追蹤每個執行個體為基礎在本機 （透過 cookie) 於下列因素：
 
-* 用户提示（如果有）
+* 使用者提示，如果有的話
 
-* 请求的范围或资源
+* 範圍或所要求資源
 
 * 用戶端識別碼
 
 * 重新導向 URI
 
-* 响应类型和模式
+* 回應類型和模式
 
-在短时间（5 分钟）内发出多个请求（15 个以上）的应用将会收到 `invalid_grant` 错误，指出它们正在循环。  所请求的令牌具有足够长的生存期（最短 10 分钟，默认为 60 分钟），因此，在此时间段内发出的重复请求都是没有必要的。  
+在一段時間 （5 分鐘） 讓多個要求 （15 +） 的應用程式會收到`invalid_grant`說明會迴圈處理錯誤。  有夠長時間執行的存留期 （10 分鐘的時間最小值，預設為 60 分鐘），因此重複要求這段期間所要求的權杖是不必要的。  
 
-所有应用应该通过显示交互式提示来处理 `invalid_grant`，而不是以静默方式请求令牌。  若要避免此错误，客户端应确保正确缓存它们收到的令牌。
+所有的應用程式應該處理`invalid_grant`顯示互動式提示，而不是以無訊息方式要求權杖。  若要避免這個錯誤，用戶端應該確定它們都正確快取他們收到的權杖。
 
 
 ## <a name="october-2018"></a>2018 年 10 月

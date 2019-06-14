@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: 2936fd318f08c74675f7e8b382c861f4a28319fc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148201"
 ---
 您可以將多個資料磁碟附加至 Azure 虛擬機器。 根據 VM 的資料磁碟的延展性和效能目標，您可以判斷您需要以符合您的效能和容量需求的磁碟類型與數量。
@@ -20,10 +20,10 @@ ms.locfileid: "66148201"
 
 下表說明的預設值和最大限制數目的每個訂用帳戶區域的資源
 
-> | Resource | 預設限制  | 上限 |
+> | 資源 | 預設限制  | 上限 |
 > | --- | --- | --- |
 > | 標準受控磁碟 | 25,000 | 50,000 |
-> | 標準 SSD 受控磁碟 | 25,000 | 50,000 |
+> | SSD 標準受控磁碟 | 25,000 | 50,000 |
 > | 進階受控磁碟 | 25,000 | 50,000 |
 > | Standard_LRS 快照集 | 25,000 | 50,000 |
 > | Standard_ZRS 快照集 | 25,000 | 50,000 |

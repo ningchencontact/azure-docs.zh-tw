@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbullwin
 ms.openlocfilehash: cb7ace20fd0a59dafff3d7f8240f54c3c8e12492
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66226405"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 應用程式的 application Insights
@@ -121,8 +121,8 @@ ms.locfileid: "66226405"
 |Http/Https | 使用呼叫`HttpClient`。 |
 |SQL | 使用呼叫`SqlClient`。 |
 |[Azure 儲存體](https://www.nuget.org/packages/WindowsAzure.Storage/) | 使用 Azure 儲存體用戶端所進行的呼叫。 |
-|[事件中樞用戶端 SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 版和更新版本。 |
-|[ServiceBus 用戶端 SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| 3.0.0 版和更新版本。 |
+|[事件中樞用戶端 SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1\.1.0 版和更新版本。 |
+|[ServiceBus 用戶端 SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| 3\.0.0 版和更新版本。 |
 |Azure Cosmos DB | 只會自動追蹤如果使用 HTTP/HTTPS。 Application Insights 不會擷取 TCP 模式。 |
 
 ### <a name="performance-counters"></a>效能計數器
@@ -383,7 +383,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 ## <a name="video"></a>影片
 
 - 關於如何從頭開始[使用 .NET Core 和 Visual Studio 設定 Application Insights](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) 的外部逐步說明影片。
-- 關於外部逐步影片[使用.NET Core 和 Visual Studio Code 中設定 Application Insights](https://youtu.be/ygGt84GDync)從零開始。
+- 關於如何從頭開始[使用 .NET Core 和 Visual Studio Code 設定 Application Insights](https://youtu.be/ygGt84GDync) 的外部逐步說明影片。
 
 ## <a name="next-steps"></a>後續步驟
 * [瀏覽使用者流程](../../azure-monitor/app/usage-flows.md)來了解使用者如何瀏覽您的應用程式。

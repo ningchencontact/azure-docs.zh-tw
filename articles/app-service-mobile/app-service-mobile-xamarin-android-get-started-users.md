@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: panarasi
 ms.openlocfilehash: 0a2d964d60d13f0e71de5776112a4edbe3cdcc45
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127908"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>將驗證新增至 Xamarin.Android 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-本主题演示如何从客户端应用程序对移动应用的用户进行身份验证。 在本教學課程中，您會使用 Azure 行動應用程式所支援的身分識別提供者將驗證新增至快速入門專案。 在行動應用程式中成功驗證並授權之後，就會顯示使用者識別碼值。
+本主題說明如何從用戶端應用程式驗證行動應用程式的使用者。 在本教學課程中，您會使用 Azure 行動應用程式所支援的身分識別提供者將驗證新增至快速入門專案。 在行動應用程式中成功驗證並授權之後，就會顯示使用者識別碼值。
 
 本教學課程以行動應用程式快速入門為基礎。 您也必須先完成 [建立 Xamarin.Android 應用程式教學課程]。 如果您不要使用下載的快速入門伺服器專案，必須將驗證擴充套件新增至您的專案。 如需伺服器擴充套件的詳細資訊，請參閱 [使用 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
@@ -33,22 +33,22 @@ ms.locfileid: "62127908"
 
 ## <a name="redirecturl"></a>將您的應用程式新增至允許的外部重新導向 URL
 
-安全身份验证要求为应用定义新的 URL 方案。 這讓驗證系統能夠在驗證程序完成之後，重新導向回到您的應用程式。 我們會在這整個教學課程中使用 URL 配置 appname。 不過，您可以使用任何您選擇的 URL 結構描述。 对于移动应用程序而言，它应是唯一的。 在伺服器端啟用重新導向：
+安全的驗證會要求您為應用程式定義新的 URL 配置。 這讓驗證系統能夠在驗證程序完成之後，重新導向回到您的應用程式。 我們會在這整個教學課程中使用 URL 配置 appname  。 不過，您可以使用任何您選擇的 URL 結構描述。 它對於您的行動應用程式而言應該是唯一的。 在伺服器端啟用重新導向：
 
 1. 在 [Azure 入口網站] 中，選取您的 App Service。
 
-2. 单击“身份验证/授权”菜单选项。
+2. 按一下 [驗證/授權]  功能表選項。
 
-3. 在 [允許的外部重新導向 URL] 中，輸入 `url_scheme_of_your_app://easyauth.callback`。  此字串中的 **url_scheme_of_your_app** 是您行動應用程式的 URL 配置。  它必須遵循通訊協定的標準 URL 規格 (只使用字母和數字，並以字母為開頭)。  請記下您選擇的字串，因為您將需要在數個位置中使用該 URL 配置來調整您的行動應用程式程式碼。
+3. 在 [允許的外部重新導向 URL]  中，輸入 `url_scheme_of_your_app://easyauth.callback`。  此字串中的 **url_scheme_of_your_app** 是您行動應用程式的 URL 配置。  它必須遵循通訊協定的標準 URL 規格 (只使用字母和數字，並以字母為開頭)。  請記下您選擇的字串，因為您將需要在數個位置中使用該 URL 配置來調整您的行動應用程式程式碼。
 
-4. 按一下 [確定]。
+4. 按一下 [確定]  。
 
-5. 按一下 [檔案] 。
+5. 按一下 [檔案]  。
 
-## <a name="permissions"></a>将权限限制给已经过身份验证的用户
+## <a name="permissions"></a>限制只有通過驗證的使用者具有權限
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-在 Visual Studio 或 Xamarin Studio 中，在裝置或模擬器上執行用戶端專案。 验证在应用启动后是否引发状态代码为 401（“未授权”）的未处理异常。 這是因為應用程式嘗試以未驗證的使用者身分存取您的行動應用程式程式碼。 *TodoItem* 資料表現在需要驗證。
+在 Visual Studio 或 Xamarin Studio 中，在裝置或模擬器上執行用戶端專案。 確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。 這是因為應用程式嘗試以未驗證的使用者身分存取您的行動應用程式程式碼。 *TodoItem* 資料表現在需要驗證。
 
 接下來，您將會更新用戶端應用程式，利用已驗證的使用者身分來要求行動應用程式後端的資源。
 
@@ -96,13 +96,13 @@ ms.locfileid: "62127908"
     這會建立一個新方法以驗證使用者，以及建立新 [登入]  按鈕的方法處理常式。 上述範例程式碼中的使用者是使用 Facebook 登入進行驗證。 對話方塊會在驗證後用來顯示使用者識別碼。
    
    > [!NOTE]
-   > 如果您使用 Facebook 以外的身分識別提供者，變更值傳遞給**LoginAsync**上方的下列其中一個：MicrosoftAccount、Twitter、Google 或 WindowsAzureActiveDirectory。
+   > 如果您使用 Facebook 以外的身分識別提供者，變更值傳遞給**LoginAsync**上方的下列其中一個：MicrosoftAccount  、Twitter  、Google  或 WindowsAzureActiveDirectory  。
    > 
    > 
 2. 在 **OnCreate** 方法中，刪除或註解下列程式碼行：
    
         OnRefreshItemsSelected ();
-3. 在 Activity_To_Do.axml 檔案中，在現有的 AddItem 按鈕之前加入下列 LoginUser 按鈕定義：
+3. 在 Activity_To_Do.axml 檔案中，在現有的 AddItem  按鈕之前加入下列 LoginUser  按鈕定義：
    
           <Button
             android:id="@+id/buttonLoginUser"

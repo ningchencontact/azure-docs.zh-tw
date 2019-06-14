@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64569614"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>使用 Azure 監視器活頁簿建立互動式報表
@@ -35,7 +35,7 @@ ms.locfileid: "64569614"
 
 活頁簿由獨立可編輯的圖表、表格、文字及輸入控制項之區段組成。 要了解活頁簿，最好的作法就是開啟一個實際例子。 
 
-在您應用程式的 Application Insights 體驗中，從左側功能表選取 [活頁簿]。
+在您應用程式的 Application Insights 體驗中，從左側功能表選取 [活頁簿]  。
 
 ![瀏覽至活頁簿的螢幕擷取畫面](./media/usage-workbooks/001-workbooks.png)
 
@@ -53,25 +53,25 @@ ms.locfileid: "64569614"
 
 ![Application Insights 活頁簿區段編輯控制項](./media/usage-workbooks/editing-controls-new.png)
 
-1. 當您完成編輯區段時，按一下區段左下角的 [完成編輯]。
+1. 當您完成編輯區段時，按一下區段左下角的 [完成編輯]  。
 
-2. 若要建立區段的複本，按一下 [複製此區段] 圖示。 建立重複的區段是逐一查看查詢而不會遺失先前反覆項目的絕佳方式。
+2. 若要建立區段的複本，按一下 [複製此區段]  圖示。 建立重複的區段是逐一查看查詢而不會遺失先前反覆項目的絕佳方式。
 
-3. 若要在活頁簿中將區段上移，按一下 [上移] 或 [下移] 圖示。
+3. 若要在活頁簿中將區段上移，按一下 [上移]  或 [下移]  圖示。
 
-4. 若要永久移除區段，按一下 [移除] 圖示。
+4. 若要永久移除區段，按一下 [移除]  圖示。
 
 ## <a name="adding-text-and-markdown-sections"></a>新增文字和 Markdown 區段
 
 將標題、說明及註解新增至您的活頁簿，可協助將一組資料表和圖表變成敘述。 活頁簿中的文字區段支援 [Markdown 語法](https://daringfireball.net/projects/markdown/)以進行文字格式設定，例如標題、粗體、斜體和項目符號清單。
 
-若要將文字區段新增至您的活頁簿，請使用活頁部底端或任何區段底端的 [新增文字] 按鈕。
+若要將文字區段新增至您的活頁簿，請使用活頁部底端或任何區段底端的 [新增文字]  按鈕。
 
 ## <a name="adding-query-sections"></a>加入查詢區段
 
 ![活頁簿中的查詢區段](./media/usage-workbooks/analytics-section-new.png)
 
-若要將查詢區段新增至您的活頁簿，請使用活頁部底端或任何區段底端的 [新增查詢] 按鈕。
+若要將查詢區段新增至您的活頁簿，請使用活頁部底端或任何區段底端的 [新增查詢]  按鈕。
 
 查詢區段十分有彈性，可以用以回答下述問題：
 
@@ -96,7 +96,7 @@ union app('app01').requests, app('app02').requests, requests
 
 ### <a name="advanced-analytic-query-settings"></a>進階分析查詢設定
 
-每個區段都有自己的進階設定，可以透過 [新增參數] 按鈕右側的設定圖示 ![Application Insights 活頁簿區段編輯控制項](./media/usage-workbooks/005-settings.png) 存取。
+每個區段都有自己的進階設定，可以透過 [新增參數]  按鈕右側的設定圖示 ![Application Insights 活頁簿區段編輯控制項](./media/usage-workbooks/005-settings.png) 存取。
 
 ![Application Insights 活頁簿區段編輯控制項](./media/usage-workbooks/0006-settings-expanded.png)
 
@@ -159,18 +159,18 @@ union customEvents, pageViews
 
   |         |          |
    | ---------------- |:-----|
-   | **文字**    | 使用者會編輯文字方塊，您可以選擇提供詢問來填寫預設值。 |
+   | **Text**    | 使用者會編輯文字方塊，您可以選擇提供詢問來填寫預設值。 |
    | **下拉式清單** | 使用者會從一組值之中選擇。 |
    | **時間範圍選擇器**| 使用者會從預先定義之一組時間範圍值中選擇，或是從自訂之時間範圍中選擇。|
    | **資源選擇器** | 使用者會從選取供活頁簿使用之資源中選擇。|
 
 ### <a name="using-a-text-parameter"></a>使用文字參數
 
-使用者於文字方塊中輸入的值將在查詢中直接取代，不含任何跳脫字元或引號。 如果您需要的值為字串，查詢中必須在參數前後加上引號 (像是 **'{parameter}'**)。
+使用者於文字方塊中輸入的值將在查詢中直接取代，不含任何跳脫字元或引號。 如果您需要的值為字串，查詢中必須在參數前後加上引號 (像是 **'{parameter}'** )。
 
 這樣文字方塊中的值即可在任何地方使用。 可以用於表格名稱、資料行名稱、函數名稱、運算子等等。
 
-文字參數類型中可以設定 [從分析查詢取得預設值]，讓活頁簿作者使用查詢來填入該文字方塊的預設值。
+文字參數類型中可以設定 [從分析查詢取得預設值]  ，讓活頁簿作者使用查詢來填入該文字方塊的預設值。
 
 使用分析查詢作為預設值時，只有第一列的第一個值 (第 0 列，第 0 行) 會被使用。 因此建議您將查詢限制為只傳回一行一列。 查詢所傳回的任何其他資料會被忽略。 
 
@@ -184,7 +184,7 @@ union customEvents, pageViews
 
  若資料行為字串型別，Null/空白字串將被視為 false，其他任何值都視為 true。 在單選之下拉式清單中，第一個值為 true 的項目將成為預設選取項目。  在多選之下拉式清單中，所有值為 true 的項目都將成為預設選取項目。 下拉式清單之項目顯示的順序將依照查詢回傳的資料列順序。 
 
-讓我們看看這個作用中使用者報告中的參數。 按一下 [時間範圍] 旁邊的編輯符號。
+讓我們看看這個作用中使用者報告中的參數。 按一下 [時間範圍]  旁邊的編輯符號。
 
 ![Application Insights 活頁簿區段編輯控制項](./media/usage-workbooks/009-time-range.png)
 
@@ -237,21 +237,21 @@ customEvents
 
 ## <a name="saving-and-sharing-workbooks-with-your-team"></a>儲存活頁簿並且與小組共用
 
-活頁簿會儲存在 Application Insights 資源中，儲存在您私人使用的 [我的報表] 區段中，或是可供具有 Application Insights 資源存取權的每個人存取的 [共用報表] 區段中。 若要檢視資源中的所有活頁簿，請按一下動作列中的 [開啟] 按鈕。
+活頁簿會儲存在 Application Insights 資源中，儲存在您私人使用的 [我的報表]  區段中，或是可供具有 Application Insights 資源存取權的每個人存取的 [共用報表]  區段中。 若要檢視資源中的所有活頁簿，請按一下動作列中的 [開啟]  按鈕。
 
-若要共用目前在 [我的報表] 的活頁簿：
+若要共用目前在 [我的報表]  的活頁簿：
 
-1. 按一下動作列中的 [開啟]
+1. 按一下動作列中的 [開啟] 
 2. 按一下您想要共用之活頁簿旁邊的 [...] 按鈕
-3. 按一下 [移至共用報表]。
+3. 按一下 [移至共用報表]  。
 
-若要使用連結或透過電子郵件共用活頁簿，請按一下動作列中的 [共用]。 請注意，連結的收件者需要在 Azure 入口網站中存取此資源的存取權，才能檢視活頁簿。 若要進行編輯，收件者至少需要資源的參與者權限。
+若要使用連結或透過電子郵件共用活頁簿，請按一下動作列中的 [共用]  。 請注意，連結的收件者需要在 Azure 入口網站中存取此資源的存取權，才能檢視活頁簿。 若要進行編輯，收件者至少需要資源的參與者權限。
 
 若要將活頁簿的連結釘選到 Azure 儀表板：
 
-1. 按一下動作列中的 [開啟]
+1. 按一下動作列中的 [開啟] 
 2. 按一下您想要釘選之活頁簿旁邊的 [...] 按鈕
-3. 按一下 [釘選到儀表板]。
+3. 按一下 [釘選到儀表板]  。
 
 ## <a name="contributing-workbook-templates"></a>提供活頁簿範本
 

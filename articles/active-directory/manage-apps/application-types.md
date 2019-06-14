@@ -16,37 +16,37 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1cb4eeb52d0680695bda266ad1a563b2ef5ee02
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65781100"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>我的應用程式清單中有未預期的應用程式
 
-本文協助您了解應用程式如何出現在 [企業應用程式] 下的 [所有應用程式] 清單中。 
+本文協助您了解應用程式如何出現在 [企業應用程式]  下的 [所有應用程式]  清單中。 
 
 ## <a name="how-to-see-all-applications-in-your-tenant"></a>如何查看租用戶中的所有應用程式
 
-若要查看租用戶中的所有應用程式，您需要使用 [篩選] 控制項，以顯示 [所有應用程式] 清單下的 [所有應用程式]。 請遵循下列步驟：
+若要查看租用戶中的所有應用程式，您需要使用 [篩選]  控制項，以顯示 [所有應用程式]  清單下的 [所有應用程式]  。 請遵循下列步驟：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
+1.  開啟 [Azure 入口網站  ](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左側主導覽功能表底部的 [所有服務]  ，以開啟 [Azure Active Directory 延伸模組]  。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory]  項目。
 
-4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]  。
 
-5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
+5.  按一下 [所有應用程式]  ，以檢視所有應用程式的清單。
 
-6.  按一下使用 [所有應用程式清單] 頂端的 [篩選]控制項。
+6.  按一下使用 [所有應用程式清單]  頂端的 [篩選]  控制項。
 
-7.  在 [篩選] 窗格上，將 [顯示] 選項設為 [所有應用程式]。
+7.  在 [篩選]  窗格上，將 [顯示]  選項設為 [所有應用程式]  。
 
 ## <a name="why-does-a-specific-application-appear-in-my-all-applications-list"></a>特定應用程式為何出現在我的所有應用程式清單中？
 
-篩選為 [所有應用程式] 時，[所有應用程式清單] 會顯示租用戶中的每個服務主體物件。 服務主體物件可能以各種方式出現在此清單中︰
+篩選為 [所有應用程式]  時，[所有應用程式清單]   會顯示租用戶中的每個服務主體物件。 服務主體物件可能以各種方式出現在此清單中︰
 
 1. 當您從應用程式庫新增任何應用程式時，包括︰
 
@@ -90,21 +90,21 @@ ms.locfileid: "65781100"
 
 若要**刪除應用程式**，請遵循下列步驟：
 
-1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
+1. 開啟 [Azure 入口網站  ](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]  ，以開啟 [Azure Active Directory 延伸模組]  。
 
-3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory]  項目。
 
-4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]  。
 
-5. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
+5. 按一下 [所有應用程式]  ，以檢視所有應用程式的清單。
 
-   * 若在這裡沒看到您要的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
+   * 若在這裡沒看到您要的應用程式，請使用 [所有應用程式清單]  頂端的 [篩選]  控制項，並將 [顯示]  選項設定為 [所有應用程式]  。
 
 6. 選取您要刪除的應用程式。
 
-7. 應用程式載入後，在頂端應用程式的 [概觀] 窗格按一下 [刪除] 圖示。
+7. 應用程式載入後，在頂端應用程式的 [概觀]  窗格按一下 [刪除]  圖示。
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>我想要停用任何應用程式的所有未來使用者同意作業
 
@@ -112,17 +112,17 @@ ms.locfileid: "65781100"
 
 若要**停用整個目錄中的所有未來使用者同意作業**，請遵循下列步驟：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟 [Azure 入口網站  ](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2.  按一下左側主導覽功能表底部的 [所有服務]  ，以開啟 [Azure Active Directory 延伸模組]  。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory]  項目。
 
-4.  按一下瀏覽功能表中的 [使用者和群組]。
+4.  按一下瀏覽功能表中的 [使用者和群組]  。
 
-5.  按一下 [使用者設定]。
+5.  按一下 [使用者設定]  。
 
-6.  將 [使用者可以允許應用程式存取其資料] 切換開關設為 [否]，並按一下 [儲存] 按鈕，以停用所有未來的使用者同意作業。
+6.  將 [使用者可以允許應用程式存取其資料]  切換開關設為 [否]  ，並按一下 [儲存]  按鈕，以停用所有未來的使用者同意作業。
 
 ## <a name="next-steps"></a>後續步驟
 [使用 Azure Active Directory 管理應用程式](what-is-application-management.md)

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
 ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796435"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 至 Azure VM 複寫問題的疑難排解
@@ -31,7 +31,7 @@ ms.locfileid: "65796435"
 --- | --- | ---
 150097<br></br>**訊息**：虛擬機器 VmName 無法啟用複寫。 | - 可能未啟用您的訂用帳戶 ID 在目標區域位置中建立任何 VM。</br></br>- 可能未啟用您的訂用帳戶 ID 或沒有足夠的配額可在目標區域位置中建立特定 VM 大小。</br></br>- 對於目標區域位置中的訂用帳戶 ID，找不到符合來源 VM NIC 計數 (2) 的適當 VM 大小。| 對於訂用帳戶的目標位置之中的所需 VM 大小，請連絡 [Azure 計費支援](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)啟用 VM。 啟用後，請重試失敗的作業。
 
-### <a name="fix-the-problem"></a>解决问题
+### <a name="fix-the-problem"></a>修正問題
 您可以連絡 [Azure 計費支援](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)啟用訂用帳戶，在目標位置中建立所需大小的 VM。
 
 如果目標位置有容量限制，請停用複寫，並對於訂用帳戶有足夠配額的不同位置啟用複寫，以建立所需大小的 VM。
@@ -40,7 +40,7 @@ ms.locfileid: "65796435"
 
 如果 VM 沒有所有最新的受信任根憑證，「啟用複寫」工作可能會失敗。 如果沒有憑證，對於從 VM 的 Site Recovery 服務呼叫進行的驗證和授權會失敗。 失敗的「啟用複寫」Site Recovery 工作的錯誤訊息會出現：
 
-**錯誤碼** | 可能的原因 | **建議**
+**錯誤碼** | **可能的原因** | **建議**
 --- | --- | ---
 151066<br></br>**訊息**：Site Recovery 設定失敗。 | 機器上不存在用於授權和驗證的受信任根憑證。 | - 對於執行 Windows 作業系統的 VM，請確定機器上存在受信任根憑證。 如需資訊，請參閱[設定受信任根目錄和不允許的憑證](https://technet.microsoft.com/library/dn265983.aspx)。<br></br>- 對於執行 Linux 作業系統的 VM，請依照 Linux 作業系統版本散發者發行的受信任根憑證適用的指引。
 
@@ -196,9 +196,9 @@ ms.locfileid: "65796435"
      - ``/usr/local/InMage/config/`` (在 ***Linux*** 上)
      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` (在 ***Windows*** 上)
   3. ProxyInfo.conf 應該要有下列 INI 格式的 Proxy 設定。</br>
-                [proxy]</br>
-                Address=http://1.2.3.4</br>
-                Port=567</br>
+                [proxy] </br>
+                Address=http://1.2.3.4 </br>
+                Port=567 </br>
   4. ASR 行動服務代理程式僅支援***未驗證的 Proxy***。
 
 
@@ -209,7 +209,7 @@ ms.locfileid: "65796435"
 
 必須先將連接到 VM 的新磁碟初始化。
 
-**錯誤碼** | **可能的原因** | 建议
+**錯誤碼** | **可能的原因** | **建議**
 --- | --- | ---
 150039<br></br>**訊息**：邏輯單元編號 (LUN) 為 (LUNValue) 的 Azure 資料磁碟 (DiskName) (DiskURI) 未對應到從 LUN 值相同的 VM 內回報的對應磁碟。 | - 新的資料磁碟連接到 VM，但是未初始化。</br></br>- VM 內的資料磁碟不當回報 LUN 值，該磁碟已連接到 VM。| 請確定資料磁碟都已初始化，然後再次嘗試操作。</br></br>若為 Windows：[連接並初始化新的磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)。</br></br>若為 Linux：[在 Linux 中初始化新的資料磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)。
 
@@ -261,18 +261,18 @@ Azure Site Recovery 目前規定，來源區域的資源群組和虛擬機器應
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>VM 的佈建狀態無效 (錯誤碼 150019)
 
-若要在 VM 上啟用複寫，佈建狀態應該是「成功」。 您可以藉由遵循下列步驟來檢查 VM 狀態。
+若要在 VM 上啟用複寫，佈建狀態應該是「成功」  。 您可以藉由遵循下列步驟來檢查 VM 狀態。
 
-1.  在 Azure 入口網站中從 [所有服務] 選取 [資源總管]。
-2.  展開 [訂用帳戶] 清單然後選取您的訂用帳戶。
-3.  展開 [ResourceGroups] 清單然後選取 VM 的資源群組。
-4.  展開 [資源] 清單然後選取您的虛擬機器
-5.  勾選右側 [執行個體] 檢視中的 [provisioningState] 欄位。
+1.  在 Azure 入口網站中從 [所有服務]  選取 [資源總管]  。
+2.  展開 [訂用帳戶]  清單然後選取您的訂用帳戶。
+3.  展開 [ResourceGroups]  清單然後選取 VM 的資源群組。
+4.  展開 [資源]  清單然後選取您的虛擬機器
+5.  勾選右側 [執行個體] 檢視中的 [provisioningState]  欄位。
 
 ### <a name="fix-the-problem"></a>修正問題
 
-- 如果 [provisioningState] 是「失敗」，請連絡支援人員以取得疑難排解的詳細資訊。
-- 如果 [provisioningState] 是「正在更新」，則可能有其他擴充功能正在部署。 檢查 VM 上是否有任何進行中的作業，等候它們完成然後重試失敗的 Site Recovery **啟用複寫**作業。
+- 如果 [provisioningState]  是「失敗」  ，請連絡支援人員以取得疑難排解的詳細資訊。
+- 如果 [provisioningState]  是「正在更新」  ，則可能有其他擴充功能正在部署。 檢查 VM 上是否有任何進行中的作業，等候它們完成然後重試失敗的 Site Recovery **啟用複寫**作業。
 
 ## <a name="unable-to-select-target-virtual-network---network-selection-tab-is-grayed-out"></a>無法選取目標虛擬網路 - 網路選取索引標籤呈現灰色。
 
@@ -311,7 +311,7 @@ Azure Site Recovery 目前規定，來源區域的資源群組和虛擬機器應
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>啟用保護失敗，原因是 GRUB 組態中所提的裝置名稱，而不是 UUID (錯誤碼 151126)
 
 **可能的原因：** </br>
-GRUB 組態檔 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") 可能包含 **root** 和 **resume** 參數的值作為實際裝置名稱，而不是 UUID。 Site Recovery 會強制執行 UUID 方法，因為裝置名稱可能會經由 VM 重新開機而變更，而且 VM 可能不會提出容錯移轉時的相同名稱而造成問題。 例如： </br>
+GRUB 組態檔 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") 可能包含 **root** 和 **resume** 參數的值作為實際裝置名稱，而不是 UUID。 Site Recovery 會強制執行 UUID 方法，因為裝置名稱可能會經由 VM 重新開機而變更，而且 VM 可能不會提出容錯移轉時的相同名稱而造成問題。 例如: </br>
 
 
 - 下面這一行來自 GRUB 檔案 **/boot/grub2/grub.cfg**。 <br>
@@ -327,7 +327,7 @@ GRUB 組態檔 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.
 裝置名稱應該取代為對應的 UUID。<br>
 
 
-1. 執行命令來尋找裝置的 UUID"blkid\<裝置名稱 >"。 例如：<br>
+1. 執行命令來尋找裝置的 UUID"blkid\<裝置名稱 >"。 例如:<br>
    ```
    blkid /dev/sda1
    ```<br>

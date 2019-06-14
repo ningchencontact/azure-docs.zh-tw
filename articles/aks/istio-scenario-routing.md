@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
 ms.openlocfilehash: bd660a2b6ffb96478c3170cc7013ff22518b758f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64702215"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>透過 Istio 在 Azure Kubernetes Service (AKS) 中使用智慧型路由和 Canary 版本
@@ -410,9 +410,9 @@ kubectl get pods --namespace voting
 
 您現在應該能夠在版本之間切換`1.0`和 版本`2.0`(canary) 投票應用程式。 畫面底部的功能旗標切換會設定 Cookie。 會使用此 cookie`voting-app`將使用者路由至新版本的虛擬服務`2.0`。
 
-![1.0 版的 AKS 投票應用程式 -「不會」設定功能旗標。](media/istio/canary-release-01.png)
+![1\.0 版的 AKS 投票應用程式 -「不會」設定功能旗標。](media/istio/canary-release-01.png)
 
-![2.0 版的 AKS 投票應用程式 -「會」設定功能旗標。](media/istio/canary-release-02.png)
+![2\.0 版的 AKS 投票應用程式 -「會」設定功能旗標。](media/istio/canary-release-02.png)
 
 兩個應用程式版本的投票計數並不相同。 此差異凸顯出您使用了兩個不同的儲存體後端。
 

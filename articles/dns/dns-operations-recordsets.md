@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
 ms.openlocfilehash: fedab8cc45fff6d7830f67e7a23786b5952f83a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66170220"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure DNS 中的 DNS 記錄和記錄集
@@ -232,7 +232,7 @@ $recordsets = Get-AzDnsRecordSet -Zone $zone
 
 使用 `Set-AzDnsRecordSet`，用指定的記錄集*取代* Azure DNS 中現有的記錄集 (與其中所包含的所有記錄)。 [Etag 檢查 ](dns-zones-records.md#etags) 是用來確保並行變更不會遭到覆寫。 您可以使用選擇性的 `-Overwrite` 參數來停用這些檢查。
 
-作業的此序列也可以「經由管道輸送」，亦即使用管道傳遞記錄集物件，而不是以參數進行傳遞。
+作業的此序列也可以「經由管道輸送」  ，亦即使用管道傳遞記錄集物件，而不是以參數進行傳遞。
 
 ```powershell
 Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet

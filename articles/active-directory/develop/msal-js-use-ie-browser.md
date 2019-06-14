@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8cf8c84120f4c90d3943cfc31ffbf9aafcec0ba3
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873911"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>MSAL.js Internet Explorer 與 Microsoft Edge 瀏覽器上的已知的問題
@@ -43,15 +43,15 @@ Microsoft Authentication Library for JavaScript (MSAL.js) 會產生[JavaScript E
 您應用程式部署到實際執行環境 （例如在 Azure Web 應用程式） 通常會正常運作，提供使用者已接受快顯功能表。 我們可以測試它與 Internet Explorer 11。
 
 ### <a name="running-locally"></a>在本機執行
-如果您想要執行和本機偵錯在 Internet Explorer 中執行的應用程式，您需要留意下列注意事項 (假設您想要執行您的應用程式*http://localhost:1234*):
+如果您想要執行和本機偵錯在 Internet Explorer 中執行的應用程式，您需要留意下列注意事項 (假設您想要執行您的應用程式 *http://localhost:1234* ):
 
-- Internet Explorer 具有名為 「 受保護的模式 」，這是為了避免 MSAL.js 正常運作的安全性機制。 之間的徵兆，您登入後的頁面可以重新導向至 http://localhost:1234/null。
+- Internet Explorer 具有名為 「 受保護的模式 」，這是為了避免 MSAL.js 正常運作的安全性機制。 之間的徵兆，您登入後的頁面可以重新導向至 http://localhost:1234/null 。
 
 - 若要執行及偵錯您的應用程式在本機，您必須停用此 「 受保護的模式 」。 這個項目：
 
     1. 按一下 Internet Explorer**工具**（齒輪圖示）。
     1. 選取 [**網際網路選項**，然後**安全性**] 索引標籤。
-    1. 按一下 **網際網路**區域，然後取消核取**啟用受保護模式 （需要重新啟動 Internet Explorer）**。 Internet Explorer 會警告您的電腦不再受到保護。 按一下 [確定]。
+    1. 按一下 **網際網路**區域，然後取消核取**啟用受保護模式 （需要重新啟動 Internet Explorer）** 。 Internet Explorer 會警告您的電腦不再受到保護。 按一下 [確定]  。
     1. 重新啟動 Internet Explorer。
     1. 執行和偵錯您的應用程式。
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: kumud
 ms.openlocfilehash: f9742d14fc14230f2424d005aa6aa8b1db3cece4
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967731"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的輸出連線
@@ -40,7 +40,7 @@ Azure 會使用來源網路位址轉譯 (SNAT) 執行這項功能。 當多個�
 
 使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 時，會明確定義 Azure Load Balancer 和相關資源。  Azure 目前提供三個不同的方法，來達成 Azure Resource Manager 資源的輸出連線。 
 
-| SKU | 案例 | 方法 | IP 通訊協定 | 說明 |
+| SKU | 案例 | 方法 | IP 通訊協定 | 描述 |
 | --- | --- | --- | --- | --- |
 | 標準、基本 | [1.具有執行個體層級公用 IP 位址的 VM (無論是否有 Load Balancer)](#ilpip) | SNAT，未使用連接埠偽裝 | TCP、UDP、ICMP、ESP | Azure 會使用指派給執行個體 NIC 之 IP 設定的公用 IP。 執行個體有所有可用的暫時連接埠。 使用 Standard Load Balancer 時，您應該使用[輸出規則](load-balancer-outbound-rules-overview.md)明確定義輸出連線 |
 | 標準、基本 | [2.與 VM 關聯的公用 Load Balancer (執行個體上沒有執行個體層級公用 IP 位址)](#lb) | SNAT 搭配使用 Load Balancer 前端的連接埠偽裝 (PAT) | TCP、UDP |Azure 會與多個私人 IP 位址共用公用 Load Balancer 前端的公用 IP 位址。 Azure 會使用前端的暫時連接埠來進行 PAT。 |

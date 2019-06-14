@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 663283c4dff16194dea78afbf5dd393f1fa833b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61437920"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511935"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 繫結
 
@@ -164,7 +164,7 @@ public class Message
 
 ### <a name="java-example"></a>Java 範例
 
-以下示例使用 [Java 函数运行时库](/java/api/overview/azure/functions/runtime)中的 `@SendGridOutput` 注释来发送使用 SendGrid 输出绑定的电子邮件。
+下列範例會使用`@SendGridOutput`註解表單[Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)傳送電子郵件使用 SendGrid 輸出繫結。
 
 ```java
 @FunctionName("SendEmail")
@@ -262,7 +262,7 @@ public static void Run(
 |**to**|**To**| 收件者的電子郵件地址。 |
 |**from**|**From**| 寄件者的電子郵件地址。 |
 |**subject**|**主旨**| 電子郵件主旨。 |
-|**text**|**文字**| 電子郵件內容。 |
+|**text**|**Text**| 電子郵件內容。 |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

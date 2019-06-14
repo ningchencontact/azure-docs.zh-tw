@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
 ms.openlocfilehash: 711cb674cb00a880eadda11b03da87631df90b0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861730"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>使用 Azure Machine Learning Studio Web 服務入口網站管理 Web 服務
@@ -29,7 +29,7 @@ ms.locfileid: "60861730"
 * 新增和刪除端點 (僅限傳統)
 
 >[!NOTE]
->您也可以在 [Web 服務] 索引標籤上的 [[Machine Learning Studio](https://studio.azureml.net)] 中管理傳統 Web 服務。
+>您也可以在 [Web 服務]  索引標籤上的 [[Machine Learning Studio](https://studio.azureml.net)] 中管理傳統 Web 服務。
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>管理以資源管理員為基礎的新 Web 服務的權限
 
@@ -48,7 +48,7 @@ ms.locfileid: "60861730"
 管理新式 Web 服務：
 
 1. 使用您的 Microsoft Azure 帳戶登入 [Microsoft Azure Machine Learning Web 服務入口網站](https://services.azureml.net/quickstart) - 使用與 Azure 訂用帳戶相關聯的帳戶。
-2. 在功能表上，按一下 [Web 服務] 。
+2. 在功能表上，按一下 [Web 服務]  。
 
 這會針對您的訂用帳戶顯示一份已部署的 Web 服務清單。 
 
@@ -82,11 +82,11 @@ ms.locfileid: "60861730"
 
 您可以更新下列屬性：
 
-* [描述] 可讓您輸入 Web 服務的描述。
+* [描述]  可讓您輸入 Web 服務的描述。
 * **標題**可讓您輸入 Web 服務的標題。
 * **金鑰** 可讓您交換您的主要和次要 API 金鑰。
 * **儲存體帳戶金鑰**可讓您為與 Web 服務變更相關聯的儲存體帳戶更新金鑰。 
-* [啟用範例資料] 可讓您提供範例資料，用來測試要求-回應服務。 如果您是在 Machine Learning Studio 中建立 Web 服務，範例資料會取自您用來訓練模型的資料。 如果您是以程式設計方式建立服務，資料會取自您提供做為 JSON 套件一部分的範例資料。
+* [啟用範例資料]  可讓您提供範例資料，用來測試要求-回應服務。 如果您是在 Machine Learning Studio 中建立 Web 服務，範例資料會取自您用來訓練模型的資料。 如果您是以程式設計方式建立服務，資料會取自您提供做為 JSON 套件一部分的範例資料。
 
 ### <a name="managing-billing-plans"></a>管理計費方案
 從 Web 服務 [快速入門] 頁面按一下 [方案]  功能表選項。 您也可以按一下與特定 Web 服務相關聯的方案來管理該方案。
@@ -96,7 +96,7 @@ ms.locfileid: "60861730"
 * **升級/降級** 可讓您「相應增加」現有的方案以增加容量。
 * **刪除** 可讓您刪除方案。
 
-按一下方案可檢視其儀表板。 儀表板可提供所選一段時間的快照或方案使用量。 若要選取時間期間來檢視，請按一下儀表板右上角的 [期間] 下拉式清單。 
+按一下方案可檢視其儀表板。 儀表板可提供所選一段時間的快照或方案使用量。 若要選取時間期間來檢視，請按一下儀表板右上角的 [期間]  下拉式清單。 
 
 方案儀表板會提供下列資訊：
 
@@ -115,9 +115,9 @@ ms.locfileid: "60861730"
 管理傳統 Web 服務：
 
 1. 使用您的 Microsoft Azure 帳戶登入 [Microsoft Azure Machine Learning Web 服務入口網站](https://services.azureml.net/quickstart) - 使用與 Azure 訂用帳戶相關聯的帳戶。
-2. 在功能表上，按一下 [傳統 Web 服務]。
+2. 在功能表上，按一下 [傳統 Web 服務]  。
 
-若要管理傳統 Web 服務，請按一下 [傳統 Web 服務]。 您可以從 [傳統 Web 服務] 頁面上︰
+若要管理傳統 Web 服務，請按一下 [傳統 Web 服務]  。 您可以從 [傳統 Web 服務] 頁面上︰
 
 * 按一下 Web 服務以檢視相關聯的端點。
 * 刪除 Web 服務。
@@ -149,8 +149,8 @@ ms.locfileid: "60861730"
 
 您可以更新下列屬性：
 
-* [描述] 可讓您輸入 Web 服務的描述。 [描述] 必要欄位。
-* [記錄] 可讓您啟用或停用端點上的錯誤記錄。 如需有關記錄的詳細資訊，請參閱[為 Machine Learning Web 服務啟用記錄](web-services-logging.md)。
-* [啟用範例資料] 可讓您提供範例資料，用來測試要求-回應服務。 如果您是在 Machine Learning Studio 中建立 Web 服務，範例資料會取自您用來訓練模型的資料。 如果您是以程式設計方式建立服務，資料會取自您提供做為 JSON 套件一部分的範例資料。
+* [描述]  可讓您輸入 Web 服務的描述。 [描述] 必要欄位。
+* [記錄]  可讓您啟用或停用端點上的錯誤記錄。 如需有關記錄的詳細資訊，請參閱[為 Machine Learning Web 服務啟用記錄](web-services-logging.md)。
+* [啟用範例資料]  可讓您提供範例資料，用來測試要求-回應服務。 如果您是在 Machine Learning Studio 中建立 Web 服務，範例資料會取自您用來訓練模型的資料。 如果您是以程式設計方式建立服務，資料會取自您提供做為 JSON 套件一部分的範例資料。
 
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: ba5ab7ce85933545a41f23e2ecd913acbb7e72d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703847"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Azure 資訊安全中心威脅情報報告
@@ -54,13 +54,13 @@ ms.locfileid: "60703847"
 您可以查看 [安全性警示]  圖格來檢視目前的警示。 開啟 Azure 入口網站並遵循下列步驟來查看有關每個警示的詳細資料：
 
 1. 您會在 [資訊安全中心] 儀表板看到 [安全性警示]  圖格。
-2. 按一下圖格便可開啟 [安全性警示] 刀鋒視窗，其中包含有關警示的更多詳細資料，按一下您想了解的安全性警示即可取得更多相關資訊。
+2. 按一下圖格便可開啟 [安全性警示]  刀鋒視窗，其中包含有關警示的更多詳細資料，按一下您想了解的安全性警示即可取得更多相關資訊。
 
     ![安全性警示](./media/security-center-threat-report/security-center-threat-report-fig1.png)
-3. 在此案例中，[已執行的可疑處理序] 刀鋒視窗會顯示警示的詳細資料，如下圖所示︰
+3. 在此案例中，[已執行的可疑處理序]  刀鋒視窗會顯示警示的詳細資料，如下圖所示︰
 
     ![安全性警示詳細資料](./media/security-center-threat-report/security-center-threat-report-fig2.png)
-4. 根據警示類型而定，針對每個安全性警示所提供的資訊數量會有所不同。 [報告] 欄位中有威脅情報報告的連結。 按一下連結，便會出現另一個含有 PDF 檔案的瀏覽器視窗。
+4. 根據警示類型而定，針對每個安全性警示所提供的資訊數量會有所不同。 [報告]  欄位中有威脅情報報告的連結。 按一下連結，便會出現另一個含有 PDF 檔案的瀏覽器視窗。
 
    ![儲存體選擇](./media/security-center-threat-report/security-center-threat-report-fig3.png)
 

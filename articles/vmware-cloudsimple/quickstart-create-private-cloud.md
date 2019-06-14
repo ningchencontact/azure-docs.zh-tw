@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: e1fc7809ad94d589483b87c638d027a39098164e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209546"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>快速入門-設定私用雲端環境
@@ -24,7 +24,7 @@ ms.locfileid: "65209546"
 
 ## <a name="create-a-private-cloud"></a>建立私人雲端
 
-1. 選取 [所有服務]。
+1. 選取 [所有服務]  。
 2. 搜尋**CloudSimple 服務**。
 3. 選取您要建立私用雲端的 CloudSimple 服務。
 4. 從 概觀，請按一下**建立私人雲端**開啟 CloudSimple 入口網站的新瀏覽器索引標籤。  出現提示時，使用登入您的 Azure 登入認證。  
@@ -45,7 +45,7 @@ ms.locfileid: "65209546"
 
 11. 完成時，選取 下一步:**檢閱並建立**。
 12. 檢閱設定。 如果您需要變更任何設定，按一下**Previous**。
-13. 按一下頁面底部的 [新增] 。
+13. 按一下頁面底部的 [新增]  。
 
 私用雲端佈建程序將會啟動。  它可能需要最多佈建私用雲端的兩個小時。
 
@@ -53,7 +53,7 @@ ms.locfileid: "65209546"
 
 您可以從 Azure 入口網站存取 CloudSimple 入口網站。  CloudSimple 入口網站將會啟動您的 azure 登入使用單一登入 (SSO) 認證。  存取 CloudSimple 入口網站需要您授權**CloudSimple Service 授權**應用程式。  如需有關如何授與權限的詳細資訊，請參閱[同意 CloudSimple Service 授權應用程式](https://docs.azure.cloudsimple.com/access-cloudsimple-portal/#consent-to-cloudsimple-service-authorization-application)
 
-1. 選取 [所有服務]。
+1. 選取 [所有服務]  。
 2. 搜尋**CloudSimple 服務**。
 3. 選取您要建立私用雲端的 CloudSimple 服務。
 4. 從 概觀，請按一下**移至 CloudSimple 入口網站**開啟 CloudSimple 入口網站的新瀏覽器索引標籤。  出現提示時，使用登入您的 Azure 登入認證。  
@@ -89,7 +89,7 @@ ms.locfileid: "65209546"
     * **自動新增**設定此閘道的全域原則的選項。 設定適用於目前的閘道。 設定可以覆寫**選取**區域。
     * 選取 **新增 Vlan/子網路的私人雲端的管理**。 
     * 若要新增所有使用者定義的 Vlan/子網路，請按一下**新增使用者定義的 Vlan/子網路**。 
-    * **選取 **設定會覆寫下方的全域設定**自動加入**。 
+    * **選取** 設定會覆寫下方的全域設定**自動加入**。 
 
 7. 按一下 [**下一步]** 檢閱設定。 按一下編輯圖示，即可進行任何變更。
 8. 按一下 **建立**建立 VPN 閘道。
@@ -101,10 +101,10 @@ ms.locfileid: "65209546"
 1. 啟動入口網站，然後選取 CloudSimple**網路**。
 2. 選取  **VPN 閘道**。
 3. 從 VPN 閘道的清單中，按一下 點對站 VPN 閘道。
-4. 選取 [使用者]。
+4. 選取 [使用者]  。
 5. 按一下**下載我的 VPN 設定**
 
-    ![下載 VPN 設定](media/download-p2s-vpn-configuration.png)
+    ![下載 VPN 組態](media/download-p2s-vpn-configuration.png)
 
 6. 匯入您的 VPN 用戶端上的設定
 
@@ -127,7 +127,7 @@ ms.locfileid: "65209546"
 5. 從清單中選取的 VLAN ID。  
 6. 輸入可識別的子網路的子網路名稱。
 7. 指定的子網路 CIDR 範圍和遮罩。  此範圍不得與任何現有的子網路重疊。
-8. 按一下 [提交] 。
+8. 按一下 [提交]  。
 
     ![建立 VLAN/子網路詳細資料](media/create-new-vlan-subnet-details.png)
 
@@ -147,7 +147,7 @@ CloudSimple 為您提供為 ExpressRoute 線路的私人雲端。 您可以連�
 
 2. 選取您的慣用的 vSphere 用戶端存取 vCenter，並使用您的使用者名稱和密碼登入。  預設值為：
     * 使用者名稱： **CloudOwner@cloudsimple.local**
-    * 密碼:**CloudSimple123!**  
+    * 密碼：**CloudSimple123!**  
 
 在下一個程序中的 vCenter 畫面是來自 vSphere (HTML5) 用戶端。
 
@@ -176,7 +176,7 @@ CloudSimple 建議您變更您的密碼登入 vCenter 的第一次。
 NSX manager 會使用預設密碼部署。  我們建議您建立私用雲端之後，變更密碼。
 
    * 使用者名稱：**系統管理員**
-   * 密碼:**CloudSimple123!**
+   * 密碼：**CloudSimple123!**
 
 您可以 CloudSimple 入口網站上找到的完整的網域名稱 (FQDN) 和 NSX manager IP 位址。
 

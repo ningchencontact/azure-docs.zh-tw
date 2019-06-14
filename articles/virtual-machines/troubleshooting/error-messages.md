@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: 5945be210812a6cbc24c9a3bb12414be5212be17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711198"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>了解當您在 Azure 中管理虛擬機器時，常見的錯誤訊息
@@ -26,7 +26,7 @@ ms.locfileid: "60711198"
 >[!NOTE]
 > 您可以在此頁面上，或透過 [Azure 意見反應](https://feedback.azure.com/forums/216843-virtual-machines) 並利用 #azerrormessage 標記，發表對於錯誤訊息的意見反應。
 
-## <a name="error-response-format"></a>错误响应格式 
+## <a name="error-response-format"></a>錯誤回應的格式 
 Azure VM 使用下列 JSON 格式來產生錯誤回應：
 
 ```json
@@ -55,7 +55,7 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
 |  錯誤碼  |  錯誤訊息  |  
 |  :------| :-------------|  
 |  AcquireDiskLeaseFailed  |  使用 URI 為 {1} 的 blob 建立磁碟 '{0}' 時，無法取得租用。 Blob 已在使用中。  |  
-|  AllocationFailed  |  分配失败。 請嘗試降低 VM 大小或 VM 數，然後稍候再試一次，或是部署到其他可用性設定組或其他 Azure 位置。  |  
+|  AllocationFailed  |  配置失敗。 請嘗試降低 VM 大小或 VM 數，然後稍候再試一次，或是部署到其他可用性設定組或其他 Azure 位置。  |  
 |  AllocationFailed  |  VM 配置因內部錯誤而失敗。 請稍後重試，或嘗試部署至不同的位置。  |
 |  ArtifactNotFound  |  在位置 '{2}' 中找不到發行者為 '{0}' 且類型為 '{1}' 的 VM 擴充功能。  |
 |  ArtifactNotFound  |  在延伸模組存放庫中找不到發行者為 '{0}'、類型為 '{1}' 且類型處理常式版本為 '{2}' 的延伸模組。  |
@@ -99,8 +99,8 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
 |  InvalidParameter  |  提供的密碼長度必須介於 {0}-{1} 個字元之間，而且至少必須符合下列其中 {2} 項對密碼複雜性的要求： <ol><li> 包含大寫字元</li><li>包含小寫字元</li><li>包含數字</li><li>包含特殊字元。</li></ol>  |
 |  InvalidParameter  |  不允許指定的系統管理員使用者名稱。  |
 |  InvalidParameter  |  如果從平台或使用者映像建立 VM，將無法連結現有的作業系統磁碟。  |
-|  InvalidParameter  |  容器名稱 {0} 無效。 容器名稱長度必須是 3-63 個字元，而且只能包含小寫英數字元和連字號。 连字符前后必须为字母数字字符。  |
-|  InvalidParameter  |  URL {1} 中的容器名稱 {0} 無效。 容器名稱長度必須是 3-63 個字元，而且只能包含小寫英數字元和連字號。 连字符前后必须为字母数字字符。  |
+|  InvalidParameter  |  容器名稱 {0} 無效。 容器名稱長度必須是 3-63 個字元，而且只能包含小寫英數字元和連字號。 連字號必須前面和後面接著英數字元。  |
+|  InvalidParameter  |  URL {1} 中的容器名稱 {0} 無效。 容器名稱長度必須是 3-63 個字元，而且只能包含小寫英數字元和連字號。 連字號必須前面和後面接著英數字元。  |
 |  InvalidParameter  |  URL {0} 中的 blob 名稱包含斜線。 磁碟目前不支援這種作法。  |
 |  InvalidParameter  |  URI {0} 似乎不是正確的 blob URI。  |
 |  InvalidParameter  |  名為 '{0}' 的磁碟已使用相同的 LUN：{1}。  |
@@ -118,14 +118,14 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
 |  InvalidParameter  |  '{0}' 不是有效擷取的 VHD blob 名稱前置詞。 有效的前置詞符合 regex '{1}'。  |
 |  InvalidParameter  |  如果未佈建 VM 代理程式，則無法將憑證新增至您的 VM。  |
 |  InvalidParameter  |  已有磁碟的 LUN 為 {0}。  |
-|  InvalidParameter  |  無法建立 VM，因為目前已配置可用性設定組的叢集中沒有所要求的大小 {0} 可用。 可用的大小是：{1}。 請前往 https://aka.ms/azure-resizevm，深入了解 VM 的大小調整策略。  |
-|  InvalidParameter  |  目前的區域中沒有所要求的 VM 大小 {0} 可用。 目前區域中可用的大小為：{1}。 請前往 https://aka.ms/azure-regions，深入了解每個區域中可用的 VM 大小。  |
-|  InvalidParameter  |  目前的區域中沒有所要求的 VM 大小 {0} 可用。 請前往 https://aka.ms/azure-regions，深入了解每個區域中可用的 VM 大小。  |
+|  InvalidParameter  |  無法建立 VM，因為目前已配置可用性設定組的叢集中沒有所要求的大小 {0} 可用。 可用的大小是：{1}。 請前往 https://aka.ms/azure-resizevm ，深入了解 VM 的大小調整策略。  |
+|  InvalidParameter  |  目前的區域中沒有所要求的 VM 大小 {0} 可用。 目前區域中可用的大小為：{1}。 請前往 https://aka.ms/azure-regions ，深入了解每個區域中可用的 VM 大小。  |
+|  InvalidParameter  |  目前的區域中沒有所要求的 VM 大小 {0} 可用。 請前往 https://aka.ms/azure-regions ，深入了解每個區域中可用的 VM 大小。  |
 |  InvalidParameter  |  Windows 系統管理員使用者名稱長度不可超過 {0} 個字元、以句號 (.) 結尾，或包含下列字元：{1}。  |
 |  InvalidParameter  |  Windows 電腦名稱長度不可超過 {0} 個字元、完全是數字，或包含下列字元：{1}。  |
 |  MissingMoveDependentResources  |  移動資源要求未包含所有相依的資源。 請查看遺漏資源識別碼的錯誤詳細資料。  |
 |  MoveResourcesHaveInvalidState  |  移動資源要求包含無效儲存體帳戶相關聯的 VM。 請查看這些資源識別碼和參考的儲存體帳戶名稱的詳細資料。  |
-|  MoveResourcesHavePendingOperations  |  移動資源要求包含已暫止作業的資源。 请查看详情获取这些资源 ID。 暫止的作業完成之後，請重試作業。  |
+|  MoveResourcesHavePendingOperations  |  移動資源要求包含已暫止作業的資源。 請查看這些資源識別碼的詳細資料。 暫止的作業完成之後，請重試作業。  |
 |  MoveResourcesNotFound  |  移動資源要求包含找不到的資源。 請查看這些資源識別碼的詳細資料。  |
 |  NetworkingInternalOperationError  |  不明的網路配置錯誤。  |
 |  NetworkingInternalOperationError  |  不明的網路配置錯誤  |
@@ -167,9 +167,9 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
 |  OperationNotAllowed  |  因為 VM 未一般化，無法完成擷取作業。  |
 |  OperationNotAllowed  |  因為 VM '{0}' 的磁碟正在轉換成受控磁碟，不允許對此 VM 執行管理作業。  |
 |  OperationNotAllowed  |  進行中作業正在將虛擬機器 {0} 的啟動狀態變更為 {1}。 請於稍後再執行作業 {2}。  |
-|  OperationNotAllowed  |  無法新增或更新 VM。 現有的配置單位中可能沒有所要求的 VM 大小 {0} 可用。 請前往 https://aka.ms/azure-resizevm，深入了解 VM 的大小調整策略。  |
-|  OperationNotAllowed  |  無法調整 VM 大小，因為目前已配置可用性設定組的叢集中沒有所要求的大小 {0} 可用。 可用的大小是：{1}。 請前往 https://aka.ms/azure-resizevm，深入了解 VM 的大小調整策略。  |
-|  OperationNotAllowed  |  無法調整 VM 大小，因為目前已配置 VM 的叢集中沒有所要求的大小 {0} 可用。 若要將 VM 大小調整為 {1}，請解除配置 (這是 Azure 入口網站中的 [停止] 作業)，然後再試一次調整大小作業。 請前往 https://aka.ms/azure-resizevm，深入了解 VM 的大小調整策略。  |
+|  OperationNotAllowed  |  無法新增或更新 VM。 現有的配置單位中可能沒有所要求的 VM 大小 {0} 可用。 請前往 https://aka.ms/azure-resizevm ，深入了解 VM 的大小調整策略。  |
+|  OperationNotAllowed  |  無法調整 VM 大小，因為目前已配置可用性設定組的叢集中沒有所要求的大小 {0} 可用。 可用的大小是：{1}。 請前往 https://aka.ms/azure-resizevm ，深入了解 VM 的大小調整策略。  |
+|  OperationNotAllowed  |  無法調整 VM 大小，因為目前已配置 VM 的叢集中沒有所要求的大小 {0} 可用。 若要將 VM 大小調整為 {1}，請解除配置 (這是 Azure 入口網站中的 [停止] 作業)，然後再試一次調整大小作業。 請前往 https://aka.ms/azure-resizevm ，深入了解 VM 的大小調整策略。  |
 |  OSProvisioningClientError  |  因為正在佈建客體 OS，所以 VM '{0}' 的 OS 佈建失敗。  |
 |  OSProvisioningClientError  |  VM '{0}' 的 OS 佈建失敗。 錯誤詳細資料：{1} 請確認已正確備妥 (一般化) 映像。 <ul><li>適用於 Windows 的指示： https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
 |  OSProvisioningClientError  |  產生 SSH 主機金鑰失敗。 錯誤詳細資料：{0}。 若要解決此問題，請確認 Linux 代理程式是否已正確設定。 <ul><li>您可以於此查看指示： https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
@@ -212,8 +212,8 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
 |  VMNotFound  |  找不到 VM '{0}'。  |
 |  VMRedeploymentFailed  |  因為發生內部錯誤，VM '{0}' 重新部署失敗。 请稍后重试。  |
 |  VMRedeploymentTimedOut  |  未在分配的時間內完成 VM '{0}' 的重新部署。 可能在後來某個時候成功完成。 不然，您可以重試要求。  |
-|  VMStartTimedOut  |  VM '{0}' 未在分配的時間內啟動。 VM 仍可能成功啟動。 请于稍后检查电源状态。  |
+|  VMStartTimedOut  |  VM '{0}' 未在分配的時間內啟動。 VM 仍可能成功啟動。 請稍後再檢查啟動狀態。  |
 
 
 ## <a name="next-steps"></a>後續步驟
-如果您需要更多協助，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
+如果您需要更多協助，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。

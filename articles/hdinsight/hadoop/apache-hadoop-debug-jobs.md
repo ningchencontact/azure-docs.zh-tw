@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
 ms.openlocfilehash: f96171e1c75676a185edf4a1901ef65b7181135a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721007"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>分析 Apache Hadoop 記錄
@@ -32,7 +32,7 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
 * ambariserverlog
 * ambariagentlog
 
-資料表的檔案名稱會是**u\<ClusterName > DDMonYYYYatHHMMSSsss\<TableName >**。
+資料表的檔案名稱會是**u\<ClusterName > DDMonYYYYatHHMMSSsss\<TableName >** 。
 
 這些資料表包含下列欄位：
 
@@ -63,20 +63,20 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
 **使用 Power Query 來開啟和分析服務記錄**
 
 1. 開啟 **Microsoft Excel**。
-2. 從 [Power Query] 功能表中，按一下 [從 Azure]，然後按一下 [從 Microsoft Azure 資料表儲存體]。
+2. 從 [Power Query]  功能表中，按一下 [從 Azure]  ，然後按一下 [從 Microsoft Azure 資料表儲存體]  。
    
     ![HDInsight Hadoop Excel PowerQuery 開啟 Azure 資料表儲存體](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-open.png)
 3. 輸入儲存體帳戶名稱 (簡短名稱或 FQDN)。
 4. 輸入儲存體帳戶金鑰。 您應該會看到一份資料表清單：
    
     ![儲存在 Azure 資料表儲存體中的 HDInsight Hadoop 記錄](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
-5. 在 [導覽器] 窗格中以滑鼠右鍵按一下 hadoopservicelog 資料表，然後選取 [編輯]。 您應該會看到 4 個資料行。 選擇性地選取 [分割區索引鍵]、[資料列索引鍵] 和 [時間戳記] 資料行，然後從功能區的選項中按一下 [移除資料行]，將它們刪除。
+5. 在 [導覽器]  窗格中以滑鼠右鍵按一下 hadoopservicelog 資料表，然後選取 [編輯]  。 您應該會看到 4 個資料行。 選擇性地選取 [分割區索引鍵]  、[資料列索引鍵]  和 [時間戳記]  資料行，然後從功能區的選項中按一下 [移除資料行]  ，將它們刪除。
 6. 按一下 [內容] 資料行上的展開圖示，選擇您要匯入至 Excel 試算表的資料行。 在此示範中，我選擇 TraceLevel 和 ComponentName：它可以提供一些基本資訊讓我知道哪些元件有問題。
    
     ![HDInsight Hadoop 記錄選擇資料行](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
-7. 按一下 [確定] 以匯入資料。
-8. 選取 [TraceLevel]、[Role] 和 [ComponentName] 資料行，然後按一下功能區的 [群組依據] 控制項。
-9. 按一下 [群組依據] 對話方塊中的 [確定]
+7. 按一下 [確定]  以匯入資料。
+8. 選取 [TraceLevel]  、[Role] 和 [ComponentName]  資料行，然後按一下功能區的 [群組依據]  控制項。
+9. 按一下 [群組依據] 對話方塊中的 [確定] 
 10. 按一下 [套用並關閉]。
 
 您現在可以視需要使用 Excel 來篩選和排序。 您可以包含其他資料行 (例如 Message)，以便在發生問題時深入探索，但對上述資料行進行選取和分組將有助於了解在 Hadoop 服務發生的狀況。 相同的概念也適用於 setuplog 和 hadoopinstalllog 資料表。
@@ -85,10 +85,10 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
 **使用 Visual Studio**
 
 1. 開啟 Visual Studio。
-2. 從 [檢視] 功能表中，按一下 [Cloud Explorer]。 或直接按一下 **CTRL+\, CTRL+X**。
-3. 從 [Cloud Explorer] 中，選取 [資源類型]。  另一個可用的選項是 [資源群組] 。
-4. 展開 [儲存體帳戶]、您叢集的預設儲存體帳戶，然後是 [資料表]。
-5. 按兩下 [hadoopservicelog]。
+2. 從 [檢視]  功能表中，按一下 [Cloud Explorer]  。 或直接按一下 **CTRL+\, CTRL+X**。
+3. 從 [Cloud Explorer]  中，選取 [資源類型]  。  另一個可用的選項是 [資源群組]  。
+4. 展開 [儲存體帳戶]  、您叢集的預設儲存體帳戶，然後是 [資料表]  。
+5. 按兩下 [hadoopservicelog]  。
 6. 新增篩選器。 例如︰
    
         TraceLevel eq 'ERROR'
@@ -108,24 +108,24 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
 
 ## <a name="view-cluster-health-and-job-logs"></a>檢視叢集健康情況和工作記錄
 ### <a name="access-the-ambari-ui"></a>存取 Ambari UI
-從 Azure 入口網站中，按一下 HDInsight 叢集名稱以開啟叢集窗格。 從叢集窗格中，按一下 [儀表板]。
+從 Azure 入口網站中，按一下 HDInsight 叢集名稱以開啟叢集窗格。 從叢集窗格中，按一下 [儀表板]  。
 
 ![啟動叢集儀表板](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
 
 
 ### <a name="access-the-yarn-ui"></a>存取 Yarn UI
-從 Azure 入口網站中，按一下 HDInsight 叢集名稱以開啟叢集窗格。 從叢集窗格中，按一下 [儀表板]。 出現提示時，輸入叢集系統管理員認證。 在 Ambari 中，從左邊的服務清單中選取 [YARN]。 在出現的頁面上，選取 [Quick Links] \(快速連結\)，然後選取作用中的前端節點項目和 [Resource Manager] UI。
+從 Azure 入口網站中，按一下 HDInsight 叢集名稱以開啟叢集窗格。 從叢集窗格中，按一下 [儀表板]  。 出現提示時，輸入叢集系統管理員認證。 在 Ambari 中，從左邊的服務清單中選取 [YARN]  。 在出現的頁面上，選取 [Quick Links] \(快速連結\)  ，然後選取作用中的前端節點項目和 [Resource Manager] UI。
 
 您可以使用 YARN UI 來執行下列動作：
 
-* **取得叢集狀態**。 從左窗格中展開 [叢集]，然後按一下 [關於]。 這樣即會顯示叢集狀態詳細資料，例如配置的記憶體總計、使用的核心數目、叢集資源管理員的狀態、叢集版本等。
+* **取得叢集狀態**。 從左窗格中展開 [叢集]  ，然後按一下 [關於]  。 這樣即會顯示叢集狀態詳細資料，例如配置的記憶體總計、使用的核心數目、叢集資源管理員的狀態、叢集版本等。
   
     ![啟動叢集儀表板](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png)
-* **取得節點狀態**。 從左窗格中展開 [叢集]，然後按一下 [節點]。 此时会列出群集中的所有节点、每个节点的 HTTP 地址、分配给每个节点的资源等。
-* **監視工作狀態**。 從左窗格展開 [叢集]，然後按一下 [應用程式] 以列出叢集中的所有工作。 如果您想要查看處於特定狀態 (例如，新增、已提交、執行中等狀態) 的工作，可按一下[應用程式] 底下的適當連結。 您可以進一步按一下工作名稱來深入了解該工作，例如包含輸出、記錄等相關資訊。
+* **取得節點狀態**。 從左窗格中展開 [叢集]  ，然後按一下 [節點]  。 此时会列出群集中的所有节点、每个节点的 HTTP 地址、分配给每个节点的资源等。
+* **監視工作狀態**。 從左窗格展開 [叢集]  ，然後按一下 [應用程式]  以列出叢集中的所有工作。 如果您想要查看處於特定狀態 (例如，新增、已提交、執行中等狀態) 的工作，可按一下[應用程式]  底下的適當連結。 您可以進一步按一下工作名稱來深入了解該工作，例如包含輸出、記錄等相關資訊。
 
 ### <a name="access-the-hbase-ui"></a>存取 HBase UI
-從 Azure 入口網站中，按一下 HDInsight HBase 叢集名稱以開啟叢集窗格。 從叢集窗格中，按一下 [儀表板]。 出現提示時，輸入叢集系統管理員認證。 在 Ambari 中，從服務清單中選取 [HBase]。 選取頁面頂端的 [Quick links] \(快速連結\)，指向作用中的 Zookeeper 節點連結，然後按一下 [HBase Master] \(HBase 主節點\) UI。
+從 Azure 入口網站中，按一下 HDInsight HBase 叢集名稱以開啟叢集窗格。 從叢集窗格中，按一下 [儀表板]  。 出現提示時，輸入叢集系統管理員認證。 在 Ambari 中，從服務清單中選取 [HBase]。 選取頁面頂端的 [Quick links] \(快速連結\)  ，指向作用中的 Zookeeper 節點連結，然後按一下 [HBase Master] \(HBase 主節點\) UI。
 
 ## <a name="hdinsight-error-codes"></a>HDInsight 錯誤代碼
 本節列舉的錯誤訊息可協助 Azure HDInsight 的 Hadoop 使用者了解他們在使用 Azure PowerShell 來管理服務時可能遭遇的錯誤狀況，並提供一些可採取的建議步驟，供他們從錯誤狀況中復原。
@@ -217,7 +217,7 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
 * **降低風險**：如果叢集處於錯誤狀態，請刪除叢集，然後再試一次。
 
 ### <a id="InsufficientResourcesCores"></a>InsufficientResourcesCores
-* **描述**：訂用帳戶識別碼 *yourSubscriptionId* 沒有剩餘的核心可建立叢集 *yourClusterName*。 必要：「resourcesRequired」、可用：「resourcesAvailable」。  
+* **描述**：訂用帳戶識別碼 *yourSubscriptionId* 沒有剩餘的核心可建立叢集 *yourClusterName*。 必要：「resourcesRequired」  、可用：「resourcesAvailable」  。  
 * **降低風險**：釋出訂用帳戶中的資源，或增加可供訂用帳戶的資源，然後重試建立叢集。
 
 ### <a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices

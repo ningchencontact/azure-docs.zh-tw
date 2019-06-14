@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: seodec18
 ms.openlocfilehash: cbb6d75b2ed6b73ce7e3421596520f6a3f1bf3b1
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399810"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure 時間序列深入解析總管
@@ -76,7 +76,7 @@ Azure 時間序列深入解析是完全受控的分析、儲存體及視覺效�
          |`<`, `>`, `<=`, `>=`     |  Double、DateTime、TimeSpan       |         |
          |`=`, `!=`, `<>`     | String、Bool、Double、DateTime、TimeSpan、NULL        |         |
          |IN     | String、Bool、Double、DateTime、TimeSpan、NULL        |  所有的運算元都應該是相同的類型或是 NULL 常數。        |
-         |HAS     | String        |  只有常數字串常值可以在右側。 不允許空字串和 NULL。       |
+         |HAS     | 字串        |  只有常數字串常值可以在右側。 不允許空字串和 NULL。       |
 
       - **查詢的範例**
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155873"
 ---
 > [!NOTE]
@@ -17,8 +17,8 @@ ms.locfileid: "66155873"
 > 
 
 #### <a name="to-configure-rbs"></a>設定 RBS
-1. 開啟 [SharePoint 管理中心] 頁面，並瀏覽至 [系統設定] 。 
-2. 在 [Azure StorSimple] 區段中，按一下 [設定 StorSimple Adapter]。
+1. 開啟 [SharePoint 管理中心] 頁面，並瀏覽至 [系統設定]  。 
+2. 在 [Azure StorSimple]  區段中，按一下 [設定 StorSimple Adapter]  。
    
     ![設定 StorSimple Adapter](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png) 
 3. 在 [設定 StorSimple Adapter]  頁面上：
@@ -49,7 +49,7 @@ ms.locfileid: "66155873"
 
 4. 驗證組態：
    
-   1. 登入 SharePoint 管理中心網站，並瀏覽至 [設定 StorSimple Adapter] 頁面。
+   1. 登入 SharePoint 管理中心網站，並瀏覽至 [設定 StorSimple Adapter]  頁面。
    2. 請檢查組態詳細資料以確定它們符合您所輸入的設定。 
 5. 確認 RBS 正確地運作：
    

@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 資訊安全中心中套用磁碟加密 | Microsoft Docs
-description: 本文件說明如何實作 Azure 資訊安全中心建議的「套用磁碟加密」。
+description: 本文件說明如何實作 Azure 資訊安全中心建議的「套用磁碟加密」  。
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: d285461aef1e56dfd08a162e51ada0340d6eeae4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62095416"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>在 Azure 資訊安全中心中套用磁碟加密
@@ -32,7 +32,7 @@ ms.locfileid: "62095416"
 >
 
 ## <a name="implement-the-recommendation"></a>實作建議
-1. 在 [建議] 刀鋒視窗中，選取 [套用磁碟加密]。
+1. 在 [建議]  刀鋒視窗中，選取 [套用磁碟加密]  。
 2. 在 [套用磁碟加密]  刀鋒視窗中，您會看到建議進行磁碟加密的 VM 清單。
 3. 依照指示將加密套用至這些 VM。
 

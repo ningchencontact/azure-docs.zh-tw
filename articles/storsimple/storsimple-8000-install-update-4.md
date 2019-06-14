@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 5b48cbd1020cfd51fe989a9be33197f2735f21f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60860307"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>在 StorSimple 裝置上安裝 Update 4
@@ -45,7 +45,7 @@ Update 4 包含裝置軟體、USM 韌體、LSI 驅動程式與韌體、Storport 
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
 
-確認您的裝置是否正在執行 **StorSimple 8000 系列 Update 4 (6.3.9600.17820)**。 [ **上次更新日期** ] 應該也已修改。
+確認您的裝置是否正在執行 **StorSimple 8000 系列 Update 4 (6.3.9600.17820)** 。 [ **上次更新日期** ] 應該也已修改。
 
 * 您會看到有可用的維護模式更新 (此訊息可能會在您安裝更新之後繼續顯示長達 24 小時)。 維護模式更新為干擾性更新，會導致裝置產生停機時間，且只能透過您裝置的 Windows PowerShell 介面加以套用。
 
@@ -85,7 +85,7 @@ Hotfix 方法涉及下列三個步驟：
 
 | 順序 | KB | 描述 | 更新類型 | 安裝時間 | 安裝在資料夾|
 | --- | --- | --- | --- | --- | --- |
-| 3. |KB3121899 |磁碟韌體 |維護  <br></br>干擾性 |~ 30 分鐘 | ThirdOrderUpdate |
+| 3. |KB3121899 |磁碟韌體 |維護 <br></br>干擾性 |~ 30 分鐘 | ThirdOrderUpdate |
 
 <br></br>
 

@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 04/19/2019
 ms.author: haroldw
 ms.openlocfilehash: fba29cd55f2d765faa107de3a8961032ef44deec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60771321"
 ---
 # <a name="post-deployment-tasks"></a>部署後工作
 
-部署 OpenShift 叢集之後，您可以設定其他項目。 本文將說明：
+部署 OpenShift 叢集之後，您可以設定其他項目。 本文涵蓋：
 
 - 如何使用 Azure Active Directory (Azure AD) 設定單一登入
 - 如何設定 Azure 監視器記錄檔，來監視 OpenShift
@@ -39,11 +39,11 @@ ms.locfileid: "60771321"
 
 這些步驟使用 Azure CLI 建立應用程式註冊，以及使用 GUI (入口網站) 設定權限。 若要建立應用程式註冊，您需要下列五項資訊：
 
-- 顯示名稱：应用注册名称（例如 OCPAzureAD）
-- 主页：OpenShift 控制台 URL（例如 https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- 标识符 URI：OpenShift 控制台 URL（例如 https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- 答复 URL：主公用 URL 和应用注册名称（例如 https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
-- 密碼：安全密码（使用强密码）
+- 顯示名稱：應用程式註冊名稱 (例如 OCPAzureAD)
+- 首頁：（例如，OpenShift 主控台 URL https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- 識別碼 URI:（例如，OpenShift 主控台 URL https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- 回覆 URL：主要公用 URL 以及應用程式註冊名稱 （例如， https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
+- 密碼：安全密碼 （使用強式密碼）
 
 下列範例將會使用上述資訊建立應用程式註冊：
 
@@ -75,23 +75,23 @@ az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.
 
 在 Azure 入口網站中：
 
-1. 選取 [Azure Active Directory]  >  [應用程式註冊]。
+1. 選取 [Azure Active Directory]   >  [應用程式註冊]  。
 2. 搜尋您的應用程式註冊 (例如 OCPAzureAD)。
 3. 在結果中，按一下 [應用程式註冊]。
-4. 在 [設定] 下，選取 [必要權限]。
-5. 在 [必要權限] 下，選取 [新增]。
+4. 在 [設定]  下，選取 [必要權限]  。
+5. 在 [必要權限]  下，選取 [新增]  。
 
    ![App 註冊](media/openshift-post-deployment/app-registration.png)
 
-6. 依次单击“步骤 1:选择 API”、“Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)”。 按一下底部的 [選取]。
+6. 按一下 步驟 1:選取 API，然後按一下**Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)** 。 按一下底部的 [選取]  。
 
    ![應用程式註冊選取 API](media/openshift-post-deployment/app-registration-select-api.png)
 
-7. 在“步骤 2:选择权限”中，选择“委托的权限”下的“登录并读取用户配置文件”，并单击“选择”。
+7. 在步驟 2:選取權限，請選取**登入及讀取使用者設定檔**下方**委派的權限**，然後按一下**選取**。
 
    ![應用程式註冊存取](media/openshift-post-deployment/app-registration-access.png)
 
-8. 選取 [完成] 。
+8. 選取 [完成]  。
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>設定 OpenShift 進行 Azure AD 驗證
 
@@ -163,7 +163,7 @@ sudo /usr/local/bin/master-restart controllers
 有三種方式可將 Log Analytics 代理程式新增至 OpenShift。
 - 直接在每個 OpenShift 節點上安裝適用於 Linux 的 Log Analytics 代理程式
 - 每個 OpenShift 節點上啟用 Azure 監視 VM 擴充功能
-- 安装 Log Analytics 代理作为 OpenShift daemon-set
+- 安裝 Log Analytics 代理程式作為 OpenShift 精靈集
 
 閱讀完整[指示](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift)如需詳細資訊。
 
@@ -203,7 +203,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 
 開啟 Service Broker for Azure (或稱 OSBA)，可讓您直接從 OpenShift 佈建 Azure 雲端服務。 Azure 的 Open Service Broker API 實作中的 OSBA。 Open Service Broker API 是一項規格，可為雲端提供者定義可供雲端原生應用程式直接用來管理雲端服務而不需要鎖定的通用語言。
 
-若要在 OpenShift 上安裝 OSBA，請遵循此處的指示： https://github.com/Azure/open-service-broker-azure#openshift-project-template。 
+若要在 OpenShift 上安裝 OSBA，請遵循此處的指示： https://github.com/Azure/open-service-broker-azure#openshift-project-template 。 
 > [!NOTE]
 > 只完成中的 OpenShift 專案範本區段，並不完整的安裝一節的步驟。
 

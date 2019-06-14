@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51ad6ea2abcc18b985e9c45fbfb1ffba98fb2c1f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113091"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>了解 Azure AD 應用程式 Proxy 連接器
@@ -50,7 +50,7 @@ ms.locfileid: "66113091"
 
 如需連接器伺服器之網路需求的詳細資訊，請參閱[開始使用應用程式 Proxy 並安裝連接器](application-proxy-add-on-premises-application.md)。
 
-## <a name="maintenance"></a>維護 
+## <a name="maintenance"></a>維護
 連接器和服務會負責所有高可用性的工作。 它們可以動態新增或移除。 每當新要求抵達時，它會路由傳送至其中一個目前可用的連接器。 如果連接器暫時無法使用，則不會回應此流量。
 
 連接器是無狀態的，且沒有任何電腦上的設定資料。 它們所儲存的唯一資料是用於連線服務和其驗證憑證的設定。 當它們連線至服務時，會提取所有必要的組態資料，且每隔幾分鐘會重新整理。
@@ -67,7 +67,7 @@ ms.locfileid: "66113091"
 
 Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程式 Proxy 連接器更新程式服務正在執行，您的連接器便會自動更新。 如果您在伺服器上沒有看到連接器更新程式服務，則需要[重新安裝您的連接器](application-proxy-add-on-premises-application.md)以取得任何更新。 
 
-如果不想等候您的連接器自動更新，您可以執行手動升級。 移至您的連接器所在伺服器上的[連接器下載頁面](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)並選取 [下載]。 此流程就會開始進行本機連接器的升級。 
+如果不想等候您的連接器自動更新，您可以執行手動升級。 移至您的連接器所在伺服器上的[連接器下載頁面](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)並選取 [下載]  。 此流程就會開始進行本機連接器的升級。 
 
 對於具有多個連接器的租用戶，自動更新會一次以每個群組中的一個連接器為目標，以免您的環境發生停機。 
 
@@ -170,7 +170,7 @@ Register-AppProxyConnector
 
 連接器有系統管理員和工作階段記錄。 系統管理記錄包含索引鍵事件和其錯誤。 這些工作階段記錄包含所有交易，以及它們的處理詳細資料。 
 
-若要查看記錄，請移至事件檢視器，開啟 [檢視] 功能表，並啟用 [顯示分析與偵錯記錄]。 接著，啟用它們以開始收集事件。 這些記錄不會出現在 Windows Server 2012 R2 中的 Web 應用程式 Proxy，因為連接器會根據較新的版本。
+若要查看記錄，請移至事件檢視器，開啟 [檢視]  功能表，並啟用 [顯示分析與偵錯記錄]  。 接著，啟用它們以開始收集事件。 這些記錄不會出現在 Windows Server 2012 R2 中的 Web 應用程式 Proxy，因為連接器會根據較新的版本。
 
 您可以檢查 [服務] 視窗中的服務狀態。 連接器包含兩個 Windows 服務︰實際連接器和更新程式。 這兩者必須一直執行。
 

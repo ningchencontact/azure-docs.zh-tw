@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc82f69c8dee4cc8c45e9fcf7fbf6fa184ad72b6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783060"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory 應用程式 Proxy 中的萬用字元應用程式 
@@ -115,7 +115,7 @@ ms.locfileid: "65783060"
 萬用字元應用程式在 [MyApps 面板](https://myapps.microsoft.com)中僅以一個圖格表示。 此圖格預設會隱藏。 若要顯示圖格並讓使用者登陸在特定分頁上：
 
 1. 請遵循[設定首頁 URL](application-proxy-configure-custom-home-page.md) 的指導方針。
-2. 在應用程式屬性分頁上將 [顯示應用程式] 設為 **true**。
+2. 在應用程式屬性分頁上將 [顯示應用程式]  設為 **true**。
 
 ### <a name="kerberos-constrained-delegation"></a>Kerberos 限制委派
 
@@ -134,7 +134,7 @@ ms.locfileid: "65783060"
 三個應用程式全部：
 
 - 由您的所有使用者使用
-- 使用整合式 Windows 驗證 
+- 使用整合式 Windows 驗證  
 - 具有相同的屬性
 
 
@@ -169,7 +169,7 @@ ms.locfileid: "65783060"
 
 ![AppId](./media/application-proxy-wildcard/05.png)
 
-| 色彩 | 說明 |
+| 色彩 | 描述 |
 | ---   | ---         |
 | 藍色  | 明確發行並顯示在 Azure 入口網站的應用程式。 |
 | 灰色  | 可以透過父代應用程式存取的應用程式。 |
@@ -188,11 +188,11 @@ ms.locfileid: "65783060"
 遵循[記載步驟](application-proxy-add-on-premises-application.md)，此案例需要下列設定：
 
 
-- 在 [內部 URL] 中，您設定 **finance** 而不是萬用字元。 
+- 在 [內部 URL]  中，您設定 **finance** 而不是萬用字元。 
 
     ![內部 URL](./media/application-proxy-wildcard/52.png)
 
-- 在 [外部 URL] 中，您設定 **finance** 而不是萬用字元。 
+- 在 [外部 URL]  中，您設定 **finance** 而不是萬用字元。 
 
     ![外部 URL](./media/application-proxy-wildcard/53.png)
 

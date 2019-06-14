@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: raynew
 ms.openlocfilehash: c11d2f22fa08417107b0eecdd902b4521410b358
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60544906"
 ---
 # <a name="group-machines-for-assessment"></a>分組機器以進行評量
@@ -28,7 +28,7 @@ ms.locfileid: "60544906"
 
     ![建立群組](./media/how-to-create-a-group/create-group.png)
 
-建立群組之後，可以在 [群組] 頁面上選取群組，然後新增或移除機器來加以修改。
+建立群組之後，可以在 [群組]  頁面上選取群組，然後新增或移除機器來加以修改。
 
 ## <a name="next-steps"></a>後續步驟
 

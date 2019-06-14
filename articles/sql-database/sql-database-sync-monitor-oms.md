@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
 ms.openlocfilehash: 6e94aac47ce5b45e700e2413d2e86d5f36596348
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614933"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>使用 Azure 監視器監視 SQL 資料同步記錄 
@@ -78,19 +78,19 @@ ms.locfileid: "60614933"
 
 如需建立 Runbook 的詳細資訊，請參閱[我的第一個 PowerShell Runbook](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell)。
 
-1.  在您的 Azure 自動化帳戶中，選取 [程序自動化] 下方的 [Runbook] 索引標籤。
+1.  在您的 Azure 自動化帳戶中，選取 [程序自動化] 下方的 [Runbook]  索引標籤。
 
-2.  選取 [Runbook] 頁面左上角的 [新增 Runbook]。
+2.  選取 [Runbook] 頁面左上角的 [新增 Runbook]  。
 
-3.  選取 [匯入現有 Runbook]。
+3.  選取 [匯入現有 Runbook]  。
 
-4.  在 [Runbook 檔案] 下方，使用指定的 `DataSyncLogPowerShellRunbook` 檔案。 將 [Runbook 類型] 設為 `PowerShell`。 為 Runbook 指定名稱。
+4.  在 [Runbook 檔案]  下方，使用指定的 `DataSyncLogPowerShellRunbook` 檔案。 將 [Runbook 類型]  設為 `PowerShell`。 為 Runbook 指定名稱。
 
-5.  選取 [建立] 。 現在您已有 Runbook。
+5.  選取 [建立]  。 現在您已有 Runbook。
 
-6.  在您的 Azure 自動化帳戶中，選取 [共用資源] 下方的 [變數] 索引標籤。
+6.  在您的 Azure 自動化帳戶中，選取 [共用資源] 下方的 [變數]  索引標籤。
 
-7.  在 [變數] 頁面上，選取 [新增變數]。 需要建立一個變數來儲存上次執行 Runbook 的時間。 如果您有多個 Runbook，則每個 Runbook 都需要一個變數。
+7.  在 [變數] 頁面上，選取 [新增變數]  。 需要建立一個變數來儲存上次執行 Runbook 的時間。 如果您有多個 Runbook，則每個 Runbook 都需要一個變數。
 
 8.  請將變數的名稱設為 `DataSyncLogLastUpdatedTime`，並將其類型設為 DateTime。
 
@@ -106,35 +106,35 @@ ms.locfileid: "60614933"
 
 11. 在 [測試] 窗格中執行 Runbook。 檢查並確定已順利完成。
 
-    如果發生錯誤，請確定您已安裝最新的 PowerShell 模組。 您可以在自動化帳戶的 [模組庫] 中安裝最新的 PowerShell 模組。
+    如果發生錯誤，請確定您已安裝最新的 PowerShell 模組。 您可以在自動化帳戶的 [模組庫]  中安裝最新的 PowerShell 模組。
 
-12. 按一下 [發行]。
+12. 按一下 [發行]  。
 
 ### <a name="schedule-the-runbook"></a>排程 Runbook
 
 若要排程 Runbook：
 
-1.  在 Runbook 中，選取 [資源] 下方的 [排程] 索引標籤。
+1.  在 Runbook 中，選取 [資源] 下方的 [排程]  索引標籤。
 
-2.  在 [排程] 頁面中，選取 [新增排程]。
+2.  在 [排程] 頁面中，選取 [新增排程]  。
 
-3.  選取 [將排程連結至您的 Runbook]。
+3.  選取 [將排程連結至您的 Runbook]  。
 
-4.  選取 [建立新的排程]。
+4.  選取 [建立新的排程]  。
 
-5.  將 [週期] 設為 [週期性] 並設定所要的間隔。 在指令碼，並在 Azure 監視器記錄檔中，請使用此處相同的間隔。
+5.  將 [週期]  設為 [週期性] 並設定所要的間隔。 在指令碼，並在 Azure 監視器記錄檔中，請使用此處相同的間隔。
 
-6.  選取 [建立] 。
+6.  選取 [建立]  。
 
 ### <a name="check-the-automation"></a>檢查自動化
 
-若要監視您的自動化是否如預期般運作，請在自動化帳戶的 [概觀] 下方，找到 [作業統計資料] 檢視 (位於 [監視] 下方)。 將此檢視釘選到儀表板，以便輕鬆檢視。 Runbook 執行成功時會顯示為「已完成」，執行失敗時會顯示為「失敗」。
+若要監視您的自動化是否如預期般運作，請在自動化帳戶的 [概觀]  下方，找到 [作業統計資料]  檢視 (位於 [監視]  下方)。 將此檢視釘選到儀表板，以便輕鬆檢視。 Runbook 執行成功時會顯示為「已完成」，執行失敗時會顯示為「失敗」。
 
 ## <a name="create-an-azure-monitor-reader-alert-for-email-notifications"></a>建立 Azure 監視讀取器警示的電子郵件通知
 
 若要建立警示，使用 Azure 監視器記錄檔，請執行下列動作。 先決條件是，您必須具備與 Log Analytics 工作區連結的 Azure 監視器記錄檔。
 
-1.  在 Azure 入口網站中，選取 [記錄搜尋]。
+1.  在 Azure 入口網站中，選取 [記錄搜尋]  。
 
 2.  建立查詢，以選取在所選間隔內的錯誤和警告 (依同步群組)。 例如︰
 
@@ -142,15 +142,15 @@ ms.locfileid: "60614933"
 
 3.  執行查詢之後，選取代表**警示**的鈴鐺圖示。
 
-4.  在 [產生警示的依據] 下方，選取 [計量量值]。
+4.  在 [產生警示的依據]  下方，選取 [計量量值]  。
 
-    1.  將 [彙總值] 設為 [大於]。
+    1.  將 [彙總值] 設為 [大於]  。
 
-    2.  在 [大於] 之後，輸入要在經過多久閾值後收到通知。 資料同步中可能有暫時性錯誤。建議您將閾值設為 5，以減少雜訊。
+    2.  在 [大於]  之後，輸入要在經過多久閾值後收到通知。 資料同步中可能有暫時性錯誤。建議您將閾值設為 5，以減少雜訊。
 
-5.  在 [動作] 下方，將 [電子郵件通知] 設為 [是]。 輸入所需的電子郵件收件者。
+5.  在 [動作]  下方，將 [電子郵件通知]  設為 [是]。 輸入所需的電子郵件收件者。
 
-6.  按一下 [檔案] 。 現在，指定的收件者即可在發生錯誤時，收到電子郵件通知。
+6.  按一下 [檔案]  。 現在，指定的收件者即可在發生錯誤時，收到電子郵件通知。
 
 ## <a name="create-an-azure-monitor-view-for-monitoring"></a>建立用於監視的 Azure 監視器檢視
 
@@ -166,9 +166,9 @@ ms.locfileid: "60614933"
 
 1.  在 Log Analytics 工作區首頁上，選取 開啟左邊的加號**檢視表設計工具**。
 
-2.  選取檢視表設計工具頂端列的 [匯入]。 然後選取 "DataSyncLogOMSView" 範例檔案。
+2.  選取檢視表設計工具頂端列的 [匯入]  。 然後選取 "DataSyncLogOMSView" 範例檔案。
 
-3.  此範例檢視可用來管理兩個同步群組。 請依據您的案例，編輯這個檢視。 按一下 [編輯] 並進行下列變更：
+3.  此範例檢視可用來管理兩個同步群組。 請依據您的案例，編輯這個檢視。 按一下 [編輯]  並進行下列變更：
 
     1.  視需要從資源庫建立新的「環圈與清單」物件。
 
@@ -180,7 +180,7 @@ ms.locfileid: "60614933"
 
     3.  視需要更新每個圖格的標題。
 
-4.  按一下 [儲存]，即已完成檢視。
+4.  按一下 [儲存]  ，即已完成檢視。
 
 ## <a name="cost-of-this-solution"></a>解決方案的成本
 

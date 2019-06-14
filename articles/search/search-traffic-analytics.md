@@ -10,10 +10,10 @@ ms.date: 01/25/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c30c8bae3e76778a31cdd0695acde52b5b1c6b02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60749553"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-search"></a>在 Azure 搜尋服務中實作搜尋流量分析
@@ -166,19 +166,19 @@ Azure 搜尋服務所提供的遙測解決方案可整合 Azure Application Insi
 
 「Azure 搜尋服務」會提供監視 [Power BI 內容套件](https://app.powerbi.com/getdata/services/azure-search)，以便讓您分析記錄資料。 此內容套件會新增預先定義的圖表和資料表，可用來分析為搜尋流量分析擷取的額外資料。 如需詳細資訊，請參閱[內容套件說明網頁](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/)。 
 
-1. 在「Azure 搜尋服務」儀表板左側導覽窗格的 [設定] 底下，按一下 [搜尋流量分析]。
+1. 在「Azure 搜尋服務」儀表板左側導覽窗格的 [設定]  底下，按一下 [搜尋流量分析]  。
 
-2. 在 [搜尋流量分析] 頁面上的步驟 3 中，按一下 [取得 Power BI Desktop] 以安裝 Power BI。
+2. 在 [搜尋流量分析]  頁面上的步驟 3 中，按一下 [取得 Power BI Desktop]  以安裝 Power BI。
 
    ![取得 Power BI 報表](./media/search-traffic-analytics/get-use-power-bi.png "取得 Power BI 報表")
 
-2. 在相同頁面上，按一下 [下載 PowerBI 報表]。
+2. 在相同頁面上，按一下 [下載 PowerBI 報表]  。
 
 3. 報表會在 Power BI Desktop 中開啟，系統會提示您連線至 Application Insights。 您可以在 Azure 入口網站的 Application Insights 資源頁面中找到此資訊。
 
    ![連線至 Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "連線至 Application Insights")
 
-4. 按一下 [載入]。
+4. 按一下 [載入]  。
 
 此報表包含圖表和資料表，可幫助您做出更明智的決策，以改善您的搜尋效能和相關性。
 

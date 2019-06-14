@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: ba7d412e9bfc29a53cd0aa47a926f60580b45490
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237645"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立時間序列深入解析資源
@@ -24,7 +24,7 @@ ms.locfileid: "66237645"
 
 「時間序列深入解析」支援下列資源：
 
-   | Resource | 描述 |
+   | 資源 | 描述 |
    | --- | --- |
    | 環境 | Time Series Insights 環境是事件從事件訊息代理程式讀取、 儲存，而且可供查詢的邏輯群組。 如需詳細資訊，請參閱[規劃您的 Azure Time Series Insights 環境](time-series-insights-environment-planning.md) |
    | 事件來源 | 事件來源是與事件訊息代理程式的連線，「時間序列深入解析」會從該訊息代理程式讀取事件，並將事件內嵌到環境中。 目前支援的事件來源為 IoT 中樞和事件中樞。 |
@@ -148,7 +148,7 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 
 1. 如果沒有資源群組，請建立一個新的。
 
-   * 如果您沒有現有的資源群組中，建立新的資源群組**新增 AzResourceGroup**命令。 提供您要使用的資源群組名稱和位置。 例如: 
+   * 如果您沒有現有的資源群組中，建立新的資源群組**新增 AzResourceGroup**命令。 提供您要使用的資源群組名稱和位置。 例如:
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"

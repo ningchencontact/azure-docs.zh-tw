@@ -11,14 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/20/2018
-ms.date: 03/11/2019
-ms.author: v-yiso
+ms.date: 08/20/2018
+ms.author: apimpm
 ms.openlocfilehash: 5161a35fd52b2f3d8374c76bdab60281e33dacf6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66141848"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>如何在 Azure API 管理中新增自訂 CA 憑證
@@ -39,9 +38,9 @@ Azure API 管理可允許在信任根存放區和中繼憑證存放區內的機�
 
 1. 在 Azure 入口網站中瀏覽至您的 Azure API 管理服務執行個體。
 
-2. 從功能表中選取 [CA 憑證]。
+2. 從功能表中選取 [CA 憑證]  。
 
-3. 按一下 [+新增] 按鈕。  
+3. 按一下 [+新增]  按鈕。  
 
     ![新增 CA 憑證](media/api-management-howto-ca-certificates/01.png)  
 
@@ -49,7 +48,7 @@ Azure API 管理可允許在信任根存放區和中繼憑證存放區內的機�
 
     ![新增 CA 憑證](media/api-management-howto-ca-certificates/02.png)  
 
-5. 按一下 [檔案] 。 這項作業可能需要幾分鐘的時間。
+5. 按一下 [檔案]  。 這項作業可能需要幾分鐘的時間。
 
     ![新增 CA 憑證](media/api-management-howto-ca-certificates/03.png)  
 
@@ -58,7 +57,7 @@ Azure API 管理可允許在信任根存放區和中繼憑證存放區內的機�
 
 ## <a name="step1a"> </a>刪除用戶端憑證
 
-若要刪除憑證，請按一下內容功能表的 **...**，然後選取憑證旁的 [刪除]。
+若要刪除憑證，請按一下內容功能表的 **...** ，然後選取憑證旁的 [刪除]  。
 
 ![刪除 CA 憑證](media/api-management-howto-ca-certificates/04.png)  
 

@@ -9,10 +9,10 @@ ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: dd5c0782e1132f8592d9c6381b541c6f1a7d84cd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148158"
 ---
 **標準的 HDD 受控磁碟**
@@ -26,7 +26,7 @@ ms.locfileid: "66148158"
 
 **進階 SSD 受控磁碟：每個 VM 限制**
 
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | --- |
 | 每個 VM 的最大 IOPS |80,000 IOPS (使用 GS5 虛擬機器) |
 | 每個 VM 的最大輸送量 |2,000 MB/秒 (使用 GS5 虛擬機器) |

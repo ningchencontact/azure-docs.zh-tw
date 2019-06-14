@@ -15,10 +15,10 @@ ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956093"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>本機 Git 部署至 Azure App Service
@@ -86,7 +86,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 
 ### <a name="deploy-your-project"></a>部署專案
 
-回到「本機終端視窗」，將 Azure 遠端新增至本機 Git 存放庫。 使用從[為應用程式啟用 Git](#enable-local-git-with-kudu) 中取得的 Git 遠端 URL 來取代 _\<url>_。
+回到「本機終端視窗」  ，將 Azure 遠端新增至本機 Git 存放庫。 使用從[為應用程式啟用 Git](#enable-local-git-with-kudu) 中取得的 Git 遠端 URL 來取代 _\<url>_ 。
 
 ```bash
 git remote add azure <url>
@@ -110,28 +110,28 @@ git push azure master
 
 若要使用 Kudu 組建伺服器為您的應用程式啟用本機 Git 部署，請在 [Azure 入口網站](https://portal.azure.com)中瀏覽至應用程式。
 
-在應用程式頁面的左側導覽中，按一下 [部署中心] > [本機 Git] > [繼續]。
+在應用程式頁面的左側導覽中，按一下 [部署中心]   > [本機 Git]   > [繼續]  。
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-按一下  **Azure 管線 （預覽）** > **繼續**。
+按一下  **Azure 管線 （預覽）**  > **繼續**。
 
 ![](media/app-service-deploy-local-git/pipeline-builds.png)
 
-在 **設定**頁面上，設定新的 Azure DevOps 組織，或指定現有的組織。 完成後，按一下 [繼續]。
+在 **設定**頁面上，設定新的 Azure DevOps 組織，或指定現有的組織。 完成後，按一下 [繼續]  。
 
 > [!NOTE]
 > 如果您想要使用現有的 Azure DevOps 組織未列出，您需要[連結至您的 Azure 訂用帳戶的 Azure DevOps 服務組織](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)。
 
-視 App Service 方案的[定價層](https://azure.microsoft.com/pricing/details/app-service/plans/)而定，您可能也會看到 [部署至預備] 頁面。 選擇是否要啟用部署位置，然後按一下 [繼續]。
+視 App Service 方案的[定價層](https://azure.microsoft.com/pricing/details/app-service/plans/)而定，您可能也會看到 [部署至預備]  頁面。 選擇是否要啟用部署位置，然後按一下 [繼續]  。
 
-在 [摘要] 頁面上確認您的選項，然後按一下 [完成]。
+在 [摘要]  頁面上確認您的選項，然後按一下 [完成]  。
 
 Azure DevOps Services 組織需要幾分鐘才會準備就緒。 準備好時，複製部署中心內的 Git 儲存機制 URL。
 
 ![](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
-回到「本機終端視窗」，將 Azure 遠端新增至本機 Git 存放庫。 使用您從最後一個步驟取得的 URL 來取代 _\<url>_。
+回到「本機終端視窗」  ，將 Azure 遠端新增至本機 Git 存放庫。 使用您從最後一個步驟取得的 URL 來取代 _\<url>_ 。
 
 ```bash
 git remote add vsts <url>
@@ -172,7 +172,7 @@ git push vsts master
 
 **原因**：如果您在 `git push` 期間未指定分支，或未在 `.gitconfig` 中設定 `push.default` 值，就會發生這個錯誤。
 
-**解決方案**：再次執行 `git push`，指定主分支。 例如：
+**解決方案**：再次執行 `git push`，指定主分支。 例如:
 
 ```bash
 git push azure master
@@ -183,7 +183,7 @@ git push azure master
 
 **原因**：如果您嘗試在 'azure' 遠端上推送至主分支以外的分支，就會發生這個錯誤。
 
-**解決方案**：再次執行 `git push`，指定主分支。 例如：
+**解決方案**：再次執行 `git push`，指定主分支。 例如:
 
 ```bash
 git push azure master

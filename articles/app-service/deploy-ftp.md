@@ -16,10 +16,10 @@ ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
 ms.openlocfilehash: db8445ec2b3dd8bdefa661d7f186e720c6fada09
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130104"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 將您的應用程式部署至 Azure App Service
@@ -32,30 +32,30 @@ ms.locfileid: "62130104"
 
 在 [Azure 入口網站](https://portal.azure.com)中，開啟應用程式的[資源頁面](../azure-resource-manager/manage-resources-portal.md#manage-resources)。
 
-若要開啟 FTP 儀表板，請按一下 [部署中心] > [FTP] > [儀表板]。
+若要開啟 FTP 儀表板，請按一下 [部署中心]   > [FTP]   > [儀表板]  。
 
 ![開啟 FTP 儀表板](./media/app-service-deploy-ftp/open-dashboard.png)
 
 ## <a name="get-ftp-connection-information"></a>取得 FTP 連線資訊
 
-在 FTP 儀表板中，按一下 [複製] 複製 FTPS 端點和應用程式認證。
+在 FTP 儀表板中，按一下 [複製]  複製 FTPS 端點和應用程式認證。
 
 ![複製 FTP 資訊](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
-建議您使用**應用程式認證**來部署到您的應用程式，因為它對於每個應用程式都是唯一的。 不過，如果您按一下 [使用者認證]，則可以設定使用者層級的認證，以將其用於 FTP/S 登入到訂用帳戶中的所有 App Service 應用程式。
+建議您使用**應用程式認證**來部署到您的應用程式，因為它對於每個應用程式都是唯一的。 不過，如果您按一下 [使用者認證]  ，則可以設定使用者層級的認證，以將其用於 FTP/S 登入到訂用帳戶中的所有 App Service 應用程式。
 
 > [!NOTE]
-> 使用用户级凭据向 FTP/FTPS 终结点进行身份验证时需要使用以下格式的用户名： 
+> 驗證 FTP/FTPS 端點使用使用者層級認證 requirers 使用者名稱格式如下： 
 >
 >`<app-name>\<user-name>`
 >
-> 由于用户级凭据链接到用户而不是特定资源，因此用户名必须采用此格式才能将登录操作定向到正确的应用终结点。
+> 使用者層級的認證連結到使用者並不是特定的資源，因為使用者名稱必須以下列格式將正確的應用程式端點的登入動作。
 >
 
 ## <a name="deploy-files-to-azure"></a>將檔案部署至 Azure
 
 1. 從您的 FTP 用戶端 (例如 [Visual Studio](https://www.visualstudio.com/vs/community/)、[Cyberduck](https://cyberduck.io/) 或 [WinSCP](https://winscp.net/index.php))，使用您所蒐集的連線資訊來連線到您的應用程式。
-2. 將您的檔案和其個別的目錄結構複製到 Azure 中的 [**/site/wwwroot** 目錄](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (或 WebJobs 的 **/site/wwwroot/App_Data/Jobs/** 目錄)。
+2. 將您的檔案和其個別的目錄結構複製到 Azure 中的 [ **/site/wwwroot** 目錄](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (或 WebJobs 的 **/site/wwwroot/App_Data/Jobs/** 目錄)。
 3. 瀏覽至您的應用程式 URL，以確認應用程式運作正常。 
 
 > [!NOTE] 
@@ -72,9 +72,9 @@ ms.locfileid: "62130104"
 
 為了增強安全性，您應該只允許 FTP over SSL。 如果您不使用 FTP 部署，您也可以停用 FTP 和 FTPS。
 
-在 [Azure 入口網站](https://portal.azure.com)中您應用程式的資源頁面中，選取左導覽列中的 [應用程式設定]。
+在 [Azure 入口網站](https://portal.azure.com)中您應用程式的資源頁面中，選取左導覽列中的 [應用程式設定]  。
 
-若要停用未加密的 FTP，請選取 [僅限 FTPS]。 若要完全停用 FTP 和 FTPS，請選取 [停用]。 完成時，按一下 [儲存]。 如果使用 [僅限 FTPS]，您必須瀏覽至 Web 應用程式的 **SSL 設定** 刀鋒視窗，來強制使用 TLS 1.2 或更高版本。 TLS 1.0 和 1.1 不支援 [僅限 FTPS] 功能。
+若要停用未加密的 FTP，請選取 [僅限 FTPS]  。 若要完全停用 FTP 和 FTPS，請選取 [停用]  。 完成時，按一下 [儲存]  。 如果使用 [僅限 FTPS]  ，您必須瀏覽至 Web 應用程式的 **SSL 設定** 刀鋒視窗，來強制使用 TLS 1.2 或更高版本。 TLS 1.0 和 1.1 不支援 [僅限 FTPS]  功能。
 
 ![停用 FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 

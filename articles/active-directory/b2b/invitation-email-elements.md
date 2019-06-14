@@ -13,15 +13,15 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f93586d46aa01116990f8f02f344c6952d3c1b1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65768360"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>B2B 共同作業邀請電子郵件的元素 - Azure Active Directory
 
-邀請電子郵件是一個可讓合作夥伴在 Azure AD 中以 B2B 共同作業使用者身分上線的重要元件。 您可以用它們提高收件者的信任度。 您可以為電子郵件增添合法性和社交證明，以確保收件者在選取 [開始使用] 按鈕來接受邀請時沒有疑慮。 此信任是減少共用摩擦的重要手段。 而且您也希望電子郵件看起來很讚！
+邀請電子郵件是一個可讓合作夥伴在 Azure AD 中以 B2B 共同作業使用者身分上線的重要元件。 您可以用它們提高收件者的信任度。 您可以為電子郵件增添合法性和社交證明，以確保收件者在選取 [開始使用]  按鈕來接受邀請時沒有疑慮。 此信任是減少共用摩擦的重要手段。 而且您也希望電子郵件看起來很讚！
 
 ![顯示 B2B 邀請電子郵件的螢幕擷取畫面](media/invitation-email-elements/invitation-email.png)
 
@@ -31,10 +31,10 @@ ms.locfileid: "65768360"
 ### <a name="subject"></a>Subject
 電子郵件的主旨依循以下模式：誠摯地邀請您加入 &lt;tenantname&gt; 組織
 
-### <a name="from-address"></a>來源位址
+### <a name="from-address"></a>寄件者地址
 針對「寄件者地址」，我們使用類似 LinkedIn 的模式。  您應該清楚邀請者是誰及來自哪個公司，並且表明電子郵件是來自 Microsoft 電子郵件帳戶。 其格式為：Microsoft 邀請<invites@microsoft.com>或是&lt;邀請者的顯示名稱&gt;從&lt;tenantname&gt; （透過 Microsoft) <invites@microsoft.com>。
 
-### <a name="reply-to"></a>回覆
+### <a name="reply-to"></a>回覆地址
 回覆電子郵件會設定為邀請者的電子郵件 (如果可用)，以便在回覆電子郵件時會將電子郵件傳回給邀請者。
 
 ### <a name="branding"></a>商標
@@ -44,7 +44,7 @@ ms.locfileid: "65768360"
 對動作的呼叫是由兩個部分組成：說明收件者收到郵件的原因，以及要求收件者採取的動作。
 - 可以使用下列模式來處理「原因」一節：誠摯地邀請您存取 &lt;tenantname&gt; 組織中的應用程式
 
-- 而「要求您採取的動作」區段是以 [開始使用] 按鈕的存在來表示。 在已新增使用者而不需要邀請的情況下，就不會顯示此按鈕。
+- 而「要求您採取的動作」區段是以 [開始使用]  按鈕的存在來表示。 在已新增使用者而不需要邀請的情況下，就不會顯示此按鈕。
 
 ### <a name="inviters-information"></a>邀請者的資訊
 邀請者的顯示名稱會包含在電子郵件中。 此外，如果您已為 Azure AD 帳戶設定個人檔案圖片，則邀請電子郵件也會包含該圖片。 這兩項措施都是為了提升收件者對電子郵件的信賴感。

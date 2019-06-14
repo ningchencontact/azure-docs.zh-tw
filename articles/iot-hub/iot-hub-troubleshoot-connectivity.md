@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
 ms.openlocfilehash: a107689796c58b17c445e7a9cf7c6f0402ef6005
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61440115"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>使用 Azure IoT 中樞偵測連線中斷並進行疑難排解
@@ -31,13 +31,13 @@ IoT 裝置的連線問題可能因為有許多可能的失敗點而難以排解�
 
 2. 瀏覽至您的 IoT 中樞。
 
-3. 選取 [診斷設定]。
+3. 選取 [診斷設定]  。
 
-4. 選取 [開啟診斷]。
+4. 選取 [開啟診斷]  。
 
-5. 讓 [連線] 記錄可供收集。
+5. 讓 [連線]  記錄可供收集。
 
-6. 若要讓分析變得更容易，您應該開啟 [傳送至 Log Analytics] ([請參閱定價](https://azure.microsoft.com/pricing/details/log-analytics/))。 請參閱[解決連線錯誤](#resolve-connectivity-errors)下方的範例。
+6. 若要讓分析變得更容易，您應該開啟 [傳送至 Log Analytics]  ([請參閱定價](https://azure.microsoft.com/pricing/details/log-analytics/))。 請參閱[解決連線錯誤](#resolve-connectivity-errors)下方的範例。
 
    ![建議的設定](./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png)
 
@@ -51,7 +51,7 @@ IoT 裝置的連線問題可能因為有許多可能的失敗點而難以排解�
 
 2. 瀏覽至您的 IoT 中樞。
 
-3. 選取 [警示] 。
+3. 選取 [警示]  。
 
 4. 選取 **新的警示規則**。
 
@@ -67,9 +67,9 @@ IoT 裝置的連線問題可能因為有許多可能的失敗點而難以排解�
 
 1. 在 Azure 入口網站中，前往 **Log Analytics** 的工作區。
 
-2. 選取 [記錄搜尋]。
+2. 選取 [記錄搜尋]  。
 
-3. 若要隔離 IoT 中樞的連線錯誤記錄，請輸入下列查詢，然後選取 [執行]：
+3. 若要隔離 IoT 中樞的連線錯誤記錄，請輸入下列查詢，然後選取 [執行]  ：
 
     ```
     search *
@@ -97,7 +97,7 @@ IoT 裝置的連線問題可能因為有許多可能的失敗點而難以排解�
 
 * 如果您可以存取有問題的裝置 (實體或遠端 (如 SSH))，請遵循[裝置端疑難排解指南](https://github.com/Azure/azure-iot-sdk-node/wiki/Troubleshooting-Guide-Devices)，繼續進行疑難排解。
 
-* 在 Azure 入口網站 > 您的 IoT 中樞 > IoT 裝置，確認您的裝置 [已啟用]。
+* 在 Azure 入口網站 > 您的 IoT 中樞 > IoT 裝置，確認您的裝置 [已啟用]  。
 
 * 向 [Azure IoT 中樞論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub)、[Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub) 或[Azure 支援](https://azure.microsoft.com/support/options/)取得協助。
 

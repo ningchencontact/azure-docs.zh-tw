@@ -10,10 +10,10 @@ ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 8923c94409dcf079179ed0464046e39ef7654c4c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65949821"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>如何在 Azure 搜尋服務中為大型資料集編製索引
@@ -79,9 +79,9 @@ ms.locfileid: "65949821"
 
 就索引子而言，處理容量大致上會以搜尋服務所使用的每個服務單位 (SU) 的一個索引子子系統為基礎。 在至少有兩個複本的基本或標準層上佈建的 Azure 搜尋服務，可能會有多個並行的索引子。 
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，在搜尋服務儀表板的 [概觀] 頁面上查看 [定價層]，以確認足供平行索引之用。 基本層和標準層都提供多個複本。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，在搜尋服務儀表板的 [概觀]  頁面上查看 [定價層]  ，以確認足供平行索引之用。 基本層和標準層都提供多個複本。
 
-2. 在 [設定] > [調整] 中，為平行處理[增加複本](search-capacity-planning.md)：每個索引子工作負載多加一個其他複本。 現有的查詢磁碟區保留足夠的數目。 為了編製索引而犧牲查詢工作負載，不是理想的取捨。
+2. 在 [設定]   > [調整]  中，為平行處理[增加複本](search-capacity-planning.md)：每個索引子工作負載多加一個其他複本。 現有的查詢磁碟區保留足夠的數目。 為了編製索引而犧牲查詢工作負載，不是理想的取捨。
 
 3. 在 Azure 搜尋索引子可達到的層級上，將資料散發到多個容器中。 這可以是 Azure SQL Database 中的多個資料表、Azure Blob 儲存體中的多個容器，或是多個集合。 為每個資料表或容器定義一個資料來源物件。
 

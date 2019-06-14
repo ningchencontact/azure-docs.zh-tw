@@ -9,13 +9,13 @@ ms.date: 07/27/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0d5c3b55d20be19d4aeb92b82d6e44d417259a7b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146959"
 ---
-1. 以滑鼠右鍵按一下 [命令提示字元]，然後選取 [以系統管理員身分執行]，以使用較高的權限開啟命令提示字元。
+1. 以滑鼠右鍵按一下 [命令提示字元]  ，然後選取 [以系統管理員身分執行]  ，以使用較高的權限開啟命令提示字元。
 2. 在命令提示字元中執行下列命令：
 
    ```

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60629849"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>部署適用於雲端解決方案提供者方案的 StorSimple Virtual Array
@@ -40,19 +40,19 @@ ms.locfileid: "60629849"
 
 新增客戶時會自動建立訂用帳戶。 若要新增客戶 (並自動建立訂用帳戶)，請在合作夥伴入口網站中執行下列步驟。
 
-1. 移至[合作夥伴中心](https://partnercenter.microsoft.com/)，使用 CSP 認證登入。 按一下 [儀表板] 。
+1. 移至[合作夥伴中心](https://partnercenter.microsoft.com/)，使用 CSP 認證登入。 按一下 [儀表板]  。
 
      ![合作夥伴中心的儀表板](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. 在左窗格中，按一下 [客戶]。 在右窗格中，按一下 [新增客戶]。 輸入客戶的詳細資料。 按一下 **下一步訂用帳戶**建立客戶訂用帳戶。
+2. 在左窗格中，按一下 [客戶]  。 在右窗格中，按一下 [新增客戶]  。 輸入客戶的詳細資料。 按一下 **下一步訂用帳戶**建立客戶訂用帳戶。
 
     ![新增客戶](./media/storsimple-partner-csp-deploy/image2.png)
 
-3.  選取 [Microsoft Azure] 供應項目。 捲動到頁面底部，按一下 [檢閱]。
+3.  選取 [Microsoft Azure]  供應項目。 捲動到頁面底部，按一下 [檢閱]  。
 
     ![檢視訂用帳戶資訊](./media/storsimple-partner-csp-deploy/image3.png)
                               
-4. 檢閱資訊，然後按一下 [提交]。
+4. 檢閱資訊，然後按一下 [提交]  。
 
     ![提交訂用帳戶](./media/storsimple-partner-csp-deploy/image4.png)
 
@@ -60,15 +60,15 @@ ms.locfileid: "60629849"
 
     ![儲存確認](./media/storsimple-partner-csp-deploy/image5.png)
 
-6. 尋找或瀏覽至您剛才新增的客戶。 按一下 [公司名稱] 向下鑽研詳細資料。
+6. 尋找或瀏覽至您剛才新增的客戶。 按一下 [公司名稱]  向下鑽研詳細資料。
 
     ![搜尋客戶](./media/storsimple-partner-csp-deploy/image6.png)  
 
-7. 在左窗格中，選取 [服務管理]。 在右窗格中的 [管理服務] 下，按一下 [Microsoft Azure 管理入口網站]，以 Azure 系統管理員身分代表客戶登入。
+7. 在左窗格中，選取 [服務管理]  。 在右窗格中的 [管理服務]  下，按一下 [Microsoft Azure 管理入口網站]  ，以 Azure 系統管理員身分代表客戶登入。
 
     ![登入 Azure 入口網站](./media/storsimple-partner-csp-deploy/image9.png)
 
-8. 若要建立 StorSimple 裝置管理員，請按一下 [+ 新增]，然後搜尋或瀏覽至 **StorSimple 虛擬裝置系列**。 如需詳細資訊，請移至[部署 StorSimple 裝置管理員服務](storsimple-virtual-array-manage-service.md)。
+8. 若要建立 StorSimple 裝置管理員，請按一下 [+ 新增]  ，然後搜尋或瀏覽至 **StorSimple 虛擬裝置系列**。 如需詳細資訊，請移至[部署 StorSimple 裝置管理員服務](storsimple-virtual-array-manage-service.md)。
 
     ![建立 StorSimple 裝置管理員服務](./media/storsimple-partner-csp-deploy/image8.png)
 
@@ -77,27 +77,27 @@ ms.locfileid: "60629849"
 
 在某些情況下，您可能已有現有的客戶，您需要新增訂用帳戶。 若要將訂用帳戶新增至現有的客戶，請在合作夥伴入口網站中執行下列步驟。
 
-1. 移至[合作夥伴中心](https://partnercenter.microsoft.com/)，使用 CSP 認證登入。 按一下 [儀表板] 。
+1. 移至[合作夥伴中心](https://partnercenter.microsoft.com/)，使用 CSP 認證登入。 按一下 [儀表板]  。
 
      ![合作夥伴中心的儀表板](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. 在左窗格中，按一下 [客戶]。 尋找或瀏覽至客戶您想要新增訂用帳戶的客戶。 按一下 ![展開核取圖示](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) 圖示，展開客戶公司名稱的資料列。 在詳細資料中，按一下 [新增訂用帳戶]。
+2. 在左窗格中，按一下 [客戶]  。 尋找或瀏覽至客戶您想要新增訂用帳戶的客戶。 按一下 ![展開核取圖示](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) 圖示，展開客戶公司名稱的資料列。 在詳細資料中，按一下 [新增訂用帳戶]  。
 
     ![客戶](./media/storsimple-partner-csp-deploy/image10.png)
 
-3. 在訂用帳戶中，檢查 **Microsoft Azure** 提供的**熱門供應項目**，然後按一下 [提交]。 這樣會建立新的訂用帳戶。
+3. 在訂用帳戶中，檢查 **Microsoft Azure** 提供的**熱門供應項目**，然後按一下 [提交]  。 這樣會建立新的訂用帳戶。
 
     ![新增訂用帳戶](./media/storsimple-partner-csp-deploy/image11.png)
 
-6. 建立新的訂用帳戶之後，在左窗格中按一下 [<-- 客戶]，以返回 [客戶] 頁面。 搜尋您剛建立訂用帳戶的客戶。 按一下 [公司名稱] 向下鑽研詳細資料。
+6. 建立新的訂用帳戶之後，在左窗格中按一下 [<-- 客戶]  ，以返回 [客戶]  頁面。 搜尋您剛建立訂用帳戶的客戶。 按一下 [公司名稱]  向下鑽研詳細資料。
 
     ![搜尋客戶](./media/storsimple-partner-csp-deploy/image6.png)  
 
-7. 在左窗格中，選取 [服務管理]。 在右窗格中的 [管理服務] 下，按一下 [Microsoft Azure 管理入口網站]，以 Azure 系統管理員身分代表客戶登入。
+7. 在左窗格中，選取 [服務管理]  。 在右窗格中的 [管理服務]  下，按一下 [Microsoft Azure 管理入口網站]  ，以 Azure 系統管理員身分代表客戶登入。
 
     ![登入 Azure 入口網站](./media/storsimple-partner-csp-deploy/image9.png)
 
-8. 若要建立 StorSimple 裝置管理員，請按一下 [+ 新增]，然後搜尋或瀏覽至 **StorSimple 虛擬裝置系列**。 如需詳細資訊，請移至[部署 StorSimple 裝置管理員服務](storsimple-virtual-array-manage-service.md)。
+8. 若要建立 StorSimple 裝置管理員，請按一下 [+ 新增]  ，然後搜尋或瀏覽至 **StorSimple 虛擬裝置系列**。 如需詳細資訊，請移至[部署 StorSimple 裝置管理員服務](storsimple-virtual-array-manage-service.md)。
 
     ![建立 StorSimple 裝置管理員服務](./media/storsimple-partner-csp-deploy/image8.png)
 

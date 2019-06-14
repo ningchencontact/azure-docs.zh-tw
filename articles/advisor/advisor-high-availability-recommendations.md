@@ -9,10 +9,10 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: bdba3f135f852312af1692f77643095d865f1d06
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66254676"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>利用 Azure Advisor 改善應用程式的可用性
@@ -72,25 +72,25 @@ Azure 建議程式會檢查的 VPN 閘道的基本 SKU，並建議您改為使�
 
 ## <a name="repair-invalid-log-alert-rules"></a>修復無效的記錄警示規則
 
-Azure Advisor 會偵測有無效的查詢，其條件區段中指定的警示規則。 記錄警示規則會在 Azure 監視器中建立，並用來執行分析查詢，以指定的間隔。 查詢的結果會判斷是否需要觸發警示。 分析查詢可能會變成無效的加班，因為參照的資源、 資料表或命令中的變更。 Advisor 會建議您更正警示規則，所以無法取得自動停用，並確保您在 Azure 中的資源的監視的涵蓋範圍中的查詢。 [深入了解疑難排解警示規則](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor 會偵測有無效的查詢，其條件區段中指定的警示規則。 記錄警示規則會在 Azure 監視器中建立，並可用來以指定間隔執行分析查詢。 查詢的結果會決定是否需要觸發警示。 隨著時間過去，分析查詢可能會因為所參照的資源、資料表或命令有所變更而變得無效。 Advisor 會建議您更正警示規則，所以無法取得自動停用，並確保您在 Azure 中的資源的監視的涵蓋範圍中的查詢。 [深入了解疑難排解警示規則](https://aka.ms/aa_logalerts_queryrepair)
 
 ## <a name="configure-consistent-indexing-mode-on-your-cosmos-db-collection"></a>Cosmos DB 集合上設定一致的編製索引模式
 
 使用延遲索引編製模式設定的 azure Cosmos DB 容器可能會影響查詢結果的有效性。 Advisor 會偵測這種方式設定容器，並建議您先切換到一致的模式。 [深入了解編製索引原則，在 Cosmos DB](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
 
-## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>設定您的 Azure Cosmos DB 容器資料分割索引鍵
+## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>使用分割區索引鍵來設定 Azure Cosmos DB 容器
 
 Azure Advisor 會識別 Azure Cosmos DB 非資料分割集合，即將其佈建儲存體配額。 它會建議這些集合移轉至新的集合，使用資料分割索引鍵定義，以便它們可以自動相應放大服務。 [深入了解選擇資料分割索引鍵](https://aka.ms/cosmosdb/choose-partitionkey)
 
-## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>從 Nuget，升級為最新版本的 Azure Cosmos DB.NET SDK
+## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>從 Nuget 將 Azure Cosmos DB .NET SDK 升級為最新版本
 
 Azure Advisor 會識別 Azure Cosmos DB 帳戶，使用.NET SDK 的舊版本，並建議升級至最新版本從 Nuget 的最新的修正、 效能改進和功能的新功能。 [深入了解 Cosmos DB.NET SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
 
-## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>從 Maven 將您的 Azure Cosmos DB Java SDK 升級為最新版本
+## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>從 Maven 將 Azure Cosmos DB Java SDK 升級為最新版本
 
 Azure Advisor 會識別 Azure Cosmos DB 帳戶，使用 Java SDK 的舊版本，並建議升級至最新版本從 Maven 最新的修正、 效能改進和功能的新功能。 [深入了解 Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
 
-## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>升級至最新版本的 Azure Cosmos DB Spark 連接器，從 Maven
+## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>從 Maven 將 Azure Cosmos DB Spark 連接器升級為最新版本
 
 Azure Advisor 會識別 Azure Cosmos DB 帳戶，使用 Cosmos DB Spark 連接器的舊版本，並建議升級至最新版本從 Maven 最新的修正、 效能改進和功能的新功能。 [深入了解 Cosmos DB Spark 連接器](https://aka.ms/cosmosdb/spark-connector)
 

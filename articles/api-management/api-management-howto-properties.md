@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
 ms.openlocfilehash: 9e1b1953520c5502668fbbae70a37a140253b035
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241698"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>如何在 Azure API 管理原則中使用具名值
@@ -27,8 +27,8 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 
 | 屬性 | 類型 | 描述 |
 | --- | --- | --- |
-| `Display name` |string |用於參考原則中屬性的英數字元字串。 |
-| `Value`        |string |屬性的值。 不能是空白或只由空白字元組成。 |
+| `Display name` |字串 |用於參考原則中屬性的英數字元字串。 |
+| `Value`        |字串 |屬性的值。 不能是空白或只由空白字元組成。 |
 | `Secret`       |boolean|決定該值是否為密碼且是否應該加密。|
 | `Tags`         |字串陣列 |若有提供選用的標記，則可用來篩選屬性清單。 |
 
@@ -36,7 +36,7 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 
 屬性值可以包含常值字串及 [原則運算式](/azure/api-management/api-management-policy-expressions)。 例如，`ExpressionProperty` 的值是原則運算式，會傳回包含目前日期與時間的字串。 `ContosoHeaderValue` 屬性已標記為密碼，所以未顯示其值。
 
-| 名稱 | Value | Secret | Tags |
+| 名稱 | 值 | Secret | Tags |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |False |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |

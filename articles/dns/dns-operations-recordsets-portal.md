@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/6/2018
 ms.author: victorh
 ms.openlocfilehash: 891adfacde6e46b1d8fe8e2f6b5fb39c90ce27a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61296270"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 DNS 記錄和記錄集
@@ -70,7 +70,7 @@ ms.locfileid: "61296270"
 您可以使用 Azure 入口網站來從記錄集移除記錄。 請注意，移除記錄集的最後一筆記錄不會刪除記錄集。
 
 1. 在記錄集的 [記錄集屬性]  刀鋒視窗中搜尋記錄。
-2. 按一下您想要移除的記錄。 然後選取 [移除] 。
+2. 按一下您想要移除的記錄。 然後選取 [移除]  。
 
     ![移除記錄](./media/dns-operations-recordsets-portal/removerecord500.png)
 
@@ -79,12 +79,12 @@ ms.locfileid: "61296270"
 
 ## <a name="delete"></a>刪除記錄集
 
-1. 在記錄集的 [記錄集屬性] 刀鋒視窗中，按一下 [刪除]。
+1. 在記錄集的 [記錄集屬性]  刀鋒視窗中，按一下 [刪除]  。
 
     ![刪除記錄集](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
 
 2. 隨即會出現訊息，詢問您是否要刪除記錄集。
-3. 確認該名稱符合您想要刪除的記錄集，然後按一下 [是] 。
+3. 確認該名稱符合您想要刪除的記錄集，然後按一下 [是]  。
 4. 在 [DNS 區域]  刀鋒視窗中，確認不再看到該記錄集。
 
 ## <a name="work-with-ns-and-soa-records"></a>使用 NS 和 SOA 記錄

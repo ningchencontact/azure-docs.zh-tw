@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/24/2019
 ms.author: helohr
 ms.openlocfilehash: b7d7b25d0355f2379b90313f17e2b595234df827
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145996"
 ---
 # <a name="connect-from-windows-10-or-windows-7"></a>從 Windows 10 或 Windows 7 連線
@@ -51,7 +51,7 @@ ms.locfileid: "65145996"
 
 訂閱後您可以藉由存取詳細資料窗格來檢視摘要的其他資訊。
 
-1. 從用戶端的主要頁面上，選取省略符號 (**...**) 右邊的 摘要的名稱。
+1. 從用戶端的主要頁面上，選取省略符號 ( **...** ) 右邊的 摘要的名稱。
 1. 從下拉式功能表中，選取**詳細資料**。
 1. [詳細資料] 面板會顯示在右側的用戶端。
 
@@ -68,7 +68,7 @@ ms.locfileid: "65145996"
 
 本節將教導您如何取消訂閱摘要。 您可以取消訂閱來訂閱一次使用不同的帳戶，或從系統移除您的資源。
 
-1. 從用戶端的主要頁面上，選取省略符號 (**...**) 右邊的 摘要的名稱。
+1. 從用戶端的主要頁面上，選取省略符號 ( **...** ) 右邊的 摘要的名稱。
 1. 從下拉式功能表中，選取**Unsubscribe**。
 1. 檢閱並選取**繼續**從對話方塊。
 

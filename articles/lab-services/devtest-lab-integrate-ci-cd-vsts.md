@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 7806599c1a2f1396ff4b07d6f0538057654029d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157136"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>將 Azure DevTest Labs 整合到 Azure DevOps 持續整合和傳遞管線
@@ -36,7 +36,7 @@ ms.locfileid: "66157136"
 ## <a name="before-you-begin"></a>開始之前
 整合您的 CI/CD 管線與 Azure DevTest Labs 之前，您必須從 Visual Studio Marketplace 安裝延伸模組。
 1. 移至 [Azure DevTest Labs 工作](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)。
-1. 選取 [安裝]。
+1. 選取 [安裝]  。
 1. 完成精靈。
 
 ## <a name="create-a-resource-manager-template"></a>建立 Resource Manager 範本
@@ -92,67 +92,67 @@ ms.locfileid: "66157136"
 ## <a name="create-a-release-pipeline-in-release-management"></a>在 Release Management 中建立發行管線
 若要建立發行管線，請執行下列動作：
 
-1. 在 [建置及發行] 中樞的 [發行] 索引標籤上，選取加號 (+) 按鈕。
-1. 在 [建立發行定義] 視窗中，選取 [空白] 範本，然後選取 [下一步]。
-1. 選取 [稍後選擇]，然後選取 [建立]，以使用一個預設的環境、但不使用任何連結的成品來建立新的發行管線。
-1. 若要開啟捷徑功能表，請在新的發行管線中選取環境名稱旁邊的省略符號 (...)，然後選取 [設定變數]。 
-1. 在 [設定 - 環境] 視窗中，為您在發行管線工作中使用的變數輸入下列值：
+1. 在 [建置及發行]  中樞的 [發行]  索引標籤上，選取加號 (+) 按鈕。
+1. 在 [建立發行定義]  視窗中，選取 [空白]  範本，然後選取 [下一步]  。
+1. 選取 [稍後選擇]  ，然後選取 [建立]  ，以使用一個預設的環境、但不使用任何連結的成品來建立新的發行管線。
+1. 若要開啟捷徑功能表，請在新的發行管線中選取環境名稱旁邊的省略符號 (...)，然後選取 [設定變數]  。 
+1. 在 [設定 - 環境]  視窗中，為您在發行管線工作中使用的變數輸入下列值：
 
-   a. 針對 [VM 名稱]，輸入您在 Azure 入口網站中建立 Resource Manager 範本時指派給 VM 的名稱。
+   a. 針對 [VM 名稱]  ，輸入您在 Azure 入口網站中建立 Resource Manager 範本時指派給 VM 的名稱。
 
-   b. 針對 [使用者名稱]，輸入您在 Azure 入口網站中建立 Resource Manager 範本時指派給 VM 的使用者名稱。
+   b. 針對 [使用者名稱]  ，輸入您在 Azure 入口網站中建立 Resource Manager 範本時指派給 VM 的使用者名稱。
 
-   c. 針對 [密碼]，輸入您在 Azure 入口網站中建立 Resource Manager 範本時指派給 VM 的密碼。 使用「掛鎖」圖示可隱藏及保護密碼。
+   c. 針對 [密碼]  ，輸入您在 Azure 入口網站中建立 Resource Manager 範本時指派給 VM 的密碼。 使用「掛鎖」圖示可隱藏及保護密碼。
 
 ### <a name="create-a-vm"></a>建立 VM
 
 部署的下一個階段，是建立 VM 以作為後續部署的「黃金映像」。 您可以使用特別為此目的開發的工作，在您的 Azure DevTest Lab 執行個體中建立此 VM。 
 
-1. 在發行管線中，選取 [新增工作]。
-1. 在 [部署] 索引標籤上，新增 [Azure DevTest Labs 建立 VM] 工作。 請依照下列方式設定工作：
+1. 在發行管線中，選取 [新增工作]  。
+1. 在 [部署]  索引標籤上，新增 [Azure DevTest Labs 建立 VM]  工作。 請依照下列方式設定工作：
 
    > [!NOTE]
    > 若要建立用於後續部署的 VM，請參閱 [Azure DevTest Labs 工作](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)。
 
-   a. 針對 [Azure RM 訂用帳戶]，選取 [可用的 Azure 服務連線] 清單中的連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)。
+   a. 針對 [Azure RM 訂用帳戶]  ，選取 [可用的 Azure 服務連線]  清單中的連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)。
 
-   b. 針對 [實驗室名稱]，選取您先前建立之執行個體的名稱。
+   b. 針對 [實驗室名稱]  ，選取您先前建立之執行個體的名稱。
 
-   c. 針對 [範本名稱]，輸入您儲存到原始程式碼存放庫之範本檔案的完整路徑和名稱。 您可以使用 Release Management 的內建屬性來簡化路徑，例如：
+   c. 針對 [範本名稱]  ，輸入您儲存到原始程式碼存放庫之範本檔案的完整路徑和名稱。 您可以使用 Release Management 的內建屬性來簡化路徑，例如：
 
    ```
    $(System.DefaultWorkingDirectory)/Contoso/ARMTemplates/CreateVMTemplate.json
    ```
 
-   d. 針對 [範本參數]，輸入在範本中定義之變數的參數。 請使用您在環境中定義的變數名稱，例如：
+   d. 針對 [範本參數]  ，輸入在範本中定義之變數的參數。 請使用您在環境中定義的變數名稱，例如：
 
    ```
    -newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)
    ```
 
-   e. 針對 [輸出變數 - 實驗室 VM 識別碼]，您必須提供新建立之 VM 的識別碼，供後續步驟使用。 您必須在 [輸出變數] 區段中設定會以此識別碼自動填入之環境變數的預設名稱。 如有必要，您可以編輯變數，但請記得在後續工作中使用正確的名稱。 實驗室 VM 識別碼會以下列形式寫入：
+   e. 針對 [輸出變數 - 實驗室 VM 識別碼]  ，您必須提供新建立之 VM 的識別碼，供後續步驟使用。 您必須在 [輸出變數]  區段中設定會以此識別碼自動填入之環境變數的預設名稱。 如有必要，您可以編輯變數，但請記得在後續工作中使用正確的名稱。 實驗室 VM 識別碼會以下列形式寫入：
 
    ```
    /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualMachines/{vmName}
    ```
 
 1. 執行您先前建立的指令碼，以收集 DevTest Labs VM 的詳細資料。 
-1. 在發行管線中選取 [新增工作]，然後在 [部署] 索引標籤上新增 [Azure PowerShell] 工作。 請依照下列方式設定工作：
+1. 在發行管線中選取 [新增工作]  ，然後在 [部署]  索引標籤上新增 [Azure PowerShell]  工作。 請依照下列方式設定工作：
 
    > [!NOTE]
    > 若要收集 DevTest Labs VM 的詳細資料，請參閱[部署：Azure PowerShell](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzurePowerShellV3)，並執行指令碼。
 
-   a. 針對 [Azure 連線類型]，選取 [Azure Resource Manager]。
+   a. 針對 [Azure 連線類型]  ，選取 [Azure Resource Manager]  。
 
-   b. 針對 [Azure RM 訂用帳戶]，從 [可用的 Azure 服務連線] 下方的清單中選取連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)。
+   b. 針對 [Azure RM 訂用帳戶]  ，從 [可用的 Azure 服務連線]  下方的清單中選取連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)。
 
-   c. 針對 [指令碼類型]，選取 [指令碼檔案]。
+   c. 針對 [指令碼類型]  ，選取 [指令碼檔案]  。
  
-   d. 針對 [指令碼路徑]，輸入您儲存到原始程式碼存放庫之指令碼的完整路徑和名稱。 您可以使用 Release Management 的內建屬性來簡化路徑，例如：
+   d. 針對 [指令碼路徑]  ，輸入您儲存到原始程式碼存放庫之指令碼的完整路徑和名稱。 您可以使用 Release Management 的內建屬性來簡化路徑，例如：
       ```
       $(System.DefaultWorkingDirectory/Contoso/Scripts/GetLabVMParams.ps1
       ```
-   e. 針對 [指令碼引數]，輸入由上一項工作以實驗室 VM 的識別碼自動填入的環境變數名稱，例如： 
+   e. 針對 [指令碼引數]  ，輸入由上一項工作以實驗室 VM 的識別碼自動填入的環境變數名稱，例如： 
       ```
       -labVmId '$(labVMId)'
       ```
@@ -165,36 +165,36 @@ ms.locfileid: "66157136"
 
 下一個階段是在您的 Azure DevTest Labs 執行個體中建立新部署之 VM 的映像。 後續當您想要執行開發工作或執行某些測試時，您即可使用此映像隨需建立 VM 的複本。 
 
-1. 在發行管線中，選取 [新增工作]。
-1. 在 [部署] 索引標籤上，新增 [Azure DevTest Labs 建立自訂映像] 工作。 進行下列設定：
+1. 在發行管線中，選取 [新增工作]  。
+1. 在 [部署]  索引標籤上，新增 [Azure DevTest Labs 建立自訂映像]  工作。 進行下列設定：
 
    > [!NOTE]
    > 若要建立映像，請參閱 [Azure DevTest Labs 工作](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)。
 
-   a. 針對 [Azure RM 訂用帳戶]，在 [可用的 Azure 服務連線] 清單中選取連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)。
+   a. 針對 [Azure RM 訂用帳戶]  ，在 [可用的 Azure 服務連線]  清單中選取連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)。
 
-   b. 針對 [實驗室名稱]，選取您先前建立之執行個體的名稱。
+   b. 針對 [實驗室名稱]  ，選取您先前建立之執行個體的名稱。
 
-   c. 針對 [自訂映像名稱]，輸入自訂映像的名稱。
+   c. 針對 [自訂映像名稱]  ，輸入自訂映像的名稱。
 
-   d. (選擇性) 針對 [說明]，輸入有助於您後續選取正確映像的說明。
+   d. (選擇性) 針對 [說明]  ，輸入有助於您後續選取正確映像的說明。
 
-   e. 針對 [來源實驗室 VM - 來源實驗室 VM 識別碼]，如果您變更了先前的工作以實驗室 VM 的識別碼自動填入的環境變數預設名稱，請在此處加以編輯。 預設值為 **$(labVMId)**。
+   e. 針對 [來源實驗室 VM - 來源實驗室 VM 識別碼]  ，如果您變更了先前的工作以實驗室 VM 的識別碼自動填入的環境變數預設名稱，請在此處加以編輯。 預設值為 **$(labVMId)** 。
 
-   f. 針對 [輸出變數 - 自訂映像識別碼]，您必須提供新建立之映像的識別碼，以便您在需要管理或刪除該映像時使用。 以此識別碼自動填入之環境變數的預設名稱會設定於 [輸出變數] 區段中。 如有必要，您可以編輯該變數。
+   f. 針對 [輸出變數 - 自訂映像識別碼]  ，您必須提供新建立之映像的識別碼，以便您在需要管理或刪除該映像時使用。 以此識別碼自動填入之環境變數的預設名稱會設定於 [輸出變數]  區段中。 如有必要，您可以編輯該變數。
 
 ### <a name="delete-the-vm"></a>刪除 VM
 
 最後一個階段是刪除您在 Azure DevTest Labs 執行個體中部署的 VM。 在已部署的 VM 上執行您所需的開發工作或測試之後，您通常會刪除 VM。 
 
-1. 在發行管線中選取 [新增工作]，然後在 [部署] 索引標籤上新增 [Azure DevTest Labs 刪除 VM] 工作。 進行下列設定：
+1. 在發行管線中選取 [新增工作]  ，然後在 [部署]  索引標籤上新增 [Azure DevTest Labs 刪除 VM]  工作。 進行下列設定：
 
       > [!NOTE]
       > 若要刪除 VM，請參閱 [Azure DevTest Labs 工作](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)。
 
-   a. 針對 [Azure RM 訂用帳戶]，選取 [可用的 Azure 服務連線] 清單中的連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)。
+   a. 針對 [Azure RM 訂用帳戶]  ，選取 [可用的 Azure 服務連線]  清單中的連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)。
  
-   b. 針對 [實驗室 VM 識別碼]，如果您變更了先前的工作以實驗室 VM 的識別碼自動填入的環境變數預設名稱，請在此處加以編輯。 預設值為 **$(labVMId)**。
+   b. 針對 [實驗室 VM 識別碼]  ，如果您變更了先前的工作以實驗室 VM 的識別碼自動填入的環境變數預設名稱，請在此處加以編輯。 預設值為 **$(labVMId)** 。
 
 1. 輸入發行管線的名稱，並加以儲存。
 1. 建立新版本，選取最新的組建，然後將其部署到管線中的單一環境。

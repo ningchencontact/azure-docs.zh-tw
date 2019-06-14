@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 5db2cb983c0c3cd0e2194f7686964d9ec3828d6f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61232264"
 ---
 # <a name="deliver-content-to-customers"></a>將內容傳遞給客戶
@@ -33,18 +33,18 @@ ms.locfileid: "61232264"
     * **Smooth Streaming**。
 
 >[!NOTE]
->建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。 
+>建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止]  狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中]  狀態。 
 
 本文提供內容傳遞概念的重要概觀。
 
 若要查閱已知問題，請參閱 [已知問題](media-services-deliver-content-overview.md#known-issues)。
 
 ## <a name="dynamic-packaging"></a>動態封裝
-媒體服務提供的動態封裝，可讓您以媒體服務支援的串流格式 (MPEG-DASH、HLS、Smooth Streaming) 提供調適性位元速率 MP4 或 Smooth Streaming 編碼內容，而不必重新封裝成這些串流格式。 我们建议使用动态打包功能传送内容。
+媒體服務提供的動態封裝，可讓您以媒體服務支援的串流格式 (MPEG-DASH、HLS、Smooth Streaming) 提供調適性位元速率 MP4 或 Smooth Streaming 編碼內容，而不必重新封裝成這些串流格式。 我們建議您利用動態封裝傳遞內容。
 
 若要利用動態封裝功能，您必須將您的夾層 (來源) 檔案編碼成一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案。
 
-使用動態封裝，您可以儲存及播放單一儲存格式的檔案。 媒体服务会根据请求生成并提供适当的响应。
+使用動態封裝，您可以儲存及播放單一儲存格式的檔案。 媒體服務會根據您的要求建置及傳遞適當的回應。
 
 動態封裝適用於標準和高階串流端點。 
 
@@ -56,7 +56,7 @@ ms.locfileid: "61232264"
 如需詳細資訊，請參閱 [篩選器與動態資訊清單](media-services-dynamic-manifest-overview.md)。
 
 ## <a name="a-idlocatorslocators"></a><a id="locators"/>定位器
-若要提供 URL 給使用者，讓使用者可以利用這個 URL 來串流或下載內容，您必須先建立定位器來發佈您的資產。 定位器提供一個登入點，讓使用者可以存取資產包含的檔案。 媒体服务支持两种类型的定位符：
+若要提供 URL 給使用者，讓使用者可以利用這個 URL 來串流或下載內容，您必須先建立定位器來發佈您的資產。 定位器提供一個登入點，讓使用者可以存取資產包含的檔案。 媒體服務支援兩種類型的定位器：
 
 * OnDemandOrigin 定位器。 這些定位器可用來串流媒體 (例如，MPEG-DASH、HLS 或 Smooth Streaming) 或漸進式下載檔案。
 * 共用存取簽章 (SAS) URL 定位器。 這些定位器可用來將媒體檔案下載到本機電腦。
@@ -70,7 +70,7 @@ ms.locfileid: "61232264"
 > 
 > 
 
-若要更新定位符的过期日期，请使用 [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) 或 [.NET](https://go.microsoft.com/fwlink/?LinkID=533259) API。 請注意，當您更新 SAS 定位器的到期日，URL 也會隨之變更。
+若要更新定位器的到期日，請使用 [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) 或 [.NET](https://go.microsoft.com/fwlink/?LinkID=533259) API。 請注意，當您更新 SAS 定位器的到期日，URL 也會隨之變更。
 
 定位器並不是用來控制每個使用者的權限。 您可以使用數位版權管理 (DRM) 方案，給予個別使用者不同的存取權限。 如需詳細資訊，請參閱 [保護媒體](https://msdn.microsoft.com/library/azure/dn282272.aspx)。
 
@@ -82,7 +82,7 @@ ms.locfileid: "61232264"
 若要提供漸進式下載 URL 給使用者，您必須先建立 OnDemandOrigin 定位器。 建立定位器可針對包含您要串流之內容的資產，提供其基底路徑。 不過，若要能夠串流此內容，您還需要進一步修改此路徑。 若要建構串流資訊清單檔案的完整 URL，您必須串連定位器的路徑值和資訊清單 (filename.ism) 的檔案名稱。 接著，在定位器路徑後面附加 **/Manifest** 和適當的格式 (如果需要)。
 
 > [!NOTE]
-> 您也可以透過 SSL 連線串流您的內容。 为此，请确保流 URL 以 HTTPS 开头。 請注意，目前 AMS 不支援使用 SSL 搭配自訂網域。  
+> 您也可以透過 SSL 連線串流您的內容。 若要這樣做，請確定您的串流 URL 以 HTTPS 開頭。 請注意，目前 AMS 不支援使用 SSL 搭配自訂網域。  
 > 
 
 只有當您傳遞內容的來源串流端點是在 2014 年 9 月 10 日之後建立時，才能透過 SSL 串流。 如果您的串流 URL 是根據 2014 年 9 月 10 日之後建立的串流端點，則 URL 會包含 "streaming.mediaservices.windows.net"。 包含 "origin.mediaservices.windows.net" (舊格式) 的串流 URL 不支援 SSL。 如果您的 URL 是舊格式，而且您希望能夠透過 SSL 串流，請建立新的串流端點。 使用根據新的串流端點的 URL，透過 SSL 串流內容。
@@ -146,16 +146,16 @@ http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46
 * 您必須解密任何您想要從原始服務串流的儲存體加密資產，這樣才能漸進式下載。
 * 未在 12 小時內完成的下載，最後一定會失敗。
 
-## <a name="streaming-endpoints"></a>流式处理终结点
+## <a name="streaming-endpoints"></a>串流端點
 
-串流端點代表可以直接將內容傳遞給用戶端播放程式應用程式，或傳遞給內容傳遞網路 (CDN) 進行進一步發佈的串流服務。 來自串流端點服務的輸出串流可以是即時資料流，或媒體服務帳戶中的隨選視訊資產。 串流端點有兩種類型：「標準」和「進階」。 如需詳細資訊，請參閱[串流端點概觀](media-services-streaming-endpoints-overview.md)。
+串流端點代表可以直接將內容傳遞給用戶端播放程式應用程式，或傳遞給內容傳遞網路 (CDN) 進行進一步發佈的串流服務。 來自串流端點服務的輸出串流可以是即時資料流，或媒體服務帳戶中的隨選視訊資產。 串流端點有兩種類型：「標準」  和「進階」  。 如需詳細資訊，請參閱[串流端點概觀](media-services-streaming-endpoints-overview.md)。
 
 >[!NOTE]
->建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中] 狀態。 
+>建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止]  狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中]  狀態。 
 
 ## <a name="known-issues"></a>已知問題
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Smooth Streaming 資訊清單版本變更
-在 2016 年 7 月之前的服務版本 -- 使用動態封裝串流媒體編碼器標準、媒體編碼器高階工作流程或舊版 Azure 媒體編碼器所產生的資產時 -- 傳回的 Smooth Streaming 資訊清單會符合 2.0 版。 在 2.0 版中，片段持續期間不使用所謂的重複 ('r') 標籤。 例如︰
+在 2016 年 7 月之前的服務版本 -- 使用動態封裝串流媒體編碼器標準、媒體編碼器高階工作流程或舊版 Azure 媒體編碼器所產生的資產時 -- 傳回的 Smooth Streaming 資訊清單會符合 2.0 版。 在 2.0 版中，片段持續期間不使用所謂的重複 ('r') 標籤。 例如:
 
 
     <?xml version="1.0" encoding="UTF-8"?>
@@ -169,7 +169,7 @@ http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46
         </StreamIndex>
     </SmoothStreamingMedia>
 
-在 2016 年 7 月之後的服務版本中，產生的 Smooth Streaming 資訊清單會符合 2.2 版，即片段持續時間使用重複標籤。 例如︰
+在 2016 年 7 月之後的服務版本中，產生的 Smooth Streaming 資訊清單會符合 2.2 版，即片段持續時間使用重複標籤。 例如:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">

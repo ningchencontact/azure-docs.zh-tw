@@ -13,13 +13,13 @@ ms.date: 05/11/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65551767"
 ---
-# <a name="assets"></a>資產
+# <a name="assets"></a>Assets
 
 在 Azure Media Services[資產](https://docs.microsoft.com/rest/api/media/assets)包含數位檔案 （包括視訊、 音訊、 影像、 縮圖集合、 文字播放軌及隱藏式輔助字幕檔案） 的 Azure 儲存體中的相關資訊。 
 
@@ -95,7 +95,7 @@ curl -X PUT \
 
 若要保護待用資產，資產應該透過儲存端加密來進行加密。 下表顯示儲存端加密在媒體服務中的運作方式：
 
-|加密選項|說明|媒體服務 v2|媒體服務 v3|
+|加密選項|描述|媒體服務 v2|媒體服務 v3|
 |---|---|---|---|
 |媒體服務的儲存體加密|AES-256 加密，由媒體服務管理金鑰|支援<sup>(1)</sup>|不支援<sup>(2)</sup>|
 |[待用資料的儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure 儲存體提供的伺服器端加密，由 Azure 或客戶管理金鑰|支援|支援|

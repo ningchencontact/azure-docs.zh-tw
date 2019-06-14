@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 中建立受控映像 | Microsoft Docs
-description: 在 Azure 中建立一般化 VM 或 VHD 的受控映像。 映像可用于创建多个使用托管磁盘的 VM。
+description: 在 Azure 中建立一般化 VM 或 VHD 的受控映像。 映像可用來建立多部使用受控磁碟的 VM。
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: aa1858a27d4df413deb562391251a523c28673ad
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3a6781387121a691c6599ffaeb5722ecc6e16132
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787932"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64704699"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中建立一般化 VM 的受控映像
 
 您可以從在儲存體帳戶中儲存為受控磁碟或非受控磁碟的一般化虛擬機器 (VM)，建立受控映像資源。 映像接著便可用來建立多個 VM。 如需受控映像計費方式的相關資訊，請參閱[受控磁碟定價](https://azure.microsoft.com/pricing/details/managed-disks/)。 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>使用 Sysprep 將 Windows VM 一般化
 
@@ -35,7 +35,7 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 請確定 Sysprep 支援電腦上執行的伺服器角色。 如需詳細資訊，請參閱[伺服器角色的 Sysprep 支援](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) \(英文\)。
 
 > [!IMPORTANT]
-> 在 VM 中執行 Sysprep 之後，該 VM 便會被視為「已一般化」，而且無法重新啟動。 將 VM 一般化的程序是無法復原的。 如果您需要讓原始 VM 保持運作，就應該建立 [VM 的複本](create-vm-specialized.md#option-3-copy-an-existing-azure-vm)，然後將複本一般化。 
+> 在 VM 中執行 Sysprep 之後，該 VM 便會被視為「已一般化」  ，而且無法重新啟動。 將 VM 一般化的程序是無法復原的。 如果您需要讓原始 VM 保持運作，就應該建立 [VM 的複本](create-vm-specialized.md#option-3-copy-an-existing-azure-vm)，然後將複本一般化。 
 >
 > 如果您打算在第一次將虛擬硬碟 (VHD) 上傳到 Azure 之前，先執行 Sysprep，請確定您已[準備好 VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。  
 > 
@@ -47,11 +47,11 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
    
 2. 以系統管理員身分開啟 [命令提示字元] 視窗。 將目錄變更到 %windir%\system32\sysprep，然後執行 `sysprep.exe`。
    
-3. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，然後選取 [一般化] 核取方塊。
+3. 在 [系統準備工具]  對話方塊中，選取 [進入系統全新體驗 (OOBE)]  ，然後選取 [一般化]  核取方塊。
    
-4. 針對 [關機選項]，選取 [關機]。
+4. 針對 [關機選項]  ，選取 [關機]  。
    
-5. 選取 [確定] 。
+5. 選取 [確定]  。
    
     ![啟動 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 
@@ -62,23 +62,23 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com)。
 
-2. 在左邊的功能表中，選取 [虛擬機器]，然後從清單中選取 VM。
+2. 在左邊的功能表中，選取 [虛擬機器]  ，然後從清單中選取 VM。
 
-3. 在 VM 的 [虛擬機器] 頁面上的上方功能表中選取 [擷取]。
+3. 在 VM 的 [虛擬機器]  頁面上的上方功能表中選取 [擷取]  。
 
-   [建立映像] 頁面隨即出現。
+   [建立映像]  頁面隨即出現。
 
-4. 針對 [名稱]，請接受預先填入的名稱或輸入您要為映像使用的名稱。
+4. 針對 [名稱]  ，請接受預先填入的名稱或輸入您要為映像使用的名稱。
 
-5. 針對 [資源群組]，請選取 [新建] 並輸入名稱，或選取 [使用現有項目] 並然後從下拉式清單中選取要使用的資源群組。
+5. 針對 [資源群組]  ，請選取 [新建]  並輸入名稱，或選取 [使用現有項目]  並然後從下拉式清單中選取要使用的資源群組。
 
-6. 如果您想要在建立映像之後刪除來源 VM，請選取 [自動在建立映像後刪除此虛擬機器]。
+6. 如果您想要在建立映像之後刪除來源 VM，請選取 [自動在建立映像後刪除此虛擬機器]  。
 
-7. 若要讓該映像可在任何[可用性區域](../../availability-zones/az-overview.md) 中使用，請為 [區域復原] 選取 [開啟]。
+7. 若要讓該映像可在任何[可用性區域](../../availability-zones/az-overview.md) 中使用，請為 [區域復原]  選取 [開啟]  。
 
-8. 選取 [建立] 以建立映像。
+8. 選取 [建立]  以建立映像。
 
-9. 建立映像之後，您可以在資源群組的資源清單中看見它顯示為 [映像] 資源。
+9. 建立映像之後，您可以在資源群組的資源清單中看見它顯示為 [映像]  資源。
 
 
 
@@ -110,7 +110,7 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
     Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
-3. 將虛擬機器的狀態設定為 [一般化] 。 
+3. 將虛擬機器的狀態設定為 [一般化]  。 
    
     ```azurepowershell-interactive
     Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized

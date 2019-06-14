@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: abef7815effcf420c8a0065ed46ce3c16c19ebe0
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991775"
 ---
 # <a name="get-started-with-service-bus-queues"></a>開始使用服務匯流排佇列
@@ -46,8 +46,8 @@ ms.locfileid: "65991775"
 
 ### <a name="add-the-service-bus-nuget-package"></a>新增服務匯流排 NuGet 封裝
 
-1. 以滑鼠右鍵按一下新建立的專案，然後選取 [管理 NuGet 套件]。
-2. 按一下 [瀏覽] 索引標籤，搜尋 **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)**，然後選取 [Microsoft.Azure.ServiceBus] 項目。 按一下 [安裝]  完成安裝作業，然後關閉此對話方塊。
+1. 以滑鼠右鍵按一下新建立的專案，然後選取 [管理 NuGet 套件]  。
+2. 按一下 [瀏覽]  索引標籤，搜尋 **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)** ，然後選取 [Microsoft.Azure.ServiceBus]  項目。 按一下 [安裝]  完成安裝作業，然後關閉此對話方塊。
    
     ![選取 NuGet 封裝][nuget-pkg]
 
@@ -191,7 +191,7 @@ ms.locfileid: "65991775"
     }
     ```
 
-7. 執行程式，並檢查 Azure 入口網站：按一下命名空間 [概觀] 視窗中的佇列名稱。 佇列的 [基本資訊] 畫面即會顯示。 請注意，佇列的 [使用中訊息計數] 值現在是 **10**。 每次執行傳送者應用程式而未擷取訊息 (如下一節所述)，這個值就會增加 10。 也請注意，每當應用程式將訊息新增到佇列時，佇列的目前大小就會讓 [基本資訊] 視窗上的 [目前] 值增加。
+7. 執行程式，並檢查 Azure 入口網站：按一下命名空間 [概觀]  視窗中的佇列名稱。 佇列的 [基本資訊]  畫面即會顯示。 請注意，佇列的 [使用中訊息計數]  值現在是 **10**。 每次執行傳送者應用程式而未擷取訊息 (如下一節所述)，這個值就會增加 10。 也請注意，每當應用程式將訊息新增到佇列時，佇列的目前大小就會讓 [基本資訊]  視窗上的 [目前]  值增加。
    
       ![訊息大小][queue-message]
 
@@ -385,14 +385,14 @@ ms.locfileid: "65991775"
         }
     }
     ```
-4. 執行程式，並再次檢查入口網站。 請注意，[使用中訊息計數] 和 [目前] 值現在是 **0**。
+4. 執行程式，並再次檢查入口網站。 請注意，[使用中訊息計數]  和 [目前]  值現在是 **0**。
    
     ![佇列長度][queue-message-receive]
 
 恭喜！ 您現已建立佇列、將一組訊息傳送至該佇列，以及從相同佇列接收這些訊息。
 
 > [!NOTE]
-> 您可以管理與服務匯流排資源[Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)。 Service Bus Explorer 可讓使用者連接到服務匯流排命名空間，並可以輕鬆地管理訊息實體。 此工具提供進階的功能，例如匯入/匯出功能或測試主題、 佇列、 訂用帳戶、 轉送服務、 通知中樞和事件中樞的能力。 
+> 您可以使用[服務匯流排總管](https://github.com/paolosalvatori/ServiceBusExplorer/)來管理服務匯流排資源。 服務匯流排總管可讓使用者連線到服務匯流排命名空間，並以簡便的方式管理傳訊實體。 此工具提供進階的功能 (例如匯入/匯出功能) 或測試主題、佇列、訂用帳戶、轉送服務、通知中樞和事件中樞的能力。 
 
 ## <a name="next-steps"></a>後續步驟
 

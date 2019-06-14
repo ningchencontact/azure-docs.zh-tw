@@ -8,10 +8,10 @@ ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
 ms.openlocfilehash: 9b6089aa828b5667f100c1a8cbff3e69345e4512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150433"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Azure Key Vault 受控儲存體帳戶 - PowerShell
@@ -46,11 +46,11 @@ Key Vault 受控儲存體帳戶功能會代表您執行數個管理功能：
 ## <a name="authorize-key-vault-to-access-to-your-storage-account"></a>授與 Key Vault 儲存體帳戶的存取權
 
 > [!IMPORTANT]
-> Azure AD 租用戶會為每個已註冊的應用程式提供一個**[服務主體](/azure/active-directory/develop/developer-glossary#service-principal-object)**，其能作為應用程式的識別碼。 透過角色型存取控制 (RBAC) 將授權授與服務主體以存取其他 Azure 資源時，會使用服務主體的應用程式識別碼。 由於 Key Vault 是 Microsoft 應用程式，因此它已經在 Azure 雲端內以相同的應用程式識別碼，預先註冊在所有 Azure AD 租用戶中：
+> Azure AD 租用戶會為每個已註冊的應用程式提供一個 **[服務主體](/azure/active-directory/develop/developer-glossary#service-principal-object)** ，其能作為應用程式的識別碼。 透過角色型存取控制 (RBAC) 將授權授與服務主體以存取其他 Azure 資源時，會使用服務主體的應用程式識別碼。 由於 Key Vault 是 Microsoft 應用程式，因此它已經在 Azure 雲端內以相同的應用程式識別碼，預先註冊在所有 Azure AD 租用戶中：
 > - Azure 政府雲端中的 Azure AD 租用戶會使用應用程式識別碼 `7e7c393b-45d0-48b1-a35e-2905ddf8183c`。
 > - Azure 公用雲端中的 Azure AD 租用戶和所有其他用戶端都會使用應用程式識別碼 `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`。
 
-在 Key Vault 可以存取並管理您的儲存體帳戶金鑰之前，您必須為它授權以存取您的儲存體帳戶。 Key Vault 應用程式需要「列出」及「重新產生」儲存體帳戶金鑰的使用權限。 這些使用權限是透過內建的 RBAC 角色[儲存體帳戶金鑰操作員服務角色](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role)來啟用。 
+在 Key Vault 可以存取並管理您的儲存體帳戶金鑰之前，您必須為它授權以存取您的儲存體帳戶。 Key Vault 應用程式需要「列出」  及「重新產生」  儲存體帳戶金鑰的使用權限。 這些使用權限是透過內建的 RBAC 角色[儲存體帳戶金鑰操作員服務角色](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role)來啟用。 
 
 使用下列步驟將此角色指派給 Key Vault 服務主體，並將範圍限制在您的儲存體帳戶。 在執行指令碼之前，請務必更新 `$resourceGroupName`、`$storageAccountName`、`$storageAccountKey`，以及 `$keyVaultName` 變數：
 
@@ -86,7 +86,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-如果 Key Vault 在您的儲存體帳戶上已經被新增至該角色，您將會收到「角色指派已存在。」 的錯誤。 您也可以使用 Azure 入口網站中該儲存體帳戶的 [存取控制 (IAM)] 頁面來驗證角色指派。  
+如果 Key Vault 在您的儲存體帳戶上已經被新增至該角色，您將會收到「角色指派已存在。」  的錯誤。 您也可以使用 Azure 入口網站中該儲存體帳戶的 [存取控制 (IAM)] 頁面來驗證角色指派。  
 
 ## <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>將使用者帳戶使用權限授與受控儲存體帳戶
 

@@ -9,19 +9,19 @@ ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: e8fe694cc757f5bcb9cf470f17306e8aa0028744
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238378"
 ---
-| Resource | 預設限制 | 上限 |
+| 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
 | 每個 Vcpu[訂用帳戶](../articles/billing-buy-sign-up-azure-subscription.md)<sup>1</sup> |20 |10,000 |
 | [共同管理員](../articles/billing-add-change-azure-subscription-administrator.md)每訂用帳戶 |200 |200 |
 | 每一訂用帳戶的[儲存體帳戶](../articles/storage/common/storage-create-storage-account.md)<sup>2</sup> |100 |100 |
 | 每一訂用帳戶[雲端服務](../articles/cloud-services/cloud-services-choose-me.md) |20 |200 |
-| [區域網路](/previous-versions/azure/reference/jj157100(v=azure.100))  |10 |500 |
+| [區域網路](/previous-versions/azure/reference/jj157100(v=azure.100)) |10 |500 |
 | 每一訂閱的 DNS 伺服器 |9 |100 |
 | 每一訂用帳戶的保留 IP |20 |100 |
 | 每一訂用帳戶[同質群組](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) |256 |256 |

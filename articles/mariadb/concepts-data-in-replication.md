@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 0a1ead1580f6764fec7d1d18daa38bf093f242f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61364432"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>將資料複寫到適用於 MariaDB 的 Azure Database
@@ -26,7 +26,7 @@ ms.locfileid: "61364432"
 ## <a name="limitations-and-considerations"></a>限制與注意事項
 
 ### <a name="data-not-replicated"></a>不會複寫資料
-不會複寫主要伺服器上的 [mysql 系統資料庫](https://mariadb.com/kb/en/library/the-mysql-database-tables/) \(英文\)。 不會複寫主要伺服器上對於帳戶和權限的變更。 如果您在主要伺服器上建立帳戶且此帳戶需要存取複本伺服器，則需在複本伺服器端手動建立相同的帳戶。 若要了解系統資料庫中包含哪些資料表，請參閱 [MariaDB 文件](https://mariadb.com/kb/en/library/the-mysql-database-tables/) \(英文\)。
+不會複寫主要伺服器上的 [mysql 系統資料庫  ](https://mariadb.com/kb/en/library/the-mysql-database-tables/) \(英文\)。 不會複寫主要伺服器上對於帳戶和權限的變更。 如果您在主要伺服器上建立帳戶且此帳戶需要存取複本伺服器，則需在複本伺服器端手動建立相同的帳戶。 若要了解系統資料庫中包含哪些資料表，請參閱 [MariaDB 文件](https://mariadb.com/kb/en/library/the-mysql-database-tables/) \(英文\)。
 
 ### <a name="requirements"></a>需求
 - 主要伺服器版本必須至少是 MariaDB 10.2 版。

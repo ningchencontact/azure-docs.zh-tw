@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166199"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>監視 Azure IoT 中樞的健康情況並快速診斷問題
@@ -66,7 +66,7 @@ Azure 資源健康情況可協助您進行診斷，並在 Azure 問題影響您�
 }
 ```
 
-#### <a name="cloud-to-device-commands"></a>雲端到裝置的命令數
+#### <a name="cloud-to-device-commands"></a>雲端到裝置的命令
 
 雲端到裝置的命令類別會追蹤在 IoT 中樞發生，且與雲端到裝置訊息管線相關的錯誤。 此類別包括發生自下列動作的錯誤：
 
@@ -343,10 +343,10 @@ Azure 資源健康情況可協助您進行診斷，並在 Azure 問題影響您�
 
 在這裡，`durationMs` 不會進行計算，因為 IoT 中樞的時鐘可能未與裝置的時鐘同步，因此計算持續時間可能會產生誤導。 建議您使用 `properties` 區段中的時間戳記來撰寫邏輯，以擷取暴增的裝置到雲端延遲。
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **messageSize** | 整數  | 裝置到雲端訊息的大小 (以位元組為單位) |
-| deviceId | 由 ASCII 7 位元英數字元組成的字串 | 裝置的身分識別 |
+| **messageSize** | Integer | 裝置到雲端訊息的大小 (以位元組為單位) |
+| deviceId  | 由 ASCII 7 位元英數字元組成的字串 | 裝置的身分識別 |
 | **callerLocalTimeUtc** | UTC 時間戳記 | 裝置本機時鐘所報告的訊息建立時間 |
 | **calleeLocalTimeUtc** | UTC 時間戳記 | IoT 中樞服務端時鐘所報告、訊息抵達 IoT 中樞閘道的時間 |
 
@@ -377,10 +377,10 @@ Azure 資源健康情況可協助您進行診斷，並在 Azure 問題影響您�
 
 在 [ `properties` ] 區段中，此記錄檔包含有關訊息輸入其他資訊。
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | String | 可為 true 或 false，會指出 IoT 中樞是否已啟用訊息路由 |
-| **parentSpanId** | String | 父代訊息的[範圍識別碼](https://w3c.github.io/trace-context/#parent-id)，在此案例中會是 D2C 訊息追蹤 |
+| **isRoutingEnabled** | 字串 | 可為 true 或 false，會指出 IoT 中樞是否已啟用訊息路由 |
+| **parentSpanId** | 字串 | 父代訊息的[範圍識別碼](https://w3c.github.io/trace-context/#parent-id)，在此案例中會是 D2C 訊息追蹤 |
 
 ##### <a name="iot-hub-egress-logs"></a>IoT 中樞輸出記錄
 
@@ -409,11 +409,11 @@ Azure 資源健康情況可協助您進行診斷，並在 Azure 問題影響您�
 
 在 [ `properties` ] 區段中，此記錄檔包含有關訊息輸入其他資訊。
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | String | 路由端點的名稱 |
-| **endpointType** | String | 路由端點的類型 |
-| **parentSpanId** | String | 父代訊息的[範圍識別碼](https://w3c.github.io/trace-context/#parent-id)，在此案例中會是 IoT 中樞輸入訊息追蹤 |
+| **endpointName** | 字串 | 路由端點的名稱 |
+| **endpointType** | 字串 | 路由端點的類型 |
+| **parentSpanId** | 字串 | 父代訊息的[範圍識別碼](https://w3c.github.io/trace-context/#parent-id)，在此案例中會是 IoT 中樞輸入訊息追蹤 |
 
 ### <a name="read-logs-from-azure-event-hubs"></a>從 Azure 事件中樞讀取記錄
 
@@ -488,13 +488,13 @@ class Program
 
 使用「Azure 資源健康狀態」來監視您的 IoT 中樞是否已啟動並執行。 您也可以了解區域性服務中斷是否對您的 IoT 中樞造成影響。 若要了解有關您「Azure IoT 中樞」健全狀態的特定詳細資料，建議您[使用 Azure 監視器](#use-azure-monitor)。
 
-「Azure IoT 中樞」會指出區域層級的健康情況。 如果有區域性服務中斷影響到您的 IoT 中樞，健全狀態就會顯示為 [不明]。 若要進一步了解，請參閱[Azure 資源健康狀態中的資源類型和健康情況檢查](../service-health/resource-health-checks-resource-types.md)。
+「Azure IoT 中樞」會指出區域層級的健康情況。 如果有區域性服務中斷影響到您的 IoT 中樞，健全狀態就會顯示為 [不明]  。 若要進一步了解，請參閱[Azure 資源健康狀態中的資源類型和健康情況檢查](../service-health/resource-health-checks-resource-types.md)。
 
 若要檢查您 IoT 中樞的健康情況，請依照下列步驟：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 瀏覽至 [服務健全狀況] > [資源健康狀態]。
+2. 瀏覽至 [服務健全狀況]   > [資源健康狀態]  。
 
 3. 從下拉式清單方塊中，選取 訂用帳戶，然後選取**IoT 中樞**做為資源類型。
 

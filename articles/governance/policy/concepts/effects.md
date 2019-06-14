@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116193"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure 原則效果
@@ -21,7 +21,7 @@ ms.locfileid: "66116193"
 
 原則定義中目前支援六種效果：
 
-- 附加
+- Append
 - 稽核
 - AuditIfNotExists
 - 拒絕
@@ -43,7 +43,7 @@ ms.locfileid: "66116193"
 
 針對測試情況，或當原則定義已將效果參數化時，此效果相當有用。 這個彈性讓您得以停用單一指派，而不是停用該原則的所有指派。
 
-## <a name="append"></a>附加
+## <a name="append"></a>Append
 
 Append 可用來在建立或更新所要求的資源時，為資源新增額外的欄位。 其中一個常見的範例就是在資源上新增標籤 (例如 costCenter)，或是為儲存體資源指定允許的 IP。
 
@@ -59,7 +59,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 ### <a name="append-examples"></a>Append 範例
 
-範例 1:用以附加一個標籤的單一 **field/value** 配對。
+範例 1：用以附加一個標籤的單一 **field/value** 配對。
 
 ```json
 "then": {
@@ -103,7 +103,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 }
 ```
 
-範例 4：使用 **[\*]** [別名](definition-structure.md#aliases)搭配 **value** 陣列以設定儲存體帳戶相關 IP 規則的單一 **field/value** 配對。 藉由使用 **[\*]** 別名，效果會將 **value** 附加至可能預先存在的陣列。 如果陣列不存在，則會加以建立。
+範例 4︰使用 **[\*]** [別名](definition-structure.md#aliases)搭配 **value** 陣列以設定儲存體帳戶相關 IP 規則的單一 **field/value** 配對。 藉由使用 **[\*]** 別名，效果會將 **value** 附加至可能預先存在的陣列。 如果陣列不存在，則會加以建立。
 
 ```json
 "then": {
@@ -339,7 +339,7 @@ DeployIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 
 ## <a name="layering-policies"></a>分層原則
 
-一個資源可能會受到數個指派影響。 這些指派可能屬於相同範圍，也可能屬於不同範圍。 這些指派中的每項指派也可能定義了不同的效果。 針對每個原則的條件和效果，都會以獨立方式進行評估。 例如：
+一個資源可能會受到數個指派影響。 這些指派可能屬於相同範圍，也可能屬於不同範圍。 這些指派中的每項指派也可能定義了不同的效果。 針對每個原則的條件和效果，都會以獨立方式進行評估。 例如:
 
 - 原則 1
   - 將資源位置限制為 'westus'
@@ -373,4 +373,4 @@ DeployIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 - 了解如何[以程式設計方式建立原則](../how-to/programmatically-create.md)。
 - 了解如何[取得合規性資料](../how-to/getting-compliance-data.md)。
 - 了解如何[補救不符合規範的資源](../how-to/remediate-resources.md)。
-- 檢閱管理群組是使用[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)。
+- 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

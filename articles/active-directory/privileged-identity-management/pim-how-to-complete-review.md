@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a7fa3bfe159620130bc0962b470cea8e7422646
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602152"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-pim"></a>完成 Azure AD PIM 中的角色的存取權檢閱
@@ -27,7 +27,7 @@ ms.locfileid: "65602152"
 存取權檢閱期間結束後，或所有使用者都已完成其自我檢閱後，請遵循本文的步驟來管理檢閱並查看結果。
 
 ## <a name="manage-access-reviews"></a>管理存取權檢閱
-1. 移至 [Azure 入口網站](https://portal.azure.com/)，然後在儀表板上選取 [Azure AD Privileged Identity Management] 應用程式。
+1. 移至 [Azure 入口網站](https://portal.azure.com/)，然後在儀表板上選取 [Azure AD Privileged Identity Management]  應用程式。
 2. 選取儀表板的 [存取權檢閱]  區段。
 3. 選取您想要管理的存取權檢閱。
 
@@ -38,7 +38,7 @@ ms.locfileid: "65602152"
 ### <a name="remind"></a>提醒
 如果將存取權檢閱設定成讓使用者自我檢閱，[提醒]  按鈕就會傳送通知。 
 
-### <a name="stop"></a>停止
+### <a name="stop"></a>Stop
 所有的存取權檢閱都有結束日期，但是您可以使用 [停止]  按鈕來提早結束檢閱。 如果此時有任何使用者尚未受到檢閱，在您停止檢閱之後，他們將無法受到檢閱。 在停止檢閱之後，即無法重新開始該檢閱。
 
 ### <a name="apply"></a>套用

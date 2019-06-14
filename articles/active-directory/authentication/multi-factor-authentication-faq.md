@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b3517f90d97a19740f5be8c2a755532d305522d7
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65228177"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>與 Azure Multi-Factor Authentication 相關的常見問題
@@ -97,7 +97,7 @@ Azure 系統管理員的 Multi-factor Authentication 提供免費存取 Microsof
 
 建立 MFA 提供者時，它可以連結至 Azure Active Directory 或 「 Azure AD 租用戶。 」 如果目前的 MFA 提供者已連結至 Azure AD 租用戶，您就可以安全地刪除 MFA 提供者，並建立連結至相同的 Azure AD 租用戶的其中一個。 或者，如果您購買的 MFA、Azure AD Premium 或 Enterprise Mobility + Security (EMS) 授權已足夠讓啟用 MFA 的所有使用者使用，您可以一併刪除 MFA 提供者。
 
-如果您的 MFA 提供者未連結至 Azure AD 租用戶，或是您將新的 MFA 提供者連結至不同 Azure AD 租用戶，則使用者設定和組態選項並不會進行轉移。 此外，現有 Azure MFA 伺服器也需要使用新 MFA 提供者產生的啟用認證重新啟動。 重新啟用 MFA 伺服器以將其連結至新的 MFA 提供者，並不會影響電話和簡訊驗證，但所有使用者的行動裝置應用程式通知將會停止運作，直到他們重新啟動行動裝置應用程式。
+如果您的 MFA 提供者未  連結至 Azure AD 租用戶，或是您將新的 MFA 提供者連結至不同 Azure AD 租用戶，則使用者設定和組態選項並不會進行轉移。 此外，現有 Azure MFA 伺服器也需要使用新 MFA 提供者產生的啟用認證重新啟動。 重新啟用 MFA 伺服器以將其連結至新的 MFA 提供者，並不會影響電話和簡訊驗證，但所有使用者的行動裝置應用程式通知將會停止運作，直到他們重新啟動行動裝置應用程式。
 
 於[開始使用 Azure Multi-Factor Auth 提供者](concept-mfa-authprovider.md)中深入了解 MFA 提供者。
 
@@ -107,7 +107,7 @@ Azure 系統管理員的 Multi-factor Authentication 提供免費存取 Microsof
 
 如果您的目錄有*根據使用者計費*的 Azure Multi-Factor Authentication 提供者，您可以新增 MFA 授權。 擁有授權的使用者不會根據每位使用者使用量計費。 沒有授權的使用者仍可透過 MFA 提供者啟用 MFA。 如果您購買授權，並將其指派給所有設定使用 Multi-Factor Authentication 的使用者，您就可以刪除 Azure Multi-Factor Authentication 提供者。 如果您之後會有多於授權的使用者，您隨時都可以建立其他根據使用者計費的 MFA 提供者。
 
-如果您的目錄有依驗證次數計費的 Azure Multi-Factor Authentication 提供者，只要您的 MFA 提供者與訂用帳戶連結，就一律要為每次驗證支付費用。 您可以將 MFA 授權指派給使用者，但您仍需要為每次雙步驟驗證要求支付費用，無論發出此要求的人是否擁有指派的 MFA 授權。
+如果您的目錄有依驗證次數計費  的 Azure Multi-Factor Authentication 提供者，只要您的 MFA 提供者與訂用帳戶連結，就一律要為每次驗證支付費用。 您可以將 MFA 授權指派給使用者，但您仍需要為每次雙步驟驗證要求支付費用，無論發出此要求的人是否擁有指派的 MFA 授權。
 
 **問：我的組織是否必須使用和同步處理身分識別才能使用 Azure Multi-Factor Authentication？**
 
@@ -207,9 +207,9 @@ Windows Server 2012 R2 中的安全性變更已改變 Azure Multi-Factor Authent
 請告訴他們遵循這個從行動應用程式移除其帳戶的程序，然後重新新增帳戶︰
 
 1. 移至 [您的 Azure 入口網站設定檔](https://account.activedirectory.windowsazure.com/profile/) ，並使用您的組織帳戶登入。
-2. 選取 [其他安全性驗證]。
+2. 選取 [其他安全性驗證]  。
 3. 从移动应用中删除现有帐户。
-4. 按一下 [設定] ，然後依照指示來重新設定行動應用程式。
+4. 按一下 [設定]  ，然後依照指示來重新設定行動應用程式。
 
 **问：如果使用者在登入非瀏覽器應用程式時看到 0x800434D4L 錯誤訊息，應該怎麼辦？**
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: 637feb855c7816dfb26229c5a65a069260a58cd3
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66003086"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>適用於 Azure App Service 中設定 Linux PHP 應用程式
@@ -125,7 +125,7 @@ getenv("DB_HOST")
 </IfModule>
 ```
 
-如果您不要使用 .htaccess 重寫，您可以改為使用[自訂 Docker 映像](quickstart-docker-go.md)來部署 Laravel 應用程式。
+如果您不要使用 .htaccess  重寫，您可以改為使用[自訂 Docker 映像](quickstart-docker-go.md)來部署 Laravel 應用程式。
 
 ## <a name="detect-https-session"></a>偵測 HTTPS 工作階段
 

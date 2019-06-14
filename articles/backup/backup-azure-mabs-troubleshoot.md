@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: kasinh
 ms.openlocfilehash: 06faed8ceca77edc20b67f73a76d885839aa7dbc
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304328"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>針對 Azure 備份伺服器進行疑難排解
@@ -43,13 +43,13 @@ ms.locfileid: "66304328"
 
 | 作業 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
-| Backup  | 複本不一致 | 確認已開啟「保護群組」精靈中的自動一致性檢查選項。 如需詳細的複本不一致和相關建議原因相關資訊，請參閱文章[複本不一致](https://technet.microsoft.com/library/cc161593.aspx)。<br> <ol><li> 如果是系統狀態/BMR 備份，請確認受保護伺服器上已安裝 Windows Server Backup。</li><li> 檢查 DPM/「Microsoft Azure 備份伺服器」上 DPM 儲存體集區中的空間相關問題，並視需要配置儲存體。</li><li> 檢查受保護伺服器上「磁碟區陰影複製服務」的狀態。 如果它處於停用狀態，請將它設定為手動啟動。 在伺服器上啟動該服務。 然後返回 DPM/「Microsoft Azure 備份伺服器」主控台，並開始一致性檢查作業的同步處理。</li></ol>|
+| Backup | 複本不一致 | 確認已開啟「保護群組」精靈中的自動一致性檢查選項。 如需詳細的複本不一致和相關建議原因相關資訊，請參閱文章[複本不一致](https://technet.microsoft.com/library/cc161593.aspx)。<br> <ol><li> 如果是系統狀態/BMR 備份，請確認受保護伺服器上已安裝 Windows Server Backup。</li><li> 檢查 DPM/「Microsoft Azure 備份伺服器」上 DPM 儲存體集區中的空間相關問題，並視需要配置儲存體。</li><li> 檢查受保護伺服器上「磁碟區陰影複製服務」的狀態。 如果它處於停用狀態，請將它設定為手動啟動。 在伺服器上啟動該服務。 然後返回 DPM/「Microsoft Azure 備份伺服器」主控台，並開始一致性檢查作業的同步處理。</li></ol>|
 
 ## <a name="online-recovery-point-creation-failed"></a>線上復原點建立失敗
 
 | 作業 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
-| Backup  | 線上復原點建立失敗 | **錯誤訊息**：Windows Azure 備份代理程式無法建立選取之磁碟區的快照集。 <br> **因應措施**：請嘗試增加複本和復原點磁碟區中的空間。<br> <br> **錯誤訊息**：Windows Azure 備份代理程式無法連線到 OBEngine 服務 <br> **因應措施**：請確認電腦上正在執行的服務清單中是否存在 OBEngine。 如果 OBEngine 服務並未執行，請使用 "net start OBEngine" 命令來啟動 OBEngine 服務。 <br> <br> **錯誤訊息**：未設定此伺服器的加密複雜密碼。 請設定加密複雜密碼。 <br> **因應措施**：請嘗試設定加密複雜密碼。 如果失敗，請執行下列步驟： <br> <ol><li>確認臨時位置存在。 也就是登錄 **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config** 中所提到名稱為 **ScratchLocation** 的位置應該要存在。</li><li> 如果臨時位置存在，請嘗試使用舊的複雜密碼來重新註冊。 「每次您設定加密複雜密碼時，請都將它儲存在安全的位置。」 </li><ol>|
+| Backup | 線上復原點建立失敗 | **錯誤訊息**：Windows Azure 備份代理程式無法建立選取之磁碟區的快照集。 <br> **因應措施**：請嘗試增加複本和復原點磁碟區中的空間。<br> <br> **錯誤訊息**：Windows Azure 備份代理程式無法連線到 OBEngine 服務 <br> **因應措施**：請確認電腦上正在執行的服務清單中是否存在 OBEngine。 如果 OBEngine 服務並未執行，請使用 "net start OBEngine" 命令來啟動 OBEngine 服務。 <br> <br> **錯誤訊息**：未設定此伺服器的加密複雜密碼。 請設定加密複雜密碼。 <br> **因應措施**：請嘗試設定加密複雜密碼。 如果失敗，請執行下列步驟： <br> <ol><li>確認臨時位置存在。 也就是登錄 **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config** 中所提到名稱為 **ScratchLocation** 的位置應該要存在。</li><li> 如果臨時位置存在，請嘗試使用舊的複雜密碼來重新註冊。 「每次您設定加密複雜密碼時，請都將它儲存在安全的位置。」 </li><ol>|
 
 ## <a name="the-vault-credentials-provided-are-different-from-the-vault-the-server-is-registered"></a>提供的保存庫認證與登錄此伺服器的保存庫不同
 
@@ -61,7 +61,7 @@ ms.locfileid: "66304328"
 
 | 作業 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
-| Backup  | VMware VM 的線上復原點建立作業失敗。 DPM 在嘗試取得變更追蹤資訊時，VMware 發生錯誤。 ErrorCode - FileFaultFault (ID 33621 ) |  <ol><li> 針對受影響的 VM，在 VMWare 上重設 CTK。</li> <li>確認 VMWare 上沒有獨立磁碟。</li> <li>停止對受影響 VM 的保護，然後使用 [重新整理]  按鈕來重新保護。 </li><li>針對受影響的 VM 執行 CC。</li></ol>|
+| Backup | VMware VM 的線上復原點建立作業失敗。 DPM 在嘗試取得變更追蹤資訊時，VMware 發生錯誤。 ErrorCode - FileFaultFault (ID 33621 ) |  <ol><li> 針對受影響的 VM，在 VMWare 上重設 CTK。</li> <li>確認 VMWare 上沒有獨立磁碟。</li> <li>停止對受影響 VM 的保護，然後使用 [重新整理]  按鈕來重新保護。 </li><li>針對受影響的 VM 執行 CC。</li></ol>|
 
 
 ## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>代理程式作業因為伺服器上的 DPM 代理程式協調員服務發生通訊錯誤而失敗
@@ -95,15 +95,15 @@ ms.locfileid: "66304328"
 | 設定保護群組 | 此保護群組在儲存體集區中的可用空間不足。 | 新增至儲存體集區的磁碟[不應包含分割區](https://technet.microsoft.com/library/hh758075(v=sc.12).aspx)。 刪除磁碟上的任何現有磁碟區。 然後將它們新增至儲存體集區。|
 | 原則變更 |無法修改備份原則。 Error:由於發生內部服務錯誤 [0x29834]，導致目前的操作失敗。 請在一段時間之後重試此作業。 如果問題持續發生， 請連絡 Microsoft 支援服務。 | **原因：**<br/>在三種情況下會發生此錯誤：已啟用安全性設定時、嘗試將保留範圍縮減至低於先前指定的最小值時，以及使用不支援的版本時。 (不支援的版本係指低於「Microsoft Azure 備份伺服器」2.0.9052 版和「Azure 備份伺服器」更新 1 的版本)。 <br/>**建議的動作：**<br/> 若要繼續進行原則相關的更新，請將保留期設定成大於所指定的最短保留期。 (最短保留期就每日而言是 7 天、就每週而言是 4 週、就每月而言是 3 個月，或就每年而言則是 1 年)。 <br><br>(選擇性) 另一個慣用的方法是更新備份代理程式和「Azure 備份伺服器」，以利用所有安全性更新。 |
 
-## <a name="backup"></a>Backup 
+## <a name="backup"></a>Backup
 
 | 作業 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
-| Backup  | 執行作業時發生非預期的錯誤。 裝置未就緒。 | **如果產品所示的建議動作沒有用，請執行下列步驟：** <br> <ul><li>針對保護群組中的項目，將「陰影複製儲存」空間設定為無限，然後執行一致性檢查。<br></li> (或) <li>嘗試刪除現有保護群組，並建立多個新群組。 每個新保護群組中都應該有一個個別項目。</li></ul> |
-| Backup  | 如果您只要備份系統狀態，請確認受保護的電腦上有足夠的可用空間可儲存系統狀態備份。 | <ol><li>確認受保護電腦上已安裝 Windows Server Backup。</li><li>確認受保護電腦上有足夠的空間可儲存系統狀態。 進行這項確認的最簡單方式就是移至受保護的電腦、開啟 Windows Server Backup、一路點選選項，然後選取 [BMR]。 接著，UI 會告訴您需要多少空間。 開啟 [WSB]   > [本機備份]   > [備份排程]   > [選取備份設定]   > [完整伺服器]  (會顯示大小)。 使用此大小進行驗證。</li></ol>
-| Backup  | 用於執行 BMR 備份失敗 | 如果 BMR 大小很大，請將一些應用程式檔案移到作業系統磁碟機後再重試。 |
-| Backup  | 重新保護新「Microsoft Azure 備份伺服器」上 VMWare VM 的選項未顯示為可供新增。 | VMWare 屬性指向已停用的舊「Microsoft Azure 備份伺服器」執行個體。 若要解決此問題︰<br><ol><li>在 VCenter (SC-VMM 的對等項目) 中，移至 [摘要]  索引標籤，然後移至 [自訂屬性]  。</li>  <li>從 [DPMServer]  值中刪除舊的「Microsoft Azure 備份伺服器」名稱。</li>  <li>返回新的「Microsoft Azure 備份伺服器」，然後修改 PG。  選取 [重新整理]  按鈕之後，就會顯示 VM 並含有可供新增到保護的核取方塊。</li></ol> |
-| Backup  | 存取檔案/共用資料夾時發生錯誤 | 嘗試修改防毒設定，如 TechNet 文章[在 DPM 伺服器上執行防毒軟體](https://technet.microsoft.com/library/hh757911.aspx)所建議。|
+| Backup | 執行作業時發生非預期的錯誤。 裝置未就緒。 | **如果產品所示的建議動作沒有用，請執行下列步驟：** <br> <ul><li>針對保護群組中的項目，將「陰影複製儲存」空間設定為無限，然後執行一致性檢查。<br></li> (或) <li>嘗試刪除現有保護群組，並建立多個新群組。 每個新保護群組中都應該有一個個別項目。</li></ul> |
+| Backup | 如果您只要備份系統狀態，請確認受保護的電腦上有足夠的可用空間可儲存系統狀態備份。 | <ol><li>確認受保護電腦上已安裝 Windows Server Backup。</li><li>確認受保護電腦上有足夠的空間可儲存系統狀態。 進行這項確認的最簡單方式就是移至受保護的電腦、開啟 Windows Server Backup、一路點選選項，然後選取 [BMR]。 接著，UI 會告訴您需要多少空間。 開啟 [WSB]   > [本機備份]   > [備份排程]   > [選取備份設定]   > [完整伺服器]  (會顯示大小)。 使用此大小進行驗證。</li></ol>
+| Backup | 用於執行 BMR 備份失敗 | 如果 BMR 大小很大，請將一些應用程式檔案移到作業系統磁碟機後再重試。 |
+| Backup | 重新保護新「Microsoft Azure 備份伺服器」上 VMWare VM 的選項未顯示為可供新增。 | VMWare 屬性指向已停用的舊「Microsoft Azure 備份伺服器」執行個體。 若要解決此問題︰<br><ol><li>在 VCenter (SC-VMM 的對等項目) 中，移至 [摘要]  索引標籤，然後移至 [自訂屬性]  。</li>  <li>從 [DPMServer]  值中刪除舊的「Microsoft Azure 備份伺服器」名稱。</li>  <li>返回新的「Microsoft Azure 備份伺服器」，然後修改 PG。  選取 [重新整理]  按鈕之後，就會顯示 VM 並含有可供新增到保護的核取方塊。</li></ol> |
+| Backup | 存取檔案/共用資料夾時發生錯誤 | 嘗試修改防毒設定，如 TechNet 文章[在 DPM 伺服器上執行防毒軟體](https://technet.microsoft.com/library/hh757911.aspx)所建議。|
 
 
 ## <a name="change-passphrase"></a>變更複雜密碼
