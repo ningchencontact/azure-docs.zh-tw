@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
 ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190043"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>針對 Azure 檔案服務的效能問題進行疑難排解
@@ -31,7 +31,7 @@ ms.locfileid: "65190043"
 
 1. 選取 **所有的服務**，然後搜尋**計量**。
 
-1. 選取 [計量]。
+1. 選取 [計量]  。
 
 1. 選取儲存體帳戶和資源。
 

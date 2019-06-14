@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
 ms.openlocfilehash: 6f27aeb65cb9077011e662c165ca26202546db26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66130433"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>使用 Azure PowerShell 建立 Log Analytics 工作區
@@ -116,7 +116,7 @@ Azure PowerShell 模組用於從 PowerShell 命令列或在指令碼中建立和
     ```
 
 2. 編輯範本以符合您的需求。 檢閱 [Microsoft.OperationalInsights/workspaces 範本](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces)參考，以了解支援哪些屬性和值。 
-3. 將此檔案儲存為本機資料夾的 deploylaworkspacetemplate.json。   
+3. 將此檔案儲存為本機資料夾的 deploylaworkspacetemplate.json  。   
 4. 您已準備好部署此範本。 從包含範本的資料夾使用下列命令：
 
     ```powershell

@@ -17,10 +17,10 @@ ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
 ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65594271"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
@@ -39,7 +39,7 @@ ms.locfileid: "65594271"
 
 **設定執行階段堆疊時，在 [啟動檔案] 區段應該使用哪些值？**
 
-| 堆疊           | 需要的值                                                                         |
+| 堆疊           | 預期值                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
 | Java SE         | 用以啟動應用程式 JAR 的命令 (例如`java -jar my-app.jar --server.port=80`) |
 | Tomcat Wildfly | 若要執行任何必要的設定指令碼的位置 (例如`/home/site/deployments/tools/startup_script.sh`)          |
@@ -65,7 +65,7 @@ ms.locfileid: "65594271"
 
 **我如何透過 SDK 或 Azure Resource Manager 範本建立 Linux App Service 方案？**
 
-您應該將 App Service 的 **reserved** 欄位設定為 true。
+您應該將 App Service 的 **reserved** 欄位設定為 true  。
 
 ## <a name="continuous-integration-and-deployment"></a>持續整合和部署
 
@@ -119,10 +119,10 @@ const io = require('socket.io')(server,{
 
 **我使用自己的自訂容器。我希望平台將 SMB 共用掛接至 `/home/` 目錄。**
 
-您可以將 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 應用程式設定設為 true 來執行此動作。 請記住，當平台儲存體進行變更時，如此會導致容器重新啟動。
+您可以將 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 應用程式設定設為 true  來執行此動作。 請記住，當平台儲存體進行變更時，如此會導致容器重新啟動。
 
 >[!NOTE]
->如果 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 設定為未指定或設定為 false，`/home/` 目錄不會由級別執行個體共用，而且寫入其中的檔案不會保存到重新啟動之後。
+>如果 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 設定為未指定或設定為 false  ，`/home/` 目錄不會由級別執行個體共用，而且寫入其中的檔案不會保存到重新啟動之後。
 
 **我的自訂容器需要很長時間才能啟動，而平台會在它完成啟動之前將容器重新啟動。**
 
@@ -158,7 +158,7 @@ SCM 網站是在個別的容器中執行。 您無法檢查應用程式容器的
 
 ## <a name="multi-container-with-docker-compose"></a>多容器 docker Compose
 
-**如何設定 Azure 容器登錄 (ACR) 與多重容器一起使用？** 
+**如何設定 Azure 容器登錄 (ACR) 與多重容器一起使用？**
 
 為了將 ACR 與多重容器一起使用，**所有容器映像**都必須裝載在相同的 ACR 登錄伺服器上。 在相同的登錄伺服器之後，您必須建立應用程式設定，然後更新 Docker Compose 的組態檔以加入 ACR 映像名稱。
 

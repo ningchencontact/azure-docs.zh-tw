@@ -14,15 +14,15 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60825212"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>使用 Data Factory 在 15 分鐘內將 1 TB 載入至 Azure SQL 資料倉儲
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[使用 Data Factory 從 Azure SQL 資料倉儲來回複製資料](../connector-azure-sql-data-warehouse.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[使用 Data Factory 從 Azure SQL 資料倉儲來回複製資料](../connector-azure-sql-data-warehouse.md)。
 
 
 [Azure SQL 資料倉儲](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)是一種雲端架構、相應放大的資料庫，可處理巨量關聯式與非關聯式資料。  SQL 資料倉儲是以巨量平行處理 (MPP) 架構為基礎，最適用於企業資料倉儲工作負載。  它透過單獨調整儲存體和計算的彈性，來提供雲端彈性。
@@ -70,11 +70,11 @@ ms.locfileid: "60825212"
 
     ![效能滑桿](media/data-factory-load-sql-data-warehouse/performance-slider.png)
 
-    針對未設定 6,000 個 DWU 的現有資料庫，您可以使用 Azure 入口網站相應進行增加。  瀏覽至 Azure 入口網站中的資料庫，而且下圖所顯示的 [概觀] 面板中會有 [調整] 按鈕：
+    針對未設定 6,000 個 DWU 的現有資料庫，您可以使用 Azure 入口網站相應進行增加。  瀏覽至 Azure 入口網站中的資料庫，而且下圖所顯示的 [概觀]  面板中會有 [調整]  按鈕：
 
     ![[調整] 按鈕](media/data-factory-load-sql-data-warehouse/scale-button.png)    
 
-    按一下 [調整] 按鈕開啟下列面板，並將滑桿移到最大值，然後按一下 [儲存] 按鈕。
+    按一下 [調整]  按鈕開啟下列面板，並將滑桿移到最大值，然後按一下 [儲存]  按鈕。
 
     ![[調整] 對話方塊](media/data-factory-load-sql-data-warehouse/scale-dialog.png)
 
@@ -113,25 +113,25 @@ ms.locfileid: "60825212"
 
 ## <a name="launch-copy-wizard"></a>啟動複製精靈
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下左上角的 [建立資源]，按一下 [智慧 + 分析]，然後按一下 [Data Factory]。
-3. 在 [新增 Data Factory] 窗格中：
+2. 按一下左上角的 [建立資源]  ，按一下 [智慧 + 分析]  ，然後按一下 [Data Factory]  。
+3. 在 [新增 Data Factory]  窗格中：
 
-   1. 輸入 **LoadIntoSQLDWDataFactory** 作為 [名稱]。
+   1. 輸入 **LoadIntoSQLDWDataFactory** 作為 [名稱]  。
        Azure Data Factory 的名稱在全域必須是唯一的。 如果您收到錯誤：**Data Factory 名稱 “LoadIntoSQLDWDataFactory” 無法使用**，請變更 Data Factory 名稱 (例如 yournameLoadIntoSQLDWDataFactory)，然後試著重新建立。 請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md) 主題，以了解 Data Factory 成品的命名規則。  
    2. 選取您的 Azure **訂用帳戶**。
    3. 針對資源群組，請執行下列其中一個步驟︰
-      1. 選取 [使用現有的] 以選取現有的資源群組。
-      2. 選取 [建立新的] 以輸入資源群組的名稱。
-   4. 選取 Data Factory 的 [位置]。
-   5. 選取刀鋒視窗底部的 [釘選到儀表板] 核取方塊。  
-   6. 按一下頁面底部的 [新增] 。
-4. 建立完成之後，您會看到 [Data Factory] 刀鋒視窗，如下圖所示：
+      1. 選取 [使用現有的]  以選取現有的資源群組。
+      2. 選取 [建立新的]  以輸入資源群組的名稱。
+   4. 選取 Data Factory 的 [位置]  。
+   5. 選取刀鋒視窗底部的 [釘選到儀表板]  核取方塊。  
+   6. 按一下頁面底部的 [新增]  。
+4. 建立完成之後，您會看到 [Data Factory]  刀鋒視窗，如下圖所示：
 
    ![Data Factory 首頁](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
-5. 在 Data Factory 首頁，按一下 [資料複製] 圖格以啟動 [複製精靈]。
+5. 在 Data Factory 首頁，按一下 [資料複製]  圖格以啟動 [複製精靈]  。
 
    > [!NOTE]
-   > 如果您看到網頁瀏覽器停留在「授權中...」，請停用/取消核取 [封鎖第三方 Cookie 和站台資料] 設定 (或) 將它保持啟用並為 **login.microsoftonline.com** 建立例外狀況，然後再次嘗試啟動精靈。
+   > 如果您看到網頁瀏覽器停留在「授權中...」，請停用/取消核取 [封鎖第三方 Cookie 和站台資料]  設定 (或) 將它保持啟用並為 **login.microsoftonline.com** 建立例外狀況，然後再次嘗試啟動精靈。
    >
    >
 
@@ -140,64 +140,64 @@ ms.locfileid: "60825212"
 
 在 [屬性]  頁面︰
 
-1. 輸入 **CopyFromBlobToAzureSqlDataWarehouse** 作為 [工作名稱]
-2. 選取 [立即執行一次] 選項。   
-3. 单击“下一步”。  
+1. 輸入 **CopyFromBlobToAzureSqlDataWarehouse** 作為 [工作名稱] 
+2. 選取 [立即執行一次]  選項。   
+3. 单击“下一步”  。  
 
     ![複製精靈 - 屬性頁面](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
 ## <a name="step-2-configure-source"></a>步驟 2：設定來源
 本節說明設定以下來源的步驟：包含 1-TB TPC-H 明細行項目檔案的 Azure Blob。
 
-1. 選取 [Azure Blob 儲存體] 作為資料存放區，然後按 [下一步]。
+1. 選取 [Azure Blob 儲存體]  作為資料存放區，然後按 [下一步]  。
 
     ![複製精靈 - 選取來源頁面](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
 
-2. 填寫 Azure Blob 儲存體帳戶的連接資訊，然後按 [下一步]。
+2. 填寫 Azure Blob 儲存體帳戶的連接資訊，然後按 [下一步]  。
 
     ![複製精靈 - 來源連接資訊](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
 
-3. 選擇包含 TPC-H 明細行項目檔案的**資料夾**，然後按 [下一步]。
+3. 選擇包含 TPC-H 明細行項目檔案的**資料夾**，然後按 [下一步]  。
 
     ![複製精靈 - 選取輸入資料夾](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-4. 按 [下一步]，即會自動偵測檔案格式設定。  確認資料行的分隔符號是 '|'，而不是預設逗號 ‘,’。  在預覽資料之後，請按 [下一步]。
+4. 按 [下一步]  ，即會自動偵測檔案格式設定。  確認資料行的分隔符號是 '|'，而不是預設逗號 ‘,’。  在預覽資料之後，請按 [下一步]  。
 
     ![複製精靈 - 檔案格式設定](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
 ## <a name="step-3-configure-destination"></a>步驟 3：設定目的地
 本節示範如何設定目的地︰Azure SQL 資料倉儲資料庫中的 `lineitem` 資料表。
 
-1. 選擇 [Azure SQL 資料倉儲] 作為目的地存放區，然後按 [下一步]。
+1. 選擇 [Azure SQL 資料倉儲]  作為目的地存放區，然後按 [下一步]  。
 
     ![複製精靈 - 選取目的地資料存放區](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
 
-2. 填寫 Azure SQL 資料倉儲的連接資訊。  請務必指定本身為 `xlargerc` 角色成員的使用者 (如需詳細指示，請參閱**必要條件**一節)，然後按 [下一步]。
+2. 填寫 Azure SQL 資料倉儲的連接資訊。  請務必指定本身為 `xlargerc` 角色成員的使用者 (如需詳細指示，請參閱**必要條件**一節)，然後按 [下一步]  。
 
     ![複製精靈 - 目的地連接資訊](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
 
-3. 選擇目的地資料表，然後按 [下一步]。
+3. 選擇目的地資料表，然後按 [下一步]  。
 
     ![複製精靈 - 資料表對應頁面](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
 
-4. 在 [結構描述對應] 頁面中，將 [套用資料行對應] 選項保持不選取，然後按 [下一步]。
+4. 在 [結構描述對應] 頁面中，將 [套用資料行對應] 選項保持不選取，然後按 [下一步]  。
 
 ## <a name="step-4-performance-settings"></a>步驟 4：效能設定
 
-預設會核取 [允許 Polybase]。  单击“下一步”。
+預設會核取 [允許 Polybase]  。  单击“下一步”  。
 
 ![複製精靈 - 結構描述對應頁面](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
 ## <a name="step-5-deploy-and-monitor-load-results"></a>步驟 5：部署和監視載入結果
-1. 按一下 [完成] 按鈕進行部署。
+1. 按一下 [完成]  按鈕進行部署。
 
     ![複製精靈 - 摘要頁面](media/data-factory-load-sql-data-warehouse/summary-page.png)
 
-2. 部署完成之後，請按一下 `Click here to monitor copy pipeline` 監視複製執行進度。 選取您在 [活動時段] 清單中建立的複製管線。
+2. 部署完成之後，請按一下 `Click here to monitor copy pipeline` 監視複製執行進度。 選取您在 [活動時段]  清單中建立的複製管線。
 
     ![複製精靈 - 摘要頁面](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
 
-    您可以在右窗格的 [活動時段總管] 中檢視複製執行詳細資料，包括從來源讀取及寫入至目的地的資料量、期間，以及執行的平均輸送量。
+    您可以在右窗格的 [活動時段總管]  中檢視複製執行詳細資料，包括從來源讀取及寫入至目的地的資料量、期間，以及執行的平均輸送量。
 
     您可以看到下列螢幕擷取畫面中，將 1 TB 從 Azure Blob 儲存體複製到 SQL 資料倉儲需要 14 分鐘，有效地達成 1.22 GBps 輸送量 ！
 

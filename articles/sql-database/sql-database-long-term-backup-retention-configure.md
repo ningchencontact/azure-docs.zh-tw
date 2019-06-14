@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/17/2019
 ms.openlocfilehash: 255f118d6dc6873364c2f8d4569e23c3e54ea83e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66164414"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>管理 Azure SQL Database 長期備份保留
@@ -34,15 +34,15 @@ ms.locfileid: "66164414"
 
 您可以將 Azure SQL Database 設定為[保留自動備份](sql-database-long-term-retention.md)的期間比您服務層級的保留期限還要長。 
 
-1. 在 Azure 入口網站中，選取您的 SQL Server，然後按一下 [管理備份]。 在 [設定原則] 索引標籤上，針對您要設定或修改長期備份保留原則的資料庫選取其核取方塊。 如果未選取資料庫旁的核取方塊，則原則的變更不會套用到該資料庫。  
+1. 在 Azure 入口網站中，選取您的 SQL Server，然後按一下 [管理備份]  。 在 [設定原則]  索引標籤上，針對您要設定或修改長期備份保留原則的資料庫選取其核取方塊  。 如果未選取資料庫旁的核取方塊，則原則的變更不會套用到該資料庫。  
 
    ![管理備份連結](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 
-2. 在 [設定原則] 窗格中，選取您想要保留每週、每月或每年備份並指定各項的保留期限。 
+2. 在 [設定原則]  窗格中，選取您想要保留每週、每月或每年備份並指定各項的保留期限。 
 
    ![設定原則](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
-3. 完成時，按一下 [套用]。
+3. 完成時，按一下 [套用]  。
 
 > [!IMPORTANT]
 > 當您啟用長期備份保留原則時，可能需要最多 7 天變成可見且可供還原的第一個備份。 LTR 備份 cadance 的詳細資訊，請參閱[長期備份保留](sql-database-long-term-retention.md)。
@@ -51,11 +51,11 @@ ms.locfileid: "66164414"
 
 檢視使用 LTR 原則針對特定資料庫保留的備份，然後從這些備份還原。 
 
-1. 在 Azure 入口網站中，選取您的 SQL Server，然後按一下 [管理備份]。 在 [可用備份] 索引標籤上，選取您要查看可用備份的資料庫。
+1. 在 Azure 入口網站中，選取您的 SQL Server，然後按一下 [管理備份]  。 在 [可用備份]  索引標籤上，選取您要查看可用備份的資料庫。
 
    ![選取資料庫](./media/sql-database-long-term-retention/ltr-available-backups-select-database.png)
 
-3. 在 [可用備份] 窗格中，檢閱可用的備份。 
+3. 在 [可用備份]  窗格中，檢閱可用的備份。 
 
    ![檢視備份](./media/sql-database-long-term-retention/ltr-available-backups.png)
 
@@ -63,13 +63,13 @@ ms.locfileid: "66164414"
 
    ![還原](./media/sql-database-long-term-retention/ltr-restore.png)
 
-5. 按一下 [確定]，將您的資料庫從 Azure SQL 儲存體中的備份還原到新的資料庫。
+5. 按一下 [確定]  ，將您的資料庫從 Azure SQL 儲存體中的備份還原到新的資料庫。
 
 6. 在工具列上，按一下 [通知] 圖示以檢視還原作業的狀態。
 
    ![還原作業進度](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
-5. 完成還原作業之後，開啟 [SQL Database] 頁面，以檢視剛還原的資料庫。
+5. 完成還原作業之後，開啟 [SQL Database]  頁面，以檢視剛還原的資料庫。
 
 > [!NOTE]
 > 從這裡開始，您可以使用 SQL Server Management Studio 連接到已還原的資料庫來執行所需的工作，例如[從還原的資料庫擷取一堆資料來複製到現有的資料庫，或刪除現有的資料庫，並將還原的資料庫重新命名為現有的資料庫名稱](sql-database-recovery-using-backups.md#point-in-time-restore)。

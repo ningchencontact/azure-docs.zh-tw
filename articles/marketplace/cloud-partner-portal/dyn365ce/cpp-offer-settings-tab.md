@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: 219a69632fe29b1d756702d97804613021b57006
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942449"
 ---
 # <a name="dynamics-365-for-customer-engagement-offer-settings-tab"></a>Dynamics 365 for Customer Engagement 供應項目設定索引標籤
 
 本文說明如何設定 Dynamics 365 for Customer Engagement 應用程式的供應項目設定。
 
-[Dynamics 365 for Customer Engagement] > [新增供應項目] 頁面隨即開啟，並將焦點放在 [供應項目設定] 索引標籤上。欄位名稱上附加的星號 (*) 表示此為必填欄位。
+[Dynamics 365 for Customer Engagement]   > [新增供應項目]  頁面隨即開啟，並將焦點放在 [供應項目設定]  索引標籤上。欄位名稱上附加的星號 (*) 表示此為必填欄位。
 
 ![Dynamics 365 for Customer Engagement 的供應項目設定索引標籤](./media/dyn365ce-offer-settings-tab.png)
 
@@ -34,7 +34,7 @@ ms.locfileid: "64942449"
 | **名稱\***       | 您供應項目的顯示名稱。 此名稱會顯示在 AppSource Marketplace 中。 它最多不能超過 50 個字元。 建議在產品中加入明顯的品牌名稱。 請勿加入您的組織名稱，除非這是該產品的行銷方式。 如果您要透過其他網站和出版物行銷此供應項目，請確保名稱在所有出版物上都相同。 |
 |  |  |
 
-選取 [儲存] 以儲存供應項目設定。
+選取 [儲存]  以儲存供應項目設定。
 
 
 ## <a name="next-steps"></a>後續步驟

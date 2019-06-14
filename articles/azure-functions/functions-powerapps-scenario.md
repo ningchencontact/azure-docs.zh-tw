@@ -13,10 +13,10 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
 ms.openlocfilehash: 26f6502f63b39d3f1ecf8dfeb09c8df4daa63b68
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65786121"
 ---
 # <a name="call-a-function-from-powerapps"></a>從 PowerApps 呼叫函式
@@ -52,15 +52,15 @@ ms.locfileid: "65786121"
 ## <a name="add-a-connection-to-the-api"></a>新增 API 連線
 自訂 API (也稱為自訂連接器) 適用於 PowerApps，但您必須建立 API 連線，才能在應用程式中使用。
 
-1. 在 [web.powerapps.com](https://web.powerapps.com) 中，按一下 [連線]。
+1. 在 [web.powerapps.com](https://web.powerapps.com) 中，按一下 [連線]  。
 
     ![PowerApps 連線](media/functions-powerapps-scenario/powerapps-connections.png)
 
-1. 按一下 [新增連線]，然後向下捲動至 [渦輪機修復] 連接器並按一下。
+1. 按一下 [新增連線]  ，然後向下捲動至 [渦輪機修復]  連接器並按一下。
 
     ![新增連線](media/functions-powerapps-scenario/new-connection.png)
 
-1. 輸入 API 金鑰，然後按一下 [建立]。
+1. 輸入 API 金鑰，然後按一下 [建立]  。
 
     ![建立連線](media/functions-powerapps-scenario/create-connection.png)
 
@@ -70,7 +70,7 @@ ms.locfileid: "65786121"
 ## <a name="create-an-app-and-add-data-sources"></a>建立應用程式並新增資料來源
 現在，您已準備好在 PowerApps 中建立應用程式，並新增 Excel 資料和自訂 API 作為應用程式的資料來源。
 
-1. 在 [web.powerapps.com](https://web.powerapps.com) 中，選擇 [從空白開始] > ![手機應用程式圖示](media/functions-powerapps-scenario/icon-phone-app.png) (手機) > [製作此應用程式]。
+1. 在 [web.powerapps.com](https://web.powerapps.com) 中，選擇 [從空白開始]   > ![手機應用程式圖示](media/functions-powerapps-scenario/icon-phone-app.png) (手機) > [製作此應用程式]  。
 
     ![從空白開始 - 手機應用程式](media/functions-powerapps-scenario/create-phone-app.png)
 
@@ -96,55 +96,55 @@ ms.locfileid: "65786121"
 
     ![要匯入的 Excel 資料](media/functions-powerapps-scenario/excel-table.png)
 
-    1. 在應用程式畫布上，選擇 [連線到資料]。
+    1. 在應用程式畫布上，選擇 [連線到資料]  。
 
-    1. 在 [資料] 面板中，按一下 [對應用程式新增靜態資料]。
+    1. 在 [資料]  面板中，按一下 [對應用程式新增靜態資料]  。
 
-        ![加入資料來源](media/functions-powerapps-scenario/add-static-data.png)
+        ![新增資料來源](media/functions-powerapps-scenario/add-static-data.png)
 
         在一般情況下，您可以從外部來源讀取和寫入資料，但由於這是範例，因此您將新增 Excel 資料作為靜態資料。
 
-    1. 巡覽至您儲存的 Excel 檔案，選取 [渦輪機] 表格，然後按一下 [連線]。
+    1. 巡覽至您儲存的 Excel 檔案，選取 [渦輪機]  表格，然後按一下 [連線]  。
 
         ![新增資料來源](media/functions-powerapps-scenario/choose-table.png)
 
 
 1. 新增自訂 API 作為資料來源。
 
-    1. 在 [資料] 面板上，按一下 [新增資料來源]。
+    1. 在 [資料]  面板上，按一下 [新增資料來源]  。
 
-    1. 按一下 [渦輪機修復]。
+    1. 按一下 [渦輪機修復]  。
 
         ![[渦輪機修復] 連接器](media/functions-powerapps-scenario/turbine-connector.png)
 
 ## <a name="add-controls-to-view-data-in-the-app"></a>新增控制項以檢視應用程式中的資料
 現在，資料來源可供應用程式使用，您要將一個畫面新增至應用程式，以便檢視渦輪機資料。
 
-1. 在 [首頁] 索引標籤上，按一下 [新增畫面] > [清單畫面]。
+1. 在 [首頁]  索引標籤上，按一下 [新增畫面]   > [清單畫面]  。
 
     ![清單畫面](media/functions-powerapps-scenario/list-screen.png)
 
-    PowerApps 會新增一個畫面，其中包含用以顯示項目的「資源庫」，以及可進行搜尋、排序和篩選的其他控制項。
+    PowerApps 會新增一個畫面，其中包含用以顯示項目的「資源庫」  ，以及可進行搜尋、排序和篩選的其他控制項。
 
 1. 將標題列變更為 `Turbine Repair`，並調整資源庫大小以挪出空間給更多控制項。
 
     ![變更標題並調整資源庫大小](media/functions-powerapps-scenario/gallery-title.png)
 
-1. 在已選取資源庫的情況下，於右窗格的 [屬性] 底下，按一下 [CustomGallerySample]。
+1. 在已選取資源庫的情況下，於右窗格的 [屬性]  底下，按一下 [CustomGallerySample]  。
 
     ![變更資料來源](media/functions-powerapps-scenario/change-data-source.png)
 
-1. 在 [資料] 面板中，從清單選取 [渦輪機]。
+1. 在 [資料]  面板中，從清單選取 [渦輪機]  。
 
     ![選取資料來源](media/functions-powerapps-scenario/select-data-source.png)
 
     資料集未包含影像，因此接下來您要變更為更適合資料的版面配置。 
 
-1. 仍在 [資料] 窗格中，將 [版面配置] 變更為 [標題、子標題與本文]。
+1. 仍在 [資料]  窗格中，將 [版面配置]  變更為 [標題、子標題與本文]  。
 
     ![變更資源庫版面配置](media/functions-powerapps-scenario/change-layout.png)
 
-1. 最後一個步驟是在 [資料] 面板中，變更資源庫中所顯示的欄位。
+1. 最後一個步驟是在 [資料]  面板中，變更資源庫中所顯示的欄位。
 
     ![變更資源庫欄位](media/functions-powerapps-scenario/change-fields.png)
     
@@ -160,18 +160,18 @@ ms.locfileid: "65786121"
 
     ![選取的項目](media/functions-powerapps-scenario/selected-item.png)
 
-1. 您不需要應用程式中的原始畫面。 在左窗格中，將滑鼠停留在 [畫面1] 上，然後依序按一下 [...] 和 [刪除]。
+1. 您不需要應用程式中的原始畫面。 在左窗格中，將滑鼠停留在 [畫面1]  上，然後依序按一下 [...]  和 [刪除]  。
 
     ![刪除畫面](media/functions-powerapps-scenario/delete-screen.png)
 
-1. 按一下 [檔案]，並為應用程式命名。 按一下左側功能表上的 [儲存]，然後按一下右下角的 [儲存]。
+1. 按一下 [檔案]  ，並為應用程式命名。 按一下左側功能表上的 [儲存]  ，然後按一下右下角的 [儲存]  。
 
 您通常會在生產環境應用程式中執行許多其他格式化工作，但我們將前往此案例的重要部分，那就是呼叫函式。
 
 ## <a name="add-controls-to-call-the-function-and-display-data"></a>新增控制項以呼叫函式並顯示資料
 您有一個應用程式會顯示每個渦輪機的摘要資料，現在可以新增控制項以呼叫您所建立的函式，並顯示傳回的資料。 您可以根據在 OpenAPI 定義中命名函式的方式來存取函式，在本例中為 `TurbineRepair.CalculateCosts()`。
 
-1. 在功能區的 [插入] 索引標籤上，按一下 [按鈕]。 然後在相同的索引標籤上，按一下 [標籤]
+1. 在功能區的 [插入]  索引標籤上，按一下 [按鈕]  。 然後在相同的索引標籤上，按一下 [標籤] 
 
     ![插入按鈕和標籤](media/functions-powerapps-scenario/insert-controls.png)
 
@@ -186,13 +186,13 @@ ms.locfileid: "65786121"
     ```
     If (BrowseGallery1.Selected.ServiceRequired="Yes", ClearCollect(DetermineRepair, TurbineRepair.CalculateCosts({hours: BrowseGallery1.Selected.EstimatedEffort, capacity: BrowseGallery1.Selected.MaxOutput})))
     ```
-    此公式會在按下按鈕時執行，並在所選取資源庫項目的 [需要維修] 值為 `Yes` 時執行下列動作：
+    此公式會在按下按鈕時執行，並在所選取資源庫項目的 [需要維修]  值為 `Yes` 時執行下列動作：
 
-    + 清除「集合」`DetermineRepair` 以移除先前呼叫的資料。 集合是表格式變數。
+    + 清除「集合」  `DetermineRepair` 以移除先前呼叫的資料。 集合是表格式變數。
 
     + 將呼叫函式 `TurbineRepair.CalculateCosts()` 所傳回的資料指派給集合。 
     
-        傳遞至函式的值是來自資源庫中所選項目的 [預計投入的時間] 和 [最大輸出] 欄位。 這些欄位不會顯示在資源庫中，但仍可在公式中使用。
+        傳遞至函式的值是來自資源庫中所選項目的 [預計投入的時間]  和 [最大輸出]  欄位。 這些欄位不會顯示在資源庫中，但仍可在公式中使用。
 
 1. 選取標籤，然後輸入下列公式作為標籤的 **Text** 屬性。
 
@@ -211,7 +211,7 @@ ms.locfileid: "65786121"
 
 1. 在 PowerApps Studio 的右上角，按一下 [執行] 按鈕： ![執行應用程式按鈕](media/functions-powerapps-scenario/f5-arrow-sm.png)上也提供本文中使用的原始碼。
 
-1. 選取 [需要維修] 的值為 [`Yes`] 的渦輪機，然後按一下 [計算成本] 按鈕。 您應該會看到如下圖所示的結果。
+1. 選取 [需要維修]  的值為 [`Yes`] 的渦輪機，然後按一下 [計算成本]  按鈕。 您應該會看到如下圖所示的結果。
 
     ![PowerApps 中已完成的應用程式](media/functions-powerapps-scenario/finished-app.png)
 

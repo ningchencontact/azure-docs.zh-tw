@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 407b8ba2fda35d3acbf1b425bb15fe20778613d7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146010"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Azure Data Factory 中的分隔的文字格式
@@ -31,7 +31,7 @@ ms.locfileid: "65146010"
 | type             | 資料集的 type 屬性必須設定為**DelimitedText**。 | 是      |
 | location         | 對檔案的位置設定。 每個檔案為基礎的連接器有它自己的位置類型和支援的屬性底下`location`。 **請參閱文章中的詳細資料連接器]-> [資料集屬性區段**。 | 是      |
 | columnDelimiter  | 用來分隔檔案中的資料行的字元。 目前，多重字元分隔符號只支援對應的資料流，但不是複製活動。 <br>預設值是**逗號`,`** ，當資料行分隔符號定義為空字串，表示沒有分隔符號，整行會被視為單一資料行。 | 否       |
-| rowDelimiter     | 單一字元或者"\r\n"用來分隔檔案中的資料列。<br>預設值是下列值之一**讀取: ["\r\n"、"\r"、"\n"]**，並 **"\n"或"\r\n"寫入**對應資料的流程，並分別複製活動。 <br>當`rowDelimiter`設定為 沒有分隔符號 （空字串）、`columnDelimiter`必須設定為沒有分隔符號 （空字串） 做為表示也視為單一值的整個內容。 | 否       |
+| rowDelimiter     | 單一字元或者"\r\n"用來分隔檔案中的資料列。<br>預設值是下列值之一**讀取: ["\r\n"、"\r"、"\n"]** ，並 **"\n"或"\r\n"寫入**對應資料的流程，並分別複製活動。 <br>當`rowDelimiter`設定為 沒有分隔符號 （空字串）、`columnDelimiter`必須設定為沒有分隔符號 （空字串） 做為表示也視為單一值的整個內容。 | 否       |
 | quoteChar        | 要引用的資料行值，如果它包含資料行分隔符號的單一字元。 <br>預設值是**雙引號括住** `"`。 <br>適用於對應資料流程，`quoteChar`不得為空字串。 <br>對於複製活動，當`quoteChar`定義為空字串，表示沒有任何引號字元，而且資料行值不加上引號，和`escapeChar`用來逸出的資料行分隔符號和本身。 | 否       |
 | escapeChar       | 要逸出引號括住值內的單一字元。<br>預設值是**反斜線`\`** 。 <br>適用於對應資料流程，`escapeChar`不得為空字串。 <br/>對於複製活動，當`escapeChar`定義為空字串，`quoteChar`必須設定為空的字串，在此情況下確定所有資料行值不包含分隔符號。 | 否       |
 | firstRowAsHeader | 指定是否要將/品牌的第一個資料列作為標頭行的資料行名稱。<br>允許的值為**真**並**false** （預設值）。 | 否       |

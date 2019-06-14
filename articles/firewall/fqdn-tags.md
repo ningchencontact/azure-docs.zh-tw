@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/23/2019
 ms.author: victorh
 ms.openlocfilehash: 7a412589f4e86f2a49d07f2d01ca34bf30fd528b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721176"
 ---
 # <a name="fqdn-tags-overview"></a>FQDN 標籤概觀
@@ -38,7 +38,7 @@ FQDN 標籤代表一群與知名 Microsoft 服務相關聯的完整網域名稱 
 |Azure HDInsight<br>(預覽)|允許輸出存取 HDInsight 平台的流量。 此標記未涵蓋的範圍從 HDInsight 的特定客戶的儲存體或 SQL 流量。 啟用這些 using[服務端點](../virtual-network/tutorial-restrict-network-access-to-resources.md)或手動新增它們。|
 
 > [!NOTE]
-> 選取應用程式規則中的 FQDN 標籤時，[通訊協定:連接埠] 欄位必須設定為 [https]。
+> 選取應用程式規則中的 FQDN 標籤時，[通訊協定:連接埠] 欄位必須設定為 [https]  。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.openlocfilehash: c07326cc3a4334f1873eef2dc23da05156a93577
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64574657"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>使用指令碼動作在 HDInsight Linux 上的 Apache Spark 叢集中安裝 Jupyter Notebook 的外部 Python 封裝
@@ -29,7 +29,7 @@ ms.locfileid: "64574657"
 在本文中，您將學習如何在叢集上使用指令碼動作安裝 [TensorFlow](https://www.tensorflow.org/) 套件，並透過 Jupyter Notebook 來使用它作為範例。
 
 ## <a name="prerequisites"></a>必要條件
-必须满足以下条件：
+您必須滿足以下條件：
 
 * Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
@@ -63,10 +63,10 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 4. 輸入下列值**送出指令碼動作**視窗：  
 
 
-    |參數 | Value |
+    |參數 | 值 |
     |---|---|
-    |指令碼類型 | 從下拉式清單中選取 [- 自訂]。|
-    |名稱 |在文字方塊中輸入 `tensorflow`。|
+    |指令碼類型 | 從下拉式清單中選取 [- 自訂]  。|
+    |Name |在文字方塊中輸入 `tensorflow`。|
     |Bash 指令碼 URI |在文字方塊中輸入 `https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh`。 |
     |節點類型 | 選取  **Head**，並**工作者**核取方塊。 |
 
@@ -77,7 +77,7 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
     /usr/bin/anaconda/bin/conda install --yes tensorflow
     ```
 
-5. 選取 [建立] 。  瀏覽有關於[如何使用自訂指令碼動作](../hdinsight-hadoop-customize-cluster-linux.md)的文件。
+5. 選取 [建立]  。  瀏覽有關於[如何使用自訂指令碼動作](../hdinsight-hadoop-customize-cluster-linux.md)的文件。
 
 6. 等候指令碼完成。  **指令碼動作**會在狀態窗格**目前的叢集作業完成後，就可以提交新的指令碼動作**指令碼執行時。  您可以從 Ambari UI 中檢視進度列**背景作業**視窗。
 

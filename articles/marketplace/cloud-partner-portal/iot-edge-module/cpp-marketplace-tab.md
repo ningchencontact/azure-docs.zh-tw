@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: aa0c908e18233926965d8dc3cd1b474f876b8dda
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942408"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>IoT Edge 模組 Marketplace 索引標籤
 
-在 [新增供應項目] 頁面的 [Marketplace] 索引標籤上，可提供行銷、銷售和法律方面的資訊與合約給您的潛在客戶，並管理 Marketplace 產生的潛在客戶。 這個完整的形式分為四個區段：**概觀**，**行銷構件**，**潛在客戶管理**，和**法律**。
+在 [新增供應項目]  頁面的 [Marketplace]  索引標籤上，可提供行銷、銷售和法律方面的資訊與合約給您的潛在客戶，並管理 Marketplace 產生的潛在客戶。 這個完整的形式分為四個區段：**概觀**，**行銷構件**，**潛在客戶管理**，和**法律**。
 
 
 ## <a name="overview"></a>概觀
@@ -33,7 +33,7 @@ ms.locfileid: "64942408"
 | **摘要\***               | 供應項目的簡短摘要。 長度上限是 100 個字元。 <!--ADD PICTURE IN ACTION-->|
 | **完整摘要\***          | 供應項目的完整摘要 (雖然可能與**摘要**相同)。  長度上限為 256 個字元。 <!--ADD PICTURE IN ACTION-->|
 | **說明\***           | 供應項目的說明。  長度上限是 3000 個字元，支援簡單的 HTML 格式。<br/> 尾端必須提供*最低硬體需求*段落。 例如： <br/> <p><u>最低硬體需求：</u>Linux x64 和 arm32 OS，1 GB 的 RAM，500 Mb 的儲存體</p>
-| **行銷識別碼\***  | 與本供應項目相關聯的唯一不重複網址，通常會包含您的組織與解決方案名稱，長度上限是 50 個字元。  例如︰ <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **行銷識別碼\***  | 與本供應項目相關聯的唯一不重複網址，通常會包含您的組織與解決方案名稱，長度上限是 50 個字元。  例如: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **預覽訂用帳戶識別碼** | 可新增 1 到 100 個預覽使用者的訂閱帳戶識別碼。 這些列入允許清單的訂閱帳戶，待供應項目一發佈，即能在供應項目上線前先行存取。 |
 | **實用連結**          | 可選擇多個適合與供應項目建立關聯的企業和技術類別，  上限為 10 個。 請務必從 [Azure IoT 裝置目錄](https://catalog.azureiotsolutions.com/)新增至少一個說明文件的連結和一個相容 IoT Edge 裝置的連結。 |
 | **建議的類別\*** | 可挑選最多五個類別， 會顯示在您的產品詳細資料頁面上。 在瀏覽頁面中，所有 IoT Edge 模組都會顯示在*物聯網\> IoT Edge 模組*類別下。|
@@ -42,7 +42,7 @@ ms.locfileid: "64942408"
 
 ### <a name="offer-example"></a>供應項目範例
 
- 下列範例顯示了供應項目的 [標題]、[摘要]、[說明]、[標誌] 以及 [螢幕擷取畫面] 欄位會以何種方式顯示在不同的檢視畫面上。
+ 下列範例顯示了供應項目的 [標題]  、[摘要]  、[說明]  、[標誌]  以及 [螢幕擷取畫面]  欄位會以何種方式顯示在不同的檢視畫面上。
 
  
 #### <a name="on-the-azure-marketplace-website"></a>在 Azure Marketplace 網站上：
@@ -92,7 +92,7 @@ ms.locfileid: "64942408"
 | **主圖**                  | 815x290 像素的 PNG 格式。  (選擇性) 主圖圖示一旦上傳，即無法刪除。 |
 | *螢幕擷取畫面*  | 螢幕擷取畫面會顯示在您的產品詳細資料頁面上， 相當適合用來以視覺方式傳達 IoT Edge 模組的功能及其運作方式。 例如可以顯示架構圖表，或是執行個體的使用案例圖例。 (選擇性) 每個 SKU 的螢幕擷取畫面上限為五個。 |
 | **名稱**                  | 名稱或標題。 長度上限是 100 個字元。                             |
-| **映像**                 | 螢幕擷取映像，533x324 像素的 PNG 格式                               |
+| **影像**                 | 螢幕擷取映像，533x324 像素的 PNG 格式                               |
 | *影片*  | 影片會顯示在您的產品詳細資料頁面上。 相當適合用來以視覺方式傳達 IoT Edge 模組的功能及其運作方式。 |
 | **名稱**                  | 名稱或標題。 長度上限是 100 個字元。                             |
 | **連結**                  | 裝載於 YouTube 或 Vimeo 的影片 URL                                        |

@@ -16,10 +16,10 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 43aa0859fa67cc6b2f5c5974f072e7b6d4b29527
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66112973"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>如何使用 Azure VM 的 Azure 資源受控識別進行登入 
@@ -91,8 +91,8 @@ Azure 資源的受控識別提供[服務主體物件](../develop/developer-gloss
 
 如果您收到這些錯誤的其中一個，請返回 [Azure 入口網站](https://portal.azure.com)中的 Azure 虛擬機器，並且：
 
-- 移至 [身分識別] 頁面，並確保 [系統指派] 設為 [是]。
-- 移至 [延伸模組] 頁面，並確定已成功部署適用於 Azure 資源的受控識別延伸模組 **(已計劃在 2019 年 1 月淘汰)**。
+- 移至 [身分識別]  頁面，並確保 [系統指派]  設為 [是]。
+- 移至 [延伸模組]  頁面，並確定已成功部署適用於 Azure 資源的受控識別延伸模組 **(已計劃在 2019 年 1 月淘汰)** 。
 
 如果其中一者不正確，您可能需要再次在資源上重新部署 Azure 資源受控識別，或針對部署失敗進行疑難排解。 如果您需要設定虛擬機器的協助，請參閱[使用 Azure 入口網站設定虛擬機器的 Azure 資源受控識別](qs-configure-portal-windows-vm.md)。
 

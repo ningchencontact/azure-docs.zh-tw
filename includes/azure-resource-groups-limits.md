@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 04/19/2019
 ms.author: tomfitz
 ms.openlocfilehash: 8bd16378e9c82a011309c12cf241b59d03405a77
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238186"
 ---
-| Resource | 預設限制 | 上限 |
+| 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
 | 每個資源[資源群組](../articles/azure-resource-manager/resource-group-overview.md#resource-groups)，每個資源類型 |800 |每個資源類型而異 |
 | 部署歷程記錄中每個資源群組的部署 |800<sup>1</sup> |800 |
@@ -25,7 +25,7 @@ ms.locfileid: "66238186"
 
 #### <a name="template-limits"></a>範本限制
 
-| Value | 預設限制 | 上限 |
+| 值 | 預設限制 | 上限 |
 | --- | --- | --- |
 | 參數 |256 |256 |
 | 變數 |256 |256 |

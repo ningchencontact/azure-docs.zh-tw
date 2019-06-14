@@ -12,10 +12,10 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 90e43ab0448646650067dbf151702132f434c01e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967955"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
@@ -90,25 +90,25 @@ ms.locfileid: "65967955"
 ## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>從下載中心安裝和註冊自我裝載 IR
 
 1. 瀏覽至 [Microsoft 整合執行階段下載頁面](https://www.microsoft.com/download/details.aspx?id=39717)。
-2. 選取 [下載]，選取 64 位元版本 (不支援 32 位元)，然後選取[下一步]。
+2. 選取 [下載]  ，選取 64 位元版本 (不支援 32 位元)，然後選取[下一步]  。
 3. 直接執行 MSI 檔案或將它儲存至您的硬碟並執行。
-4. 在 [歡迎] 頁面上選取一個語言，然後按 [下一步]。
-5. 接受「Microsoft 軟體授權條款」，然後選取 [下一步]。
-6. 選取 [資料夾] 來安裝自我裝載整合執行階段，接著按一下 [下一步]。
-7. 在 [準備安裝] 頁面上，選取 [安裝]。
+4. 在 [歡迎]  頁面上選取一個語言，然後按 [下一步]  。
+5. 接受「Microsoft 軟體授權條款」，然後選取 [下一步]  。
+6. 選取 [資料夾]  來安裝自我裝載整合執行階段，接著按一下 [下一步]  。
+7. 在 [準備安裝]  頁面上，選取 [安裝]  。
 8. 按一下 [完成]  來完成安裝。
 9. 使用 Azure PowerShell 取得驗證金鑰。 擷取驗證金鑰的 PowerShell 範例：
 
     ```powershell
     Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
-11. 在您電腦上執行的 Microsoft Integration Runtime 管理員 [Microsoft Integration Runtime (自我裝載)] 頁面上，執行下列步驟：
+11. 在您電腦上執行的 Microsoft Integration Runtime 管理員 [Microsoft Integration Runtime (自我裝載)]  頁面上，執行下列步驟：
 
     a. 將驗證金鑰貼到文字區域。
 
-    b. (選擇性) 選取 [顯示驗證金鑰] 以查看金鑰文字。
+    b. (選擇性) 選取 [顯示驗證金鑰]  以查看金鑰文字。
 
-    c. 選取 [註冊]。
+    c. 選取 [註冊]  。
 
 
 ## <a name="high-availability-and-scalability"></a>高可用性和延展性
@@ -122,7 +122,7 @@ ms.locfileid: "65967955"
 > 您不需要建立新的自我裝載整合執行階段來關聯每個節點。 您可以將自我裝載整合執行階段安裝在另一部電腦上，並使用相同的驗證金鑰進行註冊。 
 
 > [!NOTE]
-> 在新增其他節點來實現高可用性和延展性之前，請確認第一個節點上的 [遠端存取內部網路] 選項已啟用 ([Microsoft Integration Runtime 組態管理員] > **[設定]** > **[遠端存取內部網路]**)。 
+> 在新增其他節點來實現高可用性和延展性之前，請確認第一個節點上的 [遠端存取內部網路]  選項已啟用 ([Microsoft Integration Runtime 組態管理員]   >  **[設定]**  >  **[遠端存取內部網路]** )。 
 
 ### <a name="scale-considerations"></a>調整考量
 
@@ -198,7 +198,7 @@ ms.locfileid: "65967955"
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>自我裝載整合執行階段共用的已知限制
 
-* 將要建立已連結 IR 的資料處理站必須具備 [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)。 根據預設，在 Azure 入口網站或 PowerShell Cmdlet 中建立的資料處理站會隱含建立 MSI。 不過，使用 Azure Resorce Manager 範本或 SDK 建立資料處理站的情況下，必須明確設定 [身分識別] 屬性，以確保 Azure Resorce Manager 會建立包含 MSI 的資料處理站。 
+* 將要建立已連結 IR 的資料處理站必須具備 [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)。 根據預設，在 Azure 入口網站或 PowerShell Cmdlet 中建立的資料處理站會隱含建立 MSI。 不過，使用 Azure Resorce Manager 範本或 SDK 建立資料處理站的情況下，必須明確設定 [身分識別]  屬性，以確保 Azure Resorce Manager 會建立包含 MSI 的資料處理站。 
 
 * Azure Data Factory .NET SDK 1.1.0 版或更新版本支援這項功能。
 
@@ -206,7 +206,7 @@ ms.locfileid: "65967955"
 
 * 共用功能只適用於相同 Azure Active Directory 租用戶內的 Data Factory。
 
-* Active Directory 的[來賓使用者](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews)[無法使用](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits) UI 中的搜尋功能 (使用搜尋關鍵字列出所有資料處理站)。 但只要來賓使用者是資料處理站的「擁有者」，則可以在共用 IR 而無需搜尋功能，方法是在 [指派權限] 文字方塊中直接輸入 IR 須共用的資料處理站的 MSI，然後在 Azure Data Factory UI 中選取 [新增]。 
+* Active Directory 的[來賓使用者](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews)[無法使用](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits) UI 中的搜尋功能 (使用搜尋關鍵字列出所有資料處理站)。 但只要來賓使用者是資料處理站的「擁有者」，則可以在共用 IR 而無需搜尋功能，方法是在 [指派權限]  文字方塊中直接輸入 IR 須共用的資料處理站的 MSI，然後在 Azure Data Factory UI 中選取 [新增]  。 
 
   > [!NOTE]
   > 這項功能僅適用於 Azure Data Factory 第 2 版。 
@@ -263,16 +263,16 @@ download.microsoft.com | 443 | 用於下載更新
 
 - **不使用 Proxy**︰自我裝載整合執行階段不會明確地使用任何 Proxy 來連線到雲端服務。
 - **使用系統 Proxy**：自我裝載整合執行階段會使用 diahost.exe.config 和 diawp.exe.config 中設定的 Proxy 設定。如果 diahost.exe.config 和 diawp.exe.config 中未設定任何 Proxy，自我裝載整合執行階段就會直接連線到雲端服務而不經由 Proxy。
-- **使用自訂 Proxy**：設定要用於自我裝載整合執行階段的 HTTP Proxy 設定，而不使用 diahost.exe.config 和 diawp.exe.config 中的設定。必須指定 [IP 位址] 和 [連接埠]。 [使用者名稱] 和 [密碼] 則為選擇性使用，需視您的 Proxy 驗證設定而定。 自我裝載整合執行階段上的所有設定都會使用 Windows DPAPI 加密，並儲存在本機電腦上。
+- **使用自訂 Proxy**：設定要用於自我裝載整合執行階段的 HTTP Proxy 設定，而不使用 diahost.exe.config 和 diawp.exe.config 中的設定。必須指定 [IP 位址]  和 [連接埠]  。 [使用者名稱]  和 [密碼]  則為選擇性使用，需視您的 Proxy 驗證設定而定。 自我裝載整合執行階段上的所有設定都會使用 Windows DPAPI 加密，並儲存在本機電腦上。
 
 在您儲存已更新的 Proxy 設定之後，自我裝載整合執行階段主機服務會自動重新啟動。
 
 在成功註冊自我裝載整合執行階段之後，如果您想要檢視或更新 Proxy 設定，請使用「整合執行階段組態管理員」。
 
-1. 開啟 [Microsoft Integration Runtime 管理員]。
+1. 開啟 [Microsoft Integration Runtime 管理員]  。
 2. 切換到 [設定]  索引標籤。
-3. 選取 [HTTP Proxy] 區段中的 [變更] 連結，以開啟 [設定 HTTP Proxy] 對話方塊。
-4. 選取 [下一步] 。 您會看到一個警告對話方塊，此對話方塊會向您請求權限來儲存 Proxy 設定及重新啟動「整合執行階段主機服務」。
+3. 選取 [HTTP Proxy]  區段中的 [變更]  連結，以開啟 [設定 HTTP Proxy]  對話方塊。
+4. 選取 [下一步]  。 您會看到一個警告對話方塊，此對話方塊會向您請求權限來儲存 Proxy 設定及重新啟動「整合執行階段主機服務」。
 
 您可以使用「組態管理員」工具來更新 HTTP Proxy。
 
@@ -283,7 +283,7 @@ download.microsoft.com | 443 | 用於下載更新
 
 ### <a name="configure-proxy-server-settings"></a>設定 Proxy 伺服器設定
 
-如果您為 HTTP Proxy 選取 [使用系統 Proxy] 設定，自我裝載整合執行階段就會使用 diahost.exe.config 和 diawp.exe.config 中的 Proxy 設定。如果 diahost.exe.config 和 diawp.exe.config 中未指定任何 Proxy，自我裝載整合執行階段就會直接連線到雲端服務而不經由 Proxy。 下列程序說明如何更新 diahost.exe.config 檔案：
+如果您為 HTTP Proxy 選取 [使用系統 Proxy]  設定，自我裝載整合執行階段就會使用 diahost.exe.config 和 diawp.exe.config 中的 Proxy 設定。如果 diahost.exe.config 和 diawp.exe.config 中未指定任何 Proxy，自我裝載整合執行階段就會直接連線到雲端服務而不經由 Proxy。 下列程序說明如何更新 diahost.exe.config 檔案：
 
 1. 在「檔案總管」中，建立一份 C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config 的安全複本來備份原始檔案。
 2. 以系統管理員身分啟動 Notepad.exe，並開啟文字檔 C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config。您會在以下程式碼中找到 system.net 的預設標籤：
@@ -310,7 +310,7 @@ download.microsoft.com | 443 | 用於下載更新
     ```
 3. 將組態檔儲存在原始位置， 然後重新啟動「自我裝載整合執行階段主機服務」以套用變更。 
 
-   若要重新啟動服務，請使用控制台中的服務小程式。 或從「整合執行階段組態管理員」中，選取 [停止服務] 按鈕，然後再選取 [啟動服務]。 
+   若要重新啟動服務，請使用控制台中的服務小程式。 或從「整合執行階段組態管理員」中，選取 [停止服務]  按鈕，然後再選取 [啟動服務]  。 
    
    如果服務未啟動，可能因為在已編輯的應用程式組態檔中加入了不正確的 XML 標記語法。
 
@@ -323,7 +323,7 @@ download.microsoft.com | 443 | 用於下載更新
 如果發生如下錯誤，有可能是因為防火牆或 Proxy 伺服器的設定不正確，使得自我裝載整合執行階段無法連線到 Data Factory 來進行自我驗證。 請參閱上一節，以確保您的防火牆和 Proxy 伺服器的設定皆正確。
 
 * 當您嘗試註冊自我裝載整合執行階段時，您會收到下列錯誤：「無法註冊此整合執行階段節點！ 請確認驗證金鑰有效，且「整合執行階段主機服務」正在這部電腦上執行。
-* 當您開啟「Integration Runtime 組態管理員」時，您會看到「已中斷連線」或「正在連線」狀態。 檢視 Windows 事件記錄時，在 [事件檢視器] > **[應用程式和服務記錄]** > **[Microsoft Integration Runtime]** 下，您會看到如下錯誤訊息：
+* 當您開啟「Integration Runtime 組態管理員」時，您會看到「已中斷連線」  或「正在連線」  狀態。 檢視 Windows 事件記錄時，在 [事件檢視器]   >  **[應用程式和服務記錄]**  >  **[Microsoft Integration Runtime]** 下，您會看到如下錯誤訊息：
 
     ```
     Unable to connect to the remote server
@@ -333,9 +333,9 @@ download.microsoft.com | 443 | 用於下載更新
 ### <a name="enabling-remote-access-from-an-intranet"></a>啟用來自內部網路的遠端存取  
 如果您使用 PowerShell 來加密認證 （在網路中） 以外的自我裝載的整合執行階段安裝所在的另一部電腦時，您可以啟用**來自內部網路的遠端存取**選項。 如果您執行 PowerShell，以加密認證，在相同電腦上的安裝自我裝載的整合執行階段，您無法啟用**來自內部網路的遠端存取**。
 
-在新增其他節點來實現高可用性和延展性之前，您應啟用 [來自內部網路的遠端存取]。  
+在新增其他節點來實現高可用性和延展性之前，您應啟用 [來自內部網路的遠端存取]  。  
 
-在自我裝載整合執行階段安裝期間 (3.3.xxxx.x 版之後)，根據預設，自我裝載整合執行階段安裝作業會停用自我裝載整合執行階段電腦上的 [來自內部網路的遠端存取]。
+在自我裝載整合執行階段安裝期間 (3.3.xxxx.x 版之後)，根據預設，自我裝載整合執行階段安裝作業會停用自我裝載整合執行階段電腦上的 [來自內部網路的遠端存取]  。
 
 如果您使用協力廠商的防火牆，可以手動開啟連接埠 8060 (或使用者設定的連接埠)。 如果您在設定自我裝載整合執行階段時遇到防火牆問題，您可以嘗試使用下列命令來安裝自我裝載整合執行階段，而不設定防火牆：
 

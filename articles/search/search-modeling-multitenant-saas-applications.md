@@ -11,10 +11,10 @@ ms.date: 07/30/2018
 ms.author: liamca
 ms.custom: seodec2018
 ms.openlocfilehash: 58d7ca65a14f9f774b19796c9beae2a7c84102ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61288697"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>多租用戶 SaaS 應用程式與 Azure 搜尋服務的設計模式
@@ -24,9 +24,9 @@ ms.locfileid: "61288697"
 「Azure 搜尋服務」是一個搜尋即服務解決方案，可讓開發人員不需管理任何基礎結構或成為資訊擷取專家，就能夠將豐富的搜尋體驗新增到應用程式中。 資料會上傳至服務，然後儲存在雲端。 使用對「Azure 搜尋服務」API 的簡單要求，接著便可修改及搜尋資料。 如需此服務的概觀，請參閱 [這篇文章](https://aka.ms/whatisazsearch)。 在討論設計模式之前，請務必了解「Azure 搜尋服務」的一些概念。
 
 ### <a name="search-services-indexes-fields-and-documents"></a>搜尋服務、索引、欄位及文件
-使用「Azure 搜尋服務」時，使用者需訂閱「搜尋服務」 。 由於資料是上傳到「Azure 搜尋服務」，因此它會儲存在該搜尋服務內的「索引」  中。 單一服務內可能會有好幾個索引。 若要使用熟悉的資料庫概念，搜尋服務可以比喻為資料庫，而服務內的索引則可比喻為資料庫內的資料表。
+使用「Azure 搜尋服務」時，使用者需訂閱「搜尋服務」  。 由於資料是上傳到「Azure 搜尋服務」，因此它會儲存在該搜尋服務內的「索引」  中。 單一服務內可能會有好幾個索引。 若要使用熟悉的資料庫概念，搜尋服務可以比喻為資料庫，而服務內的索引則可比喻為資料庫內的資料表。
 
-搜尋服務內的每個索引都有自己的結構描述，此結構描述是由一些可自訂的「欄位」 所定義。 資料會以個別「文件」 的形式新增到「Azure 搜尋服務」索引中。 每個文件都必須上傳至特定的索引，並且必須符合該索引的結構描述。 使用「Azure 搜尋服務」來搜尋資料時，會針對特定索引發出全文檢索搜尋查詢。  若要將這些概念比喻成資料庫的概念，則欄位可以比喻為資料表中的資料行，而文件則可以比喻為資料列。
+搜尋服務內的每個索引都有自己的結構描述，此結構描述是由一些可自訂的「欄位」  所定義。 資料會以個別「文件」  的形式新增到「Azure 搜尋服務」索引中。 每個文件都必須上傳至特定的索引，並且必須符合該索引的結構描述。 使用「Azure 搜尋服務」來搜尋資料時，會針對特定索引發出全文檢索搜尋查詢。  若要將這些概念比喻成資料庫的概念，則欄位可以比喻為資料表中的資料行，而文件則可以比喻為資料列。
 
 ### <a name="scalability"></a>延展性
 「標準」 [定價層](https://azure.microsoft.com/pricing/details/search/) 中的任何「Azure 搜尋服務」服務都可以調整成兩個維度︰儲存體和可用性。

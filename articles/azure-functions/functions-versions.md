@@ -10,28 +10,28 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
 ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61036219"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 執行階段版本概觀
 
- Azure Functions 运行时有两个主版本：1.x 和 2.x。 兩個版本都支援生產案例，但可用的新功能和改進功能都在目前的版本 2.x 推出。  下面詳述兩個版本間的差異、如何建立每個版本，以及如何從 1.x 升級到 2.x。
+ 有兩個主要的 Azure Functions 執行階段版本：1.x 和 2.x。 兩個版本都支援生產案例，但可用的新功能和改進功能都在目前的版本 2.x 推出。  下面詳述兩個版本間的差異、如何建立每個版本，以及如何從 1.x 升級到 2.x。
 
 > [!NOTE]
 > 本文所介紹的是雲端服務 Azure Functions。 如需可讓您執行 Azure Functions 內部部署之預覽產品的詳細資訊，請參閱 [Azure Functions 執行階段概觀](functions-runtime-overview.md)。
 
 ## <a name="cross-platform-development"></a>跨平台開發
 
-2.x 版執行階段會在 .NET Core 2 上執行，這會讓它能夠在 .NET Core 支援的所有平台上執行，包括 macOS 與 Linux。 在 .NET Core 上執行可支援跨平台開發和裝載案例。
+2\.x 版執行階段會在 .NET Core 2 上執行，這會讓它能夠在 .NET Core 支援的所有平台上執行，包括 macOS 與 Linux。 在 .NET Core 上執行可支援跨平台開發和裝載案例。
 
 相較之下，1.x 版執行階段則僅支援在 Azure 入口網站或 Windows 電腦上進行開發和裝載。
 
 ## <a name="languages"></a>Languages
 
-2. x 版執行階段使用新的語言擴充性模型。 在 2.x 版中，函數應用程式中的所有函式都必須共用相同語言。 函數應用程式中的函式語言是在建立應用程式時所選擇的。
+2\. x 版執行階段使用新的語言擴充性模型。 在 2.x 版中，函數應用程式中的所有函式都必須共用相同語言。 函數應用程式中的函式語言是在建立應用程式時所選擇的。
 
 Azure Functions 1.x 實驗語言不會更新成使用新模型，因此在 2.x 中並不支援這些語言。 下表指出每個執行階段版本目前支援的程式設計語言。
 
@@ -49,7 +49,7 @@ Azure Functions 1.x 實驗語言不會更新成使用新模型，因此在 2.x �
 
 ### <a name="changes-in-triggers-and-bindings"></a>觸發程序與繫結中的變更
 
-2.x 版需要您針對應用程式中函式所使用的特定觸發程序和繫結安裝延伸模組。 唯一的例外是 HTTP 和計時器觸發程序，這兩者不需要延伸模組。  如需詳細資訊，請參閱[註冊及安裝繫結延伸模組](./functions-bindings-register.md)。
+2\.x 版需要您針對應用程式中函式所使用的特定觸發程序和繫結安裝延伸模組。 唯一的例外是 HTTP 和計時器觸發程序，這兩者不需要延伸模組。  如需詳細資訊，請參閱[註冊及安裝繫結延伸模組](./functions-bindings-register.md)。
 
 `function.json` 或函式的屬性在版本之間也有一些變更。 例如，「事件中樞」的 `path` 屬性現在是 `eventHubName`。 如需每個繫結的文件連結，請參閱[現有的繫結表格](#bindings)。
 
@@ -57,11 +57,11 @@ Azure Functions 1.x 實驗語言不會更新成使用新模型，因此在 2.x �
 
 在新版本中已移除、更新或取代一些功能。 此節詳細說明在您使用 1.x 版之後，在 2.x 版中會看到的變更。
 
-2.x 版中做了下列變更：
+2\.x 版中做了下列變更：
 
 * 用於呼叫 HTTP 端點的金鑰一律會以加密形式儲存在 Azure Blob 儲存體中。 在 1.x 中，金鑰預設是儲存在 Azure 檔案儲存體中。 將應用程式從 1.x 版升級至 2.x 版時，會重設檔案儲存體中的現有秘密。
 
-* 2.x 版執行階段並未內建對 Webhook 提供者的支援。 進行此變更是為了提升效能。 您仍然可以使用 HTTP 觸發程序作為 Webhook 的端點。
+* 2\.x 版執行階段並未內建對 Webhook 提供者的支援。 進行此變更是為了提升效能。 您仍然可以使用 HTTP 觸發程序作為 Webhook 的端點。
 
 * 主機設定檔 (host.json) 應該空白或含有 `"version": "2.0"` 字串。
 
@@ -85,14 +85,14 @@ Azure Functions 1.x 實驗語言不會更新成使用新模型，因此在 2.x �
 
 在 Visual Studio 中，您會在建立專案時選取執行階段版本。 適用於 Visual Studio 的 Azure Functions 工具同時支援這兩個主要的執行階段版本。 根據專案設定進行偵錯和發佈時，會使用正確的版本。 版本設定會在 `.csproj` 檔案中的下列屬性中定義：
 
-##### <a name="version-1x"></a>1.x 版
+##### <a name="version-1x"></a>1\.x 版
 
 ```xml
 <TargetFramework>net461</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
 
-##### <a name="version-2x"></a>2.x 版
+##### <a name="version-2x"></a>2\.x 版
 
 ```xml
 <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -103,7 +103,7 @@ Azure Functions 1.x 實驗語言不會更新成使用新模型，因此在 2.x �
 
 #### <a name="vs-code-and-azure-functions-core-tools"></a>VS Code 與 Azure Functions Core Tools
 
-[Azure Functions Core Tools](functions-run-local.md) 除了用於命令列開發之外，也會供適用於 Visual Studio Code 的 [Azure Functions 延伸模組](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)使用。 若要針對 2.x 版進行開發，請安裝 2.x 版的 Core Tools。 1.x 版開發需要 1.x 版的 Core Tools。 如需詳細資訊，請參閱[安裝 Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)。
+[Azure Functions Core Tools](functions-run-local.md) 除了用於命令列開發之外，也會供適用於 Visual Studio Code 的 [Azure Functions 延伸模組](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)使用。 若要針對 2.x 版進行開發，請安裝 2.x 版的 Core Tools。 1\.x 版開發需要 1.x 版的 Core Tools。 如需詳細資訊，請參閱[安裝 Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)。
 
 針對 Visual Studio Code 開發，您可能必須一併更新 `azureFunctions.projectRuntime` 的使用者設定，以符合所安裝工具的版本。  此設定也會更新函數應用程式建立期間所使用的範本和語言。
 
@@ -113,7 +113,7 @@ Azure Functions 1.x 實驗語言不會更新成使用新模型，因此在 2.x �
 
 ## <a name="bindings"></a>繫結
 
-2.x 版執行階段使用新的[繫結擴充性模型](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)，該模型提供下列優點：
+2\.x 版執行階段使用新的[繫結擴充性模型](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)，該模型提供下列優點：
 
 * 支援第三方繫結延伸模組。
 

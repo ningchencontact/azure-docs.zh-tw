@@ -18,10 +18,10 @@ ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eb11a4a926c676d37a0bf6be456e3b831a5d8357
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962633"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>作法：使用 ADAL 在 Android 上啟用跨應用程式的 SSO
@@ -124,7 +124,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 `msauth://packagename/Base64UrlencodedSignature`
 
-例如：msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D
+例如：msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D 
 
 您可以使用 [Azure 入口網站](https://portal.azure.com/)在應用程式註冊中註冊此重新導向 URI。 如需 Azure AD 應用程式註冊的詳細資訊，請參閱 [與 Azure Active Directory 整合](active-directory-how-to-integrate.md)。
 

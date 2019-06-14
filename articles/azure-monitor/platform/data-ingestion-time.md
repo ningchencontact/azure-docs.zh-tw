@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/24/2019
 ms.author: bwren
 ms.openlocfilehash: d508ce217e3a97b3399435cb63295eb28965359a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65605595"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure 監視器中的記錄資料擷取時間
@@ -123,9 +123,9 @@ AzureDiagnostics
 ```
 
 ### <a name="resources-that-stop-responding"></a>停止回應的資源 
-在某些情況下，資源將會停止傳送資料。 若要了解資源是否正在傳送資料，請查看可以由標準 [TimeGenerated] 欄位識別的最新記錄。  
+在某些情況下，資源將會停止傳送資料。 若要了解資源是否正在傳送資料，請查看可以由標準 [TimeGenerated]  欄位識別的最新記錄。  
 
-「活動訊號」資料表可以用來檢查 VM 的可用性，因為代理程式活動訊號會每分鐘傳送一次。 可用下列查詢列出最近尚未回報活動訊號的使用中電腦： 
+「活動訊號」  資料表可以用來檢查 VM 的可用性，因為代理程式活動訊號會每分鐘傳送一次。 可用下列查詢列出最近尚未回報活動訊號的使用中電腦： 
 
 ``` Kusto
 Heartbeat  

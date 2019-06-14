@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 312658bd653d94f3e1a32204b3c5ae4ae290558e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65832628"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權限管理 （預覽） 中建立新的存取封裝
@@ -44,17 +44,17 @@ ms.locfileid: "65832628"
 
 ## <a name="start-new-access-package"></a>啟動新的存取套件
 
-**必要的角色：** 使用者管理員或目錄的擁有者
+**必要角色：** 使用者管理員或目錄的擁有者
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 按一下  **Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
-1. 在左側功能表中，按一下**存取套件**。
+1. 在左側功能表中，按一下 [存取套件]  。
 
-    ![在 Azure 入口網站中的權限管理](./media/entitlement-management-shared/elm-access-packages.png)
+    ![Azure 入口網站中的權利管理](./media/entitlement-management-shared/elm-access-packages.png)
 
-1. 按一下 **新的存取封裝**。
+1. 按一下 [新增存取套件]  。
 
 ## <a name="basics"></a>基本概念
 
@@ -74,7 +74,7 @@ ms.locfileid: "65832628"
 
     若要建立新的目錄，您必須是至少一個使用者系統管理員或目錄建立者。
 
-1. 单击“下一步”。
+1. 单击“下一步”  。
 
 ## <a name="resource-roles"></a>資源角色
 
@@ -96,7 +96,7 @@ ms.locfileid: "65832628"
 
     ![存取封裝-資源角色選取](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
-1. 单击“下一步”。
+1. 单击“下一步”  。
 
 ## <a name="policy"></a>原則
 
@@ -112,7 +112,7 @@ ms.locfileid: "65832628"
 
 [!INCLUDE [Entitlement management policy](../../../includes/active-directory-entitlement-management-policy.md)]
 
-## <a name="review--create"></a>檢閱及建立
+## <a name="review--create"></a>檢閱 + 建立
 
 在 **檢閱 + 建立**索引標籤上，您可以檢閱您的設定和檢查是否有任何驗證錯誤。
 

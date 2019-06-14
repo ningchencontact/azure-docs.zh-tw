@@ -14,10 +14,10 @@ ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721085"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>即時計量資料流：以 1 秒的延遲進行監視與診斷
@@ -42,7 +42,7 @@ ms.locfileid: "64721085"
 
 1. 如果您尚未在 Web 應用程式中[安裝 Application Insights](../../azure-monitor/azure-monitor-app-hub.md)，請立即安裝。
 2. 除了標準 Application Insights 套件之外，還需要 [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/)，才能啟用「即時計量」串流。
-3. **更新至最新版本**的 Application Insights 套件。 在 Visual Studio 中，以滑鼠右鍵按一下專案，然後選擇 [管理 Nuget 套件]。 開啟 [更新] 索引標籤，然後選取所有 Microsoft.ApplicationInsights.* 套件。
+3. **更新至最新版本**的 Application Insights 套件。 在 Visual Studio 中，以滑鼠右鍵按一下專案，然後選擇 [管理 Nuget 套件]  。 開啟 [更新]  索引標籤，然後選取所有 Microsoft.ApplicationInsights.* 套件。
 
     重新部署您的應用程式。
 
@@ -96,7 +96,7 @@ ms.locfileid: "64721085"
 
 注意：目前針對以例外狀況訊息為基礎的準則，請使用最外部的例外狀況訊息。 在上述範例中，若要使用內部例外狀況訊息 (後接 "<--" 分隔符號)「用戶端中斷連線。」將良性的例外狀況篩選掉， 請使用不包含「讀取要求內容時發生錯誤」準則的訊息。
 
-按一下即時摘要中的項目，以查看它的詳細資料。 您可以按一下 [暫停] 或只向下捲動，或是按一下項目來將摘要暫停。 在您捲動回到頂端後，或是按一下暫停時所收集到的項目計數器，即時摘要就會繼續進行。
+按一下即時摘要中的項目，以查看它的詳細資料。 您可以按一下 [暫停]  或只向下捲動，或是按一下項目來將摘要暫停。 在您捲動回到頂端後，或是按一下暫停時所收集到的項目計數器，即時摘要就會繼續進行。
 
 ![取樣的即時失敗](./media/live-stream/live-metrics-eventdetail.png)
 
@@ -167,7 +167,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 就「Azure 函數應用程式 (v2)」而言，可以藉由環境變數來達到使用 API 金鑰保護通道的目的。 
 
-請從 Application Insights 資源內部建立 API 金鑰，然後前往您「函數應用程式」的 [應用程式設定]。 選取 [新增設訂]，然後輸入名稱 `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` 及與您 API 金鑰對應的值。
+請從 Application Insights 資源內部建立 API 金鑰，然後前往您「函數應用程式」的 [應用程式設定]  。 選取 [新增設訂]  ，然後輸入名稱 `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` 及與您 API 金鑰對應的值。
 
 ### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core (需要 Application Insights ASP.NET Core SDK 2.3.0-beta 或更新版本)
 

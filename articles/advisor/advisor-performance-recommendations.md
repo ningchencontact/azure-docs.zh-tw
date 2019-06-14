@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
 ms.openlocfilehash: 8fdae1e12e56dcbcb56941726b0c089ad59b8fc8
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66254658"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>利用 Azure Advisor 改善 Azure 應用程式的效能
@@ -106,7 +106,7 @@ Advisor 會偵測目前未設定的地區有流量的 Azure Cosmos DB 帳戶，�
 
 Azure Advisor 會識別使用的預設檢索原則，但無法受益於工作負載模式為基礎的自訂索引編製原則的 Cosmos DB 容器。 編製索引原則的預設編製索引的所有屬性，但用於查詢篩選條件的明確包含或排除路徑中使用自訂的編製索引原則，可以減少 Ru 及編製索引所耗用的儲存體。 [深入了解修改索引原則](https://aka.ms/cosmosdb/modify-index-policy)
 
-## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>設定您 Azure Cosmos DB 查詢頁面大小 (MaxItemCount) 為-1 
+## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>將 Azure Cosmos DB 查詢頁面大小 (MaxItemCount) 設定為 -1 
 
 Azure Advisor 會識別 Azure Cosmos DB 容器會使用查詢頁面大小為 100，建議使用的頁面大小為-1 的快速掃描。 [深入了解最大項目計數](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 

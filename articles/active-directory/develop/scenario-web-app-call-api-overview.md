@@ -16,13 +16,13 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce45f11a697b72ebdd0fe01166a70e7b47aa8e9f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65076296"
 ---
-# <a name="scenario-web-app-that-calls-web-apis"></a>案例：呼叫 web Api 的 web 應用程式
+# <a name="scenario-web-app-that-calls-web-apis"></a>案例：呼叫 Web API 的 Web 應用程式
 
 了解如何在 Microsoft 身分識別平台上建置的 web 應用程式登入的使用者，以及呼叫 web Api，代表已登入的使用者。
 
@@ -39,7 +39,7 @@ ms.locfileid: "65076296"
 
 您可以將驗證加入您的 Web 應用程式，因此可以在使用者登入，並呼叫 web API 代表登入的使用者。
 
-![呼叫 web Api 的 web 應用程式](./media/scenario-webapp/web-app.svg)
+![呼叫 Web API 的 Web 應用程式](./media/scenario-webapp/web-app.svg)
 
 Web 應用程式呼叫 web Api:
 

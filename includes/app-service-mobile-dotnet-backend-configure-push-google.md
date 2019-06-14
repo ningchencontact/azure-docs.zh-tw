@@ -5,17 +5,17 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: d1dcd7895025ea608e5f6c4db5e0967817934f2a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66141218"
 ---
 使用符合您後端專案類型的程序 (&mdash;[.NET 後端](#dotnet)或 [Node.js 後端](#nodejs))。
 
 ### <a name="dotnet"></a>.NET 後端專案
 
-1. In Visual Studio, right-click the server project, and click **Manage NuGet Packages**. 搜尋 `Microsoft.Azure.NotificationHubs`，然後按一下 [安裝]。 這會安裝通知中樞用戶端程式庫。
+1. In Visual Studio, right-click the server project, and click **Manage NuGet Packages**. 搜尋 `Microsoft.Azure.NotificationHubs`，然後按一下 [安裝]  。 這會安裝通知中樞用戶端程式庫。
 2. 在 Controllers 資料夾中，開啟 TodoItemController.cs 並新增下列 `using` 陳述式：
 
     ```csharp

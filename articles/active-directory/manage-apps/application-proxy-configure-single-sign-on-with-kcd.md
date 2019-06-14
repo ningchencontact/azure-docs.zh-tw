@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 545906af882be6e53297bf7a9ff2cd12e86d55f0
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65859632"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>可供使用應用程式 Proxy 單一登入應用程式的 Kerberos 限制委派
@@ -55,12 +55,12 @@ ms.locfileid: "65859632"
 根據您的「應用程式 Proxy 連接器」和應用程式伺服器是否位於相同的網域，Active Directory 組態會有所不同。
 
 #### <a name="connector-and-application-server-in-the-same-domain"></a>連接器和應用程式伺服器位於相同網域
-1. 在 Active Directory 中，移至 [工具] > [使用者和電腦]。
+1. 在 Active Directory 中，移至 [工具]   > [使用者和電腦]  。
 2. 選取正在執行連接器的伺服器。
-3. 按一下滑鼠右鍵，然後選取 [屬性] > [委派]。
-4. 選取 [信任這台電腦，但只委派指定的服務]。 
+3. 按一下滑鼠右鍵，然後選取 [屬性]   > [委派]  。
+4. 選取 [信任這台電腦，但只委派指定的服務]  。 
 5. 選取 **使用任何驗證通訊協定**。
-6. 在 [這個帳戶可以呈送委派認證的服務] 下方，新增應用程式伺服器的 SPN 身分識別值。 這可讓「應用程式 Proxy 連接器」針對清單中所定義的應用程式，在 AD 中模擬使用者。
+6. 在 [這個帳戶可以呈送委派認證的服務]  下方，新增應用程式伺服器的 SPN 身分識別值。 這可讓「應用程式 Proxy 連接器」針對清單中所定義的應用程式，在 AD 中模擬使用者。
 
    ![[連接器 SVR 屬性] 視窗螢幕擷取畫面](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
 
@@ -79,11 +79,11 @@ Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateT
 `sharepointserviceaccount` 可以是 SPS 電腦帳戶，或是用來執行 SPS 應用程式集區的服務帳戶。
 
 ## <a name="configure-single-sign-on"></a>設定單一登入 
-1. 根據 [使用應用程式 Proxy 發佈應用程式](application-proxy-add-on-premises-application.md)中的所述指示來發佈您的應用程式。 請務必選取 [Azure Active Directory] 作為 [預先驗證方法]。
-2. 應用程式出現於企業應用程式清單後，將其選取並按一下 [單一登入]。
-3. 將單一登入模式設定為 [整合式 Windows 驗證]。  
+1. 根據 [使用應用程式 Proxy 發佈應用程式](application-proxy-add-on-premises-application.md)中的所述指示來發佈您的應用程式。 請務必選取 [Azure Active Directory]  作為 [預先驗證方法]  。
+2. 應用程式出現於企業應用程式清單後，將其選取並按一下 [單一登入]  。
+3. 將單一登入模式設定為 [整合式 Windows 驗證]  。  
 4. 輸入應用程式伺服器的 [內部應用程式 SPN]  。 在此範例中，已發佈應用程式的 SPN 為 http/www.contoso.com。 此 SPN 必須在連接器可以呈送委派認證的服務清單中。 
-5. 針對要代表使用者使用的連接器選擇 [委派的登入身分識別]。 如需詳細資訊，請參閱[使用不同的內部部署和雲端身分識別](#working-with-different-on-premises-and-cloud-identities)
+5. 針對要代表使用者使用的連接器選擇 [委派的登入身分識別]  。 如需詳細資訊，請參閱[使用不同的內部部署和雲端身分識別](#working-with-different-on-premises-and-cloud-identities)
 
    ![進階應用程式組態](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 
@@ -112,7 +112,7 @@ Azure AD 應用程式 Proxy 的 Kerberos 委派流程會在 Azure AD 在雲端�
 非 Windows 應用程式通常會使用使用者名稱或 SAM 帳戶名稱，而不是網域的電子郵件地址。 如果這種情況適用於您的應用程式，就必須設定指定的登入身分識別欄位，將您的雲端身分識別連線到您的應用程式身分識別。 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>使用不同的內部部署和雲端身分識別
-應用程式 Proxy 會假設使用者在雲端與內部部署中具有完全相同的身分識別。 如果事實並非如此，您仍然可以使用 KCD 進行單一登入。 為每個應用程式設定 [委派的身分識別登入]，以指定在執行單一登入時所應使用的身分識別。  
+應用程式 Proxy 會假設使用者在雲端與內部部署中具有完全相同的身分識別。 如果事實並非如此，您仍然可以使用 KCD 進行單一登入。 為每個應用程式設定 [委派的身分識別登入]  ，以指定在執行單一登入時所應使用的身分識別。  
 
 此功能可讓具有不同內部部署與雲端身分識別的許多組織，可從雲端單一登入到內部部署應用程式，而不需要使用者輸入不同的使用者名稱與密碼。 這包括下列組織：
 
@@ -128,7 +128,7 @@ Azure AD 應用程式 Proxy 的 Kerberos 委派流程會在 Azure AD 在雲端�
 如果使用委派的登入身分識別，則組織的所有網域或樹系中的這個值可能不是唯一。 您可以藉由使用兩個不同的連接器群組發佈這些應用程式兩次來避免此問題。 因為每個應用程式有不同的使用者對象，您可以將其「連接器」加入不同的網域。
 
 ### <a name="configure-sso-for-different-identities"></a>設定不同身分識別的 SSO
-1. 設定 Azure AD Connect 設定，讓主要的身分識別會是電子郵件地址 (郵件)。 這是在自訂程序中完成 (透過變更同步設定中的 [使用者主體名稱] 欄位)。 這些設定也決定使用者如何登入 Office 365、Windows 10 裝置與其他使用 Azure AD 作為其身分識別存放區的應用程式。  
+1. 設定 Azure AD Connect 設定，讓主要的身分識別會是電子郵件地址 (郵件)。 這是在自訂程序中完成 (透過變更同步設定中的 [使用者主體名稱]  欄位)。 這些設定也決定使用者如何登入 Office 365、Windows 10 裝置與其他使用 Azure AD 作為其身分識別存放區的應用程式。  
    ![識別使用者螢幕擷取畫面 - [使用者主體名稱] 下拉式清單](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. 在您想要修改之應用程式的應用程式組態設定中，選取要使用的 [委派的登入識別]  ：
 
@@ -140,7 +140,7 @@ Azure AD 應用程式 Proxy 的 Kerberos 委派流程會在 Azure AD 在雲端�
 
 ### <a name="troubleshooting-sso-for-different-identities"></a>疑難排解不同身分識別的 SSO
 如果 SSO 程序發生錯誤，它會顯示在連接器電腦事件記錄中，如[疑難排解](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)所述。
-但在某些情況下，要求會成功傳送至後端應用程式，同時此應用程式會以各種其他 HTTP 回應來回覆。 疑難排解這些情況應該要從檢查連接器電腦上應用程式 Proxy 工作階段事件記錄中的事件編號 24029 開始。 用於委派的使用者身分識別會出現在事件詳細資料的 [使用者] 欄位內。 若要開啟工作階段記錄，請選取事件檢視器檢視功能表中的 [顯示分析與偵錯記錄]。
+但在某些情況下，要求會成功傳送至後端應用程式，同時此應用程式會以各種其他 HTTP 回應來回覆。 疑難排解這些情況應該要從檢查連接器電腦上應用程式 Proxy 工作階段事件記錄中的事件編號 24029 開始。 用於委派的使用者身分識別會出現在事件詳細資料的 [使用者] 欄位內。 若要開啟工作階段記錄，請選取事件檢視器檢視功能表中的 [顯示分析與偵錯記錄]  。
 
 ## <a name="next-steps"></a>後續步驟
 

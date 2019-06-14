@@ -19,15 +19,15 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06fd36935c1f43cc14697748666eccd9e6d31168
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545971"
 ---
 # <a name="single-sign-out-saml-protocol"></a>單一登出 SAML 通訊協定
 
-Azure Active Directory (Azure AD) 支持 SAML 2.0 Web 浏览器单一注销配置文件。 若要讓單一登出正常運作，在應用程式註冊期間必須明確向 Azure AD 註冊應用程式的 **LogoutURL**。 使用者登出之後，Azure AD 使用此 LogoutURL 將他們重新導向。
+Azure Active Directory (Azure AD) 支援 SAML 2.0 Web 瀏覽器單一登出設定檔。 若要讓單一登出正常運作，在應用程式註冊期間必須明確向 Azure AD 註冊應用程式的 **LogoutURL**。 使用者登出之後，Azure AD 使用此 LogoutURL 將他們重新導向。
 
 下圖顯示 Azure AD 單一登出程序的工作流程。
 
@@ -47,11 +47,11 @@ Azure Active Directory (Azure AD) 支持 SAML 2.0 Web 浏览器单一注销配�
 傳送至 Azure AD 的 `LogoutRequest` 元素需要下列屬性：
 
 * `ID` - 這會識別登出要求。 `ID` 的值不應該以數字開頭。 一般的做法是附加 **id** 至 GUID 的字串表示法。
-* `Version` - 將此元素的值設定為 **2.0**。 需要此值。
+* `Version` - 將此元素的值設定為 **2.0**。 這是必要的值。
 * `IssueInstant` - 這是具有國際標準時間 (UTC) 值和[來回行程格式 ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx) 的 `DateTime` 字串。 Azure AD 會預期此類型的值，但不會強制。
 
 ### <a name="issuer"></a>簽發者
-`LogoutRequest` 中的 `Issuer` 元素必須完全符合 Azure AD 中雲端服務的其中一個 **ServicePrincipalNames**。 通常，此参数设置为应用程序注册期间指定的 **应用 ID URI** 。
+`LogoutRequest` 中的 `Issuer` 元素必須完全符合 Azure AD 中雲端服務的其中一個 **ServicePrincipalNames**。 一般而言，這會設定為應用程式註冊期間指定的 **應用程式識別碼 URI** 。
 
 ### <a name="nameid"></a>NameID
 `NameID` 元素的值必須完全符合正在登出的使用者的 `NameID`。

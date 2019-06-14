@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.openlocfilehash: 60cddf15ee8a93aa01a72fdc124fa27e68184e04
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65916035"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>了解及調整串流單位
@@ -29,7 +29,7 @@ SU % 使用率計量介於 0% 到 100% 的範圍間，可說明工作負載的�
 
 2. 在資源清單中，尋找並開啟您想要調整的串流分析作業。 
 
-3. 在作業頁面的 [設定] 標題下，選取 [縮放]。 
+3. 在作業頁面的 [設定]  標題下，選取 [縮放]  。 
 
     ![Azure 入口網站串流分析作業組態][img.stream.analytics.preview.portal.settings.scale]
     
@@ -44,7 +44,7 @@ SU % 使用率計量介於 0% 到 100% 的範圍間，可說明工作負載的�
 
 ## <a name="how-many-sus-are-required-for-a-job"></a>一個作業需要多少 SU？
 
-選擇特定作業所需的 SU 數量取決於輸入的磁碟分割組態以及作業內定義的查詢。 [調整] 頁面可讓您設定正確的 SU 數目。 最好作法是配置比所需數目還多的 SU。 串流處理引擎會不惜分派額外的記憶體，針對延遲和輸送量進行最佳化。
+選擇特定作業所需的 SU 數量取決於輸入的磁碟分割組態以及作業內定義的查詢。 [調整]  頁面可讓您設定正確的 SU 數目。 最好作法是配置比所需數目還多的 SU。 串流處理引擎會不惜分派額外的記憶體，針對延遲和輸送量進行最佳化。
 
 一般情況下，最佳的作法是對不是使用 **PARTITION BY** 的查詢使用 6 個 SU 開始。 然後使用反覆嘗試的方法來決定最佳配置，這方法就是您可以在傳送代表的資料總數後修改 SU 數目，並且檢查 SU% 使用率計量。 串流分析作業可使用的串流單位數目上限，取決於為作業定義的查詢中包含的步驟數目，和每個步驟中的分割區數目。 您可以在[這裡](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job)深入了解限制。
 

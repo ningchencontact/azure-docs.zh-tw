@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 673b1df6094703bebcbfd9d82c1268c01d46e814
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233575"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>連接您外部解決方案中使用 Syslog
@@ -44,7 +44,7 @@ Syslog 連接是使用適用於 Linux 的代理程式來完成。 根據預設�
 3. 按一下 **設定記錄檔，以連接**年代 Syslog 連接器安裝程式。 
 4. 按一下 **按這裡開啟 設定 刀鋒視窗**。
 1. 選取 **資料**，然後**Syslog**。
-   - 請確定您要傳送 Syslog 的每個設備是資料表中。 針對每個設備要監視、 設定嚴重性。 按一下 **[套用]**。
+   - 請確定您要傳送 Syslog 的每個設備是資料表中。 針對每個設備要監視、 設定嚴重性。 按一下 **[套用]** 。
 1. 在您 Syslog 的機器，請確定您要傳送這些設施。 
 
 3. 若要使用 Log Analytics 中的 Syslog 記錄檔相關的結構描述，搜尋**Syslog**。

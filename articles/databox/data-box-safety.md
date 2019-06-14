@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.openlocfilehash: d1bad50f2d97434865bb02ad54b1643c54e01790
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953022"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>安全地安裝和操作您的 Azure 資料箱
@@ -24,7 +24,7 @@ ms.locfileid: "65953022"
 ## <a name="safety-icon-conventions"></a>安全性圖示慣例
 以下是您在檢閱安全性預防措施時會發現的圖示，這些措施可在您設定與執行資料箱時看到。
 
-| 圖示 | 說明 |
+| 圖示 | 描述 |
 |:--- |:--- |
 | ![危險圖示](./media/data-box-safety/warning_icon.png) **危險！** |指出危險的情況，如果無法避免，將會導致死亡或嚴重傷害。 此訊號文字僅限用於最極端的情況。 |
 | ![警告圖示](./media/data-box-safety/warning_icon.png) **警告！** |指出危險的情況，如果無法避免，可能會導致死亡或嚴重傷害。 |
@@ -40,7 +40,7 @@ ms.locfileid: "65953022"
 
 ![警告圖示](./media/data-box-safety/warning_icon.png) ![觸電圖示](./media/data-box-safety/electrical_shock_hazard_icon.png)![沒有使用者可自行維修的零件圖示](./media/data-box-safety/no_user_serviceable_parts_icon.png) **注意** 
 
-* 檢查「已接收」的裝置是否受損。 如果裝置機箱已損毀，請連絡 Microsoft 支援服務以取得替換品。 請勿嘗試操作裝置。 
+* 檢查「已接收」  的裝置是否受損。 如果裝置機箱已損毀，請連絡 Microsoft 支援服務以取得替換品。 請勿嘗試操作裝置。 
 * 裝置配有防篡改螺絲。 如果您懷疑裝置功能異常，請連絡 Microsoft 支援服務以取得替換品。 請勿嘗試維修裝置。 
 * 裝置不含使用者可自行維修的零件。 內含具危險性的電壓、電流和能階。 請勿開啟。 請將裝置寄回給 Microsoft 進行維修。
 

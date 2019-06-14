@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 866374df7d3a6973cfc5995afd5cc3c4b0145c48
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66400011"
 ---
 # <a name="create-and-customize-recovery-plans"></a>建立並自訂復原方案
@@ -25,7 +25,7 @@ ms.locfileid: "66400011"
 2. 在 [建立復原方案]  中，指定方案的名稱。
 3. 根據方案中的機器選擇來源和目標，並針對部署模型選取 [資源管理員]  。 來源位置必須有已啟用容錯移轉和復原功能的機器。 
 
-   **容錯移轉** | **Source** | **目標** 
+   **容錯移轉** | **來源** | **目標** 
    --- | --- | ---
    Azure 至 Azure | Azure 區域 |Azure 區域
    VMware 至 Azure | 組態伺服器 | Azure

@@ -11,10 +11,10 @@ ms.date: 05/10/2019
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: a59deed4ac0cec669ddc5e0335f7274586c702e8
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65541772"
 ---
 # <a name="upgrade-to-the-azure-search-net-sdk-version-9"></a>升級至 Azure 搜尋服務.NET SDK 版本 9
@@ -152,7 +152,7 @@ var index = new Index()
 
 ### <a name="removed-facetresults-and-hithighlights"></a>已移除的 FacetResults 和 HitHighlights
 
-`FacetResults`和`HitHighlights`類別已移除。 面向結果現在會輸入成`IDictionary<string, IList<FacetResult>>`並點擊反白顯示為`IDictionary<string, IList<string>>`。 解決建置錯誤，這項變更所引進的快速方法是新增`using`頂端移除的類型會使用每個檔案的別名。 例如：
+`FacetResults`和`HitHighlights`類別已移除。 面向結果現在會輸入成`IDictionary<string, IList<FacetResult>>`並點擊反白顯示為`IDictionary<string, IList<string>>`。 解決建置錯誤，這項變更所引進的快速方法是新增`using`頂端移除的類型會使用每個檔案的別名。 例如:
 
 ```csharp
 using FacetResults = System.Collections.Generic.IDictionary<string, System.Collections.Generic.IList<Models.FacetResult>>;

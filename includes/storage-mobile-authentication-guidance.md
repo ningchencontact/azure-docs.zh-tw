@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158584"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>設定您的應用程式以存取 Azure 儲存體
@@ -29,7 +29,7 @@ ms.locfileid: "66158584"
 
 * **DefaultEndpointsProtocol** - 您可以選擇 HTTP 或 HTTPS。 不過，強烈建議您使用 HTTPS。
 * **帳戶名稱** - 您儲存體帳戶的名稱。
-* **帳戶金鑰** - 在 [Azure 入口網站](https://portal.azure.com)上，瀏覽至儲存體帳戶並按一下 [金鑰] 圖示來找出這項資訊。
+* **帳戶金鑰** - 在 [Azure 入口網站](https://portal.azure.com)上，瀏覽至儲存體帳戶並按一下 [金鑰]  圖示來找出這項資訊。
 * (選擇性) **EndpointSuffix** - 這用於具有不同端點尾碼的儲存體服務，例如 Azure China 或 Azure 控管的區域。
 
 使用共用金鑰驗證的連接字串的範例如下︰

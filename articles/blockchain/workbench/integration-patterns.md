@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
 ms.openlocfilehash: bd53ae3346882cf20ae7464548fa9ef2c0329f05
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957021"
 ---
 # <a name="smart-contract-integration-patterns"></a>智慧合約整合模式
@@ -79,7 +79,7 @@ Azure Blockchain Workbench REST API 會傳送已驗證的要求，以查詢對�
 
 在此案例中，事件發生於智慧合約內，例如特定事件類型的狀態變更或執行。 此事件會透過事件方格廣播至下游取用者，讓這些取用者採取適當的動作。
 
-此案例的範例之一，是取用者在交易發生時會收到警示並可執行動作，例如在 SQL DB 或 Common Data Service 中記錄資訊。 此案例是 Workbench 填入其「鏈結關閉」SQL DB 時所依循的相同模式。
+此案例的範例之一，是取用者在交易發生時會收到警示並可執行動作，例如在 SQL DB 或 Common Data Service 中記錄資訊。 此案例是 Workbench 填入其「鏈結關閉」  SQL DB 時所依循的相同模式。
 
 另一個範例，是智慧合約轉換為特定狀態時，例如，當合約進入 *OutOfCompliance* 時。 當此狀態變更發生時，可能會觸發警示並傳送至系統管理員的行動電話。
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 20fd8a0bfccea579ddef5a605d65f5643d4849bd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 893b71d3a1cc6ece8272cb1a372302ff384003dd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500010"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693775"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>使用 Azure PowerShell 在 Azure Marketplace 中尋找 Windows VM 映像
 
@@ -28,7 +28,7 @@ ms.locfileid: "58500010"
 
 您也可以使用 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 店面、[Azure 入口網站](https://portal.azure.com)或 [Azure CLI](../linux/cli-ps-findimage.md) 來瀏覽可用的映像和供應項目。 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -122,7 +122,7 @@ advantys
 ...
 ```
 
-針對 MicrosoftWindowsServer 發佈者：
+針對 MicrosoftWindowsServer  發佈者：
 
 ```powershell
 $pubName="MicrosoftWindowsServer"
@@ -139,7 +139,7 @@ WindowsServer
 WindowsServerSemiAnnual
 ```
 
-針對 WindowsServer 供應項目：
+針對 WindowsServer  供應項目：
 
 ```powershell
 $offerName="WindowsServer"
@@ -213,7 +213,7 @@ DataDiskImages   : []
 
 ```
 
-以下範例針對「資料科學虛擬機器 - Windows 2016」映像顯示類似的命令，其中包含下列 `PurchasePlan` 屬性：`name`、`product` 及 `publisher`。 有些映像也有 `promotion code` 屬性。 若要部署此映像，請參閱下列各節來接受條款，並啟用以程式設計方式部署。
+以下範例針對「資料科學虛擬機器 - Windows 2016」  映像顯示類似的命令，其中包含下列 `PurchasePlan` 屬性：`name`、`product` 及 `publisher`。 有些映像也有 `promotion code` 屬性。 若要部署此映像，請參閱下列各節來接受條款，並啟用以程式設計方式部署。
 
 ```powershell
 Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"

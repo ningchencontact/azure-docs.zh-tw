@@ -16,13 +16,13 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5bc0075e6604bd1f94531040f2e4a0628e70667
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074886"
 ---
-# <a name="scenario-protected-web-api"></a>案例：受保護的 web API
+# <a name="scenario-protected-web-api"></a>案例：受保護的 Web API
 
 在此案例中，我們將告訴您如何公開 web API，以及如何加以保護，讓只有經過驗證的使用者可以存取 API。 您會想要啟用已驗證的使用者具有工作和學校帳戶或個人的 Microsoft 個人帳戶使用您的 web API。
 

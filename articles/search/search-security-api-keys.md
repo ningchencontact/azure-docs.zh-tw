@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.openlocfilehash: f12d7f1a7dfcaf80df9a71a0bfc598d72db63a2e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024420"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>針對 Azure 搜尋服務建立及管理 API 金鑰
@@ -33,7 +33,7 @@ API 金鑰是由隨機產生的數字和字母所組成的字串。 透過[角�
 
 |Key|描述|限制|  
 |---------|-----------------|------------|  
-|Admin|授與所有作業的完整權限，包括能夠管理服務、建立和刪除索引、索引子及資料來源。<br /><br /> 當服務建立時，在入口網站中會產生兩個系統管理金鑰 (稱為「主要」和「次要」金鑰)，而且您可以視需要個別重新產生這些金鑰。 擁有兩個金鑰可讓您在變換一個金鑰時，使用第二個金鑰來繼續存取服務。<br /><br /> 指定管理金鑰時，只能在 HTTP 要求標頭中指定。 您無法將管理 API 金鑰放在 URL 中。|每個服務的上限為 2 個|  
+|Admin|授與所有作業的完整權限，包括能夠管理服務、建立和刪除索引、索引子及資料來源。<br /><br /> 當服務建立時，在入口網站中會產生兩個系統管理金鑰 (稱為「主要」  和「次要」  金鑰)，而且您可以視需要個別重新產生這些金鑰。 擁有兩個金鑰可讓您在變換一個金鑰時，使用第二個金鑰來繼續存取服務。<br /><br /> 指定管理金鑰時，只能在 HTTP 要求標頭中指定。 您無法將管理 API 金鑰放在 URL 中。|每個服務的上限為 2 個|  
 |查詢|授與索引和文件的唯讀存取權，且通常會分派給發出搜尋要求的用戶端應用程式。<br /><br /> 查詢金鑰是視需要建立的。 您可以在入口網站中手動建立這些金鑰，或是透過[管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/) \(英文\) 以程式設計方式建立這些金鑰。<br /><br /> 您可以在 HTTP 要求標頭中指定查詢金鑰，以進行查詢、建議或查閱作業。 或者，您也可以在 URL 上將查詢金鑰當作參數來傳遞。 視您用戶端應用程式制定要求的方式而定，將金鑰當作查詢參數來傳遞可能會較為簡單：<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2019-05-06&api-key=[query key]`|每個服務 50 個|  
 
  管理金鑰或查詢金鑰在外觀上並無差別。 兩種金鑰都是由 32 個隨機產生的英數字元所組成。 如果您忘記在應用程式中指定的是哪種類型的金鑰，您可以[在入口網站中查看金鑰值](https://portal.azure.com)，或使用 [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) 來傳回值和金鑰類型。  
@@ -74,7 +74,7 @@ API 金鑰是由隨機產生的數字和字母所組成的字串。 透過[角�
 
 兩個管理員金鑰會針對每個服務，以便您可以旋轉主索引鍵，來提供商務持續性使用次要金鑰。
 
-1. 在 [設定] >[金鑰] 頁面上，複製次要金鑰。
+1. 在 [設定]   >[金鑰]  頁面上，複製次要金鑰。
 2. 針對所有的應用程式，更新 API 金鑰設定以使用次要金鑰。
 3. 重新產生主要金鑰。
 4. 更新所有應用程式以使用新的主要金鑰。
@@ -88,7 +88,7 @@ API 金鑰是由隨機產生的數字和字母所組成的字串。 透過[角�
 ## <a name="secure-api-keys"></a>保護 API 金鑰
 藉由限制透過入口網站或 Resource Manager 介面 (PowerShell 或命令列介面) 的存取來確保金鑰安全性。 如前所述，訂用帳戶系統管理員可以檢視及重新產生所有的 API 金鑰。 為以防萬一，請檢閱角色指派以了解誰具有管理員金鑰存取權。
 
-+ 在服務儀表板中，按一下 [存取控制 (IAM)]，然後按一下 [角色指派] 索引標籤，以檢視您服務的角色指派。
++ 在服務儀表板中，按一下 [存取控制 (IAM)]  ，然後按一下 [角色指派]  索引標籤，以檢視您服務的角色指派。
 
 下列角色的成員可以檢視和重新產生金鑰：擁有者、參與者及[搜尋服務參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
 

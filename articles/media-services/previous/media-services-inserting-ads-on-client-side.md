@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 49c836f5e9189104ba77e8f3d865f4db199c4060
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002983"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>在用戶端插入廣告
@@ -276,7 +276,7 @@ VMAP 檔案開頭為 `<VMAP>` 元素，包含一或多個 `<AdBreak>` 元素，�
     </vmap:VMAP>
 ```
 
-如需 <**TrackingEvents**> 元素及其子系的詳細資訊，請參閱 http://iab.net/VMAP.pdf。
+如需 <**TrackingEvents**> 元素及其子系的詳細資訊，請參閱 http://iab.net/VMAP.pdf 。
 
 ### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>使用 Media Abstract Sequencing Template (MAST) 檔案
 MAST 檔案可讓您指定觸發程序，定義何時顯示廣告。 以下是範例 MAST 檔案，其中包含片頭廣告、片中廣告和片尾廣告的觸發程序。

@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 1930d5fc9dafe7d480302ded9b4e5a86f55a7669
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964524"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Azure 空間的錨點支援選項
@@ -31,8 +31,8 @@ ms.locfileid: "65964524"
 
 1. 當填寫支援票證欄位： 
 
-- 問題類型：技術
-- 服務:Spatial Anchors
+- 問題類型：技術需求
+- 服務：Spatial Anchors
 
 ![Azure 入口網站支援票證欄位](./media/spatial-anchor-support3.png)
 

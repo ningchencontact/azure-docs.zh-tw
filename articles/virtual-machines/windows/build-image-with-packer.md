@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
 ms.openlocfilehash: 81dbd8082d5a7ab473cc0cbe5fcb6e564fbd750c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951142"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>如何在 Azure 中使用 Packer 來建立 Windows 虛擬機器映像
@@ -32,7 +32,7 @@ Azure 中的每個虛擬機器 (VM) 都是透過映像所建立，而映像則�
 ## <a name="create-azure-resource-group"></a>建立 Azure 資源群組
 建置程序進行期間，Packer 會在建置來源 VM 時建立暫存的 Azure 資源。 若要擷取該來源 VM 以作為映像，您必須定義資源群組。 Packer 建置程序所產生的輸出會儲存在此資源群組中。
 
-使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 來建立資源群組。 下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組：
 
 ```azurepowershell
 $rgName = "mypackerGroup"
@@ -70,16 +70,16 @@ Get-AzSubscription
 ## <a name="define-packer-template"></a>定義 Packer 範本
 若要建置映像，您可以將範本建立為 JSON 檔案。 在此範本中，您必須定義產生器和佈建程式，由它們執行實際的建置程序。 Packer 具有[適用於 Azure 的產生器](https://www.packer.io/docs/builders/azure.html)，以供您定義 Azure 資源，例如上述步驟所建立的服務主體認證。
 
-建立名為 windows.json 的檔案，並貼入下列內容。 針對下列參數輸入您自己的值︰
+建立名為 windows.json  的檔案，並貼入下列內容。 針對下列參數輸入您自己的值︰
 
 | 參數                           | 取得位置 |
 |-------------------------------------|----------------------------------------------------|
-| client_id                         | 檢視具有 `$sp.applicationId` 的服務主體識別碼 |
-| client_secret                     | 檢視自動產生密碼 `$plainPassword` |
-| tenant_id                         | `$sub.TenantId` 命令所產生的輸出 |
-| subscription_id                   | `$sub.SubscriptionId` 命令所產生的輸出 |
-| managed_image_resource_group_name | 您在第一個步驟中建立的資源群組名稱 |
-| managed_image_name                | 所建立之受控磁碟映像的名稱 |
+| client_id                          | 檢視具有 `$sp.applicationId` 的服務主體識別碼 |
+| client_secret                      | 檢視自動產生密碼 `$plainPassword` |
+| tenant_id                          | `$sub.TenantId` 命令所產生的輸出 |
+| subscription_id                    | `$sub.SubscriptionId` 命令所產生的輸出 |
+| managed_image_resource_group_name  | 您在第一個步驟中建立的資源群組名稱 |
+| managed_image_name                 | 所建立之受控磁碟映像的名稱 |
 
 ```json
 {
@@ -235,7 +235,7 @@ New-AzVm `
 
 
 ## <a name="test-vm-and-webserver"></a>測試 VM 和網頁伺服器
-使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 取得 VM 的公用 IP 位址。 下列範例會取得稍早建立的 myPublicIP IP 位址︰
+使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 取得 VM 的公用 IP 位址。 下列範例會取得稍早建立的 myPublicIP  IP 位址︰
 
 ```powershell
 Get-AzPublicIPAddress `

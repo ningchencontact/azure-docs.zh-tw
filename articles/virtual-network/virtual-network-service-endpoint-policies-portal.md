@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: kumud
 ms.openlocfilehash: b1d2d04e74828323166810d93c52a60671bf71e8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64710898"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>使用 Azure 入口網站建立、變更或刪除服務端點原則
@@ -39,50 +39,50 @@ ms.locfileid: "64710898"
 
 ## <a name="create-a-service-endpoint-policy"></a>建立服務端點原則
 
-1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
-2. 在搜尋窗格中，輸入「服務端點原則」，然後選取 [服務端點原則 (預覽)]，然後選取 [建立]。
-3. 從 [基本] 中，輸入或選取以下資訊 
+1. 選取 Azure 入口網站左上角的 [+ 建立資源]  。
+2. 在搜尋窗格中，輸入「服務端點原則」，然後選取 [服務端點原則 (預覽)]  ，然後選取 [建立]  。
+3. 從 [基本]  中，輸入或選取以下資訊 
 
    - 訂用帳戶   ：為原則選取訂用帳戶。    
-   - 資源群組：選取 [新建]，然後輸入 *myResourceGroup*。     
+   - 資源群組：選取 [新建]  ，然後輸入 *myResourceGroup*。     
    - 名稱：myEndpointPolicy
    - 位置       ：美國中西部     
  
    ![建立服務端點原則基本事項](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-startpane.PNG)
    
-4. 從 [原則定義] 中，輸入或選取以下資訊
+4. 從 [原則定義]  中，輸入或選取以下資訊
 
-   - 按一下 [+新增資源]，輸入或選取下列資訊、接受其餘設定的預設值，然後按一下 [新增]。  
-   - 範圍          ：選取 [單一帳戶] 或 [訂用帳戶中的所有帳戶] 或 [資源群組中的所有帳戶]。    
+   - 按一下 [+新增資源]  ，輸入或選取下列資訊、接受其餘設定的預設值，然後按一下 [新增]  。  
+   - 範圍          ：選取 [單一帳戶]  或 [訂用帳戶中的所有帳戶]  或 [資源群組中的所有帳戶]  。    
    - 訂用帳戶   ：為儲存體帳戶選取訂用帳戶。 原則和儲存體帳戶可以位於不同的訂用帳戶中。   
    - 資源群組：選取您的資源群組。 如果範圍設為「資源群組中的所有帳戶」或「單一帳戶」，則為必要項目。  
    - 資源：mystorageaccountportal    
-   - 按一下 [+ 新增資源]，繼續新增更多資源。
+   - 按一下 [+ 新增資源]  ，繼續新增更多資源。
    
    ![建立服務端點原則定義](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
    
-5. 選用：在 [標籤] 中輸入或選取下列資訊：
+5. 選用：在 [標籤]  中輸入或選取下列資訊：
    
    - 索引鍵     ：為您的原則選取索引鍵。 例如：Dept     
    - 值   ：為索引建輸入值組。 例如：財務
 
-6. 選取 [檢閱 + 建立]。 驗證資訊，然後按一下 [建立]。 若要進一步編輯，請按一下 [上一步]。 
+6. 選取 [檢閱 + 建立]  。 驗證資訊，然後按一下 [建立]  。 若要進一步編輯，請按一下 [上一步]  。 
 
    ![建立服務端點原則定義最終驗證](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-finalcreatereview.PNG)
   
  
 ## <a name="view-endpoint-policies"></a>檢視端點原則 
 
-1. 在入口網站的 [所有服務] 方塊中，開始輸入*服務端點原則*。 選取 [服務端點原則 (預覽)]。
-2. 在 [訂用帳戶] 下，選取您的訂用帳戶與資源群組，如下圖所示
+1. 在入口網站的 [所有服務]  方塊中，開始輸入*服務端點原則*。 選取 [服務端點原則 (預覽)]  。
+2. 在 [訂用帳戶]  下，選取您的訂用帳戶與資源群組，如下圖所示
 
    ![顯示原則](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-viewpolicies.PNG)
        
-3. 選取原則，然後按一下 [原則定義]，以檢視或新增更多原則定義。
+3. 選取原則，然後按一下 [原則定義]  ，以檢視或新增更多原則定義。
 
    ![顯示原則定義](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-viewpolicy-adddefinitions.PNG)
 
-4. 選取 [相關聯的子網路] 以檢視與原則相關聯的子網路。 若要將原則與子網路建立關聯，請按一下 [導覽至相同區域中的虛擬網路]。
+4. 選取 [相關聯的子網路]  以檢視與原則相關聯的子網路。 若要將原則與子網路建立關聯，請按一下 [導覽至相同區域中的虛擬網路]。
 
    ![顯示相關聯的子網路](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-view-associatedsubnets.PNG)
  
@@ -93,20 +93,20 @@ ms.locfileid: "64710898"
 
 在您可以讓原則與子網路產生關聯之前，您必須先建立虛擬網路和子網路，然後才可以讓原則與子網路產生關聯：
 
-1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
-2. 選取 [網絡]，然後選取 [虛擬網路]。
-3. 在 [建立虛擬網路] 底下，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [建立]：
+1. 選取 Azure 入口網站左上角的 [+ 建立資源]  。
+2. 選取 [網絡]  ，然後選取 [虛擬網路]  。
+3. 在 [建立虛擬網路]  底下，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [建立]  ：
    - 名稱：myVirtualNetwork      
    - 位址空間  ：10.0.0.0/16      
    - 訂用帳戶   ：選取您的訂用帳戶。 原則應該位於與 VNet 相同的訂用帳戶     
-   - 資源群組：選取 [使用現有的]，然後選取 [myResourceGroup]     
+   - 資源群組：選取 [使用現有的]  ，然後選取 [myResourceGroup]      
    - 位置       ：美國中西部     
    - 子網路名稱：私用     
    - 位址範圍  ：10.0.0.0/24
      
-4. 在入口網站頂端的 [搜尋資源、服務和文件] 方塊中，開始輸入 myVirtualNetwork。 當搜尋結果中出現 **myVirtualNetwork** 時加以選取。
-5. 在 [設定] 底下選取 [子網路]，然後選取 [私用]。
-6. 如下圖所示，選取 [服務端點]，選取 [Microsoft.Storage]，選取 [服務端點原則]，選取 [myEndpointPolicy]，然後選取 [儲存]：
+4. 在入口網站頂端的 [搜尋資源、服務和文件]  方塊中，開始輸入 myVirtualNetwork  。 當搜尋結果中出現 **myVirtualNetwork** 時加以選取。
+5. 在 [設定]  底下選取 [子網路]  ，然後選取 [私用]  。
+6. 如下圖所示，選取 [服務端點]  ，選取 [Microsoft.Storage]  ，選取 [服務端點原則]  ，選取 [myEndpointPolicy]  ，然後選取 [儲存]  ：
 
    ![將原則建立關聯](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-associatepolicies.PNG)
 

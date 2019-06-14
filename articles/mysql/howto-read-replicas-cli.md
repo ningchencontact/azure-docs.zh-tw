@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.openlocfilehash: ba8af55f7467e361136e4b0c57c97b4fa187cec0
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304966"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>如何使用 Azure CLI 在適用於 MySQL 的 Azure 資料庫中建立與管理讀取複本
@@ -41,7 +41,7 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 | 設定 | 範例值 | 描述  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  複本伺服器會建立於其中的資源群組。  |
-| NAME | mydemoreplicaserver | 所建立的新複本伺服器名稱。 |
+| name | mydemoreplicaserver | 所建立的新複本伺服器名稱。 |
 | source-server | mydemoserver | 要從中複寫的現有主要伺服器的名稱或識別碼。 |
 
 若要建立跨區域讀取複本，請使用`--location`參數。 下列 CLI 範例會建立複本，在美國西部。
@@ -69,7 +69,7 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 | 設定 | 範例值 | 描述  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  複本伺服器所在的資源群組。  |
-| NAME | mydemoreplicaserver | 要停止複寫的複本伺服器名稱。 |
+| name | mydemoreplicaserver | 要停止複寫的複本伺服器名稱。 |
 
 ## <a name="delete-a-replica-server"></a>刪除複本伺服器
 

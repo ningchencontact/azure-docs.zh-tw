@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
 ms.openlocfilehash: d80ad5abecc968a9fe3c82d62ddd8577856a3c54
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65835193"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>整合 Azure Active Directory 以 Azure Kubernetes 服務使用 Azure CLI
@@ -78,7 +78,7 @@ serverApplicationSecret=$(az ad sp credential reset \
 Azure AD 需要權限來執行下列動作：
 
 * 讀取目錄資料
-* 登入及讀取使用者個人檔案
+* 登入及讀取使用者設定檔
 
 指派這些權限[az ad 應用程式權限新增][ az-ad-app-permission-add]命令：
 
@@ -161,7 +161,7 @@ az aks get-credentials --resource-group myResourceGroup --name $aksname --admin
 
 ## <a name="create-rbac-binding"></a>建立 RBAC 繫結
 
-必須先建立角色繫結或叢集角色繫結，Azure Active Directory 帳戶才能搭配 AKS 叢集使用。 「角色」會定義要授與的權限，而「繫結」會將角色套用至需要的使用者。 這些指派可以套用至指定的命名空間或在整個叢集中套用。 如需詳細資訊，請參閱[使用 RBAC 授權][rbac-authorization]。
+必須先建立角色繫結或叢集角色繫結，Azure Active Directory 帳戶才能搭配 AKS 叢集使用。 「角色」  會定義要授與的權限，而「繫結」  會將角色套用至需要的使用者。 這些指派可以套用至指定的命名空間或在整個叢集中套用。 如需詳細資訊，請參閱[使用 RBAC 授權][rbac-authorization]。
 
 取得目前使用者登入使用的使用者主體名稱 (UPN) [az ad 簽署-使用者 show] [ az-ad-signed-in-user-show]命令。 下一個步驟中的 Azure AD 整合被啟用此使用者帳戶。
 

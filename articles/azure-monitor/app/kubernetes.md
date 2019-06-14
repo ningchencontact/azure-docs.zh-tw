@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: alkaplan
 ms.openlocfilehash: c94d589875195207ec6f71c35ad077cac281fda5
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65555825"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Kubernetes 零檢測應用程式監視裝載之應用程式
@@ -78,7 +78,7 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
 3. 編輯*application-insights-istio-mixer-adapter-deployment.yaml*
     - 編輯的值*ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY*環境變數，以包含在 Azure 入口網站，以包含遙測的 Application Insights 資源的檢測金鑰。
     - 如有必要，編輯的值*ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES*環境變數，以包含您要啟用監視的命名空間的逗號分隔的清單。 保留空白，以便監視所有命名空間。
-4. 套用*每個*YAML 檔案下找到*src/kubernetes/* 藉由執行下列命令 (您仍然必須在內 */srckubernetes/*):
+4. 套用*每個*YAML 檔案下找到*src/kubernetes/* 藉由執行下列命令 (您仍然必須在內 */srckubernetes/* ):
 
    ```console
    kubectl apply -f .

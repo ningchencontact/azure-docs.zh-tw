@@ -19,10 +19,10 @@ ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 32f105c0d4f8807b53d400a1c198edd504c0aef3
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544494"
 ---
 # <a name="federation-metadata"></a>同盟中繼資料
@@ -50,7 +50,7 @@ Azure AD 會在 `https://login.microsoftonline.com/<TenantDomainName>/Federation
 ## <a name="contents-of-federation-metadata"></a>同盟中繼資料內容
 以下小節提供使用 Azure AD 所簽發之權杖的服務所需的資訊。
 
-### <a name="entity-id"></a>实体 ID
+### <a name="entity-id"></a>實體識別碼
 `EntityDescriptor` 項目包含 `EntityID` 屬性。 `EntityID` 屬性的值代表簽發者 (也就是簽發權杖的 Security Token Service (STS))。 請務必在收到權杖時驗證簽發者。
 
 下列中繼資料說明了含有 `EntityID` 項目的範例租用戶專屬 `EntityDescriptor` 項目。
@@ -73,7 +73,7 @@ entityID="https://sts.windows.net/{tenant}/">
 ```
 
 ### <a name="token-signing-certificates"></a>權杖簽署憑證
-当服务收到 Azure AD 租户颁发的令牌时，必须使用联合元数据文档中发布的签名密钥来验证该令牌的签名。 同盟中繼資料包含租用戶用於權杖簽署之憑證的公開部分。 憑證原始位元組會出現在 `KeyDescriptor` 項目中。 當 `use` 屬性值為 `signing` 時，權杖簽署憑證僅能適用於簽署。
+當服務收到的 Azure AD 租用戶所發出的權杖時，必須具有發佈同盟中繼資料文件中的簽署金鑰驗證權杖的簽章。 同盟中繼資料包含租用戶用於權杖簽署之憑證的公開部分。 憑證原始位元組會出現在 `KeyDescriptor` 項目中。 當 `use` 屬性值為 `signing` 時，權杖簽署憑證僅能適用於簽署。
 
 Azure AD 所發佈之同盟中繼資料文件可以有多組簽署金鑰 (例如，Azure AD 準備更新簽署憑證時)。 當同盟中繼資料文件包含多個憑證時，正在驗證權杖的服務應會支援該文件中的所有憑證。
 
@@ -95,7 +95,7 @@ MIIDPjCCAiqgAwIBAgIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291
 
 在 WS 同盟專屬區段中，WS 同盟中繼資料讀取器會從 `RoleDescriptor` 項目中讀取類型為 `SecurityTokenServiceType` 的憑證。
 
-以下元数据显示了一个 `RoleDescriptor` 元素示例。
+下列中繼資料說明範例 `RoleDescriptor` 項目。
 
 ```
 <RoleDescriptor xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:fed="https://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="https://docs.oasis-open.org/wsfed/federation/200706">

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 4b73edd10521b23fb4befbe4fe7d9f0c7b496de3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204307"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>將資料連接，從 Azure 資訊保護
@@ -49,7 +49,7 @@ ms.locfileid: "65204307"
 
 4. 選取您已部署至 Azure 的 Sentinel 的工作區。 
 
-5. 按一下 [確定]。
+5. 按一下 [確定]  。
 
 6. 若要使用 Log Analytics 中的 Azure Information Protection 的警示相關的結構描述，搜尋**InformationProtectionLogs_CL**。
 

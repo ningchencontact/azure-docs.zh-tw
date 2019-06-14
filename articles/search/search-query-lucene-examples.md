@@ -11,10 +11,10 @@ ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 467c323a0b669e70e12f801fd8fdd6df119e793d
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595909"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>使用 「 完整 」 的 Lucene 搜尋語法 （Azure 搜尋服務中的進階查詢） 的查詢範例
@@ -59,7 +59,7 @@ URL 組合具有下列元素：
 
 ## <a name="send-your-first-query"></a>傳送第一個查詢
 
-在驗證步驟中，將下列要求貼到 GET 中，然後按一下 [傳送]。 結果會以詳細 JSON 文件的形式傳回。 會傳回整個文件，可讓您查看所有欄位和所有的值。
+在驗證步驟中，將下列要求貼到 GET 中，然後按一下 [傳送]  。 結果會以詳細 JSON 文件的形式傳回。 會傳回整個文件，可讓您查看所有欄位和所有的值。
 
 將此 URL 貼入 REST 用戶端上，做為驗證步驟，以及檢視文件結構。
 
@@ -81,7 +81,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 本文中的所有範例會指定 **queryType=full** 搜尋參數，表示 Lucene 查詢剖析器處理的完整語法。 
 
-## <a name="example-1-query-scoped-to-a-list-of-fields"></a>範例 1:查詢範圍的欄位清單
+## <a name="example-1-query-scoped-to-a-list-of-fields"></a>範例 1：查詢範圍的欄位清單
 
 第一個範例不是 Lucene 特有的但我們會導致與它導入第一個基本查詢概念： 欄位範圍。 此範例會設定整個查詢，並在短短的特定欄位的回應。 當您的工具是 Postman 或搜尋總管時，了解如何建構可讀取的 JSON 回應很重要。 
 

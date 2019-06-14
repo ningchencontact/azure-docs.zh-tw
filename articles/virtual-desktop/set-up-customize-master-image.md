@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
 ms.openlocfilehash: 9df4be5534a1cbe6aa4ffb9c60bb180fd4587d32
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65551034"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>準備和自訂主要 VHD 映像
@@ -227,8 +227,8 @@ remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\W
 
 有映像之後，您可以建立或更新主應用程式集區。 若要深入了解如何建立和更新主應用程式集區，請參閱下列文章：
 
-- [使用 Azure Resource Manager 範本建立的主應用程式集區](create-host-pools-arm-template.md)
-- [教學課程：使用 Azure Marketplace 中建立主應用程式集區](create-host-pools-azure-marketplace.md)
-- [使用 PowerShell 建立主應用程式集區](create-host-pools-powershell.md)
+- [使用 Azure Resource Manager 範本建立主機集區](create-host-pools-arm-template.md)
+- [教學課程：透過 Azure Marketplace 建立主機集區](create-host-pools-azure-marketplace.md)
+- [使用 PowerShell 建立主機集區](create-host-pools-powershell.md)
 - [設定主應用程式集區的使用者設定檔共用](create-host-pools-user-profile.md)
 - [設定 Windows 虛擬桌面負載平衡方法](configure-host-pool-load-balancing.md)

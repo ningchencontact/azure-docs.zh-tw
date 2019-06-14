@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f22ff41e380a16af2aa45df9a61eefbf293ff83
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544324"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>初始化使用 MSAL.NET 的用戶端應用程式
@@ -100,7 +100,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 您可以設定公用用戶端或機密用戶端應用程式產生器的修飾詞為：
 
-|參數 | 說明|
+|參數 | 描述|
 |--------- | --------- |
 |`.WithAuthority()` 7 覆寫 | 將應用程式預設授權單位設定為 Azure AD 授權單位，可能會選擇 Azure 雲端，對象，租用戶 （租用戶識別碼或網域名稱），或直接提供授權單位 URI。|
 |`.WithAdfsAuthority(string)` | 設定應用程式預設權限是 ADFS 授權單位。|
@@ -119,7 +119,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 您可以在 Xamarin.iOS 上公開用戶端應用程式產生器設定的修飾詞為：
 
-|參數 | 說明|
+|參數 | 描述|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Xamarin.iOS 只**:設定 iOS 鑰匙圈的安全性群組 （適用於快取持續性）。|
 
@@ -127,7 +127,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 您可以設定機密用戶端應用程式產生器的修飾詞為：
 
-|參數 | 說明|
+|參數 | 描述|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | 設定用來識別與 Azure AD 應用程式的憑證。|
 |`.WithClientSecret(string clientSecret)` | 設定用來識別與 Azure AD 應用程式的用戶端密碼 （應用程式密碼）。|

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: 2f71dc2bcd5463f81ae286bbe3099124eb3fa539
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62107971"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>使用 Azure 傳統 CLI 設定虛擬機器 (傳統) 的私人 IP 位址
@@ -32,7 +32,7 @@ ms.locfileid: "62107971"
 下列範例 Azure 傳統 CLI 命令會預期已經建立簡單的環境。 如果您想要執行如本文件中所顯示的命令，請先建置 [建立 vnet](virtual-networks-create-vnet-classic-cli.md)中所說明的測試環境。
 
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>建立 VM 時如何指定靜態私人 IP 位址
-若要根據上述案例，在名為 TestService 的雲端服務中建立名為 DNS01 的新 VM，請遵循下列步驟：
+若要根據上述案例，在名為 TestService  的雲端服務中建立名為 DNS01  的新 VM，請遵循下列步驟：
 
 1. 如果您從未使用過 Azure CLI，請參閱 [安裝和設定 Azure CLI](/cli/azure/install-cli-version-1.0) ，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
 2. 執行 **azure service create** 命令來建立雲端服務。
@@ -64,14 +64,14 @@ ms.locfileid: "62107971"
         info:    OK
         info:    vm create command OK
    
-   * **-l (或 --location)**。 將要建立 VM 的 Azure 區域。 在本文案例中為 *centralus*。
-   * **-n (或 --vm-name)**。 要建立之 VM 的名稱。
-   * **-w (或 --virtual-network-name)**。 將建立 VM 之 VNet 的名稱。 
-   * **-S (或 --static-ip)**。 VM 的靜態私人 IP 位址
+   * **-l (或 --location)** 。 將要建立 VM 的 Azure 區域。 在本文案例中為 *centralus*。
+   * **-n (或 --vm-name)** 。 要建立之 VM 的名稱。
+   * **-w (或 --virtual-network-name)** 。 將建立 VM 之 VNet 的名稱。 
+   * **-S (或 --static-ip)** 。 VM 的靜態私人 IP 位址
    * **TestService**。 將建立 VM 之雲端服務的名稱。
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**。 用來建立 VM 的映像。
    * **adminuser**。 Windows VM 的本機系統管理員。
-   * <strong>AdminP@ssw0rd</strong>. Windows VM 的本機系統管理員密碼。
+   * <strong>AdminP@ssw0rd</strong>。 Windows VM 的本機系統管理員密碼。
 
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>如何擷取 VM 的靜態私人 IP 位址資訊
 若要檢視使用上述指令碼建立之 VM 的靜態私人 IP 位址資訊，請執行下列 Azure CLI 命令並觀察 *Network StaticIP*的值：

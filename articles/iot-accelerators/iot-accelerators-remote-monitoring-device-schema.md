@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0f9669d491648ecc621aab27d0908dcc3dc84438
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65823335"
 ---
 # <a name="understand-the-device-model-schema"></a>了解裝置機型結構描述
@@ -68,7 +68,7 @@ ms.locfileid: "65823335"
 
 下表描述最上層結構描述項目：
 
-| 結構描述項目 | 說明 |
+| 結構描述項目 | 描述 |
 | -- | --- |
 | `SchemaVersion` | 結構描述版本一律為 `1.0.0` 且為此檔案格式專屬。 |
 | `Id` | 此裝置機型的唯一 ID。 |
@@ -116,7 +116,7 @@ ms.locfileid: "65823335"
 
 ## <a name="properties"></a>properties
 
-結構描述的 `Properties` 區段會定義裝置回報給解決方案的屬性值。 例如：
+結構描述的 `Properties` 區段會定義裝置回報給解決方案的屬性值。 例如:
 
 ```json
 "Properties": {
@@ -167,7 +167,7 @@ ms.locfileid: "65823335"
 * Boolean
 * Integer
 * Double
-* DateTime
+* Datetime
 
 若要在不同的間隔傳送遙測訊息，請將多個遙測類型新增至 `Telemetry` 陣列。 下列範例會每 10 秒傳送溫度和溼度資料，每一分鐘傳送光線狀態：
 

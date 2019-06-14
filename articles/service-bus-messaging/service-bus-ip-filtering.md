@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 540435e3e018ae77477030ae8b9f727d71782121
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64704578"
 ---
 # <a name="use-firewall-rules"></a>使用防火牆規則
@@ -24,7 +24,7 @@ ms.locfileid: "64704578"
 
 ## <a name="when-to-use"></a>使用時機
 
-如果想要設定「服務匯流排」，讓它應該只接收來自某個指定範圍 IP 位址的流量，並拒絕所有其他流量，您可以利用「防火牆規則」封鎖來自其他其他 IP 位址的服務匯流排端點。 例如，您要搭配使用服務匯流排與 [Azure Express Route][express-route]，以建立對內部部署基礎結構的私人連線。 
+如果想要設定「服務匯流排」，讓它應該只接收來自某個指定範圍 IP 位址的流量，並拒絕所有其他流量，您可以利用「防火牆規則」  封鎖來自其他其他 IP 位址的服務匯流排端點。 例如，您要搭配使用服務匯流排與 [Azure Express Route][express-route]，以建立對內部部署基礎結構的私人連線。 
 
 ## <a name="how-filter-rules-are-applied"></a>篩選器規則的套用方式
 
@@ -69,7 +69,7 @@ IP 篩選器規則會依序套用，第一個符合 IP 位址的規則會決定�
 - **ipMask** 是單一 IPv4 位址或以 CIDR 標記法表示的 IP 位址區塊。 例如，在 CIDR 標記法中，70.37.104.0/24 表示從 70.37.104.0 開始，到 70.37.104.255 為止，總共 256 個 IPv4 位址，而 24 則表示該範圍內的顯著前置詞位元。
 
 > [!NOTE]
-> 雖然無法使用任何拒絕規則，但 Azure Resource Manager 範本是將預設動作設定為不會限制連線的 **"Allow"**。
+> 雖然無法使用任何拒絕規則，但 Azure Resource Manager 範本是將預設動作設定為不會限制連線的 **"Allow"** 。
 > 在建立「虛擬網路」或「防火牆」規則時，我們必須將 ***"defaultAction"***
 > 
 > from

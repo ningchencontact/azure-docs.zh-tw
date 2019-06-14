@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: zchia
 ms.openlocfilehash: f79bc083105f997b08f7cfa6f8e08a8f4f455455
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65470574"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>教學課程：設定自動使用者佈建的 Dynamic Signal
@@ -45,11 +45,11 @@ ms.locfileid: "65470574"
 
 **若要從 Azure AD 應用程式資源庫新增 Dynamic Signal，請執行下列步驟：**
 
-1. 在   **[Azure 入口網站](https://portal.azure.com)**，在左側的導覽窗格中，選取**Azure Active Directory**。
+1. 在   **[Azure 入口網站](https://portal.azure.com)** ，在左側的導覽窗格中，選取**Azure Active Directory**。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 移至 [企業應用程式]，然後選取 [所有應用程式]。
+2. 移至 [企業應用程式]  ，然後選取 [所有應用程式]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
@@ -88,15 +88,15 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Dynamic Signal]。
+2. 在應用程式清單中，選取 [Dynamic Signal]  。
 
     ![應用程式清單中的 Dynamic Signal 連結](common/all-applications.png)
 
-3. 選取 [佈建] 索引標籤。
+3. 選取 [佈建]  索引標籤。
 
     ![佈建 索引標籤](common/provisioning.png)
 
-4. 將 [佈建模式] 設定為 [自動]。
+4. 將 [佈建模式]  設定為 [自動]  。
 
     ![佈建 索引標籤](common/provisioning-automatic.png)
 
@@ -114,17 +114,17 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
     ![租用戶 URL + 語彙基元](common/provisioning-testconnection-tenanturltoken.png)
 
-8. 在 [通知電子郵件] 欄位中，輸入應該收到佈建錯誤通知的個人或群組電子郵件地址，然後選取 [發生失敗時傳送電子郵件通知] 核取方塊。
+8. 在 [通知電子郵件]  欄位中，輸入應該收到佈建錯誤通知的個人或群組電子郵件地址，然後選取 [發生失敗時傳送電子郵件通知]  核取方塊。
 
     ![通知電子郵件](common/provisioning-notification-email.png)
 
-9. 按一下 [檔案] 。
+9. 按一下 [檔案]  。
 
 10. 底下**對應**區段中，選取**同步處理 Azure Active Directory 使用者至 Dynamic Signal**。
 
     ![Dynamic Signal 使用者對應](media/dynamic-signal-provisioning-tutorial/user-mappings.png)
 
-11. 檢閱從 Azure AD 同步至 Dynamic Signal 中的使用者屬性**屬性對應**一節。 為選取的屬性**比對**屬性用來比對進行更新作業的 Dynamic Signal 中的使用者帳戶。 選取 [儲存] 按鈕以認可所有變更。
+11. 檢閱從 Azure AD 同步至 Dynamic Signal 中的使用者屬性**屬性對應**一節。 為選取的屬性**比對**屬性用來比對進行更新作業的 Dynamic Signal 中的使用者帳戶。 選取 [儲存]  按鈕以認可所有變更。
 
     ![Dynamic Signal 使用者屬性](media/dynamic-signal-provisioning-tutorial/user-mapping-attributes.png)
 
@@ -138,11 +138,11 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
     ![佈建的範圍](common/provisioning-scope.png)
 
-15. 當您準備好要佈建時，按一下 [儲存]。
+15. 當您準備好要佈建時，按一下 [儲存]  。
 
     ![正在儲存佈建設定](common/provisioning-configuration-save.png)
 
-此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用**同步處理詳細資料**區段來監視進度，並依循連結前往佈建活動報告，當中會描述佈建服務在 Dynamic Signal 的 Azure AD 所執行的所有動作。
+此作業會對在 [設定]  區段的 [範圍]  中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用**同步處理詳細資料**區段來監視進度，並依循連結前往佈建活動報告，當中會描述佈建服務在 Dynamic Signal 的 Azure AD 所執行的所有動作。
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 

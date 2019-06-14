@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.openlocfilehash: b00eb12092838746f4bfe16f00eac55df9224b09
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65607224"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Azure Stream Analytics 資料錯誤
@@ -43,7 +43,7 @@ ms.locfileid: "65607224"
 ### <a name="inputdeserializererrorinvalidcompressiontype"></a>InputDeserializerError.InvalidCompressionType
 
 * 原因：選取的輸入的壓縮類型不符合的資料。
-* 提供的入口網站通知：有
+* 提供的入口網站通知：是
 * 診斷記錄層級：警告
 * 記錄詳細資料
    * 輸入訊息識別項。 事件中樞的識別項是 PartitionId、 位移和序號。
@@ -57,7 +57,7 @@ ms.locfileid: "65607224"
 ### <a name="inputdeserializererrorinvalidheader"></a>InputDeserializerError.InvalidHeader
 
 * 原因：輸入資料的標頭無效。 例如，CSV 都有名稱重複的資料行。
-* 提供的入口網站通知：有
+* 提供的入口網站通知：是
 * 診斷記錄層級：警告
 * 記錄詳細資料
    * 輸入訊息識別項。 
@@ -72,7 +72,7 @@ ms.locfileid: "65607224"
 ### <a name="inputdeserializererrormissingcolumns"></a>InputDeserializerError.MissingColumns
 
 * 原因：搭配 CREATE TABLE 或透過時間戳記所定義的輸入資料行不存在。
-* 提供的入口網站通知：有
+* 提供的入口網站通知：是
 * 診斷記錄層級：警告
 * 記錄詳細資料
    * 輸入訊息識別項。 
@@ -92,7 +92,7 @@ ms.locfileid: "65607224"
 ### <a name="inputdeserializererrortypeconversionerror"></a>InputDeserializerError.TypeConversionError
 
 * 原因：無法將輸入轉換成 CREATE TABLE 陳述式中指定的類型。
-* 提供的入口網站通知：有
+* 提供的入口網站通知：是
 * 診斷記錄層級：警告
 * 記錄詳細資料
    * 輸入訊息識別項。 
@@ -111,7 +111,7 @@ ms.locfileid: "65607224"
 ### <a name="inputdeserializererrorinvaliddata"></a>InputDeserializerError.InvalidData
 
 * 原因：輸入的資料不正確的格式。 例如，輸入不是有效的 JSON。
-* 提供的入口網站通知：有
+* 提供的入口網站通知：是
 * 診斷記錄層級：警告
 * 記錄詳細資料
    * 輸入訊息識別項。 
@@ -130,7 +130,7 @@ ms.locfileid: "65607224"
 ### <a name="invalidinputtimestamp"></a>InvalidInputTimeStamp
 
 * 原因：TIMESTAMP BY 運算式的值無法轉換成日期時間。
-* 提供的入口網站通知：有
+* 提供的入口網站通知：是
 * 診斷記錄層級：警告
 * 記錄詳細資料
    * 輸入訊息識別項。 
@@ -146,7 +146,7 @@ ms.locfileid: "65607224"
 ### <a name="invalidinputtimestampkey"></a>InvalidInputTimeStampKey
 
 * 原因：TIMESTAMP BY OVER timestampColumn 的值是 NULL。
-* 提供的入口網站通知：有
+* 提供的入口網站通知：是
 * 診斷記錄層級：警告
 * 記錄詳細資料
    * 最多幾 kb 實際的承載。
@@ -160,7 +160,7 @@ ms.locfileid: "65607224"
 ### <a name="lateinputevent"></a>LateInputEvent
 
 * 原因：應用程式的時間與抵達時間之間的差異大於延遲傳入容錯時間。
-* 提供的入口網站通知：無
+* 提供的入口網站通知：否
 * 診斷記錄層級：資訊
 * 記錄詳細資料
    * 應用時間與抵達時間。 
@@ -175,7 +175,7 @@ ms.locfileid: "65607224"
 ### <a name="earlyinputevent"></a>EarlyInputEvent
 
 * 原因：應用程式的時間與抵達時間之間的差異是 5 分鐘以上。
-* 提供的入口網站通知：無
+* 提供的入口網站通知：否
 * 診斷記錄層級：資訊
 * 記錄詳細資料
    * 應用時間與抵達時間。 
@@ -190,7 +190,7 @@ ms.locfileid: "65607224"
 ### <a name="outoforderevent"></a>OutOfOrderEvent
 
 * 原因：事件會被視為根據所定義的順序錯亂容許視窗按順序。
-* 提供的入口網站通知：無
+* 提供的入口網站通知：否
 * 診斷記錄層級：資訊
 * 記錄詳細資料
    * 實際最多幾 kb 的承載。
@@ -206,7 +206,7 @@ ms.locfileid: "65607224"
 ### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError.RequiredColumnMissing
 
 * 原因：所需的輸出資料行不存在。 比方說，資料行定義為 Azure 資料表 PartitionKey 不存在。
-* 提供的入口網站通知：有
+* 提供的入口網站通知：是
 * 診斷記錄層級：警告
 * 記錄詳細資料
    * 名稱資料行和資料錄的識別項或記錄的一部分。
@@ -220,7 +220,7 @@ ms.locfileid: "65607224"
 ### <a name="outputdataconversionerrorcolumnnameinvalid"></a>OutputDataConversionError.ColumnNameInvalid
 
 * 原因：資料行的值不符合的輸出。 例如，資料行名稱不是有效的 Azure 資料表資料行。
-* 提供的入口網站通知：有
+* 提供的入口網站通知：是
 * 診斷記錄層級：警告
 * 記錄詳細資料
    * 名稱資料行和記錄識別碼或記錄的一部分。
@@ -234,7 +234,7 @@ ms.locfileid: "65607224"
 ### <a name="outputdataconversionerrortypeconversionerror"></a>OutputDataConversionError.TypeConversionError
 
 * 原因：資料行無法轉換成有效的型別，在輸出中。 例如，資料行的值是與條件約束或 SQL 資料表中定義的類型不相容。
-* 提供的入口網站通知：有
+* 提供的入口網站通知：是
 * 診斷記錄層級：警告
 * 記錄詳細資料
    * 資料行的名稱。
@@ -249,7 +249,7 @@ ms.locfileid: "65607224"
 ### <a name="outputdataconversionerrorrecordexceededsizelimit"></a>OutputDataConversionError.RecordExceededSizeLimit
 
 * 原因：訊息的值大於支援的輸出大小。 例如，記錄是大於 1 MB，做為事件中樞輸出。
-* 提供的入口網站通知：有
+* 提供的入口網站通知：是
 * 診斷記錄層級：警告
 * 記錄詳細資料
    * 記錄識別碼或記錄的一部分。
@@ -263,7 +263,7 @@ ms.locfileid: "65607224"
 ### <a name="outputdataconversionerrorduplicatekey"></a>OutputDataConversionError.DuplicateKey
 
 * 原因：記錄已經包含具有相同名稱的系統資料行的資料行。 比方說，CosmosDB 輸出資料行識別碼資料行是以不同的資料行名為 ID。
-* 提供的入口網站通知：有
+* 提供的入口網站通知：是
 * 診斷記錄層級：警告
 * 記錄詳細資料
    * 資料行的名稱。

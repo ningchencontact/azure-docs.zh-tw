@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1adf59feca7db4c5903b04c59e1bd23290c1855e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967499"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>本機部署遠端監視解決方案加速器 - Visual Studio
@@ -64,9 +64,9 @@ ms.locfileid: "65967499"
 
 1. 啟動 Visual Studio。
 1. 開啟 **remote-monitoring.sln** 解決方案 (位於存放庫本機複本的 **services** 資料夾中)。
-1. 以滑鼠右鍵按一下 [方案總管] 中的方案，然後按一下 [屬性]。
-1. 選取 [通用屬性] > [啟始專案]。
-1. 選取 [多個啟始專案]，然後將下列專案的 [動作] 設定為 [啟動]：
+1. 以滑鼠右鍵按一下 [方案總管]  中的方案，然後按一下 [屬性]  。
+1. 選取 [通用屬性] > [啟始專案]  。
+1. 選取 [多個啟始專案]  ，然後將下列專案的 [動作]  設定為 [啟動]  ：
     * WebService (asa-manager\WebService)
     * WebService (auth\WebService)
     * WebService (config\WebService)
@@ -74,7 +74,7 @@ ms.locfileid: "65967499"
     * WebService (iothub-manager\WebService)
     * WebService (storage-adapter\WebService)
 1. 按一下 [確定]  儲存您的選擇。
-1. 按一下 [偵錯] > [開始偵錯]，以在本機電腦上建置並執行 Web 服務。
+1. 按一下 [偵錯] > [開始偵錯]  ，以在本機電腦上建置並執行 Web 服務。
 
 每個 Web 服務都會開啟一個命令提示字元和 Web 瀏覽器視窗。 您可以在命令提示字元中看到執行中服務的輸出，還有瀏覽器視窗可讓您監視狀態。 請不要關閉命令提示字元或網頁，這個動作會停止 Web 服務。
 
@@ -84,8 +84,8 @@ ms.locfileid: "65967499"
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
 1. 瀏覽至為解決方案建立的**資源群組**。 當您執行 **start.cmd** 指令碼時為解決方案選擇的名稱，就是資源群組的名稱。
-1. 在資源清單中，按一下 [串流分析作業]。
-1. 在串流分析作業 [概觀] 頁面上，按一下 [啟動] 按鈕。 接著，按一下 [啟動] 以立即啟動作業。
+1. 在資源清單中，按一下 [串流分析作業]  。
+1. 在串流分析作業 [概觀]  頁面上，按一下 [啟動]  按鈕。 接著，按一下 [啟動]  以立即啟動作業。
 
 ### <a name="run-the-web-ui"></a>執行 Web UI
 

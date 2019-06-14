@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
 ms.openlocfilehash: 20b804f3d15543d0cf415d00dc81a6f55a348260
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597428"
 ---
 # <a name="get-started-with-device-twins-node"></a>開始使用裝置對應項 (Node)
@@ -96,7 +96,7 @@ ms.locfileid: "65597428"
         });
    ```
 
-    **Registry** 对象公开从服务与设备孪生进行交互所需的所有方法。 先前的程式碼會先初始化 **Registry** 物件，然後擷取 **myDeviceId** 的裝置對應項，最後會以所需的位置資訊來更新其標籤。
+    **Registry** 物件會公開從服務來與裝置對應項進行互動時所需的所有方法。 先前的程式碼會先初始化 **Registry** 物件，然後擷取 **myDeviceId** 的裝置對應項，最後會以所需的位置資訊來更新其標籤。
 
     更新標籤之後，它會呼叫 **queryTwins** 函式。
 
@@ -220,7 +220,7 @@ ms.locfileid: "65597428"
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您在 Azure 入口網站中設定了新的 IoT 中樞，然後在 IoT 中樞的身分識別登錄中建立了裝置身分識別。 您已從後端應用程式將裝置中繼資料新增為標籤，並撰寫模擬裝置應用程式來報告裝置對應項中的裝置連線資訊。 还学习了如何使用类似 SQL 的 IoT 中心查询语言来查询此信息。
+在此教學課程中，您在 Azure 入口網站中設定了新的 IoT 中樞，然後在 IoT 中樞的身分識別登錄中建立了裝置身分識別。 您已從後端應用程式將裝置中繼資料新增為標籤，並撰寫模擬裝置應用程式來報告裝置對應項中的裝置連線資訊。 您也了解如何使 類似 SQL 的 IoT 中樞查詢語言來查詢此資訊。
 
 使用下列資源來了解如何：
 

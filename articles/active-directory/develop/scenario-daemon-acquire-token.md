@@ -17,10 +17,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa4f5dc7a5aceaf81f71eacd36d131471a57e5c0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65075366"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>呼叫 web Api-的精靈應用程式取得權杖
@@ -65,7 +65,7 @@ public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.de
 
 > [!IMPORTANT]
 > 接受 v1.0 存取權杖的資源要求存取權杖的 msal （v2.0 端點），Azure AD 會剖析要求的範圍從目標對象所採取的最後一個斜線之前的所有項目，並使用它做為資源識別碼。
-> 因此如果，例如 Azure SQL (**https://database.windows.net**) 之資源所預期的結尾斜線的對象 (針對 Azure SQL: `https://database.windows.net/`)，您必須要求的範圍`https://database.windows.net//.default`（請注意兩個斜線）。 另請參閱 MSAL.NET 問題[#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747):省略資源 url 結尾的斜線，導致 sql 驗證失敗。
+> 因此如果，例如 Azure SQL ( **https://database.windows.net** ) 之資源所預期的結尾斜線的對象 (針對 Azure SQL: `https://database.windows.net/` )，您必須要求的範圍`https://database.windows.net//.default` （請注意兩個斜線）。 另請參閱 MSAL.NET 問題[#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747):省略資源 url 結尾的斜線，導致 sql 驗證失敗。
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 2a7f15eb7e90ba4dec9bc614a45d2de46c07bdfd
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64868112"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure 佇列儲存體監視 .NET 的媒體服務工作通知 
@@ -61,7 +61,7 @@ ms.locfileid: "64868112"
 > [!NOTE]
 > 要想監視工作的狀態，建議您接聽通知訊息，如下列範例所示：
 >
-> 或者，使用 **IJob.State** 屬性檢查工作狀態。  在 **IJob** 的狀態設定成 [已完成] 之前，您可能會收到一則有關作業已完成的通知訊息。 **IJob.State** 屬性會延遲片刻再反映正確的狀態。
+> 或者，使用 **IJob.State** 屬性檢查工作狀態。  在 **IJob** 的狀態設定成 [已完成]  之前，您可能會收到一則有關作業已完成的通知訊息。 **IJob.State** 屬性會延遲片刻再反映正確的狀態。
 >
 >
 

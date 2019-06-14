@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
 ms.openlocfilehash: cd0a9a66f3014a39a73cf04badfc67cd2ff4c3de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61363199"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>了解和使用 IoT 中樞的模組對應項
@@ -113,9 +113,9 @@ ms.locfileid: "61363199"
 
 ### <a name="desired-property-example"></a>所需屬性範例
 
-在上述範例中，解決方案後端和模組應用程式會使用 `telemetryConfig` 模組對應項的所需屬性和報告屬性，以同步處理此模組的遙測設定。 例如︰
+在上述範例中，解決方案後端和模組應用程式會使用 `telemetryConfig` 模組對應項的所需屬性和報告屬性，以同步處理此模組的遙測設定。 例如:
 
-1. 解决方案后端使用所需配置值设置所需属性。 以下是含有所需屬性集的文件部分︰
+1. 解決方案後端會以所需組態值來設定所需屬性。 以下是含有所需屬性集的文件部分︰
 
     ```json
     ...
@@ -168,7 +168,7 @@ ms.locfileid: "61363199"
     }
     ```
 
-* **替换所需属性**。 此作業可讓解決方案後端完全覆寫所有現有的所需屬性，並以新的 JSON 文件取代 `properties/desired`。
+* **取代所需屬性**。 此作業可讓解決方案後端完全覆寫所有現有的所需屬性，並以新的 JSON 文件取代 `properties/desired`。
 
 * **取代標籤**。 此作業可讓解決方案後端完全覆寫所有現有的標籤，並以新的 JSON 文件取代 `tags`。
 
@@ -176,7 +176,7 @@ ms.locfileid: "61363199"
 
   - properties
 
-    | 名稱 | Value |
+    | 名稱 | 值 |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  傳送通知的時間 |
@@ -275,7 +275,7 @@ IoT 中樞會拒絕 (並出現錯誤) 將會讓這些文件的大小增加到超
 ## <a name="module-twin-metadata"></a>模組對應項中繼資料
 
 IoT 中樞會為模組對應項所需屬性和報告屬性中的每個 JSON 物件保有上次更新的時間戳記。 時間戳記採用 UTC 格式，並以 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 格式 `YYYY-MM-DDTHH:MM:SS.mmmZ` 進行編碼。
-例如︰
+例如:
 
 ```json
 {

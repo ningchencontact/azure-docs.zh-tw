@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: 6d95e4a0a7aeedef2fc7e635d2e49ea68c3ba0ca
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65992039"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>如何將服務匯流排佇列搭配 Python 使用
@@ -51,7 +51,7 @@ from azure.servicebus import ServiceBusClient
 sb_client = ServiceBusClient.from_connection_string('<CONNECTION STRING>')
 ```
 
-SAS 金鑰名稱和值的值可以在 [Azure 入口網站][Azure portal]連線資訊中找到，或在 Visual Studio 的 [伺服器總管] 中選取「服務匯流排」命名空間時於 [屬性] 窗格中找到 (如上一節所示)。
+SAS 金鑰名稱和值的值可以在 [Azure 入口網站][Azure portal]連線資訊中找到，或在 Visual Studio 的 [伺服器總管] 中選取「服務匯流排」命名空間時於 [屬性]  窗格中找到 (如上一節所示)。
 
 ```python
 sb_client.create_queue("taskqueue")
@@ -123,7 +123,7 @@ msg.delete()
 如果應用程式在處理訊息之後，尚未呼叫 **delete** 方法時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這通常稱為**至少一次處理**，也就是每個訊息會被處理一次，但在某些情況下可能會重新傳遞相同訊息。 如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。 通常您可使用訊息的 **MessageId** 屬性來達到此目的，該屬性將在各個傳遞嘗試中會保持不變。
 
 > [!NOTE]
-> 您可以管理與服務匯流排資源[Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)。 Service Bus Explorer 可讓使用者連接到服務匯流排命名空間，並可以輕鬆地管理訊息實體。 此工具提供進階的功能，例如匯入/匯出功能或測試主題、 佇列、 訂用帳戶、 轉送服務、 通知中樞和事件中樞的能力。 
+> 您可以使用[服務匯流排總管](https://github.com/paolosalvatori/ServiceBusExplorer/)來管理服務匯流排資源。 服務匯流排總管可讓使用者連線到服務匯流排命名空間，並以簡便的方式管理傳訊實體。 此工具提供進階的功能 (例如匯入/匯出功能) 或測試主題、佇列、訂用帳戶、轉送服務、通知中樞和事件中樞的能力。 
 
 ## <a name="next-steps"></a>後續步驟
 既然您已經了解「服務匯流排」佇列的基本概念，您現在可以閱讀下列文章來深入了解。

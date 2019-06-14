@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 05/07/2019
 ms.author: banders
 ms.openlocfilehash: b2452580eaecc0ab922f8e7db48676f70831a8ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66126853"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>取得 Enterprise 合約的保留項目成本與使用量
@@ -92,9 +92,9 @@ https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enroll
 
 1. 選取 計費帳戶。
 2. 按一下 **使用量 + 費用**。
-3. 按一下 [下載] 。  
+3. 按一下 [下載]  。  
 ![示範如何下載 CSV 使用量資料檔案，在 Azure 入口網站中的範例](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
-4. 在**下載使用量 + 費用**下方**使用量詳細資料第 2 版**，選取 **（使用方式和購買項目） 的所有費用**，然後按一下 下載。 針對**分攤費用 （使用方式和購買項目）**。
+4. 在**下載使用量 + 費用**下方**使用量詳細資料第 2 版**，選取 **（使用方式和購買項目） 的所有費用**，然後按一下 下載。 針對**分攤費用 （使用方式和購買項目）** 。
 
 您所下載的 CSV 檔案包含實際的成本和分攤的成本。
 
@@ -120,7 +120,7 @@ https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enroll
 
 - 資源 （例如 VM)
 - 資源群組
-- Tags
+- 標記
 - 訂用帳戶
 
 ### <a name="get-the-blended-rate-for-chargeback"></a>取得混合的費率計費功能

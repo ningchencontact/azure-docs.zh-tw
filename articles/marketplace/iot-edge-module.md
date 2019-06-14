@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/22/2018
 ms.author: qianw211
 ms.openlocfilehash: c734461f1a57c100b4a00ab5c309659f8b0e903a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964015"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 模組
@@ -45,11 +45,11 @@ IoT Edge 模組只會發佈至 Azure Marketplace，AppSource 則不適用。  �
  
 **帳單選項**
 
-Marketplace 目前針對 IoT Edge 模組支援 [免費] 和 [自備授權 (BYOL)] 計費選項。
+Marketplace 目前針對 IoT Edge 模組支援 [免費]  和 [自備授權 (BYOL)]  計費選項。
  
 **發佈選項**
 
-在所有情況下，IoT Edge 模組都應該選取 [交易] 發佈選項。  如需有關發佈選項的更多詳細資料，請參閱[選擇發佈選項](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)。  
+在所有情況下，IoT Edge 模組都應該選取 [交易]  發佈選項。  如需有關發佈選項的更多詳細資料，請參閱[選擇發佈選項](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)。  
 
 ## <a name="eligibility-criteria"></a>適用性準則
 

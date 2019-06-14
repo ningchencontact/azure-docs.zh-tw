@@ -17,21 +17,21 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be43f0e100bc96de2be916cbf52bca7d3ba51431
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65784538"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>如何設定 Azure AD 資源庫應用程式的使用者佈建
 
-*使用者帳戶佈建*是指在應用程式的本機使用者設定檔儲存中建立、更新及/或停用使用者帳戶記錄的動作。 大部分的雲端和 SaaS 應用程式都會在自己的本機使用者設定檔儲存中儲存使用者角色和權限，而這類使用者記錄「必須」存在於其本機存放區中，才能讓單一登入和存取運作。
+*使用者帳戶佈建*是指在應用程式的本機使用者設定檔儲存中建立、更新及/或停用使用者帳戶記錄的動作。 大部分的雲端和 SaaS 應用程式都會在自己的本機使用者設定檔儲存中儲存使用者角色和權限，而這類使用者記錄「必須」  存在於其本機存放區中，才能讓單一登入和存取運作。
 
-在 Azure 入口網站中，位於企業應用程式左側瀏覽窗格中的 [佈建] 索引標籤會顯示該應用程式支援哪些佈建模式。 這可能是下列其中一個值：
+在 Azure 入口網站中，位於企業應用程式左側瀏覽窗格中的 [佈建]  索引標籤會顯示該應用程式支援哪些佈建模式。 這可能是下列其中一個值：
 
 ## <a name="configuring-an-application-for-manual-provisioning"></a>設定應用程式以進行手動佈建
 
-「手動」佈建表示必須以手動方式使用該應用程式所提供的方法來建立使用者帳戶。 這可能表示登入該應用程式的系統管理員入口網站，然後使用 Web 架構使用者介面新增使用者。 或者，它可能會使用該應用程式所提供的機制，來上傳含有使用者帳戶詳細資料的試算表。 請參閱應用程式提供的文件，或洽詢應用程式開發人員以判斷有哪些機制可供使用。
+「手動」  佈建表示必須以手動方式使用該應用程式所提供的方法來建立使用者帳戶。 這可能表示登入該應用程式的系統管理員入口網站，然後使用 Web 架構使用者介面新增使用者。 或者，它可能會使用該應用程式所提供的機制，來上傳含有使用者帳戶詳細資料的試算表。 請參閱應用程式提供的文件，或洽詢應用程式開發人員以判斷有哪些機制可供使用。
 
 如果「手動」是唯一針對指定應用程式所顯示的模式，這表示尚未針對該應用程式建立任何自動的 Azure AD 佈建連接器。 或者，這表示應用程式不支援必要條件的使用者管理 API，而您要在該 API 上建置自動化佈建連接器。
 
@@ -39,7 +39,7 @@ ms.locfileid: "65784538"
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>設定應用程式以進行自動佈建
 
-「自動」表示已經為此應用程式開發 Azure AD 佈建連接器。 如需 Azure AD 佈建服務及其運作方式的詳細資訊，請參閱[自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)。
+「自動」  表示已經為此應用程式開發 Azure AD 佈建連接器。 如需 Azure AD 佈建服務及其運作方式的詳細資訊，請參閱[自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)。
 
 如需如何將特定使用者和群組佈建到應用程式的相關詳細資訊，請參閱[管理企業應用程式的使用者帳戶佈建](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning)。
 

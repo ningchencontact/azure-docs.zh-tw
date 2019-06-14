@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
 ms.openlocfilehash: 42c3f0ce70467c6a90bcc4e2e6b8a21d7570edc4
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606176"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>在 HDInsight 中使用 .NET SDK 建立以 Linux 為基礎的叢集
@@ -39,7 +39,7 @@ ms.locfileid: "65606176"
 
 1. 開啟 Visual Studio。
 2. 建立新的 Visual C# 主控台應用程式。
-3. 在 [工具] 功能表中按一下 [NuGet 套件管理員]，然後按一下 [套件管理員主控台]。
+3. 在 [工具]  功能表中按一下 [NuGet 套件管理員]  ，然後按一下 [套件管理員主控台]  。
 4. 在主控台中執行下列命令，以安裝套件：
 
     ```powershell

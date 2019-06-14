@@ -10,10 +10,10 @@ ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65070858"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>在 Azure 容器執行個體中針對常見問題進行疑難排解
@@ -28,7 +28,7 @@ ms.locfileid: "65070858"
 | --- | --- | --- | --- | --- | --- |
 | 容器群組名稱 | 1-64 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | 容器名稱 | 1-64 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| 容器連接埠 | 介於 1 到 65535 之間 |整數  |介於 1 到 65535 之間的整數 |`<port-number>` |`443` |
+| 容器連接埠 | 介於 1 到 65535 之間 |Integer |介於 1 到 65535 之間的整數 |`<port-number>` |`443` |
 | DNS 名稱標籤 | 5-63 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和連字號 |`<name>` |`frontend-site1` |
 | 環境變數 | 1-63 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用英數字元和底線 (_) |`<name>` |`MY_VARIABLE` |
 | 磁碟區名稱 | 5-63 |不區分大小寫 |除了第一個或最後一個字元以外，都可以使用小寫字母、數字和連字號。 不能包含兩個連續連字號。 |`<name>` |`batch-output-volume` |
@@ -87,7 +87,7 @@ ms.locfileid: "65070858"
 
 ## <a name="container-continually-exits-and-restarts-no-long-running-process"></a>容器不斷結束又重新啟動 (沒有長時間執行的程序)
 
-容器群組的[重新啟動原則](container-instances-restart-policy.md)預設為 [一律]，因此容器群組中的群組在執行完成後一律會重新啟動。 如果您要執行以工作為基礎的容器，則可能需要將此設定變更為 [OnFailure] 或 [永不]。 如果指定 **OnFailure** 後仍持續重新啟動，可能是容器中執行的應用程式或指令碼的問題。
+容器群組的[重新啟動原則](container-instances-restart-policy.md)預設為 [一律]  ，因此容器群組中的群組在執行完成後一律會重新啟動。 如果您要執行以工作為基礎的容器，則可能需要將此設定變更為 [OnFailure]  或 [永不]  。 如果指定 **OnFailure** 後仍持續重新啟動，可能是容器中執行的應用程式或指令碼的問題。
 
 如果執行的容器群組不含長時間執行的程序，您可能會看到 Ubuntu 或 Alpine 之類的映像重複地結束並重新啟動。 透過 [EXEC](container-instances-exec.md) 連線是不可行的，因為容器沒有任何程序可維持其存留狀態。 若要解決此問題，包括如下所示，您的容器群組部署使用 start 命令，將執行的容器。
 
@@ -177,7 +177,7 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 Azure 容器執行個體使用的快取機制來協助加快容器啟動時間，針對根據常見的映像[Windows 基本映像](container-instances-faq.md#what-windows-base-os-images-are-supported)，包括`nanoserver:1809`， `servercore:ltsc2019`，和`servercore:1809`。 常用 Linux 映像的這類`ubuntu:1604`和`alpine:3.6`也會快取。 對於快取的映像和標籤的最新清單，使用[列出快取映像][ list-cached-images] API。
 
 > [!NOTE]
-> 使用 Azure Container Instances 中的 Windows Server 2019 型映像處於預覽狀態。
+> 在 Azure 容器執行個體中使用以 Windows Server 2019 為基礎的映像是預覽功能。
 
 ### <a name="windows-containers-slow-network-readiness"></a>Windows 容器會降低網路整備速度
 

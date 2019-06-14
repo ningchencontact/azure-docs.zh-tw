@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: mbullwin
 ms.openlocfilehash: 5c659ca2f40d47450227d16963499a6b27c9e313
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60700612"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>在 Application Insights 中探索度量
@@ -31,7 +31,7 @@ ms.locfileid: "60700612"
 
 ![](./media/metrics-explorer/01-overview.png)
 
-您可在 Application Insights 入口網站中找到度量圖表。 在大部分情況下，您可以自訂它們，而且您可以將更多圖表新增至刀鋒視窗。 從 [概觀] 刀鋒視窗中，按一下以取得更詳細的圖表 (有「伺服器」之類的標題)，或按一下 [計量瀏覽器]，以開啟新的刀鋒視窗讓您建立自訂圖表。
+您可在 Application Insights 入口網站中找到度量圖表。 在大部分情況下，您可以自訂它們，而且您可以將更多圖表新增至刀鋒視窗。 從 [概觀] 刀鋒視窗中，按一下以取得更詳細的圖表 (有「伺服器」之類的標題)，或按一下 [計量瀏覽器]  ，以開啟新的刀鋒視窗讓您建立自訂圖表。
 
 ## <a name="time-range"></a>時間範圍
 您可以在任何刀鋒視窗上變更圖表或格線涵蓋的時間範圍。

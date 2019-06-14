@@ -9,10 +9,10 @@ ms.date: 12/16/2016
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 1a878b5a9f0502ff9acd411359895d7431fb76f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478641"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>擷取匯入/匯出作業的狀態資訊
@@ -45,7 +45,7 @@ ms.locfileid: "61478641"
 |`Completed`|所有磁碟機都寄回給客戶之後，如果工作已完成且沒有錯誤，工作將會設為 `Completed` 狀態。 `Completed` 狀態持續 90 天後，將會自動刪除工作。|
 |`Closed`|所有磁碟機都寄回給客戶之後，如果工作處理期間發生任何錯誤，工作將會設為 `Closed` 狀態。 作业在保持 `Closed` 状态 90 天后自动删除。|
 
-您只有在特定狀態才能取消作業。 已取消的作业将跳过数据复制步骤，不过会遵循与尚未取消的作业相同的状态转换。
+您只有在特定狀態才能取消作業。 已取消的工作會略過資料複製步驟，但否則它會依照相同的狀態轉換為未取消的工作。
 
 下表描述每個作業狀態可能發生的錯誤，以及在錯誤發生時對作業的影響。
 

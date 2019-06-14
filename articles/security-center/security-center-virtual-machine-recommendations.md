@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/12/2018
 ms.author: rkarlin
 ms.openlocfilehash: a4aaf440856746895a31914aeee2bddec2ce23f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60544973"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>了解 Azure 資訊安全中心資源建議
@@ -50,7 +50,7 @@ ms.locfileid: "60544973"
 | Web 應用程式應停用 Web 通訊端| 建議您仔細檢閱如何在 Web 應用程式中使用 Web 通訊端。  Web 通訊端通訊協定易受不同類型的安全性威脅攻擊。 |
 | 對 Web 應用程式使用自訂網域 | 建議您使用自訂網域來防止 Web 應用程式遭受常見攻擊，例如網路釣魚及其他 DNS 相關攻擊。 |
 | 設定 Web 應用程式的 IP 限制 | 建議您定義允許存取應用程式的 IP 位址清單。  使用 IP 限制可防止 Web 應用程式遭受常見攻擊。 |
-| 請勿允許所有 ('*') 資源來存取應用程式 | 建議您不要將 WEBSITE_LOAD_CERTIFICATES 參數設定為 ‘*’。將參數設定為 '*' 表示所有憑證都會載入 Web 應用程式的個人憑證存放區中。  這會導致最小權限的原則遭到濫用，原因是網站不可能需要在執行階段存取所有憑證。 |
+| 請勿允許所有 ('*') 資源來存取應用程式 | 建議您不要將 WEBSITE_LOAD_CERTIFICATES 參數設定為 ‘ *’。將參數設定為 '* ' 表示所有憑證都會載入 Web 應用程式的個人憑證存放區中。  這會導致最小權限的原則遭到濫用，原因是網站不可能需要在執行階段存取所有憑證。 |
 | CORS 不應允許每項資源存取應用程式 | 建議您只允許必要網域與 Web 應用程式互動。 跨原始資源共用 (CORS) 不應允許所有網域存取 Web 應用程式。 |
 | 為 Web 應用程式使用支援的最新 .NET Framework | 建議您使用最新的 .NET Framework 版本，以取得最新的安全性類別。 使用較舊的類別和類型會讓應用程式變得容易遭受攻擊。 |
 | 為 Web 應用程式使用支援的最新 JAVA 版本 | 建議您使用最新的 Java 版本，以取得最新的安全性類別。 使用較舊的類別和類型會讓應用程式變得容易遭受攻擊。 |

@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd84b44c89c856036640757b7760d7c10bd36173
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824836"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>在 Azure Active Directory 設定使用者同意應用程式的方式
@@ -35,27 +35,27 @@ ms.locfileid: "65824836"
 若要授與管理員同意企業應用程式：
 
 1. 以全域管理員、應用程式管理員或雲端應用程式管理員的身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下左側導覽功能表頂端的 [所有服務]。 [Azure Active Directory 擴充功能] 隨即開啟。
-3. 在篩選搜尋方塊中，輸入[Azure Active Directory]，然後選取 [Azure Active Directory] 項目。
-4. 從導覽功能表中，按一下 [企業應用程式]。
-5. 按一下 [授與管理員同意]。 系統會提示您登入以管理應用程式。
+2. 按一下左側導覽功能表頂端的 [所有服務]  。 [Azure Active Directory 擴充功能]  隨即開啟。
+3. 在篩選搜尋方塊中，輸入[Azure Active Directory]  ，然後選取 [Azure Active Directory]  項目。
+4. 從導覽功能表中，按一下 [企業應用程式]  。
+5. 按一下 [授與管理員同意]  。 系統會提示您登入以管理應用程式。
 6. 使用有權限授與管理員同意應用程式的帳戶登入。 
 7. 同意應用程式權限。
 
 此選項僅適用於下列情況的應用程式： 
 
 - 已在您的租用戶中註冊，或
-- 已在另一部的 Azure AD 租用戶中註冊，並由至少一個使用者同意。 在使用者已同意應用程式之後，Azure AD 會在 在 Azure 入口網站中的 [企業應用程式] 之下列出該應用程式。
+- 已在另一部的 Azure AD 租用戶中註冊，並由至少一個使用者同意。 在使用者已同意應用程式之後，Azure AD 會在 在 Azure 入口網站中的 [企業應用程式]  之下列出該應用程式。
 
 ## <a name="grant-admin-consent-when-registering-an-app-in-the-azure-portal"></a>在 Azure 入口網站中應用程式應用程式時授與管理員同意
 
 若要在註冊應用程式時授與管理員同意： 
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 瀏覽至 [應用程式註冊] 刀鋒視窗。
+2. 瀏覽至 [應用程式註冊]  刀鋒視窗。
 3. 選取同意的應用程式。
-4. 選取 [必要權限]。
-5. 按一下刀鋒視窗頂端的 [授與權限]。
+4. 選取 [必要權限]  。
+5. 按一下刀鋒視窗頂端的 [授與權限]  。
 
 
 ## <a name="grant-admin-consent-through-a-url-request"></a>透過 URL 要求授與管理員同意
@@ -76,4 +76,4 @@ ms.locfileid: "65824836"
 
 [適用於 AzureAD v2.0 交集應用程式的同意與權限](../develop/active-directory-v2-scopes.md)
 
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD StackOverflow (英文)](https://stackoverflow.com/questions/tagged/azure-active-directory)

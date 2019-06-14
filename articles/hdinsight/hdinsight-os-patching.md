@@ -8,10 +8,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.openlocfilehash: cfbd68e66730fc338130bc16849fe0b2f4abd6be
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244415"
 ---
 # <a name="os-patching-for-hdinsight"></a>HDInsight 的作業系統修補 
@@ -32,7 +32,7 @@ HDInsight 叢集中的虛擬機器有時候需要重新開機，以便系統可�
 ## <a name="how-to-use-the-script"></a>如何使用指令碼 
 
 使用此指令碼時需要下列資訊︰
-1. 指令碼位置： https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/os-patching-reboot-config.sh。HDInsight 會使用此 URI 在叢集中的所有虛擬機器上尋找和執行指令碼。
+1. 指令碼位置： https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/os-patching-reboot-config.sh 。HDInsight 會使用此 URI 在叢集中的所有虛擬機器上尋找和執行指令碼。
   
 2. 指令碼會套用到的叢集節點類型︰headnode、workernode、zookeeper。 此指令碼必須套用至叢集中的所有節點類型。 如果它不會套用至節點類型，則該節點類型的虛擬機器將不會更新。
 

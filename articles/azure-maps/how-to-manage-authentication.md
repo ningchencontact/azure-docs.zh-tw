@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952561"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>管理 Azure 地圖服務中的驗證
@@ -65,13 +65,13 @@ ms.locfileid: "65952561"
 
     ![授與 RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. 在 [**新增角色指派**] 視窗底下**角色**，選取**Azure Maps 日期讀者 （預覽）**。 在 [存取權指派對象為] 底下，選取 [Azure AD 使用者、群組或服務主體]。 底下**選取**，選取使用者或應用程式。 選取 [ **儲存**]。
+2. 在 [**新增角色指派**] 視窗底下**角色**，選取**Azure Maps 日期讀者 （預覽）** 。 在 [存取權指派對象為]  底下，選取 [Azure AD 使用者、群組或服務主體]  。 底下**選取**，選取使用者或應用程式。 選取 [ **儲存**]。
 
     ![新增角色指派](./media/how-to-manage-authentication/add-role-assignment.png)
 
 ## <a name="view-available-azure-maps-rbac-roles"></a>檢視可用的 Azure 地圖服務 RBAC 角色
 
-若要檢視適用於 Azure 地圖服務的角色型存取控制 (RBAC) 角色，請前往**存取控制 (IAM)**，選取**角色**，然後搜尋角色開頭和**Azure Maps**. 這些是您可以授與存取權的角色。
+若要檢視適用於 Azure 地圖服務的角色型存取控制 (RBAC) 角色，請前往**存取控制 (IAM)** ，選取**角色**，然後搜尋角色開頭和**Azure Maps**. 這些是您可以授與存取權的角色。
 
 ![檢視可用的角色](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
@@ -80,7 +80,7 @@ ms.locfileid: "65952561"
 
 RBAC 可提供更細微的存取控制。
 
-若要檢視使用者和已被授與 RBAC 的 Azure 地圖服務的應用程式，請前往**存取控制 (IAM)**，選取**角色指派**，然後篩選**Azure Maps**。
+若要檢視使用者和已被授與 RBAC 的 Azure 地圖服務的應用程式，請前往**存取控制 (IAM)** ，選取**角色指派**，然後篩選**Azure Maps**。
 
 ![檢視使用者和應用程式授與 RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 

@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9f1f102307256852ac92616c7fb707e0e2739e5d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544147"
 ---
 # <a name="single-sign-on-with-msaljs"></a>單一登入與 MSAL.js
@@ -91,7 +91,7 @@ userAgentApplication.acquireTokenSilent(request).then(function(response) {
 
 **使用登入提示**
 
-如果您沒有宣告設定，或需要略過帳戶選取項目提示字元中，互動式驗證呼叫中的 SID，則可以藉由提供`login_hint`中的要求參數，並選擇性地`domain_hint`做為`extraQueryParameters`MSAL.js 中互動式方法 (`loginPopup`， `loginRedirect`，`acquireTokenPopup`和`acquireTokenRedirect`)。 例如：
+如果您沒有宣告設定，或需要略過帳戶選取項目提示字元中，互動式驗證呼叫中的 SID，則可以藉由提供`login_hint`中的要求參數，並選擇性地`domain_hint`做為`extraQueryParameters`MSAL.js 中互動式方法 (`loginPopup`， `loginRedirect`，`acquireTokenPopup`和`acquireTokenRedirect`)。 例如:
 
 ```javascript
 var request = {

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: genli
 ms.openlocfilehash: cab40284f36f21f9de72ee4dc1faf78153621d26
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475968"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>疑難排解：點對站連線問題
@@ -334,11 +334,11 @@ VPN 用戶端已連線到 Azure 虛擬網路。 不過，用戶端無法存取�
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Error:「因為伺服器已離線，所以撤銷功能無法核對撤銷狀況。(錯誤 0x80092013)」
 
 ### <a name="causes"></a>原因
-如果用戶端無法存取 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl，就會出現這個錯誤訊息。  撤銷檢查需要存取這兩個網站。  此問題通常是在已設定 Proxy 伺服器的用戶端上發生。 在某些環境中，如果要求不會經過 Proxy 伺服器，該要求就會在邊緣防火牆中被拒絕。
+如果用戶端無法存取 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl ，就會出現這個錯誤訊息。  撤銷檢查需要存取這兩個網站。  此問題通常是在已設定 Proxy 伺服器的用戶端上發生。 在某些環境中，如果要求不會經過 Proxy 伺服器，該要求就會在邊緣防火牆中被拒絕。
 
 ### <a name="solution"></a>解決方法
 
-請檢查 Proxy 伺服器設定，並確定用戶端能夠存取 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl。
+請檢查 Proxy 伺服器設定，並確定用戶端能夠存取 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl 。
 
 ## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>VPN 用戶端錯誤：因為您 RAS/VPN 伺服器設定的原則，連線被禁止。 (錯誤 812)
 

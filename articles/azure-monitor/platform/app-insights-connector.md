@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
 ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606736"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights Connector 管理解決方案 (取代)
@@ -49,12 +49,12 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 不同於大部分其他 Log Analytics 解決方案，代理程式不會收集 Application Insights Connector 的資料。 解決方案使用的所有資料直接來自於 Azure。
 
-| 連接的來源 | 支援 | 說明 |
+| 連接的來源 | 支援 | 描述 |
 | --- | --- | --- |
-| [Windows 代理程式](../../azure-monitor/platform/agent-windows.md) | 無 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
-| [Linux 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md) | 無 | 解決方案不會收集來自 Linux 代理程式的資訊。 |
-| [SCOM 管理群組](../../azure-monitor/platform/om-agents.md) | 無 | 解決方案不會收集來自連線 SCOM 管理群組的代理程式之中的資訊。 |
-| [Azure 儲存體帳戶](collect-azure-metrics-logs.md) | 無 | 解決方案不會收集來自 Azure 儲存體的資訊。 |
+| [Windows 代理程式](../../azure-monitor/platform/agent-windows.md) | 否 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
+| [Linux 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md) | 否 | 解決方案不會收集來自 Linux 代理程式的資訊。 |
+| [SCOM 管理群組](../../azure-monitor/platform/om-agents.md) | 否 | 解決方案不會收集來自連線 SCOM 管理群組的代理程式之中的資訊。 |
+| [Azure 儲存體帳戶](collect-azure-metrics-logs.md) | 否 | 解決方案不會收集來自 Azure 儲存體的資訊。 |
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -65,9 +65,9 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 ## <a name="configuration"></a>組態
 
 1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](../../azure-monitor/insights/solutions.md)中所述的程序，啟用 Azure Web Apps 分析解決方案。
-2. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。 選取 [所有服務] 來開啟 Application Insights。 然後，搜尋 Application Insights。 
-3. 在 [訂用帳戶] 之下，選取擁有 Application Insights 資源的訂用帳戶，然後在 [名稱] 之下，選取一或多個應用程式。
-4. 按一下 [檔案] 。
+2. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。 選取 [所有服務]  來開啟 Application Insights。 然後，搜尋 Application Insights。 
+3. 在 [訂用帳戶]  之下，選取擁有 Application Insights 資源的訂用帳戶，然後在 [名稱]  之下，選取一或多個應用程式。
+4. 按一下 [檔案]  。
 
 大約 30 分鐘內，資料就會變成可用，而且 Application Insights 圖格資料會更新，如下圖所示：
 
@@ -88,13 +88,13 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 ### <a name="view-application-insights-connector-information"></a>檢視 Application Insights Connector 資訊
 
-按一下 [Application Insights] 圖格，以開啟 [Application Insights] 儀表板，請參閱下列刀鋒視窗。
+按一下 [Application Insights]  圖格，以開啟 [Application Insights]  儀表板，請參閱下列刀鋒視窗。
 
 ![Application Insights 儀表板](./media/app-insights-connector/app-insights-dash01.png)
 
 ![Application Insights 儀表板](./media/app-insights-connector/app-insights-dash02.png)
 
-此儀表板包含下表所示的刀鋒視窗。 每個刀鋒視窗最多會列出 10 個與該刀鋒視窗中指定範圍和時間範圍的準則相符的項目。 當您按一下刀鋒視窗底部的 [查看全部]，或按一下刀鋒視窗標頭時，您可以執行記錄搜尋來傳回所有記錄。
+此儀表板包含下表所示的刀鋒視窗。 每個刀鋒視窗最多會列出 10 個與該刀鋒視窗中指定範圍和時間範圍的準則相符的項目。 當您按一下刀鋒視窗底部的 [查看全部]  ，或按一下刀鋒視窗標頭時，您可以執行記錄搜尋來傳回所有記錄。
 
 
 | **資料行** | **說明** |
@@ -110,17 +110,17 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 當您按一下儀表板中的任何項目時，您會看到搜尋中顯示的 Application Insights 檢視方塊。 此檢視方塊會根據所選的遙測類型提供延伸視覺效果。 因此，視覺效果內容會隨著不同的遙測類型而改變。
 
-當您按一下 [應用程式] 刀鋒視窗中的任意處時，您會看到預設 [應用程式] 檢視方塊。
+當您按一下 [應用程式] 刀鋒視窗中的任意處時，您會看到預設 [應用程式]  檢視方塊。
 
 ![Application Insights 應用程式檢視方塊](./media/app-insights-connector/applications-blade-drill-search.png)
 
 此檢視方塊會顯示您所選取的應用程式概觀。
 
-[可用性] 刀鋒視窗會顯示不同的檢視方塊，您可以在其中查看 Web 測試結果和相關的失敗要求。
+[可用性]  刀鋒視窗會顯示不同的檢視方塊，您可以在其中查看 Web 測試結果和相關的失敗要求。
 
 ![Application Insights 可用性檢視方塊](./media/app-insights-connector/availability-blade-drill-search.png)
 
-當您按一下 [伺服器要求] 或 [失敗] 刀鋒視窗中的任意處時，檢視方塊元件會變更以提供要求的相關視覺效果。
+當您按一下 [伺服器要求]  或 [失敗]  刀鋒視窗中的任意處時，檢視方塊元件會變更以提供要求的相關視覺效果。
 
 ![Application Insights 失敗刀鋒視窗](./media/app-insights-connector/server-requests-failures-drill-search.png)
 
@@ -128,7 +128,7 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 ![Application Insights 例外狀況刀鋒視窗](./media/app-insights-connector/exceptions-blade-drill-search.png)
 
-不論您按一下 [Application Insights Connector] 儀表板上的某個項目，或按一下 [搜尋] 頁面本身，任何傳回 Application Insights 資料的查詢都會顯示 Application Insights 檢視方塊。 例如，如果您正在檢視 Application Insights 資料，**&#42;** 查詢也會顯示如下圖所示的檢視方塊索引標籤：
+不論您按一下 [Application Insights Connector]  儀表板上的某個項目，或按一下 [搜尋]  頁面本身，任何傳回 Application Insights 資料的查詢都會顯示 Application Insights 檢視方塊。 例如，如果您正在檢視 Application Insights 資料， **&#42;** 查詢也會顯示如下圖所示的檢視方塊索引標籤：
 
 ![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
@@ -140,18 +140,18 @@ Applications Insights Connector 解決方案可協助您診斷效能問題，以
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>在 Azure 入口網站中轉換至應用程式
 
-當您使用 Azure 入口網站時，Application Insights Connector 刀鋒視窗的設計可讓您轉換到所選的 Application Insights 應用程式。 您可以使用此解決方案作為高階監視平台，協助您針對應用程式進行疑難排解。 當您在任何已連線的應用程式中看到潛在問題時，您可以在 Log Analytics 搜尋中深入探詢，也可以直接轉換至 Application Insights 應用程式。
+當您使用 Azure 入口網站時  ，Application Insights Connector 刀鋒視窗的設計可讓您轉換到所選的 Application Insights 應用程式。 您可以使用此解決方案作為高階監視平台，協助您針對應用程式進行疑難排解。 當您在任何已連線的應用程式中看到潛在問題時，您可以在 Log Analytics 搜尋中深入探詢，也可以直接轉換至 Application Insights 應用程式。
 
-若要轉換，按一下出現在每行結尾的省略符號 (**...**)，然後選取 [在 Application Insights 中開啟]。
+若要轉換，按一下出現在每行結尾的省略符號 ( **...** )，然後選取 [在 Application Insights 中開啟]  。
 
 >[!NOTE]
->[在 Application Insights 中開啟] 無法使用於 Azure 入口網站。
+>[在 Application Insights 中開啟]  無法使用於 Azure 入口網站。
 
 ![開啟 Application Insights](./media/app-insights-connector/open-in-app-insights.png)
 
 ### <a name="sample-corrected-data"></a>取樣更正資料
 
-Application Insights 提供*[取樣更正](../../azure-monitor/app/sampling.md)* 來協助減少遙測流量。 當您在 Application Insights 應用程式上啟用取樣功能時，您取得之 Application Insights 和 Log Analytics 中儲存的項目數會減少。 雖然資料一致性會保留在 [Application Insights Connector] 頁面和檢視方塊中，您應針對您的自訂查詢手動更正取樣的資料。
+Application Insights 提供 *[取樣更正](../../azure-monitor/app/sampling.md)* 來協助減少遙測流量。 當您在 Application Insights 應用程式上啟用取樣功能時，您取得之 Application Insights 和 Log Analytics 中儲存的項目數會減少。 雖然資料一致性會保留在 [Application Insights Connector]  頁面和檢視方塊中，您應針對您的自訂查詢手動更正取樣的資料。
 
 在記錄搜尋查詢中取樣更正的範例如下：
 
@@ -159,7 +159,7 @@ Application Insights 提供*[取樣更正](../../azure-monitor/app/sampling.md)*
 ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by TelemetryType
 ```
 
-[取樣計數] 欄位會存在所有項目中，並且顯示項目所代表的資料點數目。 如果您開啟 Application Insights 應用程式的取樣功能，[取樣計數] 會大於 1。 若要計算應用程式所產生的實際項目數，請加總 [取樣計數] 欄位。
+[取樣計數]  欄位會存在所有項目中，並且顯示項目所代表的資料點數目。 如果您開啟 Application Insights 應用程式的取樣功能，[取樣計數]  會大於 1。 若要計算應用程式所產生的實際項目數，請加總 [取樣計數]  欄位。
 
 取樣只會影響應用程式產生的項目總數。 您不需要更正 **RequestDuration** 或 **AvailabilityDuration** 等欄位的取樣，因為這些欄位會顯示代表性項目的平均值。
 
@@ -177,13 +177,13 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ## <a name="output-data"></a>輸出資料
 
-對於每種類型的輸入資料，系統會建立「類型」 為 ApplicationInsights 的記錄。 ApplicationInsights 記錄有下列各節所示的屬性：
+對於每種類型的輸入資料，系統會建立「類型」  為 ApplicationInsights  的記錄。 ApplicationInsights 記錄有下列各節所示的屬性：
 
 ### <a name="generic-fields"></a>一般欄位
 
 | 屬性 | 描述 |
 | --- | --- |
-| Type | ApplicationInsights |
+| 類型 | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | 記錄的時間 |
 | ApplicationId | Application Insights 應用程式的檢測金鑰 |
@@ -192,9 +192,9 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 | DeviceType | 用戶端裝置 |
 | ScreenResolution |   |
 | Continent | 要求的起源洲 |
-| 國家/地區 | 要求的起源國家/地區 |
-| 省份 | 要求的起源省、州或地區設定 |
-| 縣/市 | 要求的起源城市或鄉鎮 |
+| 国家/地区 | 要求的起源國家/地區 |
+| Province | 要求的起源省、州或地區設定 |
+| City | 要求的起源城市或鄉鎮 |
 | isSynthetic | 指出要求是由使用者或自動化方法建立。 True = 使用者產生，或 false = 自動化方法 |
 | SamplingRate | 由傳送至入口網站之 SDK 所產生的遙測百分比。 範圍 0.0-100.0。 |
 | SampledCount | 100/(SamplingRate)。 例如，4 =&gt; 25% |
@@ -207,7 +207,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="availability-specific-fields"></a>可用性專屬欄位
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | TelemetryType | 可用性 |
 | AvailabilityTestName | Web 測試的名稱 |
@@ -232,7 +232,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="exception-specific-fields"></a>例外狀況專屬欄位
 
-| Type | ApplicationInsights |
+| 類型 | ApplicationInsights |
 | --- | --- |
 | TelemetryType | 例外狀況 |
 | ExceptionType | 例外狀況的類型 |
@@ -251,7 +251,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | 屬性 | 描述 |
 | --- | --- |
-| Type | ApplicationInsights |
+| 類型 | ApplicationInsights |
 | TelemetryType | 要求 |
 | ResponseCode | 傳送至用戶端的 HTTP 回應 |
 | RequestSuccess | 指出成功或失敗。 True 或 False。 |
@@ -311,7 +311,7 @@ $Headers = @{
 $Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
 $ConnectionsJson = $Connections | ConvertTo-Json
 ```
-此指令碼需要持有人驗證權杖，以便對 Azure Active Directory 進行驗證。 擷取此權杖的其中一個方法是使用 [REST API 文件網站](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate)中的發行項。 按一下 [試用] 並登入您的 Azure 訂用帳戶。 您可以從 [要求預覽] 複製持有人權杖，如下圖所示。
+此指令碼需要持有人驗證權杖，以便對 Azure Active Directory 進行驗證。 擷取此權杖的其中一個方法是使用 [REST API 文件網站](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate)中的發行項。 按一下 [試用]  並登入您的 Azure 訂用帳戶。 您可以從 [要求預覽]  複製持有人權杖，如下圖所示。
 
 
 ![持有人權杖](media/app-insights-connector/bearer-token.png)

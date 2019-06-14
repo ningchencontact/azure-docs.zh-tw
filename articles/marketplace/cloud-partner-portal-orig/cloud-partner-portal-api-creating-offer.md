@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 55f6aa60c836d55333e1c5b02a44114b91df822d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935528"
 ---
 <a name="create-or-modify-an-offer"></a>建立或修改供應項目
@@ -29,7 +29,7 @@ ms.locfileid: "64935528"
 |  --------         |  ----------------                     |  -------------  |
 | publisherId       |  發行者識別碼，例如 `contoso` |   字串 |
 | offerId           |  供應項目識別碼                     |   字串        |
-| api-version       |  API 的最新版本            |   date           |
+| api-version       |  API 的最新版本            |   Date           |
 |  |  |  |
 
 <a name="header"></a>頁首

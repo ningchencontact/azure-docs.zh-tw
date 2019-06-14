@@ -9,10 +9,10 @@ ms.date: 01/30/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 508a20e826c2f7bf1260bde6858eb4472c16a5c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883403"
 ---
 # <a name="expressroute-nat-requirements"></a>ExpressRoute NAT 需求
@@ -72,6 +72,6 @@ Azure 公用對等路徑可讓您連接到裝載於 Azure 中的所有服務的�
 * 設定 ExpressRoute 連線。
   
   * [建立 ExpressRoute 線路](expressroute-howto-circuit-portal-resource-manager.md)
-  * [配置路由](expressroute-howto-routing-portal-resource-manager.md)
+  * [設定路由](expressroute-howto-routing-portal-resource-manager.md)
   * [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-portal-resource-manager.md)
 

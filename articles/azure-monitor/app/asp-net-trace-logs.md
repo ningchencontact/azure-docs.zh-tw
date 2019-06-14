@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
 ms.openlocfilehash: d366f363b7bd1d5306d598c9b38258eb78076b7c
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472060"
 ---
 # <a name="explore-netnet-core-trace-logs-in-application-insights"></a>在 Application Insights 中探索 .NET/.NET Core 追蹤記錄
@@ -147,7 +147,7 @@ NuGet 封裝會安裝必要的組件，並會修改 web.config 或 app.config，
 
 TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如，您可以在該處編碼 POST 資料。
 
-您也可以新增至您的訊息的嚴重性層級。 就像其他遙測，您可以新增屬性值，以協助篩選或搜尋不同的追蹤集。 例如：
+您也可以新增至您的訊息的嚴重性層級。 就像其他遙測，您可以新增屬性值，以協助篩選或搜尋不同的追蹤集。 例如:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",

@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7673b115a3ad2e6ca7aec34b1cfabfb38d2a16f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60859176"
 ---
 # <a name="authentication-and-user-permissions"></a>驗證和使用者權限
@@ -59,17 +59,17 @@ Power BI Desktop 會使用 Active Directory 通用驗證搭配 MFA 支援來連�
 
 Excel 使用者可以使用 Windows 帳戶、組織識別碼 (電子郵件地址) 或外部電子郵件地址，連線到伺服器。 外部電子郵件身分識別必須以來賓使用者的身分存在於 Azure AD 中。
 
-## <a name="user-permissions"></a>用户权限
+## <a name="user-permissions"></a>使用者權限
 
 **伺服器管理員**專屬於 Azure Analysis Services 伺服器執行個體。 他們會使用 Azure 入口網站、SSMS 和 SSDT 等工具進行連線，以執行新增資料庫新增和管理使用者角色等工作。 根據預設，系統會將建立伺服器的使用者自動新增成為 Analysis Services 伺服器管理員。 使用 Azure 入口網站或 SSMS，可以新增其他系統管理員。 伺服器管理員必須在相同的訂用帳戶中具有 Azure AD 租用戶的帳戶。 若要深入了解，請參閱[管理伺服器管理員](analysis-services-server-admins.md)。 
 
 **資料庫使用者**會使用 Excel 或 Power BI 等用戶端應用程式來連線到模型資料庫。 使用者必須新增到資料庫角色。 資料庫角色會定義資料庫的系統管理員、處理或讀取權限。 請務必了解具有系統管理員權限之角色的資料庫使用者與伺服器管理員不同。 不過，根據預設，伺服器管理員也是資料庫管理員。 若要深入了解，請參閱[管理資料庫角色和使用者](analysis-services-database-users.md)。
 
-**Azure 資源擁有者**。 資源擁有者可管理 Azure 訂用帳戶的資源。 資源擁有者可以使用 Azure 入口網站中的 [存取控制]，或使用 Azure Resource Manager 範本，將 Azure AD 使用者身分識別新增至訂用帳戶內的擁有者或參與者角色。 
+**Azure 資源擁有者**。 資源擁有者可管理 Azure 訂用帳戶的資源。 資源擁有者可以使用 Azure 入口網站中的 [存取控制]  ，或使用 Azure Resource Manager 範本，將 Azure AD 使用者身分識別新增至訂用帳戶內的擁有者或參與者角色。 
 
-![Azure 门户中的访问控制](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
+![Azure 入口網站中的存取控制](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-此層級的角色會套用到使用者或帳戶，讓他們可在入口網站或使用 Azure Resource Manager 範本完成需要執行的工作。 若要了解详细信息，请参阅[基于角色的访问控制](../role-based-access-control/overview.md)。 
+此層級的角色會套用到使用者或帳戶，讓他們可在入口網站或使用 Azure Resource Manager 範本完成需要執行的工作。 若要深入了解，請參閱[角色型存取控制](../role-based-access-control/overview.md)。 
 
 ## <a name="database-roles"></a>資料庫角色
 

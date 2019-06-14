@@ -9,10 +9,10 @@ ms.date: 04/26/2019
 ms.author: yalavi
 ms.reviewer: mbullwin
 ms.openlocfilehash: 0d6c578186dab9622ce650f535e11d505efcecb3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067610"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>使用 Azure 監視器中的動態臨界值的計量警示
@@ -64,7 +64,7 @@ ms.locfileid: "65067610"
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>動態閾值中的進階設定有何意義？
 
-**失敗期間** - 動態閾值也可讓您設定「觸發警示的違規次數」，也就是系統在特定時間範圍內要引發警示所需的最小偏差次數 (預設時間範圍為 20 分鐘內四次偏差)。 使用者可以設定失敗期間，並藉由變更失敗期間和時間範圍來選擇要警示的標的。 這項功能可減少暫時性尖峰所產生的警示雜訊。 例如: 
+**失敗期間** - 動態閾值也可讓您設定「觸發警示的違規次數」，也就是系統在特定時間範圍內要引發警示所需的最小偏差次數 (預設時間範圍為 20 分鐘內四次偏差)。 使用者可以設定失敗期間，並藉由變更失敗期間和時間範圍來選擇要警示的標的。 這項功能可減少暫時性尖峰所產生的警示雜訊。 例如:
 
 若要在問題持續 20 分鐘、在 5 分鐘的指定期間分組內連續發生 4 次時觸發警示，請使用下列設定：
 

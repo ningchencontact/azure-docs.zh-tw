@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6cc0b3a9a02c023678691921100443436cdf0011
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66015465"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>使用現有的內部部署 Proxy 伺服器
@@ -37,7 +37,7 @@ OS 元件會嘗試藉由對 wpad.domainsuffix 執行 DNS 查閱來尋找 Proxy �
 
 您可以將連接器設定為略過內部部署 Proxy，以確保它會使用與 Azure 服務的直接連線。 我們之所以建議這種方式 (只要您的網路原則允許)，是因為這表示您有一個要維護的較少組態。
 
-若要停用連接器的輸出 Proxy 使用，請編輯 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 檔案，並新增此程式碼範例中所示的 system.net 區段︰
+若要停用連接器的輸出 Proxy 使用，請編輯 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 檔案，並新增此程式碼範例中所示的 system.net  區段︰
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -74,7 +74,7 @@ OS 元件會嘗試藉由對 wpad.domainsuffix 執行 DNS 查閱來尋找 Proxy �
 
 若 WPAD 在環境中啟用並正確地設定，連接器會自動探索輸出 Proxy 伺服器，並嘗試使用它。 不過，您可以明確地設定連接器以通過輸出 Proxy。
 
-為此，請編輯 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 檔案，並新增此範例程式碼中顯示的 *system.net* 區段。 變更 proxyserver:8080 以反映您的本機 Proxy 伺服器名稱或 IP 位址與其正在接聽的連接埠。 即使您使用的是 IP 位址，該值也必須具有前置詞 http://。
+為此，請編輯 C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config 檔案，並新增此範例程式碼中顯示的 *system.net* 區段。 變更 proxyserver:8080  以反映您的本機 Proxy 伺服器名稱或 IP 位址與其正在接聽的連接埠。 即使您使用的是 IP 位址，該值也必須具有前置詞 http://。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -152,7 +152,7 @@ OS 元件會嘗試藉由對 wpad.domainsuffix 執行 DNS 查閱來尋找 Proxy �
    ![services.msc 中的 Azure AD 應用程式 Proxy 連接器服務](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
 2. 以系統管理員身分執行 Message Analyzer。
-3. 選取 [啟動本機追蹤]。
+3. 選取 [啟動本機追蹤]  。
 
    ![啟動網路擷取](./media/application-proxy-configure-connectors-with-proxy-servers/start-local-trace.png)
 
@@ -165,7 +165,7 @@ OS 元件會嘗試藉由對 wpad.domainsuffix 執行 DNS 查閱來尋找 Proxy �
 
 如果您已設定應用程式 Proxy 連接器略過 Proxy 伺服器，並直接連接到應用程式 Proxy 服務，請嘗試查看網路擷取，看看是否有失敗的 TCP 連線。 
 
-請使用 Message Analyzer 篩選條件來識別這些嘗試。 在篩選方塊中輸入 `property.TCPSynRetransmit`，並選取 [套用]。 
+請使用 Message Analyzer 篩選條件來識別這些嘗試。 在篩選方塊中輸入 `property.TCPSynRetransmit`，並選取 [套用]  。 
 
 SYN 封包是傳送到建立 TCP 連線的第一個封包。 如果此封包未傳回回應，則會重新嘗試 SYN。 您可以使用上述篩選條件來查看任何重新傳輸的 SYN。 然後，您可以檢查這些 SYN 是否對應至任何與連接器相關的流量。
 
@@ -175,7 +175,7 @@ SYN 封包是傳送到建立 TCP 連線的第一個封包。 如果此封包未�
 
 如果您已設定讓應用程式 Proxy 連接器流量通過 Proxy 伺服器，請尋找至 Proxy 的失敗 https 連線。 
 
-若要篩選這些連接嘗試的網路擷取，請在 Message Analyzer 篩選條件中輸入 `(https.Request or https.Response) and tcp.port==8080`，將 8080 取代為您的 Proxy 服務連接埠。 選取 [套用] 查看篩選結果。 
+若要篩選這些連接嘗試的網路擷取，請在 Message Analyzer 篩選條件中輸入 `(https.Request or https.Response) and tcp.port==8080`，將 8080 取代為您的 Proxy 服務連接埠。 選取 [套用]  查看篩選結果。 
 
 上述篩選條件只會顯示 HTTPs 要求和往返 Proxy 連接埠的回應。 您正在尋找顯示與 Proxy 伺服器通訊的 CONNECT 要求。 成功時，您會收到 HTTP OK (200) 回應。
 

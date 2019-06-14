@@ -16,10 +16,10 @@ ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6a04f5d62ec750cfbe44765e833552bd694654d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65075006"
 ---
 # <a name="single-page-application---move-to-production"></a>單一頁面應用程式-移至生產環境
@@ -30,11 +30,11 @@ ms.locfileid: "65075006"
 
 遵循的步驟，才能將您的應用程式的生產環境就緒。
 
-- [啟用記錄](msal-logging.md)應用程式中。
+- 在應用程式中[啟用記錄](msal-logging.md)功能。
 
 ## <a name="test-your-integration"></a>測試您的整合
 
-- 遵循以測試您的整合[Microsoft 身分識別平台整合檢查清單](identity-platform-integration-checklist.md)。
+- 遵循 [Microsoft 身分識別平台整合檢查清單](identity-platform-integration-checklist.md)來測試您的整合。
 
 ## <a name="next-steps"></a>後續步驟
 

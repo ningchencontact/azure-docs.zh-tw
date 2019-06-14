@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce51f4df50de50cef06bba699ca7c6f76bc5d166
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833149"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>編輯和管理 Azure AD 權限管理 （預覽） 中的現有存取套件
@@ -38,9 +38,9 @@ ms.locfileid: "65833149"
 
 資源的角色是與資源相關聯的權限的集合。 您會將資源可供使用者要求的方式是將資源角色新增到您的存取封裝。 您可以新增資源群組、 應用程式和 SharePoint 網站的角色。
 
-**必要的角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
+**必要角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
 
-1. 在 Azure 入口網站中，按一下**Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**存取套件**，然後開啟 存取套件。
 
@@ -71,7 +71,7 @@ ms.locfileid: "65833149"
 
     ![存取封裝-新增資源角色-選取的群組](./media/entitlement-management-access-package-edit/group-select.png)
 
-1. 按一下 [選取] 。
+1. 按一下 [選取]  。
 
 1. 在 **角色**清單中，選取**擁有者**或是**成員**。
 
@@ -79,7 +79,7 @@ ms.locfileid: "65833149"
 
     ![存取封裝-新增之群組的資源角色](./media/entitlement-management-access-package-edit/group-role.png)
 
-1. 按一下 [新增] 。
+1. 按一下 [新增]  。
 
     使用現有的指派，以存取套件的任何使用者加入時，會自動成為此群組的成員。
 
@@ -104,13 +104,13 @@ ms.locfileid: "65833149"
 
     ![存取封裝-新增資源角色-選取應用程式](./media/entitlement-management-access-package-edit/application-select.png)
 
-1. 按一下 [選取] 。
+1. 按一下 [選取]  。
 
 1. 在 **角色**清單中，選取 應用程式角色。
 
     ![存取封裝-新增應用程式的資源角色](./media/entitlement-management-access-package-edit/application-role.png)
 
-1. 按一下 [新增] 。
+1. 按一下 [新增]  。
 
     使用現有的指派，以存取套件的任何使用者會自動獲得存取此應用程式加入時。
 
@@ -124,21 +124,21 @@ Azure AD 可以自動將使用者指派存取 SharePoint Online 網站或 ShareP
 
     ![存取封裝-新增資源角色-選取 SharePoint Online 網站](./media/entitlement-management-access-package-edit/sharepoint-site-select.png)
 
-1. 按一下 [選取] 。
+1. 按一下 [選取]  。
 
 1. 在 **角色**清單中，選取 SharePoint Online 的站台角色。
 
     ![存取封裝-新增 SharePoint Online 網站的資源角色](./media/entitlement-management-access-package-edit/sharepoint-site-role.png)
 
-1. 按一下 [新增] 。
+1. 按一下 [新增]  。
 
     使用現有的指派，以存取套件的任何使用者會自動獲得存取此 SharePoint Online 網站加入時。
 
 ## <a name="remove-resource-roles"></a>移除資源角色
 
-**必要的角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
+**必要角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
 
-1. 在 Azure 入口網站中，按一下**Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**存取套件**，然後開啟 存取套件。
 
@@ -146,7 +146,7 @@ Azure AD 可以自動將使用者指派存取 SharePoint Online 網站或 ShareP
 
 1. 資源角色清單中，找出您想要移除的資源角色。
 
-1. 按一下省略符號 (**...**)，然後按一下 **移除資源角色**。
+1. 按一下省略符號 ( **...** )，然後按一下 **移除資源角色**。
 
     使用現有的指派，以存取套件的任何使用者會自動在撤銷此資源角色時就會移除其存取權。
 
@@ -158,9 +158,9 @@ Azure AD 可以自動將使用者指派存取 SharePoint Online 網站或 ShareP
 
 ![建立原則的程序](./media/entitlement-management-access-package-edit/policy-process.png)
 
-**必要的角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
+**必要角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
 
-1. 在 Azure 入口網站中，按一下**Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**存取套件**，然後開啟 存取套件。
 
@@ -178,9 +178,9 @@ Azure AD 可以自動將使用者指派存取 SharePoint Online 網站或 ShareP
 
 您可以隨時編輯原則。 如果您變更原則的到期日時，不會變更已暫止的核准或已核准狀態的要求的到期日。
 
-**必要的角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
+**必要角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
 
-1. 在 Azure 入口網站中，按一下**Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**存取套件**，然後開啟 存取套件。
 
@@ -200,9 +200,9 @@ Azure AD 可以自動將使用者指派存取 SharePoint Online 網站或 ShareP
 
 在某些情況下，您可能想要直接將特定使用者指派給存取套件，讓使用者不必經過要求存取套件的程序。 若要直接指派使用者，請存取套件必須可讓系統管理員直接指派的原則。
 
-**必要的角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
+**必要角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
 
-1. 在 Azure 入口網站中，按一下**Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**存取套件**，然後開啟 存取套件。
 
@@ -228,9 +228,9 @@ Azure AD 可以自動將使用者指派存取 SharePoint Online 網站或 ShareP
 
 ## <a name="view-who-has-an-assignment"></a>檢視指派的人員
 
-**必要的角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
+**必要角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
 
-1. 在 Azure 入口網站中，按一下**Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**存取套件**，然後開啟 存取套件。
 
@@ -248,9 +248,9 @@ Azure AD 可以自動將使用者指派存取 SharePoint Online 網站或 ShareP
 
 ## <a name="view-requests"></a>檢視要求
 
-**必要的角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
+**必要角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
 
-1. 在 Azure 入口網站中，按一下**Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**存取套件**，然後開啟 存取套件。
 
@@ -260,9 +260,9 @@ Azure AD 可以自動將使用者指派存取 SharePoint Online 網站或 ShareP
 
 ## <a name="view-a-requests-delivery-errors"></a>檢視要求的傳遞錯誤
 
-**必要的角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
+**必要角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
 
-1. 在 Azure 入口網站中，按一下**Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**存取套件**，然後開啟 存取套件。
 
@@ -280,9 +280,9 @@ Azure AD 可以自動將使用者指派存取 SharePoint Online 網站或 ShareP
 
 您只能取消尚未傳遞的暫止要求。
 
-**必要的角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
+**必要角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
 
-1. 在 Azure 入口網站中，按一下**Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**存取套件**，然後開啟 存取套件。
 
@@ -296,15 +296,15 @@ Azure AD 可以自動將使用者指派存取 SharePoint Online 網站或 ShareP
 
 您的目錄中的大部分使用者可以登入我存取入口網站，並會自動看到他們可以要求存取套件的清單。 不過，尚無法在目錄中的外部公司夥伴使用者，您必須將它們傳送它們可用來要求存取套件的連結。 只要存取封裝已啟用外部使用者，而且您有外部使用者的目錄中的原則，外部使用者可以使用我存取入口網站 連結來要求存取套件。
 
-**必要的角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
+**必要角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
 
-1. 在 Azure 入口網站中，按一下**Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**存取套件**，然後開啟 存取套件。
 
 1. 在 [概觀] 頁面上複製**我存取入口網站連結**。
 
-    ![存取封裝的概觀-我存取入口網站的連結](./media/entitlement-management-shared/my-access-portal-link.png)
+    ![存取套件概觀 - 我的存取權入口網站的連結](./media/entitlement-management-shared/my-access-portal-link.png)
 
 1. 電子郵件，或將此連結傳送給外部公司夥伴。 他們可以與使用者要求存取套件來共用連結。
 
@@ -312,9 +312,9 @@ Azure AD 可以自動將使用者指派存取 SharePoint Online 網站或 ShareP
 
 存取套件是可探索的預設值。 這表示如果原則可讓使用者要求存取套件，就會自動看到列在其我存取入口網站中存取套件。
 
-**必要的角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
+**必要角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
 
-1. 在 Azure 入口網站中，按一下**Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**存取套件**，然後開啟 存取套件。
 
@@ -330,9 +330,9 @@ Azure AD 可以自動將使用者指派存取 SharePoint Online 網站或 ShareP
 
 如果不有任何作用中的使用者指派，可以只刪除存取套件。
 
-**必要的角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
+**必要角色：** 使用者管理員、 類別目錄的擁有者或存取套件管理員
 
-1. 在 Azure 入口網站中，按一下**Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**存取套件**，然後開啟 存取套件。
 

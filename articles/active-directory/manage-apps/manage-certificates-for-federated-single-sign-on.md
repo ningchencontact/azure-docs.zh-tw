@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ecadb499d140ccfc993820080cae0b749977fc61
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824750"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>在 Azure Active Directory 中管理同盟單一登入的憑證
@@ -30,11 +30,11 @@ ms.locfileid: "65824750"
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>為資源庫和非資源庫應用程式自動產生的憑證
 
-當您從資源庫新增新的應用程式，並設定 SAML 型登入 (方法是選取**單一登入** > **SAML**從應用程式的 [概觀] 頁面)，Azure AD 會產生應用程式三年的有效憑證。 若要下載作用中的憑證，做為安全性憑證 (**.cer**) 檔案，請回到該頁面 (**SAML 型登入**)，然後選取中的下載連結**SAML 簽署憑證**標題。 您可以選擇原始 （二進位） 的憑證或 Base64 （基底 64 編碼的文字） 的憑證。 資源庫應用程式，本節也可能會顯示的連結，以做為同盟中繼資料 XML 下載的憑證 ( **.xml**檔案)，這取決於應用程式的需求。
+當您從資源庫新增新的應用程式，並設定 SAML 型登入 (方法是選取**單一登入** > **SAML**從應用程式的 [概觀] 頁面)，Azure AD 會產生應用程式三年的有效憑證。 若要下載作用中的憑證，做為安全性憑證 ( **.cer**) 檔案，請回到該頁面 (**SAML 型登入**)，然後選取中的下載連結**SAML 簽署憑證**標題。 您可以選擇原始 （二進位） 的憑證或 Base64 （基底 64 編碼的文字） 的憑證。 資源庫應用程式，本節也可能會顯示的連結，以做為同盟中繼資料 XML 下載的憑證 ( **.xml**檔案)，這取決於應用程式的需求。
 
 ![SAML 作用中簽署憑證下載選項](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
 
-您也可以藉由選取下載的作用中或非使用中的憑證**SAML 簽署憑證**標題的**編輯**圖示 （鉛筆），顯示**SAML 簽署憑證**  頁面。 選取省略符號 (**...**) 在您想要下載，然後選擇哪一種憑證格式之憑證旁邊。 您已下載的憑證，以強化隱私權的郵件 (PEM) 格式的其他選項。 此格式完全相同，為 Base64，但 **.pem**檔案名稱副檔名，做為憑證格式的 Windows 中無法辨識。
+您也可以藉由選取下載的作用中或非使用中的憑證**SAML 簽署憑證**標題的**編輯**圖示 （鉛筆），顯示**SAML 簽署憑證**  頁面。 選取省略符號 ( **...** ) 在您想要下載，然後選擇哪一種憑證格式之憑證旁邊。 您已下載的憑證，以強化隱私權的郵件 (PEM) 格式的其他選項。 此格式完全相同，為 Base64，但 **.pem**檔案名稱副檔名，做為憑證格式的 Windows 中無法辨識。
 
 ![SAML 簽署憑證下載選項 （作用中和非使用中）](./media/manage-certificates-for-federated-single-sign-on/all-certificate-download-options.png)
 
@@ -56,7 +56,7 @@ ms.locfileid: "65824750"
 
 1. 登入[Azure Active Directory 入口網站](https://aad.portal.azure.com/)。 **Azure Active Directory 系統管理中心**頁面隨即出現。
 
-2. 在左側窗格中，選取 [企業應用程式]。 在您的帳戶中的企業應用程式清單隨即出現。
+2. 在左側窗格中，選取 [企業應用程式]  。 在您的帳戶中的企業應用程式清單隨即出現。
 
 3. 選取受影響的應用程式。 應用程式的 [概觀] 頁面隨即出現。
 
@@ -88,7 +88,7 @@ ms.locfileid: "65824750"
 
 3. 請依照下列中的指示[資源庫和非資源庫應用程式的自動產生的憑證](#auto-generated-certificate-for-gallery-and-non-gallery-applications)稍早一節。 此步驟中下載的憑證上傳應用程式所需的編碼格式。
 
-4. 當您想要變換新憑證時，請返回**SAML 簽署憑證**頁面，然後在新儲存的憑證資料列中，選取省略符號 (**...**)，然後選取**製作憑證 active**。 新憑證的狀態會變更為**Active**，和先前的作用中憑證變更為狀態**Inactive**。
+4. 當您想要變換新憑證時，請返回**SAML 簽署憑證**頁面，然後在新儲存的憑證資料列中，選取省略符號 ( **...** )，然後選取**製作憑證 active**。 新憑證的狀態會變更為**Active**，和先前的作用中憑證變更為狀態**Inactive**。
 
 5. 繼續的下列以正確的編碼格式的憑證，讓您可以上傳 SAML 簽章稍早顯示的應用程式的 SAML 登入組態指示。
 
@@ -116,7 +116,7 @@ Azure AD 將傳送的 SAML 憑證到期前的電子郵件通知 60、 30 和 7 �
 
 2. 如果應用程式可以自動變換憑證的限制，設定為 作用中新的憑證，遵循下列步驟：
    1. 請返回**SAML 簽署憑證**頁面。
-   2. 在最近儲存的憑證資料列中，選取省略符號 (**...**)，然後選取**製作憑證 active**。
+   2. 在最近儲存的憑證資料列中，選取省略符號 ( **...** )，然後選取**製作憑證 active**。
    3. 略過後續兩個步驟。
 
 3. 如果應用程式一次只能處理一個憑證，請挑選執行下一個步驟的停機時間間隔。 （否則如果應用程式不會自動挑選新的憑證，但可以處理多個簽章的憑證，您可以執行下一個步驟隨時。）

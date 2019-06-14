@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: c6fcb345b49ce6354a24408ebe163fb928990252
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925682"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>設定註冊應用程式開發人員控制發佈 (ADCD) 在 IBM zD & T v1
@@ -165,7 +165,7 @@ ZD (& T)，例如 ADCDs 是僅適用於 IBM 客戶和合作夥伴，專門用於
 
 7. 在下一個畫面上，提供 VM （亦即，非 ztadmin 認證） 的認證。
 
-8. 在 屬性 窗格中，輸入 數目**中央處理器 (CPs)**，數量**系統記憶體 (GB)**，而**部署目錄**執行映像。 因為這是一個示範，讓它保持小型。
+8. 在 屬性 窗格中，輸入 數目**中央處理器 (CPs)** ，數量**系統記憶體 (GB)** ，而**部署目錄**執行映像。 因為這是一個示範，讓它保持小型。
 
 9. 請確定已選取方塊**問題 IPL 命令，以 z/OS 之後自動部署**。
 

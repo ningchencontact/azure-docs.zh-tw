@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
 ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964123"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 和 AppSource 的諮詢服務
@@ -128,7 +128,7 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 * **概念證明**：可以判斷解決方案是否符合客戶需求的有限範圍實作。 
 * **研討會**：在客戶場地進行的互動式交流。 它可以包含以客戶資料或環境為基礎的訓練、簡報、評量或示範。 
 
-**附註：** 除了「簡報」服務類型以外，其他諮詢服務皆可透過親赴現場 (亦即在客戶的場地或合作夥伴的設備舉辦) 或虛擬方式 (亦即透過電話會議、網路會議、遠端實作舉辦) 提供。 簡報必須親赴現場提供。
+**附註：** 除了「簡報」  服務類型以外，其他諮詢服務皆可透過親赴現場 (亦即在客戶的場地或合作夥伴的設備舉辦) 或虛擬方式 (亦即透過電話會議、網路會議、遠端實作舉辦) 提供。 簡報必須親赴現場提供。
 
 一旦您已設定以上所列的必要元素，內容檢閱小組將會針對您的目標對象，驗證供應項目描述是否具有足夠資訊且完整。 
 
@@ -166,7 +166,7 @@ Azure Marketplace 和 AppSource 支援列出 Microsoft 系統整合者 (SI) 合�
 * ### <a name="space-for-heading-ex-spaceagendadeliverables"></a>標題空格 (例如： ###(space)議程/交付項目)
 * 標題之後的分行符號
 * ** = 粗體 
-* * 將供應項目摘要標為斜體
+* \* 將供應項目摘要標為斜體
 
 
 ## <a name="next-steps"></a>後續步驟

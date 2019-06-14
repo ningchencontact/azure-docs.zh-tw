@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
 ms.openlocfilehash: 2d6a5c96bf99439520e26fc905668835944cee29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66115632"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>升級至一般用途 v2 儲存體帳戶
@@ -27,10 +27,10 @@ ms.locfileid: "66115632"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至儲存體帳戶。
-3. 在 [設定] 區段中，按一下 [組態]。
-4. 在 [帳戶類型] 下，按一下 [升級]。
-5. 在 [確認升級] 下，輸入您的帳戶名稱。
-6. 按一下刀鋒視窗底部的 [升級]。
+3. 在 [設定]  區段中，按一下 [組態]  。
+4. 在 [帳戶類型]  下，按一下 [升級]  。
+5. 在 [確認升級]  下，輸入您的帳戶名稱。
+6. 按一下刀鋒視窗底部的 [升級]  。
 
     ![升級帳戶類型](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
@@ -131,18 +131,18 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 #### <a name="capacity-costs"></a>容量成本
 
-容量度量資料表 $MetricsCapacityBlob 中具有資料列索引鍵 'data' 的最新項目會顯示使用者資料所耗用的儲存體容量。 容量度量資料表 $MetricsCapacityBlob 中具有資料列索引鍵 'analytics' 的最新項目會顯示分析記錄所耗用的儲存體容量。
+容量度量資料表 $MetricsCapacityBlob  中具有資料列索引鍵 'data'  的最新項目會顯示使用者資料所耗用的儲存體容量。 容量度量資料表 $MetricsCapacityBlob  中具有資料列索引鍵 'analytics'  的最新項目會顯示分析記錄所耗用的儲存體容量。
 
 使用者資料和分析記錄 (若已啟用) 所耗用的總容量便可用來估計在儲存體帳戶中儲存資料的成本。 相同的方法也可用來估計 GPv1 儲存體帳戶的儲存成本。
 
 #### <a name="transaction-costs"></a>交易成本
 
-交易度量資料表中 API 的所有項目的 'TotalBillableRequests' 總和，會指出該特定 API 的交易總數。 例如，在給定期間的 'GetBlob' 交易總數計算方式為將所有包含 'user;GetBlob'列索引鍵的可計費要求總數進行加總。
+交易度量資料表中 API 的所有項目的 'TotalBillableRequests'  總和，會指出該特定 API 的交易總數。 例如  ，在給定期間的 'GetBlob'  交易總數計算方式為將所有包含 'user;GetBlob'  列索引鍵的可計費要求總數進行加總。
 
 若要估計 Blob 儲存體帳戶的交易成本，您必須將交易細分成三個群組，因為它們的定價方式不同。
 
-* 寫入 'PutBlob'、'PutBlock'、'PutBlockList'、'AppendBlock'、'ListBlobs'、'ListContainers'、'CreateContainer'、'SnapshotBlob' 和 'CopyBlob' 等交易。
-* 刪除 'DeleteBlob' 和 'DeleteContainer' 等交易。
+* 寫入 'PutBlob'  、'PutBlock'  、'PutBlockList'  、'AppendBlock'  、'ListBlobs'  、'ListContainers'  、'CreateContainer'  、'SnapshotBlob'  和 'CopyBlob'  等交易。
+* 刪除 'DeleteBlob'  和 'DeleteContainer'  等交易。
 * 所有其他交易
 
 若要估計 GPv1 儲存體帳戶的交易成本，不論作業/API 為何，您必須彙總所有的交易。
@@ -153,14 +153,14 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 若要估計 Blob 儲存體帳戶的資料存取成本，您必須將交易細分成兩個群組。
 
-* 查看主要 'GetBlob' 和 'CopyBlob' 作業的 'TotalEgress' 總和，可以估計從儲存體帳戶擷取的資料量。
+* 查看主要 'GetBlob'  和 'CopyBlob'  作業的 'TotalEgress'  總和，可以估計從儲存體帳戶擷取的資料量。
 
-* 查看主要 'PutBlob'、'PutBlock'、'CopyBlob' 和 'AppendBlock' 作業的 'TotalIngress' 總和，可以估計寫入至儲存體帳戶的資料量。
+* 查看主要 'PutBlob'  、'PutBlock'  、'CopyBlob'  和 'AppendBlock'  作業的 'TotalIngress'  總和，可以估計寫入至儲存體帳戶的資料量。
 
 使用 GRS 或 RA-GRS 儲存體帳戶時，使用寫入的資料量估計值，也可以計算 Blob 儲存體帳戶的異地複寫資料傳輸成本。
 
 > [!NOTE]
-> 關於計算使用經常性存取或非經常性儲存體存取層的成本，如需更詳細的範例，請查看標題為「經常性存取或非經常性存取層是什麼，以及如何判斷要使用哪一個？」的常見問題 於 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/)。
+> 關於計算使用經常性存取或非經常性儲存體存取層的成本，如需更詳細的範例，請查看標題為「經常性存取或非經常性存取層是什麼，以及如何判斷要使用哪一個？」  的常見問題 於 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/)。
 
 ## <a name="next-steps"></a>後續步驟
 

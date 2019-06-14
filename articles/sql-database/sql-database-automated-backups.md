@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 05/20/2019
 ms.openlocfilehash: 1c81f5748d1e3edff4902eb462b9beea78acd8bc
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951689"
 ---
 # <a name="automated-backups"></a>自動備份
@@ -40,7 +40,7 @@ SQL Database 使用 SQL Server 技術來建立[完整備份](https://docs.micros
 - 若要執行還原，請參閱[從備份還原資料庫](sql-database-recovery-using-backups.md)。
 
 > [!NOTE]
-> 在 Azure 儲存體中，「複寫」一詞指的是將檔案從某個位置複製到另一個位置。 SQL 的「資料庫複寫」指的是保持多個次要資料庫與主要資料庫同步。
+> 在 Azure 儲存體中，「複寫」  一詞指的是將檔案從某個位置複製到另一個位置。 SQL 的「資料庫複寫」  指的是保持多個次要資料庫與主要資料庫同步。
 
 您可以嘗試其中一些作業使用下列範例：
 

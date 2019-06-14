@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 67109c3605ea96123ff41cb88d5ac328a09991e6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935337"
 ---
 <a name="retrieve-offers"></a>擷取供應項目
@@ -28,7 +28,7 @@ ms.locfileid: "64935337"
 | **名稱**         |  **說明**                         |  **資料類型** |
 | -------------    |  ------------------------------------    |  -----------   |
 |  publisherId     | 發行者識別碼，例如 `contoso` |   字串    |
-|  api-version     | API 的最新版本                    |    date        |
+|  api-version     | API 的最新版本                    |    Date        |
 |  |  |
 
 

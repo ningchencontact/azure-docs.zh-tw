@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919159"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>設定您的帳單帳戶，Microsoft 客戶協議
@@ -81,7 +81,7 @@ ms.locfileid: "64919159"
 
 使用者在您的組織中人員已簽署 Microsoft 客戶合約會新增為帳單的設定檔的擁有者。 要求使用者將您新增為擁有者，以便您可以完成安裝。  <!-- Todo Are there any next steps -->
 
-## <a name="understand-changes-to-your-billing-hierarchy"></a>了解您帳單階層的變更
+## <a name="understand-changes-to-your-billing-hierarchy"></a>了解您帳單的階層架構的變更
 
 新的計費帳戶可簡化您的組織，同時可讓您增強計費與成本管理功能的計費。 下圖說明在新的計費帳戶計費的組織方式。
 
@@ -142,7 +142,7 @@ ms.locfileid: "64919159"
 
 在轉換期間，不會影響存取 Azure 資源所設定使用 Azure RBAC （角色型存取控制）。
 
-### <a name="azure-reservations"></a>Azure 保留
+### <a name="azure-reservations"></a>Azure Reservations
 
 您的 Enterprise 合約註冊中的任何 Azure 保留項目會移至新的計費帳戶。 在轉換期間，套用至您訂用帳戶的保留折扣不會有任何變更。
 
@@ -205,7 +205,7 @@ Azure 訂用帳戶轉換可以手動移到新的計費帳戶之後，針對 Ente
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單] 進行搜尋。
+2. 針對 [成本管理 + 帳單]  進行搜尋。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -217,11 +217,11 @@ Azure 訂用帳戶轉換可以手動移到新的計費帳戶之後，針對 Ente
 
 在 Azure 訂用帳戶 頁面上，會顯示已從您的 Enterprise 合約註冊轉換到新的計費帳戶的 azure 訂用帳戶。 如果您認為缺少任何訂用帳戶，轉換以手動方式在 Azure 入口網站中的訂用帳戶的計費。 如需詳細資訊，請參閱[取得帳單的其他使用者的 Azure 訂用帳戶的擁有權](billing-mca-request-billing-ownership.md)
 
-### <a name="azure-reservations"></a>Azure 保留
+### <a name="azure-reservations"></a>Azure Reservations
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單] 進行搜尋。
+2. 針對 [成本管理 + 帳單]  進行搜尋。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -241,7 +241,7 @@ Azure 訂用帳戶轉換可以手動移到新的計費帳戶之後，針對 Ente
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單] 進行搜尋。
+2. 針對 [成本管理 + 帳單]  進行搜尋。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -257,7 +257,7 @@ Azure 訂用帳戶轉換可以手動移到新的計費帳戶之後，針對 Ente
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單] 進行搜尋。
+2. 針對 [成本管理 + 帳單]  進行搜尋。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)上也提供本文中使用的原始碼。
 

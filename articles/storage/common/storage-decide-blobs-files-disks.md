@@ -9,10 +9,10 @@ ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 30c7c1c50e59162817d7cfab0d852d8e034457d0
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969416"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>決定何時使用 Azure Blob、Azure 檔案服務或 Azure 磁碟
@@ -23,7 +23,7 @@ Microsoft Azure 在 Azure 儲存體中提供數種功能，用以在雲端儲存
 
 下表會對 Azure 檔案服務、Azure Blob 和 Azure 磁碟進行比較，並顯示適用於各項的範例案例。
 
-| 功能 | 描述  | 使用時機 |
+| 功能 | 描述 | 使用時機 |
 |--------------|-------------|-------------|
 | **Azure 檔案** | 提供 SMB 介面、用戶端程式庫和 [REST 介面](/rest/api/storageservices/file-service-rest-api)，允許從任何位置存取儲存的檔案。 | 您想要將應用程式「隨即轉移」到雲端，該應用程式已使用原生檔案系統 API 來在它與在 Azure 中執行的其他應用程式之間共用資料。<br/><br/>您想要儲存需要從許多虛擬機器存取的開發和偵錯工具。 |
 | **Azure Blob** | 提供用戶端程式庫和 [REST 介面](/rest/api/storageservices/blob-service-rest-api)，允許在區塊 Blob 中大規模地儲存及存取非結構化資料。<br/><br/>也支援將 [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) 用於企業巨量資料分析解決方案。 | 您想要應用程式支援串流及隨機存取案例。<br/><br/>您想要能夠從任何位置存取應用程式資料。<br/><br/>您想要在 Azure 上建置企業 Data Lake，並執行巨量資料分析。 |
@@ -43,7 +43,7 @@ Microsoft Azure 在 Azure 儲存體中提供數種功能，用以在雲端儲存
 |目錄|一般命名空間|真實目錄物件|  
 |名稱區分大小寫|區分大小寫|不區分大小寫，但保留大小寫|  
 |容量|最高可達 2 PiB 的帳戶限制 |5 TiB 的檔案共用|  
-|輸送量|每個區塊 Blob 最高可達每秒 60 MiB|每個共用最高可達每秒 60 MiB|  
+|Throughput|每個區塊 Blob 最高可達每秒 60 MiB|每個共用最高可達每秒 60 MiB|  
 |物件大小|每個區塊 Blob 最高約可達 4.75 TiB|每個檔案最高可達 1 TiB|  
 |計費的容量|根據寫入的位元組|根據檔案大小|  
 |用戶端程式庫|多種語言|多種語言|  
@@ -58,13 +58,13 @@ Azure 檔案服務可補強 Azure 磁碟。 磁碟一次只能連結到一部 Az
 |-|-|-|  
 |**屬性**|**Azure 磁碟**|**Azure 檔案**|  
 |`Scope`|單一虛擬機器專用|跨多部虛擬機器的共用存取|  
-|快照與複製|有|有|  
+|快照與複製|是|是|  
 |組態|在啟動虛擬機器時連線|在虛擬機器啟動之後連線|  
 |Authentication|內建|使用 net use 設定|  
 |使用 REST 存取|無法存取 VHD 內的檔案|可以存取儲存在共用中的檔案|  
-|最大大小|32 TiB 的磁碟|5 TiB 的檔案共用和 1 TiB 的共用內檔案|  
+|大小上限|32 TiB 的磁碟|5 TiB 的檔案共用和 1 TiB 的共用內檔案|  
 |最大 IOps|20,000 IOps|1000 IOps|  
-|輸送量|最多 900 個 MiB/秒每個磁碟|每個檔案共用的目標是每秒 60 Mib (更高 IO 大小可以達到更高目標)|  
+|Throughput|最多 900 個 MiB/秒每個磁碟|每個檔案共用的目標是每秒 60 Mib (更高 IO 大小可以達到更高目標)|  
 
 ## <a name="next-steps"></a>後續步驟
 

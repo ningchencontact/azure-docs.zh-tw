@@ -2,17 +2,16 @@
 title: 保護 Azure DNS 區域和記錄
 description: 如何在 Microsoft Azure DNS 中保護 DNS 區域和記錄集。
 services: dns
-author: WenJason
+author: vhorne
 ms.service: dns
 ms.topic: article
-origin.date: 12/4/2018
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 12/4/2018
+ms.author: victorh
 ms.openlocfilehash: 9340a43eb88b4be03c0f0ccc0d07a32f22a9001c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121407"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>如何保護 DNS 區域和記錄
@@ -31,9 +30,9 @@ Azure 角色型存取控制 (RBAC) 可以對 Azure 使用者、群組和資源�
 
 DNS 區域參與者角色是內建角色，由 Azure 提供用於管理 DNS 資源。  將「DNS 區域參與者」權限指派給使用者或群組，可讓該群組管理 DNS 資源，但是無法管理任何其他類型的資源。
 
-例如，假設資源群組 myzones 包含 Contoso Corporation 的五個區域。 將該資源群組的 DNS 區域參與者權限授與 DNS 系統管理員，可讓他們具有這些 DNS 區域的完整控制權。 它也可避免授與不必要的權限，例如 DNS 系統管理員無法建立或停止虛擬機器。
+例如，假設資源群組 myzones  包含 Contoso Corporation 的五個區域。 將該資源群組的 DNS 區域參與者權限授與 DNS 系統管理員，可讓他們具有這些 DNS 區域的完整控制權。 它也可避免授與不必要的權限，例如 DNS 系統管理員無法建立或停止虛擬機器。
 
-指派 RBAC 權限的最簡單方式是[透過 Azure 入口網站](../role-based-access-control/role-assignments-portal.md)。  開啟資源群組的 [存取控制 (IAM)] 刀鋒視窗，選取 [新增]、選取 [DNS 區域參與者] 角色，然後選取必要的使用者或群組以授與權限。
+指派 RBAC 權限的最簡單方式是[透過 Azure 入口網站](../role-based-access-control/role-assignments-portal.md)。  開啟資源群組的 [存取控制 (IAM)]  刀鋒視窗，選取 [新增]  、選取 [DNS 區域參與者]  角色，然後選取必要的使用者或群組以授與權限。
 
 ![透過 Azure 入口網站的資源群組層級 RBAC](./media/dns-protect-zones-recordsets/rbac1.png)
 
@@ -55,9 +54,9 @@ azure role assignment create --signInName "<user email address>" --roleName "DNS
 
 Azure RBAC 規則可以套用至訂用帳戶、資源群組或個別資源。 在 Azure DNS 的情況下，該資源可以是個別 DNS 區域或甚至是個別記錄集。
 
-例如，假設資源群組 myzones 包含區域 contoso.com 和子區域 customers.contoso.com，其中 CNAME 記錄是針對每個客戶帳戶建立的。  用來管理這些 CNAME 記錄的帳戶應該獲得指派權限以僅在 customers.contoso.com 區域中建立記錄，它不應該有其他區域的存取權。
+例如，假設資源群組 myzones  包含區域 contoso.com  和子區域 customers.contoso.com  ，其中 CNAME 記錄是針對每個客戶帳戶建立的。  用來管理這些 CNAME 記錄的帳戶應該獲得指派權限以僅在 customers.contoso.com  區域中建立記錄，它不應該有其他區域的存取權。
 
-區域層級 RBAC 權限可以透過 Azure 入口網站授與。  開啟區域的 [存取控制 (IAM)] 刀鋒視窗，選取 [新增]、選取 [DNS 區域參與者] 角色，然後選取必要的使用者或群組以授與權限。
+區域層級 RBAC 權限可以透過 Azure 入口網站授與。  開啟區域的 [存取控制 (IAM)]  刀鋒視窗，選取 [新增]  、選取 [DNS 區域參與者]  角色，然後選取必要的使用者或群組以授與權限。
 
 ![透過 Azure 入口網站的 DNS 區域層級 RBAC](./media/dns-protect-zones-recordsets/rbac2.png)
 
@@ -79,7 +78,7 @@ azure role assignment create --signInName <user email address> --roleName "DNS Z
 
 我們可以繼續下一步。 請考慮 Contoso Corporation 的郵件系統管理員，他需要存取位於 contoso.com 區域頂點的 MX 和 TXT 記錄。  她不需要存取任何其他 MX 或 TXT 記錄，或任何其他類型的任何記錄。  Azure DNS 可讓您在記錄集層級指派權限，準確地給予郵件系統管理員需要存取的記錄。  郵件系統管理員準確地獲得她需要的控制權，且無法進行任何其他變更。
 
-記錄集層級 RBAC 權限可透過 Azure 入口網站，使用記錄集頁面中的 [使用者] 按鈕來設定︰
+記錄集層級 RBAC 權限可透過 Azure 入口網站，使用記錄集頁面中的 [使用者]  按鈕來設定︰
 
 ![透過 Azure 入口網站的記錄集層級 RBAC](./media/dns-protect-zones-recordsets/rbac3.png)
 
@@ -101,7 +100,7 @@ azure role assignment create --signInName "<user email address>" --roleName "DNS
 
 內建 DNS 區域參與者角色可以有 DNS 資源的完整控制權。 此外，也可以建置自己的客戶 Azure 角色，以提供更細微的控制。
 
-請再考量一次區域 customers.contoso.com 中的 CNAME 記錄是針對每個 Contoso Corporation 客戶帳戶建立的範例。  用來管理這些 CNAME 的帳戶應該授與只管理 CNAME 記錄的權限。  如此便無法修改其他類型的記錄 (例如變更 MX 記錄)，或執行區域層級作業，例如區域刪除。
+請再考量一次區域 customers.contoso.com  中的 CNAME 記錄是針對每個 Contoso Corporation 客戶帳戶建立的範例。  用來管理這些 CNAME 的帳戶應該授與只管理 CNAME 記錄的權限。  如此便無法修改其他類型的記錄 (例如變更 MX 記錄)，或執行區域層級作業，例如區域刪除。
 
 下列範例示範只管理 CNAME 記錄的自訂角色定義︰
 
@@ -118,7 +117,8 @@ azure role assignment create --signInName "<user email address>" --roleName "DNS
         "Microsoft.Insights/alertRules/*",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
         "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read"
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
     ],
     "NotActions": [
     ],
@@ -166,7 +166,7 @@ azure role create -inputfile <file path>
 
 若要避免任何變更，將 ReadOnly 鎖定套用至區域。  這樣可以防止建立新的記錄集，現有記錄集也能免於遭到修改或刪除。
 
-可以透過 Azure 入口網站來建立區域層級資源鎖定。  從 [DNS 區域] 頁面選取 [鎖定]，然後選取 [+新增]：
+可以透過 Azure 入口網站來建立區域層級資源鎖定。  從 [DNS 區域] 頁面選取 [鎖定]  ，然後選取 [+新增]  ：
 
 ![透過 Azure 入口網站的區域層級資源鎖定](./media/dns-protect-zones-recordsets/locks1.png)
 

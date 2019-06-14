@@ -12,10 +12,10 @@ author: marthalc
 ms.date: 12/03/2018
 ms.custom: seodec18
 ms.openlocfilehash: df2f0731aff6c90ef83b26041a9d383ce14974c6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024254"
 ---
 # <a name="collect-data-for-models-in-production"></a>在生產環境中收集模型資料
@@ -81,9 +81,9 @@ Blob 中輸出資料的路徑遵循此語法：
     prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
-    CorrelationId 是選用參數，如果您的模型不需要它，則不需要設定。 備妥 correlationId 可協助您更輕鬆地對應其他資料  (範例包括：LoanNumber、CustomerId 等)。
+    CorrelationId  是選用參數，如果您的模型不需要它，則不需要設定。 備妥 correlationId 可協助您更輕鬆地對應其他資料 (範例包括：LoanNumber、CustomerId 等)。
     
-    Identifier 稍後用於建置 Blob 中的資料夾結構，可用來劃分「原始」資料與「已處理」。
+    Identifier  稍後用於建置 Blob 中的資料夾結構，可用來劃分「原始」資料與「已處理」。
 
 3.  將下列程式碼行新增至 `run(input_df)` 函式：
 
@@ -113,17 +113,17 @@ Blob 中輸出資料的路徑遵循此語法：
 
 1. 開啟工作區。
 
-1. 移至 [部署] -> [選取服務] -> [編輯]。
+1. 移至 [部署]   -> [選取服務]   -> [編輯]  。
 
    ![編輯服務](media/how-to-enable-data-collection/EditService.PNG)
 
-1. 在 [進階設定] 中，取消選取 [啟用模型資料收集]。 
+1. 在 [進階設定]  中，取消選取 [啟用模型資料收集]  。 
 
     [![核取資料收集](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
 
    在此視窗中，您也可以選擇 [啟用 AppInsights 診斷] 來追蹤您服務的健康狀態。  
 
-1. 選取 [更新] 以套用變更。
+1. 選取 [更新]  以套用變更。
 
 
 ## <a name="disable-data-collection"></a>停用資料收集
@@ -134,15 +134,15 @@ Blob 中輸出資料的路徑遵循此語法：
 
   1. 開啟工作區。
 
-  1. 移至 [部署] -> [選取服務] -> [編輯]。
+  1. 移至 [部署]   -> [選取服務]   -> [編輯]  。
 
      [![[編輯] 選項](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
-  1. 在 [進階設定] 中，取消選取 [啟用模型資料收集]。 
+  1. 在 [進階設定]  中，取消選取 [啟用模型資料收集]  。 
 
      [![取消核取資料收集](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
-  1. 選取 [更新] 以套用變更。
+  1. 選取 [更新]  以套用變更。
 
 + 選項 2 - 使用 Python 停用資料收集：
 
@@ -158,7 +158,7 @@ Blob 中輸出資料的路徑遵循此語法：
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 1. 開啟工作區。
-1. 按一下 [儲存體] 。
+1. 按一下 [儲存體]  。
 
     [![儲存體](media/how-to-enable-data-collection/StorageLocation.png)](./media/how-to-enable-data-collection/StorageLocation.png#lightbox)
 
@@ -174,22 +174,22 @@ Blob 中輸出資料的路徑遵循此語法：
 
 1. 下載並開啟 [PowerBi 桌面](https://www.powerbi.com)
 
-1. 選取 [取得資料]，然後按一下 [[Azure Blob 儲存體]](https://docs.microsoft.com/power-bi/desktop-data-sources)。
+1. 選取 [取得資料]  ，然後按一下 [[Azure Blob 儲存體]](https://docs.microsoft.com/power-bi/desktop-data-sources)  。
 
     [![PBI Blob 設定](media/how-to-enable-data-collection/PBIBlob.png)](./media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
 
-1. 新增您的儲存體帳戶名稱並輸入您的儲存體金鑰。 您可以在 Blob 的 [設定] > [存取金鑰] 中找到這項資訊。 
+1. 新增您的儲存體帳戶名稱並輸入您的儲存體金鑰。 您可以在 Blob 的 [設定]  > [存取金鑰] 中找到這項資訊。 
 
-1. 選取容器 **modeldata**，然後按一下 [編輯]。 
+1. 選取容器 **modeldata**，然後按一下 [編輯]  。 
 
     [![PBI 導覽器](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
 
 1. 在查詢編輯器中，在 [名稱] 資料行下方按一下，新增您的儲存體帳戶 1。 塑造篩選條件的路徑。 注意：如果您只想查看特定年份或月份的檔案，只要展開篩選路徑即可。 例如，只查看年 3 月份的資料：/modeldata/subscriptionid>/resourcegroupname>/workspacename>/webservicename>/modelname>/modelversion>/identifier>/year>/3
 
-1. 根據 [名稱] 篩選與您相關的資料。 如果您儲存了**預測**和**輸入**，則必須建立每一項的查詢。
+1. 根據 [名稱]  篩選與您相關的資料。 如果您儲存了**預測**和**輸入**，則必須建立每一項的查詢。
 
-1. 按一下 [內容] 資料行旁邊的雙箭頭來合併檔案。 
+1. 按一下 [內容]  資料行旁邊的雙箭頭來合併檔案。 
 
     [![PBI 內容](media/how-to-enable-data-collection/pbiContent.png)](./media/how-to-enable-data-collection/pbiContent.png#lightbox)
 
@@ -197,7 +197,7 @@ Blob 中輸出資料的路徑遵循此語法：
 
     [![pbiCombine](media/how-to-enable-data-collection/pbiCombine.png)](./media/how-to-enable-data-collection/pbiCombine.png#lightbox)
 
-1. 您現在可以按一下 [關閉並套用]。
+1. 您現在可以按一下 [關閉並套用]  。
 
 1.  如果您新增了輸入和預測，您的資料表就會自動以 **RequestId** 相互關聯。
 
@@ -210,11 +210,11 @@ Blob 中輸出資料的路徑遵循此語法：
 
 1. 移至 Databricks 工作區。 
 
-1. 在 Databricks 工作區中，選取 [上傳資料]。
+1. 在 Databricks 工作區中，選取 [上傳資料]  。
 
     [![BD 上傳](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
 
-1. 建立新資料表，然後選取 [其他資料來源] -> [Azure Blob 儲存體] -> [在 Notebook 中建立資料表]。
+1. 建立新資料表，然後選取 [其他資料來源]  -> [Azure Blob 儲存體] -> [在 Notebook 中建立資料表]。
 
     [![DB 資料表](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 

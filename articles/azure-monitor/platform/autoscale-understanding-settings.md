@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.component: autoscale
+ms.subservice: autoscale
 ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787490"
 ---
 # <a name="understand-autoscale-settings"></a>了解自動調整設定
@@ -89,7 +89,7 @@ ms.locfileid: "60787490"
 }
 ```
 
-| 區段 | 元素名稱 | 描述 |
+| Section | 元素名稱 | 描述 |
 | --- | --- | --- |
 | 設定 | ID | 自動調整規模設定的資源識別碼。 自動調整規模設定是 Azure Resource Manager 資源。 |
 | 設定 | name | 自動調整規模設定名稱。 |
@@ -111,7 +111,7 @@ ms.locfileid: "60787490"
 | 規則 | scaleAction | 觸發 metricTrigger 時要採取的動作。 |
 | scaleAction | direction | "Increase" 用於相應放大，或 "Decrease" 用於相應縮小。|
 | scaleAction | value | 要增加或減少多少資源容量。 |
-| scaleAction | cooldown | 在進行調整作業之後、再次調整之前，所要等待的時間長度。 例如，如果 **cooldown = “PT10M”**，則自動調整在接下來 10 分鐘內不會再次嘗試進行調整。 cooldown 是用來在新增或移除執行個體之後，讓計量穩定。 |
+| scaleAction | cooldown | 在進行調整作業之後、再次調整之前，所要等待的時間長度。 例如，如果 **cooldown = “PT10M”** ，則自動調整在接下來 10 分鐘內不會再次嘗試進行調整。 cooldown 是用來在新增或移除執行個體之後，讓計量穩定。 |
 
 ## <a name="autoscale-profiles"></a>自動調整規模設定檔
 
@@ -310,3 +310,4 @@ ms.locfileid: "60787490"
 * [Azure 監視器自動調整的最佳作法](../../azure-monitor/platform/autoscale-best-practices.md)
 * [使用自動調整動作傳送電子郵件和 Webhook 警示通知](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [自動調整 REST API](https://msdn.microsoft.com/library/dn931953.aspx)
+

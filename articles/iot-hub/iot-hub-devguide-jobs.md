@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 147dd0f454bd85673bcba5cd6148c5da9716c580
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409040"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>排程多個裝置上的作業
@@ -177,7 +177,7 @@ ContinuationToken 會從回應來提供。
 
 以下清單顯示屬性和對應的描述，可在查詢作業或作業結果時使用。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | --- | --- |
 | **jobId** |應用程式所提供的作業識別碼。 |
 | **startTime** |應用程式所提供的作業開始時間 (ISO-8601)。 |

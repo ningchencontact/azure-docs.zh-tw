@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 58591302280c67dbd0f69ebe0bc47cf95c8bfc18
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956754"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace 和 AppSource 發行指南
@@ -30,7 +30,7 @@ Marketplace 發行指南的目的是協助新的與現有的發行者了解如�
 
 本指南內含技術和商務資訊，會逐步說明您在列出應用程式和服務之前所需執行的步驟。 請使用目錄來移至本指南的不同小節，並直接前往重要主題。
 
-若有 Azure Marketplace 和 AppSource 的相關問題，請以 [問題類型] > [Marketplace 上線] 類型傳送訊息給我們。  我們的 Marketplace 發行者上線團隊十分樂意提供協助！ 
+若有 Azure Marketplace 和 AppSource 的相關問題，請以 [問題類型]   > [Marketplace 上線]  類型傳送訊息給我們。  我們的 Marketplace 發行者上線團隊十分樂意提供協助！ 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>參與 Marketplace 的優點 
 

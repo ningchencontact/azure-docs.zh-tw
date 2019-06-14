@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604369"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>在 Azure 監視器中收集 IIS 記錄
@@ -30,11 +30,11 @@ Azure 監視器會從 IIS 建立的記錄檔收集項目，因此您必須[設�
 
 Azure 監視器只支援以 W3C 格式儲存的 IIS 記錄檔，不支援自訂欄位或 IIS 進階記錄。 它不會收集 NCSA 或 IIS 原生格式的記錄。
 
-從 [[進階設定] 功能表](agent-data-sources.md#configuring-data-sources)在 Azure 監視器中設定 IIS 記錄。  您只需選取 [Collect W3C format IIS log files]\(收集 W3C 格式的 IIS 記錄檔) 即可完成設定。
+從 [[進階設定] 功能表](agent-data-sources.md#configuring-data-sources)在 Azure 監視器中設定 IIS 記錄。  您只需選取 [Collect W3C format IIS log files]\(收集 W3C 格式的 IIS 記錄檔)  即可完成設定。
 
 
 ## <a name="data-collection"></a>資料收集
-Azure 監視器會在每次記錄關閉並建立新記錄時，從每個代理程式收集 IIS 記錄項目。 此頻率會受到 IIS 網站的 [記錄檔案換用排程] 設定控制，預設為一天一次。 例如，如果設定為 [每小時]，則 Azure 監視器會每小時收集記錄一次。  如果設定為 [每日]，則 Azure 監視器會每隔 24 小時收集記錄一次。
+Azure 監視器會在每次記錄關閉並建立新記錄時，從每個代理程式收集 IIS 記錄項目。 此頻率會受到 IIS 網站的 [記錄檔案換用排程]  設定控制，預設為一天一次。 例如，如果設定為 [每小時]  ，則 Azure 監視器會每小時收集記錄一次。  如果設定為 [每日]  ，則 Azure 監視器會每隔 24 小時收集記錄一次。
 
 
 ## <a name="iis-log-record-properties"></a>IIS 記錄檔記錄屬性

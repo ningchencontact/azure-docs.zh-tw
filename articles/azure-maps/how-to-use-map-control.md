@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: aa923fa7e2d5e673e6a2db2b349e54d433d1817b
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957268"
 ---
 # <a name="use-the-azure-maps-map-control"></a>使用 Azure 地圖服務的地圖控制項
@@ -68,7 +68,7 @@ ms.locfileid: "65957268"
     </body>
     ```
 
-5. 若要初始化地圖控制項，請在 html 主體中定義新的區段，並建立指令碼。 傳入`id`的對應`<div>`該`HTMLElement`(比方說， `document.getElementById('myMap')`) 時建立的執行個體的第一個參數`Map`類別。 使用您自己的 Azure 地圖服務帳戶金鑰或 Azure Active Directory (AAD) 認證來使用[驗證選項](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)驗證地圖。 如果您需要建立帳戶或尋找金鑰，請參閱[如何管理 Azure 地圖服務帳戶與金鑰](how-to-manage-account-keys.md)。 [語言] 選項會指定要用於地圖標籤和控制項的語言。 如需有關支援語言的資訊，請參閱[支援的語言](supported-languages.md)。 如果使用訂用帳戶金鑰進行驗證。
+5. 若要初始化地圖控制項，請在 html 主體中定義新的區段，並建立指令碼。 傳入`id`的對應`<div>`該`HTMLElement`(比方說， `document.getElementById('myMap')`) 時建立的執行個體的第一個參數`Map`類別。 使用您自己的 Azure 地圖服務帳戶金鑰或 Azure Active Directory (AAD) 認證來使用[驗證選項](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions)驗證地圖。 如果您需要建立帳戶或尋找金鑰，請參閱[如何管理 Azure 地圖服務帳戶與金鑰](how-to-manage-account-keys.md)。 [語言]  選項會指定要用於地圖標籤和控制項的語言。 如需有關支援語言的資訊，請參閱[支援的語言](supported-languages.md)。 如果使用訂用帳戶金鑰進行驗證。
 
     ```HTML
     <script type="text/javascript">

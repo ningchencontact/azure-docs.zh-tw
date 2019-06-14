@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.date: 5/6/2019
 ms.topic: conceptual
 ms.openlocfilehash: a98d9b89db0406d67d1b067c3e53eb5c3dae7957
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65068946"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>連線的 Azure Kubernetes Service 和 Azure Database for PostgreSQL-單一伺服器
@@ -29,8 +29,8 @@ Azure Kubernetes Service (AKS) 提供的受控 Kubernetes 叢集可讓您用於 
 3. 複製**基礎結構資源群組**的名稱。
 4. 使用入口網站搜尋列，以找出並開啟基礎結構資源群組。
 5. 選取該資源群組中的 VM。
-6. 移至 VM 的 [網路] 索引標籤。
-7. 確認 [加速網路] 是否為「啟用」。
+6. 移至 VM 的 [網路]  索引標籤。
+7. 確認 [加速網路]  是否為「啟用」。
 
 或者，透過 Azure CLI 使用下列兩個命令：
 ```azurecli

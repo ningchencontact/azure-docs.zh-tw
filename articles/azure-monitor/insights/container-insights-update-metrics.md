@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/06/2019
 ms.author: magoedte
 ms.openlocfilehash: f4e15c4fc7bd7b786c5204153fe64f010e5ffe85
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148860"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>如何更新適用於容器的 Azure 監視器，若要啟用度量
@@ -35,9 +35,9 @@ ms.locfileid: "65148860"
 其中一個處理指派**監視計量發行者**叢集的服務主體的角色，讓代理程式所收集的資料可以發行至您的叢集資源。 監視計量的 「 發行者 」 的權限只推播至資源的計量，它無法改變任何狀態、 更新的資源，或讀取的任何資料。 如需角色的進一步資訊，請參閱[監視計量發行者角色](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher)。
 
 ## <a name="prerequisites"></a>必要條件 
-在開始之前，請確定您所隸屬**[擁有者](../../role-based-access-control/built-in-roles.md#owner)** 角色上啟用節點的集合和 pod 自訂效能度量的 AKS 叢集資源。 
+在開始之前，請確定您所隸屬 **[擁有者](../../role-based-access-control/built-in-roles.md#owner)** 角色上啟用節點的集合和 pod 自訂效能度量的 AKS 叢集資源。 
 
-如果您選擇使用 Azure CLI，必須先在本機安裝並使用 CLI。 必须运行 Azure CLI 2.0.59 或更高版本。 若要知道您使用的版本，請執行 `az --version`。 如果您需要安裝或升級 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+如果您選擇使用 Azure CLI，必須先在本機安裝並使用 CLI。 您必須執行 Azure CLI 2.0.59 版或更新版本。 若要知道您使用的版本，請執行 `az --version`。 如果您需要安裝或升級 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
 
 ## <a name="upgrade-a-cluster-from-the-azure-portal"></a>從 Azure 入口網站中升級叢集
 

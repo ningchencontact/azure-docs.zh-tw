@@ -12,10 +12,10 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
 ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989954"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>建立並探索自動化的機器學習服務實驗，在 Azure 入口網站 （預覽）
@@ -58,9 +58,9 @@ ms.locfileid: "65989954"
 
     ![建立新實驗的計算](media/how-to-create-portal-experiments/create-new-compute.png)
 
-    欄位|說明
+    欄位|描述
     ---|---
-    Compute 名稱| 輸入可識別您的計算內容的唯一名稱。
+    計算名稱| 輸入可識別您的計算內容的唯一名稱。
     虛擬機器大小| 選取您的計算的虛擬機器大小。
     其他設定| *最小節點*:輸入您的計算節點數目下限。 適用於 AML 計算的節點數目下限為 0。 若要啟用程式碼剖析資料，您必須具有 1 或多個節點。 <br> *最大節點*:輸入您的計算節點數目上限。 預設值為 6 個節點的 AML 計算。
 
@@ -100,10 +100,10 @@ ms.locfileid: "65989954"
 
 1. （選擇性）進階設定： 您可以用來進一步控制訓練作業的其他設定。
 
-    進階設定|說明
+    進階設定|描述
     ------|------
     主要的計量| 用來評分模型的主要度量。 [深入了解模型計量](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics)。
-    允出準則| 當下列任何準則符合時，則會在完整完成之前結束訓練作業。 <br> *定型作業時間 （分鐘）*:允許執行定型作業的時間長度。  <br> *最大數目的反覆項目*:若要測試訓練作業中的管線 （反覆項目） 的最大數目。 作業不會執行多個指定的反覆運算次數。 <br> *計量分數臨界值*:所有管線的最小度量分數。 這可確保如果您有您想要達到定義的目標度量時，您執行不超過必要訓練作業花更多時間。
+    允出準則| 當下列任何準則符合時，則會在完整完成之前結束訓練作業。 <br> *定型作業時間 （分鐘）* :允許執行定型作業的時間長度。  <br> *最大數目的反覆項目*:若要測試訓練作業中的管線 （反覆項目） 的最大數目。 作業不會執行多個指定的反覆運算次數。 <br> *計量分數臨界值*:所有管線的最小度量分數。 這可確保如果您有您想要達到定義的目標度量時，您執行不超過必要訓練作業花更多時間。
     前置處理| 選取此選項，以啟用或停用由自動化的機器學習服務在前置處理。 前置處理包含自動資料清理、 準備，以及轉換來產生綜合的功能。 [深入了解前置處理](#preprocess)。
     驗證| 選取其中一個用於訓練作業的交叉驗證選項。 [深入了解交叉驗證](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#cross-validation-split-options)。
     並行| 選取您想要使用多核心的計算時，使用多核心限制。
@@ -154,7 +154,7 @@ ms.locfileid: "65989954"
 
 在設定您的實驗時，您可以啟用 [進階] 設定`Preprocess`。 這就表示會自動執行下列的資料前置處理和特徵化步驟。
 
-|前置處理&nbsp;步驟| 說明 |
+|前置處理&nbsp;步驟| 描述 |
 | ------------- | ------------- |
 |卸除高基數或無變異數特徵|卸除從定型和驗證集，包括功能的遺漏，跨所有資料列，或具有極高基數 （例如，雜湊、 識別碼或 Guid） 的相同值的所有值。|
 |插補遺漏值|針對數值特徵，推算與資料行中值的平均值。<br/><br/>如需類別的功能，推算最常見的值。|
@@ -213,7 +213,7 @@ ms.locfileid: "65989954"
 
     您可以透過它的描述，其中包含執行的識別碼，也就是反覆項目數目，以下列格式來識別模型： *< Run_ID > _ < Iteration_number > （_m)*
 
-    ![型號:建立映像](media/how-to-create-portal-experiments/model-create-image.png)
+    ![模型：建立映像](media/how-to-create-portal-experiments/model-create-image.png)
 
 1. 輸入映像的名稱。 
 1. 選取 **瀏覽**上傳您先前下載的評分檔案 (scoring.py) 評分檔案 方塊旁的按鈕。
@@ -236,7 +236,7 @@ ms.locfileid: "65989954"
 
      ![映像：建立部署](media/how-to-create-portal-experiments/images-create-deployment.png)
 
-1. 完成後，請選取 [建立]。 部署模型可能需要幾分鐘的時間才能完成執行每個管線。
+1. 完成後，請選取 [建立]  。 部署模型可能需要幾分鐘的時間才能完成執行每個管線。
 
 1. 就這麼簡單！ 您有操作的 web 服務來產生預測。
 

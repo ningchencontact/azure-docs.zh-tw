@@ -12,10 +12,10 @@ ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 92ca09040836dfc55a9d709b12a0ee01192d6bac
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957399"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>如何在 Azure 入口網站中管理函數應用程式 
@@ -26,7 +26,7 @@ ms.locfileid: "65957399"
 
 ![Azure 入口網站中的函數應用程式概觀](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-您可以瀏覽至您要特別是從 [概觀] 頁面中，管理您的函式應用程式的所有項目**[應用程式設定](#settings)** 並**[平台功能](#platform-features)**.
+您可以瀏覽至您要特別是從 [概觀] 頁面中，管理您的函式應用程式的所有項目 **[應用程式設定](#settings)** 並 **[平台功能](#platform-features)** .
 
 ## <a name="settings"></a>應用程式設定
 
@@ -46,7 +46,7 @@ ms.locfileid: "65957399"
 
 ![函數應用程式平台功能索引標籤。](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 
-函數應用程式是在 Azure App Service 平台中執行並由此平台維護。 因此，您的函數應用程式可以存取 Azure 核心虛擬主機平台的大多數功能。 [平台功能] 索引標籤可供您存取許多可在函數應用程式中使用的 App Service 平台功能。 
+函數應用程式是在 Azure App Service 平台中執行並由此平台維護。 因此，您的函數應用程式可以存取 Azure 核心虛擬主機平台的大多數功能。 [平台功能]  索引標籤可供您存取許多可在函數應用程式中使用的 App Service 平台功能。 
 
 > [!NOTE]
 > 當函數應用程式在「取用」主控方案上執行時，並非所有 App Service 功能都可供使用。

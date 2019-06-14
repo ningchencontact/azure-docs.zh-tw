@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
 ms.openlocfilehash: cb7a13d9abcf7c677d51f03df002ea06b543014e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232471"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>計費和成本管理的自動化案例
@@ -52,7 +52,7 @@ ms.locfileid: "65232471"
 | 保留建議 |                           |                  |           X          |                  |                    |           |
 | 保留詳細資料         |                           |                  |           X          |         X        |                    |           |
 | 保留摘要       |                           |                  |           X          |         X        |                    |           |
-| 使用情況詳細資料               |             X             |         X        |           X          |         X        |          X         |     X     |
+| 用法詳細資料               |             X             |         X        |           X          |         X        |          X         |     X     |
 | 計費期間             |             X             |         X        |           X          |         X        |                    |           |
 | 發票                    |             X             |         X        |           X          |         X        |                    |           |
 | RateCard                    |             X             |                  |           X          |         X        |          X         |           |

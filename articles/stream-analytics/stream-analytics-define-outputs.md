@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.openlocfilehash: b29f3168b7ecc1ec8f783a7ce7a6dea83318fa14
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66455705"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
@@ -170,7 +170,7 @@ float | Double
 Int64 | Int64 | 字串 | 字串 | Double
 Double | Double | 字串 | 字串 | Double
 字串 | 字串 | 字串 | 字串 | 字串 
-datetime | 字串 | 字串 |  datetime | String
+datetime | 字串 | 字串 |  datetime | 字串
 
 ## <a name="table-storage"></a>表格儲存體
 

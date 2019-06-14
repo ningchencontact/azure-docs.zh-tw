@@ -18,10 +18,10 @@ ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f809fa856d39096a85dcc205d8211ba3551eeb48
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962863"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Azure Active Directory 中的簽署金鑰變換
@@ -134,22 +134,22 @@ passport.use(new OIDCStrategy({
 如果您是以手動方式在方案中加入驗證，應用程式可能不會有所需的金鑰變換邏輯。 您必須自行撰寫，或依照 [使用任何其他程式庫或手動實作任何支援的通訊協定的 Web 應用程式 / API](#other)中的步驟進行。
 
 ### <a name="vs2013"></a>保護資源且使用 Visual Studio 2013 建立的 Web 應用程式
-如果應用程式是使用 Visual Studio 2013 中的 Web 應用程式範本所建置，而且您已從 [變更驗證] 功能表中選取 [組織帳戶]，則它已經具有自動處理金鑰變換的必要邏輯。 此邏輯會將組織的唯一識別碼和簽署金鑰資訊儲存在兩個與專案相關聯的資料庫資料表中。 您可以在專案的 Web.config 檔案中找到資料庫的連接字串。
+如果應用程式是使用 Visual Studio 2013 中的 Web 應用程式範本所建置，而且您已從 [變更驗證]  功能表中選取 [組織帳戶]  ，則它已經具有自動處理金鑰變換的必要邏輯。 此邏輯會將組織的唯一識別碼和簽署金鑰資訊儲存在兩個與專案相關聯的資料庫資料表中。 您可以在專案的 Web.config 檔案中找到資料庫的連接字串。
 
 如果您是以手動方式在方案中加入驗證，應用程式可能不會有所需的金鑰變換邏輯。 您必須自行撰寫，或依照 [使用任何其他程式庫或手動實作任何支援的通訊協定的 Web 應用程式 / API](#other)中的步驟進行。
 
 下列步驟將協助您確認應用程式中的邏輯能正常運作。
 
 1. 在 Visual Studio 2013 中開啟方案，然後按一下右側視窗上的 [伺服器 Explorer]  索引標籤。
-2. 依序展開 [資料連線]、[DefaultConnection]、[資料表]。 找出 [IssuingAuthorityKeys] 資料表並以滑鼠右鍵按一下，然後按一下 [顯示資料表資料]。
+2. 依序展開 [資料連線]  、[DefaultConnection]  、[資料表]  。 找出 [IssuingAuthorityKeys]  資料表並以滑鼠右鍵按一下，然後按一下 [顯示資料表資料]  。
 3. [IssuingAuthorityKeys]  資料表中會有至少一個對應至金鑰指紋值的資料列。 刪除資料表中的任何資料列。
-4. 在 [租用戶] 資料表上按一下滑鼠右鍵，然後按一下 [顯示資料表資料]。
-5. [租用戶]  資料表中會有至少一個對應至唯一目錄租用戶識別碼的資料列。 刪除資料表中的任何資料列。 如果您未刪除 [租用戶] 資料表和 [IssuingAuthorityKeys] 資料表中的資料列，您就會在執行階段收到錯誤。
+4. 在 [租用戶]  資料表上按一下滑鼠右鍵，然後按一下 [顯示資料表資料]  。
+5. [租用戶]  資料表中會有至少一個對應至唯一目錄租用戶識別碼的資料列。 刪除資料表中的任何資料列。 如果您未刪除 [租用戶]  資料表和 [IssuingAuthorityKeys]  資料表中的資料列，您就會在執行階段收到錯誤。
 6. 建置並執行應用程式。 在登入帳戶之後，即可停止應用程式。
-7. 返回 [伺服器總管]，然後查看 [IssuingAuthorityKeys] 和 [租用戶] 資料表中的值。 您將會發現，它們已自動重新填入同盟中繼資料文件中的適當資訊。
+7. 返回 [伺服器總管]  ，然後查看 [IssuingAuthorityKeys]  和 [租用戶]  資料表中的值。 您將會發現，它們已自動重新填入同盟中繼資料文件中的適當資訊。
 
 ### <a name="vs2013"></a>保護資源且使用 Visual Studio 2013 建立的 Web API
-如果您使用 Web API 範本在 Visual Studio 2013 中建置了 Web API 應用程式，然後從 [變更驗證] 功能表中選取了 [組織帳戶]，則應用程式已經具有所需的邏輯。
+如果您使用 Web API 範本在 Visual Studio 2013 中建置了 Web API 應用程式，然後從 [變更驗證]  功能表中選取了 [組織帳戶]  ，則應用程式已經具有所需的邏輯。
 
 如果您以手動方式設定了驗證，請依照下列指示來了解如何設定 Web API 以自動更新其金鑰資訊。
 
@@ -248,7 +248,7 @@ namespace JWTValidation
 
 如果您是使用 Microsoft 所提供的任何程式碼範例或逐步解說文件建立應用程式，則專案中已含有金鑰變換邏輯。 您會發現專案中已存在下列程式碼。 如果應用程式還沒有此邏輯，請遵循下列步驟，以新增此邏輯並確認它能正常運作。
 
-1. 在 [方案總管] 中，針對適當的專案新增對 **System.IdentityModel** 組件的參考。
+1. 在 [方案總管]  中，針對適當的專案新增對 **System.IdentityModel** 組件的參考。
 2. 開啟 **Global.asax.cs** 檔案，並新增下列 using 指示詞：
    ```
    using System.Configuration;
@@ -299,7 +299,7 @@ namespace JWTValidation
 使用 FedUtil 來更新組態的指示︰
 
 1. 確認 Visual Studio 2008 或 2010 的開發電腦上已安裝 WIF v1.0 SDK。 如果尚未安裝，您可以[從這裡下載](https://www.microsoft.com/en-us/download/details.aspx?id=4451)。
-2. 在 Visual Studio 中開啟方案，然後以滑鼠右鍵按一下適用的專案，並選取 [更新同盟中繼資料] 。 如果無法使用此選項，則表示尚未安裝 FedUtil 和/或 WIF v1.0 SDK。
+2. 在 Visual Studio 中開啟方案，然後以滑鼠右鍵按一下適用的專案，並選取 [更新同盟中繼資料]  。 如果無法使用此選項，則表示尚未安裝 FedUtil 和/或 WIF v1.0 SDK。
 3. 在提示中選取 [更新]  ，開始更新同盟中繼資料。 如果您可以存取裝載應用程式的伺服器環境，則可以選擇性地使用 FedUtil 的 [自動中繼資料更新排程器](https://msdn.microsoft.com/library/ee517272.aspx)。
 4. 按一下 [完成]  以完成更新程序。
 

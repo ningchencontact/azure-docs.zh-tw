@@ -7,17 +7,16 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: bonova
+ms.author: bonova
 ms.reviewer: carlrab
-manager: digimobile
-origin.date: 09/25/2018
-ms.date: 02/25/2019
+manager: craigg
+ms.date: 09/25/2018
 ms.openlocfilehash: 62e88d912c55015f87cc00f21527010ad01ee00c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615693"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>使用保留原則管理時態表中的歷史資料
@@ -36,14 +35,14 @@ ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
 
 ## <a name="how-to-configure-retention-policy"></a>如何設定保留原則？
 
-在設定時態表的保留原則之前，請先檢查是否已在「資料庫層級」啟用時態記錄保留。
+在設定時態表的保留原則之前，請先檢查是否已在「資料庫層級」  啟用時態記錄保留。
 
 ```
 SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ```
 
-根據預設，資料庫旗標 **is_temporal_history_retention_enabled** 會設為 ON，但使用者可以利用 ALTER DATABASE 陳述式變更它。 它也會在[還原時間點](sql-database-recovery-using-backups.md)作業之後自動設為 OFF。 若要为数据库启用临时历史记录保留策略清理，请执行以下语句：
+根據預設，資料庫旗標 **is_temporal_history_retention_enabled** 會設為 ON，但使用者可以利用 ALTER DATABASE 陳述式變更它。 它也會在[還原時間點](sql-database-recovery-using-backups.md)作業之後自動設為 OFF。 若要對資料庫啟用時態記錄保留清除，請執行下列陳述式︰
 
 ```sql
 ALTER DATABASE <myDB>
@@ -85,7 +84,7 @@ SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
 ```
 
 > [!IMPORTANT]
-> 將 SYSTEM_VERSIONING 設定為 OFF「不會保留」保留期限值。 如果將 SYSTEM_VERSIONING 設為 ON，但未明確指定 HISTORY_RETENTION_PERIOD，則會形成 INFINITE 保留期限。
+> 將 SYSTEM_VERSIONING 設定為 OFF「不會保留」  保留期限值。 如果將 SYSTEM_VERSIONING 設為 ON，但未明確指定 HISTORY_RETENTION_PERIOD，則會形成 INFINITE 保留期限。
 
 若要檢閱保留原則的目前狀態，請使用下列查詢，其中結合資料庫層級的時態保留啟用旗標和個別資料表的保留期限︰
 
@@ -105,8 +104,8 @@ ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 
 ## <a name="how-sql-database-deletes-aged-rows"></a>SQL Database 如何刪除過時資料列？
 
-清除程序取決於記錄資料表的索引配置。 請務必注意，具有叢集索引 (B 型樹狀目錄或資料行存放區) 的記錄資料表才能設定有限保留原則。 對於設定有限保留期限的所有時態表，將會建立背景工作來清除過時資料。
-資料列存放區 (B 型樹狀目錄) 叢集索引的清除邏輯會以較小區塊刪除過時資料列 (最多 10K)，以儘量減輕資料庫記錄檔和 IO 子系統的壓力。 雖然清除邏輯採用必要的 B 型樹狀目錄索引，但在刪除比保留期限更舊的資料列時，就無法確實保證刪除順序。 因此，在您的應用程式中，絕對不要依賴清除順序。
+清除程序取決於記錄資料表的索引配置。 請務必注意，具有叢集索引 (B 型樹狀目錄或資料行存放區) 的記錄資料表才能設定有限保留原則  。 對於設定有限保留期限的所有時態表，將會建立背景工作來清除過時資料。
+資料列存放區 (B 型樹狀目錄) 叢集索引的清除邏輯會以較小區塊刪除過時資料列 (最多 10K)，以儘量減輕資料庫記錄檔和 IO 子系統的壓力。 雖然清除邏輯採用必要的 B 型樹狀目錄索引，但在刪除比保留期限更舊的資料列時，就無法確實保證刪除順序。 因此，在您的應用程式中，絕對不要依賴清除順序  。
 
 叢集資料行存放區的清除工作會一次移除整個[資料列群組](https://msdn.microsoft.com/library/gg492088.aspx) (每個通常包含 1 百萬個資料列)，這非常有效率，特別當歷史資料快速產生時。
 
@@ -150,7 +149,7 @@ CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
 
 ## <a name="querying-tables-with-retention-policy"></a>使用保留原則來查詢資料表
 
-時態表上的所有查詢會自動篩選掉符合有限保留原則的歷史資料列，以避免非預期和不一致的結果，因為清除工作可以「隨時以任意順序」刪除過時資料列。
+時態表上的所有查詢會自動篩選掉符合有限保留原則的歷史資料列，以避免非預期和不一致的結果，因為清除工作可以「隨時以任意順序」  刪除過時資料列。
 
 下圖顯示簡單查詢的查詢計劃︰
 
@@ -166,11 +165,11 @@ SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
 
 ![在不使用保留篩選的情況下查詢記錄](./media/sql-database-temporal-tables-retention-policy/queryexecplanhistorytable.png)
 
-不要依赖于业务逻辑来读取超过保留期的历史记录表，否则可能会收到不一致或意外的结果。 建議以 FOR SYSTEM_TIME 子句來使用暫時查詢，以分析時態表中的資料。
+請勿依賴商務邏輯來讀取超出保留期限的記錄資料表，否則可能會得到不一致或非預期的結果。 建議以 FOR SYSTEM_TIME 子句來使用暫時查詢，以分析時態表中的資料。
 
-## <a name="point-in-time-restore-considerations"></a>时间点还原注意事项
+## <a name="point-in-time-restore-considerations"></a>還原時間點考量
 
-當您[將現有資料庫還原到特定時間點](sql-database-recovery-using-backups.md)來建立新的資料庫時，資料庫層級上會停用時態保留  (**is_temporal_history_retention_enabled** 旗標設為 OFF)。 這項功能可讓您在還原時檢查所有歷史資料列，而不必擔心過時資料列在您開始查詢之前就被移除。 這可用來「檢查超出設定保留期限的歷史資料」。
+當您[將現有資料庫還原到特定時間點](sql-database-recovery-using-backups.md)來建立新的資料庫時，資料庫層級上會停用時態保留 (**is_temporal_history_retention_enabled** 旗標設為 OFF)。 這項功能可讓您在還原時檢查所有歷史資料列，而不必擔心過時資料列在您開始查詢之前就被移除。 這可用來「檢查超出設定保留期限的歷史資料」  。
 
 假設時態表已指定一個 MONTH 保留期限。 如果是在高階服務層中建立資料庫，您可以使用過去最多 35 天的資料庫狀態來建立資料庫副本。 實際上，這可讓您直接查詢記錄資料表，以分析過去最多 65 天的歷史資料列。
 
@@ -185,6 +184,6 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 
 若要了解如何在應用程式中使用時態表，請參閱[開始使用 Azure SQL Database 中的時態表](sql-database-temporal-tables.md)。
 
-访问第 9 频道收听[客户实施临时表的真实成功案例](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions)，观看[临时表现场演示](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016)。
+瀏覽 Channel 9，聽聽[真實客戶的時態表實作成功案例](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions)，並觀看[時態表的即時示範](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016)。
 
 如需有關時態表的詳細資訊，請檢閱 [MSDN 文件](https://msdn.microsoft.com/library/dn935015.aspx)。

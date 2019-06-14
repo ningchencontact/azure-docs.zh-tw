@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65594029"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 報告延遲
@@ -62,7 +62,7 @@ ms.locfileid: "65594029"
 | 報告 | 最小值 | 平均值 | 最大值 |
 | :-- | --- | --- | --- |
 | 有風險的使用者          | 5 分鐘   | 15 分鐘  | 2 小時  |
-| 具風險的登入         | 5 分鐘   | 15 分鐘  | 2 小時  |
+| 有風險的登入         | 5 分鐘   | 15 分鐘  | 2 小時  |
 
 ## <a name="risk-events"></a>風險事件
 
@@ -73,9 +73,9 @@ Azure AD 會使用調適性機器學習服務演算法和啟發學習法，來�
 | 報告 | 最小值 | 平均值 | 最大值 |
 | :-- | --- | --- | --- |
 | 從匿名 IP 位址登入 |5 分鐘 |15 分鐘 |2 小時 |
-| 從不熟悉的位置登入的次數 |5 分鐘 |15 分鐘 |2 小時 |
+| 從不熟悉的位置登入 |5 分鐘 |15 分鐘 |2 小時 |
 | 認證外洩的使用者 |2 小時 |4 小時 |8 小時 |
-| 不可能進入非慣用位置 |5 分鐘 |1 小時 |8 小時  |
+| 不可能到達非典型位置的移動 |5 分鐘 |1 小時 |8 小時  |
 | 從受感染的裝置登入 |2 小時 |4 小時 |8 小時  |
 | 從具有可疑活動的 IP 位址登入 |2 小時 |4 小時 |8 小時  |
 

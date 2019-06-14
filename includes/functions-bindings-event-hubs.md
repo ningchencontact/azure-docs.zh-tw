@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
 ms.openlocfilehash: 421e0db48f045c5cbce52a0641902e6d2a11276e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132451"
 ---
 ## <a name="trigger"></a>觸發程序
@@ -101,11 +101,11 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 ### <a name="trigger---c-script-example"></a>觸發程序 - C# 指令碼範例
 
-下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](../articles/azure-functions/functions-reference-csharp.md)。 此函式會記錄事件中樞觸發程序的訊息本文。
+下列範例示範 function.json  檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](../articles/azure-functions/functions-reference-csharp.md)。 此函式會記錄事件中樞觸發程序的訊息本文。
 
 下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。
 
-#### <a name="version-2x"></a>2.x 版
+#### <a name="version-2x"></a>2\.x 版
 
 ```json
 {
@@ -117,7 +117,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-#### <a name="version-1x"></a>1.x 版
+#### <a name="version-1x"></a>1\.x 版
 
 ```json
 {
@@ -182,11 +182,11 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 
 ### <a name="trigger---f-example"></a>觸發程序 - F# 範例
 
-下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [F# 函式](../articles/azure-functions/functions-reference-fsharp.md)。 此函式會記錄事件中樞觸發程序的訊息本文。
+下列範例示範 function.json  檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [F# 函式](../articles/azure-functions/functions-reference-fsharp.md)。 此函式會記錄事件中樞觸發程序的訊息本文。
 
 下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。 
 
-#### <a name="version-2x"></a>2.x 版
+#### <a name="version-2x"></a>2\.x 版
 
 ```json
 {
@@ -198,7 +198,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 }
 ```
 
-#### <a name="version-1x"></a>1.x 版
+#### <a name="version-1x"></a>1\.x 版
 
 ```json
 {
@@ -219,11 +219,11 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 ### <a name="trigger---javascript-example"></a>觸發程序 - JavaScript 範例
 
-下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [JavaScript 函式](../articles/azure-functions/functions-reference-node.md)。 此函式會讀取[事件中繼資料](#trigger---event-metadata)和記錄訊息。
+下列範例示範 function.json  檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [JavaScript 函式](../articles/azure-functions/functions-reference-node.md)。 此函式會讀取[事件中繼資料](#trigger---event-metadata)和記錄訊息。
 
 下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。
 
-#### <a name="version-2x"></a>2.x 版
+#### <a name="version-2x"></a>2\.x 版
 
 ```json
 {
@@ -235,7 +235,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 }
 ```
 
-#### <a name="version-1x"></a>1.x 版
+#### <a name="version-1x"></a>1\.x 版
 
 ```json
 {
@@ -262,7 +262,7 @@ module.exports = function (context, eventHubMessage) {
 
 若要批次接收事件，請在 *function.json* 檔案中將 `cardinality` 設定為 `many`，如下列範例所示。
 
-#### <a name="version-2x"></a>2.x 版
+#### <a name="version-2x"></a>2\.x 版
 
 ```json
 {
@@ -275,7 +275,7 @@ module.exports = function (context, eventHubMessage) {
 }
 ```
 
-#### <a name="version-1x"></a>1.x 版
+#### <a name="version-1x"></a>1\.x 版
 
 ```json
 {
@@ -307,7 +307,7 @@ module.exports = function (context, eventHubMessages) {
 
 ### <a name="trigger---python-example"></a>觸發程序 - Python 範例
 
-下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [Python 函式](../articles/azure-functions/functions-reference-python.md)。 此函式會讀取[事件中繼資料](#trigger---event-metadata)和記錄訊息。
+下列範例示範 function.json  檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [Python 函式](../articles/azure-functions/functions-reference-python.md)。 此函式會讀取[事件中繼資料](#trigger---event-metadata)和記錄訊息。
 
 下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。
 
@@ -336,7 +336,7 @@ def main(event: func.EventHubEvent):
 
 ### <a name="trigger---java-example"></a>觸發程序 - Java 範例
 
-下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [Java 函式](../articles/azure-functions/functions-reference-java.md)。 此函式會記錄事件中樞觸發程序的訊息本文。
+下列範例示範 function.json  檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [Java 函式](../articles/azure-functions/functions-reference-java.md)。 此函式會記錄事件中樞觸發程序的訊息本文。
 
 ```json
 {
@@ -400,7 +400,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 事件中樞觸發程序提供數個[中繼資料屬性](../articles/azure-functions/./functions-bindings-expressions-patterns.md)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) 類別的屬性。
 
-|屬性|類型|說明|
+|屬性|類型|描述|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|`PartitionContext` 執行個體。|
 |`EnqueuedTimeUtc`|`DateTime`|加入佇列的時間 (UTC)。|
@@ -471,7 +471,7 @@ public static async Task Run(
 
 ### <a name="output---c-script-example"></a>輸出 - C# 指令碼範例
 
-下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](../articles/azure-functions/functions-reference-csharp.md)。 此函式會將訊息寫入事件中樞。
+下列範例示範 function.json  檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](../articles/azure-functions/functions-reference-csharp.md)。 此函式會將訊息寫入事件中樞。
 
 下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。 第一個範例是針對 Functions 2.x，而第二個範例則是針對 Functions 1.x。 
 
@@ -523,7 +523,7 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 ### <a name="output---f-example"></a>輸出 - F# 範例
 
-下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [F# 函式](../articles/azure-functions/functions-reference-fsharp.md)。 此函式會將訊息寫入事件中樞。
+下列範例示範 function.json  檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [F# 函式](../articles/azure-functions/functions-reference-fsharp.md)。 此函式會將訊息寫入事件中樞。
 
 下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。 第一個範例是針對 Functions 2.x，而第二個範例則是針對 Functions 1.x。 
 
@@ -557,7 +557,7 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: ILogger) 
 
 ### <a name="output---javascript-example"></a>輸出 - JavaScript 範例
 
-下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [JavaScript 函式](../articles/azure-functions/functions-reference-node.md)。 此函式會將訊息寫入事件中樞。
+下列範例示範 function.json  檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [JavaScript 函式](../articles/azure-functions/functions-reference-node.md)。 此函式會將訊息寫入事件中樞。
 
 下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。 第一個範例是針對 Functions 2.x，而第二個範例則是針對 Functions 1.x。 
 
@@ -609,7 +609,7 @@ module.exports = function(context) {
 
 ### <a name="output---python-example"></a>輸出 - Python 範例
 
-下列範例示範 function.json 檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [Python 函式](../articles/azure-functions/functions-reference-python.md)。 此函式會將訊息寫入事件中樞。
+下列範例示範 function.json  檔案中的事件中樞觸發程序繫結，以及使用此繫結的 [Python 函式](../articles/azure-functions/functions-reference-python.md)。 此函式會將訊息寫入事件中樞。
 
 下列範例顯示 *function.json* 檔案中的事件中樞繫結資料。
 
@@ -679,7 +679,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 |**name** | n/a | 函式程式碼中所使用的變數名稱，代表事件。 |
 |**path** |**EventHubName** | 僅限 Functions 1.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
 |**eventHubName** |**EventHubName** | 僅限 Functions 2.x。 事件中樞的名稱。 當事件中樞名稱也呈現於連接字串時，該值會在執行階段覆寫這個屬性。 |
-|**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下*命名空間*的 [連接資訊] 按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串必須具有傳送權限，才能將訊息傳送至事件資料流。|
+|**連接** |**連接** | 應用程式設定的名稱，其中包含事件中樞命名空間的連接字串。 按一下*命名空間*的 [連接資訊]  按鈕 (而不是事件中樞本身)，來複製此連接字串。 此連接字串必須具有傳送權限，才能將訊息傳送至事件資料流。|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
@@ -687,7 +687,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 
 在 C# 和 C# 指令碼中，使用方法參數 (例如 `out string paramName`) 來傳送訊息。 在 C# 指令碼中，`paramName` 是 *function.json* 之 `name` 屬性中指定的值。 若要寫入多則訊息，您可以使用 `ICollector<string>` 或 `IAsyncCollector<string>` 取代 `out string`。
 
-在 JavaScript 中，使用 `context.bindings.<name>` 存取輸出事件。 `<name>` 是 function.json 之 `name` 屬性中指定的值。
+在 JavaScript 中，使用 `context.bindings.<name>` 存取輸出事件。 `<name>` 是 function.json  之 `name` 屬性中指定的值。
 
 ## <a name="exceptions-and-return-codes"></a>例外狀況和傳回碼
 
@@ -719,7 +719,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }  
 ```
 
-|屬性  |預設值 | 說明 |
+|屬性  |預設值 | 描述 |
 |---------|---------|---------|
 |maxBatchSize|64|每個接收迴圈接收到的事件計數上限。|
 |prefetchCount|n/a|基礎 EventProcessorHost 將使用的預設 PrefetchCount。|

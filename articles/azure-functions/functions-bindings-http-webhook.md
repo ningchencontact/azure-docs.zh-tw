@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: fb219316afa798dfda777c4d0d406d5b8cabf7f9
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66472374"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 觸發程序和繫結
@@ -707,7 +707,7 @@ Functions 可讓您使用金鑰來提高開發期間存取 HTTP 函式端點的�
 > 雖然金鑰可能有助於在開發期間遮蔽您的 HTTP 端點，但這並不適合用來作為在生產環境中保護 HTTP 觸發程序的方式。 若要深入了解，請參閱[在生產環境中保護 HTTP 端點](#secure-an-http-endpoint-in-production)。
 
 > [!NOTE]
-> 在 Functions 1.x 執行階段中，Webhook 提供者可以使用金鑰以多種方式授權要求，端視提供者支援的方式而定。 [Webhook 和金鑰](#webhooks-and-keys)中提供了這方面的相關說明。 2.x 版執行階段並未內建對 Webhook 提供者的支援。
+> 在 Functions 1.x 執行階段中，Webhook 提供者可以使用金鑰以多種方式授權要求，端視提供者支援的方式而定。 [Webhook 和金鑰](#webhooks-and-keys)中提供了這方面的相關說明。 2\.x 版執行階段並未內建對 Webhook 提供者的支援。
 
 金鑰類型有兩種：
 

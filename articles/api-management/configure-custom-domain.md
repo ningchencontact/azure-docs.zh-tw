@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
 ms.openlocfilehash: a8bfa7c5baa316b4019480bfc146b6cc61eff979
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66141290"
 ---
 # <a name="configure-a-custom-domain-name"></a>設定自訂網域名稱 
@@ -40,7 +40,7 @@ ms.locfileid: "66141290"
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>使用 Azure 入口網站來設定自訂網域名稱
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您的 APIM 執行個體。
-1. 選取 [自訂網域和 SSL]。
+1. 選取 [自訂網域和 SSL]  。
     
     有許多您可以對其指派的自訂網域名稱的端點。 目前有下列端點可用： 
    + **Proxy** (預設值為：`<apim-service-name>.azure-api.net`)、 
@@ -52,9 +52,9 @@ ms.locfileid: "66141290"
      > 您可以更新所有端點或一部分端點。 客戶通常會更新 **Proxy** (此 URL 用來呼叫透過 API 管理公開的 API) 和**入口網站** (開發人員入口網站 URL)。 **管理**和 **SCM** 端點供 APIM 客戶在內部使用，因此很少會指派自訂網域名稱。
 
 1. 選取您想要更新的端點。 
-1. 在右側視窗中，按一下 [自訂]。
+1. 在右側視窗中，按一下 [自訂]  。
 
-   + 在 [自訂網域名稱] 中，指定您想要使用的名稱。 例如： `api.contoso.com`。 也支援萬用字元網域名稱 (例如，*.domain.com)。
+   + 在 [自訂網域名稱]  中，指定您想要使用的名稱。 例如： `api.contoso.com`。 也支援萬用字元網域名稱 (例如，*.domain.com)。
    + 在 **憑證**，從金鑰保存庫中選取憑證。 您也可以上傳有效的。PFX 檔案，並提供其**密碼**，如果憑證受密碼保護。
 
      > [!TIP]

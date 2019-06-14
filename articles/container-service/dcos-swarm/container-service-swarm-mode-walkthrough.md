@@ -10,10 +10,10 @@ ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
 ms.openlocfilehash: a7a7455ce9167a9c480d317d50fdce49e2ef06a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60721774"
 ---
 # <a name="deprecated-deploy-docker-ce-cluster"></a>(已淘汰) 部署 Docker CE 叢集
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location westus2
 
 使用 [az acs create](/cli/azure/acs#az-acs-create) 命令，在 Azure Container Service 中建立 Docker CE 叢集。 如需可取得 Docker CE 之區域的相關資訊，請參閱 [Docker CE 的 ACS 區域](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md) \(英文\)
 
-下列範例會建立一個名為 mySwarmCluster 的叢集，其中包含一個 Linux 主要節點和三個 Linux 代理程式節點。
+下列範例會建立一個名為 mySwarmCluster  的叢集，其中包含一個 Linux 主要節點和三個 Linux 代理程式節點。
 
 ```azurecli-interactive
 az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys

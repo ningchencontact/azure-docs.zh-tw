@@ -16,10 +16,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd7f393f889facf147cf25625d5c3b20f886ddf5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65784946"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>Web 應用程式呼叫 web Api-程式碼組態
@@ -34,7 +34,7 @@ ms.locfileid: "65784946"
 
 支援的 Web 應用程式的授權碼流程的程式庫是：
 
-| MSAL 程式庫 | 說明 |
+| MSAL 程式庫 | 描述 |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 是.NET Framework 和.NET Core 的平台，支援的平台 （不 UWP、 Xamarin.iOS 和為這些平台 Xamarin.Android 來建置公用用戶端應用程式） |
 | ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | 進度-公開預覽中的程式開發 |

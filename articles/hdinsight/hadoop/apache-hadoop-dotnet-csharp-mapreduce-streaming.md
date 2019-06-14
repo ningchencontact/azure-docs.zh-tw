@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: b06f19736c4d50ab7d246a5c71da04ada95b6f98
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64727377"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>搭配 HDInsight 的 Apache Hadoop 上的 MapReduce 串流使用 C#
@@ -26,7 +26,7 @@ Apache Hadoop 串流是一個公用程式，可讓您使用指令碼或可執行
 
 ## <a name="net-on-hdinsight"></a>HDInsight 上的 .NET
 
-__以 Linux 為基礎的 HDInsight__ 叢集會使用 [Mono (https://mono-project.com)](https://mono-project.com) 來執行 .NET 應用程式。 4.2.1 版的 Mono 隨附於 3.6 版的 HDInsight。 如需 HDInsight 包含之 Mono 版本的詳細資訊，請參閱 [HDInsight 元件版本](../hdinsight-component-versioning.md)。 
+__以 Linux 為基礎的 HDInsight__ 叢集會使用 [Mono (https://mono-project.com)](https://mono-project.com) 來執行 .NET 應用程式。 4\.2.1 版的 Mono 隨附於 3.6 版的 HDInsight。 如需 HDInsight 包含之 Mono 版本的詳細資訊，請參閱 [HDInsight 元件版本](../hdinsight-component-versioning.md)。 
 
 如需 Mono 與 .NET Framework 版本之相容性的詳細資訊，請參閱 [Mono 相容性 (英文)](https://www.mono-project.com/docs/about-mono/compatibility/)。
 
@@ -44,13 +44,13 @@ __以 Linux 為基礎的 HDInsight__ 叢集會使用 [Mono (https://mono-project
 
 ## <a name="prerequisites"></a>必要條件
 
-* 熟悉编写和生成面向 .NET Framework 4.5 的 C# 代码。 本文档中的各个步骤都使用 Visual Studio 2017。
+* 熟悉如何撰寫和建置以 .NET Framework 4.5 為目標的 C# 程式碼。 本文件中的步驟使用 Visual Studio 2017。
 
 * 將 .exe 檔案上傳至叢集的方式。 本文件中的步驟使用 Data Lake Tools for Visual Studio 將檔案上傳至叢集的主要儲存體。
 
 * Azure PowerShell 或 SSH 用戶端。
 
-* HDInsight 叢集上的 Hadoop。 有关创建群集的详细信息，请参阅[创建 HDInsight 群集](../hdinsight-hadoop-provision-linux-clusters.md)。
+* HDInsight 叢集上的 Hadoop。 如需有關建立叢集的詳細資訊，請參閱[建立 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
 
 ## <a name="create-the-mapper"></a>建立對應工具
 
@@ -87,7 +87,7 @@ namespace mapper
 }
 ```
 
-创建该应用程序后，生成它以在项目目录中生成 `/bin/Debug/mapper.exe` 文件。
+建立應用程式之後，建置它以在專案目錄中產生 `/bin/Debug/mapper.exe` 檔案。
 
 ## <a name="create-the-reducer"></a>建立歸納器
 
@@ -144,27 +144,27 @@ namespace reducer
 
 ## <a name="upload-to-storage"></a>上傳至儲存體
 
-1. 在 Visual Studio 中，開啟 [伺服器總管]。
+1. 在 Visual Studio 中，開啟 [伺服器總管]  。
 
-2. 展開 [Azure]，然後展開 [HDInsight]。
+2. 展開 [Azure]  ，然後展開 [HDInsight]  。
 
-3. 如果出現提示，請輸入您的 Azure 訂用帳戶認證，然後按一下 [登入]。
+3. 如果出現提示，請輸入您的 Azure 訂用帳戶認證，然後按一下 [登入]  。
 
 4. 展開您要部署此應用程式的 HDInsight 叢集。 就會列出含有文字 __(預設儲存體帳戶)__ 的項目。
 
     ![顯示叢集之儲存體帳戶的 [伺服器總管]](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
 
-    * 如果此項目可以展開，表示您是使用 __Azure 儲存體帳戶__作為叢集的預設儲存體。 若要檢視叢集之預設儲存體上的檔案，請展開項目，然後按兩下 [(預設容器)]。
+    * 如果此項目可以展開，表示您是使用 __Azure 儲存體帳戶__作為叢集的預設儲存體。 若要檢視叢集之預設儲存體上的檔案，請展開項目，然後按兩下 [(預設容器)]  。
 
-    * 如果此項目無法展開，表示您是使用 __Azure Data Lake Storage__ 作為叢集的預設儲存體。 若要檢視叢集之預設儲存體上的檔案，請按兩下 [(預設儲存體帳戶)] 項目。
+    * 如果此項目無法展開，表示您是使用 __Azure Data Lake Storage__ 作為叢集的預設儲存體。 若要檢視叢集之預設儲存體上的檔案，請按兩下 [(預設儲存體帳戶)]  項目。
 
 5. 若要上傳 .exe 檔案，請使用下列其中一種方法：
 
-   * 如果使用 __Azure 儲存體帳戶__，請按一下上傳圖示，然後瀏覽至 **mapper** 專案的 **bin\debug** 資料夾。 最後，選取 **mapper.exe** 檔案，然後按一下 [確定]。
+   * 如果使用 __Azure 儲存體帳戶__，請按一下上傳圖示，然後瀏覽至 **mapper** 專案的 **bin\debug** 資料夾。 最後，選取 **mapper.exe** 檔案，然後按一下 [確定]  。
 
        ![上傳圖示](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
     
-   * 如果使用 __Azure Data Lake Storage__，請以滑鼠右鍵按一下檔案清單中的空白區域，然後選取 [上傳]。 最後，選取 **mapper.exe** 檔案，然後按一下 [開啟]。
+   * 如果使用 __Azure Data Lake Storage__，請以滑鼠右鍵按一下檔案清單中的空白區域，然後選取 [上傳]  。 最後，選取 **mapper.exe** 檔案，然後按一下 [開啟]  。
 
      __mapper.exe__ 上傳完成後，請針對 __reducer.exe__ 檔案重複上傳程序。
 

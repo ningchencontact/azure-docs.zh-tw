@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ebc0ca718ab8edf5ef644993c71b0353861265b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c97ccd82a9c09e10572733040e238443cbf777da
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334874"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64696604"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>對認知搜尋進行疑難排解的秘訣
 
@@ -84,7 +84,7 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 
 內容遺失可能是由於文件在索引編製期間遭到捨棄所致。 免費和基本層的文件大小限制較低。 任何超過限制的檔案在索引編製期間都會被捨棄。 您可以在 Azure 入口網站中查看遭到捨棄的文件。 請在搜尋服務儀表板中按兩下索引子圖格。 檢閱成功編製索引的文件比率。 如果不是 100%，您可以按一下該比例以取得更多詳細資料。 
 
-如果問題與檔案大小有關，您可能會看到如下的錯誤：「Blob <file-name> 的大小為 <file-size> 個 位元組，已超出您目前服務層的文件擷取大小上限。」 如需關於索引子限制的詳細資訊，請參閱[服務限制](search-limits-quotas-capacity.md)。
+如果問題與檔案大小有關，您可能會看到如下的錯誤："Blob\<檔案名稱 >"的大小為\<檔案大小 > 個位元組，超過您目前的服務層的文件擷取的大小上限。 」 如需關於索引子限制的詳細資訊，請參閱[服務限制](search-limits-quotas-capacity.md)。
 
 無法顯示內容的另一個原因，可能與輸入/輸出對應錯誤有關。 例如，輸出目標名稱為 "People"，但索引欄位名稱為小寫的 "people"。 系統可能會為整個管線傳回 201 成功訊息，因此您認為索引編製成功，而事實上欄位卻是空白的。 
 

@@ -8,10 +8,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 5ffbee1b4fdfc08b111e199e73baae19341b1022
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65775671"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure 資料目錄中支援的資料來源
@@ -446,7 +446,7 @@ ms.locfileid: "65775671"
 
 ## <a name="data-source-reference-specification"></a>資料來源參考規格
 > [!NOTE]
-> 下表中的「DSL 結構」資料行僅列出「Azure 資料目錄」所使用「位址」屬性包的連線屬性。 也就是說，「位址」屬性包可以針對 Azure 資料目錄保存但並未使用的資料來源，包含其他連接屬性。
+> 下表中的「DSL 結構」  資料行僅列出「Azure 資料目錄」所使用「位址」屬性包的連線屬性。 也就是說，「位址」屬性包可以針對 Azure 資料目錄保存但並未使用的資料來源，包含其他連接屬性。
 
 <table>
     <tr>
@@ -458,7 +458,7 @@ ms.locfileid: "65775671"
     <tr>
       <td>Azure Data Lake Store</td>
       <td>容器</td>
-      <td>Data Lake</td>
+      <td>資料湖</td>
       <td>
         
             Protocol: webhdfs

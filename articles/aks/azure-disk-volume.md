@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 02a863a4ddf59fb36c5f2ae7f3092896d2e1d860
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b166f70186b063782fb2c2245e351d6dfca6f978
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072148"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中手動建立和使用 Azure 磁碟的磁碟區
@@ -21,13 +21,13 @@ ms.locfileid: "65072148"
 > [!NOTE]
 > Azure 磁碟一次只能掛接到一個 Pod。 如果您需要在多個 Pod 之間共用永續性磁碟區，請使用 [Azure 檔案服務][azure-files-volume]。
 
-有关 Kubernetes 卷的详细信息，请参阅 [AKS 中应用程序的存储选项][concepts-storage]。
+如需有關 Kubernetes 磁碟區的詳細資訊，請參閱 < [AKS 中的應用程式的儲存體選項][concepts-storage]。
 
 ## <a name="before-you-begin"></a>開始之前
 
 此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
 
-还需安装并配置 Azure CLI 2.0.59 或更高版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
+您也需要 Azure CLI 2.0.59 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="create-an-azure-disk"></a>建立 Azure 磁碟
 
@@ -41,12 +41,12 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-現在，使用 [az disk create][az-disk-create] 命令建立磁碟。 指定在上一個命令中所取得的節點資源群組名稱，然後指定磁碟資源的名稱，例如 myAKSDisk。 下列範例會建立 20GiB 的磁碟，並在建好後輸出磁碟識別碼：
+現在，使用 [az disk create][az-disk-create] 命令建立磁碟。 指定在上一個命令中所取得的節點資源群組名稱，然後指定磁碟資源的名稱，例如 myAKSDisk  。 下列範例會建立*20*GiB 的磁碟，並一次建立磁碟的輸出識別碼。 如果您需要以 Windows Server 容器 （目前在 AKS 中的預覽） 建立使用磁碟，新增`--os-type windows`參數來正確格式化磁碟。
 
 ```azurecli-interactive
 az disk create \
   --resource-group MC_myResourceGroup_myAKSCluster_eastus \
-  --name myAKSDisk  \
+  --name myAKSDisk \
   --size-gb 20 \
   --query id --output tsv
 ```
@@ -62,7 +62,7 @@ az disk create \
 
 ## <a name="mount-disk-as-volume"></a>將磁碟掛接為磁碟區
 
-若要將 Azure 磁碟掛接至您的 Pod，請在容器規格中設定磁碟區。建立一個名為 `azure-disk-pod.yaml` 且含有下列內容的新檔案。 以上一個步驟中建立的磁碟名稱更新 `diskName`，並以磁碟建立命令輸出中顯示的磁碟識別碼更新 `diskURI`。 若有需要，請更新 `mountPath`，這是 Pod 中 Azure 磁碟掛接所在的路徑。
+若要將 Azure 磁碟掛接至您的 Pod，請在容器規格中設定磁碟區。建立一個名為 `azure-disk-pod.yaml` 且含有下列內容的新檔案。 以上一個步驟中建立的磁碟名稱更新 `diskName`，並以磁碟建立命令輸出中顯示的磁碟識別碼更新 `diskURI`。 若有需要，請更新 `mountPath`，這是 Pod 中 Azure 磁碟掛接所在的路徑。 適用於 Windows Server 容器 （目前處於預覽 AKS 中） 指定*mountPath*使用 Windows 路徑慣例，例如 *'d ':* 。
 
 ```yaml
 apiVersion: v1
@@ -126,7 +126,7 @@ Events:
 
 ## <a name="next-steps"></a>後續步驟
 
-如需相关的最佳做法，请参阅[在 AKS 中存储和备份的最佳做法][operator-best-practices-storage]。
+如需相關聯的最佳作法，請參閱[儲存體和 AKS 中的備份的最佳做法][operator-best-practices-storage]。
 
 如需有關 AKS 叢集與 Azure 磁碟互動的詳細資訊，請參閱[適用於 Azure 磁碟的 Kubernetes 外掛程式][kubernetes-disks]。
 

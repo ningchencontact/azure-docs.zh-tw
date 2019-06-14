@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
 ms.openlocfilehash: 63a86fb9498c7c1b1cd527accca84c83a28e01c3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65788663"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory 中的管道及活動
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-create-pipelines.md)
 > * [目前的版本](concepts-pipelines-activities.md)
 
@@ -132,9 +132,9 @@ Tag | 描述 | 必要項
 name | 活動的名稱。 指定代表活動所執行之動作的名稱。 <br/><ul><li>字元數目上限︰55</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\” | 是</li></ul>
 description | 說明活動用途的文字 | 是
 type | 活動的類型。 如需了解不同類型的活動，請參閱[資料移動活動](#data-movement-activities)、[資料轉換活動](#data-transformation-activities)和[控制活動](#control-activities)各節。 | 是
-預設容器 | 活動所使用的連結服務名稱。<br/><br/>活動可能會要求您指定可連結至所需計算環境的連結服務。 | 對於 HDInsight 活動、Azure Machine Learning 批次計分活動和預存程序活動而言為必要。 <br/><br/>否：所有其他
+linkedServiceName | 活動所使用的連結服務名稱。<br/><br/>活動可能會要求您指定可連結至所需計算環境的連結服務。 | 對於 HDInsight 活動、Azure Machine Learning 批次計分活動和預存程序活動而言為必要。 <br/><br/>否：所有其他
 typeProperties | typeProperties 區段中的屬性視每一種活動而定。 若要查看活動的類型屬性，請按一下先前小節中的活動連結。 | 否
-原則 | 會影響活動之執行階段行為的原則。 這個屬性包含逾時和重試行為。 如果未指定，則會使用預設值。 如需詳細資訊，請參閱[活動原則](#activity-policy)一節。 | 否
+policies | 會影響活動之執行階段行為的原則。 這個屬性包含逾時和重試行為。 如果未指定，則會使用預設值。 如需詳細資訊，請參閱[活動原則](#activity-policy)一節。 | 否
 dependsOn | 這個屬性用來定義活動相依性，以及後續活動如何相依於先前活動。 如需詳細資訊，請參閱[活動相依性](#activity-dependency) | 否
 
 ### <a name="activity-policy"></a>活動原則
@@ -171,8 +171,8 @@ dependsOn | 這個屬性用來定義活動相依性，以及後續活動如何�
 JSON 名稱 | 描述 | 允許的值 | 必要項
 --------- | ----------- | -------------- | --------
 timeout | 指定活動執行的逾時。 | Timespan | 沒有。 預設逾時為 7 天。
-retry | 重試次數上限 | 整數  | 沒有。 預設值為 0
-retryIntervalInSeconds | 重試嘗試之間的延遲 (秒) | 整數  | 沒有。 預設值為 30 秒
+retry | 重試次數上限 | 整數 | 沒有。 預設值為 0
+retryIntervalInSeconds | 重試嘗試之間的延遲 (秒) | 整數 | 沒有。 預設值為 30 秒
 secureOutput | 設定為 true 時，活動的輸出會被視為安全，且不會記錄到監視。 | Boolean | 沒有。 預設值為 false。
 
 ### <a name="control-activity"></a>控制活動

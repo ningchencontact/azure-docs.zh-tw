@@ -19,10 +19,10 @@ ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8fe0ee8021ae7e70654a161e37d072195bbc035f
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545250"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>了解 Azure Active Directory (AD) 中的 OAuth2 隱含授與流程
@@ -33,7 +33,7 @@ OAuth2 隱含授與是 OAuth2 規格中安全性疑慮最多的授與方式，�
 
 ## <a name="what-is-the-oauth2-implicit-grant"></a>什麼是 OAuth2 隱含授與？
 
-典型的 [OAuth2 授權碼授與](https://tools.ietf.org/html/rfc6749#section-1.3.1) \(英文\) 是使用兩個不同端點的授權授與。 授權端點會用於使用者互動階段，進而產生授權碼。 接著，用戶端會使用權杖端點來交換存取權杖的代碼，而且經常也會交換重新整理權杖。 Web 应用程序必须向令牌终结点提交自身的应用程序凭据，授权服务器才能对客户端进行身份验证。
+典型的 [OAuth2 授權碼授與](https://tools.ietf.org/html/rfc6749#section-1.3.1) \(英文\) 是使用兩個不同端點的授權授與。 授權端點會用於使用者互動階段，進而產生授權碼。 接著，用戶端會使用權杖端點來交換存取權杖的代碼，而且經常也會交換重新整理權杖。 Web 應用程式必須向權杖端點提交自己的應用程式認證，授權伺服器才能驗證用戶端。
 
 [OAuth2 隱含授與](https://tools.ietf.org/html/rfc6749#section-1.3.2)是其他授權授與的一種變體。 它可讓用戶端直接從授權端點取得存取權杖 (使用 [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html) 時，還可取得 id_token)，既不需要連絡權杖端點，也不需要驗證用戶端應。 這個變體是針對在網頁瀏覽器中執行的 JavaScript 型應用程式所設計︰在原始的 OAuth2 規格中，權杖會在 URI 片段中傳回。 這可讓權杖位元可供用戶端中的 JavaScript 程式碼使用，卻又保證權杖位元不會包含在朝向伺服器的重新導向中。 透過瀏覽器傳回權杖會直接從授權端點重新導向。 它也有不需要跨原始來源呼叫的優點，如果需要 JavaScript 應用程式才能連絡權杖端點，就需要這些呼叫。
 

@@ -9,17 +9,17 @@ ms.date: 12/07/2018
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 65c23b05cfcb623f8e2870df813f5516b3039d5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883487"
 ---
 # <a name="optimize-expressroute-routing"></a>最佳化 ExpressRoute 路由
 當您有多個 ExpressRoute 線路時，會有一個以上的路徑來連線到 Microsoft。 因此，可能會產生次佳的路由 - 也就是，您的流量可能會經由較長的路徑連到 Microsoft，而 Microsoft 也可能會經由較長的路徑連到您的網路。 網路路徑愈常，延遲愈久。 延遲對於應用程式效能和使用者體驗有直接的影響。 本文將說明這個問題，並說明如何使用標準路由技術來最佳化路由。
 
 ## <a name="suboptimal-routing-from-customer-to-microsoft"></a>從客戶到 Microsoft 的次佳化路由
-讓我們依照範例仔細觀察路由問題。 假設您在美國有兩個辦公室，一個在洛杉磯，一個在紐約。 您的辦公室是在廣域網路 (WAN) 上連線，該網路可以是您自己的骨幹網路或服務提供者的 IP VPN。 您有兩個也是在 WAN 上連線的 ExpressRoute 線路，一個在美國西部，一個在美國東部。 很明顯地，您有兩個路徑可連線到 Microsoft 網路。 現在假設您在美國西部和美國東部均有 Azure 部署 (例如 Azure App Service)。 目的是将洛杉矶的用户连接到 Azure 美国西部，将纽约的用户连接到 Azure 美国东部，因为服务管理员宣称每个办公室的用户都能够访问附近的 Azure 服务以获取最佳体验。 不幸的是，此計畫比較適合用於東岸的使用者，但不適用於西岸的使用者。 此問題的原因如下所示。 在每個 ExpressRoute 線路上，我們會告知您 Azure 美國東部的前置詞 (23.100.0.0/16)和 Azure 美國西部的前置詞 (13.100.0.0/16)。 如果您不知道哪個前置詞來自哪個區域，您就無法將它視為不同。 您的 WAN 網路可能會認為這兩個前置詞比較接近美國東部 (相較於美國西部)，因此將兩個辦公室的使用者路由至美國東部的 ExpressRoute 線路。 最後，洛杉磯辦公室會有許多使用者不太滿意。
+讓我們依照範例仔細觀察路由問題。 假設您在美國有兩個辦公室，一個在洛杉磯，一個在紐約。 您的辦公室是在廣域網路 (WAN) 上連線，該網路可以是您自己的骨幹網路或服務提供者的 IP VPN。 您有兩個也是在 WAN 上連線的 ExpressRoute 線路，一個在美國西部，一個在美國東部。 很明顯地，您有兩個路徑可連線到 Microsoft 網路。 現在假設您在美國西部和美國東部均有 Azure 部署 (例如 Azure App Service)。 您的用意是要將洛杉磯的使用者連接到 Azure 美國西部以及將紐約的使用者連接到 Azure 美國東部，因為您的服務系統管理員告知每個辦公室的使用者存取附近的 Azure 服務以獲得最佳的體驗。 不幸的是，此計畫比較適合用於東岸的使用者，但不適用於西岸的使用者。 此問題的原因如下所示。 在每個 ExpressRoute 線路上，我們會告知您 Azure 美國東部的前置詞 (23.100.0.0/16)和 Azure 美國西部的前置詞 (13.100.0.0/16)。 如果您不知道哪個前置詞來自哪個區域，您就無法將它視為不同。 您的 WAN 網路可能會認為這兩個前置詞比較接近美國東部 (相較於美國西部)，因此將兩個辦公室的使用者路由至美國東部的 ExpressRoute 線路。 最後，洛杉磯辦公室會有許多使用者不太滿意。
 
 ![ExpressRoute 案例 1 問題 - 從客戶到 Microsoft 的次佳化路由](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
 
@@ -51,7 +51,7 @@ ms.locfileid: "60883487"
 ![ExpressRoute 案例 2 解決方案 - 使用 AS PATH 前置](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
 
 > [!NOTE]
-> 尽管此处给出的示例针对的是 Microsoft 和公共对等互连，但我们也支持专用对等互连的相同功能。 此外，AS 路徑前置可在單一 ExpressRoute 路線內運作，以影響主要和次要路徑的選取範圍。
+> 雖然此處提供的範例適用於 Microsoft 和公用對等互連，但我們仍支援私人對等互連的相同功能。 此外，AS 路徑前置可在單一 ExpressRoute 路線內運作，以影響主要和次要路徑的選取範圍。
 > 
 > 
 
@@ -61,7 +61,7 @@ ms.locfileid: "60883487"
 ![ExpressRoute 案例 3 - 虛擬網路之間的次佳化路由](./media/expressroute-optimize-routing/expressroute-case3-problem.png)
 
 ### <a name="solution-assign-a-high-weight-to-local-connection"></a>解決方案︰對本機連線指派高權數
-解決方法很簡單。 既然您知道 VNet 與線路在哪，您可以告訴我們每個 VNet 應該偏好使用的路徑。 具體來說，在此範例中，您可以對本機連線指派比遠端連線更高的權數 (請參閱[這裡](expressroute-howto-linkvnet-arm.md#modify-a-virtual-network-connection)的組態範例)。 当 VNet 收到多个连接上的另一个 VNet 的前缀时，会优先选择具有最高权重的连接将流量发送到该前缀。
+解決方法很簡單。 既然您知道 VNet 與線路在哪，您可以告訴我們每個 VNet 應該偏好使用的路徑。 具體來說，在此範例中，您可以對本機連線指派比遠端連線更高的權數 (請參閱[這裡](expressroute-howto-linkvnet-arm.md#modify-a-virtual-network-connection)的組態範例)。 當 VNet 在多個連線上收到另一個 VNet 的前置詞時，它會偏好使用權數最高的連線，來傳送以該前置詞為目的地的流量。
 
 ![ExpressRoute 案例 3 解決方案 - 對本機連線指派高權數](./media/expressroute-optimize-routing/expressroute-case3-solution.png)
 

@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 6dbd4461e7b8382ec3c4075b9688de59678f98f5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957326"
 ---
 # <a name="clustering-point-data"></a>叢集點資料
@@ -44,7 +44,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 `DataSource`類別也有與叢集相關的下列方法：
 
-| 方法 | 傳回類型 | 說明 |
+| 方法 | 傳回類型 | 描述 |
 |--------|-------------|-------------|
 | getClusterChildren(clusterId: number) | 承諾&lt;陣列&lt;功能&lt;幾何，任何&gt;\|圖形&gt;&gt; | 擷取指定的叢集上的下一步 的縮放層級的子系。 這些子系可能是圖形和 subclusters 的組合。 Subclusters 會屬性符合 ClusteredProperties 的功能。 |
 | getClusterExpansionZoom(clusterId: number) | Promise&lt;number&gt; | 計算縮放層級的叢集將會開始展開或分解。 |
@@ -84,12 +84,12 @@ var datasource = new atlas.source.DataSource(null, {
 
 滑鼠事件發生時，包含叢集的資料點圖層上，將事件傳回叢集的資料點，以 GeoJSON 點功能物件。 此點功能將會有下列屬性：
 
-| 屬性名稱 | Type | 說明 |
+| 屬性名稱 | 類型 | 描述 |
 |---------------|------|-------------|
 | 叢集 | boolean | 指出是否功能代表叢集。 |
-| cluster_id | string | 可以搭配資料來源叢集的唯一識別碼`getClusterExpansionZoom`， `getClusterChildren`，和`getClusterLeaves`方法。 |
-| point_count | 號 | 叢集中包含的點數目。 |
-| point_count_abbreviated | string | 縮寫的字串`point_count`如果很長的值。 （例如 4000 變成 4k） |
+| cluster_id | 字串 | 可以搭配資料來源叢集的唯一識別碼`getClusterExpansionZoom`， `getClusterChildren`，和`getClusterLeaves`方法。 |
+| point_count | number | 叢集中包含的點數目。 |
+| point_count_abbreviated | 字串 | 縮寫的字串`point_count`如果很長的值。 （例如 4000 變成 4k） |
 
 這個範例會取得泡泡圖層可呈現叢集點，並新增 click 事件，當觸發時，計算中, 與縮放地圖來叢集就會中斷分開使用的下一步] 縮放層級`getClusterExpansionZoom`方法`DataSource`類別，並`cluster_id`屬性的已按下 [叢集資料點。 
 

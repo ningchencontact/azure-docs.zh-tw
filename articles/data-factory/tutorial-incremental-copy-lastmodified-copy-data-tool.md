@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
 ms.openlocfilehash: 3865bb10346c4a55adbf94a7df225eacf2c11252
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65519138"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>以累加方式複製新的和變更的檔案，使用複製資料工具，根據 LastModifiedDate
@@ -51,32 +51,32 @@ ms.locfileid: "65519138"
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
-1. 在左側功能表上，選取 [建立資源] > [資料 + 分析] > [資料處理站]： 
+1. 在左側功能表上，選取 [建立資源]   > [資料 + 分析]   > [資料處理站]  ： 
    
    ![在 [新增] 窗格中選取資料處理站](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
-2. 在 [新增資料處理站] 頁面的 [名稱] 下，輸入 **ADFTutorialDataFactory**。 
+2. 在 [新增資料處理站]  頁面的 [名稱]  下，輸入 **ADFTutorialDataFactory**。 
       
      ![新增 Data Factory](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
  
-   資料處理站的名稱必須是「全域唯一」的名稱。 您可能會收到下列錯誤訊息：
+   資料處理站的名稱必須是「全域唯一」  的名稱。 您可能會收到下列錯誤訊息：
    
    ![新增資料處理站錯誤訊息](./media/tutorial-copy-data-tool/name-not-available-error.png)
 
-   如果您收到有關名稱值的錯誤訊息，請輸入不同的資料處理站名稱。 例如，使用**您的名稱****ADFTutorialDataFactory**。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
+   如果您收到有關名稱值的錯誤訊息，請輸入不同的資料處理站名稱。 例如，使用**您的名稱**  **ADFTutorialDataFactory**。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
 3. 選取 Azure**訂用帳戶**中您將建立新的 data factory。 
-4. 針對 [資源群組]，採取下列其中一個步驟︰
+4. 針對 [資源群組]  ，採取下列其中一個步驟︰
      
-    * 選取 [使用現有的] ，然後從下拉式清單選取現有的資源群組。
+    * 選取 [使用現有的]  ，然後從下拉式清單選取現有的資源群組。
 
-    * 選取 [建立新的] ，然後輸入資源群組的名稱。 
+    * 選取 [建立新的]  ，然後輸入資源群組的名稱。 
          
     若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。
 
 5. 底下**版本**，選取**V2**。
-6. 在 [位置] 下，選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 您的 data factory 會使用資料存放區 （例如 Azure 儲存體和 SQL Database） 和計算 (例如 Azure HDInsight) 可位於其他位置和區域。
-7. 選取 [釘選到儀表板]。 
-8. 選取 [建立] 。
+6. 在 [位置]  下，選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 您的 data factory 會使用資料存放區 （例如 Azure 儲存體和 SQL Database） 和計算 (例如 Azure HDInsight) 可位於其他位置和區域。
+7. 選取 [釘選到儀表板]  。 
+8. 選取 [建立]  。
 9. 儀表板，請參閱**部署 Data Factory**磚，以查看處理序狀態。
 
     ![部署資料處理站圖格](media/tutorial-copy-data-tool/deploying-data-factory.png)
@@ -101,7 +101,7 @@ ms.locfileid: "65519138"
     
     d. 底下**循環**，輸入**15 分鐘**。 
     
-    e. 選取 [下一步] 。 
+    e. 選取 [下一步]  。 
     
     Data Factory 使用者介面會使用指定的工作名稱建立管線。 
 
@@ -125,7 +125,7 @@ ms.locfileid: "65519138"
     
    ![來源資料存放區頁面](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-linkedservice.png)
 
-4. 在 [選擇輸入檔案或資料夾] 頁面上，完成下列步驟︰
+4. 在 [選擇輸入檔案或資料夾]  頁面上，完成下列步驟︰
     
     a. 瀏覽並選取**來源**資料夾，然後再選取**選擇**。
     
@@ -139,37 +139,37 @@ ms.locfileid: "65519138"
     
      ![選擇輸入檔案或資料夾](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
      
-5. 在 **目的地資料存放區**頁面上，選取**Azureblobstorage-client-master.zip**。 這是來源資料存放區相同的儲存體帳戶。 然後，選取 [下一步]。
+5. 在 **目的地資料存放區**頁面上，選取**Azureblobstorage-client-master.zip**。 這是來源資料存放區相同的儲存體帳戶。 然後，選取 [下一步]  。
 
     ![目的地資料存放區頁面](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/destination-data-store-page-select-linkedservice.png)
     
-6. 在 [選擇輸出檔案或資料夾] 頁面上，完成下列步驟︰
+6. 在 [選擇輸出檔案或資料夾]  頁面上，完成下列步驟︰
     
     a. 瀏覽並選取**目的地**資料夾，然後再選取**選擇**。
     
     ![選擇輸出檔案或資料夾](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
     
-    b. 選取 [下一步] 。
+    b. 選取 [下一步]  。
     
      ![選擇輸出檔案或資料夾](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/click-next-after-output-folder.png)
     
-7. 在 [設定] 頁面上，選取 [下一步]。 
+7. 在 [設定]  頁面上，選取 [下一步]  。 
 
     ![設定頁面](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/settings-page.png)
     
-8. 在 [**摘要**頁面上，檢閱設定，然後選取**下一步]**。
+8. 在 [**摘要**頁面上，檢閱設定，然後選取**下一步]** 。
 
     ![摘要頁面](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/summary-page.png)
     
-9. 在**部署頁面**上選取 [監視] 來監視管線 (工作)。
+9. 在**部署頁面**上選取 [監視]  來監視管線 (工作)。
 
     ![部署頁面](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/deployment-page.png)
     
-10. 請注意，系統會自動選取左側的 [監視] 索引標籤。 [動作] 資料行中會有連結可供檢視活動執行詳細資料，以及重新執行管線。 選取 **重新整理**重新整理清單，然後選取**檢視活動執行**連結**動作**資料行。 
+10. 請注意，系統會自動選取左側的 [監視]  索引標籤。 [動作]  資料行中會有連結可供檢視活動執行詳細資料，以及重新執行管線。 選取 **重新整理**重新整理清單，然後選取**檢視活動執行**連結**動作**資料行。 
 
     ![重新整理清單，然後選取 檢視活動執行](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs1.png)
 
-11. 會只有一個活動 （複製活動） 在管線中，因此，您會看到只有一個項目。 如需關於複製作業的詳細資料，請選取 [動作] 資料行中的 [詳細資料] 連結 (眼鏡圖示)。 
+11. 會只有一個活動 （複製活動） 在管線中，因此，您會看到只有一個項目。 如需關於複製作業的詳細資料，請選取 [動作]  資料行中的 [詳細資料]  連結 (眼鏡圖示)。 
 
     ![複製活動會在管線中](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs2.png)
     

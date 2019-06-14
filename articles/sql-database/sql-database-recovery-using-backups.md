@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/30/2019
 ms.openlocfilehash: 47bf59adb33f3685b31430c652b31880d383833e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232655"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自動資料庫備份復原 Azure SQL 資料庫
@@ -83,7 +83,7 @@ ms.locfileid: "65232655"
 
   如果您打算從還原從使用者或應用程式錯誤中復原的資料庫擷取資料時，您要撰寫及執行資料復原指令碼會從還原的資料庫中擷取資料，並套用到原始資料庫。 雖然還原作業可能要花很長的時間才能完成，但還原中的資料庫在整個還原過程中都會顯示在資料庫清單上。 如果您在還原期間刪除資料庫，還原作業將會取消，且您不需要支付未完成還原的資料庫。
 
-若要使用 Azure 入口網站來將單一、集區或執行個體資料庫復原至某個時間點，請開啟資料庫頁面，然後按一下工具列上的 [還原]。
+若要使用 Azure 入口網站來將單一、集區或執行個體資料庫復原至某個時間點，請開啟資料庫頁面，然後按一下工具列上的 [還原]  。
 
 ![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
@@ -128,7 +128,7 @@ ms.locfileid: "65232655"
 
 ### <a name="geo-restore-using-the-azure-portal"></a>使用 Azure 入口網站進行異地還原
 
-若要使用 Azure 入口網站異地還原處於其[以 DTU 為基礎的模型保留期限](sql-database-service-tiers-dtu.md)或[以虛擬核心為基礎的模型保留期限](sql-database-service-tiers-vcore.md)的資料庫，請開啟 [SQL Database] 頁面，然後按一下 [新增]。 在 [選取來源] 文字方塊中，選取 [備份]。 指定要在區域和您選擇的伺服器上，執行復原的來源備份。
+若要使用 Azure 入口網站異地還原處於其[以 DTU 為基礎的模型保留期限](sql-database-service-tiers-dtu.md)或[以虛擬核心為基礎的模型保留期限](sql-database-service-tiers-vcore.md)的資料庫，請開啟 [SQL Database] 頁面，然後按一下 [新增]  。 在 [選取來源]  文字方塊中，選取 [備份]  。 指定要在區域和您選擇的伺服器上，執行復原的來源備份。
 
 > [!Note]
 > 使用 Azure 入口網站進行異地還原不適用於受控執行個體。 請改用 PowerShell。

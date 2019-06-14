@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 04/29/2019
 ms.openlocfilehash: d83410efd26f8c2078d3abdb01d061db0b83d33d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233725"
 ---
 # <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>將 SQL Server 內部部署移轉至 Azure SQL Database 受控執行個體使用 Azure PowerShell
@@ -74,11 +74,11 @@ New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 您可以使用 `New-AzDataMigrationService` Cmdlet，來建立新的 Azure 資料庫移轉服務執行個體。
 此 Cmdlet 預期有下列必要參數：
 
-* Azure 資源群組名稱。 您可以使用[ `New-AzResourceGroup` ](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)命令來建立 Azure 資源群組，如先前所示，並將其做為參數的名稱。
-* 服務名稱。 對應至 Azure 資料庫移轉服務所需的唯一服務名稱的字串。
+* Azure 資源群組名稱  。 您可以使用[ `New-AzResourceGroup` ](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)命令來建立 Azure 資源群組，如先前所示，並將其做為參數的名稱。
+* 服務名稱  。 對應至 Azure 資料庫移轉服務所需的唯一服務名稱的字串。
 * *位置*。 指定服務的位置。 指定 Azure 資料中心位置，例如美國西部或東南亞。
-* SKU。 此參數會對應至 DMS SKU 名稱。 目前支援的 Sku 名稱*為 Basic_1vCore*， *Basic_2vCores*， *GeneralPurpose_4vCores*。
-* 虛擬子網路識別碼。 您可以使用 cmdlet [ `New-AzVirtualNetworkSubnetConfig` ](https://docs.microsoft.com//powershell/module/az.network/new-azvirtualnetworksubnetconfig)建立子網路。
+* SKU  。 此參數會對應至 DMS SKU 名稱。 目前支援的 Sku 名稱*為 Basic_1vCore*， *Basic_2vCores*， *GeneralPurpose_4vCores*。
+* 虛擬子網路識別碼  。 您可以使用 cmdlet [ `New-AzVirtualNetworkSubnetConfig` ](https://docs.microsoft.com//powershell/module/az.network/new-azvirtualnetworksubnetconfig)建立子網路。
 
 下列範例會建立稱為*MyDMS*資源群組中*MyDMSResourceGroup*位於*美國東部*區域使用虛擬網路，名為*MyVNET*和名為的子網路*MySubnet*。
 
@@ -105,9 +105,9 @@ $service = New-AzDms -ResourceGroupName myResourceGroup `
 
 您可以使用，以建立資料庫連接資訊物件`New-AzDmsConnInfo`cmdlet，這會需要下列參數：
 
-* ServerType。 要求的資料庫連接類型，例如 SQL、Oracle 或 MySQL。 使用 SQL Server 的 SQL 和 Azure SQL。
-* DataSource。 名稱或 SQL Server 執行個體或 Azure SQL Database 執行個體的 IP。
-* AuthType。 連線的驗證類型，可以是 SqlAuthentication 或 WindowsAuthentication。
+* ServerType  。 要求的資料庫連接類型，例如 SQL、Oracle 或 MySQL。 使用 SQL Server 的 SQL 和 Azure SQL。
+* DataSource  。 名稱或 SQL Server 執行個體或 Azure SQL Database 執行個體的 IP。
+* AuthType  。 連線的驗證類型，可以是 SqlAuthentication 或 WindowsAuthentication。
 * *TrustServerCertificate*。 此參數設定值，指出通道是否會加密，同時略過驗證信任的憑證鏈結查核。 此值可以是`$true`或`$false`。
 
 下列範例會建立名為 SQL Server 來源的連接資訊物件*MySourceSQLServer*使用 sql 驗證：
@@ -280,16 +280,16 @@ $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%
 
 不論執行離線或線上移轉， `New-AzDataMigrationTask` cmdlet 預期有下列參數：
 
-* TaskType。 要為從 SQL Server 到 Azure SQL Database 受控執行個體的移轉建立的移轉工作類型，預期為 MigrateSqlServerSqlDbMi。 
-* 資源群組名稱。 要在其中建立工作的資源群組名稱。
-* ServiceName。 要在其中建立工作的 Azure 資料庫移轉服務執行個體。
-* ProjectName。 要在其中建立工作的 Azure 資料庫移轉服務專案名稱。 
-* TaskName。 要建立的工作名稱。 
+* TaskType  。 要為從 SQL Server 到 Azure SQL Database 受控執行個體的移轉建立的移轉工作類型，預期為 MigrateSqlServerSqlDbMi  。 
+* 資源群組名稱  。 要在其中建立工作的資源群組名稱。
+* ServiceName  。 要在其中建立工作的 Azure 資料庫移轉服務執行個體。
+* ProjectName  。 要在其中建立工作的 Azure 資料庫移轉服務專案名稱。 
+* TaskName  。 要建立的工作名稱。 
 * *SourceConnection*。 AzDmsConnInfo 物件，代表來源 SQL Server 連接。
 * *TargetConnection*。 AzDmsConnInfo 物件，表示目標 Azure SQL Database 受控執行個體的連接。
-* SourceCred。 連線至來源伺服器所用的 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) 物件。
-* TargetCred。 連線至目標伺服器所用的 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) 物件。
-* SelectedDatabase。 AzDataMigrationSelectedDB 物件，代表來源和目標資料庫對應。
+* SourceCred  。 連線至來源伺服器所用的 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) 物件。
+* TargetCred  。 連線至目標伺服器所用的 [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) 物件。
+* SelectedDatabase  。 AzDataMigrationSelectedDB 物件，代表來源和目標資料庫對應。
 * *BackupFileShare*。 此為 FileShare 物件，代表 Azure 資料庫移轉服務可移入來源資料庫備份的本機網路共用。
 * *BackupBlobSasUri*。 此為 SAS URI，可讓 Azure 資料庫移轉服務存取此服務會將備份檔案上傳到的儲存體帳戶容器。 了解如何取得 Blob 容器的 SAS URI。
 * *SelectedLogins*。 已選取要移轉的登入清單。

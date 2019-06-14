@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: tomfitz
 ms.openlocfilehash: 03e4053b65cf39101e8cb5d35ce439a759ec11d6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129048"
 ---
-1. 在您想要鎖定之資源、資源群組或訂用帳戶的 [設定] 刀鋒視窗中，選取 [鎖定] 。
+1. 在您想要鎖定之資源、資源群組或訂用帳戶的 [設定] 刀鋒視窗中，選取 [鎖定]  。
    
       ![選取鎖定](./media/resource-manager-lock-resources/select-lock.png)
-2. 若要新增鎖定，請選取 [新增] 。 如果您想要在父層級建立鎖定，請選取父系。 目前選取的資源會從父系繼承鎖定。 例如，您可以鎖定資源群組以將鎖定套用到其所有資源。
+2. 若要新增鎖定，請選取 [新增]  。 如果您想要在父層級建立鎖定，請選取父系。 目前選取的資源會從父系繼承鎖定。 例如，您可以鎖定資源群組以將鎖定套用到其所有資源。
    
       ![新增鎖定](./media/resource-manager-lock-resources/add-lock.png) 
 3. 提供鎖定的名稱和鎖定層級。 您可以視需要新增描述鎖定的附註。

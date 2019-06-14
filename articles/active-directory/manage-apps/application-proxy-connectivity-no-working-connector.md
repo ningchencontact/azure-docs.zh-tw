@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f829b8e8a4bc08b43d3c30a6333771ccd4e26e8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783617"
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>針對應用程式 Proxy 應用程式找不到作用中的連接器群組
@@ -46,7 +46,7 @@ ms.locfileid: "65783617"
 
    ![Azure 入口網站中的連接器群組選項](./media/application-proxy-connectivity-no-working-connector/no-active-connector.png)
 
-如需每個選項的詳細資料，請參閱下列對應的小節。 這些指示假設您是從連接器管理頁面開始。 如果您看到上述的錯誤訊息，可以按一下警告訊息來移至此頁面。 移至 [Azure Active Directory]，依序按一下 [企業應用程式]、[應用程式 Proxy]，也可以到達此頁面。
+如需每個選項的詳細資料，請參閱下列對應的小節。 這些指示假設您是從連接器管理頁面開始。 如果您看到上述的錯誤訊息，可以按一下警告訊息來移至此頁面。 移至 [Azure Active Directory]  ，依序按一下 [企業應用程式]  、[應用程式 Proxy]  ，也可以到達此頁面。
 
    ![Azure 入口網站中的連接器群組管理](./media/application-proxy-connectivity-no-working-connector/app-proxy.png)
 

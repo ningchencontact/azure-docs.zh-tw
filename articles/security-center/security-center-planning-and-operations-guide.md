@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/11/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 04cfe489e9eea53bf58dd64e0eac3e5a95033bcc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966851"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure 資訊安全中心規劃和操作指南
@@ -47,7 +47,7 @@ ms.locfileid: "65966851"
 
 ![角色](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-資訊安全中心可讓這些人符合不同的責任。 例如：
+資訊安全中心可讓這些人符合不同的責任。 例如:
 
 **Jeff (工作負載擁有者)**
 
@@ -179,7 +179,7 @@ Azure 資訊安全中心會使用 Microsoft Monitoring Agent – 這是從您的
 > [!NOTE]
 > 資訊安全中心不會干擾一般作業程序，它會被動地監視您的部署，並根據您啟用的安全性原則提供建議。
 
-當您第一次選擇在目前 Azure 環境中使用資訊安全中心時，請務必檢閱所有的建議，您可以在 [建議] 圖格中檢閱，或依照資源 ([計算]、[網路服務]、[儲存體和資料]、[應用程式]) 檢閱。
+當您第一次選擇在目前 Azure 環境中使用資訊安全中心時，請務必檢閱所有的建議，您可以在 [建議]  圖格中檢閱，或依照資源 ([計算]  、[網路服務]  、[儲存體和資料]  、[應用程式]  ) 檢閱。
 
 一旦處理完所有的建議，所有已處理資源的 [預防]  區段應該是綠色。 持續監視此時變得更容易，因為您只會根據資源安全性健康情況和建議圖格中的變更採取動作。
 
@@ -194,7 +194,7 @@ Azure 資訊安全中心會使用 Microsoft Monitoring Agent – 這是從您的
 
 ![主要領域](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 
-1. 針對虛擬機器，按一下 [預防] 區段下的 [計算]。 [概觀] 索引標籤和 [監視建議] 區段會呈現有關啟用資料的問題或相關建議。
+1. 針對虛擬機器，按一下 [預防]  區段下的 [計算]  。 [概觀]  索引標籤和 [監視建議]  區段會呈現有關啟用資料的問題或相關建議。
 2. 檢視 [建議]  以查看針對新資源所找出的任何 (若有的話) 安全性風險。
 3. 將新的 VM 新增至您的環境時，通常一開始只會安裝作業系統。 資源擁有者可能需要一些時間來部署這些 VM 將使用的其他應用程式。  在理想情況下，您應該知道此工作負載的最終目的。 它會成為應用程式伺服器？ 以這個新工作負載將會成為的項目為基礎，您可以啟用適當的 **安全性原則**(這是此工作流程中的第三個步驟)。
 4. 將新資源新增至 Azure 環境時，[安全性警示]  圖格中可能會出現新的警示。 請隨時確認此圖格中是否有新的警示，並根據資訊安全中心的建議採取動作。
@@ -203,9 +203,9 @@ Azure 資訊安全中心會使用 Microsoft Monitoring Agent – 這是從您的
 
 ![作業](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
 
-1. [預防] 區段面板可供您快速存取關鍵資源。 使用此選項來監視 [計算]、[網路服務]、[儲存體和資料] 及 [應用程式]。
+1. [預防]  區段面板可供您快速存取關鍵資源。 使用此選項來監視 [計算]、[網路服務]、[儲存體和資料] 及 [應用程式]。
 2. **建議** 面板可讓您檢閱資訊安全中心建議。 在持續監視期間，您可能會發現您沒有每天收到建議，這是正常現象，因為您已處理初始資訊安全中心設定的所有建議。 基於這個理由，這個區段中可能不會每天都有新資訊，您只需要視需要進行存取。
-3. [偵測] 區段的變更頻率可能非常頻繁或非常不頻繁。 請隨時檢閱安全性警示，並根據資訊安全中心的建議採取動作。
+3. [偵測]  區段的變更頻率可能非常頻繁或非常不頻繁。 請隨時檢閱安全性警示，並根據資訊安全中心的建議採取動作。
 
 ### <a name="hardening-access-and-applications"></a>強化存取和應用程式
 

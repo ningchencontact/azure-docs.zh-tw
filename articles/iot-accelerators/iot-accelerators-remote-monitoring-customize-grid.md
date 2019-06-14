@@ -3,17 +3,16 @@ title: 在遠端監視解決方案 UI 中新增方格 - Azure | Microsoft Docs
 description: 本文說明如何在遠端監視解決方案加速器 Web UI 中的頁面上，新增方格。
 author: dominicbetts
 manager: timlt
-ms.author: v-yiso
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-origin.date: 10/04/2018
-ms.date: 11/26/2018
+ms.date: 10/04/2018
 ms.topic: conceptual
 ms.openlocfilehash: a24cb7f39ccb8ea07d4dde2869dc7c924b91983a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447092"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>在遠端監視解決方案加速器 Web UI 中新增自訂格線
@@ -49,11 +48,11 @@ ms.locfileid: "61447092"
 
 **exampleGrid.js**
 
-
+[!code-javascript[Example grid](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGrid.js?name=grid "Example grid")]
 
 **exampleGridConfig.js**
 
-
+[!code-javascript[Example grid configuration](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGridConfig.js?name=gridconfig "Example grid configuration")]
 
 將 **src/walkthrough/components/pages/pageWithGrid/exampleGrid** 資料夾複製到 **src/components/pages/example** 資料夾。
 
@@ -183,7 +182,7 @@ describe('BasicPage Component', () => {
 npm start
 ```
 
-上一個命令會在本機於 [http://localhost:3000/dashboard](http://localhost:3000/dashboard) 執行 UI。 瀏覽至 [範例] 頁面，以查看來自服務的方格顯示資料。
+上一個命令會在本機於 [http://localhost:3000/dashboard](http://localhost:3000/dashboard) 執行 UI。 瀏覽至 [範例]  頁面，以查看來自服務的方格顯示資料。
 
 ## <a name="select-rows"></a>選取資料列
 
@@ -240,7 +239,7 @@ npm start
     ```js
     doSomething = () => {
       //Just for demo purposes. Don't console log in a real grid.
-      console.log('hard selected rows', this.gridApi.getSelectedRows());
+      console.log('Hard selected rows', this.gridApi.getSelectedRows());
     };
     ```
 
@@ -264,16 +263,16 @@ npm start
 1. 按一下軟式選取連結後，它會觸發 **onSoftSelectChange** 事件。 對該資料列執行任何所需的動作，例如開啟詳細資料飛出視窗。 此範例只會寫入至主控台：
 
     ```js
-    onSoftSelectChange = (rowId, rowEvent) => {
+    onSoftSelectChange = (rowId, rowData) => {
+      //Note: only the Id is reliable, rowData may be out of date
       const { onSoftSelectChange } = this.props;
-      const obj = (this.gridApi.getDisplayedRowAtIndex(rowId) || {}).data;
-      if (obj) {
+      if (rowId) {
         //Just for demo purposes. Don't console log a real grid.
-        console.log('Soft selected', obj);
-        this.setState({ softSelectedObj: obj });
+        console.log('Soft selected', rowId);
+        this.setState({ softSelectedId: rowId });
       }
       if (isFunc(onSoftSelectChange)) {
-        onSoftSelectChange(obj, rowEvent);
+        onSoftSelectChange(rowId, rowData);
       }
     }
     ```

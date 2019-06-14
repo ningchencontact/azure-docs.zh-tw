@@ -5,10 +5,10 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: baf0f07002a21a8e4e60bc17186107b471243202
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66140302"
 ---
 1. 在名為 `ToDoBroadcastReceiver`的專案中建立新類別。
@@ -49,7 +49,7 @@ ms.locfileid: "66140302"
     }
     ```
 
-    在上述程式碼中，您必須使用在 Google 開發人員入口網站佈建您的應用程式時由 Google 指派給您的專案編號來取代 *`<PROJECT_NUMBER>`*。 
+    在上述程式碼中，您必須使用在 Google 開發人員入口網站佈建您的應用程式時由 Google 指派給您的專案編號來取代 *`<PROJECT_NUMBER>`* 。 
 
 5. 在 ToDoBroadcastReceiver.cs 專案檔案中，加入下列可定義 **PushHandlerService** 類別的程式碼：
 
@@ -66,7 +66,7 @@ ms.locfileid: "66140302"
     請注意，此類別衍生自 **GcmServiceBase** 而且必須對此類別套用 **Service** 屬性。
 
     > [!NOTE]
-    > **GcmServiceBase** 類別實作 **OnRegistered()**、**OnUnRegistered()**、**OnMessage()** 及 **OnError()** 方法。 您必須覆寫 **PushHandlerService** 類別中的這些方法。
+    > **GcmServiceBase** 類別實作 **OnRegistered()** 、**OnUnRegistered()** 、**OnMessage()** 及 **OnError()** 方法。 您必須覆寫 **PushHandlerService** 類別中的這些方法。
 
 6. 在 **PushHandlerService** 類別中加入下列程式碼，以覆寫 **OnRegistered** 事件處理常式。
 

@@ -11,10 +11,10 @@ ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker for Azure
 ms.openlocfilehash: 46fa5564e5dd3429f812b263295044d867a8511c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61028403"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>將現有的 MongoDB 應用程式與適用於 MongoDB 的 Azure Cosmos DB API 和 Open Service Broker for Azure (OSBA) 整合
@@ -267,7 +267,7 @@ press Ctrl+C to detach
 ...
 ```
 
-請瀏覽至記錄中顯示的 URL。 在上述範例中，您會使用 *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/*。 
+請瀏覽至記錄中顯示的 URL。 在上述範例中，您會使用 *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/* 。 
 
 請確認您看到應用程式，以及您所做的變更。
 

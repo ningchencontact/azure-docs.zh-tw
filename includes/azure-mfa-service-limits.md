@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: a8ee7cc28985d905a0d158745145ce7ffaa5ba6e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238239"
 ---
-| Resource | 預設限制 | 上限 |
+| 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
 | 受信任的 IP 位址或範圍的最大數目</a>每訂用帳戶 |0 |50 |
 | 記住我的裝置的天數 |14 |60 |

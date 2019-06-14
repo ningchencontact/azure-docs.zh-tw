@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 6da80bd3b5fe487a44400f4f3c21e8fa49da75d4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943570"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>在發佈入口網站中設定您的應用程式
@@ -47,13 +47,13 @@ ms.locfileid: "64943570"
 
 這是在發行者設定檔內供應項目的唯一識別碼。 此識別碼會出現在產品 URL 中。 此識別碼只能包含小寫英數字元或連字號 (-)。 此識別碼不能以連字號結尾，且不能超過 50 個字元。 供應項目上架後，此欄位便會鎖住。
 
-比方說，如果 「 發行者 」 **"contoso"** 發行者的供應項目 id 建立供應項目 **」 範例 WebApp"**，它會顯示在 AppSource 為"https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
+比方說，如果 「 發行者 」 **"contoso"** 發行者的供應項目 id 建立供應項目 **」 範例 WebApp"** ，它會顯示在 AppSource 為"https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
 
 ### <a name="publisher-id"></a>發行者識別碼
 
 此下拉式表單，可讓您選擇您想要在什麼發行者設定檔之下發佈此供應項目。 供應項目上架後，此欄位便會鎖住。
 
-### <a name="name"></a>名稱
+### <a name="name"></a>Name
 
 您供應項目的顯示名稱。 此為會出現在 [AppSource](https://appsource.microsoft.com/) 中的名稱。 它最多不能超過 50 個字元。
 

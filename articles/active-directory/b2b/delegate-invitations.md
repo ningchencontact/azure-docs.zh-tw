@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 11dda7fc3760f468c094fb4cf4484a27895f83b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65812678"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>啟用 B2B 外部共同作業和管理誰可以邀請來賓
@@ -36,10 +36,10 @@ ms.locfileid: "65812678"
 ### <a name="to-configure-external-collaboration-settings"></a>若要設定外部共同作業設定：
 
 1. 登入[Azure 入口網站](https://portal.azure.com)身為租用戶系統管理員。
-2. 選取 [Azure Active Directory] > [使用者] > [使用者設定]。
-3. 在 [外部使用者] 下，選取 [管理外部共同作業設定]。
+2. 選取 [Azure Active Directory]   > [使用者]   > [使用者設定]  。
+3. 在 [外部使用者]  下，選取 [管理外部共同作業設定]  。
    > [!NOTE]
-   > [外部共用作業設定] 也在 [組織關係] 頁面上。 在 Azure Active Directory 中，[管理] 下方，移至 [組織關係]  >  [設定]。
+   > [外部共用作業設定]  也在 [組織關係]  頁面上。 在 Azure Active Directory 中，[管理]  下方，移至 [組織關係]   >  [設定]  。
 4. 在 **外部共同作業設定**頁面上，選擇您想要啟用的原則。
 
    ![外部共同作業設定](./media/delegate-invitations/control-who-to-invite.png)

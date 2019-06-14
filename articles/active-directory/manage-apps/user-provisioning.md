@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 086161b73e2a3e07df835394dc26082e12fbd434
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963976"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和取消佈建
@@ -91,7 +91,7 @@ Azure Active Directory (Azure AD) 可讓您自動化建立、 維護和移除在
 
 您可以使用 Azure Active Directory 入口網站來設定 Azure AD 佈建服務所選的應用程式。
 
-1. 開啟 **[Azure Active Directory 入口網站](https://aad.portal.azure.com)**。
+1. 開啟 **[Azure Active Directory 入口網站](https://aad.portal.azure.com)** 。
 
 1. 選取 **企業應用程式**從左窗格中。 會顯示所有設定的應用程式清單。
 
@@ -166,7 +166,7 @@ Azure Active Directory (Azure AD) 可讓您自動化建立、 維護和移除在
 佈建服務會繼續無限期執行背對背增量同步處理，在中所定義的時間間隔[特定的每個應用程式教學課程](../saas-apps/tutorial-list.md)，直到發生以下事件之一為止：
 
 - 使用 Azure 入口網站或使用適當的「圖形 API」來手動停止服務 
-- 使用 Azure 入口網站中的 [清除狀態並重新啟動] 選項，或使用適當的「圖形 API」命令來觸發新的初始同步處理。 此動作會清除任何儲存的浮水印，並導致重新評估所有來源物件。
+- 使用 Azure 入口網站中的 [清除狀態並重新啟動]  選項，或使用適當的「圖形 API」命令來觸發新的初始同步處理。 此動作會清除任何儲存的浮水印，並導致重新評估所有來源物件。
 - 因為屬性對應或範圍篩選器的變更，就會觸發新的初始同步處理。 此動作也會清除任何儲存的浮水印，並導致重新評估所有來源物件。
 - 佈建程序因為高錯誤率而進入隔離 （如下所示），並處於隔離狀態超過四週。 在此事件中，將會自動停用服務。
 
@@ -211,7 +211,7 @@ Azure Active Directory (Azure AD) 可讓您自動化建立、 維護和移除在
 | 同步 Azure AD 中的所有使用者 | 1,000 - 10,000  | 43 - 86 分鐘 | < 30 分鐘 |
 
 
-針對 [僅同步已指派的使用者與群組] 設定，您可以使用下列公式來判斷**初始同步處理**時間的預估最小值和最大值：
+針對 [僅同步已指派的使用者與群組]  設定，您可以使用下列公式來判斷**初始同步處理**時間的預估最小值和最大值：
 
     Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
     Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/11/2019
 ms.author: juliako
 ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65556214"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒體服務 v3 進行即時串流
@@ -77,10 +77,10 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 2. 建立 [即時事件](live-events-outputs-concept.md)。 <br/>在建立事件時，您可以指定要自動啟動它。 或者，您可以在準備好開始進行串流處理時啟動事件。<br/> 當自動啟動設定為 true 時，即時事件將會在建立後隨即啟動。 只要即時事件一執行，就會立即開始計費。 您必須對「實況活動」資源明確呼叫「停止」，才能終止進一步計費。 如需詳細資訊，請參閱[實況活動狀態和計費](live-event-states-billing.md)。
 3. 取得內嵌 URL，並設定您的內部部署編碼器，以使用 URL 來傳送發佈摘要。<br/>請參閱[建議的即時編碼器](recommended-on-premises-live-encoders.md)。
 4. 取得預覽 URL 並使用它來確認實際上已收到來自編碼器的輸入。
-5. 建立新的 [資產] 物件。
-6. 建立 [即時輸出] 並使用您建立的資產名稱。<br/>**實況輸出**會將資料流封存到**資產**中。
+5. 建立新的 [資產]  物件。
+6. 建立 [即時輸出]  並使用您建立的資產名稱。<br/>**實況輸出**會將資料流封存到**資產**中。
 7. 使用內建的**串流原則**類型來建立**串流定位器**。<br/>若您想要將內容加密，請檢閱[內容保護概觀](content-protection-overview.md)。
-8. 列出 [串流定位器] 上的路徑，以取得要使用的 URL (這些具有決定性)。
+8. 列出 [串流定位器]  上的路徑，以取得要使用的 URL (這些具有決定性)。
 9. 取得的主機名稱**串流端點**您想要從資料流 （來源）。
 10. 結合步驟 8 的 URL 和步驟 9 的主機名稱，即可取得完整的 URL。
 11. 如果想要停止讓**實況活動**可供檢視，您必須將該活動停止串流並刪除**串流定位器**。

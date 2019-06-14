@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.openlocfilehash: d086b6f844deb06d98edec8d8ec0f5670d84f066
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129700"
 ---
 # <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>收集到 Log Analytics 工作區，在 Azure 監視器中的 Azure 服務的記錄和計量
@@ -26,7 +26,7 @@ ms.locfileid: "66129700"
 
 1. Azure 診斷直達 Log Analytics 工作區，在 Azure 監視器中 (*診斷*下表中)
 2. Azure 監視器中的 Log Analytics 工作區的 Azure 儲存體的 azure 診斷 (*儲存體*下表中)
-3. Azure 服務的連接器 (下表中的「連接器」)
+3. Azure 服務的連接器 (下表中的「連接器」  )
 4. 使用指令碼來收集並再將資料公佈至 Log Analytics 工作區，在 Azure 監視器 （空格下表中和未列出的服務）
 
 

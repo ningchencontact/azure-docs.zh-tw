@@ -10,10 +10,10 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.openlocfilehash: f60236163cd88822c384bd356a1770d616639174
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596619"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中樞將檔案從裝置上傳至雲端
@@ -26,7 +26,7 @@ ms.locfileid: "65596619"
 - 
 - 您可以使用 IoT 中樞檔案上傳通知來觸發在您的應用程式後端中處理此檔案。
 
-[開始使用 IoT 中樞](quickstart-send-telemetry-node.md)教學課程示範「IoT 中樞」的基本裝置到雲端傳訊功能。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如：
+[開始使用 IoT 中樞](quickstart-send-telemetry-node.md)教學課程示範「IoT 中樞」的基本裝置到雲端傳訊功能。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如:
 
 *  包含映像的大型檔案
 *  影片
@@ -80,7 +80,7 @@ ms.locfileid: "65596619"
     var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     ```
 
-5. 新增 `deviceconnectionstring` 變數，並用它來建立**用戶端**執行個體。  以您在＜建立 IoT 中樞＞ 一節中建立的裝置名稱取代 `{deviceconnectionstring}`：
+5. 新增 `deviceconnectionstring` 變數，並用它來建立**用戶端**執行個體。  以您在＜建立 IoT 中樞＞  一節中建立的裝置名稱取代 `{deviceconnectionstring}`：
 
     ```javascript
     var connectionString = '{deviceconnectionstring}';
@@ -121,7 +121,7 @@ ms.locfileid: "65596619"
 
 在本節中，您要建立一個 Node.js 主控台應用程式，接收來自 IoT 中樞的檔案上傳通知訊息。
 
-您可以從 IoT 中樞使用 **iothubowner** 連接字串來完成此區段。 您會在 [共用存取原則] 刀鋒視窗的 [Azure 入口網站](https://portal.azure.com/)中找到連接字串。
+您可以從 IoT 中樞使用 **iothubowner** 連接字串來完成此區段。 您會在 [共用存取原則]  刀鋒視窗的 [Azure 入口網站](https://portal.azure.com/)中找到連接字串。
 
 1. 建立稱為 ```fileuploadnotification``` 的空資料夾。  在 ```fileuploadnotification``` 資料夾中，於命令提示字元使用下列命令建立 package.json 檔案。  接受所有預設值：
 
@@ -145,7 +145,7 @@ ms.locfileid: "65596619"
     var Client = require('azure-iothub').Client;
     ```
 
-5. 新增 `iothubconnectionstring` 變數，並用它來建立**用戶端**執行個體。  將 `{iothubconnectionstring}` 替換為您在＜建立 IoT 中樞＞一節中為 IoT 中樞所建立的連接字串：
+5. 新增 `iothubconnectionstring` 變數，並用它來建立**用戶端**執行個體。  將 `{iothubconnectionstring}` 替換為您在＜建立 IoT 中樞＞  一節中為 IoT 中樞所建立的連接字串：
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';

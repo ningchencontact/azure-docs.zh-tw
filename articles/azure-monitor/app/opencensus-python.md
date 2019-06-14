@@ -10,10 +10,10 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae9db483e15197e6cdaaaa5981410630184cc6ca
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957238"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>從 Python 收集分散式追蹤 (預覽)
@@ -36,24 +36,24 @@ ms.locfileid: "65957238"
 
 首先，您必須建立會產生檢測金鑰 (ikey) 的 Application Insights 資源。 接著，ikey 會用來設定本機轉送工具，將分散式追蹤從 OpenCensus 所檢測的應用程式傳送到 Application Insights。   
 
-1. 選取 [建立資源] > [開發人員工具] > [Application Insights]。
+1. 選取 [建立資源]   > [開發人員工具]   > [Application Insights]  。
 
    ![新增 Application Insights 資源](./media/opencensus-python/0001-create-resource.png)
 
    設定方塊隨即出現，請使用下表來填寫輸入欄位。
 
-    | 設定        | Value           | 說明  |
+    | 設定        | 值           | 描述  |
    | ------------- |:-------------|:-----|
    | **名稱**      | 通用唯一值 | 此名稱可識別您要監視的應用程式 |
    | **應用程式類型** | 一般 | 您要監視的應用程式類型 |
    | **資源群組**     | myResourceGroup      | 用於裝載 App Insights 資料之新資源群組的名稱 |
    | **位置** | 美國東部 | 選擇您附近或接近應用程式裝載位置的地點 |
 
-2. 按一下頁面底部的 [新增] 。
+2. 按一下頁面底部的 [新增]  。
 
 ## <a name="configure-local-forwarder"></a>設定本機轉送工具
 
-1. 選取 [概觀] > **[程式集]** > 複製應用程式的 [檢測金鑰]。
+1. 選取 [概觀]   >  **[程式集]** > 複製應用程式的 [檢測金鑰]  。
 
    ![檢測金鑰的螢幕擷取畫面](./media/opencensus-python/0003-instrumentation-key.png)
 
@@ -169,7 +169,7 @@ ms.locfileid: "65957238"
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>在 Azure 入口網站中開始監視
 
-1. 現在，您可以在 Azure 入口網站中重新開啟 Application Insights 的 [概觀] 頁面，以檢視目前執行中應用程式的詳細資料。 選取 [即時計量串流]。
+1. 現在，您可以在 Azure 入口網站中重新開啟 Application Insights 的 [概觀]  頁面，以檢視目前執行中應用程式的詳細資料。 選取 [即時計量串流]  。
 
    ![紅色方塊中選取了 [即時計量串流] 的 [概觀] 窗格螢幕擷取畫面](./media/opencensus-python/0005-overview-live-metrics-stream.png)
 
@@ -177,7 +177,7 @@ ms.locfileid: "65957238"
 
    ![顯示了效能資料的即時計量串流螢幕擷取畫面](./media/opencensus-python/0006-stream.png)
 
-3. 瀏覽回到 [概觀] 頁面，然後選取 [應用程式對應]，以顯示應用程式元件之間相依性關係和呼叫計時的視覺化配置。
+3. 瀏覽回到 [概觀]  頁面，然後選取 [應用程式對應]  ，以顯示應用程式元件之間相依性關係和呼叫計時的視覺化配置。
 
     ![基本應用程式對應的螢幕擷取畫面](./media/opencensus-python/0007-application-map.png)
 
@@ -185,11 +185,11 @@ ms.locfileid: "65957238"
 
    ![應用程式對應](media/opencensus-python/application-map.png)
 
-4. 選取 [調查效能] 以執行詳細的效能分析，並判斷效能緩慢的根本原因。
+4. 選取 [調查效能]  以執行詳細的效能分析，並判斷效能緩慢的根本原因。
 
     ![效能窗格的螢幕擷取畫面](./media/opencensus-python/0008-performance.png)
 
-5. 選取 [範例]，然後按一下出現在右窗格中的任何範例，就會啟動端對端交易詳細資料體驗。 儘管應用程式範例只會向我們顯示單一事件，但更複雜的應用程式將可讓您瀏覽到個別事件呼叫堆疊層級的端對端交易。
+5. 選取 [範例]  ，然後按一下出現在右窗格中的任何範例，就會啟動端對端交易詳細資料體驗。 儘管應用程式範例只會向我們顯示單一事件，但更複雜的應用程式將可讓您瀏覽到個別事件呼叫堆疊層級的端對端交易。
 
      ![端對端交易介面的螢幕擷取畫面](./media/opencensus-python/0009-end-to-end-transaction.png)
 

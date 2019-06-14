@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: kumud
 ms.openlocfilehash: 1b39196c489927474c0912b316de5ff3b3dbb956
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64681400"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>使用 Azure CLI 設定虛擬機器的私人 IP 位址
@@ -74,7 +74,7 @@ ms.locfileid: "64681400"
    * `--name`:公用 IP 的名稱。
    * `--location`:要在其中建立公用 IP 的 Azure 區域。
 
-3. 執行 [az network nic create](/cli/azure/network/nic) 命令以建立具有靜態私人 IP 的 NIC。 在输出后显示的列表说明了所用的参数。 
+3. 執行 [az network nic create](/cli/azure/network/nic) 命令以建立具有靜態私人 IP 的 NIC。 輸出後顯示的清單可說明所使用的參數。 
    
     ```azurecli
     az network nic create \
@@ -162,7 +162,7 @@ ms.locfileid: "64681400"
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>擷取 VM 的靜態私人 IP 位址資訊
 
-執行下列 Azure CLI 命令，以觀察私人 IP 配置方法和私人 IP 位址的值：
+執行下列 Azure CLI 命令，以觀察私人 IP 配置方法  和私人 IP 位址  的值：
 
 ```azurecli
 az vm show -g TestRG -n DNS01 --show-details --query 'privateIps'

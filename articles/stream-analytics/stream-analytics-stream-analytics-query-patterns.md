@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.openlocfilehash: f6971038be7404850d958de67eb4755ae7d21a29
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65761960"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>一般串流分析使用模式的查詢範例
@@ -35,7 +35,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 如�
 
 **輸入**：
 
-| 請確定 | Time | 權數 |
+| 請確定 | Time | Weight |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |"1000" |
 | Honda |2015-01-01T00:00:02.0000000Z |"2000" |
@@ -59,7 +59,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 如�
         TumblingWindow(second, 10)
 ```
 
-**說明**：使用 [Weight] 欄位中的 **CAST** 陳述式來指定其資料類型。 請參閱[資料類型 (Azure 串流分析)](/stream-analytics-query/data-types-azure-stream-analytics) 中的支援資料類型清單。
+**說明**：使用 [Weight]  欄位中的 **CAST** 陳述式來指定其資料類型。 請參閱[資料類型 (Azure 串流分析)](/stream-analytics-query/data-types-azure-stream-analytics) 中的支援資料類型清單。
 
 ## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>查詢範例：使用 LIKE/NOT 等進行模式比對
 
@@ -74,7 +74,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 如�
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
 
-**输出**：
+**輸出**：
 
 | 請確定 | LicensePlate | Time |
 | --- | --- | --- |
@@ -92,7 +92,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 如�
         LicensePlate LIKE 'A%9'
 ```
 
-**說明**：使用 **LIKE** 陳述式檢查 [LicensePlate] 欄位值。 它應該以字母 A 開頭然後有任何零或多個字元的字串數字 9 結尾。 
+**說明**：使用 **LIKE** 陳述式檢查 [LicensePlate]  欄位值。 它應該以字母 A 開頭然後有任何零或多個字元的字串數字 9 結尾。 
 
 ## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>查詢範例：針對不同的案例/值指定邏輯 (CASE 陳述式)
 
@@ -190,7 +190,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 如�
 
 請注意，您也可以在多個輸出陳述式中重複使用通用資料表運算式 (CTE) 的結果 (例如 **WITH** 陳述式)。 此選項多了一項優點，就是對輸入來源開放的讀取器較少。
 
-例如： 
+例如: 
 
 ```SQL
     WITH AllRedCars AS (
@@ -238,7 +238,7 @@ GROUP BY
 ```
 
 
-**說明：**
+**說明：** 
 **COUNT(DISTINCT Make)** 會傳回一個時間範圍內 **Make** 資料行的相異值數目。
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>查詢範例：判斷值是否已變更
@@ -254,7 +254,7 @@ GROUP BY
 
 **輸出**：
 
-| 請確定 | 时间 |
+| 請確定 | Time |
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
@@ -308,7 +308,7 @@ GROUP BY
         IsFirst(minute, 10) = 1
 ```
 
-现在，我们来变一下这个问题，查找每 10 分钟时间间隔内特定制造商的第一辆汽车。
+現在讓我們變更問題，並每隔 10 分鐘的間隔中尋找特定廠牌的第一輛車。
 
 | LicensePlate | 請確定 | Time |
 | --- | --- | --- |
@@ -422,12 +422,12 @@ GROUP BY
 
 **輸入**：  
 
-| 使用者 | 功能 | 事件 | Time |
+| 使用者 | 功能 | Event | Time |
 | --- | --- | --- | --- |
-| user@location.com |RightMenu |開始 |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |结束 |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
+| user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
 
-**输出**：  
+**輸出**：  
 
 | 使用者 | 功能 | Duration |
 | --- | --- | --- |
@@ -443,7 +443,7 @@ GROUP BY
         Event = 'end'
 ```
 
-**說明**：使用 **LAST** 函式來擷取事件類型為 **Start** 時的最後一個 **TIME** 值。 **LAST** 函式使用 **PARTITION BY [user]** 來表達會為個別使用者分別計算結果。 查詢的 **Start** 與 **Stop** 事件之間時間差的上限為 1 小時，但該值可以在必要時變更 **(LIMIT DURATION(hour, 1)**。
+**說明**：使用 **LAST** 函式來擷取事件類型為 **Start** 時的最後一個 **TIME** 值。 **LAST** 函式使用 **PARTITION BY [user]** 來表達會為個別使用者分別計算結果。 查詢的 **Start** 與 **Stop** 事件之間時間差的上限為 1 小時，但該值可以在必要時變更 **(LIMIT DURATION(hour, 1)** 。
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>查詢範例：偵測某個條件的持續時間
 **描述**：找出某個條件的持續時間。
@@ -451,7 +451,7 @@ GROUP BY
 
 **輸入**：
 
-| 請確定 | Time | 權數 |
+| 請確定 | Time | Weight |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |2000 |
 | Toyota |2015-01-01T00:00:02.0000000Z |25000 |
@@ -506,7 +506,7 @@ GROUP BY
 | "2014-01-01T06:01:30" |5 |
 | "2014-01-01T06:01:35" |6 |
 
-**輸出 (前 10 個資料列)**：
+**輸出 (前 10 個資料列)** ：
 
 | windowend | lastevent.t | lastevent.value |
 | --- | --- | --- |
@@ -532,7 +532,7 @@ GROUP BY
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 ```
 
-**說明**：此查詢會每隔 5 秒產生事件，並輸出先前所收到的最後一個事件。 [跳跃窗口](/stream-analytics-query/hopping-window-azure-stream-analytics)持续时间决定了查询在查找最新事件时会回溯多久（在本例中为 300 秒）。
+**說明**：此查詢會每隔 5 秒產生事件，並輸出先前所收到的最後一個事件。 [跳動視窗](/stream-analytics-query/hopping-window-azure-stream-analytics)持續時間會決定回溯到多久此查詢會尋找以找出最新的事件 （在此範例中的 300 秒）。
 
 
 ## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>查詢範例：將相同串流內的兩個事件類型相互關聯
@@ -655,7 +655,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **輸入**：  
 
-| DeviceId | Time | 屬性 | Value |
+| deviceId | Time | 屬性 | 值 |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |溫度 |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |溫度 |50 |
@@ -666,7 +666,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **輸出**：  
 
-| AverageValue | DeviceId |
+| AverageValue | deviceId |
 | --- | --- |
 | 70 | 1 |
 |45 | 2 |

@@ -16,10 +16,10 @@ ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc3aea059b6ac4244ea440d26717562e83fdbd09
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824917"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>在 Azure Active Directory 中自訂 SaaS 應用程式的使用者佈建屬性對應
@@ -45,7 +45,7 @@ Microsoft Azure AD 使用者佈建到例如 Salesforce、 G Suite 等協力廠�
 
    ![Salesforce](./media/customize-application-attributes/21.png) 
 
-1. 選取 **對應**以開啟相關的組態**屬性對應**螢幕。 若要正常運作的 SaaS 應用程式需要某些屬性對應。 若為必要的屬性，[刪除] 功能就無法使用。
+1. 選取 **對應**以開啟相關的組態**屬性對應**螢幕。 若要正常運作的 SaaS 應用程式需要某些屬性對應。 若為必要的屬性，[刪除]  功能就無法使用。
 
    ![Salesforce](./media/customize-application-attributes/22.png)
 
@@ -130,7 +130,7 @@ Microsoft Azure AD 使用者佈建到例如 Salesforce、 G Suite 等協力廠�
 * **API 運算式**-未使用，除非特定佈建連接器 （例如 Workday) 的文件的指示。
 * **參考的物件屬性**-如果它是參考型別屬性，則此功能表可讓您選取的資料表和屬性的目標應用程式，其中包含與屬性相關聯的值。 例如，如果您有名為 "Department" 的屬性，且其儲存值參考了個別 "Departments" 資料表中的物件，則您會選取 "Departments.Name"。 參考資料表和指定的應用程式支援的主要識別碼欄位都預先設定目前無法使用 Azure 入口網站中，編輯但可使用編輯[Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)。
 
-若要新增新的屬性，請捲動至支援的屬性清單結尾處，使用提供的輸入填入上方的欄位，然後選取 [新增屬性]。 新增屬性完成後，請選取 [儲存]。 接著，您需要重新載入**佈建**變成可用屬性對應編輯器中的新屬性的索引標籤。
+若要新增新的屬性，請捲動至支援的屬性清單結尾處，使用提供的輸入填入上方的欄位，然後選取 [新增屬性]  。 新增屬性完成後，請選取 [儲存]  。 接著，您需要重新載入**佈建**變成可用屬性對應編輯器中的新屬性的索引標籤。
 
 ## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>還原預設屬性和屬性對應
 

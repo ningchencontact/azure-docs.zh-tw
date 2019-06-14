@@ -8,10 +8,10 @@ ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
 ms.openlocfilehash: df8ab370e8874e07f8985ecfb3a772848a2e2b21
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806277"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>公司的工作帳戶 」 和 「 合作夥伴中心
@@ -23,7 +23,7 @@ ms.locfileid: "65806277"
 如果您的公司已訂閱 Microsoft 雲端服務，例如 Azure、 Microsoft Intune 或 Office 365，則您已經有的工作電子郵件帳戶網域 （也稱為 「 Azure Active Directory 租用戶 」），可與合作夥伴中心。
 
 請遵循下列步驟來檢查：
-1. 登入 Azure 管理入口網站在 https://portal.azure.com。
+1. 登入 Azure 管理入口網站在 https://portal.azure.com 。
 2. 選取  **Azure Active Directory**從左導覽功能表，然後選取**自訂網域名稱**。
 3. 如果您已經有工作帳戶時，會列出您的網域名稱。
 

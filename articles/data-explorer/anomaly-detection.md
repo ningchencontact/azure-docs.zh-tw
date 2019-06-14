@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.openlocfilehash: f40350129a12c7865051bcae80b74b6f9c069179
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233535"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>異常偵測和 Azure 在資料總管中預測
@@ -52,7 +52,7 @@ demo_make_series2
 
 ## <a name="time-series-anomaly-detection"></a>時間序列異常偵測
 
-此函式[ `series_decompose_anomalies()` ](/azure/kusto/query/series-decompose-anomaliesfunction)時間序列的一組上發現異常的點。 此函式會呼叫`series_decompose()`來建置此分解模型，然後執行[ `series_outliers()` ](/azure/kusto/query/series-outliersfunction)上剩餘的元件。 `series_outliers()` 計算異常分數的每個剩餘的元件使用 Tukey 圍欄測試點。 1.5 高於或低於-1.5 的異常分數指出輕度異常升高，或分別拒絕。 3.0 上方或下方為-3.0 的異常分數表示強式的異常。 
+此函式[ `series_decompose_anomalies()` ](/azure/kusto/query/series-decompose-anomaliesfunction)時間序列的一組上發現異常的點。 此函式會呼叫`series_decompose()`來建置此分解模型，然後執行[ `series_outliers()` ](/azure/kusto/query/series-outliersfunction)上剩餘的元件。 `series_outliers()` 計算異常分數的每個剩餘的元件使用 Tukey 圍欄測試點。 1\.5 高於或低於-1.5 的異常分數指出輕度異常升高，或分別拒絕。 3\.0 上方或下方為-3.0 的異常分數表示強式的異常。 
 
 下列查詢可讓您偵測異常的內部網頁服務流量：
 

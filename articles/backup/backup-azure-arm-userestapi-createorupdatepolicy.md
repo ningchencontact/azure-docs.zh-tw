@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648800"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>使用 REST API 建立 Azure 復原服務備份原則
@@ -38,7 +38,7 @@ ms.locfileid: "60648800"
 - 「每月」、「每年」備份點的保留期也稱為 "LongTermRetention"。
 - 建立保存庫時，也會建立稱為 "DefaultPolicy" 的 Azure VM 備份原則，並可用來備份 Azure VM。
 
-若要建立或更新 Azure 備份原則，請使用下列 PUT 作業
+若要建立或更新 Azure 備份原則，請使用下列 PUT  作業
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2016-12-01
@@ -53,7 +53,7 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 |名稱  |必要項  |類型  |描述  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy：[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 屬性        |
-|tags     |         | Object        |  資源標籤       |
+|标记     |         | Object        |  資源標籤       |
 
 如需要求本文中的完整定義清單，請參閱[備份原則 REST API 文件](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate)。
 
@@ -152,7 +152,7 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 > [!IMPORTANT]
 > 排程和保留期的時間格式僅支援 DateTime。 不單獨支援 Time 格式。
 
-## <a name="responses"></a>回應
+## <a name="responses"></a>Responses
 
 備份原則的建立/更新為[非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)。 這表示此作業會建立另一項需要個別追蹤的作業。
 
@@ -160,12 +160,12 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 |名稱  |類型  |描述  |
 |---------|---------|---------|
-|200 確定     |    [保護 PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
+|200 確定     |    [保護 PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  [確定]       |
 |202 已接受     |         |     已接受    |
 
 ### <a name="example-responses"></a>範例回應
 
-一旦提交 PUT 要求以供建立或更新原則，初始回應為 202 (已接受) 以及位置標頭或 Azure-async-header。
+一旦提交 PUT  要求以供建立或更新原則，初始回應為 202 (已接受) 以及位置標頭或 Azure-async-header。
 
 ```http
 HTTP/1.1 202 Accepted
@@ -185,7 +185,7 @@ Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000
 X-Powered-By: ASP.NET
 ```
 
-然後，使用位置標頭或 Azure-AsyncOperation 標頭搭配簡單的 GET 命令，追蹤所產生的作業。
+然後，使用位置標頭或 Azure-AsyncOperation 標頭搭配簡單的 GET  命令，追蹤所產生的作業。
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2016-06-01

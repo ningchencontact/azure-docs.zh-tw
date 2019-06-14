@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
 ms.openlocfilehash: ed3c5790dcb51d12a38b85aa95e9c9178b6f44cd
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65408851"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>升級和調整 Azure API 管理執行個體的規模  
@@ -61,11 +61,11 @@ ms.locfileid: "65408851"
 ![在 Azure 入口網站中調整 APIM](./media/upgrade-and-scale/portal-scale.png)
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您的 APIM 執行個體。
-2. 從功能表選取 [級別與價格]。
+2. 從功能表選取 [級別與價格]  。
 3. 挑選所需階層。
 4. 指定您想要新增的**單位**數。 您可以使用滑桿或輸入單位數。  
     如果您選擇**進階**層，則必須先選取區域。
-5. 按下 [儲存] 。
+5. 按下 [儲存]  。
 
 ## <a name="next-steps"></a>後續步驟
 

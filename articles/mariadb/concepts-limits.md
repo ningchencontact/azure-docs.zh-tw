@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: b78671cc61a4fe755b908ed9f71052cbd0a70b38
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550500"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>適用於 MariaDB 的 Azure 資料庫相關限制
@@ -19,7 +19,7 @@ ms.locfileid: "65550500"
 ## <a name="maximum-connections"></a>最大連線數
 每個定價層和 vCores 的連線數目上限如下所示：
 
-|定價層|**vCore(s)**| **連線數目上限**|
+|定價層 |**vCore(s)**| **連線數目上限**|
 |---|---|---|
 |基本| 1| 50|
 |基本| 2| 100|
@@ -29,11 +29,11 @@ ms.locfileid: "65550500"
 |一般用途| 16| 2500|
 |一般用途| 32| 5000|
 |一般用途| 64| 10000|
-|記憶體已最佳化| 2| 600|
-|記憶體已最佳化| 4| 1250|
-|記憶體已最佳化| 8| 2500|
-|記憶體已最佳化| 16| 5000|
-|記憶體已最佳化| 32| 10000|
+|記憶體最佳化| 2| 600|
+|記憶體最佳化| 4| 1250|
+|記憶體最佳化| 8| 2500|
+|記憶體最佳化| 16| 5000|
+|記憶體最佳化| 32| 10000|
 
 當連線超過限制時，則可能會收到下列錯誤：
 > 錯誤 1040 (08004)：太多連線

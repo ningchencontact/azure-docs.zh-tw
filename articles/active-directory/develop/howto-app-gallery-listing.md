@@ -19,10 +19,10 @@ ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 005e5c92a16760d8eec5dc37526f4b1f2dbd751c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540538"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>作法：在 Azure Active Directory 應用程式庫中列出您的應用程式
@@ -63,11 +63,11 @@ ms.locfileid: "65540538"
 
 新增帳戶後，您就可以登入 Microsoft 應用程式網路入口網站。
 
-如果在登入之後出現下列頁面，請在文字方塊中提供需要存取權的業務理由，然後選取 [要求存取]。
+如果在登入之後出現下列頁面，請在文字方塊中提供需要存取權的業務理由，然後選取 [要求存取]  。
 
   ![SharePoint 入口網站上的存取要求](./media/howto-app-gallery-listing/accessrequest.png)
 
-我們的小組會檢閱此詳細資料，並據以提供存取權給您。 一旦要求通過核准，就可以登入入口網站並提交要求，方法是按一下首頁中的 [提交要求 (ISV)] 圖格。
+我們的小組會檢閱此詳細資料，並據以提供存取權給您。 一旦要求通過核准，就可以登入入口網站並提交要求，方法是按一下首頁中的 [提交要求 (ISV)]  圖格。
 
 ![SharePoint 入口網站首頁](./media/howto-app-gallery-listing/homepage.png)
 
@@ -109,8 +109,8 @@ ms.locfileid: "65540538"
 
     ![在資源庫中列出 SAML 應用程式的時間表](./media/howto-app-gallery-listing/updateorremove.png)
 
-    * 如果您想要更新現有的應用程式，請選取 [更新現有的應用程式清單]。
-    * 如果您想要從 Azure AD 資源庫中移除現有的應用程式，請選取 [移除現有的應用程式清單]。
+    * 如果您想要更新現有的應用程式，請選取 [更新現有的應用程式清單]  。
+    * 如果您想要從 Azure AD 資源庫中移除現有的應用程式，請選取 [移除現有的應用程式清單]  。
     * 如果您有任何存取方面的問題，請與 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)連絡。 
 
 ## <a name="listing-requests-by-customers"></a>列出客戶的要求

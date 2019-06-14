@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 5e6548a5a04e32b374a8a9c29d2ca5f89fd65c78
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160181"
 ---
 # <a name="private-cloud-vmware-components"></a>私人雲端之 VMware 元件
@@ -28,7 +28,7 @@ ms.locfileid: "65160181"
 
 私用雲端的 VMware 堆疊會部署下列軟體版本。
 
-| 元件 | 版本 | 授權的版本 |
+| 元件 | Version | 授權的版本 |
 |-----------|---------|------------------|
 | ESXi | 6.7U1 | 企業加上 |
 | vCenter | 6.7U1 | vCenter 標準 |
@@ -37,7 +37,7 @@ ms.locfileid: "65160181"
 
 ## <a name="esxi"></a>ESXi
 
-當您建立私用雲端時，會購買 CloudSimple 節點上安裝 VMware ESXi。  ESXi 提供 hypervisor 的部署工作負載的虛擬機器 (Vm)。  節點對您的私用雲端提供超交集基礎結構 （計算和儲存體）。  節點是於私人雲端在 vSphere 叢集的一部分。  每個節點有四個實體網路介面連接到為網路。  用來建立兩個實體網路介面**vSphere 分散式切換 (VDS)** vCenter 和兩個用來建立**NSX 管理分散式的交換器 (N-VDS)**。  網路介面設定為高可用性的主動-主動模式。
+當您建立私用雲端時，會購買 CloudSimple 節點上安裝 VMware ESXi。  ESXi 提供 hypervisor 的部署工作負載的虛擬機器 (Vm)。  節點對您的私用雲端提供超交集基礎結構 （計算和儲存體）。  節點是於私人雲端在 vSphere 叢集的一部分。  每個節點有四個實體網路介面連接到為網路。  用來建立兩個實體網路介面**vSphere 分散式切換 (VDS)** vCenter 和兩個用來建立**NSX 管理分散式的交換器 (N-VDS)** 。  網路介面設定為高可用性的主動-主動模式。
 
 深入了解 VMware ESXi
 
@@ -47,7 +47,7 @@ vCenter server 應用裝置 (VCSA) 提供驗證、 管理和協調流程函式�
 
 ### <a name="vcenter-single-sign-on"></a>vCenter 單一登入
 
-內嵌的平台服務控制站上 VCSA 相關聯**單一登入網域 vCenter**。  網域名稱**cloudsimple.local**。  預設使用者**CloudOwner@cloudsimple.com**為您建立可存取 vCenter。  您可以加入您在內部部署/Azure active directory [vCenter 的身分識別來源](https://docs.azure.cloudsimple.com/set-vcenter-identity/)。
+內嵌的平台服務控制站上 VCSA 相關聯**單一登入網域 vCenter**。  網域名稱**cloudsimple.local**。  預設使用者 **CloudOwner@cloudsimple.com** 為您建立可存取 vCenter。  您可以加入您在內部部署/Azure active directory [vCenter 的身分識別來源](https://docs.azure.cloudsimple.com/set-vcenter-identity/)。
 
 ## <a name="vsan-storage"></a>vSAN 的儲存體
 

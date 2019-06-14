@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 4532e0c6e8095c9d64897410e0492e2135d8a478
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630063"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>測試 Azure Data Lake Analytics 程式碼
@@ -29,7 +29,7 @@ U-SQL 指令碼已經過編譯和最佳化，成為可在雲端上的電腦或�
 
 Azure Data Lake Tools for Visual Studio 可讓您建立 U-SQL 指令碼測試案例。
 
-1.  在 [方案總管] 中以滑鼠右鍵按一下 U-SQL 指令碼，然後選取 [建立單元測試]。
+1.  在 [方案總管] 中以滑鼠右鍵按一下 U-SQL 指令碼，然後選取 [建立單元測試]  。
 2.  建立新的測試專案，或將測試案例插入現有的測試專案中。
 
     ![Data Lake Tools for Visual Studio -- 建立 U-SQL 測試專案](./media/data-lake-analytics-cicd-test/data-lake-tools-create-usql-test-project.png) 
@@ -38,7 +38,7 @@ Azure Data Lake Tools for Visual Studio 可讓您建立 U-SQL 指令碼測試案
 
 ### <a name="manage-the-test-data-source"></a>管理測試資料來源
 
-測試 U-SQL 指令碼時，您需要測試輸入檔案。 您可以在 U-SQL 專案屬性中設定 [測試資料來源]，藉以管理測試資料。 
+測試 U-SQL 指令碼時，您需要測試輸入檔案。 您可以在 U-SQL 專案屬性中設定 [測試資料來源]  ，藉以管理測試資料。 
 
 當您呼叫 U-SQL 測試 SDK 中的 `Initialize()` 介面時，系統會在測試專案的工作目錄下建立暫存本機資料根資料夾，並且會在執行 U-SQL 指令碼測試案例之前，將測試資料來源資料夾內的所有檔案和子資料夾 (連同子資料夾下的檔案) 複製到暫存本機資料的根資料夾。 您可以利用分號分隔測試資料資料夾路徑，以新增其他測試資料來源資料夾。
 
@@ -56,7 +56,7 @@ Azure Data Lake Tools for Visual Studio 可讓您建立 U-SQL 指令碼測試案
 
 ### <a name="run-test-cases-in-visual-studio"></a>在 Visual Studio 中執行測試案例
 
-U-SQL 指令碼測試專案建置於 C# 單元測試架構之上。 建置專案後，您可以透過 [測試總管] > [播放清單] 執行所有測試案例。 或者，以滑鼠右鍵按一下 .cs 檔案，然後選取 [執行測試]。
+U-SQL 指令碼測試專案建置於 C# 單元測試架構之上。 建置專案後，您可以透過 [測試總管] > [播放清單]  執行所有測試案例。 或者，以滑鼠右鍵按一下 .cs 檔案，然後選取 [執行測試]  。
 
 ## <a name="test-c-udos"></a>測試 C# UDO
 
@@ -105,11 +105,11 @@ U-SQL 指令碼測試專案建置於 C# 單元測試架構之上。 建置專案
 
 ### <a name="verify-test-results"></a>驗證測試結果
 
-呼叫 UDO 函式後，您可以使用 C# 判斷提示函式，透過結構描述和資料列集值驗證來檢驗結果。 您可以在 Visual Studio 中透過 [檔案] > [新增] > [專案]，使用 U-SQL C# UDO 單元測試範例專案中的範例程式碼。
+呼叫 UDO 函式後，您可以使用 C# 判斷提示函式，透過結構描述和資料列集值驗證來檢驗結果。 您可以在 Visual Studio 中透過 [檔案] > [新增] > [專案]  ，使用 U-SQL C# UDO 單元測試範例專案中的範例程式碼。
 
 ### <a name="run-test-cases-in-visual-studio"></a>在 Visual Studio 中執行測試案例
 
-建置測試專案後，您可以在 [測試總管] > [播放清單] 執行所有測試案例，或以滑鼠右鍵按一下 .cs 檔案，然後選擇 [執行測試]。
+建置測試專案後，您可以在 [測試總管] > [播放清單]  執行所有測試案例，或以滑鼠右鍵按一下 .cs 檔案，然後選擇 [執行測試]  。
 
 ## <a name="run-test-cases-in-azure-devops"></a>在 Azure DevOps 中執行測試案例
 

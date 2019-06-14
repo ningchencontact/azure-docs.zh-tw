@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: hrasheed
 ms.openlocfilehash: fcb9171d2285efab0f65e6ab424908bc42c0ea2f
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66391882"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 Azure HDInsight 中的 Apache Hadoop
@@ -50,7 +50,7 @@ Microsoft 的巨量資料解決方案會將 Microsoft 商業智慧 (BI) 元件�
    | 屬性 | 描述 |
    | --- | --- |
    |  資料來源名稱 |為資料來源指定名稱 |
-   |  主機 |輸入 `HDInsightClusterName.azurehdinsight.net` 。 例如： `myHDICluster.azurehdinsight.net`  |
+   |  主機 |輸入 `HDInsightClusterName.azurehdinsight.net` 。 例如： `myHDICluster.azurehdinsight.net` |
    |  Port |使用 **443** (此連接埠已從 563 變更為 443)。 |
    |  資料庫 |使用**預設值**。 |
    |  機制 |選取**Windows Azure HDInsight 服務** |

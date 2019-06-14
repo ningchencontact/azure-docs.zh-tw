@@ -7,28 +7,28 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 65e94a271fc8fc72ac74d51af3cf7b717f8410b0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f3c1331e2b005b136a015c537d0fc18406ca9d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072063"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中手動建立和使用 Azure 檔案共用的磁碟區
 
 容器型應用程式常常需要存取和保存外部資料磁碟區中的資料。 如果有多個 Pod 需要並行存取相同的儲存體磁碟區，您可以透過[伺服器訊息區 (SMB) 通訊協定][smb-overview]來使用 Azure 檔案服務進行連線。 本文會示範如何手動建立 Azure 檔案共用，並將其連結到 AKS 中的 Pod。
 
-有关 Kubernetes 卷的详细信息，请参阅 [AKS 中应用程序的存储选项][concepts-storage]。
+如需有關 Kubernetes 磁碟區的詳細資訊，請參閱 < [AKS 中的應用程式的儲存體選項][concepts-storage]。
 
 ## <a name="before-you-begin"></a>開始之前
 
 此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
 
-还需安装并配置 Azure CLI 2.0.59 或更高版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
+您也需要 Azure CLI 2.0.59 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="create-an-azure-file-share"></a>建立 Azure 檔案共用
 
-在使用 Azure 檔案服務作為 Kubernetes 磁碟區之前，您必須建立 Azure 儲存體帳戶與檔案共用。 以下命令创建一个名为 *myAKSShare* 的资源组、一个存储帐户和一个名为 *aksshare* 的文件共享：
+在使用 Azure 檔案服務作為 Kubernetes 磁碟區之前，您必須建立 Azure 儲存體帳戶與檔案共用。 下列命令會建立名為的資源群組*myAKSShare*，儲存體帳戶和名為的檔案共用*aksshare*:
 
 ```azurecli-interactive
 # Change these four parameters as needed for your own environment
@@ -63,7 +63,7 @@ echo Storage account key: $STORAGE_KEY
 
 Kubernetes 必須要有認證才能存取前面步驟中建立的檔案共用。 這些認證會儲存在 [Kubernetes 祕密][kubernetes-secret]，並在建立 Kubernetes Pod 時加以參考。
 
-使用 `kubectl create secret` 命令建立秘密。 下列範例會建立名為 azure-secret 的共用，並填入前面步驟中的 azurestorageaccountname 和 azurestorageaccountkey。 若要使用現有的 Azure 儲存體帳戶，請提供帳戶名稱和金鑰。
+使用 `kubectl create secret` 命令建立秘密。 下列範例會建立名為 azure-secret  的共用，並填入前面步驟中的 azurestorageaccountname  和 azurestorageaccountkey  。 若要使用現有的 Azure 儲存體帳戶，請提供帳戶名稱和金鑰。
 
 ```console
 kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY
@@ -71,7 +71,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-the-file-share-as-a-volume"></a>將檔案共用掛接為磁碟區
 
-若要將 Azure 檔案共用掛接至您的 Pod，請在容器規格中設定磁碟區。建立一個名為 `azure-files-pod.yaml` 且含有下列內容的新檔案。 如果您變更了檔案共用或祕密的名稱，請更新 shareName 和 secretName。 若有需要，請更新 `mountPath`，這是 Pod 中檔案共用掛接所在的路徑。
+若要將 Azure 檔案共用掛接至您的 Pod，請在容器規格中設定磁碟區。建立一個名為 `azure-files-pod.yaml` 且含有下列內容的新檔案。 如果您變更了檔案共用或祕密的名稱，請更新 shareName  和 secretName  。 若有需要，請更新 `mountPath`，這是 Pod 中檔案共用掛接所在的路徑。 適用於 Windows Server 容器 （目前處於預覽 AKS 中） 指定*mountPath*使用 Windows 路徑慣例，例如 *'d ':* 。
 
 ```yaml
 apiVersion: v1
@@ -106,7 +106,7 @@ spec:
 kubectl apply -f azure-files-pod.yaml
 ```
 
-您現在已有一個 Azure 檔案共用掛接在 /mnt/azure 的執行中 Pod。 您可以使用 `kubectl describe pod mypod` 來驗證是否已成功掛接共用。 下列扼要範例輸出顯示容器中掛接的磁碟區：
+您現在已有一個 Azure 檔案共用掛接在 /mnt/azure  的執行中 Pod。 您可以使用 `kubectl describe pod mypod` 來驗證是否已成功掛接共用。 下列扼要範例輸出顯示容器中掛接的磁碟區：
 
 ```
 Containers:
@@ -135,7 +135,7 @@ Volumes:
 
 ## <a name="mount-options"></a>掛接選項
 
-Kubernetes 版本之間的預設 fileMode 和 dirMode 值不同，如下表中所述。
+Kubernetes 版本之間的預設 fileMode  和 dirMode  值不同，如下表中所述。
 
 | version | value |
 | ---- | ---- |
@@ -145,7 +145,7 @@ Kubernetes 版本之間的預設 fileMode 和 dirMode 值不同，如下表中�
 | v1.9.0 | 0700 |
 | v1.9.1 或以上版本 | 0755 |
 
-如果使用 1.8.5 版或更新版本的叢集，並以靜態方式建立永續性磁碟區物件，則必須在 PersistentVolume 物件上指定裝載選項。
+如果使用 1.8.5 版或更新版本的叢集，並以靜態方式建立永續性磁碟區物件，則必須在 PersistentVolume  物件上指定裝載選項。
 
 ```yaml
 apiVersion: v1
@@ -168,11 +168,11 @@ spec:
   - gid=1000
 ```
 
-如果您是使用 1.8.0-1.8.4 版的叢集，可將 runAsUser 值設定為 0 來指定資訊安全內容。 如需關於 Pod 資訊安全內容的詳細資訊，請參閱[設定資訊安全內容][kubernetes-security-context]。
+如果您是使用 1.8.0-1.8.4 版的叢集，可將 runAsUser  值設定為 0  來指定資訊安全內容。 如需關於 Pod 資訊安全內容的詳細資訊，請參閱[設定資訊安全內容][kubernetes-security-context]。
 
 ## <a name="next-steps"></a>後續步驟
 
-如需相关的最佳做法，请参阅[在 AKS 中存储和备份的最佳做法][operator-best-practices-storage]。
+如需相關聯的最佳作法，請參閱[儲存體和 AKS 中的備份的最佳做法][operator-best-practices-storage]。
 
 如需有關 AKS 叢集與 Azure 檔案服務互動的詳細資訊，請參閱[適用於 Azure 檔案服務的 Kubernetes 外掛程式][kubernetes-files]。
 

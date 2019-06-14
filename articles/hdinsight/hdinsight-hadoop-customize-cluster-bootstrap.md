@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.openlocfilehash: 7f9100686eaab8c4c75e3d862026b18b6c46ed09
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65203713"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>使用 Bootstrap 自訂 HDInsight 叢集
@@ -87,15 +87,15 @@ New-AzHDInsightCluster `
 **若要確認變更：**
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 從左功能表中按一下 [HDInsight 叢集]。 如果沒有看到，按一下 [所有服務]。
+2. 從左功能表中按一下 [HDInsight 叢集]  。 如果沒有看到，按一下 [所有服務]  。
 3. 按一下您剛才使用 PowerShell 指令碼建立的叢集。
 4. 在刀鋒視窗頂端按一下 [儀表板]  ，以開啟 Ambari UI。
 5. 按一下左側功能表中的 [Hive]  。
-6. 按一下 [Summary (摘要)] 中的 [HiveServer2]。
+6. 按一下 [Summary (摘要)]  中的 [HiveServer2]  。
 7. 按一下 [Configs (設定)]  索引標籤。
-8. 在左侧菜单中，单击“Hive”。
+8. 按一下左側功能表中的 [Hive]  。
 9. 按一下 [Advanced (進階)]  索引標籤。
-10. 向下捲動，然後展開 [Advanced hive-site (進階 Hive 網站)] 。
+10. 向下捲動，然後展開 [Advanced hive-site (進階 Hive 網站)]  。
 11. 在此區段中尋找 **hive.metastore.client.socket.timeout** 。
 
 以下是更多自訂其他組態檔的範例：

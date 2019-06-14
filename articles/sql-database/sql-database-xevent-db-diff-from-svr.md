@@ -13,19 +13,19 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 7f742b094575b78f453fb735b23cc5319a27fa7e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65206643"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL Database 中的擴充事件
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-本主题说明 Azure SQL 数据库中的扩展事件与 Microsoft SQL server 中的扩展事件在实现方式上的细微差别。
+本主題說明與 Microsoft SQL server 中的擴充事件相比，Azure SQL Database 中的擴充事件實作有何些微不同。
 
 - SQL Database V12 在 2015 年行事曆下半年度獲得擴充事件功能。
-- SQL Server 自 2008 年即已推出扩展事件。
+- SQL Server 自 2008 開始即具有擴充事件。
 - SQL Database 上的擴充事件功能集是強大的 SQL Server 功能子集。
 
 *XEvents* 是非正式暱稱，有時在部落格或其他非正式位置用於「擴充事件」。
@@ -62,7 +62,7 @@ ms.locfileid: "65206643"
     - 我們在程式碼範例主題中強調，當您完成「信號緩衝區」目標的相關作業時，應該執行 alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` 陳述式來釋出其資源。 稍後您可以藉由 `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`，加入信號緩衝區的另一個執行個體。
 
 
-- [SQL 数据库中扩展事件的事件文件目标代码](sql-database-xevent-code-event-file.md)
+- [SQL Database 中擴充事件的事件檔案目標程式碼](sql-database-xevent-code-event-file.md)
     - 階段 1 是 PowerShell，建立 Azure 儲存體容器。
     - 階段 2 是 Transact-SQL，使用 Azure 儲存體容器。
 
@@ -82,23 +82,23 @@ ms.locfileid: "65206643"
 
 擴充事件功能受到多個 [目錄檢視](https://msdn.microsoft.com/library/ms174365.aspx)支援。 目錄檢視會告訴您目前資料庫中使用者建立事件工作階段的 *中繼資料或定義* 的相關資訊。 檢視不會傳回作用中事件工作階段的執行個體的相關資訊。
 
-| 名稱<br/>目錄檢視的名稱 | 說明 |
+| 名稱<br/>目錄檢視的名稱 | 描述 |
 |:--- |:--- |
-| **sys.database_event_session_actions** |返回针对事件会话的每个事件执行的每个操作所对应的行。 |
+| **sys.database_event_session_actions** |針對事件工作階段的每個事件上的每個動作傳回資料列。 |
 | **sys.database_event_session_events** |針對事件工作階段中的每個事件傳回資料列。 |
-| **sys.database_event_session_fields** |返回针对事件和目标上显式设置的每个可自定义列所对应的行。 |
+| **sys.database_event_session_fields** |針對已在事件和目標上明確設定的每個可自訂資料行傳回資料列。 |
 | **sys.database_event_session_targets** |針對事件工作階段的每個事件目標傳回資料列。 |
 | **sys.database_event_sessions** |針對 SQL Database 資料庫中的每個事件工作階段傳回資料列。 |
 
-在 Microsoft SQL Server 中，類似的目錄檢視具有包含 .server_\_ 而不是 .database\_ 的名稱。 名稱模式類似 **sys.server_event_%**。
+在 Microsoft SQL Server 中，類似的目錄檢視具有包含 .server_\_  而不是 .database\_  的名稱。 名稱模式類似 **sys.server_event_%** 。
 
 ## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>新的動態管理檢視 [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
 
 Azure SQL Database 具有支援擴充事件的 [動態管理檢視 (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) 。 DMV 會告訴您 *作用中* 事件工作階段的相關資訊。
 
-| DMV 的名稱 | 說明 |
+| DMV 的名稱 | 描述 |
 |:--- |:--- |
-| **sys.dm_xe_database_session_event_actions** |返回有关事件会话操作的信息。 |
+| **sys.dm_xe_database_session_event_actions** |會傳回事件工作階段動作的相關資訊。 |
 | **sys.dm_xe_database_session_events** |會傳回工作階段事件的相關資訊。 |
 | **sys.dm_xe_database_session_object_columns** |顯示繫結至工作階段的物件的組態值。 |
 | **sys.dm_xe_database_session_targets** |會傳回工作階段目標的相關資訊。 |
@@ -108,8 +108,8 @@ Azure SQL Database 具有支援擴充事件的 [動態管理檢視 (DMV)](https:
 
 - **sys.dm_xe_sessions**，而不是<br/>**sys.dm_xe_database_sessions** 名稱。
 
-### <a name="dmvs-common-to-both"></a>两者通用的 DMV
-对于扩展的事件，有通用于 Azure SQL 数据库和 Microsoft SQL Server 的其他 DMV：
+### <a name="dmvs-common-to-both"></a>兩者通用的 DMV
+對於擴充事件，有通用於 Azure SQL Database 和 Microsoft SQL Server 的其他 DMV：
 
 - **sys.dm_xe_map_values**
 - **sys.dm_xe_object_columns**
@@ -118,7 +118,7 @@ Azure SQL Database 具有支援擴充事件的 [動態管理檢視 (DMV)](https:
 
   <a name="sqlfindseventsactionstargets" id="sqlfindseventsactionstargets"></a>
 
-## <a name="find-the-available-extended-events-actions-and-targets"></a>查找可用的扩展事件、操作和目标
+## <a name="find-the-available-extended-events-actions-and-targets"></a>尋找可用擴充事件、動作和目標
 
 您可以執行簡單 SQL **SELECT** 以取得可用事件、動作和目標的清單。
 
@@ -171,7 +171,7 @@ SELECT
 您針對 Azure 儲存體容器產生的 SAS 權杖必須指定權限的 **rwl** 。 **rwl** 值會提供下列權限：
 
 - 閱讀
-- 写入
+- 撰寫
 - 列出
 
 ## <a name="performance-considerations"></a>效能考量
@@ -193,7 +193,7 @@ SELECT
 
 - [搭配 Azure 儲存體使用 Azure PowerShell](../storage/common/storage-powershell-guide-full.md)
 - [Azure 儲存體 Cmdlet](https://docs.microsoft.com/powershell/module/Azure.Storage)
-- [对 Azure 存储使用 Azure PowerShell](../storage/common/storage-powershell-guide-full.md) - 提供有关 PowerShell 和 Azure 存储服务的综合信息。
+- [搭配 Azure 儲存體使用 Azure PowerShell](../storage/common/storage-powershell-guide-full.md) - 提供 PowerShell 和 Azure 儲存體服務的完整資訊。
 - [如何使用 .NET 的 Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)

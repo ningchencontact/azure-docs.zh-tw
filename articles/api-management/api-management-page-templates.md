@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: apimpm
 ms.openlocfilehash: 1fbafcdab938a0f8653df48631d7733cc58a3668
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60656771"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Azure API 管理中的頁面範本
@@ -26,9 +26,9 @@ ms.locfileid: "60656771"
   
  本節中的範本可讓您自訂開發人員入口網站中下列頁面的內容：登入、註冊及找不到頁面。  
   
--   [登录](#SignIn)  
+-   [登入](#SignIn)  
   
--   [注册](#SignUp)  
+-   [註冊](#SignUp)  
   
 -   [找不到頁面](#PageNotFound)  
   
@@ -38,7 +38,7 @@ ms.locfileid: "60656771"
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="SignIn"></a> 登入  
- 「登入」範本可讓您自訂開發人員入口網站中的登入頁面。  
+ 「登入」  範本可讓您自訂開發人員入口網站中的登入頁面。  
   
  ![登入頁面](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "APIM 登入頁面開發人員入口網站範本")  
   
@@ -137,7 +137,7 @@ ms.locfileid: "60656771"
 ```  
   
 ##  <a name="SignUp"></a> 註冊  
- 「註冊」範本可讓您自訂開發人員入口網站中的註冊頁面。  
+ 「註冊」  範本可讓您自訂開發人員入口網站中的註冊頁面。  
   
  ![註冊頁面](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "APIM 註冊頁面開發人員入口網站範本")  
   
@@ -185,7 +185,7 @@ ms.locfileid: "60656771"
 ```  
   
 ##  <a name="PageNotFound"></a> 找不到頁面  
- 「找不到頁面」範本可讓您自訂開發人員入口網站中的「找不到頁面」頁面。  
+ 「找不到頁面」  範本可讓您自訂開發人員入口網站中的「找不到頁面」頁面。  
   
  ![找不到頁面](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM 找不到頁面開發人員入口網站範本")  
   
@@ -228,11 +228,11 @@ ms.locfileid: "60656771"
   
 |屬性|類型|描述|  
 |--------------|----------|-----------------|  
-|referenceCode|string|因發生內部錯誤而顯示此頁面時所產生的代碼。|  
-|errorCode|string|因發生內部錯誤而顯示此頁面時所產生的代碼。|  
-|emailBody|string|因發生內部錯誤而顯示此頁面時所產生的電子郵件本文。|  
-|requestedUrl|string|找不到頁面時所要求的 URL。|  
-|referrerUrl|string|所要求 URL 的查閱者 URL。|  
+|referenceCode|字串|因發生內部錯誤而顯示此頁面時所產生的代碼。|  
+|errorCode|字串|因發生內部錯誤而顯示此頁面時所產生的代碼。|  
+|emailBody|字串|因發生內部錯誤而顯示此頁面時所產生的電子郵件本文。|  
+|requestedUrl|字串|找不到頁面時所要求的 URL。|  
+|referrerUrl|字串|所要求 URL 的查閱者 URL。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
   

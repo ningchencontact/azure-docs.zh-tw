@@ -14,10 +14,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1aa99e7e71ad78a62c1a9da303b2ecc8347ebeb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783856"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory 應用程式 Proxy 與 Tableau 
@@ -52,9 +52,9 @@ Azure Active Directory 應用程式 Proxy 和 Tableau 已互相合作，可確�
 
 1. 登入[Azure 入口網站](https://portal.azure.com)身為應用程式系統管理員。 
 
-2. 選取 [Azure Active Directory] > [企業應用程式]。 
+2. 選取 [Azure Active Directory] > [企業應用程式]  。 
 
-3. 在刀鋒視窗頂端選取 [新增]。 
+3. 在刀鋒視窗頂端選取 [新增]  。 
 
 4. 選取**內部部署應用程式**。 
 
@@ -64,13 +64,13 @@ Azure Active Directory 應用程式 Proxy 和 Tableau 已互相合作，可確�
 
     - **預先驗證方法**：Azure Active Directory (建議使用但非必要)。 
 
-6. 在刀鋒視窗頂端選取 [新增]。 已新增您的應用程式，快速入門功能表隨即開啟。 
+6. 在刀鋒視窗頂端選取 [新增]  。 已新增您的應用程式，快速入門功能表隨即開啟。 
 
-7. 在 [快速啟動] 功能表中，選取 [指派測試使用者]，並將至少一個使用者新增至應用程式。 請確定此測試帳戶可存取內部部署應用程式。 
+7. 在 [快速啟動] 功能表中，選取 [指派測試使用者]  ，並將至少一個使用者新增至應用程式。 請確定此測試帳戶可存取內部部署應用程式。 
 
 8. 選取**指派**以儲存測試使用者指派。 
 
-9. (選擇性) 在應用程式管理頁面上，選取 [單一登入]。 在下拉式功能表中選擇 [整合式 Windows 驗證]，然後根據您的 Tableau 設定填妥必要欄位。 選取 [ **儲存**]。 
+9. (選擇性) 在應用程式管理頁面上，選取 [單一登入]  。 在下拉式功能表中選擇 [整合式 Windows 驗證]  ，然後根據您的 Tableau 設定填妥必要欄位。 選取 [ **儲存**]。 
 
  
 

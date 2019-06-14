@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
 ms.openlocfilehash: 28720098206c7afdefacbd47de283b2ef8d5a606
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66243232"
 ---
 # <a name="api-management-transformation-policies"></a>API 管理轉換原則
@@ -70,13 +70,13 @@ ms.locfileid: "66243232"
 
 ### <a name="elements"></a>元素
 
-|名稱|描述|必要項|
+|Name|描述|必要項|
 |----------|-----------------|--------------|
 |json-to-xml|根元素。|是|
 
 ### <a name="attributes"></a>屬性
 
-|名稱|描述|必要項|預設值|
+|Name|描述|必要項|預設值|
 |----------|-----------------|--------------|-------------|
 |apply|此屬性必須設為下列其中一個值。<br /><br /> -   always - 一律套用轉換。<br />-   content-type-json - 只有當回應中的 Content-type 標頭指出 JSON 存在時才轉換。|是|N/A|
 |consider-accept-header|此屬性必須設為下列其中一個值。<br /><br /> -   true - 如果在要求的 Accept 標頭中要求 JSON，才套用轉換。<br />-   false - 一律套用轉換。|否|true|
@@ -156,7 +156,7 @@ ms.locfileid: "66243232"
 
 ### <a name="attributes"></a>屬性
 
-|名稱|描述|必要項|預設值|
+|Name|描述|必要項|預設值|
 |----------|-----------------|--------------|-------------|
 |from|要搜尋的字串。|是|N/A|
 |to|取代字串。 指定零長度的取代字串可移除搜尋字串。|是|N/A|
@@ -188,7 +188,7 @@ ms.locfileid: "66243232"
 
 ### <a name="elements"></a>元素
 
-|名稱|描述|必要項|
+|Name|描述|必要項|
 |----------|-----------------|--------------|
 |redirect-content-urls|根元素。|是|
 
@@ -261,7 +261,7 @@ ms.locfileid: "66243232"
 
 ### <a name="elements"></a>元素
 
-|名稱|描述|必要項|
+|Name|描述|必要項|
 |----------|-----------------|--------------|
 |set-backend-service|根元素。|是|
 
@@ -403,7 +403,7 @@ ms.locfileid: "66243232"
 
 ### <a name="properties"></a>properties
 
-|名稱|描述|必要項|預設值|
+|Name|描述|必要項|預設值|
 |----------|-----------------|--------------|-------------|
 |template|用來變更設定本文原則將在其中執行的範本化模式。 目前唯一支援的值為：<br /><br />- liquid - 設定本文原則將會使用 Liquid 範本化引擎 |否||
 
@@ -514,7 +514,7 @@ OriginalUrl.
 |名稱|描述|必要項|預設值|
 |----------|-----------------|--------------|-------------|
 |exists-action|指定當已指定標頭時要採取的動作。 此屬性必須具有下列其中一個值。<br /><br /> -   override - 取代現有標頭的值。<br />-   skip - 不取代現有的標頭值。<br />-   append - 將值附加至現有標頭值之後。<br />-   delete - 移除要求中的標頭。<br /><br /> 設為 `override` 時，編列多個相同名稱的項目會導致根據所有項目來設定標頭 (列出多次)；只有列出的值才會設定在結果中。|否|override|
-|NAME|指定要設定之標頭的名稱。|是|N/A|
+|name|指定要設定之標頭的名稱。|是|N/A|
 
 ### <a name="usage"></a>使用量
  此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
@@ -564,17 +564,17 @@ OriginalUrl.
 
 ### <a name="elements"></a>元素
 
-|名稱|描述|必要項|
+|Name|描述|必要項|
 |----------|-----------------|--------------|
 |set-query-parameter|根元素。|是|
 |value|指定要設定之查詢參數的值。 若多個查詢參數有相同名稱，請額外加入 `value` 元素。|是|
 
 ### <a name="properties"></a>properties
 
-|名稱|描述|必要項|預設值|
+|Name|描述|必要項|預設值|
 |----------|-----------------|--------------|-------------|
 |exists-action|指定當已指定查詢參數時要採取的動作。 此屬性必須具有下列其中一個值。<br /><br /> -   override - 取代現有參數的值。<br />-   skip - 不取代現有的查詢參數值。<br />-   append - 將值附加至現有查詢參數值之後。<br />-   delete - 移除要求中的查詢參數。<br /><br /> 設為 `override` 時，編列多個相同名稱的項目會導致根據所有項目來設定查詢參數 (列出多次)；只有列出的值才會設定在結果中。|否|override|
-|NAME|指定要設定之查詢參數的名稱。|是|N/A|
+|name|指定要設定之查詢參數的名稱。|是|N/A|
 
 ### <a name="usage"></a>使用量
  此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
@@ -712,7 +712,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>元素
 
-|名稱|描述|必要項|
+|Name|描述|必要項|
 |----------|-----------------|--------------|
 |xsl-transform|根元素。|是|
 |參數|用於定義轉換中使用的變數|否|

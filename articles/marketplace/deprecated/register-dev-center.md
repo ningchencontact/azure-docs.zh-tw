@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 6ba008ffdf0fe00d6720b0968dc42bfcfc651c9c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258965"
 ---
 # <a name="register-in-dev-center"></a>在開發人員中心註冊  
@@ -163,7 +163,7 @@ ms.locfileid: "66258965"
   > 請尋找來自 verify@microsoft.com、主旨行為「需要動作：請向 Microsoft 確認您的電子郵件帳戶」的電子郵件。 按一下具時效性的驗證連結，以完成註冊。 *如果您未在 24 小時內收到電子郵件，請查看垃圾郵件資料夾。*
 
 * **開發人員中心驗證之後的後續步驟為何？**
-  > 請移至 [您的程式] (https://developer.microsoft.com/dashboard/Account/Programs))，並登入開發人員中心帳戶。 如果您沒有看到 Azure 作為註冊的應用程式，請查看「為您建議的程式」底下，然後尋找，然後尋找 Azure 以選取 [開始使用]。
+  > 請移至 [您的程式] (https://developer.microsoft.com/dashboard/Account/Programs) )，並登入開發人員中心帳戶。 如果您沒有看到 Azure 作為註冊的應用程式，請查看「為您建議的程式」底下，然後尋找，然後尋找 Azure 以選取 [開始使用]。
 
 * **如何將我的開發人員中心帳戶連結到我的 Cloud Partner 入口網站發行者設定檔？**
   > 發嫌之前的最後一個步驟，勢將您的開發人員中心帳戶連結到您的 Cloud Partner 入口網站[設定檔](https://cloudpartner.azure.com/#profile)。 如果您的開發人員中心帳戶與您在 [Cloud Partner 入口網站](https://cloudpartner.azure.com/#alloffers)的帳戶不同，請在 Cloud Partner 入口網站中將您的開發人員中心帳戶新增為新的[使用者](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users)。 使用您的開發人員中心帳戶登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/#alloffers)。 在 Web 瀏覽器右上方的功能表，選取 [發行者設定檔]。 選取 [連結開發人員中心帳戶]。

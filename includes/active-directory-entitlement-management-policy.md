@@ -9,13 +9,13 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.custom: include file
 ms.openlocfilehash: 6711506c1e489dcbd50aedd36241affc3bbed80b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113396"
 ---
-### <a name="policy-for-users-in-your-directory"></a>原則:您的目錄中的使用者
+### <a name="policy-for-users-in-your-directory"></a>原則：您的目錄中的使用者
 
 如果您想要您的原則適用於使用者和群組，您可以要求此存取套件的目錄中，請遵循下列步驟。
 
@@ -31,7 +31,7 @@ ms.locfileid: "66113396"
 
 1. 往下跳到[原則：要求](#policy-request)一節。
 
-### <a name="policy-for-users-not-in-your-directory"></a>原則:不在您的目錄中的使用者
+### <a name="policy-for-users-not-in-your-directory"></a>原則：不在您的目錄中的使用者
 
 如果您想要針對不在您可以要求此存取套件的目錄中的使用者原則，請遵循下列步驟。 目錄必須設定為允許**組織關係共同作業限制**設定。
 
@@ -59,7 +59,7 @@ ms.locfileid: "66113396"
 
 1. 往下跳到[原則：要求](#policy-request)一節。
 
-### <a name="policy-none-administrator-direct-assignments-only"></a>原則:無 （系統管理員直接指派只）
+### <a name="policy-none-administrator-direct-assignments-only"></a>原則：無 （系統管理員直接指派只）
 
 如果您想要您略過存取要求，並允許將特定使用者直接指派給存取套件的系統管理員的原則，請遵循下列步驟。 使用者不需要要求存取套件。 您仍然可以設定到期日設定，但沒有要求的設定。
 
@@ -69,7 +69,7 @@ ms.locfileid: "66113396"
 
 1. 往下跳到[原則：到期](#policy-expiration)一節。
 
-### <a name="policy-request"></a>原則:要求
+### <a name="policy-request"></a>原則：要求
 
 在 [要求] 區段中，您會指定核准設定，當使用者要求存取套件。
 
@@ -95,7 +95,7 @@ ms.locfileid: "66113396"
 
 1. 在 **核准要求逾時 （天）** 方塊中，指定的核准者檢閱要求時所需要的時間量。 如果任何核准者不檢閱其在此天數，要求到期，而且使用者必須提交存取套件的另一個要求。
 
-### <a name="policy-expiration"></a>原則:到期
+### <a name="policy-expiration"></a>原則：到期
 
 在 [到期] 區段中，您可以指定使用者的指派，以存取套件的到期時。
 
@@ -115,7 +115,7 @@ ms.locfileid: "66113396"
 
     ![存取封裝-原則到期設定](./media/active-directory-entitlement-management-policy/policy-expiration.png)
 
-### <a name="policy-enable-policy"></a>原則:啟用原則
+### <a name="policy-enable-policy"></a>原則：啟用原則
 
 1. 如果您想要存取封裝會立即提供給使用者的原則中，按一下**是**可啟用此原則。
 

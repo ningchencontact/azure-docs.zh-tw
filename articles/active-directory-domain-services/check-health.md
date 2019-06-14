@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: mstephen
 ms.openlocfilehash: c3ff0b7daeaef077ea0d83782aeac6cda56fc659
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246475"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>檢查 Azure AD Domain Services 受控網域的健康情況
@@ -52,7 +52,7 @@ ms.locfileid: "66246475"
 監視器係指 Azure AD Domain Services 定期監視的受控網域層面。 讓您監視器保持在健全狀態的最佳方法，就是解決受控網域的所有作用中警示。
 
 Azure AD Domain Services 目前會監視下列項目：
- - Backup 
+ - Backup
  - 與 Azure AD 的同步處理
 
 ### <a name="the-backup-monitor"></a>「備份」監視器

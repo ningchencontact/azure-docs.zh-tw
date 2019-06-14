@@ -9,10 +9,10 @@ ms.date: 05/23/2019
 ms.author: evansma
 ROBOTS: NOINDEX
 ms.openlocfilehash: 78162983601e9126bd34cb737e74783df982bacb
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258935"
 ---
 # <a name="saas-fulfillment-apis-version-1-deprecated"></a>SaaS 履行 Api 版本 1 （已過時）
@@ -67,7 +67,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 | x-ms-requestid     | 否           | 用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。  |
 | x-ms-correlationid | 否           | 用於用戶端作業的特殊字串值。 此欄位將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，則回應標頭中會產生並提供一個。 |
 | Content-Type       | 是          | `application/json`                                        |
-| 授權      | 是          | JSON Web 權杖 (JWT) 持有人權杖。                    |
+| authorization      | 是          | JSON Web 權杖 (JWT) 持有人權杖。                    |
 | x-ms-marketplace-token| 是| 使用者從 Azure 重新導向至 SaaS ISV 的網站時，在 URL 中的權杖查詢參數。 **附註：** 此權杖的效力只有 1 小時。 此外，URL 在使用瀏覽器的權杖值之前，會先將其解碼。|
 |  |  |  |
   
@@ -87,8 +87,8 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 |--------------------|---------------|---------------------------------------|
 | id                 | 字串        | SaaS 訂用帳戶的識別碼。          |
 | subscriptionName| 字串| 使用者訂閱 SaaS 服務時在 Azure 中設定的 SaaS 訂用帳戶名稱。|
-| OfferId            | String        | 使用者訂閱的供應項目識別碼。 |
-| planId             | String        | 使用者訂閱的方案識別碼。  |
+| OfferId            | 字串        | 使用者訂閱的供應項目識別碼。 |
+| planId             | 字串        | 使用者訂閱的方案識別碼。  |
 |  |  |  |
 
 
@@ -137,7 +137,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 | x-ms-correlationid     |   否         | 用於用戶端作業的特殊字串值。 這會將來自用戶端作業的所有事件與伺服器端上的事件相關聯。 如果未提供此值，則系統會產生一個並提供於回應標頭中。 |
 | If-Match/If-None-Match |   否         |   驗證程式 Etag 值強度。                                                          |
 | Content-Type           |   是        |    `application/json`                                                                   |
-|  授權         |   是        |    JSON Web 權杖 (JWT) 持有人權杖。                                               |
+|  authorization         |   是        |    JSON Web 權杖 (JWT) 持有人權杖。                                               |
 | x-ms-marketplace-session-mode| 否 | 可在訂閱 SaaS 供應項目時啟用測試模式的標記。 若有設定，該訂閱將無須支付費用。 這對於 ISV 測試方式非常實用。 請將它設定為 **「dryrun」**|
 |  |  |  |
 
@@ -202,7 +202,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 | x-ms-correlationid      | 否           | 用於用戶端作業的特殊字串值。 這會將來自用戶端作業的所有事件與伺服器端上的事件相關聯。 如果未提供此值，則系統會產生一個並提供於回應標頭中。 |
 | If-Match/If-None-Match | 否           | 驗證程式 Etag 值強度。                              |
 | Content-Type            | 是          | `application/json`                                        |
-| 授權           | 是          | JSON Web 權杖 (JWT) 持有人權杖。                    |
+| authorization           | 是          | JSON Web 權杖 (JWT) 持有人權杖。                    |
 |  |  |  |
 
 *內文*
@@ -264,7 +264,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 |--------------------|--------------| ----------------------------------------------------------|
 | x-ms-requestid     | 否           | 用於追蹤用戶端要求的特殊字串值。 建議的 GUID。 如果未提供此值，則回應標頭中會產生並提供一個。                                                           |
 | x-ms-correlationid | 否           | 用於用戶端作業的特殊字串值。 這會將來自用戶端作業的所有事件與伺服器端上的事件相關聯。 如果未提供此值，則系統會產生一個並提供於回應標頭中。 |
-| 授權      | 是          | JSON Web 權杖 (JWT) 持有人權杖。                    |
+| authorization      | 是          | JSON Web 權杖 (JWT) 持有人權杖。                    |
 |  |  |  |
 
 *回應碼*
@@ -314,7 +314,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | 否           | 用於追蹤用戶端要求的特殊字串值。 建議的 GUID。 如果未提供此值，則回應標頭中會產生並提供一個。   |
 | x-ms-correlationid | 否           | 用於用戶端作業的特殊字串值。 這會將來自用戶端作業的所有事件與伺服器端上的事件相關聯。 如果未提供此值，則回應標頭中會產生並提供一個。  |
-| 授權      | 是          | JSON Web 權杖 (JWT) 持有人權杖。                    |
+| authorization      | 是          | JSON Web 權杖 (JWT) 持有人權杖。                    |
 |  |  |  | 
 
 *回應主體*
@@ -331,11 +331,11 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 
 | **參數名稱** | **資料類型** | **說明**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | String        | 作業的識別碼。                                                                      |
-| status             | 例舉          | 下列其中之一的作業狀態：`In Progress`、 `Succeeded` 或 `Failed`。          |
-| resourceLocation   | String        | 已建立或修改之訂用帳戶的連結。 此連結可協助用戶端取得更新的狀態後續作業。 此值並未針對 `Unsubscribe` 作業進行設定。 |
-| created            | DateTime      | 作業建立時間 (UTC)。                                                           |
-| lastModified       | DateTime      | 作業上次更新時間 (UTC)。                                                      |
+| id                 | 字串        | 作業的識別碼。                                                                      |
+| status             | Enum          | 下列其中之一的作業狀態：`In Progress`、 `Succeeded` 或 `Failed`。          |
+| resourceLocation   | 字串        | 已建立或修改之訂用帳戶的連結。 此連結可協助用戶端取得更新的狀態後續作業。 此值並未針對 `Unsubscribe` 作業進行設定。 |
+| created            | Datetime      | 作業建立時間 (UTC)。                                                           |
+| lastModified       | Datetime      | 作業上次更新時間 (UTC)。                                                      |
 |  |  |  |
 
 *回應碼*
@@ -382,7 +382,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | 否           | 用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。                                                           |
 | x-ms-correlationid | 否           | 用於用戶端作業的特殊字串值。 這會將來自用戶端作業的所有事件與伺服器端上的事件相關聯。 如果未提供此值，則回應標頭中會產生並提供一個。 |
-| 授權      | 是          | JSON Web 權杖 (JWT) 持有人權杖。                                                                    |
+| authorization      | 是          | JSON Web 權杖 (JWT) 持有人權杖。                                                                    |
 |  |  |  |
 
 *回應主體*
@@ -401,13 +401,13 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 
 | **參數名稱**     | **資料類型** | **說明**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | String        | Azure 中的 SaaS 訂用帳戶資源識別碼。    |
-| offerId                | String        | 使用者訂閱的供應項目識別碼。         |
-| planId                 | String        | 使用者訂閱的方案識別碼。          |
+| id                     | 字串        | Azure 中的 SaaS 訂用帳戶資源識別碼。    |
+| offerId                | 字串        | 使用者訂閱的供應項目識別碼。         |
+| planId                 | 字串        | 使用者訂閱的方案識別碼。          |
 | saasSubscriptionName   | 字串        | SaaS 訂用帳戶名稱。                |
-| saasSubscriptionStatus | 例舉          | 作業狀態。  下列其中之一：  <br/> - `Subscribed`：訂用帳戶作用中。  <br/> - `Pending`：使用者建立了該資源，但它不是由 ISV 所啟動。   <br/> - `Unsubscribed`：使用者已取消訂閱。   <br/> - `Suspended`：使用者已暫止訂用帳戶。   <br/> - `Deactivated`：Azure 訂用帳戶已暫止。  |
-| created                | DateTime      | 建立訂用帳戶的時間戳記值 (UTC)。 |
-| lastModified           | DateTime      | 已修改之訂用帳戶的時間戳記值 (UTC)。 |
+| saasSubscriptionStatus | Enum          | 作業狀態。  下列其中之一：  <br/> - `Subscribed`：訂用帳戶作用中。  <br/> - `Pending`：使用者建立了該資源，但它不是由 ISV 所啟動。   <br/> - `Unsubscribed`：使用者已取消訂閱。   <br/> - `Suspended`：使用者已暫止訂用帳戶。   <br/> - `Deactivated`：Azure 訂用帳戶已暫止。  |
+| created                | Datetime      | 建立訂用帳戶的時間戳記值 (UTC)。 |
+| lastModified           | Datetime      | 已修改之訂用帳戶的時間戳記值 (UTC)。 |
 |  |  |  |
 
 *回應碼*
@@ -430,7 +430,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 | x-ms-correlationid | 是          | 由用戶端傳遞時為相互關聯識別碼，否則此值為伺服器相互關聯識別碼。                   |
 | x-ms-activityid    | 是          | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。 |
 | Retry-after        | 否           | 用戶端可用來檢查狀態的間隔。                                                       |
-| etag               | 是          | 用於取得作業狀態的資源連結。                                                        |
+| eTag               | 是          | 用於取得作業狀態的資源連結。                                                        |
 |  |  |  |
 
 ### <a name="get-subscriptions"></a>取得訂用帳戶
@@ -454,7 +454,7 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | 否           | 用於追蹤用戶端要求的特殊字串值。 建議的 GUID。 如果未提供此值，則回應標頭中會產生並提供一個。             |
 | x-ms-correlationid | 否           | 用於用戶端作業的特殊字串值。 這會將來自用戶端作業的所有事件與伺服器端上的事件相關聯。 如果未提供此值，則回應標頭中會產生並提供一個。 |
-| 授權      | 是          | JSON Web 權杖 (JWT) 持有人權杖。                    |
+| authorization      | 是          | JSON Web 權杖 (JWT) 持有人權杖。                    |
 |  |  |  |
 
 *回應主體*
@@ -475,11 +475,11 @@ Azure Marketplace API 的端點為 `https://marketplaceapi.microsoft.com`。
 |------------------------|---------------|-----------------------------------------------|
 | id                     | 字串        | 在 Azure 中的識別碼的 SaaS 訂用帳戶資源    |
 | offerId                | 字串        | 使用者訂閱供應項目識別碼         |
-| planId                 | String        | 使用者訂閱的計劃識別碼          |
-| saasSubscriptionName   | String        | SaaS 的訂用帳戶                |
-| saasSubscriptionStatus | 例舉          | 作業狀態。  下列其中之一：  <br/> - `Subscribed`：訂用帳戶作用中。  <br/> - `Pending`：使用者建立了該資源，但它不是由 ISV 所啟動。   <br/> - `Unsubscribed`：使用者已取消訂閱。   <br/> - `Suspended`：使用者已暫止訂用帳戶。   <br/> - `Deactivated`：Azure 訂用帳戶已暫止。  |
-| created                | DateTime      | 訂用帳戶的建立時間戳記值以 utc 格式 |
-| lastModified           | DateTime      | 訂用帳戶中修改 UTC 時間戳記的值 |
+| planId                 | 字串        | 使用者訂閱的計劃識別碼          |
+| saasSubscriptionName   | 字串        | SaaS 的訂用帳戶                |
+| saasSubscriptionStatus | Enum          | 作業狀態。  下列其中之一：  <br/> - `Subscribed`：訂用帳戶作用中。  <br/> - `Pending`：使用者建立了該資源，但它不是由 ISV 所啟動。   <br/> - `Unsubscribed`：使用者已取消訂閱。   <br/> - `Suspended`：使用者已暫止訂用帳戶。   <br/> - `Deactivated`：Azure 訂用帳戶已暫止。  |
+| created                | Datetime      | 訂用帳戶的建立時間戳記值以 utc 格式 |
+| lastModified           | Datetime      | 訂用帳戶中修改 UTC 時間戳記的值 |
 |  |  |  |
 
 *回應碼*
@@ -525,12 +525,12 @@ SaaS Webhook 可用來主動通知 SaaS 服務關於變更的訊息。 此 POST 
 |------------------------|---------------|-----------------------------------------------|
 | id  | 字串       | 已觸發作業的唯一識別碼。                |
 | activityId   | 字串        | 用於追蹤服務要求的特殊字串值。 此值可用於任何核對作業。               |
-| subscriptionId                     | String        | Azure 中的 SaaS 訂用帳戶資源識別碼。    |
-| offerId                | String        | 使用者訂閱的供應項目識別碼。 僅為「更新」動作提供。        |
-| publisherId                | String        | SaaS 供應項目的發行者識別碼         |
-| planId                 | String        | 使用者訂閱的方案識別碼。 僅為「更新」動作提供。          |
+| subscriptionId                     | 字串        | Azure 中的 SaaS 訂用帳戶資源識別碼。    |
+| offerId                | 字串        | 使用者訂閱的供應項目識別碼。 僅為「更新」動作提供。        |
+| publisherId                | 字串        | SaaS 供應項目的發行者識別碼         |
+| planId                 | 字串        | 使用者訂閱的方案識別碼。 僅為「更新」動作提供。          |
 | action                 | 字串        | 觸發此通知的動作。 可能的值 - 啟動、刪除、暫止、恢復、更新          |
-| timeStamp                 | String        | 觸發此通知時的時間戳記值 (採用 UTC)。          |
+| timeStamp                 | 字串        | 觸發此通知時的時間戳記值 (採用 UTC)。          |
 |  |  |  |
 
 

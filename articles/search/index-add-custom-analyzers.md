@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: b670b5aeffcd699226a088d8db21a12dbaf40042
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242806"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>將自訂分析器新增至 Azure 搜尋服務索引
@@ -213,9 +213,9 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 |||  
 |-|-|  
-|名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
+|Name|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
 |類型|可支援分析器清單中的分析器類型。 請參閱下方[分析器](#AnalyzerTable)表格中的 **analyzer_type** 資料行。|  
-|選項。|必須是下方[分析器](#AnalyzerTable)表格中有效的預先定義分析器選項。|  
+|選項|必須是下方[分析器](#AnalyzerTable)表格中有效的預先定義分析器選項。|  
 
 #### <a name="custom-analyzers"></a>自訂分析器
 
@@ -240,7 +240,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |-|-|  
 |名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
 |類型|可支援字元篩選器清單中的字元篩選器類型。 請參閱下方[字元篩選器](#char-filters-reference)表格中的 **char_filter_type** 資料行。|  
-|選項。|必須是指定[字元篩選器](#char-filters-reference)類型的有效選項。|  
+|選項|必須是指定[字元篩選器](#char-filters-reference)類型的有效選項。|  
 
 ### <a name="tokenizers"></a>Tokenizers
 
@@ -253,7 +253,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |-|-|  
 |名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
 |類型|可支援 Token 化工具清單中的 Token 化工具名稱。 請參閱下方 [Token 化工具](#Tokenizers) 表格中的 **tokenizer_type** 資料行。|  
-|選項。|必須是下方 [Token 化工具](#Tokenizers) 表格中指定 Token 化工具類型的有效選項。|  
+|選項|必須是下方 [Token 化工具](#Tokenizers) 表格中指定 Token 化工具類型的有效選項。|  
 
 ### <a name="token-filters"></a>權杖篩選器
 
@@ -262,9 +262,9 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 |||  
 |-|-|  
-|名稱|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
+|Name|名稱必須包含字母、數字、空格、虛線或底線，同時開頭必須是英數字元，而且不得超過 128 個字元。|  
 |類型|可支援語彙基元篩選器清單中的語彙基元篩選器名稱。 請參閱下方[語彙基元篩選器](#TokenFilters)表格中的 **token_filter_type** 資料行。|  
-|選項。|必須是指定語彙基元篩選器類型的[語彙基元篩選器](#TokenFilters)。|  
+|選項|必須是指定語彙基元篩選器類型的[語彙基元篩選器](#TokenFilters)。|  
 
 <a name="PropertyReference"></a>  
 

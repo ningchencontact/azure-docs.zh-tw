@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
 ms.openlocfilehash: ea7e4757aac0fccf60a44c70e9de6a63c1ec9498
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147015"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>使用 Azure CLI 搭配 Azure 儲存體
@@ -134,12 +134,12 @@ echo "Done"
 
 2. 接下來，更新指令碼的變數以反映您的組態設定。 依照指定取代下列值：
 
-   * **\<storage_account_name\>**：您儲存體帳戶的名稱。
-   * **\<storage_account_key\>**：儲存體帳戶的主要或次要存取金鑰。
-   * **\<container_name\>**：要建立的新容器名稱，例如 "azure-cli-sample-container"。
-   * **\<blob_name\>**：容器中目的地 blob 的名稱。
-   * **\<file_to_upload\>**：本機電腦上小檔案的路徑，例如 "~/images/HelloWorld.png"。
-   * **\<destination_file\>**：目的地檔案路徑，例如 "~/downloadedImage.png"。
+   * **\<storage_account_name\>** ：您儲存體帳戶的名稱。
+   * **\<storage_account_key\>** ：儲存體帳戶的主要或次要存取金鑰。
+   * **\<container_name\>** ：要建立的新容器名稱，例如 "azure-cli-sample-container"。
+   * **\<blob_name\>** ：容器中目的地 blob 的名稱。
+   * **\<file_to_upload\>** ：本機電腦上小檔案的路徑，例如 "~/images/HelloWorld.png"。
+   * **\<destination_file\>** ：目的地檔案路徑，例如 "~/downloadedImage.png"。
 
 3. 在您更新必要變數之後，請儲存指令碼並結束編輯器。 後續步驟假設您已將指令碼命名為 **my_storage_sample.sh**。
 
@@ -232,7 +232,7 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 > 本文下列各節中的所有範例都假設您已設定 `AZURE_STORAGE_ACCOUNT` 和 `AZURE_STORAGE_KEY` 環境變數。
 
 ## <a name="create-and-manage-blobs"></a>建立和管理 Blob
-Azure Blob 存储是用于存储大量非结构化数据（例如文本或二进制数据）的服务，这些数据可通过 HTTP 或 HTTPS 从世界各地进行访问。 本節假設您已熟悉 Azure Blob 儲存體的概念。 如需詳細資訊，請參閱[使用 .NET 開始使用 Azure Blob 儲存體](../blobs/storage-dotnet-how-to-use-blobs.md)和 [Blob 服務概念](/rest/api/storageservices/blob-service-concepts)。
+Azure Blob 儲存體是一項儲存大量非結構化資料的服務 (例如文字或二進位資料)，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。 本節假設您已熟悉 Azure Blob 儲存體的概念。 如需詳細資訊，請參閱[使用 .NET 開始使用 Azure Blob 儲存體](../blobs/storage-dotnet-how-to-use-blobs.md)和 [Blob 服務概念](/rest/api/storageservices/blob-service-concepts)。
 
 ### <a name="create-a-container"></a>建立容器
 Azure 儲存體中的每個 Blob 必須位於一個容器中。 您可以使用 `az storage container create` 命令來建立容器：
@@ -286,7 +286,7 @@ az storage blob list \
     --output table
 ```
 
-### <a name="copy-blobs"></a>复制 blob
+### <a name="copy-blobs"></a>複製 Blob
 您可以在儲存體帳戶內或在不同儲存體帳戶和區域之間，以非同步方式複製 Blob。
 
 下列範例示範如何從一個儲存體帳戶複製 Blob 到另一個儲存體帳戶。 我們會先在來源儲存體帳戶中建立容器，指定對其 Blob 的公用讀取存取權。 接著，我們會將檔案上傳至容器，最後，將 Blob 從該容器複製到目的地儲存體帳戶中的容器。
@@ -335,7 +335,7 @@ Azure 檔案共用是 Azure 中的 SMB 檔案共用。 所有目錄和檔案都�
 az storage share create --name myshare
 ```
 
-### <a name="create-a-directory"></a>创建目录
+### <a name="create-a-directory"></a>建立目錄
 目錄會提供 Azure 檔案共用的階層式結構。 下列範例會在檔案共用中建立名為 **myDir** 的目錄。
 
 ```azurecli

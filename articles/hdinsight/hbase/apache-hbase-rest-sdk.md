@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
 ms.openlocfilehash: 707869880c5df619def2d707264b59e22e03c521
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720310"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>使用 Apache HBase.NET SDK
 
-[Apache HBase](apache-hbase-overview.md) 提供了两个用于处理数据的主要选项：[Apache Hive 查询和调用 HBase 的 RESTful API](apache-hbase-tutorial-get-started-linux.md)。 您可以使用 `curl` 命令或類似公用程式，直接使用 REST API。
+[Apache HBase](apache-hbase-overview.md)提供您的資料搭配使用的兩個主要選項：[Apache Hive 查詢及 HBase 的 RESTful API 的呼叫](apache-hbase-tutorial-get-started-linux.md)。 您可以使用 `curl` 命令或類似公用程式，直接使用 REST API。
 
 對於 C# 和 .NET 應用程式，[Microsoft HBase REST Client Library for .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) 還提供了 HBase REST API 以外的用戶端程式庫。
 

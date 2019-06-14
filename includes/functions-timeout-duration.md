@@ -9,17 +9,17 @@ ms.date: 02/21/2018
 ms.author: nzthiago
 ms.custom: include file
 ms.openlocfilehash: ffb29fc76313e8870b52cb0a63936da7853ea6ce
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66131360"
 ---
 ## <a name="timeout"></a>函式應用程式逾時持續期間 
 
 FunctionTimeout 屬性中所定義的函式應用程式的逾時持續時間[host.json](../articles/azure-functions/functions-host-json.md#functiontimeout)專案檔。 下表顯示的預設值和最大值，以分鐘為單位的這兩個方案和兩個執行階段版本：
 
-| 方案 | Runtime 版本 | 預設值 | 最大值 |
+| 規劃 | 執行階段版本 | 預設值 | 最大值 |
 |------|---------|---------|---------|
 | 耗用量 | 1.x | 5 | 10 |
 | 耗用量 | 2.x | 5 | 10 |

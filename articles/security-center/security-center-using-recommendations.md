@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 3/26/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 60bb1c3b81ef990993a2ce659a2b189c9d8a0eba
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967965"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>使用 Azure 資訊安全中心建議增強安全性
@@ -60,9 +60,9 @@ Jeff 會執行下列工作：
 
 3. Jeff 必須決定要先處理哪些建議。 所以 Jeff 會按一下安全分數，並根據建議可改善其[安全分數影響](security-center-secure-score.md)的程度，開始處理建議。
 
-4. Jeff 有大量已連線的 VM 和伺服器，因此決定著重於 [計算和應用程式]。
+4. Jeff 有大量已連線的 VM 和伺服器，因此決定著重於 [計算和應用程式]  。
 
-5. 當 Jeff 按一下 [計算和應用程式] 時，他會看到一份建議並根據安全分數影像處理建議。
+5. 當 Jeff 按一下 [計算和應用程式]  時，他會看到一份建議並根據安全分數影像處理建議。
 
 6. Jeff 有許多網際網路面向 VM，而且因為其連接埠已公開，所以他會擔心攻擊者可能會取得伺服器的控制權。 因此 Jeff 會選擇使用 (**Just-In-Time VM 存取**)[security-center-just-in-time.md]。
 

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: v-sharos
 ms.openlocfilehash: f23a507ab631be553613e22cafa037291548a8aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60530843"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717129"
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>StorSimple 8000 系列 Update 2 版本資訊
 
@@ -83,7 +83,7 @@ Update 2 導入下列新功能：
 | 6 |Web Proxy |如果您的 Web Proxy 組態設定將 HTTPS 做為指定的通訊協定，您的裝置對服務通訊將會受到影響並使裝置離線。 同時會在程序中產生支援封裝，耗用裝置上的大量資源。 |請確定 Web Proxy URL 指定的通訊協定為 HTTP。 如需詳細資訊，請參閱 [設定裝置的 Web Proxy](storsimple-configure-web-proxy.md)。 |是 |否 |
 | 7 |Web Proxy |如果您在註冊的裝置上設定並啟用 Web Proxy，將需要重新啟動裝置上的主動控制器。 | |是 |否 |
 | 8 |雲端高延遲與高 I/O 工作負載 |當 StorSimple 裝置同時出現雲端延遲情況嚴重 (大約數秒) 和 I/O 工作負載高的情況時，裝置磁碟區會進入降級的狀態，而且 I/O 可能會失敗，發生「裝置未就緒」錯誤。 |您必須以手動方式將裝置控制器重新開機，或或執行裝置容錯移轉，才能從這種情況下復原。 |是 |否 |
-| 9 |Azure PowerShell |當您使用 StorSimple Cmdlet **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** 選取第一個物件，讓您可以建立新的 **VolumeContainer** 物件時，此 Cmdlet 會傳回所有物件。 |將此 Cmdlet 以括號括住，如下所示：**(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |是 |是 |
+| 9 |Azure PowerShell |當您使用 StorSimple Cmdlet **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** 選取第一個物件，讓您可以建立新的 **VolumeContainer** 物件時，此 Cmdlet 會傳回所有物件。 |將此 Cmdlet 以括號括住，如下所示： **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |是 |是 |
 | 10 |移轉 |傳遞多個磁碟區容器以進行移轉時，只有第一個磁碟區容器的最新備份的 ETA 正確。 此外，在移轉第一個磁碟區容器中的前 4 個備份之後，將會開始進行平行移轉。 |建議您一次移轉一個磁碟區容器。 |是 |否 |
 | 11 |移轉 |還原之後，不會將磁碟區新增至備份原則或虛擬磁碟群組。 |您必須將這些磁碟區新增至備份原則，才能建立備份。 |是 |是 |
 | 12 |移轉 |完成移轉之後，5000/7000 系列裝置不得存取移轉的資料容器。 |建議您在移轉完成並認可之後，刪除移轉的資料容器。 |是 |否 |
@@ -91,7 +91,7 @@ Update 2 導入下列新功能：
 | 14 |移轉 |當磁碟區群組中沒有相關聯的磁碟區時，5000-7000 系列裝置上用於移轉的設定備份可能會失敗。 |刪除不含相關聯磁碟區的所有空磁碟區群組，然後重試設定備份。 |是 |否 |
 | 15 |Azure PowerShell Cmdlet 和固定在本機的磁碟區 |您無法透過 Azure PowerShell Cmdlet 建立固定在本機的磁碟區。 (您透過 Azure PowerShell 建立的任何磁碟區都會分層。) |一律使用 StorSimple Manager 服務來設定固定在本機的磁碟區。 |是 |否 |
 | 16 |固定在本機的磁碟區的可用空間 |如果您刪除固定在本機的磁碟區，新的磁碟區的可用空間可能不會立即更新。 StorSimple Manager 服務會每小時更新大致的本機可用空間。 |等候 1 小時，然後再嘗試建立新的磁碟區。 |是 |否 |
-| 17 |固定在本機的磁碟區 |您的還原作業會在「備份目錄」中顯示暫時快照集備份，但僅會在還原作業期間顯示。 此外，它也會在 [備份原則] 頁面上顯示前面加上 **tmpCollection** 的虛擬磁碟群組，但僅會在還原作業期間顯示。 |如果還原作業僅有固定在本機的磁碟區或是混合了固定在本機的磁碟區與分層磁碟區，就可能就會發生此問題。 如果還原作業僅包含分層磁碟區，將不會發生此問題。 不需使用者介入。 |是 |否 |
+| 17 |固定在本機的磁碟區 |您的還原作業會在「備份目錄」中顯示暫時快照集備份，但僅會在還原作業期間顯示。 此外，它也會在 [備份原則]  頁面上顯示前面加上 **tmpCollection** 的虛擬磁碟群組，但僅會在還原作業期間顯示。 |如果還原作業僅有固定在本機的磁碟區或是混合了固定在本機的磁碟區與分層磁碟區，就可能就會發生此問題。 如果還原作業僅包含分層磁碟區，將不會發生此問題。 不需使用者介入。 |是 |否 |
 | 18 |固定在本機的磁碟區 |如果您取消還原作業，而之後立即發生控制器容錯移轉，還原作業將會顯示 **Failed** 而不是 **Canceled**。 如果還原作業失敗，而之後立即發生控制器容錯移轉，還原作業將會顯示 **Canceled** 而不是 **Failed**。 |如果還原作業僅有固定在本機的磁碟區或是混合了固定在本機的磁碟區與分層磁碟區，就可能就會發生此問題。 如果還原作業僅包含分層磁碟區，將不會發生此問題。 不需使用者介入。 |是 |否 |
 | 19 |固定在本機的磁碟區 |如果您取消還原作業，或還原失敗且發生控制器容錯移轉， **工作** 頁面上會顯示額外的還原作業。 |如果還原作業僅有固定在本機的磁碟區或是混合了固定在本機的磁碟區與分層磁碟區，就可能就會發生此問題。 如果還原作業僅包含分層磁碟區，將不會發生此問題。 不需使用者介入。 |是 |否 |
 | 20 |固定在本機的磁碟區 |如果您嘗試將分層磁碟區 (使用 Update 1.2 或更早版本所建立及複製) 轉換為固定在本機的磁碟機，而您的裝置空間不足或是雲端空間不足，則複製可能損毀。 |此問題只發生於使用 Update 2 之前的軟體所建立及複製的磁碟機。 這應該是不常見的案例。 | | |

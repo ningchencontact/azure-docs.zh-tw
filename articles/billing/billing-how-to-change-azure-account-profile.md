@@ -14,10 +14,10 @@ ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f61396d8fb0f02fe77f5ee35560f45a0c4698a10
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65850772"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>變更您的 Azure 帳戶的設定檔資訊
@@ -29,7 +29,7 @@ Microsoft 會使用中使用者的設定檔，而不是帳戶管理員，以傳�
 ## <a name="change-your-profile-information"></a>變更您的設定檔資訊
 
 1. 登入 [Azure 帳戶中心](https://account.azure.com/Profile)。
-1. 選取 [編輯詳細資料] 按鈕，然後更新 [設定檔] 資訊。
+1. 選取 [編輯詳細資料]  按鈕，然後更新 [設定檔]  資訊。
 
    ![Azure 設定檔資訊的範例](./media/billing-how-to-change-azure-account-profile/profile.png)
 
@@ -76,7 +76,7 @@ Microsoft 會使用中使用者的設定檔，而不是帳戶管理員，以傳�
 
 * 移至[連絡人資訊](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade)在 Azure 入口網站中的區域，然後輸入電子郵件地址。 您提供的位址會接收服務及行銷通訊。 Azure 帳戶中心的設定檔中的電子郵件地址會更新以使其自動相符。 更新您的設定檔電子郵件地址不會更新您的登入電子郵件地址。
 
-* 在  [Azure 入口網站](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade)中，選取與您的姓名縮寫圖示或圖片。 然後，選取操作功能表 (**...**).接下來，選取**我的連絡資訊**從功能表，然後輸入電子郵件地址。 您提供的位址會接收服務及行銷通訊。 電子郵件地址，您的 Azure 帳戶中心設定檔中會更新以使其自動相符。 更新您的設定檔電子郵件地址不會更新您的登入電子郵件地址。
+* 在  [Azure 入口網站](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade)中，選取與您的姓名縮寫圖示或圖片。 然後，選取操作功能表 ( **...** ).接下來，選取**我的連絡資訊**從功能表，然後輸入電子郵件地址。 您提供的位址會接收服務及行銷通訊。 電子郵件地址，您的 Azure 帳戶中心設定檔中會更新以使其自動相符。 更新您的設定檔電子郵件地址不會更新您的登入電子郵件地址。
 
 ![更新電子郵件地址，在 Azure 中的範例](./media/billing-how-to-change-azure-account-profile/azure-contact-information.png)
 

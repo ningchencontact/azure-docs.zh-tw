@@ -13,10 +13,10 @@ ms.custom: mvc
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 5dbcf446a609adcd0f1902fcca2ac19ad87f17b1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779659"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>使用 Azure CLI 存取 Azure 媒體服務 API
@@ -24,7 +24,7 @@ ms.locfileid: "65779659"
 若要使用 Azure AD 服務主體驗證來連接到 Azure 媒體服務 API，您的應用程式必須要求具有下列參數的 Azure AD 權杖：
 
 * Azure AD 租用戶端點
-* 媒体服务资源 URI
+* 媒體服務資源 URI
 * REST 媒體服務的資源 URI
 * Azure AD 應用程式值：用戶端識別碼和用戶端祕密
 

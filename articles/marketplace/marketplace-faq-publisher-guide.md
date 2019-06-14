@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
 ms.openlocfilehash: 152be044b5696a0d9017729d731e080ed9163828
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964058"
 ---
 # <a name="marketplace-faqs"></a>Marketplace 常見問題集
@@ -36,7 +36,7 @@ Azure Marketplace 提供來自 Microsoft 與合作夥伴的技術解決方案和
 
 * 基本作業系統
 * 資料庫
-* 安全性
+* security
 * 身分識別
 * 網路功能
 * 區塊鏈
@@ -266,7 +266,7 @@ MOSP- [Microsoft 線上訂閱方案](https://azure.microsoft.com/support/legal/s
 
 **開發人員中心驗證之後的後續步驟為何？**
 
-請移至 [您的程式](https://developer.microsoft.com/en-us/dashboard/Account/Programs)，並登入開發人員中心帳戶。 您應該會看到標題為「為您建議的程式」的區段，及其下標題為 **Azure** 的子區段。 請按一下 [開始使用]，並完成設定 Azure 帳戶的程序。
+請移至 [您的程式](https://developer.microsoft.com/en-us/dashboard/Account/Programs)，並登入開發人員中心帳戶。 您應該會看到標題為「為您建議的程式」  的區段，及其下標題為 **Azure** 的子區段。 請按一下 [開始使用]  ，並完成設定 Azure 帳戶的程序。
 
 **為何我的開發人員中心應用程式遭到拒絕？**
 
@@ -400,7 +400,7 @@ O365 應用程式
 1.  使用開發人員帳戶登入 [https://sellerdashboard.microsoft.com](https://sellerdashboard.microsoft.com)。
 1.  撤銷增益集。
 
-注意:應用程式將在 90 天後從現有的清單中消失。
+注意：應用程式將在 90 天後從現有的清單中消失。
 
 Power BI 應用程式
 * 連絡人︰[Anjana Sompur (Slalom Consulting LLC)](mailto:v-ansomp@microsoft.com)。

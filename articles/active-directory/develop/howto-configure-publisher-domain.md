@@ -18,10 +18,10 @@ ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d47075f9e18b299341a98983ffb8a47389fd7063
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540225"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain-preview"></a>作法：設定應用程式的發行者網域 （預覽）
@@ -38,7 +38,7 @@ ms.locfileid: "65540225"
 
 | 租用戶驗證的網域 | 預設值為發行者網域 |
 |-------------------------|----------------------------|
-| Null | Null |
+| null | null |
 | *.onmicrosoft.com | *.onmicrosoft.com |
 | - *.onmicrosoft.com<br/>- domain1.com<br/>-domain2.com （主要） | domain2.com |
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: ad29bbd038c8982778f2dbca63756f6995077dce
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204925"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>使用適用於 SysRq 和 NMI 呼叫的序列主控台
@@ -26,7 +26,7 @@ ms.locfileid: "65204925"
 ## <a name="system-request-sysrq"></a>系統要求 (SysRq)
 SysRq 是可讓 Linux 作業系統核心理解的按鍵序列，可觸發一組預先定義的動作。 疑難排解虛擬機器或復原無法透過傳統的系統管理 （例如，如果 VM 未回應） 時，會經常會使用這些命令。 使用 Azure 序列主控台的 SysRq 功能，就像按下 SysRq 鍵及在實體鍵盤上輸入的字元。
 
-SysRq 序列傳遞出去後，核心組態將會控制系統的回應方式。 如需啟用和停用 SysRq 的資訊，請參閱＜SysRq 系統管理指南＞ [文字](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq)。  
+SysRq 序列傳遞出去後，核心組態將會控制系統的回應方式。 如需啟用和停用 SysRq 的資訊，請參閱＜SysRq 系統管理指南＞  [文字](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq)。  
 
 使用命令列中的鍵盤圖示，即可使用 Azure 序列主控台將 SysRq 傳送至 Azure 虛擬機器，如下所示。
 
@@ -39,12 +39,12 @@ SysRq 序列傳遞出去後，核心組態將會控制系統的回應方式。 �
 SysRq 命令不能在已停止或其核心處於無回應狀態 (例如內核錯誤) 的虛擬機器上使用 。
 
 ### <a name="enable-sysrq"></a>啟用 SysRq 
-如上方＜SysRq 系統管理指南＞中所述，您可以將 SysRq 設定為可使用全部命令、不使用命令或只使用特定命令。 您可以使用下列步驟來啟用所有 SysRq 命令，但重新開機後並不會保留此設定：
+如上方＜SysRq 系統管理指南＞  中所述，您可以將 SysRq 設定為可使用全部命令、不使用命令或只使用特定命令。 您可以使用下列步驟來啟用所有 SysRq 命令，但重新開機後並不會保留此設定：
 ```
 echo "1" >/proc/sys/kernel/sysrq
 ```
 若要保留 SysReq 設定，您可以執行下列命令來啟用所有 SysRq 命令
-1. 將這一行新增至 /etc/sysctl.conf <br>
+1. 將這一行新增至 /etc/sysctl.conf  <br>
     `kernel.sysrq = 1`
 1. 執行下列命令來重新開機或更新 sysctl <br>
     `sysctl -p`
@@ -107,7 +107,7 @@ echo "1" >/proc/sys/kernel/sysrq
 
 ### <a name="enable-nmi"></a>啟用 NMI
 針對支援 sysctl 來設定核心參數的 Linux 系統，您可以在收到此 NMI 時，使用下列命令來引發系統異常：
-1. 將這一行新增至 /etc/sysctl.conf <br>
+1. 將這一行新增至 /etc/sysctl.conf  <br>
     `kernel.panic_on_unrecovered_nmi=1`
 1. 執行下列命令來重新開機或更新 sysctl <br>
     `sysctl -p`

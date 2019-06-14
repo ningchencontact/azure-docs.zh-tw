@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 702eb5008c60764cd84e2787a8e2c2818d3f9268
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65780943"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中將使用者或群組指派給企業應用程式
@@ -31,8 +31,8 @@ ms.locfileid: "65780943"
 
 ## <a name="assign-a-user-to-an-app---portal"></a>將使用者指派給應用程式 - 入口網站
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com) 。
-1. 選取 [所有服務]、在文字方塊中輸入 Azure Active Directory，然後選取 **Enter** 鍵。
-1. 選取 [企業應用程式]。
+1. 選取 [所有服務]  、在文字方塊中輸入 Azure Active Directory，然後選取 **Enter** 鍵。
+1. 選取 [企業應用程式]  。
 1. 在 [**企業應用程式-所有應用程式**] 窗格中，您會看到一份可以管理的應用程式。 選取應用程式。
 1. 在  ***appname***窗格 （也就是窗格的標題中所選的應用程式名稱），選取**使用者和群組**。
 1. 在  ***appname*** **-使用者和群組**窗格中，選取**新增使用者**。
@@ -47,14 +47,14 @@ ms.locfileid: "65780943"
 若要允許所有使用者存取應用程式：
 
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com) 。
-1. 選取 [所有服務]、在文字方塊中輸入 Azure Active Directory，然後選取 **Enter** 鍵。
-1. 選取 [企業應用程式]。
-1. 在 [企業應用程式] 窗格上，選取 [所有應用程式]。 此動作會列出您可以管理的應用程式。
+1. 選取 [所有服務]  、在文字方塊中輸入 Azure Active Directory，然後選取 **Enter** 鍵。
+1. 選取 [企業應用程式]  。
+1. 在 [企業應用程式]  窗格上，選取 [所有應用程式]  。 此動作會列出您可以管理的應用程式。
 1. 在 [企業應用程式 - 所有應用程式]  窗格上，選取一個應用程式。
 1. 在  ***appname***窗格中，選取**屬性**。
 1. 上 ***appname* -屬性**窗格中，將**需要使用者指派嗎？** 設定為**否**。 
 
-[需要使用者指派?] 選項：
+[需要使用者指派?]  選項：
 
 - 不會影響出現在應用程式存取面板上的應用程式。 若要在存取面板上顯示應用程式，您需要將適當的使用者或群組指派給應用程式。
 - 只有函式具有已針對 SAML 單一登入設定的雲端應用程式，以及使用應用程式 Proxy 設定的內部部署應用程式。 請參閱[單一登入應用程式](what-is-single-sign-on.md)。

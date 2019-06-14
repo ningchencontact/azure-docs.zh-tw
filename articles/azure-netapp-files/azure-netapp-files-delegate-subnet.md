@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: b-juche
 ms.openlocfilehash: fd8e380ad68b86b9ffd0f1e40efde8bdadfb19c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711812"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>將子網路委派至 Azure NetApp Files 
@@ -33,14 +33,14 @@ ms.locfileid: "64711812"
 * 建立[使用者定義的自訂路由](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes)位址的 VM 子網路上不支援要委派給 Azure NetApp 檔案的子網路的前置詞 （目的地）。 如此一來，會影響 VM 連線。
 
 ## <a name="steps"></a>步驟 
-1.  從 Azure 入口網站移至 [虛擬網路] 刀鋒視窗，並選取要用於 Azure NetApp Files 的虛擬網路。    
+1.  從 Azure 入口網站移至 [虛擬網路]  刀鋒視窗，並選取要用於 Azure NetApp Files 的虛擬網路。    
 
-1. 在 [虛擬網路] 刀鋒視窗中選取 [子網路]，然後按一下 [+ 子網路] 按鈕。 
+1. 在 [虛擬網路] 刀鋒視窗中選取 [子網路]  ，然後按一下 [+ 子網路]  按鈕。 
 
 1. 完成 [新增子網路] 頁面中的下列必要欄位，以建立要用於 Azure NetApp Files 的新子網路：
     * **名稱**：指定子網路名稱。
     * **位址範圍**：指定 IP 位址範圍。
-    * **子網路委派**：選取 [Microsoft.NetApp/volumes]。 
+    * **子網路委派**：選取 [Microsoft.NetApp/volumes]  。 
 
       ![子網路委派](../media/azure-netapp-files/azure-netapp-files-subnet-delegation.png)
     

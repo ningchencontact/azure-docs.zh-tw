@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
 ms.openlocfilehash: bd19aba68f8b847e8f4800d348197f9c2b1c1289
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428226"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>在 Azure Service Fabric 上裝載 Node.js 應用程式
@@ -52,7 +52,7 @@ ms.locfileid: "66428226"
 
 將服務命名為 **MyGuestService** 並設定下列值右邊的選項：
 
-| 設定                   | Value |
+| 設定                   | 值 |
 | ------------------------- | ------ |
 | 程式碼封裝資料夾       | _&lt;包含 Node.js 應用程式的資料夾&gt;_ |
 | 程式碼封裝行為     | 將資料夾內容複製到專案 |

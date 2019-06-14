@@ -13,10 +13,10 @@ ms.reviewer: carlrab, jovanpop
 manager: craigg
 ms.date: 04/25/2019
 ms.openlocfilehash: f54950ab96664b17aab056b468db0644216e8654
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706110"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>將受 TDE 保護之資料庫的憑證移轉到 Azure SQL Database 受控執行個體
@@ -43,8 +43,8 @@ ms.locfileid: "64706110"
 
 - [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) 命令列工具會安裝在內部部署伺服器或其他電腦上，可以存取匯出為檔案的憑證。 Pvk2Pfx 工具屬於[企業 Windows 驅動程式套件](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk)，這是一個獨立式命令列環境。
 - 已安裝 [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) 5.0 版或更新版本。
-- [已安装并更新](https://docs.microsoft.com/powershell/azure/install-az-ps) Azure PowerShell 模块。
-- [Az.Sql 模块](https://www.powershellgallery.com/packages/Az.Sql)。
+- Azure PowerShell 模組[安裝和更新](https://docs.microsoft.com/powershell/azure/install-az-ps)。
+- [Az.Sql 模組](https://www.powershellgallery.com/packages/Az.Sql)。
   在 PowerShell 中執行下列命令以安裝/更新 PowerShell 模組：
 
    ```powershell
@@ -58,7 +58,7 @@ ms.locfileid: "64706110"
 
 ### <a name="export-certificate-from-the-source-sql-server"></a>從來源 SQL Server 匯出憑證
 
-請使用下列步驟，透過 SQL Server Management Studio 來匯出憑證，並將其轉換成 pfx 格式。 在整個步驟中，系統會對憑證、檔案名稱與路徑使用一般名稱 TDE_Cert 和 full_path。 應該以實際名稱加以取代。
+請使用下列步驟，透過 SQL Server Management Studio 來匯出憑證，並將其轉換成 pfx 格式。 在整個步驟中，系統會對憑證、檔案名稱與路徑使用一般名稱 TDE_Cert  和 full_path  。 應該以實際名稱加以取代。
 
 1. 請在 SSMS 中，開啟新的查詢視窗，並連線至來源 SQL Server。
 2. 使用下列指令碼以列出受 TDE 保護的資料庫，並取得用以保護欲移轉資料庫加密的憑證名稱：

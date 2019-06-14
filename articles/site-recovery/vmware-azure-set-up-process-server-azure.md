@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
 ms.openlocfilehash: 037f0ff64b114ce9341702564147825099695aa0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110025"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>在 Azure 中設定容錯回復的處理序伺服器
@@ -28,16 +28,16 @@ ms.locfileid: "62110025"
 
 ## <a name="deploy-a-process-server-in-azure"></a>在 Azure 中部署處理序伺服器
 
-1. 在保存庫中，依序選取 [Site Recovery 基礎結構]> [管理] > [組態伺服器]，然後按一下組態伺服器。
-2. 在伺服器頁面中，按一下 [+ 處理序伺服器]。
-3. 在 [新增處理序伺服器] 頁面中，選取在 Azure 中部署處理序伺服器。
+1. 在保存庫中，依序選取 [Site Recovery 基礎結構]  > [管理]   > [組態伺服器]  ，然後按一下組態伺服器。
+2. 在伺服器頁面中，按一下 [+ 處理序伺服器]  。
+3. 在 [新增處理序伺服器]  頁面中，選取在 Azure 中部署處理序伺服器。
 4. 指定 Azure 的設定，包括用於容錯移轉的訂用帳戶、資源群組、用於容錯移轉的 Azure 區域、Azure VM 所在的虛擬網路。 如果您使用多個 Azure 網路，每個網路中都要有一個處理序伺服器。
 
    ![新增處理伺服器資源庫項目](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
-4. 在 [伺服器名稱]、[使用者名稱]、[密碼] 中，指定處理序伺服器的名稱，以及將指派為伺服器上系統管理員權限的認證。
+4. 在 [伺服器名稱]  、[使用者名稱]  、[密碼]  中，指定處理序伺服器的名稱，以及將指派為伺服器上系統管理員權限的認證。
 5. 指定要用於伺服器 VM 磁碟的儲存體帳戶、處理序伺服器 VM 所在的子網路、以及在 VM 啟動時要指派的伺服器 IP 位址。
-6. 按一下 [確定] 按鈕開始部署處理序伺服器 VM。
+6. 按一下 [確定]  按鈕開始部署處理序伺服器 VM。
 
 >
 

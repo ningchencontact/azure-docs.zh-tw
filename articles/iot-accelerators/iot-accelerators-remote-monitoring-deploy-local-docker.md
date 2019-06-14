@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.openlocfilehash: db934725fe91a142c43ba66701919e9d5a70a4b2
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967534"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>本機部署遠端監視解決方案加速器 - Docker
@@ -91,8 +91,8 @@ docker rmi <list_of_images>
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
 1. 瀏覽至為解決方案建立的**資源群組**。 當您執行 **start.cmd** 指令碼時為解決方案選擇的名稱，就是資源群組的名稱。
-1. 在資源清單中，按一下 [串流分析作業]。
-1. 在串流分析作業 [概觀] 頁面上，按一下 [啟動] 按鈕。 接著，按一下 [啟動] 以立即啟動作業。
+1. 在資源清單中，按一下 [串流分析作業]  。
+1. 在串流分析作業 [概觀]  頁面上，按一下 [啟動]  按鈕。 接著，按一下 [啟動]  以立即啟動作業。
 
 ### <a name="connect-to-the-dashboard"></a>連線至儀表板
 

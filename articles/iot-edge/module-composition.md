@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: f4828b59ffa43365f48c002262368d383dfcff05
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389358"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>了解如何在 IoT Edge 中部署模組及建立路由
@@ -135,7 +135,7 @@ IoT Edge 中樞會管理模組、IoT 中樞和任何分葉裝置間的通訊。 
 每個路由必須有來源和接收，但條件是可用來篩選訊息的選擇性項目。 
 
 
-### <a name="source"></a>`Source`
+### <a name="source"></a>source
 
 來源會指定訊息來自於何處。 IoT Edge 可以從模組的訊息路由傳送，或分葉裝置。 
 
@@ -143,7 +143,7 @@ IoT Edge 中樞會管理模組、IoT 中樞和任何分葉裝置間的通訊。 
 
 來源屬性可以是下列其中任何一個值：
 
-| `Source` | 描述 |
+| source | 描述 |
 | ------ | ----------- |
 | `/*` | 所有來自任何模組或分葉裝置的裝置到雲端訊息或對應項變更通知 |
 | `/twinChangeNotifications` | 任何來自任何模組或分葉裝置的對應項變更 (報告屬性) |
