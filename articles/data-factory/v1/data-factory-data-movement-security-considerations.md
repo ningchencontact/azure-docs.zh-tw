@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487030"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 資料移動的安全性考量
@@ -29,11 +29,11 @@ ms.locfileid: "60487030"
 
 在 Data Factory 方案中，您可以建立一或多個資料 [管線](data-factory-create-pipelines.md)。 管線是一起執行某個工作的活動所組成的邏輯群組。 這些管線位於建立 Data Factory 的區域中。 
 
-雖然 Data Factory 只有在「美國西部」、「美國東部」及「北歐」區域才有提供，但[全球數個區域](data-factory-data-movement-activities.md#global)都有提供資料移動服務。 Data Factory 服務可確保資料不會離開某個地區/區域，除非在資料移動服務尚未部署到該區域的情況下，您明確指示服務使用替代的區域。 
+雖然 Data Factory 只有在「美國西部」  、「美國東部」  及「北歐」  區域才有提供，但[全球數個區域](data-factory-data-movement-activities.md#global)都有提供資料移動服務。 Data Factory 服務可確保資料不會離開某個地區/區域，除非在資料移動服務尚未部署到該區域的情況下，您明確指示服務使用替代的區域。 
 
 Azure Data Factory 本身除了用於雲端資料存放區的已連結服務認證 (會使用憑證加密) 之外，並不會儲存任何資料。 它可讓您建立資料導向工作流程，藉由使用其他區域或內部部署環境中的[計算服務](data-factory-compute-linked-services.md)，協調[所支援資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)之間的資料移動和資料處理。 它也可讓您使用程式設計方式和 UI 機制 [監視和管理工作流程](data-factory-monitor-manage-pipelines.md) 。
 
-使用 Azure Data Factory 進行的資料移動已通過下列各項規範的「認證」：
+使用 Azure Data Factory 進行的資料移動已通過下列各項規範的「認證」  ：
 -   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
 -   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
@@ -50,13 +50,13 @@ Azure Data Factory 本身除了用於雲端資料存放區的已連結服務認�
 
 ## <a name="cloud-scenarios"></a>雲端案例
 ### <a name="securing-data-store-credentials"></a>保護資料存放區認證
-Azure Data Factory 可透過使用「受 Microsoft 管理的憑證」來「加密」資料存放區認證，為這些認證提供保護。 這些憑證每隔「兩年」會輪替一次 (包括憑證更新和憑證移轉)。 這些已加密的認證會安全地儲存在「受 Azure Data Factory 管理服務管理的 Azure 儲存體」中。 如需有關「Azure 儲存體」安全性的詳細資訊，請參閱 [Azure 儲存體安全性概觀](../../security/security-storage-overview.md)。
+Azure Data Factory 可透過使用「受 Microsoft 管理的憑證」  來「加密」  資料存放區認證，為這些認證提供保護。 這些憑證每隔「兩年」  會輪替一次 (包括憑證更新和憑證移轉)。 這些已加密的認證會安全地儲存在「受 Azure Data Factory 管理服務管理的 Azure 儲存體」  中。 如需有關「Azure 儲存體」安全性的詳細資訊，請參閱 [Azure 儲存體安全性概觀](../../security/security-storage-overview.md)。
 
 ### <a name="data-encryption-in-transit"></a>傳輸中資料加密
 如果雲端資料存放區支援 HTTPS 或 TLS，則 Data Factory 中資料移動服務與雲端資料存放區之間的所有資料傳輸，都會透過安全通道 HTTPS 或 TLS。
 
 > [!NOTE]
-> 所有連到 **Azure SQL Database** 和「Azure SQL 資料倉儲」的連線在資料透過傳輸進出資料庫時，一律都需要加密 (SSL/TLS)。 使用 JSON 編輯器來編寫管線時，請在「連接字串」中新增 **encryption** 屬性並將它設定為 **true**。 當您使用[複製精靈](data-factory-azure-copy-wizard.md)時，精靈預設會設定這個屬性。 針對「Azure 儲存體」，您可以在連接字串中使用 **HTTPS**。
+> 所有連到 **Azure SQL Database** 和「Azure SQL 資料倉儲」  的連線在資料透過傳輸進出資料庫時，一律都需要加密 (SSL/TLS)。 使用 JSON 編輯器來編寫管線時，請在「連接字串」  中新增 **encryption** 屬性並將它設定為 **true**。 當您使用[複製精靈](data-factory-azure-copy-wizard.md)時，精靈預設會設定這個屬性。 針對「Azure 儲存體」  ，您可以在連接字串中使用 **HTTPS**。
 
 ### <a name="data-encryption-at-rest"></a>待用資料加密
 有些資料存放區支援待用資料加密。 建議您為這些資料存放區啟用資料加密機制。 
@@ -87,7 +87,7 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件、�
 
 ![「資料管理閘道」的通道](media/data-factory-data-movement-security-considerations/data-management-gateway-channels.png)
 
-「命令通道」可允許 Data Factory 中的資料移動服務與「資料管理閘道」之間進行通訊。 此通訊包含活動的相關資訊。 資料通道會用來在內部部署資料存放區與雲端資料存放區之間傳輸資料。    
+「命令通道」  可允許 Data Factory 中的資料移動服務與「資料管理閘道」之間進行通訊。 此通訊包含活動的相關資訊。 資料通道會用來在內部部署資料存放區與雲端資料存放區之間傳輸資料。    
 
 ### <a name="on-premises-data-store-credentials"></a>內部部署資料存放區認證
 內部部署資料存放區的認證會儲存在本機 (不是在雲端)。 您可以透過三種不同的方式設定這些認證。 
@@ -107,7 +107,7 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件、�
   
 ![閘道的 HTTPS 連接埠](media/data-factory-data-movement-security-considerations/https-port-for-gateway.png)
 
-「資料管理閘道」目前使用單一「憑證」。 此憑證是在安裝閘道時所建立的憑證 (適用於在 2016 年 11 月以後建立及 2.4.xxxx.x 版或更新版本的「資料管理閘道」)。 您可以使用自己的 SSL/TLS 憑證來取代此憑證。 Click-Once 認證管理員應用程式會使用此憑證來安全地連接到閘道電腦，以設定資料存放區認證。 它會使用具有閘道之電腦上的 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx)，將資料存放區認證安全地儲存在內部部署環境。 
+「資料管理閘道」目前使用單一「憑證」  。 此憑證是在安裝閘道時所建立的憑證 (適用於在 2016 年 11 月以後建立及 2.4.xxxx.x 版或更新版本的「資料管理閘道」)。 您可以使用自己的 SSL/TLS 憑證來取代此憑證。 Click-Once 認證管理員應用程式會使用此憑證來安全地連接到閘道電腦，以設定資料存放區認證。 它會使用具有閘道之電腦上的 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx)，將資料存放區認證安全地儲存在內部部署環境。 
 
 > [!NOTE]
 > 舊版閘道如果是在 2016 年 11 月以前所安裝或版本為 2.3.xxxx.x，會繼續使用在雲端加密及儲存的認證。 即使您將閘道升級到最新版本，這些認證也不會移轉到內部部署電腦上    
@@ -146,9 +146,9 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件、�
 ### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>防火牆組態及將閘道的 IP 位址加入允許清單
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>內部部署/私人網路的防火牆需求  
-在企業中，「公司防火牆」會在組織的中央路由器上執行。 而「Windows 防火牆」則是在安裝閘道的本機電腦上以精靈的形式執行。 
+在企業中，「公司防火牆」  會在組織的中央路由器上執行。 而「Windows 防火牆」  則是在安裝閘道的本機電腦上以精靈的形式執行。 
 
-下表提供「公司防火牆」的「輸出連接埠」和網域需求。
+下表提供「公司防火牆」  的「輸出連接埠」  和網域需求。
 
 | 網域名稱 | 輸出連接埠 | 描述 |
 | ------------ | -------------- | ----------- | 
@@ -161,7 +161,7 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件、�
 > [!NOTE] 
 > 您可能需要依個別資料來源所需，在公司防火牆層級管理連接埠/將網域加入白名單。 此表格僅使用 Azure SQL Database、「Azure SQL 資料倉儲」、Azure Data Lake Store 作為範例。   
 
-下表提供「Windows 防火牆」的「輸入連接埠」需求。
+下表提供「Windows 防火牆」  的「輸入連接埠」  需求。
 
 | 輸入連接埠 | 描述 | 
 | ------------- | ----------- | 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.openlocfilehash: bee64909c7f3b295691ef1cb1840424aa7e3fe49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345901"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>使用 REST API 在 Log Analytics 中建立及管理警示規則
@@ -75,7 +75,7 @@ Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager REST API
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 ### <a name="editing-a-schedule"></a>編輯排程
-針對已儲存的相同搜尋，使用 Put 方法並指定現有的排程識別碼，以修改該排程；在下列範例中，排程已停用。 要求的主體必須包含排程的 etag。
+針對已儲存的相同搜尋，使用 Put 方法並指定現有的排程識別碼，以修改該排程；在下列範例中，排程已停用。 要求的主體必須包含排程的 etag  。
 
       $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Enabled':'false' } }"
       armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
@@ -154,7 +154,7 @@ Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager REST API
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| `Operator` |用於比較臨界值的運算子。 <br> gt = 大於 <br>  lt = 小於 |
+| `Operator` |用於比較臨界值的運算子。 <br> gt = 大於 <br> lt = 小於 |
 | `Value` |臨界值。 |
 
 例如，假設事件查詢的間隔是 15 分鐘、時間範圍是 30 分鐘，而臨界值大於 10。 在此情況下，將會每隔 15 分鐘執行一次查詢，而如果傳回 10 個在 30 分鐘內建立的事件，就會觸發警示。

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
 ms.openlocfilehash: a7e4282a176794fe885049173ba56ce2461cd6fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60310956"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0
@@ -29,10 +29,10 @@ ms.locfileid: "60310956"
 本文說明如何利用常用的 Java 訊息服務 (JMS) API 標準，從 Java 應用程式使用服務匯流排傳訊功能 (佇列和發佈/訂閱主題)。 這是說明如何使用服務匯流排 .NET API 達到相同效用的[附屬文章](service-bus-amqp-dotnet.md)。 您可以同時使用這兩個指南了解使用 AMQP 1.0 的跨平台訊息。
 
 ## <a name="get-started-with-service-bus"></a>開始使用服務匯流排
-本指南假設您已經有服務匯流排命名空間，其中包含名稱為 **basicqueue** 的佇列。 如果沒有，您可以使用 [Azure 入口網站](service-bus-create-namespace-portal.md)建立[命名空間和佇列](https://portal.azure.com)。 有关如何创建服务总线命名空间和队列的详细信息，请参阅[服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)。
+本指南假設您已經有服務匯流排命名空間，其中包含名稱為 **basicqueue** 的佇列。 如果沒有，您可以使用 [Azure 入口網站](service-bus-create-namespace-portal.md)建立[命名空間和佇列](https://portal.azure.com)。 如需有關如何建立服務匯流排命名空間和佇列的相關詳細資訊，請參閱[開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)。
 
 > [!NOTE]
-> 分区队列和主题也支持 AMQP。 如需詳細資訊，請參閱[分割傳訊實體](service-bus-partitioning.md)及[服務匯流排分割佇列和主題的 AMQP 1.0 支援](service-bus-partitioned-queues-and-topics-amqp-overview.md)。
+> 分割的佇列和主題也支援 AMQP。 如需詳細資訊，請參閱[分割傳訊實體](service-bus-partitioning.md)及[服務匯流排分割佇列和主題的 AMQP 1.0 支援](service-bus-partitioned-queues-and-topics-amqp-overview.md)。
 > 
 > 
 
@@ -66,7 +66,7 @@ queue.QUEUE = queue1
 
 #### <a name="setup-jndi-context-and-configure-the-connectionfactory"></a>設定 JNDI 內容及設定 ConnectionFactory
 
-參考在 [Azure 入口網站](https://portal.azure.com)的 [共用存取原則] 中，於 [主要連接字串] 下可取得的 [連接字串]
+參考在 [Azure 入口網站](https://portal.azure.com)的 [共用存取原則] 中，於 [主要連接字串]  下可取得的 [連接字串] 
 ```java
 // The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
@@ -298,7 +298,7 @@ public class JmsQueueQuickstart {
 ```
 
 ### <a name="run-the-application"></a>執行應用程式
-傳遞來自 [共用存取原則] 的 [連接字串]，以執行應用程式。
+傳遞來自 [共用存取原則] 的 [連接字串]  ，以執行應用程式。
 以下是執行應用程式的表單輸出：
 
 ```
@@ -341,23 +341,23 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
-## <a name="jms-topics-vs-service-bus-topics"></a>JMS 主题与服務匯流排主題
-通过 Java 消息服务 (JMS) API 使用 Azure 服务总线主题和订阅可以提供基本的发送和接收功能。 从其他使用 JMS 兼容 API 的消息代理处移植应用程序时，这是一种很方便的选择，即使服务总线主题不同于 JMS 主题且需要一些调整。 
+## <a name="jms-topics-vs-service-bus-topics"></a>JMS 主題 vs。服務匯流排主題
+使用 Azure 服務匯流排主題和訂用帳戶透過 Java 訊息服務 (JMS) API 提供基本的傳送和接收功能。 將移植從 JMS 相容的 Api，與其他訊息代理程式的應用程式，即使服務匯流排主題與 JMS 主題不同，而且需要一些調整時，它就會是方便的選擇。 
 
-Azure 服务总线主题将消息路由到已命名的、共享的、持久的订阅中，这些订阅通过 Azure 资源管理接口、Azure 命令行工具或 Azure 门户进行管理。 每个订阅允许使用最多 2000 条选择规则，每条规则可能有一个筛选器条件以及一项适用于 SQL 筛选器的元数据转换操作。 每次出现筛选器条件匹配的情况时，系统就会选择将要复制到订阅中的输入消息。  
+Azure 服務匯流排主題會將訊息路由至具名、 共用、 持久的訂用帳戶管理透過 Azure 資源管理介面、 Azure 命令列工具，或透過 Azure 入口網站中。 每個訂用帳戶允許最多 2000年的選取範圍規則，每個可能具有篩選條件，和 SQL 的篩選，也是中繼資料的轉換動作。 每個篩選條件相符項目中選取要複製到 tehj 訂用帳戶輸入的訊息。  
 
-从订阅接收消息与从队列接收消息是相同的。 每个订阅都有一个关联的死信队列，并且可以将消息自动转发给其他队列或主题。 
+從訂用帳戶接收訊息等同從佇列接收訊息。 每個訂用帳戶有相關聯的寄不出信件佇列，以及能夠自動將訊息轉送到另一個佇列或主題。 
 
-JMS 主题允许客户端动态创建非持久的和持久的订阅者，这样就可以选择性地允许通过消息选择器来筛选消息。 服务总线不支持这些非共享的实体。 但是，服务总线的 SQL 筛选器规则语法非常类似于 JMS 支持的消息选择器语法。 
+JMS 主題可讓用戶端，以動態方式建立非持久且持久的訂閱者可選擇性地篩選訊息與訊息選取器。 服務匯流排不支援這些非共用的實體。 不過，服務匯流排的 SQL 篩選規則語法是支援的 JMS 訊息選取器語法非常類似。 
 
-如此示例所示，JMS 主题发布者端兼容服务总线，但动态订阅者则不兼容。 不支持将下述与拓扑相关的 JMS API 与服务总线配合使用。 
+JMS 主題 「 發行者 」 端適用於服務匯流排，在此範例中所示，但不是動態的訂閱者。 服務匯流排不支援下列拓撲相關 JMS Api。 
 
 ## <a name="unsupported-features-and-restrictions"></a>不支援的功能和限制
 對於服務匯流排使用 JMS 而不使用 AMQP 1.0 會有下列限制：
 
 * 對於各個**工作階段**僅允許一個 **MessageProducer** 或 **MessageConsumer**。 如果您需要在應用程式中建立多個 **MessageProducers** 或 **MessageConsumers**，請分別建立專用的**工作階段**。
 * 目前不支援可變更的主題訂閱。
-* **MessageSelectors** 。
+* 目前不支援 **MessageSelectors**。
 * 不支援交易式工作階段和分散式交易。
 
 此外，Azure 服務匯流排會分割控制層與資料層，並因此不支援數個 JMS 的動態拓撲函式：
@@ -382,7 +382,7 @@ JMS 主题允许客户端动态创建非持久的和持久的订阅者，这样�
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure 服務匯流排中的 AMQP 1.0 支援](service-bus-amqp-overview.md)
-* [如何将 AMQP 1.0 与服务总线 .NET API 配合使用](service-bus-dotnet-advanced-message-queuing.md)
+* [如何透過服務匯流排 .NET API 使用 AMQP 1.0](service-bus-dotnet-advanced-message-queuing.md)
 * [服務匯流排 AMQP 1.0 開發人員指南](service-bus-amqp-dotnet.md)
 * [開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
 * [Java 開發人員中心](https://azure.microsoft.com/develop/java/)

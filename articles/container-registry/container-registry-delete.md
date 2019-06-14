@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: danlep
 ms.openlocfilehash: 1e496002c869c5d2c072773d37ed5fd5d4a5841e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60430780"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>刪除 Azure Container Registry 中的容器映像
@@ -22,11 +22,11 @@ ms.locfileid: "60430780"
 
 ## <a name="registry"></a>登錄
 
-容器「登錄」是一項服務，可儲存及散發容器映像。 Docker 中樞是公用 Docker 容器登錄，而 Azure Container Registry 會在 Azure 中提供私人 Docker 容器登錄。
+容器「登錄」  是一項服務，可儲存及散發容器映像。 Docker 中樞是公用 Docker 容器登錄，而 Azure Container Registry 會在 Azure 中提供私人 Docker 容器登錄。
 
 ## <a name="repository"></a>存放庫
 
-容器登錄可管理「存放庫」，也就是具有相同名稱但不同標記的容器映像集合。 例如，下列三個映像位於 "acr-helloworld" 存放庫中：
+容器登錄可管理「存放庫」  ，也就是具有相同名稱但不同標記的容器映像集合。 例如，下列三個映像位於 "acr-helloworld" 存放庫中：
 
 ```
 acr-helloworld:latest
@@ -50,7 +50,7 @@ product-returns/legacy-integrator:20180715
 
 ### <a name="tag"></a>Tag
 
-映像的「標記」可指定其版本。 存放庫中的單一映像可獲派一或多個標記，也可以「取消標記」。 也就是說，您可以刪除所有標記從映像，而映像的資料 （其為圖層） 維持在登錄中。
+映像的「標記」  可指定其版本。 存放庫中的單一映像可獲派一或多個標記，也可以「取消標記」。 也就是說，您可以刪除所有標記從映像，而映像的資料 （其為圖層） 維持在登錄中。
 
 存放庫 (或存放庫和命名空間) 以及標記可定義映像的名稱。 您可以在推送或提取作業中指定映像名稱，以推送和提取映像。
 
@@ -64,13 +64,13 @@ myregistry.azurecr.io/marketing/campaign10-18/web:v2
 
 ### <a name="layer"></a>層次
 
-映像是由一或多個「層次」所組成，各自對應到可定義映像的 Dockerfile 中的資料行。 登錄中的映像會共用常見層次，以提高儲存效率。 例如，不同存放庫中的數個映像可能會共用相同的 Alpine Linux 基底層次，但是該層次只有一個複本會儲存在登錄中。
+映像是由一或多個「層次」  所組成，各自對應到可定義映像的 Dockerfile 中的資料行。 登錄中的映像會共用常見層次，以提高儲存效率。 例如，不同存放庫中的數個映像可能會共用相同的 Alpine Linux 基底層次，但是該層次只有一個複本會儲存在登錄中。
 
 層次共用也可將層次分布最佳化，使其分布於有多個映像共用常見層次的節點。 例如，如果節點上現有的映像包含 Alpine Linux 層次作為其基底，則參考同一層的不同映像在後續提取中不會將層移轉到節點。 相反地，它會參考已存在於節點上的層次。
 
 ### <a name="manifest"></a>資訊清單
 
-每個推送至容器登錄的容器映像都會於「資訊清單」相關聯。 在推送映像時，由登錄所產生的資訊清單，可唯一識別該映像並指定其層次。 您可以使用 Azure CLI 命令 [az acr repository show-manifests][az-acr-repository-show-manifests] 列出存放庫的資訊清單：
+每個推送至容器登錄的容器映像都會於「資訊清單」  相關聯。 在推送映像時，由登錄所產生的資訊清單，可唯一識別該映像並指定其層次。 您可以使用 Azure CLI 命令 [az acr repository show-manifests][az-acr-repository-show-manifests] 列出存放庫的資訊清單：
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName>
@@ -106,13 +106,13 @@ $ az acr repository show-manifests --name myregistry --repository acr-helloworld
 ]
 ```
 
-這裡所討論的資訊清單，與您可以在 Azure 入口網站中或利用 [docker manifest inspect][docker-manifest-inspect] 檢視的映像資訊清單不同。 在下一節中，「資訊清單摘要」是指由推送作業所產生的摘要，而非映像資訊清單中的 config.digest。 您可以依照**資訊清單摘要** (而非 config.digest) 提取和刪除映像。 下圖說明兩種摘要類型。
+這裡所討論的資訊清單，與您可以在 Azure 入口網站中或利用 [docker manifest inspect][docker-manifest-inspect] 檢視的映像資訊清單不同。 在下一節中，「資訊清單摘要」是指由推送作業所產生的摘要，而非映像資訊清單中的 config.digest  。 您可以依照**資訊清單摘要** (而非 config.digest) 提取和刪除映像。 下圖說明兩種摘要類型。
 
 ![Azure 入口網站中的資訊清單摘要和 config.digest][manifest-digest]
 
 ### <a name="manifest-digest"></a>資訊清單摘要
 
-資訊清單是由唯一的 SHA-256 雜湊或「資訊清單摘要」識別。 每個映像--不論標記與否--都是由其摘要識別。 即使映像的層次資料與另一個映像的層次資料相同完全，摘要值也會是唯一的。 這個機制可讓您重複將標記相同的映像推送至登錄。 例如，您可以將 `myimage:latest` 重複推送至您的登錄，而不會發生錯誤，因為每個映像都是由其唯一摘要識別。
+資訊清單是由唯一的 SHA-256 雜湊或「資訊清單摘要」  識別。 每個映像--不論標記與否--都是由其摘要識別。 即使映像的層次資料與另一個映像的層次資料相同完全，摘要值也會是唯一的。 這個機制可讓您重複將標記相同的映像推送至登錄。 例如，您可以將 `myimage:latest` 重複推送至您的登錄，而不會發生錯誤，因為每個映像都是由其唯一摘要識別。
 
 您可以在推送作業中指定其摘要，以從摘要中提取映像。 有些系統可能會設定為依照摘要提取，因為這可保證所提取的映像版本，即使標記相同的映像隨後推送至登錄亦然。
 
@@ -158,13 +158,13 @@ Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> 「依標記」刪除不應該與刪除標記 (取消標記) 混淆。 您可以使用 Azure CLI 命令 [az acr repository untag][az-acr-repository-untag] 來刪除標記。 不含空格會釋放，當您解除標記的映像，因為其[資訊清單](#manifest)和圖層資料保持在登錄中。 只有標記參考本身會被刪除。
+> 「依標記」  刪除不應該與刪除標記 (取消標記) 混淆。 您可以使用 Azure CLI 命令 [az acr repository untag][az-acr-repository-untag] 來刪除標記。 不含空格會釋放，當您解除標記的映像，因為其[資訊清單](#manifest)和圖層資料保持在登錄中。 只有標記參考本身會被刪除。
 
 ## <a name="delete-by-manifest-digest"></a>依資訊清單摘要刪除
 
 [資訊清單摘要](#manifest-digest)可以與一個、零個或多個標記產生關聯。 當您依摘要刪除時，由資訊清單參考的所有標記都會遭到刪除，因為任何層次的層次資料對映像而言都是唯一的。 共用的層次資料不會遭到刪除。
 
-若要依摘要刪除，首先針對包含所要刪除映像的存放庫列出資訊清單摘要。 例如︰
+若要依摘要刪除，首先針對包含所要刪除映像的存放庫列出資訊清單摘要。 例如:
 
 ```console
 $ az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -219,7 +219,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 找出過時資訊清單的摘要之後, 您可以執行下列 Bash 指令碼，刪除早於指定的時間戳記資訊清單的摘要。 它需要 Azure CLI 和 **xargs**。 根據預設，此指令碼不會執行任何刪除。 將 `ENABLE_DELETE` 值變更為 `true`，以啟用映像刪除。
 
 > [!WARNING]
-> 使用下列的範例指令碼，請謹慎-已刪除的映像資料是 UNRECOVERABLE。 如果您有提取映像的資訊清單的摘要 （相對於映像名稱） 的系統，您應該不會執行這些指令碼。 刪除資訊清單的摘要，會造成這些系統無法從登錄提取映像。 請考慮採用「唯一標記」配置(這是[建議的最佳做法][tagging-best-practices])，而不是依照資訊清單提取。 
+> 使用下列的範例指令碼，請謹慎-已刪除的映像資料是 UNRECOVERABLE。 如果您有提取映像的資訊清單的摘要 （相對於映像名稱） 的系統，您應該不會執行這些指令碼。 刪除資訊清單的摘要，會造成這些系統無法從登錄提取映像。 請考慮採用「唯一標記」  配置(這是[建議的最佳做法][tagging-best-practices])，而不是依照資訊清單提取。 
 
 ```bash
 #!/bin/bash
@@ -294,7 +294,7 @@ fi
    ]
    ```
 
-正如上一步骤的输出中所示，现在存在一个 `"tags"` 属性为空列表的孤立清单。 此資訊清單以及它所參考的任何唯一層次資料，仍存在於登錄中。 **若要刪除這類孤立映像及其層次資料，您必須依資訊清單摘要刪除**。
+如您所見的輸出序列中的最後一個步驟中，現在會被遺棄資訊清單的`"tags"`屬性是空的清單。 此資訊清單以及它所參考的任何唯一層次資料，仍存在於登錄中。 **若要刪除這類孤立映像及其層次資料，您必須依資訊清單摘要刪除**。
 
 ### <a name="list-untagged-images"></a>列出已取消標記的映像
 
@@ -307,7 +307,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 ### <a name="delete-all-untagged-images"></a>刪除所有已取消標記的映像
 
 > [!WARNING]
-> 請小心使用下列範例指令碼--無法復原已刪除的映像資料。 如果您有提取映像的資訊清單的摘要 （相對於映像名稱） 的系統，您應該不會執行這些指令碼。 刪除已取消標記的映像，會導致這些系統無法從登錄中提取映像。 請考慮採用「唯一標記」配置(這是[建議的最佳做法][tagging-best-practices])，而不是依照資訊清單提取。
+> 請小心使用下列範例指令碼--無法復原已刪除的映像資料。 如果您有提取映像的資訊清單的摘要 （相對於映像名稱） 的系統，您應該不會執行這些指令碼。 刪除已取消標記的映像，會導致這些系統無法從登錄中提取映像。 請考慮採用「唯一標記」  配置(這是[建議的最佳做法][tagging-best-practices])，而不是依照資訊清單提取。
 
 **Bash 中的 Azure CLI**
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: fae790f9b2d5ecc492f7ece5d259809e8664898d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60457097"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>適用於 Azure VPN 閘道的社群建議協力廠商 VPN 或防火牆裝置設定
@@ -33,7 +33,7 @@ ms.locfileid: "60457097"
 
 下表列出數個常見裝置和相關說明：
 
-|产品    |參考                                                |
+|Products    |參考                                                |
 |-----------|-----------------------------------------------------------|
 |Cisco ASA  |[適用於 Azure VPN 上 Cisco ASA 的社群建議解決方案](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco) \(英文\)   |
 |Cisco ISR  |[適用於 Azure VPN 上 Cisco ISR 的社群建議解決方案](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco) \(英文\)   |

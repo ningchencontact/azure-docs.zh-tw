@@ -16,17 +16,17 @@ ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
 ms.openlocfilehash: 7c8459a6694663a49203b6ec21a760d3e6bd60c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60480737"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Windows Azure 傳統 VM 架構的工作流程 
 這篇文章提供您部署或更新的 Azure 資源，例如虛擬機器時所發生的工作流程處理程序的概觀。 
 
 > [!NOTE]
->Azure 針對建立和使用資源方面，有二種不同的的部署模型：资源管理器部署模型和经典部署模型。 本文涵蓋之內容包括使用傳統部署模型。
+>Azure 針對建立和使用資源方面，有二種不同的的部署模型：Resource Manager 和傳統。 本文涵蓋之內容包括使用傳統部署模型。
 
 下圖顯示 Azure 資源的架構。
 

@@ -12,23 +12,23 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
 ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60329718"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>疑難排解 Azure 流量管理員上的已降級狀態
 
-本文說明如何針對顯示降級狀態的 Azure 流量管理員設定檔進行疑難排解。 在此案例中，假設您已設定流量管理員設定檔來指向您的一些 cloudapp.net 託管服務。 如果流量管理員的健康情況顯示 [降級] 狀態，則可能有一或多個端點的狀態是 [降級]：
+本文說明如何針對顯示降級狀態的 Azure 流量管理員設定檔進行疑難排解。 在此案例中，假設您已設定流量管理員設定檔來指向您的一些 cloudapp.net 託管服務。 如果流量管理員的健康情況顯示 [降級]  狀態，則可能有一或多個端點的狀態是 [降級]  ：
 
 ![降級端點狀態](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
-如果流量管理員的健康情況顯示 [非使用中] 狀態，則可能有一或多個端點的狀態是 [非使用中]：
+如果流量管理員的健康情況顯示 [非使用中]  狀態，則可能有一或多個端點的狀態是 [非使用中]  ：
 
 ![非使用中流量管理員狀態](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 
-## <a name="understanding-traffic-manager-probes"></a>了解流量管理器探测
+## <a name="understanding-traffic-manager-probes"></a>了解流量管理員探查
 
 * 只有當探查收到探查路徑傳回 HTTP 200 回應時，流量管理員才會將端點視為在「線上」。 其他任何非 200 的回應都是失敗。
 * 即使重新導向的 URL 傳回 200，30x 重新導向也會失敗。

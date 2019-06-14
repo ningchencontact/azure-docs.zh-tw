@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 20cb7a446befb1d31f0e069d91d0230fc4a2a901
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565594"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>針對從 Azure 至內部部署環境的容錯回復進行疑難排解
@@ -26,7 +26,7 @@ ms.locfileid: "60565594"
 
 ### <a name="error-code-95226"></a>錯誤碼 95226
 
-重新保護失敗，因為 Azure 虛擬機器無法觸達內部部署組態伺服器。
+重新保護失敗，因為 Azure 虛擬機器無法觸達內部部署組態伺服器。 
 
 此錯誤的發生條件如下：
 
@@ -36,7 +36,7 @@ ms.locfileid: "60565594"
 若要解決此問題︰
 
 * 確認 Azure VM 網路允許 Azure VM 與內部部署組態設定伺服器進行通訊。 您可以將站對站 VPN 設為您的內部部署資料中心，或是使用 Azure VM 之虛擬網路上的私人對等互連來設定 Azure ExpressRoute 連線。
-* 如果 VM 可以使用內部部署組態伺服器通訊，則請登入 VM。 然後檢查 InMage Scout 應用程式服務。 如果您看到其未執行，請手動啟動服務。 檢查服務啟動類型是否設定為 [自動]。
+* 如果 VM 可以使用內部部署組態伺服器通訊，則請登入 VM。 然後檢查 InMage Scout 應用程式服務。 如果您看到其未執行，請手動啟動服務。 檢查服務啟動類型是否設定為 [自動]  。
 
 ### <a name="error-code-78052"></a>錯誤碼 78052
 

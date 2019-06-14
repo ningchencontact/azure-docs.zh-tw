@@ -11,10 +11,10 @@ ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
 ms.openlocfilehash: daeb900abc3f24a408fc1b5f6e989e5181f2a463
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60427035"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立、編輯或擴充邏輯應用程式定義的 JSON
@@ -31,9 +31,9 @@ ms.locfileid: "60427035"
 
 1. 登入 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>。
 
-2. 在左側功能表中，選擇 [所有服務]。 在搜尋方塊中尋找「邏輯應用程式」，然後從結果中選取您的邏輯應用程式。
+2. 在左側功能表中，選擇 [所有服務]  。 在搜尋方塊中尋找「邏輯應用程式」，然後從結果中選取您的邏輯應用程式。
 
-3. 在邏輯應用程式功能表的 [開發工具] 底下，選取 [邏輯應用程式程式碼檢視]。
+3. 在邏輯應用程式功能表的 [開發工具]  底下，選取 [邏輯應用程式程式碼檢視]  。
 
    程式碼檢視編輯器隨即開啟，並以 JSON 格式顯示您的邏輯應用程式定義。
 
@@ -47,15 +47,15 @@ ms.locfileid: "60427035"
 
 2. 尋找並開啟邏輯應用程式的定義，根據預設，該定義在 [Resource Manager 範本](../azure-resource-manager/resource-group-overview.md#template-deployment)中會以 **LogicApp.json** 的名稱顯示。 您可以使用及自訂此範本，以部署至不同的環境。
 
-3. 開啟邏輯應用程式定義和範本的捷徑功能表。 選取 [以邏輯應用程式設計工具開啟]。
+3. 開啟邏輯應用程式定義和範本的捷徑功能表。 選取 [以邏輯應用程式設計工具開啟]  。
 
    ![開啟 Visual Studio 解決方案中的邏輯應用程式](./media/logic-apps-author-definitions/open-logic-app-designer.png)
 
-4. 在設計工具底部，選擇 [程式碼檢視]。 
+4. 在設計工具底部，選擇 [程式碼檢視]  。 
 
    程式碼檢視編輯器隨即開啟，並以 JSON 格式顯示您的邏輯應用程式定義。
 
-5. 若要返回設計工具檢視，請在程式碼檢視編輯器的底部，選擇 [設計]。
+5. 若要返回設計工具檢視，請在程式碼檢視編輯器的底部，選擇 [設計]  。
 
 ## <a name="parameters"></a>參數
 
@@ -100,7 +100,7 @@ ms.locfileid: "60427035"
    若要加入兩或多個字串，您也可以使用 `concat` 函式。 
    例如，`"@concat('#',parameters('currentFeedUrl'))"` 的運作方式與上述範例相同。
 
-3.  完成之後，請選擇 [儲存]。
+3.  完成之後，請選擇 [儲存]  。
 
 現在您可以透過 `currentFeedURL` 物件傳遞不同的 URL，藉以變更網站的 RSS 摘要。
 
@@ -111,7 +111,7 @@ ms.locfileid: "60427035"
 通常，部署生命週期具有開發、預備及生產的環境。 例如，您可以在所有這些環境中使用相同的邏輯應用程式定義，但使用不同的資料庫。 同樣地，建議您在不同的區域使用相同的定義，以發揮高可用性，但希望每個邏輯應用程式執行個體使用該區域的資料庫。
 
 > [!NOTE]
-> 這種情況與在執行階段採用參數不同，您反而應該使用 `trigger()` 函式。
+> 這種情況與在執行階段  採用參數不同，您反而應該使用 `trigger()` 函式。
 
 以下是基本定義：
 
@@ -297,7 +297,7 @@ Logic Apps 具有各種函式可處理字串。 例如，假設您需要將公�
 
 ## <a name="get-data-with-date-functions"></a>使用 Date 函式取得資料
 
-若要從原生不支援「觸發程序」的資料來源取得資料，您可改為使用 Date 函式來處理時間和日期。 例如，這個運算式會尋找這個工作流程從內部到外部的步驟需要花費多少時間：
+若要從原生不支援「觸發程序」  的資料來源取得資料，您可改為使用 Date 函式來處理時間和日期。 例如，這個運算式會尋找這個工作流程從內部到外部的步驟需要花費多少時間：
 
 ``` json
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",

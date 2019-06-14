@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
 ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584843"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>在 Azure 中選擇適當的 SQL Server 選項
@@ -25,7 +25,7 @@ ms.locfileid: "60584843"
 在 Azure 中，您可以讓 SQL Server 工作負載在託管基礎結構 (IaaS) 中執行或以託管服務 ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) 形式執行。 在 PaaS 中，您有多個部署選項，而且每個部署選項中都有多個服務層級。 在 PaaS 或 IaaS 之間做決定時，您必須詢問的關鍵問題是，您是否要管理資料庫、套用修補程式、進行備份，還是要將這些作業委派給 Azure？
 根據答案，您會有下列選項：
 
-- [Azure SQL Database](sql-database-technical-overview.md)：一個完全受控的 SQL 資料庫引擎，以最新穩定版的 SQL Server Enterprise 為基礎。 這是裝載在 Azure 雲端的關聯式資料庫即服務 (DBaaS)，其產業類別屬於「平台即服務 (PaaS)」。 SQL Database 有多個部署選項，而且每個部署選項都會建立在 Microsoft 所擁有、託管及維護的標準化硬體和軟體上。 透過 SQL Database，您可以使用需要在 SQL Server 中進行大量設定的內建功能 (內部部署或在 Azure 虛擬機器中)。 使用 SQL Database 時，您可以隨用隨付，並使用相應增加或相應放大選項以取得不需中斷的更強大功能。 SQL Database 具有 SQL Server 中無法使用的額外功能，例如內建高可用性、智慧和管理功能。 Azure SQL Database 提供下列部署選項：
+- [Azure SQL Database](sql-database-technical-overview.md)：一個完全受控的 SQL 資料庫引擎，以最新穩定版的 SQL Server Enterprise 為基礎。 這是裝載在 Azure 雲端的關聯式資料庫即服務 (DBaaS)，其產業類別屬於「平台即服務 (PaaS)」  。 SQL Database 有多個部署選項，而且每個部署選項都會建立在 Microsoft 所擁有、託管及維護的標準化硬體和軟體上。 透過 SQL Database，您可以使用需要在 SQL Server 中進行大量設定的內建功能 (內部部署或在 Azure 虛擬機器中)。 使用 SQL Database 時，您可以隨用隨付，並使用相應增加或相應放大選項以取得不需中斷的更強大功能。 SQL Database 具有 SQL Server 中無法使用的額外功能，例如內建高可用性、智慧和管理功能。 Azure SQL Database 提供下列部署選項：
   
   - 以[單一資料庫](sql-database-single-database.md)形式，內含透過 SQL Database 伺服器管理的自有資源集。 單一資料庫類似 SQL Server 中的[自主資料庫](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)。 此選項適用於新的雲端應用程式的現代應用程式開發。
   - [彈性集區](sql-database-elastic-pool.md)，這是透過 SQL Database 伺服器管理的共用資源集出現在其中的資料庫集合。 單一資料庫可以移入和移出彈性集區。 此選項適用於使用多租用戶 SaaS 應用程式的新雲端應用程式部署新型應用程式。
@@ -91,7 +91,7 @@ ms.locfileid: "60584843"
 有幾個因素會影響您選擇 PaaS 或 IaaS 裝載 SQL 資料庫的決定：
 
 - [成本](#cost) - PaaS 和 IaaS 選項都包括基底價格，其中涵蓋基礎結構和授權。 但是，使用 IaaS 選項，您需要投入更多時間和資源來管理資料庫，而在 PaaS 中，您會收到價格中包含的這些管理功能。 IaaS 選項可讓您在不使用資源時關閉資源以降低成本，而 PaaS 版本始終在執行，除非您在需要時卸除並重新建立資源。
-- [管理](#administration) - PaaS 選項會降低您管理資料庫所需投入的時間量。 但是，它还会限制你可以执行或运行的自定义管理任务和脚本的范围。 比方說，CLR 不支援使用單一或集區的資料庫，但支援的 managed 執行個體。 此外，任何在 PaaS 中的部署選項不支援使用追蹤旗標。
+- [管理](#administration) - PaaS 選項會降低您管理資料庫所需投入的時間量。 不過，它也會限制自訂的管理工作和指令碼，您可以執行或執行的範圍。 比方說，CLR 不支援使用單一或集區的資料庫，但支援的 managed 執行個體。 此外，任何在 PaaS 中的部署選項不支援使用追蹤旗標。
 - [服務等級協定](#service-level-agreement-sla) - IaaS 和 PaaS 都提供最高業界標準的 SLA。 針對基礎架構，PaaS 選項可保證 99.99 % 的 SLA，而 IaaS 保證 99.95% 的 SLA，這表示您需要實作其他的機制來確保資料庫的可用性。 在最極端的情況下，如果要實作與 PaaS 符合的高可用性解決方案，則可能需要在 VM 中建立其他 SQL Server 並設定 AlwaysOn 可用性群組，這可能會使資料庫的成本加倍。
 - [移至 Azure 的時間](#market) - Azure VM 中的 SQL Server 與您的環境完全相符，因此從內部部署移轉至 Azure SQL VM 與將資料庫從一個內部部署伺服器移動到另一個伺服器沒有什麼不同。 受控執行個體還可以實現極其輕鬆的移轉；但是，在移轉至受控執行個體之前，可能需要套用一些變更。
 
@@ -107,7 +107,7 @@ ms.locfileid: "60584843"
 
 - 使用 SQL Database 單一資料庫，您可以從基本層的每月 5 美元開始，從各種不同的價格中選擇適合您需求的服務層級。
 - 您可以建立[彈性集區](sql-database-elastic-pool.md)以便在資料庫執行個體間共用資源，進而降低成本及因應使用尖峰。
-- 使用 SQL Database 受控執行個體，您也可以自備授權。 如需採用自己的授權的詳細資訊，請參閱 [Azure 上藉軟體保證而實現的授權行動性](https://azure.microsoft.com/pricing/license-mobility/)或使用 [Azure Hybrid Benefit 計算機](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database)查看如何**節省高達 40%**。
+- 使用 SQL Database 受控執行個體，您也可以自備授權。 如需採用自己的授權的詳細資訊，請參閱 [Azure 上藉軟體保證而實現的授權行動性](https://azure.microsoft.com/pricing/license-mobility/)或使用 [Azure Hybrid Benefit 計算機](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database)查看如何**節省高達 40%** 。
 
 此外，傳出的網際網路流量也會以一般 [資料傳輸費率](https://azure.microsoft.com/pricing/details/data-transfers/)計費。 您可以動態調整服務層級和計算大小，以滿足應用程式的不同輸送量需求。
 

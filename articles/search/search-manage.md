@@ -11,10 +11,10 @@ ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: d5820c927b88eba37eaf092dfd4b209180bfc8eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565426"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure 入口網站中 Azure 搜尋服務的服務管理
@@ -32,7 +32,7 @@ Azure 搜尋服務是完全受控、以雲端為基礎的搜尋服務，用來�
 > * 變更資料分割和複本的配置來調整服務容量。
 > * 監視資源使用量，相對於服務層級的最大限制。
 
-請注意，「升級」不是管理工作。 因為資源是在佈建服務時進行配置，所以移動到其他層需要新的服務。 如需詳細資料，請參閱[建立 Azure 搜尋服務](search-create-service-portal.md)。
+請注意，「升級」  不是管理工作。 因為資源是在佈建服務時進行配置，所以移動到其他層需要新的服務。 如需詳細資料，請參閱[建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 > [!Tip]
 > 尋找有關如何分析搜尋流量或查詢效能的說明嗎？ 您可以監視查詢磁碟區、使用者搜尋哪些字詞，以及搜尋結果將客戶引導至索引中特定文件的成功率。 如需詳細資訊，請參閱 [Azure 搜尋服務的搜尋流量分析](search-traffic-analytics.md)、[監視使用量和查詢度量](search-monitor-usage.md)、[效能和最佳化](search-performance-optimization.md)。
@@ -87,7 +87,7 @@ Azure 搜尋服務不會透過入口網站或程式設計介面公開個別服�
 <a id="scale"></a>
 
 ## <a name="scale-up-or-down"></a>擴大或縮小規模
-每個搜尋服務都會以一個複本和一個資料分割的最小值開始執行。 如果您註冊的[層提供專用資源](search-limits-quotas-capacity.md)，請按一下服務儀表板中的 [級別] 圖格來調整資源使用量。
+每個搜尋服務都會以一個複本和一個資料分割的最小值開始執行。 如果您註冊的[層提供專用資源](search-limits-quotas-capacity.md)，請按一下服務儀表板中的 [級別]  圖格來調整資源使用量。
 
 當您透過任何資源加入處理能力時，服務即會自動使用這些資源。 您無須再執行其他動作，但在新資源產生作用前，會有些許的延遲。 佈建其他資源需要 15 分鐘或更久的時間。
 

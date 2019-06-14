@@ -14,14 +14,14 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 551bbe4e994e15688c59fd395ab762e14927dfda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60482803"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>從 My Apps 入口網站中執行存取權檢閱
-您可以透過 [我的應用程式] Web 入口網站使用工作或學校帳戶，來檢視和啟動貴組織的許多雲端式應用程式、更新您的設定檔和帳戶資訊、查看您的**群組**資訊，以及執行您應用程式和群組的**存取權檢閱**。 如果您沒有 [我的應用程式] 入口網站的存取權，則必須連絡技術服務人員以取得權限。
+您可以透過 [我的應用程式]  Web 入口網站使用工作或學校帳戶，來檢視和啟動貴組織的許多雲端式應用程式、更新您的設定檔和帳戶資訊、查看您的**群組**資訊，以及執行您應用程式和群組的**存取權檢閱**。 如果您沒有 [我的應用程式]  入口網站的存取權，則必須連絡技術服務人員以取得權限。
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
@@ -38,7 +38,7 @@ ms.locfileid: "60482803"
 
 1.  登入您的公司或學校帳戶。
 
-2.  開啟網頁瀏覽器並移至 https://myapps.microsoft.com，或使用貴組織所提供的連結。 比方說，您可能會被導向至自訂頁面為您的組織，例如 https://myapps.microsoft.com/contoso.com。
+2.  開啟網頁瀏覽器並移至 https://myapps.microsoft.com ，或使用貴組織所提供的連結。 比方說，您可能會被導向至自訂頁面為您的組織，例如 https://myapps.microsoft.com/contoso.com 。
 
     **應用程式**頁面隨即出現，顯示的所有雲端應用程式，您的組織所擁有且可供您使用。
 
@@ -63,7 +63,7 @@ ms.locfileid: "60482803"
 
     ![存取權檢閱頁面上，顯示 [原因] 方塊的範例文字](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 
-7. 選取 [提交]。
+7. 選取 [提交]  。
 
     您的存取權檢閱完畢，並且您返回**My Apps**入口網站。
 

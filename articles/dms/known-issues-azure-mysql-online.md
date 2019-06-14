@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: 0641545c10d7f59cb1874659eae9c7e7bf65932e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60532255"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>線上移轉到適用於 MySQL 的 Azure 資料庫已知問題/移轉限制
@@ -88,7 +88,7 @@ ms.locfileid: "60532255"
     - 所有資料分割 DDL
     - 卸除資料表
     - 重新命名資料表
-- 不支援使用 alter table <table_name> add column <column_name> 陳述式，將資料行新增至資料表開頭或中間。 alter table <table_name> add column <column_name> 會在資料表結尾處新增資料行。
+- 不支援使用 alter table <table_name> add column <column_name>  陳述式，將資料行新增至資料表開頭或中間。 alter table <table_name> add column <column_name>  會在資料表結尾處新增資料行。
 - 不支援只在資料行資料的一部分建立索引。 下列陳述式是僅使用資料行資料的一部分，建立索引的範例：
     ``` 
     CREATE INDEX partial_name ON customer (name(10));

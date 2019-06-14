@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 02/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: 2f3db5e6260b065c83f0e337306d38dca6e5ff51
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60389875"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>解決資源提供者註冊的錯誤
@@ -95,7 +95,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Cdn
 az provider list
 ```
 
-若要注册资源提供程序，请使用 `az provider register` 命令，并指定要注册的 *命名空间* 。
+若要註冊資源提供者，請使用 `az provider register` 命令，然後指定要註冊的*命名空間*。
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Cdn
@@ -111,7 +111,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 您可以看到註冊狀態，並透過入口網站註冊資源提供者命名空間。
 
-1. 從入口網站，選取 [所有服務]。
+1. 從入口網站，選取 [所有服務]  。
 
    ![選取 [所有服務]](./media/resource-manager-register-provider-errors/select-all-services.png)
 
@@ -127,6 +127,6 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
    ![選取資源提供者](./media/resource-manager-register-provider-errors/select-resource-provider.png)
 
-1. 查看資源提供者的清單，並視需要選取 [註冊] 連結以註冊您嘗試部署的資源提供者類型。
+1. 查看資源提供者的清單，並視需要選取 [註冊]  連結以註冊您嘗試部署的資源提供者類型。
 
    ![列出資源提供者](./media/resource-manager-register-provider-errors/list-resource-providers.png)

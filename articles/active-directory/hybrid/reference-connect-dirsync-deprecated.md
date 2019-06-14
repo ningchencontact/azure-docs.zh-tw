@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 803fcc0161f2a092006e60db5a98f5bf18dce1c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381173"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>升級 Windows Azure Active Directory Sync 和 Azure Active Directory Sync
@@ -35,7 +35,7 @@ Azure AD Connect 是連接內部部署目錄與 Azure AD 和 Office 365 的最�
 Azure AD Connect 是 DirSync 和 Azure AD Sync 的後續產品。它結合了兩者支援的所有案例。 您可以在 [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)中進一步了解。
 
 ## <a name="deprecation-schedule"></a>淘汰排程
-| date | 註解 |
+| Date | 註解 |
 | --- | --- |
 | 2016 年 4 月 13 日 |Windows Azure Active Directory Sync (“DirSync”) 和 Microsoft Azure Active Directory Sync (“Azure AD Sync”) 已宣布淘汰。 |
 | 2017 年 4 月 13 日 |支援結束。 客戶必須先升級至 Azure AD Connect 才能開啟支援案例。 |
@@ -57,13 +57,13 @@ Azure AD Connect 是 DirSync 和 Azure AD Sync 的後續產品。它結合了兩
 
 ## <a name="faq"></a>常見問題集
 **问：我使用 Connect，但卻收到來自 Azure 團隊的電子郵件通知和/或來自 Office 365 訊息中心的訊息。**  
-這項通知也會傳送給使用 Azure AD Connect 組建編號 1.0.\*.0 (使用 1.1 發行前版本) 的客戶。 Microsoft 建議客戶使用最新的 Azure AD Connect 版本。 1.1 版引進的[自動升級](how-to-connect-install-automatic-upgrade.md)功能可讓您持續輕鬆擁有最新的 Azure AD Connect 安裝版本。
+這項通知也會傳送給使用 Azure AD Connect 組建編號 1.0.\*.0 (使用 1.1 發行前版本) 的客戶。 Microsoft 建議客戶使用最新的 Azure AD Connect 版本。 1\.1 版引進的[自動升級](how-to-connect-install-automatic-upgrade.md)功能可讓您持續輕鬆擁有最新的 Azure AD Connect 安裝版本。
 
 **问：DirSync/Azure AD 同步是否會在 2017 年 4 月 13 日停止運作？**  
 DirSync/Azure AD Sync 在 2017 年 4 月 13 日會繼續運作。  不過，Azure AD 在 2017 年 12 月 31 日之後，將不再接受來自 DirSync/Azure AD Sync 的通訊。
 
 **问：我可以從哪些 DirSync 版本升級？**  
- 目前使用的任何 DirSync 版本皆支援升級。 
+目前使用的任何 DirSync 版本皆支援升級。 
 
 **问：適用於 FIM/MIM 的 Azure AD 連接器情況又如何？**  
 FIM/MIM 的 Azure AD 連接器**尚未**宣布淘汰。 它目前在 **功能凍結**狀態；不會新增任何功能，而且不會收到任何錯誤修正。 Microsoft 建議使用它的客戶規劃從它移至 Azure AD Connect。 強烈建議不要使用它啟動任何新的部署。 此連接器會在未來宣布淘汰。

@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d47072713c57576abe780134792c3a5cbc27127c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60438266"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>在 Azure 入口網站中尋找活動報告
@@ -30,8 +30,8 @@ ms.locfileid: "60438266"
 稽核記錄報告會將應用程式活動的多個相關報告結合到單一檢視中，以取得有相關內容可參考的報告。 若要存取稽核記錄報告：
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
-2. 從右上角選取您的目錄，然後從左側導覽窗格中選取 [Azure Active Directory] 刀鋒視窗。
-3. 您可以從 [Azure Active Directory] 刀鋒視窗的 [活動] 區段中選取 [稽核記錄]。 
+2. 從右上角選取您的目錄，然後從左側導覽窗格中選取 [Azure Active Directory]  刀鋒視窗。
+3. 您可以從 [Azure Active Directory] 刀鋒視窗的 [活動]  區段中選取 [稽核記錄]  。 
 
     ![稽核記錄檔](./media/howto-find-activity-reports/482.png "稽核記錄檔")
 
@@ -76,8 +76,8 @@ ms.locfileid: "60438266"
 - 全部
 - 存取權檢閱
 - 帳戶佈建 
-- 应用程序 SSO
-- 身份验证方法
+- 應用程式 SSO
+- 驗證方法
 - B2C
 - 條件式存取
 - 核心目錄
@@ -91,13 +91,13 @@ ms.locfileid: "60438266"
 
 ## <a name="sign-ins-report"></a>登入報告 
 
-**登入**檢視包含所有使用者登入，以及**應用程式使用量**報告。 您也可以在 [企業應用程式] 概觀的 [管理] 區段中檢視應用程式使用量資訊。
+**登入**檢視包含所有使用者登入，以及**應用程式使用量**報告。 您也可以在 [企業應用程式]  概觀的 [管理]  區段中檢視應用程式使用量資訊。
 
 若要存取登入報告：
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
-2. 從右上角選取您的目錄，然後從左側導覽窗格中選取 [Azure Active Directory] 刀鋒視窗。
-3. 您可以從 [Azure Active Directory] 刀鋒視窗的 [活動] 區段中選取 [Signins]。 
+2. 從右上角選取您的目錄，然後從左側導覽窗格中選取 [Azure Active Directory]  刀鋒視窗。
+3. 您可以從 [Azure Active Directory] 刀鋒視窗的 [活動]  區段中選取 [Signins]  。 
 
     ![登入檢視](./media/howto-find-activity-reports/483.png "登入檢視")
 
@@ -134,7 +134,7 @@ ms.locfileid: "60438266"
 
 ### <a name="detected-risk-events"></a>偵測到的風險事件
 
-在 [Azure 入口網站](https://portal.azure.com)中，您可以在 [Azure Active Directory] 刀鋒視窗的 [安全性] 區段中，存取所偵測到的風險事件相關報告。 偵測到的風險事件會在下列報告中進行追蹤︰   
+在 [Azure 入口網站](https://portal.azure.com)中，您可以在 [Azure Active Directory]  刀鋒視窗的 [安全性]  區段中，存取所偵測到的風險事件相關報告。 偵測到的風險事件會在下列報告中進行追蹤︰   
 
 - [有風險的使用者](concept-user-at-risk.md)
 - [有風險的登入](concept-risky-sign-ins.md)

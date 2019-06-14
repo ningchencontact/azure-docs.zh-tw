@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
 ms.openlocfilehash: 4108616e3ae41e2c88b74bb08d5f846c0035101f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236202"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>針對 System Center Data Protection Manager 疑難排解
@@ -60,7 +60,7 @@ ms.locfileid: "60236202"
 若要解決此問題，請執行下列動作：
 - 確定您使用的是最新版的 Azure 備份代理程式。
 - 確定 Data Protection Manager 伺服器與受保護伺服器之間有連線能力 (網路/防火牆/Proxy)。
-- 如果您要保護 SQL Server，請確定 [登入屬性] > **NT AUTHORITY\SYSTEM** 屬性會顯示已啟用 **sysadmin** 設定。
+- 如果您要保護 SQL Server，請確定 [登入屬性]   > **NT AUTHORITY\SYSTEM** 屬性會顯示已啟用 **sysadmin** 設定。
 
 ## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>Error:未以保存庫認證檔案中指定的方式註冊伺服器
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: orspodek
 ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394501"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 資料總管或從該處複製資料
@@ -184,7 +184,7 @@ Azure 資料總管連結服務支援以下屬性：
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動接收的 **type** 屬性必須設定為：**AzureDataExplorerSink** | 是 |
-| ingestionMappingName | 預先建立的名稱**[對應](/azure/kusto/management/mappings#csv-mapping)** Kusto 資料表上。 若要將 Azure 資料總管-適用於從來源資料行**[所有支援來源存放區/格式](copy-activity-overview.md#supported-data-stores-and-formats)** 包括 CSV/JSON/Avro 格式等，您可以使用 「 複製活動[資料行對應](copy-activity-schema-and-type-mapping.md)（由名稱隱含或明確設定） 和 （或) Azure 資料總管對應。 | 否 |
+| ingestionMappingName | 預先建立的名稱 **[對應](/azure/kusto/management/mappings#csv-mapping)** Kusto 資料表上。 若要將 Azure 資料總管-適用於從來源資料行 **[所有支援來源存放區/格式](copy-activity-overview.md#supported-data-stores-and-formats)** 包括 CSV/JSON/Avro 格式等，您可以使用 「 複製活動[資料行對應](copy-activity-schema-and-type-mapping.md)（由名稱隱含或明確設定） 和 （或) Azure 資料總管對應。 | 否 |
 
 **範例：**
 

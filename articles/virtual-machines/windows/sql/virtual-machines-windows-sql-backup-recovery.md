@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
 ms.openlocfilehash: ab239d0546508d74874c6b6be03f6afc06b08fa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563407"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 備份和還原
@@ -56,7 +56,7 @@ SQL Server 2016 和更新版本的 VM，會透過自動備份 v2 提供更多自
 
 如需如何針對 SQL VM 設定自動備份的詳細資訊，請參閱下列其中一篇文章：
 
-- **SQL Server 2016/2017**：[适用于 Azure 虚拟机的自动备份 v2](virtual-machines-windows-sql-automated-backup-v2.md)
+- **SQL Server 2016/2017**：[Azure 虛擬機器的自動備份 v2](virtual-machines-windows-sql-automated-backup-v2.md)
 - **SQL Server 2014**：[SQL Server 2014 虛擬機器的自動備份](virtual-machines-windows-sql-automated-backup.md)
 
 ## <a id="azbackup"></a> 適用於 SQL Vm 的 azure 備份
@@ -65,11 +65,11 @@ SQL Server 2016 和更新版本的 VM，會透過自動備份 v2 提供更多自
 
 - **零基礎架構備份**：您不必管理備份伺服器或儲存位置。
 - **調整**：可保護許多 SQL VM 與數以千計的資料庫。
-- **預付型方案**：這項功能是由 Azure 備份提供的個別服務，但和所有 Azure 服務一樣，您只需依據使用量付費。
+- **隨用隨付**：這項功能是由 Azure 備份提供的個別服務，但和所有 Azure 服務一樣，您只需依據使用量付費。
 - **集中管理和監視**：從 Azure 中的單一儀表板集中管理所有備份，包括 Azure 備份支援的其他工作負載。
 - **原則驅動的備份和保留**：針對定期備份建立標準備份原則。 建立保留原則以維護備份長達數年的時間。
 - **支援 SQL Always On**：偵測和保護 SQL Server Always On 設定，並接受備份的可用性群組備份喜好設定。
-- **15 分鐘復原點目標 (RPO)**：設定最多以 15 分鐘為間隔的 SQL 交易記錄備份。
+- **15 分鐘復原點目標 (RPO)** ：設定最多以 15 分鐘為間隔的 SQL 交易記錄備份。
 - **還原時間點**：使用入口網站將資料庫復原至特定時間點，而不必手動還原多個完整、差異和記錄備份。
 - **彙總的失敗電子郵件警示**：設定針對任何失敗的彙總電子郵件通知。
 - **角色型存取控制**：決定有哪些人員可透過入口網站管理備份或還原作業。

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2017
 ms.author: v-dabosl
 ms.openlocfilehash: 243b6b7846719d3f848073e3aa973c9406ca59c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586558"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>如何記錄安全性事件支援票證
@@ -28,11 +28,11 @@ ms.locfileid: "60586558"
 
     ![事件類型和定義][1]
 
-3. 當您選取 [Problem Type] \(問題類型\) 和 [Category] \(類別\) 之後，按一下 [Start request] \(提出要求\) 按鈕。 提供下列資訊，以協助我們更了解問題。
+3. 當您選取 [Problem Type] \(問題類型\) 和 [Category] \(類別\) 之後，按一下 [Start request]  \(提出要求\) 按鈕。 提供下列資訊，以協助我們更了解問題。
 
     i. 問題和/或弱點是什麼？
 
-    ii. 針對弱點，請提供 CVE (mitre.org) 或將填滿出 CVSS3 v3 計算機 (https://www.first.org/cvss/calculator/3.0)。
+    ii. 針對弱點，請提供 CVE (mitre.org) 或將填滿出 CVSS3 v3 計算機 (https://www.first.org/cvss/calculator/3.0) 。
 
     iii. 有任何解決方式或緩解功能嗎？ 如果有，則請提供補救步驟。
 

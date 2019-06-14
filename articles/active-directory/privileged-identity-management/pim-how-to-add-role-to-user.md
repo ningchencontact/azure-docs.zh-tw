@@ -14,10 +14,10 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07259d90c7119dec4ca9139e10af2fb20a439425
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60289314"
 ---
 # <a name="assign-azure-ad-roles-in-pim"></a>將 Azure AD PIM 中的角色指派
@@ -38,23 +38,23 @@ Azure AD Privileged Identity Management (PIM) 服務也可讓特殊權限角色�
 
     如果您尚未在 Azure 入口網站中起始 PIM，請移至[開始使用 PIM](pim-getting-started.md)。
 
-1. 按一下 [Azure AD 角色]。
+1. 按一下 [Azure AD 角色]  。
 
-1. 按一下 [角色] 或 [成員]。
+1. 按一下 [角色]  或 [成員]  。
 
     ![Azure AD 角色](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
-1. 按一下 [新增成員] 以開啟 [新增受控成員]。
+1. 按一下 [新增成員]  以開啟 [新增受控成員]。
 
-1. 按一下 [選取角色]，按一下您想要管理的角色，然後按一下 [選取]。
+1. 按一下 [選取角色]  ，按一下您想要管理的角色，然後按一下 [選取]  。
 
     ![選取角色](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
 
-1. 按一下 [選取成員]，選取您想要指派給角色的使用者，然後按一下 [選取]。
+1. 按一下 [選取成員]  ，選取您想要指派給角色的使用者，然後按一下 [選取]  。
 
     ![選取角色](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
-1. 在 [新增受控成員] 中，按一下 [確定] 以將使用者新增至角色。
+1. 在 [新增受控成員] 中，按一下 [確定]  以將使用者新增至角色。
 
 1. 在角色清單中，按一下您剛才指派的角色，以查看成員清單。
 
@@ -72,15 +72,15 @@ Azure AD Privileged Identity Management (PIM) 服務也可讓特殊權限角色�
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure AD 角色]。
+1. 按一下 [Azure AD 角色]  。
 
-1. 按一下 [成員]。
+1. 按一下 [成員]  。
 
     ![成員的清單](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
-1. 按一下您想要設為永久的 [合格] 角色。
+1. 按一下您想要設為永久的 [合格]  角色。
 
-1. 按一下 [更多]，然後按一下 [設為永久]。
+1. 按一下 [更多]  ，然後按一下 [設為永久]  。
 
     ![設定永久角色指派](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
 
@@ -96,19 +96,19 @@ Azure AD Privileged Identity Management (PIM) 服務也可讓特殊權限角色�
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure AD 角色]。
+1. 按一下 [Azure AD 角色]  。
 
-1. 按一下 [成員]。
+1. 按一下 [成員]  。
 
     ![成員的清單](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
 1. 按一下您想要移除的角色指派。
 
-1. 按一下 [更多]，然後按一下 [移除]。
+1. 按一下 [更多]  ，然後按一下 [移除]  。
 
     ![移除角色](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
 
-1. 在要求您確認的訊息中，按一下 [是]。
+1. 在要求您確認的訊息中，按一下 [是]  。
 
     ![移除角色](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
@@ -122,27 +122,27 @@ Azure AD Privileged Identity Management (PIM) 服務也可讓特殊權限角色�
 
 1. 以全域系統管理員身分登入 Azure 入口網站。
 
-1. 選擇 [所有服務]，然後選擇 [訂用帳戶]。
+1. 選擇 [所有服務]  ，然後選擇 [訂用帳戶]  。
 
 1. 選擇您的訂用帳戶。
 
-1. 選擇 [存取控制 (IAM)]。
+1. 選擇 [存取控制 (IAM)]  。
 
-1. 選擇 [角色指派]，以查看訂用帳戶範圍中目前的角色指派清單。
+1. 選擇 [角色指派]  ，以查看訂用帳戶範圍中目前的角色指派清單。
 
    ![訂用帳戶的存取控制 (IAM) 刀鋒視窗](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
 
 1. 檢查是否已為 **MS-PIM** 服務主體指派**使用者存取系統管理員**角色。
 
-1. 若未指派，請選擇 [新增角色指派] 以開啟 [新增角色指派] 窗格。
+1. 若未指派，請選擇 [新增角色指派]  以開啟 [新增角色指派]  窗格。
 
-1. 在 [角色] 下拉式清單中，選取 [使用者存取系統管理員] 角色。
+1. 在 [角色]  下拉式清單中，選取 [使用者存取系統管理員]  角色。
 
-1. 在 [選取] 清單中，尋找並選取 [MS-PIM] 服務主體。
+1. 在 [選取]  清單中，尋找並選取 [MS-PIM]  服務主體。
 
    ![新增適用於 MS-PIM 的權限](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
 
-1. 選擇 [儲存] 以指派角色。
+1. 選擇 [儲存]  以指派角色。
 
    稍後片刻，即會在訂用帳戶範圍中，為 MS-PIM 服務主體指派使用者存取系統管理員角色。
 

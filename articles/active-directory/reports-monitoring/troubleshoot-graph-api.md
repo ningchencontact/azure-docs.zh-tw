@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b517204fb650020bdebf8172186f30fff58f722
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60284989"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>針對 Azure Active Directory 報告 API 中的錯誤進行疑難排解
@@ -40,7 +40,7 @@ ms.locfileid: "60284989"
 
 ### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Error:無法從 AD Graph 進行進階授權檢查 
 
-如果您在嘗試使用 Graph 總管存取登入時，遇到這個錯誤訊息，請在您帳戶左側導覽列底下選擇 [修改權限]，然後選取 [Tasks.ReadWrite] 和 [Directory.Read.All]。 
+如果您在嘗試使用 Graph 總管存取登入時，遇到這個錯誤訊息，請在您帳戶左側導覽列底下選擇 [修改權限]  ，然後選取 [Tasks.ReadWrite]  和 [Directory.Read.All]  。 
 
 ![修改權限 UI](./media/troubleshoot-graph-api/modify-permissions.png)
 

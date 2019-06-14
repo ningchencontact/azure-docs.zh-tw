@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: e681652c13e521bd33524e247db65088f47a794c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394903"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>從 Azure DevTest Labs 匯出或刪除個人資料
@@ -39,10 +39,10 @@ DevTest Labs 會依據使用者電子郵件地址，將自動關閉電子郵件�
 ### <a name="user-object-id"></a>使用者物件識別碼
 DevTest Labs 會透過使用者物件識別碼向實驗室管理員顯示逐月的成本趨勢，以及依資源列出的成本資訊。 它可讓管理員追蹤成本及管理其實驗室的閾值。 
 
-**目前行事曆月份的預估成本趨勢：**
+**目前行事曆月份的預估成本趨勢：** 
 ![目前行事曆月份的預估成本趨勢](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
 
-**依資源估計的當月成本：**
+**依資源估計的當月成本：** 
 ![依資源估計的當月成本](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
 
 
@@ -55,16 +55,16 @@ DevTest Labs 服務會基於運作目的使用個人資料。 這是服務為了
 例如，如果您刪除了 VM，或移除了電子郵件地址，DevTest Labs 服務將會在資源刪除的 30 天後將這項資料匿名處理。 刪除後保留 30 天的原則，是為了確保我們能為實驗室管理員提供精確的逐月成本預測。
 
 ## <a name="how-can-i-request-an-export-on-my-personal-data"></a>如何要求匯出我的個人資料？
-身為實驗室使用者，您可以要求匯出 DevTest Labs 服務所儲存的個人資料。 若要要求匯出，請瀏覽至實驗室 [概觀] 頁面上的 [個人資料] 選項。 選取 [要求匯出] 按鈕，即可開始在您實驗室管理員的儲存體帳戶中建立可下載的 Excel 檔案。 接著，您可以連絡實驗室管理員以檢視這項資料。
+身為實驗室使用者，您可以要求匯出 DevTest Labs 服務所儲存的個人資料。 若要要求匯出，請瀏覽至實驗室 [概觀]  頁面上的 [個人資料]  選項。 選取 [要求匯出]  按鈕，即可開始在您實驗室管理員的儲存體帳戶中建立可下載的 Excel 檔案。 接著，您可以連絡實驗室管理員以檢視這項資料。
 
-1. 選取左側功能表上的 [個人資料]。 
+1. 選取左側功能表上的 [個人資料]  。 
 
     ![個人資料頁面](./media/personal-data-delete-export/personal-data-page.png)
 2. 選取包含實驗室的**資源群組**。
 
     ![選取資源群組](./media/personal-data-delete-export/select-resource-group.png)
 3. 選取資源群組中的**儲存體帳戶**。
-4. 在 [儲存體帳戶] 頁面上，選取 [Blob]。
+4. 在 [儲存體帳戶]  頁面上，選取 [Blob]  。
 
     ![選取 Blob 圖格](./media/personal-data-delete-export/select-blobs-tile.png)
 5. 在容器清單中選取名為 **labresourceusage** 的容器。

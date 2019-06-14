@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca85007bb016cc98d1be61ce08865945e699ad4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60358172"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Azure AD 密碼保護作業程序
@@ -29,9 +29,9 @@ ms.locfileid: "60358172"
 ## <a name="enable-password-protection"></a>啟用密碼保護
 
 1. 登入[Azure 入口網站](https://portal.azure.com)並瀏覽至**Azure Active Directory**，**驗證方法**，然後**密碼保護**。
-1. 將 [啟用 Windows Server Active Directory 上的密碼保護] 設定為 [是]
-1. 如[部署指南](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy)所述，建議您一開始就將 [模式] 設定為 [稽核]
-   * 對功能感到滿意後，您可以將 [模式] 切換為 [已強制]
+1. 將 [啟用 Windows Server Active Directory 上的密碼保護]  設定為 [是] 
+1. 如[部署指南](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy)所述，建議您一開始就將 [模式]  設定為 [稽核] 
+   * 對功能感到滿意後，您可以將 [模式]  切換為 [已強制] 
 1. 按一下 [儲存] 
 
 ![在 Azure 入口網站中啟用 Azure AD 密碼保護元件](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)

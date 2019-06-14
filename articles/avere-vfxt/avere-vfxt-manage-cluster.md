@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
 ms.openlocfilehash: be9205fdf7fec0661d7382ed0d1bedf47487b15e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409709"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>管理 Avere vFXT 叢集
@@ -21,7 +21,7 @@ ms.locfileid: "60409709"
 
 下表提供可用於每個工作之工具的概觀。 
 
-|  動作 | Avere 控制台 | vfxt.py  | Azure 入口網站 |
+| 動作 | Avere 控制台 | vfxt.py  | Azure 入口網站 |
 | --- | --- | --- | --- |
 | 新增叢集節點 | no | 是 | no |
 | 移除叢集節點 | 是 | no | no |
@@ -56,9 +56,9 @@ Avere 控制台會設定資料完整性的優先順序，因此它會嘗試在�
 
 ### <a name="manage-nodes-with-avere-control-panel"></a>使用 Avere 控制台管理節點
 
-[FXT 節點] 設定頁面提供管理個別節點的控制項。
+[FXT 節點]  設定頁面提供管理個別節點的控制項。
 
-若要關閉、重新啟動或移除節點，在 [FXT 節點] 頁面上的清單中尋找節點，然後在其 [動作] 資料行中按一下適當的按鈕。
+若要關閉、重新啟動或移除節點，在 [FXT 節點]  頁面上的清單中尋找節點，然後在其 [動作]  資料行中按一下適當的按鈕。
 
 > [!NOTE] 
 > 當作用中節點的數目變更時，IP 位址可能會在叢集節點之間移動。
@@ -67,9 +67,9 @@ Avere 控制台會設定資料完整性的優先順序，因此它會嘗試在�
 
 ### <a name="stop-or-reboot-the-cluster-with-avere-control-panel"></a>使用 Avere 控制台停止或重新啟動叢集
 
-[系統維護] 設定頁面提供重新啟動叢集服務、重新啟動叢集，或安全地關閉叢集的命令。 如需詳細資訊，請閱讀[管理 > 系統維護](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (在 Avere 叢集設定指南中)。
+[系統維護]  設定頁面提供重新啟動叢集服務、重新啟動叢集，或安全地關閉叢集的命令。 如需詳細資訊，請閱讀[管理 > 系統維護](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (在 Avere 叢集設定指南中)。
 
-當叢集正在關閉時，它會先將訊息張貼至 [儀表板] 索引標籤。 幾分鐘之後，Avere 控制台工作階段將會停止回應，這表示叢集已經關閉。
+當叢集正在關閉時，它會先將訊息張貼至 [儀表板]  索引標籤。 幾分鐘之後，Avere 控制台工作階段將會停止回應，這表示叢集已經關閉。
 
 ## <a name="manage-the-cluster-with-vfxtpy"></a>使用 vfxt.py 管理叢集
 
@@ -156,9 +156,9 @@ Azure 入口網站可以用於以下叢集管理工作：
 
 ### <a name="restart-vfxt-instances-from-the-azure-portal"></a>從 Azure 入口網站重新啟動 vFXT 執行個體
 
-如果您需要重新啟動已停止的節點，您必須使用 Azure 入口網站。 選取左側功能表中的 [虛擬機器]，然後按一下清單中的 VM 名稱，以開啟其概觀頁面。
+如果您需要重新啟動已停止的節點，您必須使用 Azure 入口網站。 選取左側功能表中的 [虛擬機器]  ，然後按一下清單中的 VM 名稱，以開啟其概觀頁面。
 
-按一下概觀頁面頂端的 [啟動] 按鈕，重新啟用 VM。
+按一下概觀頁面頂端的 [啟動]  按鈕，重新啟用 VM。
 
 ![Azure 入口網站畫面，其中顯示啟動已停止之 VM 的選項](media/avere-vfxt-start-stopped-incurring-annot.png)
 
@@ -170,9 +170,9 @@ Azure 入口網站可以用於以下叢集管理工作：
 > 如果您沒有先從 vFXT 叢集移除節點就加以刪除，可能會遺失資料。
 
 若要永久終結當作 vFXT 節點使用的一個或多個執行個體，請使用 Azure 入口網站。
-選取左側功能表中的 [虛擬機器]，然後按一下清單中的 VM 名稱，以開啟其概觀頁面。
+選取左側功能表中的 [虛擬機器]  ，然後按一下清單中的 VM 名稱，以開啟其概觀頁面。
 
-按一下概觀頁面頂端的 [刪除] 按鈕，永久終結 VM。
+按一下概觀頁面頂端的 [刪除]  按鈕，永久終結 VM。
 
 您可以在安全地關閉叢集節點之後，使用此方法永久移除它們。 
 
@@ -181,7 +181,7 @@ Azure 入口網站可以用於以下叢集管理工作：
 > [!NOTE] 
 > 如果您想要將快取中任何其餘的用戶端變更寫入後端儲存體，請使用 vfxt.py `--destroy` 選項或使用 Avere 控制台，完全關閉叢集，然後再移除 Azure 入口網站中的節點執行個體。
 
-您可以刪除 Azure 入口網站中的節點執行個體，藉此永久終結它們。 您也可以如上述一次刪除一個，或者您可以使用 [虛擬機器] 頁面找出所有叢集 VM，選取其核取方塊，然後按一下 [刪除] 按鈕，將它們一次全部移除。
+您可以刪除 Azure 入口網站中的節點執行個體，藉此永久終結它們。 您也可以如上述一次刪除一個，或者您可以使用 [虛擬機器]  頁面找出所有叢集 VM，選取其核取方塊，然後按一下 [刪除]  按鈕，將它們一次全部移除。
 
 ![入口網站中的 VM 清單，依「叢集」一詞篩選，核取並醒目提示其中三個](media/avere-vfxt-multi-vm-delete.png)
 
@@ -207,6 +207,6 @@ Azure 入口網站可以用於以下叢集管理工作：
 > [!Caution] 
 > 只有在您確定群組中沒有任何值時，才能終結資源群組。 例如，請確定您已經從資源群組內的任何儲存體容器中，移動所需的任何資料。  
 
-若要刪除資源群組，請按一下入口網站左側功能表中的 [資源群組]，然後篩選資源群組清單，以找出您針對 vFXT 叢集建立的資源群組。 選取該資源群組，然後按一下面板右側的三個點。 選擇 [刪除資源群組]。 入口網站會要求您確認刪除，這是無法復原的。  
+若要刪除資源群組，請按一下入口網站左側功能表中的 [資源群組]  ，然後篩選資源群組清單，以找出您針對 vFXT 叢集建立的資源群組。 選取該資源群組，然後按一下面板右側的三個點。 選擇 [刪除資源群組]  。 入口網站會要求您確認刪除，這是無法復原的。  
 
 ![顯示「刪除資源群組」動作的資源群組](media/avere-vfxt-delete-resource-group.png)

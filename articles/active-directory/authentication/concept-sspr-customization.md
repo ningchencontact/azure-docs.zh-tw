@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60415648"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>自訂 Azure AD 的自助式密碼重設功能
@@ -47,8 +47,8 @@ ms.locfileid: "60415648"
 
 如果您的組織不想傳送密碼重設要求通知給系統管理員，則您可以啟用下列設定：
 
-* 對所有使用者啟用自助式密碼重設。 此選項位於 [密碼重設] > [屬性] 底下。 如果您不想讓使用者重設其自己的密碼，可以將存取範圍設定為空群組。 不建議使用此選項。
-* 自訂技術服務人員連結，以提供可讓使用者取得協助的 Web URL 或 mailto︰位址。 此選項位於 [密碼重設] > [自訂] > [自訂的技術服務人員電子郵件或 URL] 底下。
+* 對所有使用者啟用自助式密碼重設。 此選項位於 [密碼重設]   > [屬性]  底下。 如果您不想讓使用者重設其自己的密碼，可以將存取範圍設定為空群組。 不建議使用此選項。 
+* 自訂技術服務人員連結，以提供可讓使用者取得協助的 Web URL 或 mailto︰位址。 此選項位於 [密碼重設]   > [自訂]   > [自訂的技術服務人員電子郵件或 URL]  底下。
 
 ## <a name="customize-the-ad-fs-sign-in-page-for-sspr"></a>自訂 SSPR 的 AD FS 登入頁面
 
@@ -75,7 +75,7 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwor
 
 ### <a name="directory-name"></a>目錄名稱
 
-您可以在 [Azure Active Directory] > [屬性] 底下變更目錄名稱屬性。 您可以顯示一個會在入口網站及自動化通訊中顯示的易記組織名稱。 這個選項最常以下列形式出現在自動化電子郵件中：
+您可以在 [Azure Active Directory]   > [屬性]  底下變更目錄名稱屬性。 您可以顯示一個會在入口網站及自動化通訊中顯示的易記組織名稱。 這個選項最常以下列形式出現在自動化電子郵件中：
 
 * 電子郵件中的易記名稱，例如「Microsoft 代表 CONTOSO 示範」
 * 電子郵件中的主旨列，例如「CONTOSO 示範帳戶電子郵件驗證碼」

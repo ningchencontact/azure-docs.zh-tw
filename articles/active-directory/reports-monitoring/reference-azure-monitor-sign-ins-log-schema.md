@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8ac6c56dca100ea9836158f46881c4eb12213e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60285189"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>解譯 Azure 監視器中的 Azure AD 單一登入架構
@@ -145,11 +145,11 @@ ms.locfileid: "60285189"
 
 | 欄位名稱 | 描述 |
 |------------|-------------|
-| 時間 | 日期和時間 (UTC)。 |
+| Time | 日期和時間 (UTC)。 |
 | resourceId | 此值未對應，您可以放心地略過此欄位。  |
 | OperationName | 針對登入，這個值一律是 *Sign-in activity*。 |
 | OperationVersion | 用戶端要求的 REST API 版本。 |
-| 類別 | 針對登入，這個值一律是 *SignIn*。 | 
+| Category | 針對登入，這個值一律是 *SignIn*。 | 
 | TenantId | 和記錄相關聯的租用戶 GUID。 |
 | ResultType | 登入作業的結果可以是 *Success* 或 *Failure*。 | 
 | ResultSignature | 包含登入作業的錯誤碼 (如果有)。 |

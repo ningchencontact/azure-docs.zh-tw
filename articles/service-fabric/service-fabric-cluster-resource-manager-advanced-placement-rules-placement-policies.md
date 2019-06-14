@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: d5aea441f15cbf7a2a444439c06cd5f74a559d3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60386418"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Service Fabric 服務的放置原則
@@ -45,7 +45,7 @@ ms.locfileid: "60386418"
 
 <center>
 
-![无效域示例][Image1]
+![無效的網域範例][Image1]
 </center>
 
 程式碼：
@@ -66,7 +66,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 <center>
 
-![所需域示例][Image2]
+![必要的網域範例][Image2]
 </center>
 
 程式碼：
@@ -88,7 +88,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 <center>
 
-![首选主域和故障转移][Image3]
+![慣用的主要網域和容錯移轉][Image3]
 </center>
 
 ```csharp
@@ -104,7 +104,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```
 
 ## <a name="requiring-replica-distribution-and-disallowing-packing"></a>要求複本散佈，且不允許封裝
-叢集狀況良好時，複本「通常」會散佈在容錯和升級網域之間。 不過，指定資料分割的多個複本有時會暫時封裝到單一網域。 例如，假設叢集有九個節點在三個容錯網域中 (fd:/0、fd:/1 和 fd:/2)。 假設您的服務有三個複本。 假設 fd:/1 和 fd:/2 中用於這些複本的節點停止運作。 叢集資源管理員通常會選擇這些相同容錯網域中的其他節點。 在此情況下，假設因為容量問題，這些網域中的其他節點都無效。 如果叢集資源管理員為這些複本建立替代項目，則必須選擇 fd:/0 中的節點。 不過，「這樣做」會導致違反容錯網域條件約束。 封裝複本會增加整個複本集停止運作或遺失的可能性。 
+叢集狀況良好時，複本「通常」  會散佈在容錯和升級網域之間。 不過，指定資料分割的多個複本有時會暫時封裝到單一網域。 例如，假設叢集有九個節點在三個容錯網域中 (fd:/0、fd:/1 和 fd:/2)。 假設您的服務有三個複本。 假設 fd:/1 和 fd:/2 中用於這些複本的節點停止運作。 叢集資源管理員通常會選擇這些相同容錯網域中的其他節點。 在此情況下，假設因為容量問題，這些網域中的其他節點都無效。 如果叢集資源管理員為這些複本建立替代項目，則必須選擇 fd:/0 中的節點。 不過，「這樣做」  會導致違反容錯網域條件約束。 封裝複本會增加整個複本集停止運作或遺失的可能性。 
 
 > [!NOTE]
 > 如需一般情況下條件約束和條件約束優先順序的詳細資訊，請參閱[本主題](service-fabric-cluster-resource-manager-management-integration.md#constraint-priorities)。

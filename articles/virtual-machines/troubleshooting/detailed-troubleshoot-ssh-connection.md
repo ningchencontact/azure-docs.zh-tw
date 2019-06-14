@@ -17,10 +17,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: aedf06c5a5e225f0cafb81b17923d6c742da69eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60506103"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>連線到 Azure 中 Linux VM 之問題的詳細 SSH 疑難排解步驟
@@ -34,13 +34,13 @@ SSH 用戶端無法連線至 VM 上的 SSH 服務，可能涉及許多原因。 
 下列步驟可協助您隔離失敗的來源，並找出解決方案或因應措施。
 
 1. 在入口網站中檢查 VM 的狀態。
-   在 [Azure 入口網站](https://portal.azure.com)中，選取 [虛擬機器] > VM 名稱。
+   在 [Azure 入口網站](https://portal.azure.com)中，選取 [虛擬機器]   > VM 名稱  。
 
-   VM 的狀態窗格應該會顯示 [正在執行] 。 向下捲動以顯示計算、儲存體和網路資源的近期活動。
+   VM 的狀態窗格應該會顯示 [正在執行]  。 向下捲動以顯示計算、儲存體和網路資源的近期活動。
 
 2. 選取 [設定]  以檢查端點、IP 位址、網路安全性群組及其他設定。
 
-   VM 應該有一個為 SSH 流量定義的端點，您可以在 [端點] 或**[網路安全性群組](../../virtual-network/security-overview.md)** 中檢視該端點。 使用 Resource Manager 來建立之 VM 中的端點會儲存在網路安全性群組中。 請確認是否已將規則套用至網路安全性群組，以及子網路中是否有參考這些規則。
+   VM 應該有一個為 SSH 流量定義的端點，您可以在 [端點]  或 **[網路安全性群組](../../virtual-network/security-overview.md)** 中檢視該端點。 使用 Resource Manager 來建立之 VM 中的端點會儲存在網路安全性群組中。 請確認是否已將規則套用至網路安全性群組，以及子網路中是否有參考這些規則。
 
 若要確認網路連線，請檢查設定的端點，並判斷您是否可以透過另一個通訊協定 (例如 HTTP 或另一個服務) 連線到 VM。
 
@@ -62,7 +62,7 @@ SSH 用戶端無法連線至 VM 上的 SSH 服務，可能涉及許多原因。 
 
 如果連線失敗，請檢查您電腦上是否有下列問題：
 
-* 本地防火墙设置阻止了入站或出站 SSH 流量 (TCP 22)
+* 正封鎖輸入或輸出 SSH 流量的本機防火牆設定 (TCP 22)
 * 正阻止 SSH 連線的本機安裝用戶端 Proxy 軟體
 * 正阻止 SSH 連線的本機安裝網路監視軟體
 * 其他類型的安全性軟體，這會監視流量或允許/不允許特定類型的流量。
@@ -103,8 +103,8 @@ SSH 用戶端無法連線至 VM 上的 SSH 服務，可能涉及許多原因。 
 
 如果您可以與相同虛擬網路中的 VM 建立 SSH 連線，請檢查下列方面：
 
-* **目标 VM 上 SSH 流量的终结点配置。** 此端點的私用 TCP 連接埠應符合 VM 上 SSH 服務正在接聽的 TCP 連接埠， 預設連接埠為 22。 請在 Azure 入口網站中，選取 [虛擬機器] > VM 名稱 > [設定] > [端點]，來確認 SSH TCP 連接埠號碼。
-* **目標虛擬機器上的 SSH 流量端點 ACL。**  ACL 可讓您指定要根據來源 IP 位址允許或拒絕來自網際網路的連入流量。 設定錯誤的 ACL 會阻止送至端點的連入 SSH 流量。 檢查您的 ACL，確保允許來自您的 Proxy 或其他邊緣伺服器之公用 IP 位址的連入流量。 有关详细信息，请参阅[关于网络访问控制列表 (ACL)](../../virtual-network/virtual-networks-acl.md)。
+* **目標 VM 上的 SSH 流量端點組態。** 此端點的私用 TCP 連接埠應符合 VM 上 SSH 服務正在接聽的 TCP 連接埠， 預設連接埠為 22。 請在 Azure 入口網站中，選取 [虛擬機器]   > VM 名稱   > [設定]   > [端點]  ，來確認 SSH TCP 連接埠號碼。
+* **目標虛擬機器上的 SSH 流量端點 ACL。** ACL 可讓您指定要根據來源 IP 位址允許或拒絕來自網際網路的連入流量。 設定錯誤的 ACL 會阻止送至端點的連入 SSH 流量。 檢查您的 ACL，確保允許來自您的 Proxy 或其他邊緣伺服器之公用 IP 位址的連入流量。 如需詳細資訊，請參閱 [關於網路存取控制清單 (ACL)](../../virtual-network/virtual-networks-acl.md)。
 
 若要排除端點是問題來源的可能性，請移除目前的端點、建立另一個端點，然後指定 SSH 名稱 (TCP 連接埠 22 作為公用及私用連接埠號碼)。 如需詳細資訊，請參閱 [在 Azure 中設定虛擬機器的端點](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
@@ -127,7 +127,7 @@ SSH 用戶端無法連線至 VM 上的 SSH 服務，可能涉及許多原因。 
 
 * SSH 服務未在目標虛擬機器上執行。
 * SSH 服務未在 TCP 連接埠 22 上接聽。 若要進行測試，請在本機電腦上安裝 telnet 用戶端，然後執行 "telnet *cloudServiceName*.cloudapp.net 22"。 此步驟可判斷虛擬機器是否允許對 SSH 端點進行輸入和輸出通訊。
-* 目标虚拟机上的本地防火墙具有阻止入站或出站 SSH 流量的规则。
+* 目標虛擬機器上的本機防火牆具有防止輸入或輸出 SSH 流量的規則。
 * 在 Azure 虛擬機器上執行的入侵偵測或網路監視軟體正在阻止 SSH 連線。
 
 ## <a name="additional-resources"></a>其他資源

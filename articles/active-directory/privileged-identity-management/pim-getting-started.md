@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60289912"
 ---
 # <a name="start-using-pim"></a>開始使用 PIM
@@ -48,17 +48,17 @@ ms.locfileid: "60289912"
 
     您必須是具有組織帳戶 (例如 @yourdomain.com) 而非 Microsoft 帳戶 (例如 @outlook.com) 的全域管理員，才能啟用目錄的 PIM。
 
-1. 按一下 [所有服務]，並尋找 [Azure AD Privileged Identity Management] 服務。
+1. 按一下 [所有服務]  ，並尋找 [Azure AD Privileged Identity Management]  服務。
 
     ![所有服務中的 Azure AD Privileged Identity Management](./media/pim-getting-started/pim-all-services-find.png)
 
 1. 按一下以開啟 PIM 快速入門。
 
-1. 在清單中，按一下 [同意 PIM]。
+1. 在清單中，按一下 [同意 PIM]  。
 
     ![同意 PIM](./media/pim-getting-started/consent-pim.png)
 
-1. 按一下 [驗證我的身分識別] 以使用 Azure MFA 驗證您的身分識別。 系統會要求您選取帳戶。
+1. 按一下 [驗證我的身分識別]  以使用 Azure MFA 驗證您的身分識別。 系統會要求您選取帳戶。
 
     ![選取帳戶](./media/pim-getting-started/pick-account.png)
 
@@ -70,9 +70,9 @@ ms.locfileid: "60289912"
 
     ![其他安全性驗證](./media/pim-getting-started/additional-security-verification.png)
 
-1. 一旦您完成驗證程序後，請按一下 [同意] 按鈕。
+1. 一旦您完成驗證程序後，請按一下 [同意]  按鈕。
 
-1. 在出現的訊息中，按一下 [是] 以同意 PIM 服務。
+1. 在出現的訊息中，按一下 [是]  以同意 PIM 服務。
 
     ![同意 PIM 訊息](./media/pim-getting-started/consent-pim-message.png)
 
@@ -82,13 +82,13 @@ ms.locfileid: "60289912"
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure AD 角色]。
+1. 按一下 [Azure AD 角色]  。
 
     ![針對 Azure AD 角色註冊 PIM](./media/pim-getting-started/sign-up-pim-azure-ad-roles.png)
 
-1. 按一下 [註冊]。
+1. 按一下 [註冊]  。
 
-1. 在出現的訊息中，按一下 [是] 以註冊 PIM 來管理 Azure AD 角色。
+1. 在出現的訊息中，按一下 [是]  以註冊 PIM 來管理 Azure AD 角色。
 
     ![針對 Azure AD 角色註冊 PIM 的訊息](./media/pim-getting-started/sign-up-pim-message.png)
 
@@ -117,7 +117,7 @@ PIM 設定完成後，您可以執行身分識別管理工作。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-1. 按一下 [所有服務]，並尋找 [Azure AD Privileged Identity Management] 服務。
+1. 按一下 [所有服務]  ，並尋找 [Azure AD Privileged Identity Management]  服務。
 
     ![所有服務中的 Azure AD Privileged Identity Management](./media/pim-getting-started/pim-all-services-find.png)
 

@@ -14,10 +14,10 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: c5514a43602106cf045b575d289e02b591468359
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60561640"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>治理 Azure DevTest Labs 基礎結構 - 資源
@@ -84,7 +84,7 @@ ms.locfileid: "60561640"
 它支援將實驗室移到另一個資源群組嗎？
 
 ### <a name="answer"></a>Answer
-是。 從您的實驗室首頁瀏覽至 [資源群組] 頁面。 接著，選取工具列上的 [移動]，然後選取您想要移至不同資源群組的實驗室。 當您建立實驗室時，即會自動為您建立資源群組。 不過，您可能想要將該實驗室移至不同的資源群組，以遵循企業命名慣例。 
+是。 從您的實驗室首頁瀏覽至 [資源群組] 頁面。 接著，選取工具列上的 [移動]  ，然後選取您想要移至不同資源群組的實驗室。 當您建立實驗室時，即會自動為您建立資源群組。 不過，您可能想要將該實驗室移至不同的資源群組，以遵循企業命名慣例。 
 
 ## <a name="next-steps"></a>後續步驟
 請參閱[管理成本與擁有權](devtest-lab-guidance-governance-cost-ownership.md)。

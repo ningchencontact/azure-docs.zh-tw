@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
 ms.openlocfilehash: 7bcc1bf6b734abe202c5fec5d515604f4bf8e4a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60398700"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IoT SDK 平台支援
 
 [Azure IoT SDK](iot-hub-devguide-sdks.md) 是一組程式庫，可透過廣泛的語言與平台支援來與 IoT 中樞和裝置佈建服務進行互動。 這些 SDK 可在最常見的平台上執行，且開發人員可依照[移轉指引](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)將 C SDK 移轉至特定平台。 
 
-Microsoft 支援多種作業系統/平台/架構，並且可使用 Azure IoT C SDK 加以擴充。 其中有部分受到小組的正式支援，並分組為各層，代表使用者可預期的支援程度。 「完全支援的平台」意味著 Microsoft 會：
+Microsoft 支援多種作業系統/平台/架構，並且可使用 Azure IoT C SDK 加以擴充。 其中有部分受到小組的正式支援，並分組為各層，代表使用者可預期的支援程度。 「完全支援的平台」  意味著 Microsoft 會：
 
 - 持續建置並執行對主機的端對端測試和 LTS 支援版本。  若要在不同版本之間提供測試涵蓋範圍，我們一般會針對最新的 LTS 版本與最受歡迎的版本來進行測試。  相同平台的其他版本或許可以透過平台版本相容性來提供支援。
 - 提供適用的安裝指導方針或套件。
@@ -62,7 +62,7 @@ Microsoft 支援多種作業系統/平台/架構，並且可使用 Azure IoT C S
 
 ### <a name="net-sdk"></a>.NET SDK
 
-| 作業系統                  | Arch | Framework            | 標準          |
+| 作業系統                  | Arch | 架構            | 標準          |
 |---------------------|------|----------------------|-------------------|
 | Ubuntu 16.04 LTS    | X64  | .NET Core 2.1        | .NET Standard 2.0 |
 | Windows Server 2016 | X64  | .NET Core 2.1        | .NET Standard 2.0 |
@@ -83,7 +83,7 @@ Microsoft 支援多種作業系統/平台/架構，並且可使用 Azure IoT C S
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
 | Android API 28 | X64  | Java 8       |
-| Android Things | X64  | Java 8      |
+| Android 的項目 | X64  | Java 8      |
 
 ## <a name="partner-supported-platforms"></a>合作夥伴支援的平台
 

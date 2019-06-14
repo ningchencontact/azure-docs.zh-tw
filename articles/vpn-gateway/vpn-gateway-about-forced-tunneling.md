@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
 ms.openlocfilehash: 0955d95ebfd9e1f72ed1da577bf3520a70b71624
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60506001"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>使用傳統部署模型設定強制通道
@@ -28,7 +28,7 @@ ms.locfileid: "60506001"
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-本文會引導您為使用傳統部署模型建立的虛擬網路設定強制通道。 強制通道可使用 PowerShell 設定，而非透過入口網站。 如果想要配置用于资源管理器部署模型的强制隧道，请从下面的下拉列表中选择与资源管理器模型相关的文章：
+本文會引導您為使用傳統部署模型建立的虛擬網路設定強制通道。 強制通道可使用 PowerShell 設定，而非透過入口網站。 如果您想要的 Resource Manager 部署模型設定強制通道，請從下列下拉式清單中選取 Resource Manager 文章：
 
 > [!div class="op_single_selector"]
 > * [PowerShell - 傳統](vpn-gateway-about-forced-tunneling.md)
@@ -50,7 +50,7 @@ Azure 中的強制通道會透過虛擬網路使用者定義路由 (UDR) 進行�
 * ExpressRoute 強制通道不會透過這項機制進行設定，相反地，將由透過 ExpressRoute BGP 對等互連工作階段的廣告預設路由進行啟用。 請參閱 [ExpressRoute 文件](https://azure.microsoft.com/documentation/services/expressroute/)以取得詳細資訊。
 
 ## <a name="configuration-overview"></a>組態概觀
-在上述範例中，前端子網路不會使用強制通道。 前端子网中的工作负载可以继续直接接受并响应来自 Internet 的客户请求。 中間層和後端的子網路會使用強制通道。 任何從這兩個子網路到網際網路的輸出連接會強制或重新導向回 S2S VPN 通道的其中一個內部部署網站。
+在上述範例中，前端子網路不會使用強制通道。 前端子網路中的工作負載可以直接從網際網路繼續接受並回應客戶要求。 中間層和後端的子網路會使用強制通道。 任何從這兩個子網路到網際網路的輸出連接會強制或重新導向回 S2S VPN 通道的其中一個內部部署網站。
 
 這可讓您在 Azure 中限制並檢查來自虛擬機器或雲端服務的網際網路存取，同時繼續啟用您所需的多層式服務架構。 如果虛擬網路中沒有任何網際網路對向工作負載，您也可以將強制通道套用至整個虛擬網路。
 
@@ -63,7 +63,7 @@ Azure 中的強制通道會透過虛擬網路使用者定義路由 (UDR) 進行�
 * 已設定的虛擬網路。 
 * 最新版的 Azure PowerShell Cmdlet。 如需如何安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 
-## <a name="configure-forced-tunneling"></a>配置强制隧道
+## <a name="configure-forced-tunneling"></a>設定強制通道
 下列程序將協助您指定虛擬網路的強制通道。 設定步驟會對應至 Vnet 網路組態檔。
 
 ```xml

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: jegeib
 ms.openlocfilehash: 4e08491ae898fef16af1e199a76a4c07a6c226b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610485"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft 威脅模型化工具
@@ -38,7 +38,7 @@ ms.locfileid: "60610485"
 * **報告：** 驗證階段的安全性活動和測試
 * **獨特的方法︰** 可讓使用者更加看懂和了解威脅
 * **專為開發人員所設計並聚焦於軟體上︰** 許多方法都聚焦在資產或攻擊者上。 我們則聚焦在軟體上。 我們以所有軟體開發人員和架構設計人員都熟悉的活動為基礎來建置 -- 例如繪製其軟體架構的圖片
-* **聚焦在設計分析︰**「威脅模型化」一詞指的可能是需求或設計分析技巧。 有時指的是這兩個情況的複雜混合。 Microsoft SDL 威脅模型化方法是聚焦在設計分析技巧
+* **聚焦在設計分析︰** 「威脅模型化」一詞指的可能是需求或設計分析技巧。 有時指的是這兩個情況的複雜混合。 Microsoft SDL 威脅模型化方法是聚焦在設計分析技巧
 
 ## <a name="next-steps"></a>後續步驟
 

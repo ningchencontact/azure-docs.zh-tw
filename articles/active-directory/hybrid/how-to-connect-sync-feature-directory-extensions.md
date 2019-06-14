@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ff0fd4d01eab739b79685c1de67cb8fe28873961
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347944"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 同步：目錄擴充
@@ -35,7 +35,7 @@ ms.locfileid: "60347944"
 
 ![結構描述擴充功能精靈](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 
- 安裝會顯示下列屬性，這些都是有效的候選項目：
+安裝會顯示下列屬性，這些都是有效的候選項目：
 
 * 使用者和群組物件類型
 * 單一值屬性：字串、布林值、整數、二進位
@@ -62,11 +62,11 @@ Azure AD 中的物件最多可有 100 個目錄擴充功能的屬性。 長度�
 或者，您可以使用 [Microsoft Graph 總管](https://developer.microsoft.com/graph/graph-explorer#)，透過 Microsoft 圖形 API 查詢屬性。
 
 >[!NOTE]
-> 您必須要求要傳回的屬性。 明確地選取屬性，像是： https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division。 
+> 您必須要求要傳回的屬性。 明確地選取屬性，像是： https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division。 
 >
 > 如需詳細資訊，請參閱 [Microsoft Graph：使用查詢參數](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟
-了解有关 [Azure AD Connect 同步](how-to-connect-sync-whatis.md)配置的详细信息。
+深入了解 [Azure AD Connect 同步](how-to-connect-sync-whatis.md) 組態。
 
-了解有关[将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
+深入了解 [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)。

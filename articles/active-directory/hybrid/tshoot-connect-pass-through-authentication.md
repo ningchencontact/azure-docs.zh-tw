@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60456121"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>針對 Azure Active Directory 傳遞驗證進行疑難排解
@@ -34,7 +34,7 @@ ms.locfileid: "60456121"
 
 ### <a name="check-status-of-the-feature-and-authentication-agents"></a>檢查此功能和驗證代理程式的狀態
 
-確定您租用戶上的傳遞驗證功能仍為 [已啟用]，而驗證代理程式的狀態會顯示 [作用中]，而不是 [非作用中]。 您可以前往 [Azure Active Directory 管理中心](https://aad.portal.azure.com/)上的 [Azure AD Connect] 刀鋒視窗來檢查狀態。
+確定您租用戶上的傳遞驗證功能仍為 [已啟用]  ，而驗證代理程式的狀態會顯示 [作用中]  ，而不是 [非作用中]  。 您可以前往 [Azure Active Directory 管理中心](https://aad.portal.azure.com/)上的 [Azure AD Connect]  刀鋒視窗來檢查狀態。
 
 ![Azure Active Directory 管理中心 - Azure AD Connect 刀鋒視窗](./media/tshoot-connect-pass-through-authentication/pta7.png)
 
@@ -48,7 +48,7 @@ ms.locfileid: "60456121"
 | --- | --- | ---
 |AADSTS80001|無法連線至 Active Directory|確定代理程式伺服器和必須驗證其密碼的使用者都是相同 AD 樹系的成員，而且都能連線到 Active Directory。  
 |AADSTS8002|連線至 Active Directory 時發生逾時|請檢查以確定 Active Directory 可用，並且會回應來自代理程式的要求。
-|AADSTS80004|傳遞給代理程式的使用者名稱無效|确保用户尝试使用正确的用户名登录。
+|AADSTS80004|傳遞給代理程式的使用者名稱無效|請確定使用者嘗試用來登入的使用者名稱正確無誤。
 |AADSTS80005|驗證發生無法預期的 WebException|暫時性錯誤。 重試要求。 如果持續發生失敗，請連絡 Microsoft 支援服務。
 |AADSTS80007|和 Active Directory 通訊時發生錯誤|請檢查代理程式記錄以了解詳細資訊，並確認 Active Directory 如預期般運作。
 
@@ -58,7 +58,7 @@ ms.locfileid: "60456121"
 
 ![Azure Active Directory 管理中心 - 登入報告](./media/tshoot-connect-pass-through-authentication/pta4.png)
 
-巡覽至位在 [Azure Active Directory 管理中心](https://aad.portal.azure.com/)的 **Azure Active Directory** -> [登入]，按一下特定使用者的登入活動。 尋找 [登入錯誤碼] 欄位。 使用下表，將該欄位的值對應至失敗的原因和解決方式：
+巡覽至位在 [Azure Active Directory 管理中心](https://aad.portal.azure.com/)的 **Azure Active Directory** -> [登入]  ，按一下特定使用者的登入活動。 尋找 [登入錯誤碼]  欄位。 使用下表，將該欄位的值對應至失敗的原因和解決方式：
 
 |登入錯誤碼|登入失敗原因|解決方案
 | --- | --- | ---
@@ -91,9 +91,9 @@ ms.locfileid: "60456121"
 
 請確定您在所有 Azure AD Connect 或獨立驗證代理程式安裝和註冊作業中，使用僅限雲端的全域管理員帳戶。 啟用 MFA 的全域管理員帳戶有一個已知的問題，請暫時關閉 MFA (只是為了完成作業) 作為因應措施。
 
-### <a name="an-unexpected-error-occurred"></a>发生了意外的错误
+### <a name="an-unexpected-error-occurred"></a>發生意外的錯誤
 
-从服务器[收集代理日志](#collecting-pass-through-authentication-agent-logs)，然后联系 Microsoft 支持部门反映问题。
+從伺服器[收集代理程式記錄](#collecting-pass-through-authentication-agent-logs)，並連絡 Microsoft 支援服務解決您的問題。
 
 ## <a name="authentication-agent-uninstallation-issues"></a>驗證代理程式解除安裝問題
 
@@ -111,13 +111,13 @@ ms.locfileid: "60456121"
 
 ### <a name="enabling-the-feature-failed-due-to-blocked-ports"></a>因為連接埠遭到封鎖，所以啟用功能失敗。
 
-确保安装 Azure AD Connect 的服务器能够与我们的服务 URL 和[此处](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)列出的端口通信。
+確認已安裝 Azure AD Connect 的伺服器能與我們的服務 URL 和連接埠通訊，如[這裡](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)所列。
 
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>因為權杖或帳戶授權錯誤，所以啟用功能失敗。
 
-启用该功能时，确保使用仅限云的全局管理员帐户。 啟用 Multi-Factor Authentication (MFA) 的全域管理員帳戶有一個已知的問題，請暫時關閉 MFA (只是為了完成作業) 作為因應措施。
+請確定您使用僅限雲端的全域管理員帳戶來啟用此功能。 啟用 Multi-Factor Authentication (MFA) 的全域管理員帳戶有一個已知的問題，請暫時關閉 MFA (只是為了完成作業) 作為因應措施。
 
-## <a name="collecting-pass-through-authentication-agent-logs"></a>收集直通身份验证代理日志
+## <a name="collecting-pass-through-authentication-agent-logs"></a>收集傳遞驗證代理程式記錄
 
 根據發生的問題類型，您需要在不同的位置尋找傳遞驗證代理程式記錄。
 
@@ -133,7 +133,7 @@ ms.locfileid: "60456121"
 
 ### <a name="detailed-trace-logs"></a>詳細的追蹤記錄
 
-若要針對使用者登入失敗進行疑難排解，請查看追蹤記錄，其位於 **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**。 這些記錄包含使用傳遞驗證功能的特定使用者為什麼會登入失敗的原因。 這些錯誤也對應到先前的登入失敗原因資料表中所示的登入失敗原因。 以下是記錄項目範例：
+若要針對使用者登入失敗進行疑難排解，請查看追蹤記錄，其位於 **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\** 。 這些記錄包含使用傳遞驗證功能的特定使用者為什麼會登入失敗的原因。 這些錯誤也對應到先前的登入失敗原因資料表中所示的登入失敗原因。 以下是記錄項目範例：
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
@@ -149,7 +149,7 @@ ms.locfileid: "60456121"
 
 ### <a name="domain-controller-logs"></a>網域控制站記錄
 
-如果已启用审核日志记录，可以在域控制器的安全日志中找到更多信息。 查詢傳遞驗證代理程式所傳送之登入要求的簡單方式如下︰
+如果已經啟用稽核記錄，您可以在網域控制站的安全性記錄中找到其他資訊。 查詢傳遞驗證代理程式所傳送之登入要求的簡單方式如下︰
 
 ```
     <QueryList>
@@ -161,7 +161,7 @@ ms.locfileid: "60456121"
 
 ## <a name="performance-monitor-counters"></a>效能監視器計數器
 
-另一種監視驗證代理程式的方法就是，追蹤每個有安裝驗證代理程式之伺服器上的特定效能監視計數器。 使用下列全域計數器 (**# PTA authentications**、**#PTA failed authentications** 及 **#PTA successful authentications**) 和錯誤計數器 (**# PTA authentication errors**)：
+另一種監視驗證代理程式的方法就是，追蹤每個有安裝驗證代理程式之伺服器上的特定效能監視計數器。 使用下列全域計數器 ( **# PTA authentications**、 **#PTA failed authentications** 及 **#PTA successful authentications**) 和錯誤計數器 ( **# PTA authentication errors**)：
 
 ![傳遞驗證效能監視器計數器](./media/tshoot-connect-pass-through-authentication/pta12.png)
 

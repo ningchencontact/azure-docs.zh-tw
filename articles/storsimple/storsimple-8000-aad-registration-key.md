@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: 01d36188c1684eae8303cb20ba0fd0c708ff91ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60309846"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>針對您的 StorSimple 使用新驗證
@@ -81,9 +81,9 @@ AAD 驗證會在執行 Update 5 或更新版本的 StorSimple 8000 系列裝置�
 
 #### <a name="to-generate-the-aad-service-registration-key"></a>產生 AAD 服務註冊金鑰
 
-1. 在 [StorSimple 裝置管理員] 中，移至 [管理] &gt; [金鑰]。 您也可以使用搜尋列搜尋_金鑰_。
+1. 在 [StorSimple 裝置管理員]  中，移至 [管理]  &gt; [金鑰]  。 您也可以使用搜尋列搜尋_金鑰_。
     
-2. 按一下 [產生金鑰]。
+2. 按一下 [產生金鑰]  。
 
     ![按一下重新產生](./media/storsimple-8000-aad-registration-key/aad-click-generate-registration-key.png)
 

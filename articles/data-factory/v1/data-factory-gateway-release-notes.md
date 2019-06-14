@@ -13,15 +13,15 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486459"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>資料管理閘道的版本資訊
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [第 2 版中的自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [第 2 版中的自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。
 
 現代資料整合的挑戰之一就是在內部部署和雲端之間來回移動資料。 Data Factory 會透過「資料管理閘道」進行此整合；「資料管理閘道」是一個您可以在內部部署環境安裝來啟用混合式資料移動功能的代理程式。
 
@@ -103,7 +103,7 @@ ms.locfileid: "60486459"
 *  支援使用「閘道組態管理員」來設定閘道的 HTTP Proxy。 如果有設定，就會透過 HTTP Proxy 來存取 Azure Blob、「Azure 資料表」、Azure Data Lake 及 DocumentDB。
 *  從 Azure Blob、Azure Data Lake Store、內部部署「檔案系統」及內部部署 HDFS 複製資料，或將資料複製到這些位置時，支援處理 TextFormat 的標頭。
 *  除了已支援的「區塊 Blob」之外，也支援從「附加 Blob」和「分頁 Blob」複製資料。
-*  導入新的閘道狀態「線上 (受限)」 ，此狀態代表除了對「複製精靈」的互動式操作支援之外，閘道的主要功能都可運作。
+*  導入新的閘道狀態「線上 (受限)」  ，此狀態代表除了對「複製精靈」的互動式操作支援之外，閘道的主要功能都可運作。
 *  使用註冊金鑰增強閘道註冊的健全度。
 
 ## <a name="216040"></a>2.1.6040.

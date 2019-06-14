@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: 754d2a246a86585e9f05f8a070c51e158f73affd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253638"
 ---
 # <a name="monitor-a-deployed-instance-of-a-managed-application"></a>監視受控應用程式的已部署執行個體
@@ -26,7 +26,7 @@ ms.locfileid: "60253638"
 
    ![選取受控應用程式](./media/monitor-managed-application-portal/select-managed-application.png)
 
-1. 選取 [資源健康狀態]。
+1. 選取 [資源健康狀態]  。
 
    ![選取資源健康狀態](./media/monitor-managed-application-portal/select-resource-health.png)
 
@@ -36,7 +36,7 @@ ms.locfileid: "60253638"
 
 ## <a name="view-alerts"></a>檢視警示
 
-1. 選取 [警示] 。
+1. 選取 [警示]  。
 
    ![選取警示](./media/monitor-managed-application-portal/select-alerts.png)
 
@@ -44,7 +44,7 @@ ms.locfileid: "60253638"
 
    ![檢視警示](./media/monitor-managed-application-portal/view-alerts.png)
 
-1. 若要新增警示規則，請選取 [+ 新增警示規則]。
+1. 若要新增警示規則，請選取 [+ 新增警示規則]  。
 
    ![建立警示](./media/monitor-managed-application-portal/create-new-alert.png)
 

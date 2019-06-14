@@ -14,14 +14,14 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c188c23f87715b6ba5b90f6015b59f2a347ec0cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486910"
 ---
 # <a name="move-data-by-using-copy-activity"></a>使用複製活動來移動資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](data-factory-data-movement-activities.md)
 > * [第 2 版 (目前的版本)](../copy-activity-overview.md)
 
@@ -187,7 +187,7 @@ JSON 屬性 (例如名稱、描述、輸入和輸出資料表，以及原則) �
   }
 }
 ```
-輸出資料集中定義的排程會決定活動的執行時間 (例如「每日」，即頻率為「日」，間隔為 **1**)。 活動會將資料從輸入資料集 (**source**) 複製到輸出資料集 (**sink**)。
+輸出資料集中定義的排程會決定活動的執行時間 (例如「每日」  ，即頻率為「日」  ，間隔為 **1**)。 活動會將資料從輸入資料集 (**source**) 複製到輸出資料集 (**sink**)。
 
 您可以為「複製活動」指定多個輸入資料集。 系統會先使用它們來確認相依性，然後才執行活動。 不過，只有來自第一個資料集的資料會被複製到目的地資料集。 如需詳細資訊，請參閱 [排程和執行](data-factory-scheduling-and-execution.md)。  
 

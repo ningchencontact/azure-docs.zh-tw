@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
 ms.openlocfilehash: 7bb9b1c545d30f66a09817ba977f12666a9f41c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394286"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>建立第一個 Azure Service Fabric 應用程式
@@ -59,13 +59,13 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
 Service Fabric 應用程式可以包含一或多個服務，而每個服務在提供應用程式的功能時都有特定角色。 您在最後一個步驟安裝之適用於 C# 的 Service Fabric [Yeoman](https://yeoman.io/) 產生器，可讓您輕鬆建立第一個服務且稍後新增更多服務。 讓我們使用 Yeoman 來建立具有單一服務的應用程式。
 
 1. 在終端機中，輸入下列命令以開始建置樣板︰`yo azuresfcsharp`
-2. 为应用程序命名。
+2. 為您的應用程式命名。
 3. 選擇第一個服務的類型並加以命名。 基於本教學課程的用途，我們會選擇 Reliable Actor 服務。
 
    ![適用於 C# 的 Service Fabric Yeoman 產生器][sf-yeoman]
 
 > [!NOTE]
-> 有关选项的详细信息，请参阅 [Service Fabric 编程模型概述](service-fabric-choose-framework.md)。
+> 如需選項的詳細資訊，請參閱 [Service Fabric 程式設計模型概觀](service-fabric-choose-framework.md)。
 >
 >
 
@@ -97,7 +97,7 @@ Service Fabric Yeoman 範本包含建置指令碼，可用來從終端機建置�
 
 這些命令的參數可以在應用程式套件內產生的資訊清單中找到。
 
-部署應用程式後，開啟瀏覽器並瀏覽至 [http://localhost:19080/Explorer](http://localhost:19080/Explorer) 的 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)。 接著展開 [應用程式] 節點，請注意，您的應用程式類型現在有一個項目，而另一個項目則在該類型的第一個執行個體。
+部署應用程式後，開啟瀏覽器並瀏覽至 [http://localhost:19080/Explorer](http://localhost:19080/Explorer) 的 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)。 接著展開 [應用程式]  節點，請注意，您的應用程式類型現在有一個項目，而另一個項目則在該類型的第一個執行個體。
 
 > [!IMPORTANT]
 > 若要將應用程式部署到 Azure 中的安全 Linux 叢集，您需要設定憑證來向 Service Fabric 執行階段驗證您的應用程式。 這樣做就能讓您的 Reliable Services 服務可與基礎 Service Fabric 執行階段 API 進行通訊。 若要深入了解，請參閱[將 Reliable Services 應用程式設定為在 Linux 叢集上執行](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)。  
@@ -123,7 +123,7 @@ Service Fabric Yeoman 範本包含建置指令碼，可用來從終端機建置�
 2. 在 Service Fabric Explorer 中，找出裝載動作項目服務主要複本的節點。 在以下的螢幕擷取畫面中是節點 3。
 
     ![在 Service Fabric Explorer 中尋找主要複本][sfx-primary]
-3. 单击上一步找到的节点，并在“操作”菜单中选择“停用(重启)”。 這個動作會重新啟動本機叢集中的其中一個節點，強制容錯移轉至在另一個節點上執行的次要複本。 當您執行這個動作時，請留意測試用戶端的輸出，並注意儘管是容錯移轉，計數器仍會繼續增加。
+3. 按一下您在上一個步驟中找到的節點，然後從 [動作] 功能表選取 [停用 (重新啟動)]  。 這個動作會重新啟動本機叢集中的其中一個節點，強制容錯移轉至在另一個節點上執行的次要複本。 當您執行這個動作時，請留意測試用戶端的輸出，並注意儘管是容錯移轉，計數器仍會繼續增加。
 
 ## <a name="adding-more-services-to-an-existing-application"></a>將更多服務新增至現有的應用程式
 

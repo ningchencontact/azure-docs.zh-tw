@@ -10,10 +10,10 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.openlocfilehash: 3658b57d003ddc5429c6857f88044376fe1aaa93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60399074"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中樞將檔案從裝置上傳至雲端
@@ -26,11 +26,11 @@ ms.locfileid: "60399074"
 
 * 您可以使用 IoT 中樞檔案上傳通知來觸發在您的應用程式後端中處理此檔案。
 
-[將遙測資料傳送到 IoT 中樞 (Java)](quickstart-send-telemetry-java.md) 和[使用 IoT 中樞傳送雲端到裝置訊息 (Java)](iot-hub-java-java-c2d.md) 兩篇文章，會示範 IoT 中樞基本的裝置到雲端和雲端到裝置傳訊功能。 [使用 IoT 中樞設定訊息路由](tutorial-routing.md)教學課程說明了能在 Azure Blob 儲存體中，可靠地儲存裝置到雲端訊息的方法。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如︰
+[將遙測資料傳送到 IoT 中樞 (Java)](quickstart-send-telemetry-java.md) 和[使用 IoT 中樞傳送雲端到裝置訊息 (Java)](iot-hub-java-java-c2d.md) 兩篇文章，會示範 IoT 中樞基本的裝置到雲端和雲端到裝置傳訊功能。 [使用 IoT 中樞設定訊息路由](tutorial-routing.md)教學課程說明了能在 Azure Blob 儲存體中，可靠地儲存裝置到雲端訊息的方法。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如:
 
 * 包含映像的大型檔案
 * 影片
-* 以高频率采样的振动数据
+* 取樣高頻率的震動資料
 * 某種經前置處理過的資料。
 
 這些檔案通常會使用工具 (例如 [Azure Data Factory](../data-factory/introduction.md) 或 [Hadoop](../hdinsight/index.yml) 堆疊) 在雲端中進行批次處理。 當您需要從裝置上傳檔案時，您仍然可以使用安全可靠的 IoT 中樞。
@@ -60,7 +60,7 @@ ms.locfileid: "60399074"
 
 1. 將映像檔複製到 `simulated-device` 資料夾，並重新命名為 `myimage.png`。
 
-2. 使用文本编辑器打开 `simulated-device\src\main\java\com\mycompany\app\App.java` 文件。
+2. 使用文字編輯器開啟 `simulated-device\src\main\java\com\mycompany\app\App.java` 檔案。
 
 3. 將變數宣告新增至**應用程式**類別：
 
@@ -124,9 +124,9 @@ ms.locfileid: "60399074"
 
 在本節中，您要建立一個 Java 主控台應用程式，接收來自 IoT 中樞的檔案上傳通知訊息。
 
-您的 IoT 中樞需要 **iothubowner** 連接字串才能完成區段。 您可以在 [共用存取原則] 刀鋒視窗的 [Azure 入口網站](https://portal.azure.com/)中找到連接字串。
+您的 IoT 中樞需要 **iothubowner** 連接字串才能完成區段。 您可以在 [共用存取原則]  刀鋒視窗的 [Azure 入口網站](https://portal.azure.com/)中找到連接字串。
 
-1. 在命令提示字元中使用下列命令，建立名為 **read-file-upload-notification** 的 Maven 專案。 请注意，此命令是一条很长的命令：
+1. 在命令提示字元中使用下列命令，建立名為 **read-file-upload-notification** 的 Maven 專案。 注意，此命令是單一且非常長的命令：
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-file-upload-notification -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -134,7 +134,7 @@ ms.locfileid: "60399074"
 
 2. 在命令提示字元中，巡覽至新的 `read-file-upload-notification` 資料夾。
 
-3. 使用文字編輯器，開啟 `read-file-upload-notification` 資料夾中的 `pom.xml` 檔案，並在 [相依性] 節點中新增下列相依性。 这样即可使用应用程序中的 **iothub-java-service-client** 包来与 IoT 中心服务通信：
+3. 使用文字編輯器，開啟 `read-file-upload-notification` 資料夾中的 `pom.xml` 檔案，並在 [相依性]  節點中新增下列相依性。 新增相依性可讓您在應用程式中使用 **iothub-java-service-client** 套件與 IoT 中樞服務進行通訊：
 
     ```xml
     <dependency>
@@ -145,7 +145,7 @@ ms.locfileid: "60399074"
     ```
 
     > [!NOTE]
-    > 可以使用 [Maven 搜索](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)检查是否有最新版本的 **iot-service-client**。
+    > 您可以使用 [Maven 搜尋](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)來檢查最新版的 **iot-service-client**。
 
 4. 儲存並關閉 `pom.xml` 檔案。
 

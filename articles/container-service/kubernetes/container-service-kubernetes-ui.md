@@ -10,10 +10,10 @@ ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: c3a79b2e4fab807613a54d2792f5f5b97570293b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60309605"
 ---
 # <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(已淘汰) 搭配 Azure Container Service 使用 Kubernetes Web UI
@@ -61,7 +61,7 @@ $ az acs kubernetes browse -g [Resource Group] -n [Container service instance na
 這應該會開啟網頁瀏覽器，設定與安全 Proxy (將您的本機電腦連接至 Kubernetes Web UI) 通訊。
 
 ### <a name="create-and-expose-a-service"></a>建立和公開服務
-1. 在 Kubernetes Web UI 中，按一下右上方視窗中的 [建立] 按鈕。
+1. 在 Kubernetes Web UI 中，按一下右上方視窗中的 [建立]  按鈕。
 
     ![Kubernetes Create UI](./media/container-service-kubernetes-ui/create.png)
 
@@ -71,22 +71,22 @@ $ az acs kubernetes browse -g [Resource Group] -n [Container service instance na
 
     ![Kubernetes Pod 建立對話方塊](./media/container-service-kubernetes-ui/nginx.png)
 
-3. 在 [服務] 之下，選取 [外部] 並輸入連接埠 80。
+3. 在 [服務]  之下，選取 [外部]  並輸入連接埠 80。
 
     這項設定會將流量負載平衡至三個複本。
 
     ![Kubernetes 服務建立對話方塊](./media/container-service-kubernetes-ui/service.png)
 
-4. 按一下 [部署] 來部署這些容器和服務。
+4. 按一下 [部署]  來部署這些容器和服務。
 
     ![Kubernetes 部署](./media/container-service-kubernetes-ui/deploy.png)
 
 ### <a name="view-your-containers"></a>檢視您的容器
-按一下 [部署] 之後，UI 會在部署時顯示服務的檢視︰
+按一下 [部署]  之後，UI 會在部署時顯示服務的檢視︰
 
 ![Kubernetes 狀態](./media/container-service-kubernetes-ui/status.png)
 
-您可以在 [Pod] 之下 UI 左手邊的圓圈中，看到每個 Kubernetes 物件的狀態。 如果是部分完整的圓圈，則物件仍然在部署中。 完整部署物件時，它會顯示綠色的核取記號︰
+您可以在 [Pod]  之下 UI 左手邊的圓圈中，看到每個 Kubernetes 物件的狀態。 如果是部分完整的圓圈，則物件仍然在部署中。 完整部署物件時，它會顯示綠色的核取記號︰
 
 ![Kubernetes 已部署](./media/container-service-kubernetes-ui/deployed.png)
 
@@ -94,20 +94,20 @@ $ az acs kubernetes browse -g [Resource Group] -n [Container service instance na
 
 ![Kubernetes Pods](./media/container-service-kubernetes-ui/pods.png)
 
-在 [Pod] 檢視中，您可以看到 Pod 中容器的相關資訊，以及這些容器所使用的 CPU 和記憶體資源︰
+在 [Pod]  檢視中，您可以看到 Pod 中容器的相關資訊，以及這些容器所使用的 CPU 和記憶體資源︰
 
 ![Kubernetes 資源](./media/container-service-kubernetes-ui/resources.png)
 
 如果看不到資源，您可能需要等候幾分鐘讓監視資料傳播。
 
-若要查看您容器的記錄，請按一下 [檢視記錄]。
+若要查看您容器的記錄，請按一下 [檢視記錄]  。
 
 ![Kubernetes 記錄](./media/container-service-kubernetes-ui/logs.png)
 
 ### <a name="viewing-your-service"></a>檢視您的服務
 除了執行您的容器，Kubernetes UI 建立外部 `Service`，佈建負載平衡器將流量帶向叢集中的容器。
 
-在左側導覽窗格中，按一下 [服務] 以檢視所有的服務 (應該只有一個)。
+在左側導覽窗格中，按一下 [服務]  以檢視所有的服務 (應該只有一個)。
 
 ![Kubernetes 服務](./media/container-service-kubernetes-ui/service-deployed.png)
 
@@ -119,13 +119,13 @@ $ az acs kubernetes browse -g [Resource Group] -n [Container service instance na
 ### <a name="resizing-your-service"></a>調整您的服務大小
 除了在 UI 中檢視您的物件，您可以編輯和更新 Kubernetes API 物件。
 
-首先，按一下左側導覽窗格中的 [部署]，以查看您服務的部署。
+首先，按一下左側導覽窗格中的 [部署]  ，以查看您服務的部署。
 
-一旦您在該檢視中，請按一下複本集，然後按一下上方導覽列中的 [編輯]：
+一旦您在該檢視中，請按一下複本集，然後按一下上方導覽列中的 [編輯]  ：
 
 ![Kubernetes 編輯](./media/container-service-kubernetes-ui/edit.png)
 
-將 `spec.replicas` 欄位編輯為 `2`，然後按一下 [更新]。
+將 `spec.replicas` 欄位編輯為 `2`，然後按一下 [更新]  。
 
 這會刪除您的其中一個 Pod，使得複本數目降為兩個。
 

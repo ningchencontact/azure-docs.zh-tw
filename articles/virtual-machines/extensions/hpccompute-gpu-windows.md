@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
 ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60388670"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>適用於 Windows 的 NVIDIA GPU 驅動程式擴充功能
@@ -74,8 +74,8 @@ ms.locfileid: "60388670"
 | Name | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverWindows | string |
+| publisher | Microsoft.HpcCompute | 字串 |
+| type | NvidiaGpuDriverWindows | 字串 |
 | typeHandlerVersion | 1.2 | int |
 
 

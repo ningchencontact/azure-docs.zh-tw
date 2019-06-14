@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/15/2016
-ms.author: v-yiso
-ms.date: 04/22/2019
+ms.date: 12/15/2016
+ms.author: apimpm
 ms.openlocfilehash: 2c4e5d0117f046343b140ef2b2c46c074c835075
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60557906"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>使用來自 Azure API 管理服務的外部服務
@@ -283,6 +282,5 @@ API 管理的主要功能是保護後端資源。 如果您的 API 所使用的�
 在預留位置作業的組態中，您可以設定要快取儀表板資源至少一小時。 
 
 ## <a name="summary"></a>總結
-Azure API 管理服務提供彈性的原則，可以選擇性地套用到 HTTP 流量，並且能夠組合後端服務。 不管是要使用警报、校验、验证功能还是基于多个后端服务创建新的复合资源来增强 API 网关，`send-request` 和相关策略都能使这种想法成为可能。
-
+Azure API 管理服務提供彈性的原則，可以選擇性地套用到 HTTP 流量，並且能夠組合後端服務。 不論您是否想要使用警示功能、確認、驗證功能或根據多個後端服務建立新的複合資源來增強您的 API 閘道器， `send-request` 及相關原則都會開啟各種可能性。
 

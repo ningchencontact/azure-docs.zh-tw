@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: anantr
-ms.component: alerts
+ms.subservice: alerts
 ms.openlocfilehash: e0bef0fc4f4b61add24c243af0dac64933ad5bab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60346312"
 ---
 # <a name="smart-groups"></a>智慧群組
@@ -25,7 +25,7 @@ ms.locfileid: "60346312"
 您可以檢視智慧群組的詳細資料，並以類似您設定警示的方式來設定狀態。 每個警示都是單一專屬智慧群組的成員。 
 
 ## <a name="smart-group-state"></a>智慧群組狀態
-智慧型群組狀態會是類似警示狀態的概念，可讓您在智慧群組層級上管理解析流程。 與警示狀態類似，當建立智慧群組時，其狀態有 [新] 狀態，此狀態可變更為 [已認可] 或 [已關閉]。
+智慧型群組狀態會是類似警示狀態的概念，可讓您在智慧群組層級上管理解析流程。 與警示狀態類似，當建立智慧群組時，其狀態有 [新]  狀態，此狀態可變更為 [已認可]  或 [已關閉]  。
 
 支援下列智慧群組狀態。
 
@@ -49,7 +49,7 @@ ms.locfileid: "60346312"
 
 [智慧群組詳細資料] 頁面包含下列區段。
 
-| 區段 | 描述 |
+| Section | 描述 |
 |:---|:---|
 | 警示 | 列出智慧群組中包含的個別警示。 選取警示以開啟其 [警示詳細資料] 頁面。 |
 | 歷程記錄 | 列出智慧群組採取的每個動作，以及對智慧群組所做的任何變更。 這目前僅限於狀態變更和警示成員資格變更。 |
@@ -62,4 +62,5 @@ ms.locfileid: "60346312"
 
 - [管理智慧群組](https://aka.ms/managing-smart-groups)
 - [變更警示與智慧群組狀態](https://aka.ms/managing-alert-smart-group-states)
+
 

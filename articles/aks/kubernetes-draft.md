@@ -2,17 +2,16 @@
 title: 使用 Draft 搭配 AKS 和 Azure Container Registry
 description: 使用 Draft 搭配 AKS 和 Azure Container Registry
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 08/15/2018
+ms.author: zarhoads
 ms.openlocfilehash: 462cfd6ec0a6b25f85dda0245dd4f5feed7cb712
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60465136"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>使用 Draft 搭配 Azure Kubernetes Service (AKS)
@@ -74,10 +73,10 @@ az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role 
 
 現在，AKS 和 ACR 之間已有信任關係，請允許從 AKS 叢集使用 ACR。
 
-1. 設定 Draft 設定的「登錄」值。 在下列命令中，將 `<acrName>` 更換為 ACR 登錄的名稱：
+1. 設定 Draft 設定的「登錄」  值。 在下列命令中，將 `<acrName>` 更換為 ACR 登錄的名稱：
 
     ```console
-    draft config set registry <acrName>.azurecr.cn
+    draft config set registry <acrName>.azurecr.io
     ```
 
 1. 使用 [az acr login][az-acr-login] 登入 ACR 登錄：
@@ -102,7 +101,7 @@ git clone https://github.com/Azure/draft
 cd draft/examples/example-java/
 ```
 
-使用 `draft create` 命令啟動程序。 此命令會建立在 Kubernetes 叢集中用來執行應用程式的成品。 這些項目包含 Dockerfile、Helm 圖表和 draft.toml 檔案 (Draft 組態檔)。
+使用 `draft create` 命令啟動程序。 此命令會建立在 Kubernetes 叢集中用來執行應用程式的成品。 這些項目包含 Dockerfile、Helm 圖表和 draft.toml  檔案 (Draft 組態檔)。
 
 ```
 $ draft create
@@ -145,7 +144,7 @@ Connect to java:4567 on localhost:49804
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
-若要访问应用程序，请打开 Web 浏览器并访问 `draft connect` 输出中指定的地址和端口，例如 `http://localhost:49804`。 
+若要存取您的應用程式，開啟 web 瀏覽器的位址和連接埠中指定`draft connect`輸出，例如`http://localhost:49804`。 
 
 ![使用 Draft 執行的 Java 應用程式範例](media/kubernetes-draft/sample-app.png)
 
@@ -156,15 +155,15 @@ Connect to java:4567 on localhost:49804
 
 ## <a name="access-the-application-on-the-internet"></a>在網際網路上存取應用程式
 
-上一個步驟針對 AKS 叢集中的應用程式 Pod 建立了 Proxy 連線。 當您在開發並測試應用程式時，您可以讓應用程式在網際網路上供人使用。 若要在網際網路上公開應用程式，您必須建立 [LoadBalancer][kubernetes-service-loadbalancer] \(英文\) 類型的 Kubernetes 服務或建立[輸入控制器][kubernetes-ingress]。 我們要建立 LoadBalancer 服務。
+上一個步驟針對 AKS 叢集中的應用程式 Pod 建立了 Proxy 連線。 當您在開發並測試應用程式時，您可以讓應用程式在網際網路上供人使用。 若要在網際網路上公開應用程式，您必須建立 [LoadBalancer][kubernetes-service-loadbalancer] \(英文\) 類型的 Kubernetes 服務或建立[輸入控制器][kubernetes-ingress]。 我們要建立 LoadBalancer  服務。
 
-首先，更新 values.yaml Draft 套件，以指定應該建立 LoadBalancer 類型的服務：
+首先，更新 values.yaml  Draft 套件，以指定應該建立 LoadBalancer  類型的服務：
 
 ```console
 vi charts/java/values.yaml
 ```
 
-找出 service.type 屬性，並將其值從 ClusterIP 更新為 LoadBalancer，如下列扼要範例所示：
+找出 service.type  屬性，並將其值從 ClusterIP  更新為 LoadBalancer  ，如下列扼要範例所示：
 
 ```yaml
 [...]
@@ -182,20 +181,20 @@ service:
 draft up
 ```
 
-需要幾分鐘的時間，服務才能傳回公用 IP 位址。 若要監視進度，請使用 `kubectl get service` 命令搭配 watch 參數：
+需要幾分鐘的時間，服務才能傳回公用 IP 位址。 若要監視進度，請使用 `kubectl get service` 命令搭配 watch  參數：
 
 ```console
 kubectl get service --watch
 ```
 
-一開始，服務的 EXTERNAL-IP 會顯示為 pending：
+一開始，服務的 EXTERNAL-IP  會顯示為 pending  ：
 
 ```
 NAME                TYPE          CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
 example-java-java   LoadBalancer  10.0.141.72   <pending>     80:32150/TCP   2m
 ```
 
-當 EXTERNAL-IP address 從 pending 變更為 IP 位址之後，請使用 `Control+C` 來停止 `kubectl` 監看程序：
+當 EXTERNAL-IP address 從 pending  變更為 IP 位址之後，請使用 `Control+C` 來停止 `kubectl` 監看程序：
 
 ```
 NAME                TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)        AGE
@@ -214,13 +213,13 @@ Hello World, I'm Java
 
 現在，Draft 已設定好，且應用程式正在 Kubernetes 中執行，您已準備好反覆執行程式碼。 每當您想要測試更新的程式碼時，請執行 `draft up` 命令，以更新執行中的應用程式。
 
-在此範例中，更新 Java 應用程式範例以變更顯示文字。 開啟 Hello.java 檔案：
+在此範例中，更新 Java 應用程式範例以變更顯示文字。 開啟 Hello.java  檔案：
 
 ```console
 vi src/main/java/helloworld/Hello.java
 ```
 
-更新輸出文字來顯示「Hello World, I'm Java in AKS!」：
+更新輸出文字來顯示「Hello World, I'm Java in AKS!」  ：
 
 ```java
 package helloworld;
@@ -271,4 +270,4 @@ Hello World, I'm Java in AKS!
 [aks-helm]: ./kubernetes-helm.md
 [kubernetes-ingress]: ./ingress-basic.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login
+[az-acr-login]: /cli/azure/acr#az-acr-login

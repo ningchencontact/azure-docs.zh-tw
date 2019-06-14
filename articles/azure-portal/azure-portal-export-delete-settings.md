@@ -11,10 +11,10 @@ ms.custom: ''
 manager: mtillman
 ms.author: kfollis
 ms.openlocfilehash: fde7ffbaa3ef4d47eea48302a99948932aeb4f00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551635"
 ---
 # <a name="export-or-delete-user-settings"></a>匯出或刪除使用者設定
@@ -36,13 +36,13 @@ ms.locfileid: "60551635"
 
     ![顯示入口網站設定齒輪圖示的螢幕擷取畫面](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)
 
-3. 選取 [匯出所有設定] 或 [刪除所有設定和私人儀表板]。
+3. 選取 [匯出所有設定]  或 [刪除所有設定和私人儀表板]  。
 
     ![螢幕擷取畫面顯示在入口網站匯出及刪除設定](media/azure-portal-export-delete-settings/azure-portal-export-delete-settings.png)
 
       下表描述這些動作。
 
-      |  動作 | 描述 |
+      | 動作 | 描述 |
       | --- | --- |
       | **匯出所有設定** | 建立包含您的使用者設定，例如您的色彩佈景主題、 我的最愛，以及私人儀表板的.json 檔案。|
       | **刪除所有設定和私人儀表板** | 刪除所有連結至私人儀表板和其他入口網站所做的自訂設定。 |

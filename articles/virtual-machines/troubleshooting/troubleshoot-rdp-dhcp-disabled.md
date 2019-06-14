@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60362283"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>因為停用 DHCP 用戶端服務，而無法 RDP 連線至 Azure 虛擬機器
@@ -167,7 +167,7 @@ VM 上的 DHCP 用戶端服務並未執行。
 
 #### <a name="dhcp-client-service-crashes-or-hangs"></a>DHCP 用戶端服務當機或停止回應
 
-1. 如果服務狀態停滯在 [起始] 或 [停止] 狀態，請嘗試停止服務：
+1. 如果服務狀態停滯在 [起始]  或 [停止]  狀態，請嘗試停止服務：
 
         sc stop DHCP
 2. 將服務隔離在其自己的 'svchost' 容器上：
@@ -183,7 +183,7 @@ VM 上的 DHCP 用戶端服務並未執行。
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>將 OS 磁碟連結至復原 VM
 
 1. [將 OS 磁碟連結至復原 VM](../windows/troubleshoot-recovery-disks-portal.md)。
-2. 啟動復原 VM 的遠端桌面連線。 確定連結的磁碟在磁碟管理主控台中標示為 [線上]。 記下指派給所連結 OS 磁碟的磁碟機代號。
+2. 啟動復原 VM 的遠端桌面連線。 確定連結的磁碟在磁碟管理主控台中標示為 [線上]  。 記下指派給所連結 OS 磁碟的磁碟機代號。
 3.  開啟提升權限的命令提示字元執行個體 (**以系統管理員身分執行**)。 然後執行下列指令碼。 此指令碼假設指派給所連結 OS 磁碟的磁碟機代號為 **F**。將字母取代為 VM 中的適當值。
 
     ```

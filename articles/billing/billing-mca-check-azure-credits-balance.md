@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372213"
 ---
 # <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>追蹤 Microsoft 客戶合約的 Azure 信用額度餘額
@@ -33,7 +33,7 @@ ms.locfileid: "60372213"
 
 1. 登入 [Azure 入口網站]( https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單] 進行搜尋。
+2. 針對 [成本管理 + 帳單]  進行搜尋。
 
    ![成本管理 + 計費入口網站中顯示搜尋螢幕擷取畫面](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
@@ -47,7 +47,7 @@ ms.locfileid: "60372213"
 
    | 詞彙               | 定義                           |
    |--------------------|--------------------------------------------------------|
-   | 估計餘額  | 估計的信用額度金額必須考慮所有計費後和暫止的交易 |
+   | 估計的平衡  | 估計的信用額度金額必須考慮所有計費後和暫止的交易 |
    | 目前餘額    | 自前期發票開立的信用額度數量。 它不包含任何暫止的交易 |
    | 交易       | 所有計費的交易影響您的 Azure 信用額度餘額 |
 
@@ -59,7 +59,7 @@ ms.locfileid: "60372213"
 
    | 詞彙                 | 定義                           |
    |----------------------|--------------------------------------------------------|
-   | 來源               | 取得來源的信用額度 |
+   | source               | 取得來源的信用額度 |
    | 開始日期           | 當您取得信用額度的日期 |
    | 到期日期      | 信用額度到期日期 |
    | 餘額              | 自前期發票開立平衡 |

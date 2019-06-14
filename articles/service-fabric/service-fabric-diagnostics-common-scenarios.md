@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 265aea1b8873d812859b39175c732c3e7118cbb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394122"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>針對 Service Fabric 的常見案例進行診斷
@@ -39,7 +39,7 @@ ms.locfileid: "60394122"
 ## <a name="how-can-i-see-unhandled-exceptions-in-my-application"></a>如何查看應用程式中的未處理例外狀況？
 
 1. 瀏覽至用來設定應用程式的 Application Insights 資源。
-2. 按一下左上方的 [搜尋]。 然後在下一個面板上按一下篩選條件。
+2. 按一下左上方的 [搜尋]  。 然後在下一個面板上按一下篩選條件。
 
     ![AI 概觀](media/service-fabric-diagnostics-common-scenarios/ai-search-filter.png)
 
@@ -129,10 +129,10 @@ ms.locfileid: "60394122"
 
 ## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>如何追蹤 Reliable Services 和 Reliable Actors 的效能？
 
-若要跟踪应用程序中 Reliable Services 或 Actors 的性能，还应收集“Service Fabric 执行组件”、“执行组件方法”、“服务”和“服务方法”计数器。 下面是要收集的可靠服务和执行组件性能计数器
+若要追蹤您的應用程式的效能的 Reliable Services 或動作項目，您應該收集的 Service Fabric 動作項目、 動作項目方法、 服務和服務的方法計數器以及。 以下是 reliable service 和 actor 效能計數器收集的範例
 
 >[!NOTE]
->当前无法通过 Log Analytics 代理收集 Service Fabric 性能计数器，但可以通过[其他诊断解决方案](service-fabric-diagnostics-partners.md)进行收集
+>無法收集由 Log Analytics 代理程式目前，Service Fabric 效能計數器，但可收集[其他診斷解決方案](service-fabric-diagnostics-partners.md)
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`

@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: lyrana
 ms.openlocfilehash: bfc73a71a0ccda5c135e6a740d6f63bd37522a9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60534060"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Azure Digital Twins 中的角色型存取控制
 
-Azure Digital Twins 可讓您精確地對空間圖表中的特定資料、資源和動作進行存取控制。 這會透過名為角色型存取控制 (RBAC) 的細微角色和權限管理來達成。 RBAC 是由「角色」和「角色指派」所組成的。 角色會識別權限的層級。 角色指派會將角色與使用者或裝置產生關聯。
+Azure Digital Twins 可讓您精確地對空間圖表中的特定資料、資源和動作進行存取控制。 這會透過名為角色型存取控制 (RBAC) 的細微角色和權限管理來達成。 RBAC 是由「角色」  和「角色指派」  所組成的。 角色會識別權限的層級。 角色指派會將角色與使用者或裝置產生關聯。
 
 使用 RBAC，就可以將權限授與：
 
@@ -49,7 +49,7 @@ RBAC 的特色在於其權限會向下繼承到空間圖形。
 
 ### <a name="role-definitions"></a>角色定義
 
-角色定義是權限和其他可構成角色之屬性的集合。 角色定義會列出允許的作業，包括任何具有該角色的物件可能執行的「建立」、「讀取」、「更新」和「刪除」。 此外，也會指定適用權限的物件類型。
+角色定義是權限和其他可構成角色之屬性的集合。 角色定義會列出允許的作業，包括任何具有該角色的物件可能執行的「建立」  、「讀取」  、「更新」  和「刪除」  。 此外，也會指定適用權限的物件類型。
 
 [!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
 

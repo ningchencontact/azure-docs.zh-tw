@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 021e13dafcc659337d4096a068e224312e69db1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353457"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自訂 Active Directory Federation Services
@@ -32,8 +32,8 @@ ms.locfileid: "60353457"
 |:--- |:--- |
 | **管理 AD FS** | |
 | [修復信任](#repairthetrust) |如何修復與 Office 365 的同盟信任。 |
-| [使用备用登录 ID 与 Azure AD 联合](#alternateid) | 使用替代登入識別碼設定同盟  |
-| [添加 AD FS 服务器](#addadfsserver) |如何使用額外的 AD FS 伺服器擴充 AD FS 伺服器陣列。 |
+| [使用替代登入識別碼與 Azure AD 建立同盟](#alternateid) | 使用替代登入識別碼設定同盟  |
+| [新增 AD FS 伺服器](#addadfsserver) |如何使用額外的 AD FS 伺服器擴充 AD FS 伺服器陣列。 |
 | [新增 AD FS Web 應用程式 Proxy 伺服器](#addwapserver) |如何使用其他 Web 應用程式 Proxy (WAP) 伺服器展開 AD FS 陣列。 |
 | [新增同盟網域](#addfeddomain) |如何新增同盟網域。 |
 | [更新 SSL 憑證](how-to-connect-fed-ssl-update.md)| 如何更新 AD FS 伺服器陣列的 SSL 憑證。 |
@@ -46,23 +46,23 @@ ms.locfileid: "60353457"
 您可以使用 Azure AD Connect 精靈，以最少使用者介入的形式執行各種 AD FS 相關工作。 執行精靈來完成安裝 Azure AD Connect 之後，您可以再次執行精靈，以執行其他工作。
 
 ## <a name="repairthetrust"></a>修復信任 
-您可以使用 Azure AD Connect 檢查 AD FS 和 Azure AD trust 目前的健全狀況，並採取適當的動作來修復信任。 请按照以下步骤修复 Azure AD 和 AD FS 信任。
+您可以使用 Azure AD Connect 檢查 AD FS 和 Azure AD trust 目前的健全狀況，並採取適當的動作來修復信任。 請遵循下列步驟來修復您的 Azure AD 和 AD FS 信任。
 
 1. 從其他工作的清單中選取 [修復 AAD 和 ADFS 信任]  。
    ![](./media/how-to-connect-fed-management/RepairADTrust1.PNG)
 
-2. 在 [連線到 Azure AD] 頁面上，提供 Azure AD 的全域系統管理員認證，然後按 [下一步]。
+2. 在 [連線到 Azure AD]  頁面上，提供 Azure AD 的全域系統管理員認證，然後按 [下一步]  。
    ![連接至 Azure AD](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
 
-3. 在“远程访问凭据”页上，输入域管理员的凭据。
+3. 在 [遠端存取認證]  頁面上，輸入網域系統管理員的認證。
 
    ![遠端存取認證](./media/how-to-connect-fed-management/RepairADTrust3.PNG)
 
-    在按 [下一步] 之後，Azure AD Connect 會檢查憑證健康情況並顯示任何問題。
+    在按 [下一步]  之後，Azure AD Connect 會檢查憑證健康情況並顯示任何問題。
 
     ![憑證的狀態](./media/how-to-connect-fed-management/RepairADTrust4.PNG)
 
-    [準備設定] 頁面會顯示為了修復信任，將執行的動作清單。
+    [準備設定]  頁面會顯示為了修復信任，將執行的動作清單。
 
     ![準備設定](./media/how-to-connect-fed-management/RepairADTrust5.PNG)
 
@@ -72,7 +72,7 @@ ms.locfileid: "60353457"
 > Azure AD Connect 只可以對自我簽署的憑證進行修復或採取動作。 Azure AD Connect 無法修復第三方憑證。
 
 ## <a name="alternateid"></a>使用 AlternateID 來與 Azure AD 建立同盟關係 
-建議您讓內部部署使用者主體名稱 (UPN) 和雲端使用者主體名稱保持相同。 如果內部部署 UPN 使用無法路由傳送的網域 (例如︰ Contoso.local)，或是由於本機應用程式相依性而無法變更，我們會建議您設定替代登入識別碼。 备用登录 ID 允许配置登录体验，用户可以使用其 UPN 以外的属性（如邮件）登录。 Azure AD Connect 預設會選擇 Active Directory 中的 userPrincipalName 屬性來作為使用者主體名稱。 如果您選擇任何其他屬性來作為使用者主體名稱，而且您使用 AD FS 來建立同盟，則 Azure AD Connect 會就替代登入識別碼對 AD FS 進行設定。 選擇不同屬性來作為使用者主體名稱的範例如下所示︰
+建議您讓內部部署使用者主體名稱 (UPN) 和雲端使用者主體名稱保持相同。 如果內部部署 UPN 使用無法路由傳送的網域 (例如︰ Contoso.local)，或是由於本機應用程式相依性而無法變更，我們會建議您設定替代登入識別碼。 替代登入識別碼可讓您設定登入體驗，讓使用者可以透過其 UPN 以外的屬性 (例如 mail) 來進行登入。 Azure AD Connect 預設會選擇 Active Directory 中的 userPrincipalName 屬性來作為使用者主體名稱。 如果您選擇任何其他屬性來作為使用者主體名稱，而且您使用 AD FS 來建立同盟，則 Azure AD Connect 會就替代登入識別碼對 AD FS 進行設定。 選擇不同屬性來作為使用者主體名稱的範例如下所示︰
 
 ![替代識別碼屬性的選擇](./media/how-to-connect-fed-management/attributeselection.png)
 
@@ -90,21 +90,21 @@ AD FS 替代登入識別碼的設定作業包含兩個主要步驟︰
 ## <a name="addadfsserver"></a>新增 AD FS 伺服器 
 
 > [!NOTE]
-> 若要新增 AD FS 伺服器，Azure AD Connect 需要 PFX 憑證檔案。 因此，只有使用 Azure AD Connect 配置了 AD FS 场，才能执行此操作。
+> 若要新增 AD FS 伺服器，Azure AD Connect 需要 PFX 憑證檔案。 因此，只有當您使用 Azure AD Connect 來設定 AD FS 伺服器陣列時，才可以執行這項作業。
 
-1. 選取 [部署其他同盟伺服器]，然後按 [下一步]。
+1. 選取 [部署其他同盟伺服器]  ，然後按 [下一步]  。
 
    ![其他同盟伺服器](./media/how-to-connect-fed-management/AddNewADFSServer1.PNG)
 
-2. 在 [連線到 Azure AD] 頁面上，輸入 Azure AD 的全域系統管理員認證，然後按 [下一步]。
+2. 在 [連線到 Azure AD]  頁面上，輸入 Azure AD 的全域系統管理員認證，然後按 [下一步]  。
 
    ![連接至 Azure AD](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
 
-3. 提供域管理员凭据。
+3. 提供網域系統管理員認證。
 
    ![網域系統管理員認證](./media/how-to-connect-fed-management/AddNewADFSServer3.PNG)
 
-4. Azure AD Connect 會要求您提供您在使用 Azure AD Connect 設定您的新 AD FS 伺服器陣列時所提供的 PFX 檔案的密碼。 单击“输入密码”提供 PFX 文件的密码。
+4. Azure AD Connect 會要求您提供您在使用 Azure AD Connect 設定您的新 AD FS 伺服器陣列時所提供的 PFX 檔案的密碼。 按一下 [輸入密碼]  以提供 PFX 檔案的密碼。
 
    ![憑證密碼](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
 
@@ -114,7 +114,7 @@ AD FS 替代登入識別碼的設定作業包含兩個主要步驟︰
 
    ![AD FS 伺服器](./media/how-to-connect-fed-management/AddNewADFSServer6.PNG)
 
-6. 按 [下一步]，並逐步進行到最終的 [設定] 頁面。 Azure AD Connect 完成將伺服器新增至 AD FS 伺服器陣列之後，將提供您選項來驗證連線。
+6. 按 [下一步]  ，並逐步進行到最終的 [設定]  頁面。 Azure AD Connect 完成將伺服器新增至 AD FS 伺服器陣列之後，將提供您選項來驗證連線。
 
    ![準備設定](./media/how-to-connect-fed-management/AddNewADFSServer7.PNG)
 
@@ -133,8 +133,8 @@ AD FS 替代登入識別碼的設定作業包含兩個主要步驟︰
 
    ![連接至 Azure AD](./media/how-to-connect-fed-management/wapserver2.PNG)
 
-3. 在 [指定 SSL 憑證] 頁面上，提供您在使用 Azure AD Connect 設定 AD FS 伺服器陣列時所提供之 PFX 檔案的密碼。
-   ![证书密码](./media/how-to-connect-fed-management/WapServer3.PNG)
+3. 在 [指定 SSL 憑證]  頁面上，提供您在使用 Azure AD Connect 設定 AD FS 伺服器陣列時所提供之 PFX 檔案的密碼。
+   ![憑證密碼](./media/how-to-connect-fed-management/WapServer3.PNG)
 
     ![指定 SSL 憑證](./media/how-to-connect-fed-management/WapServer4.PNG)
 
@@ -148,9 +148,9 @@ AD FS 替代登入識別碼的設定作業包含兩個主要步驟︰
 
 6. 在 [準備設定]  頁面上，精靈會顯示將執行的動作清單。
 
-   ![已准备好配置](./media/how-to-connect-fed-management/WapServer7.PNG)
+   ![準備設定](./media/how-to-connect-fed-management/WapServer7.PNG)
 
-7. 单击“安装”完成配置。 組態完成之後，精靈會提供您選項，來驗證與伺服器的連線。 按一下 [驗證]  來檢查連線能力。
+7. 按一下 [安裝]  以完成組態。 組態完成之後，精靈會提供您選項，來驗證與伺服器的連線。 按一下 [驗證]  來檢查連線能力。
 
    ![安裝完成](./media/how-to-connect-fed-management/WapServer8.PNG)
 
@@ -158,17 +158,17 @@ AD FS 替代登入識別碼的設定作業包含兩個主要步驟︰
 
 您可以使用 Azure AD Connect 輕鬆地新增要與 Azure AD 同盟的網域。 Azure AD Connect 會新增同盟的網域並修改宣告規則，以在您有與 Azure AD 同盟的多個網域時正確反映發行者。
 
-1. 若要新增同盟網域，請選取工作 [新增其他 Azure AD 網域] 。
+1. 若要新增同盟網域，請選取工作 [新增其他 Azure AD 網域]  。
 
    ![其他 Azure AD 網域](./media/how-to-connect-fed-management/AdditionalDomain1.PNG)
 
 2. 在精靈的下一個頁面上，提供 Azure AD 全域系統管理員認證。
 
-   ![连接到 Azure AD](./media/how-to-connect-fed-management/AdditionalDomain2.PNG)
+   ![連接至 Azure AD](./media/how-to-connect-fed-management/AdditionalDomain2.PNG)
 
-3. 在“远程访问凭据”页上，提供域管理员凭据。
+3. 在 [遠端存取認證]  頁面上，提供網域系統管理員認證。
 
-   ![远程访问凭据](./media/how-to-connect-fed-management/additionaldomain3.PNG)
+   ![遠端存取認證](./media/how-to-connect-fed-management/additionaldomain3.PNG)
 
 4. 在下一個頁面上，精靈會提供 Azure AD 網域的清單，以供您用來同盟您的內部部署目錄。 從清單選擇網域。
 
@@ -176,7 +176,7 @@ AD FS 替代登入識別碼的設定作業包含兩個主要步驟︰
 
     選擇網域之後，精靈會提供您關於精靈將採取的進一步動作和組態影響的適當資訊。 在某些情況下，如果您選取尚未在 Azure AD 中驗證的網域，精靈將提供資訊協助您驗證網域。 如需詳細資訊，請參閱 [將您的自訂網域名稱新增至 Azure Active Directory](../active-directory-domains-add-azure-portal.md) 。
 
-5. 单击“下一步”。 按 [下一步]，然後 [準備設定] 頁面就會顯示 Azure AD Connect 將會執行的動作清單。 按一下 [安裝]  以完成組態。
+5. 单击“下一步”  。 按 [下一步]  ，然後 [準備設定] 頁面就會顯示 Azure AD Connect 將會執行的動作清單。 按一下 [安裝]  以完成組態。
 
    ![準備設定](./media/how-to-connect-fed-management/AdditionalDomain5.PNG)
 
@@ -187,7 +187,7 @@ AD FS 替代登入識別碼的設定作業包含兩個主要步驟︰
 下列各節提供在自訂 AD FS 登入頁面時，可能必須執行之某些常見工作的詳細資料。
 
 ## <a name="customlogo"></a>新增自訂公司標誌或圖例 
-若要變更 [登入] 頁面上顯示的公司標誌，請使用下列 Windows PowerShell Cmdlet 和語法。
+若要變更 [登入]  頁面上顯示的公司標誌，請使用下列 Windows PowerShell Cmdlet 和語法。
 
 > [!NOTE]
 > 建議的標誌尺寸為 260 x 35 \@ 96 dpi，檔案大小不超過 10 KB。
@@ -198,7 +198,7 @@ AD FS 替代登入識別碼的設定作業包含兩個主要步驟︰
 > *TargetName* 是必要參數。 隨著 AD FS 釋出的預設佈景主題為指定的預設值。
 
 ## <a name="addsignindescription"></a>新增登入說明 
-若要在 [登入] 頁面中新增登入頁面描述，請使用下列 Windows PowerShell Cmdlet 和語法。
+若要在 [登入]  頁面中新增登入頁面描述，請使用下列 Windows PowerShell Cmdlet 和語法。
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 
@@ -233,7 +233,7 @@ Azure AD Connect 可在將物件同步處理至 Azure AD 時，讓您指定要�
     c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
     => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
 
-這是隱含的 **存在** 檢查。 如果宣告的值存在，則發出做為固定 ID。 之前的示例使用 **nameidentifier** 声明。 您必須為您的環境中的固定 ID 將此宣告變更為適當的宣告類型。
+這是隱含的 **存在** 檢查。 如果宣告的值存在，則發出做為固定 ID。 上述範例使用 **nameidentifier** 宣告。 您必須為您的環境中的固定 ID 將此宣告變更為適當的宣告類型。
 
 **規則 4：如果 ms-ds-consistencyGuid 不存在，便發出 objectGuid 作為固定 ID**
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 53a262af421dd986e6b70af173a6e8b3f7c06f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60527300"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>利用 XPath 公開角色組態設定以做為環境變數
@@ -53,7 +53,7 @@ ms.locfileid: "60527300"
 ## <a name="update-domain"></a>更新網站
 擷取執行個體的更新網域。
 
-| 类型 | 範例 |
+| 類型 | 範例 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@updateDomain" |
 | 代碼 |var ud = RoleEnvironment.CurrentRoleInstance.UpdateDomain; |
@@ -66,13 +66,13 @@ ms.locfileid: "60527300"
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@faultDomain" |
 | 代碼 |var fd = RoleEnvironment.CurrentRoleInstance.FaultDomain; |
 
-## <a name="role-name"></a>角色名称
+## <a name="role-name"></a>角色名稱
 擷取執行個體的角色名稱。
 
 | 類型 | 範例 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@roleName" |
-| 代码 |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
+| 代碼 |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
 
 ## <a name="config-setting"></a>組態設定
 擷取指定之組態設定的值。

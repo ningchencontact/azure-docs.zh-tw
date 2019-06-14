@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
 ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60313585"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>使用 Azure Logic Apps 管理 Dynamics 365 記錄
@@ -64,7 +64,7 @@ ms.locfileid: "60313585"
 
 現在，新增 Dynamics 365 動作，為新的潛在客戶記錄建立工作記錄。
 
-1. 在觸發程序下方，選擇 [新增步驟]。
+1. 在觸發程序下方，選擇 [新增步驟]  。
 
 1. 在搜尋方塊中，輸入「Dynamics 365」作為篩選條件。 從 [動作] 清單中，選取此動作：**建立新記錄**
 
@@ -80,7 +80,7 @@ ms.locfileid: "60313585"
 
    ![動作詳細資料](./media/connectors-create-api-crmonline/action-details.png)
 
-1. 當動作中出現 [主旨] 方塊時，按一下 [主旨] 方塊內部，讓動態內容清單出現。 從這份清單中，選取欄位值以包含在與新的潛在客戶記錄相關聯的工作記錄中：
+1. 當動作中出現 [主旨]  方塊時，按一下 [主旨]  方塊內部，讓動態內容清單出現。 從這份清單中，選取欄位值以包含在與新的潛在客戶記錄相關聯的工作記錄中：
 
    | 欄位 | 描述 |
    |-------|-------------|
@@ -90,9 +90,9 @@ ms.locfileid: "60313585"
 
    ![工作記錄詳細資料](./media/connectors-create-api-crmonline/create-record-details.png)
 
-1. 在設計工具的工具列上，針對邏輯應用程式選擇 [儲存]。 
+1. 在設計工具的工具列上，針對邏輯應用程式選擇 [儲存]  。 
 
-1. 若要手動啟動邏輯應用程式，請在設計工具的工具列上，選擇 [執行]。
+1. 若要手動啟動邏輯應用程式，請在設計工具的工具列上，選擇 [執行]  。
 
    ![執行邏輯應用程式](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
 
@@ -100,12 +100,12 @@ ms.locfileid: "60313585"
 
 ## <a name="add-filter-or-query"></a>新增篩選條件或查詢
 
-若要指定如何篩選 Dynamics 365 動作中的資料，請選擇該動作的 [顯示進階選項]。 您接著可以新增篩選條件或依查詢來排序。
+若要指定如何篩選 Dynamics 365 動作中的資料，請選擇該動作的 [顯示進階選項]  。 您接著可以新增篩選條件或依查詢來排序。
 例如，您可以使用篩選條件查詢只取得作用中的帳戶，並依帳戶名稱排序這些記錄。 針對這項工作，請遵循下列步驟：
 
-1. 在 [篩選查詢] 底下，輸入此 OData 篩選查詢：`statuscode eq 1`
+1. 在 [篩選查詢]  底下，輸入此 OData 篩選查詢：`statuscode eq 1`
 
-2. 在 [排序依據] 底下，當動態內容清單出現時，選取 [帳戶名稱]。 
+2. 在 [排序依據]  底下，當動態內容清單出現時，選取 [帳戶名稱]  。 
 
    ![指定篩選條件和順序](./media/connectors-create-api-crmonline/advanced-options.png)
 
@@ -144,11 +144,11 @@ ms.locfileid: "60313585"
 
 ![使用記錄識別碼和查閱類型建立工作記錄](./media/connectors-create-api-crmonline/create-record-advanced.png)
 
-此動作會將工作記錄指派給特定使用者識別碼或小組記錄識別碼 (根據 [擁有者] 欄位中的記錄識別碼，以及 [擁有者類型] 欄位中的查閱類型)：
+此動作會將工作記錄指派給特定使用者識別碼或小組記錄識別碼 (根據 [擁有者]  欄位中的記錄識別碼，以及 [擁有者類型]  欄位中的查閱類型)：
 
 ![擁有者記錄識別碼和查閱類型](./media/connectors-create-api-crmonline/owner-record-id-and-lookup-type.png)
 
-此動作也會將與記錄識別碼相關聯的帳戶記錄新增到 [關於] 欄位，以及將查閱類型新增到 [關於類型] 欄位：
+此動作也會將與記錄識別碼相關聯的帳戶記錄新增到 [關於]  欄位，以及將查閱類型新增到 [關於類型]  欄位：
 
 ![關於記錄識別碼和查閱類型](./media/connectors-create-api-crmonline/regarding-record-id-lookup-type-account.png)
 
@@ -160,8 +160,8 @@ ms.locfileid: "60313585"
 
 2. 在 [動作] 工具列中，選擇下列其中一個步驟：
 
-   * 選擇 [快顯] ![彈出記錄](./media/connectors-create-api-crmonline/popout-record.png)。 
-   * 選擇 [以電子郵件傳送連結]，以便將完整 URL 複製到預設電子郵件程式。
+   * 選擇 [快顯]  ![彈出記錄](./media/connectors-create-api-crmonline/popout-record.png)。 
+   * 選擇 [以電子郵件傳送連結]  ，以便將完整 URL 複製到預設電子郵件程式。
 
    記錄識別碼會出現在 URL 中的 `%7b` 和 `%7d` 編碼字元之間：
 
@@ -171,7 +171,7 @@ ms.locfileid: "60313585"
 
 若要尋找並檢閱邏輯應用程式中失敗的步驟，您可以檢視邏輯應用程式的執行歷程記錄、狀態、輸入、輸出等項目。
 
-1. 在 Azure 入口網站中，於邏輯應用程式的主功能表上選取 [概觀]。 在 [執行歷程記錄] 區段中 (會顯示邏輯應用程式的所有執行狀態)，選取失敗的執行以獲得詳細資訊。
+1. 在 Azure 入口網站中，於邏輯應用程式的主功能表上選取 [概觀]  。 在 [執行歷程記錄]  區段中 (會顯示邏輯應用程式的所有執行狀態)，選取失敗的執行以獲得詳細資訊。
 
    ![邏輯應用程式執行狀態](./media/connectors-create-api-crmonline/run-history.png)
 

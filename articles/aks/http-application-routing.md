@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
 ms.openlocfilehash: d6e1cc033416c90e27b5caf4bba310400e55b3a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60466277"
 ---
 # <a name="http-application-routing"></a>HTTP 應用程式路由
@@ -177,9 +177,9 @@ HTTP 路由解決方案可以使用 Azure CLI 來移除。 若要執行此動作
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
-停用 HTTP 應用程式路由附加元件時，某些 Kubernetes 資源可能會留在叢集中。 這些資源包括 configMaps 和 secrets，且會建立在 kube-system 命名空間中。 為了讓叢集保持乾淨，建議您移除這些資源。
+停用 HTTP 應用程式路由附加元件時，某些 Kubernetes 資源可能會留在叢集中。 這些資源包括 configMaps  和 secrets  ，且會建立在 kube-system  命名空間中。 為了讓叢集保持乾淨，建議您移除這些資源。
 
-使用下列 [kubectl get][kubectl-get] 命令尋找 addon-http-application-routing 資源：
+使用下列 [kubectl get][kubectl-get] 命令尋找 addon-http-application-routing  資源：
 
 ```console
 kubectl get deployments --namespace kube-system

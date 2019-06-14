@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
 ms.openlocfilehash: 0146ee6ee37c2eb9e98d831b54df2218d7de5b62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502365"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>在資料科學虛擬機器上設定通用身分識別
@@ -43,21 +43,21 @@ Azure AD DS 可透過在 Azure 上提供完全受控的服務，讓您輕鬆地�
 
    a. 使用具備目錄全域管理員身分的帳戶來登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。
     
-   b. 選取 [Azure Active Directory]，然後選取 [使用者和群組]。
+   b. 選取 [Azure Active Directory]，然後選取 [使用者和群組]。  
     
-   c. 在 [使用者和群組] 上，選取 [所有使用者]，然後選取 [新增使用者]。
+   c. 在 [使用者和群組]  上，選取 [所有使用者]  ，然後選取 [新增使用者]  。
    
-      [使用者] 窗格隨即開啟。
+      [使用者]  窗格隨即開啟。
       
       ![[使用者] 窗格](./media/add-user.png)
     
-   d. 輸入使用者的詳細資料，例如「名稱」和「使用者名稱」。 使用者名稱的網域名稱部分必須是初始預設網域名稱 "[網域名稱].onmicrosoft.com"，或是已驗證的非同盟[自訂網域名稱](../../active-directory/add-custom-domain.md)，例如"contoso.com"。
+   d. 輸入使用者的詳細資料，例如「名稱」  和「使用者名稱」  。 使用者名稱的網域名稱部分必須是初始預設網域名稱 "[網域名稱].onmicrosoft.com"，或是已驗證的非同盟[自訂網域名稱](../../active-directory/add-custom-domain.md)，例如"contoso.com"。
     
    e. 複製或記下產生的使用者密碼，以便在此程序完成後，將它提供給使用者。
     
-   f. (選擇性) 您可以開啟使用者的 [設定檔]、[群組] 或 [目錄角色]，然後在其中填入資訊。 
+   f. (選擇性) 您可以開啟使用者的 [設定檔]  、[群組]  或 [目錄角色]  ，然後在其中填入資訊。 
     
-   g. 在 [使用者] 中，選取 [建立]。
+   g. 在 [使用者]  中，選取 [建立]  。
     
    h.如果该值不存在，请单击“添加行”。 將產生的密碼安全地散發給新使用者，以便讓使用者可以登入。
 
@@ -70,7 +70,7 @@ Azure AD DS 可透過在 Azure 上提供完全受控的服務，讓您輕鬆地�
 
    a. [建立 Azure 檔案服務共用](../../storage/files/storage-how-to-create-file-share.md)。
     
-   b. 在 Linux DSVM 上掛接它。 當您在 Azure 入口網站上的儲存體帳戶中，選取「Azure 檔案服務」共用的 [連線] 按鈕時，會顯示要在 Linux DSVM 的 Bash 殼層中執行的命令。 此命令看起來如下︰
+   b. 在 Linux DSVM 上掛接它。 當您在 Azure 入口網站上的儲存體帳戶中，選取「Azure 檔案服務」共用的 [連線]  按鈕時，會顯示要在 Linux DSVM 的 Bash 殼層中執行的命令。 此命令看起來如下︰
    
    ```
    sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp

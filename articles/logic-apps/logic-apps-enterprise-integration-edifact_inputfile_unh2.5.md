@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/27/2017
 ms.openlocfilehash: 926c9ebe8675d8b50d4544be813ae0b15492ae35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60681651"
 ---
 # <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>在 Azure Logic Apps 使用 UNH 2.5 區段處理 EDIFACT 文件
@@ -38,14 +38,14 @@ UNH+SSDD1+ORDERS:D:03B:UN:**EAN008**'
 若要將內送郵件解碼，請設定 EDIFACT 合約接收設定中的結構描述
 1. 將結構描述新增至整合帳戶    
 2. 設定 EDIFACT 合約接收設定中的結構描述。 
-3. 選取 EDIFACT 合約，然後按一下 [編輯為 JSON]。  在接收合約中新增 UNH2.5 值 **schemaReferences**
+3. 選取 EDIFACT 合約，然後按一下 [編輯為 JSON]  。  在接收合約中新增 UNH2.5 值 **schemaReferences**
 ![](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image1.png)
 
 ### <a name="edifact-encode"></a>EDIFACT 編碼
 若要將內送郵件編碼，請設定 EDIFACT 合約傳送設定中的結構描述
 1. 將結構描述新增至整合帳戶    
 2. 設定 EDIFACT 合約傳送設定中的結構描述。 
-3. 選取 EDIFACT 合約，然後按一下 [編輯為 JSON]。  在傳送合約中新增 UNH2.5 值 **schemaReferences**
+3. 選取 EDIFACT 合約，然後按一下 [編輯為 JSON]  。  在傳送合約中新增 UNH2.5 值 **schemaReferences**
 ![](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image2.png)
 
 ## <a name="next-steps"></a>後續步驟

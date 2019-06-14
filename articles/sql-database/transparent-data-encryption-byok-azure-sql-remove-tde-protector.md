@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: ad7e760bf84ee08e3928164432564fb23c10d211
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60330647"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>使用 PowerShell 移除透明資料加密 (TDE) 保護裝置
@@ -28,7 +28,7 @@ ms.locfileid: "60330647"
 > PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 - 您必須具有 Azure 訂用帳戶，並且是該訂用帳戶的系統管理員
-- 必须安装并运行 Azure PowerShell。 
+- 您必須安裝並執行 Azure PowerShell。 
 - 本操作指南假設您已使用 Azure Key Vault 中的金鑰作為 Azure SQL Database 或資料倉儲的 TDE 保護裝置。 若要深入了解，請參閱[具有 BYOK 支援的透明資料加密](transparent-data-encryption-byok-azure-sql.md)。
 
 ## <a name="overview"></a>概觀
@@ -55,7 +55,7 @@ PowerShell 命令 Get-azurermsqlserverkeyvaultkey 提供憑證指紋的 TDE 保�
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>將加密資源保持為可供存取
 
 1. 建立 [Key Vault 中的新金鑰](/powershell/module/az.keyvault/add-azkeyvaultkey)。 請務必將此新金鑰建立在與可能遭破壞的 TDE 保護裝置不同的金鑰保存庫中，因為存取控制佈建於保存庫層級上。
-2. 使用 [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) 和 [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet 将新密钥添加到服务器，并将其更新为服务器的新 TDE 保护器。
+2. 將新的金鑰新增至伺服器中使用[新增 AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey)並[組 AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet 並將它更新為新伺服器的 TDE 保護裝置。
 
    ```powershell
    # Add the key from Key Vault to the server  
@@ -71,7 +71,7 @@ PowerShell 命令 Get-azurermsqlserverkeyvaultkey 提供憑證指紋的 TDE 保�
    -Type AzureKeyVault -KeyId <KeyVaultKeyId> 
    ```
 
-3. 确保使用 [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet 将服务器和所有副本更新到新的 TDE 保护器。 
+3. 請確定伺服器和任何複本已更新為使用新的 TDE 保護裝置[Get AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet。 
 
    >[!NOTE]
    > 新的 TDE 保護裝置可能需要幾分鐘的時間才能傳播至伺服器下的所有資料庫和次要資料庫。
@@ -93,7 +93,7 @@ PowerShell 命令 Get-azurermsqlserverkeyvaultkey 提供憑證指紋的 TDE 保�
    -OutputFile <DesiredBackupFilePath>
    ```
  
-5. 使用 [Remove-AzKeyVaultKey](/powershell/module/az.keyvault/remove-azkeyvaultkey) cmdlet 从密钥保管库中删除已泄露的密钥。 
+5. 使用 Key Vault 刪除遭盜用的金鑰[移除 AzKeyVaultKey](/powershell/module/az.keyvault/remove-azkeyvaultkey) cmdlet。 
 
    ```powershell
    Remove-AzKeyVaultKey `
@@ -101,7 +101,7 @@ PowerShell 命令 Get-azurermsqlserverkeyvaultkey 提供憑證指紋的 TDE 保�
    -Name <KeyVaultKeyName>
    ```
  
-6. 将来若要使用 [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) cmdlet 将密钥还原到 Key Vault：
+6. 若要還原至金鑰保存庫在未來使用的金鑰[還原 AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) cmdlet:
    ```powershell
    Restore-AzKeyVaultKey `
    -VaultName <KeyVaultName> `

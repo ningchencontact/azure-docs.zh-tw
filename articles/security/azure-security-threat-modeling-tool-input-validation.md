@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 0803ade7613480621a0cd87f9944ee5f55bf432c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586300"
 ---
-# <a name="security-frame-input-validation--mitigations"></a>安全框架︰輸入驗證 | 風險降低 
+# <a name="security-frame-input-validation--mitigations"></a>安全性框架：輸入驗證 | 風險降低 
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **Web 應用程式** | <ul><li>[停用所有使用未受信任樣式表之轉換的 XSLT 指令碼](#disable-xslt)</li><li>[確定可能包含使用者可控制內容的每個頁面都選擇不要自動探查 MIME](#out-sniffing)</li><li>[強化或停用 XML 實體解析](#xml-resolution)</li><li>[利用 http.sys 的應用程式會執行 URL 標準化驗證](#app-verification)</li><li>[確定在接受使用者的檔案時已備妥適當的控制](#controls-users)</li><li>[確定 Web 應用程式有使用 type-safe 參數來存取資料](#typesafe)</li><li>[使用個別的模型繫結類別或繫結篩選清單來防止 MVC 大量指派弱點](#binding-mvc)</li><li>[先將未受信任的 Web 輸出編碼再進行轉譯](#rendering)</li><li>[對所有字串類型的模型屬性執行輸入驗證和篩選](#typemodel)</li><li>[應該對接受所有字元的表單欄位 (例如 RTF 編輯器) 套用清理](#richtext)</li><li>[請勿將沒有內建編碼的 DOM 元素指派給接收器](#inbuilt-encode)</li><li>[驗證應用程式內的所有重新導向皆已關閉或安全完成](#redirect-safe)</li><li>[對控制器方法所接受的所有字串類型參數實作輸入驗證](#string-method)</li><li>[為規則運算式處理設定逾時上限以防止因規則運算式不正確而導致 DoS](#dos-expression)</li><li>[避免在 Razor 檢視中使用 Html.Raw](#html-razor)</li></ul> | 
@@ -71,7 +71,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [IE8 安全性單元五 - 完善的保護](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)  |
-| **步驟** | <p>對於可能包含使用者可控制內容的每個頁面，您必須使用 HTTP 標頭 `X-Content-Type-Options:nosniff`。 若要符合此需求，您可以單獨針對可能包含使用者可控制內容的頁面逐頁設定此必要標頭，或者，您也可以針對應用程式中的所有頁面全域設定此標頭。</p><p>從 Web 伺服器傳遞過來之檔案的每個類型都有相關聯的 [MIME 類型](https://en.wikipedia.org/wiki/Mime_type) (也稱為「內容類型」)，以描述內容的本質 (也就是影像、文字、應用程式等)</p><p>X-Content-Type-Options 標頭是可讓開發人員指定不應對其內容探查 MIME 的 HTTP 標頭。 此標頭是設計用來降低 MIME 探查攻擊的風險。 Internet Explorer 8 (IE8) 已新增對此標頭的支援</p><p>只有 Internet Explorer 8 (IE8) 的使用者能夠受益於 X-Content-Type-Options。 舊版 Internet Explorer 目前不採用 X-Content-Type-Options 標頭</p><p>Internet Explorer 8 (和更新版本) 是主要瀏覽器中唯一實作了可選擇不要 MIME 探查功能的瀏覽器。 當其他主要瀏覽器 (Firefox、Safari、Chrome) 實作了類似功能時，我們會更新這項建議，使其也包含這些瀏覽器的語法</p>|
+| **步驟** | <p>對於可能包含使用者可控制內容的每個頁面，您必須使用 HTTP 標頭 `X-Content-Type-Options:nosniff`。 若要符合此需求，您可以單獨針對可能包含使用者可控制內容的頁面逐頁設定此必要標頭，或者，您也可以針對應用程式中的所有頁面全域設定此標頭。</p><p>從 Web 伺服器傳遞過來之檔案的每個類型都有相關聯的 [MIME 類型](https://en.wikipedia.org/wiki/Mime_type) (也稱為「內容類型」  )，以描述內容的本質 (也就是影像、文字、應用程式等)</p><p>X-Content-Type-Options 標頭是可讓開發人員指定不應對其內容探查 MIME 的 HTTP 標頭。 此標頭是設計用來降低 MIME 探查攻擊的風險。 Internet Explorer 8 (IE8) 已新增對此標頭的支援</p><p>只有 Internet Explorer 8 (IE8) 的使用者能夠受益於 X-Content-Type-Options。 舊版 Internet Explorer 目前不採用 X-Content-Type-Options 標頭</p><p>Internet Explorer 8 (和更新版本) 是主要瀏覽器中唯一實作了可選擇不要 MIME 探查功能的瀏覽器。 當其他主要瀏覽器 (Firefox、Safari、Chrome) 實作了類似功能時，我們會更新這項建議，使其也包含這些瀏覽器的語法</p>|
 
 ### <a name="example"></a>範例
 若要為應用程式中的所有頁面全域啟用必要標頭，您可以執行下列其中一項︰ 
@@ -182,7 +182,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ```
 
 ### <a name="example"></a>範例
-如果您需要解析內嵌實體，但不需要解析外部實體，請將 XmlReaderSettings.XmlResolver 屬性設為 null。 例如︰ 
+如果您需要解析內嵌實體，但不需要解析外部實體，請將 XmlReaderSettings.XmlResolver 屬性設為 null。 例如: 
 
 ```csharp
 XmlReaderSettings settings = new XmlReaderSettings();
@@ -202,7 +202,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
-| **步驟** | <p>任何使用 http.sys 的應用程式皆應遵循下列指導方針︰</p><ul><li>將 URL 長度限制在不超過 16,384 個字元 (ASCII 或 Unicode)。 這是以預設 Internet Information Services (IIS) 6 設定為基礎的 URL 長度絕對上限。 網站長度應盡可能不超過此上限</li><li>使用標準的 .NET Framework 檔案 I/O 類別 (例如 FileStream)，因為這些類別會利用 .NET FX 中的標準化規則</li><li>明確建置已知檔案名稱的允許清單</li><li>明確拒絕不會提供 UrlScan 拒絕的已知檔案類型︰exe、bat、cmd、com、htw、ida、idq、htr、idc、shtm[l]、stm、printer、ini、pol、dat 檔案</li><li>捕捉下列例外狀況：<ul><li>System.ArgumentException (針對裝置名稱)</li><li>System.NotSupportedException (針對資料串流)</li><li>System.IO.FileNotFoundException (針對無效的逸出檔名)</li><li>System.IO.DirectoryNotFoundException (針對無效的逸出目錄)</li></ul></li><li>「請勿」對外呼叫 Win32 檔案 I/O API。 針對無效的 URL，正常傳回 400 錯誤給使用者，並記錄實際錯誤。</li></ul>|
+| **步驟** | <p>任何使用 http.sys 的應用程式皆應遵循下列指導方針︰</p><ul><li>將 URL 長度限制在不超過 16,384 個字元 (ASCII 或 Unicode)。 這是以預設 Internet Information Services (IIS) 6 設定為基礎的 URL 長度絕對上限。 網站長度應盡可能不超過此上限</li><li>使用標準的 .NET Framework 檔案 I/O 類別 (例如 FileStream)，因為這些類別會利用 .NET FX 中的標準化規則</li><li>明確建置已知檔案名稱的允許清單</li><li>明確拒絕不會提供 UrlScan 拒絕的已知檔案類型︰exe、bat、cmd、com、htw、ida、idq、htr、idc、shtm[l]、stm、printer、ini、pol、dat 檔案</li><li>捕捉下列例外狀況：<ul><li>System.ArgumentException (針對裝置名稱)</li><li>System.NotSupportedException (針對資料串流)</li><li>System.IO.FileNotFoundException (針對無效的逸出檔名)</li><li>System.IO.DirectoryNotFoundException (針對無效的逸出目錄)</li></ul></li><li>「請勿」  對外呼叫 Win32 檔案 I/O API。 針對無效的 URL，正常傳回 400 錯誤給使用者，並記錄實際錯誤。</li></ul>|
 
 ## <a id="controls-users"></a>確定在接受使用者的檔案時已備妥適當的控制
 

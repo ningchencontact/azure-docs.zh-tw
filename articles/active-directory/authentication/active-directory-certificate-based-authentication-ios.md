@@ -1,5 +1,5 @@
 ---
-title: iOS 上基于证书的身份验证 - Azure Active Directory
+title: IOS-Azure Active Directory 上的憑證式驗證
 description: 了解在有 iOS 裝置的解決方案中，設定憑證式驗證的支援案例和需求
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cda1b1c2a484f3aa627b8b9cf486528d13f27be8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60415989"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>iOS 上的 Azure Active Directory 憑證式驗證
@@ -35,16 +35,16 @@ ms.locfileid: "60415989"
 
 | 應用程式 | 支援 |
 | --- | --- |
-| Azure 資訊保護應用程式 |![对号，表示支持此应用程序][1] |
-| Intune 公司入口網站 |![对号，表示支持此应用程序][1] |
-| Microsoft Teams |![对号，表示支持此应用程序][1] |
-| OneNote |![对号，表示支持此应用程序][1] |
-| OneDrive |![对号，表示支持此应用程序][1] |
-| Outlook |![对号，表示支持此应用程序][1] |
-| Power BI |![对号，表示支持此应用程序][1] |
-| 商務用 Skype |![对号，表示支持此应用程序][1] |
-| Word / Excel / PowerPoint |![对号，表示支持此应用程序][1] |
-| Yammer |![对号，表示支持此应用程序][1] |
+| Azure 資訊保護應用程式 |![核取記號表示此應用程式的支援][1] |
+| Intune 公司入口網站 |![核取記號表示此應用程式的支援][1] |
+| Microsoft Teams |![核取記號表示此應用程式的支援][1] |
+| OneNote |![核取記號表示此應用程式的支援][1] |
+| OneDrive |![核取記號表示此應用程式的支援][1] |
+| Outlook |![核取記號表示此應用程式的支援][1] |
+| Power BI |![核取記號表示此應用程式的支援][1] |
+| 商務用 Skype |![核取記號表示此應用程式的支援][1] |
+| Word / Excel / PowerPoint |![核取記號表示此應用程式的支援][1] |
+| Yammer |![核取記號表示此應用程式的支援][1] |
 
 ## <a name="requirements"></a>需求
 
@@ -68,14 +68,14 @@ ADFS 權杖必須要有下列宣告，Azure Active Directory 才能撤銷用戶�
 
 如需詳細資訊，請參閱[自訂 AD FS 登入頁面](https://technet.microsoft.com/library/dn280950.aspx)。
 
-某些 Office 應用程式 (已啟用新式驗證) 會在其要求中將 ‘*prompt=login*’ 傳送至 Azure AD。 根據預設，Azure AD 會將對 ADFS 的要求中的 ‘*prompt=login*’ 轉譯成 ‘*wauth=usernamepassworduri*’ (請求 ADFS 進行 U/P 驗證) 和 ‘*wfresh=0*’ (請求 ADFS 忽略 SSO 狀態並進行全新驗證)。 如果您想要啟用這些應用程式的憑證型驗證，您必須修改預設的 Azure AD 行為。 只要將您的同盟網域設定中的 'PromptLoginBehavior' 設定為 ‘Disabled‘。
+某些 Office 應用程式 (已啟用新式驗證) 會在其要求中將 ‘*prompt=login*’ 傳送至 Azure AD。 根據預設，Azure AD 會將對 ADFS 的要求中的 ‘*prompt=login*’ 轉譯成 ‘*wauth=usernamepassworduri*’ (請求 ADFS 進行 U/P 驗證) 和 ‘*wfresh=0*’ (請求 ADFS 忽略 SSO 狀態並進行全新驗證)。 如果您想要啟用這些應用程式的憑證型驗證，您必須修改預設的 Azure AD 行為。 只要將您的同盟網域設定中的 'PromptLoginBehavior'  設定為 ‘Disabled‘  。
 您可以使用 [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) Cmdlet 來執行這項工作︰
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 
 ## <a name="exchange-activesync-clients-support"></a>Exchange ActiveSync 用戶端支援
 
-iOS 9 或更新版本支援原生 iOS 郵件用戶端。 若要确定其他所有 Exchange ActiveSync 应用程序是否支持此功能，请联系应用程序开发人员。
+iOS 9 或更新版本支援原生 iOS 郵件用戶端。 針對其他所有 Exchange ActiveSync 應用程式，若要判斷這項功能是否受支援，請連絡您的應用程式開發人員。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 13ea2b68027c81bca7b43cef62cf7039aa0ea8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609480"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 安全性與合規性藍圖 - 適用於 UK OFFICIAL 的三層式 IaaS Web 應用程式
@@ -154,7 +154,7 @@ ms.locfileid: "60609480"
 
 **網路安全性群組**：[NSG](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 包含能允許或拒絕 VNet 內流量的存取控制清單。 NSG 可以用來保護子網路或個別 VM 層級的流量。
 
-**Active Directory Domain Services (AD DS)**：此架構會提供專用的 [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) 部署。
+**Active Directory Domain Services (AD DS)** ：此架構會提供專用的 [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) 部署。
 
 **記錄與稽核**：[Azure 活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)會擷取在您訂用帳戶中的資源上所採取的作業，例如起始作業的人員、作業發生的時間、作業的狀態，以及可能有助於您研究作業的其他屬性值。 Azure 活動記錄為可擷取訂用帳戶上所有動作的 Azure 平台服務。 必要時可將記錄封存或匯出。
 

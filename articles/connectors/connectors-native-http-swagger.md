@@ -12,10 +12,10 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60448615"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>透過 Azure Logic Apps 中的 HTTP + Swagger 連接器呼叫 REST 端點
@@ -33,7 +33,7 @@ HTTP + Swagger 觸發程序和動作的功能與 [HTTP 動作](connectors-native
 以下是如何使用 HTTP + Swagger 作業做為邏輯應用程式中工作流程動作的範例。
 
 1. 選取 [新增步驟]  按鈕。
-2. 選取 [新增動作]。
+2. 選取 [新增動作]  。
 3. 在動作搜尋方塊中，輸入 **swagger** 以列出 HTTP + Swagger 動作。
    
     ![選取 HTTP + Swagger 動作](./media/connectors-native-http-swagger/using-action-1.png)
@@ -45,14 +45,14 @@ HTTP + Swagger 觸發程序和動作的功能與 [HTTP 動作](connectors-native
 6. 新增 HTTP 呼叫所需的任何參數。
    
     ![完成 HTTP 動作](./media/connectors-native-http-swagger/using-action-2.png)
-7. 若要儲存並發佈您的邏輯應用程式，請按一下設計工具工具列中的 [儲存]。
+7. 若要儲存並發佈您的邏輯應用程式，請按一下設計工具工具列中的 [儲存]  。
 
 ### <a name="host-swagger-from-azure-storage"></a>從 Azure 儲存體託管 Swagger
 您可能想要參考未託管的 Swagger 文件，但這並不符合設計工具的安全性及跨原始來源需求。 為解決這個問題，您可以將 Swagger 文件儲存在 Azure 儲存體並啟用 CORS 來參考該文件。  
 
 以下是在 Azure 儲存體中建立、設定和儲存 Swagger 文件的步驟：
 
-1. [使用 Azure Blob 儲存體建立 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md) 若要執行此步驟，請將權限設為 [公用存取]。
+1. [使用 Azure Blob 儲存體建立 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md) 若要執行此步驟，請將權限設為 [公用存取]  。
 
 2. 在 Blob 啟用 CORS。 
 
@@ -72,16 +72,16 @@ HTTP + Swagger 觸發程序和動作的功能與 [HTTP 動作](connectors-native
 以下是此 HTTP + Swagger 連接器所支援觸發程序和動作的詳細資料。
 
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger 觸發程序
-觸發程序是一個事件，可用來啟動邏輯應用程式中定義的工作流程。  HTTP + Swagger 連接器有一個觸發程序。 [深入了解觸發程序](../connectors/apis-list.md)。
+觸發程序是一個事件，可用來啟動邏輯應用程式中定義的工作流程。 HTTP + Swagger 連接器有一個觸發程序。 [深入了解觸發程序](../connectors/apis-list.md)。
 
 | 觸發程序 | 描述 |
 | --- | --- |
 | HTTP + Swagger |進行 HTTP 呼叫並傳回回應內容 |
 
 ## <a name="http--swagger-actions"></a>HTTP + Swagger 動作
-動作是由邏輯應用程式中定義的工作流程所執行的作業。  HTTP + Swagger 連接器有一個可能的動作。 [深入了解動作](../connectors/apis-list.md)。
+動作是由邏輯應用程式中定義的工作流程所執行的作業。 HTTP + Swagger 連接器有一個可能的動作。 [深入了解動作](../connectors/apis-list.md)。
 
-|  動作 | 描述 |
+| 動作 | 描述 |
 | --- | --- |
 | HTTP + Swagger |進行 HTTP 呼叫並傳回回應內容 |
 
@@ -92,7 +92,7 @@ HTTP + Swagger 連接器隨附一個可能的動作。 以下是關於每個動�
 在 Swagger 中繼資料的協助下提出 HTTP 輸出要求。
 星號 (*) 表示必要的欄位。
 
-| 顯示名稱 | 屬性名稱 | 描述 |
+| Display name | 屬性名稱 | 描述 |
 | --- | --- | --- |
 | 方法 * |method |要使用的 HTTP 指令動詞。 |
 | URI* |uri |HTTP 要求的 URI。 |
@@ -104,7 +104,7 @@ HTTP + Swagger 連接器隨附一個可能的動作。 以下是關於每個動�
 
 HTTP 回應
 
-| 屬性名稱 | 資料類型 | 描述 |
+| 屬性名稱 | 数据类型 | 描述 |
 | --- | --- | --- |
 | headers |物件 |回應標頭 |
 | body |物件 |回應物件 |
@@ -113,14 +113,14 @@ HTTP 回應
 ### <a name="http-responses"></a>HTTP 回應
 呼叫不同動作時，您可能會收到特定回應。 下表概述對應的回應及說明。
 
-| Name | 描述 |
+| 名稱 | 描述 |
 | --- | --- |
-| 200 |OK |
+| 200 |[確定] |
 | 202 |已接受 |
 | 400 |不正確的要求 |
 | 401 |未經授權 |
 | 403 |禁止 |
-| 404 |未找到 |
+| 404 |找不到 |
 | 500 |內部伺服器錯誤。 發生未知錯誤。 |
 
 ## <a name="next-steps"></a>後續步驟

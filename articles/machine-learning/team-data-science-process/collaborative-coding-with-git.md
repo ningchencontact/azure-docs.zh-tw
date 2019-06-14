@@ -11,10 +11,10 @@ ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 551d0cd149c4d1555a40ccf0d7baeff97c6809c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60336208"
 ---
 # <a name="collaborative-coding-with-git"></a>使用 Git 共同作業撰寫程式碼
@@ -26,7 +26,7 @@ ms.locfileid: "60336208"
 
 Azure DevOps Services 提供連結工作項目 (劇本或工作) 與 Git 分支的便利方式。 這可讓您將劇本或工作直接連接至與它相關聯的程式碼。 
 
-若要將工作項目連接至新分支，請按兩下工作項目，然後在快顯視窗中按一下 [+ 新增連結] 底下的 [建立新的分支]。  
+若要將工作項目連接至新分支，請按兩下工作項目，然後在快顯視窗中按一下 [+ 新增連結]  底下的 [建立新的分支]  。  
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
@@ -44,9 +44,9 @@ Azure DevOps Services 提供連結工作項目 (劇本或工作) 與 Git 分支�
 
     git checkout <branch name>
 
-將 <分支名稱\> 變更為「主要」，會讓您切換回**主要**分支。 切換至工作分支之後，您可以開始使用該工作項目，開發完成此項目所需的程式碼或文件構件。 
+將 <分支名稱\>  變更為「主要」  ，會讓您切換回**主要**分支。 切換至工作分支之後，您可以開始使用該工作項目，開發完成此項目所需的程式碼或文件構件。 
 
-您也可以將工作項目連結至現有的分支。 在工作項目的 [詳細資料] 分頁中，不是按一下 [建立新的分支]，而是按一下 [+ 新增連結]。 然後，選取您想要連結至工作項目的分支。 
+您也可以將工作項目連結至現有的分支。 在工作項目的 [詳細資料]  分頁中，不是按一下 [建立新的分支]  ，而是按一下 [+ 新增連結]  。 然後，選取您想要連結至工作項目的分支。 
 
 ![4](./media/collaborative-coding-with-git/4-link-to-an-existing-branch.png)
 
@@ -57,7 +57,7 @@ Azure DevOps Services 提供連結工作項目 (劇本或工作) 與 Git 分支�
 
 ## 2.<a name='WorkonaBranchandCommittheChanges-2'></a>使用分支並且認可變更 
 
-現在假設您對工作項目的 data\_ingestion 分支進行一些變更，例如在本機機器中的分支上新增 R 檔案。 假設您是在 Git 殼層的該分支中，使用下列 Git 命令，可以將新增的 R 檔案認可至此工作項目的分支：
+現在假設您對工作項目的 data\_ingestion  分支進行一些變更，例如在本機機器中的分支上新增 R 檔案。 假設您是在 Git 殼層的該分支中，使用下列 Git 命令，可以將新增的 R 檔案認可至此工作項目的分支：
 
     git status
     git add .
@@ -70,7 +70,7 @@ Azure DevOps Services 提供連結工作項目 (劇本或工作) 與 Git 分支�
 
 當您在一些認可和推送之後準備就緒時，若要將目前的分支合併至其基底分支，您可以在 Azure DevOps Services 上建立**提取要求**。 
 
-請移至專案的主頁面，然後按一下 [程式碼]。 選取要合併的分支和分支合併所在的 Git 存放庫名稱。 然後按一下 [提取要求]、按一下 [新的提取要求]，在分支上的工作合併至其基底分支之前，建立提取要求檢閱。
+請移至專案的主頁面，然後按一下 [程式碼]  。 選取要合併的分支和分支合併所在的 Git 存放庫名稱。 然後按一下 [提取要求]  、按一下 [新的提取要求]  ，在分支上的工作合併至其基底分支之前，建立提取要求檢閱。
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
@@ -86,15 +86,15 @@ Azure DevOps Services 提供連結工作項目 (劇本或工作) 與 Git 分支�
 
 ![9](./media/collaborative-coding-with-git/9-spring-approve-pullrequest.png)
 
-完成檢閱之後，按一下 [完成] 按鈕，工作分支便會合併到其基底分支。 您可以選擇在工作分支合併之後將其刪除。 
+完成檢閱之後，按一下 [完成]  按鈕，工作分支便會合併到其基底分支。 您可以選擇在工作分支合併之後將其刪除。 
 
 ![10](./media/collaborative-coding-with-git/10-spring-complete-pullrequest.png)
 
-確認左上角要求標示為「已完成」。 
+確認左上角要求標示為「已完成」  。 
 
 ![11](./media/collaborative-coding-with-git/11-spring-merge-pullrequest.png)
 
-當您返回 [程式碼] 底下的存放庫時，系統會告訴您，您已切換到主要分支。
+當您返回 [程式碼]  底下的存放庫時，系統會告訴您，您已切換到主要分支。
 
 ![12](./media/collaborative-coding-with-git/12-spring-branch-deleted.png)
 

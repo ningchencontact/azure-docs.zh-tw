@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
 ms.openlocfilehash: b212eaffb977846d40270a5f2abc76192aee4c0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60528145"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>在 Azure 雲端服務上使用 Express 建置和部署 Node.js Web 應用程式
@@ -30,14 +30,14 @@ Node.js 包含核心執行時期的一組最低功能。
 
 ![A web browser displaying Welcome to Express in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
-## <a name="create-a-cloud-service-project"></a>创建云服务项目
+## <a name="create-a-cloud-service-project"></a>建立雲端服務專案
 [!INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 
 請執行下列步驟來建立名為 'expressapp' 的新雲端服務專案：
 
-1. 從 [開始功能表] 或 [開始畫面] 搜尋 **Windows PowerShell**。 最後，用滑鼠右鍵按一下 [Windows PowerShell]，然後選取 [以系統管理員身分執行]。
+1. 從 [開始功能表]  或 [開始畫面]  搜尋 **Windows PowerShell**。 最後，用滑鼠右鍵按一下 [Windows PowerShell]  ，然後選取 [以系統管理員身分執行]  。
    
-    ![Azure PowerShell 图标](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
+    ![Azure PowerShell icon](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
 2. 切換至 **c:\\node** 目錄，然後輸入下列命令來建立名為 **expressapp** 的新方案和名為 **WebRole1** 的 Web 角色：
    
         PS C:\node> New-AzureServiceProject expressapp
@@ -49,7 +49,7 @@ Node.js 包含核心執行時期的一組最低功能。
     > 
     > 
 
-## <a name="install-express"></a>安装 Express
+## <a name="install-express"></a>安裝 Express
 1. 發出下列命令來安裝 Express 產生器：
    
         PS C:\node\expressapp> npm install express-generator -g
@@ -119,7 +119,7 @@ Node.js 包含核心執行時期的一組最低功能。
 ![A web browser displaying the Express page. The URL indicates it is now hosted on Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## <a name="next-steps"></a>後續步驟
-有关详细信息，请参阅 [Node.js 开发人员中心](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)。
+如需詳細資訊，請參閱 [Node.js 開發人員中心](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)。
 
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: https://expressjs.com/

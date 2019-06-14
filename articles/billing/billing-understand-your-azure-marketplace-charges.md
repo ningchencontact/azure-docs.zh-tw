@@ -17,10 +17,10 @@ ms.date: 06/15/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ae9c2c975bf49725be1858ad02a1c4b90ef58a7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370495"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>了解外部服務費用的 Azure 計費方式
@@ -44,10 +44,10 @@ ms.locfileid: "60370495"
 在 [Azure 入口網站](https://portal.azure.com/)內，您可以檢視每個訂用帳戶上的外部服務清單： 
 
 1. 以帳戶管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 在 [中樞] 功能表中，選取 [訂用帳戶]。
+2. 在 [中樞] 功能表中，選取 [訂用帳戶]  。
    
     ![Select Subscriptions in the Hub menu](./media/billing-understand-your-azure-marketplace-charges/sub-button.png) 
-3. 在 [訂用帳戶] 刀鋒視窗中，選取您想要檢視的訂用帳戶，然後選取 [外部服務]。
+3. 在 [訂用帳戶]  刀鋒視窗中，選取您想要檢視的訂用帳戶，然後選取 [外部服務]  。
    
     ![在計費刀鋒視窗中選取訂用帳戶](./media/billing-understand-your-azure-marketplace-charges/select-sub-external-services.png)
 4. 您應該會看到每項外部服務的訂單、發行者名稱、購買的服務層級、資源的命名及目前的訂單狀態。 若要查看過去的帳單，請選取外部服務。
@@ -68,16 +68,16 @@ EA 客戶可以在 EA 入口網站看到外部服務消費並下載報告。 請
 > 
 > 
 
-1. 登入[帳戶中心](https://account.windowsazure.com/)並[瀏覽至 [Marketplace] 索引標籤](https://account.windowsazure.com/Store)
+1. 登入[帳戶中心](https://account.windowsazure.com/)並[瀏覽至 [Marketplace]  索引標籤](https://account.windowsazure.com/Store)
    
     ![在帳戶中心內選取 Marketplace](./media/billing-understand-your-azure-marketplace-charges/select-marketplace.png)
 2. 選取要管理的外部服務
    
     ![選取要管理的外部服務](./media/billing-understand-your-azure-marketplace-charges/select-ext-service.png)
-3. 在頁面右側，按一下 [變更付款方式]。 此連結將帶您前往其他入口網站，以便您管理付款方法。
+3. 在頁面右側，按一下 [變更付款方式]  。 此連結將帶您前往其他入口網站，以便您管理付款方法。
    
     ![訂單摘要](./media/billing-understand-your-azure-marketplace-charges/change-payment.PNG)
-4. 按一下 [編輯資訊]，然後遵循指示更新付款資訊。
+4. 按一下 [編輯資訊]  ，然後遵循指示更新付款資訊。
    
     ![選取編輯資訊](./media/billing-understand-your-azure-marketplace-charges/edit-info.png)
 

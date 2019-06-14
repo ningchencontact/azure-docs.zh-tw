@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 20842c8c644a351b59322569661abf82bb524449
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60472558"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中檢視和指派系統管理員角色
@@ -26,7 +26,7 @@ ms.locfileid: "60472558"
 
 ## <a name="view-all-roles"></a>檢視所有角色
 
-在 Azure Active Directory 中，選取 [角色和系統管理員] 以查看所有可用角色的清單。 
+在 Azure Active Directory 中，選取 [角色和系統管理員]  以查看所有可用角色的清單。 
 
 按一下每個資料列右側的省略符號，以開啟角色的詳細描述。
 
@@ -34,11 +34,11 @@ ms.locfileid: "60472558"
 
 ## <a name="view-my-roles"></a>檢視我的角色
 
-您也可以輕鬆檢視自己的權限。 在 [角色與系統管理員] 頁面中選取 [您的角色]，即可查看目前已指派給您的角色。
+您也可以輕鬆檢視自己的權限。 在 [角色與系統管理員]  頁面中選取 [您的角色]  ，即可查看目前已指派給您的角色。
 
 ## <a name="view-assignments-for-a-role"></a>檢視角色指派
 
-按一下角色即可檢視指派給該角色的使用者。 您可以選取 [Manage in PIM] \(在 PIM 中管理\)，以取得額外的管理功能。 特殊權限角色管理員可以將「永久」(一律在角色中為作用中) 指派變更為「合格」(只有在提高權限時才在角色中)。 如果您沒有 PIM，則仍然可以選取 [Manage in PIM] \(在 PIM 中管理\) 來註冊試用版。 Privileged Identity Management 需要 [Azure AD Premium P2 授權方案](../privileged-identity-management/subscription-requirements.md)。
+按一下角色即可檢視指派給該角色的使用者。 您可以選取 [Manage in PIM] \(在 PIM 中管理\)  ，以取得額外的管理功能。 特殊權限角色管理員可以將「永久」(一律在角色中為作用中) 指派變更為「合格」(只有在提高權限時才在角色中)。 如果您沒有 PIM，則仍然可以選取 [Manage in PIM] \(在 PIM 中管理\)  來註冊試用版。 Privileged Identity Management 需要 [Azure AD Premium P2 授權方案](../privileged-identity-management/subscription-requirements.md)。
 
 ![管理員角色成員清單](./media/directory-manage-roles-portal/member-list.png)
 
@@ -46,7 +46,7 @@ ms.locfileid: "60472558"
 
 ## <a name="view-a-users-role-permissions"></a>檢視使用者的角色權限
 
-當您檢視角色的成員時，請選取 [描述] 以查看角色指派所授與權限的完整清單。 此頁面包括相關文件的連結，協助引導您管理目錄角色。
+當您檢視角色的成員時，請選取 [描述]  以查看角色指派所授與權限的完整清單。 此頁面包括相關文件的連結，協助引導您管理目錄角色。
 
 ![管理員角色權限清單](./media/directory-manage-roles-portal/role-description.png)
 

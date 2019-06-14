@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
 ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538211"
 ---
 # <a name="get-started-with-the-query-action"></a>開始使用查詢動作
@@ -39,7 +39,7 @@ ms.locfileid: "60538211"
 以下說明如何將它新增至邏輯應用程式︰
 
 1. 選取 [新增步驟]  按鈕。
-2. 選擇 [新增動作] 。
+2. 選擇 [新增動作]  。
 3. 在動作搜尋方塊中，輸入**篩選**以列出**篩選陣列**動作。
    
     ![使用查詢動作](./media/connectors-native-query/using-action-1.png)
@@ -56,7 +56,7 @@ ms.locfileid: "60538211"
 ## <a name="query-action"></a>查詢動作
 以下是此連接器所支援動作的詳細資料。 連接器有一個可能的動作。
 
-|  動作 | 描述 |
+| 動作 | 描述 |
 | --- | --- |
 | 篩選陣列 |評估陣列中的每個項目是否符合條件並傳回結果 |
 
@@ -67,17 +67,17 @@ ms.locfileid: "60538211"
 以下是動作的輸入欄位，可進行 HTTP 輸出要求。
 標示 * 代表必要欄位。
 
-| 顯示名稱 | 屬性名稱 | 描述 |
+| Display name | 屬性名稱 | 描述 |
 | --- | --- | --- |
 | 從* |from |要篩選的陣列 |
 | 條件* |其中 |要針對每個項目評估的條件 |
 
 <br>
 
-### <a name="output-details"></a>輸出詳細資料
+### <a name="output-details"></a>输出详细信息
 以下是 HTTP 回應的輸出詳細資料。
 
-| 屬性名稱 | 資料類型 | 描述 |
+| 屬性名稱 | 数据类型 | 描述 |
 | --- | --- | --- |
 | 篩選的陣列 |array |陣列，其中包含每筆篩選結果的物件 |
 

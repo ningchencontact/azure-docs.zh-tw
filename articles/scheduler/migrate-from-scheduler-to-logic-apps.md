@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2018
 ms.openlocfilehash: 25ed66fd75301475542dbac8e8a01670ee37563c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60531498"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>將 Azure 排程器作業移轉至 Azure Logic Apps
@@ -23,7 +23,7 @@ ms.locfileid: "60531498"
 
 本文說明如何使用 Azure Logic Apps 而非 Azure 排程器來建立自動化工作流程，藉以排程單次和週期性作業。 當您使用 Logic Apps 建立排程作業時，您會獲得下列權益：
 
-* 您不需擔心「作業集合」的概念，因為每個邏輯應用程式都是個別的 Azure 資源。
+* 您不需擔心「作業集合」  的概念，因為每個邏輯應用程式都是個別的 Azure 資源。
 
 * 您可以使用單一邏輯應用程式來執行多個單次作業。
 
@@ -53,19 +53,19 @@ ms.locfileid: "60531498"
 
 1. 針對要求觸發程序，您可以選擇性地提供 JSON 結構描述，協助邏輯應用程式設計工具了解來自傳入要求的輸入結構，並讓您稍後可在工作流程中更輕鬆地選取輸出。
 
-   若要指定結構描述，請在 [要求本文 JSON 結構描述] 方塊中輸入結構描述，例如： 
+   若要指定結構描述，請在 [要求本文 JSON 結構描述]  方塊中輸入結構描述，例如： 
 
    ![要求結構描述](./media/migrate-from-scheduler-to-logic-apps/request-schema.png)
 
    如果您沒有結構描述，但是有 JSON 格式的範例承載，即可從該承載產生 JSON 結構描述。
 
-   1. 在要求觸發程序中，選擇 [使用範例承載來產生結構描述]。
+   1. 在要求觸發程序中，選擇 [使用範例承載來產生結構描述]  。
 
-   1. 在 [輸入或貼上範例 JSON 承載] 下方，提供您的範例承載，然後選擇 [完成]，例如：
+   1. 在 [輸入或貼上範例 JSON 承載]  下方，提供您的範例承載，然後選擇 [完成]  ，例如：
 
       ![範例承載](./media/migrate-from-scheduler-to-logic-apps/sample-payload.png)
 
-1. 在觸發程序下方，選擇 [下一個步驟]。 
+1. 在觸發程序下方，選擇 [下一個步驟]  。 
 
 1. 在搜尋方塊中，輸入「延遲直到」作為篩選條件。 在動作清單下方，選取此動作：**延遲直到**
 
@@ -75,7 +75,7 @@ ms.locfileid: "60531498"
 
 1. 輸入您想要啟動邏輯應用程式工作流程的時間戳記。 
 
-   當您按一下 [時間戳記] 方塊內部時，即會出現動態內容清單，讓您可以選擇性地選取觸發程序的輸出。
+   當您按一下 [時間戳記]  方塊內部時，即會出現動態內容清單，讓您可以選擇性地選取觸發程序的輸出。
 
    ![提供「延遲直到」詳細資料](./media/migrate-from-scheduler-to-logic-apps/delay-until-details.png)
 
@@ -89,7 +89,7 @@ ms.locfileid: "60531498"
 
    ![儲存您的邏輯應用程式](./media/migrate-from-scheduler-to-logic-apps/save-logic-app.png)
 
-   當您第一次儲存邏輯應用程式時，邏輯應用程式要求觸發程序的端點 URL 會出現在 [HTTP POST URL] 方塊中。 
+   當您第一次儲存邏輯應用程式時，邏輯應用程式要求觸發程序的端點 URL 會出現在 [HTTP POST URL]  方塊中。 
    當您想要呼叫邏輯應用程式，並將輸入傳送至您的邏輯應用程式進行處理時，請使用此 URL 作為呼叫目的地。
 
    ![儲存要求觸發程序端點 URL](./media/migrate-from-scheduler-to-logic-apps/request-endpoint-url.png)
@@ -100,22 +100,22 @@ ms.locfileid: "60531498"
 
 若要手動執行或觸發單次作業，請針對邏輯應用程式的要求觸發程序傳送對端點 URL 的呼叫。 在此呼叫中，指定要傳送的輸入或承載，而您可能已在稍早藉由指定結構描述來說明此項。 
 
-例如，使用 Postman 應用程式，您可以使用類似此範例的設定來建立 POST 要求，然後選擇 [Send] \(傳送\) 來提出要求。
+例如，使用 Postman 應用程式，您可以使用類似此範例的設定來建立 POST 要求，然後選擇 [Send]  \(傳送\) 來提出要求。
 
 | 要求方法 | URL | body | headers |
 |----------------|-----|------|---------| 
-| **POST** | <*endpoint-URL*> | **未經處理** <p>**JSON(application/json)** <p>在 [raw] \(未經處理\) 方塊中，輸入您希望在要求中傳送的承載。 <p>**注意**：此設定會自動設定**標頭**值。 | **金鑰**：Content-Type <br>**值**：application/json
+| **POST** | <*endpoint-URL*> | **未經處理** <p>**JSON(application/json)** <p>在 [raw]  \(未經處理\) 方塊中，輸入您希望在要求中傳送的承載。 <p>**注意**：此設定會自動設定**標頭**值。 | **金鑰**：Content-Type <br>**值**：application/json
  |||| 
 
 ![傳送要求以手動觸發邏輯應用程式](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
 
-當您傳送呼叫之後，來自邏輯應用程式的回應就會出現在 [Body] \(主體\) 索引標籤上的 [raw] \(未經處理\) 方塊下方。 
+當您傳送呼叫之後，來自邏輯應用程式的回應就會出現在 [Body]  \(主體\) 索引標籤上的 [raw]  \(未經處理\) 方塊下方。 
 
 <a name="workflow-run-id"></a>
 
 > [!IMPORTANT]
 >
-> 如果您稍後想要取消作業，請選擇 [Headers] \(標頭\) 索引標籤。尋找並複製回應中的 **x-ms-workflow-run-id** 標頭值。 
+> 如果您稍後想要取消作業，請選擇 [Headers]  \(標頭\) 索引標籤。尋找並複製回應中的 **x-ms-workflow-run-id** 標頭值。 
 >
 > ![Response](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
 
@@ -141,7 +141,7 @@ ms.locfileid: "60531498"
 
    如需進階排程選項的詳細資訊，請參閱[使用 Azure Logic Apps 建立並執行週期性工作和工作流程](../connectors/connectors-native-recurrence.md)
 
-1. 從 [200 個以上的連接器](../connectors/apis-list.md)中進行選取，以新增您想要的其他動作。 在觸發程序下方，選擇 [下一個步驟]。 尋找並選取您想要的動作。
+1. 從 [200 個以上的連接器](../connectors/apis-list.md)中進行選取，以新增您想要的其他動作。 在觸發程序下方，選擇 [下一個步驟]  。 尋找並選取您想要的動作。
 
    例如，您可以包含將要求傳送至 URL 的 HTTP 動作，或使用儲存體佇列、服務匯流排佇列或服務匯流排主題的動作： 
 
@@ -159,7 +159,7 @@ ms.locfileid: "60531498"
 
 若要控制在發生間歇性失敗時某個動作嘗試在您邏輯應用程式中重新執行的方式，您可以在每個動作的設定中設定[重試原則](../logic-apps/logic-apps-exception-handling.md#retry-policies)，例如：
 
-1. 開啟動作的 (**...**) 功能表，然後選取 [設定]。
+1. 開啟動作的 ( **...** ) 功能表，然後選取 [設定]  。
 
    ![開啟動作設定](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
 
@@ -179,15 +179,15 @@ ms.locfileid: "60531498"
 
    ![新增平行動作](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. 在替代動作中，開啟 (**...**) 功能表，然後選取 [設定執行後續]。
+1. 在替代動作中，開啟 ( **...** ) 功能表，然後選取 [設定執行後續]  。
 
    ![設定執行後續](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 
-1. 清除 [已成功] 屬性的方塊。 選取這些屬性：**已失敗**、**已跳過**和**已逾時**
+1. 清除 [已成功]  屬性的方塊。 選取這些屬性：**已失敗**、**已跳過**和**已逾時**
 
    ![設定「執行後續」屬性](./media/migrate-from-scheduler-to-logic-apps/select-run-after-properties.png)
 
-1. 完成之後，選擇 [完成]。
+1. 完成之後，選擇 [完成]  。
 
 若要深入了解例外狀況處理，請參閱[處理錯誤和例外狀況 - RunAfter 屬性](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property)。
 
@@ -210,22 +210,22 @@ ms.locfileid: "60531498"
 **問**：哪裡可以取得支援移轉我的排程器作業？ <br>
 **答**：以下是一些方法，以取得支援： 
 
-**Azure 门户**
+**Azure 入口網站**
 
 如果您的 Azure 訂用帳戶具備付費的支援方案，則您可以在 Azure 入口網站中建立技術支援要求。 否則，您可以選取不同的支援選項。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)主功能表上，選取 [説明 + 支援]。
+1. 在 [Azure 入口網站](https://portal.azure.com)主功能表上，選取 [説明 + 支援]  。
 
-1. 在 [支援] 下方，選取 [新增支援要求]。 針對您的要求提供以下詳細資料：
+1. 在 [支援]  下方，選取 [新增支援要求]  。 針對您的要求提供以下詳細資料：
 
-   | 設定 | Value |
+   | 設定 | 值 |
    |---------|-------|
    | **問題類型** | **技術** | 
-   | **訂用帳戶** | <您的 Azure 訂用帳戶> | 
-   | **服務** | 在 [監視與管理] 下方，選取 [排程器]。 | 
+   | **訂用帳戶** | <您的 Azure 訂用帳戶  > | 
+   | **服務** | 在 [監視與管理]  下方，選取 [排程器]  。 | 
    ||| 
 
-1. 選取您想要的支援選項。 如果您具備付費的支援方案，請選擇 [下一步]。
+1. 選取您想要的支援選項。 如果您具備付費的支援方案，請選擇 [下一步]  。
 
 **社群**
 

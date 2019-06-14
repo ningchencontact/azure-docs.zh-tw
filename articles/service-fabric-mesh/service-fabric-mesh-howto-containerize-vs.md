@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chakdan
 ms.openlocfilehash: cb4e327e1c8c0a653cb94233f568b4847494c439
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60419425"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>將 Service Fabric Mesh 的現有 .NET 應用程式容器化
@@ -49,12 +49,12 @@ git clone https://github.com/MikkelHegn/ContainersSFLab.git
  
 使用 Service Fabric Mesh 工具，為現有的 ASP.NET 或主控台專案新增容器協調流程支援，如下所示：
 
-在 Visual Studio 方案總管中，以滑鼠右鍵按一下專案名稱 (在範例中為 **eShopLegacyWebForms**)，然後選擇 [新增] > [容器協調器支援]。
-[新增容器協調器支援] 對話方塊隨即出現。
+在 Visual Studio 方案總管中，以滑鼠右鍵按一下專案名稱 (在範例中為 **eShopLegacyWebForms**)，然後選擇 [新增]   > [容器協調器支援]  。
+[新增容器協調器支援]  對話方塊隨即出現。
 
 ![Visual Studio 的新增容器協調器對話方塊](./media/service-fabric-mesh-howto-containerize-vs/add-container-orchestration-support.png)
 
-從下拉式清單中選擇 [Service Fabric Mesh]，然後按一下 [確定]。
+從下拉式清單中選擇 [Service Fabric Mesh]  ，然後按一下 [確定]  。
 
 工具接著會確認 Docker 已安裝、將 Dockerfile 新增至您的專案，然後為您的專案提取 Docker 映像。  
 Service Fabric Mesh 應用程式專案會新增至您的解決方案。 其中包含您的 Mesh 發佈設定檔和組態檔。 專案的名稱與您的專案名稱相同，結尾處會加上 'Application'，例如 **eShopLegacyWebFormsApplication**。 

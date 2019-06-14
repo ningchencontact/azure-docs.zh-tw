@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 02/13/2019
 ms.author: juliako
 ms.openlocfilehash: f9fe689e6911c5e9497ee82132e8b70bd9aada7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60322228"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure 媒體服務事件的 Azure 事件格線結構描述
@@ -26,7 +26,7 @@ ms.locfileid: "60322228"
 
 ## <a name="job-related-event-types"></a>作業相關的事件類型
 
-媒體服務會發出如下所述的 [作業] 相關事件類型。 **作業**相關事件有兩種類別：「監視工作狀態變更」和「監視作業輸出的狀態變更」。 
+媒體服務會發出如下所述的 [作業]  相關事件類型。 **作業**相關事件有兩種類別：「監視工作狀態變更」和「監視作業輸出的狀態變更」。 
 
 您可以訂閱 JobStateChange 事件來註冊所有事件。 或者，您可以只訂閱特定事件 (例如，JobErrored、JobFinished 和 JobCanceled 等最終狀態)。 
 
@@ -68,7 +68,7 @@ ms.locfileid: "60322228"
 
 ## <a name="live-event-types"></a>即時事件類型
 
-媒體服務也會發出如下所述的 [即時] 事件類型。 **即時**事件有兩種類別：資料流層級事件和資料軌層級事件。 
+媒體服務也會發出如下所述的 [即時]  事件類型。 **即時**事件有兩種類別：資料流層級事件和資料軌層級事件。 
 
 ### <a name="stream-level-events"></a>串流層級事件
 
@@ -130,13 +130,13 @@ ms.locfileid: "60322228"
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| previousState | string | 工作在該事件之前的狀態。 |
-| state | string | 在此事件中，被通知的工作新狀態。 例如，「已排程：作業已可啟動」或「已完成：作業已完成」。|
+| previousState | 字串 | 工作在該事件之前的狀態。 |
+| state | 字串 | 在此事件中，被通知的工作新狀態。 例如，「已排程：作業已可啟動」或「已完成：作業已完成」。|
 
-作業狀態可能是以下其中一個值：已排入佇列、已排程、處理中、已完成、錯誤、已取消、取消中
+作業狀態可能是以下其中一個值：已排入佇列  、已排程  、處理中  、已完成  、錯誤  、已取消  、取消中 
 
 > [!NOTE]
-> 「已排入佇列」 只會存在於 **previousState** 屬性中，但是不會在 **state** 屬性中。
+> 「已排入佇列」  只會存在於 **previousState** 屬性中，但是不會在 **state** 屬性中。
 
 ### <a name="jobscheduled-jobprocessing-jobcanceling"></a>JobScheduled、JobProcessing、JobCanceling
 
@@ -316,11 +316,11 @@ ms.locfileid: "60322228"
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| streamId | string | 資料流或連線的識別碼。 編碼器或客戶要負責在內嵌 URL 中新增此識別碼。 |  
-| ingestUrl | string | 即時事件所提供的內嵌 URL。 |  
-| encoderIp | string | 編碼器的 IP。 |
-| encoderPort | string | 此資料流來源編碼器的連接埠。 |
-| ResultCode | string | 連線遭到拒絕的原因。 結果碼列於下表。 |
+| streamId | 字串 | 資料流或連線的識別碼。 編碼器或客戶要負責在內嵌 URL 中新增此識別碼。 |  
+| ingestUrl | 字串 | 即時事件所提供的內嵌 URL。 |  
+| encoderIp | 字串 | 編碼器的 IP。 |
+| encoderPort | 字串 | 此資料流來源編碼器的連接埠。 |
+| ResultCode | 字串 | 連線遭到拒絕的原因。 結果碼列於下表。 |
 
 結果碼如下：
 
@@ -363,10 +363,10 @@ ms.locfileid: "60322228"
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| streamId | string | 資料流或連線的識別碼。 編碼器或客戶要負責在內嵌 URL 中提供此識別碼。 |
-| ingestUrl | string | 即時事件所提供的內嵌 URL。 |
-| encoderIp | string | 編碼器的 IP。 |
-| encoderPort | string | 此資料流來源編碼器的連接埠。 |
+| streamId | 字串 | 資料流或連線的識別碼。 編碼器或客戶要負責在內嵌 URL 中提供此識別碼。 |
+| ingestUrl | 字串 | 即時事件所提供的內嵌 URL。 |
+| encoderIp | 字串 | 編碼器的 IP。 |
+| encoderPort | 字串 | 此資料流來源編碼器的連接埠。 |
 
 ### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
@@ -397,11 +397,11 @@ ms.locfileid: "60322228"
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| streamId | string | 資料流或連線的識別碼。 編碼器或客戶要負責在內嵌 URL 中新增此識別碼。 |  
-| ingestUrl | string | 即時事件所提供的內嵌 URL。 |  
-| encoderIp | string | 編碼器的 IP。 |
-| encoderPort | string | 此資料流來源編碼器的連接埠。 |
-| ResultCode | string | 編碼器中斷連線的原因。 可能是正常中斷連線或錯誤所致。 結果碼列於下表。 |
+| streamId | 字串 | 資料流或連線的識別碼。 編碼器或客戶要負責在內嵌 URL 中新增此識別碼。 |  
+| ingestUrl | 字串 | 即時事件所提供的內嵌 URL。 |  
+| encoderIp | 字串 | 編碼器的 IP。 |
+| encoderPort | 字串 | 此資料流來源編碼器的連接埠。 |
+| ResultCode | 字串 | 編碼器中斷連線的原因。 可能是正常中斷連線或錯誤所致。 結果碼列於下表。 |
 
 錯誤結果碼如下：
 
@@ -454,12 +454,12 @@ ms.locfileid: "60322228"
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| trackType | string | 資料軌的類型 (音訊/視訊)。 |
-| trackName | string | 資料軌的名稱。 |
+| trackType | 字串 | 資料軌的類型 (音訊/視訊)。 |
+| trackName | 字串 | 資料軌的名稱。 |
 | bitrate | integer | 資料軌的位元速率。 |
-| timestamp | string | 資料區塊的卸除時間戳記。 |
-| timescale | string | 時間戳記的時幅。 |
-| ResultCode | string | 資料區塊卸除的原因。 **FragmentDrop_OverlapTimestamp** 或 **FragmentDrop_NonIncreasingTimestamp**。 |
+| timestamp | 字串 | 資料區塊的卸除時間戳記。 |
+| timescale | 字串 | 時間戳記的時幅。 |
+| ResultCode | 字串 | 資料區塊卸除的原因。 **FragmentDrop_OverlapTimestamp** 或 **FragmentDrop_NonIncreasingTimestamp**。 |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
@@ -494,14 +494,14 @@ ms.locfileid: "60322228"
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| trackType | string | 資料軌的類型 (音訊/視訊)。 |
-| trackName | string | 資料軌的名稱 (由編碼器提供，在 RTMP 的案例中，伺服器會以 TrackType_Bitrate 格式產生)。 |
+| trackType | 字串 | 資料軌的類型 (音訊/視訊)。 |
+| trackName | 字串 | 資料軌的名稱 (由編碼器提供，在 RTMP 的案例中，伺服器會以 TrackType_Bitrate  格式產生)。 |
 | bitrate | integer | 資料軌的位元速率。 |
-| ingestUrl | string | 即時事件所提供的內嵌 URL。 |
-| encoderIp | string  | 編碼器的 IP。 |
-| encoderPort | string | 此資料流來源編碼器的連接埠。 |
-| timestamp | string | 所收到資料區塊的第一個時間戳記。 |
-| timescale | string | 用來表示時間戳記的時幅。 |
+| ingestUrl | 字串 | 即時事件所提供的內嵌 URL。 |
+| encoderIp | 字串  | 編碼器的 IP。 |
+| encoderPort | 字串 | 此資料流來源編碼器的連接埠。 |
+| timestamp | 字串 | 所收到資料區塊的第一個時間戳記。 |
+| timescale | 字串 | 用來表示時間戳記的時幅。 |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -533,12 +533,12 @@ ms.locfileid: "60322228"
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| minLastTimestamp | string | 所有資料軌 (音訊或視訊) 最後一個時間戳記之間的最小值。 |
-| typeOfTrackWithMinLastTimestamp | string | 最後一個時間戳記為最小值的資料軌 (音訊或視訊) 類型。 |
-| maxLastTimestamp | string | 所有資料軌 (音訊或視訊) 的所有時間戳記之間的最大值。 |
-| typeOfTrackWithMaxLastTimestamp | string | 最後一個時間戳記為最大值的資料軌 (音訊或視訊) 類型。 |
-| timescaleOfMinLastTimestamp| string | 取得用來表示 "MinLastTimestamp" 的時幅。|
-| timescaleOfMaxLastTimestamp| string | 取得用來表示 "MaxLastTimestamp" 的時幅。|
+| minLastTimestamp | 字串 | 所有資料軌 (音訊或視訊) 最後一個時間戳記之間的最小值。 |
+| typeOfTrackWithMinLastTimestamp | 字串 | 最後一個時間戳記為最小值的資料軌 (音訊或視訊) 類型。 |
+| maxLastTimestamp | 字串 | 所有資料軌 (音訊或視訊) 的所有時間戳記之間的最大值。 |
+| typeOfTrackWithMaxLastTimestamp | 字串 | 最後一個時間戳記為最大值的資料軌 (音訊或視訊) 類型。 |
+| timescaleOfMinLastTimestamp| 字串 | 取得用來表示 "MinLastTimestamp" 的時幅。|
+| timescaleOfMaxLastTimestamp| 字串 | 取得用來表示 "MaxLastTimestamp" 的時幅。|
 
 ### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
 
@@ -569,11 +569,11 @@ ms.locfileid: "60322228"
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| firstTimestamp | string | 其中一個視訊類型資料軌/品質層級所收到的時間戳記。 |
-| firstDuration | string | 具有第一個時間戳記的資料區塊持續時間。 |
-| secondTimestamp | string  | 其他某些視訊類型資料軌/品質層級所收到的時間戳記。 |
-| secondDuration | string | 具有第二個時間戳記的資料區塊持續時間。 |
-| timescale | string | 時間戳記和持續時間的時幅。|
+| firstTimestamp | 字串 | 其中一個視訊類型資料軌/品質層級所收到的時間戳記。 |
+| firstDuration | 字串 | 具有第一個時間戳記的資料區塊持續時間。 |
+| secondTimestamp | 字串  | 其他某些視訊類型資料軌/品質層級所收到的時間戳記。 |
+| secondDuration | 字串 | 具有第二個時間戳記的資料區塊持續時間。 |
+| timescale | 字串 | 時間戳記和持續時間的時幅。|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -611,18 +611,18 @@ ms.locfileid: "60322228"
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| trackType | string | 資料軌的類型 (音訊/視訊)。 |
-| trackName | string | 資料軌的名稱 (由編碼器提供，在 RTMP 的案例中，伺服器會以 TrackType_Bitrate 格式產生)。 |
+| trackType | 字串 | 資料軌的類型 (音訊/視訊)。 |
+| trackName | 字串 | 資料軌的名稱 (由編碼器提供，在 RTMP 的案例中，伺服器會以 TrackType_Bitrate  格式產生)。 |
 | bitrate | integer | 資料軌的位元速率。 |
 | incomingBitrate | integer | 根據來自編碼器的資料區塊所計算出的位元速率。 |
-| lastTimestamp | string | 資料軌在過去 20 秒所收到的最新時間戳記。 |
-| timescale | string | 用來表示時間戳記的時幅。 |
+| lastTimestamp | 字串 | 資料軌在過去 20 秒所收到的最新時間戳記。 |
+| timescale | 字串 | 用來表示時間戳記的時幅。 |
 | overlapCount | integer | 在過去 20 秒有重疊時間戳記的資料區塊數目。 |
 | discontinuityCount | integer | 在過去 20 秒所觀察到的中斷次數。 |
 | nonIncreasingCount | integer | 在過去 20 秒所收到有過去時間戳記的資料區塊數目。 |
-| unexpectedBitrate | bool | 在過去 20 秒內，預期和實際的位元速率差異是否超過允許的限制。 只有在「incomingBitrate >= 2* 位元速率」或「incomingBitrate <= 位元速率/2」或「IncomingBitrate = 0」時，才會是 true。 |
-| state | string | 即時事件的狀態。 |
-| healthy | bool | 根據計數和旗標來指出內嵌是否狀況良好。 如果 overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false，則健康情況為 true。 |
+| unexpectedBitrate | 布林 | 在過去 20 秒內，預期和實際的位元速率差異是否超過允許的限制。 只有在「incomingBitrate >= 2* 位元速率」或「incomingBitrate <= 位元速率/2」或「IncomingBitrate = 0」時，才會是 true。 |
+| state | 字串 | 即時事件的狀態。 |
+| healthy | 布林 | 根據計數和旗標來指出內嵌是否狀況良好。 如果 overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false，則健康情況為 true。 |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -655,13 +655,13 @@ ms.locfileid: "60322228"
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| trackType | string | 資料軌的類型 (音訊/視訊)。 |
-| trackName | string | 資料軌的名稱 (由編碼器提供，在 RTMP 的案例中，伺服器會以 TrackType_Bitrate 格式產生)。 |
+| trackType | 字串 | 資料軌的類型 (音訊/視訊)。 |
+| trackName | 字串 | 資料軌的名稱 (由編碼器提供，在 RTMP 的案例中，伺服器會以 TrackType_Bitrate  格式產生)。 |
 | bitrate | integer | 資料軌的位元速率。 |
-| previousTimestamp | string | 上一個片段的時間戳記。 |
-| newTimestamp | string | 當前片段的時間戳記。 |
-| discontinuityGap | string | 上述兩個時間戳記之間的間距。 |
-| timescale | string | 用來表示時間戳記和中斷間距的時幅。 |
+| previousTimestamp | 字串 | 上一個片段的時間戳記。 |
+| newTimestamp | 字串 | 當前片段的時間戳記。 |
+| discontinuityGap | 字串 | 上述兩個時間戳記之間的間距。 |
+| timescale | 字串 | 用來表示時間戳記和中斷間距的時幅。 |
 
 ### <a name="common-event-properties"></a>常見的事件屬性
 
@@ -669,8 +669,8 @@ ms.locfileid: "60322228"
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| 主題 | string | EventGrid 主題。 此屬性有媒體服務帳戶的資源識別碼。 |
-| 主旨 | string | 媒體服務帳戶底下媒體服務通道的資源路徑。 串連主題和主旨即可獲得作業的資源識別碼。 |
+| topic | 字串 | EventGrid 主題。 此屬性有媒體服務帳戶的資源識別碼。 |
+| 主旨 | 字串 | 媒體服務帳戶底下媒體服務通道的資源路徑。 串連主題和主旨即可獲得作業的資源識別碼。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 例如，"Microsoft.Media.JobStateChange"。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | id | string | 事件的唯一識別碼。 |

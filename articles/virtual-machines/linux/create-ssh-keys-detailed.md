@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: danlep
 ms.openlocfilehash: 3784dd701b3ac44971e134f1b160fcfe2de2d9b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60328664"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>詳細步驟：在 Azure 中建立和管理對 Linux VM 進行驗證所需的 SSH 金鑰 
@@ -126,7 +126,7 @@ ls -al ~/.ssh
 
 `Enter passphrase (empty for no passphrase):`
 
-「強烈」建議您為私密金鑰加上複雜密碼。 若未使用複雜密碼來保護金鑰檔案，任何人只要擁有該檔案，就可以用它登入具有對應公開金鑰的任何伺服器。 新增複雜密碼可提升防護能力，以防有人能夠取得您的私密金鑰檔案，讓您有時間變更金鑰。
+「強烈」  建議您為私密金鑰加上複雜密碼。 若未使用複雜密碼來保護金鑰檔案，任何人只要擁有該檔案，就可以用它登入具有對應公開金鑰的任何伺服器。 新增複雜密碼可提升防護能力，以防有人能夠取得您的私密金鑰檔案，讓您有時間變更金鑰。
 
 ## <a name="generate-keys-automatically-during-deployment"></a>在部署期間自動產生金鑰
 
@@ -168,7 +168,7 @@ ssh-keygen \
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-如果您在建立金鑰組時提供了複雜密碼，請在登入程序期間出現提示時輸入複雜密碼  (伺服器會新增至 `~/.ssh/known_hosts` 資料夾，而且系統不會要求您重新連線，除非 Azure VM 上的公開金鑰有變更或伺服器名稱已從 `~/.ssh/known_hosts` 中移除)。
+如果您在建立金鑰組時提供了複雜密碼，請在登入程序期間出現提示時輸入複雜密碼 (伺服器會新增至 `~/.ssh/known_hosts` 資料夾，而且系統不會要求您重新連線，除非 Azure VM 上的公開金鑰有變更或伺服器名稱已從 `~/.ssh/known_hosts` 中移除)。
 
 如果 VM 使用 Just-In-Time 存取原則，您必須先要求權限，才能連線到 VM。 如需 Just-In-Time 原則的詳細資訊，請參閱[使用 Just-In-Time 原則管理虛擬機器存取](../../security-center/security-center-just-in-time.md)。
 

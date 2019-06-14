@@ -13,10 +13,10 @@ ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 468db9d62a98e079fbe6954843e23a518eaabd0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60478503"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>在 Azure 入口網站中佈建 Linux SQL Server 虛擬機器
@@ -42,17 +42,17 @@ ms.locfileid: "60478503"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-1. 在左窗格中選取 [建立資源]。
+1. 在左窗格中選取 [建立資源]  。
 
-1. 在 [建立資源] 窗格中，選取 [計算]。
+1. 在 [建立資源]  窗格中，選取 [計算]  。
 
-1. 選取 [精選] 標題旁邊的 [查看全部]。
+1. 選取 [精選]  標題旁邊的 [查看全部]  。
 
    ![查看所有 VM 映像](./media/provision-sql-server-linux-virtual-machine/azure-compute-blade.png)
 
 1. 在搜尋方塊中，輸入 **SQL Server 2017**，然後選取 **Enter** 鍵以開始搜尋。
 
-1. 選取 [作業系統] > [Redhat]來限制搜尋結果。 然後，在 [發行者] 底下，選擇 [Microsoft]。
+1. 選取 [作業系統]   > [Redhat]  來限制搜尋結果。 然後，在 [發行者]  底下，選擇 [Microsoft]  。
 
     ![SQL Server 2017 VM 映像的搜尋篩選器](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
 
@@ -61,38 +61,38 @@ ms.locfileid: "60478503"
    > [!TIP]
    > Developer Edition 可讓您使用 Enterprise Edition 的功能來進行測試或開發，但無須支付 SQL Server 授權費用。 您只需支付執行 Linux VM 的費用。
 
-1. 在 [選取部署模型] 底下，選擇符合您工作負載需求的部署模型。
+1. 在 [選取部署模型]  底下，選擇符合您工作負載需求的部署模型。
 
     > [!Note]
-    > 針對新工作負載，使用 [Resource Manager]。 若要連線至現有的虛擬網路，請為工作負載選取虛擬網路的部署方法。 如需有關部署模型的詳細資訊，請參閱 [Azure Resource Manager 和傳統部署模型](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)。
+    > 針對新工作負載，使用 [Resource Manager]  。 若要連線至現有的虛擬網路，請為工作負載選取虛擬網路的部署方法。 如需有關部署模型的詳細資訊，請參閱 [Azure Resource Manager 和傳統部署模型](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)。
 
-1. 選取 [建立] 。
+1. 選取 [建立]  。
 
 ### <a name="set-up-your-linux-vm"></a>設定您的 Linux VM
 
-1. 在 [基本] 索引標籤中，選取您的 [訂用帳戶] 和 [資源群組]。 
+1. 在 [基本]  索引標籤中，選取您的 [訂用帳戶]  和 [資源群組]  。 
 
     ![基本概念視窗](./media/provision-sql-server-linux-virtual-machine/basics.png)
 
-1. 在 [虛擬機器名稱] 中，輸入新 Linux VM 的名稱。
+1. 在 [虛擬機器名稱]  中，輸入新 Linux VM 的名稱。
 1. 接著，輸入或選取下列值：
    * **區域**：選取適合您的 Azure 區域。
    * **可用性選項**：選擇最適合您應用程式和資料的可用性與備援選項。
-   * **變更大小**：選取此選項可挑選機器大小，完成時，請選擇 [選取]。 如需關於 VM 機器大小的詳細資訊，請參閱 [Linux VM 大小](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes)。
+   * **變更大小**：選取此選項可挑選機器大小，完成時，請選擇 [選取]  。 如需關於 VM 機器大小的詳細資訊，請參閱 [Linux VM 大小](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes)。
 
      ![選擇 VM 大小](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
    > [!TIP]
    > 針對開發和功能測試，請使用 **DS2** 或更高等級的 VM 大小。 針對效能測試，使用 **DS13** 或更高版本。
 
-   * **驗證類型**：選取 [SSH 公開金鑰]。
+   * **驗證類型**：選取 [SSH 公開金鑰]  。
 
      > [!Note]
      > 您可以選擇使用 SSH 公開金鑰或密碼進行驗證。 SSH 較為安全。 如需有關如何產生 SSH 金鑰的指示，請參閱[在 Linux 和 Mac 上為 Azure 中的 Linux VM 建立 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys)。
 
    * **使用者名稱**：輸入 VM 的系統管理員名稱。
    * **SSH 公開金鑰**：輸入 RSA 公開金鑰。
-   * **公用輸入連接埠**：選擇 [允許選取的連接埠]，然後挑選 [選取公用輸入連接埠] 清單中的 [SSH (22)] 連接埠。 在本快速入門中，必須執行此步驟，才能連線並完成 SQL Server 設定。 如果您想要從遠端連線至 SQL Server，請同時選取 [MS SQL (1433)]，以開啟網際網路連線所需的連接埠 1433。
+   * **公用輸入連接埠**：選擇 [允許選取的連接埠]  ，然後挑選 [選取公用輸入連接埠]  清單中的 [SSH (22)]  連接埠。 在本快速入門中，必須執行此步驟，才能連線並完成 SQL Server 設定。 如果您想要從遠端連線至 SQL Server，請同時選取 [MS SQL (1433)]  ，以開啟網際網路連線所需的連接埠 1433。
 
    ![輸入連接埠](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
@@ -103,8 +103,8 @@ ms.locfileid: "60478503"
     * **客體設定**
     * **標記**
 
-1. 選取 [檢閱 + 建立]。
-1. 在 [檢閱 + 建立] 窗格中，選取 [建立]。
+1. 選取 [檢閱 + 建立]  。
+1. 在 [檢閱 + 建立]  窗格中，選取 [建立]  。
 
 ## <a id="connect"></a> 連線至 Linux VM
 
@@ -126,12 +126,12 @@ ssh azureadmin@40.55.55.555
 
 1. 在 [PuTTY 組態] 畫面上，輸入您 VM 的公用 IP 位址。
 
-1. 選取 [開啟]，並在提示時輸入您的使用者名稱和密碼。
+1. 選取 [開啟]  ，並在提示時輸入您的使用者名稱和密碼。
 
 如需有關連線至 Linux VM 的詳細資訊，請參閱[使用入口網站在 Azure 上建立 Linux VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal)。
 
 > [!Note]
-> 如果您看到有關未將伺服器主機金鑰快取在登錄中的 PuTTY 安全性警示，請從下列選項中做選擇。 如果您信任此主機，請選取 [是] 以將金鑰新增至 PuTTy 的快取並繼續連線。 如果您只想要繼續連線一次，而不想要將金鑰新增至快取，請選取 [否]。 如果您不信任此主機，請選取 [取消] 以放棄連線。
+> 如果您看到有關未將伺服器主機金鑰快取在登錄中的 PuTTY 安全性警示，請從下列選項中做選擇。 如果您信任此主機，請選取 [是]  以將金鑰新增至 PuTTy 的快取並繼續連線。 如果您只想要繼續連線一次，而不想要將金鑰新增至快取，請選取 [否]  。 如果您不信任此主機，請選取 [取消]  以放棄連線。
 
 ## <a id="password"></a>變更 SA 密碼
 
@@ -171,15 +171,15 @@ ssh azureadmin@40.55.55.555
 如果您需要在 Azure VM 上遠端連線到 SQL Server，就必須設定網路安全性群組上的輸入規則。 此規則可允許 SQL Server 所接聽之連接埠 (預設為 1433) 上的流量。 下列步驟說明如何使用此步驟的 Azure 入口網站。
 
 > [!TIP]
-> 如果您在佈建期間於設定中選取了輸入連接埠 [MS SQL (1433)]，則系統會為您執行這些變更。 您可以移至下一節，了解如何設定防火牆。
+> 如果您在佈建期間於設定中選取了輸入連接埠 [MS SQL (1433)]  ，則系統會為您執行這些變更。 您可以移至下一節，了解如何設定防火牆。
 
-1. 在入口網站中，選取 [虛擬機器] ，然後選取 SQL Server VM。
-1. 在左側導覽窗格的 [設定] 底下，選取 [網路]。
-1. 在 [網路] 視窗中，選取 [輸入連接埠規則] 底下的 [新增輸入連接埠]。
+1. 在入口網站中，選取 [虛擬機器]  ，然後選取 SQL Server VM。
+1. 在左側導覽窗格的 [設定]  底下，選取 [網路]  。
+1. 在 [網路] 視窗中，選取 [輸入連接埠規則]  底下的 [新增輸入連接埠]  。
 
    ![輸入連接埠規則](./media/provision-sql-server-linux-virtual-machine/networking.png)
 
-1. 在 [服務] 清單中，選取 [MS SQL]。
+1. 在 [服務]  清單中，選取 [MS SQL]  。
 
     ![MS SQL 安全性群組規則](./media/provision-sql-server-linux-virtual-machine/sqlnsgrule.png)
 

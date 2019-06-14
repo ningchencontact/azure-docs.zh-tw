@@ -18,13 +18,13 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d22fa7fd3964f99c426e8e21d34dcfdea6d1b36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60294396"
 ---
-# <a name="how-to-unblock-users"></a>作法：解除封鎖使用者
+# <a name="how-to-unblock-users"></a>如何：解除封鎖使用者
 
 使用 Azure Active Directory Identity Protection 時，如果符合設定的條件，您就可以設定原則來封鎖使用者。 一般而言，遭封鎖的使用者會聯絡服務台以解除封鎖。 本文說明將遭封鎖使用者解除封鎖的執行步驟。
 

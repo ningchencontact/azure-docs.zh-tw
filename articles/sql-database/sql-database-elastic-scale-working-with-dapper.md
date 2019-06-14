@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: c6ca7637c8e251fa29781503ffc18227c51bb4da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335281"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>搭配使用彈性資料庫用戶端程式庫與 Dapper
@@ -154,7 +154,7 @@ Microsoft 模式和作法小組已發佈[暫時性錯誤處理應用程式區塊
 上述程式碼中的 **SqlDatabaseUtils.SqlRetryPolicy** 定義為 **SqlDatabaseTransientErrorDetectionStrategy**，並指定重試計數 10，重試之間等待時間為 5 秒。 如果您正在使用交易，請確定您的重試範圍會回到暫時性錯誤情況下的交易開頭。
 
 ## <a name="limitations"></a>限制
-本文档中概述的方法存在一些限制：
+這份文件中所述的方法有幾個限制：
 
 * 這份文件的範例程式碼不示範如何管理跨分區的結構描述。
 * 提出要求時，我們假定所有資料庫處理都包含在要求所提供的分區化索引鍵所識別的單一分區內。 不過，這項假設並未永遠維持，例如，不可能使用分區化索引鍵時。 為了解決這個問題，彈性資料庫用戶端程式庫中提供 [MultiShardQuery 類別](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx)。 此類別可實作透過數個分區查詢的連線抽象概念。 使用 MultiShardQuery 搭配 Dapper 已超出本文的範圍

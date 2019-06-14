@@ -13,10 +13,10 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 231f3c44344f4119bab6e1efb5546e6fded0c784
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60473839"
 ---
 # <a name="add-your-work-or-school-account"></a>新增公司或學校帳戶
@@ -30,22 +30,22 @@ ms.locfileid: "60473839"
 1. 在您的電腦上，移至[其他安全性驗證](https://aka.ms/mfasetup)頁面。
 
     >[!Note]
-    >如果您未看到 [其他安全性驗證] 頁面，有可能是您的系統管理員已開啟安全性資訊 (預覽) 體驗。 若是如此，您即應依照[將安全性資訊設定為使用驗證器應用程式](security-info-setup-auth-app.md)一節中的指示操作。 若非如此，您必須連絡組織的技術支援人員以尋求協助。 如需安全性資訊的詳細資訊，請參閱[安全性資訊 （預覽） 概觀](user-help-security-info-overview.md)。
+    >如果您未看到 [其他安全性驗證]  頁面，有可能是您的系統管理員已開啟安全性資訊 (預覽) 體驗。 若是如此，您即應依照[將安全性資訊設定為使用驗證器應用程式](security-info-setup-auth-app.md)一節中的指示操作。 若非如此，您必須連絡組織的技術支援人員以尋求協助。 如需安全性資訊的詳細資訊，請參閱[安全性資訊 （預覽） 概觀](user-help-security-info-overview.md)。
 
-2. 核取 [驗證器應用程式] 旁的方塊，然後選取 [設定]。
+2. 核取 [驗證器應用程式]  旁的方塊，然後選取 [設定]  。
 
-    [設定行動應用程式] 頁面隨即出現。
+    [設定行動應用程式]  頁面隨即出現。
     
     ![提供 QR 代碼的畫面](./media/user-help-auth-app-download-install/auth-app-barcode.png)
 
-3. 開啟 Microsoft Authenticator 應用程式、從右上角的 [自訂和控制] 圖示中選取 [新增帳戶]，然後選取 [公司或學校帳戶]。
+3. 開啟 Microsoft Authenticator 應用程式、從右上角的 [自訂和控制]  圖示中選取 [新增帳戶]  ，然後選取 [公司或學校帳戶]  。
 
-4. 使用裝置相機掃描電腦的 [設定行動應用程式] 畫面中顯示的 QR 代碼，然後選擇 [完成]。
+4. 使用裝置相機掃描電腦的 [設定行動應用程式]  畫面中顯示的 QR 代碼，然後選擇 [完成]  。
 
     >[!Note]
     >如果您的相機無法擷取 QR 代碼，您可以將您的帳戶資訊手動新增至 Microsoft Authenticator 應用程式，以進行雙因素驗證。 如需詳細資訊及其操作方式，請參閱[手動新增帳戶](user-help-auth-app-add-account-manual.md)。
 
-5. 在您的裝置上檢閱應用程式的 [帳戶] 畫面，以確定您的帳戶正確無誤，並且有相關聯的六位數驗證碼。 為了提高安全性，驗證碼每隔 30 秒就會變更，避免多次使用同一個驗證碼。
+5. 在您的裝置上檢閱應用程式的 [帳戶]  畫面，以確定您的帳戶正確無誤，並且有相關聯的六位數驗證碼。 為了提高安全性，驗證碼每隔 30 秒就會變更，避免多次使用同一個驗證碼。
 
     ![帳戶畫面](./media/user-help-auth-app-download-install/auth-app-accounts.png)
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
 ms.openlocfilehash: 5c6ad222110081cd8f8838208da407e0e1d50f75
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "54851261"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立服務匯流排命名空間與主題、訂用帳戶和規則
@@ -47,7 +47,7 @@ ms.locfileid: "54851261"
 
 使用此範本，您將部署具有主題、訂用帳戶和規則 (篩選器) 的服務匯流排命名空間。
 
-[服務匯流排主題和訂用帳戶](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)使用「發佈/訂閱」模式，提供一對多的通訊形式。 使用主題和訂用帳戶時，分散式應用程式的元件彼此不直接通訊，相反的，它們會透過扮演中繼角色的主題來交換訊息。主題的訂用帳戶類似於虛擬佇列，同樣可接收已傳送到主題的訊息複本。 訂用帳戶上的篩選器可讓您指定傳送至主題的哪些訊息應出現在特定主題訂用帳戶中。
+[服務匯流排主題和訂用帳戶](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)使用「發佈/訂閱」  模式，提供一對多的通訊形式。 使用主題和訂用帳戶時，分散式應用程式的元件彼此不直接通訊，相反的，它們會透過扮演中繼角色的主題來交換訊息。主題的訂用帳戶類似於虛擬佇列，同樣可接收已傳送到主題的訊息複本。 訂用帳戶上的篩選器可讓您指定傳送至主題的哪些訊息應出現在特定主題訂用帳戶中。
 
 ## <a name="what-are-rules-filters"></a>什麼是規則 (篩選器)？
 

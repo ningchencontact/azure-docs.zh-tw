@@ -14,15 +14,15 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 518e3fa842c5283dc20a6111773bd55451f026b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486824"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 資料處理站-常見問題集
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[常見問題集：Data Factory](../frequently-asked-questions.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[常見問題集：Data Factory](../frequently-asked-questions.md)。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -62,7 +62,7 @@ Data Factory 可在**美國西部**和**北歐**地區使用。 資料處理站�
 沒有。 和其他 Azure 資源一樣，您無法變更 Azure Data Factory 的名稱。
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>我是否可以將 Data Factory 從一個 Azure 訂用帳戶移至另一個訂用帳戶？
-是。 請使用您資料處理站刀鋒視窗上的 [移動] 按鈕，如下圖所示：
+是。 請使用您資料處理站刀鋒視窗上的 [移動]  按鈕，如下圖所示：
 
 ![移動 Data Factory](media/data-factory-faq/move-data-factory.png)
 
@@ -172,7 +172,7 @@ Pipeline 1: dataset4->activity4->dataset5
 您可以利用下列方式之一來重新執行配量：
 
 * 使用「監視及管理應用程式」來重新執行活動時段或配量。 如需相關指示，請參閱 [重新執行已選取的活動時段](data-factory-monitor-manage-app.md#perform-batch-actions) 。   
-* 在 Azure 入口網站中，於該配量的 [資料配量] 刀鋒視窗上，按一下命令列中的 [執行]。
+* 在 Azure 入口網站中，於該配量的 [資料配量]  刀鋒視窗上，按一下命令列中的 [執行]  。
 * 執行**組 AzDataFactorySliceStatus** cmdlet 搭配狀態設為**等候**配量。   
 
     ```powershell
@@ -185,11 +185,11 @@ Pipeline 1: dataset4->activity4->dataset5
 
 您也可以在 Azure 入口網站中執行下列操作：  
 
-1. 在您 Data Factory 的 [DATA FACTORY] 刀鋒視窗中，按一下 [資料集] 圖格。
+1. 在您 Data Factory 的 [DATA FACTORY]  刀鋒視窗中，按一下 [資料集]  圖格。
 2. 在 [ **資料集** ] 刀鋒視窗中，按一下特定資料集。
-3. 從 [資料表] 刀鋒視窗的 [最近配量] 清單中，選取您感興趣的配量。
-4. 從 [資料配量] 刀鋒視窗的 [活動執行] 清單中，按一下活動執行。
-5. 在 [活動執行詳細資料] 刀鋒視窗中，按一下 [屬性] 圖格。
+3. 從 [資料表]  刀鋒視窗的 [最近配量]  清單中，選取您感興趣的配量。
+4. 從 [資料配量]  刀鋒視窗的 [活動執行]  清單中，按一下活動執行。
+5. 在 [活動執行詳細資料]  刀鋒視窗中，按一下 [屬性]  圖格。
 6. 您應該會看到 [持續時間]  欄位與值。 這個值是處理配量所花費的時間。   
 
 ### <a name="how-to-stop-a-running-slice"></a>如何停止執行中配量？

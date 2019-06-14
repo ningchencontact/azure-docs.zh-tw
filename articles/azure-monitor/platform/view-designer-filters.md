@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551689"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Azure 監視器檢視中的篩選
@@ -28,7 +28,7 @@ A**篩選條件**中[Azure 監視器檢視](view-designer.md)可讓使用者依�
 
 ![篩選範例](media/view-designer-filters/filters-example-time.png)
 
-按一下 **+** 以使用為檢視定義的自訂篩選器來新增篩選條件。 從下拉式清單中選取篩選條件的值或輸入一個值。 按一下 **+**，繼續新增篩選條件。 
+按一下 **+** 以使用為檢視定義的自訂篩選器來新增篩選條件。 從下拉式清單中選取篩選條件的值或輸入一個值。 按一下 **+** ，繼續新增篩選條件。 
 
 
 ![篩選範例](media/view-designer-filters/filters-example-custom.png)
@@ -38,7 +38,7 @@ A**篩選條件**中[Azure 監視器檢視](view-designer.md)可讓使用者依�
 
 ## <a name="creating-a-filter"></a>建立篩選
 
-請在[編輯檢視](view-designer.md)時，從 [篩選] 索引標籤建立篩選。  篩選適用於檢視全域，因此會套用至檢視的所有部分。  
+請在[編輯檢視](view-designer.md)時，從 [篩選]  索引標籤建立篩選。  篩選適用於檢視全域，因此會套用至檢視的所有部分。  
 
 ![篩選設定](media/view-designer-filters/filters-settings.png)
 
@@ -57,8 +57,8 @@ A**篩選條件**中[Azure 監視器檢視](view-designer.md)可讓使用者依�
 | 欄位名稱 | 查詢值 | Tag |
 |:--|:--|:--|
 | Computer   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | 電腦 |
-| EventLevelName | Event &#124; distinct EventLevelName | 严重性 |
-| SeverityLevel | Syslog &#124; distinct SeverityLevel | 严重性 |
+| EventLevelName | Event &#124; distinct EventLevelName | Severity |
+| SeverityLevel | Syslog &#124; distinct SeverityLevel | Severity |
 | SvcChangeType | ConfigurationChange &#124; distinct svcChangeType | ChangeType |
 
 

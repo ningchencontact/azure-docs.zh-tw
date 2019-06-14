@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
 ms.openlocfilehash: 641f9150d1135f4f214038150b95b6691a37ecc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393252"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>使用 Windows Azure 診斷的事件彙總和收集
@@ -45,18 +45,18 @@ ms.locfileid: "60393252"
 ## <a name="service-fabric-platform-events"></a>Service Fabric 平台事件
 Service Fabric 會設定一些[現成的記錄通道](service-fabric-diagnostics-event-generation-infra.md)，其使用擴充功能預先設定下列通道，將監視和診斷資料傳送至儲存體資料表或其他位置：
   * [操作事件](service-fabric-diagnostics-event-generation-operational.md)：Service Fabric 平台所執行的較高層級作業。 範例包括建立應用程式和服務、節點狀態變更和升級資訊。 這些是以 Windows 事件追蹤 (ETW) 記錄的形式發出。
-  * [Reliable Actors 编程模型事件](service-fabric-reliable-actors-diagnostics.md)
+  * [Reliable Actors 程式設計模型事件](service-fabric-reliable-actors-diagnostics.md)
   * [Reliable Services 程式設計模型事件](service-fabric-reliable-services-diagnostics.md)
 
 ## <a name="deploy-the-diagnostics-extension-through-the-portal"></a>透過入口網站部署診斷擴充功能
 收集記錄的第一個步驟是將診斷擴充功能部署在 Service Fabric 叢集中的虛擬機器擴展集節點上。 診斷擴充功能會收集每個 VM 上的記錄，並將它們上傳至您指定的儲存體帳戶。 下列步驟概述如何透過 Azure 入口網站和 Azure Resource Manager 範本對新的和現有叢集完成此操作。
 
 ### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-through-azure-portal"></a>透過 Azure 入口網站建立叢集時部署診斷延伸模組
-建立您的叢集時，在叢集組態步驟中展開選用設定，並確定已將 [診斷] 設定為 [開啟] (預設值)。
+建立您的叢集時，在叢集組態步驟中展開選用設定，並確定已將 [診斷] 設定為 [開啟]  (預設值)。
 
 ![入口網站中用於建立叢集的 Azure 診斷設定](media/service-fabric-diagnostics-event-aggregation-wad/azure-enable-diagnostics-new.png)
 
-在最後一個步驟中，我們強烈建議您下載範本，然後再**按一下 [建立]**。 如需詳細資訊，請參閱[使用 Azure Resource Manager 範本來設定 Service Fabric 叢集](service-fabric-cluster-creation-via-arm.md)。 您需要範本來變更要從中收集資料的通道 (如上方所列)。
+在最後一個步驟中，我們強烈建議您下載範本，然後再**按一下 [建立]** 。 如需詳細資訊，請參閱[使用 Azure Resource Manager 範本來設定 Service Fabric 叢集](service-fabric-cluster-creation-via-arm.md)。 您需要範本來變更要從中收集資料的通道 (如上方所列)。
 
 ![叢集範本](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
 
@@ -72,7 +72,7 @@ Service Fabric 會設定一些[現成的記錄通道](service-fabric-diagnostics
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>建立具有診斷擴充功能的叢集
 若要使用 Resource Manager 建立叢集，您必須將診斷設定 JSON 新增至完整的 Resource Manager 範本。 我們在 Resource Manager 範本範例中提供一個五 VM 叢集 Resource Manager 範本，且已在其中加入診斷設定。 您可在 Azure 範例庫中的此處參閱該範本：[Five-node cluster with Diagnostics Resource Manager template sample](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/) (使用診斷 Resource Manager 範本部署五個節點叢集的範例)。
 
-若要查看 Resource Manager 範本中的 [診斷] 設定，請開啟 azuredeploy.json 檔案，並搜尋 **IaaSDiagnostics**。 若要使用這個範本建立叢集，請選取上一個連結所提供的 [部署到 Azure] 按鈕。
+若要查看 Resource Manager 範本中的 [診斷] 設定，請開啟 azuredeploy.json 檔案，並搜尋 **IaaSDiagnostics**。 若要使用這個範本建立叢集，請選取上一個連結所提供的 [部署到 Azure]  按鈕。
 
 或者，您也可以下載資源管理員範例，對它進行變更，然後在 Azure PowerShell 視窗中使用 `New-AzResourceGroupDeployment` 命令來使用修改過的範本建立叢集。 針對您傳遞給命令的參數，請參閱以下程式碼。 如需如何使用 PowerShell 部署資源群組的詳細資訊，請參閱[使用 Azure Resource Manager 範本部署資源群組](../azure-resource-manager/resource-group-template-deploy.md)。
 
@@ -98,7 +98,7 @@ Service Fabric 會設定一些[現成的記錄通道](service-fabric-diagnostics
 },
 ```
 
- 接下來，新增至參數區段中儲存體帳戶定義之後的位置，位於 `supportLogStorageAccountName` 之間。 以您偏好的儲存體帳戶名稱取代預留位置文字 storage account name goes here。
+ 接下來，新增至參數區段中儲存體帳戶定義之後的位置，位於 `supportLogStorageAccountName` 之間。 以您偏好的儲存體帳戶名稱取代預留位置文字 storage account name goes here  。
 
 ```json
     "applicationDiagnosticsStorageAccountType": {

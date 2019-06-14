@@ -14,15 +14,15 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60488413"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>資料管理閘道 - 高可用性和延展性 (預覽)
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。 
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱 [自我裝載整合執行階段](../create-self-hosted-integration-runtime.md)。 
 
 
 本文可協助您使用資料管理閘道/整合來設定高可用性和延展性解決方案。    
@@ -68,28 +68,28 @@ ms.locfileid: "60488413"
 1. 在[逐步解說](data-factory-move-data-between-onprem-and-cloud.md#create-gateway)中，於建立邏輯閘道時啟用**高可用性和延展性**功能。 
 
     ![資料管理閘道 - 啟用高可用性和延展性](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-enable-high-availability-scalability.png)
-2. 在 [設定] 頁面上，使用 [快速設定] 或 [手動設定] 連結在第一個節點 (內部部署 Windows 機器) 上安裝閘道。
+2. 在 [設定]  頁面上，使用 [快速設定]  或 [手動設定]  連結在第一個節點 (內部部署 Windows 機器) 上安裝閘道。
 
     ![資料管理閘道 - 快速設定或手動設定](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-express-manual-setup.png)
 
     > [!NOTE]
     > 如果您使用 [快速設定] 選項，節點之間在通訊時不會加密。 節點名稱和機器名稱相同。 如果節點之間的通訊需要加密，或是您想要指定您所選擇的節點名稱，請使用 [手動設定]。 您之後就無法編輯節點名稱。
-3. 如果您選擇 [快速設定]
+3. 如果您選擇 [快速設定] 
     1. 閘道安裝成功之後，您會看到下列訊息：
 
         ![資料管理閘道 - 快速設定成功](media/data-factory-data-management-gateway-high-availability-scalability/express-setup-success.png)
     2. 遵循[這些指示](data-factory-data-management-gateway.md#configuration-manager)來啟動「資料管理組態管理員」。 您會看到閘道名稱、節點名稱、狀態等資訊。
 
         ![資料管理閘道 - 安裝成功](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
-4. 如果您選擇 [手動設定]：
+4. 如果您選擇 [手動設定]  ：
     1. 從 Microsoft 下載中心下載安裝套件，加以執行以在您的機器上安裝閘道。
-    2. 使用 [設定] 頁面中的 [驗證金鑰] 來註冊閘道。
+    2. 使用 [設定]  頁面中的 [驗證金鑰]  來註冊閘道。
     
         ![資料管理閘道 - 安裝成功](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png)
-    3. 在 [新增閘道節點] 頁面上，您可以為閘道節點提供自訂**名稱**。 根據預設，節點名稱和機器名稱相同。    
+    3. 在 [新增閘道節點]  頁面上，您可以為閘道節點提供自訂**名稱**。 根據預設，節點名稱和機器名稱相同。    
 
         ![資料管理閘道 - 指定名稱](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-name.png)
-    4. 在下一頁中，您可以選擇是否要**為節點之間的通訊啟用加密**。 按一下 [略過] 可停用加密 (預設)。
+    4. 在下一頁中，您可以選擇是否要**為節點之間的通訊啟用加密**。 按一下 [略過]  可停用加密 (預設)。
 
         ![資料管理閘道 - 啟用加密](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-node-encryption.png)  
     
@@ -106,17 +106,17 @@ ms.locfileid: "60488413"
 
         > [!NOTE]
         > 如果要在 Azure VM 上佈建閘道，可以使用[此 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-mutiple-vms-with-data-management-gateway)。 這個指令碼會建立邏輯閘道、為安裝了資料管理閘道軟體的 VM 進行設定，並向邏輯閘道註冊這些 VM。 
-6. 在 Azure 入口網站啟動 [閘道] 頁面： 
-    1. 在入口網站中的資料處理站首頁上，按一下 [已連結的服務]。
+6. 在 Azure 入口網站啟動 [閘道]  頁面： 
+    1. 在入口網站中的資料處理站首頁上，按一下 [已連結的服務]  。
     
         ![Data Factory 首頁](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
-    2. 選取**閘道**以查看 [閘道] 頁面：
+    2. 選取**閘道**以查看 [閘道]  頁面：
     
         ![Data Factory 首頁](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
-    4. 您會看到 [閘道] 頁面：   
+    4. 您會看到 [閘道]  頁面：   
 
         ![具有單一節點之閘道的檢視](media/data-factory-data-management-gateway-high-availability-scalability/gateway-first-node-portal-view.png) 
-7. 在工具列上按一下 [新增節點] 來對邏輯閘道新增節點。 如果您打算使用快速設定，請從將新增為閘道節點的內部部署機器執行此步驟。 
+7. 在工具列上按一下 [新增節點]  來對邏輯閘道新增節點。 如果您打算使用快速設定，請從將新增為閘道節點的內部部署機器執行此步驟。 
 
     ![資料管理閘道 - 新增節點功能表](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
 8. 步驟與第一個節點的設定類似。 如果您選擇手動安裝選項，組態管理員 UI 可讓您設定節點名稱： 
@@ -125,16 +125,16 @@ ms.locfileid: "60488413"
 9. 成功在節點上安裝閘道之後，組態管理員工具會顯示下列畫面：  
 
     ![組態管理員 - 安裝第二個閘道成功](media/data-factory-data-management-gateway-high-availability-scalability/second-gateway-installation-successful.png)
-10. 如果您在入口網站中開啟 [閘道] 頁面，您現在會看到兩個閘道節點： 
+10. 如果您在入口網站中開啟 [閘道]  頁面，您現在會看到兩個閘道節點： 
 
     ![入口網站中具有兩個節點的閘道](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
-11. 若要刪除閘道節點，請在工具列上按一下 [刪除節點]，選取您要刪除的節點，然後在工具列中按一下 [刪除]。 這個動作會從群組中刪除選取的節點。 請注意，此動作不會從節點 (內部部署 Windows 機器) 解除安裝資料管理閘道軟體。 請在內部部署機器上使用控制台中的 [新增或移除程式] 來解除安裝閘道。 當您從節點中解除安裝閘道時，系統便會自動在入口網站中刪除該節點。   
+11. 若要刪除閘道節點，請在工具列上按一下 [刪除節點]  ，選取您要刪除的節點，然後在工具列中按一下 [刪除]  。 這個動作會從群組中刪除選取的節點。 請注意，此動作不會從節點 (內部部署 Windows 機器) 解除安裝資料管理閘道軟體。 請在內部部署機器上使用控制台中的 [新增或移除程式]  來解除安裝閘道。 當您從節點中解除安裝閘道時，系統便會自動在入口網站中刪除該節點。   
 
 ## <a name="upgrade-an-existing-gateway"></a>升級現有閘道
-您可以升級現有閘道來使用高可用性和延展性功能。 這項功能僅適用於資料管理閘道版本 >= 2.12.xxxx 的節點。 您可以在資料管理閘道組態管理員的 [說明] 索引標籤中查看機器上所安裝之資料管理閘道的版本。 
+您可以升級現有閘道來使用高可用性和延展性功能。 這項功能僅適用於資料管理閘道版本 >= 2.12.xxxx 的節點。 您可以在資料管理閘道組態管理員的 [說明]  索引標籤中查看機器上所安裝之資料管理閘道的版本。 
 
 1. 從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=39717)下載並執行 MSI 安裝套件，以將內部部署機器上的閘道更新為最新版本。 如需詳細資料，請參閱[安裝](data-factory-data-management-gateway.md#installation)一節。  
-2. 瀏覽至 Azure 入口網站。 啟動您資料處理站的 [Data Factory] 頁面。 按一下 [已連結的服務] 圖格來啟動 [已連結的服務] 頁面。 選取閘道以啟動**閘道頁面**。 按一下並啟用 [預覽功能]，如下圖所示： 
+2. 瀏覽至 Azure 入口網站。 啟動您資料處理站的 [Data Factory]  頁面。 按一下 [已連結的服務] 圖格來啟動 [已連結的服務]  頁面。 選取閘道以啟動**閘道頁面**。 按一下並啟用 [預覽功能]  ，如下圖所示： 
 
     ![資料管理閘道 - 啟用預覽功能](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-existing-gateway-enable-high-availability.png)   
 2. 在入口網站啟用預覽功能後，關閉所有頁面。 重新開啟**閘道頁面**以查看新的預覽使用者介面 (UI)。
@@ -145,7 +145,7 @@ ms.locfileid: "60488413"
 
     > [!NOTE]
     > 在升級期間，第一個節點的名稱就是機器的名稱。 
-3. 現在，新增節點。 在 [閘道] 頁面上，按一下 [新增節點]。  
+3. 現在，新增節點。 在 [閘道]  頁面上，按一下 [新增節點]  。  
 
     ![資料管理閘道 - 新增節點功能表](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
 
@@ -165,7 +165,7 @@ ms.locfileid: "60488413"
 - 每個整合執行階段節點皆必須信任此憑證，以及執行認證管理員應用程式的用戶端電腦。 
   > [!NOTE]
   > 從複製精靈/Azure 入口網站安全地設定認證時，會使用認證管理員應用程式。 此外亦可以從與內部部署/私人資料存放區位於相同網路的所有電腦上，啟動此應用程式。
-- 支援萬用字元憑證。 若您的 FQDN 名稱為 **node1.domain.contoso.com**，則您可使用 ***.domain.contoso.com** 做為憑證的主體名稱。
+- 支援萬用字元憑證。 若您的 FQDN 名稱為 **node1.domain.contoso.com**，則您可使用 * **.domain.contoso.com** 做為憑證的主體名稱。
 - 由於系統僅會使用主體別名的最後一個項目，其他所有項目則會因目前的限制而遭到忽略，因此不建議使用 SAN 憑證。 例如 若您具有 SAN 憑證，且其 SAN 為 **node1.domain.contoso.com** 和 **node2.domain.contoso.com**，則您僅可在 FQDN 為 **node2.domain.contoso.com** 的電腦上使用此憑證。
 - 支援 Windows Server 2012 R2 所支援的任何 SSL 憑證金鑰大小。
 - 不支援使用 CNG 金鑰的憑證。
@@ -182,11 +182,11 @@ ms.locfileid: "60488413"
 
 ![資料管理閘道 - 多節點監視](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
 
-您可以在 [閘道] 頁面啟用 [進階設定] 以查看進階的計量，例如**網路** (輸入/輸出)、**角色和認證狀態** (有助於偵錯閘道問題) 和**並行作業** (執行中/限制) (可在效能微調期間據以修改/變更)。 下表說明 [閘道節點] 清單中的資料行：  
+您可以在 [閘道]  頁面啟用 [進階設定]  以查看進階的計量，例如**網路** (輸入/輸出)、**角色和認證狀態** (有助於偵錯閘道問題) 和**並行作業** (執行中/限制) (可在效能微調期間據以修改/變更)。 下表說明 [閘道節點]  清單中的資料行：  
 
 監視屬性 | 描述
 :------------------ | :---------- 
-Name | 邏輯閘道和閘道相關聯節點的名稱。  
+名稱 | 邏輯閘道和閘道相關聯節點的名稱。  
 狀態 | 邏輯閘道和閘道節點的狀態。 範例：線上/離線/受限制/等等。如需這些狀態的相關資訊，請參閱[閘道狀態](#gateway-status)一節。 
 Version | 顯示邏輯閘道和每個閘道節點的版本。 邏輯閘道的版本取決於群組中大多數節點的版本。 如果邏輯閘道設定中有不同版本的節點，則只有版本號碼和邏輯閘道相同的節點會正常運作。 其他節點會進入受限制模式，並需要加以手動更新 (如果自動更新失敗才需要這麼做)。 
 可用的記憶體 | 閘道節點上可用的記憶體。 這個值是近乎即時的快照集。 
@@ -251,9 +251,9 @@ Azure 入口網站可為管線監視提供細微的節點層級詳細資料。 �
 
 
 ## <a name="rolling-back-from-the-preview"></a>從預覽復原 
-若要從預覽復原，請留下一個節點，其他的節點全都刪除。 刪除哪一個節點都行，但請確保邏輯閘道中至少有一個節點。 您可以藉由在機器上解除安裝閘道或使用 Azure 入口網站來刪除節點。 在 Azure 入口網站的 [Data Factory] 頁面中，按一下 [已連結的服務] 來啟動 [已連結的服務] 頁面。 選取閘道以啟動 [閘道] 頁面。 在 [閘道] 頁面中，您可以看到與閘道相關聯的節點。 該頁面可讓您從閘道中刪除節點。
+若要從預覽復原，請留下一個節點，其他的節點全都刪除。 刪除哪一個節點都行，但請確保邏輯閘道中至少有一個節點。 您可以藉由在機器上解除安裝閘道或使用 Azure 入口網站來刪除節點。 在 Azure 入口網站的 [Data Factory]  頁面中，按一下 [已連結的服務] 來啟動 [已連結的服務]  頁面。 選取閘道以啟動 [閘道]  頁面。 在 [閘道] 頁面中，您可以看到與閘道相關聯的節點。 該頁面可讓您從閘道中刪除節點。
  
-在刪除之後，按一下同一個 Azure 入口網站頁面中的 [預覽功能]，並停用預覽功能。 您已將您的閘道重設為只有一個節點的 GA (正式上市) 閘道。
+在刪除之後，按一下同一個 Azure 入口網站頁面中的 [預覽功能]  ，並停用預覽功能。 您已將您的閘道重設為只有一個節點的 GA (正式上市) 閘道。
 
 
 ## <a name="next-steps"></a>後續步驟

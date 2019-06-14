@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 21d6c1671c57341d785c002f360c05cc5c610657
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371567"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>若要組織您的成本您發票上建立區段
@@ -30,7 +30,7 @@ ms.locfileid: "60371567"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單] 進行搜尋。
+2. 針對 [成本管理 + 帳單]  進行搜尋。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-mca-section-invoice/billing-search-cost-management-billing.png)
 
@@ -38,7 +38,7 @@ ms.locfileid: "60371567"
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-mca-section-invoice/billing-mca-list-invoice-sections.png)
 
-4. 從頁面頂端選取 [新增]。
+4. 從頁面頂端選取 [新增]  。
 
 5. 輸入 [invoice] 區段的名稱。
 
@@ -46,7 +46,7 @@ ms.locfileid: "60371567"
 
 6. 選取計費的設定檔。 任何使用量費用或購買發票區段會反映在帳單設定檔的發票上。
 
-7. 選取 [建立] 。
+7. 選取 [建立]  。
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查 Microsoft 客戶合約的存取權
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

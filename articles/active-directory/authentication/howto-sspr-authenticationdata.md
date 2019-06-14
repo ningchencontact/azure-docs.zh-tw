@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a0d7edb6c7faafcad55e827c2d9e3d2eeea40f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60358019"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>部署密碼重設而不需要使用者註冊
@@ -25,7 +25,7 @@ ms.locfileid: "60358019"
 * 將您內部部署目錄中的資料正確格式化。
 * [使用快速設定來設定 Azure AD Connect](../hybrid/how-to-connect-install-express.md)。
 
-為了正確運作，電話號碼的格式必須是：+國碼 電話號碼，例如 +1 4255551234。
+為了正確運作，電話號碼的格式必須是：+國碼 電話號碼  ，例如 +1 4255551234。
 
 > [!NOTE]
 > 國碼 (地區碼) 和電話號碼之間需要空格。
@@ -69,7 +69,7 @@ ms.locfileid: "60358019"
 * **驗證電子郵件**
 * **安全性問題和答案**
 
-如果您已提供 [行動電話] 或 [備用電子郵件] 的值，使用者即使尚未註冊此服務，也可以立即使用這些值來重設其密碼。 此外，使用者會在第一次註冊時看到這些值，並可視需要加以修改。 在使用者成功註冊之後，這些值就會分別保存在 [驗證電話] 和 [驗證電子郵件] 欄位中。
+如果您已提供 [行動電話]  或 [備用電子郵件]  的值，使用者即使尚未註冊此服務，也可以立即使用這些值來重設其密碼。 此外，使用者會在第一次註冊時看到這些值，並可視需要加以修改。 在使用者成功註冊之後，這些值就會分別保存在 [驗證電話]  和 [驗證電子郵件]  欄位中。
 
 ## <a name="set-and-read-the-authentication-data-through-powershell"></a>透過 PowerShell 設定和讀取驗證資料
 
@@ -109,7 +109,7 @@ Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,Mobi
 
 #### <a name="read-the-authentication-phone-and-authentication-email-options"></a>讀取 [驗證電話] 和 [驗證電子郵件] 選項
 
-使用 PowerShell 第 1 版時，若要讀取 [驗證電話] 和 [驗證電子郵件]，請使用下列命令：
+使用 PowerShell 第 1 版時，若要讀取 [驗證電話]  和 [驗證電子郵件]  ，請使用下列命令：
 
 ```PowerShell
 Connect-MsolService

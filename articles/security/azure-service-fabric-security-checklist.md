@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
 ms.openlocfilehash: 06a1903e5e27d748310c1b7846105b8069b73437
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611532"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Azure Service Fabric 安全性檢查清單
 本文提供便於使用的檢查清單，以協助您保護 Azure Service Fabric 環境。
 
 ## <a name="introduction"></a>簡介
-Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。 Service Fabric 还解决了开发和管理云应用程序中的重大难题。 開發人員與管理員能夠避免複雜的基礎結構問題，專注於實作關鍵且嚴格要求之可調整、可信賴且可管理的工作負載。
+Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。 Service Fabric 也可解決開發與管理雲端應用程式時遭遇的重大挑戰。 開發人員與管理員能夠避免複雜的基礎結構問題，專注於實作關鍵且嚴格要求之可調整、可信賴且可管理的工作負載。
 
 ## <a name="checklist"></a>檢查清單
 您可以使用下列檢查清單，確保未忽略安全 Azure Service Fabric 解決方案管理和設定中的任何重要問題。

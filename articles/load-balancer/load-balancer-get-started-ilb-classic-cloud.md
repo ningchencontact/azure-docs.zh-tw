@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
 ms.openlocfilehash: 361322ded68f7c8305c4f976847d4bcb82f7e595
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60626157"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>開始為雲端服務建立內部負載平衡器 (傳統)
@@ -30,7 +30,7 @@ ms.locfileid: "60626157"
 > [!IMPORTANT]
 > Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。  本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 了解如何[使用 Resource Manager 模型執行這些步驟](load-balancer-get-started-ilb-arm-ps.md)。
 
-## <a name="configure-internal-load-balancer-for-cloud-services"></a>为云服务配置内部负载均衡器
+## <a name="configure-internal-load-balancer-for-cloud-services"></a>設定雲端服務的內部負載平衡器
 
 虛擬機器和雲端服務都支援內部負載平衡器。 在區域虛擬網路外的雲端服務中建立的內部負載平衡器端點，將只能在雲端服務內存取。
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: kasparks
 ms.openlocfilehash: 9f599a63fd5f52420f1b79e769d4f7bca9683b32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60467843"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>檢視 Azure Advisor 建議，對您來說重要
@@ -26,7 +26,7 @@ Advisor 可讓您選取的訂用帳戶和對您和貴組織的資源群組。 �
 
 1. 開啟[Azure Advisor](https://aka.ms/azureadvisordashboard)在 Azure 入口網站中。
 
-1. 在菜单中选择“配置”。
+1. 選取 **組態**從功能表。
 
    ![Advisor 設定功能表](./media/view-recommendations/configuration.png)
 

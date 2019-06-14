@@ -15,10 +15,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 908ae768ae471ab6f49452c99323c31d34772d45
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60472299"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>管理 Azure Active Directory 中的自訂網域名稱
@@ -31,13 +31,13 @@ ms.locfileid: "60472299"
 
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com)。
 2. 選取 **Azure Active Directory**。
-3. 選取 [自訂網域名稱]。
+3. 選取 [自訂網域名稱]  。
   
-   ![打开用户管理页面](./media/domains-manage/add-custom-domain.png)
+   ![開啟 [使用者管理] 頁面](./media/domains-manage/add-custom-domain.png)
 4. 選取您想要設為主要網域的網域名稱。
-5. 選取 [設為主要] 命令。 出現提示時，請確認您的選擇。
+5. 選取 [設為主要]  命令。 出現提示時，請確認您的選擇。
   
-   ![将域名设为主域名](./media/domains-manage/make-primary-domain.png)
+   ![讓網域命名主要](./media/domains-manage/make-primary-domain.png)
 
 您可以將目錄的主要網域名稱變更為任何已驗證的非同盟自訂網域。 變更目錄的主要網域時，並不會變更任何現有使用者的使用者名稱。
 

@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 03/05/2019
 ms.author: tomfitz
 ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60389571"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager 範本最佳做法
@@ -42,9 +42,9 @@ ms.locfileid: "60389571"
 
 ## <a name="resource-group"></a>資源群組
 
-将资源部署到资源组时，资源组会存储与资源有关的元数据。 元数据存储在资源组的位置中。
+當您將資源部署至資源群組時，資源群組會儲存有關之資源的中繼資料。 中繼資料會儲存在資源群組的位置。
 
-如果资源组的区域临时不可用，则不能更新资源组中的资源，因为元数据不可用。 其他區域中的資源仍可如預期般運作，但您無法更新這些資源。 若要將風險降至最低，請將資源群組和資源放在相同區域。
+如果資源群組的區域暫時無法使用，您就無法更新資源群組中的資源，因為中繼資料無法使用。 其他區域中的資源仍可如預期般運作，但您無法更新這些資源。 若要將風險降至最低，請將資源群組和資源放在相同區域。
 
 ## <a name="parameters"></a>參數
 本節資訊對您在使用[參數](resource-group-authoring-templates.md#parameters)時會有幫助。
@@ -198,7 +198,7 @@ ms.locfileid: "60389571"
    ]
    ```
 
-* 如果您使用範本中的公用端點 (例如 Azure Blob 儲存體公用端點)，請勿將命名空間硬式編碼。 使用 **reference** 函式，動態擷取命名空間。 您可以使用此方法可將範本部署到不同的公用命名空間環境中，而不需要將範本中的端點手動變更。 將 API 版本設定成與您在範本中用於儲存體帳戶相同的版本：
+* 如果您使用範本中的公用端點  (例如 Azure Blob 儲存體公用端點)，請勿將命名空間硬式編碼  。 使用 **reference** 函式，動態擷取命名空間。 您可以使用此方法可將範本部署到不同的公用命名空間環境中，而不需要將範本中的端點手動變更。 將 API 版本設定成與您在範本中用於儲存體帳戶相同的版本：
    
    ```json
    "osDisk": {

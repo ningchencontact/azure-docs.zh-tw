@@ -11,10 +11,10 @@ ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60530930"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure 排程器中的概念、術語及實體
@@ -75,9 +75,9 @@ Azure 排程器支援多個作業類型：
 概括來說，排程器作業包含下列基本部分：
 
 * 要在工作計時器啟動時執行的動作
-* 選用：运行作业的时间
-* 選用：重复作业的时间和频率
-* 選用：主操作失败时运行的错误操作
+* 選用：執行作業的時間
+* 選用：重複執行工作的時機和頻率
+* 選用：執行主要動作失敗時的錯誤動作
 
 作業也包含系統提供的資料，例如已排定的下一次作業執行時間。 作業的程式碼定義是採用 JavaScript 物件標記法 (JSON) 格式的物件，其中包含以下元素：
 
@@ -255,8 +255,8 @@ Azure 排程器支援多個作業類型：
 | **months** | 否 | 1 到 12 | 包含月份的陣列，表示要執行作業的時間 | 
 | **monthDays** | 否 | 視情況而異 | 包含月份中某幾天的陣列，表示要執行作業的時間 | 
 | **weekDays** | 否 | "Monday"、"Tuesday"、"Wednesday"、"Thursday"、"Friday"、"Saturday"、"Sunday" | 包含一週中某幾天的陣列，表示要執行作業的時間 | 
-| **count** | 否 | <無> | 循環次數。 預設為無限制地重複。 您無法同時使用 **count** 和 **endTime**，但會接受先完成的規則。 | 
-| **endTime** | 否 | <無> | 停止循環的日期和時間。 預設為無限制地重複。 您無法同時使用 **count** 和 **endTime**，但會接受先完成的規則。 | 
+| **計數** | 否 | <無  > | 循環次數。 預設為無限制地重複。 您無法同時使用 **count** 和 **endTime**，但會接受先完成的規則。 | 
+| **endTime** | 否 | <無  > | 停止循環的日期和時間。 預設為無限制地重複。 您無法同時使用 **count** 和 **endTime**，但會接受先完成的規則。 | 
 ||||
 
 如需有關這些元素的詳細資訊，請參閱[建置複雜的排程和進階週期](../scheduler/scheduler-advanced-complexity.md)。
@@ -288,7 +288,7 @@ Azure 排程器支援多個作業類型：
 
 ## <a name="state"></a>state
 
-作業的狀態可能是 **Enabled (已啟用)**、**Disabled (已停用)**、**Completed (已完成)** 或 **Faulted (發生錯誤)**，例如： 
+作業的狀態可能是 **Enabled (已啟用)** 、**Disabled (已停用)** 、**Completed (已完成)** 或 **Faulted (發生錯誤)** ，例如： 
 
 `"state": "Disabled"`
 
@@ -307,7 +307,7 @@ Azure 排程器支援多個作業類型：
 * 失敗次數 (如果有的話)
 * 錯誤次數 (如果有的話)
 
-例如︰
+例如:
 
 ```json
 "status": {

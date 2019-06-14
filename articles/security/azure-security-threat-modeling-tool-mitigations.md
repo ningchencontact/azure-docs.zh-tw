@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 24aa49fd4ccccda372d2632ef4aee22bd5cb2bf6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611325"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Microsoft 威脅模型化工具風險降低
 
 威脅模型化工具是 Microsoft 安全性開發生命週期 (SDL) 的核心元素。 它可讓軟體架構設計人員及早識別和降低潛在安全性問題的風險，以在問題相對簡單且符合成本效益時加以解決。 因此，可大幅降低總開發成本。 此外，我們在設計此工具時已考慮到非安全性專家的問題，因此可讓所有開發人員更加方便地建立威脅模型，為他們提供清楚說明如何建立和分析威脅模型的指導方針。
 
-請造訪**[威脅模型化工具](./azure-security-threat-modeling-tool.md)** 立即開始使用！
+請造訪 **[威脅模型化工具](./azure-security-threat-modeling-tool.md)** 立即開始使用！
 
 ## <a name="mitigation-categories"></a>風險降低類別
 
@@ -49,8 +49,8 @@ ms.locfileid: "60611325"
 * 最常犯的錯誤
 * 最可行的改進措施
 
-因此，您可以使用這些類別來聚焦在您的安全性工作並設定其優先順序，以便在您知道輸入驗證、身分驗證和授權類別中所發生的最普遍安全性問題時，可從中來開始著手。 如需詳細資訊，請造訪**[這個專利連結](https://www.google.com/patents/US7818788)**
+因此，您可以使用這些類別來聚焦在您的安全性工作並設定其優先順序，以便在您知道輸入驗證、身分驗證和授權類別中所發生的最普遍安全性問題時，可從中來開始著手。 如需詳細資訊，請造訪 **[這個專利連結](https://www.google.com/patents/US7818788)**
 
 ## <a name="next-steps"></a>後續步驟
 
-請造訪**[威脅模型化工具威脅](./azure-security-threat-modeling-tool-threats.md)** 以深入了解工具用來產生可能設計威脅的威脅類別。
+請造訪 **[威脅模型化工具威脅](./azure-security-threat-modeling-tool-threats.md)** 以深入了解工具用來產生可能設計威脅的威脅類別。

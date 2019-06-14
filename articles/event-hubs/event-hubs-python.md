@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
 ms.openlocfilehash: 88fdaec9e19c082a6fe981dc4d9a0e015335f1e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60202967"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>如何從 Python 應用程式使用 Azure 事件中樞
@@ -112,7 +112,7 @@ client.stop()
 如需有關如何從以 Python 撰寫的應用程式自事件中樞接收事件的完整教學課程，請參閱[這篇文章](event-hubs-python-get-started-receive.md)
 
 ## <a name="read-capture-event-data-from-azure-storage"></a>從 Azure 儲存體讀取已擷取的事件資料
-下列程式碼示範如何從 Python 應用程式讀取儲存在 **Azure Blob 儲存體**中的已擷取事件資料：請依照來自以下的指示，為事件中樞啟用 [擷取] 功能：[使用 Azure 入口網站來啟用事件中樞擷取功能](event-hubs-capture-enable-through-portal.md)。 然後，先將一些事件傳送給事件中樞，再測試程式碼。 
+下列程式碼示範如何從 Python 應用程式讀取儲存在 **Azure Blob 儲存體**中的已擷取事件資料：請依照來自以下的指示，為事件中樞啟用 [擷取]  功能：[使用 Azure 入口網站來啟用事件中樞擷取功能](event-hubs-capture-enable-through-portal.md)。 然後，先將一些事件傳送給事件中樞，再測試程式碼。 
 
 ```python
 import os

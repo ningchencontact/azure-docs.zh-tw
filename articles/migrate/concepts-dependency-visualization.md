@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
 ms.openlocfilehash: 8df587db7655e2aafd876d80581f3296c8c99fbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60201540"
 ---
 # <a name="dependency-visualization"></a>相依性視覺效果
@@ -29,7 +29,7 @@ Azure Migrate 的相依性視覺效果可建立用於移轉評估且值得高度
 Azure Migrate 採用[服務對應](../operations-management-suite/operations-management-suite-service-map.md)中的解決方案[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)的相依性視覺效果。
 - 若要利用相依性視覺效果，您需要將新的或現有的 Log Analytics 工作區與 Azure Migrate 專案建立關聯。
 - 您只能在建立移轉專案的相同訂用帳戶中，建立或連結工作區。
-- 若要將 Log Analytics 工作區連結至專案，請移至專案 [概觀] 頁面的 [基本資訊] 區段，按一下 [需要設定]
+- 若要將 Log Analytics 工作區連結至專案，請移至專案 [概觀]  頁面的 [基本資訊]  區段，按一下 [需要設定] 
 
     ![與 Log Analytics 工作區建立關聯](./media/concepts-dependency-visualization/associate-workspace.png)
 
@@ -41,7 +41,7 @@ Azure Migrate 採用[服務對應](../operations-management-suite/operations-man
   > 一旦您將工作區連結到專案，您之後便無法變更它。
 
 - 相關聯的工作區會以索引鍵 **Migration Project** 和**專案名稱**的值標記，您可用來在 Azure 入口網站中搜尋。
-- 若要瀏覽到與專案相關聯的工作區，您可以移至專案 [概觀] 頁面的 [基本資訊] 區段，然後存取該工作區
+- 若要瀏覽到與專案相關聯的工作區，您可以移至專案 [概觀]  頁面的 [基本資訊]  區段，然後存取該工作區
 
     ![瀏覽 Log Analytics 工作區](./media/concepts-dependency-visualization/oms-workspace.png)
 

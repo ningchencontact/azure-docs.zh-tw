@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60348018"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 傳遞驗證安全性深入探討
@@ -72,7 +72,7 @@ ms.locfileid: "60348018"
 
 ### <a name="authentication-agent-installation"></a>驗證代理程式安裝
 
-只有全域管理員可以在內部部署伺服器上安裝驗證代理程式 (使用 Azure AD Connect 或獨立安裝)。 安裝會將這兩個新項目新增至 **[控制台]** > **[程式]** > **[程式和功能]** 清單：
+只有全域管理員可以在內部部署伺服器上安裝驗證代理程式 (使用 Azure AD Connect 或獨立安裝)。 安裝會將這兩個新項目新增至 **[控制台]**  >  **[程式]**  >  **[程式和功能]** 清單：
 - 驗證代理程式應用程式本身。 此應用程式會以 [NetworkService](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx) 權限執行。
 - 用來自動更新驗證代理程式的更新程式應用程式。 此應用程式會以 [LocalSystem](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) 權限執行。
 
@@ -99,7 +99,7 @@ ms.locfileid: "60348018"
     - Azure AD 中的根 CA 會用來簽署憑證。 
 
       > [!NOTE]
-      > 此 CA「不在」Windows 受信任的根憑證授權單位存放區中。
+      > 此 CA「不在」  Windows 受信任的根憑證授權單位存放區中。
     - 此 CA 僅供傳遞驗證功能使用。 此 CA 只會在驗證代理程式註冊期間用來簽署 CSR。
     -  沒有任何其他 Azure AD 服務會使用此 CA。
     - 此憑證的主體 (辨別名稱或 DN) 設定為您的租用戶識別碼。 此 DN 是可唯一識別租用戶的 GUID。 此 DN 可將憑證的範圍限制為只能用於您的租用戶。
@@ -132,9 +132,9 @@ ms.locfileid: "60348018"
 
 1. 使用者嘗試存取應用程式，例如 [Outlook Web App](https://outlook.office365.com/owa)。
 2. 如果使用者還未登入，應用程式將瀏覽器重新導向至 Azure AD 登入頁面。
-3. Azure AD STS 服務會透過 [使用者登入] 頁面回應。
-4. 使用者將其使用者名稱輸入 [使用者登入] 頁面中，然後選取 [下一步] 按鈕。
-5. 使用者將其密碼輸入 [使用者登入] 頁面中，然後選取 [登入] 按鈕。
+3. Azure AD STS 服務會透過 [使用者登入]  頁面回應。
+4. 使用者將其使用者名稱輸入 [使用者登入]  頁面中，然後選取 [下一步]  按鈕。
+5. 使用者將其密碼輸入 [使用者登入]  頁面中，然後選取 [登入]  按鈕。
 6. 使用者名稱與密碼會在 HTTPS POST 要求中提交至 Azure AD STS。
 7. Azure AD STS 會針對您的租用戶上註冊的所有驗證代理程式，擷取 Azure SQL 資料庫中的公開金鑰，並使用這些金鑰為其密碼加密。
     - Azure AD STS 會針對您的租用戶上註冊的 "N" 個驗證代理程式，產生 "N" 個加密密碼值。

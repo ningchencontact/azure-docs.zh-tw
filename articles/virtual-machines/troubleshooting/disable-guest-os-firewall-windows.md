@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60505456"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>停用 Azure VM 中的客體 OS 防火牆
@@ -54,7 +54,7 @@ ms.locfileid: "60505456"
 >   ```
 >   不過，只要套用此原則，您就會被移出遠端工作階段。 這個問題的永久解決之道是修改套用至此電腦的原則。
 
-#### <a name="mitigation-2-remote-powershell"></a>缓解措施 2：遠端 Powershell
+#### <a name="mitigation-2-remote-powershell"></a>降低風險 2：遠端 Powershell
 
 1.  針對您無法使用 RDP 連線來連接的 VM，連線到與此 VM 相同虛擬網路的某部 VM。
 
@@ -72,7 +72,7 @@ ms.locfileid: "60505456"
 > [!Note]
 > 如果您透過群組原則物件設定防火牆，這個方法可能不會運作，因為此命令會變更本機登錄項目。 如果已備有原則，該原則會覆寫這項變更。 
 
-#### <a name="mitigation-3-pstools-commands"></a>缓解措施 3：PSTools 命令
+#### <a name="mitigation-3-pstools-commands"></a>降低風險 3：PSTools 命令
 
 1.  在要對其進行疑難排解的 VM 上，下載 [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools)。
 
@@ -86,11 +86,11 @@ ms.locfileid: "60505456"
     psservice restart mpssvc
     ```
 
-#### <a name="mitigation-4-remote-registry"></a>缓解措施 4：遠端登錄 
+#### <a name="mitigation-4-remote-registry"></a>降低風險 4：遠端登錄 
 
 請遵循下列步驟使用[遠端登錄](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry)。
 
-1.  在要對其進行疑難排解的 VM 上，啟動登錄編輯程式 ，然後前往 [檔案] > [連線網路登錄]。
+1.  在要對其進行疑難排解的 VM 上，啟動登錄編輯程式 ，然後前往 [檔案]   > [連線網路登錄]  。
 
 2.  開啟  *TARGET MACHINE*\SYSTEM 分支，然後指定下列值：
 
@@ -104,11 +104,11 @@ ms.locfileid: "60505456"
 
 4.  開啟  **Services.msc** 的執行個體。
 
-5.  按一下 [服務 (本機)]。
+5.  按一下 [服務 (本機)]  。
 
-6.  選取 [連線到另一部電腦]。
+6.  選取 [連線到另一部電腦]  。
 
-7.  輸入問題 VM 的 **私人 IP 位址 (DIP)** 。
+7.  輸入問題 VM 的 **私人 IP 位址 (DIP)**  。
 
 8.  重新啟動本機防火牆原則。
 

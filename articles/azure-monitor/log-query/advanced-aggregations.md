@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 56e87da0353a41504035a070d4c10bab0dda2279
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551748"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Azure 監視器記錄查詢中的進階彙總
@@ -47,7 +47,7 @@ Event
 
 `makelist` 會產生資料傳遞到其中的順序清單。 若要從最舊到最新為事件排序，請在順序陳述式中使用 `asc`，而非 `desc`. 
 
-建立只包含相異值的清單也很實用。 這稱為「集合」，而且可以使用 `makeset` 來產生：
+建立只包含相異值的清單也很實用。 這稱為「集合」  ，而且可以使用 `makeset` 來產生：
 
 ```Kusto
 Event
@@ -65,7 +65,7 @@ Event
 就像 `makelist` 一樣，`makeset` 也適用於已排序的資料，而且金會根據傳遞到其中的列順序來產生陣列。
 
 ## <a name="expanding-lists"></a>展開清單
-`makelist` 或 `makeset` 的反向作業是 `mvexpand`，它會展開值清單以分隔列。 它可以跨任何數目的動態欄 (包括 JSON 與陣列) 展開。 例如，您可以檢查「活動訊號」表格以了解過去一小時內從已傳送活動訊號之電腦傳送資料的解決方案：
+`makelist` 或 `makeset` 的反向作業是 `mvexpand`，它會展開值清單以分隔列。 它可以跨任何數目的動態欄 (包括 JSON 與陣列) 展開。 例如，您可以檢查「活動訊號」  表格以了解過去一小時內從已傳送活動訊號之電腦傳送資料的解決方案：
 
 ```Kusto
 Heartbeat
@@ -120,7 +120,7 @@ Heartbeat
 | ... | ... |
 
 ## <a name="handling-missing-bins"></a>處理遺失的間隔
-填寫遺失間隔的預設值是 `mvexpand` 的其中一個實用應用。例如，假設您正在透過探索特定機器的活動訊號以尋找其運作時間。 您可能也想要查看活動訊號來源，這位於「類別」欄。 一般而言，我們會使用簡單的 summarize 陳述式，如下所示：
+填寫遺失間隔的預設值是 `mvexpand` 的其中一個實用應用。例如，假設您正在透過探索特定機器的活動訊號以尋找其運作時間。 您可能也想要查看活動訊號來源，這位於「類別」  欄。 一般而言，我們會使用簡單的 summarize 陳述式，如下所示：
 
 ```Kusto
 Heartbeat

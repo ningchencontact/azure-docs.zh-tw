@@ -11,10 +11,10 @@ tags: connectors
 ms.topic: article
 ms.date: 08/23/2018
 ms.openlocfilehash: 28739ad65462acc9f2d2ed7db1e9ed14d19f032c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311959"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>使用 Azure Logic Apps 來管理 Excel Online 資料
@@ -43,17 +43,17 @@ ms.locfileid: "60311959"
 
 * [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識
 
-* 您要在其中存取 Excel Online 資料的邏輯應用程式。 此連接器只提供動作，因此若要啟動您的邏輯應用程式，請選取個別觸發程序，例如「週期」觸發程序。
+* 您要在其中存取 Excel Online 資料的邏輯應用程式。 此連接器只提供動作，因此若要啟動您的邏輯應用程式，請選取個別觸發程序，例如「週期」  觸發程序。
 
 ## <a name="add-excel-action"></a>新增 Excel 動作
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，如果邏輯應用程式尚未開啟，請在邏輯應用程式設計工具中開啟邏輯應用程式。
 
-1. 在觸發程序下方，選擇 [新增步驟]。
+1. 在觸發程序下方，選擇 [新增步驟]  。
 
 1. 在搜尋方塊中，輸入 "excel" 作為篩選條件。 請在動作清單底下，選取您想要的動作。
 
-1. 如果系統提示您登入 Office 365 帳戶，請選擇 [登入]。
+1. 如果系統提示您登入 Office 365 帳戶，請選擇 [登入]  。
 
    您的認證會授權邏輯應用程式建立與 Excel Online 的連線，並存取資料。
 

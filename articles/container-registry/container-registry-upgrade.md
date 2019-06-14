@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
 ms.openlocfilehash: a5099feee34eb5497b68987485412e29ad5d5365
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60480303"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>將傳統的容器登錄升級
 
-有好幾個服務層級 ([也就是所謂的 SKU](container-registry-skus.md)) 會提供 Azure Container Registry (ACR)。 初始的 ACR 版本提供了單一 SKU (傳統)，該 SKU 缺少基本、標準和進階 SKU (統稱為「受控」登錄) 固有的數種功能。
+有好幾個服務層級 ([也就是所謂的 SKU](container-registry-skus.md)) 會提供 Azure Container Registry (ACR)。 初始的 ACR 版本提供了單一 SKU (傳統)，該 SKU 缺少基本、標準和進階 SKU (統稱為「受控」  登錄) 固有的數種功能。
 
 经典 SKU 即将弃用，2019 年 4 月之后将不可用。 本文將詳細說明如何將非受控的傳統登錄移轉至其中一個受控 SKU，以便利用其經過強化的功能集。
 
@@ -56,7 +56,7 @@ ms.locfileid: "60480303"
 
 ## <a name="upgrade-in-azure-cli"></a>在 Azure CLI 中升級
 
-若要在 Azure CLI 中將傳統登錄升級，請執行 [az acr update][az-acr-update] 命令，並為登錄指定新的 SKU。 在下列範例中，名為 myclassicregistry 的傳統登錄會升級為進階 SKU：
+若要在 Azure CLI 中將傳統登錄升級，請執行 [az acr update][az-acr-update] 命令，並為登錄指定新的 SKU。 在下列範例中，名為 myclassicregistry  的傳統登錄會升級為進階 SKU：
 
 ```azurecli-interactive
 az acr update --name myclassicregistry --sku Premium
@@ -95,17 +95,17 @@ az acr update --name myclassicregistry --sku Premium
 
 使用 Azure 门户升级经典注册表时，Azure 会自动选择标准或高级 SKU，具体取决于哪个 SKU 可以容纳映像。 例如，如果注册表包含 100 GiB 以下的映像，Azure 会自动选择经典注册表并将其转换为标准注册表（最大容量为 100 GiB）。
 
-若要使用 Azure 入口網站來為傳統登錄升級，請瀏覽至容器登錄 [概觀]，然後選取 [升級為受控登錄]。
+若要使用 Azure 入口網站來為傳統登錄升級，請瀏覽至容器登錄 [概觀]  ，然後選取 [升級為受控登錄]  。
 
 ![Azure 入口網站 UI 中的傳統登錄升級按鈕][update-classic-01-upgrade]
 
-選取 [確定] 以確認您要升級為受控登錄。
+選取 [確定]  以確認您要升級為受控登錄。
 
-在移轉期間，入口網站會指出登錄的 [佈建狀態] 是 [更新中]。 如前所述，迁移操作还剩 10% 时，将禁用 `docker push` 操作。 迁移正在进行时，请不得删除或更新经典注册表使用的存储帐户，否则可能导致映像损坏。
+在移轉期間，入口網站會指出登錄的 [佈建狀態]  是 [更新中]  。 如前所述，迁移操作还剩 10% 时，将禁用 `docker push` 操作。 迁移正在进行时，请不得删除或更新经典注册表使用的存储帐户，否则可能导致映像损坏。
 
 ![Azure 入口網站 UI 中的傳統登錄升級進度][update-classic-03-updating]
 
-迁移完成后，“预配状态”会指示“成功”，此时可以恢复注册表的正常操作。
+迁移完成后，“预配状态”会指示“成功”，此时可以恢复注册表的正常操作   。
 
 ![Azure 入口網站 UI 中的傳統登錄升級完成狀態][update-classic-04-updated]
 

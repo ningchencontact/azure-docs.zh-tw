@@ -3,8 +3,8 @@ title: 從 Azure 或獨立叢集中的 .NET Service Fabric 應用程式產生記
 description: 了解如何為裝載在 Azure 叢集或獨立叢集上的 .NET Service Fabric 應用程式新增記錄功能。
 services: service-fabric
 documentationcenter: .net
-author: rockboyfor
-manager: digimobile
+author: srrengar
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 03/27/2018
-ms.date: 04/29/2019
-ms.author: v-yeche
+ms.date: 03/27/2018
+ms.author: srrengar
 ms.openlocfilehash: d1b3dc25dd9bda9d7f9d9152c2a94cea8321f5cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60482602"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>為 Service Fabric 應用程式新增記錄功能
@@ -110,26 +109,26 @@ ASP.NET Core 記錄 ([Microsoft.Extensions.Logging NuGet 套件](https://www.nug
 2. 針對 **Microsoft.Extensions.Logging**，將 **using** 指示詞新增至您的服務檔案。
 3. 在服務類別內定義私用變數。
 
-    ```csharp
-    private ILogger _logger = null;
-    ```
+   ```csharp
+   private ILogger _logger = null;
+   ```
 
 4. 在服務類別的建構函式中，新增此程式碼：
 
-    ```csharp
-    _logger = new LoggerFactory().CreateLogger<Stateless>();
-    ```
+   ```csharp
+   _logger = new LoggerFactory().CreateLogger<Stateless>();
+   ```
 
 5. 開始用您的方法檢測程式碼。 以下是幾個範例：
 
-    ```csharp
-    _logger.LogDebug("Debug-level event from Microsoft.Logging");
-    _logger.LogInformation("Informational-level event from Microsoft.Logging");
+   ```csharp
+   _logger.LogDebug("Debug-level event from Microsoft.Logging");
+   _logger.LogInformation("Informational-level event from Microsoft.Logging");
 
-    // In this variant, we're adding structured properties RequestName and Duration, which have values MyRequest and the duration of the request.
-    // Later in the article, we discuss why this step is useful.
-    _logger.LogInformation("{RequestName} {Duration}", "MyRequest", requestDuration);
-    ```
+   // In this variant, we're adding structured properties RequestName and Duration, which have values MyRequest and the duration of the request.
+   // Later in the article, we discuss why this step is useful.
+   _logger.LogInformation("{RequestName} {Duration}", "MyRequest", requestDuration);
+   ```
 
 ### <a name="using-other-logging-providers"></a>使用其他記錄提供者
 
@@ -138,22 +137,22 @@ ASP.NET Core 記錄 ([Microsoft.Extensions.Logging NuGet 套件](https://www.nug
 1. 將 **Serilog** **Serilog.Extensions.Logging** **Serilog.Sinks.Literate** 及 **Serilog.Sinks.Observable** NuGet 套件新增至專案。 
 2. 建立 `LoggerConfiguration` 和記錄器執行個體。
 
-    ```csharp
-    Log.Logger = new LoggerConfiguration().WriteTo.LiterateConsole().CreateLogger();
-    ```
+   ```csharp
+   Log.Logger = new LoggerConfiguration().WriteTo.LiterateConsole().CreateLogger();
+   ```
 
 3. 將 `Serilog.ILogger` 引數新增至服務建構函式，並傳遞新建立的記錄器。
 
-    ```csharp
-    ServiceRuntime.RegisterServiceAsync("StatelessType", context => new Stateless(context, Log.Logger)).GetAwaiter().GetResult();
-    ```
+   ```csharp
+   ServiceRuntime.RegisterServiceAsync("StatelessType", context => new Stateless(context, Log.Logger)).GetAwaiter().GetResult();
+   ```
 
 4. 在服務建構函式中，為 **ServiceTypeName**、**ServiceName**、**PartitionId** 及 **InstanceId** 建立屬性豐富器。
 
-    ```csharp
-    public Stateless(StatelessServiceContext context, Serilog.ILogger serilog)
+   ```csharp
+   public Stateless(StatelessServiceContext context, Serilog.ILogger serilog)
        : base(context)
-    {
+   {
        PropertyEnricher[] properties = new PropertyEnricher[]
        {
            new PropertyEnricher("ServiceTypeName", context.ServiceTypeName),
@@ -165,17 +164,25 @@ ASP.NET Core 記錄 ([Microsoft.Extensions.Logging NuGet 套件](https://www.nug
        serilog.ForContext(properties);
 
        _logger = new LoggerFactory().AddSerilog(serilog.ForContext(properties)).CreateLogger<Stateless>();
-    }
-    ```
+   }
+   ```
 
 5. 檢測程式碼，就如同在沒有 SeriLog 的情況下使用 ASP.NET Core 一樣。
 
-    >[!NOTE]
-    >我們建議您「不要」  在上述範例中使用靜態 `Log.Logger`。 Service Fabric 可以在單一處理序內裝載相同服務類型的多個執行個體。 如果您使用靜態 `Log.Logger`，屬性豐富器的最後一個寫入器會顯示所有執行中執行個體的值。 這是為什麼 _logger 變數是服務類別私人成員變數的其中一個原因。 此外，您還必須讓 `_logger` 可供各個服務可能用到的通用程式碼使用。
+   >[!NOTE]
+   >我們建議您「不要」  在上述範例中使用靜態 `Log.Logger`。 Service Fabric 可以在單一處理序內裝載相同服務類型的多個執行個體。 如果您使用靜態 `Log.Logger`，屬性豐富器的最後一個寫入器會顯示所有執行中執行個體的值。 這是為什麼 _logger 變數是服務類別私人成員變數的其中一個原因。 此外，您還必須讓 `_logger` 可供各個服務可能用到的通用程式碼使用。
 
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解 [Service Fabric 中的應用程式監視](service-fabric-diagnostics-event-generation-app.md)。
 - 深入了解如何使用 [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) 和 [Microsoft Azure 診斷](service-fabric-diagnostics-event-aggregation-wad.md)進行記錄。
 
-<!-- Update_Description: update meta properties, wording update -->
+
+
+
+
+
+
+
+
+

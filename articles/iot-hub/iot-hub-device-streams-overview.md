@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
 ms.openlocfilehash: 672b06dda41edb18cbf31352188b0fdd2a155782
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60401013"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT 中樞裝置串流 (預覽)
 
 ## <a name="overview"></a>概觀
-Azure IoT 中樞「裝置串流」能協助建立適用於各種不同雲端到裝置通訊案例的安全雙向 TCP 通道。 裝置串流是由 IoT 中樞「串流端點」進行調解，其會作為您的裝置和服務端點之間的 Proxy。 當裝置位於網路防火牆後方或私人網路內時，此設定 (如下圖所示) 特別有用。 因此，IoT 中樞裝置串流能提供方便與防火牆搭配使用的方式來協助解決客戶連線到 IoT 裝置的需求，而不需要大幅度地開啟傳入或傳出網路防火牆連接埠。
+Azure IoT 中樞「裝置串流」  能協助建立適用於各種不同雲端到裝置通訊案例的安全雙向 TCP 通道。 裝置串流是由 IoT 中樞「串流端點」  進行調解，其會作為您的裝置和服務端點之間的 Proxy。 當裝置位於網路防火牆後方或私人網路內時，此設定 (如下圖所示) 特別有用。 因此，IoT 中樞裝置串流能提供方便與防火牆搭配使用的方式來協助解決客戶連線到 IoT 裝置的需求，而不需要大幅度地開啟傳入或傳出網路防火牆連接埠。
 
 ![替代文字](./media/iot-hub-device-streams-overview/iot-hub-device-streams-overview.png "IoT 中樞裝置串流概觀")
 
@@ -52,7 +52,7 @@ IoT 中樞裝置串流提供下列優點：
 
 1. 裝置應用程式會事先登錄回呼，以在新的裝置串流對裝置起始時收到通知。 此步驟通常在裝置開機並連線到 IoT 中樞時發生。
 
-2. 需要時，服務端程式會藉由提供裝置識別碼 (「不是」IP 位址) 來起始裝置串流。
+2. 需要時，服務端程式會藉由提供裝置識別碼 (「不是」  IP 位址) 來起始裝置串流。
 
 3. IoT 中樞會叫用在步驟 1 中登錄的回呼來通知裝置端程式。 裝置可能會接受或拒絕串流初始化要求。 對於您的應用程式案例來說，此邏輯可能是特定的。 如果裝置拒絕串流要求，IoT 中樞會據以通知服務；若接受，便會遵循以下步驟。
 
@@ -65,7 +65,7 @@ IoT 中樞裝置串流提供下列優點：
 
 - 在上述串流建立流程完成之後，串流端點會作為 Proxy，並透過服務與裝置個別的 WebSocket 傳輸兩者之間流量。
 
-- 裝置和服務都需要經由連接埠 443 針對 IoT 中樞主要端點及串流端點的輸出連線能力。 在「IoT 中樞」入口網站的 [概觀] 索引標籤上，即可取得這些端點的 URL。
+- 裝置和服務都需要經由連接埠 443 針對 IoT 中樞主要端點及串流端點的輸出連線能力。 在「IoT 中樞」入口網站的 [概觀]  索引標籤上，即可取得這些端點的 URL。
 
 - 已建立之串流的可靠性和排序皆等同於 TCP。
 
@@ -77,7 +77,7 @@ IoT 中樞裝置串流提供下列優點：
 
 ## <a name="connectivity-requirements"></a>連線能力需求
 
-裝置串流的裝置和服務端都必須要能夠針對 IoT 中樞和其串流端點建立啟用 TLS 的連線。 這需要經由連接埠 443 針對這些端點的傳出連線能力。 與這些端點相關聯的主機名稱可在 IoT 中樞的 [概觀] 索引標籤上找到，如下圖所示：![替代文字](./media/iot-hub-device-streams-overview/device-stream-portal.png "裝置串流端點")
+裝置串流的裝置和服務端都必須要能夠針對 IoT 中樞和其串流端點建立啟用 TLS 的連線。 這需要經由連接埠 443 針對這些端點的傳出連線能力。 與這些端點相關聯的主機名稱可在 IoT 中樞的 [概觀]  索引標籤上找到，如下圖所示：![替代文字](./media/iot-hub-device-streams-overview/device-stream-portal.png "裝置串流端點")
 
 或者，端點資訊也可以使用 Azure CLI 從中樞的屬性區段 (具體而言為 `property.hostname` 和 `property.deviceStreams` 索引鍵) 擷取。
 
@@ -121,16 +121,16 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 請遵循下列步驟來設定您的 IoT 中樞裝置資料流活動的 Azure 監視器記錄檔：
 
-1. 瀏覽至您 IoT 中樞中的 [診斷設定] 索引標籤，然後按一下 [開啟診斷] 連結。
+1. 瀏覽至您 IoT 中樞中的 [診斷設定]  索引標籤，然後按一下 [開啟診斷]  連結。
 
    ![替代文字](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "啟用診斷記錄")
 
 
-2. 提供診斷設定的名稱，然後選擇 [傳送至 Log Analytics] 選項。 將會引導您選擇現有的 Log Analytics 工作區資源，或建立新的。 此外，請核取清單中的 [DeviceStreams]。
+2. 提供診斷設定的名稱，然後選擇 [傳送至 Log Analytics]  選項。 將會引導您選擇現有的 Log Analytics 工作區資源，或建立新的。 此外，請核取清單中的 [DeviceStreams]  。
 
     ![替代文字](./media/iot-hub-device-streams-overview/device-streams-diagnostics.PNG "啟用裝置串流記錄")
 
-3. 您現在可以在 IoT 中樞入口網站中的 [記錄] 索引標籤下存取您的裝置串流記錄。 裝置串流活動記錄將會出現在 `AzureDiagnostics` 資料表中，並具有 `Category=DeviceStreams`。
+3. 您現在可以在 IoT 中樞入口網站中的 [記錄]  索引標籤下存取您的裝置串流記錄。 裝置串流活動記錄將會出現在 `AzureDiagnostics` 資料表中，並具有 `Category=DeviceStreams`。
 
     <p>
 如下面所示，記錄中也會顯示目標裝置的身分識別，以及作業的結果。
@@ -154,7 +154,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 我們已發佈兩個[快速入門範例](/azure/iot-hub)，依應用程式示範裝置資料流的使用方式。
 * *Echo*範例會示範以程式設計方式使用的裝置資料流 （藉由直接呼叫 SDK API）。
-* 「本機 Proxy」範例示範透過裝置資料流建立現成的用戶端/伺服器應用程式流量通道 (例如 SSH、RDP 或 Web)。
+* 「本機 Proxy」  範例示範透過裝置資料流建立現成的用戶端/伺服器應用程式流量通道 (例如 SSH、RDP 或 Web)。
 
 下面會更詳細說明這些範例。
 
@@ -172,7 +172,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 本節描述如何使用裝置資料流，讓使用者能夠使用 SSH 透過裝置資料流連線到裝置 (藉由使用通訊協定的對應連接埠，RDP 或其他用戶端/伺服器應用程式的案例也都類似)。
 
-該設定會利用下圖中的兩個「本機 Proxy」程式，也就是「裝置本機 Proxy」和「服務本機 Proxy」。 本機 Proxy 程式會負責執行與「IoT 中樞」的[裝置資料流起始交握](#device-stream-creation-flow)，並使用一般用戶端/伺服器通訊端來與 SSH 用戶端和 SSH 精靈進行互動。
+該設定會利用下圖中的兩個「本機 Proxy」  程式，也就是「裝置本機 Proxy」  和「服務本機 Proxy」  。 本機 Proxy 程式會負責執行與「IoT 中樞」的[裝置資料流起始交握](#device-stream-creation-flow)，並使用一般用戶端/伺服器通訊端來與 SSH 用戶端和 SSH 精靈進行互動。
 
 ![替代文字](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png "SSH/RDP 的裝置串流 Proxy 設定")
 

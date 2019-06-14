@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: spelluru
 ms.openlocfilehash: bd62624406adb006fdcd7d59f72db3fb5e1848a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60421791"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure 監視器中的 Azure 轉送計量 (預覽)
@@ -41,13 +41,13 @@ Azure 監視器提供了多種方法供您存取計量。 您可以透過 [Azure
 
 ![][1]
 
-您也可以直接透過命名空間來存取計量。 若要這樣做，請選取您的命名空間，然後按一下 [Metrics (Peview)] \(計量 (預覽))。 
+您也可以直接透過命名空間來存取計量。 若要這樣做，請選取您的命名空間，然後按一下 [Metrics (Peview)] \(計量 (預覽))  。 
 
 如需支援維度的計量，您必須使用所需的維度值來進行篩選。
 
 ## <a name="billing"></a>計費
 
-在預覽版「Azure 監視器」中使用計量目前是免費的。 不過，如果您使用內嵌計量資料的額外解決方案，可能就需支付這些解決方案的使用費。 例如，如果您將計量資料封存到 Azure 儲存體帳戶，就要支付 Azure 儲存體的使用費。 或者，如果将指标数据流式传输到 Azure Monitor 日志进行高级分析，则 Azure Monitor 日志会收费。
+在預覽版「Azure 監視器」中使用計量目前是免費的。 不過，如果您使用內嵌計量資料的額外解決方案，可能就需支付這些解決方案的使用費。 例如，如果您將計量資料封存到 Azure 儲存體帳戶，就要支付 Azure 儲存體的使用費。 如果您要進行進階分析的 Azure 監視器記錄檔的計量資料串流，則也會計費由 Azure 監視器的記錄。
 
 下列計量會提供您服務健康狀態的概觀。 
 
@@ -60,24 +60,24 @@ Azure 監視器提供了多種方法供您存取計量。 您可以透過 [Azure
 
 | 度量名稱 | 描述 |
 | ------------------- | ----------------- |
-| ListenerConnections-Success (預覽) | 指定時段內，接聽程式成功連接到 Azure 轉送的數目。 <br/><br/> 单元：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|ListenerConnections-ClientError (預覽)|指定時段內，接聽程式連線發生的用戶端錯誤數目。<br/><br/> 单元：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|ListenerConnections-ServerError (預覽)|指定時段內，接聽程式連線發生的伺服器錯誤數目。<br/><br/> 单元：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|SenderConnections-Success (預覽)|指定時段內，寄件者成功連線的數目。<br/><br/> 单元：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|SenderConnections-ClientError (預覽)|指定時段內，寄件者連線發生的用戶端錯誤數目。<br/><br/> 单元：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|SenderConnections-ServerError (預覽)|指定時段內，寄件者連線發生的伺服器錯誤數目。<br/><br/> 单元：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|ListenerConnections-TotalRequests (預覽)|指定時段內，接聽程式連線的總數目。<br/><br/> 单元：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|SenderConnections-TotalRequests (預覽)|指定時段內，寄件者發出的連線要求。<br/><br/> 单元：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|ActiveConnections (預覽)|指定時段內，作用中的連線數目。<br/><br/> 单元：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|ActiveListeners (預覽)|指定時段內，作用中的接聽程式數目。<br/><br/> 单元：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|ListenerDisconnects (預覽)|指定時段內，中斷連線的接聽程式數目。<br/><br/> 单元：位元組 <br/> 彙總類型：總計 <br/> 維度：EntityName|
-|SenderDisconnects (預覽)|指定時段內，中斷連線的寄件者數目。<br/><br/> 单元：位元組 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+| ListenerConnections-Success (預覽) | 指定時段內，接聽程式成功連接到 Azure 轉送的數目。 <br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|ListenerConnections-ClientError (預覽)|指定時段內，接聽程式連線發生的用戶端錯誤數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|ListenerConnections-ServerError (預覽)|指定時段內，接聽程式連線發生的伺服器錯誤數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|SenderConnections-Success (預覽)|指定時段內，寄件者成功連線的數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|SenderConnections-ClientError (預覽)|指定時段內，寄件者連線發生的用戶端錯誤數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|SenderConnections-ServerError (預覽)|指定時段內，寄件者連線發生的伺服器錯誤數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|ListenerConnections-TotalRequests (預覽)|指定時段內，接聽程式連線的總數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|SenderConnections-TotalRequests (預覽)|指定時段內，寄件者發出的連線要求。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|ActiveConnections (預覽)|指定時段內，作用中的連線數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|ActiveListeners (預覽)|指定時段內，作用中的接聽程式數目。<br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|ListenerDisconnects (預覽)|指定時段內，中斷連線的接聽程式數目。<br/><br/> 單位：位元組 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|SenderDisconnects (預覽)|指定時段內，中斷連線的寄件者數目。<br/><br/> 單位：位元組 <br/> 彙總類型：總計 <br/> 維度：EntityName|
 
 ## <a name="memory-usage-metrics"></a>記憶體使用量計量
 
 | 度量名稱 | 描述 |
 | ------------------- | ----------------- |
-|BytesTransferred (預覽)|在指定時段內，傳輸的位元組數目。<br/><br/> 单元：位元組 <br/> 彙總類型：總計 <br/> 維度：EntityName|
+|BytesTransferred (預覽)|在指定時段內，傳輸的位元組數目。<br/><br/> 單位：位元組 <br/> 彙總類型：總計 <br/> 維度：EntityName|
 
 ## <a name="metrics-dimensions"></a>計量維度
 

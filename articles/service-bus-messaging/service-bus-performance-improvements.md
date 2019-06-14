@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
 ms.openlocfilehash: f5ce8a237bc2ba7fe15acfcd6afa0edcda7ef713
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589654"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服務匯流排傳訊的效能改進最佳作法
@@ -72,7 +72,7 @@ AMQP 和 SBMP 會更有效率，因為只要傳訊處理站存在，它們就會
 
 ## <a name="receive-mode"></a>接收模式
 
-建立佇列或訂用帳戶用戶端時，您可以指定接收模式：「查看鎖定」或「接收並刪除」。 預設接收模式是 [PeekLock][PeekLock]。 以此模式操作時，用戶端會傳送要求，以接收來自服務匯流排的訊息。 用戶端收到訊息後，它會傳送要求以完成訊息。
+建立佇列或訂用帳戶用戶端時，您可以指定接收模式：「查看鎖定」  或「接收並刪除」  。 預設接收模式是 [PeekLock][PeekLock]。 以此模式操作時，用戶端會傳送要求，以接收來自服務匯流排的訊息。 用戶端收到訊息後，它會傳送要求以完成訊息。
 
 將接收模式設為 [ReceiveAndDelete][ReceiveAndDelete] 時，兩個步驟會在單一要求中結合。 這些步驟可減少整體的作業數目並可改善整體訊息輸送量。 此效能改善的風險為遺失訊息。
 
@@ -80,11 +80,11 @@ AMQP 和 SBMP 會更有效率，因為只要傳訊處理站存在，它們就會
 
 ## <a name="client-side-batching"></a>用戶端批次處理
 
-用戶端批次處理可讓佇列或主題用戶端將訊息的傳送延遲一段時間。 如果用戶端在此期間傳送其他訊息，它將以單一批次傳輸訊息。 用戶端批次處理也會導致佇列或訂用帳戶用戶端將多個**完成**要求整批放入單一要求中處理。 批处理仅适用于异步**发送**和**完成**操作。 同步作業會立即傳送至服務匯流排服務。 查看或接收作業不會進行批次處理，也不會跨用戶端進行。
+用戶端批次處理可讓佇列或主題用戶端將訊息的傳送延遲一段時間。 如果用戶端在此期間傳送其他訊息，它將以單一批次傳輸訊息。 用戶端批次處理也會導致佇列或訂用帳戶用戶端將多個**完成**要求整批放入單一要求中處理。 批次處理僅適用於非同步**傳送**及**完成**作業。 同步作業會立即傳送至服務匯流排服務。 查看或接收作業不會進行批次處理，也不會跨用戶端進行。
 
 根據預設，用戶端使用的批次間隔為 20 毫秒。 您可以藉由在建立傳訊處理站之前設定 [BatchFlushInterval][BatchFlushInterval] 屬性來變更批次間隔。 這個設定會影響此處理站所建立的所有用戶端。
 
-若要停用批次處理，請將 [BatchFlushInterval][BatchFlushInterval] 屬性設為 **TimeSpan.Zero**。 例如︰
+若要停用批次處理，請將 [BatchFlushInterval][BatchFlushInterval] 屬性設為 **TimeSpan.Zero**。 例如:
 
 ```csharp
 MessagingFactorySettings mfs = new MessagingFactorySettings();
@@ -113,7 +113,7 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 
 在此間隔期間進行的其他存放區作業都會加入至批次。 批次處理的存放區存取只會影響**傳送**和**完成**作業；接收作業不會受到影響。 批次處理的存放區存取是實體上的屬性。 批次處理會在啟用批次處理存放區存取的所有實體進行。
 
-建立新佇列、主題或訂用帳戶時，預設會啟用批次處理的存放區存取。 若要停用批次處理的存放區存取，請在建立實體之前將 [EnableBatchedOperations][EnableBatchedOperations] 屬性設為 **false**。 例如︰
+建立新佇列、主題或訂用帳戶時，預設會啟用批次處理的存放區存取。 若要停用批次處理的存放區存取，請在建立實體之前將 [EnableBatchedOperations][EnableBatchedOperations] 屬性設為 **false**。 例如:
 
 ```csharp
 QueueDescription qd = new QueueDescription();
@@ -125,7 +125,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 ## <a name="prefetching"></a>預先擷取
 
-[預先擷取](service-bus-prefetch.md)可讓佇列或訂用帳戶用戶端在執行接收作業時從服務載入額外的訊息。 用戶端會將這些訊息儲存在本機快取中。 快取的大小取決於 [QueueClient.PrefetchCount][QueueClient.PrefetchCount] 或 [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] 屬性。 啟用預先擷取的每個用戶端會維護自己的快取。 快取不會跨用戶端共用。 如果客户端启动接收操作，而其缓存是空的，则服务会传输一批消息。 批次的大小等於快取的大小或 256 KB，以較小者為準。 如果用戶端起始接收作業且快取包含一則訊息，訊息會從快取中擷取。
+[預先擷取](service-bus-prefetch.md)可讓佇列或訂用帳戶用戶端在執行接收作業時從服務載入額外的訊息。 用戶端會將這些訊息儲存在本機快取中。 快取的大小取決於 [QueueClient.PrefetchCount][QueueClient.PrefetchCount] 或 [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] 屬性。 啟用預先擷取的每個用戶端會維護自己的快取。 快取不會跨用戶端共用。 如果用戶端起始接收作業且其快取是空的，則服務會傳輸一批次的訊息。 批次的大小等於快取的大小或 256 KB，以較小者為準。 如果用戶端起始接收作業且快取包含一則訊息，訊息會從快取中擷取。
 
 預先擷取訊息時，服務會鎖定預先擷取的訊息。 藉由鎖定，其他接收者就無法接收預先擷取的訊息。 如果接收者無法在鎖定到期之前完成訊息，訊息就會變成可供其他接收者接收。 訊息的預先擷取副本會保留在快取中。 當取用過其快取複本的接收者嘗試完成該訊息時，他會收到例外狀況。 根據預設，訊息鎖定會在 60 秒之後到期。 此值可延長為 5 分鐘。 若要避免過期訊息遭到取用，快取大小應該一律小於用戶端在鎖定逾時間隔內可取用的訊息數目。
 
@@ -168,7 +168,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 目標：最大化單一佇列的輸送量。 傳送者和接收者的數目很少。
 
-* 若要增加傳送到佇列的整體速率，請使用多個訊息處理站來建立傳送者。 为每个发送方使用异步操作或多个线程。
+* 若要增加傳送到佇列的整體速率，請使用多個訊息處理站來建立傳送者。 對每個傳送者使用非同步作業或多個執行緒。
 * 若要增加從佇列接收的整體速率，請使用多個訊息處理站來建立接收者。
 * 使用非同步作業來利用用戶端批次處理。
 * 將批次處理間隔設為 50 毫秒，以減少服務匯流排用戶端通訊協定傳輸數目。 如果使用多個傳送者，批次處理間隔會增加到 100 毫秒。
@@ -237,7 +237,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 ### <a name="topic-with-a-large-number-of-subscriptions"></a>具有大量訂用帳戶的主題
 
-目標：最大化具有大量訂用帳戶之主題的輸送量。 許多訂用帳戶收到一則訊息，表示所有訂用帳戶的合併接收速率遠高於傳送速率。 发送方的数目较小。 每個訂用帳戶的接收者數目很少。
+目標：最大化具有大量訂用帳戶之主題的輸送量。 許多訂用帳戶收到一則訊息，表示所有訂用帳戶的合併接收速率遠高於傳送速率。 傳送者的數目很少。 每個訂用帳戶的接收者數目很少。
 
 如果所有訊息都路由傳送至所有訂用帳戶，具有大量訂用帳戶的主題通常會顯露較低的整體輸送量。 這樣較低的輸送量是因為每個訊息都被接收了許多次，而且包含在主題與其所有訂用帳戶中的所有訊息都儲存在相同的存放區中。 它會假設每個訂用帳戶的傳送者數目和接收者數目都很少。 服務匯流排支援每個主題最多 2,000 個訂用帳戶。
 

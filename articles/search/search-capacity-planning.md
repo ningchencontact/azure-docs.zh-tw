@@ -10,16 +10,16 @@ ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60308699"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>調整資料分割和複本適用於查詢和編製索引工作負載，在 Azure 搜尋服務
 在您[選擇定價層](search-sku-tier.md)和[佈建搜尋服務](search-create-service-portal.md)之後，下一個步驟是選擇性地增加服務所使用的複本或分割區數目。 每一層都提供固定的計費單位數目。 本文說明如何配置這些單位以達到最佳的組態，讓您在查詢執行、編制索引和儲存體等需求之間取得平衡。
 
-當您設定的服務時，便可以使用資源組態[基本層次](https://aka.ms/azuresearchbasic)或其中一個[標準] 或 [儲存體最佳化層](search-limits-quotas-capacity.md)。 對於這些層的服務，購買容量就是增加「搜尋單位」(SU)，每個分割區和複本會計為一個 SU。 
+當您設定的服務時，便可以使用資源組態[基本層次](https://aka.ms/azuresearchbasic)或其中一個[標準] 或 [儲存體最佳化層](search-limits-quotas-capacity.md)。 對於這些層的服務，購買容量就是增加「搜尋單位」  (SU)，每個分割區和複本會計為一個 SU。 
 
 使用較少 SU，帳單費用也會相應降低。 只要服務處於已設定的狀態，就會持續計費。 如果您暫時不使用某項服務，避免計費的唯一方法就是刪除該服務，然後當您需要該服務時再予以重建。
 
@@ -32,7 +32,7 @@ ms.locfileid: "60308699"
 | 資源 | 定義 |
 |----------|------------|
 |*分割數* | 為讀寫作業 (例如，在重建或重新整理索引時) 提供索引儲存體和 I/O。|
-|複本 | 搜尋服務的執行個體，主要用來讓查詢作業達到負載平衡。 每個複本一律會裝載一份索引。 如果您有 12 個複本，服務上就會分別載入 12 份索引。|
+|複本  | 搜尋服務的執行個體，主要用來讓查詢作業達到負載平衡。 每個複本一律會裝載一份索引。 如果您有 12 個複本，服務上就會分別載入 12 份索引。|
 
 > [!NOTE]
 > 沒有任何方法可直接操作或管理哪些索引會在複本上執行。 每個複本上各有一份索引是服務架構的一部分。

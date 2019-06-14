@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 15b0ff0bbb96e5fa96d81cfa265e83abf749cf85
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60688875"
 ---
 # <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>如何更換 Azure SignalR 服務的存取金鑰
@@ -25,11 +25,11 @@ ms.locfileid: "60688875"
 
 1. 移至 [Azure 入口網站](https://portal.azure.com/)，並以您的認證登入。
 
-1. 在您要重新產生的金鑰所屬的 Azure SignalR Service 執行個體中，尋找 [金鑰] 區段。
+1. 在您要重新產生的金鑰所屬的 Azure SignalR Service 執行個體中，尋找 [金鑰]  區段。
 
-1. 選取導覽功能表上的 [金鑰]。
+1. 選取導覽功能表上的 [金鑰]  。
 
-1. 選取 [重新產生主要金鑰] 或 [重新產生次要金鑰]。
+1. 選取 [重新產生主要金鑰]  或 [重新產生次要金鑰]  。
 
    新的金鑰和對應的連接字串隨即建立並顯示。
 

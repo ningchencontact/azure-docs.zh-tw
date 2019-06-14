@@ -2,17 +2,16 @@
 title: 操作員最佳做法 - Azure Kubernetes Services (AKS) 中的叢集隔離
 description: 了解叢集操作員在 Azure Kubernetes Service (AKS) 中進行隔離時的最佳做法
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 11/26/2018
-ms.date: 03/04/2019
-ms.author: v-yeche
+ms.date: 11/26/2018
+ms.author: iainfou
 ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60465274"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中隔離叢集的最佳做法
@@ -49,7 +48,7 @@ Kubernetes 提供功能讓您以邏輯方式隔離相同叢集中的小組和工
 
 ## <a name="physically-isolate-clusters"></a>實體隔離叢集
 
-**最佳做法指引** - 請盡量不要對每個個別的小組或應用程式部署使用實體隔離。 相反地，請使用上一節所討論的「邏輯」隔離。
+**最佳做法指引** - 請盡量不要對每個個別的小組或應用程式部署使用實體隔離。 相反地，請使用上一節所討論的「邏輯」  隔離。
 
 叢集隔離的常見方法是使用實際分隔的 AKS 叢集。 在此隔離模型中，小組或工作負載會獲派自己的 AKS 叢集。 這種方法看起來往往會是隔離工作負載或小組的最簡單方式，但會增添額外的管理和財務負荷。 您現在必須維護這些多重叢集，且必須個別提供存取權和指派權限。 您也要支付所有個別節點的費用。
 

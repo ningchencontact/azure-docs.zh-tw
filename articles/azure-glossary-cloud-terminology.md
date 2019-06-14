@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60325420"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 詞彙：Azure 平台上的雲端術語字典
@@ -37,14 +37,14 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 [App Service 應用程式](#app-service-app)的另一個名稱。
 
 ## <a name="app-service-app"></a>App Service 應用程式
-[Azure App Service](app-service/overview.md) 提供的計算資源，可供裝載網站或 Web 應用程式、Web API或[行動裝置應用程式後端](app-service-mobile/app-service-mobile-value-prop.md)。 App Service 應用程式也稱為「應用程式服務」、「Web 應用程式」、「API 應用程式」和「行動裝置應用程式」。
+[Azure App Service](app-service/overview.md) 提供的計算資源，可供裝載網站或 Web 應用程式、Web API或[行動裝置應用程式後端](app-service-mobile/app-service-mobile-value-prop.md)。 App Service 應用程式也稱為「應用程式服務」  、「Web 應用程式」  、「API 應用程式」  和「行動裝置應用程式」  。
 
 ## <a name="availability-set"></a>可用性設定組
 可一起管理的虛擬機器集合，以提供應用程式備援能力和可靠性。 可用性設定組的用法可確保在預定進行或未預定進行的維護事件期間，至少有一部虛擬機器可以使用。  
 請參閱[管理 Windows 虛擬機器的可用性](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)和[管理 Linux 虛擬機器的可用性](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="classic-model"></a>Azure 傳統部署模型
-您可以使用兩個 [部署模型](resource-manager-deployment-model.md) 之一來部署 Azure 中的資源 (新模型是 Azure Resource Manager)。 有些 Azure 服务仅支持资源管理器部署模型，有些仅支持经典部署模型，而有些则两种模型都支持。 每個 Azure 服務的文件指定其支援的模型。
+您可以使用兩個 [部署模型](resource-manager-deployment-model.md) 之一來部署 Azure 中的資源 (新模型是 Azure Resource Manager)。 有些 Azure 服務僅支援 Resource Manager 部署模型、有些僅支援傳統部署模型，而有些則可支援兩個模型。 每個 Azure 服務的文件指定其支援的模型。
 
 ## <a name="cli"></a>Azure 命令列介面 (CLI)
 命令列介面，可用來從 Windows、macOS 和 Linux 電腦管理 Azure 服務。  某些服務或服務功能可以只透過 PowerShell 或 CLI 進行管理。 請參閱 [Azure CLI](/cli/azure)
@@ -69,7 +69,7 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 請參閱 [Azure SQL Database 的主動式異地複寫](sql-database/sql-database-geo-replication-overview.md)
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
-## <a name="image"></a>Image
+## <a name="image"></a>image
 包含作業系統和應用程式組態的檔案，可用來建立任意數目的虛擬機器。 在 Azure 中有兩種類型的映像：VM 映像和 OS 映像。 VM 映像包含作業系統和建立映像時所有連接至虛擬機器的磁碟。 作業系統映像只包含通用的作業系統且不含任何資料磁碟組態。  
 請參閱[使用 PowerShell 或 CLI 在 Azure 中瀏覽並選取 Windows 虛擬機器映像](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -91,11 +91,11 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 用來部署和管理 Azure 服務的安全 Web 入口網站。
 
 ## <a name="region"></a>region
-地理區域內不會跨越國界且包含一或多個資料中心的地區。 定價、區域性服務和供應項目類型是在區域層級公開。 區域通常會與另一個區域配對，兩者可多達數百英哩遠。 區域配對可用來做為災害復原及高可用性案例的機制。 也稱為「位置」。  
+地理區域內不會跨越國界且包含一或多個資料中心的地區。 定價、區域性服務和供應項目類型是在區域層級公開。 區域通常會與另一個區域配對，兩者可多達數百英哩遠。 區域配對可用來做為災害復原及高可用性案例的機制。 也稱為「位置」  。  
 請參閱 [Azure 區域](best-practices-availability-paired-regions.md)
 
 ## <a name="resource"></a>resource
-Azure 方案一部分的項目。 每个 Azure 服务允许部署不同类型的资源，例如数据库或虚拟机。   
+Azure 方案一部分的項目。 每個 Azure 服務可讓您部署不同類型的資源，例如資料庫或虛擬機器。   
 請參閱 [Azure Resource Manager 概觀](azure-resource-manager/resource-group-overview.md)
 
 ## <a name="resource-group"></a>資源群組
@@ -107,7 +107,7 @@ Azure 方案一部分的項目。 每个 Azure 服务允许部署不同类型的
 請參閱[編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)
 
 ## <a name="resource-provider"></a>資源提供者
-提供資源的服務，讓您可透過資源管理員進行部署及管理。 每个资源提供程序提供用于处理所部署资源的操作。 資源提供者可以透過 Azure 入口網站、Azure PowerShell 和數個程式設計的 SDK 來存取。  
+提供資源的服務，讓您可透過資源管理員進行部署及管理。 每個資源提供者都會提供作業，以便能運用所部署的資源。 資源提供者可以透過 Azure 入口網站、Azure PowerShell 和數個程式設計的 SDK 來存取。  
 請參閱 [Azure Resource Manager 概觀](azure-resource-manager/resource-group-overview.md)
 
 ## <a name="role"></a>角色

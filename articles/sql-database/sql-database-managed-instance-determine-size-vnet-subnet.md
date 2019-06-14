@@ -6,18 +6,17 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
-author: WenJason
-ms.author: v-jay
-ms.reviewer: bonova, carlrab
-manager: digimobile
-origin.date: 12/12/2018
-ms.date: 03/11/2019
+ms.topic: conceptual
+author: srdan-bozovic-msft
+ms.author: srbozovi
+ms.reviewer: sstein, bonova, carlrab
+manager: craigg
+ms.date: 02/22/2019
 ms.openlocfilehash: 2a10876bc3c9558de29caf9fee2ae0b06ee87f28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60405336"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>決定 Azure SQL Database 受控執行個體的 VNet 子網路大小
@@ -28,10 +27,10 @@ Azure SQL Database 受控執行個體必須部署在 Azure [虛擬網路 (VNet)]
 
 當您建立受控執行個體時，Azure 會依據您在佈建期間選取的層來配置虛擬機器數目。 因為這些虛擬機器與您的子網路相關聯，所以它們需要 IP 位址。 為了確保正常作業和服務維護期間的高可用性，Azure 可能會配置額外的虛擬機器。 因此，子網路中所需的 IP 位址數目會大於該子網路中的受控執行個體數目。
 
-根據設計，受控執行個體在子網路中需要最少 16 個 IP 位址，可能會使用多達 256 個 IP 位址。 因此，在定义子网 IP 范围时，可以使用介于 /28 和 /24 之间的子网掩码。 对于单一的常规用途或业务关键部署，网络掩码位 /28（每个网络 14 台主机）是一个不错的大小。 对于位于同一 VNet 内的多个托管实例部署，掩码位 /27（每个网络 30 台主机）是理想的。 掩码位设置 /26（62 台主机）和 /24（254 台主机）允许进一步横向扩展 VNet 来支持更多的托管实例。
+根據設計，受控執行個體在子網路中需要最少 16 個 IP 位址，可能會使用多達 256 個 IP 位址。 如此一來，您可以在定義您的子網路 IP 範圍時，使用/28 之間/24 子網路遮罩。 / 28 （每個網路 14 部主機） 的網路遮罩位元會是很好的大小，單一的一般用途或業務關鍵部署。 遮罩的位元為/27 （每個網路的 30 部主機） 是適用於相同的 VNet 內的多個受控執行個體部署。 遮罩位元設定/26 （62 部主機） 和/24 （254 部主機） 可讓您進一步調整不足以支援其他受管理的執行個體的 VNet。
 
 > [!IMPORTANT]
-> 具有 16 个 IP 地址的子网大小是绝对最小值，进一步实现托管实例横向扩展的潜力有限。強烈建議您選擇前置詞為 /27 或以下的子網路。
+> 使用 16 個 IP 位址的子網路大小會限制可能會進一步受管理的執行個體向外延展使用最低限度。強烈建議您選擇前置詞為 /27 或以下的子網路。
 
 ## <a name="determine-subnet-size"></a>決定子網路大小
 

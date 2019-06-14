@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
 ms.openlocfilehash: 5091932989849943f00cb71f72378dd17af23a4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60204627"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>快速入門：手動安裝單一執行個體在 「 Azure 虛擬機器 」 上的 SAP HANA
@@ -157,7 +157,7 @@ SAP 認證適用於 SAP NetWeaver 或 S/4HANA 應用程式層的 azure VM 類型
 
 * OS 更新
 * 磁碟設定
-* 内核参数
+* 核心參數
 * 檔案系統
 * /etc/hosts 檔案
 * /etc/fstab 檔案
@@ -189,7 +189,7 @@ SAP 認證適用於 SAP NetWeaver 或 S/4HANA 應用程式層的 azure VM 類型
 - 重要事項
 - 中度
 - 低
-- 不透露
+- 未指定
 
 **Zypper** 命令只會尋找已安裝套件所需要的更新。 例如，您可以使用此命令：
 
@@ -252,11 +252,11 @@ SLES for SAP Applications 12 的一般可用性和 SLES for SAP Applications 12 
 
 ![在組態檔中變更核心設定，然後使用 grub2-mkconfig 進行編譯](./media/hana-get-started/image006.jpg)
 
-另一個選項是使用 YaST 和 [開機載入器] > [核心參數] 設定來變更這些設定：
+另一個選項是使用 YaST 和 [開機載入器]   > [核心參數]  設定來變更這些設定：
 
 ![YaST 開機載入器中的 [核心參數] 設定索引標籤](./media/hana-get-started/image007.jpg)
 
-### <a name="file-systems"></a>文件系统
+### <a name="file-systems"></a>檔案系統
 下列螢幕擷取畫面顯示兩個檔案系統，這兩者均建立於這兩個連接之 Azure 標準儲存體磁碟上的 SAP 應用程式伺服器 VM 上。 這兩個檔案系統的 XFS 類型，並掛接至 /sapdata 和 /sapsoftware。
 
 它不一定要如此一來建構檔案系統。 您有其他選項可用來建構磁碟空間。 最重要的考量是防止根目錄檔案系統的可用空間用盡。

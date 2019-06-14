@@ -15,10 +15,10 @@ ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 041c8bb6b4de2bbe2cbeb4c1a89e452239ae57bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60473642"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>在組織的網路上註冊您的個人裝置
@@ -42,28 +42,28 @@ ms.locfileid: "60473642"
 
 依照下列步驟在網路上註冊您的個人裝置。
 
-1. 開啟 [設定]，然後選取 [帳戶]。
+1. 開啟 [設定]  ，然後選取 [帳戶]  。
 
     ![[設定] 畫面上的帳戶](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. 選取 [存取公司或學校資源]，然後從 [存取公司或學校資源] 畫面中選取 [連線]。
+2. 選取 [存取公司或學校資源]  ，然後從 [存取公司或學校資源]  畫面中選取 [連線]  。
 
     ![醒目提示連線選項的存取公司或學校資源畫面](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
 
-3. 在 [新增公司或學校帳戶] 畫面中，輸入您公司或學校帳戶的電子郵件地址，然後選取 [下一步]。 例如： alain@contoso.com。
+3. 在 [新增公司或學校帳戶]  畫面中，輸入您公司或學校帳戶的電子郵件地址，然後選取 [下一步]  。 例如： alain@contoso.com。
 
-4. 登入您的公司或學校帳戶，然後選取 [登入]。
+4. 登入您的公司或學校帳戶，然後選取 [登入]  。
 
 5. 完成剩餘的註冊程序，包括核准您的身分識別驗證要求 (如果您使用雙步驟驗證)，以及設定 Windows Hello (如有必要)。
 
 ## <a name="to-verify-that-youre-registered"></a>若要確認您是否已註冊
 您可以透過查看設定來確定您已註冊。
 
-1. 開啟 [設定]，然後選取 [帳戶]。
+1. 開啟 [設定]  ，然後選取 [帳戶]  。
 
     ![[設定] 畫面上的帳戶](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. 選取 [存取公司或學校資源]，並確定有看到您的公司或學校帳戶。
+2. 選取 [存取公司或學校資源]  ，並確定有看到您的公司或學校帳戶。
 
     ![具有已連線之 contoso 帳戶的 [存取公司或學校資源] 畫面](./media/user-help-register-device-on-network/register-device-setup-verify.png)
 

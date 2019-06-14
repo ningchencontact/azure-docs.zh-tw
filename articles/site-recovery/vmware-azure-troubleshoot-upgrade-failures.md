@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 02/05/2019
 ms.author: v-doglov
 ms.openlocfilehash: fc50be2a960784895947f3f154a0251f41716fc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565696"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>對 Microsoft Azure Site Recovery Provider 升級失敗進行疑難排解
@@ -28,7 +28,7 @@ ms.locfileid: "60565696"
 
 1. 下載 Microsoft Azure Site Recovery 整合安裝：
    1. 在 [Azure Site Recovery 中的服務更新](service-updates-how-to.md##links-to-currently-supported-update-rollups)一文的＜目前支援的更新彙總套件連結＞小節中，選取您要升級的提供者。
-   2. 在 [彙總] 頁面上，找出 [更新資訊] 區段，並下載適用於 Microsoft Azure Site Recovery 整合安裝更新彙總套件。
+   2. 在 [彙總] 頁面上，找出 [更新資訊]  區段，並下載適用於 Microsoft Azure Site Recovery 整合安裝更新彙總套件。
 
 2. 開啟命令提示字元並瀏覽至您下載整合安裝檔案的資料夾。 使用下列命令將安裝檔從下載項目中解壓縮：MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;已解壓縮檔案的資料夾路徑&gt;。
     
@@ -52,7 +52,7 @@ ms.locfileid: "60565696"
 1. 檢查 `Build_Version` 機碼值。 如果機碼是設定為最新版本，請減少版本號碼。 例如，如果最新版本為 9.22.\*，且 `Build_Version` 機碼設定為該值，則將它減少為 9.21.\*。
 1. 下載最新的 Microsoft Azure Site Recovery 整合安裝：
    1. 在 [Azure Site Recovery 中的服務更新](service-updates-how-to.md##links-to-currently-supported-update-rollups)一文的＜目前支援的更新彙總套件連結＞小節中，選取您要升級的提供者。
-   2. 在 [彙總] 頁面上，找出 [更新資訊] 區段，並下載適用於 Microsoft Azure Site Recovery 整合安裝更新彙總套件。
+   2. 在 [彙總] 頁面上，找出 [更新資訊]  區段，並下載適用於 Microsoft Azure Site Recovery 整合安裝更新彙總套件。
 1. 開啟命令提示字元並瀏覽至您下載整合安裝檔案的資料夾，並使用下列命令將安裝檔從下載項目中解壓縮：MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;已解壓縮檔案的資料夾路徑&gt;。
 
     範例命令：

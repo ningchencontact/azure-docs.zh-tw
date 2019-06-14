@@ -16,10 +16,10 @@ ms.date: 08/07/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: ad8b59a9290c533a3687b5ff8956d8682fb6d9e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60607826"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>使用 Azure PowerShell 佈建 SQL Server 虛擬機器 (傳統)
@@ -116,7 +116,7 @@ ms.locfileid: "60607826"
    New-AzureService -ServiceName $svcname -Label $svcname -Location $dcLocation
    ```
 
-2. 指定虛擬機器名稱和大小。 有关虚拟机大小的详细信息，请参阅 [Azure 的虚拟机大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+2. 指定虛擬機器名稱和大小。 如需關於虛擬機器大小的詳細資訊，請參閱 [Azure 的虛擬機器大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
    ```powershell
    $vmname="<machine name>"

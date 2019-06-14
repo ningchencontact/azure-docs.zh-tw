@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
 ms.openlocfilehash: ee78227f645cbeded7a5c689750db835faf1055f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60420058"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>如何使用 Azure 轉送 WCF 轉送搭配 .NET
@@ -28,7 +28,7 @@ ms.locfileid: "60420058"
 
 ## <a name="what-is-wcf-relay"></a>什麼是 WCF 轉送？
 
-Azure [WCF 轉送服務](relay-what-is-it.md)可讓您建立一個可在 Azure 資料中心和您自己的內部部署企業環境中執行的混合式應用程式。 轉送服務可幫助達成此目標，方法是讓您以安全的方式，向公用雲端公開位於企業網路內部的 Windows Communication Foundation (WCF) 服務，而無需開啟防火牆連線或要求對企業網路基礎結構的進行侵入式變更。
+Azure [WCF 轉送  服務](relay-what-is-it.md)可讓您建立一個可在 Azure 資料中心和您自己的內部部署企業環境中執行的混合式應用程式。 轉送服務可幫助達成此目標，方法是讓您以安全的方式，向公用雲端公開位於企業網路內部的 Windows Communication Foundation (WCF) 服務，而無需開啟防火牆連線或要求對企業網路基礎結構的進行侵入式變更。
 
 ![WCF 轉送概念](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 
@@ -41,8 +41,8 @@ Azure 轉送可讓您代管位於現有企業環境內的 WCF 服務。 您可�
 ## <a name="get-the-service-bus-nuget-package"></a>取得服務匯流排 NuGet 封裝
 [服務匯流排 NuGet 套件](https://www.nuget.org/packages/WindowsAzure.ServiceBus) 為取得服務匯流排 API，並設定具有所有服務匯流排相依性的應用程式的最容易方式。 若要在專案中安裝 NuGet 封裝，請執行下列動作：
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後按一下 [管理 NuGet 套件]。
-2. 搜尋「服務匯流排」並選取 [Microsoft Azure 服務匯流排]  項目。 按一下 [安裝] 完成安裝作業，然後關閉下列對話方塊：
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 [參考]  ，然後按一下 [管理 NuGet 套件]  。
+2. 搜尋「服務匯流排」並選取 [Microsoft Azure 服務匯流排]  項目。 按一下 [安裝]  完成安裝作業，然後關閉下列對話方塊：
    
    ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
 

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60285478"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 稽核活動參考
@@ -42,7 +42,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="access-reviews"></a>存取權檢閱
 
-|稽核類別|活動|
+|稽核類別|activities|
 |---|---|
 |存取權檢閱|存取權檢閱結束|
 |存取權檢閱|將核准者新增至要求核准|
@@ -77,7 +77,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="account-provisioning"></a>帳戶佈建
 
-|稽核類別|活動|
+|稽核類別|activities|
 |---|---|
 |應用程式管理|擷取 V2 應用程式授權|
 |應用程式管理|擷取目前租用戶中的 V2 應用程式服務主體|
@@ -89,7 +89,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="application-proxy"></a>應用程式 Proxy
 
-|稽核類別|活動|
+|稽核類別|activities|
 |---|---|
 |應用程式管理|新增應用程式|
 |應用程式管理|將擁有者新增至應用程式|
@@ -110,14 +110,14 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="automated-password-rollover"></a>自動密碼變換
 
-|稽核類別|活動|
+|稽核類別|activities|
 |---|---|
 |應用程式管理|移除服務主體認證|
 
 
 ## <a name="b2c"></a>B2C
 
-|稽核類別|活動|
+|稽核類別|activities|
 |---|---|
 |應用程式管理|還原應用程式|
 |應用程式管理|撤銷同意|
@@ -346,7 +346,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="core-directory"></a>核心目錄
 
-|稽核類別|活動|
+|稽核類別|activities|
 |---|---|
 |管理單位的管理|下載單一風險事件類型|
 |管理單位的管理|下載加入每週摘要的管理員和狀態|
@@ -480,7 +480,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="identity-protection"></a>身分識別保護
 
-|稽核類別|活動|
+|稽核類別|activities|
 |---|---|
 |目錄管理|提高權限|
 |目錄管理|已移除|
@@ -499,7 +499,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="invited-users"></a>受邀的使用者
 
-|稽核類別|活動|
+|稽核類別|activities|
 |---|---|
 |其他|建立要求核准|
 |其他|刪除存取權檢閱|
@@ -513,7 +513,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="microsoft-identity-manager-mim"></a>Microsoft Identity Manager (MIM)
 
-|稽核類別|活動|
+|稽核類別|activities|
 |---|---|
 |群組管理|檢閱要求核准要求|
 |群組管理|更新存取權檢閱|
@@ -527,7 +527,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
-|稽核類別|活動|
+|稽核類別|activities|
 |---|---|
 |PIM|ActivationAborted|
 |PIM|ActivationApproved|
@@ -554,7 +554,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="self-service-group-management"></a>自助式群組管理
 
-|稽核類別|活動|
+|稽核類別|activities|
 |---|---|
 |群組管理|重設使用者密碼|
 |群組管理|還原使用者|
@@ -569,7 +569,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="self-service-password-management"></a>自助式密碼管理
 
-|稽核類別|活動|
+|稽核類別|activities|
 |---|---|
 |目錄管理|管理員要求使用者重設密碼|
 |目錄管理|將外部使用者指派至應用程式|
@@ -585,7 +585,7 @@ Azure AD 中的報告架構包含下列元件：
 
 ## <a name="terms-of-use"></a>使用規定
 
-|稽核類別|活動|
+|稽核類別|activities|
 |---|---|
 |使用規定|接受使用規定|
 |使用規定|建立使用規定|

@@ -13,21 +13,21 @@ ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dbfcab7900a1552a46341ec71b8b0ea4b41b0bce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60474689"
 ---
 # <a name="view-your-privacy-related-info-from-the-my-profile-preview-portal"></a>從我的設定檔 (預覽) 入口網站檢視您的隱私權相關資訊
-您可以檢視您的組織如何使用**我的設定檔**入口網站的 [隱私權] 頁面中的資料。
+您可以檢視您的組織如何使用**我的設定檔**入口網站的 [隱私權]  頁面中的資料。
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
 ## <a name="view-your-privacy-related-info"></a>檢視您的隱私權相關資訊
 1. 登入您的公司或學校帳戶，然後前往 https://myprofile.microsoft.com/ 頁面。
 
-2. 從左側瀏覽窗格中選取 [隱私權]，或從 [隱私權] 區塊中選取 [檢閱隱私權] 連結。
+2. 從左側瀏覽窗格中選取 [隱私權]  ，或從 [隱私權]  區塊中選取 [檢閱隱私權]  連結。
 
     ![我的設定檔頁面，顯示醒目提示的 [隱私權] 連結](media/myprofile-portal/myprofile-portal-privacy.png)
 

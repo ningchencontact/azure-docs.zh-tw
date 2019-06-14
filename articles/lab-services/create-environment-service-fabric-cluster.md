@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: enewman
 ms.openlocfilehash: 9848f197800c391285c4065685b910685f0ac64b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312022"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>建立環境與 Azure DevTest Labs 中的獨立 Service Fabric 叢集
@@ -35,7 +35,7 @@ DevTest Labs Azure Resource Management 範本所定義，可以建立獨立的�
     1. 選取 **訂用帳戶**左側導覽功能表中，然後選取您**訂用帳戶**
     2. 在 **訂用帳戶**頁面上，選取**資源提供者**中**設定**左側功能表上的一節。 
     3. 如果**Microsoft.ServiecFabric**並不是已註冊、 select**註冊**。 
-3. 在實驗室的 [DevTest Lab] 頁面上，選取工具列上的 [+ 新增]。 
+3. 在實驗室的 [DevTest Lab]  頁面上，選取工具列上的 [+ 新增]  。 
     
     ![在工具列上加入按鈕](./media/create-environment-service-fabric-cluster/add-button.png)
 3. 在 **選擇基底**頁面上，選取**Service Fabric 實驗室叢集**清單中。 
@@ -96,7 +96,7 @@ Service Fabric 叢集也可以啟動或停止排程。 這項體驗是類似於�
 
 1. 選取 **自動啟動**左側功能表上
 2. 選取 **上**for**允許這個可以排程為自動啟動的 service fabric 叢集**。 實驗室擁有者可以為自動啟動的使用者，他們的虛擬機器或 Service Fabric 叢集時，才啟用此頁面。
-3. 在工具列上選取 [儲存]。 
+3. 在工具列上選取 [儲存]  。 
 
     ![自動星狀 頁面](./media/create-environment-service-fabric-cluster/set-auto-start-settings.png)
 
@@ -110,7 +110,7 @@ Service Fabric 叢集也可以啟動或停止排程。 這項體驗是類似於�
     2. 指定**時區**次。 
     3. 指定是否要傳送的 DevTest Labs**通知**之前自動關閉。 
     4. 如果您選取 **[是]** 通知選項時，指定**Webhook URL**和/或**電子郵件地址**來傳送通知。 
-    5. 在工具列上選取 [儲存]。
+    5. 在工具列上選取 [儲存]  。
 
         ![自動關閉頁面](./media/create-environment-service-fabric-cluster/auto-shutdown-settings.png)
 

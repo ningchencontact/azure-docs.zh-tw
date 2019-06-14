@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: fd7c5fd929163dc7fcd22fbb045dee0fe3070394
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611548"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Microsoft 威脅模型化工具威脅
 
 威脅模型化工具是 Microsoft 安全性開發生命週期 (SDL) 的核心元素。 它可讓軟體架構設計人員及早識別和降低潛在安全性問題的風險，以在問題相對簡單且符合成本效益時加以解決。 因此，可大幅降低總開發成本。 此外，我們在設計此工具時已考慮到非安全性專家的問題，因此可讓所有開發人員更加方便地建立威脅模型，為他們提供清楚說明如何建立和分析威脅模型的指導方針。
 
-> 請造訪**[威脅模型化工具](./azure-security-threat-modeling-tool.md)** 立即開始使用！
+> 請造訪 **[威脅模型化工具](./azure-security-threat-modeling-tool.md)** 立即開始使用！
 
 威脅模型化工具可協助您回答某些問題，例如下列問題︰
 
@@ -48,4 +48,4 @@ ms.locfileid: "60611548"
 
 ## <a name="next-steps"></a>後續步驟
 
-繼續**[威脅模型化工具風險降低](./azure-security-threat-modeling-tool-mitigations.md)** 以了解您可以使用 Azure 緩和這些威脅的不同方式。
+繼續 **[威脅模型化工具風險降低](./azure-security-threat-modeling-tool-mitigations.md)** 以了解您可以使用 Azure 緩和這些威脅的不同方式。

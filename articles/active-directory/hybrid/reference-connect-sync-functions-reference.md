@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381139"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步：函式參考
@@ -81,8 +81,8 @@ ms.locfileid: "60381139"
 | [Join](#join) |[RemoveDuplicates](#removeduplicates) |[Split](#split) | | |
 | **程式流程** | | | | |
 | [Error](#error) |[IIF](#iif) |[選取](#select) |[Switch](#switch) | |
-| [Where](#where) |[With](#with) | | | |
-| **文字** | | | | |
+| [其中](#where) |[With](#with) | | | |
+| **Text** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [Left](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
 | [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Replace](#replace) | |
@@ -109,14 +109,14 @@ BitAnd 函式會在值中設定指定的位元。
 
 **範例：**  
 `BitAnd(&HF, &HF7)`  
- 傳回 7，因為十六進位 "F" AND "F7" 會評估為此值。
+傳回 7，因為十六進位 "F" AND "F7" 會評估為此值。
 
 - - -
 ### <a name="bitor"></a>BitOr
 **說明：**  
 BitOr 函式會在值中設定指定的位元。
 
-**语法：**  
+**語法：**  
 `num BitOr(num value1, num value2)`
 
 * value1，value2：應該使用 OR 連結在一起的數值
@@ -155,10 +155,10 @@ CDate 函式會傳回字串的 UTC DateTime。 DateTime 不是同步處理中的
 
 **範例：**  
 `CDate([employeeStartTime])`  
- 根據員工的開始時間傳回 DateTime
+根據員工的開始時間傳回 DateTime
 
 `CDate("2013-01-10 4:00 PM -8")`  
- 傳回代表 "2013-01-11 12:00 AM" 的 DateTime
+傳回代表 "2013-01-11 12:00 AM" 的 DateTime
 
 
 - - -
@@ -384,7 +384,7 @@ Contains 函式會在多重值屬性內尋找字串
 
 **範例：**  
 `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))`  
- 如果 proxyAddresses 屬性具有主要電子郵件地址 (以大寫 "SMTP:" 表示)，就會傳回 proxyAddress 屬性，否則會傳回錯誤。
+如果 proxyAddresses 屬性具有主要電子郵件地址 (以大寫 "SMTP:" 表示)，就會傳回 proxyAddress 屬性，否則會傳回錯誤。
 
 - - -
 ### <a name="convertfrombase64"></a>ConvertFromBase64
@@ -402,7 +402,7 @@ ConvertFromBase64 函式會將指定的 base64 編碼值轉換為一般字串。
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`  
 `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
-這兩個範例都會傳回 "*Hello world!*"
+這兩個範例都會傳回 "*Hello world!* "
 
 - - -
 ### <a name="convertfromutf8hex"></a>ConvertFromUTF8Hex
@@ -416,11 +416,11 @@ ConvertFromUTF8Hex 函式會將指定的 UTF8 十六進位編碼值轉換為字�
 
 **備註：**  
 此函式與 ConvertFromBase64([],UTF8) 之間的差異在於結果支援 DN 屬性。  
-此格式被 Azure Active Directory 用作 DN。
+Azure Active Directory 會使用此格式做為 DN。
 
 **範例：**  
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
-傳回 "*Hello world!*"
+傳回 "*Hello world!* "
 
 - - -
 ### <a name="converttobase64"></a>ConvertToBase64
@@ -433,7 +433,7 @@ ConvertToBase64 函式會將字串轉換為 Unicode Base64 字串。
 
 **範例：**  
 `ConvertToBase64("Hello world!")`  
- 傳回 "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
+傳回 "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 
 - - -
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
@@ -448,7 +448,7 @@ Azure Active Directory 會使用此函式的輸出格式做為 DN 屬性格式�
 
 **範例：**  
 `ConvertToUTF8Hex("Hello world!")`  
- 傳回 48656C6C6F20776F726C6421
+傳回 48656C6C6F20776F726C6421
 
 - - -
 ### <a name="count"></a>計數
@@ -471,7 +471,7 @@ CNum 函式會取得字串，並傳回數值資料類型。
 **說明：**  
 將字串轉換為參考屬性
 
-**语法：**  
+**語法：**  
 `ref CRef(str value)`
 
 **範例：**  
@@ -491,7 +491,7 @@ CStr 函式會轉換為字串資料類型。
 
 **範例：**  
 `CStr([dn])`  
- 可能傳回 "cn=Joe,dc=contoso,dc=com"
+可能傳回 "cn=Joe,dc=contoso,dc=com"
 
 - - -
 ### <a name="dateadd"></a>DateAdd
@@ -517,7 +517,7 @@ CStr 函式會轉換為字串資料類型。
 
 **範例：**  
 `DateAdd("m", 3, CDate("2001-01-01"))`  
- 新增 3 個月，並傳回代表 "2001-04-01" 的 DateTime。
+新增 3 個月，並傳回代表 "2001-04-01" 的 DateTime。
 
 - - -
 ### <a name="datefromnum"></a>DateFromNum
@@ -530,7 +530,7 @@ DateFromNum 函式會將 AD 日期格式的值轉換為 DateTime 類型。
 **範例：**  
 `DateFromNum([lastLogonTimestamp])`  
 `DateFromNum(129699324000000000)`  
- 傳回代表 2012-01-01 23:00:00 的 DateTime
+傳回代表 2012-01-01 23:00:00 的 DateTime
 
 - - -
 ### <a name="dncomponent"></a>DNComponent
@@ -558,13 +558,13 @@ DNComponentRev 函式會從右邊 (結尾處) 傳回指定 DN 元件的值。
 
 * dn：要解譯的參考屬性
 * ComponentNumber - DN 中要傳回的元件
-* 選項：DC - 忽略所有含 "dc=" 的元件
+* 選項:DC - 忽略所有含 "dc=" 的元件
 
 **範例：**  
 如果 dn 是 "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com"，則  
 `DNComponentRev(CRef([dn]),3)`  
 `DNComponentRev(CRef([dn]),1,"DC")`  
- 兩者都傳回 US。
+兩者都傳回 US。
 
 - - -
 ### <a name="error"></a>Error
@@ -574,7 +574,7 @@ Error 函式是用來傳回自訂錯誤。
 **語法：**  
 `void Error(str ErrorMessage)`
 
-**示例：**  
+**範例：**  
 `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))`  
 如果 accountName 屬性不存在，即會擲回有關物件的錯誤。
 
@@ -607,10 +607,10 @@ FormatDateTime 函式可用來將 DateTime 格式化為具有指定格式的字�
 **範例：**  
 
 `FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")`  
- 結果是 "2007-12-25"。
+結果是 "2007-12-25"。
 
 `FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")`  
- 會產生 "20140905081453.0Z"
+會產生 "20140905081453.0Z"
 
 - - -
 ### <a name="guid"></a>Guid
@@ -657,10 +657,10 @@ InStr 函式會在字串中尋找第一個出現的子字串
 
 **範例：**  
 `InStr("The quick brown fox","quick")`  
- 評估為 5
+評估為 5
 
 `InStr("repEated","e",3,vbBinaryCompare)`  
- 評估為 7
+評估為 7
 
 - - -
 ### <a name="instrrev"></a>InStrRev
@@ -682,7 +682,7 @@ InStrRev 函式會在字串中尋找最後一個出現的子字串
 
 **範例：**  
 `InStrRev("abbcdbbbef","bb")`  
- 傳回 7
+傳回 7
 
 - - -
 ### <a name="isbitset"></a>IsBitSet
@@ -696,7 +696,7 @@ IsBitSet 函式會測試是否已設定位元
 
 **範例：**  
 `IsBitSet(&HF,4)`  
- 因為位元 "4" 是使用十六進位值 "F" 所設定，所以會傳回 True
+因為位元 "4" 是使用十六進位值 "F" 所設定，所以會傳回 True
 
 - - -
 ### <a name="isdate"></a>IsDate
@@ -733,7 +733,7 @@ IsBitSet 函式會測試是否已設定位元
 **語法：**  
 `bool IsGuid(str GUID)`
 
-**备注：**  
+**備註：**  
 GUID 定義為下列其中一種模式的字串： xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 或 {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
 用來判斷 CGuid() 是否可能成功。
@@ -827,7 +827,7 @@ Item 函式可以與 Contains 函式搭配使用，因為後者會將索引傳�
 
 **範例：**  
 `Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
- 會傳回主要電子郵件地址。
+會傳回主要電子郵件地址。
 
 - - -
 ### <a name="itemornull"></a>ItemOrNull
@@ -846,7 +846,7 @@ ItemOrNull 函式可以與 Contains 函式搭配使用，因為後者會將索�
 如果索引超出範圍，則會傳回 Null 值。
 
 - - -
-### <a name="join"></a>Join
+### <a name="join"></a>加入
 **說明：**  
 Join 函式會接受多重值的字串，並傳回單一值的字串，其中每個項目之間都插入指定的分隔符號。
 
@@ -858,7 +858,7 @@ Join 函式會接受多重值的字串，並傳回單一值的字串，其中每
 * delimiter：任何字串，可用來分隔傳回字串中的子字串。 如果省略，即會使用空格字元 (" ")。 如果分隔符號是零長度字串 ("") 或 Nothing，就不會使用分隔符號來串連清單中的所有項目。
 
 **備註**  
- Join 和 Split 函式之間有同位。 Join 函式可接受字串陣列，並使用分隔符號字串來聯結它們，以傳回單一字串。 Split 函式會取得字串並以分隔符號來分隔，以傳回字串陣列。 不過，主要的差別是 Join 可以使用任何分隔符號字串來串連字串，Split 只能使用單一字元分隔符號來分隔字串。
+Join 和 Split 函式之間有同位。 Join 函式可接受字串陣列，並使用分隔符號字串來聯結它們，以傳回單一字串。 Split 函式會取得字串並以分隔符號來分隔，以傳回字串陣列。 不過，主要的差別是 Join 可以使用任何分隔符號字串來串連字串，Split 只能使用單一字元分隔符號來分隔字串。
 
 **範例：**  
 `Join([proxyAddresses],",")`  
@@ -874,7 +874,7 @@ LCase 函式會將字串中的所有字元轉換為小寫。
 
 **範例：**  
 `LCase("TeSt")`  
- 傳回 "test"。
+傳回 "test"。
 
 - - -
 ### <a name="left"></a>Left
@@ -890,15 +890,15 @@ Left 函式會從字串左邊傳回指定的字元數。
 **備註：**  
 包含 string 中前 numChars 個字元的字串：
 
-* 如果 numChar = 0，则返回空字符串。
-* 如果 numChar < 0，则返回输入字符串。
+* 如果 numChars = 0，會傳回空字串。
+* 如果 numChars < 0，會傳回輸入字串。
 * 如果 string 為 Null，會傳回空字串。
 
 如果 string 包含的字元數比 numChars 中指定的數目少，即會傳回與 string 完全相同的字串 (也就是，包含參數 1 中的所有字元)。
 
 **範例：**  
 `Left("John Doe", 3)`  
- 傳回 "Joh"。
+傳回 "Joh"。
 
 - - -
 ### <a name="len"></a>Len
@@ -910,7 +910,7 @@ Len 函式會傳回字串中的字元數。
 
 **範例：**  
 `Len("John Doe")`  
- 傳回 8
+傳回 8
 
 - - -
 ### <a name="ltrim"></a>LTrim
@@ -922,7 +922,7 @@ LTrim 函式會從字串中移除開頭空白字元。
 
 **範例：**  
 `LTrim(" Test ")`  
- 傳回 "Test"
+傳回 "Test"
 
 - - -
 ### <a name="mid"></a>Mid
@@ -950,10 +950,10 @@ Mid 函式會從字串中的指定位置傳回指定的字元數。
 
 **範例：**  
 `Mid("John Doe", 3, 5)`  
- 傳回 "hn Do"。
+傳回 "hn Do"。
 
 `Mid("John Doe", 6, 999)`  
- 傳回 "Doe"
+傳回 "Doe"
 
 - - -
 ### <a name="now"></a>Now
@@ -973,7 +973,7 @@ NumFromDate 函式會以 AD 的日期格式傳回日期。
 
 **範例：**  
 `NumFromDate(CDate("2012-01-01 23:00:00"))`  
- 傳回 129699324000000000
+傳回 129699324000000000
 
 - - -
 ### <a name="padleft"></a>PadLeft
@@ -998,7 +998,7 @@ PadLeft 函式會使用提供的填補字元，將字串左側填補到指定的
 
 **範例：**  
 `PadLeft("User", 10, "0")`  
- 傳回 "000000User"。
+傳回 "000000User"。
 
 - - -
 ### <a name="padright"></a>PadRight
@@ -1023,7 +1023,7 @@ PadRight 函式會使用提供的填補字元，將字串右側填補到指定�
 
 **範例：**  
 `PadRight("User", 10, "0")`  
- 傳回 "User000000"。
+傳回 "User000000"。
 
 - - -
 ### <a name="pcase"></a>PCase
@@ -1039,7 +1039,7 @@ PCase 函式會將字串中每個空格分隔之單字的第一個字元轉換�
 
 **範例：**  
 `PCase("TEsT")`  
- 傳回 "test"。
+傳回 "test"。
 
 `PCase(LCase("TEST"))`  
 傳回 "Test"
@@ -1057,7 +1057,7 @@ RandomNum 函式會傳回指定區間內的隨機數字。
 
 **範例：**  
 `Random(100,999)`  
- 可傳回 734。
+可傳回 734。
 
 - - -
 ### <a name="removeduplicates"></a>RemoveDuplicates
@@ -1067,9 +1067,9 @@ RemoveDuplicates 函式會接受多重值的字串，並確定每個值都是唯
 **語法：**  
 `mvstr RemoveDuplicates(mvstr attribute)`
 
-**示例：**  
+**範例：**  
 `RemoveDuplicates([proxyAddresses])`  
- 傳回處理過的 proxyAddress 屬性，其中已移除所有重複的值。
+傳回處理過的 proxyAddress 屬性，其中已移除所有重複的值。
 
 - - -
 ### <a name="replace"></a>Replace
@@ -1122,10 +1122,10 @@ ReplaceChars 函式會取代 ReplacePattern 字串中找到的所有出現的字
 `%ReplaceString% = ’:,Å:A,Ä:A,Ö:O,å:a,ä:a,ö,o`
 
 `ReplaceChars("Räksmörgås",%ReplaceString%)`  
- 傳回 Raksmorgas
+傳回 Raksmorgas
 
 `ReplaceChars("O’Neil",%ReplaceString%)`  
- 傳回 "ONeil"，已將單一撇號定義為要移除。
+傳回 "ONeil"，已將單一撇號定義為要移除。
 
 - - -
 ### <a name="right"></a>Right
@@ -1144,14 +1144,14 @@ Right 函式會從字串右邊 (結尾處) 傳回指定的字元數。
 包含 string 中最後 numChars 個字元的字串：
 
 * 如果 numChars = 0，會傳回空字串。
-* 如果 numChar < 0，则返回输入字符串。
+* 如果 numChars < 0，會傳回輸入字串。
 * 如果 string 為 Null，會傳回空字串。
 
 如果 string 包含的字元數比 numChars 中指定的數目少，即會傳回與 string 完全相同的字串。
 
 **範例：**  
 `Right("John Doe", 3)`  
- 傳回 "Doe"。
+傳回 "Doe"。
 
 - - -
 ### <a name="rtrim"></a>RTrim
@@ -1163,7 +1163,7 @@ RTrim 函式會從字串移除結尾空白字元。
 
 **範例：**  
 `RTrim(" Test ")`  
- 傳回 "Test"。
+傳回 "Test"。
 
 - - -
 ### <a name="select"></a>选择
@@ -1198,7 +1198,7 @@ Split 函式會接受以分隔符號分隔的字串，並使其成為多重值�
 
 **範例：**  
 `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")`  
- 傳回多重值的字串，其中包含 2 個 proxyAddress 屬性可用的元素。
+傳回多重值的字串，其中包含 2 個 proxyAddress 屬性可用的元素。
 
 - - -
 ### <a name="stringfromguid"></a>StringFromGuid
@@ -1217,7 +1217,7 @@ StringFromSid 函式會將包含安全性識別碼的位元組陣列轉換為字
 `str StringFromSid(bin ObjectSID)`  
 
 - - -
-### <a name="switch"></a>Switch
+### <a name="switch"></a>參數
 **說明：**  
 Switch 函式可用來根據評估的條件傳回單一值。
 
@@ -1243,7 +1243,7 @@ Value 也可以是會傳回自訂字串的 Error 函式。
 
 **範例：**  
 `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))`  
- 傳回一些主要城市中所使用的語言，否則會傳回錯誤。
+傳回一些主要城市中所使用的語言，否則會傳回錯誤。
 
 - - -
 ### <a name="trim"></a>Trim
@@ -1255,10 +1255,10 @@ Trim 函式會從字串移除開頭和結尾的空白字元。
 
 **範例：**  
 `Trim(" Test ")`  
- 傳回 "test"。
+傳回 "test"。
 
 `Trim([proxyAddresses])`  
- 會移除 proxyAddress 屬性中每個值的開頭和結尾空格。
+會移除 proxyAddress 屬性中每個值的開頭和結尾空格。
 
 - - -
 ### <a name="ucase"></a>UCase
@@ -1270,7 +1270,7 @@ UCase 函式會將字串中的所有字元轉換為大寫。
 
 **範例：**  
 `UCase("TeSt")`  
- 傳回 "test"。
+傳回 "test"。
 
 - - -
 ### <a name="where"></a>Where
@@ -1295,7 +1295,7 @@ UCase 函式會將字串中的所有字元轉換為大寫。
 **說明：**  
 With 函式可以簡化複雜的運算式，使用變數代表在複雜運算式中會出現一或多次的子運算式。
 
-**語法：**
+**語法：** 
 `With(var variable, exp subExpression, exp complexExpression)`  
 * variable：代表子運算式。
 * subExpression：變數代表的子運算式。
@@ -1330,10 +1330,10 @@ string 內以 delimiters 其中一個字元來分隔之字元的每個字串，�
 
 **範例：**  
 `Word("The quick brown fox",3," ")`  
- 傳回 "brown"
+傳回 "brown"
 
 `Word("This,string!has&many separators",3,",!&#")`  
- 會傳回 "has"
+會傳回 "has"
 
 ## <a name="additional-resources"></a>其他資源
 * [了解宣告式佈建運算式](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)

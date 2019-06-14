@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
 ms.openlocfilehash: 2f00636da2b29e7815569a683fdf51c6a4e3b0e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393583"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>使用 Eclipse 針對 Java Service Fabric 應用程式進行偵錯
@@ -27,7 +27,7 @@ ms.locfileid: "60393583"
 > * [Eclipse/Java](service-fabric-debugging-your-application-java.md)
 > 
 
-1. 按 [设置 Service Fabric 开发环境](service-fabric-get-started-linux.md)中的步骤创建本地开发群集。
+1. 遵循 [設定 Service Fabric 開發環境](service-fabric-get-started-linux.md)中的步驟來啟動本機開發叢集。
 
 2. 更新您想要偵錯之服務的 entryPoint.sh，使其以遠端偵錯參數開始 Java 處理程序。 您可以在以下位置找到此檔案：`ApplicationName\ServiceNamePkg\Code\entrypoint.sh`。 此範例已設定連接埠 8001 來進行偵錯。
 
@@ -38,7 +38,7 @@ ms.locfileid: "60393583"
 
 4. 部署應用程式。
 
-5. 在 Eclipse IDE 中，選取 [Run] \(執行) -> [Debug Configurations] \(偵錯組態) -> [Remote Java Application and input connection properties] \(遠端 Java 應用程式和輸入連線屬性)，然後依照下列方式設定屬性：
+5. 在 Eclipse IDE 中，選取 [Run] \(執行) -> [Debug Configurations] \(偵錯組態) -> [Remote Java Application and input connection properties] \(遠端 Java 應用程式和輸入連線屬性)  ，然後依照下列方式設定屬性：
 
    ```
    Host: ipaddress

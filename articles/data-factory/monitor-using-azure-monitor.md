@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
 ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60319115"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>使用 Azure 監視器提出警示及監視 Data Factory
@@ -412,7 +412,7 @@ ADFV2 會發出下列計量
 
 啟用資料處理站的 [診斷設定]。
 
-1.  選取 [Azure 監視器] -> [診斷設定] -> 選取資料處理站 -> 開啟診斷。
+1.  選取 [Azure 監視器]   -> [診斷設定]  -> 選取資料處理站 -> 開啟診斷。
 
     ![monitor-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
 
@@ -426,7 +426,7 @@ ADFV2 會發出下列計量
 
 ![monitor-oms-image4.png](media/data-factory-monitor-oms/monitor-oms-image4.png)
 
-按一下 [建立]，然後選取工作區和工作區設定。
+按一下 [建立]  ，然後選取工作區和工作區設定。
 
 ![monitor-oms-image5.png](media/data-factory-monitor-oms/monitor-oms-image5.png)
 
@@ -462,20 +462,20 @@ ADFV2 會發出下列計量
 
 ## <a name="alerts"></a>警示
 
-登入 Azure 入口網站，然後按一下 [監視器]-&gt; [警示] 以建立警示。
+登入 Azure 入口網站，然後按一下 [監視器]-&gt; [警示]  以建立警示。
 
 ![入口網站功能表中的警示](media/monitor-using-azure-monitor/alerts_image3.png)
 
 ### <a name="create-alerts"></a>建立警示
 
-1.  按一下 [+ 新增警示規則] 來新建警示。
+1.  按一下 [+ 新增警示規則]  來新建警示。
 
     ![新增警示規則](media/monitor-using-azure-monitor/alerts_image4.png)
 
 2.  定義**警示條件**。
 
     > [!NOTE]
-    > 請務必在 [依資源類型篩選] 中選取 [全部]。
+    > 請務必在 [依資源類型篩選]  中選取 [全部]  。
 
     ![警示條件畫面 3 之 1](media/monitor-using-azure-monitor/alerts_image5.png)
 

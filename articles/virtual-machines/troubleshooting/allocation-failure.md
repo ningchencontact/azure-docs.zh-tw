@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
 ms.openlocfilehash: 72fbdbcfcd94dd41a67bb81314802dd7314ae463
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60505791"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>在 Azure 中建立、重新啟動或調整 VM 大小時，對配置失敗進行疑難排解
@@ -25,7 +25,7 @@ ms.locfileid: "60505791"
 
 **錯誤碼**：AllocationFailed 或 ZonalAllocationFailed
 
-**錯誤訊息**：「配置失敗。 我們在此區域沒有足夠的容量可供要求的 VM 大小使用。 在 https:\//aka.ms/allocation-guidance 阅读有关提高分配成功可能性的详细信息”
+**錯誤訊息**：「配置失敗。 我們在此區域沒有足夠的容量可供要求的 VM 大小使用。 深入了解提高的配置成功率，請參閱 https:\//aka.ms/allocation-guidance"
 
 本文說明一些常見的配置失敗原因，並建議可能的補救方法。
 
@@ -96,10 +96,10 @@ ms.locfileid: "60505791"
 
 ## <a name="background-information"></a>背景資訊
 ### <a name="how-allocation-works"></a>配置的運作方式
-Azure 資料中心的伺服器分割成叢集。 通常會嘗試向多個叢集提出配置要求，但配置要求可能帶有某些條件約束，而強制 Azure 平台只嘗試向一個叢集提出要求。 在本文中，這種情況稱為「釘選到叢集」。 下图 1 演示了在多个群集中尝试进行一般分配的情况。 圖 2 說明釘選到叢集 2 的配置案例，因為叢集 2 是現有雲端服務 CS_1 或可用性設定組的裝載位置。
+Azure 資料中心的伺服器分割成叢集。 通常會嘗試向多個叢集提出配置要求，但配置要求可能帶有某些條件約束，而強制 Azure 平台只嘗試向一個叢集提出要求。 在本文中，這種情況稱為「釘選到叢集」。 下圖 1 說明於嘗試向多個叢集提出一般配置的情況。 圖 2 說明釘選到叢集 2 的配置案例，因為叢集 2 是現有雲端服務 CS_1 或可用性設定組的裝載位置。
 ![配置圖表](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
-### <a name="why-allocation-failures-happen"></a>发生分配失败的原因
+### <a name="why-allocation-failures-happen"></a>配置失敗的原因
 當配置要求已釘選到叢集時，由於可用的資源集區較小，很可能找不到可用的資源。 此外，如果配置要求已釘選到叢集，但該叢集不支援您所要求的資源類型，即使叢集有可用的資源，您的要求仍會失敗。 下面圖 3 說明因為唯一候選叢集沒有可用的資源，而導致已釘選的配置發生失敗的情況。 圖 4 說明因唯一候選叢集不支援所要求的 VM 大小 (雖然叢集有可用的資源)，而導致已釘選的配置失敗的情況。
 
 ![釘選配置失敗](./media/virtual-machines-common-allocation-failure/Allocation2.png)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
 ms.openlocfilehash: 0aa00af543a3d21db9b8ad0ed808a8bff0b534e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60200136"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
@@ -75,7 +75,7 @@ clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareNam
 ### <a name="list-clouddrive"></a>列出 `clouddrive`
 若要探索掛接為 `clouddrive` 的檔案共用，請執行 `df` 命令。 
 
-clouddrive 檔案路徑會在 URL 中顯示您的儲存體帳戶名稱和檔案共用。 例如， `//storageaccountname.file.core.windows.net/filesharename`
+clouddrive 檔案路徑會在 URL 中顯示您的儲存體帳戶名稱和檔案共用。 例如： `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df

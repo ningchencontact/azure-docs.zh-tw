@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 4500fcfa6fbfb346a6e5c7fd045ba0046a901b91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60561592"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中重新部署實驗室中的 VM
@@ -28,14 +28,14 @@ ms.locfileid: "60561592"
 若要在 Azure DevTest Labs 中重新部署實驗室中的 VM，請進行下列步驟： 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
+2. 選取 [所有服務]  ，然後從清單中選取 [DevTest Labs]  。
 3. 從實驗室清單中，選取包含您想要重新部署之 VM 的實驗室。  
-4. 在左面板中，選取 [我的虛擬機器]。 
+4. 在左面板中，選取 [我的虛擬機器]  。 
 5. 從 VM 清單中，選取 VM。
-6. 在您 VM 的 [虛擬機器] 頁面中，選取左側功能表中 [作業] 底下的 [重新部署]。
+6. 在您 VM 的 [虛擬機器] 頁面中，選取左側功能表中 [作業]  底下的 [重新部署]  。
 
     ![重新部署](media/devtest-lab-redeploy-vm/redeploy.png)
-7. 閱讀頁面上的資訊，然後選取 [重新部署] 按鈕。 9. 查看 [通知] 視窗中重新部署作業的狀態。
+7. 閱讀頁面上的資訊，然後選取 [重新部署]  按鈕。 9. 查看 [通知]  視窗中重新部署作業的狀態。
 
     ![重新部署狀態](media/devtest-lab-redeploy-vm/redeploy-status.png)
 

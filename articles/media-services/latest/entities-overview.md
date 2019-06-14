@@ -13,10 +13,10 @@ ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 28c880e8709074d808a41d9920361eaa2b20ecc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60732360"
 ---
 # <a name="filtering-ordering-paging-of-media-services-entities"></a>媒體服務實體的篩選、排序、分頁
@@ -95,7 +95,7 @@ while (currentPage.NextPageLink != null)
 
 #### <a name="rest-example"></a>REST 範例
 
-請參考下列使用 $skiptoken 的範例。 請務必將 amstestaccount 取代為您的帳戶名稱，並將 api-version 值設為最新版本。
+請參考下列使用 $skiptoken 的範例。 請務必將 amstestaccount  取代為您的帳戶名稱，並將 api-version  值設為最新版本。
 
 如果您要求的資產清單如下：
 
@@ -141,7 +141,7 @@ https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/
 
 下表說明這些選項如何套用至[內容金鑰原則](https://docs.microsoft.com/rest/api/media/contentkeypolicies)屬性： 
 
-|名稱|Filter|順序|
+|Name|Filter|順序|
 |---|---|---|
 |id|||
 |name|eq、ne、ge、le、gt、lt|遞增和遞減|
@@ -176,7 +176,7 @@ while (currentPage.NextPageLink != null)
 
 下表說明這些選項如何套用至[作業](https://docs.microsoft.com/rest/api/media/jobs)屬性： 
 
-| 名稱    | Filter                        | 順序 |
+| Name    | Filter                        | 順序 |
 |---------|-------------------------------|-------|
 | name                    | eq            | 遞增和遞減|
 | properties.state        | eq、ne        |                         |
@@ -223,7 +223,7 @@ while (!exit);
 
 下表顯示這些選項可如何套用至 StreamingLocator 屬性： 
 
-|名稱|Filter|順序|
+|Name|Filter|順序|
 |---|---|---|
 |id |||
 |name|eq、ne、ge、le、gt、lt|遞增和遞減|

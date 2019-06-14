@@ -17,10 +17,10 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74607f6a746558238ead65036d708b515d370035
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60441310"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>在 PIM 中檢視 Azure 資源角色的活動和稽核記錄
@@ -33,11 +33,11 @@ ms.locfileid: "60441310"
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure 資源]。
+1. 按一下 [Azure 資源]  。
 
 1. 按一下您想要檢視其活動及啟用的資源。
 
-1. 按一下 [角色] 或 [成員]。
+1. 按一下 [角色]  或 [成員]  。
 
 1. 按一下某個使用者。
 
@@ -55,17 +55,17 @@ ms.locfileid: "60441310"
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure 資源]。
+1. 按一下 [Azure 資源]  。
 
 1. 按一下您想要匯出其角色指派的資源，例如訂用帳戶。
 
-1. 按一下 [成員]。
+1. 按一下 [成員]  。
 
-1. 按一下 [匯出] 來開啟 [匯出成員資格] 窗格。
+1. 按一下 [匯出]  來開啟 [匯出成員資格] 窗格。
 
     ![匯出成員資格窗格](media/azure-pim-resource-rbac/export-membership.png)
 
-1. 按一下 [匯出所有成員]，匯出 CSV 檔案中的所有角色指派。
+1. 按一下 [匯出所有成員]  ，匯出 CSV 檔案中的所有角色指派。
 
     ![匯出 CSV 檔案](media/azure-pim-resource-rbac/export-csv.png)
 
@@ -75,21 +75,21 @@ ms.locfileid: "60441310"
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure 資源]。
+1. 按一下 [Azure 資源]  。
 
 1. 按一下您想要檢視其稽核記錄的資源。
 
-1. 按一下 [資源稽核]。
+1. 按一下 [資源稽核]  。
 
 1. 使用預先定義的日期或自訂範圍篩選記錄。
 
     ![篩選資源稽核](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
-1. 在 [稽核類型] 中，選取 [啟動 (已指派 + 已啟動)]。
+1. 在 [稽核類型]  中，選取 [啟動 (已指派 + 已啟動)]  。
 
     ![活動詳細資料](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
-1. 在 [動作] 底下，按一下使用者的 [(活動)] 以查看該使用者在 Azure 資源中的活動詳細資料。
+1. 在 [動作]  底下，按一下使用者的 [(活動)]  以查看該使用者在 Azure 資源中的活動詳細資料。
 
     ![使用者活動詳細資料](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
@@ -99,11 +99,11 @@ ms.locfileid: "60441310"
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure 資源]。
+1. 按一下 [Azure 資源]  。
 
 1. 按一下您想要檢視其稽核記錄的資源。
 
-1. 按一下 [我的稽核]。
+1. 按一下 [我的稽核]  。
 
 1. 使用預先定義的日期或自訂範圍篩選記錄。
 

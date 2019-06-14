@@ -15,80 +15,80 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: yegu
 ms.openlocfilehash: 4254175955c3560c7bd0fdd08c6b60c318238b76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60552286"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-cache-for-redis"></a>如何設定 Azure Cache for Redis 的異地複寫
 
-異地複寫提供一個機制，可連結兩個進階層 Azure Cache for Redis 執行個體。 一个缓存选作主链接缓存，另一个缓存指定为辅助链接缓存。 次要連結快取會變成唯讀，而寫入主要快取的資料會複寫至次要連結快取。 這項功能可用來跨 Azure 區域複寫快取。 本文提供的指南說明如何設定進階層 Azure Cache for Redis 執行個體的異地複寫。
+異地複寫提供一個機制，可連結兩個進階層 Azure Cache for Redis 執行個體。 一個快取會被選為主要連結快取，而另一個則為次要連結快取。 次要連結快取會變成唯讀，而寫入主要快取的資料會複寫至次要連結快取。 這項功能可用來跨 Azure 區域複寫快取。 本文提供的指南說明如何設定進階層 Azure Cache for Redis 執行個體的異地複寫。
 
 ## <a name="geo-replication-prerequisites"></a>異地複寫的必要條件
 
 若要設定兩個快取之間的異地複寫，必須符合下列必要條件：
 
-- 这两个缓存是[高级层](cache-premium-tier-intro.md)缓存。
-- 这两个缓存在同一 Azure 订阅中。
-- 辅助链接缓存的大小等于或大于主链接缓存的大小。
-- 这两个缓存都已创建且处于运行状态。
+- 這兩個快取[進階層](cache-premium-tier-intro.md)會快取。
+- 這兩個快取位於相同的 Azure 訂用帳戶。
+- 次要連結快取是快取大小相同或較大的快取大小超過主要連結快取。
+- 這兩個快取會建立並處於執行中狀態。
 
-异地复制不支持某些功能：
+使用異地複寫不支援某些功能：
 
-- 异地复制不支持持久性。
-- 如果这两个缓存都启用了群集功能并且具有相同数目的分片，则支持群集。
-- 支持同一 VNET 中的缓存。
-- 也支持不同 VNET 中的缓存，但需要注意一些问题。 有关详细信息，请参阅[当缓存位于 VNET 中时是否可以使用异地复制？](#can-i-use-geo-replication-with-my-caches-in-a-vnet)。
+- 異地複寫不支援持續性。
+- 如果這兩個快取啟用叢集，而且相同的分區數目，則支援叢集。
+- 支援相同的 VNET 中的快取。
+- 支援不同 Vnet 中的快取的注意事項。 請參閱[可以使用異地複寫搭配 VNET 中的快取？](#can-i-use-geo-replication-with-my-caches-in-a-vnet)如需詳細資訊。
 
 在設定異地複寫之後，下列限制適用於連結的快取組：
 
 - 次要連結快取是唯讀的；您可以從中讀取，但無法寫入任何資料。 
-- 任何將連結新增之前就已在次要連結快取中的資料都會加以移除。 但如果以后删除了异地复制，复制的数据则会保留在辅助链接缓存中。
-- 链接缓存时无法[缩放](cache-how-to-scale.md)任一缓存。
-- 如果缓存已启用群集功能，则无法[更改分片数目](cache-how-to-premium-clustering.md)。
+- 任何將連結新增之前就已在次要連結快取中的資料都會加以移除。 如果地理複寫晚不過，移除複寫的資料會保留在次要連結快取中。
+- 您不能[擴展](cache-how-to-scale.md)時快取連結在任一個快取。
+- 您不能[變更分區數目](cache-how-to-premium-clustering.md)如果快取已啟用叢集。
 - 您無法啟用任一個快取的持續性。
-- 可以从任一缓存[导出](cache-how-to-import-export-data.md#export)。
-- 无法[导入](cache-how-to-import-export-data.md#import)到辅助链接缓存。
-- 只有在取消链接缓存之后，才可以删除任一链接缓存或包含它们的资源组。 如需詳細資訊，請參閱[當我嘗試刪除連結快取時，作業失敗的原因？](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
-- 如果缓存位于不同的区域，网络传出费用将适用于在区域之间移动的数据。 如需詳細資訊，請參閱[跨 Azure 區域複寫我的資料需要多少費用？](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
-- 主要和辅助链接缓存之间不会发生自动故障转移。 有关如何故障转移客户端应用程序的详细信息，请参阅[如何故障转移到辅助链接缓存？](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- 您可以[匯出](cache-how-to-import-export-data.md#export)從任一個快取。
+- 您不能[匯入](cache-how-to-import-export-data.md#import)到次要連結快取。
+- 您無法刪除連結快取或包含它們，直到您取消連結快取的資源群組。 如需詳細資訊，請參閱[當我嘗試刪除連結快取時，作業失敗的原因？](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
+- 如果快取位於不同區域中，網路輸出費用適用於在區域之間移動資料。 如需詳細資訊，請參閱[跨 Azure 區域複寫我的資料需要多少費用？](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
+- 主要和次要連結快取之間，不進行自動容錯移轉。 如需詳細資訊和如何容錯移轉的用戶端應用程式的詳細資訊，請參閱[容錯移轉至次要連結快取如何運作？](#how-does-failing-over-to-the-secondary-linked-cache-work)
 
 ## <a name="add-a-geo-replication-link"></a>新增異地複寫連結
 
-1. 若要将两个缓存链接到一起以进行异地复制，请先在要用作主链接缓存的缓存的“资源”菜单中单击“异地复制”。 接下来，在“异地复制”边栏选项卡中单击“添加缓存复制链接”。
+1. 若要將兩個快取連結在一起進行異地複寫，通過拳擊第按一下**異地複寫**從快取的資源功能表要設為主要連結快取。 接下來，按一下**新增快取複寫連結**從**異地複寫**刀鋒視窗。
 
     ![新增連結](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
 
-2. 在“兼容的缓存”列表中，单击所需辅助缓存的名称。 如果列表中未显示辅助缓存，请确认是否符合辅助缓存的[异地复制先决条件](#geo-replication-prerequisites)。 若要按区域筛选缓存，请在地图中单击相应的区域，以便仅显示“兼容的缓存”列表中的缓存。
+2. 按一下您想要的次要快取中的名稱**相容的快取**清單。 如果您的次要快取未顯示在清單中，確認[異地複寫的必要條件](#geo-replication-prerequisites)符合次要快取。 若要篩選依區域的快取，按一下地圖來顯示這些中的快取中的區域**相容的快取**清單。
 
     ![異地複寫相容的快取](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
     
-    还可以使用上下文菜单启动链接过程或查看辅助缓存的详细信息。
+    您也可以啟動連結的程序，或使用操作功能表，檢視有關次要快取的詳細資料。
 
     ![異地複寫操作功能表](./media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png)
 
-3. 按一下 [連結] 可將兩個快取連結在一起，並開始複寫流程。
+3. 按一下 [連結]  可將兩個快取連結在一起，並開始複寫流程。
 
     ![連結快取](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
-4. 您可以在 [異地複寫] 刀鋒視窗上檢視複寫流程的進度。
+4. 您可以在 [異地複寫]  刀鋒視窗上檢視複寫流程的進度。
 
     ![連結狀態](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
 
-    您也可以在 [概觀]刀鋒視窗上檢視主要和次要快取的連結狀態。
+    您也可以在 [概觀]  刀鋒視窗上檢視主要和次要快取的連結狀態。
 
     ![快取狀態](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    一旦複寫程序完成之後，[連結狀態] 會變為 [成功]。
+    一旦複寫程序完成之後，[連結狀態]  會變為 [成功]  。
 
     ![快取狀態](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 
-    在链接过程中，主链接缓存仍然可用。 在链接过程完成之前，辅助链接缓存将不可用。
+    在 連結的程序期間，主要連結快取仍然可供使用。 連結的程序完成之前，次要連結快取無法使用。
 
 ## <a name="remove-a-geo-replication-link"></a>移除異地複寫連結
 
-1. 若要將兩個快取之間的連結移除並停止異地複寫，請從 [異地複寫] 刀鋒視窗按一下 [取消連結快取]。
+1. 若要將兩個快取之間的連結移除並停止異地複寫，請從 [異地複寫]  刀鋒視窗按一下 [取消連結快取]  。
     
     ![取消連結快取](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
@@ -123,13 +123,13 @@ ms.locfileid: "60552286"
 
 ### <a name="is-my-cache-available-for-use-during-the-linking-or-unlinking-process"></a>在連結或取消連結流程期間，快取是否可供使用？
 
-- 链接时，主链接缓存自始至终保持可用。
-- 链接时，在链接过程完成之前，辅助链接缓存将不可用。
-- 取消链接时，这两个缓存自始至终保持可用。
+- 連結時，主要連結快取仍可使用連結的程序完成時。
+- 連結時，次要連結快取連結流程完成之前無法使用。
+- 取消連結，則取消連結流程完成時，仍會提供兩個快取。
 
 ### <a name="can-i-link-more-than-two-caches-together"></a>可以同時連結兩個以上的快取嗎？
 
-不可以，只能将两个缓存链接到一起。
+否，您只可以同時連結兩個快取。
 
 ### <a name="can-i-link-two-caches-from-different-azure-subscriptions"></a>可以將不同 Azure 訂用帳戶中的兩個快取加以連結嗎？
 
@@ -145,50 +145,50 @@ ms.locfileid: "60552286"
 
 ### <a name="can-i-use-geo-replication-with-my-caches-in-a-vnet"></a>可以使用異地複寫搭配 VNET 中的快取嗎？
 
-可以，支持对 VNET 中的缓存进行异地复制，但需要注意以下问题：
+是，Vnet 中的快取的異地複寫可支援注意事項：
 
 - 支援在相同 VNET 中多個快取之間的異地複寫。
-- 也支持在不同 VNET 中的缓存之间进行异地复制。
-  - 如果 VNET 位于同一区域，则可以使用 [VNET 对等互连](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)或 [VPN 网关 VNET 到 VNET 连接](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V)来连接 VNET。
-  - 如果 VNET 位于不同的区域，则不支持使用 VNET 对等互连进行异地复制，因为基本内部负载均衡器存在约束。 有关 VNET 对等互连约束的详细信息，请参阅[虚拟网络 - 对等互连 - 要求和约束](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)。 建议的解决方法是使用 VPN 网关 VNET 到 VNET 连接。
+- 也支援不同 Vnet 中的快取之間的異地複寫。
+  - 如果 Vnet 位於相同的區域，您可以將它們連接使用[VNET 對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)或是[VPN 閘道 VNET 對 VNET 連線](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V)。
+  - 如果 Vnet 位於不同區域中異地複寫使用 VNET 對等互連不受支援，因為基本的內部負載平衡器的條件約束。 如需 VNET 對等互連的條件約束的詳細資訊，請參閱[虛擬網路對等互連-需求和限制](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)。 建議的解決方案是使用 VPN 閘道 VNET 對 VNET 連線。
 
-使用[此 Azure 模板](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/)可以快速将两个异地复制的缓存部署到通过 VPN 网关 VNET 到 VNET 连接进行连接的 VNET 中。
+使用[這個 Azure 範本](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/)，您可以快速地部署兩個的異地複寫快取，到連接的 VPN 閘道 VNET 對 VNET 連線的 VNET。
 
 ### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>哪個複寫排程適用於 Redis 異地複寫？
 
-复制是持续异步进行的，而不是按特定的计划进行。 针对主缓存的所有写入会即时异步复制到辅助缓存。
+複寫是連續且非同步的而且不會發生在特定排程。 完成到主要複本的所有寫入會立即並以非同步方式都複寫的次要複本上。
 
 ### <a name="how-long-does-geo-replication-replication-take"></a>異地複寫需要花費多久的時間？
 
-复制是增量、异步且持续的，所需时间与区域间的延迟并无太大区别。 在某些情况下，辅助缓存可能需要对主缓存中的数据进行完全同步。 在这种情况下，复制时间取决于多个因素，例如：主缓存上的负载、可用网络带宽和区域间的延迟。 我们发现，在一个异地复制对之间完整复制 53 GB 的内容可能需要 5-10 分钟时间。
+複寫是累加式、 非同步和持續和跨區域所花費的時間不太大的延遲。 在某些情況下，次要快取可能必須從主要進行完整同步處理的資料。 在此情況下複寫時間會取決於許多因素，例如： 主要快取、 可用的網路頻寬和區域間延遲上的負載。 我們發現完整 53 GB 異地複寫配對的複寫時間會介於 5 到 10 分鐘。
 
 ### <a name="is-the-replication-recovery-point-guaranteed"></a>是否保證複寫復原點？
 
-对于异地复制模式下的缓存，会禁用持久性。 如果取消链接异地复制对（例如，客户发起了故障转移），则辅助缓存会保留在该时间点之前的同步数据。 在此类情况下，不提供恢复点保证。
+在異地複寫模式中的快取，會停用持續性。 如果未連結，例如由客戶起始的容錯移轉的異地複寫 」 組，次要連結快取會保留其同步處理的資料，當時的時間為止。 在此情況下不保證任何復原點。
 
-若要获取某个恢复点，请从任一缓存[导出](cache-how-to-import-export-data.md#export)。 以后可以[导入](cache-how-to-import-export-data.md#import)到主链接缓存。
+若要取得復原點，[匯出](cache-how-to-import-export-data.md#export)從任一個快取。 您可以稍後[匯入](cache-how-to-import-export-data.md#import)到主要連結快取。
 
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>可以使用 PowerShell 或 Azure CLI 管理異地複寫嗎？
 
-是的，可以使用 Azure 门户、PowerShell 或 Azure CLI 管理异地复制。 有关详细信息，请参阅 [PowerShell 文档](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache)或 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest)。
+是，您可以使用 Azure 入口網站、 PowerShell 或 Azure CLI 來管理異地複寫。 如需詳細資訊，請參閱 < [PowerShell 文件](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache)或是[Azure CLI 文件](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest)。
 
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>跨 Azure 區域複寫我的資料需要多少費用？
 
-使用異地複寫時，主要連結快取的資料會複寫到次要連結快取。 如果两个链接缓存位于同一区域，则数据传输不会产生费用。 如果两个链接缓存位于不同的区域，则数据传输费用是跨任一区域移动数据所产生的网络传出费用。 如需詳細資訊，請參閱[頻寬定價詳細資料](https://azure.microsoft.com/pricing/details/bandwidth/)。
+使用異地複寫時，主要連結快取的資料會複寫到次要連結快取。 如果兩個連結快取位於相同區域中，沒有資料傳輸為免費。 如果兩個連結快取位於不同區域中，資料傳輸費用會是在其中一個區域之間移動資料的網路輸出成本。 如需詳細資訊，請參閱[頻寬定價詳細資料](https://azure.microsoft.com/pricing/details/bandwidth/)。
 
 ### <a name="why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache"></a>當我嘗試刪除連結快取時，作業失敗的原因？
 
-在删除异地复制链接之前，无法删除已链接的异地复制缓存及其资源组。 如果您嘗試將包含一個或兩個連結快取的資源群組刪除，就會將資源群組中的其他資源刪除，但資源群組會保留在 `deleting` 狀態，而資源群組中的任何連結快取會維持 `running` 狀態。 若要完全删除资源组及其包含的链接缓存，请根据[删除异地复制链接](#remove-a-geo-replication-link)中所述取消链接这些缓存。
+無法刪除異地複寫的快取和其資源群組，而連結到您移除異地複寫連結為止。 如果您嘗試將包含一個或兩個連結快取的資源群組刪除，就會將資源群組中的其他資源刪除，但資源群組會保留在 `deleting` 狀態，而資源群組中的任何連結快取會維持 `running` 狀態。 若要完全刪除資源群組和連結的快取中，取消連結快取中所述[移除異地複寫連結](#remove-a-geo-replication-link)。
 
 ### <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>要將次要連結快取用於哪個區域？
 
-一般而言，建议将缓存放置在应用程序所在的同一 Azure 区域，便于应用程序访问。 对于使用单独主要区域和故障回复区域的应用程序，建议将主缓存和辅助缓存放置在这些区域。 如需配對區域的詳細資訊，請參閱[最佳做法 – Azure 配對的區域](../best-practices-availability-paired-regions.md)。
+一般情況下，建議您快取中存取它的應用程式位於相同 Azure 區域。 對於具有不同的主要和後援區域的應用程式，建議您的主要和次要快取位於這些相同的區域。 如需配對區域的詳細資訊，請參閱[最佳做法 – Azure 配對的區域](../best-practices-availability-paired-regions.md)。
 
 ### <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>容錯移轉至次要連結快取如何運作？
 
-异地复制的缓存不支持跨 Azure 区域的自动故障转移。 在灾难恢复方案中，客户应该在其备份区域中以协调的方式启动整个应用程序堆栈。 让单个应用程序组件自行决定何时切换到其备份区域可能会给性能造成负面影响。 Redis 的主要优势之一是，它是一个延迟极低的存储。 如果客户的主要应用程序与其缓存位于不同的区域，则增大的往返时间可能会对性能产生显著的影响。 因此，我们应该避免自动故障转移，否则会造成暂时性的可用性问题。
+跨 Azure 區域的自動容錯移轉不支援異地複寫的快取。 在災害復原案例中，客戶應該會顯示整個應用程式堆疊中協調的方式在其備份的區域中。 讓個別的應用程式元件決定何時要切換至其自己的備份可以效能產生負面影響。 Redis 的主要優點之一是它是非常低延遲存放區。 如果客戶的主要應用程式在其快取以外的不同區域中，新增的來回時間會對效能的一個明顯的影響。 基於這個理由，我們避免自動容錯移轉因為暫時性的可用性問題。
 
-若要启动客户发起的故障转移，请先取消链接缓存。 然后将 Redis 客户端更改为使用（以前链接的）辅助缓存的连接终结点。 取消链接两个缓存后，辅助缓存将再次成为常规的读取写入缓存，并直接从 Redis 客户端接受请求。
+若要啟動由客戶起始的容錯移轉，您必須先取消連結快取。 然後，變更您的 Redis 用戶端使用 （先前稱為連結） 次要快取的 「 連線 」 端點。 取消連結兩個快取時，次要快取就會再次變成一般的讀寫快取，並接受直接來自 Redis 用戶端要求。
 
 ## <a name="next-steps"></a>後續步驟
 

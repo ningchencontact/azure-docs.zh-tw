@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 704bb409d2b21e2ae258dbb2d627b1c088d80db7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254643"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>使用 Microsoft Azure 備份伺服器或 System Center DPM 備份的支援矩陣
@@ -75,7 +75,7 @@ Azure 備份可以備份 DPM/MABS 會執行下列作業系統的執行個體。 
 
 **案例** | **DPM/MABS** 
 --- | --- 
-**Azure VM 上的 MABS** |  Windows Server 2012 R2。<br/><br/> Windows 2016 資料中心。<br/><br/> Windows 2019 資料中心。<br/><br/> 我們建議您先從 marketplace 映像。<br/><br/> 最小 A2 標準，具備雙核心及 3.5 GB 的 RAM。 
+**Azure VM 上的 MABS** | Windows Server 2012 R2。<br/><br/> Windows 2016 資料中心。<br/><br/> Windows 2019 資料中心。<br/><br/> 我們建議您先從 marketplace 映像。<br/><br/> 最小 A2 標準，具備雙核心及 3.5 GB 的 RAM。 
 **Azure VM 上的 DPM** | System Center 2012 R2 (含 Update 3 或更新版本)。<br/><br/> 符合 [System Center 需求](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server)的 Windows 作業系統。<br/><br/> 我們建議您先從 marketplace 映像。<br/><br/> 最小 A2 標準，具備雙核心及 3.5 GB 的 RAM。 
 **內部部署 MABS** | 支援的 64 位元作業系統：<br/><br/> MABS v3 和更新版本：Windows Server 2019 (Standard、 Datacenter、 Essentials)。 <br/><br/> MABS v2 和更新版本：Windows Server 2016 (Standard、 Datacenter、 Essentials)。<br/><br/> 所有 MABS 版本：Windows Server 2012 R2 中，Windows Server 2012 (Standard、 Datacenter、 Foundation)。<br/><br/>所有 MABS 版本：Windows Storage Server 2012 R2，Windows Server 2012 （Standard、 Workgroup）。
 **內部部署 DPM** | 實體伺服器/Hyper-V VM：System Center 2012 SP1 或更新版本。<br/><br/> VMware VM：System Center 2012 R2 (含 Update 5 或更新版本)。 

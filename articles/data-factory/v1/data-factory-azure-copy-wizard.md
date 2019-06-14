@@ -15,15 +15,15 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d13e304b0d10e8bd34d306426f1f9164bcc6be94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567668"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Azure Data Factory 複製精靈
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 
+> 本文適用於 Data Factory 第 1 版。 
 
 Azure Data Factory 複製精靈簡化內嵌資料的程序，這通常是端對端資料整合案例中的第一個步驟。 逐步執行 Azure Data Factory 複製精靈時，您不需要了解任何用於連結服務、資料集和管線的 JSON 定義。 精靈會自動建立管線，將資料從選取的資料來源複製到選取的目的地。 此外，複製精靈可協助您在撰寫時驗證內嵌的資料。 這樣可節省時間，尤其是當您第一次從資料來源內嵌資料時更是如此。 若要啟動複製精靈，請在 Data Factory 首頁按一下 [複製資料]  圖格。
 
@@ -66,7 +66,7 @@ Azure Data Factory 複製精靈簡化內嵌資料的程序，這通常是端對�
 ![驗證運算式](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>篩選 Azure Blob 資料夾中的資料
-您可以在資料夾路徑中使用變數，以複製在執行階段根據[系統變數](data-factory-functions-variables.md#data-factory-system-variables)決定之資料夾內的資料。 支援的變數包括︰**{year}**、**{month}**、**{day}**、**{hour}**、**{minute}** 及 **{custom}**。 例如︰inputfolder/{year}/{month}/{day}。
+您可以在資料夾路徑中使用變數，以複製在執行階段根據[系統變數](data-factory-functions-variables.md#data-factory-system-variables)決定之資料夾內的資料。 支援的變數包括︰ **{year}** 、 **{month}** 、 **{day}** 、 **{hour}** 、 **{minute}** 及 **{custom}** 。 例如︰inputfolder/{year}/{month}/{day}。
 
 假設您的輸入資料夾格式如下︰
 
@@ -75,11 +75,11 @@ Azure Data Factory 複製精靈簡化內嵌資料的程序，這通常是端對�
     2016/03/01/03
     ...
 
-按一下 [檔案或資料夾] 的 [瀏覽] 按鈕、瀏覽至其中一個資料夾 (例如 2016->03->01->02)，然後按一下 [選擇]。 您應該會在文字方塊中看到 `2016/03/01/02`。 現在，將 **2016** 取代為 **{year}**、**03** 取代為 **{month}**、**01** 取代為 **{day}**，以及 **02** 取代為 **{hour}**，然後按 **Tab** 鍵。 您應該會看到選取這四個變數之格式的下拉式清單︰
+按一下 [檔案或資料夾]  的 [瀏覽]  按鈕、瀏覽至其中一個資料夾 (例如 2016->03->01->02)，然後按一下 [選擇]  。 您應該會在文字方塊中看到 `2016/03/01/02`。 現在，將 **2016** 取代為 **{year}** 、**03** 取代為 **{month}** 、**01** 取代為 **{day}** ，以及 **02** 取代為 **{hour}** ，然後按 **Tab** 鍵。 您應該會看到選取這四個變數之格式的下拉式清單︰
 
 ![使用系統變數](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-如下列螢幕擷取畫面所示，您也可以使用 **custom** 變數和任何[支援的格式字串](https://msdn.microsoft.com/library/8kb3ddd4.aspx)。 若要選取具有該結構的資料夾，請先使用 [瀏覽] 按鈕。 然後將值取代為 **{custom}**，並按 **Tab** 鍵來查看可輸入格式字串的文字方塊。     
+如下列螢幕擷取畫面所示，您也可以使用 **custom** 變數和任何[支援的格式字串](https://msdn.microsoft.com/library/8kb3ddd4.aspx)。 若要選取具有該結構的資料夾，請先使用 [瀏覽]  按鈕。 然後將值取代為 **{custom}** ，並按 **Tab** 鍵來查看可輸入格式字串的文字方塊。     
 
 ![使用自訂變數](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 

@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646702"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>使用 REST API 建立 Azure 復原服務保存庫
@@ -46,11 +46,11 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 |名稱  |必要項  |類型  |描述  |
 |---------|---------|---------|---------|
-|etag     |         |   字串      |  選擇性 eTag       |
+|eTag     |         |   字串      |  選擇性 eTag       |
 |location     |  true       |字串         |   資源位置      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  保存庫的屬性       |
 |sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    識別每個 Azure 資源的唯一系統識別碼     |
-|tags     |         | Object        |     資源標籤    |
+|标记     |         | Object        |     資源標籤    |
 
 請注意，保存庫名稱和資源群組名稱會在 PUT URI 中提供。 要求本文會定義位置。
 
@@ -68,13 +68,13 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 }
 ```
 
-## <a name="responses"></a>回應
+## <a name="responses"></a>Responses
 
 建立或更新復原服務保存庫的作業會有兩個成功的回應：
 
-|名稱  |類型  |描述  |
+|Name  |類型  |描述  |
 |---------|---------|---------|
-|200 確定     |   [保存庫](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
+|200 確定     |   [保存庫](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | [確定]        |
 |201 Created     | [保存庫](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   建立時間      |
 
 如需 REST API 回應的詳細資訊，請參閱[處理回應訊息](/rest/api/azure/#process-the-response-message)。

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538095"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>開始使用要求和回應元件
@@ -57,7 +57,7 @@ HTTP 回應動作只適用於在 HTTP 要求所觸發的工作流程中使用時
 以下是新增 HTTP 回應動作的方法︰
 
 1. 選取 [新增步驟]  按鈕。
-2. 選擇 [新增動作] 。
+2. 選擇 [新增動作]  。
 3. 在動作搜尋方塊中，輸入 **回應** 以列出回應動作。
    
     ![選取回應動作](./media/connectors-native-reqres/using-action-1.png)
@@ -76,7 +76,7 @@ HTTP 回應動作只適用於在 HTTP 要求所觸發的工作流程中使用時
 ## <a name="response-action"></a>回應動作
 以下是此連接器所支援動作的詳細資料。 只有一個回應動作，此動作只能在伴隨要求觸發程序時使用。
 
-|  動作 | 描述 |
+| 動作 | 描述 |
 | --- | --- |
 | Response |傳回相互關聯的 HTTP 要求的回應 |
 
@@ -86,9 +86,9 @@ HTTP 回應動作只適用於在 HTTP 要求所觸發的工作流程中使用時
 #### <a name="request-trigger"></a>要求觸發程序
 以下是傳入 HTTP 要求之觸發程序的輸入欄位。
 
-| 顯示名稱 | 屬性名稱 | 描述 |
+| Display name | 屬性名稱 | 描述 |
 | --- | --- | --- |
-| JSON 結構描述 |結構描述 |HTTP 要求本文的 JSON 結構描述 |
+| JSON 結構描述 |schema |HTTP 要求本文的 JSON 結構描述 |
 
 <br>
 
@@ -96,7 +96,7 @@ HTTP 回應動作只適用於在 HTTP 要求所觸發的工作流程中使用時
 
 以下是要求的輸出詳細資料。
 
-| 屬性名稱 | 資料類型 | 描述 |
+| 屬性名稱 | 数据类型 | 描述 |
 | --- | --- | --- |
 | headers |物件 |要求標頭 |
 | body |物件 |要求物件 |
@@ -104,9 +104,9 @@ HTTP 回應動作只適用於在 HTTP 要求所觸發的工作流程中使用時
 #### <a name="response-action"></a>回應動作
 以下是 HTTP 回應動作的輸入欄位。 標示 * 代表必要欄位。
 
-| 顯示名稱 | 屬性名稱 | 描述 |
+| Display name | 屬性名稱 | 描述 |
 | --- | --- | --- |
-| 狀態碼 * |StatusCode |HTTP 狀態碼 |
+| 狀態碼 * |statusCode |HTTP 狀態碼 |
 | headers |headers |要包含的任何回應標頭的 JSON 物件 |
 | body |body |回應本文 |
 

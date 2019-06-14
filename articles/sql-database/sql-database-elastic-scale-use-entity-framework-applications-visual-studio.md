@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/04/2019
 ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331908"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>搭配使用彈性資料庫用戶端程式庫與 Entity Framework
@@ -31,7 +31,7 @@ ms.locfileid: "60331908"
 * 從 MSDN 下載 [Elastic DB Tools for Azure SQL - Entity Framework 整合範例](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba)。 將範例解壓縮至您選擇的位置。
 * 啟動 Visual Studio。 
 * 在 Visual Studio 中，選取 [檔案] -> [開啟專案/方案]。 
-* 在 [開啟專案] 對話方塊中，瀏覽至您下載的範例，然後選取 **EntityFrameworkCodeFirst.sln** 以開啟範例。 
+* 在 [開啟專案]  對話方塊中，瀏覽至您下載的範例，然後選取 **EntityFrameworkCodeFirst.sln** 以開啟範例。 
 
 若要執行範例，您在 Azure SQL Database 中需要建立三個空的資料庫：
 
@@ -45,8 +45,8 @@ ms.locfileid: "60331908"
 
 Entity Framework 開發人員依賴下列四種工作流程來建置應用程式，以及確保應用程式物件的持續性：
 
-* **Code First (新的資料庫)**：EF 開發人員在應用程式碼中建立模型，然後 EF 從它產生資料庫。 
-* **Code First (現有的資料庫)**：開發人員可讓 EF 從現有資料庫產生模型的應用程式碼。
+* **Code First (新的資料庫)** ：EF 開發人員在應用程式碼中建立模型，然後 EF 從它產生資料庫。 
+* **Code First (現有的資料庫)** ：開發人員可讓 EF 從現有資料庫產生模型的應用程式碼。
 * **Model First**：開發人員在 EF 設計工具中建立模型，然後 EF 從模型建立資料庫。
 * **Database First**：開發人員使用 EF 工具從現有的資料庫推斷模型。 
 
@@ -209,7 +209,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 這會形成一種方法，使得透過 EF 移轉的結構描述部署，與新的資料庫在應用程式的分區對應中註冊為分區緊密相關。 這依賴下列必要條件： 
 
-* 该数据库已创建。 
+* 已建立資料庫。 
 * 資料庫是空的 - 不含任何使用者結構描述與任何使用者資料。
 * 還不能透過資料相依路由的彈性資料庫用戶端 API 存取資料庫。 
 

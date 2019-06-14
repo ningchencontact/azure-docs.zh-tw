@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: xshi
 ms.openlocfilehash: 87a0847f5d42e014f3b2691c96446892176b481b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60399511"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>使用適用於 Visual Studio 的 Cloud Explorer 來管理 Azure IoT 中樞裝置
@@ -54,41 +54,41 @@ ms.locfileid: "60399511"
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>登入以存取 IoT 中樞
 
-1. 在 Visual Studio [Cloud Explorer] 視窗中，按一下帳戶管理圖示。 您可以從 [檢視] > [Cloud Explorer] 功能表開啟 Cloud Explorer 視窗。
+1. 在 Visual Studio [Cloud Explorer]  視窗中，按一下帳戶管理圖示。 您可以從 [檢視]   > [Cloud Explorer]  功能表開啟 Cloud Explorer 視窗。
 
     ![按一下 [帳戶管理]](media/iot-hub-visual-studio-cloud-device-messaging/click-account-management.png)
 
-1. 在 Cloud Explorer 中按一下 [管理帳戶]。
-1. 若為第一次登入 Azure，請在新視窗中按一下 [新增帳戶]。
-1. 登入之後，系統會顯示您的 Azure 訂用帳戶清單。 選取您想要檢視的 Azure 訂用帳戶並按一下 [套用]。
-1. 展開**您的訂用帳戶** > [IoT 中樞] > **您的 IoT 中樞**，裝置清單會顯示在您的 IoT 中樞節點下。 以滑鼠右鍵按一下某個裝置，以存取管理選項。
+1. 在 Cloud Explorer 中按一下 [管理帳戶]  。
+1. 若為第一次登入 Azure，請在新視窗中按一下 [新增帳戶]  。
+1. 登入之後，系統會顯示您的 Azure 訂用帳戶清單。 選取您想要檢視的 Azure 訂用帳戶並按一下 [套用]  。
+1. 展開**您的訂用帳戶** > [IoT 中樞]   > **您的 IoT 中樞**，裝置清單會顯示在您的 IoT 中樞節點下。 以滑鼠右鍵按一下某個裝置，以存取管理選項。
 
     ![管理選項](media/iot-hub-device-management-visual-studio/management-options.png)
 
 ## <a name="direct-methods"></a>直接方法
 
-1. 以滑鼠右鍵按一下您的裝置，然後選取 [叫用裝置直接方法]。
+1. 以滑鼠右鍵按一下您的裝置，然後選取 [叫用裝置直接方法]  。
 1. 在輸入方塊中輸入方法名稱和承載。
-1. 結果會顯示在 [IoT 中樞] 輸出窗格。
+1. 結果會顯示在 [IoT 中樞]  輸出窗格。
 
 ## <a name="read-device-twin"></a>讀取裝置對應項
 
-1. 以滑鼠右鍵按一下您的裝置，然後選取 [編輯裝置對應項]。
+1. 以滑鼠右鍵按一下您的裝置，然後選取 [編輯裝置對應項]  。
 1. **azure-iot-device-twin.json** 檔案與裝置對應項的內容一起開啟。
 
 ## <a name="update-device-twin"></a>更新裝置對應項
 
 1. 對 **azure-iot-device-twin.json** 檔案適度編輯 **tags** 或 **properties.desired** 欄位。
 1. 按 **Ctrl+S** 來更新裝置對應項。
-1. 結果會顯示在 [IoT 中樞] 輸出窗格。
+1. 結果會顯示在 [IoT 中樞]  輸出窗格。
 
 ## <a name="send-cloud-to-device-messages"></a>傳送雲端到裝置訊息
 
 若要從您的 IoT 中樞將訊息傳送到裝置，請遵循這些步驟：
 
-1. 以滑鼠右鍵按一下您的裝置，然後選取 [Send C2D Message] \(傳送 C2D 訊息\)。
+1. 以滑鼠右鍵按一下您的裝置，然後選取 [Send C2D Message]  \(傳送 C2D 訊息\)。
 1. 在輸入方塊中輸入訊息。
-1. 結果會顯示在 [IoT 中樞] 輸出窗格。
+1. 結果會顯示在 [IoT 中樞]  輸出窗格。
 
 ## <a name="next-steps"></a>後續步驟
 

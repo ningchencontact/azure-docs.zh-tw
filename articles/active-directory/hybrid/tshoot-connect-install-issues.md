@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e077127681f8bd7b650ab22f2d036efd7f9733ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60454762"
 ---
 # <a name="troubleshoot-azure-ad-connect-install-issues"></a>疑難排解：Azure AD Connect 安裝問題
@@ -41,7 +41,7 @@ ms.locfileid: "60454762"
 
 ### <a name="common-issues"></a>**常見問題**
 
-* [本地 Active Directory 的连接问题](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools)。
+* [與內部部署 Active Directory 的連線問題](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools)。
 
 * [線上 Azure Active Directory 的連線問題](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-connectivity)。
 

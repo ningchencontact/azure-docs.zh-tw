@@ -9,10 +9,10 @@ ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: d78c110f3317f4dd9f16cbe243aeca437e9890a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60364624"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 監視、計量和警示
@@ -25,7 +25,7 @@ ms.locfileid: "60364624"
 
 ## <a name="circuit-metrics"></a>線路計量
 
-若要瀏覽至 [計量]，請針對您想要監視的線路按一下 [ExpressRoute] 頁面。 在 [監視] 下方，可檢視 [計量]。 選取 BitsInPerSecond 或 BitsOutPerSecond 以及彙總。 您可以選擇性地套用分割，以依據對等互連類型顯示計量。
+若要瀏覽至 [計量]  ，請針對您想要監視的線路按一下 [ExpressRoute] 頁面。 在 [監視]  下方，可檢視 [計量]  。 選取 BitsInPerSecond 或 BitsOutPerSecond 以及彙總。 您可以選擇性地套用分割，以依據對等互連類型顯示計量。
 
 ![線路計量](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
@@ -41,13 +41,13 @@ ms.locfileid: "60364624"
 
 ## <a name="alerts-for-expressroute-gateway-connections"></a>ExpressRoute 閘道連線的警示
 
-1. 若要設定警示，請瀏覽至 [Azure 監視器]，然後按一下 [警示]。
+1. 若要設定警示，請瀏覽至 [Azure 監視器]  ，然後按一下 [警示]  。
 
    ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
-2. 按一下 [+ 選取目標]，然後選取 ExpressRoute 閘道連線資源。
+2. 按一下 [+ 選取目標]  ，然後選取 ExpressRoute 閘道連線資源。
 
-   ![目標]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![target]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. 定義警示詳細資料。
 
    ![動作群組](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
@@ -62,7 +62,7 @@ ms.locfileid: "60364624"
 
 ## <a name="configure-alerts-for-activity-logs-on-circuits"></a>在線路上設定活動記錄的警示
 
-在 [警示準則] 中，您可以選取 [活動記錄] 作為訊號類型，並選取訊號。
+在 [警示準則]  中，您可以選取 [活動記錄]  作為訊號類型，並選取訊號。
 
   ![另一個](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
   

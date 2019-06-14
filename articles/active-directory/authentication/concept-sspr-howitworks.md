@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60415600"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>運作方式：Azure AD 自助式密碼重設
@@ -39,7 +39,7 @@ ms.locfileid: "60415600"
 
 請看完下列步驟，以了解密碼重設頁面背後的邏輯：
 
-1. 使用者選取 [無法存取帳戶] 連結或直接移至 [https://aka.ms/sspr](https://passwordreset.microsoftonline.com)。
+1. 使用者選取 [無法存取帳戶]  連結或直接移至 [https://aka.ms/sspr](https://passwordreset.microsoftonline.com)。
    * 根據瀏覽器的地區設定，此體驗會以適當的語言呈現。 密碼重設體驗會當地語系化為 Office 365 支援的相同語言。
    * 若要檢視不同當地語系化語言中的密碼重設入口網站，請將 "?mkt=" 附加至密碼重設 URL 的結尾；後續範例中是當地語系化為西班牙文 [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us)。
 2. 使用者輸入使用者識別碼並通過文字驗證。
@@ -59,11 +59,11 @@ ms.locfileid: "60415600"
 
 ## <a name="authentication-methods"></a>驗證方法
 
-如果已啟用 SSPR，您必須針對驗證方法至少選取下面其中一個選項。 有時這些選項會被稱為「閘道」。 強烈建議您**選擇兩個或多個驗證方法**，以便使用者在需要卻無法存取時，能擁有更大的彈性。 若要更详细地了解下面列出的方法，可参阅[有哪些身份验证方法？](concept-authentication-methods.md)一文。
+如果已啟用 SSPR，您必須針對驗證方法至少選取下面其中一個選項。 有時這些選項會被稱為「閘道」。 強烈建議您**選擇兩個或多個驗證方法**，以便使用者在需要卻無法存取時，能擁有更大的彈性。 其他詳細資料如下所列的方法可在發行項[什麼是驗證方法？](concept-authentication-methods.md)。
 
 * 行動應用程式通知 (預覽)
 * 行動應用程式代碼 (預覽)
-* 電子郵件
+* Email
 * 行動電話
 * 辦公室電話
 * 安全性問題
@@ -91,7 +91,7 @@ ms.locfileid: "60415600"
 使用行動應用程式 (例如 Microsoft Authenticator 應用程式) 時，若要作為重設密碼的方法，您應該注意下列事項：
 
 * 當系統管理員需要一個可用來重設密碼的方法時，驗證碼是唯一可用的選項。
-* 當系統管理員需要兩種可用來重設密碼的方法時，使用者除了任何其他已啟用的方法之外，還能夠使用通知**或**驗證碼。
+* 當系統管理員需要兩種可用來重設密碼的方法時，使用者除了任何其他已啟用的方法之外，還能夠使用  通知**或**驗證碼。
 
 | 需要重設的方法數 | 一個 | 兩個 |
 | :---: | :---: | :---: |
@@ -131,16 +131,16 @@ ms.locfileid: "60415600"
 * 同盟應用程式
 * 使用 Azure AD 自訂應用程式
 
-當要求註冊功能已停用時，使用者可以手動註冊。 使用者可以造訪 [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) 或選取存取面板中 [設定檔] 索引標籤下方的 [註冊密碼重設] 連結。
+當要求註冊功能已停用時，使用者可以手動註冊。 使用者可以造訪 [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) 或選取存取面板中 [設定檔]  索引標籤下方的 [註冊密碼重設]  連結。
 
 > [!NOTE]
-> 選取 [取消] 或關閉視窗，即可關閉密碼重設註冊入口網站。 但是當使用者每次登錄時，系統都會提示註冊，直到他們完成註冊為止。
+> 選取 [取消]  或關閉視窗，即可關閉密碼重設註冊入口網站。 但是當使用者每次登錄時，系統都會提示註冊，直到他們完成註冊為止。
 >
 > 如果使用者已經登入，則此中斷不會中斷其連線。
 
 ### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>設定要求使用者重新確認其驗證資訊的等候天數
 
-此選項可決定設定和重新確認驗證資訊之間的期間，且只有在您啟用 [登入時要求使用者註冊] 選項才可以使用。
+此選項可決定設定和重新確認驗證資訊之間的期間，且只有在您啟用 [登入時要求使用者註冊]  選項才可以使用。
 
 有效值為 0 到 730 天，「0」表示永不要求使用者重新確認其驗證資訊。
 
@@ -148,11 +148,11 @@ ms.locfileid: "60415600"
 
 ### <a name="notify-users-on-password-resets"></a>通知使用者密碼重設
 
-如果此選項設定為 [是]，則正在重設其密碼的使用者會收到一封電子郵件，通知他們密碼已變更。 電子郵件會透過 SSPR 入口網站傳送至 Azure AD 中歸檔的主要電子郵件地址和備用電子郵件地址。 沒有人會接獲此重設事件的通知。
+如果此選項設定為 [是]  ，則正在重設其密碼的使用者會收到一封電子郵件，通知他們密碼已變更。 電子郵件會透過 SSPR 入口網站傳送至 Azure AD 中歸檔的主要電子郵件地址和備用電子郵件地址。 沒有人會接獲此重設事件的通知。
 
 ### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>當其他系統管理員重設其密碼時通知所有系統管理員
 
-如果此選項設定為 [是]，則*所有管理員*會收到一封電子郵件 (送至 Azure AD 中歸檔的主要電子郵件地址)。 此電子郵件會通知他們有其他管理員已使用 SSPR 變更其密碼。
+如果此選項設定為 [是]  ，則*所有管理員*會收到一封電子郵件 (送至 Azure AD 中歸檔的主要電子郵件地址)。 此電子郵件會通知他們有其他管理員已使用 SSPR 變更其密碼。
 
 範例：環境中有四個系統管理員。 管理員 A 使用 SSPR 重設其密碼。 管理員 B、C 和 D 收到一封電子郵件，警示他們密碼已重設。
 
@@ -175,15 +175,15 @@ ms.locfileid: "60415600"
 
 此控制項可決定是否要為此目錄啟用密碼回寫。 如果回寫處於開啟狀態，則表示了內部部署回寫服務的狀態。 如果您需要暫時停用密碼回寫，而不想要重新設定 Azure AD Connect，此控制就很有用。
 
-* 如果將此參數設定為 [是]，則會啟用回寫，而同盟、傳遞驗證或密碼雜湊同步處理的使用者能夠重設其密碼。
-* 如果將此參數設定為 [否]，則會停用回寫，而同盟、傳遞驗證或密碼雜湊同步處理的使用者無法重設其密碼。
+* 如果將此參數設定為 [是]  ，則會啟用回寫，而同盟、傳遞驗證或密碼雜湊同步處理的使用者能夠重設其密碼。
+* 如果將此參數設定為 [否]  ，則會停用回寫，而同盟、傳遞驗證或密碼雜湊同步處理的使用者無法重設其密碼。
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>允許使用者在不重設密碼的情況下解除鎖定帳戶
 
 此控制項可指定是否應為瀏覽密碼重設入口網站的使用者提供選項，讓他們在不重設密碼的情況下解除鎖定內部部署的 Active Directory 帳戶。 根據預設，Azure AD 可以在執行密碼重設時解除鎖定帳戶。 您可以使用此設定來分隔這兩項作業。
 
-* 如果設為 [是]，會提供使用者重設其密碼與解除鎖定帳戶的選項，或是在不重設密碼的情況下解除鎖定其帳戶的選項。
-* 如果設定為 [否]，使用者將只能執行合併的密碼重設和帳戶解除鎖定作業。
+* 如果設為 [是]  ，會提供使用者重設其密碼與解除鎖定帳戶的選項，或是在不重設密碼的情況下解除鎖定其帳戶的選項。
+* 如果設定為 [否]  ，使用者將只能執行合併的密碼重設和帳戶解除鎖定作業。
 
 ### <a name="on-premises-active-directory-password-filters"></a>內部部署 Active Directory 密碼篩選器
 
@@ -193,11 +193,11 @@ Azure AD 自助式密碼重設會執行等同 Active Directory 中管理員起�
 
 所有企業對企業 (B2B) 組態完全支援密碼重設和變更。 下列三種案例支援 B2B 使用者密碼重設：
 
-* **使用者來自具備現有 Azure AD 租用戶的合作夥伴組織**：如果您合作的組織具備現有的 Azure AD 租用戶，我們會「遵守該租用戶中啟用的任何密碼重設原則」。 若要讓密碼重設得以運作，合作夥伴組織只需要確定已啟用 Azure AD SSPR。 若為 Office 365 的客戶，則不需收取額外費用，按照[開始使用密碼管理](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords)指南中的步驟即可啟用。
+* **使用者來自具備現有 Azure AD 租用戶的合作夥伴組織**：如果您合作的組織具備現有的 Azure AD 租用戶，我們會「遵守該租用戶中啟用的任何密碼重設原則」  。 若要讓密碼重設得以運作，合作夥伴組織只需要確定已啟用 Azure AD SSPR。 若為 Office 365 的客戶，則不需收取額外費用，按照[開始使用密碼管理](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords)指南中的步驟即可啟用。
 * **使用自助式註冊功能註冊的使用者**：如果您合作的組織是使用[自助式註冊](../users-groups-roles/directory-self-service-signup.md)功能進入租用戶，我們會讓他們利用其註冊的電子郵件重設密碼。
 * **B2B 使用者**：任何使用新的 [Azure AD B2B 功能](../active-directory-b2b-what-is-azure-ad-b2b.md)建立的新 B2B 使用者，也能夠利用其在邀請程序期間註冊的電子郵件重設其密碼。
 
-若要測試此案例，請使用其中一個合作夥伴使用者前往 https://passwordreset.microsoftonline.com。 如果他們有定義備用電子郵件或驗證電子郵件，密碼重設就會如預期般運作。
+若要測試此案例，請使用其中一個合作夥伴使用者前往 https://passwordreset.microsoftonline.com 。 如果他們有定義備用電子郵件或驗證電子郵件，密碼重設就會如預期般運作。
 
 > [!NOTE]
 > 若 Microsoft 帳戶已獲得存取您的 Azure AD 租用戶的權限 (例如來自 Hotmail.com、Outlook.com 或其他個人電子郵件地址的帳戶)，則無法使用 Azure AD SSPR。 他們需要使用[當您無法登入您的 Microsoft 帳戶時](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)文章所述的資訊來重設其密碼。

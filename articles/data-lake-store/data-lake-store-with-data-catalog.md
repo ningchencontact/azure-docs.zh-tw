@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: fd887560c0011fb1ec2141e33f02f7e3d8a39c81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60196490"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>在 Azure 資料目錄中從 Azure Data Lake Storage Gen1 註冊資料
@@ -36,36 +36,36 @@ ms.locfileid: "60196490"
 
 > [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/ADCwithADL/player]
 
-1. 前往 `https://azure.microsoft.com/services/data-catalog`，然後按一下 [開始使用]。
-1. 登入 Azure 資料目錄入口網站，再按一下 [發佈資料] 。
+1. 前往 `https://azure.microsoft.com/services/data-catalog`，然後按一下 [開始使用]  。
+1. 登入 Azure 資料目錄入口網站，再按一下 [發佈資料]  。
 
     ![註冊資料來源](./media/data-lake-store-with-data-catalog/register-data-source.png "註冊資料來源")
-1. 在下一個頁面上，按一下 [啟動應用程式] 。 這樣會下載電腦上的應用程式資訊清單檔案。 按兩下此資訊清單檔案以啟動應用程式。
-1. 在 [歡迎使用] 頁面上，按一下 [登入] ，並輸入您的認證。
+1. 在下一個頁面上，按一下 [啟動應用程式]  。 這樣會下載電腦上的應用程式資訊清單檔案。 按兩下此資訊清單檔案以啟動應用程式。
+1. 在 [歡迎使用] 頁面上，按一下 [登入]  ，並輸入您的認證。
 
     ![歡迎使用畫面](./media/data-lake-store-with-data-catalog/welcome.screen.png "歡迎使用畫面")
-1. 在 [選取資料來源] 頁面上，選取 [Azure Data Lake Store]，然後按一下 [下一步]。
+1. 在 [選取資料來源] 頁面上，選取 [Azure Data Lake Store]  ，然後按一下 [下一步]  。
 
     ![選取資料來源](./media/data-lake-store-with-data-catalog/select-source.png "選取資料來源")
-1. 在下一個頁面上，提供您想要在資料目錄中註冊的 Data Lake Storage Gen1 帳戶名稱。 其他選項保留為預設值，然後按一下 [連線] 。
+1. 在下一個頁面上，提供您想要在資料目錄中註冊的 Data Lake Storage Gen1 帳戶名稱。 其他選項保留為預設值，然後按一下 [連線]  。
 
     ![連接到資料來源](./media/data-lake-store-with-data-catalog/connect-to-source.png "連接到資料來源")
 1. 下一個頁面可以分成下列區段。
 
-    a. [伺服器階層] 方塊代表 Data Lake Storage Gen1 帳戶資料夾結構。 [$Root] 代表 Data Lake Storage Gen1 帳戶根目錄，而 [AmbulanceData] 則代表在 Data Lake Storage Gen1 帳戶的根目錄中建立的資料夾。
+    a. [伺服器階層]  方塊代表 Data Lake Storage Gen1 帳戶資料夾結構。 [$Root]  代表 Data Lake Storage Gen1 帳戶根目錄，而 [AmbulanceData]  則代表在 Data Lake Storage Gen1 帳戶的根目錄中建立的資料夾。
 
-    b. [可用物件] 方塊會列出 [AmbulanceData] 資料夾下的檔案和資料夾。
+    b. [可用物件]  方塊會列出 [AmbulanceData]  資料夾下的檔案和資料夾。
 
-    c. [要註冊的物件] 方塊會列出您想要在「Azure 資料目錄」中註冊的檔案和資料夾。
+    c. [要註冊的物件]  方塊會列出您想要在「Azure 資料目錄」中註冊的檔案和資料夾。
 
     ![檢視資料結構](./media/data-lake-store-with-data-catalog/view-data-structure.png "檢視資料結構")
-1. 在本教學課程中，您應該在目錄中註冊所有檔案。 因此，請按一下 (![移動物件](./media/data-lake-store-with-data-catalog/move-objects.png "移動物件")) 按鈕來將所有檔案移至 [要註冊的物件] 方塊。
+1. 在本教學課程中，您應該在目錄中註冊所有檔案。 因此，請按一下 (![移動物件](./media/data-lake-store-with-data-catalog/move-objects.png "移動物件")) 按鈕來將所有檔案移至 [要註冊的物件]  方塊。
 
     因為資料將會在整個組織的資料目錄中註冊，建議新增一些中繼資料，讓您稍後可以用來快速尋找資料。 例如，您可以新增資料擁有者 (例如，上傳資料的人員) 的電子郵件地址，或新增可識別資料的標籤。 下方螢幕擷取畫面顯示您新增至資料的標記。
 
     ![檢視資料結構](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "檢視資料結構")
 
-    按一下 [註冊] 。
+    按一下 [註冊]  。
 1. 下列螢幕擷取畫面表示已成功在資料目錄中註冊資料。
 
     ![註冊完成](./media/data-lake-store-with-data-catalog/registration-complete.png "檢視資料結構")

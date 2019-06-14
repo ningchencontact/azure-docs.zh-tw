@@ -11,10 +11,10 @@ ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
 ms.date: 05/31/2016
 ms.openlocfilehash: 92f522c72f69218e55b1ee4cfff74511a30288b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60553754"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Azure Logic Apps 的結構描述更新 - 2015 年 8 月 1 日預覽
@@ -39,7 +39,7 @@ ms.locfileid: "60553754"
 
 ### <a name="managed-apis"></a>受控 API
 
-Microsoft 會代表您管理某些 API，例如 Office 365、Salesforce、Twitter 和 FTP。 您可以直接使用部分受控 API (例如 Bing 翻譯)，有些則需要設定，也稱為「連線」。
+Microsoft 會代表您管理某些 API，例如 Office 365、Salesforce、Twitter 和 FTP。 您可以直接使用部分受控 API (例如 Bing 翻譯)，有些則需要設定，也稱為「連線」  。
 
 例如，當您使用 Office 365 時，必須建立包含 Office 365 登入權杖的連線。 系統會安全地儲存並重新整理您的權杖，讓您的邏輯應用程式隨時都可呼叫 Office 365 API。 如果想要連線到 SQL 或 FTP 伺服器，便必須建立具有連接字串的連線。 
 

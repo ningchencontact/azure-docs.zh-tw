@@ -11,10 +11,10 @@ ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: ebbcbcc3d0934800980b7d8e00895b11ff2747b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60310396"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>還原 Azure SQL 資料倉儲 
@@ -30,21 +30,21 @@ ms.locfileid: "60310396"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**請驗證您的 DTU 容量。**  每個 SQL 資料倉儲均由具有預設 DTU 配額的 SQL 伺服器裝載 (例如 myserver.database.windows.net)。  在您還原 SQL 資料倉儲之前，請確認您的 SQL 伺服器有足夠的剩餘 DTU 配額供要還原的資料庫使用。 若要了解如何計算所需 DTU 或要求更多 DTU，請參閱[要求 DTU 配額變更][Request a DTU quota change]。
+**請驗證您的 DTU 容量。** 每個 SQL 資料倉儲均由具有預設 DTU 配額的 SQL 伺服器裝載 (例如 myserver.database.windows.net)。  在您還原 SQL 資料倉儲之前，請確認您的 SQL 伺服器有足夠的剩餘 DTU 配額供要還原的資料庫使用。 若要了解如何計算所需 DTU 或要求更多 DTU，請參閱[要求 DTU 配額變更][Request a DTU quota change]。
 
 ## <a name="restore-through-powershell"></a>透過 PowerShell 還原
 
 ## <a name="install-powershell"></a>安裝 PowerShell
-若要对 SQL 数据仓库使用 Azure PowerShell，需要安装 Azure PowerShell。  可以通过运行 **Get-Module -ListAvailable -Name Az** 来检查版本。 如需安裝最新版本的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][How to install and configure Azure PowerShell]。
+若要使用 Azure PowerShell 與 SQL 資料倉儲，您必須安裝 Azure PowerShell。  您可以執行，以檢查您的版本**Get-module-ListAvailable-名稱 Az**。 如需安裝最新版本的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][How to install and configure Azure PowerShell]。
 
 ## <a name="restore-an-active-or-paused-database-using-powershell"></a>使用 PowerShell 還原作用中或已暫停的資料庫
-若要从还原点还原数据库，请使用 [Restore-AzSqlDatabase][Restore-AzSqlDatabase] PowerShell cmdlet。
+若要從還原點使用還原資料庫[還原 AzSqlDatabase] [ Restore-AzSqlDatabase] PowerShell cmdlet。
 
 1. 開啟 Windows PowerShell。
 
 2. 連接到您的 Azure 帳戶，然後列出與您帳戶關聯的所有訂用帳戶。
 
-3. 选择包含要还原的数据库的订阅。
+3. 選取包含要還原之資料庫的訂用帳戶。
 
 4. 列出資料庫的還原點。
 
@@ -94,7 +94,7 @@ $RestoredDatabase.status
 >
 
 ## <a name="copy-your-data-warehouse-with-user-defined-restore-points-using-powershell"></a>使用 PowerShell 透過使用者定義的還原點來複製資料倉儲
-若要从用户定义的还原点还原数据库，请使用 [Restore-AzSqlDatabase][Restore-AzSqlDatabase] PowerShell cmdlet。
+若要從使用者定義的還原點使用還原資料庫[還原 AzSqlDatabase] [ Restore-AzSqlDatabase] PowerShell cmdlet。
 
 1. 開啟 Windows PowerShell。
 2. 連接到您的 Azure 帳戶，然後列出與您帳戶關聯的所有訂用帳戶。
@@ -142,10 +142,10 @@ $RestoredDatabase.status
 ```
 
 ## <a name="restore-a-deleted-database-using-powershell"></a>使用 PowerShell 還原已刪除的資料庫
-若要还原已删除的数据库，请使用 [Restore-AzSqlDatabase][Restore-AzSqlDatabase] cmdlet。
+若要還原已刪除的資料庫，請使用[還原 AzSqlDatabase] [ Restore-AzSqlDatabase] cmdlet。
 
 1. 開啟 Windows PowerShell。
-2. 连接到 Azure 帐户，并列出与帐户关联的所有订阅。
+2. 連接到您的 Azure 帳戶，然後列出與您帳戶關聯的所有訂用帳戶。
 3. 選取包含要還原之已刪除資料庫的訂用帳戶。
 4. 取得已刪除的特定資料庫。
 5. 還原已刪除的資料庫。
@@ -177,7 +177,7 @@ $RestoredDatabase.status
 >
 
 ## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>使用 PowerShell 從 Azure 地理區域還原
-若要恢复数据库，请使用 [Restore-AzSqlDatabase][Restore-AzSqlDatabase] cmdlet。
+若要復原的資料庫，使用[還原 AzSqlDatabase] [ Restore-AzSqlDatabase] cmdlet。
 
 > [!NOTE]
 > 您可以執行異地還原來還原至 Gen2！ 若要這麼做，請指定 Gen2 ServiceObjectiveName (例如 DW1000**c**) 作為選擇性參數。
@@ -187,8 +187,8 @@ $RestoredDatabase.status
 2. 連接到您的 Azure 帳戶，然後列出與您帳戶關聯的所有訂用帳戶。
 3. 選取包含要還原之資料庫的訂用帳戶。
 4. 取得您想要復原的資料庫。
-5. 创建对数据库的恢复请求。
-6. 验证异地还原的数据库的状态。
+5. 建立資料庫的復原要求。
+6. 確認異地還原資料庫的狀態。
 
 ```Powershell
 Connect-AzAccount
@@ -206,7 +206,7 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> 若要在完成还原后配置数据库，请参阅[在恢复后配置数据库][Configure your database after recovery]。
+> 若要在還原完成之後設定資料庫，請參閱[在復原之後設定資料庫][Configure your database after recovery]。
 >
 
 如果來源資料庫是啟用 TDE，則復原的資料庫將是啟用 TDE。
@@ -218,7 +218,7 @@ $GeoRestoredDatabase.status
 
 2. 瀏覽至您想要為其建立還原點的 SQL 資料倉儲。
 
-3. 在 [概觀] 刀鋒視窗頂端，選取 [+ 新增還原點]。
+3. 在 [概觀] 刀鋒視窗頂端，選取 [+ 新增還原點]  。
 
     ![新增還原點](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
 
@@ -229,11 +229,11 @@ $GeoRestoredDatabase.status
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>使用 Azure 入口網站還原作用中或已暫停的資料庫
 1. 登入 [Azure 入口網站][Azure portal]。
 2. 瀏覽至您想要還原的 SQL 資料倉儲。
-3. 在 [概觀] 刀鋒視窗頂端，選取 [還原]。
+3. 在 [概觀] 刀鋒視窗頂端，選取 [還原]  。
 
     ![ 還原概觀](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)
 
-4. 選取 [自動還原點] 或 [使用者定義的還原點]。
+4. 選取 [自動還原點]  或 [使用者定義的還原點]  。
 
     ![自動還原點](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
 

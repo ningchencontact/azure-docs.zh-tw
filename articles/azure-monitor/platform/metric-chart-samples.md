@@ -9,10 +9,10 @@ ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: bbfeb428d38c23955df4497242184499349aecf9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60256676"
 ---
 # <a name="metric-chart-samples"></a>計量圖表範例
@@ -29,7 +29,7 @@ Azure 平台提供[超過一千個計量](https://docs.microsoft.com/azure/azure
 
 ### <a name="how-to-configure-this-chart"></a>如何設定此圖表？
 
-選取您的 App Service 資源，並找出 [CPU 百分比] 計量。 然後，按一下 [套用分割]，並選取 [執行個體] 維度。
+選取您的 App Service 資源，並找出 [CPU 百分比]  計量。 然後，按一下 [套用分割]  ，並選取 [執行個體]  維度。
 
 ## <a name="application-availability-by-region"></a>依區域顯示的應用程式可用性
 
@@ -39,7 +39,7 @@ Azure 平台提供[超過一千個計量](https://docs.microsoft.com/azure/azure
 
 ### <a name="how-to-configure-this-chart"></a>如何設定此圖表？
 
-您必須先為網站開啟 [Application Insights 可用性](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability)監視。 接著，選擇您的 Application Insights 資源，並選取 [可用性] 計量。 在 [執行位置] 維度上套用分割。
+您必須先為網站開啟 [Application Insights 可用性](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability)監視。 接著，選擇您的 Application Insights 資源，並選取 [可用性] 計量。 在 [執行位置]  維度上套用分割。
 
 ## <a name="volume-of-storage-account-transactions-by-api-name"></a>依 API 名稱顯示的儲存體帳戶交易量
 
@@ -49,7 +49,7 @@ Azure 平台提供[超過一千個計量](https://docs.microsoft.com/azure/azure
 
 ### <a name="how-to-configure-this-chart"></a>如何設定此圖表？
 
-在計量選擇器中，選取您的儲存體帳戶和 [交易] 計量。 將圖表類型切換至 [長條圖]。 按一下 [套用分割]，並選取 [API 名稱] 維度。 然後，按一下 [新增篩選]，並再次選擇 [API 名稱] 維度。 在 [篩選] 對話方塊中，選取您要在圖表上繪製的 API。
+在計量選擇器中，選取您的儲存體帳戶和 [交易]  計量。 將圖表類型切換至 [長條圖]  。 按一下 [套用分割]  ，並選取 [API 名稱]  維度。 然後，按一下 [新增篩選]  ，並再次選擇 [API 名稱]  維度。 在 [篩選] 對話方塊中，選取您要在圖表上繪製的 API。
 
 ## <a name="next-steps"></a>後續步驟
 

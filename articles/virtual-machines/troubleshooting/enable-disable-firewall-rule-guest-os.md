@@ -15,13 +15,13 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60505534"
 ---
-# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>在 Azure VM 来宾 OS 中启用或禁用防火墙规则
+# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>啟用或停用 Azure VM 客體 OS 上的防火牆規則
 
 本文針對您懷疑客體作業系統防火牆篩選虛擬機器 (VM) 之部分流量的情況，提供進行疑難排解的參考資訊。 這可能很有用，原因如下：
 
@@ -97,7 +97,7 @@ ms.locfileid: "60505534"
 
 如果虛擬機器為連線狀態，而且可以在相同的虛擬網路上存取另一個虛擬機器，您可以在其他虛擬機器上使用[遠端登錄](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry)。
 
-1.  在疑難排解虛擬機器上，啟動登錄編輯程式 (regedit.exe)，然後選取 [檔案] > [連線網路登錄]。
+1.  在疑難排解虛擬機器上，啟動登錄編輯程式 (regedit.exe)，然後選取 [檔案]   > [連線網路登錄]  。
 
 2.  開啟  *TARGET MACHINE*\SYSTEM 分支，然後指定下列值：
 

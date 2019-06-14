@@ -9,10 +9,10 @@ ms.date: 08/23/2018
 ms.author: danlep
 ms.custom: seodec18
 ms.openlocfilehash: f5c075942a29968ea57c684cd817e578df951989
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60427631"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>快速入門：將事件從私人容器登錄傳送到事件方格
@@ -100,7 +100,7 @@ az group deployment create \
 
 ## <a name="subscribe-to-registry-events"></a>訂閱登錄事件
 
-在事件方格中，您可以訂閱「主題」，以告知它您想要追蹤的事件，以及要將它們傳送至何處。 下列 [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] 命令會訂閱您所建立的容器登錄，並指定您的 Web 應用程式 URL 作為應將事件傳送至其中的端點。 您在先前小節中所填入的環境變數會在此處重複使用，因此不需進行任何編輯。
+在事件方格中，您可以訂閱「主題」  ，以告知它您想要追蹤的事件，以及要將它們傳送至何處。 下列 [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] 命令會訂閱您所建立的容器登錄，並指定您的 Web 應用程式 URL 作為應將事件傳送至其中的端點。 您在先前小節中所填入的環境變數會在此處重複使用，因此不需進行任何編輯。
 
 ```azurecli-interactive
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)

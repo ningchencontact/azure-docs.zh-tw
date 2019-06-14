@@ -16,10 +16,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58ca814551d8c7d309328f236052e1d07ac6f035
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60469123"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中指派應用程式系統管理員角色
@@ -39,7 +39,7 @@ ms.locfileid: "60469123"
 3. 開啟下列其中一個角色以查看其成員指派：
    * **應用程式系統管理員**
    * **雲端應用程式系統管理員**
-4. 在角色的 [成員] 頁面上，選取 [新增成員]。
+4. 在角色的 [成員]  頁面上，選取 [新增成員]  。
 5. 選取一或多個要新增至角色的成員。 <!--Members can be users or groups.-->
 
 您可以在[可用的角色](directory-assign-admin-roles.md#available-roles)中檢視這些角色的描述。
@@ -50,15 +50,15 @@ ms.locfileid: "60469123"
 
 1. 使用租用戶中的全域管理員角色適用的帳戶，登入 [Azure AD 租用戶](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
 2. 如果您已取得足夠的權限，請進行下列一或兩項設定：
-   * 在[租用戶的使用者設定頁面](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)上，將 [使用者可以註冊應用程式] 設為 [否]。
-   * 在[企業應用程式的使用者設定](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)上，將 [使用者可同意應用程式代表自己存取公司資料] 設為 [否]。
+   * 在[租用戶的使用者設定頁面](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)上，將 [使用者可以註冊應用程式]  設為 [否]。
+   * 在[企業應用程式的使用者設定](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)上，將 [使用者可同意應用程式代表自己存取公司資料]  設為 [否]。
 3. 然後，視需要將需要此權限的使用者指派為應用程式開發人員角色的成員。
 
 當使用者註冊應用程式時，系統會自動將他們新增為應用程式的第一個擁有者。
 
 ## <a name="delegate-app-ownership"></a>委派應用程式擁有權
 
-应用所有者和应用注册所有者只能分别管理他们拥有的应用程序或应用注册。 例如，當您新增 Salesforce 應用程式的擁有者時，而該擁有者將可管理 Salesforce 的存取和設定，但無法管理任何其他應用程式。 一個應用程式可以有許多擁有者，而一個使用者也可以是許多應用程式的擁有者。
+應用程式擁有者和應用程式註冊擁有者可以每個管理只在應用程式或他們自己的應用程式註冊。 例如，當您新增 Salesforce 應用程式的擁有者時，而該擁有者將可管理 Salesforce 的存取和設定，但無法管理任何其他應用程式。 一個應用程式可以有許多擁有者，而一個使用者也可以是許多應用程式的擁有者。
 
 應用程式擁有者可以：
 
@@ -87,17 +87,17 @@ ms.locfileid: "60469123"
 ### <a name="to-assign-an-owner-to-an-application"></a>將擁有者指派給應用程式
 
 1. 使用租用戶的應用程式系統管理員或雲端應用程式系統管理員適用的帳戶，登入 [Azure AD 租用戶](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
-2. 在租用戶的[應用程式註冊頁面](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)上選取應用程式，以開啟應用程式的 [概觀] 頁面。
-3. 選取 [擁有者] 以查看應用程式的擁有者清單。
-4. 選取 [新增]，以選取一或多個要新增至應用程式的擁有者。
+2. 在租用戶的[應用程式註冊頁面](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)上選取應用程式，以開啟應用程式的 [概觀]  頁面。
+3. 選取 [擁有者]  以查看應用程式的擁有者清單。
+4. 選取 [新增]  ，以選取一或多個要新增至應用程式的擁有者。
 
 ### <a name="to-assign-an-owner-to-an-application-registration"></a>將擁有者指派給應用程式註冊
 
 1. 使用租用戶中的應用程式系統管理員或雲端應用程式系統管理員角色適用的帳戶，登入 [Azure AD 租用戶](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
 2. 如果您有足夠的權限，請在租用戶的[企業應用程式頁面](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)上選取應用程式註冊，加以開啟。
-3. 選取 [Settings] \(設定) 。
-4. 選取 [設定] 頁面上的 [擁有者]，以查看應用程式的擁有者清單。
-5. 選取 [新增擁有者]，以選取一或多個要新增至應用程式的擁有者。
+3. 選取 [Settings] \(設定)  。
+4. 選取 [設定]  頁面上的 [擁有者]  ，以查看應用程式的擁有者清單。
+5. 選取 [新增擁有者]  ，以選取一或多個要新增至應用程式的擁有者。
 
 ## <a name="next-steps"></a>後續步驟
 

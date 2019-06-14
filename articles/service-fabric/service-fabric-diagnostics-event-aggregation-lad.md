@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 212158d9a76fa2e49c60be0b5c52f281497c155b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393124"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>使用 Linux Azure 診斷的事件彙總和收集
@@ -45,7 +45,7 @@ Service Fabric 會透過 [LTTng](https://lttng.org) 發出少數的現成記錄�
 ## <a name="deploy-the-diagnostics-extension"></a>部署診斷擴充功能
 收集記錄的第一個步驟是將診斷延伸模組部署在 Service Fabric 叢集的每個 WM 上。 診斷擴充功能會收集每個 VM 上的記錄，並將它們上傳至您指定的儲存體帳戶。 
 
-若要在建立叢集過程中將診斷擴充功能部署至叢集中的 VM，請將 [診斷] 設為 [開啟]。 建立叢集之後，您無法使用入口網站變更這項設定，因此，您將必須在 Resource Manager 範本中進行適當的變更。
+若要在建立叢集過程中將診斷擴充功能部署至叢集中的 VM，請將 [診斷]  設為 [開啟]  。 建立叢集之後，您無法使用入口網站變更這項設定，因此，您將必須在 Resource Manager 範本中進行適當的變更。
 
 這將會設定 LAD 代理程式來監視指定的記錄檔。 每當新的一行附加至檔案時，系統就會建立 syslog 項目並傳送至您所指定的儲存體 (表格)。
 

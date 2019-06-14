@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60310997"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>透過服務匯流排傳訊進行分散式追蹤與相互關聯
@@ -139,7 +139,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 在此範例中，接聽程式會記錄每個服務匯流排作業的持續期間、結果、唯一識別碼，以及開始時間。
 
-#### <a name="events"></a>活動
+#### <a name="events"></a>Events
 
 針對每個作業，系統會傳送兩個事件：'Start' 和 'Stop'。 您應該只會對 'Stop' 事件感到興趣。 它們會提供作業的結果，並以 Activity 屬性的形式提供開始時間和持續期間。
 

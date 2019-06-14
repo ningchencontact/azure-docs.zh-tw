@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 3b8b21de9664a969e8b1ce5699034aa9ab41d0f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60329477"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>如何透過 Twilio 來使用 Azure 的語音和簡訊功能
@@ -176,7 +176,7 @@ catch (TwilioException ex)
 當您的應用程式呼叫 Twilio API 時 (例如透過 **CallResource.Create** 方法)，Twilio 會將您的要求傳送到應該傳送 TwiML 回應的 URL。 [操作說明：撥出電話](#howto_make_call)中的範例使用 Twilio 提供的 URL [https://twimlets.com/message][twimlet_message_url] 傳回回應。
 
 > [!NOTE]
-> 雖然 TwiML 是專供 Web 服務使用，但您也可以在瀏覽器中檢視 TwiML。 例如，按一下 [https://twimlets.com/message][twimlet_message_url] 可查看空白的 `<Response>` 元素。另一個範例中，按一下 [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World) 可查看包含 &lt;Say&gt; 元素的 `<Response>` 元素。
+> 雖然 TwiML 是專供 Web 服務使用，但您也可以在瀏覽器中檢視 TwiML。 例如，按一下 [https://twimlets.com/message][twimlet_message_url] 可查看空白的 `<Response>` 元素。另一個範例中，按一下 [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World) 可查看包含 &lt; Say&gt; 元素的 `<Response>` 元素。
 >
 
 除了依賴 Twilio 提供的 URL，您也可以建立自己的 URL 網站來傳回 HTTP 回應。 您可以使用任何可傳回 HTTP 回應的語言來建立網站。 本主題假設您從 ASP.NET 通用處理常式來裝載 URL。

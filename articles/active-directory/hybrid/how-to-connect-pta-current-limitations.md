@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97dc67d46b08bf5765c59806b45edd82f38720cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347727"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 傳遞驗證：目前的限制
@@ -41,14 +41,14 @@ ms.locfileid: "60347727"
 
 ## <a name="unsupported-scenarios"></a>不支援的情節
 
-下列案例不受支援︰
+下列案例不受支援  ︰
 
 - 偵測[認證外洩](../reports-monitoring/concept-risk-events.md#leaked-credentials)的使用者。
-- Azure AD 網域服務必須在租用戶上啟用 [密碼雜湊同步處理]。 因此，使用傳遞驗證的租用戶「只有」在需要 Azure AD 網域服務的情況下無法運作。
+- Azure AD 網域服務必須在租用戶上啟用 [密碼雜湊同步處理]。 因此，使用傳遞驗證的租用戶「只有」  在需要 Azure AD 網域服務的情況下無法運作。
 - 傳遞驗證未與 [Azure AD Connect Health](whatis-hybrid-identity-health.md) 整合。
 
 > [!IMPORTANT]
-> 「僅」針對不支援的案例 (Azure AD Connect Health 整合除外)，在 Azure AD Connect 精靈的[選用功能](how-to-connect-install-custom.md#optional-features) 頁面上，啟用密碼雜湊同步處理作為因應措施。
+> 「僅」  針對不支援的案例 (Azure AD Connect Health 整合除外)，在 Azure AD Connect 精靈的[選用功能](how-to-connect-install-custom.md#optional-features) 頁面上，啟用密碼雜湊同步處理作為因應措施。
 > 
 > [!NOTE]
 > 啟用密碼雜湊同步處理可讓您選擇在內部部署基礎結構中斷時，將驗證容錯移轉。 這個從傳遞驗證到密碼雜湊同步處理的容錯移轉不會自動進行。 您必須使用 Azure AD Connect，以手動方式切換登入方法。 如果執行 Azure AD Connect 的伺服器關閉，您將需要 Microsoft 支援服務的協助，以關閉傳遞驗證。

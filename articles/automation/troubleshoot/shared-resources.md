@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: 66165a196c8b934df948f1d88b09a5859d3e792f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60401471"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>針對共用資源的錯誤進行疑難排解
@@ -25,7 +25,7 @@ ms.locfileid: "60401471"
 
 #### <a name="issue"></a>問題
 
-當您在 Azure 自動化中匯入或更新模組時，模組會卡在 [匯入中] 狀態。
+當您在 Azure 自動化中匯入或更新模組時，模組會卡在 [匯入中]  狀態。
 
 #### <a name="cause"></a>原因
 
@@ -136,7 +136,7 @@ You do not have permissions to create…
 
 若要建立或更新執行身分帳戶，您必須具備執行身分帳戶所用資源的適當權限。 若要深入了解建立或更新執行身分帳戶所需的權限，請參閱[執行身分帳戶權限](../manage-runas-account.md#permissions)。
 
-如果問題是因為鎖定而造成的，請確認鎖定可以移除。 然後，瀏覽至已鎖定的資源、以滑鼠右鍵按一下鎖定，然後選擇 [刪除] 以移除鎖定。
+如果問題是因為鎖定而造成的，請確認鎖定可以移除。 然後，瀏覽至已鎖定的資源、以滑鼠右鍵按一下鎖定，然後選擇 [刪除]  以移除鎖定。
 
 ### <a name="iphelper"></a>案例：當您收到錯誤 「 找不到進入點名稱為 'GetPerAdapterInfo' dll 'iplpapi.dll' 中 」 執行 runbook。
 
@@ -168,4 +168,4 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
 
 * 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
 * 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。
-* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
+* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。

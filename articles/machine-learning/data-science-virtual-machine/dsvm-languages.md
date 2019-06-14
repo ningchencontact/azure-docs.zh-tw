@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502211"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>資料科學虛擬機器上所支援的語言 
@@ -62,11 +62,11 @@ python --version
 使用安裝於 Visual Studio Community 版本的「適用於 Visual Studio 的 Python 工具」(PTVS)。 Python 3.6 是 PTVS 中預設唯一會自動設定的環境。 
 
 > [!NOTE]
-> 若要將 PTVS 指向 Python 2.7，您必須在 PTVS 中建立自訂環境。 若要在 Visual Studio Community 版本中設定此環境路徑，請瀏覽至 [工具] -> [Python 工具] -> [Python 環境]，然後按一下 [+ 自訂]。 然後將位置設定為 `c:\anaconda\envs\python2`，並按一下 [自動偵測]。 
+> 若要將 PTVS 指向 Python 2.7，您必須在 PTVS 中建立自訂環境。 若要在 Visual Studio Community 版本中設定此環境路徑，請瀏覽至 [工具]   -> [Python 工具]   -> [Python 環境]  ，然後按一下 [+ 自訂]  。 然後將位置設定為 `c:\anaconda\envs\python2`，並按一下 [自動偵測]  。 
 
 * 在 Jupyter 中使用
 
-開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以針對 Python 3.6 將核心類型選擇為 [Python [Conda Root]]，並針對 Python 2.7 環境將核心類型選擇為 [Python [Conda env:python2]]。 
+開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以針對 Python 3.6 將核心類型選擇為 [Python [Conda Root]]  ，並針對 Python 2.7 環境將核心類型選擇為 [Python [Conda env:python2]]  。 
 
 * 安裝 Python 套件
 
@@ -104,7 +104,7 @@ python --version
 
 * 在 Jupyter 中使用
 
-開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以針對 Python 2.7 將核心類型選擇為 [Python [Conda Root]]，並針對 Python 3.5 環境將核心類型選擇為 [Python [Conda env:py35]]。 
+開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以針對 Python 2.7 將核心類型選擇為 [Python [Conda Root]]  ，並針對 Python 3.5 環境將核心類型選擇為 [Python [Conda env:py35]]  。 
 
 * 安裝 Python 套件
 
@@ -129,11 +129,11 @@ python --version
 
 使用安裝於 Visual Studio Community 版本的「適用於 Visual Studio 的 Python 工具」(PTVS)。 Python 2.7 是 PTVS 中唯一會自動設定的環境。 
 > [!NOTE]
-> 若要將 PTVS 指向 Python 3.5，您必須在 PTVS 中建立自訂環境。 若要在 Visual Studio Community 版本中設定此環境路徑，請瀏覽至 [工具] -> [Python 工具] -> [Python 環境]，然後按一下 [+ 自訂]。 然後將位置設定為 `c:\anaconda\envs\py35`，並按一下 [自動偵測]。 
+> 若要將 PTVS 指向 Python 3.5，您必須在 PTVS 中建立自訂環境。 若要在 Visual Studio Community 版本中設定此環境路徑，請瀏覽至 [工具]   -> [Python 工具]   -> [Python 環境]  ，然後按一下 [+ 自訂]  。 然後將位置設定為 `c:\anaconda\envs\py35`，並按一下 [自動偵測]  。 
 
 * 在 Jupyter 中使用
 
-開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以針對 Python 2.7 將核心類型選擇為 [Python [Conda Root]]，並針對 Python 3.5 環境將核心類型選擇為 [Python [Conda env:py35]]。 
+開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以針對 Python 2.7 將核心類型選擇為 [Python [Conda Root]]  ，並針對 Python 3.5 環境將核心類型選擇為 [Python [Conda env:py35]]  。 
 
 * 安裝 Python 套件
 
@@ -162,7 +162,7 @@ DSVM 上的預設 Python 環境為全域環境，可由所有使用者讀取。 
 
 * 在 Jupyter 中使用
 
-開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以將核心類型選擇為 [R] 以使用 Jupyter R 核心 (IRKernel)。 
+開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以將核心類型選擇為 [R]  以使用 Jupyter R 核心 (IRKernel)。 
 
 * 安裝 R 套件
 
@@ -180,7 +180,7 @@ R 是安裝在 DSVM 上可由所有使用者讀取的全域環境中。 但只�
 
 * 在 Jupyter 中使用
 
-開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以將核心類型選擇為 [R] 以使用 Jupyter R 核心 (IRKernel)。 
+開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以將核心類型選擇為 [R]  以使用 Jupyter R 核心 (IRKernel)。 
 
 * 安裝 R 套件
 
@@ -234,12 +234,12 @@ R 是安裝在 DSVM 上可由所有使用者讀取的全域環境中。 但只�
 
 ## <a name="other-languages"></a>其他語言
 
-**C#**：可於 Windows 上使用，並可透過 Visual Studio Community 版本存取，或是在可直接執行 `csc` 命令的 `Developer Command Prompt for Visual Studio` 上存取。 
+**C#** ：可於 Windows 上使用，並可透過 Visual Studio Community 版本存取，或是在可直接執行 `csc` 命令的 `Developer Command Prompt for Visual Studio` 上存取。 
 
 **Java**：OpenJDK 可於 DSVM 的 Linux 和 Windows 版本上使用，並已設定於路徑上。 您可以在 Windows 中的命令提示字元，或 Linux 中的 Bash 殼層上輸入 `javac` 或 `java` 命令來使用 Java。 
 
 **node.js**：: node.js 可於 DSVM 的 Linux 和 Windows 版本上使用，並已設定於路徑上。 您可以在 Windows 中的命令提示字元，或 Linux 中的 Bash 殼層上輸入 `node` 或 `npm` 命令來使用 node.js。 在 Windows 上，系統會安裝「適用於 Visual Studio 的 Node.js 工具」擴充功能，以提供圖形化的 IDE 來開發 node.js 應用程式。 
 
-**F#**：可於 Windows 上使用，並可透過 Visual Studio Community 版本存取，或是在可直接執行 `fsc` 命令的 `Developer Command Prompt for Visual Studio` 上存取。 
+**F#** ：可於 Windows 上使用，並可透過 Visual Studio Community 版本存取，或是在可直接執行 `fsc` 命令的 `Developer Command Prompt for Visual Studio` 上存取。 
 
 

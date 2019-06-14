@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538797"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>使用 Azure Logic Apps 和 IBM 3270 連接器與 Azure 整合 3270 應用 IBM 大型主機上的畫面驅動程式
@@ -355,13 +355,13 @@ ms.locfileid: "60538797"
    ![選取 3270 動作](./media/connectors-create-api-3270/select-3270-action.png)
 
    若要在步驟之間新增動作，將指標移至步驟之間的箭號。 
-   選擇顯示的加號 (**+**)，然後選取 [新增動作]。
+   選擇顯示的加號 ( **+** )，然後選取 [新增動作]  。
 
 1. 如果沒有連接尚未存在，提供您的連線的必要資訊，然後選擇**建立**。
 
    | 屬性 | 必要項 | Value | 描述 |
    |----------|----------|-------|-------------|
-   | 連線名稱 | 是 | <*connection-name*> | 您連線的名稱 |
+   | 連線名稱  | 是 | <*connection-name*> | 您連線的名稱 |
    | **整合帳戶識別碼** | 是 | <*integration-account-name*> | 您的整合帳戶名稱 |
    | **整合帳戶 SAS URL** | 是 | <*integration-account-SAS-URL*> | 整合帳戶的共用存取簽章 (SAS) URL，您可以從 Azure 入口網站中的整合帳戶的設定產生。 <p>1.在您的整合帳戶 功能表底下**設定**，選取**回呼 URL**。 <br>2.在右窗格中，複製**產生的回呼 URL**值。 |
    | **伺服器** | 是 | <*TN3270-server-name*> | TN3270 服務的伺服器名稱 |
@@ -373,7 +373,7 @@ ms.locfileid: "60538797"
    | **驗證主機 ssl 憑證？** | 否 | 開啟或關閉 | 開啟或關閉伺服器的憑證驗證。 |
    ||||
 
-   例如︰
+   例如:
 
    ![連線屬性](./media/connectors-create-api-3270/connection-properties.png)
 
@@ -385,7 +385,7 @@ ms.locfileid: "60538797"
    | **方法名稱** | 是 | <*method-name*> | 選取您想要使用 HIDX 檔案中的方法。 選取方法之後,**加入新參數**清單隨即出現，因此您可以選取要使用具有該方法的參數。 |
    ||||
 
-   例如︰
+   例如:
 
    **選取 HIDX 檔案**
 

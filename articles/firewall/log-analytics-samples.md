@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 2/15/2019
 ms.author: victorh
 ms.openlocfilehash: 3f329d3dd4af1faef8f77d08db655cc7d6ef79fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60461502"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Azure 防火牆記錄檔分析範例
@@ -22,15 +22,15 @@ ms.locfileid: "60461502"
 
 ## <a name="azure-monitor-logs-view"></a>Azure 監視器記錄檢視
 
-以下是如何設定 Azure 監視器記錄視覺效果的範例。 您可以從 [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) \(英文\) 存放庫下載該範例視覺效果。 最簡單的方法是以滑鼠右鍵按一下本頁面上的超連結，然後選擇 [另存新檔]，並提供如 **AzureFirewall.omsview** 的名稱。 
+以下是如何設定 Azure 監視器記錄視覺效果的範例。 您可以從 [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) \(英文\) 存放庫下載該範例視覺效果。 最簡單的方法是以滑鼠右鍵按一下本頁面上的超連結，然後選擇 [另存新檔]  ，並提供如 **AzureFirewall.omsview** 的名稱。 
 
 執行下列步驟來將檢視新增至您的 Log Analytics 工作區：
 
 1. 在 Azure 入口網站中開啟 Log Analytics 工作區。
-2. 開啟位於 [一般] 底下的 [檢視設計工具]。
-3. 按一下 [匯入] 。
+2. 開啟位於 [一般]  底下的 [檢視設計工具]  。
+3. 按一下 [匯入]  。
 4. 瀏覽並選取您之前所下載的 **AzureFirewall.omsview** 檔案。
-5. 按一下 [檔案] 。
+5. 按一下 [檔案]  。
 
 以下是針對應用程式規則記錄資料的檢視外觀：
 

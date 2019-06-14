@@ -16,10 +16,10 @@ ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57f0ec91bd5c72b593d9b28f7d47f691181a6a0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60290571"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>使用 Azure 入口網站在虛擬機器擴展集上設定 Azure 資源受控識別
@@ -57,7 +57,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 2. 瀏覽到需要的虛擬機器擴展集。
 
-3. 在 [系統指派]、[狀態] 底下，選取 [開啟]，然後按一下 [儲存]：
+3. 在 [系統指派]  、[狀態]  底下，選取 [開啟]  ，然後按一下 [儲存]  ：
 
    ![組態頁面螢幕擷取畫面](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png) 
 
@@ -69,7 +69,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 2. 瀏覽到需要的虛擬機器擴展集。
 
-3. 在 [系統指派]、[狀態] 底下，選取 [關閉]，然後按一下 [儲存]：
+3. 在 [系統指派]  、[狀態]  底下，選取 [關閉]  ，然後按一下 [儲存]  ：
 
    ![組態頁面螢幕擷取畫面](./media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
 
@@ -86,18 +86,18 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-virtual-machine-scale-set"></a>將使用者指派的受控識別指派給現有的虛擬機器擴展集
 
 1. 使用與包含虛擬機器擴展集的 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。
-2. 瀏覽至所需虛擬機器擴展集，然後依序按一下 [身分識別]、[使用者指派] 和 [\+新增]。
+2. 瀏覽至所需虛擬機器擴展集，然後依序按一下 [身分識別]  、[使用者指派]  和 [\+新增]  。
 
    ![對 VMSS 新增使用者指派的身分識別](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
 
-3. 按一下想要新增到虛擬機器擴展集的使用者指派身分識別，然後按一下 [新增]。
+3. 按一下想要新增到虛擬機器擴展集的使用者指派身分識別，然後按一下 [新增]  。
    
    ![對 VMSS 新增使用者指派的身分識別](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot2.png)
 
 ### <a name="remove-a-user-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>從虛擬機器擴展集移除使用者指派的受控識別
 
 1. 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。
-2. 瀏覽至所需虛擬機器擴展集，按一下 [身分識別]、[使用者指派] 和想要刪除的使用者指派受控識別名稱，然後按一下 [移除] (按一下 [確認] 窗格中的 [是])。
+2. 瀏覽至所需虛擬機器擴展集，按一下 [身分識別]  、[使用者指派]  和想要刪除的使用者指派受控識別名稱，然後按一下 [移除]  (按一下 [確認] 窗格中的 [是]  )。
 
    ![從 VMSS 中移除使用者指派的身分識別](./media/msi-qs-configure-portal-windows-vm/remove-user-assigned-identity-vmss-screenshot.png)
 

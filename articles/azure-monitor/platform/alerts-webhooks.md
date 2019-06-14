@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
-ms.component: alerts
+ms.subservice: alerts
 ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345768"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>設定傳統計量警示使用 Webhook 通知非 Azure 系統
@@ -23,7 +23,7 @@ ms.locfileid: "60345768"
 Azure 警示會使用 HTTP POST 將警示內容以 JSON 格式傳送到您在建立警示時提供的 Webhook URI。 稍後在本文中會定義結構描述。 該 URI 必須是有效的 HTTP 或 HTTPS 端點。 當警示啟動時，Azure 會針對每個要求張貼一個項目。
 
 ## <a name="configure-webhooks-via-the-azure-portal"></a>透過 Azure 入口網站設定 Webhook
-若要在 [Azure 入口網站](https://portal.azure.com/)中新增或更新 Webhook URI，請移至 [建立/更新警示]。
+若要在 [Azure 入口網站](https://portal.azure.com/)中新增或更新 Webhook URI，請移至 [建立/更新警示]  。
 
 ![新增警示規則窗格](./media/alerts-webhooks/Alertwebhook.png)
 
@@ -78,7 +78,7 @@ POST 作業對於所有以計量為基礎的警示會包含下列 JSON 承載和
 | name |Y | |警示名稱。 |
 | description |Y | |警示的描述。 |
 | conditionType |Y |Metric、Event |支援兩種類型的警示：計量和事件。 以計量條件為基礎的計量警示。 以活動記錄中的事件為基礎的事件警示。 使用此值來檢查警示是以計量或事件為基礎。 |
-| condition |Y | |要以 **conditionType** 值為基礎來檢查的特定欄位。 |
+| condition (條件) |Y | |要以 **conditionType** 值為基礎來檢查的特定欄位。 |
 | metricName |用於計量警示 | |定義規則所監視的計量名稱。 |
 | metricUnit |用於計量警示 |Bytes、BytesPerSecond、Count、CountPerSecond、Percent、Seconds |計量允許的單位。 請參閱[允許的值](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx)。 |
 | metricValue |用於計量警示 | |造成警示的計量實際值。 |
@@ -90,7 +90,7 @@ POST 作業對於所有以計量為基礎的警示會包含下列 JSON 承載和
 | resourceGroupName |Y | |受影響資源的資源群組名稱。 |
 | resourceName |Y | |受影響資源的資源名稱。 |
 | resourceType |Y | |受影響資源的資源類型。 |
-| resourceId |Y | |受影響資源的資源識別碼。 |
+| ResourceId |Y | |受影響資源的資源識別碼。 |
 | resourceRegion |Y | |受影響資源的區域或位置。 |
 | portalLink |Y | |入口網站資源摘要頁面的直接連結。 |
 | properties |N |選用 |一組索引鍵/值組，具有事件的詳細資料。 例如： `Dictionary<String, String>`。 properties 欄位是選擇性的。 在自訂 UI 或邏輯應用程式的工作流程中，使用者可以輸入可透過承載傳遞的索引鍵/值。 另一種將自訂屬性傳回給 Webhook 的替代方式是透過 Webhook URI 本身 (做為查詢參數)。 |
@@ -106,3 +106,4 @@ POST 作業對於所有以計量為基礎的警示會包含下列 JSON 承載和
 * 深入了解如何[使用邏輯應用程式透過 Twilio 從 Azure 警示傳送簡訊](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app) \(英文\)。
 * 深入了解如何[使用邏輯應用程式從 Azure 警示傳送 Slack 訊息](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app) \(英文\)。
 * 深入了解如何[使用邏輯應用程式從 Azure 警示將訊息傳送到 Azure 佇列](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app) \(英文\)。
+

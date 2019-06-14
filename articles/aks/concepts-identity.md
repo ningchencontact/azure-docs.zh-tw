@@ -2,17 +2,16 @@
 title: 概念 - Azure Kubernetes Service (AKS) 中的存取與身分識別
 description: 深入了解 Azure Kubernetes Service (AKS) 中的存取與身分識別，包括 Azure Active Directory 整合、Kubernetes 角色型存取控制 (RBAC) 及角色和繫結。
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 02/28/2019
+ms.author: iainfou
 ms.openlocfilehash: 3432ba671431c25b7cd9ee58decc638861e884c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60467036"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的存取與身分識別選項
@@ -29,9 +28,9 @@ ms.locfileid: "60467036"
 
 ## <a name="kubernetes-service-accounts"></a>Kubernetes 服務帳戶
 
-Kubernetes 的其中一個主要使用者類型是「服務帳戶」。 服務帳戶存在 Kubernetes API 中，並受其管理。 服務帳戶的認證會儲存為 Kubernetes 祕密，如此便可讓已獲授權的 Pod 用這些認證與 API 伺服器進行通訊。 大部分的 API 要求會為服務帳戶或一般使用者帳戶提供驗證權杖。
+Kubernetes 的其中一個主要使用者類型是「服務帳戶」  。 服務帳戶存在 Kubernetes API 中，並受其管理。 服務帳戶的認證會儲存為 Kubernetes 祕密，如此便可讓已獲授權的 Pod 用這些認證與 API 伺服器進行通訊。 大部分的 API 要求會為服務帳戶或一般使用者帳戶提供驗證權杖。
 
-一般使用者帳戶會允許系統管理人員或開發人員適用的傳統存取，而不只是允許服務和程序的存取。 Kubernetes 本身不提供存储常规用户帐户和密码的标识管理解决方案。 而是將外部身分識別解決方案整合到 Kubernetes。 對 AKS 叢集而言，此整合的身分識別解決方案就是 Azure Active Directory。
+一般使用者帳戶會允許系統管理人員或開發人員適用的傳統存取，而不只是允許服務和程序的存取。 Kubernetes 本身不提供一般使用者帳戶和密碼的儲存位置的身分識別管理解決方案。 而是將外部身分識別解決方案整合到 Kubernetes。 對 AKS 叢集而言，此整合的身分識別解決方案就是 Azure Active Directory。
 
 如需有關 Kubernetes 中身分識別選項的詳細資訊，請參閱 [Kubernetes 驗證][kubernetes-authentication]。
 
@@ -47,28 +46,28 @@ AKS 叢集中的 Azure AD 驗證會使用 OpenID Connect (在 OAuth 2.0 通訊�
 
 ## <a name="role-based-access-controls-rbac"></a>角色型存取控制 (RBAC)
 
-若要更細微地篩選使用者可以執行的動作，Kubernetes 會使用角色型存取控制 (RBAC)。 此控制機制可讓您指派權限給使用者或使用者群組，以執行像是建立或修改資源，或檢視執行中應用程式工作負載的記錄等動作。 這些權限可以只限於單一命名空間，或授與給整個 AKS 叢集。 透過 Kubernetes RBAC，您可以建立「角色」來定義權限，然後藉由「角色繫結」將這些角色指派給使用者。
+若要更細微地篩選使用者可以執行的動作，Kubernetes 會使用角色型存取控制 (RBAC)。 此控制機制可讓您指派權限給使用者或使用者群組，以執行像是建立或修改資源，或檢視執行中應用程式工作負載的記錄等動作。 這些權限可以只限於單一命名空間，或授與給整個 AKS 叢集。 透過 Kubernetes RBAC，您可以建立「角色」  來定義權限，然後藉由「角色繫結」  將這些角色指派給使用者。
 
 如需詳細資訊，請參閱[使用 RBAC 授權][kubernetes-rbac]。
 
 ### <a name="azure-role-based-access-controls-rbac"></a>Azure 角色型存取控制 (RBAC)
-另一個控制資源存取的機制是 Azure 角色型存取控制 (RBAC)。 Kubernetes RBAC 會用於處理您 AKS 叢集內的資源，而 Azure RBAC 會用於處理您 Azure 訂用帳戶內的資源。 透過 Azure RBAC，您可以建立「角色定義」來概述要套用的權限。 接著，使用者或群組會在特定「範圍」中獲派此角色定義，此範圍可能是個別的資源、資源群組或訂用帳戶。
+另一個控制資源存取的機制是 Azure 角色型存取控制 (RBAC)。 Kubernetes RBAC 會用於處理您 AKS 叢集內的資源，而 Azure RBAC 會用於處理您 Azure 訂用帳戶內的資源。 透過 Azure RBAC，您可以建立「角色定義」  來概述要套用的權限。 接著，使用者或群組會在特定「範圍」  中獲派此角色定義，此範圍可能是個別的資源、資源群組或訂用帳戶。
 
 如需詳細資訊，請參閱[何謂 Azure RBAC？][azure-rbac]
 
 ## <a name="roles-and-clusterroles"></a>Roles 和 ClusterRoles
 
-使用 Kubernetes RBAC 將權限指派給使用者之前，您必須先將這些權限定義為「角色」。 Kubernetes 角色會「授與」權限。 這裡沒有「拒絕」權限的概念。
+使用 Kubernetes RBAC 將權限指派給使用者之前，您必須先將這些權限定義為「角色」  。 Kubernetes 角色會「授與」  權限。 這裡沒有「拒絕」  權限的概念。
 
-Roles (角色) 會用來授與一個命名空間內的權限。 如果您需要將權限授與整個叢集，或授與指定命名空間外部的叢集資源，可以改用 ClusterRoles。
+Roles (角色) 會用來授與一個命名空間內的權限。 如果您需要將權限授與整個叢集，或授與指定命名空間外部的叢集資源，可以改用 ClusterRoles  。
 
 ClusterRole 會以同樣方式將權限授與資源，但這些權限可以套用至整個叢集中的資源，而不是特定命名空間中的資源。
 
 ## <a name="rolebindings-and-clusterrolebindings"></a>RoleBindings 和 ClusterRoleBindings
 
-一旦將角色定義為可授與權限給資源，您就可以透過 RoleBinding 指派這些 Kubernetes RBAC 權限。 如果您的 AKS 叢集與 Azure Active Directory 整合，繫結就是 Azure AD 使用者得到權限來執行叢集內動作的方式。
+一旦將角色定義為可授與權限給資源，您就可以透過 RoleBinding  指派這些 Kubernetes RBAC 權限。 如果您的 AKS 叢集與 Azure Active Directory 整合，繫結就是 Azure AD 使用者得到權限來執行叢集內動作的方式。
 
-角色繫結會用來為指定命名空間指派角色。 此方法可讓您以邏輯方式區隔單一 AKS 叢集，讓使用者只能存取獲派命名空間中的應用程式資源。 如果您需要將角色繫結到整個叢集，或繫結到指定命名空間外部的叢集資源，可以改用 ClusterRoleBindings。
+角色繫結會用來為指定命名空間指派角色。 此方法可讓您以邏輯方式區隔單一 AKS 叢集，讓使用者只能存取獲派命名空間中的應用程式資源。 如果您需要將角色繫結到整個叢集，或繫結到指定命名空間外部的叢集資源，可以改用 ClusterRoleBindings  。
 
 ClusterRoleBinding 會以同樣方式將角色繫結到使用者，但這些角色可以套用至整個叢集中的資源，而不是特定命名空間中的資源。 此方法可讓您允許系統管理員或支援工程師存取 AKS 叢集中的所有資源。
 
@@ -76,7 +75,7 @@ ClusterRoleBinding 會以同樣方式將角色繫結到使用者，但這些角�
 
 若要開始使用 Azure AD 和 Kubernetes RBAC，請參閱[整合 Azure Active Directory 與 AKS][aks-aad]。
 
-有关相关的最佳做法，请参阅[在 AKS 中进行身份验证和授权的最佳做法][operator-best-practices-identity]。
+如需相關聯的最佳作法，請參閱[AKS 中驗證和授權的最佳做法][operator-best-practices-identity]。
 
 如需關於 Kubernetes 及 AKS 核心概念的詳細資訊，請參閱下列文章：
 
@@ -93,9 +92,9 @@ ClusterRoleBinding 會以同樣方式將角色繫結到使用者，但這些角�
 
 <!-- LINKS - Internal -->
 [openid-connect]: ../active-directory/develop/v1-protocols-openid-connect-code.md
-[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration-cli.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md

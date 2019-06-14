@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60527304"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure 診斷延伸模組的設定結構描述版本和歷程記錄
@@ -150,7 +150,7 @@ Azure 監視器 」，它包含 Application Insights 和 Log Analytics 等其他
 
 
 ### <a name="diagnostics-extension-18"></a>診斷擴充功能 1.8 版
-已在 PublicConfig 中新增儲存體類型。 StorageType 可以是 Table、Blob、TableAndBlob。 Table 是預設值。
+已在 PublicConfig 中新增儲存體類型。 StorageType 可以是 Table  、Blob  、TableAndBlob  。 Table  是預設值。
 
 
 ```json

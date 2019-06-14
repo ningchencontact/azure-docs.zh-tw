@@ -17,10 +17,10 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: aa912e3eb76d72e7a79c83d7e51d493310bd36b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60362130"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Azure 虛擬機器中的 SQL Server 自動修補 (傳統)
@@ -30,10 +30,10 @@ ms.locfileid: "60362130"
 > 
 > 
 
-自動修補會針對執行 SQL Server 的 Azure 虛擬機器建立維護時間範圍。 只能在此维护时段内安装自动更新。 對於 SQL Server，這可以確保系統更新和任何相關聯的重新啟動會在對資料庫最好的時間發生。 
+自動修補會針對執行 SQL Server 的 Azure 虛擬機器建立維護時間範圍。 自動更新只能在此維護時間範圍內安裝。 對於 SQL Server，這可以確保系統更新和任何相關聯的重新啟動會在對資料庫最好的時間發生。 
 
 > [!IMPORTANT]
-> 只會安裝標示為 [重要] 的 Windows 更新。 其他 SQL Server 更新 (例如累計更新) 必須以手動方式安裝。 
+> 只會安裝標示為 [重要]  的 Windows 更新。 其他 SQL Server 更新 (例如累計更新) 必須以手動方式安裝。 
 
 自動修補相依於 [SQL Server IaaS 代理程式擴充](../classic/sql-server-agent-extension.md)。
 
@@ -81,7 +81,7 @@ ms.locfileid: "60362130"
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -AutoPatchingSettings $aps | Update-AzureVM
 
-下表根据此示例描述了对目标 Azure VM 产生的实际效果：
+下表會根據此範例來描述對目標 Azure VM 的實際效果：
 
 | 參數 | 效果 |
 | --- | --- |
@@ -92,7 +92,7 @@ ms.locfileid: "60362130"
 
 可能需要幾分鐘的時間來安裝及設定 SQL Server IaaS 代理程式。
 
-若要停用自動修補，請執行相同的指令碼，但不要對 New-AzureVMSqlServerAutoPatchingConfig 使用 -Enable 參數。 与安装一样，可能需要花费几分钟时间来禁用自动修补。
+若要停用自動修補，請執行相同的指令碼，但不要對 New-AzureVMSqlServerAutoPatchingConfig 使用 -Enable 參數。 和安裝一樣，可能需要幾分鐘的時間來停用自動修補。
 
 ## <a name="next-steps"></a>後續步驟
 如需有關其他可用之自動化工作的資訊，請參閱 [SQL Server IaaS 代理程式擴充功能](../classic/sql-server-agent-extension.md)。

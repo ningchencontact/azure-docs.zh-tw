@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371303"
 ---
 # <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>了解 Microsoft 的客戶合約條款，在您的 Azure 使用量和費用 CSV
@@ -38,27 +38,27 @@ Azure 使用量和費用 CSV 檔案包含目前計費週期的每日及計量層
 
 | EA Azure 使用情況 CSV | Microsoft 客戶合約的 Azure 使用量和費用 CSV |
 | --- | --- |
-| date | date |
+| Date | date |
 | 月| date |
 | 天 | date |
 | Year | date |
-| 產品 | product |
+| Products | product |
 | 計量識別碼 | meterID |
 | 計量類別目錄 | meterCategory |
 | 計量子類別目錄 | meterSubCategory |
 | 計量地區 | meterRegion |
 | 計量名稱 | meterName |
 | ConsumedQuantity | quantity |
-| 資源費率 | effectivePrice | <!-- this was highlighted -->
-| 延伸成本 | cost |
+| ResourceRate | effectivePrice | <!-- this was highlighted -->
+| ExtendedCost | cost |
 | 資源位置 | resourceLocation |
 | 已使用的服務 | consumedService |
 | InstanceId | instanceId |
 | 服務資訊 1 | serviceInfo1 |
 | 服務資訊 2 | serviceInfo2 |
 | 其他資訊 | additionalInfo |
-| 標記 | tags |
-| 儲存體服務識別碼 | N/A |
+| 標記 | 标记 |
+| StoreServiceIdentifier | N/A |
 | DepartmentName | invoiceSection | <!-- this was highlighted -->
 | CostCenter | costCenter |
 | 測量單位 | unitofMeasure |
@@ -107,7 +107,7 @@ publisherType | 「 發行者 」 的型別 (值： firstParty thirdPartyReselle
 publisherName | 「 發行者 」 的 Marketplace 服務
 resourceGroupId | 與資源相關聯的資源群組的唯一識別碼
 resourceGroupName | 與資源相關聯的資源群組名稱
-resourceId | 資源執行個體的唯一識別碼
+ResourceId | 資源執行個體的唯一識別碼
 resourceType | 資源執行個體的類型
 resourceLocation | 識別正在執行資源的資料中心位置。
 location | 如果針對相同的區域設定不同的資源位置的資源標準化的位置
@@ -118,7 +118,7 @@ isAzureCreditEligible | 旗標，指出是否有資格使用要使用的 Azure �
 serviceInfo1 | 服務特定中繼資料
 serviceInfo2 | 舊版欄位，可擷取選擇性的服務特定中繼資料
 additionalInfo | 其他服務特定的中繼資料。
-tags | 您將指派給資源的標記
+标记 | 您將指派給資源的標記
 
 ### <a name="how-do-i-make-sure-that-the-charges-in-my-azure-usage-and-charges-file-are-correct"></a>我如何確定我的 Azure 使用量和費用檔案中的費用是否正確？
 

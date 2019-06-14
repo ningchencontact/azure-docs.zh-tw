@@ -3,29 +3,28 @@ title: Azure 服務匯流排訊息傳輸、鎖定和安置 | Microsoft Docs
 description: 服務匯流排訊息傳輸和安置作業概觀
 services: service-bus-messaging
 documentationcenter: ''
-author: lingliw
-manager: digimobile
-editor: ''
+author: axisc
+manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2018
-ms.date: 10/31/2018
-ms.author: v-lingwu
+ms.date: 09/25/2018
+ms.author: aschhab
 ms.openlocfilehash: a78409a15acb4e60fc4200778d0f33b3fb566e85
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60403936"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>訊息傳輸、鎖定和安置
 
-訊息代理程式 (例如服務匯流排) 的主要功能是將訊息接受至佇列或主題，並加以保留以供日後擷取。 「傳送」一詞通常會用來將訊息傳輸至訊息代理程式。 「接收」一詞通常會用來將訊息傳輸至擷取用戶端。
+訊息代理程式 (例如服務匯流排) 的主要功能是將訊息接受至佇列或主題，並加以保留以供日後擷取。 「傳送」  一詞通常會用來將訊息傳輸至訊息代理程式。 「接收」  一詞通常會用來將訊息傳輸至擷取用戶端。
 
-當用戶端傳送訊息時，它通常想要知道訊息是否已正確傳輸到並由訊息代理程式所接受，或者是否發生了某種錯誤。 這個肯定或否定的認可讓使用戶端和訊息代理程式能夠了解訊息傳輸狀態的相關資訊，因此稱為「安置」。
+當用戶端傳送訊息時，它通常想要知道訊息是否已正確傳輸到並由訊息代理程式所接受，或者是否發生了某種錯誤。 這個肯定或否定的認可讓使用戶端和訊息代理程式能夠了解訊息傳輸狀態的相關資訊，因此稱為「安置」  。
 
 同樣地，當訊息代理程式將訊息傳輸到用戶端時，訊息代理程式和用戶端會想要了解訊息是否已成功處理，因而可加以移除，或者訊息傳遞或處理是否失敗，因此可能必須再次傳遞訊息。
 
@@ -89,7 +88,7 @@ await Task.WhenAll(tasks);
 for (int i = 0; i < 100; i++)
 {
 
-  client.SendAsync(message); // DON'T DO THIS
+  client.SendAsync(message); // DON’T DO THIS
 }
 ```
 

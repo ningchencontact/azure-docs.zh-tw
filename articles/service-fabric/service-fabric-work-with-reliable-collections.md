@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/22/2019
 ms.author: aljo
 ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60506734"
 ---
 # <a name="working-with-reliable-collections"></a>使用可靠的集合
@@ -207,7 +207,7 @@ public struct ItemId
 
 > [!WARNING]
 > 雖然您可以修改索引鍵的結構描述，但您必須確保索引鍵雜湊程式碼和 equals 演算法是穩定的。 如果您變更這些演算法其中一個的運作方式，您就再也無法在可靠的字典內查詢索引鍵。
-> .NET 字符串可以用作键，但请使用字符串本身作为键，不要使用 String.GetHashCode 的结果作为键。
+> .NET 字串便能以機碼，但是使用字串本身做為索引鍵-請勿使用 String.GetHashCode 的結果做為索引鍵。
 
 或者，您也可以執行通稱為兩階段升級的功能。 使用兩階段升級，即可將服務從 V1 升級至 V2：V2 包含知道如何處理新結構描述變更的程式碼，但這段程式碼不會執行。 當 V2 程式碼讀取 V1 資料時，它會在其上操作並寫入 V1 資料。 然後，在跨所有升級網域的升級都完成之後，您就可以通知執行中的 V2 執行個體，升級已完成。 (對此發出訊號的方式之一是推出設定升級，這就是使其成為兩階段升級的原因)。現在，V2 執行個體可以讀取 V1 資料，將它轉換成 V2 資料、操作它，然後寫出為 V2 資料。 當其他執行個體讀取 V2 資料時，不需要轉換它，只要操作並寫出 V2 資料即可。
 

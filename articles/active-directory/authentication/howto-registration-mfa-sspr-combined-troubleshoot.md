@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60414611"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>疑難排解合併安全性資訊註冊 （預覽）
@@ -35,7 +35,7 @@ ms.locfileid: "60414611"
 
 下表列出所合併的註冊產生的所有稽核事件：
 
-| 活動 | 狀態 | 原因 | 描述 |
+| activities | 狀態 | `Reason` | 描述 |
 | --- | --- | --- | --- |
 | 使用者已註冊的所有必要的安全性資訊 | 成功 | 使用者已註冊的所有必要的安全性資訊。 | 當使用者成功完成註冊，就會發生此事件。|
 | 使用者已註冊的所有必要的安全性資訊 | 失敗 | 使用者已取消的安全性資訊註冊。 | 使用者取消註冊從中斷模式時，就會發生此事件。|

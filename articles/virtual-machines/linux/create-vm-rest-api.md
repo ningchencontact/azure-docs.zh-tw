@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60391356"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>透過 REST API 建立使用 SSH 驗證的 Linux 虛擬機器
@@ -65,14 +65,14 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 | Name                       | 必要項 | 類型                                                                                | 描述  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| location                   | True     | string                                                                              | 資源位置。 |
-| name                       |          | string                                                                              | 虛擬機器的名稱。 |
+| location                   | True     | 字串                                                                              | 資源位置。 |
+| name                       |          | 字串                                                                              | 虛擬機器的名稱。 |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | 指定虛擬機器的硬體設定。 |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | 指定虛擬機器磁碟的儲存體設定。 |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | 指定虛擬機器的作業系統設定。 |
 | properties.networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | 指定虛擬機器的網路介面。 |
 
-範例要求本文如下所示。 請確定您在 `{computerName}` 和 `{name}` 參數中指定 VM 名稱、指定您已在 `networkInterfaces` 底下建立的網路介面名稱、在 `adminUsername` 和 `path` 中指定您的使用者名稱，以及在 `keyData` 中指定您 SSH 金鑰組的「公用」部分 (舉例來說，位於 `~/.ssh/id_rsa.pub`)。 您想要修改的其他參數包括 `location` 和 `vmSize`。  
+範例要求本文如下所示。 請確定您在 `{computerName}` 和 `{name}` 參數中指定 VM 名稱、指定您已在 `networkInterfaces` 底下建立的網路介面名稱、在 `adminUsername` 和 `path` 中指定您的使用者名稱，以及在 `keyData` 中指定您 SSH 金鑰組的「公用」  部分 (舉例來說，位於 `~/.ssh/id_rsa.pub`)。 您想要修改的其他參數包括 `location` 和 `vmSize`。  
 
 ```json
 {
@@ -127,19 +127,19 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 }
 ```
 
-有关请求正文中的变量定义的完整列表，请参阅[虚拟机创建或更新请求正文定义](/rest/api/compute/virtualmachines/createorupdate#definitions)。
+如需要求主體中可用的定義的完整清單，請參閱[虛擬機器建立或更新要求主體定義](/rest/api/compute/virtualmachines/createorupdate#definitions)。
 
 ## <a name="sending-the-request"></a>傳送要求
 
-您可以使用喜好的用戶端來傳送這個 HTTP 要求。 也可以按一下 [試用] 按鈕，使用[瀏覽器內工具](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate)。
+您可以使用喜好的用戶端來傳送這個 HTTP 要求。 也可以按一下 [試用]  按鈕，使用[瀏覽器內工具](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate)。
 
-### <a name="responses"></a>回應
+### <a name="responses"></a>Responses
 
 建立或更新虛擬機器的作業會有兩個成功的回應：
 
 | Name        | 類型                                                                              | 描述 |
 |-------------|-----------------------------------------------------------------------------------|-------------|
-| 200 確定      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
+| 200 確定      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | [確定]          |
 | 201 Created | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 建立時間     |
 
 先前建立 VM 的要求本文範例，所傳回的扼要 *201 Created* 回應顯示已指派 *vmId*，且 *provisioningState* 為 *Creating*：

@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 7cc825daa29a0398793f3c6fc5ce8ee426ad79e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60193808"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-workspace"></a>疑難排解指南：建立及連線至 Azure Machine Learning Studio 工作區
@@ -32,7 +32,7 @@ ms.locfileid: "60193808"
 ## <a name="allowed-regions"></a>允許區域
 機器學習服務目前可用於數量有限的區域。 如果您的訂用帳戶並未包含這其中一個區域，您可能會看見錯誤訊息「您在允許的區域中沒有任何訂用帳戶」。
 
-為了要求將區域新增至您的訂用帳戶，請從 Azure 入口網站中建立新的 Microsoft 支援要求，選取 [計費] 做為問題類型，並遵照提示來提交您的要求。
+為了要求將區域新增至您的訂用帳戶，請從 Azure 入口網站中建立新的 Microsoft 支援要求，選取 [計費]  做為問題類型，並遵照提示來提交您的要求。
 
 ## <a name="storage-account"></a>儲存體帳戶
 機器學習服務需要儲存體帳戶來儲存資料。 您可以使用現有的儲存體帳戶，或是在建立新的 Machine Learning Studio 工作區 (如果您有建立新儲存體帳戶的配額) 時建立新的儲存體帳戶。
@@ -43,15 +43,15 @@ ms.locfileid: "60193808"
 
 **刪除瀏覽器 Cookie**
 
-1. 如果您是使用 Internet Explorer，請按一下右上角的 [工具] 按鈕，然後選取 [網際網路選項]。  
+1. 如果您是使用 Internet Explorer，請按一下右上角的 [工具]  按鈕，然後選取 [網際網路選項]  。  
 
    ![網際網路選項](media/troubleshooting-creating-ml-workspace/screen4.png)
 
-2. 在 [一般] 索引標籤下，按一下 [刪除...]
+2. 在 [一般]  索引標籤下，按一下 [刪除...] 
 
    ![[一般] 索引標籤](media/troubleshooting-creating-ml-workspace/screen5.png)
 
-3. 在 [刪除瀏覽歷程記錄] 對話方塊中，確定已選取 [Cookie 與網站資料]，然後按一下 [刪除]。
+3. 在 [刪除瀏覽歷程記錄]  對話方塊中，確定已選取 [Cookie 與網站資料]  ，然後按一下 [刪除]  。
 
    ![刪除 cookie](media/troubleshooting-creating-ml-workspace/screen6.png)
 

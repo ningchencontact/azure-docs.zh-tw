@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318298"
 ---
 # <a name="how-to-use-perfinsights"></a>如何使用 PerfInsights
@@ -192,7 +192,7 @@ Diskspd I/O 工作負載測試 (OS 磁碟 [寫入] 和集區磁碟 [讀取/寫�
 
 1. 下載 [PerfInsights.zip](https://aka.ms/perfinsightsdownload)。
 
-2. 解除封鎖 PerfInsights.zip 檔案。 若要這樣做，請以滑鼠右鍵按一下 PerfInsights.zip 檔案，然後選取 [屬性]。 在 [一般] 索引標籤上，選取 [解除封鎖]，然後選取 [確定]。 如此可確保工具執行時不會出現任何額外的安全性提示。  
+2. 解除封鎖 PerfInsights.zip 檔案。 若要這樣做，請以滑鼠右鍵按一下 PerfInsights.zip 檔案，然後選取 [屬性]  。 在 [一般]  索引標籤上，選取 [解除封鎖]  ，然後選取 [確定]  。 如此可確保工具執行時不會出現任何額外的安全性提示。  
 
     ![PerfInsights 屬性的螢幕擷取畫面 (已醒目提示 [解除封鎖])](media/how-to-use-perfInsights/unlock-file.png)
 
@@ -251,7 +251,7 @@ Diskspd I/O 工作負載測試 (OS 磁碟 [寫入] 和集區磁碟 [讀取/寫�
 
 在 **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** 檔案內，您可以找到詳細說明 PerfInsights 結果的 HTML 報告。 若要檢閱報告，請展開 **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip** 檔案，然後開啟 **PerfInsights Report.html** 檔案。
 
-選取 [Findings] \(結果) 索引標籤。
+選取 [Findings] \(結果)  索引標籤。
 
 ![PerfInsights 報告的螢幕擷取畫面](media/how-to-use-perfInsights/findingtab.png)
 ![PerfInsights 報告的螢幕擷取畫面](media/how-to-use-perfInsights/findings.PNG)
@@ -265,13 +265,13 @@ Diskspd I/O 工作負載測試 (OS 磁碟 [寫入] 和集區磁碟 [讀取/寫�
 
 **結果**區段會顯示有關儲存體的各種結果與建議。
 
-[DiskMap] 和 [VolumeMap] 區段說明邏輯磁碟區和實體磁碟如何彼此相關。
+[DiskMap]  和 [VolumeMap]  區段說明邏輯磁碟區和實體磁碟如何彼此相關。
 
 在實體磁碟檢視方塊 (磁碟對應) 中，資料表會顯示在磁碟上執行的所有邏輯磁碟區。 在下列範例中，**PhysicalDrive2** 執行在多個分割區建立的 2 個邏輯磁碟區 (J 和 H)：
 
 ![磁碟索引標籤的螢幕擷取畫面](media/how-to-use-perfInsights/disktab.png)
 
-在磁碟區檢視方塊中 (磁碟區對應)，資料表會顯示每個邏輯磁碟區下的所有實體磁碟。 請注意，對於 RAID/動態磁碟，您可能會在多個實體磁碟上執行邏輯磁碟區。 在下列範例中，*C:\\mount* 是在實體磁碟 2 和 3 上設定為 SpannedDisk 的掛接點：
+在磁碟區檢視方塊中 (磁碟區對應)，資料表會顯示每個邏輯磁碟區下的所有實體磁碟。 請注意，對於 RAID/動態磁碟，您可能會在多個實體磁碟上執行邏輯磁碟區。 在下列範例中，*C:\\mount* 是在實體磁碟 2 和 3 上設定為 SpannedDisk  的掛接點：
 
 ![磁碟區索引標籤的螢幕擷取畫面](media/how-to-use-perfInsights/volumetab.png)
 
@@ -281,9 +281,9 @@ Diskspd I/O 工作負載測試 (OS 磁碟 [寫入] 和集區磁碟 [讀取/寫�
 
 ![SQL 索引標籤的螢幕擷取畫面](media/how-to-use-perfInsights/sqltab.png)
 
-本區段包含 [結果] 索引標籤，以及裝載在虛擬機器上的每個 SQL Server 執行個體的其他索引標籤。
+本區段包含 [結果]  索引標籤，以及裝載在虛擬機器上的每個 SQL Server 執行個體的其他索引標籤。
 
-[結果] 索引標籤包含所有發現的 SQL 效能相關問題清單及建議事項。
+[結果]  索引標籤包含所有發現的 SQL 效能相關問題清單及建議事項。
 
 下列範例中會顯示 **PhysicalDrive0** (執行 C 磁碟機)。 這是因為 **modeldev** 和 **modellog** 檔案都位於 C 磁碟機上，且為不同的類型 (例如它們分別為資料檔和交易記錄)。
 
@@ -292,7 +292,7 @@ Diskspd I/O 工作負載測試 (OS 磁碟 [寫入] 和集區磁碟 [讀取/寫�
 SQL Server 的特定執行個體索引標籤包含一般區段，其中顯示所選執行個體的基本資訊。 這些索引標籤也包含進階資訊的其他區段，包括設定、組態和使用者選項。
 
 ### <a name="diagnostic-tab"></a>[診斷] 索引標籤
-[診斷] 索引標籤包含 PerfInsights 執行期間電腦上的最上層 CPU、磁碟和記憶體取用相關資訊。 您也可以找到以下相關資訊：可能缺少系統的重大修補程式、工作清單和重要系統事件。 
+[診斷]  索引標籤包含 PerfInsights 執行期間電腦上的最上層 CPU、磁碟和記憶體取用相關資訊。 您也可以找到以下相關資訊：可能缺少系統的重大修補程式、工作清單和重要系統事件。 
 
 ## <a name="references-to-the-external-tools-used"></a>所用外部工具的參考
 

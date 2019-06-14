@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
 ms.openlocfilehash: c57550a8b683ad8f184884374c4f09216417fc40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236412"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>從 Excel、Python 或 R 連線到 Azure Databricks
@@ -36,7 +36,7 @@ ms.locfileid: "60236412"
 
     ![開啟 Databricks 叢集](./media/connect-databricks-excel-python-r/open-databricks-cluster.png "開啟 Databricks 叢集")
 
-2. 在 [組態] 索引標籤下，按一下 [JDBC/ODBC] 索引標籤，並複製 [伺服器主機名稱] 和 [HTTP 路徑] 的值。 您需要這些值來完成本文中的步驟。
+2. 在 [組態]  索引標籤下，按一下 [JDBC/ODBC]  索引標籤，並複製 [伺服器主機名稱]  和 [HTTP 路徑]  的值。 您需要這些值來完成本文中的步驟。
 
     ![取得 Databricks 組態](./media/connect-databricks-excel-python-r/get-databricks-jdbc-configuration.png "取得 Databricks 組態")
 
@@ -44,31 +44,31 @@ ms.locfileid: "60236412"
 
     ![啟動 ODBC](./media/connect-databricks-excel-python-r/launch-odbc-app.png "啟動 ODBC 應用程式")
 
-4. 在 [使用者 DSN] 索引標籤下，按一下 [新增]。 在 [建立新的資料來源] 對話方塊中，選取 [Simba Spark ODBC 驅動程式]，然後按一下 [完成]。
+4. 在 [使用者 DSN]  索引標籤下，按一下 [新增]  。 在 [建立新的資料來源]  對話方塊中，選取 [Simba Spark ODBC 驅動程式]  ，然後按一下 [完成]  。
 
     ![啟動 ODBC](./media/connect-databricks-excel-python-r/add-new-user-dsn.png "啟動 ODBC 應用程式")
 
-5. 在 [Simba Spark ODBC 驅動程式] 對話方塊中，提供下列值：
+5. 在 [Simba Spark ODBC 驅動程式]  對話方塊中，提供下列值：
 
     ![設定 DSN](./media/connect-databricks-excel-python-r/odbc-dsn-setup.png "設定 DSN")
 
     下表說明要在對話方塊中提供的值。
     
-    |欄位  | Value  |
+    |欄位  | 值  |
     |---------|---------|
     |**資料來源名稱**     | 提供資料來源的名稱。        |
-    |**主機**     | 提供您在 Databricks 工作區複製的「伺服器主機名稱」值。        |
-    |**連接埠**     | 輸入 443。        |
-    |**驗證** > **機制**     | 選取「使用者名稱和密碼」。        |
+    |**主機**     | 提供您在 Databricks 工作區複製的「伺服器主機名稱」  值。        |
+    |**連接埠**     | 輸入 443  。        |
+    |**驗證** > **機制**     | 選取「使用者名稱和密碼」  。        |
     |**使用者名稱**     | 輸入 *token*。        |
     |**密碼**     | 輸入您在 Databricks 工作區複製的權杖值。 |
     
     在 DSN 設定對話方塊中，執行下列額外的步驟。
     
-    * 按一下 [HTTP 選項]。 在開啟的對話方塊中，貼上從 Databricks 工作區複製的「HTTP 路徑」值。 按一下 [確定]。
-    * 按一下 [SSL 選項]。 在開啟的對話方塊中，選取 [啟用 SSL] 核取方塊。 按一下 [確定]。
-    * 按一下 [測試] 以測試與 Azure Databricks 的連線。 按一下 [確定] 以儲存組態。
-    * 在 [ODBC 資料來源管理員] 對話方塊中，按一下 [確定]。
+    * 按一下 [HTTP 選項]  。 在開啟的對話方塊中，貼上從 Databricks 工作區複製的「HTTP 路徑」  值。 按一下 [確定]  。
+    * 按一下 [SSL 選項]  。 在開啟的對話方塊中，選取 [啟用 SSL]  核取方塊。 按一下 [確定]  。
+    * 按一下 [測試]  以測試與 Azure Databricks 的連線。 按一下 [確定]  以儲存組態。
+    * 在 [ODBC 資料來源管理員]  對話方塊中，按一下 [確定]  。
 
 您現在可以設定 DNS。 在下一節中，您可以使用此 DSN 從 Excel、Python 或 R 連線到 Azure Databricks。
 
@@ -76,11 +76,11 @@ ms.locfileid: "60236412"
 
 在本節中，您將使用稍早建立的 DSN，將資料從 Azure Databricks 提取到 Microsoft Excel。 在開始之前，請確定您已將 Microsoft Excel 安裝在電腦上。 您可以從 [Microsoft Excel 試用版連結](https://products.office.com/excel)取得試用版 Excel。
 
-1. 在 Microsoft Excel 中開啟空白的活頁簿。 從 [資料] 功能區，按一下 [取得資料]。 按一下 [從其他來源]，然後按一下 [從 ODBC]。
+1. 在 Microsoft Excel 中開啟空白的活頁簿。 從 [資料]  功能區，按一下 [取得資料]  。 按一下 [從其他來源]  ，然後按一下 [從 ODBC]  。
 
     ![從 Excel 啟動 ODBC](./media/connect-databricks-excel-python-r/launch-odbc-from-excel.png "從 Excel 啟動 ODBC")
 
-2. 在 [從 ODBC] 對話方塊中，選取您稍早建立的 DSN，然後按一下 [確定]。
+2. 在 [從 ODBC]  對話方塊中，選取您稍早建立的 DSN，然後按一下 [確定]  。
 
     ![選取 DSN](./media/connect-databricks-excel-python-r/excel-select-dsn.png "選取 DSN")
 
@@ -88,7 +88,7 @@ ms.locfileid: "60236412"
 
     ![提供 Databricks 的認證](./media/connect-databricks-excel-python-r/excel-databricks-token.png "選取 DSN")
 
-4. 從 [導覽器] 視窗中，選取您要載入到 Excel 的 Databricks 資料表，然後按一下 [載入]。 
+4. 從 [導覽器] 視窗中，選取您要載入到 Excel 的 Databricks 資料表，然後按一下 [載入]  。 
 
     ![將 dta 載入 Excel](./media/connect-databricks-excel-python-r/excel-load-data.png "將 dta 載入 Excel")
 

@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: dfd0443dafbc4fcc221937f248bf6d2f292b528f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335355"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure SQL 資料倉儲來回複製資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](data-factory-azure-sql-data-warehouse-connector.md)
 > * [第 2 版 (目前的版本)](../connector-azure-sql-data-warehouse.md)
 
@@ -53,7 +53,7 @@ Azure SQL 資料倉儲連接器支援基本驗證。
 
 要建立將資料複製到 Azure SQL 資料倉儲，或複製 Azure SQL 資料倉儲資料的管線，最簡單的方法是使用複製資料精靈。 請參閱[教學課程：使用 Data Factory 將資料載入 SQL 資料倉儲](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
 
-您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -146,7 +146,7 @@ GO
 | 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |指定要讓「複製活動」執行的查詢，以便清除特定分割的資料。 如需詳細資訊，請參閱 [可重複性](#repeatability-during-copy)一節。 |查詢陳述式。 |否 |
-| allowPolyBase |指出是否使用 PolyBase (適用的話) 而不是使用 BULKINSERT 機制。 <br/><br/> 建議使用 PolyBase 將資料載入 SQL 資料倉儲。 請參閱 [使用 PolyBase 將資料載入 Azure SQL 資料倉儲](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 一節中的條件約束和詳細資料。 |True <br/>FALSE (預設值) |否 |
+| allowPolyBase |指出是否使用 PolyBase (適用的話) 而不是使用 BULKINSERT 機制。 <br/><br/> 建議使用 PolyBase 將資料載入 SQL 資料倉儲。  請參閱 [使用 PolyBase 將資料載入 Azure SQL 資料倉儲](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 一節中的條件約束和詳細資料。 |True <br/>FALSE (預設值) |否 |
 | polyBaseSettings |可以在 **allowPolybase** 屬性設定為 **true** 時指定的一組屬性。 |&nbsp; |否 |
 | rejectValue |指定在查詢失敗前可以拒絕的資料列數目或百分比。 <br/><br/>在 **CREATE EXTERNAL TABLE (Transact-SQL)** 主題的 [引數](https://msdn.microsoft.com/library/dn935021.aspx) 一節中，深入了解 PolyBase 的拒絕選項。 |0 (預設值)、1、2、… |否 |
 | rejectType |指定要將 rejectValue 選項指定為常值或百分比。 |值 (預設值)、百分比 |否 |
@@ -165,10 +165,10 @@ GO
 ```
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>使用 PolyBase 將資料載入 Azure SQL 資料倉儲
-使用 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 是以高輸送量將大量資料載入 Azure SQL 資料倉儲的有效方法。 使用 PolyBase 而不是預設的 BULKINSERT 機制，即可看到輸送量大幅提升。 請參閱[複製效能參考編號](data-factory-copy-activity-performance.md#performance-reference)了解詳細的比較。 如需使用案例的逐步解說，請參閱[使用 Azure Data Factory 在 15 分鐘內將 1 TB 載入至 Azure SQL 資料倉儲](data-factory-load-sql-data-warehouse.md)。
+使用 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)  是以高輸送量將大量資料載入 Azure SQL 資料倉儲的有效方法。 使用 PolyBase 而不是預設的 BULKINSERT 機制，即可看到輸送量大幅提升。 請參閱[複製效能參考編號](data-factory-copy-activity-performance.md#performance-reference)了解詳細的比較。 如需使用案例的逐步解說，請參閱[使用 Azure Data Factory 在 15 分鐘內將 1 TB 載入至 Azure SQL 資料倉儲](data-factory-load-sql-data-warehouse.md)。
 
-* 如果您的來源資料位在 Azure Blob 或 Azure Data Lake Store，且其格式與 PolyBase 相容，您就可以使用 PolyBase 直接複製到 Azure SQL 資料倉儲。 請參閱**[使用 PolyBase 直接複製](#direct-copy-using-polybase)** 了解詳細資料。
-* 如果您的來源資料存放區與格式不受 PolyBase 支援，您可以改為使用[使用 PolyBase 分段複製](#staged-copy-using-polybase)功能。 它也能透過將資料自動轉換為 PolyBase 相容的格式，並將資料儲存在 Azure Blob 儲存體中，來提供更佳的輸送量。 然後，它會將資料載入 SQL 資料倉儲。
+* 如果您的來源資料位在 Azure Blob 或 Azure Data Lake Store  ，且其格式與 PolyBase 相容，您就可以使用 PolyBase 直接複製到 Azure SQL 資料倉儲。 請參閱 **[使用 PolyBase 直接複製](#direct-copy-using-polybase)** 了解詳細資料。
+* 如果您的來源資料存放區與格式不受 PolyBase 支援，您可以改為使用[使用 PolyBase 分段複製](#staged-copy-using-polybase)  功能。 它也能透過將資料自動轉換為 PolyBase 相容的格式，並將資料儲存在 Azure Blob 儲存體中，來提供更佳的輸送量。 然後，它會將資料載入 SQL 資料倉儲。
 
 將 `allowPolyBase` 屬性設定為 **true** (如下列範例所示)，以便 Azure Data Factory 使用 PolyBase，將資料複製到 Azure SQL 資料倉儲。 當您將 allowPolyBase 設定為 true 時，您可以使用 `polyBaseSettings` 屬性群組來指定 PolyBase 特定屬性。 如需您可搭配 polyBaseSettings 使用之屬性的詳細資訊，請參閱 [SqlDWSink](#sqldwsink) 一節。
 
@@ -198,10 +198,10 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob 和 Azure Data Lake Store (使
 2. **輸入資料集**的類型為：**AzureBlob** 或 **AzureDataLakeStore**，而 `type` 屬性底下的格式類型為 **OrcFormat**、**ParquetFormat** 或具備下列設定的 **TextFormat**：
 
    1. `rowDelimiter` 必須為 **\n**。
-   2. `nullValue` 設定為「空字串」 ("") 或將 `treatEmptyAsNull` 設定為 **true**。
-   3. `encodingName` 設定為 **utf-8**，也就是「預設」值。
+   2. `nullValue` 設定為「空字串」  ("") 或將 `treatEmptyAsNull` 設定為 **true**。
+   3. `encodingName` 設定為 **utf-8**，也就是「預設」  值。
    4. 未指定 `escapeChar`、`quoteChar`、`firstRowAsHeader` 和 `skipLineCount`。
-   5. `compression` 可以是「無壓縮」、**GZip** 或 **Deflate**。
+   5. `compression` 可以是「無壓縮」  、**GZip** 或 **Deflate**。
 
       ```JSON
       "typeProperties": {
@@ -221,7 +221,7 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob 和 Azure Data Lake Store (使
       ```
 
 3. 管線中複製活動的 **BlobSource** 或 **AzureDataLakeStore** 之下沒有 `skipHeaderLineCount` 設定。
-4. 管線中複製活動的 **SqlDWSink** 之下沒有 `sliceIdentifierColumnName` 設定。 (PolyBase 保證所有資料都已更新，或在單一執行未更新任何項目。 若要達到「重複性」，您可以使用 `sqlWriterCleanupScript`)。
+4. 管線中複製活動的 **SqlDWSink** 之下沒有 `sliceIdentifierColumnName` 設定。 (PolyBase 保證所有資料都已更新，或在單一執行未更新任何項目。 若要達到「重複性」  ，您可以使用 `sqlWriterCleanupScript`)。
 5. 目前沒有任何 `columnMapping` 使用於相關聯的複製活動。
 
 ### <a name="staged-copy-using-polybase"></a>使用 PolyBase 分段複製

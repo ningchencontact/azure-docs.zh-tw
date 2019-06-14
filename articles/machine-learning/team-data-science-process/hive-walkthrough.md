@@ -12,10 +12,10 @@ ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60303849"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process 實務：使用 Azure HDInsight Hadoop 叢集
@@ -54,7 +54,7 @@ NYC 計程車車程資料是約 20 GB 的壓縮逗點分隔值 (CSV) 檔案 (未
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
-- **多元分類**：預測針對該趟車程支付的小費金額範圍。 我們將 tip\_amount 分成五個類別：
+- **多元分類**：預測針對該趟車程支付的小費金額範圍。 我們將 tip\_amount  分成五個類別：
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0 and tip_amount <= $5
@@ -75,7 +75,7 @@ NYC 計程車車程資料是約 20 GB 的壓縮逗點分隔值 (CSV) 檔案 (未
 2. [針對進階分析程序和技術自訂 Azure HDInsight Hadoop 叢集](customize-hadoop-cluster.md)。 這個步驟會建立已在所有節點上安裝 64 位元 Anaconda Python 2.7 的 HDInsight Hadoop 叢集。 自訂 HDInsight 叢集時應注意兩個重要的步驟。
    
    * 建立步驟 1 中的儲存體帳戶時，請務必將之與您的 HDInsight 叢集連結。 這個儲存體帳戶可存取在叢集內處理的資料。
-   * 建立叢集之後，請對叢集的前端節點啟用遠端存取。 瀏覽至 [組態] 索引標籤，然後選取 [啟用遠端]。 這個步驟可指定使用於遠端登入的使用者認證。
+   * 建立叢集之後，請對叢集的前端節點啟用遠端存取。 瀏覽至 [組態]  索引標籤，然後選取 [啟用遠端]  。 這個步驟可指定使用於遠端登入的使用者認證。
 3. [建立 Azure Machine Learning 工作區](../studio/create-workspace.md)：您可以使用此工作區來建置機器學習模型。 使用 HDInsight 叢集完成初始資料探索和縮小取樣之後，會處理這項工作。
 
 ## <a name="getdata"></a>從公用來源取得資料
@@ -92,7 +92,7 @@ NYC 計程車車程資料是約 20 GB 的壓縮逗點分隔值 (CSV) 檔案 (未
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. 複製完成時，您會在選擇的資料夾中看到總共 24 個壓縮檔。 將下載的檔案解壓縮到您本機電腦上的相同目錄。 記下未壓縮檔案所在的資料夾。 此資料夾指*\<路徑\_要\_unzipped_data\_檔案\>* 在下面。
+1. 複製完成時，您會在選擇的資料夾中看到總共 24 個壓縮檔。 將下載的檔案解壓縮到您本機電腦上的相同目錄。 記下未壓縮檔案所在的資料夾。 此資料夾指 *\<路徑\_要\_unzipped_data\_檔案\>* 在下面。
 
 ## <a name="upload"></a>將資料上傳至 HDInsight Hadoop 叢集的預設容器
 > [!NOTE]
@@ -443,7 +443,7 @@ NYC 計程車資料集中的圓形徽章會識別唯一的計程車。 您可以
 
 常見的探索資料分析目標是去掉無效或不正確的記錄。 本節的範例會判斷經度或緯度欄位是否包含遠離 NYC 區域的值。 由於這類記錄可能具有錯誤的經度-緯度值，因此我們想要從用來建立模型的任何資料中排除這些錯誤值。
 
-以下是要檢查之 sample\_hive\_quality\_assessment.hql 檔案的內容。
+以下是要檢查之 sample\_hive\_quality\_assessment.hql  檔案的內容。
 
         SELECT COUNT(*) FROM nyctaxidb.trip
         WHERE month=1
@@ -721,7 +721,7 @@ NYC 計程車資料集中的圓形徽章會識別唯一的計程車。 您可以
 
 以下是[匯入資料][import-data]模組及輸入參數的一些詳細資料：
 
-**HCatalog 伺服器 URI**：如果叢集名稱是 **abc123**，則為： https://abc123.azurehdinsight.net。
+**HCatalog 伺服器 URI**：如果叢集名稱是 **abc123**，則為： https://abc123.azurehdinsight.net 。
 
 **Hadoop 使用者帳戶名稱**：為叢集選擇的使用者名稱 (非遠端存取使用者名稱)。
 

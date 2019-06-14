@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 5458a02c09a3600875c7300b27c5a87a735b2f1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318876"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>遠端桌面服務未在 Azure VM 上啟動
@@ -58,7 +58,7 @@ ms.locfileid: "60318876"
 
 - 已將 TermService 服務設定為**停用**。 
 - TermService 服務損毀或沒有回應。 
-- 错误的配置导致 TermService 不启动。
+- TermService 未啟動因為設定不正確。
 
 ## <a name="solution"></a>解決方法
 
@@ -66,7 +66,7 @@ ms.locfileid: "60318876"
 
 ### <a name="use-serial-console"></a>使用序列主控台
 
-1. 選取 [支援與疑難排解] > [序列主控台] 來存取[序列主控台](serial-console-windows.md)。 如果已在 VM 上啟用此功能，您就能成功連線該 VM。
+1. 選取 [支援與疑難排解]   > [序列主控台]  來存取[序列主控台](serial-console-windows.md)。 如果已在 VM 上啟用此功能，您就能成功連線該 VM。
 
 2. 針對 CMD 執行個體建立新通道。 輸入 **CMD** 以啟動通道並取得通道名稱。
 
@@ -205,7 +205,7 @@ ms.locfileid: "60318876"
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>將 OS 磁碟連結至復原 VM
 
 1. [將 OS 磁碟連結至復原 VM](../windows/troubleshoot-recovery-disks-portal.md)。
-2. 啟動復原 VM 的遠端桌面連線。 確定連結的磁碟在磁碟管理主控台中標示為 [線上]。 記下指派給所連結 OS 磁碟的磁碟機代號。
+2. 啟動復原 VM 的遠端桌面連線。 確定連結的磁碟在磁碟管理主控台中標示為 [線上]  。 記下指派給所連結 OS 磁碟的磁碟機代號。
 3. 開啟提升權限的命令提示字元執行個體 (**以系統管理員身分執行**)。 然後執行下列指令碼。 我們假設指派給所連結 OS 磁碟的磁碟機代號是 **F**。將它取代為您 VM 中適當的值。 
 
    ```

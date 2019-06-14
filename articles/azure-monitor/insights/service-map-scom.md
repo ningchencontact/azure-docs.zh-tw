@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: magoedte
 ms.openlocfilehash: 40e6d6ff6ea8748b525642e5507c80590b322b7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60402435"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>服務對應與 System Center Operations Manager 的整合
@@ -40,30 +40,30 @@ ms.locfileid: "60402435"
 * Microsoft System Center Service Map
 
 ## <a name="configure-the-service-map-integration"></a>設定服務對應整合
-在您安裝服務對應管理組件之後，[管理] 窗格中的 [Operations Management Suite] 底下會顯示新的節點 [服務對應]。
+在您安裝服務對應管理組件之後，[管理]  窗格中的 [Operations Management Suite]  底下會顯示新的節點 [服務對應]  。
 
 >[!NOTE]
 >[Operations Management Suite 為包含 Log Analytics 的一系列服務](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand)，現在已納入 [Azure 監視器](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md)。
 
 若要設定服務對應整合，請執行下列動作︰
 
-1. 若要開啟設定精靈，在 [服務對應概觀] 窗格中，按一下 [新增工作區]。  
+1. 若要開啟設定精靈，在 [服務對應概觀]  窗格中，按一下 [新增工作區]  。  
 
     ![[服務對應概觀] 窗格](media/service-map-scom/scom-configuration.png)
 
-2. 在 [連線設定] 視窗中，輸入租用戶名稱或識別碼、應用程式識別碼 (也稱為使用者名稱或用戶端識別碼) 以及服務主體的密碼，然後按一下 [下一步]。 如需詳細資訊，請移至 [建立服務主體]。
+2. 在 [連線設定]  視窗中，輸入租用戶名稱或識別碼、應用程式識別碼 (也稱為使用者名稱或用戶端識別碼) 以及服務主體的密碼，然後按一下 [下一步]  。 如需詳細資訊，請移至 [建立服務主體]。
 
     ![[連線設定] 視窗](media/service-map-scom/scom-config-spn.png)
 
-3. 在 [訂閱選取項目] 視窗中，選取 Azure 訂用帳戶、Azure 資源群組 (包含 Log Analytics 工作區的那個)，以及 Log Analytics 工作區，然後按 [下一步]。
+3. 在 [訂閱選取項目]  視窗中，選取 Azure 訂用帳戶、Azure 資源群組 (包含 Log Analytics 工作區的那個)，以及 Log Analytics 工作區，然後按 [下一步]  。
 
     ![Operations Manager 設定工作區](media/service-map-scom/scom-config-workspace.png)
 
-4. 在 [機器群組選取項目] 視窗中，您要選擇您想要同步至 Operations Manager 的服務對應機器群組。 按一下 [新增/移除機器群組]，從 [可用的機器群組] 清單中選擇群組，然後按一下 [新增]。  當您完成群組選取時，按一下 [確定] 來完成。
+4. 在 [機器群組選取項目]  視窗中，您要選擇您想要同步至 Operations Manager 的服務對應機器群組。 按一下 [新增/移除機器群組]  ，從 [可用的機器群組]  清單中選擇群組，然後按一下 [新增]  。  當您完成群組選取時，按一下 [確定]  來完成。
 
     ![Operations Manager 設定機器群組](media/service-map-scom/scom-config-machine-groups.png)
 
-5. 在 [伺服器選取] 視窗中，設定服務對應伺服器群組，以及您想要在 Operations Manager 和服務對應之間同步的伺服器。 按一下 [新增/移除伺服器]。   
+5. 在 [伺服器選取]  視窗中，設定服務對應伺服器群組，以及您想要在 Operations Manager 和服務對應之間同步的伺服器。 按一下 [新增/移除伺服器]  。   
 
     若要讓整合針對伺服器建立分散式應用程式圖表，該伺服器必須是︰
 
@@ -73,7 +73,7 @@ ms.locfileid: "60402435"
 
      ![Operations Manager 設定群組](media/service-map-scom/scom-config-group.png)
 
-6. 選用：選取要與 Log Analytics 通訊的管理伺服器資源集區，然後按一下 [新增工作區]。
+6. 選用：選取要與 Log Analytics 通訊的管理伺服器資源集區，然後按一下 [新增工作區]  。
 
     ![Operations Manager 設定資源集區](media/service-map-scom/scom-config-pool.png)
 
@@ -83,7 +83,7 @@ ms.locfileid: "60402435"
 
 
 ## <a name="monitor-service-map"></a>監視服務對應
-連線至 Log Analytics 工作區之後，Operations Manager 主控台的 [監視] 窗格中會顯示新的 [服務對應] 資料夾。
+連線至 Log Analytics 工作區之後，Operations Manager 主控台的 [監視]  窗格中會顯示新的 [服務對應] 資料夾。
 
 ![Operations Manager [監視] 窗格](media/service-map-scom/scom-monitoring.png)
 
@@ -103,7 +103,7 @@ ms.locfileid: "60402435"
     ![Operations Manager 分散式應用程式圖表](media/service-map-scom/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>編輯或刪除工作區
-您可以透過 [服務對應概觀] 窗格 ([系統管理] 窗格 > [Operations Management Suite] > [服務對應]) 編輯或刪除已設定的工作區。
+您可以透過 [服務對應概觀]  窗格 ([系統管理]  窗格 > [Operations Management Suite]   > [服務對應]  ) 編輯或刪除已設定的工作區。
 
 >[!NOTE]
 >[Operations Management Suite 為包含 Log Analytics 的一系列服務](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand)，現在已納入 [Azure 監視器](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md)。
@@ -113,7 +113,7 @@ ms.locfileid: "60402435"
 ![Operations Manager [編輯工作區] 窗格](media/service-map-scom/scom-edit-workspace.png)
 
 ## <a name="configure-rules-and-overrides"></a>設定規則和覆寫
-系統會建立規則 _Microsoft.SystemCenter.ServiceMapImport.Rule_，以便定期從服務對應擷取資訊。 若要變更同步時間，您可以設定規則的覆寫 ([撰寫] 窗格 > [規則] > [Microsoft.SystemCenter.ServiceMapImport.Rule])。
+系統會建立規則 _Microsoft.SystemCenter.ServiceMapImport.Rule_，以便定期從服務對應擷取資訊。 若要變更同步時間，您可以設定規則的覆寫 ([撰寫]  窗格 > [規則]   > [Microsoft.SystemCenter.ServiceMapImport.Rule]  )。
 
 ![Operations Manager [覆寫內容] 視窗](media/service-map-scom/scom-overrides.png)
 
@@ -126,7 +126,7 @@ ms.locfileid: "60402435"
 
 目前的設計有以下問題和限制︰
 * 您只能連線到單一 Log Analytics 工作區。
-* 雖然您可以透過 [撰寫] 窗格將伺服器手動新增至服務對應伺服器群組，但這些伺服器的對應不會立即進行同步。  這些對應會在下一個同步週期從服務對應進行同步處理。
+* 雖然您可以透過 [撰寫]  窗格將伺服器手動新增至服務對應伺服器群組，但這些伺服器的對應不會立即進行同步。  這些對應會在下一個同步週期從服務對應進行同步處理。
 * 如果您對管理組件所建立的「分散式應用程式圖表」進行任何變更，這些變更可能會在下一次與服務對應進行同步時遭到覆寫。
 
 ## <a name="create-a-service-principal"></a>建立服務主體

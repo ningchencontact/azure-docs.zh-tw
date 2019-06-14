@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: 28a7de1b43d793641237197aea841022996b07e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60505612"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (雲端服務專案)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>概觀
-本文描述當您在雲端服務專案中建立或參考 Azure 儲存體帳戶之後，如何在 Visual Studio 中使用 [加入已連接服務] 對話方塊，開始使用 Azure 佇列儲存體。
+本文描述當您在雲端服務專案中建立或參考 Azure 儲存體帳戶之後，如何在 Visual Studio 中使用 [加入已連接服務]  對話方塊，開始使用 Azure 佇列儲存體。
 
 我們將會示範如何在程式碼中建立佇列。 我們也將顯示如何執行基本的佇列作業，例如新增、修改、讀取和讀取佇列訊息。 這些範例均以 C# 程式碼撰寫，並使用 [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)。
 
@@ -34,7 +34,7 @@ ms.locfileid: "60505612"
 * 如需 Azure 雲端服務的一般資訊，請參閱 [雲端服務文件](https://azure.microsoft.com/documentation/services/cloud-services/) 。
 * 如需 ASP.NET 應用程式設計的詳細資訊，請參閱 [ASP.NET](https://www.asp.net) 。
 
-Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。 一条队列消息的大小最多可为 64 KB，一个队列中可以包含数百万条消息，直至达到存储帐户的总容量限值。
+Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。 單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。
 
 ## <a name="access-queues-in-code"></a>在程式碼中存取佇列
 若要在 Visual Studio 雲端服務專案中存取佇列，您需要將下列項目加入至任何 C# 原始程式檔，以存取 Azure 佇列儲存體。
@@ -65,7 +65,7 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
     // Create the CloudQueue if it does not exist
     messageQueue.CreateIfNotExists();
 
-## <a name="add-a-message-to-a-queue"></a>向队列添加消息
+## <a name="add-a-message-to-a-queue"></a>將訊息新增至佇列
 若要將訊息插入現有佇列，請建立新的 **CloudQueueMessage** 物件，然後呼叫 **AddMessage** 方法。
 
 您可以從字串 (採用 UTF-8 格式) 或位元組陣列建立 **CloudQueueMessage** 物件。
@@ -76,19 +76,19 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");
     messageQueue.AddMessage(message);
 
-## <a name="read-a-message-in-a-queue"></a>读取队列中的消息
+## <a name="read-a-message-in-a-queue"></a>讀取佇列中的訊息
 透過呼叫 **PeekMessage** 方法，您可以在佇列前面查看訊息，而無需將它從佇列中移除。
 
     // Peek at the next message
     CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
 
 ## <a name="read-and-remove-a-message-in-a-queue"></a>讀取並移除佇列中的訊息
-代码分两步从队列中删除消息（取消对消息的排队）。
+您的程式碼可以使用兩個步驟將訊息從佇列中移除 (清除佇列)。
 
 1. 呼叫 **GetMessage** 以取得佇列中的下一個訊息。 從 **GetMessage** 傳回的訊息，對於從此佇列讀取訊息的任何其他程式碼而言將會是不可見的。 依預設，此訊息會維持 30 秒的不可見狀態。
 2. 若要完成從佇列中移除訊息，請呼叫 **DeleteMessage**。
 
-這個移除訊息的兩步驟程序可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。 以下代码在处理消息后立即调用 **DeleteMessage** 。
+這個移除訊息的兩步驟程序可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。 下列程式碼會在處理完訊息之後立即呼叫 **DeleteMessage** 。
 
     // Get the next message in the queue.
     CloudQueueMessage retrievedMessage = messageQueue.GetMessage();
@@ -117,7 +117,7 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
     }
 
 ## <a name="get-the-queue-length"></a>取得佇列長度
-您可以取得佇列中的估計訊息數目。 使用 **FetchAttributes** 方法可请求队列服务检索队列属性，包括消息计数。 **ApproximateMethodCount** 屬性會傳回 **FetchAttributes** 方法所擷取的最後一個值，而無需呼叫佇列服務。
+您可以取得佇列中的估計訊息數目。 **FetchAttributes** 方法會要求佇列服務擷取佇列屬性，其中包含訊息計數。 **ApproximateMethodCount** 屬性會傳回 **FetchAttributes** 方法所擷取的最後一個值，而無需呼叫佇列服務。
 
     // Fetch the queue attributes.
     messageQueue.FetchAttributes();

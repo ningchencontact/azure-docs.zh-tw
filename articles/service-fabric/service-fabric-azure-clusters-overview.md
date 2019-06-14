@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: d1681aee9dc11f0dbd3133bced0b919a8c1623b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60310908"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Azure 上的 Service Fabric 叢集概觀
@@ -38,7 +38,7 @@ Azure 上的 Service Fabric 叢集是 Azure 資源，使用其他 Azure 資源�
 ![Service Fabric 叢集][Image]
 
 ### <a name="virtual-machine"></a>虛擬機器
-屬於叢集的[虛擬機器](/azure/virtual-machines/)雖然稱為節點，但是技術上叢集節點是 Service Fabric 執行階段程序。 需為每個節點指派節點名稱 (字串)。 節點具有各種特性，如 [placement 屬性](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)。 每部機器或 VM 皆有自動啟動的服務 FabricHost.exe，該服務會在開機時開始執行，然後啟動兩個可執行檔：Fabric.exe 和 FabricGateway.exe，這兩個可執行檔組成節點。 生產環境部署是每個實體或虛擬機器的一個節點。 針對測試案例，您可以藉由執行多個 Fabric.exe 和 FabricGateway.exe 執行個體，在單一機器或 VM 上裝載多個節點。
+屬於叢集的[虛擬機器](/azure/virtual-machines/)雖然稱為節點，但是技術上叢集節點是 Service Fabric 執行階段程序。 需為每個節點指派節點名稱 (字串)。 節點具有各種特性，如 [placement 屬性](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)。 每部機器或 VM 皆有自動啟動的服務 FabricHost.exe  ，該服務會在開機時開始執行，然後啟動兩個可執行檔：Fabric.exe  和 FabricGateway.exe  ，這兩個可執行檔組成節點。 生產環境部署是每個實體或虛擬機器的一個節點。 針對測試案例，您可以藉由執行多個 Fabric.exe  和 FabricGateway.exe  執行個體，在單一機器或 VM 上裝載多個節點。
 
 每個 VM 會與虛擬網路介面卡 (NIC) 相關聯，而且每個 NIC 會獲得指派私人 IP 位址。  VM 已透過 NIC 指派給虛擬網路和本機平衡器。
 
@@ -57,7 +57,7 @@ Azure 上的 Service Fabric 叢集是 Azure 資源，使用其他 Azure 資源�
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 VM 執行個體加入到 [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) 後面，與 [公用 IP 位址](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)和 DNS 標籤相關聯。  當您佈建具有名稱 *&lt;clustername&gt;* 的叢集時，DNS 名稱 *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com* 是 DNS 標籤，與擴展集前方中的負載平衡器相關聯。
 
-叢集中的 VM 只有[私人 IP 位址](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)。  管理流量和服務流量會透過公用對應的負載平衡器進行路由。  網路流量會透過 NAT 規則 (用戶端連線到特定節點/執行個體) 或負載平衡規則 (流量循環前往 VM) 路由傳送到這些機器。  負載平衡器有相關聯的公用 IP 與 DNS 名稱，格式如下：*&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*。  公用 IP 是資源群組中的另一個 Azure 資源。  如果您在叢集中定義多個節點類型，會為每個節點類型/擴展集建立負載平衡器。 或者，您可以為多個節點類型設定單一負載平衡器。  主要節點類型具有 DNS 標籤 *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*，其他節點類型具有 DNS 標籤 *&lt;clustername&gt;-&lt;nodetype&gt;.&lt;location&gt;.cloudapp.azure.com*。
+叢集中的 VM 只有[私人 IP 位址](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)。  管理流量和服務流量會透過公用對應的負載平衡器進行路由。  網路流量會透過 NAT 規則 (用戶端連線到特定節點/執行個體) 或負載平衡規則 (流量循環前往 VM) 路由傳送到這些機器。  負載平衡器有相關聯的公用 IP 與 DNS 名稱，格式如下： *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*。  公用 IP 是資源群組中的另一個 Azure 資源。  如果您在叢集中定義多個節點類型，會為每個節點類型/擴展集建立負載平衡器。 或者，您可以為多個節點類型設定單一負載平衡器。  主要節點類型具有 DNS 標籤 *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*，其他節點類型具有 DNS 標籤 *&lt;clustername&gt;-&lt;nodetype&gt;.&lt;location&gt;.cloudapp.azure.com*。
 
 ### <a name="storage-accounts"></a>儲存體帳戶
 每個叢集節點類型受到 [Azure 儲存體帳戶](/azure/storage/common/storage-introduction)和受控磁碟支援。
@@ -89,7 +89,7 @@ Service Fabric 也支援存取控制來限制存取不同使用者群組的特�
 
 如需詳細資訊，請參閱[安全性群組](/azure/virtual-network/security-overview)
 
-## <a name="scaling"></a>調整大小
+## <a name="scaling"></a>縮放
 
 應用程式需求會隨著時間而變更。 您可能需要增加叢集資源以因應增加的應用程式工作負載或網路流量，或是在需要下降時減少叢集資源。 在建立 Service Fabric 叢集之後，您可以水平調整叢集 (變更節點數目)，或以垂直方式調整 (變更節點的資源)。 您可以隨時調整叢集，即使正在叢集上執行工作負載，也是如此。 在叢集進行調整時，您的應用程式也會自動調整。
 

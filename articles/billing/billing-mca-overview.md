@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: ea625a61ed600dbaa22fef85987e9570a6fb7dbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371442"
 ---
 # <a name="get-started-with-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 客戶合約開始使用您的帳單帳戶
@@ -58,8 +58,8 @@ ms.locfileid: "60371442"
 
 | 類型             | 定義  |
 |------------------|-------------|
-|Azure 點數    |  信用額度會自動套用計費來計算量，您需支付您發票上的總量。 如需詳細資訊，請參閱 <<c0> [ 追蹤帳單設定檔的 Azure 信用額度餘額](billing-mca-check-azure-credits-balance.md)。 |
-|支票或電匯 | 您可以使用付款金額發票透過核取或網路傳輸。 發票會提供付款指示 |
+|Azure 信用額度    |  信用額度會自動套用計費來計算量，您需支付您發票上的總量。 如需詳細資訊，請參閱 <<c0> [ 追蹤帳單設定檔的 Azure 信用額度餘額](billing-mca-check-azure-credits-balance.md)。 |
+|核取或網路傳輸 | 您可以使用付款金額發票透過核取或網路傳輸。 發票會提供付款指示 |
 
 ### <a name="control-azure-marketplace-and-reservation-purchases-by-applying-policies"></a>藉由套用原則控制 Azure Marketplace 並保留購買項目
 
@@ -71,8 +71,8 @@ ms.locfileid: "60371442"
 
 | 規劃             | 定義  |
 |------------------|-------------|
-|Microsoft Azure 方案   | 允許使用者建立訂用帳戶，可以執行任何工作負載。 如需詳細資訊，請參閱[計劃的 Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) |
-|適用於開發/測試的 Microsoft Azure 方案 | 允許 Visual Studio 訂閱者建立訂用帳戶不允許的開發或測試工作負載。 這些訂用帳戶在 Azure 入口網站中取得的優點，例如較低的費率和專屬的虛擬機器映像的存取。 如需詳細資訊，請參閱[研發/測試的計劃的 Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0148g/)|
+|Microsoft Azure Plan   | 允許使用者建立訂用帳戶，可以執行任何工作負載。 如需詳細資訊，請參閱[計劃的 Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) |
+|Microsoft Azure 開發/測試的計劃 | 允許 Visual Studio 訂閱者建立訂用帳戶不允許的開發或測試工作負載。 這些訂用帳戶在 Azure 入口網站中取得的優點，例如較低的費率和專屬的虛擬機器映像的存取。 如需詳細資訊，請參閱[研發/測試的計劃的 Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0148g/)|
 
 ## <a name="understand-invoice-sections"></a>了解發票區段
 

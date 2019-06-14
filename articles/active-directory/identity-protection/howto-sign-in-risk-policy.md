@@ -18,13 +18,13 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fe9e0a4d481ef7b802c50fdc347872e389fa8ef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60294564"
 ---
-# <a name="how-to-configure-the-sign-in-risk-policy"></a>作法：設定登入風險原則
+# <a name="how-to-configure-the-sign-in-risk-policy"></a>如何：設定登入風險原則
 
 Azure Active Directory 會以即時和離線方式偵測[風險事件類型](../reports-monitoring/concept-risk-events.md#risk-event-types)。 使用者登入時偵測到的每個風險事件，構成了名為有風險的登入的邏輯概念。 有風險的登入表示可能不是由使用者帳戶合法擁有者執行的嘗試登入。
 
@@ -38,7 +38,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
    
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>如何存取登入風險原則？
    
-登入風險原則位於 [Azure AD Identity Protection] 頁面的 [設定](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy) 區段中。
+登入風險原則位於 [Azure AD Identity Protection]  頁面的 [設定](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy) 區段中。
    
 ![登入風險原則](./media/howto-sign-in-risk-policy/1014.png "登入風險原則")
 
@@ -101,7 +101,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 選擇 [高]  臨界值可減少觸發原則的次數，並將對使用者的影響降至最低。  
 
-不過，它會從原則中排除標示 [低] 和 [中] 度風險的登入，而無法阻止攻擊者利用遭到入侵的身分識別。
+不過，它會從原則中排除標示 [低]  和 [中]  度風險的登入，而無法阻止攻擊者利用遭到入侵的身分識別。
 
 設定原則時，
 
@@ -111,7 +111,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 - 排除可能會產生大量誤判的使用者 (開發人員、安全性分析人員)
 
-- 在原則推出初期，或如果您必須盡量減少使用者所看到的挑戰，請使用 [高] 閾值。
+- 在原則推出初期，或如果您必須盡量減少使用者所看到的挑戰，請使用 [高]  閾值。
 
 - 如果您的組織需要更高的安全性，請使用 [低]  臨界值。 選取 [低]  臨界值會帶來額外的使用者登入挑戰，並提高安全性。
 

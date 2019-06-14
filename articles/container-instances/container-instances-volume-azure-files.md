@@ -10,10 +10,10 @@ ms.date: 11/05/2018
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 365264d40554f45533e2ddf0aeb9d85f3e8f8d2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60564016"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>在 Azure 容器執行個體中掛接 Azure 檔案共用
@@ -55,7 +55,7 @@ az storage share create --name $ACI_PERS_SHARE_NAME --account-name $ACI_PERS_STO
 echo $ACI_PERS_STORAGE_ACCOUNT_NAME
 ```
 
-我們已知道共用名稱 (在上述指令碼中定義為 acishare)，因此只差儲存體帳戶金鑰，此金鑰可以使用下列命令來找到：
+我們已知道共用名稱 (在上述指令碼中定義為 acishare  )，因此只差儲存體帳戶金鑰，此金鑰可以使用下列命令來找到：
 
 ```azurecli-interactive
 STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $ACI_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" --output tsv)

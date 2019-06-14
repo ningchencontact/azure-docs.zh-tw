@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587266"
 ---
 # <a name="azure-network-security"></a>Azure 網路安全性
@@ -284,9 +284,9 @@ NSG 隨附一些您應該注意的內建規則。 它們是：
 
 -   **允許特定虛擬網路內的所有流量：** 相同 Azure 虛擬網路上的所有 VM 均可彼此通訊。
 
--   **允許 Azure 負載平衡輸入：** 此規則允許從 Azure 負載平衡器的任何來源位址到任何目的地位址的流量。
+-   **允許 Azure 負載平衡輸入：**  此規則允許從 Azure 負載平衡器的任何來源位址到任何目的地位址的流量。
 
--   **拒絕所有輸入：** 此規則會封鎖您已明確允許且源自網際網路的所有流量。
+-   **拒絕所有輸入：**  此規則會封鎖您已明確允許且源自網際網路的所有流量。
 
 -   **允許輸出至網際網路的所有流量：** 此規則允許 VM 起始對網際網路的連線。 如果您不想起始這些連線，您需要建立規則來封鎖這些連線，或強制執行強制通道。
 

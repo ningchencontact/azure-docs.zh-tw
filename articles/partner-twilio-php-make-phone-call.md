@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: 03b74f5a931e1cfbf09433af76c250607b7fc80c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60422288"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話
@@ -110,7 +110,7 @@ echo "URI resource: " . $call->uri . "<br />";
 下一個步驟是[將應用程式部署至 Azure Web Apps 與 Git](app-service/app-service-web-get-started-php.md) (其中的資訊並非全部與之相關)。 
 
 ## <a name="next-steps"></a>後續步驟
-此程式可說明在 Azure 上的 PHP 中使用 Twilio 的基本功能。 在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。 例如︰
+此程式可說明在 Azure 上的 PHP 中使用 Twilio 的基本功能。 在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。 例如:
 
 * 除了使用 Web 表單以外，您也可以使用 Azure 儲存體 Blob 或 SQL Database 來儲存電話號碼和通話文字。 如需在 PHP 中使用 Azure 儲存體 Blob 的相關資訊，請參閱[搭配使用 Azure 儲存體與 PHP 應用程式][howto_blob_storage_php]。 如需在 PHP 中使用 SQL Database 的相關資訊，請參閱[搭配使用 SQL Database 與 PHP 應用程式][howto_sql_azure_php]。
 * **makecall.php** 程式碼會使用 Twilio 提供的 URL ([https://twimlets.com/message][twimlet_message_url]) 來提供 Twilio 標記語言 (TwiML) 回應，以告知 Twilio 應如何執行通話。 例如，傳回的 TwiML 可能會包含 `<Say>` 動詞，而產生要傳達給受話方的文字。 除了使用 Twilio 提供的 URL 以外，您也可以建置自己的服務來回應 Twilio 的要求；如需詳細資訊，請參閱[如何在 PHP 中透過 Twilio 使用語音和簡訊功能][howto_twilio_voice_sms_php]。 如需 TwiML 的詳細資訊，請參閱 [https://www.twilio.com/docs/api/twiml][twiml]；如需 `<Say>` 和其他 Twilio 動詞的詳細資訊，請參閱 [https://www.twilio.com/docs/api/twiml/say][twilio_say]。

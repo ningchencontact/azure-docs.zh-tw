@@ -16,17 +16,17 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a54d1ad3ab809f2a2f8df6ae0e30b1b061c2be1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60471268"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>依據 Azure Active Directory 中的群組成員資格將授權指派給使用者
 
 這篇文章會逐步引導您將產品授權指派給 Azure Active Directory (Azure AD) 中的使用者群組，然後確認他們正確獲得授權。
 
-在本範例中，租用戶包含名為「人力資源部門」的安全性群組。 這個群組包括人力資源部門的所有成員 (大約是 1,000 位使用者)。 您想要將 Office 365 Enterprise E3 授權指派給整個部門。 產品中包含的 Yammer Enterprise 服務需要暫時停用，直到部門準備好要開始使用它為止。 您也要將 Enterprise Mobility + Security 授權部署到相同群組的使用者。
+在本範例中，租用戶包含名為「人力資源部門」  的安全性群組。 這個群組包括人力資源部門的所有成員 (大約是 1,000 位使用者)。 您想要將 Office 365 Enterprise E3 授權指派給整個部門。 產品中包含的 Yammer Enterprise 服務需要暫時停用，直到部門準備好要開始使用它為止。 您也要將 Enterprise Mobility + Security 授權部署到相同群組的使用者。
 
 > [!NOTE]
 > 並非所有位置都可使用某些 Microsoft 服務。 系統管理員必須指定使用者的使用位置屬性，才能將授權指派給使用者。
@@ -39,7 +39,7 @@ ms.locfileid: "60471268"
 
 2. 選取 **授權**以開啟的窗格，您可以在此查看及管理租用戶中的所有可授權產品。
 
-4. 底下**所有產品**，選取 Office 365 企業版 E5 和 Enterprise Mobility + Security E3 產品名稱，以選取。 若要啟動指派，選取窗格頂端的 [指派]。
+4. 底下**所有產品**，選取 Office 365 企業版 E5 和 Enterprise Mobility + Security E3 產品名稱，以選取。 若要啟動指派，選取窗格頂端的 [指派]  。
 
    ![選擇要指派授權的產品](./media/licensing-groups-assign/all-products-assign.png)
   
@@ -51,7 +51,7 @@ ms.locfileid: "60471268"
 
    ![選取 授權的服務方案](./media/licensing-groups-assign/assignment-options.png)
   
-8. 若要完成指派，在 [指派授權] 窗格中，按一下窗格底部的 [指派]。
+8. 若要完成指派，在 [指派授權]  窗格中，按一下窗格底部的 [指派]  。
 
 9. 右上角顯示的通知會顯示程序的狀態和結果。 如果無法完成指派給群組 (例如，因為群組中已存在的授權)，按一下通知以檢視失敗的詳細資料。
 
@@ -71,7 +71,7 @@ ms.locfileid: "60471268"
 
    ![授權錯誤和授權狀態](./media/licensing-groups-assign/assignment-errors.png)
 
-3. 如需授權處理的詳細資訊，請參閱 [Azure Active Directory] > [使用者和群組] > 群組名稱 > [稽核記錄]。 請注意下列活動：
+3. 如需授權處理的詳細資訊，請參閱 [Azure Active Directory]   > [使用者和群組]   > 群組名稱   > [稽核記錄]  。 請注意下列活動：
 
    - 活動：**開始將群組型授權套用至使用者**。 當我們的系統拾取群組的授權指派變更，並開始將其套用到所有使用者成員時，就會進行記錄。 它包含已進行之變更的相關資訊。
 
@@ -83,11 +83,11 @@ ms.locfileid: "60471268"
 
 1. 移至**Azure Active Directory** > **群組**，並尋找授權已指派給群組。
 2. 在 [群組] 窗格中，選取**授權**。 窗格頂端的通知顯示有 10 位使用者無法獲得授權指派。 加以開啟即可看到一份此群組為授權錯誤狀態中的所有使用者。
-3. [失敗的指派] 資料行告訴我們，兩個產品授權都無法指派給使用者。 [失敗的前幾大原因] 資料行包含失敗的原因。 在此案例中為 [衝突的服務方案]。
+3. [失敗的指派]  資料行告訴我們，兩個產品授權都無法指派給使用者。 [失敗的前幾大原因]  資料行包含失敗的原因。 在此案例中為 [衝突的服務方案]  。
 
    ![無法指派授權](./media/licensing-groups-assign/failed-assignments.png)
 
-4. 選取使用者以開啟 [授權] 窗格。 此窗格會顯示目前指派給此使用者的所有授權。 在此範例中，使用者擁有繼承自 **Kiosk 使用者** 群組的 Office 365 Enterprise E1 授權。 這會與系統嘗試從**人力資源部門**群組套用的 E3 授權衝突。 如此一來，該群組沒有任何授權會指派給使用者。
+4. 選取使用者以開啟 [授權]  窗格。 此窗格會顯示目前指派給此使用者的所有授權。 在此範例中，使用者擁有繼承自 **Kiosk 使用者** 群組的 Office 365 Enterprise E1 授權。 這會與系統嘗試從**人力資源部門**群組套用的 E3 授權衝突。 如此一來，該群組沒有任何授權會指派給使用者。
 
    ![檢視使用者的所有授權衝突](./media/licensing-groups-assign/user-license-view.png)
 

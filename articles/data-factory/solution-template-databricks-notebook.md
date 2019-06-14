@@ -13,10 +13,10 @@ ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
 ms.openlocfilehash: 562ce675acc43002ce468d60f8a8c412410be86c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60395142"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Databricks 轉換資料
@@ -39,7 +39,7 @@ ms.locfileid: "60395142"
 
 2.  確定您具有 **Azure Databricks 工作區**，或建立新的工作區。
 
-1.  **匯入用於 ETL 的 Notebook**。 請將下列轉換 Notebook 匯入至 Databricks 工作區。 (其位置不必與以下所列的相同，但請記住您選擇的路徑，以供後續使用。)在 URL 欄位中輸入下列 URL，以由此 URL 匯入 Notebook：`https://adflabstaging1.blob.core.windows.net/share/Transformations.html`。 選取 [匯入]。
+1.  **匯入用於 ETL 的 Notebook**。 請將下列轉換 Notebook 匯入至 Databricks 工作區。 (其位置不必與以下所列的相同，但請記住您選擇的路徑，以供後續使用。)在 URL 欄位中輸入下列 URL，以由此 URL 匯入 Notebook：`https://adflabstaging1.blob.core.windows.net/share/Transformations.html`。 選取 [匯入]  。
 
     ![2](media/solution-template-Databricks-notebook/Databricks-tutorial-image02.png)
 
@@ -77,11 +77,11 @@ ms.locfileid: "60395142"
 
 ## <a name="create-linked-services-and-datasets"></a>建立連結服務和資料集
 
-1.  移至 [連線 > 連結服務 > 新增]，在 Data Factory UI 中建立新的**連結服務**
+1.  移至 [連線 > 連結服務 > 新增]  ，在 Data Factory UI 中建立新的**連結服務**
 
     1.  **來源** – 用來存取來源資料。 在此範例中，您可以使用包含來源檔案的公用 Blob 儲存體。
 
-        選取 [Blob 儲存體]，並使用下方的 **SAS URI** 連線至來源儲存體 (唯讀存取)。
+        選取 [Blob 儲存體]  ，並使用下方的 **SAS URI** 連線至來源儲存體 (唯讀存取)。
 
         `https://storagewithdata.blob.core.windows.net/?sv=2017-11-09&ss=b&srt=sco&sp=rl&se=2019-12-31T21:40:53Z&st=2018-10-24T13:40:53Z&spr=https&sig=K8nRio7c4xMLnUV0wWVAmqr5H4P3JDwBaG9HCevI7kU%3D`
 
@@ -95,7 +95,7 @@ ms.locfileid: "60395142"
 
     1.  **Databricks** – 用來連線至 Databricks 叢集
 
-        使用在必要條件 2.c 中產生的存取金鑰建立 Databricks 連結服務。 如果您有*互動式叢集*，可加以選取。 (此範例使用 [新增作業叢集] 選項。)
+        使用在必要條件 2.c 中產生的存取金鑰建立 Databricks 連結服務。 如果您有*互動式叢集*，可加以選取。 (此範例使用 [新增作業叢集]  選項。)
 
         ![8](media/solution-template-Databricks-notebook/Databricks-tutorial-image08.png)
 
@@ -119,11 +119,11 @@ ms.locfileid: "60395142"
 
 ## <a name="create-activities"></a>建立活動
 
-1.  建立查閱活動「可用性旗標」以進行來源可用性檢查 (可使用查閱或 GetMetadata)。 選取在 2.a 中建立的 'sourceAvailability_Dataset'。
+1.  建立查閱活動「可用性旗標」  以進行來源可用性檢查 (可使用查閱或 GetMetadata)。 選取在 2.a 中建立的 'sourceAvailability_Dataset'。
 
     ![12](media/solution-template-Databricks-notebook/Databricks-tutorial-image12.png)
 
-1.  建立複製活動「檔案至 Blob」，以將資料集從來源複製到接收端。 在此案例中，資料是二進位檔案。 請參考下列螢幕擷取畫面，了解複製活動中的來源和接收端組態。
+1.  建立複製活動「檔案至 Blob」  ，以將資料集從來源複製到接收端。 在此案例中，資料是二進位檔案。 請參考下列螢幕擷取畫面，了解複製活動中的來源和接收端組態。
 
     ![13](media/solution-template-Databricks-notebook/Databricks-tutorial-image13.png)
 

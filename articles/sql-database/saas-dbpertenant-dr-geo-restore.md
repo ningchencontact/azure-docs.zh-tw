@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60556907"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>使用異地還原從資料庫備份復原多租用戶 SaaS 應用程式
@@ -80,7 +80,7 @@ ms.locfileid: "60556907"
 ## <a name="review-the-healthy-state-of-the-application"></a>檢視應用程式的健康狀態
 在開始進行復原程序之前，請先查看應用程式的正常健康狀態。
 
-1. 在您的網頁瀏覽器中，開啟 Wingtip Tickets 事件中樞 (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net，將 &lt;user&gt; 取代為部署的使用者值)。
+1. 在您的網頁瀏覽器中，開啟 Wingtip Tickets 事件中樞 (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net，將 &lt; user&gt; 取代為部署的使用者值)。
     
    捲動至頁面底部，並查看頁尾處的目錄伺服器名稱和位置。 此位置是您部署應用程式的區域。    
 
@@ -200,7 +200,7 @@ ms.locfileid: "60556907"
  
     ![復原程序](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-  * 如果您在租用戶離線時直接開啟租用戶的 [事件] 頁面，該頁面會顯示「租用戶離線」通知。 例如，在 Contoso Concert Hall 處於離線狀態時，嘗試開啟 http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall。
+  * 如果您在租用戶離線時直接開啟租用戶的 [事件] 頁面，該頁面會顯示「租用戶離線」通知。 例如，在 Contoso Concert Hall 處於離線狀態時，嘗試開啟 http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall。
 
     ![復原程序](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -266,7 +266,7 @@ ms.locfileid: "60556907"
 
 3. 若要執行此指令碼，請選取 F5。
 
-4. 重新整理 Contoso Concert Hall 事件頁面 (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall) 並注意已缺少事件 Seriously Strauss。
+4. 重新整理 Contoso Concert Hall 事件頁面 (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall) 並注意已缺少事件 Seriously Strauss。
 
 在此時的教學課程中，您已復原應用程式，該應用程式現在正在復原區域中執行。 您已在復原區域中佈建一個新租用戶，而且修改其中一個已還原租用戶的資料。  
 
@@ -330,7 +330,7 @@ ms.locfileid: "60556907"
 
     若要在新的 PowerShell 視窗中執行復原指令碼，請選取 F5。 回復需要幾分鐘的時間，您可以在 PowerShell 視窗中加以監視。
 
-3. 在指令碼執行時，重新整理 [事件中樞] 頁面 (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net)。
+3. 在指令碼執行時，重新整理 [事件中樞] 頁面 (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net)。
 
     留意到在這整個程序中，所有租用戶皆處於線上狀態，且可供存取。
 

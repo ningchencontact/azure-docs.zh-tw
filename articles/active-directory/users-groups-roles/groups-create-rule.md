@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60472109"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>建立動態群組並檢查狀態
@@ -31,8 +31,8 @@ ms.locfileid: "60472109"
 ## <a name="to-create-a-group-membership-rule"></a>建立群組成員資格規則
 
 1. 登入[Azure AD 系統管理中心](https://aad.portal.azure.com)中全域管理員、 Intune 系統管理員或在租用戶中的使用者系統管理員角色的帳戶。
-2. 選取 [群組]。
-3. 選取 [所有群組]，然後選取 [新增群組]。
+2. 選取 [群組]  。
+3. 選取 [所有群組]  ，然後選取 [新增群組]  。
 
    ![選取要加入新群組的命令](./media/groups-create-rule/new-group-creation.png)
 
@@ -43,7 +43,7 @@ ms.locfileid: "60472109"
 5. 若要查看可供您的成員資格查詢的自訂延伸模組屬性
    1. 選取**取得自訂的延伸模組屬性**
    2. 輸入應用程式識別碼，然後選取**重新整理屬性**。 
-6. 建立規則之後，在刀鋒視窗的底部選取 [新增查詢]。
+6. 建立規則之後，在刀鋒視窗的底部選取 [新增查詢]  。
 7. 選取 [更多服務]  on the  來建立群組。
 
 如果您輸入的規則不是有效的項目，說明為什麼無法處理此規則會顯示在入口網站的右上角。 仔細閱讀，了解如何修正此規則。
@@ -54,7 +54,7 @@ ms.locfileid: "60472109"
 
 ## <a name="check-processing-status-for-a-rule"></a>檢查規則的處理狀態
 
-您可以在群組的 [概觀] 頁面上看到成員資格處理狀態和上次更新日期。
+您可以在群組的 [概觀]  頁面上看到成員資格處理狀態和上次更新日期。
   
   ![顯示的動態群組狀態](./media/groups-create-rule/group-status.png)
 
@@ -72,7 +72,7 @@ ms.locfileid: "60472109"
 * **進行中**：目前正在更新。
 * **未知**：無法擷取上次更新時間。 此群組可能是新的。
 
-如果處理特定群組的成員資格規則時發生錯誤，則會在群組的 [概觀] 頁面頂端顯示警示。 如果無法處理租用戶內所有群組 24 小時內的暫止動態成員資格更新，則會在 [所有群組] 頂端顯示警示。
+如果處理特定群組的成員資格規則時發生錯誤，則會在群組的 [概觀]  頁面頂端顯示警示。 如果無法處理租用戶內所有群組 24 小時內的暫止動態成員資格更新，則會在 [所有群組]  頂端顯示警示。
 
 ![處理錯誤的訊息警示](./media/groups-create-rule/processing-error.png)
 

@@ -9,10 +9,10 @@ ms.date: 08/15/2018
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 8541362a16c7d12a0e3a4cf009ed9cd5faf9f1cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60366295"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>重設 ExpressRoute 線路對等互連
@@ -51,7 +51,7 @@ ms.locfileid: "60366295"
    ```azurepowershell-interactive
    $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
    ```
-5. 識別您想要停用或啟用的對等互連。 「對等互連」是一個陣列。 在下列範例中，Peerings[0] 是 Azure 私用對等互連，而 Peerings[1] 是 Microsoft 對等互連。
+5. 識別您想要停用或啟用的對等互連。 「對等互連」  是一個陣列。 在下列範例中，Peerings[0] 是 Azure 私用對等互連，而 Peerings[1] 是 Microsoft 對等互連。
 
    ```azurepowershell-interactive
    Name                             : ExpressRouteARMCircuit

@@ -18,10 +18,10 @@ ms.date: 01/30/2019
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6c80ee5d2a4d72be131c6a781cf793d1981e780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353214"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 漫遊設定參考
@@ -30,7 +30,7 @@ ms.locfileid: "60353214"
 ## <a name="devices-and-endpoints"></a>裝置和端點
 請參閱下表以取得 Windows 10 中同步處理、備份及還原架構支援的裝置和帳戶類型的摘要。
 
-| 帳戶類型和作業 | 桌上型 | 行動 |
+| 帳戶類型和作業 | 桌上型 | 行動訊息 |
 | --- | --- | --- |
 | Azure Active Directory：同步處理 |是 |否 |
 | Azure Active Directory：備份/還原 |否 |否 |
@@ -67,7 +67,7 @@ ms.locfileid: "60353214"
 [設定群組] 資料行中的 [內部] 項目是指只能從應用程式本身的同步處理停用，或藉由使用行動裝置管理 (MDM) 或群組原則設定停用的設定和應用程式。
 不會漫遊的設定或同步處理不屬於一個群組。
 
-| 設定 | 桌上型 | 行動 | 群組 |
+| 設定 | 桌上型 | 行動訊息 | 群組 |
 | --- | --- | --- | --- |
 | **帳戶**：帳戶圖片 |sync |X |佈景主題 |
 | **帳戶**：其他帳戶設定 |X |X | |

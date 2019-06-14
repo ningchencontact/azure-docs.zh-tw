@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 43ccc8e53c30219630ad10ee66a4db38656818e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60525386"
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 为 Azure 云服务中的角色启用远程桌面连接
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 啟用 Azure 雲端服務中角色的遠端桌面連線
 
 > [!div class="op_single_selector"]
-> * [Azure 门户](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Azure 入口網站](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
-遠端桌面可讓您存取 Azure 內執行中角色的桌面。 可以使用远程桌面连接，在应用程序正在运行时排查和诊断其问题。
+遠端桌面可讓您存取 Azure 內執行中角色的桌面。 您可以使用遠端桌面連線來疑難排解和診斷執行中應用程式的問題。
 
 這篇文章描述如何使用 PowerShell 在雲端服務角色上啟用遠端桌面。 如需這篇文章所需要的必要條件，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 。 PowerShell 會利用遠端桌面延伸模組，因此在應用程式部署之後，您也可以啟用遠端桌面。
 
@@ -101,7 +101,7 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 > [!NOTE]
 > 若要完全移除延伸模組組態，您應該在呼叫 *remove* Cmdlet 時指定 **UninstallConfiguration** 參數。
 >
-> **UninstallConfiguration** 參數會將任何已套用到服務的延伸模組組態解除安裝。 每個延伸模組組態都與服務組態相關連。 呼叫 remove Cmdlet 時未指定 **UninstallConfiguration** 會取消<mark>部署</mark>與擴充組態的關聯，因此實際上會移除延伸模組。 不過，延伸模組組態仍然與服務相關聯。
+> **UninstallConfiguration** 參數會將任何已套用到服務的延伸模組組態解除安裝。 每個延伸模組組態都與服務組態相關連。 呼叫 remove  Cmdlet 時未指定 **UninstallConfiguration** 會取消<mark>部署</mark>與擴充組態的關聯，因此實際上會移除延伸模組。 不過，延伸模組組態仍然與服務相關聯。
 
 ## <a name="additional-resources"></a>其他資源
 

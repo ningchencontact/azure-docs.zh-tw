@@ -8,10 +8,10 @@ ms.date: 03/29/2019
 ms.author: hamusa
 services: azure-migrate
 ms.openlocfilehash: 7cd44318716200d665ece9ffecc45225bdfb85eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685914"
 ---
 # <a name="collector-appliance-updates"></a>收集器設備更新
@@ -32,8 +32,8 @@ ms.locfileid: "60685914"
 
     範例：**C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)**
 4. 將 ZIP 檔案複製到收集器設備 VM。
-5. 在 ZIP 檔案上按一下滑鼠右鍵 > [解壓縮全部]。
-6. 在 [Setup.ps1] 上按一下滑鼠右鍵 > [用 PowerShell 執行]，然後依照安裝指示進行操作。
+5. 在 ZIP 檔案上按一下滑鼠右鍵 > [解壓縮全部]  。
+6. 在 [Setup.ps1]  上按一下滑鼠右鍵 > [用 PowerShell 執行]  ，然後依照安裝指示進行操作。
 
 ## <a name="collector-update-release-history"></a>收集器更新版本歷程記錄
 
@@ -68,7 +68,7 @@ SHA256 | c6e7504fcda46908b636bfe25b8c73f067e3465b748f77e50027e66f2727c2a9
 > [!NOTE]
 > 一次性探索設備現在已被取代，因為這個方法依賴 vCenter Server 的統計資料設定來取得效能資料點可用性，而且收集到的平均效能計數器會導致 VM 大小不足，而無法遷移至 Azure。
 
-#### <a name="version-10916-released-on-10292018"></a>1.0.9.16 版 (2018 年 10 月 29 日發行)
+#### <a name="version-10916-released-on-10292018"></a>1\.0.9.16 版 (2018 年 10 月 29 日發行)
 
 包含設定設備時所面臨的 PowerCLI 問題修正。
 
@@ -80,7 +80,7 @@ MD5 | d2c53f683b0ec7aaf5ba3d532a7382e1
 SHA1 | e5f922a725d81026fa113b0c27da185911942a01
 SHA256 | a159063ff508e86b4b3b7b9a42d724262ec0f2315bdba8418bce95d973f80cfc
 
-#### <a name="version-10914"></a>1.0.9.14 版
+#### <a name="version-10914"></a>1\.0.9.14 版
 
 升級[套件 1.0.9.14](https://aka.ms/migrate/col/upgrade_9_14) 的雜湊值
 
@@ -90,7 +90,7 @@ MD5 | c5bf029e9fac682c6b85078a61c5c79c
 SHA1 | af66656951105e42680dfcc3ec3abd3f4da8fdec
 SHA256 | 58b685b2707f273aa76f2e1d45f97b0543a8c4d017cd27f0bdb220e6984cc90e
 
-#### <a name="version-10913"></a>1.0.9.13 版
+#### <a name="version-10913"></a>1\.0.9.13 版
 
 升級[套件 1.0.9.13](https://aka.ms/migrate/col/upgrade_9_13) 的雜湊值
 

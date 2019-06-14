@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 929a4e4366c9e94ed4e1915406914991624f6baa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565521"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>關於適用於 VMware VM 和實體伺服器的行動服務
@@ -24,7 +24,7 @@ ms.locfileid: "60565521"
 
 ## <a name="anti-virus-on-replicated-machines"></a>在複寫的機器上防毒
 
-如果您要複寫的機器正在執行作用中的防毒軟體，請務必從防毒作業中排除行動性服務安裝資料夾 (C:\ProgramData\ASR\agent)。 這可確保複寫運作正常。
+如果您要複寫的機器正在執行作用中的防毒軟體，請務必從防毒作業中排除行動性服務安裝資料夾 (C:\ProgramData\ASR\agent  )。 這可確保複寫運作正常。
 
 ## <a name="push-installation"></a>推入安裝
 
@@ -47,7 +47,7 @@ ms.locfileid: "60565521"
     a. 若要產生應用程式一致點，請參閱[我們的指引](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine)手動完成安裝 Site Recovery VSS 提供者。 </br>
     b.  如果您不想要產生的應用程式一致點[修改複寫原則](vmware-azure-set-up-replication.md#create-a-policy)来關閉應用程式一致的點。
 
-### <a name="before-922-versions"></a>9.22 版本之前
+### <a name="before-922-versions"></a>9\.22 版本之前
 
 1. 推播到來源機器代理程式。 複製來源機器代理程式會因為多個環境的錯誤而失敗。 請瀏覽[我們的指引](vmware-azure-troubleshoot-push-install.md)疑難排解推入安裝失敗。
 2. 代理程式已成功複製至之後在伺服器上執行伺服器的必要條件檢查。 如果一或多個安裝會失敗[必要條件](vmware-physical-azure-support-matrix.md)不符合。 如果符合所有必要條件，安裝將會觸發。
@@ -64,12 +64,12 @@ ms.locfileid: "60565521"
 > 如果您要複寫的 Azure IaaS VM 從一個 Azure 區域到另一個則不會使用這個方法。 請改用命令列為基礎的安裝方法。
 
 1. 將安裝檔案複製到機器並執行。
-2. 在 [安裝選項] 中，選取 [安裝行動服務]。
-3. 選取安裝位置 > [安裝]。
+2. 在 [安裝選項]  中，選取 [安裝行動服務]  。
+3. 選取安裝位置 > [安裝]  。
 
     ![[行動服務安裝選項] 頁面](./media/vmware-physical-mobility-service-install-manual/mobility1.png)
 
-4. 在 [安裝進度] 中監視安裝。 安裝完成後，選取 [繼續進行設定] ，以向設定伺服器註冊服務。
+4. 在 [安裝進度]  中監視安裝。 安裝完成後，選取 [繼續進行設定]  ，以向設定伺服器註冊服務。
 
     ![[行動服務註冊] 頁面](./media/vmware-physical-mobility-service-install-manual/mobility3.png)
 
@@ -77,7 +77,7 @@ ms.locfileid: "60565521"
 
     ![[行動服務註冊] 頁面](./media/vmware-physical-mobility-service-install-manual/mobility4.png)
 
-6. 選取 [註冊] 完成註冊。
+6. 選取 [註冊]  完成註冊。
 
     ![[行動服務註冊完成] 頁面](./media/vmware-physical-mobility-service-install-manual/mobility5.png)
 

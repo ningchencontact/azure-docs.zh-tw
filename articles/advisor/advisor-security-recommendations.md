@@ -13,15 +13,15 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: kasparks
 ms.openlocfilehash: 290af605525d552e73c5f3a7a961593689326946
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60467675"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>利用 Azure Advisor 讓資源變得更安全
 
-Azure Advisor 可針對所有的 Azure 資源提供一致的合併建議檢視。 它與 Azure 資訊安全中心整合，可為您提供安全性建議。 您可以從 Advisor 儀表板上的 [安全性] 索引標籤取得安全性建議。
+Azure Advisor 可針對所有的 Azure 資源提供一致的合併建議檢視。 它與 Azure 資訊安全中心整合，可為您提供安全性建議。 您可以從 Advisor 儀表板上的 [安全性]  索引標籤取得安全性建議。
 
 資訊安全中心利用加強對您 Azure 資源的能見度及安全性控制權，來協助您預防、偵測及回應威脅。 它會定期分析 Azure 資源的安全性狀態。 當資訊安全中心識別潛在的安全性弱點時，它會建立建議。 這些建議會引導您完成設定所需控制項的程序。 
 
@@ -31,7 +31,7 @@ Azure Advisor 可針對所有的 Azure 資源提供一致的合併建議檢視�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後開啟 [Advisor](https://aka.ms/azureadvisordashboard)。
 
-2.  在 Advisor 儀表板上，按一下 [安全性] 索引標籤。
+2.  在 Advisor 儀表板上，按一下 [安全性]  索引標籤。
 
 ## <a name="next-steps"></a>後續步驟
 

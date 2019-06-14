@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
 ms.openlocfilehash: 916e9e1f7287757f19e93ecf7b8cc38f556e2dc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60564641"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>使用 VM 平衡流量負載以達到高可用性
@@ -36,7 +36,7 @@ ms.locfileid: "60564641"
 
 ## <a name="clean-up-deployment"></a>清除部署 
 
-运行以下命令来删除资源组、VM 和所有相关资源。
+執行下列命令來移除資源群組、VM 和所有相關資源。
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -56,7 +56,7 @@ az group delete --name myResourceGroup
 | [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | 建立負載平衡器規則。 在此範例中，會為連接埠 80 建立規則。 HTTP 流量到達負載平衡器時，它會路由傳送至 LB 集內其中一部 VM 的連接埠 80。 |
 | [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) | 建立負載平衡器網路位址轉譯 (NAT) 規則。  NAT 規則會將負載平衡器的連接埠對應至 VM 上的連接埠。 在此範例中，會為傳送到負載平衡器集合中每部 VM 的 SSH 流量建立 NAT 規則。  |
 | [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg) | 建立網路安全性群組 (NSG)，做為網際網路和虛擬機器之間的安全性界限。 |
-| [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule) | 创建 NSG 规则以允许入站流量。 在此範例中，會開放連接埠 22 供 SSH 流量使用。 |
+| [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule) | 建立允許輸入流量的 NSG 規則。 在此範例中，會開放連接埠 22 供 SSH 流量使用。 |
 | [az network nic create](https://docs.microsoft.com/cli/azure/network/nic) | 建立虛擬網路卡，並將它連接至虛擬網路、子網路及 NSG。 |
 | [az vm availability-set create](https://docs.microsoft.com/cli/azure/network/lb/rule) | 建立可用性設定組。 可用性設定組可將虛擬機器分散到各個實體資源，讓整個集合不致受到萬一發生的失敗所影響，藉此來確保應用程式運作時間。 |
 | [az vm create](/cli/azure/vm) | 建立虛擬機器，並將它連線到網路卡、虛擬網路、子網路及 NSG。 此命令也會指定要使用的虛擬機器映像和管理認證。  |

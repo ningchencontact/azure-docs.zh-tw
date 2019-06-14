@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 816233368c2274e34d2acdd712aed270a5e3bfa5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60203919"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>在 Azure 中使用 JAVA 建立並管理 Windows VM
@@ -134,7 +134,7 @@ ms.locfileid: "60203919"
     graphURL=https://graph.windows.net/
     ```
 
-    以您的訂用帳戶 ID 取代 **&lt;subscription-id&gt;**、以 Active Directory 應用程式識別碼取代 **&lt;application-id&gt;**、以應用程式金鑰取代 **&lt;authentication-key&gt;**，以及以租用戶識別碼取代 **&lt;tenant-id&gt;**。
+    以您的訂用帳戶 ID 取代 **&lt;subscription-id&gt;** 、以 Active Directory 應用程式識別碼取代 **&lt;application-id&gt;** 、以應用程式金鑰取代 **&lt;authentication-key&gt;** ，以及以租用戶識別碼取代 **&lt;tenant-id&gt;** 。
 
 2. 儲存檔案。
 3. 使用驗證檔案的完整路徑，在殼層中設定名稱為 AZURE_AUTH_LOCATION 的環境變數。
@@ -294,7 +294,7 @@ input.nextLine();
 ```
 
 > [!NOTE]
-> 本教學課程中會建立執行 Windows Server 作業系統版本的虛擬機器。 若要详细了解如何选择其他映像，请参阅[使用 Windows PowerShell 和 Azure CLI 来导航和选择 Azure 虚拟机映像](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+> 本教學課程中會建立執行 Windows Server 作業系統版本的虛擬機器。 若要深入了解如何選取其他映像，請參閱 [使用 Windows PowerShell 和 Azure CLI 來瀏覽和選取 Azure 虛擬機器映像](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 > 
 >
 
@@ -389,7 +389,7 @@ input.nextLine();
 
 ### <a name="stop-the-vm"></a>停止 VM
 
-可停止虚拟机并保留其所有设置，但需继续付费；还可停止虚拟机并解除分配。 當解除配置虛擬機器時，與其相關聯的所有資源也都會解除配置且其計費會結束。
+您可以停止虛擬機器並保留其所有的設定，但仍繼續計費，或您可以停止虛擬機器並將其解除配置。 當解除配置虛擬機器時，與其相關聯的所有資源也都會解除配置且其計費會結束。
 
 若要停止虛擬機器而不解除配置，請將以下程式碼新增到 Main 方法中的 try 區塊：
 

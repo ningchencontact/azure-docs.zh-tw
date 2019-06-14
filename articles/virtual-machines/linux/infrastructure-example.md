@@ -17,10 +17,10 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 00357641f51be703d2e5c52c5b9cc6187ce05ff6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60543037"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>適用於 Linux VM 的範例 Azure 基礎結構逐步解說
@@ -55,16 +55,16 @@ Adventure Works Cycles 想要在 Azure 中建置一個線上商店，該商店�
 * Adventure Works Cycles 使用 **[IT workload]-[location]-[Azure resource]** 做為首碼
   * 針對此範例，"**azos**" (Azure 線上商店) 是 IT 工作負載名稱，而 "**use**" (美國東部 2) 是位置
 * 虛擬網路會使用 AZOS-USE-VN<strong>[number]</strong>
-* 可用性設定組會使用 azos-use-as-**[role]**
-* 虛擬機器名稱會使用 azos-use-vm-**[vmname]**
+* 可用性設定組會使用 azos-use-as- **[role]**
+* 虛擬機器名稱會使用 azos-use-vm- **[vmname]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Azure 訂用帳戶與帳戶
-Adventure Works Cycles 使用名为 Adventure Works 企业订阅的企业订阅为此 IT 工作负荷提供计费。
+Adventure Works Cycles 正在使用名稱為 Adventure Works Enterprise Subscription 的企業訂用帳戶，來提供這個 IT 工作負載的計費。
 
 ## <a name="storage"></a>儲存體
 Adventure Works Cycles 決定他們應該使用 Azure 受控磁碟。 建立 VM 時，會使用這兩個可用儲存體的儲存層：
 
-* **标准存储**用于 Web 服务器、应用程序服务器和域控制器及其数据磁盘。
+* **標準儲存體**，適用於 Web 伺服器、應用程式伺服器，以及網域控制站及其資料磁碟。
 * **進階儲存體**，適用於 MongoDB 共用叢集伺服器及其資料磁碟。
 
 ## <a name="virtual-network-and-subnets"></a>虛擬網路和子網路

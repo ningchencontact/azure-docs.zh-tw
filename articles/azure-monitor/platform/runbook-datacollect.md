@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
 ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453922"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>使用 Azure 自動化 Runbook 在 Log Analytics 中收集資料
@@ -43,7 +43,7 @@ ms.locfileid: "60453922"
 ## <a name="1-install-data-collector-api-module"></a>1.安裝資料收集器 API 模組
 [來自 HTTP 資料收集器 API 的每個要求](../../azure-monitor/platform/data-collector-api.md#create-a-request)都必須適當地格式化，並包含授權標頭。 您可以在 Runbook 中執行這項作業，但可以減少使用可簡化此程序之模型所需的程式碼數量。 您可以使用的其中一個模組是 PowerShell 資源庫中的 [OMSIngestionAPI 模組](https://www.powershellgallery.com/packages/OMSIngestionAPI)。
 
-若要在 Runbook 中使用[模組](../../automation/automation-integration-modules.md)，則必須將它安裝在自動化帳戶中。  相同帳戶中的任何 Runbook 接著可以在模組中使用函式。 在自動化帳戶中選取 [資產] > [模組] > [新增模組]，即可安裝新的模組。
+若要在 Runbook 中使用[模組](../../automation/automation-integration-modules.md)，則必須將它安裝在自動化帳戶中。  相同帳戶中的任何 Runbook 接著可以在模組中使用函式。 在自動化帳戶中選取 [資產]   > [模組]   > [新增模組]  ，即可安裝新的模組。
 
 PowerShell 資源庫提供快速選項讓您將模組直接部署至自動化帳戶，因此，您可以在本教學課程中使用該選項。
 
@@ -51,8 +51,8 @@ PowerShell 資源庫提供快速選項讓您將模組直接部署至自動化帳
 
 1. 前往 [PowerShell 資源庫](https://www.powershellgallery.com/)。
 2. 搜尋 **OMSIngestionAPI**。
-3. 按一下 [部署至 Azure 自動化] 按鈕。
-4. 選取自動化帳戶，然後按一下 [確定] 安裝模組。
+3. 按一下 [部署至 Azure 自動化]  按鈕。
+4. 選取自動化帳戶，然後按一下 [確定]  安裝模組。
 
 ## <a name="2-create-automation-variables"></a>2.建立自動化變數
 [自動化變數](../../automation/automation-variables.md)會保留值，以供自動化帳戶中的所有 Runbook 使用。 它們可讓您變更這些值，而不需要編輯實際 Runbook，讓 Runbook 更具彈性。 來自 HTTP 資料收集器 API 的每個要求都需要 Log Analytics 工作區的識別碼和索引鍵，而且變數資產最適合用來儲存這項資訊。
@@ -60,14 +60,14 @@ PowerShell 資源庫提供快速選項讓您將模組直接部署至自動化帳
 ![變數](media/runbook-datacollect/variables.png)
 
 1. 在 Azure 入口網站中，瀏覽至您的自動化帳戶。
-2. 選取 [共用資源] 下方的 [變數]。
-2. 按一下 [新增變數]，然後建立下表中的兩個變數。
+2. 選取 [共用資源]  下方的 [變數]  。
+2. 按一下 [新增變數]  ，然後建立下表中的兩個變數。
 
 | 屬性 | 工作區識別碼值 | 工作區索引鍵值 |
 |:--|:--|:--|
 | Name | WorkspaceId | WorkspaceKey |
-| 類型 | String | String |
-| Value | 貼入 Log Analytics 工作區的工作區識別碼。 | 貼入 Log Analytics 工作區的主要或次要索引鍵。 |
+| 類型 | 字串 | 字串 |
+| 值 | 貼入 Log Analytics 工作區的工作區識別碼。 | 貼入 Log Analytics 工作區的主要或次要索引鍵。 |
 | 已加密 | 否 | 是 |
 
 ## <a name="3-create-runbook"></a>3.建立 Runbook
@@ -77,8 +77,8 @@ Azure 自動化在入口網站中有一個編輯器，您可以在其中編輯�
 ![編輯 Runbook](media/runbook-datacollect/edit-runbook.png)
 
 1. 瀏覽至您的自動化帳戶。
-2. 按一下 [Runbook] > [新增 Runbook] > [建立新的 Runbook]。
-3. 針對 Runbook 名稱，鍵入 **Collect-Automation-jobs**。 針對 Runbook 類型，選取 [PowerShell]。
+2. 按一下 [Runbook]   > [新增 Runbook]   > [建立新的 Runbook]  。
+3. 針對 Runbook 名稱，鍵入 **Collect-Automation-jobs**。 針對 Runbook 類型，選取 [PowerShell]  。
 4. 按一下 [建立]  來建立 Runbook，並啟動編輯器。
 5. 複製下列程式碼，並將其貼入 Runbook 中。 如需程式碼的說明，請參閱指令碼中的註解。
     ```
@@ -131,11 +131,11 @@ Azure 自動化包含可在發佈之前[測試 Runbook](../../automation/automat
 
 ![測試 Runbook](media/runbook-datacollect/test-runbook.png)
 
-1. 按一下 [儲存] 以儲存 Runbook。
-1. 按一下 [測試] 窗格，以在測試環境中開啟 Runbook。
+1. 按一下 [儲存]  以儲存 Runbook。
+1. 按一下 [測試]  窗格，以在測試環境中開啟 Runbook。
 1. 因為您的 Runbook 有參數，所以系統會提示您輸入值。 輸入您要從中收集作業資訊的資源群組和自動化帳戶名稱。
-1. 按一下 [啟動] 以啟動 Runbook。
-1. Runbook 會先以 [已排入佇列] 狀態啟動，再進入 [執行中]。
+1. 按一下 [啟動]  以啟動 Runbook。
+1. Runbook 會先以 [已排入佇列]  狀態啟動，再進入 [執行中]  。
 1. Runbook 應該會以 json 格式顯示詳細資訊輸出以及收集到的作業。 如果未列出任何作業，則最後一個小時可能未在自動化帳戶中建立任何作業。 請嘗試在自動化帳戶中啟動任何 Runbook，然後重新執行測試。
 1. 請確定輸出中未顯示 Log Analytics 的 post 命令中的任何錯誤。 您應該會看見類似下方的訊息。
 
@@ -147,7 +147,7 @@ Azure 自動化包含可在發佈之前[測試 Runbook](../../automation/automat
 ![記錄輸出](media/runbook-datacollect/log-output.png)
 
 1. 在 Azure 入口網站中，選取 Log Analytics 工作區。
-2. 按一下 [記錄搜尋]。
+2. 按一下 [記錄搜尋]  。
 3. 鍵入下列命令 `Type=AutomationJob_CL`，然後按一下搜尋按鈕。 請注意，記錄類型會包括指令碼中未指定的 _CL。 該尾碼會自動附加至記錄類型，指出它是自訂記錄類型。
 4. 您應該會看到傳回一或多筆記錄，指出 Runbook 已如預期運作。
 
@@ -157,31 +157,31 @@ Azure 自動化包含可在發佈之前[測試 Runbook](../../automation/automat
 ![發佈 Runbook](media/runbook-datacollect/publish-runbook.png)
 
 1. 返回自動化帳戶。
-2. 按一下 [Runbook]，並選取 [收集自動化工作]。
-3. 按一下 [編輯]，然後按一下 [發佈]。
-4. 系統要求您驗證是否要覆寫先前發佈的版本時，請按一下 [是]。
+2. 按一下 [Runbook]  ，並選取 [收集自動化工作]  。
+3. 按一下 [編輯]  ，然後按一下 [發佈]  。
+4. 系統要求您驗證是否要覆寫先前發佈的版本時，請按一下 [是]  。
 
 ## <a name="7-set-logging-options"></a>7.設定記錄選項
 在測試環境中，因為您在指令碼中設定 $VerbosePreference 變數，所以可以檢視[詳細資訊輸出](../../automation/automation-runbook-output-and-messages.md#message-streams)。 在生產環境中，如果您想要檢視詳細資訊輸出，則需要設定 Runbook 的記錄內容。 針對本教學課程中所使用的 Runbook，這會顯示傳送至 Log Analytics 的 json 資料。
 
 ![記錄和追蹤](media/runbook-datacollect/logging.png)
 
-1. 在 Runbook 的內容中，選取 [Runbook 設定] 下的 [記錄和追蹤]。
-2. 將 [記錄詳細記錄] 的設定變更為 [開啟]。
-3. 按一下 [檔案] 。
+1. 在 Runbook 的內容中，選取 [Runbook 設定]  下的 [記錄和追蹤]  。
+2. 將 [記錄詳細記錄]  的設定變更為 [開啟]  。
+3. 按一下 [檔案]  。
 
 ## <a name="8-schedule-runbook"></a>8.排程 Runbook
 啟動 Runbook 以收集監視資料的最常見方式，是將其排程為自動執行。 作法是[在 Azure 自動化中建立排程](../../automation/automation-schedules.md)，並將它連結至 Runbook。
 
 ![排程 Runbook](media/runbook-datacollect/schedule-runbook.png)
 
-1. 在 Runbook 的內容中，選取 [資源] 下的 [排程]。
-2. 按一下 [新增排程] > [將排程連結至您的 Runbook] > [建立新的排程]。
-5. 鍵入排程的下列值，然後按一下 [建立]。
+1. 在 Runbook 的內容中，選取 [資源]  下的 [排程]  。
+2. 按一下 [新增排程]   > [將排程連結至您的 Runbook]   > [建立新的排程]  。
+5. 鍵入排程的下列值，然後按一下 [建立]  。
 
-| 屬性 | Value |
+| 屬性 | 值 |
 |:--|:--|
-| Name | AutomationJobs-Hourly |
+| 名稱 | AutomationJobs-Hourly |
 | 啟動 | 選取至少超過目前時間 5 分鐘的任何時間。 |
 | 週期性 | 週期性 |
 | 重複頻率 | 1 小時 |
@@ -189,19 +189,19 @@ Azure 自動化包含可在發佈之前[測試 Runbook](../../automation/automat
 
 建立排程之後，您需要設定將在每次此排程啟動 Runbook 時使用的參數值。
 
-1. 按一下 [設定參數與回合設定]。
+1. 按一下 [設定參數與回合設定]  。
 1. 填入 **ResourceGroupName** 和 **AutomationAccountName** 的值。
-1. 按一下 [確定]。
+1. 按一下 [確定]  。
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9.驗證 Runbook 會依排程啟動
 每次啟動 Runbook 時，都會[建立作業](../../automation/automation-runbook-execution.md)並記錄任何輸出。 事實上，這些作業與 Runbook 所收集的作業相同。 在排程的開始時間過後，您可以檢查 Runbook 的作業來確認 Runbook 如預期啟動。
 
 ![工作](media/runbook-datacollect/jobs.png)
 
-1. 在 Runbook 的內容中，選取 [資源] 下的 [作業]。
+1. 在 Runbook 的內容中，選取 [資源]  下的 [作業]  。
 2. 每次啟動 Runbook 時，您應該都會看到作業清單。
 3. 按一下其中一個作業，即可檢視其詳細資料。
-4. 按一下 [所有記錄]，以檢視來自 Runbook 的記錄和輸出。
+4. 按一下 [所有記錄]  ，以檢視來自 Runbook 的記錄和輸出。
 5. 捲動至底部，找到與下圖類似的項目。<br>![詳細資訊](media/runbook-datacollect/verbose.png)
 6. 按一下此項目，檢視已傳送至 Log Analytics 的詳細 json 資料。
 

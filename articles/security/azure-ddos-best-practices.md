@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
 ms.openlocfilehash: 11f3dcefd283ada00e915c2d6cb8abf654590ec1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60588013"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS 保護：最佳做法與參考架構
@@ -130,7 +130,7 @@ Azure 基本 DDoS 保護服務可協助保護客戶，並防止對其他客戶�
 
 ##### <a name="ddos-mitigation-policies"></a>DDoS 防護原則
 
-在 Azure 入口網站中，選取 [監視] > [計量]。 在 [計量] 窗格中，選取資源群組、選取 [公用 IP 位址] 的資源類型，並選取您的 Azure 公用 IP 位址。 DDoS 計量會顯示在 [可用計量] 窗格中。
+在 Azure 入口網站中，選取 [監視]   > [計量]  。 在 [計量]  窗格中，選取資源群組、選取 [公用 IP 位址]  的資源類型，並選取您的 Azure 公用 IP 位址。 DDoS 計量會顯示在 [可用計量]  窗格中。
 
 「標準 DDoS 保護」會在啟用 DDoS 的虛擬網路中，對受保護資源的每個公用 IP 套用三個自動調整的風險降低原則 (TCP SYN、TCP、UDP)。 可選取**要觸發 DDoS 防護的輸入封包**計量，藉此檢視原則閾值。
 
@@ -140,7 +140,7 @@ Azure 基本 DDoS 保護服務可協助保護客戶，並防止對其他客戶�
 
 ##### <a name="metric-for-an-ip-address-under-ddos-attack"></a>遭受 DDoS 攻擊的 IP 位址計量
 
-如果公用 IP 位址遭受攻擊，則當 DDoS 保護在降低攻擊流量的風險時，[是否正遭受 DDoS 攻擊] 的計量值會變更為 1。
+如果公用 IP 位址遭受攻擊，則當 DDoS 保護在降低攻擊流量的風險時，[是否正遭受 DDoS 攻擊]  的計量值會變更為 1。
 
 ![「是否正遭受 DDoS 攻擊」計量與圖表](media/azure-ddos-best-practices/image8.png)
 
@@ -211,7 +211,7 @@ Microsoft 身為重要的基礎結構提供者，會最先收到威脅的警告�
 
 ### <a name="alerts-during-an-attack"></a>攻擊時的警示
 
-Azure 標準 DDoS 保護會識別 DDoS 攻擊並降低風險，無須使用者介入。 在受保護的公用 IP 上執行風險降低作業時，若想收到通知，可以在 [是否正遭受 DDoS 攻擊] 計量上[設定警示](../virtual-network/ddos-protection-manage-portal.md)。 可以選擇為其他 DDoS 計量建立警示，以了解攻擊的範圍、要卸除的流量及其他詳細資料。
+Azure 標準 DDoS 保護會識別 DDoS 攻擊並降低風險，無須使用者介入。 在受保護的公用 IP 上執行風險降低作業時，若想收到通知，可以在 [是否正遭受 DDoS 攻擊]  計量上[設定警示](../virtual-network/ddos-protection-manage-portal.md)。 可以選擇為其他 DDoS 計量建立警示，以了解攻擊的範圍、要卸除的流量及其他詳細資料。
 
 #### <a name="when-to-contact-microsoft-support"></a>連絡 Microsoft 支援服務的時機
 
@@ -219,7 +219,7 @@ Azure 標準 DDoS 保護會識別 DDoS 攻擊並降低風險，無須使用者�
 
 - 您認為 DDoS 保護服務並未如預期般運作。 
 
-  只有在 [觸發 DDoS 風險降低 (TCP/TCP SYN/UDP) 的原則] 計量值低於受保護公用 IP 資源上收到的流量時，DDoS 保護服務才會開始執行風險降低作業。
+  只有在 [觸發 DDoS 風險降低 (TCP/TCP SYN/UDP) 的原則]  計量值低於受保護公用 IP 資源上收到的流量時，DDoS 保護服務才會開始執行風險降低作業。
 
 - 您正在計劃一個會大幅增加網路流量的病毒式事件。
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 680c141e32333c4747ee69919229bd9381f536a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393663"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>使用 Visual Studio Code 開發 C# Service Fabric 應用程式
@@ -42,10 +42,10 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-st
 
 ## <a name="open-the-application-in-vs-code"></a>在 VS Code 中開啟應用程式
 
-### <a name="windows"></a> Windows
-以滑鼠右鍵按一下 [開始] 功能表中的 VS Code 圖示，然後選擇 [以系統管理員身分執行]。 若要將偵錯工具附加至您的服務，您需要以系統管理員身分執行 VS Code。
+### <a name="windows"></a>Windows
+以滑鼠右鍵按一下 [開始] 功能表中的 VS Code 圖示，然後選擇 [以系統管理員身分執行]  。 若要將偵錯工具附加至您的服務，您需要以系統管理員身分執行 VS Code。
 
-### <a name="linux"></a> Linux
+### <a name="linux"></a>Linux
 使用終端機，從具有應用程式副本的本機目錄中瀏覽至 /service-fabric-dotnet-core-getting-started/Services/CounterService 路徑。
 
 以根使用者身分執行下列命令來開啟 VS Code，以便將偵錯工具附加到您的服務。
@@ -58,7 +58,7 @@ sudo code . --user-data-dir='.'
 ![工作區中的計數器服務應用程式](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-application-in-workspace.png)
 
 ## <a name="build-the-application"></a>建置應用程式
-1. 按下 (Ctrl + Shift + p) 以在 VS Code 中開啟 [命令選擇區]。
+1. 按下 (Ctrl + Shift + p) 以在 VS Code 中開啟 [命令選擇區]  。
 2. 搜尋並選取 **Service Fabric:Build Application** 命令。 建置輸出會傳送到整合式終端機。
 
    ![VS Code 中的建置應用程式命令](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-build-application.png)
@@ -66,7 +66,7 @@ sudo code . --user-data-dir='.'
 ## <a name="deploy-the-application-to-the-local-cluster"></a>將應用程式部署至本機叢集
 建置應用程式後，您可以將其部署到本機叢集。 
 
-1. 從 [命令選擇區] 中選取 **Service Fabric:Deploy Application (Localhost)** 命令。 安裝程序的輸出會傳送到整合式終端機。
+1. 從 [命令選擇區]  中選取 **Service Fabric:Deploy Application (Localhost)** 命令。 安裝程序的輸出會傳送到整合式終端機。
 
    ![VS Code 中的部署應用程式命令](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
@@ -82,24 +82,24 @@ sudo code . --user-data-dir='.'
 在 VS Code 中針對應用程式進行偵錯時，應用程式必須在本機叢集上執行。 然後您可以將中斷點新增到程式碼中。
 
 若要設定中斷點並進行偵錯，請完成下列步驟：
-1. 在 Explorer 中，開啟 /src/CounterServiceApplication/CounterService/CounterService.cs 檔案，並在 `RunAsync` 方法中的第 62 行上設定中斷點。
-3. 按一下 [活動列] 中的偵錯圖示，以在 VS Code 中開啟偵錯工具檢視。 按一下偵錯工具檢視頂端的齒輪圖示，然後從下拉式環境功能表中選取 [.NET Core]。 launch.json 檔案隨即開啟。 您可以關閉此檔案。 現在您應該會在 [執行] 按鈕 (綠色箭頭) 旁的 [偵錯組態] 功能表中看到組態選項。
+1. 在 Explorer 中，開啟 /src/CounterServiceApplication/CounterService/CounterService.cs  檔案，並在 `RunAsync` 方法中的第 62 行上設定中斷點。
+3. 按一下 [活動列]  中的偵錯圖示，以在 VS Code 中開啟偵錯工具檢視。 按一下偵錯工具檢視頂端的齒輪圖示，然後從下拉式環境功能表中選取 [.NET Core]  。 launch.json 檔案隨即開啟。 您可以關閉此檔案。 現在您應該會在 [執行] 按鈕 (綠色箭頭) 旁的 [偵錯組態] 功能表中看到組態選項。
 
    ![VS Code 工作區中的偵錯圖示](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-icon-workspace.png)
 
-2. 從 [偵錯組態] 功能表中選取 [.NET Core 附加]。
+2. 從 [偵錯組態] 功能表中選取 [.NET Core 附加]  。
 
    ![VS Code 工作區中的偵錯圖示](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. 在瀏覽器中開啟 Service Fabric Explorer: http:\//localhost:19080 / 總管。 按一下 [應用程式] 並向下切入，以判斷其中正在執行 CounterService 的主要節點。 在下圖中，CounterService 的主要節點是「節點 0」。
+3. 在瀏覽器中開啟 Service Fabric Explorer: http:\//localhost:19080 / 總管。 按一下 [應用程式]  並向下切入，以判斷其中正在執行 CounterService 的主要節點。 在下圖中，CounterService 的主要節點是「節點 0」。
 
    ![CounterService 的主要節點](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 
-4. 在 VS Code 中，按一下 [.NET Core 附加] 偵錯組態旁的 [執行] 圖示 (綠色箭頭)。 在 [程序選項] 對話方塊中，選取在主要節點 (定義於步驟 4) 上執行的 CounterService 程序。
+4. 在 VS Code 中，按一下 [.NET Core 附加]  偵錯組態旁的 [執行] 圖示 (綠色箭頭)。 在 [程序選項] 對話方塊中，選取在主要節點 (定義於步驟 4) 上執行的 CounterService 程序。
 
    ![主要程序](./media/service-fabric-develop-csharp-applications-with-vs-code/select-process.png)
 
-5. CounterService.cs 檔案中的中斷點將會非常快速地叫用。 您可以接著探索本機變數的值。 使用 VS Code 頂端的 [偵錯] 工具列繼續執行，越過程式碼行、逐步執行方法，或跳離目前的方法。 
+5. CounterService.cs  檔案中的中斷點將會非常快速地叫用。 您可以接著探索本機變數的值。 使用 VS Code 頂端的 [偵錯] 工具列繼續執行，越過程式碼行、逐步執行方法，或跳離目前的方法。 
 
    ![偵錯值](./media/service-fabric-develop-csharp-applications-with-vs-code/breakpoint-hit.png)
 

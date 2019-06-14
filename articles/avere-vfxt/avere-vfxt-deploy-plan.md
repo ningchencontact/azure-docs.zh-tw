@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
 ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409870"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>規劃您的 Avere vFXT 系統
@@ -57,7 +57,7 @@ Avere vFXT 叢集會使用下列 IP 位址：
 
 * 一個叢集管理 IP 位址。 此位址可能會在叢集中的節點之間移動，但永遠可以使用，讓您可以連線到 Avere 控制台設定工具。
 * 對於每個叢集節點：
-  * 至少有一個面向用戶端的 IP 位址  (所有面向用戶端的位址都由叢集的 *vserver* 管理，如有需要，這些位址可以在節點之間移動)。
+  * 至少有一個面向用戶端的 IP 位址 (所有面向用戶端的位址都由叢集的 *vserver* 管理，如有需要，這些位址可以在節點之間移動)。
   * 一個用於叢集通訊的 IP 位址
   * 一個執行個體 IP 位址 (指派給 VM)
 

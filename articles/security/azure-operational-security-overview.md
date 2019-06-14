@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
 ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586844"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 作業安全性概觀
@@ -41,7 +41,7 @@ IT 作業小組負責管理資料中心基礎結構、應用程式和資料，�
 
 [Azure 自動化](https://docs.microsoft.com/azure/automation/automation-intro)提供方法，讓您將通常會在雲端和企業環境中執行的手動、長時間執行、易發生錯誤且重複性高的工作加以自動化。 它可以節省時間並提高管理工作的可靠性。 甚至還能為這些工作設定排程以定期自動執行。 您可以使用 Runbook 來將程序自動化，或使用 Desired State Configuration 來將設定管理自動化。
 
-### <a name="backup"></a>Backup 
+### <a name="backup"></a>Backup
 
 [Azure 備份](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)是以 Azure 為基礎的服務，可用來備份 (或保護) 和還原 Microsoft Cloud 中的資料。 Azure 備份會以一個可靠、安全且具成本競爭力的雲端式解決方案，來取代您的現有內部部署或異地備份解決方案。 
 
@@ -117,7 +117,7 @@ Windows 事件系統記錄是適用於 VM 的診斷記錄類別之一。 Blob、
 
 診斷記錄與[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)不同。 活動記錄能讓您了解訂用帳戶中的資源所執行之作業。 診斷記錄能讓您了解您的資源自行執行的作業。
 
-### <a name="metrics"></a>指标
+### <a name="metrics"></a>度量
 
 Azure 監視器提供遙測功能，讓您可以在 Azure 上查看工作負載的效能與健康情況。 Azure 遙測資料最重要的類型是由大多數 Azure 資源所發出的[計量](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (也稱為效能計數器)。 Azure 監視器提供數種方式可設定及取用這些度量進行監視與疑難排解。
 

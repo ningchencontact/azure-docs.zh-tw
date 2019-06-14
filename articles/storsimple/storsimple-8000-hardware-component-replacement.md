@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60321678"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>更換 StorSimple 8000 系列裝置上的硬體元件
@@ -92,7 +92,7 @@ StoreSimple 8000 系列裝置由主要和/或 EBOD 機箱的數個外掛程式�
 
 **圖 1** 裝置正面
 
-| 標籤 | 描述 |
+| ThisAddIn | 描述 |
 |:--- |:--- |
 | 0 - 11 |磁碟機 (總共 12 部) |
 
@@ -102,7 +102,7 @@ StoreSimple 8000 系列裝置由主要和/或 EBOD 機箱的數個外掛程式�
 
 **圖 2** 主要機箱背面
 
-| 標籤 | 描述 |
+| ThisAddIn | 描述 |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -113,7 +113,7 @@ StoreSimple 8000 系列裝置由主要和/或 EBOD 機箱的數個外掛程式�
 
 **圖 3** EBOD 機箱背面
 
-| 標籤 | 描述 |
+| ThisAddIn | 描述 |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |

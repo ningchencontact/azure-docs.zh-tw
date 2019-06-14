@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 5aff7e93dcfaa5320be0d6f7d427abcdc88c69e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585503"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>部署分割合併服務以在分區化資料庫之間移動資料
@@ -35,7 +35,7 @@ ms.locfileid: "60585503"
 
 ## <a name="prerequisites"></a>必要條件
 1. 建立用來作為分割合併狀態資料庫的 Azure SQL DB 資料庫。 移至 [Azure 入口網站](https://portal.azure.com)。 建立新的 **SQL Database**。 提供資料庫名稱，並建立新的系統管理員和密碼。 請務必記錄名稱和密碼，以供稍後使用。
-2. 請確定您的 Azure SQL DB 伺服器允許 Azure 服務進行連接。 在入口網站的 [防火牆設定] 中，確定 [允許存取 Azure 服務] 設定設為 [開啟]。 按一下儲存圖示。
+2. 請確定您的 Azure SQL DB 伺服器允許 Azure 服務進行連接。 在入口網站的 [防火牆設定]  中，確定 [允許存取 Azure 服務]  設定設為 [開啟]  。 按一下儲存圖示。
 3. 建立適用於診斷輸出的 Azure 儲存體帳戶。
 4. 建立適用於分割合併服務的 Azure 雲端服務。
 
@@ -46,10 +46,10 @@ ms.locfileid: "60585503"
 3. 建立新的資料庫或選擇現有的資料庫，做為分割合併作業的狀態資料庫，並擷取該資料庫的連接字串。 
    
    > [!IMPORTANT]
-   > 目前，狀態資料庫必須使用拉丁文定序 (SQL\_Latin1\_General\_CP1\_CI\_AS)。 有关详细信息，请参阅 [Windows 排序规则名称 (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx)。
+   > 目前，狀態資料庫必須使用拉丁文定序 (SQL\_Latin1\_General\_CP1\_CI\_AS)。 如需詳細資訊，請參閱 [Windows 定序名稱 (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx)。
    >
 
-   在 Azure SQL DB 中，连接字符串通常采用以下形式：
+   在 Azure SQL DB 中，連接字串的格式通常為：
       ```
       Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30
       ```
@@ -82,16 +82,16 @@ ms.locfileid: "60585503"
     pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
 
 ### <a name="import-the-client-certificate-into-the-personal-store"></a>將用戶端憑證匯入個人存放區
-1. 在 Windows 檔案總管中，按兩下 [MyCert.pfx] 。
-2. 在 [憑證匯入精靈] 中，選取 [目前使用者]，然後按 [下一步]。
-3. 確認檔案路徑，然後按 [下一步] 。
-4. 輸入密碼，保持核取 [包含所有延伸內容]，然後按 [下一步]。
-5. 保持核取 [自動選取憑證存放區…]，然後按 [下一步]。
-6. 按一下 [完成] 和 [確定]。
+1. 在 Windows 檔案總管中，按兩下 [MyCert.pfx]  。
+2. 在 [憑證匯入精靈]  中，選取 [目前使用者]  ，然後按 [下一步]  。
+3. 確認檔案路徑，然後按 [下一步]  。
+4. 輸入密碼，保持核取 [包含所有延伸內容]  ，然後按 [下一步]  。
+5. 保持核取 [自動選取憑證存放區…]  ，然後按 [下一步]  。
+6. 按一下 [完成]  和 [確定]  。
 
 ### <a name="upload-the-pfx-file-to-the-cloud-service"></a>將 PFX 檔案上傳至雲端服務
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [雲端服務] 。
+2. 選取 [雲端服務]  。
 3. 選取您先前為分割/合併服務建立的雲端服務。
 4. 按一下頂端功能表的 [憑證]  。
 5. 按一下底列的 [上傳]  。
@@ -122,8 +122,8 @@ Web 角色：
 ## <a name="deploy-your-service"></a>部署您的服務
 1. 移至 [Azure 入口網站](https://portal.azure.com)
 2. 選取您稍早建立的雲端服務。
-3. 按一下 [概觀] 。
-4. 選擇預備環境，然後按一下 [上傳]。
+3. 按一下 [概觀]  。
+4. 選擇預備環境，然後按一下 [上傳]  。
 5. 在對話方塊中，輸入部署的標籤。 在 [封裝] 和 [設定] 中，按一下 [從本機] 並選擇 **SplitMergeService.cspkg** 檔案和您稍早設定的 cscfg 檔案。
 6. 確定已核取 [即使一或多個角色包含單一執行個體也請部署]  核取方塊。
 7. 點按右下方的勾號按鈕，開始進行部署。 預期會需要幾分鐘才能完成。
@@ -143,11 +143,11 @@ Web 角色：
    ```
 
 * 確定伺服器名稱不是以 **https://** 開頭。
-* 請確定您的 Azure SQL DB 伺服器允許 Azure 服務進行連接。 若要這樣做，請在入口網站中開啟資料庫，並確定 [允許存取 Azure 服務] 設定已設為 [開啟]。
+* 請確定您的 Azure SQL DB 伺服器允許 Azure 服務進行連接。 若要這樣做，請在入口網站中開啟資料庫，並確定 [允許存取 Azure 服務]  設定已設為 [開啟]。
 
 ## <a name="test-the-service-deployment"></a>測試服務部署
 ### <a name="connect-with-a-web-browser"></a>使用網頁瀏覽器連接
-決定分割合併服務的 Web 端點。 您可以在入口網站中找到此端點，請移至雲端服務的 [概觀]，查看右邊的 [網站 URL]。 由於預設安全性設定會停用 HTTP 端點，因此以 **https://** 取代 **http://**。 在瀏覽器中載入此 URL 的網頁。
+決定分割合併服務的 Web 端點。 您可以在入口網站中找到此端點，請移至雲端服務的 [概觀]  ，查看右邊的 [網站 URL]  。 由於預設安全性設定會停用 HTTP 端點，因此以 **https://** 取代 **http://** 。 在瀏覽器中載入此 URL 的網頁。
 
 ### <a name="test-with-powershell-scripts"></a>使用 PowerShell 指令碼進行測試
 執行內含的範例 PowerShell 指令碼即可測試部署和您的環境。
@@ -184,7 +184,7 @@ Web 角色：
    </table>
    <table style="width:100%">
      <tr>
-       <th>PowerShell 文件</th>
+       <th>PowerShell 檔案</th>
        <th>步驟</th>
      </tr>
    <tr>
@@ -238,7 +238,7 @@ Web 角色：
    ```         
 5. 執行 ExecuteSampleSplitMerge.ps1 指令碼，以執行分割作業 (將第一個分區的一半資料移至第二個分區)，然後執行合併作業 (將資料移回至第一個分區)。 如果您設定 SSL，而且保持停用 http 端點，請確定您改為使用 https:// 端點。
    
-   示例命令行：
+   範例命令列：
 
    ```   
      .\ExecuteSampleSplitMerge.ps1
@@ -256,7 +256,7 @@ Web 角色：
      Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.
      ```
    
-   如果成功，则输出应如下所示：
+   如果成功，輸出應該看起來如下：
    
    ```
    > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.cloudapp.net' -CertificateThumbprint 0123456789abcdef0123456789abcdef01234567

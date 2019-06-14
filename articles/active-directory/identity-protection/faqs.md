@@ -17,10 +17,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1bea455371938ccc4d512bdb7ffddd72eb9508da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60454504"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Azure Active Directory Identity Protection 常見問題集
@@ -47,6 +47,6 @@ ms.locfileid: "60454504"
 
 ## <a name="how-can-i-sort-users-in-users-flagged-for-risk"></a>如何排序 [標幟為有風險的使用者] 中的使用者？
 
-**答：** 請按一下 [標幟為有風險的使用者] 頁面頂端的 [下載]，以下載標幟為有風險的使用者報告。 接著，您便可以根據可用的欄位 (包括 [上次更新時間 (UTC)]) 來排序所下載的資料。
+**答：** 請按一下 [標幟為有風險的使用者]   頁面頂端的 [下載]  ，以下載標幟為有風險的使用者報告。 接著，您便可以根據可用的欄位 (包括 [上次更新時間 (UTC)]) 來排序所下載的資料。
 
 ---

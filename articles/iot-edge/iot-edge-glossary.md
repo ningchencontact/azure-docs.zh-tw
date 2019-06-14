@@ -10,10 +10,10 @@ ms.date: 02/15/2019
 ms.author: menchi
 ms.custom: seodec18
 ms.openlocfilehash: f32af89f43f88840207dfc5ff2e49e4a21ea3b16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60445057"
 ---
 # <a name="glossary-of-terms-for-azure-iot-edge"></a>Azure IoT Edge 的術語詞彙
@@ -23,4 +23,4 @@ ms.locfileid: "60445057"
 
 ## <a name="next-steps"></a>後續步驟
 
-[IoT 中心术语表](../iot-hub/iot-hub-devguide-glossary.md)
+[IoT 中樞詞彙](../iot-hub/iot-hub-devguide-glossary.md)

@@ -15,10 +15,10 @@ ms.date: 05/11/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60349903"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>對重複屬性同步處理錯誤進行診斷和修復
@@ -65,7 +65,7 @@ ms.locfileid: "60349903"
 ![同步處理錯誤的診斷步驟](./media/how-to-connect-health-diagnose-sync-errors/IIdFixSteps.png)
 
 在 Azure 入口網站中，執行若干步驟以找出可修正的特定案例：  
-1.  檢查 [診斷狀態] 資料行。 狀態會顯示是否有辦法直接從 Azure Active Directory 修正同步處理錯誤。 換句話說，就是有疑難排解流程可供縮小錯誤案例範圍，從而有可能加以修正。
+1.  檢查 [診斷狀態]  資料行。 狀態會顯示是否有辦法直接從 Azure Active Directory 修正同步處理錯誤。 換句話說，就是有疑難排解流程可供縮小錯誤案例範圍，從而有可能加以修正。
 
 | 狀態 | 這代表什麼意思？ |
 | ------------------ | -----------------|
@@ -77,11 +77,11 @@ ms.locfileid: "60349903"
   > 在每個同步處理週期結束後，都會重設診斷狀態資料行。 
   >
 
-1. 選取錯誤詳細資料底下的 [診斷] 按鈕。 您會回答幾個問題，並找出同步處理錯誤的詳細資料。 問題答案可協助找出孤立物件案例。
+1. 選取錯誤詳細資料底下的 [診斷]  按鈕。 您會回答幾個問題，並找出同步處理錯誤的詳細資料。 問題答案可協助找出孤立物件案例。
 
-1. 如果在診斷結束時出現 [關閉] 按鈕，即表示根據您的答案，並沒有可從入口網站執行的快速修正。 請參閱最後一個步驟中顯示的解決方案。 從內部部署修正仍會是解決方案。 選取 [關閉] 按鈕。 目前同步處理錯誤的狀態會切換為 [需要手動修正]。 在目前的同步處理週期內，狀態會保持不變。
+1. 如果在診斷結束時出現 [關閉]  按鈕，即表示根據您的答案，並沒有可從入口網站執行的快速修正。 請參閱最後一個步驟中顯示的解決方案。 從內部部署修正仍會是解決方案。 選取 [關閉]  按鈕。 目前同步處理錯誤的狀態會切換為 [需要手動修正]  。 在目前的同步處理週期內，狀態會保持不變。
 
-1. 發現孤立物件案例後，您即可直接從入口網站修正重複屬性同步處理錯誤。 若要觸發此程序，請選取 [套用修正] 按鈕。 目前同步處理錯誤的狀態會更新為 [待同步]。
+1. 發現孤立物件案例後，您即可直接從入口網站修正重複屬性同步處理錯誤。 若要觸發此程序，請選取 [套用修正]  按鈕。 目前同步處理錯誤的狀態會更新為 [待同步]  。
 
 1. 錯誤應會在下一個同步處理週期之後從清單中移除。
 
@@ -89,11 +89,11 @@ ms.locfileid: "60349903"
 ### <a name="does-the-user-exist-in-your-on-premises-active-directory"></a>使用者是否存在於您的內部部署 Active Directory 中？
 
 此問題嘗試從內部部署 Active Directory 中找出現有使用者的來源物件。  
-1. 檢查 Azure Active Directory 中是否有物件具備提供的 **UserPrincipalName**。 如果沒有，請回答 [否]。
+1. 檢查 Azure Active Directory 中是否有物件具備提供的 **UserPrincipalName**。 如果沒有，請回答 [否]  。
 2. 如果有，請檢查物件是否仍在同步處理範圍內。  
    - 使用 DN 在 Azure AD 連接器空間中搜尋。
-   - 如果發現該物件的狀態為 [待新增]，請回答 [否]。 Azure AD Connect 無法將物件連線至正確的 Azure AD 物件。
-   - 如果找不到物件，請回答 [是]。
+   - 如果發現該物件的狀態為 [待新增]  ，請回答 [否]  。 Azure AD Connect 無法將物件連線至正確的 Azure AD 物件。
+   - 如果找不到物件，請回答 [是]  。
 
 在這些範例中，問題會嘗試識別 **Joe Jackson** 是否仍存在於內部部署 Active Directory 中。
 在**常見的案例**中，**Joe Johnson** 和 **Joe Jackson** 這兩個使用者會出現在內部部署 Active Directory 中。 隔離的物件是兩個不同的使用者。
@@ -110,7 +110,7 @@ ms.locfileid: "60349903"
    - 顯示名稱
    - 使用者主體名稱
    - 物件識別碼
-2. 如果 Azure AD 無法比較這兩者，請檢查 Active Directory 中是否有物件具備提供的 **UserPrincipalNames**。 如果兩者均發現，請回答 [否]。
+2. 如果 Azure AD 無法比較這兩者，請檢查 Active Directory 中是否有物件具備提供的 **UserPrincipalNames**。 如果兩者均發現，請回答 [否]  。
 
 在下列範例中，兩個物件會屬於相同的使用者 **Joe Johnson**。
 
@@ -118,7 +118,7 @@ ms.locfileid: "60349903"
 
 
 ## <a name="what-happens-after-the-fix-is-applied-in-the-orphaned-object-scenario"></a>在孤立物件案例中套用修正後的情況
-根據上述問題的回答，您會在可從 Azure AD 修正時看到 [套用修正] 按鈕。 在此情況下，內部部署物件將會與非預期的 Azure AD 物件同步處理。 這兩個物件會使用**來源錨點**進行對應。 **套用修正**變更會採取下列步驟或類似步驟：
+根據上述問題的回答，您會在可從 Azure AD 修正時看到 [套用修正]  按鈕。 在此情況下，內部部署物件將會與非預期的 Azure AD 物件同步處理。 這兩個物件會使用**來源錨點**進行對應。 **套用修正**變更會採取下列步驟或類似步驟：
 1. 為 Azure AD 中的正確物件更新**來源錨點**。
 2. 刪除 Azure AD 中有衝突的物件 (如果有的話)。
 
@@ -128,7 +128,7 @@ ms.locfileid: "60349903"
 > **套用修正**變更只會套用至孤立物件案例。
 >
 
-完成前述步驟後，使用者即可存取連結至現有物件的原始資源。 清單檢視中的 [診斷狀態] 值會更新為 [待同步]。同步處理錯誤會在下一次同步處理後獲得解決。Connect Health 不會再於清單檢視中顯示已解決的同步處理錯誤。
+完成前述步驟後，使用者即可存取連結至現有物件的原始資源。 清單檢視中的 [診斷狀態]  值會更新為 [待同步]  。同步處理錯誤會在下一次同步處理後獲得解決。Connect Health 不會再於清單檢視中顯示已解決的同步處理錯誤。
 
 ## <a name="failures-and-error-messages"></a>失敗和錯誤訊息
 **具衝突屬性的使用者在 Azure Active Directory 中未確實刪除。請先確認使用者已確實刪除後再重試。**  

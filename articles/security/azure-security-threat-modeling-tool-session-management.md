@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: e8f3cf3889b3f79e930630ff0e768a0c4875eec6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611696"
 ---
-# <a name="security-frame-session-management"></a>安全框架︰工作階段管理
+# <a name="security-frame-session-management"></a>安全性框架：工作階段管理
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[在使用 Azure AD 時以 ADAL 方法實作適當的登出](#logout-adal)</li></ul> |
@@ -290,7 +290,7 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 ```
 
 ### <a name="example"></a>範例
-在此同時，Html.AntiForgeryToken() 會給予訪客名為 __RequestVerificationToken 的 Cookie，其值和上面顯示的隨機隱藏值相同。 接下來，若要驗證連入的表單張貼，請將 [ValidateAntiForgeryToken] 篩選新增至目標動作方法。 例如︰
+在此同時，Html.AntiForgeryToken() 會給予訪客名為 __RequestVerificationToken 的 Cookie，其值和上面顯示的隨機隱藏值相同。 接下來，若要驗證連入的表單張貼，請將 [ValidateAntiForgeryToken] 篩選新增至目標動作方法。 例如:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
@@ -534,7 +534,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 ```
 
 ### <a name="example"></a>範例
-在此同時，Html.AntiForgeryToken() 會給予訪客名為 __RequestVerificationToken 的 Cookie，其值和上面顯示的隨機隱藏值相同。 接下來，若要驗證連入的表單張貼，請將 [ValidateAntiForgeryToken] 篩選新增至目標動作方法。 例如︰
+在此同時，Html.AntiForgeryToken() 會給予訪客名為 __RequestVerificationToken 的 Cookie，其值和上面顯示的隨機隱藏值相同。 接下來，若要驗證連入的表單張貼，請將 [ValidateAntiForgeryToken] 篩選新增至目標動作方法。 例如:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()

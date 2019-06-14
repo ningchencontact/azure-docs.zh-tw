@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
 ms.openlocfilehash: 04c1d69fc46b9a918038e93c4fc56681f225d365
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60328709"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>使用 Azure 傳統 CLI 建立完整的 Linux 環境
@@ -33,7 +33,7 @@ ms.locfileid: "60328709"
 * 一個在連接埠 80 有負載平衡規則的負載平衡器。
 * 可保護 VM 防止不必要流量的網路安全性群組 (NSG) 規則。
 
-若要建立此自訂環境，您需要處於 Resource Manager 模式 (`azure config mode arm`) 的最新 [Azure 傳統 CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 您也需要 JSON 剖析工具。 本示例使用 [jq](https://stedolan.github.io/jq/)。
+若要建立此自訂環境，您需要處於 Resource Manager 模式 (`azure config mode arm`) 的最新 [Azure 傳統 CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 您也需要 JSON 剖析工具。 此範例使用 [jq](https://stedolan.github.io/jq/)。
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>用以完成工作的 CLI 版本
@@ -60,20 +60,20 @@ azure config mode arm
 azure group create -n myResourceGroup -l westeurope
 ```
 
-使用 JSON 分析器验证资源组：
+使用 JSON 剖析器來確認資源群組：
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
 ```
 
-建立儲存體帳戶。 下列範例會建立名為 `mystorageaccount` 的儲存體帳戶。 （存储帐户名称必须唯一，因此，请提供自己的唯一名称。）
+建立儲存體帳戶。 下列範例會建立名為 `mystorageaccount` 的儲存體帳戶。 (儲存體帳戶名稱必須是唯一的，因此請提供您自己的唯一名稱。)
 
 ```azurecli
 azure storage account create -g myResourceGroup -l westeurope \
   --kind Storage --sku-name GRS mystorageaccount
 ```
 
-使用 JSON 分析器验证存储帐户：
+使用 JSON 剖析器來確認儲存體帳戶：
 
 ```azurecli
 azure storage account show -g myResourceGroup mystorageaccount --json | jq '.'
@@ -86,7 +86,7 @@ azure network vnet create -g myResourceGroup -l westeurope\
   -n myVnet -a 192.168.0.0/16
 ```
 
-创建子网。 以下示例创建名为 `mySubnet`的子网：
+建立子網路。 下列範例會建立名為 `mySubnet`的子網路：
 
 ```azurecli
 azure network vnet subnet create -g myResourceGroup \
@@ -99,7 +99,7 @@ azure network vnet subnet create -g myResourceGroup \
 azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
-建立公用 IP。 以下示例创建名为 `myPublicIP`、DNS 名称为 `mypublicdns` 的公共 IP。 (DNS 名稱必須是唯一的，因此請提供您自己的唯一名稱。)
+建立公用 IP。 下列範例會建立名為 `myPublicIP` 的公用 IP，DNS 名稱為`mypublicdns`。 (DNS 名稱必須是唯一的，因此請提供您自己的唯一名稱。)
 
 ```azurecli
 azure network public-ip create -g myResourceGroup -l westeurope \
@@ -143,7 +143,7 @@ azure network lb rule create -g myResourceGroup -l myLoadBalancer \
   -t myFrontEndPool -o myBackEndPool
 ```
 
-创建负载均衡器运行状况探测。 下列範例會建立名為 `myHealthProbe` 的 TCP 探查：
+建立負載平衡器健全狀況探查。 下列範例會建立名為 `myHealthProbe` 的 TCP 探查：
 
 ```azurecli
 azure network lb probe create -g myResourceGroup -l myLoadBalancer \
@@ -158,7 +158,7 @@ azure network lb show -g myResourceGroup -n myLoadBalancer --json | jq '.'
 
 建立第一個網路介面卡 (NIC)。 使用您自己的 Azure 訂用帳戶識別碼取代 `#####-###-###` 區段。 當檢查您建立的資源時，會在 **jq** 的輸出中註明您的訂用帳戶識別碼。 您也可以使用 `azure account list`來檢視您的訂用帳戶識別碼。
 
-以下示例创建名为 `myNic1`的 NIC：
+下列範例會建立名為 `myNic1` 的 NIC：
 
 ```azurecli
 azure network nic create -g myResourceGroup -l westeurope \
@@ -167,7 +167,7 @@ azure network nic create -g myResourceGroup -l westeurope \
   -e "/subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH1"
 ```
 
-建立第二個 NIC。 以下示例创建名为 `myNic2`的 NIC：
+建立第二個 NIC。 下列範例會建立名為 `myNic2` 的 NIC：
 
 ```azurecli
 azure network nic create -g myResourceGroup -l westeurope \
@@ -176,7 +176,7 @@ azure network nic create -g myResourceGroup -l westeurope \
   -e "/subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH2"
 ```
 
-使用 JSON 分析器验证两个 NIC。
+使用 JSON 剖析器來確認兩個 NIC：
 
 ```azurecli
 azure network nic show myResourceGroup myNic1 --json | jq '.'
@@ -190,7 +190,7 @@ azure network nsg create -g myResourceGroup -l westeurope \
   -n myNetworkSecurityGroup
 ```
 
-新增兩個網路安全性群組的輸入規則。 以下示例创建两个规则，分别名为 `myNetworkSecurityGroupRuleSSH` 和 `myNetworkSecurityGroupRuleHTTP`：
+新增兩個網路安全性群組的輸入規則。 下列範例會建立兩個規則，名為 `myNetworkSecurityGroupRuleSSH` 和 `myNetworkSecurityGroupRuleHTTP`：
 
 ```azurecli
 azure network nsg rule create -p tcp -r inbound -y 1000 -u 22 -c allow \
@@ -254,7 +254,7 @@ azure vm create \
     --admin-username azureuser
 ```
 
-使用 JSON 分析器验证构建的所有组件：
+使用 JSON 剖析器來確認已建置的所有項目︰
 
 ```azurecli
 azure vm show -g myResourceGroup -n myVM1 --json | jq '.'
@@ -302,7 +302,7 @@ info:    group create command OK
 ```
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
-您需要儲存體帳戶來用於您的 VM 磁碟和任何您想要新增的額外資料磁碟。 创建资源组后，应立即创建存储帐户。
+您需要儲存體帳戶來用於您的 VM 磁碟和任何您想要新增的額外資料磁碟。 您幾乎是在建立資源群組之後立即建立儲存體帳戶。
 
 在這裡，我們使用 `azure storage account create` 命令，其中會傳遞帳戶的位置、控制它的資源群組，以及您想要的儲存體支援類型。 下列範例會建立名為 `mystorageaccount` 的儲存體帳戶：
 
@@ -384,7 +384,7 @@ info:    storage container list command OK
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>建立虛擬網路和子網路
-接下来，需要创建一个在 Azure 中运行的虚拟网络，以及一个可在其中创建 VM 的子网。 下列範例會建立名為 `myVnet` 的虛擬網路，位址首碼為 `192.168.0.0/16`：
+接著，您將需要建立一個在 Azure 中執行的虛擬網路，以及一個可供您建立 VM 的子網路。 下列範例會建立名為 `myVnet` 的虛擬網路，位址首碼為 `192.168.0.0/16`：
 
 ```azurecli
 azure network vnet create --resource-group myResourceGroup --location westeurope \
@@ -408,7 +408,7 @@ data:      192.168.0.0/16
 info:    network vnet create command OK
 ```
 
-同樣地，讓我們使用 --json 選項 `azure group show` 和 `jq` 來查看我們如何建置資源。 现在，我们有了一个 `storageAccounts` 资源和一个 `virtualNetworks` 资源。  
+同樣地，讓我們使用 --json 選項 `azure group show` 和 `jq` 來查看我們如何建置資源。 我們現在有 `storageAccounts` 資源和 `virtualNetworks` 資源。  
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -592,7 +592,7 @@ azure group show myResourceGroup --json | jq '.'
 }
 ```
 
-您可以使用完整的 `azure network public-ip show` 命令來調查更多資源詳細資料，包括子網域的完整網域名稱 (FQDN)。 公共 IP 地址资源已经以逻辑方式分配，但尚未分配有特定地址。 若要取得 IP 位址，您將需要一個負載平衡器，而我們尚未建立此負載平衡器。
+您可以使用完整的 `azure network public-ip show` 命令來調查更多資源詳細資料，包括子網域的完整網域名稱 (FQDN)。 公用 IP 位址資源已經以邏輯方式配置，但尚未指派特定位址。 若要取得 IP 位址，您將需要一個負載平衡器，而我們尚未建立此負載平衡器。
 
 ```azurecli
 azure network public-ip show myResourceGroup myPublicIP --json | jq '.'
@@ -639,7 +639,7 @@ data:    Provisioning state              : Succeeded
 info:    network lb create command OK
 ```
 
-我们的负载均衡器很空，因此让我们创建一些 IP 池。 我們想要為負載平衡器建立兩個 IP 集區，一個用於前端，一個用於後端。 前端 IP 集區會公開顯示。 它也是我們指派稍早所建立 PIP 的位置。 然後，我們將使用後端集區作為我們 VM 要連接的位置。 这样，流量便可以通过负载均衡器流向 VM。
+我們的負載平衡器很空，因此讓我們建立一些 IP 集區。 我們想要為負載平衡器建立兩個 IP 集區，一個用於前端，一個用於後端。 前端 IP 集區會公開顯示。 它也是我們指派稍早所建立 PIP 的位置。 然後，我們將使用後端集區作為我們 VM 要連接的位置。 這樣一來，流量便可以經由負載平衡器流向 VM。
 
 首先，讓我們建立前端 IP 集區。 下列範例會建立名為 `myFrontEndPool` 的前端集區：
 
@@ -956,9 +956,9 @@ azure network lb show --resource-group myResourceGroup \
 ```
 
 ## <a name="create-an-nic-to-use-with-the-linux-vm"></a>建立要與 Linux VM 搭配使用的 NIC
-您可以透過程式設計方式提供 NIC，因為您可以將規則套用到 NIC 的使用上。 可以创建多个规则。 在下列 `azure network nic create` 命令中，您會將 NIC 連結到負載後端 IP 集區，並將它與 NAT 規則建立關聯以允許 SSH 流量。
+您可以透過程式設計方式提供 NIC，因為您可以將規則套用到 NIC 的使用上。 您也可以有多個 NIC。 在下列 `azure network nic create` 命令中，您會將 NIC 連結到負載後端 IP 集區，並將它與 NAT 規則建立關聯以允許 SSH 流量。
 
-使用您自己的 Azure 訂用帳戶識別碼取代 `#####-###-###` 區段。 當檢查您建立的資源時，會在 `jq` 的輸出中註明您的訂用帳戶識別碼。 也可以使用 `azure account list`查看订阅 ID。
+使用您自己的 Azure 訂用帳戶識別碼取代 `#####-###-###` 區段。 當檢查您建立的資源時，會在 `jq` 的輸出中註明您的訂用帳戶識別碼。 您也可以使用 `azure account list`來檢視您的訂用帳戶識別碼。
 
 下列範例會建立名為 `myNic1` 的 NIC：
 
@@ -1053,15 +1053,15 @@ azure network nic create --resource-group myResourceGroup --location westeurope 
   --lb-inbound-nat-rule-ids /subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH2
 ```
 
-## <a name="create-a-network-security-group-and-rules"></a>创建网络安全组和规则
-我們現在會建立網路安全性群組和管理 NIC 存取權的輸入規則。 網路安全性群組可以套用至 NIC 或子網路。 定义用于控制传入和传出 VM 的流量流的规则。 下列範例會建立名為 `myNetworkSecurityGroup` 的網路安全性群組：
+## <a name="create-a-network-security-group-and-rules"></a>建立網路安全性群組和規則
+我們現在會建立網路安全性群組和管理 NIC 存取權的輸入規則。 網路安全性群組可以套用至 NIC 或子網路。 您要定義規則以控制進出 VM 的流量。 下列範例會建立名為 `myNetworkSecurityGroup` 的網路安全性群組：
 
 ```azurecli
 azure network nsg create --resource-group myResourceGroup --location westeurope \
   --name myNetworkSecurityGroup
 ```
 
-讓我們加入 NSG 的輸入規則以允許連接埠 22 上的輸入連線 (以支援 SSH)。 以下示例创建名为 `myNetworkSecurityGroupRuleSSH` 的规则，以便在 端口 22 上允许 TCP：
+讓我們加入 NSG 的輸入規則以允許連接埠 22 上的輸入連線 (以支援 SSH)。 下列範例會建立名為 `myNetworkSecurityGroupRuleSSH` 的規則以允許連接埠 22 上的 TCP︰
 
 ```azurecli
 azure network nsg rule create --resource-group myResourceGroup \
@@ -1070,7 +1070,7 @@ azure network nsg rule create --resource-group myResourceGroup \
   --name myNetworkSecurityGroupRuleSSH
 ```
 
-现在，添加 NSG 的入站规则，允许端口 80 上的入站连接（以支持 Web 流量）。 下列範例會建立名為 `myNetworkSecurityGroupRuleHTTP` 的規則以允許連接埠 80 上的 TCP︰
+現在讓我們加入 NSG 的輸入規則以允許連接埠 80 上的輸入連線 (以支援 web 流量)。 下列範例會建立名為 `myNetworkSecurityGroupRuleHTTP` 的規則以允許連接埠 80 上的 TCP︰
 
 ```azurecli
 azure network nsg rule create --resource-group myResourceGroup \
@@ -1080,12 +1080,12 @@ azure network nsg rule create --resource-group myResourceGroup \
 ```
 
 > [!NOTE]
-> 入站规则是入站网络连接的筛选器。 在此範例中，我們將 NSG 繫結至 VM 虛擬 NIC，這意謂著任何傳送給連接埠 22 的要求都會傳遞到 VM 上的 NIC。 這個輸入規則與網路連線相關，而不是與端點 (在傳統部署中會相關的對象) 相關。 若要開啟連接埠，您必須將 `--source-port-range` 保留設定為 '\*' (預設)，才能接受來自 **「任何」** 要求連接埠的輸入要求。 連接埠通常是動態的。
+> 輸入規則是輸入網路連線的篩選器。 在此範例中，我們將 NSG 繫結至 VM 虛擬 NIC，這意謂著任何傳送給連接埠 22 的要求都會傳遞到 VM 上的 NIC。 這個輸入規則與網路連線相關，而不是與端點 (在傳統部署中會相關的對象) 相關。 若要開啟連接埠，您必須將 `--source-port-range` 保留設定為 '\*' (預設)，才能接受來自 **「任何」** 要求連接埠的輸入要求。 連接埠通常是動態的。
 >
 >
 
 ## <a name="bind-to-the-nic"></a>繫結至 NIC
-將 NSG 繫結至 NIC。 我們需要將 NIC 與我們的網路安全性群組連線。 运行以下两个命令来挂接两个 NIC：
+將 NSG 繫結至 NIC。 我們需要將 NIC 與我們的網路安全性群組連線。 執行這兩個命令來連結我們的兩個 NIC：
 
 ```azurecli
 azure network nic set --resource-group myResourceGroup --name myNic1 \
@@ -1098,7 +1098,7 @@ azure network nic set --resource-group myResourceGroup --name myNic2 \
 ```
 
 ## <a name="create-an-availability-set"></a>建立可用性設定組
-可用性集有助于将 VM 分散到容错域和升级域。 為 VM 建立可用性設定組。 以下示例创建名为 `myAvailabilitySet`的可用性集：
+可用性設定組可協助將 VM 分散到容錯網域和升級網域。 為 VM 建立可用性設定組。 下列範例會建立名為 `myAvailabilitySet` 的可用性設定組：
 
 ```azurecli
 azure availset create --resource-group myResourceGroup --location westeurope
@@ -1160,7 +1160,7 @@ info:    The storage URI 'https://mystorageaccount.blob.core.windows.net/' will 
 info:    vm create command OK
 ```
 
-您可以使用預設 SSH 金鑰來立即連線到 VM。 请确保指定适当的端口，因为我们要通过负载均衡器传递流量。 (針對第一個 VM，我們設定了將連接埠 4222 轉送到 VM 的 NAT 規則。)
+您可以使用預設 SSH 金鑰來立即連線到 VM。 請確定您指定的連接埠正確，因為我們要通過的是負載平衡器。 (針對第一個 VM，我們設定了將連接埠 4222 轉送到 VM 的 NAT 規則。)
 
 ```bash
 ssh ops@mypublicdns.westeurope.cloudapp.azure.com -p 4222
@@ -1188,7 +1188,7 @@ Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
 ops@myVM1:~$
 ```
 
-以相同的方式继续创建第二个 VM：
+繼續進行，並以相同方式建立第二個 VM：
 
 ```azurecli
 azure vm create \

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: 6220aebdef6970f3d5f7017e4ae48f6f409ae0ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60199392"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>部署適用於 Cloud Foundry 系統監控的 Azure Log Analytics Nozzle
@@ -60,13 +60,13 @@ Nozzle 也需要 Loggregator Firehose 和 Cloud Controller 的存取權限。 �
 #### <a name="to-create-the-workspace-manually"></a>若要手動建立工作區：
 
 1. 在 Azure 入口網站中，在 Azure Marketplace 中搜尋的服務清單，然後選取 Log Analytics 工作區。
-2. 選取 [建立]，然後選取下列項目的選項：
+2. 選取 [建立]  ，然後選取下列項目的選項：
 
    * **Log Analytics 工作區**：輸入工作區的名稱。
-   * 訂用帳戶：如果您擁有多個訂用帳戶，請選擇與 CF 部署相同的訂用帳戶。
+   * 訂用帳戶  ：如果您擁有多個訂用帳戶，請選擇與 CF 部署相同的訂用帳戶。
    * **资源组**：您可以建立新的資源群組，或使用與 CF 部署相同的資源群組。
    * **位置**：輸入位置。
-   * **定價層**：選取 [確定] 以完成。
+   * **定價層**：選取 [確定]  以完成。
 
 有关详细信息，请参阅 [Azure Monitor 日志入门](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)。
 
@@ -77,7 +77,7 @@ Nozzle 也需要 Loggregator Firehose 和 Cloud Controller 的存取權限。 �
 1. 在搜尋視窗中輸入 "Cloud Foundry"，選取 [Cloud Foundry Monitoring Solution]。
 1. 這會載入 Cloud Foundry 監視解決方案範本首頁，按一下 [建立] 以啟動範本刀鋒視窗。
 1. 輸入必要參數：
-    * 訂用帳戶：選取 Log Analytics 工作區的 Azure 訂用帳戶，通常與 Cloud Foundry 部署相同。
+    * 訂用帳戶  ：選取 Log Analytics 工作區的 Azure 訂用帳戶，通常與 Cloud Foundry 部署相同。
     * **资源组**：選取現有的資源群組，或為 Log Analytics 工作區建立一個新的資源群組。
     * **資源群組位置**：選取資源群組的位置。
     * **OMS_Workspace_Name**：如果工作區不存在，請輸入工作區名稱，範本會建立新的工作區。
@@ -184,7 +184,7 @@ cf apps
 
 ### <a name="1-import-the-oms-view"></a>1.匯入 OMS 檢視
 
-從 OMS 入口網站中，瀏覽至 [檢視設計工具] > [匯入] > [瀏覽]，然後選取其中一個 omsview 檔案。 例如，選取 Cloud Foundry.omsview，然後儲存檢視。 圖格隨即會顯示在 [概觀] 頁面上。 選取以查看視覺化的計量。
+從 OMS 入口網站中，瀏覽至 [檢視設計工具]   > [匯入]   > [瀏覽]  ，然後選取其中一個 omsview 檔案。 例如，選取 Cloud Foundry.omsview  ，然後儲存檢視。 圖格隨即會顯示在 [概觀]  頁面上。 選取以查看視覺化的計量。
 
 您可以透過**檢視設計工具**來自訂這些檢視或建立新檢視。
 
@@ -220,7 +220,7 @@ cf apps
 Loggregator 能傳送 **LGR** 記錄訊息來指出記錄流程發生的問題。 您可以監控警示來判斷 Loggregator 是否需要相應增加。
 若要將 Loggregator 相應增加，可以增加 Doppler 緩衝區大小，或是在 CF 資訊清單中新增額外的 Doppler 伺服器執行個體。 如需詳細資訊，請參閱[調整 Loggregator 的指引](https://docs.cloudfoundry.org/running/managing-cf/logging-config.html#scaling)。
 
-## <a name="update"></a>更新
+## <a name="update"></a>Update
 
 若要將 Nozzle 更新為新版本，請下載新版本的 Nozzle，再遵循先前「部署 Nozzle」一節中的步驟，重新推送一次應用程式。
 

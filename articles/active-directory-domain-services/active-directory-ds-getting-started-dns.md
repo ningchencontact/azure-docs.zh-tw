@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
 ms.openlocfilehash: 4727c24c603e95aeee6214546e25a273aa652f4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60417314"
 ---
 # <a name="enable-azure-active-directory-domain-services"></a>啟用 Azure Active Directory Domain Services
@@ -30,7 +30,7 @@ ms.locfileid: "60417314"
 若要為已啟用 Azure Active Directory Domain Services 的虛擬網路更新 DNS 伺服器設定，請完成下列步驟︰
 
 
-1. [概觀] 索引標籤會列出在完整佈建受控網域之後所要執行的一組**必要設定步驟**。 第一個設定步驟是**更新虛擬網路的 DNS 伺服器設定**。
+1. [概觀]  索引標籤會列出在完整佈建受控網域之後所要執行的一組**必要設定步驟**。 第一個設定步驟是**更新虛擬網路的 DNS 伺服器設定**。
 
     ![網域服務 - 概觀索引標籤](./media/getting-started/domain-services-provisioned-overview.png)
 
@@ -39,7 +39,7 @@ ms.locfileid: "60417314"
     >
     >
 
-2. 按一下 [設定] 按鈕，以更新虛擬網路的 DNS 伺服器設定。
+2. 按一下 [設定]  按鈕，以更新虛擬網路的 DNS 伺服器設定。
 
 > [!NOTE]
 > 網路中的虛擬機器只會在重新啟動後取得新的 DNS 設定。 如果您希望它們立即取得更新後的 DNS 設定，請透過入口網站、PowerShell 或 CLI 觸發重新啟動。

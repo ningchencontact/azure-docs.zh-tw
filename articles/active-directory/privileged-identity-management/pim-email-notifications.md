@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60289140"
 ---
 # <a name="email-notifications-in-pim"></a>PIM 中的電子郵件通知
@@ -54,7 +54,7 @@ PIM 針對 Azure AD 和 Azure 資源角色傳送的電子郵件具有下列寄�
 | 安全性系統管理員</br>(已啟用/合格) | 否 | 是* | 是 |
 | 全域管理員</br>(已啟用/合格) | 否 | 是* | 是 |
 
-\* 如果 [**[通知]** 設定](pim-how-to-change-default-settings.md#notifications)設為 [啟用] 時。
+\* 如果 [ **[通知]** 設定](pim-how-to-change-default-settings.md#notifications)設為 [啟用]  時。
 
 以下所顯示的範例電子郵件，會在使用者啟用虛構 Contoso 組織的 Azure AD 角色時傳送。
 
@@ -75,7 +75,7 @@ Azure AD 角色的每週 PIM 摘要電子郵件會傳送給特殊權限角色管
 | **PIM 中的角色指派** | 使用者在 PIM 內獲派合格角色的次數。 |
 | **PIM 外部的角色指派** | 使用者在 PIM 外部 (Azure AD 內部) 被指派永久角色的次數。 |
 
-[頂端的角色概觀] 區段會根據每個角色的永久與合格管理員總數，列出您租用戶中的前五個角色。 [採取動作] 連結會開啟 [PIM 精靈](pim-security-wizard.md)，您可以在其中將永久管理員分批轉換成合格的管理員。
+[頂端的角色概觀]  區段會根據每個角色的永久與合格管理員總數，列出您租用戶中的前五個角色。 [採取動作]  連結會開啟 [PIM 精靈](pim-security-wizard.md)，您可以在其中將永久管理員分批轉換成合格的管理員。
 
 ## <a name="pim-emails-for-azure-resource-roles"></a>Azure 資源角色的 PIM 電子郵件
 

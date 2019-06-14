@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/04/2016
 ms.author: jeconnoc
 ms.openlocfilehash: c41057203da949e371f62332e938feb92e84534f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60422781"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>如何在 Azure 上的 Web 角色中使用 Twilio 撥打電話
@@ -30,7 +30,7 @@ ms.locfileid: "60422781"
 您必須執行下列動作才能使用本主題中的程式碼：
 
 1. 從 [Twilio 主控台][twilio_console]取得 Twilio 帳戶和驗證權杖。 若要開始使用 Twilio，請在 [https://www.twilio.com/try-twilio][try_twilio] 上註冊。 您可以在 [https://www.twilio.com/pricing][twilio_pricing] 上評估價格。 如需 Twilio 所提供的 API 相關資訊，請參閱 [https://www.twilio.com/voice/api][twilio_api]。
-2. 將「Twilio .NET 程式庫」新增至您的 Web 角色。 請參閱本主題稍後的「將 Twilio 程式庫新增至 Web 角色專案」。
+2. 將「Twilio .NET 程式庫」  新增至您的 Web 角色。 請參閱本主題稍後的「將 Twilio 程式庫新增至 Web 角色專案」  。
 
 您應知悉如何[在 Azure 上建立基本 Web 角色][azure_webroles_get_started]。
 
@@ -38,10 +38,10 @@ ms.locfileid: "60422781"
 <a id="use_nuget"></a>將 Twilio 程式庫新增至 Web 角色專案：
 
 1. 在 Visual Studio 中開啟方案。
-2. 以滑鼠右鍵按一下 [參考] 。
-3. 按一下 [管理 NuGet 封裝] 。
-4. 按一下 [線上] 。
-5. 在搜尋線上方塊中，輸入 twilio。
+2. 以滑鼠右鍵按一下 [參考]  。
+3. 按一下 [管理 NuGet 封裝]  。
+4. 按一下 [線上]  。
+5. 在搜尋線上方塊中，輸入 twilio  。
 6. 在 Twilio 套件上按一下 [安裝]  。
 
 下列程式碼將說明如何建立 Web 表單，以擷取撥打電話所需的使用者資料。 在此範例中，會建立名為 **TwilioCloud** 的 ASP.NET Web 角色。
@@ -151,7 +151,7 @@ namespace WebRole1
 如需 TwiML 的詳細資訊，請參閱 [https://www.twilio.com/docs/api/twiml][twiml]。 如需 &lt;Say&gt; 和其他 Twilio 動詞的詳細資訊，請參閱 [https://www.twilio.com/docs/api/twiml/say][twilio_say]。
 
 ## <a id="nextsteps"></a>接續步驟
-此程式可說明在 Azure 上的 ASP.NET Web 角色中使用 Twilio 的基本功能。 在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。 例如︰
+此程式可說明在 Azure 上的 ASP.NET Web 角色中使用 Twilio 的基本功能。 在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。 例如:
 
 * 除了使用 Web 表單以外，您也可以使用 Azure Blob 儲存體或 Azure SQL Database 執行個體來儲存電話號碼和通話文字。 如需在 Azure 中使用 Blob 的相關資訊，請參閱[如何在 .NET 中使用 Azure Blob 儲存體服務][howto_blob_storage_dotnet]。 如需使用 SQL Database 的相關資訊，請參閱[如何在 .NET 應用程式中使用 Azure SQL Database][howto_sql_azure_dotnet]。
 * 您可以使用 `RoleEnvironment.getConfigurationSettings`，從部署的組態設定中擷取 Twilio 帳戶 ID 和驗證權杖，而不要在表單中進行值的硬式編碼。 如需 `RoleEnvironment` 類別的相關資訊，請參閱 [Microsoft.WindowsAzure.ServiceRuntime 命名空間][azure_runtime_ref_dotnet]。

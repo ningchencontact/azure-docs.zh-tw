@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 9a0abcd70b4aeb2369604bafa924136122206e0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60309108"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Business Warehouse 複製資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-sap-business-warehouse-connector.md)
 > * [目前的版本](connector-sap-business-warehouse.md)
 
@@ -184,7 +184,7 @@ ms.locfileid: "60309108"
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
 | STRING | String |
-| UNIT | String |
+| 單位 | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |

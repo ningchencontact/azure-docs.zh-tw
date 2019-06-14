@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
 ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335468"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>使用更新資源活動更新 Azure Machine Learning 模型
@@ -62,7 +62,7 @@ ms.locfileid: "60335468"
 | name                          | 管線中的活動名稱     | 是      |
 | description                   | 說明活動用途的文字。  | 否       |
 | type                          | 對於 Azure Machine Learning 更新資源活動，活動類型為 **AzureMLUpdateResource**。 | 是      |
-| 預設容器             | 包含 updateResourceEndpoint 屬性的 Azure Machine Learning 連結服務。 | 是      |
+| linkedServiceName             | 包含 updateResourceEndpoint 屬性的 Azure Machine Learning 連結服務。 | 是      |
 | trainedModelName              | 要更新之 Web 服務實驗中的「定型模型」模組名稱 | 是      |
 | trainedModelLinkedServiceName | 具備由更新作業上傳之 ilearner 檔案的 Azure 儲存體連結服務名稱 | 是      |
 | trainedModelFilePath          | trainedModelLinkedService 中的相對檔案路徑，表示由更新作業上傳的 ilearner 檔案 | 是      |
@@ -72,7 +72,7 @@ ms.locfileid: "60335468"
 實作重新定型模組和更新預測 Web 服務的整個程序會叫用下列步驟：
 
 - 使用**批次執行活動**叫用**定型 Web 服務**。 叫用定型 Web 服務與[使用 Azure Machine Learning 和 Data Factory 批次執行活動建立預測管線](transform-data-using-machine-learning.md)中說明的叫用預測 Web 服務相同。 定型 Web 服務的輸出是 iLearner 檔案，您可以使用它來更新預測性 Web 服務。
-- 您可以使用 [更新資源活動] 來叫用**預測 Web 服務**的**更新資源端點**，以將 Web 服務更新為新定型的模型。
+- 您可以使用 [更新資源活動]  來叫用**預測 Web 服務**的**更新資源端點**，以將 Web 服務更新為新定型的模型。
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 連結服務
 
@@ -85,7 +85,7 @@ ms.locfileid: "60335468"
 
 ## <a name="web-service-is-new-azure-resource-manager-web-service"></a>Web 服務是新的 Azure Resource Manager Web 服務
 
-如果 Web 服務是會公開 Azure Resource Manager 端點的新 Web 服務類型，您不需要新增第二個「非預設」端點。 連結服務中 **updateResourceEndpoint** 的格式如下︰
+如果 Web 服務是會公開 Azure Resource Manager 端點的新 Web 服務類型，您不需要新增第二個「非預設」  端點。 連結服務中 **updateResourceEndpoint** 的格式如下︰
 
 ```
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview
@@ -173,8 +173,8 @@ Azure 儲存體會保留下列資料：
 1. 按一下左功能表中的 [ **Web 服務** ]。
 2. 按一下 Web 服務清單中的 **訓練 Web 服務** 。
 3. 按一下 [API 金鑰]  文字方塊旁的 [複製]。 將剪貼簿中的金鑰貼到 Data Factory JSON 編輯器中。
-4. 在 **Azure Machine Learning Studio** 中，按一下 [批次執行] 連結。
-5. 從 [要求] 區段複製 [要求 URI] 並將它貼到 Data Factory JSON 編輯器中。
+4. 在 **Azure Machine Learning Studio** 中，按一下 [批次執行]  連結。
+5. 從 [要求]  區段複製 [要求 URI]  並將它貼到 Data Factory JSON 編輯器中。
 
 ### <a name="linked-service-for-azure-machine-learning-studio-updatable-scoring-endpoint"></a>Azure Machine Learning Studio 可更新評分端點的已連結服務：
 下列 JSON 程式碼片段定義 Azure Machine Learnin 連結服務可指向評分 Web 服務的可更新端點。

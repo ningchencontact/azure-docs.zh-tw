@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1f645b7077ef43dc7eb4d70261b6b601b5e4af1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60288428"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>在 PIM 中核准或拒絕 Azure 資源角色的要求
@@ -36,11 +36,11 @@ ms.locfileid: "60288428"
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [核准要求]。
+1. 按一下 [核准要求]  。
 
     ![Azure 資源 - 核准要求](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
-    在 [要求啟用角色] 區段中，您會看見正等待您核准的要求清單。
+    在 [要求啟用角色]  區段中，您會看見正等待您核准的要求清單。
 
 ## <a name="approve-requests"></a>核准要求
 
@@ -48,9 +48,9 @@ ms.locfileid: "60288428"
 
     ![核准要求窗格](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
-1. 在 [理由] 方塊中，輸入理由。
+1. 在 [理由]  方塊中，輸入理由。
 
-1. 按一下 [核准]。
+1. 按一下 [核准]  。
 
     表示您核准的通知隨即顯示。
 
@@ -62,9 +62,9 @@ ms.locfileid: "60288428"
 
     ![核准要求窗格](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
-1. 在 [理由] 方塊中，輸入理由。
+1. 在 [理由]  方塊中，輸入理由。
 
-1. 按一下 [拒絕]。
+1. 按一下 [拒絕]  。
 
     表示您拒絕的通知隨即顯示。
 

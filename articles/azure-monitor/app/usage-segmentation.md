@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 7d378c2f72035c3584e1f5cd3c1f0fb9a5d5c2ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372275"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Application Insights 中的使用者、工作階段和事件分析
@@ -54,13 +54,13 @@ ms.locfileid: "60372275"
 ## <a name="saving-and-sharing-reports"></a>儲存和共用報告 
 您可以透過下列方式來儲存使用者報告：儲存在 [我的報告] 區段中，僅供您自己私人使用；或儲存在 [共用的報告] 區段中，與擁有 Application Insights 資源存取權的其他所有人共用。
 
-若要共用使用者、工作階段或事件報告的連結，請按一下工具列中的 [共用]，然後複製連結。
+若要共用使用者、工作階段或事件報告的連結，請按一下工具列中的 [共用]  ，然後複製連結。
 
-若要共用使用者、工作階段或事件報告的資料複本，請按一下工具列中的 [共用]，然後按一下 [Word] 圖示以建立具有該資料的 Word 文件。 或者，按一下主要圖表上方的 [Word] 圖示。
+若要共用使用者、工作階段或事件報告的資料複本，請按一下工具列中的 [共用]  ，然後按一下 [Word] 圖示  以建立具有該資料的 Word 文件。 或者，按一下主要圖表上方的 [Word] 圖示  。
 
 ## <a name="meet-your-users"></a>會見使用者
 
-[會見使用者] 區段會顯示目前查詢所比對出之五位範例使用者的相關資訊。 除了彙總之外，考量並瀏覽個人行為可深入解析使用者實際使用您應用程式的方式。
+[會見使用者]  區段會顯示目前查詢所比對出之五位範例使用者的相關資訊。 除了彙總之外，考量並瀏覽個人行為可深入解析使用者實際使用您應用程式的方式。
 
 ## <a name="next-steps"></a>後續步驟
 

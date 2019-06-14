@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 1ff7d430edd3f638ad5efcc5a89604e4ed732211
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400145"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IoT 中樞開發人員指南
@@ -21,15 +21,15 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Azure IoT 中心提供：
+Azure IoT 中樞可提供您︰
 
-* 使用每个设备的安全凭据和访问控制来保护通信安全。
+* 使用每一裝置的安全性認證和存取控制來保護通訊的安全。
 
-* 多个设备到云和云到设备的超大规模通信选项。
+* 多個裝置到雲端和雲端到裝置的超大規模通訊選項。
 
 * 每一裝置狀態資訊和中繼資料的可查詢儲存體。
 
-* 通过最流行语言和平台的设备库来方便建立设备连接。
+* 透過最受歡迎的語言和平台的裝置程式庫，進行簡單的裝置連線。
 
 此 IoT 中樞開發人員指南包含下列文章︰
 
@@ -55,7 +55,7 @@ Azure IoT 中心提供：
 
 * [控制 IoT 中樞的存取權](iot-hub-devguide-security.md)說明用來將存取權授與適用於裝置和雲端元件之 IoT 中樞功能的安全性模型。 本文包含使用權杖和 X.509 憑證的相關資訊，以及您可授與之權限的詳細資料。
 
-* [使用裝置對應項同步處理狀態和設定](iot-hub-devguide-device-twins.md)說明「裝置對應項」概念。 本文也描述功能的裝置對應項公開 （expose），例如同步處理裝置與其裝置對應項。 本文包含裝置對應項中儲存之資料的相關資訊。
+* [使用裝置對應項同步處理狀態和設定](iot-hub-devguide-device-twins.md)說明「裝置對應項」  概念。 本文也描述功能的裝置對應項公開 （expose），例如同步處理裝置與其裝置對應項。 本文包含裝置對應項中儲存之資料的相關資訊。
 
 * [在裝置上叫用直接方法](iot-hub-devguide-direct-methods.md)說明直接方法的生命週期。 本文說明如何從後端應用程式在裝置上叫用方法，以及在裝置上處理直接方法。
 

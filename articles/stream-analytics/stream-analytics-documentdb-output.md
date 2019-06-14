@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
 ms.openlocfilehash: 734cf09869e5a2df5f9a505a3cb8ccc7bc2338d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60402262"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure 串流分析輸出至 Azure Cosmos DB  
@@ -37,9 +37,9 @@ ms.locfileid: "60402262"
 若要符合您的應用程式需求，Azure Cosmos DB 可讓您微調資料庫與集合，並進行一致性、 可用性及延遲之間取捨。 您可以視案例針對讀取與寫入延遲所需的讀取一致性層級，來選擇資料庫帳戶上的一致性層級。 此外，Azure Cosmos DB 預設會在對您集合進行的每個 CRUD 作業進行同步索引編製。 這是另一個可在 Azure Cosmos DB 中控制寫入/讀取效能的實用選項。 如需詳細資訊，請檢閱[變更資料庫及查詢的一致性層級](../cosmos-db/consistency-levels.md)一文。
 
 ## <a name="upserts-from-stream-analytics"></a>來自串流分析的 Upsert
-「串流分析」與 Azure Cosmos DB 的整合可讓您根據指定的「文件識別碼」資料行，在集合中插入或更新記錄。 這也稱為「Upsert」 。
+「串流分析」與 Azure Cosmos DB 的整合可讓您根據指定的「文件識別碼」資料行，在集合中插入或更新記錄。 這也稱為「Upsert」  。
 
-串流分析可使用最佳化的 upsert 方法，而此方法只會在因為文件識別碼發生衝突而插入失敗時，才進行更新。 使用相容性層級 1.0，修補程式，因此它會部分更新文件，也就是，加上新的屬性，或取代現有的屬性以累加方式執行做為執行這項更新。 但是，變更 JSON 文件中陣列屬性的值，會造成整個陣列遭到覆寫，也就是不會合併陣列。 1.2 與更新插入行為已修改為插入或取代文件。 這是相容性層級的 1.2 節進一步說明。
+串流分析可使用最佳化的 upsert 方法，而此方法只會在因為文件識別碼發生衝突而插入失敗時，才進行更新。 使用相容性層級 1.0，修補程式，因此它會部分更新文件，也就是，加上新的屬性，或取代現有的屬性以累加方式執行做為執行這項更新。 但是，變更 JSON 文件中陣列屬性的值，會造成整個陣列遭到覆寫，也就是不會合併陣列。 1\.2 與更新插入行為已修改為插入或取代文件。 這是相容性層級的 1.2 節進一步說明。
 
 如果傳入 JSON 文件具有現有的識別碼欄位，系統會自動將該欄位作為 Cosmos DB 中的「文件識別碼」資料行使用，且所有後續的寫入都會以同樣方式處理，並導致下列其中一種情況：
 - 唯一識別碼導致插入
@@ -58,7 +58,7 @@ Azure Cosmos DB [無限制](../cosmos-db/partition-data.md)容器是建議的資
 我們正在取代寫入至多個固定容器，因此這不是將串流分析作業相應放大的建議方法。 [Cosmos DB 中的資料分割與調整](../cosmos-db/sql-api-partition-data.md)一文提供進一步的詳細資料。
 
 ## <a name="improved-throughput-with-compatibility-level-12"></a>使用相容性層級 1.2 提升產能
-相容性層級 1.2，Stream Analytics 支援原生整合大量寫入 Cosmos DB。 這可讓寫入有效地以最大化輸送量且有效率地處理節流設定要求的 Cosmos DB。 使用新的相容性層級，因為更新插入行為差異的改善的寫入機制。  在 1.2 之前更新插入行為是插入或合併文件。 1.2 與更新插入行為已修改為插入或取代文件。 
+相容性層級 1.2，Stream Analytics 支援原生整合大量寫入 Cosmos DB。 這可讓寫入有效地以最大化輸送量且有效率地處理節流設定要求的 Cosmos DB。 使用新的相容性層級，因為更新插入行為差異的改善的寫入機制。  在 1.2 之前更新插入行為是插入或合併文件。 1\.2 與更新插入行為已修改為插入或取代文件。 
 
 在之前 1.2，會使用每個資料分割索引鍵的大量更新插入文件的自訂預存程序到 Cosmos DB，批次當做交易的寫入位置。 即使在單一記錄叫用 （節流） 的暫時性錯誤時，就必須重試整個批次。 這會使用相對速度變慢甚至是合理的節流設定的案例。 下列比較顯示這類作業會使用 1.2 的行為方式。
 
@@ -70,8 +70,8 @@ Azure Cosmos DB [無限制](../cosmos-db/partition-data.md)容器是建議的資
 
 ![cosmos db 計量比較](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-2.png)
 
-1.2，Stream Analytics 是輸送量的更有智慧中使用 100%的 Cosmos DB 中極少數的 resubmissions，速率節流限制與可用。 這對於其他工作負載，例如一次在集合上執行的查詢提供更好的體驗。 如果您需要試試看如何 ASA 向外延展使用 Cosmos DB 為接收器的 1 k 到 10 k 訊息/秒，如下[azure 範例專案](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb)，可讓您這麼做。
-請注意，Cosmos DB 輸出輸送量與相同 1.0 和 1.1 版。 1.2 不目前是預設值，因為您可以[相容性層級](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)Stream Analytics 作業使用入口網站或使用[建立作業 REST API 呼叫](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job)。 它有*強烈建議*在 ASA 中的相容性層級 1.2 使用 Cosmos DB。 
+1\.2，Stream Analytics 是輸送量的更有智慧中使用 100%的 Cosmos DB 中極少數的 resubmissions，速率節流限制與可用。 這對於其他工作負載，例如一次在集合上執行的查詢提供更好的體驗。 如果您需要試試看如何 ASA 向外延展使用 Cosmos DB 為接收器的 1 k 到 10 k 訊息/秒，如下[azure 範例專案](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb)，可讓您這麼做。
+請注意，Cosmos DB 輸出輸送量與相同 1.0 和 1.1 版。 1\.2 不目前是預設值，因為您可以[相容性層級](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)Stream Analytics 作業使用入口網站或使用[建立作業 REST API 呼叫](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job)。 它有*強烈建議*在 ASA 中的相容性層級 1.2 使用 Cosmos DB。 
 
 
 

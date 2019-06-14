@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: 0d055b1a78622665137a6abad18681a728ae2b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60422634"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>如何在 Azure 上的 Java 應用程式中使用 Twilio 撥打電話
@@ -174,16 +174,16 @@ ms.locfileid: "60422634"
 3. 針對計算模擬器編譯您的應用程式。
 4. 在計算模擬器中開始進行部署。
 5. 開啟瀏覽器，並執行`http://localhost:8080/TwilioCloud/callform.jsp`。
-6. 輸入表單中的值，按一下 [Make this call] ，然後在 makecall.jsp 中檢視結果。
+6. 輸入表單中的值，按一下 [Make this call]  ，然後在 makecall.jsp 中檢視結果。
 
 當您做好部署至 Azure 的準備後，您可以針對雲端環境重新編譯部署、部署至 Azure，以及在瀏覽器中執行 http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp (請將 *your_hosted_name* 取代為您的值)。
 
 ## <a name="next-steps"></a>後續步驟
-此程式可說明在 Azure 上的 Java 中使用 Twilio 的基本功能。 在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。 例如︰
+此程式可說明在 Azure 上的 Java 中使用 Twilio 的基本功能。 在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。 例如:
 
 * 除了使用 Web 表單以外，您也可以使用 Azure 儲存體 Blob 或 SQL Database 來儲存電話號碼和通話文字。 如需在 Java 中使用 Azure 儲存體 Blob 的相關資訊，請參閱[如何使用 Java 的 Blob 儲存體服務][howto_blob_storage_java]。 
 * 您可以使用 **RoleEnvironment.getConfigurationSettings** ，從部署的組態設定中擷取 Twilio 帳戶 ID 和驗證權杖，而不要在 makecall.jsp 中進行值的硬式編碼。 如需 **RoleEnvironment** 類別的相關資訊，請參閱[在 JSP 中使用 Azure Service Runtime Library][azure_runtime_jsp]，以及 [http://dl.windowsazure.com/javadoc][azure_javadoc] 上的 Azure Service Runtime 套件文件。
-* makecall.jsp 程式碼會將 Twilio 提供的 URL [https://twimlets.com/message][twimlet_message_url] 指派給 **URL** 變數。 此 URL 會提供 Twilio 標記語言 (TwiML) 回應，告知 Twilio 應如何執行通話。 例如，傳回的 TwiML 可能會包含 **&lt;Say&gt;** 動詞，而產生要傳達給受話方的文字。 除了使用 Twilio 提供的 URL 以外，您也可以建置自己的服務來回應 Twilio 的要求；如需詳細資訊，請參閱[如何在 Java 中透過 Twilio 使用語音和簡訊功能][howto_twilio_voice_sms_java]。 如需 TwiML 的詳細資訊，請參閱 [https://www.twilio.com/docs/api/twiml][twiml]，如需 **&lt;Say&gt;** 和其他 Twilio 動詞的詳細資訊，則請參閱 [https://www.twilio.com/docs/api/twiml/say][twilio_say]。
+* makecall.jsp 程式碼會將 Twilio 提供的 URL [https://twimlets.com/message][twimlet_message_url] 指派給 **URL** 變數。 此 URL 會提供 Twilio 標記語言 (TwiML) 回應，告知 Twilio 應如何執行通話。 例如，傳回的 TwiML 可能會包含 **&lt;Say&gt;** 動詞，而產生要傳達給受話方的文字。 除了使用 Twilio 提供的 URL 以外，您也可以建置自己的服務來回應 Twilio 的要求；如需詳細資訊，請參閱[如何在 Java 中透過 Twilio 使用語音和簡訊功能][howto_twilio_voice_sms_java]。 如需 TwiML 的詳細資訊，請參閱 [https://www.twilio.com/docs/api/twiml][twiml]，如需 **&lt; Say&gt;** 和其他 Twilio 動詞的詳細資訊，則請參閱 [https://www.twilio.com/docs/api/twiml/say][twilio_say]。
 * 閱讀 Twilio 安全性方針，網址為 [https://www.twilio.com/docs/security][twilio_docs_security]。
 
 如需 Twilio 的其他資訊，請參閱 [https://www.twilio.com/docs][twilio_docs]。

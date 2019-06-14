@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
 ms.openlocfilehash: e3dc9476d188382db31b03b37b2a23affc61aed3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60564879"
 ---
 # <a name="load-balance-multiple-websites"></a>進行多個網站的負載平衡
@@ -37,7 +37,7 @@ ms.locfileid: "60564879"
 
 ## <a name="clean-up-deployment"></a>清除部署 
 
-运行以下命令来删除资源组、VM 和所有相关资源。
+執行下列命令來移除資源群組、VM 和所有相關資源。
 
 ```azurecli
 az group delete --name myResourceGroup --yes

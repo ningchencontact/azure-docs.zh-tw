@@ -16,10 +16,10 @@ ms.date: 11/29/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5f6139062c4d302284cc653606ae838206d3691a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60290712"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-in-the-azure-portal"></a>在 Azure 入口網站中檢視受控識別的服務主體
@@ -38,8 +38,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 此程序示範如何檢視已啟用系統指派身分識別的 VM 所具有的服務主體 (應用程式適用同樣的步驟)。
 
-1. 按一下 [Azure Active Directory]，然後按一下 [企業應用程式]。
-2. 在 [應用程式類型] 下方，選擇 [所有應用程式]。
+1. 按一下 [Azure Active Directory]  ，然後按一下 [企業應用程式]  。
+2. 在 [應用程式類型]  下方，選擇 [所有應用程式]  。
 3. 在搜尋篩選方塊中，輸入已啟用受控識別的 VM 或應用程式所具有的名稱，或從顯示的清單中選出。
 
    ![在入口網站中檢視受控識別服務主體](./media/how-to-view-managed-identity-service-principal-portal/view-managed-identity-service-principal-portal.png)

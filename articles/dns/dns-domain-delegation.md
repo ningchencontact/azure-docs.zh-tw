@@ -2,16 +2,16 @@
 title: Azure DNS 委派概觀
 description: 了解如何變更網域委派及使用 Azure DNS 名稱伺服器提供網域主機代管。
 services: dns
-author: WenJason
+author: vhorne
 ms.service: dns
-origin.date: 2/19/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 2/19/2019
+ms.author: victorh
+ms.topic: conceptual
 ms.openlocfilehash: 70c1c1ab0dd5d1998054cf0c68325022803dff06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563135"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>使用 Azure DNS 的 DNS 區域委派
@@ -22,7 +22,7 @@ Azure DNS 可讓您裝載 DNS 區域，並在 Azure 中管理網域的 DNS 記�
 
 ### <a name="domains-and-zones"></a>網域和區域
 
-網域名稱系統是網域階層。 階層從「根」網域開始，其名稱只是 '**.**'。  下面接著最上層網域，例如 'com'、'net'、'org'、'uk' 或 'jp'。  最上層網域下面是第二層網域，例如 'org.uk' 或 'co.jp'。  依此類推。 DNS 階層中的網域裝載於個別的 DNS 區域。 這些區域遍布全球，由世界各地的 DNS 名稱伺服器所裝載。
+網域名稱系統是網域階層。 階層從「根」網域開始，其名稱只是 ' **.** '。  下面接著最上層網域，例如 'com'、'net'、'org'、'uk' 或 'jp'。  最上層網域下面是第二層網域，例如 'org.uk' 或 'co.jp'。  依此類推。 DNS 階層中的網域裝載於個別的 DNS 區域。 這些區域遍布全球，由世界各地的 DNS 名稱伺服器所裝載。
 
 **DNS 區域** - 網域是網域名稱系統中的唯一名稱，例如 'contoso.com'。 DNS 區域用來裝載特定網域的 DNS 記錄。 例如，網域 'contoso.com' 可能包含數筆 DNS 記錄，例如 'mail.contoso.com' (用於郵件伺服器) 和 'www.contoso.com' (用於網站)。
 

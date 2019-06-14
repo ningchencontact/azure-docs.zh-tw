@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 3fa7612b9e4cd8a714e60879229bd0d39349494f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60405920"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-onprem-oracle-connector.md)
 > * [目前的版本](connector-oracle.md)
 
@@ -58,7 +58,7 @@ ms.locfileid: "60405920"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | type 屬性必須設定為 **Oracle**。 | 是 |
-| connectionString | 指定連線到 Oracle 資料庫執行個體所需的資訊。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `password` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 <br><br>**支援的連線類型**：您可以使用 [Oracle SID] 或 [Oracle 服務名稱] 來識別您的資料庫：<br>- 如果您使用 SID：`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 如果您使用服務名稱：`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | 是 |
+| connectionString | 指定連線到 Oracle 資料庫執行個體所需的資訊。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `password` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 <br><br>**支援的連線類型**：您可以使用 [Oracle SID]  或 [Oracle 服務名稱]  來識別您的資料庫：<br>- 如果您使用 SID：`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 如果您使用服務名稱：`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | 是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 >[!TIP]
@@ -66,7 +66,7 @@ ms.locfileid: "60405920"
 
 **若要啟用 Oracle 連線加密**，您有兩個選項：
 
-1.  若要使用**三重 DES 加密 (3DES) 和進階加密標準 (AES)**，在 Oracle 伺服器端，移至 Oracle 進階安全性 (OAS) 並設定加密設定，請參閱[這裡](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759) \(英文\) 的詳細資料。 ADF Oracle 連接器會自動協商加密方法，以使用建立 Oracle 連線時您在 OAS 中設定的方法。
+1.  若要使用**三重 DES 加密 (3DES) 和進階加密標準 (AES)** ，在 Oracle 伺服器端，移至 Oracle 進階安全性 (OAS) 並設定加密設定，請參閱[這裡](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759) \(英文\) 的詳細資料。 ADF Oracle 連接器會自動協商加密方法，以使用建立 Oracle 連線時您在 OAS 中設定的方法。
 
 2.  若要使用 **SSL**，請遵循下列步驟：
 
@@ -190,7 +190,7 @@ ms.locfileid: "60405920"
 
 ### <a name="oracle-as-a-source-type"></a>Oracle 作為來源類型
 
-若要從 Oracle 複製資料，請將複製活動中的來源類型設定為 **OracleSource**。 複製活動的 [來源] 區段支援下列屬性。
+若要從 Oracle 複製資料，請將複製活動中的來源類型設定為 **OracleSource**。 複製活動的 [來源]  區段支援下列屬性。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -233,7 +233,7 @@ ms.locfileid: "60405920"
 
 ### <a name="oracle-as-a-sink-type"></a>Oracle 作為接收類型
 
-若要將資料複製到 Oracle，請將複製活動中的接收器類型設定為 **OracleSink**。 複製活動的 [接收] 區段支援下列屬性。
+若要將資料複製到 Oracle，請將複製活動中的接收器類型設定為 **OracleSink**。 複製活動的 [接收]  區段支援下列屬性。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -287,7 +287,7 @@ ms.locfileid: "60405920"
 | FLOAT |Decimal，String (如果精確度 > 28) |
 | INTEGER |Decimal，String (如果精確度 > 28) |
 | LONG |String |
-| LONG RAW |Byte[] |
+| 長 RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
 | NUMBER |Decimal，String (如果精確度 > 28) |
@@ -297,7 +297,7 @@ ms.locfileid: "60405920"
 | TIMESTAMP |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |String |
 | TIMESTAMP WITH TIME ZONE |String |
-| UNSIGNED INTEGER  |Number |
+| UNSIGNED INTEGER |Number |
 | VARCHAR2 |String |
 | XML |String |
 

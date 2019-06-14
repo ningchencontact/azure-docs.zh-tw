@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400638"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT 中樞訊息路由查詢語法
@@ -53,10 +53,10 @@ IoT 中樞會針對所有裝置到雲端訊息定義[常見格式](iot-hub-devgu
 
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
-| contentType | string | 使用者會指定訊息的內容類型。 若要允許對訊息本文進行查詢，此值應該設為 application/JSON。 |
-| contentEncoding | string | 使用者會指定訊息的編碼類型。 允許的值為 UTF-8、UTF-16、UTF-32 (若 contentType 是設為 application/JSON)。 |
-| iothub-connection-device-id | string | 此值是由 IoT 中樞設定，並能識別裝置的識別碼。 若要查詢，請使用 `$connectionDeviceId`。 |
-| iothub-enqueuedtime | string | 此值是由 IoT 中樞設定，並代表將訊息加入佇列的實際時間 (以 UTC 表示)。 若要查詢，請使用 `enqueuedTime`。 |
+| contentType | 字串 | 使用者會指定訊息的內容類型。 若要允許對訊息本文進行查詢，此值應該設為 application/JSON。 |
+| contentEncoding | 字串 | 使用者會指定訊息的編碼類型。 允許的值為 UTF-8、UTF-16、UTF-32 (若 contentType 是設為 application/JSON)。 |
+| iothub-connection-device-id | 字串 | 此值是由 IoT 中樞設定，並能識別裝置的識別碼。 若要查詢，請使用 `$connectionDeviceId`。 |
+| iothub-enqueuedtime | 字串 | 此值是由 IoT 中樞設定，並代表將訊息加入佇列的實際時間 (以 UTC 表示)。 若要查詢，請使用 `enqueuedTime`。 |
 
 如 [IoT 中樞訊息](iot-hub-devguide-messages-construct.md)中所述，訊息中還有其他系統屬性。 除了 **contentType**、**contentEncoding** 和 **enqueuedTime** 之外，可查詢的屬性還包括 **connectionDeviceId** 和 **connectionModuleId**。
 
@@ -66,7 +66,7 @@ IoT 中樞會針對所有裝置到雲端訊息定義[常見格式](iot-hub-devgu
 
 ### <a name="query-expressions"></a>查詢運算式
 
-針對訊息系統屬性的查詢，需要其前面加上 `$` 符號。 針對應用程式屬性的查詢是透過屬性名稱來存取，因此不應該其前面加上 `$` 符號。 如果應用程式屬性名稱是以 `$` 作為開頭，則 IoT 中樞將會在系統屬性中搜尋它，並在找不到它的情況下於應用程式屬性中尋找它。 例如︰ 
+針對訊息系統屬性的查詢，需要其前面加上 `$` 符號。 針對應用程式屬性的查詢是透過屬性名稱來存取，因此不應該其前面加上 `$` 符號。 如果應用程式屬性名稱是以 `$` 作為開頭，則 IoT 中樞將會在系統屬性中搜尋它，並在找不到它的情況下於應用程式屬性中尋找它。 例如: 
 
 查詢系統屬性 contentEncoding 
 

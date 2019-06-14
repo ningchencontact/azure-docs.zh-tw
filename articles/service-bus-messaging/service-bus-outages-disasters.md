@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
 ms.openlocfilehash: 24611e265788cf046aa0733bc423917aaf305427
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589731"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>將應用程式與服務匯流排中斷和災難隔絕的最佳做法
@@ -44,7 +44,7 @@ ms.locfileid: "60589731"
 
 
 ## <a name="protecting-against-outages-and-disasters---service-bus-standard"></a>防止中斷與災害 - 服務匯流排標準層
-使用標準傳訊定價層時，為了達成對資料中心中斷情況的恢復能力，「服務匯流排」支援兩種方法：「主動」和「被動」複寫。 無論使用哪個方法，如果特定佇列或主題必須在資料中心發生中斷時保持可存取狀態，您可以在這兩個命名空間建立該佇列或主題。 這兩個實體可以具有相同的名稱。 比方說，主要佇列在 **contosoPrimary.servicebus.windows.net/myQueue** 之下達到，而其次要的對應項目可以在 **contosoSecondary.servicebus.windows.net/myQueue** 之下達到。
+使用標準傳訊定價層時，為了達成對資料中心中斷情況的恢復能力，「服務匯流排」支援兩種方法：「主動」  和「被動」  複寫。 無論使用哪個方法，如果特定佇列或主題必須在資料中心發生中斷時保持可存取狀態，您可以在這兩個命名空間建立該佇列或主題。 這兩個實體可以具有相同的名稱。 比方說，主要佇列在 **contosoPrimary.servicebus.windows.net/myQueue** 之下達到，而其次要的對應項目可以在 **contosoSecondary.servicebus.windows.net/myQueue** 之下達到。
 
 >[!NOTE]
 > **主動複寫**和**被動複寫**設定是一般用途解決方案，不是「服務匯流排」的特定功能。 複寫邏輯 (傳送至 2 個不同的命名空間) 存在於傳送者應用程式上，而接收者必須有自訂邏輯來偵測重複項。
@@ -78,7 +78,7 @@ ms.locfileid: "60589731"
 [搭配服務匯流排標準層的異地複寫][Geo-replication with Service Bus Standard Tier] \(英文\) 範例示範傳訊實體的被動複寫。
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>保護轉送端點免於發生資料中心中斷或災害
-轉送端點的異地複寫會讓公開轉送端點的服務可在服務匯流排中斷時使用。 若要達到異地複寫，服務必須在不同的命名空間中建立兩個轉送端點。 命名空间必须位于不同的数据中心，且两个终结点必须具有不同的名称。 比方說，主要端點在 **contosoPrimary.servicebus.windows.net/myPrimaryService** 之下達到，而其次要的對應項目可以在 **contosoSecondary.servicebus.windows.net/mySecondaryService** 之下達到。
+轉送端點的異地複寫會讓公開轉送端點的服務可在服務匯流排中斷時使用。 若要達到異地複寫，服務必須在不同的命名空間中建立兩個轉送端點。 命名空間必須位於不同的資料中心而兩個端點必須具有不同的名稱。 比方說，主要端點在 **contosoPrimary.servicebus.windows.net/myPrimaryService** 之下達到，而其次要的對應項目可以在 **contosoSecondary.servicebus.windows.net/mySecondaryService** 之下達到。
 
 然後服務會接聽這兩個端點，且用戶端可以透過任一端點叫用服務。 用戶端應用程式會隨機挑選其中一個轉送做為主要端點，並將其要求傳送至作用中的端點。 如果作業失敗並出現錯誤代碼，此失敗代表轉送端點無法使用。 應用程式會開啟備份端點的通道並重新發出要求。 作用中和備份端點會在這一點交換角色：用戶端應用程式會將舊的使用中端點視為新的備份端點，而將舊的備份端點視為新的作用中端點。 如果這兩個傳送作業都失敗，兩個實體的角色會保持不變並傳回錯誤。
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
 ms.openlocfilehash: 34dad39e3784dd0bc73e3be108d6b31d4f479a1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60543136"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>使用 Azure CLI 將 IaaS 資源從傳統移轉至 Azure Resource Manager
@@ -39,12 +39,12 @@ ms.locfileid: "60543136"
 以下是您評估將 IaaS 資源從傳統移轉至 Resource Manager 時，我們所建議的一些最佳做法：
 
 * 將 [不支援的組態或功能清單](../windows/migration-classic-resource-manager-overview.md)看一遍。 如果您的虛擬機器使用不支援的組態或功能，建議您等到宣布支援該功能/組態之後，再進行移轉。 或者，您可以移除該功能或移出該組態，以利移轉進行 (如果這麼做符合您的需求)。
-* 如果您是使用自動化指令碼來部署現今的基礎結構和應用程式，請使用這些指令碼來嘗試建立相似的測試設定以進行移轉。 也可以使用 Azure 门户设置示例环境。
+* 如果您是使用自動化指令碼來部署現今的基礎結構和應用程式，請使用這些指令碼來嘗試建立相似的測試設定以進行移轉。 或者，您也可以使用 Azure 入口網站來設定範例環境。
 
 > [!IMPORTANT]
-> 目前不支持通过应用程序网关从经典部署模型迁移到 Resource Manager 部署模型。 若要使用應用程式閘道來移轉傳統虛擬網路，請先移除閘道，再執行「準備」作業來移動網路。 在完成移轉之後，於 Azure Resource Manager 中重新連接閘道。 
+> 目前不支援將應用程式閘道從傳統環境移轉至 Resource Manager。 若要使用應用程式閘道來移轉傳統虛擬網路，請先移除閘道，再執行「準備」作業來移動網路。 在完成移轉之後，於 Azure Resource Manager 中重新連接閘道。 
 >
->如果 ExpressRoute 閘道連線至另一個訂用帳戶中的 ExpressRoute 線路，則無法自動移轉。 此类情况下，请删除 ExpressRoute 网关、迁移虚拟网络并重新创建网关。 如需相關步驟和詳細資訊，請參閱[將 ExpressRoute 線路和相關聯的虛擬網路從傳統部署模型移轉至 Resource Manager 部署模型](../../expressroute/expressroute-migration-classic-resource-manager.md)。
+>如果 ExpressRoute 閘道連線至另一個訂用帳戶中的 ExpressRoute 線路，則無法自動移轉。 在這種情況下，請移除 ExpressRoute 閘道，移轉虛擬網路，然後重新建立閘道。 如需相關步驟和詳細資訊，請參閱[將 ExpressRoute 線路和相關聯的虛擬網路從傳統部署模型移轉至 Resource Manager 部署模型](../../expressroute/expressroute-migration-classic-resource-manager.md)。
 > 
 > 
 
@@ -70,7 +70,7 @@ ms.locfileid: "60543136"
 
     azure provider register Microsoft.ClassicInfrastructureMigrate
 
-請等候 5 分鐘讓註冊完成。 您可以使用下列命令來檢查核准狀態。 请确保在继续操作之前，RegistrationState 为 `Registered` 。
+請等候 5 分鐘讓註冊完成。 您可以使用下列命令來檢查核准狀態。 請先確定 RegistrationState 是 `Registered` ，再繼續進行。
 
     azure provider show Microsoft.ClassicInfrastructureMigrate
 
@@ -105,13 +105,13 @@ azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 
     azure service show <serviceName> -vv
 
-首先，使用以下命令验证用户是否可以迁移云服务：
+首先，請使用下列命令來驗證您是否可以移轉雲端服務︰
 
 ```shell
 azure service deployment validate-migration <serviceName> <deploymentName> new "" "" ""
 ```
 
-準備好雲端服務中的虛擬機器以進行移轉。 可以从两个选项中进行选择。
+準備好雲端服務中的虛擬機器以進行移轉。 有兩個選項可供您選擇。
 
 如果您想要將 VM 移轉至平台建立的虛擬網路，請使用下列命令。
 
@@ -125,7 +125,7 @@ azure service deployment validate-migration <serviceName> <deploymentName> new "
 
     azure vm show <vmName> -vv
 
-使用 CLI 或 Azure 入口網站來檢查已備妥之資源的組態。 如果尚未做好迁移准备，因此想要回到旧的状态，请使用以下命令。
+使用 CLI 或 Azure 入口網站來檢查已備妥之資源的組態。 如果您尚未準備好進行移轉，而想要回到舊狀態，請使用下列命令。
 
     azure service deployment abort-migration <serviceName> <deploymentName>
 
@@ -146,7 +146,7 @@ azure service deployment validate-migration <serviceName> <deploymentName> new "
 
 ![將整個虛擬網路名稱醒目提示的命令列螢幕擷取畫面。](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
-在上面的示例中，**virtualNetworkName** 是完整名称 **"Group classicubuntu16 classicubuntu16"**。
+在上述範例中，**virtualNetworkName** 是 **"Group classicubuntu16 classicubuntu16"** 這整個名稱。
 
 首先，請使用下列命令來驗證您是否可以移轉虛擬網路︰
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: heidist
 ms.openlocfilehash: 8f07468ccff4431e1afdf66aedc72599ddc0c25b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60194269"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>使用 PowerShell 管理 Azure 搜尋服務
@@ -50,7 +50,7 @@ PowerShell 無法用來變更名稱、 區域或您的服務層中。 建立服�
 
 ### <a name="powershell-version-check-51-or-later"></a>PowerShell 版本檢查 （5.1 或更新版本）
 
-5.1 或更新版本，在任何支援的作業系統上，必須是本機的 PowerShell。
+5\.1 或更新版本，在任何支援的作業系統上，必須是本機的 PowerShell。
 
 ```azurepowershell-interactive
 $PSVersionTable.PSVersion

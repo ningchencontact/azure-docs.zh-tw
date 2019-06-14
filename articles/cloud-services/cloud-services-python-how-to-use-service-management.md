@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
 ms.openlocfilehash: 573c6d3ded8fea58e0c9ba1afa7da2d8dd0fce91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60525535"
 ---
 # <a name="use-service-management-from-python"></a>從 Python 使用服務管理
@@ -54,7 +54,7 @@ ms.locfileid: "60525535"
 
 如需有關 Azure 憑證的詳細資訊，請參閱 [Azure 雲端服務的憑證概觀](cloud-services-certs-create.md)。 如需 OpenSSL 參數的完整說明，請參閱 [https://www.openssl.org/docs/apps/openssl.html](https://www.openssl.org/docs/apps/openssl.html) 上的文件。
 
-建立這些檔案之後，請將 `.cer` 檔案上傳到 Azure。 在 [Azure 入口網站][management-portal]中的 [設定] 索引標籤上，選取 [上傳]。 請記下您儲存 `.pem` 檔案的位置。
+建立這些檔案之後，請將 `.cer` 檔案上傳到 Azure。 在 [Azure 入口網站][management-portal]中的 [設定]  索引標籤上，選取 [上傳]  。 請記下您儲存 `.pem` 檔案的位置。
 
 在您取得訂用帳戶 ID 之後，請建立憑證，然後將 `.cer` 檔案上傳到 Azure，連線到 Azure 管理端點。 請將訂用帳戶 ID 和 `.pem` 檔案的路徑傳遞給 **ServiceManagementService** 來進行連線。
 
@@ -73,11 +73,11 @@ ms.locfileid: "60525535"
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-此命令會建立 `.cer` 檔案，並將其安裝在 [個人] 憑證存放區中。 如需詳細資訊，請參閱 [Azure 雲端服務的憑證概觀](cloud-services-certs-create.md)。
+此命令會建立 `.cer` 檔案，並將其安裝在 [個人]  憑證存放區中。 如需詳細資訊，請參閱 [Azure 雲端服務的憑證概觀](cloud-services-certs-create.md)。
 
-建立憑證之後，請將 `.cer` 檔案上傳到 Azure。 在 [Azure 入口網站][management-portal]中的 [設定] 索引標籤上，選取 [上傳]。
+建立憑證之後，請將 `.cer` 檔案上傳到 Azure。 在 [Azure 入口網站][management-portal]中的 [設定]  索引標籤上，選取 [上傳]  。
 
-在您取得訂用帳戶 ID 之後，請建立憑證，然後將 `.cer` 檔案上傳到 Azure，連線到 Azure 管理端點。 將訂用帳戶 ID 和您 [個人] 憑證存放區中憑證的位置傳遞給 **ServiceManagementService** (同樣地，將 *AzureCertificate* 取代為您憑證的名稱) 來進行連線。
+在您取得訂用帳戶 ID 之後，請建立憑證，然後將 `.cer` 檔案上傳到 Azure，連線到 Azure 管理端點。 將訂用帳戶 ID 和您 [個人]  憑證存放區中憑證的位置傳遞給 **ServiceManagementService** (同樣地，將 *AzureCertificate* 取代為您憑證的名稱) 來進行連線。
 
     from azure import *
     from azure.servicemanagement import *
@@ -119,7 +119,7 @@ ms.locfileid: "60525535"
 * 澳大利亞東南部
 
 ## <a name="CreateCloudService"> </a>建立雲端服務
-當您建立應用程式並在 Azure 中執行它時，其程式碼和設定合稱為 Azure [雲端服務][cloud service]。 (在舊版的 Azure 中稱為「託管服務」)。您可以使用 **create\_hosted\_service** 方法來建立新的託管服務。 請提供託管服務名稱 (在 Azure 中必須是唯一的)、標籤 (自動編碼為 base64)、描述及位置來建立此服務。
+當您建立應用程式並在 Azure 中執行它時，其程式碼和設定合稱為 Azure [雲端服務][cloud service]。 (在舊版的 Azure 中稱為「託管服務」  )。您可以使用 **create\_hosted\_service** 方法來建立新的託管服務。 請提供託管服務名稱 (在 Azure 中必須是唯一的)、標籤 (自動編碼為 base64)、描述及位置來建立此服務。
 
     from azure import *
     from azure.servicemanagement import *

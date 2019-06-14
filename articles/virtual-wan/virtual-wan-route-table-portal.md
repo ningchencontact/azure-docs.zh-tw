@@ -9,10 +9,10 @@ ms.date: 03/27/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
 ms.openlocfilehash: 2c8b3b4671fd14f9b10b8491861ae2c652f0188b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60461649"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>建立 Nva 虛擬 WAN 的中樞路由表：Azure 入口網站
@@ -67,12 +67,12 @@ ms.locfileid: "60461649"
 
 使用中樞的路由表更新中樞。 基於此練習的目的，您可以使用下列值：
 
-* **間接的輪輻 VNet 位址空間：**（VNet1 和 VNet2） 10.0.2.0/24 和 10.0.3.0/24
+* **間接的輪輻 VNet 位址空間：** （VNet1 和 VNet2） 10.0.2.0/24 和 10.0.3.0/24
 * **DMZ NVA 網路介面私人 IP 位址：** 10.0.4.5
 
 1. 瀏覽至您的虛擬 WAN。
 2. 按一下您要建立的路由表的中樞。
-3. 按一下  **...**，然後按一下**編輯虛擬中樞**。
+3. 按一下  **...** ，然後按一下**編輯虛擬中樞**。
 4. 在 **編輯虛擬集線器**頁面上，向下捲動並選取核取方塊**路由使用資料表**。
 5. 在 [**目的地前置詞是否**] 欄中，新增位址空間。 在 [**傳送至下一個躍點**] 欄中，新增 DMZ NVA 網路介面私人 IP 位址。
 6. 按一下 **確認**中樞資源以設定來更新路由表。
@@ -91,15 +91,15 @@ ms.locfileid: "60461649"
 
 針對每個您想要連線的 VNet 中重複下列程序。
 
-1. 在虛擬 WAN 頁面上，按一下 [虛擬網路連線]。
-2. 在 [虛擬網路連線] 頁面上，按一下 [+ 新增連線]。
-3. 在 [新增連線] 頁面上，填寫下列欄位︰
+1. 在虛擬 WAN 頁面上，按一下 [虛擬網路連線]  。
+2. 在 [虛擬網路連線] 頁面上，按一下 [+ 新增連線]  。
+3. 在 [新增連線]  頁面上，填寫下列欄位︰
 
     * **名稱** - 為您的連線命名。
     * **中樞** - 選取要與此連線產生關聯的中樞。
     * **訂用帳戶** - 請確認訂用帳戶。
     * **虛擬網路** - 選取要與此中樞連線的虛擬網路。 虛擬網路不能有現有的虛擬網路閘道。
-4. 按一下 [確定] 來建立連線。
+4. 按一下 [確定]  來建立連線。
 
 ## <a name="next-steps"></a>後續步驟
 

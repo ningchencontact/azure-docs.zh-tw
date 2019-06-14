@@ -13,10 +13,10 @@ ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: e76b5ecd3d6401c317f6500ec376fc25d3fa55b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331123"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>如何使用批次處理來改善 SQL Database 應用程式效能
@@ -105,7 +105,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Azure 至 Azure (相同資料中心)**：
+**Azure 至 Azure (相同資料中心)** ：
 
 | 作業 | 無交易 (毫秒) | 交易 (毫秒) |
 | --- | --- | --- |

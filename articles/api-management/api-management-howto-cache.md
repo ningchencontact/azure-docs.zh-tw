@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: a0459eb67b5a79219e556cb03473a5ddf691b49d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60527463"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>新增快取以改善 Azure API 管理的效能
@@ -38,7 +38,7 @@ ms.locfileid: "60527463"
 ## <a name="availability"></a>可用性
 
 > [!NOTE]
-> 內部快取不適用於 Azure API 管理的 [耗用量] 層。 您可以[改用外部 Azure Redis 快取](api-management-howto-cache-external.md)。
+> 內部快取不適用於 Azure API 管理的 [耗用量]  層。 您可以[改用外部 Azure Redis 快取](api-management-howto-cache-external.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -53,11 +53,11 @@ ms.locfileid: "60527463"
 
 1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 2. 瀏覽至您的 APIM 執行個體。
-3. 選取 [API] 索引標籤。
-4. 按一下 API 清單中的 [示範會議 API]。
+3. 選取 [API]  索引標籤。
+4. 按一下 API 清單中的 [示範會議 API]  。
 5. 選取 **GetSpeakers**。
-6. 選取畫面頂端的 [設計] 索引標籤。
-7. 在 [輸入處理] 區段中，按一下 **</>** 圖示。
+6. 選取畫面頂端的 [設計]  索引標籤。
+7. 在 [輸入處理]  區段中，按一下 **</>** 圖示。
 
     ![程式碼編輯器](media/api-management-howto-cache/code-editor.png)
 
@@ -73,7 +73,7 @@ ms.locfileid: "60527463"
 
         <cache-store caching-mode="cache-on" duration="20" />
 
-    [持續期間] 指定快取回應的到期間隔。 在本範例中，間隔為 **20** 秒。
+    [持續期間]  指定快取回應的到期間隔。 在本範例中，間隔為 **20** 秒。
 
 > [!TIP]
 > 如果您使用外部快取 (如[在 Azure API 管理中使用外部 Azure Redis 快取](api-management-howto-cache-external.md)所述)，則可以指定快取原則的 `caching-type` 屬性。 如需詳細資訊，請參閱 [API 管理快取原則](api-management-caching-policies.md)。
@@ -82,11 +82,11 @@ ms.locfileid: "60527463"
 若要瞭解快取的運作方式，請從開發人員入口網站呼叫此作業。
 
 1. 在 Azure 入口網站中，瀏覽至您的 APIM 執行個體。
-2. 選取 [API] 索引標籤。
+2. 選取 [API]  索引標籤。
 3. 選取您已新增快取原則的 API。
 4. 選取 **GetSpeakers** 作業。
-5. 按一下右上方功能表中的 [測試] 索引標籤。
-6. 按 [傳送]。
+5. 按一下右上方功能表中的 [測試]  索引標籤。
+6. 按 [傳送]  。
 
 ## <a name="next-steps"> </a>後續步驟
 * 如需快取原則的詳細資訊，請參閱 [API 管理原則參考文件][API Management policy reference]中的[快取原則][Caching policies]。

@@ -15,16 +15,16 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: d9d9e68b7e74ba7725e97162d01e1a35314fdd0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60564576"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>教學課程：使用 Hadoop 叢集建置第一個管線來轉換資料
 > [!div class="op_single_selector"]
 > * [概觀和必要條件](data-factory-build-your-first-pipeline.md)
-> * [Azure 门户](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Azure 入口網站](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager 範本](data-factory-build-your-first-pipeline-using-arm.md)
@@ -32,7 +32,7 @@ ms.locfileid: "60564576"
 
 
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[快速入門：使用 Azure Data Factory 建立資料處理站](../quickstart-create-data-factory-dot-net.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[快速入門：使用 Azure Data Factory 建立資料處理站](../quickstart-create-data-factory-dot-net.md)。
 
 在本教學課程中，您會使用資料管線建立您的第一個 Azure Data Factory。 管線藉由在 Azure HDInsight (Hadoop) 叢集上執行 Hive 指令碼，來將輸入資料轉換成輸出資料。  
 
@@ -88,12 +88,12 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 3. 下載並檢閱位於下列位置的 Hive 查詢檔案 (**HQL**)：[https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql)。 這個查詢會轉換輸入資料並產生輸出資料。 
 4. 下載並檢閱位於下列位置的範例輸入檔案 (**input.log**)：[https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. 在您的 Azure Blob 儲存體中建立名為 **adfgetstarted** 的 Blob 容器。 
-6. 將 **partitionweblogs.hql** 檔案上傳到 **adfgetstarted** 容器的 [script] 資料夾中。 使用類似 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)的工具。 
-7. 將 **input.log** 檔案上傳到 **adfgetstarted** 容器中的 [inputdata] 資料夾。 
+6. 將 **partitionweblogs.hql** 檔案上傳到 **adfgetstarted** 容器的 [script]  資料夾中。 使用類似 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)的工具。 
+7. 將 **input.log** 檔案上傳到 **adfgetstarted** 容器中的 [inputdata]  資料夾。 
 
 完成必要條件之後，選取下列其中一個工具/SDK 來進行教學課程： 
 
-- [Azure 门户](data-factory-build-your-first-pipeline-using-editor.md)
+- [Azure 入口網站](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager 範本](data-factory-build-your-first-pipeline-using-arm.md)

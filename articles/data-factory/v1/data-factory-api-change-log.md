@@ -15,15 +15,15 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 863f3500c84eeab1c3dac19141cd334fc6961694
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567243"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - .NET API 變更記錄
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 
+> 本文適用於 Data Factory 第 1 版。 
 
 本文章提供 Azure Data Factory SDK 在特定版本中有何變更的相關資訊。 您可以在 [這裡](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
 
@@ -73,18 +73,18 @@ ms.locfileid: "60567243"
   * [ParallelCopies](https://msdn.microsoft.com/library/mt767910.aspx)
   * [CloudDataMovementUnits](https://msdn.microsoft.com/library/mt767912.aspx)
 
-## <a name="version-470"></a>4.7.0 版
+## <a name="version-470"></a>4\.7.0 版
 ### <a name="feature-additions"></a>新增功能
 * 加入了新的 StorageFormat 類型 [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) 類型，可用來複製最佳化資料列單欄式 (ORC) 格式的檔案。
 * 為 SqlDWSink 新增 [AllowPolyBase](https://msdn.microsoft.com/library/mt723396.aspx) 和 PolyBaseSettings 屬性。
   * 允許使用 PolyBase 將資料複製到「SQL 資料倉儲」。
 
-## <a name="version-461"></a>4.6.1 版
+## <a name="version-461"></a>4\.6.1 版
 ### <a name="bug-fixes"></a>錯誤修正
 * 修正用於列出活動時段的 HTTP 要求。
   * 從要求承載移除資源群組名稱和 Data Factory 名稱。
 
-## <a name="version-460"></a>4.6.0 版
+## <a name="version-460"></a>4\.6.0 版
 ### <a name="feature-additions"></a>新增功能
 * 下列屬性已新增至 [PipelineProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties_properties.aspx)：
   * [PipelineMode](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.pipelinemode.aspx)
@@ -94,7 +94,7 @@ ms.locfileid: "60567243"
   * [PipelineState](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
 * 加入了新的 [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) 類型 [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) 類型，可用來定義資料採用 JSON 格式的資料集。
 
-## <a name="version-450"></a>4.5.0 版
+## <a name="version-450"></a>4\.5.0 版
 ### <a name="feature-additions"></a>新增功能
 * 加入了 [活動時段的清單作業](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.activitywindowoperationsextensions.aspx)。
   * 已根據實體類型 (即資料處理站、資料集、管線和活動)，加入了擷取有篩選器活動視窗的方法。
@@ -105,25 +105,25 @@ ms.locfileid: "60567243"
 * 已加入下列複製來源類型：     
   * [WebSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.websource.aspx)
 
-## <a name="version-440"></a>4.4.0 版
+## <a name="version-440"></a>4\.4.0 版
 ### <a name="feature-additions"></a>新增功能
 * 已新增下列連結服務類型來做為複製活動的資料來源和接收器：
   * [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx)。 如需概念性資訊和範例，請參閱 [Azure 儲存體 SAS 連結服務](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 。
 
-## <a name="version-430"></a>4.3.0 版
+## <a name="version-430"></a>4\.3.0 版
 ### <a name="feature-additions"></a>新增功能
 * 已新增下列連結服務類型來做為複製活動的資料來源：
   * [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx)。 如需概念性資訊和範例，請參閱 [使用 Data Factory 從 HDFS 移動資料](data-factory-hdfs-connector.md) 。
   * [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx)。 如需概念性資訊和範例，請參閱 [使用 Azure Data Factory 從 ODBC 資料存放區移動資料](data-factory-odbc-connector.md) 。
 
-## <a name="version-420"></a>4.2.0 版
+## <a name="version-420"></a>4\.2.0 版
 ### <a name="feature-additions"></a>新增功能
 * 已新增下列新的活動類型：[AzureMLUpdateResourceActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremlupdateresourceactivity.aspx)。 如需有關活動的詳細資訊，請參閱[使用更新資源活動更新 Azure ML 模型](data-factory-azure-ml-batch-execution-activity.md)。
 * 新的選擇性屬性 [updateResourceEndpoint](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.updateresourceendpoint.aspx) 已加入至 [AzureMLLinkedService 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.aspx)。
 * [LongRunningOperationInitialTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationinitialtimeout.aspx) 和 [LongRunningOperationRetryTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationretrytimeout.aspx) 屬性已加入至 [DataFactoryManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.aspx) 類別。
 * 允許設定用戶端呼叫 Data Factory 服務的逾時值。
 
-## <a name="version-410"></a>4.1.0 版
+## <a name="version-410"></a>4\.1.0 版
 ### <a name="feature-additions"></a>新增功能
 * 已加入下列連結服務類型：
   * [AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)
@@ -136,11 +136,11 @@ ms.locfileid: "60567243"
   * [AzureDataLakeStoreSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresource.aspx)
   * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
 
-## <a name="version-401"></a>4.0.1 版
+## <a name="version-401"></a>4\.0.1 版
 ### <a name="breaking-changes"></a>重大變更
 下列類別已重新命名。 新的名稱是 4.0.0 版之前的原始類別名稱。
 
-| 4.0.0 中的名稱 | 4.0.1 中的名稱 |
+| 4\.0.0 中的名稱 | 4\.0.1 中的名稱 |
 |:--- |:--- |
 | AzureSqlDataWarehouseDataset |[AzureSqlDataWarehouseTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuresqldatawarehousetabledataset.aspx) |
 | AzureSqlDataset |[AzureSqlTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuresqltabledataset.aspx) |
@@ -149,7 +149,7 @@ ms.locfileid: "60567243"
 | RelationalDataset |[RelationalTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.relationaltabledataset.aspx) |
 | SqlServerDataset |[SqlServerTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.sqlservertabledataset.aspx) |
 
-## <a name="version-400"></a>4.0.0 版
+## <a name="version-400"></a>4\.0.0 版
 ### <a name="breaking-changes"></a>重大變更
 * 下列類別/介面已重新命名。
 

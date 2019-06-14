@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
 ms.openlocfilehash: fd9902a83a813daffc52e089e6e8bfc4137c5b8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60656623"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>在 Azure API 管理中修改開發人員入口網站的頁面內容和配置
@@ -46,12 +46,12 @@ ms.locfileid: "60656623"
 
 您可以從 Azure 入口網站存取開發人員入口網站。
 
-1. 從 API 管理執行個體的工具列中按一下 [開發人員入口網站]。
-2. 若要編輯小工具的內容，請從左側的 [開發人員入口網站] 功能表中按一下由兩個筆刷所組成的圖示。
-3. 若要修改標頭內容，請捲動到左側清單中的 [標頭] 區段。
+1. 從 API 管理執行個體的工具列中按一下 [開發人員入口網站]  。
+2. 若要編輯小工具的內容，請從左側的 [開發人員入口網站]  功能表中按一下由兩個筆刷所組成的圖示。
+3. 若要修改標頭內容，請捲動到左側清單中的 [標頭]  區段。
 
     您可以從欄位中編輯小工具。
-4. 當您準備好發佈變更時，請按一下頁面底部的 [發佈]。
+4. 當您準備好發佈變更時，請按一下頁面底部的 [發佈]  。
 
 現在，您應該會在開發人員入口網站內的每個頁面上看到新的頁首。
 

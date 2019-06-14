@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60617915"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>檢視及下載您 Microsoft Azure 發票
@@ -38,11 +38,11 @@ ms.locfileid: "60617915"
 
 1. 選取您的訂用帳戶，從[訂用帳戶頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)在 Azure 入口網站中為[具有發票存取權的使用者](billing-manage-access.md)。
 
-2. 選取 [發票]。
+2. 選取 [發票]  。
 
     ![顯示 [帳單和使用量] 選項的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
 
-3. 按 [下載發票] 以檢視 PDF 發票的副本。 如果它顯示**無法使用**，請參閱[為什麼我沒有看到上期的發票？](#noinvoice)
+3. 按 [下載發票]  以檢視 PDF 發票的副本。 如果它顯示**無法使用**，請參閱[為什麼我沒有看到上期的發票？](#noinvoice)
 
     ![顯示計費期間、下載發票和每個計費期間總費用的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/billing4.png)
 
@@ -55,9 +55,9 @@ ms.locfileid: "60617915"
 為每個會產生發票[帳單設定檔](billing-mca-overview.md#understand-billing-profiles)Microsoft 客戶合約。 您必須是帳單設定檔擁有者、 參與者、 讀取器或管理員從 Azure 入口網站下載發票的發票。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 針對 [成本管理 + 帳單] 進行搜尋。
+1. 針對 [成本管理 + 帳單]  進行搜尋。
 1. 選取計費的設定檔。 根據您的存取權，您可能需要先選取計費帳戶。
-1. 選取 [發票]。
+1. 選取 [發票]  。
 1. 在發票方格中，尋找您想要下載發票的資料列。
 1. 按一下省略符號 (`...`) 結尾的資料列。
     ![顯示的資料列結尾的省略符號的螢幕擷取畫面](./media/billing-download-azure-invoice/billingprofile-invoicegrid.png)
@@ -73,11 +73,11 @@ ms.locfileid: "60617915"
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>電子郵件中取得您訂用帳戶的發票
 
-1. 在[訂用帳戶頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)中，選取您的訂用帳戶。 針對您擁有的每個訂用帳戶選擇加入。 依序按一下 [發票] 和 [以電子郵件寄送我的發票]。
+1. 在[訂用帳戶頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)中，選取您的訂用帳戶。 針對您擁有的每個訂用帳戶選擇加入。 依序按一下 [發票]  和 [以電子郵件寄送我的發票]  。
 
     ![顯示選擇加入流程的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
 
-2. 按一下 [選擇加入] 並接受條款。
+2. 按一下 [選擇加入]  並接受條款。
 
     ![顯示加入流程步驟 2 的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
  
@@ -98,15 +98,15 @@ ms.locfileid: "60617915"
 如果您有 Microsoft 客戶合約時，您可以選擇在以電子郵件取得發票。 所有計費的設定檔擁有者、 參與者、 讀者和發票管理員會透過電子郵件取得發票。 讀取器無法更新電子郵件發票喜好設定。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 針對 [成本管理 + 帳單] 進行搜尋。
+1. 針對 [成本管理 + 帳單]  進行搜尋。
 1. 選取計費的設定檔。 根據您的存取權，您可能需要先選取計費帳戶。
-1. 在 [設定] 下方，選取 [屬性]。
+1. 在 [設定]  下方，選取 [屬性]  。
 1. 底下**電子郵件發票**，選取**更新電子郵件發票喜好設定**。
 
     ![螢幕擷取畫面，顯示電子郵件發票內容](./media/billing-download-azure-invoice/billingprofile-email.png)
 
 1. 選取 **參加**。
-1. 按一下 [更新] 。
+1. 按一下 [更新]  。
 
 ### <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>退出以電子郵件中取得您的 Microsoft 客戶合約發票
 

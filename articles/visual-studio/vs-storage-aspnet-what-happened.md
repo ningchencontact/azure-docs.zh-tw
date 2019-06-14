@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: e0e065b23581f297ee4ae2288a6e437da461a19f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60362096"
 ---
 # <a name="what-happened-to-my-aspnet-project-visual-studio-azure-storage-connected-service"></a>我的 ASP.NET 專案 (Visual Studio Azure 儲存體連接的服務) 發生什麼狀況？
-## <a name="references-added"></a>已添加引用
+## <a name="references-added"></a>加入參考
 Azure 儲存體 NuGet 封裝已加入至 Visual Studio 專案。  
 這個封裝會加入下列 .NET 參考：
 

@@ -17,10 +17,10 @@ ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
 ms.openlocfilehash: e773fdcb031f0f8f896ea40d76231fd54a603dc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60328794"
 ---
 # <a name="configure-software-raid-on-linux"></a>在 Linux 上設定軟體 RAID
@@ -150,7 +150,7 @@ ms.locfileid: "60328794"
 > [!IMPORTANT]
 > 不當編輯 /etc/fstab 檔案會導致系統無法開機。 如果不確定，請參閱散發套件的文件，以取得如何適當編輯此檔案的相關資訊。 在編輯之前，也建議先備份 /etc/fstab 檔案。
 
-1. 为新文件系统创建所需的安装点，例如：
+1. 建立新檔案系統所需的掛接點，例如：
 
     ```bash
     sudo mkdir /data
@@ -163,7 +163,7 @@ ms.locfileid: "60328794"
     /dev/md127: UUID="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" TYPE="ext4"
     ```
 
-1. 在文本编辑器中打开 /etc/fstab，并为新文件系统添加条目，例如：
+1. 在文字編輯器中開啟 /etc/fstab，並為新檔案系統新增項目，例如：
 
     ```bash   
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
@@ -220,7 +220,7 @@ ms.locfileid: "60328794"
 
 有兩種方式可在 Linux VM 中啟用 TRIM 支援。 像往常一樣，請參閱您的散發套件以了解建議的方法︰
 
-- 在 `/etc/fstab` 中使用 `discard` 装载选项，例如：
+- 在 `/etc/fstab` 中使用 `discard` 掛接選項，例如：
 
     ```bash
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2

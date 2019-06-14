@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24bf8e7cf103d583cf6604e0c529ad4ea267ce84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60471701"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>使用群組來管理 Azure Active Directory 授權的案例、限制及已知問題
@@ -28,7 +28,7 @@ ms.locfileid: "60471701"
 
 ## <a name="usage-location"></a>使用位置
 
-並非所有位置都可使用某些 Microsoft 服務。 系統管理員必須指定使用者的 [使用位置]屬性，才能將授權指派給使用者。 您可以在 [Azure 入口網站](https://portal.azure.com)的 [使用者] &gt; [設定檔] &gt; [設定] 中指定。
+並非所有位置都可使用某些 Microsoft 服務。 系統管理員必須指定使用者的 [使用位置]  屬性，才能將授權指派給使用者。 您可以在 [Azure 入口網站](https://portal.azure.com)的 [使用者]  &gt; [設定檔]  &gt; [設定]  中指定。
 
 如果是群組授權指派，未指定使用位置的任何使用者會繼承目錄的位置。 如果您在多個位置有使用者，請確定先在使用者物件中正確反映，然後再將使用者新增至具有授權的群組。
 
@@ -70,13 +70,13 @@ ms.locfileid: "60471701"
 
 使用者可以是多個具有授權之群組的成員。 以下是要考量的一些事項：
 
-- 相同產品的多個授權可能重疊，導致所有已啟用的服務套用至使用者。 下列範例顯示兩個授權群組︰「E3 基本服務」包含最先部署給所有使用者的基礎服務。 「E3 擴充服務」包含只部署給某些使用者的其他服務 (Sway 和 Planner)。 在此範例中，已將使用者新增至這兩個群組︰
+- 相同產品的多個授權可能重疊，導致所有已啟用的服務套用至使用者。 下列範例顯示兩個授權群組︰「E3 基本服務」  包含最先部署給所有使用者的基礎服務。 「E3 擴充服務」  包含只部署給某些使用者的其他服務 (Sway 和 Planner)。 在此範例中，已將使用者新增至這兩個群組︰
 
   ![已啟用服務的螢幕擷取畫面](./media/licensing-group-advanced/view-enabled-services.png)
 
   因此，使用者在產品的 12 項服務中已啟用 7 項，但只對此產品使用一個授權。
 
-- 選取 E3 授權會顯示更多詳細資訊，包括哪些群組造成對使用者啟用什麼服務的相關資訊。
+- 選取 E3  授權會顯示更多詳細資訊，包括哪些群組造成對使用者啟用什麼服務的相關資訊。
 
   ![依群組啟用服務的螢幕擷取畫面](./media/licensing-group-advanced/view-enabled-service-by-group.png)
 
@@ -88,11 +88,11 @@ ms.locfileid: "60471701"
 
 可以移除直接指派的授權，而不會影響繼承的授權。 假設使用者從群組繼承 Office 365 企業版 E3 授權。
 
-1. 一開始，使用者只從「E3 基本服務」群組繼承授權，以啟用四個服務方案，如下所示：
+1. 一開始，使用者只從「E3 基本服務」  群組繼承授權，以啟用四個服務方案，如下所示：
 
    ![E3 群組啟用的服務的螢幕擷取畫面](./media/licensing-group-advanced/e3-group-enabled-services.png)
 
-2. 您可以選取 [指派]，直接將 E3 授權指派給使用者。 在此案例中，您準備停用 Yammer Enterprise 以外的所有服務方案：
+2. 您可以選取 [指派]  ，直接將 E3 授權指派給使用者。 在此案例中，您準備停用 Yammer Enterprise 以外的所有服務方案：
 
    ![如何直接將授權指派給使用者的螢幕擷取畫面](./media/licensing-group-advanced/assign-license-to-user.png)
 
@@ -102,9 +102,9 @@ ms.locfileid: "60471701"
 
 4. 使用直接指派時允許下列作業︰
 
-   - 可以直接在使用者物件上關閉 Yammer Enterprise。 在圖中，這項服務已啟用 [開啟/關閉] 切換，不同於其他服務切換。 因為此服務直接在使用者上啟用，所以可以修改。
+   - 可以直接在使用者物件上關閉 Yammer Enterprise。 在圖中，這項服務已啟用 [開啟/關閉]  切換，不同於其他服務切換。 因為此服務直接在使用者上啟用，所以可以修改。
    - 其他服務也可啟用，做為直接指派授權的一部分。
-   - [移除] 按鈕可用來移除使用者的直接授權。 您可以看到使用者現在只有繼承的群組授權，且只有原始服務保持啟用：
+   - [移除]  按鈕可用來移除使用者的直接授權。 您可以看到使用者現在只有繼承的群組授權，且只有原始服務保持啟用：
 
      ![顯示如何移除直接指派的螢幕擷取畫面](./media/licensing-group-advanced/remove-direct-license.png)
 
@@ -115,19 +115,19 @@ ms.locfileid: "60471701"
 
 此程序可能如下所示：
 
-1. 您一開始將 *Office 365 企業版 E5* 產品指派給數個群組。 其中一個群組稱為「O365 E5 - 僅 Exchange」，設計成只會為其成員啟用 [Exchange Online (方案 2)] 服務。
+1. 您一開始將 *Office 365 企業版 E5* 產品指派給數個群組。 其中一個群組稱為「O365 E5 - 僅 Exchange」  ，設計成只會為其成員啟用 [Exchange Online (方案 2)]  服務。
 
 2. 您收到來自 Microsoft 的通知，指出 E5 產品將透過新服務 *Microsoft Stream* 擴充。 當此服務在您的租用戶中可供使用時，您可以執行下列動作：
 
-3. 移至 [[Azure Active Directory] > [授權] > [所有產品]](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 刀鋒視窗並選取 [Office 365 企業版 E5]，然後選取 [經過授權的群組] 以檢視該產品的所有群組清單。
+3. 移至 [[Azure Active Directory] > [授權] > [所有產品]  ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 刀鋒視窗並選取 [Office 365 企業版 E5]  ，然後選取 [經過授權的群組]  以檢視該產品的所有群組清單。
 
-4. 按一下您要檢閱的群組 (在本例中為「O365 E5 - 僅 Exchange」)。 這會開啟 [授權] 索引標籤。按一下 E5 授權會開啟刀鋒視窗，其中列出所有已啟用的服務。
+4. 按一下您要檢閱的群組 (在本例中為「O365 E5 - 僅 Exchange」  )。 這會開啟 [授權]  索引標籤。按一下 E5 授權會開啟刀鋒視窗，其中列出所有已啟用的服務。
    > [!NOTE]
    > 在此群組中，除了 *Exchange Online* 服務，還會自動新增並啟用 *Microsoft Stream* 服務：
 
    ![新增至群組授權的新服務螢幕擷取畫面](./media/licensing-group-advanced/manage-new-services.png)
 
-5. 如果您想要停用此群組中的新服務，請按一下服務旁的 [開啟/關閉] 切換，然後按一下 [儲存] 按鈕以確認變更。 Azure AD 現在會處理群組中的所有使用者以套用變更；新增至群組的任何新使用者都不會啟用*Microsoft Stream*服務。
+5. 如果您想要停用此群組中的新服務，請按一下服務旁的 [開啟/關閉]  切換，然後按一下 [儲存]  按鈕以確認變更。 Azure AD 現在會處理群組中的所有使用者以套用變更；新增至群組的任何新使用者都不會啟用*Microsoft Stream*服務。
 
    > [!NOTE]
    > 使用者仍然可以透過其他授權指派 (使用者所屬的另一個群組或直接授權指派) 啟用服務。
@@ -153,16 +153,16 @@ ms.locfileid: "60471701"
 - 由於群組授權指派而對使用者做了哪些授權變更。
 
 >[!NOTE]
-> 入口網站之 [Azure Active Directory] 區段中的大部分刀鋒視窗都有提供稽核記錄。 根據您存取記錄的位置，可能會預先套用篩選，僅顯示與刀鋒視窗內容相關的活動。 如果您沒有看到預期的結果，請檢查[篩選選項](../reports-monitoring/concept-audit-logs.md#filtering-audit-logs)，或在 [[Azure Active Directory] > [活動] > [稽核記錄]](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit) 下存取未篩選的稽核記錄。
+> 入口網站之 [Azure Active Directory] 區段中的大部分刀鋒視窗都有提供稽核記錄。 根據您存取記錄的位置，可能會預先套用篩選，僅顯示與刀鋒視窗內容相關的活動。 如果您沒有看到預期的結果，請檢查[篩選選項](../reports-monitoring/concept-audit-logs.md#filtering-audit-logs)，或在 [[Azure Active Directory] > [活動] > [稽核記錄]  ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit) 下存取未篩選的稽核記錄。
 
 ### <a name="find-out-who-modified-a-group-license"></a>了解哪些人修改了群組授權
 
-1. 將 [活動] 篩選設定為 [設定群組授權]，然後按一下 [套用]。
+1. 將 [活動]  篩選設定為 [設定群組授權]  ，然後按一下 [套用]  。
 2. 結果會包含在群組上設定或修改的所有授權案例。
    >[!TIP]
-   > 您也可以在 [目標] 篩選中鍵入群組名稱來限定結果範圍。
+   > 您也可以在 [目標]  篩選中鍵入群組名稱來限定結果範圍。
 
-3. 按一下清單檢視中的項目來查看已變更內容的詳細資料。 在 [已修改的屬性] 下會同時列出授權指派的新舊值。
+3. 按一下清單檢視中的項目來查看已變更內容的詳細資料。 在 [已修改的屬性]  下會同時列出授權指派的新舊值。
 
 下列範例顯示最近的群組授權變更，並提供詳細資料：
 
@@ -172,13 +172,13 @@ ms.locfileid: "60471701"
 
 當群組變更授權時，Azure AD 會開始將變更套用至所有使用者。
 
-1. 若要查看群組何時開始處理，請將 [活動] 篩選設定為 [開始將群組型授權套用至使用者]。 請注意，此作業的動作項目是「Microsoft Azure AD 群組型授權」，這是用來執行所有群組授權變更的系統帳戶。
+1. 若要查看群組何時開始處理，請將 [活動]  篩選設定為 [開始將群組型授權套用至使用者]  。 請注意，此作業的動作項目是「Microsoft Azure AD 群組型授權」  ，這是用來執行所有群組授權變更的系統帳戶。
    >[!TIP]
-   > 按一下清單中的項目可查看 [已修改的屬性] 欄位，該欄位會顯示為處理所選取的授權變更。 如果您對群組進行多項變更，而且不確定哪項變更已經過處理，這會很有用。
+   > 按一下清單中的項目可查看 [已修改的屬性]  欄位，該欄位會顯示為處理所選取的授權變更。 如果您對群組進行多項變更，而且不確定哪項變更已經過處理，這會很有用。
 
-2. 同樣地，若要查看群組何時完成處理，請使用篩選值 [完成將群組型授權套用至使用者]。
+2. 同樣地，若要查看群組何時完成處理，請使用篩選值 [完成將群組型授權套用至使用者]  。
    > [!TIP]
-   > 在此情況下，[已修改的屬性] 欄位會包含結果的摘要，這項資訊有助於快速檢查處理是否導致任何錯誤。 範例輸出：
+   > 在此情況下，[已修改的屬性]  欄位會包含結果的摘要，這項資訊有助於快速檢查處理是否導致任何錯誤。 範例輸出：
    > ```
    > Modified Properties
    > ...
@@ -188,7 +188,7 @@ ms.locfileid: "60471701"
    > ```
 
 3. 若要查看群組處理方式的完整記錄 (包括所有使用者變更)，請設定下列篩選：
-   - **啟動者 (執行者)**：「Microsoft Azure AD 群組型授權」
+   - **啟動者 (執行者)** ：「Microsoft Azure AD 群組型授權」
    - **日期範圍** (選用)：特定群組開始和完成處理時間的自訂範圍
 
 此範例輸出會顯示開始處理的時間、所有產生的使用者變更，以及完成處理的時間。
@@ -196,7 +196,7 @@ ms.locfileid: "60471701"
 ![群組授權變更的螢幕擷取畫面](./media/licensing-group-advanced/audit-group-processing-log.png)
 
 >[!TIP]
-> 按一下與「變更使用者授權」相關的項目，會顯示套用至每個使用者之授權變更的詳細資料。
+> 按一下與「變更使用者授權」  相關的項目，會顯示套用至每個使用者之授權變更的詳細資料。
 
 ## <a name="deleting-a-group-with-an-assigned-license"></a>刪除含指派授權的群組
 
@@ -204,7 +204,7 @@ ms.locfileid: "60471701"
 
 嘗試在 Azure 入口網站中刪除群組時，您可能會看到如下的錯誤通知：![螢幕擷取畫面群組刪除失敗](./media/licensing-group-advanced/groupdeletionfailed.png)
 
-移至群組 [授權] 索引標籤，並查看是否有任何指派的授權。 如果是，移除這些授權，並試著再次刪除群組。
+移至群組 [授權]  索引標籤，並查看是否有任何指派的授權。 如果是，移除這些授權，並試著再次刪除群組。
 
 嘗試透過 PowerShell 或圖形 API 刪除群組時，您可能會看到類似的錯誤。 如果您使用從內部部署同步的群組，當 Azure AD Connect 無法在 Azure AD 中刪除群組時，可能也會報告錯誤。 在所有情況下，請務必檢查是否有指派給群組的任何授權，並先移除它們。
 
@@ -226,7 +226,7 @@ ms.locfileid: "60471701"
 
 - 授權管理自動化並不會自動對環境中所有類型的變更做出回應。 例如，您可能已用盡授權，導致某些使用者處於錯誤狀態。 若要釋出可用的授權數量，您可以移除其他使用者的一些直接指派授權。 不過，系統不會自動回應這項變更，也不會修正處於該錯誤狀態的使用者。
 
-  若要解決這幾種限制，您可以前往 Azure AD 中的 [群組] 刀鋒視窗，然後按一下 [重新處理]。 此命令會處理該群組中的所有使用者，並解決錯誤狀態 (如果可能)。
+  若要解決這幾種限制，您可以前往 Azure AD 中的 [群組]  刀鋒視窗，然後按一下 [重新處理]  。 此命令會處理該群組中的所有使用者，並解決錯誤狀態 (如果可能)。
 
 ## <a name="next-steps"></a>後續步驟
 

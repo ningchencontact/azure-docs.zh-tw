@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
 ms.openlocfilehash: 7e0e93c82279ec1a4fbecbbf27c7a1866286b2f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587602"
 ---
 # <a name="azure-database-security-overview"></a>Azure 資料庫安全性概觀
@@ -160,7 +160,7 @@ Azure SQL Database 服務只透過 TCP 連接埠 1433 提供。 若要從您的�
 
 ## <a name="proactive-monitoring"></a>主動監視
 
-SQL Database 可透過提供「稽核」和「威脅偵測」功能，協助保護您的資料。
+SQL Database 可透過提供「稽核」  和「威脅偵測」  功能，協助保護您的資料。
 
 ### <a name="auditing"></a>稽核
 

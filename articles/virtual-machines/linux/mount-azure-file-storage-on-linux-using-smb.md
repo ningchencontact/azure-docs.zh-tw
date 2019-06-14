@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
 ms.openlocfilehash: 4b3bba1da5238655ca749f6464c539e53ca48f27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60542776"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>使用 SMB 在 Linux VM 上掛接 Azure 檔案儲存體
@@ -34,7 +34,7 @@ ms.locfileid: "60542776"
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-在「美國東部」位置建立名為 myResourceGroup 的資源群組。
+在「美國東部」  位置建立名為 myResourceGroup  的資源群組。
 
 ```bash
 az group create --name myResourceGroup --location eastus
@@ -72,7 +72,7 @@ STORAGEKEY=$(az storage account keys list \
 
 共用名稱必須全部使用小寫字母、數字和單一連字號，但開頭不可以是連字號。 如需有關為檔案共用與檔案命名的完整詳細資料，請參閱 [命名和參考共用、目錄、檔案及中繼資料](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata)。
 
-此範例會建立名為 myshare 的共用 (具有 10-GiB 配額)。 
+此範例會建立名為 myshare  的共用 (具有 10-GiB 配額)。 
 
 ```bash
 az storage share create --name myshare \

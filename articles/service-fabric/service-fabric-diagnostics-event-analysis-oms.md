@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
 ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393408"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>事件分析和視覺效果，與 Azure 監視器記錄檔
@@ -30,7 +30,7 @@ ms.locfileid: "60393408"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="overview-of-the-log-analytics-workspace"></a>Log Analytics 工作区概述
+## <a name="overview-of-the-log-analytics-workspace"></a>Log Analytics 工作區的概觀
 
 >[!NOTE] 
 >雖然在叢集建立時預設會啟用診斷儲存體，但您仍必須設定 Log Analytics 工作區才能讀取診斷儲存體。
@@ -41,11 +41,11 @@ Azure 監視器記錄檔會收到資料之後，Azure 有數個*監視解決方�
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>存取 Service Fabric 分析解決方案
 
-在 [Azure 门户](https://portal.azure.com)中，转到在其中创建了 Service Fabric 分析解决方案的资源组。
+在  [Azure 入口網站](https://portal.azure.com)，請移至您建立 Service Fabric 分析解決方案所在的資源群組。
 
-選取資源 **ServiceFabric\<nameOfOMSWorkspace\>**。
+選取資源 **ServiceFabric\<nameOfOMSWorkspace\>** 。
 
-在 `Summary` 中，您會看到每一個所啟用解決方案的圖格以圖形形式顯示，其中一個屬於 Service Fabric。 按一下 [Service Fabric] 圖形以繼續進行「Service Fabric 分析」解決方案。
+在 `Summary` 中，您會看到每一個所啟用解決方案的圖格以圖形形式顯示，其中一個屬於 Service Fabric。 按一下 [Service Fabric]  圖形以繼續進行「Service Fabric 分析」解決方案。
 
 ![Service Fabric 解決方案](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
@@ -62,13 +62,13 @@ Azure 監視器記錄檔會收到資料之後，Azure 有數個*監視解決方�
 >[!NOTE]
 >除了現有的 Service Fabric 事件外，[更新分析延伸模組的設定](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)可以收集更詳細的系統事件。
 
-## <a name="view-service-fabric-events-including-actions-on-nodes"></a>查看 Service Fabric 事件，包括对节点执行的操作
+## <a name="view-service-fabric-events-including-actions-on-nodes"></a>檢視 Service Fabric 事件，包括節點上的動作
 
 在 Service Fabric 分析頁面上，按一下 **Service Fabric 事件**的圖形。
 
 ![Service Fabric 解決方案操作通道](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
-按一下 [清單] 來檢視清單中的事件。 這裡您會看到所有收集的系統事件。 从 Azure 存储帐户中的 **WADServiceFabricSystemEventsTable** 摘录了以下内容供你参考，类似地，接下来看到的 Reliable Services 和 Reliable Actors 事件也都摘自相应的表。
+按一下 [清單]  來檢視清單中的事件。 這裡您會看到所有收集的系統事件。 為了方便參考，這些記錄均來自 Azure 儲存體帳戶中的 **WADServiceFabricSystemEventsTable**，而且同樣地，您接下來看到的 Reliable Service 和 Actor 事件均分別來自那些表格。
     
 ![查詢操作通道](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
@@ -87,7 +87,7 @@ ServiceFabricOperationalEvent
 
 ![Service Fabric 解決方案 Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
 
-按一下 [清單] 來檢視清單中的事件。 這裡您會看到來自 Reliable Services 的事件。 啟動及完成 runasync 服務時，您可以看到不同的事件，它們通常是在部署和升級發生的。 
+按一下 [清單]  來檢視清單中的事件。 這裡您會看到來自 Reliable Services 的事件。 啟動及完成 runasync 服務時，您可以看到不同的事件，它們通常是在部署和升級發生的。 
 
 ![查詢 Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
 

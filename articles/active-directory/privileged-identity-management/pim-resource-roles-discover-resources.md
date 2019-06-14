@@ -15,10 +15,10 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 786b5ed99cce29c7217bfa42446821848ca8e05f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60288111"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>在 PIM 中探索要管理的 Azure 資源
@@ -33,7 +33,7 @@ ms.locfileid: "60288111"
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure 資源]。
+1. 按一下 [Azure 資源]  。
 
     如果這是您第一次使用適用於 Azure 資源的 PIM，您會看到 [探索資源] 窗格。
 
@@ -43,24 +43,24 @@ ms.locfileid: "60288111"
 
     ![[探索資源] 窗格](./media/pim-resource-roles-discover-resources/discover-resources.png)
 
-1. 按一下 [探索資源] 啟動探索體驗。
+1. 按一下 [探索資源]  啟動探索體驗。
 
     ![[探索] 窗格](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
-1. 在 [探索] 窗格中，使用 [資源狀態篩選] 和 [選取資源類型] 篩選您擁有寫入權限的管理群組或訂用帳戶。 一開始可能最容易的做法是先使用 [全部]。
+1. 在 [探索] 窗格中，使用 [資源狀態篩選]  和 [選取資源類型]  篩選您擁有寫入權限的管理群組或訂用帳戶。 一開始可能最容易的做法是先使用 [全部]  。
 
     您只能使用 PIM 來搜尋並選取要管理的管理群組或訂用帳戶資源。 當您在 PIM 中對管理群組或訂用帳戶進行管理時，也可以管理其中的子資源。
 
 1. 勾選您想要管理的任何未受控資源。
 
-1. 按一下 [管理資源] 開始管理選取的資源。
+1. 按一下 [管理資源]  開始管理選取的資源。
 
     > [!NOTE]
     > 管理群組或訂用帳戶設定為受控後，則無法變為非受控。 這可防止其他資源管理員移除 PIM 設定。
 
     ![探索 - 管理資源](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. 如果您看到一則訊息，以確認讓所選的資源上線以便管理時，請按一下 [是]。
+1. 如果您看到一則訊息，以確認讓所選的資源上線以便管理時，請按一下 [是]  。
 
     ![探索 - 管理資源訊息](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 

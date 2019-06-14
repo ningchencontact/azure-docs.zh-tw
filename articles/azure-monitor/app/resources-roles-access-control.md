@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: mbullwin
 ms.openlocfilehash: 0f348e3e7dc2812bf354d1f8ec86330b0742439a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60373647"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights 中的資源、角色及存取控制
@@ -41,7 +41,7 @@ ms.locfileid: "60373647"
 
 <a name="resource-group"></a>
 
-* [資源群組][group] - 每個資源屬於一個群組。 群組是管理相關資源的便利方式，特別是針對存取控制。 例如，您可以將 Web 應用程式、Application Insights 資源放到一個資源群組，以監視應用程式，以及放到儲存體資源以保存匯出的資料。
+* [資源群組  ][group] - 每個資源屬於一個群組。 群組是管理相關資源的便利方式，特別是針對存取控制。 例如，您可以將 Web 應用程式、Application Insights 資源放到一個資源群組，以監視應用程式，以及放到儲存體資源以保存匯出的資料。
 
 * [**訂用帳戶**](https://portal.azure.com) - 若要使用 Application Insights 或其他 Azure 資源，您可以登入 Azure 訂用帳戶。 每個資源群組都屬於一個 Azure 訂用帳戶，其中您選擇價格封裝，如果是組織的訂用帳戶，請選擇成員以及其存取權限。
 * [**Microsoft 帳戶**][account] - 您用來登入 Microsoft Azure 訂用帳戶、XBox Live、Outlook.com 及其他 Microsoft 服務的使用者名稱和密碼。
@@ -63,15 +63,15 @@ ms.locfileid: "60373647"
 
 #### <a name="navigate-to-resource-group-or-directly-to-the-resource-itself"></a>瀏覽至資源群組，或直接瀏覽資源本身
 
-從左側功能表中選擇 [存取控制 (IAM)]。
+從左側功能表中選擇 [存取控制 (IAM)]  。
 
 ![Azure 入口網站中存取控制按鈕的螢幕擷取畫面](./media/resources-roles-access-control/0001-access-control.png)
 
-選取 [新增角色指派]
+選取 [新增角色指派] 
 
 ![此螢幕擷取畫面顯示以紅色醒目提示新增按鈕的存取控制功能表](./media/resources-roles-access-control/0002-add.png)
 
-下方的 [新增權限] 檢視主要是 Application Insights 資源的特定資料，如果您從較高的層級 (例如資源群組) 檢視存取控制權限，您將會看到其他並非以 Application Insights 為主的角色。
+下方的 [新增權限]  檢視主要是 Application Insights 資源的特定資料，如果您從較高的層級 (例如資源群組) 檢視存取控制權限，您將會看到其他並非以 Application Insights 為主的角色。
 
 若要檢視所有 Azure 角色型存取控制內建角色的資訊，請使用[官方參考內容](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)。
 

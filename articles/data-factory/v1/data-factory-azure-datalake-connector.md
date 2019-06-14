@@ -14,28 +14,28 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 3bb372c4c3ddb79429df20c24c691c847e927e2a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567345"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>使用 Data Factory 從 Data Lake Storage Gen1 來回複製資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](data-factory-azure-datalake-connector.md)
 > * [第 2 版 (目前的版本)](../connector-azure-data-lake-store.md)
 
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前的 Data Factory 服務版本，請參閱[第 2 版中的 Azure Data Lake Storage Gen1 連接器](../connector-azure-data-lake-store.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前的 Data Factory 服務版本，請參閱[第 2 版中的 Azure Data Lake Storage Gen1 連接器](../connector-azure-data-lake-store.md)。
 
 本文說明如何使用 Azure Data Factory 中的「複製活動」，從 Azure Data Lake Storage Gen1 (先前稱為 Azure Data Lake Store) 來回移動資料。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文概述使用「複製活動」移動資料。
 
 ## <a name="supported-scenarios"></a>支援的案例
-您可以將資料從 Azure Data Lake Store 複製到下列資料存放區：
+您可以將資料從 Azure Data Lake Store  複製到下列資料存放區：
 
 [!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
 
-您可以從下列資料存放區將資料複製到 Azure Data Lake Store：
+您可以從下列資料存放區將資料複製到 Azure Data Lake Store  ：
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
@@ -52,9 +52,9 @@ Data Lake Store 連接器支援這些驗證類型：
 ## <a name="get-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以將資料移進/移出 Azure Data Lake Store。
 
-建立管線的最簡單方式就是使用「複製精靈」。 如需使用「複製精靈」建立管線的教學課程，請參閱[教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)。
+建立管線的最簡單方式就是使用「複製精靈」  。 如需使用「複製精靈」建立管線的教學課程，請參閱[教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)。
 
-您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -120,7 +120,7 @@ Data Lake Store 連接器支援這些驗證類型：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| **authorization** | 按一下「資料處理站編輯器」中的 [授權] 按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | 是 |
+| **authorization** | 按一下「資料處理站編輯器」中的 [授權]  按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | 是 |
 | **sessionId** | OAuth 授權工作階段的 OAuth 工作階段識別碼。 每個工作階段識別碼都是唯一的，只能使用一次。 當您使用「資料處理站編輯器」時便會自動產生此設定。 | 是 |
 
 > [!IMPORTANT]
@@ -147,7 +147,7 @@ Data Lake Store 連接器支援這些驗證類型：
 ```
 
 #### <a name="token-expiration"></a>權杖到期
-您使用 [授權] 按鈕所產生的授權碼在一段時間後會到期。 下列訊息表示驗證權杖已過期：
+您使用 [授權]  按鈕所產生的授權碼在一段時間後會到期。 下列訊息表示驗證權杖已過期：
 
 認證作業錯誤：invalid_grant - AADSTS70002：驗證認證時發生錯誤。 AADSTS70008：提供的存取授權已過期或撤銷。 追蹤識別碼：d18629e8-af88-43c5-88e3-d8419eb1fca1 相互關連識別碼：fac30a0c-6be6-4e02-8d69-a776d2ffefd7 時間戳記：2015-12-15 21-09-31Z。
 
@@ -155,12 +155,12 @@ Data Lake Store 連接器支援這些驗證類型：
 
 | 使用者類型 | 到期時間 |
 |:--- |:--- |
-| 「不」受 Azure Active Directory 管理的使用者帳戶 (例如 @hotmail.com 或 @live.com) |12 小時 |
+| 「不」受  Azure Active Directory 管理的使用者帳戶 (例如 @hotmail.com 或 @live.com) |12 小時 |
 | 受 Azure Active Directory 管理的使用者帳戶 |最後一個配量執行後的 14 天 <br/><br/>如果以 OAuth 式連結服務為基礎的配量至少每 14 天執行一次，則為 90 天 |
 
 如果您在此權杖的到期時間之前變更密碼，權杖會立即到期。 您將會看到本節稍早所提到的訊息。
 
-當權杖到期時，您可以使用 [授權] 按鈕重新授權帳戶，以重新部署連結服務。 您也可以使用下列程式碼，以程式設計方式產生 sessionId  和 authorization 屬性的值：
+當權杖到期時，您可以使用 [授權]  按鈕重新授權帳戶，以重新部署連結服務。 您也可以使用下列程式碼，以程式設計方式產生 sessionId  和 authorization  屬性的值：
 
 
 ```csharp
@@ -206,14 +206,14 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 1. 確定您在已連結的服務 `typeProperties` 中指定的 `subscriptionId` 和 `resourceGroupName` 確實是您 Data Lake 帳戶所屬的項目。
 
-2. 確定您至少將 Data Lake 帳戶上的 [讀取者] 角色授與使用者或服務主體。 以下是做法：
+2. 確定您至少將 Data Lake 帳戶上的 [讀取者]  角色授與使用者或服務主體。 以下是做法：
 
     1. 移至 Azure 入口網站 -> 您的 Data Lake Store 帳戶
-    2. 按一下 Data Lake Store 刀鋒視窗上的 [存取控制 (IAM)]
-    3. 按一下 [新增角色指派]
-    4. 將 [角色] 設定為 [讀取者]，然後選取您用來執行複製的使用者或服務主體來授與存取權
+    2. 按一下 Data Lake Store 刀鋒視窗上的 [存取控制 (IAM)] 
+    3. 按一下 [新增角色指派] 
+    4. 將 [角色]  設定為 [讀取者]  ，然後選取您用來執行複製的使用者或服務主體來授與存取權
 
-3. 如果您不想將 [讀取者] 角色授與使用者或服務主體，替代方案是在複製活動中使用您 Data Lake Store 的位置來[明確指定執行位置](data-factory-data-movement-activities.md#global)。 範例：
+3. 如果您不想將 [讀取者]  角色授與使用者或服務主體，替代方案是在複製活動中使用您 Data Lake Store 的位置來[明確指定執行位置](data-factory-data-movement-activities.md#global)。 範例：
 
     ```json
     {
@@ -233,20 +233,20 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
     ```
 
 ## <a name="dataset-properties"></a>資料集屬性
-若要指定資料集以代表 Data Lake Store 中的輸入資料，請將資料集的 type 屬性設定成 AzureDataLakeStore。 請將資料集的 linkedServiceName 屬性設定成 Data Lake Store 連結服務的名稱。 如需定義資料集的 JSON 區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 所有資料集類型 (例如 Azure SQL 資料庫、Azure Blob 及 Azure 資料表) 其 JSON 中如結構、可用性及原則等資料集區段都相似。 每個資料集類型的 typeProperties 區段都不同，並提供如資料存放區中資料位置與格式等相關資訊。
+若要指定資料集以代表 Data Lake Store 中的輸入資料，請將資料集的 type  屬性設定成 AzureDataLakeStore  。 請將資料集的 linkedServiceName  屬性設定成 Data Lake Store 連結服務的名稱。 如需定義資料集的 JSON 區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 所有資料集類型 (例如 Azure SQL 資料庫、Azure Blob 及 Azure 資料表) 其 JSON 中如結構、可用性及原則等資料集區段都相似    。 每個資料集類型的 typeProperties  區段都不同，並提供如資料存放區中資料位置與格式等相關資訊。
 
-類型為 AzureDataLakeStore  的資料集其 typeProperties 區段包含下列屬性：
+類型為 AzureDataLakeStore  的資料集其 typeProperties  區段包含下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | **folderPath** |Data Lake Store 中容器與資料夾的路徑。 |是 |
-| **fileName** |Azure Data Lake Store 中的檔案名稱。 fileName 屬性是選擇性的，而且區分大小寫。 <br/><br/>如果您指定 fileName，活動 (包括複製) 適用於特定的檔案。<br/><br/>如果您未指定 fileName，複製會在輸入資料集中包含 folderPath 中的所有檔案。<br/><br/>當**檔名**未指定輸出資料集並**preserveHierarchy**未在所產生的檔案名稱的格式在活動接收中指定`Data._Guid_.txt`。 例如︰Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt。 |否 |
-| **partitionedBy** |partitionedBy 屬性為選擇性。 您可以用來指定時間序列資料的動態路徑與檔案名稱。 例如，folderPath 可針對每小時的資料進行參數化。 如需詳細資料和範例，請參閱「partitionedBy 屬性」。 |否 |
-| **format** | 以下是支援的檔案類型：TextFormat、JsonFormat、AvroFormat、OrcFormat 和 ParquetFormat。 將 [format] 下的 [type] 屬性設定為下列其中一個值。 如需詳細資訊，請參閱 [Azure Data Factory 支援的檔案與壓縮格式](data-factory-supported-file-and-compression-formats.md)一文中[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[JSON 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[ORC 格式](data-factory-supported-file-and-compression-formats.md#orc-format)及 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)各節。 <br><br> 如果您想要在以檔案為基礎的存放區之間「依原樣」複製檔案 (二進位複本)，請略過輸入和輸出資料集定義中的 `format` 區段。 |否 |
-| **compression** | 指定此資料的壓縮類型和層級。 支援的類型為：GZip、Deflate、BZip2 及 ZipDeflate。 支援的層級為 **Optimal** 和 **Fastest**。 如需詳細資訊，請參閱 [Azure Data Factory 支援的檔案與壓縮格式](data-factory-supported-file-and-compression-formats.md#compression-support)。 |否 |
+| **fileName** |Azure Data Lake Store 中的檔案名稱。 fileName 屬性是選擇性的，而且區分大小寫  。 <br/><br/>如果您指定 fileName  ，活動 (包括複製) 適用於特定的檔案。<br/><br/>如果您未指定 fileName，複製會在輸入資料集中包含 folderPath 中的所有檔案   。<br/><br/>當**檔名**未指定輸出資料集並**preserveHierarchy**未在所產生的檔案名稱的格式在活動接收中指定`Data._Guid_.txt`。 例如: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt。 |否 |
+| **partitionedBy** |partitionedBy  屬性為選擇性。 您可以用來指定時間序列資料的動態路徑與檔案名稱。 例如，folderPath  可針對每小時的資料進行參數化。 如需詳細資料和範例，請參閱「partitionedBy 屬性」。 |否 |
+| **格式** | 以下是支援的檔案類型：TextFormat  、JsonFormat  、AvroFormat  、OrcFormat  和 ParquetFormat  。 將 [format]  下的 [type]  屬性設定為下列其中一個值。 如需詳細資訊，請參閱 [Azure Data Factory 支援的檔案與壓縮格式](data-factory-supported-file-and-compression-formats.md)一文中[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[JSON 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[ORC 格式](data-factory-supported-file-and-compression-formats.md#orc-format)及 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)各節。 <br><br> 如果您想要在以檔案為基礎的存放區之間「依原樣」複製檔案 (二進位複本)，請略過輸入和輸出資料集定義中的 `format` 區段。 |否 |
+| **compression** | 指定此資料的壓縮類型和層級。 支援的類型為：GZip  、Deflate  、BZip2  及 ZipDeflate  。 支援的層級為 **Optimal** 和 **Fastest**。 如需詳細資訊，請參閱 [Azure Data Factory 支援的檔案與壓縮格式](data-factory-supported-file-and-compression-formats.md#compression-support)。 |否 |
 
 ### <a name="the-partitionedby-property"></a>partitionedBy 屬性
-您可以使用 partitionedBy 屬性、Data Factory 函式及系統變數，來指定時間序列資料的動態 folderPath 和 fileName 屬性。 如需詳細資料，請參閱 [Azure Data Factory - 函式與系統變數](data-factory-functions-variables.md)一文。
+您可以使用 partitionedBy 屬性、Data Factory 函式及系統變數，來指定時間序列資料的動態 folderPath  和 fileName  屬性  。 如需詳細資料，請參閱 [Azure Data Factory - 函式與系統變數](data-factory-functions-variables.md)一文。
 
 
 在下列範例中，`{Slice}` 會取代成 Data Factory 系統變數 `SliceStart` 的值，並採用指定的格式 (`yyyyMMddHH`)。 `SliceStart` 名稱是指配量的開始時間。 每個配量的 `folderPath` 屬性皆不同，如 `wikidatagateway/wikisampledataout/2014100103` 或 `wikidatagateway/wikisampledataout/2014100104`。
@@ -277,15 +277,15 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 ## <a name="copy-activity-properties"></a>複製活動屬性
 如需定義活動的可用區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。 屬性 (例如名稱、描述、輸入和輸出資料表，以及原則) 適用於所有類型的活動。
 
-活動之 [typeProperties] 區段中的可用屬性，會隨著每個活動類型而有所不同。 就複製活動而言，這些屬性會根據來源和接收器的類型而有所不同。
+活動之 [typeProperties]  區段中的可用屬性，會隨著每個活動類型而有所不同。 就複製活動而言，這些屬性會根據來源和接收器的類型而有所不同。
 
-AzureDataLakeStoreSource 支援 [typeProperties] 區段中的下列屬性：
+AzureDataLakeStoreSource  支援 [typeProperties]  區段中的下列屬性：
 
 | 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | **recursive** |指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式讀取資料。 |True (預設值)、False |否 |
 
-AzureDataLakeStoreSink 支援 [typeProperties] 區段中的下列屬性：
+AzureDataLakeStoreSink  支援 [typeProperties]  區段中的下列屬性：
 
 | 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
@@ -294,7 +294,7 @@ AzureDataLakeStoreSink 支援 [typeProperties] 區段中的下列屬性：
 ### <a name="recursive-and-copybehavior-examples"></a>遞迴和 copyBehavior 範例
 本節說明遞迴和 copyBehavior 值在不同組合的情況下，複製作業所產生的行為。
 
-| 遞迴 | copyBehavior | 產生的行為 |
+| recursive | copyBehavior | 產生的行為 |
 | --- | --- | --- |
 | true |preserveHierarchy |對於有下列結構的來源資料夾 Folder1： <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>會以與來源相同的結構，建立目標資料夾 Folder1<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
 | true |flattenHierarchy |對於有下列結構的來源資料夾 Folder1： <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>會以下列結構建立目標資料夾 1： <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 有自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2 有自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;File3 有自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;File4 有自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;File5 有自動產生的名稱 |

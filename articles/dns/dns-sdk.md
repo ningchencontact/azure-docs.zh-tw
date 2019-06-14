@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
 ms.openlocfilehash: a06d629087e853c2578e6d35a2ea90c5a8eff840
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60308938"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>使用 .NET SDK 建立 DNS 區域和記錄集
@@ -42,10 +42,10 @@ ms.locfileid: "60308938"
 若要使用 Azure DNS .NET SDK，您需要安裝 **Azure DNS 管理程式庫** NuGet 封裝以及其他必要的 Azure 封裝。
 
 1. 在 **Visual Studio**中，開啟專案或新專案。
-2. 移至 [工具]**>**[NuGet 封裝管理員]**>**[管理解決方案的 NuGet 封裝...]。
-3. 按一下 [瀏覽]，啟用 [包括發行前版本] 核取方塊，然後在搜尋方塊中輸入 **Microsoft.Azure.Management.Dns**。
+2. 移至 [工具]  **>** [NuGet 封裝管理員]  **>** [管理解決方案的 NuGet 封裝...]  。
+3. 按一下 [瀏覽]  ，啟用 [包括發行前版本]  核取方塊，然後在搜尋方塊中輸入 **Microsoft.Azure.Management.Dns**。
 4. 選取封裝，然後按一下 [安裝]  將它加入至您的 Visual Studio 專案。
-5. 重复以上过程，还能安装以下包：**Microsoft.Rest.ClientRuntime.Azure.Authentication** 和 **Microsoft.Azure.Management.ResourceManager**。
+5. 重複上述程序來也會安裝下列套件：**Microsoft.Rest.ClientRuntime.Azure.Authentication**並**Microsoft.Azure.Management.ResourceManager**。
 
 ## <a name="add-namespace-declarations"></a>新增命名空間宣告
 
@@ -147,7 +147,7 @@ recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zo
 
 若要列出區域，請使用*DnsManagementClient.Zones.List...* 方法，其支援列出指定資源群組中的所有區域，或是指定 Azure 訂用帳戶中的所有區域 (跨資源群組)。若要列出記錄集，請使用 *DnsManagementClient.RecordSets.List...* 方法，其支援列出指定區域中的所有記錄集，或只列出特定類型的記錄集。
 
-請注意，在列出區域和記錄集時，其結果可能會分頁。  下列範例示範如何逐一查看結果頁面  (範例中使用了 '2' 的人為小型頁面大小來強制分頁；實際上應該忽略此參數並使用預設頁面大小)。
+請注意，在列出區域和記錄集時，其結果可能會分頁。  下列範例示範如何逐一查看結果頁面 (範例中使用了 '2' 的人為小型頁面大小來強制分頁；實際上應該忽略此參數並使用預設頁面大小)。
 
 ```cs
 // Note: in this demo, we'll use a very small page size (2 record sets) to demonstrate paging

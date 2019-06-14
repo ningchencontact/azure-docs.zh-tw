@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: db68ad2a29dcaa53d219b679b9e0f24a50a6f576
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60286573"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>作法：使用 Azure Active Directory 報告對登入錯誤進行疑難排解
@@ -42,7 +42,7 @@ Azure Active Directory (Azure AD) 中的[登入報告](concept-sign-ins.md)可�
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>使用登入報告對登入錯誤進行疑難排解
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)，然後選取您的目錄。
-2. 選取 [Azure Active Directory]，然後從 [監視] 區段選取 [登入]。 
+2. 選取 [Azure Active Directory]  ，然後從 [監視]  區段選取 [登入]  。 
 3. 使用提供的篩選條件來縮小失敗範圍，像是使用者名稱或物件識別碼、應用程式名稱或日期。 此外，選取**失敗**從**狀態**下拉式清單，以顯示失敗的只有登入。 
 
     ![篩選結果](./media/howto-troubleshoot-sign-in-errors/filters.png)
@@ -51,7 +51,7 @@ Azure Active Directory (Azure AD) 中的[登入報告](concept-sign-ins.md)可�
 
     ![選取記錄](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
         
-5. 您也可以在詳細資料視窗的 [疑難排解和支援] 索引標籤中找到這項資訊。
+5. 您也可以在詳細資料視窗的 [疑難排解和支援]  索引標籤中找到這項資訊。
 
     ![疑難排解和支援](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
@@ -59,7 +59,7 @@ Azure Active Directory (Azure AD) 中的[登入報告](concept-sign-ins.md)可�
 
 7. 您可以在[登入錯誤碼參考](reference-sign-ins-error-codes.md)中搜尋錯誤碼 (在此範例中為 **50126**)，以取得其他詳細資訊和修復意見。 
 
-8. 如果所有解決方案均失敗，或採取建議動作後問題仍持續發生，請遵循 [疑難排解和支援] 索引標籤中的步驟來[提出支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)。 
+8. 如果所有解決方案均失敗，或採取建議動作後問題仍持續發生，請遵循 [疑難排解和支援]  索引標籤中的步驟來[提出支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)。 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce0d99fb283be8cbeba6f8a7954ff49161a2d511
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60288496"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>在 PIM 中設定 Azure AD 角色的安全性警示
@@ -39,7 +39,7 @@ ms.locfileid: "60288496"
 
 | | |
 | --- | --- |
-| **嚴重性** | 低 |
+| **Severity** | 低 |
 | **為什麼會收到此警示？** | 將特殊權限角色指派給不需要的使用者會增加受攻擊的機會。 攻擊者也比較容易忽視未受到積極使用的帳戶。 |
 | **如何修正？** | 檢閱清單中的使用者，然後將他們從他們不需要的特殊權限角色中移除。 |
 | **預護** | 只將特殊權限角色指派給具有正當業務理由的使用者。 </br>排程定期[存取權檢閱](pim-how-to-start-security-review.md)，以確認使用者仍然需要其存取權。 |
@@ -51,7 +51,7 @@ ms.locfileid: "60288496"
 
 | | |
 | --- | --- |
-| **嚴重性** | 低 |
+| **Severity** | 低 |
 | **為什麼會收到此警示？** | 在沒有 MFA 的情況下，遭到入侵的使用者可以啟用特殊權限角色。 |
 | **如何修正？** | 檢閱角色清單並針對每一個角色[要求 MFA](pim-how-to-change-default-settings.md)。 |
 | **預護** | 針對每一個角色[要求 MFA](pim-how-to-change-default-settings.md)。  |
@@ -61,7 +61,7 @@ ms.locfileid: "60288496"
 
 | | |
 | --- | --- |
-| **嚴重性** | 低 |
+| **Severity** | 低 |
 | **為什麼會收到此警示？** | 目前的租用戶不具 Azure AD Premium P2。 |
 | **如何修正？** | 檢閱 [Azure AD 版本](../fundamentals/active-directory-whatis.md)的相關資訊。 升級至 Azure AD Premium P2。 |
 
@@ -69,7 +69,7 @@ ms.locfileid: "60288496"
 
 | | |
 | --- | --- |
-| **嚴重性** | 中 |
+| **Severity** | 中 |
 | **為什麼會收到此警示？** | 特殊權限中的角色在過去 90 天內未變更其帳戶密碼。 這些帳戶可能是未受到維護且容易遭到攻擊的服務或共用帳戶。 |
 | **如何修正？** | 檢閱清單中的帳戶。 如果他們不再需要存取，請將它們從其特殊權限角色中移除。 |
 | **預護** | 確定共用帳戶會在知道密碼的使用者有所變更時，輪替使用強式密碼。 </br>使用[存取權檢閱](pim-how-to-start-security-review.md)功能定期檢閱具備特殊權限角色的帳戶，並移除不再需要的角色指派。 |
@@ -80,7 +80,7 @@ ms.locfileid: "60288496"
 
 | | |
 | --- | --- |
-| **嚴重性** | 高 |
+| **Severity** | 高 |
 | **為什麼會收到此警示？** | 在 PIM 外進行特殊權限角色指派不會受到適當監視，且可能表示正受到攻擊。 |
 | **如何修正？** | 檢閱清單中的使用者，然後將他們從在 PIM 外指派的特殊權限角色移除。 |
 | **預護** | 調查使用者已在 PIM 外獲指派的特殊權限角色，並禁止未來從該處指派。 |
@@ -90,7 +90,7 @@ ms.locfileid: "60288496"
 
 | | |
 | --- | --- |
-| **嚴重性** | 低 |
+| **Severity** | 低 |
 | **為什麼會收到此警示？** | 全域管理員是最高特殊權限角色。 如果全域管理員遭到入侵，攻擊者會取得其所有權限的存取權，這會讓整個系統面臨風險。 |
 | **如何修正？** | 檢閱清單中的使用者，並移除任何非絕對需要的全域管理員角色。 </br>指派較低特殊權限角色給這些使用者。 |
 | **預護** | 將使用者所需的最低特殊權限角色指派給使用者。 |
@@ -103,7 +103,7 @@ ms.locfileid: "60288496"
 
 | | |
 | --- | --- |
-| **嚴重性** | 低 |
+| **Severity** | 低 |
 | **為什麼會收到此警示？** | 同一使用者多次啟用相同的特殊權限角色是受到攻擊的徵兆。 |
 | **如何修正？** | 檢閱清單中的使用者，並確定為他們的特殊權限角色設定的[啟用持續時間](pim-how-to-change-default-settings.md)夠長，足以讓他們執行工作。 |
 | **預護** | 請確定為他們的特殊權限角色設定的[啟用持續時間](pim-how-to-change-default-settings.md)夠長，足以讓使用者執行他們的工作。</br>針對具備由多個系統管理員共用帳戶的特殊權限角色[要求 MFA](pim-how-to-change-default-settings.md)。 |
@@ -118,9 +118,9 @@ ms.locfileid: "60288496"
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure AD 角色]。
+1. 按一下 [Azure AD 角色]  。
 
-1. 按一下 [設定]，然後按一下 [警示]。
+1. 按一下 [設定]  ，然後按一下 [警示]  。
 
     ![瀏覽至安全性警示設定](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
 

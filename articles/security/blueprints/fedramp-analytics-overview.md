@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
 ms.openlocfilehash: fa10ff14bf893c268d6b6b1a0d181d11a3f27dc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586255"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Azure 安全性與合規性藍圖：適用於 FedRAMP 的分析
@@ -90,8 +90,8 @@ SQL/資料管理員會建立大量資料匯入函式和操作資料更新函式�
 架構會透過加密、資料庫稽核及其他量值來保護待用資料。
 
 **資料複寫** Azure Government 有兩個[資料複寫](https://docs.microsoft.com/azure/storage/common/storage-redundancy)選項：
- - 資料複寫的預設設定是**異地備援儲存體 (GRS)**，以非同步方式將客戶資料儲存在主要區域以外的個別資料中心。 這可確保在主要資料中心裡的資料全部遺失時，能進行資料復原。
- - 您可以透過 Azure 儲存體帳戶交換設定**本地備援儲存體 (LRS)**。 LRS 可複寫儲存體縮放單位中的資料，裝載縮放單位的區域與客戶建立其帳戶的區域相同。 所有資料會同時複寫，以確保沒有備份資料會因為主要儲存體縮放單位失敗而遺失。
+ - 資料複寫的預設設定是**異地備援儲存體 (GRS)** ，以非同步方式將客戶資料儲存在主要區域以外的個別資料中心。 這可確保在主要資料中心裡的資料全部遺失時，能進行資料復原。
+ - 您可以透過 Azure 儲存體帳戶交換設定**本地備援儲存體 (LRS)** 。 LRS 可複寫儲存體縮放單位中的資料，裝載縮放單位的區域與客戶建立其帳戶的區域相同。 所有資料會同時複寫，以確保沒有備份資料會因為主要儲存體縮放單位失敗而遺失。
 
 **Azure 儲存體**為符合加密待用資料的需求，所有部署在此參考架構中的服務都會利用 [Azure 儲存體](https://azure.microsoft.com/services/storage/)，其使用[儲存體服務加密](https://docs.microsoft.com/azure/storage/storage-service-encryption)來儲存資料。
 

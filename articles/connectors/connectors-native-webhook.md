@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
 ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60447183"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>使用 Webhook 和 Azure Logic Apps 建立以事件為基礎的工作流程或動作
@@ -29,7 +29,7 @@ ms.locfileid: "60447183"
 
 ## <a name="use-the-webhook-trigger"></a>使用 webhook 觸發程序
 
-[觸發程序](../connectors/apis-list.md)是啟動邏輯應用程式工作流程的事件。 Webhook 觸發程序是以事件為基礎，這不需要依賴輪詢新的項目。 當您儲存邏輯應用程式 webhook 觸發程序，或當您從停用，以變更您的邏輯應用程式時啟用 webhook 觸發程序*訂閱*至指定的服務或端點註冊*回呼 URL*與該服務或端點。 觸發程序接著會使用該 URL 來執行必要的邏輯應用程式。 像是[要求觸發程序](connectors-native-reqres.md)，立即預期的事件發生時，就會引發邏輯應用程式。 觸發程序*取消訂閱*如果您移除觸發程序，並儲存邏輯應用程式，或當您變更您的邏輯應用程式，從啟用變成停用。
+[觸發程序  ](../connectors/apis-list.md)是啟動邏輯應用程式工作流程的事件。 Webhook 觸發程序是以事件為基礎，這不需要依賴輪詢新的項目。 當您儲存邏輯應用程式 webhook 觸發程序，或當您從停用，以變更您的邏輯應用程式時啟用 webhook 觸發程序*訂閱*至指定的服務或端點註冊*回呼 URL*與該服務或端點。 觸發程序接著會使用該 URL 來執行必要的邏輯應用程式。 像是[要求觸發程序](connectors-native-reqres.md)，立即預期的事件發生時，就會引發邏輯應用程式。 觸發程序*取消訂閱*如果您移除觸發程序，並儲存邏輯應用程式，或當您變更您的邏輯應用程式，從啟用變成停用。
 
 以下是如何在邏輯應用程式設計工具中設定 HTTP 觸發程序的範例。 這個步驟假設您已部署或正在存取的 API 會遵循[邏輯應用程式中的 webhook 訂閱和取消訂閱模式](../logic-apps/logic-apps-create-api-app.md#webhook-triggers)。 
 
@@ -43,7 +43,7 @@ ms.locfileid: "60447183"
      ![HTTP 觸發程序](./media/connectors-native-webhook/using-trigger.png)
 
 3. 加入至少一個動作。
-4. 按一下 [儲存] 來發佈邏輯應用程式。 此步驟會呼叫含有觸發此邏輯應用程式所需的回呼 URL 訂閱端點。
+4. 按一下 [儲存]  來發佈邏輯應用程式。 此步驟會呼叫含有觸發此邏輯應用程式所需的回呼 URL 訂閱端點。
 5. 每當服務對回呼 URL 發出 `HTTP POST` 時，就會觸發邏輯應用程式，並包含要求中所傳遞的任何資料。
 
 ## <a name="use-the-webhook-action"></a>使用 webhook 動作
@@ -60,7 +60,7 @@ ms.locfileid: "60447183"
 
 **若要新增 webhook 動作**
 
-1. 選擇 [新增步驟] > [新增動作]。
+1. 選擇 [新增步驟]   > [新增動作]  。
 
 2. 在搜尋方塊中，輸入 "webhook" 以找出 **HTTP Webhook** 動作。
 
@@ -74,7 +74,7 @@ ms.locfileid: "60447183"
    
    在執行階段中，邏輯應用程式會進行該步驟之後呼叫訂閱端點。
 
-4. 按一下 [儲存] 來發佈邏輯應用程式。
+4. 按一下 [儲存]  來發佈邏輯應用程式。
 
 ## <a name="technical-details"></a>技術詳細資訊
 
@@ -82,7 +82,7 @@ ms.locfileid: "60447183"
 
 ## <a name="webhook-triggers"></a>WebHook 觸發程序
 
-|  動作 | 描述 |
+| 動作 | 描述 |
 | --- | --- |
 | HTTP Webhook |訂閱服務的回呼 URL，就能視需要呼叫該 URL 以觸發邏輯應用程式。 |
 
@@ -118,7 +118,7 @@ Webhook 要求
 
 ## <a name="webhook-actions"></a>Webhook 動作
 
-|  動作 | 描述 |
+| 動作 | 描述 |
 | --- | --- |
 | HTTP Webhook |訂閱服務的回呼 URL，就能視需要呼叫繼續工作流程步驟的 URL。 |
 

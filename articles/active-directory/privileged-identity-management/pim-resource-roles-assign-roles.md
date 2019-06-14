@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 610aeec9e4c40d0aad0c28f02697e2cf01edbe4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60438616"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>在 PIM 中指派 Azure 資源角色
@@ -47,35 +47,35 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 可以管
 
     如果您尚未在 Azure 入口網站中起始 PIM，請移至[開始使用 PIM](pim-getting-started.md)。
 
-1. 按一下 [Azure 資源]。
+1. 按一下 [Azure 資源]  。
 
-1. 使用 [資源篩選] 來篩選管理的資源清單。
+1. 使用 [資源篩選]  來篩選管理的資源清單。
 
     ![要管理的 Azure 資源清單](./media/pim-resource-roles-assign-roles/resources-list.png)
 
 1. 按一下您想要管理的資源，例如訂用帳戶或管理群組。
 
-1. 按一下 [管理] 下方的 [角色]，以查看 Azure 資源角色的清單。
+1. 按一下 [管理] 下方的 [角色]  ，以查看 Azure 資源角色的清單。
 
     ![Azure 資源角色](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
-1. 按一下 [新增成員] 以開啟 [新增指派] 窗格。
+1. 按一下 [新增成員]  以開啟 [新增指派] 窗格。
 
-1. 按一下 [選取角色] 以開啟 [選取角色] 窗格。
+1. 按一下 [選取角色]  以開啟 [選取角色] 窗格。
 
     ![新增指派窗格](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
-1. 按一下您想要指派的角色，然後按一下 [選取]。
+1. 按一下您想要指派的角色，然後按一下 [選取]  。
 
     [選取成員或群組] 窗格會隨即開啟。
 
-1. 按一下您想要指派給角色的成員或群組，然後按一下 [選取]。
+1. 按一下您想要指派給角色的成員或群組，然後按一下 [選取]  。
 
     ![選取成員或群組窗格](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
     [成員資格設定] 窗格會即開啟。
 
-1. 在 [指派類型] 清單中選取 [合格] 或 [有效]。
+1. 在 [指派類型]  清單中選取 [合格]  或 [有效]  。
 
     ![成員資格設定窗格](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
@@ -85,7 +85,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 可以管
 
     - **有效**的指派不要求成員先執行某個動作才能使用此角色。 指派為有效的成員隨時具有指派給角色的權限。
 
-1. 如果指派應為永久性 (永久合格或永久指派)，請選取 [永久] 核取方塊。
+1. 如果指派應為永久性 (永久合格或永久指派)，請選取 [永久]  核取方塊。
 
     根據不同角色設定，核取方塊可能不會出現或可能設為不可修改。
 
@@ -93,11 +93,11 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 可以管
 
     ![成員資格設定 - 日期和時間](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
 
-1. 完成後，請按一下 [完成]。
+1. 完成後，請按一下 [完成]  。
 
     ![新增指派 - 新增](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
 
-1. 若要建立新的角色指派，請按一下 [新增]。 狀態通知會隨即顯示。
+1. 若要建立新的角色指派，請按一下 [新增]  。 狀態通知會隨即顯示。
 
     ![新增指派 - 通知](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
 
@@ -107,21 +107,21 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 可以管
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure 資源]。
+1. 按一下 [Azure 資源]  。
 
 1. 按一下您想要管理的資源，例如訂用帳戶或管理群組。
 
-1. 按一下 [管理] 下方的 [角色]，以查看 Azure 資源角色的清單。
+1. 按一下 [管理] 下方的 [角色]  ，以查看 Azure 資源角色的清單。
 
     ![Azure 資源角色 - 選取角色](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 
 1. 按一下您想要更新或移除的角色。
 
-1. 在 [合格角色] 或 [有效角色] 索引標籤上尋找角色指派。
+1. 在 [合格角色]  或 [有效角色]  索引標籤上尋找角色指派。
 
     ![更新或移除角色指派](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
 
-1. 按一下 [更新] 或 [移除] 來更新或移除角色指派。
+1. 按一下 [更新]  或 [移除]  來更新或移除角色指派。
 
     如需有關延長角色指派的相關資訊，請參閱[在 PIM 中延長或更新 Azure 資源角色](pim-resource-roles-renew-extend.md)。
 

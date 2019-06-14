@@ -11,10 +11,10 @@ ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.openlocfilehash: 21204e85adf1c68264ea448360c9e1120567ef3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60530924"
 ---
 # <a name="what-is-azure-scheduler"></a>何謂 Azure 排程器？
@@ -24,7 +24,7 @@ ms.locfileid: "60530924"
 
 [Azure 排程器](https://azure.microsoft.com/services/scheduler/)可協助您藉由以宣告方式說明動作，建立在雲端中執行的[作業](../scheduler/scheduler-concepts-terms.md)。 接著，此服務會自動排程並執行這些動作。 例如，您可以在 Azure 內外呼叫服務 (像是呼叫 HTTP 或 HTTPS 端點)，以及將訊息發佈到 Azure 儲存體佇列和 Azure 服務匯流排佇列或主題。 您可以立即執行作業，或稍後再執行。 排程器可輕易支援[複雜的排程和進階週期](../scheduler/scheduler-advanced-complexity.md)。 排程器可指定何時要執行工作、保存可供您檢閱的作業結果歷程記錄，然後依預期可靠地排程要執行的工作負載。
 
-雖然您可以使用排程器來建立、維護和執行已排程的工作負載，但排程器並不會裝載工作負載或執行程式碼。 此服務只會叫用裝載於其他位置的服務或程式碼，例如在 Azure、內部部署或另一個提供者中。 排成器可透過 HTTP、HTTPS、儲存體佇列、服務匯流排佇列或服務匯流排主題執行叫用。 若要建立、管理和排程作業，您可以使用 [Azure 入口網站](../scheduler/scheduler-get-started-portal.md)、程式碼、[排程器 REST API](https://docs.microsoft.com/rest/api/scheduler/) 或 [Azure 排程器 PowerShell Cmdlet 參考](scheduler-powershell-reference.md)。 例如，您可以使用指令碼和 Azure 入口網站，以程式設計方式建立、檢視、更新、管理或刪除作業和[工作集合](../scheduler/scheduler-concepts-terms.md)。
+雖然您可以使用排程器來建立、維護和執行已排程的工作負載，但排程器並不會裝載工作負載或執行程式碼。 此服務只會叫用  裝載於其他位置的服務或程式碼，例如在 Azure、內部部署或另一個提供者中。 排成器可透過 HTTP、HTTPS、儲存體佇列、服務匯流排佇列或服務匯流排主題執行叫用。 若要建立、管理和排程作業，您可以使用 [Azure 入口網站](../scheduler/scheduler-get-started-portal.md)、程式碼、[排程器 REST API](https://docs.microsoft.com/rest/api/scheduler/) 或 [Azure 排程器 PowerShell Cmdlet 參考](scheduler-powershell-reference.md)。 例如，您可以使用指令碼和 Azure 入口網站，以程式設計方式建立、檢視、更新、管理或刪除作業和[工作集合](../scheduler/scheduler-concepts-terms.md)。
 
 此外也有其他 Azure 排程功能會在背景中使用排程器，例如 [Azure WebJobs](../app-service/webjobs-create.md)，這是 Azure App Service 中的一項 [Web Apps](https://azure.microsoft.com/services/app-service/web/) 功能。 您可以利用[排程器 REST API](https://docs.microsoft.com/rest/api/scheduler/) 來管理這些動作的通訊。
 

@@ -18,10 +18,10 @@ ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5f1b23862edeabbf8e03d4589fa3f22a3fab9f72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353154"
 ---
 # <a name="group-policy-and-mdm-settings"></a>群組原則和 MDM 設定
@@ -33,7 +33,7 @@ ms.locfileid: "60353154"
 ## <a name="mdm-settings"></a>MDM 設定
 MDM 原則設定會套用至 Windows 10 及 Windows 10 行動裝置版。  Windows 10 行動裝置版支援僅適用於以 Microsoft 帳戶為基礎且透過使用者的 OneDrive 帳戶進行的漫遊。  如需哪些裝置支援以 Azure AD 為基礎的同步處理的詳細資訊，請參閱[裝置與端點](enterprise-state-roaming-windows-settings-reference.md)。
 
-| Name | 描述 |
+| 名稱 | 描述 |
 | --- | --- |
 | 允許 Microsoft 帳戶連接 |允許使用者在裝置上使用 Microsoft 帳戶進行驗證 |
 | 允許同步處理我的設定 |讓使用者能夠漫遊 Windows 設定和應用程式資料。停用此原則，將停用行動裝置上的同步處理及備份 |

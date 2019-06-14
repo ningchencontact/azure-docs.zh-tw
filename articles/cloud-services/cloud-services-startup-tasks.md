@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60405982"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>如何設定和執行雲端服務的啟動工作
@@ -30,13 +30,13 @@ ms.locfileid: "60405982"
 > 
 
 ## <a name="how-startup-tasks-work"></a>啟動工作的運作方式
-啟動工作是在您的角色開始之前採取的動作，而且在 [ServiceDefinition.csdef] 檔案中利用 [ServiceDefinition.csdef] 元素內的 [Task] 元素來定義。 启动任务通常是批处理文件，但它们也可以是控制台应用程序或启动 PowerShell 脚本的批处理文件。
+啟動工作是在您的角色開始之前採取的動作，而且在 [ServiceDefinition.csdef] 檔案中利用 [Startup] 元素內的 [Task] 元素來定義。 啟動工作經常是批次檔，但也可以是主控台應用程式，或是啟動 PowerShell 指令碼的批次檔。
 
 環境變數可將資訊傳入啟動工作，而本機存放區可以用來傳遞來自啟動工作的資訊。 例如，環境變數可以指定您想要安裝的程式路徑，以及可以將哪些檔案寫入本機存放區，以便日後供您的角色讀取。
 
-啟動工作可以將資訊和錯誤記錄到 **TEMP** 環境變數所指定的目錄中。 啟動工作期間，如果在雲端上執行，**TEMP** 環境變數會解析成 C:\\Resources\\temp\\[guid].[rolename]\\RoleTemp 目錄。
+啟動工作可以將資訊和錯誤記錄到 **TEMP** 環境變數所指定的目錄中。 啟動工作期間，如果在雲端上執行，**TEMP** 環境變數會解析成 C:\\Resources\\temp\\[guid].[rolename]\\RoleTemp  目錄。
 
-此外，启动任务还可以在重新启动之间执行多次。 例如，每次角色回收時，都會執行啟動工作，但每次角色回收不一定會重新開機。 啟動工作的撰寫方式，應該要可讓它們順利執行多次。
+啟動工作也可以在重新開機之間執行數次。 例如，每次角色回收時，都會執行啟動工作，但每次角色回收不一定會重新開機。 啟動工作的撰寫方式，應該要可讓它們順利執行多次。
 
 啟動工作必須以零值的 **errorlevel** (或結束代碼) 做為結尾，才算完成啟動處理序。 如果啟動工作的結尾不是零值的 **errorlevel**，角色將不會啟動。
 
@@ -50,7 +50,7 @@ ms.locfileid: "60405982"
    * **background** 和 **foreground** 工作則會以非同步方式啟動，與啟動工作平行執行。  
      
      > [!WARNING]
-     > 在启动过程中的启动任务阶段，IIS 可能未完全配置，因此角色特定的数据可能不可用。 需要特定角色資料的啟動工作應該使用 [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100))。
+     > 在啟動處理序中的啟動工作階段期間，IIS 可能不會完全設定好，因此特定的角色資料可能會無法使用。 需要特定角色資料的啟動工作應該使用 [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100))。
      > 
      > 
 3. 角色主機處理序已啟動，且已在 IIS 中建立網站。
@@ -83,7 +83,7 @@ EXIT /B 0
 ```
 
 > [!NOTE]
-> 在 Visual Studio 中，啟動批次檔的 [複製到輸出目錄]屬性應該設為 [永遠複製]，才能確保將啟動批次檔正確部署至您在 Azure 上的專案 (Web 角色為 **approot\\bin**，背景工作角色為 **approot**)。
+> 在 Visual Studio 中，啟動批次檔的 [複製到輸出目錄]  屬性應該設為 [永遠複製]  ，才能確保將啟動批次檔正確部署至您在 Azure 上的專案 (Web 角色為 **approot\\bin**，背景工作角色為 **approot**)。
 > 
 > 
 
@@ -100,9 +100,9 @@ EXIT /B 0
 **executionContext** - 指定啟動工作的權限等級。 權限等級可以是 limited (受到限制) 或 elevated (提高權限)：
 
 * **limited**  
-   啟動工作執行時會使用和角色相同的權限。 當 [Runtime] 項目的 **executionContext** 屬性也是 **limited** 時，就會用到使用者權限。
+  啟動工作執行時會使用和角色相同的權限。 當 [Runtime] 項目的 **executionContext** 屬性也是 **limited** 時，就會用到使用者權限。
 * **elevated**  
-   啟動工作執行時會使用系統管理員權限。 這可讓啟動工作安裝程式、變更 IIS 組態、執行登錄變更，以及其他系統管理員層級的工作，且不會提高角色本身的權限等級。  
+  啟動工作執行時會使用系統管理員權限。 這可讓啟動工作安裝程式、變更 IIS 組態、執行登錄變更，以及其他系統管理員層級的工作，且不會提高角色本身的權限等級。  
 
 > [!NOTE]
 > 啟動工作的權限等級不需要與角色本身相同。
@@ -121,9 +121,9 @@ EXIT /B 0
   
     若要確保批次檔結束時的 **errorlevel** 為零，請在批次檔處理序結束時執行命令 `EXIT /B 0`。
 * **background**  
-  任务与角色同时启动，并以异步方式执行。
+  以非同步方式執行工作，並與角色的啟動工作平行進行。
 * **foreground**  
-   以非同步方式執行工作，並與角色的啟動工作平行進行。 **foreground** 和 **background** 工作之間的主要差異，在於 **foreground** 工作可避免角色在工作結束之前遭到回收或關閉。 **background** 工作則不具備這項限制功能。
+  以非同步方式執行工作，並與角色的啟動工作平行進行。 **foreground** 和 **background** 工作之間的主要差異，在於 **foreground** 工作可避免角色在工作結束之前遭到回收或關閉。 **background** 工作則不具備這項限制功能。
 
 ## <a name="environment-variables"></a>環境變數
 環境變數是將資訊傳遞給啟動工作的方式。 例如，您可以放上這些項目的路徑：含有要安裝之程式的 Blob，或角色要使用的連接埠號碼，或是各項可控制啟動工作功能的設定。
@@ -162,7 +162,7 @@ EXIT /B 0
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[ServiceDefinition.csdef]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
+[Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable

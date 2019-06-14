@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chakdan
 ms.openlocfilehash: f7a0cb47ad8010bd54a817e9990221b320cde541
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60419045"
 ---
 # <a name="optimize-visual-studio-performance-for-service-fabric-mesh-projects"></a>將 Service Fabric Mesh 專案的 Visual Studio 效能最佳化
@@ -22,7 +22,7 @@ ms.locfileid: "60419045"
 
 ## <a name="change-visual-studio-settings"></a>變更 Visual Studio 設定
  
-在 Visual Studio 中的 [工具] > [選項]  > [Service Fabric Mesh 工具] > [一般] 下方，可以調整下列設定：
+在 Visual Studio 中的 [工具]   > [選項]    > [Service Fabric Mesh 工具]   > [一般]  下方，可以調整下列設定：
 
 - **在專案開啟時提取所需的 Docker 映像**可藉由在專案載入時啟動映像下載程序，使您執行第一次偵錯 (F5) 的速度更快。  
 - **在專案開啟時部署應用程式**可藉由在專案開啟後啟動部署程序，使您執行第一次偵錯 (F5) 的速度更快。  

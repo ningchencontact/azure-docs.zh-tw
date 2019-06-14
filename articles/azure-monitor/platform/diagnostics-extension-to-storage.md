@@ -9,10 +9,10 @@ ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 23379e9d9bb29efb7fb026260e8245e8eb8a2d71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60395062"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>在 Azure 儲存體中儲存和檢視診斷資料
@@ -27,7 +27,7 @@ ms.locfileid: "60395062"
     </ConfigurationSettings>
 ```
 
-可以更改此连接字符串，为 Azure 存储帐户提供帐户信息。
+您可以變更此連接字串，以提供 Azure 儲存體帳戶的帳戶資訊。
 
 視所收集的診斷資料類型而定，Azure 診斷會使用 Blob 服務或資料表服務。 下表顯示保存的資料來源以及其格式。
 
@@ -35,12 +35,12 @@ ms.locfileid: "60395062"
 | --- | --- |
 | Azure 記錄 |資料表 |
 | IIS 7.0 記錄 |Blob |
-| Azure 诊断基础结构日志 |資料表 |
+| Azure 診斷基礎結構記錄 |資料表 |
 | 失敗要求追蹤記錄 |Blob |
 | Windows 事件記錄 |資料表 |
 | 效能計數器 |資料表 |
 | 損毀傾印 |Blob |
-| 自定义错误日志 |Blob |
+| 自訂錯誤記錄 |Blob |
 
 ## <a name="transfer-diagnostic-data"></a>傳輸診斷資料
 若為 SDK 2.5 和更新版本，可以透過組態檔進行傳輸診斷資料的要求。 您可以依照組態中指定的排程間隔來傳輸診斷資料。
@@ -71,7 +71,7 @@ ms.locfileid: "60395062"
 * **"custom"** – 自訂容器，該容器是以設定診斷監視器所監視的目錄為基礎。  將會在 WADDirectoriesTable 中指定此 Blob 容器的名稱。
 
 ## <a name="tools-to-view-diagnostic-data"></a>用來檢視診斷資料的工具
-有數個工具可用來檢視傳輸至儲存體後的資料。 例如︰
+有數個工具可用來檢視傳輸至儲存體後的資料。 例如:
 
 * Visual Studio 中的伺服器總管 - 如果您已安裝 Azure Tools for Microsoft Visual Studio，您可以在伺服器總管中使用 Azure 儲存體節點，從您的 Azure 儲存體帳戶檢視唯讀的 Blob 和資料表資料。 您可以從您的本機儲存體模擬器帳戶顯示資料，也可以從您為 Azure 建立的儲存體帳戶顯示資料。 如需詳細資訊，請參閱 [使用伺服器總管瀏覽和管理儲存體資源](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)。
 * [Microsoft Azure 儲存體 Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立應用程式，可讓您在 Windows、OSX 和 Linux 上輕鬆使用 Azure 儲存體資料。

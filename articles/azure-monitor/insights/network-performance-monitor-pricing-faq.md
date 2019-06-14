@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
 ms.openlocfilehash: 77cacd7f94d8ddd92fcd7383d2d0a7929734eaeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60401403"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure 網路效能監控的定價變更
@@ -38,7 +38,7 @@ ms.locfileid: "60401403"
 
 NPM 的計費基礎是兩個元件的使用量和耗用量：
 * **節點**：所有綜合交易均來自於節點且結束於節點。 節點也稱為代理程式或 Microsoft Monitoring Agent。
-* **Data**：各種網路測試的結果會儲存在 Log Analytics 工作區。
+* **資料**：各種網路測試的結果會儲存在 Log Analytics 工作區。
 
 在舊的模型中，帳單的計算方式是根據節點的數目和所產生的資料量。 
 

@@ -14,14 +14,14 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335417"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Redshift 移動資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](data-factory-amazon-redshift-connector.md)
 > * [第 2 版 (目前的版本)](../connector-amazon-redshift.md)
 
@@ -81,7 +81,7 @@ Data Factory 目前僅支援資料從 Amazon Redshift 移至[支援的接收資�
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需定義活動的區段和屬性清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。 **name****description**、**inputs** 資料表、**outputs** 資料表和 **policy** 屬性適用於所有活動。 **typeProperties** 區段中的可用屬性，會因為活動類型不同而有所差異。 就複製活動而言，屬性會根據資料來源和接收的類型而有所不同。
+如需定義活動的區段和屬性清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。 **name** **description**、**inputs** 資料表、**outputs** 資料表和 **policy** 屬性適用於所有活動。 **typeProperties** 區段中的可用屬性，會因為活動類型不同而有所差異。 就複製活動而言，屬性會根據資料來源和接收的類型而有所不同。
 
 對於複製活動，當來源類型為 **AmazonRedshiftSource** 時，**typeProperties** 區段中可使用下列屬性：
 
@@ -337,11 +337,11 @@ Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UN
 | REAL |單一 |
 | DOUBLE PRECISION |Double |
 | BOOLEAN |String |
-| CHAR |String |
-| VARCHAR |String |
-| 日期 |Datetime |
+| CHAR |字串 |
+| VARCHAR |字串 |
+| DATE |Datetime |
 | TIMESTAMP |Datetime |
-| TEXT |String |
+| TEXT |字串 |
 
 ## <a name="map-source-to-sink-columns"></a>將來源對應到接收資料行
 若要了解如何將來源資料集內的資料行與接收資料集內的資料行對應，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。

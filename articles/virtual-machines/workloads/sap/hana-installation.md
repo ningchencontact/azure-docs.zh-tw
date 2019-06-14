@@ -15,10 +15,10 @@ ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 96acb2e7af797f2777cc751417f50eb21faa46da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60202928"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>如何在 Azure 上安裝和設定 SAP HANA (大型執行個體)
@@ -157,9 +157,9 @@ SAP HANA on Azure (大型執行個體) 的儲存體配置是由 Azure服務管�
 | HANA 共用 | /hana/shared/SID | 儲存體 IP：/hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/sap/SID | 儲存體 IP：/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
 
-SID 是 HANA 執行個體的系統識別碼。 
+SID  是 HANA 執行個體的系統識別碼。 
 
-Tenant 是部署租用戶時的內部作業列舉。
+Tenant  是部署租用戶時的內部作業列舉。
 
 HANA usr/sap 會共用相同的磁碟區。 掛接點的專門用語包含 HANA 執行個體的系統識別碼及掛接編號。 在相應增加部署中，只有一個掛接，例如 mnt00001。 另一方面，在向外延展部署中，您會看到許多掛接，因為有背景工作角色和主要節點。 
 

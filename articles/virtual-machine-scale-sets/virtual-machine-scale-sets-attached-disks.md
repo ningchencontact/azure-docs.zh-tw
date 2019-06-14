@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 4/25/2017
 ms.author: manayar
 ms.openlocfilehash: 5482e082e3e37d279c4374a8642f2cb6db588dd5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60328828"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure 虛擬機器擴展集和連結的資料磁碟
@@ -39,7 +39,7 @@ ms.locfileid: "60328828"
 
 
 ## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>使用連結的資料磁碟建立 Service Fabric 叢集
-在 Azure 中執行之 [Service Fabric](/azure/service-fabric) 叢集中的每個[節點類型](../service-fabric/service-fabric-cluster-nodetypes.md)都是由虛擬機器擴展集提供支援。 使用 Azure Resource Manager 範本，您可以將資料磁碟連結到構成 Service Fabric 叢集的擴展集。 您可使用[現有範本](https://github.com/Azure-Samples/service-fabric-cluster-templates)作為起點。 在範本中，於 Microsoft.Compute/virtualMachineScaleSets 資源的 storageProfile 中包含 dataDisks 區段並部署範本。 下列範例會連結 128 GB 資料磁碟：
+在 Azure 中執行之 [Service Fabric](/azure/service-fabric) 叢集中的每個[節點類型](../service-fabric/service-fabric-cluster-nodetypes.md)都是由虛擬機器擴展集提供支援。 使用 Azure Resource Manager 範本，您可以將資料磁碟連結到構成 Service Fabric 叢集的擴展集。 您可使用[現有範本](https://github.com/Azure-Samples/service-fabric-cluster-templates)作為起點。 在範本中，於 Microsoft.Compute/virtualMachineScaleSets  資源的 storageProfile  中包含 dataDisks  區段並部署範本。 下列範例會連結 128 GB 資料磁碟：
 
 ```json
 "dataDisks": [
@@ -51,7 +51,7 @@ ms.locfileid: "60328828"
 ]
 ```
 
-您可以在部署叢集時自動分割、格式化及掛接資料磁碟。 將自訂指令碼擴充新增至擴展集之 virtualMachineProfile的 extensionProfile。
+您可以在部署叢集時自動分割、格式化及掛接資料磁碟。 將自訂指令碼擴充新增至擴展集之 virtualMachineProfile  的 extensionProfile  。
 
 若要在 Windows 叢集中自動準備資料磁碟，請新增下列內容：
 

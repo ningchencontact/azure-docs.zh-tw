@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 48a84520a61d19968b467091871459e21898dd5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60564080"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>開始使用 Azure CDN 開發
@@ -46,7 +46,7 @@ ms.locfileid: "60564080"
 
     npm init
 
-然後您會看到一系列用來初始化專案的問題。  本教學課程使用 app.js 做為 *進入點*。  您可以在下列範例中看到我的其他選擇。
+然後您會看到一系列用來初始化專案的問題。  本教學課程使用 app.js  做為 *進入點*。  您可以在下列範例中看到我的其他選擇。
 
 ![NPM init 輸出](./media/cdn-app-dev-node/cdn-npm-init.png)
 
@@ -75,7 +75,7 @@ ms.locfileid: "60564080"
 }
 ```
 
-最後，使用文字編輯器來建立空白文字檔，並將它儲存為專案資料夾根目錄中的 app.js 。  我們現在可以開始撰寫程式碼了。
+最後，使用文字編輯器來建立空白文字檔，並將它儲存為專案資料夾根目錄中的 app.js  。  我們現在可以開始撰寫程式碼了。
 
 ## <a name="requires-constants-authentication-and-structure"></a>必要項目、常數、驗證和結構
 在編輯器中開啟 app.js  ，開始撰寫程式的基本結構。
@@ -86,7 +86,7 @@ ms.locfileid: "60564080"
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. 我們必須定義一些我們的方法將用到的常數。  新增下列內容。  務必視需要使用您自己的值來取代預留位置，包括 **&lt;角括號&gt;**。
+2. 我們必須定義一些我們的方法將用到的常數。  新增下列內容。  務必視需要使用您自己的值來取代預留位置，包括 **&lt;角括號&gt;** 。
    
     ``` javascript
     //Tenant app constants

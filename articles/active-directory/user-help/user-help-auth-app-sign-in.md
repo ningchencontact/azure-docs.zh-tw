@@ -13,10 +13,10 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc136cdc88c67e3b26aefc4982f49a2547e456db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60473978"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>使用 Microsoft Authenticator 應用程式登入帳戶
@@ -51,24 +51,24 @@ ms.locfileid: "60473978"
 
     - **如果您看到這個圖示![顯示您已設定好的圖示](media/user-help-auth-app-sign-in/icon.png)。** 如果這個圖示出現在您的公司或學校帳戶名稱的旁邊，表示您已經為帳戶設定好手機登入。 系統可能會要求您新增帳戶的推播通知，如此您就可以在應用程式外部收到有關驗證要求的通知。
 
-    - **如果您使用應用程式進行雙因素驗證。** 如果您已經在使用應用程式與雙因素驗證，您可以選擇帳戶名稱旁邊的下拉式箭號，然後選取 [啟用手機登入]。
+    - **如果您使用應用程式進行雙因素驗證。** 如果您已經在使用應用程式與雙因素驗證，您可以選擇帳戶名稱旁邊的下拉式箭號，然後選取 [啟用手機登入]  。
     
-    - **如果找不到您的公司或學校帳戶。** 如果在應用程式的 [帳戶] 畫面上找不到您的公司或學校帳戶，表示您還沒有將帳戶新增到應用程式中。 依照[新增公司或學校帳戶](user-help-auth-app-add-work-school-account.md)一文中的步驟，新增工作或學校帳戶。
+    - **如果找不到您的公司或學校帳戶。** 如果在應用程式的 [帳戶]  畫面上找不到您的公司或學校帳戶，表示您還沒有將帳戶新增到應用程式中。 依照[新增公司或學校帳戶](user-help-auth-app-add-work-school-account.md)一文中的步驟，新增工作或學校帳戶。
 
 ### <a name="sign-in-to-your-account-using-phone-sign-in"></a>使用手機登入來登入您的帳戶
 開啟手機登入之後，您可以只使用 Microsoft Authenticator 應用程式登入。
 
 1. 登入您的公司或學校帳戶。
 
-    輸入您的使用者名稱之後，[核准登入] 畫面隨即出現，其中顯示一個兩位數的號碼，並要求您透過 Microsoft Authenticator 應用程式登入。 如果您不想使用這個登入方法，您可以選取 [改為使用您的密碼]，然後使用您的密碼登入。
+    輸入您的使用者名稱之後，[核准登入]  畫面隨即出現，其中顯示一個兩位數的號碼，並要求您透過 Microsoft Authenticator 應用程式登入。 如果您不想使用這個登入方法，您可以選取 [改為使用您的密碼]  ，然後使用您的密碼登入。
 
     ![電腦上的核准登入方塊](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in.png)
 
-2. 在裝置上開啟通知或 Microsoft Authenticator 應用程式，然後點選與您在電腦的 [核准登入] 畫面上看到之數字相符的數字。
+2. 在裝置上開啟通知或 Microsoft Authenticator 應用程式，然後點選與您在電腦的 [核准登入]  畫面上看到之數字相符的數字。
 
     ![裝置上的核准登入方塊](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in-numbers.png)
 
-3. 如果您可以辨識該登入嘗試，請選擇 [核准]。 否則，請選擇 [拒絕]。
+3. 如果您可以辨識該登入嘗試，請選擇 [核准]  。 否則，請選擇 [拒絕]  。
 
 4. 使用您手機的 PIN 或生物識別金鑰來完成驗證。
 
@@ -84,23 +84,23 @@ ms.locfileid: "60473978"
 
     - **如果您看到這個圖示![顯示您已設定好的圖示](media/user-help-auth-app-sign-in/icon.png)。** 如果這個圖示出現在您帳戶名稱的旁邊，表示您已經為帳戶設定好手機登入。 系統可能會要求您新增帳戶的推播通知，如此您就可以在應用程式外部收到有關驗證要求的通知。
 
-    - **如果您使用應用程式進行雙因素驗證。** 如果您已經在使用應用程式與雙因素驗證，您可以選擇帳戶名稱旁邊的下拉式箭號，然後選取 [啟用手機登入]。
+    - **如果您使用應用程式進行雙因素驗證。** 如果您已經在使用應用程式與雙因素驗證，您可以選擇帳戶名稱旁邊的下拉式箭號，然後選取 [啟用手機登入]  。
     
-    - **如果找不到您的帳戶。** 如果在應用程式的 [帳戶] 畫面上找不到您的帳戶，表示您還沒有將帳戶新增到應用程式中。 依照[新增您的個人 Microsoft 帳戶](user-help-auth-app-add-personal-ms-account.md#add-your-personal-microsoft-account)一文中的步驟，新增您的個人 Microsoft 帳戶。
+    - **如果找不到您的帳戶。** 如果在應用程式的 [帳戶]  畫面上找不到您的帳戶，表示您還沒有將帳戶新增到應用程式中。 依照[新增您的個人 Microsoft 帳戶](user-help-auth-app-add-personal-ms-account.md#add-your-personal-microsoft-account)一文中的步驟，新增您的個人 Microsoft 帳戶。
 
 ### <a name="sign-in-to-your-account-using-phone-sign-in"></a>使用手機登入來登入您的帳戶
 
-1. 移至您個人 Microsoft 帳戶登入頁面，然後選取 [改為使用 Microsoft Authenticator 應用程式] 連結，而不是輸入您的密碼。 
+1. 移至您個人 Microsoft 帳戶登入頁面，然後選取 [改為使用 Microsoft Authenticator 應用程式]  連結，而不是輸入您的密碼。 
 
     Microsoft 會傳送通知至您的電話。 
 
 2. 核准通知。 
 
 ## <a name="sign-in-using-two-factor-verification-for-your-account"></a>為您的帳戶使用雙因素驗證登入
-標準的雙因素驗證方法會要求您在您要登入的裝置上輸入您的使用者名稱和密碼，然後選擇 Microsoft Authenticator 應用程式是要傳送通知，還是您希望 Microsoft Authenticator 應用程式的 [帳戶] 畫面，複製相關聯的驗證碼。 您要在過程中為您的帳戶開啟雙因素驗證，才能將該帳戶新增到 Microsoft Authenticator 應用程式。
+標準的雙因素驗證方法會要求您在您要登入的裝置上輸入您的使用者名稱和密碼，然後選擇 Microsoft Authenticator 應用程式是要傳送通知，還是您希望 Microsoft Authenticator 應用程式的 [帳戶]  畫面，複製相關聯的驗證碼。 您要在過程中為您的帳戶開啟雙因素驗證，才能將該帳戶新增到 Microsoft Authenticator 應用程式。
 
 >[!Note]
->如果您在 Microsoft Authenticator 應用程式的 [帳戶] 畫面上沒有看到您的公司或學校帳戶，或您個人的帳戶，表示您還沒有將該帳戶新增到 Microsoft Authenticator 應用程式。 若要新增您的帳戶，請參閱[新增公司或學校帳戶](user-help-auth-app-add-work-school-account.md)或[新增個人帳戶](user-help-auth-app-add-personal-ms-account.md)。
+>如果您在 Microsoft Authenticator 應用程式的 [帳戶]  畫面上沒有看到您的公司或學校帳戶，或您個人的帳戶，表示您還沒有將該帳戶新增到 Microsoft Authenticator 應用程式。 若要新增您的帳戶，請參閱[新增公司或學校帳戶](user-help-auth-app-add-work-school-account.md)或[新增個人帳戶](user-help-auth-app-add-personal-ms-account.md)。
 
 如需了解使用雙因素驗證的各種方法登入公司或學校或個人帳戶所需的步驟，請參閱[使用雙步驟驗證或安全性資訊登入](user-help-sign-in.md)。
 
@@ -111,8 +111,8 @@ ms.locfileid: "60473978"
 |**手機登入是否會取代雙步驟驗證？應該將它關閉嗎？**|手機登入是一種雙步驟驗證，其中兩個步驟會行動裝置上同時進行。 您應該將雙步驟驗證保持在開啟狀態，以協助為您的帳戶提供額外的安全性。|
 |**如果我為帳戶持續開啟了雙步驟驗證，是否必須核准兩個通知呢？**| 沒有。 使用手機登入您的 Microsoft 帳戶，也會被視為雙步驟驗證，因此不需要第二個核准。|
 |**如果我遺失手機或者沒帶手機，該怎麼辦？如何存取我的帳戶？**| 您隨時都可按一下登入頁面上的 [改為使用密碼] 連結，切換回使用您的密碼。 不過，如果您使用雙步驟驗證，您仍需要使用第二個方法來驗證您的身分識別。<br><br>**重要**<br>強烈建議您確定有多個與您帳戶相關聯的最新驗證方法。<br><br>您可以從[安全性設定](https://account.live.com/proofs/manage)頁面來管理個人帳戶的驗證方法。 針對公司或學校帳戶，如果您的系統管理員已開啟安全性資訊，您就可以移至組織的[其他安全性驗證](https://aka.ms/MFASetup)頁面或**保護您的帳戶安全**頁面。 如需安全性資訊的詳細資訊，請參閱[安全性資訊 （預覽） 概觀](user-help-security-info-overview.md)。<br><br>如果您無法管理驗證方法，就必須連絡您的系統管理員。|
-|**如何停止使用此功能並改回使用我的密碼？**|對於個人帳戶，在登入期間選取 [改為使用密碼] 連結。 系統會記住您最近的選擇，並在您下次登入時依預設提供該選擇。 如果您想要改回使用手機登入，請在登入期間選取 [改為使用應用程式] 連結。<br><br>針對工作或學校帳戶，您必須註冊裝置**設定**頁面上的 Microsoft Authenticator 應用程式中，或停用裝置**裝置與活動**設定檔的區域。 如需有關如何停用您的裝置，從您的設定檔的詳細資訊，請參閱 <<c0> [ 更新您的設定檔和帳戶資訊，從 My Apps 入口網站](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information)。|
-|**為什麼不能使用多個公司或學校帳戶進行手機登入？**| 一支手機必須向單一公司或學校帳戶進行註冊。 如果您想要針對不同的公司或學校帳戶開啟手機登入，您必須先透過 [設定] 頁面取消註冊舊的裝置。|
+|**如何停止使用此功能並改回使用我的密碼？**|對於個人帳戶，在登入期間選取 [改為使用密碼]  連結。 系統會記住您最近的選擇，並在您下次登入時依預設提供該選擇。 如果您想要改回使用手機登入，請在登入期間選取 [改為使用應用程式]  連結。<br><br>針對工作或學校帳戶，您必須註冊裝置**設定**頁面上的 Microsoft Authenticator 應用程式中，或停用裝置**裝置與活動**設定檔的區域。 如需有關如何停用您的裝置，從您的設定檔的詳細資訊，請參閱 <<c0> [ 更新您的設定檔和帳戶資訊，從 My Apps 入口網站](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information)。|
+|**為什麼不能使用多個公司或學校帳戶進行手機登入？**| 一支手機必須向單一公司或學校帳戶進行註冊。 如果您想要針對不同的公司或學校帳戶開啟手機登入，您必須先透過 [設定]  頁面取消註冊舊的裝置。|
 |**可以使用手機來登入我的電腦嗎？**| 針對您的電腦，我們建議使用 Windows 10 上的 Windows Hello 來登入。 Windows Hello 可讓您使用臉部、指紋或 PIN 來登入。|
 
 ## <a name="next-steps"></a>後續步驟

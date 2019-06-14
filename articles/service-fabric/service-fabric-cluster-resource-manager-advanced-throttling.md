@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 4abc3e4a28b8b98070affe19b7b7ca38f904c45b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60384964"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>對 Service Fabric 叢集資源管理員進行節流
@@ -93,4 +93,4 @@ Service Fabric 有兩種機制可供節制移動的複本數目。 Service Fabri
 
 ## <a name="next-steps"></a>後續步驟
 - 若要了解叢集資源管理員如何管理並平衡叢集中的負載，請查看關於 [平衡負載](service-fabric-cluster-resource-manager-balancing.md)
-- 叢集資源管理員有許多描述叢集的選項。 若要详细了解这些选项，请查看这篇[描述 Service Fabric 群集](service-fabric-cluster-resource-manager-cluster-description.md)的文章
+- 叢集資源管理員有許多描述叢集的選項。 若要深入了解這些選項，請參閱關於[描述 Service Fabric 叢集](service-fabric-cluster-resource-manager-cluster-description.md)一文

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: d03d68560502821b9c343be983d9f7b5a83ed977
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60321872"
 ---
 # <a name="monitor-containers-with-azure-monitor-logs"></a>使用 Azure 監視器記錄檔監視容器
@@ -36,7 +36,7 @@ ms.locfileid: "60321872"
 
 1. 一旦您的叢集設定 Log Analytics 代理程式與 Azure 監視器記錄檔，部署您的容器。 移至下一步之前，請等待容器部署完成。
 
-2. 在 Azure Marketplace 中，搜尋 [容器監視解決方案]，然後按一下顯示在 [監視 + 管理] 類別下的 [容器監視解決方案] 資源。
+2. 在 Azure Marketplace 中，搜尋 [容器監視解決方案]  ，然後按一下顯示在 [監視 + 管理] 類別下的 [容器監視解決方案]  資源。
 
     ![新增容器解決方案](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 

@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 311ba489073805fdb034b435ab9e5e1ddc2c4e3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60382204"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect：設計概念
@@ -45,7 +45,7 @@ sourceAnchor 屬性的定義是 *在物件存留期間不會變更的屬性*。 
 
 * 長度少於 60 個字元
   * 系統會將 a-z、A-Z 或 0-9 以外的字元編碼並計為 3 個字元
-* 不包含特殊字符：&#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " \@ _
+* 不包含特殊字元︰&#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " \@ _
 * 必須是全域唯一的
 * 必須是字串、整數或二進位
 * 不應以使用者的名稱為基礎，因為這些可能會有所變更
@@ -109,9 +109,9 @@ Azure AD Connect (1.1.524.0 版和更新版本) 現在可協助您使用 ms-DS-C
 
 * 在此情況下，精靈會轉為使用 objectGUID 來作為 sourceAnchor 屬性。
 
-* 在決定好 sourceAnchor 屬性之後，精靈會將此資訊儲存在 Azure AD 租用戶中。 该信息会供将来的 Azure AD Connect 安装使用。
+* 在決定好 sourceAnchor 屬性之後，精靈會將此資訊儲存在 Azure AD 租用戶中。 未來在安裝 Azure AD Connect 時，系統便會使用此資訊。
 
-快速安装完成后，向导会通知你已选取哪个属性作为“源定位点”属性。
+在快速安裝完成之後，精靈會通知您它已挑選哪個屬性來作為 sourceAnchor 屬性。
 
 ![精靈的通知指出它已挑選 AD 屬性來作為 sourceAnchor](./media/plan-connect-design-concepts/consistencyGuid-01.png)
 
@@ -133,19 +133,19 @@ Azure AD Connect (1.1.524.0 版和更新版本) 現在可協助您使用 ms-DS-C
 
 從 objectGUID 切換至 ConsistencyGuid 作為「來源錨點」屬性：
 
-1. 啟動 Azure AD Connect 精靈，然後按一下 [設定] 以移至 [工作] 畫面。
+1. 啟動 Azure AD Connect 精靈，然後按一下 [設定]  以移至 [工作] 畫面。
 
-2. 選取 [設定來源錨點] 工作選項，然後按一下 [下一步]。
+2. 選取 [設定來源錨點]  工作選項，然後按一下 [下一步]  。
 
    ![啟用現有部署的 ConsistencyGuid - 步驟 2](./media/plan-connect-design-concepts/consistencyguidexistingdeployment01.png)
 
-3. 輸入 Azure AD 系統管理員認證，然後按一下 [下一步]。
+3. 輸入 Azure AD 系統管理員認證，然後按一下 [下一步]  。
 
-4. Azure AD Connect 精靈會分析內部部署 Active Directory 中的 ms-DS-ConsistencyGuid 屬性狀態。 如果未在目錄的任何物件上設定此屬性，則 Azure AD Connect 會結束，而且其他應用程式目前未使用此屬性，可安全地使用它作為「來源錨點」屬性。 单击“下一步”以继续操作。
+4. Azure AD Connect 精靈會分析內部部署 Active Directory 中的 ms-DS-ConsistencyGuid 屬性狀態。 如果未在目錄的任何物件上設定此屬性，則 Azure AD Connect 會結束，而且其他應用程式目前未使用此屬性，可安全地使用它作為「來源錨點」屬性。 選取 [下一步]  以繼續操作。
 
    ![啟用現有部署的 ConsistencyGuid - 步驟 4](./media/plan-connect-design-concepts/consistencyguidexistingdeployment02.png)
 
-5. 在 [準備設定] 畫面上，按一下 [設定] 進行設定變更。
+5. 在 [準備設定]  畫面上，按一下 [設定]  進行設定變更。
 
    ![啟用現有部署的 ConsistencyGuid - 步驟 5](./media/plan-connect-design-concepts/consistencyguidexistingdeployment03.png)
 
@@ -157,7 +157,7 @@ Azure AD Connect (1.1.524.0 版和更新版本) 現在可協助您使用 ms-DS-C
 
 ![啟用現有部署的 ConsistencyGuid - 錯誤](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- 如果确定其他现有应用程序不使用该属性，则可以通过在指定“/SkipLdapSearch”开关的情况下重启 Azure AD Connect 向导来取消显示该错误。 若要這樣做，在命令提示字元中執行下列命令：
+ 如果您確定屬性不供其他現有的應用程式，您可以重新啟動 Azure AD Connect 精靈 來隱藏錯誤 **/SkipLdapSearch**指定的參數。 若要這樣做，在命令提示字元中執行下列命令：
 
 ```
 "c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
@@ -171,7 +171,7 @@ Azure AD Connect (1.1.524.0 版和更新版本) 現在可協助您使用 ms-DS-C
 ![第三方同盟設定](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>在現有部署中新增目錄
-假設您已部署 Azure AD Connect 並啟用 ConsistencyGuid 功能，而現在您想要在部署中新增另一個目錄。 當您嘗試新增目錄時，Azure AD Connect 精靈會檢查目錄中 ms-DS-ConsistencyGuid 屬性的狀態。 如果目錄中有一或多個物件設定了此屬性，則精靈會認為其他應用程式正在使用此屬性，並傳回如下圖所示的錯誤。 如果确定现有应用程序不使用该属性，则可以通过使用前文所述的指定 /SkipLdapSearch 开关的情况下重启 Azure AD Connect 向导来取消显示该错误或者需要联系支持人员以获得更多信息。
+假設您已部署 Azure AD Connect 並啟用 ConsistencyGuid 功能，而現在您想要在部署中新增另一個目錄。 當您嘗試新增目錄時，Azure AD Connect 精靈會檢查目錄中 ms-DS-ConsistencyGuid 屬性的狀態。 如果目錄中有一或多個物件設定了此屬性，則精靈會認為其他應用程式正在使用此屬性，並傳回如下圖所示的錯誤。 如果您確定現有的應用程式未使用的屬性，您可以重新啟動 Azure AD Connect 精靈 來隱藏錯誤 **/SkipLdapSearch**指定如上面所述的交換器，或您需要連絡如需詳細資訊的支援。
 
 ![在現有部署中新增目錄](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 
@@ -184,7 +184,7 @@ Azure AD Connect (1.1.524.0 版和更新版本) 現在可協助您使用 ms-DS-C
 * 屬性值符合 UPN 語法 (RFC 822)，其格式應該是 username\@domain
 * 這些值的尾碼符合 Azure AD 中其中一個已驗證的自訂網域
 
-在快速設定中，屬性的假定選擇會是 userPrincipalName。 如果 userprincipalname 屬性不包含您希望使用者用於登入 Azure 的值，則必須選擇 [自訂安裝] 。
+在快速設定中，屬性的假定選擇會是 userPrincipalName。 如果 userprincipalname 屬性不包含您希望使用者用於登入 Azure 的值，則必須選擇 [自訂安裝]  。
 
 ### <a name="custom-domain-state-and-upn"></a>自訂網域狀態和 UPN
 請務必確保 UPN 尾碼有已驗證的網域。

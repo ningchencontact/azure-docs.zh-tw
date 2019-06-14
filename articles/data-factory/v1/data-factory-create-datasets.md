@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487246"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure Data Factory 中的資料集
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](data-factory-create-datasets.md)
 > * [第 2 版 (目前的版本)](../concepts-datasets-linked-services.md)
 
@@ -34,11 +34,11 @@ ms.locfileid: "60487246"
 > 如果您不熟悉 Data Factory，請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)來概略了解。 如果您沒有建立 Data Factory 的實作經驗，可以閱讀[資料轉換教學課程](data-factory-build-your-first-pipeline.md)和[資料移動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)來進一步了解。
 
 ## <a name="overview"></a>概觀
-資料處理站可以有一或多個管線。 「管線」是一起執行某個工作的「活動」所組成的邏輯群組。 管線中的活動會定義要在資料上執行的動作。 例如，您可以使用複製活動將資料從內部部署 SQL Server 複製到 Azure Blob 儲存體。 接著，您可以使用在 Azure HDInsight 叢集上執行 Hive 指令碼的 Hive 活動，來處理來自 Blob 儲存體的資料以產生輸出資料。 最後，您可以使用第二個複製活動將輸出資料複製到「Azure SQL 資料倉儲」，以在該處建置商業智慧 (BI) 報表解決方案。 如需有關管線和活動的詳細資訊，請參閱 [Azure Data Factory 中的管線及活動](data-factory-create-pipelines.md)。
+資料處理站可以有一或多個管線。 「管線」  是一起執行某個工作的「活動」  所組成的邏輯群組。 管線中的活動會定義要在資料上執行的動作。 例如，您可以使用複製活動將資料從內部部署 SQL Server 複製到 Azure Blob 儲存體。 接著，您可以使用在 Azure HDInsight 叢集上執行 Hive 指令碼的 Hive 活動，來處理來自 Blob 儲存體的資料以產生輸出資料。 最後，您可以使用第二個複製活動將輸出資料複製到「Azure SQL 資料倉儲」，以在該處建置商業智慧 (BI) 報表解決方案。 如需有關管線和活動的詳細資訊，請參閱 [Azure Data Factory 中的管線及活動](data-factory-create-pipelines.md)。
 
-一個活動可以接受零個或多個輸入「資料集」，並且會產生一個或多個輸出資料集。 輸入資料集代表管線中活動的輸入，輸出資料集則代表活動的輸出。 資料集可識別資料表、檔案、資料夾和文件等各種資料存放區中的資料。 例如，Azure Blob 資料集會指定管線應從中讀取資料之 Blob 儲存體中的 Blob 容器和資料夾。
+一個活動可以接受零個或多個輸入「資料集」  ，並且會產生一個或多個輸出資料集。 輸入資料集代表管線中活動的輸入，輸出資料集則代表活動的輸出。 資料集可識別資料表、檔案、資料夾和文件等各種資料存放區中的資料。 例如，Azure Blob 資料集會指定管線應從中讀取資料之 Blob 儲存體中的 Blob 容器和資料夾。
 
-在您建立資料集之前，請先建立一個「已連結的服務」，以將資料存放區連結到 Data Factory。 已連結的服務非常類似連接字串，可定義 Data Factory 連接到外部資源所需的連線資訊。 資料集可識別已連結的資料存放區內的資料，例如 SQL 資料表、檔案、資料夾及文件。 例如，「Azure 儲存體」已連結服務會將儲存體帳戶連結到 Data Factory。 Azure Blob 資料集代表包含要處理之輸入 Blob 的 Blob 容器和資料夾。
+在您建立資料集之前，請先建立一個「已連結的服務」  ，以將資料存放區連結到 Data Factory。 已連結的服務非常類似連接字串，可定義 Data Factory 連接到外部資源所需的連線資訊。 資料集可識別已連結的資料存放區內的資料，例如 SQL 資料表、檔案、資料夾及文件。 例如，「Azure 儲存體」已連結服務會將儲存體帳戶連結到 Data Factory。 Azure Blob 資料集代表包含要處理之輸入 Blob 的 Blob 容器和資料夾。
 
 以下是一個範例案例。 若要將資料從 Blob 儲存體複製到 SQL Database，您需建立兩個連結服務：類型為 Azure 儲存體和 Azure SQL Database。 接著，建立兩個資料集：Azure Blob 資料集 (此資料集參考 Azure 儲存體連結服務) 和 Azure SQL 資料表資料集 (此資料集參考 Azure SQL Database 連結服務)。 「Azure 儲存體」和 Azure SQL Database 已連結服務包含 Data Factory 在執行階段分別用來連接到「Azure 儲存體」和 Azure SQL Database 的連接字串。 Azure Blob 資料集會指定包含 Blob 儲存體中輸入 Blob 的 Blob 容器和 Blob 資料夾。 「Azure SQL 資料表」資料集會指定作為資料複製目的地的 SQL Database 中 SQL 資料表。
 
@@ -87,7 +87,7 @@ Data Factory 中的資料集會以 JSON 格式定義如下：
 | typeProperties | 每個類型的類型屬性都不同 (例如：Azure Blob、Azure SQL 資料表)。 如需有關支援的類型及其屬性的詳細資料，請參閱[資料集類型](#Type)。 |是 |NA |
 | external | 用來指定資料集是否由 Data Factory 管線明確產生的布林值旗標。 如果活動的輸入資料集不是由目前的管線所產生，請將此旗標設定為 true。 請針對管線中第一個活動的輸入資料集，將此旗標設定為 true。  |否 |false |
 | availability | 定義處理時段 (例如每小時或每天) 或用於產生資料集的切割模型。 活動執行取用和產生的每個資料單位稱為資料配量。 如果將輸出資料集的可用性設定為每天 (frequency - Day，interval - 1)，就會每天產生配量。 <br/><br/>如需詳細資料，請參閱「資料集可用性」。 <br/><br/>如需有關資料集切割模型的詳細資料，請參閱[排程和執行](data-factory-scheduling-and-execution.md)一文。 |是 |NA |
-| policy |定義資料集配量必須符合的準則或條件。 <br/><br/>如需詳細資料，請參閱[資料集原則](#Policy)一節。 |否 |NA |
+| policies |定義資料集配量必須符合的準則或條件。 <br/><br/>如需詳細資料，請參閱[資料集原則](#Policy)一節。 |否 |NA |
 
 ## <a name="dataset-example"></a>資料集範例
 在下列範例中，資料集代表 SQL Database 中名為 **MyTable** 的資料表。
@@ -141,7 +141,7 @@ Data Factory 中的資料集會以 JSON 格式定義如下：
 如您所見，已連結的服務會定義如何連接到 SQL Database。 資料集會定義使用哪個資料表作為管線中活動的輸入和輸出。
 
 > [!IMPORTANT]
-> 除非資料集是由管線所產生，否則應該標示為「外部」。 此設定通常會套用至管線中第一個活動的輸入。
+> 除非資料集是由管線所產生，否則應該標示為「外部」  。 此設定通常會套用至管線中第一個活動的輸入。
 
 ## <a name="Type"></a> 資料集類型
 資料集的類型取決於您所使用的資料存放區。 如需 Data Factory 所支援的資料存放區清單，請參閱下表。 按一下某個資料存放區，即可了解如何為該資料存放區建立已連結的服務和資料集。
@@ -203,7 +203,7 @@ structure 中的每個資料行都包含下列屬性︰
 * **針對結構化資料來源**，請只有在您想要將來源資料行對應到接收資料行且其名稱不相同時，才指定 structure 區段。 這類結構化資料來源會將資料結構描述和類型資訊與資料本身儲存在一起。 結構化資料來源的範例包括 SQL Server、Oracle 及 Azure 資料表。
   
     由於結構化資料來源已經有可用的類型資訊，因此當您包含 structure 區段時，便不應包含類型資訊。
-* **針對在讀取時驗證結構描述 (schema on read) 的資料來源 (具體而言即 Blob 儲存體)**，您可以選擇儲存資料，而不將任何結構描述或類型資訊與資料儲存在一起。 針對這些類型的資料來源，當您想要將來源資料行與接收資料行對應時，請包含 structure。 當資料集是複製活動的輸入，並且來源資料集的資料類型應該轉換成接收器的原生類型時，也請包含 structure。
+* **針對在讀取時驗證結構描述 (schema on read) 的資料來源 (具體而言即 Blob 儲存體)** ，您可以選擇儲存資料，而不將任何結構描述或類型資訊與資料儲存在一起。 針對這些類型的資料來源，當您想要將來源資料行與接收資料行對應時，請包含 structure。 當資料集是複製活動的輸入，並且來源資料集的資料類型應該轉換成接收器的原生類型時，也請包含 structure。
     
     Data Factory 支援下列用來在結構中提供類型資訊的值：**Int16、Int32、Int64、Single、Double、Decimal、Byte[]、Boolean、String、Guid、Datetime、Datetimeoffset 及 Timespan**。 這些值是符合 Common Language Specification (CLS) 規範的 .NET 型類型值。
 
@@ -239,7 +239,7 @@ Data Factory 會在將資料從來源資料存放區移到接收資料存放區�
 | interval |指定頻率的倍數。<br/><br/>「頻率 x 間隔」會決定產生配量的頻率。 例如，如果您需要將資料集以每小時為單位來切割，請將 <b>frequency</b> 設定為 <b>Hour</b>，將 <b>interval</b> 設定為 <b>1</b>。<br/><br/>請注意，如果您將 **frequency** 指定為 **Minute**，則應該將 interval 設定為不小於 15。 |是 |NA |
 | style |指定應該在間隔的開始還是結束時產生配量。<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>如果將 **frequency** 設定為 **Month**，並將 **style** 設定為 **EndOfInterval**，就會在當月的最後一天產生配量。 如果將 **style** 設定為 **StartOfInterval**，則會在當月的第一天產生配量。<br/><br/>如果將 **frequency** 設定為 **Day**，並將 **style** 設定為 **EndOfInterval**，就會在當天的最後一小時產生配量。<br/><br/>如果 **frequency** 設定為 **Hour**，並將 **style** 設定為 **EndOfInterval**，則會在該小時結束時產生配量。 例如，就下午 1 點 - 2 點期間的配量而言，會在下午 2 點產生配量。 |否 |EndOfInterval |
 | anchorDateTime |定義排程器用來計算資料集配量界限的時間絕對位置。 <br/><br/>請注意，是否這個屬性會比指定的頻率更細微的日期部分，會忽略更細微的部分。 例如，如果 **interval** 為 **hourly** (frequency：hour 且 interval：1)，而且 **anchorDateTime** 包含**分鐘和秒鐘**，則會忽略 **anchorDateTime** 的分鐘和秒鐘部分。 |否 |01/01/0001 |
-| offset |所有資料集配量的開始和結束移位所依據的時間範圍。 <br/><br/>請注意，如果同時指定 **anchorDateTime** 和 **offset**，則結果會是合併的位移。 |否 |NA |
+| Offset |所有資料集配量的開始和結束移位所依據的時間範圍。 <br/><br/>請注意，如果同時指定 **anchorDateTime** 和 **offset**，則結果會是合併的位移。 |否 |NA |
 
 ### <a name="offset-example"></a>位移範例
 根據預設，每日 (`"frequency": "Day", "interval": 1`) 配量的開始時間是「國際標准時間」(UTC) 上午 12 點 (午夜)。 如果您希望將開始時間改為 UTC 時間上午 6 點，請依照下列程式碼片段所示設定位移：
@@ -282,7 +282,7 @@ Data Factory 會在將資料從來源資料存放區移到接收資料存放區�
 ### <a name="validation-policies"></a>驗證原則
 | 原則名稱 | 描述 | 適用於 | 必要項 | 預設值 |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |驗證「Azure Blob 儲存體」中的資料是否符合大小下限需求 (以 MB 為單位)。 |Azure Blob 儲存體 |否 |NA |
+| minimumSizeMB |驗證「Azure Blob 儲存體」  中的資料是否符合大小下限需求 (以 MB 為單位)。 |Azure Blob 儲存體 |否 |NA |
 | minimumRows |驗證 **Azure SQL 資料庫**或 **Azure 資料表**中的資料是否包含最小的資料列數。 |<ul><li>Azure SQL 資料庫</li><li>Azure 資料表</li></ul> |否 |NA |
 
 #### <a name="examples"></a>範例
@@ -314,7 +314,7 @@ Data Factory 會在將資料從來源資料存放區移到接收資料存放區�
 ### <a name="external-datasets"></a>外部資料集
 外部資料集是並非由 Data Factory 中的執行中管線所產生的資料集。 如果資料集標示為**外部**，則可定義 **ExternalData** 原則來影響資料集配量可用性的行為。
 
-除非資料集是由 Data Factory 所產生，否則應該標示為「外部」。 除非會使用活動或管線鏈結，否則此設定通常會套用到管線中第一個活動的輸入。
+除非資料集是由 Data Factory 所產生，否則應該標示為「外部」  。 除非會使用活動或管線鏈結，否則此設定通常會套用到管線中第一個活動的輸入。
 
 | Name | 描述 | 必要項 | 預設值 |
 | --- | --- | --- | --- |

@@ -15,10 +15,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 090a066afb24c4776f9844b8850264ffad842c59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60350071"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health 作業
@@ -35,12 +35,12 @@ ms.locfileid: "60350071"
 >
 
 ### <a name="to-enable-azure-ad-connect-health-email-notifications"></a>啟用 Azure AD Connect Health 電子郵件通知
-1. 針對您想要接收電子郵件通知的服務，開啟 [警示] 刀鋒視窗。
-2. 從動作列中，按一下 [通知設定]。
-3. 在電子郵件通知開關上，選取 [開啟]。
+1. 針對您想要接收電子郵件通知的服務，開啟 [警示]  刀鋒視窗。
+2. 從動作列中，按一下 [通知設定]  。
+3. 在電子郵件通知開關上，選取 [開啟]  。
 4. 如果要讓所有全域管理員都接收電子郵件通知，請選取此核取方塊。
-5. 如果想要用其他任何電子郵件地址來接收電子郵件通知，請在 [其他電子郵件收件者] 方塊中指定。 若要從這份清單中移除電子郵件地址，請以滑鼠右鍵按一下該項目，然後選取 [刪除]。
-6. 若要完成變更，請按一下 [儲存]。 只有在您儲存之後，變更才會生效。
+5. 如果想要用其他任何電子郵件地址來接收電子郵件通知，請在 [其他電子郵件收件者]  方塊中指定。 若要從這份清單中移除電子郵件地址，請以滑鼠右鍵按一下該項目，然後選取 [刪除]  。
+6. 若要完成變更，請按一下 [儲存]  。 只有在您儲存之後，變更才會生效。
 
 ## <a name="delete-a-server-or-service-instance"></a>刪除伺服器或服務執行個體
 
@@ -63,19 +63,19 @@ ms.locfileid: "60350071"
 
 適用於 Active Directory 同盟服務 (AD FS) 和 Azure AD Connect (Sync) 的 Azure AD Connect Health：
 
-1. 從 [伺服器清單] 刀鋒視窗中選取要移除的伺服器名稱，以開啟 [伺服器] 刀鋒視窗。
-2. 在 [伺服器] 刀鋒視窗中，從動作列中按一下 [刪除]。
+1. 從 [伺服器清單]  刀鋒視窗中選取要移除的伺服器名稱，以開啟 [伺服器]  刀鋒視窗。
+2. 在 [伺服器]  刀鋒視窗中，從動作列中按一下 [刪除]  。
 ![Azure AD Connect Health 刪除伺服器的螢幕擷取畫面](./media/how-to-connect-health-operations/DeleteServer2.png)
 3. 在確認方塊中輸入伺服器名稱以確認。
-4. 按一下 [刪除] 。
+4. 按一下 [刪除]  。
 
 Azure AD Connect Health for Azure Active Directory Domain Services：
 
-1. 開啟 [網域控制站] 儀表板。
+1. 開啟 [網域控制站]  儀表板。
 2. 選取要移除的網域控制站。
-3. 從動作列中，按一下 [刪除已選取項目]。
+3. 從動作列中，按一下 [刪除已選取項目]  。
 4. 確認刪除伺服器的動作。
-5. 按一下 [刪除] 。
+5. 按一下 [刪除]  。
 
 ### <a name="delete-a-service-instance-from-azure-ad-connect-health-service"></a>從 Azure AD Connect Health 服務刪除服務執行個體
 在某些情況下，您可能需要移除服務執行個體。 以下是從 Azure AD Connect Health 服務移除服務執行個體時所需要知道的事項。
@@ -88,11 +88,11 @@ Azure AD Connect Health for Azure Active Directory Domain Services：
 * 執行此動作之後，如果想要開始監視該服務，請在所有伺服器上解除安裝健康情況代理程式，再重新安裝。 執行此動作之後，如果想要重新開始監視相同的伺服器，請在該伺服器上解除安裝、重新安裝及註冊健康情況代理程式。
 
 #### <a name="to-delete-a-service-instance-from-the-azure-ad-connect-health-service"></a>從 Azure AD Connect Health 服務刪除服務執行個體
-1. 從 [服務清單] 刀鋒視窗中選取您想要移除的服務識別碼 (伺服陣列名稱)，以開啟 [服務] 刀鋒視窗。 
-2. 在 [服務] 刀鋒視窗上，從動作列中按一下 [刪除]。 
+1. 從 [服務清單]  刀鋒視窗中選取您想要移除的服務識別碼 (伺服陣列名稱)，以開啟 [服務]  刀鋒視窗。 
+2. 在 [服務]  刀鋒視窗上，從動作列中按一下 [刪除]  。 
 ![Azure AD Connect Health 刪除服務的螢幕擷取畫面](./media/how-to-connect-health-operations/DeleteServer.png)
 3. 在確認方塊中輸入服務名稱以確認 (例如：sts.contoso.com)。
-4. 按一下 [刪除] 。
+4. 按一下 [刪除]  。
    <br><br>
 
 [//]: # (RBAC 小節的開頭)
@@ -104,9 +104,9 @@ Azure AD Connect Health 支援下列內建角色：
 
 | 角色 | 權限 |
 | --- | --- |
-| 擁有者 |擁有者可以在 Azure AD Connect Health 內「管理存取」(例如將角色指派給使用者或群組)、「檢視入口網站中的所有資訊」(例如檢視警示)，以及「變更設定」(例如電子郵件通知)。 <br>預設會指派此角色給 Azure AD 全域管理員，而且無法變更。 |
-| 參與者 |參與者可以在 Azure AD Connect Health 內「檢視入口網站中的所有資訊」(例如檢視警示)，以及「變更設定」(例如電子郵件通知)。 |
-| 讀取器 |讀者可以在 Azure AD Connect Health 內「檢視入口網站中的所有資訊」(例如檢視警示)。 |
+| 擁有者 |擁有者可以在 Azure AD Connect Health 內「管理存取」  (例如將角色指派給使用者或群組)、「檢視入口網站中的所有資訊」  (例如檢視警示)，以及「變更設定」  (例如電子郵件通知)。 <br>預設會指派此角色給 Azure AD 全域管理員，而且無法變更。 |
+| 參與者 |參與者可以在 Azure AD Connect Health 內「檢視入口網站中的所有資訊」  (例如檢視警示)，以及「變更設定」  (例如電子郵件通知)。 |
+| 讀取器 |讀者可以在 Azure AD Connect Health 內「檢視入口網站中的所有資訊」  (例如檢視警示)。 |
 
 其他所有角色 (例如「使用者存取系統管理員」或「DevTest Labs 使用者」) 即使出現在入口網站體驗中，也不影響 Azure AD Connect Health 內的存取。
 
@@ -124,14 +124,14 @@ Azure AD Connect Health 支援在兩個層級上管理存取：
 若要允許 Azure AD Connect Health 內的*所有服務執行個體*層級使用者存取，請開啟 Azure AD Connect Health 中的主要刀鋒視窗。<br>
 
 #### <a name="step-2-add-users-and-groups-and-assign-roles"></a>步驟 2：新增使用者和群組並指派角色
-1. 從 [設定] 區段中，按一下 [使用者]。<br>
+1. 從 [設定]  區段中，按一下 [使用者]  。<br>
    ![Azure AD Connect Health 資源提要欄位的螢幕擷取畫面](./media/how-to-connect-health-operations/startRBAC.png)
-2. 選取 [新增] 。
-3. 在 [選取角色] 窗格中，選取角色 (例如，**擁有者**)。<br>
+2. 選取 [新增]  。
+3. 在 [選取角色]  窗格中，選取角色 (例如，**擁有者**)。<br>
    ![Azure AD Connect Health RBAC [使用者] 視窗的螢幕擷取畫面](./media/how-to-connect-health-operations/RBAC_add.png)
-4. 輸入目標使用者或群組的名稱或識別碼。 您可以同時選取一或多個使用者或群組。 按一下 [選取] 。
+4. 輸入目標使用者或群組的名稱或識別碼。 您可以同時選取一或多個使用者或群組。 按一下 [選取]  。
    ![Azure AD Connect Health RBAC [使用者] 視窗的螢幕擷取畫面](./media/how-to-connect-health-operations/RBAC_select_users.png)
-5. 選取 [確定] 。<br>
+5. 選取 [確定]  。<br>
 6. 完成角色指派之後，使用者和群組就會出現在清單中。<br>
    ![Azure AD Connect Health RBAC [使用者] 視窗的螢幕擷取畫面，其中已醒目提示新使用者](./media/how-to-connect-health-operations/RBAC_user_list.png)
 
@@ -145,7 +145,7 @@ Azure AD Connect Health 支援在兩個層級上管理存取：
 
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>步驟 3：與使用者或群組共用刀鋒視窗位置
 1. 指派權限之後，使用者就可以前往[這裡](https://aka.ms/aadconnecthealth)來存取 Azure AD Connect Health。
-2. 在刀鋒視窗上，使用者可以將刀鋒視窗或其他組件釘選到儀表板。 只要按一下 [釘選到儀表板] 圖示即可。<br>
+2. 在刀鋒視窗上，使用者可以將刀鋒視窗或其他組件釘選到儀表板。 只要按一下 [釘選到儀表板]  圖示即可。<br>
    ![Azure AD Connect Health RBAC 釘選刀鋒視窗的螢幕擷取畫面，其中已醒目提示釘選圖示](./media/how-to-connect-health-operations/RBAC_pin_blade.png)
 
 > [!NOTE]
@@ -154,7 +154,7 @@ Azure AD Connect Health 支援在兩個層級上管理存取：
 >
 
 ### <a name="remove-users-or-groups"></a>移除使用者或群組
-您可以移除已新增至 Azure AD Connect Health RBAC 的使用者或群組。 只要以滑鼠右鍵按一下使用者或群組，然後選取 [移除] 即可。<br>
+您可以移除已新增至 Azure AD Connect Health RBAC 的使用者或群組。 只要以滑鼠右鍵按一下使用者或群組，然後選取 [移除]  即可。<br>
 ![Azure AD Connect Health RBAC [使用者] 視窗的螢幕擷取畫面，其中已醒目提示 [移除]](./media/how-to-connect-health-operations/RBAC_remove.png)
 
 [//]: # (RBAC 小節的結尾)

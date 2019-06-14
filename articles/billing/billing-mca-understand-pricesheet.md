@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: eb6184e10d38cdcfad7070663e36f6610d009cdb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371354"
 ---
 # <a name="understand-the-terms-in-your-price-sheet-for-a-microsoft-customer-agreement"></a>了解 Microsoft 的客戶合約的價位表中的條款
@@ -40,7 +40,7 @@ ms.locfileid: "60371354"
 | billingProfileName  | 計費將設定為接收發票的設定檔的名稱。 價位表中的價格是此計費的設定檔相關聯。 |
 | productOrderName  | 已購買的產品計劃的名稱。 |
 | serviceFamily  | Azure 服務的型別。例如：計算、 分析、 安全性 |
-| 產品  | 因為而產生費用的產品名稱。例如：基本的 SQL DB、 標準的 SQL DB  |
+| Products  | 因為而產生費用的產品名稱。例如：基本的 SQL DB、 標準的 SQL DB  |
 | productId  | 其計量會取用產品的唯一識別碼。 |
 | unitOfMeasure  | 識別服務計費的測量的單位。 例如，計算服務是按每小時計費。 |
 | meterId  | 計量的唯一識別碼。 |

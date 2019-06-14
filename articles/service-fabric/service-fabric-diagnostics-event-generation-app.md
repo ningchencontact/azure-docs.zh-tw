@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 613faf5bbc9498b82bc04460d30b2e94c30340db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393090"
 ---
 # <a name="application-logging"></a>應用程式記錄檔
 
-檢測程式碼不僅是深入了解您的使用者的一種方式，也是了解應用程式中是否存在問題，以及診斷需要修正問題之內容的唯一方法。 雖然技術上可以將偵錯工具連線至生產服務，但這不是常見的做法。 因此，提供详细的检测数据非常重要。
+檢測程式碼不僅是深入了解您的使用者的一種方式，也是了解應用程式中是否存在問題，以及診斷需要修正問題之內容的唯一方法。 雖然技術上可以將偵錯工具連線至生產服務，但這不是常見的做法。 因此，取得詳細的檢測資料很重要。
 
 某些產品會自動檢測您的程式碼。 雖然這些產品的效果不錯，但幾乎都還是需要手動檢測才能專屬於您的商務邏輯。 最後您還是要有足夠資訊，才能以抽絲剝繭的方式對應用程式進行偵錯。 Service Fabric 應用程式可以使用任何記錄架構進行檢測。 此文件說明一些檢測程式碼的不同方法，以及在何種情況下應選擇什麼方法。 
 

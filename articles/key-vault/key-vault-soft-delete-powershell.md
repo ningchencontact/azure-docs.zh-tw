@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: mbaldwin
 ms.openlocfilehash: ecc87e03a80ce10bedbe26b3ebb452ec704eefcb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60461360"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>如何使用 Key Vault 虛刪除與 PowerShell
@@ -68,7 +68,7 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 New-AzKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete
 ```
 
-### <a name="verify-soft-delete-enablement"></a>验证软删除支持
+### <a name="verify-soft-delete-enablement"></a>驗證啟用虛刪除
 
 若要驗證金鑰保存庫已啟用虛刪除，請執行 *show* 命令，並尋找「虛刪除已啟用?」 屬性：
 
@@ -102,8 +102,8 @@ Get-AzKeyVault -InRemovedState
 ```
 
 - *識別碼*可用來識別資源時復原或清除。 
-- 「資源識別碼」是此保存庫的原始資源識別碼。 因為此金鑰保存庫目前處於已刪除狀態，所以沒有具有該資源識別碼的資源存在。 
-- 如果不採取任何動作，「排定清除日期」就是永久刪除保存庫的時間。 用來計算「排定清除日期」的預設保留期間為 90 天。
+- 「資源識別碼」  是此保存庫的原始資源識別碼。 因為此金鑰保存庫目前處於已刪除狀態，所以沒有具有該資源識別碼的資源存在。 
+- 如果不採取任何動作，「排定清除日期」  就是永久刪除保存庫的時間。 用來計算「排定清除日期」  的預設保留期間為 90 天。
 
 ## <a name="recovering-a-key-vault"></a>復原金鑰保存庫
 
@@ -225,24 +225,24 @@ Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus
 
 ### <a name="scheduled-purge"></a>排定的清除
 
-列出已刪除的金鑰保存庫物件，也會顯示它們排定要由金鑰保存庫清除的時間。 如果不採取任何動作，「排定清除日期」指出何時會永久刪除金鑰保存庫物件。 根據預設，已刪除的金鑰保存庫物件的保留期限為 90 天。
+列出已刪除的金鑰保存庫物件，也會顯示它們排定要由金鑰保存庫清除的時間。 如果不採取任何動作，「排定清除日期」  指出何時會永久刪除金鑰保存庫物件。 根據預設，已刪除的金鑰保存庫物件的保留期限為 90 天。
 
 >[!IMPORTANT]
->已清除的保存庫物件，由其「排定清除日期」欄位觸發，會永久刪除。 它無法復原！
+>已清除的保存庫物件，由其「排定清除日期」  欄位觸發，會永久刪除。 它無法復原！
 
-## <a name="enabling-purge-protection"></a>启用清除保护
+## <a name="enabling-purge-protection"></a>啟用清除保護
 
-启用清除保护时，在长达 90 天的保留期到期之前，不能清除处于已删除状态的保管库或对象。 這類保存庫或物件仍可復原。 此功能可增加保障，在保留期到期之前，永远不会永久删除保管库或对象。
+清除保護開啟時，保存庫或中的物件已刪除狀態無法清除，直到已超過 90 天的保留期限。 這類保存庫或物件仍可復原。 這項功能提供更加確定保存庫或物件不能永久刪除，直到保留期限已通過。
 
-只有启用了软删除，才能启用清除保护。 
+只有也啟用虛刪除時，您可以啟用清除保護。 
 
-若要在创建保管库时同时启用软删除和清除保护，请使用 [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet：
+若要開啟這兩個虛刪除，並清除保護，當建立保存庫時，請使用[新增 AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet:
 
 ```powershell
 New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete -EnablePurgeProtection
 ```
 
-若要向现有保管库（已启用软删除）添加清除保护，请使用 [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0)、[Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0) 和 [Set-AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) cmdlet：
+清除保護新增到現有的保存庫 （且已啟用虛刪除），請使用[Get AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0)， [Get AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0)，並[組 AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) cmdlet:
 
 ```
 ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"
