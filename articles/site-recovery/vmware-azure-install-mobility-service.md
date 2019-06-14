@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318164"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>準備要推入安裝行動代理程式的來源機器
@@ -27,13 +27,13 @@ ms.locfileid: "60318164"
     - 在 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 登錄機碼底下，新增 DWORD：**LocalAccountTokenFilterPolicy**。 將值設定為 **1**。
     -  做法是在命令提示字元執行下列命令︰  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
-3. 在您想要保護之機器的 [Windows 防火牆] 中，選取 [允許應用程式或功能通過防火牆]。 啟用 [檔案及印表機共用] 和 [Windows Management Instrumentation (WMI)]。 針對隸屬於網域的電腦，您可以利用群組原則物件 (GPO) 進行防火牆設定。
+3. 在您想要保護之機器的 [Windows 防火牆] 中，選取 [允許應用程式或功能通過防火牆]  。 啟用 [檔案及印表機共用]  和 [Windows Management Instrumentation (WMI)]  。 針對隸屬於網域的電腦，您可以利用群組原則物件 (GPO) 進行防火牆設定。
 
    ![防火牆設定](./media/vmware-azure-install-mobility-service/mobility1.png)
 
 4. 新增您在 CSPSConfigtool 中建立的帳戶。 若要這樣做，請登入您的設定伺服器。
 5. 開啟 **cspsconfigtool.exe**。 它會是桌面上可用的捷徑，位於 %ProgramData%\home\svsystems\bin 資料夾中。
-6. 在 [管理帳戶] 索引標籤上，選取 [新增帳戶]。
+6. 在 [管理帳戶]  索引標籤上，選取 [新增帳戶]  。
 7. 加入您所建立的帳戶。
 8. 輸入您為電腦啟用複寫時使用的認證。
 
@@ -51,21 +51,21 @@ ms.locfileid: "60318164"
 6. 取消該行的註解，並將值變更為 **yes**。
 7. 找到以 **Subsystem** 開頭這一行，並取消其註解。
 
-      ![ Linux](./media/vmware-azure-install-mobility-service/mobility2.png)
+      ![Linux](./media/vmware-azure-install-mobility-service/mobility2.png)
 
 8. 重新啟動 **sshd** 服務。
 9. 新增您在 CSPSConfigtool 中建立的帳戶。 若要這樣做，請登入您的設定伺服器。
 10. 開啟 **cspsconfigtool.exe**。 它會是桌面上可用的捷徑，位於 %ProgramData%\home\svsystems\bin 資料夾中。
-11. 在 [管理帳戶] 索引標籤上，選取 [新增帳戶]。
+11. 在 [管理帳戶]  索引標籤上，選取 [新增帳戶]  。
 12. 加入您所建立的帳戶。
 13. 輸入您為電腦啟用複寫時使用的認證。
 
 ## <a name="anti-virus-on-replicated-machines"></a>在複寫的機器上防毒
 
-如果您要複寫的機器正在執行作用中的防毒軟體，請務必從防毒作業中排除行動性服務安裝資料夾 (C:\ProgramData\ASR\agent)。 這可確保複寫運作正常。
+如果您要複寫的機器正在執行作用中的防毒軟體，請務必從防毒作業中排除行動性服務安裝資料夾 (C:\ProgramData\ASR\agent  )。 這可確保複寫運作正常。
 
 ## <a name="next-steps"></a>後續步驟
 
-安裝「行動服務」之後，在 Azure 入口網站中，選取 [+ 複寫] 以開始保護這些 VM。 深入了解如何為 [VMware VM](vmware-azure-enable-replication.md) 和[實體伺服器](physical-azure-disaster-recovery.md#enable-replication)啟用複寫。
+安裝「行動服務」之後，在 Azure 入口網站中，選取 [+ 複寫]  以開始保護這些 VM。 深入了解如何為 [VMware VM](vmware-azure-enable-replication.md) 和[實體伺服器](physical-azure-disaster-recovery.md#enable-replication)啟用複寫。
 
 
