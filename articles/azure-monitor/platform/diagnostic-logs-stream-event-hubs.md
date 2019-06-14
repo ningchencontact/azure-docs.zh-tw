@@ -9,10 +9,10 @@ ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237742"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>將 Azure 診斷記錄串流至事件中樞
@@ -57,7 +57,7 @@ ms.locfileid: "60237742"
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>使用入口網站串流診斷記錄
 
-1. 在入口網站中，瀏覽至 Azure 監視器，然後按一下 [診斷設定]
+1. 在入口網站中，瀏覽至 Azure 監視器，然後按一下 [診斷設定] 
 
     ![Azure 監視器的監視區段](media/diagnostic-logs-stream-event-hubs/diagnostic-settings-blade.png)
 
@@ -71,13 +71,13 @@ ms.locfileid: "60237742"
 
    ![新增診斷設定 - 現有的設定](media/diagnostic-logs-stream-event-hubs/diagnostic-settings-multiple.png)
 
-3. 為設定提供名稱並核取 [串流至事件中樞] 方塊，然後選取 [事件中樞命名空間]。
+3. 為設定提供名稱並核取 [串流至事件中樞]  方塊，然後選取 [事件中樞命名空間]。
 
    ![新增診斷設定 - 現有的設定](media/diagnostic-logs-stream-event-hubs/diagnostic-settings-configure.png)
 
    選取的命名空間將會是事件中樞的建立所在 (如果這是您第一次的串流診斷記錄) 或串流處理的目的地 (如果已存在將該記錄分類串流至此命名空間的資源)，而原則會定義串流機制擁有的權限。 目前，將事件串流到中樞需要管理、傳送和接聽的權限。 您可以在入口網站的 [設定] 索引標籤下，為您的命名空間建立或修改事件中樞命名空間共用存取原則。 若要更新其中一個診斷設定，用戶端必須擁有事件中樞授權規則的 ListKey 權限。 您也可以選擇性地指定事件中樞名稱。 如果您指定事件中樞名稱，記錄便會路由至該事件中樞，而非路由至每個記錄類別所新建的事件中樞。
 
-4. 按一下 [檔案] 。
+4. 按一下 [檔案]  。
 
 過了幾分鐘之後，新的設定就會出現在此資源的設定清單中，而且只要一產生新的事件資料，就會立即將診斷記錄串流至該事件中樞。
 

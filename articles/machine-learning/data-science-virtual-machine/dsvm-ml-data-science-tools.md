@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: e8876306e4ffbd0fa9a8aafc6d5d757fd3c9c614
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502078"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>機器學習與資料科學工具
@@ -35,7 +35,7 @@ ms.locfileid: "60502078"
 | 支援的版本     | Windows (Conda 環境：AzureML)、Linux (Conda 環境：py36)    |
 | 典型的使用案例      | 一般 ML 平台      |
 | 如何設定或安裝它？      |  搭配 GPU 支援安裝   |
-| 如何使用或執行它      | 作為 Python SDK 和 Azure CLI。 啟動至 Conda 環境 `AzureML` (Windows 版)「或」啟動至 `py36` (Linux 版)。      |
+| 如何使用或執行它      | 作為 Python SDK 和 Azure CLI。 啟動至 Conda 環境 `AzureML` (Windows 版)「或」  啟動至 `py36` (Linux 版)。      |
 | 範例的連結      | 範例 Jupyter Notebook 包含在 `AzureML` 目錄中的 Notebook 底下。  |
 | 相關工具      | Visual Studio Code、Jupyter   |
 
@@ -70,7 +70,7 @@ ms.locfileid: "60502078"
 | 這是什麼？   |  Weka 是資料採礦工作的 ML 演算法集合。 您可以將這些演算法直接套用至資料集，也可以從您自己的 Java 程式碼呼叫它們。 Weka 包含資料前置處理、分類、迴歸、群集、關聯規則和視覺效果的工具。 |
 | 支援的版本     | Windows、Linux     |
 | 典型的使用案例      | 一般 ML 工具     |
-| 如何使用或執行它      | 在 Windows 上，於 [開始] 功能表中搜尋 Weka。 在 Linux 上，使用 X2Go 進行登入，然後移至 [應用程式] > [開發] > [Weka]。 |
+| 如何使用或執行它      | 在 Windows 上，於 [開始] 功能表中搜尋 Weka。 在 Linux 上，使用 X2Go 進行登入，然後移至 [應用程式]   > [開發]   > [Weka]  。 |
 | 範例的連結      | [Weka 範例](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) \(英文\) |
 | 相關工具      |LightGBM、Rattle、XGBoost   |
 
@@ -98,7 +98,7 @@ ms.locfileid: "60502078"
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | H2O 是一個開放原始碼 AI 平台，支援記憶體內部、分散式、快速及可調式 ML。  |
-| 支援的版本      |  Linux   |
+| 支援的版本      | Linux   |
 | 典型的使用案例      | 一般用途的分散式、可調式 ML   |
 | 如何設定或安裝它？      | H2O 是安裝在 `/dsvm/tools/h2o` 中。      |
 | 如何使用或執行它      | 使用 X2Go 來連線至 VM。 啟動新的終端機，然後執行 `java -jar /dsvm/tools/h2o/current/h2o.jar`。 然後啟動網頁瀏覽器，並連線至 `http://localhost:54321`。      |
