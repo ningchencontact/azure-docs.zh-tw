@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 00161f8158ad73591687764528258e1081f81ce2
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65914311"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>如何使用對稱金鑰佈建繼承裝置
@@ -43,7 +43,7 @@ ms.locfileid: "65914311"
 ## <a name="prerequisites"></a>必要條件
 
 * 完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)快速入門。
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015年或更新版本['使用的桌面開發C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)啟用的工作負載。
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 或更新版本，並啟用[使用 C++ 的桌面開發](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載。
 * 已安裝最新版的 [Git](https://git-scm.com/download/)。
 
 
@@ -102,25 +102,25 @@ SDK 包含模擬裝置的範例程式碼。 這個模擬裝置將會嘗試在裝
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，並開啟您的裝置佈建服務執行個體。
 
-2. 選取 [管理註冊] 索引標籤，然後按一下頁面頂端的 [新增註冊群組] 按鈕。 
+2. 選取 [管理註冊]  索引標籤，然後按一下頁面頂端的 [新增註冊群組]  按鈕。 
 
-3. 在 [新增註冊群組] 上輸入下列資訊，然後按一下 [儲存] 按鈕。
+3. 在 [新增註冊群組]  上輸入下列資訊，然後按一下 [儲存]  按鈕。
 
    - **群組名稱**：輸入 **mylegacydevices**。
 
-   - **證明類型**：選取 [對稱金鑰]。
+   - **證明類型**：選取 [對稱金鑰]  。
 
    - **自動產生金鑰**：核取此方塊。
 
-   - **選取將裝置指派給中樞的方式**：選取 [靜態設定]，以便指派給特定的中樞。
+   - **選取將裝置指派給中樞的方式**：選取 [靜態設定]  ，以便指派給特定的中樞。
 
    - **選取可作為此群組之指派對象的 IoT 中樞**：選取您的其中一個中樞。
 
      ![為對稱金鑰證明新增註冊群組](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
-4. 一旦儲存您的註冊，將會產生 [主要金鑰] 與 [次要金鑰] 並新增到註冊項目。 您的對稱金鑰註冊群組會在 [註冊群組] 索引標籤的 [群組名稱] 資料行之下，顯示為 **mylegacydevices**。 
+4. 一旦儲存您的註冊，將會產生 [主要金鑰]  與 [次要金鑰]  並新增到註冊項目。 您的對稱金鑰註冊群組會在 [註冊群組]  索引標籤的 [群組名稱]  資料行之下，顯示為 **mylegacydevices**。 
 
-    開啟註冊並複製您產生之 [主要金鑰] 的值。 此金鑰是您的主要群組金鑰。
+    開啟註冊並複製您產生之 [主要金鑰]  的值。 此金鑰是您的主要群組金鑰。
 
 
 ## <a name="choose-a-unique-registration-id-for-the-device"></a>為裝置選擇唯一的註冊識別碼
@@ -147,7 +147,7 @@ sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 
 如果您使用 Linux 工作站，您可以使用 openssl 來產生衍生的裝置金鑰，如下列範例所示。
 
-將 **KEY** 的值取代為您先前記下的 [主要金鑰]。
+將 **KEY** 的值取代為您先前記下的 [主要金鑰]  。
 
 將 **REG_ID** 的值取代為您的註冊識別碼。
 
@@ -168,7 +168,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 如果您使用以 Windows 為基礎的工作站，您可以使用 PowerShell 來產生衍生的裝置金鑰，如下列範例所示。
 
-將 **KEY** 的值取代為您先前記下的 [主要金鑰]。
+將 **KEY** 的值取代為您先前記下的 [主要金鑰]  。
 
 將 **REG_ID** 的值取代為您的註冊識別碼。
 
@@ -198,7 +198,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 此範例程式碼會模擬將佈建要求傳送至裝置佈建服務執行個體的裝置開機順序。 此開機順序會使裝置接受辨識，並指派至您在註冊群組中設定的 IoT 中樞。
 
-1. 在 Azure 入口網站中，選取您裝置佈建服務的 [概觀] 索引標籤，並記下 [識別碼範圍] 值。
+1. 在 Azure 入口網站中，選取您裝置佈建服務的 [概觀]  索引標籤，並記下 [識別碼範圍]   值。
 
     ![從入口網站刀鋒視窗擷取裝置佈建服務端點資訊](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -208,7 +208,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
     ```
 
-3. 在 Visual Studio 的 [方案總管] 視窗中，瀏覽至 **Provision\_Samples** 資料夾。 展開名為 **prov\_dev\_client\_sample** 的範例專案。 展開 [來源檔案]，然後開啟 **prov\_dev\_client\_sample.c**。
+3. 在 Visual Studio 的 [方案總管]  視窗中，瀏覽至 **Provision\_Samples** 資料夾。 展開名為 **prov\_dev\_client\_sample** 的範例專案。 展開 [來源檔案]  ，然後開啟 **prov\_dev\_client\_sample.c**。
 
 4. 尋找 `id_scope` 常數，並以您稍早複製的**識別碼範圍**值取代該值。 
 
@@ -241,9 +241,9 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
    
     儲存檔案。
 
-7. 以滑鼠右鍵按一下 **prov\_dev\_client\_sample** 專案，然後選取 [設定為起始專案]。 
+7. 以滑鼠右鍵按一下 **prov\_dev\_client\_sample** 專案，然後選取 [設定為起始專案]  。 
 
-8. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決方案。 出現重新建置專案的提示時，按一下 [是]，以在執行前重新建置專案。
+8. 在 Visual Studio 功能表中，選取 [偵錯]   > [啟動但不偵錯]  以執行解決方案。 出現重新建置專案的提示時，按一下 [是]  ，以在執行前重新建置專案。
 
     下列輸出是模擬裝置成功開機，並連線到佈建服務執行個體以準備指派給 IoT 中樞的範例：
 
@@ -262,7 +262,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
     Press enter key to exit:
     ```
 
-9. 在入口網站中，瀏覽到獲指派您模擬裝置的 IoT 中樞，然後按一下 [IoT 裝置] 索引標籤。一旦模擬裝置成功佈建到中樞，其裝置識別碼會出現在 [IoT 裝置] 刀鋒視窗上，且 [狀態] 顯示為 [已啟用]。 您可能需要按一下頂端的 [重新整理] 按鈕。 
+9. 在入口網站中，瀏覽到獲指派您模擬裝置的 IoT 中樞，然後按一下 [IoT 裝置]  索引標籤。一旦模擬裝置成功佈建到中樞，其裝置識別碼會出現在 [IoT 裝置]  刀鋒視窗上，且 [狀態]  顯示為 [已啟用]  。 您可能需要按一下頂端的 [重新整理]  按鈕。 
 
     ![已向 IoT 中樞註冊裝置](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 

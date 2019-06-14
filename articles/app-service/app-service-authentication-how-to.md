@@ -15,10 +15,10 @@ ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 97764db40807214e756f119ca95fd640164f0cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851417"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>在 Azure App Service 中進階使用驗證和授權
@@ -39,11 +39,11 @@ ms.locfileid: "60851417"
 
 入口網站設定不會提供周全的方式，向您的使用者顯示多個登入提供者 (例如 Facebook 和 Twitter)。 不過，要將功能新增至您的應用程式並不困難。 步驟概述如下：
 
-首先，在 Azure 入口網站的 [驗證/授權] 頁面中，設定您需要啟用的每一個識別提供者。
+首先，在 Azure 入口網站的 [驗證/授權]  頁面中，設定您需要啟用的每一個識別提供者。
 
-在 [當要求未經驗證時所要採取的動作] 中，選取 [允許匿名要求 (無動作)]。
+在 [當要求未經驗證時所要採取的動作]  中，選取 [允許匿名要求 (無動作)]  。
 
-在登入頁面或導覽列、或是您應用程式的任何其他位置中，將登入連結新增至您啟用的每個提供者 (`/.auth/login/<provider>`)。 例如︰
+在登入頁面或導覽列、或是您應用程式的任何其他位置中，將登入連結新增至您啟用的每個提供者 (`/.auth/login/<provider>`)。 例如:
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -65,7 +65,7 @@ ms.locfileid: "60851417"
 
 在用戶端導向的登入中，應用程式會以手動方式將使用者登入提供者，然後將驗證權杖提交給 App Service 進行驗證 (請參閱[驗證流程](overview-authentication-authorization.md#authentication-flow))。 此驗證本身並不會實際為您授與所需應用程式資源的存取權，但成功的驗證會給予您可用來存取應用程式資源的工作階段權杖。 
 
-若要驗證提供者權杖，App Service 應用程式必須先以所需的提供者進行設定。 在執行階段，在您從提供者擷取驗證權杖之後，請將權杖公佈到 `/.auth/login/<provider>` 進行驗證。 例如︰ 
+若要驗證提供者權杖，App Service 應用程式必須先以所需的提供者進行設定。 在執行階段，在您從提供者擷取驗證權杖之後，請將權杖公佈到 `/.auth/login/<provider>` 進行驗證。 例如: 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -96,7 +96,7 @@ Content-Type: application/json
 }
 ```
 
-在取得此工作階段權杖之後，您可以藉由將 `X-ZUMO-AUTH` 標頭新增至 HTTP 要求，來存取受保護的應用程式資源。 例如︰ 
+在取得此工作階段權杖之後，您可以藉由將 `X-ZUMO-AUTH` 標頭新增至 HTTP 要求，來存取受保護的應用程式資源。 例如: 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -117,7 +117,7 @@ X-ZUMO-AUTH: <authenticationToken_value>
 <a href="/.auth/logout">Sign out</a>
 ```
 
-成功登出預設會將用戶端重新導向到 URL `/.auth/logout/done`。 您可以新增 `post_logout_redirect_uri` 查詢參數來變更登出後重新導向頁面。 例如︰
+成功登出預設會將用戶端重新導向到 URL `/.auth/logout/done`。 您可以新增 `post_logout_redirect_uri` 查詢參數來變更登出後重新導向頁面。 例如:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -154,7 +154,7 @@ App Service 會使用特殊標頭，將使用者宣告傳遞至您的應用程�
 * X-MS-CLIENT-PRINCIPAL-NAME
 * X-MS-CLIENT-PRINCIPAL-ID
 
-使用任何语言或框架编写的代码均可从这些标头获取所需信息。 針對 ASP.NET 4.6 應用程式， **ClaimsPrincipal** 會自動設定適當的值。
+以任何語言或架構撰寫的程式碼可以從這些標頭中取得所需的資訊。 針對 ASP.NET 4.6 應用程式， **ClaimsPrincipal** 會自動設定適當的值。
 
 您的應用程式也可以藉由呼叫 `/.auth/me` 來取得關於已驗證使用者的其他詳細資料。 Mobile Apps 伺服器 SDK 提供 Helper 方法來處理此資料。 如需詳細資訊，請參閱[如何使用 Azure Mobile Apps Node.js SDK ](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity)和[使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info)。
 
@@ -185,16 +185,16 @@ App Service 會使用特殊標頭，將使用者宣告傳遞至您的應用程�
 - **Twitter**：存取權杖不會到期 (請參閱 [Twitter OAuth 常見問題集](https://developer.twitter.com/en/docs/basics/authentication/FAQ))。
 - **Microsoft 帳戶**：當您[設定 Microsoft 帳戶驗證設定](configure-authentication-provider-microsoft.md)時，請選取 `wl.offline_access` 範圍。
 - **Azure Active Directory**：在 [https://resources.azure.com](https://resources.azure.com) 中，請執行下列步驟：
-    1. 在頁面的頂端，選取 [讀取/寫入]。
-    2. 在左側瀏覽器中，巡覽至 [訂用帳戶] > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**。 
-    3. 按一下 [編輯]。
+    1. 在頁面的頂端，選取 [讀取/寫入]  。
+    2. 在左側瀏覽器中，巡覽至 [訂用帳戶]   >  ** _\<subscription\_name_**  > **resourceGroups** >  _ **\<resource\_group\_name>** _ > **providers** > **Microsoft.Web** > **sites** >  _ **\<app\_name>** _ > **config** > **authsettings**。 
+    3. 按一下 [編輯]  。
     4. 修改下列屬性。 將 _\<app\_id>_ 取代為所要存取服務的 Azure Active Directory 應用程式識別碼。
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    5. 按一下 [放置]。 
+    5. 按一下 [放置]  。 
 
 設定好提供者之後，您可以在權杖存放區中[尋找重新整理權杖和存取權杖的到期時間](#retrieve-tokens-in-app-code)。 
 
@@ -231,11 +231,11 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>限制登入帳戶的網域
 
-Microsoft 帳戶和 Azure Active Directory 都可讓您從多個網域登入。 例如，Microsoft 帳戶允許 _outlook.com_、_live.com_ 和 _hotmail.com_ 帳戶。 Azure Active Directory 對於登入帳戶可允許任何數目的自訂網域。 這種行為可能不適合內部應用程式，因為您不會想讓具有 outlook.com 帳戶的任何使用者存取內部應用程式。 若要限制登入帳戶的網域名稱，請遵循下列步驟。
+Microsoft 帳戶和 Azure Active Directory 都可讓您從多個網域登入。 例如，Microsoft 帳戶允許 _outlook.com_、_live.com_ 和 _hotmail.com_ 帳戶。 Azure Active Directory 對於登入帳戶可允許任何數目的自訂網域。 這種行為可能不適合內部應用程式，因為您不會想讓具有 outlook.com  帳戶的任何使用者存取內部應用程式。 若要限制登入帳戶的網域名稱，請遵循下列步驟。
 
-在 [https://resources.azure.com](https://resources.azure.com) 中，巡覽至 [訂用帳戶] > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**。 
+在 [https://resources.azure.com](https://resources.azure.com) 中，巡覽至 [訂用帳戶]   >  ** _\< subscription\_ name_**  > **resourceGroups** >  _ **\< resource\_ group\_ name>** _ > **providers** > **Microsoft.Web** > **sites** >  _ **\< app\_ name>** _ > **config** > **authsettings**。 
 
-按一下 [編輯]、修改下列屬性，然後按一下 [放置]。 請務必將 _\<domain\_name>_ 取代為您需要的網域。
+按一下 [編輯]  、修改下列屬性，然後按一下 [放置]  。 請務必將 _\<domain\_name>_ 取代為您需要的網域。
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]

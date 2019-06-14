@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: a4dc7293c00097c7a5752e29bf7c9a203cbb31a5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721162"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 Apache Spark 進行疑難排解
@@ -22,9 +22,9 @@ ms.locfileid: "64721162"
 
 ### <a name="resolution-steps"></a>解決步驟
 
-可以优化 Spark 配置值，避免出现 Apache Spark 应用程序 OutofMemoryError 异常。 以下步骤显示了 Azure HDInsight 中的默认 Spark 配置值： 
+可微調 Spark 設定值有助於避免 Apache Spark 應用程式 OutofMemoryError 例外狀況。 下列步驟在 Azure HDInsight，Spark 設定值將顯示預設值： 
 
-1. 在叢集清單中選取 [Spark2]。
+1. 在叢集清單中選取 [Spark2]  。
 
     ![從清單中選取叢集](./media/apache-troubleshoot-spark/update-config-1.png)
 
@@ -32,7 +32,7 @@ ms.locfileid: "64721162"
 
     ![選取 [設定] 索引標籤](./media/apache-troubleshoot-spark/update-config-2.png)
 
-3. 在設定清單中選取 [Custom-spark2-defaults]。
+3. 在設定清單中選取 [Custom-spark2-defaults]  。
 
     ![選取 [Custom-spark2-defaults]](./media/apache-troubleshoot-spark/update-config-3.png)
 
@@ -44,19 +44,19 @@ ms.locfileid: "64721162"
 
     ![將值變更為 2048m](./media/apache-troubleshoot-spark/update-config-5.png)
 
-6. 儲存此值，然後儲存設定。 在工具列上，選取 [儲存]。
+6. 儲存此值，然後儲存設定。 在工具列上，選取 [儲存]  。
 
     ![儲存設定值和設定](./media/apache-troubleshoot-spark/update-config-6a.png)
 
-    如有任何設定需要注意，您會收到通知。 記下項目，然後選取 [仍要繼續]。 
+    如有任何設定需要注意，您會收到通知。 記下項目，然後選取 [仍要繼續]  。 
 
     ![選取 [仍要繼續]](./media/apache-troubleshoot-spark/update-config-6b.png)
 
-    註記設定變更，然後選取 [儲存]。
+    註記設定變更，然後選取 [儲存]  。
 
     ![輸入所做變更的附註內容](./media/apache-troubleshoot-spark/update-config-6c.png)
 
-7. 每次儲存設定時，系統都會提示您重新啟動服務。 選取 [重新啟動]。
+7. 每次儲存設定時，系統都會提示您重新啟動服務。 選取 [重新啟動]  。
 
     ![選取 [重新啟動]](./media/apache-troubleshoot-spark/update-config-7a.png)
 
@@ -68,7 +68,7 @@ ms.locfileid: "64721162"
 
     ![檢閱執行中的處理序](./media/apache-troubleshoot-spark/update-config-7c.png)
 
-8. 您可以新增設定。 在設定清單中選取 [Custom-spark2-defaults]，然後選取 [新增屬性]。
+8. 您可以新增設定。 在設定清單中選取 [Custom-spark2-defaults]  ，然後選取 [新增屬性]  。
 
     ![選取 [新增屬性]](./media/apache-troubleshoot-spark/update-config-8.png)
 
@@ -202,12 +202,12 @@ java.lang.OutOfMemoryError
     spark.yarn.driver.memoryOverhead (Example: 384m for 384MB) 
     ```
 
-    计算所有执行程序使用的内存总量： 
+    若要計算所有執行程式所使用的記憶體總計： 
     
     ```apache
     spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
     ```
-   计算驱动程序使用的内存总量：
+   若要計算驅動程式所使用的總記憶體：
     
     ```apache
     spark.driver.memory + spark.yarn.driver.memoryOverhead

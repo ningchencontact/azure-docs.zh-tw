@@ -8,10 +8,10 @@ ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: 6ba17a3839390ed5fe503a6fe57b63d8fb119138
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713490"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>使用 Azure HDInsight 對 Apache HBase 進行疑難排解
@@ -219,7 +219,7 @@ HDInsight 叢集已相應減少為極少數節點。 此節點數目低於或接
    ```
 
    > [!Note] 
-   > 您可以從 Ambari UI 取得使用中 ZooKeeper 節點的 IP 位址。 移至 [HBase] > [快速連結] > [ZK\* (使用中)] > [Zookeeper 資訊]。 
+   > 您可以從 Ambari UI 取得使用中 ZooKeeper 節點的 IP 位址。 移至 [HBase]   > [快速連結]   > [ZK\* (使用中)]   > [Zookeeper 資訊]  。 
 
 3. 如果 sqlline.py 連線至 Phoenix，而且不會逾時，請執行下列命令以驗證 Phoenix 的可用性和健康狀態：
 
@@ -248,8 +248,8 @@ HDInsight 叢集已相應減少為極少數節點。 此節點數目低於或接
    ```
 6. 在 Apache Ambari UI 中完成下列步驟，在所有 ZooKeeper 節點上重新啟動 HMaster 服務：
 
-    1. 在 HBase 的 [摘要] 區段中，移至 [HBase] > [Active HBase Master]。 
-    2. 在 [元件] 區段中，重新啟動 HBase Master 服務。
+    1. 在 HBase 的 [摘要]  區段中，移至 [HBase]   > [Active HBase Master]  。 
+    2. 在 [元件]  區段中，重新啟動 HBase Master 服務。
     3. 針對所有其餘的 **Standby HBase Master** 服務，重複這些步驟。 
 
 HBase Master 服務可能需要五分鐘的時間，才能穩定和完成復原程序。 幾分鐘後，重複 sqlline.py 命令，以確認 SYSTEM.CATALOG 資料表已啟動且可供查詢。 
@@ -330,7 +330,7 @@ HMaster 逾時，並發生類似如下的嚴重例外狀況：「java.io.IOExcep
   
 ### <a name="resolution-steps"></a>解決步驟
 
-1. 在 Apache Ambari UI 中，移至 [HBase] > [設定]。 在自訂 hbase-site.xml 檔案中，新增下列設定： 
+1. 在 Apache Ambari UI 中，移至 [HBase]   > [設定]  。 在自訂 hbase-site.xml 檔案中，新增下列設定： 
 
    ```apache
    Key: hbase.master.namespace.init.timeout Value: 2400000  
