@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311395"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中新增擁有者和使用者
@@ -65,12 +65,12 @@ Azure DevTest Labs 的存取權是由 [Azure 角色型存取控制 (RBAC)](../ro
 下列步驟會引導您進行在 Azure DevTest Labs 新增擁有者或使用者至實驗室的程序︰
 
 1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
-2. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
+2. 選取 [所有服務]  ，然後從清單中選取 [DevTest Labs]  。
 3. 從實驗室清單中，選取所需的實驗室。
-4. 在實驗室的刀鋒視窗上，選取 [組態和原則]。 
-5. 請在 [組態和原則] 頁面上，從左側功能表中選取 [存取控制 (IAM)]。 
-6. 在工具列上選取 [新增角色指派] 以將使用者新增至角色。
-1. 在 [新增權限] 視窗中，執行下列動作： 
+4. 在實驗室的刀鋒視窗上，選取 [組態和原則]  。 
+5. 請在 [組態和原則]  頁面上，從左側功能表中選取 [存取控制 (IAM)]  。 
+6. 在工具列上選取 [新增角色指派]  以將使用者新增至角色。
+1. 在 [新增權限]  視窗中，執行下列動作： 
     1. 選取角色 (例如：DevTest Labs 使用者)。 [可在每個角色執行的動作](#actions-that-can-be-performed-in-each-role) 一節列出使用者可在擁有者、DevTest 使用者和參與者角色中執行的各種動作。
     2. 選取要新增至角色的使用者。 
     3. 選取 [ **儲存**]。 
@@ -120,19 +120,19 @@ Azure DevTest Labs 的存取權是由 [Azure 角色型存取控制 (RBAC)](../ro
 若要對 Azure 訂用帳戶新增擁有者，請遵循下列步驟︰
 
 1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
-2. 選取 [所有服務]，然後從清單中選取 [訂用帳戶]。
+2. 選取 [所有服務]  ，然後從清單中選取 [訂用帳戶]  。
 3. 選取所需的訂用帳戶。
 4. 選取 [存取]  圖示。 
    
     ![存取使用者](./media/devtest-lab-add-devtest-user/access-users.png)
-5. 在 [使用者] 刀鋒視窗上，選取 [新增]。
+5. 在 [使用者]  刀鋒視窗上，選取 [新增]  。
    
     ![新增使用者](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
-6. 在 [選取角色] 刀鋒視窗中，選取 [擁有者]。
+6. 在 [選取角色]  刀鋒視窗中，選取 [擁有者]  。
 7. 在 [新增使用者]  刀鋒視窗上，輸入您想要新增為擁有者之使用者的電子郵件地址或名稱。 如果找不到該使用者，您會收到錯誤訊息來說明問題。 如果有找到使用者，該使用者會列在 [使用者]  文字方塊底下。
 8. 選取找到的使用者名稱。
-9. 選取 [選取] 。
-10. 選取 [確定]，以關閉 [新增存取] 刀鋒視窗。
+9. 選取 [選取]  。
+10. 選取 [確定]  ，以關閉 [新增存取]  刀鋒視窗。
 11. 當您返回 [使用者]  刀鋒視窗時，該使用者已新增為擁有者。 此使用者現在是在此訂用帳戶下所建立全部實驗室的擁有者，因而能夠執行擁有者工作。 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

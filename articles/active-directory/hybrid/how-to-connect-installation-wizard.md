@@ -1,6 +1,6 @@
 ---
 title: 重新執行 Azure AD Connect 安裝精靈 | Microsoft Docs
-description: 介绍安装向导第二次运行时的工作原理。
+description: 說明安裝精靈在第二次執行時的運作方式。
 keywords: Azure AD Connect 安裝精靈可讓您在第二次執行時設定維護設定
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ff2caae7cb387f4f0d88cf059d01ad28861b9ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60348361"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect 同步：再次執行安裝精靈
@@ -49,7 +49,7 @@ ms.locfileid: "60348361"
 
 ![含有所有選項和其狀態之清單的頁面](./media/how-to-connect-installation-wizard/viewconfig.png)
 
-按 [上一步]  返回。 如果您選取 [結束] ，您會關閉安裝精靈。
+按 [上一步]  返回。 如果您選取 [結束]  ，您會關閉安裝精靈。
 
 ## <a name="customize-synchronization-options"></a>自訂同步處理選項
 此選項可用來變更同步處理組態。 您會在自訂組態安裝路徑中看到選項子集。 即使您一開始是使用快速安裝也會看到此選項。
@@ -76,13 +76,13 @@ ms.locfileid: "60348361"
 此選項可讓您啟用及停用伺服器上的預備模式。 預備模式和其使用方式的詳細資訊可在 [作業](how-to-connect-sync-staging-server.md)中找到。
 
 此選項會顯示預備模式目前是已啟用還是已停用︰  
-![同时显示暂存模式当前状态的选项](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
+![也會顯示預備模式目前狀態的選項](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
 
 若要變更狀態，請選取此選項，並選取或取消選取核取方塊。  
 ![也會顯示預備模式目前狀態的選項](./media/how-to-connect-installation-wizard/stagingmodeenable.png)
 
 ## <a name="change-user-sign-in"></a>變更使用者登入
-此選項可讓您將使用者登入方法變更為密碼雜湊同步處理、傳遞驗證或同盟。 您無法變更為 [不設定] 。
+此選項可讓您將使用者登入方法變更為密碼雜湊同步處理、傳遞驗證或同盟。 您無法變更為 [不設定]  。
 
 如需此選項的詳細資訊，請參閱 [使用者登入](plan-connect-user-signin.md#changing-the-user-sign-in-method)。
 

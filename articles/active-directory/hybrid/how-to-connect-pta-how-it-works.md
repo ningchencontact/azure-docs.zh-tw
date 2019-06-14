@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59cd52dbdf6c13900cde592aeb52d8bf9abf850f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347768"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory 傳遞驗證：深入技術性討論
@@ -34,9 +34,9 @@ ms.locfileid: "60347768"
 當使用者嘗試登入 Azure AD 所保護的應用程式，並且在租用戶上啟用傳遞驗證，則會執行下列步驟：
 
 1. 使用者嘗試存取應用程式，例如 [Outlook Web App](https://outlook.office365.com/owa/)。
-2. 如果使用者尚未登入，則會將使用者重新導向 Azure AD [使用者登入] 頁面。
-3. 使用者將其使用者名稱輸入 [Azure AD 登入] 頁面中，然後選取 [下一步] 按鈕。
-4. 使用者將其密碼輸入 [Azure AD 登入] 頁面中，然後選取 [登入] 按鈕。
+2. 如果使用者尚未登入，則會將使用者重新導向 Azure AD [使用者登入]  頁面。
+3. 使用者將其使用者名稱輸入 [Azure AD 登入] 頁面中，然後選取 [下一步]  按鈕。
+4. 使用者將其密碼輸入 [Azure AD 登入] 頁面中，然後選取 [登入]  按鈕。
 5. 接收登入要求時，Azure AD 會將使用者名稱和密碼 (使用驗證代理程式的公開金鑰加密) 置於佇列。
 6. 內部部署驗證代理程式會從佇列中擷取使用者名稱和加密的密碼。 請注意，代理程式不會經常輪詢佇列中的要求，而是會透過預先建立的持續連線來擷取要求。
 7. 代理程式會使用其私密金鑰將密碼解密。

@@ -12,10 +12,10 @@ ms.date: 05/19/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: 10692fcb720be819dcf94a8ecbc541983ffc8853
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60336446"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>使用 Team Data Science Process 和 Azure DevOps Services，在 Azure 上進行資料科學程式碼測試
@@ -100,7 +100,7 @@ ms.locfileid: "60336446"
     
     ![類別中含有測試清單的 Python 檔案](./media/code-test/create_file_test1_class.PNG)
 
-1. 如果您將 **codetest.testCase** 放在類別名稱之後，系統便可自動探索到這些測試。 在右側窗格中開啟 [測試總管]，然後選取 [全部執行]。 所有測試將會循序執行，並且會告訴您測試是否成功。
+1. 如果您將 **codetest.testCase** 放在類別名稱之後，系統便可自動探索到這些測試。 在右側窗格中開啟 [測試總管]，然後選取 [全部執行]  。 所有測試將會循序執行，並且會告訴您測試是否成功。
 
     ![執行測試](./media/code-test/run_tests.PNG)
 
@@ -112,7 +112,7 @@ ms.locfileid: "60336446"
 
 1. 在 Azure DevOps中設定自動組建和測試：
 
-    a. 在專案存放庫中，選取 [建置及發行]，然後選取 [+新增] 來建立新的建置流程。
+    a. 在專案存放庫中，選取 [建置及發行]  ，然後選取 [+新增]  來建立新的建置流程。
 
        ![Selections for starting a new build process](./media/code-test/create_new_build.PNG)
 
@@ -120,7 +120,7 @@ ms.locfileid: "60336446"
     
        ![Source, name, repository, and branch information](./media/code-test/fill_in_build_info.PNG)
 
-    c. 選取範本。 由於沒有 Python 專案範本，因此請選取 [空的處理序] 來開始進行。 
+    c. 選取範本。 由於沒有 Python 專案範本，因此請選取 [空的處理序]  來開始進行。 
 
        ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
@@ -128,17 +128,17 @@ ms.locfileid: "60336446"
     
        ![Build and agent selections](./media/code-test/select_agent.PNG)
 
-    e. 在右側窗格中選取 [+] 來為此建置階段新增工作。 由於我們將會執行 Python 指令碼 **test1.py** 來完成所有檢查，因此這項工作會使用 PowerShell 命令來執行 Python 程式碼。
+    e. 在右側窗格中選取 [+]  來為此建置階段新增工作。 由於我們將會執行 Python 指令碼 **test1.py** 來完成所有檢查，因此這項工作會使用 PowerShell 命令來執行 Python 程式碼。
     
        !["Add tasks" pane with PowerShell selected](./media/code-test/add_task_powershell.PNG)
 
-    f. 在 PowerShell 詳細資料中，填入必要的資訊，例如 PowerShell 的名稱和版本。 選擇 [內嵌指令碼] 作為類型。 
+    f. 在 PowerShell 詳細資料中，填入必要的資訊，例如 PowerShell 的名稱和版本。 選擇 [內嵌指令碼]  作為類型。 
     
        In the box under **Inline Script**, you can type **python test1.py**. Make sure the environment variable is set up correctly for Python. If you need a different version or kernel of Python, you can explicitly specify the path as shown in the figure: 
     
        ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
-    g. 選取 [儲存並排入佇列] 以完成組建管線流程。
+    g. 選取 [儲存並排入佇列]  以完成組建管線流程。
 
        !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 

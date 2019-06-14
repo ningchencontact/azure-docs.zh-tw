@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
 ms.openlocfilehash: 122282d168246e34aaa4a6369f7433b167355887
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60416733"
 ---
 # <a name="configure-dns-to-access-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>將 DNS 設定為使用安全的 LDAP (LDAPS) 存取 Azure AD Domain Services 受控網域
@@ -35,7 +35,7 @@ ms.locfileid: "60416733"
 
 開始此工作之前，請先確定您已完成[工作 3](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md) 中所述的步驟。
 
-啟用透過網際網路的安全 LDAP 存取後，您需要更新 DNS 以便用戶端電腦可以找到此受控網域。 您可在 [屬性] 索引標籤上 [可透過 LDAPS 存取的外部 IP 位址] 中看到外部 IP 位址。
+啟用透過網際網路的安全 LDAP 存取後，您需要更新 DNS 以便用戶端電腦可以找到此受控網域。 您可在 [屬性]  索引標籤上 [可透過 LDAPS 存取的外部 IP 位址]  中看到外部 IP 位址。
 
 請設定外部 DNS 提供者，讓受控網域的 DNS 名稱 (例如 'ldaps.contoso100.com') 指向這個外部 IP 位址。 例如，建立下列 DNS 項目︰
 

@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
 ms.openlocfilehash: cae75f4d64c8b3f74cc40e94a675c0f10a6bd9ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312650"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>複製新的和變更檔案，藉由使用 Azure Data Factory 的 LastModifiedDate
@@ -60,12 +60,12 @@ ms.locfileid: "60312650"
     ![顯示管線](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate5.png)
 
 6. 選取**偵錯**，如將值寫入**參數**，然後選取**完成**。  下圖中設定參數如下所示。
-   - **FolderPath_Source** = **/source/**
-   - **FolderPath_Destination** = **/destination/**
+   - **FolderPath_Source** =  **/source/**
+   - **FolderPath_Destination** =  **/destination/**
    - **LastModified_From** =  **2019-02-01T00:00:00Z**
    - **LastModified_To** = **2019-03-01T00:00:00Z**
     
-     此範例，代表上次修改之間的時間範圍內的檔案*2019年-02-01T00:00:00Z*並*2019年-03-01T00:00:00Z*將從資料夾複製 */source/* 的資料夾 */destination/*。  您可以取代這些項目與您自己的參數。
+     此範例，代表上次修改之間的時間範圍內的檔案*2019年-02-01T00:00:00Z*並*2019年-03-01T00:00:00Z*將從資料夾複製 */source/* 的資料夾 */destination/* 。  您可以取代這些項目與您自己的參數。
     
      ![執行管道](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png)
 
@@ -77,7 +77,7 @@ ms.locfileid: "60312650"
 
     ![檢閱結果](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
     
-9. 在 [新增觸發程序] 視窗中，選取 [+ 新增]。
+9. 在 [新增觸發程序]  視窗中，選取 [+ 新增]  。
 
     ![檢閱結果](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate9.png)
 
@@ -86,14 +86,14 @@ ms.locfileid: "60312650"
     ![建立觸發程序](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
 11. 寫入的值**觸發程序執行參數**做為下列程式碼，然後選取**完成**。
-    - **FolderPath_Source** = **/source/**。  您可以取代您在來源資料存放區中的資料夾。
-    - **FolderPath_Destination** = **/destination/**。  您可以取代您在 目的地資料存放區中的資料夾。
-    - **LastModified_From** =  **@trigger（)。 outputs.windowStartTime**。  它是系統變數，從觸發程序判斷管線時觸發上一次的時間。
-    - **LastModified_To** = **@trigger（)。 outputs.windowEndTime**。  它是系統變數決定當觸發管線這段時間的觸發程序。
+    - **FolderPath_Source** =  **/source/** 。  您可以取代您在來源資料存放區中的資料夾。
+    - **FolderPath_Destination** =  **/destination/** 。  您可以取代您在 目的地資料存放區中的資料夾。
+    - **LastModified_From** =   **@trigger（)。 outputs.windowStartTime**。  它是系統變數，從觸發程序判斷管線時觸發上一次的時間。
+    - **LastModified_To** =  **@trigger（)。 outputs.windowEndTime**。  它是系統變數決定當觸發管線這段時間的觸發程序。
     
     ![輸入參數](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     
-12. 選取 [全部發佈]。
+12. 選取 [全部發佈]  。
     
     ![全部發佈](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate12.png)
 

@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb22e3cc93baebac023c0148812c6a4c6c95be60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60288570"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-pim"></a>授與其他系統管理員存取權以管理 PIM
@@ -36,31 +36,31 @@ ms.locfileid: "60288570"
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure AD 角色]。
+1. 按一下 [Azure AD 角色]  。
 
-1. 按一下 [角色]。
+1. 按一下 [角色]  。
 
     ![PIM 的 Azure AD 角色的角色](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
 
-1. 按一下 [特殊權限角色管理員] 角色開啟成員頁面。
+1. 按一下 [特殊權限角色管理員]  角色開啟成員頁面。
 
     ![特殊權限角色管理員 - 成員](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
 
-1. 按一下 [新增成員] 以開啟 [新增受控成員] 窗格。
+1. 按一下 [新增成員]  以開啟 [新增受控成員] 窗格。
 
-1. 按一下 [選取成員] 以開啟 [選取成員] 窗格。
+1. 按一下 [選取成員]  以開啟 [選取成員] 窗格。
 
     ![特殊權限角色管理員 - 選取成員](./media/pim-how-to-give-access-to-pim/pim-pra-select-members.png)
 
-1. 選取成員，然後按一下 [選取]。
+1. 選取成員，然後按一下 [選取]  。
 
-1. 按一下 [確定]，使成員符合**特殊權限角色管理員**角色的資格。
+1. 按一下 [確定]  ，使成員符合**特殊權限角色管理員**角色的資格。
 
     每當您指派新角色給 PIM 中的某位使用者時，系統都會自動將這些人設定成符合啟用該角色的**資格**。
 
 1. 若要使成員永久符合資格，請在 [特殊權限角色管理員] 成員清單中按一下該使用者。
 
-1. 按一下 [更多]，然後按一下 [設為永久] 進行永久指派。
+1. 按一下 [更多]  ，然後按一下 [設為永久]  進行永久指派。
 
     ![特殊權限角色管理員 - 永久符合資格](./media/pim-how-to-give-access-to-pim/pim-pra-make-permanent.png)
 
@@ -74,17 +74,17 @@ ms.locfileid: "60288570"
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure AD 角色]。
+1. 按一下 [Azure AD 角色]  。
 
-1. 按一下 [角色]。
+1. 按一下 [角色]  。
 
-1. 按一下 [特殊權限角色管理員] 角色開啟成員頁面。
+1. 按一下 [特殊權限角色管理員]  角色開啟成員頁面。
 
-1. 勾選您想要移除的使用者，然後按一下 [移除成員]。
+1. 勾選您想要移除的使用者，然後按一下 [移除成員]  。
 
     ![特殊權限角色管理員 - 移除成員](./media/pim-how-to-give-access-to-pim/pim-pra-remove-member.png)
 
-1. 在詢問您是否要從角色移除成員的訊息中，按一下 [是]。
+1. 在詢問您是否要從角色移除成員的訊息中，按一下 [是]  。
 
 ## <a name="next-steps"></a>後續步驟
 

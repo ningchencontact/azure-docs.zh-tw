@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 494ccc3b90b8c249ee935087dcf0f0b5264b02ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60386738"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory 傳遞驗證：升級預覽驗證代理程式
@@ -40,9 +40,9 @@ ms.locfileid: "60386738"
 遵循下列步驟來檢查驗證代理程式的安裝位置：
 
 1. 使用租用戶的全域管理員認證來登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。
-2. 按一下左側導覽上的 [Azure Active Directory]。
-3. 選取 [Azure AD Connect]。 
-4. 選取 [傳遞驗證]。 此刀鋒視窗會列出驗證代理程式的安裝位置。
+2. 按一下左側導覽上的 [Azure Active Directory]  。
+3. 選取 [Azure AD Connect]  。 
+4. 選取 [傳遞驗證]  。 此刀鋒視窗會列出驗證代理程式的安裝位置。
 
 ![Azure Active Directory 管理中心 - 傳遞驗證刀鋒視窗](./media/how-to-connect-pta-upgrade-preview-authentication-agents/pta8.png)
 
@@ -50,8 +50,8 @@ ms.locfileid: "60386738"
 
 若要檢查驗證代理程式的版本，請在前一個步驟中識別的每部伺服器上，依照下列指示操作：
 
-1. 移至內部部署伺服器上的 [控制台]-> [程式]-> [程式和功能]。
-2. 如果有「Microsoft Azure AD Connect 驗證代理程式」項目，您就不需要在此伺服器上採取任何動作。
+1. 移至內部部署伺服器上的 [控制台]-> [程式]-> [程式和功能]  。
+2. 如果有「Microsoft Azure AD Connect 驗證代理程式」  項目，您就不需要在此伺服器上採取任何動作。
 3. 如果有適用於「**Microsoft Azure AD 應用程式 Proxy 連接器**」的項目，您需要在此伺服器上以手動方式進行升級。
 
 ![驗證代理程式的預覽版本](./media/how-to-connect-pta-upgrade-preview-authentication-agents/pta6.png)
@@ -69,9 +69,9 @@ ms.locfileid: "60386738"
 
 1. **升級 Azure AD Connect**：依照這篇[文章](how-to-upgrade-previous-version.md)進行操作，並升級至最新的 Azure AD Connect 版本。
 2. **將預覽版驗證代理程式解除安裝**：下載[這個 PowerShell 指令碼](https://aka.ms/rmpreviewagent)，然後在伺服器上以系統管理員身分執行此指令碼。
-3. **下載最新版驗證代理程式 (1.5.389.0 或更新版本)**：使用租用戶的「全域管理員」認證來登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。 選取 [Azure Active Directory] -> [Azure AD Connect] -> [傳遞驗證] -> [下載代理程式]。 接受[服務條款](https://aka.ms/authagenteula)並下載最新版的驗證代理程式。 您也可以從[這裡](https://aka.ms/getauthagent)下載驗證代理程式。
+3. **下載最新版驗證代理程式 (1.5.389.0 或更新版本)** ：使用租用戶的「全域管理員」認證來登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。 選取 [Azure Active Directory] -> [Azure AD Connect] -> [傳遞驗證] -> [下載代理程式]  。 接受[服務條款](https://aka.ms/authagenteula)並下載最新版的驗證代理程式。 您也可以從[這裡](https://aka.ms/getauthagent)下載驗證代理程式。
 4. **安裝最新版驗證代理程式**：執行在步驟 3 下載的可執行檔。 出現提示時，提供您租用戶的全域管理員認證。
-5. **確認已安裝最新版本**：如先前所示，移至 [控制台]-> [程式集]-> [程式和功能]，並確認有 [Microsoft Azure AD Connect 驗證代理程式] 項目。
+5. **確認已安裝最新版本**：如先前所示，移至 [控制台]-> [程式集]-> [程式和功能]  ，並確認有 [Microsoft Azure AD Connect 驗證代理程式]  項目。
 
 >[!NOTE]
 >完成前述步驟後，若到 [Azure Active Directory 管理中心](https://aad.portal.azure.com)查看傳遞驗證刀鋒視窗，將會發現每個伺服器有兩個驗證代理程式項目：一個項目會顯示驗證代理程式為**使用中**，另一個則顯示為**非使用中**。 這是 _預期行為_ 。 **非使用中**的項目會在幾天後自動卸除。
@@ -81,9 +81,9 @@ ms.locfileid: "60386738"
 在其他伺服器 (未安裝 Azure AD Connect) 上依照下列步驟來升級驗證代理程式：
 
 1. **將預覽版驗證代理程式解除安裝**：下載[這個 PowerShell 指令碼](https://aka.ms/rmpreviewagent)，然後在伺服器上以系統管理員身分執行此指令碼。
-2. **下載最新版驗證代理程式 (1.5.389.0 或更新版本)**：使用租用戶的「全域管理員」認證來登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。 選取 [Azure Active Directory] -> [Azure AD Connect] -> [傳遞驗證] -> [下載代理程式]。 接受服務條款並下載最新版本。
+2. **下載最新版驗證代理程式 (1.5.389.0 或更新版本)** ：使用租用戶的「全域管理員」認證來登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。 選取 [Azure Active Directory] -> [Azure AD Connect] -> [傳遞驗證] -> [下載代理程式]  。 接受服務條款並下載最新版本。
 3. **安裝最新版驗證代理程式**：執行在步驟 2 下載的可執行檔。 出現提示時，提供您租用戶的全域管理員認證。
-4. **確認已安裝最新版本**：如先前所示，移至 [控制台]-> [程式集]-> [程式和功能]，並確認有名為 **Microsoft Azure AD Connect 驗證代理程式**的項目。
+4. **確認已安裝最新版本**：如先前所示，移至 [控制台]-> [程式集]-> [程式和功能]  ，並確認有名為 **Microsoft Azure AD Connect 驗證代理程式**的項目。
 
 >[!NOTE]
 >完成前述步驟後，若到 [Azure Active Directory 管理中心](https://aad.portal.azure.com)查看傳遞驗證刀鋒視窗，將會發現每個伺服器有兩個驗證代理程式項目：一個項目會顯示驗證代理程式為**使用中**，另一個則顯示為**非使用中**。 這是 _預期行為_ 。 **非使用中**的項目會在幾天後自動卸除。

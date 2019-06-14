@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/01/2019
 tags: connectors
 ms.openlocfilehash: 5a1bfe8ca38fc23f09b13195fb8ca5bd443a4afd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312534"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>上傳及管理使用 Azure Logic Apps 的 Dropbox 中的檔案
@@ -27,7 +27,7 @@ ms.locfileid: "60312534"
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
 
-* 一个 [Dropbox 帐户](https://www.dropbox.com/)，可以在注册后免费获取。 帐户凭据是在逻辑应用和 Dropbox 帐户之间创建连接所必需的。
+* A [Dropbox 帳戶](https://www.dropbox.com/)，其中您可以免費註冊。 您的帳戶認證所需的邏輯應用程式與您的 Dropbox 帳戶之間建立連接。
 
 * [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識。 針對此範例，您需要空白的邏輯應用程式。
 
@@ -35,7 +35,7 @@ ms.locfileid: "60312534"
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. 在搜尋方塊下方，選擇 [全部]。 在搜尋方塊中，輸入 "dropbox" 作為篩選條件。
+1. 在搜尋方塊下方，選擇 [全部]  。 在搜尋方塊中，輸入 "dropbox" 作為篩選條件。
 從觸發程序清單中，選取此觸發程序：**當檔案建立時**
 
    ![選取 Dropbox 觸發程序](media/connectors-create-api-dropbox/select-dropbox-trigger.png)
@@ -50,14 +50,14 @@ ms.locfileid: "60312534"
 
 現在加入任何新的檔案中取得內容的動作。
 
-1. 在觸發程序下方，選擇 [下一個步驟]。 
+1. 在觸發程序下方，選擇 [下一個步驟]  。 
 
-1. 在搜尋方塊下方，選擇 [全部]。 在搜尋方塊中，輸入 "dropbox" 作為篩選條件。
+1. 在搜尋方塊下方，選擇 [全部]  。 在搜尋方塊中，輸入 "dropbox" 作為篩選條件。
 從 [動作] 清單中，選取此動作：**使用路徑來取得檔案內容**
 
 1. 如果您還沒有已獲授權存取 Dropbox 的 Azure Logic Apps，請立即授權的存取。
 
-1. 若要瀏覽至您想要使用，接下來的檔案路徑**檔案路徑**方塊中，選擇省略符號 (**...**) 按鈕。 
+1. 若要瀏覽至您想要使用，接下來的檔案路徑**檔案路徑**方塊中，選擇省略符號 ( **...** ) 按鈕。 
 
    您也可以按一下內**檔案路徑**方塊中，然後從動態內容清單中，選取**檔案路徑**，其值可為您在上一節中新增觸發程序的輸出。
 

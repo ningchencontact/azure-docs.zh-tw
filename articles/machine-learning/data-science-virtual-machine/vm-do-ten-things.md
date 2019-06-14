@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
 ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60365805"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>您可以在 Windows Data Science Virtual Machine 上做的十件事
@@ -61,9 +61,9 @@ Windows Data Science Virtual Machine (DSVM) 是強大的資料科學開發環境
 
 針對 Python，您可以使用 Visual Studio Community Edition 這類已預先安裝「適用於 Visual Studio 的 Python 工具」(PTVS) 延伸模組的 IDE。 根據預設，在 PTVS 上只有設定 Python 3.6 (根 Conda 環境)。 若要啟用 Anaconda Python 2.7，您必須執行下列步驟：
 
-* 為每個版本建立自訂環境，方法是瀏覽至 [工具] -> [Python 工具] -> [Python 環境]，然後按一下 Visual Studio Community Edition 中的 [+ 自訂]
+* 為每個版本建立自訂環境，方法是瀏覽至 [工具]   -> [Python 工具]   -> [Python 環境]  ，然後按一下 Visual Studio Community Edition 中的 [+ 自訂] 
 * 提供描述並將環境前置詞路徑設定為 *c:\anaconda\envs\python2* (適用於 Anaconda Python 2.7)
-* 按一下 [自動偵測]，然後按一下 [套用] 來儲存環境。
+* 按一下 [自動偵測]  ，然後按一下 [套用]  來儲存環境。
 
 以下是自訂環境設定在 Visual Studio 中的外觀。
 
@@ -71,19 +71,19 @@ Windows Data Science Virtual Machine (DSVM) 是強大的資料科學開發環境
 
 如需有關如何建立 Python 環境的詳細資訊，請參閱 [PTVS 文件](https://aka.ms/ptvsdocs) 。
 
-現在您將建立新的 Python 專案。 瀏覽至 [檔案] -> [新增] -> [專案] -> [Python]，然後選取您要建置的 Python 應用程式類型。 您能以滑鼠右鍵按一下 [Python 環境]、選取 [新增/移除 Python 環境]，然後選取所需的環境，以將目前專案的 Python 環境設定為所需的版本 (Python 2.7 或 3.6)。 您可以在產品[文件](https://aka.ms/ptvsdocs)中找到關於使用 PTVS 的詳細資訊。
+現在您將建立新的 Python 專案。 瀏覽至 [檔案]   -> [新增]   -> [專案]   -> [Python]  ，然後選取您要建置的 Python 應用程式類型。 您能以滑鼠右鍵按一下 [Python 環境]  、選取 [新增/移除 Python 環境]  ，然後選取所需的環境，以將目前專案的 Python 環境設定為所需的版本 (Python 2.7 或 3.6)。 您可以在產品[文件](https://aka.ms/ptvsdocs)中找到關於使用 PTVS 的詳細資訊。
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2.使用 Jupyter Notebook 來探索您的資料，並以 Python 或 R 進行模型分析
 Jupyter Notebook 是一個強大的環境，可提供以瀏覽器為基礎的 "IDE" 進行資料探索和模型分析。 您可以在 Jupyter Notebook 使用 Python 2、Python 3 或 R (開放原始碼和 Microsoft R Server)。
 
-若要啟動 Jupyter 筆記本，請按一下標題為 [Jupyter 筆記本] 的 [開始] 功能表圖示 / 桌面圖示。 在 DSVM 命令提示字元上，您也可以從有現有筆記本或您想要建立新筆記本的目錄中，執行 ```jupyter notebook``` 命令。  
+若要啟動 Jupyter 筆記本，請按一下標題為 [Jupyter 筆記本]  的 [開始] 功能表圖示 / 桌面圖示。 在 DSVM 命令提示字元上，您也可以從有現有筆記本或您想要建立新筆記本的目錄中，執行 ```jupyter notebook``` 命令。  
 
 啟動 Jupyter 之後，您應該會看到一個目錄，當中包含幾個預先封裝至 DSVM 中的範例筆記本。 現在您可以：
 
 * 按一下筆記本以查看程式碼。
 * 按 **SHIFT-ENTER** 執行每個儲存格。
-* 按一下 [儲存格] -> [執行] 以執行整個筆記本
-* 按一下 Jupyter 圖示 (左上角)，接著按一下右邊的 [新增] 按鈕，然後選擇筆記本語言 (也稱為核心)，以建立新的筆記本。   
+* 按一下 [儲存格]   -> [執行]  以執行整個筆記本
+* 按一下 Jupyter 圖示 (左上角)，接著按一下右邊的 [新增]  按鈕，然後選擇筆記本語言 (也稱為核心)，以建立新的筆記本。   
 
 > [!NOTE]
 > 目前支援 Python 2.7、Python 3.6、R、Julia 及 Jupyter 中的 PySpark 核心。 R 核心同時支援以開放原始碼 R 及高效能 Microsoft R 進行程式設計。   
@@ -315,8 +315,8 @@ Azure blob 是可靠、划算的雲端儲存體，可存放大型和小型的資
 
 您也可以使用 Azure 儲存體總管，從 VM 中的本機檔案上載資料：
 
-* 若要將資料上傳至容器，請選取目標容器，然後按一下 [上傳] 按鈕。![Azure 儲存體總管中 [上傳] 按鈕的螢幕擷取畫面](./media/vm-do-ten-things/storage-accounts.png)
-* 按一下 [檔案] 方塊右邊的 [...]，從檔案系統中選取一或多個要上傳的檔案，然後按一下 [上傳] 以開始上傳檔案。![[上傳檔案] 對話方塊的螢幕擷取畫面](./media/vm-do-ten-things/upload-files-to-blob.png)
+* 若要將資料上傳至容器，請選取目標容器，然後按一下 [上傳]  按鈕。![Azure 儲存體總管中 [上傳] 按鈕的螢幕擷取畫面](./media/vm-do-ten-things/storage-accounts.png)
+* 按一下 [檔案]  方塊右邊的 [...]  ，從檔案系統中選取一或多個要上傳的檔案，然後按一下 [上傳]  以開始上傳檔案。![[上傳檔案] 對話方塊的螢幕擷取畫面](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 **從 Azure Blob 讀取資料：Machine Learning 讀取器模組**
 
@@ -399,11 +399,11 @@ Azure Data Lake 儲存體是巨量資料分析工作負載的超大規模儲存�
 
 **將資料從 Azure Blob 讀取至 Data Lake：U-SQL**
 
-如果您的資料位於 Azure Blob 儲存體中，您可以在 U-SQL 查詢中從 Azure 儲存體 Blob 直接讀取資料。 撰寫 U-SQL 查詢之前，請確定您的 Blob 儲存體帳戶已連結到您的 Azure 資料湖。 移至 **Azure 入口網站**、尋找您的 Azure Data Lake Analytics 儀表板、按一下 [新增資料來源]、選取 [Azure 儲存體] 做為儲存體類型，並插入您的 Azure 儲存體帳戶名稱和金鑰。 然後您可以參考儲存體帳戶中儲存的資料。
+如果您的資料位於 Azure Blob 儲存體中，您可以在 U-SQL 查詢中從 Azure 儲存體 Blob 直接讀取資料。 撰寫 U-SQL 查詢之前，請確定您的 Blob 儲存體帳戶已連結到您的 Azure 資料湖。 移至 **Azure 入口網站**、尋找您的 Azure Data Lake Analytics 儀表板、按一下 [新增資料來源]  、選取 [Azure 儲存體]  做為儲存體類型，並插入您的 Azure 儲存體帳戶名稱和金鑰。 然後您可以參考儲存體帳戶中儲存的資料。
 
 ![[新增資料來源] 對話方塊的螢幕擷取畫面](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
-您可以在 Visual Studio 中，從 Blob 儲存體讀取資料、進行一些資料操作、功能工程，以及將結果資料輸出至 Azure 資料湖或 Azure Blob 儲存體。 當您參考 Blob 儲存體中的資料時，請使用 **wasb://**；當您參考 Azure Data Lake 中的資料時，請使用 **swbhdfs://**
+您可以在 Visual Studio 中，從 Blob 儲存體讀取資料、進行一些資料操作、功能工程，以及將結果資料輸出至 Azure 資料湖或 Azure Blob 儲存體。 當您參考 Blob 儲存體中的資料時，請使用 **wasb://** ；當您參考 Azure Data Lake 中的資料時，請使用 **swbhdfs://**
 
 ![反白顯示 WASB 項目的查詢螢幕擷取畫面](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
@@ -480,7 +480,7 @@ Azure HDInsight 是在雲端上的受控 Apache Hadoop、Spark、HBase 和 Storm
 
 ![連結到以 HDInsight 叢集建立的儲存體帳戶](./media/vm-do-ten-things/Create_HDI_v4.PNG)
 
-* 在建立叢集後，對前端節點啟用 [遠端存取]。 請記住您在這裡指定的遠端存取認證，在後續程序中將會需要用到它們。
+* 在建立叢集後，對前端節點啟用 [遠端存取]  。 請記住您在這裡指定的遠端存取認證，在後續程序中將會需要用到它們。
 
 ![啟用 HDInsight 叢集的遠端存取](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
@@ -855,7 +855,7 @@ Azure Cosmos DB 是雲端中的一種 NoSQL 資料庫。 它可讓您使用 JSON
 4. 按一下展開圖示 (資料行左側具有「向左箭號與向右箭號」的圖示)，即可展開資料行
 5. 請注意，該位置是「記錄」欄位。 展開記錄，然後只選取座標。 座標是清單資料行
 6. 加入新的資料行，以將清單座標資料行轉換成逗號分隔的 LatLong 資料行，其使用公式 ```Text.From([coordinates]{1})&","&Text.From([coordinates]{0})```來串連座標清單欄位中的兩個元素。
-7. 最後將 ```Elevation``` 資料行轉換成 [十進位]，然後選取 [關閉] 和 [套用]。
+7. 最後將 ```Elevation``` 資料行轉換成 [十進位]，然後選取 [關閉]  和 [套用]  。
 
 除了前述步驟，您可以貼上下列程式碼，此程式碼會以指令碼撰寫在 PowerBI 的 [進階編輯器] 中使用的步驟，讓您以查詢語言撰寫資料轉換。
 
@@ -896,7 +896,7 @@ in
 ## <a name="10-install-additional-tools-on-your-virtual-machine"></a>10.在虛擬機器上安裝其他工具
 DSVM 中已預先建置數項工具，可應付許多常見的資料分析需求。 這可讓您因無須逐一安裝和設定環境而節省您的時間，因只需支付所用的資源而節省您的成本。
 
-您可以運用本文略述的其他 Azure 資料和分析服務，以增強您的分析環境。 在某些情況下，您的需求可能需要額外的工具，包括一些專屬的協力廠商工具。 您有完整的系統管理權限可在虛擬機器上安裝您所需的新工具。 您也可以在 Python 和 R 中安裝其他未預先安裝的封裝。 對於 Python，您可以使用 ```conda``` 或 ```pip```。 對於 R，您可以在 R 主控台中使用 ```install.packages()```，或使用整合式開發環境 (IDE) 並選擇 [套件] -> [安裝套件]。
+您可以運用本文略述的其他 Azure 資料和分析服務，以增強您的分析環境。 在某些情況下，您的需求可能需要額外的工具，包括一些專屬的協力廠商工具。 您有完整的系統管理權限可在虛擬機器上安裝您所需的新工具。 您也可以在 Python 和 R 中安裝其他未預先安裝的封裝。 對於 Python，您可以使用 ```conda``` 或 ```pip```。 對於 R，您可以在 R 主控台中使用 ```install.packages()```，或使用整合式開發環境 (IDE) 並選擇 [套件]   -> [安裝套件]  。
 
 ## <a name="summary"></a>總結
 這些只是您可以在 Microsoft Data Science Virtual Machine 上可做的一些事情。 您還可以做更多事情，讓它成為有效的分析環境。

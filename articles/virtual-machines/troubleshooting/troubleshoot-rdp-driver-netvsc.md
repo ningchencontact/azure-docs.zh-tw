@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
 ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60362249"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>因為 netvsc.sys 而無法從遠端連線到 Azure 中的 Windows 10 或 Windows Server 2016 VM
@@ -26,7 +26,7 @@ ms.locfileid: "60362249"
 
 ## <a name="symptoms"></a>徵兆
 
-无法使用远程桌面协议 (RDP) 连接到 Azure Windows 10 或 Windows Server 2016 VM。 在 [開機診斷](boot-diagnostics.md) 中，畫面中的網路介面卡 (NIC) 上方顯示紅色打叉符號。 這表示 VM 在作業系統完全載入之後沒有連線。
+您無法使用遠端桌面通訊協定 (RDP) 連線到 Azure 的 Windows 10 或 Windows Server 2016 VM。 在 [開機診斷](boot-diagnostics.md) 中，畫面中的網路介面卡 (NIC) 上方顯示紅色打叉符號。 這表示 VM 在作業系統完全載入之後沒有連線。
 
 一般而言，此問題發生在 Windows [組建 14393](https://support.microsoft.com/help/4093120/) 與[組建 15063](https://support.microsoft.com/help/4015583/) 中。 若您的作業系統版本比這些版本新，此文章不適用於您的案例。 若要檢查系統版本，請在[序列存取主控台](serial-console-windows.md) 中開啟 CMD 工作階段，然後執行 **Ver**。
 
@@ -55,8 +55,8 @@ ms.locfileid: "60362249"
 
 2. 下載適當的更新到已連結到相同區域中工作中 VM 的新或現有資料磁碟：
 
-   - **10.0.14393.594**：[KB4073562](https://support.microsoft.com/help/4073562)  或更高版本的更新
-   - **10.0.15063.0**：[KB4016240](https://support.microsoft.com/help/4016240) 或更高版本的更新
+   - **10.0.14393.594**:[KB4073562](https://support.microsoft.com/help/4073562) 或更新版本的更新
+   - **10.0.15063.0**:[KB4016240](https://support.microsoft.com/help/4016240)或更新版本的更新
 
 3. 將公用程式磁碟從工作中 VM 中斷連結，然後將它連結到損壞的 VM。
 
@@ -74,17 +74,17 @@ ms.locfileid: "60362249"
 
 2. 啟動復原 VM 的遠端桌面連線。
 
-3. 確定該磁碟在磁碟管理主控台中標示為 [線上]。 記下指派給已連結系統磁碟的磁碟機代號。
+3. 確定該磁碟在磁碟管理主控台中標示為 [線上]  。 記下指派給已連結系統磁碟的磁碟機代號。
 
 4. 建立 **\Windows\System32\config** 資料夾的複本，以便在需要回復變更時使用。
 
 5. 在救援 VM 上，啟動 [登錄編輯程式] \(regedit.exe\)。
 
-6. 選取 **HKEY_LOCAL_MACHINE** 機碼，然後從功能表中選取 [檔案] > [載入登錄區]。
+6. 選取 **HKEY_LOCAL_MACHINE** 機碼，然後從功能表中選取 [檔案]   > [載入登錄區]  。
 
 7. 在 **\Windows\System32\config** 資料夾中尋找 SYSTEM 檔案。
 
-8. 選取 [開啟]、輸入 **BROKENSYSTEM** 作為名稱、展開 **HKEY_LOCAL_MACHINE** 機碼，然後尋找名為 **BROKENSYSTEM** 的另一個機碼。
+8. 選取 [開啟]  、輸入 **BROKENSYSTEM** 作為名稱、展開 **HKEY_LOCAL_MACHINE** 機碼，然後尋找名為 **BROKENSYSTEM** 的另一個機碼。
 
 9. 移至下列位置：
 
@@ -98,8 +98,8 @@ ms.locfileid: "60362249"
 
 12. 下載適當的更新：
 
-    - **10.0.14393.594**：[KB4073562](https://support.microsoft.com/help/4073562)  或更高版本的更新
-    - **10.0.15063.0**：[KB4016240](https://support.microsoft.com/help/4016240) 或更高版本的更新
+    - **10.0.14393.594**:[KB4073562](https://support.microsoft.com/help/4073562) 或更新版本的更新
+    - **10.0.15063.0**:[KB4016240](https://support.microsoft.com/help/4016240)或更新版本的更新
 
 13. 將系統磁碟連結為您可以在其上下載更新之救援 VM 上的資料磁碟。
 

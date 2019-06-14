@@ -1,18 +1,18 @@
 ---
 title: Azure 計量瀏覽器的進階的功能
 description: 深入了解 Azure 監視器計量瀏覽器進階功能
-author: lingliw
+author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
-ms.author: v-lingwu
+ms.date: 01/22/2019
+ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60256871"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Azure 計量瀏覽器的進階的功能
@@ -55,7 +55,7 @@ ms.locfileid: "60256871"
 
 ### <a name="to-add-a-filter"></a>加入篩選條件
 
-1. 選取圖表上方的 [新增篩選器]
+1. 選取圖表上方的 [新增篩選器] 
 
 2. 選取您要篩選的維度 (屬性)
 
@@ -79,7 +79,7 @@ ms.locfileid: "60256871"
 
 ### <a name="apply-splitting"></a>套用分割
 
-1. 按一下圖表上方的 [套用分割]。
+1. 按一下圖表上方的 [套用分割]  。
  
    > [!NOTE]
    > 分割不能有多個度量的圖表。 此外，您可以有多個篩選器，但只有一個分割的維度，套用至任何單一的圖表。
@@ -92,7 +92,7 @@ ms.locfileid: "60256871"
 
    ![計量影像](./media/metrics-charts/00012.png)
 
-3. 按一下 [分組選取器] 以外的位置以將它關閉。
+3. 按一下 [分組選取器]  以外的位置以將它關閉。
 
    > [!NOTE]
    > 在相同維度上同時使用篩選與分割，以隱藏與您的案例不相關的區段，讓圖表更容易閱讀。
@@ -118,7 +118,7 @@ ms.locfileid: "60256871"
 
 將已設定的圖表釘選到儀表板：
 
-設定您的圖表之後，按一下圖表右上角的 [圖表動作] 功能表，然後按一下 [釘選到儀表板]。
+設定您的圖表之後，按一下圖表右上角的 [圖表動作]  功能表，然後按一下 [釘選到儀表板]  。
 
 ![計量影像](./media/metrics-charts/00013.png)
 
@@ -126,7 +126,7 @@ ms.locfileid: "60256871"
 
 您可以使用已設定的準則來將計量視覺化，以作為計量型警示規則的基礎。 新的警示規則將包含來自您圖表的目標資源、計量、分割及篩選維度。 您稍後將能在警示規則建立窗格上修改這些設定。
 
-### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>若要建立新的警示規則，請按一下 [新增警示規則]
+### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>若要建立新的警示規則，請按一下 [新增警示規則] 
 
 ![以紅色強調顯示的[新增警示規則] 按鈕](./media/metrics-charts/015.png)
 
@@ -149,3 +149,4 @@ ms.locfileid: "60256871"
 ## <a name="next-steps"></a>後續步驟
 
   閱讀[建立自訂 KPI 儀表板](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards)以了解使用計量建立可採取動作之儀表板的最佳做法。
+

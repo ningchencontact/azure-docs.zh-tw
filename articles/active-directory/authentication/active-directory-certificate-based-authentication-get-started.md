@@ -1,5 +1,5 @@
 ---
-title: 基于证书的身份验证入门 - Azure Active Directory
+title: 開始使用憑證式驗證-Azure Active Directory
 description: 了解如何在環境中設定憑證式驗證
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f57d4615fc80df6c5df9ba295288ad71ae12fa23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60359070"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>開始在 Azure Active Directory 中使用憑證式驗證
@@ -44,7 +44,7 @@ ms.locfileid: "60359070"
 - 您的用戶端裝置必須至少可以存取一個發出用戶端憑證的憑證授權單位。
 - 用於戶端驗證的用戶端憑證必須已經發給您的用戶端。
 
-## <a name="step-1-select-your-device-platform"></a>步骤 1：選取裝置平台
+## <a name="step-1-select-your-device-platform"></a>步驟 1：選取裝置平台
 
 第一個步驟中，針對您要處理的裝置平台，您需要檢閱下列項目︰
 
@@ -56,7 +56,7 @@ ms.locfileid: "60359070"
 - [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 
-## <a name="step-2-configure-the-certificate-authorities"></a>步骤 2：設定憑證授權單位
+## <a name="step-2-configure-the-certificate-authorities"></a>步驟 2：設定憑證授權單位
 
 若要在 Azure Active Directory 中設定您的憑證授權單位，為每個憑證授權單位下載下列項目：
 
@@ -108,7 +108,7 @@ ms.locfileid: "60359070"
 
     Get-AzureADTrustedCertificateAuthority
 
-### <a name="add"></a>添加
+### <a name="add"></a>加
 
 若要建立受信任的憑證授權單位，使用 [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) Cmdlet 並將 **crlDistributionPoint** 屬性設為正確值：
 
@@ -134,24 +134,24 @@ ms.locfileid: "60359070"
     $c[0].AuthorityType=1
     Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
 
-## <a name="step-3-configure-revocation"></a>步骤 3：設定撤銷
+## <a name="step-3-configure-revocation"></a>步驟 3：設定撤銷
 
-若要撤銷用戶端憑證，Azure Active Directory 會從和憑證授權單位資訊一起上傳的 URL 中，擷取憑證撤銷清單 (CRL) 並加以快取。 在 CRL 中，上次發佈的時間戳記 ([生效日期] 屬性) 是用來確保 CRL 依然有效。 定期參考 CRL 以撤銷對清單所列憑證的存取權。
+若要撤銷用戶端憑證，Azure Active Directory 會從和憑證授權單位資訊一起上傳的 URL 中，擷取憑證撤銷清單 (CRL) 並加以快取。 在 CRL 中，上次發佈的時間戳記 ([生效日期]  屬性) 是用來確保 CRL 依然有效。 定期參考 CRL 以撤銷對清單所列憑證的存取權。
 
 如果需要立即撤銷 (例如，使用者遺失裝置)，可以讓使用者的授權權杖失效。 使用 Windows PowerShell 設定這位特定使用者的 **StsRefreshTokenValidFrom** 欄位，即可讓授權權杖失效。 您必須為想要撤銷其存取權的每位使用者更新其 **StsRefreshTokenValidFrom** 欄位。
 
-為了確保撤銷持續有效，您必須將 CRL 的 [生效日期] 設定為 **StsRefreshTokenValidFrom** 所設值之後的日期，並確保有問題的憑證位於 CRL 中。
+為了確保撤銷持續有效，您必須將 CRL 的 [生效日期]  設定為 **StsRefreshTokenValidFrom** 所設值之後的日期，並確保有問題的憑證位於 CRL 中。
 
-以下步骤概述了通过设置 **StsRefreshTokenValidFrom** 字段更新授权令牌并使其失效的过程。
+下列步驟概述藉由設定 **StsRefreshTokenValidFrom** 欄位，來更新授權權杖並讓它失效的程序。
 
 **設定撤銷：**
 
-1. 使用管理员凭据连接到 MSOL 服务：
+1. 使用管理員認證連線到 MSOL 服務：
 
         $msolcred = get-credential
         connect-msolservice -credential $msolcred
 
-2. 检索用户的当前 StsRefreshTokensValidFrom 值：
+2. 擷取使用者目前的 StsRefreshTokensValidFrom 值︰
 
         $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`
         $user.StsRefreshTokensValidFrom
@@ -162,7 +162,7 @@ ms.locfileid: "60359070"
 
 您設定的日期必須是未來的日期。 如果不是未來的日期，則不會設定 **StsRefreshTokensValidFrom** 屬性。 如果是未來的日期，才會將 **StsRefreshTokensValidFrom** 設定為目前的時間 (而非 Set-MsolUser 命令指示的日期)。
 
-## <a name="step-4-test-your-configuration"></a>步骤 4：測試組態
+## <a name="step-4-test-your-configuration"></a>步驟 4：測試組態
 
 ### <a name="testing-your-certificate"></a>測試您的憑證
 
@@ -187,7 +187,7 @@ ms.locfileid: "60359070"
 
 若要透過憑證式驗證來存取 Exchange ActiveSync (EAS)，必須要有包含用戶端憑證的 EAS 設定檔供應用程式使用。
 
-EAS 配置文件必须包含以下信息：
+EAS 設定檔必須包含下列資訊：
 
 - 要用於驗證的使用者憑證
 

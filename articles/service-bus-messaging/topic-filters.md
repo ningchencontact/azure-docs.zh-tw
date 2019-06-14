@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
 ms.openlocfilehash: 41af53dbfbb5c863007a332445a2f184fcbcbf81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332222"
 ---
 # <a name="topic-filters-and-actions"></a>主題篩選和動作
@@ -28,11 +28,11 @@ ms.locfileid: "60332222"
 
 服務匯流排支援三個篩選條件：
 
--   布林篩選 - **TrueFilter** 和 **FalseFilter** 能讓您針對訂用帳戶選取所有抵達的訊息 (**true**)，或所有抵達的訊息都不選取 (**false**)。
+-   布林篩選  - **TrueFilter** 和 **FalseFilter** 能讓您針對訂用帳戶選取所有抵達的訊息 (**true**)，或所有抵達的訊息都不選取 (**false**)。
 
--   SQL 篩選 - **SqlFilter** 保留類似 SQL 的條件運算式，系統會在訊息代理程式中根據抵達訊息的使用者定義屬性和系統屬性加以評估。 條件運算式中的所有系統屬性都必須加上 `sys.` 前置詞。 [篩選條件的 SQL 語言子集](service-bus-messaging-sql-filter.md)能測試屬性是否存在 (`EXISTS`)，也能測試 Null 值 (`IS NULL`)、邏輯 NOT/AND/OR、關係運算子、簡單數值算數及符合 `LIKE` 的簡單文字模式。
+-   SQL 篩選  - **SqlFilter** 保留類似 SQL 的條件運算式，系統會在訊息代理程式中根據抵達訊息的使用者定義屬性和系統屬性加以評估。 條件運算式中的所有系統屬性都必須加上 `sys.` 前置詞。 [篩選條件的 SQL 語言子集](service-bus-messaging-sql-filter.md)能測試屬性是否存在 (`EXISTS`)，也能測試 Null 值 (`IS NULL`)、邏輯 NOT/AND/OR、關係運算子、簡單數值算數及符合 `LIKE` 的簡單文字模式。
 
--   相互關聯篩選 - **CorrelationFilter** 能保留一組條件，比對抵達訊息中一或多個使用者或系統屬性。 常見的用法是比對 **CorrelationId** 屬性，不過應用程式也能選擇比對 **ContentType**、**Label**、**MessageId**、**ReplyTo**、**ReplyToSessionId**、**SessionId**、**To** 及任何使用者定義屬性。 當抵達訊息的某個屬性值等於在相互關聯篩選中指定的值時，代表一個相符項目。 字串運算式的比較會區分大小寫。 指定多個比對屬性時，篩選會將它們結合為邏輯 AND 條件，表示所有條件必須相符才算是篩選出相符項目。
+-   相互關聯篩選  - **CorrelationFilter** 能保留一組條件，比對抵達訊息中一或多個使用者或系統屬性。 常見的用法是比對 **CorrelationId** 屬性，不過應用程式也能選擇比對 **ContentType**、**Label**、**MessageId**、**ReplyTo**、**ReplyToSessionId**、**SessionId**、**To** 及任何使用者定義屬性。 當抵達訊息的某個屬性值等於在相互關聯篩選中指定的值時，代表一個相符項目。 字串運算式的比較會區分大小寫。 指定多個比對屬性時，篩選會將它們結合為邏輯 AND 條件，表示所有條件必須相符才算是篩選出相符項目。
 
 所有篩選都會評估訊息屬性。 篩選無法評估訊息內文。
 

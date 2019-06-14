@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60358107"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 智慧鎖定
@@ -40,8 +40,8 @@ ms.locfileid: "60358107"
 
 使用[傳遞驗證](../hybrid/how-to-connect-pta.md)時，您必須確定：
 
-* Azure AD 的鎖定閾值「小於」Active Directory 帳戶的鎖定閾值。 請適當設定這些值，使 Active Directory 帳戶的鎖定閾值比 Azure AD 鎖定閾值至少長兩到三倍。 
-* Azure AD 的鎖定持續期間 **(以秒表示)** 比 Active Directory 的「下列時間過後重設帳戶鎖定計數器」持續期間 **(分鐘)**「還長」。
+* Azure AD 的鎖定閾值「小於」  Active Directory 帳戶的鎖定閾值。 請適當設定這些值，使 Active Directory 帳戶的鎖定閾值比 Azure AD 鎖定閾值至少長兩到三倍。 
+* Azure AD 的鎖定持續期間 **(以秒表示)** 比 Active Directory 的「下列時間過後重設帳戶鎖定計數器」持續期間 **(分鐘)** 「還長」  。
 
 > [!IMPORTANT]
 > 目前，如果使用者的雲端帳戶已被智慧鎖定功能鎖定，則系統管理員無法將其解除鎖定。 系統管理員必須等待鎖定持續期間結束。
@@ -52,8 +52,8 @@ ms.locfileid: "60358107"
 
 1. 開啟群組原則管理工具。
 2. 編輯包含組織帳戶鎖定原則的群組原則，例如**預設網域原則**。
-3. 瀏覽到 **[電腦設定]** > **[原則]** > **[Windows 設定]** > **[安全性設定]** > **[帳戶原則]** > **[帳戶鎖定原則]**。
-4. 確認 [帳戶鎖定閾值] 和 [下列時間過後重設帳戶鎖定計數器] 的值。
+3. 瀏覽到 **[電腦設定]**  >  **[原則]**  >  **[Windows 設定]**  >  **[安全性設定]**  >  **[帳戶原則]**  >  **[帳戶鎖定原則]** 。
+4. 確認 [帳戶鎖定閾值]  和 [下列時間過後重設帳戶鎖定計數器]  的值。
 
 ![修改內部部署 Active Directory 帳戶鎖定原則](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
@@ -63,9 +63,9 @@ ms.locfileid: "60358107"
 
 若要檢查或修改組織的智慧鎖定值，請使用下列步驟：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com) 並按一下 [Azure Active Directory]，然後按一下 [驗證方法]。
-1. 根據帳戶遭到鎖定之前所允許的失敗登入次數，設定 [鎖定閾值]。 預設值為 10。
-1. 將 [鎖定持續時間 (秒)] 設為每次鎖定的秒數。 預設值為 60 秒 (一分鐘)。
+1. 登入 [Azure 入口網站](https://portal.azure.com) 並按一下 [Azure Active Directory]  ，然後按一下 [驗證方法]  。
+1. 根據帳戶遭到鎖定之前所允許的失敗登入次數，設定 [鎖定閾值]  。 預設值為 10。
+1. 將 [鎖定持續時間 (秒)]  設為每次鎖定的秒數。 預設值為 60 秒 (一分鐘)。
 
 > [!NOTE]
 > 如果鎖定之後的第一個登入也失敗，帳戶將會再次鎖定。 如果帳戶重複鎖定，鎖定持續時間將會增加。

@@ -9,13 +9,13 @@ ms.date: 04/07/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 42da285fbb55df43959506996bcde9cf547c2a22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320562"
 ---
-# <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器的示例工作流
+# <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>針對匯入作業準備硬碟的範例工作流程
 
 本文章會引導您完成為匯入作業準備硬碟的完整程序。
 
@@ -23,10 +23,10 @@ ms.locfileid: "60320562"
 
 此範例會將下列資料匯入名為 `mystorageaccount` 的 Azure 儲存體帳戶：
 
-|位置|描述|数据大小|
+|位置|描述|資料大小|
 |--------------|-----------------|-----|
-|H:\Video\ |视频集合|12 TB|
-|H:\Photo\ |照片集合|30 GB|
+|H:\Video\ |視訊集合|12 TB|
+|H:\Photo\ |相片集合|30 GB|
 |K:\Temp\FavoriteMovie.ISO|藍光 (Blu-Ray™) 磁碟映像|25 GB|
 |\\\bigshare\john\music\ |網路共用上的音樂檔案集合|10 GB|
 
@@ -34,7 +34,7 @@ ms.locfileid: "60320562"
 
 匯入作業會將資料匯入儲存體帳戶中的下列目的地：
 
-|來源|目的地虛擬目錄或 Blob|
+|source|目的地虛擬目錄或 Blob|
 |------------|-------------------------------------------|
 |H:\Video\ |video/|
 |H:\Photo\ |photo/|
@@ -58,7 +58,7 @@ Y,Format,SilentMode,Encrypt,
 ```
 該工具將會把資料以最佳化的方式分散到兩個硬碟。
 
-## <a name="attach-drives-and-configure-the-job"></a>附加驱动器并配置作业
+## <a name="attach-drives-and-configure-the-job"></a>附加磁碟並設定作業
 您將兩個磁碟連接到機器，並建立磁碟區。 然後撰寫 **dataset.csv** 檔案：
 ```
 BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
@@ -91,7 +91,7 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 * **Content-MD5：** Q2hlY2sgSW50ZWdyaXR5IQ==
 * **Cache-Control:** no-cache
 
-若要设置这些属性，请创建文本文件 `c:\WAImportExport\SampleProperties.txt`：
+若要設定這些屬性，請建立文字檔 (`c:\WAImportExport\SampleProperties.txt`)：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

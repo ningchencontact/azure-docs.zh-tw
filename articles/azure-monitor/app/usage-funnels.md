@@ -14,27 +14,27 @@ ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
 ms.openlocfilehash: 2cb7e15b701b53e74618c21bf219a355d495f985
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372907"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>使用 Application Insights 漏斗圖來探索客戶如何使用您的應用程式
 
-了解客戶體驗對於您的企業非常重要。 如果您的應用程式牽涉到多個階段，您需要了解大部分的客戶會處理整個程序，或者他們會在某個時間點結束處理程序。 在 Web 應用程式中通過一系列步驟的過程便稱為漏斗圖。 您可以使用 Azure Application Insights 漏斗圖來深入了解使用者，並監視各步驟的轉換率。 
+了解客戶體驗對於您的企業非常重要。 如果您的應用程式牽涉到多個階段，您需要了解大部分的客戶會處理整個程序，或者他們會在某個時間點結束處理程序。 在 Web 應用程式中通過一系列步驟的過程便稱為漏斗圖  。 您可以使用 Azure Application Insights 漏斗圖來深入了解使用者，並監視各步驟的轉換率。 
 
 ## <a name="create-your-funnel"></a>建立您的漏斗圖
 建立您的漏斗圖之前，請決定要獲得回答的問題。 例如，您可能想要知道有多少使用者檢視首頁、檢視客戶設定檔和建立票證。 在此範例中，Fabrikam Fiber 公司的擁有者想要知道已成功建立客戶票證的客戶百分比。
 
 以下是他們用來建立漏斗圖所採取的步驟。
 
-1. 在 Application Insights 漏斗圖工具中，選取 [新增]。
-1. 從 [時間範圍] 下拉式清單中，選取 [過去 90 天]。 選取 [我的漏斗圖] 或 [共用的漏斗圖]。
-1. 從 [步驟 1] 下拉式清單中，選取 [索引]。 
-1. 從 [步驟 2] 下拉式清單中，選取 [客戶]。
-1. 從 [步驟 3] 下拉式清單中，選取 [建立]。
-1. 新增漏斗圖的名稱，然後選取 [儲存]。
+1. 在 Application Insights 漏斗圖工具中，選取 [新增]  。
+1. 從 [時間範圍]  下拉式清單中，選取 [過去 90 天]  。 選取 [我的漏斗圖]  或 [共用的漏斗圖]  。
+1. 從 [步驟 1]  下拉式清單中，選取 [索引]  。 
+1. 從 [步驟 2]  下拉式清單中，選取 [客戶]  。
+1. 從 [步驟 3]  下拉式清單中，選取 [建立]  。
+1. 新增漏斗圖的名稱，然後選取 [儲存]  。
 
 以下螢幕擷取畫面顯示漏斗圖工具產生的資料類型範例。 Fabrikam 擁有者可以看到在過去 90 天期間，54.3% 的客戶已造訪首頁、建立客戶票證。 他們也會看到 2,700 個客戶從首頁來到索引。 這可能表示重新整理問題。
 

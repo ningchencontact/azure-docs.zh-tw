@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: b4270b9438a397ec09537c9d6343515ebc21af98
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393022"
 ---
 # <a name="service-fabric-events"></a>Service Fabric 事件 
@@ -40,7 +40,7 @@ Service Fabric 平台會撰寫好幾種結構化事件，呈現叢集內發生�
 * 應用程式/服務的部署/刪除：每個應用程式、服務及容器建立或刪除時，都會產生相應的事件，且當相應縮小或相應放大時 (例如，增加複本的數目) 也很有用
 * 分割區移動 (重新組態)：每當具狀態分割區經歷重新組態 (複本集發生變更) 時，平台會記錄事件。 如果您正在嘗試了解分割區複本集變更或容錯移轉的頻率，或是追蹤哪個節點在任何時間點執行主要複本，此功能將能派上用場。
 * Chaos 事件：使用 Service Fabric 的 [Chaos](service-fabric-controlled-chaos.md) 服務時，每當服務啟動或停止，或是在系統中插入錯誤時，您都可以看到事件。
-* 运行状况事件：每次创建了“警告”或“错误”运行状况报告时，或者当实体恢复为“正常”运行状况状态时，或者当运行状况报告过期时，Service Fabric 都会公开运行状况事件。 這些事件特別有助於追蹤實體的歷史健康情況統計資料。 
+* 健康狀態事件：Service Fabric 會公開每次建立警告或錯誤健康狀態報告時，實體就會回到正常的健全狀況狀態，或過期的健康情況報告的健康情況事件。 這些事件特別有助於追蹤實體的歷史健康情況統計資料。 
 
 ## <a name="how-to-access-events"></a>如何存取事件
 

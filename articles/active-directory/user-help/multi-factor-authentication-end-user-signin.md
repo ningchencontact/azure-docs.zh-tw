@@ -1,7 +1,7 @@
 ---
-title: 使用双重验证进行 Azure MFA 登录 - Azure Active Directory | Microsoft Docs
+title: Azure MFA 登入使用雙步驟驗證-Azure Active Directory |Microsoft Docs
 description: 本頁面將指引您移至何處才能看到 Azure MFA 可用的各種登入方法。
-keywords: 用户身份验证, 登录体验, 使用手机登录, 使用办公电话登录
+keywords: 使用者驗證, 登入經驗, 使用行動電話登入, 使用辦公室電話登入
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -16,10 +16,10 @@ ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1350b2d86e18f213d99f1c27d64e371451f5f9b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334390"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 的登入體驗
@@ -60,14 +60,14 @@ ms.locfileid: "60334390"
 
    ![Microsoft 傳送通知](./media/multi-factor-authentication-end-user-signin/notify.png)
 
-3. 在電話上開啟通知，然後選取 [驗證] 鍵。 如果貴公司要求 PIN，在此處輸入。
-4. 现在，应该已登录。
+3. 在電話上開啟通知，然後選取 [驗證]  鍵。 如果貴公司要求 PIN，在此處輸入。
+4. 您現在應已登入。
 
 ### <a name="to-sign-in-using-a-verification-code-with-the-microsoft-authenticator-app"></a>使用驗證碼登入 Microsoft 驗證器應用程式
 
 如果您使用 Microsoft Authenticator 應用程式取得驗證碼，則當您開啟應用程式時，會在您的帳戶名稱下面看到一個數字。 這個數字每 30 秒會變更一次，所以您不會使用相同的數字兩次。 當系統要求您輸入驗證碼時，開啟應用程式並使用當下所顯示的任何數字。
 
-1. 使用用户名和密码登录到 Office 365 等应用程序或服务。
+1. 使用您的使用者名稱和密碼登入應用程式或服務，例如 Office 365。
 2. Microsoft 提示您輸入驗證碼。
 
    ![輸入驗證碼](./media/multi-factor-authentication-end-user-signin/verify3.png)
@@ -78,7 +78,7 @@ ms.locfileid: "60334390"
 有時候您設定做為慣用驗證方法的電話或裝置不在手邊。 這種情況就是為什麼我們建議您為帳戶設定備份方法。 下一節示範當主要方法無法使用時，如何使用替代方法進行登入。
 
 1. 使用您的使用者名稱和密碼登入應用程式或服務，例如 Office 365。
-2. 選取 [使用不同的驗證選項]。 根據您已設定的驗證選項數量而定，您會看到不同的驗證選項。
+2. 選取 [使用不同的驗證選項]  。 根據您已設定的驗證選項數量而定，您會看到不同的驗證選項。
 3. 選擇替代方法並且登入。
 
    ![使用替代方法](./media/multi-factor-authentication-end-user-signin/alt.png)

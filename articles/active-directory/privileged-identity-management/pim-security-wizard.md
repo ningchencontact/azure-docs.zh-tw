@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b6f978612cbbf0c326c3e66f25a0fbf4b749cc73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60286887"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>PIM 中的 Azure AD 角色安全性精靈
@@ -41,25 +41,25 @@ ms.locfileid: "60286887"
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure AD 角色]，然後按一下 [精靈]。
+1. 按一下 [Azure AD 角色]  ，然後按一下 [精靈]  。
 
     ![Azure AD 角色 - 精靈](./media/pim-security-wizard/wizard-start.png)
 
-1. 按一下 [1 探索特殊權限角色]。
+1. 按一下 [1 探索特殊權限角色]  。
 
 1. 檢閱特殊權限角色清單，以查看哪些使用者為永久或合格。
 
     ![探索特殊權限角色使用者](./media/pim-security-wizard/discover-privileged-roles-users.png)
 
-1. 按一下 [下一步] 以選取您要設為合格的成員。
+1. 按一下 [下一步]  以選取您要設為合格的成員。
 
     ![將成員轉換為合格](./media/pim-security-wizard/convert-members-eligible.png)
 
-1. 選取成員之後，按一下 [下一步]。
+1. 選取成員之後，按一下 [下一步]  。
 
     ![檢閱變更](./media/pim-security-wizard/review-changes.png)
 
-1. 按一下 [確定] 將永久指派轉換為合格。
+1. 按一下 [確定]  將永久指派轉換為合格。
 
     轉換完成時，您會看到通知。
 

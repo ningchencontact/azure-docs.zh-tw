@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
 ms.openlocfilehash: 4476e4732dfcf8d79c9678a7ff4719eba10e48f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60319423"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>嘗試透過遠端桌面連線至 Azure VM 時發生內部錯誤
@@ -105,10 +105,10 @@ ms.locfileid: "60319423"
 
 2. 如果您無法使用此方法來更新憑證，請嘗試從遠端更新 RDP 自我簽署憑證：
 
-    1. 從可以連線到問題發生所在 VM 的作用中 VM，於 [執行] 方塊中輸入 **mmc**，以開啟 Microsoft Management Console。
-    2. 在 [檔案] 功能表上，依序選取 [新增/移除嵌入式管理單元]、[憑證] 和 [新增]。
-    3. 選取 [電腦帳戶]，選取 [另一部電腦]，然後新增問題 VM 的 IP 位址。
-    4. 移至 **Remote Desktop\Certificates** 資料夾，以滑鼠右鍵按一下憑證，然後選取 [刪除]。
+    1. 從可以連線到問題發生所在 VM 的作用中 VM，於 [執行]  方塊中輸入 **mmc**，以開啟 Microsoft Management Console。
+    2. 在 [檔案]  功能表上，依序選取 [新增/移除嵌入式管理單元]  、[憑證]  和 [新增]  。
+    3. 選取 [電腦帳戶]  ，選取 [另一部電腦]  ，然後新增問題 VM 的 IP 位址。
+    4. 移至 **Remote Desktop\Certificates** 資料夾，以滑鼠右鍵按一下憑證，然後選取 [刪除]  。
     5. 從序列主控台的 PowerShell 執行個體中，重新啟動遠端桌面組態服務：
 
             Stop-Service -Name "SessionEnv"
@@ -161,7 +161,7 @@ RDP 用戶端會使用 TLS 1.0 作為預設通訊協定。 不過，您也可以
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>將 OS 磁碟連結至復原 VM
 
 1. [將 OS 磁碟連結至復原 VM](../windows/troubleshoot-recovery-disks-portal.md)。
-2. 在 OS 磁碟連結至復原 VM 後，請確定該磁碟在磁碟管理主控台中標示為 [線上]。 記下為已連結的 OS 磁碟指派的磁碟機代號。
+2. 在 OS 磁碟連結至復原 VM 後，請確定該磁碟在磁碟管理主控台中標示為 [線上]  。 記下為已連結的 OS 磁碟指派的磁碟機代號。
 3. 啟動復原 VM 的遠端桌面連線。
 
 #### <a name="enable-dump-log-and-serial-console"></a>啟用傾印記錄檔和序列主控台
