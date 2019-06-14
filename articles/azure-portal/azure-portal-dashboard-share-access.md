@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
 ms.openlocfilehash: fbbc8a4f636a95d18baa0dc5de541279ce36789b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551929"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>使用角色型存取控制來共用 Azure 儀表板
@@ -47,30 +47,30 @@ ms.locfileid: "60551929"
 ## <a name="publish-dashboard"></a>發佈儀表板
 讓我們假設您已完成設定想要與訂用帳戶中的一群使用者共用的儀表板。 下列步驟描述稱為「儲存體管理員」的自訂群組，但您可以將您的群組命名為任何您喜歡的名稱。 如需建立 Active Directory 群組和將使用者新增至該群組的相關資訊，請參閱 [在 Azure Active Directory 中管理群組](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。
 
-1. 在儀表板中選取 [共用] 。
+1. 在儀表板中選取 [共用]  。
    
      ![選取共用](./media/azure-portal-dashboard-share-access/select-share.png)
-2. 在指派存取權之前，您必須先發佈儀表板。 根據預設，儀表板會發佈到名為 **儀表板**的資源群組。 選取 [發佈] 。
+2. 在指派存取權之前，您必須先發佈儀表板。 根據預設，儀表板會發佈到名為 **儀表板**的資源群組。 選取 [發佈]  。
    
      ![publish](./media/azure-portal-dashboard-share-access/publish.png)
 
 儀表板現已發佈。 如果繼承自訂用帳戶的權限合適，則不需要再執行任何動作。 組織中的其他使用者將可以根據其訂用帳戶層級的角色來存取和修改儀表板。 不過，在本教學課程中，讓我們將一群使用者指派給該儀表板的角色。
 
 ## <a name="assign-access-to-a-dashboard"></a>指派儀表板存取權
-1. 在發佈儀表板之後，選取 [管理使用者] 。
+1. 在發佈儀表板之後，選取 [管理使用者]  。
    
      ![管理使用者](./media/azure-portal-dashboard-share-access/manage-users.png)
-2. 您會看到已對其指派此儀表板角色的現有使用者清單。 您的現有使用者清單會不同於下面的影像。 指派很可能是繼承自訂用帳戶。 若要新增使用者或群組，請選取 [新增] 。
+2. 您會看到已對其指派此儀表板角色的現有使用者清單。 您的現有使用者清單會不同於下面的影像。 指派很可能是繼承自訂用帳戶。 若要新增使用者或群組，請選取 [新增]  。
    
      ![新增使用者](./media/azure-portal-dashboard-share-access/existing-users.png)
-3. 選取代表您想要授與之權限的角色。 在此範例中，請選取 [參與者] 。
+3. 選取代表您想要授與之權限的角色。 在此範例中，請選取 [參與者]  。
    
      ![選取角色](./media/azure-portal-dashboard-share-access/select-role.png)
 4. 選取想要指派給角色的使用者或群組。 如果您在清單中沒有看見要尋找的使用者或群組，請使用搜尋方塊。 您的可用群組清單取決於您已在 Active Directory 中建立的群組。
    
      ![選取使用者](./media/azure-portal-dashboard-share-access/select-user.png) 
-5. 使用者或群組新增完成時，請選取 [確定] 。 
-6. 新的指派就會加入至使用者清單。 請注意，其**存取權**會列為 [已指派] 而非 [已繼承]。
+5. 使用者或群組新增完成時，請選取 [確定]  。 
+6. 新的指派就會加入至使用者清單。 請注意，其**存取權**會列為 [已指派]  而非 [已繼承]  。
    
      ![指派的角色](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 

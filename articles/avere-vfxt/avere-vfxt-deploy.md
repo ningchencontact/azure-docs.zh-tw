@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: v-erkell
 ms.openlocfilehash: 7ded66c29f12b8f68746726ca6c126bffbc51f0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60410211"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>部署 vFXT 叢集
 
-此程序會引導您使用 Azure Marketplace 中提供的部署精靈。 精靈會自動使用 Azure Resource Manager 範本來部署叢集。 在表單中輸入參數並按一下 [建立] 後，Azure 會自動完成下列步驟：
+此程序會引導您使用 Azure Marketplace 中提供的部署精靈。 精靈會自動使用 Azure Resource Manager 範本來部署叢集。 在表單中輸入參數並按一下 [建立]  後，Azure 會自動完成下列步驟：
 
 * 建立叢集的控制站，也就是基本的 VM，其中包含部署和管理叢集所需的軟體。
 * 設定資源群組和虛擬網路基礎結構，包括建立新的項目。
@@ -74,7 +74,7 @@ Avere 搜尋並選取 「 Azure ARM 範本的 Avere vFXT 」 來存取 Azure 入
 
 * **位置** - 選取您叢集和資源的 Azure 位置。
 
-完成後，按一下 [確定]。 
+完成後，按一下 [確定]  。 
 
 > [!NOTE]
 > 如果您想要讓叢集控制器有公開的 IP 位址，請為叢集建立新的虛擬網路，而不是選取現有的網路。 這項設定位在第二頁。
@@ -115,13 +115,13 @@ Avere 搜尋並選取 「 Azure ARM 範本的 Avere vFXT 」 來存取 Azure 入
   
   如果您提供現有的虛擬網路，您必須為儲存體服務端點之前建立叢集。 (如需詳細資訊，請參閱[計劃 Avere vFXT 系統](avere-vfxt-deploy-plan.md)。)
 
-  如果您不想建立新的容器，請將此欄位設為 [false]。 在此情況下，建立叢集之後，您必須連接並設定儲存體。 參閱[設定儲存體](avere-vfxt-add-storage.md)的指示。 
+  如果您不想建立新的容器，請將此欄位設為 [false]  。 在此情況下，建立叢集之後，您必須連接並設定儲存體。 參閱[設定儲存體](avere-vfxt-add-storage.md)的指示。 
 
 * **（新）儲存體帳戶**-如果建立新的 Azure Blob 容器中，輸入新的儲存體帳戶的名稱。 
 
 ## <a name="validation-and-purchase"></a>驗證及購買
 
-第三頁會摘要說明設定，並驗證參數。 驗證成功之後，請按一下 [確定] 按鈕繼續作業。 
+第三頁會摘要說明設定，並驗證參數。 驗證成功之後，請按一下 [確定]  按鈕繼續作業。 
 
 ![部署範本的第三頁 - 驗證](media/avere-vfxt-deploy-3.png)
 
@@ -142,11 +142,11 @@ Avere vFXT 範本在完成叢集的建立後，會輸出有關新叢集的一些
 
 1. 移至您叢集控制器的資源群組。
 
-1. 在左側按一下 [部署]，然後選取 [microsoft-avere.vfxt-template]。
+1. 在左側按一下 [部署]  ，然後選取 [microsoft-avere.vfxt-template]  。
 
    ![資源群組入口網站頁面，其中左側已選取 [部署]，而 [microsoft-avere.vfxt-template] 則顯示在 [部署名稱] 底下的表格中](media/avere-vfxt-outputs-deployments.png)
 
-1. 在左側按一下 [輸出]。 複製每個欄位中的值。 
+1. 在左側按一下 [輸出]  。 複製每個欄位中的值。 
 
    ![輸出頁面的標籤右側欄位中顯示 SSHSTRING、RESOURCE_GROUP、LOCATION、NETWORK_RESOURCE_GROUP、NETWORK、SUBNET、SUBNET_ID、VSERVER_IPs 和 MGMT_IP 值](media/avere-vfxt-outputs-values.png)
 

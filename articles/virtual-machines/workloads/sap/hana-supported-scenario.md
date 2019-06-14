@@ -15,10 +15,10 @@ ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 501c5ffa86f2360e44c187e087f7285bbf4084fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60477638"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA 大型執行個體的支援案例
@@ -64,12 +64,12 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 | NIC 邏輯介面 | SKU 類型 | 以 SUSE 作業系統命名 | 以 RHEL 作業系統命名 | 使用案例|
 | --- | --- | --- | --- | --- |
-| 具有使用  | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
-| b | 類型一 | eth2.tenant | eno3.tenant | 節點對節點 |
+| A | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
+| B | 類型一 | eth2.tenant | eno3.tenant | 節點對節點 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | STONITH |
-| 具有使用  | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| b | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 節點對節點 |
+| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 節點對節點 |
 | C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
 | D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
 
@@ -84,7 +84,7 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 - 指派給乙太網路 "A" 的 IP 位址應該來自您向 Microsoft 提交的「伺服器 IP 集區」位址範圍。 此 IP 位址將用來在 OS 的 /etc/hosts 中進行維護。
 
-- 指派給乙太網路 "C" 的 IP 位址應該用於對 NFS 的通訊。 因此，「不」需要在 etc/hosts 中維護這些位址，即可允許租用戶內的執行個體對執行個體流量。
+- 指派給乙太網路 "C" 的 IP 位址應該用於對 NFS 的通訊。 因此，「不」  需要在 etc/hosts 中維護這些位址，即可允許租用戶內的執行個體對執行個體流量。
 
 就 HANA 系統複寫或 HANA 向外延展部署案例而言，並不適合使用有兩個指派之 IP 位址的刀鋒伺服器組態。 如果僅指派兩個 IP 位址且想要部署這類組態，請連絡 Azure 服務管理的 SAP HANA 在第三個 VLAN 中指派第三個 IP 位址。 在三個 NIC 連接埠上指派三個 IP 位址的 HANA 大型執行個體單位，適用下列使用規則：
 
@@ -138,12 +138,12 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 | NIC 邏輯介面 | SKU 類型 | 以 SUSE 作業系統命名 | 以 RHEL 作業系統命名 | 使用案例|
 | --- | --- | --- | --- | --- |
-| 具有使用  | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
-| b | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
+| A | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
+| B | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
-| 具有使用  | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| b | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
 | C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
 | D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 已設定但未使用 |
 
@@ -173,12 +173,12 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 | NIC 邏輯介面 | SKU 類型 | 以 SUSE 作業系統命名 | 以 RHEL 作業系統命名 | 使用案例|
 | --- | --- | --- | --- | --- |
-| 具有使用  | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
-| b | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
+| A | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
+| B | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
-| 具有使用  | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| b | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
 | C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
 | D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 已設定但未使用 |
 
@@ -213,12 +213,12 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 | NIC 邏輯介面 | SKU 類型 | 以 SUSE 作業系統命名 | 以 RHEL 作業系統命名 | 使用案例|
 | --- | --- | --- | --- | --- |
-| 具有使用  | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
-| b | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
+| A | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
+| B | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
-| 具有使用  | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| b | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
 | C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
 | D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 已設定但未使用 |
 
@@ -254,12 +254,12 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 | NIC 邏輯介面 | SKU 類型 | 以 SUSE 作業系統命名 | 以 RHEL 作業系統命名 | 使用案例|
 | --- | --- | --- | --- | --- |
-| 具有使用  | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
-| b | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
+| A | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
+| B | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
-| 具有使用  | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| b | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
 | C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
 | D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 已設定但未使用 |
 
@@ -308,12 +308,12 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 | NIC 邏輯介面 | SKU 類型 | 以 SUSE 作業系統命名 | 以 RHEL 作業系統命名 | 使用案例|
 | --- | --- | --- | --- | --- |
-| 具有使用  | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
-| b | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
+| A | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
+| B | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 用於 STONITH |
-| 具有使用  | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| b | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
 | C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
 | D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 用於 STONITH |
 
@@ -356,12 +356,12 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 | NIC 邏輯介面 | SKU 類型 | 以 SUSE 作業系統命名 | 以 RHEL 作業系統命名 | 使用案例|
 | --- | --- | --- | --- | --- |
-| 具有使用  | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
-| b | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
+| A | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
+| B | 類型一 | eth2.tenant | eno3.tenant | 已設定但未使用 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 用於 STONITH |
-| 具有使用  | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| b | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
+| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 已設定但未使用 |
 | C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
 | D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 用於 STONITH |
 
@@ -415,12 +415,12 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 | NIC 邏輯介面 | SKU 類型 | 以 SUSE 作業系統命名 | 以 RHEL 作業系統命名 | 使用案例|
 | --- | --- | --- | --- | --- |
-| 具有使用  | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
-| b | 類型一 | eth2.tenant | eno3.tenant | 節點對節點通訊 |
+| A | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
+| B | 類型一 | eth2.tenant | eno3.tenant | 節點對節點通訊 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
-| 具有使用  | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| b | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 節點對節點通訊 |
+| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 節點對節點通訊 |
 | C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
 | D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 已設定但未使用 |
 
@@ -456,12 +456,12 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 | NIC 邏輯介面 | SKU 類型 | 以 SUSE 作業系統命名 | 以 RHEL 作業系統命名 | 使用案例|
 | --- | --- | --- | --- | --- |
-| 具有使用  | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
-| b | 類型一 | eth2.tenant | eno3.tenant | 節點對節點通訊 |
+| A | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
+| B | 類型一 | eth2.tenant | eno3.tenant | 節點對節點通訊 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
-| 具有使用  | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| b | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 節點對節點通訊 |
+| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 節點對節點通訊 |
 | C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
 | D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 已設定但未使用 |
 
@@ -492,12 +492,12 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 | NIC 邏輯介面 | SKU 類型 | 以 SUSE 作業系統命名 | 以 RHEL 作業系統命名 | 使用案例|
 | --- | --- | --- | --- | --- |
-| 具有使用  | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
-| b | 類型一 | eth2.tenant | eno3.tenant | 節點對節點通訊 |
+| A | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
+| B | 類型一 | eth2.tenant | eno3.tenant | 節點對節點通訊 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
-| 具有使用  | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| b | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 節點對節點通訊 |
+| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 節點對節點通訊 |
 | C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
 | D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 已設定但未使用 |
 
@@ -531,12 +531,12 @@ HANA 大型執行個體支援各種架構以滿足您的業務需求。 下列�
 
 | NIC 邏輯介面 | SKU 類型 | 以 SUSE 作業系統命名 | 以 RHEL 作業系統命名 | 使用案例|
 | --- | --- | --- | --- | --- |
-| 具有使用  | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
-| b | 類型一 | eth2.tenant | eno3.tenant | 節點對節點通訊 |
+| A | 類型一 | eth0.tenant | eno1.tenant | 用戶端到 HLI |
+| B | 類型一 | eth2.tenant | eno3.tenant | 節點對節點通訊 |
 | C | 類型一 | eth1.tenant | eno2.tenant | 節點對儲存體 |
 | D | 類型一 | eth4.tenant | eno4.tenant | 已設定但未使用 |
-| 具有使用  | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
-| b | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 節點對節點通訊 |
+| A | 類型二 | vlan\<tenantNo> | team0.tenant | 用戶端到 HLI |
+| B | 類型二 | vlan\<tenantNo+2> | team0.tenant+2 | 節點對節點通訊 |
 | C | 類型二 | vlan\<tenantNo+1> | team0.tenant+1 | 節點對儲存體 |
 | D | 類型二 | vlan\<tenantNo+3> | team0.tenant+3 | 已設定但未使用 |
 

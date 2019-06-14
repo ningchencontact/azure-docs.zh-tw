@@ -9,10 +9,10 @@ ms.date: 06/19/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 94cd178b925b0b55f0ed6ed38ed821820bb1e072
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117420"
 ---
 如果您將繼續閱讀下一篇建議的文章，則可以保留您已建立的資源，並重複加以使用。
@@ -25,12 +25,12 @@ ms.locfileid: "66117420"
 
 若要依名稱刪除資源群組：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]  。
 
-2. 在 [依名稱篩選...] 文字方塊中，輸入包含 IoT 中樞的資源群組名稱。 
+2. 在 [依名稱篩選...]  文字方塊中，輸入包含 IoT 中樞的資源群組名稱。 
 
-3. 在結果清單中的資源群組右側，按一下 **...**，然後按一下 [刪除資源群組]。
+3. 在結果清單中的資源群組右側，按一下 **...** ，然後按一下 [刪除資源群組]  。
 
     ![刪除](./media/iot-hub-quickstarts-clean-up-resources/iot-hub-delete-resource-group.png)
 
-4. 系統將會要求您確認是否刪除資源。 再次輸入您的資源群組名稱進行確認，然後按一下 [刪除]。 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
+4. 系統將會要求您確認是否刪除資源。 再次輸入您的資源群組名稱進行確認，然後按一下 [刪除]  。 片刻過後，系統便會刪除該資源群組及其所有內含的資源。

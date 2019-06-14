@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 0d92e9bdf8ec207e5ef0e3f891c162182b5a4fff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60518410"
 ---
 # <a name="trigger-azure-functions-using-webhooks-in-azure-iot-central"></a>在 Azure IoT Central 中使用 Webhook 觸發 Azure Functions
@@ -45,7 +45,7 @@ ms.locfileid: "60518410"
 
 4. 在 IoT Central 中，瀏覽至您想要連接到您函式應用程式的規則。
 
-5. 新增 Webhook 動作。 在 [顯示名稱] 中輸入名稱，然後將您先前複製的函式 URL 貼到 [回呼 URL]。
+5. 新增 Webhook 動作。 在 [顯示名稱]  中輸入名稱，然後將您先前複製的函式 URL 貼到 [回呼 URL]  。
 
     ![在回呼 URL 欄位中輸入函式 URL](media/howto-trigger-azure-functions/configurewebhook.PNG)
 

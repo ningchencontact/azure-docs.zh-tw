@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60369124"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>在 Azure 入口網站中檢視 Azure 保留的項目
@@ -32,7 +32,7 @@ ms.locfileid: "60369124"
 若要以「擁有者」或「讀者」身分檢視保留，
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 針對 [保留] 進行搜尋。
+2. 針對 [保留]  進行搜尋。
     ![螢幕擷取畫面顯示 Azure 入口網站搜尋](./media/billing-view-reservation/portal-reservation-search.png)  
 3. 此清單會顯示所有保留項目具有 「 擁有者 」 或 「 讀取者角色。 每個保留項目顯示的最後一個已知的使用率百分比。  
     ![範例，顯示一份保留項目](./media/billing-view-reservation/view-reservations.png)
@@ -44,18 +44,18 @@ ms.locfileid: "60369124"
 
 ## <a name="view-reservation-transactions-for-enterprise-enrollments"></a>檢視 Enterprise 註冊的保留交易
 
- 如果您有合作夥伴主導的 Enterprise 註冊，請移至 EA 入口網站中的 [報告] 來檢視保留。 針對其他 Enterprise 註冊，您可以在 EA 入口網站及 Azure 入口網站中檢視保留。 您必須是 EA 系統管理員，才能檢視保留交易。
+ 如果您有合作夥伴主導的 Enterprise 註冊，請移至 EA 入口網站中的 [報告]  來檢視保留。 針對其他 Enterprise 註冊，您可以在 EA 入口網站及 Azure 入口網站中檢視保留。 您必須是 EA 系統管理員，才能檢視保留交易。
 
 若要在 Azure 入口網站中檢視保留交易，
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 針對 [成本管理 + 帳單] 進行搜尋。
+1. 針對 [成本管理 + 帳單]  進行搜尋。
 
     ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-view-reservation/portal-cm-billing-search.png)
 
-1. 選取 [保留交易]。
-1. 若要篩選結果，請選取 [時間範圍]、[類型] 或 [描述]。
-1. 選取 [套用] 。
+1. 選取 [保留交易]  。
+1. 若要篩選結果，請選取 [時間範圍]  、[類型]  或 [描述]  。
+1. 選取 [套用]  。
 
     ![顯示「保留交易」結果的螢幕擷取畫面](./media/billing-view-reservation/portal-billing-reservation-transaction-results.png)
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
 ms.openlocfilehash: cff1577eacd0af86d3ad1c99e1eb2164b64318c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60443767"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Azure VM 啟動程序停滯於 Windows Update
@@ -25,7 +25,7 @@ ms.locfileid: "60443767"
 本文將協助您解決虛擬機器 (VM) 在啟動期間停滯於 Windows Update 階段的問題。 
 
 > [!NOTE] 
-> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[资源管理器部署模型和经典部署模型](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋內容包括如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不要使用傳統部署模型。
+> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋內容包括如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不要使用傳統部署模型。
 
 ## <a name="symptom"></a>徵狀
 
@@ -56,7 +56,7 @@ ms.locfileid: "60443767"
     例如，若連結的 OS 磁碟是磁碟機 F，請執行下列命令：
 
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
-5. 開啟 C:\temp\Patch_level.txt 檔案，然後由下至上閱讀。 找出處於 [安裝擱置中] 或 [解除安裝擱置中] 狀態的更新。  以下是更新狀態的範例：
+5. 開啟 C:\temp\Patch_level.txt 檔案，然後由下至上閱讀。 找出處於 [安裝擱置中]  或 [解除安裝擱置中]  狀態的更新。  以下是更新狀態的範例：
 
      ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5

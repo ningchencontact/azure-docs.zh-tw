@@ -9,10 +9,10 @@ ms.date: 07/05/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: c3677e7897498aa06d7bd547988ad4dc0326f39b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150442"
 ---
 ## <a name="enable-event-grid-resource-provider"></a>啟用事件格線資源提供者
@@ -23,8 +23,8 @@ ms.locfileid: "66150442"
 
 1. 選取 **訂用帳戶** 。
 1. 選取您用於事件方格的訂用帳戶。
-1. 在 [設定] 下，選取 [資源提供者]。
+1. 在 [設定]  下，選取 [資源提供者]  。
 1. 尋找 **Microsoft.EventGrid**。
-1. 如果未註冊，請選取 [註冊]。 
+1. 如果未註冊，請選取 [註冊]  。 
 
-可能需要一點時間才能完成註冊。 選取 [重新整理] 來更新狀態。 當 [狀態] 是 [已註冊] 時，代表已準備好繼續進行。
+可能需要一點時間才能完成註冊。 選取 [重新整理]  來更新狀態。 當 [狀態]  是 [已註冊]  時，代表已準備好繼續進行。

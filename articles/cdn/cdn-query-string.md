@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: f0dab3dc81c626e3e7f8c79b4142e5eb4f2a1276
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60324738"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>使用查詢字串來控制 Azure CDN 快取行為 - 標準層
@@ -49,11 +49,11 @@ ms.locfileid: "60324738"
    
    ![CDN 設定檔端點](./media/cdn-query-string/cdn-endpoints.png)
    
-2. 在左側窗格的 [設定] 下方，按一下 [快取規則]。
+2. 在左側窗格的 [設定] 下方，按一下 [快取規則]  。
    
     ![CDN [快取規則] 按鈕](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
-3. 在 [查詢字串快取行為] 清單中，選取查詢字串模式，然後按一下 [儲存]。
+3. 在 [查詢字串快取行為]  清單中，選取查詢字串模式，然後按一下 [儲存]  。
    
    ![CDN 查詢字串快取選項](./media/cdn-query-string/cdn-query-string.png)
 

@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: dbab2aaab2c12bef07748f54e5864d042f1c982a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60302475"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員服務來檢視 StorSimple Virtual Array 的作業
 ## <a name="overview"></a>概觀
-[作業] 刀鋒視窗提供單一中央入口網站，可檢視和管理已連接至 StorSimple 裝置管理員服務的虛擬陣列上啟動的作業。 您可以針對多個虛擬裝置，檢視執行中、完成和失敗的作業。 結果會以表格式格式呈現。
+[作業]  刀鋒視窗提供單一中央入口網站，可檢視和管理已連接至 StorSimple 裝置管理員服務的虛擬陣列上啟動的作業。 您可以針對多個虛擬裝置，檢視執行中、完成和失敗的作業。 結果會以表格式格式呈現。
 
 ![[作業] 刀鋒視窗](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
 
@@ -32,8 +32,8 @@ ms.locfileid: "60302475"
 * **時間範圍** – 您可以根據日期和時間範圍來篩選作業。
 * **裝置** – 作業會在連線到服務的特定裝置上進行初始化。 接著會根據下列屬性，將篩選的作業列表顯示：
   
-  * **類型** – 作業名稱可以是 [全部]、[備份]、[還原]、[容錯移轉]、[下載更新]，或 [安裝更新]。
-  * **狀態** – 作業可以是 [全部]、[進行中]、[成功]、[失敗]或 [已取消]。
+  * **類型** – 作業名稱可以是 [全部]  、[備份]  、[還原]  、[容錯移轉]  、[下載更新]  ，或 [安裝更新]  。
+  * **狀態** – 作業可以是 [全部]  、[進行中]  、[成功]  、[失敗]  或 [已取消]  。
   * **實體** – 作業可以與磁碟區、共用或裝置相關聯。
   * **裝置** – 用來啟動工作之裝置的名稱。
   * **啟動於** – 啟動工作的時間。
@@ -47,11 +47,11 @@ ms.locfileid: "60302475"
 執行下列步驟來檢視任何工作的詳細資料。
 
 #### <a name="to-view-job-details"></a>若要檢視工作詳細資料
-1. 在 [作業] 刀鋒視窗上，搭配適當的篩選執行查詢，以顯示您感興趣的作業。 您可以搜尋完成或執行中作業。
+1. 在 [作業]  刀鋒視窗上，搭配適當的篩選執行查詢，以顯示您感興趣的作業。 您可以搜尋完成或執行中作業。
 2. 從作業表格式清單中選取作業。
    
     ![[作業] 刀鋒視窗](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
-3. 按一下頁面底部的 [詳細資料] 。
+3. 按一下頁面底部的 [詳細資料]  。
 4. 在 [詳細資料]  對話方塊中，您可以檢視狀態、詳細資料和時間統計資料。 下圖顯示 [備份作業詳細資料]  對話方塊的範例。
    
     ![工作詳細資料](./media/storsimple-virtual-array-manage-jobs/ova-jobs-details.png)

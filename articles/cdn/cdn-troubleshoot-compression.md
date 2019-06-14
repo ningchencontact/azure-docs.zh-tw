@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 4df8e5d4560a813c47319833a8cd91726abcb8e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60323734"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>CDN 檔案壓縮疑難排解
 這篇文章可協助您針對 [CDN 檔案壓縮](cdn-improve-performance.md)的問題進行疑難排解。
 
-如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您也可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。
+如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您也可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後按一下 [取得支援]  。
 
 ## <a name="symptom"></a>徵狀
 已為您的端點啟用壓縮，但會傳回未壓縮的檔案。
@@ -68,7 +68,7 @@ ms.locfileid: "60323734"
 > 
 > 
 
-在 [Azure 入口網站](https://portal.azure.com)中瀏覽至您的端點，然後按一下 [設定] 按鈕。
+在 [Azure 入口網站](https://portal.azure.com)中瀏覽至您的端點，然後按一下 [設定]  按鈕。
 
 * 驗證已啟用壓縮。
 * 驗證要壓縮之內容的 MIME 類型已包含在壓縮格式清單中。
@@ -81,7 +81,7 @@ ms.locfileid: "60323734"
 > 
 > 
 
-在 [Azure 入口網站](https://portal.azure.com)中瀏覽至您的端點，然後按一下 [管理] 按鈕。  即會開啟補充入口網站。  將滑鼠移至 [HTTP 大型] 索引標籤上，然後將滑鼠移至 [快取設定] 飛出視窗上。  按一下 [壓縮]。 
+在 [Azure 入口網站](https://portal.azure.com)中瀏覽至您的端點，然後按一下 [管理]  按鈕。  即會開啟補充入口網站。  將滑鼠移至 [HTTP 大型]  索引標籤上，然後將滑鼠移至 [快取設定]  飛出視窗上。  按一下 [壓縮]  。 
 
 * 驗證已啟用壓縮。
 * 驗證 [檔案類型]  清單包含以逗號分隔 (無空格) 的 MIME 類型清單。
@@ -97,7 +97,7 @@ ms.locfileid: "60323734"
 
 使用您瀏覽器的開發人員工具，檢查回應標頭以確保檔案會快取在要求它的區域中。
 
-* 檢查 **Server** 回應標頭。  標頭應該具有格式 **平台 (POP/伺服器識別碼)**，如下列範例所示。
+* 檢查 **Server** 回應標頭。  標頭應該具有格式 **平台 (POP/伺服器識別碼)** ，如下列範例所示。
 * 檢查 **X-Cache** 回應標頭。  標頭應為 **HIT**。  
 
 ![CDN 回應標頭](./media/cdn-troubleshoot-compression/cdn-response-headers.png)

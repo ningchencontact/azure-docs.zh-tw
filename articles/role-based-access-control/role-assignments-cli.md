@@ -15,10 +15,10 @@ ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 1cc3d3eca4063a8120851a9d3de1a85292eacb11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60344558"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>使用 RBAC 與 Azure CLI 管理對 Azure 資源的存取
@@ -89,15 +89,15 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-## <a name="list-a-role-definition"></a>列出角色定义
+## <a name="list-a-role-definition"></a>列出角色定義
 
-若要列出角色定义，请使用 [az role definition list](/cli/azure/role/definition#az-role-definition-list)：
+若要列出角色定義，請使用[az 角色定義清單](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli
 az role definition list --name <role_name>
 ```
 
-下列範例會列出「參與者」的角色定義：
+下列範例會列出「參與者」  的角色定義：
 
 ```azurecli
 az role definition list --name "Contributor"
@@ -137,7 +137,7 @@ az role definition list --name "Contributor"
 
 ### <a name="list-actions-of-a-role"></a>列出角色的動作
 
-以下示例仅列出了“参与者”角色的 actions 和 notActions：
+下列範例會列出剛才*動作*並*notActions*的*參與者*角色：
 
 ```azurecli
 az role definition list --name "Contributor" --output json | jq '.[] | {"actions":.permissions[0].actions, "notActions":.permissions[0].notActions}'
@@ -156,7 +156,7 @@ az role definition list --name "Contributor" --output json | jq '.[] | {"actions
 }
 ```
 
-以下示例仅列出了“虚拟机参与者”角色的 actions：
+下列範例會列出的動作*虛擬機器參與者*角色：
 
 ```azurecli
 az role definition list --name "Virtual Machine Contributor" --output json | jq '.[] | .permissions[0].actions'
@@ -291,13 +291,13 @@ az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee
 az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-下列範例會將「讀者」角色指派給訂用帳戶範圍中識別碼為 22222222-2222-2222-2222-222222222222 的「Ann Mack 小組」群組。 若要取得群組的識別碼，您可以使用 [az ad group list](/cli/azure/ad/group#az-ad-group-list) 或 [az ad group show](/cli/azure/ad/group#az-ad-group-show)。
+下列範例會將「讀者」  角色指派給訂用帳戶範圍中識別碼為 22222222-2222-2222-2222-222222222222 的「Ann Mack 小組」群組  。 若要取得群組的識別碼，您可以使用 [az ad group list](/cli/azure/ad/group#az-ad-group-list) 或 [az ad group show](/cli/azure/ad/group#az-ad-group-show)。
 
 ```azurecli
 az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/00000000-0000-0000-0000-000000000000
 ```
 
-下列範例會將「虛擬機器參與者」角色指派給識別碼為 22222222-2222-2222-2222-222222222222 且在虛擬網路 (名為 pharma-sales-project-network) 資源範圍中的「Ann Mack 小組」群組：
+下列範例會將「虛擬機器參與者」  角色指派給識別碼為 22222222-2222-2222-2222-222222222222 且在虛擬網路 (名為 pharma-sales-project-network  ) 資源範圍中的「Ann Mack 小組」  群組：
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/pharma-sales/providers/Microsoft.Network/virtualNetworks/pharma-sales-project-network
@@ -331,7 +331,7 @@ az role assignment delete --assignee <assignee> --role <role_name_or_id> --resou
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales
 ```
 
-下列範例會將「讀者」角色從訂用帳戶範圍中識別碼為 22222222-2222-2222-2222-222222222222 的「Ann Mack 小組」群組中移除。 若要取得群組的識別碼，您可以使用 [az ad group list](/cli/azure/ad/group#az-ad-group-list) 或 [az ad group show](/cli/azure/ad/group#az-ad-group-show)。
+下列範例會將「讀者」  角色從訂用帳戶範圍中識別碼為 22222222-2222-2222-2222-222222222222 的「Ann Mack 小組」  群組中移除。 若要取得群組的識別碼，您可以使用 [az ad group list](/cli/azure/ad/group#az-ad-group-list) 或 [az ad group show](/cli/azure/ad/group#az-ad-group-show)。
 
 ```azurecli
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/00000000-0000-0000-0000-000000000000

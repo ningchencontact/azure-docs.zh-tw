@@ -12,10 +12,10 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 35d03a52125bd2646f86b96bcffe123d9fab7f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60303548"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 生命週期的了解商務階段
@@ -58,7 +58,7 @@ ms.locfileid: "60303548"
 
 3. 指定專案小組成員的角色和責任以定義專案小組。 在您發現更多資訊時，開發可逐一查看的高階里程碑計劃。 
 
-4. 定義成功標準。 比方說，您想要獲得一份客戶流失預測。 您需要這個三個月專案結束時有 "x" 百分比的準確率。 使用此資料，您可以提供客戶促銷活動以減少流失。 標準必須夠**聰明 (SMART)**： 
+4. 定義成功標準。 比方說，您想要獲得一份客戶流失預測。 您需要這個三個月專案結束時有 "x" 百分比的準確率。 使用此資料，您可以提供客戶促銷活動以減少流失。 標準必須夠**聰明 (SMART)** ： 
 
    * **S**pecific (具體) 
    * **M**easurable (可測量)

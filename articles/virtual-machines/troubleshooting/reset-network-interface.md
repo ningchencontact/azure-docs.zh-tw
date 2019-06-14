@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: 3a8e005f8678deef9fc4aebd2d620619fe6074bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307287"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>如何重設 Azure Windows VM 的網路介面 
@@ -36,14 +36,14 @@ ms.locfileid: "60307287"
 
 1.  移至 [Azure 入口網站](https://ms.portal.azure.com)。
 2.  選取受影響的虛擬機器。
-3.  選取 [網絡]，然後選取 VM 的網路介面。
+3.  選取 [網絡]  ，然後選取 VM 的網路介面。
 
     ![網路介面位置](./media/reset-network-interface/select-network-interface-vm.png)
     
-4.  選取 [IP 組態]。
+4.  選取 [IP 組態]  。
 5.  選取 IP。 
-6.  如果 [私人 IP 指派] 不是 [靜態]，請將它變更為 [靜態]。
-7.  将“IP 地址”更改为子网中可用的其他 IP 地址。
+6.  如果 [私人 IP 指派]  不是 [靜態]  ，請將它變更為 [靜態]  。
+7.  將 [IP 位址]  變更為子網路中可用的其他 IP 位址。
 8. 虛擬機器會重新啟動，以便對系統初始化新的 NIC。
 9.  嘗試使用 RDP 連線到您的電腦。 如果成功，您可以自行決定是否將私人 IP 位址變更回原始位址， 或是維持現有設定。 
 
@@ -79,11 +79,11 @@ ms.locfileid: "60307287"
 #### <a name="use-azure-portal"></a>使用 Azure 入口網站
 
 1.  移至 [Azure 入口網站]( https://ms.portal.azure.com)。
-2.  選取 [虛擬機器 (傳統)]。
-3.  选择受影响的虚拟机。
-4.  選取 [IP 位址]。
-5.  如果“专用 IP 分配”不是“静态”，则将其更改为“静态”。
-6.  將 [IP 位址] 變更為子網路中可用的其他 IP 位址。
+2.  選取 [虛擬機器 (傳統)]  。
+3.  選取受影響的虛擬機器。
+4.  選取 [IP 位址]  。
+5.  如果 [私人 IP 指派]  不是 [靜態]  ，請將它變更為 [靜態]  。
+6.  將 [IP 位址]  變更為子網路中可用的其他 IP 位址。
 7.  選取 [ **儲存**]。
 8.  虛擬機器會重新啟動，以便對系統初始化新的 NIC。
 9.  嘗試使用 RDP 連線到您的電腦。 如果成功，您可以選擇將私人 IP 位址還原回原始位址。  
@@ -117,8 +117,8 @@ ms.locfileid: "60307287"
 可以使用遠端桌面連線到機器之後，您必須刪除舊的 NIC 以避免潛在的問題：
 
 1.  開啟 [裝置管理員]。
-2.  選取 [檢視] > [顯示隱藏的裝置]。
-3.  選取 [網路介面卡]。 
+2.  選取 [檢視]   > [顯示隱藏的裝置]  。
+3.  選取 [網路介面卡]  。 
 4.  檢查名稱為「Microsoft Hyper-V 網路介面卡」的介面卡。
 5.  無法使用的介面卡會以灰色來顯示。以滑鼠右鍵按一下介面卡，然後選取 [解除安裝]。
 

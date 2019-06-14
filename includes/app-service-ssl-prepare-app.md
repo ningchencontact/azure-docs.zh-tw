@@ -9,10 +9,10 @@ ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: ecdd419331c88e712644851f9213861f882cf0f6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66136404"
 ---
 ## <a name="prepare-your-web-app"></a>準備您的 Web 應用程式
@@ -25,7 +25,7 @@ ms.locfileid: "66136404"
 
 ### <a name="navigate-to-your-web-app"></a>瀏覽至您的 Web 應用程式
 
-按一下左側功能表中的 [應用程式服務]，然後按一下 Web 應用程式的名稱。
+按一下左側功能表中的 [應用程式服務]  ，然後按一下 Web 應用程式的名稱。
 
 ![選取 Web 應用程式](./media/app-service-ssl-prepare-app/select-app.png)
 
@@ -33,7 +33,7 @@ ms.locfileid: "66136404"
 
 ### <a name="check-the-pricing-tier"></a>檢查定價層
 
-在 Web 應用程式頁面的左側導覽中，捲動到 [設定] 區段，然後選取 [相應增加 (App Service 方案)]。
+在 Web 應用程式頁面的左側導覽中，捲動到 [設定]  區段，然後選取 [相應增加 (App Service 方案)]  。
 
 ![相應增加功能表](./media/app-service-ssl-prepare-app/scale-up-menu.png)
 
@@ -41,13 +41,13 @@ ms.locfileid: "66136404"
 
 ![檢查定價層](./media/app-service-ssl-prepare-app/check-pricing-tier.png)
 
-**F1** 或 **D1** 層中不支援自訂 SSL。 如果您需要相應增加，請遵循下一節中的步驟來進行。 否則，請關閉 [相應增加] 頁面，並略過[相應增加 App Service 方案](#scale-up-your-app-service-plan)一節。
+**F1** 或 **D1** 層中不支援自訂 SSL。 如果您需要相應增加，請遵循下一節中的步驟來進行。 否則，請關閉 [相應增加]  頁面，並略過[相應增加 App Service 方案](#scale-up-your-app-service-plan)一節。
 
 ### <a name="scale-up-your-app-service-plan"></a>相應增加您的 App Service 方案
 
-選取任何非免費層 (**B1**、**B2** **B3**或「生產」類別中的任何一層)。  如需其他選項，請按一下 [查看其他選項]。
+選取任何非免費層 (**B1**、**B2** **B3**或「生產」類別中的任何一層)。  如需其他選項，請按一下 [查看其他選項]  。
 
-按一下 [套用]。
+按一下 [套用]  。
 
 ![選擇定價層](./media/app-service-ssl-prepare-app/choose-pricing-tier.png)
 

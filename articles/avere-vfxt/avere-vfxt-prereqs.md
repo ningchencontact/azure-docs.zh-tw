@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
 ms.openlocfilehash: 352833b12c00abbefcf7016d27dfb580ee25e450
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409230"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>準備建立 Avere vFXT
@@ -24,7 +24,7 @@ ms.locfileid: "60409230"
 若要在 Azure 入口網站中建立新的 Azure 訂用帳戶：
 
 * 瀏覽至 [訂用帳戶](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) 刀鋒視窗
-* 按一下位於頂端的 [+ 新增] 按鈕
+* 按一下位於頂端的 [+ 新增]  按鈕
 * 在出現提示時登入
 * 選取供應項目，並逐步執行新建訂用帳戶的步驟
 
@@ -91,12 +91,12 @@ A[服務端點](../virtual-network/virtual-network-service-endpoints-overview.md
 
 從 Azure 入口網站中建立的儲存體服務端點。 
 
-1. 從入口網站中，按一下左側的 [虛擬網路]。
+1. 從入口網站中，按一下左側的 [虛擬網路]  。
 1. 選取您的叢集的 vnet。 
-1. 按一下左側的 [服務端點]。
-1. 按一下頂端的 [新增]。
+1. 按一下左側的 [服務端點]  。
+1. 按一下頂端的 [新增]  。
 1. 將做為服務保持``Microsoft.Storage``選擇叢集的子網路。
-1. 在底部按一下 [新增]。
+1. 在底部按一下 [新增]  。
 
    ![含有建立服務端點之註解的 Azure 入口網站螢幕擷取畫面](media/avere-vfxt-service-endpoint.png)
 

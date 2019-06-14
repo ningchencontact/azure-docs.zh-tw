@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60391164"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (WebJob 專案)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>概觀
-本文描述如何在您使用 Visual Studio 的 [新增連接的服務] 對話方塊，建立或參考了 Azure 儲存體帳戶之後，開始在 Visual Studio Azure WebJob 專案中使用 Azure 佇列儲存體。 當您使用 Visual Studio [新增連接的服務]  對話方塊將儲存體帳戶加入 WebJob 專案時，適當的 Azure 儲存體 NuGet 封裝便已安裝、適當的 .NET 參考會加入至專案，以及儲存體帳戶的連接字串會在 App.config 檔案中更新。  
+本文描述如何在您使用 Visual Studio 的 [新增連接的服務]  對話方塊，建立或參考了 Azure 儲存體帳戶之後，開始在 Visual Studio Azure WebJob 專案中使用 Azure 佇列儲存體。 當您使用 Visual Studio [新增連接的服務]  對話方塊將儲存體帳戶加入 WebJob 專案時，適當的 Azure 儲存體 NuGet 封裝便已安裝、適當的 .NET 參考會加入至專案，以及儲存體帳戶的連接字串會在 App.config 檔案中更新。  
 
 本文提供了 C# 程式碼範例，示範如何透過 Azure 佇列儲存體服務使用 Azure WebJobs SDK 1.x 版。
 
@@ -190,7 +190,7 @@ public static void GracefulShutdownDemo(
 若要編寫會建立新佇列訊息的函數，請使用 **Queue** 屬性。 如同 **QueueTrigger**，您可透過字串傳入佇列名稱，或可以 [動態設定的佇列名稱](#how-to-set-configuration-options)。
 
 ### <a name="string-queue-messages"></a>字串佇列訊息
-下面的非异步代码示例在名为“outputqueue”的队列中创建新的队列消息，该消息的内容与名为“inputqueue”的队列中收到的队列消息相同。 (如需非同步函式，請使用 **IAsyncCollector<T>**，如本節後續內容所示。)
+下面的非异步代码示例在名为“outputqueue”的队列中创建新的队列消息，该消息的内容与名为“inputqueue”的队列中收到的队列消息相同。 (如需非同步函式，請使用 **IAsyncCollector<T>** ，如本節後續內容所示。)
 
 ```csharp
 public static void CreateQueueMessage(
@@ -337,12 +337,12 @@ logQueue.AddMessage(queueMessage);
 * **CloudPageBlob** (讀取或寫入)
 
 ## <a name="how-to-handle-poison-messages"></a>如何處理有害訊息
-內容會導致函數失敗的訊息稱為「有害訊息」 。 當函數失敗時不會刪除佇列訊息，最後會再度挑選到該訊息，造成重複循環。 SDK 可在有限的反覆次數之後自動中斷循環，或者您可以手動中斷循環。
+內容會導致函數失敗的訊息稱為「有害訊息」  。 當函數失敗時不會刪除佇列訊息，最後會再度挑選到該訊息，造成重複循環。 SDK 可在有限的反覆次數之後自動中斷循環，或者您可以手動中斷循環。
 
 ### <a name="automatic-poison-message-handling"></a>自動處理有害訊息
 SDK 在处理一个队列消息时最多会调用某个函数 5 次。 如果第五次嘗試失敗，訊息便會移到有害佇列中。 您可以在 [如何設定組態選項](#how-to-set-configuration-options)中了解如何設定重試次數上限。
 
-有害佇列名為 *{originalqueuename}*-poison。 您可以撰寫函數，透過記錄或傳送通知表示需要手動處理，來處理有害佇列中的訊息。
+有害佇列名為 *{originalqueuename}* -poison。 您可以撰寫函數，透過記錄或傳送通知表示需要手動處理，來處理有害佇列中的訊息。
 
 在下列範例中，當佇列訊息包含不存在的 Blob 名稱， **CopyBlob** 函數將會失敗。 發生時，就會從 copyblobqueue 佇列將訊息移至 copyblobqueue-poison 佇列。 接著， **ProcessPoisonMessage** 會記錄有害訊息。
 
@@ -534,17 +534,17 @@ public static void WriteLog(
 }
 ```
 
-在「WebJobs SDK 儀表板」中，當您移至頁面以進行特定函數叫用並選取 [切換輸出] 時，會顯示來自 **TextWriter** 物件的輸出：
+在「WebJobs SDK 儀表板」中，當您移至頁面以進行特定函數叫用並選取 [切換輸出]  時，會顯示來自 **TextWriter** 物件的輸出：
 
 ![叫用連結](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 
 ![函式引動過程頁面中的記錄](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
-在「WebJobs SDK 儀表板」中，當您移至 WebJob (而非函數叫用) 的頁面並選取 [切換輸出] 時，會顯示最近 100 行的「主控台」輸出。
+在「WebJobs SDK 儀表板」中，當您移至 WebJob (而非函數叫用) 的頁面並選取 [切換輸出]  時，會顯示最近 100 行的「主控台」輸出。
 
 ![TextWriter](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-在連續的 WebJob 中，應用程式記錄顯示在 Web 應用程式檔案系統中的 /data/jobs/continuous/*{webjobname}*/job_log.txt。
+在連續的 WebJob 中，應用程式記錄顯示在 Web 應用程式檔案系統中的 /data/jobs/continuous/ *{webjobname}* /job_log.txt。
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!

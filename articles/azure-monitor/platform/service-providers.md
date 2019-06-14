@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.openlocfilehash: 97d8d6fac93ebabac8fb319ce2f1ab8719f5f86b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60452648"
 ---
 # <a name="azure-monitor-for-service-providers"></a>Azure 監視器服務提供者
 受管理的服務提供者 (Msp)、 大型企業、 獨立軟體廠商 (Isv) 和主機服務提供者管理和監視客戶的內部部署或雲端基礎結構中的伺服器，可協助 Azure 監視器中的 log Analytics 工作區。 
 
-大型企業與服務提供者有許多相似之處，特別是當有集中式的 IT 團隊負責管理許多不同業務單位的 IT 時。 為了簡單起見，本文件會使用「服務提供者」這個詞彙，但是相同的功能也適用於企業或其他客戶。
+大型企業與服務提供者有許多相似之處，特別是當有集中式的 IT 團隊負責管理許多不同業務單位的 IT 時。 為了簡單起見，本文件會使用「服務提供者」  這個詞彙，但是相同的功能也適用於企業或其他客戶。
 
 合作夥伴與服務提供者是一部分的[雲端解決方案提供者 (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview)程式，Azure 監視器中的 Log Analytics 是 Azure 中所提供的服務的其中一個[Azure CSP 訂用帳戶](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)。 
 

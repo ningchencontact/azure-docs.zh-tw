@@ -16,17 +16,17 @@ ms.date: 03/27/2019
 ms.author: kfollis
 ms.custom: accessibility
 ms.openlocfilehash: 1595d744fbfda47a9db9ff27de09cd53c6f73ece
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551144"
 ---
 # <a name="supported-devices"></a>支援的裝置
 
-[Azure 门户](https://portal.azure.com)是基于 Web 的控制台，可在所有新式的台式机和平板电脑设备的浏览器中运行。 如果需要从移动设备管理 Azure 资源，请尝试 [Azure 移动应用](https://azure.microsoft.com/features/azure-portal/mobile-app/)。 它适用于 iOS 和 Android。
+[Azure 入口網站](https://portal.azure.com)是網頁型主控台，並在所有新式的桌上型電腦和平板電腦裝置的瀏覽器中執行。 如果您需要從行動裝置管理 Azure 資源，請嘗試[Azure 行動應用程式](https://azure.microsoft.com/features/azure-portal/mobile-app/)。 使用適用於 iOS 和 Android。
 
-## <a name="recommended-browsers"></a>建议的浏览器
+## <a name="recommended-browsers"></a>建議的瀏覽器
 
 建議使用與您的作業系統相容的最新瀏覽器。 支援下列瀏覽器：
 

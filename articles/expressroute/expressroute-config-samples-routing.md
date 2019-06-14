@@ -9,17 +9,17 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 2d7fb060896de8df266489451a11ba343760c747
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60367467"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>設定和管理路由的路由器組態範例
 此頁面提供在使用 ExpressRoute 時適用於 Cisco IOS XE 和 Juniper MX 系列路由器的介面和路由組態範例。 這些範例僅可用作指引，不能依原樣使用。 您可以和廠商合作來擬定適合您網路的組態。 
 
 > [!IMPORTANT]
-> 此頁面中的範例純粹只用作指引。 您必須和廠商的業務人員 / 技術小組及您的網路團隊合作，來擬定適當的組態以符合您的需求。 Microsoft 將不支援此頁面中所列組態的相關問題。 有关支持问题，必须与设备供应商联系。
+> 此頁面中的範例純粹只用作指引。 您必須和廠商的業務人員 / 技術小組及您的網路團隊合作，來擬定適當的組態以符合您的需求。 Microsoft 將不支援此頁面中所列組態的相關問題。 您必須連絡您的裝置廠商來支援問題。
 > 
 > 
 
@@ -33,7 +33,7 @@ ms.locfileid: "60367467"
 ## <a name="cisco-ios-xe-based-routers"></a>Cisco IOS-XE 架構的路由器
 本節中的範例適用於任何執行 IOS-XE 作業系統系列的路由器。
 
-### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1.配置接口和子接口
+### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1.設定介面和子介面
 在您連線到 Microsoft 的每個路由器中，針對每個對等互連都需要有一個子介面。 子介面可使用 VLAN ID 或一組堆疊的 VLAN ID 和 IP 位址來識別。
 
 **Dot1Q 介面定義**
@@ -78,7 +78,7 @@ ms.locfileid: "60367467"
     !
 
 ### <a name="4-route-maps"></a>4.路由對應
-可以使用路由映射和前缀列表来筛选已传播到网络中的前缀。 您可以使用下列範例來完成此工作。 確定您已設定適當的前置詞清單。
+您可以使用路由對應和前置詞清單，來篩選要傳播到您網路中的前置詞。 您可以使用下列範例來完成此工作。 確定您已設定適當的前置詞清單。
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -175,7 +175,7 @@ ms.locfileid: "60367467"
 
 
 ### <a name="4-route-maps"></a>4.路由對應
-可以使用路由映射和前缀列表来筛选已传播到网络中的前缀。 您可以使用下列範例來完成此工作。 確定您已設定適當的前置詞清單。
+您可以使用路由對應和前置詞清單，來篩選要傳播到您網路中的前置詞。 您可以使用下列範例來完成此工作。 確定您已設定適當的前置詞清單。
 
     policy-options {
         prefix-list MS_Prefixes {
@@ -205,5 +205,5 @@ ms.locfileid: "60367467"
     }
 
 ## <a name="next-steps"></a>後續步驟
-有关更多详细信息，请参阅 [ExpressRoute 常见问题解答](expressroute-faqs.md)。
+如需詳細資訊，請參閱〈 [ExpressRoute 常見問題集](expressroute-faqs.md) 〉。
 

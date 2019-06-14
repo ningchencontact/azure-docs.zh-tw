@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: cweining
 ms.openlocfilehash: 35789cc1e516fb24d5e985e12b44fe3cd01b795d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306457"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>使用 Application Insights Profiler 來分析 ASP.NET Core Azure Linux Web 應用程式
@@ -25,7 +25,7 @@ ms.locfileid: "60306457"
 
 了解在使用 [Application Insights ](../../azure-monitor/app/app-insights-overview.md) 時，即時 Web 應用程式的每個方法各使用了多少時間。 Application Insights Profiler 現在可在 Azure App Service 上供裝載於 Linux 中的 ASP.NET Core Web 應用程式使用。 本指南提供逐步指示，說明如何針對 ASP.NET Core Linux Web 應用程式收集分析工具追蹤。
 
-完成此逐步解說之後，您的應用程式可以收集分析工具追蹤，例如圖中所示的追蹤。 在此範例中，分析工具追蹤會指出特定的 Web 要求變慢是因為將時間花在等候上。 程式碼中使應用程式變慢的「最忙碌路徑」之前會加上火焰圖示。 **HomeController** 區段中的 **About** 方法使 Web 應用程式速度變慢，因為此方法呼叫 **Thread.Sleep** 函式。
+完成此逐步解說之後，您的應用程式可以收集分析工具追蹤，例如圖中所示的追蹤。 在此範例中，分析工具追蹤會指出特定的 Web 要求變慢是因為將時間花在等候上。 程式碼中使應用程式變慢的「最忙碌路徑」  之前會加上火焰圖示。 **HomeController** 區段中的 **About** 方法使 Web 應用程式速度變慢，因為此方法呼叫 **Thread.Sleep** 函式。
 
 ![分析工具追蹤](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
@@ -166,11 +166,11 @@ ms.locfileid: "60306457"
 
     應用程式的設定變更時，網站會自動重新啟動。 一旦套用新的設定後，分析工具會立即執行 2 分鐘。 之後，分析工具會每小時執行兩分鐘。
 
-3. 產生一些流向網站的流量。 您可以重新整理網站的 [關於] 網頁幾次以產生流量。
+3. 產生一些流向網站的流量。 您可以重新整理網站的 [關於]  網頁幾次以產生流量。
 
 4. 等待 2-5 分鐘，讓事件彙總至 Application Insights。
 
-5. 在 Azure 入口網站中瀏覽至 Application Insights [效能] 窗格。 您可以檢視在窗格右下角的分析工具追蹤。
+5. 在 Azure 入口網站中瀏覽至 Application Insights [效能]  窗格。 您可以檢視在窗格右下角的分析工具追蹤。
 
     ![檢視分析工具追蹤](./media/profiler-aspnetcore-linux/view-traces.png)
 

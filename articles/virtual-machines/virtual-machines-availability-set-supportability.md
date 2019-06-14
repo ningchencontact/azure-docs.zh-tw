@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: 7a5e97b66fec040b4ec32caa8d58cf9b50169a33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60443699"
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>在現有的可用性設定組中新增 Azure VM 的可支援性
@@ -27,14 +27,14 @@ ms.locfileid: "60443699"
 
 以下是混合不同 VM 類型的可支援性對照表：
 
-系列與可用性設定組|第二部 VM|具有使用 |Av2|D|Dv2|Dv3|
+系列與可用性設定組|第二部 VM|A|Av2|D|Dv2|Dv3|
 |---|---|---|---|---|---|---|
 |第一部 VM|||||||
-|具有使用 ||OK|OK|OK|OK|OK|
-|Av2||OK|OK|OK|OK|OK|
-|D||OK|OK|OK|OK|OK|
-|Dv2||OK|OK|OK|OK|OK|
-|Dv3||OK|OK|OK|OK|OK|
+|具有使用||[確定]|[確定]|[確定]|[確定]|[確定]|
+|Av2||[確定]|[確定]|[確定]|[確定]|[確定]|
+|D||[確定]|[確定]|[確定]|[確定]|[確定]|
+|Dv2||[確定]|[確定]|[確定]|[確定]|[確定]|
+|Dv3||[確定]|[確定]|[確定]|[確定]|[確定]|
 
 其他所有系列由於需要特定硬體，因此無法存在於相同的可用性設定組。
 

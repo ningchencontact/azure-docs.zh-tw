@@ -9,10 +9,10 @@ ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: cc83d94acd25914ee57473de53afbc018f310887
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117415"
 ---
 本節將說明如何使用 [Azure 入口網站](https://portal.azure.com)建立 IoT 中樞。
@@ -37,7 +37,7 @@ ms.locfileid: "66117415"
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-4. 按一下 **[下一步大小與級別]  繼續建立 IoT 中樞。
+4. 按一下 **[下一步大小與級別]** 繼續建立 IoT 中樞。
 
    ![使用 Azure 入口網站設定新 IoT 中樞的大小與級別](./media/iot-hub-include-create-hub/iot-hub-create-screen-size-scale.png)
 

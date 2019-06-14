@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: 41065b4ac6bc486e204c2bfd72b78ba8722270c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409333"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>掛接 Avere vFXT 叢集  
@@ -80,7 +80,7 @@ vserver 路徑由其 *IP 位址*和*命名空間連接點*的路徑組合而成�
 
 範例： ``mount 10.0.0.12:/msazure /mnt/vfxt``
 
-如果您在建立叢集之後新增了儲存體，則命名空間連接點路徑會對應至您在建立連接點時設定於 [命名空間路徑] 中的值。 例如，如果您使用 ``/avere/files`` 作為命名空間路徑，則用戶端會將 *IP_address*:/ avere/files 掛接至其本機掛接點。
+如果您在建立叢集之後新增了儲存體，則命名空間連接點路徑會對應至您在建立連接點時設定於 [命名空間路徑]  中的值。 例如，如果您使用 ``/avere/files`` 作為命名空間路徑，則用戶端會將 *IP_address*:/ avere/files 掛接至其本機掛接點。
 
 ![在命名空間路徑欄位中選取了的 /avere/files 的 [新增連接點] 對話方塊](media/avere-vfxt-create-junction-example.png)
 

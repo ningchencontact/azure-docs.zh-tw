@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/06/2019
 ms.author: shvija
 ms.openlocfilehash: 804ef04f0066a8b8dd9df82aef03fcfc32d7cb43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60343715"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>使用範本來建立含有事件中樞的命名空間並啟用擷取
@@ -53,7 +53,7 @@ ms.locfileid: "60343715"
 
 ## <a name="parameters"></a>參數
 
-透過 Azure 資源管理員，您可以定義在部署範本時想要指定之值的參數。 此範本有一個 `Parameters` 區段，內含所有參數值。 您應該為會隨著要部署的專案或要部署到的環境而變化的值定義參數。 不要为永远保持不变的值定义参数。 每個參數值都可在範本中用來定義所部署的資源。
+透過 Azure 資源管理員，您可以定義在部署範本時想要指定之值的參數。 此範本有一個 `Parameters` 區段，內含所有參數值。 您應該為會隨著要部署的專案或要部署到的環境而變化的值定義參數。 請不要為永遠保持不變的值定義參數。 每個參數值都可在範本中用來定義所部署的資源。
 
 範本會定義下列參數。
 

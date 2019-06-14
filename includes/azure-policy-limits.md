@@ -5,21 +5,21 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/30/2019
+ms.date: 06/05/2019
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: 7907504401f4b47aafe6032ea895d9647e6c303c
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: ea87e51e66985f860cd6d10595a32facde1dc639
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420778"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133869"
 ---
 Azure 原則的每個物件類型都有最大計數。 _範圍_的項目表示訂用帳戶或[管理群組](../articles/governance/management-groups/overview.md)。
 
 | Where | 何事 | 最大計數 |
 |---|---|---|
-| 影響範圍 | 原則定義 | 250 |
+| 影響範圍 | 原則定義 | 500 |
 | 影響範圍 | 計畫定義 | 100 |
 | 租用戶 | 計畫定義 | 1,000 |
 | 影響範圍 | 原則或方案指派 | 100 |

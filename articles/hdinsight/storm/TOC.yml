@@ -233,7 +233,5 @@
   items:
     - name: Windows 叢集
       items:
-        - name: 將 Windows 叢集移轉到 Linux 叢集
-          href: ../hdinsight-migrate-from-windows-to-linux.md
         - name: 將 .NET 解決方案移轉至 Linux 叢集
           href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md

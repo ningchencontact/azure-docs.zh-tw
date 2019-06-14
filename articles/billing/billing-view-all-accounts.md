@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/11/2018
 ms.author: banders
 ms.openlocfilehash: 31e4eb1d6493c8de99ac48e09dfb2b8b6481b70a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60369181"
 ---
 # <a name="view-your-billing-accounts-in-azure-portal"></a>在 Azure 入口網站中檢視您的帳單帳戶  
@@ -39,7 +39,7 @@ Azure 入口網站目前支援下列類型的計費帳戶：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 針對 [成本管理 + 帳單] 進行搜尋。
+2. 針對 [成本管理 + 帳單]  進行搜尋。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-view-all-accounts/billing-search-cost-management-billing.png)
 

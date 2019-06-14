@@ -9,18 +9,18 @@ ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 56545b02c35d68455497c93582073c73d6c75da5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66114647"
 ---
 若要在 Azure 入口網站中建立一般用途 v2 儲存體帳戶，請遵循下列步驟：
 
-1. 在 Azure 入口網站中，選取 [所有服務]。 在資源清單中，輸入**儲存體帳戶**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [儲存體帳戶] 。
-1. 在出現的 [儲存體帳戶] 視窗上，選擇 [新增]。
+1. 在 Azure 入口網站中，選取 [所有服務]  。 在資源清單中，輸入**儲存體帳戶**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [儲存體帳戶]  。
+1. 在出現的 [儲存體帳戶]  視窗上，選擇 [新增]  。
 1. 選取要在其中建立儲存體帳戶的訂用帳戶。
-1. 在 [資源群組] 欄位下方，選取 [新建]。 輸入新資源群組的名稱，如下圖所示。
+1. 在 [資源群組]  欄位下方，選取 [新建]  。 輸入新資源群組的名稱，如下圖所示。
 
     ![示範如何在入口網站中建立資源群組的螢幕擷取畫面](./media/storage-create-account-portal-include/create-resource-group.png)
 
@@ -36,7 +36,7 @@ ms.locfileid: "66114647"
    |複寫     |讀取權限異地備援儲存體 (RA-GRS)         |
    |存取層     |經常性存取         |
 
-1. 選取 [檢閱 + 建立]，以檢閱您的儲存體帳戶設定並建立帳戶。
-1. 選取 [建立] 。
+1. 選取 [檢閱 + 建立]  ，以檢閱您的儲存體帳戶設定並建立帳戶。
+1. 選取 [建立]  。
 
 如需儲存體帳戶類型及其他儲存體帳戶設定的詳細資訊，請參閱 [Azure 儲存體帳戶概觀](https://docs.microsoft.com/azure/storage/common/storage-account-overview)。 如需資源群組的詳細資訊，請參閱 [Azure Resource Manager 概觀](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。 

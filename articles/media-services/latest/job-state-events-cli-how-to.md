@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: f6243bbc21466361aed7cbb7193f3a7b7c7e539f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60322660"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>在 Azure CLI 中使用事件方格建立和監視媒體服務事件
@@ -39,7 +39,7 @@ Azure Event Grid 是一項雲端事件服務。 此服務會使用[事件訂用�
 
 在訂閱媒體服務帳戶的事件之前，我們要先建立事件訊息的端點。 通常，端點會根據事件資料採取動作。 在本文中，您會部署[預先建置的 Web 應用程式](https://github.com/Azure-Samples/azure-event-grid-viewer)以顯示事件訊息。 已部署的解決方案包含 App Service 方案、App Service Web 應用程式，以及 GitHub 中的原始程式碼。
 
-1. 選取 [部署至 Azure]，將解決方案部署至您的訂用帳戶。 在 Azure 入口網站中，提供參數的值。
+1. 選取 [部署至 Azure]  ，將解決方案部署至您的訂用帳戶。 在 Azure 入口網站中，提供參數的值。
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
@@ -69,7 +69,7 @@ az account set --subscription mySubscriptionId
     amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
     ```
 
-    例如︰
+    例如:
 
     ```
     amsResourceId=$(az ams account show --name amsaccount --resource-group amsResourceGroup --query id --output tsv)
@@ -84,7 +84,7 @@ az account set --subscription mySubscriptionId
     --endpoint <endpoint_URL>
     ```
 
-    例如︰
+    例如:
 
     ```
     az eventgrid event-subscription create --resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 2ef327721fd42e5274381834721fd987ec7e9d75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240516"
 ---
 # <a name="use-azure-machine-learning-service-in-a-notebook"></a>在 Notebook 中使用 Azure Machine Learning 服務
@@ -27,9 +27,9 @@ Azure Notebooks 已預先設定必要的環境，可與 [Azure Machine Learning 
 ## <a name="clone-the-sample-into-your-account"></a>將範例複製到帳戶
 
 1. 登入 [Azure Notebooks](https://notebooks.azure.com/)。
-1. 選取 [我的專案]，瀏覽至專案儀表板。
+1. 選取 [我的專案]  ，瀏覽至專案儀表板。
 1. 選取 **上傳 GitHub 存放庫** (向上鍵頭) 按鈕，開啟 **上傳 GitHub 存放庫** 快顯視窗。
-1. 在快顯視窗的 [GitHub 存放庫] 中，輸入 `Azure/MachineLearningNotebooks`，在 [專案名稱] 中提供專案的名稱 (例如「Azure Machine Learning 服務」)，在 [專案識別碼] 中提供識別碼，視需要取消選取 [公用]，然後選取 [匯入]。
+1. 在快顯視窗的 [GitHub 存放庫]  中，輸入 `Azure/MachineLearningNotebooks`，在 [專案名稱]  中提供專案的名稱 (例如「Azure Machine Learning 服務」)，在 [專案識別碼]  中提供識別碼，視需要取消選取 [公用]  ，然後選取 [匯入]  。
 
     ![將 Azure Machine Learning Notebook 範例匯入 Notebooks 帳戶](media/azureml-import-project.png)
 

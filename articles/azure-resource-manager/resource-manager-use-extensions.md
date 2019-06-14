@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 12/14/2018
 ms.author: jgao
 ms.openlocfilehash: eb46966c3a28b3fa4c2b23668109b7c5d23a609b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390863"
 ---
 # <a name="provide-post-deployment-configurations-by-using-extensions"></a>使用擴充功能提供部署後的設定
@@ -33,7 +33,7 @@ ms.locfileid: "60390863"
 - [Microsoft.Sql servers/databases/extensions](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions) \(英文\) 
 - [Microsoft.Web/sites/siteextensions](https://docs.microsoft.com/azure/templates/microsoft.web/2016-08-01/sites/siteextensions) \(英文\)
 
-若要了解可用的擴充功能，請瀏覽至[範本參考](https://docs.microsoft.com/azure/templates/) \(英文\)。 在 [依標題篩選] 中，輸入**擴充功能**。
+若要了解可用的擴充功能，請瀏覽至[範本參考](https://docs.microsoft.com/azure/templates/) \(英文\)。 在 [依標題篩選]  中，輸入**擴充功能**。
 
 若要了解如何使用這些擴充功能，請參閱：
 

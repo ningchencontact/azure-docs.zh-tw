@@ -9,10 +9,10 @@ ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 50264dfba401f623c4ad14a6310303f2787fc85f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132830"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-by-using-the-azure-portal"></a>使用 Azure 入口網站來擷取主機名稱、連接埠及存取金鑰
@@ -21,11 +21,11 @@ ms.locfileid: "66132830"
 
 #### <a name="to-retrieve-the-access-keys-and-host-name"></a>擷取存取金鑰和主機名稱
 
-1. 若要使用 [Azure 入口網站](https://portal.azure.com)來擷取存取金鑰，請瀏覽至快取並選取 [存取金鑰]。 
+1. 若要使用 [Azure 入口網站](https://portal.azure.com)來擷取存取金鑰，請瀏覽至快取並選取 [存取金鑰]  。 
 
     ![Azure Cache for Redis 金鑰](media/redis-cache-access-keys/redis-cache-keys.png)
 
-2. 若要擷取主機名稱和連接埠，請選取 [屬性]。
+2. 若要擷取主機名稱和連接埠，請選取 [屬性]  。
 
     ![Azure Cache for Redis 屬性](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 

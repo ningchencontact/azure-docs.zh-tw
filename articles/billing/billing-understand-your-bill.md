@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: 4303b79a7ee69d029504bf6ca2359f6e6070e5b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370110"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>了解 Microsoft Azure 帳單
@@ -58,15 +58,15 @@ ms.locfileid: "60370110"
 
 ![發票使用量費用](./media/billing-understand-your-bill/1.png)
 
-詳細使用量 CSV 的**明細**區段會顯示相同的費用。 「已使用」數量和「值」會與發票相符。
+詳細使用量 CSV 的**明細**區段會顯示相同的費用。 「已使用」  數量和「值」  會與發票相符。
 
 ![CSV 使用量費用](./media/billing-understand-your-bill/2.png)
 
-若要查看這筆費用的每日明細，請移至 CSV 的 [每日使用量] 區段。 篩選*排程器*下方*計量類別*。 您可以查看哪幾天有使用計量以及取用的量。 *資源*和*資源群組*資訊也會列出以供比較。 「已使用」值加起來應該等於發票上所顯示的值。
+若要查看這筆費用的每日明細，請移至 CSV 的 [每日使用量]  區段。 篩選*排程器*下方*計量類別*。 您可以查看哪幾天有使用計量以及取用的量。 *資源*和*資源群組*資訊也會列出以供比較。 「已使用」  值加起來應該等於發票上所顯示的值。
 
 ![CSV 中的 [每日使用量] 區段](./media/billing-understand-your-bill/3.png)
 
-若要取得每日成本，請將「已使用」數量乘上**明細**區段中的「費率」值。
+若要取得每日成本，請將「已使用」  數量乘上**明細**區段中的「費率」  值。
 
 若要深入了解，請參閱：
 
@@ -78,8 +78,8 @@ ms.locfileid: "60370110"
 Azure 入口網站也可協助您確認費用。 若要取得您發票上使用量與費用的快速概觀，請檢視成本管理圖表。
 
 1. 在 Azure 入口網站中，前往[訂用帳戶](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)。
-1. 選取您的訂用帳戶 > [成本分析]。
-1. 依 [時間範圍] 篩選。
+1. 選取您的訂用帳戶 > [成本分析]  。
+1. 依 [時間範圍]  篩選。
 1. 繼續先前的範例，您會看到 Azure 排程器服務的使用費。
 
    ![Azure 入口網站中的成本分析檢視](./media/billing-understand-your-bill/4.png)

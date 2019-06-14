@@ -9,16 +9,16 @@ ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 1d6fc4a54ca600bd094a68e5eaab1306e7e831ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370256"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 修改 ExpressRoute 線路 (傳統)
 
 > [!div class="op_single_selector"]
-> * [Azure 门户](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure 入口網站](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
 > * [影片 - Azure 入口網站](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
@@ -127,7 +127,7 @@ get-help get-azurededicatedcircuit -detailed
 * 啟用或停用 ExpressRoute 線路的 ExpressRoute 進階附加元件。
 * 只要連接埠有可用的容量，就增加 ExpressRoute 線路的頻寬。 不支援將線路的頻寬降級。 
 * 將計量方案從 [計量付費] 變更為 [無限制]。 不支援將計量方案從 [無限制資料] 變更為 [已計量資料]。
-* 您可以啟用和停用 [允許傳統作業] 。
+* 您可以啟用和停用 [允許傳統作業]  。
 
 如需限制的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md) 。
 
@@ -183,10 +183,10 @@ Status                           : Enabled
 
 ### <a name="update-the-expressroute-circuit-bandwidth"></a>更新 ExpressRoute 線路頻寬
 
-請查閱 [ExpressRoute 常見問題集](expressroute-faqs.md) ，以取得提供者支援的頻寬選項。 只要在其上创建线路的物理端口允许，即可选取大于现有线路大小的任何大小。
+請查閱 [ExpressRoute 常見問題集](expressroute-faqs.md) ，以取得提供者支援的頻寬選項。 只要實體連接埠 (您的線路在此建立) 允許，您可以選擇大於現有線路的任何大小。
 
 > [!IMPORTANT]
-> 如果現有的連接埠上沒有足夠的容量，您可能必須重新建立 ExpressRoute 線路。 如果该位置没有额外的可用容量，则不能升级线路。
+> 如果現有的連接埠上沒有足夠的容量，您可能必須重新建立 ExpressRoute 線路。 如果該位置已無額外的容量，您無法升級線路。
 >
 > 降低 ExpressRoute 線路的頻寬時必須中斷運作。 頻寬降級需要取消佈建 ExpressRoute 線路，然後重新佈建新的 ExpressRoute 線路。
 > 
@@ -229,7 +229,7 @@ At line:1 char:1
 
 * 您必須取消連結 ExpressRoute 線路的所有虛擬網路，此作業才會成功。 如果此作業失敗，請檢查您是否有任何虛擬網路連結至線路。
 * 如果 ExpressRoute 線路服務提供者佈建狀態為 **Provisioning** 或 **Provisioned**，您就必須與服務提供者一起合作，取消佈建他們那邊的線路。 我們會繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
-* 若服務提供者已取消佈建線路 (服務提供者佈建狀態設定為 [未佈建])，您便可以刪除線路。 這樣會停止針對線路計費。
+* 若服務提供者已取消佈建線路 (服務提供者佈建狀態設定為 [未佈建]  )，您便可以刪除線路。 這樣會停止針對線路計費。
 
 #### <a name="delete-a-circuit"></a>刪除電路
 

@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 6022c016b83ffe1362db4d826a5ee4397afd4128
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60338956"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>教學課程：實作異地分散資料庫
@@ -102,7 +102,7 @@ ms.locfileid: "60338956"
        -FailoverGroupName $myfailovergroupname
    ```
 
-在 Azure 入口網站中也可以變更異地複寫設定，方法是選取您的資料庫，然後選取 [設定] > [異地複寫]。
+在 Azure 入口網站中也可以變更異地複寫設定，方法是選取您的資料庫，然後選取 [設定]   > [異地複寫]  。
 
 ![異地複寫設定](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
 

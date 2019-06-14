@@ -13,10 +13,10 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 02/20/2019
 ms.openlocfilehash: 1318cd3d1c0c51889cc70b6836d06d6d6ee70c24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387353"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用適用於 SQL 驗證的 Azure Active Directory Authentication
@@ -28,7 +28,7 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 
 您可以使用 Azure AD 驗證，在單一中央位置集中管理資料庫使用者和其他 Microsoft 服務的身分識別。 中央識別碼管理提供單一位置以管理資料庫使用者並簡化權限管理。 包括以下優點：
 
-- 提供一个 SQL Server 身份验证的替代方法。
+- 它提供 SQL Server 驗證的替代方案。
 - 協助停止跨資料庫伺服器使用過多的使用者身分識別。
 - 允許在單一位置變換密碼。
 - 客戶可以使用外部 (Azure AD) 群組來管理資料庫權限。
@@ -56,11 +56,11 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 
 ## <a name="trust-architecture"></a>信認架構
 
-下列高階圖表摘要說明搭配使用 Azure AD 驗證與 Azure SQL Database 的解決方案架構。 相同的概念适用于 SQL 数据仓库。 若要支援 Azure AD 原生使用者密碼，只會考慮雲端部分和 Azure AD/Azure SQL Database。 若要支援同盟驗證 (或 Windows 認證的使用者/密碼)，需要與 ADFS 區塊進行通訊。 箭頭表示通訊路徑。
+下列高階圖表摘要說明搭配使用 Azure AD 驗證與 Azure SQL Database 的解決方案架構。 相同的概念適用於 SQL 資料倉儲。 若要支援 Azure AD 原生使用者密碼，只會考慮雲端部分和 Azure AD/Azure SQL Database。 若要支援同盟驗證 (或 Windows 認證的使用者/密碼)，需要與 ADFS 區塊進行通訊。 箭頭表示通訊路徑。
 
 ![aad 驗證圖表][1]
 
-下圖表示允許用戶端藉由提交權杖連線到資料庫的同盟、信任和主控關聯性。 该令牌已由 Azure AD 进行身份验证且受数据库信任。 客戶 1 可以代表具有原生使用者的 Azure AD 或具有同盟使用者的 Azure Active Directory。 客戶 2 代表包含已匯入使用者的可能解決方案；在此範例中，來自同盟 Azure Active Directory 且 ADFS 正與 Azure Active Directory 進行同步處理。 請務必了解使用 Azure AD 驗證存取資料庫的必要條件是裝載訂用帳戶要與 Azure AD 相關聯。 您必須使用相同的訂用帳戶來建立裝載 Azure SQL Database 或 SQL 資料倉儲的 SQL Server。
+下圖表示允許用戶端藉由提交權杖連線到資料庫的同盟、信任和主控關聯性。 此權杖是由 Azure AD 所驗證，並受到資料庫信任。 客戶 1 可以代表具有原生使用者的 Azure AD 或具有同盟使用者的 Azure Active Directory。 客戶 2 代表包含已匯入使用者的可能解決方案；在此範例中，來自同盟 Azure Active Directory 且 ADFS 正與 Azure Active Directory 進行同步處理。 請務必了解使用 Azure AD 驗證存取資料庫的必要條件是裝載訂用帳戶要與 Azure AD 相關聯。 您必須使用相同的訂用帳戶來建立裝載 Azure SQL Database 或 SQL 資料倉儲的 SQL Server。
 
 ![訂用帳戶關聯性][2]
 
@@ -115,7 +115,7 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 
 ## <a name="connecting-using-azure-ad-identities"></a>使用 Azure AD 身分識別連接
 
-Azure Active Directory 身份验证支持使用 Azure AD 标识连接到数据库的以下方法：
+Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別連接至資料庫：
 
 - 使用整合式 Windows 驗證
 - 使用 Azure AD 主體名稱和密碼
@@ -136,12 +136,12 @@ Azure AD 伺服器主體 (登入) (**公開預覽**) 支援下列驗證方法：
   - Azure AD 伺服器主體 (登入) 新增到受控執行個體 (**公開預覽**) 之後，就能建立可以加入 `sysadmin` 角色的多個 Azure AD 伺服器主體 (登入)。
 - 只有 SQL Server 的 Azure AD 系統管理員可以一開始就使用 Azure Active Directory 帳戶來連線到 Azure SQL Database 伺服器、「受控執行個體」或「Azure SQL 資料倉儲」。 Active Directory 系統管理員可以設定後續的 Azure AD 資料庫使用者。   
 - 建議將連接逾時設定為 30 秒。   
-- SQL Server 2016 Management Studio 和 SQL Server Data Tools for Visual Studio 2015 (版本 14.0.60311.1 (2016 年 4 月) 或更新版本) 支援 Azure Active Directory 驗證。 (**.NET Framework Data Provider for SqlServer** 支援 Azure AD 驗證，最低版本 .NET Framework 4.6)。 因此，這些工具和資料層應用程式 (DAC 和 .BACPAC) 的最新版本可以使用 Azure AD 驗證。   
+- SQL Server 2016 Management Studio 和 SQL Server Data Tools for Visual Studio 2015 (版本 14.0.60311.1 (2016 年 4 月) 或更新版本) 支援 Azure Active Directory 驗證。 ( **.NET Framework Data Provider for SqlServer** 支援 Azure AD 驗證，最低版本 .NET Framework 4.6)。 因此，這些工具和資料層應用程式 (DAC 和 .BACPAC) 的最新版本可以使用 Azure AD 驗證。   
 - 從 15.0.1 版起，[sqlcmd 公用程式](/sql/tools/sqlcmd-utility)和 [bcp 公用程式](/sql/tools/bcp-utility)都支援搭配 MFA 的 Active Directory 互動式驗證。
 - SQL Server Data Tools for Visual Studio 2015 至少需要 2016 年 4 月版本的 Data Tools (版本 14.0.60311.1)。 Azure AD 使用者目前不會顯示在 SSDT 物件總管中。 解決方法是在 [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx) 中檢視使用者。   
 - [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) 支援 Azure AD 驗證。 此外，請參閱 [設定連接屬性](https://msdn.microsoft.com/library/ms378988.aspx)。   
 - PolyBase 無法使用 Azure AD 驗證進行驗證。   
-- Azure 入口網站的 [匯入資料庫] 和 [匯出資料庫] 刀鋒視窗支援 SQL Database 的 AD 驗證。 PowerShell 命令也支援使用 Azure AD 驗證的匯入和匯出。   
+- Azure 入口網站的 [匯入資料庫]  和 [匯出資料庫]  刀鋒視窗支援 SQL Database 的 AD 驗證。 PowerShell 命令也支援使用 Azure AD 驗證的匯入和匯出。   
 - SQL Database、「受控執行個體」及「SQL 資料倉儲」可藉由使用 CLI 來支援 Azure AD 驗證。 如需詳細資訊，請參閱[使用 SQL Database 或 SQL 資料倉儲設定和管理 Azure Active Directory 驗證](sql-database-aad-authentication-configure.md)和 [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server)。
 
 ## <a name="next-steps"></a>後續步驟

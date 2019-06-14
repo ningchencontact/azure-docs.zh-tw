@@ -15,22 +15,22 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: d764cbe2df78cb9029a4109caa2998ddded5d6ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60341959"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Service Fabric 程式設計模型概觀
 Service Fabric 提供多種撰寫和管理服務的方式。 服務可選擇使用 Service Fabric API 以善加運用平台的功能和應用程式架構。 服務也可以是以任何語言撰寫的任何已編譯可執行程式，或是在 Service Fabric 叢集所裝載之容器中執行的程式碼。
 
 ## <a name="guest-executables"></a>客體可執行檔
-[客體可執行檔](service-fabric-guest-executables-introduction.md)是可在應用程式中作為服務執行的現有任意可執行檔 (以任何語言撰寫)。 客體可執行檔不直接呼叫 Service Fabric SDK API。 不過，它們仍然受惠於功能和平台供應項目，例如透過呼叫 Service Fabric 公開的 REST API 使用探索服務、自訂健康情況和負載報告。 它们还具有完整的应用程序生命周期支持。
+[客體可執行檔](service-fabric-guest-executables-introduction.md)是可在應用程式中作為服務執行的現有任意可執行檔 (以任何語言撰寫)。 客體可執行檔不直接呼叫 Service Fabric SDK API。 不過，它們仍然受惠於功能和平台供應項目，例如透過呼叫 Service Fabric 公開的 REST API 使用探索服務、自訂健康情況和負載報告。 它們也具備完整的應用程式生命週期支援。
 
 部署您的第一個 [來賓可執行的應用程式](service-fabric-deploy-existing-app.md)，開始使用來賓可執行檔。
 
 ## <a name="containers"></a>容器
-根據預設，Service Fabric 會以處理程序形式部署和啟用這些服務。 Service Fabric 也可以在[容器](service-fabric-containers-overview.md)中部署服務。 Service Fabric 支持在 Windows Server 2016 上部署 Linux 容器 和 Windows 容器。 可以從任何容器存放庫提取容器映像，並部署至機器。 您可以在容器中部署現有的應用程式成為客體可執行檔、Service Fabric 無狀態或具狀態 Reliable Services，或 Reliable Actors，並且可以在同一個應用程式中混合使用處理序中的服務和容器中的服務。
+根據預設，Service Fabric 會以處理程序形式部署和啟用這些服務。 Service Fabric 也可以在[容器](service-fabric-containers-overview.md)中部署服務。 Service Fabric 支援在 Windows Server 2016 上部署 Linux 容器和 Windows 容器。 可以從任何容器存放庫提取容器映像，並部署至機器。 您可以在容器中部署現有的應用程式成為客體可執行檔、Service Fabric 無狀態或具狀態 Reliable Services，或 Reliable Actors，並且可以在同一個應用程式中混合使用處理序中的服務和容器中的服務。
 
 [深入了解如何在 Windows 或 Linux 中將服務容器化](service-fabric-deploy-container.md)
 

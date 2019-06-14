@@ -9,10 +9,10 @@ ms.date: 03/18/2019
 ms.topic: conceptual
 manager: peterpr
 ms.openlocfilehash: ec7033719316bb186408ea78f6dabac43c383491
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60519275"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中建立及執行工作
@@ -74,9 +74,9 @@ ms.locfileid: "60519275"
 
 | 狀態訊息       | 狀態意義                                          |
 | -------------------- | ------------------------------------------------------- |
-| Completed            | 此工作已在所有裝置上執行。              |
+| 已完成            | 此工作已在所有裝置上執行。              |
 | Failed               | 此工作失敗而未在裝置上完整執行。  |
-| Pending              | 此工作尚未尚未開始執行的裝置上。         |
+| 挂起              | 此工作尚未尚未開始執行的裝置上。         |
 | 執行中              | 此工作目前正在裝置上執行。             |
 | 已停止              | 此工作已被使用者手動停止。           |
 
@@ -93,9 +93,9 @@ ms.locfileid: "60519275"
 
 | 狀態訊息       | 狀態意義                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
-| Completed            | 工作已在此裝置上執行。                                     |
+| 已完成            | 工作已在此裝置上執行。                                     |
 | Failed               | 工作在此裝置上執行失敗。 錯誤訊息會顯示更多的資訊。  |
-| Pending              | 此裝置上還未執行作業。                                   |
+| 挂起              | 此裝置上還未執行作業。                                   |
 
 > [!NOTE]
 > 如果裝置已遭刪除，您無法選取裝置，然後它會顯示為已刪除的裝置識別碼。

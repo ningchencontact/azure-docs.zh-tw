@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: a3d6cb745c782d2a7166208f2a8dd1202a330b15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60410077"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>將資料移至 vFXT 叢集 - 平行資料擷取 
@@ -259,7 +259,7 @@ for i in 1 2 3 4 5 6; do for j in $(cat /tmp/client${i}); do echo "cp -p -R /mnt
 
 ## <a name="use-the-msrsync-utility-to-populate-cloud-volumes"></a>使用 msrsync 公用程式來填入雲端磁碟區
 
-``msrsync`` 工具也可用來將資料移至 Avere 叢集的後端核心檔案管理工具。 此工具的設計目的是要藉由執行多個平行的 ``rsync`` 處理序，將頻寬使用情況最佳化。 您可以從 GitHub 取得它，網址為 https://github.com/jbd/msrsync。
+``msrsync`` 工具也可用來將資料移至 Avere 叢集的後端核心檔案管理工具。 此工具的設計目的是要藉由執行多個平行的 ``rsync`` 處理序，將頻寬使用情況最佳化。 您可以從 GitHub 取得它，網址為 https://github.com/jbd/msrsync 。
 
 ``msrsync`` 會將來源目錄分解成個別的「貯體」，然後在每個貯體上執行個別的 ``rsync`` 處理序。
 
@@ -272,7 +272,7 @@ for i in 1 2 3 4 5 6; do for j in $(cat /tmp/client${i}); do echo "cp -p -R /mnt
 1. 安裝 msrsync 及其先決條件 (rsync 和 Python 2.6 或更新版本)
 1. 決定要複製的檔案和目錄總數。
 
-   例如，使用 Avere 公用程式 ``prime.py`` 搭配引數 ```prime.py --directory /path/to/some/directory``` (可藉由下載下列 URL 來取得： https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py)。
+   例如，使用 Avere 公用程式 ``prime.py`` 搭配引數 ```prime.py --directory /path/to/some/directory``` (可藉由下載下列 URL 來取得： https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py) 。
 
    如果不使用 ``prime.py``，您可以依照以下方式，使用 Gnu ``find`` 工具來計算項目數：
 

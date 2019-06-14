@@ -13,10 +13,10 @@ ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
 ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60388087"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>開發針對雲端一致性的 Azure Resource Manager 範本
@@ -493,7 +493,7 @@ Azure 提供豐富的 VM 映像選項。 這些映像是由 Microsoft 和合作�
 az vm image list -all
 ```
 
-您可以使用 Azure PowerShell Cmdlet [Get-azurermvmimagepublisher](/powershell/module/az.compute/get-azvmimagepublisher) 擷取相同的清單，並使用 `-Location` 參數指定您想要的位置。 例如︰
+您可以使用 Azure PowerShell Cmdlet [Get-azurermvmimagepublisher](/powershell/module/az.compute/get-azvmimagepublisher) 擷取相同的清單，並使用 `-Location` 參數指定您想要的位置。 例如:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -596,7 +596,7 @@ Get-AzureRmVMSize -Location "West Europe"
 az vm extension image list --location myLocation
 ```
 
-您也可以執行 Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) Cmdlet，使用 `-Location` 指定虛擬機器映像的位置。 例如︰
+您也可以執行 Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) Cmdlet，使用 `-Location` 指定虛擬機器映像的位置。 例如:
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version

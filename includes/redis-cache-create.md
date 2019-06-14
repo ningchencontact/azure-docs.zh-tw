@@ -9,17 +9,17 @@ ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 0f1decae5fb3ec4a07f01c5bff7475f3d73a3cbb
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132834"
 ---
-1. 若要建立快取，請先登入 [Azure 入口網站](https://portal.azure.com)。 然後選取 [建立資源] > [資料庫] > [Azure Cache for Redis]。
+1. 若要建立快取，請先登入 [Azure 入口網站](https://portal.azure.com)。 然後選取 [建立資源]   > [資料庫]   > [Azure Cache for Redis]  。
 
     ![New cache](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
-2. 在 [新的 Azure Cache for Redis] 中，配置新快取的設定。
+2. 在 [新的 Azure Cache for Redis]  中，配置新快取的設定。
 
     | 設定      | 建議的值  | 說明 |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -32,9 +32,9 @@ ms.locfileid: "66132834"
 
     ![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 
 
-3. 配置新快取設定之後，請選取 [建立]。 
+3. 配置新快取設定之後，請選取 [建立]  。 
 
-    建立快取可能需要數分鐘的時間。 若要檢查狀態，您可以監視儀表板上的進度。 建立快取之後，其顯示的狀態為 [執行中]，而且已經可供使用。
+    建立快取可能需要數分鐘的時間。 若要檢查狀態，您可以監視儀表板上的進度。 建立快取之後，其顯示的狀態為 [執行中]  ，而且已經可供使用。
 
     ![Cache created](media/redis-cache-create/redis-cache-cache-created.png)
 

@@ -9,10 +9,10 @@ author: sgilley
 ms.author: sgilley
 ms.date: 05/06/2019
 ms.openlocfilehash: 623e993dfbe6bbb3297fa6470865ab1a04f55b37
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66123175"
 ---
 >[!IMPORTANT]
@@ -23,15 +23,15 @@ ms.locfileid: "66123175"
 
 如果您不打算使用您所建立的任何資源，請刪除整個資源群組，以免產生任何費用：
 
-1. 在 Azure 入口網站中，於視窗左側選取 [資源群組]。
+1. 在 Azure 入口網站中，於視窗左側選取 [資源群組]  。
  
    ![在 Azure 入口網站中刪除資源群組](./media/aml-ui-cleanup/delete-resources.png)
 
 1. 在清單中，選取您所建立的資源群組。
 
-1. 在視窗的右側，選取省略符號按鈕 (**...**)。
+1. 在視窗的右側，選取省略符號按鈕 ( **...** )。
 
-1. 選取 [刪除資源群組]。
+1. 選取 [刪除資源群組]  。
 
 刪除資源群組同時會刪除您在視覺化介面中所建立的所有資源。  
 
@@ -43,12 +43,12 @@ ms.locfileid: "66123175"
 
     ![刪除計算目標](./media/aml-ui-cleanup/delete-compute-target.png)
 
-1. 在工作區的 [計算] 區段中選取資源。
+1. 在工作區的 [計算]  區段中選取資源。
 
-1. 選取 [刪除] 。
+1. 選取 [刪除]  。
 
 ### <a name="delete-individual-assets"></a>刪除個別資產
 
-在實驗建立所在的視覺化介面中，藉由選取個別資產再選取 [刪除] 按鈕，即可刪除個別資產。
+在實驗建立所在的視覺化介面中，藉由選取個別資產再選取 [刪除]  按鈕，即可刪除個別資產。
 
 ![刪除實驗](./media/aml-ui-cleanup/delete-experiment.png)

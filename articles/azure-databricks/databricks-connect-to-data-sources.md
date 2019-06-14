@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
 ms.openlocfilehash: f2b7136ec21416e31c2af658974577023a4494de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240356"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>從 Azure Databricks 連線到資料來源
@@ -28,7 +28,7 @@ ms.locfileid: "60240356"
 
 下列清單提供 Azure 中可搭配 Azure Databricks 使用的資料來源。 如需可搭配 Azure Databricks 使用的完整資料來源清單，請參閱 [Azure Databricks 的資料來源](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html)。
 
-- [Azure SQL Database](https://docs.azuredatabricks.net/spark/latest/data-sources/sql-databases.html)
+- [Azure SQL 資料庫](https://docs.azuredatabricks.net/spark/latest/data-sources/sql-databases.html)
 
     此連結提供使用 JDBC 連線到 SQL 資料庫的 DataFrame API，以及如何控制透過 JDBC 介面的讀取平行處理原則。 本主題提供使用 Scala API 的詳細範例，並於結尾提供簡短的 Python 和 Spark SQL 範例。
 - [Azure Data Lake Store](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)

@@ -9,10 +9,10 @@ ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 8d7ac457041474f4e774414b1d5e6f9ed09dc856
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146539"
 ---
 <!-- this tells how to get the connection string for your hub -->
@@ -20,11 +20,11 @@ ms.locfileid: "66146539"
 
 建立您的中樞之後，請擷取中樞的連接字串。 這會用來將裝置和應用程式連線到您的中樞。 
 
-1. 按一下您的中樞，即可查看 IoT 中樞窗格，其中包含設定等項目。 按一下 [共用存取原則]。
+1. 按一下您的中樞，即可查看 IoT 中樞窗格，其中包含設定等項目。 按一下 [共用存取原則]  。
    
-2. 在 [共用存取原則] 中，選取 **iothubowner** 原則。 
+2. 在 [共用存取原則]  中，選取 **iothubowner** 原則。 
 
-3. 在 [共用存取金鑰] 底下，複製 [連接字串 - 主要金鑰] 以供稍後使用。
+3. 在 [共用存取金鑰]  底下，複製 [連接字串 - 主要金鑰]  以供稍後使用。
 
     ![顯示如何擷取連接字串](./media/iot-hub-include-find-connection-string/iot-hub-get-connection-string.png)
 

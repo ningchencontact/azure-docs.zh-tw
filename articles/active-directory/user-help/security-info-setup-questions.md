@@ -13,14 +13,14 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e5d1546c658631911f25c43e94275f00c7a5140
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60474591"
 ---
 # <a name="set-up-security-info-preview-to-use-security-questions"></a>將安全性資訊 (預覽) 設定為使用安全性問題
-您可以遵循下列步驟來新增密碼重設方法。 在您首次將此設定好之後，即可返回 [安全性資訊] 頁面來新增、更新或刪除安全性資訊。
+您可以遵循下列步驟來新增密碼重設方法。 在您首次將此設定好之後，即可返回 [安全性資訊]  頁面來新增、更新或刪除安全性資訊。
 
 在設定密碼重設方法之後，您還必須設定使用[驗證器應用程式](security-info-setup-auth-app.md)、[簡訊](security-info-setup-text-msg.md)或[電話](security-info-setup-phone-number.md)的雙因素驗證方法。
 
@@ -44,33 +44,33 @@ ms.locfileid: "60474591"
 
     ![[我的設定檔] 頁面，顯示醒目提示的 [安全性資訊] 連結](media/security-info/securityinfo-myprofile-page.png)
 
-2. 以左側瀏覽窗格或是 [安全性資訊] 區塊中的連結選取 [安全性資訊]，然後在 [安全性資訊] 頁面選取 [新增方法]。
+2. 以左側瀏覽窗格或是 [安全性資訊]  區塊中的連結選取 [安全性資訊]  ，然後在 [安全性資訊]  頁面選取 [新增方法]  。
 
     ![醒目提示新增方法選項的安全性資訊頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. 在 [新增方法] 頁面上，從下拉式清單中選取 [安全性問題]，然後選取 [新增]。
+3. 在 [新增方法]  頁面上，從下拉式清單中選取 [安全性問題]  ，然後選取 [新增]  。
 
     ![[新增方法] 方塊，已選取 [安全性問題]](media/security-info/securityinfo-myprofile-addquestions.png)
 
-4. 在 [安全性問題] 頁面上，選擇並回答安全性問題，然後選取 [儲存]。
+4. 在 [安全性問題]  頁面上，選擇並回答安全性問題，然後選取 [儲存]  。
 
     ![新增電話號碼，然後選擇電話](media/security-info/securityinfo-myprofile-securityquestions.png)
 
     安全性資訊便會更新，並可讓您在使用密碼重設時，透過安全性問題來驗證您的身分識別。
 
 ## <a name="delete-security-questions-from-your-security-info-methods"></a>從安全性資訊方法刪除安全性問題
-如果您不想再使用安全性問題來作為安全性資訊方法，您可以從 [安全性資訊] 頁面中刪除安全性問題。
+如果您不想再使用安全性問題來作為安全性資訊方法，您可以從 [安全性資訊]  頁面中刪除安全性問題。
 
 >[!Important]
 >若不小心刪除安全性問題，就無法再復原。 您必須依照本文中[設定安全性問題](#set-up-your-security-questions-from-the-security-info-page)一節的步驟，再次新增該方法。
 
 ### <a name="to-delete-your-security-questions"></a>刪除安全性問題
 
-1. 在 [安全性資訊] 頁面上，選取 [安全性問題] 選項旁的 [刪除] 連結。
+1. 在 [安全性資訊]  頁面上，選取 [安全性問題]  選項旁的 [刪除]  連結。
 
     ![從安全性資訊刪除電話方法的連結](media/security-info/securityinfo-myprofile-questionsdelete.png)
 
-2. 從確認方塊中選取 [是]，以刪除 [安全性問題]。 刪除安全性問題之後，該方法就會從安全性資訊中移除，並且從 [安全性資訊] 頁面上消失。
+2. 從確認方塊中選取 [是]  ，以刪除 [安全性問題]  。 刪除安全性問題之後，該方法就會從安全性資訊中移除，並且從 [安全性資訊]  頁面上消失。
 
 ## <a name="additional-security-info-methods"></a>其他安全性資訊方法
 根據您要嘗試執行的動作，您會有組織如何連絡您來驗證您身分識別的其他選項。 選項包括：

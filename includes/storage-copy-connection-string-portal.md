@@ -9,10 +9,10 @@ ms.date: 04/04/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 8f511eafda70fca997a08b5907e606e572b8e219
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66151163"
 ---
 ## <a name="copy-your-credentials-from-the-azure-portal"></a>從 Azure 入口網站複製您的認證
@@ -21,7 +21,7 @@ ms.locfileid: "66151163"
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
 2. 找出您的儲存體帳戶。
-3. 在儲存體帳戶概觀的 [設定] 區段中，選取 [存取金鑰]。 在此處，您可以檢視帳戶存取金鑰，和每個金鑰的完整連接字串。   
-4. 尋找 [金鑰 1] 下方的 [連接字串] 值，然後選取 [複製] 按鈕以複製連接字串。 在下一個步驟中，您會將連接字串值新增至環境變數。
+3. 在儲存體帳戶概觀的 [設定]  區段中，選取 [存取金鑰]  。 在此處，您可以檢視帳戶存取金鑰，和每個金鑰的完整連接字串。   
+4. 尋找 [金鑰 1]  下方的 [連接字串]  值，然後選取 [複製]  按鈕以複製連接字串。 在下一個步驟中，您會將連接字串值新增至環境變數。
 
     ![顯示如何從 Azure 入口網站複製連接字串的螢幕擷取畫面](media/storage-copy-connection-string-portal/portal-connection-string.png)

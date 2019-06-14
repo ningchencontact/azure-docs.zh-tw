@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60238060"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 診斷 1.3 版和更新版本的組態結構描述
@@ -433,7 +433,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**WadCfg**|必要。 請參閱本頁面上其他部分的說明。|  
 |**StorageAccount**|要儲存資料的 Azure 儲存體帳戶名稱。 可能也會在執行 Set-AzureServiceDiagnosticsExtension Cmdlet 時指定為參數。|  
-|**StorageType**|可以是 Table、Blob 或 TableAndBlob。 預設值是 Table。 若選擇 TableAndBlob，系統會將診斷資料寫入兩次 -- 每種類型寫入一次。|  
+|**StorageType**|可以是 Table  、Blob  或 TableAndBlob  。 預設值是 Table。 若選擇 TableAndBlob，系統會將診斷資料寫入兩次 -- 每種類型寫入一次。|  
 |**LocalResourceDirectory**|虛擬機器上監視代理程式儲存事件資料的目錄。 如果沒有，請設定，否則會使用預設的目錄：<br /><br /> 針對背景工作/web 角色：`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> 針對虛擬機器：`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> 必要屬性包括：<br /><br /> - **path** - 系統上 Azure 診斷所使用的目錄。<br /><br /> - **expandEnvironment** - 控制是否要展開路徑名稱中的環境變數。|  
 
 ## <a name="wadcfg-element"></a>WadCFG 元素  
@@ -564,7 +564,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  讓您能夠產生已最佳化的效能計數器資料表來進行快速查詢。 除了效能計數器資料表之外，**PerformanceCounters** 元素中所定義的每個效能計數器都會儲存於 Metrics 資料表中。  
 
- **resourceId** 是必要屬性。  您要部署 Azure 診斷的虛擬機器或虛擬機器擴展集資源識別碼。 從 [Azure 入口網站](https://portal.azure.com)取得 **resourceID**。 選取 [瀏覽][資源群組] ->  -> **<Name\>**。 按一下 [屬性] 圖格，並複製 [識別碼] 欄位的值。  
+ **resourceId** 是必要屬性。  您要部署 Azure 診斷的虛擬機器或虛擬機器擴展集資源識別碼。 從 [Azure 入口網站](https://portal.azure.com)取得 **resourceID**。 選取 [瀏覽]  [資源群組] ->    ->  **<Name\>** 。 按一下 [屬性]  圖格，並複製 [識別碼]  欄位的值。  
 
 |子元素|描述|  
 |--------------------|-----------------|  
@@ -644,12 +644,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |屬性|類型|描述|  
 |---------------|----------|-----------------|  
-|**name**|string|識別 sinkname 的字串。|  
+|**name**|字串|識別 sinkname 的字串。|  
 
 |元素|類型|描述|  
 |-------------|----------|-----------------|  
-|**Application Insights**|string|僅會在將資料傳送至 Application Insights 時使用。 包含您有權存取之使用中 Application Insights 帳戶的檢測金鑰。|  
-|**Channels**|string|每個可額外篩選該資料流的其中一個|  
+|**Application Insights**|字串|僅會在將資料傳送至 Application Insights 時使用。 包含您有權存取之使用中 Application Insights 帳戶的檢測金鑰。|  
+|**Channels**|字串|每個可額外篩選該資料流的其中一個|  
 
 ## <a name="channels-element"></a>Channels 元素  
  *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -660,7 +660,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |元素|類型|描述|  
 |-------------|----------|-----------------|  
-|**Channel**|string|請參閱本頁面上其他部分的說明。|  
+|**Channel**|字串|請參閱本頁面上其他部分的說明。|  
 
 ## <a name="channel-element"></a>Channel 元素
  *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
@@ -686,7 +686,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |子元素|描述|  
 |--------------------|-----------------|  
-|**StorageAccount**|要使用的儲存體帳戶。 以下為必要屬性<br /><br /> - **name** - 儲存體帳戶的名稱。<br /><br /> - **key** - 儲存體帳戶的金鑰。<br /><br /> - **endpoint** - 要存取儲存體帳戶的端點。 <br /><br /> -**sasToken** (已在 1.8.1 版中新增) - 您可以在私用組態中指定 SAS 權杖 (而不是儲存體帳戶金鑰)。如果提供此屬性，系統會忽略儲存體帳戶金鑰。 <br />SAS 權杖的需求︰ <br />- 僅支援帳戶 SAS 權杖 <br />- 需要 b、t 服務類型。 <br /> - 需要 a、c、u、w 權限。 <br /> - 需要 c、o 資源類型。 <br /> - 僅支援 HTTPS 通訊協定 <br /> - 開始和到期時間必須是有效的。|  
+|**StorageAccount**|要使用的儲存體帳戶。 以下為必要屬性<br /><br /> - **name** - 儲存體帳戶的名稱。<br /><br /> - **key** - 儲存體帳戶的金鑰。<br /><br /> - **endpoint** - 要存取儲存體帳戶的端點。 <br /><br /> -**sasToken** (已在 1.8.1 版中新增) - 您可以在私用組態中指定 SAS 權杖 (而不是儲存體帳戶金鑰)。如果提供此屬性，系統會忽略儲存體帳戶金鑰。 <br />SAS 權杖的需求︰ <br />- 僅支援帳戶 SAS 權杖 <br />- 需要 b  、t  服務類型。 <br /> - 需要 a  、c  、u  、w  權限。 <br /> - 需要 c  、o  資源類型。 <br /> - 僅支援 HTTPS 通訊協定 <br /> - 開始和到期時間必須是有效的。|  
 
 
 ## <a name="isenabled-element"></a>IsEnabled 元素  

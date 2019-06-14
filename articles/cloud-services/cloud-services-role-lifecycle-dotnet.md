@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 13f500b32bb85bdc0f84b812ef4ef9188a257771
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60406409"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>在 .NET 中自訂 Web 或背景工作角色的生命週期
 當您建立背景工作角色時，擴充可為您提供覆寫方法並讓您回應生命週期事件的 [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) 類別。 若是 Web 角色，此類別是選擇性的，因此您必須使用它來回應生命週期事件。
 
 ## <a name="extend-the-roleentrypoint-class"></a>擴充 RoleEntryPoint 類別
-[RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) 類別包含 Azure 在**啟動**、**執行**或**停止** Web 或背景工作角色時所呼叫的方法。 可以选择重写这些方法，管理角色初始化、角色关闭序列或角色执行线程。 
+[RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) 類別包含 Azure 在**啟動**、**執行**或**停止** Web 或背景工作角色時所呼叫的方法。 您可以選擇性地覆寫這些方法來管理角色初始化、角色關機順序或角色的執行緒。 
 
 擴充 **RoleEntryPoint**時，您應該注意下列方法的行為：
 
@@ -39,7 +39,7 @@ ms.locfileid: "60406409"
 如果您的角色無法啟動，或在初始化、忙碌和停止狀態之間循環，每次角色重新啟動時，您的程式碼可能會在其中一個生命週期事件內擲回未處理的例外狀況。 在此情況下，使用 [UnhandledException](/dotnet/api/system.appdomain.unhandledexception) 事件判斷造成此例外狀況的原因，並適當地處理。 您的角色可能也會從 [Run](/previous-versions/azure/reference/ee772746(v=azure.100)) 方法傳回，而導致該角色重新啟動。 如需有關部署狀態的詳細資訊，請參閱 [導致角色循環的常見問題](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)。
 
 > [!NOTE]
-> 如果您使用 **Azure Tools for Microsoft Visual Studio** 開發您的應用程式，角色專案範本會在 WebRole.cs 及 WorkerRole.cs 檔案中，自動為您擴充 **RoleEntryPoint** 類別。
+> 如果您使用 **Azure Tools for Microsoft Visual Studio** 開發您的應用程式，角色專案範本會在 WebRole.cs  及 WorkerRole.cs  檔案中，自動為您擴充 **RoleEntryPoint** 類別。
 > 
 > 
 
@@ -77,7 +77,7 @@ public override bool OnStart()
 
 不需要覆寫 **Run** 方法；預設實作會啟動永久處於睡眠狀態的執行緒。 如果您覆寫 **Run** 方法，您的程式碼應該會無限期地封鎖。 如果 **Run** 方法返回，就會自動正常回收角色；換句話說，Azure 會引發 **Stopping** 事件並呼叫 **OnStop** 方法，讓您的關機順序可以在角色離線之前執行。
 
-### <a name="implementing-the-aspnet-lifecycle-methods-for-a-web-role"></a>为 Web 角色实现 ASP.NET 生命周期方法
+### <a name="implementing-the-aspnet-lifecycle-methods-for-a-web-role"></a>實作 Web 角色的 ASP.NET 生命週期方法
 除了提供 **RoleEntryPoint** 類別提供的方法之外，您還可以使用 ASP.NET 生命週期方法管理 Web 角色的初始化及關機順序。 如果您要將現有的 ASP.NET 應用程式移植至 Azure，這對於相容性可能很有幫助。 系統會從 **RoleEntryPoint** 方法內呼叫 ASP.NET 生命週期方法。 系統會在 **RoleEntryPoint.OnStart** 方法完成之後，呼叫 **Application\_Start** 方法。 系統會在呼叫 **RoleEntryPoint.OnStop** 方法之前，呼叫 **Application\_End** 方法。
 
 ## <a name="next-steps"></a>後續步驟

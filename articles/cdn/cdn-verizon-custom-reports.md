@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
 ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60323546"
 ---
 # <a name="custom-reports-from-verizon"></a>來自 Verizon 的自訂報告
@@ -34,7 +34,7 @@ ms.locfileid: "60323546"
     ![CDN 設定檔 [管理] 按鈕](./media/cdn-reports/cdn-manage-btn.png)
    
     隨即開啟 CDN 管理入口網站。
-2. 將滑鼠移至 [分析] 索引標籤上，然後將滑鼠移至 [自訂報告] 飛出視窗上。 按一下 [Edge CNAMEs]。
+2. 將滑鼠移至 [分析]  索引標籤上，然後將滑鼠移至 [自訂報告]  飛出視窗上。 按一下 [Edge CNAMEs]  。
    
     ![CDN 管理入口網站 - 自訂報告功能表](./media/cdn-reports/cdn-custom-reports.png)
 
@@ -47,7 +47,7 @@ Edge CNAMES 自訂報告提供已啟用自訂報告記錄之 Edge CNAMEs 的命�
 
 - 度量：支援下列選項：
 
-   - 點閱數:表示會被導向至在其啟用自訂報告功能之 edge CNAME 的要求總數。 此計量不包含傳回給用戶端的狀態碼。
+   - 點擊數：表示會被導向至在其啟用自訂報告功能之 edge CNAME 的要求總數。 此計量不包含傳回給用戶端的狀態碼。
 
    - 已傳輸資料：表示從 edge server 傳輸至 HTTP 用戶端 （例如，網頁瀏覽器） 的資料總量會被導向至在其啟用自訂報告功能之 edge CNAME 的要求。 已傳輸的資料量是將 HTTP 回應標頭與回應本文相加來計算。 因此，每個資產已傳輸的資料量會大於實際的檔案大小。
 
@@ -58,11 +58,11 @@ Edge CNAMES 自訂報告提供已啟用自訂報告記錄之 Edge CNAMEs 的命�
    - 快取狀態：依快取狀態組織統計資料。
 
 
-若要設定報告的日期範圍，您可以從下拉式清單選取預先定義的日期範圍，例如 [今天] 或 [本週]，或者可以選取 [自訂] 並按一下日曆圖示，手動輸入日期範圍。 
+若要設定報告的日期範圍，您可以從下拉式清單選取預先定義的日期範圍，例如 [今天]  或 [本週]  ，或者可以選取 [自訂]  並按一下日曆圖示，手動輸入日期範圍。 
 
-選取日期範圍之後，按一下 [執行] 以產生報告。
+選取日期範圍之後，按一下 [執行]  以產生報告。
 
-您可以按一下 [執行] 按鈕右邊的 Excel 符號，以 Excel 格式匯出資料。
+您可以按一下 [執行]  按鈕右邊的 Excel 符號，以 Excel 格式匯出資料。
 
 ![CNAMEs 報告](./media/cdn-reports/cdn-cnames-report.png)
 

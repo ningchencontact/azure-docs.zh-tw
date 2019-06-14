@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: 9fd9eaf1e62d063026e0e656346baaaade87064f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60410101"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Avere 叢集 DNS 組態
@@ -44,7 +44,7 @@ ms.locfileid: "60410101"
 ![Avere 叢集循環配置資源 DNS 圖表](media/avere-vfxt-rrdns-diagram.png) 
 <!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
-每個面向用戶端的 IP 位址都必須有唯一的名稱，供叢集內部使用  (在此圖表中，為了清楚起見，用戶端 IP 名稱為 vs1-client-IP-*，但在生產環境中，您可能要使用更精簡的名稱，例如 client*)。
+每個面向用戶端的 IP 位址都必須有唯一的名稱，供叢集內部使用 (在此圖表中，為了清楚起見，用戶端 IP 名稱為 vs1-client-IP-*，但在生產環境中，您可能要使用更精簡的名稱，例如 client*)。
 
 用戶端會使用 vserver 名稱作為伺服器引數，裝載叢集。 
 
@@ -74,7 +74,7 @@ update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 
 ## <a name="cluster-dns-settings"></a>叢集 DNS 設定
 
-指定 vFXT 叢集在 [叢集] > [系統管理網路] 設定頁面中使用的 DNS 伺服器。 該頁面上的設定包括：
+指定 vFXT 叢集在 [叢集]   > [系統管理網路]  設定頁面中使用的 DNS 伺服器。 該頁面上的設定包括：
 
 * DNS 伺服器位址
 * DNS 網域名稱

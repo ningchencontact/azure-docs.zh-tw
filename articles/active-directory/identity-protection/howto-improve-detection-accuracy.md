@@ -18,13 +18,13 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7724d69a9294b420ca061d5ad26ad64826372203
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453210"
 ---
-# <a name="how-to-improve-the-detection-accuracy"></a>作法：改善偵測精確度 
+# <a name="how-to-improve-the-detection-accuracy"></a>如何：改善偵測精確度 
 
 Identity Protection 所提供的機制，可針對您環境中的風險偵測，向 Azure AD 提供意見反應。 若要提供意見反應，您可以確認偵測到的風險使用者或登入事件的狀態。 Microsoft 會使用此意見反應，對目前的風險偵測採取行動，並提高未來偵測的精確度。 
 

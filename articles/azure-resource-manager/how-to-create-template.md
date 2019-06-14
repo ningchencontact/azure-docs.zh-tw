@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 12/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: b198f860c10bd207a191057e21a8a159c5ebde26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60550969"
 ---
 # <a name="create-azure-resource-manager-template"></a>建立 Azure Resource Manager 範本
@@ -56,7 +56,7 @@ Resource Manager 範本是 JSON 檔案。 您需要良好的撰寫工具來編�
 
 搜尋該存放庫，以找出類似您需求的範本。 如果範本沒有完全符合您的需求也沒關係，您可以自訂該範本。
 
-找到範本之後，選取 [瀏覽 Github]，然後從存放庫複製 **azuredeploy.json** 檔案。 在 VS Code 中，建立名為 **azuredeploy.json** 的新檔案，然後新增您從快速入門存放庫複製的範本檔案內容。
+找到範本之後，選取 [瀏覽 Github]  ，然後從存放庫複製 **azuredeploy.json** 檔案。 在 VS Code 中，建立名為 **azuredeploy.json** 的新檔案，然後新增您從快速入門存放庫複製的範本檔案內容。
 
 ## <a name="add-resources"></a>新增資源
 

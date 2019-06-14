@@ -2,19 +2,17 @@
 title: Azure 備份的資料模型
 description: 本文將討論 Azure 備份報告的 Power BI 資料模型詳細資料。
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-origin.date: 06/26/2017
-ms.date: 08/08/2018
-ms.author: v-junlch
-ms.custom: H1Hack27Feb2017
+ms.date: 06/26/2017
+ms.author: adigan
 ms.openlocfilehash: c6160570644da108ba713e8229b38f9587495c92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60337573"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Azure 備份報告的資料模型
@@ -34,7 +32,7 @@ Power BI 提供了自訂功能，以供您[使用資料模型來建立報告](ht
 | #AlertsCreatedInPeriod |整數 |所選時段內建立的警示數目 |
 | %ActiveAlertsCreatedInPeriod |百分比 |所選時段內作用中警示的百分比 |
 | %CriticalAlertsCreatedInPeriod |百分比 |所選時段內重大警示的百分比 |
-| AlertOccurrenceDate |date |警示的建立日期 |
+| AlertOccurrenceDate |Date |警示的建立日期 |
 | AlertSeverity |Text |警示嚴重性 (例如，重大) |
 | AlertStatus |Text |警示狀態 (例如，作用中) |
 | AlertType |Text |所產生的警示類型 (例如，備份) |
@@ -66,17 +64,17 @@ Power BI 提供了自訂功能，以供您[使用資料模型來建立報告](ht
 
 | 欄位 | 数据类型 | 描述 |
 | --- | --- | --- |
-| date |date |所選用於篩選資料的日期 |
+| Date |Date |所選用於篩選資料的日期 |
 | DateKey |Text |每個日期項目的唯一索引鍵 |
 | DayDiff |十進位數字 |用於篩選資料的日期差異，例如，0 代表當天的資料，-1 代表前一天的資料、0 和 -1 代表當天和前一天的資料  |
 | 月 |Text |一年中所選用於篩選資料的月份，月份的計算會從第一天開始，到第 31 天結束 |
-| MonthDate | date |當月結束時，該月份所選用於篩選資料的日期 |
+| MonthDate | Date |當月結束時，該月份所選用於篩選資料的日期 |
 | MonthDiff |十進位數字 |用於篩選資料的月份差異，例如，0 代表當月的資料，-1 代表上個月的資料、0 和 -1 代表當月和上個月的資料 |
 | 週 |Text |所選用於篩選資料的週別，一週的計算會從星期日開始，到星期六結束 |
-| WeekDate |date |當週結束時，該週所選用於篩選資料的日期 |
+| WeekDate |Date |當週結束時，該週所選用於篩選資料的日期 |
 | WeekDiff |十進位數字 |用於篩選資料的週別差異，例如，0 代表當週的資料，-1 代表上週的資料、0 和 -1 代表當週和上週的資料 |
 | Year |Text |所選用於篩選資料的日曆年度 |
-| YearDate |date |當年度結束時，該年度所選用於篩選資料的日期 |
+| YearDate |Date |當年度結束時，該年度所選用於篩選資料的日期 |
 
 ### <a name="job"></a>工作 (Job)
 下表提供基本欄位和各種作業相關欄位的彙總。
@@ -93,8 +91,8 @@ Power BI 提供了自訂功能，以供您[使用資料模型來建立報告](ht
 | EntityState |Text |作業物件的目前狀態 (例如，作用中、已刪除) |
 | JobFailureCode |Text |由於發生作業失敗而產生的失敗碼字串 |
 | JobOperation |Text |執行作業的操作 (例如，備份、還原、設定備份) |
-| JobStartDate |date |開始執行作業的日期 |
-| JobStartTime |時間 |開始執行作業的時間 |
+| JobStartDate |Date |開始執行作業的日期 |
+| JobStartTime |Time |開始執行作業的時間 |
 | JobStatus |Text |已完成之作業的狀態 (例如，已完成、失敗) |
 | JobUniqueId |Text |用來識別作業的唯一識別碼 |
 
@@ -160,18 +158,18 @@ Power BI 提供了自訂功能，以供您[使用資料模型來建立報告](ht
 | AsOnDateTime |日期/時間 |所選資料列的最新重新整理時間 |
 | CloudStorageInMB |十進位數字 |備份所使用的雲端備份儲存體，在計算時會以所選時間內的最後數值為依據 |
 | EntityState |Text |物件的目前狀態 (例如，作用中、已刪除) |
-| LastUpdatedDate |date |所選資料列的上次更新日期 |
+| LastUpdatedDate |Date |所選資料列的上次更新日期 |
 
-### <a name="time"></a>時間
+### <a name="time"></a>Time
 下表提供時間相關欄位的詳細資料。
 
 | 欄位 | 数据类型 | 描述 |
 | --- | --- | --- |
-| 小時 |時間 |一天當中的時間 (小時) (例如，1:00:00 PM) |
+| 小時 |Time |一天當中的時間 (小時) (例如，1:00:00 PM) |
 | HourNumber |十進位數字 |一天當中的小時數 (例如，13.00) |
 | 分鐘 |十進位數字 |一小時的分鐘數 |
 | PeriodOfTheDay |Text |一天當中的某個時段 (例如，12-3 AM) |
-| 時間 |時間 |一天當中的時間 (例如，12:00:01 AM) |
+| Time |Time |一天當中的時間 (例如，12:00:01 AM) |
 | TimeKey |Text |用來代表時間的機碼值 |
 
 ### <a name="vault"></a>保存庫
@@ -191,8 +189,5 @@ Power BI 提供了自訂功能，以供您[使用資料模型來建立報告](ht
 ## <a name="next-steps"></a>後續步驟
 在檢閱過用於建立 Azure 備份報告的資料模型後，請參閱下列文章，以深入了解如何在 Power BI 中建立和檢視報告。
 
-- [在 Power BI 中建立報告](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-- [在 Power BI 中篩選報告](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
-
-
-<!-- Update_Description: update metedata properties -->
+* [在 Power BI 中建立報告](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+* [在 Power BI 中篩選報告](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)

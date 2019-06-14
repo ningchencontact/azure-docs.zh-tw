@@ -16,10 +16,10 @@ ms.date: 07/06/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b367befb90ec28ece963d67b479749e1c8ad363
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60339644"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-securew2-joinnow-connector"></a>教學課程：Azure Active Directory 與 SecureW2 JoinNow Connector 整合
@@ -60,19 +60,19 @@ SecureW2 JoinNow Connector 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 SecureW2 JoinNow Connector，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+2. 瀏覽至 [企業應用程式]  。 然後移至 [所有應用程式]  。
 
     ![企業應用程式刀鋒視窗][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **SecureW2 JoinNow Connector**，從結果面板中選取 [SecureW2 JoinNow Connector]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **SecureW2 JoinNow Connector**，從結果面板中選取 [SecureW2 JoinNow Connector]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
     ![結果清單中的 SecureW2 JoinNow Connector](./media/securejoinnow-tutorial/tutorial_securejoinnow_addfromgallery.png)
 
@@ -88,7 +88,7 @@ SecureW2 JoinNow Connector 與 Azure AD 整合提供下列優點：
 2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 3. **[建立 SecureW2 JoinNow Connector 測試使用者](#create-a-securew2-joinnow-connector-test-user)** - 使 SecureW2 JoinNow Connector 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+5. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -96,26 +96,26 @@ SecureW2 JoinNow Connector 與 Azure AD 整合提供下列優點：
 
 **若要設定與 SecureW2 JoinNow Connector 搭配運作的 Azure AD 單一登入，請執行下列步驟：**
 
-1. 在 Azure 入口網站的 [SecureW2 JoinNow Connector] 應用程式整合頁面上，按一下 [單一登入]。
+1. 在 Azure 入口網站的 [SecureW2 JoinNow Connector]  應用程式整合頁面上，按一下 [單一登入]  。
 
     ![設定單一登入連結][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+2. 在 [單一登入]  對話方塊上，於 [模式]  選取 [SAML 登入]  ，以啟用單一登入。
  
     ![單一登入對話方塊](./media/securejoinnow-tutorial/tutorial_securejoinnow_samlbase.png)
 
-3. 在 [SecureW2 JoinNow Connector 網域及 URL] 區段上，執行下列步驟：
+3. 在 [SecureW2 JoinNow Connector 網域及 URL]  區段上，執行下列步驟：
 
     ![SecureW2 JoinNow Connector 網域及 URL 單一登入資訊](./media/securejoinnow-tutorial/tutorial_securejoinnow_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<organization-identifier>-auth.securew2.com/auth/saml/SSO`
+    a. 在 [登入 URL]  文字方塊中，使用下列模式輸入 URL︰ `https://<organization-identifier>-auth.securew2.com/auth/saml/SSO`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<organization-identifier>-auth.securew2.com/auth/saml`
+    b. 在 [識別碼]  文字方塊中，使用下列模式輸入 URL： `https://<organization-identifier>-auth.securew2.com/auth/saml`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [SecureW2 JoinNow Connector 客戶支援小組](mailto:support@securew2.com)以取得這些值。 
 
-4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
+4. 在 [SAML 簽署憑證]  區段上，按一下 [中繼資料 XML]  ，然後將中繼資料檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/securejoinnow-tutorial/tutorial_securejoinnow_certificate.png) 
 
@@ -133,29 +133,29 @@ SecureW2 JoinNow Connector 與 Azure AD 整合提供下列優點：
 
 **若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
-1. 在 Azure 入口網站的左窗格中，按一下 [Azure Active Directory] 按鈕。
+1. 在 Azure 入口網站的左窗格中，按一下 [Azure Active Directory]  按鈕。
 
     ![Azure Active Directory 按鈕](./media/securejoinnow-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+2. 若要顯示使用者清單，請移至 [使用者和群組]  ，然後按一下 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/securejoinnow-tutorial/create_aaduser_02.png)
 
-3. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
+3. 若要開啟 [使用者]  對話方塊，按一下 [所有使用者]  對話方塊頂端的 [新增]  。
 
     ![[新增] 按鈕](./media/securejoinnow-tutorial/create_aaduser_03.png)
 
-4. 在 [使用者] 對話方塊中，執行下列步驟：
+4. 在 [使用者]  對話方塊中，執行下列步驟：
 
     ![[使用者] 對話方塊](./media/securejoinnow-tutorial/create_aaduser_04.png)
 
-    a. 在 [名稱] 方塊中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  方塊中，輸入 **BrittaSimon**。
 
-    b. 在 [使用者名稱] 方塊中，輸入使用者 Britta Simon 的電子郵件地址。
+    b. 在 [使用者名稱]  方塊中，輸入使用者 Britta Simon 的電子郵件地址。
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
  
 ### <a name="create-a-securew2-joinnow-connector-test-user"></a>建立 SecureW2 JoinNow Connector 測試使用者
 
@@ -169,33 +169,33 @@ SecureW2 JoinNow Connector 與 Azure AD 整合提供下列優點：
 
 **若要將 Britta Simon 指派給 SecureW2 JoinNow Connector，請執行下列步驟：**
 
-1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
+1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]  ，然後按一下 [所有應用程式]  。
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [SecureW2 JoinNow Connector]。
+2. 在應用程式清單中，選取 [SecureW2 JoinNow Connector]  。
 
     ![應用程式清單中的 SecureW2 JoinNow Connector 連結](./media/securejoinnow-tutorial/tutorial_securejoinnow_app.png)  
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+3. 在左側功能表中，按一下 [使用者和群組]  。
 
     ![[使用者和群組] 連結][202]
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+4. 按一下 [新增]  按鈕。 然後選取 [新增指派]  對話方塊上的 [使用者和群組]  。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+5. 在 [使用者和群組]  對話方塊上，選取 [使用者] 清單中的 [Britta Simon]  。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+6. 按一下 [使用者和群組]  對話方塊上的 [選取]  按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+7. 按一下 [新增指派]  對話方塊上的 [指派]  按鈕。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 
 **若要測試應用程式，請執行下列步驟：** 
 
-a. 開啟 SecureW2 JoinNow Connector 用戶端，從清單中選取適當的裝置，燃後按一下 [登入] 按鈕。
+a. 開啟 SecureW2 JoinNow Connector 用戶端，從清單中選取適當的裝置，燃後按一下 [登入]  按鈕。
 
 b. 預設瀏覽器應該會隨即開啟，而且會將您重新導向 Azure 入口網站以進行驗證。
 

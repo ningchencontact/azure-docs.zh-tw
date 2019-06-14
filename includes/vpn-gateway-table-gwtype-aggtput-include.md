@@ -9,10 +9,10 @@ ms.date: 05/22/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8fb9e9ea0e126509697b4874bf1e5e0b6a380e7f
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66425727"
 ---
 |**SKU**   | **S2S/VNet-to-VNet<br>通道** | **P2S<br> SSTP 連線** | **P2S<br> IKEv2/OpenVPN 連線** | **彙總<br>輸送量基準測試** | **BGP** | **Zone-redundant** |

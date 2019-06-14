@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60369917"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>了解您 Microsoft Azure 發票上的字詞

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/19/2018
 ms.author: jingwang
 ms.openlocfilehash: 0c381cc6e2e2957c946207491c666667821184ad
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122572"
 ---
 | 類別 | 資料存放區 | 支援作為來源 | 支援作為接收器 |
@@ -19,7 +19,7 @@ ms.locfileid: "66122572"
 | &nbsp; |[Azure SQL Database](../articles/data-factory/v1/data-factory-azure-sql-connector.md) |✓ |✓ |
 | &nbsp; |[Azure SQL 資料倉儲](../articles/data-factory/v1/data-factory-azure-sql-data-warehouse-connector.md) |✓ |✓ |
 | &nbsp; |[Azure 搜尋服務索引](../articles/data-factory/v1/data-factory-azure-search-connector.md) | |✓ |
-| &nbsp; |[Azure 資料表儲存體](../articles/data-factory/v1/data-factory-azure-table-connector.md) |✓ |✓  |
+| &nbsp; |[Azure 資料表儲存體](../articles/data-factory/v1/data-factory-azure-table-connector.md) |✓ |✓ |
 | **資料庫** |[Amazon Redshift](../articles/data-factory/v1/data-factory-amazon-redshift-connector.md) |✓ | |
 | &nbsp; |[DB2](../articles/data-factory/v1/data-factory-onprem-db2-connector.md)\* |✓ | |
 | &nbsp; |[MySQL](../articles/data-factory/v1/data-factory-onprem-mysql-connector.md)* |✓ | |

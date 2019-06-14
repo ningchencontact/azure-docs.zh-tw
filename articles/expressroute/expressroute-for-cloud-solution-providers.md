@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: richcar
 ms.custom: seodec18
 ms.openlocfilehash: a03ab7bbdadad2728f54127583583c22bd2ec07a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60367502"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>適用於雲端解決方案提供者 (CSP) 的 ExpressRoute
@@ -42,7 +42,7 @@ Microsoft 允許以程式設計方式整合您自己的服務管理系統，進�
 
 對於管理 Azure 服務的 CSP，假設此 CSP 有先前建立的客戶身分識別存放區，該存放區之後會複寫到 Azure Active Directory 中，以便透過 Administrate-On-Behalf-Of (AOBO) 管理其 CSP 訂用帳戶。 此案例的關鍵驅動因素包括特定的夥伴或服務提供者已建立起與客戶的關聯性、客戶目前使用提供者服務，或夥伴想要提供由提供者裝載和由 Azure 裝載的解決方案組合，以提供彈性及解決 CSP 無法單獨滿足的客戶挑戰。 此模型如下 **圖**所說明。
 
-![替换文字](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
+![替代文字](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
 ### <a name="connect-to-model"></a>Connect-To 模型
 ![替代文字](./media/expressroute-for-cloud-solution-providers/connect-to.png)

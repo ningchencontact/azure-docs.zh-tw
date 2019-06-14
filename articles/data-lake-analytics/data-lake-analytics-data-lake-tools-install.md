@@ -10,10 +10,10 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.openlocfilehash: 3269d38b691ec4dd9573a241c89dadc285787143
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60408105"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>安裝 Data Lake Tools for Visual Studio
@@ -41,7 +41,7 @@ Visual Studio 2017 15.3 或更新版本不支援 Azure Data Lake Tools for Visua
 
 [從下載中心](https://aka.ms/adltoolsvs)下載並安裝 Azure Data Lake Tools for Visual Studio。 安裝後，請注意：
 * **伺服器總管** > **Azure** 節點包含 **Data Lake Analytics** 節點。 
-* [工具] 功能表包含 [Data Lake] 項目。
+* [工具]  功能表包含 [Data Lake]  項目。
 
 
 ## <a name="next-steps"></a>後續步驟

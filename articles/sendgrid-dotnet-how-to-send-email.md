@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
 ms.openlocfilehash: 91d28802b4af23da5b8060fa7c8f9a7e843a7dab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60444738"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>如何在 Azure 上使用 SendGrid 傳送電子郵件
@@ -43,19 +43,19 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
 [SendGrid NuGet 封裝](https://www.nuget.org/packages/Sendgrid) 是取得 SendGrid API 及透過所有相依性設定應用程式的最簡單方式。 NuGet 是 Microsoft Visual Studio 2015 和更新版本隨附的 Visual Studio 擴充，能輕鬆地安裝及更新程式庫和工具。
 
 > [!NOTE]
-> 如果您是執行 Visual Studio 2015 之前的 Visual Studio 版本，若要安裝 NuGet，請造訪 [https://www.nuget.org](https://www.nuget.org)，然後按一下 [安裝 NuGet] 按鈕。
+> 如果您是執行 Visual Studio 2015 之前的 Visual Studio 版本，若要安裝 NuGet，請造訪 [https://www.nuget.org](https://www.nuget.org)，然後按一下 [安裝 NuGet]  按鈕。
 >
 >
 
 若要在應用程式中安裝 SendGrid NuGet 封裝，請執行下列動作：
 
-1. 按一下 [新增專案]，然後選取 [範本]。
+1. 按一下 [新增專案]  ，然後選取 [範本]  。
 
    ![建立新專案][create-new-project]
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後按一下 [管理 NuGet 套件]。
+2. 在 [方案總管]  中，以滑鼠右鍵按一下 [參考]  ，然後按一下 [管理 NuGet 套件]  。
 
    ![SendGrid NuGet 封裝][SendGrid-NuGet-package]
-3. 搜尋 **SendGrid**，然後選取結果清單中的 [SendGrid] 項目。
+3. 搜尋 **SendGrid**，然後選取結果清單中的 [SendGrid]  項目。
 4. 從版本下拉式清單中選取 Nuget 套件的最新穩定版本，以搭配本文示範的物件模型和 API 共同使用。
 
    ![SendGrid 套件][sendgrid-package]
@@ -74,7 +74,7 @@ SendGrid 的 .NET 類別庫稱為 **SendGrid**。 其中包含下列命名空間
 ## <a name="how-to-create-an-email"></a>作法：建立電子郵件
 使用 **SendGridMessage** 物件來建立電子郵件訊息。 建立訊息物件後，即可設定屬性和方法，包括電子郵件寄件者、電子郵件收件者以及電子郵件的主旨和本文。
 
-以下示例演示如何创建完全填充的电子邮件对象：
+下列範例示範如何建立完全填入的電子郵件物件：
 
     var msg = new SendGridMessage();
 

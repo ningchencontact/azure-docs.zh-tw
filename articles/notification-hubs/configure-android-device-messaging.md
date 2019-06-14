@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: jowargo
 ms.openlocfilehash: 0d79e53f731c20777ffa2fb57b3b8149fe4e60ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60239953"
 ---
 # <a name="configure-android-device-messaging-adm-settings-for-a-notification-hub-in-the-azure-portal"></a>在 Azure 入口網站中設定通知中樞的 Android 裝置傳訊 (ADM) 設定
@@ -28,7 +28,7 @@ ms.locfileid: "60239953"
 下列程序可讓您針對通知中樞的 Amazon 裝置傳訊 (ADM) 設定步驟： 
 
 1. 在 Azure 入口網站中，在**通知中樞**頁面上，選取**Amazon (ADM)** 左側功能表上。
-2. 輸入 [用戶端識別碼] 和 [用戶端祕密] 的值。
+2. 輸入 [用戶端識別碼]  和 [用戶端祕密]  的值。
 3. 選取 [ **儲存**]。
     
    ![Azure 入口網站中的 ADM 設定的螢幕擷取畫面](./media/notification-hubs-kindle-get-started/notification-hub-adm-settings.png)

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: c3e8c99f6648f0f4927140f3215978566afb9eb8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60251105"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI 元素
@@ -64,7 +64,7 @@ ms.locfileid: "60251105"
 
 ## <a name="remarks"></a>備註
 - 如果將 `constraints.required.domainNameLabel` 設為 **true**，使用者在建立新的公用 IP 位址時，就必須提供網域名稱標籤。 無法選取沒有標籤的現有公用 IP 位址。
-- 如果將 `options.hideNone` 設為 **true**，公用 IP 位址的 [無] 選項就會加以隱藏。 預設值為 **false**。
+- 如果將 `options.hideNone` 設為 **true**，公用 IP 位址的 [無]  選項就會加以隱藏。 預設值為 **false**。
 - 如果將 `options.hideDomainNameLabel` 設為 **true**，網域名稱標籤的文字方塊就會加以隱藏。 預設值為 **false**。
 - 如果 `options.hideExisting` 為 true，使用者就無法選擇現有的公用 IP 位址。 預設值為 **false**。
 - 對於 `zone`，只能使用指定區域的公用 IP 位址或區域復原公用 IP 位址。

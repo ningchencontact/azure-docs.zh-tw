@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
 ms.openlocfilehash: 2e580a94e568f201587c06efa827006386cd6bd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60327675"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>建立 OpenBSD 磁碟映像並上傳至 Azure
@@ -86,7 +86,7 @@ ms.locfileid: "60327675"
     > cat /var/log/waagent.log
     > ```
 
-7. 取消设置系统可清除系统并使其适用于重新设置。 下列命令也會刪除最後佈建的使用者帳戶和相關聯的資料：
+7. 取消佈建系統以清理系統，使之適合重新佈建。 下列命令也會刪除最後佈建的使用者帳戶和相關聯的資料：
 
     ```sh
     waagent -deprovision+user -force
@@ -103,13 +103,13 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>建立儲存體資源並上傳
-首先，使用 [az group create](/cli/azure/group) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+首先，使用 [az group create](/cli/azure/group) 建立資源群組。 下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-若要上傳 VHD，請使用 [az storage account create](/cli/azure/storage/account) 建立儲存體帳戶。 儲存體帳戶名稱必須是唯一的，因此請提供您自己的名稱。 下列範例會建立名為 mystorageaccount 的儲存體帳戶：
+若要上傳 VHD，請使用 [az storage account create](/cli/azure/storage/account) 建立儲存體帳戶。 儲存體帳戶名稱必須是唯一的，因此請提供您自己的名稱。 下列範例會建立名為 mystorageaccount  的儲存體帳戶：
 
 ```azurecli
 az storage account create --resource-group myResourceGroup \

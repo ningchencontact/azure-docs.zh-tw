@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 392b7a08d9422658c5620f60e9c1caca074bc85e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60452670"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Azure Active Directory 的常見問題集與 Identity Protection (已重新整理) 的已知問題
@@ -29,26 +29,26 @@ ms.locfileid: "60452670"
 
 ## <a name="dismiss-user-risk-known-issues"></a>關閉的已知問題的使用者風險
 
-傳統 Identity Protection 中的 [解除使用者風險]會將 Identity Protection (已重新整理) 中使用者風險歷程記錄內的執行者設定為 **Azure AD**。
+傳統 Identity Protection 中的 [解除使用者風險]  會將 Identity Protection (已重新整理) 中使用者風險歷程記錄內的執行者設定為 **Azure AD**。
 
 
-Identity Protection 中的 [解除使用者風險] 會將 Identity Protection (已重新整理) 中使用者風險歷程記錄內的執行者設定為**\<管理員名稱並含指向使用者刀鋒視窗的超連結\>**。
+Identity Protection 中的 [解除使用者風險]  會將 Identity Protection (已重新整理) 中使用者風險歷程記錄內的執行者設定為 **\<管理員名稱並含指向使用者刀鋒視窗的超連結\>** 。
 
 目前有已知問題會造成關閉使用者風險流程延遲。 如果您有「使用者風險原則」，按一下 [解除使用者風險] 的幾分鐘內，此原則將會停止將套用至已解除的使用者。 不過，已知解除使用者的 [風險狀態] 有 UX 重新整理延遲。 因應措施是在瀏覽器層級重新整理頁面，以查看最新的使用者 [風險狀態]。
 
 
 ## <a name="risky-users-report-known-issues"></a>有風險的使用者報告的已知的問題
 
-[使用者名稱] 欄位上的查詢區分大小寫，[名稱] 欄位上的查詢則為大小寫無從驗證。
+[使用者名稱]  欄位上的查詢區分大小寫，[名稱]  欄位上的查詢則為大小寫無從驗證。
 
-切換 [顯示日期為] 會隱藏 [RISK LAST UPDATED] 資料行。 若要讀取資料行，請按一下 [具風險的使用者] 刀鋒視窗頂端的 [資料行]。
+切換 [顯示日期為]  會隱藏 [RISK LAST UPDATED]  資料行。 若要讀取資料行，請按一下 [具風險的使用者] 刀鋒視窗頂端的 [資料行]  。
 
-傳統 Identity Protection 中的 [解除所有事件] 會將風險事件的狀態設定為 [已關閉 (已解決)]。
+傳統 Identity Protection 中的 [解除所有事件]  會將風險事件的狀態設定為 [已關閉 (已解決)]  。
 
 
 ## <a name="risky-sign-ins-report-known-issues"></a>有風險的登入報告的已知的問題
 
-風險事件上的 [解決] 會將狀態設為 [使用者已通過以風險為基礎原則驅動的 MFA]。
+風險事件上的 [解決]  會將狀態設為 [使用者已通過以風險為基礎原則驅動的 MFA]  。
 
 
 ## <a name="frequently-asked-questions"></a>常見問題集
@@ -67,21 +67,21 @@ IP 地理位置對應對整個產業而言是項挑戰。 如果您認為登入�
 
 **確認遭盜用** (登入時) – 告知 Azure AD Identity Protection：登入不是由身分擁有者所執行的，並表示遭到盜用。
 
-- 收到此意見反應時，我們會將登入和使用者風險狀態改為 [確認遭盜用]，並將風險層級改為 [高]。
+- 收到此意見反應時，我們會將登入和使用者風險狀態改為 [確認遭盜用]  ，並將風險層級改為 [高]  。
 
 - 此外，我們會將資訊提供給我們的機器學習系統，以供未來改進風險評定之用。
 
     > [!NOTE]
-    > 如果已補救使用者，請不要按一下 [確認遭盜用]，因為它會將登入與使用者風險狀態改為 [確認遭盜用]，並將風險層級改為 [高]。
+    > 如果已補救使用者，請不要按一下 [確認遭盜用]  ，因為它會將登入與使用者風險狀態改為 [確認遭盜用]  ，並將風險層級改為 [高]  。
 
 **確認安全** (登入時) – 告知 Azure AD Identity Protection：登入是由身分擁有者執行的，不會表示遭到盜用。
 
-- 收到此意見反應時，我們會將登入 (非使用者) 風險狀態改為 [確認安全]，並將風險層級改為 **-**。
+- 收到此意見反應時，我們會將登入 (非使用者) 風險狀態改為 [確認安全]  ，並將風險層級改為 **-** 。
 
 - 此外，我們會將資訊提供給我們的機器學習系統，以供未來改進風險評定之用。
 
     > [!NOTE]
-    > 如果您認為使用者未遭到盜用，請使用使用者層級上的 [解除使用者風險]，而不是使用登入層級上的 [確認安全]。 使用者層級上的 [解除使用者風險] 會關閉使用者風險及所有過去的具風險登入和風險事件。
+    > 如果您認為使用者未遭到盜用，請使用使用者層級上的 [解除使用者風險]  ，而不是使用登入層級上的 [確認安全]  。 使用者層級上的 [解除使用者風險]  會關閉使用者風險及所有過去的具風險登入和風險事件。
 
 
 

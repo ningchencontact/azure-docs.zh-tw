@@ -14,10 +14,10 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b74049833b055caa112c346b74798893f2c0febf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60476651"
 ---
 # <a name="get-help-with-two-step-verification"></a>取得雙步驟驗證的說明
@@ -31,7 +31,7 @@ ms.locfileid: "60476651"
 
 ## <a name="why-do-i-need-to-use-another-verification-method"></a>為何需要使用另一個驗證方法？
 
-有許多原因會讓您可能需要使用替代驗證方法來登入帳戶。 例如︰
+有許多原因會讓您可能需要使用替代驗證方法來登入帳戶。 例如:
 
 - **忘記攜帶手機或裝置。** 有些天您會將手機留在家裡，但仍需要登入工作。 此時，您應該會先嘗試透過不需要手機的其他方法來登入。
 
@@ -43,12 +43,12 @@ ms.locfileid: "60476651"
 
 ## <a name="sign-in-using-another-verification-method"></a>使用另一個驗證方法登入
 
-1. 正常登入您的帳戶，然後在 [雙步驟驗證] 頁面上選擇 [以另一種方式登入] 的連結。
+1. 正常登入您的帳戶，然後在 [雙步驟驗證]  頁面上選擇 [以另一種方式登入]  的連結。
 
     ![變更登入驗證方法](./media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
 
     >[!Note]
-    >如果您沒有看到 [以另一種方式登入] 的連結，表示您尚未設定任何其他的驗證方法。 您必須連絡系統管理員，請他協助您登入帳戶。 登入之後，請務必新增額外的驗證方法。 如需新增驗證方法的詳細資訊，請參閱[管理雙步驟驗證設定](multi-factor-authentication-end-user-manage-settings.md)一文。<br><br>如果您看到連結，但仍看不到任何其他驗證方法時，您必須連絡系統管理員，請他協助您登入帳戶。
+    >如果您沒有看到 [以另一種方式登入]  的連結，表示您尚未設定任何其他的驗證方法。 您必須連絡系統管理員，請他協助您登入帳戶。 登入之後，請務必新增額外的驗證方法。 如需新增驗證方法的詳細資訊，請參閱[管理雙步驟驗證設定](multi-factor-authentication-end-user-manage-settings.md)一文。<br><br>如果您看到連結，但仍看不到任何其他驗證方法時，您必須連絡系統管理員，請他協助您登入帳戶。
 
 2. 選擇您的替代驗證方法，並繼續雙步驟驗證的程序。
 

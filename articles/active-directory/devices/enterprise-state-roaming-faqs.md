@@ -18,10 +18,10 @@ ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a77cf89b7697b7b6b08dead34339ae50dbba8518
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296311"
 ---
 # <a name="settings-and-data-roaming-faq"></a>設定和資料漫遊常見問題集
@@ -75,9 +75,9 @@ ms.locfileid: "60296311"
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>對來自多個租用戶的 Azure AD 帳戶進行設定同步處理？
 當來自不同 Azure AD 租用戶的多個 Azure AD 帳戶位於相同的裝置時，您必須更新裝置的登錄，才能與每個 Azure AD 租用戶的 Azure Rights Management 服務進行通訊。  
 
-1. 尋找每個 Azure AD 租用戶的 GUID。 開啟 Azure 入口網站，然後選取 Azure AD 租用戶。 租用戶的 GUID 是在所選租用戶的 [屬性] 頁面 (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) 上，其標示為 [目錄識別碼]。 
-2. 取得 GUID 之後，您必須新增登錄機碼 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<租用戶識別碼 GUID>**。
-   從「租用戶識別碼 GUID」機碼，建立一個名為 **AllowedRMSServerUrls** 的新多字串值 (REG-MULTI-SZ)。 針對其資料，指定裝置所存取之其他 Azure 租用戶的授權發佈點 URL。
+1. 尋找每個 Azure AD 租用戶的 GUID。 開啟 Azure 入口網站，然後選取 Azure AD 租用戶。 租用戶的 GUID 是在所選租用戶的 [屬性] 頁面 (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) 上，其標示為 [目錄識別碼]  。 
+2. 取得 GUID 之後，您必須新增登錄機碼 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<租用戶識別碼 GUID>** 。
+   從「租用戶識別碼 GUID」  機碼，建立一個名為 **AllowedRMSServerUrls** 的新多字串值 (REG-MULTI-SZ)。 針對其資料，指定裝置所存取之其他 Azure 租用戶的授權發佈點 URL。
 3. 您可以藉由從 AADRM 模組執行 **Get-AadrmConfiguration** Cmdlet 來尋找授權發佈點 URL。 如果 **LicensingIntranetDistributionPointUrl** 與 **LicensingExtranetDistributionPointUrl** 的值不同，則請同時指定這兩個值。 如果值相同，則只要指定值一次。
 
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>適用於現有 Windows 傳統型應用程式的漫遊設定選項有哪些？
@@ -106,7 +106,7 @@ Microsoft 致力於保護客戶資料。 企業使用者的設定資料在離開
 在 Windows 10 中，沒有 MDM 或群組原則設定可以停用個別應用程式的漫遊。 租用戶系統管理員可以停用受控裝置上所有應用程式的 AppData 同步處理，但是在每個應用程式或應用程式內的層級並沒有更細微的控制。
 
 ## <a name="how-can-i-enable-or-disable-roaming"></a>如何啟用或停用漫遊功能？
-在 [設定] 應用程式中，移至 [帳戶] > [同步您的設定]。 您可以從這個頁面看見正在使用哪一個帳戶漫遊設定，您可以啟用或停用要漫遊得個別群組設定。
+在 [設定]  應用程式中，移至 [帳戶]   > [同步您的設定]  。 您可以從這個頁面看見正在使用哪一個帳戶漫遊設定，您可以啟用或停用要漫遊得個別群組設定。
 
 ## <a name="what-is-microsofts-recommendation-for-enabling-roaming-in-windows-10"></a>Microsoft 對於在 Windows 10 中啟用漫遊功能有什麼建議？
 Microsoft 提供數個不同的設定漫遊解決方案可供使用，包括漫遊使用者設定檔、UE-V 和企業狀態漫遊。  Microsoft 承諾將在未來的 Windows 版本中，致力於發展企業狀態漫遊。 如果貴組織尚未準備就緒或不想要將資料移到雲端，則建議您使用 UE-V 做為主要的漫遊技術。 如果貴組織既需要適用於現有 Windows 傳統型應用程式的漫遊支援，又迫切想要移到雲端，建議您同時使用「企業狀態漫遊」和 UE-V。 雖然 UE-V 和「企業狀態漫遊」是非常類似的技術，但是它們並不互斥。 它們可彼此互補以協助確保貴組織提供您使用者所需的漫遊服務。  

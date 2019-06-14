@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: dae74e730d6e175fa3e447150adce4caecd3d7a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237843"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure 診斷 1.2 組態結構描述
@@ -112,7 +112,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**DiagnosticInfrastructureLogs**|啟用收集 Azure 診斷所產生的記錄。 診斷基礎結構記錄適用於疑難排解診斷系統本身。 選用屬性包括：<br /><br /> -                     **scheduledTransferLogLevelFilter** - 設定所收集之記錄的最低嚴重性層級。<br /><br /> -                     **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
 |**Directories**|啟用收集目錄、IIS 失敗的存取要求記錄和/或 IIS 記錄的內容。 選用屬性：<br /><br /> **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
 |**EtwProviders**|設定要收集來自 EventSource 和/或以 ETW 資訊清單為基礎之提供者的 ETW 事件。|  
-|**計量**|此元素讓您能夠產生已最佳化的效能計數器資料表來進行快速查詢。 除了效能計數器資料表之外，**PerformanceCounters** 元素中所定義的每個效能計數器都會儲存於 Metrics 資料表中。 必要屬性：<br /><br /> **resourceId** - 這是您要部署 Azure 診斷的虛擬機器資源識別碼。 從 [Azure 入口網站](https://portal.azure.com)取得 **resourceID**。 選取 [瀏覽][資源群組] ->  -> **<Name\>**。 按一下 [屬性] 圖格，並複製 [識別碼] 欄位的值。|  
+|**計量**|此元素讓您能夠產生已最佳化的效能計數器資料表來進行快速查詢。 除了效能計數器資料表之外，**PerformanceCounters** 元素中所定義的每個效能計數器都會儲存於 Metrics 資料表中。 必要屬性：<br /><br /> **resourceId** - 這是您要部署 Azure 診斷的虛擬機器資源識別碼。 從 [Azure 入口網站](https://portal.azure.com)取得 **resourceID**。 選取 [瀏覽]  [資源群組] ->    ->  **<Name\>** 。 按一下 [屬性]  圖格，並複製 [識別碼]  欄位的值。|  
 |**PerformanceCounters**|啟用收集效能計數器。 選用屬性：<br /><br /> **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
 |**WindowsEventLog**|啟用收集 Windows 事件記錄。 選用屬性：<br /><br /> **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
 

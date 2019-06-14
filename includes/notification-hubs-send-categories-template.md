@@ -9,27 +9,27 @@ ms.date: 03/30/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: f0ff729084d194ff2e05e89eadc45782f775b1c5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156763"
 ---
 在本節中，您會從 .NET 主控台應用程式將即時新聞以加註標記的範本通知形式傳送。 
 
-1. 在 Visual Studio 中，建立新的 Visual C# 主控台應用程式：a. 在主功能表上，選取 [檔案] > [新增] > [專案]。
-    b. 展開 [Visual C#]，然後選取 [Windows 桌面]。 
-    c. 選取範本清單中的 [主控台應用程式 (.NET Framework)]。 
+1. 在 Visual Studio 中，建立新的 Visual C# 主控台應用程式：a. 在主功能表上，選取 [檔案]   > [新增]   > [專案]  。
+    b. 展開 [Visual C#]  ，然後選取 [Windows 桌面]  。 
+    c. 選取範本清單中的 [主控台應用程式 (.NET Framework)]  。 
     d. 輸入應用程式的**名稱**。 
     e. 選取應用程式的**資料夾**。
-    f. 選取 [確定] 以建立專案。 
-2. 在 Visual Studio 主功能表上，選取 [工具] > [NuGet 套件管理員] >  [套件管理員主控台]，然後在主控台視窗中輸入下列字串：
+    f. 選取 [確定]  以建立專案。 
+2. 在 Visual Studio 主功能表上，選取 [工具]   > [NuGet 套件管理員]   >  [套件管理員主控台]  ，然後在主控台視窗中輸入下列字串：
    
     ```
     Install-Package Microsoft.Azure.NotificationHubs
     ```
    
-3. 選取 [輸入]。  
+3. 選取 [輸入]  。  
     此動作會使用 [Microsoft.Azure.Notification Hubs NuGet 套件]來新增對 Azure 通知中樞 SDK 的參考。
 
 4. 開啟 Program.cs 檔案，並新增下列 `using` 陳述式：
@@ -67,7 +67,7 @@ ms.locfileid: "66156763"
 
 5. 在上述程式碼中，請使用您的通知中樞名稱及通知中樞儀表板的 *DefaultFullSharedAccessSignature* 連接字串，來取代 `<hub name>` 和 `<connection string with full access>` 預留位置。
 
-6. 在 [主要] 方法中新增下列程式碼行：
+6. 在 [主要]  方法中新增下列程式碼行：
    
     ```csharp
     SendTemplateNotificationAsync();

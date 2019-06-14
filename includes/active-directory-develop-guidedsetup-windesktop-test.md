@@ -15,10 +15,10 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: a11b291ab89dc9f8159e00e1f2304706f041068e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66120174"
 ---
 ## <a name="test-your-code"></a>測試您的程式碼
@@ -27,7 +27,7 @@ ms.locfileid: "66120174"
 
 ![測試您的應用程式](./media/active-directory-develop-guidedsetup-windesktop-test/samplescreenshot.png)
 
-您第一次執行應用程式並選取 [呼叫 Microsoft Graph API] 按鈕時，系統會提示您登入。 使用 Azure Active Directory 帳戶 (公司或學校帳戶) 或 Microsoft 帳戶 (live.com、outlook.com) 來進行測試。
+您第一次執行應用程式並選取 [呼叫 Microsoft Graph API]  按鈕時，系統會提示您登入。 使用 Azure Active Directory 帳戶 (公司或學校帳戶) 或 Microsoft 帳戶 (live.com、outlook.com) 來進行測試。
 
 ![登入應用程式](./media/active-directory-develop-guidedsetup-windesktop-test/signinscreenshot.png)
 
@@ -39,7 +39,7 @@ ms.locfileid: "66120174"
 
 ### <a name="view-application-results"></a>檢視應用程式結果
 
-登入之後，您應該會看到 Microsoft Graph API 呼叫所傳回的使用者設定檔資訊。 結果即會顯示於 [API 呼叫結果] 方塊中。 在 [權杖資訊] 方塊中，應該顯示透過呼叫 `AcquireTokenInteractive` 或 `AcquireTokenSilent` 取得的權杖基本資訊。 結果包含下列屬性：
+登入之後，您應該會看到 Microsoft Graph API 呼叫所傳回的使用者設定檔資訊。 結果即會顯示於 [API 呼叫結果]  方塊中。 在 [權杖資訊]  方塊中，應該顯示透過呼叫 `AcquireTokenInteractive` 或 `AcquireTokenSilent` 取得的權杖基本資訊。 結果包含下列屬性：
 
 |屬性  |格式  |說明 |
 |---------|---------|---------|
@@ -50,9 +50,9 @@ ms.locfileid: "66120174"
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>與範圍和委派的權限有關的詳細資訊
 
-Microsoft Graph API 需要 user.read 範圍才能讀取使用者的設定檔。 根據預設，在應用程式註冊入口網站註冊的每個應用程式中，都會自動新增此範圍。 Microsoft Graph 的其他 API 與您後端伺服器的自訂 API 一樣，需要其他範圍。 Microsoft Graph API 需要 Calendars.Read 範圍才能列出使用者的行事曆。
+Microsoft Graph API 需要 user.read  範圍才能讀取使用者的設定檔。 根據預設，在應用程式註冊入口網站註冊的每個應用程式中，都會自動新增此範圍。 Microsoft Graph 的其他 API 與您後端伺服器的自訂 API 一樣，需要其他範圍。 Microsoft Graph API 需要 Calendars.Read  範圍才能列出使用者的行事曆。
 
-為了在應用程式內容中存取使用者的行事曆，請將 Calendars.Read 委派權限新增至應用程式註冊資訊。 接著，將 Calendars.Read 範圍新增至 `acquireTokenSilent` 呼叫。
+為了在應用程式內容中存取使用者的行事曆，請將 Calendars.Read  委派權限新增至應用程式註冊資訊。 接著，將 Calendars.Read  範圍新增至 `acquireTokenSilent` 呼叫。
 
 >[!NOTE]
 >系統可能會在您增加範圍數目時，提示使用者同意其他事項。

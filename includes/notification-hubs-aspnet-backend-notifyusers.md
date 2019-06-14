@@ -9,10 +9,10 @@ ms.date: 03/22/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 28eac814364b56f59b8edc6f59209a6d742ff403
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156770"
 ---
 ## <a name="create-the-webapi-project"></a>建立 WebAPI 專案
@@ -28,7 +28,7 @@ ms.locfileid: "66156770"
 > [!IMPORTANT]
 > 如果您使用 Visual Studio 2015 或更新版本，在開始本教學課程之前，請確定您已安裝適用於 Visual Studio 的最新版 NuGet 套件管理員。
 >
->若要檢查版本，請啟動 Visual Studio。 在 [工具] 功能表上，選取 [擴充功能和更新]。 搜尋您的 Visual Studio 版本中的 **NuGet Package Manager**，然後確定您已安裝最新版本。 如果您的版本不是最新版本，請將它解除安裝，然後重新安裝 NuGet 套件管理員。
+>若要檢查版本，請啟動 Visual Studio。 在 [工具]  功能表上，選取 [擴充功能和更新]  。 搜尋您的 Visual Studio 版本中的 **NuGet Package Manager**，然後確定您已安裝最新版本。 如果您的版本不是最新版本，請將它解除安裝，然後重新安裝 NuGet 套件管理員。
 
 ![][B4]
 
@@ -37,23 +37,23 @@ ms.locfileid: "66156770"
 
 1. 啟動 Visual Studio 或 Visual Studio Express。
 
-2. 選取 [伺服器總管] ，然後登入您的 Azure 帳戶。 若要在您的帳戶上建立網站資源，您必須登入。
+2. 選取 [伺服器總管]  ，然後登入您的 Azure 帳戶。 若要在您的帳戶上建立網站資源，您必須登入。
 
-3. 在 Visual Studio 中，以滑鼠右鍵按一下 Visual Studio 解決方案，並指向 [新增]，然後按一下 [新增專案]。
-4. 展開 [Visual C#]，並選取 [Web]，然後按一下 [ASP.NET Web 應用程式]。
+3. 在 Visual Studio 中，以滑鼠右鍵按一下 Visual Studio 解決方案，並指向 [新增]  ，然後按一下 [新增專案]  。
+4. 展開 [Visual C#]  ，並選取 [Web]  ，然後按一下 [ASP.NET Web 應用程式]  。
 
-5. 在 [名稱] 方塊中，輸入 **AppBackend**，然後選取 [確定]。
+5. 在 [名稱]  方塊中，輸入 **AppBackend**，然後選取 [確定]  。
 
     ![[新增專案] 視窗][B1]
 
-6. 在 [新增 ASP.NET 專案] 視窗中，選取 [Web API] 核取方塊，然後選取 [確定]。
+6. 在 [新增 ASP.NET 專案]  視窗中，選取 [Web API]  核取方塊，然後選取 [確定]  。
 
     ![[新增 ASP.NET 專案] 視窗][B2]
 
-7. 在 [設定 Microsoft Azure Web 應用程式] 視窗中，選取訂用帳戶，然後在 [App Service 方案] 清單中，執行下列其中一個動作：
+7. 在 [設定 Microsoft Azure Web 應用程式]  視窗中，選取訂用帳戶，然後在 [App Service 方案]  清單中，執行下列其中一個動作：
 
     * 選取您已建立的 App Service 方案。
-    * 選取 [建立新的 App Service 方案]，然後建立一個新方案。
+    * 選取 [建立新的 App Service 方案]  ，然後建立一個新方案。
 
    在此教學課程中您不需要資料庫。 在您選取 App Service 方案之後，選取 [確定]  來建立專案。
 
@@ -65,8 +65,8 @@ ms.locfileid: "66156770"
 
 在本節中，您會為新的後端建立名為 **AuthenticationTestHandler** 的新訊息處理常式類別。 這個類別衍生自 [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) 並新增為訊息處理常式，以便處理進入後端的所有要求。
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 [AppBackend] 專案，然後依序選取 [新增] 和 [類別]。
-2. 將新類別命名為 **AuthenticationTestHandler.cs**，然後選取 [新增] 以產生類別。 為了簡單起見，此類別使用「基本驗證」來驗證使用者。 您的應用程式可以使用任何驗證結構描述。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 [AppBackend]  專案，然後依序選取 [新增]  和 [類別]  。
+2. 將新類別命名為 **AuthenticationTestHandler.cs**，然後選取 [新增]  以產生類別。 為了簡單起見，此類別使用「基本驗證」  來驗證使用者。 您的應用程式可以使用任何驗證結構描述。
 3. 在 AuthenticationTestHandler.cs 中，加入下列 `using` 陳述式：
 
     ```csharp
@@ -82,7 +82,7 @@ ms.locfileid: "66156770"
 
     下列三個條件都成立時，此處理常式會授權要求：
 
-   * 要求包含「授權」標頭。
+   * 要求包含「授權」  標頭。
    * 要求使用 *基本* 驗證。
    * 使用者名稱字串和密碼字串是相同的字串。
 
@@ -152,15 +152,15 @@ ms.locfileid: "66156770"
 
 在本節中，您會將新的控制器新增至 WebAPI 後端來處理要求，以使用通知中樞的用戶端程式庫為使用者和裝置註冊通知。 控制器會對已由 `AuthenticationTestHandler` 驗證並附加至 HttpContext 的使用者，新增使用者標記。 此標籤具有以下字串格式：`"username:<actual username>"`。
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 [AppBackend] 專案，然後選取 [管理 NuGet 套件]。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 [AppBackend]  專案，然後選取 [管理 NuGet 套件]  。
 
-2. 在左窗格中，選取 [線上]，然後在 [搜尋] 方塊中輸入 **Microsoft.Azure.NotificationHubs**。
+2. 在左窗格中，選取 [線上]  ，然後在 [搜尋]  方塊中輸入 **Microsoft.Azure.NotificationHubs**。
 
-3. 選取結果清單中的 [Microsoft Azure 通知中樞]，然後選取 [安裝]。 請完成安裝，然後關閉 [NuGet Package Manager] 視窗。
+3. 選取結果清單中的 [Microsoft Azure 通知中樞]  ，然後選取 [安裝]  。 請完成安裝，然後關閉 [NuGet Package Manager] 視窗。
 
     此動作會使用 [Microsoft.Azure.Notification Hubs NuGet 套件](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)來新增對 Azure 通知中樞 SDK 的參考。
 
-4. 建立新的類別檔案，代表與用來傳送通知的通知中樞間的連線。 在 [方案總管] 中，以滑鼠右鍵按一下 **Models** 資料夾，選取 [新增]，然後選取 [類別]。 將新類別命名為 **Notifications.cs**，然後選取 [新增] 以產生類別。
+4. 建立新的類別檔案，代表與用來傳送通知的通知中樞間的連線。 在 [方案總管] 中，以滑鼠右鍵按一下 **Models** 資料夾，選取 [新增]  ，然後選取 [類別]  。 將新類別命名為 **Notifications.cs**，然後選取 [新增]  以產生類別。
 
     ![[新增項目] 視窗][B6]
 
@@ -185,13 +185,13 @@ ms.locfileid: "66156770"
         }
     }
     ```
-7. 接下來，建立名為 **RegisterController** 的新控制器。 在 [方案總管] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，選取 [新增]，然後選取 [控制器]。
+7. 接下來，建立名為 **RegisterController** 的新控制器。 在 [方案總管] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，選取 [新增]  ，然後選取 [控制器]  。
 
-8. 選取 [Web API 2 控制器 - 空的]，然後選取 [新增]。
+8. 選取 [Web API 2 控制器 - 空的]  ，然後選取 [新增]  。
 
     ![[新增 Scaffold] 視窗][B7]
 
-9. 在 [控制器名稱] 方塊中，輸入 **RegisterController** 為新的類別命名，然後選取 [新增]。
+9. 在 [控制器名稱]  方塊中，輸入 **RegisterController** 為新的類別命名，然後選取 [新增]  。
 
     ![[新增控制器] 視窗][B8]
 
@@ -381,19 +381,19 @@ ms.locfileid: "66156770"
 
 接下來，您可將應用程式部署到 Azure 網站，讓它得以從所有裝置存取。
 
-1. 以滑鼠右鍵按一下 **AppBackend** 專案，然後選取 [發佈]。
+1. 以滑鼠右鍵按一下 **AppBackend** 專案，然後選取 [發佈]  。
 
-2. 選取 [Microsoft Azure App Service] 作為發佈目標，然後選取 [發佈]。 [建立 App Service] 視窗隨即開啟。 您可以在此建立在 Azure 中執行 ASP.NET Web 應用程式所需的所有 Azure 資源。
+2. 選取 [Microsoft Azure App Service]  作為發佈目標，然後選取 [發佈]。 [建立 App Service] 視窗隨即開啟。 您可以在此建立在 Azure 中執行 ASP.NET Web 應用程式所需的所有 Azure 資源。
 
     ![[Microsoft Azure App Service] 圖格][B15]
 
-3. 在 [建立 App Service] 視窗中，選取您的 Azure 帳戶。 選取 [變更類型] > [Web 應用程式]。 保留預設 [Web 應用程式名稱]，然後選取 [訂用帳戶]、[資源群組] 和 [App Service 方案]。
+3. 在 [建立 App Service]  視窗中，選取您的 Azure 帳戶。 選取 [變更類型]   > [Web 應用程式]  。 保留預設 [Web 應用程式名稱]  ，然後選取 [訂用帳戶]  、[資源群組]  和 [App Service 方案]  。
 
-4. 選取 [建立] 。
+4. 選取 [建立]  。
 
-5. 記下 [摘要] 區段中的 [網站 URL] 屬性。 此 URL 是您在本教學課程中稍後使用的「後端端點」。
+5. 記下 [摘要]  區段中的 [網站 URL]  屬性。 此 URL 是您在本教學課程中稍後使用的「後端端點」  。
 
-6. 選取 [發佈] 。
+6. 選取 [發佈]  。
 
 精靈完成後，它會將 ASP.NET Web 應用程式發佈至 Azure，然後在預設瀏覽器中開啟應用程式。  您的應用程式可在 Azure App Service 中檢視。
 

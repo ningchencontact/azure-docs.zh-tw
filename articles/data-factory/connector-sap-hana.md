@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: cdd83c3ff9d34a5e8b7f2c164136ab82f498ffb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60343761"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP HANA 複製資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-sap-hana-connector.md)
 > * [目前的版本](connector-sap-hana.md)
 
@@ -167,16 +167,16 @@ ms.locfileid: "60343761"
 | BLOB | Byte[] |
 | BOOLEAN | Byte |
 | CLOB | Byte[] |
-| DATE | DateTime |
+| 日期 | Datetime |
 | DECIMAL | Decimal |
 | DOUBLE | Single |
 | INT | Int32 |
 | NVARCHAR | String |
 | REAL | Single |
-| SECONDDATE | DateTime |
+| SECONDDATE | Datetime |
 | SMALLINT | Int16 |
 | TIME | TimeSpan |
-| TIMESTAMP | DateTime |
+| TIMESTAMP | Datetime |
 | TINYINT | Byte |
 | VARCHAR | String |
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: 85296b4549d7c9499b8d0b815ddf1cd2e85e2b1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60337420"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之設定和管理問題：常見問題集 (FAQ)
@@ -50,7 +50,7 @@ ms.locfileid: "60337420"
 - [Azure 的基本 IPS/IDS 和 DDOS 提供的特性和功能是什麼？](#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 - [如何啟用雲端服務虛擬機器上的 HTTP/2？](#how-to-enable-http2-on-cloud-services-vm)
 
-**權限**
+**Permissions**
 
 - [Microsoft 內部工程師是否可在沒有權限的情況下，從遠端桌面到雲端服務執行個體？](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
 - [我無法使用 RDP 檔案從遠端桌面登入雲端服務虛擬機器。我收到下列錯誤：發生驗證錯誤 (代碼：0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
@@ -101,7 +101,7 @@ CSR 只是文字檔。 不必從最終會使用憑證的電腦建立它。 雖
     Select-AzureSubscription -Current -SubscriptionName <your subscription name>
     Get-AzurePublishSettingsFile
 
-**Get-AzurePublishSettingsFile** 會在 Azure 入口網站的 [訂用帳戶] > [管理憑證] 中建立新的管理憑證。 新憑證的名稱如下 "YourSubscriptionNam]-[CurrentDate]-credentials"。
+**Get-AzurePublishSettingsFile** 會在 Azure 入口網站的 [訂用帳戶]   > [管理憑證]  中建立新的管理憑證。 新憑證的名稱如下 "YourSubscriptionNam]-[CurrentDate]-credentials"。
 
 ### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>如何將主要 SSL 憑證 (.pfx) 和中繼憑證 (.p7b) 的安裝自動化？
 
@@ -194,7 +194,7 @@ Windows 10 和 Windows Server 2016 隨附用戶端和伺服器端上的 HTTP/2 �
 3. 建立名為 **DuoEnabled** 的新 DWORD 值。
 4. 將值設為 1。
 5. 重新啟動您的伺服器。
-6. 移至**預設網站**，並在 [繫結] 下方 使用剛才建立的自我簽署憑證來建立新的 TLS 繫結。 
+6. 移至**預設網站**，並在 [繫結]  下方 使用剛才建立的自我簽署憑證來建立新的 TLS 繫結。 
 
 如需詳細資訊，請參閱
 
@@ -228,12 +228,12 @@ Microsoft 會遵循嚴格的程序，不允許內部工程師在沒有擁有者�
 
 如果您使用的 RDP 檔案來自已加入 Azure Active Directory 的機器，即可能會發生這個錯誤。 若要解決此問題，請依照下列步驟執行︰
 
-1. 以滑鼠右鍵按一下您下載的 RDP 檔案，然後選取 [編輯]。
+1. 以滑鼠右鍵按一下您下載的 RDP 檔案，然後選取 [編輯]  。
 2. 新增 "&#92;" 作為使用者名稱的前置詞。 例如，使用 **.\username** 而不是 **username**。
 
-## <a name="scaling"></a>調整大小
+## <a name="scaling"></a>縮放
 
-### <a name="i-cannot-scale-beyond-x-instances"></a>无法扩展到 X 个实例以上
+### <a name="i-cannot-scale-beyond-x-instances"></a>我不能調整超過 X 個執行個體
 您的 Azure 訂用帳戶對於您可以使用的核心數目有限制。 如果您已使用所有可用的核心，調整將無法運作。 例如，如果您有 100 個核心的限制，這表示您的雲端服務可以有 100 個 A1 大小的虛擬機器執行個體，或 50 個 A2 大小的虛擬機器執行個體。
 
 ### <a name="how-can-i-configure-auto-scale-based-on-memory-metrics"></a>如何根據記憶體計量設定自動縮放？
@@ -267,7 +267,7 @@ Microsoft 會遵循嚴格的程序，不允許內部工程師在沒有擁有者�
 </configuration>
 ```
 
-您也可以在 IIS 中將此加入為設定。 使用[常见启动任务](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe)一文中的以下命令。
+您也可以在 IIS 中將此加入為設定。 請參考[常見的啟動工作](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe)一文來使用下列命令。
 
 ```cmd
 %windir%\system32\inetsrv\appcmd set config /section:httpProtocol /+customHeaders.[name='X-Content-Type-Options',value='nosniff']
@@ -311,7 +311,7 @@ Azure 不會將任何內容寫入 %approot% 磁碟機。 一旦從 .cspkg 建立
     
 如[這裡](https://technet.microsoft.com/library/ee790567.aspx)所述，$sslFlags 可能是如下所示其中一個值：
 
-|Value|意義|
+|值|意義|
 ------|------
 |0|沒有 SNI|
 |1|已啟用 SNI |

@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
 ms.openlocfilehash: c2089f9f6267f318dafe641a6a5b22e7e87427ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60308063"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Azure 虛擬機器的效能診斷
@@ -35,9 +35,9 @@ Windows 10、Windows 8、Windows 8 Enterprise、Windows 8 Pro、Windows 8.1、Wi
 
 ## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>在您的 VM 上安裝並執行效能診斷
 效能診斷會安裝 VM 延伸模組，以執行名為 [PerfInsights](https://aka.ms/perfinsights) 的診斷工具。 若要安裝並執行效能診斷，請遵循下列步驟進行：
-1.  在命令的左欄中，選取 [虛擬機器]。
+1.  在命令的左欄中，選取 [虛擬機器]  。
 1.  從 VM 名稱清單，選取您想要對其執行診斷的 VM。
-1.  在命令的右欄中，選取 [效能診斷]。
+1.  在命令的右欄中，選取 [效能診斷]  。
 
     ![Azure 入口網站的螢幕擷取畫面，其中已醒目提示 [安裝效能診斷] 按鈕](media/performance-diagnostics/performance-diagnostics-install.png)
 
@@ -45,7 +45,7 @@ Windows 10、Windows 8、Windows 8 Enterprise、Windows 8 Pro、Windows 8.1、Wi
     > 在此螢幕擷取畫面中，會隱藏 VM 名稱的刀鋒視窗。
 1. 選取儲存體帳戶 (選擇性)
 
-    如果您想要使用單一儲存體帳戶來儲存多個 VM 的效能診斷結果，您可以按一下工具列中的 [設定] 按鈕來選取儲存體帳戶。 選取儲存體帳戶之後，按一下 [確定] 按鈕。
+    如果您想要使用單一儲存體帳戶來儲存多個 VM 的效能診斷結果，您可以按一下工具列中的 [設定]  按鈕來選取儲存體帳戶。 選取儲存體帳戶之後，按一下 [確定]  按鈕。
 
     如果您未指定儲存體帳戶，預設會建立新的儲存體帳戶。
 
@@ -53,8 +53,8 @@ Windows 10、Windows 8、Windows 8 Enterprise、Windows 8 Pro、Windows 8.1、Wi
 
     ![從 [效能診斷設定] 刀鋒視窗選取儲存體帳戶的螢幕擷取畫面](media/performance-diagnostics/select-storage-account.png)
 
-1. 選取 [安裝效能診斷] 按鈕。
-1. 如果您想要在安裝完成之後執行診斷，請選取 [執行診斷] 核取方塊。 如果您進行這項選取，您將能夠選擇效能分析案例和相關選項。
+1. 選取 [安裝效能診斷]  按鈕。
+1. 如果您想要在安裝完成之後執行診斷，請選取 [執行診斷]  核取方塊。 如果您進行這項選取，您將能夠選擇效能分析案例和相關選項。
 
     ![效能診斷安裝按鈕的螢幕擷取畫面](media/performance-diagnostics/install-diagnostics-button.png)
 
@@ -100,7 +100,7 @@ Azure 入口網站提供下列分析案例。 請根據您的效能問題，選�
 ![[效能診斷] 刀鋒視窗中的 [診斷報告] 清單螢幕擷取畫面](media/performance-diagnostics/diagnostics-report-list.png)
 
 ## <a name="how-to-change-performance-diagnostics-settings"></a>如何變更效能診斷設定
-使用 [設定] 工具列按鈕來變更儲存體帳戶，其中可儲存診斷見解和輸出。 您可以將同一個儲存體帳戶用於多個使用效能診斷的 VM。 當您變更儲存體帳戶時，不會刪除舊的報告和見解。 不過，這些項目不會再顯示於 [診斷報告] 清單中。 
+使用 [設定]  工具列按鈕來變更儲存體帳戶，其中可儲存診斷見解和輸出。 您可以將同一個儲存體帳戶用於多個使用效能診斷的 VM。 當您變更儲存體帳戶時，不會刪除舊的報告和見解。 不過，這些項目不會再顯示於 [診斷報告] 清單中。 
 
 ## <a name="review-insights-and-performance-diagnostics-report"></a>檢閱見解和效能診斷報告
 每個診斷執行都會包含見解和建議清單、受影響的資源、記錄檔，以及收集到的其他豐富診斷資訊，加上離線檢視的報告。 如需收集到的所有診斷資料完整清單，請參閱 [What kind of information is collected by PerfInsights?](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights) (PerfInsights 收集何種資訊？) 
@@ -123,10 +123,10 @@ Azure 入口網站提供下列分析案例。 請根據您的效能問題，選�
 ![效能診斷見解詳細資料的螢幕擷取畫面](media/performance-diagnostics/insight-detail.png)
 
 ### <a name="download-and-review-the-full-performance-diagnostics-report"></a>下載並檢閱完整的效能診斷報告
-您可以使用 [下載報告] 按鈕來下載 HTML 報告，其中包含其他豐富診斷資訊，例如儲存體和網路設定、效能計數器、追蹤、處理序清單和記錄。 其內容取決於選取的分析。 如需進階疑難排解，此報告可能包含有關高 CPU 使用量、高磁碟使用量和過度耗用記憶體之處理序的其他資訊和互動式圖表。 如需效能診斷報告的詳細資訊，請參閱 [Review diagnostics report](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report) (檢閱診斷報告)。
+您可以使用 [下載報告]  按鈕來下載 HTML 報告，其中包含其他豐富診斷資訊，例如儲存體和網路設定、效能計數器、追蹤、處理序清單和記錄。 其內容取決於選取的分析。 如需進階疑難排解，此報告可能包含有關高 CPU 使用量、高磁碟使用量和過度耗用記憶體之處理序的其他資訊和互動式圖表。 如需效能診斷報告的詳細資訊，請參閱 [Review diagnostics report](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report) (檢閱診斷報告)。
 
 ## <a name="manage-performance-diagnostics-reports"></a>管理效能診斷報告
-您可以使用 [刪除報告] 按鈕，刪除一或多個效能診斷報告。
+您可以使用 [刪除報告]  按鈕，刪除一或多個效能診斷報告。
 
 ## <a name="how-to-uninstall-performance-diagnostics"></a>如何解除安裝效能診斷
 您可以從 VM 解除安裝效能診斷。 此動作會移除 VM 延伸模組，但不會影響儲存體帳戶中的任何診斷資料。 
@@ -144,16 +144,16 @@ Azure 入口網站提供下列分析案例。 請根據您的效能問題，選�
 您可以以多種方式來與 Microsoft 共用診斷報告。
 
 **選項 1：** 自動分享最新的報告  
-當您開啟與 Microsoft 的支援票證時，請務必共用效能診斷報告。 如果您選擇在執行診斷時與 Microsoft 共用這項資訊 (藉由選取 [我同意與 Microsoft 共用診斷資訊] 核取方塊)，Microsoft 將能夠在執行日期起 30 天內，使用輸出 ZIP 檔案的 SAS 連結從您的儲存體帳戶存取報告。 只會提供最近的報告給支援工程師。 
+當您開啟與 Microsoft 的支援票證時，請務必共用效能診斷報告。 如果您選擇在執行診斷時與 Microsoft 共用這項資訊 (藉由選取 [我同意與 Microsoft 共用診斷資訊]  核取方塊)，Microsoft 將能夠在執行日期起 30 天內，使用輸出 ZIP 檔案的 SAS 連結從您的儲存體帳戶存取報告。 只會提供最近的報告給支援工程師。 
 
 **選項 2：** 產生診斷報告壓縮檔案的共用存取簽章  
 您可以使用共用存取簽章來分享報告壓縮檔的連結。 若要這樣做，請遵循下列步驟： 
 1.  在 Azure 入口網站中，瀏覽至儲存診斷資料的儲存體帳戶。
-1.  在 [Blob 服務] 區段下，選取 [Blob]。 
+1.  在 [Blob 服務]  區段下，選取 [Blob]  。 
 1.  選取 **azdiagextnresults** 容器。
 1.  選取您要共用的效能診斷輸出壓縮檔。
-1.  在 [產生 SAS] 索引標籤上，選取共用準則。 
-1.  按一下 [產生 Blob SAS 權杖和 URL]。
+1.  在 [產生 SAS]  索引標籤上，選取共用準則。 
+1.  按一下 [產生 Blob SAS 權杖和 URL]  。
 1.  複製 **Blob SAS URL** 並與支援工程師共用。 
 
 **選項 3:** 從儲存體帳戶下載報表
@@ -170,4 +170,4 @@ Azure 入口網站提供下列分析案例。 請根據您的效能問題，選�
 ## <a name="next-steps"></a>後續步驟
 檢閱效能診斷見解和報告之後，如果您仍無法判斷問題的原因並需要更多協助，您可以開啟與 Microsoft 客戶支援的支援票證。 
 
-如果您在本文中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。 如需使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。
+如果您在本文中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。 如需使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。

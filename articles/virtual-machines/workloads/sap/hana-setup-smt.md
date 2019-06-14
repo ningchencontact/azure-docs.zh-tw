@@ -15,10 +15,10 @@ ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 690f41e941f2d1db8fc92d225a54d07570299222
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60477944"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>設定適用於 SUSE Linux 的 SMT 伺服器
@@ -35,13 +35,13 @@ SAP HANA 大型執行個體無法直接連線到網際網路。 它不是可向�
 
 首先，登入 [SUSE 客戶中心](https://scc.suse.com/)。
 
-移至 [組織] > [組織認證]。 在該區段中，您應該會找到設定 SMT 伺服器所需的認證。
+移至 [組織]   > [組織認證]  。 在該區段中，您應該會找到設定 SMT 伺服器所需的認證。
 
 然後，在 Azure 虛擬網路中安裝 SUSE Linux VM。 若要部署虛擬機器，請使用 Azure 的 SLES 12 SP2 資源庫映像 (選取 BYOS SUSE 映像)。 在部署程序中，不要定義 DNS 名稱，也不要使用靜態 IP 位址。
 
 ![螢幕擷取畫面：SMT 伺服器的虛擬機器部署](./media/hana-installation/image3_vm_deployment.png)
 
-已部署的虛擬機器較小，會取得 Azure 虛擬網路的內部 IP 位址 10.34.1.4。 虛擬機器的名稱是 smtserver。 安裝之後，已檢查 HANA 大型執行個體單位的連線。 HANA 大型執行個體單位可能需要以 Azure 虛擬機器的 etc/hosts 設定解析，視您如何安排名稱解析而定。 
+已部署的虛擬機器較小，會取得 Azure 虛擬網路的內部 IP 位址 10.34.1.4。 虛擬機器的名稱是 smtserver  。 安裝之後，已檢查 HANA 大型執行個體單位的連線。 HANA 大型執行個體單位可能需要以 Azure 虛擬機器的 etc/hosts 設定解析，視您如何安排名稱解析而定。 
 
 將磁碟新增至虛擬機器。 您會使用此磁碟來保存更新，開機磁碟本身可能會太小。 在此，磁碟已掛接到 /srv/www/htdocs，如下列螢幕擷取畫面所示。 100 GB 的磁碟應已足夠。
 
@@ -79,7 +79,7 @@ Resolving package dependencies...
 ```
 
 
-您也可以使用 YAST 工具安裝 smt 套件。 在 YAST 中，移至 [軟體維護] 並搜尋 smt。 選取 [smt]，以自動切換至 yast2-smt。
+您也可以使用 YAST 工具安裝 smt 套件。 在 YAST 中，移至 [軟體維護]  並搜尋 smt。 選取 [smt]  ，以自動切換至 yast2-smt。
 
 ![螢幕擷取畫面：YAST 中的 SMT](./media/hana-installation/image5_smt_in_yast.PNG)
 
@@ -124,7 +124,7 @@ systemctl restart apache2
 
 ## <a name="set-up-the-smt-client-on-hana-large-instance-units"></a>在 HANA 大型執行個體單位上設定 SMT 用戶端
 
-本例中的用戶端是 HANA 大型執行個體單位。 SMT 伺服器安裝程式已將指令碼 clientSetup4SMT.sh 複製到 Azure 虛擬機器。 將該指令碼複製到您想與 SMT 伺服器連線的 HANA 大型執行個體單位。 使用 -h 選項啟動指令碼，並提供 SMT 伺服器的名稱當做參數。 在此範例中，此名稱為 smtserver。
+本例中的用戶端是 HANA 大型執行個體單位。 SMT 伺服器安裝程式已將指令碼 clientSetup4SMT.sh 複製到 Azure 虛擬機器。 將該指令碼複製到您想與 SMT 伺服器連線的 HANA 大型執行個體單位。 使用 -h 選項啟動指令碼，並提供 SMT 伺服器的名稱當做參數。 在此範例中，此名稱為 smtserver  。
 
 ![螢幕擷取畫面：設定 SMT 用戶端](./media/hana-installation/image12_configure_client.PNG)
 
@@ -135,7 +135,7 @@ systemctl restart apache2
 如果註冊失敗，請參閱 [SUSE 支援文件](https://www.suse.com/de-de/support/kb/doc/?id=7006024)，並執行該文件所述的步驟。
 
 > [!IMPORTANT] 
-> 至於伺服器名稱，請提供沒有完整網域名稱的虛擬機器名稱 (在本例為 smtserver)。 
+> 至於伺服器名稱，請提供沒有完整網域名稱的虛擬機器名稱 (在本例為 smtserver  )。 
 
 在執行這些步驟之後，請在 HANA 大型執行個體單位上執行下列命令：
 

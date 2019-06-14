@@ -18,10 +18,10 @@ ms.date: 03/14/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9d6af7106e991f0306ae2fef69129888219a9c0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60369546"
 ---
 # <a name="upgrade-your-free-trial-or-azure-for-students-starter-subscription-to-pay-as-you-go"></a>升級您的免費試用版或 Azure 學生入門版訂用帳戶，以隨用隨付
@@ -52,7 +52,7 @@ ms.locfileid: "60369546"
 
 1. 選擇您的訂用帳戶的支援計劃。 若要深入了解支援方案，請參閱[Azure 支援方案](https://azure.microsoft.com/us/support/plans/)。
 
-1. 按一下 [升級]。
+1. 按一下 [升級]  。
 
 如果您想要在升級之後[轉移訂用帳戶](billing-subscription-transfer.md)升級之後，您必須等到訂用帳戶供應項目識別碼變更為 **MS-AZR-003P**。 供應項目識別碼變更的時機：
 
@@ -80,7 +80,7 @@ ms.locfileid: "60369546"
 1. 輸入您的訂用帳戶的名稱。
 1. 如果您要升級到隨用隨付，選擇您的訂用帳戶的支援計劃。 若要深入了解支援方案，請參閱[Azure 支援方案](https://azure.microsoft.com/us/support/plans/)。
 
-1. 按一下 [升級]。
+1. 按一下 [升級]  。
 
 ## <a name="next-steps"></a>後續步驟
 

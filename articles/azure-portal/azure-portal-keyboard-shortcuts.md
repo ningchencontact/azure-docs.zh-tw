@@ -16,10 +16,10 @@ ms.date: 04/08/2019
 ms.author: kfollis
 ms.custom: accessibility
 ms.openlocfilehash: fb0b347228fe82725d5246ae9eacdab8dff01257
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551425"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure 入口網站的鍵盤快速鍵
@@ -32,12 +32,12 @@ ms.locfileid: "60551425"
 | --- | --- |
 |建立資源|G+N|
 |開啟**所有服務**|G+B|
-|搜尋資源、服務及文件|G+/|
+|搜尋資源、 服務和文件|G+/|
 |搜尋資源功能表項目|CTRL+/ |
 |選取左側的 [資訊看板] 項目上移 |ALT+Shift+向上鍵|
 |選取左側的 [資訊看板] 項目向下移 |ALT+Shift+向下鍵|
 
-## <a name="navigation"></a>導覽
+## <a name="navigation"></a>巡覽
 
 |若要進行巡覽 |按 |
 | --- | --- |

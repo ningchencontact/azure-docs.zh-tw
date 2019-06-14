@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: 2f0a361d53489e22ccc8e41406e5b86b423ea2f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60324802"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>使用查詢字串來控制 Azure CDN 快取行為 - 進階層
@@ -50,17 +50,17 @@ ms.locfileid: "60324802"
     > 當查詢字串包含會隨著每個要求變更的參數 (例如工作階段識別碼或使用者名稱) 時，請勿使用此模式，因為這會造成快取命中率偏低。
 
 ## <a name="changing-query-string-caching-settings-for-premium-cdn-profiles"></a>變更進階 CDN 設定檔的查詢字串快取設定
-1. 開啟 CDN 設定檔，然後按一下 [管理]。
+1. 開啟 CDN 設定檔，然後按一下 [管理]  。
    
     ![CDN 設定檔 [管理] 按鈕](./media/cdn-query-string-premium/cdn-manage-btn.png)
    
     隨即開啟 CDN 管理入口網站。
-2. 將滑鼠移至 [HTTP 大型] 索引標籤上，然後將滑鼠移至 [快取設定] 飛出功能表上。 按一下 [查詢字串快取]。
+2. 將滑鼠移至 [HTTP 大型]  索引標籤上，然後將滑鼠移至 [快取設定]  飛出功能表上。 按一下 [查詢字串快取]  。
    
     查詢字串快取選項隨即顯示。
    
     ![CDN 查詢字串快取選項](./media/cdn-query-string-premium/cdn-query-string.png)
-3. 選取查詢字串模式，然後按一下 [更新]。
+3. 選取查詢字串模式，然後按一下 [更新]  。
 
 > [!IMPORTANT]
 > 因為註冊資訊需要一段時間才能傳遍 CDN，快取字串設定的變更可能無法立即看見。 傳播通常會在 10 分鐘內完成。

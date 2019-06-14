@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 09/12/2018
 ms.author: raynew
 ms.openlocfilehash: f4cd9cad3813378fcdc3f06e8ab1c28eced4f93c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116047"
 ---
 Name | 商業 URL | 政府 URL | 說明
 --- | --- | --- | ---
 Azure Active Directory | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | 可用於使用 Azure Active Directory 來管理存取控制和身分識別。 
-Backup  | ``*.backup.windowsazure.com`` | ``*.backup.windowsazure.us`` | 用於複寫資料的傳輸和協調。
+Backup | ``*.backup.windowsazure.com`` | ``*.backup.windowsazure.us`` | 用於複寫資料的傳輸和協調。
 複寫 | ``*.hypervrecoverymanager.windowsazure.com`` | ``*.hypervrecoverymanager.windowsazure.us``  | 用於複寫管理作業和協調。
 儲存體 | ``*.blob.core.windows.net`` | ``*.blob.core.usgovcloudapi.net``  | 用於存取儲存體帳戶來儲存複寫的資料。
 遙測 (選用) | ``dc.services.visualstudio.com`` | ``dc.services.visualstudio.com`` | 用於遙測。

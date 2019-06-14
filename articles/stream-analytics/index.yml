@@ -64,7 +64,7 @@ sections:
         className: cardsD
         items:
           - title: 預覽
-            html: '<p><a href="stream-analytics-previews#public-previews">公開預覽版</a></p><p><a href="stream-analytics-previews#private-previews">個人預覽版</a></p>'
+            html: '<p><a href="stream-analytics-previews#public-previews">公開預覽版</a></p><p><a href="stream-analytics-previews#other-previews">個人預覽版</a></p>'
           - title: 命令列
             html: '<p><a href="https://docs.microsoft.com/powershell/module/az.streamanalytics/#stream_analytics">Azure PowerShell</a></p>'
           - title: 語言

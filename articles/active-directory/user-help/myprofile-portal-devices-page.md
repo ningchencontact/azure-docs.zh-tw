@@ -13,10 +13,10 @@ ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b303a1cd3da7010573ce34dd4762616f4b6581d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60475822"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>從我的設定檔 (預覽) 入口網站管理已連線裝置
@@ -27,7 +27,7 @@ ms.locfileid: "60475822"
 ## <a name="view-your-connected-devices"></a>檢視已連線裝置
 1. 登入您的公司或學校帳戶，然後前往 https://myprofile.microsoft.com/ 頁面。
 
-2. 從左側瀏覽窗格選取 [裝置]，或從 [裝置] 區塊選取 [管理裝置] 連結。
+2. 從左側瀏覽窗格選取 [裝置]  ，或從 [裝置]  區塊選取 [管理裝置]  連結。
 
     ![我的設定檔頁面，顯示醒目提示的裝置連結](media/myprofile-portal/myprofile-portal-devices.png)
 
@@ -41,11 +41,11 @@ ms.locfileid: "60475822"
 >[!Important]
 >如果您不小心停用裝置，將無法復原。 您必須連絡您組織的系統管理員以再次新增裝置。
 
-1. 從您想要移除的裝置選取 [停用]。
+1. 從您想要移除的裝置選取 [停用]  。
 
     ![有醒目提示停用連結的裝置頁面](media/myprofile-portal/myprofile-portal-devices-disable.png)
 
-2. 選取 [是] 以確認您想要停用裝置。
+2. 選取 [是]  以確認您想要停用裝置。
 
 ## <a name="next-steps"></a>後續步驟
 

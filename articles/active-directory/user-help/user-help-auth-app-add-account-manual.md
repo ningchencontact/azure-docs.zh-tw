@@ -13,10 +13,10 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 696b6b14b2a369e8b80ac615fc77fa7f48f51c57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60474250"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>手動新增帳戶至應用程式
@@ -29,50 +29,50 @@ ms.locfileid: "60474250"
 
 ## <a name="add-your-work-or-school-account"></a>新增公司或學校帳戶
 
-1. 在您的電腦上，請記下 [設定行動應用程式] 頁面上的**代碼**和 **Url** 資訊。 讓此頁面保持開啟狀態，以便查看代碼和 URL。
+1. 在您的電腦上，請記下 [設定行動應用程式]  頁面上的**代碼**和 **Url** 資訊。 讓此頁面保持開啟狀態，以便查看代碼和 URL。
     
     ![提供 QR 代碼的畫面](./media/user-help-auth-app-add-account-manual/auth-app-barcode.png)
 
-2. 開啟 Microsoft Authenticator 應用程式、從右上角的 [自訂和控制] 圖示中選取 [新增帳戶]，然後選取 [公司或學校帳戶]。
+2. 開啟 Microsoft Authenticator 應用程式、從右上角的 [自訂和控制]  圖示中選取 [新增帳戶]  ，然後選取 [公司或學校帳戶]  。
 
-3. 選取 [或手動輸入代碼]。
+3. 選取 [或手動輸入代碼]  。
 
     ![掃描 QR 代碼的畫面](./media/user-help-auth-app-add-account-manual/auth-app-manual-code.png)
    
-4. 輸入步驟 1 中的**代碼**和 **URL**，然後選取 [完成]。
+4. 輸入步驟 1 中的**代碼**和 **URL**，然後選取 [完成]  。
 
     ![輸入代碼和 URL 的畫面](./media/user-help-auth-app-add-account-manual/auth-app-code-url.png)
 
-    應用程式的 [帳戶] 畫面會顯示您的帳戶名稱和六位數的驗證碼。 為了提高安全性，驗證碼每隔 30 秒就會變更，避免多次使用同一個驗證碼。
+    應用程式的 [帳戶]  畫面會顯示您的帳戶名稱和六位數的驗證碼。 為了提高安全性，驗證碼每隔 30 秒就會變更，避免多次使用同一個驗證碼。
 
 ## <a name="add-your-google-account"></a>新增您的 Google 帳戶
 
-1. 在您的電腦上，從 [設定 Authenticator] 頁面選取 [無法掃描] 和 QR 代碼。
+1. 在您的電腦上，從 [設定 Authenticator]  頁面選取 [無法掃描]  和 QR 代碼。
 
-    [無法掃描條碼] 頁面隨即顯示，並包含密碼。 讓此頁面保持開啟狀態，以便查看密碼。
+    [無法掃描條碼]  頁面隨即顯示，並包含密碼。 讓此頁面保持開啟狀態，以便查看密碼。
 
-2. 開啟 Microsoft Authenticator 應用程式，從右上角的 [自訂和控制] 圖示中依序選取 [新增帳戶]、[其他帳戶 (Google、Facebook 等等)]，然後選取 [或手動輸入代碼]。
+2. 開啟 Microsoft Authenticator 應用程式，從右上角的 [自訂和控制]  圖示中依序選取 [新增帳戶]  、[其他帳戶 (Google、Facebook 等等)]  ，然後選取 [或手動輸入代碼]  。
 
-3. 輸入**帳戶名稱** (例如，Google)，並輸入步驟 1 中的**祕密金鑰**，然後選取 [完成]。
+3. 輸入**帳戶名稱** (例如，Google)，並輸入步驟 1 中的**祕密金鑰**，然後選取 [完成]  。
 
-4. 在電腦上的 [設定 Authenticator] 頁面中，為您的 Google 帳戶輸入應用程式提供的六位數驗證碼，然後選取 [驗證]。
+4. 在電腦上的 [設定 Authenticator]  頁面中，為您的 Google 帳戶輸入應用程式提供的六位數驗證碼，然後選取 [驗證]  。
 
-    應用程式的 [帳戶] 畫面會顯示您的帳戶名稱和六位數的驗證碼。 為了提高安全性，驗證碼每隔 30 秒就會變更，避免多次使用同一個驗證碼。
+    應用程式的 [帳戶]  畫面會顯示您的帳戶名稱和六位數的驗證碼。 為了提高安全性，驗證碼每隔 30 秒就會變更，避免多次使用同一個驗證碼。
 
     >[!NOTE]
     >如需更多雙因素驗證和 Google 帳戶的相關資訊，請參閱[開啟雙步驟驗證](https://support.google.com/accounts/answer/185839)和[深入了解雙步驟驗證](https://www.google.com/landing/2step/help.html)。
 
 ## <a name="add-your-facebook-account"></a>新增您的 Facebook 帳戶
 
-1. 在 [透過第三方 Authenticator 設定] 頁面中，其包含 QR 代碼，以及為了進入您的應用程式而編寫的程式碼。 讓此頁面保持開啟狀態，以便查看代碼。
+1. 在 [透過第三方 Authenticator 設定]  頁面中，其包含 QR 代碼，以及為了進入您的應用程式而編寫的程式碼。 讓此頁面保持開啟狀態，以便查看代碼。
 
-2. 開啟 Microsoft Authenticator 應用程式，從右上角的 [自訂和控制] 圖示中依序選取 [新增帳戶]、[其他帳戶 (Google、Facebook 等等)]，然後選取 [或手動輸入代碼]。
+2. 開啟 Microsoft Authenticator 應用程式，從右上角的 [自訂和控制]  圖示中依序選取 [新增帳戶]  、[其他帳戶 (Google、Facebook 等等)]  ，然後選取 [或手動輸入代碼]  。
 
-3. 輸入**帳戶名稱** (例如，Facebook)，並輸入步驟 1 中的**祕密金鑰**，然後選取 [完成]。
+3. 輸入**帳戶名稱** (例如，Facebook)，並輸入步驟 1 中的**祕密金鑰**，然後選取 [完成]  。
 
-4. 在電腦上的 [雙因素 Authenticator] 頁面中，為您的 Facebook 帳戶輸入應用程式提供的六位數驗證碼，然後選取 [驗證]。
+4. 在電腦上的 [雙因素 Authenticator]  頁面中，為您的 Facebook 帳戶輸入應用程式提供的六位數驗證碼，然後選取 [驗證]  。
 
-    應用程式的 [帳戶] 畫面會顯示您的帳戶名稱和六位數的驗證碼。 為了提高安全性，驗證碼每隔 30 秒就會變更，避免多次使用同一個驗證碼。
+    應用程式的 [帳戶]  畫面會顯示您的帳戶名稱和六位數的驗證碼。 為了提高安全性，驗證碼每隔 30 秒就會變更，避免多次使用同一個驗證碼。
 
     >[!NOTE]
     >如需更多雙因素驗證和您 Facebook 帳戶的更多資訊，請參閱[什麼是雙重驗證，此機制如何運作？](https://www.facebook.com/help/148233965247823)。
@@ -80,21 +80,21 @@ ms.locfileid: "60474250"
 ## <a name="add-your-amazon-account"></a>新增您的 Amazon 帳戶
 您可以藉由開啟雙因素驗證，然後將帳戶新增至應用程式，以新增您的 Amazon 帳戶。
 
-1. 在您的電腦上，從 [選擇接收代碼的方式] 頁面 (包含 QR 代碼) 中，選取 [無法掃描條碼]。
+1. 在您的電腦上，從 [選擇接收代碼的方式]  頁面 (包含 QR 代碼) 中，選取 [無法掃描條碼]  。
 
-    [無法掃描條碼] 訊息隨即顯示，並包含密碼。 讓此訊息保持開啟狀態，以便查看密碼。
+    [無法掃描條碼]  訊息隨即顯示，並包含密碼。 讓此訊息保持開啟狀態，以便查看密碼。
 
-2. 開啟 Microsoft Authenticator 應用程式，從右上角的 [自訂和控制] 圖示中依序選取 [新增帳戶]、[其他帳戶 (Google、Facebook 等等)]，然後選取 [或手動輸入代碼]。
+2. 開啟 Microsoft Authenticator 應用程式，從右上角的 [自訂和控制]  圖示中依序選取 [新增帳戶]  、[其他帳戶 (Google、Facebook 等等)]  ，然後選取 [或手動輸入代碼]  。
 
-3. 輸入**帳戶名稱** (例如，Amazon)，並輸入步驟 1 中的**祕密金鑰**，然後選取 [完成]。
+3. 輸入**帳戶名稱** (例如，Amazon)，並輸入步驟 1 中的**祕密金鑰**，然後選取 [完成]  。
 
-4. 完成其餘註冊程序，包括新增備份驗證方法 (例如簡訊)，然後選取 [傳送代碼]。
+4. 完成其餘註冊程序，包括新增備份驗證方法 (例如簡訊)，然後選取 [傳送代碼]  。
 
-5. 在您電腦的 [新增備份驗證方法] 頁面上，為您的 Amazon 帳戶輸入備份驗證方法所提供的六位數驗證碼，然後選取 [驗證代碼並繼續]。
+5. 在您電腦的 [新增備份驗證方法]  頁面上，為您的 Amazon 帳戶輸入備份驗證方法所提供的六位數驗證碼，然後選取 [驗證代碼並繼續]  。
 
-6. 在 快要完成了 頁面上，決定是否要讓您的電腦成為信任的裝置，然後選取 我知道了。
+6. 在 快要完成了 頁面上，決定是否要讓您的電腦成為信任的裝置，然後選取 我知道了  。
 
-    [進階安全性設定] 頁面隨即出現，顯示更新的雙因素驗證詳細資料。
+    [進階安全性設定]  頁面隨即出現，顯示更新的雙因素驗證詳細資料。
 
     >[!NOTE]
     >如需更多雙因素驗證和 Amazon 帳戶的相關資訊，請參閱[關於雙步驟驗證](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330)和[使用雙步驟驗證登入](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440)。    

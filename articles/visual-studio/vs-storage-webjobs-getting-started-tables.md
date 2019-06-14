@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: a9a4475465fefb01ec53e6e0eb814f9b8f192a1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390787"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>開始使用 Azure 儲存體 (Azure WebJob 專案)
@@ -25,7 +25,7 @@ ms.locfileid: "60390787"
 ## <a name="overview"></a>概觀
 本文提供 C# 程式碼範例，示範如何搭配 Azure 資料表儲存體服務使用 Azure WebJobs SDK 1.x 版。 此程式碼範例會使用 [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 1.x 版。
 
-Azure 表存储服务使用户可以存储大量结构化数据。 此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。 Azure 表最适合存储结构化非关系型数据。  如需詳細資訊，請參閱 [以 .NET 開始使用 Azure 資料表儲存體](../cosmos-db/tutorial-develop-table-dotnet.md#create-a-table) 。
+Azure 資料表儲存體服務可讓您儲存大量的結構化資料。 此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。 Azure 資料表很適合儲存結構化、非關聯式資料。  如需詳細資訊，請參閱 [以 .NET 開始使用 Azure 資料表儲存體](../cosmos-db/tutorial-develop-table-dotnet.md#create-a-table) 。
 
 有一些程式碼片段顯示用於以手動方式呼叫函式的 **Table** 屬性，亦即不是使用其中一個觸發程序屬性。
 
@@ -65,7 +65,7 @@ Azure 表存储服务使用户可以存储大量结构化数据。 此服務是�
 
 如果您想要直接使用 Azure 儲存體 API，可將 **CloudStorageAccount** 參數新增至方法簽章。
 
-## <a name="real-time-monitoring"></a>实时监视
+## <a name="real-time-monitoring"></a>即時監視
 因為資料外送流量函式經常處理大量資料，所以 WebJobs SDK 儀表板提供即時監視資料。 [引動過程記錄]  區段可告訴您是否仍有執行中的函式。
 
 ![輸入函式執行中](./media/vs-storage-webjobs-getting-started-tables/ingressrunning.png)
@@ -145,5 +145,5 @@ Azure 表存储服务使用户可以存储大量结构化数据。 此服務是�
 如需如何處理佇列訊息所觸發的資料表處理相關資訊，或是非資料表處理特有的 WebJobs SDK 案例，請參閱 [開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (WebJob 專案)](../storage/vs-storage-webjobs-getting-started-queues.md)。
 
 ## <a name="next-steps"></a>後續步驟
-本文提供的程式碼範例示範如何處理使用 Azure 資料表的常見案例。 有关如何使用 Azure WebJobs 和 WebJobs SDK 的详细信息，请参阅 [Azure WebJobs 文档资源](https://go.microsoft.com/fwlink/?linkid=390226)。
+本文提供的程式碼範例示範如何處理使用 Azure 資料表的常見案例。 如需如何使用 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱 [Azure WebJobs 文件資源](https://go.microsoft.com/fwlink/?linkid=390226)。
 

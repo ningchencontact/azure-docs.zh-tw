@@ -11,10 +11,10 @@ ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: adf713fc3f875168f99b302b0a9affef88e8414f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60327670"
 ---
 # <a name="agile-development-of-data-science-projects"></a>敏捷式資料科學專案開發
@@ -48,7 +48,7 @@ ms.locfileid: "60327670"
     - 建立模型
     - 運用模型 
     - 重新定型模型
-- **工作**：工作是可指派的程式碼或文件工作項目或其他活動，必須完成這些項目才能完成特定劇本。 例如，劇本「取得資料」中的工作可能是：
+- **工作**：工作是可指派的程式碼或文件工作項目或其他活動，必須完成這些項目才能完成特定劇本。 例如，劇本「取得資料」  中的工作可能是：
     -  取得 SQL Server 的認證 
     -  將資料上傳至 SQL 資料倉儲。 
 - **Bug**：Bug 通常是指完成工作時完成之現有程式碼或文件所需的修正。 如果 BUG 是因為分別遺漏階段或工作所造成，它可以提升為劇本或工作。 
@@ -72,17 +72,17 @@ ms.locfileid: "60327670"
 
 ## 3.<a name='AddFeature-3'></a>新增功能  
 
-在專案下建立專案存放庫之後，請移至小組 [概觀] 分頁，然後按一下 [管理工作]。
+在專案下建立專案存放庫之後，請移至小組 [概觀]  分頁，然後按一下 [管理工作]  。
 
 ![2](./media/agile-development/2-sprint-team-overview.png)
 
-若要在待處理項目中包含功能，請按一下 [待處理項目]  -->  [功能]  -->  [新增]，輸入功能**標題** (通常是您的專案名稱)，然後按一下 [新增]。
+若要在待處理項目中包含功能，請按一下 [待處理項目]   -->  [功能]   -->  [新增]  ，輸入功能**標題** (通常是您的專案名稱)，然後按一下 [新增]  。
 
 ![3](./media/agile-development/3-sprint-team-add-work.png)
 
 按兩下您建立的功能。 填入描述、指派此功能的小組成員，以及設定此功能的計劃參數。 
 
-您也可以將此功能連結至專案存放庫。 按一下 [開發] 區段底下的 [新增連結]。 完成編輯功能之後，按一下 [儲存並關閉] 以結束。
+您也可以將此功能連結至專案存放庫。 按一下 [開發]  區段底下的 [新增連結]  。 完成編輯功能之後，按一下 [儲存並關閉]  以結束。
 
 
 ## 4.<a name='AddStoryunderfeature-4'></a>在功能底下新增劇本 
@@ -95,7 +95,7 @@ ms.locfileid: "60327670"
 
 ![5](./media/agile-development/5-sprint-edit-story.png)
 
-您也可以按一下 [開發] 底下的 [+ 新增連結]，將此劇本連結至現有的存放庫。 
+您也可以按一下 [開發]  底下的 [+ 新增連結]  ，將此劇本連結至現有的存放庫。 
 
 ![6](./media/agile-development/6-sprint-link-existing-branch.png)
 
@@ -104,11 +104,11 @@ ms.locfileid: "60327670"
 
 工作是完成各個劇本所需的特定詳細步驟。 完成劇本的所有工作之後，劇本應該也會完成。 
 
-若要將工作新增至劇本，請按一下劇本項目旁邊的 **+** 符號，選取 [工作]，然後在快顯視窗中填入此工作的詳細資訊。
+若要將工作新增至劇本，請按一下劇本項目旁邊的 **+** 符號，選取 [工作]  ，然後在快顯視窗中填入此工作的詳細資訊。
 
 ![7](./media/agile-development/7-sprint-add-task.png)
 
-建立功能、劇本和工作之後，您可以在 [待處理項目] 或 [面板] 檢視中檢視它們，來追蹤其狀態。
+建立功能、劇本和工作之後，您可以在 [待處理項目]  或 [面板]  檢視中檢視它們，來追蹤其狀態。
 
 ![8](./media/agile-development/8-sprint-backlog-view.png)
 
@@ -117,27 +117,27 @@ ms.locfileid: "60327670"
 
 ## 6.<a name='set-up-agile-dsp-6'></a>在 Visual Studio Online 中設定敏捷式 TDSP 工作範本
 
-本文說明如何設定敏捷式資料科學程序範本，使用 TDSP 資料科學生命週期階段並使用 Visual Studio Online (vso) 來追蹤工作項目。 下列步驟逐步解說設定資料科學專屬敏捷式程序範本的範例 AgileDataScienceProcess，並示範如何以範本作為基礎來建立資料科學工作項目。
+本文說明如何設定敏捷式資料科學程序範本，使用 TDSP 資料科學生命週期階段並使用 Visual Studio Online (vso) 來追蹤工作項目。 下列步驟逐步解說設定資料科學專屬敏捷式程序範本的範例 AgileDataScienceProcess  ，並示範如何以範本作為基礎來建立資料科學工作項目。
 
 ### <a name="agile-data-science-process-template-setup"></a>敏捷式資料科學程序範本設定
 
-1. 瀏覽至伺服器首頁，[設定] -> [程序]。
+1. 瀏覽至伺服器首頁，[設定]   -> [程序]  。
 
     ![10](./media/agile-development/10-settings.png) 
 
-2. 瀏覽至 [敏捷式] 下的 [所有程序] -> [程序]，然後按一下 [建立繼承的程序]。 然後將程序命名為 "AgileDataScienceProcess"，並按一下 [建立程序]。
+2. 瀏覽至 [敏捷式]  下的 [所有程序]   -> [程序]  ，然後按一下 [建立繼承的程序]  。 然後將程序命名為 "AgileDataScienceProcess"，並按一下 [建立程序]  。
 
     ![11](./media/agile-development/11-agileds.png)
 
-3. 在 [AgileDataScienceProcess] -> [工作項目類型] 索引標籤下，停用 [Epic]、[功能]、[使用者劇本]，和 [工作] 等工作項目類型，方法為 [設定] -> [停用]
+3. 在 [AgileDataScienceProcess]   -> [工作項目類型]  索引標籤下，停用 [Epic]  、[功能]  、[使用者劇本]  ，和 [工作]  等工作項目類型，方法為 [設定] -> [停用] 
 
     ![12](./media/agile-development/12-disable.png)
 
-4. 瀏覽至 [AgileDataScienceProcess] -> [待辦項目層級] 索引標籤。按一下 [設定] -> [編輯/重新命名]，將 [Epics] 重新命名為「TDSP 專案」。 在相同的對話方塊中，按一下「資料科學專案」中的 [+ 新增工作項目類型]，然後將 [預設工作項目類型] 的值設為「TDSP 專案」 
+4. 瀏覽至 [AgileDataScienceProcess]   -> [待辦項目層級]  索引標籤。按一下 [設定]   -> [編輯/重新命名]  ，將 [Epics] 重新命名為「TDSP 專案」。 在相同的對話方塊中，按一下「資料科學專案」中的 [+ 新增工作項目類型]  ，然後將 [預設工作項目類型]  的值設為「TDSP 專案」 
 
     ![13](./media/agile-development/13-rename.png)  
 
-5. 同樣地，將待辦項目名稱 [功能] 變更為「TDSP 階段」，並將下列項目新增至 [新工作項目類型]：
+5. 同樣地，將待辦項目名稱 [功能] 變更為「TDSP 階段」，並將下列項目新增至 [新工作項目類型]  ：
 
     - 了解商務
     - 資料擷取
@@ -157,13 +157,13 @@ ms.locfileid: "60327670"
 
 建立資料科學程序範本之後，您就可以建立及追蹤對應至 TDSP 生命週期的資料科學工作項目。
 
-1. 當您建立新的專案時，請選取 "Agile\AgileDataScienceProcess" 作為 [工作項目程序]：
+1. 當您建立新的專案時，請選取 "Agile\AgileDataScienceProcess" 作為 [工作項目程序]  ：
 
     ![15](./media/agile-development/15-newproject.png)
 
-2. 瀏覽至新建立的專案，然後按一下 [工作] -> [待辦項目]。
+2. 瀏覽至新建立的專案，然後按一下 [工作]   -> [待辦項目]  。
 
-3. 按一下 [設定小組設定] 並檢查「TDSP 專案」來顯示「TDSP 專案」；然後儲存。
+3. 按一下 [設定小組設定]  並檢查「TDSP 專案」來顯示「TDSP 專案」；然後儲存。
 
     ![16](./media/agile-development/16-enabledsprojects.png)
 

@@ -17,10 +17,10 @@ ms.date: 05/11/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 094d79026a55e651a1f67a5047dff20c769c359a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371221"
 ---
 # <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Azure 入口網站或 Azure 帳戶中心的「找不到訂用帳戶」登入錯誤
@@ -51,8 +51,8 @@ ms.locfileid: "60371221"
 請檢查您所使用的帳戶是否為帳戶管理員。 若要確認誰是帳戶管理員，請依照下列步驟操作︰
 
 1. 登入 [Azure 入口網站中的訂用帳戶檢視](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)。
-1. 選取您想要檢查的訂用帳戶，然後查看 [設定]。
-1. 選取 [屬性] 。 該訂用帳戶的帳戶管理員會顯示在 [帳戶管理員]  方塊中。  
+1. 選取您想要檢查的訂用帳戶，然後查看 [設定]  。
+1. 選取 [屬性]  。 該訂用帳戶的帳戶管理員會顯示在 [帳戶管理員]  方塊中。  
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 

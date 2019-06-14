@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
 ms.openlocfilehash: 5a43ce3f09ce9695fa5add58b52271a46e2a271a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60388472"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>將第一個應用程式部署到 Microsoft Azure 上的 Cloud Foundry
@@ -50,14 +50,14 @@ cf login -a https://api.SYSTEMDOMAINURL --skip-ssl-validation
 
 系統會提示您登入 Cloud Controller。 使用您從市集部署步驟取得的管理員帳戶認證。
 
-Cloud Foundry 提供組織和空間 作為命名空間，以隔離共用部署內的小組和環境。 PCF 市集部署包含預設系統組織和建立以包含基礎元件的一組空間，例如自動調整服務和 Azure Service Broker。 目前，選擇系統空間。
+Cloud Foundry 提供組織  和空間  作為命名空間，以隔離共用部署內的小組和環境。 PCF 市集部署包含預設系統  組織和建立以包含基礎元件的一組空間，例如自動調整服務和 Azure Service Broker。 目前，選擇系統  空間。
 
 
 ## <a name="create-an-org-and-space"></a>建立組織和空間
 
 如果您輸入 `cf apps`，您會看到一組系統應用程式，已部署在系統組織內的系統空間。 
 
-您應該為系統應用程式保留系統組織，因此請建立組織和空間以容納我們的範例應用程式。
+您應該為系統應用程式保留系統  組織，因此請建立組織和空間以容納我們的範例應用程式。
 
 ```bash
 cf create-org myorg
@@ -104,7 +104,7 @@ mvn clean package
 cf push
 ```
 
-當您發送應用程式時，Cloud Foundry 會偵測應用程式類型 (在此案例中為 Java 應用程式)，並且識別其相依性 (在此案例中為 Spring Framework)。 然後它會將執行程式碼所需的所有項目封裝至獨立容器映像，稱為 droplet。 最後，Cloud Foundry 會在環境中其中一部可用的機器上排程應用程式，並且建立您可以在該位置取得它的 URL，該 URL 可以在命令的輸出中取得。
+當您發送  應用程式時，Cloud Foundry 會偵測應用程式類型 (在此案例中為 Java 應用程式)，並且識別其相依性 (在此案例中為 Spring Framework)。 然後它會將執行程式碼所需的所有項目封裝至獨立容器映像，稱為 droplet  。 最後，Cloud Foundry 會在環境中其中一部可用的機器上排程應用程式，並且建立您可以在該位置取得它的 URL，該 URL 可以在命令的輸出中取得。
 
 ![cf push 命令的輸出][cf-push-output]
 
@@ -123,7 +123,7 @@ cf push
 cf logs hello-spring-cloud
 ```
 
-根據預設，記錄命令會使用 tail，在寫入之後顯示新的記錄。 若要查看出現的新記錄，請在瀏覽器中重新整理 hello-spring-cloud 應用程式。
+根據預設，記錄命令會使用 tail  ，在寫入之後顯示新的記錄。 若要查看出現的新記錄，請在瀏覽器中重新整理 hello-spring-cloud 應用程式。
 
 若要檢視已寫入的記錄，請新增 `recent` 參數：
 

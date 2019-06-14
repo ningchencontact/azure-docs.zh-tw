@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
 ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60520258"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 範本與 Azure 入口網站來部署資源
@@ -24,11 +24,11 @@ ms.locfileid: "60520258"
 
 ## <a name="create-resource-group"></a>建立資源群組
 
-1. 若要建立空的資源群組，請選取 [資源群組]。
+1. 若要建立空的資源群組，請選取 [資源群組]  。
 
    ![選取資源群組](./media/resource-group-template-deploy-portal/select-resource-groups.png)
 
-1. 在 [資源群組] 底下選取 [新增]。
+1. 在 [資源群組] 底下選取 [新增]  。
 
    ![新增資源群組](./media/resource-group-template-deploy-portal/add-resource-group.png)
 
@@ -36,9 +36,9 @@ ms.locfileid: "60520258"
 
    ![設定群組值](./media/resource-group-template-deploy-portal/set-group-properties.png)
 
-   當您完成設定屬性時，選取 [建立]。
+   當您完成設定屬性時，選取 [建立]  。
 
-1. 若要查看新的資源群組，請選取 [重新整理]。
+1. 若要查看新的資源群組，請選取 [重新整理]  。
 
    ![重新整理資源群組](./media/resource-group-template-deploy-portal/refresh-resource-groups.png)
 
@@ -46,7 +46,7 @@ ms.locfileid: "60520258"
 
 建立資源群組之後，您可以將資源從 Marketplace 部署至該群組。 Marketplace 針對常見的案例提供預先定義的解決方案。
 
-1. 若要開始部署，請選取 [建立資源]。
+1. 若要開始部署，請選取 [建立資源]  。
 
    ![新增資源](./media/resource-group-template-deploy-portal/new-resources.png)
 
@@ -70,7 +70,7 @@ ms.locfileid: "60520258"
 
    ![檢視通知](./media/resource-group-template-deploy-portal/view-notification.png)
 
-1. 部署您的資源之後，您可以選取 [新增]，將更多資源新增至資源群組。
+1. 部署您的資源之後，您可以選取 [新增]  ，將更多資源新增至資源群組。
 
    ![新增資源](./media/resource-group-template-deploy-portal/add-resource.png)
 
@@ -81,15 +81,15 @@ ms.locfileid: "60520258"
 > [!NOTE]
 > 入口網站介面不支援參考 [Key Vault 中的祕密](resource-manager-keyvault-parameter.md)。 請改用 [PowerShell](resource-group-template-deploy.md) 或 [Azure CLI](resource-group-template-deploy-cli.md)，在本機或從外部 URI 部署您的範本。
 
-1. 若要透過入口網站來部署自訂的範本，請選取 [建立資源]，並搜尋 [範本部署]，直到您可以從選項中選取它為止。
+1. 若要透過入口網站來部署自訂的範本，請選取 [建立資源]  ，並搜尋 [範本部署]  ，直到您可以從選項中選取它為止。
 
    ![搜尋範本部署](./media/resource-group-template-deploy-portal/search-template.png)
 
-1. 選取 [建立] 。
+1. 選取 [建立]  。
 
    ![選取 [建立]](./media/resource-group-template-deploy-portal/show-template-option.png)
 
-1. 您會看到建立範本的幾個選項。 選取 [在編輯器中組建您自己的範本]。
+1. 您會看到建立範本的幾個選項。 選取 [在編輯器中組建您自己的範本]  。
 
    ![檢視選項](./media/resource-group-template-deploy-portal/see-options.png)
 
@@ -97,11 +97,11 @@ ms.locfileid: "60520258"
 
    ![建立範本](./media/resource-group-template-deploy-portal/blank-template.png)
 
-1. 您可以手動編輯 JSON 語法，也可以從[快速入門範本資源庫](https://azure.microsoft.com/resources/templates/)選取預先建立的範本。 不過，本文會使用 [新增資源] 選項。
+1. 您可以手動編輯 JSON 語法，也可以從[快速入門範本資源庫](https://azure.microsoft.com/resources/templates/)選取預先建立的範本。 不過，本文會使用 [新增資源]  選項。
 
    ![編輯範本](./media/resource-group-template-deploy-portal/select-add-resource.png)
 
-1. 選取 [儲存體帳戶]，並提供名稱。 提供值完畢後，選取 [確定]。
+1. 選取 [儲存體帳戶]  ，並提供名稱。 提供值完畢後，選取 [確定]  。
 
    ![選取儲存體帳戶](./media/resource-group-template-deploy-portal/add-storage-account.png)
 
@@ -109,7 +109,7 @@ ms.locfileid: "60520258"
 
    ![顯示範本](./media/resource-group-template-deploy-portal/show-json.png)
 
-1. 現在，有選項可以用來部署範本中定義的資源。 若要部署，請同意條款與條件，並選取 [購買]。
+1. 現在，有選項可以用來部署範本中定義的資源。 若要部署，請同意條款與條件，並選取 [購買]  。
 
    ![部署範本](./media/resource-group-template-deploy-portal/provide-custom-template-values.png)
 
@@ -117,7 +117,7 @@ ms.locfileid: "60520258"
 
 入口網站可讓您將範本儲存至您的 Azure 帳戶，並於日後部署它。 如需範本的詳細資訊，請參閱[建立及部署第一個 Azure Resource Manager 範本](resource-manager-create-first-template.md)。
 
-1. 若要尋找您已儲存的範本，請選取 [更多服務]。
+1. 若要尋找您已儲存的範本，請選取 [更多服務]  。
 
    ![更多服務](./media/resource-group-template-deploy-portal/more-services.png)
 

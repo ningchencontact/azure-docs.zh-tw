@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: 8ad472b9c92e3bc2164146191a63985fd26becab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306358"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>使用 Application Insights 來分析即時 Azure 雲端服務
@@ -29,7 +29,7 @@ ms.locfileid: "60306358"
 Application Insights Profiler 會與 Azure 診斷擴充功能一起安裝。 您只需要設定 Azure 診斷，以便安裝 Profiler 並將設定檔傳送至 Application Insights 資源。
 
 ## <a name="enable-profiler-for-azure-cloud-services"></a>針對 Azure 雲端服務啟用 Profiler
-1. 確認您所使用的是 [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 或更新版本。 確認 ServiceConfiguration.\*.cscfg 檔案的 `osFamily` 值為 "5" 以上即可。
+1. 確認您所使用的是 [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 或更新版本。 確認 ServiceConfiguration.\*.cscfg  檔案的 `osFamily` 值為 "5" 以上即可。
 
 1. [將 Application Insights SDK 新增至 Azure 雲端服務](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json)。
 
@@ -43,7 +43,7 @@ Application Insights Profiler 會與 Azure 診斷擴充功能一起安裝。 您
 
 1. 設定 Azure 診斷擴充功能，若要啟用 Profiler:
 
-    a. 針對您的應用程式角色找出 [Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) diagnostics.wadcfgx 檔案，如下所示：  
+    a. 針對您的應用程式角色找出 [Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) diagnostics.wadcfgx  檔案，如下所示：  
 
       ![診斷組態檔的位置](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
@@ -64,12 +64,12 @@ Application Insights Profiler 會與 Azure 診斷擴充功能一起安裝。 您
       ```
 
     > [!NOTE]
-    > 如果 diagnostics.wadcfgx 檔案也包含 ApplicationInsights 類型的另一個接收，則以下三個檢測金鑰全都必須符合：  
+    > 如果 diagnostics.wadcfgx  檔案也包含 ApplicationInsights 類型的另一個接收，則以下三個檢測金鑰全都必須符合：  
     > * 應用程式使用的金鑰。 
     > * ApplicationInsights 接收使用的金鑰。 
     > * ApplicationInsightsProfiler 接收使用的金鑰。 
     >
-    > 您可以在 ServiceConfiguration.\*.cscfg 檔案中找到 `ApplicationInsights` 接收所使用的實際檢測金鑰值。 
+    > 您可以在 ServiceConfiguration.\*.cscfg  檔案中找到 `ApplicationInsights` 接收所使用的實際檢測金鑰值。 
     > Visual Studio 15.5 Azure SDK 發行之後，只有應用程式和 ApplicationInsightsProfiler 接收所使用的檢測金鑰必須彼此相符。
 
 1. 使用新的診斷設定部署服務，然後 Application Insights Profiler 就會設定為在服務上執行。

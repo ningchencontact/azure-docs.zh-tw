@@ -12,10 +12,10 @@ ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: dd0467479960df30b1d44aeaef7ed0ed0d6c2a87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253154"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>實作 Spark 建置機器學習模型
@@ -43,7 +43,7 @@ ms.locfileid: "60253154"
 ## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>安裝程式︰儲存體位置、程式庫和預設 Spark 內容
 Spark 也可以讀取和寫入 Azure 儲存體 Blob (WASB)。 如此可使用 Spark 處理該處儲存的任何現有資料，並在 WASB 中再次儲存結果。
 
-若要在 WASB 中儲存模型或檔案，必須正確指定路徑。 可以使用以「wasb:///」開頭的路徑，參考連接到 Spark 叢集的預設容器。 下列程式碼範例會指定要讀取資料的位置，和將儲存模型輸出的模型儲存體目錄的路徑。 
+若要在 WASB 中儲存模型或檔案，必須正確指定路徑。 可以使用以「wasb:///」  開頭的路徑，參考連接到 Spark 叢集的預設容器。 下列程式碼範例會指定要讀取資料的位置，和將儲存模型輸出的模型儲存體目錄的路徑。 
 
 ### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>在 WASB 中設定儲存位置的目錄路徑
 模型會儲存在：「wasb:///user/remoteuser/NYCTaxi/Models」。 如果未正確設定此路徑，不會載入模型進行評分。
@@ -526,7 +526,7 @@ BoostedTreeRegressionFileLoc：GradientBoostingTreeRegression_2016-05-0317_23_56
 ## <a name="consume-spark-models-through-a-web-interface"></a>透過 Web 介面使用 Spark 模型
 Spark 提供一個機制，透過 REST 介面 (包含稱為 Livy 的元件) 從遠端提交批次工作或互動式查詢。 Livy 預設在 HDInsight Spark 叢集上啟用。 如需有關 Livy 的詳細資訊，請參閱：[使用 Livy 從遠端提交 Spark 作業](../../hdinsight/spark/apache-spark-livy-rest-interface.md)。 
 
-您可以使用 Livy 從遠端提交作業，其批次批分儲存在 Azure blob 中的檔案，然後將結果寫入另一個 blob。 若要這樣做，需要將 Python 指令碼從   
+您可以使用 Livy 從遠端提交作業，其批次批分儲存在 Azure blob 中的檔案，然後將結果寫入另一個 blob。 若要這樣做，需要將 Python 指令碼從  
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) 上傳至 Spark 叢集的 blob。 您可以使用類似 **Microsoft Azure 儲存體總管**或 **AzCopy** 的工具，將指令碼複製到叢集 blob。 在本例中，我們將指令碼上傳至 wasb:///example/python/ConsumeGBNYCReg.py。   
 
 > [!NOTE]
@@ -580,7 +580,7 @@ Spark 提供一個機制，透過 REST 介面 (包含稱為 Livy 的元件) 從�
 
 如果您偏好程式碼可用的用戶端體驗，請使用 [Azure Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/) 來叫用 Spark 批次評分，方法是在 **Logic Apps Designer** 上定義 HTTP 動作並設定它的參數。 
 
-* 在 Azure 入口網站中，選取 [+ 新增]  ->  [Web + 行動 ]  ->  [邏輯應用程式] 來建立新的邏輯應用程式。 
+* 在 Azure 入口網站中，選取 [+ 新增]   ->  [Web + 行動 ]   ->  [邏輯應用程式]  來建立新的邏輯應用程式。 
 * 若要引進 **Logic Apps Designer**，請輸入邏輯應用程式和 App Service 方案的名稱。
 * 選取 HTTP 動作，然後輸入下圖顯示的參數︰
 

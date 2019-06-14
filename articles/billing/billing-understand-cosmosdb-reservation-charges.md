@@ -10,10 +10,10 @@ ms.date: 04/13/2019
 ms.author: banders
 ms.reviewer: sngun
 ms.openlocfilehash: d5a13e4466234d73bafe8dbe76cae92955cf64bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370742"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>了解保留折扣如何套用至 Azure Cosmos DB

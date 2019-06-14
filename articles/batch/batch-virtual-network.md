@@ -10,10 +10,10 @@ ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 2583e7e218e765e0d7745978582e19a5a4fe17ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60550175"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>在虛擬網路中建立 Azure Batch 集區
@@ -41,12 +41,12 @@ Azure Batch 集區有設定可讓計算節點彼此通訊，以便 (舉例來說
 在建立了 VNet 並為其指派子網路後，您可以建立具有該 VNet 的 Batch 集區。 請遵循下列步驟，從 Azure 入口網站建立集區： 
 
 1. 在 Azure 入口網站中瀏覽至您的 Batch 帳戶。 此帳戶必須位於與您要使用之 VNet 所在的資源群組相同的訂用帳戶和區域中。 
-2. 在左側的 [設定] 視窗中，選取 [集區] 功能表項目。
-3. 在 [集區] 視窗中，選取 [新增] 命令。
-4. 在 [新增集區] 視窗上，從 [映像類型] 下拉式清單選取您要使用的選項。 
+2. 在左側的 [設定]  視窗中，選取 [集區]  功能表項目。
+3. 在 [集區]  視窗中，選取 [新增]  命令。
+4. 在 [新增集區]  視窗上，從 [映像類型]  下拉式清單選取您要使用的選項。 
 5. 依據您的自訂映像選取正確的**發行者/提供項目/SKU**。
 6. 指定其餘的必要設定，包括**節點大小**、**目標專用的節點**和**低優先權的節點**，以及所需的任何選擇性設定。
-7. 在 [虛擬網路] 中，選取您想要使用的虛擬網路和子網路。
+7. 在 [虛擬網路]  中，選取您想要使用的虛擬網路和子網路。
   
    ![新增具有虛擬網路的集區](./media/batch-virtual-network/add-vnet-pool.png)
 
@@ -60,7 +60,7 @@ Azure Batch 集區有設定可讓計算節點彼此通訊，以便 (舉例來說
 
 * 確定您並未透過內部部署網路應用裝置禁止輸出到 Azure 儲存體的流量 (具體地說，就是 `<account>.table.core.windows.net`、`<account>.queue.core.windows.net` 和 `<account>.blob.core.windows.net` 表單的 URL)。
 
-當您新增使用者定義的路由時，請為每個相關的「批次 IP」位址首碼定義路由，然後將 [下一個躍點類型] 設定為 [網際網路]。 請參閱下列範例：
+當您新增使用者定義的路由時，請為每個相關的「批次 IP」位址首碼定義路由，然後將 [下一個躍點類型]  設定為 [網際網路]  。 請參閱下列範例：
 
 ![使用者定義路由](./media/batch-virtual-network/user-defined-route.png)
 

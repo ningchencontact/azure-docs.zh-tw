@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 06f65aef203b4f0d765f21b9d17b90081de85c94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453536"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>開始使用 Oracle Database 連接器
@@ -59,14 +59,14 @@ ms.locfileid: "60453536"
 
 3. 選取 [ **儲存**]。 當您儲存時，系統會自動生產生一個要求 URL。 
 
-4. 選取 [新增步驟]，再選取 [新增動作]。 輸入 `oracle` 以查看可用的動作： 
+4. 選取 [新增步驟]  ，再選取 [新增動作]  。 輸入 `oracle` 以查看可用的動作： 
 
     ![](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
     > 這也是查看連接器可使用的觸發程序和動作最快的方法。 輸入連接器的部分名稱，例如 `oracle`。 設計工具會列出所有觸發程序和動作。 
 
-5. 選取其中一個動作，例如 [Oracle Database - 立即取得]。 選取 [透過內部部署資料閘道連線]。 輸入 Oracle 伺服器名稱、驗證方法、使用者名稱、密碼並選取閘道：
+5. 選取其中一個動作，例如 [Oracle Database - 立即取得]  。 選取 [透過內部部署資料閘道連線]  。 輸入 Oracle 伺服器名稱、驗證方法、使用者名稱、密碼並選取閘道：
 
     ![](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
@@ -80,7 +80,7 @@ ms.locfileid: "60453536"
 
     ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
-8. **儲存**您的邏輯應用程式，接著選取 [執行]。 關閉設計工具，接著查看狀態的執行歷程記錄。 如果失敗，請選取失敗的訊息資料列。 設計工具隨即開啟，並顯示失敗的步驟，以及錯誤資訊。 如果成功，您應該會收到一封電子郵件，內含您新增的資訊。
+8. **儲存**您的邏輯應用程式，接著選取 [執行]  。 關閉設計工具，接著查看狀態的執行歷程記錄。 如果失敗，請選取失敗的訊息資料列。 設計工具隨即開啟，並顯示失敗的步驟，以及錯誤資訊。 如果成功，您應該會收到一封電子郵件，內含您新增的資訊。
 
 
 ### <a name="workflow-ideas"></a>工作流程想法

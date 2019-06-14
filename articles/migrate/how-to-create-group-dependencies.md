@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
 ms.openlocfilehash: 3ee528cc68a2a5637e85dc1d5ef68203916138e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60596866"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>使用群組相依性對應調整群組
@@ -32,7 +32,7 @@ Azure Migrate 會利用 Azure 監視器記錄檔，以啟用機器的相依性�
 ### <a name="associate-a-log-analytics-workspace"></a>與 Log Analytics 工作區建立關聯
 若要利用相依性視覺效果，您需要將新的或現有的 Log Analytics 工作區與 Azure Migrate 專案建立關聯。 您只能在建立移轉專案的相同訂用帳戶中，建立或連結工作區。
 
-- 若要將 Log Analytics 工作區連結至專案，請在 [概觀] 中，移至專案的 [基本資訊] 區段，然後按一下 [需要設定]
+- 若要將 Log Analytics 工作區連結至專案，請在 [概觀]  中，移至專案的 [基本資訊]  區段，然後按一下 [需要設定] 
 
     ![與 Log Analytics 工作區建立關聯](./media/concepts-dependency-visualization/associate-workspace.png)
 
@@ -46,9 +46,9 @@ Azure Migrate 會利用 Azure 監視器記錄檔，以啟用機器的相依性�
 ### <a name="download-and-install-the-vm-agents"></a>下載並安裝虛擬機器代理程式
 若要檢視群組的相依性，您需要下載代理程式，並將它安裝在屬於群組的每個內部部署機器上。 此外，如果您的機器沒有網際網路連線，則需要下載並安裝 [Log Analytics 閘道](../azure-monitor/platform/gateway.md)。
 
-1. 在 [概觀] 中，按一下 [管理] > [群組]，移至必要的群組。
-2. 在機器清單中，在 [相依性代理程式] 欄中，按一下 [需要安裝] 以查看有關如何下載並安裝代理程式的指示。
-3. 在 [相依性] 頁面上，下載 Microsoft Monitoring Agent (MMA) 和相依性代理程式，並安裝在屬於群組的每部 VM 上。
+1. 在 [概觀]  中，按一下 [管理]   > [群組]  ，移至必要的群組。
+2. 在機器清單中，在 [相依性代理程式]  欄中，按一下 [需要安裝]  以查看有關如何下載並安裝代理程式的指示。
+3. 在 [相依性]  頁面上，下載 Microsoft Monitoring Agent (MMA) 和相依性代理程式，並安裝在屬於群組的每部 VM 上。
 4. 複製工作區識別碼與金鑰。 在內部部署機器上安裝 MMA 時，需要用到這些識別碼與金鑰。
 
 ### <a name="install-the-mma"></a>安裝 MMA
@@ -58,10 +58,10 @@ Azure Migrate 會利用 Azure 監視器記錄檔，以啟用機器的相依性�
 在 Windows 電腦上安裝代理程式：
 
 1. 按兩下下載的代理程式。
-2. 在 [歡迎] 頁面中按 [下一步]。 在 [授權條款] 頁面上，按一下 [我同意] 以接受授權。
-3. 在 [目的地資料夾] 中，保留或修改預設的安裝資料夾 > [下一步]。
-4. 在 [代理程式安裝選項] 中，選取 [Azure Log Analytics] > [下一步]。
-5. 按一下 [新增] 以新增 Log Analytics 工作區。 貼上您從入口網站複製的工作區識別碼和金鑰。 单击“下一步”。
+2. 在 [歡迎]  頁面中按 [下一步]  。 在 [授權條款]  頁面上，按一下 [我同意]  以接受授權。
+3. 在 [目的地資料夾]  中，保留或修改預設的安裝資料夾 > [下一步]  。
+4. 在 [代理程式安裝選項]  中，選取 [Azure Log Analytics]   > [下一步]  。
+5. 按一下 [新增]  以新增 Log Analytics 工作區。 貼上您從入口網站複製的工作區識別碼和金鑰。 单击“下一步”  。
 
 您可以從命令列或使用 System Center Configuration Manager 等自動化的方法來安裝代理程式。 [了解更多](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent)有關如何使用這些方法來安裝 MMA 代理程式。
 
@@ -92,7 +92,7 @@ Azure Migrate 會利用 Azure 監視器記錄檔，以啟用機器的相依性�
 一旦您已在群組的所有機器上安裝代理程式，您可以將群組的相依性視覺化，並按照下列步驟進行調整。
 
 1. 在 Azure Migrate 專案中的 **管理** 下方，按一下  **群組**，然後選取群組。
-2. 在群組頁面中，按一下  **[檢視相依性]**， 即會開啟群組相依性對應。
+2. 在群組頁面中，按一下  **[檢視相依性]** ， 即會開啟群組相依性對應。
 3. 群組的相依性對應會顯示下列詳細資料：
    - 至/從屬於群組的所有機器之輸入 (用戶端) 和輸出 (伺服器) TCP 連線
        - 未安裝 MMA 和相依性代理程式的相依機器會依連接埠號碼分組
@@ -112,7 +112,7 @@ Azure Migrate 會利用 Azure 監視器記錄檔，以啟用機器的相依性�
     - 您只能新增已探索到的機器。
     - 新增和移除群組中的機器會讓先前所做的評量失效。
     - 修改群組時，可以選擇性地建立新評量。
-5. 按一下 [確定] 以儲存群組。
+5. 按一下 [確定]  以儲存群組。
 
     ![新增或移除機器](./media/how-to-create-group-dependencies/add-remove.png)
 
@@ -124,9 +124,9 @@ Azure Migrate 會利用 Azure 監視器記錄檔，以啟用機器的相依性�
 
 若要執行的 Kusto 查詢：
 
-1. 安裝代理程式之後，請移至入口網站，然後按一下 [概觀]。
-2. 在 [概觀] 中，移至專案的 [Essentials] 區域，然後按一下 [OMS 工作區] 旁提供的工作區名稱。
-3. 在 Log Analytics 工作區頁面上，按一下 [一般] > [記錄]。
+1. 安裝代理程式之後，請移至入口網站，然後按一下 [概觀]  。
+2. 在 [概觀]  中，移至專案的 [Essentials]  區域，然後按一下 [OMS 工作區]  旁提供的工作區名稱。
+3. 在 Log Analytics 工作區頁面上，按一下 [一般]   > [記錄]  。
 4. 撰寫查詢，以蒐集使用 Azure 監視器記錄檔的相依性資料。 在下一節中找到查詢範例。
 5. 按一下 [執行] 以執行查詢。 
 

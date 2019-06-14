@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 405fe71676de311ed7e59ea72798ff4fd2db0f62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237298"
 ---
 # <a name="run-a-notebook-slideshow"></a>執行 Notebook 投影片
@@ -42,11 +42,11 @@ Azure Notebooks 預先設定有 Jupyter/IPython 投影片擴充功能 (RISE)，�
 
 如果您採用隨機 Notebook，並將其用於投影片放映，您通常會發現所有資料格都混雜在一起，且有許多內容隱藏在瀏覽器視窗底部。 若要進行有效的簡報，您必須使用投影片資料格工具列，為每個資料格指派投影片類型：
 
-1. 在 [檢視] 功能表上，選取 [資料格工具列] > [投影片]：
+1. 在 [檢視]  功能表上，選取 [資料格工具列]   > [投影片]  ：
 
     ![開啟資料格投影片工具列](media/slideshow/slideshow-view-cell-toolbar.png)
 
-1. [投影片類型] 下拉式清單會出現在 Notebook 中每個資料格的右上方：
+1. [投影片類型]  下拉式清單會出現在 Notebook 中每個資料格的右上方：
 
     ![資料格投影片工具列](media/slideshow/slideshow-cell-toolbar.png)
 
@@ -63,11 +63,11 @@ Azure Notebooks 預先設定有 Jupyter/IPython 投影片擴充功能 (RISE)，�
     | Skip | 資料格不會顯示在投影片中。 |
     | 注意 | 資料格會包含在主講人備忘稿內，而不會顯示在投影片中。 |
 
-1. 一開始最好為每個資料格選擇 [投影片]。 接著，您可以執行投影片，並進行適當的調整。
+1. 一開始最好為每個資料格選擇 [投影片]  。 接著，您可以執行投影片，並進行適當的調整。
 
 ### <a name="example-fragment-cells-for-bullet-items"></a>範例：項目符號項目的片段資料格
 
-若要讓投影片上的項目符號逐一出現，請在屬於 [投影片] 類型的 Markdown 資料格中放入投影片標頭，然後在屬於 [片段] 類型的個別 Markdown 資料格中放入每個項目符號：
+若要讓投影片上的項目符號逐一出現，請在屬於 [投影片]  類型的 Markdown 資料格中放入投影片標頭，然後在屬於 [片段]  類型的個別 Markdown 資料格中放入每個項目符號：
 
 ![為項目符號項目建立多個 Markdown 資料格的範例](media/slideshow/slideshow-fragments.png)
 
@@ -77,7 +77,7 @@ Azure Notebooks 預先設定有 Jupyter/IPython 投影片擴充功能 (RISE)，�
 
 1. 如果您已編輯任何 Markdown 資料格，請務必加以執行以呈現其 HTML，否則這些資料格在投影片中會*呈現為* Markdown。
 
-1. 在您為每個資料格設定 [投影片類型] 之後，請選取要作為投影片開頭的資料格，然後選取主要工具列上的 [進入/結束 RISE 投影片] 按鈕：
+1. 在您為每個資料格設定 [投影片類型]  之後，請選取要作為投影片開頭的資料格，然後選取主要工具列上的 [進入/結束 RISE 投影片]  按鈕：
 
     ![主要工具列上的進入/結束 RISE 投影片按鈕](media/slideshow/slideshow-start.png)
 
@@ -96,7 +96,7 @@ Azure Notebooks 預先設定有 Jupyter/IPython 投影片擴充功能 (RISE)，�
     ![程式碼資料格輸出會出現在投影片中](media/slideshow/slideshow-run-code-cell-output.png)
 
     > [!Tip]
-    > 資料格輸出會被視為投影片資料格的一部分。 如果您在 Notebook 或投影片檢視中執行資料格，輸出也會出現在其他檢視中。 若要清除輸出，請使用 [資料格] > [目前的輸出] > [清除] 命令 (適用於目前的資料格) 或 [資料格] > [所有輸出] > [清除] (適用於所有資料格)。
+    > 資料格輸出會被視為投影片資料格的一部分。 如果您在 Notebook 或投影片檢視中執行資料格，輸出也會出現在其他檢視中。 若要清除輸出，請使用 [資料格]   > [目前的輸出]   > [清除]  命令 (適用於目前的資料格) 或 [資料格]   > [所有輸出]   > [清除]  (適用於所有資料格)。
 
 1. 完成投影片放映後，請使用 **X** 返回 Notebook 檢視。
 

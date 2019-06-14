@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/19/2018
 ms.author: tomfitz
 ms.openlocfilehash: 1dd0532452c3558e53f0236998953d2055ed328c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390733"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>解決 SKU 無法使用的錯誤
@@ -82,7 +82,7 @@ virtualMachines  southcentralus  Standard_F4                ...             None
 
 若要判斷區域中可以使用哪些 SKU，請使用[入口網站](https://portal.azure.com)。 登入入口網站，然後透過介面新增資源。 當您設定值時，您會看到該資源可用的 SKU。 您不需要完成部署。
 
-例如，請開始建立虛擬機器的程序。 若要查看其他可用的大小，請選取 [變更大小]。
+例如，請開始建立虛擬機器的程序。 若要查看其他可用的大小，請選取 [變更大小]  。
 
 ![建立 VM](./media/resource-manager-sku-not-available-errors/create-vm.png)
 
