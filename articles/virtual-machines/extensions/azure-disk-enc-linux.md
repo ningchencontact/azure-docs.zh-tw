@@ -86,7 +86,7 @@ Azure 磁碟加密目前在特定的發行版本和版本上受到支援。  如
 | KeyEncryptionAlgorithm | 'RSA-OAEP'、'RSA-OAEP-256'、'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | string |
 | KeyVaultURL | url | string |
-| 複雜密碼 | password | string | 
+| Passphrase | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | 作業系統、資料、全部 | string |
 
