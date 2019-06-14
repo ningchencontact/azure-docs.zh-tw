@@ -11,10 +11,10 @@ ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60599565"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>案例：適用於邏輯應用程式的例外狀況處理與記錄錯誤
@@ -42,7 +42,7 @@ ms.locfileid: "60599565"
 
 我們選擇以 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") 做為記錄檔和錯誤記錄的存放庫 (Cosmos DB 會將記錄當做文件)。 由於 Azure Logic Apps 具有適用於所有回應的標準範本，因此我們不需要建立自訂結構描述。 我們可以建立 API 應用程式來**插入**及**查詢**錯誤和記錄檔記錄。 我們也可以為 API 應用程式中的每個項目定義結構描述。  
 
-另一個需求是要在特定日期之後清除記錄。 Cosmos DB 具有稱為[存留時間 (英文)](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "存留時間") (TTL) 的屬性，這可讓我們設定每一筆記錄或每一個集合的「存留時間」值。 此功能讓我們不需手動在 Cosmos DB 中刪除記錄。
+另一個需求是要在特定日期之後清除記錄。 Cosmos DB 具有稱為[存留時間 (英文)](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "存留時間") (TTL) 的屬性，這可讓我們設定每一筆記錄或每一個集合的「存留時間」  值。 此功能讓我們不需手動在 Cosmos DB 中刪除記錄。
 
 > [!IMPORTANT]
 > 為了完成本教學課程，您必須建立一個 Cosmos DB 資料庫和兩個集合 (記錄和錯誤)。
@@ -100,7 +100,7 @@ ms.locfileid: "60599565"
 1. 我們必須從 Dynamics CRM Online 取得新的預約記錄。
 
    來自 CRM 的觸發程序會提供我們 **CRM PatentId**、**記錄類型**、**新的或更新的記錄** (新增或更新布林值) 和 **SalesforceId**。 **SalesforceId** 可以是 null，因為它只會用於更新。
-   我們使用 CRM **PatientID** 和 [記錄類型] 來取得 CRM 記錄。
+   我們使用 CRM **PatientID** 和 [記錄類型]  來取得 CRM 記錄。
 
 2. 接下來，必須新增 Azure Cosmos DB SQL API 應用程式 **InsertLogEntry** 作業，如以下「邏輯應用程式設計工具」所示。
 
@@ -469,7 +469,7 @@ Azure Cosmos DB 中的每個文件都必須具有唯一識別碼。 我們將會
  }
 ```
 
-上述程式碼範例的運算式會檢查 Create_NewPatientRecord 狀態是否為 **Failed**。
+上述程式碼範例的運算式會檢查 Create_NewPatientRecord  狀態是否為 **Failed**。
 
 ## <a name="summary"></a>總結
 

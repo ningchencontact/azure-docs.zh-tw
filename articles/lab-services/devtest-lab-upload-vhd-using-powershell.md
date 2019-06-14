@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 56a66c3eb1dad93fad3ad1572989dc0c0aa14632
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60622746"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>使用 PowerShell 將 VHD 檔案上傳到實驗室的儲存體帳戶
@@ -33,23 +33,23 @@ ms.locfileid: "60622746"
 
 1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 
-1. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
+1. 選取 [所有服務]  ，然後從清單中選取 [DevTest Labs]  。
 
 1. 從實驗室清單中，選取所需的實驗室。  
 
-1. 在實驗室的刀鋒視窗上，選取 [組態] 。 
+1. 在實驗室的刀鋒視窗上，選取 [組態]  。 
 
-1. 在實驗室的 [組態] 刀鋒視窗上，選取 [自訂映像 (VHD)]。
+1. 在實驗室的 [組態]  刀鋒視窗上，選取 [自訂映像 (VHD)]  。
 
-1. 在 [自訂映像] 刀鋒視窗上，選取 [+新增]。 
+1. 在 [自訂映像]  刀鋒視窗上，選取 [+新增]  。 
 
-1. 在 [自訂映像] 刀鋒視窗上，選取 [VHD]。
+1. 在 [自訂映像]  刀鋒視窗上，選取 [VHD]  。
 
-1. 在 [VHD] 刀鋒視窗上，選取 [使用 PowerShell 上傳 VHD]。
+1. 在 [VHD]  刀鋒視窗上，選取 [使用 PowerShell 上傳 VHD]  。
 
     ![使用 PowerShell 上傳 VHD](./media/devtest-lab-upload-vhd-using-powershell/upload-image-using-psh.png)
 
-1. 在 [使用 PowerShell 上傳映像] 刀鋒視窗中，將產生的 PowerShell 指令碼複製到文字編輯器。
+1. 在 [使用 PowerShell 上傳映像]  刀鋒視窗中，將產生的 PowerShell 指令碼複製到文字編輯器。
 
 1. 修改 **Add-AzureVhd** Cmdlet 的 **LocalFilePath** 參數，以指向您要上傳的 VHD 檔案位置。
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
 ms.openlocfilehash: e7659cca9081834d41f64ef0fbd8ea3686044bfd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60633682"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>使用 StorSimple 做為 Veeam 的備份目標
@@ -189,7 +189,7 @@ StorSimple 提供下列優點︰
 | 部署您的內部部署 StorSimple 裝置。 | 支援的版本：Update 3 和更新版本。 |
 | 開啟備份目標。 | 使用下列命令來開啟或關閉備份目標模式，以及取得狀態。 如需詳細資訊，請參閱[從遠端連接至 StorSimple 裝置](storsimple-remote-connect.md)。</br> 若要開啟備份模式︰`Set-HCSBackupApplianceMode -enable`。 </br> 若要關閉備份模式︰`Set-HCSBackupApplianceMode -disable`。 </br> 若要取得備份模式設定的目前狀態：`Get-HCSBackupApplianceMode`。 |
 | 為儲存備份資料的磁碟區建立一般的磁碟區容器。 磁碟區容器中的所有資料都已刪除重複資料。 | StorSimple 磁碟區容器定義重複資料刪除網域。  |
-| 建立 StorSimple 磁碟區。 | 建立大小盡可能接近預期使用量的磁碟區，因為磁碟區大小會影響雲端快照集的持續時間。 如需有關如何調整磁碟區大小的資訊，請參閱[保留原則](#retention-policies)。</br> </br> 使用 StorSimple 分層磁碟區，並選取 [使用此磁碟區存放不常存取的封存資料] 核取方塊。 </br> 不支援只使用固定在本機的磁碟區。 |
+| 建立 StorSimple 磁碟區。 | 建立大小盡可能接近預期使用量的磁碟區，因為磁碟區大小會影響雲端快照集的持續時間。 如需有關如何調整磁碟區大小的資訊，請參閱[保留原則](#retention-policies)。</br> </br> 使用 StorSimple 分層磁碟區，並選取 [使用此磁碟區存放不常存取的封存資料]  核取方塊。 </br> 不支援只使用固定在本機的磁碟區。 |
 | 為所有備份目標磁碟區建立唯一的 StorSimple 備份原則。 | StorSimple 備份原則定義磁碟區一致性群組。 |
 | 在快照集到期時停用排程。 | 後處理作業會觸發快照集。 |
 
@@ -237,10 +237,10 @@ StorSimple 提供下列優點︰
 -   確定已開啟平行處理。
 -   關閉壓縮。
 -   關閉備份作業的重複資料刪除。
--   設定最佳化為 [LAN Target (LAN 目標)]。
--   開啟 [建立作用中的完整備份] \(每 2 週)。
--   在備份儲存機制中，設定 [使用每個 VM 的備份檔案]。
--   將 [每個作業使用多個上傳資料流] 設定為 **8** (最多允許 16 個)。 根據 StorSimple 裝置的 CPU 使用量向上或向下調整此數字。
+-   設定最佳化為 [LAN Target (LAN 目標)]  。
+-   開啟 [建立作用中的完整備份]  \(每 2 週)。
+-   在備份儲存機制中，設定 [使用每個 VM 的備份檔案]  。
+-   將 [每個作業使用多個上傳資料流]  設定為 **8** (最多允許 16 個)。 根據 StorSimple 裝置的 CPU 使用量向上或向下調整此數字。
 
 ## <a name="retention-policies"></a>保留原則
 
@@ -272,32 +272,32 @@ StorSimple 提供下列優點︰
 
 ### <a name="to-set-up-veeam-storage"></a>若要設定 Veeam 儲存體
 
-1.  在 [Veeam 備份和複寫] 主控台的 [儲存機制工具] 中，移至 [備份基礎結構]。 以滑鼠右鍵按一下 [備份儲存裝置]，然後選取 [新增備份儲存裝置]。
+1.  在 [Veeam 備份和複寫] 主控台的 [儲存機制工具]  中，移至 [備份基礎結構]  。 以滑鼠右鍵按一下 [備份儲存裝置]  ，然後選取 [新增備份儲存裝置]  。
 
     ![Veeam 管理主控台，備份儲存機制頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
-2.  在 [新增備份儲存機制] 對話方塊中，輸入儲存機制的名稱和描述。 選取 [下一步] 。
+2.  在 [新增備份儲存機制]  對話方塊中，輸入儲存機制的名稱和描述。 選取 [下一步]  。
 
     ![Veeam 管理主控台，名稱和描述頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
-3.  選取 [Microsoft Windows Server] 做為類型。 選取 Veeam 伺服器。 選取 [下一步] 。
+3.  選取 [Microsoft Windows Server]  做為類型。 選取 Veeam 伺服器。 選取 [下一步]  。
 
     ![Veeam 管理主控台，選取備份存放庫的類型](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
-4.  若要指定 [位置]，請瀏覽並選取磁碟區。 選取 [限制最大並行工作數:] 核取方塊並將此值設定為 **4**。 這可確保處理每個虛擬機器時，只會同時處理四個虛擬磁碟。 選取 [進階] 按鈕。
+4.  若要指定 [位置]  ，請瀏覽並選取磁碟區。 選取 [限制最大並行工作數:]  核取方塊並將此值設定為 **4**。 這可確保處理每個虛擬機器時，只會同時處理四個虛擬磁碟。 選取 [進階]  按鈕。
 
     ![Veeam 管理主控台，選取磁碟區](./media/storsimple-configure-backup-target-using-veeam/veeamimage4.png)
 
 
-5.  在 [儲存體相容性設定] 對話方塊中，選取 [使用每個 VM 的備份檔案] 核取方塊。
+5.  在 [儲存體相容性設定]  對話方塊中，選取 [使用每個 VM 的備份檔案]  核取方塊。
 
     ![Veeam 管理主控台，存放裝置相容性設定](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
-6.  在 [新增備份儲存機制] 對話方塊中，選取 [在裝載伺服器上啟用 vPower NFS 服務 (建議)] 核取方塊。 選取 [下一步] 。
+6.  在 [新增備份儲存機制]  對話方塊中，選取 [在裝載伺服器上啟用 vPower NFS 服務 (建議)]  核取方塊。 選取 [下一步]  。
 
     ![Veeam 管理主控台，備份儲存機制頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
-7.  檢閱設定，然後選取 [下一步]。
+7.  檢閱設定，然後選取 [下一步]  。
 
     ![Veeam 管理主控台，備份儲存機制頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage7.png)
 
@@ -329,11 +329,11 @@ StorSimple 提供下列優點︰
 
 #### <a name="to-assign-storsimple-volumes-to-a-veeam-backup-job"></a>若要將 StorSimple 磁碟區指派給 Veeam 備份作業
 
-1.  在 [Veeam 備份和複寫] 主控台中，選取 [備份和複寫]。 以滑鼠右鍵按一下 [備份]，然後根據您的環境選取 [VMware] 或 [Hyper-V]。
+1.  在 [Veeam 備份和複寫] 主控台中，選取 [備份和複寫]  。 以滑鼠右鍵按一下 [備份]  ，然後根據您的環境選取 [VMware]  或 [Hyper-V]  。
 
     ![Veeam 管理主控台，新增備份作業](./media/storsimple-configure-backup-target-using-veeam/veeamimage8.png)
 
-2.  在 [新增備份作業] 對話方塊中，輸入每日備份作業的名稱和描述。
+2.  在 [新增備份作業]  對話方塊中，輸入每日備份作業的名稱和描述。
 
     ![Veeam 管理主控台，新增備份作業頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
 
@@ -341,21 +341,21 @@ StorSimple 提供下列優點︰
 
     ![Veeam 管理主控台，新增備份作業頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
 
-4.  選取您想的 [備份 Proxy] 和 [備份儲存機制] 值。 根據本機連接儲存體上環境的 RPO 和 RTO 定義，選取 [要保留在磁碟上的還原點] 的值。 選取 [進階]。
+4.  選取您想的 [備份 Proxy]  和 [備份儲存機制]  值。 根據本機連接儲存體上環境的 RPO 和 RTO 定義，選取 [要保留在磁碟上的還原點]  的值。 選取 [進階]  。
 
     ![Veeam 管理主控台，新增備份作業頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage11.png)
 
-5. 在 [進階設定]  對話方塊的 [備份] 索引標籤上，選取 [增量]。 確定已清除 [定期建立綜合的完整備份] 核取方塊。 選取 [定期建立作用中的完整備份] 核取方塊。 在 [作用中的完整備份] 之下，針對星期六選取 [每週選取的日期] 核取方塊。
+5. 在 [進階設定]  對話方塊的 [備份]  索引標籤上，選取 [增量]  。 確定已清除 [定期建立綜合的完整備份]  核取方塊。 選取 [定期建立作用中的完整備份]  核取方塊。 在 [作用中的完整備份]  之下，針對星期六選取 [每週選取的日期]  核取方塊。
 
     ![Veeam 管理主控台，新增備份作業進階設定頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
-6. 在 [儲存體] 索引標籤上，確定 [啟用內嵌重複資料刪除] 核取方塊。 選取 [排除分頁檔案區塊] 核取方塊，然後選取 [排除已刪除的檔案區塊] 核取方塊。 將 [壓縮層級] 設定為 [無]。 若要獲得平衡的效能和重複資料刪除，請將 [儲存體最佳化] 設定為 [LAN 目標]。 選取 [確定] 。
+6. 在 [儲存體]  索引標籤上，確定 [啟用內嵌重複資料刪除]  核取方塊。 選取 [排除分頁檔案區塊]  核取方塊，然後選取 [排除已刪除的檔案區塊]  核取方塊。 將 [壓縮層級]  設定為 [無]  。 若要獲得平衡的效能和重複資料刪除，請將 [儲存體最佳化]  設定為 [LAN 目標]  。 選取 [確定]  。
 
     ![Veeam 管理主控台，新增備份作業進階設定頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage13.png)
 
     如需 Veeam 重複資料刪除和壓縮設定的相關資訊，請參閱[資料壓縮和重複資料刪除](https://helpcenter.veeam.com/backup/vsphere/compression_deduplication.html)。
 
-7.  在 [編輯備份作業] 對話方塊中，您可以選取 [啟用應用程式感知處理] 核取方塊 (選用)。
+7.  在 [編輯備份作業]  對話方塊中，您可以選取 [啟用應用程式感知處理]  核取方塊 (選用)。
 
     ![Veeam 管理主控台，新增備份作業客體處理頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage14.png)
 
@@ -406,11 +406,11 @@ StorSimple 提供下列優點︰
 
 #### <a name="to-assign-storsimple-volumes-to-a-veeam-copy-job"></a>若要將 StorSimple 磁碟區指派給 Veeam 複製作業
 
-1.  在 [Veeam 備份和複寫] 主控台中，選取 [備份和複寫]。 以滑鼠右鍵按一下 [備份]，然後根據您的環境選取 [VMware] 或 [Hyper-V]。
+1.  在 [Veeam 備份和複寫] 主控台中，選取 [備份和複寫]  。 以滑鼠右鍵按一下 [備份]  ，然後根據您的環境選取 [VMware]  或 [Hyper-V]  。
 
     ![Veeam 管理主控台，新增備份複製作業頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
 
-2.  在 [新增備份複製作業] 對話方塊中，輸入作業的名稱和描述。
+2.  在 [新增備份複製作業]  對話方塊中，輸入作業的名稱和描述。
 
     ![Veeam 管理主控台，新增備份複製作業頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
 
@@ -420,17 +420,17 @@ StorSimple 提供下列優點︰
 
 4.  如有需要，從備份複製作業排除物件。
 
-5.  選取您的備份儲存機制，並設定 [要保留的還原點] 的值。 務必選取 [保留下列還原點以供封存之用] 核取方塊。 定義備份頻率，然後選取 [進階]。
+5.  選取您的備份儲存機制，並設定 [要保留的還原點]  的值。 務必選取 [保留下列還原點以供封存之用]  核取方塊。 定義備份頻率，然後選取 [進階]  。
 
     ![Veeam 管理主控台，新增備份複製作業頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
 
 6.  指定下列進階設定：
 
-    * 在 [維護] 索引標籤上，關閉儲存體層級損毀保護。
+    * 在 [維護]  索引標籤上，關閉儲存體層級損毀保護。
 
     ![Veeam 管理主控台，新增備份複製作業進階設定頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
 
-    * 在 [儲存體] 索引標籤上，確定已關閉重複資料刪除和壓縮。
+    * 在 [儲存體]  索引標籤上，確定已關閉重複資料刪除和壓縮。
 
     ![Veeam 管理主控台，新增備份複製作業進階設定頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage21.png)
 

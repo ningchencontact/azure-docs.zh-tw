@@ -10,10 +10,10 @@ ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ea6599152d3cbf1f50132f5b207c19148401f798
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60564254"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>混合式 Runbook 背景工作的疑難排解
@@ -56,7 +56,7 @@ Runbook 在嘗試執行三次後會馬上暫止。 在某些情況下，Runbook 
 
 確認執行混合式 Runbook 背景工作角色功能的電腦滿足最低硬體需求。 如果滿足最低硬體需求，請監視 CPU 和記憶體使用率，判斷混合式 Runbook 背景工作角色處理序之效能和 Windows 之間是否有任何相互關聯。 如果有記憶體或 CPU 壓力，這可能表示需要升級資源。 您也可以選擇其他可支援最低需求，也能在工作負載需求指出需要增加資源時擴充的計算資源。
 
-查閱 **Microsoft-SMA** 事件記錄檔，找出描述為「Win32 處理序結束，代碼為 [4294967295]」的對應事件。 此錯誤的原因是您尚未在 Runbook 中設定驗證，或尚未指定混合式背景工作角色群組的執行身分認證。 檢閱 [Runbook 權限](../automation-hrw-run-runbooks.md#runbook-permissions)，確認 Runbook 的驗證設定正確無誤。
+查閱 **Microsoft-SMA** 事件記錄檔，找出描述為「Win32 處理序結束，代碼為 [4294967295]」  的對應事件。 此錯誤的原因是您尚未在 Runbook 中設定驗證，或尚未指定混合式背景工作角色群組的執行身分認證。 檢閱 [Runbook 權限](../automation-hrw-run-runbooks.md#runbook-permissions)，確認 Runbook 的驗證設定正確無誤。
 
 ### <a name="no-cert-found"></a>案例：在混合式 Runbook 背景工作角色的憑證存放區中找不到憑證
 
@@ -81,7 +81,7 @@ At line:3 char:1
 
 如果您的混合式 Runbook 背景工作角色是 Azure VM，您可以改用 [Azure 資源的受控識別](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)。 此案例可讓您使用 Azure VM 的受控識別來向 Azure 資源進行驗證，而非使用執行身分帳戶，藉此簡化驗證。 當混合式 Runbook 背景工作角色是內部部署電腦時，您必須在電腦上安裝執行身分帳戶憑證。 若要了解如何安裝憑證，請參閱執行 [Export-RunAsCertificateToHybridWorker](../automation-hrw-run-runbooks.md#runas-script) Runbook 的步驟。
 
-## <a name="linux"></a> Linux
+## <a name="linux"></a>Linux
 
 Linux 混合式 Runbook 背景工作角色仰賴適用於 Linux 的 OMS 代理程式來與自動化帳戶通訊，以便註冊背景工作角色、接收 Runbook 作業和報告狀態。 如果註冊背景工作角色失敗，請參考以下一些可能的錯誤原因：
 
@@ -214,5 +214,5 @@ Machine is already registered
 
 * 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
 * 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。
-* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
+* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。
 

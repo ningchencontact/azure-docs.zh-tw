@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: danlep
 ms.openlocfilehash: 2df6a2724cbdcd6bbb6c6ca6636256b7e399da8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60686886"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>在 Azure 容器執行個體中更新容器
@@ -56,7 +56,7 @@ az container create --resource-group myResourceGroup --name mycontainer \
 
 在更新之間，容器的 IP 位址通常不會變更，但不保證它維持不變。 只要容器群組部署至相同的基礎主機，容器群組就會保留其 IP 位址。 雖然罕見，但是當 Azure 容器執行個體會盡全力重新部署到相同的主機時，有一些 Azure 內部事件導致重新部署到不同的主機。 若要解決這個問題，一律對您的容器執行個體使用一個 DNS 名稱標籤。
 
-無法更新已終止或已刪除的容器群組。 容器群組已停止 (處於「已終止」狀態) 或已遭到刪除後，群組就會部署為新的。
+無法更新已終止或已刪除的容器群組。 容器群組已停止 (處於「已終止」  狀態) 或已遭到刪除後，群組就會部署為新的。
 
 ## <a name="properties-that-require-container-delete"></a>需要刪除容器的屬性
 

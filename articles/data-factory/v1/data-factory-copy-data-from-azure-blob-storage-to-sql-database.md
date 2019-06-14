@@ -15,10 +15,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 557228bafc00c3028a1fda520da8fe4ec8c7a6f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487300"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>教學課程：使用 Data Factory 將資料從 Blob 儲存體複製到 SQL Database
@@ -56,12 +56,12 @@ ms.locfileid: "60487300"
 您需要有 Azure 儲存體帳戶的帳戶名稱和帳戶金鑰，才能進行這個教學課程。 記下 Azure 儲存體帳戶的**帳戶名稱**和**帳戶金鑰**。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下左側功能表中的 [所有服務]，然後選取 [儲存體帳戶]。
+2. 按一下左側功能表中的 [所有服務]  ，然後選取 [儲存體帳戶]  。
 
     ![瀏覽 - 儲存體帳戶](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
-3. 在 [儲存體帳戶] 刀鋒視窗中，選取您想要在本教學課程中使用的 [Azure 儲存體帳戶]。
-4. 選取 [設定] 底下的 [存取金鑰] 連結。
-5. 按一下 [儲存體帳戶名稱] 文字方塊旁的 [複製 (影像)] 按鈕，然後將它儲存/貼到某個位置 (例如：在文字檔中)。
+3. 在 [儲存體帳戶]  刀鋒視窗中，選取您想要在本教學課程中使用的 [Azure 儲存體帳戶]  。
+4. 選取 [設定]  底下的 [存取金鑰]  連結。
+5. 按一下 [儲存體帳戶名稱]  文字方塊旁的 [複製 (影像)]  按鈕，然後將它儲存/貼到某個位置 (例如：在文字檔中)。
 6. 重複上述步驟，複製或記下 **key1**。
 
     ![儲存體存取金鑰](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
@@ -70,18 +70,18 @@ ms.locfileid: "60487300"
 ## <a name="collect-sql-server-database-user-names"></a>收集 SQL Server、資料庫、使用者名稱
 您需要有 Azure SQL 伺服器、資料庫和使用者的名稱，才能進行這個教學課程。 記下 Azure SQL 資料庫的**伺服器**、**資料庫**和**使用者**名稱。
 
-1. 在 **Azure 入口網站**中，按一下左側的 [所有服務]，然後選取 [SQL 資料庫]。
-2. 在 [SQL Database] 刀鋒視窗中，選取您想要在本教學課程中使用的**資料庫**。 記下 **資料庫名稱**。  
-3. 在 [SQL Database] 刀鋒視窗中，按一下 [設定] 下的 [屬性]。
-4. 記下 [伺服器名稱] 和 [伺服器系統管理員登入] 的值。
+1. 在 **Azure 入口網站**中，按一下左側的 [所有服務]  ，然後選取 [SQL 資料庫]  。
+2. 在 [SQL Database]  刀鋒視窗中，選取您想要在本教學課程中使用的**資料庫**。 記下 **資料庫名稱**。  
+3. 在 [SQL Database]  刀鋒視窗中，按一下 [設定]  下的 [屬性]  。
+4. 記下 [伺服器名稱]  和 [伺服器系統管理員登入]  的值。
 5. 按一下 **X**，關閉所有刀鋒視窗。
 
 ## <a name="allow-azure-services-to-access-sql-server"></a>允許 Azure 服務存取 SQL Server
-確定**開啟** Azure SQL 伺服器的 [允許存取 Azure 服務] 設定，讓 Data Factory 服務可以存取您的 Azure SQL 伺服器。 若要確認並開啟此設定，請執行下列步驟：
+確定**開啟** Azure SQL 伺服器的 [允許存取 Azure 服務]  設定，讓 Data Factory 服務可以存取您的 Azure SQL 伺服器。 若要確認並開啟此設定，請執行下列步驟：
 
-1. 按一下左側的 [所有服務] 中樞，然後按一下 [SQL 伺服器]。
-2. 選取您的伺服器，然後按一下 [設定] 下的 [防火牆]。
-3. 在 [防火牆設定] 刀鋒視窗中，對 [允許存取 Azure 服務] 按一下 [開啟]。
+1. 按一下左側的 [所有服務]  中樞，然後按一下 [SQL 伺服器]  。
+2. 選取您的伺服器，然後按一下 [設定]  下的 [防火牆]  。
+3. 在 [防火牆設定]  刀鋒視窗中，對 [允許存取 Azure 服務]  按一下 [開啟]  。
 4. 按一下 **X**，關閉所有刀鋒視窗。
 
 ## <a name="prepare-blob-storage-and-sql-database"></a>準備 Blob 儲存體和 SQL Database

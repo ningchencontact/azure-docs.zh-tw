@@ -13,13 +13,13 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
 ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776502"
 ---
-# <a name="pool-create-event"></a>池创建事件
+# <a name="pool-create-event"></a>集區建立事件
 
  一旦集區建立完成，就會發出此事件。 記錄檔內容將公開集區的一 般資訊。 請注意，如果集區的目標大小大於 0 個計算節點，則集區調整開始事件將緊接在此事件之後。
 
@@ -55,7 +55,7 @@ ms.locfileid: "60776502"
 |[cloudServiceConfiguration](#bk_csconf)|複雜類型|集區的雲端服務組態。|
 |[virtualMachineConfiguration](#bk_vmconf)|複雜類型|集區的虛擬機器組態。|
 |[networkConfiguration](#bk_netconf)|複雜類型|集區的網路組態。|
-|resizeTimeout|時間|將計算節點配置至為集區上最後一次調整大小作業所指定的集區逾時。  (建立集區時的初始大小視為一次調整大小。)|
+|resizeTimeout|Time|將計算節點配置至為集區上最後一次調整大小作業所指定的集區逾時。  (建立集區時的初始大小視為一次調整大小。)|
 |targetDedicated|Int32|向集區要求的計算節點數目。|
 |enableAutoScale|Bool|指定集區大小是否隨著時間自動調整。|
 |enableInterNodeCommunication|Bool|指定是否針對節點間的直接通訊設定集區。|

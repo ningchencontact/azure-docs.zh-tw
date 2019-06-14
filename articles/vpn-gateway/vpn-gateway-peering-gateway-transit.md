@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
 ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60457350"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>為虛擬網路對等互連設定 VPN 閘道傳輸
@@ -60,7 +60,7 @@ ms.locfileid: "60457350"
     
 |虛擬網路|部署模型|角色|權限|
 |---|---|---|---|
-|Hub-RM|Resource Manager|[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+|Hub-RM|Resource Manager|[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |傳統|[傳統網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
 |Spoke-Classic|Resource Manager|[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||傳統|[傳統網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
@@ -75,23 +75,23 @@ ms.locfileid: "60457350"
     - 設定 [資源管理員] 選項
     - 在對應的訂用帳戶中選取 Hub-RM 虛擬網路
     - 請確定 [允許虛擬網路存取] 是「啟用」狀態
-    - 設定 [使用遠端閘道] 選項
+    - 設定 [使用遠端閘道]  選項
     - 按一下 [確定]
 
       ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
 
-2. 如果已建立對等互連，請瀏覽至對等互連的資源，然後啟用 [使用遠端閘道] 選項，如同步驟 (1) 所示的螢幕擷取畫面
+2. 如果已建立對等互連，請瀏覽至對等互連的資源，然後啟用 [使用遠端閘道]  選項，如同步驟 (1) 所示的螢幕擷取畫面
 
 3. 從 Azure 入口網站建立或更新從 Hub-RM 到 Spoke-RM 的虛擬網路對等互連。 瀏覽至 Hub-RM 虛擬網路資源，並依序按一下 [對等互連] 和 [新增]：
     - 設定 [資源管理員] 選項
     - 請確定 [允許虛擬網路存取] 是「啟用」狀態
     - 在對應的訂用帳戶中選取 "Spoke-RM" 虛擬網路
-    - 設定 [允許閘道傳輸] 選項
+    - 設定 [允許閘道傳輸]  選項
     - 按一下 [確定]
 
       ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
 
-4. 如果已建立對等互連，請瀏覽至對等互連的資源，然後啟用 [允許閘道傳輸] 選項，如同步驟 (3) 所示的螢幕擷取畫面
+4. 如果已建立對等互連，請瀏覽至對等互連的資源，然後啟用 [允許閘道傳輸]  選項，如同步驟 (3) 所示的螢幕擷取畫面
 
 5. 確認兩個虛擬網路上的對等互連狀態為「**已連線**」
 
@@ -129,12 +129,12 @@ Add-AzVirtualNetworkPeering `
    - 設定虛擬網路部署模型的「傳統」選項
    - 在對應的訂用帳戶中選取 "Spoke-Classic" 虛擬網路
    - 請確定 [允許虛擬網路存取] 是「啟用」狀態
-   - 設定 [允許閘道傳輸] 選項
+   - 設定 [允許閘道傳輸]  選項
    - 按一下 [確定]
 
      ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
 
-2. 如果已建立對等互連，請瀏覽至對等互連的資源，然後啟用 [允許閘道傳輸] 選項，如同步驟 (1) 所示的螢幕擷取畫面
+2. 如果已建立對等互連，請瀏覽至對等互連的資源，然後啟用 [允許閘道傳輸]  選項，如同步驟 (1) 所示的螢幕擷取畫面
 
 3. 無須在 Spoke-Classic 虛擬網路上執行任何操作
 

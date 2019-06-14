@@ -3,23 +3,23 @@ title: Azure IoT 中樞裝置佈建服務的概念 | Microsoft Docs
 description: 針對具有裝置佈建服務和 IoT 中樞的服務說明其特有的服務佈建概念
 author: nberdy
 ms.author: nberdy
-ms.date: 03/30/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 4a4f53f991355e634e8139f9e90bec6c508a527d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60745803"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IoT 中樞裝置佈建服務服務概念
 
 IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於設定在指定 IoT 中樞上的全自動佈建裝置作業。 這項裝置佈建服務可以讓您以安全且可調整的方式[自動佈建](concepts-auto-provisioning.md)數百萬個裝置。
 
-裝置佈建程序分為兩個部分。 第一個部分是*申請*裝置，以在裝置和 IoT 解決方案之間建立初始連線。 第二個部分是根據解決方案的特定需求套用正確的*設定*。 這兩個步驟都完成之後，就已完整「佈建」該裝置。 裝置佈建服務會自動進行這兩個步驟，以提供順暢的裝置佈建體驗。
+裝置佈建程序分為兩個部分。 第一個部分是*申請*裝置，以在裝置和 IoT 解決方案之間建立初始連線。 第二個部分是根據解決方案的特定需求套用正確的*設定*。 這兩個步驟都完成之後，就已完整「佈建」  該裝置。 裝置佈建服務會自動進行這兩個步驟，以提供順暢的裝置佈建體驗。
 
 本文說明最適用於管理*服務*的佈建概念概觀。 本文與為裝置進行[雲端設定步驟](about-iot-dps.md#cloud-setup-step)，也就是部署準備工作的角色相關。
 

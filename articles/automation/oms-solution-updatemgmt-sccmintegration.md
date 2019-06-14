@@ -10,10 +10,10 @@ ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ddc055be45eae923be31d7d11621c9427660bf74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60499863"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>整合 System Center Configuration Manager 與更新管理
@@ -37,9 +37,9 @@ ms.locfileid: "60499863"
 
 如果您要繼續從 Configuration Manager 管理更新部署，請執行下列步驟。 Azure 自動化會連線至 Configuration Manager，將更新套用至連線到您 Log Analytics 工作區的用戶端電腦。 更新內容可從用戶端電腦快取取得，就如同部署受到 Configuration Manager 管理一般。
 
-1. 從使用[部署軟體更新程序](/sccm/sum/deploy-use/deploy-software-updates)中描述的程序，從 Configuration Manager 階層中的頂層站台建立軟體更新部署。 必須與標準部署不同的唯一設定為可控制部署封裝下載行為的選項 [不要安裝軟體更新]。 此行為是由更新管理解決方案透過在下一個步驟中建立排定的更新部署來管理。
+1. 從使用[部署軟體更新程序](/sccm/sum/deploy-use/deploy-software-updates)中描述的程序，從 Configuration Manager 階層中的頂層站台建立軟體更新部署。 必須與標準部署不同的唯一設定為可控制部署封裝下載行為的選項 [不要安裝軟體更新]  。 此行為是由更新管理解決方案透過在下一個步驟中建立排定的更新部署來管理。
 
-1. 在 Azure 自動化中，選取 [更新管理]。 遵循[建立更新部署](automation-tutorial-update-management.md#schedule-an-update-deployment)中所述的步驟來建立新的部署，然後在 [類型] 下拉式清單中選取 [已匯入的群組]，以選取適當的 Configuration Manager 集合。 請記住下列重點：a. 如果已在所選的 Configuration Manager 裝置集合上定義維護時段，該集合的成員會接受它，而不是排程部署中定義的 [持續時間] 設定。
+1. 在 Azure 自動化中，選取 [更新管理]  。 遵循[建立更新部署](automation-tutorial-update-management.md#schedule-an-update-deployment)中所述的步驟來建立新的部署，然後在 [類型]  下拉式清單中選取 [已匯入的群組]  ，以選取適當的 Configuration Manager 集合。 請記住下列重點：a. 如果已在所選的 Configuration Manager 裝置集合上定義維護時段，該集合的成員會接受它，而不是排程部署中定義的 [持續時間]  設定。
     b. 目標集合的成員必須具有網際網路連線 (不論是直接、透過 Proxy 伺服器，還是透過 Log Analytics 閘道)。
 
 透過 Azure 自動化完成更新部署之後，屬於所選電腦群組成員的目標電腦會在排定的時間，從其本機用戶端快取安裝更新。 您可以[檢視更新部署狀態](automation-tutorial-update-management.md#view-results-of-an-update-deployment)，以監視您的部署結果。
@@ -48,7 +48,7 @@ ms.locfileid: "60499863"
 
 若要為身為 Configuration Manager 用戶端的 Windows Server VM 管理更新，您必須設定用戶端原則，為此解決方案所管理的所有用戶端停用軟體更新管理功能。 根據預設，用戶端設定是以階層中的所有裝置為目標。 如需有關此原則設定和設定方式的詳細資訊，請檢閱[如何在 System Center Configuration Manager 中設定用戶端設定](/sccm/core/clients/deploy/configure-client-settings)。
 
-在執行此設定變更之後，您可以遵循[建立更新部署](automation-tutorial-update-management.md#schedule-an-update-deployment)中所述的步驟來建立新的部署，然後在 [類型] 下拉式清單中選取 [已匯入的群組]，以選取適當的 Configuration Manager 集合。
+在執行此設定變更之後，您可以遵循[建立更新部署](automation-tutorial-update-management.md#schedule-an-update-deployment)中所述的步驟來建立新的部署，然後在 [類型]  下拉式清單中選取 [已匯入的群組]  ，以選取適當的 Configuration Manager 集合。
 
 ## <a name="next-steps"></a>後續步驟
 

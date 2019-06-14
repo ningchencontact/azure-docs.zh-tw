@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
 ms.openlocfilehash: a191a7adc2c43337b663fc44a8ef40df9d8ffef4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60773665"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>使用 PowerShell 從一個實驗建立 Studio 模型和 Web 服務端點
@@ -54,13 +54,13 @@ ms.locfileid: "60773665"
 
 ![輸出至 Web 服務輸出模組的定型模型模組](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
-現在，讓我們使用預設值 *rental001.csv* 作為訓練資料集，執行此訓練實驗。 如果您檢視**評估**模組的輸出 (按一下輸出並選取 [視覺化])，您可以看到您取得適當的效能 *AUC* = 0.91。 此時，您已準備好根據此訓練實驗來部署 Web 服務。
+現在，讓我們使用預設值 *rental001.csv* 作為訓練資料集，執行此訓練實驗。 如果您檢視**評估**模組的輸出 (按一下輸出並選取 [視覺化]  )，您可以看到您取得適當的效能 *AUC* = 0.91。 此時，您已準備好根據此訓練實驗來部署 Web 服務。
 
 ## <a name="deploy-the-training-and-scoring-web-services"></a>部署訓練和評分 Web 服務
-若要部署訓練 Web 服務，請按一下實驗畫布下方的 [設定 Web 服務] 按鈕，然後選取 [部署 Web 服務]。 將此 Web 服務命名為「自行車出租訓練」。
+若要部署訓練 Web 服務，請按一下實驗畫布下方的 [設定 Web 服務]  按鈕，然後選取 [部署 Web 服務]  。 將此 Web 服務命名為「自行車出租訓練」。
 
 現在，您必須部署評分 Web 服務。
-若要這樣做，請按一下畫布下方的 [設定 Web 服務]，然後選取 [預測性 Web 服務]。 這會建立評分實驗。
+若要這樣做，請按一下畫布下方的 [設定 Web 服務]  ，然後選取 [預測性 Web 服務]  。 這會建立評分實驗。
 您必須做一些微幅調整，使其以 Web 服務的形式運作。 請從輸入資料中移除標籤資料行 "cnt"，並限制只輸出執行個體識別碼和對應的預測值。
 
 為了省去這項工作的麻煩，您可以開啟資源庫中已備妥的[預測性實驗](https://gallery.azure.ai/Experiment/Bike-Rental-Predicative-Experiment-1)。
@@ -94,7 +94,7 @@ ms.locfileid: "60773665"
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>使用 PowerShell 更新端點來使用不同的訓練資料集
 下一步是使用經過每個客戶的個別資料所特別訓練的模型來更新端點。 但首先您必須從**自行車出租訓練** Web 服務來產生這些模型。 讓我們回到 **自行車出租訓練** Web 服務。 您必須以 10 個不同的訓練資料集呼叫其 BES 端點 10 次，以產生 10 個不同的模型。 請使用 **InovkeAmlWebServiceBESEndpoint** PowerShell Cmdlet 來執行這項操作。
 
-您也必須在 `$configContent` 中提供您 Blob 儲存體帳戶的認證。 也就是說，必須填寫欄位 `AccountName`、`AccountKey` 和 `RelativeLocation`。 `AccountName` 可以是您的其中一個帳戶名稱，如 **Azure 入口網站** ([儲存體] 索引標籤) 中所示。 按一下儲存體帳戶後，按下底部的 [管理存取金鑰] 按鈕，即可找到儲存體帳戶的 `AccountKey`，並複製*主要存取金鑰*。 `RelativeLocation` 是相對於您儲存體的路徑，其可儲存新模型。 例如，下列指令碼中的路徑 `hai/retrain/bike_rental/` 指向名為 `hai` 的容器，而 `/retrain/bike_rental/` 是子資料夾。 目前，您無法透過入口網站 UI 建立子資料夾，但有[數個 Azure 儲存體總管](../../storage/common/storage-explorers.md)可讓您執行這項操作。 建議您在儲存體中建立新的容器，以儲存新的訓練模型 (.iLearner 檔案)，如下所示︰從儲存體頁面中，按一下底部的 [新增] 按鈕，並將其命名為 `retrain`。 簡而言之，下列指令碼的必要變更係有關於 `AccountName`、`AccountKey` 和 `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`)。
+您也必須在 `$configContent` 中提供您 Blob 儲存體帳戶的認證。 也就是說，必須填寫欄位 `AccountName`、`AccountKey` 和 `RelativeLocation`。 `AccountName` 可以是您的其中一個帳戶名稱，如 **Azure 入口網站** ([儲存體]  索引標籤) 中所示。 按一下儲存體帳戶後，按下底部的 [管理存取金鑰]  按鈕，即可找到儲存體帳戶的 `AccountKey`，並複製*主要存取金鑰*。 `RelativeLocation` 是相對於您儲存體的路徑，其可儲存新模型。 例如，下列指令碼中的路徑 `hai/retrain/bike_rental/` 指向名為 `hai` 的容器，而 `/retrain/bike_rental/` 是子資料夾。 目前，您無法透過入口網站 UI 建立子資料夾，但有[數個 Azure 儲存體總管](../../storage/common/storage-explorers.md)可讓您執行這項操作。 建議您在儲存體中建立新的容器，以儲存新的訓練模型 (.iLearner 檔案)，如下所示︰從儲存體頁面中，按一下底部的 [新增]  按鈕，並將其命名為 `retrain`。 簡而言之，下列指令碼的必要變更係有關於 `AccountName`、`AccountKey` 和 `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`)。
 
     # Invoke the retraining API 10 times
     # This is the default (and the only) endpoint on the training web service

@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
 ms.openlocfilehash: a987239669e7437a179f5f24034f4dbe45535663
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60632799"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>使用 StorSimple 裝置管理員服務監視硬體元件和狀態
 
 ## <a name="overview"></a>概觀
-本文描述內部部署 StorSimple 8000 系列裝置中的各種實體和邏輯元件。 也會說明如何使用 StorSimple 裝置管理員服務中的 [狀態與硬體健康狀態] 刀鋒視窗監視裝置元件狀態。
+本文描述內部部署 StorSimple 8000 系列裝置中的各種實體和邏輯元件。 也會說明如何使用 StorSimple 裝置管理員服務中的 [狀態與硬體健康狀態]  刀鋒視窗監視裝置元件狀態。
 
-[狀態與硬體健康狀態] 刀鋒視窗會顯示所有 StorSimple 裝置元件的硬體狀態。
+[狀態與硬體健康狀態]  刀鋒視窗會顯示所有 StorSimple 裝置元件的硬體狀態。
 
 在 8100 的元件清單下，有三個區段描述：
 
@@ -47,11 +47,11 @@ ms.locfileid: "60632799"
 ## <a name="monitor-the-hardware-status"></a>監視硬體狀態
 執行下列步驟來檢視裝置元件的硬體狀態：
 
-1. 瀏覽至 **裝置**，選取特定的 StorSimple 裝置。 移至 [監視] > [硬體健康狀態]。
+1. 瀏覽至 **裝置**，選取特定的 StorSimple 裝置。 移至 [監視] > [硬體健康狀態]  。
 
     ![](./media/storsimple-8000-monitor-hardware-status/hw-health1.png)
 
-2. 找出 [硬體元件] 區段並選擇可用的元件。 只要按一下元件標籤，即可展開清單並檢視各種裝置元件的狀態。 請參閱[主要機箱的詳細元件清單](#component-list-for-primary-enclosure-of-storsimple-device)和 [EBOD 機箱的詳細元件清單](#component-list-for-ebod-enclosure-of-storsimple-device)。
+2. 找出 [硬體元件]  區段並選擇可用的元件。 只要按一下元件標籤，即可展開清單並檢視各種裝置元件的狀態。 請參閱[主要機箱的詳細元件清單](#component-list-for-primary-enclosure-of-storsimple-device)和 [EBOD 機箱的詳細元件清單](#component-list-for-ebod-enclosure-of-storsimple-device)。
 
     ![](./media/storsimple-8000-monitor-hardware-status/hw-health2.png)
 
@@ -62,15 +62,15 @@ ms.locfileid: "60632799"
    * **紅色驚嘆號** – 代表有**失敗**狀態的失敗元件。
    * **白底黑字** – 代表不存在的元件。
    
-   下列螢幕擷取畫面顯示有元件處於 [正常]、[警告] 和 [失敗] 狀態的裝置。
+   下列螢幕擷取畫面顯示有元件處於 [正常]  、[警告]  和 [失敗]  狀態的裝置。
        
    ![](./media/storsimple-8000-monitor-hardware-status/hw-health3.png)
 
-   展開 [共用的元件清單]，我們可以看到 NVRAM 與叢集已降級。
+   展開 [共用的元件清單]  ，我們可以看到 NVRAM 與叢集已降級。
 
    ![](./media/storsimple-8000-monitor-hardware-status/hw-health5.png)
 
-   展開 [控制器 1 元件] 清單，我們可以看到叢集節點失敗。  
+   展開 [控制器 1 元件]  清單，我們可以看到叢集節點失敗。  
 
    ![](./media/storsimple-8000-monitor-hardware-status/hw-health4.png)  
 

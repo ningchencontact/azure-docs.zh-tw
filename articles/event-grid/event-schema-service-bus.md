@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: babanisa
 ms.openlocfilehash: f44d2c1c5be6ac895b6f5ea9feca29c0f8ed09f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60561756"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>服務匯流排的 Azure Event Grid 事件結構描述
@@ -83,7 +83,7 @@ ms.locfileid: "60561756"
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | topic | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| subject | string | 發行者定義事件主體的路徑。 |
+| 主旨 | string | 發行者定義事件主體的路徑。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | id | string | 事件的唯一識別碼。 |

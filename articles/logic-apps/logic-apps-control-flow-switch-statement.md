@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683085"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>建立 Switch 陳述式，以根據 Azure Logic Apps 中的特定值執行工作流程動作
@@ -32,22 +32,22 @@ ms.locfileid: "60683085"
 
 * 若要依循本文中的範例，請使用 Outlook.com 或 Office 365 Outlook 帳戶來[建立此範例邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
-  1. 添加用于发送电子邮件的操作时，请改为查找并选择此操作：**发送审批电子邮件**
+  1. 當您新增要傳送電子郵件的動作時，尋找並改為選取此動作：**傳送核准電子郵件**
 
      ![選取 [傳送核准電子郵件]](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
   1. 提供必要的欄位，例如核准電子郵件收件者的電子郵件地址。 
-  在 [使用者選項] 下，輸入「核准、拒絕」。
+  在 [使用者選項]  下，輸入「核准、拒絕」。
 
      ![輸入電子郵件詳細資料](./media/logic-apps-control-flow-switch-statement/send-approval-email-details.png)
 
 ## <a name="add-switch-statement"></a>新增 Switch 陳述式
 
-1. 例如，將 Switch 陳述式結尾新增至您的範例工作流程結尾。 在最後一個步驟之後，選擇 [新增步驟]。
+1. 例如，將 Switch 陳述式結尾新增至您的範例工作流程結尾。 在最後一個步驟之後，選擇 [新增步驟]  。
 
-   如果您要在步驟之間新增 Switch 陳述式，請將指標移您要新增 Switch 陳述式的箭號上。 選擇顯示的**加號** (**+**)，然後選擇 [新增動作]。
+   如果您要在步驟之間新增 Switch 陳述式，請將指標移您要新增 Switch 陳述式的箭號上。 選擇顯示的**加號** ( **+** )，然後選擇 [新增動作]  。
 
-1. 在搜尋方塊中，輸入 "switch" 作為篩選條件。 選取此動作：**Switch - 控制**
+1. 在搜尋方塊中，輸入 "switch" 作為篩選條件。 選取此動作：**參數-控制項**
 
    ![新增 Switch](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 
@@ -56,29 +56,29 @@ ms.locfileid: "60683085"
 
    ![空的預設 Switch 陳述式](./media/logic-apps-control-flow-switch-statement/empty-switch.png)
 
-1. 在 [依據] 方塊內按一下，動態內容清單隨即顯示。 從該清單中，選取 [SelectedOption] 欄位，其輸出會決定要執行的動作。 
+1. 在 [依據]  方塊內按一下，動態內容清單隨即顯示。 從該清單中，選取 [SelectedOption]  欄位，其輸出會決定要執行的動作。 
 
    ![選取 [SelectedOption]](./media/logic-apps-control-flow-switch-statement/select-selected-option.png)
 
-1. 若要處理核准者選取 `Approve` 或 `Reject` 的這類案例，可在 [案例] 和 [預設] 之間新增另一個案例。 
+1. 若要處理核准者選取 `Approve` 或 `Reject` 的這類案例，可在 [案例]  和 [預設]  之間新增另一個案例。 
 
    ![新增另一個案例](./media/logic-apps-control-flow-switch-statement/switch-plus.png)
 
 1. 將這些動作新增至對應的案例：
 
-   | 案例 | **SelectedOption** |  動作 |
+   | 案例 | **SelectedOption** | 動作 |
    |--------|--------------------|--------|
    | 案例 1 | **核准** | 新增 Outlook **傳送電子郵件**動作，只在核准者選取**核准**時傳送 RSS 項目的詳細資料。 |
    | 案例 2 | **拒絕** | 新增 Outlook **傳送電子郵件**動作，通知其他核准者 RSS 項目遭到拒絕。 |
-   | 預設值 | None | 不需採取任何動作。 在此範例中，[預設] 案例為空白，因為 **SelectedOption** 只有兩個選項。 |
+   | 預設值 | None | 不需採取任何動作。 在此範例中，[預設]  案例為空白，因為 **SelectedOption** 只有兩個選項。 |
    |||
 
    ![已完成 Switch 陳述式](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
 
 1. 儲存您的邏輯應用程式。 
 
-   若要手動測試此範例，請選擇 [執行]，直到邏輯應用程式找到新 RSS 項目並傳送核准電子郵件為止。 
-   選取 [核准] 來觀察結果。
+   若要手動測試此範例，請選擇 [執行]  ，直到邏輯應用程式找到新 RSS 項目並傳送核准電子郵件為止。 
+   選取 [核准]  來觀察結果。
 
 ## <a name="json-definition"></a>JSON 定義
 
@@ -113,7 +113,7 @@ ms.locfileid: "60683085"
 }
 ```
 
-| 標籤 | 描述 |
+| ThisAddIn | 描述 |
 |-------|-------------|
 | `"Switch"`         | Switch 陳述式的名稱，您可以將它重新命名以增加可讀性 |
 | `"type": "Switch"` | 指出動作是 Switch 陳述式 |

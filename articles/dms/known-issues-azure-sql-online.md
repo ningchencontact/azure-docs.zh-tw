@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 04/09/2019
 ms.openlocfilehash: 00ed2f20884c3cd8f49307bd726f14f3007f884f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60534392"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>線上移轉到 Azure SQL DB 的已知問題/移轉限制
@@ -43,7 +43,7 @@ ms.locfileid: "60534392"
      ``` 
      select name,temporal_type,temporal_type_desc,* from sys.tables where temporal_type <>0
      ```
-2. 從 [進行移轉設定] 刀鋒視窗 (您在其中指定要移轉的資料表) 中，排除這些資料表。
+2. 從 [進行移轉設定]  刀鋒視窗 (您在其中指定要移轉的資料表) 中，排除這些資料表。
 
 3. 重新執行移轉活動。
 
@@ -67,7 +67,7 @@ ms.locfileid: "60534392"
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
-2. 從 [進行移轉設定] 刀鋒視窗 (您在其中指定要移轉的資料表) 中，排除這些資料表。
+2. 從 [進行移轉設定]  刀鋒視窗 (您在其中指定要移轉的資料表) 中，排除這些資料表。
 
 3. 重新執行移轉活動。
 
@@ -125,4 +125,4 @@ DMS 不會遷移來源時間戳記值；相反地，DMS 會在目標資料表中
 
      ![移轉活動畫面](media/known-issues-azure-sql-online/dms-migration-activity-screen.png)
 
-2. 選取 [查看錯誤詳細資料]，以檢視特定錯誤訊息，協助您針對移轉錯誤進行疑難排解。
+2. 選取 [查看錯誤詳細資料]  ，以檢視特定錯誤訊息，協助您針對移轉錯誤進行疑難排解。

@@ -12,15 +12,15 @@ ms.date: 08/17/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 98595ea0ef5b6d9d4cef0f239390b364fb1e4e75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589068"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>執行 Team Data Science Process 的逐步解說
 
-這些**端對端逐步解說**會示範 Team Data Science Process 針對特定案例的步驟。 這些逐步解說說明如何將雲端、內部部署工具及服務組合成工作流程或管線，以建立「智慧型應用程式」。 逐步解說是依據它們使用的**平台**來歸納整理。
+這些**端對端逐步解說**會示範 Team Data Science Process 針對特定案例的步驟。 這些逐步解說說明如何將雲端、內部部署工具及服務組合成工作流程或管線，以建立「智慧型應用程式」  。 逐步解說是依據它們使用的**平台**來歸納整理。
 
 
 ## <a name="walkthrough-descriptions"></a>逐步解說描述

@@ -16,10 +16,10 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591335"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>使用 Azure 快速入門範本來設定 Azure VM 上的 SQL Server Always On 可用性群組
@@ -49,14 +49,14 @@ ms.locfileid: "60591335"
 
 
 ## <a name="step-1---create-the-wsfc-and-join-sql-server-vms-to-the-cluster-using-quickstart-template"></a>步驟 1 - 使用快速入門範本建立 WSFC 並將 SQL Server VM 加入叢集 
-在您的 SQL Server VM 向新的 SQL VM 資源提供者註冊之後，您即可將 SQL Server VM 加入 SqlVirtualMachineGroup 中。 這項資源會定義 Windows 容錯移轉叢集的中繼資料，包括版本、版次、完整網域名稱，用來管理叢集和 SQL 服務的 AD 帳戶，以及做為雲端見證的儲存體帳戶。 將 SQL Server VM 新增至 SqlVirtualMachineGroup 資源群組，會啟動 Windows 容錯移轉叢集服務建立叢集，然後將 SQL Server VM 加入該叢集。 此步驟可透過 **101-sql-vm-ag-setup** 快速入門範本自動化執行，並且可依照下列步驟實作：
+在您的 SQL Server VM 向新的 SQL VM 資源提供者註冊之後，您即可將 SQL Server VM 加入 SqlVirtualMachineGroup  中。 這項資源會定義 Windows 容錯移轉叢集的中繼資料，包括版本、版次、完整網域名稱，用來管理叢集和 SQL 服務的 AD 帳戶，以及做為雲端見證的儲存體帳戶。 將 SQL Server VM 新增至 SqlVirtualMachineGroup  資源群組，會啟動 Windows 容錯移轉叢集服務建立叢集，然後將 SQL Server VM 加入該叢集。 此步驟可透過 **101-sql-vm-ag-setup** 快速入門範本自動化執行，並且可依照下列步驟實作：
 
-1. 瀏覽至 [**101-sql-vm-ag-setup**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) 快速入門範本，然後選取 [部署至 Azure]，在 Azure 入口網站中啟動快速入門範本。
+1. 瀏覽至 [**101-sql-vm-ag-setup**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) 快速入門範本，然後選取 [部署至 Azure]  ，在 Azure 入口網站中啟動快速入門範本。
 1. 填寫必要欄位，以設定 Windows 容錯移轉叢集的中繼資料。 選擇性欄位可保留為空白。
 
     下表顯示範本所需的值： 
 
-   | **欄位** | Value |
+   | **欄位** | 值 |
    | --- | --- |
    | **訂用帳戶** |  您的 SQL Server VM 所在的訂用帳戶。 |
    |**資源群組** | 您的 SQL Server VM 所屬的資源群組。 | 
@@ -73,8 +73,8 @@ ms.locfileid: "60591335"
    | **\_成品位置 SAS 權杖** | 此欄位已刻意留下空白。 |
    | &nbsp; | &nbsp; |
 
-1. 如果您同意條款及條件，請選取 [我同意上方所述的條款及條件] 旁的核取方塊，然後選取 [購買] 以完成快速入門範本部署。 
-1. 若要監視您的部署，請從頂端瀏覽橫幅中的 [通知] 鈴鐺圖示選取部署，或瀏覽至您在 Azure 入口網站中的 [資源群組]，並選取 [設定] 欄位中的 [部署]，然後選擇 'Microsoft.Template' 部署。 
+1. 如果您同意條款及條件，請選取 [我同意上方所述的條款及條件]  旁的核取方塊，然後選取 [購買]  以完成快速入門範本部署。 
+1. 若要監視您的部署，請從頂端瀏覽橫幅中的 [通知]  鈴鐺圖示選取部署，或瀏覽至您在 Azure 入口網站中的 [資源群組]  ，並選取 [設定]  欄位中的 [部署]  ，然後選擇 'Microsoft.Template' 部署。 
 
    >[!NOTE]
    > 範本部署期間提供的認證僅於部署期間儲存。 部署完成之後，這些密碼會予以移除，如果需新增更多 SQL Server VM 到叢集，則會要求您再次提供這些密碼。 
@@ -90,29 +90,29 @@ ms.locfileid: "60591335"
 Always On 可用性群組 (AG) 接聽程式需要內部 Azure 負載平衡器 (ILB)。 ILB 會為 AG 接聽程式提供「浮動」IP 位址，以加快容錯移轉和重新連線的速度。 如果可用性群組中的 SQL Server VM 屬於相同的可用性設定組，則您可以使用基本的負載平衡器；否則就必須使用標準負載平衡器。  **ILB 應位於與 SQL Server VM 執行個體相同的 vNet 中。** 您只需建立 ILB 即可，其餘設定 (例如後端集區、健康情況探查和負載平衡規則) 都可由 **101-sql-vm-aglistener-setup** 快速入門範本在步驟 4 中執行。 
 
 1. 在 Azure 入口網站中，開啟包含 SQL Server 虛擬機器的資源群組。 
-2. 在資源群組中，按一下 [新增] 。
-3. 搜尋**負載平衡器**，然後在搜尋結果中，選取由 **Microsoft** 發佈的 [負載平衡器]。
-4. 在 [負載平衡器] 刀鋒視窗上，按一下 [建立]。
-5. 在 [建立負載平衡器] 對話方塊中，依下列方式設定負載平衡器︰
+2. 在資源群組中，按一下 [新增]  。
+3. 搜尋**負載平衡器**，然後在搜尋結果中，選取由 **Microsoft** 發佈的 [負載平衡器]  。
+4. 在 [負載平衡器]  刀鋒視窗上，按一下 [建立]  。
+5. 在 [建立負載平衡器]  對話方塊中，依下列方式設定負載平衡器︰
 
-   | 設定 | Value |
+   | 設定 | 值 |
    | --- | --- |
    | **名稱** |代表負載平衡器的文字名稱。 例如 **sqlLB**。 |
    | **類型** |**內部**：大部分的實作都會使用內部負載平衡器，這可讓相同虛擬網路內的應用程式連線到可用性群組。  </br> **外部**：可讓應用程式透過公用網際網路連線來連線到可用性群組。 |
    | **虛擬網路** | 選取 SQL Server 執行個體所在的虛擬網路。 |
    | **子網路** | 選取 SQL Server 執行個體所在的子網路。 |
-   | **IP 位址指派** |**静态** |
+   | **IP 位址指派** |**靜態** |
    | **私人 IP 位址** | 從子網路指定可用的 IP 位址。 |
    | **訂用帳戶** |如果您有多個訂用帳戶，此欄位才會出現。 選取您想要與此資源相關聯的訂用帳戶。 通常是與可用性群組的所有資源相同的訂用帳戶。 |
    | **資源群組** |選取 SQL Server 執行個體所在的資源群組。 |
    | **位置** |選取 SQL Server 執行個體所在的 Azure 位置。 |
    | &nbsp; | &nbsp; |
 
-6. 選取 [建立] 。 
+6. 選取 [建立]  。 
 
 
   >[!IMPORTANT]
-  > 每個 SQL Server VM 的公用 IP 資源都應有標準 SKU，以便與標準負載平衡器相容。 若要確認 VM 公用 IP 資源的 SKU，請瀏覽至您的 [資源群組]，並為您所需的 SQL Server VM 選取 [公用 IP 位址] 資源，然後在 [概觀]窗格的 [SKU] 下方找出其值。 
+  > 每個 SQL Server VM 的公用 IP 資源都應有標準 SKU，以便與標準負載平衡器相容。 若要確認 VM 公用 IP 資源的 SKU，請瀏覽至您的 [資源群組]  ，並為您所需的 SQL Server VM 選取 [公用 IP 位址]  資源，然後在 [概觀]  窗格的 [SKU]  下方找出其值。 
 
 ## <a name="step-4---create-the-ag-listener-and-configure-the-ilb-with-the-quickstart-template"></a>步驟 4 - 使用快速入門範本建立 AG 接聽程式並設定 ILB
 
@@ -128,12 +128,12 @@ Always On 可用性群組 (AG) 接聽程式需要內部 Azure 負載平衡器 (I
    
    
 若要設定 ILB 並建立 AG 接聽程式，請執行下列作業：
-1. 瀏覽至 [**101-sql-vm-aglistener-setup**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) 快速入門範本，然後選取 [部署至 Azure]，在 Azure 入口網站中啟動快速入門範本。
+1. 瀏覽至 [**101-sql-vm-aglistener-setup**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) 快速入門範本，然後選取 [部署至 Azure]  ，在 Azure 入口網站中啟動快速入門範本。
 1. 填寫必要欄位以設定 ILB，並建立可用性群組接聽程式。 選擇性欄位可保留為空白。 
 
     下表顯示範本所需的值： 
 
-   | **欄位** | Value |
+   | **欄位** | 值 |
    | --- | --- |
    |**資源群組** | 您的 SQL Server VM 和可用性群組所屬的資源群組。 | 
    |**現有容錯移轉叢集名稱** | 您的 SQL Server VM 加入的叢集名稱。 |
@@ -142,13 +142,13 @@ Always On 可用性群組 (AG) 接聽程式需要內部 Azure 負載平衡器 (I
    | **接聽程式** | 您要指派給接聽程式的 DNS 名稱。 此範本依預設指定的名稱為 'aglistener'，但您可加以變更。 名稱長度不應該超過 15 個字元。 |
    | **接聽程式連接埠** | 您想要讓接聽程式使用的連接埠。 一般而言，此連接埠應為預設連接埠 1433，若是如此，這就是此範本所指定的連接埠號碼。 不過，如果您的預設連接埠已變更，接聽程式連接埠就應改用該值。 | 
    | **接聽程式 IP** | 您想要接聽程式使用的 IP。  此 IP 位址會在範本部署期間建立，因此請提供未使用的 IP 位址。  |
-   | **現有子網路** | SQL Server VM 的內部子網路名稱 (例如：default)。 您可以瀏覽至您的 [資源群組]，並依序選取 [vNet] 和 [設定] 窗格下方的 [子網路]，後複製 [名稱] 下方的值，以確認此值。 |
+   | **現有子網路** | SQL Server VM 的內部子網路名稱  (例如：default)。 您可以瀏覽至您的 [資源群組]  ，並依序選取 [vNet]  和 [設定]  窗格下方的 [子網路]  ，後複製 [名稱]  下方的值，以確認此值。 |
    | **現有內部負載平衡器** | 您在步驟 3 中建立的 ILB 名稱。 |
    | **探查連接埠** | 您想要讓 ILB 使用的探查連接埠。 範本依預設會使用 59999，但您可以變更此值。 |
    | &nbsp; | &nbsp; |
 
-1. 如果您同意條款及條件，請選取 [我同意上方所述的條款及條件] 旁的核取方塊，然後選取 [購買] 以完成快速入門範本部署。 
-1. 若要監視您的部署，請從頂端瀏覽橫幅中的 [通知] 鈴鐺圖示選取部署，或瀏覽至您在 Azure 入口網站中的 [資源群組]，並選取 [設定] 欄位中的 [部署]，然後選擇 'Microsoft.Template' 部署。 
+1. 如果您同意條款及條件，請選取 [我同意上方所述的條款及條件]  旁的核取方塊，然後選取 [購買]  以完成快速入門範本部署。 
+1. 若要監視您的部署，請從頂端瀏覽橫幅中的 [通知]  鈴鐺圖示選取部署，或瀏覽至您在 Azure 入口網站中的 [資源群組]  ，並選取 [設定]  欄位中的 [部署]  ，然後選擇 'Microsoft.Template' 部署。 
 
    >[!NOTE]
    >如果您的部署中途失敗，您將必須使用 PowerShell 以手動方式[移除新建立的接聽程式](#remove-availability-group-listener)，再重新部署 **101-sql-vm-aglistener-setup** 快速入門範本。 
@@ -183,15 +183,15 @@ Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<r
 
  請確認帳戶確實存在。 若是如此，您可能發生第二種情況。 若要解決此問題，請執行下列動作：
 
-1. 在網域控制站上，從 [伺服器管理員] 的 [工具] 選項中開啟 [Active Directory 使用者和電腦] 視窗。 
-2. 選取左窗格中的 [使用者]，瀏覽至帳戶。
-3. 以滑鼠右鍵按一下所需的帳戶，然後選取 [屬性]。
-4. 選取 [帳號] 索引標籤，然後確認 [使用者登入名稱] 是否空白。 如果是，這會是造成錯誤的原因。 
+1. 在網域控制站上，從 [伺服器管理員]  的 [工具]  選項中開啟 [Active Directory 使用者和電腦]  視窗。 
+2. 選取左窗格中的 [使用者]  ，瀏覽至帳戶。
+3. 以滑鼠右鍵按一下所需的帳戶，然後選取 [屬性]  。
+4. 選取 [帳號]  索引標籤，然後確認 [使用者登入名稱]  是否空白。 如果是，這會是造成錯誤的原因。 
 
     ![空白的使用者帳戶表示缺少 UPN](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
 
-5. 填寫 [使用者登入名稱] 以符合使用者的名稱，並且從下拉式清單中選取正確的網域。 
-6. 選取 [套用] 儲存變更，並選取 [確定] 關閉對話方塊。 
+5. 填寫 [使用者登入名稱]  以符合使用者的名稱，並且從下拉式清單中選取正確的網域。 
+6. 選取 [套用]  儲存變更，並選取 [確定]  關閉對話方塊。 
 
    進行這些變更後，請嘗試再次部署 Azure 快速入門範本。 
 

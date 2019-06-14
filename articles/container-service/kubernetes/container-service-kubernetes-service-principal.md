@@ -10,10 +10,10 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 52ed101199126818abaddef47892e1f033eb3968
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609106"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(已被取代) 在 Container Service 中設定 Kubernetes 叢集的 Azure AD 服務主體
@@ -121,7 +121,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * 每個服務主體都會與 Azure AD 應用程式相關聯。 Kubernetes 叢集的服務主體可與任何有效的 Azure AD 應用程式名稱相關聯 (例如：`https://www.contoso.org/example`)。 應用程式的 URL 不一定是實際端點。
 
-* 指定服務主體的 [用戶端識別碼] 時，您可以使用 `appId` 的值 (如本文所示) 或對應的服務主體`name` (例如，`https://www.contoso.org/example`)。
+* 指定服務主體的 [用戶端識別碼]  時，您可以使用 `appId` 的值 (如本文所示) 或對應的服務主體`name` (例如，`https://www.contoso.org/example`)。
 
 * 在 Kubernetes 叢集中的主要和代理程式 VM 上，服務主體認證會儲存在 `/etc/kubernetes/azure.json` 檔案中。
 

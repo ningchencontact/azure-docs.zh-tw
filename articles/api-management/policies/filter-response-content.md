@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 26829dfc04acdac2a25fe0d4fdc3e95e4d219057
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60637058"
 ---
 # <a name="filter-response-content"></a>篩選回應內容
@@ -26,7 +26,7 @@ ms.locfileid: "60637058"
 
 ## <a name="policy"></a>原則
 
-將程式碼貼至 [輸出] 區塊。
+將程式碼貼至 [輸出]  區塊。
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Filter response content based on product name.policy.xml)]
 

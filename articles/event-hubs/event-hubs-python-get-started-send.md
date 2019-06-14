@@ -1,6 +1,6 @@
 ---
 title: 傳送，或使用 Python-Azure 事件中樞接收事件 |Microsoft Docs
-description: 本文提供了创建 Python 应用程序的演练，该应用程序用于将事件发送到 Azure 事件中心。
+description: 這篇文章會逐步解說建立 Python 應用程式，以將事件傳送至 Azure 事件中樞。
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 6a8f0ddcfe6de904219059c6e761ead4c004732d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60461445"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-using-python"></a>傳送事件至或使用 Python 從事件中樞接收事件

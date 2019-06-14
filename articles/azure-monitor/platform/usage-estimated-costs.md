@@ -10,10 +10,10 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
 ms.openlocfilehash: 7117e7287f601b306893cb02dc5d7599d7c6224d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453751"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>在 Azure 監視器中監視使用量和估計成本
@@ -26,7 +26,7 @@ ms.locfileid: "60453751"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-在 Azure 入口網站的監視器中樞中，[使用量和估計成本] 頁面會說明核心監視功能 (例如[警示、計量、通知](https://azure.microsoft.com/pricing/details/monitor/)、[Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 和 [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/)) 的使用量。 客戶若是採用在 2018 年 4 月前提供的定價方案，則也會提供透過深入解析與分析供應項目購買的 Log Analytics 使用量。
+在 Azure 入口網站的監視器中樞中，[使用量和估計成本]  頁面會說明核心監視功能 (例如[警示、計量、通知](https://azure.microsoft.com/pricing/details/monitor/)、[Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 和 [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/)) 的使用量。 客戶若是採用在 2018 年 4 月前提供的定價方案，則也會提供透過深入解析與分析供應項目購買的 Log Analytics 使用量。
 
 在此頁面上，使用者可以檢視他們在過去 31 天內對這些資源的使用量 (依個別訂用帳戶彙總)。 向下切入功能可顯示這 31 天的使用量趨勢。 系統必須彙整許多資料才能產生此預估值，因此請耐心等候頁面載入。
 
@@ -49,9 +49,9 @@ ms.locfileid: "60453751"
 對於在 2018 年 4 月 2 日之後加入 Log Analytics 或 Application Insights 的客戶而言，新的定價模式將是唯一選項。 已使用這些服務的客戶則可選擇是否移轉至新的定價模式。
 
 ## <a name="assessing-the-impact-of-the-new-pricing-model"></a>評估新定價模式的影響
-新的定價模式將會根據客戶的監視使用模式，對每個客戶產生不同的影響。 對於在 2018 年 4 月 2 日之前即使用 Log Analytics 或 Application Insights 的客戶，Azure 監視器中的 [使用量和估計成本] 頁面將會估計移轉至新的定價模式時所將產生的成本變更。 此外也提供將訂用帳戶移轉至新模式的途徑。 對大多數客戶而言，新的定價模式將較有利。 但客戶的資料使用量若特別高，或是屬於成本較高的區域，可能就另當別論。
+新的定價模式將會根據客戶的監視使用模式，對每個客戶產生不同的影響。 對於在 2018 年 4 月 2 日之前即使用 Log Analytics 或 Application Insights 的客戶，Azure 監視器中的 [使用量和估計成本]  頁面將會估計移轉至新的定價模式時所將產生的成本變更。 此外也提供將訂用帳戶移轉至新模式的途徑。 對大多數客戶而言，新的定價模式將較有利。 但客戶的資料使用量若特別高，或是屬於成本較高的區域，可能就另當別論。
 
-若要對您在 [使用量和估計成本] 頁面上選擇的訂用帳戶查看成本的估計值，請選取頁面頂端附近的藍色橫幅。 建議您一次查看一個訂用帳戶的資料，因為新的定價模式是在此層級上採行的。
+若要對您在 [使用量和估計成本]  頁面上選擇的訂用帳戶查看成本的估計值，請選取頁面頂端附近的藍色橫幅。 建議您一次查看一個訂用帳戶的資料，因為新的定價模式是在此層級上採行的。
 
 ![監視新定價模式中的使用量和估計成本的螢幕擷取畫面](./media/usage-estimated-costs/004.png)
 
@@ -68,7 +68,7 @@ ms.locfileid: "60453751"
 
 新的定價模式並未以節點為基礎納入資料配置。 因此，這些資料擷取計量會結合為新的通用資料擷取計量，名為**共用服務\資料擷取**。 
 
-擷取至較高成本區域的 Log Analytics 或 Application Insights 中的資料，則有另一項變更。 這些高成本區域的資料將會依新的區域計量顯示。 範例之一是**資料擷取 (美國中西部)**。
+擷取至較高成本區域的 Log Analytics 或 Application Insights 中的資料，則有另一項變更。 這些高成本區域的資料將會依新的區域計量顯示。 範例之一是**資料擷取 (美國中西部)** 。
 
 > [!NOTE]
 > 按訂用帳戶的估計成本不會考量 Operations Management Suite (OMS) 訂用帳戶在帳戶層級上的個別節點權利。 如需深入討論新的定價模式在此情況下的運作方式，請洽詢帳戶代表。

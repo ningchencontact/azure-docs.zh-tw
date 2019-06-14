@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: 3e892e443f5e3309add48f939f26ba14eaf5a51b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614195"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>為 HTTP 和 HTTPS 端點指派安全性存取原則
@@ -32,7 +32,7 @@ ms.locfileid: "60614195"
 </Policies>
 ```
 
-針對 HTTPS 端點，請同時指出要傳回給用戶端的憑證名稱。 您可以使用 **EndpointBindingPolicy** 參考憑證。  憑證的定義位於應用程式資訊清單的 [憑證] 區段。
+針對 HTTPS 端點，請同時指出要傳回給用戶端的憑證名稱。 您可以使用 **EndpointBindingPolicy** 參考憑證。  憑證的定義位於應用程式資訊清單的 [憑證]  區段。
 
 ```xml
 <Policies>

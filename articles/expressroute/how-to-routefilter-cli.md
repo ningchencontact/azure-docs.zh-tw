@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman
 ms.openlocfilehash: cfd9f4c52d3ddddd944186a833cba48e6ca76182
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837856"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>針對 Microsoft 對等互連設定路由篩選：Azure CLI
@@ -167,4 +167,4 @@ az network route-filter delete -n MyRouteFilter -g MyResourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-有关 ExpressRoute 的详细信息，请参阅 [ExpressRoute 常见问题](expressroute-faqs.md)。
+如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。

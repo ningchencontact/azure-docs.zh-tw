@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 07cc83830fe2d467c611622bb66dfbb8c9429c2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60860533"
 ---
 # <a name="send-errors-to-stackify-for-logging"></a>將錯誤傳送至 Stackify 進行記錄
@@ -26,7 +26,7 @@ ms.locfileid: "60860533"
 
 ## <a name="policy"></a>原則
 
-將程式碼貼至 [on-error] 區塊。
+將程式碼貼至 [on-error]  區塊。
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Log errors to Stackify.policy.xml)]
 

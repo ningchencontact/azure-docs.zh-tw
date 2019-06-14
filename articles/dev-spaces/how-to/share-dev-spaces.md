@@ -10,10 +10,10 @@ ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
 ms.openlocfilehash: 62d4affa5ef49de7600f9ccc800ea6bf83e4bd49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60686617"
 ---
 # <a name="share-azure-dev-spaces"></a>分享 Azure 開發人員空間
@@ -26,7 +26,7 @@ ms.locfileid: "60686617"
 1. 針對每個小組成員，將 Azure 開發人員空間的**資源群組**設定為[授與參與者存取權](/azure/active-directory/role-based-access-control-configure)。 您可以執行此命令來檢查開發人員空間的資源群組：`azds list-up`
 1. 要求小組成員**選取開發人員空間**，以在其中進行開發。
    * **命令列或 VS Code**：若要查看您可以存取的現有 Azure Dev Spaces：`azds space list`。 若要選取開發人員空間：`azds space select`。
-   * **Visual Studio IDE**：在 Visual Studio 中開啟專案，然後從啟動設定的下拉式清單中選取 [Azure Dev Spaces]。 在開啟的對話方塊中，選取現有的叢集。
+   * **Visual Studio IDE**：在 Visual Studio 中開啟專案，然後從啟動設定的下拉式清單中選取 [Azure Dev Spaces]  。 在開啟的對話方塊中，選取現有的叢集。
 
      ![Visual Studio 啟動設定的下拉式清單](../media/get-started-netcore-visualstudio/LaunchSettings.png)
 

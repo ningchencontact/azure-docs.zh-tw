@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: b736bb5549b7d236e746ba7b161cde79209e927b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60906380"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>在 Azure 資訊安全中心限制透過網際網路面向端點的存取
@@ -32,23 +32,23 @@ ms.locfileid: "60906380"
 >
 
 ## <a name="implement-the-recommendation"></a>實作建議
-1. 在 [建議] 刀鋒視窗中，選取 [限制透過網際網路面向端點的存取]。
+1. 在 [建議]  刀鋒視窗中，選取 [限制透過網際網路面向端點的存取]  。
 
    ![限制透過網際網路面向端點的存取][1]
-2. 這樣會開啟 [限制透過網際網路面向端點的存取] 刀鋒視窗。 此刀鋒視窗會列出虛擬機器 (VM) 與導致潛在安全性問題的輸入規則。 選取 VM。
+2. 這樣會開啟 [限制透過網際網路面向端點的存取]  刀鋒視窗。 此刀鋒視窗會列出虛擬機器 (VM) 與導致潛在安全性問題的輸入規則。 選取 VM。
 
    ![選取 VM][2]
 3. [NSG]  刀鋒視窗會顯示網路安全性群組資訊、相關的輸入規則和關聯的 VM。 選取 [編輯輸入規則]  繼續編輯輸入規則。
 
    ![[網路安全性群組] 刀鋒視窗][3]
-4. 在 [輸入安全性規則]  刀鋒視窗中選取要編輯的輸入規則。 在此範例中，我們選取 [允許 Web] 。
+4. 在 [輸入安全性規則]  刀鋒視窗中選取要編輯的輸入規則。 在此範例中，我們選取 [允許 Web]  。
 
    ![輸入安全性規則][4]
 
    注意，您也可以選取 [預設規則]  以查看所有 NSG 包含的預設規則集。 預設規則無法刪除，但因為其會指派為較低優先權，因此可以由您所建立的規則覆寫預設規則。 深入了解[預設規則](../virtual-network/security-overview.md#default-security-rules)。
 
    ![預設規則][5]
-5. 在 [允許 Web] 刀鋒視窗中編輯輸入規則的內容，讓**來源**是 IP 位址或 IP 位址區塊。 若要深入了解輸入規則的內容，請參閱 [NSG 規則](../virtual-network/security-overview.md#security-rules)。
+5. 在 [允許 Web]  刀鋒視窗中編輯輸入規則的內容，讓**來源**是 IP 位址或 IP 位址區塊。 若要深入了解輸入規則的內容，請參閱 [NSG 規則](../virtual-network/security-overview.md#security-rules)。
 
    ![編輯輸入規則][6]
 

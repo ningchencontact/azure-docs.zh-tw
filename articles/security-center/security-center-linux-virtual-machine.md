@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
 ms.openlocfilehash: af9b1ef64944e72a24d76cc555e51841e75401ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60909374"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>使用 Linux 的 Azure 資訊安全中心和 Azure 虛擬機器
@@ -80,7 +80,7 @@ ms.locfileid: "60909374"
 > 
 
 ## <a name="monitor-security-health"></a>監視安全性健康狀態
-在您為訂用帳戶的資源啟用 [安全性原則](tutorial-security-policy.md) 之後，資訊安全中心會分析您資源的安全性狀態，以找出潛在的弱點。  您可以在 [資源安全性健全狀況] 刀鋒視窗中，檢視資源的安全性狀態及任何問題。 當您在 [資源安全性] 健全狀況圖格中按一下 [虛擬機器] 時，會開啟 [虛擬機器] 刀鋒視窗，並提供您 VM 的建議。 
+在您為訂用帳戶的資源啟用 [安全性原則](tutorial-security-policy.md) 之後，資訊安全中心會分析您資源的安全性狀態，以找出潛在的弱點。  您可以在 [資源安全性健全狀況]  刀鋒視窗中，檢視資源的安全性狀態及任何問題。 當您在 [資源安全性]  健全狀況圖格中按一下 [虛擬機器]  時，會開啟 [虛擬機器]  刀鋒視窗，並提供您 VM 的建議。 
 
 ![安全性健康狀態](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
@@ -92,11 +92,11 @@ ms.locfileid: "60909374"
 選取一個安全性警示以深入了解觸發警示的事件；如果發現項目，您需要進行一些步驟來阻止攻擊。 安全性警示會依[類型](security-center-alerts-type.md)及日期區分。
 
 ## <a name="monitor-security-health"></a>監視安全性健康狀態
-在您為訂用帳戶的資源啟用 [安全性原則](tutorial-security-policy.md) 之後，資訊安全中心會分析您資源的安全性狀態，以找出潛在的弱點。  您可以在 [資源安全性健全狀況] 刀鋒視窗中，檢視資源的安全性狀態及任何問題。 當您在 [資源安全性] 健全狀況圖格中按一下 [虛擬機器] 時，會開啟 [虛擬機器] 刀鋒視窗，並提供您 VM 的建議。 
+在您為訂用帳戶的資源啟用 [安全性原則](tutorial-security-policy.md) 之後，資訊安全中心會分析您資源的安全性狀態，以找出潛在的弱點。  您可以在 [資源安全性健全狀況]  刀鋒視窗中，檢視資源的安全性狀態及任何問題。 當您在 [資源安全性]  健全狀況圖格中按一下 [虛擬機器]  時，會開啟 [虛擬機器]  刀鋒視窗，並提供您 VM 的建議。 
 
 ![安全性健康狀態](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig4.png)
 
-如果您按一下此建議，您會看到更多所應採取以解決這些問題的特定動作詳細資料。 詳細資料會出現在刀鋒視窗底部的 [建議] 底下。 
+如果您按一下此建議，您會看到更多所應採取以解決這些問題的特定動作詳細資料。 詳細資料會出現在刀鋒視窗底部的 [建議]  底下。 
 
 ![安全性健康狀態 2](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig5.png)
 

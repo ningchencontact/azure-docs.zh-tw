@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: kfollis
 ms.openlocfilehash: 693e973fb988a57c15b4ea2fae47f16b4ff39011
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60552526"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>在 Azure 入口網站中建立和共用儀表板
@@ -35,7 +35,7 @@ ms.locfileid: "60552526"
 
 拖放圖格到儀表板介面上想要的位置來加以新增。
 
-未與特定資源相關聯的圖格有新的類別，其名稱為**一般**。  在此範例中，我們釘選 [Markdown] 圖格。  您可以使用此圖格將自訂內容新增至儀表板。  圖格支援純文字、[Markdown 語法](https://daringfireball.net/projects/markdown/syntax)和一組有限的 HTML   (基於安全考量，您無法執行插入 `<script>` 標籤或使用可能會干擾入口網站的特定 CSS 樣式元素等動作)。 
+未與特定資源相關聯的圖格有新的類別，其名稱為**一般**。  在此範例中，我們釘選 [Markdown] 圖格。  您可以使用此圖格將自訂內容新增至儀表板。  圖格支援純文字、[Markdown 語法](https://daringfireball.net/projects/markdown/syntax)和一組有限的 HTML  (基於安全考量，您無法執行插入 `<script>` 標籤或使用可能會干擾入口網站的特定 CSS 樣式元素等動作)。 
 
 ![新增 Markdown](./media/azure-portal-dashboards/add-markdown.png)
 
@@ -69,16 +69,16 @@ ms.locfileid: "60552526"
 
 ![檢視圖格](./media/azure-portal-dashboards/view-tile.png)
 
-在儀表板完成自訂後，只需選取 [完成自訂] 來結束自訂模式，或按一下滑鼠右鍵並從關聯式功能表選取 [完成自訂]。
+在儀表板完成自訂後，只需選取 [完成自訂]  來結束自訂模式，或按一下滑鼠右鍵並從關聯式功能表選取 [完成自訂]  。
 
 ## <a name="publish-a-dashboard-and-manage-access-control"></a>發佈儀表板和管理存取控制
 當您建立儀表板時，它預設是私人用途，這表示只有您會看得到。  若要讓其他人也能看見，請使用與其他儀表板命令一同出現的 [共用]  按鈕。
 
 ![共用儀表板](./media/azure-portal-dashboards/share-dashboard.png)
 
-系統會要求您選擇可將儀表板發佈至的訂用帳戶和資源群組。 為了將儀表板完美整合到生態系統，我們已將共用儀表板實作為 Azure 資源 (因此，您無法透過輸入電子郵件地址來共用)。  入口網站中大多數圖格所顯示資訊的存取權是由 [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)所控管。 从访问控制角度来看，共享仪表板与虚拟机或存储帐户没有什么不同。  
+系統會要求您選擇可將儀表板發佈至的訂用帳戶和資源群組。 為了將儀表板完美整合到生態系統，我們已將共用儀表板實作為 Azure 資源 (因此，您無法透過輸入電子郵件地址來共用)。  入口網站中大多數圖格所顯示資訊的存取權是由 [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)所控管。 從存取控制觀點來看，共用儀表板與虛擬機器或儲存體帳戶並無不同。  
 
-假設您有 Azure 訂用帳戶，而且已為小組成員指派訂用帳戶的**擁有者**、**參與者**或**讀取者**角色。  作为所有者或参与者的用户能够列出、查看、创建、修改或删除该订阅中的仪表板。  身為讀取者的使用者能夠列出和檢視儀表板，但無法進行修改或刪除。  具有讀取者存取權的使用者能夠對共用的儀表板進行本機編輯，但無法將這些變更發佈回伺服器。  不過，他們可以製作儀表板的私人複本供自己使用。  一如往常，儀表板上的個別圖格會根據其對應的資源，強制執行自己的存取控制規則。  
+假設您有 Azure 訂用帳戶，而且已為小組成員指派訂用帳戶的**擁有者**、**參與者**或**讀取者**角色。  身為擁有者或參與者的使用者能夠列出、檢視、建立、修改或刪除該訂用帳戶內的儀表板。  身為讀取者的使用者能夠列出和檢視儀表板，但無法進行修改或刪除。  具有讀取者存取權的使用者能夠對共用的儀表板進行本機編輯，但無法將這些變更發佈回伺服器。  不過，他們可以製作儀表板的私人複本供自己使用。  一如往常，儀表板上的個別圖格會根據其對應的資源，強制執行自己的存取控制規則。  
 
 為了方便起見，入口網站的發佈體驗會引導您朝向將儀表板放在稱為 **儀表板**的資源群組中的模式。  
 
@@ -88,11 +88,11 @@ ms.locfileid: "60552526"
 
 ![將儀表板發佈至資源群組](./media/azure-portal-dashboards/publish-to-resource-group.png)
 
-儀表板發佈之後，[共用 + 存取控制]  窗格便會重新整理，並顯示所發佈儀表板的相關資訊，包括用以管理儀表板使用者存取權的連結。  此連結會啟動用來管理任何 Azure 資源存取權的標準角色型存取控制刀鋒視窗。  您隨時都可以透過選取 [共用] 來回到此檢視。
+儀表板發佈之後，[共用 + 存取控制]  窗格便會重新整理，並顯示所發佈儀表板的相關資訊，包括用以管理儀表板使用者存取權的連結。  此連結會啟動用來管理任何 Azure 資源存取權的標準角色型存取控制刀鋒視窗。  您隨時都可以透過選取 [共用]  來回到此檢視。
 
 ![管理存取控制](./media/azure-portal-dashboards/manage-access.png)
 
 ## <a name="next-steps"></a>後續步驟
-* 若要管理资源，请参阅[使用 Azure 门户管理 Azure 资源](../azure-resource-manager/manage-resources-portal.md)。
+* 若要管理資源，請參閱[使用 Azure 入口網站管理 Azure 資源](../azure-resource-manager/manage-resources-portal.md)。
 * 若要部署資源，請參閱 [使用 Resource Manager 範本與 Azure 入口網站來部署資源](../azure-resource-manager/resource-group-template-deploy-portal.md)。
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611350"
 ---
 # <a name="the-azure-production-network"></a>Azure 生產網路
@@ -54,7 +54,7 @@ Azure 會在各種層級實作強固的軟體安全性和防火牆功能，以�
 ### <a name="azure-security-features"></a>Azure 安全性功能
 Azure 會在生產網路內實作以主機為基礎的軟體防火牆。 核心 Azure 環境內有數個核心安全性和防火牆功能。 這些安全性功能反映出 Azure 環境中的深度防禦策略。 Azure 中的客戶資料會受到下列防火牆保護：
 
-**Hypervisor 防火牆 (封包篩選)**：此防火牆會在 Hypervisor 中實作，並由網狀架構控制器 (FC) 代理程式設定。 此防火牆會保護在 VM 內執行的租用戶，以防止未經授權的存取。 根據預設，系統在 VM 建立時會封鎖所有流量，然後 FC 代理程式會在篩選器中新增規則及例外狀況，以允許經過授權的流量。
+**Hypervisor 防火牆 (封包篩選)** ：此防火牆會在 Hypervisor 中實作，並由網狀架構控制器 (FC) 代理程式設定。 此防火牆會保護在 VM 內執行的租用戶，以防止未經授權的存取。 根據預設，系統在 VM 建立時會封鎖所有流量，然後 FC 代理程式會在篩選器中新增規則及例外狀況，以允許經過授權的流量。
 
 系統在此會設定兩種類型的規則：
 

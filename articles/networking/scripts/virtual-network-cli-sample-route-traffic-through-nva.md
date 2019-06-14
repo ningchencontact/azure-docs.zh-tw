@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
 ms.openlocfilehash: f077080793ef595019667028188a2a98dcbd2c0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60624452"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>透過網路虛擬設備來路由傳送流量
@@ -38,7 +38,7 @@ ms.locfileid: "60624452"
 
 ## <a name="clean-up-deployment"></a>清除部署 
 
-运行以下命令来删除资源组、VM 和所有相关资源。
+執行下列命令來移除資源群組、VM 和所有相關資源。
 
 ```azurecli
 az group delete --name MyResourceGroup --yes

@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
 ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60681804"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>建立您可以從 Azure Logic Apps 呼叫的自訂 API
@@ -104,9 +104,9 @@ ms.locfileid: "60681804"
    
    `202 ACCEPTED` 回應應包含這些標頭：
    
-   * 必要：`location` 標頭所指定的 URL 絕對路徑，可讓 Logic Apps 引擎在其中檢查您的 API 作業狀態
+   * 必要  ：`location` 標頭所指定的 URL 絕對路徑，可讓 Logic Apps 引擎在其中檢查您的 API 作業狀態
 
-   * *可选*：`retry-after` 標頭所指定的秒數，是引擎在檢查 `location` URL 以了解作業狀態時所需等候的時間。 
+   * *選用*：`retry-after` 標頭所指定的秒數，是引擎在檢查 `location` URL 以了解作業狀態時所需等候的時間。 
 
      根據預設，引擎每隔 20 秒會進行檢查。 若要指定不同的間隔，請包括 `retry-after` 標頭，以及下一次輪詢之前的秒數。
 
@@ -156,7 +156,7 @@ ms.locfileid: "60681804"
 
 ### <a name="check-for-new-data-or-events-regularly-with-the-polling-trigger-pattern"></a>使用輪詢觸發程序模式定期檢查新的資料或事件
 
-輪詢觸發程序作用很像本主題先前所述的[輪詢動作](#async-pattern)。 Logic Apps 引擎會定期呼叫並檢查新的資料或事件，以查看觸發程序端點。 如果引擎發現符合您指定條件的新資料或事件，就會引發觸發程序。 然後，引擎會建立處理資料的邏輯應用程式執行個體作為輸入。 
+輪詢觸發程序  作用很像本主題先前所述的[輪詢動作](#async-pattern)。 Logic Apps 引擎會定期呼叫並檢查新的資料或事件，以查看觸發程序端點。 如果引擎發現符合您指定條件的新資料或事件，就會引發觸發程序。 然後，引擎會建立處理資料的邏輯應用程式執行個體作為輸入。 
 
 ![輪詢觸發程序](./media/logic-apps-create-api-app/custom-api-polling-trigger-pattern.png)
 
@@ -193,7 +193,7 @@ ms.locfileid: "60681804"
 
 ### <a name="wait-and-listen-for-new-data-or-events-with-the-webhook-trigger-pattern"></a>等候並接聽使用 webhook 觸發程序模式的新資料或事件
 
-Webhook 觸發程序是推送觸發程序，會等候並接聽您服務端點中的新資料或事件。 如果新的資料或事件符合指定的條件，觸發程序就會引發，並建立邏輯應用程式執行個體，然後處理資料作為輸入。
+Webhook 觸發程序是推送觸發程序  ，會等候並接聽您服務端點中的新資料或事件。 如果新的資料或事件符合指定的條件，觸發程序就會引發，並建立邏輯應用程式執行個體，然後處理資料作為輸入。
 Webhook 觸發程序作用很像本主題之前所述的 [webhook 動作](#webhook-actions)，並使用 `subscribe` 和 `unsubscribe` 端點加以設定。 
 
 * `subscribe` 端點：當您在邏輯應用程式中新增及儲存 Webhook 觸發程序時，Logic Apps 引擎會呼叫 `subscribe` 端點。 這個步驟會導致邏輯應用程式建立您 API 所儲存的回呼 URL。 當沒有新的資料或事件符合指定的條件時，您的 API 會使用 HTTP POST 回呼 URL。 內容承載和標頭會作為輸入傳遞至邏輯應用程式。

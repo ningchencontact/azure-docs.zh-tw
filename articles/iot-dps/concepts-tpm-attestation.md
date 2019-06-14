@@ -3,16 +3,16 @@ title: Azure IoT 中樞裝置佈建服務 - TPM 證明
 description: 本文將在概念上略述使用 IoT 中樞裝置佈建服務時的 TPM 證明流程。
 author: nberdy
 ms.author: nberdy
-ms.date: 04/23/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 07c5dbce0b98d1c197164f4fc77682f78ede57f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60746391"
 ---
 # <a name="tpm-attestation"></a>TPM 證明
@@ -35,7 +35,7 @@ TPM 有另一種類型的金鑰，稱為儲存根金鑰 (SRK)。 TPM 的擁有�
 
 ![取得 TPM 擁有權](./media/concepts-tpm-attestation/tpm-ownership.png)
 
-关于获取 TPM 所有权的一点说明：获取 TPM 的所有权取决于许多因素，包括 TPM 制造商、所使用的 TPM 工具集以及设备 OS。 請遵循適用於您系統的指示來取得擁有權。
+取得 TPM 的擁有權的一個注意事項：取得 TPM 的擁有權取決於許多因素，包括 TPM 製造商、 TPM 所使用的工具組和裝置作業系統。 請遵循適用於您系統的指示來取得擁有權。
 
 裝置佈建服務會使用 EK (EK_pub) 的公開部分來識別和註冊裝置。 裝置廠商可以在製造或最終測試期間讀取 EK_pub，並將 EK_pub 上傳至佈建服務，以便裝置連線到佈建時，佈建可辨識出此裝置。 裝置佈建服務不會檢查 SRK 或擁有者，因此「清除」TPM 會清除客戶資料，但會保留 EK (和其他廠商資料)，而且裝置佈建服務仍可在裝置連線至佈建時辨識出裝置。
 

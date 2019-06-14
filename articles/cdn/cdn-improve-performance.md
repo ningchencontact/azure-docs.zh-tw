@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: magattus
 ms.openlocfilehash: afe959e80b339db5112fa97fd79d0528390e3954
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636961"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>在 Azure CDN 中壓縮檔案以改善效能
@@ -27,7 +27,7 @@ ms.locfileid: "60636961"
 有兩種方式可啟用檔案壓縮︰
 
 - 在原始伺服器上啟用壓縮。 在此情況下，Azure CDN 會傳遞壓縮的檔案，遞交給提出要求的用戶端。
-- 直接在 CDN POP 伺服器上啟用壓縮 (動態壓縮)。 在此情況下，CDN 會壓縮檔案並將其提供給終端使用者，即使原始伺服器未壓縮這些檔案也是如此。
+- 直接在 CDN POP 伺服器上啟用壓縮 (動態壓縮  )。 在此情況下，CDN 會壓縮檔案並將其提供給終端使用者，即使原始伺服器未壓縮這些檔案也是如此。
 
 > [!IMPORTANT]
 > Azure CDN 組態變更會需要一些時間才能傳播至整個網路： 
@@ -51,12 +51,12 @@ ms.locfileid: "60636961"
     ![CDN 設定檔端點](./media/cdn-file-compression/cdn-endpoints.png)
 
     隨即開啟 [CDN 端點] 頁面。
-2. 選取 [壓縮]。
+2. 選取 [壓縮]  。
 
     ![CDN 壓縮選取項目](./media/cdn-file-compression/cdn-compress-select-std.png)
 
     壓縮頁面隨即開啟。
-3. 選取 [開啟] 以開啟壓縮。
+3. 選取 [開啟]  以開啟壓縮。
 
     ![CDN 檔案壓縮選項](./media/cdn-file-compression/cdn-compress-standard.png)
 4. 請使用預設的 MIME 類型，或是新增或移除 MIME 類型以修改清單。
@@ -69,32 +69,32 @@ ms.locfileid: "60636961"
    > 目前不支援在 Microsoft 提供的 Azure CDN 標準中修改 MIME 類型的預設清單。
    > 
 
-5. 完成變更之後，請選取 [儲存]。
+5. 完成變更之後，請選取 [儲存]  。
 
 ### <a name="premium-cdn-profiles"></a>進階 CDN 設定檔
 > [!NOTE]
 > 本節僅適用於**來自 Verizon 的 Azure CDN 進階**設定檔。
 > 
 
-1. 從 CDN 設定檔頁面選取 [管理]。
+1. 從 CDN 設定檔頁面選取 [管理]  。
 
     ![CDN 管理選取](./media/cdn-file-compression/cdn-manage-btn.png)
 
     隨即開啟 CDN 管理入口網站。
-2. 將滑鼠移至 [HTTP 大型] 索引標籤上，然後將滑鼠移至 [快取設定] 飛出視窗上。 選取 [壓縮]。
+2. 將滑鼠移至 [HTTP 大型]  索引標籤上，然後將滑鼠移至 [快取設定]  飛出視窗上。 選取 [壓縮]  。
 
     ![CDN 壓縮選取項目](./media/cdn-file-compression/cdn-compress-select.png)
 
     壓縮選項隨即顯示。
 
     ![CDN 檔案壓縮選項](./media/cdn-file-compression/cdn-compress-files.png)
-3. 選取 [啟用壓縮] 以啟用壓縮。 在 [檔案類型] 方塊中，輸入您想要壓縮成逗號分隔清單 (無空格) 的 MIME 類型。
+3. 選取 [啟用壓縮]  以啟用壓縮。 在 [檔案類型]  方塊中，輸入您想要壓縮成逗號分隔清單 (無空格) 的 MIME 類型。
 
    > [!TIP]
    > 即使可行，我們依然不建議對壓縮格式套用壓縮。 例如，ZIP、MP3、MP4 或 JPG。
    > 
 
-4. 完成變更之後，請選取 [更新]。
+4. 完成變更之後，請選取 [更新]  。
 
 ## <a name="compression-rules"></a>壓縮規則
 

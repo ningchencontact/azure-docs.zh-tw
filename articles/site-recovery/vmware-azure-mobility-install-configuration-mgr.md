@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: 35c317c4b73e9a22e3b0d6192abcfc2a596066b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60598275"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>使用 System Center Configuration Manager 自動進行行動服務安裝
@@ -40,7 +40,7 @@ ms.locfileid: "60598275"
 ### <a name="prepare-for-deployment"></a>準備部署
 1. 在網路共用上建立資料夾，並命名為 **MobSvcWindows**。
 2. 登入設定伺服器，然後將系統管理命令提示字元開啟。
-3. 运行以下命令，生成密码文件：
+3. 執行下列命令來產生複雜密碼檔案：
 
     `cd %ProgramData%\ASR\home\svsystems\bin`
 
@@ -156,23 +156,23 @@ IF NOT %ERRORLEVEL% EQU 0 (
 ### <a name="create-a-package"></a>建立套件
 
 1. 登入您的 Configuration Manager 主控台。
-2. 瀏覽至 [軟體程式庫] > [應用程式管理] > [套件]。
-3. 以滑鼠右鍵按一下 [套件]，然後選取 [建立套件]。
+2. 瀏覽至 [軟體程式庫]   > [應用程式管理]   > [套件]  。
+3. 以滑鼠右鍵按一下 [套件]  ，然後選取 [建立套件]  。
 4. 提供 [名稱]、[描述]、[製造商]、[語言] 和 [版本] 的值。
-5. 选中“此包包含源文件”复选框。
-6. 按一下 [瀏覽]，選取儲存安裝程式的網路共用 (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows)。
+5. 選取 [此套件包含來源檔案]  核取方塊。
+6. 按一下 [瀏覽]  ，選取儲存安裝程式的網路共用 (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows)。
 
    ![建立套件和程式精靈的螢幕擷取畫面](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
-7. 在 [選擇您要建立的程式類型] 頁面上，選取 [標準程式]，然後按 [下一步]。
+7. 在 [選擇您要建立的程式類型]  頁面上，選取 [標準程式]  ，然後按 [下一步]  。
 
-   ![创建包和程序向导的屏幕截图](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
+   ![建立套件和程式精靈的螢幕擷取畫面](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
-8. 在 [指定此標準程式的相關資訊] 頁面上，提供下列輸入，然後按 [下一步]。 (其他輸入可以使用其預設值。)
+8. 在 [指定此標準程式的相關資訊]  頁面上，提供下列輸入，然後按 [下一步]  。 (其他輸入可以使用其預設值。)
 
    | **參數名稱** | **值** |
    |--|--|
-   | 名稱 | 安裝 Microsoft Azure 行動服務 (Windows) |
+   | Name | 安裝 Microsoft Azure 行動服務 (Windows) |
    | 命令列 | install.bat |
    | 程式可以執行 | 使用者是否登入 |
 
@@ -182,35 +182,35 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
    ![建立套件和程式精靈的螢幕擷取畫面](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2.png)
 
-10. 按兩次 [下一步] 以完成精靈。
+10. 按兩次 [下一步]  以完成精靈。
 
 
 > [!NOTE]
 > 指令碼支援全新安裝行動服務代理程式，以及升級至已安裝的代理程式。
 
 ### <a name="deploy-the-package"></a>部署套件
-1. 在 Configuration Manager 主控台，以滑鼠右鍵按一下套件，然後選取 [發佈內容]。
-   ![Configuration Manager 控制台的屏幕截图](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. 選取應該將套件複製過去的**[發佈點](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
-3. 完成该向导。 套件便會開始複寫至指定的發佈點。
-4. 完成套件發佈後，以滑鼠右鍵按一下套件，然後選取 [部署]。
+1. 在 Configuration Manager 主控台，以滑鼠右鍵按一下套件，然後選取 [發佈內容]  。
+   ![Configuration Manager 主控台的螢幕擷取畫面](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
+2. 選取應該將套件複製過去的 **[發佈點](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** 。
+3. 完成精靈。 套件便會開始複寫至指定的發佈點。
+4. 完成套件發佈後，以滑鼠右鍵按一下套件，然後選取 [部署]  。
    ![Configuration Manager 主控台的螢幕擷取畫面](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
 5. 選取您在必要條件一節所建立的 Windows Server 裝置集合，作為部署的目標集合。
 
    ![部署軟體精靈的螢幕擷取畫面](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection.png)
 
-6. 在 [指定內容目的地] 頁面上，選取您的**發佈點**。
-7. 在 [指定控制此軟體部署方式的設定] 頁面上，確定目的為**必要**。
+6. 在 [指定內容目的地]  頁面上，選取您的**發佈點**。
+7. 在 [指定控制此軟體部署方式的設定]  頁面上，確定目的為**必要**。
 
    ![部署軟體精靈的螢幕擷取畫面](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
-8. 在 [指定此部署的排程] 頁面上指定排程。 如需詳細資訊，請參閱 [排程套件](https://technet.microsoft.com/library/gg682178.aspx)。
-9. 根據資料中心的需求，在 [發佈點] 頁面上設定屬性。 然后完成向导。
+8. 在 [指定此部署的排程]  頁面上指定排程。 如需詳細資訊，請參閱 [排程套件](https://technet.microsoft.com/library/gg682178.aspx)。
+9. 根據資料中心的需求，在 [發佈點]  頁面上設定屬性。 然後完成精靈。
 
 > [!TIP]
 > 為了避免不必要的重新開機，請排定在每月維護期間或軟體更新期間安裝套件。
 
-您可以使用 Configuration Manager 主控台來監視部署進度。 移至 [監視] > [部署] > *[套件名稱]*。
+您可以使用 Configuration Manager 主控台來監視部署進度。 移至 [監視]   > [部署]   >  *[套件名稱]* 。
 
   ![監視部署的 Configuration Manager 選項螢幕擷取畫面](./media/vmware-azure-mobility-install-configuration-mgr/report.PNG)
 
@@ -231,7 +231,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
    `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
-6. 将以下文件复制到网络共享上的“MobSvcLinux”文件夹：
+6. 將下列檔案複製到網路共用上的 **MobSvcLinux** 資料夾：
    * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz
    * Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz
    * Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz
@@ -381,19 +381,19 @@ cd /tmp
 ### <a name="create-a-package"></a>建立套件
 
 1. 登入您的 Configuration Manager 主控台。
-2. 瀏覽至 [軟體程式庫] > [應用程式管理] > [套件]。
-3. 以滑鼠右鍵按一下 [套件]，然後選取 [建立套件]。
+2. 瀏覽至 [軟體程式庫]   > [應用程式管理]   > [套件]  。
+3. 以滑鼠右鍵按一下 [套件]  ，然後選取 [建立套件]  。
 4. 提供 [名稱]、[描述]、[製造商]、[語言] 和 [版本] 的值。
-5. 選取 [此套件包含來源檔案] 核取方塊。
-6. 按一下 [瀏覽]，選取儲存安裝程式的網路共用 (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux)。
+5. 選取 [此套件包含來源檔案]  核取方塊。
+6. 按一下 [瀏覽]  ，選取儲存安裝程式的網路共用 (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux)。
 
    ![建立套件和程式精靈的螢幕擷取畫面](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package-linux.png)
 
-7. 在 [選擇您要建立的程式類型] 頁面上，選取 [標準程式]，然後按 [下一步]。
+7. 在 [選擇您要建立的程式類型]  頁面上，選取 [標準程式]  ，然後按 [下一步]  。
 
-   ![创建包和程序向导的屏幕截图](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
+   ![建立套件和程式精靈的螢幕擷取畫面](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
-8. 在 [指定此標準程式的相關資訊] 頁面上，提供下列輸入，然後按 [下一步]。 (其他輸入可以使用其預設值。)
+8. 在 [指定此標準程式的相關資訊]  頁面上，提供下列輸入，然後按 [下一步]  。 (其他輸入可以使用其預設值。)
 
     | **參數名稱** | **值** |
    |--|--|
@@ -403,32 +403,32 @@ cd /tmp
 
    ![建立套件和程式精靈的螢幕擷取畫面](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-linux.png)
 
-9. 在下一個頁面上，選取 [可在任何平台上執行這個程式]。
+9. 在下一個頁面上，選取 [可在任何平台上執行這個程式]  。
    ![建立套件和程式精靈的螢幕擷取畫面](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2-linux.png)
 
-10. 按兩次 [下一步] 以完成精靈。
+10. 按兩次 [下一步]  以完成精靈。
 
 > [!NOTE]
 > 指令碼支援全新安裝行動服務代理程式，以及升級至已安裝的代理程式。
 
 ### <a name="deploy-the-package"></a>部署套件
-1. 在 Configuration Manager 主控台，以滑鼠右鍵按一下套件，然後選取 [發佈內容]。
-   ![Configuration Manager 控制台的屏幕截图](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. 選取應該將套件複製過去的**[發佈點](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
-3. 完成该向导。 套件便會開始複寫至指定的發佈點。
-4. 完成套件發佈後，以滑鼠右鍵按一下套件，然後選取 [部署]。
+1. 在 Configuration Manager 主控台，以滑鼠右鍵按一下套件，然後選取 [發佈內容]  。
+   ![Configuration Manager 主控台的螢幕擷取畫面](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
+2. 選取應該將套件複製過去的 **[發佈點](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** 。
+3. 完成精靈。 套件便會開始複寫至指定的發佈點。
+4. 完成套件發佈後，以滑鼠右鍵按一下套件，然後選取 [部署]  。
    ![Configuration Manager 主控台的螢幕擷取畫面](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
 5. 選取您在必要條件一節所建立的 Linux 伺服器裝置集合，作為部署的目標集合。
 
-   ![部署软件向导的屏幕截图](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection-linux.png)
+   ![部署軟體精靈的螢幕擷取畫面](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection-linux.png)
 
-6. 在 [指定內容目的地] 頁面上，選取您的**發佈點**。
-7. 在 [指定控制此軟體部署方式的設定] 頁面上，確定目的為**必要**。
+6. 在 [指定內容目的地]  頁面上，選取您的**發佈點**。
+7. 在 [指定控制此軟體部署方式的設定]  頁面上，確定目的為**必要**。
 
    ![部署軟體精靈的螢幕擷取畫面](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
-8. 在 [指定此部署的排程] 頁面上指定排程。 如需詳細資訊，請參閱 [排程套件](https://technet.microsoft.com/library/gg682178.aspx)。
-9. 根據資料中心的需求，在 [發佈點] 頁面上設定屬性。 然後完成精靈。
+8. 在 [指定此部署的排程]  頁面上指定排程。 如需詳細資訊，請參閱 [排程套件](https://technet.microsoft.com/library/gg682178.aspx)。
+9. 根據資料中心的需求，在 [發佈點]  頁面上設定屬性。 然後完成精靈。
 
 行動服務會根據您設定的排程，安裝在 Linux 伺服器裝置集合上。
 

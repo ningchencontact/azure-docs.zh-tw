@@ -10,10 +10,10 @@ ms.author: grhuynh
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.openlocfilehash: 399b1ed735ce1b7a3fca1d27155863f6bfa18776
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60780873"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>使用相同範例中的多個輸入來提交工作流程
@@ -28,7 +28,7 @@ ms.locfileid: "60780873"
 ## <a name="multiple-bam-files"></a>多個 BAM 檔案
 
 ### <a name="upload-your-input-files-to-azure-storage"></a>將您的輸入檔案上傳至 Azure 儲存體
-假設您以多個 BAM 檔案作為輸入，reads.bam、additional_reads.bam 和 yet_more_reads.bam，且您已它們上傳至 Azure 中的儲存體帳戶 myaccount。 您具有 API URL 以及存取金鑰。 您需要 **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** 中的輸出。
+假設您以多個 BAM 檔案作為輸入，reads.bam  、additional_reads.bam  和 yet_more_reads.bam  ，且您已它們上傳至 Azure 中的儲存體帳戶 myaccount  。 您具有 API URL 以及存取金鑰。 您需要 **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** 中的輸出。
 
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>將作業提交至 `msgen` 用戶端 
@@ -91,7 +91,7 @@ output_storage_account_container: outputs
 ## <a name="multiple-paired-fastq-files"></a>多個配對的 FASTQ 檔案
 
 ### <a name="upload-your-input-files-to-azure-storage"></a>將您的輸入檔案上傳至 Azure 儲存體
-假設您以多個配對的 FASTQ 檔案作為輸入，reads_1.fq.gz 與 reads_2.fq.gz、additional_reads_1.fq.gz 與 additional_reads_2.fq.gz 以及 yet_more_reads_1.fq.gz 與 yet_more_reads_2.fq.gz。 您已將它們上傳至 Azure 中的儲存體帳戶 myaccount，且您有 API URL 和存取金鑰。 您需要 **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** 中的輸出。
+假設您以多個配對的 FASTQ 檔案作為輸入，reads_1.fq.gz  與 reads_2.fq.gz  、additional_reads_1.fq.gz  與 additional_reads_2.fq.gz  以及 yet_more_reads_1.fq.gz  與 yet_more_reads_2.fq.gz  。 您已將它們上傳至 Azure 中的儲存體帳戶 myaccount  ，且您有 API URL 和存取金鑰。 您需要 **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** 中的輸出。
 
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>將作業提交至 `msgen` 用戶端 

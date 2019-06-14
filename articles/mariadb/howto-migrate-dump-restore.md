@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: bcb76fcbba02bf53b48cc462e3dad8f264db02ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60745928"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>使用傾印和還原來將 MariaDB 資料庫移轉至適用於 MariaDB 的 Azure 資料庫
@@ -87,7 +87,7 @@ $ mysqldump -u root -p --all-databases > alldb_backup.sql
 ## <a name="create-a-database-on-the-target-server"></a>在目標伺服器上建立資料庫
 在您要移轉資料的目標適用於 MariaDB 的 Azure 資料庫伺服器上建立空白資料庫。 使用例如 MySQL Workbench、Toad 或 Navicat 的工具來建立資料庫。 資料庫名稱可以與包含傾印資料的資料庫名稱相同，或者您可以建立名稱不同的資料庫。
 
-若要連線，請在適用於 MariaDB 的 Azure 資料庫的 [概觀] 中尋找連線資訊。
+若要連線，請在適用於 MariaDB 的 Azure 資料庫的 [概觀]  中尋找連線資訊。
 
 ![在 Azure 入口網站中尋找連線資訊](./media/howto-migrate-dump-restore/1_server-overview-name-login.png)
 
@@ -109,19 +109,19 @@ $ mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p te
 若要匯出，您可以使用一般工具 phpMyAdmin，而您可能已在環境中本機安裝此工具。 使用 PHPMyAdmin 匯出 MariaDB 資料庫：
 1. 開啟 phpMyAdmin。
 2. 選取您的資料庫。 按一下左邊清單中的資料庫名稱。 
-3. 按一下 [匯出] 連結。 新的分頁隨即出現，以供檢視資料庫的傾印。
-4. 在 [匯出] 區域中，按一下 [全選] 連結來選擇資料庫中的資料表。 
+3. 按一下 [匯出]  連結。 新的分頁隨即出現，以供檢視資料庫的傾印。
+4. 在 [匯出] 區域中，按一下 [全選]  連結來選擇資料庫中的資料表。 
 5. 在 [SQL 選項] 區域中，按一下適當的選項。 
-6. 依序按一下 [另存新檔] 和對應的壓縮選項，然後按一下 [執行] 按鈕。 接著應該會出現一個對話方塊，提示您在本機儲存檔案。
+6. 依序按一下 [另存新檔]  和對應的壓縮選項，然後按一下 [執行]  按鈕。 接著應該會出現一個對話方塊，提示您在本機儲存檔案。
 
 ## <a name="import-using-phpmyadmin"></a>使用 PHPMyAdmin 匯入
 匯入資料庫的程序與匯出類似。 請執行下列動作：
 1. 開啟 phpMyAdmin。 
-2. 在 phpMyAdmin 設定頁面中，按一下 [新增] 以新增您的適用於 MariaDB 的 Azure 資料庫伺服器。 提供連線詳細資料和登入資訊。
-3. 建立已適當命名的資料庫，然後在畫面左邊選取它。 若要重寫現有的資料庫，按一下資料庫名稱、選取資料表名稱旁的所有核取方塊，然後選取 [捨棄] 以刪除現有的資料表。 
+2. 在 phpMyAdmin 設定頁面中，按一下 [新增]  以新增您的適用於 MariaDB 的 Azure 資料庫伺服器。 提供連線詳細資料和登入資訊。
+3. 建立已適當命名的資料庫，然後在畫面左邊選取它。 若要重寫現有的資料庫，按一下資料庫名稱、選取資料表名稱旁的所有核取方塊，然後選取 [捨棄]  以刪除現有的資料表。 
 4. 按一下 **SQL** 連結，以顯示您可以在其中輸入 SQL 命令或上傳 SQL 檔案的分頁。 
 5. 您可以使用**瀏覽**按鈕來尋找資料庫檔案。 
-6. 按一下 [執行] 按鈕以匯出備份、執行 SQL 命令，並重新建立您的資料庫。
+6. 按一下 [執行]  按鈕以匯出備份、執行 SQL 命令，並重新建立您的資料庫。
 
 ## <a name="next-steps"></a>後續步驟
 - [將應用程式連線至適用於 MariaDB 的 Azure 資料庫](./howto-connection-string.md)。

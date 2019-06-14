@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
 ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591796"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 語法
@@ -58,7 +58,7 @@ ms.locfileid: "60591796"
   
 ```  
   
-## <a name="arguments"></a>参数  
+## <a name="arguments"></a>引數  
   
 -   `<scope>` 是表示 `<property_name>` 範圍的選擇性字串。 有效值為 `sys` 或 `user`。 `sys` 值表示系統範圍，當中 `<property_name>` 為 [BrokeredMessage 類別](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)的公用屬性名稱。 `user` 表示使用者範圍，當中 `<property_name>` 為 [BrokeredMessage 類別](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)字典的索引鍵。 如果 `<scope>` 未指定，則 `user` 範圍是預設範圍。  
   
@@ -154,7 +154,7 @@ ms.locfileid: "60591796"
     2  
     ```  
   
--   `<decimal_constant>` 是數字的字串，不會以引號括住，且包含小數點。 这些值作为 `System.Double` 在内部存储，并具有相同的作用域/精度。  
+-   `<decimal_constant>` 是數字的字串，不會以引號括住，且包含小數點。 值會在內部儲存為 `System.Double`，並遵循相同的範圍/精確度。  
   
      在未來版本中，這個數字可能會以不同的資料類型儲存，以支援實際數字的語意，因此您不應依賴 `<decimal_constant>` 的基本資料型別是 `System.Double`。  
   

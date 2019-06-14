@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: 386b4b8440c74f6599e7147996b5843ea0f67e68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60623947"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>如何在 Java 中透過 Twilio 使用語音和簡訊功能
@@ -38,21 +38,21 @@ Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。
 Twilio API 的兩大重點是 Twilio 動詞和 Twilio 標記語言 (TwiML)。
 
 ### <a id="Verbs"></a>Twilio 動詞
-API 採用 Twilio 動詞。例如，**&lt;Say&gt;** 動詞指示 Twilio 在通話中用語音傳遞訊息。
+API 採用 Twilio 動詞。例如， **&lt;Say&gt;** 動詞指示 Twilio 在通話中用語音傳遞訊息。
 
 以下是 Twilio 動詞清單。
 
-* **&lt;Dial&gt;**：使撥號者接通另一支電話。
-* **&lt;Gather&gt;**：收集電話按鍵上輸入的號碼。
-* **&lt;Hangup&gt;**：結束通話。
-* **&lt;Play&gt;**：播放音訊檔案。
-* **&lt;佇列&gt;**：新增至呼叫端佇列。
-* **&lt;Pause&gt;**：靜候一段指定的秒數。
-* **&lt;Record&gt;**：錄製來電者的語音並傳回含有錄音之檔案的 URL。
-* **&lt;Redirect&gt;**：將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
-* **&lt;拒絕&gt;**：拒絕 Twilio 號碼的來電而不計費。
-* **&lt;說話&gt;**：將來電的文字轉換成語音。
-* **&lt;Sms&gt;**：傳送簡訊。
+* **&lt;撥打&gt;** ：使撥號者接通另一支電話。
+* **&lt;Gather&gt;** ：收集電話按鍵上輸入的號碼。
+* **&lt;Hangup&gt;** ：結束通話。
+* **&lt;Play&gt;** ：播放音訊檔案。
+* **&lt;佇列&gt;** ：新增至呼叫端佇列。
+* **&lt;暫停&gt;** ：靜候一段指定的秒數。
+* **&lt;Record&gt;** ：錄製來電者的語音並傳回含有錄音之檔案的 URL。
+* **&lt;Redirect&gt;** ：將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
+* **&lt;拒絕&gt;** ：拒絕 Twilio 號碼的來電而不計費。
+* **&lt;說話&gt;** ：將來電的文字轉換成語音。
+* **&lt;Sms&gt;** ：傳送簡訊。
 
 ### <a id="TwiML"></a>TwiML
 TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如何處理來電或簡訊。
@@ -158,7 +158,7 @@ TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如�
 若想進一步了解傳入 **Message.creator** 方法中的參數，請參閱 [https://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms]。
 
 ## <a id="howto_provide_twiml_responses"></a>操作說明：從您自己的網站提供 TwiML 回應
-當您的應用程式呼叫 Twilio API 時 (例如透過 **CallCreator.create** 方法)，Twilio 將傳送您的要求到應該傳送 TwiML 回應的 URL。 前述範例使用 Twilio 提供的 URL [https://twimlets.com/message][twimlet_message_url]。 (雖然 TwiML 是針對供 Web 服務使用而設計，但您可以在瀏覽器中檢視 TwiML。 例如，按一下 [https://twimlets.com/message][twimlet_message_url] 可查看空白的 **&lt;Response&gt;** 元素。在另一個範例中，按一下 [https://twimlets.com/message?Message%5B0%5D=Hello%20World%21][twimlet_message_url_hello_world] 可查看包含 **&lt;Say&gt;** 元素的 **&lt;Response&gt;** 元素。)
+當您的應用程式呼叫 Twilio API 時 (例如透過 **CallCreator.create** 方法)，Twilio 將傳送您的要求到應該傳送 TwiML 回應的 URL。 前述範例使用 Twilio 提供的 URL [https://twimlets.com/message][twimlet_message_url]。 (雖然 TwiML 是針對供 Web 服務使用而設計，但您可以在瀏覽器中檢視 TwiML。 例如，按一下 [https://twimlets.com/message][twimlet_message_url] 可查看空白的 **&lt; Response&gt;** 元素。在另一個範例中，按一下 [https://twimlets.com/message?Message%5B0%5D=Hello%20World%21][twimlet_message_url_hello_world] 可查看包含 **&lt; Say&gt;** 元素的 **&lt; Response&gt;** 元素。)
 
 除了依賴 Twilio 提供的 URL，您也可以建立自己的 URL 網站來傳回 HTTP 回應。 您可以使用任何語言建立會傳回 HTTP 回應的網站；本主題假設您將該 URL 裝載在 JSP 頁面中。
 

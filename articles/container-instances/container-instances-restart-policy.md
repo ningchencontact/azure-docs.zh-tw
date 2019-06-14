@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
 ms.openlocfilehash: 06872eefd0d500a22214109ad5055dd236b5a6ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60608119"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>使用重新啟動原則執行容器化工作
@@ -58,7 +58,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Azure Container Instances 會啟動容器，然後在它的應用程式 (或者是這個案例中的指令碼) 結束時停止它。 當 Azure Container Instances 停止其重新啟動原則為 `Never` 或 `OnFailure` 的容器時，容器的狀態會設定為「已終止」。 您可以使用 [az container show][az-container-show] 命令來檢查容器的狀態：
+Azure Container Instances 會啟動容器，然後在它的應用程式 (或者是這個案例中的指令碼) 結束時停止它。 當 Azure Container Instances 停止其重新啟動原則為 `Never` 或 `OnFailure` 的容器時，容器的狀態會設定為「已終止」  。 您可以使用 [az container show][az-container-show] 命令來檢查容器的狀態：
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query containers[0].instanceView.currentState.state
@@ -70,7 +70,7 @@ az container show --resource-group myResourceGroup --name mycontainer --query co
 "Terminated"
 ```
 
-一旦範例容器的狀態顯示「已終止」，您可以藉由檢視容器記錄來查看其工作輸出。 執行 [az container logs][az-container-logs] 命令以檢視指令碼的輸出：
+一旦範例容器的狀態顯示「已終止」  ，您可以藉由檢視容器記錄來查看其工作輸出。 執行 [az container logs][az-container-logs] 命令以檢視指令碼的輸出：
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer

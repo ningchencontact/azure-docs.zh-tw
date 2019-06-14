@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
 ms.openlocfilehash: a1b334b34e8e234d9ce5cc5ad5cd77bf5ba7118c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583860"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>在 Service Fabric 叢集中引發受控制的混亂
@@ -34,14 +34,14 @@ ms.locfileid: "60583860"
 > 目前來說，混亂只會引發安全的錯誤，這表示如果沒有外部錯誤，絕不會發生仲裁遺失或資料遺失。
 >
 
-混亂執行時，會產生不同事件來擷取目前執行的狀態。 例如，ExecutingFaultsEvent 包含混亂已決定正在該反覆運算中執行的所有錯誤。 ValidationFailedEvent 包含在驗證叢集期間所發現驗證失敗 (健康情況或穩定性問題) 的詳細資料。 您可以叫用 GetChaosReport API (C#、Powershell 或 REST) 以取得混亂執行的報告。 這些事件保存在[可靠的字典](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections)中，其中有由兩個組態決定的截斷原則：**MaxStoredChaosEventCount** (預設值為 25000) 及 **StoredActionCleanupIntervalInSeconds** (預設值為 3600)。 每個 StoredActionCleanupIntervalInSeconds 混亂檢查及最新 MaxStoredChaosEventCount 事件以外的所有事件皆會自可靠字典中清除。
+混亂執行時，會產生不同事件來擷取目前執行的狀態。 例如，ExecutingFaultsEvent 包含混亂已決定正在該反覆運算中執行的所有錯誤。 ValidationFailedEvent 包含在驗證叢集期間所發現驗證失敗 (健康情況或穩定性問題) 的詳細資料。 您可以叫用 GetChaosReport API (C#、Powershell 或 REST) 以取得混亂執行的報告。 這些事件保存在[可靠的字典](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections)中，其中有由兩個組態決定的截斷原則：**MaxStoredChaosEventCount** (預設值為 25000) 及 **StoredActionCleanupIntervalInSeconds** (預設值為 3600)。 每個 StoredActionCleanupIntervalInSeconds  混亂檢查及最新 MaxStoredChaosEventCount  事件以外的所有事件皆會自可靠字典中清除。
 
-## <a name="faults-induced-in-chaos"></a>在混沌测试中引入的故障
+## <a name="faults-induced-in-chaos"></a>混亂中引發的錯誤
 混亂會在整個 Service Fabric 叢集中產生錯誤，並將在幾個月或幾年內看到的錯誤壓縮成幾小時。 交錯錯誤和高錯誤率的組合，會尋找可能會在其他情形下遺漏的極端狀況。 這個混亂練習可以大幅提升服務的程式碼品質。
 
 混亂會引發下列類別的錯誤︰
 
-* 重新启动节点
+* 重新啟動節點
 * 重新啟動已部署的程式碼封裝
 * 移除複本
 * 重新啟動複本
@@ -56,7 +56,7 @@ ms.locfileid: "60583860"
 * **TimeToRun**：混亂在成功完成前的總執行時間。 您可以在混亂執行 TimeToRun 這段時間之前透過 StopChaos API 停止混亂。
 
 * **MaxClusterStabilizationTimeout**：在產生 ValidationFailedEvent 前等候叢集健康情況變為良好的時間上限。 這段等候時間是為了減少叢集在復原時所承擔的負載。 執行的檢查為：
-  * 群集运行状况是否正常
+  * 叢集健康狀態是否正常
   * 服務健康狀態是否正常
   * 服務分割區是否達到目標複本集大小
   * 沒有 InBuild 複本存在

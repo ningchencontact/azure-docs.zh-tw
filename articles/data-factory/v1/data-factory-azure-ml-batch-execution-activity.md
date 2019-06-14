@@ -14,15 +14,15 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 4093febd19d71512e3c80704e88f9d5cf669d7d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567388"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>使用 Azure Machine Learning 和 Azure Data Factory 來建立預測管線
 
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="轉換活動"]
 > * [Hive 活動](data-factory-hive-activity.md)
 > * [Pig 活動](data-factory-pig-activity.md)
 > * [MapReduce 活動](data-factory-map-reduce.md)
@@ -36,7 +36,7 @@ ms.locfileid: "60567388"
 
 ## <a name="introduction"></a>簡介
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用機器學習來轉換資料](../transform-data-using-machine-learning.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[在 Data Factory 中使用機器學習來轉換資料](../transform-data-using-machine-learning.md)。
 
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
@@ -184,7 +184,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，使用已發佈的 [Azure Ma
     }
     ```
 
-    您的輸入 csv 檔案必須要有資料行標題資料列。 如果使用 [複製活動] 建立 csv 或將其移至 Blob 儲存體，則接收屬性 **blobWriterAddHeader** 應該設為 **true**。 例如︰
+    您的輸入 csv 檔案必須要有資料行標題資料列。 如果使用 [複製活動]  建立 csv 或將其移至 Blob 儲存體，則接收屬性 **blobWriterAddHeader** 應該設為 **true**。 例如:
 
     ```JSON
     sink:
@@ -303,7 +303,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，使用已發佈的 [Azure Ma
       }
       ```
 
-      **開始**和**結束**日期時間必須是 [ISO 格式](https://en.wikipedia.org/wiki/ISO_8601)。 例如︰2014-10-14T16:32:41Z。 **結束**時間是選用項目。 如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。 若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。 如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考](https://msdn.microsoft.com/library/dn835050.aspx) 。
+      **開始**和**結束**日期時間必須是 [ISO 格式](https://en.wikipedia.org/wiki/ISO_8601)。 例如: 2014-10-14T16:32:41Z。 **結束**時間是選用項目。 如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。 若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。 如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考](https://msdn.microsoft.com/library/dn835050.aspx) 。
 
       > [!NOTE]
       > 您可自行選擇是否指定 AzureMLBatchExecution 活動的輸入。
@@ -407,7 +407,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，使用已發佈的 [Azure Ma
 在上述 JSON 範例中：
 
 * 已部署的 Azure Machine Learning Web 服務使用讀取器和寫入器模組，讀取 Azure SQL Database 的資料，或將資料寫入其中。 此 Web 服務公開下列四個參數：資料庫伺服器名稱、資料庫名稱、伺服器使用者帳戶名稱和伺服器使用者帳戶密碼。
-* **開始**和**結束**日期時間必須是 [ISO 格式](https://en.wikipedia.org/wiki/ISO_8601)。 例如︰2014-10-14T16:32:41Z。 **結束**時間是選用項目。 如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。 若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。 如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考](https://msdn.microsoft.com/library/dn835050.aspx) 。
+* **開始**和**結束**日期時間必須是 [ISO 格式](https://en.wikipedia.org/wiki/ISO_8601)。 例如: 2014-10-14T16:32:41Z。 **結束**時間是選用項目。 如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。 若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。 如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考](https://msdn.microsoft.com/library/dn835050.aspx) 。
 
 ### <a name="other-scenarios"></a>其他案例
 #### <a name="web-service-requires-multiple-inputs"></a>Web 服務需要多個輸入

@@ -3,23 +3,23 @@ title: Azure 裝置佈建的裝置概念 | Microsoft Docs
 description: 說明具有裝置佈建服務和 IoT 中樞之裝置的特定裝置佈建概念
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 2904da863707c5f653d774b0a480cc48c95c8d1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60745973"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>IoT 中樞裝置佈建服務的裝置概念
 
 IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於設定在指定 IoT 中樞上的全自動佈建裝置作業。 這項裝置佈建服務可以讓您以安全且可調整的方式佈建數百萬個裝置。
 
-本文說明裝置佈建的裝置概念概觀。 本文與為裝置進行[製造步驟](about-iot-dps.md#manufacturing-step)，也就是部署準備工作的角色相關。
+本文說明裝置佈建的裝置  概念概觀。 本文與為裝置進行[製造步驟](about-iot-dps.md#manufacturing-step)，也就是部署準備工作的角色相關。
 
 ## <a name="attestation-mechanism"></a>證明機制
 

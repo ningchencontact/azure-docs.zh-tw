@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
 ms.openlocfilehash: c21ae227d74442be5701dd906180392b1e0fdf8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636648"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>在 Azure CDN 中管理 Web 內容的到期
@@ -29,7 +29,7 @@ ms.locfileid: "60636648"
 
 來自可公開存取的原始 Web 伺服器的檔案均可在 Azure 內容傳遞網路 (CDN) 中加以快取，直到其存留時間 (TTL) 結束。 TTL 是由來自原始伺服器之 HTTP 回應中的 `Cache-Control` 標頭所決定。 本文說明如何設定 Microsoft Azure App Service 之 Web Apps 功能、Azure Cloud Services、ASP.NET 應用程式、Internet Information Services (IIS) 網站的 `Cache-Control` 標頭，上述所有項目的設定方式均類似。 您可以使用組態檔，或以程式設計方式來設定 `Cache-Control` 標頭。 
 
-您也可以藉由設定 [CDN 快取規則](cdn-caching-rules.md)，從 Azure 入口網站控制快取設定。 如果您建立一個或多個快取規則，並將其快取行為設定為 [覆寫] 或 [略過快取]，就會忽略本文所討論之原始提供的快取設定。 如需一般快取概念的相關資訊，請參閱[快取如何運作](cdn-how-caching-works.md)。
+您也可以藉由設定 [CDN 快取規則](cdn-caching-rules.md)，從 Azure 入口網站控制快取設定。 如果您建立一個或多個快取規則，並將其快取行為設定為 [覆寫]  或 [略過快取]  ，就會忽略本文所討論之原始提供的快取設定。 如需一般快取概念的相關資訊，請參閱[快取如何運作](cdn-how-caching-works.md)。
 
 > [!TIP]
 > 您可以選擇不替檔案設定 TTL。 在此情況下，除非您已在 Azure 入口網站中設定快取規則，否則 Azure CDN 會自動套用七天的預設 TTL。 此預設 TTL 僅會套用至一般 Web 傳遞最佳化。 針對大型檔案的最佳化，預設 TTL 為一天；針對媒體串流最佳化，預設 TTL 則為一年。
@@ -41,26 +41,26 @@ ms.locfileid: "60636648"
 設定 Web 伺服器 `Cache-Control` 標頭的慣用方法為在 Azure 入口網站中使用快取規則。 如需 CDN 快取規則的詳細資訊，請參閱[使用快取規則控制 Azure CDN 快取行為](cdn-caching-rules.md)。
 
 > [!NOTE] 
-> 快取規則僅適用於「**來自 Verizon 的 Azure CDN 標準**」和「**來自 Akamai 的 Azure CDN 標準**」的設定檔。 針對「**來自 Verizon 的 Azure CDN 進階**」設定檔，您必須使用 [管理] 入口網站中的 [Azure CDN 規則引擎](cdn-rules-engine.md)來執行類似功能。
+> 快取規則僅適用於「**來自 Verizon 的 Azure CDN 標準**」和「**來自 Akamai 的 Azure CDN 標準**」的設定檔。 針對「**來自 Verizon 的 Azure CDN 進階**」設定檔，您必須使用 [管理]  入口網站中的 [Azure CDN 規則引擎](cdn-rules-engine.md)來執行類似功能。
 
 **瀏覽至 CDN 快取規則頁面**：
 
 1. 在 Azure 入口網站中，選取 CDN 設定檔，然後選取 Web 伺服器的端點。
 
-1. 在左窗格的 [設定] 下方，選取 [快取規則]。
+1. 在左窗格的 [設定] 下方，選取 [快取規則]  。
 
    ![CDN 快取規則按鈕](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
 
-   [快取規則] 頁面隨即出現。
+   [快取規則]  頁面隨即出現。
 
    ![CDN 快取頁面](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 
 **若要使用全域快取規則設定 Web 伺服器的 Cache-Control 標頭：**
 
-1. 在 [全域快取規則] 下方，將 [查詢字串快取行為] 設定為 [忽略查詢字串]，並將 [快取行為] 設定為 [覆寫]。
+1. 在 [全域快取規則]  下方，將 [查詢字串快取行為]  設定為 [忽略查詢字串]  ，並將 [快取行為]  設定為 [覆寫]  。
       
-1. 在 [快取到期期間] 的 [秒鐘] 方塊中輸入 3600 或在 [小時] 方塊中輸入 1。 
+1. 在 [快取到期期間]  的 [秒鐘]  方塊中輸入 3600 或在 [小時]  方塊中輸入 1。 
 
    ![CDN 全域快取規則範例](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 
@@ -70,11 +70,11 @@ ms.locfileid: "60636648"
 
 **使用自訂快取規則設定 Web 伺服器檔案的 Cache-Control 標頭：**
 
-1. 在 [自訂快取規則] 下，建立兩個比對條件：
+1. 在 [自訂快取規則]  下，建立兩個比對條件：
 
-     a. 在第一個比對條件，將 [比對條件] 設為 [路徑]，並在 [符合值] 輸入 `/webfolder1/*`。 將 [快取行為] 設定為 [覆寫]，並在 [時數] 方塊中輸入 4。
+     a. 在第一個比對條件，將 [比對條件]  設為 [路徑]  ，並在 [符合值]  輸入 `/webfolder1/*`。 將 [快取行為]  設定為 [覆寫]  ，並在 [時數]  方塊中輸入 4。
 
-     b. 在第二個比對條件，將 [比對條件] 設為 [路徑]，並在 [符合值] 輸入 `/webfolder1/file1.txt`。 將 [快取行為] 設定為 [覆寫]，並在 [時數] 方塊中輸入 2。
+     b. 在第二個比對條件，將 [比對條件]  設為 [路徑]  ，並在 [符合值]  輸入 `/webfolder1/file1.txt`。 將 [快取行為]  設定為 [覆寫]  ，並在 [時數]  方塊中輸入 2。
 
     ![CDN 自訂快取規則範例](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 

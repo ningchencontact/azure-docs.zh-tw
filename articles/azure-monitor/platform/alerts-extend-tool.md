@@ -9,10 +9,10 @@ ms.date: 06/04/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 9d734f74c4e12b369e46c15dcb9d01a8185dddd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60431038"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>將警示從 Log Analytics 延伸至 Azure 警示
@@ -27,22 +27,22 @@ OMS 入口網站中的警示功能正由 Azure Government Cloud 中的「Azure �
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>選項 1：從 Operations Management Suite 入口網站起始
 下列步驟說明如何從 Azure Government Cloud 的 Operations Management Suite 入口網站延伸工作區的警示。  
 
-1. 在 Azure 入口網站中，選取 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
-2. 在 [Log Analytics 訂用帳戶] 窗格中，選取工作區，然後選取 [OMS 入口網站] 圖格。
+1. 在 Azure 入口網站中，選取 [所有服務]  。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]  。
+2. 在 [Log Analytics 訂用帳戶] 窗格中，選取工作區，然後選取 [OMS 入口網站]  圖格。
 ![Log Analytics 訂用帳戶窗格螢幕擷取畫面，其中反白顯示 OMS 入口網站圖格](media/alerts-extend-tool/azure-portal-01.png) 
-3. 將您重新導向至 Operations Management Suite 入口網站之後，請選取 [設定] 圖示。
+3. 將您重新導向至 Operations Management Suite 入口網站之後，請選取 [設定]  圖示。
 ![Operations Management Suite 入口網站的螢幕擷取畫面，其中反白顯示 [設定] 圖示](media/alerts-extend-tool/oms-portal-settings-option.png) 
-4. 在 [設定] 頁面中，選取 [警示]。  
-5. 選取 [延伸至 Azure]。
+4. 在 [設定]  頁面中，選取 [警示]  。  
+5. 選取 [延伸至 Azure]  。
 ![Operations Management Suite 入口網站 [警示設定] 頁面的螢幕擷取畫面，其中反白顯示 [延伸至 Azure]](media/alerts-extend-tool/ExtendInto.png)
-6. 三步驟精靈會出現在 [警示] 窗格中。 閱讀概觀，並選取 [下一步]。
+6. 三步驟精靈會出現在 [警示]  窗格中。 閱讀概觀，並選取 [下一步]  。
 ![精靈的步驟 1 螢幕擷取畫面](media/alerts-extend-tool/ExtendStep1.png)  
-7. 在第二個步驟中，您會看到建議變更的摘要，其中列出適用於警示的[動作群組](../../azure-monitor/platform/action-groups.md)。 如果在多個警示中看到類似動作，精靈會提議將單一動作群組與這些動作建立關聯。  命名慣例如下︰*WorkspaceName_AG_#Number*。 若要繼續，請選取 [下一步]。
+7. 在第二個步驟中，您會看到建議變更的摘要，其中列出適用於警示的[動作群組](../../azure-monitor/platform/action-groups.md)。 如果在多個警示中看到類似動作，精靈會提議將單一動作群組與這些動作建立關聯。  命名慣例如下︰*WorkspaceName_AG_#Number*。 若要繼續，請選取 [下一步]  。
 ![精靈的步驟 2 螢幕擷取畫面](media/alerts-extend-tool/ExtendStep2.png)  
-8. 在精靈的最後一個步驟中，選取 [完成]，並在系統提示您時確認以起始程序。 或者，您可以提供電子郵件地址，以便在程序完成且所有警示都已成功移至 Azure 警示時收到通知。
+8. 在精靈的最後一個步驟中，選取 [完成]  ，並在系統提示您時確認以起始程序。 或者，您可以提供電子郵件地址，以便在程序完成且所有警示都已成功移至 Azure 警示時收到通知。
 ![精靈的步驟 3 螢幕擷取畫面](media/alerts-extend-tool/ExtendStep3.png)
 
-精靈完成時，在 [警示設定] 頁面上，將警示延伸至 Azure 的選項會移除。 在背景中，警示會移動到 Azure，這可能需要一些時間。 在作業期間，您無法從 Operations Management Suite 入口網站對警示進行變更。 您可以在入口網站頂端的橫幅中看到目前狀態。 如果您先前已提供電子郵件地址，則程序順利完成時，您會收到電子郵件。  
+精靈完成時，在 [警示設定]  頁面上，將警示延伸至 Azure 的選項會移除。 在背景中，警示會移動到 Azure，這可能需要一些時間。 在作業期間，您無法從 Operations Management Suite 入口網站對警示進行變更。 您可以在入口網站頂端的橫幅中看到目前狀態。 如果您先前已提供電子郵件地址，則程序順利完成時，您會收到電子郵件。  
 
 
 警示會持續列在 Operations Management Suite 入口網站中，即使在成功移至 Azure 之後也是。
@@ -214,7 +214,7 @@ armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupNam
 ```
 
 ## <a name="troubleshooting"></a>疑難排解 
-在延伸警示的程序中，問題可能導致系統無法建立所需的[動作群組](../../azure-monitor/platform/action-groups.md)。 在這種情況下，您會在 Operations Management Suite 入口網站 [警示] 區段的橫幅中看到錯誤訊息，或在對 API 執行的 GET 呼叫中看到。
+在延伸警示的程序中，問題可能導致系統無法建立所需的[動作群組](../../azure-monitor/platform/action-groups.md)。 在這種情況下，您會在 Operations Management Suite 入口網站 [警示]  區段的橫幅中看到錯誤訊息，或在對 API 執行的 GET 呼叫中看到。
 
 > [!IMPORTANT]
 > 如果 Azure Government Cloud 型 OMS 入口網站使用者未在 2019 年 3 月 15 日之前採取下列補救步驟，則警示會在 Azure 中執行，但不會觸發任何動作或通知。 若要取得警示通知，您必須在 Azure 中手動編輯其警示規則並新增[動作群組](../../azure-monitor/platform/action-groups.md)

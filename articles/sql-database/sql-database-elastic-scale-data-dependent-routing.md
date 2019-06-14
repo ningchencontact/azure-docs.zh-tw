@@ -13,17 +13,17 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: fe9098592fcfde2d5e23b78a3e33f2b4ebb9e2dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584959"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>使用資料相依路由將查詢路由至適當的資料庫
 
 **資料相依路由**是可使用查詢中的資料，將要求路由至適當的資料庫。 資料相依路由是使用分區化資料庫時的一種基本模式。 要求內容也可能會用於路由要求，特別是如果分區化索引鍵不是查詢的一部分。 在使用資料相依路由的應用程式中，每個特定的查詢或交易會限制每個要求只能存取一個資料庫。 針對 Azure SQL Database Elastic 工具，此路由會使用 **ShardMapManager**  ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager)、[.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) 類別來完成。
 
-應用程式不需要在分區化環境中追蹤不同的連接字串或與不同資料片段相關聯的 DB 位置。 相反地， [分區對應管理員](sql-database-elastic-scale-shard-map-management.md) 會根據分區對應中的資料和分區化索引鍵的值 (應用程式要求的目標)，在必要時開啟正確資料庫的連接。 此索引鍵通常是 customer_id、tenant_id、date_key，或作為資料庫要求基本參數的其他一些特定的識別項。
+應用程式不需要在分區化環境中追蹤不同的連接字串或與不同資料片段相關聯的 DB 位置。 相反地， [分區對應管理員](sql-database-elastic-scale-shard-map-management.md) 會根據分區對應中的資料和分區化索引鍵的值 (應用程式要求的目標)，在必要時開啟正確資料庫的連接。 此索引鍵通常是 customer_id  、tenant_id  、date_key  ，或作為資料庫要求基本參數的其他一些特定的識別項。
 
 如需詳細資訊，請參閱 [Scaling Out SQL Server with Data Dependent Routing (使用資料相依路由相應放大 SQL Server)](https://technet.microsoft.com/library/cc966448.aspx)。
 

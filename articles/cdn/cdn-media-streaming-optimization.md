@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 9802296170f07bb8599058e230798f647e900d4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636220"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>使用 Azure CDN 的媒體串流最佳化 
@@ -67,11 +67,11 @@ ms.locfileid: "60636220"
  
 您可以設定您的內容傳遞網路 (CDN) 端點，以最佳化透過 Azure 入口網站傳遞大型檔案。 使用 REST API 或任何用戶端 SDK 也都能達到相同目的。 下列步驟示範 **Azure CDN Standard from Akamai** 設定檔透過 Azure 入口網站執行的程序：
 
-1. 若要新增端點，請在 Akamai 的 [CDN 設定檔] 頁面上選取 [端點]。
+1. 若要新增端點，請在 Akamai 的 [CDN 設定檔]  頁面上選取 [端點]  。
   
     ![新增端點](./media/cdn-media-streaming-optimization/cdn-new-akamai-endpoint.png)
 
-2. 在 [最佳化對象] 下拉式清單中，為點播視訊資產選取 [點播視訊媒體串流]。 如果您結合即時和點播視訊串流處理，請選取 [General media streaming] \(一般媒體串流處理)。
+2. 在 [最佳化對象]  下拉式清單中，為點播視訊資產選取 [點播視訊媒體串流]  。 如果您結合即時和點播視訊串流處理，請選取 [General media streaming] \(一般媒體串流處理)  。
 
     ![選取的串流](./media/cdn-media-streaming-optimization/02_Creating.png) 
  

@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 4843828c89b04e36b0bcc73dcedf9c5735b73729
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610867"
 ---
-# <a name="security-frame-auditing-and-logging--mitigations"></a>安全框架︰稽核和記錄 | 緩和措施 
+# <a name="security-frame-auditing-and-logging--mitigations"></a>安全性框架：稽核和記錄 | 緩和措施 
 
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **Dynamics CRM**    | <ul><li>[在您的解決方案中識別敏感性實體及實作變更稽核](#sensitive-entities)</li></ul> |
-| **Web 應用程式** | <ul><li>[確保在應用程式上強制執行稽核和記錄功能](#auditing)</li><li>[確保施行記錄輪替和區隔功能](#log-rotation)</li><li>[確保應用程式不會記錄敏感性使用者資料](#log-sensitive-data)</li><li>[確保稽核和記錄檔有限制存取](#log-restricted-access)</li><li>[確保已記錄使用者管理事件](#user-management)</li><li>[確保系統已內建誤用防禦措施](#inbuilt-defenses)</li><li>[在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能](#diagnostics-logging)</li></ul> |
+| **Web 應用程式** | <ul><li>[確保在應用程式上強制執行稽核和記錄功能](#auditing)</li><li>[確保施行記錄輪替和區隔功能](#log-rotation)</li><li>[確保應用程式不會記錄敏感性使用者資料](#log-sensitive-data)</li><li>[確保稽核和記錄檔有限制存取](#log-restricted-access)</li><li>[確保已記錄使用者管理事件](#user-management)</li><li>[確保系統已內建誤用防禦措施](#inbuilt-defenses)</li><li>[為 Azure App Service 中的 Web 應用程式啟用診斷記錄](#diagnostics-logging)</li></ul> |
 | **資料庫** | <ul><li>[確保已在 SQL Server 上啟用登入稽核功能](#identify-sensitive-entities)</li><li>[在 Azure SQL 上啟用威脅偵測功能](#threat-detection)</li></ul> |
 | **Azure 儲存體** | <ul><li>[使用 Azure 儲存體分析來稽核 Azure 儲存體的存取](#analytics)</li></ul> |
 | **WCF** | <ul><li>[實作足夠的記錄](#sufficient-logging)</li><li>[實作足夠的稽核失敗處理](#audit-failure-handling)</li></ul> |

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8db9e60e9ce99eaf2621821825620966b8b8b4ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60640067"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>如何使用媒體編碼器標準為資產編碼
@@ -38,11 +38,11 @@ ms.locfileid: "60640067"
 視您想要完成的處理類型而定。每個作業可以有一或多個工作。 透過 REST API，您可以用下列其中一種方式來建立作業及其相關的工作：
 
 * 工作可透過 Job 實體上的 Tasks 導覽屬性，以內嵌方式定義。
-* 使用 OData 批处理
+* 使用 OData 批次處理。
 
-建议始终将源文件编码为自适应比特率 MP4 集，然后使用[动态打包](media-services-dynamic-packaging-overview.md)将该集转换为所需格式。
+我們建議一律將來源檔案編碼為調適型位元速率 MP4 集，然後使用[動態封裝](media-services-dynamic-packaging-overview.md)，將該集合轉換為所需的格式。
 
-如果输出资产已经过存储加密，则必须配置资产传送策略。 如需詳細資訊，請參閱[設定資產傳遞原則](media-services-rest-configure-asset-delivery-policy.md)。
+如果您的輸出資產是已加密的儲存體，就必須設定資產傳遞原則。 如需詳細資訊，請參閱[設定資產傳遞原則](media-services-rest-configure-asset-delivery-policy.md)。
 
 ## <a name="considerations"></a>考量
 
@@ -107,7 +107,7 @@ ms.locfileid: "60640067"
 在許多應用程式案例中，開發人員想要建立一連串的處理工作。 在媒體服務中，您可以建立一連串的鏈結工作。 每一項工作會執行不同的處理步驟，而且可以使用不同的媒體處理器。 鏈結工作可以將資產從一個工作遞交到另一個工作，對資產執行一連串的工作。 不過，在工作中執行的工作不必按照順序。 當您建立鏈結工作時，鏈結的 **ITask** 物件會建立在單一 **IJob** 物件中。
 
 > [!NOTE]
-> 目前有每個工作裡 30 個工作的限制。 如果需要连锁 30 个以上的任务，请创建多个作业以包含任务。
+> 目前有每個工作裡 30 個工作的限制。 如果您需要鏈結超過 30 個工作，請建立多個工作來包含這些工作。
 >
 >
 

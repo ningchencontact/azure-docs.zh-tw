@@ -14,28 +14,28 @@ ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587915"
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition 函式
 本節包含 CreateUiDefinition 所有支援的函式的簽章。
 
-若要使用函式，請使用方括弧括住宣告。 例如︰
+若要使用函式，請使用方括弧括住宣告。 例如:
 
 ```json
 "[function()]"
 ```
 
-您可以參考字串和其他函式做為函式的參數，但必須以單引號括住字串。 例如︰
+您可以參考字串和其他函式做為函式的參數，但必須以單引號括住字串。 例如:
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-如果適用，您可以使用點運算子參考函式輸出的屬性。 例如︰
+如果適用，您可以使用點運算子參考函式輸出的屬性。 例如:
 
 ```json
 "[func().prop1]"
@@ -526,7 +526,7 @@ ms.locfileid: "60587915"
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>string
+### <a name="string"></a>字串
 將參數轉換成字串。 此函式支援所有 JSON 資料類型的參數。
 
 下列範例會傳回 `"1"`：

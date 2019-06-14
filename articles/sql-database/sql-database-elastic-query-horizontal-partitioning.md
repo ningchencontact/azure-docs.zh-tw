@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 3b2b472407175df307c569704d4c7611737c4ea1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60694332"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>跨相應放大的雲端資料庫報告 (預覽)
@@ -33,7 +33,7 @@ ms.locfileid: "60694332"
 
 * 使用彈性資料庫用戶端程式庫，建立分區對應。 請參閱 [分區對應管理](sql-database-elastic-scale-shard-map-management.md)。 或使用 [開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)中的範例應用程式。
 * 或者，請參閱 [轉換現有的資料庫以使用彈性資料庫工具](sql-database-elastic-convert-to-use-elastic-tools.md)。
-* 用户必须拥有 ALTER ANY EXTERNAL DATA SOURCE 权限。 這個權限包含在 ALTER DATABASE 權限中。
+* 使用者必須擁有 ALTER ANY EXTERNAL DATA SOURCE 權限。 這個權限包含在 ALTER DATABASE 權限中。
 * 需有 ALTER ANY EXTERNAL DATA SOURCE 權限，才能參考基礎資料來源。
 
 ## <a name="overview"></a>概觀
@@ -87,7 +87,7 @@ ms.locfileid: "60694332"
     select * from sys.external_data_sources;
 
 外部資料來源會參考分區對應。 彈性查詢會接著使用外部資料來源和基礎分區對應來列舉參與資料層的資料庫。
-在弹性查询处理过程中，相同的凭据用于读取分片映射和访问上分片的数据。
+在彈性查詢處理期間，使用相同的認證來讀取分區對應和存取分區上的資料。
 
 ## <a name="13-create-external-tables"></a>1.3 建立外部資料表
 
@@ -139,7 +139,7 @@ ms.locfileid: "60694332"
 
 DATA\_SOURCE 子句會定義用於外部資料表的外部資料來源 (分區對應)。  
 
-SCHEMA\_NAME 和 OBJECT\_NAME 子句會將外部資料表定義對應至不同結構描述中的資料表。 如果省略，则假定远程对象的架构是“dbo”，并假定其名称与所定义的外部表名称相同。 如果您的遠端資料表名稱已存在於您要建立外部資料表的資料庫中，這會很有用。 例如，您想要定義外部資料表以取得向外延展之資料層上目錄檢視或 DMV 的彙總檢視。 由於目錄檢視和 DMV 已經存在於本機，所以您無法將其名稱使用於外部資料表定義。 您需改為在 SCHEMA\_NAME 和/或 OBJECT\_NAME 子句中，使用不同的名稱以及使用目錄檢視名稱或 DMV 名稱。 （请参阅下面的示例。）
+SCHEMA\_NAME 和 OBJECT\_NAME 子句會將外部資料表定義對應至不同結構描述中的資料表。 如果省略，即會假設遠端物件的結構描述為 "dbo" 並假設其名稱與所定義的外部資料表名稱相同。 如果您的遠端資料表名稱已存在於您要建立外部資料表的資料庫中，這會很有用。 例如，您想要定義外部資料表以取得向外延展之資料層上目錄檢視或 DMV 的彙總檢視。 由於目錄檢視和 DMV 已經存在於本機，所以您無法將其名稱使用於外部資料表定義。 您需改為在 SCHEMA\_NAME 和/或 OBJECT\_NAME 子句中，使用不同的名稱以及使用目錄檢視名稱或 DMV 名稱。 (請參閱下面的範例)。
 
 DISTRIBUTION 子句會指定用於此資料表的資料散發。 查詢處理器會利用 DISTRIBUTION 子句中提供的資訊來建置最有效率的查詢計劃。
 
@@ -178,7 +178,7 @@ DISTRIBUTION 子句會指定用於此資料表的資料散發。 查詢處理器
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>用於遠端 T-SQL 執行的預存程序：sp\_execute_remote
 
-弹性查询还引入了一个存储过程，以便提供对分片的直接访问。 預存程序稱為 [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714)，可用來在遠端資料庫上執行遠端預存程序或 T-SQL 程式碼。 它需要以下參數：
+彈性查詢也會介紹可供直接存取分區的預存程序。 預存程序稱為 [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714)，可用來在遠端資料庫上執行遠端預存程序或 T-SQL 程式碼。 它需要以下參數：
 
 * 資料來源名稱 (nvarchar)：RDBMS 類型的外部資料來源名稱。
 * 查詢 (nvarchar)：對每個分區執行的 T-SQL 查詢。
@@ -211,8 +211,8 @@ sp\_execute\_remote 會使用叫用參數中提供的外部資料來源，在遠
 * 如需彈性查詢的概觀，請參閱[彈性查詢概觀](sql-database-elastic-query-overview.md)。
 * 若要開始撰寫程式碼，請參閱 [開始使用跨資料庫查詢 (垂直資料分割)](sql-database-elastic-query-getting-started-vertical.md)。
 * 如需垂直資料分割之資料的語法和範例查詢，請參閱[查詢垂直資料分割的資料](sql-database-elastic-query-vertical-partitioning.md)
-* 如需水平資料分割 (分區化) 教學課程，請參閱[開始使用彈性查詢進行水平資料分割 (分區化)](sql-database-elastic-query-getting-started.md)。
-* 请参阅 [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714)，了解在单个远程 Azure SQL 数据库或在水平分区方案中用作分片的一组数据库中执行 Transact-SQL 语句的存储过程。
+* 有关水平分区（分片）的教程，请参阅[弹性查询入门 - 水平分区（分片）](sql-database-elastic-query-getting-started.md)。
+* 如需會在單一遠端 Azure SQL Database 或一組在水平資料分割配置中作為分區之資料庫上執行 Transact-SQL 陳述式的預存程序，請參閱 [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714)。
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png

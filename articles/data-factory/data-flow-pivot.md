@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: e16cac281b77f3ca93d9ef358ae806203bc8b663
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61348414"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Azure 資料處理站樞紐轉換
@@ -20,7 +20,7 @@ ms.locfileid: "61348414"
 
 ![樞紐選項](media/data-flow/pivot1.png "樞紐 1")
 
-## <a name="group-by"></a>分組依據
+## <a name="group-by"></a>群組依據
 
 ![樞紐選項](media/data-flow/pivot2.png "樞紐 2")
 
@@ -50,7 +50,7 @@ ms.locfileid: "61348414"
 
 若要對於樞紐值設定您想要使用的彙總，請按一下「已樞紐的資料行」窗格底部的欄位。 您會進入 ADF 資料流程運算式產生器，您可以在其中建立彙總運算式，並對於新的彙總值提供描述性的別名名稱。
 
-使用 ADF 資料流程運算式語言在運算式產生器描述已樞紐的資料行轉換： https://aka.ms/dataflowexpressions。
+使用 ADF 資料流程運算式語言在運算式產生器描述已樞紐的資料行轉換： https://aka.ms/dataflowexpressions 。
 
 ## <a name="pivot-metadata"></a>Pivot 中繼資料
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61074826"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API 管理中的使用者設定檔範本
@@ -106,15 +106,15 @@ ms.locfileid: "61074826"
   
 |屬性|類型|描述|  
 |--------------|----------|-----------------|  
-|`firstName`|string|目前使用者的名字。|  
-|`lastName`|string|目前使用者的姓氏。|  
-|`companyName`|string|目前使用者的公司名稱。|  
-|`addresserEmail`|string|目前使用者的電子郵件地址。|  
-|`developersUsageStatisticsLink`|string|相對 URL，可前往檢視目前使用者的分析。|  
+|`firstName`|字串|目前使用者的名字。|  
+|`lastName`|字串|目前使用者的姓氏。|  
+|`companyName`|字串|目前使用者的公司名稱。|  
+|`addresserEmail`|字串|目前使用者的電子郵件地址。|  
+|`developersUsageStatisticsLink`|字串|相對 URL，可前往檢視目前使用者的分析。|  
 |`subscriptions`|[訂用帳戶](api-management-template-data-model-reference.md#Subscription)實體的集合。|目前使用者的訂用帳戶。|  
 |`applications`|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者的應用程式。|  
-|`changePasswordUrl`|string|相對 URL，可前往變更目前使用者的密碼。|  
-|`changeNameOrEmailUrl`|string|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
+|`changePasswordUrl`|字串|相對 URL，可前往變更目前使用者的密碼。|  
+|`changeNameOrEmailUrl`|字串|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
 |`canChangePassword`|boolean|目前使用者是否可以變更其密碼。|  
 |`isSystemUser`|boolean|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
   
@@ -327,15 +327,15 @@ ms.locfileid: "61074826"
   
 |屬性|類型|描述|  
 |--------------|----------|-----------------|  
-|`firstName`|string|目前使用者的名字。|  
-|`lastName`|string|目前使用者的姓氏。|  
-|`companyName`|string|目前使用者的公司名稱。|  
-|`addresserEmail`|string|目前使用者的電子郵件地址。|  
-|`developersUsageStatisticsLink`|string|相對 URL，可前往檢視目前使用者的分析。|  
+|`firstName`|字串|目前使用者的名字。|  
+|`lastName`|字串|目前使用者的姓氏。|  
+|`companyName`|字串|目前使用者的公司名稱。|  
+|`addresserEmail`|字串|目前使用者的電子郵件地址。|  
+|`developersUsageStatisticsLink`|字串|相對 URL，可前往檢視目前使用者的分析。|  
 |`subscriptions`|[訂用帳戶](api-management-template-data-model-reference.md#Subscription)實體的集合。|目前使用者的訂用帳戶。|  
 |`applications`|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者的應用程式。|  
-|`changePasswordUrl`|string|相對 URL，可前往變更目前使用者的密碼。|  
-|`changeNameOrEmailUrl`|string|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
+|`changePasswordUrl`|字串|相對 URL，可前往變更目前使用者的密碼。|  
+|`changeNameOrEmailUrl`|字串|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
 |`canChangePassword`|boolean|目前使用者是否可以變更其密碼。|  
 |`isSystemUser`|boolean|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
   
@@ -490,15 +490,15 @@ ms.locfileid: "61074826"
   
 |屬性|類型|描述|  
 |--------------|----------|-----------------|  
-|`firstName`|string|目前使用者的名字。|  
-|`lastName`|string|目前使用者的姓氏。|  
-|`companyName`|string|目前使用者的公司名稱。|  
-|`addresserEmail`|string|目前使用者的電子郵件地址。|  
-|`developersUsageStatisticsLink`|string|相對 URL，可前往檢視目前使用者的分析。|  
+|`firstName`|字串|目前使用者的名字。|  
+|`lastName`|字串|目前使用者的姓氏。|  
+|`companyName`|字串|目前使用者的公司名稱。|  
+|`addresserEmail`|字串|目前使用者的電子郵件地址。|  
+|`developersUsageStatisticsLink`|字串|相對 URL，可前往檢視目前使用者的分析。|  
 |`subscriptions`|[訂用帳戶](api-management-template-data-model-reference.md#Subscription)實體的集合。|目前使用者的訂用帳戶。|  
 |`applications`|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者的應用程式。|  
-|`changePasswordUrl`|string|相對 URL，可前往變更目前使用者的密碼。|  
-|`changeNameOrEmailUrl`|string|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
+|`changePasswordUrl`|字串|相對 URL，可前往變更目前使用者的密碼。|  
+|`changeNameOrEmailUrl`|字串|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
 |`canChangePassword`|boolean|目前使用者是否可以變更其密碼。|  
 |`isSystemUser`|boolean|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
   
@@ -569,7 +569,7 @@ ms.locfileid: "61074826"
 ```  
   
 ##  <a name="UpdateAccountInfo"></a> 更新帳戶資訊  
- **更新帳戶資訊**範本可讓您自訂開發人員入口網站中的 [更新帳戶資訊] 頁面。  
+ **更新帳戶資訊**範本可讓您自訂開發人員入口網站中的 [更新帳戶資訊]  頁面。  
   
  ![使用者帳戶資訊頁面開發人員入口網站範本](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "APIM 使用者帳戶資訊頁面開發人員入口網站範本")  
   
@@ -608,7 +608,7 @@ ms.locfileid: "61074826"
 ### <a name="controls"></a>控制  
  此範本可能不使用任何[頁面控制項](api-management-page-controls.md)。  
   
-### <a name="data-model"></a>数据模型  
+### <a name="data-model"></a>資料模型  
  [使用者帳戶資訊](api-management-template-data-model-reference.md#UserAccountInfo)實體。  
   
 ### <a name="sample-template-data"></a>範例範本資料  

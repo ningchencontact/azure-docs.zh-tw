@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/06/2019
 ms.author: danlep
 ms.openlocfilehash: b8a2280fe82e0f4be8e2812f5494150927642692
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827284"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>將容器映像匯入到容器登錄
@@ -84,7 +84,7 @@ az acr import --name myregistry --source mcr.microsoft.com/windows/servercore:la
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>從相同訂用帳戶中的登錄匯入
 
-例如，將 `aci-helloworld:latest` 映像從來源登錄 mysourceregistry 匯入到相同 Azure 訂用帳戶中的 myregistry。
+例如，將 `aci-helloworld:latest` 映像從來源登錄 mysourceregistry  匯入到相同 Azure 訂用帳戶中的 myregistry  。
 
 ```azurecli
 az acr import --name myregistry --source mysourceregistry.azurecr.io/aci-helloworld:latest --image hello-world:latest
@@ -98,7 +98,7 @@ az acr import --name myregistry --source mysourceregistry.azurecr.io/aci-hellowo
 
 ### <a name="import-from-a-registry-in-a-different-subscription"></a>從不同的訂用帳戶匯入登錄
 
-在下列範例中，mysourceregistry 位於與 myregistry 相同 Active Directory 租用戶中的不同訂用帳戶。 提供來源登錄的資源識別碼與 `--registry`。 請注意，`--source` 參數只會指定來源存放庫和映像名稱，不會提供登錄登入伺服器名稱。
+在下列範例中，mysourceregistry  位於與 myregistry  相同 Active Directory 租用戶中的不同訂用帳戶。 提供來源登錄的資源識別碼與 `--registry`。 請注意，`--source` 參數只會指定來源存放庫和映像名稱，不會提供登錄登入伺服器名稱。
  
 ```azurecli
 az acr import --name myregistry --source sourcerepo/aci-helloworld:latest --image aci-hello-world:latest --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry

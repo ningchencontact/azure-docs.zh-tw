@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
 ms.openlocfilehash: f94cec7919edc6cf6ebb6618d38b8591feb1278b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683222"
 ---
-# <a name="overview-of-management-services-in-azure"></a>Azure 中的管理服务概述
+# <a name="overview-of-management-services-in-azure"></a>在 Azure 中的管理服務的概觀
 
 在 Azure 中治理是 Azure 管理的其中一個層面。 本文說明在 Azure 中部署及維護資源的各種管理領域。
 
@@ -22,7 +22,7 @@ ms.locfileid: "60683222"
 
 下圖說明維護應用程式或資源所需的不同管理範圍。 您可以將這些不同的區域視為生命週期。 在資源的存留期間內，各個領域必須接續進行。 此一資源生命週期始於最初的部署，在經歷持續的作業後，因遭到淘汰而告終。
 
-![Azure 中的管理规则](../monitoring/media/management-overview/management-capabilities.png)
+![在 Azure 中管理的訓練](../monitoring/media/management-overview/management-capabilities.png)
 
 沒有單一 Azure 服務能完全符合特定管理領域的需求。 必須在多項服務的搭配運作下，才能符合這些需求。 某些服務可提供針對 Web 應用程式進行監視的功能，例如 Application Insights。 有些服務則可儲存其他服務的管理資料，例如 Azure 監視器記錄。 這項功能可讓您對不同服務所收集的不同資料類型進行分析。
 

@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 1e637f58b392b2de67a5ead9d57a6a87ab705b93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60631597"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>從 StorSimple 5000-7000 系列移轉資料的選項 
@@ -69,7 +69,7 @@ Nasuni 有的體驗，方便您移轉 – 立即開始使用： https://info.nas
 
 Talon 方便讓 StorSimple 5000-7000 客戶繼續使用更大的函式利用這些值在 StorSimple 平台 （站台上小型支援無限制的雲端資源） 的優點。  使用快速 Talon 解決方案時，客戶可以移轉，並保留其資料在 Azure 中，現在變得更小的純軟體現場使用量以及新增的優點，例如全域檔案時鎖定，全域命名空間，以及多站台的共同作業。  Talon 是一套領先的 Azure 生態系統解決方案，使用 移轉成彙總、 以 Azure 為基礎的使用量而不犧牲使用者工作流程或體驗其內部部署檔案伺服器工作負載的全球客戶。  
 
-深入了解如何在雲端整合企業發展 https://www.talonstorage.com/alliances/microsoft-storsimple。
+深入了解如何在雲端整合企業發展 https://www.talonstorage.com/alliances/microsoft-storsimple 。
 
 
 ## <a name="migration---frequently-asked-questions"></a>移轉 - 常見問題集

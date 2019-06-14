@@ -10,10 +10,10 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60784702"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>關於 Azure Databricks 的常見問題
@@ -44,13 +44,13 @@ ms.locfileid: "60784702"
 
 #### <a name="error-message"></a>錯誤訊息
 
-「此訂用帳戶未註冊為可以使用命名空間 'Microsoft.Databricks'。 請參閱 https://aka.ms/rps-not-found 以了解如何註冊訂用帳戶。 (程式碼:MissingSubscriptionRegistration)"
+「此訂用帳戶未註冊為可以使用命名空間 'Microsoft.Databricks'。 請參閱 https://aka.ms/rps-not-found 以了解如何註冊訂用帳戶。 (程式碼：MissingSubscriptionRegistration)"
 
 #### <a name="solution"></a>解決方法
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
-1. 依序選取 [訂用帳戶]、您所使用的訂用帳戶及 [資源提供者]。 
-1. 在資源提供者清單中，針對 **Microsoft.Databricks** 選取 [註冊]。 您在訂用帳戶中必須具有參與者或擁有者角色，才能註冊資源提供者。
+1. 依序選取 [訂用帳戶]  、您所使用的訂用帳戶及 [資源提供者]  。 
+1. 在資源提供者清單中，針對 **Microsoft.Databricks** 選取 [註冊]  。 您在訂用帳戶中必須具有參與者或擁有者角色，才能註冊資源提供者。
 
 
 ### <a name="issue-your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>問題：您的帳戶 {email} 在 Azure 入口網站的 Databricks 工作區資源中沒有擁有者或參與者角色
@@ -63,13 +63,13 @@ ms.locfileid: "60784702"
 
 以下是此問題的幾種解決方案：
 
-* 若要將租用戶初始化，您必須以租用戶的一般使用者身分登入，而不是以來賓使用者身分登入。 您在 Databricks 工作區資源上也必須具有參與者角色。 您可以在 Azure 入口網站的 Databricks 工作區中，從 [存取控制 (IAM)] 索引標籤來授與使用者存取權。
+* 若要將租用戶初始化，您必須以租用戶的一般使用者身分登入，而不是以來賓使用者身分登入。 您在 Databricks 工作區資源上也必須具有參與者角色。 您可以在 Azure 入口網站的 Databricks 工作區中，從 [存取控制 (IAM)]  索引標籤來授與使用者存取權。
 
 * 如果您的電子郵件網域名稱指派給 Azure AD 中的多個目錄，也可能發生此錯誤。 若要避開此問題，請使用 Databricks 工作區，在包含訂用帳戶的目錄中建立新的使用者。
 
-    a. 在 Azure 入口網站中，移至 Azure AD。 選取 [使用者與群組] > [新增使用者]。
+    a. 在 Azure 入口網站中，移至 Azure AD。 選取 [使用者與群組]   > [新增使用者]  。
 
-    b. 以 `@<tenant_name>.onmicrosoft.com` 電子郵件 (而非 `@<your_domain>` 電子郵件) 來新增使用者。 您可以在 Azure 入口網站中 Azure AD 下方的[自訂網域] 中找到此選項。
+    b. 以 `@<tenant_name>.onmicrosoft.com` 電子郵件 (而非 `@<your_domain>` 電子郵件) 來新增使用者。 您可以在 Azure 入口網站中 Azure AD 下方的[自訂網域]  中找到此選項。
     
     c. 在 Databricks 工作區資源上，為這位新的使用者授與**參與者**角色。
     
@@ -82,7 +82,7 @@ ms.locfileid: "60784702"
 
 #### <a name="solution"></a>解決方法
 
-如果您並未建立工作區，但已新增為使用者，請連絡建立該工作區的人員。 請該人員使用 Azure Databricks 管理主控台來將您新增。 如需指示，請參閱[新增和管理使用者](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html)。 如果您建立了工作區，但仍然收到此錯誤，請再次嘗試從 Azure 入口網站選取 [初始化工作區]。
+如果您並未建立工作區，但已新增為使用者，請連絡建立該工作區的人員。 請該人員使用 Azure Databricks 管理主控台來將您新增。 如需指示，請參閱[新增和管理使用者](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html)。 如果您建立了工作區，但仍然收到此錯誤，請再次嘗試從 Azure 入口網站選取 [初始化工作區]  。
 
 ### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>問題：雲端提供者啟動失敗 (PublicIPCountLimitReached) 的叢集設定時
 
@@ -92,20 +92,20 @@ ms.locfileid: "60784702"
 
 #### <a name="solution"></a>解決方法
 
-Databricks 叢集會在每個節點上使用一個公用 IP 位址。 如果您的訂用帳戶已經使用其所有公用 IP，您應該[要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。 選擇**配額**作為**問題類型**，和**網路：ARM**作為**配額類型**。 在 [詳細資料] 中，申請提高公用 IP 位址配額。 例如，如果您目前的限制是 60，而您想要建立具有 100 個節點的叢集，請申請將限制提高到 160。
+Databricks 叢集會在每個節點上使用一個公用 IP 位址。 如果您的訂用帳戶已經使用其所有公用 IP，您應該[要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。 選擇**配額**作為**問題類型**，和**網路：ARM**作為**配額類型**。 在 [詳細資料]  中，申請提高公用 IP 位址配額。 例如，如果您目前的限制是 60，而您想要建立具有 100 個節點的叢集，請申請將限制提高到 160。
 
 ### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>問題：第二種雲端提供者啟動失敗 (MissingSubscriptionRegistration) 的叢集設定時
 
 #### <a name="error-message"></a>錯誤訊息
 
 「 雲端提供者啟動失敗：設定叢集時發生雲端提供者錯誤。 如需詳細資訊，請參閱 Databricks 指南。
-Azure 錯誤碼：MissingSubscriptionRegistration Azure 錯誤訊息：未註冊訂用帳戶，無法使用命名空間 'Microsoft.Compute'。 請參閱 https://aka.ms/rps-not-found 以了解如何註冊訂用帳戶。」
+Azure 錯誤碼：MissingSubscriptionRegistration Azure 錯誤訊息：訂用帳戶未註冊為使用命名空間 'Microsoft.Compute'。 請參閱 https://aka.ms/rps-not-found 以了解如何註冊訂用帳戶。」
 
 #### <a name="solution"></a>解決方法
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
-1. 依序選取 [訂用帳戶]、您所使用的訂用帳戶及 [資源提供者]。 
-1. 在資源提供者清單中，針對 **Microsoft.Compute** 選取 [註冊]。 您在訂用帳戶中必須具有參與者或擁有者角色，才能註冊資源提供者。
+1. 依序選取 [訂用帳戶]  、您所使用的訂用帳戶及 [資源提供者]  。 
+1. 在資源提供者清單中，針對 **Microsoft.Compute** 選取 [註冊]  。 您在訂用帳戶中必須具有參與者或擁有者角色，才能註冊資源提供者。
 
 如需更多詳細指示，請參閱[資源提供者和類型](../azure-resource-manager/resource-manager-supported-services.md)。
 
@@ -117,7 +117,7 @@ Azure Databricks 會與 Azure Active Directory 整合。 您可藉由指定 Azur
 
 #### <a name="solution"></a>解決方法
 
-以全域管理員身分登入 Azure 入口網站。 針對 Azure Active Directory，移至 [使用者設定] 索引標籤，並確定已將 [使用者可同意應用程式代表自己存取公司資料] 設為 [是]。
+以全域管理員身分登入 Azure 入口網站。 針對 Azure Active Directory，移至 [使用者設定]  索引標籤，並確定已將 [使用者可同意應用程式代表自己存取公司資料]  設為 [是]  。
 
 ## <a name="next-steps"></a>後續步驟
 

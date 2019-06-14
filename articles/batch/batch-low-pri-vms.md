@@ -13,10 +13,10 @@ ms.date: 03/19/2018
 ms.author: markscu
 ms.custom: seodec18
 ms.openlocfilehash: 17668470be3e997c215aacc4cc2c32c80de2dd81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776116"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>使用低優先順序的 VM 搭配 Batch
@@ -168,15 +168,15 @@ VM 可能偶爾會被優先佔用；當發生優先佔用時，Batch 會執行�
 
 [Azure 入口網站](https://portal.azure.com)中有針對低優先順序節點提供的新計量。 這些計量包括：
 
-- 低优先级节点计数
+- 低優先順序節點計數
 - 低優先順序核心計數 
-- 已占用节点计数
+- 先占節點計數
 
 若要檢視 Azure 入口網站中的計量：
 
 1. 在入口網站中瀏覽至您的 Batch 帳戶，並檢視 Batch 帳戶的設定。
-2. 從 [監視] 區段選取 [計量]。
-3. 從 [可用的計量] 清單中選取您所需的計量。
+2. 從 [監視]  區段選取 [計量]  。
+3. 從 [可用的計量]  清單中選取您所需的計量。
 
 ![低優先順序節點的計量](media/batch-low-pri-vms/low-pri-metrics.png)
 

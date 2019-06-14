@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: e578b3a6b3905569567b568b0130c1ed1b90d915
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60557703"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Web 資料表複製資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-web-table-connector.md)
 > * [目前的版本](connector-web-table.md)
 
@@ -152,22 +152,22 @@ ms.locfileid: "60557703"
 
 若要取得您要在[資料集屬性](#dataset-properties)中設定的資料表索引，可以使用 Excel 2016 等軟體 (如下所示) 做為工具：
 
-1. 啟動 **Excel 2016**，然後切換到 [資料] 索引標籤。
-2. 按一下工具列上的 [開新查詢]、指向 [從其他來源]，然後按一下 [從 Web]。
+1. 啟動 **Excel 2016**，然後切換到 [資料]  索引標籤。
+2. 按一下工具列上的 [開新查詢]  、指向 [從其他來源]  ，然後按一下 [從 Web]  。
 
     ![Power Query 功能表](./media/copy-data-from-web-table/PowerQuery-Menu.png)
-3. 在 [從 Web] 對話方塊中，輸入您要在連結服務 JSON 中使用的 **URL** (例如： https://en.wikipedia.org/wiki/)，以及您為資料集指定的路徑 (例如：AFI%27s_100_Years...100_Movies)，然後按一下 [確定]。
+3. 在 [從 Web]  對話方塊中，輸入您要在連結服務 JSON 中使用的 **URL** (例如： https://en.wikipedia.org/wiki/) ，以及您為資料集指定的路徑 (例如：AFI%27s_100_Years...100_Movies)，然後按一下 [確定]  。
 
     ![[從 Web] 對話方塊](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 
     此範例使用的 URL： https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
-4. 當您看到 [存取 Web 內容] 對話方塊時，選取右側的 **URL**、**驗證方式**，然後按一下 [連線]。
+4. 當您看到 [存取 Web 內容]  對話方塊時，選取右側的 **URL**、**驗證方式**，然後按一下 [連線]  。
 
    ![[存取 Web 內容] 對話方塊](./media/copy-data-from-web-table/AccessWebContentDialog.png)
-5. 按一下樹狀檢視中的某個**資料表**項目來查看資料表內容，然後按一下底部的 [編輯] 按鈕。  
+5. 按一下樹狀檢視中的某個**資料表**項目來查看資料表內容，然後按一下底部的 [編輯]  按鈕。  
 
    ![[導覽器] 對話方塊](./media/copy-data-from-web-table/Navigator-DialogBox.png)
-6. 在 [查詢編輯器] 視窗中，按一下工具列上的 [進階編輯器] 按鈕。
+6. 在 [查詢編輯器]  視窗中，按一下工具列上的 [進階編輯器]  按鈕。
 
     ![[進階編輯器] 按鈕](./media/copy-data-from-web-table/QueryEditor-AdvancedEditorButton.png)
 7. 在 [進階編輯器] 對話方塊中，「Source」旁的數字就是索引。

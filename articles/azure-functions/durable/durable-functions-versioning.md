@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
 ms.openlocfilehash: 33ca6c36cd11d53a3c50a8374181c511fd2f8c3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648125"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的版本控制
@@ -137,7 +137,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 所有 Azure 儲存體實體都是依據 `HubName` 設定值來命名。 只要指定新名稱給工作中樞，就可以確保為應用程式的新版本建立個別的佇列和記錄資料表。
 
-建議您將函式應用程式的新版本部署到新的[部署位置](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/)。 部署位置可讓您並存執行函式應用程式的多個複本，而且其中只有一個是作用中的「生產」位置。 當您準備將新的協調流程邏輯公開到現有的基礎結構時，只要將新的版本調換到生產位置即可，就是這麼簡單。
+建議您將函式應用程式的新版本部署到新的[部署位置](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/)。 部署位置可讓您並存執行函式應用程式的多個複本，而且其中只有一個是作用中的「生產」  位置。 當您準備將新的協調流程邏輯公開到現有的基礎結構時，只要將新的版本調換到生產位置即可，就是這麼簡單。
 
 > [!NOTE]
 > 當您對協調器函式使用 HTTP 和 Webhook 觸發程序時，此策略最理想。 對於非 HTTP 觸發程序，例如佇列或事件中樞觸發程序定義應該[衍生自應用程式設定](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings)，取得更新做為交換作業的一部分。

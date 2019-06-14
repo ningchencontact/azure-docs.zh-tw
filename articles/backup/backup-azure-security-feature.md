@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
 ms.openlocfilehash: 2ba94963238cd5ee96df5c178a072addc5ddd75e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60620627"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>利用安全性功能協助保護使用 Azure 備份的混合式備份
@@ -30,30 +30,30 @@ ms.locfileid: "60620627"
 
 
 > [!NOTE]
-> 这些功能仅可用于恢复服务保管库。 默认情况下，所有新创建的恢复服务保管库均具有这些功能。 對於現有的復原服務保存庫，使用者可使用下節中提及的步驟來啟用這些功能。 這些功能啟用之後，它們會套用至所有向保存庫註冊的復原服務代理程式電腦、Azure 備份伺服器執行個體和 Data Protection Manager 伺服器。 啟用此設定是一次性動作，啟用之後便無法停用這些功能。
+> 這些功能僅適用於復原服務保存庫。 所有新建立的復原服務保存庫預設都已經啟用這些功能。 對於現有的復原服務保存庫，使用者可使用下節中提及的步驟來啟用這些功能。 這些功能啟用之後，它們會套用至所有向保存庫註冊的復原服務代理程式電腦、Azure 備份伺服器執行個體和 Data Protection Manager 伺服器。 啟用此設定是一次性動作，啟用之後便無法停用這些功能。
 >
 
 ## <a name="enable-security-features"></a>啟用安全性功能
 如果您在建立復原服務保存庫，您可以使用所有安全性功能。 如果您在使用現有的保存庫，請依照下列這些步驟啟用安全性功能︰
 
 1. 使用您的 Azure 認證登入 Azure 入口網站。
-2. 選取 [瀏覽]，然後輸入 [復原服務]。
+2. 選取 [瀏覽]  ，然後輸入 [復原服務]  。
 
     ![Azure 入口網站瀏覽選項的螢幕擷取畫面](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
-    此时显示恢复服务保管库列表。 從此清單中選取保存庫。 選取的保存庫儀表板隨即開啟。
-3. 從保存庫下顯示的項目清單中，按一下 [設定] 之下的 [屬性]。
+    復原服務保存庫清單隨即出現。 從此清單中選取保存庫。 選取的保存庫儀表板隨即開啟。
+3. 從保存庫下顯示的項目清單中，按一下 [設定]  之下的 [屬性]  。
 
     ![復原服務保存庫選項的螢幕擷取畫面](./media/backup-azure-security-feature/vault-list-properties.png)
-4. 按一下 [安全性設定] 之下的 [更新]。
+4. 按一下 [安全性設定]  之下的 [更新]  。
 
     ![復原服務保存庫屬性的螢幕擷取畫面](./media/backup-azure-security-feature/security-settings-update.png)
 
-    更新連結會開啟 [安全性設定] 刀鋒視窗，其中提供功能的摘要並讓您啟用它們。
-5. 從 [是否已設定 Azure Multi-Factor Authentication?] 下拉式清單中，選取一個值以確認您是否已啟用 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)。 如果已啟用，當您登入 Azure 入口網站時，系統會要求您從另一個裝置 (例如行動電話) 進行驗證。
+    更新連結會開啟 [安全性設定]  刀鋒視窗，其中提供功能的摘要並讓您啟用它們。
+5. 從 [是否已設定 Azure Multi-Factor Authentication?]  下拉式清單中，選取一個值以確認您是否已啟用 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)。 如果已啟用，當您登入 Azure 入口網站時，系統會要求您從另一個裝置 (例如行動電話) 進行驗證。
 
    當您在備份中執行重要作業時，您必須輸入安全 PIN 碼 (可在 Azure 入口網站上取得)。 啟用 Multi-Factor Authentication 可多一道安全性。 只有具備有效 Azure 認證且從第二個裝置驗證的授權使用者，才能存取 Azure 入口網站。
-6. 若要儲存安全性設定，請選取 [啟用]，然後按一下 [儲存]。 只有當您在上一個步驟從 [是否已設定 Azure Multi-Factor Authentication?] 清單中選取一個值之後，才能選取 [啟用]。
+6. 若要儲存安全性設定，請選取 [啟用]  ，然後按一下 [儲存]  。 只有當您在上一個步驟從 [是否已設定 Azure Multi-Factor Authentication?]  清單中選取一個值之後，才能選取 [啟用]  。
 
     ![安全性設定的螢幕擷取畫面](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
@@ -65,7 +65,7 @@ ms.locfileid: "60620627"
 1. 如果原本進行備份的電腦仍可使用，請重新保護遭刪除的資料來源，並使用 Azure 復原服務中的[將資料復原到相同電腦](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine)，以便從所有舊的復原點復原資料。
 2. 如果此電腦無法使用，請使用[復原到其他電腦](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)，以使用另一部 Azure 復原服務電腦來取得此資料。
 
-对于 **Azure 备份服务器**用户：
+若為 **Azure 備份伺服器**使用者：
 
 1. 如果原本進行備份的伺服器仍可使用，請重新保護已刪除的資料來源，並使用**復原資料**功能來從舊的復原點復原資料。
 2. 如果此伺服器無法使用，請使用[從其他 Azure 備份伺服器復原資料](backup-azure-alternate-dpm-server.md)，以使用另一個 Azure 備份伺服器執行個體來取得此資料。
@@ -78,7 +78,7 @@ ms.locfileid: "60620627"
 ## <a name="prevent-attacks"></a>防止攻擊
 已新增檢查來確保只有有效使用者才能執行各種作業。 其中包括新增額外一道驗證，並維護復原用途所需的最小保留範圍。
 
-### <a name="authentication-to-perform-critical-operations"></a>执行关键操作的身份验证
+### <a name="authentication-to-perform-critical-operations"></a>用來執行重要作業的驗證
 針對重要作業新增額外一層驗證時，系統會提示您在執行**停止保護並刪除資料**和**變更複雜密碼**作業時輸入安全性 PIN 碼。
 
 > [!NOTE]
@@ -88,8 +88,8 @@ ms.locfileid: "60620627"
 若要收到這個 PIN：
 
 1. 登入 Azure 入口網站。
-2. 瀏覽至 [復原服務保存庫] > [設定] > [屬性]。
-3. 在 [安全性 PIN 碼] 底下，按一下 [產生]。 這會開啟刀鋒視窗，其中包含要在 Azure 復原服務代理程式使用者介面中輸入的 PIN。
+2. 瀏覽至 [復原服務保存庫]   > [設定]   > [屬性]  。
+3. 在 [安全性 PIN 碼]  底下，按一下 [產生]  。 這會開啟刀鋒視窗，其中包含要在 Azure 復原服務代理程式使用者介面中輸入的 PIN。
     此 PIN 碼的有效時間只有五分鐘，而且會在該期間後自動產生。
 
 ### <a name="maintain-a-minimum-retention-range"></a>維護最小的保留範圍
@@ -100,7 +100,7 @@ ms.locfileid: "60620627"
 - 若為每月保留，最少應該保留**三**個月。
 - 若為每年保留，最少應該保留**一**年。
 
-## <a name="notifications-for-critical-operations"></a>关键操作的通知
+## <a name="notifications-for-critical-operations"></a>重要作業的通知
 執行重要作業時，訂用帳戶管理員通常會收到一封含有作業相關詳細資訊的電子郵件通知。 您可以使用 Azure 入口網站，設定這些通知的其他電子郵件收件者。
 
 本文所提的安全性功能可提供對付目標攻擊的防禦機制。 更重要的是，如果發生攻擊，這些功能可讓您復原資料。
@@ -108,9 +108,9 @@ ms.locfileid: "60620627"
 ## <a name="troubleshooting-errors"></a>錯誤疑難排解
 | 作業 | 錯誤詳細資料 | 解決方案 |
 | --- | --- | --- |
-| 原則變更 |無法修改備份原則。 Error:由於發生內部服務錯誤 [0x29834]，導致目前的操作失敗。 請稍後再重試操作。 如果問題持續發生， 請連絡 Microsoft 支援服務。 |**原因：**<br/>當安全性設定已啟用，而您嘗試將保留範圍縮減至低於上面指定的最小值，且您使用不受支援的版本 (本文的第一個附註會指出支援的版本) 時，就會出現此錯誤。 <br/>**建議的動作：**<br/> 在此情況下，您應該將保留期限設定為高於指定的最小保留期限 (若是每日則 7 天、若是每週則 4 週、若是每月則 3 個月，若是每年則 1 年)，以繼續進行與原則有關的更新。 (選擇性) 較好的方法是更新備份代理程式、Azure 備份伺服器和/或 DPM UR，以利用所有安全性更新。 |
+| 原則變更 |無法修改備份原則。 Error:由於發生內部服務錯誤 [0x29834]，導致目前的操作失敗。 請稍後再重試此作業。 如果問題持續發生， 請連絡 Microsoft 支援服務。 |**原因：**<br/>當安全性設定已啟用，而您嘗試將保留範圍縮減至低於上面指定的最小值，且您使用不受支援的版本 (本文的第一個附註會指出支援的版本) 時，就會出現此錯誤。 <br/>**建議的動作：**<br/> 在此情況下，您應該將保留期限設定為高於指定的最小保留期限 (若是每日則 7 天、若是每週則 4 週、若是每月則 3 個月，若是每年則 1 年)，以繼續進行與原則有關的更新。 (選擇性) 較好的方法是更新備份代理程式、Azure 備份伺服器和/或 DPM UR，以利用所有安全性更新。 |
 | 變更複雜密碼 |輸入的安全性 PIN 碼不正確。 (識別碼：100130) 請提供正確的安全性 PIN 碼以完成此作業。 |**原因：**<br/> 當您在執行重要作業 (例如變更複雜密碼) 時輸入無效或已到期的安全性 PIN 碼時，就會出現此錯誤。 <br/>**建議的動作：**<br/> 若要完成作業，您必須輸入有效的安全性 PIN 碼。 若要取得 PIN 碼，請登入 Azure 入口網站，並瀏覽至 [復原服務保存庫] > [設定] > [屬性] > [產生安全性 PIN 碼]。 請使用這個 PIN 碼來變更複雜密碼。 |
-| 更改通行短语 |作業失敗。 識別碼：120002 |**原因：**<br/>當安全性設定已啟用，而您嘗試變更複雜密碼，且您使用不受支援的版本時，就會出現此錯誤 (本文的第一個附註會指出有效的版本)。<br/>**建議的動作：**<br/> 若要變更複雜密碼，您必須先將備份代理程式至少更新為最低版本 2.0.9052、將 Azure 備份伺服器至少更新為更新 1，和/或將 DPM 至少更新為 DPM 2012 R2 UR12 或 DPM 2016 UR2 (下面的下載連結)，然後輸入有效的安全性 PIN 碼。 若要取得 PIN 碼，請登入 Azure 入口網站，並瀏覽至 [復原服務保存庫] > [設定] > [屬性] > [產生安全性 PIN 碼]。 請使用這個 PIN 碼來變更複雜密碼。 |
+| 變更複雜密碼 |作業失敗。 識別碼：120002 |**原因：**<br/>當安全性設定已啟用，而您嘗試變更複雜密碼，且您使用不受支援的版本時，就會出現此錯誤 (本文的第一個附註會指出有效的版本)。<br/>**建議的動作：**<br/> 若要變更複雜密碼，您必須先將備份代理程式至少更新為最低版本 2.0.9052、將 Azure 備份伺服器至少更新為更新 1，和/或將 DPM 至少更新為 DPM 2012 R2 UR12 或 DPM 2016 UR2 (下面的下載連結)，然後輸入有效的安全性 PIN 碼。 若要取得 PIN 碼，請登入 Azure 入口網站，並瀏覽至 [復原服務保存庫] > [設定] > [屬性] > [產生安全性 PIN 碼]。 請使用這個 PIN 碼來變更複雜密碼。 |
 
 ## <a name="next-steps"></a>後續步驟
 * [開始使用 Azure 復原服務保存庫](backup-azure-vms-first-look-arm.md)以啟用這些功能。

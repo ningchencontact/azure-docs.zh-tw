@@ -12,10 +12,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: cdc37ace4687fe978030f528dcd5cbc87da596f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589441"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>在 Azure 上使用 Scala 與 Spark 的資料科學
@@ -52,7 +52,7 @@ ms.locfileid: "60589441"
 如需紐約市計程車車程資料的說明以及如何在 Spark 叢集上從 Jupyter Notebook 執行程式碼的指示，請參閱 [在 Azure HDInsight 上使用 Spark 的資料科學概觀](spark-overview.md)中的相關章節。  
 
 ## <a name="execute-scala-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>在 Spark 叢集上從 Jupyter Notebook 執行 Scala 程式碼
-您可以從 Azure 入口網站啟動 Jupyter Notebook。 在儀表板上尋找 Spark 叢集，然後按一下該項目以進入您的叢集管理頁面。 接著按一下 [叢集儀表板]，然後按一下 [Jupyter Notebook] 來開啟與 Spark 叢集相關聯的 Notebook。
+您可以從 Azure 入口網站啟動 Jupyter Notebook。 在儀表板上尋找 Spark 叢集，然後按一下該項目以進入您的叢集管理頁面。 接著按一下 [叢集儀表板]  ，然後按一下 [Jupyter Notebook]  來開啟與 Spark 叢集相關聯的 Notebook。
 
 ![叢集儀表板和 Jupyter Notebook](./media/scala-walkthrough/spark-jupyter-on-portal.png)
 
@@ -62,7 +62,7 @@ ms.locfileid: "60589441"
 
 選取 [Scala]  會看到一個目錄，當中有一些使用 PySpark API 的預先封裝 Notebook 的範例。 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala)上有使用 Scala.ipynb Notebook 的探勘模型化和評分，其中包含此 Spark 主題套件的程式碼範例。
 
-您可以將 Notebook 直接從 GitHub 上傳至 Spark 叢集上的 Jupyter Notebook 伺服器。 在 Jupyter 首頁上，按一下 [上傳]  按鈕。 在檔案總管中，貼上 Scala Notebook 的 GitHub (原始內容) URL，然後按一下 [開啟] 。 下列 URL 有 Scala Notebook 可供使用：
+您可以將 Notebook 直接從 GitHub 上傳至 Spark 叢集上的 Jupyter Notebook 伺服器。 在 Jupyter 首頁上，按一下 [上傳]  按鈕。 在檔案總管中，貼上 Scala Notebook 的 GitHub (原始內容) URL，然後按一下 [開啟]  。 下列 URL 有 Scala Notebook 可供使用：
 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 

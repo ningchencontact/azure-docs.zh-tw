@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7e97bd50e3d37218e0f88f722387fd1a53167e27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60534054"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>使用 Azure 虛擬網路 (VNet) 上的資料來源閘道
@@ -28,8 +28,8 @@ ms.locfileid: "60534054"
 
 ## <a name="configure-alwaysusegateway-property"></a>設定 AlwaysUseGateway 屬性
 
-1. 在 [SSMS] > [伺服器] > [屬性] > [一般]，選取 [顯示進階 (所有) 屬性]。
-2. 在 **ASPaaS\AlwaysUseGateway** 中，選取 [true]。
+1. 在 [SSMS] > [伺服器] > [屬性]   > [一般]  ，選取 [顯示進階 (所有) 屬性]  。
+2. 在 **ASPaaS\AlwaysUseGateway** 中，選取 [true]  。
 
     ![一律使用閘道屬性](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
 

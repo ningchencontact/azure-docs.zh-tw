@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: raynew
 ms.openlocfilehash: 068b55e40afc96dbcfae26c8bf7da8a1b9ea349a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60598357"
 ---
 # <a name="migrate-machines-after-assessment"></a>評量之後移轉機器
@@ -37,11 +37,11 @@ ms.locfileid: "60598357"
 ## <a name="review-suggested-migration-methods"></a>檢閱建議的移轉方法
 
 1. 您必須先建立 Azure Migrate 專案、探索內部部署機器，然後執行移轉評估，然後才能取得建議的移轉方法。 [深入了解](tutorial-assessment-vmware.md)。
-2. 建立評估之後，在 [專案] > [概觀] > [儀表板] 中檢視該評估。 按一下 [評估整備]
+2. 建立評估之後，在 [專案] > [概觀]   > [儀表板]  中檢視該評估。 按一下 [評估整備] 
 
     ![評估整備](./media/tutorial-assessment-vmware/assessment-report.png)  
 
-3. 在 [建議工具] 中，檢閱可用於移轉之工具的建議。
+3. 在 [建議工具]  中，檢閱可用於移轉之工具的建議。
 
     ![建議的工具](./media/tutorial-assessment-vmware/assessment-suitability.png)
 

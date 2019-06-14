@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: 9ee484971e217b0ca4dd7ad855e9e6dc3313e5d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60684735"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>建立條件陳述式以控制 Azure Logic Apps 中的工作流程動作
@@ -39,17 +39,17 @@ ms.locfileid: "60684735"
 
 1. 在您想要的位置上新增條件。 
 
-   若要在步驟之間新增條件，請將指標移至您要新增條件的箭號上。 選擇顯示的**加號** (**+**)，然後選擇 [新增動作]。 例如︰
+   若要在步驟之間新增條件，請將指標移至您要新增條件的箭號上。 選擇顯示的**加號** ( **+** )，然後選擇 [新增動作]  。 例如:
 
    ![在步驟間新增動作](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
-   如果想要在工作流程結尾新增條件，請在邏輯應用程式底部，選擇 [新增步驟] > [新增動作]。
+   如果想要在工作流程結尾新增條件，請在邏輯應用程式底部，選擇 [新增步驟]  > [新增動作]  。
 
-1. 在搜尋方塊中，輸入「條件」作為篩選條件。 選取此動作：**条件 - 控制**
+1. 在搜尋方塊中，輸入「條件」作為篩選條件。 選取此動作：**條件 - 控制項**
 
    ![新增條件](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
 
-1. 在 [條件] 方塊中，建置您的條件。 
+1. 在 [條件]  方塊中，建置您的條件。 
 
    1. 在左側的方塊中，指定您要比較的資料或欄位。
 
@@ -62,17 +62,17 @@ ms.locfileid: "60684735"
    在此範例中，請選取 "**contains**"。 
 
    1. 在右邊的方塊中，指定作為準則的值或欄位。 
-   对于此示例，请指定此字符串：**Microsoft**
+   針對此範例中，指定這個字串：**Microsoft**
 
    以下是完整的條件：
 
    ![完整條件](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
 
-   若要為您的條件新增另一個資料列，請選擇 [新增] > [新增資料列]。 
-   若要新增含有子條件的群組，請選擇 [新增] > [新增群組]。 
-   若要將現有的資料列組成群組，請選取那些資料列的核取方塊、選擇任一資料列的省略符號 (...)，然後選擇 [將群組設為]。
+   若要為您的條件新增另一個資料列，請選擇 [新增]   > [新增資料列]  。 
+   若要新增含有子條件的群組，請選擇 [新增]   > [新增群組]  。 
+   若要將現有的資料列組成群組，請選取那些資料列的核取方塊、選擇任一資料列的省略符號 (...)，然後選擇 [將群組設為]  。
 
-1. 在 **If true** 和 **If false** 之下，以是否符合條件為基礎，新增要執行的步驟。 例如︰
+1. 在 **If true** 和 **If false** 之下，以是否符合條件為基礎，新增要執行的步驟。 例如:
 
    ![具有 "If true" 和 "If false" 路徑的條件](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 

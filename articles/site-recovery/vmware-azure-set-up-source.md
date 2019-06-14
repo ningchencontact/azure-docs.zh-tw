@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: 075f86b24e2915d9689db8097889a830bade74c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723421"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>設定從 VMware 複寫到 Azure 的來源環境
@@ -29,11 +29,11 @@ ms.locfileid: "60723421"
 
 ## <a name="choose-your-protection-goals"></a>選擇您的保護目標
 
-1. 在 [復原服務保存庫] 中，選取保存庫名稱。 在此案例中，我們會使用 **ContosoVMVault**。
-2. 在 [使用者入門] 中，選取 Site Recovery。 然後選取 [準備基礎結構]。
-3. 在 [保護目標] > [您的電腦位於何處] 中，選取 [內部部署]。
-4. 在 [您要將電腦複寫到何處] 中，選取 [複製到 Azure]。
-5. 在 [您的電腦虛擬化了嗎] 中，選取 [是，使用 VMware vSphere Hyperviso]。 然後選取 [確定]。
+1. 在 [復原服務保存庫]  中，選取保存庫名稱。 在此案例中，我們會使用 **ContosoVMVault**。
+2. 在 [使用者入門]  中，選取 Site Recovery。 然後選取 [準備基礎結構]  。
+3. 在 [保護目標]   > [您的電腦位於何處]  中，選取 [內部部署]  。
+4. 在 [您要將電腦複寫到何處]  中，選取 [複製到 Azure]  。
+5. 在 [您的電腦虛擬化了嗎]  中，選取 [是，使用 VMware vSphere Hyperviso]  。 然後選取 [確定]  。
 
 ## <a name="set-up-the-configuration-server"></a>設定組態伺服器
 
@@ -48,7 +48,7 @@ ms.locfileid: "60723421"
 
 ### <a name="if-antivirus-software-is-active-on-source-machine"></a>如果來源機器上啟用防毒軟體
 
-如果來源機器已啟用防毒軟體，請排除安裝資料夾。 因此，請排除資料夾 C:\ProgramData\ASR\agent 以便順暢地進行複寫。
+如果來源機器已啟用防毒軟體，請排除安裝資料夾。 因此，請排除資料夾 C:\ProgramData\ASR\agent  以便順暢地進行複寫。
 
 ### <a name="if-antivirus-software-is-active-on-configuration-server"></a>如果組態伺服器上啟用防毒軟體
 
@@ -69,7 +69,7 @@ ms.locfileid: "60723421"
   - C:\ProgramData\ASRSetupLogs
   - C:\ProgramData\LogUploadServiceLogs
   - C:\inetpub
-  - ASR 伺服器安裝目錄。 例如︰E:\Program Files (x86)\Microsoft Azure Site Recovery
+  - ASR 伺服器安裝目錄。 例如: E:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>如果相應放大處理序伺服器/主要目標啟用防毒軟體
 

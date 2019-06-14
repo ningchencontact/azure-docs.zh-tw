@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: cdffa8e138062a91bd1876ac6e44728c47d9cdd7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61065034"
 ---
 # <a name="monitor-server-metrics"></a>監視伺服器計量
@@ -24,11 +24,11 @@ Analysis Services 提供計量來協助您監視伺服器的效能和健康情�
 
 ## <a name="to-monitor-metrics-for-an-analysis-services-server"></a>監視 Analysis Services 伺服器的計量
 
-1. 在 Azure 入口網站中，選取 [計量]。
+1. 在 Azure 入口網站中，選取 [計量]  。
 
     ![在 Azure 入口網站中監視](./media/analysis-services-monitor/aas-monitor-portal.png)
 
-2. 在 [可用的計量] 中，選取要併入圖表中的計量。 
+2. 在 [可用的計量]  中，選取要併入圖表中的計量。 
 
     ![監視器圖表](./media/analysis-services-monitor/aas-monitor-chart.png)
 
@@ -41,12 +41,12 @@ Analysis Services 提供計量來協助您監視伺服器的效能和健康情�
 |計量|計量顯示名稱|單位|彙總類型|描述|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|命令集區作業佇列長度|計數|平均值|命令執行緒集區佇列中的作業數目。|
-|CurrentConnections|连接:目前的連線數|計數|平均值|目前已建立的用戶端連接數目。|
+|CurrentConnections|連線：目前的連線數|計數|平均值|目前已建立的用戶端連接數目。|
 |CurrentUserSessions|目前的使用者工作階段|計數|平均值|目前建立的使用者工作階段數目。|
 |mashup_engine_memory_metric|M 引擎記憶體|位元組|平均值|混搭引擎處理序的記憶體使用量|
 |mashup_engine_qpu_metric|M 引擎 QPU|計數|平均值|混搭引擎處理序的 QPU 使用量|
 |memory_metric|記憶體|位元組|平均值|記憶體。 範圍 0-25 GB (S1)、0-50 GB (S2) 和 0-100 GB (S4)|
-|memory_thrashing_metric|記憶體猛移|百分比|平均值|記憶體猛移的平均值。|
+|memory_thrashing_metric|記憶體猛移|Percent|平均值|記憶體猛移的平均值。|
 |CleanerCurrentPrice|記憶體：清除工具目前價格|計數|平均值|記憶體目前的價格 ($/位元組/時間)，並正規化為 1000。|
 |CleanerMemoryNonshrinkable|記憶體：不可壓縮的清除器記憶體|位元組|平均值|背景清除器將不會清除的記憶體數量，以 KB 為單位。|
 |CleanerMemoryShrinkable|記憶體：可壓縮的清除器記憶體|位元組|平均值|背景清除器將清除的記憶體數量，以 KB 為單位。|

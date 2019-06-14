@@ -12,10 +12,10 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 0239c53f98fba201b6d70e1e2212eea36134e30d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60635523"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>在 Azure Data Factory 中將連結服務參數化
@@ -33,7 +33,7 @@ ms.locfileid: "60635523"
 
 ## <a name="supported-data-stores"></a>支援的資料存放區
 
-目前，Azure 入口網站的 Data Factory UI 中支援下列資料存放區的連結服務參數化。 至於其他資料存放區，您可以選取 [連線] 索引標籤上的 [程式碼] 圖示，並使用 JSON 編輯器，將連結的服務參數化。
+目前，Azure 入口網站的 Data Factory UI 中支援下列資料存放區的連結服務參數化。 至於其他資料存放區，您可以選取 [連線]  索引標籤上的 [程式碼]  圖示，並使用 JSON 編輯器，將連結的服務參數化。
 - Azure SQL Database
 - Azure SQL 資料倉儲
 - SQL Server

@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
 ms.openlocfilehash: 18cd5a86cc2f52567c5f320719d1a9f21b377ed4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60921266"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>針對 Azure Windows 虛擬機器啟用問題進行疑難排解
@@ -137,6 +137,6 @@ Azure 會根據 VM 所在的雲端區域使用不同的端點來啟用 KMS。 �
  
 當寬限期已到期而 Windows 仍然未啟用時，Windows Server 2008 R2 和更新版的 Windows 將會顯示與啟用相關的額外通知。 桌面桌布會維持黑色，而 Windows Update 將只會安裝安全性和重大更新，而不會安裝選用更新。 請參閱[授權條件](https://technet.microsoft.com/library/ff793403.aspx)頁面底部的＜通知＞一節。   
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 请联系支持人员。
+## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

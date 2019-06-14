@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: kasinh
 ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60647210"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>使用 System Center 2012 R2 DPM 將 Exchange Server 備份至 Azure 備份
@@ -38,14 +38,14 @@ ms.locfileid: "60647210"
 ## <a name="dpm-protection-agent"></a>DPM 保護代理程式
 若要在 Exchange Server 上安裝 DPM 保護代理程式，請遵循下列步驟：
 
-1. 确保已正确配置防火墙。 請參閱 [設定代理程式的防火牆例外狀況](https://technet.microsoft.com/library/Hh758204.aspx)。
-2. 按一下 DPM 系統管理員主控台中的 [管理] > [代理程式] > [安裝]，在 Exchange Server 上安裝代理程式。 如需詳細步驟，請參閱 [安裝 DPM 保護代理程式](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396) 。
+1. 請確定已正確設定防火牆。 請參閱 [設定代理程式的防火牆例外狀況](https://technet.microsoft.com/library/Hh758204.aspx)。
+2. 按一下 DPM 系統管理員主控台中的 [管理] > [代理程式] > [安裝]  ，在 Exchange Server 上安裝代理程式。 如需詳細步驟，請參閱 [安裝 DPM 保護代理程式](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396) 。
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>建立 Exchange Server 的保護群組
-1. 在 DPM 系統管理員主控台中，按一下 [保護]，然後按一下工具功能區上的 [新增]，以開啟 [建立新保護群組] 精靈。
-2. 在精靈的 [歡迎使用] 畫面上按 [下一步]。
-3. 在 [選取保護群組類型] 畫面上，選取 [伺服器]，然後按 [下一步]。
-4. 選取您想要保護的 Exchange Server 資料庫，然後按 [下一步] 。
+1. 在 DPM 系統管理員主控台中，按一下 [保護]  ，然後按一下工具功能區上的 [新增]  ，以開啟 [建立新保護群組]  精靈。
+2. 在精靈的 [歡迎使用]  畫面上按 [下一步]  。
+3. 在 [選取保護群組類型]  畫面上，選取 [伺服器]  ，然後按 [下一步]  。
+4. 選取您想要保護的 Exchange Server 資料庫，然後按 [下一步]  。
 
    > [!NOTE]
    > 如果您要保護 Exchange 2013，請檢查 [Exchange 2013 先決條件](https://technet.microsoft.com/library/dn751029.aspx)。
@@ -61,52 +61,52 @@ ms.locfileid: "60647210"
 
    * 我想要使用磁碟進行短期保護。
    * 我想要線上保護。
-6. 单机“下一步”
+6. 单击“下一步”  。
 7. 如果您想要檢查 Exchange Server 資料庫的完整性，請選取 [執行 Eseutil 以檢查資料完整性]  選項。
 
     選取此選項之後，將會在 DPM 伺服器上執行備份一致性檢查，以避免在 Exchange Server 上執行 **eseutil** 命令所產生的 I/O 流量。
 
    > [!NOTE]
-   > 若要使用此選項，您必須將 Ese.dll 和 Eseutil.exe 檔案複製到 DPM 伺服器上的 C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin 目錄。 否则会触发以下错误：  
+   > 若要使用此選項，您必須將 Ese.dll 和 Eseutil.exe 檔案複製到 DPM 伺服器上的 C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin 目錄。 否則會觸發下列錯誤：  
    > ![eseutil 錯誤](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. 单击“下一步”。
-9. 選取用於 [複製備份] 的資料庫，然後按 [下一步]。
+8. 单击“下一步”  。
+9. 選取用於 [複製備份]  的資料庫，然後按 [下一步]  。
 
    > [!NOTE]
-   > 如果未针对数据库的至少一个 DAG 副本选择“完全备份”，则不会截断日志。
+   > 如果您未對資料庫的至少一個 DAG 複本選取「完整備份」，則不會截斷記錄。
    >
    >
-10. 設定 [短期備份] 的目標，然後按 [下一步]。
-11. 檢閱可用的磁碟空間，然後按 [下一步] 。
-12. 選取 DPM 伺服器將建立初始複寫的時間，然後按 [下一步] 。
-13. 選取一致性檢查選項，然後按 [下一步] 。
-14. 選擇您要備份至 Azure 資料庫，然後按 [下一步] 。 例如︰
+10. 設定 [短期備份]  的目標，然後按 [下一步]  。
+11. 檢閱可用的磁碟空間，然後按 [下一步]  。
+12. 選取 DPM 伺服器將建立初始複寫的時間，然後按 [下一步]  。
+13. 選取一致性檢查選項，然後按 [下一步]  。
+14. 選擇您要備份至 Azure 資料庫，然後按 [下一步]  。 例如:
 
     ![指定線上保護資料](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. 定義 [Azure 備份] 的排程，然後按 [下一步]。 例如︰
+15. 定義 [Azure 備份]  的排程，然後按 [下一步]  。 例如:
 
-    ![指定联机备份计划](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
+    ![指定線上備份排程](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
     > [!NOTE]
     > 請注意，線上復原點是以快速完整復原點為基礎。 因此，您必須將線上復原點排程在針對快速完整復原點指定的時間之後。
     >
     >
-16. 設定 [Azure 備份] 的保留原則，然後按 [下一步]。
-17. 選擇線上複寫選項並按 [下一步] 。
+16. 設定 [Azure 備份]  的保留原則，然後按 [下一步]  。
+17. 選擇線上複寫選項並按 [下一步]  。
 
     如果您有大型資料庫，則透過網路建立初始備份所需的時間很長。 若要避免這個問題，您可以建立離線備份。  
 
-    ![指定联机保留策略](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
-18. 確認設定，然後按一下 [建立群組] 。
-19. 单击“**关闭**”。
+    ![指定線上保留期原則](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
+18. 確認設定，然後按一下 [建立群組]  。
+19. 按一下 [關閉]  。
 
 ## <a name="recover-the-exchange-database"></a>復原 Exchange 資料庫
 1. 若要復原 Exchange 資料庫，請按一下 DPM 系統管理員主控台中的 [復原]  。
 2. 找出您要復原的 Exchange 資料庫。
 3. 從「復原時間」  下拉式清單選取線上復原點。
-4. 按一下 [復原] 啟動 [復原精靈]。
+4. 按一下 [復原]  啟動 [復原精靈]  。
 
 線上復原點有五種復原類型：
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60908140"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>使用 Azure 資訊安全中心進行事件回應
@@ -65,7 +65,7 @@ Sam 是安全性分析師，他的職責包括︰
 如您所見，Judy 和 Sam 的責任不同，而他們必須共同合作以分享資訊安全中心的資訊。
 
 ## <a name="recommended-solution"></a>建議的解決方案
-由於 Judy 和 Sam 有不同的角色，他們將會使用資訊安全中心的不同區域來取得日常活動的相關資訊。 Judy 會在其日常監視中使用 [安全性警示]。
+由於 Judy 和 Sam 有不同的角色，他們將會使用資訊安全中心的不同區域來取得日常活動的相關資訊。 Judy 會在其日常監視中使用 [安全性警示]  。
 
 ![安全性警示](./media/security-center-incident-response/security-center-incident-response-fig3.png)
 
@@ -77,14 +77,14 @@ Judy 會在偵測和評估階段使用 [安全性警示]。 Judy 完成初步評
 ### <a name="detect-and-assess-incident-response-stages"></a>偵測和評估事件回應階段
 Judy 登入了 Azure 入口網站，並在資訊安全中心主控台進行工作。 在她的日常監視活動中，她會執行下列步驟，以便開始檢閱高優先順序的安全性警示︰
 
-1. 按一下 [安全性警示] 圖格，然後存取 [安全性警示] 刀鋒視窗。
+1. 按一下 [安全性警示]  圖格，然後存取 [安全性警示]  刀鋒視窗。
     ![安全性警示刀鋒視窗](./media/security-center-incident-response/security-center-incident-response-fig4.png)
 
    > [!NOTE]
    > 基於此案例的目的，Judy 即將對 [惡意 SQL 活動] 警示執行評估，如上圖所示。
    >
    >
-2. 按一下 [惡意 SQL 活動] 警示，並在 [惡意 SQL 活動] 刀鋒視窗中檢閱受攻擊的資源︰![事件詳細資料](./media/security-center-incident-response/security-center-incident-response-fig5.png)
+2. 按一下 [惡意 SQL 活動]  警示，並在 [惡意 SQL 活動]  刀鋒視窗中檢閱受攻擊的資源︰![事件詳細資料](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     在此刀鋒視窗中，Judy 可以做一些筆記：受攻擊資源的相關資訊、此攻擊的發生次數，以及其偵測時間。
 3. 按一下 [受到攻擊的資源]  以取得有關此攻擊的詳細資訊。

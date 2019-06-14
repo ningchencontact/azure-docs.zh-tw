@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861081"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>將分析從 Excel 遷移至 Azure Machine Learning Studio
@@ -45,7 +45,7 @@ ms.locfileid: "60861081"
 
 1. 將資料集以 csv 檔案 (非常小的檔案) 的形式上傳到 Studio
 2. 建立新的實驗，並使用[選取資料集中的資料行][select-columns]模組來選取 Excel 中所使用的相同資料特徵 
-3. 使用[資料分割][split]模組 (與「相對運算式」模式)，將資料分割成完全如同 Excel 中產生的相同訓練資料集 
+3. 使用[資料分割][split]模組 (與「相對運算式」  模式)，將資料分割成完全如同 Excel 中產生的相同訓練資料集 
 4. 使用[線性迴歸][linear-regression]模組進行實驗 (只使用預設選項)、記載，並將結果與我們的 Excel 迴歸模型相互比較
 
 ### <a name="review-initial-results"></a>檢閱初步結果
@@ -100,7 +100,7 @@ ms.locfileid: "60861081"
 ### <a name="integration-with-excel"></a>與 Excel 整合
 我們的解決方案要使我們的 Machine Learning 迴歸模型作業化，方法是透過從訓練的模型建立 Web 服務。 在幾分鐘內，Web 服務即已建立，我們可以直接從 Excel 呼叫它，以傳回預測的收入值。 
 
-*Web 服務儀表板* 一節包含可下載的 Excel 活頁簿。 活頁簿已使用 Web 服務 API 預先格式化並內嵌結構描述資訊。 按一下 [下載 Excel 活頁簿] 開啟活頁簿，您可以將它儲存到本機電腦。 
+*Web 服務儀表板* 一節包含可下載的 Excel 活頁簿。 活頁簿已使用 Web 服務 API 預先格式化並內嵌結構描述資訊。 按一下 [下載 Excel 活頁簿]  開啟活頁簿，您可以將它儲存到本機電腦。 
 
 ![從 Web 服務儀表板下載 Excel 活頁簿](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png)
 

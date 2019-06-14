@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
 ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60533207"
 ---
 # <a name="troubleshoot-azure-migrate"></a>為 Azure Migrate 疑難排解
@@ -38,10 +38,10 @@ ms.locfileid: "60533207"
 
    ![LA 工作區](./media/troubleshooting-general/LA-workspace.png)
 
-   b. 如果您已經刪除移轉專案，請按一下 Azure 入口網站左窗格中的 [資源群組]，然後移至建立該工作區的資源群組，並瀏覽到該工作區。
+   b. 如果您已經刪除移轉專案，請按一下 Azure 入口網站左窗格中的 [資源群組]  ，然後移至建立該工作區的資源群組，並瀏覽到該工作區。
 2. 遵循[這篇文章](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace)中的指示來刪除工作區。
 
-### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>移轉專案建立失敗，發生「要求必須包含使用者識別標頭」錯誤。
+### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>移轉專案建立失敗，發生「要求必須包含使用者識別標頭」  錯誤。
 
 使用者若無權存取組織的 Azure Active Directory (Azure AD) 租用戶，便會發生這種問題。 當使用者第一次被新增至 Azure AD 租用戶時，他/她會收到歡迎加入租用戶的電子郵件邀請函。 使用者必須打開電子郵件並接受邀請，才能成功加入租用戶。 如果您無法看到電子郵件，請與已有權存取該租用戶的使用者聯繫，並要求他們使用[這裡](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users)指定的步驟，向您重新發送邀請。
 
@@ -86,7 +86,7 @@ Azure Migrate 會持續分析內部部署環境，以收集內部部署 VM 的�
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>我在建立移轉專案時指定了某個 Azure 地理位置，要如何找出將儲存所探索到中繼資料的確切 Azure 區域？
 
-您可以前往專案 [概觀] 頁面中的 [基本資訊] 區段，以識別中繼資料的確切儲存位置。 Azure Migrate 會隨機選取該地理位置內的位置，您無法予以修改。 如果您只想在特定區域中建立專案，則可以使用 REST API 來建立移轉專案並傳遞所需的區域。
+您可以前往專案 [概觀]  頁面中的 [基本資訊]  區段，以識別中繼資料的確切儲存位置。 Azure Migrate 會隨機選取該地理位置內的位置，您無法予以修改。 如果您只想在特定區域中建立專案，則可以使用 REST API 來建立移轉專案並傳遞所需的區域。
 
    ![專案位置](./media/troubleshooting-general/geography-location.png)
 
@@ -126,10 +126,10 @@ Azure Migrate 會持續分析內部部署環境，以收集內部部署 VM 的�
 
 1. 在收集器虛擬機器上，下載 [MMA](https://go.microsoft.com/fwlink/?LinkId=828603)。
 2. 若要開始安裝，請按兩下下載的檔案。
-3. 在設定的 [歡迎] 頁面中按 [下一步]。 在 [授權條款] 頁面上，按一下 [我同意] 以接受授權。
-4. 在 [目的地資料夾] 中，保留或修改預設的安裝資料夾 > [下一步]。
-5. 在 [代理程式安裝選項] 中，選取 [Azure Log Analytics] > [下一步]。
-6. 按一下 [新增] 以新增 Log Analytics 工作區。 貼上您複製的專案識別碼和金鑰。 然後按 [下一步] 。
+3. 在設定的 [歡迎]  頁面中按 [下一步]  。 在 [授權條款]  頁面上，按一下 [我同意]  以接受授權。
+4. 在 [目的地資料夾]  中，保留或修改預設的安裝資料夾 > [下一步]  。
+5. 在 [代理程式安裝選項]  中，選取 [Azure Log Analytics]   > [下一步]  。
+6. 按一下 [新增]  以新增 Log Analytics 工作區。 貼上您複製的專案識別碼和金鑰。 然後按 [下一步]  。
 7. 確認代理程式是否可連線至專案。 如果無法連線，請檢查設定。 如果代理程式可以連線，但是收集器無法連線，請連絡支援服務。
 
 
@@ -228,9 +228,9 @@ Azure Migrate 相依於相依性視覺效果功能的服務對應，由於服務
 在您安裝代理程式之後，Azure Migrate 通常需要 15-30 分鐘的時間，才會在入口網站中顯示相依性。 如果您等候的時間超過 30 分鐘，請依照下列步驟進行操作，以確定 MMA 代理程式能夠與 OMS 工作區溝通：
 
 針對 Windows VM：
-1. 移至 [控制台]，然後啟動 [Microsoft Monitoring Agent]
-2. 在 MMA 屬性快顯視窗中，移至 [Azure Log Analytics (OMS)] 索引標籤
-3. 確定工作區的 [狀態] 為綠色。
+1. 移至 [控制台]  ，然後啟動 [Microsoft Monitoring Agent] 
+2. 在 MMA 屬性快顯視窗中，移至 [Azure Log Analytics (OMS)]  索引標籤
+3. 確定工作區的 [狀態]  為綠色。
 4. 如果狀態不是綠色，請嘗試移除該工作區，然後再次新增至 MMA。
         ![MMA 狀態](./media/troubleshooting-general/mma-status.png)
 
@@ -258,7 +258,7 @@ Azure Migrate 可讓您將相依性視覺化的持續時間最多為一小時。
 
 ## <a name="troubleshoot-azure-readiness-issues"></a>Azure 整備問題的疑難排解
 
-**問題** | 修正
+**問題** | 修正 
 --- | ---
 不支援的開機類型 | Azure 不支援具有 EFI 開機類型的 VM。 建議您在執行移轉之前，將開機類型轉換成 BIOS。 <br/><br/>您可以使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) 進行這類 Vm 的移轉，因為它會在移轉期間將 VM 的開機類型轉換成 BIOS。
 有條件地支援 Windows 作業系統 | 作業系統已超過結束支援日期，且需要 [Azure 中的支援](https://aka.ms/WSosstatement)的自訂支援合約 (CSA)，請考慮在移轉至 Azure 之前升級作業系統。
@@ -302,22 +302,22 @@ Azure Migrate 可讓您將相依性視覺化的持續時間最多為一小時。
 **如何收集入口網站網路流量記錄？**
 
 1. 開啟瀏覽器，然後瀏覽並登入[入口網站](https://portal.azure.com)。
-2. 按 F12 開啟 Developer Tools。 如有需要，請清除 [清除瀏覽的項目] 設定。
-3. 按一下 [網路] 索引標籤，並開始擷取網路流量：
-   - 在 Chrome 中，選取 [保留記錄]。 記錄應該會自動啟動。 紅色圓圈表示正在擷取流量。 如果未出現，請按一下黑色圓圈啟動
+2. 按 F12 開啟 Developer Tools。 如有需要，請清除 [清除瀏覽的項目]  設定。
+3. 按一下 [網路]  索引標籤，並開始擷取網路流量：
+   - 在 Chrome 中，選取 [保留記錄]  。 記錄應該會自動啟動。 紅色圓圈表示正在擷取流量。 如果未出現，請按一下黑色圓圈啟動
    - 在 Microsoft Edge/IE 中，記錄應該會自動啟動。 如果未啟動，請按一下綠色播放按鈕。
 4. 嘗試重現錯誤。
 5. 您在記錄時發生錯誤之後，請停止錄製，並儲存一份記錄的活動：
-   - 在 Chrome 中，以滑鼠右鍵按一下 [內容另存為 HAR]。 這會壓縮記錄並匯出為 .har 檔案。
-   - 在 Microsoft Edge/IE 中，按一下 [匯出擷取流量] 圖示。 這會壓縮並匯出記錄。
-6. 瀏覽至 [主控台] 索引標籤，檢查是否有任何警告或錯誤。 若要儲存主控台記錄：
-   - 在 Chrome 中，以滑鼠右鍵按一下主控台記錄的任何位置。 選取 [另存新檔]，以匯出並壓縮記錄。
-   - 在 Microsoft Edge/IE 中，以滑鼠右鍵按一下錯誤，然後選取 [全部複製]。
+   - 在 Chrome 中，以滑鼠右鍵按一下 [內容另存為 HAR]  。 這會壓縮記錄並匯出為 .har 檔案。
+   - 在 Microsoft Edge/IE 中，按一下 [匯出擷取流量]  圖示。 這會壓縮並匯出記錄。
+6. 瀏覽至 [主控台]  索引標籤，檢查是否有任何警告或錯誤。 若要儲存主控台記錄：
+   - 在 Chrome 中，以滑鼠右鍵按一下主控台記錄的任何位置。 選取 [另存新檔]  ，以匯出並壓縮記錄。
+   - 在 Microsoft Edge/IE 中，以滑鼠右鍵按一下錯誤，然後選取 [全部複製]  。
 7. 關閉 Developer Tools。
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>收集器錯誤碼和建議的動作
 
-| 錯誤碼 | 錯誤名稱   | 訊息   | 可能的原因 | 建議的動作  |
+| 錯誤碼 | 錯誤名稱   | Message   | 可能的原因 | 建議的動作  |
 | --- | --- | --- | --- | --- |
 | 601       | CollectorExpired               | 收集器已過期。                                                        | 收集器已過期。                                                                                    | 請下載新版收集器，然後重試一次。                                                                                      |
 | 751       | UnableToConnectToServer        | 因為發生錯誤 %ErrorMessage;，所以無法連線至 vCenter Server '%Name;'     | 請查看錯誤訊息，以取得詳細資料。                                                             | 請解決問題，然後再試一次。                                                                                                           |
@@ -332,5 +332,5 @@ Azure Migrate 可讓您將相依性視覺化的持續時間最多為一小時。
 | 801       | PowerCLIError                  | VMware PowerCLI 安裝失敗。                                          | VMware PowerCLI 安裝失敗。                                                                  | 重試作業。 若問題持續發生，請手動安裝並重試一次該作業。                                                   |
 | 802       | TimeSyncError                  | 時間未與網際網路時間伺服器同步。                            | 時間未與網際網路時間伺服器同步。                                                    | 確定電腦上的時間已依據電腦的時區校時，然後重試一次該作業。                                 |
 | 702       | OMSInvalidProjectKey           | 指定的專案機碼無效。                                                | 指定的專案機碼無效。                                                                        | 請使用正確的專案機碼重試作業。                                                                                              |
-| 703       | OMSHttpRequestException        | 傳送要求時發生錯誤。 訊息 %Message;                                | 請檢查專案識別碼和機碼，並確認端點可連線。                                       | 重試作業。 如果問題持續發生，請連絡 Microsoft 支援服務。                                                                     |
-| 704       | OMSHttpRequestTimeoutException | HTTP 要求已逾時。訊息 %Message;                                     | 請檢查專案識別碼和機碼，並確認端點可連線。                                       | 重試作業。 如果問題持續發生，請連絡 Microsoft 支援服務。                                                                     |
+| 703       | OMSHttpRequestException        | 傳送要求時發生錯誤。 訊息 %Message;                                | 請檢查專案識別碼和機碼，並確認端點可連線。                                       | 重試作業。 如果此問題持續發生，請連絡 Microsoft 支援。                                                                     |
+| 704       | OMSHttpRequestTimeoutException | HTTP 要求已逾時。訊息 %Message;                                     | 請檢查專案識別碼和機碼，並確認端點可連線。                                       | 重試作業。 如果此問題持續發生，請連絡 Microsoft 支援。                                                                     |

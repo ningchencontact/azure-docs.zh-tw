@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 27028903daeaf62a25584300944538341a861c80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610573"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>安全性架構：敏感性資料 | 風險降低 
@@ -262,7 +262,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [使用 Azure 磁碟加密來加密虛擬機器所使用的磁碟](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) |
-| **步驟** | <p>Azure 磁碟加密是目前預覽版中的新功能。 此功能允許您加密 IaaS 虛擬機器所使用的作業系統磁碟和資料磁碟。 对于 Windows，驱动器是使用行业标准 BitLocker 加密技术加密的。 對於 Linux，磁碟是使用 DM-Crypt 技術來加密。 這會與 Azure 金鑰保存庫整合，可讓您控制和管理磁碟加密金鑰。 Azure 磁碟加密解決方案支援下列三個客戶加密案例：</p><ul><li>在透過客戶加密的 VHD 檔案和客戶提供的加密金鑰 (儲存於 Azure 金鑰保存庫中) 建立的新 IaaS VM 上啟用加密。</li><li>在透過 Azure Marketplace 建立的新 IaaS VM 上啟用加密。</li><li>在 Azure 中已執行的現有 IaaS VM 上啟用加密。</li></ul>| 
+| **步驟** | <p>Azure 磁碟加密是目前預覽版中的新功能。 此功能允許您加密 IaaS 虛擬機器所使用的作業系統磁碟和資料磁碟。 對於 Windows，磁碟機是使用業界標準的 BitLocker 加密技術來加密。 對於 Linux，磁碟是使用 DM-Crypt 技術來加密。 這會與 Azure 金鑰保存庫整合，可讓您控制和管理磁碟加密金鑰。 Azure 磁碟加密解決方案支援下列三個客戶加密案例：</p><ul><li>在透過客戶加密的 VHD 檔案和客戶提供的加密金鑰 (儲存於 Azure 金鑰保存庫中) 建立的新 IaaS VM 上啟用加密。</li><li>在透過 Azure Marketplace 建立的新 IaaS VM 上啟用加密。</li><li>在 Azure 中已執行的現有 IaaS VM 上啟用加密。</li></ul>| 
 
 ## <a id="fabric-apps"></a>將 Service Fabric 應用程式中的密碼加密
 

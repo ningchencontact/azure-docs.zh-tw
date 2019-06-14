@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
 ms.openlocfilehash: 3db5068943b88921d90697dd94be18c448e19d50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609176"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-ffiec-financial-services"></a>Azure 安全性與合規性藍圖：資料倉儲以供 FFIEC 金融服務
@@ -76,7 +76,7 @@ SQL Load Balancer 會管理 SQL 流量，確保維持高效能。 為具備高�
 
 **SQL 資料倉儲**:[SQL 資料倉儲](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)是企業資料倉儲 (EDW) 利用大量平行處理 (MPP) 以快速執行複雜的查詢數 pb 的資料，讓使用者能夠有效識別財務資料。 使用者可以使用簡單的 PolyBase T-SQL 查詢將巨量資料匯入 SQL 資料倉儲，然後使用 MPP 功能來執行高效能分析。
 
-**SQL Server Reporting Services (SSRS)**:[SQL Server Reporting Services](https://docs.microsoft.com/sql/reporting-services/report-data/sql-azure-connection-type-ssrs)資料表、 圖表、 地圖、 量測計、 矩陣和多個 Azure SQL 資料倉儲提供快速建立報告。
+**SQL Server Reporting Services (SSRS)** :[SQL Server Reporting Services](https://docs.microsoft.com/sql/reporting-services/report-data/sql-azure-connection-type-ssrs)資料表、 圖表、 地圖、 量測計、 矩陣和多個 Azure SQL 資料倉儲提供快速建立報告。
 
 **資料目錄**:[資料目錄](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog)能讓管理資料的使用者輕鬆地探索和了解資料來源。 您可以註冊、標記常用資料來源，並在其中搜尋財務資料。 資料會保留在現有的位置，但其中繼資料的複本會連同資料來源位置的參考，一起新增至資料目錄。 此中繼資料也會編製索引，透過搜尋輕鬆找到每個資料來源，並讓探索資料來源的使用者了解每個資料來源。
 

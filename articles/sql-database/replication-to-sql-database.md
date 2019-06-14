@@ -13,10 +13,10 @@ ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646790"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>複寫至 SQL Database 單一資料庫與集區資料庫
@@ -64,7 +64,7 @@ ms.locfileid: "60646790"
 ### <a name="typical-replication-scenario"></a>一般複寫案例  
 
 1. 在內部部署 SQL Server 資料庫上建立異動複寫發行集。  
-2. 在內部部署 SQL Server 上使用 [新增訂閱精靈] 或 Transact-SQL 陳述式，來建立對 Azure SQL Database 的發送訂閱。  
+2. 在內部部署 SQL Server 上使用 [新增訂閱精靈]  或 Transact-SQL 陳述式，來建立對 Azure SQL Database 的發送訂閱。  
 3. 使用 Azure SQL Database 中的單一和集區資料庫，初始資料集是由快照集代理程式建立且由散發代理程式散發並套用的快照集。 使用受控執行個體資料庫時，也可以使用資料庫備份來植入訂閱者資料庫。
 
 ### <a name="data-migration-scenario"></a>資料移轉案例  
@@ -107,7 +107,7 @@ Azure SQL Database 訂閱不支援下列選項：
 建立發行集和發送訂閱。 如需詳細資訊，請參閱
   
 - [建立發行集](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [建立發送訂閱](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)，方法是使用 Azure SQL Database 伺服器名稱作為訂閱者 (例如 **N'azuresqldbdns.database.windows.net'**)，並使用 Azure SQL Database 名稱作為目的地資料庫 (例如 **AdventureWorks**)。  
+- [建立發送訂閱](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)，方法是使用 Azure SQL Database 伺服器名稱作為訂閱者 (例如 **N'azuresqldbdns.database.windows.net'** )，並使用 Azure SQL Database 名稱作為目的地資料庫 (例如 **AdventureWorks**)。  
 
 ## <a name="see-also"></a>另请参阅  
 

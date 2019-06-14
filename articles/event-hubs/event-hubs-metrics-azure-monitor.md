@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: b5df69e9670c01b576afe242b39532acb1e1c526
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685875"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Azure 監視器中的 Azure 事件中樞計量
@@ -40,7 +40,7 @@ Azure 監視器提供了多種方法供您存取計量。 您可以透過 [Azure
 
 ![檢視成功計量][1]
 
-您也可以直接透過命名空間來存取計量。 为此，请选择命名空间，然后单击“指标”。 若要顯示篩選至事件中樞範圍的計量，請選取事件中樞，然後按一下 [計量]。
+您也可以直接透過命名空間來存取計量。 若要這樣做，請選取您的命名空間，然後按一下 **計量**。 若要顯示篩選至事件中樞範圍的計量，請選取事件中樞，然後按一下 [計量]  。
 
 針對支援維度的計量，您必須使用所需的維度值來進行篩選，如以下範例所示：
 

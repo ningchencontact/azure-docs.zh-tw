@@ -15,10 +15,10 @@ ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a317680a39d4594aacdf84ccdf963bb84bfbf07b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60473771"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>「您無法從這裡完成」錯誤訊息的可能原因
@@ -58,7 +58,7 @@ ms.locfileid: "60473771"
 
 4. 使用您的公司或學校帳戶來解除鎖定裝置，然後再次嘗試存取有問題的應用程式或服務。
 
-    如果您還是看到**您無法從這裡完成**錯誤訊息，請選取 [更多詳細資料] 連結，然後連絡技術服務人員以取得詳細資料。
+    如果您還是看到**您無法從這裡完成**錯誤訊息，請選取 [更多詳細資料]  連結，然後連絡技術服務人員以取得詳細資料。
 
 ### <a name="to-join-your-device-to-your-network"></a>若要將裝置加入您的網路
 如果您的裝置未加入貴組織的網路，可以執行下列其中一項操作：

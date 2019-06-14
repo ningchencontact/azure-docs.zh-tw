@@ -9,10 +9,10 @@ ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
 ms.openlocfilehash: c18227a491478d0d8010761440a54fd088344b39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776571"
 ---
 # <a name="common-alert-schema"></a>一般警示結構描述
@@ -35,10 +35,10 @@ ms.locfileid: "60776571"
 
 常見的警示結構描述將主要資訊清單形式顯現在您的警示通知。 您會看到的增強功能如下：
 
-|  動作 | 增強功能|
+| 動作 | 增強功能|
 |:---|:---|
 | sms | 所有警示類型一致 SMS 範本。 |
-| 電子郵件 | 一致且詳細的電子郵件範本，可讓您輕鬆地診斷問題。 內嵌在入口網站和受影響的資源上的警示執行個體的深層連結，請確定您可以快速跳至補救程序。 |
+| Email | 一致且詳細的電子郵件範本，可讓您輕鬆地診斷問題。 內嵌在入口網站和受影響的資源上的警示執行個體的深層連結，請確定您可以快速跳至補救程序。 |
 | Webhook/邏輯應用程式/Azure 函式/自動化 Runbook | 一致 JSON 結構，對於所有的警示類型，可讓您輕鬆地建置在不同的警示類型之間的整合。 |
 
 新的結構描述也可讓更豐富的警示的使用體驗在 Azure 入口網站和 Azure 行動應用程式中未來。 

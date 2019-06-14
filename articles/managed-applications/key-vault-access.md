@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60588231"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>在部署 Azure 受控應用程式時存取 Key Vault 秘密
@@ -26,29 +26,29 @@ ms.locfileid: "60588231"
 
 1. 在入口網站中，選取您的 Key Vault。
 
-1. 選取 [存取原則]。   
+1. 選取 [存取原則]  。   
 
    ![選取存取原則](./media/key-vault-access/select-access-policies.png)
 
-1. 選取 [按一下以顯示進階存取原則]。
+1. 選取 [按一下以顯示進階存取原則]  。
 
    ![顯示進階存取原則](./media/key-vault-access/advanced.png)
 
-1. 選取 [為範本部署啟用對 Azure Resource Manager 的存取]。 然後選取 [儲存]。
+1. 選取 [為範本部署啟用對 Azure Resource Manager 的存取]  。 然後選取 [儲存]  。
 
    ![啟用範本部署](./media/key-vault-access/enable-template.png)
 
 ## <a name="add-service-as-contributor"></a>將服務新增為參與者
 
-1. 選取 [存取控制 (IAM)]。
+1. 選取 [存取控制 (IAM)]  。
 
    ![選取存取控制](./media/key-vault-access/access-control.png)
 
-1. 選取 [新增角色指派]。
+1. 選取 [新增角色指派]  。
 
    ![選取 [新增]](./media/key-vault-access/add-access-control.png)
 
-1. 選取 [參與者] 作為角色。 搜尋**設備資源提供者**，並從可用的選項中加以選取。
+1. 選取 [參與者]  作為角色。 搜尋**設備資源提供者**，並從可用的選項中加以選取。
 
    ![搜尋提供者](./media/key-vault-access/search-provider.png)
 

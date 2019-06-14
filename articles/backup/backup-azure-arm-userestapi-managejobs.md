@@ -11,10 +11,10 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: eb8b7dc77d180eb56c2585e93e60a36742f6c84c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646617"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>使用 REST API 追蹤備份和還原
@@ -53,11 +53,11 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 |名稱  |類型  |描述  |
 |---------|---------|---------|
-|200 確定     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
+|200 確定     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | [確定]        |
 
 #### <a name="example-response"></a>範例回應
 
-一旦提交 GET URI，就會傳回 200 (確定) 回應。
+一旦提交 GET  URI，就會傳回 200 (確定) 回應。
 
 ```http
 HTTP/1.1 200 OK

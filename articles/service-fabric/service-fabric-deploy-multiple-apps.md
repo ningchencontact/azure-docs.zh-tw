@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: 69df9eff85d96c9cc6ca7fa1d3aabd2c54fae416
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583855"
 ---
-# <a name="deploy-multiple-guest-executables"></a>部署多个来宾可执行文件
+# <a name="deploy-multiple-guest-executables"></a>部署多個來賓可執行檔
 本文說明如何封裝多個來賓可執行檔並部署至 Azure Service Fabric。 若要建置和部署單一 Service Fabric 套件，請閱讀如何[將來賓可執行檔部署至 Service Fabric](service-fabric-deploy-existing-app.md)。
 
 雖然本逐步解說示範的是如何部署使用 MongoDB 做為資料存放區並具有 Node.js 前端的應用程式，但是您可以將這些步驟套用到任何與另一個應用程式具有相依性的應用程式。   
 
-您可以使用 Visual Studio 來產生包含多個來賓可執行檔的應用程式套件。 請參閱[使用 Visual Studio 封裝現有應用程式](service-fabric-deploy-existing-app.md)。 新增第一個來賓可執行檔之後，在應用程式專案上按一下滑鼠右鍵，然後選取 [新增] -> [新的 Service Fabric 服務] 將第二個來賓可執行檔專案新增至方案。 注意：如果选择在 Visual Studio 项目中链接源，则生成 Visual Studio 解决方案可确保应用程序包能够与源中的更改保持同步。 
+您可以使用 Visual Studio 來產生包含多個來賓可執行檔的應用程式套件。 請參閱[使用 Visual Studio 封裝現有應用程式](service-fabric-deploy-existing-app.md)。 新增第一個來賓可執行檔之後，在應用程式專案上按一下滑鼠右鍵，然後選取 [新增] -> [新的 Service Fabric 服務]  將第二個來賓可執行檔專案新增至方案。 注意：如果您選擇在 Visual Studio 專案中連結來源，則建置 Visual Studio 方案將可確保應用程式封裝是最新的，並且含有來源中的變更。 
 
 ## <a name="samples"></a>範例
 * [封裝和部署來賓可執行檔的範例](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
@@ -76,7 +76,7 @@ ms.locfileid: "60583855"
 * **/ma** 定義要用來啟動可執行檔的引數。 由於未安裝 Node.js，因此 Service Fabric 需要執行 `node.exe bin/www`來啟動 Node.js Web 伺服器。  `/ma:'bin/www'` 會告訴封裝工具使用 `bin/www` 當做 node.exe 的引數。
 * **/AppType** 定義 Service Fabric 應用程式類型名稱。
 
-如果浏览到 /target 参数中指定的目录，则可以看到工具已创建完全正常运行的 Service Fabric 包，如下所示：
+如果您瀏覽至 /target 參數中指定的目錄，您可以看到工具已建立可完整運作的 Service Fabric 封裝，如以下所示：
 
 ```
 |--[yourtargetdirectory]
@@ -148,7 +148,7 @@ mongod.exe --dbpath [path to data]
 
 為了將 MongoDB 新增至您的 Service Fabric 應用程式封裝，您必須確定 /target 參數指向已經包含應用程式資訊清單及 Node.js 應用程式的同一個目錄。 您也需要確定您是使用相同的 ApplicationType 名稱。
 
-让我们浏览到该目录并检查已创建的工具。
+讓我們瀏覽至該目錄並檢查已建立的工具。
 
 ```
 |--[yourtargetdirectory]
@@ -164,7 +164,7 @@ mongod.exe --dbpath [path to data]
         |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
-如您所見，工具已將新資料夾 [MongoDB] 新增至包含 MongoDB 二進位檔的目錄。 如果您開啟 `ApplicationManifest.xml` 檔案，您將可以看到封裝現在包含 Node.js 應用程式和 MongoDB。 以下代码会显示应用程序清单的内容。
+如您所見，工具已將新資料夾 [MongoDB] 新增至包含 MongoDB 二進位檔的目錄。 如果您開啟 `ApplicationManifest.xml` 檔案，您將可以看到封裝現在包含 Node.js 應用程式和 MongoDB。 以下程式碼會顯示應用程式資訊清單的內容。
 
 ```xml
 <ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyNodeApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -206,16 +206,16 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 
 一旦應用程式已成功發行至本機叢集時，您可以存取我們在 Node.js 應用程式--例如 http 的服務資訊清單中輸入連接埠上的 Node.js 應用程式：\//localhost:3000。
 
-在本教學課程中，您已看到如何輕鬆地將兩個現有應用程式封裝成一個 Service Fabric 應用程式。 还已了解如何将其部署到 Service Fabric，以便它能够从一些 Service Fabric 功能（例如高可用性和运行状况系统集成）中获益。
+在本教學課程中，您已看到如何輕鬆地將兩個現有應用程式封裝成一個 Service Fabric 應用程式。 您也會了解如何將其部署到 Service Fabric，以便讓它能夠從一些 Service Fabric 功能 (例如高可用性和健康情況系統整合) 獲益。
 
 
 ## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>在 Linux 上使用 Yeoman 將更多來賓可執行檔新增至現有的應用程式
 
-要将另一个服务添加到使用 `yo` 创建的应用程序，请执行以下步骤： 
+若要將其他服務新增至已使用 `yo` 建立的應用程式，請執行下列步驟︰ 
 1. 將目錄變更為現有應用程式的根目錄。  例如，如果 `MyApplication` 是 Yeoman 所建立的應用程式，則為 `cd ~/YeomanSamples/MyApplication`。
 2. 執行 `yo azuresfguest:AddService` 並提供必要的詳細資料。
 
 ## <a name="next-steps"></a>後續步驟
 * 了解如何使用 [Service Fabric 部署容器和容器概觀](service-fabric-containers-overview.md)
-* [打包和部署来宾可执行文件的示例](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [封裝和部署來賓可執行檔的範例](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [兩個客體可執行檔 (C# 和 nodejs) 使用 REST 透過命名服務進行通訊的範例](https://github.com/Azure-Samples/service-fabric-containers)

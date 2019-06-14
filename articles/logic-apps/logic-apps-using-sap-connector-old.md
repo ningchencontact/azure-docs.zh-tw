@@ -11,16 +11,16 @@ ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: d677c0eae9c92f90783ed4ebd95a528b34c872ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60847334"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SAP 系統
 
 > [!NOTE]
-> 此 SAP 连接器已计划弃用。 请使用或迁移到[更新更高级的 SAP 连接器](./logic-apps-using-sap-connector.md)。 
+> 此 SAP 連接器會針對 deprecation 排程。 請使用，或移轉至[較新且更進階的 SAP 連接器](./logic-apps-using-sap-connector.md)。 
 
 本文顯示如何使用 SAP 應用程式伺服器和 SAP 訊息伺服器連接器，從邏輯應用程式內部存取 SAP 資源。 如此您即可建立邏輯應用程式，以自動化用來管理 SAP 資料和資源的工作、流程和工作流程。
 
@@ -70,7 +70,7 @@ ms.locfileid: "60847334"
    ![新增 HTTP 要求觸發程序](./media/logic-apps-using-sap-connector-old/add-trigger.png)
 
 3. 現在請儲存邏輯應用程式，即可產生邏輯應用程式的端點 URL。
-在設計工具的工具列上，選擇 [儲存]。 
+在設計工具的工具列上，選擇 [儲存]  。 
 
    端點 URL 現在會出現在您的觸發程序中，例如：
 
@@ -82,7 +82,7 @@ ms.locfileid: "60847334"
 
 在 Azure Logic Apps 中，[動作](../logic-apps/logic-apps-overview.md#logic-app-concepts)是工作流程中跟隨在觸發程序或另一個動作之後的步驟。 如果您尚未新增觸發程序至邏輯應用程式，並且想要遵循此範例進行，請[按照本節所述指示新增觸發程序](#add-trigger)。
 
-1. 在邏輯應用程式設計工具的觸發程序之下，依序選擇 [新增步驟]  >  [新增動作]。
+1. 在邏輯應用程式設計工具的觸發程序之下，依序選擇 [新增步驟]   >  [新增動作]  。
 
    ![新增動作](./media/logic-apps-using-sap-connector-old/add-action.png) 
 
@@ -91,7 +91,7 @@ ms.locfileid: "60847334"
    * **SAP 應用程式伺服器 - 傳送至 SAP**
    * **SAP 訊息伺服器 - 傳送至 SAP**
 
-   此示例使用以下操作：**SAP 應用程式伺服器 - 傳送至 SAP**
+   此範例會使用這項動作：**SAP 應用程式伺服器 - 傳送至 SAP**
 
    ![選取 [SAP 應用程式伺服器] 或 [SAP 訊息伺服器]](media/logic-apps-using-sap-connector-old/select-sap-action.png)
 
@@ -99,10 +99,10 @@ ms.locfileid: "60847334"
 
    **建立內部部署 SAP 連線**
 
-   1. 針對 [閘道]，請選取 [透過內部部署資料閘道連線]，如此就會顯示內部部署連線屬性。
+   1. 針對 [閘道]  ，請選取 [透過內部部署資料閘道連線]  ，如此就會顯示內部部署連線屬性。
 
    2. 提供 SAP 伺服器的連線資訊。 
-   針對 [閘道] 屬性，請選取您在 Azure 入口網站中建立用於安裝閘道的資料閘道，例如：
+   針對 [閘道]  屬性，請選取您在 Azure 入口網站中建立用於安裝閘道的資料閘道，例如：
 
       **SAP 應用程式伺服器**
 
@@ -112,13 +112,13 @@ ms.locfileid: "60847334"
 
       ![建立 SAP 訊息伺服器連線](media/logic-apps-using-sap-connector-old/create-SAP-message-server-connection.png) 
 
-   2. 完成之後，請選擇 [建立]。
+   2. 完成之後，請選擇 [建立]  。
 
       Logic Apps 會設定並測試連線，以確定連線運作正常。
 
 4. 立即尋找並從 SAP 伺服器選取動作。 
 
-   1. 在 [SAP 動作] 方塊中選擇資料夾圖示。 
+   1. 在 [SAP 動作]  方塊中選擇資料夾圖示。 
    在資料夾清單中，尋找並選取您要使用的動作。 
 
       此範例為 IDoc 動作選取 **IDOC** 類別。 
@@ -131,8 +131,8 @@ ms.locfileid: "60847334"
 
       如需有關 IDoc 作業的詳細資訊，請參閱 [IDOC 作業的訊息結構描述](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)
 
-   2. 在 [輸入訊息] 方塊內按一下，動態內容清單隨即顯示。 
-   在該清單中的 收到 HTTP 要求時 之下，選取 內文 欄位。 
+   2. 在 [輸入訊息]  方塊內按一下，動態內容清單隨即顯示。 
+   在該清單中的 收到 HTTP 要求時  之下，選取 內文  欄位。 
 
       此步驟包含來自 HTTP 要求觸發程序的內文內容，且可傳送該輸出結果至您的 SAP 伺服器。
 
@@ -142,7 +142,7 @@ ms.locfileid: "60847334"
 
       ![完整的 SAP 動作](./media/logic-apps-using-sap-connector-old/SAP-app-server-complete-action.png)
 
-6. 儲存您的邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]。
+6. 儲存您的邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]  。
 
 <a name="add-response"></a>
 
@@ -150,11 +150,11 @@ ms.locfileid: "60847334"
 
 現在請將回應動作新增至邏輯應用程式的工作流程，並納入 SAP 動作的輸出結果。 如此一來，邏輯應用程式便會從 SAP 伺服器將結果傳回至原始的要求者。 
 
-1. 在邏輯應用程式設計工具的 SAP 動作之下，依序選擇 [新增步驟]  >  [新增動作]。
+1. 在邏輯應用程式設計工具的 SAP 動作之下，依序選擇 [新增步驟]   >  [新增動作]  。
 
 2. 在搜尋方塊中，輸入「回應」做為篩選條件。 從 [動作] 清單中，選取此動作：**要求 - 回應**
 
-3. 在 [內文] 方塊內按一下，動態內容清單隨即顯示。 從該清單的 [傳送至 SAP] 之下，選取 [內文] 欄位。 
+3. 在 [內文]  方塊內按一下，動態內容清單隨即顯示。 從該清單的 [傳送至 SAP] 之下  ，選取 [內文]  欄位。 
 
    ![完整的 SAP 動作](./media/logic-apps-using-sap-connector-old/select-sap-body-for-response-action.png)
 
@@ -162,9 +162,9 @@ ms.locfileid: "60847334"
 
 ## <a name="test-your-logic-app"></a>測試應用程式邏輯
 
-1. 如果邏輯應用程式尚未啟用，請在邏輯應用程式功能表上，選擇 [概觀]。 在工具列上，選擇 [啟用]。 
+1. 如果邏輯應用程式尚未啟用，請在邏輯應用程式功能表上，選擇 [概觀]  。 在工具列上，選擇 [啟用]  。 
 
-2. 在「邏輯應用程式設計工具」的工具列上，選擇 [執行]。 此步驟會手動啟動您的邏輯應用程式。
+2. 在「邏輯應用程式設計工具」的工具列上，選擇 [執行]  。 此步驟會手動啟動您的邏輯應用程式。
 
 3. 將 HTTP POST 要求傳送至 HTTP 要求觸發程序中的 URL，以觸發邏輯應用程式，然後再透過要求加入訊息內容。 若要傳送內容，您可使用 [Postman](https://www.getpostman.com/apps) 之類的工具。 
 

@@ -14,25 +14,25 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
 ms.openlocfilehash: 2a959c9d131c6aa0bdc99450cf2b6f09a5d8bfa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60528429"
 ---
-# <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>如何在 Azure API 管理中配置通知和电子邮件模板
+# <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>如何在 Azure API 管理中設定通知和電子郵件範本
 API 管理可讓您設定特定事件的通知，以及設定用來與 API 管理執行個體的管理員和開發人員通訊的電子郵件範本。 本文說明如何為可用的事件設定通知，並提供設定這些事件所使用之電子郵件範本的概觀。
 
 ## <a name="prerequisites"></a>必要條件
 
-如果没有 API 管理服务实例，请完成以下快速入门：[建立 Azure APIM 執行個體](get-started-create-service-instance.md)。
+如果您沒有 API 管理服務執行個體，請完成下列快速入門：[建立 Azure APIM 執行個體](get-started-create-service-instance.md)。
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="publisher-notifications"> </a>設定通知
 
-1. 選取您的 [API 管理] 執行個體。
-2. 按一下 [通知] 以檢視可用的通知。
+1. 選取您的 [API 管理]  執行個體。
+2. 按一下 [通知]  以檢視可用的通知。
 
     ![Publisher notifications][api-management-publisher-notifications]
 
@@ -51,7 +51,7 @@ API 管理可讓您設定特定事件的通知，以及設定用來與 API 管�
 3. 若要指定要通知的電子郵件地址，請在電子郵件地址文字方塊中輸入。 如果您有多個電子郵件地址，請以逗號分隔。
 
     ![Notification recipients][api-management-email-addresses]
-4. 按 [新增] 。
+4. 按 [新增]  。
 
 ## <a name="email-templates"> </a>設定通知範本
 對於管理和使用服務期間傳送的電子郵件訊息，API 管理提供通知件範本。 提供的電子郵件範本如下。
@@ -69,7 +69,7 @@ API 管理可讓您設定特定事件的通知，以及設定用來與 API 管�
 
 可依需要修改這些範本。
 
-若要檢視並設定您的 API 管理執行個體的電子郵件範本，請按一下 [通知範本]。
+若要檢視並設定您的 API 管理執行個體的電子郵件範本，請按一下 [通知範本]  。
 
 ![Email templates][api-management-email-templates]
 
@@ -82,7 +82,7 @@ API 管理可讓您設定特定事件的通知，以及設定用來與 API 管�
 > [!NOTE] 
 > 預覽或傳送測試時，不會以實際值來取代參數。
 
-若要儲存電子郵件範本的變更，請按一下 [儲存]，若要取消變更，請按一下 [捨棄]。
+若要儲存電子郵件範本的變更，請按一下 [儲存]  ，若要取消變更，請按一下 [捨棄]  。
  
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png

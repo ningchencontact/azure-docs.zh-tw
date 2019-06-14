@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: b83a6e2c81eac9993c481561e3cebbed681d2c4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60640322"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>如何使用 PowerShell 設定靜態內部私人 IP 位址 (傳統)
 在大部分情況下，您不需要針對虛擬機器指定靜態內部 IP 位址。 虛擬網路中的 VM 會從您指定的範圍自動接收內部 IP 位址。 但在某些情況下，針對特定 VM 指定靜態 IP 位址是合理的。 例如，如果您的 VM 即將執行 DNS 或將成為網域控制站。 靜態內部 IP 位址會伴隨 VM 而存在，甚至是透過停止/取消佈建狀態。 
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 [Resource Manager 部署模型](virtual-networks-static-private-ip-arm-ps.md)。
+> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 [Resource Manager 部署模型](virtual-networks-static-private-ip-arm-ps.md)。
 > 
 > 
 > ## <a name="install-the-azure-powershell-service-management-module"></a>安裝 Azure PowerShell 服務管理模組
@@ -51,7 +51,7 @@ ms.locfileid: "60640322"
 > 
 
 ## <a name="how-to-specify-a-static-internal-ip-when-creating-a-vm"></a>如何在建立 VM 時指定靜態內部 IP
-下方 PowerShell 指令碼會建立名為 TestService 的新雲端服務，接著從 Azure 中擷取映像，然後在新的雲端服務中使用擷取的映像建立名為 TestVM 的 VM，接下來設定 VM 位於稱為 Subnet-1 子網路中，並設定 10.0.0.7 作為 VM 的靜態內部 IP：
+下方 PowerShell 指令碼會建立名為 TestService  的新雲端服務，接著從 Azure 中擷取映像，然後在新的雲端服務中使用擷取的映像建立名為 TestVM  的 VM，接下來設定 VM 位於稱為 Subnet-1  子網路中，並設定 10.0.0.7  作為 VM 的靜態內部 IP：
 
     New-AzureService -ServiceName TestService -Location "Central US"
     $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}

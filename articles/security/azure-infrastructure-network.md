@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2019
 ms.author: terrylan
 ms.openlocfilehash: 48a7e52d4284e5c2db1d77d24d91fd4701aad8d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587136"
 ---
 # <a name="azure-network-architecture"></a>Azure 網路架構
@@ -54,7 +54,7 @@ Quantum 10 設計會進行遍佈於 Clos/網格設計中多個裝置的第 3 層
 這些裝置可當作 L2 流量的彙總點。 它們是 L2 網狀架構的散發層，可以處理大量流量。 因為這些裝置彙總流量，所以它們需要 802.1q 功能和高頻寬技術，例如連接埠彙總和 10GE。
 
 ### <a name="l2-host-switches"></a>L2 主機交換器
-主機會直接連線到這些交換器。 它們可以是固定在機櫃上的交換器，或部署於底座。 802.1q 標準容許將一個 VLAN 指定為原生 VLAN，並將該 VLAN 視為正常 (未標記) 乙太網路框架。 在正常情況下，原生 VLAN 上的訊框會在 802.1q 主幹連接埠上傳輸或接收 (未標記)。 此功能專為移轉到 802.1q 並與非 802.1q 裝置相容而設計。 在此架構中，只有網路基礎結構會利用原生 VLAN。
+主機會直接連線到這些交換器。 它們可以是固定在機櫃上的交換器，或部署於底座。 802\.1q 標準容許將一個 VLAN 指定為原生 VLAN，並將該 VLAN 視為正常 (未標記) 乙太網路框架。 在正常情況下，原生 VLAN 上的訊框會在 802.1q 主幹連接埠上傳輸或接收 (未標記)。 此功能專為移轉到 802.1q 並與非 802.1q 裝置相容而設計。 在此架構中，只有網路基礎結構會利用原生 VLAN。
 
 此架構會指定一個標準，用於選取原生 VLAN。 這個標準會儘可能確保 AR 裝置對每個主幹和 L2Aggregation 至 L2Aggregation 主幹都有唯一的原生 VLAN。 L2Aggregation 至 L2Host 交換器主幹具有非預設的原生 VLAN。
 

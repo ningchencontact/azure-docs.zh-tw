@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: bf19d4f5ce60411413c21fce12f9fe9d2f391bf1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60783935"
 ---
 # <a id="troubleshooting"></a> 針對啟用 Application Insights 快照集偵錯工具，或檢視快照集的問題進行疑難排解
@@ -48,10 +48,10 @@ ms.locfileid: "60783935"
 建立快照集之後，磁碟上會建立小型傾印檔案 (.dmp)。 個別的上傳程式處理序會建立該小型傾印檔案，並將它 (以及任何相關聯的 PDB) 上傳至 Application Insights 快照集偵錯工具儲存體。 成功上傳小型傾印之後，它就會從磁碟中刪除。 上傳程式處理序的記錄檔會保留在磁碟上。 在 App Service 環境中，您可以在 `D:\Home\LogFiles` 中找到這些記錄。 使用 App Service 的 Kudu 管理網站來尋找這些記錄檔。
 
 1. 在 Azure 入口網站中開啟您的 App Service 應用程式。
-2. 按一下 [進階工具]，或搜尋 **Kudu**。
-3. 按一下 [執行]。
-4. 在 [偵錯主控台] 下拉式清單方塊中，選取 [CMD]。
-5. 按一下 [LogFiles]。
+2. 按一下 [進階工具]  ，或搜尋 **Kudu**。
+3. 按一下 [執行]  。
+4. 在 [偵錯主控台]  下拉式清單方塊中，選取 [CMD]  。
+5. 按一下 [LogFiles]  。
 
 您應會看到至少有一個檔案的名稱開頭為 `Uploader_` 或 `SnapshotUploader_` 且副檔名為 `.log`。 按一下適當的圖示，以下載任何記錄檔，或在瀏覽器中開啟它們。
 檔案名稱包含可識別 App Service 執行個體的唯一尾碼。 如果 App Service 執行個體裝載於一部以上的電腦，每部電腦會有個別的記錄檔。 當上傳程式偵測到新的小型傾印檔案時，該檔案會記錄在記錄檔中。 以下是成功快照集和上傳的範例︰
@@ -100,7 +100,7 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
     DateTime=2018-03-09T01:47:19.4614027Z
 ```
 
-若為「未」裝載於 App Service 中的應用程式，上傳程式記錄位於與小型傾印相同的資料夾中：`%TEMP%\Dumps\<ikey>` (其中 `<ikey>` 是您的檢測金鑰)。
+若為「未」  裝載於 App Service 中的應用程式，上傳程式記錄位於與小型傾印相同的資料夾中：`%TEMP%\Dumps\<ikey>` (其中 `<ikey>` 是您的檢測金鑰)。
 
 ## <a name="troubleshooting-cloud-services"></a>針對雲端服務進行疑難排解
 針對雲端服務中的角色，預設暫存資料夾可能太小，無法保存小型傾印檔案，進而導致遺失快照集。
@@ -164,13 +164,13 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
 - APPDATA
 - TEMP
 
-如果找不到適合的資料夾，快照集收集器會報告錯誤，指出「找不到適合的陰影複製資料夾。」
+如果找不到適合的資料夾，快照集收集器會報告錯誤，指出「找不到適合的陰影複製資料夾。」 
 
 如果複製失敗，快照集收集器會報告 `ShadowCopyFailed` 錯誤。
 
 如果上傳程式無法啟動，快照集收集器會報告 `UploaderCannotStartFromShadowCopy` 錯誤。 訊息內文通常會包含 `System.UnauthorizedAccessException`。 之所以發生此錯誤，通常是因為應用程式執行於權限降低的帳戶下。 該帳戶有權寫入陰影複製資料夾，但沒有執行程式碼的權限。
 
-這些錯誤通常是在啟動期間發生的，因此通常會尾隨 `ExceptionDuringConnect` 錯誤，指出「上傳程式無法啟動。」
+這些錯誤通常是在啟動期間發生的，因此通常會尾隨 `ExceptionDuringConnect` 錯誤，指出「上傳程式無法啟動。」 
 
 若要解決這些錯誤，您可以透過 `ShadowCopyFolder` 組態選項以手動方式指定陰影複製資料夾。 例如，使用 ApplicationInsights.config：
 
@@ -199,10 +199,10 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
 
 ## <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>使用 Application Insights 搜尋來尋找快照集例外狀況的
 
-建立快照集後，擲回中的例外狀況會以快照集識別碼標記。 向 Application Insights 回報例外狀況遙測後，該快照集識別碼就會包含為自訂屬性。 使用 Application Insights 中的 [搜尋] 刀鋒視窗，您可以找到具有 `ai.snapshot.id` 自訂屬性的所有遙測。
+建立快照集後，擲回中的例外狀況會以快照集識別碼標記。 向 Application Insights 回報例外狀況遙測後，該快照集識別碼就會包含為自訂屬性。 使用 Application Insights 中的 [搜尋]  刀鋒視窗，您可以找到具有 `ai.snapshot.id` 自訂屬性的所有遙測。
 
 1. 在 Azure 入口網站中瀏覽至您的 Application Insights 資源。
-2. 按一下 [搜尋] 。
+2. 按一下 [搜尋]  。
 3. 在 [搜尋] 文字方塊中輸入 `ai.snapshot.id`，然後按 Enter 鍵。
 
 ![在入口網站中使用快照集識別碼搜尋遙測](./media/snapshot-debugger/search-snapshot-portal.png)

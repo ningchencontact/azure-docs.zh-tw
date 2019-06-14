@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
 ms.openlocfilehash: 89b76fc68c113b7931894c0cf003ffd846c646ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583792"
 ---
 # <a name="configure-liveness-probes"></a>設定活躍度探查
@@ -97,7 +97,7 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ## <a name="liveness-probes-and-restart-policies"></a>活躍度探查和重新啟動原則
 
-重新啟動原則會取代活躍度探查所觸發的重新啟動行為。 例如，如果您設定 `restartPolicy = Never` 和活躍度探查，容器群組將不會在發生失敗的活躍度檢查時重新啟動。 容器群組將改為遵守容器群組的 `Never` 重新啟動原則。
+重新啟動原則會取代活躍度探查所觸發的重新啟動行為。 例如，如果您設定 `restartPolicy = Never` 和  活躍度探查，容器群組將不會在發生失敗的活躍度檢查時重新啟動。 容器群組將改為遵守容器群組的 `Never` 重新啟動原則。
 
 ## <a name="next-steps"></a>後續步驟
 

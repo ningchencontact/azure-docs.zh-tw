@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 10/17/2017
 ms.author: alkohli
 ms.openlocfilehash: 602514df69977891167f341db0ab20913bcacc9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60634470"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>使用 StorSimple 裝置管理員服務監視 StorSimple 裝置
@@ -26,7 +26,7 @@ ms.locfileid: "60634470"
 ## <a name="overview"></a>概觀
 您可以使用 StorSimple 裝置管理員服務來監視您 StorSimple 解決方案中的特定裝置。 您可以根據 I/O 效能、容量使用率、網路輸送量，以及裝置效能計量建立自訂圖表，並且將這些圖表釘選到儀表板。 如需詳細資訊，請移至[自訂入口網站儀表板](../azure-portal/azure-portal-dashboards.md)。
 
-若要檢視特定裝置的監視資訊，請在 Azure 入口網站中，選取 [StorSimple 裝置管理員服務]。 從裝置清單中選取您的裝置，然後移至 [監視]。 然後您會看見所選裝置的 [容量]、[使用量] 和 [效能] 圖表。
+若要檢視特定裝置的監視資訊，請在 Azure 入口網站中，選取 [StorSimple 裝置管理員服務]。 從裝置清單中選取您的裝置，然後移至 [監視]  。 然後您會看見所選裝置的 [容量]  、[使用量]  和 [效能]  圖表。
 
 ## <a name="capacity"></a>容量
 **容量**追蹤裝置上佈建的空間與剩餘的空間。 然後剩餘的容量會顯示為固定在本機或階層式。

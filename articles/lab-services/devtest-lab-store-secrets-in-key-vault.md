@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 17469d3602935715d570a496e12b6680269ff465
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60622887"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>在 Azure DevTest Labs 的金鑰保存庫中儲存秘密
@@ -29,7 +29,7 @@ ms.locfileid: "60622887"
 ## <a name="save-a-secret-in-azure-key-vault"></a>在 Azure Key Vault 中儲存秘密
 若要在 Azure Key Vault 中儲存您的秘密，請執行下列步驟：
 
-1. 選取左側功能表上的 [我的祕密]。
+1. 選取左側功能表上的 [我的祕密]  。
 2. 輸入祕密的**名稱**。 在建立 VM、公式或環境時，您會在下拉式清單中看到此名稱。 
 3. 輸入祕密作為**值**。
 
@@ -38,8 +38,8 @@ ms.locfileid: "60622887"
 ## <a name="use-a-secret-from-azure-key-vault"></a>使用 Azure Key Vault 中的祕密
 當您需要輸入祕密以建立 VM、公式或環境時，您可以手動輸入祕密，或從金鑰保存庫中選取已儲存的祕密。 若要使用儲存在金鑰保存庫中的祕密，請執行下列動作：
 
-1. 選取 [使用已儲存的祕密]。 
-2. 從 [選擇祕密] 的下拉式清單中選取您的祕密。 
+1. 選取 [使用已儲存的祕密]  。 
+2. 從 [選擇祕密]  的下拉式清單中選取您的祕密。 
 
     ![在 VM 中使用祕密](media/devtest-lab-store-secrets-in-key-vault/secret-store-pick-a-secret.png)
 

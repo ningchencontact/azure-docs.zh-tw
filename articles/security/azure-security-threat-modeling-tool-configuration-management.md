@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610716"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>安全框架︰組態管理 | 緩和措施 
@@ -286,7 +286,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | SQL Azure、OnPrem |
 | **屬性**              | N/A、SQL 版本 - V12 |
-| **參考**              | [如何設定 Azure SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/)、[設定用於 Database Engine 存取的 Windows 防火牆](https://msdn.microsoft.com/library/ms175043) |
+| **參考**              | [如何設定 Azure SQL 資料庫](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/)、[設定用於 Database Engine 存取的 Windows 防火牆](https://msdn.microsoft.com/library/ms175043) |
 | **步驟** | 防火牆系統有助於防止未經授權存取電腦資源。 若要透過防火牆存取 SQL Server 資料庫引擎的執行個體，您必須在執行 SQL Server 的電腦上設定防火牆以允許存取 |
 
 ## <a id="cors-api"></a>確保在 ASP.NET Web API 上啟用 CORS 的情況下只允許信任的原始來源

@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: a73938c98ebaea310875f0db8b665d0f1aed55e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60556224"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>跨相應放大雲端資料庫報告 (預覽)
@@ -112,13 +112,13 @@ ms.locfileid: "60556224"
 
 1. 啟動 Excel 2013。
 2. 瀏覽至 [ **資料** ] 功能區。
-3. 按一下 [從其他來源]，然後按一下 [從 SQL Server]。
+3. 按一下 [從其他來源]  ，然後按一下 [從 SQL Server]  。
 
    ![從其他來源的 Excel 匯入][5]
-4. 在 [ **資料連線精靈** ] 中，輸入伺服器名稱和登入認證。 然後按 [下一步] 。
-5. 在對話方塊 [選取包含您想要的資料的資料庫] 中，選取 **ElasticDBQuery** 資料庫。
-6. 在清單檢視中選取 [客戶] 資料表，然後按 [下一步]。 然後按一下 [ **完成**]。
-7. 在 [匯入資料] 表單中，於 [選取您要在活頁簿中檢視此資料的方式] 下，選取 [資料表]，然後按一下 [確定]。
+4. 在 [ **資料連線精靈** ] 中，輸入伺服器名稱和登入認證。 然後按 [下一步]  。
+5. 在對話方塊 [選取包含您想要的資料的資料庫]  中，選取 **ElasticDBQuery** 資料庫。
+6. 在清單檢視中選取 [客戶]  資料表，然後按 [下一步]  。 然後按一下 [ **完成**]。
+7. 在 [匯入資料]  表單中，於 [選取您要在活頁簿中檢視此資料的方式]  下，選取 [資料表]  ，然後按一下 [確定]  。
 
 儲存在不同分區中、來自 [客戶]  資料表的所有資料列會填入 Excel 工作表。
 
