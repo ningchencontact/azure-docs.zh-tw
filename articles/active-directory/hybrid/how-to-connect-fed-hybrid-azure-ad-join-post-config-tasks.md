@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9af969700f4f2dfbedc4833badd7e7349696302
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60244585"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>加入混合式 Azure AD 的後置設定工作
@@ -34,7 +34,7 @@ ms.locfileid: "60244585"
 * 編輯並移至：[電腦設定] > [原則] > [系統管理範本] > [Windows 元件] > [裝置註冊]。
 
 >[!NOTE]
->2012R2 的原則設定位於 [電腦設定] > [原則] > [系統管理範本] > [Windows 元件] > [加入工作場所] > [自動將用戶端電腦加入工作場所]
+>2012R2 的原則設定位於 [電腦設定] > [原則] > [系統管理範本] > [Windows 元件] > [加入工作場所] > [自動將用戶端電腦加入工作場所] 
 
 * 停用此設定：將加入網域的電腦註冊為裝置。
 * 套用並按一下 [確定]。
@@ -63,7 +63,7 @@ ms.locfileid: "60244585"
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6.為舊版的 Windows 裝置啟用 Azure AD 無縫式 SSO
 
-如果您的組織使用密碼雜湊同步處理或傳遞驗證來登入 Azure AD，請啟用該登入方法的 Azure AD 無縫式 SSO，以驗證舊版的 Windows 裝置： https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso。 
+如果您的組織使用密碼雜湊同步處理或傳遞驗證來登入 Azure AD，請啟用該登入方法的 Azure AD 無縫式 SSO，以驗證舊版的 Windows 裝置： https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso 。 
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7.為舊版的 Windows 裝置設定 Azure AD 原則
 
@@ -82,7 +82,7 @@ ms.locfileid: "60244585"
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9.在舊版的 Windows 裝置上安裝 Microsoft Workplace Join
 
-此安裝程式會在裝置系統上建立執行於使用者內容中的排程工作。 此工作會在使用者登入 Windows 時觸發。 此工作會在使用整合式 Windows 驗證進行驗證之後，使用使用者認證以無訊息方式將裝置加入 Azure AD。 下載中心位於 https://www.microsoft.com/download/details.aspx?id=53554。 
+此安裝程式會在裝置系統上建立執行於使用者內容中的排程工作。 此工作會在使用者登入 Windows 時觸發。 此工作會在使用整合式 Windows 驗證進行驗證之後，使用使用者認證以無訊息方式將裝置加入 Azure AD。 下載中心位於 https://www.microsoft.com/download/details.aspx?id=53554 。 
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10.設定允許裝置註冊的群組原則
 
@@ -94,7 +94,7 @@ ms.locfileid: "60244585"
 * 將 GPO 連結至您選擇的位置 (組織單位、安全性群組，或所有裝置的網域)。
 
 >[!NOTE]
->2012R2 的原則設定位於 [電腦設定] > [原則] > [系統管理範本] > [Windows 元件] > [加入工作場所] > [自動將用戶端電腦加入工作場所]
+>2012R2 的原則設定位於 [電腦設定] > [原則] > [系統管理範本] > [Windows 元件] > [加入工作場所] > [自動將用戶端電腦加入工作場所] 
 
 ## <a name="next-steps"></a>後續步驟
 [設定裝置回寫](how-to-connect-device-writeback.md)

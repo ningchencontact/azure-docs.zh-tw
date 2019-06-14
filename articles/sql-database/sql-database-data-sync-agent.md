@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
 ms.openlocfilehash: adb8917605a00208b328e7fd15f96d28c7838988
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60201642"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>適用於 Azure SQL Data Sync 的 Data Sync Agent
@@ -52,7 +52,7 @@ msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\
 
 ### <a name="why-do-i-need-a-client-agent"></a>我為何需要用戶端代理程式？
 
-SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫通訊。 這項安全性功能可防止直接與防火牆後方的資料庫通訊。 當 SQL 資料同步服務與代理程式通訊時，會使用加密的連線與唯一的權杖或「代理程式金鑰」來執行此動作。 SQL Server 資料庫會使用連接字串和代理程式金鑰來驗證代理程式。 這項設計可為您的資料提供高階安全性。
+SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫通訊。 這項安全性功能可防止直接與防火牆後方的資料庫通訊。 當 SQL 資料同步服務與代理程式通訊時，會使用加密的連線與唯一的權杖或「代理程式金鑰」  來執行此動作。 SQL Server 資料庫會使用連接字串和代理程式金鑰來驗證代理程式。 這項設計可為您的資料提供高階安全性。
 
 ### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>一共可執行多少個本機代理程式 UI 執行個體？
 
@@ -148,18 +148,18 @@ SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫�
 - **解決方案**。 將代理程式的密碼更新成目前的伺服器密碼：
 
   1. 找出 SQL 資料同步用戶端代理程式預覽服務。  
-    a. 選取 [開始]。  
+    a. 選取 [開始]  。  
     b. 在搜尋方塊中輸入 **services.msc**。  
-    c. 在搜尋結果中，選取 [服務]。  
-    d. 在 [服務] 視窗中，捲動至 [SQL Data Sync Agent] 的項目。  
-  1. 在 [SQL Data Sync Agent] 上按一下滑鼠右鍵，然後選取 [停止]。
-  1. 在 [SQL Data Sync Agent] 上按一下滑鼠右鍵，然後選取 [屬性]。
-  1. 在 [SQL Data Sync Agent 屬性] 上，選取 [登入] 索引標籤。
-  1. 在 [密碼] 方塊中，輸入您的密碼。
-  1. 在 [確認密碼] 方塊中，重新輸入密碼。
-  1. 選取 [套用]，然後選取 [確定]。
-  1. 在 [服務] 視窗中，以滑鼠右鍵按一下 [SQL Data Sync Agent] 服務，然後按一下 [啟動]。
-  1. 關閉 [服務] 視窗。
+    c. 在搜尋結果中，選取 [服務]  。  
+    d. 在 [服務]  視窗中，捲動至 [SQL Data Sync Agent]  的項目。  
+  1. 在 [SQL Data Sync Agent]  上按一下滑鼠右鍵，然後選取 [停止]  。
+  1. 在 [SQL Data Sync Agent]  上按一下滑鼠右鍵，然後選取 [屬性]  。
+  1. 在 [SQL Data Sync Agent 屬性]  上，選取 [登入]  索引標籤。
+  1. 在 [密碼]  方塊中，輸入您的密碼。
+  1. 在 [確認密碼]  方塊中，重新輸入密碼。
+  1. 選取 [套用]  ，然後選取 [確定]  。
+  1. 在 [服務]  視窗中，以滑鼠右鍵按一下 [SQL Data Sync Agent]  服務，然後按一下 [啟動]  。
+  1. 關閉 [服務]  視窗。
 
 ### <a name="agent-key"></a> 我無法提交代理程式金鑰
 
@@ -192,9 +192,9 @@ SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫�
   1. 在檔案總管中，移至您的代理程式安裝目錄。 預設安裝目錄為 C:\\Program Files (x86)\\Microsoft SQL Data Sync。
   1. 按兩下 bin 子目錄。
   1. 開啟 SqlAzureDataSyncAgent 應用程式。
-  1. 選取 [提交代理程式金鑰]。
+  1. 選取 [提交代理程式金鑰]  。
   1. 在提供的空間中，貼上剪貼簿中的金鑰。
-  1. 選取 [確定] 。
+  1. 選取 [確定]  。
   1. 關閉程式。
 
 ### <a name="agent-delete"></a> 如果無法連線到與用戶端代理程式相關聯的內部部署資料庫，則無法從入口網站刪除用戶端代理程式
@@ -215,7 +215,7 @@ SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫�
   1. 結束應用程式。  
   1. 開啟 [元件服務] 畫面。  
     a. 在工作列上的 [搜尋] 方塊中，輸入 **services.msc**。  
-    b. 在搜尋結果中按兩下 [服務]。  
+    b. 在搜尋結果中按兩下 [服務]  。  
   1. 停止 **SQL 資料同步**服務。
   1. 重新啟動 **SQL 資料同步**服務。  
   1. 重新開啟應用程式。

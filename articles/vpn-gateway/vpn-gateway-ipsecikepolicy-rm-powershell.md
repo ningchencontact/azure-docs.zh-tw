@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
 ms.openlocfilehash: d04d62d66b4ba22437e6d854566f8bbf5536a6fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121090"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>設定 S2S VPN 或 VNet 對 VNet 連線的 IPsec/IKE 原則
@@ -322,7 +322,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG
 相同的步驟適用於 S2S 和 VNet 對 VNet 連線。
 
 > [!IMPORTANT]
-> 只有 Standard 和 HighPerformance 以路由為基礎的 VPN 閘道才支援 IPsec/IKE 原則。 它不適用於 Basic 閘道 SKU 或以原則為基礎的 VPN 閘道。
+> 只有 Standard  和 HighPerformance  以路由為基礎的 VPN 閘道才支援 IPsec/IKE 原則。 它不適用於 Basic 閘道 SKU 或以原則為基礎的 VPN 閘道。
 
 #### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1.顯示連線的 IPsec/IKE 原則
 

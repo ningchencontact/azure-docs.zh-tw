@@ -9,10 +9,10 @@ ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60238032"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Azure 監視器中的 Log Analytics 工作區 Stream Azure 診斷記錄
@@ -54,11 +54,11 @@ Log Analytics 工作區並不一定要與發出記錄的資源位於相同的訂
 
    ![新增診斷設定 - 現有的設定](media/diagnostic-logs-stream-log-store/diagnostic-settings-multiple.png)
 
-3. 為您的設定提供名稱，並選取 [傳送至 Log Analytics] 核取方塊，然後選取 Log Analytics 工作區。
+3. 為您的設定提供名稱，並選取 [傳送至 Log Analytics]  核取方塊，然後選取 Log Analytics 工作區。
 
    ![新增診斷設定 - 現有的設定](media/diagnostic-logs-stream-log-store/diagnostic-settings-configure.png)
 
-4. 按一下 [檔案] 。
+4. 按一下 [檔案]  。
 
 過了幾分鐘之後，新的設定就會出現在此資源的設定清單中，而且只要一產生新的事件資料，就會立即將診斷記錄串流至該工作區。 請注意，從發出事件到事件出現在 Log Analytics 中，之間最多會有 15 分鐘的間隔。
 
@@ -107,7 +107,7 @@ Azure 監視器入口網站的 [記錄] 刀鋒視窗，在中，您可以查詢�
  
 [AzureDiagnostics] 資料表會以特定範例資料，如下所示，看起來：  
  
-| ResourceProvider | 類別 | 具有使用  | b | C | D | E | F | G | H | I |
+| ResourceProvider | 類別 | 具有使用 | b | C | D | E | F | G | H | I |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
 | Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |

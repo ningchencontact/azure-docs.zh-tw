@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
 ms.custom: ''
-ms.openlocfilehash: 27b5dc9ccee8647d4fbb617063865df18b80bc5d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ce57aae1119261c0545b59a037226fdc12ec115f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990267"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050693"
 ---
 # <a name="continuous-delivery-using-azure-devops"></a>使用 Azure DevOps 的持續傳遞
 
@@ -36,9 +36,7 @@ ms.locfileid: "65990267"
 您可以使用下列範例來建立您的 YAML 檔案，以建置您的.NET 應用程式。
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: 'VS2017-Win2016'
 steps:
 - script: |
@@ -69,9 +67,7 @@ steps:
 您可以使用下列範例來建立您的 YAML 檔案，以建置您的 JavaScript 應用程式：
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: ubuntu-16.04 # Use 'VS2017-Win2016' if you have Windows native +Node modules
 steps:
 - bash: |
@@ -99,9 +95,7 @@ steps:
 您可以使用下列範例來建立您的 YAML 檔案，以建置您的 Python 應用程式，適用於 Linux 的 Azure Functions 只支援 Python:
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: ubuntu-16.04
 steps:
 - task: UsePythonVersion@0
@@ -118,6 +112,25 @@ steps:
     source worker_venv/bin/activate
     pip3.6 install setuptools
     pip3.6 install -r requirements.txt
+- task: ArchiveFiles@2
+  displayName: "Archive files"
+  inputs:
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
+    includeRootFolder: false
+    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+    name: 'drop'
+```
+#### <a name="powershell"></a>PowerShell
+
+您可以使用下列範例來建立您的 YAML 檔案來封裝應用程式的 PowerShell，PowerShell 僅適用於 Windows 的 Azure functions:
+
+```yaml
+pool:
+      vmImage: 'VS2017-Win2016'
+steps:
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
@@ -175,6 +188,10 @@ Azure DevOps 中的範本是預先定義的建置或部署應用程式的工作�
 
 ![Azure Functions 建置範本](media/functions-how-to-azure-devops/build-templates.png)
 
+在某些情況下，組建成品會有特定的資料夾結構，而且您可能需要檢查**前面加上根資料夾名稱，在封存路徑**選項。
+
+![在前面加上根資料夾](media/functions-how-to-azure-devops/prepend-root-folder.png)
+
 #### <a name="javascript-apps"></a>JavaScript 應用程式
 
 如果您的 JavaScript 應用程式會有相依性 Windows 原生模組，您必須更新：
@@ -182,10 +199,6 @@ Azure DevOps 中的範本是預先定義的建置或部署應用程式的工作�
 - 代理程式集區版本**Hosted VS2017**
 
   ![變更組建代理程式作業系統](media/functions-how-to-azure-devops/change-agent.png)
-
-- 中的指令碼**建置擴充功能**步驟在範本中 `IF EXIST *.csproj dotnet build extensions.csproj --output ./bin`
-
-  ![變更指令碼](media/functions-how-to-azure-devops/change-script.png)
 
 ### <a name="deploy-your-app"></a>部署您的應用程式
 
@@ -206,7 +219,7 @@ Azure DevOps 中的範本是預先定義的建置或部署應用程式的工作�
 
     - 您有足夠的權限建立 GitHub 個人存取權杖的權限。 [GitHub PAT 權限需求。](https://aka.ms/azure-devops-source-repos)
 
-    - 您必須認可到您的 GitHub 存放庫，來認可自動產生的 YAML 檔案中的主要分支的權限。
+    - 您必須認可到您的 GitHub 存放庫，來自動產生 YAML 檔案認可中的主要分支的權限。
 
 - 如果您的程式碼是在 Azure 的存放庫：
 

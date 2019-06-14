@@ -18,13 +18,13 @@ ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60295843"
 ---
-# <a name="how-to-investigate-risky-users-and-sign-ins"></a>作法：調查有風險的使用者和登入記錄 
+# <a name="how-to-investigate-risky-users-and-sign-ins"></a>如何：調查有風險的使用者和登入記錄 
 
 
 使用具風險的登入和具風險使用者報告，您可以調查並深入了解環境中的風險。 透過對具風險登入和使用者進行篩選及排序，您可以深入了解組織中可能的入侵。 
@@ -39,7 +39,7 @@ ms.locfileid: "60295843"
 
 
 
-此報告的第一個進入點是安全性頁面上的 [調查] 區段。
+此報告的第一個進入點是安全性頁面上的 [調查]  區段。
 
 ![具風險使用者報告](./media/howto-investigate-risky-users-signins/01.png)
 
@@ -64,7 +64,7 @@ ms.locfileid: "60295843"
 ![具風險使用者報告](./media/howto-investigate-risky-users-signins/03.png)
 
 
-您可以按一下工具列中的 [資料行] 來自訂清單檢視。
+您可以按一下工具列中的 [資料行]  來自訂清單檢視。
 
 ![具風險使用者報告](./media/howto-investigate-risky-users-signins/04.png)
 
@@ -121,29 +121,29 @@ ms.locfileid: "60295843"
 
 
 
-[名稱] 篩選條件可讓您指定您想知道的使用者名稱或使用者主體名稱 (UPN)。
+[名稱]  篩選條件可讓您指定您想知道的使用者名稱或使用者主體名稱 (UPN)。
 
 
-[風險狀態] 篩選條件可讓您選取︰
+[風險狀態]  篩選條件可讓您選取︰
 
 - 有風險
 - 已補救
 - 已解除
 
 
-[風險層級] 篩選條件可讓您選取︰
+[風險層級]  篩選條件可讓您選取︰
 
 - 高
 - 中
 - 低
 
 
-[類型] 篩選條件可讓您選取︰
+[類型]  篩選條件可讓您選取︰
 
 - 來賓
 - member
 
-[狀態] 篩選條件可讓您選取︰
+[狀態]  篩選條件可讓您選取︰
 
 - Deleted
 - Active
@@ -179,13 +179,13 @@ ms.locfileid: "60295843"
 
 
 
-此報告的第一個進入點是安全性頁面上的 [調查] 區段。
+此報告的第一個進入點是安全性頁面上的 [調查]  區段。
 
 ![有風險的登入報告](./media/howto-investigate-risky-users-signins/02.png)
 
 具風險的登入報告有預設檢視，顯示：
 
-- date
+- Date
 
 - 使用者
 
@@ -207,7 +207,7 @@ ms.locfileid: "60295843"
 ![有風險的登入報告](./media/howto-investigate-risky-users-signins/09.png)
 
 
-您可以按一下工具列中的 [資料行] 來自訂清單檢視。
+您可以按一下工具列中的 [資料行]  來自訂清單檢視。
 
 ![具風險使用者報告](./media/howto-investigate-risky-users-signins/11.png)
 
@@ -258,25 +258,25 @@ ms.locfileid: "60295843"
 - 風險層級 (彙總)
 - 風險層級 (即時)
 - 條件式存取
-- date
+- Date
 - 風險層級類型
 
 ![有風險的登入報告](./media/howto-investigate-risky-users-signins/14.png)
 
 
 
-[名稱] 篩選條件可讓您指定您想知道的使用者名稱或使用者主體名稱 (UPN)。
+[名稱]  篩選條件可讓您指定您想知道的使用者名稱或使用者主體名稱 (UPN)。
 
-[應用程式] 篩選條件可讓您指定使用者嘗試存取的雲端應用程式。
+[應用程式]  篩選條件可讓您指定使用者嘗試存取的雲端應用程式。
 
-[登入狀態] 篩選條件可讓您選取︰
+[登入狀態]  篩選條件可讓您選取︰
 
 - 全部
 - 成功
 - 失敗
 
 
-[風險狀態] 篩選條件可讓您選取︰
+[風險狀態]  篩選條件可讓您選取︰
 
 - 有風險
 - 已確認遭入侵
@@ -285,20 +285,20 @@ ms.locfileid: "60295843"
 - 已補救
 
 
-[風險層級 (彙總)] 篩選條件可讓您選取︰
+[風險層級 (彙總)]  篩選條件可讓您選取︰
 
 - 高
 - 中
 - 低
 
-[風險層級 (即時)] 篩選條件可讓您選取︰
+[風險層級 (即時)]  篩選條件可讓您選取︰
 
 - 高
 - 中
 - 低
 
 
-[條件式存取] 篩選條件可讓您選取：
+[條件式存取]  篩選條件可讓您選取：
 
 - 全部
 - 不適用
@@ -306,7 +306,7 @@ ms.locfileid: "60295843"
 - 失敗
 
 
-[日期] 篩選條件可讓您定義傳回資料的時間範圍。
+[日期]  篩選條件可讓您定義傳回資料的時間範圍。
 可能的值包括：
 
 - 前 1 個月

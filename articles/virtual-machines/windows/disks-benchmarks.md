@@ -2,26 +2,25 @@
 title: 在 Azure 磁碟儲存體 (受控磁碟) 上對您的應用程式進行效能評定
 description: 了解在 Azure 上對您的應用程式進行效能評定的程序。
 services: virtual-machines-windows,storage
-author: rockboyfor
-ms.author: v-yeche
-origin.date: 01/11/2019
-ms.date: 04/01/2019
+author: roygara
+ms.author: rogarana
+ms.date: 01/11/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.subservice: disks
 ms.openlocfilehash: 8db1fb3c9b3ed551cd668cf14105eb8bfb486251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60679737"
 ---
 # <a name="benchmarking-a-disk"></a>對磁碟進行效能評定
 
 效能評定的過程中會在應用程式上模擬不同工作負載，並測量應用程式在每個工作負載上達到的效能。 您已根據[為高效能而設計](premium-storage-performance.md)一文所述的步驟來收集應用程式效能需求。 您可以在裝載應用程式的 VM 上執行效能評定工具，以判斷應用程式利用進階儲存體可達成的效能層級。 在本文中，我們針對以 Azure 進階儲存體磁碟佈建的標準 DS14 VM，提供效能評定範例。
 
-我們分別在 Windows 和 Linux 上使用一般效能評定工具 Iometer 和 FIO。 這些工具會繁衍多個執行緒來模擬類似實際執行的工作負載，並測量系統效能。 您也可以使用這些工具來設定參數，例如區塊大小和佇列深度，您通常無法在應用程式中變更這些參數。 这样，就可以在预配了高级磁盘的大规模 VM 上，为不同类型的应用程序工作负荷灵活实现最高性能。 若要深入了解每個效能評定工具，請參閱 [Iometer](http://www.iometer.org/) 和 [FIO](http://freecode.com/projects/fio)。
+我們分別在 Windows 和 Linux 上使用一般效能評定工具 Iometer 和 FIO。 這些工具會繁衍多個執行緒來模擬類似實際執行的工作負載，並測量系統效能。 您也可以使用這些工具來設定參數，例如區塊大小和佇列深度，您通常無法在應用程式中變更這些參數。 針對不同類型的應用程式工作負載，這可讓您在以高階磁碟佈建的高延展性 VM 上，更靈活地發揮最大效能。 若要深入了解每個效能評定工具，請參閱 [Iometer](http://www.iometer.org/) 和 [FIO](http://freecode.com/projects/fio)。
 
 若要執行下列範例，請建立標準 DS14 VM，並將 11 個進階儲存體磁碟連接至 VM。 在 11 個磁碟中，將 10 個磁碟的主機快取設定為「無」，並將它們串接成一個稱為 NoCacheWrites 的磁碟區。 在剩下的磁碟上，將主機快取設定為「唯讀」，並使用此磁碟建立一個稱為 CacheReads 的磁碟區。 使用此設定，您可以看到標準 DS14 VM 發揮最大的讀取和寫入效能。 如需使用進階 SSD 建立 DS14 VM 的詳細步驟，請移至[為高效能而設計](premium-storage-performance.md)。
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
 ms.openlocfilehash: 0a45c84b01cace7e14bd1a945617598c6295631e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60496041"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure 監視器中的容器監視解決方案
@@ -122,7 +122,7 @@ ms.locfileid: "60496041"
 
 ### <a name="install-and-configure-linux-container-hosts"></a>安裝和設定 Linux 容器主機
 
-在您安裝 Docker 之後，使用容器主機的下列設定來設定可搭配 Docker 使用的代理程式。 首先您需要 Log Analytics 工作區識別碼和金鑰，這些可以在 Azure 入口網站中找到。 在您的工作區中，按一下 [快速啟動] > [電腦] 來檢視您的 [工作區識別碼] 和 [主索引鍵]。  將兩者複製並貼到您最愛的編輯器。
+在您安裝 Docker 之後，使用容器主機的下列設定來設定可搭配 Docker 使用的代理程式。 首先您需要 Log Analytics 工作區識別碼和金鑰，這些可以在 Azure 入口網站中找到。 在您的工作區中，按一下 [快速啟動]   > [電腦]  來檢視您的 [工作區識別碼]  和 [主索引鍵]  。  將兩者複製並貼到您最愛的編輯器。
 
 **適用於 CoreOS 以外的所有 Linux 容器主機：**
 
@@ -516,14 +516,14 @@ Start-Service docker
 
 您可以監視 Service Fabric 上執行的 Windows 容器。 不過，Service Fabric 目前只支援 [Azure 中執行的虛擬機器](../../azure-monitor/learn/quick-collect-azurevm.md)和[在內部部署環境中執行 Windows 的電腦](../../azure-monitor/platform/agent-windows.md)。
 
-您可以確認容器監視解決方案已針對 Windows 正確設定。 若要檢查管理組件是否正確下載，請找出 ContainerManagement.xxx。 這些檔案應在 C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 資料夾。
+您可以確認容器監視解決方案已針對 Windows 正確設定。 若要檢查管理組件是否正確下載，請找出 ContainerManagement.xxx  。 這些檔案應在 C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 資料夾。
 
 
 ## <a name="solution-components"></a>方案元件
 
-從 Azure 入口網站，瀏覽至 [方案庫] 並新增 [容器監視解決方案]。 如果您是使用 Windows 代理程式，當您新增這個解決方案時，就會使用代理程式在每部電腦上安裝下列管理組件。 管理組件不需要任何設定或維護。
+從 Azure 入口網站，瀏覽至 [方案庫]  並新增 [容器監視解決方案]  。 如果您是使用 Windows 代理程式，當您新增這個解決方案時，就會使用代理程式在每部電腦上安裝下列管理組件。 管理組件不需要任何設定或維護。
 
-- C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 中所安裝的 ContainerManagement.xxx
+- C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 中所安裝的 ContainerManagement.xxx 
 
 ## <a name="container-data-collection-details"></a>容器資料收集詳細資料
 容器監視解決方案會從使用您已啟用之代理程式的容器主機和容器中，收集各種效能計量和記錄資料。
@@ -551,7 +551,7 @@ Start-Service docker
 | 容器流程 | `ContainerProcess_CL` | TimeGenerated、Computer、Pod_s、Namespace_s、ClassName_s、InstanceID_s、Uid_s、PID_s、PPID_s、C_s、STIME_s、Tty_s、TIME_s、Cmd_s、Id_s、Name_s、SourceSystem |
 | Kubernetes 事件 | `KubeEvents_CL` | TimeGenerated、Computer、Name_s、ObjectKind_s、Namespace_s、Reason_s、Type_s、SourceComponent_s、SourceSystem、Message |
 
-附加到 PodLabel 資料類型的標籤是您自己的自訂標籤。 資料表中所顯示的附加 PodLabel 標籤就是範例。 因此，`PodLabel_deployment_s`、`PodLabel_deploymentconfig_s`、`PodLabel_docker_registry_s` 在環境的資料集中會有所不同，且一般而言會類似 `PodLabel_yourlabel_s`。
+附加到 PodLabel  資料類型的標籤是您自己的自訂標籤。 資料表中所顯示的附加 PodLabel 標籤就是範例。 因此，`PodLabel_deployment_s`、`PodLabel_deploymentconfig_s`、`PodLabel_docker_registry_s` 在環境的資料集中會有所不同，且一般而言會類似 `PodLabel_yourlabel_s`。
 
 
 ## <a name="monitor-containers"></a>監視容器
@@ -563,16 +563,16 @@ Start-Service docker
 此圖格顯示環境中有多少容器以及其為失敗、執行中或已停止的概觀。
 
 ### <a name="using-the-containers-dashboard"></a>使用容器儀表板
-按一下 [容器] 圖格。 在這裡，您會看到依下列各項組織的檢視︰
+按一下 [容器]  圖格。 在這裡，您會看到依下列各項組織的檢視︰
 
 - **容器事件** - 會顯示容器狀態和包含失敗容器的電腦。
 - **容器記錄** - 會顯示一段時間所產生的容器記錄檔圖表，和包含最大量記錄檔的電腦清單。
-- **Kubernetes 事件** - 會顯示一段時間所產生的 Kubernetes 事件圖表，和 Pod 產生事件的原因清單。 只有在 Linux 環境中才會使用此資料集。
-- **Kubernetes 命名空間清查** - 會顯示命名空間和 Pod 的數目，並顯示其階層。 只有在 Linux 環境中才會使用此資料集。
-- **容器節點清查** - 會顯示容器節點/主機上使用的協調流程類型數目。 還會依容器數目列出電腦節點/主機。 只有在 Linux 環境中才會使用此資料集。
+- **Kubernetes 事件** - 會顯示一段時間所產生的 Kubernetes 事件圖表，和 Pod 產生事件的原因清單。 只有在 Linux 環境中才會使用此資料集。 
+- **Kubernetes 命名空間清查** - 會顯示命名空間和 Pod 的數目，並顯示其階層。 只有在 Linux 環境中才會使用此資料集。 
+- **容器節點清查** - 會顯示容器節點/主機上使用的協調流程類型數目。 還會依容器數目列出電腦節點/主機。 只有在 Linux 環境中才會使用此資料集。 
 - **容器映像庫存** - 會顯示已使用的容器映像總數和映像類型的數目。 還會依影像標籤列出映像數目。
 - **容器狀態** - 會顯示具有執行中容器的容器節點/主機電腦總數。 還會依執行中主機的數目列出電腦。
-- **容器流程** - 會顯示一段時間執行的容器流程折線圖。 還會依容器內的執行命令/流程列出容器。 只有在 Linux 環境中才會使用此資料集。
+- **容器流程** - 會顯示一段時間執行的容器流程折線圖。 還會依容器內的執行命令/流程列出容器。 只有在 Linux 環境中才會使用此資料集。 
 - **容器 CPU 效能** - 會顯示一段時間電腦節點/主機的平均 CPU 使用率折線圖。 還會以平均 CPU 使用率作為基礎列出電腦節點/主機。
 - **容器記憶體效能** - 會顯示一段時間的記憶體使用量折線圖。 還會以執行個體名稱作為基礎列出電腦記憶體使用率。
 - **電腦效能** - 會顯示一段時間的 CPU 效能百分比、一段時間的記憶體使用量百分比，以及一段時間的可用磁碟空間 MB 等折線圖。 您可以將滑鼠停留在圖表中的任一行，以檢視更多詳細資料。
@@ -584,7 +584,7 @@ Start-Service docker
 
 ![容器儀表板](./media/containers/containers-dash02.png)
 
-在 [容器狀態] 區域中，按一下頂端區域，如下所示。
+在 [容器狀態]  區域中，按一下頂端區域，如下所示。
 
 ![容器狀態](./media/containers/containers-status.png)
 
@@ -596,10 +596,10 @@ Log Analytics 隨即開啟，顯示您的容器狀態的相關資訊。
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>尋找失敗的容器以進行疑難排解
 
-如果容器已透過非零結束代碼結束，則 Log Analytics 會將容器標示為 [失敗]。 您可以在 [失敗的容器] 區域中，大致了解環境中的錯誤和失敗。
+如果容器已透過非零結束代碼結束，則 Log Analytics 會將容器標示為 [失敗]  。 您可以在 [失敗的容器]  區域中，大致了解環境中的錯誤和失敗。
 
 ### <a name="to-find-failed-containers"></a>尋找失敗的容器
-1. 按一下 [容器狀態] 區域。  
+1. 按一下 [容器狀態]  區域。  
    ![容器狀態](./media/containers/containers-status.png)
 2. Log Analytics 會開啟並顯示您的容器，如下所示的狀態。  
    ![容器狀態](./media/containers/containers-log-search.png)
@@ -632,7 +632,7 @@ Log Analytics 隨即開啟，顯示您的容器狀態的相關資訊。
 
 
 ## <a name="example-log-queries"></a>範例記錄檔查詢
-從一或兩個範例開始建置查詢，然後加以修改以符合您的環境，通常很實用。 首先，您可以實驗 [查詢範例] 區域，協助您建置更進階的查詢。
+從一或兩個範例開始建置查詢，然後加以修改以符合您的環境，通常很實用。 首先，您可以實驗 [查詢範例]  區域，協助您建置更進階的查詢。
 
 ![容器查詢](./media/containers/containers-queries.png)
 
@@ -640,7 +640,7 @@ Log Analytics 隨即開啟，顯示您的容器狀態的相關資訊。
 ## <a name="saving-log-queries"></a>正在儲存記錄檔查詢
 儲存查詢是在 Azure 監視器中的標準功能。 藉由儲存查詢，您可將您覺得有用的查詢放在容易取得的地方，以便日後使用。
 
-建立您覺得有用的查詢之後，按一下 [記錄檔搜尋] 頁面頂端的 [我的最愛] 來儲存它。 然後您稍後即可輕易地從 [我的儀表板] 頁面進行存取。
+建立您覺得有用的查詢之後，按一下 [記錄檔搜尋] 頁面頂端的 [我的最愛]  來儲存它。 然後您稍後即可輕易地從 [我的儀表板]  頁面進行存取。
 
 ## <a name="next-steps"></a>後續步驟
 * [查詢記錄](../log-query/log-query-overview.md)以檢視詳細的容器資料記錄。

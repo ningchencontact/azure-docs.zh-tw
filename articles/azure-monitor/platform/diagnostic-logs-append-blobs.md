@@ -9,10 +9,10 @@ ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: ab5fba6bbbf6ade83c7699edec937ba02b222939
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237641"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>為 Azure 監視器的診斷記錄在封存至儲存體帳戶時的格式變更做好準備
@@ -45,7 +45,7 @@ Azure 監視器提供一種功能，可讓您將資源的診斷資料和活動�
 1. 使用資源診斷設定將記錄資料傳送至 Azure 儲存體帳戶，以及
 2. 有工具依存著儲存體中這些記錄的 JSON 結構。
  
-若要識別您的資源診斷設定是否將資料傳送至 Azure 儲存體帳戶，您可以巡覽至入口網站的 [監視器] 區段，並按一下 [診斷設定]，然後識別將 [診斷狀態] 設定為 [已啟用] 的任何資源：
+若要識別您的資源診斷設定是否將資料傳送至 Azure 儲存體帳戶，您可以巡覽至入口網站的 [監視器]  區段，並按一下 [診斷設定]  ，然後識別將 [診斷狀態]  設定為 [已啟用]  的任何資源：
 
 ![Azure 監視器診斷設定刀鋒視窗](./media/diagnostic-logs-append-blobs/portal-diag-settings.png)
 

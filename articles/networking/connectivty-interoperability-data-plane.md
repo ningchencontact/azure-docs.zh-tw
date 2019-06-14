@@ -11,13 +11,13 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: f4d94536a8c1b509e0ce435a764e69984b5d415e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60425461"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Azure 后端连接功能中的互操作性：資料平面分析
+# <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Azure 後端連線功能的互通性：資料平面分析
 
 本文說明[測試設定][Setup]的資料平面分析。 您也可以檢閱測試設定的[測試設定組態][Configuration]和[控制平面分析][Control-Analysis]。
 

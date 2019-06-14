@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 10/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 8fed3ce98b23c5ac1cc97b88a278c5946f06af8e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: b1280274122800147c442b73b360bc5141530a0e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968638"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050592"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure 資訊安全中心的資料收集
 資訊安全中心會從您的 Azure 虛擬機器 (Vm)、 虛擬機器擴展集、 IaaS 容器和監視安全性漏洞與威脅 （包括內部部署） 的非 Azure 電腦收集資料。 資料是使用 Microsoft Monitoring Agent 收集而得，收集的方式是讀取機器的各種安全性相關組態和事件記錄，並將資料複製到工作區進行分析。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄 (Windows 事件記錄)、執行中程序、電腦名稱、IP 位址和已登入的使用者。 Microsoft Monitoring Agent 代理程式也會將損毀傾印檔案複製到您的工作區中。
@@ -31,15 +31,14 @@ ms.locfileid: "65968638"
 > [!NOTE]
 > - 計算資源 （Vm、 虛擬機器擴展集、 IaaS 容器和非 Azure 電腦） 才需要資料收集。 即使您未佈建代理程式，也可受惠於 Azure 資訊安全中心；不過，您的安全性有限，而且不支援以上所列的功能。  
 > - 如需支援的平台清單，請參閱 [Azure 資訊安全中心支援的平台](security-center-os-coverage.md)。
-> - 目前不支援虛擬機器擴展集的資料收集。
-> - 將資料儲存在 Log Analytics，不論您是使用新的或現有工作區中，可能會產生額外費用，來儲存資料，請參閱定價頁面以取得詳細資料。
+> - 將資料儲存在 Log Analytics，不論您是使用新的或現有工作區中，可能會產生額外的資料儲存體費用。 如需詳細資訊，請參閱 <<c0> [ 定價頁面](https://azure.microsoft.com/pricing/details/security-center/)。
 
 ## 啟用 Microsoft Monitoring Agent 的自動佈建 <a name="auto-provision-mma"></a>
 
-若要從電腦收集資料，您應該安裝 Microsoft Monitoring Agent。  代理程式可以自動安裝 (建議選項)，您也可以選擇手動安裝代理程式。  
+若要從機器收集資料，您應該有安裝 Microsoft Monitoring Agent。  安裝代理程式可自動完成 （建議選項） 或您可以手動安裝代理程式。  
 
 >[!NOTE]
-> 預設會關閉自動佈建。 若要將資訊安全中心設定為預設安裝自動佈建，請將它設定為 [開啟]。
+> 預設會關閉自動佈建。 若要將資訊安全中心設定為預設安裝自動佈建，請將它設定為 [開啟]  。
 >
 
 自動佈建開啟時，資訊安全中心會佈建 Microsoft Monitoring agent，在所有支援的 Azure Vm 及建立任何新的。 強烈建議使用自動佈建，但是手動代理程式安裝也可行。 [深入了解如何安裝 Microsoft Monitoring Agent 擴充功能](#manualagent)。
@@ -47,13 +46,13 @@ ms.locfileid: "65968638"
 
 
 若要啟用 Microsoft Monitoring Agent 的自動佈建：
-1. 在 [資訊安全中心] 主功能表下，選取 [安全性原則]。
-2. 在清單中所需訂用帳戶的 [設定] 資料行中，按一下 [編輯設定]。
+1. 在 [資訊安全中心] 主功能表下，選取 [安全性原則]  。
+2. 在清單中所需訂用帳戶的 [設定] 資料行中，按一下 [編輯設定]  。
 
    ![選取訂用帳戶][7]
 
-3. 在 [安全性原則] 下，選取 [資料收集]。
-4. 在 [自動佈建] 下，選取 [開啟] 啟用自動佈建。
+3. 在 [安全性原則]  下，選取 [資料收集]  。
+4. 在 [自動佈建]  下，選取 [開啟]  啟用自動佈建。
 5. 選取 [ **儲存**]。
 
    ![啟用自動佈建][1]
@@ -76,10 +75,10 @@ ms.locfileid: "65968638"
 
 若要選取資訊安全中心所建立的工作區：
 
-1. 在 [預設工作區組態] 下，選取 [使用資訊安全中心建立的工作區]。
+1. 在 [預設工作區組態]  下，選取 [使用資訊安全中心建立的工作區]。
    ![選取定價層][10] 
 
-1. 按一下 [檔案] 。<br>
+1. 按一下 [檔案]  。<br>
     資訊安全中心會在此地理位置建立新的資源群組和預設工作區，並將代理程式連線到該工作區。 工作區和資源群組的命名慣例如下：<br>
    **工作區：DefaultWorkspace-[subscription-ID]-[geo]<br> 資源群組：DefaultResourceGroup-[geo]**
 
@@ -87,10 +86,8 @@ ms.locfileid: "65968638"
 1. 資訊安全中心會依據為訂用帳戶設定的定價層，在工作區上自動啟用資訊安全中心解決方案。 
 
 > [!NOTE]
-> 資訊安全中心所建立工作區的 Log Analytics 定價層不會影響資訊安全中心的收費。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案。 針對免費層，資訊安全中心在預設工作區啟用 SecurityCenterFree 解決方案。 對於標準層，資訊安全中心在預設工作區啟用 Security 解決方案。
-> 將資料儲存在 Log Analytics 中，可能會產生額外的資料儲存空間費用，如需詳細資訊，請參閱定價頁面。
-
-如需詳細資訊，請參閱[資訊安全中心價格](https://azure.microsoft.com/pricing/details/security-center/)。
+> 資訊安全中心所建立工作區的 Log Analytics 定價層不會影響資訊安全中心的收費。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案。 針對免費層，資訊安全中心在預設工作區啟用 SecurityCenterFree  解決方案。 對於標準層，資訊安全中心在預設工作區啟用 Security  解決方案。
+> 在 Log Analytics 中儲存資料，可能會產生額外的資料儲存體費用。 如需詳細資訊，請參閱 <<c0> [ 定價頁面](https://azure.microsoft.com/pricing/details/security-center/)。
 
 如需有關現有的 log analytics 帳戶的詳細資訊，請參閱[現有 log analytics 客戶](security-center-faq.md#existingloganalyticscust)。
 
@@ -102,11 +99,11 @@ ms.locfileid: "65968638"
 
 > [!NOTE]
 > 在現有工作區上啟用的解決方案將套用至所連線的 Azure VM。 若為付費解決方案，這可能導致額外的費用。 對於資料隱私權考量，請確定您選取的工作區位於正確的地理區域中。
-> 將資料儲存在 log analytics 中，可能會產生額外費用，來儲存資料，請參閱定價頁面以取得詳細資料。
+> 將資料儲存在 log analytics 中，可能會產生額外的資料儲存體費用。 如需詳細資訊，請參閱 <<c0> [ 定價頁面](https://azure.microsoft.com/pricing/details/security-center/)。
 
 若要選取現有的 Log Analytics 工作區：
 
-1. 在 [預設工作區組態] 下，選取 [使用其他工作區]。
+1. 在 [預設工作區組態]  下，選取 [使用其他工作區]  。
 
    ![選取現有工作區][2]
 
@@ -118,25 +115,25 @@ ms.locfileid: "65968638"
    >
 
 3. 選取 [ **儲存**]。
-4. 選取 [儲存] 之後，系統會詢問您是否要重新設定先前連線到預設工作區的受監控虛擬機器。
+4. 選取 [儲存]  之後，系統會詢問您是否要重新設定先前連線到預設工作區的受監控虛擬機器。
 
-   - 如果您希望新的工作區設定僅套用在新的虛擬機器上，請選取 [否]。 新的工作區設定只會套用在新安裝的代理程式，以及新探索到的未安裝 Microsoft Monitoring Agent 之虛擬機器。
-   - 如果您希望新的工作區設定套用在所有虛擬機器，請選取 [是]。 此外，每個連線到資訊安全中心建立之工作區的虛擬機器會重新連線到新的目標工作區。
+   - 如果您希望新的工作區設定僅套用在新的虛擬機器上，請選取 [否]  。 新的工作區設定只會套用在新安裝的代理程式，以及新探索到的未安裝 Microsoft Monitoring Agent 之虛擬機器。
+   - 如果您希望新的工作區設定套用在所有虛擬機器，請選取 [是]  。 此外，每個連線到資訊安全中心建立之工作區的虛擬機器會重新連線到新的目標工作區。
 
    > [!NOTE]
    > 如果您選取 [是]，您必須刪除資訊安全中心建立的工作區，直到所有虛擬機器已重新連線至新的目標工作區。 如果過早刪除工作區，這項作業將會失敗。
    >
    >
 
-   - 選取 [取消] 以取消作業。
+   - 選取 [取消]  以取消作業。
 
      ![選取現有工作區][3]
 
 5. 針對您要設定 Microsoft Monitoring agent 所需的工作區，選取定價層。 <br>若要使用現有的工作區，請設定工作區的定價層。 這會在工作區上安裝資訊安全中心解決方案 (如果不存在)。
 
-    a.  在 [資訊安全中心] 主功能表中，選取 [安全性原則]。
+    a.  在 [資訊安全中心] 主功能表中，選取 [安全性原則]  。
      
-    b.  在清單中所需訂用帳戶的 [設定] 資料行中按一下 [編輯設定]，以選取您要在其中連線代理程式的所需工作區。
+    b.  在清單中所需訂用帳戶的 [設定] 資料行中按一下 [編輯設定]  ，以選取您要在其中連線代理程式的所需工作區。
         ![選取工作區][8] c. 設定定價層。
         ![選取定價層][9] 
    
@@ -150,7 +147,7 @@ ms.locfileid: "65968638"
 ## <a name="data-collection-tier"></a>資料收集層
 在 Azure 資訊安全中心中選取 [資料收集層]，只會影響 Log Analytics 工作區中安全性事件的儲存空間。 Log Analytics 代理程式仍會收集並分析 Azure 資訊安全中心的威脅偵測，您選擇不論哪一層的安全性事件 （如果有的話），將儲存在您的 Log Analytics 工作區所需的安全性事件。 選擇在工作區中儲存安全性事件，將允許在工作區中調查、搜尋和稽核這些事件。 
 > [!NOTE]
-> 將資料儲存在 log analytics 中，可能會產生額外費用，來儲存資料，請參閱定價頁面以取得詳細資料。
+> 將資料儲存在 log analytics 中，可能會產生額外的資料儲存體費用。 如需詳細資訊，請參閱 <<c0> [ 定價頁面](https://azure.microsoft.com/pricing/details/security-center/)。
 > 
 > 對於訂用帳戶和工作區，您可以從儲存在您工作區的四組事件中選擇合適的篩選原則： 
 
@@ -188,13 +185,13 @@ ms.locfileid: "65968638"
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 > [!NOTE]
-> - 如果您使用群組原則物件 (GPO)，則建議您啟用稽核原則程序建立事件 4688 和事件 4688 內的 [CommandLine] 欄位。 如需更多程序建立事件 4688 的相關資訊，請參閱資訊安全中心的[常見問題集](security-center-faq.md#what-happens-when-data-collection-is-enabled)。 如需更多稽核原則的相關資訊，請參閱[稽核原則建議](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations)。
+> - 如果您使用群組原則物件 (GPO)，則建議您啟用稽核原則程序建立事件 4688 和事件 4688 內的 [CommandLine]  欄位。 如需更多程序建立事件 4688 的相關資訊，請參閱資訊安全中心的[常見問題集](security-center-faq.md#what-happens-when-data-collection-is-enabled)。 如需更多稽核原則的相關資訊，請參閱[稽核原則建議](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations)。
 > -  若要啟用[自適性應用程式控制](security-center-adaptive-application.md)的資料收集，資訊安全中心會在稽核模式中設定本機 AppLocker 原則以允許所有的應用程式。 這會導致 AppLocker 產生事件，然後由資訊安全中心收集並利用。 請務必注意，在已經設定 AppLocker 原則的機器上不會設定此原則。 
 > - 若要收集 Windows 篩選平台[事件識別碼 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156)，您必須啟用[稽核篩選平台連線](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol /set /subcategory:"Filtering Platform Connection" /Success:Enable)
 >
 
 若要選擇篩選原則：
-1. 在 [安全性原則資料收集] 刀鋒視窗的 [安全性事件] 下，選取您的篩選原則。
+1. 在 [安全性原則資料收集]  刀鋒視窗的 [安全性事件]  下，選取您的篩選原則。
 2. 選取 [ **儲存**]。
 
    ![選擇篩選原則][5]
@@ -205,8 +202,10 @@ ms.locfileid: "65968638"
 
 - Microsoft Monitoring Agent 已安裝的電腦上，但不是能作為擴充功能 （直接代理程式）<br>
 如果直接在 （而非作為 Azure 擴充功能） 的 VM 上安裝 Microsoft Monitoring Agent，資訊安全中心將會安裝 Microsoft Monitoring Agent 擴充功能，並可以升級為最新版本的 Microsoft Monitoring agent。
-安裝的代理程式會繼續回報其已設定的工作區，而此外會在資訊安全中心中設定的工作區回報 （支援多路連接）。
+安裝的代理程式會繼續回報其已設定的工作區，而此外會在資訊安全中心中設定的工作區回報 （Windows 機器上支援多路連接）。
 如果設定的工作區的使用者工作區 （不資訊安全中心的預設工作區），則您必須安裝 「 安全性 /"securityFree 」 解決方案，它從虛擬機器和電腦啟動處理事件的資訊安全中心會回報給該工作區。<br>
+<br>
+針對 Linux 機器，代理程式的多路連接尚未支援-因此，如果偵測到現有的代理程式安裝時，自動佈建不會和電腦組態就不會改變。
 <br>
 現有的機器上的訂用帳戶上架到資訊安全中心之前 2019年-03-17，當將偵測到現有的代理程式，將不會安裝 Microsoft Monitoring Agent 擴充功能，以及機器不會受到影響。 這些機器，請參閱解決代理程式安裝問題，在這些電腦上的監視您的機器上的代理程式健全狀況問題的 「 解決 」 建議。
 
@@ -226,7 +225,7 @@ ms.locfileid: "65968638"
 
 1. 返回 [資訊安全中心] 主功能表，並選取 [安全性原則]。
 2. 按一下 **編輯設定**您想要停用自動佈建的訂用帳戶的資料列中。
-3. 在 [安全性原則 - 資料收集] 刀鋒視窗的 [自動佈建] 下，選取 [關閉]。
+3. 在 [安全性原則 - 資料收集]  刀鋒視窗的 [自動佈建]  下，選取 [關閉]  。
 4. 選取 [ **儲存**]。
 
    ![停用自動佈建][6]
@@ -251,7 +250,7 @@ ms.locfileid: "65968638"
 1. 選取自動佈建 – 關閉。
 2. 針對您要設定 Microsoft Monitoring agent 的工作區，建立工作區及設定定價層：
 
-   a.  在 [資訊安全中心] 主功能表中，選取 [安全性原則]。
+   a.  在 [資訊安全中心] 主功能表中，選取 [安全性原則]  。
      
    b.  選取您要在其中連線代理程式的工作區。 請確定工作區位於您在資訊安全中心使用的相同訂用帳戶中，而且您具備工作區的讀取/寫入權限。
        ![選取工作區][8]
@@ -275,11 +274,11 @@ ms.locfileid: "65968638"
    
    [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
    
-   1. 移至 **Log Analytics** ，然後按一下 [進階設定]。
+   1. 移至 **Log Analytics** ，然後按一下 [進階設定]  。
     
       ![設定記錄分析][11]
 
-   2. 複製 [工作區識別碼] 和 [主索引鍵] 的值。
+   2. 複製 [工作區識別碼]  和 [主索引鍵]  的值。
   
       ![複製值][12]
 

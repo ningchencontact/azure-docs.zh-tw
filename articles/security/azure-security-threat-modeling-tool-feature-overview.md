@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 601f3bf05388406c8f96a7351f7fb3aa4de2650a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60588560"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>威脅模型化工具功能概觀
@@ -28,7 +28,7 @@ ms.locfileid: "60588560"
 > [!NOTE]
 >威脅模型化工具會經常更新，因此請經常檢查本指南，以查看我們的最新功能和增強功能。
 
-若要開啟空白頁面，請選取 [建立模型]。
+若要開啟空白頁面，請選取 [建立模型]  。
 
 ![空白頁面](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
@@ -36,7 +36,7 @@ ms.locfileid: "60588560"
 
 ![基本威脅模型](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
-## <a name="navigation"></a>導覽
+## <a name="navigation"></a>巡覽
 
 在探討內建功能之前，我們先來看一下工具的主要元件。
 
@@ -46,7 +46,7 @@ ms.locfileid: "60588560"
 
 ![功能表項目](./media/azure-security-threat-modeling-tool-feature-overview/menuitems.png)
 
-| 標籤                               | 詳細資料      |
+| ThisAddIn                               | 詳細資料      |
 | --------------------------------------- | ------------ |
 | **檔案** | <ul><li>開啟、儲存及關閉檔案</li><li>登入及登出 OneDrive 帳戶。</li><li>共用連結 (檢視和編輯)。</li><li>檢視檔案資訊。</li><li>將新的範本套用至現有的模型。</li></ul> |
 | **編輯** | 復原和重做動作，以及複製、貼上和刪除。 |
@@ -119,7 +119,7 @@ ms.locfileid: "60588560"
 
 ### <a name="open-a-model"></a>開啟模型
 
-將滑鼠停留在 [開啟模型] 上方，會顯示兩個選項：[從這部電腦開啟] 和 [從 OneDrive 開啟]。 第一個選項會開啟 [開啟舊檔] 畫面。 第二個選項會引導您完成 OneDrive 的登入程序。 成功通過驗證之後，您可以選取資料夾和檔案。
+將滑鼠停留在 [開啟模型]  上方，會顯示兩個選項：[從這部電腦開啟]  和 [從 OneDrive 開啟]  。 第一個選項會開啟 [開啟舊檔]  畫面。 第二個選項會引導您完成 OneDrive 的登入程序。 成功通過驗證之後，您可以選取資料夾和檔案。
 
 ![開啟模型](./media/azure-security-threat-modeling-tool-feature-overview/openmodel.png)
 
@@ -127,7 +127,7 @@ ms.locfileid: "60588560"
 
 ### <a name="feedback-suggestions-and-issues"></a>意見反應、建議和問題
 
-當您選取 [意見反應、建議和問題] 時，會前往 SDL 工具的 MSDN 論壇。 您可以閱讀其他人對工具有什麼看法 (包括因應措施和新的想法)。
+當您選取 [意見反應、建議和問題]  時，會前往 SDL 工具的 MSDN 論壇。 您可以閱讀其他人對工具有什麼看法 (包括因應措施和新的想法)。
 
 ![意見反應](./media/azure-security-threat-modeling-tool-feature-overview/feedback.png)
 
@@ -147,7 +147,7 @@ ms.locfileid: "60588560"
 您可以利用兩種方法連接元素：
 
 - **拖放**：將所需的資料流程拖曳到格線中，然後將兩端連接到適當的元素。
-- **按一下 + Shift**：按一下第一個元素 (傳送資料)，然後按住 Shift 鍵並選取第二個元素 (接收資料)。 按一下滑鼠右鍵，然後選取 [連接]。 如果您使用雙向資料流程，順序並不重要。
+- **按一下 + Shift**：按一下第一個元素 (傳送資料)，然後按住 Shift 鍵並選取第二個元素 (接收資料)。 按一下滑鼠右鍵，然後選取 [連接]  。 如果您使用雙向資料流程，順序並不重要。
 
 ### <a name="properties"></a>properties
 
@@ -169,7 +169,7 @@ ms.locfileid: "60588560"
 
 ### <a name="notes"></a>注意
 
-若要在圖表中加入附註，請從 [訊息] 索引標籤切換到 [附註]。
+若要在圖表中加入附註，請從 [訊息]  索引標籤切換到 [附註]  。
 
 ## <a name="analysis-view"></a>分析檢視
 
@@ -185,7 +185,7 @@ ms.locfileid: "60588560"
 | --------------------------------------- | ------------ |
 | **讀取指標** | <p>將威脅標示為讀取，以協助您追蹤檢閱過的項目。</p><p>![讀取/未讀取指標](./media/azure-security-threat-modeling-tool-feature-overview/readmode.png)</p> |
 | **互動焦點** | <p>圖表中屬於威脅的互動會反白顯示。</p><p>![互動焦點](./media/azure-security-threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
-| **威脅屬性** | <p>威脅的其他資訊會顯示在 [威脅屬性] 視窗中。</p><p>![威脅屬性](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)</p> |
+| **威脅屬性** | <p>威脅的其他資訊會顯示在 [威脅屬性]  視窗中。</p><p>![威脅屬性](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
 ### <a name="priority-change"></a>優先順序變更
 
@@ -201,7 +201,7 @@ ms.locfileid: "60588560"
 
 ## <a name="reports"></a>報告
 
-完成優先順序的變更及更新每個產生之威脅的狀態後，您可以儲存檔案和/或列印報告。 移至 [報告]  >  [建立完整報告]。 為報告命名，接著您應該會看到類似下圖的內容：
+完成優先順序的變更及更新每個產生之威脅的狀態後，您可以儲存檔案和/或列印報告。 移至 [報告]   >  [建立完整報告]  。 為報告命名，接著您應該會看到類似下圖的內容：
 
 ![報告](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 907abe3b09f9999b30703281f7e4ff286e2bae14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242328"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory 無縫單一登入：深入技術性討論
@@ -52,7 +52,7 @@ ms.locfileid: "60242328"
 
 網頁瀏覽器上的登入流程如下：
 
-1. 使用者嘗試從公司網路內已加入網域的公司裝置存取 Web 應用程式 (例如 Outlook Web App， https://outlook.office365.com/owa/))。
+1. 使用者嘗試從公司網路內已加入網域的公司裝置存取 Web 應用程式 (例如 Outlook Web App， https://outlook.office365.com/owa/) )。
 2. 如果使用者尚未登入，則會將使用者重新導向至 Azure AD 登入頁面。
 3. 使用者將他們的使用者名稱鍵入 Azure AD 登入頁面中。
 
@@ -96,6 +96,6 @@ ms.locfileid: "60242328"
 ## <a name="next-steps"></a>後續步驟
 
 - [**快速入門**](how-to-connect-sso-quick-start.md) - 開始使用 Azure AD 無縫 SSO。
-- [**常见问题**](how-to-connect-sso-faq.md) - 常见问题的解答。
+- [**常見問題集**](how-to-connect-sso-faq.md) - 常見問題集的答案。
 - [**疑難排解**](tshoot-connect-sso.md) - 了解如何解決此功能的常見問題。
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 用于提出新的功能请求。
+- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 用於提出新的功能要求。

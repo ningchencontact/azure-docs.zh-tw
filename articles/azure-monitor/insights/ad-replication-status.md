@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60495108"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>使用 Azure 監視器監視 Active Directory 複寫狀態
@@ -54,7 +54,7 @@ Active Directory 是企業 IT 環境的重要元件。 為了確保高可用性�
 
 | 平台 | 直接代理程式 | SCOM 代理程式 | Azure 儲存體 | SCOM 是否為必要項目？ | 透過管理群組傳送的 SCOM 代理程式資料 | 收集頻率 |
 | --- | --- | --- | --- | --- | --- | --- |
-|  Windows |&#8226; |&#8226; |  |  |&#8226; |每隔五天 |
+| Windows |&#8226; |&#8226; |  |  |&#8226; |每隔五天 |
 
 
 
@@ -106,7 +106,7 @@ Active Directory 是企業 IT 環境的重要元件。 為了確保高可用性�
 >
 
 ### <a name="ad-replication-status-details"></a>AD 複寫狀態詳細資料
-當您按一下其中一份清單中的任何項目時，您會看到有關使用記錄查詢的其他詳細資料。 結果會經過篩選，僅顯示該項目的相關錯誤。 例如，如果您按一下列在 [目的地伺服器狀態 (ADDC02)] 之下的第一個網域控制站，您會看到查詢結果已篩選成顯示將該網域控制站列為目的地伺服器的錯誤︰
+當您按一下其中一份清單中的任何項目時，您會看到有關使用記錄查詢的其他詳細資料。 結果會經過篩選，僅顯示該項目的相關錯誤。 例如，如果您按一下列在 [目的地伺服器狀態 (ADDC02)]  之下的第一個網域控制站，您會看到查詢結果已篩選成顯示將該網域控制站列為目的地伺服器的錯誤︰
 
 ![查詢結果中的 AD 複寫狀態錯誤](./media/ad-replication-status/oms-ad-replication-search-details.png)
 

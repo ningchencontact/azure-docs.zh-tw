@@ -10,10 +10,10 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 03bad12b7fcba5a247e05884aa0eb0493163a5c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60578992"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>疑難排解停機期間啟動/停止 VM 解決方案
@@ -88,7 +88,7 @@ The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<R
 
 * 請檢查您是否已正確設定啟動/停止 VM 解決方案的排程。 若要了解如何設定排程，請參閱[排程](../automation-schedules.md)一文。
 
-* 請檢查[作業串流](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal)尋找任何錯誤。 在入口網站中，移至 [自動化帳戶]，然後在 [程序自動化] 下選取 [作業]。 從 [作業] 頁面，尋找下列其中一個 Runbook 中的作業：
+* 請檢查[作業串流](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal)尋找任何錯誤。 在入口網站中，移至 [自動化帳戶]，然後在 [程序自動化]  下選取 [作業]  。 從 [作業]  頁面，尋找下列其中一個 Runbook 中的作業：
 
   * AutoStop_CreateAlert_Child
   * AutoStop_CreateAlert_Parent
@@ -100,7 +100,7 @@ The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<R
   * ScheduledStartStop_Parent
   * SequencedStartStop_Parent
 
-* 驗證您的[執行身分帳戶](../manage-runas-account.md)是否具有您嘗試啟動或停止的 VM 的適當權限。 若要了解如何檢查資源的權限，請參閱[快速入門：使用 Azure 入口網站來檢視指派給使用者的角色](../../role-based-access-control/check-access.md)。 您需要為執行身分帳戶使用的服務主體提供應用程式識別碼。 您可以透過移至 Azure 入口網站中的 [自動化帳戶]，在 [帳戶設定] 下選取 [執行身分帳戶]，然後按一下適當的執行身分帳戶來擷取此值。
+* 驗證您的[執行身分帳戶](../manage-runas-account.md)是否具有您嘗試啟動或停止的 VM 的適當權限。 若要了解如何檢查資源的權限，請參閱[快速入門：使用 Azure 入口網站來檢視指派給使用者的角色](../../role-based-access-control/check-access.md)。 您需要為執行身分帳戶使用的服務主體提供應用程式識別碼。 您可以透過移至 Azure 入口網站中的 [自動化帳戶]，在 [帳戶設定]  下選取 [執行身分帳戶]  ，然後按一下適當的執行身分帳戶來擷取此值。
 
 * 如果明確地排除 VM，則可能無法啟動或停止它們。 已排除部署解決方案之自動化帳戶中 **External_ExcludeVMNames** 變數中設定的 VM。 下列範例示範如何使用 PowerShell 查詢該值。
 
@@ -139,11 +139,11 @@ The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<R
   Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
   ```
 
-* 若要啟動和停止 VM，自動化帳戶的執行身分帳戶必須具有 VM 的適當權限。 若要了解如何檢查資源的權限，請參閱[快速入門：使用 Azure 入口網站來檢視指派給使用者的角色](../../role-based-access-control/check-access.md)。 您需要為執行身分帳戶使用的服務主體提供應用程式識別碼。 您可以透過移至 Azure 入口網站中的 [自動化帳戶]，在 [帳戶設定] 下選取 [執行身分帳戶]，然後按一下適當的執行身分帳戶來擷取此值。
+* 若要啟動和停止 VM，自動化帳戶的執行身分帳戶必須具有 VM 的適當權限。 若要了解如何檢查資源的權限，請參閱[快速入門：使用 Azure 入口網站來檢視指派給使用者的角色](../../role-based-access-control/check-access.md)。 您需要為執行身分帳戶使用的服務主體提供應用程式識別碼。 您可以透過移至 Azure 入口網站中的 [自動化帳戶]，在 [帳戶設定]  下選取 [執行身分帳戶]  ，然後按一下適當的執行身分帳戶來擷取此值。
 
 * 如果 VM 在啟動或解除配置時出現問題，這種行為可能是由 VM 本身的問題引起的。 部分範例或潛在的問題是，在嘗試關閉、服務停止回應等時會套用更新。 瀏覽至您的 VM 資源並檢查**活動記錄**，以查看記錄中是否有任何錯誤。 您還可以嘗試登入 VM，以查看事件記錄中是否有任何錯誤。 若要深入了解疑難排解您的 VM，請參閱[疑難排解 Azure 虛擬機器](../../virtual-machines/troubleshooting/index.md)
 
-* 請檢查[作業串流](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal)尋找任何錯誤。 在入口網站中，移至 [自動化帳戶]，然後在 [程序自動化] 下選取 [作業]。
+* 請檢查[作業串流](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal)尋找任何錯誤。 在入口網站中，移至 [自動化帳戶]，然後在 [程序自動化]  下選取 [作業]  。
 
 ## <a name="custom-runbook"></a>案例：我的自訂 Runbook 無法啟動或停止我的 VM
 
@@ -153,11 +153,11 @@ The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<R
 
 ### <a name="cause"></a>原因
 
-失敗的原因可能是許多項目其中一個。 在入口網站中，移至 [自動化帳戶]，然後在 [程序自動化] 下選取 [作業]。 從 [作業] 頁面上，查看 Runbook 中的作業以檢視任何作業失敗。
+失敗的原因可能是許多項目其中一個。 在入口網站中，移至 [自動化帳戶]，然後在 [程序自動化]  下選取 [作業]  。 從 [作業]  頁面上，查看 Runbook 中的作業以檢視任何作業失敗。
 
 ### <a name="resolution"></a>解決方案
 
-建議使用[停機期間啟動/停止 VM 解決方案](../automation-solution-vm-management.md)來啟動和停止 Azure 自動化中的 VM。 此解決方案是由 Microsoft 所撰寫。 Microsoft 不支援自訂的 Runbook。 您可以透過造訪 [Runbook 疑難排解](runbooks.md)文章找到自訂 Runbook 的解決方案。 本文提供了所有類型 Runbook 的一般指引和疑難排解。 請檢查[作業串流](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal)尋找任何錯誤。 在入口網站中，移至 [自動化帳戶]，然後在 [程序自動化] 下選取 [作業]。
+建議使用[停機期間啟動/停止 VM 解決方案](../automation-solution-vm-management.md)來啟動和停止 Azure 自動化中的 VM。 此解決方案是由 Microsoft 所撰寫。 Microsoft 不支援自訂的 Runbook。 您可以透過造訪 [Runbook 疑難排解](runbooks.md)文章找到自訂 Runbook 的解決方案。 本文提供了所有類型 Runbook 的一般指引和疑難排解。 請檢查[作業串流](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal)尋找任何錯誤。 在入口網站中，移至 [自動化帳戶]，然後在 [程序自動化]  下選取 [作業]  。
 
 ## <a name="dont-start-stop-in-sequence"></a>案例：VM 無法以正確的順序啟動或停止
 
@@ -191,13 +191,13 @@ The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<R
 
 ### <a name="resolution"></a>解決方案
 
-若要檢查您的執行身分帳戶是否已正確設定，請移至 Azure 入口網站中的 [自動化帳戶]，然後在 [帳戶設定] 下選取 [執行身分帳戶]。 這裡您會看到執行身分帳戶的狀態，如果執行身分帳戶設定不正確或已過期，狀態將會顯示。
+若要檢查您的執行身分帳戶是否已正確設定，請移至 Azure 入口網站中的 [自動化帳戶]，然後在 [帳戶設定]  下選取 [執行身分帳戶]  。 這裡您會看到執行身分帳戶的狀態，如果執行身分帳戶設定不正確或已過期，狀態將會顯示。
 
 如果您的執行身分帳戶[設定錯誤](../manage-runas-account.md#misconfiguration)，則應刪除並重新建立執行身分帳戶。
 
 如果執行身分帳戶的憑證已過期，請遵循[自我簽署憑證](../manage-runas-account.md#cert-renewal)中所列的步驟來更新憑證。
 
-該問題可能是由於缺少權限所引起。 若要了解如何檢查資源的權限，請參閱[快速入門：使用 Azure 入口網站來檢視指派給使用者的角色](../../role-based-access-control/check-access.md)。 您需要為執行身分帳戶使用的服務主體提供應用程式識別碼。 您可以透過移至 Azure 入口網站中的 [自動化帳戶]，在 [帳戶設定] 下選取 [執行身分帳戶]，然後按一下適當的執行身分帳戶來擷取此值。
+該問題可能是由於缺少權限所引起。 若要了解如何檢查資源的權限，請參閱[快速入門：使用 Azure 入口網站來檢視指派給使用者的角色](../../role-based-access-control/check-access.md)。 您需要為執行身分帳戶使用的服務主體提供應用程式識別碼。 您可以透過移至 Azure 入口網站中的 [自動化帳戶]，在 [帳戶設定]  下選取 [執行身分帳戶]  ，然後按一下適當的執行身分帳戶來擷取此值。
 
 ## <a name="other"></a>案例：並未列出我的問題
 
@@ -211,7 +211,7 @@ The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<R
 
 ### <a name="resolution"></a>解決方案
 
-若要解決許多錯誤，建議移除並更新解決方案。 若要了解如何更新解決方案，請參閱[更新停機期間啟動/停止 VM 解決方案](../automation-solution-vm-management.md#update-the-solution)。 此外，您可以檢查[作業串流](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal)尋找任何錯誤。 在入口網站中，移至 [自動化帳戶]，然後在 [程序自動化] 下選取 [作業]。
+若要解決許多錯誤，建議移除並更新解決方案。 若要了解如何更新解決方案，請參閱[更新停機期間啟動/停止 VM 解決方案](../automation-solution-vm-management.md#update-the-solution)。 此外，您可以檢查[作業串流](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal)尋找任何錯誤。 在入口網站中，移至 [自動化帳戶]，然後在 [程序自動化]  下選取 [作業]  。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -219,4 +219,4 @@ The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<R
 
 * 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
 * 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。
-* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
+* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。

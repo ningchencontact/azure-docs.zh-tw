@@ -13,10 +13,10 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d710a86bb63765ea8a1a777818ca5f99e38d3a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60248124"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>使用 Azure Active Directory 新增或更新使用者的設定檔資訊
@@ -26,15 +26,15 @@ ms.locfileid: "60248124"
 如您所見，使用者設定檔中所提供資訊比您在使用者建立期間可以新增的資訊還多。 所有這些額外資訊都是選擇性，可以依據您的組織需求新增。
 
 ## <a name="to-add-or-change-profile-information"></a>新增或變更設定檔資訊
-1. 以组织的用户管理员身份登录到 [Azure 门户](https://portal.azure.com/)。
+1. 登入[Azure 入口網站](https://portal.azure.com/)組織的使用者系統管理員身分。
 
-2. 選取 [Azure Active Directory] 並選取 [使用者]，然後選取一位使用者。 例如 _Alain Charon_。
+2. 選取 [Azure Active Directory]  並選取 [使用者]  ，然後選取一位使用者。 例如 _Alain Charon_。
 
-    [Alain Charon - 設定檔] 頁面隨即出現。
+    [Alain Charon - 設定檔]  頁面隨即出現。
 
     ![包括可編輯資訊的使用者設定檔頁面](media/active-directory-users-profile-azure-portal/user-profile-all-blade.png)
 
-3. 選取 [編輯]，選擇性地新增或更新各個可用區段中包含的資訊。
+3. 選取 [編輯]  ，選擇性地新增或更新各個可用區段中包含的資訊。
 
     ![顯示可編輯區域的使用者設定檔頁面](media/active-directory-users-profile-azure-portal/user-profile-edit.png)
 

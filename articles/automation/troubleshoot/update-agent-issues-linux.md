@@ -10,15 +10,15 @@ ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ms.openlocfilehash: 075cf254dbf7c5d03f1afac64315f6c6f773159c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60597801"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>了解更新管理中的 Linux 代理程式檢查結果
 
-您的機器在 [更新管理] 中未顯示為 [就緒] 的原因有很多。 在「更新管理」中，您可以檢查「混合式背景工作角色」代理程式的健康情況，以判斷根本問題。 本文探討如何以 Azure 入口網站與非 Azure 機器在[離線情況](#troubleshoot-offline)下執行 Azure 機器的疑難排解員。
+您的機器在 [更新管理] 中未顯示為 [就緒]  的原因有很多。 在「更新管理」中，您可以檢查「混合式背景工作角色」代理程式的健康情況，以判斷根本問題。 本文探討如何以 Azure 入口網站與非 Azure 機器在[離線情況](#troubleshoot-offline)下執行 Azure 機器的疑難排解員。
 
 下列清單是機器可具備的三種整備狀態：
 
@@ -31,14 +31,14 @@ ms.locfileid: "60597801"
 
 ## <a name="start-the-troubleshooter"></a>啟動疑難排解員
 
-若為 Azure 機器，在入口網站中按一下 [更新代理程式整備程度] 資料行底下的 [疑難排解] 連結，即可啟動 [對更新代理程式進行疑難排解] 頁面。 至於非 Azure 機器，此連結會連往這份文件。 若要對非 Azure 機器進行疑難排解，請參閱＜離線指示＞。
+若為 Azure 機器，在入口網站中按一下 [更新代理程式整備程度]  資料行底下的 [疑難排解]  連結，即可啟動 [對更新代理程式進行疑難排解]  頁面。 至於非 Azure 機器，此連結會連往這份文件。 若要對非 Azure 機器進行疑難排解，請參閱＜離線指示＞。
 
 ![VM 清單頁面](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
-> VM 必須處於執行中狀態，才能進行檢查。 如果 VM 不是處於執行中狀態，您就會看到 [啟動 VM] 的按鈕。
+> VM 必須處於執行中狀態，才能進行檢查。 如果 VM 不是處於執行中狀態，您就會看到 [啟動 VM]  的按鈕。
 
-在 [對更新代理程式進行疑難排解] 頁面上，按一下 [執行檢查] 以啟動疑難排解員。 疑難排解員會使用[執行命令](../../virtual-machines/linux/run-command.md)在機器上執行指令碼，以確認代理程式所具有的相依性。 當疑難排解員完成時，它會傳回檢查結果。
+在 [對更新代理程式進行疑難排解]  頁面上，按一下 [執行檢查]  以啟動疑難排解員。 疑難排解員會使用[執行命令](../../virtual-machines/linux/run-command.md)在機器上執行指令碼，以確認代理程式所具有的相依性。 當疑難排解員完成時，它會傳回檢查結果。
 
 ![疑難排解頁面](../media/update-agent-issues-linux/troubleshoot-page.png)
 

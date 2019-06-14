@@ -15,10 +15,10 @@ ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6790fa1cbb10999a751b31bcb27db2edcb67b4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334906"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>管理適用於雙步驟驗證的應用程式密碼
@@ -53,19 +53,19 @@ ms.locfileid: "60334906"
 
 1. 登入 [https://myapps.microsoft.com](https://myapps.microsoft.com)。
 
-2. 在右上方選取您的名稱，然後選擇 [設定檔]。
+2. 在右上方選取您的名稱，然後選擇 [設定檔]  。
 
-3. 選取 [其他安全性驗證]。
+3. 選取 [其他安全性驗證]  。
 
    ![選取 [其他安全性驗證] - 螢幕擷取畫面](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
 
-4. 選取 [應用程式密碼]。
+4. 選取 [應用程式密碼]  。
 
    ![選取 [應用程式密碼] - 螢幕擷取畫面](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
 
-5. 按一下頁面底部的 [新增] 。
+5. 按一下頁面底部的 [新增]  。
 
-6. 輸入應用程式密碼的名稱，然後選取 [下一步]。
+6. 輸入應用程式密碼的名稱，然後選取 [下一步]  。
 
 7. 將應用程式密碼複製到剪貼簿，並將它貼到您的應用程式。
    
@@ -73,13 +73,13 @@ ms.locfileid: "60334906"
 
 ### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>使用 MyApps 入口網站刪除應用程式密碼
 
-1. 移至您的設定檔，然後選取 [其他安全性驗證]。
+1. 移至您的設定檔，然後選取 [其他安全性驗證]  。
 
-2. 選取 [應用程式密碼]，然後選取您想要刪除之應用程式密碼旁的 [刪除]。
+2. 選取 [應用程式密碼]  ，然後選取您想要刪除之應用程式密碼旁的 [刪除]  。
 
    ![刪除應用程式密碼](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
 
-3. 選取 [是] 以確認您想要刪除密碼，然後選取 [關閉]。
+3. 選取 [是]  以確認您想要刪除密碼，然後選取 [關閉]  。
 
 ## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>使用 Office 365 入口網站建立和刪除應用程式密碼
 
@@ -93,11 +93,11 @@ ms.locfileid: "60334906"
 
     ![顯示已展開 [其他安全性驗證] 區域的 Office 入口網站](media/security-info/security-info-o365password.png)
 
-3. 選取**建立和管理應用程式密碼**的文字來開啟 [應用程式密碼] 頁面。
+3. 選取**建立和管理應用程式密碼**的文字來開啟 [應用程式密碼]  頁面。
 
-4. 選取 [建立]、輸入需要應用程式密碼的應用程式易記名稱，然後選取 [下一步]。
+4. 選取 [建立]  、輸入需要應用程式密碼的應用程式易記名稱，然後選取 [下一步]  。
 
-5. 選取 [將密碼複製到剪貼簿]，然後選取 [關閉]。
+5. 選取 [將密碼複製到剪貼簿]  ，然後選取 [關閉]  。
 
 6. 使用複製的應用程式密碼來登入非瀏覽器應用程式。 您只需輸入此密碼一次，系統就會記住它以供日後使用。
 
@@ -107,9 +107,9 @@ ms.locfileid: "60334906"
 
 2. 移至[ https://portal.office.com ](https://portal.office.com)，選取**設定**從右上角的圖示**Office 365 入口網站**頁面，然後再選取**額外的安全性驗證**。
 
-3. 選取**建立和管理應用程式密碼**的文字來開啟 [應用程式密碼] 頁面。
+3. 選取**建立和管理應用程式密碼**的文字來開啟 [應用程式密碼]  頁面。
 
-4. 針對要刪除的應用程式密碼選取 [刪除]、在確認方塊中選取 [是]，然後選取 [關閉]。
+4. 針對要刪除的應用程式密碼選取 [刪除]  、在確認方塊中選取 [是]  ，然後選取 [關閉]  。
 
     已成功刪除應用程式密碼。
 

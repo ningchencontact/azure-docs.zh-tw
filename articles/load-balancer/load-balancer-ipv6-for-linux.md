@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: kumud
 ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516541"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>設定 Linux VM 的 DHCPv6
@@ -56,7 +56,7 @@ Azure Marketplace 中的一些 Linux 虛擬機器映像沒有預設的動態主�
     ```
 從 Ubuntu 17.10，預設的網路組態機制就[NETPLAN]( https://netplan.io)。  NETPLAN 安裝/具現化時，從這個位置的 YAML 組態檔讀取網路組態: / {lib,etc,run}/netplan/*.yaml。
 
-請附上*dhcp6:true*每個乙太網路介面組態中的陳述式。  例如︰
+請附上*dhcp6:true*每個乙太網路介面組態中的陳述式。  例如:
   
         network:
           version: 2
@@ -64,7 +64,7 @@ Azure Marketplace 中的一些 Linux 虛擬機器映像沒有預設的動態主�
             eno1:
               dhcp6: true
 
-在早期開機，netplan 「 網路轉譯器 」 寫入設定，以指定的網路服務精靈的參考資訊 NETPLAN，關閉裝置的控制權交給執行，請參閱 https://netplan.io/reference。
+在早期開機，netplan 「 網路轉譯器 」 寫入設定，以指定的網路服務精靈的參考資訊 NETPLAN，關閉裝置的控制權交給執行，請參閱 https://netplan.io/reference 。
  
 ## <a name="debian"></a>Debian
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60193705"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Azure Front Door Service 中的後端和後端集區
@@ -71,7 +71,7 @@ ms.locfileid: "60193705"
 
 - **通訊協定**。 定義要從前端服務的健全狀況探查要求傳送到您的後端，使用 HTTP 或 HTTPS 通訊協定。
 
-- **間隔 （秒）**。 定義您的後端或每個前端環境會傳送探查間隔健康情況探查的頻率。
+- **間隔 （秒）** 。 定義您的後端或每個前端環境會傳送探查間隔健康情況探查的頻率。
 
     >[!NOTE]
     >針對更快速的容錯移轉，將間隔設定為較低的值。 越低的值，較高的健全狀況探查量收到您的後端。 例如，若間隔全域設定為使用 90 大門環境或 Pop 的 30 秒，每個後端會收到有關於每秒的 3 到 5 個探查要求。
@@ -85,7 +85,7 @@ ms.locfileid: "60193705"
 
 - **成功的取樣大小**。 定義如先前所述，取樣大小的成功呼叫後端的狀況良好所需的樣本數。 例如，假設大門健全狀況探查間隔為 30 秒、 取樣大小為 5，而成功的取樣大小為 3。 每當我們評估健康情況探查您的後端，我們探討的最後五個範例超過 150 秒 (5 x 30)。 若要宣告為狀況良好的後端需要至少三個的成功探查。
 
-- **延遲敏感度 （額外的延遲）**。 定義是否要將要求傳送到後端延遲度量敏感度範圍內，或將要求轉送至最接近的後端的大門。
+- **延遲敏感度 （額外的延遲）** 。 定義是否要將要求傳送到後端延遲度量敏感度範圍內，或將要求轉送至最接近的後端的大門。
 
 如需詳細資訊，請參閱 <<c0> [ 延遲最少基礎的路由方法](front-door-routing-methods.md#latency)。
 

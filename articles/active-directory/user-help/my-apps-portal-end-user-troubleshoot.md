@@ -14,10 +14,10 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6e87ae0a8adf28176d9a97cbf1b78943179884a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60475022"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>針對使用 My Apps 入口網站的問題進行疑難排解
@@ -42,7 +42,7 @@ ms.locfileid: "60475022"
 ## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>我無法登入**My Apps**入口網站
 如果您有登入的問題**My Apps**入口網站中，您可以嘗試下列：
 
-- 請確定您使用正確的 URL。 它應該是 https://myapps.microsoft.com或自訂的頁面，為您的組織，例如 https://myapps.microsoft.com/contoso.com。
+- 請確定您使用正確的 URL。 它應該是 https://myapps.microsoft.com 或自訂的頁面，為您的組織，例如 https://myapps.microsoft.com/contoso.com 。
 
 - 請確定您的密碼正確，且尚未過期。 如需詳細資訊，請參閱 <<c0> [ 重設工作或學校密碼](active-directory-passwords-update-your-own-password.md)。
 

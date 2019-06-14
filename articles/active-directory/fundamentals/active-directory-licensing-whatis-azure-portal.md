@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be7094db14f53af939ded2313823bf2749e59a46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60248290"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>什麼是 Azure Active Directory 中的群組型授權？
@@ -39,7 +39,7 @@ Microsoft 付費的雲端服務 (例如 Office 365、Enterprise Mobility + Secur
 ### <a name="required-number-of-licenses"></a>所需的授權數目
 針對指派授權的任何群組，您也必須為每個唯一成員取得授權。 雖然您不必為群組中的每個成員指派授權，但您必須至少要有足夠的授權，才能包含所有成員。 例如，如果您的租用戶中有 1,000 個唯一成員屬於授權群組，則必須至少擁有 1,000 個授權，才能符合授權合約。
 
-## <a name="features"></a>特性
+## <a name="features"></a>功能
 
 以下是群組型授權的主要特色：
 
@@ -57,7 +57,7 @@ Microsoft 付費的雲端服務 (例如 Office 365、Enterprise Mobility + Secur
 
 - 在某些情況下，授權無法指派給使用者。 比方說，租用戶可能沒有足夠可用的授權，或可能同時指派衝突的服務。 對於 Azure AD 無法完整處理群組授權的使用者，系統管理員可以存取這些使用者的相關資訊。 然後，他們可以根據該資訊採取更正動作。
 
-## <a name="your-feedback-is-welcome"></a>歡迎您提供寶貴的意見！
+## <a name="your-feedback-is-welcome"></a>您的意見反應為 褖畫惎 ！
 
 如果您有意見或功能要求，請使用 [Azure AD 管理員論壇](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=162510)告訴我們。
 

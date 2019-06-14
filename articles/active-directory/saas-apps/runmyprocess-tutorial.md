@@ -16,10 +16,10 @@ ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfef1371b7ac61712c0f70efd48c0e791c4c729d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60518081"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-runmyprocess"></a>教學課程：Azure Active Directory 與 RunMyProcess 整合
@@ -60,15 +60,15 @@ RunMyProcess 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 RunMyProces，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。 
 
     ![Active Directory][1]
 
-1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]  。 然後移至 [所有應用程式]  。
 
     ![[應用程式]][2]
     
-1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![[應用程式]][3]
 
@@ -76,7 +76,7 @@ RunMyProcess 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/runmyprocess-tutorial/tutorial_runmyprocess_search.png)
 
-1. 在結果面板中，選取 [RunMyProcess]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在結果面板中，選取 [RunMyProcess]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/runmyprocess-tutorial/tutorial_runmyprocess_addfromgallery.png)
 
@@ -101,24 +101,24 @@ RunMyProcess 與 Azure AD 整合提供下列優點：
 
 **若要設定透過 RunMyProcess 使用 Azure AD 單一登入，請執行下列步驟：**
 
-1. 在 Azure 入口網站的 [RunMyProcess] 應用程式整合頁面上，按一下 [單一登入]。
+1. 在 Azure 入口網站的 [RunMyProcess]  應用程式整合頁面上，按一下 [單一登入]  。
 
     ![設定單一登入][4]
 
-1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入]  對話方塊上，於 [模式]  選取 [SAML 登入]  ，以啟用單一登入。
  
     ![設定單一登入](./media/runmyprocess-tutorial/tutorial_runmyprocess_samlbase.png)
 
-1. 在 [RunMyProcess 網域及 URL] 區段中，執行下列步驟：
+1. 在 [RunMyProcess 網域及 URL]  區段中，執行下列步驟：
 
     ![設定單一登入](./media/runmyprocess-tutorial/tutorial_runmyprocess_url.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://live.runmyprocess.com/live/<tenant id>`
+    在 [登入 URL]  文字方塊中，使用下列模式輸入 URL︰ `https://live.runmyprocess.com/live/<tenant id>`
 
     > [!NOTE] 
     > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [RunMyProcess 客戶支援小組](mailto:support@runmyprocess.com)以取得此值。 
 
-1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證]  區段上，按一下 [憑證 (Base64)]  ，然後將憑證檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/runmyprocess-tutorial/tutorial_runmyprocess_certificate.png) 
 
@@ -126,34 +126,34 @@ RunMyProcess 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/runmyprocess-tutorial/tutorial_general_400.png)
 
-1. 在 [RunMyProcess 組態] 區段上，按一下 [設定 RunMyProcess] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登入 URL] 和 [SAML 單一登入服務 URL]。
+1. 在 [RunMyProcess 組態]  區段上，按一下 [設定 RunMyProcess]  以開啟 [設定登入]  視窗。 從 [快速參考]  區段中複製 [登入 URL] 和 [SAML 單一登入服務 URL]  。
 
     ![設定單一登入](./media/runmyprocess-tutorial/tutorial_runmyprocess_configure.png) 
 
 1. 在不同的網頁瀏覽器視窗中，以管理員身分登入您的 RunMyProcess 租用戶。
 
-1. 在左方瀏覽面板中，按一下 [帳戶]，然後選取 [組態]。
+1. 在左方瀏覽面板中，按一下 [帳戶]  ，然後選取 [組態]  。
    
     ![在應用程式端設定單一登入](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
 
-1. 移至 [驗證方法] 區段並執行下列步驟：
+1. 移至 [驗證方法]  區段並執行下列步驟：
    
     ![在應用程式端設定單一登入](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
 
-    a. 在 [方法]，選取 [使用 Samlv2 進行 SSO]。 
+    a. 在 [方法]  ，選取 [使用 Samlv2 進行 SSO]  。 
 
-    b. 在 [SSO 重新導向] 文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL] 值。
+    b. 在 [SSO 重新導向]  文字方塊中，貼上您從 Azure 入口網站複製的 [SAML 單一登入服務 URL]  值。
 
-    c. 在 [登出重新導向] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
+    c. 在 [登出重新導向]  文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL]  值。
 
-    d. 在 [名稱識別碼格式] 文字方塊中，輸入 **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress** 作為**名稱識別碼格式**的值。
+    d. 在 [名稱識別碼格式]  文字方塊中，輸入 **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress** 作為**名稱識別碼格式**的值。
 
-    e. 複製所下載憑證檔案的內容，然後將它貼至 [憑證] 文字方塊中。 
+    e. 複製所下載憑證檔案的內容，然後將它貼至 [憑證]  文字方塊中。 
  
     f. 按一下 [儲存]  圖示。
 
 > [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式]  區段新增此應用程式之後，只要按一下 [單一登入]  索引標籤，即可透過底部的 [組態]  區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
@@ -163,15 +163,15 @@ RunMyProcess 與 Azure AD 整合提供下列優點：
 
 **若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
-1. 在 **Azure 入口網站**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **Azure 入口網站**的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。
 
     ![建立 Azure AD 測試使用者](./media/runmyprocess-tutorial/create_aaduser_01.png) 
 
-1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]  ，然後按一下 [所有使用者]  。
     
     ![建立 Azure AD 測試使用者](./media/runmyprocess-tutorial/create_aaduser_02.png) 
 
-1. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者]  對話方塊，按一下對話方塊頂端的 [新增]  。
  
     ![建立 Azure AD 測試使用者](./media/runmyprocess-tutorial/create_aaduser_03.png) 
 
@@ -179,13 +179,13 @@ RunMyProcess 與 Azure AD 整合提供下列優點：
  
     ![建立 Azure AD 測試使用者](./media/runmyprocess-tutorial/create_aaduser_04.png) 
 
-    a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  文字方塊中，輸入 **BrittaSimon**。
 
-    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱]  文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
-    c. 選取 [顯示密碼] 並記下 [密碼] 的值。
+    c. 選取 [顯示密碼]  並記下 [密碼]  的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
  
 ### <a name="creating-a-runmyprocess-test-user"></a>建立 RunMyProcess 測試使用者
 
@@ -195,7 +195,7 @@ RunMyProcess 與 Azure AD 整合提供下列優點：
 
 1. 以系統管理員身分登入您的 RunMyProcess 公司網站。
 
-1. 按一下 [帳戶] 並選取 [使用者]，然後按一下 [新增使用者]。
+1. 按一下 [帳戶]  並選取 [使用者]  ，然後按一下 [新增使用者]  。
    
     ![新增使用者](./media/runmyprocess-tutorial/tutorial_runmyprocess_003.png "新增使用者")
 
@@ -203,13 +203,13 @@ RunMyProcess 與 Azure AD 整合提供下列優點：
    
     ![設定檔](./media/runmyprocess-tutorial/tutorial_runmyprocess_004.png "設定檔") 
   
-    a. 在相關的文字方塊中，輸入您想要佈建之有效 Azure AD 帳戶的 [名稱] 和 [電子郵件]。 
+    a. 在相關的文字方塊中，輸入您想要佈建之有效 Azure AD 帳戶的 [名稱]  和 [電子郵件]  。 
 
-    b. 選取 [IDE 語言]、[語言] 和 [設定檔]。 
+    b. 選取 [IDE 語言]  、[語言]  和 [設定檔]  。 
 
-    c. 選取 [傳送帳戶建立電子郵件給我] 。 
+    c. 選取 [傳送帳戶建立電子郵件給我]  。 
 
-    d. 按一下 [檔案] 。
+    d. 按一下 [檔案]  。
    
     >[!NOTE]
     >您可以使用任何其他的 RunMyProcess 使用者帳戶建立工具或 RunMyProcess 提供的 API 來佈建 Azure Active Directory 使用者帳戶。 
@@ -223,27 +223,27 @@ RunMyProcess 與 Azure AD 整合提供下列優點：
 
 **若要將 Britta Simon 指派給 RunMyProcess，請執行下列步驟：**
 
-1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
+1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]  ，然後按一下 [所有應用程式]  。
 
     ![指派使用者][201] 
 
-1. 在應用程式清單中，選取 [RunMyProcess]。
+1. 在應用程式清單中，選取 [RunMyProcess]  。
 
     ![設定單一登入](./media/runmyprocess-tutorial/tutorial_runmyprocess_app.png) 
 
-1. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]  。
 
     ![指派使用者][202] 
 
-1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增]  按鈕。 然後選取 [新增指派]  對話方塊上的 [使用者和群組]  。
 
     ![指派使用者][203]
 
-1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組]  對話方塊上，選取 [使用者] 清單中的 [Britta Simon]  。
 
-1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組]  對話方塊上的 [選取]  按鈕。
 
-1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派]  對話方塊上的 [指派]  按鈕。
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 

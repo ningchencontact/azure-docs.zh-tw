@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/2018
 ms.openlocfilehash: 89e0294db3178cedd3b14aada0b505787b17c75e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60303684"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps 的常見情節、範例、教學課程和逐步解說
@@ -25,11 +25,11 @@ ms.locfileid: "60303684"
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>邏輯應用程式工作流程的常用起點
 
-每個邏輯應用程式都是以[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)開頭，並只有一個觸發程序會啟動邏輯應用程式工作流程，並傳遞任何資料作為該觸發程序的一部分。 某些連接器會提供觸發程序，這些類型有：
+每個邏輯應用程式都是以[觸發程序  ](../logic-apps/logic-apps-overview.md#logic-app-concepts)開頭，並只有一個觸發程序會啟動邏輯應用程式工作流程，並傳遞任何資料作為該觸發程序的一部分。 某些連接器會提供觸發程序，這些類型有：
 
-* 轮询触发器：定期检查服务终结点以获取新数据。 當新的資料存在時，觸發程序會使用資料建立並執行新的工作流程執行個體作為輸入。
+* *輪詢觸發程序*:會定期檢查新資料的服務端點。 當新的資料存在時，觸發程序會使用資料建立並執行新的工作流程執行個體作為輸入。
 
-* 推送触发器：侦听服务终结点上的数据并等到特定事件发生。 當事件發生時，會立即引發觸發程序，建立和執行使用任何可用資料作為輸入的新工作流程執行個體。
+* *推送觸發程序*:資料服務端點上接聽，並等待，直到發生特定事件。 當事件發生時，會立即引發觸發程序，建立和執行使用任何可用資料作為輸入的新工作流程執行個體。
 
 以下是幾個常用的觸發程序範例：
 
@@ -46,7 +46,7 @@ ms.locfileid: "60303684"
 
   * [**要求 / 回應 - 要求**觸發程序](../connectors/connectors-native-reqres.md)可讓邏輯應用程式以某種方式即時接收 HTTP 要求和回應事件。
 
-  * [**HTTP Webhook** 觸發程序](../connectors/connectors-native-webhook.md)可訂閱服務端點，方法為使用該服務註冊回呼 URL。 
+  * [**HTTP Webhook** 觸發程序](../connectors/connectors-native-webhook.md)可訂閱服務端點，方法為使用該服務註冊回呼 URL  。 
   這樣一來，當指定的事件發生時，服務可以只通知觸發程序，讓觸發程序不需要輪詢服務。
 
 接收關於新資料或事件的通知之後，觸發程序會引發、建立新的邏輯應用程式工作流程執行個體，並執行工作流程中的動作。 您可以在整個工作流程中，從觸發程序存取任何資料。 例如，「在新的推文上」觸發程序會將推文內容傳遞到邏輯應用程式執行。 
@@ -59,7 +59,7 @@ ms.locfileid: "60303684"
 * [為工作流程執行設定長時間執行的動作](../logic-apps/logic-apps-create-api-app.md)
 * [使用 Webhook 回應外部事件和動作](../logic-apps/logic-apps-create-api-app.md)
 * [呼叫、觸發或巢狀處理具有 HTTP 要求同步回應的工作流程](../logic-apps/logic-apps-http-endpoint.md)
-* [教學課程：在几分钟内使用逻辑应用和 Power BI 生成由 AI 提供支持的社交仪表板](https://aka.ms/logicappsdemo)
+* [教學課程：使用 Logic Apps 和 Power BI 的幾分鐘即可建置 ai 社交儀表板](https://aka.ms/logicappsdemo)
 * [影片：回應 Twilio SMS webhook 並傳送文字回應](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>控制流程、錯誤處理和記錄功能
@@ -70,7 +70,7 @@ ms.locfileid: "60303684"
 * [使用迴圈重複執行步驟或處理陣列和集合中的項目](../logic-apps/logic-apps-control-flow-loops.md)
 * [將動作與範圍群組在一起](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [在工作流程中撰寫錯誤和例外狀況處理](../logic-apps/logic-apps-exception-handling.md)
-* [用例：医疗保健公司如何将逻辑应用异常处理用于 HL7 FHIR 工作流](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
+* [使用案例：醫療保健公司如何使用邏輯應用程式的例外狀況處理 HL7 FHIR 工作流程](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [開啟現有 Logic Apps 的監視、記錄和警示](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [建立 Logic Apps 時開啟監視和診斷記錄](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)
 
@@ -96,15 +96,15 @@ ms.locfileid: "60303684"
 
 * [使用 Azure 無伺服器建立即時社交儀表板](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [從邏輯應用程式呼叫 Azure Functions](../logic-apps/logic-apps-azure-functions.md)
-* [教學課程：使用 Azure Functions 触发逻辑应用](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [教學課程：使用 Azure Functions 觸發邏輯應用程式](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [教學課程：使用 Azure Event Grid 和 Logic Apps 監視虛擬機器變更](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
 * [教學課程：建立與 Azure Logic Apps 整合的函式和 Microsoft 認知服務來分析 twitter 推文情感](../azure-functions/functions-twitter-email.md)
-* [教學課程：通过连接 IoT 中心和邮箱的 Azure 逻辑应用进行 IoT 远程监视并发送通知](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
-* [部落格：从逻辑应用调用 SOAP 终结点](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
+* [教學課程：搭配連接 IoT 中樞和信箱的 Azure Logic Apps IoT 遠端監視和通知](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+* [部落格：從邏輯應用程式呼叫 SOAP 端點](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>端對端案例
 
-* [白皮书：端到端案例管理与 Azure 服务（如逻辑应用）的集成](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+* [白皮書：與 Azure 服務，例如邏輯應用程式的端對端案例管理整合](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
 ## <a name="customer-stories"></a>客戶案例
 

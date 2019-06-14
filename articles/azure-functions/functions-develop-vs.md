@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4366f09ccc9a3b2335e0aa84b7fb7398825cb87e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: c6104a977a02211dcab17a5f232991d0d9cbb852
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864538"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050752"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 來開發 Azure Functions  
 
@@ -52,7 +52,7 @@ Azure 開發工作負載中包含 azure Functions Tools [Visual Studio 2017](htt
 
 ### <a name="check-your-tools-version"></a>檢查您的工具版本
 
-1. 在 [工具] 功能表中，選擇 [擴充功能和更新]。 展開 [已安裝] > [工具]，然後選擇 [Azure Functions 與 Web 工作工具]。
+1. 在 [工具]  功能表中，選擇 [擴充功能和更新]  。 展開 [已安裝]   > [工具]  ，然後選擇 [Azure Functions 與 Web 工作工具]  。
 
     ![驗證 Functions 工具版本](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
 
@@ -62,15 +62,15 @@ Azure 開發工作負載中包含 azure Functions Tools [Visual Studio 2017](htt
 
 ### <a name="update-your-tools"></a>更新您的工具
 
-1. 在 [延伸模組和更新] 對話方塊中，展開 [更新] > [Visual Studio Marketplace]，選擇 [Azure Functions 與 Web 工作工具]，然後選取 [更新]。
+1. 在 [延伸模組和更新]  對話方塊中，展開 [更新]   > [Visual Studio Marketplace]  ，選擇 [Azure Functions 與 Web 工作工具]  ，然後選取 [更新]  。
 
     ![更新 Functions 工具版本](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
 
 2. 下載工具更新之後，請關閉 Visual Studio，以使用 VSIX 安裝程式觸發工具更新。
 
-3. 在安裝程式中選擇 [確定] 以啟動，然後選擇 [修改] 以更新工具。 
+3. 在安裝程式中選擇 [確定]  以啟動，然後選擇 [修改]  以更新工具。 
 
-4. 更新完成後，請選擇 [關閉] 並重新啟動 Visual Studio。
+4. 更新完成後，請選擇 [關閉]  並重新啟動 Visual Studio。
 
 ## <a name="create-an-azure-functions-project"></a>建立 Azure Functions 專案
 
@@ -80,38 +80,38 @@ Azure 開發工作負載中包含 azure Functions Tools [Visual Studio 2017](htt
 
 * **host.json**：可讓您設定 Functions 主機。 這些設定同時適用於在本機執行及在 Azure 中執行。 如需詳細資訊，請參閱 [host.json 參考](functions-host-json.md)。
 
-* **local.settings.json**：維護在本機執行函數時所使用的設定。 Azure 不會使用這些設定，[Azure Functions Core Tools](functions-run-local.md) 會使用這些設定。 使用此檔案指定您的函式所需的環境變數的應用程式設定。 針對專案中函式繫結所需的每個連接，將新項目新增至 [值] 陣列。 如需詳細資訊，請參閱＜Azure Functions Core Tools＞一文中的[本機設定檔](functions-run-local.md#local-settings-file)。
+* **local.settings.json**：維護在本機執行函數時所使用的設定。 Azure 不會使用這些設定，[Azure Functions Core Tools](functions-run-local.md) 會使用這些設定。 使用此檔案指定您的函式所需的環境變數的應用程式設定。 針對專案中函式繫結所需的每個連接，將新項目新增至 [值]  陣列。 如需詳細資訊，請參閱＜Azure Functions Core Tools＞一文中的[本機設定檔](functions-run-local.md#local-settings-file)。
 
     >[!IMPORTANT]
-    >由於 local.settings.json 檔案可以包含祕密，因此，您必須從專案原始檔控制中排除它。 這個檔案的 [複製到輸出目錄] 設定應該一律是 [有更新時才複製]。 
+    >由於 local.settings.json 檔案可以包含祕密，因此，您必須從專案原始檔控制中排除它。 這個檔案的 [複製到輸出目錄]  設定應該一律是 [有更新時才複製]  。 
 
 如需詳細資訊，請參閱 [Functions 類別庫專案](functions-dotnet-class-library.md#functions-class-library-project)。
 
 ## <a name="configure-the-project-for-local-development"></a>設定專案以進行本機開發
 
-函數執行階段會在內部使用 Azure 儲存體帳戶。 針對 HTTP 和 Webhook 以外的所有觸發程序類型，您必須將 **Values.AzureWebJobsStorage** 機碼設定為有效的 Azure 儲存體帳戶連接字串。 函式應用程式也可以針對專案所需的 **AzureWebJobsStorage** 連線設定，使用 [Azure 儲存體模擬器](../storage/common/storage-use-emulator.md)。 若要使用模擬器，將 **AzureWebJobsStorage** 的值設定為 `UseDevelopmentStorage=true`。 您必須在部署前將此設定變更為實際的儲存體連線。
+函數執行階段會在內部使用 Azure 儲存體帳戶。 針對 HTTP 和 Webhook 以外的所有觸發程序類型，您必須將 **Values.AzureWebJobsStorage** 機碼設定為有效的 Azure 儲存體帳戶連接字串。 函式應用程式也可以針對專案所需的 **AzureWebJobsStorage** 連線設定，使用 [Azure 儲存體模擬器](../storage/common/storage-use-emulator.md)。 若要使用模擬器，將 **AzureWebJobsStorage** 的值設定為 `UseDevelopmentStorage=true`。 變更此設定後再部署為實際的儲存體連接。
 
 設定儲存體帳戶連接字串：
 
-1. 在 Visual Studio 中，開啟 [Cloud Explorer]，展開 [儲存體帳戶] > 「您的儲存體帳戶」，然後選取 [屬性] 並複製 [主要連接字串] 值。
+1. 在 Visual Studio 中，開啟 [Cloud Explorer]  ，展開 [儲存體帳戶]   > 「您的儲存體帳戶」  ，然後選取 [屬性]  並複製 [主要連接字串]  值。
 
 2. 在您的專案中，開啟 local.settings.json 檔案並將 **AzureWebJobsStorage** 機碼的值設定為您所複製的連接字串。
 
-3. 重複上一步，針對函數所需的其他任何連接，將唯一機碼新增至 [值] 陣列。
+3. 重複上一步，針對函數所需的其他任何連接，將唯一機碼新增至 [值]  陣列。
 
 ## <a name="add-a-function-to-your-project"></a>將函式新增至您的專案
 
 在預先編譯的函數中，函數所使用的繫結是透過在程式碼中套用屬性來定義的。 當您使用 Azure Functions Tools 從提供的範本建立函數時，會為您套用這些屬性。 
 
-1. 在 [方案總管] 中，於專案節點上按一下滑鼠右鍵，然後選取 [新增]  > [新項目]。 選取 [Azure 函數]，輸入類別的 [名稱]，然後按一下 [新增]。
+1. 在 [方案總管]  中，於專案節點上按一下滑鼠右鍵，然後選取 [新增]   > [新項目]  。 選取 [Azure 函數]  ，輸入類別的 [名稱]  ，然後按一下 [新增]  。
 
-2. 選擇您的觸發程序，設定繫結屬性，然後按一下 [建立]。 下列範例顯示建立佇列儲存體觸發之函數時的設定。 
+2. 選擇您的觸發程序，設定繫結屬性，然後按一下 [建立]  。 下列範例顯示建立佇列儲存體觸發之函數時的設定。 
 
     ![建立由佇列觸發的函式](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
     這個觸發程序範例會使用連接字串，具有名為 **QueueStorage** 的索引鍵。 此連接字串設定必須在 [local.settings.json 檔案](functions-run-local.md#local-settings-file)中定義。
 
-3. 檢查新加入的類別。 您會看到靜態 [執行] 方法，它是使用 **FunctionName** 屬性來屬性化。 這個屬性指出該方法是函數的進入點。
+3. 檢查新加入的類別。 您會看到靜態 [執行]  方法，它是使用 **FunctionName** 屬性來屬性化。 這個屬性指出該方法是函數的進入點。
 
     例如，下列 C# 類別代表基本佇列儲存體觸發的函數：
 
@@ -185,6 +185,10 @@ For an example of how to test a queue triggered function, see the [queue trigger
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
+### <a name="deployment-technology"></a>部署技術
+
+當從 Visual Studio 發佈，這兩項技術的其中一個用來執行部署：[Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy)並[Zip Deploy 執行-從-套件啟用 （建議選項）](functions-deployment-technologies.md#zip-deploy)。
+
 ## <a name="function-app-settings"></a>函數應用程式設定
 
 您在 local.settings.json 中所新增的所有設定，也必須新增至 Azure 中的函式應用程式。 當您發行專案時，不會自動上傳這些設定。
@@ -193,11 +197,11 @@ For an example of how to test a queue triggered function, see the [queue trigger
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings.png)
 
-這會顯示函式應用程式的 [應用程式設定] 對話方塊，您可以在其中新增新的應用程式設定或修改現有的設定。
+這會顯示函式應用程式的 [應用程式設定]  對話方塊，您可以在其中新增新的應用程式設定或修改現有的設定。
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
-[本機] 代表 local.settings.json 檔案中的一個設定值，而 [遠端] 是 Azure 的函式應用程式中的目前設定。  選擇 [新增設定] 來建立新的應用程式設定。 使用 [從本機插入值] 連結，將設定值複製到 [遠端] 欄位。 當您選取 [確定] 時，暫止的變更會寫入至本機設定檔案和函式應用程式。
+[本機]  代表 local.settings.json 檔案中的一個設定值，而 [遠端]  是 Azure 的函式應用程式中的目前設定。  選擇 [新增設定]  來建立新的應用程式設定。 使用 [從本機插入值]  連結，將設定值複製到 [遠端]  欄位。 當您選取 [確定]  時，暫止的變更會寫入至本機設定檔案和函式應用程式。
 
 您也可以使用下列其中一種方式管理應用程式設定：
 

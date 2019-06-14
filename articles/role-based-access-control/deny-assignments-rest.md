@@ -16,10 +16,10 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 59bcf2b33d203ae216b4965b963a727a6b34ae72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60194662"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>使用 REST API 列出 Azure 資源的拒絕指派
@@ -45,7 +45,7 @@ ms.locfileid: "60194662"
 
 1. 在 URI 中，將 *{scope}* 取代為您想要列出拒絕指派的範圍。
 
-    | 影響範圍 | 類型 |
+    | `Scope` | 類型 |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
@@ -69,7 +69,7 @@ ms.locfileid: "60194662"
 
 1. 在 URI 中，將 *{scope}* 取代為您想要列出拒絕指派的範圍。
 
-    | 影響範圍 | 類型 |
+    | `Scope` | 類型 |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |

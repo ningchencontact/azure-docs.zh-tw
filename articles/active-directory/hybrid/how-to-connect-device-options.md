@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8f397401581cc1bc947f1b19ce248c17fba26f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245642"
 ---
 # <a name="azure-ad-connect-device-options"></a>Azure AD Connect：裝置選項
@@ -31,10 +31,10 @@ ms.locfileid: "60245642"
 
 ## <a name="configure-device-options-in-azure-ad-connect"></a>設定 Azure AD Connect 中的裝置選項
 
-1.  執行 Azure AD Connect。 在 [其他工作] 頁面中，選取 [設定裝置選項]。  单击“下一步”。
+1.  執行 Azure AD Connect。 在 [其他工作]  頁面中，選取 [設定裝置選項]  。  单击“下一步”  。
     ![設定裝置選項](./media/how-to-connect-device-options/deviceoptions.png) 
 
-    [概觀] 頁面顯示詳細資料。
+    [概觀]  頁面顯示詳細資料。
     ![概觀](./media/how-to-connect-device-options/deviceoverview.png)
 
     >[!NOTE]

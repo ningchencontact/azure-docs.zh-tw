@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 11/13/2018
 ms.author: v-jamebr
 ms.openlocfilehash: 7f1b6f955dd3f59f6c17403b536cf99d666aab08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60392949"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>安裝及設定 Azure Service Fabric 中的反向 Proxy
@@ -30,10 +30,10 @@ Azure 入口網站提供選項，以在您建立新的 Service Fabric 叢集時�
 
 若要在[使用 Azure 入口網站建立叢集](./service-fabric-cluster-creation-via-portal.md)時設定反向 Proxy，請確定您執行下列動作：
 
-1. 在**步驟 2：叢集設定** 中的 [節點類型設定] 下，選取 [啟用反向 Proxy]。
+1. 在**步驟 2：叢集設定** 中的 [節點類型設定]  下，選取 [啟用反向 Proxy]  。
 
    ![在入口網站上啟用反向 Proxy](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. (選擇性) 若要設定安全反向 Proxy，需要設定 SSL 憑證。 在**步驟 3：安全性** 中的 [設定叢集安全性設定] 上，選取 [組態類型] 下的 [自訂]。 然後，在 [反向 Proxy SSL 憑證] 下，選取 [包含反向 Proxy 的 SSL 憑證] 並輸入您的憑證詳細資料。
+2. (選擇性) 若要設定安全反向 Proxy，需要設定 SSL 憑證。 在**步驟 3：安全性** 中的 [設定叢集安全性設定]  上，選取 [組態類型]  下的 [自訂]  。 然後，在 [反向 Proxy SSL 憑證]  下，選取 [包含反向 Proxy 的 SSL 憑證]  並輸入您的憑證詳細資料。
 
    ![在入口網站上設定安全反向 Proxy](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
@@ -253,10 +253,10 @@ Azure 入口網站提供選項，以在您建立新的 Service Fabric 叢集時�
 ### <a name="expose-the-reverse-proxy-using-azure-portal"></a>使用 Azure 入口網站公開反向 Proxy 
 
 1. 在 Azure 入口網站上，按一下叢集的資源群組，然後按一下叢集的負載平衡器。
-2. 若要為反向 Proxy 連接埠新增健全狀況探查，請在 [負載平衡器] 視窗的左窗格中，於 [設定] 下，按一下 [健全狀況探查]。 然後，按一下 [健全狀況探查] 視窗頂端的 [新增] 並輸入反向 Proxy 連接埠的詳細資料，然後按一下 [確定]。 根據預設，反向 Proxy 連接埠是 19081，除非您在建立叢集時變更它。
+2. 若要為反向 Proxy 連接埠新增健全狀況探查，請在 [負載平衡器] 視窗的左窗格中，於 [設定]  下，按一下 [健全狀況探查]  。 然後，按一下 [健全狀況探查] 視窗頂端的 [新增]  並輸入反向 Proxy 連接埠的詳細資料，然後按一下 [確定]  。 根據預設，反向 Proxy 連接埠是 19081，除非您在建立叢集時變更它。
 
    ![設定反向 Proxy 健全狀況探查](./media/service-fabric-reverseproxy-setup/lb-rp-probe.png)
-3. 若要新增負載平衡器規則以公開反向 Proxy 連接埠，請在 [負載均衡器] 視窗的左窗格中，於 [設定] 下按一下 [負載平衡規則]。 然後，按一下 [負載平衡規則] 視窗頂端的 [新增] 並輸入反向 Proxy 連接埠的詳細資料。 請確定您將 [連接埠] 值設定為您想要公開反向 Proxy 的連接埠，[後端連接埠] 值設定為啟用反向 Proxy 時設定的連接埠，以及 [健全狀況探查] 值設定為您在上一個步驟中設定的健全狀況探查。 根據需要設定其他欄位，然後按一下 [確定]。
+3. 若要新增負載平衡器規則以公開反向 Proxy 連接埠，請在 [負載均衡器] 視窗的左窗格中，於 [設定]  下按一下 [負載平衡規則]  。 然後，按一下 [負載平衡規則] 視窗頂端的 [新增]  並輸入反向 Proxy 連接埠的詳細資料。 請確定您將 [連接埠]  值設定為您想要公開反向 Proxy 的連接埠，[後端連接埠]  值設定為啟用反向 Proxy 時設定的連接埠，以及 [健全狀況探查]  值設定為您在上一個步驟中設定的健全狀況探查。 根據需要設定其他欄位，然後按一下 [確定]  。
 
    ![設定反向 Proxy 的負載平衡器規則](./media/service-fabric-reverseproxy-setup/lb-rp-rule.png)
 

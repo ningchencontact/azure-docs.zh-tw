@@ -4,22 +4,22 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 94f662cea5f20485659a7b93549b758fdd7770f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25e67a5a6c3abebbac2e0489ff636ca1457b62ea
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476265"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66807724"
 ---
 當您不再需要某個連結至虛擬機器 (VM) 的資料磁碟時，可以輕鬆將它中斷連結。 當您從 VM 中斷連結磁碟時，磁碟不會從儲存體中移除。 如果您想要再次使用磁碟上現有的資料，您可以將磁碟重新連結至相同 VM 或其他 VM。  
 
 > [!NOTE]
 > Azure 中的 VM 使用不同類型的磁碟 - 作業系統磁碟、本機暫存磁碟，以及選擇性的資料磁碟。 如需詳細資訊，請參閱[有關虛擬機器的磁碟和 VHD](../articles/virtual-machines/linux/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 您無法將作業系統磁碟中斷連結，除非您同時刪除 VM。
 
-## <a name="find-the-disk"></a>找到磁盘
+## <a name="find-the-disk"></a>尋找磁碟
 您必須先找出 LUN 編號 (要中斷連結之磁碟的識別碼)，才能將磁碟與 VM 中斷連結。 若要這樣做，請遵循下列步驟：
 
-1. 開啟 Azure CLI 並 [連接至您的 Azure 訂用帳戶](/cli/azure/authenticate-azure-cli)。 確定處於 Azure 服務管理模式 (`azure config mode asm`)。
+1. 開啟 Azure CLI 和[連接到您的 Azure 訂用帳戶](/cli/azure/authenticate-azure-cli)。 確定處於 Azure 服務管理模式 (`azure config mode asm`)。
 2. 找出哪些磁碟已連結至您的 VM。 下列範例會列出名為 `myVM` 的 VM 的磁碟：
 
     ```azurecli
@@ -44,7 +44,7 @@ ms.locfileid: "61476265"
 ## <a name="remove-operating-system-references-to-the-disk"></a>移除磁碟的作業系統參考
 在從 Linux 客體中斷連結磁碟之前，您應該先確定磁碟上的所有磁碟分割都不在使用中。 請確定作業系統沒有在重新開機之後嘗試重新掛接它們。 下列步驟可復原您在[附加](../articles/virtual-machines/linux/classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)磁碟時可能建立的組態。
 
-1. 使用 `lsscsi` 命令來找出磁碟識別碼。 您可透過 `yum install lsscsi` (Red Hat 式散發) 或 `apt-get install lsscsi`(Debian 式散發) 來安裝 `lsscsi`。 您可以使用 LUN 編號找到要尋找的磁碟識別碼。 每一行的元组中的最后一个数字就是 LUN。 在下列範例從 `lsscsi`，LUN 0 對應至 /dev/sdc
+1. 使用 `lsscsi` 命令來找出磁碟識別碼。 您可透過 `yum install lsscsi` (Red Hat 式散發) 或 `apt-get install lsscsi`(Debian 式散發) 來安裝 `lsscsi`。 您可以使用 LUN 編號找到要尋找的磁碟識別碼。 在每個資料列的 Tuple 中，最後一個數字即為 LUN。 在下列範例從 `lsscsi`，LUN 0 對應至 /dev/sdc 
 
     ```bash
     [1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
@@ -67,7 +67,7 @@ ms.locfileid: "61476265"
     /dev/sdc1            2048  2145386495  1072692224   83  Linux
     ```
 
-3. 卸载磁盘列出的每个分区。 下列範例會卸載 `/dev/sdc1`：
+3. 取消掛接每個列出的磁碟分割區。 下列範例會卸載 `/dev/sdc1`：
 
     ```bash
     sudo umount /dev/sdc1

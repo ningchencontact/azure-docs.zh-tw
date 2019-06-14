@@ -2,14 +2,14 @@
 author: dlepow
 ms.service: container-service
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 06/05/2019
 ms.author: danlep
-ms.openlocfilehash: 48deeec7a2c8767ab5dbb81b622e6d40483ed455
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fb6dec606169eb0bf2bfbeff042700cff441560b
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202818"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808917"
 ---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>從遠端連線至 Kubernetes、DC/OS，或 Docker Swarm 叢集
 建立 Azure Container Service 叢集之後，您需要連接到叢集，才能部署和管理工作負載。 本文說明如何從遠端電腦連接到叢集的主要 VM。 
@@ -32,7 +32,7 @@ Kubernetes、DC/OS 和 Docker Swarm 叢集都會在本機提供 HTTP 端點。 �
 > 
 
 ### <a name="install-kubectl"></a>安裝 kubectl
-若要安裝此工具的一個方式是使用`az acs kubernetes install-cli`Azure CLI 命令。 若要執行此命令，請確定您[安裝](/cli/azure/install-az-cli2)最新版的 Azure CLI 並登入 Azure 帳戶 (`az login`)。
+若要安裝此工具的一個方式是使用`az acs kubernetes install-cli`Azure CLI 命令。 若要執行此命令中，[安裝 Azure CLI](/cli/azure/install-azure-cli)並登入 Azure 帳戶與`az login`。
 
 ```azurecli
 # Linux or macOS
@@ -53,7 +53,7 @@ az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --na
 
 此命令會將叢集認證下載到 `$HOME/.kube/config`，這是 `kubectl` 預期會找到它的位置。
 
-或者，您可以使用 `scp` 以安全地將檔案從主要 VM 上的 `$HOME/.kube/config` 複製到您的本機電腦。 例如︰
+或者，您可以使用 `scp` 以安全地將檔案從主要 VM 上的 `$HOME/.kube/config` 複製到您的本機電腦。 例如:
 
 ```bash
 mkdir $HOME/.kube
@@ -78,7 +78,7 @@ kubectl proxy
 
 Kubernetes UI 現在已可供使用：`http://localhost:8001/ui`。
 
-如需詳細資訊，請參閱 [Kubernetes 快速入門](http://kubernetes.io/docs/user-guide/quick-start/)。
+如需詳細資訊，請參閱 < [Kubernetes 快速入門](http://kubernetes.io/docs/user-guide/quick-start/)。
 
 ## <a name="connect-to-a-dcos-or-swarm-cluster"></a>連接到 DC/OS 或 Swarm 叢集
 
@@ -94,7 +94,7 @@ Kubernetes UI 現在已可供使用：`http://localhost:8001/ui`。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至包含您的容器服務叢集的資源群組。 展開資源群組，以便顯示每個資源。 
 
-2. 按一下 [容器服務] 資源，然後按一下 [概觀]。 叢集的**主要 FQDN** 會出現在**基本資訊**下方。 儲存這個名稱供稍後使用。 
+2. 按一下 [容器服務]  資源，然後按一下 [概觀]  。 叢集的**主要 FQDN** 會出現在**基本資訊**下方。 儲存這個名稱供稍後使用。 
 
     ![公用 DNS 名稱](./media/container-service-connect/pubdns.png)
 
@@ -158,7 +158,7 @@ ssh -fNL 2375:localhost:2375 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudapp
 export DOCKER_HOST=:2375
 ```
 
-執行可透過通道連至 Docker Swarm 叢集的 Docker 命令。 例如︰
+執行可透過通道連至 Docker Swarm 叢集的 Docker 命令。 例如:
 
 ```bash
 docker info
@@ -171,15 +171,15 @@ docker info
 
 2. 執行應用程式。
 
-3. 輸入叢集中第一個主機的主機名稱，由叢集系統管理員使用者名稱和公用 DNS 名稱所組成。 [主機名稱] 看起來類似 `azureuser@PublicDNSName`。 輸入 2200 作為 [連接埠] 。
+3. 輸入叢集中第一個主機的主機名稱，由叢集系統管理員使用者名稱和公用 DNS 名稱所組成。 [主機名稱]  看起來類似 `azureuser@PublicDNSName`。 輸入 2200 作為 [連接埠]  。
 
     ![PuTTY 組態 1](./media/container-service-connect/putty1.png)
 
-4. 選取 [SSH] > [Auth]。新增私密金鑰檔 (.ppk 格式) 的路徑以供驗證。 您可以使用 [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 等工具，從用來建立叢集的 SSH 金鑰產生此檔案。
+4. 選取 [SSH] > [Auth]  。新增私密金鑰檔 (.ppk 格式) 的路徑以供驗證。 您可以使用 [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 等工具，從用來建立叢集的 SSH 金鑰產生此檔案。
 
     ![PuTTY 組態 2](./media/container-service-connect/putty2.png)
 
-5. 選取 [SSH] > [通道] 並設定下列已轉送的連接埠︰
+5. 選取 [SSH] > [通道]  並設定下列已轉送的連接埠︰
 
    * **來源連接埠：** 使用 DC/OS 或 2375年 80，swarm。
    * **目的地：** 請使用 DC/OS 或 localhost:2375 localhost:80 swarm。
@@ -192,9 +192,9 @@ docker info
 
      ![PuTTY 組態 3](./media/container-service-connect/putty3.png)
 
-6. 完成時，按一下 [工作階段] > [儲存] 以儲存連線組態。
+6. 完成時，按一下 [工作階段] > [儲存]  以儲存連線組態。
 
-7. 若要連接到 PuTTY 工作階段，請按一下 [開啟]。 連接時，可以在 PuTTY 事件記錄檔中看到連接埠設定。
+7. 若要連接到 PuTTY 工作階段，請按一下 [開啟]  。 連接時，可以在 PuTTY 事件記錄檔中看到連接埠設定。
 
     ![PuTTY 事件記錄檔](./media/container-service-connect/putty4.png)
 

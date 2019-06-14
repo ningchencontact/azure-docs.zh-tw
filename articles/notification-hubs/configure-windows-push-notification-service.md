@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: jowargo
 ms.openlocfilehash: c3e3f1e7df5c90c690756375ff1e1b0350c72714
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240272"
 ---
 # <a name="configure-windows-push-notification-service-wns-settings-for-a-notification-hub-in-the-azure-portal"></a>在 Azure 入口網站中設定通知中樞的 Windows 推播通知服務 (WNS) 設定
@@ -28,7 +28,7 @@ ms.locfileid: "60240272"
 下列程序可讓您設定 Windows 推播通知服務 (WNS) 通知中樞的步驟： 
 
 1. 在 Azure 入口網站中，在**通知中樞**頁面上，選取**Windows (WNS)** 左側功能表上。
-2. 輸入 [套件 SID] 和 [安全性金鑰] 的值。
+2. 輸入 [套件 SID]  和 [安全性金鑰]  的值。
 3. 選取 [ **儲存**]。
 
    ![顯示套件 SID 和安全性金鑰方塊的螢幕擷取畫面](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)

@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: 92ff5d21fc30d8fcafe97a2b452ff157a2cd5f86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502212"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>資料科學虛擬機器資料擷取工具
@@ -34,7 +34,7 @@ ms.locfileid: "60502212"
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 將資料從 Azure 儲存體 Blob 複製到 Azure Data Lake Store 的工具。 它也可以在兩個 Azure Data Lake Store 帳戶之間複製資料。      |
-| 支援的 DSVM 版本      |  Windows      |
+| 支援的 DSVM 版本      | Windows      |
 | 典型的使用案例      | 從 Azure 儲存體將多個 Blob 複製到 Azure Data Lake Store。      |
 |  如何使用/執行它？    |   開啟命令提示字元，然後輸入 `adlcopy` 取得說明。    |
 | 範例的連結      | [使用 AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
@@ -57,7 +57,7 @@ ms.locfileid: "60502212"
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 將資料複製到本機檔案、Azure 儲存體 Blob、檔案和資料表或從本機檔案、Azure 儲存體 Blob、檔案和資料表複製資料的工具。      |
-| 支援的 DSVM 版本      |  Windows      |
+| 支援的 DSVM 版本      | Windows      |
 | 典型的使用案例      | 將檔案複製到 Blob 儲存體、在帳戶之間複製 Blob。      |
 |  如何使用/執行它？    |   開啟命令提示字元，然後輸入 `azcopy` 取得說明。    |
 | 範例的連結      | [AzCopy on Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
@@ -69,7 +69,7 @@ ms.locfileid: "60502212"
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 從各種來源 (包括 JSON 檔案、CSV 檔案、SQL、MongoDB、Azure 資料表儲存體、Amazon DynamoDB 及 Azure Cosmos DB SQL API 集合) 將資料匯入至 Azure Cosmos DB 的工具。      |
-| 支援的 DSVM 版本      |  Windows      |
+| 支援的 DSVM 版本      | Windows      |
 | 典型的使用案例      | 從 VM 將檔案匯入至 CosmosDB、從 Azure 資料表儲存體將資料匯入至 CosmosDB，或從 SQL Server 資料庫將資料匯入至 CosmosDB。     |
 |  如何使用/執行它？    |   若要使用命令列版本，請開啟命令提示字元，然後輸入 `dt`。 若要使用 GUI 工具，請開啟命令提示字元，然後輸入 `dtui`。    |
 | 範例的連結      | [CosmosDB 匯入資料](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
@@ -81,7 +81,7 @@ ms.locfileid: "60502212"
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 在 SQL Server 和資料檔案之間複製資料的 SQL Server 工具。      |
-| 支援的 DSVM 版本      |  Windows      |
+| 支援的 DSVM 版本      | Windows      |
 | 典型的使用案例      | 將 CSV 檔案匯入至 SQL Server 資料表、將 SQL Server 資料表匯出至檔案。      |
 |  如何使用/執行它？    |   開啟命令提示字元，然後輸入 `bcp` 取得說明。    |
 | 範例的連結      | [大量複製公用程式](https://docs.microsoft.com/sql/tools/bcp-utility)      |
@@ -92,7 +92,7 @@ ms.locfileid: "60502212"
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 在 Linux 檔案系統中掛接 Azure Blob 容器的工具。      |
-| 支援的 DSVM 版本      |  Linux      |
+| 支援的 DSVM 版本      | Linux      |
 | 典型的使用案例      | 讀取和寫入容器中的 Blob      |
 |  如何使用/執行它？    |   在終端機執行 _blobfuse_。    |
 | 範例的連結      | [GitHub 上的 blobfuse](https://github.com/Azure/azure-storage-fuse)      |
@@ -104,7 +104,7 @@ ms.locfileid: "60502212"
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 將內部部署資料來源連線至雲端服務進行取用的工具。      |
-| 支援的 DSVM 版本      |  Windows      |
+| 支援的 DSVM 版本      | Windows      |
 | 典型的使用案例      | 將 VM 連線至內部部署資料來源。      |
 |  如何使用/執行它？    |   從 [開始] 功能表中啟動「Microsoft 資料管理閘道器」。    |
 | 範例的連結      | [資料管理閘道](https://msdn.microsoft.com/library/dn879362.aspx)      |

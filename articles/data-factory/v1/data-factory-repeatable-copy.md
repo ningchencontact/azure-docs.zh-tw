@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 20c916275acd6bb79675c592711b17b277c9fc78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60605204"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Azure Data Factory 中的可重複複製
@@ -111,7 +111,7 @@ ID    Product        Quantity    ModifiedDate
 
 Azure Data Factory 會基於可重複性目的使用此資料行，且在過程中 Azure Data Factory 不會對資料表進行任何結構描述變更。 如何使用這個方法：
 
-1. 在目的地 SQL 資料表中定義一個「二進位 (32)」類型的資料行。 此資料行不應該有任何條件約束。 讓我們針對此範例將這個資料行命名為 AdfSliceIdentifier。
+1. 在目的地 SQL 資料表中定義一個「二進位 (32)」  類型的資料行。 此資料行不應該有任何條件約束。 讓我們針對此範例將這個資料行命名為 AdfSliceIdentifier。
 
 
     來源資料表：

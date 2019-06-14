@@ -16,10 +16,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abed56ee64cbca8646c1aa1d24fea292aa4d8de3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245314"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>使用 Azure AD Connect Health 監視 Azure AD Connect 同步處理
@@ -28,7 +28,7 @@ ms.locfileid: "60245314"
 ![適用於同步處理的 Azure AD Connect Health](./media/how-to-connect-health-sync/syncsnapshot.png)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-sync"></a>適用於同步處理的 Azure AD Connect Health 警示
-＜適用於同步處理的 Azure AD Connect Health 警示＞小節將為您提供作用中警示的清單。 每個警示都包含相關資訊、解決步驟，以及相關文件的連結。 選取作用中或已解決的警示，您將會看到一個包含額外資訊的新刀鋒視窗，以及解決警示可以採取的步驟，和其他文件的連結。 还可以查看过去已解决警报的相关历史数据。
+＜適用於同步處理的 Azure AD Connect Health 警示＞小節將為您提供作用中警示的清單。 每個警示都包含相關資訊、解決步驟，以及相關文件的連結。 選取作用中或已解決的警示，您將會看到一個包含額外資訊的新刀鋒視窗，以及解決警示可以採取的步驟，和其他文件的連結。 您也可以檢視過去已解決的警示的歷史資料。
 
 選取警示，將會為您提供其他資訊，以及解決警示可以採取的步驟，和其他文件的連結。
 
@@ -80,7 +80,7 @@ ms.locfileid: "60245314"
 ### <a name="categorization-of-errors"></a>錯誤分類
 此報告將現有的同步處理錯誤分成下列類別︰
 
-| 類別 | 描述 |
+| Category | 描述 |
 | --- | --- |
 | 重複的屬性 |當 Azure AD Connect 嘗試在 Azure AD 中以一或多個重複的屬性值建立或更新物件時發生錯誤，這些屬性在租用戶中必須是唯一的，例如 proxyAddresses、UserPrincipalName。 |
 | 資料不符 |當大致相符無法比對物件時發生錯誤，導致同步處理錯誤。 |
@@ -100,8 +100,8 @@ ms.locfileid: "60245314"
 每個錯誤的詳細檢視中提供下列資料
 
 * 已醒目提示衝突的屬性
-* 所涉及之「AD 物件」的識別項
-* 所涉及之「Azure AD 物件」的識別項 (視情況)
+* 所涉及之「AD 物件」  的識別項
+* 所涉及之「Azure AD 物件」  的識別項 (視情況)
 * 錯誤描述及如何修正
 
 ![同步處理錯誤報告詳細資料](./media/how-to-connect-health-sync/duplicateAttributeSyncError.png)

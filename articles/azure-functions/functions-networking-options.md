@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f13e498859986d5ee697cbd67907fd344147ed0c
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: a0bb34f8a43199a5d3a18064bce92ef4bec543af
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66492844"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050638"
 ---
 # <a name="azure-functions-networking-options"></a>Azure 網路功能選項的函式
 
@@ -25,13 +25,13 @@ ms.locfileid: "66492844"
 
 * 還有一組的多租用戶的基礎結構，以各種層級的虛擬網路連線和延展選項執行的計劃選項：
     * [耗用量計劃](functions-scale.md#consumption-plan)，這會動態調整，以回應負載，並提供基本的網路隔離選項。
-    * [進階方案](functions-scale.md#premium-plan-public-preview)，這也會調整，以動態方式同時提供更完整的網路隔離。
+    * [進階方案](functions-scale.md#premium-plan)，這也會調整，以動態方式同時提供更完整的網路隔離。
     * Azure [App Service 方案](functions-scale.md#app-service-plan)，這是固定的小數位數在運作，並提供類似的網路隔離，以 「 進階 」 方案。
 * 您可以在執行函式[App Service Environment](../app-service/environment/intro.md)。 這個方法會將您的函式部署到您的虛擬網路，並提供完整的網路控制和隔離。
 
 ## <a name="matrix-of-networking-features"></a>網路功能矩陣
 
-|                |[取用方案](functions-scale.md#consumption-plan)|[進階方案 （預覽）](functions-scale.md#premium-plan-public-preview)|[App Service 計劃](functions-scale.md#app-service-plan)|[App Service 環境](../app-service/environment/intro.md)|
+|                |[取用方案](functions-scale.md#consumption-plan)|[進階方案 （預覽）](functions-scale.md#premium-plan)|[App Service 計劃](functions-scale.md#app-service-plan)|[App Service 環境](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[輸入的 IP 限制](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[輸出 IP 限制](#private-site-access)|❌No| ❌No|❌No|✅Yes|
@@ -92,7 +92,7 @@ ms.locfileid: "66492844"
 ## <a name="private-site-access"></a>私人網站存取
 
 私人網站存取是指讓您的應用程式只能從私人網路這類來自 Azure 的虛擬網路內存取。 
-* 私人網站存取是適用於 Premium 和 App Service 方案**服務端點**設定。如需詳細資訊，請參閱[虛擬網路服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)
+* 私人網站存取是適用於 Premium 和 App Service 方案**服務端點**設定。 如需詳細資訊，請參閱[虛擬網路服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)
     * 請記住，透過服務端點，您的函式仍有完整的對外存取網際網路，即使使用 VNET 整合設定。
 * 私人網站存取可僅與使用內部負載平衡器 (ILB) 設定 App Service Environment。 如需詳細資訊，請參閱 <<c0> [ 建立及使用內部負載平衡與 App Service Environment](../app-service/environment/create-ilb-ase.md)。
 

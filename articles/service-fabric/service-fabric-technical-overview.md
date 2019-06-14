@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/17/2018
 ms.author: masnider
 ms.openlocfilehash: 085d5e560eec090ab76c263f8f93140786f2d734
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60543201"
 ---
 # <a name="service-fabric-terminology-overview"></a>Service Fabric 術語概觀
@@ -27,7 +27,7 @@ Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署�
 ## <a name="infrastructure-concepts"></a>基礎結構概念
 **叢集**：由虛擬或實體機器透過網路連線所組成的集合，您會在其中部署及管理您的微服務。  叢集可擴充至數千部機器。
 
-**節點**：屬於叢集之一部分的電腦或 VM 都稱為「節點」。 需為每個節點指派節點名稱 (字串)。 節點具有各種特性，如 placement 屬性。 每個電腦或 VM 皆有自動啟動的 Windows 服務 `FabricHost.exe`，該服務會在開機時開始執行，然後啟動兩個執行檔：`Fabric.exe` 和 `FabricGateway.exe`。 這兩個執行檔構成節點。 在測試案例中，您可以藉由執行 `Fabric.exe` 和 `FabricGateway.exe` 的多個執行個體，在單一電腦或 VM 上裝載多個節點。
+**節點**：屬於叢集之一部分的電腦或 VM 都稱為「節點」  。 需為每個節點指派節點名稱 (字串)。 節點具有各種特性，如 placement 屬性。 每個電腦或 VM 皆有自動啟動的 Windows 服務 `FabricHost.exe`，該服務會在開機時開始執行，然後啟動兩個執行檔：`Fabric.exe` 和 `FabricGateway.exe`。 這兩個執行檔構成節點。 在測試案例中，您可以藉由執行 `Fabric.exe` 和 `FabricGateway.exe` 的多個執行個體，在單一電腦或 VM 上裝載多個節點。
 
 ## <a name="application-and-service-concepts"></a>應用程式和服務概念
 
@@ -178,7 +178,7 @@ Service Fabric 是一項開放原始碼平台技術，有數個不同的服務�
 若要深入了解 Service Fabric：
 
 * [Service Fabric 概觀](service-fabric-overview.md)
-* [为什么要使用微服务方法构建应用程序？](service-fabric-overview-microservices.md)
+* [為何要用微服務方式建置應用程式？](service-fabric-overview-microservices.md)
 * [應用程式案例](service-fabric-application-scenarios.md)
 
 若要深入了解 Service Fabric Mesh：

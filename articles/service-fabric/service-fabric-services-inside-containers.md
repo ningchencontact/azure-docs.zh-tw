@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: aljo, anmola
-ms.openlocfilehash: 147607bbea65199ff97459711ad6301a4ae93aa4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: caed77234646654d151b64d2c80b7231342f6d8c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837516"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050469"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>將 Windows 上的 Service Fabric Reliable Services 和 Reliable Actors 容器化
 
@@ -55,7 +55,7 @@ Service Fabric 支援將 Service Fabric 微服務 (Reliable Services 和 Reliabl
           {
    ```
 
-4. 建置和[封裝](service-fabric-package-apps.md#Package-App)您的專案。 若要建置和建立套件，請以滑鼠右鍵按一下方案總管中的應用程式專案，然後選擇 [封裝] 命令。
+4. 建置和[封裝](service-fabric-package-apps.md#Package-App)您的專案。 若要建置和建立套件，請以滑鼠右鍵按一下方案總管中的應用程式專案，然後選擇 [封裝]  命令。
 
 5. 針對每個需要容器化的程式碼套件，執行 PowerShell 指令碼 [CreateDockerPackage.ps1](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/scripts/CodePackageToDockerPackage/CreateDockerPackage.ps1)。 使用方式如下：
 
@@ -119,6 +119,16 @@ Service Fabric 支援將 Service Fabric 微服務 (Reliable Services 和 Reliabl
    </ContainerHostPolicies>
    </Policies>
    ```
+
+> [!NOTE] 
+> 根據預設，Service Fabric 應用程式可以存取 Service Fabric 執行階段，以接受特定應用程式要求的端點的形式。 請考慮將應用程式裝載未受信任的程式碼時，停用此存取權。 如需詳細資訊，請參閱[Service Fabric 中的安全性最佳作法](service-fabric-best-practices-security.md#platform-isolation)。 停用的 Service Fabric 執行階段存取，請對應至匯入的服務資訊清單，如下所示的應用程式資訊清單的 [原則] 區段中新增下列設定：
+>
+```xml
+  <Policies>
+      <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+  </Policies>
+```
+>
 
 10. 若要測試此應用程式，您必須將它部署至執行 5.7 版或更高版本的叢集。 若為執行階段 6.1 版或更低版本，您還需要編輯和更新叢集設定，以啟用此預覽功能。 請遵循這篇[文章](service-fabric-cluster-fabric-settings.md)中的步驟，以新增接下來顯示的設定。
     ```

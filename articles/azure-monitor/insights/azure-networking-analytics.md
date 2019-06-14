@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: bwren
-ms.openlocfilehash: 244df90a9db2a2b0d5f6ca6e1874bce94fc7f5bf
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 13908706f8dcec0eb2d1773bcef2ee622b4ebcc1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506407"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048633"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Azure 網路監視解決方案中 Azure 監視器
 
@@ -119,7 +119,7 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
 ### <a name="use-azure-application-gateway-analytics"></a>使用 Azure 應用程式閘道分析
 ![Azure 應用程式閘道分析圖格的影像](media/azure-networking-analytics/log-analytics-appgateway-tile.png)
 
-在您按一下 [概觀] 上的 [Azure 應用程式閘道分析] 圖格之後，您可以檢視記錄摘要，然後深入探索下列類別的詳細資訊：
+在您按一下 [概觀] 上的 [Azure 應用程式閘道分析]  圖格之後，您可以檢視記錄摘要，然後深入探索下列類別的詳細資訊：
 
 * 應用程式閘道存取記錄
   * 應用程式閘道存取記錄的用戶端和伺服器錯誤
@@ -134,7 +134,7 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
 
 ![Azure 應用程式閘道分析儀表板的影像](media/azure-networking-analytics/log-analytics-appgateway02.png)
 
-在 [Azure 應用程式閘道分析] 儀表板上，檢閱其中一個刀鋒視窗中的摘要資訊，然後按一下其中一個以在記錄搜尋頁面中檢視詳細資訊。
+在 [Azure 應用程式閘道分析]  儀表板上，檢閱其中一個刀鋒視窗中的摘要資訊，然後按一下其中一個以在記錄搜尋頁面中檢視詳細資訊。
 
 您可以在任何 [記錄搜尋] 頁面上，按時間、詳細結果和您的記錄搜尋記錄來檢視結果。 您也可以按 Facet 篩選以縮減結果。
 
@@ -163,17 +163,17 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
 ### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>在入口網站中啟用 Azure 網路安全性群組診斷
 
 1. 在 Azure 入口網站中，瀏覽至要監視的網路安全性群組資源
-2. 選取 [診斷記錄] 以開啟下列頁面
+2. 選取 [診斷記錄]  以開啟下列頁面
 
    ![Azure 網路安全性群組資源的影像](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
-3. 按一下 [開啟診斷] 以開啟下列頁面
+3. 按一下 [開啟診斷]  以開啟下列頁面
 
    ![Azure 網路安全性群組資源的影像](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
-4. 若要開啟診斷，請按一下 [狀態] 下的 [開啟]
-5. 按一下 [傳送到 Log Analytics] 核取方塊
+4. 若要開啟診斷，請按一下 [狀態]  下的 [開啟] 
+5. 按一下 [傳送到 Log Analytics]  核取方塊
 6. 選取現有的 Log Analytics 工作區，或建立工作區
-7. 針對每一個要收集的記錄類型，按一下 [記錄] 下的核取方塊
-8. 按一下 [儲存] 以啟用 Log Analytics 的診斷記錄
+7. 針對每一個要收集的記錄類型，按一下 [記錄]  下的核取方塊
+8. 按一下 [儲存]  以啟用 Log Analytics 的診斷記錄
 
 ### <a name="enable-azure-network-diagnostics-using-powershell"></a>使用 PowerShell 啟用 Azure 網路診斷
 
@@ -187,7 +187,7 @@ Set-AzDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -
 ```
 
 ### <a name="use-azure-network-security-group-analytics"></a>使用 Azure 網路安全性群組分析
-在您按一下 [概觀] 上的 [Azure 網路安全性群組分析] 圖格之後，您可以檢視記錄摘要，然後深入探索下列類別的詳細資訊：
+在您按一下 [概觀] 上的 [Azure 網路安全性群組分析]  圖格之後，您可以檢視記錄摘要，然後深入探索下列類別的詳細資訊：
 
 * 網路安全性群組封鎖流量
   * 網路安全性群組規則與封鎖流量
@@ -200,7 +200,7 @@ Set-AzDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -
 
 ![Azure 網路安全性群組分析儀表板的影像](media/azure-networking-analytics/log-analytics-nsg02.png)
 
-在 [Azure 網路安全性群組分析] 儀表板上，檢閱其中一個刀鋒視窗中的摘要資訊，然後按一下其中一個以在記錄搜尋頁面中檢視詳細資訊。
+在 [Azure 網路安全性群組分析]  儀表板上，檢閱其中一個刀鋒視窗中的摘要資訊，然後按一下其中一個以在記錄搜尋頁面中檢視詳細資訊。
 
 您可以在任何 [記錄搜尋] 頁面上，按時間、詳細結果和您的記錄搜尋記錄來檢視結果。 您也可以按 Facet 篩選以縮減結果。
 
@@ -221,8 +221,8 @@ Set-AzDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -
 
      | 不要使用： | 使用︰ |
      | --- | --- |
-     | NetworkApplicationgateways &#124; 其中 OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; 其中 ResourceType="APPLICATIONGATEWAYS" 且 OperationName=="ApplicationGatewayAccess" |
-     | NetworkApplicationgateways &#124; 其中 OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; 其中 ResourceType=="APPLICATIONGATEWAYS" 且 OperationName=ApplicationGatewayPerformance |
+     | NetworkApplicationgateways &#124; 其中 OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; where ResourceType=="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayAccess" |
+     | NetworkApplicationgateways &#124; 其中 OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; where ResourceType=="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayPerformance" |
      | NetworkSecuritygroups | AzureDiagnostics &#124; 其中 ResourceType=="NETWORKSECURITYGROUPS" |
 
    + 針對任何名稱尾碼有 \_s、\_d 或 \_g 的欄位，請將第一個字元變更為小寫

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c34d8de3dfd06540dd50542ab19da0c1d9b1567
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242254"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory 無縫單一登入
@@ -31,7 +31,7 @@ ms.locfileid: "60242254"
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-無縫 SSO 可以與[密碼雜湊同步處理](how-to-connect-password-hash-synchronization.md)或[傳遞驗證](how-to-connect-pta.md)登入方法合併使用。 無縫 SSO 不適用於 Active Directory 同盟服務 (ADFS)。
+無縫 SSO 可以與[密碼雜湊同步處理](how-to-connect-password-hash-synchronization.md)或[傳遞驗證](how-to-connect-pta.md)登入方法合併使用。 無縫 SSO 不適用於 Active Directory 同盟服務 (ADFS)  。
 
 ![無縫單一登入](./media/how-to-connect-sso/sso1.png)
 
@@ -40,10 +40,10 @@ ms.locfileid: "60242254"
 
 ## <a name="key-benefits"></a>主要權益
 
-- 良好的使用者體驗
+- 良好的使用者體驗 
   - 使用者會自動登入內部部署和雲端式應用程式。
   - 使用者不需要重複輸入其密碼。
-- 容易部署和管理
+- 容易部署和管理 
   - 在內部部署上不需要任何其他元件，即可進行這項工作。
   - 與任何雲端驗證方法搭配運作：[密碼雜湊同步處理](how-to-connect-password-hash-synchronization.md)或[傳遞驗證](how-to-connect-pta.md)。
   - 可以推出給使用群組原則的一部分使用者或所有使用者。
@@ -85,7 +85,7 @@ ms.locfileid: "60242254"
 - [**快速入門**](how-to-connect-sso-quick-start.md) - 開始使用 Azure AD 無縫 SSO。
 - [**部署方案**](https://aka.ms/AuthenticationDeploymentPlan) - 逐步部署方案。
 - [**技術性深入探討**](how-to-connect-sso-how-it-works.md) - 了解這項功能的運作方式。
-- [常见问题解答](how-to-connect-sso-faq.md) - 常见问题的解答。
+- [**常見問題集**](how-to-connect-sso-faq.md) - 常見問題集的答案。
 - [**疑難排解**](tshoot-connect-sso.md) - 了解如何解決此功能的常見問題。
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 用于提出新的功能请求。
+- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 用於提出新的功能要求。
 

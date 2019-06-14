@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 940a35d89996b1eb9600fe4214863d2b5304750e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242131"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect 同步：變更預設組態的最佳做法
@@ -60,7 +60,7 @@ Azure AD Connect 同步處理會使用安裝精靈所建立的服務帳戶執行
 
 在上圖中，安裝精靈已在帳戶樹系中找到舊的 Exchange 2003 結構描述。 此結構描述擴充是在 Fabrikam 的環境中引進資源樹系之前新增的。 若要確保不會同步處理任何來自舊的 Exchange 實作的屬性，就必須以所述的方式停用同步處理規則。
 
-### <a name="change-an-out-of-box-rule"></a>更改现成的规则
+### <a name="change-an-out-of-box-rule"></a>變更現成可用的規則
 只有當您需要變更聯結規則時，才應該變更內建規則。 如果您需要變更屬性流程，則您應該建立其優先順序高於內建規則的同步處理規則。 您實際上唯一需要複製的規則是 **In from AD - User Join** 規則。 您可以使用具有較高優先順序的規則來覆寫所有其他規則。
 
 如果您需要對現成可用的規則進行變更，則您應該複製該現成可用的規則，然後停用原始的規則。 接著對複製的規則進行變更。 同步處理規則編輯器會協助您完成這些步驟。 當您開啟現成可用的規則時，即會顯示此對話方塊：  

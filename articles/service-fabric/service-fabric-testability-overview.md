@@ -15,21 +15,21 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: 3581550779b2387515b4f300d211b4e0a894edc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60544804"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>錯誤分析服務簡介
 錯誤分析服務的設計目的是測試建置於 Microsoft Azure Service Fabric 上的服務。 您可以利用錯誤分析服務引發有意義的錯誤，針對應用程式執行完整的測試案例。 這些錯誤及案例會在受控制、安全且一致的情況下，執行及驗證服務在其生命週期會發生的各種狀態和轉換情形。
 
-動作是個別錯誤，可鎖定服務以進行測試。 服務開發人員可以使用這些動作當做建置組塊，來撰寫複雜的案例。 例如︰
+動作是個別錯誤，可鎖定服務以進行測試。 服務開發人員可以使用這些動作當做建置組塊，來撰寫複雜的案例。 例如:
 
 * 重新啟動節點，以模擬任意次數的機器或 VM 重新開機情況。
 * 移動您的具狀態服務複本，以模擬負載平衡、容錯移轉或應用程式升級。
 * 在具狀態服務上叫用仲裁遺失，以建立無法繼續進行寫入作業的狀況，因為可接受新資料的「備份」或「次要」複本不足。
-* 在一个有状态服务上调用数据丢失以创建一种所有内存中的状态都被完全清除的情形。
+* 在具狀態服務上叫用資料遺失，以建立所有記憶體內狀態為完全抹除的狀況。
 
 案例都是一個或多個動作組成的複雜作業。 錯誤分析服務提供兩個內建的完整案例︰
 
@@ -62,7 +62,7 @@ Service Fabric 大幅簡化了撰寫和管理分散式可擴充應用程式的�
    
     b. 如果找到節點，應該只會在節點關閉時才傳回要求。
 
-从测试角度看，为了验证故障，需要知道当引入故障时，故障实际发生的情况。 Service Fabric 提供的保證就是，當命令到達該節點時，節點會停機，或是已經停機。 在任一情況中，測試應該都能正確地推論出狀態，以及正確地推斷驗證是否成功。 在 Service Fabric 外部實作的系統如果執行一組相同的失敗，可能會發生許多網路、硬體和軟體問題，這會導致無法提供上述的保證。 如果出現前述問題，Service Fabric 會重設叢集狀態以因應問題，使錯誤分析服務仍然可以提供一組適當的保證。
+若要從測試角度確認失敗，測試必須知道在導致此失敗時，失敗確實會發生。 Service Fabric 提供的保證就是，當命令到達該節點時，節點會停機，或是已經停機。 在任一情況中，測試應該都能正確地推論出狀態，以及正確地推斷驗證是否成功。 在 Service Fabric 外部實作的系統如果執行一組相同的失敗，可能會發生許多網路、硬體和軟體問題，這會導致無法提供上述的保證。 如果出現前述問題，Service Fabric 會重設叢集狀態以因應問題，使錯誤分析服務仍然可以提供一組適當的保證。
 
 ### <a name="generating-required-events-and-scenarios"></a>產生必要的事件和案例
 雖然一致地模擬真實失敗情形並不容易著手，但可以產生相互關聯的失敗更是難上加難。 舉例來說，發生下列狀況時，具狀態的持續性服務中會遺失資料：
@@ -99,7 +99,7 @@ Service Fabric 大幅簡化了撰寫和管理分散式可擴充應用程式的�
 ## <a name="next-steps"></a>後續步驟
 為了建立真實的雲端規模調整服務，能夠在部署前後確保服務可以承受真實失敗是不可或缺的。 對現今的服務產業而言，具有快速創新以及快速將程式碼移至生產環境的能力非常重要。 錯誤分析服務正好能協助服務開發人員這麼做。
 
-使用内置[测试方案](service-fabric-testability-scenarios.md)开始测试应用程序和服务，或使用由故障分析服务提供的[故障操作](service-fabric-testability-actions.md)编写自己的测试方案。
+使用內建的[測試案例](service-fabric-testability-scenarios.md)開始測試應用程式和服務，或使用錯誤分析服務提供的[錯誤動作](service-fabric-testability-actions.md)，撰寫您自己的測試案例。
 
 <!--Image references-->
 [0]: ./media/service-fabric-testability-overview/faultanalysisservice.png

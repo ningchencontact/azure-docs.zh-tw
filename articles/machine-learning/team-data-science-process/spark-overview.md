@@ -12,10 +12,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 932587afcffcb3b1a259a02a98c648e938e99931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60256357"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>在 Azure HDInsight 上使用 Spark 的資料科學概觀
@@ -141,7 +141,7 @@ ms.locfileid: "60256357"
 | tip_class |小費類別 (0：$0、1：$0-5、2：$6-10、3：$11-20、4：> $20) |
 
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>從 Spark 叢集的 Jupyter Notebook 中執行程式碼
-您可以從 Azure 入口網站啟動 Jupyter Notebook。 在儀表板上尋找 Spark 叢集，並按一下該項目以進入您的叢集管理頁面。 若要開啟與 Spark 叢集相關聯的 Notebook，按一下 [叢集儀表板]  ->  [Jupyter Notebook]。
+您可以從 Azure 入口網站啟動 Jupyter Notebook。 在儀表板上尋找 Spark 叢集，並按一下該項目以進入您的叢集管理頁面。 若要開啟與 Spark 叢集相關聯的 Notebook，按一下 [叢集儀表板]   ->  [Jupyter Notebook]  。
 
 ![叢集儀表板](./media/spark-overview/spark-jupyter-on-portal.png)
 
@@ -151,12 +151,12 @@ ms.locfileid: "60256357"
 
 選取 [PySpark] 來查看包含一些預先封裝 Notebook 範例的目錄，這些範例使用了 PySpark API。適用於這組 Spark 主題的 Notebook (包含程式碼範例) 可在 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) 上找到。
 
-您可以將 Notebook 直接從 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) 上傳至 Spark 叢集上的 Jupyter Notebook 伺服器。 在您的 Jupyter 首頁，按一下螢幕右側的 [上傳]  按鈕。 [檔案總管] 隨即開啟。 您可以在這裡貼上 Notebook 的 GitHub (原始內容) URL，然後按一下 [開啟]。
+您可以將 Notebook 直接從 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) 上傳至 Spark 叢集上的 Jupyter Notebook 伺服器。 在您的 Jupyter 首頁，按一下螢幕右側的 [上傳]  按鈕。 [檔案總管] 隨即開啟。 您可以在這裡貼上 Notebook 的 GitHub (原始內容) URL，然後按一下 [開啟]  。
 
 您會在 Jupyter 檔案清單上看到檔案名稱，並重新出現 [上傳]  按鈕。 按一下此 [上傳]  按鈕。 現在您已匯入 Notebook。 重複這些步驟，使用此逐步解說上傳其他 Notebook。
 
 > [!TIP]
-> 您可以用滑鼠右鍵按一下瀏覽器上的下列連結，然後選取 [複製連結] 取得 GitHub 原始內容 URL。 您可以將此 URL 貼到 Jupyter 的 [上傳] 檔案總管對話方塊。
+> 您可以用滑鼠右鍵按一下瀏覽器上的下列連結，然後選取 [複製連結]  取得 GitHub 原始內容 URL。 您可以將此 URL 貼到 Jupyter 的 [上傳] 檔案總管對話方塊。
 > 
 > 
 
@@ -164,7 +164,7 @@ ms.locfileid: "60256357"
 
 * 按一下 Notebook，查看程式碼。
 * 按 **SHIFT-ENTER** 執行每個儲存格。
-* 按一下 [儲存格]  ->  [執行] 執行整個筆記本。
+* 按一下 [儲存格]   ->  [執行]  執行整個筆記本。
 * 使用查詢的自動視覺效果。
 
 > [!TIP]

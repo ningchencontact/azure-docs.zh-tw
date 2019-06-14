@@ -16,10 +16,10 @@ ms.date: 08/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cbb94c28d56b0492fe3488d7c9e2e1257a8b9388
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60624208"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-safeconnect"></a>教學課程：Azure Active Directory 與 SafeConnect 整合
@@ -60,19 +60,19 @@ SafeConnect 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 SafeConnect，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
-2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+2. 瀏覽至 [企業應用程式]  。 然後移至 [所有應用程式]  。
 
     ![企業應用程式刀鋒視窗][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **SafeConnect**，從結果面板中選取 [SafeConnect]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **SafeConnect**，從結果面板中選取 [SafeConnect]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
     ![結果清單中的 SafeConnect](./media/safeconnect-tutorial/tutorial_safeconnect_addfromgallery.png)
 
@@ -88,7 +88,7 @@ SafeConnect 與 Azure AD 整合提供下列優點：
 2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 3. **[建立 SafeConnect 測試使用者](#create-a-safeconnect-test-user)** - 在 SafeConnect 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+5. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -96,21 +96,21 @@ SafeConnect 與 Azure AD 整合提供下列優點：
 
 **若要使用 SafeConnect 設定 Azure AD 單一登入功能，請執行下列步驟：**
 
-1. 在 Azure 入口網站的 [SafeConnect] 應用程式整合頁面上，按一下 [單一登入]。
+1. 在 Azure 入口網站的 [SafeConnect]  應用程式整合頁面上，按一下 [單一登入]  。
 
     ![設定單一登入連結][4]
 
-2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+2. 在 [單一登入]  對話方塊上，於 [模式]  選取 [SAML 登入]  ，以啟用單一登入。
  
     ![單一登入對話方塊](./media/safeconnect-tutorial/tutorial_safeconnect_samlbase.png)
 
-3. 在 [SafeConnect 網域與 URL] 區段上，執行下列步驟：
+3. 在 [SafeConnect 網域與 URL]  區段上，執行下列步驟：
 
     ![SafeConnect 網域與 URL 單一登入資訊](./media/safeconnect-tutorial/tutorial_safeconnect_url.png)
 
-     在 [登入 URL] 文字方塊中，輸入 URL：`https://portal.myweblogon.com:8443/saml/login`
+     在 [登入 URL]  文字方塊中，輸入 URL：`https://portal.myweblogon.com:8443/saml/login`
 
-4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
+4. 在 [SAML 簽署憑證]  區段上，按一下 [中繼資料 XML]  ，然後將中繼資料檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/safeconnect-tutorial/tutorial_safeconnect_certificate.png) 
 
@@ -128,29 +128,29 @@ SafeConnect 與 Azure AD 整合提供下列優點：
 
 **若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
-1. 在 Azure 入口網站的左窗格中，按一下 [Azure Active Directory] 按鈕。
+1. 在 Azure 入口網站的左窗格中，按一下 [Azure Active Directory]  按鈕。
 
     ![Azure Active Directory 按鈕](./media/safeconnect-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+2. 若要顯示使用者清單，請移至 [使用者和群組]  ，然後按一下 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/safeconnect-tutorial/create_aaduser_02.png)
 
-3. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
+3. 若要開啟 [使用者]  對話方塊，按一下 [所有使用者]  對話方塊頂端的 [新增]  。
 
     ![[新增] 按鈕](./media/safeconnect-tutorial/create_aaduser_03.png)
 
-4. 在 [使用者] 對話方塊中，執行下列步驟：
+4. 在 [使用者]  對話方塊中，執行下列步驟：
 
     ![[使用者] 對話方塊](./media/safeconnect-tutorial/create_aaduser_04.png)
 
-    a. 在 [名稱] 方塊中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  方塊中，輸入 **BrittaSimon**。
 
-    b. 在 [使用者名稱] 方塊中，輸入使用者 Britta Simon 的電子郵件地址。
+    b. 在 [使用者名稱]  方塊中，輸入使用者 Britta Simon 的電子郵件地址。
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
  
 ### <a name="create-a-safeconnect-test-user"></a>建立 SafeConnect 測試使用者
 
@@ -164,27 +164,27 @@ SafeConnect 與 Azure AD 整合提供下列優點：
 
 **若要將 Britta Simon 指派到 SafeConnect，請執行以下步驟：**
 
-1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
+1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]  ，然後按一下 [所有應用程式]  。
 
     ![指派使用者][201] 
 
-2. 在應用程式清單中，選取 [SafeConnect]。
+2. 在應用程式清單中，選取 [SafeConnect]  。
 
     ![應用程式清單中的 SafeConnect 連結](./media/safeconnect-tutorial/tutorial_safeconnect_app.png)  
 
-3. 在左側功能表中，按一下 [使用者和群組]。
+3. 在左側功能表中，按一下 [使用者和群組]  。
 
     ![[使用者和群組] 連結][202]
 
-4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+4. 按一下 [新增]  按鈕。 然後選取 [新增指派]  對話方塊上的 [使用者和群組]  。
 
     ![[新增指派] 窗格][203]
 
-5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+5. 在 [使用者和群組]  對話方塊上，選取 [使用者] 清單中的 [Britta Simon]  。
 
-6. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+6. 按一下 [使用者和群組]  對話方塊上的 [選取]  按鈕。
 
-7. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+7. 按一下 [新增指派]  對話方塊上的 [指派]  按鈕。
     
 ### <a name="test-single-sign-on"></a>測試單一登入
 

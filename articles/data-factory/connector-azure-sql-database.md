@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 06/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 231f44612b5e87afdf84f31d86c80be644fb4484
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6ae1094a6e47d19af97fbbb1ce988d0756f33731
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154332"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048535"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 或從該處複製資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
+> [!div class="op_single_selector" title1="選取您所使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-azure-sql-connector.md)
 > * [目前的版本](connector-azure-sql-database.md)
 
@@ -131,15 +131,15 @@ ms.locfileid: "65154332"
 
 若要使用以服務主體為基礎的 Azure AD 應用程式權杖驗證，請遵循下列步驟：
 
-1. **[從 Azure 入口網站建立 Azure Active Directory 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**。 請記下應用程式名稱，以及下列可定義連結服務的值：
+1. **[從 Azure 入口網站建立 Azure Active Directory 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** 。 請記下應用程式名稱，以及下列可定義連結服務的值：
 
     - 應用程式識別碼
     - 應用程式金鑰
     - 租用戶識別碼
 
-2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL 伺服器**[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**。 Azure AD 系統管理員必須是 Azure AD 使用者或 Azure AD 群組，但不能是服務主體。 此步驟必須完成，如此您才可以在下一個步驟中使用 Azure AD 身分識別，為服務主體建立自主資料庫使用者。
+2. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL 伺服器 **[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** 。 Azure AD 系統管理員必須是 Azure AD 使用者或 Azure AD 群組，但不能是服務主體。 此步驟必須完成，如此您才可以在下一個步驟中使用 Azure AD 身分識別，為服務主體建立自主資料庫使用者。
 
-3. 為服務主體**[建立自主資料庫使用者](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**。 以至少具有 ALTER ANY USER 權限的 Azure AD 身分識別，使用 SSMS 這類工具連線至您想要從中來回複製資料的資料庫。 執行下列 T-SQL： 
+3. 為服務主體 **[建立自主資料庫使用者](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** 。 以至少具有 ALTER ANY USER 權限的 Azure AD 身分識別，使用 SSMS 這類工具連線至您想要從中來回複製資料的資料庫。 執行下列 T-SQL： 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
@@ -187,7 +187,7 @@ ms.locfileid: "65154332"
 
 若要使用受控身分識別驗證，請遵循下列步驟：
 
-1. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL 伺服器**[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**。 Azure AD 系統管理員可以是 Azure AD 使用者或 Azure AD 群組。 如果您授與管理的身分識別系統管理員角色的群組，請略過步驟 3 和 4。 系統管理員將擁有完整的資料庫存取權。
+1. 如果您尚未這麼做，請在 Azure 入口網站上針對您的 Azure SQL 伺服器 **[佈建 Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** 。 Azure AD 系統管理員可以是 Azure AD 使用者或 Azure AD 群組。 如果您授與管理的身分識別系統管理員角色的群組，請略過步驟 3 和 4。 系統管理員將擁有完整的資料庫存取權。
 
 2. **[建立自主的資料庫使用者](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** 的 Data Factory 受控身分識別。 以至少具有 ALTER ANY USER 權限的 Azure AD 身分識別，使用 SSMS 這類工具連線至您想要從中來回複製資料的資料庫。 執行下列 T-SQL： 
   
@@ -261,7 +261,7 @@ ms.locfileid: "65154332"
 
 ### <a name="azure-sql-database-as-the-source"></a>Azure SQL Database 作為來源
 
-若要從 Azure SQL Database 複製資料，請將複製活動來源中的 **type** 屬性設定為 **SqlSource**。 複製活動的 [來源] 區段支援下列屬性：
+若要從 Azure SQL Database 複製資料，請將複製活動來源中的 **type** 屬性設定為 **SqlSource**。 複製活動的 [來源]  區段支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -364,7 +364,10 @@ GO
 
 ### <a name="azure-sql-database-as-the-sink"></a>Azure SQL Database 作為接收
 
-若要將資料複製到 Azure SQL Database，請將複製活動接收中的 **type** 屬性設定為 **SqlSink**。 複製活動的 [接收] 區段支援下列屬性：
+> [!TIP]
+> 深入了解支援的寫入行為、 組態和最佳做法是從[將資料載入 Azure SQL Database 的最佳做法](#best-practice-for-loading-data-into-azure-sql-database)。
+
+若要將資料複製到 Azure SQL Database，請將複製活動接收中的 **type** 屬性設定為 **SqlSink**。 複製活動的 [接收]  區段支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -372,14 +375,11 @@ GO
 | writeBatchSize | 要插入至 SQL 資料表的資料列的數目**每個批次**。<br/> 允許的值為**整數** (資料列數目)。 依預設，Data Factory 以動態方式決定適當的批次大小為基礎的資料列大小。 | 否 |
 | writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。<br/> 允許的值為**時間範圍**。 範例：“00:30:00” (30 分鐘)。 | 否 |
 | preCopyScript | 指定一個 SQL 查詢，供「複製活動」在將資料寫入 Azure SQL Database 之前執行。 每一複製回合只會叫用此查詢一次。 使用此屬性來清除預先載入的資料。 | 否 |
-| sqlWriterStoredProcedureName | 定義如何將來源資料套用到目標資料表的預存程序名稱。 例如，使用您自己的商務邏輯來進行 upsert 或轉換。 <br/><br/>此預存程序將會**依批次叫用**。 針對僅執行一次、且與來源資料無關的作業，請使用 `preCopyScript` 屬性。 範例作業為刪除和截斷。 | 否 |
+| sqlWriterStoredProcedureName | 定義如何將來源資料套用到目標資料表的預存程序名稱。 <br/>此預存程序將會**依批次叫用**。 對於只執行一次，而且沒有任何資料來源，例如，刪除或截斷的作業，使用`preCopyScript`屬性。 | 否 |
 | storedProcedureParameters |預存程序的參數。<br/>允許的值為：名稱和值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 | 否 |
 | sqlWriterTableType | 指定要在預存程序中使用的資料表類型名稱。 複製活動會讓正在移動的資料可用於此資料表類型的暫存資料表。 然後，預存程序程式碼可以合併正在複製的資料與現有的資料。 | 否 |
 
-> [!TIP]
-> 將資料複製到 Azure SQL Database 時，複製活動預設會將資料附加至接收資料表。 若要執行 upsert 或其他商務邏輯，請在 **SqlSink** 中使用該預存程序。 若要了解更多詳細資料，請參閱[叫用 SQL 接收中的預存程序](#invoking-stored-procedure-for-sql-sink)。
-
-#### <a name="append-data-example"></a>附加資料範例
+**範例 1： 附加資料**
 
 ```json
 "activities":[
@@ -411,7 +411,7 @@ GO
 ]
 ```
 
-#### <a name="invoke-a-stored-procedure-during-copy-for-upsert-example"></a>在複製期間叫用預存程序來進行 upsert 的範例
+**範例 2： 在複製期間呼叫的預存的程序**
 
 若要了解更多詳細資料，請參閱[叫用 SQL 接收中的預存程序](#invoking-stored-procedure-for-sql-sink)。
 
@@ -450,84 +450,69 @@ GO
 ]
 ```
 
-## <a name="identity-columns-in-the-target-database"></a>目標資料庫中的身分識別資料行
+## <a name="best-practice-for-loading-data-into-azure-sql-database"></a>將資料載入 Azure SQL Database 的最佳作法
 
-本節將示範如何將資料從沒有識別欄位的來源資料表，複製到具有識別欄位的目的地資料表。
+當您將資料複製到 Azure SQL Database 時，您可能需要不同的寫入行為：
 
-#### <a name="source-table"></a>來源資料表
+- **[附加](#append-data)** ： 我的來源資料只會有新的記錄;
+- **[Upsert](#upsert-data)** ： 我的來源資料有插入和更新;
+- **[覆寫](#overwrite-entire-table)** :我想要重新載入整個維度資料表每次;
+- **[寫入使用自訂邏輯](#write-data-with-custom-logic)** :我需要在最後一個插入至目的地資料表之前的額外處理。
+
+請參閱分別章節，到如何在 ADF 和最佳作法設定。
+
+### <a name="append-data"></a>附加資料
+
+這是預設行為，此 Azure SQL Database 的接收連接器，和 ADF 嗎**bulk insert**有效率地寫入至您的資料表。 您只可以設定來源，並據以接收複製活動中。
+
+### <a name="upsert-data"></a>更新插入資料
+
+**選項我**（特別是當您有要複製的大型資料建議）：**大部分的高效能方法**執行 upsert 如下： 
+
+- 首先，利用[資料庫範圍暫存資料表](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database)來大量載入，使用複製活動的所有記錄。 作業對資料庫範圍暫存資料表不會記錄，您可以載入數百萬筆記錄，以秒為單位。
+- 在要套用的 ADF 執行預存程序活動[合併](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current)（或插入/更新） 陳述式，並使用 temp 資料表來源，以執行所有更新或插入做為單一交易中，減少往返量，並記錄作業。 在預存程序活動結束時，就可能被截斷暫存資料表以做好下次 upsert 循環。 
+
+例如，，您也可以在 Azure Data Factory 中建立管線，其中含有**複製活動**與鏈結**預存程序活動**成功。 先前的資料複製從您的來源存放區到 Azure SQL Database 的暫存資料表，例如" **##UpsertTempTable**"做為資料集中的資料表名稱，然後第二個會叫用預存程序來從暫存資料表的來源資料合併到目標資料表，並清除暫存資料表。
+
+![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+
+在資料庫中，定義與合併邏輯，如下所示，從上述的預存程序活動指的預存程序。 假設目標**行銷**具有三個資料行的資料表：**ProfileID**，**狀態**，以及**類別**，並執行 upsert 根據**ProfileID**資料行。
 
 ```sql
-create table dbo.SourceTbl
-(
-       name varchar(100),
-       age int
-)
+CREATE PROCEDURE [dbo].[spMergeData]
+AS
+BEGIN
+    MERGE TargetTable AS target
+    USING ##UpsertTempTable AS source
+    ON (target.[ProfileID] = source.[ProfileID])
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT matched THEN
+        INSERT ([ProfileID], [State], [Category])
+      VALUES (source.ProfileID, source.State, source.Category);
+    
+    TRUNCATE TABLE ##UpsertTempTable
+END
 ```
 
-#### <a name="destination-table"></a>目的地資料表
+**選項二部分：** 或者，您可以選擇[叫用預存程序中複製活動](#invoking-stored-procedure-for-sql-sink)，同時請注意，這種方法會針對每個資料列中來源資料表，而不是利用大量執行插入成為預設方法在複製活動中，因此它並不適合用於大規模 upsert。
 
-```sql
-create table dbo.TargetTbl
-(
-       identifier int identity(1,1),
-       name varchar(100),
-       age int
-)
-```
+### <a name="overwrite-entire-table"></a>覆寫整份資料表
 
-> [!NOTE]
-> 目標資料表具有識別欄位。
+您可以設定**preCopyScript**接收複製活動中的屬性，在此情況下每個複製活動執行，ADF 指令碼會先執行，然後執行 插入資料的複本。 例如，若要以最新的資料覆寫整個資料表，您可以先指定指令碼以刪除所有記錄，再從來源大量載入新資料。
 
-#### <a name="source-dataset-json-definition"></a>來源資料集 JSON 定義
+### <a name="write-data-with-custom-logic"></a>寫入使用自訂邏輯的資料
 
-```json
-{
-    "name": "SampleSource",
-    "properties": {
-        "type": " AzureSqlTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "SourceTbl"
-        }
-    }
-}
-```
-
-#### <a name="destination-dataset-json-definition"></a>目的地資料集 JSON 定義
-
-```json
-{
-    "name": "SampleTarget",
-    "properties": {
-        "structure": [
-            { "name": "name" },
-            { "name": "age" }
-        ],
-        "type": "AzureSqlTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "TargetTbl"
-        }
-    }
-}
-```
-
-> [!NOTE]
-> 您的來源和目標資料表有不同的結構描述。 
-
-目標的其他資料行具有身分識別。 在此案例中，您必須在目標資料集定義中指定 **structure** 屬性，這不包含識別欄位。
+中所述類似[Upsert 資料](#upsert-data) 區段中，當您需要套用至目的地資料表中，來源資料在最後一次之前的額外處理可以) 針對大規模的載入至資料庫範圍暫存資料表，然後叫用預存程序或 b） 在複製期間叫用預存的程序。
 
 ## <a name="invoking-stored-procedure-for-sql-sink"></a> 從 SQL 接收器叫用預存程序
 
-將資料複製到 Azure SQL Database 時，您也可以使用其他參數來設定及叫用使用者指定的預存程序。
+當您將資料複製到 Azure SQL Database 時，您也可以設定，並叫用使用者自訂預存程序搭配其他參數。
 
-當內建的複製機制無法滿足需求時，您可以使用預存程序。 在最後將來源資料插入目的地資料表之前，必須完成 upsert、插入並更新或額外處理時，通常會使用它們。 一些額外處理的範例包括合併資料行、查閱其他的值，以及插入多個資料表中。
+> [!TIP]
+> 叫用預存程序會處理資料列逐列，而非大量作業，不建議針對大規模複製。 進一步了解[將資料載入 Azure SQL Database 的最佳做法](#best-practice-for-loading-data-into-azure-sql-database)。
+
+您可以使用預存程序，當內建的複製機制不提供的用途，例如，適用於來源資料的最後一個插入至目的地資料表之前的額外處理。 一些額外處理的範例包括合併資料行、查閱其他的值，以及插入多個資料表中。
 
 下列範例示範如何使用預存程序，對 Azure SQL Database 中的資料表執行 upsert。 假設輸入資料和接收器 **Marketing** 資料表各有三個資料行：**ProfileID**、**State** 和 **Category**。 根據 **ProfileID** 資料行執行 upsert，然後僅針對特定的類別套用。
 
@@ -635,7 +620,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| Xml |Xml |
+| Xml |xml |
 
 >[!NOTE]
 > 針對對應至 Decimal 過渡期類型的資料類型，目前 ADF 支援的有效位數最多可達 28。 如果您有有效位數超過 28 的資料，請考慮在 SQL 查詢中將其轉換成字串。

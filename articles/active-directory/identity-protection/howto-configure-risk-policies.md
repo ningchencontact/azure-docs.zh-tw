@@ -18,13 +18,13 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60295438"
 ---
-# <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>作法：在 Azure Active Directory Identity Protection (已重新整理) 中設定風險原則
+# <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>如何：在 Azure Active Directory Identity Protection (已重新整理) 中設定風險原則
 
 
 Azure AD detects 風險事件為身分可能遭盜用的指標。 透過設定風險原則，您可以定義對偵測結果的自動回應：
@@ -45,7 +45,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>如何存取登入風險原則？
    
-登入風險原則位於 [Azure AD Identity Protection] 頁面的 [設定](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy) 區段中。
+登入風險原則位於 [Azure AD Identity Protection]  頁面的 [設定](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy) 區段中。
    
 ![登入風險原則](./media/howto-configure-risk-policies/1014.png "登入風險原則")
 
@@ -125,7 +125,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 ## <a name="how-do-i-access-the-user-risk-policy"></a>如何存取使用者風險原則？
    
-使用者風險原則位在 [Azure AD Identity Protection 頁面](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy)上的 [設定] 區段中。
+使用者風險原則位在 [Azure AD Identity Protection 頁面](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy)上的 [設定]  區段中。
    
 ![使用者風險原則](./media/howto-configure-risk-policies/11014.png)
 
@@ -196,7 +196,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 選擇 [高]  臨界值可減少觸發原則的次數，並將對使用者的影響降至最低。  
 
-不過，它會從原則中排除標示 [低] 和 [中] 度風險的登入，而無法阻止攻擊者利用遭到入侵的身分識別。
+不過，它會從原則中排除標示 [低]  和 [中]  度風險的登入，而無法阻止攻擊者利用遭到入侵的身分識別。
 
 設定原則時，
 
@@ -206,7 +206,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 - 排除可能會產生大量誤判的使用者 (開發人員、安全性分析人員)
 
-- 在原則推出初期，或如果您必須盡量減少使用者所看到的挑戰，請使用 [高] 閾值。
+- 在原則推出初期，或如果您必須盡量減少使用者所看到的挑戰，請使用 [高]  閾值。
 
 - 如果您的組織需要更高的安全性，請使用 [低]  臨界值。 選取 [低]  臨界值會帶來額外的使用者登入挑戰，並提高安全性。
 

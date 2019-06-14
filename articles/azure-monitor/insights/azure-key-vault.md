@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
 ms.openlocfilehash: 481b643f2f7201a2a1745c7aef9ddd81883da020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60498343"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure 監視器中的 azure Key Vault 分析解決方案
@@ -31,7 +31,7 @@ ms.locfileid: "60498343"
 若要使用此解決方案，您需要啟用 Azure Key Vault 診斷的記錄，並將診斷導向至 Log Analytics 工作區。 不需要將記錄寫入 Azure Blob 儲存體。
 
 > [!NOTE]
-> 從 2017 年 1 月開始，從 Key Vault 傳送記錄到 Log Analytics 的支援方式已變更。 如果您使用的 Key Vault 解決方案標題中顯示 *(已過時)*，請參閱[從舊的 Key Vault 解決方案進行移轉](#migrating-from-the-old-key-vault-solution)，以取得您必須遵循的步驟。
+> 從 2017 年 1 月開始，從 Key Vault 傳送記錄到 Log Analytics 的支援方式已變更。 如果您使用的 Key Vault 解決方案標題中顯示 *(已過時)* ，請參閱[從舊的 Key Vault 解決方案進行移轉](#migrating-from-the-old-key-vault-solution)，以取得您必須遵循的步驟。
 >
 >
 
@@ -47,11 +47,11 @@ ms.locfileid: "60498343"
 2. 選取 *診斷設定*開啟下列頁面
 
    ![Azure 金鑰保存庫圖格的影像](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
-3. 按一下 [開啟診斷] 以開啟下列頁面
+3. 按一下 [開啟診斷]  以開啟下列頁面
 
    ![Azure 金鑰保存庫圖格的影像](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
 4. 命名的診斷設定。
-5. 按一下 [傳送到 Log Analytics] 核取方塊
+5. 按一下 [傳送到 Log Analytics]  核取方塊
 6. 選取現有的 Log Analytics 工作區，或建立工作區
 7. 若要啟用 *AuditEvent* 記錄，請按一下 [記錄] 下的核取方塊
 8. 按一下 *儲存*以啟用 Log Analytics 工作區的診斷記錄。
@@ -79,7 +79,7 @@ Azure Key Vault 解決方案會直接從 Key Vault 收集診斷記錄。
 | Azure |  |  |&#8226; |  |  | 與抵達同時 |
 
 ## <a name="use-azure-key-vault"></a>使用 Azure 金鑰保存庫
-之後您[安裝解決方案](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)，按一下 檢視金鑰保存庫資料**Key Vault 分析**圖格從 Azure 監視器**概觀**頁面。 按一下 [深入解析] 區段下方的 [更多]，即可在 [Azure 監視器] 功能表開啟此頁面。 
+之後您[安裝解決方案](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)，按一下 檢視金鑰保存庫資料**Key Vault 分析**圖格從 Azure 監視器**概觀**頁面。 按一下 [深入解析]  區段下方的 [更多]  ，即可在 [Azure 監視器]  功能表開啟此頁面。 
 
 ![Azure 金鑰保存庫圖格的影像](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
@@ -96,7 +96,7 @@ Azure Key Vault 解決方案會直接從 Key Vault 收集診斷記錄。
 
 ### <a name="to-view-details-for-any-operation"></a>檢視任何作業的詳細資料
 1. 在 **概觀**頁面上，按一下**Key Vault 分析**圖格。
-2. 在 [Azure 金鑰保存庫] 儀表板上，檢閱其中一個刀鋒視窗中的摘要資訊，然後按一下其中一個，在記錄搜尋頁面中檢視詳細資訊。
+2. 在 [Azure 金鑰保存庫]  儀表板上，檢閱其中一個刀鋒視窗中的摘要資訊，然後按一下其中一個，在記錄搜尋頁面中檢視詳細資訊。
 
     您可以在任何 [記錄搜尋] 頁面上，按時間、詳細結果和您的記錄搜尋記錄來檢視結果。 您也可以按 Facet 篩選以縮減結果。
 

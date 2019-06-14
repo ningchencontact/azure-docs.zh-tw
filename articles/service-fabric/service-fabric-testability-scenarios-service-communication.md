@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 529c8d74b6e0a63a7969f31d5b5e8073ecb79411
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60543218"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric testability 案例：服務通訊
@@ -28,9 +28,9 @@ ms.locfileid: "60543218"
 
 若要在分散式系統中，將這些服務界限連接起來，有許多方面都需要謹慎考量：
 
-* 傳輸通訊協定。 您要使用 HTTP 以提供更優異的互通性，還是自訂的二進位通訊協定，以應付最大的輸送量？
-* 錯誤處理。 如何處理永久性和暫時性錯誤？ 當服務移至另一個節點時，會發生什麼事？
-* 逾時與延遲。 在多層式應用程式中，各服務層將如何透過堆疊處理延遲，為使用者順暢提供服務？
+*  傳輸通訊協定。 您要使用 HTTP 以提供更優異的互通性，還是自訂的二進位通訊協定，以應付最大的輸送量？
+*  錯誤處理。 如何處理永久性和暫時性錯誤？ 當服務移至另一個節點時，會發生什麼事？
+*  逾時與延遲。 在多層式應用程式中，各服務層將如何透過堆疊處理延遲，為使用者順暢提供服務？
 
 不論您使用 Service Fabric 提供的其中一種內建服務通訊元件，或者您選擇自行建立，測試服務之間的互動永遠是確保應用程式復原能力的重要部分。
 
@@ -88,7 +88,7 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 ```
 
-在此範例中，我們將 `QuorumLossMode` 設為 `QuorumReplicas`，以便在引發仲裁遺失時，不會關閉所有複本。 这样仍然能够进行读取操作。 若要測試整個分割區都無法使用的案例，您可將此參數設定為 `AllReplicas`。
+在此範例中，我們將 `QuorumLossMode` 設為 `QuorumReplicas`，以便在引發仲裁遺失時，不會關閉所有複本。 如此才能正常執行讀取作業。 若要測試整個分割區都無法使用的案例，您可將此參數設定為 `AllReplicas`。
 
 ## <a name="next-steps"></a>後續步驟
 [深入了解 Testability 動作](service-fabric-testability-actions.md)

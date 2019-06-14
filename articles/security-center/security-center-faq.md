@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: de652f508f6946219627b3a3d51b148cbee58dbf
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 300d96a792663a32a326d5d01f281b77ccf9c4bf
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966856"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050503"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 資訊安全中心常見問題集 (FAQ)
 這個常見問題集回答「Azure 資訊安全中心」的相關問題，此資訊安全中心是一項針對 Microsoft Azure 資源的安全性提供更深入的洞悉和更佳控制的服務，可協助您預防、偵測及回應威脅。
@@ -34,15 +34,15 @@ ms.locfileid: "65966856"
 Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控制權，以預防、偵測並回應威脅。 它提供您訂用帳戶之間的整合式安全性監視和原則管理，協助您偵測可能會忽略的威脅，且適用於廣泛的安全性解決方案生態系統。
 
 ### <a name="how-do-i-get-azure-security-center"></a>我要如何取得 Azure 資訊安全中心？
-「Azure 資訊安全中心」是藉由您的 Microsoft Azure 訂用帳戶啟用，並可從 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)存取。 ([登入入口網站](https://portal.azure.com)，選取 [瀏覽]，然後捲動至 [資訊安全中心])。  
+「Azure 資訊安全中心」是藉由您的 Microsoft Azure 訂用帳戶啟用，並可從 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)存取。 ([登入入口網站](https://portal.azure.com)，選取 [瀏覽]  ，然後捲動至 [資訊安全中心]  )。  
 
 ## <a name="billing"></a>計費
 ### <a name="how-does-billing-work-for-azure-security-center"></a>Azure 資訊安全中心如何計費？
 資訊安全中心提供兩個層級：
 
-「免費層」提供 Azure 資源安全性狀態的可見度、基本安全性原則、安全性建議以及與合作夥伴的安全性產品和服務的整合。
+「免費層」  提供 Azure 資源安全性狀態的可見度、基本安全性原則、安全性建議以及與合作夥伴的安全性產品和服務的整合。
 
-「標準層」加上了進階威脅偵測功能，包括威脅情報、行為分析、異常偵測、安全性事件，以及威脅歸因報告。 您可以啟動標準層的免費試用版。 若要升級，請選取安全性原則中的[定價層](https://docs.microsoft.com/azure/security-center/security-center-pricing)。 若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
+「標準層」  加上了進階威脅偵測功能，包括威脅情報、行為分析、異常偵測、安全性事件，以及威脅歸因報告。 您可以啟動標準層的免費試用版。 若要升級，請選取安全性原則中的[定價層](https://docs.microsoft.com/azure/security-center/security-center-pricing)。 若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
 
 ### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>我要如何追蹤在我的組織執行 Azure 資訊安全中心的定價層變更
 因為 Azure 訂用帳戶可能會有多個系統管理員權限才能變更定價層，則使用者可能想要知道執行定價層變更的人員。 若要使用的可以使用 Azure 活動記錄檔。 請進一步參閱指示[這裡](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)
@@ -94,7 +94,7 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 
 若要選取現有的 Log Analytics 工作區：
 
-1. 在 [安全性原則 - 資料收集] 下，選取 [使用其他工作區]。
+1. 在 [安全性原則 - 資料收集]  下，選取 [使用其他工作區]  。
 
    ![使用其他工作區][5]
 
@@ -106,17 +106,17 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
    >
 
 3. 選取 [ **儲存**]。
-4. 選取 [儲存] 之後，會詢問您是否要重新設定受監控的虛擬機器。
+4. 選取 [儲存]  之後，會詢問您是否要重新設定受監控的虛擬機器。
 
-   - 如果您希望新的工作區設定**僅套用在新的虛擬機器**，請選取 [否]。 新的工作區設定只會套用在新安裝的代理程式，以及新探索到的未安裝 Microsoft Monitoring Agent 之虛擬機器。
-   - 如果您希望新的工作區設定**套用在所有虛擬機器**，請選取 [是]。 此外，每個連線到資訊安全中心建立之工作區的虛擬機器會重新連線到新的目標工作區。
+   - 如果您希望新的工作區設定**僅套用在新的虛擬機器**，請選取 [否]  。 新的工作區設定只會套用在新安裝的代理程式，以及新探索到的未安裝 Microsoft Monitoring Agent 之虛擬機器。
+   - 如果您希望新的工作區設定**套用在所有虛擬機器**，請選取 [是]  。 此外，每個連線到資訊安全中心建立之工作區的虛擬機器會重新連線到新的目標工作區。
 
    > [!NOTE]
    > 如果您選取 [是]，您必須刪除資訊安全中心建立的工作區，直到所有虛擬機器已重新連線至新的目標工作區。 如果過早刪除工作區，這項作業將會失敗。
    >
    >
 
-   - 選取 [取消] 以取消作業。
+   - 選取 [取消]  以取消作業。
 
 ### 如果延伸模組在 VM 上已安裝 Microsoft Monitoring Agent？<a name="mmaextensioninstalled"></a>
 安裝監視代理程式時做為擴充，可讓擴充功能組態報告至一個工作區。 資訊安全中心不會覆寫既存的使用者工作區連線。 資訊安全中心會在已連線的工作區中儲存從 VM 的安全性資料，前提是已在其上安裝 「 安全性 」 或 「 SecurityCenterFree 」 方案。 資訊安全中心可以升級擴充功能版本，在此程序為最新版本。
@@ -126,8 +126,10 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 
 ### 如果我有什麼 Microsoft Monitoring Agent 會直接安裝在電腦上，但不是能作為擴充功能 （直接代理程式） 嗎？<a name="directagentinstalled"></a>
 如果直接在 （而非作為 Azure 擴充功能） 的 VM 上安裝 Microsoft Monitoring Agent，資訊安全中心將會安裝 Microsoft Monitoring Agent 擴充功能，並可以升級為最新版本的 Microsoft Monitoring agent。
-安裝的代理程式會繼續回報其已設定的工作區，而除了會在資訊安全中心中設定的工作區回報 （支援多路連接）。
+安裝的代理程式會繼續回報其已設定的工作區，而除了會在資訊安全中心中設定的工作區回報 （Windows 機器上支援多路連接）。
 如果設定的工作區的使用者工作區 （不資訊安全中心的預設工作區），您必須安裝 「 安全性 /"SecurityCenterFree 」 解決方案，它從虛擬機器和電腦啟動處理事件的資訊安全中心的報告，工作區。
+
+針對 Linux 機器，代理程式的多路連接尚未支援-因此，如果偵測到現有的代理程式安裝時，自動佈建不會和電腦組態就不會改變。
 
 現有的機器上的訂用帳戶上架到資訊安全中心之前 2019年-03-17，當將偵測到現有的代理程式，將不會安裝 Microsoft Monitoring Agent 擴充功能，以及機器不會受到影響。 這些機器，請參閱監視機器上的代理程式健全狀況問題的 「 解決 」 的建議來解決在這些電腦上的代理程式安裝問題
 
@@ -146,7 +148,7 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 
    ![定價層][1]
 
-2. 接下來，請選取 [安全性原則 – 資料收集] 刀鋒視窗上的 [關閉]，來停用自動佈建。
+2. 接下來，請選取 [安全性原則 – 資料收集]  刀鋒視窗上的 [關閉]  ，來停用自動佈建。
    ![資料收集][2]
 
 ### <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>我應該要退出自動安裝代理程式和建立工作區嗎？
@@ -191,7 +193,7 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 
 1.  在入口網站中，開啟**Log Analytics**。
 2.  在 [Log Analytics] 刀鋒視窗中，選取工作區：
-3.  選取您不想監控的虛擬機器，並選取 [中斷連線]。
+3.  選取您不想監控的虛擬機器，並選取 [中斷連線]  。
 
    ![移除代理程式][3]
 
@@ -202,10 +204,10 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 ### <a name="how-do-i-disable-data-collection"></a>我要如何停用資料收集？
 預設會關閉自動佈建。 您可以在安全性原則中關閉這項設定，隨時停用資源的自動佈建。 強烈建議進行自動佈建，以便取得安全性警示，以及系統更新、作業系統弱點和端點保護的建議。
 
-若要停用資料收集，請[登入 Azure 入口網站](https://portal.azure.com)，選取 [瀏覽]，選取 [資訊安全中心]，然後選取 [選取原則]。 選取您想要停用自動佈建的訂用帳戶。 當您選取訂用帳戶時，[安全性原則 - 資料收集] 隨即開啟。 在 [自動佈建] 之下，選取 [關閉]。
+若要停用資料收集，請[登入 Azure 入口網站](https://portal.azure.com)，選取 [瀏覽]  ，選取 [資訊安全中心]  ，然後選取 [選取原則]  。 選取您想要停用自動佈建的訂用帳戶。 當您選取訂用帳戶時，[安全性原則 - 資料收集]  隨即開啟。 在 [自動佈建]  之下，選取 [關閉]  。
 
 ### <a name="how-do-i-enable-data-collection"></a>我要如何啟用資料收集？
-您可以在安全性原則中為您的 Azure 訂用帳戶啟用資料收集。 啟用資料收集。 [登入 Azure 入口網站](https://portal.azure.com)，選取 [瀏覽]，選取 [資訊安全中心]，然後選取 [安全性原則]。 選取您想要啟用自動佈建的訂用帳戶。 當您選取訂用帳戶時，[安全性原則 - 資料收集] 隨即開啟。 在 [自動佈建] 之下，選取 [開啟]。
+您可以在安全性原則中為您的 Azure 訂用帳戶啟用資料收集。 啟用資料收集。 [登入 Azure 入口網站](https://portal.azure.com)，選取 [瀏覽]  ，選取 [資訊安全中心]  ，然後選取 [安全性原則]  。 選取您想要啟用自動佈建的訂用帳戶。 當您選取訂用帳戶時，[安全性原則 - 資料收集]  隨即開啟。 在 [自動佈建]  之下，選取 [開啟]  。
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>啟用資料收集時會發生什麼情況？
 啟用自動佈建時，資訊安全中心會在所有支援的 Azure VM 和任何新建立的 VM 上佈建 Microsoft Monitoring Agent。 強烈建議使用自動佈建，但是手動代理程式安裝也可行。 [深入了解如何安裝 Microsoft Monitoring Agent 擴充功能](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)。 
@@ -272,7 +274,7 @@ Security & Audit 解決方案會用來啟用 Azure 虛擬機器上資訊安全�
 這裡只會顯示 [安全性原則] 中已啟用的建議。
 
 ### <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>我要如何查看 Azure 資源目前的安全性狀態？
-[資訊安全中心概觀] 刀鋒視窗會根據電腦、網路、儲存體與資料，以及應用程式，來分類顯示環境的安全性狀態。 每個資源類型都有一個指標，顯示是否已識別出任何潛在的安全性弱點。 按一下每個圖格都會顯示資訊安全中心所識別的安全性問題，以及訂用帳戶內資源的詳細目錄。
+[資訊安全中心概觀]  刀鋒視窗會根據電腦、網路、儲存體與資料，以及應用程式，來分類顯示環境的安全性狀態。 每個資源類型都有一個指標，顯示是否已識別出任何潛在的安全性弱點。 按一下每個圖格都會顯示資訊安全中心所識別的安全性問題，以及訂用帳戶內資源的詳細目錄。
 
 ### <a name="what-triggers-a-security-alert"></a>什麼會觸發安全性警示？
 「Azure 資訊安全中心」會自動收集、分析及整合下列來源的記錄檔資料：Azure 資源、網路，以及反惡意程式碼和防火牆等合作夥伴解決方案。 偵測到威脅時，會建立安全性警示。 偵測範例包括：

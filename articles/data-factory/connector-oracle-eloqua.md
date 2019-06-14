@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: bb0e146ef32ba24c3911bae86806c84768c005ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60405948"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Oracle Eloqua 複製資料 (預覽)
@@ -45,7 +45,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**Eloqua** | 是 |
-| endpoint | Eloqua 伺服器的端點。 Eloqua 支援多個資料中心，若要決定您的端點，請使用您的認證登入 https://login.eloqua.com，然後從模式為 `xxx.xxx.eloqua.com` 的重新導向 URL 中複製**基底 URL** 部分。 | 是 |
+| endpoint | Eloqua 伺服器的端點。 Eloqua 支援多個資料中心，若要決定您的端點，請使用您的認證登入 https://login.eloqua.com ，然後從模式為 `xxx.xxx.eloqua.com` 的重新導向 URL 中複製**基底 URL** 部分。 | 是 |
 | username | 您 Eloqua 帳戶的網站名稱與使用者名稱，格式為 `SiteName\Username`，例如 `Eloqua\Alice`。  | 是 |
 | password | 對應到使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |

@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318201"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>了解單一裝置或大規模的 IoT Edge 自動部署
@@ -62,7 +62,7 @@ IoT Edge 自動部署會指派 IoT Edge 模組映像，在一組目標 IoT Edge 
 
 ### <a name="target-condition"></a>目標條件
 
-在部署的整个生存期内会持续对目标条件进行评估。 任何符合需求的新裝置都會加入，並且任何不再符合需求的現有裝置都會遭到移除。 如果服務偵測到任何目標條件變更，部署將會重新啟動。 
+目標條件會持續評估整個部署的存留期。 任何符合需求的新裝置都會加入，並且任何不再符合需求的現有裝置都會遭到移除。 如果服務偵測到任何目標條件變更，部署將會重新啟動。 
 
 比方說，您的部署 A 具有目標條件 tags.environment = 'prod'。 當您開始進行部署時，有 10 個生產裝置。 模組已成功安裝在這 10 個裝置中。 IoT Edge 代理程式狀態會顯示為共 10 個裝置、10 項成功回應、0 項失敗回應，以及 0 項擱置回應。 現在，您再新增五個具有 tags.environment = 'prod' 的裝置。 服務偵測到變更，在嘗試部署到五個新裝置時，IoT Edge 代理程式狀態會變成共 15 個裝置、10 項成功回應、0 項失敗回應，以及 5 項擱置回應。
 

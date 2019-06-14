@@ -15,13 +15,13 @@ ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bc579cd372616563b61e5ba04fe32612f3efb1c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60549935"
 ---
-# <a name="persist-job-and-task-output"></a>持久保存作业和任务输出
+# <a name="persist-job-and-task-output"></a>持續作業及工作輸出
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
@@ -70,7 +70,7 @@ Batch 會定義一組選擇性的慣例，可在 Azure 儲存體中命名工作�
 您也可以實作自己的完整檔案移動解決方案。 使用這個方法的時機：
 
 - 您想要將工作資料保存到 Azure 儲存體以外的資料存放區。 若要將檔案上傳至諸如 Azure SQL 或 Azure Data Lake 等資料存放區，您可以建立自訂指令碼或可執行檔，以上傳至該位置。 接著，您在執行主要可執行檔之後，可以在命令列上呼叫它。 例如，在 Windows 節點上，您可能會呼叫這兩個命令：`doMyWork.exe && uploadMyFilesToSql.exe`
-- 需对初始结果执行检查点或提前上传操作。
+- 您想要執行檢查點或提前上傳初始結果。
 - 您需要保持更精確地控制錯誤處理。 例如，如果您想要使用工作相依性動作，以特定的工作結束代碼作為基礎來採取某些上傳動作，您將需要實作自己的解決方案。 如需有關工作相依性動作的詳細資訊，請參閱[建立工作相依性，以執行相依於其他工作的工作](batch-task-dependencies.md)。
 
 ## <a name="design-considerations-for-persisting-output"></a>保存輸出的設計考量
@@ -83,7 +83,7 @@ Batch 會定義一組選擇性的慣例，可在 Azure 儲存體中命名工作�
 
 - **輸出擷取**：如果您已保存工作輸出，就可以從集區中的計算節點，或從 Azure 儲存體或另一個資料存放區直接擷取工作輸出。 若要直接從計算節點擷取工作的輸出，您需要檔案名稱和該檔案在節點上的輸出位置。 如果您將工作輸出保存到 Azure 儲存體，就需要 Azure 儲存體中的檔案完整路徑，才能下載輸出檔案與 Azure 儲存體 SDK。
 
-- **檢視輸出**：當您在 Azure 入口網站中瀏覽至 Batch 工作並選取 [節點上的檔案] 時，系統將會顯示與該工作相關聯的所有檔案，而不只是您感興趣的輸出檔案。 同樣地，只有當運算節點存在時，且僅在您針對該工作設定的保留期內，才能取得該節點的檔案。 若要檢視您已保存到 Azure 儲存體的工作輸出，可以使用 Azure 入口網站或 Azure 儲存體用戶端應用程式，例如 [Azure 儲存體總管][storage_explorer]。 若要使用入口網站或其他工具檢視 Azure 儲存體中的輸出資料，您必須知道檔案的位置，並直接瀏覽至該位置。
+- **檢視輸出**：當您在 Azure 入口網站中瀏覽至 Batch 工作並選取 [節點上的檔案]  時，系統將會顯示與該工作相關聯的所有檔案，而不只是您感興趣的輸出檔案。 同樣地，只有當運算節點存在時，且僅在您針對該工作設定的保留期內，才能取得該節點的檔案。 若要檢視您已保存到 Azure 儲存體的工作輸出，可以使用 Azure 入口網站或 Azure 儲存體用戶端應用程式，例如 [Azure 儲存體總管][storage_explorer]。 若要使用入口網站或其他工具檢視 Azure 儲存體中的輸出資料，您必須知道檔案的位置，並直接瀏覽至該位置。
 
 ## <a name="next-steps"></a>後續步驟
 

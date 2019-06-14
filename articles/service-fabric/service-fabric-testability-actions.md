@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
 ms.openlocfilehash: 37a794387f3a2f02124805705d380ad9f1fc1270
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60544770"
 ---
 # <a name="testability-actions"></a>Testability 動作
@@ -37,10 +37,10 @@ Testability 動作分為兩個主要貯體：
 為了提供更好的品質驗證，請在引發各種非失誤性及失誤性錯誤時，執行服務及商務工作負載。 失誤性錯誤會模擬服務處理程序在部分工作流程中突然結束的案例。 當服務複本由 Service Fabric 還原時，便會測試復原路徑。 這有助於測試資料的一致性，以及服務狀態在失敗之後是否已正確維護。 其他錯誤集 (非失誤性錯誤) 會測試由 Service Fabric 移動的複本是否正確反應。 這會測試 RunAsync 方法中的取消處理作業。 該服務必須檢查已設定的取消語彙基元、正確地儲存其狀態，並結束 RunAsync 方法。
 
 ## <a name="testability-actions-list"></a>Testability 動作清單
-|  動作 | 描述 | 受控 API | PowerShell Cmdlet | 非失誤性/失誤性錯誤 |
+| 動作 | 描述 | 受控 API | PowerShell Cmdlet | 非失誤性/失誤性錯誤 |
 | --- | --- | --- | --- | --- |
 | CleanTestState |會移除叢集的所有測試狀態，以防止測試驅動程式不正確關閉。 |CleanTestStateAsync |Remove-ServiceFabricTestState |不適用 |
-| InvokeDataLoss |會引發資料遺失至服務分割區中。 |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |常规 |
+| InvokeDataLoss |會引發資料遺失至服務分割區中。 |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |非失誤性 |
 | InvokeQuorumLoss |會放置指定狀態服務分割區至仲裁遺失中。 |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |非失誤性 |
 | MovePrimary |將指定的狀態服務主要複本移動至指定的叢集節點。 |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |非失誤性 |
 | MoveSecondary |將目前的服務狀態次要複本移動至不同的叢集節點。 |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |非失誤性 |
@@ -50,7 +50,7 @@ Testability 動作分為兩個主要貯體：
 | RestartPartition |藉由重新啟動部分或所有分割區複本，模擬資料中心停機或叢集停機的案例。 |RestartPartitionAsync |Restart-ServiceFabricPartition |非失誤性 |
 | RestartReplica |藉由重新啟動保存在叢集中的複本、關閉該複本再重新開啟的方式，模擬複本失敗案例。 |RestartReplicaAsync |Restart-ServiceFabricReplica |非失誤性 |
 | StartNode |會啟動叢集中已停止的節點。 |StartNodeAsync |Start-ServiceFabricNode |不適用 |
-| StopNode |藉由停止叢集中的節點，模擬節點失敗案例。 在呼叫 StartNode 前，節點會維持關閉。 |StopNodeAsync |Stop-ServiceFabricNode |非常规 |
+| StopNode |藉由停止叢集中的節點，模擬節點失敗案例。 在呼叫 StartNode 前，節點會維持關閉。 |StopNodeAsync |Stop-ServiceFabricNode |失誤性 |
 | ValidateApplication |會驗證應用程式中所有 Service Fabric 服務的可用性和健康情況 (通常在引發部分錯誤至系統後)。 |ValidateApplicationAsync |Test-ServiceFabricApplication |不適用 |
 | ValidateService |會驗證 Service Fabric 服務的可用性和健康情況 (通常在引發部分錯誤至系統後)。 |ValidateServiceAsync |Test-ServiceFabricService |不適用 |
 

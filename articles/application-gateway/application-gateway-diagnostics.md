@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: amitsriva
-ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a8b0ee159b1c4a4072ce5a86f9fb925744a415b3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66135579"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048709"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>應用程式閘道的後端健康情況、診斷記錄和計量
 
@@ -38,12 +38,12 @@ ms.locfileid: "66135579"
 
 ### <a name="view-back-end-health-through-the-portal"></a>透過入口網站檢視後端健康情況
 
-入口網站中會自動提供後端的健康情況。 在現有的應用程式閘道中，選取 [監視]  >  [後端健康情況]。 
+入口網站中會自動提供後端的健康情況。 在現有的應用程式閘道中，選取 [監視]   >  [後端健康情況]  。 
 
-後端集區中的每個成員均會列於此頁面中 (無論是 NIC、IP 或 FQDN)。 後端集區名稱、連接埠、後端 HTTP 設定名稱和健康情況均會顯示。 健康情況的有效值為「狀況良好」、「狀況不良」和「未知」。
+後端集區中的每個成員均會列於此頁面中 (無論是 NIC、IP 或 FQDN)。 後端集區名稱、連接埠、後端 HTTP 設定名稱和健康情況均會顯示。 健康情況的有效值為「狀況良好」  、「狀況不良」  和「未知」  。
 
 > [!NOTE]
-> 如果您看到後端健康情況為 [未知]，請確定 NSG 規則、使用者定義的路由 (UDR) 或虛擬網路中的自訂 DNS 並未封鎖對後端的存取。
+> 如果您看到後端健康情況為 [未知]  ，請確定 NSG 規則、使用者定義的路由 (UDR) 或虛擬網路中的自訂 DNS 並未封鎖對後端的存取。
 
 ![後端健康情況][10]
 
@@ -143,7 +143,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
    ![開啟診斷][1]
 
-3. [診斷設定] 頁面中提供診斷記錄的設定。 在此範例中，Log Analytics 會儲存記錄。 您也可以使用事件中樞和儲存體帳戶來儲存診斷記錄。
+3. [診斷設定]  頁面中提供診斷記錄的設定。 在此範例中，Log Analytics 會儲存記錄。 您也可以使用事件中樞和儲存體帳戶來儲存診斷記錄。
 
    ![啟動設定程序][2]
 
@@ -155,8 +155,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ### <a name="access-log"></a>存取記錄檔
 
-只有當您如上述步驟所述，在每個應用程式閘道上啟用存取記錄，才會產生存取記錄。 資料會儲存在您啟用記錄功能時指定的儲存體帳戶中。 應用程式閘道的每次存取會以 JSON 格式記錄下來，如下列範例所示：
-
+只有當您如上述步驟所述，在每個應用程式閘道上啟用存取記錄，才會產生存取記錄。 数据存储在启用日志记录时指定的存储帐户中。 應用程式閘道的每次存取會以 JSON 格式記錄，v1 的下列範例所示：
 
 |值  |描述  |
 |---------|---------|
@@ -193,6 +192,58 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
         "sentBytes": 553,
         "timeTaken": 205,
         "sslEnabled": "off"
+    }
+}
+```
+為應用程式閘道 WAF v2 中，記錄會顯示一些其他資訊：
+
+|值  |描述  |
+|---------|---------|
+|instanceId     | 處理要求的應用程式閘道執行個體。        |
+|clientIP     | 要求的原始 IP。        |
+|clientPort     | 请求的起始端口。       |
+|httpMethod     | 要求使用的 HTTP 方法。       |
+|requestUri     | 接收之要求的 URI。        |
+|RequestQuery     | **Server-routed**：傳送要求的後端集區執行個體。</br>**X-AzureApplicationGateway-LOG-ID**：要求所使用的相互關聯識別碼。 它可以用來針對後端伺服器上的流量問題進行疑難排解。 </br>**SERVER-STATUS**：應用程式閘道從後端收到的 HTTP 回應碼。       |
+|UserAgent     | HTTP 要求標頭中的使用者代理程式。        |
+|httpStatus     | 應用程式閘道傳回用戶端的 HTTP 狀態碼。       |
+|httpVersion     | 要求的 HTTP 版本。        |
+|receivedBytes     | 接收的封包大小，單位為位元組。        |
+|sentBytes| 傳送的封包大小，單位為位元組。|
+|timeTaken| 處理要求並傳送其回應所花費的時間長度，單位為毫秒。 算法是從應用程式閘道收到 HTTP 要求的回應第一個位元組的時間，到回應傳送作業完成時的時間間隔。 請務必注意，timeTaken 欄位通常包含要求和回應封包在網路上傳輸的時間。 |
+|sslEnabled| 與後端集區的通訊是否使用 SSL。 有效值為 on 和 off。|
+|sslCipher| 使用 SSL 通訊 （如果已啟用 SSL） 加密套件。|
+|sslProtocol| （如果已啟用 SSL） 所使用的 SSL 通訊協定。|
+|serverRouted| 後端伺服器，該應用程式閘道會路由傳送的要求。|
+|serverStatus| 後端伺服器的 HTTP 狀態碼。|
+|serverResponseLatency| 從後端伺服器回應延遲。|
+|host| 要求的主機標頭中所列的位址。|
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "operationName": "ApplicationGatewayAccess",
+    "time": "2017-04-26T19:27:38Z",
+    "category": "ApplicationGatewayAccessLog",
+    "properties": {
+        "instanceId": "ApplicationGatewayRole_IN_0",
+        "clientIP": "191.96.249.97",
+        "clientPort": 46886,
+        "httpMethod": "GET",
+        "requestUri": "/phpmyadmin/scripts/setup.php",
+        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
+        "userAgent": "-",
+        "httpStatus": 404,
+        "httpVersion": "HTTP/1.0",
+        "receivedBytes": 65,
+        "sentBytes": 553,
+        "timeTaken": 205,
+        "sslEnabled": "off"
+        "sslCipher": "",
+        "sslProtocol": "",
+        "serverRouted": "104.41.114.59:80",
+        "serverStatus": "200",
+        "serverResponseLatency": "0.023",
+        "host": "52.231.230.101"
     }
 }
 ```
@@ -328,7 +379,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
    您可以根據每個後端集區進行篩選，以顯示特定後端集區中狀況良好/狀況不良的主機。
 
-下方瀏覽至應用程式閘道**監視**選取**計量**。 若要檢視可用的值，請選取 [計量] 下拉式清單。
+下方瀏覽至應用程式閘道**監視**選取**計量**。 若要檢視可用的值，請選取 [計量]  下拉式清單。
 
 下圖中的範例顯示了最近 30 分鐘內的三項計量：
 
@@ -348,11 +399,11 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 2. 在 **新增規則**頁面上，填寫名稱、 條件，和通知等區段，然後選取**確定**。
 
-   * 在 [條件] 選取器中，選取以下四個值之一：**大於****大於或等於**、**小於**，或**小於或等於**。
+   * 在 [條件]  選取器中，選取以下四個值之一：**大於** **大於或等於**、**小於**，或**小於或等於**。
 
-   * 在 [期間] 選取器中，選取 5 分鐘到 6 小時的期間。
+   * 在 [期間]  選取器中，選取 5 分鐘到 6 小時的期間。
 
-   * 如果選取 [傳送電子郵件給擁有者、參與者和讀者]，便可根據可存取該資源的使用者動態傳送電子郵件。 否則，您可以在 [其他系統管理員電子郵件] 方塊中提供以逗號分隔的使用者清單。
+   * 如果選取 [傳送電子郵件給擁有者、參與者和讀者]  ，便可根據可存取該資源的使用者動態傳送電子郵件。 否則，您可以在 [其他系統管理員電子郵件]  方塊中提供以逗號分隔的使用者清單。
 
    ![新增規則 頁面][7]
 

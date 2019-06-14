@@ -19,10 +19,10 @@ ms.reviewer: sahandle
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3357cfd5e845346534f263c768b5cf6b6a38ea4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296098"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>開始使用 Azure Active Directory Identity Protection 和 Microsoft Graph
@@ -53,12 +53,12 @@ Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory
 
 1. 以系統管理員身分[登入](https://portal.azure.com) Azure 入口網站。 
 
-2. 在左方的瀏覽窗格中，按一下 [Active Directory]。 
+2. 在左方的瀏覽窗格中，按一下 [Active Directory]  。 
    
     ![建立應用程式](./media/graph-get-started/41.png)
 
 
-3. 在 [管理] 區段中，按一下 [屬性]。
+3. 在 [管理]  區段中，按一下 [屬性]  。
 
     ![建立應用程式](./media/graph-get-started/42.png)
 
@@ -67,63 +67,63 @@ Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory
 
 ## <a name="create-a-new-app-registration"></a>建立新的應用程式註冊
 
-1. 在 [Active Directory] 頁面的 [管理] 區段中，按一下 [應用程式註冊]。
+1. 在 [Active Directory]  頁面的 [管理]  區段中，按一下 [應用程式註冊]  。
 
     ![建立應用程式](./media/graph-get-started/42.png)
 
 
-2. 在頂端功能表中，按一下 [新增應用程式註冊]。
+2. 在頂端功能表中，按一下 [新增應用程式註冊]  。
    
     ![建立應用程式](./media/graph-get-started/43.png)
 
-3. 在 [建立] 頁面上，執行下列步驟：
+3. 在 [建立]  頁面上，執行下列步驟：
    
     ![建立應用程式](./media/graph-get-started/44.png)
 
-    a. 在 [名稱] 文字方塊中，輸入您應用程式的名稱 (例如：AADIP 風險事件 API 應用程式)。
+    a. 在 [名稱]  文字方塊中，輸入您應用程式的名稱 (例如：AADIP 風險事件 API 應用程式)。
    
-    b. 在 [類型]，選取 [Web 應用程式和/或 Web API]。
+    b. 在 [類型]  ，選取 [Web 應用程式和/或 Web API]  。
    
-    c. 在 [登入 URL] 文字方塊中，輸入 `http://localhost`。
+    c. 在 [登入 URL]  文字方塊中，輸入 `http://localhost`。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
 
-4. 若要開啟 [設定] 頁面，請在應用程式清單中，按一下新建立的應用程式註冊。 
+4. 若要開啟 [設定]  頁面，請在應用程式清單中，按一下新建立的應用程式註冊。 
 
-5. 複製 [應用程式識別碼]。
+5. 複製 [應用程式識別碼]  。
 
 
 ## <a name="grant-your-application-permission-to-use-the-api"></a>授與您的應用程式使用 API 的權限
 
-1. 在 [設定] 頁面中，按一下 [必要權限]。
+1. 在 [設定]  頁面中，按一下 [必要權限]  。
    
     ![建立應用程式](./media/graph-get-started/15.png)
 
-2. 在 [必要權限] 頁面頂端的工具列中，按一下 [新增]。
+2. 在 [必要權限]  頁面頂端的工具列中，按一下 [新增]  。
    
     ![建立應用程式](./media/graph-get-started/16.png)
    
-3. 在 [新增 API 存取權] 頁面中，按一下 [選取 API]。
+3. 在 [新增 API 存取權]  頁面中，按一下 [選取 API]  。
    
     ![建立應用程式](./media/graph-get-started/17.png)
 
-4. 在 [選取 API] 頁面中，選取 [Microsoft Graph]，然後按一下 [選取]。
+4. 在 [選取 API]  頁面中，選取 [Microsoft Graph]  ，然後按一下 [選取]  。
    
     ![建立應用程式](./media/graph-get-started/18.png)
 
-5. 在 [新增 API 存取權] 頁面中，按一下 [選取權限]。
+5. 在 [新增 API 存取權]  頁面中，按一下 [選取權限]  。
    
     ![建立應用程式](./media/graph-get-started/19.png)
 
-6. 在 [啟用存取權] 頁面中，按一下 [讀取所有身分識別風險資訊]，然後按一下 [選取]。
+6. 在 [啟用存取權]  頁面中，按一下 [讀取所有身分識別風險資訊]  ，然後按一下 [選取]  。
    
     ![建立應用程式](./media/graph-get-started/20.png)
 
-7. 在 [新增 API 存取權] 頁面中，按一下 [完成]。
+7. 在 [新增 API 存取權]  頁面中，按一下 [完成]  。
    
     ![建立應用程式](./media/graph-get-started/21.png)
 
-8. 在 [必要權限] 頁面中，按一下 [授與權限]，然後按一下 [是]。
+8. 在 [必要權限]  頁面中，按一下 [授與權限]  ，然後按一下 [是]  。
    
     ![建立應用程式](./media/graph-get-started/22.png)
 
@@ -131,19 +131,19 @@ Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory
 
 ## <a name="get-an-access-key"></a>取得存取金鑰
 
-1. 在 [設定] 頁面中，按一下 [金鑰]。
+1. 在 [設定]  頁面中，按一下 [金鑰]  。
    
     ![建立應用程式](./media/graph-get-started/23.png)
 
-2. 在 [金鑰] 頁面中，執行下列步驟︰
+2. 在 [金鑰]  頁面中，執行下列步驟︰
    
     ![建立應用程式](./media/graph-get-started/24.png)
 
-    a. 在 [金鑰描述] 文字方塊中，輸入描述 (例如，「AADIP 風險事件」)。
+    a. 在 [金鑰描述]  文字方塊中，輸入描述 (例如，「AADIP 風險事件」  )。
     
-    b. 在 [持續時間] 中選取 [1 年]。
+    b. 在 [持續時間]  中選取 [1 年]  。
 
-    c. 按一下 [檔案] 。
+    c. 按一下 [檔案]  。
    
     d. 複製金鑰值，然後將它貼到安全的位置。   
    

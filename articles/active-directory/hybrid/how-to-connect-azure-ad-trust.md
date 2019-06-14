@@ -19,10 +19,10 @@ author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245730"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>使用 Azure AD Connect 管理與 Azure AD 的 AD FS 信任
@@ -105,16 +105,16 @@ Azure AD Connect 確保一律會使用一組正確的建議宣告規則來設定
 
 每次更新 Azure AD 信任設定時，Azure AD Connect 1.1.873.0 版或更新版本就會建立 Azure AD 信任設定的備份。 在 **%ProgramData%\AADConnect\ADFS** 上備份 Azure AD 信任設定。 檔案名稱格式如下：AadTrust-&lt;date&gt;-&lt;time&gt;.txt，例如，AadTrust-20180710-150216.txt
 
-![Azure AD 信任示例备份的快照](./media/how-to-connect-azure-ad-trust/backup.png)
+![範例的螢幕擷取畫面備份的 Azure AD 信任](./media/how-to-connect-azure-ad-trust/backup.png)
 
 您可以使用下列建議步驟來還原發行轉換規則
 
 1. 在 [伺服器管理員] 中開啟 AD FS 管理 UI
-2. 前往 [AD FS]**&gt; [信賴憑證者信任] &gt; [Microsoft Office 365 識別身分平台] &gt; [編輯宣告發行原則]**  來開啟 Azure AD 信任內容
-3. 按一下 [新增規則]
-4. 在宣告規則範本中，選取 [使用自訂規則傳送宣告]，然後按一下 [下一步]
-5. 從備份檔案複製宣告規則的名稱，然後將它貼到 [宣告規則名稱] 欄位中
-6. 將備份檔案中的宣告規則複製到 [自訂規則] 的文字欄位，然後按一下 [完成]
+2. 前往 [AD FS] **&gt; [信賴憑證者信任] &gt; [Microsoft Office 365 識別身分平台] &gt; [編輯宣告發行原則]**  來開啟 Azure AD 信任內容
+3. 按一下 [新增規則] 
+4. 在宣告規則範本中，選取 [使用自訂規則傳送宣告]，然後按一下 [下一步] 
+5. 從備份檔案複製宣告規則的名稱，然後將它貼到 [宣告規則名稱]  欄位中
+6. 將備份檔案中的宣告規則複製到 [自訂規則]  的文字欄位，然後按一下 [完成] 
 
 > [!NOTE]
 > 請確定您的其他規則不會與 Azure AD Connect 所設定的規則產生衝突。

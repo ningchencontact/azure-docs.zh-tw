@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 039b0951484a6bf57703d9a91d604c9c5e5c9a66
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d25082c429c58c074726c75f7ff6f248daee4151
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64571167"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050614"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 開發人員指南
 
@@ -30,7 +30,7 @@ ms.locfileid: "64571167"
 
 Python 指令碼中的 Azure 函式應該是無狀態方法，處理輸入及產生輸出。 根據預設，執行階段會預期要實作為通用的方法呼叫的方法`main()`在`__init__.py`檔案。
 
-您可以藉由指定 `function.json` 檔案中的 `scriptFile` 和 `entryPoint` 屬性來變更預設組態。 例如，下方的 _function.json_ 會告訴執行階段使用在 _main.py_ 檔案中的 _customentry()_ 方法，以作為 Azure 函式的進入點。
+您可以變更預設組態，藉由指定`scriptFile`並`entryPoint`中的屬性*function.json*檔案。 例如， _function.json_下方會告訴執行階段使用`customentry()`中的方法_main.py_檔案中，作為您的 Azure 函式的進入點。
 
 ```json
 {
@@ -40,7 +40,7 @@ Python 指令碼中的 Azure 函式應該是無狀態方法，處理輸入及產
 }
 ```
 
-來自觸發程序和繫結的資料，透過方法屬性 (使用 `function.json` 組態檔中定義的 `name` 屬性) 繫結至函式。 例如， _function.json_以下說明名為 HTTP 要求所觸發的簡單函式`req`:
+從觸發程序和繫結的資料透過繫結至函式使用的方法屬性`name`中所定義的屬性*function.json*檔案。 例如， _function.json_以下說明名為 HTTP 要求所觸發的簡單函式`req`:
 
 ```json
 {
@@ -68,7 +68,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-或者，您也可以使用 Python 型別註釋在函式中宣告參數類型並傳回類型。 例如，您可以使用註釋撰寫相同的函式，如下所示：
+（選擇性） 若要利用 intellisense 和程式碼編輯器所提供的自動完成功能，您可以也宣告屬性型別和中使用 Python 型別註釋函式的傳回類型。 
 
 ```python
 import azure.functions
@@ -78,7 +78,7 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```  
 
-請使用 [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) 套件中所包含的 Python 註釋，以將輸入和輸出繫結至方法。 
+請使用 [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) 套件中所包含的 Python 註釋，以將輸入和輸出繫結至方法。
 
 ## <a name="folder-structure"></a>資料夾結構
 
@@ -97,8 +97,6 @@ Python 函式專案的資料夾結構看起來如下：
  | | - mySecondHelperFunction.py
  | - host.json
  | - requirements.txt
- | - extensions.csproj
- | - bin
 ```
 
 其中有一個可用來設定函數應用程式的共用 [host.json](functions-host-json.md) 檔案。 每個函式都具有本身的程式碼檔案和繫結設定檔 (function.json)。 
@@ -106,16 +104,16 @@ Python 函式專案的資料夾結構看起來如下：
 共用程式碼應該放在個別的資料夾。 若要參考 SharedCode 資料夾中的模組，您可以使用下列語法：
 
 ```
-from ..SharedCode import myFirstHelperFunction
+from __app__.SharedCode import myFirstHelperFunction
 ```
 
-在函式執行階段時使用的繫結擴充功能，是以 `bin` 資料夾中的實際程式庫檔案在 `extensions.csproj` 檔案中所定義。 在本機開發時，您必須使用 Azure Functions Core Tools [註冊繫結擴充功能](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)。 
-
-將 Functions 專案部署到 Azure 中的功能應用程式時，FunctionApp 資料夾的整個內容應包含在套件中，但不應包含資料夾本身。
+將函式專案部署至您的函式應用程式，在 Azure 中的整個內容時*FunctionApp*資料夾應該會包含在封裝，而不是資料夾本身。
 
 ## <a name="triggers-and-inputs"></a>觸發程序和輸入
 
-在 Azure Functions 中輸入會分成兩個類別：觸發程序輸入和額外的輸入。 雖然它們在 `function.json` 中是不同的，在 Python 程式碼中的使用方式則相同。  觸發程序和輸入來源的連接字串應該對應至值`local.settings.json`檔案儲存在本機，並在 Azure 中執行時的應用程式設定。 讓我們以下列程式碼片段為例：
+在 Azure Functions 中輸入會分成兩個類別：觸發程序輸入和額外的輸入。 儘管它們是在不同`function.json`檔案中，使用方式中有相同的 Python 程式碼。  中的值對應的連接字串或觸發程序和輸入來源的祕密`local.settings.json`檔案時，在本機執行，並在 Azure 中執行時的應用程式設定。 
+
+例如，下列程式碼會示範兩者之間的差異：
 
 ```json
 // function.json
@@ -233,21 +231,9 @@ def main(req):
 | logging.**info(_message_)**    | 在根記錄器上寫入層級為 INFO (資訊) 的訊息。  |
 | logging.**debug(_message_)** | 在根記錄器上寫入層級為 DEBUG (偵錯) 的訊息。  |
 
-## <a name="importing-shared-code-into-a-function-module"></a>將共用程式碼匯入函式模組
-
-與函式模組一起發行的 Python 模組必須使用相對的匯入語法匯入：
-
-```python
-from . import helpers  # Use more dots to navigate up the folder structure.
-def main(req: func.HttpRequest):
-    helpers.process_http_request(req)
-```
-
-或者，將共用程式碼放入獨立套件、將其發行至公用或私人 PyPI 執行個體，並將其指定為一般相依性。
-
 ## <a name="async"></a>非同步處理
 
-由於每個函式應用程式只可存在單一 Python 處理序，因此建議使用 `async def` 陳述式將 Azure 函式實作為非同步處理協同程序。
+我們建議您撰寫您的 Azure 函式，以非同步的協同程式使用`async def`陳述式。
 
 ```python
 # Will be run with asyncio directly
@@ -255,7 +241,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-如果 main() 函式是同步處理函式 (非 `async` 限定詞)，我們會在 `asyncio` 執行緒集區自動執行該函式。
+如果是同步的 main （） 函式 (沒有`async`辨識符號) 我們會自動執行函式`asyncio`執行緒集區。
 
 ```python
 # Would be run in an asyncio thread-pool
@@ -267,7 +253,7 @@ def main():
 
 若要在執行期間取得函式的引動內容，請在其簽章中包含 `context`引數。 
 
-例如︰
+例如:
 
 ```python
 import azure.functions
@@ -288,6 +274,21 @@ def main(req: azure.functions.HttpRequest,
 `invocation_id`  
 目前函式引動的識別碼。
 
+## <a name="global-variables"></a>全域變數
+
+不保證您的應用程式的狀態將會保留供日後執行。 不過，Azure Functions 執行階段通常會重複使用相同的應用程式的多個執行的相同程序。 若要快取的昂貴的計算結果，請將它宣告為全域變數中。 
+
+```python
+CACHED_DATA = None
+
+def main(req):
+    global CACHED_DATA
+    if CACHED_DATA is None:
+        CACHED_DATA = load_json()
+
+    # ... use CACHED_DATA in code
+```
+
 ## <a name="python-version-and-package-management"></a>Python 版本和套件管理
 
 Azure Functions 目前僅支援 Python 3.6.x (官方 CPython 發佈)。
@@ -295,10 +296,6 @@ Azure Functions 目前僅支援 Python 3.6.x (官方 CPython 發佈)。
 使用 Azure Functions Core Tools 或 Visual Studio Code 在本機進行開發時，將所需的套件名稱和版本新增到 `requirements.txt` 檔案，並使用 `pip` 進行安裝。
 
 例如，可以使用下列要求和 pip 命令從 PyPl 安裝 `requests` 套件。
-
-```bash
-pip install requests
-```
 
 ```txt
 requests==2.19.1
@@ -308,20 +305,9 @@ requests==2.19.1
 pip install -r requirements.txt
 ```
 
-當您準備發行時，請確保所有相依性都列在專案目錄根目錄下的 `requirements.txt` 檔案中。 若要成功地執行 Azure Functions，需求檔案應包含下列套件的最小需求：
-
-```txt
-azure-functions
-azure-functions-worker
-grpcio==1.14.1
-grpcio-tools==1.14.1
-protobuf==3.6.1
-six==1.11.0
-```
-
 ## <a name="publishing-to-azure"></a>發行到 Azure
 
-如果您正在使用需要編譯器且不支援從 PyPl 安裝多版 Linux 相容的套件，則發行至 Azure 會失敗，並發生下列錯誤： 
+當您準備好發佈時，請確定所有的相依性所述*requirements.txt*檔案，這是您的專案目錄的根目錄中找到。 如果您正在使用需要編譯器且不支援從 PyPl 安裝多版 Linux 相容的套件，則發行至 Azure 會失敗，並發生下列錯誤： 
 
 ```
 There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
@@ -336,70 +322,83 @@ func azure functionapp publish <app name> --build-native-deps
 
 基本上，Core Tools 會使用 docker 將 [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) 映像作為本機電腦上的容器。 接著，它會利用此環境從來源發佈建置並安裝必要的模組，再將其封裝以最終部署至 Azure。
 
-> [!NOTE]
-> Core Tools (func) 會使用 PyInstaller 程式將使用者的程式碼和相依性凍結到單一獨立的可執行檔，以在 Azure 中執行。 這項功能目前為預覽狀態，且可能不會延伸到所有類型的 Python 套件。 如果無法匯入您的模組，請使用 `--no-bundler` 選項再次嘗試發佈。 
-> ```
-> func azure functionapp publish <app_name> --build-native-deps --no-bundler
-> ```
-> 如果仍然遇到問題，請[提出問題](https://github.com/Azure/azure-functions-core-tools/issues/new)並包含問題的描述讓我們知道問題所在。 
+若要如何建置您的相依性和發行使用持續傳遞 (CD) 系統中，[使用 Azure DevOps 管線](https://docs.microsoft.com/azure/azure-functions/functions-how-to-azure-devops)。 
 
+## <a name="unit-testing"></a>單元測試
 
-若要建置相依性並使用持續整合 (CI) 與持續傳遞 (CD) 系統進行發佈，您可以使用 [Azure 管線](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts)或[Travis CI 自訂指令碼](https://docs.travis-ci.com/user/deployment/script/)。 
+以 Python 撰寫的函式可以像其他的 Python 程式碼，使用標準的測試架構測試。 對於大部分的繫結，就可以建立從適當的類別的執行個體來建立模擬 （mock） 的輸入的物件`azure.functions`封裝。
 
-以下是建置和發佈程序的範例 `azure-pipelines.yml` 指令碼。
-```yml
-pool:
-  vmImage: 'Ubuntu 16.04'
+例如，以下是 HTTP 觸發函式的模擬 （mock） 測試：
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '8.x'
+```python
+# myapp/__init__.py
+import azure.functions as func
+import logging
 
-- script: |
-    set -e
-    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
-    curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-    sudo apt-get install -y apt-transport-https
-    echo "install Azure CLI..."
-    sudo apt-get update && sudo apt-get install -y azure-cli
-    npm i -g azure-functions-core-tools --unsafe-perm true
-    echo "installing dotnet core"
-    curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 2.0
-- script: |
-    set -e
-    az login --service-principal --username "$(APP_ID)" --password "$(PASSWORD)" --tenant "$(TENANT_ID)" 
-    func settings add FUNCTIONS_WORKER_RUNTIME python
-    func extensions install
-    func azure functionapp publish $(APP_NAME) --build-native-deps
+def main(req: func.HttpRequest,
+         obj: func.InputStream):
+
+    logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-以下是建置和發佈程序的範例 `.travis.yaml` 指令碼。
+```python
+# myapp/test_func.py
+import unittest
 
-```yml
-sudo: required
+import azure.functions as func
+from . import my_function
 
-language: node_js
+class TestFunction(unittest.TestCase):
+    def test_my_function(self):
+        # Construct a mock HTTP request.
+        req = func.HttpRequest(
+            method='GET',
+            body=None,
+            url='/my_function', 
+            params={'name': 'Test'})
 
-node_js:
-  - "8"
+        # Call the function.
+        resp = my_function(req)
 
-services:
-  - docker
-
-before_install:
-  - echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
-  - curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-  - sudo apt-get install -y apt-transport-https
-  - sudo apt-get update && sudo apt-get install -y azure-cli
-  - npm i -g azure-functions-core-tools --unsafe-perm true
-
-
-script:
-  - az login --service-principal --username "$APP_ID" --password "$PASSWORD" --tenant "$TENANT_ID"
-  - az account get-access-token --query "accessToken" | func azure functionapp publish $APP_NAME --build-native-deps
-
+        # Check the output.
+        self.assertEqual(
+            resp.get_body(), 
+            'Hello, Test!',
+        )
 ```
+
+以下是另一個範例中的，使用佇列觸發函式：
+
+```python
+# myapp/__init__.py
+import azure.functions as func
+
+def my_function(msg: func.QueueMessage) -> str:
+    return f'msg body: {msg.get_body().decode()}'
+```
+
+```python
+# myapp/test_func.py
+import unittest
+
+import azure.functions as func
+from . import my_function
+
+class TestFunction(unittest.TestCase):
+    def test_my_function(self):
+        # Construct a mock Queue message.
+        req = func.QueueMessage(
+            body=b'test')
+
+        # Call the function.
+        resp = my_function(req)
+
+        # Check the output.
+        self.assertEqual(
+            resp, 
+            'msg body: test',
+        )
+``` 
 
 ## <a name="known-issues-and-faq"></a>已知問題和常見問題集
 
