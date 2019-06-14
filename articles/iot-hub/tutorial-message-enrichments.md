@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
 ms.openlocfilehash: e4906bf9f2aead69c315ddb7b2e3b10489378d87
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66259070"
 ---
 # <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>教學課程：使用 Azure IoT 中樞訊息類 （預覽）
@@ -65,11 +65,11 @@ ms.locfileid: "66259070"
 
 有數個資源名稱必須是全域唯一的，例如 IoT 中樞名稱和儲存體帳戶名稱。 若要讓執行指令碼更容易，那些資源的名稱會加上隨機英數字元值呼叫*randomValue*。 randomValue 會在指令碼頂端產生一次，並於需要時加到整個指令碼的資源名稱後面。 如果您不想使用隨機值，則可將其設定為空字串，或設定為特定值。
 
-如果您尚未這麼做，開啟[bash Cloud Shell 視窗](https://shell.azure.com)。 開啟解壓縮的存放庫中的指令碼，請使用 Ctrl-A 可選取全部，則 Ctrl + C 可複製它。 或者，您可以複製下列的 CLI 指令碼，或直接在 cloud shell 中開啟它。 在 [Azure cloud shell] 視窗中貼上指令碼，在命令列上按一下滑鼠右鍵，然後選取**貼上**。 指令碼會執行一個陳述式，一次。 指令碼停止執行之後，請選取**Enter**以確定它執行的最後一個命令。 下列程式碼區塊顯示使用，以及說明它正在進行的註解的指令碼。
+如果您尚未這麼做，開啟[bash Cloud Shell 視窗。](https://shell.azure.com)。 開啟解壓縮的存放庫中的指令碼，請使用 Ctrl-A 可選取全部，則 Ctrl + C 可複製它。 或者，您可以複製下列的 CLI 指令碼，或直接在 cloud shell 中開啟它。 在 [Azure cloud shell] 視窗中貼上指令碼，在命令列上按一下滑鼠右鍵，然後選取**貼上**。 指令碼會執行一個陳述式，一次。 指令碼停止執行之後，請選取**Enter**以確定它執行的最後一個命令。 下列程式碼區塊顯示使用，以及說明它正在進行的註解的指令碼。
 
 以下是指令碼所建立的資源。 **豐富**表示資源的類訊息。 **原始**表示資源不豐富的訊息。
 
-| 名稱 | Value |
+| Name | 值 |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | 容器名稱 | 原始  |
@@ -250,7 +250,7 @@ az iot hub route create \
 
 2. 將 ContosoStorageEndpointEnriched 端點清單中的這些值。
 
-   | 名稱 | Value | 端點 （下拉式清單中） |
+   | Name | 值 | 端點 （下拉式清單中） |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | 裝置位置 | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |

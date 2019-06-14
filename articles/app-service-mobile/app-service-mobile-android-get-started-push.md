@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: crdun
 ms.openlocfilehash: 352e64664e6796fb4e0a7941de91ef4045076aed
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104592"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>將推播通知新增至 Android 應用程式
@@ -93,4 +93,4 @@ ms.locfileid: "62104592"
 
 <!-- URLs -->
 [Android 快速入門]: app-service-mobile-android-get-started.md
-[將 Firebase 新增至 Android 專案]:https://firebase.google.com/docs/android/setup
+[將 Firebase 新增至 Android 專案]: https://firebase.google.com/docs/android/setup

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.openlocfilehash: a4c601e81390efa3bb53a6f07225bb6e939bc9bb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726451"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>建置 Apache HBase 的 Java 應用程式
@@ -38,10 +38,10 @@ ms.locfileid: "64726451"
 > [!IMPORTANT]  
 > Azure PowerShell cmdlet [Get AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster)並[Get AzHDInsightJobOutput](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightjoboutput)目前無法運作時[安全傳輸](../../storage/common/storage-require-secure-transfer.md)啟用儲存體帳戶.
 
-## <a name="test-environment"></a>测试环境
-本文使用的环境是一台运行 Windows 10 的计算机。  命令在命令提示符下执行，各种文件使用记事本进行编辑。 據此修改為您的環境。
+## <a name="test-environment"></a>測試環境
+本文所使用的環境是執行 Windows 10 的電腦。  在命令提示字元中執行命令，各種檔案已使用 「 記事本 」 編輯。 據此修改為您的環境。
 
-在命令提示符下，输入以下命令以创建工作环境：
+在命令提示字元中，輸入下列命令，以建立工作的環境：
 
 ```cmd
 IF NOT EXIST C:\HDI MKDIR C:\HDI
@@ -59,13 +59,13 @@ cd C:\HDI
     mkdir conf
     ```
 
-    此命令會在目前的位置建立名為 `hbaseapp` 的目錄，其內含基本 Maven 專案。 第二個命令將工作目錄變更至`hbaseapp`。 第三条命令创建稍后要使用的新目录 `conf`。 `hbaseapp` 目錄包含下列項目：
+    此命令會在目前的位置建立名為 `hbaseapp` 的目錄，其內含基本 Maven 專案。 第二個命令將工作目錄變更至`hbaseapp`。 第三個命令會建立新的目錄， `conf`，用來更新版本。 `hbaseapp` 目錄包含下列項目：
 
     * `pom.xml`:「專案物件模型」(](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)POM) 包含用來建置專案的資訊和組態詳細資料。
     * `src\main\java\com\microsoft\examples`:包含應用程式的程式碼。
     * `src\test\java\com\microsoft\examples`:包含應用程式的測試。
 
-2. 移除產生的範例程式碼。 输入以下命令，删除生成的测试和应用程序文件 `AppTest.java` 与 `App.java`：
+2. 移除產生的範例程式碼。 刪除產生的測試和應用程式檔案`AppTest.java`，和`App.java`藉由輸入下列命令：
 
     ```cmd
     DEL src\main\java\com\microsoft\examples\App.java
@@ -74,7 +74,7 @@ cd C:\HDI
 
 ## <a name="update-the-project-object-model"></a>更新專案物件模型
 
-Pom.xml 檔案的完整參考，請參閱 https://maven.apache.org/pom.html。  输入以下命令打开 `pom.xml`：
+Pom.xml 檔案的完整參考，請參閱 https://maven.apache.org/pom.html 。  開啟`pom.xml`藉由輸入下列命令：
 
 ```cmd
 notepad pom.xml
@@ -82,7 +82,7 @@ notepad pom.xml
 
 ### <a name="add-dependencies"></a>新增相依性
 
-在 `pom.xml` 的 `<dependencies>` 节中添加以下文本：
+在  `pom.xml`，加入下列文字在`<dependencies>`區段：
 
 ```xml
 <dependency>
@@ -165,7 +165,7 @@ Maven 外掛程式可讓您自訂專案的建置階段。 此區段會用來新�
 > [!NOTE]  
 > 您也可以透過程式碼來設定組態值。 請參閱 `CreateTable` 範例中的註解。
 
-此區段也會設定 [Apache Maven Compiler 外掛程式](https://maven.apache.org/plugins/maven-compiler-plugin/)和 [Apache Maven Shade 外掛程式](https://maven.apache.org/plugins/maven-shade-plugin/)。 Compiler 外掛程式用來編譯拓撲。 该阴影插件用于防止在由 Maven 构建的 JAR 程序包中复制许可证。 此外掛程式是用於防止 HDInsight 叢集在執行階段發生「重複的授權檔案」錯誤。 使用 maven-shade-plugin 搭配 `ApacheLicenseResourceTransformer` 實作可防止此錯誤。
+此區段也會設定 [Apache Maven Compiler 外掛程式](https://maven.apache.org/plugins/maven-compiler-plugin/)和 [Apache Maven Shade 外掛程式](https://maven.apache.org/plugins/maven-shade-plugin/)。 Compiler 外掛程式用來編譯拓撲。 Shade 外掛程式用來防止以 Maven 所建置的 JAR 封裝發生授權重複。 此外掛程式是用於防止 HDInsight 叢集在執行階段發生「重複的授權檔案」錯誤。 使用 maven-shade-plugin 搭配 `ApacheLicenseResourceTransformer` 實作可防止此錯誤。
 
 maven-shade-plugin 也會產生 uber jar，其中含有應用程式需要的所有相依性。
 
@@ -187,7 +187,7 @@ scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./
 notepad src\main\java\com\microsoft\examples\CreateTable.java
 ```
 
-将以下 Java 代码复制并粘贴到新文件中。 然后关闭该文件。
+然後複製並貼到新檔案的資訊，請參閱下列 java 程式碼。 然後關閉檔案。
 
 ```java
 package com.microsoft.examples;
@@ -269,7 +269,7 @@ public class CreateTable {
 notepad src\main\java\com\microsoft\examples\SearchByEmail.java
 ```
 
-将以下 Java 代码复制并粘贴到新文件中。 然后关闭该文件。
+然後複製並貼到新檔案的資訊，請參閱下列 java 程式碼。 然後關閉檔案。
 
 ```java
 package com.microsoft.examples;
@@ -354,7 +354,7 @@ public class SearchByEmail {
 notepad src\main\java\com\microsoft\examples\DeleteTable.java
 ```
 
-将以下 Java 代码复制并粘贴到新文件中。 然后关闭该文件。
+然後複製並貼到新檔案的資訊，請參閱下列 java 程式碼。 然後關閉檔案。
 
 ```java
 package com.microsoft.examples;
@@ -693,7 +693,7 @@ public class DeleteTable {
           Gabriela Ingram - ID: 6
           Gabriela Ingram - gabriela@contoso.com - ID: 6
 
-    使用 **fabrikam.com** 做為 `-emailRegex` 值會傳回電子郵件欄位中含有 **fabrikam.com** 的使用者。 您也可以使用規則運算式作為搜尋字詞。 例如，**^r** 會傳回開頭為字母 'r' 的電子郵件地址。
+    使用 **fabrikam.com** 做為 `-emailRegex` 值會傳回電子郵件欄位中含有 **fabrikam.com** 的使用者。 您也可以使用規則運算式作為搜尋字詞。 例如， **^r** 會傳回開頭為字母 'r' 的電子郵件地址。
 
 7. 若要刪除資料表，請使用下列命令：
 
