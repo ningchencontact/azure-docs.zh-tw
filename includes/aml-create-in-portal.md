@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 05/21/2019
 ms.openlocfilehash: 72f23b10047928f32886d9054f4dd1abdc569bd8
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66396863"
 ---
 1. 使用您所使用之 Azure 訂用帳戶的認證來登入 [Azure 入口網站](https://portal.azure.com/)。 
