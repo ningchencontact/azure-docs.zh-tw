@@ -17,10 +17,10 @@ ms.date: 04/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9167a5ed72e6fec2ca03cc97d1d41dd6cd4aaba6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104558"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>教學課程：Azure Active Directory 與 Secret Server (On-Premises) 整合
@@ -61,19 +61,19 @@ Secret Server (On-Premises) 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 Secret Server (On-Premises)，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
-1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]  。 然後移至 [所有應用程式]  。
 
     ![企業應用程式刀鋒視窗][2]
     
-1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![新增應用程式按鈕][3]
 
-1. 在搜尋方塊中，輸入 **Secret Server (On-Premises)**，從結果面板中選取 [Secret Server (On-Premises)]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在搜尋方塊中，輸入 **Secret Server (On-Premises)** ，從結果面板中選取 [Secret Server (On-Premises)]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
     ![結果清單中的 Secret Server (On-Premises)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_addfromgallery.png)
 
@@ -89,7 +89,7 @@ Secret Server (On-Premises) 與 Azure AD 整合提供下列優點：
 1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 1. **[建立 Secret Server (On-Premises) 測試使用者](#create-a-secret-server-on-premises-test-user)** - 在 Secret Server (On-Premises) 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表 Britta Simon 的項目連結。
 1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-1. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+1. **[測試單一登入](#test-single-sign-on)** ，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -97,39 +97,39 @@ Secret Server (On-Premises) 與 Azure AD 整合提供下列優點：
 
 **若要設定透過 Secret Server (On-Premises) 使用 Azure AD 單一登入功能，請執行下列步驟：**
 
-1. 在 Azure 入口網站的 [Secret Server (On-Premises)] 應用程式整合頁面上，按一下 [單一登入]。
+1. 在 Azure 入口網站的 [Secret Server (On-Premises)]  應用程式整合頁面上，按一下 [單一登入]  。
 
     ![設定單一登入連結][4]
 
-1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入]  對話方塊上，於 [模式]  選取 [SAML 登入]  ，以啟用單一登入。
 
     ![單一登入對話方塊](./media/secretserver-on-premises-tutorial/tutorial_secretserver_samlbase.png)
 
-1. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [Secret Server (On-Premises) 網域和 URL] 區段上執行下列步驟：
+1. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [Secret Server (On-Premises) 網域和 URL]  區段上執行下列步驟：
 
     ![Secret Server (On-Premises) 網域及 URL 單一登入資訊](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url.png)
 
-    a. 在 [識別碼] 文字方塊中，輸入使用者選擇的值作為範例：`https://secretserveronpremises.azure`
+    a. 在 [識別碼]  文字方塊中，輸入使用者選擇的值作為範例：`https://secretserveronpremises.azure`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<SecretServerURL>/SAML/AssertionConsumerService.aspx`
 
     > [!NOTE]
     > 上面顯示的實體識別碼只是範例，您可以自由選擇任何唯一值以在 Azure AD 中識別您的 Secret Server 執行個體。 您需要將此實體識別碼傳送到 [Secret Server (On-Premises) 用戶端支援小組](https://thycotic.force.com/support/s/)，以在他們那端設定此識別碼。 如需詳細資料，請參閱[這篇文章](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server)。
 
-1. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
+1. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]  ，然後執行下列步驟：
 
     ![Secret Server (On-Premises) 網域及 URL 單一登入資訊](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url1.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<SecretServerURL>/login.aspx`
+    在 [登入 URL]  文字方塊中，使用下列模式輸入 URL︰ `https://<SecretServerURL>/login.aspx`
      
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的回覆 URL 與登入 URL 更新這些值。 請連絡 [Secret Server (On-Premises) 用戶端支援小組](https://thycotic.force.com/support/s/)以取得這些值。
 
-1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證]  區段上，按一下 [憑證 (Base64)]  ，然後將憑證檔案儲存在您的電腦上。
 
     ![憑證下載連結](./media/secretserver-on-premises-tutorial/tutorial_secretserver_certificate.png)
 
-1. 勾選 [顯示進階憑證簽署設定]，並在 [簽署選項] 中選取 [簽署 SAML 回應及判斷提示]。
+1. 勾選 [顯示進階憑證簽署設定]  ，並在 [簽署選項]  中選取 [簽署 SAML 回應及判斷提示]  。
 
     ![簽署選項](./media/secretserver-on-premises-tutorial/signing.png)
 
@@ -137,11 +137,11 @@ Secret Server (On-Premises) 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入儲存按鈕](./media/secretserver-on-premises-tutorial/tutorial_general_400.png)
     
-1. 在 [Secret Server (On-Premises) 組態] 區段上，按一下 [設定 Secret Server (On-Premises)] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+1. 在 [Secret Server (On-Premises) 組態]  區段上，按一下 [設定 Secret Server (On-Premises)]  以開啟 [設定登入]  視窗。 從 [快速參考]  區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]  。
 
     ![Secret Server (On-Premises) 組態](./media/secretserver-on-premises-tutorial/tutorial_secretserver_configure.png)
 
-1. 若要在 **Secret Server (On-Premises)** 端設定單一登入，您必須將下載的「憑證 (Base64)」、「登出 URL」、「SAML 單一登入服務 URL」和「SAML 實體識別碼」傳送至 [Secret Server (On-Premises) 支援小組](https://thycotic.force.com/support/s/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+1. 若要在 **Secret Server (On-Premises)** 端設定單一登入，您必須將下載的「憑證 (Base64)」、「登出 URL」、「SAML 單一登入服務 URL」  和「SAML 實體識別碼」  傳送至 [Secret Server (On-Premises) 支援小組](https://thycotic.force.com/support/s/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -151,29 +151,29 @@ Secret Server (On-Premises) 與 Azure AD 整合提供下列優點：
 
 **若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
-1. 在 Azure 入口網站的左窗格中，按一下 [Azure Active Directory] 按鈕。
+1. 在 Azure 入口網站的左窗格中，按一下 [Azure Active Directory]  按鈕。
 
     ![Azure Active Directory 按鈕](./media/secretserver-on-premises-tutorial/create_aaduser_01.png)
 
-1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]  ，然後按一下 [所有使用者]  。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/secretserver-on-premises-tutorial/create_aaduser_02.png)
 
-1. 若要開啟 [使用者] 對話方塊，按一下 [所有使用者] 對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者]  對話方塊，按一下 [所有使用者]  對話方塊頂端的 [新增]  。
 
     ![[新增] 按鈕](./media/secretserver-on-premises-tutorial/create_aaduser_03.png)
 
-1. 在 [使用者] 對話方塊中，執行下列步驟：
+1. 在 [使用者]  對話方塊中，執行下列步驟：
 
     ![[使用者] 對話方塊](./media/secretserver-on-premises-tutorial/create_aaduser_04.png)
 
-    a. 在 [名稱] 方塊中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  方塊中，輸入 **BrittaSimon**。
 
-    b. 在 [使用者名稱] 方塊中，輸入使用者 Britta Simon 的電子郵件地址。
+    b. 在 [使用者名稱]  方塊中，輸入使用者 Britta Simon 的電子郵件地址。
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    c. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
  
 ### <a name="create-a-secret-server-on-premises-test-user"></a>建立 Secret Server (On-Premises) 測試使用者
 
@@ -187,27 +187,27 @@ Secret Server (On-Premises) 與 Azure AD 整合提供下列優點：
 
 **若要將 Britta Simon 指派給 Secret Server (On-Premises)，請執行下列步驟：**
 
-1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
+1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]  ，然後按一下 [所有應用程式]  。
 
     ![指派使用者][201]
 
-1. 在應用程式清單中，選取 [Secret Server (On-Premises)]。
+1. 在應用程式清單中，選取 [Secret Server (On-Premises)]  。
 
     ![應用程式清單中的 Secret Server (On-Premises) 連結](./media/secretserver-on-premises-tutorial/tutorial_secretserver_app.png)
 
-1. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]  。
 
     ![[使用者和群組] 連結][202]
 
-1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增]  按鈕。 然後選取 [新增指派]  對話方塊上的 [使用者和群組]  。
 
     ![[新增指派] 窗格][203]
 
-1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組]  對話方塊上，選取 [使用者] 清單中的 [Britta Simon]  。
 
-1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組]  對話方塊上的 [選取]  按鈕。
 
-1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派]  對話方塊上的 [指派]  按鈕。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

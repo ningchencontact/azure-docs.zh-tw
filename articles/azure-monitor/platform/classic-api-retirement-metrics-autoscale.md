@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: robb
 ms.openlocfilehash: ce54b63aa7831ed40a8592d536c43fc83fdc5567
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60709978"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure 監視器停用計量與自動調整的傳統部署模型 API
@@ -38,9 +38,9 @@ Azure 監視器 (首次發行時名為 Azure Insights) 目前的工可建立與�
 
 如果您不確定您的程式碼或自訂工具是否會呼叫傳統 API，請參閱下方：
 
-- 檢視您程式碼或工具中所參考的 URI。 傳統 API 會使用 URI https://management.core.windows.net。 請從 https://management.azure.com/ 開始，在以 Resource Manager 為基礎的 API 上使用新 URI。
+- 檢視您程式碼或工具中所參考的 URI。 傳統 API 會使用 URI https://management.core.windows.net 。 請從 https://management.azure.com/ 開始，在以 Resource Manager 為基礎的 API 上使用新 URI。
 
-- 比較您電腦上的組件名稱。 舊的傳統組件位於 https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/。
+- 比較您電腦上的組件名稱。 舊的傳統組件位於 https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/ 。
 
 - 如果您使用憑證驗證來存取計量或自動調整 API，則您使用的是傳統端點和程式庫。 新的 Resource Manager API 需要透過服務主體或使用者主體使用 Azure Active Directory。
 

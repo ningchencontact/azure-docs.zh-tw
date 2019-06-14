@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 4/20/2019
 ms.author: tamram
 ms.openlocfilehash: aab17966862c57a52f252b3c4e9b757673078b0a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66114777"
 ---
-| Resource | 目標        |
+| 資源 | 目標        |
 |----------|---------------|
 | 單一 blob 容器的大小上限 | 儲存體帳戶容量上限相同 |
 | 最大數目的區塊中的區塊 blob 或附加 blob | 50,000 個區塊 |

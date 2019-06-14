@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
 ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119298"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何針對 Azure Mobile Apps 使用受控用戶端
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 ## <a name="overview"></a>概觀
-本指南说明如何在 Windows 应用和 Xamarin 应用中使用 Azure 应用服务移动应用的托管客户端库执行常见方案。 如果您不熟悉 Mobile Apps，應該考慮先完成 [Azure Mobile Apps 快速入門][1]教學課程。 在本指南中，我們會著重於用戶端受控 SDK。 若要深入了解 Mobile Apps 的伺服器端 SDK，請參閱 [.NET 伺服器 SDK][2] 或 [Node.js 伺服器 SDK][3] 的文件。
+本指南將示範如何在 Windows 和 Xamarin 應用程式中針對 Azure App Service Mobile Apps 使用受控用戶端程式庫，來執行一般案例。 如果您不熟悉 Mobile Apps，應該考慮先完成 [Azure Mobile Apps 快速入門][1]教學課程。 在本指南中，我們會著重於用戶端受控 SDK。 若要深入了解 Mobile Apps 的伺服器端 SDK，請參閱 [.NET 伺服器 SDK][2] 或 [Node.js 伺服器 SDK][3] 的文件。
 
 ## <a name="reference-documentation"></a>參考文件
 用戶端 SDK 的參考文件位於此處：[Azure Mobile Apps .NET 用戶端參考資料][4]。
@@ -42,8 +42,8 @@ ms.locfileid: "62119298"
 
 「伺服器流程」驗證在呈現的 UI 中使用 WebView。  如果裝置無法呈現 WebView UI，您需要其他驗證方法。  因此，此 SDK 不適用於手錶類型或受到類似限制的裝置。
 
-## <a name="setup"></a>安装与先决条件
-假设已创建并发布移动应用后端项目（至少包含一个表）。  在本主题使用的代码中，表的名称为 `TodoItem`，其中包含以下列：`Id`、`Text` 和 `Complete`。 此資料表與您完成 [Azure Mobile Apps 快速入門][1]時所建立的資料表相同。
+## <a name="setup"></a>設定和必要條件
+我們假設您已建立並發佈您的行動應用程式後端專案 (至少包含一個資料表)。  在本主題使用的程式碼中，資料表的名稱為 `TodoItem`，且其具有下列資料行：`Id`、`Text` 和 `Complete`。 此資料表與您完成 [Azure Mobile Apps 快速入門][1]時所建立的資料表相同。
 
 C# 中對應的具類型用戶端類型為下列類別：
 
@@ -62,12 +62,12 @@ public class TodoItem
 
 [JsonPropertyAttribute][6] 是用來定義用戶端欄位與資料表欄位之間的 *PropertyName* 對應。
 
-若要了解如何在 Mobile Apps 後端中建立資料表，請參閱 [.NET 伺服器 SDK 主題][7] 或 [Node.js 伺服器 SDK 主題][8]。 如果您已使用＜快速入門＞在 Azure 入口網站中建立行動應用程式後端，也可以使用 **Azure 入口網站** 中的 [Azure 门户]設定。
+若要了解如何在 Mobile Apps 後端中建立資料表，請參閱 [.NET 伺服器 SDK 主題][7] 或 [Node.js 伺服器 SDK 主題][8]。 如果您已使用＜快速入門＞在 Azure 入口網站中建立行動應用程式後端，也可以使用 **Azure 入口網站** 中的 [Azure 入口網站]設定。
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>作法：安裝受控用戶端 SDK 封裝
 使用下列其中一種方法，從 [NuGet][9] 安裝適用於 Mobile Apps 的受控用戶端 SDK 套件：
 
-* **Visual Studio** 以滑鼠右鍵按一下您的專案、按一下 [管理 NuGet 套件]，搜尋 `Microsoft.Azure.Mobile.Client` 套件，然後按一下 [安裝]。
+* **Visual Studio** 以滑鼠右鍵按一下您的專案、按一下 [管理 NuGet 套件]  ，搜尋 `Microsoft.Azure.Mobile.Client` 套件，然後按一下 [安裝]  。
 * **Xamarin Studio**以滑鼠右鍵按一下您的專案中，按一下**新增** > **新增 NuGet 套件**，搜尋`Microsoft.Azure.Mobile.Client`封裝，然後按一下 **加入封裝**.
 
 在您的主要活動檔案中，記得加入下列 **using** 陳述式：
@@ -89,14 +89,14 @@ using Microsoft.WindowsAzure.MobileServices;
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
-在上述程式碼中，以行動應用程式後端 URL 取代 `MOBILE_APP_URL` ，這位於 [Azure 门户]的行動應用程式後端刀鋒視窗中。 MobileServiceClient 物件應該是單一的。
+在上述程式碼中，以行動應用程式後端 URL 取代 `MOBILE_APP_URL` ，這位於 [Azure 入口網站]的行動應用程式後端刀鋒視窗中。 MobileServiceClient 物件應該是單一的。
 
 ## <a name="work-with-tables"></a>使用資料表
 下一節將詳細說明如何搜尋和擷取記錄，以及修改資料表中的資料。  本文涵蓋下列主題：
 
 * [建立資料表參考](#instantiating)
 * [查詢資料](#querying)
-* [筛选返回的数据](#filtering)
+* [篩選傳回的資料](#filtering)
 * [排序傳回的資料](#sorting)
 * [以分頁方式傳回資料](#paging)
 * [選取特定資料欄](#selecting)
@@ -188,7 +188,7 @@ List<TodoItem> items = await todoTable
     .ToListAsync();
 ```
 
-这两种方法是等效的，可以换用。  舊有的選項&mdash;在一個查詢中串連多個述詞&mdash;較為精簡，也是建議的選項。
+這兩種方法是相同的，而且可以交換使用。  舊有的選項&mdash;在一個查詢中串連多個述詞&mdash;較為精簡，也是建議的選項。
 
 `Where` 子句可支援被轉譯成 OData 子集的作業。 這些作業包括︰
 
@@ -226,7 +226,7 @@ MobileServiceTableQuery<TodoItem> query = todoTable.Take(3);
 List<TodoItem> items = await query.ToListAsync();
 ```
 
-下列已修訂查詢會略過前三個結果，並傳回接下來的三個結果。 此查询生成数据的第二“页”，其页大小为三个项。
+下列已修訂查詢會略過前三個結果，並傳回接下來的三個結果。 此查詢會產生第二「頁」資料，頁面大小為三個項目。
 
 ```csharp
 // Define a filtered query that skips the top 3 items and returns the next 3 items.
@@ -240,7 +240,7 @@ List<TodoItem> items = await query.ToListAsync();
 query = query.IncludeTotalCount();
 ```
 
-在实际应用中，可以搭配页导航控件或类似的 UI 使用类似于上述示例的查询，在页之间导航。
+在實際的應用程式中，您可以搭配頁面巡覽區控制項或類似的 UI 來使用類似上述範例的查詢，以導覽各個頁面。
 
 > [!NOTE]
 > 若要覆寫行動應用程式後端中的 50 個資料列限制，您也必須將 [EnableQueryAttribute] 套用到公用的 GET 方法並指定分頁行為。 套用到方法時，下列設定最多傳回 1000 個資料列：
@@ -249,7 +249,7 @@ query = query.IncludeTotalCount();
 
 
 ### <a name="selecting"></a>操作說明：選取特定資料行
-您可以指定結果中要包含的屬性集，方法是在查詢中加上 [Select] 子句。 例如，以下代码演示了如何做到只选择一个字段，以及如何选择并格式化多个字段：
+您可以指定結果中要包含的屬性集，方法是在查詢中加上 [Select] 子句。 例如，下列程式碼將示範如何只選取一個欄位以及如何選取及格式化多個欄位：
 
 ```csharp
 // Select one field -- just the Text
@@ -323,12 +323,12 @@ jo.Add("Complete", false);
 var inserted = await table.InsertAsync(jo);
 ```
 
-### <a name="working-with-id-values"></a>使用 ID 值
+### <a name="working-with-id-values"></a>使用識別碼值
 Mobile Apps 支援資料表的 **id** 資料行使用唯一自訂字串值。 字串值可讓應用程式使用自訂的值，例如電子郵件地址或使用者名稱作為識別碼。  字串識別碼為您提供下列優點：
 
 * 不需要往返存取資料庫就能產生識別碼。
-* 更方便地合并不同表或数据库中的记录。
-* ID 值能够更好地与应用程序的逻辑相集成。
+* 輕鬆合併不同資料表或資料庫的記錄。
+* 識別碼值與應用程式邏輯的整合更理想。
 
 當插入的記錄上未設定字串識別碼值時，行動應用程式後端會產生唯一值做為識別碼。 您可以使用 [Guid.NewGuid] 方法，在用戶端上或在後端中產生您自己的識別碼值。
 
@@ -363,7 +363,7 @@ var inserted = await table.UpdateAsync(jo);
 await todoTable.DeleteAsync(todoItem);
 ```
 
-若要删除非类型化数据，可按如下所示利用 Json.NET：
+若要刪除不具類型的資料，您可以充份利用 Json.NET，如下所示：
 
 ```csharp
 JObject jo = new JObject();
@@ -378,7 +378,7 @@ await table.DeleteAsync(jo);
 
 Mobile Apps 支援開放式並行存取控制項，方法是使用 `version` 系統屬性資料行來追蹤對每個項目的變更，該資料行是針對行動應用程式後端中的每個資料表所定義的。 每當更新記錄時，Mobile Apps 會將該筆記錄的 `version` 屬性設定為新值。 在每次更新要求期間，要求所提供的該筆記錄 `version` 屬性會與伺服器上該筆記錄的相同屬性進行比對。 如果隨著要求傳遞的版本與後端不符，則用戶端程式庫會引發 `MobileServicePreconditionFailedException<T>` 例外狀況。 例外狀況所提供的類型是來自包含該記錄之伺服器版本的後端記錄。 接著應用程式可以使用這項資訊，來決定是否要針對後端的正確 `version` 值來執行更新要求以認可變更。
 
-在 `version` 系統屬性的資料表類別上定義資料行，以啟用開放式並行存取。 例如︰
+在 `version` 系統屬性的資料表類別上定義資料行，以啟用開放式並行存取。 例如:
 
 ```csharp
 public class TodoItem
@@ -462,7 +462,7 @@ private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 }
 ```
 
-如需詳細資訊，請參閱 [Offline Data Sync in Azure Mobile Apps] 主題。
+如需詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理] 主題。
 
 ### <a name="binding"></a>操作說明：將 Mobile Apps 資料繫結至 Windows 使用者介面
 本節說明如何在 Windows app 中使用 UI 元素來顯示傳回的資料物件。  下列範例程式碼繫結至具有未完成項目之查詢的清單來源。 [MobileServiceCollection] 會建立 Mobile Apps 感知的繫結集合。
@@ -498,7 +498,7 @@ MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => 
 await items.LoadMoreItemsAsync();
 ```
 
-當您使用藉由呼叫 `ToCollectionAsync` 或 `ToCollection` 來建立的集合時，您會取得可繫結至 UI 控制項的集合。  此集合有分頁感知功能。  该集合从网络加载数据，因此加载有时候会失败。 若要處理這類失敗，請覆寫 `MobileServiceIncrementalLoadingCollection` 上的 `OnException` 方法，以處理呼叫 `LoadMoreItemsAsync` 時所造成的例外狀況。
+當您使用藉由呼叫 `ToCollectionAsync` 或 `ToCollection` 來建立的集合時，您會取得可繫結至 UI 控制項的集合。  此集合有分頁感知功能。  因為集合會從網路中載入資料，因此載入有時會失敗。 若要處理這類失敗，請覆寫 `MobileServiceIncrementalLoadingCollection` 上的 `OnException` 方法，以處理呼叫 `LoadMoreItemsAsync` 時所造成的例外狀況。
 
 請思考一下如果您的資料表有許多欄位，但您只想要在控制項中顯示其中部分欄位。 您可以使用上述[選取特定資料欄](#selecting)一節中的指引，以選取要在 UI 中顯示的特定資料欄。
 
@@ -517,13 +517,13 @@ PullOptions pullOptions = new PullOptions
 ## <a name="#offlinesync"></a>使用離線資料表
 離線資料表會使用本機 SQLite 存放區來儲存資料供離線時使用。  所有資料表作業都是針對本機 SQLite 存放區而非遠端伺服器存放區完成。  若要建立離線資料表，先準備您的專案：
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下方案 > [管理方案的 NuGet 套件...]，然後為方案中的所有專案，尋找並安裝 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 套件。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下方案 > [管理方案的 NuGet 套件...]  ，然後為方案中的所有專案，尋找並安裝 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 套件。
 2. (選擇性) 若要支援 Windows 裝置，請安裝下列其中一個 SQLite 執行階段封裝︰
 
    * **Windows 8.1 執行階段：** 安裝 [SQLite for Windows 8.1][3]。
    * **Windows Phone 8.1：** 安裝 [SQLite for Windows Phone 8.1][4]。
    * **通用 Windows 平台：** 安裝[適用於通用 Windows 平台的 SQLite][5]。
-3. (選擇性)。 若為 Windows 裝置，請按一下 [參考]  >  [新增參考...]，展開 **Windows** 資料夾 > [擴充功能]，然後啟用適當的 **SQLite for Windows** SDK 及 **Visual C++ 2013 Runtime for Windows** SDK。
+3. (選擇性)。 若為 Windows 裝置，請按一下 [參考]   >  [新增參考...]  ，展開 **Windows** 資料夾 > [擴充功能]  ，然後啟用適當的 **SQLite for Windows** SDK 及 **Visual C++ 2013 Runtime for Windows** SDK。
     每個 Windows 平台的 SQLite SDK 名稱稍有差異。
 
 建立資料表參考之前，必須準備本機存放區：
@@ -613,10 +613,10 @@ SDK 會在提取記錄之前執行隱含 `PushAsync()`。
 var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Net.Http.HttpMethod.Post, null);
 ```
 
-此形式是具類型的方法呼叫，並且會要求定義 **MarkAllResult** 傳回類型。 支持类型化和非类型化的方法。
+此形式是具類型的方法呼叫，並且會要求定義 **MarkAllResult** 傳回類型。 具類型的和不具類型的方法皆受支援。
 
 InvokeApiAsync() 方法會在您想要呼叫的 API 前面加上 '/api/'，除非該 API 開頭是 '/'。
-例如︰
+例如:
 
 * `InvokeApiAsync("completeAll",...)` 會呼叫後端上的 /api/completeAll
 * `InvokeApiAsync("/.auth/me",...)` 會呼叫後端上的 /.auth/me
@@ -631,7 +631,7 @@ InvokeApiAsync() 方法會在您想要呼叫的 API 前面加上 '/api/'，除�
 > [!NOTE]
 > 我們建議在生產應用程式中使用用戶端管理的流程。
 
-若要设置身份验证，必须向一个或多个标识提供者注册应用。  識別提供者會產生應用程式的用戶端識別碼和用戶端密碼。  這些值接著會設定於後端中以啟用 Azure App Service 驗證/授權。  如需詳細資訊，請依照教學課程 [將驗證新增至您的應用程式]中的詳細指示操作。
+若要設定驗證，您必須向一或多個識別提供者註冊您的應用程式。  識別提供者會產生應用程式的用戶端識別碼和用戶端密碼。  這些值接著會設定於後端中以啟用 Azure App Service 驗證/授權。  如需詳細資訊，請依照教學課程 [將驗證新增至您的應用程式]中的詳細指示操作。
 
 這一節涵蓋下列主題：
 
@@ -640,7 +640,7 @@ InvokeApiAsync() 方法會在您想要呼叫的 API 前面加上 '/api/'，除�
 * [快取驗證權杖](#caching)
 
 ### <a name="clientflow"></a>用戶端管理的驗證
-您的應用程式可以個別連絡識別提供者，然後在用您的後端登入期間提供傳回的權杖。 此用戶端流程可讓您為使用者提供單一登入體驗，或從識別提供者擷取其他使用者資料。 客户端流身份验证比使用服务器流更有利，因为标识提供者 SDK 提供更自然的 UX 风格，并允许其他自定义。
+您的應用程式可以個別連絡識別提供者，然後在用您的後端登入期間提供傳回的權杖。 此用戶端流程可讓您為使用者提供單一登入體驗，或從識別提供者擷取其他使用者資料。 用戶端流程驗證比較適合使用伺服器流程，因為識別提供者 SDK 提供更原生的 UX 風格，並可允許進行其他自訂。
 
 已提供下列用戶端流程驗證模式的範例︰
 
@@ -650,14 +650,14 @@ InvokeApiAsync() 方法會在您想要呼叫的 API 前面加上 '/api/'，除�
 #### <a name="adal"></a>使用 Active Directory Authentication Library 驗證使用者
 您可以使用 Active Directory Authentication Library (ADAL)，從使用 Azure Active Directory 驗證的用戶端起始使用者驗證。
 
-1. 依照[如何針對 Active Directory 登入設定 App Service]教學課程的說明，設定您的行動應用程式後端來進行 AAD 登入。 请务必完成注册本机客户端应用程序的可选步骤。
+1. 依照[如何針對 Active Directory 登入設定 App Service]教學課程的說明，設定您的行動應用程式後端來進行 AAD 登入。 請務必完成註冊原生用戶端應用程式的選擇性步驟。
 2. 在 Visual Studio 或 Xamarin Studio 中，開啟您的專案，然後新增對 `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet 封裝的參考。 搜尋時，包含發行前版本。
 3. 根據您使用的平台，將下列程式碼新增至您的應用程式。 在每個程式碼中，進行下列取代：
 
-   * 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE** 。 格式應為 https://login.microsoftonline.com/contoso.onmicrosoft.com。 您可以從 [Azure 门户]之 Azure Active Directory 的 [網域] 索引標籤中複製這個值。
-   * 以您行動應用程式後端的用戶端識別碼取代 INSERT-RESOURCE-ID-HERE  。 您可以從入口網站 [Azure Active Directory 設定] 底下的 [進階] 索引標籤取得用戶端識別碼。
+   * 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE** 。 格式應為 https://login.microsoftonline.com/contoso.onmicrosoft.com 。 您可以從 [Azure 入口網站]之 Azure Active Directory 的 [網域] 索引標籤中複製這個值。
+   * 以您行動應用程式後端的用戶端識別碼取代 INSERT-RESOURCE-ID-HERE  。 您可以從入口網站 [Azure Active Directory 設定]  底下的 [進階]  索引標籤取得用戶端識別碼。
    * 以您從原生用戶端應用程式中複製的用戶端識別碼取代 INSERT-CLIENT-ID-HERE  。
-   * 使用 HTTPS 配置，以您網站的 **/.auth/login/done** 端點取代 *INSERT-REDIRECT-URI-HERE* 。 此值應該類似 https://contoso.azurewebsites.net/.auth/login/done。
+   * 使用 HTTPS 配置，以您網站的 **/.auth/login/done** 端點取代 *INSERT-REDIRECT-URI-HERE* 。 此值應該類似 https://contoso.azurewebsites.net/.auth/login/done  。
 
      每個平台所需的程式碼如下：
 
@@ -827,7 +827,7 @@ private async System.Threading.Tasks.Task Authenticate()
 
 如果您打算使用除了 Facebook 以外的識別提供者，請將上方的 [LoginAsync] 值變更成您提供者。
 
-在伺服器流程中，Azure App Service 透過顯示所選提供者的登入頁面，來管理 OAuth 驗證流程。  标识提供者返回后，Azure 应用服务会生成一个应用服务身份验证令牌。 [LoginAsync] 方法 會傳回 [MobileServiceUser]，並提供通過驗證使用者的 [UserId] 和 [MobileServiceAuthenticationToken]，以作為 JSON Web 權杖 (JWT)。 您可以快取並重複使用此權杖，直到它到期為止。 如需詳細資訊，請參閱 [快取驗證權杖](#caching)。
+在伺服器流程中，Azure App Service 透過顯示所選提供者的登入頁面，來管理 OAuth 驗證流程。  在識別提供者傳回後，Azure App Service 會產生 App Service 驗證權杖。 [LoginAsync] 方法 會傳回 [MobileServiceUser]，並提供通過驗證使用者的 [UserId] 和 [MobileServiceAuthenticationToken]，以作為 JSON Web 權杖 (JWT)。 您可以快取並重複使用此權杖，直到它到期為止。 如需詳細資訊，請參閱 [快取驗證權杖](#caching)。
 
 ### <a name="caching"></a>快取驗證權杖
 在某些情況下，儲存來自提供者的驗證權杖即可避免在第一次成功驗證後呼叫登入方法。  Microsoft Store 和 UWP app 可以使用 [PasswordVault] ，在成功登入後快取目前的驗證權杖，如下所示：
@@ -865,7 +865,7 @@ client.Logout();
 vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
 ```
 
-Xamarin 應用程式會使用 [Xamarin.Auth] API，將憑證安全地儲存在 [帳戶] 物件中。 如需使用這些 API 的範例，請參閱 [ContosoMoments 照片分享範例](https://github.com/azure-appservice-samples/ContosoMoments)中的 [AuthStore.cs] 程式碼檔案。
+Xamarin 應用程式會使用 [Xamarin.Auth] API，將憑證安全地儲存在 [帳戶]  物件中。 如需使用這些 API 的範例，請參閱 [ContosoMoments 照片分享範例](https://github.com/azure-appservice-samples/ContosoMoments)中的 [AuthStore.cs] 程式碼檔案。
 
 當您使用用戶端管理的驗證時，您也可以快取向您的提供者 (例如 Facebook 或 Twitter) 取得的存取權杖。 您可以提供此權杖，以向後端要求新的驗證權杖，如下所示︰
 
@@ -886,7 +886,7 @@ await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 * [利用跨平台範本進行註冊](#register-xplat)
 
 ### <a name="register-for-push"></a>操作說明：註冊推播通知
-Mobile Apps 用戶端可讓您向 Azure 通知中樞註冊推播通知。 注册时，你将获得从平台特定的推送通知服务 (PNS) 获取的句柄。 然後您就可以在建立註冊時提供此值以及任何標記。 下列程式碼會為您的 Windows 應用程式向 Windows 通知服務 (WNS) 註冊推播通知：
+Mobile Apps 用戶端可讓您向 Azure 通知中樞註冊推播通知。 註冊時，您會取得從特定平台「推送通知服務 (PNS)」取得的控制代碼。 然後您就可以在建立註冊時提供此值以及任何標記。 下列程式碼會為您的 Windows 應用程式向 Windows 通知服務 (WNS) 註冊推播通知：
 
 ```csharp
 private async void InitNotificationsAsync()
@@ -909,11 +909,11 @@ private async void InitNotificationsAsync()
 
 若要取得這個值：
 
-1. 在 Visual Studio 方案總管中，以滑鼠右鍵按一下 Microsoft Store 應用程式專案，然後按一下 [市集] > [將應用程式與市集建立關聯...]。
-2. 在精靈中按 [下一步]，使用 Microsoft 帳戶登入，在 [保留新的應用程式名稱] 中輸入您應用程式的名稱，然後按一下 [保留]。
-3. 成功建立應用程式註冊之後，選取應用程式名稱，按 [下一步]，然後按一下 [關聯]。
-4. 使用您的 Microsoft 帳戶登入 [Windows 開發人員中心] 。 在 [我的應用程式] 底下，按一下您建立的應用程式註冊。
-5. 按一下 [應用程式管理]  >  [應用程式身分識別]，然後向下捲動找到您的 [套件 SID]。
+1. 在 Visual Studio 方案總管中，以滑鼠右鍵按一下 Microsoft Store 應用程式專案，然後按一下 [市集]   > [將應用程式與市集建立關聯...]  。
+2. 在精靈中按 [下一步]  ，使用 Microsoft 帳戶登入，在 [保留新的應用程式名稱]  中輸入您應用程式的名稱，然後按一下 [保留]  。
+3. 成功建立應用程式註冊之後，選取應用程式名稱，按 [下一步]  ，然後按一下 [關聯]  。
+4. 使用您的 Microsoft 帳戶登入 [Windows 開發人員中心] 。 在 [我的應用程式]  底下，按一下您建立的應用程式註冊。
+5. 按一下 [應用程式管理]   >  [應用程式身分識別]  ，然後向下捲動找到您的 [套件 SID]  。
 
 許多使用套件 SID 的情況會將其視為 URI，在這種情況下，您必須使用 *ms-app://* 作為配置。 記下您封裝 SID 的版本，封裝 SID 是由串連這個值作為首碼所形成。
 
@@ -986,7 +986,7 @@ private async void InsertTodoItem(TodoItem todoItem)
 }
 ```
 
-有关处理错误条件的其他示例，可在 [Mobile Apps 檔案範例]（移动应用文件示例）中找到。 [LoggingHandler] 範例會提供記錄委派處理常式，以記錄向後端提出的要求。
+如需另一個處理錯誤狀況的範例，請造訪 [Mobile Apps 檔案範例]。 [LoggingHandler] 範例會提供記錄委派處理常式，以記錄向後端提出的要求。
 
 ### <a name="headers"></a>操作說明：自訂要求標頭
 若要支援您的特定應用程式案例，您可能需要自訂與行動應用程式後端的通訊。 例如，您可能會想要在每封連出要求上新增自訂標頭，或甚至變更回應狀態碼。 您可以使用自訂的 [DelegatingHandler]，如下列範例所示：
@@ -1040,7 +1040,7 @@ public class MyHandler : DelegatingHandler
 [12]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
 [將驗證新增至您的應用程式]: app-service-mobile-windows-store-dotnet-get-started-users.md
-[Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
+[Azure Mobile Apps 中的離線資料同步處理]: app-service-mobile-offline-data-sync.md
 [將推播通知新增至您的應用程式]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Register your app to use a Microsoft account login]: ../app-service/configure-authentication-provider-microsoft.md
 [如何針對 Active Directory 登入設定 App Service]: ../app-service/configure-authentication-provider-aad.md
@@ -1068,7 +1068,7 @@ public class MyHandler : DelegatingHandler
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
-[Azure 门户]: https://portal.azure.com/
+[Azure 入口網站]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: 0f339984a9db1a337f97e6db24571004cc34f679
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60657640"
 ---
 # <a name="developer-portal-templates"></a>開發人員入口網站範本
@@ -58,12 +58,12 @@ ms.locfileid: "60657640"
     -   [更新帳戶資訊](api-management-user-profile-templates.md#UpdateAccountInfo)  
 -   [頁面](api-management-page-templates.md)  
     -   [登入](api-management-page-templates.md#SignIn)  
-    -   [注册](api-management-page-templates.md#SignUp)  
+    -   [註冊](api-management-page-templates.md#SignUp)  
     -   [找不到頁面](api-management-page-templates.md#PageNotFound)
 
 ## <a name="next-steps"></a>後續步驟  
 
 + [範本參考](api-management-developer-portal-templates-reference.md)  
-+ [数据模型参考](api-management-template-data-model-reference.md)  
++ [資料模型參考](api-management-template-data-model-reference.md)  
 + [頁面控制項](api-management-page-controls.md)  
 + [範本資源](api-management-template-resources.md)

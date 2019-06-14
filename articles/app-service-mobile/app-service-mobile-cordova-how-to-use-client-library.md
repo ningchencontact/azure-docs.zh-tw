@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 3c22aab20a9260bfd21869f0b327211e2f3d8894
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62109571"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>如何使用適用於 Azure Mobile Apps 的 Apache Cordova 用戶端程式庫
@@ -41,7 +41,7 @@ ms.locfileid: "62109571"
 cordova plugin add cordova-plugin-ms-azure-mobile-apps
 ```
 
-有关创建 [第一个 Apache Cordova 应用]的详细信息，请参阅相关文档。
+如需有關建立 [第一個 Apache Cordova 應用程式]的詳細資訊，請參閱其文件。
 
 ## <a name="ionic"></a>設定 Ionic v2 應用程式
 
@@ -93,11 +93,11 @@ Azure App Service 支援使用各種外部識別提供者來驗證與授權應�
 
 請遵循下列指示來將您的本機設定加入組態︰
 
-1. 登入 [Azure 门户]
-2. 選取 [所有資源] 或 [應用程式服務]，然後按一下行動應用程式的名稱。
+1. 登入 [Azure 入口網站]
+2. 選取 [所有資源]  或 [應用程式服務]  ，然後按一下行動應用程式的名稱。
 3. 按一下 [工具] 
-4. 按一下 [觀察] 功能表中的 [資源總管]，然後按一下 [前往]。  会打开新窗口或选项卡。
-5. 在左側導覽中，展開網站的 [config]、[authsettings] 節點。
+4. 按一下 [觀察] 功能表中的 [資源總管]  ，然後按一下 [前往]  。  新的視窗或索引標籤隨即開啟。
+5. 在左側導覽中，展開網站的 [config]  、[authsettings]  節點。
 6. 按一下 [編輯] 
 7. 尋找「allowedExternalRedirectUrls」元素。  它可能會設定為 null 或值陣列。  將此值變更為下列值︰
 
@@ -113,9 +113,9 @@ Azure App Service 支援使用各種外部識別提供者來驗證與授權應�
 此時即會儲存設定。  在設定完成儲存之前，請勿關閉瀏覽器視窗。
 此外，請將這些回送 URL 新增至 App Service 的 CORS 設定：
 
-1. 登入 [Azure 门户]
-2. 選取 [所有資源] 或 [應用程式服務]，然後按一下行動應用程式的名稱。
-3. [設定] 刀鋒視窗隨即自動開啟。  如果沒有，請按一下 [所有設定] 。
+1. 登入 [Azure 入口網站]
+2. 選取 [所有資源]  或 [應用程式服務]  ，然後按一下行動應用程式的名稱。
+3. [設定] 刀鋒視窗隨即自動開啟。  如果沒有，請按一下 [所有設定]  。
 4. 按一下 API 功能表下方的 [CORS]  。
 5. 輸入在提供的方塊中輸入您希望加入的 URL，然後按 Enter 鍵。
 6. 視需要輸入其他的 URL。
@@ -163,20 +163,20 @@ pushHandler.on('error', function (error) {
 });
 ```
 
-使用通知中樞 SDK 從伺服器傳送推播通知。  永遠不要直接從用戶端傳送推播通知。 這種方式會被用來對通知中樞或 PNS 觸發阻斷服務攻擊。  PNS 可能会因此类攻击而禁止相关流量。
+使用通知中樞 SDK 從伺服器傳送推播通知。  永遠不要直接從用戶端傳送推播通知。 這種方式會被用來對通知中樞或 PNS 觸發阻斷服務攻擊。  PNS 可能會因為這類攻擊而禁止您的流量。
 
 ## <a name="more-information"></a>詳細資訊
 
 您可以在 [API 文件](https://azure.github.io/azure-mobile-apps-js-client/)中找到 API 詳細資訊。
 
 <!-- URLs. -->
-[Azure 门户]: https://portal.azure.com
+[Azure 入口網站]: https://portal.azure.com
 [Azure Mobile Apps 快速啟動]: app-service-mobile-cordova-get-started.md
 [開始使用驗證]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [適用於 Azure Mobile Apps 的 Apache Cordova 外掛程式]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
-[第一个 Apache Cordova 应用]: https://cordova.apache.org/#getstarted
+[第一個 Apache Cordova 應用程式]: https://cordova.apache.org/#getstarted
 [phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device

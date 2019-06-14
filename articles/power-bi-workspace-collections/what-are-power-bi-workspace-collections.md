@@ -11,10 +11,10 @@ ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: rkarlin
 ms.openlocfilehash: 7f23856363b337a361f329ed54e2152842faf26e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64705138"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>什麼是 Power BI 工作區集合？
@@ -40,13 +40,13 @@ Power BI 工作區集合是一個 **Azure 服務**，可讓 ISV 和應用程式�
 
 ## <a name="workspace-collection"></a>工作區集合
 
-**工作區集合**是包含 0 個或更多**工作區**之資源的最上層 Azure 容器。  **工作區****集合**擁有所有標準 Azure 屬性，以及下列項目：
+**工作區集合**是包含 0 個或更多**工作區**之資源的最上層 Azure 容器。  **工作區** **集合**擁有所有標準 Azure 屬性，以及下列項目：
 
 * **存取金鑰** – 安全呼叫 Power BI API 時使用的金鑰 (會在稍後的小節中說明)。
 * **使用者** – 具有管理權現，可透過 Azure 入口網站或 Azure Resource Manager API 管理 Power BI 工作區集合的 Azure Active Directory (AAD) 使用者。
 * **區域** – 佈建**工作區集合**時，您可以選取要佈建的區域。 如需詳細資訊，請參閱 [Azure 地區](https://azure.microsoft.com/regions/)。
 
-## <a name="workspace"></a>工作区
+## <a name="workspace"></a>工作區
 
 **工作區**是 Power BI 內容的容器，可包括資料集和報告。 **工作區** 在第一次建立時是空白的。 您將會使用 Power BI Desktop 編寫內容，且您會使用 [Power BI Import API](https://msdn.microsoft.com/library/mt711504.aspx) 將 PBIX 自動部署至您的工作區中。 您也可以透過程式設計方式建立資料集，然後在應用程式內建立報告，而不是使用 Power BI Desktop 來建立。
 
@@ -60,13 +60,13 @@ Power BI 工作區集合是一個 **Azure 服務**，可讓 ISV 和應用程式�
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>應用程式權杖中的驗證與授權
 
-**Microsoft Power BI 工作區集合**會聽從您的應用程式來執行所有必要的使用者驗證和授權。 並沒有明確要求您的使用者必須是 Azure Active Directory (Azure AD) 的客戶。  您的應用程式會改為透過使用**應用程式驗證權杖 (應用程式權杖)**，將轉譯 Power BI 報表的授權出示給 **Microsoft Power BI 工作區集合**。  這些 **應用程式權杖** 會在您的應用程式想要轉譯報表時視需要建立。
+**Microsoft Power BI 工作區集合**會聽從您的應用程式來執行所有必要的使用者驗證和授權。 並沒有明確要求您的使用者必須是 Azure Active Directory (Azure AD) 的客戶。  您的應用程式會改為透過使用**應用程式驗證權杖 (應用程式權杖)** ，將轉譯 Power BI 報表的授權出示給 **Microsoft Power BI 工作區集合**。  這些 **應用程式權杖** 會在您的應用程式想要轉譯報表時視需要建立。
 
 ![應用程式權杖使用方式圖表](media/what-are-power-bi-workspace-collections/app-tokens.png)
 
-**應用程式驗證權杖 (應用程式權杖)** 是用來針對 **Microsoft Power BI 工作區集合**進行驗證。  應用程式權杖 有三種類型：
+**應用程式驗證權杖 (應用程式權杖)** 是用來針對 **Microsoft Power BI 工作區集合**進行驗證。  應用程式權杖  有三種類型：
 
-1. 佈建權杖 - 將新的「工作區」佈建到「工作區集合」時使用
+1. 佈建權杖 - 將新的「工作區」  佈建到「工作區集合」  時使用
 2. 開發權杖 - 在直接呼叫 **Power BI REST API**
 3. 內嵌權杖 - 在進行呼叫以在內嵌的 iframe 中轉譯報表時使用
 
@@ -87,4 +87,4 @@ Power BI 工作區集合是一個 **Azure 服務**，可讓 ISV 和應用程式�
 [PowerBI-CSharp Git 存放庫](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git存放庫](https://github.com/Microsoft/PowerBI-Node)  
 
-有更多问题？ [試用 Power BI 社群](https://community.powerbi.com/)
+有其他疑問？ [試用 Power BI 社群](https://community.powerbi.com/)

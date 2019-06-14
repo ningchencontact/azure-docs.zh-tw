@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
 ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764283"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Web 活動
@@ -70,7 +70,7 @@ url | 目標端點和路徑 | 字串 (或含有字串之 resultType 的運算式
 headers | 傳送至要求的標頭。 例如，若要對要求設定語言和類型︰`"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`。 | 字串 (或含有字串之 resultType 的運算式) | 是，Content-type 標頭是必要的。 `"headers":{ "Content-Type":"application/json"}`
 body | 代表傳送至端點的承載。  | 字串 (或含有字串之 resultType 的運算式)。 <br/><br/>請在[要求乘載結構描述](#request-payload-schema)一節中查看要求乘載的結構描述。 | POST/PUT 方法的必要項。
 驗證 | 呼叫端點所使用的驗證方法。 支援的類型為「基本」或 ClientCertificate。 如需詳細資訊，請參閱[驗證](#authentication)一節。 如果不需要驗證，請排除這個屬性。 | 字串 (或含有字串之 resultType 的運算式) | 否
-資料集 | 傳遞至端點的資料集清單。 | 資料集參考的陣列。 可以是空陣列。 | 是
+datasets | 傳遞至端點的資料集清單。 | 資料集參考的陣列。 可以是空陣列。 | 是
 linkedServices | 傳遞至端點的連結服務清單。 | 連結服務參考的陣列。 可以是空陣列。 | 是
 
 > [!NOTE]

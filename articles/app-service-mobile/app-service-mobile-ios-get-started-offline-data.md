@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62112645"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>啟用 iOS Mobile Apps 的離線同步處理
@@ -40,7 +40,7 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
  若要取得同步處理資料表的參考，請在 `MSClient` 上使用 **syncTableWithName** 方法。 若要移除離線同步處理功能，請改用 **tableWithName**。
 
-表操作之前，必须初始化本地存储区。 以下是相關的程式碼：
+必須先初始化本機存放區，才可以執行資料表作業。 以下是相關的程式碼：
 
 * **Objective-C**。 在 **QSTodoService.init** 方法中：
 
@@ -125,11 +125,11 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
 在 Objective-C 版本中，於 `syncData`，我們會先在同步處理內容上呼叫 **pushWithCompletion**。 此方法是 `MSSyncContext` 的成員 (而非同步處理資料表本身)，因為它會將變更推送至所有資料表。 只有以某種方式在本機上修改過的記錄 (透過 CUD 作業)，才會傳送至伺服器。 接著會呼叫 **pullData** 協助程式，該程式會呼叫 **MSSyncTable.pullWithQuery** 來擷取遠端資料並存放在本機資料庫中。
 
-在 Swift 版本中，因為推送作業不是絕對必要，所以並沒有呼叫 **pushWithCompletion**。 如果同步上下文中正在进行推送操作的表存在任何挂起的更改，则提取始终会先发出推送。 不過，如果您有一個以上的同步處理資料表，最好能明確呼叫推送，以確保所有的相關資料表都能一致。
+在 Swift 版本中，因為推送作業不是絕對必要，所以並沒有呼叫 **pushWithCompletion**。 如果同步處理內容中正在進行推送作業的資料表有任何變更擱置，則提取一律會先發出推送。 不過，如果您有一個以上的同步處理資料表，最好能明確呼叫推送，以確保所有的相關資料表都能一致。
 
 在 Objective-C 與 Swift 版本中，您可以使用 **pullWithQuery** 方法來指定查詢，以篩選想要擷取的記錄。 在此範例中，查詢會擷取遠端 `TodoItem` 資料表中的所有記錄。
 
-**pullWithQuery** 的第二個參數是用於「增量同步處理」的查詢識別碼。增量同步處理會使用記錄的 `UpdatedAt` 時間戳記 (在本機存放區中稱為 `updatedAt`)，僅取出自上次同步處理後修改的記錄。對您應用程式中的每個邏輯查詢而言，查詢識別碼應該是唯一的描述性字串。 若選擇不要增量同步處理，請傳遞 `nil` 做為查詢識別碼。 此方法可能效率不佳，因為它會在每次提取作業擷取所有記錄。
+**pullWithQuery** 的第二個參數是用於「增量同步處理」  的查詢識別碼。增量同步處理會使用記錄的 `UpdatedAt` 時間戳記 (在本機存放區中稱為 `updatedAt`)，僅取出自上次同步處理後修改的記錄。對您應用程式中的每個邏輯查詢而言，查詢識別碼應該是唯一的描述性字串。 若選擇不要增量同步處理，請傳遞 `nil` 做為查詢識別碼。 此方法可能效率不佳，因為它會在每次提取作業擷取所有記錄。
 
 當您修改或新增資料、使用者執行重新整理動作及啟動時，Objective-C 應用程式就會同步處理。
 
@@ -137,17 +137,17 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
 因為每當資料修改 (Objective-C) 或 App 啟動 (Objective-C 和 Swift) 時，App 就會同步處理，故 App 假設使用者在線上。 在後續章節中，您將會更新 App，讓使用者即使是離線狀態也能進行編輯。
 
-## <a name="review-core-data"></a>查看 Core Data 模型
+## <a name="review-core-data"></a>檢閱核心資料模型
 在使用「核心資料離線」存放區時，您必須在資料模型中定義特定資料表和欄位。 範例應用程式已經包含具有正確格式的資料模型。 在這一節中，我們會逐步介紹這些資料表並示範其使用方式。
 
-打开 **QSDataModel.xcdatamodeld**。 已定義四個資料表--其中三個由 SDK 使用，而一個是用於 To-do 項目本身：
+開啟 **QSDataModel.xcdatamodeld**。 已定義四個資料表--其中三個由 SDK 使用，而一個是用於 To-do 項目本身：
   * MS_TableOperations：追蹤需要與伺服器同步的項目。
   * MS_TableOperationErrors：追蹤在離線同步處理期間發生的任何錯誤。
   * MS_TableConfig：追蹤所有提取作業的最後一次同步處理作業的上次更新時間。
   * TodoItem：儲存代辦事項項目。 系統資料行 **createdAt**、**updatedAt** 和 **version** 為選擇性系統屬性。
 
 > [!NOTE]
-> Mobile Apps SDK 會保留以 "**``**" 為開頭的資料行名稱。 請不要將此前置詞用於系統資料行以外的項目。 否則，當您使用遠端後端時，系統會修改您的資料行名稱。
+> Mobile Apps SDK 會保留以 " **``** " 為開頭的資料行名稱。 請不要將此前置詞用於系統資料行以外的項目。 否則，當您使用遠端後端時，系統會修改您的資料行名稱。
 >
 >
 
@@ -155,7 +155,7 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
 ### <a name="system-tables"></a>系統資料表
 
-MS_TableOperations  
+**MS_TableOperations**  
 
 ![MS_TableOperations 資料表屬性][defining-core-data-tableoperations-entity]
 
@@ -164,11 +164,11 @@ MS_TableOperations
 | id | 整數 64 |
 | itemId | 字串 |
 | properties | 二進位資料 |
-| 資料表 | 字串 |
+| table | 字串 |
 | tableKind | 整數 16 |
 
 
-MS_TableOperationErrors
+**MS_TableOperationErrors**
 
  ![MS_TableOperationErrors 資料表屬性][defining-core-data-tableoperationerrors-entity]
 
@@ -177,7 +177,7 @@ MS_TableOperationErrors
 | id |字串 |
 | operationId |整數 64 |
 | properties |二進位資料 |
-| tableKind |16 位整数 |
+| tableKind |整數 16 |
 
  **MS_TableConfig**
 
@@ -187,8 +187,8 @@ MS_TableOperationErrors
 | --- | --- |
 | id |字串 |
 | 索引鍵 |字串 |
-| keyType |Integer 64 |
-| 表 |字串 |
+| keyType |整數 64 |
+| table |字串 |
 | value |字串 |
 
 ### <a name="data-table"></a>資料表
@@ -197,11 +197,11 @@ MS_TableOperationErrors
 
 | 屬性 | 類型 | 附註 |
 | --- | --- | --- |
-| id | 字符串（标记为必需） |遠端存放區中的主索引鍵 |
+| id | 字串 (標示為必要) |遠端存放區中的主索引鍵 |
 | 完成 | Boolean | To-do 項目欄位 |
 | text |字串 |To-do 項目欄位 |
-| 建立時間 | date | (選擇性) 對應至 **createdAt** 系統屬性 |
-| 更新時間 | date | (選擇性) 對應至 **updatedAt** 系統屬性 |
+| 建立時間 | Date | (選擇性) 對應至 **createdAt** 系統屬性 |
+| 更新時間 | Date | (選擇性) 對應至 **updatedAt** 系統屬性 |
 | version | 字串 | (選擇性) 用來偵測衝突，對應至版本 |
 
 ## <a name="setup-sync"></a>變更應用程式的同步處理行為
@@ -249,10 +249,10 @@ MS_TableOperationErrors
 2. 新增一些 To-do 項目。 結束模擬器 (或強制關閉 App)，然後重新啟動它。 確認已保存您的變更。
 
 3. 檢視遠端 **TodoItem** 資料表的內容：
-   * 針對 Node.js 後端，請移至 [Azure 入口網站](https://portal.azure.com/)，在您的行動裝置 App 後端中按一下 [簡易表]  >  [TodoItem]。  
+   * 針對 Node.js 後端，請移至 [Azure 入口網站](https://portal.azure.com/)，在您的行動裝置 App 後端中按一下 [簡易表]   >  [TodoItem]  。  
    * 針對 .NET 後端，請使用 SQL 工具 (例如 SQL Server Management Studio) 或 REST 用戶端 (例如 Fiddler 或 Postman)。  
 
-4. 請確認新項目「尚未」同步處理到伺服器。
+4. 請確認新項目「尚未」  同步處理到伺服器。
 
 5. 請將 **QSTodoService.m** 中的 URL 變更回正確的 URL，然後重新執行 App。
 

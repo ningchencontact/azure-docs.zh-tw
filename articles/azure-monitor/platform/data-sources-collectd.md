@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
 ms.openlocfilehash: 2118f137f2c0d32f891a170c3509bceee7ba13ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764936"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>在 Azure 監視器中，從 Linux 代理程式上的 CollectD 收集資料
@@ -114,7 +114,7 @@ Log Analytics Linux 代理程式也會在連接埠 26000 接聽 CollectD 計量�
 |:--|:--|
 | `host` | Computer |
 | `plugin` | None |
-| `plugin_instance` | 執行個體名稱<br>If **plugin_instance** is *null* then InstanceName="*_Total*" |
+| `plugin_instance` | 執行個體名稱<br>If **plugin_instance** is *null* then InstanceName=" *_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>If **type_instance** is *null* then CounterName=**blank** |
 | `dsnames[]` | CounterName |

@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: fa76f4fb5d4da5fd00bb9fa4ed862c6977a47e90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61483072"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>建立 Azure 匯入/匯出服務的匯入作業
@@ -33,7 +33,7 @@ ms.locfileid: "61483072"
 
 ## <a name="preparing-drives-with-the-azure-importexport-tool"></a>準備具有 Azure 匯入/匯出工具的磁碟機
 
-无论是通过门户还是 REST API 创建作业，为导入作业准备驱动器的步骤都是相同的。
+不論您是建立透過入口網站或透過 REST API 作業，若要準備匯入作業的磁碟機的步驟都相同。
 
 以下是磁碟機準備的簡要概觀。 請參閱 [Azure 匯入匯出工具參考](storage-import-export-tool-how-to-v1.md)以取得完整指示。 您可以在[這裡](https://go.microsoft.com/fwlink/?LinkID=301900)下載 Azure 匯入/匯出工具。
 
@@ -61,7 +61,7 @@ ms.locfileid: "61483072"
 
  請遵循下列步驟來取得寄送位置︰
 
--   識別儲存體帳戶位置的名稱。 您可以在 Azure 入口網站中儲存體帳戶「儀表板」上的 [位置] 欄位下找到此值，或使用服務管理 API 作業[取得儲存體帳戶屬性](/rest/api/storagerp/storageaccounts)來查詢此值。
+-   識別儲存體帳戶位置的名稱。 您可以在 Azure 入口網站中儲存體帳戶「儀表板」  上的 [位置]  欄位下找到此值，或使用服務管理 API 作業[取得儲存體帳戶屬性](/rest/api/storagerp/storageaccounts)來查詢此值。
 
 -   藉由呼叫 `Get Location` 作業來擷取可用來處理此儲存體帳戶的位置。
 
@@ -72,7 +72,7 @@ ms.locfileid: "61483072"
 
 -   作業的名稱。
 
--   存储帐户名称。
+-   儲存體帳戶名稱。
 
 -   從上一個步驟中取得的寄送位置名稱。
 

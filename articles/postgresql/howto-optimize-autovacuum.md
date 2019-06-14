@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: fb1ab9525974601a8b8c22ccc44e2cf37baf21a1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65069106"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>最佳化 autovacuum 上 Azure Database for PostgreSQL-單一伺服器
@@ -19,7 +19,7 @@ ms.locfileid: "65069106"
 ## <a name="overview-of-autovacuum"></a>自動資料清理的概觀
 PostgreSQL 使用多版本並行控制 (MVCC)，來達到更好的資料庫並行。 每次更新都會導致插入和刪除，且每次刪除都會導致資料列虛標示為要刪除。 虛標示會識別無效且會在稍後被清除的 Tuple。 為了執行這些工作，PostgreSQL 會執行資料清理作業。
 
-資料清理作業可以由手動或自動的方式觸發。 當資料庫經歷大量更新或刪除作業時，會有更多無效 Tuple。 當資料庫閒置時，會有較少無效 Tuple。 當資料庫的負載較大時，您需要更頻繁地執行資料清理，因此「手動」執行資料清理作業會變得不方便。
+資料清理作業可以由手動或自動的方式觸發。 當資料庫經歷大量更新或刪除作業時，會有更多無效 Tuple。 當資料庫閒置時，會有較少無效 Tuple。 當資料庫的負載較大時，您需要更頻繁地執行資料清理，因此「手動」  執行資料清理作業會變得不方便。
 
 您可以設定自動資料清理，並進行調整從中獲益。 PostgreSQL 隨附的預設值可確保產品能在各種裝置上運作。 這些裝置包括 Raspberry Pi。 理想的設定值取決於：
 - 可用的總資源，如 SKU 和儲存體大小。

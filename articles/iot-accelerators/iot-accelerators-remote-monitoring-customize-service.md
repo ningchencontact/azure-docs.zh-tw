@@ -1,19 +1,18 @@
 ---
-title: 向远程监视解决方案 UI 添加服务 - Azure | Microsoft Docs
+title: 將服務新增至遠端監視解決方案 UI-Azure |Microsoft Docs
 description: 本文說明如何在遠端監視解決方案加速器 Web UI 中新增服務。
 author: dominicbetts
 manager: timlt
-ms.author: v-yiso
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-origin.date: 10/02/2018
-ms.date: 11/26/2018
+ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447041"
 ---
 # <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>在遠端監視解決方案加速器 Web UI 中新增自訂服務
@@ -48,13 +47,13 @@ ms.locfileid: "61447041"
 
 **exampleService.js**
 
-
+[!code-javascript[Example service](~/remote-monitoring-webui/src/walkthrough/services/exampleService.js?name=service "Example service")]
 
 若要深入了解服務的實作方式，請參閱[您所遺失的回應式程式設計簡介](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)。
 
 **model/exampleModels.js**
 
-
+[!code-javascript[Example model](~/remote-monitoring-webui/src/walkthrough/services/models/exampleModels.js?name=models "Example model")]
 
 將 **exampleService.js** 複製到 **src/services** 資料夾，並將 **exampleModels.js** 複製到 **src/services/models** 資料夾。
 
@@ -76,7 +75,7 @@ export * from './exampleModels';
 
 **exampleReducer.js**
 
-
+[!code-javascript[Example reducer](~/remote-monitoring-webui/src/walkthrough/store/reducers/exampleReducer.js?name=reducer "Example reducer")]
 
 將 **exampleReducer.js** 複製到 **src/store/reducers** 資料夾。
 

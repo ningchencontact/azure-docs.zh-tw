@@ -18,10 +18,10 @@ ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 118c6ecb16d325a384246a0b3d9e685f6f6f04ee
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870113"
 ---
 # <a name="training-guide-app-registrations-in-the-azure-portal"></a>訓練指南：在 Azure 入口網站中的應用程式註冊  
@@ -47,7 +47,7 @@ ms.locfileid: "64870113"
 
 ## <a name="the-legacy-properties-page"></a>舊版的 [內容] 頁面
 
-舊版的體驗有**屬性**頁面沒有新的體驗。 **屬性**刀鋒視窗中有下列欄位：**名稱**，**物件識別碼**，**應用程式識別碼**，**應用程式識別碼 URI**，**標誌**，**首頁 URL****登出 URL**，**服務條款 URL**，**隱私權聲明 URL**，**應用程式類型**，和**多租用戶。**
+舊版的體驗有**屬性**頁面沒有新的體驗。 **屬性**刀鋒視窗中有下列欄位：**名稱**，**物件識別碼**，**應用程式識別碼**，**應用程式識別碼 URI**，**標誌**，**首頁 URL** **登出 URL**，**服務條款 URL**，**隱私權聲明 URL**，**應用程式類型**，和**多租用戶。**
 
 以下是您可以在其中找到在新版中對等的功能：
 
@@ -60,7 +60,7 @@ ms.locfileid: "64870113"
 
 ## <a name="reply-urlsredirect-urls"></a>回覆 Url/重新導向 Url
 
-在舊版的體驗中，應用程式必須**回覆 Url**頁面。 在新體驗中，回覆 Url 可以找到的應用程式上**驗證**一節。 此外，它們指**重新導向 Uri**。 此外，格式為重新導向 Uri 已變更。 它們是一定要與應用程式類型 （web 或公用） 相關聯。 此外，基於安全性理由，萬用字元和 http:// 配置不支援 (除了 http://localhost)。
+在舊版的體驗中，應用程式必須**回覆 Url**頁面。 在新體驗中，回覆 Url 可以找到的應用程式上**驗證**一節。 此外，它們指**重新導向 Uri**。 此外，格式為重新導向 Uri 已變更。 它們是一定要與應用程式類型 （web 或公用） 相關聯。 此外，基於安全性理由，萬用字元和 http:// 配置不支援 (除了 http://localhost) 。
 
 ## <a name="keyscertificates--secrets"></a>金鑰/憑證與密碼
 

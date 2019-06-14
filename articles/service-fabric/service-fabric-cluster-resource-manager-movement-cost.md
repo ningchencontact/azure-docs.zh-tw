@@ -1,5 +1,5 @@
 ---
-title: Service Fabric 群集资源管理器：移動成本 |Microsoft Docs
+title: Service Fabric 叢集 Resource Manager:移動成本 |Microsoft Docs
 description: Service Fabric 服務的移動成本概觀
 services: service-fabric
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 1bd049e6f929b6c3247ca1842412d5527605e643
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516581"
 ---
 # <a name="service-movement-cost"></a>服務移動成本
@@ -39,7 +39,7 @@ PowerShell：
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -DefaultMoveCost Medium
 ```
 
-C#： 
+C#: 
 
 ```csharp
 FabricClient fabricClient = new FabricClient();
@@ -57,7 +57,7 @@ PowerShell：
 Update-ServiceFabricService -Stateful -ServiceName "fabric:/AppName/ServiceName" -DefaultMoveCost High
 ```
 
-C#：
+C#:
 
 ```csharp
 StatefulServiceUpdateDescription updateDescription = new StatefulServiceUpdateDescription();
@@ -69,18 +69,18 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 
 上述程式碼片段可以從服務本身外部一次指定整個服務的 MoveCost。 不過，當特定服務物件的移動成本隨著其生命週期變更時，移動成本最有用。 因為服務本身可能有在指定時間移動需要多少成本的最佳想法，所以有一個適用於服務的 API 可以報告執行階段期間的個別移動成本。 
 
-C#：
+C#:
 
 ```csharp
 this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>移動成本的影響
-MoveCost 有四个级别：零、低、中和高。 除了零之外，MoveCosts 彼此具有相對性。 零移動成本表示移動是免費的，因此不應計入解決方案的分數。 將移動成本設定為 [高]，並「不」保證複本會待在一個地方。
+MoveCost 有四個層級：零、 低、 中、 高。 除了零之外，MoveCosts 彼此具有相對性。 零移動成本表示移動是免費的，因此不應計入解決方案的分數。 將移動成本設定為 [高]，並「不」  保證複本會待在一個地方。
 
 <center>
 
-![选择要移动的副本时考虑到移动成本因素][Image1]
+![移動成本作為選取複本進行移動的因素][Image1]
 </center>
 
 MoveCost 可協助您在達成對等的平衡時，尋找整體導致最少中斷且最容易達成的解決方案。 服務的成本概念可相對於許多事項。 計算您的移動成本時最常見的因素為：
@@ -101,7 +101,7 @@ ClusterManifest.xml：
         </Section>
 ```
 
-通过用于独立部署的 ClusterConfig.json 或用于 Azure 托管群集的 Template.json：
+獨立部署透過 ClusterConfig.json，Azure 託管叢集透過 Template.json：
 
 ```json
 "fabricSettings": [

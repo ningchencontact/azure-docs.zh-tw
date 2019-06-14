@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
 ms.openlocfilehash: 479b810c5a66917bde5754d32991fb489ea26c9b
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66299282"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>追蹤 Azure Application Insights 中的相依性 
@@ -35,8 +35,8 @@ Application Insights Sdk for.NET 和.NET Core 隨附`DependencyTrackingTelemetry
 |WCF 呼叫| 只會自動追蹤如果會使用以 Http 為基礎的繫結。|
 |SQL | 使用呼叫`SqlClient`。 請參閱[這](##advanced-sql-tracking-to-get-full-sql-query)擷取 SQL 查詢。  |
 |[Azure 儲存體 （Blob、 資料表、 佇列）](https://www.nuget.org/packages/WindowsAzure.Storage/) | 使用 Azure 儲存體用戶端所進行的呼叫。 |
-|[事件中樞用戶端 SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 版和更新版本。 |
-|[ServiceBus 用戶端 SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| 3.0.0 版和更新版本。 |
+|[事件中樞用戶端 SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1\.1.0 版和更新版本。 |
+|[ServiceBus 用戶端 SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| 3\.0.0 版和更新版本。 |
 |Azure Cosmos DB | 只會自動追蹤如果使用 HTTP/HTTPS。 Application Insights 不會擷取 TCP 模式。 |
 
 

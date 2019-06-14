@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: spelluru
 ms.openlocfilehash: 6faf32232c42f863bff52fdfb3c0714aee8e9b88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60702394"
 ---
 # <a name="create-an-environment-with-multiple-vms-inside-a-template-vm-of-a-classroom-lab"></a>建立教室實驗室 VM 的範本內的多個 Vm 環境
@@ -44,29 +44,29 @@ ms.locfileid: "60702394"
 
 1. 如果您還沒有，請建立實驗室帳戶。 如需指示，請參閱[教學課程：設定實驗室帳戶使用 Azure 實驗室服務](tutorial-setup-lab-account.md)。
 2. 瀏覽至 [Azure 實驗室服務網站](https://labs.azure.com)。 
-3. 選取 [登入]，然後輸入您的認證。 Azure 實驗室服務支援組織帳戶和 Microsoft 帳戶。 
-4. 在 [新增實驗室] 視窗中，執行下列動作： 
+3. 選取 [登入]  ，然後輸入您的認證。 Azure 實驗室服務支援組織帳戶和 Microsoft 帳戶。 
+4. 在 [新增實驗室]  視窗中，執行下列動作： 
     1. 指定實驗室的**名稱**。 
     2. 指定實驗室中的**虛擬機器數目**上限。 建立實驗室之後或在現有的實驗室中，您可以增加或減少 VM 數目。 如需詳細資訊，請參閱[更新實驗室中的 VM 數目](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)。
     6. 選取 [ **儲存**]。
 
         ![建立教室實驗室](../media/tutorial-setup-classroom-lab/new-lab-window.png)
-4. 在 [選取虛擬機器規格] 頁面上，執行下列步驟：
+4. 在 [選取虛擬機器規格]  頁面上，執行下列步驟：
     1. 選取 **大**大小的虛擬機器 (Vm)，在實驗室中建立。 目前，只有大型支援巢狀虛擬化。
     2. 選擇的虛擬機器映像**Windows 映像**。 只有在 Windows 機器上使用巢狀虛擬化。 
-    3. 選取 [下一步] 。
+    3. 選取 [下一步]  。
 
         ![指定 VM 規格](../media/how-to-enable-multi-vm-environment/large-windows-vm.png)    
-5. 在 [設定認證] 頁面上，指定實驗室中所有 VM 的預設認證。 
-    1. 指定實驗室中所有 VM 的 [使用者名稱]。
-    2. 指定使用者的 [密碼]。 
+5. 在 [設定認證]  頁面上，指定實驗室中所有 VM 的預設認證。 
+    1. 指定實驗室中所有 VM 的 [使用者名稱]  。
+    2. 指定使用者的 [密碼]  。 
 
         > [!IMPORTANT]
         > 請記下使用者名稱和密碼。 它們將不會再次顯示。
-    3. 選取 [建立] 。 
+    3. 選取 [建立]  。 
 
         ![設定認證](../media/tutorial-setup-classroom-lab/set-credentials.png)
-6. 在 [設定範本] 頁面上，您會看到實驗室建立程序的狀態。 在實驗室中建立範本最多需要 20 分鐘。 
+6. 在 [設定範本]  頁面上，您會看到實驗室建立程序的狀態。 在實驗室中建立範本最多需要 20 分鐘。 
 
     ![設定範本](../media/tutorial-setup-classroom-lab/configure-template.png)
 7. 範本的設定完成後，您會看到下列頁面： 
@@ -78,19 +78,19 @@ ms.locfileid: "60702394"
     2. 設定巢狀的虛擬機器的網際網路連線的內部虛擬網路
     3. 建立虛擬機器，透過 HYPER-V 管理員
     4. 將 IP 位址指派給虛擬機器
-10. 選取 [範本] 頁面上的 [下一步]。 
-11. 在 [發佈範本] 頁面上，執行下列動作。 
-    1. 若要立即發佈範本，請選取 [發佈]。  
+10. 選取 [範本] 頁面上的 [下一步]  。 
+11. 在 [發佈範本]  頁面上，執行下列動作。 
+    1. 若要立即發佈範本，請選取 [發佈]  。  
 
         > [!WARNING]
         > 在您發佈時，即無法取消發佈。 
-    2. 若要稍後再發佈，請選取 [儲存以便稍後使用]。 您可以在精靈完成之後發佈範本 VM。 如需如何在精靈完成之後設定和發佈的詳細資訊，請參閱[如何管理教室實驗室](how-to-manage-classroom-labs.md)一文中的[發佈範本](how-to-create-manage-template.md#publish-the-template-vm)小節。
+    2. 若要稍後再發佈，請選取 [儲存以便稍後使用]  。 您可以在精靈完成之後發佈範本 VM。 如需如何在精靈完成之後設定和發佈的詳細資訊，請參閱[如何管理教室實驗室](how-to-manage-classroom-labs.md)一文中的[發佈範本](how-to-create-manage-template.md#publish-the-template-vm)小節。
 
         ![發佈範本](../media/how-to-enable-multi-vm-environment/publish-template-page.png)
 11. 您會看到範本的**發佈進度**。 此程序最多可能需要一小時。 
 
     ![發佈範本 - 進度](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
-12. 範本成功發佈後，您會看到下列頁面。 選取 [完成] 。
+12. 範本成功發佈後，您會看到下列頁面。 選取 [完成]  。
 
     ![發佈範本 - 成功](../media/tutorial-setup-classroom-lab/publish-success.png)
 1. 您會看到實驗室的**儀表板**。 

@@ -11,16 +11,16 @@ ms.date: 05/02/2019
 ms.author: vikurpad
 ms.custom: seomay2019
 ms.openlocfilehash: f1c7278909557dc92f86c5dfc1f190fddf33f607
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540814"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>使用 Azure 搜尋服務中的知識存放區中的投影
 
 > [!Note]
-> 知識存放區是處於預覽階段，應用程式不是用於生產環境而定。 [REST API 版本 2019年-05-06-Preview](search-api-preview.md)提供這項功能。 沒有.NET SDK 支援這一次。
+> 知識存放區處於預覽狀態，不適合用於生產環境。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有 .NET SDK 支援。
 >
 
 Azure 搜尋服務可讓透過 AI 認知技能和編製索引的一部分的自訂技術內容擴充。 類將結構新增至您的文件，並讓搜尋更有效率。 在許多情況下，很適用於搜尋服務中，例如，針對知識採礦以外的案例的豐富的文件。

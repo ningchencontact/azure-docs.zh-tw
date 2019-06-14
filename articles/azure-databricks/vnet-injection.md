@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126676"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>在您的虛擬網路 （預覽） 中部署 Azure Databricks
@@ -121,7 +121,7 @@ Azure Databricks 的預設部署為 Azure 上完全受控的服務： 所有的�
 
 如果您不要使用[Azure 入口網站](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal)或是[Azure Resource Manager 範本](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced)若要建立您的網路安全性群組，您必須手動加入白名單下列流量子網路上。
 
-|Direction|通訊協定|來源|Source Port|目的地|目的地連接埠|
+|Direction|Protocol|source|來源連接埠|目的地|目的地連接埠|
 |---------|--------|------|-----------|-----------|----------------|
 |輸入|\*|VirtualNetwork|\*|\*|\*|
 |輸入|\*|控制平面 NAT IP|\*|\*|22|
@@ -164,7 +164,7 @@ Azure Databricks 的預設部署為 Azure 上完全受控的服務： 所有的�
 
 ### <a name="workspace-launch-errors"></a>工作區啟動錯誤
 
-啟動自訂的虛擬網路中的工作區失敗，在 Azure Databricks 上登入畫面，發生下列錯誤：**「 我們已發現建立您的工作區時發生錯誤。請確定自訂網路設定正確並再試一次 」。**
+啟動自訂的虛擬網路中的工作區失敗，在 Azure Databricks 上登入畫面，發生下列錯誤： **「 我們已發現建立您的工作區時發生錯誤。請確定自訂網路設定正確並再試一次 」。**
 
 此錯誤被因不符合需求的網路組態。 請確認您遵循本主題中的指示，當您建立工作區。
 

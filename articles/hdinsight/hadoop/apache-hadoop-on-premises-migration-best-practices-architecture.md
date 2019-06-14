@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
 ms.openlocfilehash: d1f2b79ff3ae33adb0b6e3ce5a6d96ad38fb1562
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64693112"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 架構最佳作法
@@ -38,7 +38,7 @@ Azure HDInsight 叢集專為特定的計算使用類型而設計。 由於儲存
 
 |**工具**|**以瀏覽器為基礎**|**命令列**|**REST API**|**SDK**|
 |---|---|---|---|---|
-|[Azure 门户](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
+|[Azure 入口網站](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
 |[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
 |[Azure CLI (1.0 版)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
@@ -104,7 +104,7 @@ HDInsight 會使用 Azure SQL Database 作為 Hive 和 Oozie 中繼存放區。 
 - 不讓專為某個 HDInsight 叢集版本建立的中繼存放區與不同版本的叢集共用。 不同的 Hive 版本會使用不同的結構描述。 例如，Hive 1.2 和 Hive 2.1 叢集無法共用中繼存放區。
 - 定期備份自訂中繼存放區。
 - 將中繼存放區與 HDInsight 叢集保存在相同區域。
-- 使用 Azure SQL 数据库监视工具（例如 Azure 门户或 Azure Monitor 日志）监视元存储的性能和可用性。
+- 監視中繼存放區的效能和使用 Azure SQL Database 監視工具 中的，例如 Azure 入口網站或 Azure 監視器記錄檔的可用性。
 - 需執行 **ANALYZE TABLE** 命令，才能產生資料表和資料行的統計資料。 例如： `ANALYZE TABLE [table_name] COMPUTE STATISTICS`。
 
 ## <a name="best-practices-for-different-workloads"></a>不同工作負載的最佳做法

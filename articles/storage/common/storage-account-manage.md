@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: tamram
 ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484234"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>管理在 Azure 入口網站中的儲存體帳戶設定
@@ -20,9 +20,9 @@ ms.locfileid: "61484234"
 
 ## <a name="access-control"></a>存取控制
 
-Azure 存储支持通过基于角色的访问控制 (RBAC)，针对 Blob 存储和队列存储使用 Azure Active Directory 进行身份验证。 有关使用 Azure AD 进行身份验证的详细信息，请参阅[使用 Azure Active Directory验证对 Azure blob 和队列的访问权限](storage-auth-aad.md)。
+Azure 儲存體的 Blob 儲存體和佇列儲存體透過角色型存取控制 (RBAC) 支援使用 Azure Active Directory 進行驗證。 如需有關使用 Azure AD 進行驗證的詳細資訊，請參閱 <<c0> [ 驗證存取 Azure blob 和佇列使用 Azure Active Directory](storage-auth-aad.md)。
 
-對於使用者、群組、服務主體和受管理的身分識別，Azure 入口網站中的**存取控制**設定提供簡易的方式來指派 RBAC 角色。 有关分配 RBAC 角色的详细信息，请参阅[使用 RBAC 管理 blob 和队列数据的访问权限](storage-auth-aad-rbac.md)。
+對於使用者、群組、服務主體和受管理的身分識別，Azure 入口網站中的**存取控制**設定提供簡易的方式來指派 RBAC 角色。 如需有關指派 RBAC 角色的詳細資訊，請參閱[blob 和佇列資料，使用 RBAC 管理存取權限](storage-auth-aad-rbac.md)。
 
 > [!NOTE]
 > 使用 Azure AD 認證來驗證使用者或應用程式，可提供比其他授權方法更高的安全性，也更容易使用。 雖然您可以繼續使用共用金鑰授權於應用程式，但使用 Azure AD 就不需要將帳戶存取金鑰和程式碼一起儲存。 您也可以繼續使用共用存取簽章 (SAS) 將細部存取權授與儲存體帳戶中的資源，但 Azure AD 提供類似功能，卻不必管理 SAS 權杖或擔心需要撤銷遭盜用的 SAS。 
@@ -47,11 +47,11 @@ Azure 儲存體支援 Azure Resource Manager 標記，可自訂分類並組合�
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
 2. 找出您的儲存體帳戶。
-3. 在儲存體帳戶概觀的 [設定] 區段中，選取 [存取金鑰]。 您的帳戶存取金鑰隨即出現，此外也會顯示每個金鑰的完整連接字串。
-4. 尋找 [金鑰 1] 下方的 [金鑰] 值，然後按一下 [複製] 按鈕以複製帳戶金鑰。
-5. 或者，您也可以複製整個連接字串。 尋找 [金鑰1] 下方的 [連接字串] 值，然後按一下 [複製] 按鈕來複製連接字串。
+3. 在儲存體帳戶概觀的 [設定]  區段中，選取 [存取金鑰]  。 您的帳戶存取金鑰隨即出現，此外也會顯示每個金鑰的完整連接字串。
+4. 尋找 [金鑰 1]  下方的 [金鑰]  值，然後按一下 [複製]  按鈕以複製帳戶金鑰。
+5. 或者，您也可以複製整個連接字串。 尋找 [金鑰1]  下方的 [連接字串]  值，然後按一下 [複製]  按鈕來複製連接字串。
 
-    ![显示如何在 Azure 门户中查看访问密钥的屏幕截图](media/storage-manage-account/portal-connection-string.png)
+    ![說明如何在 Azure 入口網站中檢視存取金鑰的螢幕擷取畫面](media/storage-manage-account/portal-connection-string.png)
 
 ### <a name="regenerate-access-keys"></a>重新產生存取金鑰
 
@@ -63,21 +63,21 @@ Microsoft 建議您定期重新產生存取金鑰，以協助保護您的儲存�
 請遵循此程序來旋轉您的儲存體帳戶金鑰：
 
 1. 更新您的應用程式碼中的連接字串，以使用次要金鑰。
-2. 重新產生儲存體帳戶的主要存取金鑰。 在 Azure 入口網站中的 [存取金鑰] 刀鋒視窗上，按一下 [重新產生 Key1]，然後按一下 [是] 確認您要重新產生新的金鑰。
+2. 重新產生儲存體帳戶的主要存取金鑰。 在 Azure 入口網站中的 [存取金鑰]  刀鋒視窗上，按一下 [重新產生 Key1]  ，然後按一下 [是]  確認您要重新產生新的金鑰。
 3. 更新程式碼中的連接字串，以參考新的主要存取金鑰。
 4. 以同樣的方式重新產生次要存取金鑰。
 
 ## <a name="account-configuration"></a>帳戶設定
 
-建立儲存體帳戶之後，您可以修改其組態。 例如，您可以變更複寫資料的方式，也可以將帳戶存取層從「經常性存取層」變更為「非經常性存取層」。 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的儲存體帳戶，然後尋找並按一下 [設定] 之下的 [組態] 以檢視和/或變更帳戶組態。
+建立儲存體帳戶之後，您可以修改其組態。 例如，您可以變更複寫資料的方式，也可以將帳戶存取層從「經常性存取層」變更為「非經常性存取層」。 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的儲存體帳戶，然後尋找並按一下 [設定]  之下的 [組態]  以檢視和/或變更帳戶組態。
 
 變更儲存體帳戶設定可能會導致成本增加。 如需詳細資訊，請參閱 [Azure 儲存體價格](https://azure.microsoft.com/pricing/details/storage/) 頁面。
 
 ## <a name="delete-a-storage-account"></a>刪除儲存體帳戶
-若要移除不再使用的儲存體帳戶，請在 [Azure 入口網站](https://portal.azure.com)中瀏覽至儲存體帳戶，然後按一下 [刪除]。 刪除儲存體帳戶會刪除整個帳戶，包括帳戶中的所有資料。
+若要移除不再使用的儲存體帳戶，請在 [Azure 入口網站](https://portal.azure.com)中瀏覽至儲存體帳戶，然後按一下 [刪除]  。 刪除儲存體帳戶會刪除整個帳戶，包括帳戶中的所有資料。
 
 > [!WARNING]
-> 您無法還原已刪除的儲存體帳戶，也無法擷取刪除之前所包含的任何內容。 删除帐户前请务必备份要保存的任何内容。 這也適用於帳戶中的任何資源 - 一旦刪除 Blob、資料表、佇列或檔案，就是永久刪除。
+> 您無法還原已刪除的儲存體帳戶，也無法擷取刪除之前所包含的任何內容。 請務必先備份您想要儲存的任何資料，再刪除帳戶。 這也適用於帳戶中的任何資源 - 一旦刪除 Blob、資料表、佇列或檔案，就是永久刪除。
 > 
 
 如果您嘗試刪除與 Azure 虛擬機器相關聯的儲存體帳戶，您可能會收到儲存體帳戶仍在使用中的相關錯誤。 如需此錯誤的疑難排解協助，請參閱[針對刪除儲存體帳戶時的錯誤進行疑難排解](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md)。

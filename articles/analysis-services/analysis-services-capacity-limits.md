@@ -9,10 +9,10 @@ ms.date: 04/11/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 0ffbffc788baaffd4a0532c3918ed82cc3eaf5c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61023540"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Analysis Services 資源和物件限制。
@@ -32,7 +32,7 @@ ms.locfileid: "61023540"
 
 ### <a name="basic-tier"></a>基本層
 
-此層建議用於具備小型表格式模型、使用者並行能力有限，且只需簡單資料重新整理功能的生產解決方案。 此層「無法使用」查詢複本相應放大功能。 此層不支援檢視方塊、多個分割區和 DirectQuery 表格式模型功能。  
+此層建議用於具備小型表格式模型、使用者並行能力有限，且只需簡單資料重新整理功能的生產解決方案。 此層「無法使用」  查詢複本相應放大功能。 此層不支援檢視方塊、多個分割區和 DirectQuery 表格式模型功能。  
 
 |規劃  |QPU  |記憶體 (GB)  |
 |---------|---------|---------|

@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6c35d51c1029c0305c86cefd786e60b6547e0dee
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799870"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>將資料從 CSV 載入 Azure SQL Database (一般檔案)
@@ -31,15 +31,15 @@ ms.locfileid: "65799870"
 
 * Azure SQL Database 伺服器和資料庫
 * 已安裝的 bcp 命令列公用程式
-* 已安装 sqlcmd 命令行实用工具
+* 已安裝的 sqlcmd 命令列公用程式
 
 您可以從 [Microsoft 下載中心][Microsoft Download Center]下載 bcp 和 sqlcmd 公用程式。
 
-### <a name="data-in-ascii-or-utf-16-format"></a>采用 ASCII 或 UTF-16 格式的数据
+### <a name="data-in-ascii-or-utf-16-format"></a>ASCII 或 UTF-16 格式的資料
 
 如果您使用您自己的資料嘗試本教學課程，您的資料必須使用 ASCII 或 UTF-16 編碼，因為 bcp 不支援 UFT-8。 
 
-## <a name="1-create-a-destination-table"></a>1.创建目标表
+## <a name="1-create-a-destination-table"></a>1.建立目的資料表
 
 在 SQL Database 中定義做為目的地資料表的資料表。 資料表中的資料行必須對應到資料檔的每一個資料列中的資料。
 
@@ -116,7 +116,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 ## <a name="next-steps"></a>後續步驟
 
-若要迁移 SQL Server 数据库，请参阅 [SQL Server 数据库迁移](sql-database-single-database-migrate.md)。
+若要移轉 SQL Server 資料庫，請參閱 [SQL Server 資料庫移轉](sql-database-single-database-migrate.md)。
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx

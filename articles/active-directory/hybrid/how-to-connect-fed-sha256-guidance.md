@@ -17,10 +17,10 @@ ms.date: 10/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b6c81343d52f016dc779f9e08176a0d909684c0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65138631"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>變更 Office 365 信賴憑證者信任的簽章雜湊演算法
@@ -35,10 +35,10 @@ Active Directory 同盟服務 (AD FS) 會將其權杖簽署到 Microsoft Azure A
 
 ### <a name="ad-fs-management-console"></a>AD FS 管理主控台
 1. 在主要 AD FS 伺服器上，開啟 [AD FS 管理主控台]。
-2. 展開 AD FS 節點，然後按一下 [信賴憑證者信任] 。
-3. 在您的 Office 365/Azure 信賴憑證者信任上按一下滑鼠右鍵，然後選取 [屬性] 。
+2. 展開 AD FS 節點，然後按一下 [信賴憑證者信任]  。
+3. 在您的 Office 365/Azure 信賴憑證者信任上按一下滑鼠右鍵，然後選取 [屬性]  。
 4. 選取 [進階]  索引標籤，然後選取安全雜湊演算法 SHA256。
-5. 按一下 [確定]。
+5. 按一下 [確定]  。
 
 ![SHA256 簽署演算法--MMC](./media/how-to-connect-fed-sha256-guidance/mmc.png)
 

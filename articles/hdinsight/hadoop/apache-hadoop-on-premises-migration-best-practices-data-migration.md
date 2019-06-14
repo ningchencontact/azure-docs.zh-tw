@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
 ms.openlocfilehash: 732cb118b7a0eebdbf28c7d7fe6ced435ce7920e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713715"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>將內部部署 Apache Hadoop 叢集移轉到 Azure HDInsight - 資料移轉最佳做法
@@ -92,7 +92,7 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 #### <a name="hive-metastore-migration-using-scripts"></a>使用指令碼移轉 Hive 中繼存放區
 
-1. 从本地 Hive 元存储生成 Hive DDL。 此步驟可使用[包裝函式 Bash 指令碼](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md) \(英文\) 來完成。
+1. 產生 Hive Ddl 從內部部署 Hive 中繼存放區上。 此步驟可使用[包裝函式 Bash 指令碼](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md) \(英文\) 來完成。
 1. 編輯產生的 DDL，使用 WASB/ADLS/ABFS URL 來取代 HDFS URL。
 1. 從 HDInsight 叢集的中繼存放區上執行更新的 DDL。
 1. 確定 Hive 中繼存放區版本在內部部署和雲端之間都相容。
@@ -109,7 +109,7 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 ### <a name="apache-ranger"></a>Apache Ranger
 
 - 將內部部署 Ranger 原則匯出至 XML 檔案。
-- 使用 XSLT 等工具将基于 HDFS 的本地特定路径转换为 WASB/ADLS。
+- 轉換在內部部署 HDFS 為基礎的特定路徑，至 WASB/ADLS 使用 XSLT 之類的工具。
 - 將原則匯入在 HDInsight 上執行的 Ranger。
 
 ## <a name="next-steps"></a>後續步驟

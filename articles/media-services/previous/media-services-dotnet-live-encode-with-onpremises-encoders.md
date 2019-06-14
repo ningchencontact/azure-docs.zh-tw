@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkdin;juliako
 ms.openlocfilehash: 8baff356e1a4916bcc21b28f422a6e98342c0d34
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869461"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>如何使用 .NET 透過內部部署編碼器執行即時視訊串流
@@ -38,9 +38,9 @@ ms.locfileid: "64869461"
 
 * 一個 Azure 帳戶。
 * 媒體服務帳戶。 若要建立媒體服務帳戶，請參閱[如何建立媒體服務帳戶](media-services-portal-create-account.md)。
-* 確定您想要串流內容的串流端點已處於 [執行中] 狀態。 
+* 確定您想要串流內容的串流端點已處於 [執行中]  狀態。 
 * 設定開發環境。 如需詳細資訊，請參閱 [設定環境](media-services-set-up-computer.md)。
-* 網路攝影機。 例如， [Telestream Wirecast 编码器](https://www.telestream.net/wirecast/overview.htm)。
+* 網路攝影機。 例如， [Telestream Wirecast 編碼器](https://www.telestream.net/wirecast/overview.htm)。
 
 建議您先檢閱下列文章：
 
@@ -399,7 +399,7 @@ namespace AMSLiveTest
 }
 ```
 
-## <a name="next-step"></a>後續步驟
+## <a name="next-step"></a>下一個步驟
 檢閱媒體服務學習路徑
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

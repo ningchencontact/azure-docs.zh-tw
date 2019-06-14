@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: chstone
 ms.openlocfilehash: 6d5d01dfbbcfda56818f5c38b06117a87e021445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61291884"
 ---
 # <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>範例：針對 Azure 搜尋服務將 AdventureWorks 詳細目錄資料庫模型化
@@ -43,7 +43,7 @@ ms.locfileid: "61291884"
 
 ## <a name="use-a-collection-data-type"></a>使用 Collection 資料類型
 
-「正確的方法」是利用在資料庫模型中沒有直接相似功能的搜尋結構描述功能：**Collection(Edm.String)**。 當您有一個個別字串清單，而不是一個非常長的 (單一) 字串時，便可使用 Collection 資料類型。 如果您有標籤或關鍵字，便會將 Collection 資料類型用於此欄位。
+「正確的方法」是利用在資料庫模型中沒有直接相似功能的搜尋結構描述功能：**Collection(Edm.String)** 。 當您有一個個別字串清單，而不是一個非常長的 (單一) 字串時，便可使用 Collection 資料類型。 如果您有標籤或關鍵字，便會將 Collection 資料類型用於此欄位。
 
 藉由為 "color"、"size" 及 "image 定義 **Collection(Edm.String)** 的多重值索引欄位，便得以保留輔助資訊以供建立 Facet 和篩選，而不會因重複項目而弄亂索引。 同樣地，請將彙總函式套用至數值 Product 欄位，其中為 **minListPrice** 編製索引，而不要為每個單一產品 **listPrice** 編製索引。
 

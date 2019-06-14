@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: jingwang
 ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60546534"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 複製資料以及複製資料至 Salesforce
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-salesforce-connector.md)
 > * [目前的版本](connector-salesforce.md)
 
@@ -144,7 +144,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 | objectApiName | 要從其中擷取資料的 Salesforce 物件名稱。 | 否 (來源)；是 (接收) |
 
 > [!IMPORTANT]
-> 所有自訂物件的 [API 名稱]都要有 "__c" 部分。
+> 所有自訂物件的 [API 名稱]  都要有 "__c" 部分。
 
 ![Data Factory Salesforce 連線的 API 名稱](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
 
@@ -180,7 +180,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 ### <a name="salesforce-as-a-source-type"></a>Salesforce 作為來源類型
 
-若要從 Salesforce 複製資料，請將複製活動中的來源類型設定為 **SalesforceSource**。 複製活動的 [來源] 區段支援下列屬性。
+若要從 Salesforce 複製資料，請將複製活動中的來源類型設定為 **SalesforceSource**。 複製活動的 [來源]  區段支援下列屬性。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -189,7 +189,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 | readBehavior | 指出是要查詢現有記錄，還是要查詢包含已刪除記錄在內的所有記錄。 如果未指定，預設行為是前者。 <br>允許的值：**query** (預設值)、**queryAll**。  | 否 |
 
 > [!IMPORTANT]
-> 所有自訂物件的 [API 名稱]都要有 "__c" 部分。
+> 所有自訂物件的 [API 名稱]  都要有 "__c" 部分。
 
 ![Data Factory Salesforce 連線的 API 名稱清單](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
 
@@ -230,7 +230,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 ### <a name="salesforce-as-a-sink-type"></a>Salesforce 作為接收類型
 
-若要將資料複製到 Salesforce，請將複製活動中的接收器類型設定為 **SalesforceSink**。 複製活動的 [接收] 區段支援下列屬性。
+若要將資料複製到 Salesforce，請將複製活動中的接收器類型設定為 **SalesforceSink**。 複製活動的 [接收]  區段支援下列屬性。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -319,20 +319,20 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 | Checkbox |Boolean |
 | Currency |Decimal |
 | Date |DateTime |
-| Date/Time |DateTime |
-| 電子郵件 |String |
-| id |String |
-| 查閱關聯性 |String |
-| 複選挑選清單 |String |
+| 日期/時間 |DateTime |
+| Email |String |
+| Id |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
 | Number |Decimal |
 | Percent |Decimal |
-| 電話 |String |
-| 挑選清單 |String |
+| Phone |String |
+| Picklist |String |
 | Text |String |
-| 文字區域 |String |
-| 文字區域 (完整) |String |
-| 文字區域 (豐富) |String |
-| 文字 (加密) |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
 | URL |String |
 
 ## <a name="next-steps"></a>後續步驟

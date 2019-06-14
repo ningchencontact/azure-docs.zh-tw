@@ -11,10 +11,10 @@ ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 00422209302bbcc2139be4f6b490f0bb2816c051
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65539256"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>選擇 Azure 搜尋服務的定價層
@@ -80,7 +80,7 @@ ms.locfileid: "65539256"
 
 若要了解 Azure 搜尋服務作業的最重要計費概念*搜尋單位*(SU)。 因為 Azure 搜尋服務需要複本和分割區才能編製索引和查詢，因此僅依據其中之一來計費沒有意義。 相反地，會將兩者合併來計費。
 
-SU 是乘積*複本*並*分割區*服務所使用：**(R x P = SU)**.
+SU 是乘積*複本*並*分割區*服務所使用： **(R x P = SU)** .
 
 每個服務都以一個 SU (一個複本乘以一個分割區) 作為最小值。 任何服務的上限為 36 個 Su。 以多種方式可以達到這個最大值：6 個資料分割 x 6 複本或 3 個分割區 x 12 複本，例如。 它會使用少於總容量 （例如，3 複本、 3-資料分割服務以 9 個 Su 計費）。 請參閱[分割區和複本組合](search-capacity-planning.md#chart)有效組合的圖表。
 
@@ -130,7 +130,7 @@ SU 是乘積*複本*並*分割區*服務所使用：**(R x P = SU)**.
 
 ### <a name="capacity"></a>容量
 
-在 Azure 搜尋服務中，容量是由「複本」和「分割區」所構成。
+在 Azure 搜尋服務中，容量是由「複本」  和「分割區」  所構成。
 
 + 複本是搜尋服務的執行個體。 每個複本會裝載一個負載平衡份索引。 例如，具有 6 個複本的服務已載入服務中的每個索引的六份複本。
 

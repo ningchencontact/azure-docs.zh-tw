@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0369988bc6f6503f9940e6aabccb91ab843d63f5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65811875"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 共同作業 API 和自訂
@@ -105,7 +105,7 @@ New-AzureADMSInvitation
 * **UserState** 指出邀請為 **PendingAcceptance** 或 **Accepted**。
 * **UserStateChangedOn** 顯示最近 **UserState** 屬性變更的時間戳記。
 
-您可以使用 [篩選] 選項，依 **UserState** 篩選結果。 以下範例示範如何篩選結果，只顯示具有待決邀請的使用者。 此範例也顯示 **Format-list** 選項，其可讓您指定要顯示的屬性。 
+您可以使用 [篩選]  選項，依 **UserState** 篩選結果。 以下範例示範如何篩選結果，只顯示具有待決邀請的使用者。 此範例也顯示 **Format-list** 選項，其可讓您指定要顯示的屬性。 
  
 
 ```powershell

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
 ms.openlocfilehash: 819f6ee4ab079361279a567bceeb74c33fe14186
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60952342"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>使用 Azure 監視器記錄的效能監視
@@ -36,11 +36,11 @@ ms.locfileid: "60952342"
 
 1. 一旦要求了 Cloud Shell，請確定用於作業的訂用帳戶與資源的訂用帳戶相同。 請使用 `az account show` 進行檢查，並確保「名稱」值符合叢集訂用帳戶的名稱。
 
-2. 在入口網站中，瀏覽至您的 Log Analytics 工作區所在的資源群組。 按一下 log analytics 資源 （資源類型會是 Log Analytics 工作區）。 當您在資源概觀頁面時，在左側功能表的 [設定] 區段下方，按一下 [進階設定]。
+2. 在入口網站中，瀏覽至您的 Log Analytics 工作區所在的資源群組。 按一下 log analytics 資源 （資源類型會是 Log Analytics 工作區）。 當您在資源概觀頁面時，在左側功能表的 [設定] 區段下方，按一下 [進階設定]  。
 
     ![Log analytics 屬性頁面](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
 
-3. 如果您要建立 Windows 叢集，請按一下 [Windows 伺服器]，如果您要建立 Linux 叢集，請按一下 [Linux 伺服器]。 此頁面會顯示您的 `workspace ID` 和 `workspace key` (列為入口網站中的主索引鍵)。 您在下一個步驟需要上述兩項。
+3. 如果您要建立 Windows 叢集，請按一下 [Windows 伺服器]  ，如果您要建立 Linux 叢集，請按一下 [Linux 伺服器]  。 此頁面會顯示您的 `workspace ID` 和 `workspace key` (列為入口網站中的主索引鍵)。 您在下一個步驟需要上述兩項。
 
 4. 執行命令，使用 Cloud Shell 中的 `vmss extension set` API 來將 Log Analytics 代理程式安裝到您的叢集：
 
@@ -76,21 +76,21 @@ ms.locfileid: "60952342"
 
 現在您已新增 Log Analytics 代理程式，請前往 Log Analytics 入口網站來選擇您要收集的效能計數器。
 
-1. 在 Azure 入口網站中，移至您建立 Service Fabric 分析解決方案所在的資源群組。 選取 [ServiceFabric\<nameOfLog AnalyticsWorkspace\>]。
+1. 在 Azure 入口網站中，移至您建立 Service Fabric 分析解決方案所在的資源群組。 選取 [ServiceFabric\<nameOfLog AnalyticsWorkspace\>]  。
 
-2. 按一下 [Log Analytics]。
+2. 按一下 [Log Analytics]  。
 
-3. 按一下 [進階設定]。
+3. 按一下 [進階設定]  。
 
-4. 按一下 [資料]，然後按一下 [Windows 效能計數器] 或 [Linux 效能計數器]。 有一個預設計數器清單，您可以從中選擇啟用，也可以設定收集間隔。 您也可以新增想收集的[其他效能計數器](service-fabric-diagnostics-event-generation-perf.md)。 [本文](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx)參照適當的格式。
+4. 按一下 [資料]  ，然後按一下 [Windows 效能計數器] 或 [Linux 效能計數器]  。 有一個預設計數器清單，您可以從中選擇啟用，也可以設定收集間隔。 您也可以新增想收集的[其他效能計數器](service-fabric-diagnostics-event-generation-perf.md)。 [本文](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx)參照適當的格式。
 
-5. 按一下 [儲存]，然後按一下 [確定]。
+5. 按一下 [儲存]  ，然後按一下 [確定]  。
 
 6. 關閉 [進階設定] 刀鋒視窗。
 
-7. 在 [一般] 標題底下，按一下 [工作區摘要]。
+7. 在 [一般] 標題底下，按一下 [工作區摘要]  。
 
-8. 您會看到每一個所啟用解決方案的圖格以圖形形式顯示，其中一個屬於 Service Fabric。 按一下 [Service Fabric] 圖形以繼續進行「Service Fabric 分析」解決方案。
+8. 您會看到每一個所啟用解決方案的圖格以圖形形式顯示，其中一個屬於 Service Fabric。 按一下 [Service Fabric]  圖形以繼續進行「Service Fabric 分析」解決方案。
 
 9. 您會在操作通道和 Reliable Services 事件上，看到一些含有圖形的圖格。 您所選計數器的流入資料圖形表示法會顯示在 [節點計量] 底下。
 

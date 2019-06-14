@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
 ms.openlocfilehash: d12c5097d4ba5e0ccfe0e2b2cbc8ccd758c32d98
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60865001"
 ---
 # <a name="testability-scenarios"></a>Testability 案例
@@ -56,7 +56,7 @@ ms.locfileid: "60865001"
 * **WaitTimeBetweenIterations**：反覆項目，也就是在一輪的錯誤與對應的驗證之間要等候的時間量。
 
 ### <a name="how-to-run-the-chaos-test"></a>如何執行混亂測試
-C# 示例
+C# 範例
 
 ```csharp
 using System;

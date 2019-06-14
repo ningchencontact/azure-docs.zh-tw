@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b2d07638f6c6f153ee3640273fbee5e56df0ab2
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64541521"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management-preview"></a>核准或拒絕存取要求，在 Azure AD 權限管理 （預覽）
@@ -36,7 +36,7 @@ ms.locfileid: "64541521"
 
 核准或拒絕存取要求的第一個步驟是尋找並開啟 等待核准存取要求。 有兩種方式可開啟 存取要求。
 
-**必要的角色：** 核准者
+**必要角色：** 核准者
 
 1. 從 Microsoft Azure 會要求您核准或拒絕的要求中尋找的電子郵件。 以下是範例電子郵件：
 
@@ -58,9 +58,9 @@ ms.locfileid: "64541521"
 
 開啟 等待核准的存取要求之後，您可以看到將協助您進行核准或拒絕決策的詳細資料。
 
-**必要的角色：** 核准者
+**必要角色：** 核准者
 
-1. 按一下 **檢視**連結以開啟 存取要求 窗格。
+1. 按一下 [檢視]  連結以開啟 [存取要求] 窗格。
 
 1. 按一下 **詳細資料**以查看存取要求的相關詳細資料。
 
@@ -70,9 +70,9 @@ ms.locfileid: "64541521"
 
 1. 如有必要，請輸入原因。
 
-    ![我存取入口網站-存取要求](./media/entitlement-management-shared/my-access-approve-request.png)
+    ![我的存取權入口網站 - 存取要求](./media/entitlement-management-shared/my-access-approve-request.png)
 
-1. 按一下 **送出**提交您的決定。
+1. 按一下 [提交]  以提交您的決定。
 
     如果有多位核准者設定的原則，則只有一個核准者必須以決定要擱置的核准。 核准者已提交存取要求其決定之後，要求完成，且不再可供其他核准者核准或拒絕要求。 要求決策和決策者，其我存取入口網站中的，可以看到其他核准者。 在此階段中，支援只有單一階段核准。
 

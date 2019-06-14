@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: f6516e37107a16d80c4d9eb9514782bdbcc44184
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925219"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>設定主機集區的使用者設定檔共用
@@ -43,8 +43,8 @@ Windows 虛擬桌面預覽服務提供建議的使用者設定檔方案 FSLogix 
 1. Windows 虛擬桌面 Active Directory 將使用者加入至[Active Directory 安全性群組](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups)。 此安全性群組，將用於驗證的 Windows 虛擬桌面使用者，以您剛建立檔案共用的虛擬機器。
 2. [連接到檔案共用的虛擬機器](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine)。
 3. 在檔案共用的虛擬機器，請上建立資料夾**C 磁碟機**，用以做為設定檔共用。
-4. 以滑鼠右鍵按一下新的資料夾中，選取**屬性**，選取**共用**，然後選取**進階共用...**.
-5. 選取 **共用此資料夾**，選取**權限...**，然後選取**加入...**.
+4. 以滑鼠右鍵按一下新的資料夾中，選取**屬性**，選取**共用**，然後選取**進階共用...** .
+5. 選取 **共用此資料夾**，選取**權限...** ，然後選取**加入...** .
 6. 搜尋您要加入 Windows 虛擬桌面使用者的安全性群組，然後確認該群組具有**完全控制**。
 7. 之後新增的安全性群組，以滑鼠右鍵按一下該資料夾中，選取**屬性**，選取**共用**，然後向下複製**網路路徑**供稍後使用。
 
@@ -62,7 +62,7 @@ Windows 虛擬桌面預覽服務提供建議的使用者設定檔方案 FSLogix 
 6. 建立名為索引鍵**設定檔**。
 7. 建立設定檔索引鍵的下列值：
 
-| 名稱                | 類型               | 資料/值                        |
+| Name                | 類型               | 資料/值                        |
 |---------------------|--------------------|-----------------------------------|
 | Enabled             | DWORD              | 1                                 |
 | VHDLocations        | 多字串值 | 「 檔案共用的網路路徑 」     |

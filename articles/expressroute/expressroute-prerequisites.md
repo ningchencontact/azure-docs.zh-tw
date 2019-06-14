@@ -9,10 +9,10 @@ ms.date: 03/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
 ms.openlocfilehash: afe8d3971a51d57498e3e32b7e1cf5bf5a3263d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883230"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 必要條件和檢查清單
@@ -30,8 +30,8 @@ ms.locfileid: "60883230"
 * 如果您的提供者不是 ExpressRoute 連線合作夥伴，您仍可透過 [雲端交換服務提供者](expressroute-locations.md#connectivity-through-exchange-providers)連線到 Microsoft Cloud。
 
 ## <a name="network-requirements"></a>網路需求
-* **每个对等互连位置的冗余性**：Microsoft 要求在 Microsoft 的路由器和每个 ExpressRoute 线路上的对等互连路由器之间建立冗余的 BGP 会话（即使只有[一个到云交换的物理连接](expressroute-faqs.md#onep2plink)）。
-* **灾难恢复的冗余**：Microsoft 强烈建议你在不同的对等互连位置设置至少两条 ExpressRoute 线路，避免单点故障。
+* **在每個對等互連位置的備援**:Microsoft 會要求 Microsoft 路由器和每個 ExpressRoute 線路的對等互連路由器之間設定備援 BGP 工作階段 (即使您有只[與雲端交換的一個實體連線](expressroute-faqs.md#onep2plink))。
+* **災害復原的備援**:Microsoft 強烈建議您設定至少兩個 ExpressRoute 線路位於不同的對等互連位置以避免單一失敗點。
 * **路由**︰根據您連線到 Microsoft Cloud 的方式，您或您的提供者需要設定及管理用於[路由網域](expressroute-circuit-peerings.md)的 BGP 工作階段。 某些乙太網路連線服務提供者或雲端交換服務提供者可能會提供 BGP 管理功能做為附加價值服務。
 * **NAT**：Microsoft 只接受透過 Microsoft 對等互連的公用 IP 位址。 如果您在內部部署網路中使用私人 IP 位址，您或您的提供者必須[使用 NAT](expressroute-nat.md) 將私人 IP 位址轉譯成公用 IP 位址。
 * **QoS**：「商務用 Skype」具有各種服務 (例如語音、視訊、文字)，其所要求的 QoS 處理方式各有差異。 您和您的提供者應該遵循 [QoS 需求](expressroute-qos.md)。
@@ -40,7 +40,7 @@ ms.locfileid: "60883230"
 ## <a name="office-365"></a>Office 365
 如果您打算在 ExpressRoute 上啟用 Office 365，請檢閱下列文件以取得 Office 365 需求的詳細資訊。
 
-* [Overview of ExpressRoute for Office 365（适用于 Office 365 的 ExpressRoute 概述）](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
+* [ExpressRoute for Office 365 概觀](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
 * [使用 ExpressRoute for Office 365 進行路由](https://support.office.com/article/Routing-with-ExpressRoute-for-Office-365-e1da26c6-2d39-4379-af6f-4da213218408)
 * [ExpressRoute 的高可用性和容錯移轉](https://aka.ms/erhighavailability)
 * [Office 365 URL 與 IP 位址範圍](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

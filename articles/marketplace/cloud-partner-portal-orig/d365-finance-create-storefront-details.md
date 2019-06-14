@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pabutler
 ms.openlocfilehash: a22a2ebe870280ddcdf18c037141b92894742400
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935031"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>如何填寫店面詳細資料表單
@@ -29,7 +29,7 @@ ms.locfileid: "64935031"
 
 ### <a name="offer-description"></a>供應項目描述
 
-此描述會在 AppSource 上顯示於 [供應項目摘要] 的正下方。 在說明您的解決方案時，請勿將重點放在基礎技術或操作功能上。 潛在客戶可稍後再了解相關細節。 催化才是您的主要目標，也就是驅使潛在客戶付諸實際行動。 理想的方法是讓他們回想可能經歷過的困境，然後談談他們若使用您的解決方案將會有哪些好處。 請清楚表達吸引人的成果和結果。 建議您在描述的結尾處加上您應用程式登陸頁面的連結。 上限為 1300 個字元
+此描述會在 AppSource 上顯示於 [供應項目摘要]  的正下方。 在說明您的解決方案時，請勿將重點放在基礎技術或操作功能上。 潛在客戶可稍後再了解相關細節。 催化才是您的主要目標，也就是驅使潛在客戶付諸實際行動。 理想的方法是讓他們回想可能經歷過的困境，然後談談他們若使用您的解決方案將會有哪些好處。 請清楚表達吸引人的成果和結果。 建議您在描述的結尾處加上您應用程式登陸頁面的連結。 上限為 1300 個字元
 
 ### <a name="industries"></a>產業
 

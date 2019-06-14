@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
 ms.openlocfilehash: bc791fea1dfd184749e84cb7b7a912972c6a9f12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60657592"
 ---
 # <a name="create-subscriptions-in-azure-api-management"></a>在 Azure API 管理中建立訂用帳戶
@@ -35,10 +35,10 @@ ms.locfileid: "60657592"
 
 ## <a name="create-a-new-subscription"></a>建立新的訂用帳戶
 
-1. 選取左邊功能表的 [訂用帳戶]。
-2. 選取 [訂用帳戶]。
+1. 選取左邊功能表的 [訂用帳戶]  。
+2. 選取 [訂用帳戶]  。
 3. 提供訂用帳戶的名稱並選取範圍。
-4. （可选）选择订阅是否应当与某个用户关联。
+4. （選擇性） 選擇是否訂用帳戶應該是與使用者相關聯。
 5. 選取 [ **儲存**]。
 
 ![彈性的訂用帳戶](./media/api-management-subscriptions/flexible-subscription.png)

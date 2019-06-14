@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 573c205cd2e208a1cb2b526d96fb08ca21331c80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129613"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>使用 Windows 虛擬機器擴展集的 Azure Resource Manager 範本將客體作業系統計量傳送至 Azure 監視器計量存放區
@@ -273,19 +273,19 @@ MSI 擴充功能中的下列程式碼也可以將診斷擴充功能與設定作�
 
 1. 登入 Azure 入口網站。 
 
-1. 在左側功能表中，選取 [監視]。 
+1. 在左側功能表中，選取 [監視]  。 
 
-1. 在 [監視] 頁面上，選取 [計量]。 
+1. 在 [監視]  頁面上，選取 [計量]  。 
 
    ![監視 - 計量頁面](media/collect-custom-metrics-guestos-resource-manager-vmss/metrics.png) 
 
-1. 將彙總期間變更為 [過去 30 分鐘]。  
+1. 將彙總期間變更為 [過去 30 分鐘]  。  
 
 1. 在 [資源] 下拉式功能表中，選取您建立的虛擬機器擴展集。  
 
 1. 在 [命名空間] 下拉式功能表中，選取 **azure.vm.windows.guest**。 
 
-1. 在 [計量] 下拉式功能表中，選取 [記憶體\%認可的位元組 (使用中)\]。  
+1. 在 [計量] 下拉式功能表中，選取 [記憶體\%認可的位元組 (使用中)\]  。  
 
 接著，您也可以選擇使用這個計量上的維度，為特定 VM 繪製圖表，或對擴展集中的每個 VM 繪製圖表。 
 

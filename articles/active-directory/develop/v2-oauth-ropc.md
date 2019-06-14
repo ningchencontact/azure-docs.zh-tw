@@ -18,10 +18,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04d2be76072866da2b21718f60fd0c9a5923b15b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545117"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft 身分識別平台和 OAuth 2.0 資源擁有者密碼認證
@@ -64,7 +64,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=password
 ```
 
-| 參數 | 條件 | 說明 |
+| 參數 | 條件 | 描述 |
 | --- | --- | --- |
 | `tenant` | 必要項 | 您想要將使用者登入的目標目錄租用戶。 這可以採用 GUID 或易記名稱格式。 此參數無法設為 `common` 或 `consumers`，但可設定為 `organizations`。 |
 | `grant_type` | 必要項 | 必須設為 `password`。 |
@@ -87,7 +87,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 }
 ```
 
-| 參數 | 格式 | 說明 |
+| 參數 | 格式 | 描述 |
 | --------- | ------ | ----------- |
 | `token_type` | 字串 | 一律設定為 `Bearer`。 |
 | `scope` | 空格分隔的字串 | 如果傳回了存取權杖，此參數會列出存取權杖的有效範圍。 |
@@ -102,7 +102,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 如果使用者未提供正確的使用者名稱或密碼，或用戶端未收到所要求的同意，驗證將會失敗。
 
-| Error | 說明 | 用戶端動作 |
+| Error | 描述 | 用戶端動作 |
 |------ | ----------- | -------------|
 | `invalid_grant` | 驗證失敗 | 認證不正確，或用戶端沒有同意所要求的範圍。 如果未授與的範圍，`consent_required`便會傳回錯誤。 如果發生這種情況，用戶端應使用 WebView 或瀏覽器將使用者傳送至互動式提示。 |
 | `invalid_request` | 要求未正確建構 | 不支援的授與類型`/common`或`/consumers`驗證內容。  請改用 `/organizations`。 |

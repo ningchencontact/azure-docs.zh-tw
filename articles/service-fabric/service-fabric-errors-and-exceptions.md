@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/20/2018
 ms.author: oanapl
 ms.openlocfilehash: 5bf17f4ced6bb01d8b62b6fa40ed1aeffe6f712f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60946526"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>使用 FabricClient API 時常見的例外狀況和錯誤
@@ -32,11 +32,11 @@ ms.locfileid: "60946526"
 | [System.TimeoutException](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception) |作業逾時。作業需要 MaxOperationTimeout 以上的時間才能完成時，會傳回 [OperationTimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode)。 |
 | [System.UnauthorizedAccessException](https://docs.microsoft.com/dotnet/core/api/system.unauthorizedaccessexception) |作業的存取檢查失敗。 傳回 E_ACCESSDENIED。 |
 | [System.Fabric.FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) |執行作業時發生執行階段錯誤。 任何 FabricClient 方法都可能擲回 [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception)，[ErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception.ErrorCode) 屬性指出例外狀況的確切原因。 錯誤碼是在 [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) 列舉中定義。 |
-| [System.Fabric.FabricTransientException](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception) |作業因某種暫時性錯誤狀況而失敗。 例如，作業可能因暫時無法到達複本的仲裁而失敗。 暂时性异常对应于可重试的失败操作。 |
+| [System.Fabric.FabricTransientException](https://docs.microsoft.com/dotnet/api/system.fabric.fabrictransientexception) |作業因某種暫時性錯誤狀況而失敗。 例如，作業可能因暫時無法到達複本的仲裁而失敗。 暫時性例外狀況會對應至可重試的失敗作業。 |
 
 [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) 中傳回的一些常見 [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) 錯誤：
 
-| Error | 条件 |
+| Error | 條件 |
 | --- |:--- |
 | CommunicationError |通訊錯誤導致作業失敗，請重試作業。 |
 | InvalidCredentialType |認證類型無效。 |

@@ -8,10 +8,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: 388723624fde73899809b95ff8ae4ee23cf49a9d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64705096"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>透過一次性事件處理來建立 Apache Spark 串流作業
@@ -38,13 +38,13 @@ ms.locfileid: "64705096"
 
 ### <a name="replayable-sources"></a>可重新使用的來源
 
-Spark 串流應用程式讀取事件的來源必須「可重新使用」。 這表示在已擷取訊息，但接著在可保存或處理訊息之前系統卻發生失敗的情況下，來源必須再次提供相同的訊息。
+Spark 串流應用程式讀取事件的來源必須「可重新使用」  。 這表示在已擷取訊息，但接著在可保存或處理訊息之前系統卻發生失敗的情況下，來源必須再次提供相同的訊息。
 
 在 Azure 中，Azure 事件中樞和 HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 都會提供可重新使用的來源。 可重新使用來源的另一個範例為容錯檔案系統，例如 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html)、Azure 儲存體 Blob 或 Azure Data Lake Storage，其中所有資料都會永久保留，您隨時都可以重新讀取完整的資料。
 
 ### <a name="reliable-receivers"></a>可靠的接收器
 
-在 Spark 串流中，Event Hub 和 Kafka 之類的來源具有「可靠的接收器」，而每個接收器都可追蹤其讀取來源的進度。 可靠的接收器會將其狀態保存在容錯儲存體中 (在寫入 HDFS 的 [Apache ZooKeeper](https://zookeeper.apache.org/) 或 Spark 串流檢查點中)。 如果這類收件器故障且稍後重新啟動，它可以挑選其中斷的位置。
+在 Spark 串流中，Event Hub 和 Kafka 之類的來源具有「可靠的接收器」  ，而每個接收器都可追蹤其讀取來源的進度。 可靠的接收器會將其狀態保存在容錯儲存體中 (在寫入 HDFS 的 [Apache ZooKeeper](https://zookeeper.apache.org/) 或 Spark 串流檢查點中)。 如果這類收件器故障且稍後重新啟動，它可以挑選其中斷的位置。
 
 ### <a name="use-the-write-ahead-log"></a>使用預寫記錄檔
 
@@ -78,7 +78,7 @@ Spark 串流支援使用預寫記錄檔，其中每個收到的事件會先寫�
 
 ### <a name="use-idempotent-sinks"></a>使用等冪接收端
 
-您的作業寫入結果的目的地接收端必須能夠處理多次提供相同結果的情況。 接收端必須能夠偵測這類重複結果並予以忽略。 您可以在不變更狀態的情況下，使用相同的資料多次呼叫「等冪」接收端。
+您的作業寫入結果的目的地接收端必須能夠處理多次提供相同結果的情況。 接收端必須能夠偵測這類重複結果並予以忽略。 您可以在不變更狀態的情況下，使用相同的資料多次呼叫「等冪」  接收端。
 
 您可以實作先檢查資料存放區中是否存在連入結果的邏輯，從而建立等冪接收端。 如果結果已經存在，從您的 Spark 作業的觀點來看，寫入應該成功，但實際上資料存放區卻忽略了重複的資料。 如果結果不存在，則接收端應將此新結果插入其儲存體中。 
 

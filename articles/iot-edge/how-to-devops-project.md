@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 02977032c5975de4098600ddbebccfcbb9b0fafd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60595327"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>使用 Azure DevOps Projects 建立適用於 IoT Edge 的 CI/CD 管線 (預覽)
@@ -28,21 +28,21 @@ DevOps Projects 會在 Azure DevOps 中建立 CI/CD 管線。 您可以建立新
 
 1. 登入 [Microsoft Azure 入口網站](https://portal.azure.com)。
 
-1. 在左側窗格中選取 [建立資源]，然後搜尋 [DevOps Projects]。  
+1. 在左側窗格中選取 [建立資源]  ，然後搜尋 [DevOps Projects]  。  
 
-1.  選取 [建立] 。
+1.  選取 [建立]  。
 
 ## <a name="create-a-new-application-pipeline"></a>建立新的應用程式管道 
 
-1. 您的 Azure IoT Edge 模組可使用 [C#](tutorial-csharp-module.md)、[Node.js](tutorial-node-module.md)、[Python](tutorial-python-module.md)、[C](tutorial-c-module.md) 和 [Java](tutorial-java-module.md) 來撰寫。 選取您的慣用語言來啟動新的應用程式：[.NET]、[Node.js]、[Python]、[C]，或 [Java]。 選取 [下一步] 以繼續操作。
+1. 您的 Azure IoT Edge 模組可使用 [C#](tutorial-csharp-module.md)、[Node.js](tutorial-node-module.md)、[Python](tutorial-python-module.md)、[C](tutorial-c-module.md) 和 [Java](tutorial-java-module.md) 來撰寫。 選取您的慣用語言來啟動新的應用程式：[.NET]  、[Node.js]  、[Python]  、[C]  ，或 [Java]  。 選取 [下一步]  以繼續操作。
 
    ![選取用來新建應用程式的語言](./media/how-to-devops-project/select-language.png)
 
-2. 選取 [Simple IoT (預覽)] 作為應用程式架構，然後選取 [下一步]。
+2. 選取 [Simple IoT (預覽)]  作為應用程式架構，然後選取 [下一步]  。
 
    ![選取 Simple IoT 架構](media/how-to-devops-project/select-iot.png)
 
-3. 選取 [IoT Edge] 作為部署您應用程式的 Azure 服務，然後選取 [下一步]。
+3. 選取 [IoT Edge]  作為部署您應用程式的 Azure 服務，然後選取 [下一步]  。
 
    ![選取 IoT Edge 服務](media/how-to-devops-project/select-iot-edge.png)
 
@@ -50,15 +50,15 @@ DevOps Projects 會在 Azure DevOps 中建立 CI/CD 管線。 您可以建立新
 
    1. 為您的專案提供名稱。 
 
-   2. 選取您的 Azure DevOps 組織。 如果您沒有現有組織，請選取 [其他設定] 來建立一個新的。 
+   2. 選取您的 Azure DevOps 組織。 如果您沒有現有組織，請選取 [其他設定]  來建立一個新的。 
 
    3. 選取 Azure 訂用帳戶。
 
    4. 使用由您的專案名稱所產生的 IoT 中樞名稱，或是自行提供一個名稱。
 
-   5. 選取 [其他設定] 來設定 DevOps Projects 會代您建立的 Azure 資源。
+   5. 選取 [其他設定]  來設定 DevOps Projects 會代您建立的 Azure 資源。
 
-   6. 選取 [完成] 來完成建立專案。 
+   6. 選取 [完成]  來完成建立專案。 
 
    ![命令和建立應用程式](media/how-to-devops-project/select-devops.png)
 
@@ -71,21 +71,21 @@ DevOps Projects 會在 Azure DevOps 中建立 CI/CD 管線。 您可以建立新
 
 DevOps Projects 會在 Azure Repos 中為您的專案建立 Git 存放庫。 在這一節中，您會檢視存放庫並變更您應用程式的程式碼。
 
-1. 若要瀏覽到針對您的專案所建立的存放庫，請選取您專案儀表板功能表中的 [存放庫]。  
+1. 若要瀏覽到針對您的專案所建立的存放庫，請選取您專案儀表板功能表中的 [存放庫]  。  
 
    ![檢視在 Azure Repos 中產生的存放庫](./media/how-to-devops-project/view-repositories.png)
 
-2. 下列步驟會逐步引導您使用網頁瀏覽器來變更應用程式的程式碼。 如果您想要改為於本機複製您的存放庫，請選取視窗右上角的 [複製]。 使用所提供的 URL 來在 Visual Studio Code 或您偏好的開發工具中複製您的 Git 存放庫。 
+2. 下列步驟會逐步引導您使用網頁瀏覽器來變更應用程式的程式碼。 如果您想要改為於本機複製您的存放庫，請選取視窗右上角的 [複製]  。 使用所提供的 URL 來在 Visual Studio Code 或您偏好的開發工具中複製您的 Git 存放庫。 
 
 3. 根據您在建立程序中所選擇的應用程式語言，存放庫已經包含適用於名為 **SampleModule** 之模組的程式碼。 開啟 **modules/SampleModule/module.json** 檔案。
 
    ![在 Azure Repos 中開啟 module.json 檔案](./media/how-to-devops-project/open-module-json.png)
 
-4. 選取 [編輯]，並在 `"tag"` 下對 `"version"` 進行變更。 例如，您可以將其更新為 `"version": "${BUILD_BUILDID}"`，以使用 [Azure DevOps 組建變數](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables)作為 Azure IoT Edge 模組映像標記的一部分。
+4. 選取 [編輯]  ，並在 `"tag"` 下對 `"version"` 進行變更。 例如，您可以將其更新為 `"version": "${BUILD_BUILDID}"`，以使用 [Azure DevOps 組建變數](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables)作為 Azure IoT Edge 模組映像標記的一部分。
 
    ![編輯版本以接受組建變數](media/how-to-devops-project/update-module-json.png)
 
-5. 選取 [認可]，然後儲存您的變更。
+5. 選取 [認可]  ，然後儲存您的變更。
 
 6. 在瀏覽器中，返回您位於 Azure 入口網站中的 DevOps Projects 儀表板。 您現在應該會看到正在進行中的組建。 您所做的變更會透過 CI/CD 管線自動建置及部署。
 
@@ -95,48 +95,48 @@ DevOps Projects 會在 Azure Repos 中為您的專案建立 Git 存放庫。 在
 
 在先前的小節中，Azure DevOps Projects 已自動為您的 IoT Edge 應用程式設定完整的 CI/CD 管線。 然後您已透過將變更認可到其中一個檔案，來測試該建置管線。 現在請探索管線，並視需要進行自訂。 請採取下列步驟，讓您自己熟悉 Azure DevOps 建置和發行管線。
 
-1. 若要檢視 DevOps 專案中的建置管線，請選取專案儀表板功能表中的 [建置管線]。 此連結會開啟瀏覽器索引標籤和新專案的 Azure DevOps 建置管線。
+1. 若要檢視 DevOps 專案中的建置管線，請選取專案儀表板功能表中的 [建置管線]  。 此連結會開啟瀏覽器索引標籤和新專案的 Azure DevOps 建置管線。
 
    ![在 Azure Pipelines 中檢視建置管線](./media/how-to-devops-project/view-build-pipelines.png)
 
-2. 選取 [編輯]。
+2. 選取 [編輯]  。
 
     ![編輯組建管線](media/how-to-devops-project/click-edit-button.png)
 
 3. 在開啟的面板中，您可以檢視會在建置管線執行時發生的工作。 建置管線會執行各種工作，例如從 Git 存放庫提取來源、建置 IoT Edge 模組映像、將 IoT Edge 模組推送到容器登錄，以及發佈用於部署的輸出。 若要深入了解 Azure DevOps 中的 Azure IoT Edge 工作，請參閱[針對持續整合設定 Azure Pipelines](how-to-ci-cd.md#configure-continuous-integration)。
 
-4. 選取建置管線頂端的 [管線] 標頭來開啟管線詳細資料。 將建置管線的名稱變更成較具描述性的名稱。
+4. 選取建置管線頂端的 [管線]  標頭來開啟管線詳細資料。 將建置管線的名稱變更成較具描述性的名稱。
 
    ![編輯管線詳細資料](./media/how-to-devops-project/edit-build-pipeline.png)
 
-5. 選取 [儲存並排入佇列]，然後選取 [儲存]。
+5. 選取 [儲存並排入佇列]  ，然後選取 [儲存]  。
 
-6. 在建置管線的功能表中，選取功能表中的 [觸發程序]。 DevOps Projects 已自動建立 CI 觸發程序，且每次對存放庫的認可都會啟動新的建置。  您可以選擇性地選擇要在 CI 程序中包含還是排除分支。
+6. 在建置管線的功能表中，選取功能表中的 [觸發程序]  。 DevOps Projects 已自動建立 CI 觸發程序，且每次對存放庫的認可都會啟動新的建置。  您可以選擇性地選擇要在 CI 程序中包含還是排除分支。
 
-7. 選取 [保留期]。 根據案例，您可以指定原則來保留或移除特定數目的組建。
+7. 選取 [保留期]  。 根據案例，您可以指定原則來保留或移除特定數目的組建。
 
-8. 選取 [記錄]。 [記錄] 窗格會包含組建近期變更的稽核線索。 Azure Pipelines 會追蹤對建置管線進行的任何變更，且可讓您比較版本。
+8. 選取 [記錄]  。 [記錄] 窗格會包含組建近期變更的稽核線索。 Azure Pipelines 會追蹤對建置管線進行的任何變更，且可讓您比較版本。
 
-9. 當您探索完建置管線之後，請瀏覽到相對應的發行管線。 選取 [管線] 下方的 [版本]，然後選取 [編輯] 以檢視管線詳細資料。
+9. 當您探索完建置管線之後，請瀏覽到相對應的發行管線。 選取 [管線]  下方的 [版本]  ，然後選取 [編輯]  以檢視管線詳細資料。
 
     ![檢視發行管線](media/how-to-devops-project/release-pipeline.png)
 
-10. 在 [成品] 下，選取 [置放]。 此成品所監看的來源，是您在先前步驟所檢查之建置管線的輸出。 
+10. 在 [成品]  下，選取 [置放]  。 此成品所監看的來源，是您在先前步驟所檢查之建置管線的輸出。 
 
-11. 在 [置放] 圖示旁邊，選取看起來像閃電的 [持續部署觸發程序]。 這個發行管線已啟用觸發程序，每次有新的組建成品可用時，它就會執行部署。 您可以選擇性地停用觸發程序，因此需要手動執行部署。  
+11. 在 [置放]  圖示旁邊，選取看起來像閃電的 [持續部署觸發程序]  。 這個發行管線已啟用觸發程序，每次有新的組建成品可用時，它就會執行部署。 您可以選擇性地停用觸發程序，因此需要手動執行部署。  
 
-12. 在您發行管線的功能表中，選取 [工作] 然後從下拉式清單中選擇 [開發] 階段。 DevOps Projects 已為您建立發行階段，其會建立 IoT 中樞，於該中樞中建立 IoT Edge 裝置，從建置管線部署範例模組，然後佈建虛擬機器以作為您的 IoT Edge 裝置執行。 若要深入了解適用於 CD 的 Azure IoT Edge 工作，請參閱[針對持續部署設定 Azure Pipelines](how-to-ci-cd.md#configure-continuous-deployment)。
+12. 在您發行管線的功能表中，選取 [工作]  然後從下拉式清單中選擇 [開發]  階段。 DevOps Projects 已為您建立發行階段，其會建立 IoT 中樞，於該中樞中建立 IoT Edge 裝置，從建置管線部署範例模組，然後佈建虛擬機器以作為您的 IoT Edge 裝置執行。 若要深入了解適用於 CD 的 Azure IoT Edge 工作，請參閱[針對持續部署設定 Azure Pipelines](how-to-ci-cd.md#configure-continuous-deployment)。
 
     ![檢視持續部署工作](media/how-to-devops-project/dev-release.png)
 
-13. 從右側選取 [檢視版本]。 此檢視會顯示版本的歷程記錄。
+13. 從右側選取 [檢視版本]  。 此檢視會顯示版本的歷程記錄。
 
 14. 選取某個版本的名稱以檢視其詳細資訊。
 
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當您不再需要所建立的 Azure App Service 和其他相關資源時，可將其刪除。 請使用 DevOps Projects 儀表板上的 [刪除] 功能。
+當您不再需要所建立的 Azure App Service 和其他相關資源時，可將其刪除。 請使用 DevOps Projects 儀表板上的 [刪除]  功能。
 
 ## <a name="next-steps"></a>後續步驟
 * 在 [Azure IoT Edge 的持續整合與持續部署](how-to-ci-cd.md)中了解 Azure DevOps 上的 Azure IoT Edge 工作

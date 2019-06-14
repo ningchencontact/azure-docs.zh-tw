@@ -15,10 +15,10 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4e814cde49374b52266f725b4d57657a507874ab
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602046"
 ---
 # <a name="use-custom-roles-for-azure-resources-in-pim"></a>在 PIM 中使用適用於 Azure 資源的自訂角色
@@ -40,7 +40,7 @@ ms.locfileid: "65602046"
 
 ## <a name="apply-pim-settings"></a>套用 PIM 設定
 
-在 Azure 入口網站的租用戶中建立角色之後，請前往 [Privileged Identity Management - Azure 資源] 窗格。 選取角色適用的資源。
+在 Azure 入口網站的租用戶中建立角色之後，請前往 [Privileged Identity Management - Azure 資源]  窗格。 選取角色適用的資源。
 
 ![「Privileged Identity Management - Azure 資源」窗格](media/pim-resource-roles-custom-role-policy/aadpim-manage-azure-resource-some-there.png)
 

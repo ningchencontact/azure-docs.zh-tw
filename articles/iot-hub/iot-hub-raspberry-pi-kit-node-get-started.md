@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
 ms.openlocfilehash: 72d7956036404d13849f7c2b08f9df4210f12aa7
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597266"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>將 Raspberry Pi 連接至 Azure IoT Hub (Node.js)
@@ -37,7 +37,7 @@ ms.locfileid: "65597266"
 
 ## <a name="what-you-learn"></a>您學到什麼
 
-* 如何创建 Azure IoT 中心以及如何获取新的设备连接字符串。
+* 如何建立 Azure IoT 中樞，並取得新的裝置連接字串。
 
 * 如何連接 Pi 與 BME280 感應器。
 
@@ -65,11 +65,11 @@ ms.locfileid: "65597266"
 
 * 具備 6 英呎 micro USB 纜線的 5V 2A 電源供應器。
 
-以下项可选：
+下列項目是選用項目︰
 
 * 組裝的 Adafruit BME280 溫度、壓力溼度感應器。
 
-* 试验板。
+* 麵包板。
 
 * 6 條 F/M 跳線。
 
@@ -125,11 +125,11 @@ ms.locfileid: "65597266"
 
 2. 啟動 Pi，然後使用登入 Raspbian`pi`作為使用者名稱和`raspberry`做為密碼。
 
-3. 按一下 Raspberry 圖示 > [偏好設定] > [Raspberry Pi 組態]。
+3. 按一下 Raspberry 圖示 > [偏好設定]   > [Raspberry Pi 組態]  。
 
    ![[Raspbian 偏好設定] 功能表](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
-4. 在“接口”选项卡上，将“I2C”和“SSH”设置为“启用”，然后单击“确定”。 如果您沒有實體感應器，而且想要使用模擬的感應器資料，這便是選擇性步驟。
+4. 在 [介面]  索引標籤上，將 [I2C]  和 [SSH]  設定為 [啟用]  ，然後按一下 [確定]  。 如果您沒有實體感應器，而且想要使用模擬的感應器資料，這便是選擇性步驟。
 
    ![在 Raspberry Pi 上啟用 I2C 和 SSH](./media/iot-hub-raspberry-pi-kit-node-get-started/2-enable-i2c-ssh-on-raspberry-pi.png)
 
@@ -146,14 +146,14 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
 
 針對感應器針腳，請使用下列接線方式：
 
-| 啟動 (感應器和 LED)     | 結束 (電路版)            | 线缆颜色   |
+| 啟動 (感應器和 LED)     | 結束 (電路版)            | 纜線顏色   |
 | -----------------------  | ---------------------- | ------------: |
 | VDD (針腳 5G)             | 3.3V PWR (針腳 1)       | 白色纜線   |
-| GND (針腳 7G)             | GND（引脚 6）            | 棕色纜線   |
+| GND (針腳 7G)             | GND (針腳 6)            | 棕色纜線   |
 | SDI (針腳 10G)            | I2C1 SDA (針腳 3)       | 紅色纜線     |
 | SCK (針腳 8G)             | I2C1 SCL (針腳 5)       | 橘色纜線  |
 | LED VDD (針腳 18F)        | GPIO 24 (針腳 18)       | 白色纜線   |
-| LED GND (針腳 17F)        | GND（引脚 20）           | 黑色纜線   |
+| LED GND (針腳 17F)        | GND (針腳 20)           | 黑色纜線   |
 
 按一下以檢視 [Raspberry Pi 2 和 3 針腳對應](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi)來供您參考。
 
@@ -163,12 +163,12 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
 
 ### <a name="connect-pi-to-the-network"></a>將 Pi 連線到網路
 
-使用 USB 微电缆和电源开启 Pi。 使用乙太網路纜線將 Pi 連接到有線網路，或遵循來自 Raspberry Pi Foundation 的[指示](https://www.raspberrypi.org/learning/software-guide/wifi/)，將 Pi 連接到無線網路。 在 Pi 成功連線到網路之後，您需要記下 [Pi 的 IP 位址](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address)。
+透過 micro USB 纜線和電源供應器來開啟 Pi。 使用乙太網路纜線將 Pi 連接到有線網路，或遵循來自 Raspberry Pi Foundation 的[指示](https://www.raspberrypi.org/learning/software-guide/wifi/)，將 Pi 連接到無線網路。 在 Pi 成功連線到網路之後，您需要記下 [Pi 的 IP 位址](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address)。
 
 ![已連接到有線網路](./media/iot-hub-raspberry-pi-kit-node-get-started/5-power-on-pi.png)
 
 > [!NOTE]
-> 确保 Pi 与计算机连接到同一网络。 例如，如果您的電腦連線到無線網路，而 Pi 連線到有線網路，您可能不會在 devdisco 輸出中看到 IP 位址。
+> 請確定 Pi 是連接到與您電腦相同的網路。 例如，如果您的電腦連線到無線網路，而 Pi 連線到有線網路，您可能不會在 devdisco 輸出中看到 IP 位址。
 
 ## <a name="run-a-sample-application-on-pi"></a>在 Pi 上執行範例應用程式
 
@@ -247,7 +247,7 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
    ```
 
    > [!NOTE]
-   > 确保将设备连接字符串复制并粘贴到单引号中。
+   > 確定複製裝置連接字串，並貼到單引號中。
 
 您應該會看見下列輸出，顯示傳送至 IoT 中樞的感應器資料和訊息。
 
@@ -261,6 +261,6 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
 
 ## <a name="next-steps"></a>後續步驟
 
-此时已运行示例应用程序，收集传感器数据并将其发送到 IoT 中心。
+您已執行範例應用程式收集感應器資料並傳送至 IoT 中樞。
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

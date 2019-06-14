@@ -14,10 +14,10 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 963d7d44ef3ef77604fc5a9faac479a9e4c91ee6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61487356"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip Tickets SaaS 應用程式
@@ -48,7 +48,7 @@ ms.locfileid: "61487356"
 
 對於想要降低每一租用戶的成本，並且可承受較低租用戶隔離性的服務提供者，多租用戶資料庫將有其效用。 此模式可將大量租用戶封裝到個別資料庫中，而降低每一租用戶的成本。 藉由將多個租用戶分區化到多個資料庫間，將可達到近乎無限大的規模。 目錄資料庫會將租用戶對應到資料庫。  
 
-此模式也可支援混合模型，讓您可透過在一個資料庫中包含多個租用戶的方式進行成本最佳化，或透過每一租用戶各有其資料庫的方式進行隔離性最佳化。 您可以在租用戶佈建時或是稍後，就個別的租用戶進行這項選擇，而不會對應用程式造成影響。  必須以不同方式處理租用戶的群組時，可以有效地使用此模型。 例如，可以將低成本的租用戶指派給共用資料庫，而將進階租用戶指派給他們自己的資料庫。 
+此模式也可支援混合  模型，讓您可透過在一個資料庫中包含多個租用戶的方式進行成本最佳化，或透過每一租用戶各有其資料庫的方式進行隔離性最佳化。 您可以在租用戶佈建時或是稍後，就個別的租用戶進行這項選擇，而不會對應用程式造成影響。  必須以不同方式處理租用戶的群組時，可以有效地使用此模型。 例如，可以將低成本的租用戶指派給共用資料庫，而將進階租用戶指派給他們自己的資料庫。 
 
 請參閱[教學課程][docs-tutorials-for-wingtip-mt]和 GitHub [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt] 上的程式碼。
 

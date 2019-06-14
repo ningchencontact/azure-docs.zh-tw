@@ -10,10 +10,10 @@ ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 06/18/2017
 ms.openlocfilehash: f2a4b98404139abead411c20648b82d9081481f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614983"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>使用 Java 應用程式來管理 Azure Data Lake Analytics
@@ -31,8 +31,8 @@ ms.locfileid: "60614983"
 下列程式碼片段提供**非互動式**驗證的程式碼，其中應用程式會提供它自己的認證。
 
 ## <a name="create-a-java-application"></a>建立 Java 應用程式
-1. 開啟 IntelliJ，並使用 [命令列應用程式] 範本建立 Java 專案。
-2. 在畫面左側的專案上按一下滑鼠右鍵，然後按一下 [新增架構支援] 。 選擇 [Maven] 並按一下 [確定]。
+1. 開啟 IntelliJ，並使用 [命令列應用程式]  範本建立 Java 專案。
+2. 在畫面左側的專案上按一下滑鼠右鍵，然後按一下 [新增架構支援]  。 選擇 [Maven]  並按一下 [確定]  。
 3. 開啟新建立的 **"pom.xml"** 檔案，並在 **\</version>** 標記和 **\<</project>** 標記之間新增下列一小段文字︰
 
 ```
@@ -86,7 +86,7 @@ ms.locfileid: "60614983"
 </dependencies>
 ```
 
-移至 [檔案] > [設定] > [建置] > [執行] > [部署]。 選取 [建置工具] > [Maven] > [匯入]。 然後勾選 [自動匯入 Maven 專案] 。
+移至 [檔案] > [設定] > [建置] > [執行] > [部署]  。 選取 [建置工具] > [Maven] > [匯入]  。 然後勾選 [自動匯入 Maven 專案]  。
 
 開啟 `Main.java`，並以下列程式碼片段取代現有的程式碼區塊：
 

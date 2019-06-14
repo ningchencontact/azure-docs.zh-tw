@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
 ms.openlocfilehash: b554dc1fa33519d87aa0c9c5ba9130b47cbea142
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60580063"
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>在裝載於 Azure 上的網站中使用 ReportViewer
@@ -54,7 +54,7 @@ ms.locfileid: "60580063"
 * **Microsoft.ReportViewer.Common.dll**：包含 ReportViewer 控制項在執行階段使用的類別。 此組件不會自動加入至您的專案。
 
 ### <a name="to-add-a-reference-to-microsoftreportviewercommon"></a>加入 Microsoft.ReportViewer.Common 的參考
-* 在專案的 [參考] 節點上按一下滑鼠右鍵，選取 [加入參考]，接著在[.NET] 索引標籤中選取該組件，然後按一下 [確定]。
+* 在專案的 [參考]  節點上按一下滑鼠右鍵，選取 [加入參考]  ，接著在[.NET] 索引標籤中選取該組件，然後按一下 [確定]  。
 
 ### <a name="to-make-the-assemblies-locally-accessible-by-your-aspnet-application"></a>若要讓組件可由 ASP.NET 應用程式於本機上存取
 1. 在 [參考]  資料夾中，按一下 Microsoft.ReportViewer.Common 組件，使其屬性顯示在 [屬性] 窗格中。
@@ -65,13 +65,13 @@ ms.locfileid: "60580063"
 1. 安裝從 [Microsoft 下載中心](https://go.microsoft.com/fwlink/?LinkId=317386)下載的適當 Microsoft Report Viewer 2012 Runtime 可轉散發套件。
 2. 從下拉式清單中選取語言，然後頁面會重新導向至對應的下載中心頁面。
 3. 按 [下載]  即可開始下載 ReportViewerLP.exe。
-4. 下載 ReportViewerLP.exe 之後，按一下 [執行] 以立即安裝，或按一下 [儲存]，將其儲存至電腦中。 如果您按一下 [儲存] ，請記住儲存檔案的目的地資料夾名稱。
-5. 尋找您儲存檔案的目的地資料夾。 在 ReportViewerLP.exe 上按一下滑鼠右鍵，按一下 [以系統管理員身分執行]，然後按一下 [是]。
+4. 下載 ReportViewerLP.exe 之後，按一下 [執行]  以立即安裝，或按一下 [儲存]  ，將其儲存至電腦中。 如果您按一下 [儲存]  ，請記住儲存檔案的目的地資料夾名稱。
+5. 尋找您儲存檔案的目的地資料夾。 在 ReportViewerLP.exe 上按一下滑鼠右鍵，按一下 [以系統管理員身分執行]  ，然後按一下 [是]  。
 6. 執行 ReportViewerLP.exe 之後，您會看到 c:\windows\assembly 中有資源檔案 **Microsoft.ReportViewer.Webforms.Resources** 和 **Microsoft.ReportViewer.Common.Resources**。
 
 ### <a name="to-configure-for-localized-reportviewer-control"></a>設定當地語系化的 ReportViewer 控制項
 1. 依照上述的指示，下載並安裝 Microsoft Report Viewer 2012 Runtime 可轉散發套件。
-2. 在專案中建立\<語言\>資料夾，並複製該資料夾中的相關資源組件檔案。 要複製的資源組件檔案為：**Microsoft.ReportViewer.Webforms.Resources.dll** 和 **Microsoft.ReportViewer.Common.Resources.dll**。選取資源組件檔案，然後在 [屬性] 窗格中，將 [複製到輸出目錄] 設為 [永遠複製]。
+2. 在專案中建立\<語言\>資料夾，並複製該資料夾中的相關資源組件檔案。 要複製的資源組件檔案為：**Microsoft.ReportViewer.Webforms.Resources.dll** 和 **Microsoft.ReportViewer.Common.Resources.dll**。選取資源組件檔案，然後在 [屬性] 窗格中，將 [複製到輸出目錄]  設為 [永遠複製]  。
 3. 設定 Web 專案的文化特性和 UI 文化特性。 如需關於如何設定 ASP.NET 網頁之文化特性和 UI 文化特性的詳細資訊，請參閱[作法：為 ASP.NET 網頁全球化設定文化特性和 UI 文化特性](https://go.microsoft.com/fwlink/?LinkId=237461)。
 
 ## <a name="configuring-authentication-and-authorization"></a>設定驗證和授權
@@ -90,6 +90,6 @@ ReportViewer 必須使用正確的認證對報表伺服器進行驗證，而且�
 ## <a name="resources"></a>資源
 [Microsoft 報告](https://go.microsoft.com/fwlink/?LinkId=205399)
 
-[Azure 虚拟机中的 SQL Server Business Intelligence](../classic/ps-sql-bi.md)
+[Azure 虛擬機器中的 SQL Server Business Intelligence](../classic/ps-sql-bi.md)
 
-[使用 PowerShell 创建运行本机模式报表服务器的 Azure VM](../classic/ps-sql-report.md)
+[使用 PowerShell 建立具有原生模式報表伺服器的 Azure VM](../classic/ps-sql-report.md)

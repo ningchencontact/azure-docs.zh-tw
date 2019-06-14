@@ -9,10 +9,10 @@ ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d1ec5168b898d0aa75c12e6eb435e20c09de1929
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700279"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>將大量資料移轉至 Azure 檔案同步
@@ -49,9 +49,9 @@ ms.locfileid: "64700279"
 
 ![此圖顯示如何設定 Azure 檔案同步](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
-| 步驟 | 詳細資料 |
+| 步驟 | Detail |
 |---|---------------------------------------------------------------------------------------|
-| ![步驟 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [訂購資料箱](../../databox/data-box-deploy-ordered.md)。 系列提供的資料箱[有幾項產品](https://azure.microsoft.com/services/storage/databox/data)以符合您的需求。 當您收到您的資料箱時，請遵循其[說明文件，以將資料複製](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box)Data Box 上此 UNC 路徑：  *\\< DeviceIPAddres\>\<StorageAccountName_AzFile\>\<ShareName\>*。 在這裡， *ShareName*是預備的共用名稱。 將資料箱送回 Azure。 |
+| ![步驟 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [訂購資料箱](../../databox/data-box-deploy-ordered.md)。 系列提供的資料箱[有幾項產品](https://azure.microsoft.com/services/storage/databox/data)以符合您的需求。 當您收到您的資料箱時，請遵循其[說明文件，以將資料複製](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box)Data Box 上此 UNC 路徑：  *\\< DeviceIPAddres\>\<StorageAccountName_AzFile\>\<ShareName\>* 。 在這裡， *ShareName*是預備的共用名稱。 將資料箱送回 Azure。 |
 | ![步驟 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | 等候，直到您的檔案顯示在您選擇做為暫存的預備共用的 Azure 檔案共用。 *請勿啟用同步至這些共用。* |
 | ![步驟 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | 建立新的空白共用，為您的資料 方塊中建立每個檔案共用。 這個新的共用應該位於與資料 方塊中共用相同的儲存體帳戶。 [如何建立新的 Azure 檔案共用](storage-how-to-create-file-share.md)。 |
 | ![步驟 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [建立同步群組](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint)在儲存體同步服務。 空白的共用作為雲端端點的參考。 針對每個資料箱檔案共用，重複此步驟。 [設定 Azure 檔案同步](storage-sync-files-deployment-guide.md)。 |

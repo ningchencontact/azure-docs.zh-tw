@@ -14,14 +14,14 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 5835c37363c7e9d2dd3253c08ab97f17852725f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61248142"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>在 Azure Data Lake Analytics 上執行 U-SQL 指令碼來轉換資料 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](data-factory-usql-activity.md)
 > * [第 2 版 (目前的版本)](../transform-data-using-data-lake-analytics.md)
 
@@ -92,7 +92,7 @@ U-SQL 活動支援以下針對 Data Lake Analytics 的驗證類型：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| **authorization** | 按一下「資料處理站編輯器」中的 [授權] 按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | 是 |
+| **authorization** | 按一下「資料處理站編輯器」中的 [授權]  按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | 是 |
 | **sessionId** | OAuth 授權工作階段的 OAuth 工作階段識別碼。 每個工作階段識別碼都是唯一的，只能使用一次。 當您使用「資料處理站編輯器」時便會自動產生此設定。 | 是 |
 
 **範例：使用者認證驗證**
@@ -114,14 +114,14 @@ U-SQL 活動支援以下針對 Data Lake Analytics 的驗證類型：
 ```
 
 #### <a name="token-expiration"></a>權杖到期
-您使用 [授權] 按鈕所產生的授權碼在一段時間後會到期。 請參閱下表以了解不同類型的使用者帳戶的到期時間。 當驗證的「權杖到期時」，您可能會看見下列錯誤訊息：認證作業錯誤：invalid_grant - AADSTS70002：驗證認證時發生錯誤。 AADSTS70008：提供的存取授權已過期或撤銷。 追蹤識別碼：d18629e8-af88-43c5-88e3-d8419eb1fca1 相互關連識別碼：fac30a0c-6be6-4e02-8d69-a776d2ffefd7 時間戳記：2015-12-15 21:09:31Z
+您使用 [授權]  按鈕所產生的授權碼在一段時間後會到期。 請參閱下表以了解不同類型的使用者帳戶的到期時間。 當驗證的「權杖到期時」  ，您可能會看見下列錯誤訊息：認證作業錯誤：invalid_grant - AADSTS70002：驗證認證時發生錯誤。 AADSTS70008：提供的存取授權已過期或撤銷。 追蹤識別碼：d18629e8-af88-43c5-88e3-d8419eb1fca1 相互關連識別碼：fac30a0c-6be6-4e02-8d69-a776d2ffefd7 時間戳記：2015-12-15 21:09:31Z
 
 | 使用者類型 | 到期時間 |
 |:--- |:--- |
 | 不受 Azure Active Directory 管理的使用者帳戶 (@hotmail.com、@live.com 等) |12 小時 |
 | 受 Azure Active Directory (AAD) 管理的使用者帳戶 |最後一次執行配量後的 14 天。 <br/><br/>如果以 OAuth 式連結服務為基礎的配量至少每 14 天執行一次，則為 90 天。 |
 
-如果要避免/解決此錯誤，請在**權杖到期**時使用 [授權] 按鈕重新授權，然後重新部署連結服務。 您也可以如下使用程式碼，以程式設計方式產生 **sessionId** 和 **authorization** 屬性的值：
+如果要避免/解決此錯誤，請在**權杖到期**時使用 [授權]  按鈕重新授權，然後重新部署連結服務。 您也可以如下使用程式碼，以程式設計方式產生 **sessionId** 和 **authorization** 屬性的值：
 
 ```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
@@ -208,8 +208,8 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 | 屬性            | 描述                              | 必要項                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| type                | 類型屬性必須設為 DataLakeAnalyticsU-SQL 。 | 是                                      |
-| 預設容器   | 參考 Azure Data Lake Analytics 註冊為 Data Factory 中的連結服務 | 是                                      |
+| type                | 類型屬性必須設為 DataLakeAnalyticsU-SQL  。 | 是                                      |
+| linkedServiceName   | 參考 Azure Data Lake Analytics 註冊為 Data Factory 中的連結服務 | 是                                      |
 | scriptPath          | 包含 U-SQL 指令碼的資料夾的路徑。 檔案的名稱有區分大小寫。 | 否 (如果您使用指令碼)                   |
 | scriptLinkedService | 連結服務會連結包含 Data Factory 的指令碼的儲存體 | 否 (如果您使用指令碼)                   |
 | script              | 指定內嵌指令碼而不是指定 scriptPath 和 scriptLinkedService。 例如： `"script": "CREATE DATABASE test"` 。 | 否 (如果您使用 scriptPath 和 scriptLinkedService) |
@@ -317,7 +317,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-值**\@中**並**\@出**U-SQL 指令碼中的參數來動態傳遞 ADF 使用 'parameters' 區段。 請參閱管線定義中的 ‘parameters’ 區段。
+值 **\@中**並 **\@出**U-SQL 指令碼中的參數來動態傳遞 ADF 使用 'parameters' 區段。 請參閱管線定義中的 ‘parameters’ 區段。
 
 您也可以在管線定義中，針對在 Azure Data Lake Analytics 服務上執行的作業，指定其他屬性 (例如 degreeOfParallelism 和 priority)。
 
@@ -331,7 +331,7 @@ OUTPUT @rs1
 }
 ```
 
-您可改為使用動態參數。 例如︰ 
+您可改為使用動態參數。 例如: 
 
 ```json
 "parameters": {

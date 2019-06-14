@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 2d0c8629e4abf9e27cd204b9a13b79808b177501
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715210"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Power BI 工作區集合的資料列層級安全性
@@ -48,22 +48,22 @@ RLS 是在 Power BI Desktop 中撰寫。 當開啟資料集和報告時，我們
 
 * 所有量值，例如**總銷售額**，是儲存在**銷售**事實資料表。
 * 有四個額外的相關維度資料表︰**項目**、**時間**、**商店**和**區域**。
-* 關聯線的箭號表示篩選條件可以從一個資料表流向另一個資料表的方向。 例如，如果篩選條件置於目前結構描述中的**時間[日期]**，它只會往下篩選**銷售**資料表中的值。 其他資料表都不會受到此篩選條件的影響，因為關聯線的所有箭號都指向銷售資料表，不會指向其他方向。
+* 關聯線的箭號表示篩選條件可以從一個資料表流向另一個資料表的方向。 例如，如果篩選條件置於目前結構描述中的**時間[日期]** ，它只會往下篩選**銷售**資料表中的值。 其他資料表都不會受到此篩選條件的影響，因為關聯線的所有箭號都指向銷售資料表，不會指向其他方向。
 * **區域** 資料表表示誰是每個區域的經理︰
   
   ![區域資料表資料列](media/row-level-security/district-table-4.png)
 
-根據此結構描述，如果我們將篩選條件套用至區域資料表中的 [區域經理] 資料行，且如果該篩選條件符合檢視報告的使用者，則該篩選條件也會往下篩選**商店**和**銷售**資料表，只顯示該特定區域經理的資料。
+根據此結構描述，如果我們將篩選條件套用至區域資料表中的 [區域經理]  資料行，且如果該篩選條件符合檢視報告的使用者，則該篩選條件也會往下篩選**商店**和**銷售**資料表，只顯示該特定區域經理的資料。
 
 方式如下：
 
-1. 在 [模型] 索引標籤中，按一下 [管理角色] 。  
+1. 在 [模型] 索引標籤中，按一下 [管理角色]  。  
    ![模型功能區中的 [管理角色] 按鈕](media/row-level-security/modeling-tab-5.png)
-2. 建立新的角色，稱為 [經理] 。  
+2. 建立新的角色，稱為 [經理]  。  
    ![Power BI Desktop 中的角色建立](media/row-level-security/manager-role-6.png)
-3. 在 [區域] 資料表中輸入下列 DAX 運算式︰**[District Manager] = USERNAME()**  
+3. 在 [區域]  資料表中輸入下列 DAX 運算式︰ **[District Manager] = USERNAME()**  
    ![角色中資料表的 DAX 篩選條件運算式](media/row-level-security/manager-role-7.png)
-4. 若要確保規則都能運作，在 [模型] 索引標籤上，按一下 [以角色身分檢視]，然後輸入下列項目︰  
+4. 若要確保規則都能運作，在 [模型]  索引標籤上，按一下 [以角色身分檢視]  ，然後輸入下列項目︰  
    ![以角色身分檢視](media/row-level-security/view-as-roles-8.png)
 
    報告隨即會顯示資料，如同您已登入為 **Andrew Ma**。
@@ -83,8 +83,8 @@ RLS 是在 Power BI Desktop 中撰寫。 當開啟資料集和報告時，我們
 > [!NOTE]
 > 如果您針對資料使用 DirectQuery 模式，您必須啟用雙向交叉篩選，方法是選取這兩個選項︰
 
-1. [檔案]  ->  [選項和設定]  ->  [預覽功能]  ->  [針對 DirectQuery 啟用兩個方向的交叉篩選]。
-2. [檔案]  ->  [選項和設定]  ->  [DirectQuery]  ->  [允許 DirectQuery 模式中的不受限制量值]。
+1. [檔案]   ->  [選項和設定]   ->  [預覽功能]   ->  [針對 DirectQuery 啟用兩個方向的交叉篩選]  。
+2. [檔案]   ->  [選項和設定]   ->  [DirectQuery]   ->  [允許 DirectQuery 模式中的不受限制量值]  。
 
 若要深入了解雙向交叉篩選，下載 [SQL Server Analysis Services 2016 和 Power BI Desktop 中的雙向交叉篩選] [(](https://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx)) 白皮書。
 
@@ -93,7 +93,7 @@ RLS 是在 Power BI Desktop 中撰寫。 當開啟資料集和報告時，我們
 * **username** (選擇性) – 與 RLS 搭配使用，這是字串，可以在套用 RLS 規則時用來協助識別使用者。 請參閱「搭配使用資料列層級安全性和 Power BI Embedded」
 * **角色** – 字串，包含套用資料列層級安全性規則時要選取的角色。 如果傳遞多個角色，應該將它們傳遞為字串陣列。
 
-您可以使用 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) 方法來建立權杖。 如果提供 username 属性，则也必须在角色中至少传递一个值。
+您可以使用 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) 方法來建立權杖。 如果 username 屬性存在，則您也必須在角色中傳遞至少一個值。
 
 例如，您可以變更 EmbedSample。 DashboardController 第 55 行可以從
 

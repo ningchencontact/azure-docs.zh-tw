@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60a61a581574c77a57939ea23fdadc7b060b82af
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64541536"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management-preview"></a>檢視報表並登入 Azure AD 權限管理 （預覽）
@@ -32,7 +32,7 @@ ms.locfileid: "64541536"
 
 ## <a name="view-resources-a-user-has-access-to"></a>檢視使用者擁有存取權的資源
 
-1. 按一下  **Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**指派的使用者報告**。
 
@@ -44,7 +44,7 @@ ms.locfileid: "64541536"
 
     會顯示一份使用者擁有存取權的資源。 它包含存取套件、 原則和日期。
 
-    ![使用者指派報告](./media/entitlement-management-reports/user-assignments-report.png)
+    ![指派的使用者報告](./media/entitlement-management-reports/user-assignments-report.png)
 
 ## <a name="determine-the-status-of-a-users-request"></a>判斷使用者的要求狀態
 
@@ -54,7 +54,7 @@ ms.locfileid: "64541536"
 
 1. 在頂端，變更**分類**設為`EntitlementManagement`或`UserManagement`，取決於您要尋找之稽核記錄。  
 
-1. 按一下 [套用]。
+1. 按一下 **[套用]** 。
 
 1. 若要下載記錄，請按一下**下載**。
 
@@ -62,7 +62,7 @@ ms.locfileid: "64541536"
 
 Azure AD 會寫入其他稽核記錄，而要求正在進行中，包括：
 
-| Category | 活動 | 要求狀態 |
+| Category | activities | 要求狀態 |
 | :---- | :------------ | :------------ |
 | `EntitlementManagement` | `Auto approve access package assignment request` | 要求不需要核准 |
 | `UserManagement` | `Create request approval` | 要求需要核准 |

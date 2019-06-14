@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: d3eb2affe76374eb35ac724dff0204f43b567e09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61225695"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>使用 .NET 透過 Media Encoder Standard 為資產編碼  
@@ -32,7 +32,7 @@ ms.locfileid: "61225695"
 如果您的輸出資產是儲存體加密，必須設定資產傳遞原則。 如需詳細資訊，請參閱[設定資產傳遞原則](media-services-dotnet-configure-asset-delivery-policy.md)。
 
 > [!NOTE]
-> MES 會產生一個輸出檔案，其名稱包含輸入檔案名稱的前 32 個字元。 名稱是以預設檔案中指定的名稱為基礎。 例如，"FileName": "{Basename}_{Index}{Extension}"。 {Basename} 替换为输入文件名的前 32 个字符。
+> MES 會產生一個輸出檔案，其名稱包含輸入檔案名稱的前 32 個字元。 名稱是以預設檔案中指定的名稱為基礎。 例如，"FileName": "{Basename}_{Index}{Extension}"。 {Basename} 會由輸入檔案名稱的前 32 個字元取代。
 > 
 > 
 
@@ -47,7 +47,7 @@ ms.locfileid: "61225695"
 
 輸出資產也包含隨附關於輸入資產中繼資料的檔案。 中繼資料 XML 檔案的名稱具備下列格式︰<asset_id>_metadata.xml (例如：41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml)，其中的 <asset_id> 是輸入資產的 AssetId 值。 [這裡](media-services-input-metadata-schema.md)說明了此輸入中繼資料 XML 的結構描述。
 
-输出资产还包含提供输出资产相关元数据的文件。 中繼資料 XML 檔案的名稱具備下列格式︰<source_file_name>_manifest.xml (例如：BigBuckBunny_manifest.xml)。 [這裡](media-services-output-metadata-schema.md)說明了此輸出中繼資料 XML 的結構描述。
+輸出資產也包含隨附關於輸出資產中繼資料的檔案。 中繼資料 XML 檔案的名稱具備下列格式︰<source_file_name>_manifest.xml (例如：BigBuckBunny_manifest.xml)。 [這裡](media-services-output-metadata-schema.md)說明了此輸出中繼資料 XML 的結構描述。
 
 如果您想要檢查這兩個中繼資料檔案的任一個，可以建立 SAS 定位器並將檔案下載到您的本機電腦。 您可以找到關於如何建立 SAS 定位器的範例，並且下載使用媒體服務 .NET SDK 擴充功能的檔案。
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 7725563a80182be8f8c02d94ef1e6cfa382c04d3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924859"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>設定 SQL Server 的災害復原
@@ -27,7 +27,7 @@ ms.locfileid: "64924859"
 許多工作負載都使用 SQL Server 做為基礎，還可以與 SharePoint、Dynamics 和 SAP 等應用程式整合，以實作資料服務。  有許多方法可以部署 SQL Server：
 
 * **獨立 SQL Server**：SQL Server 和所有資料庫都裝載在單一電腦 (實體或虛擬) 上。 如果是虛擬，則主機叢集用於高可用性。 不實作來賓層級的高可用性。
-* **SQL Server 容錯移轉叢集執行個體 (Always ON FCI)**：在 Windows 容錯移轉叢集中，設定 2 個或更多個具有共用磁碟的 SQL Server 執行個體節點。 如果有一個節點關閉，叢集可以將 SQL Server 容錯移轉至另一個執行個體。 這項設定通常用在主要網站實作高可用性。 這種部署無法防止共用儲存體層中發生失敗或中斷。 共用磁碟可以使用 iSCSI、光纖通道或共用 vhdx 來實作。
+* **SQL Server 容錯移轉叢集執行個體 (Always ON FCI)** ：在 Windows 容錯移轉叢集中，設定 2 個或更多個具有共用磁碟的 SQL Server 執行個體節點。 如果有一個節點關閉，叢集可以將 SQL Server 容錯移轉至另一個執行個體。 這項設定通常用在主要網站實作高可用性。 這種部署無法防止共用儲存體層中發生失敗或中斷。 共用磁碟可以使用 iSCSI、光纖通道或共用 vhdx 來實作。
 * **SQL Always On 可用性群組**：使用同步複寫與自動容錯移轉在可用性群組中設定 SQL Server 資料庫時，可以在不共用任何內容的叢集中設定兩個或更多節點。
 
   本文利用下列原生 SQL 災害復原技術，將資料庫復原至遠端網站︰
@@ -38,7 +38,7 @@ ms.locfileid: "64924859"
 ## <a name="site-recovery-support"></a>Site Recovery 支援
 
 ### <a name="supported-scenarios"></a>支援的案例
-Site Recovery 可以保护下表中汇总的 SQL Server。
+資料表中摘要說明 Site Recovery 可以保護 SQL Server。
 
 **案例** | **至次要網站** | **至 Azure**
 --- | --- | ---
@@ -72,15 +72,15 @@ Site Recovery 可以與資料表中摘要說明的原生 SQL Server BCDR 技術�
 
 | **版本** | **版本** | **部署** | **在內部部署至內部部署** | **內部部署到 Azure** |
 | --- | --- | --- | --- | --- |
-| SQL Server 2016、2014 或 2012 |Enterprise |故障转移群集实例 |Always On 可用性群組 |Always On 可用性群組 |
-|| Enterprise |高可用性的 Always On 可用性群組 |Always On 可用性群組 |Always On 可用性组 |
-|| 標準 |故障转移群集实例 (FCI) |包含本機鏡像的 Site Recovery 複寫 |包含本機鏡像的 Site Recovery 複寫 |
+| SQL Server 2016、2014 或 2012 |Enterprise |容錯移轉叢集執行個體 |Always On 可用性群組 |Always On 可用性群組 |
+|| Enterprise |高可用性的 Always On 可用性群組 |Always On 可用性群組 |Always On 可用性群組 |
+|| 標準 |容錯移轉叢集執行個體 (FCI) |包含本機鏡像的 Site Recovery 複寫 |包含本機鏡像的 Site Recovery 複寫 |
 || Enterprise 或 Standard |獨立 |Site Recovery 複寫 |Site Recovery 複寫 |
 | SQL Server 2008 R2 或 2008 |Enterprise 或 Standard |容錯移轉叢集執行個體 (FCI) |包含本機鏡像的 Site Recovery 複寫 |包含本機鏡像的 Site Recovery 複寫 |
 || Enterprise 或 Standard |獨立 |Site Recovery 複寫 |Site Recovery 複寫 |
 | SQL Server (任何版本) |Enterprise 或 Standard |容錯移轉叢集執行個體 - DTC 應用程式 |Site Recovery 複寫 |不支援 |
 
-## <a name="deployment-prerequisites"></a>部署先决条件
+## <a name="deployment-prerequisites"></a>部署必要條件
 
 * 執行支援的 SQL Server 版本的內部部署 SQL Server 部署。 通常，您的 SQL Server 也需要 Active Directory。
 * 您要部署之案例的需求。 深入了解[複寫至 Azure](site-recovery-support-matrix-to-azure.md) 和[內部部署](site-recovery-support-matrix.md)的支援需求，以及[部署必要條件](site-recovery-prereq.md)。
@@ -92,7 +92,7 @@ Site Recovery 可以與資料表中摘要說明的原生 SQL Server BCDR 技術�
 * **小型企業** — 如果只有少數應用程式，且內部部署網站只有一個網域控制站，當您想要容錯移轉整個網站時，建議您使用 Site Recovery 複寫，將網域控制站複寫至次要資料中心或 Azure。
 * **中大型企業** — 如果您有大量的應用程式和一個 Active Directory 樹系，而您想要依應用程式或工作負載容錯移轉，建議您在次要資料中心或 Azure 中設定其他網域控制站。 如果您使用 Always On 可用性群組復原至遠端網站，建議您在次要網站或 Azure 上設定其他不同的網域控制站，供已復原的 SQL Server 執行個體使用。
 
-本文中的指示假設在次要位置中有網域控制站。 [详细了解](site-recovery-active-directory.md)如何使用 Site Recovery 保护 Active Directory。
+本文中的指示假設在次要位置中有網域控制站。 [閱讀更多](site-recovery-active-directory.md) 有關使用 Site Recovery 保護 Active Directory。
 
 
 ## <a name="integrate-with-sql-server-always-on-for-replication-to-azure"></a>與 SQL Server Always On 整合以複寫至 Azure
@@ -141,16 +141,16 @@ SQL Always On 原本就不支援測試容錯移轉。 因此，我們建議您�
 一旦您已在復原方案中新增指令碼，並已執行測試容錯移轉驗證過復原計劃執行，便可以進行復原計劃的容錯移轉。
 
 
-## <a name="integrate-with-sql-server-always-on-for-replication-to-a-secondary-on-premises-site"></a>与 SQL Server Always On 集成以便复制到辅助本地站点
+## <a name="integrate-with-sql-server-always-on-for-replication-to-a-secondary-on-premises-site"></a>與 SQL Server Always On 整合以複寫至次要內部部署網站
 
 如果 SQL Server 為了高可用性而使用可用性群組 (或 FCI)，建議您也在復原網站上使用可用性群組。 請注意，這適用於不使用分散式交易的應用程式。
 
-1. [配置数据库](https://msdn.microsoft.com/library/hh213078.aspx) 。
+1. [設定資料庫](https://msdn.microsoft.com/library/hh213078.aspx) 。
 1. 在次要網站上建立虛擬網路。
 1. 在虛擬網路和主要網站之間設定網站間 VPN 連線。
-1. 在恢复站点上创建虚拟机，并在其上安装 SQL Server。
+1. 在復原網站上建立虛擬機器，並在此虛擬機器上安裝 SQL Server。
 1. 將現有的 Always On 可用性群組擴充至新的 SQL Server VM。 將此 SQL Server 執行個體設定為非同步複本。
-1. 创建可用性组侦听器，或更新现有的侦听器，以包含异步副本虚拟机。
+1. 建立可用性群組接聽程式，或更新現有的接聽程式，以包含非同步複本虛擬機器。
 1. 請確定應用程式伺服器陣列是使用接聽程式來設定。 如果是使用資料庫伺服器名稱來設定，請更新為使用接聽程式，如此您就不需要在容錯移轉後重新設定。
 
 對於使用分散式交易的應用程式，建議您使用 [VMware/實體伺服器站對站複寫](site-recovery-vmware-to-vmware.md)來部署 Site Recovery。
@@ -179,19 +179,19 @@ SQL Always On 原本就不支援測試容錯移轉。 因此，我們建議您�
 * 如果應用程式使用分散式交易，建議您針對 Hyper-V 環境部署 [Site Recovery 搭配 SAN 複寫](site-recovery-vmm-san.md)，或者，針對 VMware 環境，則部署 [VMware/實體伺服器至 VMware](site-recovery-vmware-to-vmware.md)。
 * 針對非 DTC 應用程式，請利用本機高安全性資料庫鏡像，依上述方式將叢集復原成獨立伺服器。
 
-### <a name="on-premises-to-azure"></a>本地到 Azure
+### <a name="on-premises-to-azure"></a>內部部署至 Azure
 
-複寫至 Azure 時，Site Recovery 不提供來賓叢集支援。 SQL Server 也不会为 Standard 版本提供低成本灾难恢复解决方案。 在此案例中，建議您將內部部署 SQL Server 叢集保護至獨立式 SQL Server，並在 Azure 中復原。
+複寫至 Azure 時，Site Recovery 不提供來賓叢集支援。 SQL Server 也不會為 Standard Edition 提供低成本的災害復原解決方案。 在此案例中，建議您將內部部署 SQL Server 叢集保護至獨立式 SQL Server，並在 Azure 中復原。
 
-1. 在本地站点中配置其他独立 SQL Server 实例。
+1. 在內部部署站台上設定一個額外的獨立 SQL Server 執行個體。
 1. 設定此執行個體做為您要保護之資料庫的鏡像。 在高安全性模式下設定鏡像。
 1. 針對 [Hyper-V](site-recovery-hyper-v-site-to-azure.md) 或 [VMware WM/實體伺服器](site-recovery-vmware-to-azure-classic.md)，在內部部署網站上設定 Site Recovery。
 1. 使用 Site Recovery 複寫將新的 SQL Server 執行個體複寫至 Azure。 因為它是高安全性鏡像副本，它會與主要叢集同步處理，但是會使用 Site Recovery 複寫將它複寫至 Azure。
 
 
-![标准群集](./media/site-recovery-sql/standalone-cluster-local.png)
+![標準叢集](./media/site-recovery-sql/standalone-cluster-local.png)
 
-### <a name="failback-considerations"></a>故障回复注意事项
+### <a name="failback-considerations"></a>容錯回復考量
 
 就 SQL Server 標準叢集而言，若要在未規劃的容錯移轉之後進行容錯回復，必須從鏡像執行個體進行 SQL 備份並還原至原始叢集，並重新建立鏡像。
 

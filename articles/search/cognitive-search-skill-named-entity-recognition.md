@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: b7af4d0a48f002f7523def971a306d1fa2077c70
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952045"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>具名實體辨識認知技能
@@ -41,7 +41,7 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 這些參數會區分大小寫。
 
-| 參數名稱     | 說明 |
+| 參數名稱     | 描述 |
 |--------------------|-------------|
 | 類別    | 應擷取的類別陣列。  可能的類別類型：`"Person"`、`"Location"`、`"Organization"`。 如果未提供任何類別，則會傳回所有類型。|
 |defaultLanguageCode |  輸入文字的語言代碼。 支援下列語言：`de, en, es, fr, it`|
@@ -49,17 +49,17 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## <a name="skill-inputs"></a>技能輸入
 
-| 輸入名稱      | 說明                   |
+| 輸入名稱      | 描述                   |
 |---------------|-------------------------------|
 | languageCode  | 選用。 預設值為 `"en"`。  |
 | text          | 要分析的文字。          |
 
 ## <a name="skill-outputs"></a>技能輸出
 
-| 輸出名稱     | 說明                   |
+| 輸出名稱     | 描述                   |
 |---------------|-------------------------------|
 | 人員      | 字串陣列，其中每個字串代表人員名稱。 |
-| 位置  | 字串陣列，其中每個字串代表位置。 |
+| locations  | 字串陣列，其中每個字串代表位置。 |
 | 組織  | 字串陣列，其中每個字串代表組織。 |
 | 實體 | 複雜類型的陣列。 每個複雜類型包括下列欄位： <ul><li>類別 (`"person"`、`"organization"` 或 `"location"`)</li> <li>值 (實際實體名稱)</li><li>位移 (在文字中找到的位置)</li><li>信賴度 (介於 0 和 1 之間的值，表示該值是實際實體的信賴度)</li></ul> |
 

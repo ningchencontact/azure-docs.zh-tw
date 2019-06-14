@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: 803d05e1aaf4d9c26a6132bde30f101ce3905924
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61388296"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>了解如何佈建新的租用戶並在目錄中註冊它們
@@ -53,7 +53,7 @@ SaaS 應用程式以外，目錄可以啟用資料庫工具。 在 Wingtip Ticke
 分區對應包含分區 (資料庫) 清單，以及金鑰 (租用戶) 與分區之間的對應。 在租用戶佈建期間，會使用 EDCL 函式來建立分區對應中的項目。 在執行階段，應用程式會使用它們來連線到正確的資料庫。 EDCL 會快取連線資訊，以將對目錄資料庫的流量降到最低，並加快應用程式的速度。 
 
 > [!IMPORTANT]
-> 您可以在類別目錄資料庫中存取對應資料，但「請勿編輯它」。 請只使用「彈性資料庫用戶端程式庫 API」來編輯對應資料。 直接操作對應資料會有造成目錄損毀的風險，而且也不支援這樣做。
+> 您可以在類別目錄資料庫中存取對應資料，但「請勿編輯它」  。 請只使用「彈性資料庫用戶端程式庫 API」來編輯對應資料。 直接操作對應資料會有造成目錄損毀的風險，而且也不支援這樣做。
 
 
 ## <a name="introduction-to-the-saas-provisioning-pattern"></a>SaaS 佈建模式簡介
@@ -82,7 +82,7 @@ SaaS 應用程式以外，目錄可以啟用資料庫工具。 在 Wingtip Ticke
 
    * **$TenantName** = 新場地的名稱 (例如，*Bushwillow Blues*)。
    * **$VenueType** = 其中一個預先定義的場地類型：_blues、classicalmusic、dance、jazz、judo、motor racing、multipurpose、opera、rockmusic、soccer_。
-   * **$DemoScenario** = **1**，佈建單一租用戶。
+   * **$DemoScenario** = **1**，佈建單一租用戶  。
 
 2. 若要新增中斷點，請將游標置於顯示 *New-Tenant `* 之行上的任意位置。 然後按 F9。
 
@@ -96,7 +96,7 @@ SaaS 應用程式以外，目錄可以啟用資料庫工具。 在 Wingtip Ticke
 
 
 
-請使用 [偵錯] 功能表選項來追蹤指令碼的執行情況。 按 F10 和 F11 來不進入或逐步執行所呼叫的函式。 如需對 PowerShell 指令碼進行偵錯的詳細資訊，請參閱[使用 PowerShell 指令碼及對其進行偵錯的祕訣](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise) \(英文\)。
+請使用 [偵錯]  功能表選項來追蹤指令碼的執行情況。 按 F10 和 F11 來不進入或逐步執行所呼叫的函式。 如需對 PowerShell 指令碼進行偵錯的詳細資訊，請參閱[使用 PowerShell 指令碼及對其進行偵錯的祕訣](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise) \(英文\)。
 
 
 您不一定要明確依照此工作流程進行操作。 它說明如何對指令碼進行偵錯。
@@ -114,9 +114,9 @@ SaaS 應用程式以外，目錄可以啟用資料庫工具。 在 Wingtip Ticke
 * **檢查租用戶金鑰是否已經存在。** 系統會檢查目錄以確定該金鑰可供使用。
 * **租用戶資料庫是使用 New-TenantDatabase 來佈建。** 請使用 F11 來逐步執行，並使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-manager-template-walkthrough.md)來了解資料庫的佈建方式。
 
-    資料庫名稱是使用租用戶名稱來建構，使分區和租用戶之間的從屬關係一目瞭然 您也可以使用其他資料庫命名慣例。 Resource Manager 範本會建立租用戶資料庫，方法是在目錄伺服器上複製範本資料庫 (baseTenantDB)。 另一個方法是建立一個資料庫，然後匯入 bacpac 來將它初始化。 或者，您也可以從已知的位置執行初始化指令碼。
+    資料庫名稱是使用租用戶名稱來建構，使分區和租用戶之間的從屬關係一目瞭然 您也可以使用其他資料庫命名慣例。 Resource Manager 範本會建立租用戶資料庫，方法是在目錄伺服器上複製範本資料庫 (baseTenantDB  )。 另一個方法是建立一個資料庫，然後匯入 bacpac 來將它初始化。 或者，您也可以從已知的位置執行初始化指令碼。
 
-    Resource Manager 範本位於 …\Learning Modules\Common\ 資料夾：tenantdatabasecopytemplate.json
+    Resource Manager 範本位於 …\Learning Modules\Common\ 資料夾：tenantdatabasecopytemplate.json 
 
 * **將租用戶資料庫進一步初始化。** 這會新增場地 (租用戶) 名稱和場地類型。 您也可以在此處進行其他初始化。
 
@@ -127,7 +127,7 @@ SaaS 應用程式以外，目錄可以啟用資料庫工具。 在 Wingtip Ticke
     * 已將租用戶的其他相關中繼資料 (場地的名稱) 新增至目錄中的「租用戶」資料表。 「租用戶」資料表不是「分區管理」結構描述的一部分，且不是由 EDCL 安裝。 此資料表說明如何延伸目錄資料庫，以支援其他應用程式特定資料。
 
 
-佈建完成之後，執行會返回原始的 *Demo-ProvisionAndCatalog* 指令碼。 瀏覽器中會開啟新租用戶的 [事件] 頁面。
+佈建完成之後，執行會返回原始的 *Demo-ProvisionAndCatalog* 指令碼。 瀏覽器中會開啟新租用戶的 [事件]  頁面。
 
    ![[事件] 頁面](media/saas-dbpertenant-provision-and-catalog/new-tenant.png)
 
@@ -138,14 +138,14 @@ SaaS 應用程式以外，目錄可以啟用資料庫工具。 在 Wingtip Ticke
 
 1. 在 PowerShell ISE 中，開啟 ...\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1*。 將 *$DemoScenario* 參數變更為 3：
 
-   * **$DemoScenario** = **3**，佈建一批租用戶。
+   * **$DemoScenario** = **3**，佈建一批租用戶  。
 2. 若要執行指令碼，請按 F5。
 
 此指令碼會部署一批額外的租用戶。 它會使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-manager-template-walkthrough.md)，此範本會控制該批次並將每個資料庫的佈建委派給所連結的範本。 以此方式使用範本可讓 Azure Resource Manager 代理指令碼的佈建程序。 這些範本會平行佈建資料庫，並視需要處理重試。 指令碼為等冪，如果它失敗，或因為任何原因而停止，請再次執行。
 
 ### <a name="verify-the-batch-of-tenants-that-successfully-deployed"></a>確認已成功部署的一批租用戶
 
-* 在 [Azure 入口網站](https://portal.azure.com) 中，瀏覽至您的伺服器清單並開啟 tenants1 伺服器。 選取 [SQL 資料庫]，然後確認清單中現在有該批 17 個額外的資料庫。
+* 在 [Azure 入口網站](https://portal.azure.com) 中，瀏覽至您的伺服器清單並開啟 tenants1  伺服器。 選取 [SQL 資料庫]  ，然後確認清單中現在有該批 17 個額外的資料庫。
 
    ![資料庫清單](media/saas-dbpertenant-provision-and-catalog/database-list.png)
 

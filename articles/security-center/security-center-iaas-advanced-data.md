@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/29/2019
 ms.author: monhaber
 ms.openlocfilehash: e7420adfe1608df39ef72124817f1d6dadf07db8
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66400143"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-iaas"></a>IaaS 上的 SQL server 的進階的資料安全性
@@ -130,7 +130,7 @@ Azure 虛擬機器上的 SQL Server 的進階的資料安全性是 SQL 的進階
 
     ![將過去 7 天](./media/security-center-advanced-iaas-data/ads-sql-server-2.png)
 
-1. 若要向下鑽研，如需詳細資訊，請按一下任何儀表板項目。 例如: 
+1. 若要向下鑽研，如需詳細資訊，請按一下任何儀表板項目。 例如:
 
    1. 按一下中的弱點可能會檢查**失敗檢查摘要**區段，以檢視 Log Analytics 含有結果的資料表進行這項檢查，跨所有資料庫。 結果項目會先列出。
 

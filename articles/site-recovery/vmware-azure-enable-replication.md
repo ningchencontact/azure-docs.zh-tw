@@ -7,10 +7,10 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540773"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>讓 VMware VM 能夠複寫至 Azure
@@ -42,11 +42,11 @@ ms.locfileid: "65540773"
 * 先前已設定為複寫到目標儲存體帳戶的 Vm 不會受到影響。
 * 只有透過 Representational State Transfer (REST) API 和 Powershell 使用新的虛擬機器的儲存體帳戶的複寫。 使用 Azure REST API 2016-08-10 或 2018年-01-10 版本複寫到儲存體帳戶。
 
-1. 移至**步驟 2:** 複寫應用程式 > 來源。 為第一次啟用複寫之後，請選取 **+ 複寫**保存庫啟用額外的虛擬機器的複寫中。
-2. 在 [來源] 頁面 > [來源] 中，選取組態伺服器。
+1. 移至**步驟 2:** 複寫應用程式 > 來源  。 為第一次啟用複寫之後，請選取 **+ 複寫**保存庫啟用額外的虛擬機器的複寫中。
+2. 在 [來源]  頁面 > [來源]  中，選取組態伺服器。
 3. 針對**機器類型**，選取**虛擬機器**或是**實體機器**。
-4. 在 [vCenter/vSphere Hypervisor] 中，選取管理 vSphere 主機的 vCenter 伺服器，或選取主機。 此設定不相關，如果您複寫實體電腦。
-5. 選取處理序伺服器。 如果不沒有建立任何額外的處理序伺服器，組態伺服器的內建的處理序伺服器可在下拉式清單中。 每個處理序伺服器的健全狀況狀態會顯示根據建議的限制和其他參數。 選擇 狀況良好的處理序伺服器。 A[重要](vmware-physical-azure-monitor-process-server.md#process-server-alerts)無法選擇處理序伺服器。 您可以[疑難排解及解決](vmware-physical-azure-troubleshoot-process-server.md)錯誤**或是**設定[向外延展處理序伺服器](vmware-azure-set-up-process-server-scale.md)。
+4. 在 [vCenter/vSphere Hypervisor]  中，選取管理 vSphere 主機的 vCenter 伺服器，或選取主機。 此設定不相關，如果您複寫實體電腦。
+5. 選取處理序伺服器。 如果不沒有建立任何額外的處理序伺服器，組態伺服器的內建的處理序伺服器可在下拉式清單中。 每個處理序伺服器的健康狀態都會根據建議限制和其他參數來指示。 選擇狀況良好的處理序伺服器。 無法選擇狀態為[嚴重](vmware-physical-azure-monitor-process-server.md#process-server-alerts)的處理序伺服器。 您可以對錯誤進行[疑難排解及解決問題](vmware-physical-azure-troubleshoot-process-server.md)，**或是**設定[相應放大的處理序伺服器](vmware-azure-set-up-process-server-scale.md)。
     ![啟用複寫來源視窗](media/vmware-azure-enable-replication/ps-selection.png)
 
 > [!NOTE]
@@ -59,12 +59,12 @@ ms.locfileid: "65540773"
    
    ![啟用複寫目標視窗](./media/vmware-azure-enable-replication/enable-rep3.png)
 
-1. 針對**虛擬機器** > **選取 虛擬機器**，選取您想要複寫的每部虛擬機器。 您只能選取可以啟用複寫的虛擬機器。 然後選取 [確定]。 如果您無法看到或選取特定的任何虛擬機器，請參閱[來源機器未列在 Azure 入口網站](https://aka.ms/doc-plugin-VM-not-showing)來解決此問題。
+1. 針對**虛擬機器** > **選取 虛擬機器**，選取您想要複寫的每部虛擬機器。 您只能選取可以啟用複寫的虛擬機器。 然後選取 [確定]  。 如果您無法看到或選取特定的任何虛擬機器，請參閱[來源機器未列在 Azure 入口網站](https://aka.ms/doc-plugin-VM-not-showing)來解決此問題。
 
     ![啟用複寫選取虛擬機器視窗](./media/vmware-azure-enable-replication/enable-replication5.png)
 
 1. 針對**屬性** > **設定屬性**，選取 處理序伺服器自動安裝在虛擬機器上的 Site Recovery 行動服務所使用的帳戶。 而且請選擇要複寫至取決於您的資料變換圖樣的目標受控磁碟的類型。
-10. 根據預設，會複寫來源虛擬機器的所有磁碟。 若要從複寫排除磁碟，請清除**Include**任何您不想要複寫的磁碟的核取方塊。 然後選取 [確定]。 您可以稍後再設定其他屬性。 深入了解[排除磁碟](vmware-azure-exclude-disk.md)。
+10. 根據預設，會複寫來源虛擬機器的所有磁碟。 若要從複寫排除磁碟，請清除**Include**任何您不想要複寫的磁碟的核取方塊。 然後選取 [確定]  。 您可以稍後再設定其他屬性。 深入了解[排除磁碟](vmware-azure-exclude-disk.md)。
 
     ![啟用複寫設定屬性 視窗](./media/vmware-azure-enable-replication/enable-replication6.png)
 
@@ -77,14 +77,14 @@ ms.locfileid: "65540773"
 
     ![啟用複寫 視窗](./media/vmware-azure-enable-replication/enable-replication7.png)
     
-1. 選取 [啟用複寫]。 您可以追蹤進度**啟用保護**在作業**設定** > **工作** > **Site Recovery 作業**. 執行「完成保護」作業之後，虛擬機器即準備好進行容錯移轉。
+1. 選取 [啟用複寫]  。 您可以追蹤進度**啟用保護**在作業**設定** > **工作** > **Site Recovery 作業**. 執行「完成保護」  作業之後，虛擬機器即準備好進行容錯移轉。
 
 ## <a name="view-and-manage-vm-properties"></a>檢視及管理 VM 屬性
 
 接下來，請確認來源虛擬機器的屬性。 請記住，Azure VM 名稱應該符合 [Azure 虛擬機器需求](vmware-physical-azure-support-matrix.md#replicated-machines)。
 
 1. 移至**設定** > **複寫的項目**，然後選取 虛擬機器。 **Essentials**頁面會顯示 VM 的設定與狀態相關資訊。
-1. 在 [屬性] 中，您可以檢視 VM 的複寫和容錯移轉資訊。
+1. 在 [屬性]  中，您可以檢視 VM 的複寫和容錯移轉資訊。
 1. 在 **計算與網路** > **計算屬性**，您可以變更多個 VM 屬性。 
 
     ![計算與網路的 [屬性] 視窗](./media/vmware-azure-enable-replication/vmproperties.png)
@@ -92,14 +92,14 @@ ms.locfileid: "65540773"
     * Azure VM 名稱：如有必要，請修改以符合 Azure 需求，名稱。
     * 目標 VM 大小或 VM 類型：預設 VM 大小會選擇根據目標 Azure 區域中包含的磁碟計數、 NIC 計數、 CPU 核心計數、 記憶體和可用的 VM 角色大小的幾個參數。 Azure Site Recovery 會挑選第一個可用 VM 大小能符合所有準則。 您可以選取不同的 VM 大小，根據您的需求，在容錯移轉之前的任何時間。 請注意，VM 磁碟大小也根據來源磁碟大小，而且只能在容錯移轉之後加以變更。 深入了解磁碟大小和 IOPS 比率[在 Windows 上的虛擬機器磁碟的延展性和效能目標](../virtual-machines/windows/disk-scalability-targets.md)。
 
-    *  資源群組:您可以選取[資源群組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines)，從虛擬電腦將成為其後置容錯移轉的一部分。 您可以變更此設定在容錯移轉之前的任何時間。 容錯移轉之後，如果您將虛擬機器移轉至不同的資源群組，該虛擬機器的保護設定會中斷。
+    *  資源群組：您可以選取[資源群組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines)，從虛擬電腦將成為其後置容錯移轉的一部分。 您可以變更此設定在容錯移轉之前的任何時間。 容錯移轉之後，如果您將虛擬機器移轉至不同的資源群組，該虛擬機器的保護設定會中斷。
     * 可用性設定組：您可以選取[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)如果您的虛擬機器需要容錯移轉後的一部分。 當您選取可用性設定組時，記住下列資訊：
 
         * 只有屬於指定的資源群組的可用性設定組列出。  
         * 在不同的虛擬網路上的 Vm 不能在相同的可用性設定組。
         * 只有相同大小的虛擬機器可在相同的可用性設定組中。
 1. 您也可以新增目標網路、 子網路，以及指派給 Azure VM 的 IP 位址的相關資訊。
-2. 在 [磁碟] 中，您可以看見 VM 上將要複寫的作業系統和資料磁碟。
+2. 在 [磁碟]  中，您可以看見 VM 上將要複寫的作業系統和資料磁碟。
 
 ### <a name="configure-networks-and-ip-addresses"></a>設定網路和 IP 位址
 

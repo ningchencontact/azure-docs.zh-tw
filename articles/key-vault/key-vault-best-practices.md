@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: eb7150d0b1c3a4a312b0c05ba7612960aaf640f6
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65227943"
 ---
 # <a name="best-practices-to-use-key-vault"></a>若要使用金鑰保存庫的最佳作法
@@ -32,7 +32,7 @@ Azure Key Vault 是用來保護加密金鑰和祕密 (例如憑證、連接字�
 
 我們的建議是使用每個應用程式，每個環境 （開發、 進入生產階段前和生產） 的保存庫。 這可協助您的環境之間共用祕密，而也能降低發生漏洞時的威脅。
 
-## <a name="backup"></a>Backup 
+## <a name="backup"></a>Backup
 
 請確認您採取定期回復的 ups 您[保存庫](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/)update/delete/建立保存庫中的物件。
 

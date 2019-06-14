@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 5285490ca1a27494cbcd3ea3d6527b78c7d38c8c
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833428"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>開發您自己的 IoT Edge 模組
@@ -48,7 +48,7 @@ IoT Edge 中樞會根據[模組資訊清單](module-composition.md)中所述的�
 
 最後，使用下列系統屬性來為 Edge 中樞所處理的裝置到雲端訊息加上戳記：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 | -------- | ----------- |
 | $connectionDeviceId | 傳送訊息之用戶端的裝置識別碼 |
 | $connectionModuleId | 傳送訊息之模組的模組識別碼 |

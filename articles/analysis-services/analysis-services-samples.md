@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: fccf7bb5abafe75017a8df91f1f88a98238c74b7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64704197"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services 範例
@@ -38,7 +38,7 @@ GitHub 上的這些範例資料庫可用來建立和測試您自己的模型。
 
 ## <a name="adventure-works-internet-sales-sample-model-in-azure-portal"></a>Azure 入口網站中的 Adventure Works Internet Sales 範例模型
 
-如果 Azure 入口網站中有 Analysis Services 伺服器，您可以快速且輕鬆地建立範例模型。 在 Azure 入口網站中伺服器的概觀頁面上，按一下 [新增模型]，然後在 [選擇資料來源] 中，選取 [範例資料]。
+如果 Azure 入口網站中有 Analysis Services 伺服器，您可以快速且輕鬆地建立範例模型。 在 Azure 入口網站中伺服器的概觀頁面上，按一下 [新增模型]  ，然後在 [選擇資料來源]  中，選取 [範例資料]  。
 
 
 

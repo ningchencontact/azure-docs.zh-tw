@@ -11,17 +11,17 @@ manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 567124f50745080da12178a458957a0f6c8266b5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024323"
 ---
 # <a name="synonyms-in-azure-search"></a>Azure 搜尋服務的同義字
 
 搜尋引擎中與對等詞彙相關聯的同義字，讓使用者不必實際提供詞彙，就能以隱含方式擴充查詢範圍。 例如，給定詞彙「狗」與關聯的同義字「犬科動物」和「小狗」，任何包含「狗」、「犬科動物」和「小狗」的文件都會包含在查詢範圍內。
 
-在 Azure 搜尋服務中，同義字擴充在查詢同時就已完成。 您可以在不中斷現有作業的情況下，新增同義字地圖至服務中。 您無需重建索引，就可以將 synonymMaps 屬性新增至欄位定義。
+在 Azure 搜尋服務中，同義字擴充在查詢同時就已完成。 您可以在不中斷現有作業的情況下，新增同義字地圖至服務中。 您無需重建索引，就可以將 synonymMaps  屬性新增至欄位定義。
 
 ## <a name="create-synonyms"></a>建立同義字
 

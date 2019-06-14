@@ -19,10 +19,10 @@ ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 717607de6d9d193a7373637d0d0fcd879b54fed0
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544874"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>權限及同意 Microsoft 身分識別平台端點中
@@ -36,7 +36,7 @@ ms.locfileid: "65544874"
 
 ## <a name="scopes-and-permissions"></a>範圍和權限
 
-Microsoft 身分識別平台會實作 [OAuth 2.0](active-directory-v2-protocols.md) 授權通訊協定。 OAuth 2.0 是一種可讓協力廠商應用程式代表使用者存取 Web 主控資源的方法。 任何與 Microsoft 身分識別平台整合的 Web 主控資源都具有資源識別碼 (或稱為「應用程式識別碼 URI」)。 例如，Microsoft 的 Web 主控資源包括：
+Microsoft 身分識別平台會實作 [OAuth 2.0](active-directory-v2-protocols.md) 授權通訊協定。 OAuth 2.0 是一種可讓協力廠商應用程式代表使用者存取 Web 主控資源的方法。 任何與 Microsoft 身分識別平台整合的 Web 主控資源都具有資源識別碼 (或稱為「應用程式識別碼 URI」  )。 例如，Microsoft 的 Web 主控資源包括：
 
 * Microsoft Graph：`https://graph.microsoft.com`
 * Office 365 郵件 API：`https://outlook.office.com`
@@ -53,7 +53,7 @@ Microsoft 身分識別平台會實作 [OAuth 2.0](active-directory-v2-protocols.
 
 藉由定義這些類型的權限，資源可以更精細地掌控其資料及 API 功能的公開方式。 第三方應用程式可向使用者和系統管理員要求這些權限，且必須在他們核准要求後，應用程式才可存取資料或代表使用者執行動作。 透過將資源的功能切割成較小的權限集，便可將協力廠商應用程式建置成只要求它們執行其功能所需的特定權限。 使用者和系統管理員可以完全哪些資料的應用程式具有存取權，知道，他們可以更確定它不其運作方式，與惡意意圖。 開發人員應一律遵守最低權限的概念，而僅就其應用程式運作所需的程度要求權限。
 
-在 OAuth 2.0 中，這些類型的權限也稱為「範圍」。 它們也經常稱為*權限*。 權限在 Microsoft 身分識別平台中會以字串值表示。 繼續討論 Microsoft Graph 範例，每個權限的字串值如下：
+在 OAuth 2.0 中，這些類型的權限也稱為「範圍」  。 它們也經常稱為*權限*。 權限在 Microsoft 身分識別平台中會以字串值表示。 繼續討論 Microsoft Graph 範例，每個權限的字串值如下：
 
 * 使用 `Calendars.Read` 來讀取使用者的行事曆
 * 使用 `Calendars.ReadWrite` 來寫入使用者的行事曆
@@ -89,7 +89,7 @@ Microsoft 身分識別平台的 OpenID Connect 實作有一些定義妥善的範
 
 `email` 範圍可以與 `openid` 範圍及任何其他範圍搭配使用。 它會以 `email` 宣告的形式為應用程式提供使用者主要電子郵件地址的存取權。 `email`宣告已包含在權杖中，只有電子郵件地址是相關聯的使用者帳戶，不一定要這樣。 如果它使用 `email` 範圍，您的應用程式就應該做好準備，以處理權杖中沒有 `email` 宣告的情況。
 
-### <a name="profile"></a>个人资料
+### <a name="profile"></a>設定檔
 
 `profile` 範圍可以與 `openid` 範圍及任何其他範圍搭配使用。 它會為應用程式提供大量使用者相關資訊的存取權。 它可以存取的資訊包括但不限於使用者的名字、 姓氏、 慣用使用者名稱和物件識別碼。 如需特定使用者之識別碼權杖中可用的設定檔宣告完整清單，請參閱 [`id_tokens` 參考](id-tokens.md)。
 
@@ -138,7 +138,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 ## <a name="admin-restricted-permissions"></a>受管理員限制的權限
 
-Microsoft 生態系統中的某些高特權權限可以設定為「受系統管理員限制」。 這類權限的範例包括：
+Microsoft 生態系統中的某些高特權權限可以設定為「受系統管理員限制」  。 這類權限的範例包括：
 
 * 使用 `User.Read.All` 讀取所有使用者的完整設定檔
 * 使用 `Directory.ReadWrite.All` 將資料寫入組織的目錄
@@ -167,8 +167,8 @@ Microsoft 生態系統中的某些高特權權限可以設定為「受系統管�
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>若要設定的靜態要求的權限的應用程式清單
 
 1. 移至您的應用程式[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)體驗，或[建立應用程式](quickstart-register-app.md)如果您還沒有這麼做。
-2. 找出 [Microsoft Graph 權限] 區段，然後新增您應用程式所需的權限。
-3. [儲存] 應用程式註冊。
+2. 找出 [Microsoft Graph 權限]  區段，然後新增您應用程式所需的權限。
+3. [儲存]  應用程式註冊。
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>建議使用：將使用者登入您的應用程式
 
@@ -197,7 +197,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| 參數 | 條件 | 說明 |
+| 參數 | 條件 | 描述 |
 | --- | --- | --- |
 | `tenant` | 必要項 | 您想要要求權限的目錄租用戶。 可以提供 GUID 或易記的名稱格式，或是一般會參考使用 `common` (如範例所示)。 |
 | `client_id` | 必要項 | **應用程式 （用戶端） 識別碼**可[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)指派給您的應用程式的體驗。 |
@@ -206,7 +206,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 此時，Azure AD 會要求租用戶系統管理員登入來完成要求。 系統會請系統管理員核准您在應用程式註冊入口網站中，為您應用程式要求的所有權限。
 
-#### <a name="successful-response"></a>成功的回應
+#### <a name="successful-response"></a>成功回應
 
 如果系統管理員為您的應用程式核准權限，則成功的回應看起來會像這樣︰
 
@@ -214,10 +214,10 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | `tenant` | 將應用程式所要求的權限授與應用程式的目錄租用戶 (採用 GUID 格式)。 |
-| `state` | 一個包含在要求中而將一併在權杖回應中傳回的值。 可以是所需的任何内容的字符串。 此狀態用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
+| `state` | 一個包含在要求中而將一併在權杖回應中傳回的值。 它可以是您想要的任何內容的字串。 此狀態用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
 | `admin_consent` | 將設定為 `True`。 |
 
 #### <a name="error-response"></a>錯誤回應
@@ -228,7 +228,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | `error` | 用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
 | `error_description` | 可協助開發人員識別錯誤根本原因的特定錯誤訊息。 |
@@ -237,7 +237,7 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 ## <a name="using-permissions"></a>使用權限
 
-用户许可应用的权限之后，应用即可获取访问令牌，这些令牌表示应用以某种身份访问资源的权限。 一個存取權杖只能用於一個單一資源，但存取權杖內部所編碼的是您應用程式針對該資源已獲得的每項權限。 若要取得存取權杖，您的應用程式可以提出要求，對 Microsoft 身分識別平台權杖端點，就像這樣：
+在使用者同意您的應用程式的權限之後，您的應用程式即可取得存取權杖，而這些權杖代表您的應用程式存取資源的權限。 一個存取權杖只能用於一個單一資源，但存取權杖內部所編碼的是您應用程式針對該資源已獲得的每項權限。 若要取得存取權杖，您的應用程式可以提出要求，對 Microsoft 身分識別平台權杖端點，就像這樣：
 
 ```
 POST common/oauth2/v2.0/token HTTP/1.1
@@ -275,7 +275,7 @@ Content-Type: application/json
 
 因為`/.default` 在功能上等同於以 `resource` 為中心的 v1.0 端點行為，所以也會提供 v1.0 端點的同意行為。 也就是說，如果使用者尚未在用戶端與資源之間授與任何權限，`/.default` 只會觸發同意提示。 如果存在這類同意，則會傳回權杖，其中包含該資源的使用者授與的所有範圍。 不過，如果尚未授與權限，或已提供 `prompt=consent` 參數，則會對用戶端應用程式註冊的所有範圍顯示同意提示。
 
-#### <a name="example-1-the-user-or-tenant-admin-has-granted-permissions"></a>範例 1:使用者 (或租用戶管理員) 已授與權限
+#### <a name="example-1-the-user-or-tenant-admin-has-granted-permissions"></a>範例 1：使用者 (或租用戶管理員) 已授與權限
 
 使用者 (或租用戶管理員) 已對用戶端授與 Microsoft Graph 權限 `mail.read` 和 `user.read`。 如果用戶端對 `scope=https://graph.microsoft.com/.default` 提出要求，則不論向 Microsoft Graph 註冊權限的用戶端應用程式的內容為何，都不會顯示同意提示。 系統會傳回一個權杖，其中包含 `mail.read` 和 `user.read` 範圍。
 

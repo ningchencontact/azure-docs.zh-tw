@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
 ms.openlocfilehash: 1a0b6cf8ce272733c259283fdec9c215ac2b0fd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61442557"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 通訊協定來與 IoT 中樞通訊
@@ -65,15 +65,15 @@ IoT 中樞不是功能完整的 MQTT 訊息代理程式，而且不支援 MQTT v
 
 如果裝置無法使用裝置 SDK，它仍可使用連接埠 8883 上的 MQTT 通訊協定連線到公用裝置端點。 在  **CONNECT**封包來說，裝置應該使用下列值：
 
-* 在 [ClientId] 欄位中，使用 **deviceId**。
+* 在 [ClientId]  欄位中，使用 **deviceId**。
 
-* 在 [Username] 欄位中，使用 `{iothubhostname}/{device_id}/?api-version=2018-06-30`，其中 `{iothubhostname}` 是 IoT 中樞的完整 CName。
+* 在 [Username]  欄位中，使用 `{iothubhostname}/{device_id}/?api-version=2018-06-30`，其中 `{iothubhostname}` 是 IoT 中樞的完整 CName。
 
-    例如，如果您的 IoT 中樞名稱是 **contoso.azure-devices.net** ，而且如果您的裝置名稱是 **MyDevice01**，則完整的 [Username] 欄位應包含：
+    例如，如果您的 IoT 中樞名稱是 **contoso.azure-devices.net** ，而且如果您的裝置名稱是 **MyDevice01**，則完整的 [Username]  欄位應包含：
 
     `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
-* 在 [Password] 欄位中，使用 SAS 權杖。 SAS 權杖的格式與 HTTPS 和 AMQP 通訊協定的格式相同：
+* 在 [Password]  欄位中，使用 SAS 權杖。 SAS 權杖的格式與 HTTPS 和 AMQP 通訊協定的格式相同：
 
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
@@ -86,21 +86,21 @@ IoT 中樞不是功能完整的 MQTT 訊息代理程式，而且不支援 MQTT v
 
 對於 Azure IoT 工具組：
 
-1. 展開 Visual Studio Code 左下角的 [AZURE IOT 中樞裝置] 索引標籤。
+1. 展開 Visual Studio Code 左下角的 [AZURE IOT 中樞裝置]  索引標籤。
   
-2. 以滑鼠右鍵按一下您的裝置，然後選取 [產生裝置的 SAS 權杖]。
+2. 以滑鼠右鍵按一下您的裝置，然後選取 [產生裝置的 SAS 權杖]  。
   
-3. 設定 [到期時間]，然後按 'Enter' 鍵。
+3. 設定 [到期時間]  ，然後按 'Enter' 鍵。
   
 4. SAS 權杖已建立並複製到剪貼簿。
 
 Device Explorer：
 
-1. 移至 [裝置總管] 中的 [管理] 索引標籤。
+1. 移至 [裝置總管]  中的 [管理]  索引標籤。
 
 2. 按一下 [SAS 權杖]  \(右上角)。
 
-3. 在 [SASTokenForm] 的 [DeviceID] 下拉式清單中，選取您的裝置。 設定您的 **TTL**。
+3. 在 [SASTokenForm]  的 [DeviceID]  下拉式清單中，選取您的裝置。 設定您的 **TTL**。
 
 4. 按一下 [產生]  來建立您的權杖。
 
@@ -108,7 +108,7 @@ Device Explorer：
 
    `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
 
-   使用 MQTT 連線時，此權杖中作為 [Password] 欄位的部分是︰
+   使用 MQTT 連線時，此權杖中作為 [Password]  欄位的部分是︰
 
    `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
 
@@ -134,7 +134,7 @@ Device Explorer：
 
 ### <a name="tlsssl-configuration"></a>TLS/SSL 組態
 
-若要直接使用 MQTT 通訊協定，您的用戶端「必須」透過 TLS/SSL 進行連線。 嘗試略過此步驟會因連線錯誤而發生失敗。
+若要直接使用 MQTT 通訊協定，您的用戶端「必須」  透過 TLS/SSL 進行連線。 嘗試略過此步驟會因連線錯誤而發生失敗。
 
 為了建立 TLS 連線，您可能必須下載並參考「DigiCert Baltimore 根憑證」。 此憑證是 Azure 用來保護連線的唯一憑證。 您可以找到此憑證[Azure iot sdk-c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c)存放庫。 這些憑證的詳細資訊都位於[Digicert 網站](https://www.digicert.com/digicert-root-certificates.htm)。
 
@@ -191,7 +191,7 @@ client.loop_forever()
 
 ### <a name="sending-device-to-cloud-messages"></a>傳送裝置到雲端訊息
 
-成功連線之後，裝置可以使用 `devices/{device_id}/messages/events/` 或 `devices/{device_id}/messages/events/{property_bag}` 作為**主題名稱**，將訊息傳送至 IoT 中樞。 `{property_bag}` 項目可讓裝置以 URL 編碼格式傳送具有其他屬性的訊息。 例如︰
+成功連線之後，裝置可以使用 `devices/{device_id}/messages/events/` 或 `devices/{device_id}/messages/events/{property_bag}` 作為**主題名稱**，將訊息傳送至 IoT 中樞。 `{property_bag}` 項目可讓裝置以 URL 編碼格式傳送具有其他屬性的訊息。 例如:
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -216,7 +216,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 裝置在成功訂閱 IoT 中樞的裝置特定端點 (由 `devices/{device_id}/messages/devicebound/#` 主題篩選代表) 之後，才會收到來自 IoT 中樞的訊息。 建立訂閱之後，裝置將會接收在訂閱之後傳送給它的雲端到裝置訊息。 如果裝置是在 **CleanSession** 旗標設定為 **0** 的情況下連線，訂閱將會跨不同的工作階段持續保留。 在此情況下，下次裝置以 **CleanSession 0** 進行連線時，就會收到中斷連線時傳送給它的任何未送訊息。 如果裝置使用設定為 **1** 的 **CleanSession** 旗標，則必須等到訂閱 IoT 中樞的裝置端點之後，才會收到來自 IoT 中樞的訊息。
 
-IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 或 `devices/{device_id}/messages/devicebound/{property_bag}` (如果有訊息屬性) 來傳遞訊息。 `{property_bag}` 包含訊息屬性的 url 編碼索引鍵/值組。 屬性包中只會包含應用程式屬性和使用者可設定的系統屬性 (例如 **messageId** 或 **correlationId**)。 系统属性名称具有前缀 **$**，但应用程序属性使用没有前缀的原始属性名称。
+IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 或 `devices/{device_id}/messages/devicebound/{property_bag}` (如果有訊息屬性) 來傳遞訊息。 `{property_bag}` 包含訊息屬性的 url 編碼索引鍵/值組。 屬性包中只會包含應用程式屬性和使用者可設定的系統屬性 (例如 **messageId** 或 **correlationId**)。 系統屬性名稱具有前置詞 **$** ，但應用程式屬性則會使用沒有前置詞的原始屬性名稱。
 
 當裝置應用程式訂閱具有 **QoS 2** 的主題時，IoT 中樞會在 **SUBACK** 封包中授與最大 QoS 層級 1。 之後，IoT 中樞會使用 QoS 1 將訊息傳遞給裝置。
 
@@ -264,7 +264,7 @@ IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 
 
 3. 服務接著會傳送回應訊息，其中包含`$iothub/twin/res/{status}/?$rid={request id}` 主題上報告之屬性集合的新 ETag 值。 這個回應訊息使用和要求相同的**要求 ID**。
 
-要求訊息本文會包含 JSON 文件，其包含已報告屬性的新值。 JSON 文件中的每個成員會在裝置對應項的文件中更新或新增對應的成員。 設定為 `null` 的成員會從包含的物件中刪除成員。 例如︰
+要求訊息本文會包含 JSON 文件，其包含已報告屬性的新值。 JSON 文件中的每個成員會在裝置對應項的文件中更新或新增對應的成員。 設定為 `null` 的成員會從包含的物件中刪除成員。 例如:
 
 ```json
 {
@@ -273,7 +273,7 @@ IoT 中樞會附上**主題名稱** `devices/{device_id}/messages/devicebound/` 
 }
 ```
 
-可能的状态代码为：
+可能的狀態碼如下︰
 
 |狀態 | 描述 |
 | ----- | ----------- |
@@ -301,7 +301,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_repor
 
 ### <a name="receiving-desired-properties-update-notifications"></a>接收所需屬性更新通知
 
-设备连接时，IoT 中心会向主题 `$iothub/twin/PATCH/properties/desired/?$version={new version}`发送通知，内附解决方案后端执行的更新内容。 例如︰
+當連接裝置時，IoT 中樞傳送通知給主題 `$iothub/twin/PATCH/properties/desired/?$version={new version}`，其中包含解決方案後端所執行的更新內容。 例如:
 
 ```json
 {

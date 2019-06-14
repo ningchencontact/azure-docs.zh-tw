@@ -10,10 +10,10 @@ ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
 ms.openlocfilehash: 290141136672729060f5156d645c47ac303fa0c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60810099"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(已淘汰) 使用 Log Analytics 監視 Azure Container Service DC/OS 叢集
@@ -43,14 +43,14 @@ Log Analytics 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管
 
    ![](media/container-service-monitoring-oms/image2.png)
 
-2. 按一下 [Install] 。 您將會看到含有版本資訊和一個 [安裝套件] 或 [進階安裝] 按鈕的快顯。 按一下 [Advanced Installation]\(進階安裝)，就會跳轉至 [OMS specific configuration properties]\(OMS 特定組態屬性) 頁面。
+2. 按一下 [Install]  。 您將會看到含有版本資訊和一個 [安裝套件]  或 [進階安裝]  按鈕的快顯。 按一下 [Advanced Installation]\(進階安裝)  ，就會跳轉至 [OMS specific configuration properties]\(OMS 特定組態屬性)  頁面。
 
    ![](media/container-service-monitoring-oms/image3.png)
 
    ![](media/container-service-monitoring-oms/image4.png)
 
 3. 這裡將要求您輸入 `wsid`(Log Analytics 工作區識別碼) 和`wskey` (工作區識別碼的主索引鍵)。 若要取得 `wsid` 和 `wskey`，您需要在 <https://mms.microsoft.com> 建立帳戶。
-   請遵循步驟來建立帳戶。 建立帳戶之後，您必須依序按一下 [Settings]\(設定)、[Connected Sources]\(連接的來源)、[Linux Servers]\(Linux 伺服器)，以取得您的 `wsid` 和 `wskey`，如下所示。
+   請遵循步驟來建立帳戶。 建立帳戶之後，您必須依序按一下 [Settings]\(設定)  、[Connected Sources]\(連接的來源)  、[Linux Servers]\(Linux 伺服器)  ，以取得您的 `wsid` 和 `wskey`，如下所示。
 
    ![](media/container-service-monitoring-oms/image5.png)
 
@@ -64,15 +64,15 @@ Log Analytics 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管
 
 ### <a name="azure-portal"></a>Azure 入口網站 
 
-登入 Azure 入口網站，網址為：<https://portal.microsoft.com/>。 移至 [Marketplace]，選取 [監視 + 管理]，然後按一下 [查看全部]。 接著在搜尋中輸入 `containers` (容器)。 您會在搜尋結果中看到 "containers" (容器)。 選取 [Containers]\(容器)，然後按一下 [建立]。
+登入 Azure 入口網站，網址為：<https://portal.microsoft.com/>。 移至 [Marketplace]  ，選取 [監視 + 管理]  ，然後按一下 [查看全部]  。 接著在搜尋中輸入 `containers` (容器)。 您會在搜尋結果中看到 "containers" (容器)。 選取 [Containers]\(容器)  ，然後按一下 [建立]  。
 
 ![](media/container-service-monitoring-oms/image9.png)
 
-按一下 [建立] 後，它會要求您提供您的工作區。 選取您的工作區，或是如果您沒有工作區，請建立新的工作區。
+按一下 [建立]  後，它會要求您提供您的工作區。 選取您的工作區，或是如果您沒有工作區，請建立新的工作區。
 
 ![](media/container-service-monitoring-oms/image10.PNG)
 
-選取您的工作區後，按一下 [建立]。
+選取您的工作區後，按一下 [建立]  。
 
 ![](media/container-service-monitoring-oms/image11.png)
 

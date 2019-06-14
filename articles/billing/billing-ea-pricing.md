@@ -16,10 +16,10 @@ ms.date: 02/22/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: d4c64433089f14d845cea8be9adf0ef13675cfd1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127628"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>檢視及下載您的組織 Azure 定價
@@ -31,16 +31,16 @@ Azure 客戶使用 Enterprise 合約 (EA) 或[Microsoft 客戶合約](#check-you
 根據企業系統管理員為組織所設定的原則，只有特定的系統管理角色可以提供組織 EA 價格資訊的存取權。 如需詳細資訊，請參閱[了解 Azure 中的 Azure Enterprise 合約系統管理角色](billing-understand-ea-roles.md)。
 
 1. 以企業系統管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-1. 針對 [成本管理 + 帳單] 進行搜尋。
+1. 針對 [成本管理 + 帳單]  進行搜尋。
 
    ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-ea-pricing/portal-cm-billing-search.png)
 
-1. 在帳單帳戶下方，選取 [使用方式 + 費用]。
+1. 在帳單帳戶下方，選取 [使用方式 + 費用]  。
 
    ![在帳單下方顯示使用方式和費用的螢幕擷取畫面](./media/billing-ea-pricing/ea-pricing-usage-charges-nav.png)
 
-1. 針對當月份選取 ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-ea-pricing/download-icon.png) [下載]。
-1. 在 [價位表] 下方，選取 [下載 csv]。
+1. 針對當月份選取 ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-ea-pricing/download-icon.png) [下載]  。
+1. 在 [價位表]  下方，選取 [下載 csv]  。
 
    ![顯示價位表下載 csv 按鈕的螢幕擷取畫面](./media/billing-ea-pricing/download-ea-price-sheet.png)
 
@@ -51,7 +51,7 @@ Azure 客戶使用 Enterprise 合約 (EA) 或[Microsoft 客戶合約](#check-you
 ### <a name="download-price-sheets-for-the-current-billing-period"></a>目前計費週期下載價位表
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 針對 [成本管理 + 帳單] 進行搜尋。
+1. 針對 [成本管理 + 帳單]  進行搜尋。
 1. 選取計費的設定檔。 根據您的存取權，您可能需要先選取計費帳戶。
 1. 在 **概觀**刀鋒視窗中，尋找下方至今的月份費用的下載連結。
 1. 選取  **Azure 價位表**。
@@ -60,9 +60,9 @@ Azure 客戶使用 Enterprise 合約 (EA) 或[Microsoft 客戶合約](#check-you
 ### <a name="download-price-sheets-for-billed-charges"></a>下載計費費用的價位表
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 針對 [成本管理 + 帳單] 進行搜尋。
+1. 針對 [成本管理 + 帳單]  進行搜尋。
 1. 選取計費的設定檔。 根據您的存取權，您可能需要先選取計費帳戶。
-1. 選取 [發票]。
+1. 選取 [發票]  。
 1. 在發票方格中，尋找對應至您想要下載的價位表的發票的資料列。
 1. 按一下省略符號 (`...`) 結尾的資料列。
 ![顯示選取的省略符號的螢幕擷取畫面](./media/billing-ea-pricing/billingprofile-invoicegrid.png)
@@ -77,14 +77,14 @@ Azure 客戶使用 Enterprise 合約 (EA) 或[Microsoft 客戶合約](#check-you
 您也可以使用貴組織的價格，以使用 Azure 價格計算機估算成本。
 
 1. 移至 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator)。
-1. 在右上方，選取 [登入]。
-1. 在 [程式和供應項目] > [授權方案] 下方，選取 [Enterprise 合約 (EA)]。
-1. 在 [程式和供應項目] > [選取的合約] 下方，選取 [未選取任何項目]。
+1. 在右上方，選取 [登入]  。
+1. 在 [程式和供應項目]   > [授權方案]  下方，選取 [Enterprise 合約 (EA)]  。
+1. 在 [程式和供應項目]   > [選取的合約]  下方，選取 [未選取任何項目]  。
 
     ![顯示價位表下載 csv 按鈕的螢幕擷取畫面](./media/billing-ea-pricing/ea-pricing-calculator-estimate.png)
 
 1. 選擇組織。
-1. 選取 [套用] 。
+1. 選取 [套用]  。
 1. 搜尋產品並新增至您的預估。
 1. 顯示的預估價格取決於您針對組織所選取的價格。
 

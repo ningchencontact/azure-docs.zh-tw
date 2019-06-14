@@ -10,10 +10,10 @@ ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c77f26187914b2c6e52426bb2a07303b22ccb2b0
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023984"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure 搜尋服務 - 常見問題集 (FAQ)
@@ -44,7 +44,7 @@ Azure 搜尋服務支援多個資料來源、[許多語言的語言分析](https
 
 ### <a name="backup-and-restore-or-download-and-move-indexes-or-index-snapshots"></a>可備份及還原 (或下載及移動) 索引或索引快照集嗎？
 
-雖然您可以隨時[取得索引定義](https://docs.microsoft.com/rest/api/searchservice/get-index)，但沒有索引擷取、快照或備份還原功能，可將雲端中執行的「擴展」索引下載到本機系統，或移至其他 Azure 搜尋服務。
+雖然您可以隨時[取得索引定義](https://docs.microsoft.com/rest/api/searchservice/get-index)，但沒有索引擷取、快照或備份還原功能，可將雲端中執行的「擴展」  索引下載到本機系統，或移至其他 Azure 搜尋服務。
 
 索引是從您撰寫的程式碼建立及擴展，而且只會在雲端中的 Azure 搜尋服務上執行。 一般而言，想要將索引移至其他服務的客戶可藉由編輯其程式碼以使用新的端點，然後重新執行索引來完成。 如果您想要有擷取快照集或備份索引的功能，請在 [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index) 上投下一票。
 

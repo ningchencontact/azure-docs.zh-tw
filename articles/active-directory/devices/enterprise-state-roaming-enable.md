@@ -18,10 +18,10 @@ ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 88e825ebc08b4bfbd65f81b7b2480ead9be314b5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954940"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>在 Azure Active Directory 中啟用企業狀態漫遊
@@ -33,16 +33,16 @@ ms.locfileid: "65954940"
 
 1. 登入 [Azure AD 系統管理中心](https://aad.portal.azure.com/)。
 
-1. 選取 [Azure Active Directory] &gt; [裝置] &gt; [企業狀態漫遊]。
+1. 選取 [Azure Active Directory]  &gt; [裝置]  &gt; [企業狀態漫遊]  。
 
-1. 選取 [使用者可以在裝置間同步設定及應用程式資料]。 如需詳細資訊，請參閱[如何進行裝置設定](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal)。
+1. 選取 [使用者可以在裝置間同步設定及應用程式資料]  。 如需詳細資訊，請參閱[如何進行裝置設定](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal)。
   
    ![標示為 [使用者可以在裝置間同步設定及應用程式資料] 的裝置設定影像](./media/enterprise-state-roaming-enable/device-settings.png)
   
 若要讓 Windows 10 裝置使用企業狀態漫遊服務，裝置必須使用 Azure AD 身分識別進行驗證。 對於已加入 Azure AD 的裝置，使用者的主要登入身分識別就是其 Azure AD 身分識別，不需要額外設定。 對於使用內部部署 Active Directory 的裝置，IT 管理員必須[設定已加入混合式 Azure Active Directory 的裝置](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps)。 
 
 ## <a name="data-storage"></a>資料儲存體
-企業狀態漫遊資料裝載於一或多個 [Azure 區域](https://azure.microsoft.com/regions/)，這些區域最符合 Azure Active Directory 執行個體中設定的國家/區域值。 企業狀態漫遊的資料根據三個主要地理區域來分割︰北美洲、EMEA 和 APAC。 適用於租用戶的企業狀態漫遊資料是位於本機的地理區域中，並不會跨區域複寫。  例如：
+企業狀態漫遊資料裝載於一或多個 [Azure 區域](https://azure.microsoft.com/regions/)，這些區域最符合 Azure Active Directory 執行個體中設定的國家/區域值。 企業狀態漫遊的資料根據三個主要地理區域來分割︰北美洲、EMEA 和 APAC。 適用於租用戶的企業狀態漫遊資料是位於本機的地理區域中，並不會跨區域複寫。  例如:
 
 國家/區域值 | 將其資料裝載於
 ---------------------|-------------------------
@@ -58,11 +58,11 @@ APAC 國家/地區例如澳洲或紐西蘭 | 亞洲內的一個或多個 Azure �
 
 1. 登入 [Azure AD 系統管理中心](https://aad.portal.azure.com/)。
 
-1. 選取 [Azure Active Directory] &gt; [使用者] &gt; [所有使用者]。
+1. 選取 [Azure Active Directory]  &gt; [使用者]  &gt; [所有使用者]  。
 
-1. 選取使用者，然後選取 [裝置]。
+1. 選取使用者，然後選取 [裝置]  。
 
-1. 在 [顯示] 底下，選取 [裝置同步設定和應用程式資料]，以顯示同步處理狀態。
+1. 在 [顯示]  底下，選取 [裝置同步設定和應用程式資料]  ，以顯示同步處理狀態。
   
    ![裝置同步處理資料設定的影像](./media/enterprise-state-roaming-enable/sync-status.png)
   
@@ -81,7 +81,7 @@ APAC 國家/地區例如澳洲或紐西蘭 | 亞洲內的一個或多個 Azure �
 * **依要求刪除**：如果 Azure AD 管理員想要手動刪除特定使用者的資料或設定資料，管理員可以透過 [Azure 支援](https://azure.microsoft.com/support/)開立票證。 
 
 ### <a name="stale-data-deletion"></a>刪除過時資料
-一年 (「保留期限」) 未存取的資料將視為過時，可能會從 Microsoft 雲端中刪除。 保留期限可能有所變更，但不會小於 90 天。 過時的資料可能是一組特定的 Windows/應用程式設定或使用者的所有設定。 例如：
+一年 (「保留期限」) 未存取的資料將視為過時，可能會從 Microsoft 雲端中刪除。 保留期限可能有所變更，但不會小於 90 天。 過時的資料可能是一組特定的 Windows/應用程式設定或使用者的所有設定。 例如:
 
 * 如果沒有任何裝置存取特定的設定集合 (例如，從裝置中移除應用程式，或針對使用者的所有裝置停用設定群組，例如「佈景主題」)，則該集合在保留期限之後就會變成過時，可能會被刪除。 
 * 如果使用者已關閉其所有裝置上的設定同步處理，則不會設定資料將會存取，並為該使用者的所有設定資料將會變成過時，並可能在保留期限之後刪除。 

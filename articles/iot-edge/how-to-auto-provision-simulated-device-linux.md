@@ -1,27 +1,26 @@
 ---
-title: 使用 DPS 自动预配 Linux 设备 - Azure IoT Edge | Microsoft Docs
+title: 自動佈建 Linux DPS-Azure IoT Edge 裝置 |Microsoft Docs
 description: 在 Linux VM 上使用模擬的 TPM 來測試 Azure IoT Edge 的 Azure 裝置佈建服務
 author: kgremban
 manager: philmea
-ms.author: v-yiso
-origin.date: 03/01/2019
-ms.date: 03/25/2019
+ms.author: kgremban
+ms.date: 03/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 9a549221a9e1864e1b7565f35139cb4c2a6ca65e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61248108"
 ---
-# <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>使用 Linux 虚拟机上的虚拟 TPM 创建和预配 IoT Edge 设备
+# <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>建立及佈建 Linux 虛擬機器上的虛擬 TPM 的 IoT Edge 裝置
 
-可以使用[设备预配服务](../iot-dps/index.yml)自动预配 Azure IoT Edge 设备。 如果您不熟悉自動佈建程序，請先檢閱[自動佈建概念](../iot-dps/concepts-auto-provisioning.md)，再繼續作業。 
+Azure IoT Edge 裝置可以自動佈建[裝置佈建服務](../iot-dps/index.yml)。 如果您不熟悉自動佈建程序，請先檢閱[自動佈建概念](../iot-dps/concepts-auto-provisioning.md)，再繼續作業。 
 
-本文介绍如何使用以下步骤，在模拟的 IoT Edge 设备上测试自动预配： 
+本文說明如何測試自動佈建在模擬的 IoT Edge 裝置，執行下列步驟： 
 
 * 使用保護硬體的模擬信任平台模組 (TPM)，在 Hyper-V 中建立 Linux 虛擬機器 (VM)。
 * 建立 IoT 中樞裝置佈建服務 (DPS) 的執行個體。
@@ -37,21 +36,21 @@ ms.locfileid: "61248108"
 
 ## <a name="create-a-linux-virtual-machine-with-a-virtual-tpm"></a>使用虛擬 TPM 建立 Linux 虛擬機器
 
-在本部分，我们将在 Hyper-V 上创建新的 Linux 虚拟机。 然后，我们将使用模拟 TPM 配置此虚拟机，以便可以使用它来测试如何在 IoT Edge 中使用自动预配。 
+在本節中，您可以建立新的 Linux 虛擬機器在 HYPER-V 上。 好讓您可以使用它來自動佈建運作方式測試 IoT Edge，您可以設定使用模擬的 TPM 的這部虛擬機器。 
 
 ### <a name="create-a-virtual-switch"></a>建立虛擬交換器
 
 虛擬交換器可讓您的虛擬機器連線至實體網路。
 
-1. 在 Windows 计算机上打开 Hyper-V 管理器。 
+1. 在 Windows 電腦上開啟 HYPER-V 管理員。 
 
-2. 在 [動作] 功能表中，選取 [虛擬交換器管理員]。 
+2. 在 [動作]  功能表中，選取 [虛擬交換器管理員]  。 
 
-3. 選擇 [外部] 虛擬交換器，然後選取 [建立虛擬交換器]。 
+3. 選擇 [外部]  虛擬交換器，然後選取 [建立虛擬交換器]  。 
 
-4. 為新的虛擬交換器指定名稱，例如 **EdgeSwitch**。 確定連線類型設定為 [外部網路]，然後選取 [確定]。
+4. 為新的虛擬交換器指定名稱，例如 **EdgeSwitch**。 確定連線類型設定為 [外部網路]  ，然後選取 [確定]  。
 
-5. 快顯視窗會警告您網路連線可能會中斷。 選取 [是] 以繼續進行。 
+5. 快顯視窗會警告您網路連線可能會中斷。 選取 [是]  以繼續進行。 
 
 如果您在建立新的虛擬交換器時看到錯誤，請確定沒有其他交換器正在使用乙太網路配接器，且沒有其他參數使用相同的名稱。 
 
@@ -59,44 +58,44 @@ ms.locfileid: "61248108"
 
 1. 下載要用於虛擬機器的磁碟映像檔，並將其儲存於本機。 例如 [Ubuntu Server](https://www.ubuntu.com/download/server)。 
 
-2. 返回 Hyper-V 管理器，在“操作”菜单中选择“新建” > “虚拟机”。
+2. 同樣地，選取 HYPER-V 管理員中**的新** > **虛擬機器**中**動作**功能表。
 
-3. 使用下列特定組態完成 [新增虛擬機器精靈]：
+3. 使用下列特定組態完成 [新增虛擬機器精靈]  ：
 
-   1. **指定世代**：選取 [第 2 代]。 第 2 代虚拟机已启用嵌套虚拟化，在虚拟机上运行 IoT Edge 必须启用此功能。
-   2. **設定網路功能**：將 [連線] 的值設定為您在上一節中建立的虛擬交換器。 
-   3. **安裝選項**：選取 [從可開機映像檔安裝作業系統]，然後瀏覽至您儲存在本機的磁碟映像檔。
+   1. **指定世代**：選取 [第 2 代]  。 第 2 代虛擬機器具有巢狀虛擬化已啟用，這是必要的虛擬機器上執行 IoT Edge。
+   2. **設定網路功能**：將 [連線]  的值設定為您在上一節中建立的虛擬交換器。 
+   3. **安裝選項**：選取 [從可開機映像檔安裝作業系統]  ，然後瀏覽至您儲存在本機的磁碟映像檔。
 
-4. 在向导中选择“完成”以创建虚拟机。
+4. 選取 [**完成**來建立虛擬機器精靈] 中。
 
 系統可能需要幾分鐘的時間來建立新的 VM。 
 
 ### <a name="enable-virtual-tpm"></a>啟用虛擬 TPM
 
-创建 VM 后，打开其设置以启用虚拟受信任平台模块 (TPM) 来自动预配设备。 
+您的 VM 建立之後，開啟其設定，以啟用虛擬可信賴平台模組 (TPM)，可讓您 autoprovision 裝置。 
 
-1. 选择该虚拟机，然后打开其“设置”。
+1. 選取虛擬機器，然後開啟它**設定**。
 
-2. 瀏覽至 [安全性]。 
+2. 瀏覽至 [安全性]  。 
 
-3. 取消核取 [啟用安全開機]。
+3. 取消核取 [啟用安全開機]  。
 
-4. 核取 [啟用信賴平台模組]。 
+4. 核取 [啟用信賴平台模組]  。 
 
-5. 按一下 [確定]。  
+5. 按一下 [確定]  。  
 
 ### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>啟動虛擬機器，並收集 TPM 資料
 
-在虛擬機器中，建立可用來擷取裝置的 [註冊識別碼] 和 [簽署金鑰] 的 C SDK 工具。 
+在虛擬機器中，建立可用來擷取裝置的 [註冊識別碼]  和 [簽署金鑰]  的 C SDK 工具。 
 
-1. 启动并连接到虚拟机。
+1. 啟動虛擬機器，並連接到它。
 
-2. 遵照虚拟机中的提示完成安装过程，然后重新启动虚拟机。 
+2. 依照提示完成安裝程序，然後重新啟動電腦的虛擬機器內。 
 
-3. 登录到 VM，然后遵循[设置 Linux 开发环境](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux)中的步骤安装并生成适用于 C 的 Azure IoT 设备 SDK。 
+3. 登入您的 VM，然後依照[設定 Linux 開發環境](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux)安裝，並建置用於 c 的 Azure IoT 裝置 SDK 
 
    >[!TIP]
-   >在本文中，我们将在虚拟机中进行复制和粘贴，而在 Hyper-V 管理器连接应用程序中难以执行此类操作。 可以通过 Hyper-V 管理器连接到虚拟机一次，以检索其 IP 地址：`ifconfig`。 然后，可以使用该 IP 地址通过 SSH 进行连接：`ssh <username>@<ipaddress>`。
+   >期間本文中，您將其複製到並貼上從虛擬機器，這並不容易透過 HYPER-V 管理員連接應用程式。 您可能想要連線到透過 HYPER-V 管理員一次來擷取其 IP 位址的虛擬機器： `ifconfig`。 然後，您可以使用的 IP 位址，透過 SSH 連線： `ssh <username>@<ipaddress>`。
 
 4. 執行下列命令，建置用來擷取裝置佈建資訊的 C SDK 工具。 
 
@@ -108,13 +107,13 @@ ms.locfileid: "61248108"
    sudo ./tpm_device_provision
    ```
 
-5. 複製 [註冊識別碼] 和 [簽署金鑰] 的值。 您可以使用這些值為 DPS 中的裝置建立個別的註冊。 
+5. 複製 [註冊識別碼]  和 [簽署金鑰]  的值。 您可以使用這些值為 DPS 中的裝置建立個別的註冊。 
 
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>設定 IoT 中樞裝置佈建服務
 
 在 Azure 中建立 IoT 中樞裝置佈建服務的新執行個體，並將其連結至您的 IoT 中樞。 您可以依照[設定 IoT 中樞 DPS](../iot-dps/quick-setup-auto-provision.md) 中的指示操作。
 
-裝置佈建服務開始執行之後，請從 [概觀] 頁面複製 [識別碼範圍] 的值。 當您設定 IoT Edge 執行階段時會用到此值。 
+裝置佈建服務開始執行之後，請從 [概觀] 頁面複製 [識別碼範圍]  的值。 當您設定 IoT Edge 執行階段時會用到此值。 
 
 ## <a name="create-a-dps-enrollment"></a>建立 DPS 註冊
 
@@ -125,21 +124,21 @@ ms.locfileid: "61248108"
 
 1. 在 [Azure 入口網站](https://portal.azure.com) 中，瀏覽至 IoT 中樞裝置佈建服務的執行個體。 
 
-2. 在 [設定] 下方，選取 [管理註冊]。 
+2. 在 [設定]  下方，選取 [管理註冊]  。 
 
-3. 選取 [新增個別註冊]，然後完成下列步驟以設定註冊：  
+3. 選取 [新增個別註冊]  ，然後完成下列步驟以設定註冊：  
 
-   1. 針對 [機制]，選取 [TPM]。 
+   1. 針對 [機制]  ，選取 [TPM]  。 
    
-   2. 提供从虚拟机中复制的“认可密钥”和“注册 ID”。
+   2. 提供**簽署金鑰**並**註冊識別碼**您複製從您的虛擬機器。
    
-   3. 选择“True”，以声明此虚拟机是 IoT Edge 设备。 
+   3. 選取  **，則為 True**宣告此虛擬機器是 IoT Edge 裝置。 
    
-   4. 選擇您的裝置所要連接的連結 **IoT 中樞**。 可以选择多个中心，设备将根据所选的分配策略分配到其中的一个中心。 
+   4. 選擇您的裝置所要連接的連結 **IoT 中樞**。 您可以選擇多個中樞，並將裝置指派給其中一個，根據所選的配置原則。 
    
-   5. 視需要提供裝置的識別碼。 您可以使用裝置識別碼，將個別裝置設為模組部署的目標。 如果未提供设备 ID，则会使用注册 ID。
+   5. 視需要提供裝置的識別碼。 您可以使用裝置識別碼，將個別裝置設為模組部署的目標。 如果您未提供裝置識別碼，則會使用註冊識別碼。
    
-   6. 視需要將標記值新增至 [初始裝置對應項狀態]。 您可以使用標記將裝置群組設定為模組部署的目標。 例如︰ 
+   6. 視需要將標記值新增至 [初始裝置對應項狀態]  。 您可以使用標記將裝置群組設定為模組部署的目標。 例如: 
 
       ```json
       {
@@ -154,16 +153,16 @@ ms.locfileid: "61248108"
 
    7. 選取 [ **儲存**]。 
 
-既然此设备已存在注册，IoT Edge 运行时在安装期间可以自动预配设备。 
+現在，註冊此裝置，IoT Edge 執行階段可以自動佈建裝置在安裝期間。 
 
 ## <a name="install-the-iot-edge-runtime"></a>安裝 IoT Edge 執行階段
 
 IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容器中執行，並可讓您將其他容器部署到裝置，以便您在 Edge 上執行程式碼。 在虛擬機器上安裝 IoT Edge 執行階段。 
 
-開始閱讀您的裝置類型適用的文章之前，請先了解您的 DPS [識別碼範圍] 和裝置的 [註冊識別碼]。 如果您安裝了範例 Ubuntu Server，請使用 **x64** 指示。 請務必將 IoT Edge 執行階段設定為自動佈建，而不是手動佈建。 
+開始閱讀您的裝置類型適用的文章之前，請先了解您的 DPS [識別碼範圍]  和裝置的 [註冊識別碼]  。 如果您安裝了範例 Ubuntu Server，請使用 **x64** 指示。 請務必將 IoT Edge 執行階段設定為自動佈建，而不是手動佈建。 
 
 * [在 Linux (x64) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux.md)
-* [在 Linux 上安装 Azure IoT Edge 运行时 (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
+* [在 Linux (ARM32v7/armhf) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux-arm.md)
 
 ## <a name="give-iot-edge-access-to-the-tpm"></a>為 IoT Edge 指定對 TPM 的存取權
 
@@ -291,7 +290,7 @@ journalctl -u iotedge --no-pager --no-full
 iotedge list
 ```
 
-可以验证是否使用了在设备预配服务中创建的个人注册。 在 Azure 门户中导航到设备预配服务实例。 打开创建的个人注册的注册详细信息。 注意注册状态是否为“已分配”并且设备 ID 已列出。 
+您可以確認已使用該裝置佈建服務中建立個別註冊。 瀏覽至您的裝置佈建服務執行個體，在 Azure 入口網站中。 開啟您建立個別註冊的註冊詳細資料。 請注意，註冊的狀態是**指派**和裝置識別碼會列。 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
 ms.openlocfilehash: 14f84b5380a1c106114cdab425de7f69f4e19825
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60657538"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>如何將事件記錄到 Azure API 管理中的 Azure 事件中樞
@@ -92,13 +92,13 @@ ms.locfileid: "60657538"
 
 1. 瀏覽至您的 APIM 執行個體。
 2. 選取 [API] 索引標籤。
-3. 選取您要在其中新增原則的 API。 在此範例中，我們將原則新增至 [無限制] 產品中的 [Echo API]。
-4. 選取 [所有作業]。
+3. 選取您要在其中新增原則的 API。 在此範例中，我們將原則新增至 [無限制]  產品中的 [Echo API]  。
+4. 選取 [所有作業]  。
 5. 選取畫面頂端的 [設計] 索引標籤。
 6. 在 [輸入處理] 或 [輸出處理] 視窗中，按一下三角形 (鉛筆旁邊)。
 7. 選取 [程式碼編輯器]。 如需詳細資訊，請參閱[如何設定或編輯原則](set-edit-policies.md)。
 8. 將游標置於 `inbound` 或 `outbound` 原則區段。
-9. 在右側視窗中，選取 [進階原則] > [登入 EventHub]。 這會插入 `log-to-eventhub` 原則陳述式範本。
+9. 在右側視窗中，選取 [進階原則]   > [登入 EventHub]  。 這會插入 `log-to-eventhub` 原則陳述式範本。
 
 ```xml
 <log-to-eventhub logger-id ='logger-id'>

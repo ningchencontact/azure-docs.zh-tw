@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ms.openlocfilehash: c352100392a5bf7b590b27b9448f7f37fb105fbe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60751636"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>適用於 Azure Machine Learning Studio 的 Net# 類神經規格語言指南
@@ -89,17 +89,17 @@ Net# 支援多種不同的連線套組，可讓您自訂輸入對應至隱藏層
 
 `Const X = 28;`
 
-若要同時定義兩個或更多常數，請將識別碼名稱和值放在大括號中，並使用分號分隔。 例如︰
+若要同時定義兩個或更多常數，請將識別碼名稱和值放在大括號中，並使用分號分隔。 例如:
 
 `Const { X = 28; Y = 4; }`
 
-各個指派運算式的右側可以是整數、實數、布林值 (True/False) 或數學運算式。 例如︰
+各個指派運算式的右側可以是整數、實數、布林值 (True/False) 或數學運算式。 例如:
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>層宣告
 
-層宣告是必要宣告。 它定義層的大小和來源，包括層的連線套組和屬性。 宣告陳述式以層的名稱開頭 (輸入、隱藏或輸出)，其後是層的維度 (正整數的 Tuple)。 例如︰
+層宣告是必要宣告。 它定義層的大小和來源，包括層的連線套組和屬性。 宣告陳述式以層的名稱開頭 (輸入、隱藏或輸出)，其後是層的維度 (正整數的 Tuple)。 例如:
 
 ```Net#
 input Data auto;
@@ -220,7 +220,7 @@ hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
   - **UpperPad** 的每個元件皆不可大於 `KernelShape[d]/2`。
   - 這些屬性的預設值是所有元件皆等於 0 的 Tuple。
 
-    **Padding** = true 設定允許可將核心的「中心」保持在「真實」輸入內所需的填補量。 這麼做會略為改變輸出大小的計算方式。 一般而言，輸出大小 D 的計算方式為 `D = (I - K) / S + 1`，其中 `I` 是輸入大小，`K` 是核心大小，`S` 是分散，而 `/` 是整數除法 (趨近於零)。 如果您設定 UpperPad = [1, 1]，輸入大小 `I` 實際上是 29，因此 `D = (29 - 5) / 2 + 1 = 13`。 不過，當 **Padding** = true 時，基本上 `I` 會藉由 `K - 1` 而提高；因此 `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`。 藉由指定 **UpperPad** 和 **LowerPad** 的值，您對填補的控制權會遠遠超過只設定 **Padding** = true。
+    **Padding** = true 設定允許可將核心的「中心」保持在「真實」輸入內所需的填補量。 這麼做會略為改變輸出大小的計算方式。 一般而言，輸出大小 D  的計算方式為 `D = (I - K) / S + 1`，其中 `I` 是輸入大小，`K` 是核心大小，`S` 是分散，而 `/` 是整數除法 (趨近於零)。 如果您設定 UpperPad = [1, 1]，輸入大小 `I` 實際上是 29，因此 `D = (29 - 5) / 2 + 1 = 13`。 不過，當 **Padding** = true 時，基本上 `I` 會藉由 `K - 1` 而提高；因此 `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`。 藉由指定 **UpperPad** 和 **LowerPad** 的值，您對填補的控制權會遠遠超過只設定 **Padding** = true。
 
 如需迴旋網路及其應用程式的詳細資訊，請參閱下列文章：
 

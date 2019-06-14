@@ -16,10 +16,10 @@ ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b71454fc553a0f81c26426a6a9588f15d5311e38
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65406426"
 ---
 # <a name="single-page-application---code-configuration"></a>單一頁面應用程式-程式碼組態
@@ -32,7 +32,7 @@ Microsoft 身分識別平台提供 MSAL.js 程式庫，以支援使用業界隱�
 
 支援隱含流程的程式庫是：
 
-| MSAL 程式庫 | 說明 |
+| MSAL 程式庫 | 描述 |
 |--------------|--------------|
 | ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | 用於建置使用 JavaScript 或 SPA 架構，例如 Angular、 Vue.js、 React.js 等任何用戶端 web 應用程式中的純 JavaScript 程式庫。 |
 | ![MSAL Angular](media/sample-v2-code/logo_angular.png) <br/> [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | 核心 MSAL.js 程式庫，以簡化使用 Angular framework 建置的單一頁面應用程式中使用的包裝函式。 此程式庫目前為預覽狀態，且[已知問題](https://github.com/AzureAD/microsoft-authentication-library-for-js/issues?q=is%3Aopen+is%3Aissue+label%3Aangular)特定 Angular 的版本與瀏覽器。 |

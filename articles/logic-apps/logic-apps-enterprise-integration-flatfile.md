@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.date: 07/08/2016
 ms.openlocfilehash: d0ef61b94d7bd604b6c0062341224510f3048c57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61467220"
 ---
 # <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>使用 Azure Logic Apps 與 Enterprise Integration Pack 來編碼或解碼一般檔案
@@ -31,13 +31,13 @@ ms.locfileid: "61467220"
    
     a. 選取**加號**。
    
-    b. 選取 [新增動作] 連結 (會在選取加號之後出現)。
+    b. 選取 [新增動作]  連結 (會在選取加號之後出現)。
    
-    c. 在搜尋方塊中輸入「一般」，篩選所有動作以取得您想要使用的動作。
+    c. 在搜尋方塊中輸入「一般」  ，篩選所有動作以取得您想要使用的動作。
    
-    d. 從清單中選取 [一般檔案編碼] 選項。   
+    d. 從清單中選取 [一般檔案編碼]  選項。   
    ![一般檔案編碼選項的螢幕擷取畫面](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
-1. 在 [一般檔案編碼] 對話方塊上選取 [內容] 文字方塊。  
+1. 在 [一般檔案編碼]  對話方塊上選取 [內容]  文字方塊。  
    ![內容文字方塊的螢幕擷取畫面](media/logic-apps-enterprise-integration-flatfile/flatfile-3.png)  
 1. 選取內文標記做為您想要編碼的內容。 內文標記將會填入內容欄位。     
    ![內文標記的螢幕擷取畫面](media/logic-apps-enterprise-integration-flatfile/flatfile-4.png)  
@@ -61,11 +61,11 @@ ms.locfileid: "61467220"
    
     a. 選取**加號**。
    
-    b. 選取 [新增動作] 連結 (會在選取加號之後出現)。
+    b. 選取 [新增動作]  連結 (會在選取加號之後出現)。
    
-    c. 在搜尋方塊中輸入「一般」，篩選所有動作以取得您想要使用的動作。
+    c. 在搜尋方塊中輸入「一般」  ，篩選所有動作以取得您想要使用的動作。
    
-    d. 從清單中選取 [一般檔案解碼] 選項。   
+    d. 從清單中選取 [一般檔案解碼]  選項。   
    ![一般檔案解碼選項的螢幕擷取畫面](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
 1. 選取 [內容]  控制項。 這會從先前步驟中產生一份內容清單，讓您可用來做為要解碼的內容。 請注意，來自傳入 HTTP 要求的「內文」  可用來做為要解碼的內容。 您也可以將要解碼的內容直接輸入於 [內容]  控制項中。     
 1. 選取 [內文]  標記。 請注意，內文標記目前位於 [內容]  控制項中。

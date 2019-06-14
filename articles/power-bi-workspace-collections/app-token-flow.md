@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 5fbe08bb9ebc355074a790f7732c9de10eaad859
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707115"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>使用 Power BI 工作區集合驗證和授權
@@ -24,7 +24,7 @@ Power BI 工作區集合服務會使用**金鑰**和**應用程式權杖**進行
 
 ## <a name="two-ways-to-authenticate"></a>兩種驗證方式
 
-**金鑰** - 您可以針對所有 Power BI 工作區集合 REST API 呼叫使用金鑰。 金鑰可以在 **Microsoft Azure 入口網站** 中找到，方法是選取 [所有設定]，然後按一下 [存取金鑰]。 一律將您的金鑰視為密碼。 這些金鑰具有在特定工作區集合上呼叫任何 REST API 的權限。
+**金鑰** - 您可以針對所有 Power BI 工作區集合 REST API 呼叫使用金鑰。 金鑰可以在 **Microsoft Azure 入口網站** 中找到，方法是選取 [所有設定]  ，然後按一下 [存取金鑰]  。 一律將您的金鑰視為密碼。 這些金鑰具有在特定工作區集合上呼叫任何 REST API 的權限。
 
 若要在 REST 呼叫上使用金鑰，請新增下列授權標頭︰
 
@@ -39,14 +39,14 @@ Power BI 工作區集合服務會使用**金鑰**和**應用程式權杖**進行
 | 宣告 | 描述 |    
 | --- | --- |
 | **ver** |應用程式權杖的版本。 目前版本為 0.2.0。 |
-| **aud** |權杖的預定接收者。 對於 Power BI 工作區集合，使用：https:\//analysis.windows.net/powerbi/api。 |
+| **aud** |權杖的預定接收者。 對於 Power BI 工作區集合，使用：https:\//analysis.windows.net/powerbi/api  。 |
 | **iss** |字串，表示已發出權杖的應用程式。 |
 | **type** |正在建立的應用程式權杖類型。 目前唯一支援的類型為 **內嵌**。 |
 | **wcn** |為其發出權杖的工作區集合名稱。 |
 | **wid** |為其發出權杖的工作區識別碼。 |
 | **rid** |為其發出權杖的報告識別碼。 |
 | **username** (選擇性) |與 RLS 搭配使用，使用者名稱是字串，可以在套用 RLS 規則時協助識別使用者。 |
-| **角色** (選擇性) |字串，包含套用資料列層級安全性規則時要選取的角色。 如果传递多个角色，则应当以字符串数组形式传递它们。 |
+| **角色** (選擇性) |字串，包含套用資料列層級安全性規則時要選取的角色。 如果傳遞多個角色，應該將它們傳遞為字串陣列。 |
 | **scp** (選擇性) |字串，包含權限範圍。 如果傳遞多個角色，應該將它們傳遞為字串陣列。 |
 | **exp** (選擇性) |指出權杖到期的時間。 值應該傳遞為 Unix 時間戳記。 |
 | **nbf** (選擇性) |指出權杖開始生效的時間。 值應該傳遞為 Unix 時間戳記。 |
@@ -86,13 +86,13 @@ SDK 中有方法可簡化應用程式權杖的建立。 例如，對於 .NET，�
 
 對於 .NET SDK，您可以參考[範圍](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes)。
 
-## <a name="scopes"></a>作用域
+## <a name="scopes"></a>範圍
 
 在使用內嵌權杖時，您可能會想限制您授與了存取權之資源的使用量。 為此，您可以產生具有範圍權限的權杖。
 
 以下是 Power BI 工作區集合的可用範圍。
 
-|影響範圍|描述|
+|`Scope`|描述|
 |---|---|
 |Dataset.Read|提供讀取指定資料集的權限。|
 |Dataset.Write|提供寫入指定資料集的權限。|
@@ -143,8 +143,8 @@ Body
 |作業|目標資源|權杖權限|
 |---|---|---|
 |根據資料集建立新的報告 (在記憶體內部)。|Dataset|Dataset.Read|
-|根據資料集建立新的報告並儲存報告 (在記憶體內部)。|数据集|* Dataset.Read<br>* Workspace.Report.Create|
-|查看和浏览/编辑（在内存中）现有报表。 Report.Read 暗指 Dataset.Read。 Report.Read 不允許儲存編輯。|報告|Report.Read|
+|根據資料集建立新的報告並儲存報告 (在記憶體內部)。|Dataset|* Dataset.Read<br>* Workspace.Report.Create|
+|檢視和瀏覽/編輯現有報告 (在記憶體內部)。 Report.Read 暗指 Dataset.Read。 Report.Read 不允許儲存編輯。|報告|Report.Read|
 |編輯並儲存現有報告。|報告|Report.ReadWrite|
 |儲存報告複本 (另存新檔)。|報告|* Report.Read<br>* Workspace.Report.Copy|
 

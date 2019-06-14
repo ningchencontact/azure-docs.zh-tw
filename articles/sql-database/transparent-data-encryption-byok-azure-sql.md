@@ -13,15 +13,15 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
 ms.openlocfilehash: c3a29c6b4d0308b41e29f38fc29d79634727d593
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926010"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL 透明資料加密使用 Azure Key Vault 中的客戶管理金鑰：「攜帶您自己的金鑰」支援
 
-與 Azure Key Vault 整合的[透明資料加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)，可使用客戶管理非對稱金鑰(稱為 TDE 保護裝置) 來加密資料庫加密金鑰 (DEK)。 這通常也稱為透明資料加密的攜帶您自己的金鑰 (BYOK) 支援。  在 BYOK 情節中，TDE 保護裝置會儲存於客戶擁有且管理的 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) 中，這是 Azure 的雲端式外部金鑰管理系統。 TDE 保护器可由密钥保管库[生成](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)，也可以从本地 HSM 设备[转移](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)到密钥保管库。 儲存於資料庫開機頁面上的 TDE DEK，是由儲存在 Azure Key Vault 中的 TDE 保護裝置進行加密和解密，該保護裝置永遠不會離開金鑰保存庫。  您必須對 SQL Database 授與客戶擁有之金鑰保存庫的權限，才能對 DEK 進行解密和加密。 如果撤銷了邏輯 SQL 伺服器對金鑰保存庫的權限，資料庫將無法存取且會將所有資料加密。 針對 Azure SQL Database，會將 TDE 保護裝置設定於邏輯 SQL 伺服器層級，並由所有與該伺服器相關聯的資料庫繼承。 針對 [Azure SQL 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance)，系統會將 TDE 保護裝置設定於執行個體層級，並由該執行個體上的所有「加密」資料庫繼承。 除非另有說明，「伺服器」字詞在本文件中指的是伺服器和執行個體兩者。
+與 Azure Key Vault 整合的[透明資料加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)，可使用客戶管理非對稱金鑰(稱為 TDE 保護裝置) 來加密資料庫加密金鑰 (DEK)。 這通常也稱為透明資料加密的攜帶您自己的金鑰 (BYOK) 支援。  在 BYOK 情節中，TDE 保護裝置會儲存於客戶擁有且管理的 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) 中，這是 Azure 的雲端式外部金鑰管理系統。 TDE 保護裝置可以是[產生](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)由金鑰保存庫或[傳輸](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)從開啟的內部部署 HSM 裝置的金鑰保存庫。 儲存於資料庫開機頁面上的 TDE DEK，是由儲存在 Azure Key Vault 中的 TDE 保護裝置進行加密和解密，該保護裝置永遠不會離開金鑰保存庫。  您必須對 SQL Database 授與客戶擁有之金鑰保存庫的權限，才能對 DEK 進行解密和加密。 如果撤銷了邏輯 SQL 伺服器對金鑰保存庫的權限，資料庫將無法存取且會將所有資料加密。 針對 Azure SQL Database，會將 TDE 保護裝置設定於邏輯 SQL 伺服器層級，並由所有與該伺服器相關聯的資料庫繼承。 針對 [Azure SQL 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance)，系統會將 TDE 保護裝置設定於執行個體層級，並由該執行個體上的所有「加密」  資料庫繼承。 除非另有說明，「伺服器」  字詞在本文件中指的是伺服器和執行個體兩者。
 
 > [!NOTE]
 > 使用 Azure Key Vault 整合 （攜帶您自己的金鑰） 的 Azure SQL Database 受控執行個體的透明資料加密處於預覽狀態。
@@ -79,7 +79,7 @@ ms.locfileid: "64926010"
   - 允許受信任的 Microsoft 服務略過此防火牆 - 選擇「是」
 
   > [!NOTE]
-  > 如果 TDE 加密 SQL 数据库由于无法绕过防火墙而失去对密钥保管库的访问权限，那么数据库在 24 小时内将无法访问。
+  > 如果 TDE 加密的 SQL 資料庫無法存取金鑰保存庫，因為它們無法略過防火牆，在 24 小時內會無法存取資料庫。
 
 - 啟用所有加密金鑰的稽核和報告功能：Key Vault 提供可輕易在其他安全性資訊和事件管理 (SIEM) 工具中插入的記錄。 Operations Management Suite (OMS) [Azure 監視器記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)是已整合服務的其中一個範例。
 - 為確保加密資料庫的高可用性，請使用位於不同區域的兩個 Azure Key Vault 來設定每個 SQL Database 伺服器。

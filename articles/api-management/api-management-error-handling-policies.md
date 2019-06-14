@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 2bde63bb668188936b3dd3cf5ecbf3b8c604eb95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 87693caa5343e359bb3ab424de489c2270bbca62
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564306"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64704429"
 ---
 # <a name="error-handling-in-api-management-policies"></a>API 管理原則中的錯誤處理
 
@@ -77,15 +77,15 @@ ms.locfileid: "60564306"
 
  當發生錯誤且控制項跳至 `on-error` 原則區段時，該錯誤就會儲存在 [context.LastError](api-management-policy-expressions.md#ContextVariables) 屬性中，此屬性可供 `on-error` 區段中的原則存取。 LastError 具有下列屬性。  
   
-| 名稱     | 類型   | 描述                                                                                               | 必要項 |
-|----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| `Source`   | string | 發生錯誤之元素的名稱。 可能是原則或內建的管線步驟名稱。     | 是      |
-| `Reason`   | string | 方便電腦理解的錯誤碼，可用於處理錯誤。                                       | 否       |
-| `Message`  | string | 人類可以看懂的錯誤描述。                                                                         | 是      |
-| `Scope`    | string | 發生錯誤之範圍的名稱，此名稱可為「全域」、「產品」、「API」或「作業」其中之一 | 否       |
-| Section  | string | 發生錯誤的區段名稱。 可能的值：「輸入」、「後端」、「輸出」或 「錯誤」。       | 否       |
-| `Path`     | string | 指定巢狀原則，例如 "choose[3]/when[2]"。                                                        | 否       |
-| `PolicyId` | string | 發生錯誤之原則上 `id` 屬性的值 (如果客戶有指定)             | 否       |
+| Name       | 類型   | 描述                                                                                               | 必要項 |
+|------------|--------|-----------------------------------------------------------------------------------------------------------|----------|
+| `Source`   | 字串 | 發生錯誤之元素的名稱。 可能是原則或內建的管線步驟名稱。     | 是      |
+| `Reason`   | 字串 | 方便電腦理解的錯誤碼，可用於處理錯誤。                                       | 否       |
+| `Message`  | 字串 | 人類可以看懂的錯誤描述。                                                                         | 是      |
+| `Scope`    | 字串 | 發生錯誤之範圍的名稱，此名稱可為「全域」、「產品」、「API」或「作業」其中之一 | 否       |
+| `Section`  | 字串 | 發生錯誤的區段名稱。 可能的值：「輸入」、「後端」、「輸出」或 「錯誤」。       | 否       |
+| `Path`     | 字串 | 指定巢狀原則，例如 "choose[3]/when[2]"。                                                        | 否       |
+| `PolicyId` | 字串 | 發生錯誤之原則上 `id` 屬性的值 (如果客戶有指定)             | 否       |
 
 > [!TIP]
 > 您可以透過 context.Response.StatusCode 存取狀態碼。  
@@ -99,8 +99,8 @@ ms.locfileid: "60564306"
 | `Source`        | 條件                                 | `Reason`                  | `Message`                                                                                                                |
 |---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
 | 組態 | Uri 不符合任何 API 或作業 | OperationNotFound       | 連入要求與作業無法匹配。                                                                      |
-| 授權 | 未提供訂用帳戶金鑰             | SubscriptionKeyNotFound | 拒絕存取，因為找不到訂用帳戶金鑰。 在對這個 API 提出要求時，請務必包含訂用帳戶金鑰。 |
-| 授權 | 訂用帳戶金鑰值無效         | SubscriptionKeyInvalid  | 拒絕存取，因為訂用帳戶金鑰無效。 請務必提供適用於作用中訂用帳戶的有效金鑰。            |
+| authorization | 未提供訂用帳戶金鑰             | SubscriptionKeyNotFound | 拒絕存取，因為找不到訂用帳戶金鑰。 在對這個 API 提出要求時，請務必包含訂用帳戶金鑰。 |
+| authorization | 訂用帳戶金鑰值無效         | SubscriptionKeyInvalid  | 拒絕存取，因為訂用帳戶金鑰無效。 請務必提供適用於作用中訂用帳戶的有效金鑰。            |
   
 ## <a name="predefined-errors-for-policies"></a>原則的預先定義錯誤  
  針對在原則評估期間可能會發生的錯誤狀況，系統預先定義了下列錯誤。  
@@ -108,19 +108,19 @@ ms.locfileid: "60564306"
 | `Source`       | 條件                                                       | `Reason`                    | `Message`                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | rate-limit   | 超過了速率限制                                             | RateLimitExceeded         | 超過速率限制                                                                                                               |
-| quota        | 超出配额                                                  | QuotaExceeded             | 呼叫量配額不足。 會在 xx:xx:xx 中補充配額。 -或- 頻寬配額不足。 會在 xx:xx:xx 中補充配額。 |
+| quota        | 超過配額                                                  | QuotaExceeded             | 呼叫量配額不足。 會在 xx:xx:xx 中補充配額。 -或- 頻寬配額不足。 會在 xx:xx:xx 中補充配額。 |
 | jsonp        | 回呼參數值無效 (包含錯誤的字元) | CallbackParameterInvalid  | 回呼參數 {callback-parameter-name} 的值不是有效的 JavaScript 識別碼。                                          |
 | ip-filter    | 無法從要求中剖析呼叫端 IP                          | FailedToParseCallerIP     | 無法建立呼叫端的 IP 位址。 拒絕存取。                                                                        |
 | ip-filter    | 呼叫端 IP 不在允許清單中                                | CallerIpNotAllowed        | 不允許呼叫端 IP 位址 {ip-address}。 拒絕存取。                                                                        |
 | ip-filter    | 呼叫端 IP 位於封鎖清單中                                    | CallerIpBlocked           | 呼叫端 IP 位址遭到封鎖。 拒絕存取。                                                                                         |
-| check-header | 必需的标头不存在或缺少值               | HeaderNotFound            | 在要求中找不到標頭 {header-name}。 拒絕存取。                                                                    |
+| check-header | 所需標頭不存在或找不到值               | HeaderNotFound            | 在要求中找不到標頭 {header-name}。 拒絕存取。                                                                    |
 | check-header | 所需標頭不存在或找不到值               | HeaderValueNotAllowed     | 不允許標頭 {header-name} 值 {header-value}。 拒絕存取。                                                          |
 | validate-jwt | 要求中沒有 Jwt 權杖                                 | TokenNotFound             | 在要求中找不到 JWT。 拒絕存取。                                                                                         |
-| validate-jwt | 簽章驗證失敗                                     | TokenSignatureInvalid     | <來自 jwt 程式庫的訊息\>。 访问被拒绝。                                                                                          |
-| validate-jwt | 無效的對象                                                | TokenAudienceNotAllowed   | <來自 jwt 程式庫的訊息\>。 访问被拒绝。                                                                                          |
-| validate-jwt | 無效的簽發者                                                  | TokenIssuerNotAllowed     | <來自 jwt 程式庫的訊息\>。 访问被拒绝。                                                                                          |
-| validate-jwt | 權杖過期                                                   | TokenExpired              | <來自 jwt 程式庫的訊息\>。 访问被拒绝。                                                                                          |
-| validate-jwt | 識別碼未解析簽章金鑰                            | TokenSignatureKeyNotFound | <jwt 库中的消息\>。 访问被拒绝。                                                                                          |
+| validate-jwt | 簽章驗證失敗                                     | TokenSignatureInvalid     | <來自 jwt 程式庫的訊息\>。 拒絕存取。                                                                                          |
+| validate-jwt | 無效的對象                                                | TokenAudienceNotAllowed   | <來自 jwt 程式庫的訊息\>。 拒絕存取。                                                                                          |
+| validate-jwt | 無效的簽發者                                                  | TokenIssuerNotAllowed     | <來自 jwt 程式庫的訊息\>。 拒絕存取。                                                                                          |
+| validate-jwt | 權杖過期                                                   | TokenExpired              | <來自 jwt 程式庫的訊息\>。 拒絕存取。                                                                                          |
+| validate-jwt | 識別碼未解析簽章金鑰                            | TokenSignatureKeyNotFound | <來自 jwt 程式庫的訊息\>。 拒絕存取。                                                                                          |
 | validate-jwt | 權杖中沒有必要的宣告                          | TokenClaimNotFound        | 下列宣告中沒有 JWT 權杖︰<c1\>, <c2\>, … 拒絕存取。                                                            |
 | validate-jwt | 宣告值不相符                                           | TokenClaimValueNotAllowed | 不允許宣告 {claim-name} 值 {claim-value}。 拒絕存取。                                                             |
 | validate-jwt | 其他驗證失敗                                       | JwtInvalid                | <來自 jwt 程式庫的訊息\>                                                                                                          |

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
 ms.openlocfilehash: f0d4a607676285ed4f0f91d8ce8c83ddf1313b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306813"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511148"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>適用於 Azure Functions 的 SignalR Service 繫結
 
@@ -56,7 +56,7 @@ ms.locfileid: "60306813"
 
 ## <a name="signalr-connection-info-input-binding"></a>SignalR 連線資訊輸入繫結
 
-在用戶端可以連線到 Azure SignalR Service 之前，它必須擷取服務端點 URL 和有效的存取權杖。 SignalRConnectionInfo 輸入繫結會產生 SignalR Service 端點 URL 和有效的存取權杖，可用來連線到服務。 因為權杖是限時的，且可用來驗證連線的特定使用者，所以您不應該快取權杖或者在用戶端之間共用權杖。 使用此繫結的 HTTP 觸發程序可以供用戶端用來擷取連線資訊。
+在用戶端可以連線到 Azure SignalR Service 之前，它必須擷取服務端點 URL 和有效的存取權杖。 SignalRConnectionInfo  輸入繫結會產生 SignalR Service 端點 URL 和有效的存取權杖，可用來連線到服務。 因為權杖是限時的，且可用來驗證連線的特定使用者，所以您不應該快取權杖或者在用戶端之間共用權杖。 使用此繫結的 HTTP 觸發程序可以供用戶端用來擷取連線資訊。
 
 請參閱特定語言的範例：
 
@@ -101,7 +101,7 @@ public static SignalRConnectionInfo Negotiate(
 
 ### <a name="2x-javascript-input-examples"></a>2.x JavaScript 輸入的範例
 
-下列範例示範 function.json 檔案中的 SignalR 連線資訊輸入繫結，以及使用繫結來傳回連線資訊的 [JavaScript 函式](functions-reference-node.md)。
+下列範例示範 function.json  檔案中的 SignalR 連線資訊輸入繫結，以及使用繫結來傳回連線資訊的 [JavaScript 函式](functions-reference-node.md)。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -195,7 +195,7 @@ public SignalRConnectionInfo negotiate(
 
 ## <a name="signalr-output-binding"></a>SignalR 輸出繫結
 
-若使用 SignalR 輸出繫結，即可使用 Azure SignalR Service 來傳送一或多則訊息。 您可以將訊息廣播到所有已連線的用戶端，或者您可以只將訊息廣播到已對指定使用者驗證的已連線用戶端。
+若使用 SignalR  輸出繫結，即可使用 Azure SignalR Service 來傳送一或多則訊息。 您可以將訊息廣播到所有已連線的用戶端，或者您可以只將訊息廣播到已對指定使用者驗證的已連線用戶端。
 
 您也可以使用它來管理使用者所屬的群組。
 
@@ -320,7 +320,7 @@ public static Task RemoveFromGroup(
 
 #### <a name="broadcast-to-all-clients"></a>廣播到所有用戶端
 
-下列範例示範 function.json 檔案中的 SignalR 輸出繫結，以及透過 Azure SignalR Service 使用繫結來傳送訊息的 [JavaScript 函式](functions-reference-node.md)。 將輸出繫結設為一或多則 SignalR 訊息的陣列。 SignalR 訊息是由 `target` 屬性 (會指定要在每個用戶端上叫用的方法名稱) 和 `arguments` 屬性 (要傳遞至用戶端方法作為引數的物件陣列) 組成。
+下列範例示範 function.json  檔案中的 SignalR 輸出繫結，以及透過 Azure SignalR Service 使用繫結來傳送訊息的 [JavaScript 函式](functions-reference-node.md)。 將輸出繫結設為一或多則 SignalR 訊息的陣列。 SignalR 訊息是由 `target` 屬性 (會指定要在每個用戶端上叫用的方法名稱) 和 `arguments` 屬性 (要傳遞至用戶端方法作為引數的物件陣列) 組成。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -351,7 +351,7 @@ module.exports = async function (context, req) {
 
 您可以藉由設定 SignalR 訊息的 `userId` 屬性，僅將訊息傳送給已對使用者驗證的連線。
 
-function.json 維持不變。 以下是 JavaScript 程式碼：
+function.json  維持不變。 以下是 JavaScript 程式碼：
 
 ```javascript
 module.exports = async function (context, req) {
@@ -368,7 +368,7 @@ module.exports = async function (context, req) {
 
 您可以將訊息僅傳送給已藉由設定新增至群組的連線`groupName`SignalR 訊息的屬性。
 
-function.json 維持不變。 以下是 JavaScript 程式碼：
+function.json  維持不變。 以下是 JavaScript 程式碼：
 
 ```javascript
 module.exports = async function (context, req) {
@@ -603,7 +603,7 @@ public SignalRGroupAction removeFromGroup(
 |**direction**|| 必須設為 `in`。|
 |**name**|| 函式程式碼中用於連線資訊物件的變數名稱。 |
 |**hubName**|**HubName**| 此值必須設為 SignalR 中樞 (針對該中樞產生連線資訊) 的名稱。|
-|**userId**|UserId| 選用：要在存取金鑰權杖中設定的使用者識別碼宣告值。 |
+|**userId**|UserId | 選用：要在存取金鑰權杖中設定的使用者識別碼宣告值。 |
 |**connectionStringSetting**|**ConnectionStringSetting**| 包含 SignalR Service 連接字串 (預設值為 "AzureSignalRConnectionString") 的應用程式設定名稱 |
 
 ### <a name="signalr"></a>SignalR
@@ -626,4 +626,4 @@ public SignalRGroupAction removeFromGroup(
 > [深入了解 Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Azure Functions 開發和使用 Azure SignalR 服務的組態](../azure-signalr/signalr-concept-serverless-development-config.md)
+> [使用 Azure SignalR Service 來開發與設定 Azure Functions](../azure-signalr/signalr-concept-serverless-development-config.md)

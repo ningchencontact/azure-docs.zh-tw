@@ -15,10 +15,10 @@ ms.date: 04/03/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: f76dd423cb3f7fbae6cc88d064e49dc2d56f1a1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60766041"
 ---
 # <a name="app-service-environment-management-addresses"></a>App Service Environment 管理位址
@@ -38,7 +38,7 @@ App Service Environment (ASE) 是單一租用戶部署 Azure 虛擬網路 (VNet)
 
 ## <a name="configuring-a-network-security-group"></a>設定網路安全性群組
 
-使用網路安全性群組中，您不需要擔心個別地址或維護您自己的組態。 沒有名為 AppServiceManagement 保持最新的所有位址與 IP 服務標籤。 若要使用此 IP 服務標籤在 NSG 中，移至入口網站開啟您網路安全性的群組 UI，然後選取 輸入的安全性規則。 如果您有預先存在的規則，用於輸入的管理流量，進行編輯。 如果未使用 ASE 建立此 NSG，或者該 NSG 是全新的，則選取 [新增]。 在來源下拉式清單中，選取 [服務標籤]。  在 來源服務標籤中，選取**AppServiceManagement**。 將來源連接埠範圍設為 \*、目的地設為 **Any**、目的地連接埠範圍設為 **454-455**、通訊協定設為 **TCP**，以及將動作設為 **Allow**。 如果您要進行此規則，您需要設定的優先順序。 
+使用網路安全性群組中，您不需要擔心個別地址或維護您自己的組態。 沒有名為 AppServiceManagement 保持最新的所有位址與 IP 服務標籤。 若要使用此 IP 服務標籤在 NSG 中，移至入口網站開啟您網路安全性的群組 UI，然後選取 輸入的安全性規則。 如果您有預先存在的規則，用於輸入的管理流量，進行編輯。 如果未使用 ASE 建立此 NSG，或者該 NSG 是全新的，則選取 [新增]  。 在來源下拉式清單中，選取 [服務標籤]  。  在 來源服務標籤中，選取**AppServiceManagement**。 將來源連接埠範圍設為 \*、目的地設為 **Any**、目的地連接埠範圍設為 **454-455**、通訊協定設為 **TCP**，以及將動作設為 **Allow**。 如果您要進行此規則，您需要設定的優先順序。 
 
 ![使用服務標籤建立 NSG][1]
 

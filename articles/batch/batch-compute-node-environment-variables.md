@@ -13,10 +13,10 @@ ms.workload: big-compute
 ms.date: 04/23/2019
 ms.author: lahugh
 ms.openlocfilehash: c46f75c447becc8b15d4a6b8f979330db7ab95c7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575572"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Azure Batch 執行階段環境變數
@@ -53,11 +53,11 @@ ms.locfileid: "64575572"
 | AZ_BATCH_AUTHENTICATION_TOKEN   | 驗證權杖，可授與一組有限 Batch 服務作業的存取權。 只有在設定[新增工作](/rest/api/batchservice/task/add#request-body)時設定 [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings)，此環境變數才存在。 權杖值會在 Batch API 中作為認證來建立 Batch 用戶端，例如在 [BatchClient.Open() .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_)。 | 所有工作。 | OAuth2 存取權杖 |
 | AZ_BATCH_CERTIFICATES_DIR       | 系統為 Linux 計算節點儲存憑證所在[工作工作目錄][files_dirs]內的目錄。 請注意，這個環境變數不會套用至 Windows 計算節點。                                                  | 所有工作。   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | 配置給[多重執行個體工作][multi_instance]的節點清單，清單格式為 `nodeIP,nodeIP`。 | 多重執行個體的主要工作和子工作。 | `10.0.0.4,10.0.0.5` |
-| AZ_BATCH_IS_CURRENT_NODE_MASTER | 指定当前节点是否为[多实例任务][multi_instance]的主节点。 可能的值為 `true` 與 `false`。| 多重執行個體的主要工作和子工作。 | `true` |
+| AZ_BATCH_IS_CURRENT_NODE_MASTER | 指定目前節點是否為[多重執行個體工作][multi_instance]的主要節點。 可能的值為 `true` 與 `false`。| 多重執行個體的主要工作和子工作。 | `true` |
 | AZ_BATCH_JOB_ID                 | 工作所屬之作業的 ID。 | 啟動工作之外的所有工作。 | batchjob001 |
-| AZ_BATCH_JOB_PREP_DIR           | 節點上作業準備[工作目錄][files_dirs]的完整路徑。 | 啟動工作與作業準備工作之外的所有工作。 仅当使用作业准备任务来配置作业时才适用。 | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
+| AZ_BATCH_JOB_PREP_DIR           | 節點上作業準備[工作目錄][files_dirs]的完整路徑。 | 啟動工作與作業準備工作之外的所有工作。 僅適用於透過作業準備工作設定作業時。 | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
 | AZ_BATCH_JOB_PREP_WORKING_DIR   | 節點上作業準備[工作工作目錄][files_dirs]的完整路徑。 | 啟動工作與作業準備工作之外的所有工作。 僅適用於透過作業準備工作設定作業時。 | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
-| AZ_BATCH_MASTER_NODE            | 在其上运行[多实例任务][multi_instance]的主要任务的计算节点的 IP 地址和端口。 | 多重執行個體的主要工作和子工作。 | `10.0.0.4:6000` |
+| AZ_BATCH_MASTER_NODE            | [多重執行個體工作][multi_instance]的主要工作執行所在的計算節點其 IP 位址與連接埠。 | 多重執行個體的主要工作和子工作。 | `10.0.0.4:6000` |
 | AZ_BATCH_NODE_ID                | 將工作指派至該節點的識別碼。 | 所有工作。 | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_IS_DEDICATED      | 若為 `true`，目前的節點就是專用節點。 若為 `false`，它就是[低優先順序節點](batch-low-pri-vms.md)。 | 所有工作。 | `true` |
 | AZ_BATCH_NODE_LIST              | 配置給[多重執行個體工作][multi_instance]的節點清單，清單格式為 `nodeIP;nodeIP`。 | 多重執行個體的主要工作和子工作。 | `10.0.0.4;10.0.0.5` |
@@ -66,7 +66,7 @@ ms.locfileid: "64575572"
 | AZ_BATCH_NODE_STARTUP_DIR       | 節點上[啟動工作目錄][files_dirs]的完整路徑。 | 所有工作。 | C:\user\tasks\startup |
 | AZ_BATCH_POOL_ID                | 執行工作之集區的 ID。 | 所有工作。 | batchpool001 |
 | AZ_BATCH_TASK_DIR               | 節點上[工作目錄][files_dirs]的完整路徑。 此目錄包含工作的 `stdout.txt` 與 `stderr.txt`，以及 AZ_BATCH_TASK_WORKING_DIR。 | 所有工作。 | C:\user\tasks\workitems\batchjob001\job-1\task001 |
-| AZ_BATCH_TASK_ID                | 当前任务的 ID。 | 啟動工作之外的所有工作。 | task001 |
+| AZ_BATCH_TASK_ID                | 目前工作的 ID。 | 啟動工作之外的所有工作。 | task001 |
 | AZ_BATCH_TASK_SHARED_DIR | [多重執行個體工作][multi_instance]的主要工作與每個子工作相同的目錄路徑。 此路徑存在於多重執行個體工作執行所在的每個節點上，且可由在該節點上執行的工作命令 ([協調命令][coord_cmd]與[應用程式命令][app_cmd]) 以讀取/寫入的方式存取。 在其他節點上執行的子工作或主要工作沒有遠端存取此目錄 (它不是「共用的」網路目錄) 的權限。 | 多重執行個體的主要工作和子工作。 | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_TASK_WORKING_DIR       | 節點上[工作工作目錄][files_dirs]的完整路徑。 目前執行中工作具有此目錄的讀取/寫入存取權。 | 所有工作。 | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | CCP_NODES                       | 各節點配置給[多重執行個體工作][multi_instance]的節點清單與核心數目。 列出節點與核心的格式為：`numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`，其中節點數目後面會加上一或多個節點 IP 位址，及每個節點的核心數目。 |  多重執行個體的主要工作和子工作。 |`2 10.0.0.4 1 10.0.0.5 1` |

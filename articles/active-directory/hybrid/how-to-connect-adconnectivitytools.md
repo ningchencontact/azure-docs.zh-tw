@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd5340cd8c802df4ffbe0207b5401d2fee4e207e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571124"
 ---
 # <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>針對使用 ADConnectivityTool PowerShell 模組的 Azure AD 連線進行疑難排解
@@ -29,7 +29,7 @@ ADConnectivity 工具是 PowerShell 模組，可在下列其中一種情況使�
 
 ## <a name="adconnectivitytool-during-installation"></a>在安裝期間使用 ADConnectivityTool
 
-在 Azure AD Connect 精靈的 [連線您的目錄] 頁面上，如果發生網路問題，ADConnectivityTool 會自動使用其函式之一，判斷發生什麼狀況。  下列任一項都可視為網路問題：
+在 Azure AD Connect 精靈的 [連線您的目錄]  頁面上，如果發生網路問題，ADConnectivityTool 會自動使用其函式之一，判斷發生什麼狀況。  下列任一項都可視為網路問題：
 
 - 使用者提供的樹系名稱輸入錯誤，或該樹系並不存在 
 - 與使用者所提供樹系相關聯的網域控制站已關閉 UDP 連接埠 389
@@ -43,11 +43,11 @@ ADConnectivity 工具是 PowerShell 模組，可在下列其中一種情況使�
 
 ![Error](media/how-to-connect-adconnectivitytools/error1.png)
 
-例如，當我們嘗試在 [連線您的目錄] 畫面上新增目錄時，Azure AD Connect 需要加以驗證，並預期能夠透過連接埠 389 和網域控制站通訊。  如果不行，就會看到上述螢幕擷取畫面所示的錯誤。  
+例如，當我們嘗試在 [連線您的目錄]  畫面上新增目錄時，Azure AD Connect 需要加以驗證，並預期能夠透過連接埠 389 和網域控制站通訊。  如果不行，就會看到上述螢幕擷取畫面所示的錯誤。  
 
 背後實際的情況是，Azure AD Connect 正在呼叫 `Start-NetworkConnectivityDiagnosisTools` 函式。  由於網路連線問題，導致認證驗證失敗時，會呼叫此函式。
 
-最後，每當從精靈呼叫此工具時，都會產生詳細的記錄檔。 该日志位于 **C:\ProgramData\AADConnect\ADConnectivityTool-\<date>-\<time>.log**
+最後，每當從精靈呼叫此工具時，都會產生詳細的記錄檔。 記錄檔位於**C:\ProgramData\AADConnect\ADConnectivityTool-\<日期 >-\<時間 >.log**
 
 ## <a name="adconnectivitytools-post-installation"></a>ADConnectivityTools 後續安裝
 在安裝 Azure AD Connect 之後，可以使用 ADConnectivityTools PowerShell 模組中的任何函式。  

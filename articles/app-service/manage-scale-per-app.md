@@ -16,10 +16,10 @@ ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: 824abbdfd1b3980b419e6d6c46814bb0318adf13
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602324"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>使用每個應用程式調整的 Azure App Service 上的高密度裝載
@@ -82,7 +82,7 @@ Set-AzWebApp $newapp
 - 規模相應放大到 10 個執行個體的 App Service 方案
 - 已設定為將上限調整成 5 個執行個體的應用程式。
 
-App Service 方案會將 **PerSiteScaling** 屬性設為 true (`"perSiteScaling": true`)。 應用程式會將要使用的「背景工作角色數目」設定為 5 (`"properties": { "numberOfWorkers": "5" }`)。
+App Service 方案會將 **PerSiteScaling** 屬性設為 true (`"perSiteScaling": true`)。 應用程式會將要使用的「背景工作角色數目」  設定為 5 (`"properties": { "numberOfWorkers": "5" }`)。
 
 ```json
 {
@@ -141,7 +141,7 @@ App Service 方案會將 **PerSiteScaling** 屬性設為 true (`"perSiteScaling"
 1. 在 App Service 方案上將 `PerSiteScaling` 旗標設定為 true。
 1. 新應用程式會建立並指派給該 App Service 方案，其中 **numberOfWorkers** 屬性會設定為 **1**。
    - 使用此組態會產生可能的最高密度。
-1. 背景工作角色數目可依每個應用程式單獨設定，以視需要授與額外資源。 例如：
+1. 背景工作角色數目可依每個應用程式單獨設定，以視需要授與額外資源。 例如:
    - 高用量應用程式可以將 **numberOfWorkers** 設定為 **3**，讓該應用程式具有更多的處理容量。
    - 低用量應用程式會將 **numberOfWorkers** 設定為 **1**。
 

@@ -16,10 +16,10 @@ ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e883833f7998c073b574c892ed5c7777e01faab4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62111438"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>教學課程：Azure Active Directory 與 Printix 整合
@@ -60,15 +60,15 @@ Printix 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 Printix，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。 
 
     ![Active Directory][1]
 
-1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
+1. 瀏覽至 [企業應用程式]  。 然後移至 [所有應用程式]  。
 
     ![[應用程式]][2]
     
-1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式]  按鈕。
 
     ![[應用程式]][3]
 
@@ -76,7 +76,7 @@ Printix 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/printix-tutorial/tutorial_printix_search.png)
 
-1. 在結果窗格中，選取 [Printix]，然後按一下 [新增] 按鈕以新增應用程式。
+1. 在結果窗格中，選取 [Printix]  ，然後按一下 [新增]  按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/printix-tutorial/tutorial_printix_addfromgallery.png)
 
@@ -101,24 +101,24 @@ Printix 與 Azure AD 整合提供下列優點：
 
 **若要使用 Printix 設定 Azure AD 單一登入，請執行下列步驟：**
 
-1. 在 Azure 入口網站的 [Printix] 應用程式整合頁面上，按一下 [單一登入]。
+1. 在 Azure 入口網站的 [Printix]  應用程式整合頁面上，按一下 [單一登入]  。
 
     ![設定單一登入][4]
 
-1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
+1. 在 [單一登入]  對話方塊上，於 [模式]  選取 [SAML 登入]  ，以啟用單一登入。
  
     ![設定單一登入](./media/printix-tutorial/tutorial_printix_samlbase.png)
 
-1. 在 [Printix 網域與 URL] 區段上，執行下列步驟：
+1. 在 [Printix 網域與 URL]  區段上，執行下列步驟：
 
     ![設定單一登入](./media/printix-tutorial/tutorial_printix_url.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<subdomain>.printix.net`
+    在 [登入 URL]  文字方塊中，使用下列模式輸入 URL︰ `https://<subdomain>.printix.net`
 
     > [!NOTE] 
     > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Printix 客戶支援小組](mailto:support@printix.net)以取得此值。 
  
-1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
+1. 在 [SAML 簽署憑證]  區段上，按一下 [中繼資料 XML]  ，然後將中繼資料檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/printix-tutorial/tutorial_printix_certificate.png) 
 
@@ -128,31 +128,31 @@ Printix 與 Azure AD 整合提供下列優點：
 
 1. 以系統管理員身分登入 Printix 租用戶。
 
-1. 在頂端功能表中，按一下右上角的圖示，然後選取 [驗證]。
+1. 在頂端功能表中，按一下右上角的圖示，然後選取 [驗證]  。
    
     ![設定單一登入](./media/printix-tutorial/tutorial_printix_06.png)
 
-1. 在 [設定] 索引標籤上，選取 [啟用 Azure/Office 365 驗證]。
+1. 在 [設定]  索引標籤上，選取 [啟用 Azure/Office 365 驗證]  。
    
     ![設定單一登入](./media/printix-tutorial/tutorial_printix_07.png)
 
-1. 在 [Azure] 索引標籤的在 [同盟中繼資料文件] 文字方塊中，輸入同盟中繼資料 URL。 
+1. 在 [Azure]  索引標籤的在 [同盟中繼資料文件]  文字方塊中，輸入同盟中繼資料 URL。 
 
     將您從 Azure AD 下載的中繼資料 xml 檔案附加給 [Printix 支援小組](mailto:support@printix.net)。 他們將會上傳此 xml 檔案，並提供同盟中繼資料 URL。
    
     ![設定單一登入](./media/printix-tutorial/tutorial_printix_08.png)
    
-1. 按一下 [測試] 按鈕，如果測試成功，再按一下 [確定] 按鈕。
+1. 按一下 [測試]  按鈕，如果測試成功，再按一下 [確定]  按鈕。
    
-     按一下 [測試] 按鈕後會顯示 Azure Active Directory 頁面。 此處的「測試成功」代表在輸入 Azure 測試帳戶的認證後，它會出現訊息「設定已通過測試」。接著，按一下 [確定] 按鈕。
+     按一下 [測試]  按鈕後會顯示 Azure Active Directory 頁面。 此處的「測試成功」代表在輸入 Azure 測試帳戶的認證後，它會出現訊息「設定已通過測試」。接著，按一下 [確定]  按鈕。
    
     ![設定單一登入](./media/printix-tutorial/tutorial_printix_09.png)
 
-1. 按一下 [驗證] 頁面上的 [儲存] 按鈕。
+1. 按一下 [驗證]  頁面上的 [儲存]  按鈕。
 
 
 > [!TIP]
-> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式]  區段新增此應用程式之後，只要按一下 [單一登入]  索引標籤，即可透過底部的 [組態]  區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
@@ -162,15 +162,15 @@ Printix 與 Azure AD 整合提供下列優點：
 
 **若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
-1. 在 **Azure 入口網站**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **Azure 入口網站**的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。
 
     ![建立 Azure AD 測試使用者](./media/printix-tutorial/create_aaduser_01.png) 
 
-1. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+1. 若要顯示使用者清單，請移至 [使用者和群組]  ，然後按一下 [所有使用者]  。
     
     ![建立 Azure AD 測試使用者](./media/printix-tutorial/create_aaduser_02.png) 
 
-1. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
+1. 若要開啟 [使用者]  對話方塊，按一下對話方塊頂端的 [新增]  。
  
     ![建立 Azure AD 測試使用者](./media/printix-tutorial/create_aaduser_03.png) 
 
@@ -178,13 +178,13 @@ Printix 與 Azure AD 整合提供下列優點：
  
     ![建立 Azure AD 測試使用者](./media/printix-tutorial/create_aaduser_04.png) 
 
-    a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
+    a. 在 [名稱]  文字方塊中，輸入 **BrittaSimon**。
 
-    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
+    b. 在 [使用者名稱]  文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
-    c. 選取 [顯示密碼] 並記下 [密碼] 的值。
+    c. 選取 [顯示密碼]  並記下 [密碼]  的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    d. 按一下頁面底部的 [新增]  。
  
 ### <a name="creating-a-printix-test-user"></a>建立 Printix 測試使用者
 
@@ -204,27 +204,27 @@ Printix 與 Azure AD 整合提供下列優點：
 
 **若要將 Britta Simon 指派到 Printix，請執行以下步驟：**
 
-1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
+1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]  ，然後按一下 [所有應用程式]  。
 
     ![指派使用者][201] 
 
-1. 在應用程式清單中，選取 [Printix] 。
+1. 在應用程式清單中，選取 [Printix]  。
 
     ![設定單一登入](./media/printix-tutorial/tutorial_printix_app.png) 
 
-1. 在左側功能表中，按一下 [使用者和群組]。
+1. 在左側功能表中，按一下 [使用者和群組]  。
 
     ![指派使用者][202] 
 
-1. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
+1. 按一下 [新增]  按鈕。 然後選取 [新增指派]  對話方塊上的 [使用者和群組]  。
 
     ![指派使用者][203]
 
-1. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
+1. 在 [使用者和群組]  對話方塊上，選取 [使用者] 清單中的 [Britta Simon]  。
 
-1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
+1. 按一下 [使用者和群組]  對話方塊上的 [選取]  按鈕。
 
-1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
+1. 按一下 [新增指派]  對話方塊上的 [指派]  按鈕。
     
 ### <a name="testing-single-sign-on"></a>測試單一登入
 

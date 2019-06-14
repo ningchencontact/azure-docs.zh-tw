@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
 ms.openlocfilehash: 52fafa7e9dd46b6c78af3776797bae48b22ea8df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64698437"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 輸出規則
@@ -45,7 +45,7 @@ ms.locfileid: "64698437"
 
 **前端** + **參數** + **後端集區**
 
-輸出規則會將「後端集區所識別的所有虛擬機器」的輸出 NAT 設定為轉譯成「前端」。  而且，「參數」提供對輸出 NAT 演算法的額外精細控制。
+輸出規則會將「後端集區所識別的所有虛擬機器」  的輸出 NAT 設定為轉譯成「前端」  。  而且，「參數」  提供對輸出 NAT 演算法的額外精細控制。
 
 API 版本 "2018-07-01" 允許輸出規則定義建構如下：
 

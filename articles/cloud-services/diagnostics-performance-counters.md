@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/02/2018
 ms.author: jeconnoc
 ms.openlocfilehash: 68101be211335d51eb4bf99361ea36b73fa19218
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60653734"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>為您的 Azure 雲端服務收集效能計數器
@@ -105,7 +105,7 @@ Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -E
 <!-- ... cut to save space ... -->
 ```
 
-每個效能計數器表示為 `<Counters>` 底下的 `<Add>` 元素。 `PerformanceCounter` 屬性會定義要收集哪個效能計數器。 `ReportAs` 屬性是要在 Azure 入口網站中針對效能計數器顯示的標題。 您收集的任何效能計數器都會放入入口網站中名為「自訂」的分類。 不同於 Azure 診斷，您無法設定收集這些效能計數器並傳送至 Azure 的間隔。 使用 Application Insights，會每分鐘收集效能計數器並傳送。 
+每個效能計數器表示為 `<Counters>` 底下的 `<Add>` 元素。 `PerformanceCounter` 屬性會定義要收集哪個效能計數器。 `ReportAs` 屬性是要在 Azure 入口網站中針對效能計數器顯示的標題。 您收集的任何效能計數器都會放入入口網站中名為「自訂」  的分類。 不同於 Azure 診斷，您無法設定收集這些效能計數器並傳送至 Azure 的間隔。 使用 Application Insights，會每分鐘收集效能計數器並傳送。 
 
 Application Insights 會自動收集下列效能計數器：
 

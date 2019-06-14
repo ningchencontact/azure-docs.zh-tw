@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
 ms.openlocfilehash: d919453816436366c00dde506210a2ed38cc69b7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952200"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>使用 RBAC 來管理外部使用者的 Azure 資源存取權
@@ -44,18 +44,18 @@ ms.locfileid: "65952200"
 從 Azure 入口網站中，在您以管理員身分登入之後，請選取「訂用帳戶」，並選擇所需的訂用帳戶。
 ![Azure 入口網站中的訂用帳戶刀鋒視窗](./media/role-assignments-external-users/0.png) 根據預設，如果管理使用者已購買 Azure 訂用帳戶，使用者就會顯示為**帳戶管理員**，這是訂用帳戶角色。 如需 Azure 訂用帳戶角色的詳細資訊，請參閱[新增或變更 Azure 訂用帳戶管理員](../billing/billing-add-change-azure-subscription-administrator.md)。
 
-在此範例中，使用者 "alflanigan@outlook.com" 是「預設租用戶 Azure」AAD 租用戶中的「免費試用版」訂用帳戶之**擁有者**。 由於此使用者是具有初始 Microsoft 帳戶 “Outlook” (Microsoft 帳戶 = Outlook、Live 等) 的 Azure 訂用帳戶建立者，因此這個租用戶中所新增其他所有使用者的預設網域名稱會是 **"\@alflaniganuoutlook.onmicrosoft.com"**。 根據設計，新網域的語法構成方式是，將建立租用戶的使用者之使用者名稱和網域名稱加以組合，並新增 **".onmicrosoft.com"** 延伸。
+在此範例中，使用者 "alflanigan@outlook.com" 是「預設租用戶 Azure」AAD 租用戶中的「免費試用版」訂用帳戶之**擁有者**。 由於此使用者是具有初始 Microsoft 帳戶 “Outlook” (Microsoft 帳戶 = Outlook、Live 等) 的 Azure 訂用帳戶建立者，因此這個租用戶中所新增其他所有使用者的預設網域名稱會是 **"\@alflaniganuoutlook.onmicrosoft.com"** 。 根據設計，新網域的語法構成方式是，將建立租用戶的使用者之使用者名稱和網域名稱加以組合，並新增 **".onmicrosoft.com"** 延伸。
 此外，使用者在新增及驗證新租用戶的自訂網域名稱之後，即可使用租用戶中的自訂網域名稱進行登入。 如需有關如何驗證 Azure Active Directory 租用戶中自訂網域名稱的詳細資訊，請參閱[將自訂網域名稱新增至您的目錄](../active-directory/fundamentals/add-custom-domain.md)。
 
 在此範例中，「預設租用戶 Azure」目錄僅包含具有 "\@alflanigan.onmicrosoft.com" 網域名稱的使用者。
 
-選取訂用帳戶之後，管理使用者必須依序按一下 [存取控制 (IAM)] 以及 [新增角色]。
+選取訂用帳戶之後，管理使用者必須依序按一下 [存取控制 (IAM)]  以及 [新增角色]  。
 
 ![Azure 入口網站中的存取控制 IAM 功能](./media/role-assignments-external-users/1.png)
 
 ![在 Azure 入口網站的存取控制 IAM 功能中新增使用者](./media/role-assignments-external-users/2.png)
 
-下一個步驟是選取要指派的角色，以及要指派 RBAC 角色的使用者。 在 [角色] 下拉式功能表中，管理使用者只會看到 Azure 中提供的內建 RBAC 角色。 如需每個角色及其可指派範圍的詳細說明，請參閱 [Azure 資源的內建角色](built-in-roles.md)。
+下一個步驟是選取要指派的角色，以及要指派 RBAC 角色的使用者。 在 [角色]  下拉式功能表中，管理使用者只會看到 Azure 中提供的內建 RBAC 角色。 如需每個角色及其可指派範圍的詳細說明，請參閱 [Azure 資源的內建角色](built-in-roles.md)。
 
 然後，管理使用者必須新增外部使用者的電子郵件地址。 預期的行為是要使外部使用者不顯示在現有的租用戶中。 已邀請外部使用者之後，它們會顯示於下方**訂用帳戶 > 存取控制 (IAM)** 與目前已指派訂用帳戶範圍的 RBAC 角色的所有目前使用者。
 
@@ -74,9 +74,9 @@ ms.locfileid: "65952200"
 
 ![使用者刀鋒視窗 Azure Active Directory Azure 入口網站](./media/role-assignments-external-users/7.png)
 
-在 Azure 入口網站的 [使用者] 檢視中，可由不同的圖示類型來辨識外部使用者。
+在 Azure 入口網站的 [使用者]  檢視中，可由不同的圖示類型來辨識外部使用者。
 
-不過，除非**全域管理員**加以允許，否則將**擁有者**或**參與者**存取權授與給**訂用帳戶**範圍內的外部使用者，並不允許存取管理使用者的目錄。 在使用者屬性中，可以識別 [使用者類型]，其中包含兩個常見的參數 [成員] 和 [來賓]。 成員是已在目錄中註冊的使用者，來賓則是從外部來源邀請到目錄的使用者。 如需詳細資訊，請參閱 [Azure Active Directory 系統管理員如何新增 B2B 共同作業使用者](../active-directory/active-directory-b2b-admin-add-users.md)。
+不過，除非**全域管理員**加以允許，否則將**擁有者**或**參與者**存取權授與給**訂用帳戶**範圍內的外部使用者，並不允許存取管理使用者的目錄。 在使用者屬性中，可以識別 [使用者類型]  ，其中包含兩個常見的參數 [成員]  和 [來賓]  。 成員是已在目錄中註冊的使用者，來賓則是從外部來源邀請到目錄的使用者。 如需詳細資訊，請參閱 [Azure Active Directory 系統管理員如何新增 B2B 共同作業使用者](../active-directory/active-directory-b2b-admin-add-users.md)。
 
 > [!NOTE]
 > 請確定外部使用者在入口網站中輸入認證之後，選取正確的目錄進行登入。 相同使用者可以存取多個目錄，並且可以選擇其中一個目錄，方法是按一下 Azure 入口網站右上角的使用者名稱，然後從下拉式清單中選取適當的目錄。
@@ -112,11 +112,11 @@ Azure Active Directory 和 Azure 訂用帳戶沒有父子式關聯性，如同�
 
 ## <a name="assign-rbac-roles-at-the-resource-group-scope"></a>指派資源群組範圍內的 RBAC 角色
 
-對於兩種類型的使用者 - 外部或內部 (相同目錄的一部分)，指派**資源群組**範圍內的 RBAC 角色與指派訂用帳戶等級的角色程序相同。 獲指派 RBAC 角色的使用者在其環境中所看到的資源群組，僅限於已從 Azure 入口網站中的 [資源群組] 圖示指派存取權給他們的資源群組。
+對於兩種類型的使用者 - 外部或內部 (相同目錄的一部分)，指派**資源群組**範圍內的 RBAC 角色與指派訂用帳戶等級的角色程序相同。 獲指派 RBAC 角色的使用者在其環境中所看到的資源群組，僅限於已從 Azure 入口網站中的 [資源群組]  圖示指派存取權給他們的資源群組。
 
 ## <a name="assign-rbac-roles-at-the-resource-scope"></a>指派資源範圍內的 RBAC 角色
 
-在 Azure 中指派資源範圍內的角色與指派訂用帳戶等級或資源群組等級的角色程序相同，這兩個案例皆遵循相同的工作流程。 同樣地，獲指派 RBAC 角色的使用者所能看到的項目，也僅限於在 [所有資源] 索引標籤或直接在其儀表板中指派存取權給他們的項目。
+在 Azure 中指派資源範圍內的角色與指派訂用帳戶等級或資源群組等級的角色程序相同，這兩個案例皆遵循相同的工作流程。 同樣地，獲指派 RBAC 角色的使用者所能看到的項目，也僅限於在 [所有資源]  索引標籤或直接在其儀表板中指派存取權給他們的項目。
 
 不論是在資源群組範圍還是資源範圍，RBAC 都有一個重要層面，就是讓使用者確定登入正確的目錄。
 

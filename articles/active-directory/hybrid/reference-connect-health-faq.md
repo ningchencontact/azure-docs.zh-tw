@@ -16,10 +16,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62096110"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health 常見問題集
@@ -28,7 +28,7 @@ ms.locfileid: "62096110"
 ## <a name="general-questions"></a>一般問題
 **问：我管理多個 Azure AD 目錄。我如何切換到包含 Azure Active Directory Premium 的租用戶？**
 
-若要在不同的 Azure AD 租用戶之間切換，請在右上角選取目前登入的 [使用者名稱]，然後選擇適當的帳戶。 如果此處未列出帳戶，請選取 [登出]，然後使用已啟用 Azure Active Directory Premium 之目錄的全域系統管理員認證登入。
+若要在不同的 Azure AD 租用戶之間切換，請在右上角選取目前登入的 [使用者名稱]  ，然後選擇適當的帳戶。 如果此處未列出帳戶，請選取 [登出]  ，然後使用已啟用 Azure Active Directory Premium 之目錄的全域系統管理員認證登入。
 
 **问：Azure AD Connect Health 支援哪個版本的身分識別角色？**
 
@@ -65,7 +65,7 @@ ms.locfileid: "62096110"
 
 德國雲端不支援 Azure AD Connect Health，但[同步處理錯誤報告功能](how-to-connect-health-sync.md#object-level-synchronization-error-report)除外。
 
-| 角色 | 特性 | 德國雲端中支援 |
+| 角色 | 功能 | 德國雲端中支援 |
 | ------ | --------------- | --- |
 | 適用於同步處理的 Connect Health | 監視/見解/警示/分析 | 否 |
 |  | 同步處理錯誤報告 | 是 |
@@ -106,9 +106,9 @@ ms.locfileid: "62096110"
 
 如果需要在代理程式註冊期間設定 Proxy，您可能需要預先修改 Internet Explorer 的 Proxy 設定。
 
-1. 開啟 Internet Explorer > [設定]  >  [網際網路選項]  >  [連線]  >  [LAN 設定]。
-2. 選取 [在您的區域網路使用 Proxy 伺服器]。
-3. 如果您有不同的 Proxy 連接埠供 HTTP 和 HTTPS/安全使用，請選取 [進階]。
+1. 開啟 Internet Explorer > [設定]   >  [網際網路選項]   >  [連線]   >  [LAN 設定]  。
+2. 選取 [在您的區域網路使用 Proxy 伺服器]  。
+3. 如果您有不同的 Proxy 連接埠供 HTTP 和 HTTPS/安全使用，請選取 [進階]  。
 
 **问：連線到 HTTP Proxy 時，Azure AD Connect Health 是否支援基本驗證？**
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: hrasheed
 ms.openlocfilehash: 5d567074a0038915cc43a585b34c9c71ccf3eb1b
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65464984"
 ---
 # <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>設定安全通訊端層 (SSL) 加密及驗證適用於 Azure HDInsight 中的 Apache Kafka
@@ -118,13 +118,13 @@ SSL Kafka 訊息代理程式安裝程式會以下列方式使用 HDInsight 叢�
 若要完成設定修改，請執行以下步驟：
 
 1. 登入 Azure 入口網站，然後選取您的 Azure HDInsight Apache Kafka 叢集。
-1. 按一下 [叢集儀表板] 下方的 [Ambari 首頁] 來移至 Ambari UI。
-1. 在 [Kafka Broker] \(Kafka 訊息代理程式\) 下方，將 [listeners] \(接聽程式\) 屬性設定為 `PLAINTEXT://localhost:9092,SSL://localhost:9093`
-1. 在 [Advanced kafka-broker] \(進階 kafka-broker\) 下方，將 [security.inter.broker.protocol] 屬性設定為 `SSL`
+1. 按一下 [叢集儀表板]  下方的 [Ambari 首頁]  來移至 Ambari UI。
+1. 在 [Kafka Broker]  \(Kafka 訊息代理程式\) 下方，將 [listeners]  \(接聽程式\) 屬性設定為 `PLAINTEXT://localhost:9092,SSL://localhost:9093`
+1. 在 [Advanced kafka-broker]  \(進階 kafka-broker\) 下方，將 [security.inter.broker.protocol]  屬性設定為 `SSL`
 
     ![在 Ambari 中編輯 Kafka ssl 設定屬性](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
 
-1. 在 [Custom kafka-broker] \(自訂 kafka-broker\) 下方，將 [ssl.client.auth] 屬性設定為 `required`。 這個步驟只是如果您要設定驗證和加密所需。
+1. 在 [Custom kafka-broker]  \(自訂 kafka-broker\) 下方，將 [ssl.client.auth]  屬性設定為 `required`。 這個步驟只是如果您要設定驗證和加密所需。
 
     ![在 Ambari 中編輯 kafka ssl 設定屬性](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 

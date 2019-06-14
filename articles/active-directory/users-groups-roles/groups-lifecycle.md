@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1de17429dfe89506445b2d47999b102f3becb15b
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604393"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>為 Office 365 群組設定到期原則
@@ -58,12 +58,12 @@ ms.locfileid: "65604393"
   
    ![群組到期設定](./media/groups-lifecycle/expiration-settings.png)
 
-3. 在 [到期] 刀鋒視窗中，您可以：
+3. 在 [到期]  刀鋒視窗中，您可以：
 
   * 設定群組的存留期 (以天為單位)。 您可以選取其中一個預設值或自訂值 (應為 31 天或更多)。 
   * 指定當群組沒有擁有者時應該傳送續訂和到期通知的電子郵件地址。 
-  * 選取到期的 Office 365 群組。 您可以啟用**所有** Office 365 群組的到期日，也可以選擇僅啟用**已選取**的 Office 365 群組，或選取 [無] 以停用所有群組的到期日。
-  * 當您完成時，選取 [儲存] 會儲存您的設定。
+  * 選取到期的 Office 365 群組。 您可以啟用**所有** Office 365 群組的到期日，也可以選擇僅啟用**已選取**的 Office 365 群組，或選取 [無]  以停用所有群組的到期日。
+  * 當您完成時，選取 [儲存]  會儲存您的設定。
 
 > [!NOTE]
 > 當您第一次設定到期日時，任何早於到期間隔的群組會設定為 30 後到期。 第一封續訂通知電子郵件會在第一天發出。 例如，400 天前已建立群組 A，而且到期間隔設定為 180 天。 當您套用到期原則時，群組 A 會有 30 天後刪除它，除非擁有者續訂。
@@ -81,7 +81,7 @@ ms.locfileid: "65604393"
 
 ![群組刪除電子郵件通知](./media/groups-lifecycle/deletion-notification.png)
 
-在刪除群組後的 30 天內，您可以選取 [還原群組] 或使用 PowerShell Cmdlet 來還原群組，如[在 Azure Active Directory 中還原已刪除的 Office 365 群組](groups-restore-deleted.md)所述。 請注意，您無法自訂 30 天的群組還原期間。
+在刪除群組後的 30 天內，您可以選取 [還原群組]  或使用 PowerShell Cmdlet 來還原群組，如[在 Azure Active Directory 中還原已刪除的 Office 365 群組](groups-restore-deleted.md)所述。 請注意，您無法自訂 30 天的群組還原期間。
     
 如果您要還原的群組包含文件、SharePoint 網站或其他持續物件，則可能需要 24 小時，才能完全還原群組及其內容。
 

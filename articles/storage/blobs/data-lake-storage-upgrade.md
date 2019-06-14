@@ -9,10 +9,10 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 84e3aff9c1c8cb3e7fe399c861c2c7d58c278fed
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64730543"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>將您的巨量資料分析解決方案從 Azure Data Lake Storage Gen1 升級為 Azure Data Lake Storage Gen2
@@ -131,7 +131,7 @@ ms.locfileid: "64730543"
 | 耗用量          | [Power BI Desktop](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-power-bi)                                                                           | *尚未提供*                                                                                                                                                          | *尚未提供*                                                                                                                             |
 |                      | [Excel](https://techcommunity.microsoft.com/t5/Excel-Blog/Announcing-the-Azure-Data-Lake-Store-Connector-in-Excel/ba-p/91677)                                                 | *尚未提供*                                                                                                                                                          | *尚未提供*                                                                                                                             |
 |                      | [分析服務](https://blogs.msdn.microsoft.com/analysisservices/2017/09/05/using-azure-analysis-services-on-top-of-azure-data-lake-storage/)                            | *尚未提供*                                                                                                                                                          | *尚未提供*                                                                                                                             |
-| 生產力         | [Azure 门户](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)                                                                      | *不支援*                                                                                                                                                              | 帳戶管理 *– 現已推出* <br><br>資料作業 *–*  *尚無法使用*                                                                   |
+| 生產力         | [Azure 入口網站](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)                                                                      | *不支援*                                                                                                                                                              | 帳戶管理 *– 現已推出* <br><br>資料作業 *–*  *尚無法使用*                                                                   |
 |                      | [Visual Studio 適用的 Data Lake 工具](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-install)                                   | *尚未提供*                                                                                                                                                          | *尚未提供*                                                                                                                             |
 |                      | [Azure 儲存體總管](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-in-storage-explorer)                                                          | *現已推出*                                                                                                                                                              | *現已推出*                                                                                                                                 |
 |                      | [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=usqlextpublisher.usql-vscode-ext)                                                                     | *尚未提供*                                                                                                                                                          | *尚未提供*                                                                                                                             |
@@ -259,7 +259,7 @@ Data Lake Storage Gen1 的 URI 配置會在[這裡](https://docs.microsoft.com/a
 
 ##### <a name="rest-apis"></a>REST API
 
-如果您的應用程式使用 Data Lake Storage REST API，您必須將應用程式修改為使用 Data Lake Storage Gen2 REST API。 「程式設計介面」一節會提供連結。
+如果您的應用程式使用 Data Lake Storage REST API，您必須將應用程式修改為使用 Data Lake Storage Gen2 REST API。 「程式設計介面」  一節會提供連結。
 
 ##### <a name="sdks"></a>SDK
 
@@ -269,13 +269,13 @@ Data Lake Storage Gen1 的 URI 配置會在[這裡](https://docs.microsoft.com/a
 
 如「評估您的升級整備程度」一節所提出，PowerShell 支援目前不適用於資料平面。
 
-您可以使用 Data Lake Storage Gen2 中的適當 Cmdlet 取代管理平面 Cmdlet。 「程式設計介面」一節會提供連結。
+您可以使用 Data Lake Storage Gen2 中的適當 Cmdlet 取代管理平面 Cmdlet。 「程式設計介面」  一節會提供連結。
 
 ##### <a name="cli"></a>CLI
 
 如*評估您的升級整備程度*一節所提出，CLI 支援目前不適用於資料平面。
 
-您可以使用 Data Lake Storage Gen2 中的適當命令取代管理平面命令。 「程式設計介面」一節會提供連結。
+您可以使用 Data Lake Storage Gen2 中的適當命令取代管理平面命令。 「程式設計介面」  一節會提供連結。
 
 ### <a name="analytics-frameworks-upgrade"></a>分析架構升級
 

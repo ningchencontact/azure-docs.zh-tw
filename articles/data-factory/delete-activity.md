@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61346338"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Delete 活動
@@ -86,7 +86,7 @@ ms.locfileid: "61346338"
 | maxConcurrentConnections | 同時連線到儲存體存放區以刪除資料夾或檔案的連線數。   |  沒有。 預設值為 `1`。 |
 | enablelogging | 指出您是否需要記錄已刪除的資料夾或檔案名稱。 如果為 true，則您需要進一步提供儲存體帳戶來儲存記錄檔，以便您可以藉由讀取記錄檔來追蹤 Delete 活動的行為。 | 否 |
 | logStorageSettings | 僅適用於 enablelogging = true 時。<br/><br/>一組儲存體屬性，可指定您要儲存記錄檔 (包含由 Delete 活動刪除的資料夾或檔案名稱) 的位置。 | 否 |
-| 預設容器 | 僅適用於 enablelogging = true 時。<br/><br/>連結的服務[Azure 儲存體](connector-azure-blob-storage.md#linked-service-properties)， [Azure Data Lake 儲存體 Gen1](connector-azure-data-lake-store.md#linked-service-properties)，或[Azure Data Lake 儲存體 Gen2](connector-azure-data-lake-storage.md#linked-service-properties)儲存記錄檔包含資料夾或檔案名稱已刪除 「 刪除 」 活動。 | 否 |
+| linkedServiceName | 僅適用於 enablelogging = true 時。<br/><br/>連結的服務[Azure 儲存體](connector-azure-blob-storage.md#linked-service-properties)， [Azure Data Lake 儲存體 Gen1](connector-azure-data-lake-store.md#linked-service-properties)，或[Azure Data Lake 儲存體 Gen2](connector-azure-data-lake-storage.md#linked-service-properties)儲存記錄檔包含資料夾或檔案名稱已刪除 「 刪除 」 活動。 | 否 |
 | path | 僅適用於 enablelogging = true 時。<br/><br/>要在您的儲存體帳戶中儲存記錄檔的路徑。 如不提供路徑，服務會為您建立容器。 | 否 |
 
 ## <a name="monitoring"></a>監視
@@ -115,7 +115,7 @@ ms.locfileid: "61346338"
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Delete 活動的範例記錄檔
 
-| 名稱 | Category | 狀態 | Error |
+| Name | Category | 狀態 | Error |
 |:--- |:--- |:--- |:--- |
 | test1/yyy.json | 檔案 | Deleted |  |
 | test2/hello789.txt | 檔案 | Deleted |  |

@@ -6,18 +6,17 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
-author: WenJason
-ms.author: v-jay
-ms.reviewer: bonova, carlrab
+ms.topic: conceptual
+author: srdan-bozovic-msft
+ms.author: srbozovi
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
-origin.date: 01/15/2019
-ms.date: 02/25/2019
+ms.date: 01/15/2019
 ms.openlocfilehash: 5e8b385d018482d281153f1cf80f9953cb8c7f06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60700462"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>建立 Azure SQL Database 受控執行個體的虛擬網路
@@ -42,9 +41,9 @@ Azure SQL Database 受控執行個體必須部署在 Azure [虛擬網路](../vir
 
 1. 登入 Azure 入口網站。
 
-2. 選取 [部署至 Azure] 按鈕：
+2. 選取 [部署至 Azure]  按鈕：
 
-   <a target="_blank" href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+   <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="https://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
 
    此按鈕將會開啟一個表單，讓您用來設定可在其中部署受控執行個體的網路環境。
 
@@ -55,7 +54,7 @@ Azure SQL Database 受控執行個體必須部署在 Azure [虛擬網路](../vir
 
    ![可供設定 Azure 網路的 Resource Manager 範本](./media/sql-database-managed-instance-vnet-configuration/create-mi-network-arm.png)
 
-   您可以變更虛擬網路和子網路的名稱，以及調整與您的網路資源關聯的 IP 位址。 選取 [購買] 按鈕後，此表單就會建立並設定您的環境。 若您不需要兩個子網路，可將預設子網路刪除。
+   您可以變更虛擬網路和子網路的名稱，以及調整與您的網路資源關聯的 IP 位址。 選取 [購買]  按鈕後，此表單就會建立並設定您的環境。 若您不需要兩個子網路，可將預設子網路刪除。
 
 ## <a name="next-steps"></a>後續步驟
 

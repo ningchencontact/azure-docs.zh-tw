@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
 ms.openlocfilehash: 41220ccdca945610d7d8ca87af0857114e2cef85
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60949060"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>準備目標 (VMware 至 Azure)
@@ -26,7 +26,7 @@ ms.locfileid: "60949060"
 
 ## <a name="prepare-target"></a>準備目標
 
-完成“步骤 1: 选择保护目标”和“步骤 2: 准备源”后，会转到“步骤 3: 目标”
+完成之後**步驟 1 保護目標**並**步驟 2： 準備來源**，您會前往**步驟 3:目標**
 
 ![準備目標](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
 
@@ -37,7 +37,7 @@ ms.locfileid: "60949060"
 
 驗證成功完成後，按一下 [確定] 以移至下一個步驟。
 
-如果您沒有相容的資源管理員儲存體帳戶或虛擬網路，您可以按一下頁面頂端的 [+ 儲存體帳戶] 或 [+ 網路] 按鈕來建立一個。
+如果您沒有相容的資源管理員儲存體帳戶或虛擬網路，您可以按一下頁面頂端的 [+ 儲存體帳戶]  或 [+ 網路]  按鈕來建立一個。
 
 ## <a name="next-steps"></a>後續步驟
 [設定複寫設定](vmware-azure-set-up-replication.md)。

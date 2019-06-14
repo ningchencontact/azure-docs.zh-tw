@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: kumud
 ms.openlocfilehash: 894a56c2e51e8fa8a2d72253563d218416ace4cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861937"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure Load Balancer 的 IPv6 概觀
@@ -38,7 +38,7 @@ ms.locfileid: "60861937"
 
 部署之後，已啟用 IPv4 或 IPv6 的網際網路用戶端可以與網際網路面向的 Azure Load Balancer 公用 IPv4 或 IPv6 位址 (或主機名稱) 進行通訊。 負載平衡器會使用網路位址轉譯 (NAT) 將 IPv6 封包傳送至 VM 的私人 IPv6 位址。 IPv6 網際網路用戶端無法與 VM 的 IPv6 位址直接通訊。
 
-## <a name="features"></a>特性
+## <a name="features"></a>功能
 
 透過 Azure Resource Manager部署的原生 IPv6 支援提供︰
 
@@ -56,7 +56,7 @@ ms.locfileid: "60861937"
 
 ## <a name="details-and-limitations"></a>詳細資料和限制
 
-详细信息
+詳細資料
 
 * Azure DNS 服務包含 IPV4 A 和 IPv6 AAAA 名稱記錄，以及兩種負載平衡器記錄的回應。 用戶端選擇要與哪一個位址 (IPv4 或 IPv6) 通訊。
 * 當 VM 起始連接至公用網際網路 IPv6 連線裝置的連線時，VM 的來源 IPv6 位址是經網路位址轉譯 (NAT) 後的負載平衡器公用 IPv6 位址。
@@ -82,7 +82,7 @@ ms.locfileid: "60861937"
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何部署使用 IPv6 的负载均衡器。
+了解如何部署配置有 IPv6 的負載平衡器。
 
 * [依區域的 IPv6 可用性](https://go.microsoft.com/fwlink/?linkid=828357)
 * [使用範本部署配置有 IPv6 的負載平衡器](load-balancer-ipv6-internet-template.md)

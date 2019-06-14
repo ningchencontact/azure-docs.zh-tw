@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
 ms.openlocfilehash: 8afed4eb1add0ba3a7db474e54b2f78a0babab06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789072"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>保留的 IP 位址 (傳統部署)
@@ -28,14 +28,14 @@ ms.locfileid: "60789072"
 若要防止 IP 位址變更，您可以保留 IP 位址。 保留的 IP 只能用來作為 VIP，用以確保在即使資源關閉或停止 (解除配置) 的情況下，雲端服務的 IP 位址也會保持相同。 此外，您可以轉換現有的動態 IP，作為保留的 IP 位址的 VIP。
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 了解如何使用 [Resource Manager 部署模型](virtual-network-ip-addresses-overview-arm.md)來保留靜態公用 IP 位址。
+> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 了解如何使用 [Resource Manager 部署模型](virtual-network-ip-addresses-overview-arm.md)來保留靜態公用 IP 位址。
 
 若要深入了解 Azure 中的 IP 位址，請閱讀 [IP 位址](virtual-network-ip-addresses-overview-classic.md)文章。
 
 ## <a name="when-do-i-need-a-reserved-ip"></a>何時需要保留的 IP？
 * **您想要確保 IP 會保留在您的訂用帳戶中**。 如果您想要保留一個在任何情況下都不會從您訂用帳戶釋出的 IP 位址，您應該使用保留的公用 IP。  
-* **想要 IP 始终与云服务相关联，即使 VM 处于停止或释放状态下**。 如果您想要讓使用者使用一個即使雲端服務中的 VM 被關閉或停止 (解除配置) 也不會變更的 IP 位址來存取服務。
-* **想要确保 Azure 的出站流量使用可预测的 IP 地址**。 您可能必須設定內部部署防火牆，以便僅允許來自特定 IP 位址的流量。 藉由保留 IP，您會知道來源 IP 位址，而不必因為 IP 變更而需要更新您的防火牆規則。
+* **即使在已停止或解除配置狀態 (VM)，您想要保持 IP 與雲端服務之間的關聯**。 如果您想要讓使用者使用一個即使雲端服務中的 VM 被關閉或停止 (解除配置) 也不會變更的 IP 位址來存取服務。
+* **您想要確保來自 Azure 的輸出流量使用可預測的 IP 位址**。 您可能必須設定內部部署防火牆，以便僅允許來自特定 IP 位址的流量。 藉由保留 IP，您會知道來源 IP 位址，而不必因為 IP 變更而需要更新您的防火牆規則。
 
 ## <a name="faqs"></a>常見問題集
 - 我是否可以針對所有 Azure 服務都使用保留的 IP？
@@ -53,7 +53,7 @@ ms.locfileid: "60789072"
 
 ### <a name="using-azure-powershell-classic"></a>使用 Azure PowerShell (傳統)
 
-您必須將保留的 IP 新增至訂用帳戶才能使用。 請在「美國中部」位置從可用的公用 IP 位址集區建立保留的 IP，如下所示：
+您必須將保留的 IP 新增至訂用帳戶才能使用。 請在「美國中部」  位置從可用的公用 IP 位址集區建立保留的 IP，如下所示：
 
 > [!NOTE]
 > 若為傳統部署模型，則必須安裝 Azure PowerShell 的服務管理版本。 如需詳細資訊，請參閱[安裝 Azure PowerShell 服務管理模組](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0)。 
@@ -93,7 +93,7 @@ Remove-AzureReservedIP -ReservedIPName "MyReservedIP"
 ```
 
 ### <a name="using-azure-cli-classic"></a>使用 Azure CLI (傳統)
-請在「美國中部」位置從可用的公用 IP 位址集區建立保留的 IP，如「使用 Azure 傳統 CLI」所示：
+請在「美國中部」  位置從可用的公用 IP 位址集區建立保留的 IP，如「使用 Azure 傳統 CLI」所示：
 
 > [!NOTE]
 > 若為傳統部署，則必須使用 Azure 傳統 CLI。 如需安裝 Azure 傳統 CLI 的相關資訊，請參閱[安裝 Azure 傳統 CLI](https://docs.microsoft.com/cli/azure/install-classic-cli?view=azure-cli-latest)
@@ -126,7 +126,7 @@ azure network reserved-ip list
  azure network reserved-ip delete MyReservedIP
  ```
 ## <a name="reserve-the-ip-address-of-an-existing-cloud-service"></a>保留現有雲端服務的 IP 位址
-您可以新增 `-ServiceName` 參數，以保留現有雲端服務的 IP 位址。 請在「美國中部」位置保留雲端服務 TestService 的 IP 位址，如下所示：
+您可以新增 `-ServiceName` 參數，以保留現有雲端服務的 IP 位址。 請在「美國中部」  位置保留雲端服務 TestService  的 IP 位址，如下所示：
 
 - 使用 Azure PowerShell (傳統)：
 

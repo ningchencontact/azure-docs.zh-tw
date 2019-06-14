@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61244339"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>針對裝置對雲端訊息使用訊息路由和自訂端點
@@ -38,7 +38,7 @@ IoT 中樞具有預設的[內建端點](iot-hub-devguide-messages-read-builtin.m
 
 > [!NOTE]
 > * IoT 中樞僅支援將資料寫入 Azure 儲存體容器作為 blob。
-> * 不支援將啟用 [工作階段] 或 [重複偵測] 的服務匯流排佇列和主題作為自訂端點。
+> * 不支援將啟用 [工作階段]  或 [重複偵測]  的服務匯流排佇列和主題作為自訂端點。
 
 如需在 IoT 中樞建立自訂端點的詳細資訊，請參閱 [IoT 中樞端點](iot-hub-devguide-endpoints.md)。
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
 ms.openlocfilehash: f907ebcfc1efc2e6eb9b458f83ab11d868871946
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615828"
 ---
 # <a name="create-an-additional-subscription-in-the-azure-portal"></a>在 Azure 入口網站中建立額外的訂用帳戶
@@ -35,7 +35,7 @@ ms.locfileid: "60615828"
 
    ![顯示在入口網站中搜尋訂用帳戶的螢幕擷取畫面](./media/billing-create-subscription/billing-search-subscription-portal.png)
 
-1. 選取 [新增] 。
+1. 選取 [新增]  。
 
    ![在 [訂用帳戶] 檢視中顯示 [新增] 按鈕的螢幕擷取畫面](./media/billing-create-subscription/subscription-add.png)
 

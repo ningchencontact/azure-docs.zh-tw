@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 345f492c5b2c754cbbcfa150561ee06b5a4154a5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64718680"
 ---
 # <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Curl 與 HDInsight 中執行 Apache Sqoop 作業
@@ -40,7 +40,7 @@ ms.locfileid: "64718680"
 
 針對本節中的命令，將`USERNAME`與 使用者驗證叢集，並取代`PASSWORD`與使用者帳戶的密碼。 將 `CLUSTERNAME` 取代為您的叢集名稱。
  
-透過 [基本驗證](https://en.wikipedia.org/wiki/Basic_access_authentication)來保護 REST API 的安全。 始终应该使用安全 HTTP (HTTPS) 来发出请求，以确保安全地将凭据发送到服务器。
+透過 [基本驗證](https://en.wikipedia.org/wiki/Basic_access_authentication)來保護 REST API 的安全。 您應該一律使用安全 HTTP (HTTPS) 提出要求，確保認證安全地傳送至伺服器。
 
 1. 從命令列中，使用下列命令來確認您可以連線到 HDInsight 叢集：
 
@@ -64,7 +64,7 @@ ms.locfileid: "64718680"
 
    * **-d** - 因為未使用 `-G`，要求會依預設使用 POST 方法。 `-d` 可指定與要求一起傳送的資料值。
 
-       * **user.name** - 正在运行命令的用户。
+       * **user.name** - 執行命令的使用者。
 
        * **命令** - 要執行的 Sqoop 命令。
 
@@ -85,9 +85,9 @@ ms.locfileid: "64718680"
     如果工作已完成，則狀態會是 [ **成功**]。
    
    > [!NOTE]  
-   > 此 Curl 请求返回具有作业相关信息的 JavaScript 对象表示法 (JSON) 文档；使用 jq 可以仅检索状态值。
+   > 此 Curl 要求會傳回含有工作資訊的 JavaScript Object Notation (JSON) 文件；jq 可用來僅擷取狀態值。
 
-4. 工作狀態變更為 [成功] 之後，即可從 Azure Blob 儲存體擷取工作結果。 與查詢一起傳遞的 `statusdir` 參數包含輸出檔案的位置；在此案例中為 `wasb:///example/data/sqoop/curl`。 此位址會儲存在工作的輸出`example/data/sqoop/curl`目錄至 HDInsight 叢集所使用之預設儲存體容器。
+4. 工作狀態變更為 [成功]  之後，即可從 Azure Blob 儲存體擷取工作結果。 與查詢一起傳遞的 `statusdir` 參數包含輸出檔案的位置；在此案例中為 `wasb:///example/data/sqoop/curl`。 此位址會儲存在工作的輸出`example/data/sqoop/curl`目錄至 HDInsight 叢集所使用之預設儲存體容器。
 
     您可以使用 Azure 入口網站存取 stderr 和 stdout Blob。
 
@@ -100,7 +100,7 @@ ms.locfileid: "64718680"
 
 ## <a name="limitations"></a>限制
 * 大量匯出 - 使用 Linux 型 HDInsight，用來將資料匯出至 Microsoft SQL Server 或 Azure SQL Database 的 Sqoop 連接器目前不支援大量插入。
-* 批处理 - 在基于 Linux 的 HDInsight 上，如果执行插入时使用 `-batch` 开关，Sqoop 会执行多次插入而不是批处理插入操作。
+* 批次處理 - 使用 Linux 型 HDInsight，執行插入時若使用 `-batch` 參數，Sqoop 將會執行多個插入，而不是批次處理插入作業。
 
 ## <a name="summary"></a>總結
 如這份文件所示，您可以使用原始 HTTP 要求來執行、監視和檢視 HDInsight 叢集上的 Sqoop 作業結果。

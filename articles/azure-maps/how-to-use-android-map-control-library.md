@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: e655b442ba9290d4b4525108521f2d1a0c766b48
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869809"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>開始使用 Azure 地圖服務的 Android SDK
@@ -35,8 +35,8 @@ Azure 地圖服務的 Android SDK 是適用於 Android 的向量地圖庫。 這
 首先，您必須使用空的活動建立新的專案。 完成這些步驟來建立 Android Studio 專案：
 
 1. 底下**選擇您的專案**，選取**手機和平板電腦**。 您的應用程式將執行此表單係數。
-2. 在 [**手機和平板電腦**索引標籤上，選取**空的活動**，然後選取**下一步]**。
-3. 在 [設定專案] 底下，選取 `API 21: Android 5.0.0 (Lollipop)` 作為最低版本的 SDK。 這是支援 Azure 地圖服務的 Android SDK 的最早版本。
+2. 在 [**手機和平板電腦**索引標籤上，選取**空的活動**，然後選取**下一步]** 。
+3. 在 [設定專案]  底下，選取 `API 21: Android 5.0.0 (Lollipop)` 作為最低版本的 SDK。 這是支援 Azure 地圖服務的 Android SDK 的最早版本。
 4. 接受預設值`Activity Name`並`Layout Name`，然後選取**完成**。
 
 請參閱[Android Studio 文件](https://developer.android.com/studio/intro/)取得更多協助安裝 Android Studio，並建立新的專案。
@@ -45,7 +45,7 @@ Azure 地圖服務的 Android SDK 是適用於 Android 的向量地圖庫。 這
 
 ## <a name="set-up-a-virtual-device"></a>設定虛擬裝置
 
-Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 如此一來，可協助您測試您的應用程式，在開發期間。 若要設定虛擬裝置，您專案的畫面，右上角選取 [Android 虛擬裝置 (AVD) 管理員] 圖示，然後按**建立虛擬裝置**。 您也可以藉由選取來取得 AVD Manager**工具** > **Android** > **AVD Manager**從工具列。 在 [**手機**類別目錄中，選取**Nexus 5 X**，然後選取**下一步]**。
+Android Studio 可讓您在電腦上設定虛擬 Android 裝置。 如此一來，可協助您測試您的應用程式，在開發期間。 若要設定虛擬裝置，您專案的畫面，右上角選取 [Android 虛擬裝置 (AVD) 管理員] 圖示，然後按**建立虛擬裝置**。 您也可以藉由選取來取得 AVD Manager**工具** > **Android** > **AVD Manager**從工具列。 在 [**手機**類別目錄中，選取**Nexus 5 X**，然後選取**下一步]** 。
 
 您可以深入了解設定在 AVD [Android Studio 文件](https://developer.android.com/studio/run/managing-avds)。
 

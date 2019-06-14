@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707146"
 ---
 # <a name="service-bus-faq"></a>服務匯流排常見問題集
@@ -33,7 +33,7 @@ ms.locfileid: "64707146"
 [服務匯流排佇列](service-bus-queues-topics-subscriptions.md)是訊息儲存所在的實體。 如果您有多個應用程式，或多個需要彼此通訊的分散式應用程式部分，佇列很有用。 佇列和配送中心的類似之處在於，兩者都會接收多個產品 (訊息)，再從該處送出。
 
 ### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>什麼是 Azure 服務匯流排主題和訂用帳戶？
-主題可視覺化為佇列，而且在使用多個訂用帳戶時，主題會變成更豐富的訊息模型；基本上是一對多的通訊工具。 此發佈/訂閱模型 (或「pub/sub」) 可讓應用程式將訊息傳送至具有多個訂用帳戶的主題，以便讓多個應用程式接收該訊息。
+主題可視覺化為佇列，而且在使用多個訂用帳戶時，主題會變成更豐富的訊息模型；基本上是一對多的通訊工具。 此發佈/訂閱模型 (或「pub/sub」  ) 可讓應用程式將訊息傳送至具有多個訂用帳戶的主題，以便讓多個應用程式接收該訊息。
 
 ### <a name="what-is-a-partitioned-entity"></a>什麼是分割的實體？
 傳統的佇列或主題由單一訊息代理程式處理並儲存在一個訊息存放區中。 只有基本和標準通訊層才支援，[分割的佇列或主題](service-bus-partitioning.md)會由多個訊息代理程式處理，並儲存在多個訊息存放區。 這項功能表示分割佇列或主題的整體輸送量不會再受到單一訊息代理程式或訊息存放區的效能所限制。 此外，即使訊息存放區暫時中斷也不會讓分割的佇列或主題無法使用。
@@ -55,12 +55,12 @@ ms.locfileid: "64707146"
 | -------- | ----- | ------- | 
 | AMQP | 5671 和 5672 | 請參閱[AMQP 通訊協定指南](service-bus-amqp-protocol-guide.md) | 
 | SBMP | 9350 到 9354 | 請參閱[連線模式](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
-| HTTP、HTTPS | 80、443 | 
+| HTTP、 HTTPS | 80、443 | 
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>哪些 IP 位址需要列入白名單嗎？
 若要尋找您的連線正確的 IP 位址到允許清單，請遵循下列步驟：
 
-1. 从命令提示符处运行以下命令： 
+1. 從命令提示字元中執行下列命令： 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net

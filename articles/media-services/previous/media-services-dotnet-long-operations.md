@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 752c502268ef53d3c0575d92e75ce6a965fccd9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61464975"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>利用 Azure 媒體服務提供即時資料流
 
 ## <a name="overview"></a>概觀
 
-Microsoft Azure 媒體服務提供將要求傳送至媒體服務以啟動作業 (如建立、啟動、停止或刪除頻道) 的 API。 这些操作是长时间运行的。
+Microsoft Azure 媒體服務提供將要求傳送至媒體服務以啟動作業 (如建立、啟動、停止或刪除頻道) 的 API。 這些作業屬於長時間執行的作業。
 
 Media Services .NET SDK 提供能傳送要求並等候作業完成的 API (API 會在內部依照某些間隔輪詢作業進度). 例如，當您呼叫 channel.Start() 時，方法會在通道啟動後返回。 您也可以使用非同步的 version: await channel.StartAsync() (如需以工作為基礎的非同步模式，請參閱 [TAP](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx))。 傳送作業要求並輪詢狀態，直到作業完成為止的 API 稱為「輪詢方法」。 我們建議豐富型用戶端應用程式和/或可設定狀態的服務使用這些方法 (尤其是非同步版本)。
 
 我們有一些無法等候長時間執行之 http 要求，並想要的手動輪詢作業進度之應用程式的案例。 與無狀態 Web 服務互動之瀏覽器是典型的範例：當瀏覽器要求建立通道時，Web 服務會起始長時間執行的作業，並將作業識別碼傳回瀏覽器。 接著，瀏覽器會要求 Web 服務來根據識別碼取得作業狀態。 Media Services .NET SDK 提供適用於此案例的 API。 這些 API 稱為「非輪詢方法」。
-「非輪詢方法」具有下列命名模式：傳送 *OperationName*作業 (例如，SendCreateOperation)。 SendOperationNameOperation 方法會傳回 **IOperation** 物件；傳回的物件含有可用來追蹤作業的資訊。 傳送*OperationName*OperationAsync 方法會傳回**工作\<IOperation >**。
+「非輪詢方法」具有下列命名模式：傳送 *OperationName*作業 (例如，SendCreateOperation)。 SendOperationName  Operation 方法會傳回 **IOperation** 物件；傳回的物件含有可用來追蹤作業的資訊。 傳送*OperationName*OperationAsync 方法會傳回**工作\<IOperation >** 。
 
 以下是目前支援非輪詢方法的類別：**通道**、**StreamingEndpoint**以及**程式**。
 

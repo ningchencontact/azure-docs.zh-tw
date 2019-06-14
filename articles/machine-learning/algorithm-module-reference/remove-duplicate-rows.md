@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: dce90d911085c1f7330a2e0952bb9576c1d765fa
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029291"
 ---
 # <a name="remove-duplicate-rows-module"></a>移除重複的資料列的模組
@@ -25,7 +25,7 @@ ms.locfileid: "65029291"
 
 例如，假設您的資料看起來像下列程式碼，並表示為病患的多筆記錄。 
 
-| PatientID | Initials| 性別|年齡|獲准|
+| PatientID | Initials| 性別|Age|獲准|
 |----|----|----|----|----|
 |1|F.M.| M| 53| Jan|
 |2| F.A.M.| M| 53| Jan|

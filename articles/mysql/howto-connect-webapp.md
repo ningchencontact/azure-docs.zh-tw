@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/21/2019
 ms.openlocfilehash: 3fbffc805afb540499e38f1c0853260968228b22
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002013"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>將現有的 Azure App Service 連線到適用於 MySQL 伺服器的 Azure 資料庫
@@ -24,17 +24,17 @@ ms.locfileid: "66002013"
 ## <a name="solution-1---allow-azure-services"></a>解決方案 1 - 允許 Azure 服務
 適用於 MySQL 的 Azure 資料庫提供存取安全性，使用防火牆來保護您的資料。 Azure App Service 連線到適用於 MySQL 伺服器的 Azure 資料庫時，請注意 App Service 的輸出 IP 本質上是動態的。 選擇 [允許存取 Azure 服務] 選項，可讓 App Service 連線至 MySQL 伺服器。
 
-1. 在 [MySQL 伺服器] 刀鋒視窗的 [設定] 標題下，按一下 [連線安全性]，開啟「適用於 MySQL 的 Azure 資料庫」的 [連線安全性] 刀鋒視窗。
+1. 在 [MySQL 伺服器] 刀鋒視窗的 [設定] 標題下，按一下 [連線安全性]  ，開啟「適用於 MySQL 的 Azure 資料庫」的 [連線安全性] 刀鋒視窗。
 
    ![Azure 入口網站 - 按一下 [連線安全性]](./media/howto-connect-webapp/1-connection-security.png)
 
-2. 選取 [允許存取 Azure 服務] 中的 [開啟]，然後選取 [儲存]。
+2. 選取 [允許存取 Azure 服務]  中的 [開啟]  ，然後選取 [儲存]  。
    ![Azure 入口網站 - 允許 Azure 存取](./media/howto-connect-webapp/allow-azure.png)
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>解決方案 2 - 建立防火牆規則以明確允許輸出 IP
 您可以明確新增 Azure App Service 的所有輸出 IP。
 
-1. 在 App Service 的 [屬性] 刀鋒視窗上，檢視您的 [輸出 IP 位址]。
+1. 在 App Service 的 [屬性] 刀鋒視窗上，檢視您的 [輸出 IP 位址]  。
 
    ![Azure 入口網站 - 檢視輸出 IP](./media/howto-connect-webapp/2_1-outbound-ip-address.png)
 

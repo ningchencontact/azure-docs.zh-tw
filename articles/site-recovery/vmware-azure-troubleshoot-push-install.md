@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
 ms.openlocfilehash: 58c09c71aad2b6244f6e2f3d144c033665932f50
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925569"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>針對行動服務推送安裝問題進行疑難排解
@@ -118,11 +118,11 @@ ms.locfileid: "64925569"
 
 * 若要透過 Windows 防火牆啟用檔案與列印共用，
   * 請開啟 [控制台] -> [系統及安全性] -> [Windows 防火牆] -> 在左側窗格上，按一下 [進階設定] -> 在主控台樹狀目錄中按一下 [輸入規則]。
-  * 找出 [檔案及印表機共用] (NB-Session-In) 和 [檔案及印表機共用] (Smb-in) 的規則。 針對每個規則，以滑鼠右鍵按一下該規則，然後按一下 [啟用規則]。
+  * 找出 [檔案及印表機共用] (NB-Session-In) 和 [檔案及印表機共用] (Smb-in) 的規則。 針對每個規則，以滑鼠右鍵按一下該規則，然後按一下 [啟用規則]  。
 * 若要透過群組原則啟用檔案共用，
   * 移至 [開始]，輸入 gpmc.msc 並搜尋。
   * 在瀏覽窗格中，開啟下列資料夾：本機電腦原則、使用者設定、系統管理範本、Windows 元件，以及網路共用。
-  * 在 [詳細資料] 窗格中，按兩下 [防止使用者共用其設定檔內的檔案]。 若要停用群組原則設定，並讓使用者能夠共用檔案，請按一下 [停用]。 按一下 [確定] 以儲存變更。 若要進一步了解，請參閱[啟用或停用檔案共用使用群組原則](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10))。
+  * 在 [詳細資料] 窗格中，按兩下 [防止使用者共用其設定檔內的檔案]  。 若要停用群組原則設定，並讓使用者能夠共用檔案，請按一下 [停用]。 按一下 [確定] 以儲存變更。 若要進一步了解，請參閱[啟用或停用檔案共用使用群組原則](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10))。
 
 針對**更新版本**，請遵循中提供的指示[安裝行動服務的 VMware Vm 和實體伺服器災害復原](vmware-azure-install-mobility-service.md)啟用檔案及印表機共用。
 
@@ -150,7 +150,7 @@ ms.locfileid: "64925569"
 
 ### <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>開機與系統磁碟分割/磁碟區不是同一個磁碟 (錯誤識別碼：95309)
 
-9.20 之前的版本不支援開機和系統磁碟分割/磁碟區位於不同磁碟的設定。 從 [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)開始支援這樣的設定。 請使用最新版本以取得此支援。
+9\.20 之前的版本不支援開機和系統磁碟分割/磁碟區位於不同磁碟的設定。 從 [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)開始支援這樣的設定。 請使用最新版本以取得此支援。
 
 ### <a name="the-boot-disk-is-not-available-errorid-95310"></a>開機磁碟無法使用 (錯誤識別碼：95310)
 
@@ -162,12 +162,12 @@ ms.locfileid: "64925569"
 
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>系統磁碟分割位於多個磁碟上 (錯誤識別碼：95313)
 
-9.20 之前的版本不支援開機磁碟分割或磁碟區位於多個磁碟的設定。 從 [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)開始支援這樣的設定。 請使用最新版本以取得此支援。
+9\.20 之前的版本不支援開機磁碟分割或磁碟區位於多個磁碟的設定。 從 [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)開始支援這樣的設定。 請使用最新版本以取得此支援。
 
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>啟用保護失敗，因為裝置名稱是在 GRUB 設定中提及，而非 UUID (錯誤識別碼：95320)
 
 **可能的原因：** </br>
-GRUB 組態檔 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") 可能包含 **root** 和 **resume** 參數的值作為實際裝置名稱，而不是 UUID。 Site Recovery 會強制執行 UUID 方法，因為裝置名稱可能會經由 VM 重新開機而變更，而且 VM 可能不會提出容錯移轉時的相同名稱而造成問題。 例如︰ </br>
+GRUB 組態檔 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") 可能包含 **root** 和 **resume** 參數的值作為實際裝置名稱，而不是 UUID。 Site Recovery 會強制執行 UUID 方法，因為裝置名稱可能會經由 VM 重新開機而變更，而且 VM 可能不會提出容錯移轉時的相同名稱而造成問題。 例如: </br>
 
 
 - 下面這一行來自 GRUB 檔案 **/boot/grub2/grub.cfg**。 <br>
@@ -183,7 +183,7 @@ GRUB 組態檔 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.
 裝置名稱應該取代為對應的 UUID。<br>
 
 
-1. 執行命令來尋找裝置的 UUID"blkid\<裝置名稱 >"。 例如︰<br>
+1. 執行命令來尋找裝置的 UUID"blkid\<裝置名稱 >"。 例如:<br>
    ```
    blkid /dev/sda1
    /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
@@ -206,7 +206,7 @@ Site Recovery 行動服務具有許多元件，其中一個名叫篩選器驅動
 
 ## <a name="lvm-support-from-920-version"></a>從 9.20 版開始支援 LVM
 
-9.20 之前的版本只有資料磁碟支援 LVM。 /boot 應該位於磁碟分割區，而不是 LVM 磁碟區。
+9\.20 之前的版本只有資料磁碟支援 LVM。 /boot 應該位於磁碟分割區，而不是 LVM 磁碟區。
 
 從 [9.20 版本](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)開始支援 [LVM 上的 OS 磁碟](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)。 請使用最新版本以取得此支援。
 

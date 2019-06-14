@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: 7ff45be4eea5c6e8ab83093847164ede0e94579a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606639"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>檢視活動記錄以監視對資源的動作
@@ -31,11 +31,11 @@ ms.locfileid: "65606639"
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
-1. 若要透過入口網站檢視活動記錄，請選取 [監視]。
+1. 若要透過入口網站檢視活動記錄，請選取 [監視]  。
 
     ![選取監視器](./media/resource-group-audit/select-monitor.png)
 
-1. 選取 [活動記錄]。
+1. 選取 [活動記錄]  。
 
     ![選取活動記錄](./media/resource-group-audit/select-activity-log.png)
 
@@ -53,13 +53,13 @@ ms.locfileid: "65606639"
 
 1. 請注意篩選條件中已變更將焦點放在部署錯誤過去 24 小時。 會顯示符合篩選條件的作業。
 
-    ![檢視篩選](./media/resource-group-audit/view-filters.png)
+    ![檢視篩選條件](./media/resource-group-audit/view-filters.png)
 
-1. 若要將焦點放在特定作業，請變更篩選或套用新的篩選。 例如，下圖顯示 [時間範圍] 和 [資源類型] 的新值已設為設為儲存體帳戶。 
+1. 若要將焦點放在特定作業，請變更篩選或套用新的篩選。 例如，下圖顯示 [時間範圍]  和 [資源類型]  的新值已設為設為儲存體帳戶。 
 
     ![設定篩選選項](./media/resource-group-audit/set-filter.png)
 
-1. 如果您稍後需要再執行查詢，請選取 [釘選目前的篩選]。
+1. 如果您稍後需要再執行查詢，請選取 [釘選目前的篩選]  。
 
     ![釘選篩選](./media/resource-group-audit/pin-filters.png)
 

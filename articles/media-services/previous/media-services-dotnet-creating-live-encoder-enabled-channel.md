@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: b2ff6caa4c1b3626e4be1684976441be6ecbfe30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61231398"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>如何使用 Azure 媒體服務執行即時串流，以使用 .NET 建立多位元速率串流
@@ -28,7 +28,7 @@ ms.locfileid: "61231398"
 > * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > [!NOTE]
-> 若要完成此教學課程，您需要 Azure 帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)。
+> 若要完成此教學課程，您需要 Azure 帳戶。 如需詳細資訊，請參閱 < [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)。
 > 
 > 
 
@@ -48,29 +48,29 @@ ms.locfileid: "61231398"
     此步驟也可以在您建立通道之後執行。
 
 2. 建立並啟動通道。
-3. 检索通道引入 URL。
+3. 擷取通道內嵌 URL。
 
     內嵌 URL 可供即時編碼器用來傳送串流到通道。
 
 4. 擷取通道預覽 URL。
 
-    使用此 URL 来验证通道是否正常接收实时流。
+    使用此 URL 來確認您的通道會正確接收即時串流。
 
 5. 建立資產。
 6. 如果您想要在播放期間動態加密資產，請執行下列動作：
-7. 创建内容密钥。
+7. 建立內容金鑰。
 8. 設定內容金鑰的授權原則。
 9. 設定資產傳遞原則 (供動態封裝和動態加密使用)。
 10. 建立程式，並指定使用您所建立的資產。
 11. 藉由建立 OnDemand 定位器，發行與程式相關聯的資產。
 
     >[!NOTE]
-    >建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 您想要串流內容的串流端點必須處於 [執行中] 狀態。 
+    >建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止]  狀態的帳戶。 您想要串流內容的串流端點必須處於 [執行中]  狀態。 
 
 12. 當您準備好開始串流和封存時，請啟動程式。
 13. 即時編碼器會收到啟動公告的信號 (選擇性)。 公告會插入輸出串流中。
 14. 每當您想要停止串流處理和封存事件時，請停止程式。
-15. 删除节目（并选择性地删除资产）。
+15. 刪除程式 (並選擇性地刪除資產)。
 
 ## <a name="what-youll-learn"></a>您將學到什麼
 本文示範如何使用媒體服務 .NET SDK 在通道上執行不同的作業和程式。 因為許多作業會長時間執行，所以會使用管理長時間執行作業的 .NET API。
@@ -89,9 +89,9 @@ ms.locfileid: "61231398"
 ## <a name="prerequisites"></a>必要條件
 需要有下列項目，才能完成教學課程。
 
-* 一個 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)。 您將獲得能用來試用 Azure 付費服務的額度。 即使在信用额度用完后，也可保留帐户并使用免费的 Azure 服务和功能，例如 Azure 应用服务中的 Web 应用功能。
-* 媒體服務帳戶。 若要创建媒体服务帐户，请参阅[创建帐户](media-services-portal-create-account.md)。
-* Visual Studio 2010 SP1（Professional、Premium、Ultimate 或 Express）或更高版本。
+* 一個 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)。 您將獲得能用來試用 Azure 付費服務的額度。 即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務和功能，例如 Azure App Service 中的 Web Apps 功能。
+* 媒體服務帳戶。 若要建立媒體服務帳號，請參閱 [建立帳戶](media-services-portal-create-account.md)。
+* Visual Studio 2010 SP1 (Professional、Premium、Ultimate 或 Express) 或較新版本。
 * 您必須使用媒體服務 .NET SDK 3.2.0.0 版或更新版本。
 * 網路攝影機以及可以傳送單一位元速率即時串流的編碼器。
 

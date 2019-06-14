@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 66051bd0f8be349f748c72218d538bba273be8f6
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147260"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>驗證存取 Azure blob 和佇列使用 Azure Active Directory
@@ -22,7 +22,7 @@ Azure 儲存體支援使用 Azure Active Directory (Azure AD) 對 Blob 和佇列
 
 使用 Azure AD 認證來驗證使用者或應用程式，可提供比其他授權方法更高的安全性，也更容易使用。 雖然您可以繼續使用共用金鑰授權於應用程式，但使用 Azure AD 就不需要將帳戶存取金鑰和程式碼一起儲存。 您也可以繼續使用共用存取簽章 (SAS) 將細部存取權授與儲存體帳戶中的資源，但 Azure AD 提供類似功能，卻不必管理 SAS 權杖或擔心需要撤銷遭盜用的 SAS。 Microsoft 建議您盡可能針對 Azure 儲存體應用程式使用 Azure AD 驗證。
 
-驗證和授權使用 Azure AD 認證可供所有一般用途和 Blob 儲存體帳戶的所有公用區域和國家/地區雲端。 仅通过 Azure 资源管理器部署模型创建的存储帐户支持 Azure AD 授权。
+驗證和授權使用 Azure AD 認證可供所有一般用途和 Blob 儲存體帳戶的所有公用區域和國家/地區雲端。 只有儲存體帳戶使用 Azure Resource Manager 部署模型支援建立 Azure AD 授權。
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>適用於 blob 和佇列的 Azure AD 的概觀
 
@@ -30,7 +30,7 @@ Azure 儲存體支援使用 Azure Active Directory (Azure AD) 對 Blob 和佇列
 
 驗證步驟會需要應用程式要求在執行階段的 OAuth 2.0 存取權杖。 如果應用程式從在 Azure 的實體，例如 Azure VM、 虛擬機器擴展集或 Azure Functions 應用程式內執行，它可以使用[受控身分識別](../../active-directory/managed-identities-azure-resources/overview.md)來存取 blob 或佇列。 若要了解如何向 Azure Blob 或佇列服務提出的受管理的身分識別要求的授權，請參閱[驗證適用於 Azure 資源的存取權的 blob 和佇列與 Azure Active Directory 與受管理的身分識別](storage-auth-aad-msi.md)。
 
-授權步驟需要一或多個 RBAC 角色會指派給安全性主體。 Azure 儲存體提供 RBAC 角色，其中包含的 blob 和佇列資料的權限的一般設定。 指派給安全性主體的角色會決定將擁有主體的權限。 若要详细了解如何为 Azure 存储分配 RBAC 角色，请参阅[通过 RBAC 管理存储数据访问权限](storage-auth-aad-rbac.md)。
+授權步驟需要一或多個 RBAC 角色會指派給安全性主體。 Azure 儲存體提供 RBAC 角色，其中包含的 blob 和佇列資料的權限的一般設定。 指派給安全性主體的角色會決定將擁有主體的權限。 若要深入了解 Azure 儲存體指派 RBAC 角色，請參閱[儲存體的資料，使用 RBAC 管理存取權限](storage-auth-aad-rbac.md)。
 
 原生應用程式和 Azure Blob 或佇列服務提出要求的 web 應用程式也可以使用 Azure AD 進行驗證。 若要了解如何要求存取權杖，並使用它來授權要求的 blob 或佇列的資料，請參閱[使用從 Azure 儲存體應用程式的 Azure AD 進行驗證](storage-auth-aad-app.md)。
 
@@ -38,7 +38,7 @@ Azure 儲存體支援使用 Azure Active Directory (Azure AD) 對 Blob 和佇列
 
 Azure Active Directory (Azure AD) 會透過[角色型存取控制 (RBAC)](../../role-based-access-control/overview.md)，來授與存取受保護資源的權限。 Azure 儲存體定義一組內建的 RBAC 角色，其中包含用來存取 blob 和佇列資料的權限的一組通用。 您也可以定義自訂的角色，以存取 blob 和佇列資料。
 
-将 RBAC 角色分配到 Azure AD 安全主体后，Azure 会向该安全主体授予对这些资源的访问权限。 存取權的範圍可以包括訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列層級。 Azure AD 安全性主體，可能是使用者、 群組、 應用程式的服務主體，或[受管理的 Azure 資源的識別](../../active-directory/managed-identities-azure-resources/overview.md)。
+RBAC 角色指派給 Azure AD 安全性主體時，Azure 授與存取這些資源的安全性主體。 存取權的範圍可以包括訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列層級。 Azure AD 安全性主體，可能是使用者、 群組、 應用程式的服務主體，或[受管理的 Azure 資源的識別](../../active-directory/managed-identities-azure-resources/overview.md)。
 
 ### <a name="built-in-rbac-roles-for-blobs-and-queues"></a>適用於 blob 和佇列的內建 RBAC 角色
 
@@ -50,7 +50,7 @@ Azure Active Directory (Azure AD) 會透過[角色型存取控制 (RBAC)](../../
 - [授與存取權與使用 Azure CLI 的 RBAC 的 Azure blob 和佇列資料](storage-auth-aad-rbac-cli.md)
 - [使用 RBAC，使用 PowerShell 的 Azure blob 和佇列資料的授與存取權](storage-auth-aad-rbac-powershell.md)
 
-如需有關如何為 Azure 儲存體定義內建角色的詳細資訊，請參閱[了解角色定義](../../role-based-access-control/role-definitions.md#management-and-data-operations-preview)。 若要了解如何创建自定义 RBAC 角色，请参阅[针对 Azure 基于角色的访问控制创建自定义角色](../../role-based-access-control/custom-roles.md)。
+如需有關如何為 Azure 儲存體定義內建角色的詳細資訊，請參閱[了解角色定義](../../role-based-access-control/role-definitions.md#management-and-data-operations-preview)。 建立自訂的 RBAC 角色的詳細資訊，請參閱[建立 azure 角色型存取控制的自訂角色](../../role-based-access-control/custom-roles.md)。
 
 ### <a name="access-permissions-for-data-operations"></a>資料作業的存取權限
 

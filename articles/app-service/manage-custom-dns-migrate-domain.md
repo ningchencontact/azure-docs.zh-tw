@@ -17,10 +17,10 @@ ms.date: 06/28/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 6215230a52bcb5c44f54747b447dc5f64e6af650
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130376"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>將作用中的 DNS 名稱移轉至 Azure App Service
@@ -41,7 +41,7 @@ ms.locfileid: "62130376"
 
 當您事先繫結自訂網域時，要完成下列兩項之後才能對 DNS 記錄進行任何變更︰
 
-- 验证域所有权
+- 確認網域擁有權
 - 為您的應用程式啟用網域名稱
 
 當您最後將自訂 DNS 名稱從舊網站移轉至 App Service 應用程式時，DNS 解析不會發生停機。
@@ -71,27 +71,27 @@ ms.locfileid: "62130376"
 
 ### <a name="enable-the-domain-for-your-app"></a>為您的應用程式啟用網域
 
-在 [Azure 入口網站](https://portal.azure.com)之應用程式頁面的左側導覽中，選取 [自訂網域]。 
+在 [Azure 入口網站](https://portal.azure.com)之應用程式頁面的左側導覽中，選取 [自訂網域]  。 
 
 ![[自訂網域] 功能表](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-在 [自訂網域] 頁面中，選取 [新增主機名稱] 旁的 **+** 圖示。
+在 [自訂網域]  頁面中，選取 [新增主機名稱]  旁的 **+** 圖示。
 
 ![新增主機名稱](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 鍵入您新增 TXT 記錄的完整網域名稱，例如 `www.contoso.com`。 針對萬用字元網域 (例如 \*.contoso.com)，您可以使用符合萬用字元網域的任何 DNS 名稱。 
 
-選取 [驗證]。
+選取 [驗證]  。
 
-[新增主機名稱] 按鈕會啟用。 
+[新增主機名稱]  按鈕會啟用。 
 
-確定將 [主機名稱記錄類型] 設定為您要移轉的 DNS 記錄類型。
+確定將 [主機名稱記錄類型]  設定為您要移轉的 DNS 記錄類型。
 
-選取 [新增主機名稱]。
+選取 [新增主機名稱]  。
 
 ![將 DNS 名稱新增至應用程式](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-可能需要一些時間，新的主機名稱才會反映在應用程式的 [自訂網域] 分頁中。 嘗試重新整理瀏覽器以更新資料。
+可能需要一些時間，新的主機名稱才會反映在應用程式的 [自訂網域]  分頁中。 嘗試重新整理瀏覽器以更新資料。
 
 ![CNAME 記錄已新增](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
@@ -107,11 +107,11 @@ ms.locfileid: "62130376"
 
 如果您重新對應的是 CNAME 記錄，請略過本節。 
 
-若要重新對應 A 記錄，您需要 App Service 應用程式的外部 IP 位址，如 [自訂網域] 頁面中所示。
+若要重新對應 A 記錄，您需要 App Service 應用程式的外部 IP 位址，如 [自訂網域]  頁面中所示。
 
-選取右上角的 **X** 關閉 [新增主機名稱] 頁面。 
+選取右上角的 **X** 關閉 [新增主機名稱]  頁面。 
 
-在 [自訂網域] 頁面中，複製應用程式的 IP 位址。
+在 [自訂網域]  頁面中，複製應用程式的 IP 位址。
 
 ![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
@@ -121,9 +121,9 @@ ms.locfileid: "62130376"
 
 在 `contoso.com` 根網域範例中，重新對應 A 或 CNAME 記錄，如下表中的範例所示： 
 
-| FQDN 範例 | 記錄類型 | 主机 | Value |
+| FQDN 範例 | 記錄類型 | Host | 值 |
 | - | - | - | - |
-| contoso.com (根網域) | 具有使用  | `@` | 來自[複製應用程式的 IP 位址](#info)的 IP 位址 |
+| contoso.com (根網域) | A | `@` | 來自[複製應用程式的 IP 位址](#info)的 IP 位址 |
 | www\.contoso.com (sub) | CNAME | `www` | _&lt;應用程式名稱>.azurewebsites.net_ |
 | \*.contoso.com (萬用字元) | CNAME | _\*_ | _&lt;應用程式名稱>.azurewebsites.net_ |
 

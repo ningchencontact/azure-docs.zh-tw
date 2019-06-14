@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 9108f83e854b51720c64c5a74a828543cc5e7688
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64875808"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>複製活動中的結構描述對應
@@ -105,7 +105,7 @@ ms.locfileid: "64875808"
 
 ### <a name="alternative-column-mapping"></a>替代的資料行對應
 
-您可以指定複製活動-> `translator`  ->  `columnMappings`表格式圖形化資料之間的對應。 在此情況下，為必要的輸入和輸出資料集 「 結構 」 區段。 資料行對應支援將來源資料集「結構」中的所有或一部分資料行，對應至接收資料集「結構」中的所有資料行。 以下是會導致發生例外狀況的錯誤狀況：
+您可以指定複製活動-> `translator`  ->  `columnMappings`表格式圖形化資料之間的對應。 在此情況下，為必要的輸入和輸出資料集 「 結構 」 區段。 資料行對應支援將來源資料集「結構」中的所有或一部分資料行，對應至接收資料集「結構」中的所有資料行  。 以下是會導致發生例外狀況的錯誤狀況：
 
 * 來源資料存放區查詢結果在輸入資料集的「結構」區段中並未指定資料行名稱。
 * 接收資料存放區 (如果含有預先定義的結構描述) 在輸出資料集的「結構」區段中並未指定資料行名稱。
@@ -236,7 +236,7 @@ ms.locfileid: "64875808"
 }
 ```
 
-您想要壓平合併陣列內的資料 (order_pd 和 order_price)，將內容複製到下列格式的 Azure SQL 資料表，並與一般根資訊 (編號、日期和城市) 交叉聯結︰
+您想要壓平合併陣列內的資料 (order_pd 和 order_price)  ，將內容複製到下列格式的 Azure SQL 資料表，並與一般根資訊 (編號、日期和城市)  交叉聯結︰
 
 | orderNumber | orderDate | order_pd | order_price | city |
 | --- | --- | --- | --- | --- |
@@ -296,7 +296,7 @@ Data Factory 支援下列過渡資料類型：在[資料集結構](concepts-data
 * Int32
 * Int64
 * Single
-* String
+* 字串
 * Timespan
 
 ## <a name="next-steps"></a>後續步驟

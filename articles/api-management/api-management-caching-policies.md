@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: 08b6f803d6994015432bf68c7b3edae14af8f976
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61095436"
 ---
 # <a name="api-management-caching-policies"></a>API 管理快取原則
@@ -101,7 +101,7 @@ ms.locfileid: "61095436"
 
 ### <a name="elements"></a>元素
 
-|名稱|描述|必要項|
+|Name|描述|必要項|
 |----------|-----------------|--------------|
 |cache-lookup|根元素。|是|
 |vary-by-header|根據指定標頭 (例如 Accept、Accept-Charset、Accept-Encoding、Accept-Language、Authorization、Expect、From、Host、If-Match) 的值開始快取回應。|否|
@@ -180,13 +180,13 @@ ms.locfileid: "61095436"
 
 ### <a name="elements"></a>元素
 
-|名稱|描述|必要項|
+|Name|描述|必要項|
 |----------|-----------------|--------------|
 |cache-store|根元素。|是|
 
 ### <a name="attributes"></a>屬性
 
-| 名稱             | 描述                                                                                                                                                                                                                                                                                                                                                 | 必要項 | 預設值           |
+| Name             | 描述                                                                                                                                                                                                                                                                                                                                                 | 必要項 | 預設值           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | duration         | 快取項目的存留時間，以秒為單位進行指定。                                                                                                                                                                                                                                                                                                   | 是      | N/A               |
 
@@ -223,13 +223,13 @@ ms.locfileid: "61095436"
 
 ### <a name="elements"></a>元素
 
-|名稱|描述|必要項|
+|Name|描述|必要項|
 |----------|-----------------|--------------|
 |cache-lookup-value|根元素。|是|
 
 ### <a name="attributes"></a>屬性
 
-| 名稱             | 描述                                                                                                                                                                                                                                                                                                                                                 | 必要項 | 預設值           |
+| Name             | 描述                                                                                                                                                                                                                                                                                                                                                 | 必要項 | 預設值           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | caching-type | 選擇下列屬性值：<br />- `internal`，使用內建 API 管理快取，<br />- `external`，使用外部快取，如[在 Azure API 管理中使用外部 Azure Redis 快取](api-management-howto-cache-external.md)中所述，<br />- `prefer-external`。如有設定，則使用外部快取；否則使用內部快取。 | 否       | `prefer-external` |
 | default-value    | 當快取索引鍵查閱沒有結果時，要指派給變數的值。 如果未指定此屬性，則會指派 `null`。                                                                                                                                                                                                           | 否       | `null`            |
@@ -239,7 +239,7 @@ ms.locfileid: "61095436"
 ### <a name="usage"></a>使用量
 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
-- **策略节：** 入站、出站、后端、错误时
+- **原則區段︰** 輸入、輸出、後端、錯誤
 - **原則範圍︰** 全域、API、作業、產品
 
 ## <a name="StoreToCacheByKey"></a>儲存快取中的值
@@ -266,13 +266,13 @@ ms.locfileid: "61095436"
 
 ### <a name="elements"></a>元素
 
-|名稱|描述|必要項|
+|Name|描述|必要項|
 |----------|-----------------|--------------|
 |cache-store-value|根元素。|是|
 
 ### <a name="attributes"></a>屬性
 
-| 名稱             | 描述                                                                                                                                                                                                                                                                                                                                                 | 必要項 | 預設值           |
+| Name             | 描述                                                                                                                                                                                                                                                                                                                                                 | 必要項 | 預設值           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | caching-type | 選擇下列屬性值：<br />- `internal`，使用內建 API 管理快取，<br />- `external`，使用外部快取，如[在 Azure API 管理中使用外部 Azure Redis 快取](api-management-howto-cache-external.md)中所述，<br />- `prefer-external`。如有設定，則使用外部快取；否則使用內部快取。 | 否       | `prefer-external` |
 | duration         | 會針對所提供的持續時間值來快取值，以秒為單位進行指定。                                                                                                                                                                                                                                                                                 | 是      | N/A               |
@@ -281,11 +281,11 @@ ms.locfileid: "61095436"
 ### <a name="usage"></a>使用量
 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
-- **策略节：** 入站、出站、后端、错误时
+- **原則區段︰** 輸入、輸出、後端、錯誤
 - **原則範圍︰** 全域、API、作業、產品
 
-### <a name="RemoveCacheByKey"></a> 从缓存中删除值
-`cache-remove-value` 删除通过密钥标识的缓存项。 金鑰可以具有任意字串值，而且通常會使用原則運算式來提供。
+### <a name="RemoveCacheByKey"></a>移除快取中的值
+`cache-remove-value` 會刪除依其索引鍵所識別的快取項目。 金鑰可以具有任意字串值，而且通常會使用原則運算式來提供。
 
 #### <a name="policy-statement"></a>原則陳述式
 

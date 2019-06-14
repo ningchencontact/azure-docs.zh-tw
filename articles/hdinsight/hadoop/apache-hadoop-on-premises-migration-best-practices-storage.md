@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
 ms.openlocfilehash: c62a5384edf66fd9309bc7afcb50ada48e3fca7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64691529"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>將內部部署 Apache Hadoop 叢集移轉至 Azure HDInsight - 儲存體最佳做法
@@ -171,13 +171,13 @@ hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode
 
 5. 若要使用共用存取簽章來限制對容器的存取，請在 Ambari HDFS 的 [設定] > [進階] > [自訂核心網站] > [新增屬性] 下，將自訂項目新增至叢集的核心網站組態。
 
-6. 針對 [金鑰] 和 [值] 欄位使用下列值：
+6. 針對 [金鑰]  和 [值]  欄位使用下列值：
 
     **金鑰**：`fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **值**：Python 應用程式在前述的步驟 4 中傳回的 SAS 金鑰。
 
-7. 按一下 [新增] 按鈕以儲存這個金鑰和值，然後按一下 [儲存] 按鈕以儲存組態變更。 出現提示時，加入變更的描述 (例如，「新增 SAS 儲存體存取權」)，然後按一下 [儲存]。
+7. 按一下 [新增]  按鈕以儲存這個金鑰和值，然後按一下 [儲存]  按鈕以儲存組態變更。 出現提示時，加入變更的描述 (例如，「新增 SAS 儲存體存取權」)，然後按一下 [儲存]  。
 
-8. 在 Ambari Web UI 中，選取左側清單中的 [HDFS]，然後從右側 [服務動作] 下拉式清單中選取 [重新啟動所有受影響項目] **** 。 出現提示時，選取 [確認全部重新啟動] ****。
+8. 在 Ambari Web UI 中，選取左側清單中的 [HDFS]，然後從右側 [服務動作] 下拉式清單中選取 [重新啟動所有受影響項目] ****  。 出現提示時，選取 [確認全部重新啟動] **** 。
 
 9. 對 MapReduce2 和 YARN 重複此程序。
 

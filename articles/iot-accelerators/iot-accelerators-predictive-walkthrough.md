@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 3387996dc0e1953eaafee9c4c61eb8faa865b654
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447492"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>預測性維護解決方案加速器概觀
@@ -31,7 +31,7 @@ ms.locfileid: "61447492"
 
 綠色項目是模擬的飛機引擎。 您可以在[模擬裝置](#simulated-devices)一節中進一步了解這些模擬裝置。
 
-灰色項目是可實作「裝置管理」功能的元件。 目前的預測性維護解決方案加速器版本不會佈建這些資源。 若要深入了解裝置管理，請參閱[遠端監視解決方案加速器][lnk-remote-monitoring]。
+灰色項目是可實作「裝置管理」  功能的元件。 目前的預測性維護解決方案加速器版本不會佈建這些資源。 若要深入了解裝置管理，請參閱[遠端監視解決方案加速器][lnk-remote-monitoring]。
 
 ## <a name="azure-resources"></a>Azure 資源
 

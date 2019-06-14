@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
 ms.openlocfilehash: e828a8fc4211a0f0c4b53a9e18fa1c2fb6f6916b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60593228"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>將 Azure VM 重新開機時，Windows 會在藍色畫面上顯示 "CRITICAL SERVICE FAILED"
@@ -30,7 +30,7 @@ ms.locfileid: "60593228"
 
 Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.md)中的開機螢幕擷取畫面時，您會在藍色畫面中看到下列其中一項錯誤訊息：
 
-- 「您的電腦發生問題，並需要重新啟動。 您可以重新啟動。 如需此問題及可能修正的詳細資訊，請前往 http://windows.com/stopcode。 如果您連絡支援人員，請提供此資訊：停止代碼：CRITICAL SERVICE FAILED" 
+- 「您的電腦發生問題，並需要重新啟動。 您可以重新啟動。 如需此問題及可能修正的詳細資訊，請前往 http://windows.com/stopcode 。 如果您連絡支援人員，請提供此資訊：停止代碼：CRITICAL SERVICE FAILED" 
 - 「您的電腦發生問題，並需要重新啟動。 我們只會收集一些錯誤資訊，然後會為您重新啟動。 若要深入了解，您可稍後在線上搜尋此錯誤：CRITICAL_SERVICE_FAILED」
 
 ## <a name="cause"></a>原因
@@ -94,8 +94,8 @@ Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.m
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
 2. [將 OS 磁碟中斷連結，然後將 OS 磁碟重新連結至受影響的 VM](troubleshoot-recovery-disks-portal-windows.md)。 VM 會開機進入安全模式。 若錯誤持續發生，請前往選用步驟。
-3. 開啟 [執行] 方塊，並執行 [驗證器] 以啟動磁碟機驗證器管理工具。
-4. 選取 [自動選取未簽署的驅動程式]，然後按一下 [下一步]。
+3. 開啟 [執行]  方塊，並執行 [驗證器]  以啟動磁碟機驗證器管理工具。
+4. 選取 [自動選取未簽署的驅動程式]  ，然後按一下 [下一步]  。
 5. 您會取得未簽署的驅動程式檔案清單。 記下檔案名稱。
 6. 從運作中 VM 複製這些檔案的相同版本，然後取代這些未簽署的檔案。 
 
@@ -106,19 +106,19 @@ Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.m
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>選用：分析傾印損毀模式中的傾印記錄
 
-若要自己分析转储日志，请执行以下步骤：
+若要自行分析傾印記錄檔，請遵循下列步驟：
 
 1. 將 OS 磁碟連結至還原 VM。
 2. 在您連結的 OS 磁碟上，瀏覽至 **\windows\system32\config**。需要將所有檔案複製為備份以便復原。
-3. 啟動 [登錄編輯程式] (regedit.exe)。
-4. 選取 [HKEY_LOCAL_MACHINE] 機碼。 在功能表上，選取 [檔案] > [載入 Hive] 。
-5. 在您連結的 OS 磁碟上，瀏覽至 **\windows\system32\config\SYSTEM** 資料夾。 針對 Hive 的名稱，輸入 **BROKENSYSTEM**。 新的 Hive 會顯示在 [HKEY_LOCAL_MACHINE] 機碼下方。
+3. 啟動 [登錄編輯程式]  (regedit.exe)。
+4. 選取 [HKEY_LOCAL_MACHINE]  機碼。 在功能表上，選取 [檔案]   > [載入 Hive]  。
+5. 在您連結的 OS 磁碟上，瀏覽至 **\windows\system32\config\SYSTEM** 資料夾。 針對 Hive 的名稱，輸入 **BROKENSYSTEM**。 新的 Hive 會顯示在 [HKEY_LOCAL_MACHINE]  機碼下方。
 6. 瀏覽至 **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\CrashControl** 並進行下列變更：
 
     Autoreboot = 0
 
     CrashDumpEnabled = 2
-7.  選取 [BROKENSYSTEM]。 在功能表上，選取 [檔案] > **[上傳 Hive]**。
+7.  選取 [BROKENSYSTEM]  。 在功能表上，選取 [檔案]   >  **[上傳 Hive]** 。
 8.  修改 BCD 設定以開機進入偵錯模式。 從提升權限的命令提示字元執行下列命令：
 
     ```cmd

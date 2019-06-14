@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: c75bd8c3831bad0c8217f16315843cbe3824fe4d
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/24/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "63766630"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>如何更新現有的藍圖指派
@@ -25,15 +25,15 @@ ms.locfileid: "63766630"
 
 ## <a name="updating-assignments"></a>更新指派
 
-1. 在左側窗格中選取 [所有服務]。 搜尋並選取 [藍圖]。
+1. 在左側窗格中選取 [所有服務]  。 搜尋並選取 [藍圖]  。
 
-1. 選取頁面左側的 [指派的藍圖]。
+1. 選取頁面左側的 [指派的藍圖]  。
 
 1. 在藍圖清單中，以滑鼠左鍵按一下藍圖指派。 然後按一下**更新指派**按鈕，或是以滑鼠右鍵按一下 藍圖指派並選取**更新指派**。
 
    ![更新現有的藍圖指派](../media/update-existing-assignments/update-assignment.png)
 
-1. **指派藍圖**網頁將會載入預先填入從原始指派的所有值。 您可以變更**藍圖定義版本**、**鎖定指派**狀態，以及任何存在於藍圖定義的動態參數。 完成變更後，按一下 [指派]。
+1. **指派藍圖**網頁將會載入預先填入從原始指派的所有值。 您可以變更**藍圖定義版本**、**鎖定指派**狀態，以及任何存在於藍圖定義的動態參數。 完成變更後，按一下 [指派]  。
 
 1. 在更新後的指派詳細資料頁面上，查看新的狀態。 在此範例中，我們對指派新增了**鎖定**。
 

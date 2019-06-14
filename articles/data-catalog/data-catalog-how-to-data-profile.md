@@ -9,10 +9,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 64185a951b25b4e04ea5fc65aeede9b0e617d0c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61001684"
 ---
 # <a name="data-profile-data-sources"></a>對資料來源進行資料分析
@@ -48,7 +48,7 @@ ms.locfileid: "61001684"
 <a name="howto"/>
 
 ## <a name="how-to-include-a-data-profile-when-registering-a-data-source"></a>如何在註冊資料來源時包含資料設定檔
-想要包含資料來源的設定檔很容易。 當您註冊資料來源時，在資料來源註冊工具的 [要註冊的物件] 面板中選擇 [包含資料設定檔]。
+想要包含資料來源的設定檔很容易。 當您註冊資料來源時，在資料來源註冊工具的 [要註冊的物件]  面板中選擇 [包含資料設定檔]  。
 
 ![](media/data-catalog-data-profile/data-catalog-register-profile.png)
 
@@ -58,7 +58,7 @@ ms.locfileid: "61001684"
 若要探索包含資料設定檔的資料資產，您可以包含 `has:tableDataProfiles` 或 `has:columnsDataProfiles` 做為搜尋字詞之一。
 
 > [!NOTE]
-> 在資料來源註冊工具中選取 [包含資料設定檔]，即會同時包含資料表和資料行層級的設定檔資訊。 不過，資料目錄 API 讓只含一組設定檔資訊的資料資產能夠加以註冊。
+> 在資料來源註冊工具中選取 [包含資料設定檔]  ，即會同時包含資料表和資料行層級的設定檔資訊。 不過，資料目錄 API 讓只含一組設定檔資訊的資料資產能夠加以註冊。
 >
 >
 

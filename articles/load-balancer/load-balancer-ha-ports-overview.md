@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: kumud
 ms.openlocfilehash: 328471292ea6cbe07e96cc18af7f9c524407de3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60930266"
 ---
 # <a name="high-availability-ports-overview"></a>高可用性連接埠概觀
@@ -28,7 +28,7 @@ Azure Standard Load Balancer 可協助您在使用內部負載平衡器時，同
 
 HA 連接埠負載平衡規則可協助您處理危急案例，例如，虛擬網路內部網路虛擬設備 (NVA) 的高可用性和規模調整。 此功能也可以在必須對大量連接埠進行負載平衡時提供協助。 
 
-當您將前端和後端連接埠設定為 **0**，並將通訊協定設定為 [全部] 時，會設定 HA 連接埠負載平衡規則。 接著，內部負載平衡器資源會對所有 TCP 和 UDP 流程進行平衡，而不論連接埠號碼為何。
+當您將前端和後端連接埠設定為 **0**，並將通訊協定設定為 [全部]  時，會設定 HA 連接埠負載平衡規則。 接著，內部負載平衡器資源會對所有 TCP 和 UDP 流程進行平衡，而不論連接埠號碼為何。
 
 ## <a name="why-use-ha-ports"></a>為何要使用 HA 連接埠？
 
@@ -65,8 +65,8 @@ HA 連接埠功能適用於所有全域 Azure 區域。
 ### <a name="a-single-non-floating-ip-non-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>內部 Standard Load Balancer 上的單一非浮動 IP (非伺服器直接回傳) HA 連接埠設定
 
 此設定是基本的 HA 連接埠設定。 若要針對單一前端 IP 位址設定 HA 連接埠負載平衡規則，請執行下列步驟：
-1. 設定 Standard Load Balancer 時，在 Load Balancer 規則設定中選取 [HA 連接埠] 核取方塊。
-2. 針對 [浮動 IP]，請選取 [已停用]。
+1. 設定 Standard Load Balancer 時，在 Load Balancer 規則設定中選取 [HA 連接埠]  核取方塊。
+2. 針對 [浮動 IP]  ，請選取 [已停用]  。
 
 此設定在目前的負載平衡器資源上，不允許其他任何負載平衡規則設定。 對於一組指定的後端執行個體，它也不允許其他任何內部負載平衡器資源設定。
 
@@ -74,7 +74,7 @@ HA 連接埠功能適用於所有全域 Azure 區域。
 
 ### <a name="a-single-floating-ip-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>內部 Standard Load Balancer 上的單一浮動 IP (伺服器直接回傳) HA 連接埠設定
 
-您同樣可以將負載平衡器設定為搭配含單一前端的 **HA 連接埠**使用負載平衡規則，方法是將 [浮動 IP] 設定為 [已啟用]。 
+您同樣可以將負載平衡器設定為搭配含單一前端的 **HA 連接埠**使用負載平衡規則，方法是將 [浮動 IP]  設定為 [已啟用]  。 
 
 您可以使用此設定新增更多浮動 IP 負載平衡規則和/或一個公用負載平衡器。 不過，您無法在此設定上使用非浮動 IP、HA 連接埠負載平衡設定。
 
@@ -83,11 +83,11 @@ HA 連接埠功能適用於所有全域 Azure 區域。
 如果您的案例要求您針對相同的後端集區設定多個 HA 連接埠前端，則可以執行下列動作： 
 - 針對單一內部 Standard Load Balancer 資源，設定多個前端私人 IP 位址。
 - 設定多個負載平衡規則，其中每個規則都已選取單一且唯一的前端 IP 位址。
-- 選取 [HA 連接埠] 選項，然後針對所有負載平衡規則，將 [浮動 IP] 設定為 [已啟用]。
+- 選取 [HA 連接埠]  選項，然後針對所有負載平衡規則，將 [浮動 IP]  設定為 [已啟用]  。
 
 ### <a name="an-internal-load-balancer-with-ha-ports-and-a-public-load-balancer-on-the-same-back-end-instance"></a>在相同後端執行個體上具有 HA 連接埠與公用負載平衡器的內部負載平衡器
 
-您可以針對後端資源設定「一個」公用 Standard Load Balancer 資源，以及含 HA 連接埠的單一內部 Standard Load Balancer。
+您可以針對後端資源設定「一個」  公用 Standard Load Balancer 資源，以及含 HA 連接埠的單一內部 Standard Load Balancer。
 
 >[!NOTE]
 >此功能目前可透過 Azure Resource Manager 範本取得，但無法透過 Azure 入口網站取得。

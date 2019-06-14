@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: qianw211
 ms.openlocfilehash: e7867d5ea95cd3142a6f617a5554858b7a72cbc9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937658"
 ---
 # <a name="publishing-guide-by-offer-type"></a>依供應項目類型的發行指南
 
 一旦您[決定發佈選項](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)，就能夠選取要用於展示供應項目的供應項目類型。 
 
-供應項目是您在 [Cloud Partner 入口網站](https://cloudpartner.azure.com)中建立、發佈及管理的發佈物件。 「供應項目類型」會定義供應項目結構 (包括用來在市集中展示供應項目的中繼資料、成品和其他內容)。
+供應項目是您在 [Cloud Partner 入口網站](https://cloudpartner.azure.com)中建立、發佈及管理的發佈物件。 「供應項目類型」  會定義供應項目結構 (包括用來在市集中展示供應項目的中繼資料、成品和其他內容)。
 
 您必須先選擇供應項目類型，才能建立供應項目。 供應項目類型會對應至您想要發佈的解決方案、應用程式服務供應項目類型，以及對等的 Microsoft 產品和服務。 
 

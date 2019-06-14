@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: ff822e87bfec5daa161172c0d47975eb06cc2808
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935637"
 ---
 # <a name="appsource-package-preparation"></a>AppSource 套件準備
@@ -133,4 +133,4 @@ AppSource 套件需要一些額外的檔案。
 
 ![CRMScreenShot6](media/CRMScreenShot6.png)
 
-將檔案重新命名為適合您的應用程式的名稱。 我們希望您包含公司名稱和應用程式名稱。 例如：**_Microsoft_SamplePackage.zip**。
+將檔案重新命名為適合您的應用程式的名稱。 我們希望您包含公司名稱和應用程式名稱。 例如： **_Microsoft_SamplePackage.zip**。

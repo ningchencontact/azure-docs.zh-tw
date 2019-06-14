@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: 000315a2d751a05d3e401ee1bb9f593c6e321194
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922906"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>新增或變更 Azure 訂用帳戶系統管理員
@@ -45,23 +45,23 @@ Microsoft 建議您使用 RBAC 來管理對資源的存取。 不過，如果您
 
 1. 選擇您想要授與存取權的訂用帳戶。
 
-1. 按一下 [存取控制 (IAM)]。
+1. 按一下 [存取控制 (IAM)]  。
 
-1. 按一下 [角色指派] 索引標籤以檢視此訂用帳戶的所有角色指派。
+1. 按一下 [角色指派]  索引標籤以檢視此訂用帳戶的所有角色指派。
 
     ![顯示角色指派的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/role-assignments.png)
 
-1. 按一下 [新增] > [新增角色指派]，以開啟 [新增角色指派] 窗格。
+1. 按一下 [新增]   > [新增角色指派]  ，以開啟 [新增角色指派]  窗格。
 
     如果您沒有指派角色的權限，此選項就會被停用。
 
-1. 在 [角色] 下拉式清單中，選取 [擁有者] 角色。
+1. 在 [角色]  下拉式清單中，選取 [擁有者]  角色。
 
-1. 在 [選取] 清單中，選取使用者。 如果在清單中未看到使用者，您可以在 [選取] 方塊中輸入，以在目錄中搜尋顯示名稱與電子郵件地址。
+1. 在 [選取]  清單中，選取使用者。 如果在清單中未看到使用者，您可以在 [選取]  方塊中輸入，以在目錄中搜尋顯示名稱與電子郵件地址。
 
     ![顯示已選取 [擁有者] 角色的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-1. 按一下 [儲存] 以指派角色。
+1. 按一下 [儲存]  以指派角色。
 
     在幾分鐘之後，即會在訂用帳戶範圍將「擁有者」角色指派給使用者。
 

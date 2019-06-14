@@ -9,10 +9,10 @@ ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.openlocfilehash: ed263fec271801ac9c46bbc3125c71ca15b9a330
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153979"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Azure 儲存體的進階威脅防護
@@ -34,11 +34,11 @@ Azure 儲存體的進階的威脅防護內嵌讀取、 寫入和刪除要求，�
 
 1. 在 [https://portal.azure.com](https://portal.azure.com/) 上啟動 Azure 入口網站。
 
-2. 瀏覽至您要保護之 Azure 儲存體帳戶的設定頁面。 在 [設定] 頁面中，選取 [進階威脅防護]。
+2. 瀏覽至您要保護之 Azure 儲存體帳戶的設定頁面。 在 [設定]  頁面中，選取 [進階威脅防護]  。
 
-3. 在 [進階威脅防護] 設定刀鋒視窗中
-    * **開啟**進階「威脅防護」
-    * 按一下 [儲存]，以儲存新的或更新的進階威脅防護原則。 （在映像的價格，例如是僅限用途）。
+3. 在 [進階威脅防護]  設定刀鋒視窗中
+    * **開啟**進階「威脅防護」 
+    * 按一下 [儲存]  ，以儲存新的或更新的進階威脅防護原則。 （在映像的價格，例如是僅限用途）。
 
 ![開啟 Azure 儲存體進階威脅防護](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 

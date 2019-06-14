@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: zarhoads
-ms.openlocfilehash: aebade14f3a8a1095925d17325ce99b78031dc32
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 69f60036bd718264174bf1befe832305e250e77c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073958"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>應用程式開發人員在 Azure Kubernetes Services (AKS) 中管理資源的最佳做法
@@ -74,6 +74,8 @@ spec:
 
 這種使用 Dev Spaces 的整合式開發和測試程序可降低對於本機測試環境的需求，例如 [minikube][minikube]。 因為您可以對 AKS 叢集進行開發和測試。 如上一節所提到的，使用命名空間可透過邏輯方式隔離叢集，而讓此叢集可受到保護和隔離。 當您的應用程式準備好要部署到生產環境時，您將可放心部署，因為您的開發全都是在實際的 AKS 叢集中完成的。
 
+Azure 開發人員空格適合搭配 Linux pod 和節點執行的應用程式。
+
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>使用適用於 Kubernetes 的 Visual Studio Code 延伸模組
 
 **最佳作法指引** - 在撰寫 YAML 資訊清單時，請安裝並使用適用於 Kubernetes 的 VS Code 延伸模組。 您也可以使用整合式部署解決方案的延伸模組，這對於不常與 AKS 叢集互動的應用程式擁有者可能有所幫助。
@@ -84,9 +86,11 @@ spec:
 
 ## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>使用 kube-advisor 定期檢查應用程式的問題
 
-**最佳做法指导** - 定期运行最新版本的 `kube-advisor` 开放源代码工具，以检测群集中的问题。 如果您在現有的 AKS 叢集上套用資源配額，請先執行 `kube-advisor` 以尋找未定義資源要求和限制的 Pod。
+**最佳作法指引**-定期執行的最新版本`kube-advisor`開放原始碼工具，來偵測您的叢集中的問題。 如果您在現有的 AKS 叢集上套用資源配額，請先執行 `kube-advisor` 以尋找未定義資源要求和限制的 Pod。
 
-[kube-advisor][kube-advisor] 工具是一个关联的 AKS 开放源代码项目，它将扫描 Kubernetes 群集，并报告它找到的问题。 一個實用的檢查，就是找出沒有備妥資源要求和限制的 Pod。
+[Kube advisor] [ kube-advisor]工具是相關聯的 AKS 開放原始碼專案，掃描的 Kubernetes 叢集，並報告它找到的問題。 一個實用的檢查，就是找出沒有備妥資源要求和限制的 Pod。
+
+Kube advisor 工具可報告資源的要求和限制遺漏 PodSpecs for Windows 應用程式，以及 Linux 應用程式，但 kube advisor 工具本身必須經過排程上的 Linux pod。 您可以排程在特定的作業系統使用的節點集區上執行的 pod[節點選取器][ k8s-node-selector] pod 的組態中。
 
 在裝載許多開發小組和應用程式的 AKS 叢集中，若沒有這些資源要求和限制集，就可能難以追蹤 Pod。 最佳做法是在 AKS 叢集上定期執行 `kube-advisor`。
 
@@ -110,3 +114,4 @@ spec:
 [dev-spaces]: ../dev-spaces/get-started-netcore.md
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

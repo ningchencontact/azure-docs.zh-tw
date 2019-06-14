@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 4/29/2019
 ms.openlocfilehash: 854e29b67b6e24c583a98b5851bf17551cfcbf61
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65441343"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Azure 資料總管連接器適用於 Apache Spark （預覽）
@@ -109,7 +109,7 @@ Azure 資料總管 Spark 連接器可讓您使用 Azure Active Directory (Azure 
 
 大部分的簡單且常見的驗證方法。 Azure 資料總管 Spark 連接器使用方式建議使用這個方法。
 
-|properties  |說明  |
+|properties  |描述  |
 |---------|---------|
 |**KUSTO_AAD_CLIENT_ID**     |   Azure AD 應用程式 （用戶端） 識別碼。      |
 |**KUSTO_AAD_AUTHORITY_ID**     |  Azure AD 驗證授權單位。 Azure AD 目錄 （租用戶） 識別碼。        |

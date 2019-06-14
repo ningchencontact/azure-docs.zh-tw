@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 4dbbaeea736dd46478ad9992201ea28bd7bfc2ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457833"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>使用 PowerShell 來部署和管理通知中樞
@@ -36,11 +36,11 @@ Azure PowerShell 隨附的 Cmdlet 無法直接支援「管理通知中樞」。 
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure 訂用帳戶。 Azure 是基于订阅的平台。 如需取得訂用帳戶的詳細資訊，請參閱[購買選項]、[成員供應項目]或[免費試用版]。
+- Azure 訂用帳戶。 Azure 是訂閱型平台。 如需取得訂用帳戶的詳細資訊，請參閱[購買選項]、[成員供應項目]或[免費試用版]。
 - 具備 Azure PowerShell 的電腦。 如需指示，請參閱 [安裝並設定 Azure PowerShell]。
 - 大致了解 PowerShell 指令碼、NuGet 封裝和 .NET Framework。
 
-## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>包含对适用于服务总线的 .NET 程序集的引用
+## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>包括對服務匯流排之 .NET 組件的參考
 
 Azure PowerShell 中的 PowerShell Cmdlet 尚未提供「管理 Azure 通知中樞」。 若要佈建通知中樞，可以使用 [Microsoft Azure 通知中樞 NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)中所提供的 .NET 用戶端。
 

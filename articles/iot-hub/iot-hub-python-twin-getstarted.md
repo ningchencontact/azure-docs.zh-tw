@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: kgremban
 ms.openlocfilehash: 3e703c999d57cf62064291cf91059a17a959a2c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442583"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569261"
 ---
 # <a name="get-started-with-device-twins-python"></a>開始使用裝置對應項 (Python)
 
@@ -31,14 +31,14 @@ ms.locfileid: "61442583"
 
 若要完成此教學課程，您需要下列項目：
 
-* [Python 2.x 或 3.x](https://www.python.org/downloads/)。 請務必使用安裝程式所需的 32 位元或 64 位元安裝。 在安裝期間出現系統提示時，務必將 Python 新增至平台特有的環境變數。 如果您是使用 Python 2.x，可能需要[安裝或升級 pip (Python 套件管理系統](https://pip.pypa.io/en/stable/installing/))。
+* [Python 2.x 或 3.x](https://www.python.org/downloads/)。 請務必使用安裝程式所需的 32 位元或 64 位元安裝。 在安裝期間出現系統提示時，務必將 Python 新增至平台特有的環境變數。 如果您是使用 Python 2.x，可能需要[安裝或升級 pip  (Python 套件管理系統](https://pip.pypa.io/en/stable/installing/))。
 
 * 如果您是使用 Windows 作業系統，則 [Visual C++ 可轉散發套件](https://www.microsoft.com/download/confirmation.aspx?id=48145)允許使用 Python 的原生 DLL。
 
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 
 > [!NOTE]
-> `azure-iothub-service-client` 和 `azure-iothub-device-client` 的 pip 套件目前僅適用於 Windows OS。 若為 Linux/Mac OS，請參閱以 Linux 和 Mac OS 特定章節[準備開發環境適用於 Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)張貼。
+> `azure-iothub-service-client` 和 `azure-iothub-device-client` 的 pip  套件目前僅適用於 Windows OS。 若為 Linux/Mac OS，請參閱以 Linux 和 Mac OS 特定章節[準備開發環境適用於 Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)張貼。
 >
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
@@ -55,7 +55,7 @@ ms.locfileid: "61442583"
 
 ## <a name="create-the-service-app"></a>建立服務應用程式
 
-在本節中，您會建立 Python 主控台應用程式，將位置中繼資料加入至相關聯的裝置對應項您 **{裝置識別碼}**。 接著，它會選取位於 Redmond 的裝置來查詢儲存在 IoT 中樞的裝置對應項，再查詢會報告行動電話連線的對應項。
+在本節中，您會建立 Python 主控台應用程式，將位置中繼資料加入至相關聯的裝置對應項您 **{裝置識別碼}** 。 接著，它會選取位於 Redmond 的裝置來查詢儲存在 IoT 中樞的裝置對應項，再查詢會報告行動電話連線的對應項。
 
 1. 開啟命令提示字元並安裝 **Azure IoT Hub Service SDK for Python**。 安裝 SDK 之後，請關閉命令提示字元。
 
@@ -157,7 +157,7 @@ ms.locfileid: "61442583"
 
 ## <a name="create-the-device-app"></a>建立裝置應用程式
 
-在本節中，您會建立 Python 主控台應用程式連接到您的中樞，作為您 **{裝置識別碼}**，然後更新其裝置對應項所報告屬性，以包含它連接使用行動電話通訊網路的資訊。
+在本節中，您會建立 Python 主控台應用程式連接到您的中樞，作為您 **{裝置識別碼}** ，然後更新其裝置對應項所報告屬性，以包含它連接使用行動電話通訊網路的資訊。
 
 1. 開啟命令提示字元並安裝 **Azure IoT Hub Service SDK for Python**。 安裝 SDK 之後，請關閉命令提示字元。
 

@@ -17,10 +17,10 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19b010091ebd909745b272fca704bb87adf7924b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962617"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>作法：使用 ADAL 在 iOS 上啟用跨應用程式的 SSO
@@ -306,7 +306,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 
 `msauth://code/<broker-redirect-uri-in-url-encoded-form>`
 
-例如︰msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp
+例如︰msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp 
 
 #### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>步驟 4：將設定參數新增至您的應用程式
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: 36b43ce6636bf918e1e8c42af4c2746865f5ccd1
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523340"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>移轉至以 Azure Resource Manager 為基礎的開發工具 (適用於 HDInsight 叢集)
@@ -43,7 +43,7 @@ HDInsight 正在取代以 Azure Service Manager (ASM) 為基礎的工具 (適用
 
 * `azure hdinsight cluster resize` - 在叢集中動態變更背景工作節點數目
 * `azure hdinsight cluster enable-http-access` - 啟用 HTTP 對叢集的存取 (預設為開啟)
-* `azure hdinsight cluster disable-http-access` - 禁用对群集的 HTTPs 访问
+* `azure hdinsight cluster disable-http-access` - 停用 HTTP 對叢集的存取
 * `azure hdinsight script-action` - 在叢集上提供建立/管理指令碼動作的命令
 * `azure hdinsight config` -提供可用於建立組態檔的命令，該組態檔可與 `hdinsight cluster create` 命令一起使用，以提供組態資訊。
 
@@ -83,7 +83,7 @@ HDInsight 正在取代以 Azure Service Manager (ASM) 為基礎的工具 (適用
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>將 Azure PowerShell 移轉至 Azure Resource Manager
 有關 Azure PowerShell 在 Azure Resource Manager 模式中的一般資訊，請參閱 [搭配使用 Azure PowerShell 與 Azure Resource Manager](../powershell-azure-resource-manager.md)。
 
-Azure PowerShell Resource Manager Cmdlet 可與 ASM Cmdlet 並存安裝。 來自兩種模式的 Cmdlet 可依其名稱來區分。  资源管理器模式下的 cmdlet 名称中包含 AzHDInsight，而在 ASM 模式下则包含 AzureHDInsight。  例如，前者为 New-AzHDInsightCluster，后者为「New-AzureHDInsightCluster」。 某些參數和切換參數可能會有新的名稱，而且當使用資源管理員時，會有許多新的參數可供使用。  例如，數個 Cmdlet 需要名為 -ResourceGroupName 的新切換參數。 
+Azure PowerShell Resource Manager Cmdlet 可與 ASM Cmdlet 並存安裝。 來自兩種模式的 Cmdlet 可依其名稱來區分。  Resource Manager 模式*AzHDInsight*相較於的 cmdlet 名稱中 *「 azurehdinsight 」* ASM 模式中。  例如，*新增 AzHDInsightCluster* vs。「New-AzureHDInsightCluster」  。 某些參數和切換參數可能會有新的名稱，而且當使用資源管理員時，會有許多新的參數可供使用。  例如，數個 Cmdlet 需要名為 -ResourceGroupName  的新切換參數。 
 
 在您可以使用 HDInsight Cmdlet 之前，必須連線到您的 Azure 帳戶，並建立新的資源群組︰
 
@@ -132,11 +132,11 @@ Azure PowerShell Resource Manager Cmdlet 可與 ASM Cmdlet 並存安裝。 來�
 
 **指令碼動作相關的 Cmdlet：**
 
-* **Get-AzHDInsightPersistedScriptAction**：取得叢集的持續性指令碼動作，並依時間先後順序列出，或取得有關指定持續性指令碼動作的詳細資料。 
-* **Get-AzHDInsightScriptActionHistory**：取得叢集的指令碼動作記錄，並依反向的時間先後順序列出，或取得有關先前執行指令碼動作的詳細資料。 
-* **Remove-AzHDInsightPersistedScriptAction**：自 HDInsight 叢集移除持續性指令碼動作。
-* **Set-AzHDInsightPersistedScriptAction**：將先前執行的指令碼動作設定為持續性指令碼動作。
-* **Submit-AzHDInsightScriptAction**：將新的指令碼動作提交至 Azure HDInsight 叢集。 
+* **Get-AzHDInsightPersistedScriptAction**:取得叢集的持續性指令碼動作，並依時間先後順序列出，或取得有關指定持續性指令碼動作的詳細資料。 
+* **Get-AzHDInsightScriptActionHistory**:取得叢集的指令碼動作記錄，並依反向的時間先後順序列出，或取得有關先前執行指令碼動作的詳細資料。 
+* **移除 AzHDInsightPersistedScriptAction**:自 HDInsight 叢集移除持續性指令碼動作。
+* **Set-AzHDInsightPersistedScriptAction**:將先前執行的指令碼動作設定為持續性指令碼動作。
+* **提交 AzHDInsightScriptAction**:將新的指令碼動作提交至 Azure HDInsight 叢集。 
 
 如需關於其他使用方式的詳細資訊，請參閱 [使用指令碼動作自訂以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 

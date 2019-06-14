@@ -17,10 +17,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 7831e5e989835b2c9432dbd61a242584a7b6244d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61270189"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure 中的 Web Apps 相關開放原始碼技術常見問題集
@@ -34,10 +34,10 @@ ms.locfileid: "61270189"
 若要開啟 PHP 記錄：
 
 1. 登入 [Kudu 網站](https://*yourwebsitename*.scm.azurewebsites.net)。
-2. 在頂端功能表中，選取 [偵錯主控台] >  > [CMD]。
-3. 選取 [網站] 資料夾。
-4. 選取 [wwwroot] 資料夾。
-5. 選取 **+** 圖示，然後選取 [新增檔案]。
+2. 在頂端功能表中，選取 [偵錯主控台]   >  > [CMD]  。
+3. 選取 [網站]  資料夾。
+4. 選取 [wwwroot]  資料夾。
+5. 選取 **+** 圖示，然後選取 [新增檔案]  。
 6. 將檔案名稱設定為 **.user.ini**。
 7. 選取 **.user.ini** 旁邊的鉛筆圖示。
 8. 在檔案中，新增下列程式碼：`log_errors=on`
@@ -59,10 +59,10 @@ ms.locfileid: "61270189"
 
 若要變更 Node.js 應用程式版本，可以使用下列其中一個選項：
 
-* 在 Azure 入口網站中，使用 [應用程式設定]。
+* 在 Azure 入口網站中，使用 [應用程式設定]  。
   1. 在 Azure 入口網站中，移至您的 Web 應用程式。
-  2. 在 [設定] 刀鋒視窗上，選取 [應用程式設定]。
-  3. 在 [應用程式設定] 中，您可以包含 WEBSITE_NODE_DEFAULT_VERSION 做為索引鍵，並包含所需的 Node.js 版本做為值。
+  2. 在 [設定]  刀鋒視窗上，選取 [應用程式設定]  。
+  3. 在 [應用程式設定]  中，您可以包含 WEBSITE_NODE_DEFAULT_VERSION 做為索引鍵，並包含所需的 Node.js 版本做為值。
   4. 移至 [Kudu 主控台](https://*yourwebsitename*.scm.azurewebsites.net)。
   5. 若要檢查 Node.js 版本，請輸入下列命令：  
      ```

@@ -14,14 +14,14 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 578ca5fa1de338a92280e2dc7cc252fb616e2111
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706690"
 ---
 # <a name="update-your-groups-info-from-the-my-apps-portal"></a>更新您的群組資訊從 My Apps 入口網站
-您可以透過 [我的應用程式] Web 入口網站使用工作或學校帳戶，來檢視和啟動貴組織的許多雲端式應用程式、更新您的設定檔和帳戶資訊、查看您的**群組**資訊，以及執行您應用程式和群組的**存取權檢閱**。 如果您沒有 [我的應用程式] 入口網站的存取權，則必須連絡技術服務人員以取得權限。
+您可以透過 [我的應用程式]  Web 入口網站使用工作或學校帳戶，來檢視和啟動貴組織的許多雲端式應用程式、更新您的設定檔和帳戶資訊、查看您的**群組**資訊，以及執行您應用程式和群組的**存取權檢閱**。 如果您沒有 [我的應用程式]  入口網站的存取權，則必須連絡技術服務人員以取得權限。
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
@@ -39,7 +39,7 @@ ms.locfileid: "64706690"
 
 1.  登入您的公司或學校帳戶。
 
-2.  開啟網頁瀏覽器並移至 https://myapps.microsoft.com，或使用貴組織所提供的連結。 比方說，您可能會被導向至自訂頁面為您的組織，例如 https://myapps.microsoft.com/contoso.com。
+2.  開啟網頁瀏覽器並移至 https://myapps.microsoft.com ，或使用貴組織所提供的連結。 比方說，您可能會被導向至自訂頁面為您的組織，例如 https://myapps.microsoft.com/contoso.com 。
 
     **應用程式**頁面隨即出現，顯示的所有雲端應用程式，您的組織所擁有且可供您使用。
 
@@ -88,7 +88,7 @@ ms.locfileid: "64706690"
 
     - **群組原則。** 選擇允許所有人加入群組，或只允許群組擁有者，將成員加入。
 
-3. 選取 [建立] 。
+3. 選取 [建立]  。
 
     與您建立新的群組為擁有者，並出現在您**我擁有的群組**清單。 因為您是擁有者，此群組也會出現在**我加入的群組**清單。
 
@@ -96,7 +96,7 @@ ms.locfileid: "64706690"
 建立群組之後，您可以編輯其詳細資料，包括更新任何現有的資訊。
 
 ### <a name="to-edit-your-details"></a>若要編輯您的詳細資料
-1. 選取您想要從編輯的群組**群組**頁面，然後再選取**編輯詳細資料**上*&lt;group_name&gt;* 頁面。
+1. 選取您想要從編輯的群組**群組**頁面，然後再選取**編輯詳細資料**上 *&lt;group_name&gt;* 頁面。
 
     **編輯詳細資料**方塊隨即出現，而您可以更新您一開始建立群組時新增的資訊。
 
@@ -106,7 +106,7 @@ ms.locfileid: "64706690"
 您可以新增或移除任何您自己的群組的成員。
 
 ### <a name="to-add-or-remove-a-member"></a>若要新增或移除成員
-1. 選取您想要將成員加入，然後選取的群組**+** 上*&lt;group_name&gt;* 頁面。
+1. 選取您想要將成員加入，然後選取的群組 **+** 上 *&lt;group_name&gt;* 頁面。
 
     ![新增群組成員，與 + 號反白顯示](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
@@ -116,7 +116,7 @@ ms.locfileid: "64706690"
 
     若要開始存取組織的應用程式發佈至新的成員，傳送邀請。
 
-3. 如果您不小心，新增一個成員，或如果成員已離開組織，您可以選取來移除成員**移除成員**上的成員名稱旁邊*&lt;group_name&gt;* 頁面。
+3. 如果您不小心，新增一個成員，或如果成員已離開組織，您可以選取來移除成員**移除成員**上的成員名稱旁邊 *&lt;group_name&gt;* 頁面。
 
     ![移除成員，以反白顯示的 [移除] 連結](media/my-apps-portal/my-apps-portal-remove-member-link.png)
 
@@ -136,7 +136,7 @@ ms.locfileid: "64706690"
 您可以隨時刪除任何您自己的群組。 不過，如果您不小心刪除一組您必須建立它並再次新增成員。
 
 ### <a name="to-delete-the-group"></a>若要刪除群組
-1. 選取您想要永久刪除，然後選取的群組**刪除群組**上*&lt;group_name&gt;* 頁面。
+1. 選取您想要永久刪除，然後選取的群組**刪除群組**上 *&lt;group_name&gt;* 頁面。
 
     ![< 群組名稱 > 頁面，以反白顯示 [刪除群組] 連結](media/my-apps-portal/my-apps-portal-delete-group-link.png)
 

@@ -9,10 +9,10 @@ ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 888f4dedf2fda0f54297d42a5f813abf73ded748
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117821"
 ---
 # <a name="verifying-expressroute-connectivity"></a>確認 ExpressRoute 連線
@@ -78,12 +78,12 @@ ms.locfileid: "66117821"
 
 ![4][4]    
 
-在 ExpressRoute [基本資料] 中，[路線狀態] 指出 Microsoft 端路線的狀態。 [提供者狀態] 指出在服務提供者端是否「已佈建/未佈建」路線。 
+在 ExpressRoute [基本資料] 中，[路線狀態]  指出 Microsoft 端路線的狀態。 [提供者狀態]  指出在服務提供者端是否「已佈建/未佈建」  路線。 
 
-[路線狀態] 必須是 [已啟用]，且[提供者狀態] 必須是 [已佈建]，ExpressRoute 路線才能運作。
+[路線狀態]  必須是 [已啟用]  ，且[提供者狀態]  必須是 [已佈建]  ，ExpressRoute 路線才能運作。
 
 > [!NOTE]
-> 如果 [路線狀態] 未啟用，請連絡 [Microsoft 支援服務][Support]。 如果 [提供者狀態] 是未佈建，請連絡您的服務提供者。
+> 如果 [路線狀態]  未啟用，請連絡 [Microsoft 支援服務][Support]。 如果 [提供者狀態]  是未佈建，請連絡您的服務提供者。
 >
 >
 
@@ -132,7 +132,7 @@ ms.locfileid: "66117821"
     ServiceProviderProvisioningState : Provisioned
 
 > [!NOTE]
-> 如果 CircuitProvisioningState 不是 enabled，請連絡 [Microsoft 支援服務][Support]。 如果 ServiceProviderProvisioningState 不是 provisioned，請連絡您的服務提供者。
+> 如果 CircuitProvisioningState  不是 enabled，請連絡 [Microsoft 支援服務][Support]。 如果 ServiceProviderProvisioningState  不是 provisioned，請連絡您的服務提供者。
 >
 >
 
@@ -160,7 +160,7 @@ ms.locfileid: "66117821"
 若要確認 ExpressRoute 路線是否在運作，請特別注意下列欄位︰ServiceProviderProvisioningState :Provisioned Status                           :Enabled
 
 > [!NOTE]
-> 如果 Status 不是 enabled，請連絡 [Microsoft 支援服務][Support]。 如果 ServiceProviderProvisioningState 不是 provisioned，請連絡您的服務提供者。
+> 如果 Status  不是 enabled，請連絡 [Microsoft 支援服務][Support]。 如果 ServiceProviderProvisioningState  不是 provisioned，請連絡您的服務提供者。
 >
 >
 
@@ -231,7 +231,7 @@ ms.locfileid: "66117821"
 
 
 > [!NOTE]
-> 若對等互連沒有啟用，檢查指派的主要和次要子網路是否符合連結之 PE-MSEE 上的設定。 也請檢查 MSEE 上是否使用正確的 VlanId、AzureASN、PeerASN，以及這些值是否對應至連結的 PE-MSEE 上使用的項目。 如果選擇 MD5 雜湊，共用的金鑰應該和「MSEE 與 PE-MSEE」對上的金鑰相同。 若要變更 MSEE 路由器上的組態，請參閱[建立和修改 ExpressRoute 路線的路由][CreatePeering]。  
+> 若對等互連沒有啟用，檢查指派的主要和次要子網路是否符合連結之 PE-MSEE 上的設定。 也請檢查 MSEE 上是否使用正確的 VlanId  、AzureASN  、PeerASN  ，以及這些值是否對應至連結的 PE-MSEE 上使用的項目。 如果選擇 MD5 雜湊，共用的金鑰應該和「MSEE 與 PE-MSEE」對上的金鑰相同。 若要變更 MSEE 路由器上的組態，請參閱[建立和修改 ExpressRoute 路線的路由][CreatePeering]。  
 >
 >
 
@@ -271,7 +271,7 @@ ms.locfileid: "66117821"
 >
 
 > [!NOTE]
-> 若對等互連沒有啟用，檢查指派的主要和次要對等互連子網路是否符合連結之 PE-MSEE 上的設定。 也請檢查 MSEE 上是否使用正確的 VlanId、AzureAsn、PeerAsn，以及這些值是否對應至連結的 PE-MSEE 上使用的項目。 若要變更 MSEE 路由器上的組態，請參閱[建立和修改 ExpressRoute 路線的路由][CreatePeering]。
+> 若對等互連沒有啟用，檢查指派的主要和次要對等互連子網路是否符合連結之 PE-MSEE 上的設定。 也請檢查 MSEE 上是否使用正確的 VlanId  、AzureAsn  、PeerAsn  ，以及這些值是否對應至連結的 PE-MSEE 上使用的項目。 若要變更 MSEE 路由器上的組態，請參閱[建立和修改 ExpressRoute 路線的路由][CreatePeering]。
 >
 >
 
@@ -295,7 +295,7 @@ ms.locfileid: "66117821"
                  113             On-Prem       10.0.0.1           e8ed.f335.4ca9
                    0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
 
-同樣地，您可以查看 Primary/Secondary 路徑中 MSEE 的 ARP 表，用於 Private/Public/Microsoft 對等互連。
+同樣地，您可以查看 Primary  /Secondary  路徑中 MSEE 的 ARP 表，用於 Private  /Public  /Microsoft  對等互連。
 
 以下是對等互連不存在時此命令的回應範例。
 
@@ -330,7 +330,7 @@ ms.locfileid: "66117821"
 如以上範例所示，此命令在判斷路由內容已建立多久時十實用分。 它也會指出對等互連路由器通告的路由前置詞數目。
 
 > [!NOTE]
-> 如果狀態是作用中或閒置，檢查指派的主要和次要對等互連子網路是否符合連結之 PE-MSEE 上的設定。 也請檢查 MSEE 上是否使用正確的 VlanId、AzureAsn、PeerAsn，以及這些值是否對應至連結的 PE-MSEE 上使用的項目。 如果選擇 MD5 雜湊，共用的金鑰應該和「MSEE 與 PE-MSEE」對上的金鑰相同。 若要變更 MSEE 路由器上的組態，請參閱[建立和修改 ExpressRoute 路線的路由][CreatePeering]。
+> 如果狀態是作用中或閒置，檢查指派的主要和次要對等互連子網路是否符合連結之 PE-MSEE 上的設定。 也請檢查 MSEE 上是否使用正確的 VlanId  、AzureAsn  、PeerAsn  ，以及這些值是否對應至連結的 PE-MSEE 上使用的項目。 如果選擇 MD5 雜湊，共用的金鑰應該和「MSEE 與 PE-MSEE」對上的金鑰相同。 若要變更 MSEE 路由器上的組態，請參閱[建立和修改 ExpressRoute 路線的路由][CreatePeering]。
 >
 >
 
@@ -339,7 +339,7 @@ ms.locfileid: "66117821"
 >
 >
 
-若要從 Primary 路徑上的 MSEE 取得完整路由用於特定 Private 路由內容，使用下列命令︰
+若要從 Primary  路徑上的 MSEE 取得完整路由用於特定 Private  路由內容，使用下列命令︰
 
     Get-AzureDedicatedCircuitPeeringRouteTableInfo -AccessType Private -Path Primary -ServiceKey "*********************************"
 
@@ -352,7 +352,7 @@ ms.locfileid: "66117821"
          10.2.0.0/16            10.0.0.1                                       0    #### ##### #####
     ...
 
-同樣地，您可以查看 Primary/Secondary 路徑中 MSEE 的路由表，用於 Private/Public/Microsoft 對等互連內容。
+同樣地，您可以查看 Primary  /Secondary  路徑中 MSEE 的路由表，用於 Private  /Public  /Microsoft  對等互連內容。
 
 以下是對等互連不存在時此命令的回應範例：
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/14/2019
 ms.author: mayg
 ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61471085"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>在 Site Recovery 部署規劃工具中檢閱針對 Azure 進行 VMware 災害復原的成本估計報告
@@ -122,17 +122,17 @@ DR 總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 
 **VM 數目**：符合組態的 VM 數目。 如果類似組態的 VM 未經過剖析，但是將會受到保護，您可以更新現有的 VM 數目。
 
-**IaaS 大小 (建議)**：工具所建議的相容 VM 的 VM 角色大小。 
+**IaaS 大小 (建議)** ：工具所建議的相容 VM 的 VM 角色大小。 
 
-**IaaS 大小 (您的選擇)**：根據預設，這與建議的 VM 角色大小一樣。 您可以根據您的需求變更角色。 計算成本是以您選取的 VM 角色大小為基礎。
+**IaaS 大小 (您的選擇)** ：根據預設，這與建議的 VM 角色大小一樣。 您可以根據您的需求變更角色。 計算成本是以您選取的 VM 角色大小為基礎。
 
 **儲存體類型**：VM 所使用的儲存體類型。 這是標準或進階儲存體。
 
-**VM 總儲存體大小 (GB)**：VM 的總儲存體。
+**VM 總儲存體大小 (GB)** ：VM 的總儲存體。
 
 **一年中的 DR 演練次數**：您在一年中執行 DR 演練的次數。 根據預設，一年中有 4 次。 在頂端列輸入新值，然後按一下 [套用到全部] 按鈕，即可修改特定 VM 的期間，或將新值套用至所有 VM。 根據一年中的 DR 演練次數和每次 DR 演練持續期間，計算 DR 演練總成本。  
 
-**每次 DR 演練持續時間 (天)**：每次 DR 演練的持續時間。 根據預設，依照[災害復原軟體保證權益](https://azure.microsoft.com/pricing/details/site-recovery)，這是每隔 90 天持續 7 天。 在頂端列輸入新值，然後按一下 [套用到全部] 按鈕，即可修改特定 VM 的期間，或將新值套用至所有 VM。 根據一年中的 DR 演練次數和每次 DR 演練持續期間，計算 DR 演練總成本。
+**每次 DR 演練持續時間 (天)** ：每次 DR 演練的持續時間。 根據預設，依照[災害復原軟體保證權益](https://azure.microsoft.com/pricing/details/site-recovery)，這是每隔 90 天持續 7 天。 在頂端列輸入新值，然後按一下 [套用到全部] 按鈕，即可修改特定 VM 的期間，或將新值套用至所有 VM。 根據一年中的 DR 演練次數和每次 DR 演練持續期間，計算 DR 演練總成本。
   
 **OS 類型**：VM 的 OS 類型。 這是 Windows 或 Linux。 如果 OS 類型是 Windows，則 Azure Hybrid Use Benefit 可以套用到該 VM。 
 
@@ -144,7 +144,7 @@ DR 總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 
 **穩定狀態複寫成本**：其中包含複寫的儲存成本。
 
-**DR 演練總成本 (平均)**：其中包含 DR 演練的計算和儲存成本。
+**DR 演練總成本 (平均)** ：其中包含 DR 演練的計算和儲存成本。
 
 **ASR 授權成本**：Azure Site Recovery 授權成本。
 
@@ -156,13 +156,13 @@ eastus、eastus2、uswest、centralus、northcentralus、southcentralus、northe
 ## <a name="supported-currencies"></a>支援的貨幣
 Azure Site Recovery 部署規劃工具可以使用下列任何貨幣來產生成本報告。
 
-|貨幣|名稱||貨幣|名稱||貨幣|名稱|
+|Currency|Name||Currency|名稱||Currency|Name|
 |---|---|---|---|---|---|---|---|
 |ARS 披索|阿根廷披索 ($)||澳幣|澳洲元 ($)||巴西里耳|巴西里耳 (R$)|
-|加拿大幣|加幣 ($)||瑞士法郎|瑞士法郎 (chf)||丹麥幣|丹麥克朗 (kr)|
-|歐元|歐元 (€)||英鎊|英鎊 (£)||港幣|港幣 (HK$)|
-|印尼盾|印尼盾 (Rp)||印度幣|印度盧比 (₹)||日圓|日圓 (¥)|
-|韓元|Korean Won (₩)||墨西哥批索|Mexican Peso (MX$)||馬來西亞林吉特|馬來西亞林吉特 (RM$)|
+|加拿大幣|加幣 ($)||瑞士法郎|瑞士法郎 (chf)||DKK|丹麥克朗 (kr)|
+|歐元|歐元 (€)||GBP|英鎊 (£)||港幣|港幣 (HK$)|
+|IDR|印尼盾 (Rp)||INR|印度盧比 (₹)||日圓|日圓 (¥)|
+|韓元|Korean Won (₩)||MXN|Mexican Peso (MX$)||馬來西亞林吉特|馬來西亞林吉特 (RM$)|
 |挪威克朗|挪威克朗 (kr)||紐西蘭幣|紐西蘭元 ($)||盧布|俄羅斯盧布 (руб)|
 |SAR 里亞爾|沙烏地里亞爾 (SR)||瑞典克朗|瑞典克朗 (kr)||新台幣|新台幣 (NT$)|
 |土耳其里拉|土耳其里拉 (TL)||美元| 美元 ($)||南非幣|南非蘭特 (R)|

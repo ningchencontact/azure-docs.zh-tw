@@ -16,10 +16,10 @@ ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: e0fa87facec73efdfff1a9908dcba92838215425
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130665"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>搭配 Azure ExpressRoute 之 PowerApps 的 App Service 環境網路設定詳細資料
@@ -59,7 +59,7 @@ ms.locfileid: "62130665"
 
 * 必須允許透過連入網路存取「App Service 環境」的必要連接埠。 如需詳細資料，請參閱[如何控制 App Service 環境的連入流量][requiredports]。
 
-為了符合 DNS 需求，請務必為虛擬網路設定及維護有效的 DNS 基礎結構。 如果 DNS 設定在建立「App Service 環境」後已變更，開發人員可以強制「App Service 環境」套用新的 DNS 設定。 您可以在 [Azure 入口網站][NewPortal]中，使用「App Service 環境」管理底下的 [重新啟動] 圖示，來觸發輪流的環境重新啟動。 此重新啟動會讓環境套用新的 DNS 設定。
+為了符合 DNS 需求，請務必為虛擬網路設定及維護有效的 DNS 基礎結構。 如果 DNS 設定在建立「App Service 環境」後已變更，開發人員可以強制「App Service 環境」套用新的 DNS 設定。 您可以在 [Azure 入口網站][NewPortal]中，使用「App Service 環境」管理底下的 [重新啟動]  圖示，來觸發輪流的環境重新啟動。 此重新啟動會讓環境套用新的 DNS 設定。
 
 為了符合連入網路存取需求，請在「App Service 環境」子網路上設定[網路安全性群組 (NSG)][NetworkSecurityGroups]。 NSG 可允許必要的存取權以[控制 App Service 環境的連入流量][requiredports]。
 
@@ -95,7 +95,7 @@ ms.locfileid: "62130665"
 
 ### <a name="prerequisites"></a>必要條件
 
-* 從 [Azure 下載頁面][AzureDownloads]安裝 Azure PowerShell。 選擇日期為 2015 年 6 月或之後的下載項目。 在 [命令列工具] > [Windows PowerShell] 底下，選取 [安裝] 以安裝最新的 PowerShell Cmdlet。
+* 從 [Azure 下載頁面][AzureDownloads]安裝 Azure PowerShell。 選擇日期為 2015 年 6 月或之後的下載項目。 在 [命令列工具]   > [Windows PowerShell]  底下，選取 [安裝]  以安裝最新的 PowerShell Cmdlet。
 
 * 建立一個專供「App Service 環境」使用的唯一子網路。 唯一子網路可確保套用至子網路的 UDR 只會為「App Service 環境」開放連出流量。
 

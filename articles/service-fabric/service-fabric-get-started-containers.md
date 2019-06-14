@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
 ms.openlocfilehash: 3bc67d7fdc582b6d45596b152bb5d58e41152a46
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428106"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 建立第一個 Service Fabric 容器應用程式
@@ -464,7 +464,7 @@ V6.4 的最新的重新整理版本開始，您可以指定 docker HEALTHCHECK �
 
 應用程式處於 ```Ready``` 狀態時便已準備就緒：![就緒][2]
 
-開啟瀏覽器並瀏覽至 http://containercluster.westus2.cloudapp.azure.com:8081。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
+開啟瀏覽器並瀏覽至 http://containercluster.westus2.cloudapp.azure.com:8081 。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
 
 ## <a name="clean-up"></a>清除
 

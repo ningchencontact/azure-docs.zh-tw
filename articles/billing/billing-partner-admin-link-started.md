@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64694215"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>將合作夥伴識別碼連結到您的 Azure 帳戶
@@ -48,7 +48,7 @@ ms.locfileid: "64694215"
 
    ![顯示 [連結到合作夥伴識別碼] 的螢幕擷取畫面](./media/billing-link-partner-id/link-partner-ID.PNG)
 
-4. 若要為另一個客戶連結合作夥伴識別碼，請切換目錄。 在 [切換目錄] 底下，選取您的目錄。
+4. 若要為另一個客戶連結合作夥伴識別碼，請切換目錄。 在 [切換目錄]  底下，選取您的目錄。
 
    ![顯示 [切換目錄] 的螢幕擷取畫面](./media/billing-link-partner-id/directory-switcher.png)
 

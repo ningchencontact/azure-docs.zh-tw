@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 95a530ea57237453a3b0d7d8dd42963f4b9c3dde
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713035"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight 的版本資訊
@@ -28,7 +28,7 @@ Azure HDInsight 是最受企業客戶歡迎的其中一項服務，可供 Azure 
 
 新的更新和功能分為以下幾類：
 
-*  更新 Hadoop 和其他開放原始碼專案 – 除了 20 多個開放原始碼專案中的 1000 多個錯誤 (bug) 修復程式外，此更新還包含新版 **Spark (2.3)** 和 **Kafka (1.0)**。
+*  更新 Hadoop 和其他開放原始碼專案 – 除了 20 多個開放原始碼專案中的 1000 多個錯誤 (bug) 修復程式外，此更新還包含新版 **Spark (2.3)** 和 **Kafka (1.0)** 。
 
     a.  [**Apache Spark 2.3 的新功能**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
@@ -240,7 +240,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [*HIVE-10697*](https://issues.apache.org/jira/browse/HIVE-10697)：ObjectInspectorConvertors\#UnionConvertor 會進行錯誤的轉換。
 
--   [HIVE-11266](https://issues.apache.org/jira/browse/HIVE-11266)：count(\*) 會根據外部資料表的資料表統計資料，產生錯誤的結果。
+-   [HIVE-11266  ](https://issues.apache.org/jira/browse/HIVE-11266)：count(\*) 會根據外部資料表的資料表統計資料，產生錯誤的結果。
 
 -   [*HIVE-12245*](https://issues.apache.org/jira/browse/HIVE-12245)：HBase 支援的資料表可支援資料行註解。
 
@@ -270,7 +270,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [*HIVE-17013*](https://issues.apache.org/jira/browse/HIVE-17013)：根據對檢視的選取來刪除具有子查詢的要求。
 
--   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063)：在首先删除分区的情况下，将覆盖分区插入外部表失败。
+-   [*HIVE 17063*](https://issues.apache.org/jira/browse/HIVE-17063)： 插入至外部資料表失敗的覆寫資料分割時先卸除資料分割。
 
 -   [*HIVE-17259*](https://issues.apache.org/jira/browse/HIVE-17259)：Hive JDBC 無法辨識 UNIONTYPE 資料行。
 
@@ -284,21 +284,21 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [*HIVE-17729*](https://issues.apache.org/jira/browse/HIVE-17729)：新增資料庫並解說相關的 blobstore 測試。
 
--   [HIVE-17731](https://issues.apache.org/jira/browse/HIVE-17731)：在 HIVE-11985 中新增外部使用者的回溯相容性選項。
+-   [HIVE-17731  ](https://issues.apache.org/jira/browse/HIVE-17731)：在 HIVE-11985 中新增外部使用者的回溯相容性選項。
 
 -   [*HIVE-17803*](https://issues.apache.org/jira/browse/HIVE-17803)：使用 Pig 多重查詢時，若有 2 個 HCatStorers 寫入至相同的資料表，則會破壞彼此的輸出。
 
 -   [*HIVE-17829*](https://issues.apache.org/jira/browse/HIVE-17829)：ArrayIndexOutOfBoundsException - Hive2 中具有 Avro 結構描述的 HBASE 支援資料表。
 
--   [HIVE-17845](https://issues.apache.org/jira/browse/HIVE-17845)：如果目標資料表資料行不是小寫，插入會失敗。
+-   [HIVE-17845  ](https://issues.apache.org/jira/browse/HIVE-17845)：如果目標資料表資料行不是小寫，插入會失敗。
 
--   [HIVE-17900](https://issues.apache.org/jira/browse/HIVE-17900)：在由 Compactor 觸發的資料行上分析統計資料，會產生資料分割資料行 &gt; 1 個的錯誤格式 SQL。
+-   [HIVE-17900  ](https://issues.apache.org/jira/browse/HIVE-17900)：在由 Compactor 觸發的資料行上分析統計資料，會產生資料分割資料行 &gt; 1 個的錯誤格式 SQL。
 
 -   [*HIVE-18026*](https://issues.apache.org/jira/browse/HIVE-18026)：Hive webhcat 主體設定最佳化。
 
 -   [*HIVE-18031*](https://issues.apache.org/jira/browse/HIVE-18031)：針對 Alter Database 作業支援複寫。
 
--   [HIVE-18090](https://issues.apache.org/jira/browse/HIVE-18090)：透過 hadoop 認證連接中繼存放區時，acid 活動訊號會失敗。
+-   [HIVE-18090  ](https://issues.apache.org/jira/browse/HIVE-18090)：透過 hadoop 認證連接中繼存放區時，acid 活動訊號會失敗。
 
 -   [*HIVE-18189*](https://issues.apache.org/jira/browse/HIVE-18189)：將 hive.groupby.orderby.position.alias 設為 true 時，Hive 查詢會傳回錯誤結果。
 
@@ -310,7 +310,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [*HIVE-18341*](https://issues.apache.org/jira/browse/HIVE-18341)：新增 repl 載入支援，可用於對具有相同加密金鑰的 TDE 新增「原始」命名空間。
 
--   [HIVE-18352](https://issues.apache.org/jira/browse/HIVE-18352)：在進行 REPL DUMP 以便與其他工具整合時，引進了 METADATAONLY 選項。
+-   [HIVE-18352  ](https://issues.apache.org/jira/browse/HIVE-18352)：在進行 REPL DUMP 以便與其他工具整合時，引進了 METADATAONLY 選項。
 
 -   [*HIVE-18353*](https://issues.apache.org/jira/browse/HIVE-18353)：CompactorMR 應該呼叫 jobclient.close() 以觸發清除 (透過 Thejas Nair 的 Prabhu Joseph)。
 
@@ -322,11 +322,11 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [*HIVE-18460*](https://issues.apache.org/jira/browse/HIVE-18460)：Compactor 不會將資料表屬性傳遞至 Orc 寫入器。
 
--   [HIVE-18467](https://issues.apache.org/jira/browse/HIVE-18467)：支援整個倉儲傾印/載入 + 建立/置放資料庫事件 (Anishek Agarwal，已由 Sankar Hariappan 檢閱)。
+-   [HIVE-18467  ](https://issues.apache.org/jira/browse/HIVE-18467)：支援整個倉儲傾印/載入 + 建立/置放資料庫事件 (Anishek Agarwal，已由 Sankar Hariappan 檢閱)。
 
 -   [*HIVE-18551*](https://issues.apache.org/jira/browse/HIVE-18551)：向量化：VectorMapOperator 嘗試為 Hybrid Grace 寫入太多向量資料行。
 
--   [HIVE-18587](https://issues.apache.org/jira/browse/HIVE-18587)：插入 DML 事件可能會嘗試對目錄計算總和檢查碼。
+-   [HIVE-18587  ](https://issues.apache.org/jira/browse/HIVE-18587)：插入 DML 事件可能會嘗試對目錄計算總和檢查碼。
 
 -   [*HIVE-18613*](https://issues.apache.org/jira/browse/HIVE-18613)：擴充 JsonSerDe 以支援 BINARY 類型。
 
@@ -368,7 +368,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [*HIVE-16828*](https://issues.apache.org/jira/browse/HIVE-16828)：在啟用 CBO 的情況下，對已分割的檢視所進行的查詢會擲回 IndexOutOfBoundException。
 
--   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063)：在首先删除分区的情况下，将覆盖分区插入外部表失败。
+-   [*HIVE 17063*](https://issues.apache.org/jira/browse/HIVE-17063)： 插入至外部資料表失敗的覆寫資料分割時先卸除資料分割。
 
 -   [*HIVE-17259*](https://issues.apache.org/jira/browse/HIVE-17259)：Hive JDBC 無法辨識 UNIONTYPE 資料行。
 
@@ -376,9 +376,9 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [*HIVE-17600*](https://issues.apache.org/jira/browse/HIVE-17600)：讓 OrcFile 的 enforceBufferSize 變成可由使用者設定。
 
--   [HIVE-17601](https://issues.apache.org/jira/browse/HIVE-17601)：改善 LlapServiceDriver 中的錯誤處理。
+-   [HIVE-17601  ](https://issues.apache.org/jira/browse/HIVE-17601)：改善 LlapServiceDriver 中的錯誤處理。
 
--   [HIVE-17613](https://issues.apache.org/jira/browse/HIVE-17613)：針對簡短的同一執行緒配置移除物件集區。
+-   [HIVE-17613  ](https://issues.apache.org/jira/browse/HIVE-17613)：針對簡短的同一執行緒配置移除物件集區。
 
 -   [*HIVE-17617*](https://issues.apache.org/jira/browse/HIVE-17617)：空白結果集的彙總應該包含空白群組集合的群組。
 
@@ -388,17 +388,17 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636)：新增 BlobStore 的 multiple\_agg.q 測試。
 
--   [HIVE-17702](https://issues.apache.org/jira/browse/HIVE-17702)：ORC 中的十進位讀取器有不正確的 isRepeating 處理。
+-   [HIVE-17702  ](https://issues.apache.org/jira/browse/HIVE-17702)：ORC 中的十進位讀取器有不正確的 isRepeating 處理。
 
 -   [*HIVE-17729*](https://issues.apache.org/jira/browse/HIVE-17729)：新增資料庫並解說相關的 blobstore 測試。
 
--   [HIVE-17731](https://issues.apache.org/jira/browse/HIVE-17731)：在 HIVE-11985 中新增外部使用者的回溯相容性選項。
+-   [HIVE-17731  ](https://issues.apache.org/jira/browse/HIVE-17731)：在 HIVE-11985 中新增外部使用者的回溯相容性選項。
 
 -   [*HIVE-17803*](https://issues.apache.org/jira/browse/HIVE-17803)：使用 Pig 多重查詢時，若有 2 個 HCatStorers 寫入至相同的資料表，則會破壞彼此的輸出。
 
--   [HIVE-17845](https://issues.apache.org/jira/browse/HIVE-17845)：如果目標資料表資料行不是小寫，插入會失敗。
+-   [HIVE-17845  ](https://issues.apache.org/jira/browse/HIVE-17845)：如果目標資料表資料行不是小寫，插入會失敗。
 
--   [HIVE-17900](https://issues.apache.org/jira/browse/HIVE-17900)：在由 Compactor 觸發的資料行上分析統計資料，會產生資料分割資料行 &gt; 1 個的錯誤格式 SQL。
+-   [HIVE-17900  ](https://issues.apache.org/jira/browse/HIVE-17900)：在由 Compactor 觸發的資料行上分析統計資料，會產生資料分割資料行 &gt; 1 個的錯誤格式 SQL。
 
 -   [*HIVE-18006*](https://issues.apache.org/jira/browse/HIVE-18006)：將 HLLDenseRegister 的記憶體使用量最佳化。
 
@@ -406,7 +406,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [*HIVE-18031*](https://issues.apache.org/jira/browse/HIVE-18031)：針對 Alter Database 作業支援複寫。
 
--   [HIVE-18090](https://issues.apache.org/jira/browse/HIVE-18090)：透過 hadoop 認證連接中繼存放區時，acid 活動訊號會失敗。
+-   [HIVE-18090  ](https://issues.apache.org/jira/browse/HIVE-18090)：透過 hadoop 認證連接中繼存放區時，acid 活動訊號會失敗。
 
 -   [*HIVE-18189*](https://issues.apache.org/jira/browse/HIVE-18189)：cbo 停用時，無法依位置排序。
 
@@ -426,7 +426,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [*HIVE-18341*](https://issues.apache.org/jira/browse/HIVE-18341)：新增 repl 載入支援，可用於對具有相同加密金鑰的 TDE 新增「原始」命名空間。
 
--   [HIVE-18352](https://issues.apache.org/jira/browse/HIVE-18352)：在進行 REPL DUMP 以便與其他工具整合時，引進了 METADATAONLY 選項。
+-   [HIVE-18352  ](https://issues.apache.org/jira/browse/HIVE-18352)：在進行 REPL DUMP 以便與其他工具整合時，引進了 METADATAONLY 選項。
 
 -   [*HIVE-18353*](https://issues.apache.org/jira/browse/HIVE-18353)：CompactorMR 應該呼叫 jobclient.close() 以觸發清除。
 
@@ -440,7 +440,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [*HIVE-18462*](https://issues.apache.org/jira/browse/HIVE-18462)：(針對有對應聯結的查詢所格式化的解釋，會具有資料行名稱未格式化的 columnExprMap)。
 
--   [HIVE-18467](https://issues.apache.org/jira/browse/HIVE-18467)：支援整個倉儲傾印/載入 + 建立/置放資料庫事件。
+-   [HIVE-18467  ](https://issues.apache.org/jira/browse/HIVE-18467)：支援整個倉儲傾印/載入 + 建立/置放資料庫事件。
 
 -   [*HIVE-18488*](https://issues.apache.org/jira/browse/HIVE-18488)：LLAP ORC 讀取器缺少某些 null 檢查。
 
@@ -462,7 +462,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [*HIVE-18577*](https://issues.apache.org/jira/browse/HIVE-18577)：SemanticAnalyzer.validate 有一些毫無意義的中繼存放區呼叫。
 
--   [HIVE-18587](https://issues.apache.org/jira/browse/HIVE-18587)：插入 DML 事件可能會嘗試對目錄計算總和檢查碼。
+-   [HIVE-18587  ](https://issues.apache.org/jira/browse/HIVE-18587)：插入 DML 事件可能會嘗試對目錄計算總和檢查碼。
 
 -   [*HIVE-18597*](https://issues.apache.org/jira/browse/HIVE-18597)：LLAP：一律針對 org.apache.log4j 封裝 log4j2 API jar。
 
@@ -470,7 +470,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [*HIVE-18626*](https://issues.apache.org/jira/browse/HIVE-18626)：Repl 載入 "with" 子句不會將設定傳遞給工作。
 
--   [HIVE-18643](https://issues.apache.org/jira/browse/HIVE-18643)：不要針對 ACID 作業檢查已封存的資料分割。
+-   [HIVE-18643  ](https://issues.apache.org/jira/browse/HIVE-18643)：不要針對 ACID 作業檢查已封存的資料分割。
 
 -   [*HIVE-18660*](https://issues.apache.org/jira/browse/HIVE-18660)：PCR 無法區別資料分割和虛擬資料行。
 
@@ -822,73 +822,73 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 ### <a name="cve-2017-7676"></a>**CVE-2017-7676**
 
-| **摘要：** Apache Ranger 原則評估會忽略 '\*' 萬用字元之後的字元 |
+| **摘要：**  Apache Ranger 原則評估會忽略 '\*' 萬用字元之後的字元 |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **嚴重性：** 嚴重                                                                           |
-| **廠商：** Hortonworks                                                                          |
-| **受影響的版本：** HDInsight 3.6 版本，包含 Apache Ranger 0.5.x/0.6.x/0.7.0 版     |
-| **受影響的使用者：** 所使用的 Ranger 原則在 '\*' 萬用字元之後有字元的環境 – 例如 my\*test、test\*.txt |
-| **影響：** 原則資源比對器會忽略 '\*' 萬用字元之後的字元，而導致非預期的行為。      |
-| **修正詳細資料：** Ranger 原則資源比對器已更新為會正確處理萬用字元相符項目。           |
-| **建議動作：** 升級至 HDI 3.6 (含 Apache Ranger 0.7.1+)。                                |
+| **嚴重性：**  嚴重                                                                           |
+| **廠商：**  Hortonworks                                                                          |
+| **受影響的版本：**  HDInsight 3.6 版本，包含 Apache Ranger 0.5.x/0.6.x/0.7.0 版     |
+| **受影響的使用者：**  所使用的 Ranger 原則在 '\*' 萬用字元之後有字元的環境 – 例如 my\*test、test\*.txt |
+| **影響：**  原則資源比對器會忽略 '\*' 萬用字元之後的字元，而導致非預期的行為。      |
+| **修正詳細資料：**  Ranger 原則資源比對器已更新為會正確處理萬用字元相符項目。           |
+| **建議動作：**  升級至 HDI 3.6 (含 Apache Ranger 0.7.1+)。                                |
 
 ### <a name="cve-2017-7677"></a>**CVE-2017-7677**
 
-| **摘要：** 在指定了外部位置時，Apache Ranger Hive 授權者應檢查有無 RWX 權限 |
+| **摘要：**  在指定了外部位置時，Apache Ranger Hive 授權者應檢查有無 RWX 權限 |
 |--------------------------------------------------------------------------------------------------|
-| **嚴重性：** 嚴重                                                                           |
-| **廠商：** Hortonworks                                                                          |
-| **受影響的版本：** HDInsight 3.6 版本，包含 Apache Ranger 0.5.x/0.6.x/0.7.0 版 |
-| **受影響的使用者：** 對 hive 資料表使用外部位置的環境 |
-| **影響：** 在對 hive 資料表使用外部位置的環境中，Apache Ranger Hive 授權者應該檢查是否有指定用於建立資料表的外部位置 RWX 權限。 |
-| **修正詳細資料：** Ranger Hive 授權者已更新為會正確地處理外部位置的權限檢查。 |
-| **建議動作：** 使用者應升級至 HDI 3.6 (含 Apache Ranger 0.7.1+)。 |
+| **嚴重性：**  嚴重                                                                           |
+| **廠商：**  Hortonworks                                                                          |
+| **受影響的版本：**  HDInsight 3.6 版本，包含 Apache Ranger 0.5.x/0.6.x/0.7.0 版 |
+| **受影響的使用者：**  對 hive 資料表使用外部位置的環境 |
+| **影響：**  在對 hive 資料表使用外部位置的環境中，Apache Ranger Hive 授權者應該檢查是否有指定用於建立資料表的外部位置 RWX 權限。 |
+| **修正詳細資料：**  Ranger Hive 授權者已更新為會正確地處理外部位置的權限檢查。 |
+| **建議動作：**  使用者應升級至 HDI 3.6 (含 Apache Ranger 0.7.1+)。 |
 
 ### <a name="cve-2017-9799"></a>**CVE-2017-9799**
 
-| **摘要：** 在 Apache Storm 中，可能會以錯誤使用者身分執行程式碼 |
+| **摘要：**  在 Apache Storm 中，可能會以錯誤使用者身分執行程式碼 |
 |--------------------------------------------------------------------------------------------------|
-|**嚴重性：** 重要 |
-| **廠商：** Hortonworks |
-| **受影響的版本：** HDP 2.4.0、HDP-2.5.0、HDP-2.6.0 |
-| **受影響的使用者：** 在安全模式中使用 Storm，並使用 blobstore 散發拓撲型成品，或使用 blobstore 散發任何拓撲資源的使用者。 |
-| **影響：** 理論上，在某些情況和 storm 的組態下，拓撲的擁有者可以誘騙監督員以不同的非根使用者身分啟動背景工作角色。 在最糟糕的情況下，這可能會導致其他使用者的安全認證受到危害。 這項弱點僅適用於已啟用安全性的 Apache Storm 安裝。 |
-| **風險降低：** 升級至 HDP-2.6.2.1，因為目前沒有因應措施。  |
+|**嚴重性：**  重要 |
+| **廠商：**  Hortonworks |
+| **受影響的版本：**  HDP 2.4.0、HDP-2.5.0、HDP-2.6.0 |
+| **受影響的使用者：**  在安全模式中使用 Storm，並使用 blobstore 散發拓撲型成品，或使用 blobstore 散發任何拓撲資源的使用者。 |
+| **影響：**  理論上，在某些情況和 storm 的組態下，拓撲的擁有者可以誘騙監督員以不同的非根使用者身分啟動背景工作角色。 在最糟糕的情況下，這可能會導致其他使用者的安全認證受到危害。 這項弱點僅適用於已啟用安全性的 Apache Storm 安裝。 |
+| **風險降低：**  升級至 HDP-2.6.2.1，因為目前沒有因應措施。  |
 
 ### <a name="cve-2016-4970"></a>**CVE-2016-4970**
 
-| **摘要：** Netty 4.0.x (4.0.37.Final 之前) 和 4.1.x (4.1.1.Final 之前) 中的 handler/ssl/OpenSslEngine.java 可讓遠端攻擊者造成拒絕服務 (無限迴圈) |
+| **摘要：**  Netty 4.0.x (4.0.37.Final 之前) 和 4.1.x (4.1.1.Final 之前) 中的 handler/ssl/OpenSslEngine.java 可讓遠端攻擊者造成拒絕服務 (無限迴圈) |
 |--------------------------------------------------------------------------------------------------|
 | **嚴重性：** 中度  |
-| **廠商：** Hortonworks  |
-| **受影響的版本：** HDP 2.x.x (自 2.3.x 起)  |
-| **受影響的使用者：** 使用 HDFS 的所有使用者。 |
-| **影響：** 影響不大，因為 Hortonworks 不會直接在 Hadoop 程式碼基底中使用 OpenSslEngine.java。     |
-| **建議動作：** 升級至 HDP 2.6.3。   |
+| **廠商：**  Hortonworks  |
+| **受影響的版本：**  HDP 2.x.x (自 2.3.x 起)  |
+| **受影響的使用者：**  使用 HDFS 的所有使用者。 |
+| **影響：**  影響不大，因為 Hortonworks 不會直接在 Hadoop 程式碼基底中使用 OpenSslEngine.java。     |
+| **建議動作：**  升級至 HDP 2.6.3。   |
 
 ### <a name="cve-2016-8746"></a>**CVE-2016-8746**
 
-| **摘要：** 原則評估中有 Apache Ranger 路徑比對問題                                                                    |
+| **摘要：**  原則評估中有 Apache Ranger 路徑比對問題                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
-| **嚴重性：** 一般                                                                                                                   |
+| **嚴重性：**  一般                                                                                                                   |
 | **廠商：** Hortonworks                                                                                                                |
-| **受影響的版本：** 所有 HDP 2.5 版本，包含 Apache Ranger 0.6.0/0.6.1/0.6.2 版                                         |
-| **受影響的使用者：** Ranger 原則管理工具的所有使用者。                                                                         |
-| **影響：** 在某些情況下，當原則包含萬用字元和遞迴旗標時，Ranger 原則引擎不會正確地比對路徑。 |
+| **受影響的版本：**  所有 HDP 2.5 版本，包含 Apache Ranger 0.6.0/0.6.1/0.6.2 版                                         |
+| **受影響的使用者：**  Ranger 原則管理工具的所有使用者。                                                                         |
+| **影響：**  在某些情況下，當原則包含萬用字元和遞迴旗標時，Ranger 原則引擎不會正確地比對路徑。 |
 | **修正詳細資料：** 已修正原則評估邏輯                                                                                          |
-| **建議動作：** 使用者應升級至 HDP 2.5.4+ (含 Apache Ranger 0.6.3+) 或 HDP 2.6+ (含 Apache Ranger 0.7.0+)         |
+| **建議動作：**  使用者應升級至 HDP 2.5.4+ (含 Apache Ranger 0.6.3+) 或 HDP 2.6+ (含 Apache Ranger 0.7.0+)         |
 
 ### <a name="cve-2016-8751"></a>**CVE-2016-8751**
 
-| **摘要：** Apache Ranger 的預存跨網站指令碼問題  |
+| **摘要：**  Apache Ranger 的預存跨網站指令碼問題  |
 |--------------------------------------------------------------------------------------------------|
-| **嚴重性：** 一般 |
-| **廠商：** Hortonworks |
-| **受影響的版本：** 所有 HDP 2.3/2.4/2.5 版本，包含 Apache Ranger 0.5.x/0.6.0/0.6.1/0.6.2 版  |
-| **受影響的使用者：** Ranger 原則管理工具的所有使用者。 |
-| **影響：** 在輸入自訂原則條件時，Apache Ranger 很容易受到預存跨網站指令碼的攻擊。 管理使用者可以在一般使用者登入和存取原則時，儲存某些任意的 javascript 程式碼執行。 |
-| **修正詳細資料：** 已新增邏輯來處理使用者輸入。  |
-| **建議動作：** 使用者應升級至 HDP 2.5.4+ (含 Apache Ranger 0.6.3+) 或 HDP 2.6+ (含 Apache Ranger 0.7.0+)  |
+| **嚴重性：**  一般 |
+| **廠商：**  Hortonworks |
+| **受影響的版本：**  所有 HDP 2.3/2.4/2.5 版本，包含 Apache Ranger 0.5.x/0.6.0/0.6.1/0.6.2 版  |
+| **受影響的使用者：**  Ranger 原則管理工具的所有使用者。 |
+| **影響：**  在輸入自訂原則條件時，Apache Ranger 很容易受到預存跨網站指令碼的攻擊。 管理使用者可以在一般使用者登入和存取原則時，儲存某些任意的 javascript 程式碼執行。 |
+| **修正詳細資料：**  已新增邏輯來處理使用者輸入。  |
+| **建議動作：**  使用者應升級至 HDP 2.5.4+ (含 Apache Ranger 0.6.3+) 或 HDP 2.6+ (含 Apache Ranger 0.7.0+)  |
 
 ## <a name="fixed-issues-for-support"></a>支援的已修正問題
 
@@ -896,7 +896,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 **不正確的結果**
 
-| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                                                                                                                                                                                                                                | **總結**                                                                                                            |
+| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                                                                                                                                                                                                                                | **摘要**                                                                                                            |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | BUG-100019             | [YARN-8145](https://issues.apache.org/jira/browse/YARN-8145)                                                                                                                                                                                                                   | yarn rmadmin -getGroups 不會傳回使用者的已更新群組                                                         |
 | BUG-100058             | [PHOENIX-2645](https://issues.apache.org/jira/browse/PHOENIX-2645)                                                                                                                                                                                                             | 萬用字元不符合新行字元                                                                    |
@@ -930,7 +930,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 **其他**
 
-| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                                                                                        | **總結**                                                                                                                                |
+| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                                                                                        | **摘要**                                                                                                                                |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | BUG-100267             | [HBASE-17170](https://issues.apache.org/jira/browse/HBASE-17170)                                                                       | 因為類別載入器的差異，HBase 也會嘗試 DoNotRetryIOException。                                                          |
 | BUG-92367              | [YARN-7558](https://issues.apache.org/jira/browse/YARN-7558)                                                                           | 如果啟用 UI 驗證，"yarn logs" 命令將無法取得執行中容器的記錄。                                              |
@@ -946,7 +946,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 **效能**
 
-| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                                                                                                                                                                                                                                                                                                                                                                                                                              | **總結**                                                                                                                         |
+| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                                                                                                                                                                                                                                                                                                                                                                                                                              | **摘要**                                                                                                                         |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | BUG-83282              | [HBASE-13376](https://issues.apache.org/jira/browse/HBASE-13376)、 [HBASE-14473](https://issues.apache.org/jira/browse/HBASE-14473)、 [HBASE-15210](https://issues.apache.org/jira/browse/HBASE-15210)、 [HBASE-15515](https://issues.apache.org/jira/browse/HBASE-15515)、 [HBASE-16570](https://issues.apache.org/jira/browse/HBASE-16570)、 [HBASE-16810](https://issues.apache.org/jira/browse/HBASE-16810)、 [HBASE-18164](https://issues.apache.org/jira/browse/HBASE-18164) | 在平衡器中快速計算位置                                                                                               |
 | BUG-91300              | [HBASE-17387](https://issues.apache.org/jira/browse/HBASE-17387)                                                                                                                                                                                                                                                                                                                                                                                                             | 減少 RegionActionResult 中針對 multi() 的例外狀況報告額外負荷                                                           |
@@ -970,7 +970,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 **可能遺失資料**
 
-| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                  | **總結**                                                       |
+| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                  | **摘要**                                                       |
 |------------------------|------------------------------------------------------------------|-------------------------------------------------------------------|
 | BUG-95613              | [HBASE-18808](https://issues.apache.org/jira/browse/HBASE-18808) | BackupLogCleaner\#getDeletableFiles() 中的設定檢查無效 |
 | BUG-97051              | [HIVE-17403](https://issues.apache.org/jira/browse/HIVE-17403)   | 非受控和交易式資料表的串連失敗         |
@@ -979,7 +979,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 **查詢失敗**
 
-| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                                                                                        | **總結**                                                                                            |
+| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                                                                                        | **摘要**                                                                                            |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
 | BUG-100180             | [CALCITE-2232](https://issues.apache.org/jira/browse/CALCITE-2232)                                                                     | 調整彙總索引時 AggregatePullUpConstantsRule 上發生判斷提示錯誤                      |
 | BUG-100422             | [HIVE-19085](https://issues.apache.org/jira/browse/HIVE-19085)                                                                         | FastHiveDecimal abs(0) 將正負號設定為 +ve                                                                |
@@ -990,7 +990,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 | BUG-93136              | [HIVE-18189](https://issues.apache.org/jira/browse/HIVE-18189)                                                                         | cbo 停用時，無法依位置排序                                                   |
 | BUG-93595              | [HIVE-12378](https://issues.apache.org/jira/browse/HIVE-12378)、 [HIVE-15883](https://issues.apache.org/jira/browse/HIVE-15883)         | Hive 插入中的 HBase 對應資料表在使用小數點和二進位資料行時會失敗                                  |
 | BUG-94007              | [PHOENIX 1751](https://issues.apache.org/jira/browse/PHOENIX-1751)、 [PHOENIX 3112](https://issues.apache.org/jira/browse/PHOENIX-3112) | Phoenix 查詢會傳回 Null 值，因為 HBase 部分資料列                                          |
-| BUG-94144              | [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063)                                                                         | 在首先删除分区的情况下，将覆盖分区插入外部表失败                        |
+| BUG-94144              | [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063)                                                                         | 插入至外部資料表失敗的覆寫資料分割時先卸除資料分割                        |
 | BUG-94280              | [HIVE-12785](https://issues.apache.org/jira/browse/HIVE-12785)                                                                         | 檢視具有等位型別，且用於 \`cast\` 結構的 UDF 會中斷                                          |
 | BUG-94505              | [PHOENIX-4525](https://issues.apache.org/jira/browse/PHOENIX-4525)                                                                     | GroupBy 執行中發生整數溢位                                                                  |
 | BUG-95618              | [HIVE-18506](https://issues.apache.org/jira/browse/HIVE-18506)                                                                         | LlapBaseInputFormat - 負數的陣列索引                                                             |
@@ -1003,7 +1003,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 **安全性**
 
-| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                                                                                                                                                            | **總結**                                                                                                           |
+| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                                                                                                                                                            | **摘要**                                                                                                           |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
 | BUG-100436             | [RANGER-2060](https://issues.apache.org/jira/browse/RANGER-2060)                                                                                                                                           | Knox proxy 與 knox sso 搭配不適用於 ranger                                                                    |
 | BUG-101038             | [SPARK-24062](https://issues.apache.org/jira/browse/SPARK-24062)                                                                                                                                           | Zeppelin %Spark 解譯器在 HiveThriftServer 中的 "Connection refused" 錯誤、"A secret key must be specified..." 錯誤 |
@@ -1041,7 +1041,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 **穩定性**
 
-| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | **總結**                                                                                                                                    |
+| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | **摘要**                                                                                                                                    |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | BUG-100040             | [ATLAS-2536](https://issues.apache.org/jira/browse/ATLAS-2536)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Atlas Hive 掛勾中的 NPE                                                                                                                         |
 | BUG-100057             | [HIVE-19251](https://issues.apache.org/jira/browse/HIVE-19251)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 具有 LIMIT 的 ObjectStore.getNextNotification 應使用較少記憶體                                                                              |
@@ -1152,7 +1152,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 | BUG-98983              | [KNOX-1108](https://issues.apache.org/jira/browse/KNOX-1108)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | NiFiHaDispatch 未容錯移轉                                                                                                                |
 | BUG-99107              | [HIVE-19054](https://issues.apache.org/jira/browse/HIVE-19054)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 函式複寫應該使用 "hive.repl.replica.functions.root.dir" 作為根                                                                  |
 | BUG-99145              | [RANGER-2035](https://issues.apache.org/jira/browse/RANGER-2035)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 存取具有空白 implClass 和 Oracle 後端的 servicedefs 時發生錯誤                                                                          |
-| BUG-99160              | [SLIDER-1259](https://issues.apache.org/jira/browse/SLIDER-1259)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Slider 在多宿主环境中无法工作                                                                                               |
+| BUG-99160              | [SLIDER-1259](https://issues.apache.org/jira/browse/SLIDER-1259)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 滑桿在多重主目錄環境中無法運作                                                                                               |
 | BUG-99239              | [ATLAS-2462](https://issues.apache.org/jira/browse/ATLAS-2462)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 若命令中未提供任何資料表，則所有資料表的 Sqoop 匯入會擲回 NPE                                                                        |
 | BUG-99301              | [ATLAS-2530](https://issues.apache.org/jira/browse/ATLAS-2530)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | hive\_process 和 hive\_column\_lineage 的名稱屬性開頭有新行字元                                                    |
 | BUG-99453              | [HIVE-19065](https://issues.apache.org/jira/browse/HIVE-19065)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 中繼存放區用戶端相容性檢查應該包含 syncMetaStoreClient                                                                        |
@@ -1164,7 +1164,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 **支援能力**
 
-| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                  | **總結**                                                                                   |
+| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                  | **摘要**                                                                                   |
 |------------------------|------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | BUG-87343              | [HIVE-18031](https://issues.apache.org/jira/browse/HIVE-18031)   | 針對 Alter Database 作業支援複寫。                                             |
 | BUG-91293              | [RANGER-2060](https://issues.apache.org/jira/browse/RANGER-2060) | Knox proxy 與 knox sso 搭配不適用於 ranger                                            |
@@ -1177,7 +1177,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 **升級**
 
-| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                                                                                | **總結**                                                                 |
+| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                                                                                | **摘要**                                                                 |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
 | BUG-100134             | [SPARK-22919](https://issues.apache.org/jira/browse/SPARK-22919)                                                               | "Bump Apache httpclient versions" 的還原                                 |
 | BUG-95823              | N/A                                                                                                                            | Knox：升級 Beanutils                                                     |
@@ -1188,7 +1188,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 **可用性**
 
-| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                                                                                                                                                                                                                                | **總結**                                                                                                                                                  |
+| **Hortonworks 錯誤識別碼** | **Apache JIRA**                                                                                                                                                                                                                                                                | **摘要**                                                                                                                                                  |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | BUG-100045             | [HIVE-19056](https://issues.apache.org/jira/browse/HIVE-19056)                                                                                                                                                                                                                 | 當 ORC 檔案有 0 個資料列時，FixAcidKeyIndex 中會發生 IllegalArgumentException                                                                                         |
 | BUG-100139             | [KNOX-1243](https://issues.apache.org/jira/browse/KNOX-1243)                                                                                                                                                                                                                   | 將 KnoxToken 服務中所設定的必要 DN 標準化                                                                                          |
@@ -1295,12 +1295,12 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 ## <a name="behavioral-changes"></a>行為變更
 
-|**Apache 元件**|**Apache JIRA**|**總結**|**詳細資料**|
+|**Apache 元件**|**Apache JIRA**|**摘要**|**詳細資料**|
 |--|--|--|--|
 |**Spark 2.3** |**N/A** |**Apache Spark 版本資訊中所述的變更** |- 有一份「淘汰」文件和一份「行為變更」指南 https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- 針對 SQL 組件，另有一份詳細的「移轉」指南 (從 2.2 至 2.3) https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark 作業已順利完成，但是有 HDFS 磁碟配額已滿錯誤 |**案例：** 在已對執行命令的使用者所擁有的 [資源回收筒] 資料夾設定配額時，執行 **insert overwrite**。<br /><br />**先前的行為：** 即使無法將資料移至資源回收筒，作業仍會成功。 結果可能會錯誤地包含一些先前出現在資料表中的資料。<br /><br />**新的行為：** 移至 [資源回收筒] 資料夾若失敗，就會永久刪除檔案。|
 |**Kafka 1.0**|**N/A**|**Apache Spark 版本資訊中所述的變更** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
-|**Hive/ Ranger** | |INSERT OVERWRITE 需要其他 ranger hive 原則 |**案例：****INSERT OVERWRITE** 需要其他 ranger hive 原則<br /><br />**先前的行為：** Hive **INSERT OVERWRITE** 查詢會如往常般成功。<br /><br />**新的行為：** Hive **INSERT OVERWRITE** 查詢會在升級至 HDP-2.6.x 之後意外失敗，並出現錯誤：<br /><br />編譯陳述式時發生錯誤：FAILED:HiveAccessControlException Permission denied: user jdoe does not have WRITE privilege on /tmp/\*(state=42000,code=40000)<br /><br />截至 HDP-2.6.0，Hive **INSERT OVERWRITE** 查詢需要 Ranger URI 原則才能允許寫入作業，即使使用者已透過 HDFS 原則獲得寫入權限也是一樣。<br /><br />**因應措施/期望的客戶動作：**<br /><br />1.在 Hive 存放庫下建立新的原則。<br />2.在看到資料庫的下拉式清單中，選取 URI。<br />3.更新路徑 (範例：/tmp/*)<br />4.新增使用者和群組，然後儲存。<br />5.重試插入查詢。|
+|**Hive/ Ranger** | |INSERT OVERWRITE 需要其他 ranger hive 原則 |**案例：** **INSERT OVERWRITE** 需要其他 ranger hive 原則<br /><br />**先前的行為：** Hive **INSERT OVERWRITE** 查詢會如往常般成功。<br /><br />**新的行為：** Hive **INSERT OVERWRITE** 查詢會在升級至 HDP-2.6.x 之後意外失敗，並出現錯誤：<br /><br />編譯陳述式時發生錯誤：FAILED:HiveAccessControlException Permission denied: user jdoe does not have WRITE privilege on /tmp/\*(state=42000,code=40000)<br /><br />截至 HDP-2.6.0，Hive **INSERT OVERWRITE** 查詢需要 Ranger URI 原則才能允許寫入作業，即使使用者已透過 HDFS 原則獲得寫入權限也是一樣。<br /><br />**因應措施/期望的客戶動作：**<br /><br />1.在 Hive 存放庫下建立新的原則。<br />2.在看到資料庫的下拉式清單中，選取 URI。<br />3.更新路徑 (範例：/tmp/*)<br />4.新增使用者和群組，然後儲存。<br />5.重試插入查詢。|
 |**HDFS**|**N/A** |HDFS 應支援多個 KMS Uris |**先前的行為：** 使用 dfs.encryption.key.provider.uri 屬性來設定 KMS 提供者路徑。<br /><br />**新的行為：** dfs.encryption.key.provider.uri 現已淘汰，改為使用 hadoop.security.key.provider.path 來設定 KMS 提供者路徑。|
 |**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|可供停用排程器的選項 |**受影響的元件：** Zeppelin-Server<br /><br />**先前的行為：** 在舊版 Zeppelin 中，沒有選項可停用排程器。<br /><br />**新的行為：** 根據預設，使用者不會再看到排程器，因為其已依預設停用。<br /><br />**因應措施/期望的客戶動作：** 如果您想要啟用排程器，您必須從 Ambari 在 Zeppelin 設定中於自訂 zeppelin 網站之下新增值為 true 的 azeppelin.notebook.cron.enable。|
 
@@ -1318,9 +1318,9 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 - **Spark 2.3**
 
-  -   \[[SPARK-23523](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] OptimizeMetadataOnlyQuery 規則造成了不正確的結果
+  -   \[[SPARK-23523  ](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] OptimizeMetadataOnlyQuery 規則造成了不正確的結果
 
-  -   \[[SPARK-23406](https://issues.apache.org/jira/browse/SPARK-23406)\] stream-stream 自我聯結中有錯誤
+  -   \[[SPARK-23406  ](https://issues.apache.org/jira/browse/SPARK-23406)\] stream-stream 自我聯結中有錯誤
 
   -   當 Azure Data Lake Storage (Gen2) 是叢集的預設儲存體時，便無法使用 Spark notebook 範例。
 
@@ -1371,7 +1371,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
     
   如果使用者想要建立有自訂原則條件的原則，且運算式或文字包含特殊字元，則原則強制執行不會有作用。 特殊字元會先轉換為 ASCII，然後才將原則儲存到資料庫。
     
-  **特殊字元：** & &lt; &gt; " \` '
+  **特殊字元：**  & &lt; &gt; " \` '
     
   例如，條件 tags.attributes\['type'\]='abc' 會在儲存原則之後轉換成下列文字。
     
@@ -1427,7 +1427,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 ## <a name="deprecation"></a>淘汰
 
--   **OMS 入口網站：** 我們已從 HDInsight 資源頁面中移除指向 OMS 入口網站的連結。 Azure Monitor 日志一开始使用其自己的门户（称为 OMS 门户）来管理其配置并分析收集的数据。 這個入口網站中的所有功能都已移至 Azure 入口網站，並將繼續進行開發。 HDInsight 已淘汰對於 OMS 入口網站的支援。 客户将在 Azure 门户中使用 HDInsight Azure Monitor 日志集成。
+-   **OMS 入口網站：** 我們已從 HDInsight 資源頁面中移除指向 OMS 入口網站的連結。 Azure 監視器記錄檔一開始會使用它自己的入口網站稱為 OMS 入口網站來管理其設定和分析收集的資料。 這個入口網站中的所有功能都已移至 Azure 入口網站，並將繼續進行開發。 HDInsight 已淘汰對於 OMS 入口網站的支援。 客戶會在 Azure 入口網站中使用 HDInsight 的 Azure 監視器記錄檔的整合。
 
 -   **Spark 2.3**
 

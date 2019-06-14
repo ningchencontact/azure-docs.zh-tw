@@ -14,14 +14,14 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 81b7bf7c230c66087bf286ebd9369d992e93be90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61250467"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>使用 Azure Data Factory 來移動 Web 資料表的資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](data-factory-web-table-connector.md)
 > * [第 2 版 (目前的版本)](../connector-web-table.md)
 
@@ -56,7 +56,7 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 Cassandra 資料存放區移動資料。 
 
 - 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。 
-- 您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
+- 您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -285,22 +285,22 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 ```
 
 ## <a name="get-index-of-a-table-in-an-html-page"></a>取得 HTML 網頁中資料表的索引
-1. 啟動 **Excel 2016**，然後切換到 [資料] 索引標籤。  
-2. 按一下工具列上的 [開新查詢]、指向 [從其他來源]，然後按一下 [從 Web]。
+1. 啟動 **Excel 2016**，然後切換到 [資料]  索引標籤。  
+2. 按一下工具列上的 [開新查詢]  、指向 [從其他來源]  ，然後按一下 [從 Web]  。
 
     ![Power Query 功能表](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
-3. 在 [從 Web] 對話方塊中，輸入您要在連結服務 JSON 中使用的 **URL** (例如： https://en.wikipedia.org/wiki/)，以及您為資料集指定的路徑 (例如：AFI%27s_100_Years...100_Movies)，然後按一下 [確定]。
+3. 在 [從 Web]  對話方塊中，輸入您要在連結服務 JSON 中使用的 **URL** (例如： https://en.wikipedia.org/wiki/) ，以及您為資料集指定的路徑 (例如：AFI%27s_100_Years...100_Movies)，然後按一下 [確定]  。
 
     ![[從 Web] 對話方塊](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 
     此範例使用的 URL： https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
-4. 當您看到 [存取 Web 內容] 對話方塊時，選取右側的 **URL**、**驗證方式**，然後按一下 [連線]。
+4. 當您看到 [存取 Web 內容]  對話方塊時，選取右側的 **URL**、**驗證方式**，然後按一下 [連線]  。
 
    ![[存取 Web 內容] 對話方塊](./media/data-factory-web-table-connector/AccessWebContentDialog.png)
-5. 按一下樹狀檢視中的某個**資料表**項目來查看資料表內容，然後按一下底部的 [編輯] 按鈕。  
+5. 按一下樹狀檢視中的某個**資料表**項目來查看資料表內容，然後按一下底部的 [編輯]  按鈕。  
 
    ![[導覽器] 對話方塊](./media/data-factory-web-table-connector/Navigator-DialogBox.png)
-6. 在 [查詢編輯器] 視窗中，按一下工具列上的 [進階編輯器] 按鈕。
+6. 在 [查詢編輯器]  視窗中，按一下工具列上的 [進階編輯器]  按鈕。
 
     ![[進階編輯器] 按鈕](./media/data-factory-web-table-connector/QueryEditor-AdvancedEditorButton.png)
 7. 在 [進階編輯器] 對話方塊中，「Source」旁的數字就是索引。

@@ -8,13 +8,13 @@ ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
 ms.openlocfilehash: 38d59fb20776470cb683f2a2146838bb217addf7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64928118"
 ---
-# <a name="tenant-and-host-pool-creation"></a>建立租用戶和主應用程式集區
+# <a name="tenant-and-host-pool-creation"></a>建立租用戶和主機集區
 
 使用這篇文章對您有設定 Windows 虛擬桌面工作階段主機虛擬機器 (Vm) 時的問題進行疑難排解。
 
@@ -222,7 +222,7 @@ Windows 虛擬桌面並排顯示堆疊會自動安裝與 Windows Server 2019。 
 請遵循下列指示執行補救，從相同的子網路和網域：
 
 1. 使用標準遠端桌面通訊協定 (RDP) 從連線到 VM 將會套用修正程式。
-2. 下載 PsExec 從 https://docs.microsoft.com/sysinternals/downloads/psexec。
+2. 下載 PsExec 從 https://docs.microsoft.com/sysinternals/downloads/psexec 。
 3. 解壓縮下載的檔案。
 4. 以本機系統管理員身分啟動命令提示字元。
 5. 瀏覽至其中 PsExec 已解壓縮的資料夾。

@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: e7dcdb960fbd9196aca8b667269a4c6e5a1fb8f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60795056"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>縮放層級和圖格格線
@@ -64,7 +64,7 @@ Azure 地圖服務的互動式地圖控制項，適用於 web 和 Android 支援
 
 圖格是由縮放層級來召集，其 x 和 y 座標對應至圖格在該縮放層級格線上的位置。
 
-在決定要使用的縮放層級時，請記住每個位置是在其圖格上的固定位置。 這表示顯示給定領域範圍所需的圖格數目取決於特定縮放格線中在世界上的位置。 例如，如果兩個點相距 900 公尺，「可能」只需要在縮放層級 17 用三個圖格來顯示這兩點之間的路線。 不過，如果西邊的點是在其圖格中的右邊，而東邊的點是在其圖格中的左邊，則可能需要四個圖格：
+在決定要使用的縮放層級時，請記住每個位置是在其圖格上的固定位置。 這表示顯示給定領域範圍所需的圖格數目取決於特定縮放格線中在世界上的位置。 例如，如果兩個點相距 900 公尺，「可能」  只需要在縮放層級 17 用三個圖格來顯示這兩點之間的路線。 不過，如果西邊的點是在其圖格中的右邊，而東邊的點是在其圖格中的左邊，則可能需要四個圖格：
 
 ![縮放比例示範](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png) 
 

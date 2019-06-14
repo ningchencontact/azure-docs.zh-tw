@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b6f0d25f621768f79e8262f38617152e91692a23
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129837"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>使用資料庫異地複寫進行多租用戶 SaaS 應用程式的災害復原
@@ -90,9 +90,9 @@ ms.locfileid: "62129837"
 ## <a name="review-the-healthy-state-of-the-application"></a>檢視應用程式的健康狀態
 
 在開始進行復原程序之前，請先查看應用程式的正常健康狀態。
-1. 在您的網頁瀏覽器中，開啟 Wingtip Tickets 事件中樞 (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net，將 &lt;user&gt; 取代為部署的使用者值)。
+1. 在您的網頁瀏覽器中，開啟 Wingtip Tickets 事件中樞 (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net，將 &lt; user&gt; 取代為部署的使用者值)。
     * 捲動至頁面底部，並查看頁尾處的目錄伺服器名稱和位置。 此位置是您部署應用程式的區域。
-    *提示：將滑鼠置於此位置上方，可放大顯示畫面。*
+    *提示：將滑鼠置於此位置上方，可放大顯示畫面。* 
     ![原始區域中的事件中樞健康狀態](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. 按一下 Contoso Concert Hall 租用戶，並開啟其事件頁面。
@@ -207,7 +207,7 @@ ms.locfileid: "62129837"
  
      ![事件中樞離線](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-   * 如果您直接開啟離線租用戶的 [事件] 頁面，頁面上會顯示「租用戶離線」通知。 例如，在 Contoso Concert Hall 處於離線狀態時，嘗試開啟 http://events.wingtip-dpt.&ltuser&gt;.trafficmanager.net/contosoconcerthall ![Contoso 離線頁面](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * 如果您直接開啟離線租用戶的 [事件] 頁面，頁面上會顯示「租用戶離線」通知。 例如，在 Contoso Concert Hall 處於離線狀態時，嘗試開啟 http://events.wingtip-dpt.&lt user&gt;.trafficmanager.net/contosoconcerthall ![ Contoso 離線頁面](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>在復原區域中佈建新租用戶
 即使在所有現有的租用戶資料庫皆完成容錯移轉之前，您也可以在復原區域中佈建新的租用戶。  
@@ -256,7 +256,7 @@ ms.locfileid: "62129837"
 2. 在 *PowerShell ISE* 中，進入 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 指令碼，並設定下列值：
     * **$DemoScenario = 5**，從復原區域的租用戶中刪除事件
 3. 按 **F5** 以執行指令碼
-4. 重新整理 Contoso Concert Hall 事件頁面 (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall - 請將 &lt;user&gt; 替換為部署的使用者值)，並留意系統已刪除最後一個事件。
+4. 重新整理 Contoso Concert Hall 事件頁面 (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall - 請將 &lt; user&gt; 替換為部署的使用者值)，並留意系統已刪除最後一個事件。
 
 ## <a name="repatriate-the-application-to-its-original-production-region"></a>將應用程式回復至其原始生產區域
 
@@ -289,7 +289,7 @@ ms.locfileid: "62129837"
     * 按 **F5** 在新的 PowerShell 視窗中執行復原指令碼。  回復需要幾分鐘的時間，您可以在 PowerShell 視窗中加以監視。
     ![回復程序](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 
-4. 執行指令碼時，重新整理 [事件中樞] 頁面 (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net)
+4. 執行指令碼時，重新整理 [事件中樞] 頁面 (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net)
     * 留意到在這整個程序中，所有租用戶皆處於線上狀態，且可供存取。
 
 5. 回復程序完成後，請重新整理事件中樞，並開啟 Hawthorn Hall 的事件頁面。 留意到此資料庫已回復至其原始區域。

@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: e84bc790ac577796e91be010deecc8c5cea1b010
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303073"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699705"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>使用 StorSimple Snapshot Manager 來建立和管理磁碟區群組
 ## <a name="overview"></a>概觀
-您可以使用 [範圍] 窗格上的 [磁碟區群組] 節點，將磁碟區指派給磁碟區群組、檢視磁碟區群組的相關資訊、排定備份，以及編輯磁碟區群組。
+您可以使用 [範圍]  窗格上的 [磁碟區群組]  節點，將磁碟區指派給磁碟區群組、檢視磁碟區群組的相關資訊、排定備份，以及編輯磁碟區群組。
 
 磁碟區群組是用來確保應用程式具有一致備份之相關磁碟區的集區。 如需詳細資訊，請參閱[磁碟區和磁碟區群組](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups)，以及[與 Windows 磁碟區陰影複製服務整合](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service)。
 
@@ -46,17 +46,17 @@ ms.locfileid: "60303073"
 所有這些動作也可在 [動作]  窗格上進行。
 
 ## <a name="view-volume-groups"></a>檢視磁碟區群組
-如果您按一下 [磁碟區群組] 節點，[結果] 窗格會顯示每個磁碟區群組的下列相關資訊，視您選擇的資料行而定。 您可以設定 [結果] 窗格中的資料行。 (以滑鼠右鍵按一下 [磁碟區] 節點，選取 [檢視]，然後選取 [新增/移除資料行]。)
+如果您按一下 [磁碟區群組]  節點，[結果]  窗格會顯示每個磁碟區群組的下列相關資訊，視您選擇的資料行而定。 您可以設定 [結果]  窗格中的資料行。 (以滑鼠右鍵按一下 [磁碟區]  節點，選取 [檢視]  ，然後選取 [新增/移除資料行]  。)
 
 | 結果資料行 | 描述 |
 |:--- |:--- |
-| Name |[名稱]  資料行包含磁碟區群組的名稱。 |
+| 名稱 |[名稱]  資料行包含磁碟區群組的名稱。 |
 | Application |[應用程式]  資料行會顯示 Windows 主機上目前已安裝且正在執行的 VSS 寫入器數目。 |
 | 已選取 |[已選取]  資料行會顯示磁碟區群組中所包含的磁碟區數目。 零 (0) 表示沒有任何應用程式與磁碟區群組中的磁碟區相關聯。 |
-| 已匯入 |[已匯入] 資料行會顯示已匯入的磁碟區數目。 當設定為 **True** 時，此資料行會指出已從 Azure 入口網站匯入磁碟區群組，而不是在 StorSimple Snapshot Manager 中建立它。 |
+| 已匯入 |[已匯入]  資料行會顯示已匯入的磁碟區數目。 當設定為 **True** 時，此資料行會指出已從 Azure 入口網站匯入磁碟區群組，而不是在 StorSimple Snapshot Manager 中建立它。 |
 
 > [!NOTE]
-> StorSimple Snapshot Manager 磁碟區群組也會顯示在 Azure 入口網站的 [備份原則] 索引標籤上。
+> StorSimple Snapshot Manager 磁碟區群組也會顯示在 Azure 入口網站的 [備份原則]  索引標籤上。
 > 
 > 
 
@@ -65,7 +65,7 @@ ms.locfileid: "60303073"
 
 #### <a name="to-create-a-volume-group"></a>若要建立磁碟區群組
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
-2. 在 [範圍] 窗格中，以滑鼠右鍵按一下 [磁碟區群組]，然後按一下 [建立磁碟區群組]。
+2. 在 [範圍]  窗格中，以滑鼠右鍵按一下 [磁碟區群組]  ，然後按一下 [建立磁碟區群組]  。
    
     ![建立磁碟區群組](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Create_volume_group.png)
    
@@ -92,22 +92,22 @@ ms.locfileid: "60303073"
 
 #### <a name="to-back-up-a-volume-group"></a>若要備份磁碟區群組
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
-2. 在 [範圍] 窗格中，展開 [磁碟區群組] 節點，以滑鼠右鍵按一下磁碟區群組名稱，然後按一下 [取得備份]。
+2. 在 [範圍]  窗格中，展開 [磁碟區群組]  節點，以滑鼠右鍵按一下磁碟區群組名稱，然後按一下 [取得備份]  。
    
     ![立即備份磁碟區群組](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Take_backup.png)
-3. 在 [取得備份] 對話方塊中，選取 [本機快照] 或 [雲端快照]，然後按一下 [建立]。
+3. 在 [取得備份]  對話方塊中，選取 [本機快照]  或 [雲端快照]  ，然後按一下 [建立]  。
    
     ![取得備份對話方塊](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_TakeBackup_dialog.png)
-4. 若要確認備份執行中，請展開 [作業] 節點，然後按一下 [執行中]。 應該會列出備份。
-5. 若要檢視已完成的快照集，請展開 [備份目錄] 節點，展開磁碟區群組名稱，然後按一下 [本機快照] 或 [雲端快照]。 如果順利完成，將會列出備份。
+4. 若要確認備份執行中，請展開 [作業]  節點，然後按一下 [執行中]  。 應該會列出備份。
+5. 若要檢視已完成的快照集，請展開 [備份目錄]  節點，展開磁碟區群組名稱，然後按一下 [本機快照]  或 [雲端快照]  。 如果順利完成，將會列出備份。
 
 ## <a name="edit-a-volume-group"></a>編輯磁碟區群組
 請使用下列程序來編輯磁碟區群組。
 
 #### <a name="to-edit-a-volume-group"></a>若要編輯磁碟區群組
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
-2. 在 [範圍] 窗格中，展開 [磁碟區群組] 節點，以滑鼠右鍵按一下磁碟區群組名稱，然後按一下 [編輯]。
-3. [建立磁碟區群組] 對話方塊隨即出現。 您可以變更 [名稱]、[應用程式] 和 [磁碟區] 項目。
+2. 在 [範圍]  窗格中，展開 [磁碟區群組]  節點，以滑鼠右鍵按一下磁碟區群組名稱，然後按一下 [編輯]  。
+3. [建立磁碟區群組] 對話方塊隨即出現。 您可以變更 [名稱]  、[應用程式]  和 [磁碟區]  項目。
 4. 按一下 [確定]  以儲存變更。
 
 ## <a name="delete-a-volume-group"></a>刪除磁碟區群組
@@ -120,8 +120,8 @@ ms.locfileid: "60303073"
 
 #### <a name="to-delete-a-volume-group"></a>若要刪除磁碟區群組
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
-2. 在 [範圍] 窗格中，展開 [磁碟區群組] 節點，以滑鼠右鍵按一下磁碟區群組名稱，然後按一下 [刪除]。
-3. [刪除磁碟區群組] 對話方塊隨即出現。 在文字方塊中輸入 **Confirm**，然後按一下 [確定]。
+2. 在 [範圍]  窗格中，展開 [磁碟區群組]  節點，以滑鼠右鍵按一下磁碟區群組名稱，然後按一下 [刪除]  。
+3. [刪除磁碟區群組]  對話方塊隨即出現。 在文字方塊中輸入 **Confirm**，然後按一下 [確定]  。
    
     刪除的磁碟區群組會從 [結果]  窗格中的清單消失，而且所有與該磁碟區群組相關聯的備份都會從備份目錄中刪除。
 

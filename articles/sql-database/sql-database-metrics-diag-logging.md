@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65791949"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
@@ -54,7 +54,7 @@ ms.locfileid: "65791949"
 - Azure 事件中心
 - Azure 儲存體
 
-您可以佈建新的 Azure 資源，或選取現有的資源。 使用 [診斷設定] 選項選擇資源之後，指定要收集的資料。
+您可以佈建新的 Azure 資源，或選取現有的資源。 使用 [診斷設定]  選項選擇資源之後，指定要收集的資料。
 
 ## <a name="supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases"></a>Azure SQL database 和執行個體的資料庫支援診斷記錄
 
@@ -67,13 +67,13 @@ ms.locfileid: "65791949"
 | [基本計量](#basic-metrics):包含 DTU/CPU 百分比、DTU/CPU 限制、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆封鎖的連線、工作階段百分比、背景工作角色百分比、儲存體、儲存體百分比和 XTP 儲存體百分比。 | 是 | 否 |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics)：包含關於查詢執行階段統計資料的資訊，例如 CPU 使用率和查詢持續時間統計資料。 | 是 | 是 |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics)：包含 （項目查詢等候） 的查詢等候統計資料的相關資訊這類是 CPU、 LOG 和 LOCKING。 | 是 | 是 |
-| [錯誤](#errors-dataset)：包含有关数据库发生的 SQL 错误的信息。 | 是 | 是 |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset)：包含有关数据库针对不同等待类型花费多少时间等待的信息。 | 是 | 否 |
-| [逾時](#time-outs-dataset)：包含有关数据库发生的超时的信息。 | 是 | 否 |
-| [封鎖](#blockings-dataset)：包含有关数据库发生的阻塞事件的信息。 | 是 | 否 |
-| [死锁数](#deadlocks-dataset)：包含有关数据库发生的死锁事件的信息。 | 是 | 否 |
-| [AutomaticTuning](#automatic-tuning-dataset)：包含有关数据库的自动优化建议的信息。 | 是 | 否 |
-| [SQLInsights](#intelligent-insights-dataset)：包含针对数据库性能的智能见解。 若要深入了解，請參閱 [Intelligent Insights](sql-database-intelligent-insights.md)。 | 是 | 是 |
+| [錯誤](#errors-dataset)：包含在資料庫上的 SQL 錯誤的相關資訊。 | 是 | 是 |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset)：包含資料庫花費在不同等候類型的等候時間的資訊。 | 是 | 否 |
+| [逾時](#time-outs-dataset)：包含在資料庫上逾時的相關資訊。 | 是 | 否 |
+| [封鎖](#blockings-dataset)：包含有關在資料庫上的事件資訊。 | 是 | 否 |
+| [死結](#deadlocks-dataset):包含在資料庫上死結事件的相關資訊。 | 是 | 否 |
+| [AutomaticTuning](#automatic-tuning-dataset):包含資料庫的自動調整建議的相關資訊。 | 是 | 否 |
+| [SQLInsights](#intelligent-insights-dataset)：包含 Intelligent Insights 資料庫效能。 若要深入了解，請參閱 [Intelligent Insights](sql-database-intelligent-insights.md)。 | 是 | 是 |
 
 > [!IMPORTANT]
 > 彈性集區和受管理的執行個體都有自己個別的診斷遙測，從其所包含的資料庫。 这是必须注意的，因为诊断遥测数据是为每个这样的资源单独配置的，如下所述。
@@ -105,8 +105,8 @@ ms.locfileid: "65791949"
 若要啟用彈性集區資源診斷遙測的串流處理，請遵循下列步驟：
 
 1. 移至**彈性集區**在 Azure 入口網站中的資源。
-1. 選取 [診斷設定]。
-1. 如果沒有先前的設定存在，請選取 [開啟診斷]，或者選取 [編輯設定] 來編輯先前的設定。
+1. 選取 [診斷設定]  。
+1. 如果沒有先前的設定存在，請選取 [開啟診斷]  ，或者選取 [編輯設定]  來編輯先前的設定。
 
    ![啟用彈性集區的診斷功能](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-enable.png)
 
@@ -127,11 +127,11 @@ ms.locfileid: "65791949"
 
 若要为单一数据库或入池数据库启用诊断遥测数据的流式传输，请执行以下步骤：
 
-1. 转到 Azure **SQL 数据库**资源。
-1. 選取 [診斷設定]。
-1. 如果沒有先前的設定存在，請選取 [開啟診斷]，或者選取 [編輯設定] 來編輯先前的設定。
+1. 移至 Azure **SQL database**資源。
+1. 選取 [診斷設定]  。
+1. 如果沒有先前的設定存在，請選取 [開啟診斷]  ，或者選取 [編輯設定]  來編輯先前的設定。
    - 您最多可建立三個平行連線來串流處理診斷遙測。
-   - 選取 [+新增診斷設定] 建立診斷資料到多個資源的多個平行串流處理。
+   - 選取 [+新增診斷設定]  建立診斷資料到多個資源的多個平行串流處理。
 
    ![啟用單一、集區式或執行個體資料庫的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 1. 輸入供您自己參考的設定名稱。
@@ -140,7 +140,7 @@ ms.locfileid: "65791949"
 1. 進階、 一分鐘基礎的監視體驗，選取核取方塊**基本**計量。
    ![設定診斷單一、 集區，或執行個體資料庫](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. 選取 [ **儲存**]。
-1. 针对要监视的每个数据库重复上述步骤。
+1. 針對您想要監視每個資料庫重複這些步驟。
 
 > [!NOTE]
 > （雖然畫面所示），無法啟用安全性稽核和 SQLSecurityAuditEvents 記錄從資料庫的診斷設定。 若要啟用稽核記錄資料流，請參閱[設定資料庫的稽核](sql-database-auditing.md#subheading-2)，並[稽核記錄中 Azure 監視器記錄檔和 Azure 事件中樞](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)。
@@ -167,8 +167,8 @@ ms.locfileid: "65791949"
 若要啟用受控執行個體資源診斷遙測的串流，請遵循下列步驟：
 
 1. 移至**受管理的執行個體**在 Azure 入口網站中的資源。
-1. 選取 [診斷設定]。
-1. 如果沒有先前的設定存在，請選取 [開啟診斷]，或者選取 [編輯設定] 來編輯先前的設定。
+1. 選取 [診斷設定]  。
+1. 如果沒有先前的設定存在，請選取 [開啟診斷]  ，或者選取 [編輯設定]  來編輯先前的設定。
 
    ![啟用受控執行個體的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
@@ -190,10 +190,10 @@ ms.locfileid: "65791949"
 若要啟用的串流診斷遙測執行個體的資料庫，請遵循下列步驟：
 
 1. 移至**執行個體資料庫**受管理的執行個體內的資源。
-1. 選取 [診斷設定]。
-1. 如果沒有先前的設定存在，請選取 [開啟診斷]，或者選取 [編輯設定] 來編輯先前的設定。
+1. 選取 [診斷設定]  。
+1. 如果沒有先前的設定存在，請選取 [開啟診斷]  ，或者選取 [編輯設定]  來編輯先前的設定。
    - 您最多可建立三 (3) 個平行連線來串流處理診斷遙測。
-   - 選取 [+新增診斷設定] 建立診斷資料到多個資源的多個平行串流處理。
+   - 選取 [+新增診斷設定]  建立診斷資料到多個資源的多個平行串流處理。
 
    ![啟用執行個體資料庫的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
@@ -312,7 +312,7 @@ Azure SQL 分析是雲端解決方案，可以跨多個訂用帳戶大規模監�
 
 ![Azure SQL 分析概觀](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
-使用入口網站的 [診斷設定] 索引標籤中內建的 [傳送至 Log Analytics] 選項，即可將 SQL Database 計量和診斷記錄串流到 Azure SQL 分析中。 此外，还可以通过 PowerShell cmdlet、Azure CLI 或 Azure Monitor REST API 使用诊断设置来启用日志分析。
+使用入口網站的 [診斷設定] 索引標籤中內建的 [傳送至 Log Analytics]  選項，即可將 SQL Database 計量和診斷記錄串流到 Azure SQL 分析中。 此外，还可以通过 PowerShell cmdlet、Azure CLI 或 Azure Monitor REST API 使用诊断设置来启用日志分析。
 
 ### <a name="installation-overview"></a>安裝概觀
 
@@ -330,17 +330,17 @@ Azure SQL 分析是雲端解決方案，可以跨多個訂用帳戶大規模監�
 
    ![在入口網站中搜尋 Azure SQL 分析](./media/sql-database-metrics-diag-logging/sql-analytics-in-marketplace.png)
 
-2. 在解決方案的 [概觀] 畫面上選取 [建立]。
+2. 在解決方案的 [概觀] 畫面上選取 [建立]  。
 
 3. 在 Azure SQL 分析表單中填入所需的其他資訊：工作區名稱、訂用帳戶、資源群組、位置及定價層。
 
    ![在入口網站中設定 Azure SQL 分析](./media/sql-database-metrics-diag-logging/sql-analytics-configuration-blade.png)
 
-4. 選取 [確定] 確認，然後選取 [建立]。
+4. 選取 [確定]  確認，然後選取 [建立]  。
 
 ### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>將資料庫設定為記錄計量和診斷記錄
 
-設定資料庫，記錄計量的最簡單方式是使用 Azure 入口網站。 如上所述，在 Azure 入口網站中，移至您的 SQL Database 資源，並選取 [診斷設定]。
+設定資料庫，記錄計量的最簡單方式是使用 Azure 入口網站。 如上所述，在 Azure 入口網站中，移至您的 SQL Database 資源，並選取 [診斷設定]  。
 
 如果您使用的是彈性集區或受控執行個體，則也需要設定這些資源的診斷設定，以便將診斷遙測串流到工作區中。
 
@@ -350,7 +350,7 @@ Azure SQL 分析是雲端解決方案，可以跨多個訂用帳戶大規模監�
 
 ## <a name="stream-into-event-hubs"></a>串流至事件中樞
 
-您可以使用 Azure 入口網站中內建的 [串流至事件中樞] 選項，將 SQL Database 計量和診斷記錄串流到事件中樞。 您也可以透過 PowerShell Cmdlet、Azure CLI 或 Azure 監視器 REST API 使用診斷設定來啟用服務匯流排規則識別碼。
+您可以使用 Azure 入口網站中內建的 [串流至事件中樞]  選項，將 SQL Database 計量和診斷記錄串流到事件中樞。 您也可以透過 PowerShell Cmdlet、Azure CLI 或 Azure 監視器 REST API 使用診斷設定來啟用服務匯流排規則識別碼。
 
 ### <a name="what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs"></a>如何在事件中樞處理計量和診斷記錄
 
@@ -369,7 +369,7 @@ Azure SQL 分析是雲端解決方案，可以跨多個訂用帳戶大規模監�
 
 ## <a name="stream-into-storage"></a>串流到儲存體
 
-使用 Azure 入口網站中內建的 [封存至儲存體帳戶] 選項，就可以將 SQL Database 計量和診斷記錄儲存在 Azure 儲存體。 您也可以透過 PowerShell Cmdlet、Azure CLI 或 Azure 監視器 REST API 使用診斷設定來啟用儲存體。
+使用 Azure 入口網站中內建的 [封存至儲存體帳戶]  選項，就可以將 SQL Database 計量和診斷記錄儲存在 Azure 儲存體。 您也可以透過 PowerShell Cmdlet、Azure CLI 或 Azure 監視器 REST API 使用診斷設定來啟用儲存體。
 
 ### <a name="schema-of-metrics-and-diagnostics-logs-in-the-storage-account"></a>儲存體帳戶中的計量和診斷記錄結構描述
 
@@ -405,11 +405,11 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 如果您選取事件中樞或儲存體帳戶，您可以指定保留原則。 此原則會刪除早於選取時間期間的資料。 如果您指定 Log Analytics，則保留原則取決於所選的定價層。 在這種情況下，所提供的免費資料擷取單位可以每個月免費監視多個資料庫。 超過免費單位的診斷遙測耗用量可能會收取費用。 請注意，相較於閒置的資料庫，較繁重工作負載的作用中資料庫會擷取更多資料。 有关详细信息，请参阅 [Log Analytics 定价](https://azure.microsoft.com/pricing/details/monitor/)。
 
-如果您使用的是 Azure SQL 分析，您可以藉由選取 Azure SQL 分析導覽功能表上的 [OMS 工作區]，然後選取 [使用量] 和 [估計成本]，監視您解決方案中的資料擷取使用量。
+如果您使用的是 Azure SQL 分析，您可以藉由選取 Azure SQL 分析導覽功能表上的 [OMS 工作區]  ，然後選取 [使用量]  和 [估計成本]  ，監視您解決方案中的資料擷取使用量。
 
 ## <a name="metrics-and-logs-available"></a>可用的計量和記錄
 
-監視 Azure SQL Database 所提供的遙測，彈性集區和受管理的執行個體是如下所述。 可以使用 [Azure Monitor 日志查询](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)语言将在 SQL Analytics 内收集的监视遥测数据用于你自己的自定义分析和应用程序开发。
+監視 Azure SQL Database 所提供的遙測，彈性集區和受管理的執行個體是如下所述。 在 SQL Analytics 收集的監視遙測可用於您自己自訂的分析和應用程式開發使用[Azure 監視器的記錄檔查詢](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)語言。
 
 ## <a name="basic-metrics"></a>基本計量
 

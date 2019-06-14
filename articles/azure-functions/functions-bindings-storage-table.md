@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.openlocfilehash: 0c9cd513f4d5842d14077bb7470ebd18c7a46340
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306729"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511861"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 資料表儲存體繫結
 
@@ -85,7 +85,7 @@ public class TableStorage
 
 ### <a name="input---c-example---iqueryable"></a>輸入 - C# 範例 - IQueryable
 
-下列範例示範可讀取多個資料表資料列的 [C# 函式](functions-dotnet-class-library.md)。 請注意，`MyPoco` 類別衍生自 `TableEntity`。
+下列範例示範可讀取多個資料表資料列的 [C# 函式](functions-dotnet-class-library.md)。 請注意 `MyPoco` 類別衍生自 `TableEntity`。
 
 ```csharp
 public class TableStorage

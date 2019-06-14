@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/2/2019
 ms.openlocfilehash: c1b2875e6899d2301a4c4b564882214dc7bc4981
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205465"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 串流分析作業的相容性層級
@@ -81,7 +81,7 @@ Azure Stream Analytics 支援開放式地理空間的參考資料編製索引。
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset 時寫入至 SQL 輸出
 
-**先前的層級：**[DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017)類型已調整為 UTC。
+**先前的層級：** [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017)類型已調整為 UTC。
 
 **1.2 的層級：** DateTimeOffset 會不會再進行調整。
 
@@ -107,7 +107,7 @@ Azure Stream Analytics 支援開放式地理空間的參考資料編製索引。
 
 ### <a name="service-bus-xml-format"></a>服務匯流排 XML 格式
 
-**1.0 的層級：** Azure 串流分析使用 DataContractSerializer，因此訊息內容包含 XML 標籤。 例如︰
+**1.0 的層級：** Azure 串流分析使用 DataContractSerializer，因此訊息內容包含 XML 標籤。 例如:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 

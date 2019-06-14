@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 24a723bd32cb40807da1757b3fffb925d4ba1fef
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799167"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>檢視及編輯影片索引器深入解析
@@ -23,7 +23,7 @@ ms.locfileid: "65799167"
 
 1. 瀏覽至[影片索引器](https://www.videoindexer.ai/)網站並登入。
 2. 尋找您要從中建立影片所影器深入解析的影片。 如需詳細資訊，請參閱[尋找影片中的確切時間](video-indexer-search.md)。
-3. 按下 [播放]。
+3. 按下 [播放]  。
 
     頁面會顯示影片的深入解析摘要。 
 

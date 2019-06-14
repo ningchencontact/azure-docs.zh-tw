@@ -1,6 +1,6 @@
 ---
 title: 設定 Azure 匯入/匯出工具 v1 | Microsoft Docs
-description: 了解如何設定 Azure 匯入/匯出服務的磁碟機準備及修復工具。 本文所述的导入/导出工具为 v1 版本。
+description: 了解如何設定 Azure 匯入/匯出服務的磁碟機準備及修復工具。 這是指 v1 的匯入/匯出工具。
 author: muralikk
 services: storage
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: aafff208b9de2ae485fb84be428cf77f237e022e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477564"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>設定 Azure 匯入/匯出工具
@@ -41,7 +41,7 @@ Microsoft Azure 匯入/匯出工具是磁碟機準備及修復工具，可搭配
   
 -   您將需要一個或多個包含要匯入資料的磁碟機，或連接至複製電腦的空白 3.5 吋 SATA 硬碟。  
   
--   打算导入的文件必须可从复制计算机访问，无论这些文件是位于网络共享还是本地硬盘驱动器上。 
+-   您想匯入的檔案必須可從複製機器上存取，無論它們是在網路共用或本機硬碟上。 
   
 如果您嘗試修復已部分失敗的匯入，您將需要︰  
   

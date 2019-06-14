@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61482789"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>更換 StorSimple 裝置上的控制器模組
@@ -78,8 +78,8 @@ ms.locfileid: "61482789"
 
 
 #### <a name="to-remove-a-single-failed-controller-module"></a>若要取下單一故障的控制器模組
-1. 在 Azure 入口網站中，移至 StorSimple 裝置管理員服務，按一下 [裝置]，然後按一下您想要監視的裝置名稱。
-2. 移至 [監視] > [硬體健康狀態]。 控制器 0 或控制器 1 的狀態應該是紅色，表示故障。
+1. 在 Azure 入口網站中，移至 StorSimple 裝置管理員服務，按一下 [裝置]  ，然後按一下您想要監視的裝置名稱。
+2. 移至 [監視] > [硬體健康狀態]  。 控制器 0 或控制器 1 的狀態應該是紅色，表示故障。
    
    > [!NOTE]
    > 單一控制器更換中的故障控制器一律為待命控制器。
@@ -90,7 +90,7 @@ ms.locfileid: "61482789"
    
     **圖 1** StorSimple 裝置的背面
    
-   | 標籤 | 描述 |
+   | ThisAddIn | 描述 |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -100,7 +100,7 @@ ms.locfileid: "61482789"
 5. 依照[取下控制器](#remove-a-controller)中的步驟，取下故障的控制器。
 6. 在取下故障控制器的同一插槽中安裝原廠更換品。 這樣會觸發單一控制器更換邏輯。 如需詳細資訊，請參閱[單一控制器更換邏輯](#single-controller-replacement-logic)。
 7. 當單一控制器更換邏輯在背景中進行時，請重新連接纜線。 請完全依照更換之前連接纜線的相同方式，小心地連接所有纜線。
-8. 在控制器重新啟動之後，請檢查 Azure 入口網站中的 [控制器狀態] 和 [叢集狀態]，以確認控制器回到良好的狀態且處於待命模式。
+8. 在控制器重新啟動之後，請檢查 Azure 入口網站中的 [控制器狀態]  和 [叢集狀態]  ，以確認控制器回到良好的狀態且處於待命模式。
 
 > [!NOTE]
 > 如果您是透過序列主控台監視裝置，則可能會在控制器從更換程序中復原時看到多次重新啟動。 當序列主控台功能表呈現時，您便知道更換已完成。 如果功能表未在啟動控制器更換的兩個小時內出現，請[連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md)。
@@ -195,7 +195,7 @@ ms.locfileid: "61482789"
    > [!NOTE]
    > 最多可能需要 5 分鐘，控制器和 LED 即會啟動。
   
-5. 若要確認更換成功，請在 Azure 入口網站中，瀏覽至 [監視] > [硬體健康狀態]，並確定控制器 0 及控制器 1 兩者都狀況良好 (狀態為綠色)。
+5. 若要確認更換成功，請在 Azure 入口網站中，瀏覽至 [監視]   > [硬體健康狀態]  ，並確定控制器 0 及控制器 1 兩者都狀況良好 (狀態為綠色)。
 
 ## <a name="identify-the-active-controller-on-your-device"></a>識別您裝置上的作用中控制器
 有許多情況，例如第一次裝置註冊或控制器更換，會要求您在 StorSimple 裝置上找出作用中控制器。 作用中控制器會處理所有磁碟韌體和網路作業。 您可以使用下列任一方法來識別作用中控制器：
@@ -207,7 +207,7 @@ ms.locfileid: "61482789"
 接著說明上述各程序。
 
 ### <a name="use-the-azure-portal-to-identify-the-active-controller"></a>使用 Azure 入口網站來識別作用中控制器
-在 Azure 入口網站中，瀏覽至您的裝置，並移至 [監視] > [硬體健康狀態]，捲動至 [控制器]區段。 在這裡您可以確認哪一個控制站作用中。
+在 Azure 入口網站中，瀏覽至您的裝置，並移至 [監視]   > [硬體健康狀態]  ，捲動至 [控制器]  區段。 在這裡您可以確認哪一個控制站作用中。
 
 ![識別 Azure 入口網站中的作用中控制器](./media/storsimple-controller-replacement/IC752072.png)
 
@@ -231,7 +231,7 @@ ms.locfileid: "61482789"
 
 **圖 8** 具有資料連接埠和監視 LED 的主要機箱背面
 
-| 標籤 | 描述 |
+| ThisAddIn | 描述 |
 |:--- |:--- |
 | 1-6 |DATA 0 – 5 個網路連接埠 |
 | 7 |藍色 LED |

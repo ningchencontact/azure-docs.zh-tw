@@ -12,10 +12,10 @@ ms.workload: genomics
 ms.topic: article
 ms.date: 10/29/2018
 ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790499"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
@@ -43,7 +43,7 @@ msgen status -u URL -k KEY -w ID
 
 * URL - API 的基底 URI
 * KEY - Genomics 帳戶的存取金鑰
-    * 若要尋找您的 URL 和 KEY，請前往 Azure 入口網站，然後開啟您的 Microsoft Genomics 帳戶頁面。 在 [管理] 標題之下，選擇 [存取金鑰]。 您可以看到 API URL 以及存取金鑰。
+    * 若要尋找您的 URL 和 KEY，請前往 Azure 入口網站，然後開啟您的 Microsoft Genomics 帳戶頁面。 在 [管理]  標題之下，選擇 [存取金鑰]  。 您可以看到 API URL 以及存取金鑰。
 
   
 * ID - 工作流程識別碼

@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric 災害復原 | Microsoft Docs
-description: Azure Service Fabric 提供所需的功能用于应对各种灾难。 本文說明可能會發生的災害類型以及如何加以處理。
+description: Azure Service Fabric 提供處理各類型災害所需的功能。 本文說明可能會發生的災害類型以及如何加以處理。
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60948499"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure Service Fabric 中的災害復原
@@ -39,7 +39,7 @@ Service Fabric 的主要目標是幫助您將環境和服務建立模型，使�
 
 有一些原因會導致無法執行規模夠大的部署來涵蓋各種失敗。 例如，相較於您不願為相關失敗可能性付出的承擔，它可能需要更多硬體資源。 處理分散式應用程式時，可能是跨地理位置距離的其他通訊躍點或狀態複寫成本造成無法接受的延遲。 每個應用程式繪製的此線條有所不同。 對於特定的軟體錯誤而言，此錯誤可能發生在您嘗試調整規模的服務中。 在這種情況下，更多複本無法預防災害，因為故障條件在所有執行個體之間都是互相關聯的。
 
-### <a name="operational-faults"></a>操作故障
+### <a name="operational-faults"></a>操作錯誤
 即使您的服務遍布全球，具備許多備援，仍可能會遇到災難性的事件。 例如，如果有人不小心重新設定服務的 DNS 名稱，或直接刪除該名稱。 舉例來說，假設您的 Service Fabric 具狀態服務，而有人不小心刪除了該服務。 除非有其他緩解措施，否則該服務及其擁有的所有狀態會立即消失。 這些類型的操作災害 (「糟糕」情況) 恢復所需的緩解和步驟與一般未預期故障不同。 
 
 避免這些類型之操作錯誤的最佳方式是
@@ -67,17 +67,17 @@ Service Fabric 的目標幾乎都是自動管理故障。 不過，為了處理�
 
 例如電源故障造成機器的機架同時故障。 指定服務單一失敗的另一個例子是，容錯網域中有多個服務複本執行的許多機器出現損失。 這就是容錯網域的管理為何對確保服務的高可用性如此重要。 在 Azure 中執行 Service Fabric 時，會自動管理容錯網域。 在其他環境中則不會。 如果您要在內部部署中建立自己的叢集，請務必正確地對應及規劃您的容錯網域配置。
 
-升級網域對於要在同時升級的軟體中模型化區域相當有用。 有鑑於此，升級網域也經常定義計劃升級期間刪除軟體的邊界。 Service Fabric 和您的服務升級皆遵循相同的模型。 若要详细了解滚动升级、升级域和有助于防止意外更改影响群集和服务的 Service Fabric 运行状况模型，请参阅以下文档：
+升級網域對於要在同時升級的軟體中模型化區域相當有用。 有鑑於此，升級網域也經常定義計劃升級期間刪除軟體的邊界。 Service Fabric 和您的服務升級皆遵循相同的模型。 如需輪流升級、升級網域的相關資訊，或是進一步了解 Service Fabric 健康情況模型如何幫助避免非預期的變更影響在叢集和服務，請參閱下列文件：
 
- - [应用程序升级](service-fabric-application-upgrade.md)
- - [应用程序升级教程](service-fabric-application-upgrade-tutorial.md)
+ - [應用程式升級](service-fabric-application-upgrade.md)
+ - [應用程式升級教學課程](service-fabric-application-upgrade-tutorial.md)
  - [Service Fabric 健康情況模型](service-fabric-health-introduction.md)
 
 您可以使用 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 中提供的叢集對應，視覺化您的叢集配置：
 
 <center>
 
-![Service Fabric Explorer 中分散在容错域之间的节点][sfx-cluster-map]
+![節點散佈於 Service Fabric Explorer 中的容錯網域][sfx-cluster-map]
 </center>
 
 > [!NOTE]
@@ -140,7 +140,7 @@ Service Fabric 有種子節點的概念。 種子節點是維護基礎叢集可�
 - 了解如何使用 [Testability 架構](service-fabric-testability-overview.md)
 - 閱讀其他災害復原和高可用性的資源。 Microsoft 已發佈大量有關這些主題的指引。 雖然其中有些文件提到其他產品中使用的特定技術，但還是包含許多您可在 Service Fabric 內容中應用的一般最佳作法︰
   - [可用性檢查清單](../best-practices-availability-checklist.md)
-  - [执行灾难恢复演练](../sql-database/sql-database-disaster-recovery-drills.md)
+  - [執行災害復原演練](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Azure 應用程式的災害復原和高可用性][dr-ha-guide]
 - 了解 [Service Fabric 支援選項](service-fabric-support.md)
 

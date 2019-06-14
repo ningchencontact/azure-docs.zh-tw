@@ -17,10 +17,10 @@ ms.reviewer: ajayanti1
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f96a7ad1c67fab9354daaafa129d15dfbff12064
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64729388"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>用於授權的產品名稱和服務方案識別碼
@@ -31,7 +31,7 @@ ms.locfileid: "64729388"
 - **字串識別碼**：PowerShell v1.0 Cmdlet 會在執行授權作業時使用這些識別碼
 - **GUID**：Azure AD Graph 和 Microsoft Graph 使用的 GUID
 - **包含的服務方案**：對應至字串識別碼和 GUID 之產品中的服務方案清單
-- **服務方案包含 （好記的名稱）**:一份服務方案 （好記的名稱） 在產品中對應至字串識別碼和 GUID
+- **服務方案包含 （好記的名稱）** :一份服務方案 （好記的名稱） 在產品中對應至字串識別碼和 GUID
 
 >[!NOTE]
 >這項資訊是 2019 年 4 月 15 日起。
@@ -109,12 +109,12 @@ ms.locfileid: "64729388"
 
 ## <a name="service-plans-that-cannot-be-assigned-at-the-same-time"></a>無法同時指派的服務方案
 
-某些產品包含不能同時將它們指派給相同使用者的服務方案。 例如，如果您的租用戶中有「Office 365 企業版 E1」和「Office 365 企業版 E3」，而您嘗試將這兩個授權指派給同一個使用者，則作業會失敗。 這是因為 E3 產品包含與其 E1 對應項目衝突的下列服務方案：
+某些產品包含不能同時將它們指派給相同使用者的服務方案。 例如，如果您的租用戶中有「Office 365 企業版 E1」  和「Office 365 企業版 E3」  ，而您嘗試將這兩個授權指派給同一個使用者，則作業會失敗。 這是因為 E3 產品包含與其 E1 對應項目衝突的下列服務方案：
 
 -   SharePoint Online (方案 2) 與 SharePoint Online (方案 1) 衝突。
 -   Exchange Online (方案 2) 與 Exchange Online (方案 1) 衝突。
 
-使用以群組為基礎的授權時，您會遇到[此錯誤狀況](licensing-groups-resolve-problems.md#conflicting-service-plans)。 使用 PowerShell 時，您會看到 MutuallyExclusiveViolation 錯誤。
+使用以群組為基礎的授權時，您會遇到[此錯誤狀況](licensing-groups-resolve-problems.md#conflicting-service-plans)。 使用 PowerShell 時，您會看到 MutuallyExclusiveViolation  錯誤。
 
 本節列出最常見的互斥服務方案 (依服務類型分組)。 您可以使用此資訊來規劃授權部署和避免發生指派錯誤。 這些表格僅供參考，而準確性僅截至本篇文章最後更新之日。 Microsoft 並不打算針對最新加入的服務定期更新它們。
 

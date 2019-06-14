@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 01729971169011002fa4231f043f82f105f81cdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3919243569035be41293ddc97c76a9f964cda7cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458157"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64688507"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>疑難排解：Azure 站對站 VPN 連線無法連線並停止運作
 
-當您在內部部署網路與 Azure 虛擬網路之間設定站對站 VPN 連線之後，該 VPN 連線突然停止運作且無法重新連線。 本文提供解决此问题的故障排除步骤。 
+當您在內部部署網路與 Azure 虛擬網路之間設定站對站 VPN 連線之後，該 VPN 連線突然停止運作且無法重新連線。 本文提供可協助您解決此問題的疑難排解步驟。 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="troubleshooting-steps"></a>疑難排解步驟
 
-若要解決此問題，請先嘗試[重設 Azure VPN 閘道](vpn-gateway-resetgw-classic.md)，並從內部部署 VPN 裝置重設通道。 如果问题仍然存在，请遵循以下步骤确定问题的原因。
+若要解決此問題，請先嘗試[重設 Azure VPN 閘道](vpn-gateway-resetgw-classic.md)，並從內部部署 VPN 裝置重設通道。 如果問題持續發生，請依照下列步驟執行以找出問題的原因。
 
 ### <a name="prerequisite-step"></a>必要步驟
 
 檢查 Azure VPN 閘道的類型。
 
-1. 转到 [Azure 门户](https://portal.azure.com)。
+1. 移至 [Azure 入口網站](https://portal.azure.com)。
 
-2. 檢查 VPN 閘道的 [概觀] 頁面來取得類型資訊。
+2. 檢查 VPN 閘道的 [概觀]  頁面來取得類型資訊。
     
     ![閘道概觀](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/gatewayoverview.png)
 
@@ -53,11 +53,11 @@ ms.locfileid: "60458157"
 
 若要檢視 Azure VPN 連線的共用金鑰，請使用下列其中一個方法：
 
-**Azure 门户**
+**Azure 入口網站**
 
 1. 移至您建立的 VPN 閘道站對站連線。
 
-2. 在 [設定] 區段中，按一下 [共用金鑰]。
+2. 在 [設定]  區段中，按一下 [共用金鑰]  。
     
     ![共用金鑰](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
 
@@ -75,7 +75,7 @@ ms.locfileid: "60458157"
 
 ### <a name="step-3-verify-the-vpn-peer-ips"></a>步驟 3. 確認 VPN 對等互連 IP
 
--   Azure 中「區域網路閘道」物件內的 IP 定義應與內部部署裝置 IP 相符合。
+-   Azure 中「區域網路閘道」  物件內的 IP 定義應與內部部署裝置 IP 相符合。
 -   內部部署裝置上設定的 Azure 閘道 IP 定義應與 Azure 閘道 IP 相符合。
 
 ### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>步驟 4. 檢查閘道子網路上的 UDR 和 NSG
@@ -102,7 +102,10 @@ ms.locfileid: "60458157"
 2. 按一下以略過憑證警告。
 3. 如果您收到回應，表示 VPN 閘道的健康狀態良好。 如果未收到回應，閘道的健康狀態可能有問題，或可能是閘道子網路上的 NSG 造成問題。 下列文字是回應的範例：
 
-    &lt;?xml version="1.0"?>  <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance:GatewayTenantWorker_IN_1 GatewayTenantVersion:14.7.24.6</string&gt;
+    ```xml
+    <?xml version="1.0"?>
+    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string>
+    ```
 
 ### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>步驟 8。 檢查內部部署 VPN 裝置是否已啟用完整轉寄密碼功能
 

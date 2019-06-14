@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: dc07b4eea553e6cb3d9b522826e860ddbfbc1513
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577041"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>CloudSimple 私人雲端概觀
@@ -119,7 +119,7 @@ CloudSimple 轉換，並擴充到公用雲端的 VMware 工作負載，以分鐘
 
 下表顯示的節點限制對私人雲端的資源。
 
-| Resource | 限制 |
+| 資源 | 限制 |
 |----------|-------|
 | 若要建立私人雲端的節點數目下限 | 3 |
 | 在私人雲端上的叢集中的節點數目上限 | 16 |

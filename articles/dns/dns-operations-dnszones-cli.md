@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: victorh
 ms.openlocfilehash: df741b34e1268c547723af87401760197d395780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61293824"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>如何使用 Azure CLI 管理 Azure DNS 中的 DNS 區域
@@ -86,7 +86,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>取得說明
 
-與 Azure DNS 相關的所有 Azure CLI 命令都會以 `az network dns` 開頭。 使用 `--help` 選項 (簡短形式為 `-h`) 即可取得每個命令的說明。  例如︰
+與 Azure DNS 相關的所有 Azure CLI 命令都會以 `az network dns` 開頭。 使用 `--help` 選項 (簡短形式為 `-h`) 即可取得每個命令的說明。  例如:
 
 ```azurecli
 az network dns --help
@@ -116,7 +116,7 @@ az network dns zone create --resource-group MyResourceGroup --name contoso.com -
 
 若要擷取 DNS 區域，請使用 `az network dns zone show`。 如需協助，請參閱 `az network dns zone show --help`。
 
-下列範例會從資源群組 MyResourceGroup 傳回 DNS 區域 contoso.com 及其相關聯的資料。 
+下列範例會從資源群組 MyResourceGroup  傳回 DNS 區域 contoso.com  及其相關聯的資料。 
 
 ```azurecli
 az network dns zone show --resource-group myresourcegroup --name contoso.com
@@ -186,7 +186,7 @@ az network dns zone update --resource-group myresourcegroup --name contoso.com -
 
 此命令會提示您確認。 選擇性的 `--yes` 參數會隱藏這個提示。
 
-下列範例示範如何從資源群組 MyResourceGroup 刪除區域 contoso.com。
+下列範例示範如何從資源群組 MyResourceGroup  刪除區域 contoso.com  。
 
 ```azurecli
 az network dns zone delete --resource-group myresourcegroup --name contoso.com

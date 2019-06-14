@@ -9,10 +9,10 @@ ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
 ms.openlocfilehash: ac0a84aa3121c6ebb91860c96c0f6692827c8a3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152329"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>如何搭配 Azure 容器執行個體使用受控識別
@@ -51,7 +51,7 @@ ms.locfileid: "66152329"
 
 ### <a name="use-a-managed-identity"></a>建立受控識別
 
-若要使用受控識別，必須一開始就將訂用帳戶中一或多個 Azure 服務資源 (例如 Web 應用程式、Key Vault 或儲存體帳戶) 的存取權授與該身分識別。 若要從執行中的容器存取 Azure 資源，您的程式碼必須向 Azure AD 端點取得「存取權杖」。 接著，您的程式碼會藉由呼叫將存取權杖傳送給支援 Azure AD 驗證的服務。 
+若要使用受控識別，必須一開始就將訂用帳戶中一或多個 Azure 服務資源 (例如 Web 應用程式、Key Vault 或儲存體帳戶) 的存取權授與該身分識別。 若要從執行中的容器存取 Azure 資源，您的程式碼必須向 Azure AD 端點取得「存取權杖」  。 接著，您的程式碼會藉由呼叫將存取權杖傳送給支援 Azure AD 驗證的服務。 
 
 在執行中的容器中使用受控識別基本上與在 Azure VM 中使用身分識別相同。 如需了解如何使用[權杖](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)、[Azure PowerShell 或 Azure CLI](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md) 或 [Azure SDKs](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md)，請參閱 VM 指引。
 
@@ -83,7 +83,7 @@ az keyvault secret set --name SampleSecret --value "Hello Container Instances!" 
 
 請在「Azure 容器執行個體」中使用使用者指派或系統指派的受控識別，繼續進行下列範例以存取 Key Vault。
 
-## <a name="example-1-use-a-user-assigned-identity-to-access-azure-key-vault"></a>範例 1:使用使用者指派的身分識別來存取 Azure Key Vault
+## <a name="example-1-use-a-user-assigned-identity-to-access-azure-key-vault"></a>範例 1：使用使用者指派的身分識別來存取 Azure Key Vault
 
 ### <a name="create-an-identity"></a>建立身分識別
 
@@ -170,7 +170,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-現在，使用存取權杖向 Key Vault 進行驗證並讀取祕密。 請務必替換 URL (*https://mykeyvault.vault.azure.net/...*) 中您的金鑰保存庫名稱：
+現在，使用存取權杖向 Key Vault 進行驗證並讀取祕密。 請務必替換 URL ( *https://mykeyvault.vault.azure.net/...* ) 中您的金鑰保存庫名稱：
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"
@@ -252,7 +252,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-現在，使用存取權杖向 Key Vault 進行驗證並讀取祕密。 請務必替換成您在 URL 中的金鑰保存庫的名稱 (*https:\//mykeyvault.vault.azure.net/...*):
+現在，使用存取權杖向 Key Vault 進行驗證並讀取祕密。 請務必替換成您在 URL 中的金鑰保存庫的名稱 (*https:\//mykeyvault.vault.azure.net/...* ):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

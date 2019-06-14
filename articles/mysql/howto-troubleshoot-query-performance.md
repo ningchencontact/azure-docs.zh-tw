@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 819e2393619766d46385cdd6fe550fff1e1a7631
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60720207"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>如何使用 EXPLAIN 剖析適用於 MySQL 的 Azure 資料庫中的查詢效能
@@ -33,7 +33,7 @@ possible_keys: NULL
         Extra: Using where
 ```
 
-在此範例中您可以看到，*key* 的值為 NULL。 此輸出表示 MySQL 找不到任何查詢的最佳化索引，因此執行了完整資料表掃描。 我們將在 [識別碼] 資料行上新增索引，以最佳化此查詢。
+在此範例中您可以看到，*key* 的值為 NULL。 此輸出表示 MySQL 找不到任何查詢的最佳化索引，因此執行了完整資料表掃描。 我們將在 [識別碼]  資料行上新增索引，以最佳化此查詢。
 
 ```sql
 mysql> ALTER TABLE tb1 ADD KEY (id);

@@ -17,10 +17,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 81535d51617a419174331dbf9b18ea558913dfa9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60922151"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>針對 Azure 中 虛擬機器上的應用程式連線問題進行疑難排解
@@ -32,13 +32,13 @@ ms.locfileid: "60922151"
 * [針對以 Windows 為基礎的 Azure 虛擬機器的遠端桌面連線進行疑難排解](troubleshoot-rdp-connection.md)
 * [針對以 Linux 為基礎的 Azure 虛擬機器的安全殼層 (SSH) 連線進行疑難排解](troubleshoot-ssh-connection.md)。
 
-如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您也可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
+如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您也可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。
 
 ## <a name="quick-start-troubleshooting-steps"></a>快速入門的疑難排解步驟
 如果您在連接到應用程式時發生問題，請嘗試下列一般疑難排解步驟。 請在每個步驟之後，嘗試重新連接到您的應用程式︰
 
 * 重新啟動虛擬機器
-* 重新创建终结点/防火墙规则/网络安全组 (NSG) 规则
+* 重新建立端點/防火牆規則/網路安全性群組 (NSG) 規則
   * [資源管理員模型 - 管理網路安全性群組](../../virtual-network/manage-network-security-group.md)
   * [傳統模型 - 管理雲端服務端點](../../cloud-services/cloud-services-enable-communication-role-instances.md)
 * 從不同的位置 (例如不同的 Azure 虛擬網路) 進行連線
@@ -50,7 +50,7 @@ ms.locfileid: "60922151"
 如需詳細資訊，請參閱 [疑難排解端點連接能力 (RDP/SSH/HTTP 等失敗問題)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows)。
 
 ## <a name="detailed-troubleshooting-overview"></a>詳細疑難排解概觀
-有四个主要区域需要对 Azure 虚拟机上运行的应用程序的访问进行故障排除。
+有四個主要區域來疑難排解在 Azure 虛擬機器執行上之應用程式的存取。
 
 ![疑難排解無法啟動應用程式](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
 
@@ -97,10 +97,10 @@ ms.locfileid: "60922151"
 如果您無法存取應用程式，請檢查下列設定：
 
 * 目標 VM 上的主機防火牆允許輸入要求與輸出回應的流量。
-* 目标 VM 上运行的入侵检测或网络监视软件允许流量。
+* 在目標 VM 上執行的入侵偵測或網路監視軟體允許流量。
 * 雲端服務端點或網路安全性群組允許流量：
   * [傳統模型 - 管理雲端服務端點](../../cloud-services/cloud-services-enable-communication-role-instances.md)
-  * [Resource Manager 模型 - 管理网络安全组](../../virtual-network/manage-network-security-group.md)
+  * [資源管理員模型 - 管理網路安全性群組](../../virtual-network/manage-network-security-group.md)
 * 在您的 VM 中，測試 VM 與 VM 間的路徑執行的個別元件 (例如負載平衡器或防火牆) 允許流量。
 
 在 Windows 虛擬機器上，請使用「具有進階安全性的 Windows 防火牆」判斷防火牆規則是否排除了您應用程式的輸入與輸出流量。
@@ -118,7 +118,7 @@ ms.locfileid: "60922151"
   
   * 確認 VM 的端點組態允許連入流量，特別是通訊協定 (TCP 或 UDP) 和公用與私人連接埠號碼。
   * 確認端點上的存取控制清單 (ACL) 不會阻擋來自網際網路的連入流量。
-  * 有关详细信息，请参阅[如何对虚拟机设置终结点](../windows/classic/setup-endpoints.md)。
+  * 如需詳細資訊，請參閱[如何設定虛擬機器的端點](../windows/classic/setup-endpoints.md)。
 * 對於使用資源管理員部署模型建立的 VM：
   
   * 確認 VM 的輸入 NAT 規則組態允許連入流量，特別是通訊協定 (TCP 或 UDP) 和公用與私人連接埠號碼。
@@ -144,6 +144,6 @@ ms.locfileid: "60922151"
 ## <a name="additional-resources"></a>其他資源
 [針對以 Windows 為基礎的 Azure 虛擬機器的遠端桌面連線進行疑難排解](troubleshoot-rdp-connection.md)
 
-[对与基于 Linux 的 Azure 虚拟机的 Secure Shell (SSH) 连接进行故障排除](troubleshoot-ssh-connection.md)
+[疑難排解以 Linux 為基礎之 Azure 虛擬機器的安全殼層 (SSH) 連線](troubleshoot-ssh-connection.md)
 
 

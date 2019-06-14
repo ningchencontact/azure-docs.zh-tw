@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c82bba6ccb1eaa1933176362e34b8c3e30c37f8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783623"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>安裝應用程式 Proxy 代理程式連接器時遇到問題
@@ -68,7 +68,7 @@ Microsoft AAD 應用程式 Proxy 連接器是內部網域元件，它會使用�
 
 **確認認證是否正確：**
 
-連線至 <https://login.microsoftonline.com> 並使用相同的認證。 確定登入成功。 您可以檢查使用者角色，方法是移至 [Azure Active Directory] -&gt; [使用者和群組] -&gt; [所有使用者]。 
+連線至 <https://login.microsoftonline.com> 並使用相同的認證。 確定登入成功。 您可以檢查使用者角色，方法是移至 [Azure Active Directory]   -&gt; [使用者和群組]   -&gt; [所有使用者]  。 
 
 選取您的使用者帳戶，然後在產生的功能表中選取 [目錄角色]。 請確認選取的角色是 「 應用程式系統管理員 」。 如果您無法存取這些步驟上的任何頁面，表示您沒有必要的角色。
 

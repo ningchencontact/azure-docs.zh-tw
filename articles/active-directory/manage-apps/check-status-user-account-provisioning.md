@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70ca1e2f4fd831619cc3cd443d98018a35f4e1ef
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963085"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>教學課程：關於使用者帳戶自動佈建的報告
@@ -57,7 +57,7 @@ Azure Active Directory 含有[使用者帳戶佈建服務](user-provisioning.md)
 
 ## <a name="provisioning-summary-report"></a>佈建摘要報告
 
-佈建摘要報告顯示在給定應用程式的 [佈建] 索引標籤上。 它位於 [設定] 底下的 [同步處理詳細資料] 區段中，並會提供下列資訊：
+佈建摘要報告顯示在給定應用程式的 [佈建]  索引標籤上。 它位於 [設定]  底下的 [同步處理詳細資料]  區段中，並會提供下列資訊：
 
 * 已同步處理且目前正在來源系統與目標系統之間的佈建範圍內的使用者和群組總數。
 
@@ -72,7 +72,7 @@ Azure Active Directory 含有[使用者帳戶佈建服務](user-provisioning.md)
  ![摘要報告](./media/check-status-user-account-provisioning/summary_report.PNG)
 
 ## <a name="provisioning-audit-logs"></a>佈建稽核記錄
-佈建服務所執行的活動全都會記錄在 Azure AD 稽核記錄中，您可以在 [帳戶佈建] 類別底下的 [稽核記錄] 索引標籤中檢視這些記錄。 所記錄的活動事件類型包括︰
+佈建服務所執行的活動全都會記錄在 Azure AD 稽核記錄中，您可以在 [帳戶佈建]  類別底下的 [稽核記錄]  索引標籤中檢視這些記錄。 所記錄的活動事件類型包括︰
 
 * **匯入事件** - Azure AD 佈建服務每次從來源系統或目標系統擷取個別使用者或群組的相關資訊時，就會記錄下「匯入」事件。 在同步處理期間，服務會先從來源系統擷取使用者，而其結果便會記錄為「匯入」事件。 接著，服務便會對目標系統查詢所擷取使用者的比對識別碼，以檢查這些使用者是否存在，而其結果也會記錄為「匯入」事件。 這些事件會記錄下 Azure AD 佈建服務在事件發生當下所看到的所有對應使用者屬性與屬性值。 
 
@@ -99,13 +99,13 @@ Azure Active Directory 含有[使用者帳戶佈建服務](user-provisioning.md)
 
 稽核記錄佈建最常見的使用案例是檢查個別使用者帳戶的佈建狀態。 若要查閱特定使用者最新的佈建事件：
 
-1. 移至 [稽核記錄] 區段。
+1. 移至 [稽核記錄]  區段。
 
-2. 在 [類別] 功能表上選取 [帳戶佈建]。
+2. 在 [類別]  功能表上選取 [帳戶佈建]  。
 
-3. 在 [日期範圍] 功能表中，選取您想要搜尋的日期範圍。
+3. 在 [日期範圍]  功能表中，選取您想要搜尋的日期範圍。
 
-4. 在 [搜尋] 列上輸入您要搜尋之使用者的使用者識別碼。 識別碼值的格式應該符合您選取來作為屬性對應設定中主要比對識別碼的任何項目 (例如 userPrincipalName 或員工識別碼)。 所需的識別碼值會顯示在 [目標] 資料行上。
+4. 在 [搜尋]  列上輸入您要搜尋之使用者的使用者識別碼。 識別碼值的格式應該符合您選取來作為屬性對應設定中主要比對識別碼的任何項目 (例如 userPrincipalName 或員工識別碼)。 所需的識別碼值會顯示在 [目標] 資料行上。
 
 5. 按 Enter 鍵以開始搜尋。 最新的佈建事件會最先傳回。
 
@@ -119,7 +119,7 @@ Azure Active Directory 含有[使用者帳戶佈建服務](user-provisioning.md)
 
 ### <a name="tips-for-viewing-the-provisioning-audit-logs"></a>佈建稽核記錄的檢視秘訣
 
-為了清楚了解記錄，請在 Azure 入口網站中選取 [資料行] 按鈕，然後選擇下列資料行︰
+為了清楚了解記錄，請在 Azure 入口網站中選取 [資料行]  按鈕，然後選擇下列資料行︰
 
 * **日期** - 顯示事件的發生日期。
 * **目標** - 顯示身為事件主體的應用程式名稱和使用者識別碼。

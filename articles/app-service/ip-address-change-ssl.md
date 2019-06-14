@@ -12,10 +12,10 @@ ms.date: 06/28/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 6c8c86ff6212acc31e961d6ae62836ca2b7b7380
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61268893"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>如何為 SSL IP 位址變更進行準備
@@ -26,15 +26,15 @@ ms.locfileid: "61268893"
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com)。
 
-2.  在左側導覽功能表中選取 [應用程式服務]。
+2.  在左側導覽功能表中選取 [應用程式服務]  。
 
 3.  從清單中選取 App Service 應用程式。
 
-4.  在 [設定] 標題底下，按一下左側導覽中的 [SSL 設定]。
+4.  在 [設定]  標題底下，按一下左側導覽中的 [SSL 設定]  。
 
-1. 在 [SSL 繫結] 區段，選取主機名稱列。 在開啟的編輯器中，從 [SSL 類型] 下拉式功能表中選擇 [SNI SSL]，然後按一下 [新增繫結]。 當您看到作業成功訊息時，現有的 IP 位址已發佈。
+1. 在 [SSL 繫結] 區段，選取主機名稱列。 在開啟的編輯器中，從 [SSL 類型]  下拉式功能表中選擇 [SNI SSL]  ，然後按一下 [新增繫結]  。 當您看到作業成功訊息時，現有的 IP 位址已發佈。
 
-6.  在 [SSL 繫結] 區段中，再次選取具有憑證的同一主機名稱列。 在開啟的編輯器中，這次從 [SSL 類型] 下拉式功能表中選擇 [以 IP 為主的 SSL]，然後按一下 [新增繫結]。 當您看到作業成功訊息時，您已取得新的 IP 位址。
+6.  在 [SSL 繫結]  區段中，再次選取具有憑證的同一主機名稱列。 在開啟的編輯器中，這次從 [SSL 類型]  下拉式功能表中選擇 [以 IP 為主的 SSL]  ，然後按一下 [新增繫結]  。 當您看到作業成功訊息時，您已取得新的 IP 位址。
 
 7.  如果您的網域註冊入口網站 (第三方 DNS 提供者或 Azure DNS) 中已設定 A 記錄 (直接指向 IP 位址的 DNS 記錄)，請將現有的 IP 位址取代為新產生的位址。 遵循下一節中的指示，以找出新的 IP 位址。
 
@@ -42,11 +42,11 @@ ms.locfileid: "61268893"
 
 1.  等待幾分鐘，然後開啟 [Azure 入口網站](https://portal.azure.com)。
 
-2.  在左側導覽功能表中選取 [應用程式服務]。
+2.  在左側導覽功能表中選取 [應用程式服務]  。
 
 3.  從清單中選取 App Service 應用程式。
 
-4.  在 [設定] 標題底下，按一下左側導覽中的 [屬性]，並找到標示為 [虛擬 IP 位址] 的區段。
+4.  在 [設定]  標題底下，按一下左側導覽中的 [屬性]  ，並找到標示為 [虛擬 IP 位址]  的區段。
 
 5. 複製 IP 位址，並重新設定您的網域記錄或 IP 機制。
 

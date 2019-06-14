@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
 ms.openlocfilehash: 5fe5e819c4f1079b6eb1fa8bb19d337ecfed600d
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955142"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>安裝和設定 Azure 上的 PostgreSQL
@@ -92,7 +92,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
    > 基於安全性理由，PostgreSQL 會使用非根使用者初始化、啟動或關閉資料庫。
    > 
    > 
-4. 輸入下列命令以編輯 bash_profile 檔。 這幾行將會加入至 bash_profile 檔案的結尾：
+4. 輸入下列命令以編輯 bash_profile  檔。 這幾行將會加入至 bash_profile  檔案的結尾：
    
         cat >> ~/.bash_profile <<EOF
         export PGPORT=1999
@@ -106,7 +106,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
         alias rm='rm -i'
         alias ll='ls -lh'
         EOF
-5. 執行 bash_profile 檔案：
+5. 執行 bash_profile  檔案：
    
         $ source .bash_profile
 6. 利用下列命令驗證安裝：
@@ -137,7 +137,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 
     # cp linux /etc/init.d/postgresql
 
-修改 /etc/init.d/postgresql 檔案中的兩個變數。 前置詞設為 PostgreSQL 的安裝路徑： **/opt/pgsql**。 PGDATA 設為 PostgreSQL 的資料儲存路徑：**/opt/pgsql_data**。
+修改 /etc/init.d/postgresql 檔案中的兩個變數。 前置詞設為 PostgreSQL 的安裝路徑： **/opt/pgsql**。 PGDATA 設為 PostgreSQL 的資料儲存路徑： **/opt/pgsql_data**。
 
     # sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
 

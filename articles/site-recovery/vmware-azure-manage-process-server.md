@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: 2c27779719c73adf4d7fc1a61a0c77d03df71815
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925587"
 ---
 # <a name="manage-process-servers"></a>管理處理序伺服器
@@ -47,7 +47,7 @@ ms.locfileid: "64925587"
 
     ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
-2. 按一下 **選取機器**，然後選擇您想要從目前移動至目標處理序伺服器的機器。 系統會針對每個虛擬機器顯示平均資料變更的詳細資料。 然後按一下 [確定] 。 
+2. 按一下 **選取機器**，然後選擇您想要從目前移動至目標處理序伺服器的機器。 系統會針對每個虛擬機器顯示平均資料變更的詳細資料。 然後按一下 [確定]  。 
 3. 在保存庫，來監視底下之作業的進度**監視** > **Site Recovery 作業**。
 
 它將需要大約 15 分鐘才會反映在入口網站中的變更。 如需更快的效果，[重新整理設定伺服器](vmware-azure-manage-configuration-server.md#refresh-configuration-server)。
@@ -61,7 +61,7 @@ ms.locfileid: "64925587"
 3. 按一下您要切換的工作負載的處理序伺服器。
 4. 按一下 **交換器**，選取您要移動工作負載的目標處理序伺服器。 然後按一下  **確定**
 
-    ![Switch](media/vmware-azure-manage-process-server/Switch.PNG)
+    ![參數](media/vmware-azure-manage-process-server/Switch.PNG)
 
 5. 在保存庫，來監視底下之作業的進度**監視** > **Site Recovery 作業**。
 
@@ -125,4 +125,4 @@ ms.locfileid: "64925587"
 - C:\ProgramData\ASRSetupLogs
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
-- 處理序伺服器安裝目錄。 例如︰C:\Program Files (x86)\Microsoft Azure Site Recovery
+- 處理序伺服器安裝目錄。 例如: C:\Program Files (x86)\Microsoft Azure Site Recovery

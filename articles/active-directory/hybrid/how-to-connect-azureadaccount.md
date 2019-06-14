@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d68c190b51b9bbb5faf21e8ea75b07d1a82005e5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571411"
 ---
-# <a name="change-the-azure-ad-connector-account-password"></a>變更 Azure AD 連接器帳戶密碼
+# <a name="change-the-azure-ad-connector-account-password"></a>變更 Azure AD Connector 帳戶密碼
 Azure AD Connector 帳戶應該是免費的服務。 如果您需要重設其認證，則這個主題適合您。 比方說，如果不小心的全域系統管理員已重設上使用 PowerShell 的帳戶的密碼。
 
 ## <a name="reset-the-credentials"></a>重設認證

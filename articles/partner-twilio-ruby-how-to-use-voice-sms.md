@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 40b633c4e51a34e6640a9557be49bbe30543daf5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457646"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>如何在 Ruby 中透過 Twilio 使用語音和簡訊功能
@@ -48,20 +48,20 @@ TwiML 是一組以 XML 為基礎的指令，可指示 Twilio 如何處理來電�
 所有 TwiML 文件皆會以 `<Response>` 作為其根元素。 您可以由此處使用 Twilio 動詞定義應用程式的行為。
 
 ### <a id="Verbs"></a>TwiML 動詞
-Twilio 動詞是指示 Twilio 應執行哪些 **動作**的 XML 標籤。 例如，**&lt;Say&gt;** 動詞會指示 Twilio 在通話中用語音傳遞訊息。 
+Twilio 動詞是指示 Twilio 應執行哪些 **動作**的 XML 標籤。 例如， **&lt;Say&gt;** 動詞會指示 Twilio 在通話中用語音傳遞訊息。 
 
 以下是 Twilio 動詞清單。
 
-* **&lt;Dial&gt;**：使撥號者接通另一支電話。
-* **&lt;Gather&gt;**：收集電話按鍵上輸入的號碼。
-* **&lt;Hangup&gt;**：結束通話。
-* **&lt;Play&gt;**：播放音訊檔案。
-* **&lt;Pause&gt;**：靜候一段指定的秒數。
-* **&lt;Record&gt;**：錄製來電者的語音並傳回含有錄音之檔案的 URL。
-* **&lt;Redirect&gt;**：將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
-* **&lt;Reject&gt;**：拒絕 Twilio 號碼的來電而不計費
-* **&lt;Say&gt;**：將來電的文字轉換成語音。
-* **&lt;Sms&gt;**：傳送簡訊。
+* **&lt;撥打&gt;** ：使撥號者接通另一支電話。
+* **&lt;Gather&gt;** ：收集電話按鍵上輸入的號碼。
+* **&lt;Hangup&gt;** ：結束通話。
+* **&lt;Play&gt;** ：播放音訊檔案。
+* **&lt;Pause&gt;** ：靜候一段指定的秒數。
+* **&lt;Record&gt;** ：錄製來電者的語音並傳回含有錄音之檔案的 URL。
+* **&lt;Redirect&gt;** ：將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
+* **&lt;Reject&gt;** ：拒絕 Twilio 號碼的來電而不計費
+* **&lt;Say&gt;** ：將來電的文字轉換成語音。
+* **&lt;Sms&gt;** ：傳送簡訊。
 
 如需 Twilio 動詞、屬性和 TwiML 的詳細資訊，請參閱 [TwiML][twiml]。 如需 Twilio API 的詳細資訊，請參閱 [Twilio API][twilio_api]。
 

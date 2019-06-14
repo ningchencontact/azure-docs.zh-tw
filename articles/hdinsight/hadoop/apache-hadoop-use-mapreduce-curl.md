@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.openlocfilehash: e4968310459097fc6a00f7c453846fe61726c3d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64716134"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>使用 REST 搭配 HDInsight 上的 Apache Hadoop 執行 MapReduce 作業
@@ -111,7 +111,7 @@ ms.locfileid: "64716134"
      * **class**：包含 MapReduce 邏輯的類別
      * **arg**：要傳遞給 MapReduce 作業的引數。 在此案例中，是用於輸出的輸入文字檔和目錄
 
-   此命令应返回可用来检查作业状态的作业 ID：
+   此命令應該會傳回可用來檢查工作狀態的工作識別碼：
 
        job_1415651640909_0026
 

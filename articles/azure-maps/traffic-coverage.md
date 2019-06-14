@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: ad7d4dceefcaa06effa6b2974b0a8a03ad641372
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60794013"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure 地圖服務交通涵蓋範圍
@@ -105,8 +105,8 @@ Azure 地圖服務會以交通**流量**和**事件**的形式提供豐富的交
 |烏克蘭     |✓         |✓         |
 |英國     |✓         |✓         |
 |+直布羅陀     |✓         |✓         |
-|+ 根息與澤西     |✓         |✓         |
-|+ 曼城島     |✓         |✓         |
+|\+ 根息與澤西     |✓         |✓         |
+|\+ 曼城島     |✓         |✓         |
 |梵蒂岡   |✓         |✓         |
 
 

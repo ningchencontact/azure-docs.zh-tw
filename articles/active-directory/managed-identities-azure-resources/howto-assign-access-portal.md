@@ -16,10 +16,10 @@ ms.date: 09/14/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 958b3d72a3a8df4a3b67f62e7db788d7142ca667
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66112912"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>使用 Azure 入口網站為受控識別指派對資源的存取權
@@ -30,7 +30,7 @@ ms.locfileid: "66112912"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-it-work)**。
+- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-it-work)** 。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
 
 ## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>使用 RBAC 為受控識別指派對其他資源的存取權
@@ -41,7 +41,7 @@ ms.locfileid: "66112912"
 
 2. 瀏覽至您要修改其存取控制的資源。 在此範例中，我們會為 Azure 虛擬機器提供對儲存體帳戶的存取權，因此我們瀏覽至儲存體帳戶。
 
-3. 選取資源的 [存取控制 (IAM)] 頁面，然後選取 [+ 新增角色指派]。 接著，指定 [角色]、[存取權指派對象]，並指定對應的 [訂用帳戶]。 在搜尋條件區域中，您應該會看到資源。 選取資源，然後選取 [儲存]。 
+3. 選取資源的 [存取控制 (IAM)]  頁面，然後選取 [+ 新增角色指派]  。 接著，指定 [角色]  、[存取權指派對象]  ，並指定對應的 [訂用帳戶]  。 在搜尋條件區域中，您應該會看到資源。 選取資源，然後選取 [儲存]  。 
 
    ![存取控制 (IAM) 螢幕擷取畫面](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
      

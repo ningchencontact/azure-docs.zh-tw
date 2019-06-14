@@ -15,10 +15,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c22d44b02b3cc25c855361cab17132c46fa04794
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783707"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>使用連接器群組在個別的網路和位置上發佈應用程式
@@ -39,8 +39,8 @@ ms.locfileid: "65783707"
 使用以下步驟建立您所要的連接器群組，數量不拘。 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 選取 [Azure Active Directory]  >  [企業應用程式]  >  [應用程式 Proxy]。
-2. 選取 [新增連接器群組]。 [新增連接器群組] 刀鋒視窗隨即出現。
+1. 選取 [Azure Active Directory]   >  [企業應用程式]   >  [應用程式 Proxy]  。
+2. 選取 [新增連接器群組]  。 [新增連接器群組] 刀鋒視窗隨即出現。
 
    ![選取新的連接器群組](./media/application-proxy-connector-groups/new-group.png)
 
@@ -50,8 +50,8 @@ ms.locfileid: "65783707"
 ## <a name="assign-applications-to-your-connector-groups"></a>將應用程式指派給您的連接器群組
 已透過應用程式 Proxy 發佈的每個應用程式均按照這些步驟處理。 您可以在首次發佈應用程式時，將應用程式指派給連接器群組，也可以隨時使用這些步驟變更指派。   
 
-1. 從您目錄的管理儀表板中，選取 [企業應用程式] > [所有應用程式] > 您想要指派給連接器群組的應用程式 > [應用程式 Proxy]。
-2. 使用 [連接器群組] 下拉式功能表來選取應用程式所要使用的群組。
+1. 從您目錄的管理儀表板中，選取 [企業應用程式]   > [所有應用程式]  > 您想要指派給連接器群組的應用程式 > [應用程式 Proxy]  。
+2. 使用 [連接器群組]  下拉式功能表來選取應用程式所要使用的群組。
 3. 按一下 [儲存]  以套用變更。
 
 ## <a name="use-cases-for-connector-groups"></a>連接器群組的使用案例 

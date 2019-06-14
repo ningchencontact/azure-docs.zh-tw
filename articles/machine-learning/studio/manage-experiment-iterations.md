@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/20/2017
 ms.openlocfilehash: 34a72f2e7b6be90654c0f053d5b8978b0283d56c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60860234"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中管理實驗逐一查看
@@ -57,14 +57,14 @@ ms.locfileid: "60860234"
 > 
 > 
 
-Machine Learning Studio 中 [實驗] 索引標籤的實驗清單一律會顯示最新版本的實驗。 如果您開啟實驗的上一次執行 (使用 [上一次執行] 或 [檢視執行歷程記錄])，您可以返回草稿版本，方法是按一下 [檢視執行歷程記錄] 並且選取 [狀態] 為 [可編輯] 的逐一查看。
+Machine Learning Studio 中 [實驗]  索引標籤的實驗清單一律會顯示最新版本的實驗。 如果您開啟實驗的上一次執行 (使用 [上一次執行]  或 [檢視執行歷程記錄]  )，您可以返回草稿版本，方法是按一下 [檢視執行歷程記錄]  並且選取 [狀態]  為 [可編輯]  的逐一查看。
 
 ## <a name="iterating-on-a-previous-run"></a>逐一查看上一次執行
-當您按一下 [上一次執行] 或 [檢視執行歷程記錄]，並且開啟上一次執行時，您可以在唯讀模式中檢視完成的實驗。
+當您按一下 [上一次執行]  或 [檢視執行歷程記錄]  ，並且開啟上一次執行時，您可以在唯讀模式中檢視完成的實驗。
 
 如果想要從您為上一次執行設定的方式開始實驗的逐一查看，您可以藉由開啟執行並且按一下 [ **另存新檔**] 來完成。 這會建立新的實驗，具有新的標題、空白的執行歷程記錄及上一次執行的所有元件和參數值。 此新的實驗會列在 Machine Learning Studio 首頁的 [實驗]  索引標籤中，您可以修改及執行、為實驗的逐一查看起始新的執行歷程記錄。 
 
-例如，假設您有上一個章節顯示的實驗執行歷程記錄。 您想要觀察當您將 [學習速度] 參數設為 0.4，並且針對 [訓練 epoch 數目] 參數嘗試不同值時，會發生什麼狀況。
+例如，假設您有上一個章節顯示的實驗執行歷程記錄。 您想要觀察當您將 [學習速度]  參數設為 0.4，並且針對 [訓練 epoch 數目]  參數嘗試不同值時，會發生什麼狀況。
 
 1. 按一下 [ **檢視執行歷程記錄** ] 並且開啟您在下午 4:28:36 執行的實驗逐一查看 (您在其中將參數值設為 0.4)。
 2. 按一下 [ **另存新檔**]。

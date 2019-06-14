@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.openlocfilehash: d6a4c5b2b6d9818dffdb1c1fee8c4c0df7cad77c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61456201"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>將 Windows VM 從 Amazon Web Services (AWS) 移至 Azure 虛擬機器
@@ -38,10 +38,10 @@ ms.locfileid: "61456201"
     * 使用 Sysprep 將虛擬機器一般化。  
 
  
-- **专用 VHD** - 专用 VHD 保留原始 VM 中的用户帐户、应用程序和其他状态数据。 如果您想要使用 VHD 現狀建立新的 VM，請確定完成下列步驟。  
+- **特製化 VHD** - 特製化的 VHD 會從原始的 VM 維護使用者帳戶、應用程式和其他狀態資料。 如果您想要使用 VHD 現狀建立新的 VM，請確定完成下列步驟。  
     * [準備要上傳至 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md). **不要**使用 Sysprep 一般化 VM。 
     * 移除任何 VM 上 (也就是 VMware 工具) 已安裝的來賓虛擬化工具和代理程式。 
-    * 确保 VM 配置为通过 DHCP 来提取其 IP 地址和 DNS 设置。 這可確保伺服器在啟動時取得 VNet 內的 IP 位址。  
+    * 確認已透過 DHCP 設定 VM 提取其 IP 位址和 DNS 設定。 這可確保伺服器在啟動時取得 VNet 內的 IP 位址。  
 
 
 ## <a name="export-and-download-the-vhd"></a>匯出和下載 VHD 

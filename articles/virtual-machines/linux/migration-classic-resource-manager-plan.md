@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
 ms.openlocfilehash: de2279d7f24400142f9d47ecf25378e7e4c47f9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61474026"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃
@@ -95,7 +95,7 @@ ms.locfileid: "61474026"
 - **ExpressRoute 線路和 VPN**。 目前具有授權連結的 ExpressRoute 閘道，無法在沒有停機時間的情況下進行移轉。 如需因應措施，請參閱[將 ExpressRoute 線路和相關聯的虛擬網路從傳統部署模型移轉至 Resource Manager 部署模型](../../expressroute/expressroute-migration-classic-resource-manager.md)。
 
 - **VM 擴充功能** - 虛擬機器擴充功能可能是移轉執行中 VM 其中一個最大的障礙。 VM 擴充功能的修復可能需要多達 1-2 天，因此請適當地進行規劃。  需要使用中的 Azure 代理程式，才能向 VM 擴充功能回報執行中 VM 的狀態。 如果執行中 VM 的狀態恢復為已損毀，這種情況將會中止移轉。 代理程式本身不需要採用工作順序即可啟用移轉，但如果 VM 上存在擴充功能，則將需要工作代理程式與輸出網際網路連線 (具有 DNS)，移轉才能繼續進行。
-  - 如果在迁移过程中与 DNS 服务器的连接丢失，除 BGInfo v1.\* 外的所有 VM 扩展在迁移准备前需要先从每个 VM 中删除，随后在 Azure Resource Manager 迁移后重新添加回 VM。  **這僅適用於執行中的 VM。**  如果 VM 已停止 (解除配置)，則不需要移除 VM 擴充功能。 **附註：** 許多擴充功能 (例如 Azure 診斷和資訊安全中心監視) 在移轉之後將會自行重新安裝，因此移除這些功能不是問題。
+  - 如果在移轉期間遺失對 DNS 伺服器的連線，則在準備移轉之前，必須先從每個 VM 中移除 BGInfo v1.\* 以外的所有 VM 擴充功能，並在 Azure Resource Manager 移轉之後，陸續重新新增回 VM。  **這僅適用於執行中的 VM。**  如果 VM 已停止 (解除配置)，則不需要移除 VM 擴充功能。 **附註：** 許多擴充功能 (例如 Azure 診斷和資訊安全中心監視) 在移轉之後將會自行重新安裝，因此移除這些功能不是問題。
   - 此外，請確定網路安全性群組不會限制輸出網際網路存取。 某些網路安全性群組組態可能會發生此情況。 需要輸出網際網路存取 (和 DNS)，才能將 VM 擴充功能移轉至 Azure Resource Manager。 
   - BGInfo 擴充功能有兩個版本：v1 和 v2。  如果 VM 是使用 Azure 入口網站或 PowerShell 建立，VM 上可能會有 v1 擴充功能。 不需要移除此擴充功能，且移轉 API 將會略過它 (不移轉)。 不過，如果傳統 VM 是使用新的 Azure 入口網站建立，在代理程式運作中，且具有輸出網際網路存取 (DNS) 的前提下，可能會有以 JSON 為基礎，且可以移轉至 Azure Resource Manager 的 BGInfo v2 版本。 
   - **修復選項 1**。 如果您知道您的 VM 在不會有輸出網際網路存取、使用中 DNS 服務，和使用中 Azure 代理程式，則請在準備移轉之前解除安裝所有 VM 擴充功能，然後在移轉之後重新安裝 VM 擴充功能。 
@@ -106,9 +106,9 @@ ms.locfileid: "61474026"
 
 - **可用性設定組** - 若要將虛擬網路 (vNet) 移轉到 Azure Resource Manager，傳統部署 (也就是雲端服務) 所包含的 VM 必須全部位在一個可用性設定組中，或是所有 VM 均不能在任何可用性設定組中。 雲端服務中有一個以上的可用性設定組與 Azure Resource Manager 不相容，將會中止移轉。  此外，不能有一些 VM 在可用性設定組中，而一些 VM 則不在可用性設定組中。 若要解決此問題，您必須修復或重新改組雲端服務。  因為這可能會耗費大量時間，請詳細規劃。 
 
-- **Web/背景工作角色部署** - 無法將包含 Web 和背景工作角色的雲端服務移轉至 Azure Resource Manager。 開始移轉之前，必須先從虛擬網路移除 Web/背景工作角色。  典型的解決方案是只將 Web/背景工作角色執行個體移至也與 ExpressRoute 線路連結的不同傳統虛擬網路，或是將程式碼移轉至較新的 PaaS 應用程式服務 (此討論已超出本文件的範圍)。 在先前的重新部署案例中，建立新的傳統虛擬網路、將 Web/背景工作角色移動/重新部署至該新虛擬網路，然後從要移動的虛擬網路中刪除部署。 无需更改代码。 新的[虛擬網路對等互連](../../virtual-network/virtual-network-peering-overview.md)功能可用來將包含 Web/背景工作角色的傳統虛擬網路與在相同 Azure 區域中的其他虛擬網路 (例如要移轉的虛擬網路) 形成對等互連 (**在虛擬網路移轉完成之後，因為不能移轉已形成對等互連的虛擬網路**)，因此可提供相同功能，而不會損失效能且沒有延遲/頻寬罰則。 由於新增了[虛擬網路對等互連](../../virtual-network/virtual-network-peering-overview.md)，現在可輕鬆地移轉Web/背景工作角色部署，而不會封鎖對 Azure Resource Manager 的移轉。
+- **Web/背景工作角色部署** - 無法將包含 Web 和背景工作角色的雲端服務移轉至 Azure Resource Manager。 開始移轉之前，必須先從虛擬網路移除 Web/背景工作角色。  典型的解決方案是只將 Web/背景工作角色執行個體移至也與 ExpressRoute 線路連結的不同傳統虛擬網路，或是將程式碼移轉至較新的 PaaS 應用程式服務 (此討論已超出本文件的範圍)。 在先前的重新部署案例中，建立新的傳統虛擬網路、將 Web/背景工作角色移動/重新部署至該新虛擬網路，然後從要移動的虛擬網路中刪除部署。 不需要變更程式碼。 新的[虛擬網路對等互連](../../virtual-network/virtual-network-peering-overview.md)功能可用來將包含 Web/背景工作角色的傳統虛擬網路與在相同 Azure 區域中的其他虛擬網路 (例如要移轉的虛擬網路) 形成對等互連 (**在虛擬網路移轉完成之後，因為不能移轉已形成對等互連的虛擬網路**)，因此可提供相同功能，而不會損失效能且沒有延遲/頻寬罰則。 由於新增了[虛擬網路對等互連](../../virtual-network/virtual-network-peering-overview.md)，現在可輕鬆地移轉Web/背景工作角色部署，而不會封鎖對 Azure Resource Manager 的移轉。
 
-- **Azure Resource Manager 配額** - Azure 區域對於傳統和 Azure Resource Manager 有個別的配額/限制。 即使在未取用新硬體的移轉案例中 *(我們正在將現有的 VM 從傳統交換至 Azure Resource Manager)*，Azure Resource Manager 配額仍必須具有足夠的容量，才可開始進行移轉。 下列是我們發現會造成問題的主要限制。  開啟配額支援票證來提高限制。 
+- **Azure Resource Manager 配額** - Azure 區域對於傳統和 Azure Resource Manager 有個別的配額/限制。 即使在未取用新硬體的移轉案例中 *(我們正在將現有的 VM 從傳統交換至 Azure Resource Manager)* ，Azure Resource Manager 配額仍必須具有足夠的容量，才可開始進行移轉。 下列是我們發現會造成問題的主要限制。  開啟配額支援票證來提高限制。 
 
     > [!NOTE]
     > 必須在與您要移轉的目前環境相同的區域中提高這些限制。
@@ -136,21 +136,21 @@ ms.locfileid: "61474026"
     az network list-usages -l <azure-region> -o jsonc
     ```
 
-    **存储***（存储帐户）*
+    **儲存體** *(儲存體帳戶)*
     
     ```bash
     az storage account show-usage
     ```
 
-- **Azure Resource Manager API 限制** - 如果有足够大的环境（如 VNET 中 > 400 個 VM)，您在 Azure Resource Manager 中可能會達到寫入時預設的 API 節流限制 (目前為 **1200 次寫入/小時**)。 開始之前移轉，您應該提出支援票證來為您的訂用帳戶提高此限制。
+- **Azure Resource Manager API 節流限制** - 如果您有一個夠大的環境 (例如， VNET 中 > 400 個 VM)，您在 Azure Resource Manager 中可能會達到寫入時預設的 API 節流限制 (目前為 **1200 次寫入/小時**)。 開始之前移轉，您應該提出支援票證來為您的訂用帳戶提高此限制。
 
 - **佈建逾時 VM 狀態** - 如果任何 VM 的狀態為**佈建逾時**，這個問題必須在移轉前解決。 您只能利用停機時間解除佈建/重新佈 VM (刪除、保留磁碟，並重新建立 VM)。 
 
-- **RoleStateUnknown VM 狀態** - 如果因為出現 [角色狀態未知] 錯誤訊息而使得移轉中止，請使用入口網站檢查 VM，並確定它正在執行中。 此錯誤通常會在幾分鐘之後自行消失 (不需補救)，而且是虛擬機器**啟動**、**停止**、**重新啟動**作業期間經常會看到的暫時性類型。 **建议做法：** 数分钟后尝试再次迁移。 
+- **RoleStateUnknown VM 狀態** - 如果因為出現 [角色狀態未知]  錯誤訊息而使得移轉中止，請使用入口網站檢查 VM，並確定它正在執行中。 此錯誤通常會在幾分鐘之後自行消失 (不需補救)，而且是虛擬機器**啟動**、**停止**、**重新啟動**作業期間經常會看到的暫時性類型。 **建議做法：** 幾分鐘後再重試移轉。 
 
-- **Fabric 叢集不存在** - 在某些情況下，某些 VM 由於各種奇怪的原因而無法移轉。 其中一種已知的情況為，如果是最近才建立 VM (在過去一個星期內左右)，然後在尚無法因應 Azure Resource Manager 工作負載的 Azure 叢集登陸時會發生此情況。  您會收到 [網狀架構叢集不存在] 錯誤訊息，且無法移轉 VM。 等待数天通常可解决此特殊问题，因为群集会很快启用 Azure Resource Manager。 不過，有一個立即的解決方法是對 VM `stop-deallocate`，然後再繼續進行移轉，並且在移轉之後，於 Azure Resource Manager 中啟動 VM 備份。
+- **Fabric 叢集不存在** - 在某些情況下，某些 VM 由於各種奇怪的原因而無法移轉。 其中一種已知的情況為，如果是最近才建立 VM (在過去一個星期內左右)，然後在尚無法因應 Azure Resource Manager 工作負載的 Azure 叢集登陸時會發生此情況。  您會收到 [網狀架構叢集不存在]  錯誤訊息，且無法移轉 VM。 通常等候幾天就可解決此特定問題，因為叢集很快就會啟用 Azure Resource Manager。 不過，有一個立即的解決方法是對 VM `stop-deallocate`，然後再繼續進行移轉，並且在移轉之後，於 Azure Resource Manager 中啟動 VM 備份。
 
-### <a name="pitfalls-to-avoid"></a>需避免的错误
+### <a name="pitfalls-to-avoid"></a>要避免的陷阱
 
 - 請勿採取捷徑而略過驗證/準備/中止試執行移轉。
 - 在驗證/準備/中止步驟期間，您可能發生的問題，幾乎全都會浮現。
@@ -178,7 +178,7 @@ ms.locfileid: "61474026"
 
 ## <a name="beyond-migration"></a>移轉之外
 
-### <a name="technical-considerations-and-tradeoffs"></a>技术注意事项和权衡
+### <a name="technical-considerations-and-tradeoffs"></a>技術考量和取捨
 
 既然您已採用 Azure Resource Manager，請善加利用平台。  閱讀 [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)，找出相關的其他優點。
 

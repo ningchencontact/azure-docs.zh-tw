@@ -17,10 +17,10 @@ ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 936abe80a66c1dbe99e7d8a255fe8995a2df0803
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60852248"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>在 Azure 建立管理 App Service 方案
@@ -34,7 +34,7 @@ ms.locfileid: "60852248"
 
 您可建立空白的 App Service 方案，或是在應用程式建立期間建立方案。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [新增] > [Web + 行動]，然後選取 [Web 應用程式] 或其他 App Service 應用程式種類。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [新增]   > [Web + 行動]  ，然後選取 [Web 應用程式]  或其他 App Service 應用程式種類。
 
 2. 選取現有的 App Service 方案或為新應用程式建立方案。
 
@@ -42,21 +42,21 @@ ms.locfileid: "60852248"
 
    若要建立方案：
 
-   a. 選取[[+] 建立新項目]。
+   a. 選取[[+] 建立新項目]  。
 
       ![建立 App Service 方案。][createASP] 
 
-   b. 針對 [App Service 方案]，輸入方案的名稱。
+   b. 針對 [App Service 方案]  ，輸入方案的名稱。
 
-   c. 針對 [位置] ，選取適當的位置。
+   c. 針對 [位置]  ，選取適當的位置。
 
-   d. 針對 [定價層]，為服務選取適當的定價層。 選取 [檢視全部] 以檢視其他價格選項，例如 [免費] 和 [共用]。 選取定價層後，請按一下 [選取]  按鈕。
+   d. 針對 [定價層]  ，為服務選取適當的定價層。 選取 [檢視全部]  以檢視其他價格選項，例如 [免費]  和 [共用]  。 選取定價層後，請按一下 [選取]  按鈕。
 
 <a name="move"></a>
 
 ## <a name="move-an-app-to-another-app-service-plan"></a>將應用程式移到不同的 App Service 方案
 
-您也可以將應用程式移到另一個 App Service 方案，只要來源方案和目標方案位於「相同的資源群組和地理區域」即可。
+您也可以將應用程式移到另一個 App Service 方案，只要來源方案和目標方案位於「相同的資源群組和地理區域」  即可。
 
 > [!NOTE]
 > Azure 會將每個新的 App Service 方案部署到部署單位 (在內部稱為網路空間)。 每個區域可以有許多網路空間，但您的應用程式只能在相同網路空間中建立的方案之間移動。 App Service 環境是隔離的網路空間，因此可以在相同 App Service Environment 中的方案之間移動應用程式，但無法在不同 App Service 環境中的方案之間移動。
@@ -66,15 +66,15 @@ ms.locfileid: "60852248"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您要移動的應用程式。
 
-1. 在功能表中，尋找 [App Service 方案] 區段。
+1. 在功能表中，尋找 [App Service 方案]  區段。
 
-1. 選取 [變更 App Service 方案] 以開啟 [App Service 方案] 選取器。
+1. 選取 [變更 App Service 方案]  以開啟 [App Service 方案]  選取器。
 
    ![App Service 方案選取器。][change] 
 
-1. 在 [App Service 方案] 選取器中，選取現有的方案以移動此應用程式。   
+1. 在 [App Service 方案]  選取器中，選取現有的方案以移動此應用程式。   
 
-[選取 App Service 方案] 頁面只會顯示與目前應用程式的 App Service 方案位於相同資源群組和地理區域的方案。
+[選取 App Service 方案]  頁面只會顯示與目前應用程式的 App Service 方案位於相同資源群組和地理區域的方案。
 
 每個方案都有其專屬定價層。 例如，如果將網站從**免費**層移至**標準**層，則所有指派給它的應用程式都可以使用**標準**層的功能和資源。 不過，將應用程式從較高層的方案移至較低層的方案，表示您無法再存取特定功能。 如果您的應用程式使用目標方案未提供的功能，您會收到顯示哪些使用中功能無法使用的錯誤。 
 
@@ -90,7 +90,7 @@ ms.locfileid: "60852248"
 
 您的應用程式執行所在的區域，就是 App Service 方案所在的區域。 不過，您無法變更 App Service 方案區域。 如果您想在不同的區域執行應用程式，有一個替代方法是複製應用程式。 複製會在任何區域中的新或現有 App Service 方案中產生您應用程式的複本。
 
-您可以在功能表的 [開發工具] 區段中找到 [複製應用程式]。
+您可以在功能表的 [開發工具] 區段中找到 [複製應用程式]   。
 
 > [!IMPORTANT]
 > 複製有一些限制。 您可在 [Azure App Service 應用程式複製](app-service-web-app-cloning.md)中閱讀相關限制。

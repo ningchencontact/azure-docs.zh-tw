@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: 99f2d9fb7c9a74e57eff3cd0b007fcee459cab88
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62098691"
 ---
-# <a name="add-push-notifications-to-your-xamarinforms-app"></a>向 Xamarin.Forms 应用添加推送通知
+# <a name="add-push-notifications-to-your-xamarinforms-app"></a>將推播通知新增至 Xamarin.Forms 應用程式
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
@@ -55,11 +55,11 @@ ms.locfileid: "62098691"
 
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
-### <a name="add-push-notifications-to-the-android-project"></a>向 Android 项目添加推送通知
+### <a name="add-push-notifications-to-the-android-project"></a>將推播通知新增至 Android 專案
 
 為後端設定了 FCM 後，您就可以在用戶端中新增元件和程式碼，以向 FCM 註冊。 您也可以透過 Mobile Apps 後端向 Azure 通知中樞註冊推播通知，並接收通知。
 
-1. 在 **Droid** 專案中，以滑鼠右鍵按一下 [參考] > [管理 NuGet 套件...]。
+1. 在 **Droid** 專案中，以滑鼠右鍵按一下 [參考] > [管理 NuGet 套件...]  。
 1. 在 [NuGet 套件管理員] 視窗中，搜尋 **Xamarin.Firebase.Messaging** 套件，並將其新增至專案。
 1. 在 **Droid** 專案的專案屬性中，將應用程式設定為使用 Android 7.0 版或更新版本進行編譯。
 1. 將從 Firebase 主控台下載的 **google-services.json** 檔案新增至 **Droid** 專案的根目錄，並將其建置動作設定為 **GoogleServicesJson**。 如需詳細資訊，請參閱[新增 Google Services JSON 檔案](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/#Add_the_Google_Services_JSON_File)。
@@ -118,9 +118,9 @@ ms.locfileid: "62098691"
     }
     ```
 
-    `FirebaseRegistrationService` 類別負責產生安全性權杖，以授與應用程式存取 FCM 的權限。 應用程式從 FCM 收到註冊權杖時會叫用 `OnTokenRefresh` 方法。 此方法會從 `FirebaseInstanceId.Instance.Token` 屬性取出權杖，而 FCM 會以非同步方式更新該屬性。 `OnTokenRefresh` 方法並不常受到叫用，因為只有在安裝或解除安裝應用程式、使用者刪除應用程式資料、應用程式清除執行個體識別碼，或權杖的安全性遭到洩露時，才會更新權杖。 此外，FCM 執行個體識別碼服務會要求應用程式定期重新整理其權杖，通常是每 6 個月一次。
+    `FirebaseRegistrationService` 類別負責產生安全性權杖，以授與應用程式存取 FCM 的權限。 應用程式從 FCM 收到註冊權杖時會叫用 `OnTokenRefresh` 方法。 方法會擷取來自權杖`FirebaseInstanceId.Instance.Token`FCM 會以非同步方式更新的屬性。 `OnTokenRefresh`不常叫用方法，因為應用程式是安裝或解除安裝，當使用者在應用程式清除執行個體識別碼，刪除應用程式資料時，才會更新權杖或權杖的安全性時外洩。 此外，FCM 執行個體識別碼服務會要求，應用程式定期重新整理其權杖，通常每隔 6 個月一次。
 
-    `OnTokenRefresh` 方法也會叫用 `SendRegistrationTokenToAzureNotificationHub` 方法，用來讓使用者的註冊權杖與 Azure 通知中樞產生關聯。
+    `OnTokenRefresh`方法也會叫用`SendRegistrationTokenToAzureNotificationHub`方法，用來將使用者的註冊權杖與 Azure 通知中樞產生關聯。
 
 #### <a name="registering-with-the-azure-notification-hub"></a>向 Azure 通知中樞進行註冊
 
@@ -220,24 +220,24 @@ ms.locfileid: "62098691"
     }
     ```
 
-    應用程式從 FCM 收到通知時所叫用的 `OnMessageReceived` 方法會擷取訊息內容，並呼叫 `SendNotification` 方法。 此方法會將訊息內容轉換成應用程式執行時所啟動的本機通知，並在通知區域中顯示通知。
+    應用程式從 FCM 收到通知時所叫用的 `OnMessageReceived` 方法會擷取訊息內容，並呼叫 `SendNotification` 方法。 這個方法會將訊息內容轉換成執行應用程式時，與通知不會出現在通知區域啟動的本機通知。
 
 現在，您已經準備好在 Android 裝置或模擬器上執行的應用程式中測試推播通知。
 
-### <a name="test-push-notifications-in-your-android-app"></a>在 Android 应用中测试推送通知
+### <a name="test-push-notifications-in-your-android-app"></a>在 Android 應用程式中測試推播通知
 
 只有要在模擬器上測試時，才需要前兩個步驟。
 
 1. 請確定您要在利用 Google Play Services 設定的裝置或模擬器上進行部署或偵錯。 藉由檢查裝置或模擬器上已安裝 **Play**  應用程式，即可確認這點。
-2. 按一下 [應用程式] > [設定] > [新增帳戶] 將 Google 帳戶加入 Android 裝置。 然後遵循提示在裝置中新增現有 Google 帳戶，或是建立一個新的帳戶。
-3. 在 Visual Studio 或 Xamarin Studio 中，以滑鼠右鍵按一下 **Droid** 專案，然後按一下 [設定為啟始專案]。
-4. 按一下 [執行] 以建置專案，並在 Android 裝置或模擬器上啟動應用程式。
-5. 在應用程式中輸入一項工作，然後按一下加號 (**+**) 圖示。
+2. 按一下 [應用程式]   > [設定]   > [新增帳戶]  將 Google 帳戶加入 Android 裝置。 然後遵循提示在裝置中新增現有 Google 帳戶，或是建立一個新的帳戶。
+3. 在 Visual Studio 或 Xamarin Studio 中，以滑鼠右鍵按一下 **Droid** 專案，然後按一下 [設定為啟始專案]  。
+4. 按一下 [執行]  以建置專案，並在 Android 裝置或模擬器上啟動應用程式。
+5. 在應用程式中輸入一項工作，然後按一下加號 ( **+** ) 圖示。
 6. 確認在加入項目時收到通知。
 
 ## <a name="configure-and-run-the-ios-project-optional"></a>設定和執行 iOS 專案 (選擇性)
 
-這一節適用於對 iOS 裝置執行 Xamarin iOS 專案。 如果不使用 iOS 设备，可以跳过本部分。
+這一節適用於對 iOS 裝置執行 Xamarin iOS 專案。 如果未使用 iOS 裝置，可以略過這一節。
 
 [!INCLUDE [Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
@@ -318,16 +318,16 @@ ms.locfileid: "62098691"
 
 您的應用程式現在已更新為支援推播通知。
 
-#### <a name="test-push-notifications-in-your-ios-app"></a>在 iOS 应用中测试推送通知
+#### <a name="test-push-notifications-in-your-ios-app"></a>在 iOS 應用程式中測試推播通知
 
-1. 以滑鼠右鍵按一下 iOS 專案，然後按一下 [設為起始專案]。
-2. 在 Visual Studio 中按下 [執行] 按鈕或 **F5** 以建置專案，並在 iOS 裝置上啟動應用程式。 然後，按一下 [確定] 以接收推撥通知。
+1. 以滑鼠右鍵按一下 iOS 專案，然後按一下 [設為起始專案]  。
+2. 在 Visual Studio 中按下 [執行]  按鈕或 **F5** 以建置專案，並在 iOS 裝置上啟動應用程式。 然後，按一下 [確定]  以接收推撥通知。
 
    > [!NOTE]
-   > 您必須明確地接受來自應用程式的推播通知。 此请求只会在首次运行应用程序时出现。
+   > 您必須明確地接受來自應用程式的推播通知。 只有在應用程式第一次執行時，才會發生此要求。
 
-3. 在應用程式中輸入一項工作，然後按一下加號 (**+**) 圖示。
-4. 確認您已接收到通知，然後按一下 [確定] 以關閉通知。
+3. 在應用程式中輸入一項工作，然後按一下加號 ( **+** ) 圖示。
+4. 確認您已接收到通知，然後按一下 [確定]  以關閉通知。
 
 ## <a name="configure-and-run-windows-projects-optional"></a>設定和執行 Windows 專案 (選擇性)
 
@@ -341,7 +341,7 @@ ms.locfileid: "62098691"
 
 [!INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
-#### <a name="add-push-notifications-to-your-windows-app"></a>向 Windows 应用添加推送通知
+#### <a name="add-push-notifications-to-your-windows-app"></a>將推播通知加入至 Windows 應用程式
 
 1. 在 Visual Studio 中，開啟 Windows 專案中的 **App.xaml.cs**，並新增下列陳述式。
 
@@ -391,14 +391,14 @@ ms.locfileid: "62098691"
 
     如此可確保每次啟動應用程式時都會建立或重新整理推播通知註冊。 必須如此以保證 WNS 推送通道永遠在作用中。  
 
-4. 在 Visual Studio 的 [方案總管] 中，開啟 **Package.appxmanifest** 檔案，然後把 [通知] 下方的 [支援快顯通知] 設為 [是]。
+4. 在 Visual Studio 的 [方案總管] 中，開啟 **Package.appxmanifest** 檔案，然後把 [通知]  下方的 [支援快顯通知]  設為 [是]  。
 5. 建置應用程式並確認沒有錯誤。 您用戶端應用程式現在應該註冊 Mobile Apps 後端的範本通知。 針對方案中每個 Windows 專案重複操作這一節。
 
-#### <a name="test-push-notifications-in-your-windows-app"></a>在 Windows 应用中测试推送通知
+#### <a name="test-push-notifications-in-your-windows-app"></a>在 Windows 應用程式中測試推播通知
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下 Windows 專案，然後按一下 [設定為啟始專案]。
-2. 按 [執行] 按鈕，以建立專案並啟動應用程式。
-3. 在應用程式中輸入新 todoitem 的名稱，然後按一下加號 (**+**) 圖示來加入它。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下 Windows 專案，然後按一下 [設定為啟始專案]  。
+2. 按 [執行]  按鈕，以建立專案並啟動應用程式。
+3. 在應用程式中輸入新 todoitem 的名稱，然後按一下加號 ( **+** ) 圖示來加入它。
 4. 確認在加入項目時收到通知。
 
 ## <a name="next-steps"></a>後續步驟

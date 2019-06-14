@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: seodec18
 ms.openlocfilehash: 7be6c9eda6d0a70d929efe4c00f661eb67105820
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606422"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
@@ -74,7 +74,7 @@ Notebook 是 VM:
 
   如果您是程式碼時，VM 會包括教學課程和範例，可協助您探索和了解如何使用 Azure Machine Learning 服務。 範例筆記本會儲存在您讓它們可共用跨 Vm 的工作區的 Azure Blob 儲存體帳戶。 當執行時，他們也能存取資料存放區，並計算工作區的資源。 
 
-+ **簡單的安裝程式**:建立一個可以隨時從您的 Azure Machine Learning 工作區中。 提供的名稱，並指定 Azure VM 類型。 立即試用與這個[快速入門：若要開始使用 Azure Machine Learning 中使用雲端架構的 notebook 伺服器](quickstart-run-cloud-notebook.md)。
++ **簡單的安裝程式**:建立一個可以隨時從您的 Azure Machine Learning 工作區中。 提供的名稱，並指定 Azure VM 類型。 立即試用與這個[快速入門：使用雲端式 Notebook 伺服器開始使用 Azure Machine Learning](quickstart-run-cloud-notebook.md)。
 
 + **可自訂**。 受管理和保護 VM，供應項目，同時您要保留的完整存取權的硬體功能，並根據您喜好的需求進行自訂。 例如，快速建立最新 NVidia V100 電源的 VM 來執行新奇的類神經網路架構的逐步偵錯。
 
@@ -208,7 +208,7 @@ Azure Machine Learning SDK 適用於 Ubuntu 或 Windows版本的 DSVM。 但如�
 
 1. 安裝其他套件，針對您的機器學習實驗。
 
-    使用下列命令，並取代*\<新的封裝 >* 與您想要安裝的封裝。 安裝套件透過`conda install`必要條件封裝是目前的通道 （Anaconda 定域機組中可以加入新的通道） 的一部分。
+    使用下列命令，並取代 *\<新的封裝 >* 與您想要安裝的封裝。 安裝套件透過`conda install`必要條件封裝是目前的通道 （Anaconda 定域機組中可以加入新的通道） 的一部分。
 
     ```shell
     conda install <new package>
@@ -263,7 +263,7 @@ Visual Studio Code 是跨平台的程式碼編輯器。 它依賴於 Python 支�
 1. 若要了解如何使用 Visual Studio Code 進行 Python 開發，請參閱[在 VSCode 中開始使用 Python](https://code.visualstudio.com/docs/python/python-tutorial)。
 
 1. 若要選取 Conda 環境，請開啟 VS Code，然後選取 Ctrl+Shift+P (Linux 和 Windows) 或 Command+Shift+P (Mac)。
-    [命令棧板] 隨即開啟。
+    [命令棧板]  隨即開啟。
 
 1. 輸入 __Python:Select Interpreter__，然後選取 Conda 環境。
 
@@ -295,12 +295,12 @@ Azure Databricks 的運作方式與 Azure Machine Learning 服務：
 
 使用這些設定：
 
-| 設定 |適用於| Value |
+| 設定 |適用於| 值 |
 |----|---|---|
-| 叢集名稱 |永遠| yourclustername |
-| Databricks 執行階段 |永遠| 任何非 ML 執行階段 (非 ML 4.x、5.x) |
-| Python 版本 |永遠| 3 |
-| 背景工作 |永遠| 2 個以上 |
+| 叢集名稱 |一律| yourclustername |
+| Databricks 執行階段 |一律| 任何非 ML 執行階段 (非 ML 4.x、5.x) |
+| Python 版本 |一律| 3 |
+| 背景工作角色 |一律| 2 個以上 |
 | 背景工作節點 VM 類型 <br>（可判斷並行的反覆項目的最大數目） |自動化 ML<br>只有| 建議使用已記憶體最佳化的 VM |
 | 啟用自動調整 |自動化 ML<br>只有| 取消選取 |
 
@@ -311,7 +311,7 @@ Azure Databricks 的運作方式與 Azure Machine Learning 服務：
 
 1. 選擇**只有一個**（支援任何其他的 SDK 安裝） 的選項
 
-   |SDK&nbsp;封裝&nbsp;額外項目|`Source`|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK&nbsp;封裝&nbsp;額外項目|source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Databricks| 上傳 Python Egg 或 PyPI | azureml-sdk[databricks]|
    |-加上-的 databricks<br> 自動化的 ML 功能| 上傳 Python Egg 或 PyPI | azureml-sdk[automl_databricks]|
@@ -325,9 +325,9 @@ Azure Databricks 的運作方式與 Azure Machine Learning 服務：
 1. 監視錯誤，直到狀態變成**Attached**，這可能需要幾分鐘的時間。  如果這個步驟失敗，請檢查下列各項： 
 
    請嘗試重新啟動您的叢集：
-   1. 在左窗格中，選取 [叢集]。
+   1. 在左窗格中，選取 [叢集]  。
    1. 請選取表格中您的叢集名稱。
-   1. 在 [程式庫] 索引標籤上，選取 [重新啟動]。
+   1. 在 [程式庫]  索引標籤上，選取 [重新啟動]  。
       
    也請考慮：
    + 在 Automl 組態中，當使用 Azure Databricks 請新增下列參數：
@@ -378,9 +378,9 @@ SDK databricks **WITH**自動化機器學習服務![SDK 會自動安裝在 Datab
 
 您可以透過三種方式建立組態檔：
 
-* **請依照下列中的步驟[建立 Azure 機器學習服務工作區](setup-create-workspace.md#sdk)**:*config.json* 檔案是在 Azure Notebook 程式庫中建立的。 此檔案包含您工作區的組態資訊。 您可以將此 *config.json* 下載或複製到其他開發環境。
+* **請依照下列中的步驟[建立 Azure 機器學習服務工作區](setup-create-workspace.md#sdk)** :*config.json* 檔案是在 Azure Notebook 程式庫中建立的。 此檔案包含您工作區的組態資訊。 您可以將此 *config.json* 下載或複製到其他開發環境。
 
-* **下載檔案**:在 [Azure 入口網站](https://ms.portal.azure.com)中，從您工作區的 [概觀] 區段選取 [下載 config.json]。
+* **下載檔案**:在 [Azure 入口網站](https://ms.portal.azure.com)中，從您工作區的 [概觀]  區段選取 [下載 config.json]  。
 
      ![Azure 入口網站](./media/how-to-configure-environment/configure.png)
 

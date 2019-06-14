@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47626cbd8d5b8a5ddf7cc5c6ea42fb9453e5bfb2
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540675"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory 中的應用程式和服務主體物件
@@ -64,9 +64,9 @@ Azure AD 應用程式是由其唯一一個應用程式物件所定義，該物�
 
 ### <a name="application-and-service-principal-relationship"></a>應用程式和服務主體關聯性
 
-將應用程式物件視為應用程式的「全域」代表 (用於所有租用戶)，而將服務主體看做是「本機」代表 (用於特定租用戶)。
+將應用程式物件視為應用程式的「全域」  代表 (用於所有租用戶)，而將服務主體看做是「本機」  代表 (用於特定租用戶)。
 
-應用程式物件就像範本，可從中「衍生」通用和預設屬性，用以建立相對應的服務主體物件。 因此，應用程式物件與軟體應用程式之間存在 1:1 關聯性，而與其對應的服務主體物件之間存在一對多關聯性。
+應用程式物件就像範本，可從中「衍生」  通用和預設屬性，用以建立相對應的服務主體物件。 因此，應用程式物件與軟體應用程式之間存在 1:1 關聯性，而與其對應的服務主體物件之間存在一對多關聯性。
 
 每一個會用到應用程式的租用戶中必須建立服務主體，才能讓它建立身分識別來登入及/或存取租用戶所保護的資源。 單一租用戶的應用程式只能有一個服務主體 (在其主租用戶中)，並在應用程式註冊期間建立和同意使用。 如果是多租用戶 Web 應用程式/API，則在使用者已同意使用它的每個租用戶中，還會建立服務主體。
 
@@ -77,7 +77,7 @@ Azure AD 應用程式是由其唯一一個應用程式物件所定義，該物�
 
 ## <a name="example"></a>範例
 
-下圖說明應用程式的應用程式物件與對應的服務主體物件之間的關係，是以一個稱為「HR 應用程式」 的範例多租用戶應用程式為背景。 此範例案例中有三個 Azure AD 租用戶︰
+下圖說明應用程式的應用程式物件與對應的服務主體物件之間的關係，是以一個稱為「HR 應用程式」  的範例多租用戶應用程式為背景。 此範例案例中有三個 Azure AD 租用戶︰
 
 - **Adatum** - 開發 **HR 應用程式**的公司所使用的租用戶
 - **Contoso** - Contoso 組織所使用的租用戶，其為 **HR 應用程式**的取用者
@@ -87,7 +87,7 @@ Azure AD 應用程式是由其唯一一個應用程式物件所定義，該物�
 
 在此範例案例中：
 
-| 步驟 | 說明 |
+| 步驟 | 描述 |
 |------|-------------|
 | 1    | 在應用程式的主要租用戶中建立應用程式和服務主體物件的程序。 |
 | 2    | 當 Contoso 和 Fabrikam 的系統管理員完成同意，系統就會在其公司的 Azure AD 租用戶中建立服務主體物件，並指派系統管理員所授與的權限。 也請注意，HR 應用程式可能會設定/設計為允許由使用者同意以進行個人使用。 |

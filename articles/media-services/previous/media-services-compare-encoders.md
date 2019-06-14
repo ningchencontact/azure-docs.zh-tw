@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: bb827b80f79a53f30074b9230efe3e2049471051
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465706"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Azure 隨選媒體編碼器的比較  
@@ -45,8 +45,8 @@ ms.locfileid: "61465706"
 ## <a id="billing"></a>每個編碼器所使用的計費計量表
 | 媒體處理器名稱 | 適用的價格 | 注意 |
 | --- | --- | --- |
-| **Media Encoder Standard** |编码器 |在 ENCODER 資料行底下，「編碼工作」會以[這裡][1]指定的費率，根據所有產生來輸出之媒體檔案的總持續時間 (以分鐘為單位) 計費。 |
-| **媒体编码器高级工作流** |高级编码器 |在 PREMIUM ENCODER 資料行底下，「編碼工作」會以[這裡][1]指定的費率，根據所有產生來輸出之媒體檔案的總持續時間 (以分鐘為單位) 計費。 |
+| **Media Encoder Standard** |ENCODER |在 ENCODER 資料行底下，「編碼工作」會以[這裡][1]指定的費率，根據所有產生來輸出之媒體檔案的總持續時間 (以分鐘為單位) 計費。 |
+| **Media Encoder Premium Workflow** |PREMIUM ENCODER |在 PREMIUM ENCODER 資料行底下，「編碼工作」會以[這裡][1]指定的費率，根據所有產生來輸出之媒體檔案的總持續時間 (以分鐘為單位) 計費。 |
 
 ## <a name="input-containerfile-formats"></a>輸入容器/檔案格式
 | 輸入容器/檔案格式 | Media Encoder Standard | 媒體編碼器高階工作流程 |
@@ -54,7 +54,7 @@ ms.locfileid: "61465706"
 | Adobe® Flash® F4V |是 |是 |
 | MXF/SMPTE 377M |是 |是 |
 | GXF |是 |是 |
-| Mpeg-2 传输流 |是 |是 |
+| MPEG-2 傳輸資料流 |是 |是 |
 | MPEG-2 程式資料流 |是 |是 |
 | MPEG-4/MP4 |是 |是 |
 | Windows Media/ASF |是 |是 |
@@ -70,9 +70,9 @@ ms.locfileid: "61465706"
 | --- | --- | --- |
 | AVC 8 位元/10 位元，高達 4:2:2，包括 AVCIntra |8 位元 4:2:0 和 4:2:2 |是 |
 | Avid DNxHD (使用 MXF) |是 |是 |
-| DVCPro/DVCProHD（MXF 格式） |是 |是 |
+| DVCPro/DVCProHD (使用 MXF) |是 |是 |
 | JPEG2000 |是 |是 |
-| Mpeg-2（最高支持 422 Profile 和 High Level；包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs® 和 D10 等变体） |最高 422 設定檔 |是 |
+| MPEG-2 (高達 422 Profile 和 High Level，包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs ® 和 D10 等變種) |最高 422 設定檔 |是 |
 | MPEG-1 |是 |是 |
 | Windows Media 視訊/VC-1 |是 |是 |
 | Canopus HQ/HQX |否 |否 |
@@ -95,7 +95,7 @@ ms.locfileid: "61465706"
 | Dolby® Digital Plus (E-AC3) |否 |是 |
 | AAC (AAC-LC、AAC-HE 和 AAC-HEv2；高達 5.1) |是 |是 |
 | MPEG Layer 2 |是 |是 |
-| MP3 (MPEG-1 Audio Layer 3) |是 |是 |
+| MP3 (MPEG-1 音訊層 3) |是 |是 |
 | Windows Media 音訊 |是 |是 |
 | WAV/PCM |是 |是 |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |是 |否 |

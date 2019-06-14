@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
 ms.openlocfilehash: c3592529d20680c6920e569887effee4ffe38344
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443824"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64684014"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM 啟動在 Azure 中停滯在「Windows 正在就緒。 請勿關閉電腦」的狀態
 
@@ -29,7 +29,7 @@ ms.locfileid: "60443824"
 
 ## <a name="symptoms"></a>徵兆
 
-當您使用 [開機診斷] 取得 VM 的螢幕擷取畫面時，作業系統未完全啟動。 VM 顯示訊息「正在準備 Windows， 請勿關閉電腦。」
+當您使用 [開機診斷]  取得 VM 的螢幕擷取畫面時，作業系統未完全啟動。 VM 顯示訊息「正在準備 Windows， 請勿關閉電腦。」
 
 ![Windows Server 2012 R2 的訊息範例](./media/troubleshoot-vm-configure-update-boot/message1.png)
 

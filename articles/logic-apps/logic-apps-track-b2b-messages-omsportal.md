@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62120121"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>使用 Azure 監視器記錄追蹤 B2B 訊息
@@ -45,31 +45,31 @@ ms.locfileid: "62120121"
 
 您可以追蹤 B2B 訊息的邏輯應用程式的 Azure 監視器記錄檔之前，新增**Logic Apps B2B** Azure 監視器記錄檔的方案。 深入了解[將解決方案新增至 Azure 監視器記錄](../azure-monitor/learn/quick-create-workspace.md)。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有服務]。 在搜尋方塊中，尋找「記錄分析」，然後選取 [Log Analytics]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有服務]  。 在搜尋方塊中，尋找「記錄分析」，然後選取 [Log Analytics]  。
 
    ![選取 [Log Analytics]](media/logic-apps-track-b2b-messages-omsportal/find-log-analytics.png)
 
-1. 在 [Log Analytics] 下，尋找並選取 Log Analytics 工作區。 
+1. 在 [Log Analytics]  下，尋找並選取 Log Analytics 工作區。 
 
    ![選取 Log Analytics 工作區](media/logic-apps-track-b2b-messages-omsportal/select-log-analytics-workspace.png)
 
-1. 在 [開始使用 Log Analytics] > [設定監視解決方案] 下，選擇 [檢視解決方案]。
+1. 在 [開始使用 Log Analytics]   > [設定監視解決方案]  下，選擇 [檢視解決方案]  。
 
    ![選擇 [檢視解決方案]](media/logic-apps-track-b2b-messages-omsportal/log-analytics-workspace.png)
 
-1. 在 [概觀] 頁面上，選擇 [新增] 以開啟 [管理解決方案] 清單。 從該清單中，選取 [Logic Apps B2B]。 
+1. 在 [概觀] 頁面上，選擇 [新增]  以開啟 [管理解決方案]  清單。 從該清單中，選取 [Logic Apps B2B]  。 
 
    ![選取 Logic Apps B2B 解決方案](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-   如果找不到該解決方案，請在清單底部選擇 [載入更多] 直到解決方案出現。
+   如果找不到該解決方案，請在清單底部選擇 [載入更多]  直到解決方案出現。
 
-1. 選擇 [建立]，確認您想要在其中安裝解決方案的 Log Analytics 工作區，然後再次選擇 [建立]。   
+1. 選擇 [建立]  ，確認您想要在其中安裝解決方案的 Log Analytics 工作區，然後再次選擇 [建立]  。   
 
    ![針對 Logic Apps B2B 選擇 [建立]](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 
    如果您不想使用現有工作區，也可以在此時建立新的工作區。
 
-1. 完成時，請返回工作區的 [概觀] 頁面。 
+1. 完成時，請返回工作區的 [概觀]  頁面。 
 
    Logic Apps B2B 解決方案現在會出現在 [概觀] 頁面上。 
    B2B 訊息獲得處理時，此頁面上的訊息計數就會更新。
@@ -78,18 +78,18 @@ ms.locfileid: "62120121"
 
 ## <a name="view-b2b-message-information"></a>檢視 B2B 訊息資訊
 
-B2B 訊息經過處理後，您就可以在 [Logic Apps B2B] 圖格上檢視這些訊息的狀態和詳細資料。
+B2B 訊息經過處理後，您就可以在 [Logic Apps B2B]  圖格上檢視這些訊息的狀態和詳細資料。
 
-1. 請移至 Log Analytics 工作區，然後開啟 [概觀] 頁面。 選擇 [Logic Apps B2B]。
+1. 請移至 Log Analytics 工作區，然後開啟 [概觀] 頁面。 選擇 [Logic Apps B2B]  。
 
    ![更新的訊息計數](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
-   > [Logic Apps B2B] 圖格預設會顯示以一天為基礎的資料。 若要將資料範圍變更為不同的間隔，請選擇頁面頂端的範圍控制項：
+   > [Logic Apps B2B]  圖格預設會顯示以一天為基礎的資料。 若要將資料範圍變更為不同的間隔，請選擇頁面頂端的範圍控制項：
    > 
    > ![變更間隔](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
 
-1. 訊息狀態儀表板出現之後，即可檢視特定訊息類型的其他詳細資料，這會顯示以一天為基礎的資料。 選擇 [AS2]、[X12] 或 [EDIFACT] 的磚。
+1. 訊息狀態儀表板出現之後，即可檢視特定訊息類型的其他詳細資料，這會顯示以一天為基礎的資料。 選擇 [AS2]  、[X12]  或 [EDIFACT]  的磚。
 
    ![檢視訊息狀態](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
@@ -104,7 +104,7 @@ B2B 訊息經過處理後，您就可以在 [Logic Apps B2B] 圖格上檢視這�
 
    ![檢視 AS2 訊息](media/logic-apps-track-b2b-messages-omsportal/as2messagelist.png)
 
-3. 若要檢視或匯出特定訊息的輸入和輸出，請選取這些訊息，然後選擇 [下載]。 系統提示您時，請將 .zip 檔案儲存至本機電腦，然後解壓縮該檔案。 
+3. 若要檢視或匯出特定訊息的輸入和輸出，請選取這些訊息，然後選擇 [下載]  。 系統提示您時，請將 .zip 檔案儲存至本機電腦，然後解壓縮該檔案。 
 
    解壓縮的資料夾包含每個所選訊息的資料夾。 
    如果您設定通知，訊息資料夾也會包含具有通知詳細資料的檔案。 
@@ -121,13 +121,13 @@ B2B 訊息經過處理後，您就可以在 [Logic Apps B2B] 圖格上檢視這�
 
    ![下載訊息檔案](media/logic-apps-track-b2b-messages-omsportal/download-messages.png)
 
-4. 若要檢視所有具有相同執行識別碼的動作，請在 [記錄搜尋] 頁面的訊息清單中選擇一則訊息。
+4. 若要檢視所有具有相同執行識別碼的動作，請在 [記錄搜尋]  頁面的訊息清單中選擇一則訊息。
 
    您可以依資料行排序這些動作，或搜尋特定結果。
 
    ![具有相同執行識別碼的動作](media/logic-apps-track-b2b-messages-omsportal/logsearch.png)
 
-   * 若要搜尋具有預先建置查詢的結果，請選擇 [我的最愛]。
+   * 若要搜尋具有預先建置查詢的結果，請選擇 [我的最愛]  。
 
    * 了解[如何新增篩選來建置查詢](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)。 
    或者進一步了解[如何在 Azure 監視器記錄檔中尋找資料與記錄搜尋](../log-analytics/log-analytics-log-searches.md)。
@@ -148,8 +148,8 @@ B2B 訊息經過處理後，您就可以在 [Logic Apps B2B] 圖格上檢視這�
 
 | 屬性 | 描述 |
 | --- | --- |
-| 傳送者 | 針對 AS2 協議的 [接收設定] 中所指定的來賓合作夥伴，或 [傳送設定] 中所指定的主機合作夥伴 |
-| 接收者 | 針對 AS2 協議的 [接收設定] 中所指定的主機合作夥伴，或 [傳送設定] 中所指定的來賓合作夥伴 |
+| 傳送者 | 針對 AS2 協議的 [接收設定]  中所指定的來賓合作夥伴，或 [傳送設定]  中所指定的主機合作夥伴 |
+| 接收者 | 針對 AS2 協議的 [接收設定]  中所指定的主機合作夥伴，或 [傳送設定]  中所指定的來賓合作夥伴 |
 | 邏輯應用程式 | 已設定 AS2 動作的邏輯應用程式 |
 | 狀態 | AS2 訊息狀態 <br>成功 = 已接收或傳送有效的 AS2 訊息。 未設定 MDN。 <br>成功 = 已接收或傳送有效的 AS2 訊息。 已設定並接收 MDN，或傳送 MDN。 <br>失敗 = 已接收無效的 AS2 訊息。 未設定 MDN。 <br>暫止 = 已接收或傳送有效的 AS2 訊息。 已設定 MDN，並預期要有 MDN。 |
 | Ack | MDN 訊息狀態 <br>接受 = 已接收或傳送正值的 MDN。 <br>暫止 = 等候接收或傳送 MDN。 <br>拒絕 = 已接收或傳送負值的 MDN。 <br>不需要 = 未在協議中設定 MDN。 |
@@ -179,8 +179,8 @@ B2B 訊息經過處理後，您就可以在 [Logic Apps B2B] 圖格上檢視這�
 
 | 屬性 | 描述 |
 | --- | --- |
-| 傳送者 | 針對 X12 協議的 [接收設定] 中所指定的來賓合作夥伴，或 [傳送設定] 中所指定的主機合作夥伴 |
-| 接收者 | 針對 X12 協議的 [接收設定] 中所指定的主機合作夥伴，或 [傳送設定] 中所指定的來賓合作夥伴 |
+| 傳送者 | 針對 X12 協議的 [接收設定]  中所指定的來賓合作夥伴，或 [傳送設定]  中所指定的主機合作夥伴 |
+| 接收者 | 針對 X12 協議的 [接收設定]  中所指定的主機合作夥伴，或 [傳送設定]  中所指定的來賓合作夥伴 |
 | 邏輯應用程式 | 已設定 X12 動作的邏輯應用程式 |
 | 狀態 | X12 訊息狀態 <br>成功 = 已接收或傳送有效的 X12 訊息。 未設定任何功能通知。 <br>成功 = 已接收或傳送有效的 X12 訊息。 已設定和接收功能通知，或傳送功能通知。 <br>失敗 = 已接收或傳送有效的 X12 訊息。 <br>暫止 = 已接收或傳送有效的 X12 訊息。 已設定功能通知，並預期要有功能通知。 |
 | Ack | 功能認可 (997) 狀態 <br>接受 = 已接收或傳送正值的功能通知。 <br>拒絕 = 已接收或傳送負值的功能通知。 <br>暫止 = 預期要有功能通知但未收到。 <br>暫止 = 已產生功能通知，但無法傳送給合作夥伴。 <br>不需要 = 未設定功能通知。 |
@@ -212,8 +212,8 @@ B2B 訊息經過處理後，您就可以在 [Logic Apps B2B] 圖格上檢視這�
 
 | 屬性 | 描述 |
 | --- | --- |
-| 傳送者 | 針對 EDIFACT 協議的 [接收設定] 中所指定的來賓合作夥伴，或 [傳送設定] 中所指定的主機合作夥伴 |
-| 接收者 | 針對 EDIFACT 協議的 [接收設定] 中所指定的主機合作夥伴，或 [傳送設定] 中所指定的來賓合作夥伴 |
+| 傳送者 | 針對 EDIFACT 協議的 [接收設定]  中所指定的來賓合作夥伴，或 [傳送設定]  中所指定的主機合作夥伴 |
+| 接收者 | 針對 EDIFACT 協議的 [接收設定]  中所指定的主機合作夥伴，或 [傳送設定]  中所指定的來賓合作夥伴 |
 | 邏輯應用程式 | 已設定 EDIFACT 動作的邏輯應用程式 |
 | 狀態 | EDIFACT 訊息狀態 <br>成功 = 已接收或傳送有效的 EDIFACT 訊息。 未設定任何功能通知。 <br>成功 = 已接收或傳送有效的 EDIFACT 訊息。 已設定和接收功能通知，或傳送功能通知。 <br>失敗 = 已接收或傳送有效的 EDIFACT 訊息。 <br>暫止 = 已接收或傳送有效的 EDIFACT 訊息。 已設定功能通知，並預期要有功能通知。 |
 | Ack | 功能認可 (997) 狀態 <br>接受 = 已接收或傳送正值的功能通知。 <br>拒絕 = 已接收或傳送負值的功能通知。 <br>暫止 = 預期要有功能通知但未收到。 <br>暫止 = 已產生功能通知，但無法傳送給合作夥伴。 <br>不需要 = 未設定功能通知。 |

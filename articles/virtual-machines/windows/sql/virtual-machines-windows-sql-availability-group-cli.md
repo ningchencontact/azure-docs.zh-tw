@@ -15,10 +15,10 @@ ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 5efbe874bbf3c1c4081eb7a2c76c1be5a3358ec8
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518971"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>使用 Azure SQL VM CLI 來設定 Azure VM 上的 SQL Server Always On 可用性群組
@@ -115,7 +115,7 @@ az network lb create --name sqlILB -g <resource group name> --sku Standard `
 ```
 
   >[!IMPORTANT]
-  > 每個 SQL Server VM 的公用 IP 資源都應有標準 SKU，以便與標準負載平衡器相容。 若要確認 VM 公用 IP 資源的 SKU，請瀏覽至您的 [資源群組]，並為您所需的 SQL Server VM 選取 [公用 IP 位址] 資源，然後在 [概觀]窗格的 [SKU] 下方找出其值。  
+  > 每個 SQL Server VM 的公用 IP 資源都應有標準 SKU，以便與標準負載平衡器相容。 若要確認 VM 公用 IP 資源的 SKU，請瀏覽至您的 [資源群組]  ，並為您所需的 SQL Server VM 選取 [公用 IP 位址]  資源，然後在 [概觀]  窗格的 [SKU]  下方找出其值。  
 
 ## <a name="step-6---create-availability-group-listener"></a>步驟 6-建立可用性群組接聽程式
 手動建立可用性群組之後, 您可以建立接聽程式使用[az sql vm ag 接聽程式](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create)。 
@@ -125,7 +125,7 @@ az network lb create --name sqlILB -g <resource group name> --sku Standard `
    1. 瀏覽至您的資源群組中[Azure 入口網站](https://portal.azure.com)。 
    1. 選取 vNet 的資源。 
    1. 選取 **屬性**中**設定**窗格。 
-   1. 找出之 vNet 的資源識別碼，並附加`/subnets/<subnetname>`至結尾，以便在建立子網路的資源識別碼。 例如：
+   1. 找出之 vNet 的資源識別碼，並附加`/subnets/<subnetname>`至結尾，以便在建立子網路的資源識別碼。 例如:
         - 我的 vNet 資源識別碼是： `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
         - 我的子網路名稱是`default`。
         - 因此，我的子網路的資源識別碼是： `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`

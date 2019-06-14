@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: sachdevaswati
 ms.openlocfilehash: 649e50634d901ab48f1cb36c39d7331401c0cc51
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700178"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>在 Azure VM 備份執行的 SQL Server 資料庫的相關常見問題集
@@ -37,8 +37,8 @@ ms.locfileid: "64700178"
 自動修復功能啟用預設的情況下，所有的使用者如果您選擇退出它，但是再執行下面：
 
   * SQL Server 執行個體中*C:\Program Files\Azure 工作負載 Backup\bin*資料夾中，建立或編輯**ExtensionSettingsOverrides.json**檔案。
-  * 在  **ExtensionSettingsOverrides.json**，將 *{"EnableAutoHealer": false}*。
-  * 儲存變更並關閉檔案。
+  * 在  **ExtensionSettingsOverrides.json**，將 *{"EnableAutoHealer": false}* 。
+  * 儲存變更並關閉該檔案。
   * 在 SQL Server 執行個體中，開啟**任務管理**，然後重新啟動**AzureWLBackupCoordinatorSvc**服務。  
 
 ## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>我可以控制在 SQL server 上，執行多少並行備份嗎？
@@ -48,8 +48,8 @@ ms.locfileid: "64700178"
 2. 在  *ExtensionSettingsOverrides.json*檔案中，變更**DefaultBackupTasksThreshold**設為較低的值 (例如，5)。 <br>
   `{"DefaultBackupTasksThreshold": 5}`
 
-3. 儲存變更並關閉檔案。
-4. 在 SQL Server 執行個體上，開啟 [工作管理員]。 重新啟動 **AzureWLBackupCoordinatorSvc** 服務。<br/> <br/>
+3. 儲存變更並關閉該檔案。
+4. 在 SQL Server 執行個體上，開啟 [工作管理員]  。 重新啟動 **AzureWLBackupCoordinatorSvc** 服務。<br/> <br/>
  雖然備份應用程式會耗用大量資源，SQL Server，此方法可協助[Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017)是泛型的方法來指定所需的 CPU、 實體 IO 和記憶體可以連入的應用程式要求的限制使用。
 
 > [!NOTE]

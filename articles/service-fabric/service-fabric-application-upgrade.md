@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: e2b407733bcab7bc854e8e3703e53eb474f3425b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615050"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric 應用程式升級
@@ -45,7 +45,7 @@ Service Fabric 在升級期間進行的健康狀態原則以及檢查不限於�
 ## <a name="upgrade-modes"></a>升級模式
 我們建議的應用程式升級模式為監視模式，這是常用的模式。 監視模式會在一個更新網域上執行升級，如果所有健康狀態檢查都通過 (每個指定的原則)，即會自動移至下一個更新網域。  如果健康狀態檢查失敗及/或達到逾時，更新網域的升級就會回復，或者手動變更為未受監視的手動模式。 您可以設定升級在升級失敗時選擇這兩種其中一種模式。 
 
-不受監控手動模式在每次於更新網域上升級之後都需要手動介入，以開始進行下一個更新網域上的升級。 系統不會執行任何 Service Fabric 健康狀態檢查。 管理员开始在下一个更新域中升级之前，需执行状况或状态检查。
+不受監控手動模式在每次於更新網域上升級之後都需要手動介入，以開始進行下一個更新網域上的升級。 系統不會執行任何 Service Fabric 健康狀態檢查。 系統管理員在開始下一個更新網域中的升級之前，會執行健康狀態或狀態檢查。
 
 ## <a name="upgrade-default-services"></a>升級預設服務
 某些定義於[應用程式資訊清單](service-fabric-application-and-service-manifests.md)中的預設服務參數，也可在應用程式升級的過程中一併升級。 只有支援透過 [Update-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) 進行變更的服務參數，才能在升級的過程中變更。 在應用程式升級期間變更預設服務的行為如下：
@@ -62,12 +62,12 @@ Service Fabric 在升級期間進行的健康狀態原則以及檢查不限於�
 ## <a name="upgrading-multiple-applications-with-https-endpoints"></a>使用 HTTPS 端點來升級多個應用程式
 使用 HTTPS**S** 時，請務必小心，不要將**相同的連接埠**用於相同應用程式的不同執行個體。 原因是 Service Fabric 將無法升級其中一個應用程式執行個體的憑證。 舉例來說，如果應用程式 1 或應用程式 2 都想要將其憑證 1 升級至憑證 2。 當進行升級時，Service Fabric 可能已清除憑證 1 在 http.sys 的註冊，儘管另一個應用程式仍然在使用它。 為了防止這種情況，Service Fabric 會偵測到該連接埠上已經有另一個應用程式以該憑證註冊 (因為 http.sys)，而讓作業失敗。
 
-因此，Service Fabric 不支援在不同的應用程式執行個體中，使用「相同的連接埠」來升級兩個不同的服務。 換句話說，您無法在相同連接埠的不同服務上使用相同的憑證。 如果您需要在相同的連接埠上使用共用憑證，就必須使用放置條件約束，以確保將這些服務放在不同的機器上。 或者，可能的話，考慮針對每個應用程式執行個體中的每個服務，使用 Service Fabric 動態連接埠。 
+因此，Service Fabric 不支援在不同的應用程式執行個體中，使用「相同的連接埠」  來升級兩個不同的服務。 換句話說，您無法在相同連接埠的不同服務上使用相同的憑證。 如果您需要在相同的連接埠上使用共用憑證，就必須使用放置條件約束，以確保將這些服務放在不同的機器上。 或者，可能的話，考慮針對每個應用程式執行個體中的每個服務，使用 Service Fabric 動態連接埠。 
 
 如果您看到使用 https 進行升級失敗，系統將會顯示錯誤警告「Windows HTTP 伺服器 API 針對共用連接埠的應用程式不支援多個憑證」。
 
 ## <a name="application-upgrade-flowchart"></a>應用程式升級流程圖
-本段落下面的流程圖可以協助您了解 Service Fabric 應用程式的升級程序。 特別是，此流程會說明逾時 (包括 HealthCheckStableDuration、HealthCheckRetryTimeout 和 UpgradeHealthCheckInterval) 如何協助控制一個更新網域中的升級被視為成功或失敗的時機。
+本段落下面的流程圖可以協助您了解 Service Fabric 應用程式的升級程序。 特別是，此流程會說明逾時 (包括 HealthCheckStableDuration  、HealthCheckRetryTimeout  和 UpgradeHealthCheckInterval  ) 如何協助控制一個更新網域中的升級被視為成功或失敗的時機。
 
 ![Service Fabric 應用程式的升級程序][image]
 
@@ -82,6 +82,6 @@ Service Fabric 在升級期間進行的健康狀態原則以及檢查不限於�
 
 參考 [進階主題](service-fabric-application-upgrade-advanced.md)，以了解如何在升級您的應用程式時使用進階功能。
 
-参考 [Troubleshooting Application Upgrades](service-fabric-application-upgrade-troubleshooting.md)（对应用程序升级进行故障排除）中的步骤来解决应用程序升级时的常见问题。
+參考 [疑難排解應用程式升級](service-fabric-application-upgrade-troubleshooting.md)中的步驟，以修正應用程式升級中常見的問題。
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png

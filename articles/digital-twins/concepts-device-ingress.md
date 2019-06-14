@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
 ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60925856"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>裝置連線能力與遙測輸入
@@ -67,7 +67,7 @@ YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=Con
 
  **Message** 的承載內容可以是大小上限為 256 KB 的任意資料。 [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) 類型的屬性應會有幾項需求。 下表顯示系統支援的必要和選擇性屬性。
 
-| 屬性名稱 | Value | 必要項 | 描述 |
+| 屬性名稱 | 值 | 必要項 | 描述 |
 |---|---|---|---|
 | **DigitalTwins-Telemetry** | 1.0 | 是 | 識別系統訊息的常數值。 |
 | **DigitalTwins-SensorHardwareId** | `string(72)` | 是 | 傳送 **Message** 之感應器的唯一識別碼。 此值必須符合物件的 **HardwareId** 屬性，才能讓系統進行處理。 例如： `00FF0643BE88-CO2`。 |

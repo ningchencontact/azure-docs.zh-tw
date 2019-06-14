@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
 ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65230005"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中使用網路原則來保護 Pod 之間的流量
@@ -82,7 +82,7 @@ Azure 提供兩種方式來實作網路原則。 當您建立 AKS 叢集時，�
 
 * 建立虛擬網路和子網路。
 * 建立 Azure Active Directory (Azure AD) 使用的服務主體與 AKS 叢集。
-* 針對虛擬網路上的 AKS 叢集服務主體指派「參與者」權限。
+* 針對虛擬網路上的 AKS 叢集服務主體指派「參與者」  權限。
 * 在定義的虛擬網路中建立 AKS 叢集，並讓網路原則。
     * *Azure*使用網路原則選項。 若要改為使用 Calico 做為網路原則選項中，使用`--network-policy calico`參數。
 
@@ -222,7 +222,7 @@ kubectl apply -f backend-policy.yaml
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-在殼層提示字元中，使用`wget`如果您可以存取預設 NGINX 網頁。 此時，將逾時值設定為 2 秒。 網路原則現在封鎖所有輸入的流量，因此無法載入此頁面，如下列範例所示：
+在殼層提示字元中，使用`wget`如果您可以存取預設 NGINX 網頁。 此時，將逾時值設定為 2  秒。 網路原則現在封鎖所有輸入的流量，因此無法載入此頁面，如下列範例所示：
 
 ```console
 $ wget -qO- --timeout=2 http://backend

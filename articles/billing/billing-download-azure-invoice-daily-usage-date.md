@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: b78fb7d697f8a72b3c2f99c4509ea6ac5c5e5566
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60616293"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>下載或檢視您的 Azure 帳單發票和每日使用量資料
@@ -42,11 +42,11 @@ ms.locfileid: "60616293"
 
 1. 選取您的訂用帳戶，從[訂用帳戶頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)在 Azure 入口網站中為[具有發票存取權的使用者](billing-manage-access.md)。
 
-2. 選取 [發票]。
+2. 選取 [發票]  。
 
     ![顯示 [帳單和使用量] 選項的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
 
-3. 按 [下載發票] 以檢視 PDF 發票的副本。 如果它顯示**無法使用**，請參閱[為什麼我沒有看到上期的發票？](#noinvoice)
+3. 按 [下載發票]  以檢視 PDF 發票的副本。 如果它顯示**無法使用**，請參閱[為什麼我沒有看到上期的發票？](#noinvoice)
 
     ![顯示計費期間、下載發票和每個計費期間總費用的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/billing4.png)
 
@@ -58,9 +58,9 @@ ms.locfileid: "60616293"
 
 為每個會產生發票[帳單設定檔](billing-mca-overview.md#understand-billing-profiles)Microsoft 客戶合約。 您必須是帳單設定檔擁有者、 參與者、 讀取器或管理員從 Azure 入口網站下載發票的發票。
 
-1. 針對 [成本管理 + 帳單] 進行搜尋。
+1. 針對 [成本管理 + 帳單]  進行搜尋。
 2. 選取計費的設定檔。
-3. 選取 [發票]。
+3. 選取 [發票]  。
 4. 在發票方格中，尋找您想要下載發票的資料列。
 5. 按一下省略符號 (`...`) 結尾的資料列。
 6. 在下載內容功能表中，選取**發票**。
@@ -84,11 +84,11 @@ ms.locfileid: "60616293"
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>電子郵件中取得您訂用帳戶的發票
 
-1. 在[訂用帳戶頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)中，選取您的訂用帳戶。 針對您擁有的每個訂用帳戶選擇加入。 依序按一下 [發票] 和 [以電子郵件寄送我的發票]。
+1. 在[訂用帳戶頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)中，選取您的訂用帳戶。 針對您擁有的每個訂用帳戶選擇加入。 依序按一下 [發票]  和 [以電子郵件寄送我的發票]  。
 
     ![顯示選擇加入流程的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
 
-2. 按一下 [選擇加入] 並接受條款。
+2. 按一下 [選擇加入]  並接受條款。
 
     ![顯示加入流程步驟 2 的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
 
@@ -108,12 +108,12 @@ ms.locfileid: "60616293"
 
 如果您有 Microsoft 客戶合約時，您可以選擇在以電子郵件取得發票。 所有計費的設定檔擁有者、 參與者、 讀者和發票管理員會透過電子郵件取得發票。 讀取器無法更新電子郵件發票喜好設定。
 
-1. 針對 [成本管理 + 帳單] 進行搜尋。
+1. 針對 [成本管理 + 帳單]  進行搜尋。
 1. 選取計費的設定檔。
-1. 在 [設定] 下方，選取 [屬性]。
+1. 在 [設定]  下方，選取 [屬性]  。
 1. 底下**電子郵件發票**，選取**更新電子郵件發票喜好設定**。
 1. 選取 **參加**。
-1. 按一下 [更新] 。
+1. 按一下 [更新]  。
 
 ### <a name="opt-out-of-getting-your-billing-profile-invoices-in-email"></a>退出以電子郵件中取得計費的設定檔發票
 
@@ -129,21 +129,21 @@ ms.locfileid: "60616293"
 
 2. 選取您需要發票和使用資訊的訂用帳戶。
 
-3. 選取 [帳單記錄]。
+3. 選取 [帳單記錄]  。
 
     ![顯示帳單記錄選項的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
 
-4. 可以查看过去六个计费周期以及当前未计费周期的对帐单。
+4. 您可以查看過去六個計費期間和目前未收帳期間的對帳單。
 
     ![顯示計費期間、下載發票和每日使用量的選項，以及每個計費期間總費用的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)
 
-5. 選取 [檢視目前的對帳單]，以查看產生估計時的估計費用。 此資訊每天只會更新一次，可能不會包含您的所有使用量。 您的每月發票可能會與這項估計有所不同。
+5. 選取 [檢視目前的對帳單]  ，以查看產生估計時的估計費用。 此資訊每天只會更新一次，可能不會包含您的所有使用量。 您的每月發票可能會與這項估計有所不同。
 
     ![顯示 [檢視目前對帳單] 選項的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/billingSum2.png)
 
     ![顯示目前費用預估的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/billingSum3.png)
 
-6. 選取 [下載使用量]，以 CSV 檔案形式下載每日使用量資料。 如果您看到兩個可用版本，請下載第 2 個版本。
+6. 選取 [下載使用量]  ，以 CSV 檔案形式下載每日使用量資料。 如果您看到兩個可用版本，請下載第 2 個版本。
 
     ![顯示 [下載使用量] 選項的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
 
@@ -160,8 +160,8 @@ ms.locfileid: "60616293"
 
     ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
 
-1. 選取 [使用量 + 費用]。
-1. 針對您想要下載的月份，選取 [下載]。
+1. 選取 [使用量 + 費用]  。
+1. 針對您想要下載的月份，選取 [下載]  。
 
 ### <a name="download-usage-for-your-microsoft-customer-agreement"></a>Microsoft 客戶合約下載使用量
 
@@ -169,9 +169,9 @@ ms.locfileid: "60616293"
 
 #### <a name="download-usage-for-billed-charges"></a>下載使用量計費的費用
 
-1. 針對 [成本管理 + 帳單] 進行搜尋。
+1. 針對 [成本管理 + 帳單]  進行搜尋。
 2. 選取計費的設定檔。
-3. 選取 [發票]。
+3. 選取 [發票]  。
 4. 在發票方格中，尋找對應至您想要下載使用量發票的資料列。
 5. 按一下省略符號 (`...`) 結尾的資料列。
 6. 在下載內容功能表中，選取**Azure 使用量和費用**。
@@ -180,7 +180,7 @@ ms.locfileid: "60616293"
 
 您也可以下載月-日使用量目前的計費週期，這表示有不尚未計費費用。
 
-1. 針對 [成本管理 + 帳單] 進行搜尋。
+1. 針對 [成本管理 + 帳單]  進行搜尋。
 2. 選取計費的設定檔。
 3. 在 **概觀**刀鋒視窗中，按一下**下載 Azure 使用量和費用**。
 

@@ -13,10 +13,10 @@ ms.custom: seodec18
 ms.date: 05/03/2019
 ms.author: juliako
 ms.openlocfilehash: 2167a74dc81bdbb2562211cf5c0195a755941d9d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148326"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>如何使用自訂的轉換為.NET 進行編碼
@@ -46,7 +46,7 @@ ms.locfileid: "65148326"
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>使用自訂預設建立轉換 
 
-建立新的[轉換](https://docs.microsoft.com/rest/api/media/transforms)時，您需要指定想要其產生的輸出是什麼。 必要的參數是 [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput) 物件，如下列程式碼所示。 每個 **TransformOutput** 都會包含 **Preset (預設)**。 **預設值**描述用來產生所需的視訊和 （或） 音訊處理作業的逐步指示**TransformOutput**。 下列 **TransformOutput** 會建立自訂轉碼器和圖層輸出設定。
+建立新的[轉換](https://docs.microsoft.com/rest/api/media/transforms)時，您需要指定想要其產生的輸出是什麼。 必要的參數是 [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput) 物件，如下列程式碼所示。 每個 **TransformOutput** 都會包含 **Preset (預設)** 。 **預設值**描述用來產生所需的視訊和 （或） 音訊處理作業的逐步指示**TransformOutput**。 下列 **TransformOutput** 會建立自訂轉碼器和圖層輸出設定。
 
 建立[轉換](https://docs.microsoft.com/rest/api/media/transforms)時，您應該先使用 **Get** 方法檢查是否已有轉換存在，如下列程式碼所示。 在媒體服務 v3 中，如果實體不存在，對實體執行的 **Get** 方法會傳回 **null** (檢查名稱時不區分大小寫)。
 

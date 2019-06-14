@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: xpouyat;anilmur;juliako
 ms.openlocfilehash: 608ca4bc3b58dd3c718d6239f90260154d2f6c3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465289"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>搭配進階編碼器使用多個輸入檔案和元件屬性
@@ -136,7 +136,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 在上一個範例中，propertyPath 是 "/Media File Input/filename" 或 "/inactiveTimeout" 或 "clipListXml"。
 這通常是元件的名稱，然後是屬性的名稱。 路徑可以有更多或更少層級，例如 "/primarySourceFile" (因為屬性是在工作流程的根目錄)，或 "/Video Processing/Graphic Overlay/Opacity" (因為覆疊是在群組中)。    
 
-若要檢查路徑和屬性名稱，請使用緊鄰每個屬性的動作按鈕。 您可以按一下這個動作按鈕，然後選取 [編輯] 。 這會對您顯示屬性的實際名稱，並在其正上方顯示命名空間。
+若要檢查路徑和屬性名稱，請使用緊鄰每個屬性的動作按鈕。 您可以按一下這個動作按鈕，然後選取 [編輯]  。 這會對您顯示屬性的實際名稱，並在其正上方顯示命名空間。
 
 ![動作/編輯](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture6_actionedit.png)
 
@@ -150,7 +150,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 
 傳送多個媒體檔案給「媒體編碼器高階工作流程」  編碼器時有以下限制︰
 
-* 所有媒體檔案必須位於同一個「媒體資產」 。 不支援使用多個媒體資產。
+* 所有媒體檔案必須位於同一個「媒體資產」  。 不支援使用多個媒體資產。
 * 您必須在此媒體資產中設定主要檔案 (在理想情況下，這是要求編碼器處理的主要視訊檔案)。
 * 必須將包含 **setRuntimeProperties** 及/或 **transcodeSource** 元素的組態資料傳遞至處理器。
   * **setRuntimeProperties** 可用來覆寫工作流程元件中的檔案名稱屬性或其他屬性。
@@ -163,13 +163,13 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 
 ![主要來源檔案未連接至媒體檔案輸入](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture0_nopin.png)
 
-如果您使用 setRuntimeProperties 來設定檔案名稱屬性，則主要檔案與媒體檔案輸入元件之間不會有連接。
+如果您使用 setRuntimeProperties 來設定檔案名稱屬性，則主要檔案與媒體檔案輸入元件之間不會有連接。 
 
 ![剪輯清單 XML 連接至剪輯清單來源](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture1_pincliplist.png)
 
-您可以將剪輯清單 XML 連接到媒體來源並使用 transcodeSource。
+您可以將剪輯清單 XML 連接到媒體來源並使用 transcodeSource。 
 
-### <a name="clip-list-xml-customization"></a>剪辑列表 XML 自定义
+### <a name="clip-list-xml-customization"></a>剪輯清單 XML 自訂
 您可以在組態字串 XML 中使用 **transcodeSource** ，以在執行階段於工作流程中指定剪輯清單 XML。 這需要剪輯清單 XML 接點才能連接到工作流程中的媒體來源元件。
 
 ```xml
@@ -298,11 +298,11 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 ### <a name="step-by-step-workflow-creation"></a>逐步建立工作流程
 以下步驟會建立工作流程來將兩個檔案做為輸入︰視訊和影像。 它會在視訊頂端覆疊影像。
 
-開啟**工作流程設計工具**，然後選取 [檔案] > [新增工作區] > [轉碼藍圖]。
+開啟**工作流程設計工具**，然後選取 [檔案]   > [新增工作區]   > [轉碼藍圖]  。
 
 新的工作流程會顯示三個元素︰
 
-* 主源文件
+* 主要來源檔案
 * 剪輯清單 XML
 * 輸出檔案/資產  
 
@@ -310,7 +310,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 
 *新編碼工作流程*
 
-為了接受輸入媒體檔案，請從加入媒體檔案輸入元件開始。 如果要将组件添加到工作流，请在“存储库”搜索框中查找它，并将所需的项拖放到设计器窗格。
+為了接受輸入媒體檔案，請從加入媒體檔案輸入元件開始。 若要將元件加入至工作流程，請在 [儲存機制] 搜尋方塊中尋找它，然後將所需的項目拖曳至設計工具窗格。
 
 接著，新增要用於設計工作流程的視訊檔案。 若要這樣做，請按一下工作流程設計工具的背景窗格，並在右手邊的屬性窗格中尋找 [主要來源檔案] 屬性。 按一下資料夾圖示，然後選取適當的視訊檔案。
 

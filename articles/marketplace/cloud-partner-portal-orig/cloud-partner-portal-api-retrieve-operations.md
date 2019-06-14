@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 1fbcc1d50dbc4488c4123be64e85de612233ccc3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935758"
 ---
 <a name="retrieve-operations"></a>擷取作業
@@ -37,7 +37,7 @@ ms.locfileid: "64935758"
 |  offerId           |  供應項目識別碼                                                                                              |  字串       |
 |  operationId       |  可唯一識別供應項目作業的 GUID。 您可以使用此 API 擷取 operationId，並針對任何長時間執行的作業 (例如[發佈供應項目](./cloud-partner-portal-api-publish-offer.md) API)，在回應的 HTTP 標頭中傳回。  |   Guid   |
 |  filteredStatus    | 選用的查詢參數，用來依狀態 (例如 `running`) 篩選此 API 所傳回的集合。  |   字串 |
-|  api-version       | API 的最新版本                                                                                           |    date      |
+|  api-version       | API 的最新版本                                                                                           |    Date      |
 |  |  |  |
 
 
@@ -183,7 +183,7 @@ ms.locfileid: "64935758"
 |  createdDateTime             | 建立作業的 UTC 日期時間                                                       |
 |  lastActionDateTime          | 上次更新作業的 UTC 日期時間                                       |
 |  status                      | 作業的狀態：`not started` \| `running` \| `failed` \| `completed`。 一次只有一項作業可以有 `running` 狀態。 |
-|  錯誤                       | 作業失敗的錯誤訊息                                                               |
+|  error                       | 作業失敗的錯誤訊息                                                               |
 |  |  |
 
 

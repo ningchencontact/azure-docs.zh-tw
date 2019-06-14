@@ -11,10 +11,10 @@ ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236445"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>監視 Azure 備份工作負載
@@ -49,7 +49,7 @@ Azure 備份提供內建監視和警示功能，針對受保護的 Azure 備份�
 下列案例可警示的情況下為服務所定義。
 
   - 備份/還原失敗
-  - 備份成功但有警告的 「 Azure 備份代理程式 」 (MAB)
+  - 備份成功但有 Azure 備份代理程式 (MAB) 的警告
   - 停止保護保留資料/停止保護並刪除資料
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>不會引發警示時的例外狀況
@@ -65,7 +65,7 @@ Azure 備份提供內建監視和警示功能，針對受保護的 Azure 備份�
 
   - Azure VM 備份
   - Azure 檔案備份
-  - SQL 之類的 azure 工作負載備份
+  - SQL 之類的 Azure 工作負載備份
   - Azure 備份代理程式 (MAB)
 
 > [!NOTE]

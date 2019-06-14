@@ -17,17 +17,17 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc9287aac567c8989564094564b92b82662e603f
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825925"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>如何設定應用程式 Proxy 應用程式
 
 這篇文章可協助您了解如何設定應用程式 Proxy 應用程式在 Azure AD 內公開您的內部部署應用程式到雲端。
 
-## <a name="recommended-documents"></a>建議文件 
+## <a name="recommended-documents"></a>建議的文件 
 
 若要深入了解應用程式 Proxy 應用程式透過管理入口網站的初始設定與建立，請遵循[使用 Azure AD 應用程式 Proxy 發佈應用程式](application-proxy-add-on-premises-application.md)。
 

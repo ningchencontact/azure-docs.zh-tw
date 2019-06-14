@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 993eafd5a0b74be706d13fe8e06483c223f81eb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61461199"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>如何從 Java 使用通知中樞
@@ -69,7 +69,7 @@ SDK 目前支援：
     hub = namespaceManager.createNotificationHub(hub);
     ```
 
- 或者
+ 或
 
     ```java
     hub = new NotificationHub("connection string", "hubname");
@@ -178,7 +178,7 @@ SDK 目前支援：
     hub.getRegistrationsByChannel("devicetoken");
     ```
 
-所有集合查询都支持 $top 和继续标记。
+所有集合查詢都支援 $top 和接續權杖。
 
 ### <a name="installation-api-usage"></a>安裝 API 的使用方式
 

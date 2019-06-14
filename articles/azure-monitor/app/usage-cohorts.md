@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 263316028e7b35a1a515322dddc4ee867011dcac
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604114"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 世代
@@ -41,16 +41,16 @@ ms.locfileid: "65604114"
 
 1. 開啟 [世代] 工具。
 
-2. 選取 [範本庫] 索引標籤。您會看到各種世代的範本集合。
+2. 選取 [範本庫]  索引標籤。您會看到各種世代的範本集合。
 
-3. 選取 [參與的使用者 -- 依使用天數]。
+3. 選取 [參與的使用者 -- 依使用天數]  。
 
     此世代有三個參數：
     * **Activities**，可讓您選擇哪些事件和網頁檢視應計為「使用」。
     * **Period**，月份的定義。
     * **UsedAtleastCustom**，為計入為參與的使用者，使用者必須在一段期間內使用某項目的次數。
 
-4. 將 **UsedAtleastCustom** 變更為「**5 天以上**」，並將 [期間] 保留為預設的 28 天。
+4. 將 **UsedAtleastCustom** 變更為「**5 天以上**」，並將 [期間]  保留為預設的 28 天。
 
     ![參與的使用者](./media/usage-cohorts/003.png)
 
@@ -61,11 +61,11 @@ ms.locfileid: "65604114"
    > [!TIP]
    > 指定您的世代名稱，例如「參與的使用者 (5 天以上)」。 根據您是否要讓有權存取此 Appication Insights 資源的其他人看見此世代，將它儲存到「我的報告」或「共用報告」。
 
-6. 選取 [回到範本庫]。
+6. 選取 [回到範本庫]  。
 
 ### <a name="what-can-you-do-by-using-this-cohort"></a>此世代有何功能？
 
-開啟 [使用者] 工具。 在 [顯示] 下拉式方塊中，選擇您已根據**使用者所屬範圍**建立的世代。
+開啟 [使用者] 工具。 在 [顯示]  下拉式方塊中，選擇您已根據**使用者所屬範圍**建立的世代。
 
 此時，「使用者」工具已篩選出下列使用者世代：
 
@@ -84,13 +84,13 @@ ms.locfileid: "65604114"
 
 1. 開啟 [世代] 工具。
 
-2. 選取 [範本庫] 索引標籤。您會看到各種世代的範本集合。
+2. 選取 [範本庫]  索引標籤。您會看到各種世代的範本集合。
 
-3. 選取 [事件選擇器]。
+3. 選取 [事件選擇器]  。
 
     ![事件選擇器的螢幕擷取畫面](./media/usage-cohorts/006.png)
 
-4. 在 [活動] 下拉式方塊中，選取要納入世代中的事件。
+4. 在 [活動]  下拉式方塊中，選取要納入世代中的事件。
 
 5. 儲存世代，並為它命名。
 
@@ -100,7 +100,7 @@ ms.locfileid: "65604114"
 
 ![逐步使用世代工具的動畫影像](./media/usage-cohorts/cohorts0001.gif)
 
-1. 開啟 [世代] 工具，選取 [範本庫] 索引標籤，然後選取 [空白使用者世代]。
+1. 開啟 [世代] 工具，選取 [範本庫]  索引標籤，然後選取 [空白使用者世代]  。
 
     ![空白使用者世代](./media/usage-cohorts/001.png)
 
@@ -123,7 +123,7 @@ ms.locfileid: "65604114"
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. 選取 [執行查詢]。 如果您沒有看到使用者識別碼出現在資料表中，變更為您的應用程式有使用者的所在國家/地區。
+3. 選取 [執行查詢]  。 如果您沒有看到使用者識別碼出現在資料表中，變更為您的應用程式有使用者的所在國家/地區。
 
 4. 儲存世代並為其命名。
 

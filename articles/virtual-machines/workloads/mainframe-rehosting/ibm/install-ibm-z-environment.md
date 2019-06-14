@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: 2f5520213e7d8792c89f5445d470987323173dc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60859336"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>在 Azure 上安裝 IBM zD & T 開發/測試環境
@@ -58,7 +58,7 @@ Azure 和 Azure Stack 支援下列版本：
 
 3. 取得上顯示的 SSH 認證**概觀**透過 VM 的刀鋒視窗**Connect**  按鈕。 選取  **SSH**索引標籤上，並將 SSH 登入命令複製到剪貼簿。
 
-4. 登入[Bash 殼層](/azure/cloud-shell/quickstart)從您本機電腦和貼上命令。 它會在表單**ssh\<使用者識別碼\>\@\<IP 位址\>**。 當系統提示您提供認證，請輸入其連接到主目錄。
+4. 登入[Bash 殼層](/azure/cloud-shell/quickstart)從您本機電腦和貼上命令。 它會在表單**ssh\<使用者識別碼\>\@\<IP 位址\>** 。 當系統提示您提供認證，請輸入其連接到主目錄。
 
 ## <a name="copy-the-installation-file-to-the-server"></a>將安裝檔案複製到伺服器
 

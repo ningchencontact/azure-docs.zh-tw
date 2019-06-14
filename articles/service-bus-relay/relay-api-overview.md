@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: spelluru
 ms.openlocfilehash: 05d7ac56d6c1c48125eb458d0eee852ba396b300
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60593349"
 ---
 # <a name="available-relay-apis"></a>可用的轉送 API
@@ -33,7 +33,7 @@ ms.locfileid: "60593349"
 | --- | --- | --- | --- |
 | .NET Standard | 混合式連線 | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
 | .NET Framework | WCF 轉送 | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/A |
-| 节点 | 混合式連線 | [Websocket：`hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[Websocket：`hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[HTTP 要求：`hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
+| 節點 | 混合式連線 | [Websocket：`hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[Websocket：`hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[HTTP 要求：`hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### <a name="additional-information"></a>其他資訊
 
@@ -57,6 +57,6 @@ ms.locfileid: "60593349"
 
 ## <a name="next-steps"></a>後續步驟
 
-若要了解有关 Azure 中继的详细信息，请访问以下链接：
+若要深入了解 Azure 轉送，請造訪下列連結：
 * [什麼是 Azure 轉送？](relay-what-is-it.md)
-* [中继常见问题](relay-faq.md)
+* [轉送常見問題集](relay-faq.md)

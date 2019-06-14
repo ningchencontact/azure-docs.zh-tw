@@ -5,13 +5,13 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 5/6/2019
 ms.author: iainfou
-ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e7f45a3a0e62b2b559002b71bd8816e050f062ab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072633"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中進行儲存和備份的最佳做法
@@ -34,25 +34,25 @@ ms.locfileid: "65072633"
 
 下表會概述可用的儲存體類型及其功能：
 
-| 使用案例 | 磁碟區外掛程式 | 單次讀取/寫入 | 多次唯讀 | 多次讀取/寫入 |
-|----------|---------------|-----------------|----------------|-----------------|
-| 共用設定       | Azure 檔案   | 是 | 是 | 是 |
-| 結構化應用程式資料        | Azure 磁碟   | 是 | 否  | 否  |
-| 應用程式資料、唯讀共用 | [Dysk (預覽)][dysk] | 是 | 是 | 否  |
-| 非結構化資料、檔案系統作業 | [BlobFuse (預覽)][blobfuse] | 是 | 是 | 是 |
+| 使用案例 | 磁碟區外掛程式 | 單次讀取/寫入 | 多次唯讀 | 多次讀取/寫入 | Windows Server 容器支援 |
+|----------|---------------|-----------------|----------------|-----------------|--------------------|
+| 共用設定       | Azure 檔案   | 是 | 是 | 是 | 是 |
+| 結構化應用程式資料        | Azure 磁碟   | 是 | 否  | 否  | 是 |
+| 應用程式資料、唯讀共用 | [Dysk (預覽)][dysk] | 是 | 是 | 否  | 否 |
+| 非結構化資料、檔案系統作業 | [BlobFuse (預覽)][blobfuse] | 是 | 是 | 是 | 否 |
 
 AKS 中針對磁碟區所提供的兩個主要儲存體類型，是由 Azure 磁碟或 Azure 檔案所支援。 為了提升安全性，這兩種儲存體預設都會使用 Azure 儲存體服務加密 (SSE) 來對待用資料進行加密。 目前磁碟無法在 AKS 節點層級使用 Azure 磁碟加密進行加密。
 
 Azure 檔案目前可於「標準」效能層級取得。 Azure 磁碟可於「標準」和「進階」效能層級取得：
 
-- 「進階」磁碟是由高效能固態硬碟 (SSD) 所支援。 針對所有生產環境工作負載，都建議使用進階磁碟。
-- 「標準」磁碟是由一般磁碟 (HDD) 所支援，且適用於封存或不常存取的資料。
+- 「進階」  磁碟是由高效能固態硬碟 (SSD) 所支援。 針對所有生產環境工作負載，都建議使用進階磁碟。
+- 「標準」  磁碟是由一般磁碟 (HDD) 所支援，且適用於封存或不常存取的資料。
 
 藉由了解應用程式效能需求和存取模式，來選擇適當的儲存層。 如需受控磁碟大小和效能的詳細資訊，請參閱 [Azure 受控磁碟概觀][managed-disks]
 
 ### <a name="create-and-use-storage-classes-to-define-application-needs"></a>建立及使用儲存體類別來定義應用程式需求
 
-您所使用的儲存體類型，是使用 Kubernetes「儲存體類別」所定義。 儲存體類別接著會參考於 Pod 或部署規格中。 這些定義會一起運作以建立適當的儲存體，並將它連線至 Pod。 如需詳細資訊，請參閱 [AKS 中的儲存體類別][aks-concepts-storage-classes]。
+您所使用的儲存體類型，是使用 Kubernetes「儲存體類別」  所定義。 儲存體類別接著會參考於 Pod 或部署規格中。 這些定義會一起運作以建立適當的儲存體，並將它連線至 Pod。 如需詳細資訊，請參閱 [AKS 中的儲存體類別][aks-concepts-storage-classes]。
 
 ## <a name="size-the-nodes-for-storage-needs"></a>針對儲存體需求評估節點大小
 
@@ -85,7 +85,7 @@ AKS 節點會以 Azure VM 的形式執行。 有不同類型和大小的 VM 可�
 
 若要查看這些磁碟區實際運作的方式，請參閱如何搭配 [Azure 磁碟][dynamic-disks]或 [Azure 檔案][dynamic-files]以動態方式建立及使用永續性磁碟區。
 
-作為您磁碟區類別定義的一部分，請設定適當的 *reclaimPolicy*。 此 reclaimPolicy 可控制基礎 Azure 儲存體資源在 Pod 刪除後和不再需要永續性磁碟區時的行為。 基礎儲存體資源可以刪除或保留供未來的 Pod 使用。 reclaimPolicy 可以被設定為 [保留] 或 [刪除]。 了解您的應用程式需求，並對保留的儲存體實作定期檢查，以將不需要但是被使用且計費的儲存體量降到最低。
+作為您磁碟區類別定義的一部分，請設定適當的 *reclaimPolicy*。 此 reclaimPolicy 可控制基礎 Azure 儲存體資源在 Pod 刪除後和不再需要永續性磁碟區時的行為。 基礎儲存體資源可以刪除或保留供未來的 Pod 使用。 reclaimPolicy 可以被設定為 [保留]  或 [刪除]  。 了解您的應用程式需求，並對保留的儲存體實作定期檢查，以將不需要但是被使用且計費的儲存體量降到最低。
 
 如需儲存體類別選項的詳細資訊，請參閱[儲存體回收原則][reclaim-policy]。
 

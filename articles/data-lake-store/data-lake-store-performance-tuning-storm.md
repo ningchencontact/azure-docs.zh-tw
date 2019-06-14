@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61436472"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight 和 Azure Data Lake Storage Gen1 上的 Storm 效能微調方針
@@ -132,7 +132,7 @@ ms.locfileid: "61436472"
 
 若要檢查您是否遭到節流，請在用戶端啟用偵錯記錄：
 
-1. 在 [Ambari] > [Storm] > [設定] > [Advanced storm-worker-log4j] 中，將 **&lt;root level="info"&gt;** 變更為 **&lt;root level=”debug”&gt;**。 重新啟動所有節點/服務，以便讓設定生效。
+1. 在 [Ambari]   > [Storm]   > [設定]   > [Advanced storm-worker-log4j]  中，將 **&lt;root level="info"&gt;** 變更為 **&lt;root level=”debug”&gt;** 。 重新啟動所有節點/服務，以便讓設定生效。
 2. 監視背景工作節點上的 Storm 拓撲記錄 (在 /var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log 下)，注意是否有 Data Lake Storage Gen1 節流例外狀況。
 
 ## <a name="next-steps"></a>後續步驟

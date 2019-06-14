@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: v-sharos
 ms.openlocfilehash: bc72da98800ef85ef14be0882ba856fbf01386b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630014"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案
@@ -51,7 +51,7 @@ StorSimple Snapshot Manager 中央管理主控台可讓您建立一致、 時間
 | 深入了解 StorSimple Snapshot Manager |[什麼是 StorSimple Snapshot Manager？](storsimple-what-is-snapshot-manager.md) |
 | 安裝 StorSimple Snapshot Manager<br>重新安裝 StorSimple Snapshot Manager<br>移除 StorSimple Snapshot Manager |[部署 StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md) |
 | 使用 StorSimple Snapshot Manager 功能表和功能：<ul><li>功能表列</li><li>工具列</li><li>範圍窗格</li><li>結果窗格</li><li>動作窗格</li><li>鍵盤瀏覽和快速鍵</li></ul> |[StorSimple Snapshot Manager 使用者介面](storsimple-use-snapshot-manager.md) |
-| 使用包含在 StorSimple Snapshot Manager 中的常見 MMC 功能：<ul><li>檢視</li><li>從這裡開啟新視窗</li><li>重新整理</li><li>匯出清單</li><li>說明</li></ul> |[使用 StorSimple Snapshot Manager 中的 MMC 功能表動作](storsimple-snapshot-manager-mmc-menu.md) |
+| 使用包含在 StorSimple Snapshot Manager 中的常見 MMC 功能：<ul><li>檢視</li><li>從這裡開啟新視窗</li><li>重新整理</li><li>匯出清單</li><li>Help</li></ul> |[使用 StorSimple Snapshot Manager 中的 MMC 功能表動作](storsimple-snapshot-manager-mmc-menu.md) |
 | 新增或更換裝置<br>連接裝置<br>確認匯入的磁碟區群組<br>重新整理已連接的裝置<br>驗證裝置<br>檢視裝置詳細資料<br>刪除裝置組態<br>變更裝置密碼<br>更換故障的裝置<br> |[使用 StorSimple Snapshot Manager 連接並管理 StorSimple 裝置](storsimple-snapshot-manager-manage-devices.md) |
 | 掛接磁碟區<br>檢視磁碟區的相關資訊<br>刪除磁碟區<br>重新掃描磁碟區<br>設定和備份基本磁碟區<br>設定及備份動態鏡像磁碟區 |[使用 StorSimple Snapshot Manager 檢視和管理磁碟區](storsimple-snapshot-manager-manage-volumes.md) |
 | 檢視磁碟區群組<br>建立磁碟區群組<br>備份磁碟區群組<br>編輯磁碟區群組<br>刪除磁碟區群組 |[使用 StorSimple Snapshot Manager 建立及管理磁碟區群組](storsimple-snapshot-manager-manage-volume-groups.md) |

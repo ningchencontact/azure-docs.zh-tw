@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: shlo
 ms.openlocfilehash: c5c12a66e8f66195a096588d779648d7486ab47b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808758"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Azure Data Factory 中的 ForEach 活動
@@ -76,7 +76,7 @@ type | 必須設定為 **ForEach** | 字串 | 是
 isSequential | 指定應該循序或以平行方式執行迴圈。  以平行方式可一次執行最多 20 個迴圈反覆項目。 例如，如果您的 ForEach 活動會反覆查詢 10 個不同來源和接收資料集的複製活動，且 **isSequential** 設為 False，則所有複本會都執行一次。 預設值為 False。 <br/><br/> 如果 isSequential 設定為 False，請確認有正確的設定可執行多個可執行檔。 否則，應謹慎使用這個屬性，以避免引發寫入衝突。 如需詳細資訊，請參閱[平行執行](#parallel-execution)一節。 | Boolean | 沒有。 預設值為 False。
 batchCount | 批次計數，用於控制平行執行的數目 (當 isSequential 設定為 false 時)。 | 整數 (最大值 50) | 沒有。 預設值為 20。
 項目 | 傳回要反覆查詢之 JSON 陣列的運算式。 | 運算式 (傳回 JSON 陣列) | 是
-活動 | 要執行的活動。 | 活動清單 | 是
+activities | 要執行的活動。 | 活動清單 | 是
 
 ## <a name="parallel-execution"></a>平行執行
 如果 **isSequential** 設為 false，活動會以平行方式逐一查看，並行的反覆項目數最多為 20。 此設定應謹慎使用。 如果並行的反覆項目會寫入相同資料夾的不同檔案，這種方法是正常的。 如果並行的反覆項目會同時寫入相同的檔案，這種方法很可能會導致錯誤。 

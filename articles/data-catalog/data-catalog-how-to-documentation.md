@@ -9,21 +9,21 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 9049e0b25db37f296e27476fbb93418d13c4dcc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61001535"
 ---
 # <a name="document-data-sources"></a>記載資料來源
 ## <a name="introduction"></a>簡介
-**Microsoft Azure 資料目錄** 是完全受控的雲端服務，可作為企業資料來源的註冊系統和探索系統。 換句話說，**Azure 資料目錄**的重點在於協助人們探索、了解，以及使用資料來源，並可協助組織從現有的資料獲得更多價值。
+**Microsoft Azure 資料目錄** 是完全受控的雲端服務，可作為企業資料來源的註冊系統和探索系統。 換句話說，**Azure 資料目錄**的重點在於協助人們探索、了解  ，以及使用資料來源，並可協助組織從現有的資料獲得更多價值。
 
 當資料來源向 **Azure 資料目錄**註冊之後，該服務會複製其中繼資料並建立索引，但不僅止於此。 **Azure 資料目錄** 也可讓使用者提供自己的完整說明文件來描述資料來源的使用方式和常見案例。
 
 在 [如何註解資料來源](data-catalog-how-to-annotate.md)中，您已了解知道資料來源的專家可以使用標記和描述來為資料來源加上註解。 **Azure 資料目錄** 入口網站含有 RTF 編輯器，因此使用者可以完整記載資料資產和容器。 該編輯器包括段落格式化，例如標題、文字格式化、項目符號清單、編號清單和資料表。
 
-標記和描述非常適合用於簡單的註解。 不過，為了協助資料取用者深入了解資料來源的使用方式和資料來源的商務案例，專家可以提供完整而詳細的說明文件。 想要記載資料來源很容易。 請選取資料資產或容器，然後選擇 [說明文件] 。
+標記和描述非常適合用於簡單的註解。 不過，為了協助資料取用者深入了解資料來源的使用方式和資料來源的商務案例，專家可以提供完整而詳細的說明文件。 想要記載資料來源很容易。 請選取資料資產或容器，然後選擇 [說明文件]  。
 
 ![](media/data-catalog-documentation/data-catalog-documentation.png)
 

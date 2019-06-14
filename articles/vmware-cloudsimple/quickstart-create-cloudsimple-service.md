@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9b3b95db24f4b0f9a0cf8f5102dfeea5dc51e29f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577566"
 ---
 # <a name="quickstart---create-service"></a>快速入門-建立服務
@@ -33,7 +33,7 @@ CloudSimple 服務可讓您取用 Azure CloudSimple VMware 方案。  建立此�
 
 請遵循下列步驟來啟用 CloudSimple 服務的資源提供者。
 
-1. 選取 [所有服務]。
+1. 選取 [所有服務]  。
 2. 搜尋並選取**訂用帳戶**。
 
     ![選取訂用帳戶](media/cloudsimple-service-select-subscriptions.png)
@@ -50,7 +50,7 @@ CloudSimple 服務可讓您取用 Azure CloudSimple VMware 方案。  建立此�
 >[!NOTE]
 > CloudSimple 服務必須啟用您的訂用帳戶。 如果您的訂用帳戶未啟用，您會收到錯誤，當您嘗試建立服務時。  請依照下列中的步驟[啟用 CloudSimple 服務](https://docs.azure.cloudsimple.com/enable-cloudsimple-service)文章，以啟用服務。
 
-1. 選取 [所有服務]。
+1. 選取 [所有服務]  。
 2. 搜尋**CloudSimple 服務**。
 
     ![搜尋 CloudSimple 服務](media/create-cloudsimple-service-search.png)
@@ -67,15 +67,15 @@ CloudSimple 服務可讓您取用 Azure CloudSimple VMware 方案。  建立此�
 
     ![建立 CloudSimple 服務](media/create-cloudsimple-service.png)
 
-9. 按一下 [確定]。
+9. 按一下 [確定]  。
 
 建立服務，並新增至服務的清單。
 
-## <a name="purchase-nodes"></a>採購單節點
+## <a name="purchase-nodes"></a>購買節點
 
 若要設定-付移容量 CloudSimple 私用雲端環境，您必須先佈建 Azure 入口網站中的節點。
 
-1. 選取 [所有服務]。
+1. 選取 [所有服務]  。
 2. 搜尋**CloudSimple 節點**。
 
     ![搜尋 CloudSimple 節點](media/create-cloudsimple-node-search.png)
@@ -92,9 +92,9 @@ CloudSimple 服務可讓您取用 Azure CloudSimple VMware 方案。  建立此�
 9. 選取要裝載節點資源的固定的位置。
 10. 選取的節點型別。 您可以選擇[CS28 或 CS36 選項](cloudsimple-node.md)。 後面這個選項會包含最大的運算和記憶體容量。
 11. 選取要佈建的節點數目。
-12. 選取 [檢閱 + 建立]。
+12. 選取 [檢閱 + 建立]  。
 13. 檢閱設定。 若要修改任何設定，請按一下**Previous**。
-14. 選取 [建立] 。
+14. 選取 [建立]  。
 
 ## <a name="next-steps"></a>後續步驟
 

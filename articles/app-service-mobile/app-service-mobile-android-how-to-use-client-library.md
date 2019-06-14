@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: crdun
 ms.openlocfilehash: 45b5ac0c9b3535e5cc5efdc6827d694b41e0b8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60859387"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用 Android 版 Azure Mobile Apps SDK
@@ -79,7 +79,7 @@ Android 版 Azure Mobile Apps SDK 支援 API 層級 19 至 24 (KitKat 至 Nougat
 
     目前最新版為 3.4.0。 支援的版本列在 [Bintray 上][14]。
 
-### <a name="enable-internet"></a>启用 Internet 权限
+### <a name="enable-internet"></a>啟用網際網路權限
 
 若要存取 Azure，您的應用程式必須啟用網際網路權限。 如果尚未啟用，請將下列這一行程式碼加入至 AndroidManifest.xml  檔案：
 
@@ -108,7 +108,7 @@ MobileServiceClient mClient = new MobileServiceClient(
 
 用戶端也需要存取活動或內容 - 本範例中為 `this` 參數。  MobileServiceClient 建構應該發生在 `AndroidManifest.xml` 檔案中所參考的 `onCreate()` 活動方法。
 
-最佳做法是，您應該將伺服器通訊擷取到它自己的 (單一模式) 類別。  在此情況下，您應該傳遞建構函式內的活動，以適當地設定服務。  例如︰
+最佳做法是，您應該將伺服器通訊擷取到它自己的 (單一模式) 類別。  在此情況下，您應該傳遞建構函式內的活動，以適當地設定服務。  例如:
 
 ```java
 package com.example.appname.services;
@@ -158,13 +158,13 @@ Azure Mobile Apps SDK 的核心，是提供對行動裝置應用程式後端上�
 
 ### <a name="define-client-data-classes"></a>定義用戶端資料類別
 
-若要访问 SQL Azure 表的数据，可定义对应于移动应用后端中的表的客户端数据类。 本主題中的範例採用名為 MyDataTable 的資料表，其中包含下列資料行：
+若要存取 SQL Azure 資料表的資料，請定義對應至行動應用程式後端中資料表的用戶端資料類別。 本主題中的範例採用名為 MyDataTable  的資料表，其中包含下列資料行：
 
 * id
 * text
 * 完成
 
-對應型別的用戶端物件位於名為 MyDataTable.java 的檔案中：
+對應型別的用戶端物件位於名為 MyDataTable.java  的檔案中：
 
 ```java
 public class ToDoItem {
@@ -207,7 +207,7 @@ Azure Mobile Apps 後端資料表定義了五個特殊欄位，其中四個可�
 * `byte[] version`:通常會以字串表示，版本也是由伺服器設定。
 * `boolean deleted`:表示記錄已刪除，但尚未清除。  請勿使用 `deleted` 作為您類別中的屬性。
 
-`id` 是必填欄位。  `updatedAt` 欄位和 `version` 欄位是用於離線同步處理 (分別適用於增量同步處理和衝突解決)。  `createdAt` 欄位是參考欄位，且用戶端不可使用。  名稱為屬性的 "across-the-wire" 名稱，且不可調整。  不過，您可以使用 [gson][3] 程式庫，建立物件與 "across-the-wire" 名稱之間的對應。  例如︰
+`id` 是必填欄位。  `updatedAt` 欄位和 `version` 欄位是用於離線同步處理 (分別適用於增量同步處理和衝突解決)。  `createdAt` 欄位是參考欄位，且用戶端不可使用。  名稱為屬性的 "across-the-wire" 名稱，且不可調整。  不過，您可以使用 [gson][3] 程式庫，建立物件與 "across-the-wire" 名稱之間的對應。  例如:
 
 ```java
 package com.example.zumoappname;
@@ -267,7 +267,7 @@ public class ToDoItem
 
 ### <a name="create-a-table-reference"></a>建立資料表參考
 
-若要访问表，请先通过对 [MobileServiceClient][9] 调用 **getTable** 方法来创建一个 [MobileServiceTable][8] 对象。  此方法有兩個多載：
+若要存取資料表，請先在 [MobileServiceClient][9] 上呼叫 **getTable** 方法，以建立 [MobileServiceTable][8] 物件。  此方法有兩個多載：
 
 ```java
 public class MobileServiceClient {
@@ -328,7 +328,7 @@ List<ToDoItem> result = mToDoTable
 
 在資料表參考上使用 **where** 方法呼叫定義篩選器。 在 **where** 方法之後，依序是 **field** 方法以及指定邏輯述詞的方法。 可能的述詞方法包括 **eq** (等於)、**ne** (不等於)、**gt** (大於)、**ge** (大於或等於)、**lt** (小於)、**le** (小於或等於)。 這些方法可讓您比較數字和字串欄位與特定值。
 
-可以按日期筛选。 下列方法可讓您比較整個日期欄位或比較日期的某些部分：**year**、**month**、**day**、**hour**、**minute** 和 **second**。 下列範例會為 *到期日* 為 2013 年的項目新增篩選器。
+您可以依日期進行篩選。 下列方法可讓您比較整個日期欄位或比較日期的某些部分：**year**、**month**、**day**、**hour**、**minute** 和 **second**。 下列範例會為 *到期日* 為 2013 年的項目新增篩選器。
 
 ```java
 List<ToDoItem> results = MToDoTable
@@ -386,7 +386,7 @@ List<ToDoItem> results = mToDoTable
 
 ### <a name="sorting"></a>排序傳回的資料
 
-以下代码返回 **ToDoItems** 表中的所有项，返回的结果已按 *text* 字段的升序排序。 *mToDoTable* 是您先前建立的後端資料表的參考。
+下列程式碼會從 **ToDoItems** 資料表傳回依 *text* 欄位遞增排序的所有項目。 *mToDoTable* 是您先前建立的後端資料表的參考。
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -408,7 +408,7 @@ List<ToDoItemNarrow> result = mToDoTable
     .get();
 ```
 
-select 函數的參數是您要傳回之資料表資料行的字串名稱。  **select** 方法需要接在 **where** 和 **orderBy** 等方法的后面。 而其後可以跟隨 **skip** 和 **top** 之類的分頁方法。
+select 函數的參數是您要傳回之資料表資料行的字串名稱。  **select** 方法必須跟隨在 **where** 和 **orderBy** 等方法之後。 而其後可以跟隨 **skip** 和 **top** 之類的分頁方法。
 
 ### <a name="paging"></a>以分頁方式傳回資料
 
@@ -456,7 +456,7 @@ do {
 
 ### <a name="chaining"></a>操作說明：串連查詢方法
 
-用來查詢後端資料表的方法是可以串連的。 鏈結查詢方法可讓您從排序和分頁的篩選資料列中選取特定資料行。 您可以建立複雜的邏輯篩選器。  每個查詢方法都會傳回 Query 物件。 若要結束這一系列的方法並實際執行查詢，請呼叫 **execute** 方法。 例如︰
+用來查詢後端資料表的方法是可以串連的。 鏈結查詢方法可讓您從排序和分頁的篩選資料列中選取特定資料行。 您可以建立複雜的邏輯篩選器。  每個查詢方法都會傳回 Query 物件。 若要結束這一系列的方法並實際執行查詢，請呼叫 **execute** 方法。 例如:
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -502,7 +502,7 @@ List<ToDoItem> results = mToDoTable
     </ListView>
 ```
 
-在上述程式碼中，「listitem」  屬性會指定清單中個別資料列的配置識別碼。 此程式碼會指定核取方塊及其相關文字，並對清單中的每個項目具現化一次。 此配置不會顯示 **id** 欄位，而更複雜的配置將會指定顯示畫面中的其他欄位。 以下代码摘自 **row_list_to_do.xml** 文件。
+在上述程式碼中，「listitem」  屬性會指定清單中個別資料列的配置識別碼。 此程式碼會指定核取方塊及其相關文字，並對清單中的每個項目具現化一次。 此配置不會顯示 **id** 欄位，而更複雜的配置將會指定顯示畫面中的其他欄位。 此程式碼位於 **row_list_to_do.xml** 檔案中。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -519,14 +519,14 @@ List<ToDoItem> results = mToDoTable
 ```
 
 #### <a name="adapter"></a>定義配接器
-由于视图的数据源是 **ToDoItem** 的数组，因此我们需要基于 **ArrayAdapter&lt;ToDoItem&gt;** 类子类化适配器。 這個子類別會為每個使用 **row_list_to_do** 配置的 **ToDoItem** 產生一個檢視。  我們在程式碼中定義了下列類別，這是 **ArrayAdapter&lt;E&gt;** 類別的擴充功能：
+由於我們的檢視資料來源是 **ToDoItem** 的陣列，因此我們將配接器設為 **ArrayAdapter&lt;ToDoItem&gt;** 類別的子類別。 這個子類別會為每個使用 **row_list_to_do** 配置的 **ToDoItem** 產生一個檢視。  我們在程式碼中定義了下列類別，這是 **ArrayAdapter&lt;E&gt;** 類別的擴充功能：
 
 ```java
 public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-覆寫配接器的 **getView** 方法。 例如︰
+覆寫配接器的 **getView** 方法。 例如:
 
 ```java
     @Override
@@ -607,13 +607,13 @@ ToDoItemAdapter 建構函式的第二個參數是配置的參考。 我們現在
     }
 ```
 
-請在每次修改 **ToDoItem** 資料表時呼叫配接器。 修改是逐条记录进行的，因此，要处理的是单个行而不是一个集合。 插入项时，需要对适配器调用 **add** 方法；删除项时，需要调用 **remove** 方法。
+請在每次修改 **ToDoItem** 資料表時呼叫配接器。 修改是對個別記錄逐一執行的，因此您會處理單一資料列，而不是集合。 在插入項目時，請對配接器呼叫 **add** 方法，刪除時則呼叫 **remove** 方法。
 
 您可以在 [Android 快速入門專案][21]中找到完整的範例。
 
 ## <a name="inserting"></a>將資料插入後端
 
-实例化 *ToDoItem* 类的实例并设置其属性。
+將「ToDoItem」  類別的執行個體具現化，並設定其屬性。
 
 ```java
 ToDoItem item = new ToDoItem();
@@ -639,7 +639,7 @@ Mobile Apps 資料表需要名為 **識別碼**的主索引鍵資料行。此資
 * 輕鬆合併不同資料表或資料庫的記錄。
 * 識別碼值與應用程式邏輯的整合更理想。
 
-若要支持脱机同步， **必需** 提供字符串 ID 值。  一旦識別碼儲存在後端資料庫中，您就無法將它變更。
+若要支援離線同步處理，則 **需要** 字串識別碼值。  一旦識別碼儲存在後端資料庫中，您就無法將它變更。
 
 ## <a name="updating"></a>將行動裝置應用程式中的資料更新
 
@@ -682,11 +682,11 @@ ToDoItem result = mToDoTable
 
 ## <a name="untyped"></a>操作說明：使用不具類型的資料
 
-不具型別的程式設計模型可讓您精確掌控 JSON 序列化。  在某些常見情況下，您可能會想使用不具型別的程式設計模型。 例如，如果您的後端資料表包含許多資料行，但您只需要參考其中幾個資料行時。  使用具型別的模型時，您必須在資料類別中將 Mobile Apps 後端所定義的所有資料行進行定義。  用來存取資料的 API 呼叫大多會與型別程式設計呼叫相類似。 主要差别在于，在非类型化模型中，要对 **MobileServiceJsonTable** 对象而不是 **MobileServiceTable** 对象调用方法。
+不具型別的程式設計模型可讓您精確掌控 JSON 序列化。  在某些常見情況下，您可能會想使用不具型別的程式設計模型。 例如，如果您的後端資料表包含許多資料行，但您只需要參考其中幾個資料行時。  使用具型別的模型時，您必須在資料類別中將 Mobile Apps 後端所定義的所有資料行進行定義。  用來存取資料的 API 呼叫大多會與型別程式設計呼叫相類似。 主要的差別在於，在不具型別的模型中，您會叫用 **MobileServiceJsonTable** 物件的方法，而不是 **MobileServiceTable** 物件。
 
 ### <a name="json_instance"></a>建立不具型別的資料表執行個體
 
-与使用类型化模型相似，首先需要获取表引用，不过，此时该引用的是一个 **MobileServicesJsonTable** 对象。 在用戶端的執行個體上呼叫 **getTable** 方法以取得參考：
+和型別模型一樣，首先您必須取得資料表參考，但在此案例中這會是 **MobileServicesJsonTable** 物件。 在用戶端的執行個體上呼叫 **getTable** 方法以取得參考：
 
 ```java
 private MobileServiceJsonTable mJsonToDoTable;
@@ -719,21 +719,21 @@ JsonObject insertedItem = mJsonToDoTable
 String id = insertedItem.getAsJsonPrimitive("id").getAsString();
 ```
 ### <a name="json_delete"></a>在不具型別的資料表中進行刪除
-以下代码演示了如何删除一个实例，在本例中，该实例就是我们在前一个 **insert** 示例中创建的 *JsonObject* 的实例。 程式碼與典型案例相同，但方法具有不同的簽章，因為它會參考 **JsonObject**。
+下列程式碼將說明如何刪除執行個體 (在此案例中，即為在前述 **插入** 範例中建立的同一個 *JsonObject* 執行個體)。 程式碼與典型案例相同，但方法具有不同的簽章，因為它會參考 **JsonObject**。
 
 ```java
 mToDoTable
     .delete(insertedItem);
 ```
 
-还可以使用某个实例的 ID 来直接删除该实例：
+您也可以直接使用 ID 來刪除執行個體：
 
 ```java
 mToDoTable.delete(ID);
 ```
 
 ### <a name="json_get"></a>從不具型別的資料表傳回所有資料列
-以下代码演示了如何检索整个表。 由於您使用 JSON 資料表，因此可以選擇性地只擷取資料表的某些資料行。
+下列程式碼將說明如何擷取整個資料表。 由於您使用 JSON 資料表，因此可以選擇性地只擷取資料表的某些資料行。
 
 ```java
 public void showAllUntyped(View view) {
@@ -894,7 +894,7 @@ public void completeItem(View view) {
 }
 ```
 
-**invokeApi** 方法是在用戶端上呼叫，可將 POST 要求傳送給新的自訂 API。 如有任何錯誤，自訂 API 傳回的結果會顯示在訊息對話方塊中。 其他版本的 **invokeApi** 可讓您選擇性地在要求主體中傳送物件、指定 HTTP 方法，並隨著要求一起傳送查詢參數。 此外还提供了非类型化的 **invokeApi** 版本。
+**invokeApi** 方法是在用戶端上呼叫，可將 POST 要求傳送給新的自訂 API。 如有任何錯誤，自訂 API 傳回的結果會顯示在訊息對話方塊中。 其他版本的 **invokeApi** 可讓您選擇性地在要求主體中傳送物件、指定 HTTP 方法，並隨著要求一起傳送查詢參數。 也會提供不具型別的版本 **invokeApi** 。
 
 ## <a name="authentication"></a>在您的應用程式中新增驗證
 
@@ -1003,9 +1003,9 @@ dependencies {
 
 ### <a name="caching"></a>快取驗證權杖
 
-您必須將使用者 ID 和驗證語彙基元儲存在本機裝置上，才能快取驗證語彙基元。 當應用程式下次啟動時，您只需確認這些值仍存在於快取中，即可略過登入程序，並使用這項資料還原用戶端。 但是，这些数据是敏感的，为安全起见，应该以加密形式存储，以防手机失窃。  您可以在[快取驗證權杖一節][7]中看到如何快取驗證權杖的完整範例。
+您必須將使用者 ID 和驗證語彙基元儲存在本機裝置上，才能快取驗證語彙基元。 當應用程式下次啟動時，您只需確認這些值仍存在於快取中，即可略過登入程序，並使用這項資料還原用戶端。 但這項資料具有敏感性，因此應加密儲存，以確保在手機失竊的狀況下仍保有安全性。  您可以在[快取驗證權杖一節][7]中看到如何快取驗證權杖的完整範例。
 
-尝试使用过期的令牌时，会收到“401 未授权”  响应。 您可以使用篩選器處理驗證錯誤。  篩選器會攔截對 App Service 後端提出的要求。 篩選器程式碼會測試 401 的回應、觸發登入程序，然後繼續執行產生 401 的要求。
+當您嘗試使用到期的權杖時，您會收到「401 未授權」  的回應。 您可以使用篩選器處理驗證錯誤。  篩選器會攔截對 App Service 後端提出的要求。 篩選器程式碼會測試 401 的回應、觸發登入程序，然後繼續執行產生 401 的要求。
 
 ### <a name="refresh"></a>使用重新整理權杖
 
@@ -1079,7 +1079,7 @@ MobileServiceUser user = mClient
 
 ### <a name="adal"></a>使用 Active Directory Authentication Library (ADAL) 驗證使用者
 
-您可以使用 Active Directory Authentication Library (ADAL)，利用 Azure Active Directory 將使用者登入應用程式。 使用客户端流登录通常比使用 `loginAsync()` 方法更有利，因为它提供更直观的 UX 风格，并允许其他自定义。
+您可以使用 Active Directory Authentication Library (ADAL)，利用 Azure Active Directory 將使用者登入應用程式。 使用用戶端流程登入通常會比使用 `loginAsync()` 方法還適合，因為它提供更原生的 UX 風格，並允許其他自訂。
 
 1. 依照[如何設定 App Service 來進行 Active Directory 登入][22]教學課程的說明，設定您的行動應用程式後端來進行 AAD 登入。 請務必完成註冊原生用戶端應用程式的選擇性步驟。
 2. 安裝 ADAL，方法是修改您的 build.gradle 檔案以納入下列定義：
@@ -1109,10 +1109,10 @@ MobileServiceUser user = mClient
 
 3. 將下列程式碼新增至您的應用程式，進行下列取代：
 
-    * 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE** 。 格式應為 https://login.microsoftonline.com/contoso.onmicrosoft.com。
-    * 以您行動應用程式後端的用戶端識別碼取代 INSERT-RESOURCE-ID-HERE  。 您可以從入口網站 [Azure Active Directory 設定] 底下的 [進階] 索引標籤取得用戶端識別碼。
+    * 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE** 。 格式應為 https://login.microsoftonline.com/contoso.onmicrosoft.com 。
+    * 以您行動應用程式後端的用戶端識別碼取代 INSERT-RESOURCE-ID-HERE  。 您可以從入口網站 [Azure Active Directory 設定]  底下的 [進階]  索引標籤取得用戶端識別碼。
     * 以您從原生用戶端應用程式中複製的用戶端識別碼取代 INSERT-CLIENT-ID-HERE  。
-    * 使用 HTTPS 配置，以您網站的 **/.auth/login/done** 端點取代 *INSERT-REDIRECT-URI-HERE* 。 此值應該類似 https://contoso.azurewebsites.net/.auth/login/done。
+    * 使用 HTTPS 配置，以您網站的 **/.auth/login/done** 端點取代 *INSERT-REDIRECT-URI-HERE* 。 此值應該類似 https://contoso.azurewebsites.net/.auth/login/done  。
 
 ```java
 private AuthenticationContext mContext;
@@ -1276,7 +1276,7 @@ private class CustomHeaderFilter implements ServiceFilter {
 
 ### <a name="conversions"></a>設定自動序列化
 
-可以使用 [gson][3] API，指定适用于每个列的转换策略。 Android 用戶端程式庫會先在背景使用 [gson][3] 來將 Java 物件序列化為 JSON 資料，再將資料傳送至 Azure App Service。  下列程式碼使用 **setFieldNamingStrategy()** 方法來設定策略。 此範例會刪除每個欄位名稱的起始字元 ("m")，然後將下一個字元轉換為小寫。 比方說，它會將「mId」變成「id」。  實作轉換策略，以減少大部分欄位上的 `SerializedName()` 註釋需要。
+您可以使用 [gson][3] API 指定套用至每個資料行的轉換策略。 Android 用戶端程式庫會先在背景使用 [gson][3] 來將 Java 物件序列化為 JSON 資料，再將資料傳送至 Azure App Service。  下列程式碼使用 **setFieldNamingStrategy()** 方法來設定策略。 此範例會刪除每個欄位名稱的起始字元 ("m")，然後將下一個字元轉換為小寫。 比方說，它會將「mId」變成「id」。  實作轉換策略，以減少大部分欄位上的 `SerializedName()` 註釋需要。
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {

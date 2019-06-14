@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a4f9d9a7fe368ec4ffaceff80ce42d42a318c68d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61489039"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>部署您的內部部署 StorSimple 裝置 (Update 3 和更新版本)
@@ -117,7 +117,7 @@ StorSimple 裝置管理員服務可以管理多個 StorSimple 裝置。 執行�
 
 [!INCLUDE [storsimple-8000-configure-and-register-device-u2](../../includes/storsimple-8000-configure-and-register-device-u2.md)]
 
-## <a name="step-4-complete-minimum-device-setup"></a>步驟 4：完成最低要求的设备设置
+## <a name="step-4-complete-minimum-device-setup"></a>步驟 4：完成最小量裝置設定
 為完成 StorSimple 裝置的最小量裝置設定，您必須： 
 
 * 為裝置提供 [易記名稱]。
@@ -130,7 +130,7 @@ StorSimple 裝置管理員服務可以管理多個 StorSimple 裝置。 執行�
 
 完成最低裝置設定之後，它就是[掃描及套用最新更新](#scan-for-and-apply-updates)的最佳做法。
 
-## <a name="step-5-create-a-volume-container"></a>步驟 5：创建卷容器
+## <a name="step-5-create-a-volume-container"></a>步驟 5：建立磁碟區容器
 磁碟區容器具有其中所含之所有磁碟區的儲存體帳戶、頻寬及加密設定。 您必須建立磁碟區容器，才能開始在 StorSimple 裝置上佈建磁碟區。
 
 請在 Azure 入口網站中執行下列步驟，來建立磁碟區容器。
@@ -158,8 +158,8 @@ StorSimple 裝置管理員服務可以管理多個 StorSimple 裝置。 執行�
 
 [!INCLUDE [storsimple-8000-mount-initialize-format-volume](../../includes/storsimple-8000-mount-initialize-format-volume.md)]
 
-## <a name="step-8-take-a-backup"></a>步驟 8：执行备份
-備份可提供磁碟區的時間點保護，並改善復原能力，同時讓還原時間降至最低。 您可以在 StorSimple 裝置上進行兩種備份類型：本機快照與雲端快照。 每一種備份類型都可以是 [排程] 或 [手動]。
+## <a name="step-8-take-a-backup"></a>步驟 8：進行備份
+備份可提供磁碟區的時間點保護，並改善復原能力，同時讓還原時間降至最低。 您可以在 StorSimple 裝置上進行兩種備份類型：本機快照與雲端快照。 每一種備份類型都可以是 [排程]  或 [手動]  。
 
 請在 Azure 入口網站中執行下列步驟，來建立排程備份。
 
@@ -174,7 +174,7 @@ StorSimple 裝置管理員服務可以管理多個 StorSimple 裝置。 執行�
 
 如果您需要在不同區域建立 Azure 儲存體帳戶，請參閱 [關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md) 以取得逐步指示。
 
-請在 Azure 入口網站上的 [StorSimple 裝置管理員服務] 頁面，執行下列步驟。
+請在 Azure 入口網站上的 [StorSimple 裝置管理員服務]  頁面，執行下列步驟。
 
 [!INCLUDE [storsimple-8000-configure-new-storage-account-u2](../../includes/storsimple-8000-configure-new-storage-account-u2.md)]
 

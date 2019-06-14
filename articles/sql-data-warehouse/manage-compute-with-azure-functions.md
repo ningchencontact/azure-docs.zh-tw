@@ -11,10 +11,10 @@ ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61083772"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>使用 Azure Functions 來管理 Azure SQL 資料倉儲中的計算資源
@@ -45,15 +45,15 @@ ms.locfileid: "61083772"
 
 ## <a name="change-the-compute-level"></a>變更計算層級
 
-1. 瀏覽到函式應用程式服務。 如果您部署的範本採用預設值，此服務應該命名為 DWOperations。 您的函式應用程式開啟後，您應會注意到有五個函式部署到您的函式應用程式服務。 
+1. 瀏覽到函式應用程式服務。 如果您部署的範本採用預設值，此服務應該命名為 DWOperations  。 您的函式應用程式開啟後，您應會注意到有五個函式部署到您的函式應用程式服務。 
 
    ![使用範本部署的函式](media/manage-compute-with-azure-functions/five-functions.png)
 
-2. 根據您是否要變更相應增加或相應減少時間，選取 [DWScaleDownTrigger] 或 [DWScaleUpTrigger]。 在下拉式功能表中，選取 [整合]。
+2. 根據您是否要變更相應增加或相應減少時間，選取 [DWScaleDownTrigger]  或 [DWScaleUpTrigger]  。 在下拉式功能表中，選取 [整合]。
 
    ![對函式選取整合](media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. 目前顯示的值應該為 %ScaleDownTime% 或 %ScaleUpTime%。 這些值表示排程是以[應用程式設定][Application Settings] 中定義的值為基礎。 您現在可以忽略此值，並將排程變更為以後續步驟為基礎的慣用時間。
+3. 目前顯示的值應該為 %ScaleDownTime%  或 %ScaleUpTime%  。 這些值表示排程是以[應用程式設定][Application Settings] 中定義的值為基礎。 您現在可以忽略此值，並將排程變更為以後續步驟為基礎的慣用時間。
 
 4. 在 [排程] 區域中，新增時間、您想要的 CRON 運算式，以反映 SQL 資料倉儲相應增加的頻率。 
 
@@ -64,22 +64,22 @@ ms.locfileid: "61083772"
    {second} {minute} {hour} {day} {month} {day-of-week}
    ```
 
-   例如，*"0 30 9 * * 1-5"* 會反映在每個工作日上午 9:30 執行的觸發程序。 如需詳細資訊，請瀏覽 Azure Functions [排程範例][schedule examples]。
+   例如， *"0 30 9 * * 1-5"* 會反映在每個工作日上午 9:30 執行的觸發程序。 如需詳細資訊，請瀏覽 Azure Functions [排程範例][schedule examples]。
 
 
 ## <a name="change-the-time-of-the-scale-operation"></a>變更調整規模作業的時間
 
-1. 瀏覽到函式應用程式服務。 如果您部署的範本採用預設值，此服務應該命名為 DWOperations。 您的函式應用程式開啟後，您應會注意到有五個函式部署到您的函式應用程式服務。 
+1. 瀏覽到函式應用程式服務。 如果您部署的範本採用預設值，此服務應該命名為 DWOperations  。 您的函式應用程式開啟後，您應會注意到有五個函式部署到您的函式應用程式服務。 
 
-2. 根據您是否要變更相應增加或相應減少計算值，選取 DWScaleDownTrigger 或 DWScaleUpTrigger。 選取函式時，您的窗格應會顯示 index.js 檔案。
+2. 根據您是否要變更相應增加或相應減少計算值，選取 DWScaleDownTrigger  或 DWScaleUpTrigger  。 選取函式時，您的窗格應會顯示 index.js  檔案。
 
    ![變更函式觸發程序計算層級](media/manage-compute-with-azure-functions/index-js.png)
 
-3. 將 ServiceLevelObjective 的值變更為您想要的層級，然後按 [儲存]。 這個值是您的資料倉儲執行個體將根據 [整合] 區段中定義的排程而調整至的計算層級。
+3. 將 ServiceLevelObjective  的值變更為您想要的層級，然後按 [儲存]。 這個值是您的資料倉儲執行個體將根據 [整合] 區段中定義的排程而調整至的計算層級。
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>使用暫停或繼續，而不是調整 
 
-目前的函式預設為 DWScaleDownTrigger 和 DWScaleUpTrigger。 如果您想要改用暫停和繼續功能，您可以啟用 DWPauseTrigger 或 DWResumeTrigger。
+目前的函式預設為 DWScaleDownTrigger  和 DWScaleUpTrigger  。 如果您想要改用暫停和繼續功能，您可以啟用 DWPauseTrigger  或 DWResumeTrigger  。
 
 1. 瀏覽到 [函式] 窗格。
 
@@ -89,7 +89,7 @@ ms.locfileid: "61083772"
 
 2. 針對您要啟用的對應觸發程序，按一下滑動切換開關。
 
-3. 瀏覽至個別觸發程序的 [整合] 索引標籤，以變更其排程。
+3. 瀏覽至個別觸發程序的 [整合]  索引標籤，以變更其排程。
 
    > [!NOTE]
    > 自動調整觸發程序和暫停/繼續觸發程序之間的功能差異是傳送給佇列的訊息。 如需詳細資訊，請參閱[新增觸發程序函式][Add a new trigger function]。
@@ -103,7 +103,7 @@ ms.locfileid: "61083772"
 
    ![建立新的函式](media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. 從 [語言] 中選取 Javascript，然後選取 TimerTrigger。
+2. 從 [語言] 中選取 Javascript  ，然後選取 TimerTrigger  。
 
    ![建立新的函式](media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -111,7 +111,7 @@ ms.locfileid: "61083772"
 
    ![週六相應減少](media/manage-compute-with-azure-functions/scale-down-saturday.png)
 
-4. 從其中一個其他觸發程序函式複製 index.js 的內容。
+4. 從其中一個其他觸發程序函式複製 index.js  的內容。
 
    ![複製 index.js](media/manage-compute-with-azure-functions/index-js.png)
 

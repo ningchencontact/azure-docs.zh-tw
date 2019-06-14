@@ -9,10 +9,10 @@ ms.date: 02/22/2016
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 6da653bc94c8b549282ab9124dba23b08771c5f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787760"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>針對 VM 擴展集使用 Resource Manager 範本的進階自動調整設定
@@ -60,7 +60,7 @@ ms.locfileid: "60787760"
 
     ![Autoscalewad, default autoscale setting, 自動調整, 預設自動調整設定](media/autoscale-virtual-machine-scale-sets/autoscalewad.png)
 
-6. 单击“编辑”。 使用下列組態**取代**自動調整設定中的 'profiles' 元素：
+6. 按一下 [編輯]。 使用下列組態**取代**自動調整設定中的 'profiles' 元素：
 
     ![設定檔](media/autoscale-virtual-machine-scale-sets/profiles.png)
 
@@ -229,7 +229,7 @@ ms.locfileid: "60787760"
 
    ```
 
-   按一下資源總管中的 [放置] 按鈕以更新自動調整設定。
+   按一下資源總管中的 [放置]  按鈕以更新自動調整設定。
 
 您已將 VM 擴展集上的自動調整設定更新為包含多個調整設定檔和調整通知。
 

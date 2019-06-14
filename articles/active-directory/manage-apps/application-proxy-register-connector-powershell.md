@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0eb3e52dfd02bd7948f1b5ffd908ac1255118008
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65782909"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>建立 Azure AD 應用程式 Proxy 連接器的自動安裝指令碼
@@ -53,7 +53,7 @@ ms.locfileid: "65782909"
 * 使用離線時建立的權杖註冊連接器
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>使用 Windows PowerShell 認證物件註冊連接器
-1. 建立 Windows PowerShell 認證物件 `$cred`，其中含有目錄的系統管理使用者名稱和密碼。 執行下列命令，取代 *\<使用者名稱\>* 和*\<密碼\>*：
+1. 建立 Windows PowerShell 認證物件 `$cred`，其中含有目錄的系統管理使用者名稱和密碼。 執行下列命令，取代 *\<使用者名稱\>* 和 *\<密碼\>* ：
    
         $User = "<username>"
         $PlainPassword = '<password>'

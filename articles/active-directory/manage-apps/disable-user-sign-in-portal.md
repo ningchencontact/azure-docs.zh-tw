@@ -17,10 +17,10 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 90000f34ff247fdd5939dc19971c170aa4b70386
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824650"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中停用企業應用程式的使用者登入
@@ -28,11 +28,11 @@ ms.locfileid: "65824650"
 
 ## <a name="how-do-i-disable-user-sign-ins"></a>如何停用使用者登入？
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com) 。
-1. 選取 [所有服務]，在文字方塊中輸入 **Azure Active Directory**，然後選取 **Enter** 鍵。
+1. 選取 [所有服務]  ，在文字方塊中輸入 **Azure Active Directory**，然後選取 **Enter** 鍵。
 1. 在  **Azure Active Directory** -  ***directoryname***窗格 （也就是 Azure AD 窗格為您管理的目錄），選取**企業應用程式**.
 1. 在 [**企業應用程式-所有應用程式**] 窗格中，您會看到一份可以管理的應用程式。 選取應用程式。
-1. 在 [appname] 窗格 (亦即標題中含有所選應用程式之名稱的窗格) 上，選取 [屬性]。
-1. 在 [appname - 屬性] 窗格上，針對 [為使用者啟用登入?] 選取 [否]。
+1. 在 [appname] 窗格 (亦即標題中含有所選應用程式之名稱的窗格) 上，選取 [屬性]  。
+1. 在 [appname - 屬性]  窗格上，針對 [為使用者啟用登入?]  選取 [否]  。
 1. 選取 [儲存]  命令。
 
 ## <a name="next-steps"></a>後續步驟

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: c0f8da779ca656cf357c418b8766a53307643695
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64708785"
 ---
 # <a name="api-management-authentication-policies"></a>API 管理驗證原則
@@ -26,7 +26,7 @@ ms.locfileid: "64708785"
 
 ##  <a name="AuthenticationPolicies"></a> 驗證原則  
   
--   [使用基本方法进行身份验证](api-management-authentication-policies.md#Basic) - 使用基本身份验证方法向后端服务进行身份验证。  
+-   [使用基本驗證進行驗證](api-management-authentication-policies.md#Basic) - 使用基本驗證來驗證後端服務。  
   
 -   [使用用戶端憑證進行驗證](api-management-authentication-policies.md#ClientCertificate) - 使用用戶端憑證來驗證後端服務。  
 
@@ -55,7 +55,7 @@ ms.locfileid: "64708785"
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|描述|必要項|預設值|  
+|Name|描述|必要項|預設值|  
 |----------|-----------------|--------------|-------------|  
 |username|指定「基本驗證」認證的使用者名稱。|是|N/A|  
 |password|指定「基本驗證」認證的密碼。|是|N/A|  
@@ -89,13 +89,13 @@ ms.locfileid: "64708785"
 
 ### <a name="elements"></a>元素  
   
-|名稱|描述|必要項|  
+|Name|描述|必要項|  
 |----------|-----------------|--------------|  
 |authentication-certificate|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|描述|必要項|預設值|  
+|Name|描述|必要項|預設值|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|用戶端憑證的指紋。|請`thumbprint`或`certificate-id`必須存在。|N/A|  
 |certificate-id|憑證資源名稱。|請`thumbprint`或`certificate-id`必須存在。|N/A|  

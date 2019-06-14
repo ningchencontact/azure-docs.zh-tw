@@ -9,19 +9,19 @@ ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66114525"
 ---
 下表說明 Azure 的一般用途 v1，v2 和 Blob 儲存體帳戶的預設限制。 *輸入*限制是指所有資料傳送至儲存體帳戶的要求。 *輸出*限制是指所有資料從儲存體帳戶中所收到的回應。
 
-| Resource | 預設限制 |
+| 資源 | 預設限制 |
 | --- | --- |
 | 每個區域中每個訂用帳戶的儲存體帳戶數目，包括標準和進階帳戶 | 250 |
 | 最大的儲存體帳戶容量 | 2 適用於美國和歐洲地區，其他所有區域，其中包括英國的 500 TB 的 PB |
-| Blob 容器、 blob、 檔案共用、 資料表、 佇列、 實體或訊息，每個儲存體帳戶的最大數目 | 無限制 |
+| Blob 容器、 blob、 檔案共用、 資料表、 佇列、 實體或訊息，每個儲存體帳戶的最大數目 | 沒有限制 |
 | 每一儲存體帳戶的要求率上限<sup>1</sup> | 每秒 20,000 個要求 |
 | 最大輸入<sup>1</sup>每個儲存體帳戶 （美國地區） | 如果啟用 RA-GRS/GRS，則為 10 Gbps，LRS/ZRS 為 20 Gbps<sup>2</sup> |
 | 最大輸入<sup>1</sup>每個儲存體帳戶 （非美國地區） | 如果啟用 RA-GRS/GRS，則 5 Gbps，LRS/ZRS 為 10 Gbps<sup>2</sup> |

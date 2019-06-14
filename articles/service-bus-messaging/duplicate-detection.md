@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: d9f814a49924ca95078f3b3decca4f3922c74c2b
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65413648"
 ---
 # <a name="duplicate-detection"></a>重複偵測
@@ -39,9 +39,9 @@ ms.locfileid: "65413648"
 > [!NOTE]
 > 如果已啟用重複偵測，而且未設定工作階段識別碼或資料分割索引鍵，將訊息識別碼可做為資料分割索引鍵。 如果也沒有設定的訊息識別碼，.NET 和 AMQP 程式庫會自動產生之訊息的訊息識別碼。 如需詳細資訊，請參閱 <<c0> [ 使用的資料分割索引鍵](service-bus-partitioning.md#use-of-partition-keys)。
 
-## <a name="enable-duplicate-detection"></a>重複資料偵測
+## <a name="enable-duplicate-detection"></a>啟用重複偵測
 
-在入口網站中，於建立實體時勾選 [啟用重複偵測] 核取方塊可開啟該功能 (預設為關閉)。 建立新主題的設定也是如此。
+在入口網站中，於建立實體時勾選 [啟用重複偵測]  核取方塊可開啟該功能 (預設為關閉)。 建立新主題的設定也是如此。
 
 ![][1]
 

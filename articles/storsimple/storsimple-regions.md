@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
 ms.openlocfilehash: e290feb278a1cddf1cfecfcb66458d8290ec122a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943600"
 ---
 # <a name="available-regions-for-your-storsimple"></a>您的 StorSimple 的可用區域
@@ -96,7 +96,7 @@ Microsoft 可以在前述清單中的地理位置寄送實體硬體，並提供 
 
 如果使用的是 StorSimple 雲端設備 8010 或 8020，則該裝置在支援基礎 VM 的所有區域都受到支援並可使用。 8010 使用 _Standard_A3_ VM，所有 Azure 區域都支援該 VM。
 
-8020 使用進階儲存體和 _Standard_DS3_ VM 建立雲端設備。 在支援進階儲存體和 _Standard_DS3_ Azure VM 的 Azure 區域中，8020 受到支援。 使用[這份清單](https://azure.microsoft.com/regions/services/)，查看您的區域是否提供「虛擬機器 > DS 系列」和「儲存體 > 磁碟儲存體」。
+8020 使用進階儲存體和 _Standard_DS3_ VM 建立雲端設備。 在支援進階儲存體和 _Standard_DS3_ Azure VM 的 Azure 區域中，8020 受到支援。 使用[這份清單](https://azure.microsoft.com/regions/services/)，查看您的區域是否提供「虛擬機器 > DS 系列」  和「儲存體 > 磁碟儲存體」  。
 
 ### <a name="storsimple-virtual-array-model-1200"></a>StorSimple Virtual Array (型號 1200)
 

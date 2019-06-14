@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 9dcfbd4b5fcc8462c88b16f585424166ecd3d499
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61361875"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Azure 串流分析作業中的檢查點和重新執行概念
@@ -55,7 +55,7 @@ Microsoft 偶爾會升級在 Azure 服務中執行「串流分析」作業的二
 
 1. 以預期的事件速率在輸入「事件中樞」載入足夠的資料，以涵蓋您查詢中的最大時間範圍。 事件的時間戳記應該在該整個期間都接近時鐘時間，就像是即時輸入摘要一樣。 例如，如果您查詢中的時間範圍是 3 天，請傳送事件給「事件中樞」長達三天，然後繼續傳送事件。 
 
-2. 使用 [立即] 作為開始時間來啟動作業。 
+2. 使用 [立即]  作為開始時間來啟動作業。 
 
 3. 測量從開始時間到產生第一個輸出之間的時間。 此時間大約就是服務升級期間作業會產生的延遲時間。
 

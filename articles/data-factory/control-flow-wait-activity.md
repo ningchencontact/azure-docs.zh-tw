@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/12/2018
 ms.author: shlo
 ms.openlocfilehash: 66d79bc1597cd8f3c7e01eb8227eb7c91ba04d1d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764746"
 ---
 # <a name="execute-wait-activity-in-azure-data-factory"></a>Azure Data Factory 中執行 wait 活動
@@ -41,7 +41,7 @@ ms.locfileid: "60764746"
 -------- | ----------- | -------------- | --------
 name | `Wait` 活動的名稱。 | 字串 | 是
 type | 必須設為 **Wait**。 | 字串 | 是
-waitTimeInSeconds | 管線繼續進行處理之前所等待的秒數。 | 整數  | 是
+waitTimeInSeconds | 管線繼續進行處理之前所等待的秒數。 | Integer | 是
 
 ## <a name="example"></a>範例
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 84fd4f0971c56d8cf2cdf138ba8ac8ea1a6e07eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711521"
 ---
 # <a name="create-content-keys-with-rest"></a>使用 REST 建立內容金鑰
@@ -66,7 +66,7 @@ ms.locfileid: "60711521"
              Array.Copy(array, array2, 8);
              return Convert.ToBase64String(array2);
          }
-5. 使用前面步骤中收到的“EncryptedContentKey”（转换为 base64 编码的字符串）、“ProtectionKeyId”、“ProtectionKeyType”、“ContentKeyType”和“Checksum”值创建内容密钥。
+5. 用您在先前步驟中收到的 **EncryptedContentKey** (轉換為 base64 編碼的字串)、**ProtectionKeyId**、**ProtectionKeyType**、**ContentKeyType** 和 **Checksum** 值建立內容金鑰。
 6. 透過 $links 作業建立 **ContentKey** 實體與您 **Asset** 實體的關聯。
 
 本文不會示範如何產生 AES 金鑰、加密金鑰，以及計算總和檢查碼。 
@@ -201,7 +201,7 @@ ms.locfileid: "60711521"
     }
 
 
-响应：
+回應：
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache

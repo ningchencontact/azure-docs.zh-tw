@@ -16,10 +16,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6f512911811535818f4ad857c5c3b956870f619
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074541"
 ---
 # <a name="web-app-that-signs-in-users---app-registration"></a>登入使用者-應用程式註冊的 web 應用程式
@@ -47,14 +47,14 @@ ms.locfileid: "65074541"
 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。 或者，登入 Azure 入口網站選擇的國家雲端。
 1. 如果您的帳戶可讓您存取多個租用戶、 右上角選取您的帳戶和設定您的入口網站工作階段所需的 Azure ad 租用戶。
 1. 在左側導覽窗格中，選取**Azure Active Directory**服務，然後按**應用程式註冊** > **新註冊**。
-1. 當 [註冊應用程式] 頁面出現時，輸入您應用程式的註冊資訊：
+1. 當 [註冊應用程式]  頁面出現時，輸入您應用程式的註冊資訊：
    - 選擇您的應用程式的支援的帳戶類型 (請參閱[支援的帳戶類型](./v2-supported-account-types.md))
-   - 在 [名稱] 區段中，輸入將對應用程式使用者顯示、且有意義的應用程式名稱，例如 `AspNetCore-WebApp`。
+   - 在 [名稱]  區段中，輸入將對應用程式使用者顯示、且有意義的應用程式名稱，例如 `AspNetCore-WebApp`。
    - 在 **回覆 URL**，執行個體加入您的應用程式的回覆 URL `https://localhost:44321/`，然後選取**註冊**。
-1. 選取 [驗證] 功能表，然後新增下列資訊：
-- 在 [回覆 URL] 中新增 `https://localhost:44321/signin-oidc`，然後選取 [註冊]。
+1. 選取 [驗證]  功能表，然後新增下列資訊：
+- 在 [回覆 URL]  中新增 `https://localhost:44321/signin-oidc`，然後選取 [註冊]  。
 - 在 **進階設定**區段中，將**登出 URL**到`https://localhost:44321/signout-oidc`。
-- 在 [隱含授與] 底下，核取 [識別碼權杖]。
+- 在 [隱含授與]  底下，核取 [識別碼權杖]  。
 - 選取 [ **儲存**]。
 
 ### <a name="register-an-app-using-powershell"></a>註冊應用程式使用 PowerShell

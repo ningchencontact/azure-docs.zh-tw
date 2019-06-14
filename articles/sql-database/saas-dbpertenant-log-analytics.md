@@ -13,10 +13,10 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6380488faa9a4554df5df5ea67e11dbeb8853fff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61389714"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>設定和多租用戶的 SQL Database SaaS 應用程式中使用 Azure 監視器記錄檔
@@ -51,13 +51,13 @@ OMS 工作區現在稱為 Log Analytics 工作區。 您可以在 Azure 入口�
 1. 在 PowerShell ISE 中，開啟 *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1*。 請將此指令碼保持開啟，因為在本教學課程期間，您可能會想要執行數個負載產生案例。
 1. 如果您尚未佈建一批租用戶，請這麼做，以便讓監視內容更有趣。 此程序需要幾分鐘的時間。
 
-   a. 設定 **$DemoScenario = 1**，佈建一批租用戶。
+   a. 設定 **$DemoScenario = 1**，佈建一批租用戶  。
 
    b. 若要執行指令碼並部署額外的 17 個租用戶，請按 F5。
 
 1. 現在，啟動負載產生器，以在所有租用戶上執行模擬負載。
 
-    a. 設定 **$DemoScenario = 2**，_產生一般強度負載 (大約 30 DTU)_。
+    a. 設定 **$DemoScenario = 2**，_產生一般強度負載 (大約 30 DTU)_ 。
 
     b. 若要執行指令碼，請按 F5。
 
@@ -83,7 +83,7 @@ Azure 監視器是個別的服務，您必須設定。 Azure 監視器會記錄�
 
    ![開啟 Log Analytics 工作區](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-1. 選取名為 wtploganalytics-&lt;user&gt; 的工作區。
+1. 選取名為 wtploganalytics-&lt;user&gt;  的工作區。
 
 1. 選取 **概觀**以在 Azure 入口網站中開啟 log analytics 解決方案。
 
@@ -92,7 +92,7 @@ Azure 監視器是個別的服務，您必須設定。 Azure 監視器會記錄�
     > [!IMPORTANT]
     > 解決方案可能需要幾分鐘的時間才會變成作用中。 
 
-1. 選取 [Azure SQL 分析] 圖格來開啟它。
+1. 選取 [Azure SQL 分析]  圖格來開啟它。
 
     ![[概觀] 圖格](media/saas-dbpertenant-log-analytics/overview.png)
 
@@ -102,7 +102,7 @@ Azure 監視器是個別的服務，您必須設定。 Azure 監視器會記錄�
 
     ![Log analytics 儀表板](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
-1. 變更篩選設定以修改時間範圍。 針對本教學課程，請選取 [過去 1 小時]。
+1. 變更篩選設定以修改時間範圍。 針對本教學課程，請選取 [過去 1 小時]  。
 
     ![時間篩選器](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
@@ -114,7 +114,7 @@ Azure 監視器是個別的服務，您必須設定。 Azure 監視器會記錄�
  
      ![資料庫計量](media/saas-dbpertenant-log-analytics/log-analytics-database-metrics.png)
 
-1. 向左捲動分析頁面，然後選取 [資源資訊] 清單中的伺服器圖格。  
+1. 向左捲動分析頁面，然後選取 [資源資訊]  清單中的伺服器圖格。  
 
     ![[資源資訊] 清單](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
 
@@ -127,7 +127,7 @@ Azure 監視器是個別的服務，您必須設定。 Azure 監視器會記錄�
     ![集區計量](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
 
-1. 回到 Log Analytics 工作區，選取 [OMS 入口網站]以在該處開啟工作區。
+1. 回到 Log Analytics 工作區，選取 [OMS 入口網站]  以在該處開啟工作區。
 
     ![Log Analytics 工作區](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 

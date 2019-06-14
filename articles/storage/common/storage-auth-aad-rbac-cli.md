@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure CLI 來管理 Azure AD rbac-Azure 儲存體 blob 和佇列資料的存取權限
-description: 使用 Azure CLI 來指派存取權給容器和佇列，使用角色型存取控制 (RBAC)。 Azure 存储支持通过 Azure AD 使用内置和自定义的 RBAC 角色进行身份验证。
+description: 使用 Azure CLI 來指派存取權給容器和佇列，使用角色型存取控制 (RBAC)。 Azure 儲存體支援透過 Azure AD 的驗證內建和自訂的 RBAC 角色。
 services: storage
 author: tamram
 ms.service: storage
@@ -10,17 +10,17 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: dc2beda1ae017b5e81fddf08d0c7e88c785bcdf5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153886"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>授與存取權與使用 Azure CLI 的 RBAC 的 Azure blob 和佇列資料
 
 Azure Active Directory (Azure AD) 會透過[角色型存取控制 (RBAC)](../../role-based-access-control/overview.md)，來授與存取受保護資源的權限。 Azure 儲存體定義一組內建的 RBAC 角色，其中包含用來存取 blob 或佇列資料的權限的一組通用。 
 
-将 RBAC 角色分配到 Azure AD 安全主体后，Azure 会向该安全主体授予对这些资源的访问权限。 存取權的範圍可以包括訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列層級。 Azure AD 安全性主體，可能是使用者、 群組、 應用程式的服務主體，或[受管理的 Azure 資源的識別](../../active-directory/managed-identities-azure-resources/overview.md)。
+RBAC 角色指派給 Azure AD 安全性主體時，Azure 授與存取這些資源的安全性主體。 存取權的範圍可以包括訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列層級。 Azure AD 安全性主體，可能是使用者、 群組、 應用程式的服務主體，或[受管理的 Azure 資源的識別](../../active-directory/managed-identities-azure-resources/overview.md)。
 
 本文說明如何使用 Azure CLI 列出內建的 RBAC 角色，並將它們指派給使用者。 如需使用 Azure CLI 的詳細資訊，請參閱[Azure 命令列介面 (CLI)](https://docs.microsoft.com/cli/azure)。
 
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) 會透過[角色型存取控制 (RBAC)](../../
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>确定资源范围 
+## <a name="determine-resource-scope"></a>判斷資源範圍 
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
@@ -64,7 +64,7 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
 ```
 
-下列範例會將指派**儲存體 Blob 資料參與者**角色給使用者，一個名為容器只限於*sample container>*。 請務必以您自己的值取代範例值和方括號中的預留位置值： 
+下列範例會將指派**儲存體 Blob 資料參與者**角色給使用者，一個名為容器只限於*sample container>* 。 請務必以您自己的值取代範例值和方括號中的預留位置值： 
 
 ```azurecli-interactive
 az role assignment create \

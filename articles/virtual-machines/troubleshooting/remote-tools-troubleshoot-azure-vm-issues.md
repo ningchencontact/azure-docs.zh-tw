@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: 513ce98703e67053ab0bcac3e6fc7a3e959f6870
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307354"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717280"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>使用遠端工具對 Azure VM 問題進行疑難排解
 
@@ -213,7 +213,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 1. 從相同 VNET 上的另一個 VM 中，開啟登錄編輯程式 (regedit.exe)。
 
-2. 選取 [檔案] >[連線網路登錄]。
+2. 選取 [檔案]   >[連線網路登錄]  。
 
    ![遠端選項](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
 
@@ -236,9 +236,9 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 1. 從相同 VNET 上的另一個 VM 中，開啟 **Services.msc** 的執行個體。
 
-2. 以滑鼠右鍵按一下 [服務 (本機)\]。
+2. 以滑鼠右鍵按一下 [服務 (本機)\]  。
 
-3. 選取 [連線到另一部電腦]。
+3. 選取 [連線到另一部電腦]  。
 
    ![遠端服務](./media/remote-tools-troubleshoot-azure-vm-issues/remote-services.png)
 

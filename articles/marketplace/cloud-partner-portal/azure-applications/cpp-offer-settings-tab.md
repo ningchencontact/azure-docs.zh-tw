@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 789b783629b3cc3528eba1883b21051604cf6e14
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942937"
 ---
 # <a name="azure-application-offer-settings-tab"></a>Azure 應用程式供應項目設定索引標籤
 
 本文說明如何設定 Azure 應用程式的供應項目設定。
 
-[Azure 應用程式] > [新增供應項目] 頁面隨即開啟，並將焦點放在 [供應項目設定] 索引標籤上。欄位名稱上附加的星號 (*) 表示此為必填欄位。
+[Azure 應用程式] > [新增供應項目]  頁面隨即開啟，並將焦點放在 [供應項目設定]  索引標籤上。欄位名稱上附加的星號 (*) 表示此為必填欄位。
 
 ![供應項目身分識別表單](./media/azureapp-offer-settings-tab.png)
 
 ## <a name="offer-identity-settings"></a>供應項目識別設定
 
-在 [供應項目識別]中，您需要提供下表列出的欄位資訊。  
+在 [供應項目識別]  中，您需要提供下表列出的欄位資訊。  
 
 |    欄位         |       描述                                                            |
 |  ---------       |     ---------------                                                          |
@@ -33,7 +33,7 @@ ms.locfileid: "64942937"
 | **名稱\***          | 您供應項目的顯示名稱。 此名稱會顯示在 Microsoft Azure Marketplace 和 Cloud Partner 入口網站中。 它最多不能超過 50 個字元。 建議在產品中加入明顯的品牌名稱。 請勿加入您的組織名稱，除非這是該產品的行銷方式。 如果您要透過其他網站和出版物行銷此供應項目，請確保名稱在所有出版物上都相同。 |
 |  |  |
 
-選取 [儲存] 以儲存供應項目設定。
+選取 [儲存]  以儲存供應項目設定。
 
 ## <a name="next-steps"></a>後續步驟
 

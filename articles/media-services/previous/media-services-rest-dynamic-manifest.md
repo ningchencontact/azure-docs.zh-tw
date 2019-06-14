@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;cenkdin
 ms.openlocfilehash: 5b023a152cf93ec6ff688674e991ad55db215965
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60767807"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>使用 Azure 媒體服務 REST API 建立篩選器 
@@ -55,7 +55,7 @@ ms.locfileid: "60767807"
 若要建立全域篩選器，請使用下列 HTTP 要求：  
 
 #### <a name="http-request"></a>HTTP 要求
-请求标头
+要求標頭
 
     POST https://media.windows.net/API/Filters HTTP/1.1 
     DataServiceVersion:3.0 
@@ -68,7 +68,7 @@ ms.locfileid: "60767807"
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host:media.windows.net 
 
-请求正文 
+Request body 
 
     {  
        "Name":"GlobalFilter",
@@ -107,8 +107,8 @@ ms.locfileid: "60767807"
 ### <a name="create-local-assetfilters"></a>建立區域 AssetFilter
 若要建立區域 AssetFilter，請使用下列 HTTP 要求：  
 
-#### <a name="http-request"></a>HTTP 请求
-请求标头
+#### <a name="http-request"></a>HTTP 要求
+要求標頭
 
     POST https://media.windows.net/API/AssetFilters HTTP/1.1 
     DataServiceVersion: 3.0 
@@ -121,7 +121,7 @@ ms.locfileid: "60767807"
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net  
 
-请求正文 
+Request body 
 
     {   
        "Name":"AssetFilter", 

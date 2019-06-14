@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: b622de3e21d26676bb11d81a6facf8fea18cabc1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067191"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>使用查詢存放區監視效能
@@ -27,16 +27,16 @@ ms.locfileid: "65067191"
 
 ### <a name="enable-query-store-using-the-azure-portal"></a>使用 Azure 入口網站啟用查詢存放區
 1. 登入 Azure 入口網站，然後選取適用於 PostgreSQL 的 Azure 資料庫伺服器。
-2. 在功能表的 [設定] 區段中，選取 [伺服器參數]。
+2. 在功能表的 [設定]  區段中，選取 [伺服器參數]  。
 3. 搜尋 `pg_qs.query_capture_mode` 參數。
-4. 将值设置为 `TOP` 并**保存**。
+4. 將值設為`TOP`並**儲存**。
 
-若要在查询存储中启用等待统计信息，请执行以下操作： 
+若要啟用查詢存放區中的等候統計資料： 
 1. 搜尋 `pgms_wait_sampling.query_capture_mode` 參數。
-1. 将值设置为 `ALL` 并**保存**。
+1. 將值設為`ALL`並**儲存**。
 
 
-或者，可使用 Azure CLI 设置这些参数。
+或者，您可以設定這些參數，使用 Azure CLI。
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
 az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
@@ -160,10 +160,10 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 |query_id   |bigint     ||從陳述式的剖析樹狀結構計算的內部雜湊碼|
 |event_type |text       ||後端等候中事件的類型|
 |事件  |text       ||如果後端目前正在等候，為該等候事件的名稱|
-|calls  |整數         ||擷取到相同事件的次數|
+|calls  |Integer        ||擷取到相同事件的次數|
 
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>函式
 Query_store.qs_reset() 傳回 void
 
 `qs_reset` 捨棄查詢存放區至今收集到的所有統計資料。 只有伺服器管理員角色可以執行此函式。

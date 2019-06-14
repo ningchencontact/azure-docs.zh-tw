@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 42fdd6645a7a0e7cd9a2f0a7bc969e8eee62758c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60874955"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>針對使用 Azure 藍圖發生的錯誤進行疑難排解
@@ -23,9 +23,9 @@ ms.locfileid: "60874955"
 
 許多錯誤都是將藍圖指派給某個範圍而產生的結果。 當指派失敗時，藍圖會提供有關失敗部署的詳細資料。 此資訊會指出問題，以便能夠進行修正，而使下一次部署能成功。
 
-1. 在左側窗格中選取 [所有服務]。 搜尋並選取 [藍圖]。
+1. 在左側窗格中選取 [所有服務]  。 搜尋並選取 [藍圖]  。
 
-1. 選取 **指派藍圖**從頁面左邊及使用的搜尋方塊來篩選以尋找失敗的指派的藍圖指派。 您也可以依 [佈建狀態] 欄排序指派表格，以查看所有已群組在一起的失敗指派。
+1. 選取 **指派藍圖**從頁面左邊及使用的搜尋方塊來篩選以尋找失敗的指派的藍圖指派。 您也可以依 [佈建狀態]  欄排序指派表格，以查看所有已群組在一起的失敗指派。
 
 1. 按一下滑鼠左鍵與藍圖_失敗_狀態或以滑鼠右鍵按一下，然後選取**檢視指派詳細資料**。
 
@@ -72,4 +72,4 @@ ms.locfileid: "60874955"
 
 - 透過 Azure 專家取得解答[Azure 論壇](https://azure.microsoft.com/support/forums/)。
 - 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。
-- 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
+- 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。

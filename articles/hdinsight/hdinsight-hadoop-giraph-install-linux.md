@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.openlocfilehash: aa13d8dfc65f020f3f27183423913933cd0b9404
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64697610"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>在 HDInsight Hadoop 叢集上安裝 Apache Giraph 並使用 Giraph 來處理大規模圖形
@@ -48,7 +48,7 @@ ms.locfileid: "64697610"
 
     https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
-本部分说明了如何在通过 Azure 门户创建群集时使用示例脚本。
+本節提供有關如何在使用 Azure 入口網站建立叢集時使用範例指令碼的指示。
 
 > [!NOTE]  
 > 您可以使用下列任何方法套用指令碼動作︰
@@ -61,7 +61,7 @@ ms.locfileid: "64697610"
 
 1. 使用 [建立以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-create-linux-clusters-portal.md)中的步驟開始建立叢集，但是不完成建立。
 
-2. 在 [選用組態] 區段中，選取 [指令碼動作]，並提供下列資訊：
+2. 在 [選用組態]  區段中，選取 [指令碼動作]  ，並提供下列資訊：
 
    * **名稱**：輸入指令碼動作的易記名稱。
 
@@ -75,7 +75,7 @@ ms.locfileid: "64697610"
 
    * **參數**：將此欄位保留空白。
 
-3. 在 [指令碼動作] 底部，使用 [選取] 按鈕以儲存組態。 最後，使用 [選用組態] 區段底部的 [選取] 按鈕，儲存選用組態資訊。
+3. 在 [指令碼動作]  底部，使用 [選取]  按鈕以儲存組態。 最後，使用 [選用組態]  區段底部的 [選取]  按鈕，儲存選用組態資訊。
 
 4. 繼續如 [建立以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-create-linux-clusters-portal.md)中所述建立叢集。
 
@@ -107,7 +107,7 @@ ms.locfileid: "64697610"
     [4,0,[[3,4],[2,4]]]
     ```
 
-    此資料使用 `[source_id, source_value,[[dest_id], [edge_value],...]]` 格式，描述有向圖形中物件之間的關聯。 每一行代表 `source_id` 对象与一个或多个 `dest_id` 对象之间的关系。 `edge_value` 可以視為 `source_id` 和 `dest\_id` 之間的連線強度或距離。
+    此資料使用 `[source_id, source_value,[[dest_id], [edge_value],...]]` 格式，描述有向圖形中物件之間的關聯。 每一行代表 `source_id` 物件和一或多個 `dest_id` 物件之間的關聯性。 `edge_value` 可以視為 `source_id` 和 `dest\_id` 之間的連線強度或距離。
 
     使用值 (或權數) 當作物件之間的距離繪製出來後，資料可能如下圖所示：
 
@@ -137,7 +137,7 @@ ms.locfileid: "64697610"
    | `-ca mapred.job.tracker` |叢集的前端節點。 |
    | `-vif` |用於輸入資料的輸入格式。 |
    | `-vip` |輸入資料檔案。 |
-   | `-vof` |输出格式。 在此範例中，識別碼和值是純文字。 |
+   | `-vof` |輸出格式。 在此範例中，識別碼和值是純文字。 |
    | `-op` |輸出位置。 |
    | `-w 2` |要使用的背景工作角色數目。 在此範例中是 2。 |
 

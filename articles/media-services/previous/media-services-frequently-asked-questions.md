@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 3164445dc28a2436d8492902d865414da8d75702
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463893"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
@@ -36,7 +36,7 @@ ms.locfileid: "61463893"
 
 問：我已上傳、編碼以及發佈視訊。 當我試著串流處理視頻時，為什麼不會播放視頻？
 
-答：其中一個最常見的原因就是您嘗試從中進行播放的串流端點不是處於 [執行中] 狀態。  
+答：其中一個最常見的原因就是您嘗試從中進行播放的串流端點不是處於 [執行中]  狀態。  
 
 問：我可以編輯即時資料流？
 
@@ -56,7 +56,7 @@ ms.locfileid: "61463893"
 
 問：使用 AMS 時，有哪些支援的字元可用來命名檔案？
 
-答：建置串流內容的 URL (例如， http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters) 時，媒體服務會使用 IAssetFile.Name 屬性的值。出于这个原因，不允许使用百分号编码。 **Name** 属性的值不能含有任何以下[百分号编码保留字符](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 此外，只能有一个“.” 在檔案名稱的副檔名。
+答：建置串流內容的 URL (例如， http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters) 時，媒體服務會使用 IAssetFile.Name 屬性的值。基於這個理由，不允許 percent-encoding。 **Name** 屬性的值不能有下列任何[百分比編碼保留字元](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 此外，只能有一個 ‘.’ 在檔案名稱的副檔名。
 
 問：如何使用 REST 連線？
 

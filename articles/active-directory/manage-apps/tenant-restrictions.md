@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a340663a1ec4ddf748c6dc2bc3a4e2ce0c4228e
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824389"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>使用租用戶限制來管理對 SaaS 雲端應用程式的存取權
@@ -79,7 +79,7 @@ ms.locfileid: "65824389"
 - 針對*限制存取內容*，使用單一目錄識別碼的值，宣告所在的租用戶會設定租用戶限制。 例如，若要宣告 Contoso 作為設定 「 租用戶限制 」 原則的租用戶，名稱/值組看起來像： `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
 > [!TIP]
-> 您可以找到您的目錄識別碼，在[Azure Active Directory 入口網站](https://aad.portal.azure.com/)。 請以系統管理員身分登入，選取 [Azure Active Directory]，然後選取 [屬性]。
+> 您可以找到您的目錄識別碼，在[Azure Active Directory 入口網站](https://aad.portal.azure.com/)。 請以系統管理員身分登入，選取 [Azure Active Directory]  ，然後選取 [屬性]  。
 
 若要避免使用者插入自己的 HTTP 標頭與非核准租用戶，proxy 必須取代*限制存取-至-租用戶*如果已經存在連入要求中的標頭。
 
@@ -99,7 +99,7 @@ ms.locfileid: "65824389"
 
 1. 登入[Azure Active Directory 入口網站](https://aad.portal.azure.com/)。 **Azure Active Directory 系統管理中心**儀表板隨即出現。
 
-2. 在左窗格中，選取 [Azure Active Directory]。 Azure Active Directory 的 [概觀] 頁面隨即出現。
+2. 在左窗格中，選取 [Azure Active Directory]  。 Azure Active Directory 的 [概觀] 頁面隨即出現。
 
 3. 在 **其他功能**標題之下，選取**租用戶限制**。
 
@@ -150,7 +150,7 @@ Fiddler 是一個免費的 Web 偵錯 Proxy，可用來擷取和修改 HTTP/HTTP
 
 3. 設定 Fiddler 以使用自訂規則來插入 *Restrict-Access-To-Tenants* 和 *Restrict-Access-Context* 標頭：
 
-   1. 在「Fiddler Web 偵錯工具」中，選取 [Rules] \(規則) 功能表，然後選取 [Customize Rules] \(自訂規則) 以開啟 CustomRules 檔案。
+   1. 在「Fiddler Web 偵錯工具」中，選取 [Rules] \(規則)  功能表，然後選取 [Customize Rules] \(自訂規則)  以開啟 CustomRules 檔案。
 
    2. 在開頭新增下列行`OnBeforeRequest`函式。 取代\<租用戶網域\>與 註冊您的租用戶網域 (例如`contoso.onmicrosoft.com`)。 使用您租用戶的 Azure AD GUID 識別碼來取代 \<directory ID\>。
 
@@ -166,13 +166,13 @@ Fiddler 是一個免費的 Web 偵錯 Proxy，可用來擷取和修改 HTTP/HTTP
       }
       ```
 
-      如果您需要允許多個租用戶，請使用逗號來分隔租用戶名稱。 例如：
+      如果您需要允許多個租用戶，請使用逗號來分隔租用戶名稱。 例如:
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 
 4. 儲存並關閉 CustomRules 檔案。
 
-設定 Fiddler 之後，您可以移至 [File] \(檔案) 功能表並選取 [Capture Traffic] \(擷取流量)，來擷取流量。
+設定 Fiddler 之後，您可以移至 [File] \(檔案)  功能表並選取 [Capture Traffic] \(擷取流量)  ，來擷取流量。
 
 ### <a name="staged-rollout-of-proxy-settings"></a>分段推出 Proxy 設定
 

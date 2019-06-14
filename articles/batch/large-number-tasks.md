@@ -16,10 +16,10 @@ ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
 ms.openlocfilehash: ed04774969f72f1d6037a350f019d81d812d73f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60549660"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>將大量工作提交至 Batch 作業
@@ -30,7 +30,7 @@ ms.locfileid: "60549660"
 
 ## <a name="use-task-collections"></a>使用工作集合
 
-Batch API 提供了有效率地以「集合」形式，將工作新增至作業的方法，不用一次新增一個工作。 新增大量工作時，您應該使用適當的方法或多載，將工作新增為集合。 一般而言，您會藉由在逐一查看一組作業的輸入檔或參數時定義工作，來建構工作集合。
+Batch API 提供了有效率地以「集合」  形式，將工作新增至作業的方法，不用一次新增一個工作。 新增大量工作時，您應該使用適當的方法或多載，將工作新增為集合。 一般而言，您會藉由在逐一查看一組作業的輸入檔或參數時定義工作，來建構工作集合。
 
 您在單一呼叫中可以新增的工作集合大小上限，取決於您使用的 Batch API：
 
@@ -65,7 +65,7 @@ Batch API 提供了有效率地以「集合」形式，將工作新增至作業�
 
 下列 C# 程式碼片段會顯示使用 Batch .NET API 新增大量工作時，所要進行的設定。
 
-若要增加工作輸送量，請針對 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet) 的 [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 屬性增加值。 例如︰
+若要增加工作輸送量，請針對 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet) 的 [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) 屬性增加值。 例如:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -75,7 +75,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 使用 [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet) 或 [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet
-) 方法的適當多載，將工作集合新增至作業。 例如︰
+) 方法的適當多載，將工作集合新增至作業。 例如:
 
 ```csharp
 // Add a list of tasks as a collection
@@ -145,7 +145,7 @@ client = batch.BatchExtensionsClient(base_url=BATCH_ACCOUNT_URL, resource_group=
 ...
 ```
 
-建立要新增至作業的工作集合。 例如︰
+建立要新增至作業的工作集合。 例如:
 
 
 ```python

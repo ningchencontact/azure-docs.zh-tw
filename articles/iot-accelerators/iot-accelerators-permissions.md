@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
 ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447421"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>使用 AzureIoTSolutions.com 網站部署解決方案加速器
@@ -60,7 +60,7 @@ AzureIoTSolutions.com 網站會連結至 [Azure IoT 認證裝置目錄](https://
 
 ![裝置目錄](media/iot-accelerators-permissions/devicecatalog.png)
 
-如果您是硬體製造商，請按一下 [成為夥伴]，以了解如何在 IoT 認證方案中與 Microsoft 成為夥伴。
+如果您是硬體製造商，請按一下 [成為夥伴]  ，以了解如何在 IoT 認證方案中與 Microsoft 成為夥伴。
 
 ## <a name="next-steps"></a>後續步驟
 

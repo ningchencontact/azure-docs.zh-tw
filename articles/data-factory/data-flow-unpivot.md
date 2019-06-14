@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 160ff8bbcb8ce5a4f1f32245cc366281640c5919
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61348033"
 ---
 # <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory 取消樞紐轉換
@@ -42,7 +42,7 @@ ms.locfileid: "61348033"
 
 (選擇性) 您可以設定對於每個新資料行名稱從資料列值新增前置詞、中置詞及後置詞的命名模式。
 
-比方說，根據 "Region" 對 "Sales" 進行樞紐處理，就會得到來自每個銷售值的新資料行值。 例如︰"25"、"50"、"1000"、...不過，如果您設定前置詞值為 "Sales"，則系統就會以 "Sales" 作為值的前置詞。
+比方說，根據 "Region" 對 "Sales" 進行樞紐處理，就會得到來自每個銷售值的新資料行值。 例如: "25"、"50"、"1000"、...不過，如果您設定前置詞值為 "Sales"，則系統就會以 "Sales" 作為值的前置詞。
 
 <img src="media/data-flow/unpivot3.png" width="400">
 

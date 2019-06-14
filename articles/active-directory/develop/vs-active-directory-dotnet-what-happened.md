@@ -14,10 +14,10 @@ ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e40a1fd72adf353d5c4d856544482cb7bd68f43
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65413994"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>我的 MVC 專案 (Visual Studio Azure Active Directory 已連線服務) 發生什麼事？
@@ -34,7 +34,7 @@ ms.locfileid: "65413994"
 
 會影響專案檔 *.NET 參考和 `packages.config` (NuGet 參考)。
 
-| Type | 參考 |
+| 類型 | 參考 |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -47,9 +47,9 @@ ms.locfileid: "65413994"
 | .NET; NuGet | System.IdentityModel.Tokens.Jwt |
 | .NET        | System.Runtime.Serialization |
 
-您選取了 [讀取目錄資料] 選項時的其他參考：
+您選取了 [讀取目錄資料]  選項時的其他參考：
 
-| Type | 參考 |
+| 類型 | 參考 |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (僅限 Visual Studio 2015) |
@@ -63,7 +63,7 @@ ms.locfileid: "65413994"
 
 下列參考已移除 (僅限 ASP.NET 4 專案，如同在 Visual Studio 2015 中)：
 
-| Type | 參考 |
+| 類型 | 參考 |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
@@ -72,7 +72,7 @@ ms.locfileid: "65413994"
 ## <a name="project-file-changes"></a>專案檔變更
 
 - 將屬性 `IISExpressSSLPort` 設為相異數字。
-- 如果您選取了 [讀取目錄資料] 選項，請將屬性 `WebProject_DirectoryAccessLevelKey` 設為 0。
+- 如果您選取了 [讀取目錄資料]  選項，請將屬性 `WebProject_DirectoryAccessLevelKey` 設為 0。
 - 將 `IISUrl` 設為 `https://localhost:<port>/`，其中，`<port>` 符合 `IISExpressSSLPort` 值。
 
 ## <a name="webconfig-or-appconfig-changes"></a>web.config 或 app.config 的變更
@@ -91,7 +91,7 @@ ms.locfileid: "65413994"
 
 - 已在 `System.IdentityModel.Tokens.Jwt` 和 `Microsoft.IdentityModel.Protocol.Extensions` 的 `<runtime><assemblyBinding>` 節點下新增 `<dependentAssembly>` 元素。
 
-您選取了 [讀取目錄資料] 選項時的其他變更：
+您選取了 [讀取目錄資料]  選項時的其他變更：
 
 - 已在 `<appSettings>` 下新增下列組態項目：
 
@@ -129,7 +129,7 @@ ms.locfileid: "65413994"
 
 - 已將 `[Authorize]` 屬性新增至 `Controllers/HomeController.cs` 和任何其他現有的控制器。
 
-- 已新增驗證啟動類別 `App_Start/Startup.Auth.cs` (內含 Azure AD 驗證的啟動邏輯)。 如果您選取了 [讀取目錄資料] 選項，此檔案也會包含用來接收 OAuth 驗證碼和交換存取權杖的程式碼。
+- 已新增驗證啟動類別 `App_Start/Startup.Auth.cs` (內含 Azure AD 驗證的啟動邏輯)。 如果您選取了 [讀取目錄資料]  選項，此檔案也會包含用來接收 OAuth 驗證碼和交換存取權杖的程式碼。
 
 - 已新增控制器類別 `Controllers/AccountController.cs` (內含 `SignIn` 和 `SignOut` 方法)。
 
@@ -141,7 +141,7 @@ ms.locfileid: "65413994"
 
 - 已新增 `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) 或 `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015)，內含 Visual Studio 用來追蹤連線服務新增情形的資訊。
 
-- 如果您選取了 [讀取目錄資料] 選項，則會新增 `Models/ADALTokenCache.cs` 和 `Models/ApplicationDbContext.cs` 以支援權杖快取。 此外也已新增其他控制器和檢視，以說明使用 Azure 圖形 API 存取使用者設定檔資訊：`Controllers/UserProfileController.cs`、`Views/UserProfile/Index.cshtml` 和 `Views/UserProfile/Relogin.cshtml`
+- 如果您選取了 [讀取目錄資料]  選項，則會新增 `Models/ADALTokenCache.cs` 和 `Models/ApplicationDbContext.cs` 以支援權杖快取。 此外也已新增其他控制器和檢視，以說明使用 Azure 圖形 API 存取使用者設定檔資訊：`Controllers/UserProfileController.cs`、`Views/UserProfile/Index.cshtml` 和 `Views/UserProfile/Relogin.cshtml`
 
 ### <a name="file-backup-visual-studio-2015"></a>檔案備份 (Visual Studio 2015)
 
@@ -159,7 +159,7 @@ ms.locfileid: "65413994"
 ## <a name="changes-on-azure"></a>Azure 上的變更
 
 - 已在您於新增連線服務時選取的網域中建立 Azure AD 應用程式。
-- 已更新應用程式，以在選取了 [讀取目錄資料] 選項時包含「讀取目錄資料」權限。
+- 已更新應用程式，以在選取了 [讀取目錄資料]  選項時包含「讀取目錄資料」權限。
 
 [深入了解 Azure Active Directory](https://azure.microsoft.com/services/active-directory/)。
 

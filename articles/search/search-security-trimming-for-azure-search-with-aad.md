@@ -10,10 +10,10 @@ ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 410727022b092e2dd8ab8b05e628e25fd60ab833
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61282200"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>使用 Active Directory 身分識別進行安全性篩選以調整 Azure 搜尋服務結果
@@ -43,12 +43,12 @@ ms.locfileid: "61282200"
 
 這個步驟會就接受使用者和群組帳戶登入的目的，將您的應用程式與 AAD 整合。 如果您在貴組織中不是 AAD 系統管理員，可能需要[建立新的租用戶](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant)才能執行下列步驟。
 
-1. 移至[**應用程式註冊入口網站**](https://apps.dev.microsoft.com) >  [聚合式應用程式] > [新增應用程式]。
-2. 輸入應用程式的名稱，然後按一下 [建立]。 
+1. 移至[**應用程式註冊入口網站**](https://apps.dev.microsoft.com) >  [聚合式應用程式]   > [新增應用程式]  。
+2. 輸入應用程式的名稱，然後按一下 [建立]  。 
 3. 在 [我的應用程式] 頁面中，選取您新註冊的應用程式。
-4. 在應用程式註冊頁面上 > [平台] > [新增平台]，選擇 [Web API]。
-5. 仍在應用程式註冊頁面上，移至 > [Microsoft Graph 權限] > [新增]。
-6. 在 [選取權限] 中，新增下列委派的權限，然後按一下 [確定]：
+4. 在應用程式註冊頁面上 > [平台]   > [新增平台]  ，選擇 [Web API]  。
+5. 仍在應用程式註冊頁面上，移至 > [Microsoft Graph 權限]   > [新增]  。
+6. 在 [選取權限] 中，新增下列委派的權限，然後按一下 [確定]  ：
 
    + **Directory.ReadWrite.All**
    + **Group.ReadWrite.All**

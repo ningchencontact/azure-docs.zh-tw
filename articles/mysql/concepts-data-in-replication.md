@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: f91a6da9a305c6620e4e01ab7aa3c554374cb5d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60996797"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>將資料複寫至適用於 MySQL 的 Azure 資料庫
@@ -26,7 +26,7 @@ ms.locfileid: "60996797"
 ## <a name="limitations-and-considerations"></a>限制與注意事項
 
 ### <a name="data-not-replicated"></a>不會複寫資料
-不會複寫主要伺服器上的 [mysql 系統資料庫](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) \(英文\)。 不會複寫主要伺服器上對於帳戶和權限的變更。 如果您在主要伺服器上建立帳戶且此帳戶需要存取複本伺服器，請在複本伺服器端手動建立相同的帳戶。 若要了解系統資料庫中包含哪些資料表，請參閱 [MySQL 手冊](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) \(英文\)。
+不會複寫主要伺服器上的 [mysql 系統資料庫  ](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) \(英文\)。 不會複寫主要伺服器上對於帳戶和權限的變更。 如果您在主要伺服器上建立帳戶且此帳戶需要存取複本伺服器，請在複本伺服器端手動建立相同的帳戶。 若要了解系統資料庫中包含哪些資料表，請參閱 [MySQL 手冊](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) \(英文\)。
 
 ### <a name="requirements"></a>需求
 - 主要伺服器版本必須至少是 MySQL 5.6 版。 

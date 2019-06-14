@@ -13,21 +13,21 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 506721a23a5a18eaea76efaca61df49f20dc9228
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65812474"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>稽核和報告 B2B 共同作業使用者
 使用來賓使用者時，您具有與成員使用者相似的稽核功能。 
 
 ## <a name="access-reviews"></a>存取權檢閱
-您可以使用存取權檢閱，以定期確認來賓使用者是否仍需要資源的存取權。 在 [管理] > [組織關係] 下的 [Azure Active Directory] 中提供了 [存取權檢閱] 功能。 (您還可以從 Azure 入口網站中的 [所有服務] 搜尋「存取權檢閱」。)若要了解如何使用存取權檢閱，請參閱[使用 Azure AD 存取權檢閱來管理來賓存取權](../governance/manage-guest-access-with-access-reviews.md)。
+您可以使用存取權檢閱，以定期確認來賓使用者是否仍需要資源的存取權。 在 [管理]   > [組織關係]  下的 [Azure Active Directory]  中提供了 [存取權檢閱]  功能。 (您還可以從 Azure 入口網站中的 [所有服務]  搜尋「存取權檢閱」。)若要了解如何使用存取權檢閱，請參閱[使用 Azure AD 存取權檢閱來管理來賓存取權](../governance/manage-guest-access-with-access-reviews.md)。
 
 ## <a name="audit-logs"></a>稽核記錄
 
-Azure AD 稽核記錄可提供系統和使用者活動的記錄，包括來賓使用者所起始的活動。 若要存取稽核記錄，請在 [Azure Active Directory] 中的 [監視] 下，選取 [稽核記錄]。 以下範例是受邀者 Sam Oogle 的邀請與兌換記錄：
+Azure AD 稽核記錄可提供系統和使用者活動的記錄，包括來賓使用者所起始的活動。 若要存取稽核記錄，請在 [Azure Active Directory]  中的 [監視]  下，選取 [稽核記錄]  。 以下範例是受邀者 Sam Oogle 的邀請與兌換記錄：
 
 ![螢幕擷取畫面顯示和稽核的範例記錄輸出](./media/auditing-and-reporting/audit-log.png)
 

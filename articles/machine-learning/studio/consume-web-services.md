@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
 ms.openlocfilehash: a537227a7003391122e10f7f39233040cef49db3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60751292"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>如何使用 Azure Machine Learning Studio Web 服務
@@ -47,25 +47,25 @@ Azure Machine Learning Studio 有兩種類型的服務：
 
 若要擷取新 Machine Learning Web 服務的 API 金鑰︰
 
-1. 在 Azure Machine Learning Web Services 入口網站中，按一下頂端功能表上的 [Web 服務]。
+1. 在 Azure Machine Learning Web Services 入口網站中，按一下頂端功能表上的 [Web 服務]  。
 2. 按一下您要擷取金鑰的 Web 服務。
-3. 在頂端功能表上，按一下 [取用] 。
-4. 複製並儲存 [主要金鑰] 。
+3. 在頂端功能表上，按一下 [取用]  。
+4. 複製並儲存 [主要金鑰]  。
 
 若要擷取傳統 Machine Learning Web 服務的 API 金鑰︰
 
-1. 在 Azure Machine Learning Web Services 入口網站中，按一下頂端功能表上的 [傳統 Web 服務]。
+1. 在 Azure Machine Learning Web Services 入口網站中，按一下頂端功能表上的 [傳統 Web 服務]  。
 2. 按一下您所使用的 Web 服務。
 3. 按一下您要取得金鑰的端點。
-4. 在頂端功能表上，按一下 [取用] 。
-5. 複製並儲存 [主要金鑰] 。
+4. 在頂端功能表上，按一下 [取用]  。
+5. 複製並儲存 [主要金鑰]  。
 
 ### <a name="classic-web-service"></a>傳統 Web 服務
  您也可以從 Machine Learning Studio 擷取傳統 Web 服務的金鑰。
 
 #### <a name="machine-learning-studio"></a>Machine Learning Studio
 1. 在 Machine Learning Studio 中，按一下左側的 [Web 服務]  。
-2. 按一下某個 Web 服務。 [API 金鑰] 位於 [儀表板] 索引標籤上。
+2. 按一下某個 Web 服務。 [API 金鑰]  位於 [儀表板]  索引標籤上。
 
 ## <a id="connect"></a>連線到機器學習 Web 服務
 您可以使用任何支援 HTTP 要求和回應的程式設計語言，連線到機器學習 Web 服務。 您可以從機器學習 Web 服務說明頁面檢視 C#、Python 和 R 的範例。
@@ -75,8 +75,8 @@ Azure Machine Learning Studio 有兩種類型的服務：
 
 1. 按一下您所使用的 Web 服務。
 2. 按一下您想要檢視 API 說明頁面的端點。
-3. 在頂端功能表上，按一下 [取用] 。
-4. 按一下 [要求-回應] 或 [批次執行] 端點底下的 [API 說明頁面]。
+3. 在頂端功能表上，按一下 [取用]  。
+4. 按一下 [要求-回應] 或 [批次執行] 端點底下的 [API 說明頁面]  。
 
 **檢視新 Web 服務的機器學習 API 說明**
 
@@ -85,9 +85,9 @@ Azure Machine Learning Studio 有兩種類型的服務：
 1. 按一下頂端功能表上的 [Web 服務]  。
 2. 按一下您要擷取金鑰的 Web 服務。
 
-按一下 [使用 Web 服務] 取得要求-回應服務和批次執行服務的 URI，以及以 C#、R 和 Python 撰寫的範例程式碼。
+按一下 [使用 Web 服務]  取得要求-回應服務和批次執行服務的 URI，以及以 C#、R 和 Python 撰寫的範例程式碼。
 
-按一下 [Swagger API] 從提供的 URI，取得所呼叫 API 的 Swagger 相關文件。
+按一下 [Swagger API]  從提供的 URI，取得所呼叫 API 的 Swagger 相關文件。
 
 ### <a name="c-sample"></a>C# 範例
 若要連線到機器學習 Web 服務，請使用 **HttpClient** 傳遞 ScoreData。 ScoreData 包含 FeatureVector，這是代表 ScoreData 的數值特徵 N 維向量。 您要使用 API 金鑰向機器學習服務驗證。
@@ -97,7 +97,7 @@ Azure Machine Learning Studio 有兩種類型的服務：
 **在 Visual Studio 中安裝 Microsoft.AspNet.WebApi.Client NuGet**
 
 1. 發佈「從 UCI：Adult 2 類別資料集下載資料集」Web 服務。
-2. 按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。
+2. 按一下 [工具]   > [NuGet 套件管理員]   > [套件管理員主控台]  。
 3. 選擇 [ **Install-package Microsoft.AspNet.WebApi.Client**]。
 
 **執行程式碼範例**
@@ -199,7 +199,7 @@ namespace CallRequestResponseService
 **執行程式碼範例**
 
 1. 部署「範例 1：從 UCI：Adult 2 類別資料集下載資料集」實驗，此為 Machine Learning 範例集合中的一部分。
-2. 使用來自 Web 服務的金鑰指派 apiKey。 請參閱本文接近開始處的＜取得 Azure Machine Learning Studio 授權金鑰＞小節。
+2. 使用來自 Web 服務的金鑰指派 apiKey。 請參閱本文接近開始處的＜取得 Azure Machine Learning Studio 授權金鑰＞  小節。
 3. 使用要求 URI 指派 serviceUri。
 
 **以下是完整的要求內容。**

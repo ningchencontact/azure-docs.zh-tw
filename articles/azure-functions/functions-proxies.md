@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 2fbf29385b9a14cf5d4a9df621f0767a32079587
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61020976"
 ---
 # <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions Proxy
@@ -30,12 +30,12 @@ ms.locfileid: "61020976"
 
 本節將示範如何在 Functions 入口網站中建立 Proxy。
 
-1. 開啟 [Azure 门户]，然後移至您的函式應用程式。
-2. 在左側窗格中，選取 [新增 Proxy]。
+1. 開啟 [Azure 入口網站]，然後移至您的函式應用程式。
+2. 在左側窗格中，選取 [新增 Proxy]  。
 3. 為您的 Proxy 提供名稱。
-4. 指定 [路由範本] 和 [HTTP 方法]，以設定此函式應用程式上公開的端點。 這些參數的行為會根據 [HTTP 觸發程序]的規則。
+4. 指定 [路由範本]  和 [HTTP 方法]  ，以設定此函式應用程式上公開的端點。 這些參數的行為會根據 [HTTP 觸發程序]的規則。
 5. 將**後端 URL** 設定為其他端點。 此端點可能是另一個函式應用程式中的函式，也可能是任何其他 API。 值不需要是靜態，且可以參考[應用程式設定]和[來自原始用戶端要求的參數]。
-6. 按一下頁面底部的 [新增] 。
+6. 按一下頁面底部的 [新增]  。
 
 您的 Proxy 現在會存在做為函式應用程式上的新端點。 從用戶端的觀點而言，它相當於 Azure Functions 中的 HttpTrigger。 您可以藉由複製 Proxy URL 並使用最愛的 HTTP 用戶端來測試它，以嘗試您的新 Proxy。
 
@@ -80,23 +80,23 @@ Proxy 的設定不需要是靜態。 您可以將它設定為使用來自原始�
 #### <a name="additional-request-parameters"></a>其他要求參數
 除了路由範本參數之外，設定值中也可以使用下列值：
 
-* **{request.method}**：用於原始要求的 HTTP 方法。
-* **{request.headers.\<HeaderName\>}**：可以從原始要求讀取的標頭。 以您想要讀取之標頭的名稱取代 *\<HeaderName\>*。 如果標頭沒有包含在要求之上，值將會是空字串。
-* **{request.querystring。\<ParameterName\>}**：可以從原始要求讀取的查詢字串參數。 以您想要讀取之參數的名稱取代 *\<ParameterName\>*。 如果參數沒有包含在要求之上，值將會是空字串。
+* **{request.method}** ：用於原始要求的 HTTP 方法。
+* **{request.headers.\<HeaderName\>}** ：可以從原始要求讀取的標頭。 以您想要讀取之標頭的名稱取代 *\<HeaderName\>* 。 如果標頭沒有包含在要求之上，值將會是空字串。
+* **{request.querystring。\<ParameterName\>}** ：可以從原始要求讀取的查詢字串參數。 以您想要讀取之參數的名稱取代 *\<ParameterName\>* 。 如果參數沒有包含在要求之上，值將會是空字串。
 
 ### <a name="response-parameters"></a>參考後端回應參數
 
 修改對用戶端的回應時可以使用回應參數。 設定值中可以使用下列值：
 
-* **{backend.response.statusCode}**：後端回應上所傳回的 HTTP 狀態碼。
-* **{backend.response.statusReason}**：後端回應上所傳回的 HTTP 原因說明。
-* **{backend.response.headers.\<HeaderName\>}**：可以從後端回應讀取的標頭。 以您想要讀取之標頭的名稱取代 *\<HeaderName\>*。 如果標頭未包含在回應中，值將會是空字串。
+* **{backend.response.statusCode}** ：後端回應上所傳回的 HTTP 狀態碼。
+* **{backend.response.statusReason}** ：後端回應上所傳回的 HTTP 原因說明。
+* **{backend.response.headers.\<HeaderName\>}** ：可以從後端回應讀取的標頭。 以您想要讀取之標頭的名稱取代 *\<HeaderName\>* 。 如果標頭未包含在回應中，值將會是空字串。
 
 ### <a name="use-appsettings"></a>參考應用程式設定
 
 您也可以參考[針對函式應用程式定義的應用程式設定](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings)，只要以百分比符號 (%) 括住設定名稱即可。
 
-例如， https://%ORDER_PROCESSING_HOST%/api/orders 的後端 URL 會將 "%ORDER_PROCESSING_HOST%" 取代為 ORDER_PROCESSING_HOST 設定的值。
+例如， https://%ORDER_PROCESSING_HOST%/api/orders  的後端 URL 會將 "%ORDER_PROCESSING_HOST%" 取代為 ORDER_PROCESSING_HOST 設定的值。
 
 > [!TIP] 
 > 當您有多個部署或測試環境時，請使用後端主機的應用程式設定。 這樣一來，您就可以確保一律與該環境保持正確的後端通訊。
@@ -115,12 +115,12 @@ Proxy 的設定不需要是靜態。 您可以將它設定為使用來自原始�
 
 ## <a name="advanced-configuration"></a>進階組態
 
-您設定的 Proxy 會儲存在 proxies.json 檔案中 (位於函式應用程式目錄的根目錄中)。 當您使用Functions 支援的任何[部署方法](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment)時，您可以手動編輯此檔案，並部署為應用程式的一部分。 
+您設定的 Proxy 會儲存在 proxies.json  檔案中 (位於函式應用程式目錄的根目錄中)。 當您使用Functions 支援的任何[部署方法](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment)時，您可以手動編輯此檔案，並部署為應用程式的一部分。 
 
 > [!TIP] 
-> 如果您尚未設定其中一個部署方法，也可以使用入口網站中的 proxies.json 檔案。 移至您的函式應用程式，選取 [平台功能]，然後選取 [App Service 編輯器]。 如此一來，您可以查看函式應用程式的整個檔案結構，然後做出變更。
+> 如果您尚未設定其中一個部署方法，也可以使用入口網站中的 proxies.json  檔案。 移至您的函式應用程式，選取 [平台功能]  ，然後選取 [App Service 編輯器]  。 如此一來，您可以查看函式應用程式的整個檔案結構，然後做出變更。
 
-Proxies.json 是由 Proxy 物件定義，該物件包含具名 Proxy 及其定義。 您可以選擇性地參考 [JSON 結構描述](http://json.schemastore.org/proxies)，以啟用程式碼自動完成 (如果編輯器支援的話)。 範例檔案如下所示：
+Proxies.json  是由 Proxy 物件定義，該物件包含具名 Proxy 及其定義。 您可以選擇性地參考 [JSON 結構描述](http://json.schemastore.org/proxies)，以啟用程式碼自動完成 (如果編輯器支援的話)。 範例檔案如下所示：
 
 ```json
 {
@@ -147,7 +147,7 @@ Proxies.json 是由 Proxy 物件定義，該物件包含具名 Proxy 及其定�
 * **responseOverrides**：針對用戶端回應定義轉換的物件。 請參閱[定義 responseOverrides 物件]。
 
 > [!NOTE] 
-> Azure Functions Proxy 中的 route 屬性不採納函數應用程式主機設定的 routePrefix 屬性。 如果您需要包含前置詞，例如 `/api`，就必須加入 route 屬性中。
+> Azure Functions Proxy 中的 route  屬性不採納函數應用程式主機設定的 routePrefix  屬性。 如果您需要包含前置詞，例如 `/api`，就必須加入 route  屬性中。
 
 ### <a name="disableProxies"></a>停用個別的 Proxy
 
@@ -189,8 +189,8 @@ Proxy 會使用 \ 作為逸出符號，讀出 JSON 檔案中的所有字串。 P
 requestOverrides 物件定義呼叫後端資源時針對要求所做的變更。 該物件是由下列屬性所定義：
 
 * **backend.request.method**：用來呼叫後端的 HTTP 方法。
-* **backend.request.querystring.\<ParameterName\>**：呼叫後端時可以設定的查詢字串參數。 以您想要設定之參數的名稱取代 *\<ParameterName\>*。 若提供空字串，則後端要求不會包含該參數。
-* **backend.request.headers.\<HeaderName\>**：呼叫後端時可以設定的標頭。 以您想要設定之標頭的名稱取代 *\<HeaderName\>*。 如果您提供空字串，則後端要求不會包含該標頭。
+* **backend.request.querystring.\<ParameterName\>** ：呼叫後端時可以設定的查詢字串參數。 以您想要設定之參數的名稱取代 *\<ParameterName\>* 。 若提供空字串，則後端要求不會包含該參數。
+* **backend.request.headers.\<HeaderName\>** ：呼叫後端時可以設定的標頭。 以您想要設定之標頭的名稱取代 *\<HeaderName\>* 。 如果您提供空字串，則後端要求不會包含該標頭。
 
 值可以參考應用程式設定和來自原始用戶端要求的參數。
 
@@ -222,7 +222,7 @@ requestOverrides 物件定義針對傳回給用戶端之回應所做的變更。
 * **response.statusCode**：要傳回給用戶端的 HTTP 狀態碼。
 * **response.statusReason**：要傳回給用戶端的 HTTP 原因說明。
 * **response.body**：要傳回給用戶端本文的字串表示法。
-* **response.headers.\<HeaderName\>**：在回應用戶端時可以設定的標頭。 以您想要設定之標頭的名稱取代 *\<HeaderName\>*。 如果您提供空字串，則回應不會包含該標頭。
+* **response.headers.\<HeaderName\>** ：在回應用戶端時可以設定的標頭。 以您想要設定之標頭的名稱取代 *\<HeaderName\>* 。 如果您提供空字串，則回應不會包含該標頭。
 
 值可以參考應用程式設定、來自原始用戶端要求的參數，以及來自後端回應的參數。
 
@@ -248,7 +248,7 @@ requestOverrides 物件定義針對傳回給用戶端之回應所做的變更。
 > [!NOTE] 
 > 此範例會直接設定回應本文，因此不需要 `backendUri` 屬性。 此範例示範如何使用 Azure Functions Proxy 來模擬 API。
 
-[Azure 门户]: https://portal.azure.com
+[Azure 入口網站]: https://portal.azure.com
 [HTTP 觸發程序]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response

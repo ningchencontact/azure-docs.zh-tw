@@ -14,15 +14,15 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61462378"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到內部部署 Oracle 或複製其中的資料
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](data-factory-onprem-oracle-connector.md)
 > * [第 2 版 (目前的版本)](../connector-oracle.md)
 
@@ -55,7 +55,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 
 此 Oracle 連接器支援兩種驅動程式版本︰
 
-- **適用於 Oracle 的 Microsoft 驅動程式 (建議選項)**：從資料管理閘道 2.7 版開始，適用於 Oracle 的 Microsoft 驅動程式會自動與閘道一起安裝。 您不需要安裝或更新驅動程式，即可建立對 Oracle 的連線。 您也可以使用此驅動程式來體驗更好的複製效能。 支援以下版本的 Oracle 資料庫︰
+- **適用於 Oracle 的 Microsoft 驅動程式 (建議選項)** ：從資料管理閘道 2.7 版開始，適用於 Oracle 的 Microsoft 驅動程式會自動與閘道一起安裝。 您不需要安裝或更新驅動程式，即可建立對 Oracle 的連線。 您也可以使用此驅動程式來體驗更好的複製效能。 支援以下版本的 Oracle 資料庫︰
   - Oracle 12c R1 (12.1)
   - Oracle 11g R1、R2 (11.1、11.2)
   - Oracle 10g R1、R2 (10.1、10.2)
@@ -66,12 +66,12 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
     > 不支援 Oracle Proxy 伺服器。
 
     > [!IMPORTANT]
-    > 目前，適用於 Oracle 的 Microsoft 驅動程式僅支援從 Oracle 複製資料。 驅動程式不支援寫入至 Oracle。 資料管理閘道 [診斷] 索引標籤中的測試連線功能不支援此驅動程式。 您可以選擇使用複製精靈來驗證連線。
+    > 目前，適用於 Oracle 的 Microsoft 驅動程式僅支援從 Oracle 複製資料。 驅動程式不支援寫入至 Oracle。 資料管理閘道 [診斷]  索引標籤中的測試連線功能不支援此驅動程式。 您可以選擇使用複製精靈來驗證連線。
     >
 
 - **Oracle Data Provider for .NET**：您可以使用 Oracle Data Provider，從 Oracle 複製資料或將資料複製到 Oracle。 此元件包含於 [適用於 Windows 的 Oracle 資料存取元件](https://www.oracle.com/technetwork/topics/dotnet/downloads/)中。 在安裝閘道的電腦上安裝相關版本 (32 位元或 64 位元)。 [Oracle Data Provider .NET 12.1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) 可以存取 Oracle Database 10g Release 2 和更新版本。
 
-    如果您選取 [XCopy 安裝]，請完成 readme.htm 檔案中所述的步驟。 建議您選取具有 UI 的安裝程式 (不是 XCopy 安裝程式)。
+    如果您選取 [XCopy 安裝]  ，請完成 readme.htm 檔案中所述的步驟。 建議您選取具有 UI 的安裝程式 (不是 XCopy 安裝程式)。
 
     安裝提供者之後，請使用 [服務] 小程式或資料管理閘道組態管理員，重新啟動您電腦上的資料管理閘道主機服務。
 
@@ -83,7 +83,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 
 若要建立管線，最簡單的方式就是使用複製精靈。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用資料複製精靈建立管線的快速逐步解說。
 
-您也可以使用下列其中一個工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 或 **REST API**。 如需逐步指示來了解如何建立內含複製活動的管線，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+您也可以使用下列其中一個工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 或 **REST API**。 如需逐步指示來了解如何建立內含複製活動的管線，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需完成下列步驟以建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -377,7 +377,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 
 **範例：將資料從 Azure Blob 儲存體複製到 Oracle**
 
-此範例示範如何將資料從 Azure Blob 儲存體帳戶複製到內部部署 Oracle 資料庫。 不過，您可以使用 Azure Data Factory 中的複製活動，「直接」從[支援的資料存放區和格式](data-factory-data-movement-activities.md#supported-data-stores-and-formats)中所列的任何來源複製資料。
+此範例示範如何將資料從 Azure Blob 儲存體帳戶複製到內部部署 Oracle 資料庫。 不過，您可以使用 Azure Data Factory 中的複製活動，「直接」  從[支援的資料存放區和格式](data-factory-data-movement-activities.md#supported-data-stores-and-formats)中所列的任何來源複製資料。
 
 範例有下列 Data Factory 實體：
 
@@ -571,7 +571,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
     1. 從資料夾 <system disk\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config 開啟 .NET 2.0 的電腦組態檔。
     2. 搜尋 **Oracle Data Provider for .NET**。 您應該能夠在 **system.data** > **DbProviderFactories** 之下找到如下列範例所示的項目：`<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
 * 將此項目複製到下列 .NET 4.0 資料夾中的 machine.config 檔案：<系統磁碟\>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config。然後，將版本變更為 4.xxx.x.x。
-* 執行 **gacutil /i [provider path]**，在全域組件快取 (GAC) 中安裝 <ODP.NET 安裝路徑\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll。
+* 執行 **gacutil /i [provider path]** ，在全域組件快取 (GAC) 中安裝 <ODP.NET 安裝路徑\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll。
 
 ### <a name="problem-2-datetime-formatting"></a>問題 2：日期/時間格式
 
@@ -599,26 +599,26 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(使用 Microsoft 驅動程式時，僅在 Oracle 10g 和更新版本上提供支援) |
-| CHAR |字串 |
-| CLOB |字串 |
-| 日期 |DateTime |
-| FLOAT |Decimal，字串 (如果精確度 > 28) |
-| INTEGER |Decimal，字串 (如果精確度 > 28) |
+| CHAR |String |
+| CLOB |String |
+| DATE |DateTime |
+| FLOAT |Decimal，String (如果精確度 > 28) |
+| INTEGER |Decimal，String (如果精確度 > 28) |
 | 間隔年至月 |Int32 |
 | 間隔日至秒鐘 |時間範圍 |
-| 長 |字串 |
+| 長 |String |
 | 長 RAW |Byte[] |
-| NCHAR |字串 |
-| NCLOB |字串 |
-| 數字 |Decimal，字串 (如果精確度 > 28) |
-| NVARCHAR2 |字串 |
+| NCHAR |String |
+| NCLOB |String |
+| NUMBER |Decimal，String (如果精確度 > 28) |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |字串 |
-| 時間戳記 |DateTime |
-| 本地時區的時間戳記 |DateTime |
-| 時區的時間戳記 |DateTime |
-| 不帶正負號的整數 |數字 |
-| VARCHAR2 |字串 |
+| ROWID |String |
+| TIMESTAMP |DateTime |
+| 本地時區的時間戳記 |Datetime |
+| 時區的時間戳記 |Datetime |
+| 不帶正負號的整數 |Number |
+| VARCHAR2 |String |
 | XML |字串 |
 
 > [!NOTE]

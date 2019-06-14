@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6d9220cd2162b4c8cb77c1e7abd0372052f5454
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64541611"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>建立和管理 Azure AD 權限管理 （預覽） 中的類別目錄
@@ -34,11 +34,11 @@ ms.locfileid: "64541611"
 
 目錄是資源和存取封裝的容器。 當您想要相關的資源群組，並存取封裝時，您會建立目錄。 人會建立目錄，就會變成第一個類別目錄擁有者。 目錄擁有者可以新增額外的類別目錄的擁有者。
 
-**必要的角色：** 使用者系統管理員或目錄的建立者
+**必要角色：** 使用者系統管理員或目錄的建立者
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 按一下  **Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**目錄**。
 
@@ -62,9 +62,9 @@ ms.locfileid: "64541611"
 
 若要存取封裝中包含的資源，資源必須存在於目錄中。 您可以新增的資源類型是群組、 應用程式和 SharePoint Online 網站。
 
-**必要的角色：** 使用者管理員或目錄的擁有者
+**必要角色：** 使用者管理員或目錄的擁有者
 
-1. 在 Azure 入口網站中，按一下**Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**目錄**，然後開啟您想要將資源新增到的目錄。
 
@@ -88,9 +88,9 @@ ms.locfileid: "64541611"
 
 您可以從目錄移除資源。 資源只有不在任何類別目錄的存取封裝中使用的情況下，只可以從目錄中移除。
 
-**必要的角色：** 使用者管理員或目錄的擁有者
+**必要角色：** 使用者管理員或目錄的擁有者
 
-1. 在 Azure 入口網站中，按一下**Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**目錄**，然後開啟您想要移除的資源的目錄。
 
@@ -98,15 +98,15 @@ ms.locfileid: "64541611"
 
 1. 選取您想要移除的資源。
 
-1. 按一下 **移除**(或按一下省略符號 (**...**)，然後按一下 **移除資源**)。
+1. 按一下 **移除**(或按一下省略符號 ( **...** )，然後按一下 **移除資源**)。
 
 ## <a name="add-catalog-owners-or-access-package-managers"></a>新增目錄擁有者或存取套件管理員
 
 如果您想要委派管理目錄或目錄中的存取套件，您會新增類別目錄的擁有者，或存取套件管理員。 人會建立目錄，就會變成第一個類別目錄擁有者。
 
-**必要的角色：** 使用者管理員或目錄的擁有者
+**必要角色：** 使用者管理員或目錄的擁有者
 
-1. 在 Azure 入口網站中，按一下**Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**目錄**，然後開啟您想要新增系統管理員的目錄。
 
@@ -120,9 +120,9 @@ ms.locfileid: "64541611"
 
 您可以編輯的名稱和目錄的描述。 使用者會看到這項資訊存取封裝的詳細資料。
 
-**必要的角色：** 使用者管理員或目錄的擁有者
+**必要角色：** 使用者管理員或目錄的擁有者
 
-1. 在 Azure 入口網站中，按一下**Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**目錄**，然後開啟您想要編輯的目錄。
 
@@ -130,21 +130,21 @@ ms.locfileid: "64541611"
 
 1. 編輯類別目錄的名稱或描述。
 
-1. 按一下 [檔案] 。
+1. 按一下 [檔案]  。
 
 ## <a name="delete-a-catalog"></a>刪除類別目錄
 
 如果它沒有任何存取套件，您可以刪除的目錄，但僅限於。
 
-**必要的角色：** 使用者管理員或目錄的擁有者
+**必要角色：** 使用者管理員或目錄的擁有者
 
-1. 在 Azure 入口網站中，按一下**Azure Active Directory** ，然後按一下**身分識別控管**。
+1. 在 Azure 入口網站中按一下 [Azure Active Directory]  ，然後按一下 [身分識別治理]  。
 
 1. 在左側功能表中，按一下**目錄**，然後開啟您想要刪除的目錄。
 
 1. 在目錄上**概觀**，按一下**刪除**。
 
-1. 在出現的訊息方塊中，按一下 [確定]。
+1. 在出現的訊息方塊中，按一下 [確定]  。
 
 ## <a name="next-steps"></a>後續步驟
 

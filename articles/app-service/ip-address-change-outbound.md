@@ -12,10 +12,10 @@ ms.date: 06/28/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: ac62217af096653d61a79ff29ae352c8e950f8af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61269721"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>如何為輸出 IP 位址變更進行準備
@@ -36,13 +36,13 @@ ms.locfileid: "61269721"
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com)。
 
-2.  在左側導覽功能表中選取 [應用程式服務]。
+2.  在左側導覽功能表中選取 [應用程式服務]  。
 
 3.  從清單中選取 App Service 應用程式。
 
 1.  若該應用程式為函式應用程式，請參閱[函式應用程式輸出 IP 位址](../azure-functions/ip-addresses.md#find-outbound-ip-addresses)。
 
-4.  在 [設定] 標題底下，按一下左側導覽中的 [屬性]，並找到標示為 [輸出 IP 位址] 的區段。
+4.  在 [設定]  標題底下，按一下左側導覽中的 [屬性]  ，並找到標示為 [輸出 IP 位址]  的區段。
 
 5. 複製 IP 位址，並將其新增至您輸出流量的特殊處理，例如篩選或允許的清單。 請勿刪除清單中現有的 IP 位址。
 

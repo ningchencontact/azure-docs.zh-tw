@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: 746d21c7ff4d5b939eea7690193ac07425b4001c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447900"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>遠端監視解決方案加速器的常見問題集
@@ -23,8 +23,8 @@ ms.locfileid: "61447900"
 
 新的解決方案加速器提供兩種部署選項：
 
-* 基本選項，是針對尋求降低開發成本的開發人員，或需要建置示範或概念證明的客戶所設計。
-* 標準選項，是針對需要部署備妥基礎結構的企業而設計。
+* 基本  選項，是針對尋求降低開發成本的開發人員，或需要建置示範或概念證明的客戶所設計。
+* 標準  選項，是針對需要部署備妥基礎結構的企業而設計。
 
 ### <a name="how-can-i-ensure-i-keep-my-costs-down-while-i-develop-my-solution"></a>如何確定我在開發解決方案的同時保持降低成本？
 

@@ -10,17 +10,17 @@ ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.openlocfilehash: 5417f66696191cebadc2af9c6d634419a0eb8e5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615305"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>對 U-SQL 失敗作業的使用者定義 C# 程式碼進行偵錯
 
 U-SQL 提供使用 C# 的擴充性模型。 在 U-SQL 指令碼中，可以輕鬆地呼叫 C# 函式，以及執行類 SQL 宣告式語言不支援的分析函式。 若要深入了解 U-SQL 擴充性，請參閱 [U-SQL 程式設計指南](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf)。 
 
-在實務上，任何程式碼可能都需要偵錯，但很難透過受限的記錄檔，針對雲端上使用自訂程式碼的分散式工作進行偵錯。 [Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs) 提供了一個稱為「頂點失敗偵錯」的功能，該功能可協助您更輕鬆地針對您的自訂程式碼中發生的錯誤進行偵錯。 當 U-SQL 作業失敗時，服務會保留失敗狀態，而工具會協助您將雲端失敗環境下載至本機電腦進行偵錯。 本機下載會擷取整個雲端環境，包括任何輸入資料和使用者程式碼。
+在實務上，任何程式碼可能都需要偵錯，但很難透過受限的記錄檔，針對雲端上使用自訂程式碼的分散式工作進行偵錯。 [Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs) 提供了一個稱為「頂點失敗偵錯」  的功能，該功能可協助您更輕鬆地針對您的自訂程式碼中發生的錯誤進行偵錯。 當 U-SQL 作業失敗時，服務會保留失敗狀態，而工具會協助您將雲端失敗環境下載至本機電腦進行偵錯。 本機下載會擷取整個雲端環境，包括任何輸入資料和使用者程式碼。
 
 下列影片示範 Azure Data Lake Tools for Visual Studio 中的頂點失敗偵錯。
 
@@ -35,16 +35,16 @@ U-SQL 提供使用 C# 的擴充性模型。 在 U-SQL 指令碼中，可以輕�
 
 當您在 Azure Data Lake Tools for Visual Studio 中開啟失敗的作業時，您會看到一個黃色的警示列，[錯誤] 索引標籤中有詳細的錯誤訊息。
 
-1. 按一下 [下載]  以下載所有必要的資源和輸入資料流。 如果下載未完成，請按一下 [重試]。
+1. 按一下 [下載]  以下載所有必要的資源和輸入資料流。 如果下載未完成，請按一下 [重試]  。
 
-2. 在下載完成後按一下 [開啟]，以產生本機的偵錯環境。 將開啟新的偵錯解決方案，如果您在 Visual Studio 中開啟現有的解決方案，請確定在偵錯之前先儲存並予以關閉。
+2. 在下載完成後按一下 [開啟]  ，以產生本機的偵錯環境。 將開啟新的偵錯解決方案，如果您在 Visual Studio 中開啟現有的解決方案，請確定在偵錯之前先儲存並予以關閉。
 
 ![Azure Data Lake Analytics U-SQL 偵錯 Visual Studio 下載 Vertex](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
 ## <a name="configure-the-debugging-environment"></a>設定偵錯環境
 
 > [!NOTE]
-> 在進行偵錯之前，請確定核取 [例外狀況設定] 視窗中的 [Common Language Runtime 例外狀況] \(**Ctrl + Alt + E**)。
+> 在進行偵錯之前，請確定核取 [例外狀況設定] 視窗中的 [Common Language Runtime 例外狀況]  \(**Ctrl + Alt + E**)。
 
 ![Azure Data Lake Analytics U-SQL 偵錯 Visual Studio 設定](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-clr-exception-setting.png)
 
@@ -74,13 +74,13 @@ U-SQL 提供使用 C# 的擴充性模型。 在 U-SQL 指令碼中，可以輕�
 
 如果使用者程式碼未包含在程式碼後置檔案中，或者您尚未使用**偵錯資訊**註冊組件，則原始程式碼不會自動包含在偵錯方案中。 在此情況下，您需要額外步驟以新增您的原始程式碼：
 
-1. 以滑鼠右鍵按一下 [方案 'VertexDebug'] > [新增] > [現有專案]，以尋找組件原始程式碼，並將專案新增至偵錯方案。
+1. 以滑鼠右鍵按一下 [方案 'VertexDebug'] > [新增] > [現有專案]  ，以尋找組件原始程式碼，並將專案新增至偵錯方案。
 
     ![Azure Data Lake Analytics U-SQL 偵錯新增專案](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-add-project-to-debug-solution.png)
 
 2. 取得 **FailedVertexDebugHost** 專案的專案資料夾路徑。 
 
-3. 以滑鼠右鍵按一下新增的組件原始程式碼專案 > [屬性]，選取左側的 [建置] 索引標籤，並將結尾為 \bin\debug 的複製路徑貼上為 [輸出] > [輸出路徑]。 最後的輸出路徑會像是`<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`。
+3. 以滑鼠右鍵按一下新增的組件原始程式碼專案 > [屬性]  ，選取左側的 [建置]  索引標籤，並將結尾為 \bin\debug 的複製路徑貼上為 [輸出] > [輸出路徑]  。 最後的輸出路徑會像是`<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`。
 
     ![Azure Data Lake Analytics U-SQL 偵錯設定 pdb 路徑](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 

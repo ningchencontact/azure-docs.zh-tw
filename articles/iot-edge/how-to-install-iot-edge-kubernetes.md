@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 66aca7be9a2df93d846d7e78bc64c93279afc2d1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160691"
 ---
 # <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>如何安裝 IoT Edge 上 Kubernetes （預覽）
@@ -78,7 +78,7 @@ Edge 部署的每個元件的範圍限定到特定裝置，讓您可以共用相
     minikube dashboard
     ```
 
-    在叢集中的命名空間，您會看到一個 IoT Edge 裝置，依照慣例*msiot-\<iothub 名稱 >-\<edgedevice 名稱 >*。 這個命名空間中應該啟動並執行 IoT Edge 代理程式 」 和 「 iotedged pod。
+    在叢集中的命名空間，您會看到一個 IoT Edge 裝置，依照慣例*msiot-\<iothub 名稱 >-\<edgedevice 名稱 >* 。 這個命名空間中應該啟動並執行 IoT Edge 代理程式 」 和 「 iotedged pod。
 
 1. 新增模擬的溫度感應器模組中的步驟[部署模組](quickstart-linux.md#deploy-a-module)快速入門 區段。 IoT Edge 模組管理是完成從 IoT 中樞入口網站，就像任何其他 IoT Edge 裝置。 不建議對 Kubernetes 工具透過模組設定中的本機變更，因為它們可能會覆寫。
 

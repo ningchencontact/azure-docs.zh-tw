@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: alkohli
 ms.openlocfilehash: 080f49ca1078858462264f229e9acfee6fad17d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61387610"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>針對您的 StorSimple 使用新驗證
@@ -78,11 +78,11 @@ AAD 驗證會在執行 Update 1 或更新版本的 StorSimple Virtual Array (120
 
 #### <a name="to-generate-the-aad-service-registration-key"></a>產生 AAD 服務註冊金鑰
 
-1. 在 [StorSimple 裝置管理員] 中，移至 [管理] &gt; [金鑰]。
+1. 在 [StorSimple 裝置管理員]  中，移至 [管理]  &gt; [金鑰]  。
     
     ![移至 [金鑰]](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key1.png)
 
-2. 按一下 [產生金鑰]。
+2. 按一下 [產生金鑰]  。
 
     ![按一下重新產生](./media/storsimple-virtual-array-aad-registration-key/aad-click-generate-registration-key.png)
 

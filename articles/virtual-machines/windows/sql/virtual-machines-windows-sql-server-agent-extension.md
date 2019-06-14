@@ -17,10 +17,10 @@ ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 2943a1501e1d81ff4884c21b5aa3861e16523bbb
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827711"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>使用 SQL Server 代理程式延伸模組 (Resource Manager) 自動化 Azure 虛擬機器上的管理工作
@@ -37,11 +37,11 @@ SQL Server IaaS 代理程式擴充功能 (SqlIaasExtension) 會在 Azure 虛擬�
 ## <a name="supported-services"></a>支援的服務
 SQL Server IaaS 代理程式擴充功能支援下列管理工作︰
 
-| 系統管理功能 | 說明 |
+| 系統管理功能 | 描述 |
 | --- | --- |
-| **SQL 自動備份** |对 VM 中 SQL Server 的默认实例或[已正确安装的](virtual-machines-windows-sql-server-iaas-faq.md#administration)命名实例自动执行所有数据库的备份计划。 如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 自動備份 (Resource Manager)](virtual-machines-windows-sql-automated-backup.md)。 |
+| **SQL 自動備份** |會自動排程的所有資料庫備份的預設執行個體或[正確安裝](virtual-machines-windows-sql-server-iaas-faq.md#administration)在 VM 上的 SQL Server 的具名執行個體。 如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 自動備份 (Resource Manager)](virtual-machines-windows-sql-automated-backup.md)。 |
 | **SQL 自動修補** |設定維護期間 (在此期間會進行 VM 的重要 Windows 更新)，以避免在工作負載尖峰時段進行更新。 如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 自動修補 (Resource Manager)](virtual-machines-windows-sql-automated-patching.md)。 |
-| **Azure 密钥保管库集成** |讓您在 SQL Server VM 上自動安裝和設定 Azure 金鑰保存庫。 如需詳細資訊，請參閱 [在 Azure VM (Resource Manager) 上設定 SQL Server 的 Azure 金鑰保存庫整合](virtual-machines-windows-ps-sql-keyvault.md)。 |
+| **Azure 金鑰保存庫整合** |讓您在 SQL Server VM 上自動安裝和設定 Azure 金鑰保存庫。 如需詳細資訊，請參閱 [在 Azure VM (Resource Manager) 上設定 SQL Server 的 Azure 金鑰保存庫整合](virtual-machines-windows-ps-sql-keyvault.md)。 |
 
 一旦安裝並執行 SQL Server IaaS 代理程式擴充功能之後，Azure 入口網站中虛擬機器的 SQL Server 面板即會提供這些管理功能，亦可透過 Azure PowerShell (若為 SQL Server Marketplace 映像) 以及 Azure PowerShell (若為手動安裝擴充功能) 使用這些功能。 
 
@@ -93,14 +93,14 @@ Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmnam
 SQL IaaS 延伸模組會使用具名執行個體上的 SQL Server 映像如果正確，解除安裝的預設執行個體，並重新安裝 IaaS 擴充功能。
 
 若要使用 SQL Server 的具名執行個體，執行下列作業：
-   1. 从市场部署 SQL Server VM。 
+   1. 部署市集中的 SQL Server VM。 
    1. IaaS 延伸模組解除安裝內在[Azure 入口網站](https://portal.azure.com)。
    1. 解除安裝 SQL Server 完全在 SQL Server VM。
    1. 安裝 SQL Server 的 SQL Server VM 中的具名執行個體。 
    1. 安裝從 Azure 入口網站中的 IaaS 延伸模組。  
 
 ## <a name="status"></a>狀態
-其中一項驗證已安裝擴充功能的方法，是在 Azure 入口網站中檢視代理程式狀態。 請選取虛擬機器視窗中的 [所有設定]，然後按一下 [擴充功能]。 您應該會看到列出 **SqlIaasExtension** 擴充功能。
+其中一項驗證已安裝擴充功能的方法，是在 Azure 入口網站中檢視代理程式狀態。 請選取虛擬機器視窗中的 [所有設定]  ，然後按一下 [擴充功能]  。 您應該會看到列出 **SqlIaasExtension** 擴充功能。
 
 ![Azure 入口網站中的 SQL Server IaaS 代理程式擴充功能](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
@@ -115,7 +115,7 @@ SQL IaaS 延伸模組會使用具名執行個體上的 SQL Server 映像如果�
     $sqlext.AutoBackupSettings
 
 ## <a name="removal"></a>移除
-在 Azure 入口網站中，您可以解除安裝擴充功能上，按一下省略符號**延伸模組**虛擬機器屬性 視窗。 然後按一下 [刪除] 。
+在 Azure 入口網站中，您可以解除安裝擴充功能上，按一下省略符號**延伸模組**虛擬機器屬性 視窗。 然後按一下 [刪除]  。
 
 ![將 Azure 入口網站中的 SQL Server IaaS 代理程式擴充功能解除安裝](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
 

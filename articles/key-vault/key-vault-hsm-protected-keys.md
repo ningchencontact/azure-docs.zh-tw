@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
 ms.openlocfilehash: 1ae94718aa41c58f4d5e397942492ad8ed643ae3
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65556209"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>如何為 Azure 金鑰保存庫產生並傳輸受 HSM 保護的金鑰
@@ -58,7 +58,7 @@ NCipher hsm 加強封面的狀態的安全性與 Microsoft 合作。 這些增�
 | Azure 訂用帳戶 |若要建立 Azure Key Vault，您需要 Azure 訂用帳戶：[註冊免費試用](https://azure.microsoft.com/pricing/free-trial/) |
 | 可支援受 HSM 保護之金鑰的 Azure 金鑰保存庫進階服務層級 |如需 Azure 金鑰保存庫的服務層級和功能的詳細資訊，請參閱 [Azure 金鑰保存庫價格](https://azure.microsoft.com/pricing/details/key-vault/) 網站。 |
 | nCipher nShield Hsm、 智慧卡和支援軟體 |您必須擁有存取 nCipher 硬體安全模組和 nCipher nShield Hsm 的基本操作知識。 請參閱[nCipher nShield 硬體安全性模組](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/how-to-buy)相容模型，或如果您不需要其中一個，請購買 HSM 的清單。 |
-| 下列的硬體和軟體︰<ol><li>一部離線 x64 工作站，至少是 Windows 7 和 nCipher nShield 軟體的最小 Windows 作業系統為 11.50 版。<br/><br/>如果此工作站執行 Windows 7，您必須[安裝 Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe)。</li><li>連線至網際網路且 Windows 作業系統至少為 Windows 7 的工作站，並已安裝至少為 [1.1.0 版的 Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0)。</li><li>至少有 16 MB 可用空間的 USB 磁碟機或其他可攜式儲存裝置。</li></ol> |基於安全性理由，建議第一個工作站不要連線到網路。 不過，在程式設計方面並不強迫採取這項建議。<br/><br/>在接下來的指示中，此工作站稱為中斷連線的工作站。</p></blockquote><br/>此外，如果您的租用戶金鑰適用於生產網路，建議您另外使用第二個工作站來下載工具組，並上傳租用戶金鑰。 但如果只是測試，您可以直接使用第一個工作站。<br/><br/>在接下來的指示中，此第二個工作站稱為網際網路連線的工作站。</p></blockquote><br/> |
+| 下列的硬體和軟體︰<ol><li>一部離線 x64 工作站，至少是 Windows 7 和 nCipher nShield 軟體的最小 Windows 作業系統為 11.50 版。<br/><br/>如果此工作站執行 Windows 7，您必須[安裝 Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe)。</li><li>連線至網際網路且 Windows 作業系統至少為 Windows 7 的工作站，並已安裝至少為 [1.1.0 版的 Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0)  。</li><li>至少有 16 MB 可用空間的 USB 磁碟機或其他可攜式儲存裝置。</li></ol> |基於安全性理由，建議第一個工作站不要連線到網路。 不過，在程式設計方面並不強迫採取這項建議。<br/><br/>在接下來的指示中，此工作站稱為中斷連線的工作站。</p></blockquote><br/>此外，如果您的租用戶金鑰適用於生產網路，建議您另外使用第二個工作站來下載工具組，並上傳租用戶金鑰。 但如果只是測試，您可以直接使用第一個工作站。<br/><br/>在接下來的指示中，此第二個工作站稱為網際網路連線的工作站。</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>產生金鑰並將其傳輸至 Azure 金鑰保存庫 HSM
 
@@ -162,7 +162,7 @@ KeyVault-BYOK-Tools-Australia.zip
 CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A
 
 - - -
-[**Azure Government:**](https://azure.microsoft.com/features/gov/)
+[**Azure Government:** ](https://azure.microsoft.com/features/gov/)
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
@@ -236,7 +236,7 @@ KeyVault-BYOK-Tools-UnitedKingdom.zip
 
 NCipher 支援軟體的電腦上安裝 Windows，並接著將 nCipher nShield HSM 附加至該電腦。
 
-確定 nCipher 工具位於您的路徑 (**%nfast_home%\bin**)。 例如，輸入下列內容：
+確定 nCipher 工具位於您的路徑 ( **%nfast_home%\bin**)。 例如，輸入下列內容：
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"

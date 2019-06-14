@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9e9b043b27f624a3d9f38fb2299f9e49f0ffedda
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783426"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>透過 Microsoft Teams 存取內部部署應用程式
@@ -34,7 +34,7 @@ Azure Active Directory Application Proxy 可讓您從任何地方單一登入內
 
 如果您尚未這麼做，請[設定租用戶的 Application Proxy 並安裝連接器](application-proxy-add-on-premises-application.md)。 然後，[發佈內部部署應用程式](application-proxy-add-on-premises-application.md)以供遠端存取。 當您要發佈應用程式時，請記下外部 URL，因為這會用於將應用程式新增至 Teams。
 
-如果您已經發佈應用程式，但不記得其外部 URL，請在 [Azure 入口網站](https://portal.azure.com)中查閱。 登入，然後瀏覽至 [Azure Active Directory] > [企業應用程式] > [所有應用程式] > 選取您的應用程式 > [Application Proxy]。
+如果您已經發佈應用程式，但不記得其外部 URL，請在 [Azure 入口網站](https://portal.azure.com)中查閱。 登入，然後瀏覽至 [Azure Active Directory]   > [企業應用程式]   > [所有應用程式]  > 選取您的應用程式 > [Application Proxy]  。
 
 ## <a name="add-your-app-to-teams"></a>將應用程式新增至 Teams
 
@@ -44,7 +44,7 @@ Azure Active Directory Application Proxy 可讓您從任何地方單一登入內
 
    ![選取 [新增索引標籤]](./media/application-proxy-integrate-with-teams/add-tab.png)
 
-2. 從索引標籤選項中選取 [網站]。
+2. 從索引標籤選項中選取 [網站]  。
 
    ![新增網站](./media/application-proxy-integrate-with-teams/website.png)
 

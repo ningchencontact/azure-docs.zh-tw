@@ -19,10 +19,10 @@ ms.reviewer: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0b820068f7bd59941346c8d2a3e8ede15252d58b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540275"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>如何讓 AppSource 取得 Azure Active Directory 認證
@@ -37,10 +37,10 @@ ms.locfileid: "65540275"
 
 ## <a name="multi-tenant-applications"></a>多租用戶應用程式
 
-「多租用戶應用程式」是一個應用程式，可接受來自具備 Azure AD 之公司或組織的使用者單一登入，而不需個別的執行個體、設定或部署。 AppSource 建議應用程式實行多重租用，以啟用*單鍵*免費試用體驗。
+「多租用戶應用程式」  是一個應用程式，可接受來自具備 Azure AD 之公司或組織的使用者單一登入，而不需個別的執行個體、設定或部署。 AppSource 建議應用程式實行多重租用，以啟用*單鍵*免費試用體驗。
 
 若要在您的應用程式上啟用多重租用，請依照下列步驟執行：
-1. 在 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)中，將應用程式註冊資訊上的 `Multi-Tenanted` 屬性設為 `Yes`。 預設會將在 Azure 入口網站中建立的應用程式設為[單一租用戶](#single-tenant-applications)。
+1. 在 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)中，將應用程式註冊資訊上的 `Multi-Tenanted` 屬性設為 `Yes`。 預設會將在 Azure 入口網站中建立的應用程式設為[單一租用戶](#single-tenant-applications)  。
 1. 更新您的程式碼，以將要求傳送給 `common` 端點。 若要這樣做，請將端點從 `https://login.microsoftonline.com/{yourtenant}` 更新為 `https://login.microsoftonline.com/common*`。
 1. 針對某些平台 (例如 ASP.NET)，您還需要更新程式碼以接受多個簽發者。
 
@@ -48,11 +48,11 @@ ms.locfileid: "65540275"
 
 ### <a name="single-tenant-applications"></a>單一租用戶應用程式
 
-「單一租用戶應用程式」是一個應用程式，僅接受來自所定義之 Azure AD 執行個體的使用者登入。 將每個使用者以來賓帳戶的身分新增至應用程式註冊所在的 Azure AD 執行個體之後，外部使用者 (包括來自其他組織的公司或學校帳戶，或個人帳戶) 就可以登入單一租用戶應用程式。 
+「單一租用戶應用程式」  是一個應用程式，僅接受來自所定義之 Azure AD 執行個體的使用者登入。 將每個使用者以來賓帳戶的身分新增至應用程式註冊所在的 Azure AD 執行個體之後，外部使用者 (包括來自其他組織的公司或學校帳戶，或個人帳戶) 就可以登入單一租用戶應用程式。 
 
 您可以透過 [Azure AD B2B 共同作業](../b2b/what-is-b2b.md)將使用者以來賓帳戶的身分新增至 Azure AD，而且能[以程式設計方式](../../active-directory-b2c/code-samples.md)執行此動作。 使用 B2B 時，使用者可以建立不需邀請即可登入的自助入口網站。 如需詳細資訊，請參閱 [Azure AD B2B 共同作業註冊的自助入口網站](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal)。
 
-單一租用戶應用程式可以啟用「與我連絡」體驗，但如果您想要啟用 AppSource 建議的單鍵/免費試用體驗，可改為在您的應用程式上啟用多重租用。
+單一租用戶應用程式可以啟用「與我連絡」  體驗，但如果您想要啟用 AppSource 建議的單鍵/免費試用體驗，可改為在您的應用程式上啟用多重租用。
 
 ## <a name="appsource-trial-experiences"></a>AppSource 試用體驗
 
@@ -75,7 +75,7 @@ ms.locfileid: "65540275"
 
 ### <a name="contact-me-partner-led-trial-experience"></a>與我連絡 (合作夥伴導向的試用體驗)
 
-您可以在需要手動或長期操作來佈建使用者/公司時，使用合作夥伴試用體驗，例如，您的應用程式需要佈建虛擬機器、資料庫執行個體，或需要很多時間完成的作業。 在此情況下，當使用者選取 [要求試用] 按鈕並填妥表單之後，AppSource 就會將使用者的連絡資訊傳送給您。 當您接收到此資訊之後，接著要佈建環境，並將如何存取試用體驗的指示傳送給使用者：<br/><br/>
+您可以在需要手動或長期操作來佈建使用者/公司時，使用合作夥伴試用體驗，例如，您的應用程式需要佈建虛擬機器、資料庫執行個體，或需要很多時間完成的作業。 在此情況下，當使用者選取 [要求試用]  按鈕並填妥表單之後，AppSource 就會將使用者的連絡資訊傳送給您。 當您接收到此資訊之後，接著要佈建環境，並將如何存取試用體驗的指示傳送給使用者：<br/><br/>
 
 <table valign="top">
 <tr>

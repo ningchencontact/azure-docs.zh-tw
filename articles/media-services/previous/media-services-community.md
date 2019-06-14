@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61245097"
 ---
 # <a name="azure-media-services-community"></a>Azure 媒體服務社群  
@@ -42,7 +42,7 @@ Azure 媒體服務 (AMS) 社群頁面討論您可以取得 AMS 更新的不同�
 
 使用 [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) twitter 控制代碼，在 Twitter 上與我們連絡或追蹤更新。 您可以使用 [@AzureSupport](https://twitter.com/azuresupport) twitter 控制代碼，以在 Twitter 上要求支援。  
 
-### <a name="online-forums"></a>在线论坛
+### <a name="online-forums"></a>線上論壇
 
 下列其中一個論壇可以用於詢問有關目前的產品和功能的問題。
 
@@ -60,7 +60,7 @@ Azure 媒體服務 (AMS) 社群頁面討論您可以取得 AMS 更新的不同�
 
 下表列出功能子小組的電子郵件：
 
-| 功能 | 電子郵件 |
+| 功能 | Email |
 | --- | --- |
 | Azure 媒體分析 |amsanalytics@microsoft.com |
 | Azure 媒體播放器 |ampinfo@microsoft.com |

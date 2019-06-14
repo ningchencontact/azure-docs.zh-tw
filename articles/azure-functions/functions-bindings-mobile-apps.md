@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 5fd220f15f363c1987f1576009519e4b2feae6b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61438120"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Mobile Apps 繫結 
@@ -48,7 +48,7 @@ Mobile Apps 輸入繫結會從行動資料表端點載入記錄，並將它傳�
 
 ### <a name="input---c-script-example"></a>輸入 - C# 指令碼範例
 
-下列範例示範 function.json 檔案中的 Mobile Apps 輸入繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會由包含記錄識別碼的佇列訊息觸發。 函式會讀取指定的記錄並修改其 `Text` 屬性。
+下列範例示範 function.json  檔案中的 Mobile Apps 輸入繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會由包含記錄識別碼的佇列訊息觸發。 函式會讀取指定的記錄並修改其 `Text` 屬性。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -93,7 +93,7 @@ public static void Run(string myQueueItem, JObject record)
 
 ### <a name="input---javascript"></a>輸入 - JavaScript
 
-下列範例示範 function.json 檔案中的 Mobile Apps 輸入繫結，以及使用此繫結的 [JavaScript 指令碼函式](functions-reference-node.md)。 函式會由包含記錄識別碼的佇列訊息觸發。 函式會讀取指定的記錄並修改其 `Text` 屬性。
+下列範例示範 function.json  檔案中的 Mobile Apps 輸入繫結，以及使用此繫結的 [JavaScript 指令碼函式](functions-reference-node.md)。 函式會由包含記錄識別碼的佇列訊息觸發。 函式會讀取指定的記錄並修改其 `Text` 屬性。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -192,7 +192,7 @@ public static object Run(
 
 ### <a name="output---c-script-example"></a>輸出 - C# 指令碼範例
 
-下列範例示範 function.json 檔案中的 Mobile Apps 輸出繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會由佇列訊息觸發，並使用 `Text` 屬性的硬式編碼值來建立新的記錄。
+下列範例示範 function.json  檔案中的 Mobile Apps 輸出繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會由佇列訊息觸發，並使用 `Text` 屬性的硬式編碼值來建立新的記錄。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -233,7 +233,7 @@ public static void Run(string myQueueItem, out object record)
 
 ### <a name="output---javascript-example"></a>輸出 - JavaScript 範例
 
-下列範例示範 function.json 檔案中的 Mobile Apps 輸出繫結，以及使用此繫結的 [JavaScript 指令碼函式](functions-reference-node.md)。 函式會由佇列訊息觸發，並使用 `Text` 屬性的硬式編碼值來建立新的記錄。
+下列範例示範 function.json  檔案中的 Mobile Apps 輸出繫結，以及使用此繫結的 [JavaScript 指令碼函式](functions-reference-node.md)。 函式會由佇列訊息觸發，並使用 `Text` 屬性的硬式編碼值來建立新的記錄。
 
 以下是 *function.json* 檔案中的繫結資料：
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
 ms.openlocfilehash: c06a338ec041c83588c3ee5126795b8c445ef469
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937994"
 ---
 # <a name="offer-listing-best-practices"></a>陳列供應項目的最佳做法
@@ -45,7 +45,7 @@ ms.locfileid: "64937994"
 
 當您從網站上的 AppSource 或 Azure Marketplace 徽章連結到市集上的清單時，您可以在 URL 結尾處包含以下查詢參數，以支援強大的分析與報告功能：
 * **src**：包含路由傳送到 AppSource (例如，網站、LinkedIn 或 Facebook) 的流量來源。
-* **mktcmpid**：您的行銷活動識別碼，最多可包含 16 個字元，而且可以是字母、數字、底線與連字號的任意組和 (例如，blogpost_12)。
+* **mktcmpid**：您的行銷活動識別碼，最多可包含 16 個字元，而且可以是字母、數字、底線與連字號的任意組和 (例如，blogpost_12  )。
 
 下列範例 URL 包含前兩個查詢範例：`https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 

@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6bf265f51f2fea16f90dd0bcf2891bd9bed5cef8
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963582"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>在 Azure 入口網站中管理企業應用程式的使用者帳戶佈建
@@ -84,7 +84,7 @@ ms.locfileid: "65963582"
 
 您可以啟動和停止 Azure AD 佈建服務中的所選應用程式**設定**區域**佈建**螢幕。 您也可以選擇清除佈建的快取，並重新啟動服務。
 
-如果是初次為應用程式啟用佈建，將 [佈建狀態] 變更為 [開啟] 即可開啟服務。 這項變更會導致 Azure AD 佈建服務以執行初始同步處理。它會讀取中指派的使用者**使用者和群組**區段中，查詢目標應用程式，然後再執行 佈建在 Azure AD 中定義的動作**對應**一節。 在此過程中，佈建服務會儲存有關其所管理，哪些使用者帳戶快取的資料，所以不曾在指派範圍的目標應用程式內的非受控帳戶不會受到解除佈建作業。 初始同步處理之後，每隔十分鐘佈建服務會自動同步處理使用者和群組物件。
+如果是初次為應用程式啟用佈建，將 [佈建狀態]  變更為 [開啟]  即可開啟服務。 這項變更會導致 Azure AD 佈建服務以執行初始同步處理。它會讀取中指派的使用者**使用者和群組**區段中，查詢目標應用程式，然後再執行 佈建在 Azure AD 中定義的動作**對應**一節。 在此過程中，佈建服務會儲存有關其所管理，哪些使用者帳戶快取的資料，所以不曾在指派範圍的目標應用程式內的非受控帳戶不會受到解除佈建作業。 初始同步處理之後，每隔十分鐘佈建服務會自動同步處理使用者和群組物件。
 
 變更**佈建狀態**要**關閉**暫停佈建服務。 在此狀態下，Azure 不會建立、 更新或移除應用程式中的任何使用者或群組物件。 變更狀態回到**上**和服務將收取離開的地方。
 

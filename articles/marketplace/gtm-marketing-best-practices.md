@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
 ms.openlocfilehash: 6d704398d706d3f6f2caea057862b7eef9d5baf9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938527"
 ---
 # <a name="marketing-best-practices"></a>行銷最佳做法
@@ -65,7 +65,7 @@ ms.locfileid: "64938527"
 
 * *您必須在市集中設定試用版。* 在購買之前，您的產品需經過一定程度的業務開發和體驗。 請考慮將試用版的下載次數作為活動目標。 在此情況下，行銷活動策略的呼籲會相當著重於建議使用市集中的試用版。
 
-* *您的產品或類別廣為人知，並已在市集中設定購買功能。* 請略過免費試用呼籲，並將目標對象直接導向至市集中的「立即取得」連結。
+* *您的產品或類別廣為人知，並已在市集中設定購買功能。* 請略過免費試用呼籲，並將目標對象直接導向至市集中的「立即取得」  連結。
 
 * *您的供應項目已建立且臻致完善。* 請考慮將行銷活動心力放在向客戶群追加銷售，並鼓勵增加購買市集中的項目。 您的訊息會著重在鼓勵客戶透過市集購買。 您的 KPI 可以是透過市集產生的營收。
 
@@ -80,7 +80,7 @@ ms.locfileid: "64938527"
 
 ### <a name="available-on-appsource-or-azure-marketplace-badge"></a>可在 AppSource 或 Azure Marketplace 徽章上使用
 
-您的供應項目列在 AppSource 或 Azure Marketplace 中後，您便獲得在網站上顯示「可在 AppSource 上取得」或「可在 Azure Marketplace 上取得」徽章的權益。
+您的供應項目列在 AppSource 或 Azure Marketplace 中後，您便獲得在網站上顯示「可在 AppSource 上取得」  或「可在 Azure Marketplace 上取得」  徽章的權益。
 
 AppSource 徽章有三種大小。 您可以從「[在 Microsoft AppSource 上宣傳您應用程式的可用性](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource)」下載徽章及使用方式指導方針。
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: asgang
 ms.openlocfilehash: b97bf56c23dfa96acf7cb5af5ac28b4270de117d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61281403"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>設定多層式 Dynamics AX 應用程式的災害復原   
@@ -90,7 +90,7 @@ Dynamics AX 目前並未提供任何現成的災害復原功能。 Dynamics AX �
 
 * 在「應用程式物件伺服器」伺服器上，選取正確的可用性設定組。
 
-* 如果您是使用靜態 IP 位址，在 [目標 IP] 文字方塊中指定您希望 VM 採用的 IP。
+* 如果您是使用靜態 IP 位址，在 [目標 IP]  文字方塊中指定您希望 VM 採用的 IP。
 
     ![網路設定](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
@@ -99,11 +99,11 @@ Dynamics AX 目前並未提供任何現成的災害復原功能。 Dynamics AX �
 
 您可以在 Site Recovery 中建立復原方案，將容錯移轉程序自動化。 在復原方案中新增應用程式層和 Web 層。 將它們歸入順序不同的群組中，讓前端關機發生在應用程式層之前。
 
-1. 在您的訂用帳戶中選取 Site Recovery 保存庫，然後按一下 [復原方案] 圖格。
+1. 在您的訂用帳戶中選取 Site Recovery 保存庫，然後按一下 [復原方案]  圖格。
 
-2. 按一下 [+ 復原方案] 並指定名稱。
+2. 按一下 [+ 復原方案]  並指定名稱。
 
-3. 選取 [來源] 和 [目標]。 目標可以是 Azure 或次要網站。 如果您選擇 Azure，則必須指定部署模型。
+3. 選取 [來源]  和 [目標]  。 目標可以是 Azure 或次要網站。 如果您選擇 Azure，則必須指定部署模型。
 
     ![建立復原計畫](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
 
@@ -139,13 +139,13 @@ Dynamics AX 目前並未提供任何現成的災害復原功能。 Dynamics AX �
 
 2. 選取為 Dynamics AX 建立的復原方案。
 
-3. 選取 [測試容錯移轉]。
+3. 選取 [測試容錯移轉]  。
 
 4. 選取虛擬網路來開始測試容錯移轉程序。
 
 5. 次要環境啟動後，您就可以執行驗證。
 
-6. 驗證完成後，選取 [驗證完成]，便會清除測試容錯移轉環境。
+6. 驗證完成後，選取 [驗證完成]  ，便會清除測試容錯移轉環境。
 
 如需執行測試容錯移轉的詳細資訊，請參閱[在 Site Recovery 中測試容錯移轉到 Azure](site-recovery-test-failover-to-azure.md)。
 
@@ -155,9 +155,9 @@ Dynamics AX 目前並未提供任何現成的災害復原功能。 Dynamics AX �
 
 2. 選取為 Dynamics AX 建立的復原方案。
 
-3. 按一下 [容錯移轉]，然後選取 [容錯移轉]。
+3. 按一下 [容錯移轉]  ，然後選取 [容錯移轉]  。
 
-4. 選取目標網路，然後按一下 [✓] 啟動容錯移轉程序。
+4. 選取目標網路，然後按一下 [✓]  啟動容錯移轉程序。
 
 如需進行容錯移轉的詳細資訊，請參閱[在 Site Recovery 中容錯移轉](site-recovery-failover.md)。
 
@@ -169,13 +169,13 @@ Dynamics AX 目前並未提供任何現成的災害復原功能。 Dynamics AX �
 
 2. 選取為 Dynamics AX 建立的復原方案。
 
-3. 按一下 [容錯移轉]，然後選取 [容錯移轉]。
+3. 按一下 [容錯移轉]  ，然後選取 [容錯移轉]  。
 
-4. 按一下 [變更方向]。
+4. 按一下 [變更方向]  。
 
 5. 選取適當的選項：資料同步處理和 VM 建立。
 
-6. 選取 [✓] 開始容錯回復程序。
+6. 選取 [✓]  開始容錯回復程序。
 
 
 如需執行容錯回復的詳細資訊，請參閱[將 VMware VM 從 Azure 容錯回復到內部部署](site-recovery-failback-azure-to-vmware.md)。

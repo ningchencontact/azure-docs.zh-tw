@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: victorh
 ms.openlocfilehash: dcf209d2036d2686bea0b51380db3cd2473d04a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61293179"
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>Azure DNS 如何與其他 Azure 服務搭配運作
@@ -28,7 +28,7 @@ ms.locfileid: "61293179"
 Azure DNS 是一種託管的 DNS 管理與名稱解析服務。 您可以使用它來為您在 Azure 中部署的其他應用程式和服務建立公用 DNS 名稱。 為您的自訂網域中的 Azure 服務建立名稱。 您只要為您的服務新增正確類型的記錄。
 
 * 針對動態配置的 IP 位址，您可以建立 DNS CNAME 記錄，對應至 Azure 為您的服務建立的 DNS 名稱。 DNS 標準禁止您在區域頂點使用 CNAME 記錄。 您可以改為使用別名記錄。 如需詳細資訊，請參閱[教學課程：設定 Azure 公用 IP 位址參考別名記錄](tutorial-alias-pip.md)。
-* 若使用靜態配置的 IP 位址，您可以用任何名稱建立 DNS A 記錄，包括在區域頂點的「裸網域」名稱。
+* 若使用靜態配置的 IP 位址，您可以用任何名稱建立 DNS A 記錄，包括在區域頂點的「裸網域」  名稱。
 
 下表概述可用於各種 Azure 服務的支援記錄類型。 如表格所示，Azure DNS 只支援網際網路面向網路資源的 DNS 記錄。 Azure DNS 無法用於內部私人位址的名稱解析。
 

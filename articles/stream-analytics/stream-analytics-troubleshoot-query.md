@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 7a1e440a8dc8f518e272df9e126771df54390ed5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60762338"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>對 Azure 串流分析查詢進行疑難排解
@@ -22,7 +22,7 @@ ms.locfileid: "60762338"
 
 ## <a name="query-is-not-producing-expected-output"></a>查詢未產生預期的輸出 
 1.  在本機執行測試以檢查錯誤：
-    - 在 [查詢] 索引標籤上，選取 [測試]。 使用下載的範例資料[測試查詢](stream-analytics-test-query.md)。 檢查是否有任何錯誤並嘗試修正。   
+    - 在 [查詢]  索引標籤上，選取 [測試]  。 使用下載的範例資料[測試查詢](stream-analytics-test-query.md)。 檢查是否有任何錯誤並嘗試修正。   
     - 您也可以使用適用於 Visual Studio 的串流分析工具，[直接對即時輸入測試您的查詢](stream-analytics-live-data-local-testing.md)。
 
 2.  如果您使用 [**Timestamp By**](https://msdn.microsoft.com/library/azure/mt573293.aspx)，請確定事件有大於[作業開始時間](stream-analytics-out-of-order-and-late-events.md)的時間戳記。
@@ -33,7 +33,7 @@ ms.locfileid: "60762338"
     - 當您使用視窗函式時，請等候完整的視窗運作時間，以查看查詢的輸出。
     - 事件的時間戳記早於作業開始時間，因此事件遭到刪除。
 
-4.  確定事件排序原則已如預期設定。 移至 [設定]，然後選取[**事件排序**](stream-analytics-out-of-order-and-late-events.md)。 如果您使用 [測試] 按鈕測試查詢，則不會套用原則。 此結果是在瀏覽器中進行測試與在生產環境中執行作業之間的一個差異。 
+4.  確定事件排序原則已如預期設定。 移至 [設定]  ，然後選取[**事件排序**](stream-analytics-out-of-order-and-late-events.md)。 如果您使用 [測試]  按鈕測試查詢，則不會  套用原則。 此結果是在瀏覽器中進行測試與在生產環境中執行作業之間的一個差異。 
 
 5. 使用稽核和診斷記錄進行偵錯：
     - 使用[稽核記錄](../azure-resource-manager/resource-group-audit.md)，並透過篩選找出錯誤並進行偵錯。
@@ -50,13 +50,13 @@ ms.locfileid: "60762338"
 
 ![範例串流分析 SELECT INTO 查詢](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
 
-請注意，雖然作業正在執行，但不會在輸出中產生任何事件。 在 [監視]圖格上 (如此處所示)，您可以看到輸入正在產生資料，但您無法知道哪一個**聯結**步驟會造成所有資料遭到捨棄。
+請注意，雖然作業正在執行，但不會在輸出中產生任何事件。 在 [監視]  圖格上 (如此處所示)，您可以看到輸入正在產生資料，但您無法知道哪一個**聯結**步驟會造成所有資料遭到捨棄。
 
 ![串流分析監視圖格](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
  
 在此情況下，您可以新增一些額外的 SELECT INTO 陳述式以「記錄」中繼「聯結」結果及從輸入中讀取的資料。
 
-此示例中添加了两个新的“临时输出”。 可任意选择你喜欢的接收器。 在這裡我們使用 Azure 儲存體作為範例︰
+在此範例中，我們新增了兩個新的「暫存輸出」。 這些暫存輸出可以是您喜歡的任何接收體。 在這裡我們使用 Azure 儲存體作為範例︰
 
 ![新增額外的 SELECT INTO 陳述式到串流分析查詢](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
 

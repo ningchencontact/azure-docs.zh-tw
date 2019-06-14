@@ -13,10 +13,10 @@ ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900884"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>使用 Application Insights .NET SDK 追蹤自訂作業
@@ -229,8 +229,8 @@ module.Initialize(TelemetryConfiguration.Active);
 
 這個範例顯示如何追蹤 `Enqueue` 作業。 您可以：
 
- - **相互關聯重試 (如果有的話)**：全部都有一個通用父代，也就是 `Enqueue` 作業。 否則會作為連入要求的子系追蹤。 如果佇列有多個邏輯要求，可能難以找到導致重試的呼叫。
- - **相互關聯儲存體記錄 (必要時)**：與 Application Insights 遙測相互關聯。
+ - **相互關聯重試 (如果有的話)** ：全部都有一個通用父代，也就是 `Enqueue` 作業。 否則會作為連入要求的子系追蹤。 如果佇列有多個邏輯要求，可能難以找到導致重試的呼叫。
+ - **相互關聯儲存體記錄 (必要時)** ：與 Application Insights 遙測相互關聯。
 
 `Enqueue` 作業是父代作業 (例如，連入 HTTP 要求) 的子系。 HTTP 相依性呼叫是 `Enqueue` 作業的子系，是連入要求的孫系：
 
@@ -277,7 +277,7 @@ public async Task Enqueue(CloudQueue queue, string message)
 
 如果您因為其他原因，而想要減少您應用程式回報的遙測資料量，或不想追蹤 `Enqueue` 作業，您可以直接使用 `Activity` API：
 
-- 建立 (和啟動) 新的 `Activity`，而不是啟動 Application Insights 作業。 您不需要在上面指派作業名稱以外的任何屬性。
+- 建立 (和啟動) 新的 `Activity`，而不是啟動 Application Insights 作業。 您不  需要在上面指派作業名稱以外的任何屬性。
 - 將 `yourActivity.Id` 序列化成為訊息承載，而不是 `operation.Telemetry.Id`。 您也可以使用 `Activity.Current.Id`。
 
 

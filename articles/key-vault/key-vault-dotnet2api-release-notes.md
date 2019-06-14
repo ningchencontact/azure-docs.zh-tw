@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: f9dd8a48da08f00cea1219f72940dd84dd3a97ac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64725503"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure 金鑰保存庫 .NET 2.0 - 版本資訊和移轉指南
@@ -53,18 +53,18 @@ Key Vault 憑證可管理 x509 憑證，並支援下列行為：
 
 ## <a name="return-types"></a>傳回類型
 
-* **KeyList** 和 **SecretList** 現在會傳回 IPage<T>，而非 ListKeysResponseMessage
-* 產生的 **BackupKeyAsync** 現在會傳回 BackupKeyResult，其包含 Value (備份 Blob)。 此方法在過去會進行包裝並只傳回值。
+* **KeyList** 和 **SecretList** 現在會傳回 IPage<T>  ，而非 ListKeysResponseMessage 
+* 產生的 **BackupKeyAsync** 現在會傳回 BackupKeyResult  ，其包含 Value  (備份 Blob)。 此方法在過去會進行包裝並只傳回值。
 
 ## <a name="exceptions"></a>例外狀況
 
 * *KeyVaultClientException* 變更為 *KeyVaultErrorException*
-* 服務錯誤已從 exception.Error 變更為 exception.Body.Error.Message。
+* 服務錯誤已從 exception.Error  變更為 exception.Body.Error.Message  。
 * 已移除 **[JsonExtensionData]** 的錯誤訊息中的其他資訊。
 
 ## <a name="constructors"></a>建構函式
 
-* 建構函式只會接受 *HttpClientHandler* 或 *DelegatingHandler[]*，而不是接受 *HttpClient* 做為建構函式引數。
+* 建構函式只會接受 *HttpClientHandler* 或 *DelegatingHandler[]* ，而不是接受 *HttpClient* 做為建構函式引數。
 
 ## <a name="downloaded-packages"></a>下載的套件
 
@@ -98,7 +98,7 @@ Key Vault 憑證可管理 x509 憑證，並支援下列行為：
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
-* 針對傳回 vault 的作業，傳回類型是包含 **Vault** 屬性的類別。 傳回類型現在是 *Vault*。
+* 針對傳回 vault  的作業，傳回類型是包含 **Vault** 屬性的類別。 傳回類型現在是 *Vault*。
 * *PermissionsToKeys* 和 *PermissionsToSecrets* 現在是 *Permissions.Keys* 和 *Permissions.Secrets*
 * 某些傳回類型變更也會套用至控制平面。
 

@@ -13,10 +13,10 @@ ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: c72c4d21f948d6d6c4d1d4598efa0e13de9705a6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926202"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>在 Azure SQL Database 受控執行個體資料庫中設定複寫
@@ -49,18 +49,18 @@ ms.locfileid: "64926202"
  > Azure SQL Database 中的單一資料庫與集區資料庫只能是訂閱者。 
 
 
-## <a name="features"></a>特性
+## <a name="features"></a>功能
 
 支援：
 
 - 混用 SQL Server 內部部署和 Azure SQL Database 中受控執行個體的異動與快照式複寫。
-- 订阅服务器可以位于本地 SQL Server 数据库中、Azure SQL 数据库中的单一数据库/托管实例中，也可以位于 Azure SQL 数据库弹性池中的入池数据库中。
+- 訂閱者可以在內部部署 SQL Server 資料庫，在 Azure SQL Database 或 Azure SQL Database 彈性集區中的集區的資料庫中的 單一資料庫/受控執行個體。
 - 單向或雙向複寫。
 
 Azure SQL Database 的受控執行個體中不支援下列功能：
 
 - [可更新訂閱](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication)。
-- 如果配置了事务复制，则不应使用[活动异地复制](sql-database-active-geo-replication.md)和[自动故障转移组](sql-database-auto-failover-group.md)。
+- [作用中異地複寫](sql-database-active-geo-replication.md)並[自動容錯移轉群組](sql-database-auto-failover-group.md)不應在異動複寫設定。
  
 ## <a name="1---create-a-resource-group"></a>1-建立資源群組
 

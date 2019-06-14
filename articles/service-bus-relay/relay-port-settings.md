@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/26/2018
 ms.author: spelluru
 ms.openlocfilehash: 9d11179a8518ebf48f68f8607f94e0253d4edb80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789921"
 ---
 # <a name="azure-relay-port-settings"></a>Azure 轉送連接埠設定
@@ -51,6 +51,6 @@ ms.locfileid: "60789921"
 |[WS2007HttpRelayBinding 類別](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (服務)|無論是|9351/HTTP|
 
 ## <a name="next-steps"></a>後續步驟
-若要了解有关 Azure 中继的详细信息，请访问以下链接：
+若要深入了解 Azure 轉送，請造訪下列連結：
 * [什麼是 Azure 轉送？](relay-what-is-it.md)
-* [中继常见问题](relay-faq.md)
+* [轉送常見問題集](relay-faq.md)

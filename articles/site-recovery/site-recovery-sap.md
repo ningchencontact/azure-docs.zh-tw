@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
 ms.openlocfilehash: 0848738b71a605d8baf049847daa3ae2428a7abe
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65793681"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>設定多層式 SAP NetWeaver 應用程式部署的災害復原
@@ -116,7 +116,7 @@ Web Dispatcher 元件是用來作為 SAP 應用程式伺服器之間 SAP 流量�
 
 ## <a name="networking-configuration"></a>網路設定
 
-如果您使用靜態 IP 位址，您可以指定您想要虛擬機器使用的 IP 位址。 若要設定 IP 位址，請移至 [計算和網路設定] > [網路介面卡]。
+如果您使用靜態 IP 位址，您可以指定您想要虛擬機器使用的 IP 位址。 若要設定 IP 位址，請移至 [計算和網路設定]   > [網路介面卡]  。
 
 ![示範如何在 Site Recovery 網路介面卡窗格設定私人 IP 位址的螢幕擷取畫面](./media/site-recovery-sap/sap-static-ip.png)
 
@@ -149,10 +149,10 @@ Web Dispatcher 元件是用來作為 SAP 應用程式伺服器之間 SAP 流量�
 
 1.  在 Azure 入口網站中，選取您的復原服務保存庫。
 2.  選取為 SAP 應用程式建立的復原計畫。
-3.  選取 [測試容錯移轉]。
+3.  選取 [測試容錯移轉]  。
 4.  若要啟動測試容錯移轉程序，請選取復原點和 Azure 虛擬網路。
 5.  當次要環境啟動時，即可執行您驗證。
-6.  完成驗證後，若要清除此容錯移轉環境，請選取 [清除測試容錯移轉]。
+6.  完成驗證後，若要清除此容錯移轉環境，請選取 [清除測試容錯移轉]  。
 
 如需詳細資訊，請參閱[在 Site Recovery 中測試容錯移轉至 Azure](site-recovery-test-failover-to-azure.md)。
 
@@ -160,11 +160,11 @@ Web Dispatcher 元件是用來作為 SAP 應用程式伺服器之間 SAP 流量�
 
 1.  在 Azure 入口網站中，選取您的復原服務保存庫。
 2.  選取為 SAP 應用程式建立的復原計畫。
-3.  選取 [容錯移轉]。
+3.  選取 [容錯移轉]  。
 4.  若要啟動容錯移轉程序，請選取復原點。
 
 如需詳細資訊，請參閱[在 Site Recovery 中容錯移轉](site-recovery-failover.md)。
 
 ## <a name="next-steps"></a>後續步驟
-* 若要详细了解如何使用 Site Recovery 为 SAP NetWeaver 部署构建灾难恢复解决方案，请参阅可下载的白皮书 [SAP NetWeaver：使用 Azure Site Recovery 构建灾难恢复解决方案](https://aka.ms/asr_sap)。 本白皮書會討論各種 SAP 架構的建議，列出支援 Azure 上的 SAP 的應用程式和 VM 類型，並說明災害復原解決方案的測試計劃選項。
+* 若要深入了解如何使用 Site Recovery 建置災害復原解決方案，為 SAP NetWeaver 部署，請參閱可下載的白皮書 < [SAP NetWeaver:建置使用 Azure Site Recovery 提供災害復原解決方案](https://aka.ms/asr_sap)。 本白皮書會討論各種 SAP 架構的建議，列出支援 Azure 上的 SAP 的應用程式和 VM 類型，並說明災害復原解決方案的測試計劃選項。
 * 深入了解如何使用 Site Recovery [複寫其他工作負載](site-recovery-workload.md)。

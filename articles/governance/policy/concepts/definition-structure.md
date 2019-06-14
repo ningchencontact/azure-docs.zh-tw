@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979555"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
@@ -24,7 +24,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 使用 JSON 來建立原則定義。 原則定義中包含以下的項目︰
 
-- mode
+- 模式
 - parameters
 - 顯示名稱
 - description
@@ -293,7 +293,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 }
 ```
 
-### <a name="value"></a>Value
+### <a name="value"></a>值
 
 條件也可以使用 **value** 形成。 **value** 會檢查 [parameters](#parameters)、[支援的範本函式](#policy-functions)或常值的條件。
 **value** 已和任何支援的 [condition](#conditions) 配對。
@@ -498,14 +498,14 @@ Azure 原則支援下列類型的效果：
 
 ### <a name="understanding-the--alias"></a>了解 [*] 別名
 
-許多可用的別名都有會一個顯示為「正常」名稱的版本，和另一個附加 **[\*]** 的版本。 例如：
+許多可用的別名都有會一個顯示為「正常」名稱的版本，和另一個附加 **[\*]** 的版本。 例如:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 'Normal' 別名代表的欄位做為單一值。 此欄位時完全相符項目比較案例的整組值必須完全依照定義，不多也不少。
 
-**[\*]** 別名可讓您針對陣列中每個元素的值，而且每個元素的特定屬性進行比較。 這種方法可讓您比較項目屬性的 'if none 的'、 '如果有的話的' 或 '如果要將所有的' 案例。 使用**ipRules [\*]**，範例就驗證每個_動作_是_拒絕_，但不是擔心多少規則存在，或什麼 IP _值_是。 此範例規則會檢查是否有任何符合的**ipRules [\*].value**來**10.0.4.1** ，並套用**effectType**才找不到至少一個相符項目：
+**[\*]** 別名可讓您針對陣列中每個元素的值，而且每個元素的特定屬性進行比較。 這種方法可讓您比較項目屬性的 'if none 的'、 '如果有的話的' 或 '如果要將所有的' 案例。 使用**ipRules [\*]** ，範例就驗證每個_動作_是_拒絕_，但不是擔心多少規則存在，或什麼 IP _值_是。 此範例規則會檢查是否有任何符合的**ipRules [\*].value**來**10.0.4.1** ，並套用**effectType**才找不到至少一個相符項目：
 
 ```json
 "policyRule": {
@@ -529,7 +529,7 @@ Azure 原則支援下列類型的效果：
 
 如需詳細資訊，請參閱 <<c0> [ 評估 [\*] 別名](../how-to/author-policies-for-arrays.md#evaluating-the--alias)。
 
-## <a name="initiatives"></a>方案
+## <a name="initiatives"></a>計畫
 
 計畫可讓您將數個相關的原則定義組成群組來簡化指派和管理，因為您可以將一個群組當作單一項目來使用。 例如，您可以將相關的標籤原則定義組成單一方案。 您可以套用該計畫，而不個別指派每個原則。
 
@@ -614,4 +614,4 @@ Azure 原則支援下列類型的效果：
 - 了解如何[以程式設計方式建立原則](../how-to/programmatically-create.md)。
 - 了解如何[取得合規性資料](../how-to/getting-compliance-data.md)。
 - 了解如何[補救不符合規範的資源](../how-to/remediate-resources.md)。
-- 檢閱管理群組是使用[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)。
+- 透過[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)來檢閱何謂管理群組。

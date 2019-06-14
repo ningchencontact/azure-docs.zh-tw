@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1ca69fc23d580b61e74fe56b3d0c3524fdfad747
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235543"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>規劃雲端式 Azure Multi-factor Authentication Server 部署
@@ -301,7 +301,7 @@ NPS 擴充功能作為 RADIUS 與雲端 Azure MFA 提供第二因素驗證來保
 
 選擇未註冊 mfa 的使用者嘗試驗證時，會發生什麼事。 使用登錄設定`REQUIRE_USER_MATCH`登錄路徑中`HKLM\Software\Microsoft\AzureMFA`來控制功能的行為。 此設定具有單一組態選項。
 
-| Key | Value | 預設值 |
+| Key | 值 | 預設值 |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE / FALSE | 未設定 (相當於 TRUE) |
 
@@ -368,7 +368,7 @@ Azure MFA 的報表
 
 Azure Multi-factor Authentication 提供透過 Azure 入口網站的報表：
 
-| 報表 | 位置 | 描述 |
+| 報告 | 位置 | 描述 |
 | --- | --- | --- |
 | 使用方式和詐騙警示 | Azure AD > 登入 | 提供整體使用量、使用者摘要和使用者詳細資料的相關資訊；以及在指定的日期範圍期間所提交的詐騙警示歷程記錄。 |
 
