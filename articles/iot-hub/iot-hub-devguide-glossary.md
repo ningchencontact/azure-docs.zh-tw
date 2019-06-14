@@ -9,13 +9,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.openlocfilehash: 6f89e27b06179c33857d581c0c6e3fc78c683d48
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119804"
 ---
-# <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
+# <a name="glossary-of-iot-hub-terms"></a>IoT 中樞術語詞彙
 本文會列出 IoT 中樞文章中使用的一些常見術語。
 
 ## <a name="advanced-message-queueing-protocol"></a>進階訊息佇列通訊協定
@@ -61,8 +61,8 @@ Azure IoT 中樞中的自動裝置管理，可將管理大群大型裝置的許�
 ## <a name="back-end-app"></a>後端應用程式
 在 [IoT 中樞](#iot-hub)的內容中，後端應用程式是連接到 IoT 中樞上其中一個服務面向端點的應用程式。 例如，後端應用程式可能會擷取[裝置到雲端](#device-to-cloud)訊息或管理[身分識別登錄](#identity-registry)。 後端應用程式通常會在雲端執行，但在許多教學課程中，後端應用程式是在本機開發電腦上執行的主控台應用程式。
 
-## <a name="built-in-endpoints"></a>内置终结点
-每個 IoT 中樞都包含與事件中樞相容的內建[端點](iot-hub-devguide-endpoints.md)。 可以使用任何适用于事件中心的机制从此终结点读取设备到云消息。
+## <a name="built-in-endpoints"></a>內建端點
+每個 IoT 中樞都包含與事件中樞相容的內建[端點](iot-hub-devguide-endpoints.md)。 您可以使用可搭配「事件中樞」使用的任何機制從此端點讀取裝置到雲端訊息。
 
 ## <a name="cloud-gateway"></a>雲端閘道
 雲端閘道可讓無法直接連接到 [IoT 中樞](#iot-hub)的裝置能夠連線。 相對於在裝置本機執行的[現場閘道](#field-gateway)，雲端閘道是裝載於雲端。 雲端閘道的典型使用案例是針對您的裝置實作通訊協定轉譯。
@@ -74,14 +74,14 @@ Azure IoT 中樞中的自動裝置管理，可將管理大群大型裝置的許�
 在[自動裝置設定](iot-hub-auto-device-config.md)的內容中，IoT 中樞內的設定會為一組裝置對應項定義所需的設定，並提供一組計量來報告狀態與進度。
 
 ## <a name="connection-string"></a>連接字串
-使用应用程序代码中的连接字符串来封装连接到终结点所需的信息。 連接字串通常包含端點位址和安全性資訊，但連接字串的格式會因服務而不同。 IoT 中樞服務有兩種相關的連接字串︰
-- 「裝置連接字串」可讓裝置連接至 IoT 中樞上的裝置對向端點。
-- *IoT 中心连接字符串* 使后端应用能够连接到 IoT 中心上面向服务的终结点。
+您可以在應用程式程式碼中使用連接字串，以封裝連接至端點所需的資訊。 連接字串通常包含端點位址和安全性資訊，但連接字串的格式會因服務而不同。 IoT 中樞服務有兩種相關的連接字串︰
+- 「裝置連接字串」  可讓裝置連接至 IoT 中樞上的裝置對向端點。
+- 「IoT 中樞連接字串」  可讓後端應用程式連接至 IoT 中樞上的服務對向端點。
 
 ## <a name="custom-endpoints"></a>自訂端點
 您可以在 IoT 中樞上建立自訂[端點](iot-hub-devguide-endpoints.md)，以傳遞由[路由規則](#routing-rules)分派的訊息。 自訂端點會直接連線到事件中樞、服務匯流排佇列或服務匯流排主題。
 
-## <a name="custom-gateway"></a>自定义网关
+## <a name="custom-gateway"></a>自訂閘道
 閘道可讓無法直接連接到 [IoT 中樞](#iot-hub)的裝置能夠連線。 您可以使用 Azure IoT Edge 來建立自訂閘道，以實作自訂邏輯從而處理 Edge 上的訊息、自訂通訊協定轉換和其他處理。
 
 ## <a name="data-point-message"></a>資料點訊息
@@ -97,7 +97,7 @@ Azure IoT 中樞中的自動裝置管理，可將管理大群大型裝置的許�
 意指從連接的裝置傳送到 [IoT 中樞](#iot-hub)的訊息。 這些訊息可能是[資料點](#data-point-message)訊息或[互動式](#interactive-message)訊息。 如需詳細資訊，請參閱[使用 IoT 中樞傳送及接收訊息](iot-hub-devguide-messaging.md)。
 
 ## <a name="device"></a>裝置
-在 IoT 上下文中，设备通常是指小型、独立的计算设备，可用于收集数据或控制其他设备。 比方說，裝置可能是環境監視裝置，或是溫室中灌溉和換氣系統的控制器。 [裝置目錄](https://catalog.azureiotsolutions.com/)會提供被認證可使用 [IoT 中樞](#iot-hub)的硬體裝置清單。
+在 IoT 的內容中，裝置通常是小規模的獨立運算裝置，可能會收集資料或控制其他裝置。 比方說，裝置可能是環境監視裝置，或是溫室中灌溉和換氣系統的控制器。 [裝置目錄](https://catalog.azureiotsolutions.com/)會提供被認證可使用 [IoT 中樞](#iot-hub)的硬體裝置清單。
 
 ## <a name="device-app"></a>裝置應用程式
 裝置應用程式是在[裝置](#device)上執行，可處理與 [IoT 中樞](#iot-hub)的通訊。 當您實作裝置應用程式時，您通常會使用其中一個 [Azure IoT 裝置 SDK](#azure-iot-device-sdks)。 在許多 IoT 教學課程中，您可以使用方便的[模擬裝置](#simulated-device)。
@@ -126,17 +126,17 @@ Azure IoT 中樞中的自動裝置管理，可將管理大群大型裝置的許�
 ## <a name="device-provisioning"></a>裝置佈建
 裝置佈建是將初始[裝置資料](#device-data)新增至解決方案中存放區的程序。 若要讓新裝置可連接到您的中樞，必須將裝置識別碼和金鑰新增至 IoT 中樞[身分識別登錄](#identity-registry)。 做為佈建程序的一部分，您可能需要初始化其他解決方案存放區中的裝置特定資料。
 
-## <a name="device-twin"></a>设备孪生
+## <a name="device-twin"></a>裝置對應項
 [裝置對應項](iot-hub-devguide-device-twins.md)是存放裝置狀態資訊 (例如中繼資料、組態和狀況) 的 JSON 文件。 [IoT 中樞](#iot-hub)會為您在 IoT 中樞佈建的每個裝置保存裝置對應項。 裝置對應項可讓您同步處理裝置與解決方案後端之間的[裝置狀況](#device-condition)和組態。 您可以查詢裝置對應項，以找出特定裝置和查詢長時間執行作業的狀態。
 
 ## <a name="direct-method"></a>直接方法
 [直接方法](iot-hub-devguide-direct-methods.md)可讓您藉由叫用 IoT 中樞上的 API，觸發方法以在裝置上執行。
 
 ## <a name="endpoint"></a>端點
-IoT 中樞會公開多個[端點](iot-hub-devguide-endpoints.md)，讓您的應用程式連接到 IoT 中樞。 有面向设备的终结点，通过此终结点设备可以执行一些操作，例如发送[设备到云](#device-to-cloud)的消息和接收[云到设备](#cloud-to-device)的消息。 服務面向管理端點可讓[後端應用程式](#back-end-app)執行一些作業，例如[裝置身分識別](#device-identity)管理和裝置對應項管理。 有可用於讀取裝置到雲端訊息的服務面向[內建端點](#built-in-endpoints)。 您可以建立[自訂端點](#custom-endpoints)，以接收由[路由規則](#routing-rules)分派的裝置到雲端訊息。
+IoT 中樞會公開多個[端點](iot-hub-devguide-endpoints.md)，讓您的應用程式連接到 IoT 中樞。 裝置面向端點可讓裝置執行一些作業，例如傳送[裝置到雲端](#device-to-cloud)訊息和接收[雲端到裝置](#cloud-to-device)訊息。 服務面向管理端點可讓[後端應用程式](#back-end-app)執行一些作業，例如[裝置身分識別](#device-identity)管理和裝置對應項管理。 有可用於讀取裝置到雲端訊息的服務面向[內建端點](#built-in-endpoints)。 您可以建立[自訂端點](#custom-endpoints)，以接收由[路由規則](#routing-rules)分派的裝置到雲端訊息。
 
-## <a name="event-hubs-service"></a>事件中心服务
-[事件中心](../event-hubs/event-hubs-what-is-event-hubs.md)是高度可缩放的数据引入服务，每秒可以引入数以百万计的事件。 此服務可讓您處理及分析由連接之裝置與應用程式所產生的大量資料。 有关该服务与 IoT 中心服务的比较的信息，请参阅 [Azure IoT 中心与 Azure 事件中心的比较](iot-hub-compare-event-hubs.md)。
+## <a name="event-hubs-service"></a>事件中樞服務
+[事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)是可高度調整的資料擷取服務，每秒可以擷取數以百萬計的事件。 此服務可讓您處理及分析由連接之裝置與應用程式所產生的大量資料。 如需與 IoT 中樞服務的比較，請參閱 [Azure IoT 中樞與 Azure 事件中樞的比較](iot-hub-compare-event-hubs.md)。
 
 ## <a name="event-hub-compatible-endpoint"></a>事件中樞相容端點
 若要讀取傳送到 IoT 中樞的[裝置到雲端](#device-to-cloud)訊息，您可以連接到中樞上的端點，並使用任何事件中樞相容方法讀取這些訊息。 事件中樞相容方法包括使用[事件中樞 SDK](../event-hubs/event-hubs-programming-guide.md) 和 [Azure 串流分析](../stream-analytics/stream-analytics-introduction.md)。
@@ -144,25 +144,25 @@ IoT 中樞會公開多個[端點](iot-hub-devguide-endpoints.md)，讓您的應�
 ## <a name="field-gateway"></a>現場閘道
 現場閘道可讓無法直接連線到 [IoT 中樞](#iot-hub)的裝置獲得連線能力，並且通常會與裝置一起部署在本機。 如需詳細資訊，請參閱[何謂 Azure IoT 中樞？](about-iot-hub.md)
 
-## <a name="free-account"></a>免费帐户
+## <a name="free-account"></a>免費帳戶
 您可以建立[免費的 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)來完成 IoT 中樞教學課程，並且試驗 IoT 中樞服務 (和其他 Azure 服務)。
 
 ## <a name="gateway"></a>閘道器
-网关使不能直接连接到 [IoT 中心](#iot-hub)的设备能建立连接。 另請參閱[現場閘道](#field-gateway)、[雲端閘道](#cloud-gateway)和[自訂閘道](#custom-gateway)。
+閘道可讓無法直接連接到 [IoT 中樞](#iot-hub)的裝置能夠連線。 另請參閱[現場閘道](#field-gateway)、[雲端閘道](#cloud-gateway)和[自訂閘道](#custom-gateway)。
 
-## <a name="identity-registry"></a>标识注册表
+## <a name="identity-registry"></a>身分識別登錄
 [身分識別登錄](iot-hub-devguide-identity-registry.md)是內建的 IoT 中樞元件，可存放允許連線到 IoT 中樞的個別裝置相關資訊。
 
-## <a name="interactive-message"></a>交互式消息
-交互式消息是 [云到设备](#cloud-to-device) 的消息，可在解决方案后端触发即时操作。 例如，裝置可能會傳送有關失敗的警示，並應該自動記錄到 CRM 系統。
+## <a name="interactive-message"></a>互動式訊息
+互動式訊息是[雲端到裝置](#cloud-to-device)訊息，可在解決方案後端觸發立即的行動。 例如，裝置可能會傳送有關失敗的警示，並應該自動記錄到 CRM 系統。
 
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
 ## <a name="iot-hub"></a>IoT 中樞
 IoT 中樞是一項完全受控的 Azure 服務，可在數百萬個裝置和一個解決方案後端之間啟用可靠且安全的雙向通訊。 如需詳細資訊，請參閱[何謂 Azure IoT 中樞？](about-iot-hub.md) 使用 [Azure 訂用帳戶](#subscription)，您可以建立 IoT 中樞來處理 IoT 傳訊工作負載。
 
-## <a name="iot-hub-metrics"></a>IoT 中心度量值
-[IoT 中心指标](iot-hub-metrics.md)向用户提供有关 [Azure 订阅](#subscription)中的 IoT 中心的状态数据。 IoT 中樞度量可讓您評估服務及其連接之裝置的整體健全狀況。 IoT 中樞度量可協助您了解 IoT 中樞的情況並調查根本問題，而不需要連絡 Azure 支援人員。
+## <a name="iot-hub-metrics"></a>IoT 中樞計量
+[IoT 中樞計量](iot-hub-metrics.md)可提供 [Azure 訂用帳戶](#subscription)中 IoT 中樞的狀態相關資料。 IoT 中樞度量可讓您評估服務及其連接之裝置的整體健全狀況。 IoT 中樞度量可協助您了解 IoT 中樞的情況並調查根本問題，而不需要連絡 Azure 支援人員。
 
 ## <a name="iot-hub-query-language"></a>IoT 中樞查詢語言
 [IoT 中樞查詢語言](iot-hub-devguide-query-language.md)是一種類似 SQL 的語言，可讓您查詢 [](#job) 和裝置對應項。
@@ -191,21 +191,21 @@ Azure IoT 解決方案加速器將多個 Azure 服務封裝在一起成為解決
 和裝置對應項類似，模組對應項是存放模組狀態資訊 (例如中繼資料、組態和狀況) 的 JSON 文件。 IoT 中樞會為您在 IoT 中樞的裝置身分識別下所佈建的每個模組身分識別，都存留一個模組對應項。 模組對應項可讓您同步處理模組與解決方案後端之間的模組條件和設定。 您可以查詢模組對應項，以找出特定模組和查詢長時間執行作業的狀態。
 
 ## <a name="mqtt"></a>MQTT
-[MQTT](https://mqtt.org/) 是 [IoT 中樞](#iot-hub)支援用來與裝置通訊的其中一種傳訊通訊協定。 有关 IoT 中心支持的消息传递协议的详细信息，请参阅[使用 IoT 中心发送和接收消息](iot-hub-devguide-messaging.md)。
+[MQTT](https://mqtt.org/) 是 [IoT 中樞](#iot-hub)支援用來與裝置通訊的其中一種傳訊通訊協定。 如需 IoT 中樞支援的傳訊通訊協定詳細資訊，請參閱[使用 IoT 中樞傳送及接收訊息](iot-hub-devguide-messaging.md)。
 
 ## <a name="operations-monitoring"></a>作業監視
 IoT 中樞的[作業監視](iot-hub-operations-monitoring.md)可讓您即時監視其 IoT 中樞上的作業狀態。 [IoT 中樞](#iot-hub)可追蹤橫跨數個作業類別的事件。 您可以選擇將一或多個類別的事件傳送至 IoT 中樞端點進行處理。 您可以監視資料中是否有錯誤，或根據資料模式設定更複雜的處理行為。
 
-## <a name="physical-device"></a>物理设备
+## <a name="physical-device"></a>實體裝置
 實體裝置是實際的裝置，例如連接到 IoT 中樞的 Raspberry Pi。 為了方便起見，許多 IoT 中樞教學課程都使用[模擬裝置](#simulated-device)，讓您在本機電腦上執行範例。
 
 ## <a name="primary-and-secondary-keys"></a>主要和次要金鑰
 當您連接到 IoT 中樞上的裝置面向或服務面向端點時，[連接字串](#connection-string)包含可授與存取權的金鑰。 當您將裝置新增到[身分識別登錄](#identity-registry)或將[共用存取原則](#shared-access-policy)新增到中樞時，服務會產生主要和次要金鑰。 擁有兩個金鑰，可讓您在更新金鑰時從一個金鑰轉換至另一個金鑰，而不會中斷對 IoT 中樞的存取。
 
-## <a name="protocol-gateway"></a>协议网关
+## <a name="protocol-gateway"></a>通訊協定閘道
 通訊協定閘道通常部署在雲端，可為連線到 [IoT 中樞](#iot-hub)的裝置提供通訊協定轉譯服務。 如需詳細資訊，請參閱[何謂 Azure IoT 中樞？](about-iot-hub.md)
 
-## <a name="quotas-and-throttling"></a>配额和限制
+## <a name="quotas-and-throttling"></a>配額和節流
 您的 [IoT 中樞](#iot-hub)使用可套用各種[配額](iot-hub-devguide-quotas-throttling.md)，其中有許多配額會因 IoT 中樞的層次而異。 [IoT 中樞](#iot-hub)也會將[節流](iot-hub-devguide-quotas-throttling.md)套用至您在執行階段的服務使用。
 
 ## <a name="reported-configuration"></a>報告組態
@@ -217,8 +217,8 @@ IoT 中樞的[作業監視](iot-hub-operations-monitoring.md)可讓您即時監�
 ## <a name="resource-group"></a>資源群組
 [Azure Resource Manager](#azure-resource-manager) 會使用資源群組將相關的資源群組在一起。 您可以使用資源群組，同時對群組中的所有資源執行作業。
 
-## <a name="retry-policy"></a>重试策略
-连接到云服务时使用重试策略来处理[暂时性错误](/azure/architecture/best-practices/transient-faults)。
+## <a name="retry-policy"></a>重試原則
+當您連接到雲端服務時，您可以使用重試原則來處理[暫時性錯誤](/azure/architecture/best-practices/transient-faults)。
 
 ## <a name="routing-rules"></a>路由規則
 您必須在 IoT 中樞設定[路由規則](iot-hub-devguide-messages-read-custom.md)，以將裝置到雲端訊息路由傳送到[內建端點](#built-in-endpoints)或[自訂端點](#custom-endpoints)，以由您的解決方案後端處理。
@@ -230,7 +230,7 @@ SASL PLAIN 是 AMQP 通訊協定用來傳輸安全性權杖的通訊協定。
 您可以從解決方案後端使用[服務 REST API](https://docs.microsoft.com/rest/api/iothub/service) 來管理您的裝置。 該 API 可讓您擷取及更新[裝置對應項](#device-twin)屬性、叫用[直接方法](#direct-method)，以及排程[作業](#job)。 您通常應該使用如 IoT 中樞教學課程中所示的其中一個較高層級的[服務 SDK](#azure-iot-service-sdks)。
 
 ## <a name="shared-access-signature"></a>共用存取簽章
-共用存取簽章 (SAS) 是以 SHA-256 安全雜湊或 URI 為基礎的驗證機制。 SAS 驗證有兩個元件：「共用存取原則」和「共用存取簽章」 (通常稱為權杖)。 裝置可使用 SAS 向 IoT 中樞進行驗證。 [後端應用程式](#back-end-app)也可使用 SAS 向 IoT 中樞上的服務面向端點進行驗證。 您通常會將 SAS 權杖包含在[連接字串](#connection-string)中，以便應用程式用於建立連往 IoT 中樞的連線。
+共用存取簽章 (SAS) 是以 SHA-256 安全雜湊或 URI 為基礎的驗證機制。 SAS 驗證有兩個元件：「共用存取原則」  和「共用存取簽章」  (通常稱為權杖)。 裝置可使用 SAS 向 IoT 中樞進行驗證。 [後端應用程式](#back-end-app)也可使用 SAS 向 IoT 中樞上的服務面向端點進行驗證。 您通常會將 SAS 權杖包含在[連接字串](#connection-string)中，以便應用程式用於建立連往 IoT 中樞的連線。
 
 ## <a name="shared-access-policy"></a>共用存取原則
 共用存取原則所定義的權限可授與給任何具有與該原則相關聯之有效[主要或次要金鑰](#primary-and-secondary-keys)的人員。 您可以在[入口網站](#azure-portal)中為您的中樞管理共用存取原則和金鑰。
@@ -254,7 +254,7 @@ Azure 訂用帳戶是發生帳單的地方。 您建立的每個 Azure 資源，
 裝置可收集遙測資料 (例如風速或溫度)，並使用資料點訊息將遙測傳送到 IoT 中樞。
 
 ## <a name="token-service"></a>權杖服務
-您可以使用權杖服務來實作裝置的驗證機制。 建立具備 **DeviceConnect** 權限的 IoT 中樞[共用存取原則](#shared-access-policy)，以建立「裝置範圍」權杖。 这些令牌可让设备连接到 IoT 中心。 裝置可使用自訂驗證機制來向權杖服務進行驗證。 如果裝置驗證成功，則權杖服務會發出 SAS 權杖以供裝置用來存取您的 IoT 中樞。
+您可以使用權杖服務來實作裝置的驗證機制。 建立具備 **DeviceConnect** 權限的 IoT 中樞[共用存取原則](#shared-access-policy)，以建立「裝置範圍」  權杖。 這些權杖可讓裝置連接到 IoT 中樞。 裝置可使用自訂驗證機制來向權杖服務進行驗證。 如果裝置驗證成功，則權杖服務會發出 SAS 權杖以供裝置用來存取您的 IoT 中樞。
 
 ## <a name="twin-queries"></a>對應項查詢
 [裝置與模組對應項查詢](iot-hub-devguide-query-language.md)使用類似 SQL 的 IoT 中樞查詢語言，從裝置對應項或模組對應項擷取資訊。 您可以使用相同的 IoT 中樞查詢語言，來對在 IoT 中樞執行的 [](#job)擷取相關資訊。

@@ -13,14 +13,14 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c1620be30d8cdf3a592ab0fc118938783579689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60474935"
 ---
 # <a name="set-up-security-info-preview-to-use-phone-calls"></a>將安全性資訊 (預覽) 設定為使用電話
-您可以遵循下列步驟來新增雙因素驗證和密碼重設方法。 在您首次將此設定好之後，即可返回 [安全性資訊] 頁面來新增、更新或刪除安全性資訊。
+您可以遵循下列步驟來新增雙因素驗證和密碼重設方法。 在您首次將此設定好之後，即可返回 [安全性資訊]  頁面來新增、更新或刪除安全性資訊。
 
 如果系統提示您要在登入公司或學校帳戶之後立即設定此資訊，請參閱[從登入頁面的提示字元中設定安全性資訊](security-info-setup-signin.md)一文中的詳細步驟。
 
@@ -43,15 +43,15 @@ ms.locfileid: "60474935"
 
     ![[我的設定檔] 頁面，顯示醒目提示的 [安全性資訊] 連結](media/security-info/securityinfo-myprofile-page.png)
 
-2. 以左側瀏覽窗格或是 [安全性資訊] 區塊中的連結選取 [安全性資訊]，然後在 [安全性資訊] 頁面選取 [新增方法]。
+2. 以左側瀏覽窗格或是 [安全性資訊]  區塊中的連結選取 [安全性資訊]  ，然後在 [安全性資訊]  頁面選取 [新增方法]  。
 
     ![醒目提示新增方法選項的安全性資訊頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. 在 [新增方法] 頁面上，從下拉式清單中選取 [電話]，然後選取 [新增]。
+3. 在 [新增方法]  頁面上，從下拉式清單中選取 [電話]  ，然後選取 [新增]  。
 
     ![已選取 [電話] 的 [新增方法] 方塊](media/security-info/securityinfo-myprofile-addphonetext.png)
 
-4. 在 [電話] 頁面上，輸入行動裝置的電話號碼，選擇 [打電話給我]，然後選取 [下一步]。
+4. 在 [電話]  頁面上，輸入行動裝置的電話號碼，選擇 [打電話給我]  ，然後選取 [下一步]  。
 
     ![新增電話號碼，然後選擇電話](media/security-info/securityinfo-myprofile-phonecall-addnumber.png)
 
@@ -64,33 +64,33 @@ ms.locfileid: "60474935"
     您的安全性資訊會更新，而且可以在使用雙步驟驗證或密碼重設時，透過電話驗證您的身分識別。 如果您想要讓電話變成預設方法，請參閱本文的[變更預設的安全性資訊方法](#change-your-default-security-info-method)一節。
 
 ## <a name="delete-phone-calls-from-your-security-info-methods"></a>從安全性資訊方法中刪除電話
-如果您不想再使用電話作為安全性資訊方法，您可以從 [安全性資訊] 頁面中予以刪除。
+如果您不想再使用電話作為安全性資訊方法，您可以從 [安全性資訊]  頁面中予以刪除。
 
 >[!Important]
 >若不小心刪除電話，就無法再復原。 您必須依照本文中[設定電話](#set-up-phone-calls-from-the-security-info-page)一節的步驟，再次新增該方法。
 
 ### <a name="to-delete-phone-calls"></a>刪除電話
 
-1. 在 [安全性資訊] 頁面上，選取 [電話] 選項旁的 [刪除] 連結。
+1. 在 [安全性資訊]  頁面上，選取 [電話]  選項旁的 [刪除]  連結。
 
     ![從安全性資訊刪除電話方法的連結](media/security-info/securityinfo-myprofile-phonetext-delete.png)
 
-2. 從確認方塊中選取 [是]，以刪除 [電話] 號碼。 刪除電話號碼之後，該號碼就會從您的安全性資訊中移除，並且從 [安全性資訊] 頁面上消失。 如果 [電話] 是預設方法，則預設值將會變更為另一個可用方法。
+2. 從確認方塊中選取 [是]  ，以刪除 [電話]  號碼。 刪除電話號碼之後，該號碼就會從您的安全性資訊中移除，並且從 [安全性資訊]  頁面上消失。 如果 [電話]  是預設方法，則預設值將會變更為另一個可用方法。
     
 ## <a name="change-your-default-security-info-method"></a>變更預設的安全性資訊方法
-如果您想要在使用雙因素驗證登入公司或學校帳戶時，或提出密碼重設要求時，使用電話作為預設方法，您可以從 [安全性資訊] 頁面進行設定。
+如果您想要在使用雙因素驗證登入公司或學校帳戶時，或提出密碼重設要求時，使用電話作為預設方法，您可以從 [安全性資訊]  頁面進行設定。
 
 ### <a name="to-change-your-default-security-info-method"></a>變更預設的安全性資訊方法
 
-1. 在 [安全性資訊] 頁面上，選取 [預設登入方法] 資訊旁的 [變更] 連結。
+1. 在 [安全性資訊]  頁面上，選取 [預設登入方法]  資訊旁的 [變更]  連結。
 
     ![變更預設登入方法的連結](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. 從可用方法的下拉式清單中選取 [電話 - 撥打 (your_phone_number)]，然後選取 [確認]。
+2. 從可用方法的下拉式清單中選取 [電話 - 撥打 (your_phone_number)]    ，然後選取 [確認]  。
 
     ![選擇預設登入方法](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    用於登入的預設方法會變更為 [電話 - 撥打 (your_phone_number)]。
+    用於登入的預設方法會變更為 [電話 - 撥打 (your_phone_number)]    。
 
 ## <a name="additional-security-info-methods"></a>其他安全性資訊方法
 根據您要嘗試執行的動作，您會有組織如何連絡您來驗證您身分識別的其他選項。 選項包括：

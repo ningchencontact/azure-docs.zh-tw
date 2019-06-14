@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.openlocfilehash: 0bfb66f54ec09e86b46a41499211e93a0083e8d1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779919"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>在您的 Azure IoT 中樞中設定 X.509 安全性
@@ -52,7 +52,7 @@ ms.locfileid: "65779919"
 
 4. 一旦取得您的憑證已成功上傳的通知後，請按一下 [儲存]  。
 
-    ![上傳憑證](./media/iot-hub-security-x509-get-started/add-new-cert.png)  
+    ![Upload certificate](./media/iot-hub-security-x509-get-started/add-new-cert.png)  
 
    這會在 [憑證總管]  清單中顯示您的憑證。 請注意，這個憑證的 [狀態]  是 [未驗證]  。
 
@@ -169,7 +169,7 @@ ms.locfileid: "65779919"
    此程式碼會連線到 IoT 中樞，方法為建立 X.509 裝置的連接字串。 一旦成功連線後，就會將氣溫和溼度事件傳送至中樞，並等候其回應。 
 7. 此應用程式會存取 .pfx  檔案，因此您可能必須在 Admin  模式中加以執行。 建置 Visual Studio 解決方案。 以**管理員**身分開啟新的命令視窗，並瀏覽至包含此解決方案的資料夾。 瀏覽至 bin/Debug  解決方案資料夾內的路徑。 從 _Admin_ 命令視窗執行應用程式 **SimulateX509Device.exe**。 您應該會看到裝置成功連線至中樞並傳送事件。 
 
-   ![运行设备应用](./media/iot-hub-security-x509-get-started/device-app-success.png)
+   ![執行裝置應用程式](./media/iot-hub-security-x509-get-started/device-app-success.png)
 
 ## <a name="next-steps"></a>後續步驟
 

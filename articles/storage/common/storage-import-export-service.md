@@ -9,10 +9,10 @@ ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 97a3ac275613b644dfd90144039e4f3127186997
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603101"
 ---
 # <a name="what-is-azure-importexport-service"></a>什麼是 Azure 匯入/匯出服務？
@@ -119,11 +119,11 @@ Azure 匯入/匯出服務支援與所有 Azure 儲存體帳戶相互複製資料
 ### <a name="supported-shipping-locations"></a>支援的運送位置
 
 
-|國家/地區  |國家/地區  |國家/地區  |國家/地區  |
+|國家/區域  |國家/區域  |國家/區域  |國家/區域  |
 |---------|---------|---------|---------|
 |美國東部    | 北歐        | 印度中部        |US Gov 愛荷華州         |
 |美國西部     |西歐         | 印度南部        | 美國 DoD 東部        |
-|美國東部 2    | 東亞        |  印度西部        | 美國 DoD 中部        |
+|美國東部 2    | 東亞        |  印度西部        | 美國國防部中央        |
 |美國西部 2     | 東南亞        | 加拿大中部        | 中國東部         |
 |美國中部     | 澳洲東部        | 加拿大東部        | 中國北部        |
 |美國中北部     |  澳大利亞東南部       | 巴西南部        | 英國南部        |
@@ -138,9 +138,9 @@ Azure 匯入/匯出服務支援與所有 Azure 儲存體帳戶相互複製資料
 針對匯入作業，會使用兩種方式來加密磁碟機。  
 
 
-- 在磁碟機準備期間執行 WAImportExport 工具時，於使用 dataset.csv 檔案時指定選項。 
+- 在磁碟機準備期間執行 WAImportExport 工具時，於使用 dataset.csv  檔案時指定選項。 
 
-- 在磁碟機上手動啟用 BitLocker 加密。 在磁碟機準備期間，於執行 WAImportExport 工具命令列時，在 driveset.csv 中指定加密金鑰。
+- 在磁碟機上手動啟用 BitLocker 加密。 在磁碟機準備期間，於執行 WAImportExport 工具命令列時，在 driveset.csv  中指定加密金鑰。
 
 
 針對匯出作業，您的資料複製到磁碟機之後，服務會使用 BitLocker 將磁碟機加密，然後才運送回去給您。 加密金鑰會透過 Azure 入口網站提供給您。
@@ -160,7 +160,7 @@ Azure 匯入/匯出服務支援與所有 Azure 儲存體帳戶相互複製資料
 
 **交易成本**
 
-[標準儲存體交易費用](https://azure.microsoft.com/pricing/details/storage/)在匯入與匯出資料時套用。 從 Azure 儲存體匯出資料時，也會與儲存體交易費用適用標準輸出費用。 如需有關出口成本的詳細資訊，請參閱[資料傳輸價格](https://azure.microsoft.com/pricing/details/data-transfers/)。
+[標準儲存體交易費用](https://azure.microsoft.com/pricing/details/storage/)在匯入與匯出資料時套用。 從 Azure 儲存體匯出資料時，也會與儲存體交易費用適用標準輸出費用。 如需有關出口成本的詳細資訊，請參閱[資料傳輸價格。](https://azure.microsoft.com/pricing/details/data-transfers/)。
 
 
 

@@ -13,10 +13,10 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: bbe220780a3c21e7bfb15d0568904af4ed47f765
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61486782"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>影片索引與註解，適用主題為使用 Azure SQL Database 的多租用戶 SaaS 應用程式之影片
@@ -25,7 +25,7 @@ ms.locfileid: "61486782"
 
 影片詳述以下書面文件中的資訊： 
 - *概念文件：* 多租用戶 SaaS 資料庫租用模式[saas-concept-design-patterns-563e]
-- *教學課程：*[Wingtip Tickets SaaS 應用程式][saas-how-welcome-wingtip-app-679t]
+- *教學課程：* [Wingtip Tickets SaaS 應用程式][saas-how-welcome-wingtip-app-679t]
 
 影片與文章說明在雲端的 Azure SQL Database 上建立多租用戶應用程式的許多階段。 Azure SQL Database 的特殊功能可更輕鬆地開發和實作多租用戶應用程式，同時易於管理且兼顧效能。
 
@@ -44,7 +44,7 @@ ms.locfileid: "61486782"
 
 下列標題是本文稍後其對應標註章節的連結：
 
-- [1.**(開始)** 歡迎投影片，0:00:03](#anchor-image-wtip-min00001)
+- [1. **(開始)** 歡迎投影片，0:00:03](#anchor-image-wtip-min00001)
 - [2.會議目標，0:03:11](#anchor-image-wtip-min00311)
 - [3.議程，0:04:17](#anchor-image-wtip-min00417)
 - [4.多租用戶 Web 應用程式，0:05:05](#anchor-image-wtip-min00505)
@@ -92,7 +92,7 @@ ms.locfileid: "61486782"
 
 
 &nbsp; <a name="anchor-image-wtip-min00001"/>
-#### <a name="1-start-welcome-slide-00001"></a>1.*(開始)* 歡迎投影片，0:00:01
+#### <a name="1-start-welcome-slide-00001"></a>1. *(開始)* 歡迎投影片，0:00:01
 
 *向 MYOB 學習：適用於 Azure SQL Database 上 SaaS 應用程式的設計模式 - BRK3120*
 
@@ -296,7 +296,7 @@ ms.locfileid: "61486782"
 
 - *概念文件：* 多租用戶 SaaS 資料庫租用模式[saas-concept-design-patterns-563e]
 
-- *教學課程：*[Wingtip Tickets SaaS 應用程式][saas-how-welcome-wingtip-app-679t]
+- *教學課程：* [Wingtip Tickets SaaS 應用程式][saas-how-welcome-wingtip-app-679t]
 
 - Wingtip 票證 SaaS 租用戶應用程式的 GitHub 存放庫：
     - [GitHub 存放庫：獨立應用程式模型][github-wingtip-standaloneapp]。

@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935447"
 ---
 <a name="retrieve-offer-status"></a>擷取供應項目狀態 
@@ -28,14 +28,14 @@ ms.locfileid: "64935447"
 |  -------------  |  ------------------------------------------  |  ------------  |
 |  publisherId    | 發行者識別碼，例如 `Contoso`  |     字串     |
 |  offerId        | 可唯一識別供應項目的 GUID      |     字串     |
-|  api-version    | API 的最新版本                        |     date       |
+|  api-version    | API 的最新版本                        |     Date       |
 |  |  |
 
 
 <a name="header"></a>頁首
 ------
 
-|  名稱           |  Value               |
+|  Name           |  值               |
 |  -------------  | -------------------  |
 |  Content-Type   |  `application/json`  |
 |  授權  | `Bearer YOUR_TOKEN`  |
@@ -125,14 +125,14 @@ ms.locfileid: "64935447"
 |  **名稱**             |    **說明**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
 |  status               | 供應項目的狀態。 如需可能值清單，請參閱下面的[供應項目狀態](#offer-status)。 |
-|   上限             | 與供應項目相關聯的訊息陣列                                                    |
+|  上限             | 與供應項目相關聯的訊息陣列                                                    |
 |  steps                | 供應項目發行期間，供應項目所歷經的步驟陣列                      |
 |  estimatedTimeFrame   | 完成此步驟要花費的估計時間 (易記格式)                       |
 |  id                   | 步驟的識別碼                                                                         |
 |  stepName             | 步驟的名稱                                                                               |
 |  description          | 步驟的說明                                                                        |
 |  status               | 步驟的狀態。 如需可能值清單，請參閱下面的[步驟狀態](#step-status)。    |
-|   上限             | 與步驟相關聯的訊息陣列                                                          |
+|  上限             | 與步驟相關聯的訊息陣列                                                          |
 |  processPercentage    | 步驟的完成百分比                                                              |
 |  previewLinks         | 目前尚未實作                                                                    |
 |  liveLinks            | 目前尚未實作                                                                    |
