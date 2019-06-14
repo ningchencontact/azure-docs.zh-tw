@@ -16,10 +16,10 @@ ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e2bd67ebb977a37c75631f16fbbf4c7dbd6bf250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60782545"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 資源
@@ -39,7 +39,7 @@ Azure CLI 是管理 Azure 資源的 Azure 命令列體驗。 它可以用於 mac
 
 ## <a name="command-help"></a>命令說明
 
-您可以將 `-h` 附加至命令，以在 Azure CLI 中顯示每個命令的說明文字。 略過任何其他選項。 例如︰
+您可以將 `-h` 附加至命令，以在 Azure CLI 中顯示每個命令的說明文字。 略過任何其他選項。 例如:
 
 * 若要取得 `az` 命令的說明，請輸入︰`az -h`
 * 若要取得 CLI 中所有 Batch 命令的清單，請使用︰`az batch -h`
@@ -122,7 +122,7 @@ az login
 
 ## <a name="json-files-for-resource-creation"></a>用於建立資源的 JSON 檔案
 
-當您建立 Batch 資源 (如集區和工作) 時，您可以指定包含新資源組態的 JSON 檔案，而不是將它的參數當作命令列選項傳遞。 例如︰
+當您建立 Batch 資源 (如集區和工作) 時，您可以指定包含新資源組態的 JSON 檔案，而不是將它的參數當作命令列選項傳遞。 例如:
 
 ```azurecli
 az batch pool create my_batch_pool.json
@@ -130,7 +130,7 @@ az batch pool create my_batch_pool.json
 
 雖然您只可以使用命令列選項建立大多數 Batch 資源，但有些功能需要您指定 JSON 格式的檔案 (內含資源詳細資料)。 例如，如果您想要指定啟動工作的資源檔，則必須使用 JSON 檔案。
 
-若要查看建立資源所需的 JSON 語法，請參閱 [Batch REST API 參考][rest_api]文件。 REST API 參考中的每個「新增資源類型」主題都包含可供建立該資源的範例 JSON 指令碼。 您可以使用這些範例 JSON 指令碼作為 JSON 檔案的範本，以搭配 Azure CLI 使用。 例如，若要查看用於建立集區的 JSON 語法，請參閱[將集區新增至帳戶][rest_add_pool]。
+若要查看建立資源所需的 JSON 語法，請參閱 [Batch REST API 參考][rest_api]文件。 REST API 參考中的每個「新增資源類型」  主題都包含可供建立該資源的範例 JSON 指令碼。 您可以使用這些範例 JSON 指令碼作為 JSON 檔案的範本，以搭配 Azure CLI 使用。 例如，若要查看用於建立集區的 JSON 語法，請參閱[將集區新增至帳戶][rest_add_pool]。
 
 如需可指定 JSON 檔案的範例指令碼，請參閱[使用 Batch 執行作業和工作](./scripts/batch-cli-sample-run-job.md)。
 
@@ -141,7 +141,7 @@ az batch pool create my_batch_pool.json
 
 ## <a name="efficient-queries-for-batch-resources"></a>有效率的 Batch 資源查詢
 
-每個 Batch 資源類型都支援 `list` 命令，已查詢 Batch 帳戶並列出該類型的資源。 例如，可以列出帐户中的池以及作业中的任务：
+每個 Batch 資源類型都支援 `list` 命令，已查詢 Batch 帳戶並列出該類型的資源。 例如，您可以列出您帳戶中的集區和作業中的工作︰
 
 ```azurecli
 az batch pool list
@@ -167,7 +167,7 @@ az batch task list --job-id job001
 當您針對 Azure CLI 問題進行疑難排解時，下列秘訣可能有所幫助︰
 
 * 使用 `-h` 取得任何 CLI 命令的 **說明文字**
-* 使用 `-v` 和 `-vv` 來顯示 **verbose** 命令輸出。 包含 `-vv` 旗標後，Azure CLI 會顯示實際的 REST 要求和回應。 使用这些开关可以方便地显示完整的错误输出。
+* 使用 `-v` 和 `-vv` 來顯示 **verbose** 命令輸出。 包含 `-vv` 旗標後，Azure CLI 會顯示實際的 REST 要求和回應。 這些參數方便用於顯示完整的錯誤輸出。
 * 您可以使用 `--json` 選項檢視 **JSON 格式的命令輸出**。 例如， `az batch pool show pool001 --json` 會以 JSON 格式顯示 pool001 的屬性。 您可以接著複製並修改此輸出，以便用於 `--json-file` (請參閱本文前面的 JSON 檔案)。
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 

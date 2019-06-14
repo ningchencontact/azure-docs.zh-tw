@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: cynthn
 ms.openlocfilehash: d442d09c8c8ded3aa50faf74e28c8d95ded24a5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614410"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>快速步驟：在 Azure 中建立和使用 Linux VM 的 SSH 公開和私密金鑰組
@@ -37,7 +37,7 @@ ms.locfileid: "60614410"
 
 ## <a name="create-an-ssh-key-pair"></a>建立 SSH 金鑰組
 
-使用 `ssh-keygen` 命令來產生 SSH 公開和私密金鑰檔案。 根據預設，這些檔案會建立在 ~/.ssh 目錄中。 您可以指定不同位置和選擇性密碼 (「複雜密碼」) 來存取私密金鑰檔案。 如果指定位置中存在相同名稱的 SSH 金鑰組，則系統會覆寫那些檔案。
+使用 `ssh-keygen` 命令來產生 SSH 公開和私密金鑰檔案。 根據預設，這些檔案會建立在 ~/.ssh 目錄中。 您可以指定不同位置和選擇性密碼 (「複雜密碼」  ) 來存取私密金鑰檔案。 如果指定位置中存在相同名稱的 SSH 金鑰組，則系統會覆寫那些檔案。
 
 下列命令會使用 RSA 加密建立 SSH 金鑰組，位元長度為 2048：
 

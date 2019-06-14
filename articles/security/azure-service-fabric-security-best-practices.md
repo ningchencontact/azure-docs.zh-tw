@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
 ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611529"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 安全性最佳做法
 在 Azure 上部署應用程式很快速、輕鬆且符合成本效益。 將您的雲端應用程式部署至生產環境之前，請檢閱重要和建議最佳做法，以在應用程式中實作安全叢集。
 
-Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。 Service Fabric 还解决了开发和管理云应用程序中的重大难题。 開發人員與管理員能夠避免複雜的基礎結構問題，專注於實作關鍵且嚴格要求之可調整、可信賴且可管理的工作負載。
+Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。 Service Fabric 也可解決開發與管理雲端應用程式時遭遇的重大挑戰。 開發人員與管理員能夠避免複雜的基礎結構問題，專注於實作關鍵且嚴格要求之可調整、可信賴且可管理的工作負載。
 
 針對每個最佳做法，我們會說明︰
 
@@ -139,10 +139,10 @@ Service Fabric Reliable Actors 是動作項目設計模式的實作。 如同任
 -   憑證的主體名稱必須符合用來存取您雲端服務的網域名稱。
 
     - 取得要在存取雲端服務時使用的自訂網域名稱。
-    - 向 CA 要求包含主體名稱的憑證，可符合您服務的自訂網域名稱。 例如，如果您的自訂網域名稱為 __contoso__**.com**，您 CA 的憑證就要有 **.contoso.com** 或 __www__**.contoso.com** 主體名稱。
+    - 向 CA 要求包含主體名稱的憑證，可符合您服務的自訂網域名稱。 例如，如果您的自訂網域名稱為 __contoso__ **.com**，您 CA 的憑證就要有 **.contoso.com** 或 __www__ **.contoso.com** 主體名稱。
 
     >[!NOTE]
-    >您無法從 CA 取得 __cloudapp__**.net** 網域的 SSL 憑證。
+    >您無法從 CA 取得 __cloudapp__ **.net** 網域的 SSL 憑證。
 
 -   憑證至少必須以 2,048 位元加密。
 

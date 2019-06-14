@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
 ms.openlocfilehash: 924154a64673b4ff646f3b6ece373b278ee37181
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60773259"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>使用 REST API 來取得虛擬機器的使用量計量
@@ -42,7 +42,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="uri-parameters"></a>URI 參數
 
-| 名稱 | 描述 |
+| Name | 描述 |
 | :--- | :---------- |
 | subscriptionId | 可識別 Azure 訂用帳戶的訂用帳戶識別碼。 如果您有多個訂用帳戶，請參閱[使用多個訂用帳戶](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)。 |
 | resourceGroupName | 與資源相關聯的 Azure資源群組名稱。 您可以從 Azure Resource Manager API、CLI 或入口網站取得這個值。 |
@@ -56,9 +56,9 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 這項作業不需要要求本文。
 
-## <a name="handle-the-response"></a>处理响应
+## <a name="handle-the-response"></a>處理回應
 
-成功返回指标值列表以后，会返回状态代码 200。 錯誤碼的完整清單可於[參考文件](/rest/api/monitor/metrics/list#errorresponse)中取得。
+當計量值清單成功傳回時，系統會傳回狀態碼 200。 錯誤碼的完整清單可於[參考文件](/rest/api/monitor/metrics/list#errorresponse)中取得。
 
 ## <a name="example-response"></a>範例回應 
 

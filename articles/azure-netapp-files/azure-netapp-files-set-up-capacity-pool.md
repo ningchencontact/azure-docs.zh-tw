@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
 ms.openlocfilehash: 8f50b2ad34c705c8d3831d8243f136c41d750dc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60691077"
 ---
 # <a name="set-up-a-capacity-pool"></a>設定容量集區
@@ -33,11 +33,11 @@ ms.locfileid: "60691077"
 
 ## <a name="steps"></a>步驟 
 
-1. 請移至 NetApp 帳戶的 [管理] 刀鋒視窗，然後在導覽窗格中按一下 [容量集區]。  
+1. 請移至 NetApp 帳戶的 [管理] 刀鋒視窗，然後在導覽窗格中按一下 [容量集區]  。  
     
     ![瀏覽至容量集區](../media/azure-netapp-files/azure-netapp-files-navigate-to-capacity-pool.png)
 
-2. 按一下 [+ 新增集區] 來建立新的容量集區。   
+2. 按一下 [+ 新增集區]  來建立新的容量集區。   
     [新增容量集區] 視窗隨即出現。
 
 3. 請提供新容量集區的下列資訊：  
@@ -55,7 +55,7 @@ ms.locfileid: "60691077"
       
      ![新增容量集區](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
-4. 按一下 [確定]。
+4. 按一下 [確定]  。
 
 ## <a name="next-steps"></a>後續步驟 
 

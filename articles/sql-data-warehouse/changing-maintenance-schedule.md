@@ -11,10 +11,10 @@ ms.date: 04/03/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.openlocfilehash: 4bc1867f0dd18a101b2e764970de4e1904b960e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60680396"
 ---
 # <a name="change-a-maintenance-schedule"></a>變更維護排程 
@@ -31,11 +31,11 @@ ms.locfileid: "60680396"
 若要變更資料倉儲的維護排程，請完成下列步驟：
 1.  登入 [Azure 入口網站](https://portal.azure.com/)。
 2.  選取您要更新的資料倉儲。 頁面會在概觀刀鋒視窗上開啟。 
-3.  選取概觀刀鋒視窗上的 [維護排程 (預覽) 摘要] 連結，來開啟維護排程設定的頁面。 或者，選取左側資源功能表上的 [維護排程] 選項。  
+3.  選取概觀刀鋒視窗上的 [維護排程 (預覽) 摘要]  連結，來開啟維護排程設定的頁面。 或者，選取左側資源功能表上的 [維護排程]  選項。  
 
     ![概觀刀鋒視窗選項](media/sql-data-warehouse-maintenance-scheduling/maintenance-change-option.png)
 
-4. 使用頁面頂端的選項，來識別您主要維護時段的偏好日期範圍。 此選取範圍會決定您的主要時段將在週間發生或在週末發生。 您的選取範圍將會更新下拉式清單的值。 在預覽期間，某些區域可能尚未支援可用 [日期] 選項的完整集合。
+4. 使用頁面頂端的選項，來識別您主要維護時段的偏好日期範圍。 此選取範圍會決定您的主要時段將在週間發生或在週末發生。 您的選取範圍將會更新下拉式清單的值。 在預覽期間，某些區域可能尚未支援可用 [日期]  選項的完整集合。
 
    ![維護設定刀鋒視窗](media/sql-data-warehouse-maintenance-scheduling/maintenance-settings-page.png)
 
@@ -44,7 +44,7 @@ ms.locfileid: "60680396"
    - **開始時間**：偏好的維護時段開始時間。
    - **時段**：時段的偏好持續期間。
 
-   刀鋒視窗底部的 [排程摘要] 區域會根據所選取的值來更新。 
+   刀鋒視窗底部的 [排程摘要]  區域會根據所選取的值來更新。 
   
 6. 選取 [ **儲存**]。 隨即出現一則訊息，確認您的新排程目前為作用中。 
 

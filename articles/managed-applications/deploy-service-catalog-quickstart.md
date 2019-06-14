@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: 4d2e8b442f70ee791fe65a32402e5272eda3f209
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589049"
 ---
 # <a name="deploy-service-catalog-app-through-azure-portal"></a>透過 Azure 入口網站部署服務目錄應用程式
@@ -24,7 +24,7 @@ ms.locfileid: "60589049"
 
 在 Azure 入口網站中，使用下列步驟：
 
-1. 選取 [建立資源]。
+1. 選取 [建立資源]  。
 
    ![建立資源](./media/deploy-service-catalog-quickstart/create-new.png)
 
@@ -32,23 +32,23 @@ ms.locfileid: "60589049"
 
    ![搜尋服務目錄應用程式](./media/deploy-service-catalog-quickstart/select-service-catalog.png)
 
-1. 您會看到受控應用程式服務的說明。 選取 [建立] 。
+1. 您會看到受控應用程式服務的說明。 選取 [建立]  。
 
    ![選取 [建立]](./media/deploy-service-catalog-quickstart/create-service-catalog.png)
 
-1. 入口網站會顯示您有權存取的受控應用程式定義。 從可用的定義中，選取您想要部署的定義。 在此快速入門中，使用您在前一個快速入門中建立的**受控儲存體帳戶**定義。 選取 [建立] 。
+1. 入口網站會顯示您有權存取的受控應用程式定義。 從可用的定義中，選取您想要部署的定義。 在此快速入門中，使用您在前一個快速入門中建立的**受控儲存體帳戶**定義。 選取 [建立]  。
 
    ![選取要部署的定義](./media/deploy-service-catalog-quickstart/select-definition.png)
 
-1. 為 [基本] 索引標籤提供值。選取要將您的服務目錄應用程式部署到其中的 Azure 訂用帳戶。 建立名為 **applicationGroup** 的新資源群組。 選取應用程式的位置。 完成後，選取 [確定]。
+1. 為 [基本]  索引標籤提供值。選取要將您的服務目錄應用程式部署到其中的 Azure 訂用帳戶。 建立名為 **applicationGroup** 的新資源群組。 選取應用程式的位置。 完成後，選取 [確定]  。
 
    ![提供基本的值](./media/deploy-service-catalog-quickstart/provide-basics.png)
 
-1. 提供儲存體帳戶名稱的前置詞。 選取要建立的儲存體帳戶類型。 完成後，選取 [確定]。
+1. 提供儲存體帳戶名稱的前置詞。 選取要建立的儲存體帳戶類型。 完成後，選取 [確定]  。
 
    ![提供儲存體的值](./media/deploy-service-catalog-quickstart/provide-storage.png)
 
-1. 檢閱摘要。 驗證成功之後，選取 [確定] 以開始部署。
+1. 檢閱摘要。 驗證成功之後，選取 [確定]  以開始部署。
 
    ![檢視摘要](./media/deploy-service-catalog-quickstart/view-summary.png)
 

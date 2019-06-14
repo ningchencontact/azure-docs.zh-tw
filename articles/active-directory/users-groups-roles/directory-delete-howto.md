@@ -15,10 +15,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 91ac6b4530414850c52605bac8cb701aa2b877d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60473061"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>刪除 Azure Active Directory 中的目錄
@@ -42,13 +42,13 @@ ms.locfileid: "60473061"
 
 3. 切換至您想要刪除的目錄。
   
-   ![在删除之前确认组织](./media/directory-delete-howto/delete-directory-command.png)
+   ![確認刪除之前的組織](./media/directory-delete-howto/delete-directory-command.png)
 
-4. 選取 [刪除目錄]。
+4. 選取 [刪除目錄]  。
   
-   ![选择用于删除组织的命令](./media/directory-delete-howto/delete-directory-list.png)
+   ![選取要刪除的組織的命令](./media/directory-delete-howto/delete-directory-list.png)
 
-5. 如果您的目錄未通過一或多個檢查，系統會提供您有關如何將傳遞的詳細資訊的連結。 在您通過所有檢查之後，選取 [刪除] 即可完成流程。
+5. 如果您的目錄未通過一或多個檢查，系統會提供您有關如何將傳遞的詳細資訊的連結。 在您通過所有檢查之後，選取 [刪除]  即可完成流程。
 
 ## <a name="if-you-cant-delete-the-directory"></a>如果您無法刪除目錄
 
@@ -63,21 +63,21 @@ ms.locfileid: "60473061"
 停用 (30 天) | 資料僅供管理員存取 | 使用者無法存取 Office 365 檔案或應用程式<br>系統管理員可以存取 Microsoft 365 系統管理中心，但無法指派授權或更新使用者
 取消佈建 (「停用」後 30 天) | 資料已刪除 (若沒有其他使用中的服務，就會自動刪除) | 使用者無法存取 Office 365 檔案或應用程式<br>系統管理員可以存取 Microsoft 365 系統管理中心購買及管理其他訂用帳戶
 
-## <a name="delete-a-subscription"></a>刪除訂閱
+## <a name="delete-a-subscription"></a>刪除訂用帳戶
 
 您可以將訂用帳戶放入已取消佈建狀態中使用 Microsoft 365 系統管理中心的三天刪除。
 
 1. 登入[Microsoft 365 系統管理中心](https://admin.microsoft.com)與您組織中的全域管理員帳戶。 如果您嘗試刪除 contoso.onmicrosoft.com 的初始預設網域"Contoso"目錄，以登入的 UPN 例如admin@contoso.onmicrosoft.com。
 
-2. 選取 **計費**，然後選取**訂用帳戶**，然後選擇您想要取消的訂用帳戶。 在按一下 [取消] 後，重新整理頁面。
+2. 選取 **計費**，然後選取**訂用帳戶**，然後選擇您想要取消的訂用帳戶。 在按一下 [取消]  後，重新整理頁面。
   
    ![用於刪除訂用帳戶的 [刪除] 連結](./media/directory-delete-howto/delete-command.png)
   
-3. 選取 [刪除] 以刪除訂用帳戶並接受條款及條件。 所有資料都會在三天內永久刪除。 若您改變了心意，在這三天內都可以重新啟用訂用帳戶。
+3. 選取 [刪除]  以刪除訂用帳戶並接受條款及條件。 所有資料都會在三天內永久刪除。 若您改變了心意，在這三天內都可以重新啟用訂用帳戶。
   
    ![請仔細閱讀條款及條件](./media/directory-delete-howto/delete-terms.png)
 
-4. 訂用帳戶狀態現已變更，而訂用帳戶會標示為待刪除。 訂用帳戶會在 72 小時候進入 [已取消佈建] 狀態。
+4. 訂用帳戶狀態現已變更，而訂用帳戶會標示為待刪除。 訂用帳戶會在 72 小時候進入 [已取消佈建]  狀態。
 
 5. 一旦您已在您目錄中，刪除訂用帳戶並經過 72 小時，您可以登入回 Azure AD 系統管理中心有再應該沒有必要的動作，並封鎖您的目錄刪除沒有訂用帳戶。 您應該能夠成功地刪除您的 Azure AD 目錄。
   
@@ -111,23 +111,23 @@ Deleted | 刪除的資料 | 使用者無法存取自助註冊的產品、 檔案
 
 2. 選取 **授權**，然後選取 **自助式註冊產品**。 您可以看到所有的自助式註冊產品分開以基座為基礎的訂用帳戶。 選擇您想要永久刪除此的產品。 以下是 Microsoft Power BI 中的範例：
 
-    ![键入错误的用户名，或者找不到该用户名](./media/directory-delete-howto/licenses-page.png)
+    ![使用者名稱輸入錯誤，或是找不到](./media/directory-delete-howto/licenses-page.png)
 
 3. 選取  **刪除** 刪除產品，並接受條款立即且無法變更，會刪除該資料。 此刪除動作會移除所有使用者，並都移除對產品的組織存取權。 按一下 [是] 繼續進行刪除。  
 
-    ![键入错误的用户名，或者找不到该用户名](./media/directory-delete-howto/delete-product.png)
+    ![使用者名稱輸入錯誤，或是找不到](./media/directory-delete-howto/delete-product.png)
 
 4. 當您選取**是**，便會起始自助式產品刪除。 沒有通知，告訴您刪除作業的進行中。  
 
-    ![键入错误的用户名，或者找不到该用户名](./media/directory-delete-howto/progress-message.png)
+    ![使用者名稱輸入錯誤，或是找不到](./media/directory-delete-howto/progress-message.png)
 
 5. 現在的自助式註冊的產品狀態已變更為**Deleted**。 當您重新整理頁面時，應該從移除產品**自助式註冊產品**頁面。  
 
-    ![键入错误的用户名，或者找不到该用户名](./media/directory-delete-howto/product-deleted.png)
+    ![使用者名稱輸入錯誤，或是找不到](./media/directory-delete-howto/product-deleted.png)
 
 6. 一旦您已刪除的所有產品，您可以再次簽署回 Azure AD 系統管理中心，並應具有所需的動作及封鎖您的目錄刪除任何產品。 您應該能夠成功地刪除您的 Azure AD 目錄。
 
-    ![键入错误的用户名，或者找不到该用户名](./media/directory-delete-howto/delete-organization.png)
+    ![使用者名稱輸入錯誤，或是找不到](./media/directory-delete-howto/delete-organization.png)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
 ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60620595"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify Retrace Linux 代理程式擴充功能
@@ -199,4 +199,4 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 110 | 停用錯誤 | 服務移除失敗 |
 | 120 | 解除安裝發生錯誤 | 服務停止失敗 |
 
-如果您需要更多協助，請連絡 Stackify 支援部門： https://support.stackify.com。
+如果您需要更多協助，請連絡 Stackify 支援部門： https://support.stackify.com 。

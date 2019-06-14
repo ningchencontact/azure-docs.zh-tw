@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
 ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60608096"
 ---
 # <a name="trusted-internet-connections-guidance"></a>受信任網際網路連線指導方針
@@ -59,7 +59,7 @@ Office 365 使用已啟用 [Microsoft 對等互連](https://docs.microsoft.com/a
 
 使用 Azure IaaS 來符合 TIC 原則規範相當簡單，因為 Azure 客戶會管理自己的虛擬網路路由。
 
-若要確實符合 TIC 參考架構，最主要的需求是確保虛擬網路 (VNet) 是 D/A 網路的私人延伸。 若要成為_私人_延伸，除非透過內部部署的 TIC 網路連線，否則該原則會要求沒有任何流量離開您的網路。 此程序稱為「強制通道處理」。 針對 TIC 合規性，此程序會透過 TIC，將來自 CSP 環境中任何系統的所有流量，通過組織網路上的內部部署閘道，路由傳出網際網路。
+若要確實符合 TIC 參考架構，最主要的需求是確保虛擬網路 (VNet) 是 D/A 網路的私人延伸。 若要成為_私人_延伸，除非透過內部部署的 TIC 網路連線，否則該原則會要求沒有任何流量離開您的網路。 此程序稱為「強制通道處理」  。 針對 TIC 合規性，此程序會透過 TIC，將來自 CSP 環境中任何系統的所有流量，通過組織網路上的內部部署閘道，路由傳出網際網路。
 
 Azure IaaS TIC 合規性分為兩個主要步驟：
 
@@ -103,7 +103,7 @@ Azure 提供數種方式以稽核 TIC 合規性。
 
 #### <a name="view-effective-routes"></a>檢視有效的路由
 
-透過在 [Azure 入口網站](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#diagnose-using-azure-portal)或 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-powershell#diagnose-using-powershell) 中觀察 NIC 或使用者定義路由表的_有效路由_以確認您的預設路由已傳播。 [有效路由] 會顯示相關使用者定義路由、BGP 通告路由與套用到相關實體的系統路由，如下圖所示：
+透過在 [Azure 入口網站](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#diagnose-using-azure-portal)或 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-powershell#diagnose-using-powershell) 中觀察 NIC 或使用者定義路由表的_有效路由_以確認您的預設路由已傳播。 [有效路由]  會顯示相關使用者定義路由、BGP 通告路由與套用到相關實體的系統路由，如下圖所示：
 
 ![有效路由](media/tic-screen-1.png)
 

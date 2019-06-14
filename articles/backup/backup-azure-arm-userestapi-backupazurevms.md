@@ -11,10 +11,10 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646759"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>透過 REST API 使用 Azure 備份來備份 Azure VM
@@ -41,7 +41,7 @@ POST URI 具有 `{subscriptionId}`、`{vaultName}`、`{vaultresourceGroupName}`�
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>回應
+#### <a name="responses"></a>Responses
 
 「重新整理」作業為[非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)。 這表示此作業會建立另一項需要個別追蹤的作業。
 
@@ -108,11 +108,11 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 *GET* URI 具備所有必要參數。 不需任何額外的要求本文。
 
-#### <a name="responses"></a>回應
+#### <a name="responses"></a>Responses
 
-|名稱  |類型  |描述  |
+|Name  |類型  |描述  |
 |---------|---------|---------|
-|200 確定     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
+|200 確定     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       [確定] |
 
 ##### <a name="example-responses"></a>範例回應
 
@@ -186,7 +186,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 若要建立受保護的項目，以下是要求本文的元件。
 
-|名稱  |類型  |描述  |
+|Name  |類型  |描述  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem 資源屬性         |
 
@@ -208,15 +208,15 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 `{sourceResourceId}` 是上述來自[清單可保護項目之回應](#example-responses-1)的 `{virtualMachineId}`。
 
-#### <a name="responses"></a>回應
+#### <a name="responses"></a>Responses
 
 受保護項目的建立是[非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)。 這表示此作業會建立另一項需要個別追蹤的作業。
 
 它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
 
-|名稱  |類型  |描述  |
+|Name  |類型  |描述  |
 |---------|---------|---------|
-|200 確定     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
+|200 確定     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  [確定]       |
 |202 已接受     |         |     已接受    |
 
 ##### <a name="example-responses"></a>範例回應
@@ -300,7 +300,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 若要觸發隨選備份，以下是要求本文的元件。
 
-|名稱  |類型  |描述  |
+|Name  |類型  |描述  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 屬性         |
 
@@ -319,13 +319,13 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 }
 ```
 
-### <a name="responses"></a>回應
+### <a name="responses"></a>Responses
 
 觸發隨選備份為[非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)。 這表示此作業會建立另一項需要個別追蹤的作業。
 
 它會傳回兩個回應：在建立另一項作業時傳回 202 (已接受)，然後在該作業完成時傳回 200 (確定)。
 
-|名稱  |類型  |描述  |
+|Name  |類型  |描述  |
 |---------|---------|---------|
 |202 已接受     |         |     已接受    |
 
@@ -439,13 +439,13 @@ DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroup
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
 ```
 
-### <a name="responses"></a>回應
+### <a name="responses"></a>Responses
 
 *DELETE* 作業為[非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)。 這表示此作業會建立另一項需要個別追蹤的作業。
 
 它會傳回兩個回應：202 （已接受） 建立另一項作業時，然後 204 (NoContent) 該作業完成時。
 
-|名稱  |類型  |描述  |
+|Name  |類型  |描述  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 已接受     |         |     已接受    |

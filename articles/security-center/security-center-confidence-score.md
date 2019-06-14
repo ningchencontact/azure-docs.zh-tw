@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/23/2018
 ms.author: rkarlin
 ms.openlocfilehash: 64bab5c1b99720eecb189834d7a11802cf919ca3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60916563"
 ---
 # <a name="alert-confidence-score"></a>警示信賴分數 
@@ -43,7 +43,7 @@ Azure 資訊安全中心可讓您檢視在 Azure 中執行的各項資源，並�
  ![信賴分數][1]
 
 若要檢視警示中構成資訊安全中心信賴度的資料：
-- 在 [安全性警示] 刀鋒視窗中的 [信賴度] 下方，檢視構成信賴分數的觀察值，並取得該警示的相關深入解析。 這可讓您深入了解造成警示的活動所屬的性質。
+- 在 [安全性警示] 刀鋒視窗中的 [信賴度]  下方，檢視構成信賴分數的觀察值，並取得該警示的相關深入解析。 這可讓您深入了解造成警示的活動所屬的性質。
 
   ![可疑信賴分數][2]
 

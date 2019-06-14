@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/13/2018
 ms.author: barclayn
 ms.openlocfilehash: 8835c4534b6dab1e8dbfb3546257ae4bc3b9d7af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610935"
 ---
 # <a name="penetration-testing"></a>滲透測試
@@ -38,8 +38,8 @@ ms.locfileid: "60610935"
 您可以執行的標準測試包括：
 
 * 對端點進行測試，以發掘 [開放式 Web 應用程式安全性專案 (OWASP) 的前 10 大弱點](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
-* [模糊測試](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) 
-* [連接埠掃描](https://en.wikipedia.org/wiki/Port_scanner) 
+* [模糊測試](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/)
+* [連接埠掃描](https://en.wikipedia.org/wiki/Port_scanner)
 
 您不能執行的一種測試是任何種類的 [拒絕服務 (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) 攻擊。 這包括起始 DoS 攻擊本身，或是執行可能會決定、示範或模擬任何類型的 DoS 攻擊的相關測試。
 

@@ -15,29 +15,29 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 00d5e3df78e85d19a519786dad1a1b176ad7fa08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837023"
 ---
-# <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>如何使用模板自定义 Azure API 管理开发人员门户
+# <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>如何使用範本自訂 Azure API 管理開發人員入口網站。
 
 在 Azure API 管理中自訂開發人員入口網站的基本方式有三種：
 
 * [編輯靜態頁面和頁面配置元素的內容][modify-content-layout]
-* [跨开发人员门户更新页面元素所用的样式][customize-styles]
+* [更新用於開發人員入口網站上頁面元素的樣式][customize-styles]
 * [修改網站所產生來用於網頁的範本][portal-templates] (本指南會說明)
 
 範本可用來自訂系統產生之開發人員入口網站網頁的內容 (例如 API 文件、產品、使用者驗證等)。 使用 [DotLiquid](http://dotliquidmarkup.org/) 語法及一組提供的當地語系化字串資源、圖示和頁面控制項，您可以依照您的想法自由靈活地設定頁面內容。
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="developer-portal-templates-overview"></a>开发人员门户模板概述
+## <a name="developer-portal-templates-overview"></a>開發人員入口網站範本概觀
 
-當您以系統管理員身分登入時，可從 [開發人員入口網站] 編輯範本。 若要到達該處，請開啟 Azure 入口網站，然後從 API 管理執行個體的服務工具列按一下 [開發人員入口網站]。
+當您以系統管理員身分登入時，可從 [開發人員入口網站]  編輯範本。 若要到達該處，請開啟 Azure 入口網站，然後從 API 管理執行個體的服務工具列按一下 [開發人員入口網站]  。
 
-若要存取開發人員入口網站範本，請按一下左側的自訂圖示，顯示 [自訂] 功能表，然後按一下 [範本] 。
+若要存取開發人員入口網站範本，請按一下左側的自訂圖示，顯示 [自訂] 功能表，然後按一下 [範本]  。
 
 ![開發人員入口網站範本][api-management-customize-menu]
 
@@ -63,7 +63,7 @@ ms.locfileid: "60837023"
 
 ![範本資料模型][api-management-template-data]
 
-上述範例在開發人員入口網站中顯示了兩項產品，擷取自 [範本資料] 窗格顯示的資料，如下列範例所示：
+上述範例在開發人員入口網站中顯示了兩項產品，擷取自 [範本資料]  窗格顯示的資料，如下列範例所示：
 
 ```json
 {
@@ -145,13 +145,13 @@ ms.locfileid: "60837023"
 
 ![確認發佈][api-management-publish-template-confirm]
 
-若要發佈目前所有尚未發佈的範本版本，請按一下範本清單的 [發佈]。 未發佈的範本會在範本名稱後面標記星號。 本例中要發佈**產品清單**和**產品**範本。
+若要發佈目前所有尚未發佈的範本版本，請按一下範本清單的 [發佈]  。 未發佈的範本會在範本名稱後面標記星號。 本例中要發佈**產品清單**和**產品**範本。
 
-![发布模板][api-management-publish-templates]
+![發佈範本][api-management-publish-templates]
 
 請按一下 [Publish customizations]\(發佈自訂)  確認。
 
-![确认发布][api-management-publish-customizations]
+![確認發佈][api-management-publish-customizations]
 
 新發佈的範本在開發人員入口網站中會立即生效。
 

@@ -9,10 +9,10 @@ ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787289"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>使用自動調整動作在 Azure 監視器中傳送電子郵件和 Webhook 警示通知
@@ -21,7 +21,7 @@ ms.locfileid: "60787289"
 ## <a name="webhooks"></a>Webhook
 Webhook 可讓您將 Azure 警示通知路由到其他系統進行後處理或自訂通知。 例如，將警示路由到可處理傳入 Web 要求的服務，以傳送 SMS、記錄錯誤、使用聊天或傳訊服務通知團隊等等。Webhook URI 必須是有效的 HTTP 或 HTTPS 端點。
 
-## <a name="email"></a>電子郵件
+## <a name="email"></a>Email
 電子郵件可以傳送至任何有效的電子郵件地址。 也會通知執行該規則的訂用帳戶的系統管理員和共同管理員。
 
 ## <a name="cloud-services-and-web-apps"></a>雲端服務和 Web Apps
@@ -116,7 +116,7 @@ Webhook 可以使用權杖型驗證來驗證，您會在其中儲存 Webhook URI
 | resourceGroupName |是 |正在調整的目標資源的資源群組 |
 | resourceName |是 |正在調整的目標資源的名稱 |
 | resourceType |是 |支援三個值：microsoft.classiccompute/domainnames/slots/roles" (雲端服務角色)、"microsoft.compute/virtualmachinescalesets" (虛擬機器擴展集) 以及 "Microsoft.Web/serverfarms" - (Web 應用程式) |
-| resourceId |是 |正在調整的目標資源的 Resource Manager 識別碼 |
+| ResourceId |是 |正在調整的目標資源的 Resource Manager 識別碼 |
 | portalLink |是 |連到目標資源摘要頁面的 Azure 入口網站連結 |
 | oldCapacity |是 |自動調整進行調整動作時的當前 (舊) 執行個體計數 |
 | newCapacity |是 |自動調整要將資源調整為此數目的新執行個體計數 |

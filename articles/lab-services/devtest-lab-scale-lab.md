@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: ec79f6a9b255d44e66b901a0aae263c8dbbf2863
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60623447"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>在 DevTest Labs 中調整配額和限制
@@ -36,9 +36,9 @@ ms.locfileid: "60623447"
 下列步驟將示範如何檢視訂用帳戶中 Azure 資源的目前配額，以及查看您使用的每個配額百分比。
 
 1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
-1. 選取 [更多服務]，然後從清單中選取 [計費]。
+1. 選取 [更多服務]  ，然後從清單中選取 [計費]  。
 1. 在 [計費] 刀鋒視窗中選取訂用帳戶。
-4. 選取 [使用量 + 配額]。
+4. 選取 [使用量 + 配額]  。
 
    ![使用量和配額按鈕](./media/devtest-lab-scale-lab/devtestlab-usage-and-quotas.png)
 
@@ -51,12 +51,12 @@ ms.locfileid: "60623447"
 
 這些步驟為您示範如何透過 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)要求配額增加。
 
-1. 選取 [更多服務]，選取 [計費]，然後選取 [使用量 + 配額]。
-1. 在 [使用量 + 配額] 刀鋒視窗中，選取 [要求增加] 按鈕。
+1. 選取 [更多服務]  ，選取 [計費]  ，然後選取 [使用量 + 配額]  。
+1. 在 [使用量 + 配額] 刀鋒視窗中，選取 [要求增加]  按鈕。
 
    ![要求增加按鈕](./media/devtest-lab-scale-lab/devtestlab-request-increase.png)
 
-1. 若要完成要求並且提交，請在 [新增支援要求] 表單的全部三個索引標籤上填寫必要資訊。
+1. 若要完成要求並且提交，請在 [新增支援要求]  表單的全部三個索引標籤上填寫必要資訊。
 
    ![要求增加表單](./media/devtest-lab-scale-lab/devtestlab-support-form.png)
 

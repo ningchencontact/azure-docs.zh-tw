@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: 09df1421d6deae6db305cef2a46d6c40d0c12ba3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60835842"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Azure 環境中 Oracle Database 12c 資料庫的災害復原
@@ -45,7 +45,7 @@ ms.locfileid: "60835842"
 - 兩個具有 Data Guard 的 Oracle 資料庫 (主要和待命)
 - 兩個具有 Golden Gate 或 Data Guard 的 Oracle 資料庫 (僅限主要站台)
 - 兩個應用程式服務，一個在主要站台上，一個在 DR 站台上
-- 一個可用性設定組，用於主要站台上的資料庫和應用程式服務
+- 一個可用性設定組  ，用於主要站台上的資料庫和應用程式服務
 - 每個站台上有一個 Jumpbox，其只能存取私人網路，並只允許系統管理員登入
 - Jumpbox、應用程式服務、資料庫和 VPN 閘道位於不同的子網路
 - 對應用程式和資料庫子網路強制執行 NSG

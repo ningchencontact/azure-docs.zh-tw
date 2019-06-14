@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
 ms.openlocfilehash: 1db324006e1e6332b5fdd8afd28ebed8a32ac707
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845761"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>建立結構描述，以便追蹤 Azure Logic Apps 整合帳戶中的 X12 訊息
@@ -234,7 +234,7 @@ ms.locfileid: "60845761"
 | direction | Enum | 訊息流程的方向，接收或傳送。 (必要) |
 | interchangeControlNumber | String | 從合作夥伴收到的技術通知交換控制編號。 (選用) |
 | isaSegment | String | 從合作夥伴收到的技術通知 ISA 區段。 (選用) |
-| respondingInterchangeControlNumber |字串 | 從合作夥伴收到的技術通知交換控制編號。 (選用) |
+| respondingInterchangeControlNumber |String | 從合作夥伴收到的技術通知交換控制編號。 (選用) |
 | isMessageFailed | Boolean | X12 訊息是否失敗。 (必要) |
 | statusCode | Enum | 交換通知狀態碼。 允許的值為 **Accepted**、**Rejected** 和 **AcceptedWithErrors**。 (必要) |
 | processingStatus | Enum | 通知狀態。 允許的值為 **Received**、**Generated** 和 **Sent**。 (必要) |

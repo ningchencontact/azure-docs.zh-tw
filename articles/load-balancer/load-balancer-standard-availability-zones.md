@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: kumud
 ms.openlocfilehash: 6f33be6e418366f57d243f578035b5c87079c99e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60734451"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>標準 Load Balancer 和可用性區域
@@ -35,7 +35,7 @@ Load Balancer 資源的運作方式可用前端、規則、健康情況探查和
 
 在可用性區域的內容中，Load Balancer 資源的行為和屬性可解釋為區域備援或區域性。  區域備援和區域性說明屬性的區域性。  在負載平衡器的內容中，區域備援一律表示*多個區域*而區域性則表示要將服務隔離*單一區域*。
 
-公用和內部的 Load Balancer 均支援區域備援和區域性案例，且兩者都可視需要在區域之間進行流量導向 (「跨區域負載平衡」)。
+公用和內部的 Load Balancer 均支援區域備援和區域性案例，且兩者都可視需要在區域之間進行流量導向 (「跨區域負載平衡」  )。
 
 Load Balancer 資源本身是區域的，且絕不具區域性。  VNet 和子網路則一律是區域的，且絕不具區域性。
 

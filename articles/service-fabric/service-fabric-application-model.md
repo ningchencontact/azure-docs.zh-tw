@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
 ms.openlocfilehash: 750970233cbcb14d901dbb5fa94f649f6ff8ae6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60621398"
 ---
 # <a name="model-an-application-in-service-fabric"></a>在 Service Fabric 中模型化應用程式
@@ -31,20 +31,20 @@ ms.locfileid: "60621398"
 
 應用程式類型是應用程式的分類，由服務類型的組合所組成。 服務類型是一項服務分類。 分類可以有不同的設定和組態，但是核心功能保持不變。 服務的執行個體是相同服務類型的不同服務組態變形。  
 
-應用程式和服務的類別 (或「類型」) 是透過 XML 檔案 (應用程式資訊清單和服務資訊清單) 來說明。  資訊清單可描述應用程式與服務，並且是應用程式可以從叢集的映像存放區具現化的範本。  [應用程式及服務資訊清單](service-fabric-application-and-service-manifests.md)中詳細說明資訊清單。 ServiceManifest.xml 和 ApplicationManifest.xml 檔案的結構描述定義是和 Service Fabric SDK 及工具一起安裝在 C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd。 XML 結構描述則記載在 [ServiceFabricServiceModel.xsd 結構描述文件](service-fabric-service-model-schema.md)中。
+應用程式和服務的類別 (或「類型」) 是透過 XML 檔案 (應用程式資訊清單和服務資訊清單) 來說明。  資訊清單可描述應用程式與服務，並且是應用程式可以從叢集的映像存放區具現化的範本。  [應用程式及服務資訊清單](service-fabric-application-and-service-manifests.md)中詳細說明資訊清單。 ServiceManifest.xml 和 ApplicationManifest.xml 檔案的結構描述定義是和 Service Fabric SDK 及工具一起安裝在 C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd  。 XML 結構描述則記載在 [ServiceFabricServiceModel.xsd 結構描述文件](service-fabric-service-model-schema.md)中。
 
 不同應用程式執行個體的程式碼會以個別程序的形式執行，即使是由相同的 Service Fabric 節點所裝載。 此外，每個應用程式執行個體的生命週期可以獨立進行管理 (例如，升級)。 下圖顯示應用程式類型如何由服務類型組成，依序分別為程式碼、組態和資料套件的組成。 為了簡化此圖，只會顯示 `ServiceType4` 的程式碼/組態/資料套件，但每個服務類型都包含這其中部分或所有的套件類型。
 
 ![Service Fabric 應用程式類型和服務類型][cluster-imagestore-apptypes]
 
-叢集中可以有一或多個使用中的服務類型執行個體。 例如，有状态服务实例（或称副本）通过在群集中不同节点上的副本之间复制状态实现高可靠性。 即使叢集中有一個節點失敗，複寫基本上會提供備援讓服務可供使用。 [分割服務](service-fabric-concepts-partitioning.md) 進一步在叢集中的節點之間分割其狀態 (並且存取該狀態的模式)。
+叢集中可以有一或多個使用中的服務類型執行個體。 例如，可設定狀態的服務執行個體或複本，藉由複寫叢集中不同節點上複本之間的狀態達到高可靠性。 即使叢集中有一個節點失敗，複寫基本上會提供備援讓服務可供使用。 [分割服務](service-fabric-concepts-partitioning.md) 進一步在叢集中的節點之間分割其狀態 (並且存取該狀態的模式)。
 
 下圖顯示應用程式和服務執行個體、分割和複本之間的關聯性。
 
 ![服務內的分割和複本][cluster-application-instances]
 
 > [!TIP]
-> 可以使用 http://&lt;yourclusteraddress&gt;:19080/Explorer 上提供的 Service Fabric Explorer 工具查看群集中应用程序的布局。 如需詳細資訊，請參閱[使用 Service Fabric Explorer 視覺化叢集](service-fabric-visualizing-your-cluster.md)。
+> 您可以使用 Service Fabric Explorer 工具，在叢集中檢視應用程式的配置，該工具可以在 http://&lt;yourclusteraddress&gt;:19080/Explorer 上取得。 如需詳細資訊，請參閱[使用 Service Fabric Explorer 視覺化叢集](service-fabric-visualizing-your-cluster.md)。
 > 
 > 
 

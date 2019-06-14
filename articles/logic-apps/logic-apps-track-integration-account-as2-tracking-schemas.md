@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
 ms.openlocfilehash: 180d90450497b38f107f3601944385a003f50282
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845778"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>建立結構描述，以便追蹤 Azure Logic Apps 整合帳戶中的 AS2 訊息和 MDN
@@ -123,7 +123,7 @@ ms.locfileid: "60845778"
 | isMessageFailed |Boolean | AS2 訊息是否失敗。 (必要) |
 | isMessageSigned |Boolean | AS2 訊息是否簽署。 (必要) |
 | isNrrEnabled | Boolean | 如果不知道值，則使用預設值。 (必要) |
-| StatusCode | Enum | 允許的值為 **Accepted**、**Rejected** 和 **AcceptedWithErrors**。 (必要) |
+| statusCode | Enum | 允許的值為 **Accepted**、**Rejected** 和 **AcceptedWithErrors**。 (必要) |
 | micVerificationStatus | Enum | 允許的值為 **NotApplicable**、**Succeeded** 和 **Failed**。 (必要) |
 | correlationMessageId | String | 相互關連識別碼。 原始 messaged 識別碼 (設定 MDN 之訊息的訊息識別碼)。 (選用) |
 | incomingHeaders | JToken 的字典 | 指出內送訊息標頭詳細資料。 (選用) |

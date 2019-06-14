@@ -3,22 +3,21 @@ title: 匯入 Azure 媒體服務 REST 呼叫的 Postman 環境
 description: 此文章提供適用於 Azure 媒體服務 REST 呼叫之 Postman 集合的定義。
 services: media-services
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: Juliako
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/08/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 03/20/2019
+ms.author: juliako
 ms.openlocfilehash: 6813dfca4a89263a10887ef4fa58c7403a9b1294
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60637551"
 ---
 # <a name="import-the-postman-environment"></a>匯入 Postman 環境  

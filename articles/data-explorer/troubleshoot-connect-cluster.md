@@ -1,6 +1,6 @@
 ---
-title: 排查 Azure 数据资源管理器群集连接失败的问题
-description: 本文介绍在 Azure 数据资源管理器中连接到群集的故障排除步骤。
+title: 針對 Azure 資料總管叢集連接失敗進行疑難排解
+description: 這篇文章說明疑難排解的步驟，連接到 Azure 的資料檔案總管中的叢集。
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: c71af799f614e9cd28221d79634666cbc3b2c987
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827031"
 ---
 # <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>疑難排解：無法在 Azure 資料總管中連線至叢集

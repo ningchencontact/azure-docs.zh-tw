@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
 ms.openlocfilehash: 98ffe145103b4be04014627ed04d04dcf7542015
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60647358"
 ---
 # <a name="azure-backup-architecture"></a>Azure 備份架構
@@ -49,8 +49,8 @@ Azure 備份會在復原服務保存庫中儲存備份資料。 保存庫是用�
 - 您可以監視備份保存庫，包括 Azure Vm 和內部部署機器中的項目。
 - 您可以使用 Azure [角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 來管理保存庫存取。
 - 您可以指定如何複寫保存庫中的資料以提供備援性：
-    - **本地備援儲存體 (LRS)**：若要防止資料中心失敗，您可以使用 LRS。 LRS 會將資料複寫至儲存體縮放單位。 [深入了解](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)。
-    - **異地備援儲存體 (GRS)**：若要防止全區停電，您可以使用 GRS。 GRS 會將資料複寫到次要區域。 [深入了解](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)。 
+    - **本地備援儲存體 (LRS)** ：若要防止資料中心失敗，您可以使用 LRS。 LRS 會將資料複寫至儲存體縮放單位。 [深入了解](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)。
+    - **異地備援儲存體 (GRS)** ：若要防止全區停電，您可以使用 GRS。 GRS 會將資料複寫到次要區域。 [深入了解](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)。 
     - 根據預設，復原服務保存庫會使用 GRS。 
 
 ## <a name="backup-agents"></a>備份代理程式
@@ -68,7 +68,7 @@ Azure 備份提供不同的備份代理程式，視何種機器正在進行備�
 
 **備份類型** | **詳細資料** | **使用量**
 --- | --- | ---
-**完整** | 完整備份包含整個資料來源。 需要更多的網路頻寬比差異或增量備份。 | 用於初始備份。
+**Full** | 完整備份包含整個資料來源。 需要更多的網路頻寬比差異或增量備份。 | 用於初始備份。
 **差異** |  差異備份會儲存自從初始完整備份之後變更的區塊。 使用較少量的網路和儲存體，並不會保留不變的資料的備援複本。<br/><br/> 因為較新的備份之間未變更的資料區塊會傳輸並儲存，效率不佳。 | Azure 備份並未使用。
 **累加** | 增量備份會儲存上次備份後所變更的資料區塊。 儲存體和網路效率較高。 <br/><br/> 使用增量備份中,，則不需要額外使用完整備份。 | 供 DPM/MABS 用於磁碟備份，並且用於所有備份至 Azure 的作業。
 
@@ -178,7 +178,7 @@ Azure VM 會使用磁碟來儲存其作業系統、應用程式和資料。 每�
 
 您可以使用進階儲存體使用 Azure 備份來備份 Azure Vm:
 
-- 在備份進階儲存體的 Vm 的過程中，備份服務會建立暫存的預備位置，名為*AzureBackup-*，儲存體帳戶中。 預備位置的大小等於復原點快照集的大小。
+- 在備份進階儲存體的 Vm 的過程中，備份服務會建立暫存的預備位置，名為*AzureBackup-* ，儲存體帳戶中。 預備位置的大小等於復原點快照集的大小。
 - 確定進階儲存體帳戶有足夠的可用空間可容納暫存位置。 [深入了解](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits)。 請勿修改暫存位置。
 - 備份作業完成後，就會刪除暫存位置。
 - 用於暫存位置的儲存體，價格會與[進階儲存體價格](../virtual-machines/windows/disks-types.md#billing)一致。

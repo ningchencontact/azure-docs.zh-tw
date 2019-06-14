@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 1/9/2018
 ms.author: rkarlin
 ms.openlocfilehash: b6babf7d5d5a0f5796efa9418044366c6a135ed9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60909264"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>在 Azure 資訊安全中心提供安全性連絡人詳細資料
@@ -41,16 +41,16 @@ Azure 資訊安全中心會建議您針對您的 Azure 訂用帳戶提供安全�
 >
 
 ## <a name="implement-the-recommendation"></a>實作建議
-1. 在 [建議] 下方，選取 [提供安全性連絡人詳細資料]。
+1. 在 [建議]  下方，選取 [提供安全性連絡人詳細資料]  。
    ![提供安全性連絡人][1]
 2. 選取要提供連絡人資訊的 Azure 訂用帳戶。
-3. 這會開啟 [電子郵件通知]。
+3. 這會開啟 [電子郵件通知]  。
 
    ![提供安全性連絡人詳細資料][2]
 
    * 輸入安全性連絡人的電子郵件地址，若有多個則以逗號分隔。 您可以輸入的電子郵件地址數沒有限制。
    * 輸入一個安全性連絡人國際電話號碼。
-   * 若要接收有關高嚴重性警示的電子郵件，請開啟 [傳送給我有關警示的電子郵件] 選項。
+   * 若要接收有關高嚴重性警示的電子郵件，請開啟 [傳送給我有關警示的電子郵件]  選項。
    * 未來，您會有將電子郵件通知傳送給訂用帳戶擁有者的選項。 此選項目前無法使用。
    * 選取 [儲存]  將安全性連絡人資訊套用至您的訂用帳戶。
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
 ms.openlocfilehash: f08d7bb2087ef4f30b325b3796a13e387ccdea22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60725562"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>針對組態伺服器問題進行疑難排解
@@ -22,7 +22,7 @@ ms.locfileid: "60725562"
 
 當您安裝行動代理程式時，來源電腦會向設定伺服器註冊。 您可以遵循下列的指導方針，對此步驟期間所發生的任何失敗偵錯：
 
-1. 開啟 C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log 檔案。 (ProgramData 資料夾可能是隱藏的資料夾。 如果您沒有看見 ProgramData 資料夾，請在檔案總管中的 [檢視] 索引標籤上，[顯示/隱藏] 區段中，選取 [隱藏項目] 核取方塊。)失敗可能是由多個問題所造成。
+1. 開啟 C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log 檔案。 (ProgramData 資料夾可能是隱藏的資料夾。 如果您沒有看見 ProgramData 資料夾，請在檔案總管中的 [檢視]  索引標籤上，[顯示/隱藏]  區段中，選取 [隱藏項目]  核取方塊。)失敗可能是由多個問題所造成。
 
 2. 搜尋字串 **No Valid IP Address found**。 如果找到該字串：
    1. 請驗證要求的主機識別碼與來源電腦的主機識別碼相同。
@@ -34,7 +34,7 @@ ms.locfileid: "60725562"
 3. 如果找不到字串 **No Valid IP Address found**，則搜尋字串 **Reason=>NULL**。 如果來源電腦使用空白主機向設定伺服器註冊時，就會發生此錯誤。 如果找到該字串：
     - 在您解決問題後，請依照[向設定伺服器註冊來源電腦](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server)中所列的指導方針來手動重試註冊。
 
-4. 如果找不到字串 **Reason=>NULL**，則在來源電腦上開啟 C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log 檔案。 (ProgramData 資料夾可能是隱藏的資料夾。 如果您沒有看見 ProgramData 資料夾，請在檔案總管中的 [檢視] 索引標籤上，[顯示/隱藏] 區段中，選取 [隱藏項目] 核取方塊。)失敗可能是由多個問題所造成。 
+4. 如果找不到字串 **Reason=>NULL**，則在來源電腦上開啟 C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log 檔案。 (ProgramData 資料夾可能是隱藏的資料夾。 如果您沒有看見 ProgramData 資料夾，請在檔案總管中的 [檢視]  索引標籤上，[顯示/隱藏]  區段中，選取 [隱藏項目]  核取方塊。)失敗可能是由多個問題所造成。 
 
 5. 搜尋字串 **post request:(7) - Couldn't connect to server**。 如果找到該字串：
     1. 解決來源電腦與設定伺服器之間的網路問題。 確認可透過使用如 ping、traceroute 或網頁瀏覽器等網路工具，從來源電腦連線到設定伺服器。 確認來源電腦可透過連接埠 443 連線到設定伺服器。
@@ -81,7 +81,7 @@ ms.locfileid: "60725562"
 
 ## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>若要啟用伺服器標準的 Windows 授權伺服器標準的評估失敗
 
-1. 通过 OVF 部署配置服务器的过程中，使用了评估许可证，该许可证的有效期为 180 天。 您必須在此授權過期前啟用此授權。 否則，這可以導致頻繁的關機，組態伺服器，並因此會導致複寫活動的障礙。
+1. 透過 OVF 組態伺服器部署的一部分，會使用 evaluation 授權，其有效期限為 180 天。 您必須在此授權過期前啟用此授權。 否則，這可以導致頻繁的關機，組態伺服器，並因此會導致複寫活動的障礙。
 2. 如果您無法啟用 Windows 的授權，請連絡 [Windows 支援小組](https://aka.ms/Windows_Support)來解決此問題。
 
 ## <a name="register-source-machine-with-configuration-server"></a>向設定伺服器註冊來源電腦
@@ -191,7 +191,7 @@ ms.locfileid: "60725562"
 若要解決此問題，請登入 Azure 入口網站並執行下列其中一項：
 
 - 在 AAD 中要求應用程式開發人員角色。 如需應用程式開發人員角色的詳細資訊，請參閱 [Azure Active Directory 中的系統管理員角色權限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
-- 在 AAD 中確認 [使用者可以建立應用程式] 旗標設為 true。 如需詳細資訊，請參閱[操作說明：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
+- 在 AAD 中確認 [使用者可以建立應用程式]  旗標設為 true  。 如需詳細資訊，請參閱[操作說明：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>處理序伺服器/主要目標無法與組態伺服器通訊 
 

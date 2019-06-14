@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: ec16e6daec099adbede625c5ec6fe6909059143b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60906933"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Azure 資訊安全中心的安全性劇本 (預覽)
@@ -33,24 +33,24 @@ ms.locfileid: "60906933"
 ## <a name="how-to-create-a-security-playbook-from-security-center"></a>如何從資訊安全中心建立安全性劇本？
 遵循以下步驟以從資訊安全中心建立新的安全性劇本：
 
-1.  開啟 [資訊安全中心] 儀表板。
-2.  在左窗格的 [自動化與協調流程] 區段中，按一下 [劇本 (預覽)]。
+1.  開啟 [資訊安全中心]  儀表板。
+2.  在左窗格的 [自動化與協調流程]  區段中，按一下 [劇本 (預覽)]  。
 
     ![邏輯應用程式](./media/security-center-playbooks/security-center-playbooks-fig17.png)
 
-3. 在 [資訊安全中心 - 劇本 (預覽)] 分頁中，按一下 [新增] 按鈕。
+3. 在 [資訊安全中心 - 劇本 (預覽)]  分頁中，按一下 [新增]  按鈕。
 
     ![建立邏輯應用程式](./media/security-center-playbooks/security-center-playbooks-fig2.png)
 
-4. 在 [建立邏輯應用程式] 分頁上，輸入所要求的資訊以建立新的邏輯應用程式，然後按一下 [建立] 按鈕。 一旦建立完成，新的劇本會出現在清單中。 如果它沒有出現，請按一下 [重新整理] 按鈕。 一旦您看到它，請按一下它以開始編輯這個劇本。
+4. 在 [建立邏輯應用程式]  分頁上，輸入所要求的資訊以建立新的邏輯應用程式，然後按一下 [建立]  按鈕。 一旦建立完成，新的劇本會出現在清單中。 如果它沒有出現，請按一下 [重新整理]  按鈕。 一旦您看到它，請按一下它以開始編輯這個劇本。
 
     ![建立邏輯應用程式](./media/security-center-playbooks/security-center-playbooks-fig3.png)
 
-5. [邏輯應用程式設計工具] 隨即出現。 按一下 [空白邏輯應用程式] 以建立新的劇本。 您也可以選取類別底下的 [安全性]，然後使用其中一個範本。
+5. [邏輯應用程式設計工具]  隨即出現。 按一下 [空白邏輯應用程式]  以建立新的劇本。 您也可以選取類別底下的 [安全性]  ，然後使用其中一個範本。
 
     ![邏輯應用程式設計工具](./media/security-center-playbooks/security-center-playbooks-fig4.png)
 
-6. 在 [搜尋所有連接器及觸發程序] 欄位中，輸入 [Azure 資訊安全中心]，然後選取 [當對 Azure 資訊安全中心警示的回應已觸發時]。
+6. 在 [搜尋所有連接器及觸發程序]  欄位中，輸入 [Azure 資訊安全中心]  ，然後選取 [當對 Azure 資訊安全中心警示的回應已觸發時]  。
 
     ![觸發程序](./media/security-center-playbooks/security-center-playbooks-fig12.png)
 
@@ -62,17 +62,17 @@ ms.locfileid: "60906933"
 
 當您想要協調、從其他服務取得詳細資訊，或當您想要修復時，您可以執行資訊安全中心的安全性劇本。 若要存取劇本，請遵循下列步驟：
 
-1.  開啟 [資訊安全中心] 儀表板。
-2.  在左窗格中的 [威脅偵測] 底下，按一下 [安全性事件與警示]。
+1.  開啟 [資訊安全中心]  儀表板。
+2.  在左窗格中的 [威脅偵測]  底下，按一下 [安全性事件與警示]  。
 
     ![警示](./media/security-center-playbooks/security-center-playbooks-fig6.png)
 
 3.  按一下您想要調查的警示。
-4.  在警示分頁頂端，按一下 [執行劇本] 按鈕。
+4.  在警示分頁頂端，按一下 [執行劇本]  按鈕。
 
     ![執行劇本](./media/security-center-playbooks/security-center-playbooks-fig7.png)
 
-5. 在 [劇本] 分頁中，選取您想要執行的劇本，然後按一下 [執行] 按鈕。 如果您想要在觸發之前查看劇本，您可以按一下它，設計工具隨即開啟。
+5. 在 [劇本] 分頁中，選取您想要執行的劇本，然後按一下 [執行]  按鈕。 如果您想要在觸發之前查看劇本，您可以按一下它，設計工具隨即開啟。
 
     ![劇本](./media/security-center-playbooks/security-center-playbooks-fig13.png)
 

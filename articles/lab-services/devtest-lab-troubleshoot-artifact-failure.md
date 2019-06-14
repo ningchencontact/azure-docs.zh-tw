@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 29af70a2713e7b4aebf611d8f2b547e38c6c5d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60623089"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>針對實驗室中的構件失敗進行診斷 
@@ -34,11 +34,11 @@ ms.locfileid: "60623089"
 
 1. 在 Azure 入口網站的資源清單中選取您的實驗室。
 2. 選擇您要調查之構件所在的 Windows VM。
-3. 在左面板的 [一般] 下，選取 [構件]。 與該 VM 相關聯的構件清單隨即出現。 清單中會指出構件的名稱及構件狀態。
+3. 在左面板的 [一般]  下，選取 [構件]  。 與該 VM 相關聯的構件清單隨即出現。 清單中會指出構件的名稱及構件狀態。
 
    ![構件狀態](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure.png)
 
-4. 選取顯示 [失敗] 狀態的構件。 構件會隨即開啟。 系統會顯示延伸訊息，其中包含有關構件失敗的詳細資料。
+4. 選取顯示 [失敗]  狀態的構件。 構件會隨即開啟。 系統會顯示延伸訊息，其中包含有關構件失敗的詳細資料。
 
    ![構件錯誤訊息](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error.png)
 
@@ -46,7 +46,7 @@ ms.locfileid: "60623089"
 ## <a name="troubleshoot-artifact-failures-from-within-the-virtual-machine"></a>針對虛擬機器中的構件失敗進行疑難排解
 
 1. 登入您要診斷之構件所在的 VM。
-2. 移至 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\\1.9\Status，其中 1.9 是 Azure 自訂指令碼延伸模組的版本號碼。
+2. 移至 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\\1.9  \Status，其中 1.9  是 Azure 自訂指令碼延伸模組的版本號碼。
 
    ![狀態檔案](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error-vm-status.png)
 

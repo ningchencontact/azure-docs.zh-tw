@@ -11,10 +11,10 @@ manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
 ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60683867"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立會重複工作流程動作或處理陣列的迴圈
@@ -24,7 +24,7 @@ ms.locfileid: "60683867"
 若要重複執行動作直到條件符合或狀態改變，您可以建立 ["Until" 迴圈](#until-loop)。 邏輯應用程式首先會執行在迴圈中，所有動作，並接著會檢查的條件或狀態。 如果符合條件，則迴圈會停止。 否則，迴圈會重複。 如需一個邏輯應用程式回合中可擁有的 "Until" 迴圈數上限，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md)。 
 
 > [!TIP]
-> 如果您的觸發程序接收到陣列，並想要針對每個陣列項目執行工作流程，您可以使用 [**SplitOn** 觸發屬性](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)將該陣列「解除批次」。 
+> 如果您的觸發程序接收到陣列，並想要針對每個陣列項目執行工作流程，您可以使用 [**SplitOn** 觸發屬性](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)將該陣列「解除批次」  。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -54,32 +54,32 @@ ms.locfileid: "60683867"
 2. 在 RSS 觸發程序和傳送電子郵件動作之間，新增 "Foreach" 迴圈。 
 
    1. 若要在步驟之間新增迴圈，請將滑鼠指標移至這些步驟之間的箭號上。 
-   選擇所顯示的**加號** (**+**)，然後選取 [新增動作]。
+   選擇所顯示的**加號** ( **+** )，然後選取 [新增動作]  。
 
       ![選取 [新增動作]](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
-   1. 在搜尋方塊下方，選擇 [全部]。 在搜尋方塊中，輸入 "for each" 作為篩選條件。 從 [動作] 清單中，選取此動作：**For each - 控制**
+   1. 在搜尋方塊下方，選擇 [全部]  。 在搜尋方塊中，輸入 "for each" 作為篩選條件。 從 [動作] 清單中，選取此動作：**For each - 控制**
 
       ![新增 "For each" 迴圈](media/logic-apps-control-flow-loops/select-for-each.png)
 
-3. 現在建置迴圈。 當**新增動態內容**清單出現後，在 [從上一個步驟中選取輸出] 下，選取 [摘要連結] 陣列，這是來自 RSS 觸發程序的輸出。 
+3. 現在建置迴圈。 當**新增動態內容**清單出現後，在 [從上一個步驟中選取輸出]  下，選取 [摘要連結]  陣列，這是來自 RSS 觸發程序的輸出。 
 
    ![從動態內容清單選取](media/logic-apps-control-flow-loops/for-each-loop-dynamic-content-list.png)
 
    > [!NOTE] 
-   > 您「只」可以選取上一個步驟中的陣列輸出。
+   > 您「只」  可以選取上一個步驟中的陣列輸出。
 
    選取的陣列現在會出現在這裡：
 
    ![選取陣列](media/logic-apps-control-flow-loops/for-each-loop-select-array.png)
 
-4. 若要對每個陣列項目執行動作，請將 [傳送電子郵件] 動作拖曳至迴圈。 
+4. 若要對每個陣列項目執行動作，請將 [傳送電子郵件]  動作拖曳至迴圈。 
 
    您的邏輯應用程式看起來可能就像下面這個範例︰
 
    ![將步驟新增至 "Foreach" 迴圈](media/logic-apps-control-flow-loops/for-each-loop-with-step.png)
 
-5. 儲存您的邏輯應用程式。 若要手動測試邏輯應用程式，在設計工具的工具列上，選擇 [執行]。
+5. 儲存您的邏輯應用程式。 若要手動測試邏輯應用程式，在設計工具的工具列上，選擇 [執行]  。
 
 <a name="for-each-json"></a>
 
@@ -124,13 +124,13 @@ ms.locfileid: "60683867"
 
 ## <a name="foreach-loop-sequential"></a>"Foreach" 迴圈：循序
 
-根據預設，"Foreach" 迴圈中的循環會平行執行。 若要以循序方式執行每個循環，請設定迴圈的 [循序] 選項。 如果您在預期要有可預測結果的迴圈內部具有巢狀迴圈或變數，"Foreach" 迴圈就必須循序執行。 
+根據預設，"Foreach" 迴圈中的循環會平行執行。 若要以循序方式執行每個循環，請設定迴圈的 [循序]  選項。 如果您在預期要有可預測結果的迴圈內部具有巢狀迴圈或變數，"Foreach" 迴圈就必須循序執行。 
 
-1. 在迴圈的右上角，選擇**省略符號** (**...**) > [設定]。
+1. 在迴圈的右上角，選擇**省略符號** ( **...** ) > [設定]  。
 
    ![在 "Foreach" 迴圈上，選擇 [...] > [設定]](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. 在 [並行控制] 底下，將 [並行控制] 設定改為 [開啟]。 將 [平行處理原則的程度] 滑桿移至 **1**，然後選擇 [完成]。
+1. 在 [並行控制]  底下，將 [並行控制]  設定改為 [開啟]  。 將 [平行處理原則的程度]  滑桿移至 **1**，然後選擇 [完成]  。
 
    ![開啟並行控制](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
@@ -154,7 +154,7 @@ ms.locfileid: "60683867"
 
 ## <a name="until-loop"></a>"Until" 迴圈
   
-若要运行并重复操作直到满足条件或状态发生变化，请将这些操作放在“Until”循环中。 你的逻辑应用将首先运行循环内的所有操作，然后检查条件或状态。 如果符合條件，則迴圈會停止。 否則，迴圈會重複。
+若要執行並重複動作直到符合條件，取得或狀態變更，置於"Until"迴圈中的這些動作。 邏輯應用程式首先會執行所有動作在迴圈中，並接著會檢查的條件或狀態。 如果符合條件，則迴圈會停止。 否則，迴圈會重複。
 
 以下是可以使用 "Until" 迴圈的一些常見案例：
 
@@ -168,23 +168,23 @@ ms.locfileid: "60683867"
 > 這些步驟會使用 Office 365 Outlook 來進行，但您也可以使用 Logic Apps 支援的任何電子郵件提供者。 
 > [請參考這裡的連接器清單](https://docs.microsoft.com/connectors/)。 如果您使用其他電子郵件帳戶，整體步驟將維持不變，但您的 UI 外觀可能會略有不同。 
 
-1. 建立空白邏輯應用程式。 在邏輯應用程式設計工具中的搜尋方塊底下，選擇 [全部]。 搜尋「週期」。 
+1. 建立空白邏輯應用程式。 在邏輯應用程式設計工具中的搜尋方塊底下，選擇 [全部]  。 搜尋「週期」。 
    從觸發程序清單中，選取此觸發程序：**週期 - 排程**
 
    ![新增「週期 - 排程」觸發程序](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
-1. 透過設定時間間隔、頻率和一天的小時來指定觸發程序引發的時間。 若要設定小時，請選擇 [顯示進階選項]。
+1. 透過設定時間間隔、頻率和一天的小時來指定觸發程序引發的時間。 若要設定小時，請選擇 [顯示進階選項]  。
 
    ![設定週期排程](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
-   | 屬性 | Value |
+   | 屬性 | 值 |
    | -------- | ----- |
    | **間隔** | 1 | 
    | **頻率** | 天 |
    | **在這幾小時內** | 8 |
    ||| 
 
-1. 在觸發程序下方，選擇 [新增步驟]。 
+1. 在觸發程序下方，選擇 [新增步驟]  。 
    搜尋「變數」，然後選取此動作：**初始化變數 - 變數**
 
    ![新增「初始化變數 - 變數」動作](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
@@ -196,13 +196,13 @@ ms.locfileid: "60683867"
    | 屬性 | Value | 描述 |
    | -------- | ----- | ----------- |
    | **名稱** | 限制 | 變數的名稱 | 
-   | **類型** | 整數  | 變數的資料類型 | 
+   | **類型** | Integer | 變數的資料類型 | 
    | **值** | 0 | 變數的起始值 | 
    |||| 
 
-1. 在 [初始化變數] 動作下，選擇 [新增步驟]。 
+1. 在 [初始化變數]  動作下，選擇 [新增步驟]  。 
 
-1. 在搜尋方塊下方，選擇 [全部]。 搜尋 "Until"，然後選取此動作：**Until - 控制**
+1. 在搜尋方塊下方，選擇 [全部]  。 搜尋 "Until"，然後選取此動作：**Until - 控制**
 
    ![新增 "Until" 迴圈](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
 
@@ -211,19 +211,19 @@ ms.locfileid: "60683867"
 
    ![建置停止迴圈的結束條件](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
-1. 在迴圈中，選擇 [新增動作]。 
+1. 在迴圈中，選擇 [新增動作]  。 
 
-1. 在搜尋方塊下方，選擇 [全部]。 搜尋「變數」，然後選取此動作：**遞增變數 - 變數**
+1. 在搜尋方塊下方，選擇 [全部]  。 搜尋「變數」，然後選取此動作：**遞增變數 - 變數**
 
    ![新增遞增變數的動作](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-1. 針對 [名稱]，選取**限制**變數。 針對 [值]，輸入 "1"。 
+1. 針對 [名稱]  ，選取**限制**變數。 針對 [值]  ，輸入 "1"。 
 
      ![以 1 遞增 [限制]](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
-1. 在迴圈外部底下，選擇 [新增步驟]。 
+1. 在迴圈外部底下，選擇 [新增步驟]  。 
 
-1. 在搜尋方塊下方，選擇 [全部]。 
+1. 在搜尋方塊下方，選擇 [全部]  。 
      尋找並新增會傳送電子郵件的動作，例如： 
 
      ![新增傳送電子郵件的動作](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
@@ -241,7 +241,7 @@ ms.locfileid: "60683867"
       | **內文** | <*email-content*> | 指定您想要傳送的電子郵件訊息內容。 針對此範例，輸入任何您喜歡的文字。 | 
       |||| 
 
-1. 儲存您的邏輯應用程式。 若要手動測試邏輯應用程式，在設計工具的工具列上，選擇 [執行]。
+1. 儲存您的邏輯應用程式。 若要手動測試邏輯應用程式，在設計工具的工具列上，選擇 [執行]  。
 
       當您的邏輯開始執行之後，您會收到電子郵件及您指定的內容：
 
@@ -257,7 +257,7 @@ ms.locfileid: "60683867"
 | **逾時** | PT1H | 迴圈結束前可執行迴圈的最大時間。 預設值是一小時，並以 ISO 8601 格式指定。 <p>逾時值的評估會以每個迴圈循環為基礎。 如果迴圈中有任何動作所花費的時間超過逾時限制，目前的循環並不會停止。 但不會啟動下一個循環，因為不符合限制條件。 | 
 |||| 
 
-若要變更這些預設限制，請選擇迴圈動作圖形中的 [顯示進階選項]。
+若要變更這些預設限制，請選擇迴圈動作圖形中的 [顯示進階選項]  。
 
 <a name="until-json"></a>
 

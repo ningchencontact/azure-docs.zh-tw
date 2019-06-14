@@ -12,10 +12,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 96ea8142e2f7794d3c15c6efb436eafa585bc8fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60780918"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>如何複製或重製 Azure Data Factory 中的資料處理站
@@ -40,7 +40,7 @@ ms.locfileid: "60780918"
 
 1. 若您處於 GIT 模式，每次您從入口網站發行時，處理站的 Resource Manager 範本都會儲存到 GIT 中 (存放庫的 adf_publish 分支)。
 
-1. 針對其他案例，您可以按一下入口網站中的 [匯出 Resource Manager 範本] 按鈕，以下載 Resource Manager 範本。
+1. 針對其他案例，您可以按一下入口網站中的 [匯出 Resource Manager 範本]  按鈕，以下載 Resource Manager 範本。
 
 1. 下載 Resource Manager 範本之後，您可以透過標準 Resource Manager 範本部署方法來部署它。
 

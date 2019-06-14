@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: 66fc55d8c3dbb8487d1e796d5f30b08a94f717f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60494760"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>如何查詢 Azure 監視器中適用於容器的記錄檔
@@ -27,7 +27,7 @@ ms.locfileid: "60494760"
 
 下表顯示適用於容器的 Azure 監視器所收集的記錄範例，以及記錄搜尋結果中所顯示的資料類型：
 
-| 資料類型 | 記錄檔搜尋中的資料類型 | 欄位 |
+| 数据类型 | 記錄檔搜尋中的資料類型 | 欄位 |
 | --- | --- | --- |
 | 主機和容器的效能 | `Perf` | Computer、ObjectName、CounterName &#40;%Processor Time、Disk Reads MB、Disk Writes MB、Memory Usage MB、Network Receive Bytes、Network Send Bytes、Processor Usage sec、Network&#41;、CounterValue、TimeGenerated、CounterPath、SourceSystem |
 | 容器清查 | `ContainerInventory` | TimeGenerated、Computer、container name、ContainerHostname、Image、ImageTag、ContainerState、ExitCode、EnvironmentVar、Command、CreatedTime、StartedTime、FinishedTime、SourceSystem、ContainerID、ImageID |
@@ -44,7 +44,7 @@ ms.locfileid: "60494760"
 ## <a name="search-logs-to-analyze-data"></a>搜尋記錄來分析資料
 Azure 監視器記錄檔可協助您尋找的趨勢、 診斷瓶頸，預測，或相互關聯的資料，可協助您判斷目前的叢集設定是否以最佳方式執行。 已為您提供可立即開始使用，或自訂以您想要的方式傳回資訊的預先定義記錄搜尋。 
 
-您可以在預覽窗格中選取 [檢視 Kubernetes 事件記錄] 或 [檢視容器記錄] 選項，以在工作區中對資料執行互動式分析。 [記錄搜尋] 頁面會出現在您所在 Azure 入口網站頁面的右邊。
+您可以在預覽窗格中選取 [檢視 Kubernetes 事件記錄]  或 [檢視容器記錄]  選項，以在工作區中對資料執行互動式分析。 [記錄搜尋]  頁面會出現在您所在 Azure 入口網站頁面的右邊。
 
 ![在 Log Analytics 中分析資料](./media/container-insights-analyze/container-health-log-search-example.png)   
 

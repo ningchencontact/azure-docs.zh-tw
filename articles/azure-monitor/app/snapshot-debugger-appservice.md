@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
 ms.openlocfilehash: 7ff93dffe2dd82bdbba204b4235a297b337438f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60784054"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>啟用 Azure App Service 中的.NET 應用程式的快照集偵錯工具
@@ -32,8 +32,8 @@ ms.locfileid: "60784054"
 
 Application Insights 快照集偵錯工具會預先安裝應用程式服務執行階段的一部分，但您需要將它開啟 App Service 應用程式取得快照集。 一旦您已部署應用程式，即使您在原始程式碼中包含 Application Insights SDK，請遵循下列步驟來啟用快照集偵錯工具。
 
-1. 移至 Azure 入口網站中的 [App Service] 窗格。
-2. 瀏覽至 [設定] > [Application Insights] 窗格。
+1. 移至 Azure 入口網站中的 [App Service]  窗格。
+2. 瀏覽至 [設定] > [Application Insights]  窗格。
 
    ![在 App Service 入口網站上啟用 Application Insights](./media/snapshot-debugger/applicationinsights-appservices.png)
 

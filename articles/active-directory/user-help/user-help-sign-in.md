@@ -14,10 +14,10 @@ ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60e4d9a4cb555dfbc9f05961487a8f794d19e1bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60472954"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>使用雙步驟驗證或安全性資訊登入
@@ -32,13 +32,13 @@ ms.locfileid: "60472954"
 
 1. 使用您的使用者名稱和密碼來登入帳戶。
 
-2. 從傳送到您行動裝置的核准通知中選取 [核准]。
+2. 從傳送到您行動裝置的核准通知中選取 [核准]  。
 
 ## <a name="sign-in-using-an-authenticator-app-code-on-your-mobile-device"></a>在行動裝置上使用驗證器應用程式驗證碼來登入
 
 1. 使用您的使用者名稱和密碼來登入帳戶。
 
-2. 開啟您的驗證器應用程式，然後將針對您帳戶隨機產生的驗證碼輸入到 [輸入驗證碼] 方塊中。
+2. 開啟您的驗證器應用程式，然後將針對您帳戶隨機產生的驗證碼輸入到 [輸入驗證碼]  方塊中。
 
 ## <a name="sign-in-using-your-phone-number"></a>使用您的電話號碼登入
 
@@ -50,7 +50,7 @@ ms.locfileid: "60472954"
 
 1. 使用您的使用者名稱和密碼來登入帳戶。
 
-2. 開啟簡訊，然後將簡訊中的代碼輸入到 [輸入驗證碼] 方塊中。
+2. 開啟簡訊，然後將簡訊中的代碼輸入到 [輸入驗證碼]  方塊中。
 
 ## <a name="sign-in-using-another-verification-method"></a>使用另一個驗證方法登入
 如果基於某些原因您無法使用您的主要登入方法，您可以使用另一個驗證方法之前設定。

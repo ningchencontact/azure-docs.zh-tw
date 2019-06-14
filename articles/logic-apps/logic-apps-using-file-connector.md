@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
 ms.openlocfilehash: a933824e9553ee7f638da495b46ebed19e04169d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60846705"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>透過 Azure Logic Apps 連線到內部部署檔案系統
@@ -34,9 +34,9 @@ ms.locfileid: "60846705"
 
 * 您必須先[安裝及設定內部部署資料閘道](../logic-apps/logic-apps-gateway-install.md)，才可以將邏輯應用程式連線到內部部署系統 (例如檔案系統伺服器)。 如此一來，您可以在從邏輯應用程式建立檔案系統連線時，指定使用您的閘道安裝。
 
-* 一个 [Dropbox 帐户](https://www.dropbox.com/)，可以在注册后免费获取。 帐户凭据是在逻辑应用和 Dropbox 帐户之间创建连接所必需的。 
+* A [Dropbox 帳戶](https://www.dropbox.com/)，其中您可以免費註冊。 您的帳戶認證所需的邏輯應用程式與您的 Dropbox 帳戶之間建立連接。 
 
-* 访问特定的计算机，其中的文件系统是你需要使用的。 例如，如果在与文件系统相同的计算机上安装数据网关，则需要该计算机的帐户凭据。 
+* 您想要使用的檔案系統的電腦存取。 比方說，如果您在您的檔案系統的同一部電腦上安裝資料閘道，請針對該電腦需要的帳戶認證。 
 
 * Logic Apps 支援的任何電子郵件提供者 (例如 Office 365 Outlook、Outlook.com 或 Gmail) 所提供的電子郵件帳戶。 對於其他提供者，請[檢閱這裡的連接器清單](https://docs.microsoft.com/connectors/)。 本邏輯應用程式會使用 Office 365 Outlook 帳戶。 如果您使用另一個電子郵件帳戶，則整體步驟相同，但您的 UI 可能稍有不同。 
 
@@ -60,7 +60,7 @@ ms.locfileid: "60846705"
 
 ## <a name="add-actions"></a>新增動作
 
-1. 在觸發程序下方，選擇 [下一個步驟]。 在搜尋方塊中，輸入「檔案系統」作為篩選條件。 從 [動作] 清單中，選取此動作：**建立檔案 - 系統系統**
+1. 在觸發程序下方，選擇 [下一個步驟]  。 在搜尋方塊中，輸入「檔案系統」作為篩選條件。 從 [動作] 清單中，選取此動作：**建立檔案 - 系統系統**
 
    ![尋找檔案系統連接器](media/logic-apps-using-file-connector/find-file-system-action.png)
 
@@ -70,7 +70,7 @@ ms.locfileid: "60846705"
 
    | 屬性 | 必要項 | Value | 描述 | 
    | -------- | -------- | ----- | ----------- | 
-   | 連線名稱 | 是 | <*connection-name*> | 您想要的連線名稱 | 
+   | 連線名稱  | 是 | <*connection-name*> | 您想要的連線名稱 | 
    | **根資料夾** | 是 | <*root-folder-name*> | 您檔案系統的根資料夾，例如，如果您已安裝內部部署的資料閘道，則為內部部署資料閘道安裝所在電腦上的本機資料夾，或電腦可以存取的網路共用資料夾。 <p>例如：`\\PublicShare\\DropboxFiles` <p>根資料夾是主要的父資料夾，會作為所有檔案相關動作的相對路徑。 | 
    | **驗證類型** | 否 | <*auth-type*> | 您檔案系統使用的驗證類型，例如 **Windows** | 
    | **使用者名稱** | 是 | <*domain*>\\<*username*> | 您的檔案系統所在電腦的使用者名稱 | 
@@ -78,12 +78,12 @@ ms.locfileid: "60846705"
    | **閘道** | 是 | <*installed-gateway-name*> | 先前所安裝閘道的名稱 | 
    ||| 
 
-1. 完成之後，請選擇 [建立]。
+1. 完成之後，請選擇 [建立]  。
 
    Logic Apps 會設定並測試連線，以確定連線運作正常。 
    如果已正確設定連線，就會針對您先前選取的動作顯示選項。 
 
-1. 在 [建立檔案] 動作中，提供詳細資料，以將檔案從 Dropbox 複製到內部部署檔案共用的根資料夾。 若要新增先前步驟的輸出，請在方塊內按一下，並且在動態內容清單出現時，從可用的欄位進行選取。
+1. 在 [建立檔案]  動作中，提供詳細資料，以將檔案從 Dropbox 複製到內部部署檔案共用的根資料夾。 若要新增先前步驟的輸出，請在方塊內按一下，並且在動態內容清單出現時，從可用的欄位進行選取。
 
    ![建立檔案動作](media/logic-apps-using-file-connector/create-file-filled.png)
 

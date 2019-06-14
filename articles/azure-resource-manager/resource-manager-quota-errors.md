@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
 ms.openlocfilehash: 7938f2c47e4af8d8804191fbb9e55b379f9554ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390147"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>解決資源配額的錯誤
@@ -105,17 +105,17 @@ Virtual Machines                             0 10000 Count
 
 1. 選取 **訂用帳戶** 。
 
-   ![訂用帳戶](./media/resource-manager-quota-errors/subscriptions.png)
+   ![Subscriptions](./media/resource-manager-quota-errors/subscriptions.png)
 
 2. 選取需要增加配額的訂用帳戶。
 
    ![選取訂用帳戶](./media/resource-manager-quota-errors/select-subscription.png)
 
-3. 選取 [使用量 + 配額]
+3. 選取 [使用量 + 配額] 
 
    ![選取使用量和配額](./media/resource-manager-quota-errors/select-usage-quotas.png)
 
-4. 在右上角，選取 [要求增加配額]。
+4. 在右上角，選取 [要求增加配額]  。
 
    ![要求增加配額](./media/resource-manager-quota-errors/request-increase.png)
 

@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 3/13/2019
 ms.author: banders
 ms.openlocfilehash: b910cb3061b1451ea80b9843e2aa4047a784548f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60918607"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>新增、更新或移除用於支付 Azure 訂閱費的信用卡或轉帳卡
@@ -35,23 +35,23 @@ ms.locfileid: "60918607"
 ## <a name="add-a-new-credit-or-debit-card-to-an-azure-subscription"></a>將新的信用卡或轉帳卡新增至 Azure 訂用帳戶
 
 1. 以帳戶管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-1. 針對 [成本管理 + 帳單] 進行搜尋。
+1. 針對 [成本管理 + 帳單]  進行搜尋。
 
     ![顯示搜尋螢幕擷取畫面](./media/billing-how-to-change-credit-card/search.png)
 
 1. 選取您想要新增的信用卡或金融卡的訂用帳戶。
-1. 選取 [付款方式]。
+1. 選取 [付款方式]  。
 
     ![顯示已選取 [管理付款方式] 選項的螢幕擷取畫面。](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. 在左上角，選取 [+] 以新增卡片。 信用卡表單會出現在右邊。
+1. 在左上角選取 [+] 以新增卡片。 信用卡表單會出現在右側。
 1. 輸入信用卡或轉帳卡詳細資料。
 
     ![如果螢幕擷取畫面顯示如何加入新的卡片。](./media/billing-how-to-change-credit-card/sub-add-new-x.png)
 
-1. 若要將此卡您作用中的付款方式，請核取方塊旁**將此我使用中付款方式**表單上方。 這張卡片將成為使用中付款方式與選取的訂用帳戶使用同一張卡的所有訂用帳戶。
+1. 若要將此卡您作用中的付款方式，請核取方塊旁**將此我使用中付款方式**表單上方。 對於所有與選取的訂用帳戶使用相同卡片的訂用帳戶，這張卡片都將成為使用中的付款方式。
 
-1. 選取 [下一步] 。
+1. 選取 [下一步]  。
 
 如果在新增信用卡之後收到錯誤，請參閱[在 Azure 註冊時信用卡遭拒](billing-credit-card-fails-during-azure-sign-up.md)。
 
@@ -60,15 +60,15 @@ ms.locfileid: "60918607"
 如果您的信用卡換卡，而且數字會維持相同，更新現有信用卡的詳細資料，例如到期日。 如果您的信用卡號碼因為卡片遺失、遭竊或過期而變更，請遵循[將信用卡新增為付款方式](#addcard)一節中的步驟。 您不需要更新 CVV。
 
 1. 以帳戶管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-1. 針對 [成本管理 + 帳單] 進行搜尋。
+1. 針對 [成本管理 + 帳單]  進行搜尋。
 
     ![顯示搜尋螢幕擷取畫面](./media/billing-how-to-change-credit-card/search.png)
 
-1. 選取 [付款方式]。
+1. 選取 [付款方式]  。
 
     ![顯示已選取 [管理付款方式] 選項的螢幕擷取畫面。](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. 按一下以信用卡或轉帳卡，您想要編輯。 信用卡表單會出現在右邊。
+1. 按一下您要編輯的信用卡或轉帳卡。 信用卡表單會出現在右側。
 
     ![如果螢幕擷取畫面顯示選取的信用卡或轉帳卡。](./media/billing-how-to-change-credit-card/edit-card-x.png)
 
@@ -80,12 +80,12 @@ ms.locfileid: "60918607"
 如果一個以上的訂用帳戶有相同的作用中的付款方法，然後變更任何這些訂用帳戶的使用中付款方式也會更新其他使用中的付款方式。
 
 1. 以帳戶管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-1. 針對 [成本管理 + 帳單] 進行搜尋。
+1. 針對 [成本管理 + 帳單]  進行搜尋。
 
     ![顯示搜尋螢幕擷取畫面](./media/billing-how-to-change-credit-card/search.png)
 
 1. 選取您想要新增的信用卡或金融卡的訂用帳戶。
-1. 選取 [付款方式]。
+1. 選取 [付款方式]  。
 
     ![顯示已選取 [管理付款方式] 選項的螢幕擷取畫面。](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
@@ -104,8 +104,8 @@ ms.locfileid: "60918607"
 
     ![顯示已選取 [管理付款方式] 選項的螢幕擷取畫面。](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. 請檢查您想要移除 「 卡旁的方塊。
-1. 按一下 [刪除] 。
+1. 勾選要移除的卡片旁邊的方塊。
+1. 按一下 [刪除]  。
 
 如果您的信用卡任何 Microsoft 訂用帳戶的作用中的付款方法，您無法從您的 Azure 帳戶中移除它。 變更連結到此信用卡或金融卡的所有訂用帳戶的使用中付款方式，並再試一次
 <!-- # Add, update, or remove a credit or debit card for Azure
@@ -185,7 +185,7 @@ If your credit card is associated with other active Microsoft subscriptions, you
 
 ### <a name="how-do-i-change-the-tax-id"></a>如何變更統一編號？
 
-若要新增或更新統一編號，請造訪 [Azure 帳戶中心內的 [設定檔]](https://account.azure.com/Profile)，然後選取 [稅務記錄]。 此統一編號會用於計算免稅金額，並出現在您的發票上。
+若要新增或更新統一編號，請造訪 [Azure 帳戶中心內的 [設定檔]  ](https://account.azure.com/Profile)，然後選取 [稅務記錄]  。 此統一編號會用於計算免稅金額，並出現在您的發票上。
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 

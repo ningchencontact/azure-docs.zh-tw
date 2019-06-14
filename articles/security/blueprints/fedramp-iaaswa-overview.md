@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 1ba5b813843ce2f5d31f337ab4d3d94e521b0e0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586102"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure 安全性與合規性藍圖：適用於 FedRAMP 的 IaaS Web 應用程式
@@ -149,8 +149,8 @@ ms.locfileid: "60586102"
 
 Azure 監視器記錄檔提供系統和使用者活動，以及系統健康情況的廣泛的記錄。 [Azure 監視器記錄](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)解決方案會收集和分析 Azure 中的資源所產生的資料並在內部部署環境。
 
-- **活動記錄：**[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
-- **診斷記錄：**[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)是每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure 儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。
+- **活動記錄：** [活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
+- **診斷記錄：** [診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)是每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure 儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。
 - **記錄封存：** 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 保留期是由使用者自訂，視組織特定的保留期需求，最長可達 730 天。 這些記錄檔連接到 Azure 監視器記錄檔處理、 儲存和儀表板報表。
 
 此外，此架構安裝了下列監視解決方案。 請注意，客戶須負責設定這些方案，以配合 FedRAMP 安全性控制項：
@@ -189,7 +189,7 @@ Azure 監視器記錄檔提供系統和使用者活動，以及系統健康情�
 
 2. 執行預先部署的 PowerShell 指令碼：azure-blueprint/predeploy/Orchestration_InitialSetup.ps1。
 
-3. 按一下下方的按鈕，登入 Azure 入口網站，然後輸入必要的 ARM 範本參數，再按一下 [購買]。
+3. 按一下下方的按鈕，登入 Azure 入口網站，然後輸入必要的 ARM 範本參數，再按一下 [購買]  。
 
     [![部署至 Azure](https://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ffedramp-iaas-webapp%2Fmaster%2Fazuredeploy.json)
 

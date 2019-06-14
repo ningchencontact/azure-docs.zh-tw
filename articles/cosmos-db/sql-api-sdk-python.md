@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
 ms.openlocfilehash: 9903339cbf0958893fb0d11a8c1b6ab7d156aae7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60626786"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB Python SDK：版本資訊和資源
@@ -35,7 +35,7 @@ ms.locfileid: "60626786"
 |**下載 SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
 |**API 文件**|[Python API 參考文件](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
 |**SDK 安裝指示**|[SDK 安裝指示](https://github.com/Azure/azure-cosmos-python)|
-|**参与 SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
+|**參與 SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
 |**開始使用**|[開始使用 Python SDK](sql-api-python-application.md)|
 |**目前支援的平台**|[Python 2.7](https://www.python.org/downloads/) 和 [Python 3.5](https://www.python.org/downloads/)|
 
@@ -87,11 +87,11 @@ ms.locfileid: "60626786"
 * 新增針對 Cosmos DB 模擬器執行時停用 SSL 驗證的選項。
 * 移除相依要求模組必須為 2.10.0 的限制。
 * 已將分割區集合的最小輸送量從 10,100 RU/s 降低為 2500 RU/s。
-* 添加了在存储过程执行期间对启用脚本日志记录的支持。
+* 在預存程序執行期間，加入支援指令碼記錄功能。
 * REST API 版本在此版本中提升至 '2017-01-19'。
 
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
-* 对文档注释进行编辑性更改。
+* 對文件註解進行編輯性的變更。
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 * 新增 Python 3.5 的支援。
@@ -108,7 +108,7 @@ ms.locfileid: "60626786"
 * 新增對多重區域資料庫帳戶的支援。
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
-* 添加了对文档生存时间 (TTL) 功能的支持。
+* 新加入文件的存留時間 (TTL) 功能支援。
 
 ### <a name="a-name161161"></a><a name="1.6.1"/>1.6.1
 * 伺服器端資料分割相關錯誤修正，允許在分割區索引鍵路徑中使用特殊字元。
@@ -121,7 +121,7 @@ ms.locfileid: "60626786"
 
 ### <a name="a-name142142"></a><a name="1.4.2"/>1.4.2
 * 實作 Upsert。 已新增新的 UpsertXXX 方法以支援 Upsert 功能。
-* 實作以識別碼為基礎的路由。 无公共 API 更改，全部均为内部更改。
+* 實作以識別碼為基礎的路由。 不需變更公用 API，所有變更皆為內部變更。
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * 支援地理空間索引。
@@ -145,7 +145,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 服務會拒絕使用已停用 SDK 的任何 Cosmos DB 要求。
 
 > [!WARNING]
-> 所有 **1.0.0** 版之前的 Azure SQL SDK for Python 版本都將於「2016 年 2 月 29 日」淘汰。 
+> 所有 **1.0.0** 版之前的 Azure SQL SDK for Python 版本都將於「2016 年 2 月 29 日」  淘汰。 
 > 
 > 
 

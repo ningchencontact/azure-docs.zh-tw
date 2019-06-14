@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
 ms.openlocfilehash: cb32069de295b883cdc6d3a9fa495b1bea719c39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60691765"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>使用 Application Insights 在 Web 應用程式中診斷例外狀況
@@ -191,7 +191,7 @@ Application Insights 隨附策劃的 APM 體驗，可協助您診斷受監視應
 ## <a name="mvc"></a>MVC
 從 Application Insights Web SDK 2.6 版 (beta3 和更新版本) 開始，Application Insights 會自動收集在 MVC 5+ 控制器方法中擲回的未處理例外狀況。 如果您先前已新增自訂處理常式來追蹤此類例外狀況 (如下列範例中所述)，您可以將其移除，以避免重複追蹤例外狀況。
 
-有一些無法處理的例外狀況篩選器案例。 例如︰
+有一些無法處理的例外狀況篩選器案例。 例如:
 
 * 從控制器建構函式擲回的例外狀況。
 * 從訊息處理常式擲回的例外狀況。
@@ -283,7 +283,7 @@ Application Insights 隨附策劃的 APM 體驗，可協助您診斷受監視應
 ## <a name="web-api"></a>Web API
 從 Application Insights Web SDK 2.6 版 (beta3 和更新版本) 開始，Application Insights 會自動針對 WebAPI 2+ 收集在控制器方法中擲回的未處理例外狀況。 如果您先前已新增自訂處理常式來追蹤此類例外狀況 (如下列範例中所述)，您可以將其移除，以避免重複追蹤例外狀況。
 
-有一些無法處理的例外狀況篩選器案例。 例如︰
+有一些無法處理的例外狀況篩選器案例。 例如:
 
 * 從控制器建構函式擲回的例外狀況。
 * 從訊息處理常式擲回的例外狀況。
@@ -476,7 +476,7 @@ Add the attribute to the service implementations:
 ## <a name="exception-performance-counters"></a>例外狀況效能計數器
 如果您已在伺服器上[安裝 Application Insights代理程式](../../azure-monitor/app/monitor-performance-live-website-now.md)，您便可取得由 .NET 測量的例外狀況比率圖表。 這包括已處理和未處理的 .NET 例外狀況。
 
-開啟 [計量瀏覽器] 刀鋒視窗、加入新圖表，然後選取 [效能計數器] 下方所列的 [例外狀況比率] 。
+開啟 [計量瀏覽器] 刀鋒視窗、加入新圖表，然後選取 [效能計數器] 下方所列的 [例外狀況比率]  。
 
 .NET framework 會計算間隔中的例外狀況次數並除以間隔長度，以計算得出例外狀況比率。
 

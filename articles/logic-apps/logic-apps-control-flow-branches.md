@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/10/2018
 ms.openlocfilehash: 2e1c155a371fa96e4f772f632a9585948b012e54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685019"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立或加入工作流程動作的平行分支
@@ -21,7 +21,7 @@ ms.locfileid: "60685019"
 根據預設，邏輯應用程式中的動作會依序執行。 若要同時執行獨立的動作，您可以建立[平行分支](#parallel-branches)，並在之後[將這些分支加入](#join-branches)您的流程中。 
 
 > [!TIP] 
-> 如果您的觸發程序接收到陣列，並想要針對每個陣列項目執行工作流程，您可以使用 [**SplitOn** 觸發屬性](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)將該陣列「解除批次」。
+> 如果您的觸發程序接收到陣列，並想要針對每個陣列項目執行工作流程，您可以使用 [**SplitOn** 觸發屬性](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)將該陣列「解除批次」  。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -44,7 +44,7 @@ ms.locfileid: "60685019"
 
 1. 在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>的邏輯應用程式設計工具中，開啟邏輯應用程式。
 
-1. 將滑鼠指標移到您要新增平行分支的步驟上方的箭號。 選擇所顯示的**加號** (**+**)，然後選擇 [新增平行分支]。 
+1. 將滑鼠指標移到您要新增平行分支的步驟上方的箭號。 選擇所顯示的**加號** ( **+** )，然後選擇 [新增平行分支]  。 
 
    ![新增平行分支](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
@@ -56,7 +56,7 @@ ms.locfileid: "60685019"
 
    ![尋找並選取您想要的動作](media/logic-apps-control-flow-branches/added-parallel-branch.png)
 
-1. 立即在每個平行分支中，新增您想要的步驟。 若要將另一個動作新增至分支，請將滑鼠指標移至您要新增循序動作的動作下方。 選擇所顯示的**加號** (**+**)，然後選取 [新增動作]。
+1. 立即在每個平行分支中，新增您想要的步驟。 若要將另一個動作新增至分支，請將滑鼠指標移至您要新增循序動作的動作下方。 選擇所顯示的**加號** ( **+** )，然後選取 [新增動作]  。
 
    ![將循序動作新增至平行分支](media/logic-apps-control-flow-branches/add-sequential-action.png)
 
@@ -120,7 +120,7 @@ ms.locfileid: "60685019"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)的邏輯應用程式設計工具中，尋找並開啟邏輯應用程式。 
 
-1. 在您想要聯結的平行分支下方，選擇 [新增步驟]。 
+1. 在您想要聯結的平行分支下方，選擇 [新增步驟]  。 
 
    ![新增要聯結的步驟](media/logic-apps-control-flow-branches/add-join-step.png)
 

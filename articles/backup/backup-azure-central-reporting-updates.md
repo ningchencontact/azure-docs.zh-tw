@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
 ms.openlocfilehash: 87bc7ed3bb59266484858f534080fa87a7230981
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60641872"
 ---
 # <a name="update-the-azure-backup-central-reporting-content-pack"></a>更新 Azure 備份集中報告內容套件 
@@ -24,15 +24,15 @@ ms.locfileid: "60641872"
 ### <a name="get-the-updated-content-pack"></a>取得更新的內容套件
 如果您尚未對您的內容套件複本進行任何變更，系統會自動更新它。 當內容套件變更時，您會在 Power BI 及電子郵件中收到通知。 您可以選擇在方便時取得已更新的內容套件。 
 
-### <a name="postpone-the-update"></a>推迟更新
-最佳做法是將內容套件匯入到[自訂工作區](https://youtu.be/26zyOtyHPJM?t=1m57s)。 现在可以编辑报告。
-如前所述，如果内容包发生更改，你会在 Power BI 中看到通知。 您可以選擇在稍後取得此內容套件。 
+### <a name="postpone-the-update"></a>延後更新
+最佳做法是將內容套件匯入到[自訂工作區](https://youtu.be/26zyOtyHPJM?t=1m57s)。 您現在已可編輯報告。
+如先前所述，如果內容套件變更，您就會在 Power BI 中看到通知。 您可以選擇在稍後取得此內容套件。 
 
 ## <a name="coming-soon"></a>敬請期待
    
 Azure Backup 內容套件會更新以支援更多工作負載。 工作負載包括適用於 IaaS VM 備份和 System Center Data Protection Manager 的 Azure SQL Database。 此支援強化了目前的 Azure 備份和 Azure VM 備份支援。 此支援意謂著您可以在一個集中的位置檢視和分析所有備份資料。 [您也可以自訂報告](https://youtu.be/26zyOtyHPJM)以符合貴組織的需求。
 
-「Azure 備份」內容套件隨附的預先設定報告正在變更。 這些變更讓報告在所有工作負載更具意義。 可在下方抢先了解即将发布的一组报告。
+「Azure 備份」內容套件隨附的預先設定報告正在變更。 這些變更讓報告在所有工作負載更具意義。 您可以在此一窺即將推出的一組報告。
 
 ### <a name="summary"></a>總結
    

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 4ef0c09d2d2ea2ed06708342ab45abcaf149c23e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61075875"
 ---
 # <a name="download-the-template-for-a-vm"></a>下載 VM 的範本
@@ -27,10 +27,10 @@ ms.locfileid: "61075875"
 
 ## <a name="download-the-template-using-the-portal"></a>使用入口網站下載範本
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 在左側功能表上，選取 [虛擬機器]。
+2. 在左側功能表上，選取 [虛擬機器]  。
 3. 然後從清單中選取虛擬機器。
 4. 選取 **匯出範本**。
-5. 從上方的功能表選取 [下載]，然後將 .zip 檔案儲存到本機電腦。
+5. 從上方的功能表選取 [下載]  ，然後將 .zip 檔案儲存到本機電腦。
 6. 開啟 .zip 檔，並將檔案解壓縮至資料夾。 此.zip 檔案包含：
    
    * deploy.ps1
