@@ -15,10 +15,10 @@ ms.date: 01/21/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec1994169891d5256436ac4de741339c865bb268
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824632"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>在 Azure Active Directory 中撰寫屬性對應的運算式
@@ -29,19 +29,19 @@ ms.locfileid: "65824632"
 
 * 整個運算式必須以函式定義，由函式名稱後面接著以括號括住的引數組成： <br>
   *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
-* 您可以在函式內互相巢狀函式。 例如： <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
+* 您可以在函式內互相巢狀函式。 例如: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * 您可以將三種不同類型的引數傳入函式：
   
   1. 屬性，必須以方括弧括住。 例如：[attributeName]
-  2. 字串常數，必須以雙引號括住。 例如："United States"
-  3. 其他函式。 例如：FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* 對於字串常數，如果您在字串中需要反斜線 ( \ ) 或引號 ( " ) ，則必須使用反斜線 ( \ ) 符號逸出。 例如："Company name:\\"Contoso\\""
+  2. 字串常數，必須以雙引號括住。 例如: "United States"
+  3. 其他函式。 例如: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
+* 對於字串常數，如果您在字串中需要反斜線 ( \ ) 或引號 ( " ) ，則必須使用反斜線 ( \ ) 符號逸出。 例如: "Company name:\\"Contoso\\""
 
 ## <a name="list-of-functions"></a>函式的清單
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
 - - -
-### <a name="append"></a>附加
+### <a name="append"></a>Append
 **函式：**<br> Append(source, suffix)
 
 **說明：**<br> 取出 source 字串值並在結尾附加尾碼。
@@ -55,13 +55,13 @@ ms.locfileid: "65824632"
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
-**函式：**<br>  FormatDateTime(source, inputFormat, outputFormat)
+**函式：**<br> FormatDateTime(source, inputFormat, outputFormat)
 
 **說明：**<br> 從一種格式取出日期字串，並將它轉換成不同的格式。
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |字串 |通常為 source 物件的屬性名稱。 |
 | **inputFormat** |必要項 |字串 |source 值的預期格式。 如需支援的格式，請參閱[https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)。 |
@@ -90,7 +90,7 @@ ms.locfileid: "65824632"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |字串 |通常為屬性的名稱。 |
 | **start** |必要項 |integer |子字串在 **source** 字串中起始位置的索引。 字串第一個字元的索引為 1，第二個字元的索引為 2，依此類推。 |
@@ -116,12 +116,12 @@ ms.locfileid: "65824632"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |Boolean String |預期的 **source** 值為 "True" 或 "False"。 |
 
 - - -
-### <a name="replace"></a>取代
+### <a name="replace"></a>Replace
 **函式：**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **說明：**<br>
@@ -143,7 +143,7 @@ ms.locfileid: "65824632"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |字串 |通常為 source 物件的屬性名稱。 |
 | **oldValue** |選用 |字串 |在 **source** 或 **template** 中要被取代的值。 |
@@ -161,12 +161,12 @@ ms.locfileid: "65824632"
 
 > [!NOTE]
 >1. 這是最上層函式，無法巢狀處理。
->2. 此函式只能用於建立項目。 搭配屬性使用此函式時，請將 [套用對應] 屬性設定為 [僅限物件建立期間]。
+>2. 此函式只能用於建立項目。 搭配屬性使用此函式時，請將 [套用對應]  屬性設定為 [僅限物件建立期間]  。
 
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |至少需要 2 個，沒有上限 |字串 | 要評估的唯一值產生規則清單。 |
 
@@ -179,19 +179,19 @@ ms.locfileid: "65824632"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |必要項 |字串 |**[appRoleAssignments]** 物件。 |
 
 - - -
-### <a name="split"></a>分割
+### <a name="split"></a>Split
 **函式：**<br> Split(source, delimiter)
 
 **說明：**<br> 使用指定的分隔符號字元將字串分割成多重值陣列。
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |字串 |**source** 值。 |
 | **delimiter** |必要項 |字串 |指定將用來分割字串的字元 (範例：",") |
@@ -204,7 +204,7 @@ ms.locfileid: "65824632"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |字串 |**source** 值。 |
 
@@ -216,7 +216,7 @@ ms.locfileid: "65824632"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |字串 |**Source** 值。 |
 | **defaultValue** |選用 |字串 |當 source 不符合任何 key 時要使用的預設值。 可以是空字串 ("")。 |
@@ -231,7 +231,7 @@ ms.locfileid: "65824632"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |字串 |通常為 source 物件的屬性名稱 |
 | **culture** |選用 |字串 |根據 RFC 4646，文化特性 (Culture) 名稱的格式為 *languagecode2-country/regioncode2*，其中 *languagecode2* 是兩個字母的語言代碼，而 *country/regioncode2* 則是兩個字母的子文化特性代碼。 範例包括 ja-JP 代表日文 (日本)，en-US 代表英文 (美國)。 如果沒有兩個字母的語言代碼可供使用，則會使用衍生自 ISO 639-2 的三個字母代碼。|

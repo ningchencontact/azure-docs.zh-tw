@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: c98229a28f31ff715f252dc3915ca690e99245ff
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979520"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure 原則的來賓設定
@@ -33,13 +33,13 @@ ms.locfileid: "65979520"
 
 若要透過 Azure 入口網站註冊「來賓設定」的資源提供者，請依照下列步驟進行操作：
 
-1. 啟動 Azure 入口網站，然後按一下 [所有服務]。 搜尋並選取 [訂用帳戶]。
+1. 啟動 Azure 入口網站，然後按一下 [所有服務]  。 搜尋並選取 [訂用帳戶]  。
 
 1. 尋找並按一下您想要啟用「來賓設定」的訂用帳戶。
 
-1. 在 [訂用帳戶] 頁面的左側功能表中，按一下 [資源提供者]。
+1. 在 [訂用帳戶]  頁面的左側功能表中，按一下 [資源提供者]  。
 
-1. 篩選或捲動，直到找出 **Microsoft.GuestConfiguration** 為止，然後按一下同一列上的 [註冊]。
+1. 篩選或捲動，直到找出 **Microsoft.GuestConfiguration** 為止，然後按一下同一列上的 [註冊]  。
 
 #### <a name="registration---powershell"></a>註冊 - PowerShell
 
@@ -58,8 +58,8 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 |作業系統|驗證工具|注意|
 |-|-|-|
-| Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
-| Linux|[Chef InSpec](https://www.chef.io/inspec/)| 「來賓設定」延伸模組會安裝 Ruby 和 Python。 |
+|Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
+|Linux|[Chef InSpec](https://www.chef.io/inspec/)| 「來賓設定」延伸模組會安裝 Ruby 和 Python。 |
 
 ### <a name="validation-frequency"></a>驗證頻率
 
@@ -69,9 +69,9 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 下表顯示 Azure 映像上的支援作業系統清單：
 
-|發行者|名稱|版本|
+|發行者|Name|版本|
 |-|-|-|
-|標準的|Ubuntu Server|14.04、16.04、18.04|
+|Canonical|Ubuntu Server|14.04、16.04、18.04|
 |Credativ|Debian|8、9|
 |Microsoft|Windows Server|2012 Datacenter、 2012 R2 Datacenter、 2016年資料中心、 2019年資料中心|
 |Microsoft|Windows 用戶端|Windows 10|
@@ -111,7 +111,7 @@ Windows Server Nano Server 不支援任何版本。
 一次**DeployIfNotExists**指派為符合規範，**稽核**原則指派是使用本機驗證工具來判斷是否符合規範或不符合規範設定指派。
 驗證工具會將結果提供給「來賓設定」用戶端。 用戶端會將結果轉送至「來賓延伸模組」，以便透過「來賓設定」資源提供者提供結果。
 
-「Azure 原則」會使用「來賓設定」資源提供者 **complianceStatus** 屬性在 [合規性] 節點中回報合規性。 如需詳細資訊，請參閱[取得合規性資料](../how-to/getting-compliance-data.md)。
+「Azure 原則」會使用「來賓設定」資源提供者 **complianceStatus** 屬性在 [合規性]  節點中回報合規性。 如需詳細資訊，請參閱[取得合規性資料](../how-to/getting-compliance-data.md)。
 
 > [!NOTE]
 > 每個「來賓設定」定義都必須有 **DeployIfNotExists** 和 **Audit** 原則定義。
@@ -143,4 +143,4 @@ Linux：`/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<ve
 - 了解如何[以程式設計方式建立原則](../how-to/programmatically-create.md)。
 - 了解如何[取得合規性資料](../how-to/getting-compliance-data.md)。
 - 了解如何[補救不符合規範的資源](../how-to/remediate-resources.md)。
-- 檢閱管理群組是使用[使用 Azure 管理群組來組織資源](../../management-groups/index.md)。
+- 透過[使用 Azure 管理群組來組織資源](../../management-groups/index.md)來檢閱何謂管理群組。

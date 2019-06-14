@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.openlocfilehash: 40beb620e037061b189762a51e3c29d0fd251b27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61362071"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>為 IoT Edge 串流分析實作 CI/CD
@@ -23,7 +23,7 @@ ms.locfileid: "61362071"
 
 REST API 可從 Linux 和 Windows 呼叫。 下列命令示範呼叫 API 的正確語法。 本文的後續幾節將概述特定 API 的使用方式。
 
-### <a name="linux"></a> Linux
+### <a name="linux"></a>Linux
 
 針對 Linux，您可以使用 `Curl` 或 `Wget` 命令：
 
@@ -35,7 +35,7 @@ curl -u { <username:password> }  -H "Content-Type: application/json" -X { <metho
 wget -q -O- --{ <method> }-data="<request body>”--header=Content-Type:application/json --auth-no-challenge --http-user="<Admin>" --http-password="<password>" <url>
 ```
  
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 針對 Windows 可以使用 PowerShell： 
 

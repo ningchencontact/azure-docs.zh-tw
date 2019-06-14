@@ -16,10 +16,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c3d1a8afdbad1878f4ce134edeeb95dad79e98a1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65784824"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health 代理程式安裝
@@ -124,43 +124,43 @@ ms.locfileid: "65784824"
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>在 Windows Server 2008 R2 上啟用 AD FS 的稽核
 
-1. 按一下 [開始]，依序指向 [程式集] 和 [系統管理工具]，然後按一下 [本機安全性原則]。
-2. 瀏覽至 **Security Settings\Local Policies\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]。
-3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 2.0 服務帳戶。 如果不存在，按一下 [新增使用者或群組]，並將其新增至清單中，然後按一下 [確定]。
+1. 按一下 [開始]  ，依序指向 [程式集]  和 [系統管理工具]  ，然後按一下 [本機安全性原則]  。
+2. 瀏覽至 **Security Settings\Local Policies\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]  。
+3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 2.0 服務帳戶。 如果不存在，按一下 [新增使用者或群組]  ，並將其新增至清單中，然後按一下 [確定]  。
 4. 若要啟用稽核，請使用提高的權限開啟命令提示字元，然後執行下列命令：<code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
-5. 關閉 [本機安全性原則]。
+5. 關閉 [本機安全性原則]  。
 <br />   -- **只有主要 AD FS 伺服器才需要執行下列步驟。** -- <br />
-6. 開啟 [AD FS 管理] 嵌入式管理單元。 若要開啟 [AD FS 管理] 嵌入式管理單元，按一下 [開始]，依序指向 [程式集] 和 [系統管理工具]，然後按一下 [AD FS 2.0 管理]。
-7. 在 [動作] 窗格中，按一下 [編輯同盟服務屬性]。
-8. 在 [同盟服務屬性] 對話方塊中，按一下 [事件] 索引標籤。
-9. 選取 [成功稽核] 和 [失敗稽核] 核取方塊。
-10. 按一下 [確定]。
+6. 開啟 [AD FS 管理]  嵌入式管理單元。 若要開啟 [AD FS 管理] 嵌入式管理單元，按一下 [開始]  ，依序指向 [程式集]  和 [系統管理工具]  ，然後按一下 [AD FS 2.0 管理]  。
+7. 在 [動作]  窗格中，按一下 [編輯同盟服務屬性]  。
+8. 在 [同盟服務屬性]  對話方塊中，按一下 [事件]  索引標籤。
+9. 選取 [成功稽核]  和 [失敗稽核]  核取方塊。
+10. 按一下 [確定]  。
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>在 Windows Server 2012 R2 上啟用 AD FS 的稽核
 
-1. 在 [開始] 畫面上開啟 [伺服器管理員]，或在桌面上的工作列中開啟 [伺服器管理員]，以開啟 [本機安全性原則]，然後按一下 [工具/本機安全性原則]。
-2. 瀏覽至 **Security Settings\Local Policies\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]。
-3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 服務帳戶。 如果不存在，按一下 [新增使用者或群組]，並將其新增至清單中，然後按一下 [確定]。
+1. 在 [開始] 畫面上開啟 [伺服器管理員]  ，或在桌面上的工作列中開啟 [伺服器管理員]，以開啟 [本機安全性原則]  ，然後按一下 [工具/本機安全性原則]  。
+2. 瀏覽至 **Security Settings\Local Policies\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]  。
+3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 服務帳戶。 如果不存在，按一下 [新增使用者或群組]  ，並將其新增至清單中，然後按一下 [確定]  。
 4. 若要啟用稽核，請使用提高的權限開啟命令提示字元，然後執行下列命令：```auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable```
-5. 關閉 [本機安全性原則]。
+5. 關閉 [本機安全性原則]  。
 <br />   -- **只有主要 AD FS 伺服器才需要執行下列步驟。** -- <br />
-6. 開啟 [AD FS 管理] 嵌入式管理單元 (在 [伺服器管理員] 中按一下 [工具]，然後選取 [AD FS 管理])。
-7. 在 [動作] 窗格中，按一下 [編輯同盟服務屬性]。
-8. 在 [同盟服務屬性] 對話方塊中，按一下 [事件] 索引標籤。
-9. 選取 [成功稽核] 和 [失敗稽核] 核取方塊，然後按一下 [確定]。
+6. 開啟 [AD FS 管理]  嵌入式管理單元 (在 [伺服器管理員] 中按一下 [工具]，然後選取 [AD FS 管理])。
+7. 在 [動作]  窗格中，按一下 [編輯同盟服務屬性]  。
+8. 在 [同盟服務屬性]  對話方塊中，按一下 [事件]  索引標籤。
+9. 選取 [成功稽核] 和 [失敗稽核]  核取方塊，然後按一下 [確定]  。
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>在 Windows Server 2016 上啟用 AD FS 的稽核
 
-1. 在 [開始] 畫面上開啟 [伺服器管理員]，或在桌面上的工作列中開啟 [伺服器管理員]，以開啟 [本機安全性原則]，然後按一下 [工具/本機安全性原則]。
-2. 瀏覽至 **Security Settings\Local Policies\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]。
-3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 服務帳戶。 如果不存在，按一下 [新增使用者或群組]，並將 AD FS 服務帳戶新增至清單，然後按一下 [確定]。
+1. 在 [開始] 畫面上開啟 [伺服器管理員]  ，或在桌面上的工作列中開啟 [伺服器管理員]，以開啟 [本機安全性原則]  ，然後按一下 [工具/本機安全性原則]  。
+2. 瀏覽至 **Security Settings\Local Policies\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]  。
+3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 服務帳戶。 如果不存在，按一下 [新增使用者或群組]  ，並將 AD FS 服務帳戶新增至清單，然後按一下 [確定]  。
 4. 若要啟用稽核，請使用提高的權限開啟命令提示字元，然後執行下列命令：<code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
-5. 關閉 [本機安全性原則]。
+5. 關閉 [本機安全性原則]  。
 <br />   -- **只有主要 AD FS 伺服器才需要執行下列步驟。** -- <br />
-6. 開啟 [AD FS 管理] 嵌入式管理單元 (在 [伺服器管理員] 中按一下 [工具]，然後選取 [AD FS 管理])。
-7. 在 [動作] 窗格中，按一下 [編輯同盟服務屬性]。
-8. 在 [同盟服務屬性] 對話方塊中，按一下 [事件] 索引標籤。
-9. 選取 [成功稽核] 和 [失敗稽核] 核取方塊，然後按一下 [確定]。 預設會啟用此功能。
+6. 開啟 [AD FS 管理]  嵌入式管理單元 (在 [伺服器管理員] 中按一下 [工具]，然後選取 [AD FS 管理])。
+7. 在 [動作]  窗格中，按一下 [編輯同盟服務屬性]  。
+8. 在 [同盟服務屬性]  對話方塊中，按一下 [事件]  索引標籤。
+9. 選取 [成功稽核] 和 [失敗稽核]  核取方塊，然後按一下 [確定]  。 預設會啟用此功能。
 10. 開啟 PowerShell 視窗並執行下列命令：```Set-AdfsProperties -AuditLevel Verbose```。
 
 請注意，預設會啟用「基本」稽核層級。 深入了解 [Windows Server 2016 中的 AD FS 稽核增強功能](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server)
@@ -168,10 +168,10 @@ ms.locfileid: "65784824"
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>找出 AD FS 稽核記錄
 
-1. 開啟 [事件檢視器] 。
-2. 移至 [Windows 記錄]，然後選取 [安全性] 。
-3. 按一下右側的 [篩選目前的記錄] 。
-4. 在 [事件來源] 下，選取 [AD FS 稽核] 。
+1. 開啟 [事件檢視器]  。
+2. 移至 [Windows 記錄]，然後選取 [安全性]  。
+3. 按一下右側的 [篩選目前的記錄]  。
+4. 在 [事件來源] 下，選取 [AD FS 稽核]  。
 
     以及稽核記錄的快速[常見問題集附註](reference-connect-health-faq.md#operations-questions)。
 
@@ -313,7 +313,7 @@ Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential 
 
 > [!NOTE]
 > 所有的 Azure AD Connect Health 代理程式服務都必須重新啟動，才會更新 Proxy 設定。 執行以下命令：<br />
->  Restart-Service AdHealth*
+> Restart-Service AdHealth*
 >
 >
 

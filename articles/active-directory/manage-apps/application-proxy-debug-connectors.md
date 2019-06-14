@@ -12,10 +12,10 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.openlocfilehash: c3088ae777fe1a64be218105d36fdb9e01d7b798
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66172231"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>偵錯應用程式 Proxy 連接器問題 
@@ -40,7 +40,7 @@ ms.locfileid: "66172231"
 
 ![顯示偵錯的連接器的步驟流程圖](media/application-proxy-debug-connectors/application-proxy-connector-debugging-flowchart.png)
 
-|  |  動作 | 說明 | 
+|  | 動作 | 描述 | 
 |---------|---------|---------|
 |1 | 尋找指派至應用程式的連接器群組 | 您可能有多部伺服器上安裝連接器，連接器應該是在此情況下[指派給連接器群組](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups)。 若要深入了解連接器群組，請參閱[使用連接器群組在個別的網路和位置上發佈應用程式](application-proxy-connector-groups.md)。 |
 |2 | 安裝連接器，並將群組指派 | 如果您沒有安裝連接器，請參閱[安裝並註冊連接器](application-proxy-add-on-premises-application.md#install-and-register-a-connector)。<br></br>如果連接器無法指派給群組，請參閱[指派給群組的連接器](application-proxy-connector-groups.md#create-connector-groups)。<br></br>如果應用程式不指派給連接器群組，請參閱[指派給連接器群組的應用程式](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups)。|

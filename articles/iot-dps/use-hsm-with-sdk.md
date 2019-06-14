@@ -10,15 +10,15 @@ services: iot-dps
 manager: arjmands
 ms.custom: mvc
 ms.openlocfilehash: af59ccc6d14dce49d06e178aac3ecafc29bd982c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61248125"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>如何使用不同證明機制搭配適用於 C 的裝置佈建服務用戶端 SDK
 
-本文說明如何使用不同的[證明機制](concepts-security.md#attestation-mechanism)搭配適用於 C 的裝置佈建服務用戶端 SDK。您可以使用實體裝置或模擬器。 预配服务支持下述两类证据机制的身份验证：X.509 和可信賴平台模組 (TPM)。
+本文說明如何使用不同的[證明機制](concepts-security.md#attestation-mechanism)搭配適用於 C 的裝置佈建服務用戶端 SDK。您可以使用實體裝置或模擬器。 佈建服務支援兩種證明機制的驗證：X.509 和可信賴平台模組 (TPM)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -28,9 +28,9 @@ ms.locfileid: "61248125"
 
 身為裝置製造商，您必須先選擇以其中一個支援類型為基礎的證明機制。 [適用於 C 的裝置佈建服務用戶端 SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) 目前提供下列證明機制的支援： 
 
-- [受信任的平台模块 (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module)：TPM 是適用於大部分 Windows 裝置平台以及一些 Linux/Ubuntu 架構裝置的公認標準。 身為裝置製造商，如果您的裝置是執行上述任一作業系統，而且您想要使用公認的標準，則可以選擇這個證明機制。 若使用 TPM 晶片，裝置就只能個別地向裝置佈建服務進行註冊。 若要進行開發，您可以在 Windows 或 Linux 開發機器上使用 TPM 模擬器。
+- [信賴平台模組 (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module):TPM 是適用於大部分 Windows 裝置平台以及一些 Linux/Ubuntu 架構裝置的公認標準。 身為裝置製造商，如果您的裝置是執行上述任一作業系統，而且您想要使用公認的標準，則可以選擇這個證明機制。 若使用 TPM 晶片，裝置就只能個別地向裝置佈建服務進行註冊。 若要進行開發，您可以在 Windows 或 Linux 開發機器上使用 TPM 模擬器。
 
-- [X.509](https://cryptography.io/en/latest/x509/)：X.509 证书可以存储在称为[硬件安全模块 (HSM)](concepts-security.md#hardware-security-module) 的相对较新的芯片中。 Microsoft 也正著手設計 RIoT 或 DICE 晶片，以便實作 X.509 憑證。 若使用 X.509 晶片，您將可以在入口網站中進行大量裝置註冊。 這種晶片也支援某些非 Windows 的作業系統，例如 embedOS。 針對開發用途，裝置佈建服務用戶端 SDK 可支援 X.509 裝置模擬器。 
+- [X.509](https://cryptography.io/en/latest/x509/)：X.509 憑證可以儲存在稱為較新型的晶片[硬體安全性模組 (HSM)](concepts-security.md#hardware-security-module)。 Microsoft 也正著手設計 RIoT 或 DICE 晶片，以便實作 X.509 憑證。 若使用 X.509 晶片，您將可以在入口網站中進行大量裝置註冊。 這種晶片也支援某些非 Windows 的作業系統，例如 embedOS。 針對開發用途，裝置佈建服務用戶端 SDK 可支援 X.509 裝置模擬器。 
 
 如需詳細資訊，請參閱 IoT 中樞裝置佈建服務的[安全性概念](concepts-security.md)和[自動佈建概念](/azure/iot-dps/concepts-auto-provisioning)。
 
@@ -71,7 +71,7 @@ cmake -Ddps_auth_type=tpm_simulator ..
 ## <a name="build-the-sdk"></a>建置 SDK
 建立裝置註冊之前，請建置 SDK。
 
-### <a name="linux"></a> Linux
+### <a name="linux"></a>Linux
 - 若要在 Linux 中建置 SDK：
     ```
     cd azure-iot-sdk-c
@@ -96,7 +96,7 @@ cmake -Ddps_auth_type=tpm_simulator ..
     ctest -C "debug" -V
     ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 - 若要在 Windows 中建置 SDK，請採取下列步驟以產生專案檔：
   - 開啟「VS2015 的開發人員命令提示字元」
   - 從存放庫的根目錄執行下列 CMake 命令：
@@ -148,9 +148,9 @@ cmake -Ddps_auth_type=tpm_simulator ..
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
-2. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源] 按鈕，然後開啟您的裝置佈建服務。
-   - X **.** 509 单个注册：在“预配服务摘要”边栏选项卡上，选择“管理注册”。 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增] 按鈕。 選取 **X**.**509** 作為身分識別證明機制，如刀鋒視窗所要求上傳分葉憑證。 完成後，按一下 [儲存] 按鈕。 
-   - X **.** 509 组注册：在“预配服务摘要”边栏选项卡上，选择“管理注册”。 選取 [群組註冊] 索引標籤，然後按一下頂端的 [新增] 按鈕。 選取 **X**.**509** 作為身分識別證明機制，輸入群組名稱和憑證名稱，如刀鋒視窗所要求上傳 CA/中繼憑證。 完成後，按一下 [儲存] 按鈕。 
+2. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源]  按鈕，然後開啟您的裝置佈建服務。
+   - X **。** 509 個別註冊：佈建服務摘要刀鋒視窗上，選取**管理註冊**。 選取 [個別註冊]  索引標籤，然後按一下頂端的 [新增]  按鈕。 選取 **X**.**509** 作為身分識別證明機制  ，如刀鋒視窗所要求上傳分葉憑證。 完成後，按一下 [儲存]  按鈕。 
+   - X **。** 509 群組註冊：佈建服務摘要刀鋒視窗上，選取**管理註冊**。 選取 [群組註冊]  索引標籤，然後按一下頂端的 [新增]  按鈕。 選取 **X**.**509** 作為身分識別證明機制  ，輸入群組名稱和憑證名稱，如刀鋒視窗所要求上傳 CA/中繼憑證。 完成後，按一下 [儲存]  按鈕。 
 
 ## <a name="enable-authentication-for-devices-using-a-custom-attestation-mechanism-optional"></a>針對使用自訂證明機制的裝置啟用驗證 (選擇性)
 

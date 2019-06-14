@@ -11,10 +11,10 @@ ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 2a9318317d5a01136a42b4fb6d580bafaf53ec4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685723"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>在 Azure 邏輯應用程式中處理內容類型
@@ -32,7 +32,7 @@ ms.locfileid: "60685723"
 
 ## <a name="applicationjson"></a>application/json
 
-Logic Apps 會儲存和處理任何以 application/json 類型內容作為 JavaScript 標記法 (JSON) 物件的要求。 根據預設，您可以剖析 JSON 內容，而不需要任何轉換。 若要剖析具有 "application/json" 內容類型標頭的要求，您可以使用運算式。 此範例會從 `animal-type` 陣列傳回值 `dog`，而不需轉換： 
+Logic Apps 會儲存和處理任何以 application/json  類型內容作為 JavaScript 標記法 (JSON) 物件的要求。 根據預設，您可以剖析 JSON 內容，而不需要任何轉換。 若要剖析具有 "application/json" 內容類型標頭的要求，您可以使用運算式。 此範例會從 `animal-type` 陣列傳回值 `dog`，而不需轉換： 
  
 `@body('myAction')['animal-type'][0]` 
   
@@ -61,9 +61,9 @@ Logic Apps 可讓您產生方便使用的權杖來表示 JSON 內容中的屬性
   
   如果您沒有結構描述，您可以產生結構描述。 
   
-  1. 在要求觸發程序中，選取 [使用範例承載來產生結構描述]。  
+  1. 在要求觸發程序中，選取 [使用範例承載來產生結構描述]  。  
   
-  2. 在 [輸入或貼上範例 JSON 承載] 之下，提供範例承載，然後選擇 [完成]。 例如︰ 
+  2. 在 [輸入或貼上範例 JSON 承載]  之下，提供範例承載，然後選擇 [完成]  。 例如: 
 
      ![提供範例 JSON 承載](./media/logic-apps-content-type/request-trigger.png)
 

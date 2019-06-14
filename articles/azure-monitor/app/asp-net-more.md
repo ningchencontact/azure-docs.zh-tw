@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 02/03/2017
 ms.author: mbullwin
 ms.openlocfilehash: 7e62efb0b64b0b882b36126af4a1f9d520d92475
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65230646"
 ---
 # <a name="more-telemetry-from-application-insights"></a>更多來自 Application Insights 的遙測
 在您已經 [將 Application Insights 加入到您的 ASP.NET 程式碼](../../azure-monitor/app/asp-net.md)之後，您可以採取幾個動作來取得更多遙測。 
 
-|  動作 | 得到什麼結果|
+| 動作 | 得到什麼結果|
 |---|---|
 |(IIS 伺服器) 在每一部伺服器電腦上[安裝狀態監視器](https://go.microsoft.com/fwlink/?LinkId=506648)。<br/>(Azure Web 應用程式) 在 Web 應用程式的 Azure 控制台中，開啟 Application Insights 刀鋒視窗。| [**效能計數器**](../../azure-monitor/app/performance-counters.md)<br/>[**例外狀況**](asp-net-exceptions.md) - 包括堆疊追蹤<br/>[**相依項目**](../../azure-monitor/app/asp-net-dependencies.md)|
 |[將 JavaScript 程式碼片段新增至您的網頁](../../azure-monitor/app/javascript.md)|[頁面效能](../../azure-monitor/app/usage-overview.md)、瀏覽器例外狀況、AJAX 效能。 自訂用戶端遙測。|

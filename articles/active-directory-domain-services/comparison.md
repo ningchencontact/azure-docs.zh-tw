@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: mstephen
 ms.openlocfilehash: 17bb8eb910990e0e9da65491f8dd7361398479a5
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246460"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>如何判斷 Azure AD 網域服務是否適合您的使用案例
@@ -40,7 +40,7 @@ Azure AD Domain Services 可讓您在 Azure 基礎結構服務中部署工作負
 | --- |:---:|:---:|
 | [**受管理的服務**](comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
 | [**安全的部署**](comparison.md#secure-deployments) |**&#x2713;** |系統管理員必須確保部署安全。 |
-| [**DNS 伺服器**](comparison.md#dns-server) |            **&#x2713;** (受控服務) |**&#x2713;** |
+| [**DNS 伺服器**](comparison.md#dns-server) |           **&#x2713;** (受控服務) |**&#x2713;** |
 | [**Domain or Enterprise administrator privileges**](comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**加入網域**](comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**使用 NTLM 和 Kerberos 的網域驗證**](comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |

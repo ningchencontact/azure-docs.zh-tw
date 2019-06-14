@@ -12,10 +12,10 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.openlocfilehash: d0a12bde119e9dae3f950603fac4bce060bb5f91
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66172261"
 ---
 # <a name="debug-application-proxy-application-issues"></a>偵錯應用程式 Proxy 應用程式問題 
@@ -39,7 +39,7 @@ ms.locfileid: "66172261"
 
 ![示範適用於偵錯應用程式步驟的流程圖](media/application-proxy-debug-apps/application-proxy-apps-debugging-flowchart.png)
 
-|  |  動作 | 說明 | 
+|  | 動作 | 描述 | 
 |---------|---------|---------|
 |1 | 開啟瀏覽器，存取應用程式，並輸入您的認證 | 請嘗試使用您的認證來登入應用程式，並檢查任何使用者相關的錯誤，例如[無法存取此公司的應用程式](application-proxy-sign-in-bad-gateway-timeout-error.md)。 |
 |2 | 確認使用者指派至應用程式 | 請確定您的使用者帳戶有權存取公司網路內的應用程式，然後測試 登入應用程式中的步驟[測試應用程式](application-proxy-add-on-premises-application.md#test-the-application)。 如果登入問題持續發生，請參閱[如何疑難排解登入錯誤](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-troubleshoot-sign-in-errors)。  |

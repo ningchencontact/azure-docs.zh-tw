@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.openlocfilehash: 6764d8d812789c9f54fa59e10b2a3e416e583a9c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129394"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>搭配使用 Apache Sqoop 與 HDInsight 中的 Hadoop
@@ -60,7 +60,7 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
 在本文中，您可以使用這兩個資料集測試 Sqoop 匯入和匯出。
 
 ## <a name="create-cluster-and-sql-database"></a>設定測試環境
-使用 Azure Resource Manager 範本在 Azure 入口網站建立叢集、 SQL database 和其他物件。 範本可在[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)。 Resource Manager 範本會呼叫 bacpac 套件，以部署到 SQL database 的資料表結構描述。  Bacpac 套件位於公用 Blob 容器中 (https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac)。 如果您想要針對 Bacpac 檔案使用私用容器，請在範本中使用下列值︰
+使用 Azure Resource Manager 範本在 Azure 入口網站建立叢集、 SQL database 和其他物件。 範本可在[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)。 Resource Manager 範本會呼叫 bacpac 套件，以部署到 SQL database 的資料表結構描述。  Bacpac 套件位於公用 Blob 容器中 (https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac )。 如果您想要針對 Bacpac 檔案使用私用容器，請在範本中使用下列值︰
 
 ```json
 "storageKeyType": "Primary",
@@ -95,19 +95,19 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
 
     Azure SQL 伺服器名稱會是`<ClusterName>dbserver`。 資料庫名稱會是`<ClusterName>db`。 預設儲存體帳戶名稱會是`e6qhezrh2pdqu`。
 
-3. 選取 [我同意上方所述的條款及條件]。
+3. 選取 [我同意上方所述的條款及條件]  。
 
-4. 選取 [購買]。 您會看到新的圖格，標題為「提交範本部署的部署」。 大約需要 20 分鐘的時間來建立叢集和 SQL Database。
+4. 選取 [購買]  。 您會看到新的圖格，標題為「提交範本部署的部署」。 大約需要 20 分鐘的時間來建立叢集和 SQL Database。
 
 ## <a name="run-sqoop-jobs"></a>執行 Sqoop 工作
 
 HDInsight 可以使用各種方法執行 Sqoop 工作。 請使用下表決定適合您的方法，然後跟著連結逐項閱讀介紹。
 
-| **使用此方法**  | ...一個 **互動式** 殼層 | ...**批次** 處理 | ...從此 **用戶端作業系統** |
+| **使用此方法** | ...一個 **互動式** 殼層 | ...**批次** 處理 | ...從此 **用戶端作業系統** |
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux、Unix、Mac OS X 或 Windows |
 | [.NET SDK for Hadoop](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |?  |Windows (目前) |
-| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? | Windows |
+| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Windows |
 
 ## <a name="limitations"></a>限制
 

@@ -11,10 +11,10 @@ manager: yuvalm
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker、Kubernetes、Azure、AKS、Azure Container Service、容器
 ms.openlocfilehash: 983af0dd75e6ae62630c85d04ac3819c7e260439
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60687264"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>使用 CI/CD 搭配 Azure Dev Spaces
@@ -34,7 +34,7 @@ ms.locfileid: "60687264"
 * [授權您的 AKS 叢集從 Azure Container Registry 提取](../../container-registry/container-registry-auth-aks.md)
 
 ## <a name="download-sample-code"></a>下載範例程式碼
-為了節省時間，我們將建立一個範例程式碼 GitHub 存放庫的分支。 移至 https://github.com/Azure/dev-spaces 並選取 [分支]。 分支程序完成後，請在本機**複製**分支版本的存放庫。 根據預設，_主要_分支將會簽出，但我們在 _azds_updates_ 分支中包含了一些節省時間的變更，這些變更也應該在分支期間轉移。 _azds_updates_ 分支包含我們要求您在 Dev Spaces 教學課程小節中以手動方式進行的更新，以及一些預先製作的 YAML 和 JSON 檔案，以簡化 CI/CD 系統的部署。 您可以使用 `git checkout -b azds_updates origin/azds_updates` 之類的命令檢查本機存放庫中的 _azds_updates_ 分支。
+為了節省時間，我們將建立一個範例程式碼 GitHub 存放庫的分支。 移至 https://github.com/Azure/dev-spaces 並選取 [分支]  。 分支程序完成後，請在本機**複製**分支版本的存放庫。 根據預設，_主要_分支將會簽出，但我們在 _azds_updates_ 分支中包含了一些節省時間的變更，這些變更也應該在分支期間轉移。 _azds_updates_ 分支包含我們要求您在 Dev Spaces 教學課程小節中以手動方式進行的更新，以及一些預先製作的 YAML 和 JSON 檔案，以簡化 CI/CD 系統的部署。 您可以使用 `git checkout -b azds_updates origin/azds_updates` 之類的命令檢查本機存放庫中的 _azds_updates_ 分支。
 
 ## <a name="dev-spaces-setup"></a>Dev Spaces 設定
 使用 `azds space select` 命令建立名為 _dev_ 的新空間。 您的 CI/CD 管線將使用 _dev_ 空間來推送您的程式碼變更。 它還將用於根據 _dev_ 建立 _子空間_。
@@ -43,7 +43,7 @@ ms.locfileid: "60687264"
 azds space select -n dev
 ```
 
-出現選取父代開發人員空間的提示時，請選取\<無\>。
+出現選取父代開發人員空間的提示時，請選取\<無\>  。
 
 建立您的開發人員分享空間之後，您需要判斷主機尾碼。 使用`azds show-context`命令來顯示 Azure 開發人員空間輸入控制器的主機尾碼。
 
@@ -59,7 +59,7 @@ MyAKS  MyResourceGroup  dev       fedcba098.eus.azds.io
 _dev_ 空間將始終包含存放庫的最新狀態 (即基線)，以便開發人員可以從 _dev_ 建立_子空間_，以測試較大應用程式之內容中的隔離變更。 此概念在 Dev Spaces 教學課程中會更詳細地討論。
 
 ## <a name="creating-the-build-definition"></a>建立組建定義
-在網頁瀏覽器中開啟您的 Azure DevOps 小組專案，並瀏覽至 [管線] 區段。 首先，按一下 Azure DevOps 網站右上角的個人檔案相片、開啟 [預覽功能] 窗格，然後停用 [新的 YAML 管線建立體驗]：
+在網頁瀏覽器中開啟您的 Azure DevOps 小組專案，並瀏覽至 [管線]  區段。 首先，按一下 Azure DevOps 網站右上角的個人檔案相片、開啟 [預覽功能] 窗格，然後停用 [新的 YAML 管線建立體驗]  ：
 
 ![正在開啟 [預覽功能] 窗格](../media/common/preview-feature-open.png)
 
@@ -68,7 +68,7 @@ _dev_ 空間將始終包含存放庫的最新狀態 (即基線)，以便開發�
 ![[新的 YAML 管線建立體驗] 選項](../media/common/yaml-pipeline-preview-feature.png)
 
 > [!Note]
-> 此時 Azure DevOps [新的 YAML 管線建立體驗] 預覽功能與建立預先定義的建置管線衝突。 您現在需要停用它才能部署我們預先定義的建置管線。
+> 此時 Azure DevOps [新的 YAML 管線建立體驗]  預覽功能與建立預先定義的建置管線衝突。 您現在需要停用它才能部署我們預先定義的建置管線。
 
 在 _azds_updates_ 分支中，我們包含了一個簡單的 [Azure 管線 YAML](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema)，它定義了 *mywebapi* 和 *webfrontend* 所需的建置步驟。
 
@@ -95,13 +95,13 @@ _dev_ 空間將始終包含存放庫的最新狀態 (即基線)，以便開發�
 1. 如果您正在使用尚未包含發行定義的全新 DevOps 專案，則必須先建立一個空的發行定義，然後再繼續。 除非您有現有發行定義，否則 [匯入] 選項不會顯示在 UI 中。
 1. 在左側，按一下 **+ 新增**按鈕，然後按一下**匯入管線**。
 1. 按一下 **瀏覽**，然後選取`samples/release.json`從您的專案。
-1. 按一下 [確定]。 請注意，會載入 [管線] 窗格並顯示 [發行定義編輯] 頁面。 另請注意，有一些紅色警告圖示表示仍然必須設定特定叢集的詳細資料。
-1. 在 [管線] 窗格的左側，按一下 [新增成品] 泡泡。
+1. 按一下 [確定]  。 請注意，會載入 [管線] 窗格並顯示 [發行定義編輯] 頁面。 另請注意，有一些紅色警告圖示表示仍然必須設定特定叢集的詳細資料。
+1. 在 [管線] 窗格的左側，按一下 [新增成品]  泡泡。
 1. 在 **來源**下拉式清單中，選取組建管線您稍早建立。
 1. 針對**預設版本**，選擇**來自組建管線預設分支並具有標籤的最新**。
 1. 離開**標記**空白。
-1. 將 [來源別名] 設定為 `drop`。 **來源別名**值由預先定義的發行工作，因此它必須設定。
-1. 按一下 [新增] 。
+1. 將 [來源別名]  設定為 `drop`。 **來源別名**值由預先定義的發行工作，因此它必須設定。
+1. 按一下 [新增]  。
 1. 現在按一下新建立的 `drop` 成品來源上的閃電圖示，如下所示：
 
     ![發行成品持續部署設定](../media/common/release-artifact-cd-setup.png)
@@ -118,10 +118,10 @@ _dev_ 空間將始終包含存放庫的最新狀態 (即基線)，以便開發�
 1. 選取 **裝載 Ubuntu 1604**下方**代理程式集區**。
 1. 按一下 **變數**索引標籤，以更新您的發行的變數。
 1. 更新的值**DevSpacesHostSuffix**從**UPDATE_ME**您主機的尾碼。 當您執行時，會顯示主機尾碼`azds show-context`稍早命令。
-1. 按一下右上方的 [儲存]，然後按一下 [確定]。
-1. 按一下 [+ 發行] ([儲存] 按鈕旁邊)，然後按一下 [建立發行]。
+1. 按一下右上方的 [儲存]  ，然後按一下 [確定]  。
+1. 按一下 [+ 發行]  ([儲存] 按鈕旁邊)，然後按一下 [建立發行]  。
 1. 底下**成品**，確認已選取 從您組建管線的最新組建。
-1. 按一下頁面底部的 [新增] 。
+1. 按一下頁面底部的 [新增]  。
 
 自動化發行處理程序將立即開始，將 *mywebapi* 和 *webfrontend* 圖表部署至 _dev_ 最上層空間中的 Kubernetes 叢集。 您可以監視您的版本，Azure DevOps web 入口網站上的進度：
 

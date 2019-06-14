@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure Media Indexer 为媒体文件编制索引
-description: Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。 本主题说明如何使用 Media Indexer。
+title: 使用 Azure Media Indexer 編輯媒體檔案索引
+description: Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生隱藏式字幕和關鍵字的全文檢索記錄。 本主題說明如何使用 Media Indexer。
 services: media-services
 documentationcenter: ''
 author: Asolanki
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: adsolank;juliako;johndeu
 ms.openlocfilehash: a11ae0414d6737f1588515ec19524bcf499f0c74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61215800"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>使用 Azure Media Indexer 編輯媒體檔案索引
@@ -154,7 +154,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 | --- | --- |
 | **InputFileName.aib** |音訊索引 blob 檔案。 <br/><br/> 音訊索引 Blob (AIB) 檔案是二進位檔案，可以使用全文檢索搜尋在 Microsoft SQL Server 中搜尋。  AIB 檔比簡單的字幕檔案強大，因為它包含每個字的替代字，允許更豐富的搜尋經驗。 <br/> <br/>它需要在執行 Microsoft SQL 2008 或更新版本的電腦上安裝 Indexer SQL 附加元件。 使用 Microsoft SQL Server 全文檢索搜尋來搜尋 AIB 可以比搜尋 WAMI 產生之隱藏式字幕檔案提供更正確的搜尋結果。 這是因為 AIB 包含發音類似的替代字，而隱藏式字幕檔案則包含音訊每一節的最高信賴字。 如果搜尋說的話重要性最高，則建議一起使用 AIB 和 Microsoft SQL Server。<br/><br/> 若要下載附加元件，請按一下 [<a href="https://aka.ms/indexersql">Azure 媒體索引器 SQL 附加元件</a>]。 <br/><br/>也可以利用其他搜尋引擎，例如 Apache Lucene/Solr，只根據隱藏式字幕和關鍵字 XML 檔案編製視訊的索引，但這會導致搜尋結果較不正確。 |
 | **InputFileName.smi**<br/>**InputFileName.ttml**<br/>**InputFileName.vtt** |SAMI、TTML 和 WebVTT 格式的隱藏式輔助字幕 (CC) 檔案。<br/><br/>它們可以用來讓具有聽力障礙的人存取音訊和視訊檔案。<br/><br/>隱藏式輔助字幕檔案包含稱為 <b>Recognizability</b> 的標記，它會根據來源視訊中的語音可辨識度來為索引工作評分。  您可以使用 <b>Recognizability</b> 的值，針對實用性來篩選輸出檔。 較低的分數表示由於音訊品質所致的不良索引結果。 |
-| **InputFileName.kw.xml<br/>InputFileName.info** |关键字和信息文件。 <br/><br/>關鍵字檔案是 XML 檔案，其中包含從語音內容擷取的關鍵字，以及關鍵字的頻率和位移資訊。 <br/><br/>資訊檔案是純文字檔案，包含每個已辨識字詞的細微資訊。 第一行是特殊行並包含可辨識分數。 後續每一行皆是下列資料的清單 (以 tab 鍵分隔)：開始時間、結束時間、文字/片語、信賴值。 時間是以秒為單位，信賴值則是以 0-1 的數字標示。 <br/><br/>範例行："1.20    1.45    word    0.67" <br/><br/>這些檔案的用途眾多，例如執行語音分析，或是公開到搜尋引擎 (例如 Bing、Google 或 Microsoft SharePoint) 來讓媒體檔案更容易被找到，或甚至用來放送更多相關的廣告。 |
+| **InputFileName.kw.xml<br/>InputFileName.info** |關鍵字與資訊檔案。 <br/><br/>關鍵字檔案是 XML 檔案，其中包含從語音內容擷取的關鍵字，以及關鍵字的頻率和位移資訊。 <br/><br/>資訊檔案是純文字檔案，包含每個已辨識字詞的細微資訊。 第一行是特殊行並包含可辨識分數。 後續每一行皆是下列資料的清單 (以 tab 鍵分隔)：開始時間、結束時間、文字/片語、信賴值。 時間是以秒為單位，信賴值則是以 0-1 的數字標示。 <br/><br/>範例行："1.20    1.45    word    0.67" <br/><br/>這些檔案的用途眾多，例如執行語音分析，或是公開到搜尋引擎 (例如 Bing、Google 或 Microsoft SharePoint) 來讓媒體檔案更容易被找到，或甚至用來放送更多相關的廣告。 |
 | **JobResult.txt** |包含下列資訊的輸出資訊清單 (只會在編製多個檔案的索引時顯示)：<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Error</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
 
 如果不是所有輸入媒體檔案都成功編製索引，則索引作業會失敗，錯誤碼為 4000。 如需詳細資訊，請參閱 [錯誤碼](#error_codes)。
@@ -249,27 +249,27 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 
 | 名稱 | 必要 | 描述 |
 | --- | --- | --- |
-| **input** |false |您想要編製索引的資產檔案。</p><p>Azure 媒體索引器支援下列媒體檔案格式︰MP4、WMV、MP3、M4A、WMA、AAC、WAV。</p><p>您可以在 **input** 元素的 **name** 或 **list** 屬性中指定檔案名稱 (如下所示)。如果您未指定要編制索引的資產檔案，則會選擇主要檔案。 如果未設定主要資產檔案，則會對輸入資產中的第一個檔案編製索引。</p><p>若要明確指定資產檔案名稱，請執行︰<br/>`<input name="TestFile.wmv">`<br/><br/>您也可以一次對多個資產檔案編制索引 (最多 10 個檔案)。 为此，请按以下步骤操作：<br/><br/><ol class="ordered"><li><p>建立文字檔 (資訊清單檔) 並指定 .lst 副檔名。 </p></li><li><p>將輸入資產中所有資產檔案名稱的清單加入至此資訊清單檔案。 </p></li><li><p>將資訊檔案新增 (上傳) 到資產。  </p></li><li><p>在輸入的 list 屬性中指定資訊清單檔的名稱。<br/>`<input list="input.lst">`</li></ol><br/><br/>注意：如果您在資訊清單檔中新增超過 10 個檔案，編製索引作業將失敗，並出現 2006 錯誤碼。 |
+| **input** |false |您想要編製索引的資產檔案。</p><p>Azure 媒體索引器支援下列媒體檔案格式︰MP4、WMV、MP3、M4A、WMA、AAC、WAV。</p><p>您可以在 **input** 元素的 **name** 或 **list** 屬性中指定檔案名稱 (如下所示)。如果您未指定要編制索引的資產檔案，則會選擇主要檔案。 如果未設定主要資產檔案，則會對輸入資產中的第一個檔案編製索引。</p><p>若要明確指定資產檔案名稱，請執行︰<br/>`<input name="TestFile.wmv">`<br/><br/>您也可以一次對多個資產檔案編制索引 (最多 10 個檔案)。 作法：<br/><br/><ol class="ordered"><li><p>建立文字檔 (資訊清單檔) 並指定 .lst 副檔名。 </p></li><li><p>將輸入資產中所有資產檔案名稱的清單加入至此資訊清單檔案。 </p></li><li><p>將資訊檔案新增 (上傳) 到資產。  </p></li><li><p>在輸入的 list 屬性中指定資訊清單檔的名稱。<br/>`<input list="input.lst">`</li></ol><br/><br/>注意：如果您在資訊清單檔中新增超過 10 個檔案，編製索引作業將失敗，並出現 2006 錯誤碼。 |
 | **metadata** |false |用於詞彙調節之指定資產檔案的中繼資料。  適合用來準備 Indexer 以辨識非標準詞彙文字，例如專有名詞。<br/>`<metadata key="..." value="..."/>` <br/><br/>您可以提供預先定義的**索引鍵**的**值**。 目前支援下列索引鍵：<br/><br/>"title" 和 "description" - 用於詞彙調整，以微調您的工作的語言模型及改進語音辨識準確度。  值會植入網際網路搜尋來尋找內容相關的文字文件，並使用內容來加強索引工作期間的內部字典。<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **features** <br/><br/> 在版本 1.2 中添加。 目前唯一支援的功能是語音辨識 ("ASR")。 |false |语音识别功能具有以下设置键：<table><tr><th><p>Key</p></th>        <th><p>描述</p></th><th><p>範例值</p></th></tr><tr><td><p>語言</p></td><td><p>要在多媒體檔案中辨識的自然語言。</p></td><td><p>英文、西班牙文</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>所需輸出字幕格式的分號分隔清單 (如果有的話)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>布林值旗標，用來指定是否需要 AIB 檔案 (適用於 SQL Server 和客戶索引器 IFilter)。  如需詳細資訊，請參閱 <a href="https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案</a>。</p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>布林值旗標，用於指定是否需要關鍵字 XML 檔案。</p></td><td><p>True; False。 </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>布林值旗標，用於指定是否強制完整字幕 (不管信賴等級為何)。  </p><p>預設值為 false，在此情況下，會省略最終字幕輸出中信賴等級小於 50% 的單字和片語並以省略符號 ("...") 取代。  省略符號適合用於字幕品質控制和稽核。</p></td><td><p>True; False。 </p></td></tr></table> |
+| **features** <br/><br/> 在 1.2 版中新增。 目前唯一支援的功能是語音辨識 ("ASR")。 |false |語音辨識功能具有下列設定索引鍵︰<table><tr><th><p>Key</p></th>        <th><p>描述</p></th><th><p>範例值</p></th></tr><tr><td><p>語言</p></td><td><p>要在多媒體檔案中辨識的自然語言。</p></td><td><p>英文、西班牙文</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>所需輸出字幕格式的分號分隔清單 (如果有的話)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>布林值旗標，用來指定是否需要 AIB 檔案 (適用於 SQL Server 和客戶索引器 IFilter)。  如需詳細資訊，請參閱 <a href="https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案</a>。</p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>布林值旗標，用於指定是否需要關鍵字 XML 檔案。</p></td><td><p>True; False。 </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>布林值旗標，用於指定是否強制完整字幕 (不管信賴等級為何)。  </p><p>預設值為 false，在此情況下，會省略最終字幕輸出中信賴等級小於 50% 的單字和片語並以省略符號 ("...") 取代。  省略符號適合用於字幕品質控制和稽核。</p></td><td><p>True; False。 </p></td></tr></table> |
 
 ### <a id="error_codes"></a>錯誤碼
 如果發生錯誤，Azure 媒體索引器應回報下列其中一個錯誤碼：
 
-| 代碼 | 名稱 | 可能的原因 |
+| 代碼 | Name | 可能的原因 |
 | --- | --- | --- |
-| 2000 |無效的組態 |配置无效 |
+| 2000 |無效的組態 |無效的組態 |
 | 2001 |無效的輸入資產 |遺漏輸入資產或資產是空的。 |
 | 2002 |無效的資訊清單 |資訊清單是空的或資訊清單包含無效的項目。 |
 | 2003 |無法下載媒體檔案 |資訊清單檔中的 URL 無效。 |
 | 2004 |不支援的通訊協定 |不支援媒體 URL 的通訊協定。 |
 | 2005 |不支援的檔案類型 |不支援輸入媒體檔案類型。 |
 | 2006 |太多輸入檔案 |輸入資訊清單中有超過 10 個檔案。 |
-| 3000 |無法解碼媒體檔案 |不支援的媒體轉碼器  <br/>或<br/> 損毀的媒體檔案 <br/>或<br/> 輸入媒體沒有音訊資料流。 |
+| 3000 |無法解碼媒體檔案 |不支援的媒體轉碼器 <br/>或<br/> 損毀的媒體檔案 <br/>或<br/> 輸入媒體沒有音訊資料流。 |
 | 4000 |批次編製索引已部分成功 |某些輸入媒體檔案無法編製索引。 如需詳細資訊，請參閱<a href="#output_files">輸出檔案</a>。 |
 | 其他 |內部錯誤 |請連絡技術支援小組。 indexer@microsoft.com |
 
-## <a id="supported_languages"></a>支持的语言
+## <a id="supported_languages"></a>支援的語言
 目前支援英文和西班牙文。 如需詳細資訊，請參閱 [v1.2 版部落格文章](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)。
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
@@ -279,7 +279,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>相關連結
-[Azure 媒体服务分析概述](media-services-analytics-overview.md)
+[Azure 媒體服務分析概觀](media-services-analytics-overview.md)
 
 [搭配 Azure Media Indexer 和 SQL Server 使用 AIB 檔案](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 

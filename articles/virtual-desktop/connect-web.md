@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: helohr
 ms.openlocfilehash: d99f20efcebc3c9d97c5e2228e8b55bfd3f432b5
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65834020"
 ---
 # <a name="connect-from-a-web-browser"></a>從網頁瀏覽器連線
@@ -25,10 +25,10 @@ Web 用戶端可讓您存取您的 Windows 虛擬桌面預覽資源從網頁瀏�
 
 任何支援 HTML5 的瀏覽器應該可行，我們正式支援下列作業系統和瀏覽器。
 
-| 瀏覽器           | 支援的 OS                     | 注意               |
+| [瀏覽器]           | 支援的 OS                     | 注意               |
 |-------------------|----------------------------------|---------------------|
-| Microsoft Edge    |  Windows                          |                     |
-| Internet Explorer |  Windows                          |                     |
+| Microsoft Edge    | Windows                          |                     |
+| Internet Explorer | Windows                          |                     |
 | Apple Safari      | macOS                            |                     |
 | Mozilla Firefox   | Windows、 macOS、 Linux            | 55 或更新版本 |
 | Google Chrome     | Windows、 macOS、 Linux、 Chrome OS |                     |

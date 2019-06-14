@@ -1,6 +1,6 @@
 ---
 title: 自動調整 Azure Batch 集區中的計算節點 | Microsoft Docs
-description: 对云池启用自动缩放功能可以动态调整池中计算节点的数目。
+description: 在雲端集區上啟用自動調整，以動態調整集區中的計算節點數目。
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -16,17 +16,17 @@ ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118106"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>建立自動調整公式來調整 Batch 集區中的計算節點
 
 Azure Batch 可以根據您定義的參數自動調整集區。 使用自動調整，Batch 會隨著工作需求增加，動態地將節點新增至集區，以及隨著工作需求減少而移除計算節點。 自動調整 Batch 應用程式所使用的計算節點數目，可讓您節省時間與金錢。 
 
-您可讓您定義的「自動調整公式」與計算節點的集區產生關聯，以在該集區上啟用自動調整。 Batch 服務會使用自動調整公式來判斷要執行您的工作負載所需的計算節點數目。 計算節點可以是專用節點或[低優先順序節點](batch-low-pri-vms.md)。 Batch 會回應定期收集的服務計量資料。 使用此計量資料，Batch 會根據您的公式以可設定的間隔調整集區中的計算節點數目。
+您可讓您定義的「自動調整公式」  與計算節點的集區產生關聯，以在該集區上啟用自動調整。 Batch 服務會使用自動調整公式來判斷要執行您的工作負載所需的計算節點數目。 計算節點可以是專用節點或[低優先順序節點](batch-low-pri-vms.md)。 Batch 會回應定期收集的服務計量資料。 使用此計量資料，Batch 會根據您的公式以可設定的間隔調整集區中的計算節點數目。
 
 您可以在建立集區時或在現有的集區上啟用自動調整。 您也可以變更已針對自動調整設定之集區上的現有公式。 Batch 可讓您在將公式指派給集區之前評估公式，以及監視自動調整回合的狀態。
 
@@ -89,7 +89,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 | --- | --- |
 | $TargetDedicatedNodes |集區之專用計算節點的目標數目。 專用節點數目被指定作為目標，因為集區不一定會達到想要的節點數目。 例如，如果在集區達到初始目標之前，自動調整評估修改目標專用節點數目，則集區可能未達到目標。 <br /><br /> 如果目標超過 Batch 帳戶節點或核心配額，以 Batch 服務設定建立之帳戶中的集區可能未達到其目標。 如果目標超過訂用帳戶的共用核心配額，以使用者訂用帳戶設定建立之帳戶中的集區可能未達到其目標。|
 | $TargetLowPriorityNodes |集區之低優先順序計算節點的目標數目。 低優先順序節點數目被指定作為目標，因為集區不一定會達到想要的節點數目。 例如，如果在集區達到初始目標之前，自動調整評估修改目標低優先順序節點數目，則集區可能未達到目標。 如果目標超過 Batch 帳戶節點或核心配額，則集區也可能未達到其目標。 <br /><br /> 如需有關低優先順序計算節點的詳細資訊，請參閱[搭配 Batch 使用低優先順序 VM (預覽)](batch-low-pri-vms.md)。 |
-| $NodeDeallocationOption |計算節點從集區移除時所發生的動作。 可能的值包括：<ul><li>**requeue**：立即終止工作，並將這些工作放回工作佇列，為它們重新排程。<li>**terminate**：立即終止工作，並從作業佇列移除這些工作。<li>**taskcompletion**：等待目前執行中的工作完成，然後再從集區中移除該節點。<li>**retaineddata**--等待清理节点上的本地任务保留的所有数据，并从池中删除节点。</ul> |
+| $NodeDeallocationOption |計算節點從集區移除時所發生的動作。 可能的值包括：<ul><li>**requeue**：立即終止工作，並將這些工作放回工作佇列，為它們重新排程。<li>**terminate**：立即終止工作，並從作業佇列移除這些工作。<li>**taskcompletion**：等待目前執行中的工作完成，然後再從集區中移除該節點。<li>**retaineddata**：等待所有本機工作保留在節點上的資料先清除，再從集區移除節點。</ul> |
 
 您可以取得這些服務定義的變數值，以根據 Batch 服務提供的計量進行調整：
 
@@ -111,12 +111,12 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 | $PendingTasks |$ActiveTasks 和 $RunningTasks 的總和。 |
 | $SucceededTasks |已成功完成的工作數目。 |
 | $FailedTasks |失敗的工作數目。 |
-| $CurrentDedicatedNodes |当前的专用计算节点数。 |
+| $CurrentDedicatedNodes |目前的專用計算節點數目。 |
 | $CurrentLowPriorityNodes |低優先順序計算節點的目前數目，包括任何已被優先佔用的節點。 |
 | $PreemptedNodeCount | 優先佔用狀態的集區中之節點數目。 |
 
 > [!TIP]
-> 上表中服務定義的唯讀變數是可提供各種方法來存取相關聯資料的物件。 如需詳細資訊，請參閱本文稍後的[取得範例資料](#getsampledata)。
+> 上表中服務定義的唯讀變數是可提供各種方法來存取相關聯資料的物件  。 如需詳細資訊，請參閱本文稍後的[取得範例資料](#getsampledata)。
 >
 >
 
@@ -126,7 +126,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 * double
 * doubleVec
 * doubleVecList
-* string
+* 字串
 * timestamp：timestamp 是包含下列成員的複合結構：
 
   * 年
@@ -156,24 +156,24 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 | --- | --- | --- |
 | double 運算子  double |+、-、*、/ |double |
 | double 運算子  timeinterval |* |timeinterval |
-| doubleVec 運算子  double |+, -, *, / |doubleVec |
+| doubleVec 運算子  double |+、-、*、/ |doubleVec |
 | doubleVec 運算子  doubleVec |+、-、*、/ |doubleVec |
 | timeinterval 運算子  double |*、/ |timeinterval |
 | timeinterval 運算子  timeinterval |+、- |timeinterval |
 | timeinterval 運算子  timestamp |+ |timestamp |
 | timestamp 運算子  timeinterval |+ |timestamp |
-| timestamp *operator* timestamp |- |timeinterval |
-| double |-、! |double |
-| timeinterval |- |timeinterval |
+| timestamp  timestamp |- |timeinterval |
+|  double |-、! |double |
+|  timeinterval |- |timeinterval |
 | double 運算子  double |<、<=、==、>=、>、!= |double |
 | string  string |<、<=、==、>=、>、!= |double |
 | timestamp  timestamp |<、<=、==、>=、>、!= |double |
 | timeinterval 運算子  timeinterval |<、<=、==、>=、>、!= |double |
-| double *operator* double |&&, &#124;&#124; |double |
+| double 運算子  double |&&, &#124;&#124; |double |
 
 測試具有三元運算子的雙精準數 (`double ? statement1 : statement2`) 時，非零為 **true**，而零則為 **false**。
 
-## <a name="functions"></a>函数
+## <a name="functions"></a>函式
 這些預先定義的 **函式** 可供您用來定義自動調整公式。
 
 | 函式 | 傳回類型 | 描述 |
@@ -195,10 +195,10 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 | std(doubleVecList) |double |傳回 doubleVecList 中值的標準差範例。 |
 | stop() | |停止評估自動調整運算式。 |
 | sum(doubleVecList) |double |傳回 doubleVecList 所有元件的總和。 |
-| time(string dateTime="") | timestamp |如果未傳遞參數，則傳回目前時間的時間戳記，如果有傳遞參數，則為 dateTime 字串的時間戳記。 支援的 dateTime 格式為 W3C-DTF 和 RFC 1123。 |
+| time(string dateTime="") |timestamp |如果未傳遞參數，則傳回目前時間的時間戳記，如果有傳遞參數，則為 dateTime 字串的時間戳記。 支援的 dateTime 格式為 W3C-DTF 和 RFC 1123。 |
 | val(doubleVec v, double i) |double |傳回向量 v 中位置 i 的元素值，起始索引為零。 |
 
-上表中所述的某些函式可以接受清單作為引數。 逗號分隔清單是 *double* 和 *doubleVec* 的任意組合。 例如︰
+上表中所述的某些函式可以接受清單作為引數。 逗號分隔清單是 *double* 和 *doubleVec* 的任意組合。 例如:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
@@ -213,11 +213,11 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 | 方法 | 描述 |
 | --- | --- |
-| GetSample() |`GetSample()` 方法會傳回資料樣本的向量。<br/><br/>一個樣本有 30 秒的度量資料。 換句話說，每隔 30 秒會取得範例。 如下所述，從收集樣本到可用於公式之間會延遲。 因此，並非一段指定時間內的所有樣本都可供公式評估。<ul><li>`doubleVec GetSample(double count)`<br/>指定要從最近收集的樣本中取得的樣本數。<br/><br/>`GetSample(1)` 會傳回最後一個可用的樣本。 不過，這不適用於 `$CPUPercent` 之類的度量，因為不可能知道「何時」收集到樣本。 此範例可能是最新的，也可能因為系統問題，是更舊的。 在此情況下，最好使用如下所示的時間間隔。<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>指定收集樣本資料的時間範圍。 它也會選擇性地指定在要求的時間範圍內必須可用的樣本數百分比。<br/><br/>如果 CPUPercent 歷程記錄中有最後 10 分鐘的所有樣本，則 `$CPUPercent.GetSample(TimeInterval_Minute * 10)` 會傳回 20 個樣本。 不過，如果最後一分鐘的歷程記錄無法使用，則只會傳回 18 個樣本。 在此案例中：<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` 會失敗，因為只有 90% 的樣本可用。<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` 會成功。<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>指定收集資料的時間範圍 (含開始時間和結束時間)。<br/><br/>如上所述，從收集樣本到可用於公式之間會延遲。 當您使用 `GetSample` 方法時，請考慮此延遲。 請參閱下文中的 `GetSamplePercent`。 |
+| GetSample() |`GetSample()` 方法會傳回資料樣本的向量。<br/><br/>一個樣本有 30 秒的度量資料。 換句話說，每隔 30 秒會取得範例。 如下所述，從收集樣本到可用於公式之間會延遲。 因此，並非一段指定時間內的所有樣本都可供公式評估。<ul><li>`doubleVec GetSample(double count)`<br/>指定要從最近收集的樣本中取得的樣本數。<br/><br/>`GetSample(1)` 會傳回最後一個可用的樣本。 不過，這不適用於 `$CPUPercent` 之類的度量，因為不可能知道「何時」  收集到樣本。 此範例可能是最新的，也可能因為系統問題，是更舊的。 在此情況下，最好使用如下所示的時間間隔。<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>指定收集樣本資料的時間範圍。 它也會選擇性地指定在要求的時間範圍內必須可用的樣本數百分比。<br/><br/>如果 CPUPercent 歷程記錄中有最後 10 分鐘的所有樣本，則 `$CPUPercent.GetSample(TimeInterval_Minute * 10)` 會傳回 20 個樣本。 不過，如果最後一分鐘的歷程記錄無法使用，則只會傳回 18 個樣本。 在此案例中：<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` 會失敗，因為只有 90% 的樣本可用。<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` 會成功。<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>指定收集資料的時間範圍 (含開始時間和結束時間)。<br/><br/>如上所述，從收集樣本到可用於公式之間會延遲。 當您使用 `GetSample` 方法時，請考慮此延遲。 請參閱下文中的 `GetSamplePercent`。 |
 | GetSamplePeriod() |傳回歷史範例資料集中取得範例的期間。 |
 | Count() |傳回度量歷程記錄中的範例總數。 |
 | HistoryBeginTime() |傳回度量的最舊可用資料範例的時間戳記。 |
-| GetSamplePercent() |傳回指定的時間間隔內可用的樣本百分比。 例如︰<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>因為 `GetSample` 方法在傳回樣本的百分比小於指定的 `samplePercent` 時會失敗，因此，您可以先使用 `GetSamplePercent` 方法進行檢查。 然後您可以在樣本不足時執行替代動作，而不暫停自動調整評估。 |
+| GetSamplePercent() |傳回指定的時間間隔內可用的樣本百分比。 例如:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>因為 `GetSample` 方法在傳回樣本的百分比小於指定的 `samplePercent` 時會失敗，因此，您可以先使用 `GetSamplePercent` 方法進行檢查。 然後您可以在樣本不足時執行替代動作，而不暫停自動調整評估。 |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>樣本、樣本百分比和 GetSample()  方法
 自動調整公式的核心是要取得工作和資源度量資料，然後根據該資料調整集區大小。 因此，請務必清楚了解自動調整公式如何與計量資料 (樣本) 互動。
@@ -242,7 +242,7 @@ Batch 服務會定期取得工作和資源計量的樣本，使其可供自動�
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-Batch 評估上述程式碼後，它會以值的向量形式傳回樣本範圍。 例如︰
+Batch 評估上述程式碼後，它會以值的向量形式傳回樣本範圍。 例如:
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -259,11 +259,11 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 因為樣本可用性可能延遲，所以請務必記得指定回顧開始時間早於一分鐘的時間範圍。 樣本需要花大約一分鐘的時間才能傳播到整個系統，所以通常無法使用 `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` 範圍中的樣本。 同樣地，您可以使用 `GetSample()` 的百分比參數來強制特定樣本百分比需求。
 
 > [!IMPORTANT]
-> 我們**強烈建議**您***避免「只」*`GetSample(1)`依賴自動調整公式中的** 。 這是因為 `GetSample(1)` 基本上會向 Batch 服務表示：「不論您多久以前擷取最後一個樣本，請將它提供給我」。 由于它只是单个样本，而且可能是较旧的样本，因此可能无法代表最近任务或资源状态的全貌。 如果您使用 `GetSample(1)`，請確定它是較大的陳述式，而且不是您的公式所依賴的唯一資料點。
+> 我們**強烈建議**您 ***避免「只」* `GetSample(1)`依賴自動調整公式中的** 。 這是因為 `GetSample(1)` 基本上會向 Batch 服務表示：「不論您多久以前擷取最後一個樣本，請將它提供給我」。 因為它只是單一樣本，而且可能是較舊的樣本，所以可能無法代表最近工作或資源狀態的全貌。 如果您使用 `GetSample(1)`，請確定它是較大的陳述式，而且不是您的公式所依賴的唯一資料點。
 >
 >
 
-## <a name="metrics"></a>指标
+## <a name="metrics"></a>度量
 您可以在定義公式時使用資源和工作計量。 您會根據您取得和評估的度量資料來調整集區中專用節點的目標數目。 如需每個度量的詳細資訊，請參閱上面的 [變數](#variables) 一節。
 
 <table>
@@ -326,7 +326,7 @@ $totalDedicatedNodes =
     ($CurrentDedicatedNodes * 1.1) : $CurrentDedicatedNodes;
 ```
 
-為了減少低 CPU 使用率期間的專用節點數目，如果在過去 60 分鐘內平均 CPU 使用率低於 20%，公式中的下一個陳述式會將相同的 `$totalDedicatedNodes` 變數設定為 90% 的專用節點目前目標數目。 否則，使用我們在上述陳述式中填入的目前 `$totalDedicatedNodes` 值。
+為了減少  低 CPU 使用率期間的專用節點數目，如果在過去 60 分鐘內平均 CPU 使用率低於 20%，公式中的下一個陳述式會將相同的 `$totalDedicatedNodes` 變數設定為 90% 的專用節點目前目標數目。 否則，使用我們在上述陳述式中填入的目前 `$totalDedicatedNodes` 值。
 
 ```
 $totalDedicatedNodes =
@@ -398,7 +398,7 @@ await pool.CommitAsync();
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>在現有集區啟用自動調整
 
-每個 Batch SDK 會提供啟用自動調整的方法。 例如︰
+每個 Batch SDK 會提供啟用自動調整的方法。 例如:
 
 * [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .NET)
 * [在自動調整中啟用集區][rest_enableautoscale] (REST API)
@@ -632,7 +632,7 @@ $TargetDedicatedNodes = max(0,min($targetVMs,3));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-4-setting-an-initial-pool-size"></a>範例 4：設定初始集區大小
+### <a name="example-4-setting-an-initial-pool-size"></a>範例 4︰設定初始集區大小
 此範例顯示的 C# 程式碼片段具有自動調整公式，其在初始期間將集區大小設為指定的節點數目。 然後在初始期間經過之後，再根據執行中和作用中的工作數目來調整集區大小。
 
 下列程式碼片段中的公式：

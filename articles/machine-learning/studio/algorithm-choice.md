@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
 ms.openlocfilehash: 3bb88f2f9546ec25433061a0704bd144730bd34c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60752835"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>如何選擇 Azure Machine Learning Studio 的演算法
@@ -27,7 +27,7 @@ Machine Learning Studio 提供頂級演算法，例如 Scalable Boosted Decision
 
 ## <a name="the-machine-learning-algorithm-cheat-sheet"></a>機器學習演算法小祕技
 
- **[Microsoft Azure Machine Learning Studio 演算法小祕技](algorithm-cheat-sheet.md)** 可協助您選擇合適的機器學習演算法，從 Azure Machine Learning 預測性分析解決方案Studio 的演算法程式庫。
+**[Microsoft Azure Machine Learning Studio 演算法小祕技](algorithm-cheat-sheet.md)** 可協助您選擇合適的機器學習演算法，從 Azure Machine Learning 預測性分析解決方案Studio 的演算法程式庫。
 這篇文章會引導您如何使用這個小祕技。
 
 > [!NOTE]
@@ -41,7 +41,7 @@ Machine Learning Studio 提供頂級演算法，例如 Scalable Boosted Decision
 
 ### <a name="how-to-use-the-cheat-sheet"></a>如何使用小祕技
 
-請將圖表上的路徑和演算法標籤解讀為「如果需要*&lt;路徑標籤&gt;* 則使用*&lt;演算法&gt;*。」 例如「如果需要 *speed* (速度)，則使用 *two class logistic regression* (雙類別羅吉斯迴歸)。」 有時候適用於多個分支。
+請將圖表上的路徑和演算法標籤解讀為「如果需要 *&lt;路徑標籤&gt;* 則使用 *&lt;演算法&gt;* 。」 例如「如果需要 *speed* (速度)，則使用 *two class logistic regression* (雙類別羅吉斯迴歸)。」 有時候適用於多個分支。
 有時候則不完全適用。 這些建議通常是來自經驗法則，因此不必擔心是否準確。
 我們討論了使用前述的一些資料科學家找出最佳的演算法只確定的方式是嘗試它們全部。
 

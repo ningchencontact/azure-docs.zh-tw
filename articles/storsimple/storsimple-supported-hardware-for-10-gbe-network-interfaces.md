@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: 8303195f0f3228ee145cbba9e322ea4e5e4c1264
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302529"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64726956"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>10 GbE 網路介面在 StorSimple 裝置上支援的硬體
 ## <a name="overview"></a>概觀
@@ -51,14 +51,14 @@ Microsoft 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以
 ## <a name="list-of-devices-tested-in-the-field"></a>已經過實際測試的裝置清單
 本節包含已由 StorSimple 客戶實際部署成功的裝置清單。 這些項目尚未經過 Microsoft 測試，但可能適用您的 StorSimple 裝置。
 
-| 參數 | Value |
+| 參數 | 值 |
 | --- | --- |
 | 交換器樣式 |Juniper |
 | 交換器型號 |ex4550-32F |
 | 交換器作業系統版本 |JunOS 12.3R9.4 |
 | 刀鋒視窗型號 |Ports onboard (PIC 0) |
 | 收發器樣式 |Juniper |
-| 收發器型號 |零件編號 740-021308  <br></br>  零件編號 740-030658 |
+| 收發器型號 |零件編號 740-021308 <br></br> 零件編號 740-030658 |
 | 收發器韌體版本 |Rev 01 Version 0.0 (已回報) |
 | 纜線型號 |雙工跳 LC/LC 50/125µ，OM3，LSZH |
 | StorSimple 型號 |8600 |

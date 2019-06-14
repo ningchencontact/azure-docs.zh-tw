@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: magoedte
 ms.openlocfilehash: a50f080ee4d72ad098ca87f5b3a62b42f8cd5907
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142740"
 ---
 # <a name="configure-service-map-in-azure"></a>在 Azure 中設定服務對應
@@ -63,7 +63,7 @@ ms.locfileid: "65142740"
 
 ## <a name="supported-linux-operating-systems"></a>支援的 Linux 作業系統
 
-以下部分列出了 Linux 上 Dependency Agent 支持的操作系统。  
+下一節會列出支援的作業系統，在 Linux 上的相依性代理程式。  
 
 - 只支援預設版本和 SMP Linux 核心版本。
 - 所有 Linux 散發套件皆不支援非標準的核心版本 (例如 PAE 和 Xen)。 舉例來說，版本字串為「2.6.16.21-0.8-xen」的系統就不受支援。
@@ -95,7 +95,7 @@ ms.locfileid: "65142740"
 
 | 作業系統版本 | 核心版本 |
 |:--|:--|
-| Ubuntu 18.04 | 内核 4.15.\*<br>4.18* |
+| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | 核心 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
@@ -117,8 +117,8 @@ ms.locfileid: "65142740"
 
 | 檔案 | 作業系統 | 版本 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) |  Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) |  Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
 
 ## <a name="connected-sources"></a>連接的來源
 
@@ -135,7 +135,7 @@ ms.locfileid: "65142740"
 
 在 Linux 上，適用於 Linux 的 Log Analytics 代理程式會收集監視資料並傳送給 Log Analytics。 您可以在伺服器上使用服務對應與直接連線至服務的 Log Analytics 代理程式，或是向與 Log Analytics 整合的 Operations Manager 管理群組回報的代理程式。  
 
-在本文中，我們會將所有代理程式 (無論 Linux 或 Windows、無論是連線到 System Center Operations Manager 管理群組或直接連線到 Log Analytics) 統稱為「Log Analytics 代理程式」。 
+在本文中，我們會將所有代理程式 (無論 Linux 或 Windows、無論是連線到 System Center Operations Manager 管理群組或直接連線到 Log Analytics) 統稱為「Log Analytics 代理程式」  。 
 
 服務對應代理程式本身不會傳輸任何資料，因此不需要變更防火牆或連接埠。 服務對應中的資料一律會由 Log Analytics 代理程式 (直接或透過 Log Analytics 閘道) 傳輸給 Log Analytics 服務。
 
@@ -202,7 +202,7 @@ ForEach-Object {
 }
 ```
 
-要確保 Dependency Agent 已安裝在 VM 上，更簡單方法是在您的 Azure Resource Manager 範本中納入該代理程式。  您可以將下列 JSON 程式碼範例新增至範本的「資源」區段。
+要確保 Dependency Agent 已安裝在 VM 上，更簡單方法是在您的 Azure Resource Manager 範本中納入該代理程式。  您可以將下列 JSON 程式碼範例新增至範本的「資源」  區段。
 
 ```JSON
 "type": "Microsoft.Compute/virtualMachines/extensions",

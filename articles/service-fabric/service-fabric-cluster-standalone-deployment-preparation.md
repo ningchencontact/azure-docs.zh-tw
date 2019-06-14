@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
 ms.openlocfilehash: e5fa46930a3be3c85cd76e655fac3164cc45d957
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60544733"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>規劃和準備您的 Service Fabric 獨立叢集部署
@@ -76,17 +76,17 @@ ms.locfileid: "60544733"
 [下載連結 - Service Fabric 獨立封裝 - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690)，並將封裝解壓縮至不屬於叢集一部分的部署電腦，或解壓縮至將屬於叢集的其中一部電腦。
 
 ## <a name="modify-cluster-configuration"></a>修改叢集組態
-若要建立獨立叢集，您必須建立獨立叢集組態 ClusterConfig.json 檔案，其中描述叢集的規格。 可以基于在以下链接中找到的模板创建配置文件。 <br>
-[独立群集配置](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
+若要建立獨立叢集，您必須建立獨立叢集組態 ClusterConfig.json 檔案，其中描述叢集的規格。 您可以根據可在下面連結找到的範本來建立組態檔。 <br>
+[獨立叢集組態](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
-有关此文件中各个节的详细信息，请参阅 [Windows 独立群集的配置设置](service-fabric-cluster-manifest.md)。
+如需此檔案中各個區段的詳細資訊，請參閱[獨立 Windows 叢集的組態設定](service-fabric-cluster-manifest.md)。
 
 從您下載的封裝中開啟其中一個 ClusterConfig.json 檔案，然後修改下列設定︰
 
 | **組態設定** | **說明** |
 | --- | --- |
 | **NodeTypes** |節點類型可讓您將叢集節點分成不同的群組。 一個叢集至少必須有一個節點類型。 群組中的所有節點都有下列共同的特性： <br> **Name** - 這是節點類型名稱。 <br>**Endpoint Ports** - 這些是與這個節點類型相關聯的各種具名端點 (連接埠)。 您可以使用任何您想要的連接埠號碼，只要該號碼未與此資訊清單中的其他任何號碼衝突，而且目前沒有任何其他在電腦/VM 上執行的應用程式在使用該號碼即可。 <br> **Placement Properties** - 此節點類型的這些屬性是用來做為系統服務或您的服務的放置條件約束。 這些屬性是使用者定義的索引鍵/值組，可針對指定節點提供額外的中繼資料。 節點屬性的範例包括節點是否有硬碟機或圖形卡、其硬碟機的磁針數、核心，以及其他實體屬性。 <br> **Capacities** - 節點容量會定義特定節點可以使用的特定資源名稱和數量。 例如，節點可能會定義它具有名為 "MemoryInMb" 的度量容量，而且預設有 2048 MB 的可用記憶體。 這些容量會在執行階段使用，以確保需要特定資源數量的服務會放在需要的數量中有這些資源的節點上。<br>**IsPrimary** - 如果有一個以上已定義的節點類型，請確定只有一個設為主要 (且值為 *true*)，這是系統服務執行的位置。 其他所有節點類型應該設定為值 *false* |
-| **Nodes** |這些是屬於叢集一部分的每個節點的詳細資料 (節點類型、節點名稱、IP 位址、節點的容錯網域和升級網域)。 您想要建立叢集所在的電腦必須與其 IP 位址一起列在這裡。 <br>  如果您為所有節點使用相同的 IP 位址，則會建立一整體叢集，您可以將此叢集用於測試之用。 不要使用一整體叢集部署生產工作負載。 |
+| **Nodes** |這些是屬於叢集一部分的每個節點的詳細資料 (節點類型、節點名稱、IP 位址、節點的容錯網域和升級網域)。 您想要建立叢集所在的電腦必須與其 IP 位址一起列在這裡。 <br> 如果您為所有節點使用相同的 IP 位址，則會建立一整體叢集，您可以將此叢集用於測試之用。 不要使用一整體叢集部署生產工作負載。 |
 
 完成設定叢集組態的所有設定之後，即可針對叢集環境 (步驟 7) 進行測試。
 

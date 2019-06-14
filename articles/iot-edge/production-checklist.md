@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: cb72949c0bb543885498b1b997fa0b4a644c204a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956975"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>準備在生產環境中部署 IoT Edge 解決方案
@@ -118,7 +118,7 @@ timeToLiveSecs 參數的預設值是 7200 秒，也就是兩小時。
 
 ### <a name="do-not-use-debug-versions-of-module-images"></a>請勿使用模組映像的偵錯版本
 
-從測試情節轉移至生產環境情節時，請務必移除部署資訊清單中的偵錯設定。 檢查部署資訊清單中的模組映像是否都沒有**\.偵錯**尾碼。 如果您已新增建立選項，以公開模組中的連接埠進行偵錯時，也請移除這些建立選項。 
+從測試情節轉移至生產環境情節時，請務必移除部署資訊清單中的偵錯設定。 檢查部署資訊清單中的模組映像是否都沒有 **\.偵錯**尾碼。 如果您已新增建立選項，以公開模組中的連接埠進行偵錯時，也請移除這些建立選項。 
 
 ## <a name="container-management"></a>容器管理
 
@@ -214,8 +214,8 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 
 | 平台 | 位置 |
 | -------- | -------- |
-|  Linux | `/etc/docker/` |
-|  Windows | `C:\ProgramData\iotedge-moby\config\` |
+| Linux | `/etc/docker/` |
+| Windows | `C:\ProgramData\iotedge-moby\config\` |
 
 Container 引擎必須重新啟動，變更才會生效。
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9e822906a072ec8244c7108e98289482adebb5a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60244973"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>與 Azure AD 同盟的多網域支援
@@ -82,7 +82,7 @@ ms.locfileid: "60244973"
 >
 
 ## <a name="how-to-update-the-trust-between-ad-fs-and-azure-ad"></a>如何更新 AD FS 與 Azure AD 之間的信任
-如果您未在 AD FS 與 Azure AD 執行個體之間設定同盟信任，可能需要重新建立此信任。  原因在於，最初未使用 `-SupportMultipleDomain` 參數進行設定時，系統會將 IssuerUri 設定為預設值。  在下列螢幕擷取畫面中，您可以看到已將 IssuerUri 設定為 https://adfs.bmcontoso.com/adfs/services/trust。
+如果您未在 AD FS 與 Azure AD 執行個體之間設定同盟信任，可能需要重新建立此信任。  原因在於，最初未使用 `-SupportMultipleDomain` 參數進行設定時，系統會將 IssuerUri 設定為預設值。  在下列螢幕擷取畫面中，您可以看到已將 IssuerUri 設定為 https://adfs.bmcontoso.com/adfs/services/trust 。
 
 如果您已成功地在 Azure AD 入口網站中加入新網域，接著嘗試使用 `Convert-MsolDomaintoFederated -DomainName <your domain>` 來轉換它，將會收到下列錯誤。
 
@@ -101,7 +101,7 @@ ms.locfileid: "60244973"
 請使用下列步驟來移除 Microsoft Online 信任，然後更新您的原始網域。
 
 1. 在 AD FS 同盟伺服器上，開啟 [AD FS 管理] 
-2. 展開左側的 [信任關係] 和 [信賴憑證者信任]
+2. 展開左側的 [信任關係]  和 [信賴憑證者信任] 
 3. 刪除右側的 **Microsoft Office 365 身分識別平台** 項目。
    ![移除 Microsoft Online](./media/how-to-connect-install-multiple-domains/trust4.png)
 4. 在已安裝[適用於 Windows PowerShell 的 Microsoft Azure Active Directory 模組](https://msdn.microsoft.com/library/azure/jj151815.aspx)的機器上執行下列命令：`$cred=Get-Credential`。  
@@ -121,7 +121,7 @@ ms.locfileid: "60244973"
 1. 從桌面或 [開始] 功能表啟動 Azure AD Connect
 2. 選擇 [新增其他 Azure AD 網域] ![新增其他 Azure AD 網域](./media/how-to-connect-install-multiple-domains/add1.png)
 3. 輸入您的 Azure AD 和 Active Directory 認證
-4. 选择要配置联合的第二个域。
+4. 選取要設定同盟的第二個網域。
    ![新增其他 Azure AD 網域](./media/how-to-connect-install-multiple-domains/add2.png)
 5. 按一下 [安裝]
 
@@ -137,7 +137,7 @@ ms.locfileid: "60244973"
 ## <a name="support-for-subdomains"></a>對於子網域的支援
 在加入子網域時，因為 Azure AD 處理網域的方式，子網域將會繼承父項的設定。  所以，IssuerUri 需要與父項相符。
 
-因此，假設我有 bmcontoso.com，並接著加入 corp.bmcontoso.com。  來自 corp.bmcontoso.com 之使用者的 IssuerUri 必須是 **http://bmcontoso.com/adfs/services/trust。**  不過，以上針對 Azure AD 實作的標準規則，將會透過簽發者產生 **http://corp.bmcontoso.com/adfs/services/trust** 的權杖。  的權杖，這與網域所需的值不符，因此驗證將會失敗。
+因此，假設我有 bmcontoso.com，並接著加入 corp.bmcontoso.com。  來自 corp.bmcontoso.com 之使用者的 IssuerUri 必須是 **http://bmcontoso.com/adfs/services/trust 。**  不過，以上針對 Azure AD 實作的標準規則，將會透過簽發者產生 **http://corp.bmcontoso.com/adfs/services/trust** 的權杖。 的權杖，這與網域所需的值不符，因此驗證將會失敗。
 
 ### <a name="how-to-enable-support-for-subdomains"></a>如何啟用對於子網域的支援
 為了解決此行為，需要更新 Microsoft Online 的 AD FS 信賴憑證者信任。  若要這樣做，您必須設定自訂宣告規則，以使其在建構自訂簽發者值時能夠從使用者的 UPN 尾碼移除任何子網域。
@@ -154,7 +154,7 @@ ms.locfileid: "60244973"
 1. 開啟 [AD FS 管理]
 2. 以滑鼠右鍵按一下 Microsoft Online RP 信任，然後選擇 [編輯宣告規則]
 3. 選取第三個宣告規則並取代![編輯宣告](./media/how-to-connect-install-multiple-domains/sub1.png)
-4. 替换当前声明：
+4. 取代目前的宣告︰
 
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
 
@@ -164,7 +164,7 @@ ms.locfileid: "60244973"
 
     ![取代宣告](./media/how-to-connect-install-multiple-domains/sub2.png)
 
-5. 按一下 [確定]。  单击“应用”。  按一下 [確定]。  關閉 [AD FS 管理]。
+5. 按一下 [確定]。  按一下 [套用]。  按一下 [確定]。  關閉 [AD FS 管理]。
 
 ## <a name="next-steps"></a>後續步驟
 安裝了 Azure AD Connect 之後，您可以 [驗證安裝和指派授權](how-to-connect-post-installation.md)。

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
 ms.openlocfilehash: dd4efcd2f1d4cbf497ad1fde6936088513cb5fd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60759926"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 資料安全性
@@ -48,7 +48,7 @@ Log Analytics 服務會使用下列方法安全地管理您以雲端為基礎的
 
 |平台/語言 | 支援 | 相關資訊 |
 | --- | --- | --- |
-| Linux | Linux 發行版本通常會依賴 [OpenSSL](https://www.openssl.org) 來取得 TLS 1.2 支援。  | 請檢查 [OpenSSL 變更記錄](https://www.openssl.org/news/changelog.html)來確認支援的 OpenSSL 版本。|
+|Linux | Linux 發行版本通常會依賴 [OpenSSL](https://www.openssl.org) 來取得 TLS 1.2 支援。  | 請檢查 [OpenSSL 變更記錄](https://www.openssl.org/news/changelog.html)來確認支援的 OpenSSL 版本。|
 | Windows 8.0 - 10 | 支援，而且已預設為啟用。 | 請確認您仍在使用[預設設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)。  |
 | Windows Server 2012 - 2016 | 支援，而且已預設為啟用。 | 請確認您仍在使用[預設設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 和 Windows Server 2008 R2 SP1 | 支援，但預設為不啟用。 | 請參閱[傳輸層安全性 (TLS) 登錄設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)頁面，了解詳細的啟用方式。  |
@@ -173,7 +173,7 @@ Windows 或管理伺服器代理程式的快取資料會受到作業系統的認
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3.Log Analytics 服務接收和處理資料
 Log Analytics 服務會確保內送資料是來自信任的來源，方法是驗證憑證和與 Azure 驗證的資料完整性。 接著，未經處理的資料會儲存在 Azure 事件中樞，在資料最終會待用儲存的區域中。 所儲存的資料類型取決於匯入和用來收集資料的解決方案類型。 然後，Log Analytics 服務會處理未經處理的資料，並將這些資料內嵌至資料庫內。
 
-儲存在資料庫中已收集資料的保留期，會取決於所選的定價方案。 對於「免費」層，收集的資料可使用七天。 對於「付費」層，收集的資料根據預設可供使用 31 天，但可以延長為 730 天。 資料會以待用加密的形式儲存在 Azure 儲存體，以確保資料機密性，並使用本地備援儲存體 (LRS) 在本地區域內複寫資料。 過去兩週的資料也會儲存在以 SSD 為基礎的快取中，此快取已加密。
+儲存在資料庫中已收集資料的保留期，會取決於所選的定價方案。 對於「免費」  層，收集的資料可使用七天。 對於「付費」  層，收集的資料根據預設可供使用 31 天，但可以延長為 730 天。 資料會以待用加密的形式儲存在 Azure 儲存體，以確保資料機密性，並使用本地備援儲存體 (LRS) 在本地區域內複寫資料。 過去兩週的資料也會儲存在以 SSD 為基礎的快取中，此快取已加密。
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4.使用 Log Analytics 來存取資料
 如需存取 Log Analytics 工作區，請使用組織帳戶或您先前設定的 Microsoft 帳戶來登入 Azure 入口網站。 入口網站與 Log Analytics 服務之間的所有流量都會透過安全的 HTTPS 通道傳送。 在使用入口網站時，使用者用戶端 (網頁瀏覽器) 上會產生工作階段識別碼，且資料會儲存在本機快取中，直到工作階段終止為止。 終止時便會刪除快取。 未包含個人識別資訊的用戶端 Cookie 不會自動移除。 工作階段 Cookie 會標示為 HTTPOnly，並受到保護。 經過預先決定的閒置時間後，Azure 入口網站工作階段就會終止。

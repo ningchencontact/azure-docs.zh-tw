@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
 ms.openlocfilehash: ff5c8c4d3f6a0c87afae67404a5a39d4fe3757d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60593168"
 ---
 # <a name="virtual-network-tap"></a>虛擬網路 TAP
@@ -63,7 +63,7 @@ Azure 虛擬網路 TAP (終端機存取點) 可讓您持續將虛擬機器網路
 
 用來對網路介面套用 TAP 設定的帳戶，必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或屬於已指派下表中必要動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)：
 
-|  動作 | 名稱 |
+| 動作 | Name |
 |---|---|
 | Microsoft.Network/virtualNetworkTaps/* | 必須有此動作，才能建立、更新、讀取和刪除虛擬網路 TAP 資源 |
 | Microsoft.Network/networkInterfaces/read | 必須有此動作，才能讀取要在其上設定 TAP 的網路介面資源 |

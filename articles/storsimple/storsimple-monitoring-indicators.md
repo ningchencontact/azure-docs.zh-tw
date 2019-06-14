@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630563"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>使用 StorSimple 監視指示器來管理您的裝置
@@ -36,7 +36,7 @@ StorSimple 裝置包括發光二極體 (LED) 與警示，您可以用來監控�
 這篇文章的其餘部分將說明各種監控 LED 指示燈、 LED 在 StorSimple 裝置上的位置，根據 LED 狀態的裝置狀態，以及任何相關聯的有聲警報器。
 
 ## <a name="front-panel-indicator-leds"></a>前端面板 LED 指示燈
-前端面板，也稱為「操作面板」或「操作面板」，其顯示系統中所有模組的彙總狀態。 StorSimple 主要機箱與 EBOD 機箱上的前端面板完全相同，如下圖所示。  
+前端面板，也稱為「操作面板」  或「操作面板」  ，其顯示系統中所有模組的彙總狀態。 StorSimple 主要機箱與 EBOD 機箱上的前端面板完全相同，如下圖所示。  
 
    ![裝置正面面板][1]
 
@@ -48,7 +48,7 @@ StorSimple 裝置包括發光二極體 (LED) 與警示，您可以用來監控�
 4. 邏輯錯誤 LED 指示燈 (開時為紅琥珀色/關)
 5. 單元識別碼顯示  
 
-裝置前端面板 LED 與 EBOD 機箱的前端面板 LED 的主要差異在於 LED 顯示上顯示的「系統單元識別碼」。 裝置上顯示的預設單位識別碼是 **00**，而 EBOD 機箱上顯示的預設單元識別碼是 **01**。 這可讓您在裝置開啟時，快速區分裝置與 EBOD 機箱。 如果您的裝置已關閉，請使用[啟動新的裝置](storsimple-turn-device-on-or-off.md#turn-on-a-new-device)所提供的資訊來區分裝置與 EBOD 機箱。  
+裝置前端面板 LED 與 EBOD 機箱的前端面板 LED 的主要差異在於 LED 顯示上顯示的「系統單元識別碼」  。 裝置上顯示的預設單位識別碼是 **00**，而 EBOD 機箱上顯示的預設單元識別碼是 **01**。 這可讓您在裝置開啟時，快速區分裝置與 EBOD 機箱。 如果您的裝置已關閉，請使用[啟動新的裝置](storsimple-turn-device-on-or-off.md#turn-on-a-new-device)所提供的資訊來區分裝置與 EBOD 機箱。  
 
 ## <a name="front-panel-led-status"></a>前端面板 LED 狀態
 您可以使用下表，利用裝置前端面板或 EBOD 機箱前端面板上的 LED 來識別所指示的狀態。  
@@ -150,7 +150,7 @@ StorSimple 裝置包含主要控制器的 LED 與 EBOD 控制器模組的 LED。
 > 
 > 
 
-### <a name="monitoring-leds-for-the-ebod-ebod-enclosure"></a>EBOD 的監控 LED (EBOD 機箱) 
+### <a name="monitoring-leds-for-the-ebod-ebod-enclosure"></a>EBOD 的監控 LED (EBOD 機箱)
 每個 6 GB/s SAS EBOD 控制器都有各自的 LED指出其狀態，如下圖所示。  
 
   ![監視 LED 燈 - EBOD 機相][5]
@@ -200,7 +200,7 @@ StorSimple 裝置包含和主要機箱與 EBOD 機箱相關聯的有聲警報器
 下表說明各種警報器狀態。  
 
 ### <a name="alarm-states"></a>警報器狀態
-| 警報器狀態 |  動作 | 已按靜音按鈕時的動作 |
+| 警報器狀態 | 動作 | 已按靜音按鈕時的動作 |
 | --- | --- | --- |
 | S0 |標準模式：靜音 |嗶兩聲 |
 | S1 |錯誤模式：第二個關閉 1 秒嗶 1 |轉換至 S2 或 S3 (請參閱注意事項) |
@@ -219,7 +219,7 @@ StorSimple 裝置包含和主要機箱與 EBOD 機箱相關聯的有聲警報器
 下表說明各種警示狀況。
 
 ### <a name="alarm-conditions"></a>警示狀況
-| 狀態 | 严重性 | 警示 | 操作面板 LED |
+| 狀態 | Severity | 警示 | 操作面板 LED |
 | --- | --- | --- | --- |
 | PCM 警示 – 失去單一 PCM 提供的 DC 電源 |錯誤 – 未失去備援 |S1 |模組錯誤 |
 | PCM 警示 – 失去單一 PCM 提供的 DC 電源 |錯誤 – 失去備援 |S1 |模組錯誤 |

@@ -16,10 +16,10 @@ ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 5e25de1ad2042ac978c3698165b9d9baba20e816
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130682"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>實作具有 App Service 環境的多層式安全性架構。
@@ -30,7 +30,7 @@ ms.locfileid: "62130682"
 
 下圖顯示的範例架構，具有部署在 App Service 環境上的 WebAPI 型應用程式。  三個不同的 Web 應用程式執行個體部署在三個不同的 App Service 環境上，使後端呼叫相同的 WebAPI 應用程式。
 
-![概念体系结构][ConceptualArchitecture] 
+![概念性架構][ConceptualArchitecture] 
 
 綠色加號指出包含 "apiase" 之子網路上的網路安全性群組，允許來自於上游 Web 應用程式的傳入呼叫，及其本身的呼叫。  不過，相同的網路安全群組明確拒絕網際網路對一般輸入流量的存取。 
 
@@ -42,7 +42,7 @@ ms.locfileid: "62130682"
 由於[網路安全性群組 (NSG)][NetworkSecurityGroups] 會套用至子網路，而 App Service 環境部署在子網路中，因此 NSG 中包含的規則將會套用至**所有**在 App Service 環境上執行的應用程式。  舊本文的範例架構而言，一旦將網路安全性群組套用至包含 "apiase" 的子網路後，所有在 "apiase" App Service 環境上執行的應用程式都將受到相同安全性規則集的保護。 
 
 * **判斷上游呼叫端的連出 IP 位址：** 上游呼叫端的 IP 位址為何？  這些位址在 NSG 中必須明確地允許存取。  由於 App Service 環境之間的呼叫會被視為「網際網路」呼叫，所以指派給這三個上游 App Service 環境的輸出 IP 位址，在 "apiase" 子網路的 NSG 中必須是允許存取的。   若想進一步了解如何判斷在 App Service 環境中執行之應用程式的輸出 IP 位址，請參閱[網路架構][NetworkArchitecture]概觀文章。
-* **後端 API 應用程式是否需要呼叫本身？**   後端應用程式有時候需要呼叫本身，這是常會被忽略而難以察覺的情況。  如果 App Service 環境上的後端 API 應用程式需要呼叫本身，也會將其視為「網際網路」呼叫。  在範例架構中，這必須允許 "apiase" App Service 環境的輸出 IP 位址進行存取。
+* **後端 API 應用程式是否需要呼叫本身？**  後端應用程式有時候需要呼叫本身，這是常會被忽略而難以察覺的情況。  如果 App Service 環境上的後端 API 應用程式需要呼叫本身，也會將其視為「網際網路」呼叫。  在範例架構中，這必須允許 "apiase" App Service 環境的輸出 IP 位址進行存取。
 
 ## <a name="setting-up-the-network-security-group"></a>設定網路安全性群組
 得知輸出 IP 位址集後，下一步是要建構網路安全群組。  您可以針對以 Resource Manager 為基礎的虛擬網路以及傳統虛擬網路建立網路安全性群組。  下列範例說明如何在傳統虛擬網路上使用 Powershell 建立和設定 NSG。

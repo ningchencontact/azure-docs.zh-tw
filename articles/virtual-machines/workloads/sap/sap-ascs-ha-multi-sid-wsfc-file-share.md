@@ -18,10 +18,10 @@ ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60651576"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -196,7 +196,7 @@ ms.locfileid: "60651576"
 
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>在 Azure 上搭配 Windows Server 容錯移轉叢集和檔案共用的 SAP ASCS/SCS 執行個體多重 SID 高可用性
 
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 
 您可以使用 [Azure 內部負載平衡器][load-balancer-multivip-overview]管理多個虛擬 IP 位址。 
@@ -327,7 +327,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>使用不同的 SAP 全域主機準備 SOFS 叢集上的基礎結構
 
-您可以設定第二個 SOFS (例如，針對第二個 **\<SID2>**，使用 **\<SAPGlobalHost2>** 和不同的 **Volume2** 來設定第二個 SOFS 叢集)。
+您可以設定第二個 SOFS (例如，針對第二個 **\<SID2>** ，使用 **\<SAPGlobalHost2>** 和不同的 **Volume2** 來設定第二個 SOFS 叢集)。
 
 ![圖 4：多重 SID SOFS 與 SAP GLOBAL 主機名稱 2 相同][sap-ha-guide-figure-8015]
 
@@ -349,7 +349,7 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_
 
 ![圖 5：在 「 容錯移轉叢集管理員 」 中的第二個 Volume2][sap-ha-guide-figure-8016]
 
-_**圖 5：**「容錯移轉叢集管理員」中的第二個 Volume2_
+_**圖 5：** 「容錯移轉叢集管理員」中的第二個 Volume2_
 
 針對第二個 \<SID2>，建立 SAP GLOBAL 資料夾並設定檔案安全性。
 
@@ -394,9 +394,9 @@ $Acl.SetAccessRule($Ar)
 Set-Acl $UsrSAPFolder $Acl -Verbose
 ```
 
-若要針對第二個 SAP \<SID2>，在包含 *\<SAPGlobalHost2>* 主機名稱的 Volume2 上建立 SAPMNT 檔案共用，請在「容錯移轉叢集管理員」中啟動 [新增檔案共用] 精靈。
+若要針對第二個 SAP \<SID2>，在包含 *\<SAPGlobalHost2>* 主機名稱的 Volume2 上建立 SAPMNT 檔案共用，請在「容錯移轉叢集管理員」中啟動 [新增檔案共用]  精靈。
 
-在 **saoglobal2** SOFS 叢集群組上按一下滑鼠右鍵，然後選取 [新增檔案共用]。
+在 **saoglobal2** SOFS 叢集群組上按一下滑鼠右鍵，然後選取 [新增檔案共用]  。
 
 ![圖 6：啟動 [新增檔案共用] 精靈][sap-ha-guide-figure-8017]
 
@@ -428,7 +428,7 @@ _**圖 10︰** 停用所有設定_
 
 <br>
 
-請針對下列項目將 [ 完全控制] 權限指派給檔案和 sapmnt 共用：
+請針對下列項目將 [ 完全控制]  權限指派給檔案和 sapmnt 共用：
 * **SAP_\<SID>_GlobalAdmin** 網域使用者群組
 * ASCS/SCS 叢集節點 **ascs-1$** 和 **ascs-2$** 的電腦物件
 

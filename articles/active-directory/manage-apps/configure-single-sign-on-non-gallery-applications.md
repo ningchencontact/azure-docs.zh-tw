@@ -13,10 +13,10 @@ ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e34e6257b4800387470cdc1b7d624bf3ebd1d3e6
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989130"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>在 Microsoft 身分識別平台中設定單一登入非資源庫應用程式
@@ -54,9 +54,9 @@ Microsoft 身分識別平台提供兩種機制，來註冊應用程式。
 3. （選擇性但建議使用）在 **從資源庫新增**搜尋方塊中，輸入應用程式的顯示名稱。 如果應用程式出現在搜尋結果中，選取它，並略過此程序的其餘部分。
 4. 選取 **非資源庫應用程式**。 **新增您自己的應用程式**頁面隨即出現。
 
-   ![加入應用程式](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
+   ![新增應用程式](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
 5. 輸入新的應用程式的顯示名稱。
-6. 選取 [新增] 。
+6. 選取 [新增]  。
 
 藉由這種方式新增應用程式，您可以提供類似於預先整合的應用程式。 先選取**單一登入**從應用程式的資訊看板。 下一個頁面 (**選取 單一登入方法**) 提供選項，以設定 SSO:
 
@@ -68,7 +68,7 @@ Microsoft 身分識別平台提供兩種機制，來註冊應用程式。
 
 如需這些選項的詳細資訊，請參閱這篇文章的下列各節。
 
-## <a name="saml-based-single-sign-on"></a>SAML 單一登入
+## <a name="saml-based-single-sign-on"></a>SAML 型單一登入
 
 選取  **SAML**選項來設定應用程式的 SAML 型驗證。 （這個選項需要應用程式支援 SAML 2.0）。**設定單一登入使用 SAML 設定**頁面隨即出現。
 
@@ -125,7 +125,7 @@ Microsoft 身分識別平台提供兩種機制，來註冊應用程式。
 
 下列的三個欄位都是選用項目：
 
-- **登入 URL (SP 起始只)**。 這個值表示使用者登入此應用程式所前往的地方。 如果應用程式執行 SP 啟始的 SSO，然後當使用者瀏覽至此 url，預存程序會執行必要的重新導向來驗證及登入使用者的 Azure ad。 如果您指定這個欄位時，Azure AD 會使用此 URL 來啟動從 Office 365 和 Azure AD 存取面板應用程式。 如果您省略此欄位時，Azure AD 改為執行 IdP 初始化登入期間從 Office 365、 Azure AD 存取面板或 Azure AD SSO URL 的應用程式啟動 (您可以複製這**儀表板**頁面)。
+- **登入 URL (SP 起始只)** 。 這個值表示使用者登入此應用程式所前往的地方。 如果應用程式執行 SP 啟始的 SSO，然後當使用者瀏覽至此 url，預存程序會執行必要的重新導向來驗證及登入使用者的 Azure ad。 如果您指定這個欄位時，Azure AD 會使用此 URL 來啟動從 Office 365 和 Azure AD 存取面板應用程式。 如果您省略此欄位時，Azure AD 改為執行 IdP 初始化登入期間從 Office 365、 Azure AD 存取面板或 Azure AD SSO URL 的應用程式啟動 (您可以複製這**儀表板**頁面)。
 
 - **轉送狀態**。 您可以指定，指示應用程式如何將使用者重新導向之後驗證的 SAML 轉送狀態。 值通常是 URL 或 URL 會將使用者帶到應用程式內的特定位置的路徑。
 
@@ -183,10 +183,10 @@ Microsoft 身分識別平台提供兩種機制，來註冊應用程式。
 
 1. 在 應用程式提要欄位中，選取**使用者和群組**。 **\<應用程式名稱 >-使用者和群組**頁面隨即出現，顯示目前指派的使用者和群組的清單。
 2. 選取 **將使用者新增**。 **加入指派**頁面隨即出現。
-3. 選取 **使用者和群組 (\<數字 > 選取)**。 **使用者和群組**頁面隨即出現，顯示一份可用的使用者和群組。
+3. 選取 **使用者和群組 (\<數字 > 選取)** 。 **使用者和群組**頁面隨即出現，顯示一份可用的使用者和群組。
 4. 型別或捲軸來尋找使用者或您想要從清單指派的群組。
 5. 選取每個使用者或群組，您要新增，然後選取**選取** 按鈕。 **使用者和群組**頁面就會消失。
-6. 在 **新增的工作分派**頁面上，選取**指派**。  **<application name> -使用者和群組**與顯示在清單中的其他使用者的頁面隨即出現。
+6. 在 **新增的工作分派**頁面上，選取**指派**。 **<application name> -使用者和群組**與顯示在清單中的其他使用者的頁面隨即出現。
 
    ![應用程式的使用者和群組](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 
@@ -201,7 +201,7 @@ Microsoft 身分識別平台提供兩種機制，來註冊應用程式。
 將使用者指派時，可讓 Azure AD 發出權杖的使用者。 也會導致該應用程式磚出現在使用者的存取面板中。 如果使用者使用 Office 365，則應用程式圖格也會出現在 Office 365 應用程式啟動程式。
 
 > [!NOTE]
-> 您可以在應用程式的 [設定] 索引標籤上使用 [上傳標誌] 按鈕，來上傳應用程式的圖格標誌。
+> 您可以在應用程式的 [設定]  索引標籤上使用 [上傳標誌]  按鈕，來上傳應用程式的圖格標誌。
 
 ### <a name="test-the-saml-application"></a>測試 SAML 應用程式
 
@@ -230,14 +230,14 @@ Microsoft 身分識別平台提供兩種機制，來註冊應用程式。
 7. 在輸入的 url 索引標籤上，進行登入程序。 在 [使用者名稱和密碼] 欄位中，填滿，然後再次嘗試登入。 （您不需要提供正確的密碼）。
 
    出現提示，詢問您要儲存所擷取的登入欄位。
-8. 選取 [確定] 。  索引標籤關閉、 瀏覽器延伸模組更新擷取狀態 頁面與訊息**中繼資料已更新應用程式**，以及索引標籤也會關閉該瀏覽器。
+8. 選取 [確定]  。 索引標籤關閉、 瀏覽器延伸模組更新擷取狀態 頁面與訊息**中繼資料已更新應用程式**，以及索引標籤也會關閉該瀏覽器。
 9. 在 Azure AD**設定登入**頁面上，選取**好，我才能夠登入應用程式成功**。
-10. 選取 [確定] 。
+10. 選取 [確定]  。
 
 之後擷取的登入頁面，您可能會指派使用者和群組，以及您可以設定認證原則，就像一般[密碼 SSO 應用程式](what-is-single-sign-on.md)。
 
 > [!NOTE]
-> 您可以在應用程式的 [設定] 索引標籤上使用 [上傳標誌] 按鈕，來上傳應用程式的圖格標誌。
+> 您可以在應用程式的 [設定]  索引標籤上使用 [上傳標誌]  按鈕，來上傳應用程式的圖格標誌。
 
 ## <a name="existing-single-sign-on"></a>現有單一登入
 
@@ -246,7 +246,7 @@ Microsoft 身分識別平台提供兩種機制，來註冊應用程式。
 選取後**連結**，系統會提示您輸入要連結到的應用程式的 URL。 輸入 URL，然後選取**儲存**。 您可能將使用者和群組指派給應用程式，這會導致應用程式中出現[Office 365 應用程式啟動器](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或[Azure AD 存取面板](end-user-experiences.md)為那些使用者。
 
 > [!NOTE]
-> 您可以在應用程式的 [設定] 索引標籤上使用 [上傳標誌] 按鈕，來上傳應用程式的圖格標誌。
+> 您可以在應用程式的 [設定]  索引標籤上使用 [上傳標誌]  按鈕，來上傳應用程式的圖格標誌。
 
 ## <a name="related-articles"></a>相關文章
 

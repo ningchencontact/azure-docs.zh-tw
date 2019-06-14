@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 861c2e86d623c46c14366f19457d1f689386a316
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577341"
 ---
 # <a name="firewall-tables-overview"></a>防火牆資料表概觀
@@ -53,7 +53,7 @@ ms.locfileid: "64577341"
 
 每個防火牆資料表上建立下列預設規則。
 
-|優先順序|名稱|狀態的追蹤|Direction|流量類型|Protocol|來源|Source Port|目的地|目的地連接埠| 動作|
+|優先順序|Name|狀態的追蹤|Direction|流量類型|Protocol|source|來源連接埠|目的地|目的地連接埠|動作|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
 |65000|allow-all-to-internet|可設定狀態|輸出|公用 IP 或網際網路的流量|全部|任意|任意|任意|任意|允許|
 |65001|deny-all-from-internet|可設定狀態|輸入|公用 IP 或網際網路的流量|全部|任意|任意|任意|任意|拒絕|

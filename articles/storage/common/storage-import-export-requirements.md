@@ -9,10 +9,10 @@ ms.date: 04/15/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: bc244ecb62655d1e95046fb0eb8548fdacdcc2a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478584"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure 匯入/匯出系統需求
@@ -26,7 +26,7 @@ ms.locfileid: "61478584"
 
 |平台 |Version |
 |---------|---------|
-| Windows     | Windows 7 Enterprise、Windows 7 Ultimate <br> Windows 8 Pro、Windows 8 Enterprise、Windows 8.1 Pro、Windows 8.1 Enterprise <br> Windows 10        |
+|Windows     | Windows 7 Enterprise、Windows 7 Ultimate <br> Windows 8 Pro、Windows 8 Enterprise、Windows 8.1 Pro、Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012、Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Windows 用戶端的其他必要軟體

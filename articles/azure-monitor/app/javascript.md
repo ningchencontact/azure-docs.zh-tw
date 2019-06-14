@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 2192bad89764f20c24c85d9571bebbd6518de307
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66387281"
 ---
 # <a name="application-insights-for-web-pages"></a>適用於網頁的 Application Insights
@@ -67,7 +67,7 @@ window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({}
 </script>
 ```
 
-在您想要追蹤的每一頁的 `</head>` 標記之前插入指令碼。如果您的網站有主版頁面，您可以那裡放入指令碼。 例如: 
+在您想要追蹤的每一頁的 `</head>` 標記之前插入指令碼。如果您的網站有主版頁面，您可以那裡放入指令碼。 例如:
 
 * 在 ASP.NET MVC 專案中，可放在 `View\Shared\_Layout.cshtml`
 * 在 SharePoint 網站中，在控制台中開啟 [站台設定/主要頁面](sharepoint.md)。
@@ -144,17 +144,17 @@ window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({}
 
 請注意頁面檢視計數和標準差。 如果頁面計數非常低，則問題不太會影響使用者。 高的標準差 (相當於平均值本身) 表示個別測量之間的變化。
 
-**放大某個 URL 和整頁檢視。**  按一下任何頁面名稱，即可查看針對該 URL 篩選的瀏覽器圖表的刀鋒視窗，接著是網頁檢視的執行個體。
+**放大某個 URL 和整頁檢視。** 按一下任何頁面名稱，即可查看針對該 URL 篩選的瀏覽器圖表的刀鋒視窗，接著是網頁檢視的執行個體。
 
 ![](./media/javascript/35.png)
 
 按一下 `...` 以取得該事件之屬性的完整清單，或檢查 Ajax 呼叫和相關的事件。 如果它們是同步的，緩慢的 Ajax 呼叫會影響整體頁面載入時間。 相關的事件包含伺服器要求相同的 URL (如果您已在 Web 伺服器上設定 Application Insights)。
 
-**經過一段時間的網頁效能。**  回到 [瀏覽器] 刀鋒視窗，將 [頁面檢視載入時間] 方格變更為折線圖，以查看在特定時間是否有尖峰：
+**經過一段時間的網頁效能。** 回到 [瀏覽器] 刀鋒視窗，將 [頁面檢視載入時間] 方格變更為折線圖，以查看在特定時間是否有尖峰：
 
 ![按一下方格的標頭，然後選取新的圖表類型](./media/javascript/10-page-perf-area.png)
 
-**依據其他維度來分段。**  或許您的網頁在特定瀏覽器、用戶端作業系統或使用者位置載入時較緩慢？ 加入具有 **Group-by** 維度的圖表和實驗。
+**依據其他維度來分段。** 或許您的網頁在特定瀏覽器、用戶端作業系統或使用者位置載入時較緩慢？ 加入具有 **Group-by** 維度的圖表和實驗。
 
 ![](./media/javascript/21.png)
 

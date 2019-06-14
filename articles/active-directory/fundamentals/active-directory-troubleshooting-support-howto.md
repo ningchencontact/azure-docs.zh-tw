@@ -16,10 +16,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22bf80c13ef3b18ab3119b6b35e529c8ad32f504
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60248073"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>尋求 Azure Active Directory 方面的協助及開立支援票證
@@ -46,19 +46,19 @@ Microsoft 對 Azure Active Directory (Azure AD) 提供全球性的技術、售�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，並開啟 **Azure Active Directory**。
    
-2. 向下捲動至 [疑難排解 + 支援]，然後選取 [新增支援要求]。
+2. 向下捲動至 [疑難排解 + 支援]  ，然後選取 [新增支援要求]  。
    
-3. 在 [基本概念] 刀鋒視窗中，針對 [問題類型] 選取 [技術]。
+3. 在 [基本概念]  刀鋒視窗中，針對 [問題類型]  選取 [技術]  。
    
-4. 對於 [服務] 選取 [Azure Active Directory]，然後選取 [下一步]。
+4. 對於 [服務]  選取 [Azure Active Directory]  ，然後選取 [下一步]  。
 
-5. 在 [問題] 刀鋒視窗中，選取[嚴重性](https://azure.microsoft.com/support/plans/response/)。
+5. 在 [問題]  刀鋒視窗中，選取[嚴重性](https://azure.microsoft.com/support/plans/response/)。
   
-6. 選取 [問題類型]，然後選取該類型的 [類別]。 此時，您還會收到問題類別的自助資訊。
+6. 選取 [問題類型]  ，然後選取該類型的 [類別]  。 此時，您還會收到問題類別的自助資訊。
   
-7. 新增其餘的問題資訊，然後按一下 [下一步]。
+7. 新增其餘的問題資訊，然後按一下 [下一步]  。
   
-8. 提供您的連絡資訊，然後選取 [建立]。
+8. 提供您的連絡資訊，然後選取 [建立]  。
   ![問題類別自助螢幕擷取畫面](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>如何在 Microsoft 365 系統管理中心中，開啟 Azure ad 的支援票證
@@ -68,19 +68,19 @@ Microsoft 對 Azure Active Directory (Azure AD) 提供全球性的技術、售�
 
 1. 登入[Microsoft 365 系統管理中心](https://admin.microsoft.com)有 Enterprise Mobility + Security (EMS) 授權的帳戶。
 
-2. 在 [支援] 圖格中，選取 [新增服務要求]：
+2. 在 [支援]  圖格中，選取 [新增服務要求]  ：
 
-3. 在 [支援概觀] 頁面上，選取 [身分識別管理] 或 [使用者和網域管理]：
+3. 在 [支援概觀]  頁面上，選取 [身分識別管理]  或 [使用者和網域管理]  ：
 
-4. 對於 [功能]，選取您要支援的 Azure AD 功能。
+4. 對於 [功能]  ，選取您要支援的 Azure AD 功能。
 
-5. 對於 [徵兆]，選取適當的徵兆、摘要說明您的問題並提供相關的詳細資料，然後選取 [下一步]。
+5. 對於 [徵兆]  ，選取適當的徵兆、摘要說明您的問題並提供相關的詳細資料，然後選取 [下一步]  。
 
-6. 選取其中一個提供的自助資源，或者選取 [是，繼續] 或 [否，取消要求]。
+6. 選取其中一個提供的自助資源，或者選取 [是，繼續]  或 [否，取消要求]  。
 
-7. 如果繼續，系統會要求您提供更多詳細資料。 您可以附加任何表示此問題的檔案，然後選取 [下一步]。
+7. 如果繼續，系統會要求您提供更多詳細資料。 您可以附加任何表示此問題的檔案，然後選取 [下一步]  。
 
-8. 提供您的連絡資訊，然後選取 [提交要求]。
+8. 提供您的連絡資訊，然後選取 [提交要求]  。
 
 ## <a name="get-phone-support"></a>取得電話支援
 

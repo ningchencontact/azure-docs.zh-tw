@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 8/25/2017
 ms.author: alkohli
 ms.openlocfilehash: 3d6ef22e4df36996d68194589f43ea0f57def22c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60576850"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>更換 StorSimple 8000 系列裝置上的磁碟機
@@ -46,14 +46,14 @@ ms.locfileid: "60576850"
    
     **圖 1** 防拆鎖已扣上
    
-   | 標籤 | 描述 |
+   | ThisAddIn | 描述 |
    |:--- |:--- |
    | 1 |指示器孔 |
    | 2 |防拆鎖 |
 2. 以逆時鐘方向旋轉鑰匙，直到在鑰匙上方的孔中看不到紅色指示器。
 3. 取下鑰匙。
    
-    ![ 已解除鎖定磁碟機](./media/storsimple-disk-drive-replacement/IC741057.png)
+    ![已解除鎖定磁碟機](./media/storsimple-disk-drive-replacement/IC741057.png)
    
     **圖 2** 已解除鎖定磁碟機
 4. 現在可以取下磁碟機。
@@ -73,7 +73,7 @@ ms.locfileid: "60576850"
 您可以在系統操作時取下和更換磁碟機。
 
 #### <a name="to-remove-a-drive"></a>若要取下磁碟機
-1. 若要找出故障的磁碟，請在 Azure 入口網站中，移至您裝置的 [設定] > [硬體健康狀態]。 因為主要機箱和/或 EBOD 機箱 (如果您是使用 8600 機型) 中的磁碟可能故障，請查看 [共用元件] 和 [EBOD 共用元件] 下的磁碟狀態。 任一機箱中故障的磁碟將以紅色狀態顯示。
+1. 若要找出故障的磁碟，請在 Azure 入口網站中，移至您裝置的 [設定] > [硬體健康狀態]  。 因為主要機箱和/或 EBOD 機箱 (如果您是使用 8600 機型) 中的磁碟可能故障，請查看 [共用元件]  和 [EBOD 共用元件]  下的磁碟狀態。 任一機箱中故障的磁碟將以紅色狀態顯示。
 2. 找出主要機箱或 EBOD 機箱前面的磁碟機。 
 3. 如果磁碟已解除鎖定，請繼續下一個步驟。 如果磁碟已鎖定，請遵循 [打開防拆鎖](#disengage-the-antitamper-lock)中的程序，將它解除鎖定。
 4. 按壓磁碟機載具模組上的黑色閂鎖，然後拉出磁碟機載具把手，並從底座前端移走。
@@ -103,7 +103,7 @@ ms.locfileid: "60576850"
     **圖 6** 將磁碟機載具滑入底座
 3. 一旦插入磁碟機載具，請關閉磁碟機載具把手，同時繼續將磁碟機載具推入底座，直到磁碟機載具把手卡入鎖定的位置。
 4. 使用 Microsoft 所提供的鎖鑰匙 (防拆 Torx 螺絲起子)，將鎖螺絲順時鐘方向旋轉四分之一來固定住載具把手。
-5. 請確認更換成功，而且該磁碟機可運作。 存取 Azure 入口網站，並瀏覽至 [裝置設定] > [硬體健康狀態]。 在 [共用元件] 或 [EBOD 共用元件] 下，磁碟機狀態應該是綠色，表示狀況良好。
+5. 請確認更換成功，而且該磁碟機可運作。 存取 Azure 入口網站，並瀏覽至 [裝置設定]   > [硬體健康狀態]  。 在 [共用元件]  或 [EBOD 共用元件]  下，磁碟機狀態應該是綠色，表示狀況良好。
 
    
    > [!NOTE]

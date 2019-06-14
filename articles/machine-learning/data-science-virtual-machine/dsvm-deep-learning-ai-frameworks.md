@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: 59f88d54d3542738f1a500c8c476995eb1535ecf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130263"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>深度學習和 AI 架構
@@ -214,7 +214,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 深度學習架構      |
-| 支援的 DSVM 版本      |  Linux     |
+| 支援的 DSVM 版本      | Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | PyTorch 安裝在 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 中。  |
 | 範例的連結      | 隨附 Jupyter 筆記本範例，也可以在 /dsvm/samples/pytorch 中找到範例。      |
 | DSVM 上的相關工具      | Torch      |
@@ -225,7 +225,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 建立 MXNet 和 ONNX 模型 HTTP 端點的伺服器      |
-| 支援的 DSVM 版本      |  Linux     |
+| 支援的 DSVM 版本      | Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | 可在終端機上使用 _mxnet-model-server_。   |
 | 範例的連結      | 在 [MXNet 模型伺服器頁面](https://github.com/awslabs/mxnet-model-server)上尋找最新的範例。    |
 | DSVM 上的相關工具      | MXNet      |
@@ -235,7 +235,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 要在 TensorFlow 模型上執行推斷的伺服器      |
-| 支援的 DSVM 版本      |  Linux     |
+| 支援的 DSVM 版本      | Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | 可在終端機上使用 _tensorflow_model_server_。   |
 | 範例的連結      | 可從[線上](https://www.tensorflow.org/serving/)取得範例。      |
 | DSVM 上的相關工具      | TensorFlow      |

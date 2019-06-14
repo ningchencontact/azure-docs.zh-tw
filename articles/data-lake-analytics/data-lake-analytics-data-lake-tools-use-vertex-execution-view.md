@@ -10,10 +10,10 @@ ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: conceptual
 ms.date: 10/13/2016
 ms.openlocfilehash: 73314c5864e3036d102deee2792021345b80bf2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60687727"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>在適用於 Visual Studio 的 Data Lake 工具中使用 Vertex 執行檢視
@@ -21,7 +21,7 @@ ms.locfileid: "60687727"
 
 
 ## <a name="open-the-vertex-execution-view"></a>開啟頂點執行檢視
-在 Data Lake Tools for Visual Studio 中開啟 U-SQL 作業。 按一下左下角的 [頂點執行檢視]。 系統可能會提示您先載入設定檔，這可能需要一些時間，視您的網路連線而定。
+在 Data Lake Tools for Visual Studio 中開啟 U-SQL 作業。 按一下左下角的 [頂點執行檢視]  。 系統可能會提示您先載入設定檔，這可能需要一些時間，視您的網路連線而定。
 
 ![Data Lake Analytics 工具頂點執行檢視](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
 

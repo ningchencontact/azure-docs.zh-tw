@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: e745a4ee4789ef46a61b5cb0bbf806c41ef631ec
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65027911"
 ---
 # <a name="azure-blockchain-service-consortium"></a>Azure 區塊鏈服務協會
@@ -37,7 +37,7 @@ ms.locfileid: "65027911"
 
 協會的參與者可以是個人或組織，而且可以指派使用者角色或系統管理員角色。 下表列出兩個角色之間的大致差異：
 
-|  動作 | 使用者角色 | 系統管理員角色
+| 動作 | 使用者角色 | 系統管理員角色
 |--------|:----:|:------------:|
 | 建立新的成員 | 是 | 是 |
 | 邀請新的成員 | 否 | 是 |

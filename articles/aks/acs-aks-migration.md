@@ -10,10 +10,10 @@ ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
 ms.openlocfilehash: dcee8da943603fb0978caf9992be76347ca197d6
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977705"
 ---
 # <a name="migrate-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>從 Azure Container Service (ACS) 移轉至 Azure Kubernetes Service (AKS)
@@ -48,10 +48,10 @@ ACS 和 AKS 的影響移轉的某些重要區域不同。 任何移轉前，您�
 
 範例：
 
-| 名稱 | 計數 | VM 大小 | 作業系統 |
+| Name | 計數 | VM 大小 | 作業系統 |
 | --- | --- | --- | --- |
-| agentpool0 | 3 | Standard_D8_v2 |  Linux |
-| agentpool1 | 1 | Standard_D2_v2 |  Windows |
+| agentpool0 | 3 | Standard_D8_v2 | Linux |
+| agentpool1 | 1 | Standard_D2_v2 | Windows |
 
 由於在移轉期間會有額外的虛擬機器部署到訂用帳戶，因此您應確認您的配額與限制足以讓這些資源使用。 
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
 ms.openlocfilehash: da94a4c79694f511d41e5c8dda8c786fc7049726
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64569646"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>設定命令列中的容器執行個體，以覆寫預設命令列作業
@@ -30,7 +30,7 @@ ms.locfileid: "64569646"
   |---------|---------|
   |Ubuntu     |   `/bin/bash`      |
   |Alpine     |   `/bin/sh`      |
-  | Windows     |    `cmd`     |
+  |Windows     |    `cmd`     |
 
   請遵循的慣例，來結合多個序列中執行的命令殼層。
 
@@ -102,7 +102,7 @@ az container create \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
 ```
 
-同樣地，一旦容器是「已終止」，藉由顯示容器的記錄來檢視輸出：
+同樣地，一旦容器是「已終止」  ，藉由顯示容器的記錄來檢視輸出：
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer2

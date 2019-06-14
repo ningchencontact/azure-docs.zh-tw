@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
 ms.openlocfilehash: 38d9ad007b67756bdca0c6f98267aa16ba38ee9d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65791437"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>關於 Azure SQL 超大規模資料庫的常見問題
@@ -100,7 +100,7 @@ SQL Database 超大規模資料庫架構不僅支援大型資料庫，同時也�
 
 ### <a name="can-i-mix-hyperscale-and-single-databases-in-a-single-logical-server"></a>可以混合使用超大規模與單一的資料庫，在單一的邏輯伺服器
 
- 是，您可以這麼做。
+是，您可以這麼做。
 
 ### <a name="does-hyperscale-require-my-application-programming-model-to-change"></a>使用「超大規模資料庫」時是否需要變更應用程式設計模型
 

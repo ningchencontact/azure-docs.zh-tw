@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: magoedte
 ms.openlocfilehash: 2e3e39ef24d82393d981c0ce276b3338419e0b2d
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65521758"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>對適用於容器的 Azure 監視器進行疑難排解
@@ -32,11 +32,11 @@ ms.locfileid: "65521758"
 您可以也手動授與此角色在 Azure 入口網站執行下列步驟：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
-2. 在 Azure 入口網站中，按一下左上角的 [所有服務]。 在資源清單中，輸入**Kubernetes**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取  **Azure Kubernetes**。
+2. 在 Azure 入口網站中，按一下左上角的 [所有服務]  。 在資源清單中，輸入**Kubernetes**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取  **Azure Kubernetes**。
 3. 在 Kubernetes 叢集清單中，選取 從清單。
-2. 從左側功能表中，按一下**存取控制 (IAM)**。
+2. 從左側功能表中，按一下**存取控制 (IAM)** 。
 3. 選取 **+ 新增**新增角色指派，然後選取**監視計量發行者**角色，並在**選取**方塊中輸入**AKS**至篩選條件的結果，只在叢集上服務的訂用帳戶中定義的主體。 選取從該叢集的特定清單。
-4. 選取 [儲存] 以完成角色指派。 
+4. 選取 [儲存]  以完成角色指派。 
 
 ## <a name="azure-monitor-for-containers-is-enabled-but-not-reporting-any-information"></a>適用於容器的 Azure 監視器已啟用但未報告任何資訊
 如果已成功啟用並設定，適用於容器的 Azure 監視器，但您無法檢視狀態資訊，或從記錄檔查詢會傳回任何結果，您會診斷此問題，依照下列步驟： 
@@ -66,7 +66,7 @@ ms.locfileid: "65521758"
 
 3. 執行下列命令來檢查 Pod 的狀態，以確認其正在執行：`kubectl get pods --namespace=kube-system`
 
-    輸出應該會像下列範例，且 omsagent 的狀態為「執行中」：
+    輸出應該會像下列範例，且 omsagent 的狀態為「執行中」  ：
 
     ```
     User@aksuser:~$ kubectl get pods --namespace=kube-system 
@@ -109,11 +109,11 @@ ms.locfileid: "65521758"
 
 下表簡要說明使用適用於容器的 Azure 監視器時，可能遇到的已知錯誤。
 
-| 錯誤訊息  |  動作 |  
+| 錯誤訊息  | 動作 |  
 | ---- | --- |  
 | 錯誤訊息 `No data for selected filters`  | 為新建立的叢集打造監視資料流程可能需要點時間。 允許至少 10 到 15 分鐘才會出現叢集的資料。 |   
 | 錯誤訊息 `Error retrieving data` | 雖然 Azure Kubenetes Service 叢集是為監視健康情況和效能而設定，但這個叢集和 Azure Log Analytics 工作區之間有所連結。 Log Analytics 工作區是用來儲存叢集的所有監視資料。 Log Analytics 工作區遭刪除或消失時可能會發生此錯誤。 請查看[管理存取權](../platform/manage-access.md#view-workspace-details)，檢查工作區是否可使用。 遺漏工作區時，您必須重新啟用您的叢集使用 Azure 監視器監視容器。 若要重新啟用，您將需要[停用](container-insights-optout.md)監視叢集並[啟用](container-insights-enable-new-cluster.md)再次容器的 Azure 監視器。 |  
-| 透過 az aks cli 新增適用於容器的 Azure 監視器後，會出現 `Error retrieving data` | 當啟用 使用監視`az aks cli`，適用於容器的 Azure 監視器可能無法正確部署。 請檢查是否已部署解決方案。 若要檢查，請前往 Log Analytics 工作區，選取左側窗格的 [Solutions (解決方案)]，查看解決方案是否可使用。 若要解決此問題，您必須按照[如何部署適用於容器的 Azure 監視器](container-insights-onboard.md)的指示，重新部署這個解決方案 |  
+| 透過 az aks cli 新增適用於容器的 Azure 監視器後，會出現 `Error retrieving data` | 當啟用 使用監視`az aks cli`，適用於容器的 Azure 監視器可能無法正確部署。 請檢查是否已部署解決方案。 若要檢查，請前往 Log Analytics 工作區，選取左側窗格的 [Solutions (解決方案)]  ，查看解決方案是否可使用。 若要解決此問題，您必須按照[如何部署適用於容器的 Azure 監視器](container-insights-onboard.md)的指示，重新部署這個解決方案 |  
 
 為協助診斷問題，[在此](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script)提供疑難排解指令碼。  
 

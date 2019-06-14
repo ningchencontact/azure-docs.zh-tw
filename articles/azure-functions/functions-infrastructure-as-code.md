@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: 5d028768c062ef7df74d48f83ccc4e27a506f1ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 283487eeb0f1f85940da4db8c932602e1b45efd3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60737052"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64695793"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions 中函數應用程式的自動化資源部署
 
@@ -37,7 +37,7 @@ ms.locfileid: "60737052"
 
 Azure Functions 部署通常包含這些資源：
 
-| Resource                                                                           | 需求 | 語法和屬性參考                                                         |   |
+| 資源                                                                           | 需求 | 語法和屬性參考                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
 | 函數應用程式                                                                     | 必要項    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
 | [Azure 儲存體](../storage/index.yml)帳戶                                   | 必要項    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
@@ -69,7 +69,7 @@ Azure Functions 部署通常包含這些資源：
 
 此外，您必須在網站設定中將 `AzureWebJobsStorage` 屬性指定為應用程式設定。 若函式應用程式不使用 Application Insights 以進行監視，也應該將 `AzureWebJobsDashboard` 指定為應用程式設定。
 
-Azure Functions 執行階段會使用 `AzureWebJobsStorage` 連接字串來建立內部佇列。  在未啟用 Application Insights 的情況下，執行階段會使用 `AzureWebJobsDashboard` 連接字串來記錄至 Azure 資料表儲存體，並啟動入口網站中的 [監視] 索引標籤。
+Azure Functions 執行階段會使用 `AzureWebJobsStorage` 連接字串來建立內部佇列。  在未啟用 Application Insights 的情況下，執行階段會使用 `AzureWebJobsDashboard` 連接字串來記錄至 Azure 資料表儲存體，並啟動入口網站中的 [監視]  索引標籤。
 
 這些屬性會在 `siteConfig` 物件的 `appSettings`集合中指定：
 
@@ -216,7 +216,7 @@ Application Insights 監視您的函式應用程式的建議。 Application Insi
 
 ### <a name="create-a-function-app"></a>建立函數應用程式
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 在 Windows 中，取用方案需要在站台設定中的兩個其他設定：`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`和`WEBSITE_CONTENTSHARE`。 這些屬性能設定儲存函數應用程式程式碼和組態的儲存體帳戶和檔案路徑。
 
@@ -263,7 +263,7 @@ Application Insights 監視您的函式應用程式的建議。 Application Insi
 }
 ```
 
-#### <a name="linux"></a> Linux
+#### <a name="linux"></a>Linux
 
 函式應用程式必須具有在 Linux 上，其`kind`設定為`functionapp,linux`，而且必須`reserved`屬性設定為`true`:
 
@@ -573,7 +573,7 @@ Linux 應用程式也應該包括`linuxFxVersion`屬性下的`siteConfig`。 如
 函數應用程式有許多子資源可供您用於部署，包括應用程式設定和原始檔控制選項。 您也可以選擇移除 **sourcecontrols** 子資源並改為使用不同的[部署選項](functions-continuous-deployment.md)。
 
 > [!IMPORTANT]
-> 若要使用 Azure Resource Manager 成功部署應用程式，請務必了解資源在 Azure 中部署的方式。 在下列範例中，將使用 **siteConfig** 套用高層級組態。 請務必將這些組態設定為高層級，因為它們會將資訊傳遞給 Functions 執行階段和部署引擎。 在套用子 **sourcecontrols/web** 資源之前，需要高層級資訊。 雖然也可以在子層級 **config/appSettings** 資源設定這些設定，在某些案例下，您的函數應用程式需在套用 **config/appSettings**「之前」完成部署。 例如，在搭配使用函數應用程式與 [Logic Apps](../logic-apps/index.yml) 時，您的函數為另一個資源的相依性。
+> 若要使用 Azure Resource Manager 成功部署應用程式，請務必了解資源在 Azure 中部署的方式。 在下列範例中，將使用 **siteConfig** 套用高層級組態。 請務必將這些組態設定為高層級，因為它們會將資訊傳遞給 Functions 執行階段和部署引擎。 在套用子 **sourcecontrols/web** 資源之前，需要高層級資訊。 雖然也可以在子層級 **config/appSettings** 資源設定這些設定，在某些案例下，您的函數應用程式需在套用 **config/appSettings**「之前」  完成部署。 例如，在搭配使用函數應用程式與 [Logic Apps](../logic-apps/index.yml) 時，您的函數為另一個資源的相依性。
 
 ```json
 {
@@ -645,7 +645,7 @@ Linux 應用程式也應該包括`linuxFxVersion`屬性下的`siteConfig`。 如
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure 门户](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Azure 入口網站](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>部署至 Azure 按鈕
@@ -663,6 +663,27 @@ Linux 應用程式也應該包括`linuxFxVersion`屬性下的`siteConfig`。 如
 ```html
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"></a>
 ```
+
+### <a name="deploy-using-powershell"></a>使用 PowerShell 進行部署
+
+下列 PowerShell 命令建立資源群組和部署的範本會建立函式應用程式及其必要的資源。 若要在本機執行，您必須擁有[Azure PowerShell](/powershell/azure/install-az-ps)安裝。 執行[ `Connect-AzAccount` ](/powershell/module/az.accounts/connect-azaccount)登入。
+
+```powershell
+# Register Resource Providers if they're not already registered
+Register-AzResourceProvider -ProviderNamespace "microsoft.web"
+Register-AzResourceProvider -ProviderNamespace "microsoft.storage"
+
+# Create a resource group for the function app
+New-AzResourceGroup -Name "MyResourceGroup" -Location 'West Europe'
+
+# Create the parameters for the file, which for this template is the function app name.
+$TemplateParams = @{"appName" = "<function-app-name>"}
+
+# Deploy the template
+New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile template.json -TemplateParameterObject $TemplateParams -Verbose
+```
+
+若要測試此部署，您可以使用[範本，如下](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json)，Windows 上建立函式應用程式是在取用方案。 取代`<function-app-name>`函式應用程式的唯一名稱。
 
 ## <a name="next-steps"></a>後續步驟
 

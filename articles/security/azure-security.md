@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: ed57d72d32ba82a37036c9af77590bd4e93db8d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610532"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 安全性簡介
@@ -99,7 +99,7 @@ Application Insights 會建立圖表和資料表為您顯示多種資訊，例�
 
 Azure 監視器記錄檔可以是一個有用的工具，在鑑識和其他安全性分析工具可讓您快速搜尋大量的安全性相關的項目與彈性查詢方法。 此外，在內部[可以匯出到 Azure 防火牆和 proxy 記錄檔，並且可供分析使用 Azure 監視器記錄檔。](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 
-### <a name="azure-advisor"></a>Azure Advisor
+### <a name="azure-advisor"></a>Azure 建議程式
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/) 是個人化雲端顧問，可協助您將 Azure 部署最佳化。 它會分析您的資源及用量遙測， 接著會建議解決方案，以協助改善資源的[效能](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations)、[安全性](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations)及[高可用性](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations)，同時尋找[降低整體 Azure 費用](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations)的機會。 Azure Advisor 提供安全性建議，讓您能夠大幅改善您部署於 Azure 中之解決方案的整體安全性狀態。 這些建議均取自 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)所執行的安全性分析。
 
 ### <a name="azure-security-center"></a>Azure 資訊安全中心
@@ -334,7 +334,7 @@ Azure 金鑰保存庫 (AKV) 服務是設計來改善這些金鑰在安全且高�
 [Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)是一項新功能，可協助您加密 Windows 和 Linux IaaS 虛擬機器磁碟。 它運用 Windows 的業界標準 BitLocker 功能和 Linux 的 DM-Crypt 功能，為 OS 和資料磁碟提供磁碟區加密。 此解決方案會與 Azure Key Vault 整合，以協助您控制及管理 Key Vault 訂用帳戶中的磁碟加密金鑰與密碼。 此解決方案也可確保虛擬機器磁碟上的所有待用資料都會在您的 Azure 儲存體中加密。
 
 ### <a name="virtual-networking"></a>虛擬網路
-虚拟机需要网络连接。 為了支援該需求，Azure 需要虛擬機器連接到 Azure 虛擬網路。 Azure 虛擬網路是以實體 Azure 網路網狀架構為基礎所建置的邏輯建構。 每個邏輯 [Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)都會與其他所有 Azure 虛擬網路隔離。 此隔離可協助確保其他 Microsoft Azure 客戶無法存取您部署中的網路流量。
+虛擬機器需要遠端連線。 為了支援該需求，Azure 需要虛擬機器連接到 Azure 虛擬網路。 Azure 虛擬網路是以實體 Azure 網路網狀架構為基礎所建置的邏輯建構。 每個邏輯 [Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)都會與其他所有 Azure 虛擬網路隔離。 此隔離可協助確保其他 Microsoft Azure 客戶無法存取您部署中的網路流量。
 
 ### <a name="patch-updates"></a>修補程式更新
 修補程式更新提供尋找及修正潛在問題的基礎並簡化軟體更新管理程序，方法是減少您必須在企業中部署的軟體更新數目，以及增強您監視合規性的能力。

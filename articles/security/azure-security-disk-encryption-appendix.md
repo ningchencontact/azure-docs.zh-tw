@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 675ce2de91dd4e53f4945ceef3b174c33be001f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66118343"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Azure 磁碟加密的附錄 
@@ -292,7 +292,7 @@ ms.locfileid: "66118343"
 ### <a name="bkmk_Ubuntu"></a> Ubuntu 16
 在發佈安裝期間執行下列步驟以設定加密︰
 
-1. 在分割磁碟時選取 [設定加密的磁碟區]。
+1. 在分割磁碟時選取 [設定加密的磁碟區]  。
 
    ![Ubuntu 16.04 設定 - 設定加密的磁碟區](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
 
@@ -364,7 +364,7 @@ ms.locfileid: "66118343"
    ```
     chmod +x /usr/local/sbin/azure_crypt_key.sh
    ```
-5. 以加上程式碼行的方式編輯 /etc/initramfs-tools/modules：
+5. 以加上程式碼行的方式編輯 /etc/initramfs-tools/modules  ：
    ```
     vfat
     ntfs
@@ -382,7 +382,7 @@ ms.locfileid: "66118343"
 
 ### <a name="bkmk_openSUSE"></a>  openSUSE 13.2
 若要在發佈安裝期間設定加密，請執行下列步驟︰
-1. 分割磁碟時，請選取 [加密磁碟區群組]，然後輸入密碼。 這是您要上傳到金鑰保存庫的密碼。
+1. 分割磁碟時，請選取 [加密磁碟區群組]  ，然後輸入密碼。 這是您要上傳到金鑰保存庫的密碼。
 
    ![openSUSE 13.2 設定 - 加密磁碟區群組](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
 
@@ -450,11 +450,11 @@ ms.locfileid: "66118343"
 
 ### <a name="bkmk_CentOS"></a> CentOS 7
 若要在發佈安裝期間設定加密，請執行下列步驟︰
-1. 在分割磁碟時選取 [加密資料]。
+1. 在分割磁碟時選取 [加密資料]  。
 
    ![CentOS 7 設定 - 安裝目的地](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
 
-2. 確定已為根分割選取 [加密]。
+2. 確定已為根分割選取 [加密]  。
 
    ![CentOS 7 設定 - 為根分割選取加密](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
 
@@ -576,7 +576,7 @@ $SecretUrl=$secret.Id
 $SecretUrl
 ```
 
-#### <a name="linux"></a> Linux
+#### <a name="linux"></a>Linux
 ```powershell
 
  # This is the passphrase that was provided for encryption during the distribution installation

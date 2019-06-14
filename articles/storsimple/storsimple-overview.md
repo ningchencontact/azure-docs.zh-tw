@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630165"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 系列：混合式雲端存放解決方案
@@ -29,7 +29,7 @@ StorSimple 使用 [儲存體分層](#automatic-storage-tiering) 管理各種儲�
 
 除了儲存體管理外，StorSimple 資料保護功能可讓您建立依需求和排程的備份，然後將其儲存在本機或雲端中。 備份採用累加快照的形式，這表示建立及還原備份更快速。 雲端快照在災害復原案例中至關重要，因為這些快照會取代次要儲存體系統 (例如磁帶備份)，並讓您將資料還原到資料中心或在必要時還原至其他網站。
 
-![影片圖示](./media/storsimple-overview/video_icon.png)  觀賞 Microsoft Azure StorSimple 的快速簡介影片。
+![影片圖示](./media/storsimple-overview/video_icon.png) 觀賞 Microsoft Azure StorSimple 的快速簡介影片。
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
 
@@ -214,10 +214,10 @@ Microsoft Azure StorSimple 會使用重複資料刪除和資料壓縮，來進�
 | 虛擬化 |虛擬機器 |是* |只有使用固定在本機的磁碟區時才支援 |Update 2 和更新版本 |
 | 資料庫 |SQL |是* |只有使用固定在本機的磁碟區時才支援 |Update 2 和更新版本 |
 | 視訊監視 |視訊監視 |是* |當 StorSimple 僅供此工作負載專用時才支援 |Update 2 和更新版本 |
-| Backup  |主要目標備份 |是* |當 StorSimple 僅供此工作負載專用時才支援 |Update 3 和更新版本 |
-| Backup  |次要目標備份 |是* |當 StorSimple 僅供此工作負載專用時才支援 |Update 3 和更新版本 |
+| Backup |主要目標備份 |是* |當 StorSimple 僅供此工作負載專用時才支援 |Update 3 和更新版本 |
+| Backup |次要目標備份 |是* |當 StorSimple 僅供此工作負載專用時才支援 |Update 3 和更新版本 |
 
-是&#42; - 應套用解決方案指導方針和限制。
+是&#42; - 應套用解決方案指導方針和限制。 
 
 StorSimple 8000 系列裝置不支援下列工作負載。 如果部署於 StorSimple，這些工作負載將導致產生不支援的組態。
 
@@ -240,7 +240,7 @@ StorSimple 8000 系列裝置不支援下列工作負載。 如果部署於 StorS
 | 一般 |編製索引 |是* |階層式磁碟區，僅支援中繼資料索引 (無資料)。<br>針對固定在本機的磁碟區，支援完整索引。 |所有版本 |
 | 一般 |防毒 |是* |針對階層式磁碟區，只支援在開啟和關閉時進行掃描。<br> 針對固定在本機的磁碟區，支援完整掃描。 |所有版本 |
 
-是&#42; - 應套用解決方案指導方針和限制。
+是&#42; - 應套用解決方案指導方針和限制。 
 
 以下是與 StorSimple 搭配使用來建立解決方案的其他軟體清單。
 

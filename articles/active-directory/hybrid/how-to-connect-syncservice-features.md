@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect 同步服務功能與組態 | Microsoft Docs
-description: 介绍 Azure AD Connect 同步服务的服务端功能。
+description: 描述 Azure AD Connect 同步處理服務的服務端功能。
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be67a6f287e2d6e77070928cbe12542857696011
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347530"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 同步處理服務功能
@@ -67,7 +67,7 @@ Azure AD connect 同步處理功能有兩個元件：
 
 ## <a name="duplicate-attribute-resiliency"></a>重複屬性恢復功能
 
-含重複 UPNs / proxyAddresses 的物件，會將該屬性「隔離」，並指派暫時的值，而不會讓佈建物件失敗。 解決衝突時，會自動將暫時 UPN 變更為適當的值。 有关详细信息，请参阅[标识同步和重复属性复原](how-to-connect-syncservice-duplicate-attribute-resiliency.md)。
+含重複 UPNs / proxyAddresses 的物件，會將該屬性「隔離」，並指派暫時的值，而不會讓佈建物件失敗。 解決衝突時，會自動將暫時 UPN 變更為適當的值。 如需詳細資訊，請參閱 [身分識別同步處理和重複屬性恢復功能](how-to-connect-syncservice-duplicate-attribute-resiliency.md)。
 
 ## <a name="userprincipalname-soft-match"></a>UserPrincipalName 大致比對
 
@@ -81,7 +81,7 @@ Azure AD connect 同步處理功能有兩個元件：
 Get-MsolDirSyncFeatures -Feature EnableSoftMatchOnUpn
 ```
 
-如果没有为 Azure AD 目录启用此功能，可以运行以下命令来启用它：  
+如果您的 Azure AD 目錄未啟用這項功能，您可以執行下列項目加以啟用︰  
 
 ```powershell
 Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
@@ -114,5 +114,5 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 ## <a name="see-also"></a>請參閱
 
-* [Azure AD Connect 同步](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 同步處理](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)。

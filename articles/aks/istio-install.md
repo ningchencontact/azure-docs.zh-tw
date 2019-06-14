@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
 ms.openlocfilehash: 33d86ab8c88b45c7787620773f0df6e7fe888cf3
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65850404"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中安裝和使用 Istio
@@ -148,7 +148,7 @@ echo "source ~/completions/istioctl.bash" >> ~/.bashrc
 
 現在移至下一節[安裝在 AKS 上的 Istio Crd](#install-the-istio-crds-on-aks)。
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 若要安裝 Istio`istioctl`用戶端在二進位**Powershell**-根據的 shell Windows，請使用下列命令。 這些命令複製`istioctl`用戶端二進位 Istio 資料夾並將它透過永久提供您`PATH`。 您不需要提高權限 （系統管理員） 權限，才能執行這些命令。
 
@@ -237,7 +237,7 @@ data:
 EOF
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```powershell
 $GRAFANA_USERNAME=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("grafana"))
@@ -281,7 +281,7 @@ data:
 EOF
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```powershell
 $KIALI_USERNAME=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes("kiali"))

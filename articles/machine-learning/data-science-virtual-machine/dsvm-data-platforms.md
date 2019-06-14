@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 27e0deae9c35ad8fa00659e3e3e505cace6e9014
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516506"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>資料科學虛擬機器上所支援的資料平台
@@ -34,7 +34,7 @@ ms.locfileid: "60516506"
 | | |
 | ------------- | ------------- |
 | 這是什麼？   | 本機關聯式資料庫執行個體      |
-| 支援的 DSVM 版本      |  Windows      |
+| 支援的 DSVM 版本      | Windows      |
 | 典型的使用案例      | 在本機使用較小的資料集進行快速的開發 <br/> 執行資料庫內 R   |
 | 範例的連結      |    New York City 資料集的一個小型範例載入至 SQL 資料庫 `nyctaxi`。 <br/> 顯示 Microsoft R 和資料庫中內分析的 Jupyter 範例位於：<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
 | DSVM 上的相關工具       | SQL Server Management Studio <br/> ODBC/JDBC 驅動程式<br/> pyodbc、RODBC<br />Apache 深入探詢      |
@@ -69,7 +69,7 @@ SQL Server 是以標準方式安裝的。 它位於 `C:\Program Files\Microsoft 
 | | |
 | ------------- | ------------- |
 | 這是什麼？   | 常用 Apache Spark 平台的獨立 (單一節點內含式) 執行個體，這是快速大規模資料處理和機器學習的系統     |
-| 支援的 DSVM 版本      |  Linux <br /> Windows (實驗性)      |
+| 支援的 DSVM 版本      | Linux <br /> Windows (實驗性)      |
 | 典型的使用案例      | * 使用較小的資料集在本機快速開發 Spark/PySpark 應用程式，然後將它部署在 Azure HDInsight 之類的大型 Spark 叢集上<br/> * 測試 Microsoft R Server Spark 內容 <br />* 使用 SparkML 或 Microsoft 的開放原始碼 [MMLSpark](https://github.com/Azure/mmlspark) 程式庫建置 ML 應用程式  |
 | 範例的連結      |    Jupyter 範例： <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft R Server (Spark 內容)：/dsvm/samples/MRS/MRSSparkContextSample.R |
 | DSVM 上的相關工具       | PySpark、Scala<br/>Jupyter (Spark/PySpark 核心)<br/>Microsoft R Server、SparkR、Sparklyr <br />Apache 深入探詢      |
@@ -101,8 +101,8 @@ SQL Server 是以標準方式安裝的。 它位於 `C:\Program Files\Microsoft 
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>它是如何在 DSVM 上設定/安裝的？ 
 |平台|安裝位置 ($SPARK_HOME)|
 |:--------|:--------|
-| Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
-| Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
+|Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
+|Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 
 從 Azure Blob 或 Azure Data Lake 儲存體 (ADLS) 存取資料的程式庫和 Microsoft 的 MMLSpark 機器學習程式庫預先安裝於 $SPARK_HOME/jars。 Spark 啟動時，這些 JAR 會自動載入。 Spark 預設使用本機磁碟上的資料。 若要讓 DSVM 上的 Spark  執行個體存取 Azure Blob 或 ADLS 上儲存的資料，您需要遵循在 $SPARK_HOME/conf/core-site.xml.template (其中包含 Blob 和 ADLS 組態的預留位置) 中找到的範本，使用 Azure Blob 和 Azure Data Lake 儲存體的適當認證建立/設定 `core-site.xml` 檔案。 您可以在[這裡](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)找到建立 ADLS 服務認證的詳細步驟。 在 core-site.xml 檔案中輸入 Azure Blob 或 ADLS 的認證時，您可以使用 wasb:// 或 adl:// 的 URI 前置詞參照這些來源中儲存的資料。 

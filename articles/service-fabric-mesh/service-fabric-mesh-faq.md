@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
 ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143283"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh 的常見問題
@@ -49,7 +49,7 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 
 如果確實發生此情況，可以藉由在 Azure CLI 中執行 `az mesh app show` 命令，以驗證系統是否將它關閉。 請檢查是否傳回 `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
-例如︰ 
+例如: 
 
 ```cli
 ~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
@@ -92,7 +92,7 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
     - Windows Server 1803
     - Windows Server 1809
     - Windows Server 2019 LTSC
--  Linux
+- Linux
     - 沒有已知的限制
 
 > [!NOTE]
@@ -110,7 +110,7 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 
 - 使用 Windows Fall Creators Update (1709版) 或更新版本作為基礎容器映像。
 - 如果只有服務名稱時無法運作，請嘗試完整名稱：ServiceName.ApplicationName。
-- 在您服務的 Docker 檔案中新增 `EXPOSE <port>`，其中的 port 是您公開服務的連接埠。 例如︰
+- 在您服務的 Docker 檔案中新增 `EXPOSE <port>`，其中的 port 是您公開服務的連接埠。 例如:
 
 ```Dockerfile
 EXPOSE 80
