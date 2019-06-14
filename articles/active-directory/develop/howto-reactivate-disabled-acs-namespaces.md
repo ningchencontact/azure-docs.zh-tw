@@ -17,10 +17,10 @@ ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fe1517cce8a1f9b1024085340ffb927b282f0fb
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540295"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>作法：重新啟用已停用的存取控制服務命名空間
@@ -93,7 +93,7 @@ ms.locfileid: "65540295"
 1. 登入 Azure 入口網站，並建立[新的支援要求](https://portal.azure.com/#create/Microsoft.Support)。
 1. 填入新的支援要求表單，如下列範例所示。
 
-    | 支援要求欄位 | Value |
+    | 支援要求欄位 | 值 |
     |-----------------------|--------------------|
     | **問題類型** | `Technical` |
     | **訂用帳戶** | 設為您的訂用帳戶 |

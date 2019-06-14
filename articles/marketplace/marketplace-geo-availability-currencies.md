@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
 ms.openlocfilehash: 215a15da2868a4543ba1108899981f40f7bf4e07
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938263"
 ---
 # <a name="geographic-availability-and-currency-support"></a>各地區上市情況和貨幣的支援
 
 Azure Marketplace 供應項目可以購買的 141 的地理位置，客戶的帳單地址，所定義，而且交易可以完成 17 的貨幣。 下的表列出每個支援的地理位置，其[ISO 3166 兩位數字法典](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)，和指派的貨幣。
 
-|   國家/地區名稱               |   ISO-2   |   貨幣   |
+|   國家/地區名稱               |   ISO-2   |   Currency   |
 |-------------------------------------|-----------|--------------|
 | 阿富汗                         | AF        | 美元          |
 | 阿爾巴尼亞                             | AL        | 美元          |
@@ -55,14 +55,14 @@ Azure Marketplace 供應項目可以購買的 141 的地理位置，客戶的帳
 | 古拉果                             | CW        | 美元          |
 | 賽浦路斯                              | CY        | 歐元          |
 | 捷克共和國                      | CZ        | 歐元          |
-| 丹麥                             | DK        | 丹麥幣          |
+| 丹麥                             | DK        | DKK          |
 | 多明尼加共和國                  | DO        | 美元          |
 | 厄瓜多                             | EC        | 美元          |
 | 埃及                               | EG        | 美元          |
 | 薩爾瓦多                         | SV        | 美元          |
 | 愛沙尼亞                             | EE        | 歐元          |
 | 衣索比亞                            | ET        | 美元          |
-| 法羅群島                       | FO        | 丹麥幣          |
+| 法羅群島                       | FO        | DKK          |
 | 斐濟                                | FJ        | 澳幣          |
 | 芬蘭                             | FI        | 歐元          |
 | 法國                              | FR        | 歐元          |
@@ -75,7 +75,7 @@ Azure Marketplace 供應項目可以購買的 141 的地理位置，客戶的帳
 | 香港特別行政區                       | HK        | 美元          |
 | 匈牙利                             | HU        | 歐元          |
 | 冰島                             | IS        | 歐元          |
-| 印度                               | IN        | 印度幣          |
+| 印度                               | IN        | INR          |
 | 印尼                           | ID        | 美元          |
 | 伊拉克                                | IQ        | 美元          |
 | 愛爾蘭                             | IE        | 歐元          |
@@ -152,7 +152,7 @@ Azure Marketplace 供應項目可以購買的 141 的地理位置，客戶的帳
 | 烏干達                              | UG        | 美元          |
 | 烏克蘭                             | UA        | 美元          |
 | 阿拉伯聯合大公國                | AE        | 美元          |
-| 英國                      | GB        | 英鎊          |
+| 英國                      | GB        | GBP          |
 | 美國                       | US        | 美元          |
 | 烏拉圭                             | UY        | 美元          |
 | 烏茲別克                          | UZ        | 美元          |

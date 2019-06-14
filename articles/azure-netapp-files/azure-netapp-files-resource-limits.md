@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: b-juche
 ms.openlocfilehash: b55467d77beb8f97b8e392b72682268ae0407e54
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65826367"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files 的資源限制
@@ -31,19 +31,19 @@ ms.locfileid: "65826367"
 
 |  資源  |  預設限制  |  透過支援要求的可調整  |
 |----------------|---------------------|--------------------------------------|
-|  每個 Azure 訂用帳戶的 NetApp 帳戶數目   |  10    |  有   |
-|  每個 NetApp 帳戶的容量集區數目   |    25     |   有   |
-|  每個容量集區的磁碟區數目     |    500   |    有     |
-|  每個磁碟區的快照集數目       |    255     |    無        |
-|  委派給 Azure NetApp 檔案 (Microsoft.NetApp/volumes) 每個 Azure 虛擬網路的子網路數目    |   1   |    無    |
-|  Vm 的最大數目 （包括對等互連的 Vnet） 可以連接至磁碟區     |    1000   |    無   |
-|  單一的容量集區大小下限   |  4 TiB     |    無  |
-|  單一的容量集區大小上限    |  500 TiB   |   無   |
-|  單一磁碟區的大小下限    |    100 GiB    |    無    |
-|  最大值，指派配額的單一磁碟區 *   |   92 TiB   |    無   |
-|  最大值的單一磁碟區 *     |    100 TiB    |    無       |
+|  每個 Azure 訂用帳戶的 NetApp 帳戶數目   |  10    |  是   |
+|  每個 NetApp 帳戶的容量集區數目   |    25     |   是   |
+|  每個容量集區的磁碟區數目     |    500   |    是     |
+|  每個磁碟區的快照集數目       |    255     |    否        |
+|  委派給 Azure NetApp 檔案 (Microsoft.NetApp/volumes) 每個 Azure 虛擬網路的子網路數目    |   1   |    否    |
+|  Vm 的最大數目 （包括對等互連的 Vnet） 可以連接至磁碟區     |    1000   |    否   |
+|  單一的容量集區大小下限   |  4 TiB     |    否  |
+|  單一的容量集區大小上限    |  500 TiB   |   否   |
+|  單一磁碟區的大小下限    |    100 GiB    |    否    |
+|  最大值，指派配額的單一磁碟區 *   |   92 TiB   |    否   |
+|  最大值的單一磁碟區 *     |    100 TiB    |    否       |
 
-* 磁碟區可以是手動建立或調整大小，以最大幅度 92 TiB。 不過，磁碟區可以成長的超額部分的案例中最多 100 個 TiB。 請參閱[適用於 Azure NetApp 檔案的成本模型](azure-netapp-files-cost-model.md)如需有關容量超額部分。 
+\* 磁碟區可以是手動建立或調整大小，以最大幅度 92 TiB。 不過，磁碟區可以成長的超額部分的案例中最多 100 個 TiB。 請參閱[適用於 Azure NetApp 檔案的成本模型](azure-netapp-files-cost-model.md)如需有關容量超額部分。 
 
 ## <a name="request-limit-increase"></a>要求增加限制 
 
@@ -54,10 +54,10 @@ ms.locfileid: "65826367"
 1. 按一下 **說明 + 支援**。
 2. 按一下  **+ 新增支援要求**。
 3. 在 [基本] 索引標籤中，提供下列資訊： 
-    1. 問題類型：選取 **服務和訂用帳戶的限制 （配額）**。
-    2. 訂用帳戶:選取的資源，您需要增加配額的訂用帳戶。
+    1. 問題類型：選取 **服務和訂用帳戶的限制 （配額）** 。
+    2. 訂用帳戶：選取的資源，您需要增加配額的訂用帳戶。
     3. 配額類型：選取**儲存體：Azure 的 NetApp 檔案限制**。
-    4. 按一下 **下一步解决方法**。
+    4. 按一下 **下一步解決方案**。
 4. 在詳細資料 索引標籤：
     1. 在 [描述] 方塊中，提供對應的資源類型的下列資訊：
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 96c496ef67e26a3079577bf52e9d019d963467b8
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65915849"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>使用 .NET SDK 向 Azure Data Lake Storage Gen1 進行服務對服務驗證
@@ -38,20 +38,20 @@ ms.locfileid: "65915849"
 
 ## <a name="create-a-net-application"></a>建立 .NET 應用程式
 1. 在 Visual Studio 中，選取**檔案** 功能表**新增**，然後**專案**。
-2. 選擇**主控台應用程式 (.NET Framework)**，然後選取**下一步**。
+2. 選擇**主控台應用程式 (.NET Framework)** ，然後選取**下一步**。
 3. 在 **專案名稱**，輸入`CreateADLApplication`，然後選取**建立**。
 
 4. 將 NuGet 套件新增至您的專案。
 
    1. 在方案總管中以滑鼠右鍵按一下專案名稱，然後按一下 [ **管理 NuGet 封裝**]。
-   2. 在 [NuGet 套件管理員] 索引標籤中，確定 [套件來源] 設為 [nuget.org]，且已選取 [包含發行前版本] 核取方塊。
+   2. 在 [NuGet 套件管理員]  索引標籤中，確定 [套件來源]  設為 [nuget.org]  ，且已選取 [包含發行前版本]  核取方塊。
    3. 搜尋並安裝下列 NuGet 封裝：
 
       * `Microsoft.Azure.Management.DataLake.Store` - 本教學課程使用 v2.1.3-preview。
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 本教學課程使用 v2.2.12。
 
         ![新增 NuGet 來源](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "建立新的 Azure Data Lake 帳戶")
-   4. 關閉 [NuGet 套件管理員]。
+   4. 關閉 [NuGet 套件管理員]  。
 
 5. 開啟 **Program.cs**，刪除現有的程式碼，然後納入下列陳述式以新增命名空間的參考。
 

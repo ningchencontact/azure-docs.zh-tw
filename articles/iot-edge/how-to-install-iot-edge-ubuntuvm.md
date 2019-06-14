@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: gregman
 ms.openlocfilehash: 7062bd2dbd8c375b8dd3fad348e5cc26de8f36d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60595135"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>在 Ubuntu 虛擬機器上執行 Azure IoT Edge
@@ -28,8 +28,8 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 
 ## <a name="deploy-from-the-azure-marketplace"></a>從 Azure Marketplace 進行部署
 1.  瀏覽至 [Ubuntu 上的 Azure IoT Edge](https://aka.ms/azure-iot-edge-ubuntuvm) Marketplace 供應項目，或在 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 上搜尋 “Azure IoT Edge on Ubuntu”
-2.  選取 [立即取得]，然後在下一個對話方塊中選取 [繼續]。
-3.  一旦進入 Azure 入口網站，選取 [建立] 並且遵循精靈以部署 VM。 
+2.  選取 [立即取得]  ，然後在下一個對話方塊中選取 [繼續]  。
+3.  一旦進入 Azure 入口網站，選取 [建立]  並且遵循精靈以部署 VM。 
     *   如果這是您第一次試用 VM，最簡單的方式是使用密碼，並且在公用輸入連接埠功能表中啟用 SSH。 
     *   如果您有資源密集工作負載，您應該藉由新增更多的 CPU 和/或記憶體來升級虛擬機器大小。
 4.  一旦部署虛擬機器，將它設定為連線到您的 IoT 中樞：
@@ -37,7 +37,7 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
     1.  從 Azure 入口網站選取您新建立的虛擬機器資源，然後開啟**執行命令**選項
     1.  選取 **RunShellScript** 選項
     1.  透過具有您的裝置連接字串的命令視窗執行下列指令碼：`/etc/iotedge/configedge.sh “{device_connection_string}”`
-    1.  選取 [執行]
+    1.  選取 [執行] 
     1.  請稍候片刻，畫面應該會提供成功訊息，指出連接字串已成功設定。
 
 
@@ -47,9 +47,9 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 ## <a name="deploy-from-azure-cli"></a>從 Azure CLI 進行部署
 1. 如果這是您第一次從 CLI 部署虛擬機器，您必須為您的 Azure 訂用帳戶啟用程式設計部署：
    1. 開啟 [Ubuntu 上的 Azure IoT Edge](https://aka.ms/azure-iot-edge-ubuntuvm) Marketplace 供應項目
-   1. 選取 [立即取得]，然後在後續對話方塊中選取 [繼續]
-   1. 選取 [想要以程式設計方式部署嗎？開始使用]，位於入口網站內對話方塊的底部
-   1. 按一下 [設定程式設計部署] 頁面中的 [啟用]，然後按一下 [儲存]
+   1. 選取 [立即取得]  ，然後在後續對話方塊中選取 [繼續] 
+   1. 選取 [想要以程式設計方式部署嗎？  開始使用]，位於入口網站內對話方塊的底部
+   1. 按一下 [設定程式設計部署]  頁面中的 [啟用]  ，然後按一下 [儲存] 
 1. 如果您在桌面上使用 Azure CLI，從登入下列位置開始：
 
    ```azurecli-interactive
@@ -95,6 +95,6 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 
 現在您已佈建 IoT Edge 裝置並安裝執行階段，接下來您可以[部署 IoT Edge 模組](how-to-deploy-modules-portal.md)。
 
-如果无法正确安装 IoT Edge 运行时，请参阅[故障排除](troubleshoot.md)页。
+如果您有正確安裝 IoT Edge 執行階段問題，請參閱[疑難排解](troubleshoot.md)頁面。
 
 若要將現有安裝更新為最新版的 IoT Edge，請參閱[更新 IoT Edge 安全性精靈和執行階段](how-to-update-iot-edge.md)。

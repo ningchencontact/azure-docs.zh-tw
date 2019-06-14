@@ -2,24 +2,23 @@
 title: 使用來自 Azure 容器執行個體的 Azure Container Registry 進行驗證
 description: 了解如何使用 Azure Active Directory 服務主體，從 Azure 容器執行個體提供私人容器登錄中映像的存取權。
 services: container-registry
-author: rockboyfor
+author: dlepow
 ms.service: container-registry
 ms.topic: article
-origin.date: 04/23/2018
-ms.date: 03/25/2019
-ms.author: v-yeche
+ms.date: 04/23/2018
+ms.author: danlep
 ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61333563"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>使用來自 Azure 容器執行個體的 Azure Container Registry 進行驗證
 
 您可以使用 Azure Active Directory (Azure AD) 服務主體，來提供 Azure Container Registry 中私人容器登錄的存取權。
 
-在本文中，您將了解如何建立及設定 Azure AD 服務主體，並使其具備您登錄的「提取」權限。 然後，您會使用服務主體進行驗證，來啟動 Azure 容器執行個體 (ACI) 中的容器，以從您的私人登錄中提取其映像。
+在本文中，您將了解如何建立及設定 Azure AD 服務主體，並使其具備您登錄的「提取」  權限。 然後，您會使用服務主體進行驗證，來啟動 Azure 容器執行個體 (ACI) 中的容器，以從您的私人登錄中提取其映像。
 
 ## <a name="when-to-use-a-service-principal"></a>何時使用服務主體
 
@@ -35,12 +34,12 @@ ms.locfileid: "61333563"
 
 若要在 Azure 容器執行個體中使用服務主體來啟動容器，請針對 `--registry-username` 指定它的識別碼，並針對 `--registry-password` 指定它的密碼。
 
-```azurecli
+```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image mycontainerregistry.azurecr.cn/myimage:v1 \
-    --registry-login-server mycontainerregistry.azurecr.cn \
+    --image mycontainerregistry.azurecr.io/myimage:v1 \
+    --registry-login-server mycontainerregistry.azurecr.io \
     --registry-username <service-principal-ID> \
     --registry-password <service-principal-password>
 ```

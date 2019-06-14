@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: b1fd31a758501620129fdbbc532b8defcf927045
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648494"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>長期函式中的檢查點和重新執行 (Azure Functions)
@@ -61,7 +61,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-在每個 `await` (C#) 或 `yield` 陳述式中，長期工作架構會將函式的執行狀態檢查點記入資料表儲存體。 此狀態就是「協調流程歷程記錄」。
+在每個 `await` (C#) 或 `yield` 陳述式中，長期工作架構會將函式的執行狀態檢查點記入資料表儲存體。 此狀態就是「協調流程歷程記錄」  。
 
 ## <a name="history-table"></a>歷程記錄資料表
 
@@ -74,7 +74,7 @@ module.exports = df.orchestrator(function*(context) {
 一旦檢查點完成，協調器函式就可以安心地從記憶體移除，直到有更多工作要執行。
 
 > [!NOTE]
-> Azure 儲存體不提供將資料儲存至資料表儲存體和佇列之間的任何交易式保證。 為了處理失敗，長期函式儲存體提供者會使用「最終一致性」模式。 這些模式可確保如果在檢查點中間發生損毀或連線中斷，不會遺失任何資料。
+> Azure 儲存體不提供將資料儲存至資料表儲存體和佇列之間的任何交易式保證。 為了處理失敗，長期函式儲存體提供者會使用「最終一致性」  模式。 這些模式可確保如果在檢查點中間發生損毀或連線中斷，不會遺失任何資料。
 
 完成時，稍早顯示的函式歷程記錄在 Azure 資料表儲存體中看起來如下所示 (針對示範目的縮寫)：
 
@@ -94,7 +94,7 @@ module.exports = df.orchestrator(function*(context) {
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     |
 | eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | """Hello London!"""                                       |                     |
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Completed           |
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | 已完成           |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     |
 
 資料行值的一些附註：
@@ -161,9 +161,9 @@ module.exports = df.orchestrator(function*(context) {
 > [!NOTE]
 > 本章節描述長期工作架構的內部實作詳細資料。 您不需要知道這項資訊就可以使用長期函式。 它只是用來協助您了解重新執行行為。
 
-可以在協調器函式中安全地等候的工作偶爾會稱為「長期工作」。 這些工作是由長期工作架構建立和管理的工作。 範例是由 `CallActivityAsync`、`WaitForExternalEvent` 和 `CreateTimer` 傳回的工作。
+可以在協調器函式中安全地等候的工作偶爾會稱為「長期工作」  。 這些工作是由長期工作架構建立和管理的工作。 範例是由 `CallActivityAsync`、`WaitForExternalEvent` 和 `CreateTimer` 傳回的工作。
 
-這些「長期工作」是藉由使用 `TaskCompletionSource` 物件的清單在內部進行管理。 在重新執行期間，這些工作會建立為協調器程式碼執行的一部分，並且在發送器列舉對應歷程記錄事件時完成。 這項作業是以同步方式使用單一執行緒來完成，直到已重新執行所有歷程記錄。 歷程記錄重新執行結束時未完成的任何長期工作都有適當的執行動作。例如，訊息可以會被加入佇列以呼叫活動函式。
+這些「長期工作」  是藉由使用 `TaskCompletionSource` 物件的清單在內部進行管理。 在重新執行期間，這些工作會建立為協調器程式碼執行的一部分，並且在發送器列舉對應歷程記錄事件時完成。 這項作業是以同步方式使用單一執行緒來完成，直到已重新執行所有歷程記錄。 歷程記錄重新執行結束時未完成的任何長期工作都有適當的執行動作。例如，訊息可以會被加入佇列以呼叫活動函式。
 
 此處所述的執行行為應該可以協助您了解為什麼協調器函式程式碼不得為 `await` 非長期工作：發送器執行緒無法等候它完成，該工作的任何回呼都有可能會損毀協調器函式的追蹤狀態。 某些執行階段檢查正在進行中，以嘗試防止這個情況。
 

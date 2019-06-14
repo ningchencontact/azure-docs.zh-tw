@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 02/26/2019
 ms.openlocfilehash: c3b9fecd3ad404385732e55a9cf3aa65a6e388b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61482985"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>使用資源健康情況對 Azure SQL Database 的連線問題進行疑難排解
@@ -35,25 +35,25 @@ SQL Database 的[資源健康情況](../service-health/resource-health-overview.
 
 ### <a name="available"></a>可用
 
-若狀態為 [可用]，表示資源健康情況未偵測到因 SQL 資源的系統錯誤而造成的登入失敗。
+若狀態為 [可用]  ，表示資源健康情況未偵測到因 SQL 資源的系統錯誤而造成的登入失敗。
 
 ![可用](./media/sql-database-resource-health/sql-resource-health-available.jpg)
 
 ### <a name="degraded"></a>已降級
 
-若狀態為 [已降級]，表示資源健康情況大多偵測到成功的登入，但也有一些失敗。 這些很可能是暫時性的登入錯誤。 若要減少暫時性登入錯誤所導致的連線問題影響，請在程式碼中實作[重試邏輯](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)。
+若狀態為 [已降級]  ，表示資源健康情況大多偵測到成功的登入，但也有一些失敗。 這些很可能是暫時性的登入錯誤。 若要減少暫時性登入錯誤所導致的連線問題影響，請在程式碼中實作[重試邏輯](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)。
 
 ![已降級](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 
 ### <a name="unavailable"></a>無法使用
 
-若狀態為 [無法使用]，表示資源健康情況偵測到持續性的 SQL 資源登入失敗。 如果您的資源長時間處於此狀態，請連絡支援人員。
+若狀態為 [無法使用]  ，表示資源健康情況偵測到持續性的 SQL 資源登入失敗。 如果您的資源長時間處於此狀態，請連絡支援人員。
 
 ![無法使用](./media/sql-database-resource-health/sql-resource-health-unavailable.jpg)
 
 ### <a name="unknown"></a>不明
 
-[不明] 健康狀態表示資源健康狀態超過 10 分鐘未收到此資源的相關資訊。 雖然此狀態並非資源狀態的明確指示，卻是疑難排解程序中的重要資料點。 如果資源如預期般執行，幾分鐘後資源的狀態會變更為 [可用]。 如果您遇到資源問題，[不明] 健康狀態可能暗示資源受到平台事件影響。
+[不明]  健康狀態表示資源健康狀態超過 10 分鐘未收到此資源的相關資訊。 雖然此狀態並非資源狀態的明確指示，卻是疑難排解程序中的重要資料點。 如果資源如預期般執行，幾分鐘後資源的狀態會變更為 [可用]。 如果您遇到資源問題，[不明] 健康狀態可能暗示資源受到平台事件影響。
 
 ![不明](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 

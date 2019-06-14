@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
 ms.openlocfilehash: 6ffce339fe7b1a434c8f007b417ee81a42529dfc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142349"
 ---
 # <a name="refresh-with-logic-apps"></a>使用 Logic Apps 重新整理
@@ -63,17 +63,17 @@ ms.locfileid: "66142349"
 
 設定 HTTP 活動，如下所示：
 
-|屬性  |Value  |
+|屬性  |值  |
 |---------|---------|
 |**方法**     |POST         |
 |**URI**     | https://*伺服器地區*/servers/*aas 伺服器名稱*/models/*您的資料庫名稱*/ <br /> <br /> 例如： https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
-|**標頭**     |   內容類型、 application/json <br /> <br />  ![標頭](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**標頭**     |   內容類型、 application/json <br /> <br />  ![headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**內文**     |   若要深入了解的要求主體的形成，請參閱[非同步重新整理使用 REST API-POST /refreshes](analysis-services-async-refresh.md#post-refreshes)。 |
 |**驗證**     |Active Directory OAuth         |
 |**租用戶**     |填寫您 Azure Active Directory 租用戶識別碼         |
 |**目標對象**     |https://*.asazure.windows.net         |
 |**用戶端識別碼**     |輸入您的服務主體名稱 ClientID         |
-|**認證類型**     |祕密         |
+|**認證類型**     |Secret         |
 |**祕密**     |輸入您的服務主體名稱祕密         |
 
 範例：

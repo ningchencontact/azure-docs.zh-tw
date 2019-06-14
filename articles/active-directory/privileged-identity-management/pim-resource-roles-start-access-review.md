@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 78e4de5bbc56f95c0e903b1dac4e8481373716f3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143546"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-pim"></a>在 PIM 中建立 Azure 資源角色的存取權檢閱
@@ -52,7 +52,7 @@ ms.locfileid: "65143546"
 
 ## <a name="start-the-access-review"></a>開始存取權檢閱
 
-在指定存取權檢閱的設定後，請按一下 [啟動]。 存取權檢閱會出現在您的清單，其中包含其狀態的指標。
+在指定存取權檢閱的設定後，請按一下 [啟動]  。 存取權檢閱會出現在您的清單，其中包含其狀態的指標。
 
 ![存取權檢閱清單](./media/pim-resource-roles-start-access-review/access-reviews-list.png)
 

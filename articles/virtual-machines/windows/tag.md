@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
 ms.openlocfilehash: eef4681626c5e0aa0c5d8a67dbd0d19bcfd7121e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108288"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64694673"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>如何在 Azure 中標記 Windows 虛擬機器
 本文說明在 Azure 中透過 Resource Manager 部署模型標記 Windows 虛擬機器的各種不同方式。 標記是使用者定義的成對「索引鍵/值」，可直接置於資源或資源群組。 Azure 目前對每一個資源和資源群組最多支援 15 個標記。 標記可在建立或加入至現有資源時置於資源上。 請注意，標記只支援透過 Resource Manager 部署模型建立的資源。 如果想要標記 Linux 虛擬機器，請參閱 [如何在 Azure 中標記 Linux 虛擬機器](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -47,7 +47,7 @@ ms.locfileid: "62108288"
 
 如果要透過 PowerShell 新增標記，您可以使用 `Set-AzResource` 命令。 請注意，透過 PowerShell 標記更新時，標記會整體進行更新。 所以，如果您將一個標記新增至已有標記的資源，您必須包含想要置於資源上的所有標記。 以下是如何透過 PowerShell Cmdlet 將其他標記新增至資源的範例。
 
-第一個 Cmdlet 會使用 `Get-AzResource` 和 `Tags` 屬性，將置於 MyTestVM 上的所有標記設為 $tags 變數。
+第一個 Cmdlet 會使用 `Get-AzResource` 和 `Tags` 屬性，將置於 MyTestVM  上的所有標記設為 $tags  變數。
 
         PS C:\> $tags = (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
@@ -64,7 +64,7 @@ ms.locfileid: "62108288"
     Environment   Production
 ```
 
-第三個命令會將一個額外標記新增至 $tags  變數。 請注意，可使用 **+=** 將新的索引鍵/值組附加至 $tags 清單。
+第三個命令會將一個額外標記新增至 $tags  變數。 請注意，可使用 **+=** 將新的索引鍵/值組附加至 $tags  清單。
 
         PS C:\> $tags += @{Location="MyLocation"}
 
@@ -72,7 +72,7 @@ ms.locfileid: "62108288"
 
         PS C:\> Set-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
 
-第五个命令可显示资源上的所有标记。 可以看到，*Location* 现在定义为值为 *MyLocation* 的标记。
+第五個命令顯示資源上的所有標記。 如您所見，Location  現已定義為具有 MyLocation  值的標記。
 
 ```
     PS C:\> (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags

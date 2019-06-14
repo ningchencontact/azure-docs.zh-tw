@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
 ms.openlocfilehash: 40ba5814bce08037b9e4d0787defbab4d02e58df
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128561"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>使用 Visual Studio 分析工具，在 Azure 計算模擬器中本機測試雲端服務的效能
-可通过各种工具和技术来测试云服务的性能。
+各種工具和技術可用於測試雲端服務的效能。
 當您將雲端服務發佈至 Azure 時，可以讓 Visual Studio 收集分析資料，然後在本機分析它 (如[分析雲端服務][11] 中所述)。
 您也可以使用診斷來追蹤各種效能計數器 (如[在 Azure 中使用效能計數器][2]中所述)。
 您也可能想要先在計算模擬器中本機分析應用程式，再將之部署至雲端。
@@ -31,15 +31,15 @@ ms.locfileid: "62128561"
 本文涵蓋進行分析的「CPU 取樣」方法，這可以在模擬器上本機完成。 CPU 取樣不是非常侵入式的分析方法。 分析工具會按指定的取樣間隔取得呼叫堆疊的快照集。 會收集一段時間的資料，而且資料會顯示在報告中。 此分析方法傾向指出在計算密集應用程式中的哪個位置完成大部分的 CPU 工作。  這可讓您有機會聚焦在應用程式耗用最多時間的「最忙碌路徑」。
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1:設定 Visual Studio 的程式碼剖析
-首先，有些 Visual Studio 組態選項可能在進行分析時很實用。 若要讓分析報告發揮作用，您需要應用程式的符號 (.pdb 檔案)，也需要系統庫的符號。 需确保引用可用的符号服务器。 若要這樣做，請在 Visual Studio 的 [工具] 功能表上，依序選擇 [選項]、[偵錯] 和 [符號]。 請確定 Microsoft Symbol Servers 列在 [符號檔 (.pdb) 位置] 下方。  您也可以參考 https://referencesource.microsoft.com/symbols，這裡可能有其他符號檔。
+首先，有些 Visual Studio 組態選項可能在進行分析時很實用。 若要讓分析報告發揮作用，您需要應用程式的符號 (.pdb 檔案)，也需要系統庫的符號。 您會希望確定參考可用的符號伺服器。 若要這樣做，請在 Visual Studio 的 [工具]  功能表上，依序選擇 [選項]  、[偵錯]  和 [符號]  。 請確定 Microsoft Symbol Servers 列在 [符號檔 (.pdb) 位置]  下方。  您也可以參考 https://referencesource.microsoft.com/symbols ，這裡可能有其他符號檔。
 
 ![符號選項][4]
 
-如有需要，您可以設定 Just My Code 來簡化分析工具所產生的報告。 啟用 Just My Code 之後，會簡化函式呼叫堆疊，因此報告中會隱藏整個是程式庫和 .NET Framework 的內部呼叫。 在 [工具] 功能表上，選擇 [選項]。 然後展開 [效能工具] 節點，並選擇 [一般]。 選取 [啟用 Just My Code 以進行分析工具報告] 核取方塊。
+如有需要，您可以設定 Just My Code 來簡化分析工具所產生的報告。 啟用 Just My Code 之後，會簡化函式呼叫堆疊，因此報告中會隱藏整個是程式庫和 .NET Framework 的內部呼叫。 在 [工具]  功能表上，選擇 [選項]  。 然後展開 [效能工具]  節點，並選擇 [一般]  。 選取 [啟用 Just My Code 以進行分析工具報告]  核取方塊。
 
 ![Just My Code 選項][17]
 
-您可以將這些指示與現有專案或新的專案搭配使用。  如果您建立新的專案來嘗試上面所述的技術，請選擇 C# [Azure 雲端服務] 專案，然後選取 [Web 角色] 和 [背景工作角色]。
+您可以將這些指示與現有專案或新的專案搭配使用。  如果您建立新的專案來嘗試上面所述的技術，請選擇 C# [Azure 雲端服務]  專案，然後選取 [Web 角色]  和 [背景工作角色]  。
 
 ![Azure 雲端服務專案角色][5]
 
@@ -75,12 +75,12 @@ private async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
-在方案組態設定為 [發行] 的情況下，在本機建置和執行雲端服務，而不要進行偵錯 (Ctrl+F5)。 這確保建立在本機執行應用程式的所有檔案和資料夾，並確保已啟動所有模擬器。 從工作列啟動 Compute Emulator UI，以驗證您的背景工作角色執行中。
+在方案組態設定為 [發行]  的情況下，在本機建置和執行雲端服務，而不要進行偵錯 (Ctrl+F5)。 這確保建立在本機執行應用程式的所有檔案和資料夾，並確保已啟動所有模擬器。 從工作列啟動 Compute Emulator UI，以驗證您的背景工作角色執行中。
 
 ## <a name="2-attach-to-a-process"></a>2：附加至處理序
 您必須將分析工具連結至執行中程序，而不是從 Visual Studio 2010 IDE 啟動應用程式來分析應用程式。 
 
-若要將分析工具連結至程序，請在 [分析] 功能表上選擇 [分析工具] 和 [連結/中斷連結]。
+若要將分析工具連結至程序，請在 [分析]  功能表上選擇 [分析工具]  和 [連結/中斷連結]  。
 
 ![附加設定檔選項][6]
 
@@ -109,7 +109,7 @@ Trace.WriteLine(message, "Information");
 
 連結之後，請在應用程式 UI 中執行步驟 (需要時) 來重現案例。
 
-當您想要停止分析時，請選擇 [停止分析] 連結。
+當您想要停止分析時，請選擇 [停止分析]  連結。
 
 ![停止分析選項][10]
 
@@ -146,7 +146,7 @@ public static string Concatenate(int number)
 }
 ```
 
-請進行另一個效能執行，然後比較效能。 在 [效能總管] 中，如果這些執行都位於相同的工作階段中，則只能選取兩份報告，並開啟捷徑功能表，然後選擇 [比較效能報告]。 如果您想要與另一個效能工作階段中的執行進行比較，請開啟 [分析] 功能表，然後選擇 [比較效能報告]。 請在顯示的對話方塊中指定兩個檔案。
+請進行另一個效能執行，然後比較效能。 在 [效能總管] 中，如果這些執行都位於相同的工作階段中，則只能選取兩份報告，並開啟捷徑功能表，然後選擇 [比較效能報告]  。 如果您想要與另一個效能工作階段中的執行進行比較，請開啟 [分析]  功能表，然後選擇 [比較效能報告]  。 請在顯示的對話方塊中指定兩個檔案。
 
 ![比較效能報告選項][15]
 

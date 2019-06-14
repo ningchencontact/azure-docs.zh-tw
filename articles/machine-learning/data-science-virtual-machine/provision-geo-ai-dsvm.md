@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
 ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60578508"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>在 Azure 上佈建地區人工智慧虛擬機器 
@@ -41,7 +41,7 @@ Geo-DSVM 包含數個人工智慧工具，包括：
 
 
 1. 瀏覽至 [Azure 入口網站](https://ms.portal.azure.com/#create/microsoft-ads.geodsvmwindows)上的虛擬機器清單。
-2. 選取底部的 [建立] 按鈕以進入精靈。
+2. 選取底部的 [建立]  按鈕以進入精靈。
 ![create-geo-ai-dsvm](./media/provision-geo-ai-dsvm/Create-Geo-AI.png)
 3. 針對此圖右邊列舉的**四個步驟**，用來建立 Geo-DSVM 的精靈會要求**輸入**每個步驟。 以下是設定每個步驟所需的輸入：
 
@@ -55,18 +55,18 @@ Geo-DSVM 包含數個人工智慧工具，包括：
 
       3. **密碼**：系統管理員帳戶密碼。
 
-      4. 訂用帳戶：如果您有多個訂用帳戶，請選取要用來建立機器和開立帳單的訂用帳戶。
+      4. 訂用帳戶  ：如果您有多個訂用帳戶，請選取要用來建立機器和開立帳單的訂用帳戶。
 
       5. **資源群組**：您可以建立新的群組，也可以使用訂用帳戶中**空白**的現有 Azure 資源群組。
 
-      6. **位置**：選取最適合的資料中心。 它通常是擁有您大部分的資料或者是最接近您的實際位置以取得最快速度的網路存取的資料中心。 如果您需要對 GPU 進行深度學習，您必須在 Azure 中選擇具有 NC 系列 GPU VM 執行個體的其中一個位置。 目前具有 GPU VM 的位置包括：**美國東部、美國中北部、美國中南部、美國西部 2、北歐、西歐**。 如需最新的清單，請參閱[依據區域的 Azure 產品分頁](https://azure.microsoft.com/regions/services/)，並且在 [計算] 底下尋找 **NC 系列**。 
+      6. **位置**：選取最適合的資料中心。 它通常是擁有您大部分的資料或者是最接近您的實際位置以取得最快速度的網路存取的資料中心。 如果您需要對 GPU 進行深度學習，您必須在 Azure 中選擇具有 NC 系列 GPU VM 執行個體的其中一個位置。 目前具有 GPU VM 的位置包括：**美國東部、美國中北部、美國中南部、美國西部 2、北歐、西歐**。 如需最新的清單，請參閱[依據區域的 Azure 產品分頁](https://azure.microsoft.com/regions/services/)，並且在 [計算]  底下尋找 **NC 系列**。 
 
 
    - **設定**：如果您打算在「地區 DSVM」的 GPU 上執行深度學習，請選取其中一個 NC 系列 GPU 虛擬機器大小。 否則，您可以選擇其中一個以 CPU 為基礎的執行個體。  為您的 VM 建立儲存體帳戶。 
    
    - **摘要**：請確認您輸入的所有資訊都正確無誤。
 
-   - ：按一下 [購買] 以開始佈建。 系統會提供服務條款的連結。 VM 除了計算您在 [大小]  步驟中所選擇的伺服器大小之外，不會收取任何其他費用。 
+   -  ：按一下 [購買]  以開始佈建。 系統會提供服務條款的連結。 VM 除了計算您在 [大小]  步驟中所選擇的伺服器大小之外，不會收取任何其他費用。 
  
 >[!NOTE]
 > 佈建大約需要 20-30 分鐘。 在 Azure 入口網站中會顯示佈建的狀態。
@@ -74,7 +74,7 @@ Geo-DSVM 包含數個人工智慧工具，包括：
  
 ## <a name="how-to-access-the-geo-ai-data-science-virtual-machine"></a>如何存取地區人工智慧資料科學虛擬機器
 
- 一旦建立 VM，您就可以開始使用其上安裝和預先設定的工具。 我們為許多工具提供了開始功能表磚和桌面圖示。 您可以使用您在前面的 [基本] 區段中設定的系統管理員帳戶認證從遠端桌面登入 VM。 
+ 一旦建立 VM，您就可以開始使用其上安裝和預先設定的工具。 我們為許多工具提供了開始功能表磚和桌面圖示。 您可以使用您在前面的 [基本]  區段中設定的系統管理員帳戶認證從遠端桌面登入 VM。 
 
  
 ## <a name="using-arcgis-pro-installed-in-the-vm"></a>使用 VM 中安裝的 ArcGIS Pro

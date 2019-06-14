@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.openlocfilehash: c85074a2b26a79dbf5e464972e7f82b5955d15f1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64692477"
 ---
 # <a name="scp-programming-guide"></a>SCP 程式設計指南
@@ -25,7 +25,7 @@ SCP 專案不僅將 Storm 移植到 Windows 上，此專案也為 Windows 生態
 ## <a name="processing-model"></a>處理模型
 SCP 中的資料模擬成連續的 Tuple 串流。 通常，Tuple 會先流進一些佇列，經過挑選，再由 Storm 拓撲內裝載的商業邏輯來轉換，最後，輸出以 Tuple 的形式傳遞至另一個 SCP 系統，或認可到存放區 (例如分散式檔案系統) 或資料庫 (例如 SQL Server)。
 
-![馈送待处理数据的队列（在数据存储中馈送数据）示意图](./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
+![佇列饋送資料 (饋送資料存放區) 以供處理的圖](./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
 
 在 Storm 中，應用程式拓撲定義一份運算圖。 拓撲中的每個節點包含處理邏輯，節點之間的連結代表資料流程。 將輸入資料注入拓撲中的節點稱為 _Spout_，可用來編排資料。 輸入資料可能位於檔案記錄、交易式資料庫、系統效能計數器等。同時有輸入和輸出資料流程的節點稱為 _Bolt_，負責進行實際的資料篩選及挑選和彙總。
 
@@ -70,7 +70,7 @@ ISCPSpout 為非交易式 spout 的介面。
 
 呼叫 `NextTuple()` 時，C\# 使用者程式碼可能發出一或多個 Tuple。 如果沒有資料可發出，此方法應該返回而不發出任何資料。 請注意，`NextTuple()`、`Ack()` 和 `Fail()` 都是在 C\# 程序的單一執行緒中放在密封迴圈內呼叫。 沒有 Tuple 可發出時，建議讓 NextTuple 短暫休息 (例如 10 毫秒)，不致於浪費太多 CPU。
 
-只有當規格檔中啟用認可機制時，才會呼叫 `Ack()` 和 `Fail()`。 `seqId` 用于识别已确认或失败的元组。 因此，如果非交易式拓撲中啟用認可，則 Spout 中應該使用下列 emit 函數：
+只有當規格檔中啟用認可機制時，才會呼叫 `Ack()` 和 `Fail()`。 `seqId`用來識別已認可或失敗的 tuple。 因此，如果非交易式拓撲中啟用認可，則 Spout 中應該使用下列 emit 函數：
 
     public abstract void Emit(string streamId, List<object> values, long seqId); 
 
@@ -149,7 +149,7 @@ Context 提供應用程式的執行環境。 每個 ISCPPlugin 執行個體 (ISC
     public Dictionary<string, Object> stormConf { get; set; }  
     public Dictionary<string, Object> pluginConf { get; set; }  
 
-`stormConf` 是由 Storm 定義的參數，`pluginConf` 是由 SCP 定義的參數。 例如︰
+`stormConf` 是由 Storm 定義的參數，`pluginConf` 是由 SCP 定義的參數。 例如:
 
     public class Constants
     {
@@ -419,7 +419,7 @@ runspec 命令會隨著程式碼一起部署，用法如下：
 ### <a name="multi-stream-support"></a>多重串流支援
 SCP 支援使用者程式碼同時發出或接收多個不同串流。 此支援反映在 Context 物件中，因為 Emit 方法接受一個選擇性串流 ID 參數。
 
-SCP.NET Context 物件中已增加兩個方法。 这些方法用于发送一个或多个元组以指定 StreamId。 StreamId 是字串，在 C\# 與拓撲定義規格中必須一致。
+SCP.NET Context 物件中已增加兩個方法。 用以發出一或多個 Tuple 來指定 StreamId。 StreamId 是字串，在 C\# 與拓撲定義規格中必須一致。
 
         /* Emit tuple to the specific stream. */
         public abstract void Emit(string streamId, List<object> values);
@@ -430,7 +430,7 @@ SCP.NET Context 物件中已增加兩個方法。 这些方法用于发送一个
 發出給不存在的串流會造成執行階段例外狀況。
 
 ### <a name="fields-grouping"></a>欄位分組
-Storm 中内置的字段分组在 SCP.NET 中无法正常使用。 在 Java Proxy 端，所有欄位資料類型實際上為 byte[]，而欄位群組會使用 byte[] 物件雜湊碼來執行群組。 byte[] 物件雜湊碼是此物件在記憶體中的位址。 因此，共用相同內容但不是相同位址的兩個 byte[] 物件，分組會錯誤。
+在 Storm 中內建的欄位群組不會在 SCP.NET 中正常運作。 在 Java Proxy 端，所有欄位資料類型實際上為 byte[]，而欄位群組會使用 byte[] 物件雜湊碼來執行群組。 byte[] 物件雜湊碼是此物件在記憶體中的位址。 因此，共用相同內容但不是相同位址的兩個 byte[] 物件，分組會錯誤。
 
 SCP.NET 增加一個自訂的分組方法，它會使用 byte[] 的內容來執行分組。 在 **SPEC** 檔案中，語法如下：
 
@@ -465,7 +465,7 @@ SCP.NET 增加一個自訂的分組方法，它會使用 byte[] 的內容來執�
 
     bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*
 
-其中，examples\\HybridTopology\\java\\target\\ 是包含 Java Spout/Bolt Jar 文件的文件夹。
+在這裡，**examples\\HybridTopology\\java\\target\\** 是包含 Java Spout/Bolt Jar 檔案的資料夾。
 
 ### <a name="serialization-and-deserialization-between-java-and-c"></a>Java 與 C\# 之間的序列化和還原序列化
 SCP 元件包含 Java 和 C\# 端。 為了與原生 Java Spout/Bolt 互動，必須在 Java 和 C\# 端之間進行序列化/還原序列化，如下圖所示。
@@ -572,7 +572,7 @@ SCP 元件包含 Java 和 C\# 端。 為了與原生 Java Spout/Bolt 互動，�
     }
     Context.Logger.Info("enableAck: {0}", enableAck);
 
-在 Spout 中，如果启用了确认功能，会使用字典将未确认的元组存储在缓存中。 如果呼叫 Fail()，則會重播失敗的 Tuple：
+在 spout 中，如果啟用通知，則會使用字典來快取尚未認可的 tuple。 如果呼叫 Fail()，則會重播失敗的 Tuple：
 
     public void Fail(long seqId, Dictionary<string, Object> parms)
     {

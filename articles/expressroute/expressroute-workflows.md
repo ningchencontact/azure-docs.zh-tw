@@ -9,10 +9,10 @@ ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883169"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>ExpressRoute 工作流程線路佈建和線路狀態
@@ -50,11 +50,11 @@ Status 代表 Microsoft 的佈建狀態。 這個屬性會在您建立 Expressro
 連線提供者佈建狀態代表連線提供者那端的狀態。 可能是 *NotProvisioned*、*Provisioning* 或 *Provisioned*。 ExpressRoute 線路必須處於 Provisioned 狀態，才可供您使用。
 
 ### <a name="possible-states-of-an-expressroute-circuit"></a>ExpressRoute 線路的可能狀態
-本部分列出 ExpressRoute 线路的可能状态。
+本節列出 ExpressRoute 線路的可能狀態。
 
 **在建立時**
 
-运行 PowerShell cmdlet 创建 ExpressRoute 线路后，很快就会看到 ExpressRoute 线路处于以下状态。
+執行 PowerShell Cmdlet 建立 ExpressRoute 線路後，您很快就會看到 ExpressRoute 線路處於下列狀態。
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled

@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: aed63e332375be4f8ed939cf162545c9f366f329
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66143439"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>自訂遠端監視解決方案加速器
@@ -31,7 +31,7 @@ ms.locfileid: "66143439"
 
 1. 使用 **pcs** CLI 來部署解決方案加速器的**基本**執行個體。 記下部署的名稱以及您為虛擬機器提供的認證。 如需詳細資訊，請參閱[使用 CLI 進行部署](iot-accelerators-remote-monitoring-deploy-cli.md)。
 
-1. 若要針對裝載解決方案中微服務的虛擬機器啟用 SSH 存取，請使用 Azure 入口網站或 Azure Cloud Shell。 例如：
+1. 若要針對裝載解決方案中微服務的虛擬機器啟用 SSH 存取，請使用 Azure 入口網站或 Azure Cloud Shell。 例如:
 
     ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -39,7 +39,7 @@ ms.locfileid: "66143439"
 
     請只在測試和開發期間啟用 SSH 存取。 如果您啟用 SSH，[您應該在使用完畢之後儘速加以停用](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines)。
 
-1. 使用 Azure 入口網站或 Azure Cloud Shell 尋找虛擬機器的名稱和公用 IP 位址。 例如：
+1. 使用 Azure 入口網站或 Azure Cloud Shell 尋找虛擬機器的名稱和公用 IP 位址。 例如:
 
     ```azurecli-interactive
     az resource list --resource-group {your solution name} -o table
@@ -77,7 +77,7 @@ ms.locfileid: "66143439"
 
 ## <a name="customize-the-layout"></a>自訂版面配置
 
-遠端監視解決方案中的每個頁面都是由一組控制項所組成，這在原始程式碼中稱為*面板*。 [儀表板] 頁面由五個面板所組成：概觀、地圖、警示、遙測及 Analytics。 您可以在 [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) \(英文\) GitHub 存放庫中找到定義每個頁面及其面板的原始程式碼。 例如，定義 [儀表板] 頁面、其版面配置，以及頁面上面板的程式碼位於 [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) \(英文\) 資料夾中。
+遠端監視解決方案中的每個頁面都是由一組控制項所組成，這在原始程式碼中稱為*面板*。 [儀表板]  頁面由五個面板所組成：概觀、地圖、警示、遙測及 Analytics。 您可以在 [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) \(英文\) GitHub 存放庫中找到定義每個頁面及其面板的原始程式碼。 例如，定義 [儀表板]  頁面、其版面配置，以及頁面上面板的程式碼位於 [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) \(英文\) 資料夾中。
 
 由於面板會管理自己的版面配置及大小，因此您可以輕易地修改頁面的版面配置。 對 `src/components/pages/dashboard/dashboard.js` 檔案中的 **PageContent** 元素進行下列變更：
 
@@ -335,7 +335,7 @@ ms.locfileid: "66143439"
 
 ## <a name="add-a-new-kpi"></a>新增 KPI
 
-[儀表板] 頁面會在 [Analytics] 面板中顯示 KPI。 這些 KPI 是在 `src/components/pages/dashboard/dashboard.js` 檔案中計算的。 KPI 會由 `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` 檔案來呈現。 下列步驟說明如何在 [儀表板] 頁面上計算並呈現新的 KPI 值。 顯示的範例會在警告警示 KPI 中新增百分比變更：
+[儀表板]  頁面會在 [Analytics]  面板中顯示 KPI。 這些 KPI 是在 `src/components/pages/dashboard/dashboard.js` 檔案中計算的。 KPI 會由 `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` 檔案來呈現。 下列步驟說明如何在 [儀表板]  頁面上計算並呈現新的 KPI 值。 顯示的範例會在警告警示 KPI 中新增百分比變更：
 
 1. 開啟 `src/components/pages/dashboard/dashboard.js` 檔案。 修改 **initialState** 物件以包含 **warningAlertsChange** 屬性，如下所示：
 
@@ -469,7 +469,7 @@ ms.locfileid: "66143439"
     </div>
     ```
 
-[儀表板] 頁面現在會顯示新的 KPI 值：
+[儀表板]  頁面現在會顯示新的 KPI 值：
 
 ![警告 KPI](./media/iot-accelerators-remote-monitoring-customize/new-kpi.png)
 

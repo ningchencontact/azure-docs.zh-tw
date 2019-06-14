@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23a8eaaf095be1d59944791bd793047886dda40c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544802"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft 身分識別平台和 OpenID Connect 通訊協定
@@ -32,7 +32,7 @@ OpenID Connect 在 OAuth 2.0 上建置的驗證通訊協定，可用來讓使用
 > [!NOTE]
 > Microsoft 身分識別平台端點不支援所有的 Azure Active Directory (Azure AD) 案例和功能。 若要判斷您是否應該使用 Microsoft 身分識別平台的端點，請參閱[Microsoft 身分識別平台限制](active-directory-v2-limitations.md)。
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) 將 OAuth 2.0「授權」通訊協定延伸來當作「驗證」通訊協定使用，以便讓您能夠使用 OAuth 來執行單一登入。 OpenID Connect 引進了「識別碼權杖」的概念，這是一種安全性權杖，可讓用戶端確認使用者的身分識別。 識別碼權杖也會取得使用者的相關基本設定檔資訊。 由於 OpenID Connect 延伸了 OAuth 2.0，因此應用程式可以安全地取得「存取權杖」，而這些權杖可用來存取受[授權伺服器](active-directory-v2-protocols.md#the-basics)保護的資源。 Microsoft 身分識別平台端點也可讓協力廠商應用程式已向 Azure AD 以發出受保護的資源，例如 Web Api 的存取權杖。 如需如何設定應用程式，以發出存取權杖的詳細資訊，請參閱[如何使用 Microsoft 身分識別平台端點註冊 app](quickstart-register-app.md)。 如果您要建置裝載於伺服器上且透過瀏覽器存取的 [Web 應用程式](v2-app-types.md#web-apps)，建議您使用 OpenID Connect。
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) 將 OAuth 2.0「授權」  通訊協定延伸來當作「驗證」  通訊協定使用，以便讓您能夠使用 OAuth 來執行單一登入。 OpenID Connect 引進了「識別碼權杖」  的概念，這是一種安全性權杖，可讓用戶端確認使用者的身分識別。 識別碼權杖也會取得使用者的相關基本設定檔資訊。 由於 OpenID Connect 延伸了 OAuth 2.0，因此應用程式可以安全地取得「存取權杖」  ，而這些權杖可用來存取受[授權伺服器](active-directory-v2-protocols.md#the-basics)保護的資源。 Microsoft 身分識別平台端點也可讓協力廠商應用程式已向 Azure AD 以發出受保護的資源，例如 Web Api 的存取權杖。 如需如何設定應用程式，以發出存取權杖的詳細資訊，請參閱[如何使用 Microsoft 身分識別平台端點註冊 app](quickstart-register-app.md)。 如果您要建置裝載於伺服器上且透過瀏覽器存取的 [Web 應用程式](v2-app-types.md#web-apps)，建議您使用 OpenID Connect。
 
 ## <a name="protocol-diagram-sign-in"></a>通訊協定圖表：登入
 
@@ -48,11 +48,11 @@ OpenID Connect 所描述的中繼資料文件，其中包含大部分的應用�
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
 > [!TIP]
-> 試用! 按一下 [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) 以查看 `common` 租用戶設定。
+> 試試看！ 按一下 [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) 以查看 `common` 租用戶設定。
 
 `{tenant}` 可以接受下列四個值的其中一個：
 
-| Value | 說明 |
+| 值 | 描述 |
 | --- | --- |
 | `common` |使用個人 Microsoft 帳戶和工作或學校帳戶從 Azure AD 使用者可以登入應用程式。 |
 | `organizations` |只有具有來自 Azure AD 之工作或學校帳戶的使用者可以登入應用程式。 |
@@ -91,7 +91,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 > [!IMPORTANT]
 > 若要成功地從 /authorization 端點，該應用程式註冊要求識別碼權杖[註冊入口網站](https://portal.azure.com)必須在 [驗證] 索引標籤中啟用的 id_token 的隱含授與 (可設定`oauth2AllowIdTokenImplicitFlow`中的旗標[應用程式資訊清單](reference-app-manifest.md)至`true`)。 如果未啟用，`unsupported_response`便會傳回錯誤：「 此用戶端不允許的輸入參數 'response_type' 提供的值。 Expected value is 'code'" (此用戶端的 'response_type' 輸入參數不允許使用所提供的值。預期的值為 'code')
 
-例如：
+例如:
 
 ```
 // Line breaks are for legibility only.
@@ -110,7 +110,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 請按一下以下連結來執行此要求。 登入之後，您的瀏覽器將會重新導向至 `https://localhost/myapp/`，網址列中會有識別碼權杖。 請注意，此要求會使用 `response_mode=fragment` (僅限用於示範)。 建議您使用 `response_mode=form_post`。
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| 參數 | 條件 | 說明 |
+| 參數 | 條件 | 描述 |
 | --- | --- | --- |
 | `tenant` | 必要項 | 您可以要求路徑中使用 `{tenant}` 值來控制可登入應用程式的人員。 允許的值為 `common`、`organizations`、`consumers` 及租用戶識別碼。 如需詳細資訊，請參閱[通訊協定基本概念](active-directory-v2-protocols.md#endpoints)。 |
 | `client_id` | 必要項 | **應用程式 （用戶端） 識別碼**可[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)指派給您的應用程式的體驗。 |
@@ -128,7 +128,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 使用者驗證並授與同意，Microsoft 身分識別平台端點將回應傳回給您的應用程式，在指定之後使用重新導向 URI 中指定的方法`response_mode`參數。
 
-### <a name="successful-response"></a>成功的回應
+### <a name="successful-response"></a>成功回應
 
 使用 `response_mode=form_post` 時的成功回應看起來像這樣：
 
@@ -140,14 +140,14 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | `id_token` | 應用程式所要求的識別碼權杖。 您可以使用 `id_token` 參數來確認使用者的身分識別，並開始與使用者的工作階段。 如需識別碼權杖及其內容的詳細資料，請參閱 [`id_tokens` 參考](id-tokens.md)。 |
 | `state` | 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應該確認要求和回應中的狀態值完全相同。 |
 
 ### <a name="error-response"></a>錯誤回應
 
-錯誤回應也可能傳送到重新導向 URI，以便讓應用程式能夠處理它們。 错误响应如下所示：
+錯誤回應也可能傳送到重新導向 URI，以便讓應用程式能夠處理它們。 錯誤回應看起來像這樣：
 
 ```
 POST /myapp/ HTTP/1.1
@@ -157,7 +157,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | `error` | 您可用來分類發生的錯誤類型並對錯誤做出反應的錯誤碼字串。 |
 | `error_description` | 可協助您識別驗證錯誤根本原因的特定錯誤訊息。 |
@@ -166,13 +166,13 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 下表說明可能在錯誤回應的 `error` 參數中傳回的錯誤碼：
 
-| 錯誤碼 | 說明 | 客户端操作 |
+| 錯誤碼 | 描述 | 用戶端動作 |
 | --- | --- | --- |
 | `invalid_request` | 通訊協定錯誤，例如遺漏必要的參數。 |修正並重新提交要求。 這是通常在初始測試期間擷取到的開發錯誤。 |
 | `unauthorized_client` | 用戶端應用程式無法要求授權碼。 |當用戶端應用程式未在 Azure AD 中註冊，或不會新增至使用者的 Azure AD 租用戶，這通常會發生。 應用程式可以對使用者提示一些指示，來安裝應用程式並將它新增到 Azure AD。 |
 | `access_denied` | 資源擁有者拒絕同意。 |用戶端應用程式可以通知使用者，除非使用者同意，否則無法繼續進行。 |
 | `unsupported_response_type` |授權伺服器不支援要求中的回應類型。 |修正並重新提交要求。 這是通常在初始測試期間擷取到的開發錯誤。 |
-| `server_error` | 伺服器發生非預期的錯誤。 |重试请求。 這些錯誤可能是由暫時性狀況所引起。 用戶端應用程式可能會向使用者解釋，其回應因為暫時性錯誤而延遲。 |
+| `server_error` | 伺服器發生非預期的錯誤。 |重試要求。 這些錯誤可能是由暫時性狀況所引起。 用戶端應用程式可能會向使用者解釋，其回應因為暫時性錯誤而延遲。 |
 | `temporarily_unavailable` | 伺服器暫時過於忙碌而無法處理要求。 |重試要求。 用戶端應用程式可能會向使用者解釋其回應，因為暫時的狀況而延遲。 |
 | `invalid_resource` | 目標資源無效，因為它不存在、 Azure AD 無法找到它，或是未正確設定。 |這表示，該資源中，若有的話，尚未設定租用戶中。 應用程式可以對使用者提示一些指示，來安裝應用程式並將它新增到 Azure AD。 |
 
@@ -182,7 +182,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 您可以選擇驗證`id_token`在用戶端程式碼，但常見的作法是將傳送`id_token`到的後端伺服器，並執行那里的驗證。 一旦驗證了 id_token 的簽章，有數項宣告您將需要確認。 如需詳細資訊，請參閱 [`id_token`參考](id-tokens.md)，其中包括[驗證權杖](id-tokens.md#validating-an-id_token)和[有關簽署金鑰變換的重要資訊](active-directory-signing-key-rollover.md)。 我們建議利用程式庫來剖析和驗證權杖 - 對於大部分語言和平台至少有一個可用。
 
-您可能也希望根據自己的案例驗證其他宣告。 一些常见的验证包括：
+您可能也希望根據自己的案例驗證其他宣告。 一些常見的驗證包括：
 
 * 確保使用者/組織已註冊應用程式。
 * 確保使用者擁有正確的授權/權限
@@ -201,7 +201,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| 參數 | 條件 | 說明 |
+| 參數 | 條件 | 描述 |
 | ----------------------- | ------------------------------- | ------------ |
 | `post_logout_redirect_uri` | 建議 | 使用者在成功登出之後，要重新導致到的 URL。如果參數未包含，使用者就會顯示一般訊息所產生的 Microsoft 身分識別平台的端點。 此 URL 必須與您在應用程式註冊入口網站中為應用程式註冊的其中一個重新導向 URI 相符。 |
 
@@ -241,7 +241,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 
 在要求中包含權限範圍，以及使用`response_type=id_token code`，Microsoft 身分識別平台端點可確保使用者已經同意中指出的權限`scope`查詢參數。 它會將授權碼傳回給到您的應用程式以交換存取權杖。
 
-### <a name="successful-response"></a>成功的回應
+### <a name="successful-response"></a>成功回應
 
 使用 `response_mode=form_post` 的成功回應看起來像這樣：
 
@@ -253,13 +253,13 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
-| `id_token` | 应用请求的 ID 令牌。 您可以使用識別碼權杖來確認使用者的身分識別，然後開始與使用者的工作階段。 如需有關識別碼權杖及其內容的更多詳細資料，請參閱 [`id_tokens` 參考](id-tokens.md)。 |
+| `id_token` | 應用程式所要求的識別碼權杖。 您可以使用識別碼權杖來確認使用者的身分識別，然後開始與使用者的工作階段。 如需有關識別碼權杖及其內容的更多詳細資料，請參閱 [`id_tokens` 參考](id-tokens.md)。 |
 | `code` | 應用程式所要求的授權碼。 應用程式可以使用授權碼要求目標資源的存取權杖。 授權碼是短期的。 授權碼的有效期通常大約是 10 分鐘。 |
-| `state` | 如果要求中包含狀態參數，回應中就應該出現相同的值。 应用应该验证请求和响应中的 state 值是否完全相同。 |
+| `state` | 如果要求中包含狀態參數，回應中就應該出現相同的值。 應用程式應該確認要求和回應中的狀態值完全相同。 |
 
-### <a name="error-response"></a>错误响应
+### <a name="error-response"></a>錯誤回應
 
 錯誤回應也可能傳送到重新導向 URI，以便讓應用程式能夠適當地處理它們。 錯誤回應看起來像這樣：
 
@@ -271,7 +271,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | `error` | 您可用來分類發生的錯誤類型並對錯誤做出反應的錯誤碼字串。 |
 | `error_description` | 可協助您識別驗證錯誤根本原因的特定錯誤訊息。 |

@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024433"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>在 Azure 搜尋服務中建立基本索引
 
-在 Azure 搜尋服務中，*索引*是 Azure 搜尋服務上的*文件*及其他用於經篩選和全文搜尋的建構所做的持續性儲存。 就概念而言，文件是索引中可搜尋資料的單一單位。 例如，電子商務零售商可能會有儲存了每個銷售項目的文件、新聞組織可能會有儲存了每篇文章的文件，類似情況不一而足。 對應這些概念到更熟悉的資料庫同等項目：索引在概念上類似於資料表，而文件大致上相當於資料表中的資料列。
+在 Azure 搜尋服務中，*索引*是 Azure 搜尋服務上的*文件*及其他用於經篩選和全文搜尋的建構所做的持續性儲存。 就概念而言，文件是索引中可搜尋資料的單一單位。 例如，電子商務零售商可能會有儲存了每個銷售項目的文件、新聞組織可能會有儲存了每篇文章的文件，類似情況不一而足。 對應這些概念到更熟悉的資料庫同等項目：索引  在概念上類似於資料表  ，而文件  大致上相當於資料表中的資料列  。
 
-當您新增或上傳索引時，Azure 搜尋服務會根據您提供的結構描述建立實體結構。 例如，如果您索引中的某個欄位被標記為可搜尋，系統便會針對該欄位建立反向的索引。 當您稍後新增或上傳文件，或提交搜尋查詢到 Azure 搜尋服務時，您是將要求傳送到搜尋服務中的特定索引。 載入具有文件值的欄位，被稱為「編製索引」或資料擷取。
+當您新增或上傳索引時，Azure 搜尋服務會根據您提供的結構描述建立實體結構。 例如，如果您索引中的某個欄位被標記為可搜尋，系統便會針對該欄位建立反向的索引。 當您稍後新增或上傳文件，或提交搜尋查詢到 Azure 搜尋服務時，您是將要求傳送到搜尋服務中的特定索引。 載入具有文件值的欄位，被稱為「編製索引」  或資料擷取。
 
 您可以在入口網站、[REST API](search-create-index-rest-api.md) 或 [.NET SDK](search-create-index-dotnet.md)中建立索引。
 
@@ -30,11 +30,11 @@ ms.locfileid: "65024433"
 
 1. 判斷您是否可以使用[索引子](search-indexer-overview.md#supported-data-sources)。 如果您的外部資料是其中一個支援的資料來源，您可以使用[**匯入資料**](search-import-data-portal.md)精靈來建立原型並載入索引。
 
-2. 如果您無法使用 [匯入資料]，仍然可以[在入口網站中建立初始索引](search-create-index-portal.md)，以及使用 [新增索引] 頁面上的控制項來新增欄位、資料類型和指派屬性。 入口網站會顯示不同的資料類型適用哪些屬性。 如果您還不熟悉索引設計，這很有幫助。
+2. 如果您無法使用 [匯入資料]  ，仍然可以[在入口網站中建立初始索引](search-create-index-portal.md)，以及使用 [新增索引]  頁面上的控制項來新增欄位、資料類型和指派屬性。 入口網站會顯示不同的資料類型適用哪些屬性。 如果您還不熟悉索引設計，這很有幫助。
 
    ![依資料類型顯示屬性的新增索引頁面](media/search-create-index-portal/field-attributes.png "依資料類型顯示屬性的新增索引頁面")
   
-   當您按一下 [建立] 時，所有支援您索引的實體結構都會建立於您的搜尋服務中。
+   當您按一下 [建立]  時，所有支援您索引的實體結構都會建立於您的搜尋服務中。
 
 3. 使用[取得索引 REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) 和 [Postman](search-fiddler.md) 之類的 Web 測試工具，下載索引結構描述。 對於您在入口網站中建立的索引，您現在有其 JSON 表示法。 
 
@@ -54,7 +54,7 @@ ms.locfileid: "65024433"
 
 就結構描述而言，Azure 搜尋服務索引會包含下列元素。 
 
-「[欄位集合](#fields-collection)」通常是索引中最大的一部分，其中每個欄位都會具有名稱、類型和屬性，以及可決定其使用方式的可允許行為。 其他項目包含[建議](#suggesters)，[評分設定檔](#scoring-profiles)，[分析器](#analyzers)元件組件，以支援自訂[CORS](#cors)和[加密金鑰](#encryption-key)選項。
+「[欄位集合](#fields-collection)」  通常是索引中最大的一部分，其中每個欄位都會具有名稱、類型和屬性，以及可決定其使用方式的可允許行為。 其他項目包含[建議](#suggesters)，[評分設定檔](#scoring-profiles)，[分析器](#analyzers)元件組件，以支援自訂[CORS](#cors)和[加密金鑰](#encryption-key)選項。
 
 ```json
 {
@@ -209,7 +209,7 @@ ms.locfileid: "65024433"
 
 + **allowedOrigins** (必要)：這是將授與您索引存取權限的原始來源清單。 這表示將允許來自那些原始來源的所有 JavaScript 程式碼查詢您的索引 (假設它能提供正確的 API 金鑰)。 每個原始來源的形式通常是 `protocol://<fully-qualified-domain-name>:<port>` (儘管經常會忽略 `<port>`)。 請參閱[跨原始來源資源共用](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)以取得詳細資料。
 
-  如果您想要允許所有原始來源進行存取，請在 **allowedOrigins** 陣列中包含 `*` 作為單一項目。 「此做法並不建議用於生產環境搜尋服務」，但對於開發和偵錯通常很有幫助。
+  如果您想要允許所有原始來源進行存取，請在 **allowedOrigins** 陣列中包含 `*` 作為單一項目。 「此做法並不建議用於生產環境搜尋服務」  ，但對於開發和偵錯通常很有幫助。
 
 + **maxAgeInSeconds** (選擇性)：瀏覽器會使用此值來判斷快取 CORS 預檢回應的持續期間 (以秒為單位)。 這必須是非負數的整數。 這個值越大，效能就越好，但是讓 CORS 原則變更生效的時間也就越長。 若未設定，即會使用預設持續期間 5 分鐘。
 

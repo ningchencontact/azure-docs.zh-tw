@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
 ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61033895"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>虛擬網路服務端點原則 (預覽)
@@ -158,7 +158,7 @@ __Azure 儲存體__：WestCentralUS、 WestUS2、 NorthCentralUS、 SouthCentral
 - 存取端點原則中所列的帳戶時遭到拒絕
   - 網路安全性群組或防火牆篩選條件可能會封鎖存取
   - 如果移除/重新套用原則會導致連線中斷：
-    - 驗證 Azure 服務是否設定為允許透過端點從虛擬網路存取，或資源的預設原則是否設定為「全部允許」。
+    - 驗證 Azure 服務是否設定為允許透過端點從虛擬網路存取，或資源的預設原則是否設定為「全部允許」  。
       > [!NOTE]      
       > 服務資源不需要在虛擬網路中受到保護，也可以透過端點原則取得存取權。 不過，我們建議的安全性最佳做法是使用受信任網路來保護服務資源，例如：若是 Azure 虛擬網路，請透過服務端點來保護；若是內部部署，則透過 IP 防火牆來保護。
   
@@ -166,9 +166,9 @@ __Azure 儲存體__：WestCentralUS、 WestUS2、 NorthCentralUS、 SouthCentral
     - 請檢查網路安全性群組流量記錄是否顯示存取狀態，而儲存體記錄是否如預期般顯示透過服務端點的存取狀態。
     - 連絡 Azure 支援。
 - 存取服務端點原則中未列的帳戶時遭到拒絕
-  - 網路安全性群組或防火牆篩選條件可能會封鎖存取。 請確認端點區域允許使用「Azure 儲存體」服務標籤。 如需了解原則的限制，請參閱[限制](#limitations)。
+  - 網路安全性群組或防火牆篩選條件可能會封鎖存取。 請確認端點區域允許使用「Azure 儲存體」  服務標籤。 如需了解原則的限制，請參閱[限制](#limitations)。
   例如，如果套用原則，則會拒絕傳統儲存體帳戶的存取。
-  - 驗證 Azure 服務是否設定為允許透過端點從虛擬網路存取，或資源的預設原則是否設定為「全部允許」。
+  - 驗證 Azure 服務是否設定為允許透過端點從虛擬網路存取，或資源的預設原則是否設定為「全部允許」  。
 
 ## <a name="provisioning"></a>佈建
 
@@ -182,7 +182,7 @@ __Azure 儲存體__：WestCentralUS、 WestUS2、 NorthCentralUS、 SouthCentral
 
 服務端點原則會強制執行下列限制： 
 
- |Resource | 預設限制 |
+ |資源 | 預設限制 |
  |---------|---------------|
  |ServiceEndpointPoliciesPerSubscription |500 |
  |ServiceEndpintPoliciesPerSubnet|100 |

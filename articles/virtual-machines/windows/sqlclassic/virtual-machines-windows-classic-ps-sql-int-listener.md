@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.openlocfilehash: 0e6a52ea2fdd05546a4da9f8cd1165b41ed27944
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62097660"
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>在 Azure 中設定 Always On 可用性群組的 ILB 接聽程式
@@ -56,16 +56,16 @@ ms.locfileid: "62097660"
 
 1. 在 Azure 入口網站中，移至每部主控複本的 VM 以檢視詳細資料。
 
-2. 按一下每部 VM 的 [端點] 索引標籤。
+2. 按一下每部 VM 的 [端點]  索引標籤。
 
-3. 對於您想要使用的接聽程式端點，確認其 [名稱] 和 [公用連接埠] 並未使用中。 在本節的範例中，名稱是 MyEndpoint，而通訊埠為 1433。
+3. 對於您想要使用的接聽程式端點，確認其 [名稱]  和 [公用連接埠]  並未使用中。 在本節的範例中，名稱是 MyEndpoint  ，而通訊埠為 1433  。
 
 4. 在您的本機用戶端上，下載並安裝最新的 [PowerShell 模組](https://azure.microsoft.com/downloads/)。
 
 5. 啟動 Azure PowerShell。  
     新的 PowerShell 工作階段隨即開啟並載入 Azure 系統管理模組。
 
-6. 运行 `Get-AzurePublishSettingsFile`。 此 cmdlet 将你定向到浏览器，以将发布设置文件下载到本地目录。 系統可能會提示您輸入 Azure 訂用帳戶的登入認證。
+6. 运行 `Get-AzurePublishSettingsFile`。 這個 Cmdlet 會將您導向瀏覽器，以便將發佈設定檔案下載至本機目錄。 系統可能會提示您輸入 Azure 訂用帳戶的登入認證。
 
 7. 使用您所下載發佈設定檔案的路徑來執行下列 `Import-AzurePublishSettingsFile` 命令：
 
@@ -78,7 +78,7 @@ ms.locfileid: "62097660"
         (Get-AzureVNetConfig).XMLConfiguration
 9. 請記下子網路 (其中包含主控複本的 VM) 的 *Subnet* 名稱。 此名稱使用於指令碼中的 $SubnetName 參數。
 
-10. 記下子網路 (其中包含主控複本的 VM) 的 VirtualNetworkSite 名稱和起始的 AddressPrefix。 將這兩個值傳遞至 `Test-AzureStaticVNetIP` 命令並檢查 AvailableAddresses 以尋找可用的 IP 位址。 例如，如果虛擬網路被命名為 MyVNet 且具有以 172.16.0.128 開始的子網路位址範圍，下列命令便會列出可用的位址：
+10. 記下子網路 (其中包含主控複本的 VM) 的 VirtualNetworkSite  名稱和起始的 AddressPrefix  。 將這兩個值傳遞至 `Test-AzureStaticVNetIP` 命令並檢查 AvailableAddresses  以尋找可用的 IP 位址。 例如，如果虛擬網路被命名為 MyVNet  且具有以 172.16.0.128  開始的子網路位址範圍，下列命令便會列出可用的位址：
 
         (Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 11. 選取其中一個可用的位址，並將其用於下一個步驟中指令碼的 $ILBStaticIP 參數。
@@ -87,7 +87,7 @@ ms.locfileid: "62097660"
 
     使用同質群組的現有部署無法新增 ILB。 如需有關 ILB 需求的詳細資訊，請參閱[內部負載平衡器概觀](../../../load-balancer/load-balancer-internal-overview.md)。
 
-    此外，如果可用性组跨 Azure 区域，则必须在每个数据中心内对其中的云服务和节点运行该脚本一次。
+    此外，如果您的可用性群組跨越 Azure 區域，您必須針對雲端服務和位於該資料中心的節點，在每個資料中心執行一次指令碼。
 
         # Define variables
         $ServiceName = "<MyCloudService>" # the name of the cloud service that contains the availability group nodes
@@ -105,7 +105,7 @@ ms.locfileid: "62097660"
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. 設定變數之後，請從文字編輯器將指令碼複製到您的 PowerShell 工作階段來執行它。 如果提示符仍然显示 >>，请再次按 Enter，以确保脚本开始运行。
+13. 設定變數之後，請從文字編輯器將指令碼複製到您的 PowerShell 工作階段來執行它。 如果提示依然顯示 **>>** ，請再次按 ENTER 鍵以確定指令碼開始執行。
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>必要時，請確認已安裝 KB2854082
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -113,7 +113,7 @@ ms.locfileid: "62097660"
 ## <a name="open-the-firewall-ports-in-availability-group-nodes"></a>在可用性群組節點中開啟防火牆連接埠
 [!INCLUDE [firewall](../../../../includes/virtual-machines-ag-listener-open-firewall.md)]
 
-## <a name="create-the-availability-group-listener"></a>创建可用性组侦听器
+## <a name="create-the-availability-group-listener"></a>建立可用性群組接聽程式
 
 透過兩個步驟建立可用性群組接聽程式。 首先，建立用戶端存取點叢集資源，並設定相依性。 接著，在 PowerShell 中設定叢集資源。
 
@@ -151,7 +151,7 @@ ms.locfileid: "62097660"
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. 設定變數之後，開啟提升權限的 Windows PowerShell 視窗，然後將指令碼從文字編輯器貼到您的 PowerShell 工作階段中來執行它。 如果提示依然顯示 **>>**，請再次按 ENTER 鍵以確定指令碼開始執行。
+3. 設定變數之後，開啟提升權限的 Windows PowerShell 視窗，然後將指令碼從文字編輯器貼到您的 PowerShell 工作階段中來執行它。 如果提示依然顯示 **>>** ，請再次按 ENTER 鍵以確定指令碼開始執行。
 
 4. 對每部 VM 重複上述步驟。  
     此指令碼會使用雲端服務的 IP 位址來設定 IP 位址資源，並設定其他參數 (例如探查連接埠)。 當 IP 位址資源處於線上時，它會從您稍早所建立的負載平衡端點，回應探查連接埠上的輪詢。

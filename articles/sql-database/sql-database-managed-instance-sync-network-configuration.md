@@ -7,17 +7,16 @@ ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: digimobile
-origin.date: 12/13/2018
-ms.date: 04/29/2019
+manager: craigg
+ms.date: 12/13/2018
 ms.openlocfilehash: 0d7920080fd61389741fbe785f5141003bef5251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61314664"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>同步處理 Azure App Service 裝載方案的網路組態
@@ -32,11 +31,11 @@ ms.locfileid: "61314664"
 
    ![App Service 方案](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
 
-2. 按一下 [網路]，然後按一下 [按一下這裡進行管理]。
+2. 按一下 [網路]  ，然後按一下 [按一下這裡進行管理]  。
 
    ![管理服務方案](./media/sql-database-managed-instance-sync-networking/manage-plan.png)
 
-3. 選取您的 VNet，按一下 [同步處理網路]。
+3. 選取您的 VNet  ，按一下 [同步處理網路]  。
 
    ![同步網路網路](./media/sql-database-managed-instance-sync-networking/sync.png)
 

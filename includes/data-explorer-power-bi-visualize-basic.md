@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: mblythe
 ms.openlocfilehash: 9624856841ec7473543575c31928c6eefd1404c1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66120590"
 ---
 您現在已有 Power BI Desktop 中的資料，即可根據該資料建立報告。 您將建立包含直條圖的簡單報告，其中顯示各州的農損。
@@ -17,7 +17,7 @@ ms.locfileid: "66120590"
 
     ![報表檢視](media/data-explorer-power-bi-visualize-basic/report-view.png)
 
-1. 在 [視覺效果] 窗格中，選取群組直條圖。
+1. 在 [視覺效果]  窗格中，選取群組直條圖。
 
     ![新增直條圖](media/data-explorer-power-bi-visualize-basic/add-column-chart.png)
 
@@ -25,7 +25,7 @@ ms.locfileid: "66120590"
 
     ![空白圖表](media/data-explorer-power-bi-visualize-basic/blank-chart.png)
 
-1. 在 [欄位] 清單中，選取 [DamageCrops] 和 [State]。
+1. 在 [欄位]  清單中，選取 [DamageCrops]  和 [State]  。
 
     ![選取欄位](media/data-explorer-power-bi-visualize-basic/select-fields.png)
 

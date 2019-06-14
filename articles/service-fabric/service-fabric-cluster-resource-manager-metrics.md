@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 1a61de6b0b6f73e112dd69108272ded3a67497e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516731"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>在 Service Fabric 中使用度量管理資源耗用量和負載
@@ -46,7 +46,7 @@ ms.locfileid: "60516731"
 
 <center>
 
-![包含默认指标的群集布局][Image1]
+![使用預設計量的叢集配置][Image1]
 </center>
 
 注意事項：
@@ -57,7 +57,7 @@ ms.locfileid: "60516731"
 
 很好！
 
-預設計量是個很好的起點。 不過，預設計量只能做到這個程度。 例如︰所选择的分区方案实现所有分区完全平均使用的可能性有多大？ 所指定服務的負載在一段時間內保持不變或只是現在跨多個資料分割相同的機率為何？
+預設計量是個很好的起點。 不過，預設計量只能做到這個程度。 例如: 資料分割配置您的可能性為何選擇結果完全平均使用所有資料分割嗎？ 所指定服務的負載在一段時間內保持不變或只是現在跨多個資料分割相同的機率為何？
 
 您可以僅使用預設計量來執行。 不過，這樣通常表示叢集使用率較低，比您想要的更不平均。 這是因為預設計量不是調適性的，而是假設所有項目都相等。 例如，忙碌的主要複本和一個不忙碌的其他複本都會對 PrimaryCount 計量貢獻 "1"。 在最糟的情況下，使用預設計量也可能導致節點被過度排定，而造成效能問題。 如果您對充分利用叢集並避免效能問題感興趣，您必須使用自訂計量和動態負載報告。
 
@@ -66,13 +66,13 @@ ms.locfileid: "60516731"
 
 任何計量都有一些描述它的屬性：名稱、權數及預設負載。
 
-* 指标名称：計量的名稱。 從「資源管理員」的觀點來看，計量名稱是叢集內計量的唯一識別碼。
-* 权重：指标权重定义指标对于此服务的重要程度（相对于其他指标）。
-* 默认负载：默认负载根据服务是无状态还是有状态服务以不同的方式表示。
+* 計量名稱：計量的名稱。 從「資源管理員」的觀點來看，計量名稱是叢集內計量的唯一識別碼。
+* Weight︰計量權數定義相對於其他計量的這項服務的重要程度此計量會。
+* 預設負載：預設負載是依據服務是無狀態或具狀態的表示方式。
   * 就無狀態服務而言，每個計量都有名為 DefaultLoad 的單一屬性
   * 針對具狀態服務，您需定義：
-    * PrimaryDefaultLoad：此服务充当主副本时消耗此指标的默认数量
-    * SecondaryDefaultLoad：此服务充当辅助副本时消耗此指标的默认数量
+    * PrimaryDefaultLoad:此計量的預設量此服務將取用時主要
+    * SecondaryDefaultLoad:此計量的預設量此服務將取用時次要
 
 > [!NOTE]
 > 如果您定義自訂計量並_同時_也想要使用預設計量，您必須_明確地_加回預設計量並且定義它們的權數和值。 這是因為您必須定義預設計量與自訂計量之間的關聯性。 例如，也許您會在意 ConnectionCount 或 WorkQueueDepth 更甚於主要分配。 根據預設，PrimaryCount 計量的權數是「高」，所以當您新增其他計量時想要將它降低為「中」，以確保它們優先。
@@ -144,7 +144,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 現在，我們再更詳細地瀏覽這些設定，並且討論其影響的行為。
 
 ## <a name="load"></a>載入
-定義計量的整個重點在於代表某個負載。 「負載」係指特定節點上的某個服務執行個體或複本取用的特定計量數量。 隨時可以設定負載。 例如︰
+定義計量的整個重點在於代表某個負載。 「負載」  係指特定節點上的某個服務執行個體或複本取用的特定計量數量。 隨時可以設定負載。 例如:
 
   - 建立服務時，可以定義負載。 這稱為_預設負載_。
   - 計量資訊，包括建立服務之後服務可以更新的預設負載。 這稱為_更新服務_。 
@@ -154,7 +154,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 這些策略全部可以在相同服務的存留期內使用。 
 
 ## <a name="default-load"></a>預設負載
-預設負載係指此服務的每個服務物件 (無狀態執行個體或具狀態複本) 取用的計量數量。 叢集資源管理員會將這個數字用於服務物件的負載，直到它接收其他資訊，例如動態負載報告。 針對簡單服務，預設負載是靜態定義。 預設負載永遠不會更新，並且在服務的存留期使用。 預設負載非常適用於簡單的容量規劃案例，其中特定數量的資源是供不同的工作負載專用，不會變更。
+預設負載  係指此服務的每個服務物件 (無狀態執行個體或具狀態複本) 取用的計量數量。 叢集資源管理員會將這個數字用於服務物件的負載，直到它接收其他資訊，例如動態負載報告。 針對簡單服務，預設負載是靜態定義。 預設負載永遠不會更新，並且在服務的存留期使用。 預設負載非常適用於簡單的容量規劃案例，其中特定數量的資源是供不同的工作負載專用，不會變更。
 
 > [!NOTE]
 > 如需有關容量管理和定義叢集中節點容量的詳細資訊，請參閱[這篇文章](service-fabric-cluster-resource-manager-cluster-description.md#capacity)。
@@ -217,7 +217,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 <center>
 
-![使用默认和自定义指标均衡的群集][Image2]
+![使用預設和自訂度量平衡的叢集][Image2]
 </center>
 
 有幾件事值得一提：
@@ -234,7 +234,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="metric-weights"></a>度量權數
 追蹤各個不同服務的相同計量相當重要。 該全域檢視可讓「叢集資源管理員」追蹤叢集中的耗用量、平衡各個節點之間的耗用量，以及確保節點不會超出容量。 不過，服務在相同計量的重要性方面可能有不同的檢視。 此外，在具有許多計量和許多服務的叢集中，可能並非所有計量都有完美平衡的解決方案。 「叢集資源管理員」應該如何處理這些情況？
 
-計量權數可讓「叢集資源管理員」在沒有完美解答時，決定如何平衡叢集。 計量權數也可讓「叢集資源管理員」以不同的方式平衡特定服務。 指标可以有四个不同的权重级别：零、低、中和高。 在考量項目是否平衡時，權數為「零」的計量並沒有任何貢獻。 不過，其負載對容量管理仍有所貢獻。 具有「零」權數的計量仍然相當有用，並且經常作為服務行為和效能監視的一部分。 [這篇文章](service-fabric-diagnostics-event-generation-infra.md)提供有關使用計量進行監視，以及診斷服務的詳細資訊。 
+計量權數可讓「叢集資源管理員」在沒有完美解答時，決定如何平衡叢集。 計量權數也可讓「叢集資源管理員」以不同的方式平衡特定服務。 度量可以有四個不同的權數層級：零、 低、 中、 高。 在考量項目是否平衡時，權數為「零」的計量並沒有任何貢獻。 不過，其負載對容量管理仍有所貢獻。 具有「零」權數的計量仍然相當有用，並且經常作為服務行為和效能監視的一部分。 [這篇文章](service-fabric-diagnostics-event-generation-infra.md)提供有關使用計量進行監視，以及診斷服務的詳細資訊。 
 
 叢集中不同計量權數的實際影響在於「叢集資源管理員」會產生不同的解決方案。 計量權數會告訴「叢集資源管理員」某些計量比其他計量重要。 當沒有完美的解決方案時，「叢集資源管理員」可以偏好選擇能更有效平衡較高權數計量的解決方案。 如果服務認為特定計量不重要，它可能會發現對該計量的使用不平衡。 這可讓另一項服務取得對其重要之某些計量的平均分配。
 
@@ -242,7 +242,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 <center>
 
-![指标权重示例及其对均衡解决方案的影响][Image3]
+![計量權數範例，及其對平衡解決方案的影響][Image3]
 </center>
 
 在此範例中，有四個不同的服務，它們都針對兩個不同計量 (MetricA 和 MetricB) 報告不同值。 在其中一個案例中，所有定義 MetricA 的服務是最重要的 (權數 = 高)，MetricB 則是較不重要的 (權數 = 低)。 因此，我們看到「叢集資源管理員」是以讓 MetricA 比 MetricB 更加平衡的方式來設置服務。 「更加平衡」表示 MetricA 具有比 MetricB 較低的標準差。 在第二個案例中，我們將計量權數反轉。 結果就是「叢集資源管理員」會交換服務 A 與 B，以便產生 MetricB 比 MetricA 更加平衡的配置。
@@ -260,7 +260,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 <center>
 
-![全局唯一解决方案的影响][Image4]
+![全域唯一解決方案的影響][Image4]
 </center>
 
 在上半部的範例中，只考量了全域平衡，叢集整體上的確達到平衡。 所有節點的主要複本計數和複本總數都相同。 不過，如果您查看此配置的實際影響，就不是那麼理想︰遺失任何節點都會對特定工作負載帶來不成比例的影響，因為這會取出其所有主要複本。 例如，如果第一個節點發生失敗，圓形服務之三個不同資料分割的三個主要複本將會全部遺失。 相反地，「三角形」和「六邊形」服務的資料分割遺失複本。 這樣不會造成中斷，只是必須復原關閉的複本。
@@ -269,10 +269,10 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 ## <a name="next-steps"></a>後續步驟
 - 如需有關設定服務的詳細資訊，請參閱[深入了解設定服務](service-fabric-cluster-resource-manager-configure-services.md)(service-fabric-cluster-resource-manager-configure-services.md)
-- 定義重組度量是合併 (而不是擴增) 節點上負載的一種方式。若要了解如何配置碎片整理，请参阅[此文](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- 若要了解群集 Resource Manager 如何管理和均衡群集中的负载，请查看有关 [均衡负载](service-fabric-cluster-resource-manager-balancing.md)
+- 定義重組度量是合併 (而不是擴增) 節點上負載的一種方式。若要了解如何設定重組，請參閱 [這篇文章](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- 若要了解叢集資源管理員如何管理並平衡叢集中的負載，請查看關於 [平衡負載](service-fabric-cluster-resource-manager-balancing.md)
 - 從頭開始，並 [取得 Service Fabric 叢集資源管理員的簡介](service-fabric-cluster-resource-manager-introduction.md)
-- 移动成本是向群集 Resource Manager 发出信号，表示移动某些服务比移动其他服务会产生更高成本的方式之一。 若要了解有关移动成本的详细信息，请参阅[此文](service-fabric-cluster-resource-manager-movement-cost.md)
+- 移動成本是向叢集資源管理員發出訊號，表示移動某些服務會比較貴的其中一種方式。 若要深入了解移動成本，請參閱 [這篇文章](service-fabric-cluster-resource-manager-movement-cost.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
 [Image2]:./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png

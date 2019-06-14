@@ -9,10 +9,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: ed101df5cd3d6e5754b88c5f66807f9fda846cf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60998792"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Azure 資料目錄的鍵盤快速鍵
@@ -51,7 +51,7 @@ ms.locfileid: "60998792"
 | 包括 [資料設定檔] 核取方塊 (如果有提供) |ALT 鍵 + D |
 | 瀏覽至每個清單項目 |向上鍵或向下鍵 |
 | 在伺服器階層中展開樹狀檢視的節點 |向右鍵 |
-| 針對 [可用物件] 或 [要註冊的物件] 來移動已選取的項目 |空格鍵 |
+| 針對 [可用物件]  或 [要註冊的物件]  來移動已選取的項目 |空格鍵 |
 
 ### <a name="publish-progress-page"></a>發佈進度頁面
 | 作業 | 按 |

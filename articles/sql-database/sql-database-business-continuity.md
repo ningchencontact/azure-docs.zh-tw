@@ -8,17 +8,16 @@ ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: anosov1960
+ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: digimobile
-origin.date: 04/04/2019
-ms.date: 04/15/2019
+manager: craigg
+ms.date: 04/04/2019
 ms.openlocfilehash: dfa5d4cb2d782f1466329300157a64fd17765460
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61412338"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>使用 Azure SQL Database 的商務持續性概觀
@@ -54,17 +53,17 @@ SQL Database 提供幾種商務持續性功能，包括可以緩和這些案例�
 
 每個功能對於預估的復原時間 (ERT) 都有不同的特性，最近的交易都有可能遺失資料。 一旦您了解這些選項，就可以在其中選擇，而在大部分情況下，可以針對不同情況一起搭配使用。 當您開發商務持續性計劃時，您必須了解應用程式在干擾性事件之後完全復原所需的最大可接受時間。 完全復原應用程式所需的時間，也稱為復原時間目標 (RTO)。 您也必須了解在干擾性事件之後復原時，應用程式可忍受遺失的最近資料更新 (時間間隔) 最大期間。 您可能經得起遺失的更新時間週期，也稱為復原點目標 (RPO)。
 
-下表针对最常见方案比较了每个服务层的 ERT 和 RPO。
+下表會比較每個服務層的最常見的案例提供 ERT 與 RPO。
 
 | 功能 | 基本 | 標準 | 進階 | 一般用途 | 業務關鍵
 | --- | --- | --- | --- |--- |--- |
 | 從備份進行時間點還原 |7 天內的任何還原點 |35 天內的任何還原點 |35 天內的任何還原點 |設定期間內的任何還原點 (最多 35 天)|設定期間內的任何還原點 (最多 35 天)|
 | 從異地複寫備份進行異地還原 |ERT < 12 小時<br> RPO < 1 小時 |ERT < 12 小時<br>RPO < 1 小時 |ERT < 12 小時<br>RPO < 1 小時 |ERT < 12 小時<br>RPO < 1 小時|ERT < 12 小時<br>RPO < 1 小時|
 | 自動容錯移轉群組 |RTO = 1 小時<br>RPO < 5 秒 |RTO = 1 小時<br>RPO < 5 秒 |RTO = 1 小時<br>RPO < 5 秒 |RTO = 1 小時<br>RPO < 5 秒|RTO = 1 小時<br>RPO < 5 秒|
-| 手动数据库故障转移 |ERT = 30 秒<br>RPO < 5 秒 |ERT = 30 秒<br>RPO < 5 秒 |ERT = 30 秒<br>RPO < 5 秒 |ERT = 30 秒<br>RPO < 5 秒|ERT = 30 秒<br>RPO < 5 秒|
+| 手動資料庫容錯移轉 |ERT = 30 s<br>RPO < 5 秒 |ERT = 30 s<br>RPO < 5 秒 |ERT = 30 s<br>RPO < 5 秒 |ERT = 30 s<br>RPO < 5 秒|ERT = 30 s<br>RPO < 5 秒|
 
 > [!NOTE]
-> “手动数据库故障转移”是指使用[计划外模式](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)将单一数据库故障转移到其异地复制的辅助数据库。
+> *手動資料庫容錯移轉*其異地複寫次要使用單一資料庫的容錯移轉是指[未計劃的模式](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)。
 
 ## <a name="recover-a-database-to-the-existing-server"></a>將資料庫復原到現有的伺服器
 
@@ -89,7 +88,7 @@ SQL Database 會每週自動執行完整資料庫備份、通常每 12 小時自
 
 - 其中一個選項是在資料中心中斷結束時等待您的資料庫重新上線。 這適用於可以容忍資料庫離線的應用程式。 例如，您不需要不斷處理的開發專案或免費試用版。 當資料中心中斷時，您不會知道中斷會持續多久，因此這個選項僅適用於您可以一段時間暫時不需要資料庫。
 - 另一個選項是使用[異地備援資料庫備份](sql-database-recovery-using-backups.md#geo-restore) (異地還原)，在任何 Azure 區域中的任何伺服器上還原資料庫。 異地還原使用異地備援備份做為其來源，即使因為中斷而無法存取資料庫或資料中心，也能用來復原資料庫。
-- 最后，如果你使用[活动异地复制](sql-database-active-geo-replication.md)配置了异地辅助数据库或者为数据库配置了[自动故障转移组](sql-database-auto-failover-group.md)，则可以快速从中断中恢复。 根據您選擇的這些技術，您可以使用手動或自動容錯移轉。 雖然容錯移轉本身只需要幾秒鐘的時間就能完成，服務將需要至少 1 小時才能啟動。 這是依據中斷的規模來確保容錯移轉之正當性的必要作法。 此外，基於非同步複寫的本質，容錯移轉可能會造成小規模的資料遺失。 請參閱此文章稍早的表格，以取得自動容錯移轉 RTO 和 RPO 的詳細資料。
+- 最後，您可以快速地從中斷復原如果您已設定異地次要資料庫使用[作用中異地複寫](sql-database-active-geo-replication.md)該[自動容錯移轉群組](sql-database-auto-failover-group.md)針對您的資料庫或資料庫。 根據您選擇的這些技術，您可以使用手動或自動容錯移轉。 雖然容錯移轉本身只需要幾秒鐘的時間就能完成，服務將需要至少 1 小時才能啟動。 這是依據中斷的規模來確保容錯移轉之正當性的必要作法。 此外，基於非同步複寫的本質，容錯移轉可能會造成小規模的資料遺失。 請參閱此文章稍早的表格，以取得自動容錯移轉 RTO 和 RPO 的詳細資料。
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
@@ -121,7 +120,7 @@ SQL Database 會每週自動執行完整資料庫備份、通常每 12 小時自
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>容錯移轉至異地複寫的次要資料庫
 
-如果你使用活动异地复制或自动故障转移组作为恢复机制，则可以配置自动故障转移策略，或使用[手动计划外故障转移](sql-database-active-geo-replication-portal.md#initiate-a-failover)。 啟動容錯移轉後，次要資料庫就會成為新的主要資料庫，並準備好記錄新的交易以及回應查詢 - 只會遺失尚未複寫的資料。 如需關於設計容錯移轉程序的資訊，請參閱[設計雲端災害復原應用程式](sql-database-designing-cloud-solutions-for-disaster-recovery.md)。
+如果您使用主動式異地複寫 」 或 「 自動容錯移轉群組作為復原機制，您可以設定自動容錯移轉原則，或使用[未規劃的手動容錯移轉](sql-database-active-geo-replication-portal.md#initiate-a-failover)。 啟動容錯移轉後，次要資料庫就會成為新的主要資料庫，並準備好記錄新的交易以及回應查詢 - 只會遺失尚未複寫的資料。 如需關於設計容錯移轉程序的資訊，請參閱[設計雲端災害復原應用程式](sql-database-designing-cloud-solutions-for-disaster-recovery.md)。
 
 > [!NOTE]
 > 資料中心恢復連線時，舊的主要複本會自動重新連線至新的主要複本，且會成為次要資料庫。 若您需要將主要複本重新定位至原始區域，可手動啟動規劃的容錯移轉 (容錯回復)。
@@ -133,7 +132,7 @@ SQL Database 會每週自動執行完整資料庫備份、通常每 12 小時自
 > [!NOTE]
 > 如果資料中心在您的應用程式切換到復原的資料庫之前就再次上線，您可以取消復原。
 
-### <a name="perform-post-failover--recovery-tasks"></a>执行故障转移/恢复后任务
+### <a name="perform-post-failover--recovery-tasks"></a>執行容錯移轉後/復原後工作
 
 從其中任何一種復原機制復原之後，您都必須執行下列額外的工作，您的使用者和應用程式才能回復正常執行狀態︰
 

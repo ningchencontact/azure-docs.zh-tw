@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 05/29/2019
 ms.author: tamram
 ms.openlocfilehash: 6bbd2a421122a05399d35be1b61e65f505253ed2
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66420795"
 ---
-| Resource | 目標 |
+| 資源 | 目標 |
 |----------|---------------|
 | 單一資料表的大小上限 | 500 TiB |
 | 資料表實體的大小上限 | 1 MiB |

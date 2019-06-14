@@ -16,10 +16,10 @@ ms.date: 02/21/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 245e5ca6e2d7d1f48951d63ba6539180a35f1358
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604155"
 ---
 # <a name="view-the-tax-documents-for-your-microsoft-customer-agreement"></a>檢視您的 Microsoft 客戶合約稅務文件
@@ -31,9 +31,9 @@ ms.locfileid: "65604155"
 您必須是擁有者、 參與者、 讀取器或發票計費的設定檔管理員來檢視和下載稅務文件。 若要深入了解計費角色適用於 Microsoft 客戶合約，請參閱[帳單設定檔角色和工作](billing-understand-mca-roles.md#billing-profile-roles-and-tasks)。
 <!-- TO DO: add link to manage access doc for MCA -->
 
-1. 針對 [成本管理 + 帳單] 進行搜尋。
+1. 針對 [成本管理 + 帳單]  進行搜尋。
 2. 選取計費的設定檔。
-3. 選取 [發票]。
+3. 選取 [發票]  。
 4. 在發票方格中，尋找您想要下載的稅務文件對應的發票的資料列。
 5. 按一下省略符號 (`...`) 結尾的資料列。
 6. 選取 **稅務文件**。 根據您帳單的設定檔國家/地區，您可能會看到每筆發票的多個稅務文件。

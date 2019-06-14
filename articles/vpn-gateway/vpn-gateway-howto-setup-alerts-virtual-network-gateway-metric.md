@@ -8,10 +8,10 @@ ms.topic: conceptional
 ms.date: 04/22/2019
 ms.author: alzam
 ms.openlocfilehash: e54dadbda0582095e8152ea30376d369177bfd86
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65509897"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>設定 VPN 閘道度量的警示
@@ -21,10 +21,10 @@ ms.locfileid: "65509897"
 
 |**度量**   | **單位** | **資料粒度** | **說明** | 
 |---       | ---        | ---       | ---            | ---       |
-|**AverageBandwidth**| 位元/秒  | 5 分鐘| 平均閘道上的所有站對站連線的合併的頻寬的使用量。     |
-|**P2SBandwidth**| 位元/秒  | 1 分鐘  | 平均閘道上的所有點對站連線的合併的頻寬的使用量。    |
+|**AverageBandwidth**| 位元組/秒  | 5 分鐘| 平均閘道上的所有站對站連線的合併的頻寬的使用量。     |
+|**P2SBandwidth**| 位元組/秒  | 1 分鐘  | 平均閘道上的所有點對站連線的合併的頻寬的使用量。    |
 |**P2SConnectionCount**| 計數  | 1 分鐘  | 在閘道上的點對站連線的計數。   |
-|**TunnelAverageBandwidth** | 位元/秒    | 5 分鐘  | 在閘道上建立的通道的平均頻寬使用量。 |
+|**TunnelAverageBandwidth** | 位元組/秒    | 5 分鐘  | 在閘道上建立的通道的平均頻寬使用量。 |
 |**TunnelEgressBytes** | 位元組 | 5 分鐘 | 在閘道上建立的通道上的連出流量。   |
 |**TunnelEgressPackets** | 計數 | 5 分鐘 | 在閘道上建立的通道上的傳出封包數目。   |
 |**TunnelEgressPacketDropTSMismatch** | 計數 | 5 分鐘 | 輸出封包計數卸除的流量選取器捨棄所造成的通道上。 |
@@ -40,7 +40,7 @@ ms.locfileid: "65509897"
 - **計量：** TunnelAverageBandwidth
 - **條件：** 頻寬 > 10 個位元組/秒
 - **視窗：** 5 分鐘
-- **警示的動作：** 電子郵件
+- **警示的動作：** Email
 
 
 

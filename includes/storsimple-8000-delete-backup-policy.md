@@ -5,23 +5,23 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: b7a86963c657524fa91c4eb824ced1a495391f3f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66172205"
 ---
 #### <a name="to-delete-a-storsimple-backup-policy"></a>刪除 StorSimple 備份原則
 
-1. 請移至 StorSimple 裝置，並按一下 [備份原則]。
+1. 請移至 StorSimple 裝置，並按一下 [備份原則]  。
 
-2. 在表格式的備份原則清單中，選取您想要刪除的原則。 以滑鼠右鍵按一下，然後從內容功能表中選取 [刪除]。
+2. 在表格式的備份原則清單中，選取您想要刪除的原則。 以滑鼠右鍵按一下，然後從內容功能表中選取 [刪除]  。
 
     ![選取要刪除的備份原則](./media/storsimple-8000-delete-backup-policy/deletebupol1.png)
 
 3. 系統將提示您進行確認。 請留意，刪除備份原則將會刪除所有相關聯的備份。 按一下 [ **是** ] 以進行刪除。
 
-    ![確認刪除](./media/storsimple-8000-delete-backup-policy/deletebupol2.png)
+    ![Confirm delete](./media/storsimple-8000-delete-backup-policy/deletebupol2.png)
 
 將會更新備份原則清單，以顯示新的原則清單。
 

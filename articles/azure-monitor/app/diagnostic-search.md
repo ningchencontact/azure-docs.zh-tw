@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
 ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60899969"
 ---
 # <a name="using-search-in-application-insights"></a>在 Application Insights 中使用搜尋
@@ -101,7 +101,7 @@ ms.locfileid: "60899969"
 ## <a name="search-the-data"></a>搜尋資料
 
 > [!NOTE]
-> 若要撰寫更複雜的查詢，請從 [搜尋] 刀鋒視窗頂端開啟 [[分析](../../azure-monitor/log-query/get-started-portal.md)]。
+> 若要撰寫更複雜的查詢，請從 [搜尋] 刀鋒視窗頂端開啟 [[分析](../../azure-monitor/log-query/get-started-portal.md)]  。
 > 
 
 您可以搜尋任何屬性值中的字詞。 如果您已編寫具有屬性值的[自訂事件](../../azure-monitor/app/api-custom-events-metrics.md)，這特別實用。 
@@ -112,7 +112,7 @@ ms.locfileid: "60899969"
 
 請搜尋完整單字，而不是子字串。 使用引號來括住的特殊字元。
 
-| string | 這樣「找不到」 | 這樣找得到 |
+| 字串 | 這樣「找不到」  | 這樣找得到 |
 | --- | --- | --- |
 | HomeController.About |home<br/>controller<br/>out | homecontroller<br/>about<br/>"homecontroller.about"|
 |美國|Uni<br/>ted|united<br/>states<br/>united AND states<br/>"united states"

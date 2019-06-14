@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/22/2018
 ms.author: jeconnoc
 ms.openlocfilehash: bc861b6730e8bf9db6ba2ab005496914f7b9ed89
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64699669"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>在 Azure 雲端服務角色上安裝 .NET
@@ -38,12 +38,12 @@ ms.locfileid: "64699669"
 * [.NET 4.7.2 web 安裝程式](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [.NET 4.6.2 web 安裝程式](https://www.microsoft.com/download/details.aspx?id=53345)
 
-若要新增 web 角色的安裝程式：
-  1. 在 [方案總管] 中，於雲端服務專案中的 [角色] 下，以滑鼠右鍵按一下您的 web角色，然後依序選取 [新增] > [新增資料夾]。 建立名為 **bin** 的資料夾。
-  2. 在 bin 資料夾上按一下滑鼠右鍵，並依序選取 [新增] > [現有項目]。 選取 .NET 安裝程式，並將它加入至 bin 資料夾。
+若要新增 web  角色的安裝程式：
+  1. 在 [方案總管]  中，於雲端服務專案中的 [角色]  下，以滑鼠右鍵按一下您的 web  角色，然後依序選取 [新增]   > [新增資料夾]  。 建立名為 **bin** 的資料夾。
+  2. 在 bin 資料夾上按一下滑鼠右鍵，並依序選取 [新增]   > [現有項目]  。 選取 .NET 安裝程式，並將它加入至 bin 資料夾。
   
-若要新增 worker 角色的安裝程式：
-* 以滑鼠右鍵按一下您的 worker 角色，然後依序選取 [新增] > [現有項目]。 選取 .NET 安裝程式，並將它加入至角色。 
+若要新增 worker  角色的安裝程式：
+* 以滑鼠右鍵按一下您的 worker  角色，然後依序選取 [新增]   > [現有項目]  。 選取 .NET 安裝程式，並將它加入至角色。 
 
 以這個方式將檔案新增至角色內容資料夾時，檔案就會自動新增至雲端服務套件。 然後檔案就會部署到虛擬機器上的一致位置。 為雲端服務中的每個 Web 和背景工作角色重複此程序，以便所有角色都有安裝程式副本。
 
@@ -201,7 +201,7 @@ ms.locfileid: "64699669"
    EXIT /B 0
    ```
 
-3. 將 install.cmd 檔案新增至每個角色，方法是使用 [方案總管] 中的 [新增] > [現有項目]如本主題中稍早所述。 
+3. 將 install.cmd 檔案新增至每個角色，方法是使用 [方案總管]  中的 [新增]   > [現有項目]  如本主題中稍早所述。 
 
     完成此步驟之後，所有角色應該都有 .NET 安裝程式檔案，以及 install.cmd 檔案。
 
@@ -211,7 +211,7 @@ ms.locfileid: "64699669"
 如要簡化針對安裝問題進行疑難排解，您可以設定 Azure 診斷，來將啟動工作指令碼或 .NET 安裝程式所產生的所有記錄檔傳輸到 Azure Blob 儲存體。 您可以使用這種方法，從 Blob 儲存體下載記錄，而無需遠端桌面到角色，即可檢視記錄。
 
 
-若要設定診斷，請開啟 diagnostics.wadcfgx 檔案，並在 [目錄] 節點下新增下列內容： 
+若要設定診斷，請開啟 diagnostics.wadcfgx 檔案，並在 [目錄]  節點下新增下列內容： 
 
 ```xml 
 <DataSources>
@@ -221,10 +221,10 @@ ms.locfileid: "64699669"
 </DataSources>
 ```
 
-這個 XML 會將診斷設定為將 NETFXInstall 資源下 log 目錄中的檔案，傳輸到 **netfx-install** Blob 容器中的診斷儲存體帳戶。
+這個 XML 會將診斷設定為將 NETFXInstall  資源下 log 目錄中的檔案，傳輸到 **netfx-install** Blob 容器中的診斷儲存體帳戶。
 
 ## <a name="deploy-your-cloud-service"></a>部署您的雲端服務
-部署雲端服務時，啟動工作會安裝 .NET Framework (如果尚未安裝)。 安裝架構時，雲端服務角色會處於忙碌狀態。 如果架構安裝需要重新啟動，服務角色可能也會重新啟動。 
+部署雲端服務時，啟動工作會安裝 .NET Framework (如果尚未安裝)。 安裝架構時，雲端服務角色會處於忙碌  狀態。 如果架構安裝需要重新啟動，服務角色可能也會重新啟動。 
 
 ## <a name="additional-resources"></a>其他資源
 * [安裝 .NET Framework][Installing the .NET Framework]

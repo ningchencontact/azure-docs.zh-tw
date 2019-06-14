@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: fd92e27f53f52de3e9a7fd65d577c9dfea44991b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65066828"
 ---
 # <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>重新啟動適用於 PostgreSQL-使用 Azure 入口網站的單一伺服器的 Azure 資料庫
@@ -28,13 +28,13 @@ ms.locfileid: "65066828"
 
 下列步驟會重新啟動 PostgreSQL 伺服器：
 
-1. 在 [Azure 门户](https://portal.azure.com/)中，选择 Azure Database for PostgreSQL 服务器。
+1. 在  [Azure 入口網站](https://portal.azure.com/)，選取適用於 postgresql 的 Azure 資料庫。
 
-2. 在伺服器 [概觀] 頁面的工具列中，按一下 [重新啟動]。
+2. 在伺服器 [概觀]  頁面的工具列中，按一下 [重新啟動]  。
 
    ![適用於 PostgreSQL 的 Azure 資料庫 - 概觀 - 重新啟動按鈕](./media/howto-restart-server-portal/2-server.png)
 
-3. 按一下 [是] 以確認要重新啟動伺服器。
+3. 按一下 [是]  以確認要重新啟動伺服器。
 
    ![適用於 PostgreSQL 的 Azure 資料庫 -重新啟動確認](./media/howto-restart-server-portal/3-restart-confirm.png)
 
@@ -48,4 +48,4 @@ ms.locfileid: "65066828"
 
 ## <a name="next-steps"></a>後續步驟
 
-了解[如何在 Azure Database for PostgreSQL 中设置参数](howto-configure-server-parameters-using-portal.md)
+深入了解[如何設定 Azure 資料庫中的參數，適用於 PostgreSQL](howto-configure-server-parameters-using-portal.md)

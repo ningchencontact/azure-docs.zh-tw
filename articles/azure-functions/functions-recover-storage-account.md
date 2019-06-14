@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
 ms.openlocfilehash: 6057fa52cd2f1e9b9fd525723f96ab66983fb5d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61020293"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>如何針對「無法連線至函式執行階段」的情形進行疑難排解
@@ -66,7 +66,7 @@ ms.locfileid: "61020293"
 ### <a name="guidance"></a>指引
 
 * 請勿對上述任何設定核取 [位置設定]。 當您交換部署位置時，函式將會中斷。
-* 在自动部署过程中，请勿修改这些设置。
+* 請勿修改這些設定自動化部署的一部分。
 * 在建立時，必須提供這些設定，且設定必須有效。 即使事後新增設定，不包含這些設定的自動化部署仍會導致應用程式無法運作。
 
 ## <a name="storage-account-credentials-invalid"></a>儲存體帳戶的認證無效

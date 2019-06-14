@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447007"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>使用 CLI 部署遠端監視解決方案加速器
@@ -23,7 +23,7 @@ ms.locfileid: "61447007"
 
 若要部署遠端監視解決方案加速器，您需要一個有效的 Azure 訂用帳戶。
 
-如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資訊，請參閱 < [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 若要執行 CLI，您必須在本機電腦上安裝 [Node.js](https://nodejs.org/)。
 
@@ -51,8 +51,8 @@ pcs login
 
 | 選項 | 值 | 描述 |
 | ------ | ------ | ----------- |
-| SKU    | `basic`、`standard`, `local` | _basic_ 部署適用於測試和示範環境，它會將所有微服務部署至單一虛擬機器。 _standard_ 部署適用於生產環境，它會將微服務部署至數部虛擬機器。 _local_ 部署會將 Docker 容器設定為在本機電腦上執行微服務，並且使用 Azure 雲端服務 (例如儲存體和 Cosmos DB)。 |
-| 執行階段 | `dotnet`、`java` | 選取微服務的語言實作。 |
+| SKU    | `basic`, `standard`, `local` | _basic_ 部署適用於測試和示範環境，它會將所有微服務部署至單一虛擬機器。 _standard_ 部署適用於生產環境，它會將微服務部署至數部虛擬機器。 _local_ 部署會將 Docker 容器設定為在本機電腦上執行微服務，並且使用 Azure 雲端服務 (例如儲存體和 Cosmos DB)。 |
+| 執行階段 | `dotnet`、 `java` | 選取微服務的語言實作。 |
 
 若要了解如何使用本機部署選項，請參閱[在本機執行遠端監視解決方案](iot-accelerators-remote-monitoring-deploy-local.md)。
 
@@ -68,7 +68,7 @@ pcs login
 
 基本部署會在您的 Azure 訂用帳戶中建立下列服務︰
 
-| 計數 | Resource                       | 類型         | 用於 |
+| 計數 | 資源                       | 類型         | 用於 |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux 虛擬機器](https://azure.microsoft.com/services/virtual-machines/) | 標準 D1 V2  | 裝載微服務 |
 | 1     | [Azure IoT 中心](https://azure.microsoft.com/services/iot-hub/)                  | S1 – 標準層 | 裝置管理與通訊 |
@@ -89,7 +89,7 @@ pcs login
 
 標準部署會在您的 Azure 訂用帳戶中建立下列服務︰
 
-| 計數 | Resource                                     | SKU / 大小      | 用於 |
+| 計數 | 資源                                     | SKU / 大小      | 用於 |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| 使用完全受控 Kubernetes 容器協調流程服務，預設為 3 個代理程式|
 | 1     | [Azure IoT 中心](https://azure.microsoft.com/services/iot-hub/)                     | S2 – 標準層 | 裝置管理、命令和控制 |

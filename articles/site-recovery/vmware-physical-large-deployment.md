@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: raynew
 ms.openlocfilehash: e96aafe61c0d8547ffca9e97bfd9e90c9529155f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237271"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>設定 VMware Vm/實體伺服器為大規模的災害復原
@@ -83,7 +83,7 @@ ms.locfileid: "66237271"
 
 我們想要確定目標訂用帳戶中可用的配額不足以處理容錯移轉。
 
-**Task** | **詳細資料** | **動作**
+**Task** | **詳細資料** | **Action**
 --- | --- | ---
 **核取核心** | 如果可用的配額中的核心不等於或超過總目標計數，在容錯移轉時，容錯移轉將會失敗。 | 針對 VMware Vm，請檢查目標訂用帳戶，以符合部署規劃工具的核心建議事項中有足夠的核心。<br/><br/> 針對實體伺服器，請檢查 Azure 核心，符合您手動的估計。<br/><br/> 若要檢查配額，在 Azure 入口網站 >**訂用帳戶**，按一下**使用量 + 配額**。<br/><br/> [了解更多](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)需增加配額。
 **查看容錯移轉限制** | 容錯移轉數不得超過 Site Recovery 容錯移轉的限制。 |  如果容錯移轉超過限制，您可以新增訂用帳戶，並容錯移轉至多個訂用帳戶，或增加訂用帳戶的配額。 

@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.openlocfilehash: f34139dafffe3d4890f17988114dffdd8b480d2d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827301"
 ---
 # <a name="continuously-integrate-and-develop-with-azure-stream-analytics-cicd-nuget-package"></a>持續整合及開發與 Azure Stream Analytics 的 CI/CD NuGet 套件
@@ -27,7 +27,7 @@ ms.locfileid: "65827301"
 如需詳細資訊，請參閱[適用於 Visual Studio 的串流分析工具](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio)。
 
 ## <a name="msbuild"></a>MSBuild
-與標準 Visual Studio MSBuild 體驗類似，若要建置專案，您有兩個選項。 您可以使用滑鼠右鍵按一下專案，然後選擇 [建置]。 您也可以從命令列中使用 NuGet 套件中的 **MSBuild**。
+與標準 Visual Studio MSBuild 體驗類似，若要建置專案，您有兩個選項。 您可以使用滑鼠右鍵按一下專案，然後選擇 [建置]  。 您也可以從命令列中使用 NuGet 套件中的 **MSBuild**。
 ```
 ./build/msbuild /t:build [Your Project Full Path] /p:CompilerTaskAssemblyFile=Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll  /p:ASATargetsFilePath="[NuGet Package Local Path]\build\StreamAnalytics.targets"
 
@@ -46,7 +46,7 @@ ms.locfileid: "65827301"
 parameters.json 檔案中的預設參數來自 Visual Studio 專案中的設定。 如果您想要部署到其他環境，請據以取代參數。
 
 > [!NOTE]
-> 對於所有認證，預設值都會設為 null。 部署至雲端之前，「必須」設定這些值。
+> 對於所有認證，預設值都會設為 null。 部署至雲端之前，「必須」  設定這些值。
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {

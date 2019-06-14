@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 03fcbb0216d85e337b4161aa24ceeb7d3a2bdebe
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479471"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>藉由使用指令碼動作來自訂 Azure HDInsight 叢集
@@ -430,7 +430,7 @@ HDInsight 服務提供數種方式以使用自訂元件。 不論元件在叢集
 
 ### <a name="the-apache-ambari-web-ui"></a>Apache Ambari Web UI
 
-1. 在瀏覽器中，前往 https://CLUSTERNAME.azurehdinsight.net。 將 **CLUSTERNAME** 取代為 HDInsight 叢集的名稱。
+1. 在瀏覽器中，前往 https://CLUSTERNAME.azurehdinsight.net 。 將 **CLUSTERNAME** 取代為 HDInsight 叢集的名稱。
 
     出現提示時，請輸入管理帳戶名稱 (**admin**) 和叢集的密碼。 您可能必須在 Web 表單中重新輸入管理員認證。
 

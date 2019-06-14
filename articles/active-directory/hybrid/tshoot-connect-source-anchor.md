@@ -11,10 +11,10 @@ ms.date: 04/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: fac33a01afc2efc1ab06c4783c11f7a089bb6208
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62114149"
 ---
 # <a name="troubleshooting-source-anchor-issues-during-installation"></a>在安裝期間來源錨點問題進行疑難排解

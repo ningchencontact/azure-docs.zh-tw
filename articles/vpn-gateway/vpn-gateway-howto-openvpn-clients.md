@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 5/21/2019
 ms.author: cherylmc
 ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989093"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>設定 Azure VPN 閘道的 OpenVPN 用戶端
@@ -28,15 +28,15 @@ ms.locfileid: "65989093"
 
 1. 從官方 [OpenVPN 網站](https://openvpn.net/index.php/open-source/downloads.html)下載並安裝 OpenVPN 用戶端。
 2. 下載閘道的 VPN 設定檔。 這可從 Azure 入口網站中的 [點對站設定] 索引標籤，或是 PowerShell 中的 'New-AzVpnClientConfiguration' 來完成。
-3. 將設定檔解壓縮。 接下來，使用記事本開啟 OpenVPN 資料夾中的 vpnconfig.ovpn 設定檔。
+3. 將設定檔解壓縮。 接下來，使用記事本開啟 OpenVPN 資料夾中的 vpnconfig.ovpn  設定檔。
 4. [匯出](vpn-gateway-certificates-point-to-site.md#clientexport)您所建立並上傳至閘道上 P2S 組態的 P2S 用戶端憑證。
-5. 從 .pfx 擷取私密金鑰和 base64 指紋。 做法有好幾種。 其中一種方式是在電腦上使用 OpenSSL。 profileinfo.txt 檔案包含 CA 和用戶端憑證的私密金鑰和指紋。 請務必使用用戶端憑證的指紋。
+5. 從 .pfx  擷取私密金鑰和 base64 指紋。 做法有好幾種。 其中一種方式是在電腦上使用 OpenSSL。 profileinfo.txt  檔案包含 CA 和用戶端憑證的私密金鑰和指紋。 請務必使用用戶端憑證的指紋。
 
    ```
    openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
    ```
-6. 在記事本中開啟 profileinfo.txt。 若要取得用戶端 (子系) 憑證的指紋，請選取子系憑證介於 "-----BEGIN CERTIFICATE-----" 和 "-----END CERTIFICATE-----" 之間 (包含這兩句) 的文字，並加以複製。 您可以藉由查看 subject=/ 這一行來識別子系憑證。
-7. 切換至您在步驟 3 中於記事本開啟的 vpnconfig.ovpn 檔案。 尋找如下所示區段，並取代 "cert" 和 "/cert" 之間的所有內容。
+6. 在記事本中開啟 profileinfo.txt  。 若要取得用戶端 (子系) 憑證的指紋，請選取子系憑證介於 "-----BEGIN CERTIFICATE-----" 和 "-----END CERTIFICATE-----" 之間 (包含這兩句) 的文字，並加以複製。 您可以藉由查看 subject=/ 這一行來識別子系憑證。
+7. 切換至您在步驟 3 中於記事本開啟的 vpnconfig.ovpn  檔案。 尋找如下所示區段，並取代 "cert" 和 "/cert" 之間的所有內容。
 
    ```
    # P2S client certificate
@@ -45,7 +45,7 @@ ms.locfileid: "65989093"
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. 在記事本中開啟 profileinfo.txt。 若要取得的私用的索引鍵，選取 文字 （包括以及之間）"---BEGIN PRIVATE KEY---"和"---END PRIVATE KEY---"並將它複製。
+8. 在記事本中開啟 profileinfo.txt  。 若要取得的私用的索引鍵，選取 文字 （包括以及之間）"---BEGIN PRIVATE KEY---"和"---END PRIVATE KEY---"並將它複製。
 9. 返回記事本中的 vpnconfig.ovpn 檔案，並尋找此區段。 貼上私密金鑰來取代 "key" 和 "/key" 之間的所有內容。
 
    ```
@@ -92,11 +92,11 @@ ms.locfileid: "65989093"
     ```
     openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
     ```
-   profileinfo.txt 檔案會包含 CA 和用戶端憑證的私密金鑰和指紋。 請務必使用用戶端憑證的指紋。
+   profileinfo.txt  檔案會包含 CA 和用戶端憑證的私密金鑰和指紋。 請務必使用用戶端憑證的指紋。
 
-6. 在文字編輯器中開啟 profileinfo.txt。 若要取得用戶端 (子系) 憑證的指紋，請選取子系憑證介於 "-----BEGIN CERTIFICATE-----" 和 "-----END CERTIFICATE-----" 之間 (包含這兩句) 的文字，並加以複製。 您可以藉由查看 subject=/ 這一行來識別子系憑證。
+6. 在文字編輯器中開啟 profileinfo.txt  。 若要取得用戶端 (子系) 憑證的指紋，請選取子系憑證介於 "-----BEGIN CERTIFICATE-----" 和 "-----END CERTIFICATE-----" 之間 (包含這兩句) 的文字，並加以複製。 您可以藉由查看 subject=/ 這一行來識別子系憑證。
 
-7. 開啟 vpnconfig.ovpn 檔案，並尋找如下所示區段。 取代 "cert" 和 "/cert" 之間的所有內容。
+7. 開啟 vpnconfig.ovpn  檔案，並尋找如下所示區段。 取代 "cert" 和 "/cert" 之間的所有內容。
 
    ```
    # P2S client certificate
@@ -125,12 +125,12 @@ ms.locfileid: "65989093"
     ```
 12. 若要使用 GUI 建立連線，請移至系統設定。
 13. 按一下 **+** 以新增新的 VPN 連線。
-14. 在 [新增 VPN]，點選 [匯入檔案]
-15. 瀏覽至設定檔並按兩下或點選 [開啟]。
-16. 按一下 [新增 VPN] 視窗上的 [新增]。
+14. 在 [新增 VPN]  ，點選 [匯入檔案] 
+15. 瀏覽至設定檔並按兩下或點選 [開啟]  。
+16. 按一下 [新增 VPN]  視窗上的 [新增]  。
   
     ![匯入檔案](./media/vpn-gateway-howto-openvpn-clients/importfromfile.png)
-17. 在 [網路設定] 頁面上或在系統匣中網路圖示下將 VPN 切換到 [開] 即可建立連線。
+17. 在 [網路設定]  頁面上或在系統匣中網路圖示下將 VPN 切換到 [開]  即可建立連線。
 
 ## <a name="next-steps"></a>後續步驟
 

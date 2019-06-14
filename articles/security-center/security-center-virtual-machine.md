@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
 ms.openlocfilehash: 527ae9eb59e09885b9b606d74e72817351c31a7f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62121755"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Azure 資訊安全中心和 Azure 虛擬機器
@@ -85,7 +85,7 @@ ms.locfileid: "62121755"
 > 
 
 ## <a name="monitor-security-health"></a>監視安全性健康狀態
-在您為訂用帳戶的資源啟用 [安全性原則](tutorial-security-policy.md) 之後，資訊安全中心會分析您資源的安全性狀態，以找出潛在的弱點。  您可以在 [資源安全性健全狀況] 刀鋒視窗中，檢視資源的安全性狀態及任何問題。 當您在 [資源安全性] 健全狀況圖格中按一下 [虛擬機器] 時，會開啟 [虛擬機器] 刀鋒視窗，並提供您 VM 的建議。 
+在您為訂用帳戶的資源啟用 [安全性原則](tutorial-security-policy.md) 之後，資訊安全中心會分析您資源的安全性狀態，以找出潛在的弱點。  您可以在 [資源安全性健全狀況]  刀鋒視窗中，檢視資源的安全性狀態及任何問題。 當您在 [資源安全性]  健全狀況圖格中按一下 [虛擬機器]  時，會開啟 [虛擬機器]  刀鋒視窗，並提供您 VM 的建議。 
 
 ![安全性健康狀態](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 

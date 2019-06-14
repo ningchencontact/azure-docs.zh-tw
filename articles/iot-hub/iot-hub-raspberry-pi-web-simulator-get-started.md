@@ -1,5 +1,5 @@
 ---
-title: 连接到云的模拟 Raspberry Pi (Node.js) - 将 Raspberry Pi Web 模拟器连接到 Azure IoT 中心 | Microsoft Docs
+title: 模擬 Raspberry Pi 至 cloud (Node.js) - 將 Raspberry Pi Web 模擬器連線至 Azure IoT 中樞 | Microsoft Docs
 description: 將 Raspberry Pi Web 模擬器連線至 Azure IoT Hub，以便 Raspberry Pi 將資料傳送至 Azure 雲端。
 author: wesmc7777
 manager: philmea
@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
 ms.openlocfilehash: 42c2c0d1a015baf4b846c86ed22e8383e21028b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442266"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569591"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>將 Raspberry Pi 線上模擬器連線至 Azure IoT Hub (Node.js)
 
@@ -36,7 +36,7 @@ ms.locfileid: "61442266"
 <img src="media/iot-hub-raspberry-pi-web-simulator/6-button-default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5-button-click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6-button-default.png';">
 </div>
 
-## <a name="what-you-do"></a>准备工作
+## <a name="what-you-do"></a>您要做什麼
 
 * 了解 Raspberry Pi 線上模擬器的基本知識。
 
@@ -48,13 +48,13 @@ ms.locfileid: "61442266"
 
 將模擬 Raspberry Pi 連線至您建立的 IoT 中樞。 然後使用模擬器執行範例應用程式，以產生感應器資料。 最後，將感應器資料傳送至 IoT 中樞。
 
-## <a name="what-you-learn"></a>学习内容
+## <a name="what-you-learn"></a>您學到什麼
 
 * 如何建立 Azure IoT 中樞，並取得新的裝置連接字串。 如果您沒有 Azure 帳戶，請花幾分鐘的時間[建立免費的 Azure 試用帳戶](https://azure.microsoft.com/free/)。
 
 * 如何使用 Raspberry Pi 線上模擬器。
 
-* 如何将传感器数据发送到 IoT 中心。
+* 如何將感應器資料傳送至 IoT 中樞。
 
 ## <a name="overview-of-raspberry-pi-web-simulator"></a>Raspberry Pi Web 模擬器概觀
 
@@ -112,6 +112,6 @@ Web 模擬器中有三個區域。
 
 ## <a name="next-steps"></a>後續步驟
 
-此时已运行示例应用程序，收集传感器数据并将其发送到 IoT 中心。
+您已執行範例應用程式收集感應器資料並傳送至 IoT 中樞。
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

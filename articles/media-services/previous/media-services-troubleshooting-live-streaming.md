@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: f502e3228274840d23b9f52512280fc0d9f0553b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60544689"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>為即時串流而設的疑難排解指南  
@@ -31,8 +31,8 @@ ms.locfileid: "60544689"
 * **可能的問題**：找不到可能有助於偵錯問題的編碼器記錄。
   
   * **Telestream Wirecast**：您通常可以在 C:\Users\{username}\AppData\Roaming\Wirecast\ 下找到記錄 
-  * **Elemental Live**：您可在管理入口網站上找到記錄連結。 依序按一下 [統計] 及 [記錄]。 在 [記錄]  頁面上，您會看到一份所有 LiveEvent 項目的記錄清單，請選取符合您目前工作階段的項目。 
-  * **Flash Media Live Encoder**：瀏覽至 [編碼記錄檔] 索引標籤，即可找到 [記錄檔目錄...]。
+  * **Elemental Live**：您可在管理入口網站上找到記錄連結。 依序按一下 [統計]  及 [記錄]  。 在 [記錄]  頁面上，您會看到一份所有 LiveEvent 項目的記錄清單，請選取符合您目前工作階段的項目。 
+  * **Flash Media Live Encoder**：瀏覽至 [編碼記錄檔]  索引標籤，即可找到 [記錄檔目錄...]  。
 
 ### <a name="problem-there-is-no-option-for-outputting-a-progressive-stream"></a>問題：沒有輸出漸進式資料流的選項
 * **可能的問題**：使用的編碼器不會自動進行非交錯處理。 

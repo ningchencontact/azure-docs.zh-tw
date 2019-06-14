@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 2871a4a0efaa40d20148ede7f0402a0dd874126c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957304"
 ---
 # <a name="manage-your-azure-maps-account"></a>管理 Azure 地圖服務帳戶
@@ -21,13 +21,13 @@ ms.locfileid: "65957304"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="create-a-new-account"></a>建立新的帳戶
+## <a name="create-a-new-account"></a>建立新帳戶
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 選取 Azure 入口網站中左上角的 [建立資源]。
+2. 選取 Azure 入口網站中左上角的 [建立資源]  。
 
-3. 搜尋並選取 [地圖服務]。 然後選取 [建立]。
+3. 搜尋並選取 [地圖服務]  。 然後選取 [建立]  。
 
 4. 輸入新帳戶的資訊。
 
@@ -35,7 +35,7 @@ ms.locfileid: "65957304"
 
 ## <a name="delete-an-account"></a>刪除帳戶
 
-您可以從 Azure 入口網站刪除帳戶。 瀏覽至帳戶概觀頁面，然後選取 [刪除]。
+您可以從 Azure 入口網站刪除帳戶。 瀏覽至帳戶概觀頁面，然後選取 [刪除]  。
 
 ![在入口網站中刪除您的帳戶](./media/how-to-manage-account-keys/account-delete-portal.png)
 

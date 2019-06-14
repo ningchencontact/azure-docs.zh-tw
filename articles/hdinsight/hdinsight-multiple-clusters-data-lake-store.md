@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: b580890b1663aa6ce742443e927e4d760585d4ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700296"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>透過一個 Azure Data Lake Storage 帳戶使用多個 HDInsight 叢集
@@ -50,10 +50,10 @@ Data Lake Storage 支援無限制的儲存體，使其不僅適合裝載大量�
 
 需要考慮的一些重要事項。
 
-- 使用叢集的儲存體帳戶**之前**，Data Lake Storage 管理員必須使用適當權限來建立和佈建兩層的資料夾結構 (**/clusters/finance/**)。 建立叢集時不會自動建立此結構。
+- 使用叢集的儲存體帳戶**之前**，Data Lake Storage 管理員必須使用適當權限來建立和佈建兩層的資料夾結構 ( **/clusters/finance/** )。 建立叢集時不會自動建立此結構。
 - 上述範例建議將擁有群組 **/clusters/finance** 設為 **FINGRP**，並允許 **r-x** 讓 FINGRP 從根目錄開始存取整個資料夾階層。 這可確保 FINGRP 的成員可以從根目錄開始瀏覽資料夾結構。
 - 當不同的 AAD 服務主體可以在 **/clusters/finance** 下建立叢集時，黏著位元 (在 **finance** 資料夾上設定時) 可確保一個服務主體所建立的資料夾無法被其他服務主體刪除。
-- HDInsight 叢集建立程序之後的資料夾結構和權限準備就緒之後，建立特定的儲存位置下 **/叢集/finance/**。 例如，名稱為 fincluster01 之叢集的儲存體可能是 **/clusters/finance/fincluster01**。 下表顯示 HDInsight 叢集所建立之資料夾的擁有權和權限。
+- HDInsight 叢集建立程序之後的資料夾結構和權限準備就緒之後，建立特定的儲存位置下 **/叢集/finance/** 。 例如，名稱為 fincluster01 之叢集的儲存體可能是 **/clusters/finance/fincluster01**。 下表顯示 HDInsight 叢集所建立之資料夾的擁有權和權限。
 
     |資料夾  |權限  |擁有使用者  |擁有群組  | 具名使用者 | 具名使用者權限 | 具名群組 | 具名群組權限 |
     |---------|---------|---------|---------|---------|---------|---------|---------|
@@ -88,7 +88,7 @@ Data Lake Storage 支援無限制的儲存體，使其不僅適合裝載大量�
 如先前連結的 YARN JIRA 中所述，將公用資源當地語系化時，當地語系化人員會在遠端檔案系統上檢查所有要求之資源的權限，確保它們確實已公開。 任何不符合該條件的 LocalResource 將會被拒絕進行當地語系化。 權限檢查包括「其他人」的檔案讀取權限。 在 Azure Data Lake 上裝載 HDInsight 叢集時，這種情況不會自動發生，因為 Azure Data Lake 會在根資料夾等級拒絕「其他人」的所有存取權。
 
 #### <a name="workaround"></a>因應措施
-透過階層設定**其他人**的讀取和執行權限，例如在**/**、**/clusters** 和 **/clusters/finance**，如上表所示。
+透過階層設定**其他人**的讀取和執行權限，例如在 **/** 、 **/clusters** 和 **/clusters/finance**，如上表所示。
 
 ## <a name="see-also"></a>請參閱
 

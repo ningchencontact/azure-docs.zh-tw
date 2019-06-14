@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: juliako
 ms.openlocfilehash: 1aa15a42893d867ae18c267e163e8df94af50723
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824445"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Azure 媒體服務 v3 配額和限制
@@ -28,7 +28,7 @@ ms.locfileid: "65824445"
 | 動態資訊清單篩選條件|100|
 | 每個工作的工作輸入 | 50 (固定)|
 | 每個工作的工作輸出 | 20 (固定) |
-| 转换中的 TransformOutput 数 | 20 (固定) |
+| 「 轉換 」 中的 TransformOutputs | 20 (固定) |
 | 每個 JobInput 的檔案|10 (固定)|
 | 檔案大小| 在某些情況下，對於媒體服務中支援處理的檔案大小上限有所限制。 <sup>(1)</sup> |
 | 每個媒體服務帳戶的工作 | 500,000 <sup>(2)</sup> (固定)|

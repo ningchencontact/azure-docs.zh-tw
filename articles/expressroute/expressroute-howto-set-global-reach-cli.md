@@ -9,10 +9,10 @@ ms.date: 12/12/2018
 ms.author: jaredro
 ms.custom: seodec18
 ms.openlocfilehash: 89ada41c5f3c9cf1ca7a2ac707363f57080c361d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869973"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>使用 Azure CLI 中設定 ExpressRoute 觸及全球範圍
@@ -54,7 +54,7 @@ az account set --subscription <your subscription ID>
 
 執行命令以啟用連線時，請注意下列參數值的需求：
 
-* *peer-circuit* 應該是完整的資源識別碼。 例如︰
+* *peer-circuit* 應該是完整的資源識別碼。 例如:
 
   > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
 

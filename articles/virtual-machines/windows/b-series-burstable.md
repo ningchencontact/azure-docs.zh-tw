@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/07/2017
 ms.author: ayshak
 ms.openlocfilehash: 8530682baac1544de2c73186b35fdf193e1826bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61456320"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B 系列高載虛擬機器大小
@@ -29,7 +29,7 @@ ms.locfileid: "61456320"
 
 ## <a name="other-sizes"></a>其他大小
 - [一般用途](sizes-general.md)
-- [计算优化](sizes-compute.md)
+- [計算最佳化](sizes-compute.md)
 - [記憶體最佳化](../virtual-machines-windows-sizes-memory.md)
 - [儲存體最佳化](../virtual-machines-windows-sizes-storage.md)
 - [GPU 最佳化](sizes-gpu.md)

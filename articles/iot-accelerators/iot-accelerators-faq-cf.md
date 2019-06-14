@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: ed429d923cad2c715621990c146d4cf3a23e7bca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447925"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>連線處理站解決方案加速器的常見問題集
@@ -76,7 +76,7 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
 1. 若要檢查哪些容器正在作用中，請執行：`docker ps`。
 1. 若要停止所有模擬容器，請執行：`./stopsimulation`。
 1. 若要啟動所有模擬容器：
-    * 匯出具有名稱 **IOTHUB_CONNECTIONSTRING** 的殼層變數。 使用 `<name of your deployment>.config.user` 檔案中的 **IotHubOwnerConnectionString** 設定值。 例如︰
+    * 匯出具有名稱 **IOTHUB_CONNECTIONSTRING** 的殼層變數。 使用 `<name of your deployment>.config.user` 檔案中的 **IotHubOwnerConnectionString** 設定值。 例如:
 
         ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -146,7 +146,7 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
 
 當您使用連線處理站 GitHub 存放庫中的 `build.ps1` 指令碼進行部署時，請將建置視窗中的 `$env:MapApiQueryKey` 環境變數設定為 [Azure 地圖服務帳戶的金鑰](../azure-maps/how-to-manage-account-keys.md)。 系統隨後會自動啟用互動式地圖。
 
-您也可以在部署之後將 Azure 地圖服務帳戶金鑰新增至解決方案加速器。 瀏覽至 Azure 入口網站，並存取連線處理站部署中的 App Service 資源。 瀏覽至 [應用程式設定]，您可以在此找到 [應用程式設定] 區段。 將 **MapApiQueryKey** 設定為 [Azure 地圖服務帳戶的金鑰](../azure-maps/how-to-manage-account-keys.md)。 儲存設定，然後瀏覽至 [概觀]，並重新啟動 App Service。
+您也可以在部署之後將 Azure 地圖服務帳戶金鑰新增至解決方案加速器。 瀏覽至 Azure 入口網站，並存取連線處理站部署中的 App Service 資源。 瀏覽至 [應用程式設定]  ，您可以在此找到 [應用程式設定]  區段。 將 **MapApiQueryKey** 設定為 [Azure 地圖服務帳戶的金鑰](../azure-maps/how-to-manage-account-keys.md)。 儲存設定，然後瀏覽至 [概觀]  ，並重新啟動 App Service。
 
 ### <a name="how-do-i-create-an-azure-maps-account"></a>如何建立 Azure 地圖服務帳戶？
 

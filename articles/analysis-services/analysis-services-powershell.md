@@ -9,10 +9,10 @@ ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 1f9c30f1c914f6c8d42967e014d967ba0d5b85cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142305"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>使用 PowerShell 管理 Azure Analysis Services
@@ -33,7 +33,7 @@ ms.locfileid: "66142305"
 
 Module - [Az.AnalysisServices](/powershell/module/az.analysisservices)
 
-|Cmdlet|說明| 
+|Cmdlet|描述| 
 |------------|-----------------| 
 |[Get-AzAnalysisServicesServer](/powershell/module/az.analysisservices/get-azanalysisservicesserver)|取得伺服器執行個體的詳細資料。|  
 |[New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver)|建立伺服器執行個體。|   
@@ -49,7 +49,7 @@ Module - [Az.AnalysisServices](/powershell/module/az.analysisservices)
 
 模組 - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azure.AnalysisServices)
 
-|Cmdlet|說明| 
+|Cmdlet|描述| 
 |------------|-----------------| 
 |[Add-AzAnalysisServicesAccount](/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|新增已驗證的帳戶以用於 Azure Analysis Services 伺服器 Cmdlet 要求。| 
 |[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|從目前登入環境新增 AzAnalysisServicesAccount 命令中所指定的 Analysis Services 伺服器執行個體匯出記錄檔|  
@@ -63,7 +63,7 @@ Azure Analysis Services 資料庫作業會使用與 SQL Server Analysis Services
 SqlServer 模組提供特定工作的資料庫管理 Cmdlet，以及接受「表格式模型指令碼語言」(TMSL) 查詢或指令碼的一般用途 Invoke-ASCmd Cmdlet。 Azure Analysis Services 支援 SqlServer 模組中的下列 Cmdlet。
 
   
-|Cmdlet|說明|
+|Cmdlet|描述|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|將成員新增到資料庫角色。| 
 |[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|備份 Analysis Services 資料庫。|  

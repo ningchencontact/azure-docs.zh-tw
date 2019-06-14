@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/20/2019
 ms.author: tomfitz
 ms.openlocfilehash: 91325b7884eae4c6f4c85c142b1e81cf2121c039
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62103780"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>定義 Azure Resource Manager 範本中部署資源的順序
@@ -65,7 +65,7 @@ ms.locfileid: "62103780"
 雖然您可能比較傾向於使用 dependsOn 來對應資源之間的關聯性，但是請務必了解為什麼您要這麼做。 例如，若要記載資源互連的方式，dependsOn 並不是適當的方法。 在部署之後，您便無法查詢 dependsOn 元素中定義了哪些資源。 使用 dependsOn 可能會影響部署時間，因為 Resource Manager 不會平行部署兩個具有相依性的資源。 
 
 ## <a name="child-resources"></a>子資源
-resources 屬性可讓您指定與所定義的資源相關的子資源。 定義子資源時，深度只能有 5 層。 请务必注意子资源和父资源之间不能创建隐式部署依赖关系。 如果您需要在父資源之後部署子資源，您必須使用 dependsOn 屬性明確地敘述該相依性。 
+resources 屬性可讓您指定與所定義的資源相關的子資源。 定義子資源時，深度只能有 5 層。 請務必請注意，隱含的部署相依性不會建立子資源與父資源之間。 如果您需要在父資源之後部署子資源，您必須使用 dependsOn 屬性明確地敘述該相依性。 
 
 每個父資源只接受特定的資源類型做為子資源。 可接受的資源類型是在父資源的 [範本結構描述](https://github.com/Azure/azure-resource-manager-schemas) 中指定。 子資源類型的名稱包含父資源類型的名稱，例如 **Microsoft.Web/sites/config** 和 **Microsoft.Web/sites/extensions** 兩者皆為 **Microsoft.Web/sites** 的子資源。
 

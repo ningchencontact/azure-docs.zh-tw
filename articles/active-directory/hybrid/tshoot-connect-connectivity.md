@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64572793"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>針對 Azure AD 連線進行疑難排解
@@ -53,7 +53,7 @@ Proxy 伺服器也必須開啟必要的 URL。 如需官方清單，請參閱 [O
 | \*.microsoftonline.com |HTTPS/443 |用來設定您的 Azure AD 目錄及匯入/匯出資料。 |
 
 ## <a name="errors-in-the-wizard"></a>精靈中的錯誤
-安裝精靈會使用兩種不同的安全性內容。 在 [連線到 Azure AD]  頁面上，使用的是目前登入的使用者。 在 [設定] 頁面上，它會變更為[執行同步處理引擎服務的帳戶](reference-connect-accounts-permissions.md#adsync-service-account)。 如果發生問題，問題最有可能已經出現在精靈中的 [連線到 Azure AD] 頁面，因為 Proxy 組態是全域組態。
+安裝精靈會使用兩種不同的安全性內容。 在 [連線到 Azure AD]  頁面上，使用的是目前登入的使用者。 在 [設定]  頁面上，它會變更為[執行同步處理引擎服務的帳戶](reference-connect-accounts-permissions.md#adsync-service-account)。 如果發生問題，問題最有可能已經出現在精靈中的 [連線到 Azure AD]  頁面，因為 Proxy 組態是全域組態。
 
 下列問題是您會在安裝精靈中遇到的最常見錯誤。
 
@@ -76,7 +76,7 @@ Proxy 伺服器也必須開啟必要的 URL。 如需官方清單，請參閱 [O
 
 ### <a name="the-password-cannot-be-verified"></a>无法验证密码
 如果安裝精靈成功連線到 Azure AD，但密碼本身無法獲得驗證，您就會看到此錯誤：  
-![密码不正确。](./media/tshoot-connect-connectivity/badpassword.png)
+![不正確的密碼。](./media/tshoot-connect-connectivity/badpassword.png)
 
 * 密碼是暫時密碼，而且必須變更嗎？ 實際上是正確的密碼嗎？ 请尝试登录到 https://login.microsoftonline.com （在 Azure AD Connect 服务器以外的另一台计算机上），并验证该帐户是否可用。
 
@@ -87,7 +87,7 @@ PowerShell 會使用 machine.config 中的組態來連絡 Proxy。 winhttp/netsh
 
 如果代理配置正确，则会收到成功状态：![proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
-如果您收到 [無法連接至遠端伺服器]，則表示 PowerShell 正嘗試進行直接呼叫而未使用 Proxy，或是 DNS 設定不正確。 请确保 machine.config 文件配置正确。
+如果您收到 [無法連接至遠端伺服器]  ，則表示 PowerShell 正嘗試進行直接呼叫而未使用 Proxy，或是 DNS 設定不正確。 请确保 machine.config 文件配置正确。 
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
 
 如果 Proxy 設定不正確，您將會收到錯誤：![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
@@ -109,7 +109,7 @@ PowerShell 會使用 machine.config 中的組態來連絡 Proxy。 winhttp/netsh
 * 端點 adminwebservice 和 provisioningapi 是探索端點，可用來尋找要使用的實際端點。 這些端點會依據您的區域而有所不同。
 
 ### <a name="reference-proxy-logs"></a>參考 Proxy 記錄
-以下是實際 Proxy 記錄檔的傾印及取得它的安裝精靈頁面 (已移除至相同端點的重複項目)。 本節可以作為您自己 Proxy 和網路記錄的參考。 您環境中實際的端點可能會有所不同 (特別是以「斜體字」表示的 URL)。
+以下是實際 Proxy 記錄檔的傾印及取得它的安裝精靈頁面 (已移除至相同端點的重複項目)。 本節可以作為您自己 Proxy 和網路記錄的參考。 您環境中實際的端點可能會有所不同 (特別是以「斜體字」  表示的 URL)。
 
 **连接到 Azure AD**
 
@@ -117,7 +117,7 @@ PowerShell 會使用 machine.config 中的組態來連絡 Proxy。 winhttp/netsh
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:32 |connect://bba800-anchor.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://bba800-anchor.microsoftonline.com:443  |
 | 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
@@ -144,7 +144,7 @@ PowerShell 會使用 machine.config 中的組態來連絡 Proxy。 winhttp/netsh
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect://bba900-anchor.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://bba900-anchor.microsoftonline.com:443  |
 | 1/11/2016 8:49 |connect://*bba800-anchor*.microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>驗證錯誤

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
 ms.openlocfilehash: 1a0a2bd9132ba5d018bc5d45699c052d10c30162
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942683"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>使用 Cloud Partner 入口網站建立新的容器供應項目
@@ -27,13 +27,13 @@ ms.locfileid: "64942683"
 
 ## <a name="new-offer-form"></a>新增供應項目表單 
 
-登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)後，選取左側功能表列上的 [+ 新增供應項目]。 在 [新增供應項目] 功能表中，選取 [容器] 以顯示 [新增供應項目] 表單，並開始定義新容器供應項目資產的程序。
+登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)後，選取左側功能表列上的 [+ 新增供應項目]  。 在 [新增供應項目] 功能表中，選取 [容器]  以顯示 [新增供應項目]  表單，並開始定義新容器供應項目資產的程序。
 
 ![選取容器選項以新增項目](./media/azure-container-offer.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-容器供應項目類型的 [新增供應項目] 頁面會提供一組索引標籤和表單欄位，方便您建立新的供應項目。 下列文章將分別說明如何使用索引標籤定義資產群組及新容器供應項目的支援服務。
+容器供應項目類型的 [新增供應項目]  頁面會提供一組索引標籤和表單欄位，方便您建立新的供應項目。 下列文章將分別說明如何使用索引標籤定義資產群組及新容器供應項目的支援服務。
 
 - [供應項目設定索引標籤](./cpp-offer-settings-tab.md)
 - [SKU 索引標籤](./cpp-skus-tab.md)

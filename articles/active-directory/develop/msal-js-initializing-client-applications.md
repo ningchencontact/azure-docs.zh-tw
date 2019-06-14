@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd26f36356affbc8c272bd093757a8482773baf2
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544032"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>初始化使用 MSAL.js 的用戶端應用程式
@@ -62,7 +62,7 @@ myMSALObj.handleRedirectCallback(authCallback);
 
 MSAL.js 設計為具有單一執行個體和設定`UserAgentApplication`來代表單一驗證內容。 如有衝突的快取項目和行為會在瀏覽器中，不建議您使用多個執行個體。
 
-## <a name="configuration-options"></a>設定選項
+## <a name="configuration-options"></a>組態選項
 
 MSAL.js 具有組態，如下所示的物件提供的可設定的選項可用來建立的執行個體群組`UserAgentApplication`。
 
@@ -142,4 +142,4 @@ export type Configuration = {
 這些只是適用於從 MSAL Angular 的包裝函式程式庫，向下傳遞：
 - **unprotectedResources**:選用。  未受保護資源的 Uri 的陣列。 MSAL 會附加到具有下列 URI 的連出要求的語彙基元。 預設值為 `null`。
 
-- **protectedResourceMap**:選用。  這對應的資源給 MSAL 用於自動附加在 web API 呼叫中的存取權杖的範圍。 單一的存取權杖取得資源。 因此您可以將特定的資源路徑，如下所示: {"https://graph.microsoft.com/v1.0/me」，["user.read"]}，或做為資源的應用程式 URL: {"https://graph.microsoft.com/」，["user.read"，"mail.send"]}。 這是必要的 CORS 呼叫。 預設值為 `null`。
+- **protectedResourceMap**:選用。  這對應的資源給 MSAL 用於自動附加在 web API 呼叫中的存取權杖的範圍。 單一的存取權杖取得資源。 因此您可以將特定的資源路徑，如下所示: {"https://graph.microsoft.com/v1.0/me 」，["user.read"]}，或做為資源的應用程式 URL: {"https://graph.microsoft.com/ 」，["user.read"，"mail.send"]}。 這是必要的 CORS 呼叫。 預設值為 `null`。

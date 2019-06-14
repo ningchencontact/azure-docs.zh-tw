@@ -14,14 +14,14 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0a3adbd082c68121e762fd03c2221a0c800f0bc5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60823975"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>使用 Azure Data Factory 從內部部署的 Cassandra 資料庫移動資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](data-factory-onprem-cassandra-connector.md)
 > * [第 2 版 (目前的版本)](../connector-cassandra.md)
 
@@ -49,7 +49,7 @@ Cassandra 連接器支援下列 Cassandra 版本：2.X 和 3.x。 針對在自�
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 Cassandra 資料存放區移動資料。
 
 - 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
-- 您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+- 您也可以使用下列工具來建立管線：**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、 **.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -68,7 +68,7 @@ Cassandra 連接器支援下列 Cassandra 版本：2.X 和 3.x。 針對在自�
 | --- | --- | --- |
 | type |類型屬性必須設定為：**OnPremisesCassandra** |是 |
 | host |一或多個 Cassandra 伺服器 IP 位址或主機名稱。<br/><br/>指定以逗號分隔的 IP 位址或主機名稱清單，以同時連線到所有伺服器。 |是 |
-| 連接埠 |Cassandra 伺服器用來接聽用戶端連線的 TCP 連接埠。 |否，預設值：9042 |
+| port |Cassandra 伺服器用來接聽用戶端連線的 TCP 連接埠。 |否，預設值：9042 |
 | authenticationType |基本或匿名 |是 |
 | username |指定使用者帳戶的使用者名稱。 |是，如果 authenticationType 設定為 [基本]。 |
 | password |指定使用者帳戶的密碼。 |是，如果 authenticationType 設定為 [基本]。 |
@@ -262,21 +262,21 @@ Cassandra 連接器支援下列 Cassandra 版本：2.X 和 3.x。 針對在自�
 ### <a name="type-mapping-for-cassandra"></a>Cassandra 的類型對應
 | Cassandra 類型 | 以 .Net 為基礎的類型 |
 | --- | --- |
-| ASCII |字串 |
+| ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLEAN |BOOLEAN |
-| DECIMAL |Decimal |
-| DOUBLE |DOUBLE |
+| Boolean |Boolean |
+| Decimal |Decimal |
+| Double |Double |
 | FLOAT |Single |
-| INET |字串 |
+| INET |String |
 | INT |Int32 |
-| TEXT |字串 |
-| 時間戳記 |DateTime |
+| TEXT |String |
+| TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
-| VARCHAR |字串 |
-| VARINT |DECIMAL |
+| VARCHAR |String |
+| VARINT |Decimal |
 
 > [!NOTE]
 > 如需集合類型 (對應、集、清單等)，請參閱 [使用虛擬資料表處理 Cassandra 集合類型](#work-with-collections-using-virtual-table) 一節。
@@ -291,7 +291,7 @@ Cassandra 連接器支援下列 Cassandra 版本：2.X 和 3.x。 針對在自�
 Azure Data Factory 會使用內建的 ODBC 驅動程式來連線到 Cassandra 資料庫並從中複製資料。 針對包含對應、集和清單在內的集合類型，此驅動程式會將資料重新標準化為對應的虛擬資料表。 具體來說，如果資料表包含任何集合資料行，則此驅動程式會產生下列虛擬資料表︰
 
 * **基底資料表**，其中包含與實際資料表相同的資料 (集合資料行除外)。 基底資料表使用與它所代表的實際資料表相同的名稱。
-* 每個集合資料行的 **虛擬資料表** ，以展開巢狀資料。 代表集合的虛擬資料表會使用實際資料表名稱、分隔字元 “vt”和資料行名稱來命名。
+* 每個集合資料行的 **虛擬資料表** ，以展開巢狀資料。 代表集合的虛擬資料表會使用實際資料表名稱、分隔字元 “vt”  和資料行名稱來命名。
 
 虛擬資料表會參考實際資料表中的資料，讓驅動程式得以存取反正規化的資料。 如需詳細資訊，請參閱＜範例＞一節。 您可以藉由查詢和聯結虛擬資料表來存取 Cassandra 集合的內容。
 
@@ -330,17 +330,17 @@ Azure Data Factory 會使用內建的 ODBC 驅動程式來連線到 Cassandra �
 #### <a name="table-exampletablevtmap"></a>資料表「ExampleTable_vt_Map」：
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |具有使用  |
-| 1 |S2 |b |
+| 1 |S1 |A |
+| 1 |S2 |B |
 | 3 |S1 |t |
 
 #### <a name="table-exampletablevtstringset"></a>資料表「ExampleTable_vt_StringSet」：
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |具有使用  |
-| 1 |b |
+| 1 |A |
+| 1 |B |
 | 1 |C |
-| 3 |具有使用  |
+| 3 |A |
 | 3 |E |
 
 ## <a name="map-source-to-sink-columns"></a>將來源對應到接收資料行

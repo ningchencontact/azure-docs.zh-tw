@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
 ms.openlocfilehash: 6a7e0a27d3cda4193a04467d541f851a9e57fa46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60548075"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure SQL 資料倉儲中
@@ -31,7 +31,7 @@ Azure Data Factory 可針對將資料載入 Azure SQL 資料倉儲的作業提�
 * **安全且符合規範**:資料會透過 HTTPS 或 ExpressRoute 傳輸。 具有全域服務，可確保資料絕不會離開地理界限。
 * **無與倫比的效能，使用 PolyBase**:Polybase 是將資料移至 Azure SQL 資料倉儲最有效率的方式。 使用暫存 Blob 功能來讓您能夠從所有類型的資料存放區 (包括 Azure Blob 儲存體和 Data Lake Store) 高速載入資料。 (Polybase 預設支援 Azure Blob 儲存體和 Azure Data Lake Store)。如需詳細資料，請參閱[複製活動效能](copy-activity-performance.md)。
 
-本文將示範如何使用 Data Factory 複製資料工具，將資料從 Azure SQL Database 載入 Azure SQL 資料倉儲中。 您可以依照類似的步驟，從其他類型的資料存放區複製資料。
+本文將示範如何使用 Data Factory 複製資料工具，將資料從 Azure SQL Database 載入 Azure SQL 資料倉儲中  。 您可以依照類似的步驟，從其他類型的資料存放區複製資料。
 
 > [!NOTE]
 > 如需詳細資訊，請參閱[使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料](connector-azure-sql-data-warehouse.md)。
@@ -45,115 +45,115 @@ Azure Data Factory 可針對將資料載入 Azure SQL 資料倉儲的作業提�
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
-1. 在左側功能表上，選取 [建立資源] > [資料 + 分析] > [資料處理站]： 
+1. 在左側功能表上，選取 [建立資源]   > [資料 + 分析]   > [資料處理站]  ： 
    
    ![在 [新增] 窗格中選取資料處理站](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
-2. 在 [新增資料處理站] 頁面中，為下圖所示的欄位提供值：
+2. 在 [新增資料處理站]  頁面中，為下圖所示的欄位提供值：
       
    ![新增資料處理站頁面](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
-    * **名稱**：輸入 Azure 資料處理站的全域唯一名稱。 如果您收到「資料處理站名稱 \"LoadSQLDWDemo\" 無法使用」的錯誤，請為資料處理站輸入其他名稱。 例如，您可以使用**您的名稱****ADFTutorialDataFactory**。 請嘗試再次建立資料處理站。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
-    * 訂用帳戶：選取用來在其中建立資料處理站的 Azure 訂用帳戶。 
-    * **資源群組**：從下拉式清單中選取現有的資源群組，或選取 [新建] 選項，然後輸入資源群組的名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
-    * **版本**：選取 [V2]。
+    * **名稱**：輸入 Azure 資料處理站的全域唯一名稱。 如果您收到「資料處理站名稱 \"LoadSQLDWDemo\" 無法使用」的錯誤，請為資料處理站輸入其他名稱。 例如，您可以使用**您的名稱**  **ADFTutorialDataFactory**。 請嘗試再次建立資料處理站。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
+    * 訂用帳戶  ：選取用來在其中建立資料處理站的 Azure 訂用帳戶。 
+    * **資源群組**：從下拉式清單中選取現有的資源群組，或選取 [新建]  選項，然後輸入資源群組的名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
+    * **版本**：選取 [V2]  。
     * **位置**：選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區可位於其他位置和區域。 這些資料存放區包含 Azure Data Lake Store、Azure 儲存體、Azure SQL Database 等等。
 
-3. 選取 [建立] 。
-4. 建立完成後，請移至資料處理站。 您會看到如下圖所示的 [Data Factory] 首頁：
+3. 選取 [建立]  。
+4. 建立完成後，請移至資料處理站。 您會看到如下圖所示的 [Data Factory]  首頁：
    
    ![Data Factory 首頁](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)
 
-   選取 [編寫與監視] 圖格，以在另一個索引標籤中啟動資料整合應用程式。
+   選取 [編寫與監視]  圖格，以在另一個索引標籤中啟動資料整合應用程式。
 
 ## <a name="load-data-into-azure-sql-data-warehouse"></a>將資料載入 Azure SQL 資料倉儲
 
-1. 在 [開始使用] 頁面中，選取 [複製資料] 圖格以啟動複製資料工具：
+1. 在 [開始使用]  頁面中，選取 [複製資料]  圖格以啟動複製資料工具：
 
    ![複製資料工具圖格](./media/load-azure-sql-data-warehouse/copy-data-tool-tile.png)
-1. 在 [屬性] 頁面中，對 [工作名稱] 欄位指定 [CopyFromSQLToSQLDW]，然後選取 [下一步]：
+1. 在 [屬性]  頁面中，對 [工作名稱]  欄位指定 [CopyFromSQLToSQLDW]  ，然後選取 [下一步]  ：
 
     ![屬性頁面](./media/load-azure-sql-data-warehouse/copy-data-tool-properties-page.png)
 
-1. 在 [來源資料存放區] 頁面中，完成下列步驟：
+1. 在 [來源資料存放區]  頁面中，完成下列步驟：
 
-    a. 按一下 [+ 建立新連線]：
+    a. 按一下 [+ 建立新連線]  ：
 
     ![來源資料存放區頁面](./media/load-azure-sql-data-warehouse/new-source-linked-service.png)
 
-    b. 從資源庫選取 [Azure SQL Database]，然後選取 [繼續]。 您可以在搜尋方塊中輸入 "SQL"，以篩選連接器。
+    b. 從資源庫選取 [Azure SQL Database]  ，然後選取 [繼續]  。 您可以在搜尋方塊中輸入 "SQL"，以篩選連接器。
 
     ![選取 Azure SQL DB](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. 在 **新增連結服務**頁面，從下拉式清單中，選取您的伺服器名稱和資料庫名稱並指定使用者名稱和密碼。 按一下 [測試連線] 以驗證設定，然後選取 [完成]。
+    c. 在 **新增連結服務**頁面，從下拉式清單中，選取您的伺服器名稱和資料庫名稱並指定使用者名稱和密碼。 按一下 [測試連線]  以驗證設定，然後選取 [完成]  。
    
     ![設定 Azure SQL DB](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
-    d. 選取新建立的連結服務作為來源，然後按 [下一步]。
+    d. 選取新建立的連結服務作為來源，然後按 [下一步]  。
 
     ![選取來源連結服務](./media/load-azure-sql-data-warehouse/select-source-linked-service.png)
 
-1. 在 [選取要從中複製資料的資料表或使用自訂查詢] 頁面中，輸入 **SalesLT** 以篩選資料表。 選擇 [(全選)] 方塊以讓所有資料表都用於複製，然後選取 [下一步]： 
+1. 在 [選取要從中複製資料的資料表或使用自訂查詢]  頁面中，輸入 **SalesLT** 以篩選資料表。 選擇 [(全選)]  方塊以讓所有資料表都用於複製，然後選取 [下一步]  ： 
 
     ![選取來源資料表](./media/load-azure-sql-data-warehouse/select-source-tables.png)
 
-1. 在 [目的地資料存放區] 頁面中，完成下列步驟：
+1. 在 [目的地資料存放區]  頁面中，完成下列步驟：
 
-    a. 按一下 [+ 建立新連線] 以新增連線
+    a. 按一下 [+ 建立新連線]  以新增連線
 
     ![接收資料存放區頁面](./media/load-azure-sql-data-warehouse/new-sink-linked-service.png)
 
-    b. 從資源庫選取 [Azure SQL 資料倉儲]，然後選取 [下一步]。
+    b. 從資源庫選取 [Azure SQL 資料倉儲]  ，然後選取 [下一步]  。
 
     ![選取 Azure SQL 資料倉儲](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. 在 **新增連結服務**頁面，從下拉式清單中，選取您的伺服器名稱和資料庫名稱並指定使用者名稱和密碼。 按一下 [測試連線] 以驗證設定，然後選取 [完成]。
+    c. 在 **新增連結服務**頁面，從下拉式清單中，選取您的伺服器名稱和資料庫名稱並指定使用者名稱和密碼。 按一下 [測試連線]  以驗證設定，然後選取 [完成]  。
    
     ![設定 Azure SQL 資料倉儲](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
-    d. 選取新建立的連結服務作為接收端，然後按 [下一步]。
+    d. 選取新建立的連結服務作為接收端，然後按 [下一步]  。
 
     ![選取接收連結服務](./media/load-azure-sql-data-warehouse/select-sink-linked-service.png)
 
-1. 在 [資料表對應] 頁面上檢閱內容，然後選取 [下一步]。 隨即會顯示智慧型資料表對應。 來源資料表會根據資料表名稱來對應至目的地資料表。 如果有某個來源資料表未存在於目的地中，Azure Data Factory 預設會建立具有相同名稱的目的地資料表。 您也可以將來源資料表對應至現有的目的地資料表。 
+1. 在 [資料表對應]  頁面上檢閱內容，然後選取 [下一步]  。 隨即會顯示智慧型資料表對應。 來源資料表會根據資料表名稱來對應至目的地資料表。 如果有某個來源資料表未存在於目的地中，Azure Data Factory 預設會建立具有相同名稱的目的地資料表。 您也可以將來源資料表對應至現有的目的地資料表。 
 
    > [!NOTE]
    > 當來源為 SQL Server 或 Azure SQL Database 時，系統便會自動為 SQL 資料倉儲接收建立資料表。 如果您從其他來源資料存放區複製資料，就必須在執行資料複製之前，先在接收 Azure SQL 資料倉儲中預先建立結構描述。
 
    ![資料表對應頁面](./media/load-azure-sql-data-warehouse/table-mapping.png)
 
-1. 在 [結構描述對應] 頁面上檢閱內容，然後選取 [下一步]。 系統會根據資料行名稱來進行智慧型資料表對應。 如果您讓 Data Factory 自動建立資料表，而來源和目的地存放區之間有不相容的問題時，系統便會轉換資料類型。 如果來源和目的地資料行之間有不支援的資料類型轉換，您就會在對應的資料表旁看到一則錯誤訊息。
+1. 在 [結構描述對應]  頁面上檢閱內容，然後選取 [下一步]  。 系統會根據資料行名稱來進行智慧型資料表對應。 如果您讓 Data Factory 自動建立資料表，而來源和目的地存放區之間有不相容的問題時，系統便會轉換資料類型。 如果來源和目的地資料行之間有不支援的資料類型轉換，您就會在對應的資料表旁看到一則錯誤訊息。
 
     ![結構描述對應頁面](./media/load-azure-sql-data-warehouse/schema-mapping.png)
 
-1. 在 [設定] 頁面中，完成下列步驟：
+1. 在 [設定]  頁面中，完成下列步驟：
 
-    a. 在 [暫存設定] 區段中，按一下 [+ 新增] 以新增暫存儲存體。 此儲存體可用來暫存資料，之後再使用 PolyBase 將資料載入到 SQL 資料倉儲。 複製完成後，系統會自動清除 Azure 儲存體中的暫存資料。 
+    a. 在 [暫存設定]  區段中，按一下 [+ 新增]  以新增暫存儲存體。 此儲存體可用來暫存資料，之後再使用 PolyBase 將資料載入到 SQL 資料倉儲。 複製完成後，系統會自動清除 Azure 儲存體中的暫存資料。 
 
     ![設定暫存](./media/load-azure-sql-data-warehouse/configure-staging.png)
 
-    b. 在 [新增連結服務] 頁面中，選取您的儲存體帳戶，然後選取 [完成]。
+    b. 在 [新增連結服務]  頁面中，選取您的儲存體帳戶，然後選取 [完成]  。
    
     ![設定 Azure 儲存體](./media/load-azure-sql-data-warehouse/configure-blob-storage.png)
 
-    c. 在 [進階設定] 區段中，取消選取 [使用類型預設值] 選項，然後選取 [下一步]。
+    c. 在 [進階設定]  區段中，取消選取 [使用類型預設值]  選項，然後選取 [下一步]  。
 
     ![設定 PolyBase](./media/load-azure-sql-data-warehouse/configure-polybase.png)
 
-1. 在 [摘要] 頁面中檢閱設定，然後選取 [下一步]：
+1. 在 [摘要]  頁面中檢閱設定，然後選取 [下一步]  ：
 
     ![摘要頁面](./media/load-azure-sql-data-warehouse/summary-page.png)
-1. 在**部署頁面**上選取 [監視] 來監視管線 (工作)：
+1. 在**部署頁面**上選取 [監視]  來監視管線 (工作)：
 
     ![部署頁面](./media/load-azure-sql-data-warehouse/deployment-page.png)
-1. 請注意，系統會自動選取左側的 [監視] 索引標籤。 [動作] 資料行中會有連結可供檢視活動執行詳細資料，以及重新執行管線： 
+1. 請注意，系統會自動選取左側的 [監視]  索引標籤。 [動作]  資料行中會有連結可供檢視活動執行詳細資料，以及重新執行管線： 
 
     ![監視管線回合](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)
-1. 若要檢視與此管線執行相關聯的活動執行，請選取 [動作] 資料行中的 [檢視活動執行] 連結。 若要切換回 [管線執行] 檢視，請選取頂端的 [管線] 連結。 選取 [重新整理] 即可重新整理清單。 
+1. 若要檢視與此管線執行相關聯的活動執行，請選取 [動作]  資料行中的 [檢視活動執行]  連結。 若要切換回 [管線執行] 檢視，請選取頂端的 [管線]  連結。 選取 [重新整理]  即可重新整理清單。 
 
     ![監視活動回合](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
 
-1. 若要監視每個複製活動的執行詳細資料，請選取活動監控檢視中 [動作] 底下的 [詳細資料] 連結。 您可以監視的詳細資料包括從來源複製到接收的資料量、資料輸送量、執行步驟與對應的持續期間，以及所使用的設定：
+1. 若要監視每個複製活動的執行詳細資料，請選取活動監控檢視中 [動作]  底下的 [詳細資料]  連結。 您可以監視的詳細資料包括從來源複製到接收的資料量、資料輸送量、執行步驟與對應的持續期間，以及所使用的設定：
 
     ![監視活動執行詳細資料](./media/load-azure-sql-data-warehouse/monitor-activity-run-details.png)
 

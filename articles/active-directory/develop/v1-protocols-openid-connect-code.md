@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9df592272b97bded9eba64249aa7608c72f8abdf
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121531"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>使用 OpenID Connect 和 Azure Active Directory 授權存取 Web 應用程式
@@ -90,18 +90,18 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=7362CAEA-9CA5-4B43-9BA3-34D7C303EBA7
 ```
 
-| 參數 |  | 說明 |
+| 參數 |  | 描述 |
 | --- | --- | --- |
 | tenant |必要 |要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。 租用戶獨立權杖允許的值為租用戶識別碼，例如 `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` 或 `contoso.onmicrosoft.com` 或 `common` |
 | client_id |必要 |向 Azure AD 註冊應用程式時，指派給您應用程式的應用程式識別碼。 您可以在 Azure 入口網站中找到這個值。 按一下  **Azure Active Directory**，按一下**應用程式註冊**，選擇 應用程式，找出應用程式頁面上的應用程式識別碼。 |
 | response_type |必要 |必須包含 OpenID Connect 登入的 `id_token` 。 它也可能包含其他 response_types，例如 `code` 或 `token`。 |
-| 範圍 | 建議使用 | OpenID Connect 規格需要範圍`openid`，這會轉譯為 「 將您登入 」 權限，在同意 UI。 這和其他 OIDC 範圍的 v1.0 端點，會略過，但仍符合標準的用戶端的最佳作法。 |
+| scope | 建議使用 | OpenID Connect 規格需要範圍`openid`，這會轉譯為 「 將您登入 」 權限，在同意 UI。 這和其他 OIDC 範圍的 v1.0 端點，會略過，但仍符合標準的用戶端的最佳作法。 |
 | nonce |必要 |包含在要求中的值 (由應用程式所產生)，將會包含在所得的 `id_token` 中來做為宣告。 應用程式接著便可確認此值，以減少權杖重新執行攻擊。 此值通常是隨機的唯一字串或 GUID，可用以識別要求的來源。 |
 | redirect_uri | 建議使用 |應用程式的 redirect_uri，您的應用程式可在此傳送及接收驗證回應。 其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 如果遺失，使用者代理程式會傳送回其中一個重新導向 Uri 註冊應用程式中，隨機。 最大長度是 255 個位元組 |
-| response_mode |選擇性 |指定將產生的 authorization_code 傳回到應用程式所應該使用的方法。 支援的值為 `form_post` (*HTTP 表單張貼*) 和 `fragment` (*URL 片段*)。 針對 Web 應用程式，建議使用 `response_mode=form_post`，確保會以最安全的方式將權杖傳輸至您的應用程式。 包括 id_token 在內的任何流程預設值皆為 `fragment`。|
+| response_mode |選用 |指定將產生的 authorization_code 傳回到應用程式所應該使用的方法。 支援的值為 `form_post` (*HTTP 表單張貼*) 和 `fragment` (*URL 片段*)。 針對 Web 應用程式，建議使用 `response_mode=form_post`，確保會以最安全的方式將權杖傳輸至您的應用程式。 包括 id_token 在內的任何流程預設值皆為 `fragment`。|
 | state |建議使用 |會隨權杖回應傳回之要求中所包含的值。 其可以是您想要之任何內容的字串。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](https://tools.ietf.org/html/rfc6749#section-10.12)。 此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
-| prompt |選擇性 |表示需要的使用者互動類型。 目前只有 'login'、'none'、'consent' 是有效值。 `prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。 `prompt=none` 則相反 - 它會確保不會對使用者顯示任何互動式提示。 如果無法透過單一登入以無訊息方式完成要求，端點就會傳回錯誤。 `prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |
-| login_hint |選擇性 |如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。 通常應用程式會在重新驗證期間使用此參數，並已經使用 `preferred_username` 宣告從上一個登入擷取使用者名稱。 |
+| prompt |選用 |表示需要的使用者互動類型。 目前只有 'login'、'none'、'consent' 是有效值。 `prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。 `prompt=none` 則相反 - 它會確保不會對使用者顯示任何互動式提示。 如果無法透過單一登入以無訊息方式完成要求，端點就會傳回錯誤。 `prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |
+| login_hint |選用 |如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。 通常應用程式會在重新驗證期間使用此參數，並已經使用 `preferred_username` 宣告從上一個登入擷取使用者名稱。 |
 
 此時，系統會要求使用者輸入其認證並完成驗證。
 
@@ -117,7 +117,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | id_token |應用程式要求的 `id_token` 。 您可以使用 `id_token` 確認使用者的身分識別，並以使用者開始工作階段。 |
 | state |要求中包含的值，也會隨權杖回應傳回。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](https://tools.ietf.org/html/rfc6749#section-10.12)。 此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
@@ -134,16 +134,16 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
-| 錯誤 |用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
+| error |用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
 | error_description |協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。 |
 
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>授權端點錯誤的錯誤碼
 
 下表說明各種可能在錯誤回應的 `error` 參數中傳回的錯誤碼。
 
-| 錯誤碼 | 說明 | 用戶端動作 |
+| 錯誤碼 | 描述 | 用戶端動作 |
 | --- | --- | --- |
 | invalid_request |通訊協定錯誤，例如遺漏必要的參數。 |修正並重新提交要求。 這是通常會在初始測試期間擷取到的開發錯誤。 |
 | unauthorized_client |不允許用戶端應用程式要求授權碼。 |這通常會在用戶端應用程式未在 Azure AD 中註冊，或未加入至使用者的 Azure AD 租用戶時發生。 應用程式可以對使用者提示關於安裝應用程式，並將它加入至 Azure AD 的指示。 |
@@ -179,7 +179,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 ```
 
-| 參數 |  | 說明 |
+| 參數 |  | 描述 |
 | --- | --- | --- |
 | post_logout_redirect_uri |建議使用 |使用者應該重新導向至在成功登出之後的 URL。如果此參數，則會向使用者顯示一般訊息。 |
 
@@ -189,8 +189,8 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
 2. 在頁面右上角按一下您的帳戶，以選擇您的 Active Directory。
-3. 在左側導覽窗格中，依序選擇 [Azure Active Directory]、[應用程式註冊]，然後選取您的應用程式。
-4. 依序按一下 [設定] 和 [屬性]，並找到 [登出 URL] 文字方塊。 
+3. 在左側導覽窗格中，依序選擇 [Azure Active Directory]  、[應用程式註冊]  ，然後選取您的應用程式。
+4. 依序按一下 [設定]  和 [屬性]  ，並找到 [登出 URL]  文字方塊。 
 
 ## <a name="token-acquisition"></a>權杖取得
 許多 Web Apps 不僅需要將使用者登入，同時需要使用 OAuth 代表使用者來存取 Web 服務。 這個案例會合併 OpenID Connect 以進行使用者驗證，同時使用 [OAuth 授權碼流程](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token)取得 `authorization_code`，藉此取得 `access_tokens`。
@@ -214,7 +214,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 
 藉由在要求中包含權限範圍，並且使用 `response_type=code+id_token`，`authorize` 端點可確保使用者已經同意 `scope` 查詢參數中表示的權限，並且將授權碼傳回至您的應用程式以交換存取權杖。
 
-### <a name="successful-response"></a>成功的回應
+### <a name="successful-response"></a>成功回應
 
 成功的回應，並傳送至`redirect_uri`使用`response_mode=form_post`，看起來像：
 
@@ -226,7 +226,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | id_token |應用程式要求的 `id_token` 。 您可以使用 `id_token` 確認使用者的身分識別，並以使用者開始工作階段。 |
 | code |應用程式要求的 authorization_code。 應用程式可以使用授權碼要求目標資源的存取權杖。 authorization_code 的有效期很短，通常約 10 分鐘後即到期。 |
@@ -244,9 +244,9 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
-| 錯誤 |用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
+| error |用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
 | error_description |協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。 |
 
 如需可能的錯誤碼及建議的用戶端動作說明，請參閱[授權端點錯誤的錯誤碼](#error-codes-for-authorization-endpoint-errors)。

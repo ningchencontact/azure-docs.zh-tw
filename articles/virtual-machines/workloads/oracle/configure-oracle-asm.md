@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: 0af6e87d3e0b4b3b40b63db07384d4a33a9d43e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66154271"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>在 Azure Linux 虛擬機器上設定 Oracle ASM  
@@ -42,7 +42,7 @@ Azure 虛擬機器提供完全可設定且彈性的計算環境。 本教學課�
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-若要建立資源群組，請使用 [az group create](/cli/azure/group) 命令。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 在此範例中，系統會在 eastus 區域中建立名為 myResourceGroup 的資源群組。
+若要建立資源群組，請使用 [az group create](/cli/azure/group) 命令。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 在此範例中，系統會在 eastus  區域中建立名為 myResourceGroup  的資源群組。
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -145,7 +145,7 @@ ssh <publicIpAddress>
     uid=3000(grid) gid=54321(oinstall) groups=54321(oinstall),54322(dba),54345(asmadmin),54346(asmdba),54347(asmoper)
     ```
  
-6. 為使用者 grid 建立資料夾，並變更擁有者：
+6. 為使用者 grid  建立資料夾，並變更擁有者：
 
    ```bash
    mkdir /u01/app/grid 
@@ -154,7 +154,7 @@ ssh <publicIpAddress>
 
 ## <a name="set-up-oracle-asm"></a>設定 Oracle ASM
 
-在此教學課程中，預設使用者是「grid」，預設群組是「asmadmin」。 確定「oracle」使用者屬於 asmadmin 群組。 若要設定 Oracle ASM 的安裝，請完成下列步驟︰
+在此教學課程中，預設使用者是「grid」  ，預設群組是「asmadmin」  。 確定「oracle」  使用者屬於 asmadmin 群組。 若要設定 Oracle ASM 的安裝，請完成下列步驟︰
 
 1. 設定 Oracle ASM 程式庫的驅動程式包含定義預設使用者 (grid) 和預設群組 (asmadmin)，以及設定在開機時啟動磁碟機 (選擇 y) 並在開機時掃描磁碟 (選擇 y)。 您必須回答下列命令中的提示：
 
@@ -200,7 +200,7 @@ ssh <publicIpAddress>
    11       0       1152 sr0
    ```
 
-3. 透過執行下列命令格式化磁碟 /dev/sdc，並透過下列項目回答提示：
+3. 透過執行下列命令格式化磁碟 /dev/sdc  ，並透過下列項目回答提示：
    - *n* 適用於新的磁碟分割
    - *p* 為主要磁碟分割
    - *1* 以選取第一個磁碟分割
@@ -429,15 +429,15 @@ ssh <publicIpAddress>
    > 金鑰中必須包含字串 `ssh-rsa`。 此外，金鑰的內容必須是單行文字。
    >  
 
-6. 在用戶端系統上，啟動 PuTTY。 在 [類別] 窗格中，移至 [連線] > [SSH] > [驗證]。在 [用於驗證的私密金鑰檔] 方塊中，瀏覽至您稍早產生的金鑰。
+6. 在用戶端系統上，啟動 PuTTY。 在 [類別]  窗格中，移至 [連線]   > [SSH]   > [驗證]  。在 [用於驗證的私密金鑰檔]  方塊中，瀏覽至您稍早產生的金鑰。
 
    ![SSH 驗證選項的螢幕擷取畫面](./media/oracle-asm/setprivatekey.png)
 
-7. 在 [類別] 窗格中，移至 [連線] > [SSH] > [X11]。 選取 [啟用 X11 轉送] 核取方塊。
+7. 在 [類別]  窗格中，移至 [連線]   > [SSH]   > [X11]  。 選取 [啟用 X11 轉送]  核取方塊。
 
    ![SSH X11 轉送選項的螢幕擷取畫面](./media/oracle-asm/enablex11.png)
 
-8. 在 [類別] 窗格中，移至 [工作階段]。 在 [主機名稱] 對話方塊中，輸入 Oracle ASM VM `<publicIPaddress>`，填入新的 `Saved Session` 名稱，然後按一下 `Save`。  儲存之後，請按一下 `open` 以連線至 Oracle ASM 虛擬機器。  第一次連線時，系統會警告您登錄中不會快取遠端系統。 按一下 `yes` 新增該項目並繼續。
+8. 在 [類別]  窗格中，移至 [工作階段]  。 在 [主機名稱] 對話方塊中，輸入 Oracle ASM VM `<publicIPaddress>`，填入新的 `Saved Session` 名稱，然後按一下 `Save`。  儲存之後，請按一下 `open` 以連線至 Oracle ASM 虛擬機器。  第一次連線時，系統會警告您登錄中不會快取遠端系統。 按一下 `yes` 新增該項目並繼續。
 
    ![PuTTY 工作階段選項的螢幕擷取畫面](./media/oracle-asm/puttysession.png)
 
@@ -455,50 +455,50 @@ ssh <publicIpAddress>
    ./runInstaller
    ```
 
-   Oracle Grid Infrastructure 12c Release 1 安裝程式會隨即開啟  (安裝程式可能需要幾分鐘的時間才會啟動)。
+   Oracle Grid Infrastructure 12c Release 1 安裝程式會隨即開啟 (安裝程式可能需要幾分鐘的時間才會啟動)。
 
-2. 在 [選取安裝選項] 頁面上，選取 [為獨立伺服器安裝和設定 Oracle Grid Infrastructure]。
+2. 在 [選取安裝選項]  頁面上，選取 [為獨立伺服器安裝和設定 Oracle Grid Infrastructure]  。
 
    ![安裝程式之 [選取安裝選項] 頁面的螢幕擷取畫面](./media/oracle-asm/install01.png)
 
-3. 在 [選取產品語言] 頁面上，請確定已選取 [英文] 或您想要使用的語言。  按一下 `next`。
+3. 在 [選取產品語言]  頁面上，請確定已選取 [英文]  或您想要使用的語言。  按一下 `next`。
 
-4. 在 [建立 ASM 磁碟群組] 頁面上︰
+4. 在 [建立 ASM 磁碟群組]  頁面上︰
    - 輸入磁碟群組的名稱。
-   - 在 [備援] 底下選取 [外部]。
-   - 在 [配置單位大小] 底下選取 [4]。
-   - 在 [新增磁碟] 底下選取 [ORCLASMSP]。
+   - 在 [備援]  底下選取 [外部]  。
+   - 在 [配置單位大小]  底下選取 [4]  。
+   - 在 [新增磁碟]  底下選取 [ORCLASMSP]  。
    - 按一下 `next`。
 
-5. 在 [指定 ASM 密碼] 頁面上選取 [對這些帳戶使用相同密碼] 選項，然後輸入密碼。
+5. 在 [指定 ASM 密碼]  頁面上選取 [對這些帳戶使用相同密碼]  選項，然後輸入密碼。
 
    ![安裝程式之 [指定 ASM 密碼] 頁面的螢幕擷取畫面](./media/oracle-asm/install04.png)
 
-6. 在 [指定管理選項] 頁面上，您可以選擇設定 EM Cloud Control。 我們會略過此選項 - 按一下 `next` 以繼續。 
+6. 在 [指定管理選項]  頁面上，您可以選擇設定 EM Cloud Control。 我們會略過此選項 - 按一下 `next` 以繼續。 
 
-7. 在 [特殊權限作業系統群組] 頁面上使用預設設定。 按一下 `next` 以繼續。
+7. 在 [特殊權限作業系統群組]  頁面上使用預設設定。 按一下 `next` 以繼續。
 
-8. 在 [指定安裝位置] 頁面上，使用預設設定。 按一下 `next` 以繼續。
+8. 在 [指定安裝位置]  頁面上，使用預設設定。 按一下 `next` 以繼續。
 
-9. 在 [建立清查] 頁面上，將清查目錄變更至 `/u01/app/grid/oraInventory`。 按一下 `next` 以繼續。
+9. 在 [建立清查]  頁面上，將清查目錄變更至 `/u01/app/grid/oraInventory`。 按一下 `next` 以繼續。
 
    ![安裝程式之 [建立清查] 頁面的螢幕擷取畫面](./media/oracle-asm/install08.png)
 
-10. 在 [Root 指令碼執行組態] 頁面上，選取 [自動執行組態指令碼] 核取方塊。 接著，選取 [使用 root 使用者認證] 選項，然後輸入 root 使用者密碼。
+10. 在 [Root 指令碼執行組態]  頁面上，選取 [自動執行組態指令碼]  核取方塊。 接著，選取 [使用 root 使用者認證]  選項，然後輸入 root 使用者密碼。
 
     ![安裝程式之 [Root 指令碼執行組態] 頁面的螢幕擷取畫面](./media/oracle-asm/install09.png)
 
-11. 在 [執行必要條件檢查] 頁面上，目前的設定會失敗並顯示錯誤。 這是預期中的行為。 選取 `Fix & Check Again`。
+11. 在 [執行必要條件檢查]  頁面上，目前的設定會失敗並顯示錯誤。 這是預期中的行為。 選取 `Fix & Check Again`。
 
-12. 在 [修復指令碼] 對話方塊中，按一下 `OK`。
+12. 在 [修復指令碼]  對話方塊中，按一下 `OK`。
 
-13. 在 [摘要] 頁面上，檢閱您選取的設定，然後按一下 `Install`。
+13. 在 [摘要]  頁面上，檢閱您選取的設定，然後按一下 `Install`。
 
     ![安裝程式之 [摘要] 頁面的螢幕擷取畫面](./media/oracle-asm/install12.png)
 
 14. 隨即顯示警告對話方塊，通知您必須以特殊權限使用者身分執行組態指令碼。 按一下 `Yes` 以繼續。
 
-15. 在 [完成] 頁面上，按一下 `Close` 以完成安裝。
+15. 在 [完成]  頁面上，按一下 `Close` 以完成安裝。
 
 ## <a name="set-up-your-oracle-asm-installation"></a>設定 Oracle ASM 安裝
 
@@ -515,11 +515,11 @@ ssh <publicIpAddress>
 
 2. 在 [設定 ASM:**磁碟群組]** 對話方塊中，按一下 `Create` 按鈕，然後按一下 `Show Advanced Options`。
 
-3. 在 [建立磁碟群組] 對話方塊中：
+3. 在 [建立磁碟群組]  對話方塊中：
 
    - 輸入磁碟群組名稱 **DATA**。
-   - 在 [選取成員磁碟] 底下選取 [ORCL_DATA] 和 [ORCL_DATA1]。
-   - 在 [配置單位大小] 底下選取 [4]。
+   - 在 [選取成員磁碟]  底下選取 [ORCL_DATA]  和 [ORCL_DATA1]  。
+   - 在 [配置單位大小]  底下選取 [4]  。
    - 按一下 `ok` 以建立磁碟群組。
    - 按一下 `ok` 以關閉確認視窗。
 
@@ -527,18 +527,18 @@ ssh <publicIpAddress>
 
 4. 在 [設定 ASM:**磁碟群組]** 對話方塊中，按一下 `Create` 按鈕，然後按一下 `Show Advanced Options`。
 
-5. 在 [建立磁碟群組] 對話方塊中：
+5. 在 [建立磁碟群組]  對話方塊中：
 
    - 輸入磁碟群組名稱 **FRA**。
-   - 在 [備援] 底下選取 [外部 (無)]。
-   - 在 [選取成員磁碟] 底下選取 [ORCL_FRA]。
-   - 在 [配置單位大小] 底下選取 [4]。
+   - 在 [備援]  底下選取 [外部 (無)]  。
+   - 在 [選取成員磁碟]  底下選取 [ORCL_FRA]  。
+   - 在 [配置單位大小]  底下選取 [4]  。
    - 按一下 `ok` 以建立磁碟群組。
    - 按一下 `ok` 以關閉確認視窗。
 
    ![[建立磁碟群組] 對話方塊的螢幕擷取畫面](./media/oracle-asm/asm04.png)
 
-6. 選取 [結束] 以關閉 ASM Configuration Assistant。
+6. 選取 [結束]  以關閉 ASM Configuration Assistant。
 
    ![[設定 ASM: 磁碟群組] 對話方塊與[結束] 按鈕的螢幕擷取畫面](./media/oracle-asm/asm05.png)
 
@@ -555,23 +555,23 @@ Azure Marketplace 映像上已安裝 Oracle 資料庫軟體。 若要建立資�
    ```
    Database Configuration Assistant 隨即開啟。
 
-2. 在 [資料庫作業] 頁面上，按一下 `Create Database`。
+2. 在 [資料庫作業]  頁面上，按一下 `Create Database`。
 
-3. 在 [建立模式] 頁面上︰
+3. 在 [建立模式]  頁面上︰
 
    - 輸入資料庫名稱。
-   - 在 [儲存體類型] 中，請確定已選取 [自動儲存體管理 (ASM)]。
-   - 在 [資料庫檔案位置] 中，請使用預設的 ASM 建議位置。
-   - 在 [快速復原區域] 中，請使用預設的 ASM 建議位置。
-   - 輸入 [管理密碼] 和 [確認密碼]。
+   - 在 [儲存體類型]  中，請確定已選取 [自動儲存體管理 (ASM)]  。
+   - 在 [資料庫檔案位置]  中，請使用預設的 ASM 建議位置。
+   - 在 [快速復原區域]  中，請使用預設的 ASM 建議位置。
+   - 輸入 [管理密碼]  和 [確認密碼]  。
    - 確定已選取 `create as container database`。
    - 輸入 `pluggable database name` 值。
 
-4. 在 [摘要] 頁面上，檢閱您選取的設定，然後按一下 `Finish` 以建立資料庫。
+4. 在 [摘要]  頁面上，檢閱您選取的設定，然後按一下 `Finish` 以建立資料庫。
 
    ![[摘要] 頁面的螢幕擷取畫面](./media/oracle-asm/createdb03.png)
 
-5. 已建立資料庫。 在 [完成] 頁面上，您可以選擇解除鎖定其他帳戶以使用此資料庫並變更密碼。 如果您想要進行此操作，請選取 [密碼管理]，否則請按一下 `close`。
+5. 已建立資料庫。 在 [完成]  頁面上，您可以選擇解除鎖定其他帳戶以使用此資料庫並變更密碼。 如果您想要進行此操作，請選取 [密碼管理]  ，否則請按一下 `close`。
 
 ## <a name="delete-the-vm"></a>刪除 VM
 

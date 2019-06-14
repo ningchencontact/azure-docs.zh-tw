@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595973"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>如何在 Azure 搜尋服務中撰寫查詢
@@ -26,7 +26,7 @@ ms.locfileid: "65595973"
 
 下表列出使用 API 和工具來提交查詢的方法。
 
-| 方法 | 說明 |
+| 方法 | 描述 |
 |-------------|-------------|
 | [搜尋總管 (入口網站)](search-explorer.md) | 提供搜尋列以及選取索引和 API 版本的選項。 結果會以 JSON 文件的形式傳回。 <br/>[深入了解。](search-get-started-portal.md#query-index) | 
 | [Postman 或 Fiddler](search-fiddler.md) | Web 測試工具是擬定 REST 呼叫的絕佳選擇。 REST API 支援 Azure 搜尋服務中之每個可能的作業。 在本文中，了解如何設定 HTTP 要求標頭和主體，以傳送要求到 Azure 搜尋服務。  |
@@ -51,7 +51,7 @@ ms.locfileid: "65595973"
 
 + **`queryType`** 會設定剖析器，在 Azure 搜尋服務中，這既可以是[預設的簡單查詢剖析器](search-query-simple-examples.md) (最適合全文檢索搜尋)，也可以是[完整的 Lucene 查詢剖析器](search-query-lucene-examples.md) (用於進階的查詢建構，例如規則運算式、鄰近搜尋、模糊和萬用字元搜尋等等)。
 
-+ **`search`** 會提供比對準則，這通常是文字，但往往會伴隨布林運算子。 單一的獨立字詞是「字詞」查詢。 用引號括住、有多個部分的查詢則是「關鍵片語」查詢。 搜尋可能是未定義的 (如 **`search=*`** 中)，但更可能會包含字詞、片語和運算子，如下列範例所示。
++ **`search`** 會提供比對準則，這通常是文字，但往往會伴隨布林運算子。 單一的獨立字詞是「字詞」  查詢。 用引號括住、有多個部分的查詢則是「關鍵片語」  查詢。 搜尋可能是未定義的 (如 **`search=*`** 中)，但更可能會包含字詞、片語和運算子，如下列範例所示。
 
 + **`searchFields`** 是選擇性的，可用來將查詢執行限制在特定欄位。
 
@@ -67,9 +67,9 @@ ms.locfileid: "65595973"
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>索引如何啟用查詢作業
 
-Azure 搜尋服務緊密結合了索引設計和查詢設計。 事先要知道的重要事實是，「索引結構描述」與每個欄位上的屬性會決定您可以建置的查詢類型。 
+Azure 搜尋服務緊密結合了索引設計和查詢設計。 事先要知道的重要事實是，「索引結構描述」  與每個欄位上的屬性會決定您可以建置的查詢類型。 
 
-欄位上的索引屬性會設定允許的作業 - 欄位在索引中是否「可搜尋」、在結果中是否「可擷取」、是否「可排序」、是否「可篩選」，不一而足。 在查詢字串範例中，只有當 daysOnMarket 欄位在索引結構描述中標記為「可排序」時，`"$orderby": "daysOnMarket"` 才會有作用。 
+欄位上的索引屬性會設定允許的作業 - 欄位在索引中是否「可搜尋」  、在結果中是否「可擷取」  、是否「可排序」  、是否「可篩選」  ，不一而足。 在查詢字串範例中，只有當 daysOnMarket 欄位在索引結構描述中標記為「可排序」  時，`"$orderby": "daysOnMarket"` 才會有作用。 
 
 ![不動產範例的索引定義](./media/search-query-overview/realestate-sample-index-definition.png "不動產範例的索引定義")
 
@@ -84,7 +84,7 @@ Azure 搜尋服務緊密結合了索引設計和查詢設計。 事先要知道�
 
 查詢要求的必要元素包含下列元件：
 
-+ 服務端點和索引文件集合，以包含固定元件和使用者定義元件的 URL 來表示：**`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
++ 服務端點和索引文件集合，以包含固定元件和使用者定義元件的 URL 來表示： **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
 + **`api-version`** (僅限 REST) 是必要項目，原因是 API 隨時都有多個版本。 
 + **`api-key`** (查詢或系統管理 api-key)，會向服務驗證要求。
 + **`queryType`** (簡單或完整)，如果您使用內建的預設簡單語法，則可省略。
@@ -118,8 +118,8 @@ Azure 搜尋服務支援廣泛的查詢類型。
 
 | 查詢類型 | 使用量 | 範例和詳細資訊 |
 |------------|--------|-------------------------------|
-| 自由格式文字檢索 | 搜尋參數和任一剖析器| 全文檢索搜尋會掃描索引中所有「可搜尋」欄位內的一或多個字詞，而且運作方式就如同您對 Google 或 Bing 等搜尋引擎的期待。 簡介中的範例便是全文檢索搜尋。<br/><br/>全文檢索搜尋會使用標準 Lucene 分析器 (預設值) 將所有字詞轉換為小寫，並移除停用字詞 (例如 "the")，以進行文字分析。 若要覆寫預設值，您可以使用[非英文分析器](index-add-language-analyzers.md#language-analyzer-list)或[特製化語言無關分析器](index-add-custom-analyzers.md#AnalyzerTable) (以修改文字分析)。 其中一個範例是[關鍵字](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)，其會將欄位的整個內容視為單一語彙基元。 這適合用於郵遞區號、識別碼和產品名稱等資料。 | 
-| 經過篩選的搜尋 | [OData 篩選條件運算式](query-odata-filter-orderby-syntax.md)和任一剖析器 | 篩選查詢會對索引中的所有「可篩選」欄位評估布林運算式。 不同於搜尋，篩選查詢會比對欄位的確切內容，包括字串欄位的大小寫。 另一個差異是篩選查詢會以 OData 語法來表示。 <br/>[篩選條件運算式範例](search-query-simple-examples.md#example-3-filter-queries) |
+| 自由格式文字檢索 | 搜尋參數和任一剖析器| 全文檢索搜尋會掃描索引中所有「可搜尋」  欄位內的一或多個字詞，而且運作方式就如同您對 Google 或 Bing 等搜尋引擎的期待。 簡介中的範例便是全文檢索搜尋。<br/><br/>全文檢索搜尋會使用標準 Lucene 分析器 (預設值) 將所有字詞轉換為小寫，並移除停用字詞 (例如 "the")，以進行文字分析。 若要覆寫預設值，您可以使用[非英文分析器](index-add-language-analyzers.md#language-analyzer-list)或[特製化語言無關分析器](index-add-custom-analyzers.md#AnalyzerTable) (以修改文字分析)。 其中一個範例是[關鍵字](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)，其會將欄位的整個內容視為單一語彙基元。 這適合用於郵遞區號、識別碼和產品名稱等資料。 | 
+| 經過篩選的搜尋 | [OData 篩選條件運算式](query-odata-filter-orderby-syntax.md)和任一剖析器 | 篩選查詢會對索引中的所有「可篩選」  欄位評估布林運算式。 不同於搜尋，篩選查詢會比對欄位的確切內容，包括字串欄位的大小寫。 另一個差異是篩選查詢會以 OData 語法來表示。 <br/>[篩選條件運算式範例](search-query-simple-examples.md#example-3-filter-queries) |
 | 地區搜尋 | 欄位上的 [Edm.GeographyPoint 類型](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)、篩選條件運算式和任一剖析器 | 座標若儲存在具有 Edm.GeographyPoint 的欄位中，可用於 "find near me" 或以地圖為基礎的搜尋控制項。 <br/>[地理搜尋範例](search-query-simple-examples.md#example-5-geo-search)|
 | 範圍搜尋 | 篩選條件運算式和簡單的剖析器 | Azure 搜尋服務會使用篩選參數來建置範圍查詢。 <br/>[範圍篩選範例](search-query-simple-examples.md#example-4-range-filters) | 
 | [加入欄位的搜尋](query-lucene-syntax.md#bkmk_fields) | 搜尋參數和完整剖析器 | 建置以單一欄位為目標的複合查詢運算式。 <br/>[加入欄位的搜尋範例](search-query-lucene-examples.md#example-2-fielded-search) |
@@ -144,7 +144,7 @@ Azure 搜尋服務支援廣泛的查詢類型。
 
 有時候，結果的本質和結構會不符預期的。 當查詢結果不符合您想看到的結果時，您可以嘗試進行下列查詢修改，看看結果是否有所改善：
 
-+ 將 **`searchMode=any`** (預設值) 變更為 **`searchMode=all`**，以要求須符合所有準則，而非任何準則。 此做法在查詢中包含布林運算子時特別有用。
++ 將 **`searchMode=any`** (預設值) 變更為 **`searchMode=all`** ，以要求須符合所有準則，而非任何準則。 此做法在查詢中包含布林運算子時特別有用。
 
 + 如果文字或語彙分析是必要的，但查詢類型無法進行語言處理，請變更查詢技術。 在全文檢索搜尋、 文字或語彙分析校正拼字錯誤、 單數複數形態，以及甚至不規則的動詞或名詞。 在像是模糊或萬用字元搜尋等某些查詢中，文字分析並不是查詢剖析管線的一部分。 在某些情況下，規則運算式是既有的因應措施。 
 
@@ -156,11 +156,11 @@ Azure 搜尋服務可讓您輕鬆地對搜尋結果分頁。 透過使用 **`top
 ### <a name="ordering-results"></a>排序結果
 收到搜尋查詢的結果時，您可以要求 Azure 搜尋服務提供依特定欄位值排序的結果。 根據預設，Azure 搜尋服務會以每份文件的搜尋分數排名 (衍生自 [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) 來排序搜尋結果。
 
-如果您想要讓 Azure 搜尋服務在傳回結果時是以搜尋分數以外的值來排序，您可以使用 **`orderby`** 搜尋參數。 您可以指定 **`orderby`** 參數的值，納入欄位名稱和 [**`geo.distance()` 函式**](query-odata-filter-orderby-syntax.md)的呼叫以獲得地理空間值。 每個運算式後面都可以加上 `asc` 來表示要以遞增順序要求結果，而加上 **`desc`** 則表示要以遞減順序要求結果。 預設排名為遞增順序。
+如果您想要讓 Azure 搜尋服務在傳回結果時是以搜尋分數以外的值來排序，您可以使用 **`orderby`** 搜尋參數。 您可以指定 **`orderby`** 參數的值，納入欄位名稱和 [ **`geo.distance()` 函式**](query-odata-filter-orderby-syntax.md)的呼叫以獲得地理空間值。 每個運算式後面都可以加上 `asc` 來表示要以遞增順序要求結果，而加上 **`desc`** 則表示要以遞減順序要求結果。 預設排名為遞增順序。
 
 
 ### <a name="hit-highlighting"></a>搜尋結果醒目提示
-在 Azure 搜尋服務中，只要使用 **`highlight`**、**`highlightPreTag`** 和 **`highlightPostTag`** 參數就可強調提示搜尋結果中符合搜尋查詢的確切部分。 您可以指定哪些可搜尋欄位應該強調其相符的文字，以及指定要在 Azure 搜尋服務傳回的相符文字開頭和結尾附加的確切字串標記。
+在 Azure 搜尋服務中，只要使用 **`highlight`** 、 **`highlightPreTag`** 和 **`highlightPostTag`** 參數就可強調提示搜尋結果中符合搜尋查詢的確切部分。 您可以指定哪些可搜尋  欄位應該強調其相符的文字，以及指定要在 Azure 搜尋服務傳回的相符文字開頭和結尾附加的確切字串標記。
 
 ## <a name="see-also"></a>請參閱
 

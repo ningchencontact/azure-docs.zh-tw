@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 3/28/2019
 ms.author: v-mohabe
 ms.openlocfilehash: b07a89491343220c5c3411b5fc525f9b43f54e30
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65968374"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>使用 Just-In-Time 管理虛擬機器存取
@@ -57,21 +57,21 @@ Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、
 
 ## 在 Azure 資訊安全中心中使用 JIT 存取<a name="jit-asc"></a>
 
-1. 開啟 [資訊安全中心] 儀表板。
+1. 開啟 [資訊安全中心]  儀表板。
 
-2. 在左窗格中，選取 [Just-in-Time VM 存取]。
+2. 在左窗格中，選取 [Just-in-Time VM 存取]  。
 
 ![[Just-In-Time VM 存取] 圖格](./media/security-center-just-in-time/just-in-time.png)
 
-[Just-In-Time VM 存取] 視窗隨即開啟。
+[Just-In-Time VM 存取]  視窗隨即開啟。
 
 ![[Just-In-Time VM 存取] 圖格](./media/security-center-just-in-time/just-in-time-access.png)
 
-[Just-In-Time VM 存取] 會提供 VM 狀態的相關資訊：
+[Just-In-Time VM 存取]  會提供 VM 狀態的相關資訊：
 
-- [已設定] - 已設定為支援 Just-In-Time VM 存取的 VM。 其會提供過去一週的資料，包含每個 VM 核准的要求數量、上次存取的日期和時間、以及最後一位使用者。
-- [建議] - 可支援但未設定 Just-In-Time VM 存取的 VM。 建議您啟用這些 VM 的 Just-In-Time VM 存取控制。 請參閱[設定 Just-In-Time 存取原則](#jit-config)。
-- [不建議] - 可能會導致不建議 VM 進行設定的原因如下：
+- [已設定]  - 已設定為支援 Just-In-Time VM 存取的 VM。 其會提供過去一週的資料，包含每個 VM 核准的要求數量、上次存取的日期和時間、以及最後一位使用者。
+- [建議]  - 可支援但未設定 Just-In-Time VM 存取的 VM。 建議您啟用這些 VM 的 Just-In-Time VM 存取控制。 請參閱[設定 Just-In-Time 存取原則](#jit-config)。
+- [不建議]  - 可能會導致不建議 VM 進行設定的原因如下：
   - 缺少 NSG - Just-In-Time 解決方案需要 NSG。
   - 傳統 VM - 資訊安全中心 Just-In-Time VM 存取目前僅支援透過 Azure Resource Manager 部署的 VM。 Just-In-Time 解決方案不支援傳統部署。
   - 其他 - 如果訂用帳戶或資源群組的安全性原則已關閉 Just-In-Time 解決方案，或 VM 缺少公用 IP 且未設定 NSG，則該 VM 也屬於此類別。
@@ -80,19 +80,19 @@ Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、
 
 若要選取您想要啟用的 VM：
 
-1. 在 [Just-In-Time VM 存取] 下方，選取 [建議] 索引標籤。
+1. 在 [Just-In-Time VM 存取]  下方，選取 [建議]  索引標籤。
 
    ![啟用 Just-In-Time 存取](./media/security-center-just-in-time/enable-just-in-time-access.png)
 
-2. 在 [虛擬機器] 下方，選取您想要啟用的 VM。 這會讓 VM 旁邊顯示核取記號。
-3. 選取 [在 VM 上啟用 JIT]。
+2. 在 [虛擬機器]  下方，選取您想要啟用的 VM。 這會讓 VM 旁邊顯示核取記號。
+3. 選取 [在 VM 上啟用 JIT]  。
    1. 此刀鋒視窗會顯示 Azure 資訊安全中心建議的預設連接埠：
       - 22 - SSH
       - 3389 - RDP
       - 5985 - WinRM 
       - 5986 - WinRM
-   2. 您也可以設定自訂連接埠。 若要這樣做，請選取 [新增]。 
-   3. 在 [新增連接埠組態] 中，對於您選擇設定的每個預設和自訂連接埠，您可以自訂下列設定：
+   2. 您也可以設定自訂連接埠。 若要這樣做，請選取 [新增]  。 
+   3. 在 [新增連接埠組態]  中，對於您選擇設定的每個預設和自訂連接埠，您可以自訂下列設定：
       - **通訊協定類型** - 核准要求時在此連接埠上允許的通訊協定。
       - **允許的來源 IP 位址** - 核准要求時在此連接埠上允許的 IP 範圍。
       - **要求時間上限** - 可開啟特定連接埠的時間範圍上限。
@@ -107,24 +107,24 @@ Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、
 ### <a name="request-jit-access-to-a-vm"></a>要求存取虛擬機器的 JIT 存取
 
 若要要求存取 VM：
-1.  在 [Just-In-Time VM 存取] 下方，選取 [已設定]。
-2.  在 [虛擬機器] 下方，檢查您想要啟用 Just-In-Time 存取的虛擬機器。
-3.  選取 [要求存取]。 
+1.  在 [Just-In-Time VM 存取]  下方，選取 [已設定]  。
+2.  在 [虛擬機器]  下方，檢查您想要啟用 Just-In-Time 存取的虛擬機器。
+3.  選取 [要求存取]  。 
   ![要求虛擬機器的存取](./media/security-center-just-in-time/request-access-to-a-vm.png)
-4.  在 [要求存取] 下方，對於每個虛擬機器，設定要開啟的連接埠，以及對連接埠開放的來源 IP 位址和開啟連接埠的時間範圍。 只能要求存取 Just-In-Time 原則中設定的連接埠。 每個連接埠都具有衍生自 Just-In-Time 原則的許可時間上限。
-5.  選取 [開啟連接埠]。
+4.  在 [要求存取]  下方，對於每個虛擬機器，設定要開啟的連接埠，以及對連接埠開放的來源 IP 位址和開啟連接埠的時間範圍。 只能要求存取 Just-In-Time 原則中設定的連接埠。 每個連接埠都具有衍生自 Just-In-Time 原則的許可時間上限。
+5.  選取 [開啟連接埠]  。
 
 > [!NOTE]
-> 如果要求存取的使用者位於 Proxy 後方，[我的 IP] 選項可能無法運作。 您可能需要定義組織的完整 IP 位址範圍。
+> 如果要求存取的使用者位於 Proxy 後方，[我的 IP]  選項可能無法運作。 您可能需要定義組織的完整 IP 位址範圍。
 
 ### <a name="editing-a-jit-access-policy"></a>編輯 JIT 存取原則
 
 可以藉由新增和設定一個對 VM 保護的新連接埠，或是變更與受保護的連接埠相關的其他任何設定，來變更該 VM 現有的 Just-In-Time 原則。
 
 若要編輯虛擬機器的現有 Just-In-Time 原則：
-1. 在 [設定] 索引標籤的 [虛擬機器] 下方，按一下該虛擬機器列中的三點圖示，選取要新增連接埠的虛擬機器。 
-2. 選取 [編輯]。
-3. 在 [JIT VM 存取設定] 下方，您可以對於已經保護的連接埠編輯現有設定，也可以新增自訂連接埠。 如需詳細資訊，請參閱[設定 Just-In-Time 存取原則](#jit-config)。 
+1. 在 [設定]  索引標籤的 [虛擬機器]  下方，按一下該虛擬機器列中的三點圖示，選取要新增連接埠的虛擬機器。 
+2. 選取 [編輯]  。
+3. 在 [JIT VM 存取設定]  下方，您可以對於已經保護的連接埠編輯現有設定，也可以新增自訂連接埠。 如需詳細資訊，請參閱[設定 Just-In-Time 存取原則](#jit-config)。 
   ![JIT VM 存取](./media/security-center-just-in-time/edit-policy.png)
 
 ## 在 Azure VM 刀鋒視窗中使用 JIT 存取<a name="jit-vm"></a>
@@ -134,10 +134,10 @@ Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、
 ### <a name="configuring-a-just-in-time-access-policy"></a>設定 Just-In-Time 存取原則 
 若要在所有 VM 上輕鬆地推出 Just-In-Time 存取，您可以將 VM 設定為只允許直接從 VM 進行 Just-In-Time 存取。
 
-1. 在 Azure 入口網站中，選取 [虛擬機器]。
+1. 在 Azure 入口網站中，選取 [虛擬機器]  。
 2. 按一下您想要限制為 Just-In-Time 存取的虛擬機器。
-3. 在功能表中，按一下 [組態]。
-4. 按一下 **Just-in-time-access** 之下的 [啟用 Just-In-Time 原則]。 
+3. 在功能表中，按一下 [組態]  。
+4. 按一下 **Just-in-time-access** 之下的 [啟用 Just-In-Time 原則]  。 
 
 這可為使用下列設定的 VM 啟用 Just-In-Time 存取：
 
@@ -162,7 +162,7 @@ Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、
 
   ![JIT 提示](./media/security-center-just-in-time/jit-prompt.png)
 
-- 如果您確實已在虛擬機器上設定了 JIT 原則，可以按一下 [要求存取]，好根據為此所設定的 JIT 原則來存取虛擬機器。 使用下列的預設參數要求的存取：
+- 如果您確實已在虛擬機器上設定了 JIT 原則，可以按一下 [要求存取]  ，好根據為此所設定的 JIT 原則來存取虛擬機器。 使用下列的預設參數要求的存取：
     - **來源 IP**:'Any' （*） （無法變更）
     - **時間範圍**:過去 3 小時內 （無法變更）
     - **連接埠號碼**RDP 連接埠 3389 的 Windows / Linux 的連接埠 22 (您可以變更連接埠號碼**連線至虛擬機器** 對話方塊。)
@@ -174,17 +174,17 @@ Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、
 
 您可以使用記錄搜尋來深入了解 VM 活動。 若要檢視記錄：
 
-1. 在 [Just-In-Time VM 存取] 下方，選取 [已設定] 索引標籤。
-2. 在 [VM] 下方，按一下 VM 列中的三點圖示，選取要檢視相關資訊的 VM。 這會開啟功能表。
-3. 在功能表中，選取 [活動記錄]。 這會開啟 [活動記錄]。
+1. 在 [Just-In-Time VM 存取]  下方，選取 [已設定]  索引標籤。
+2. 在 [VM]  下方，按一下 VM 列中的三點圖示，選取要檢視相關資訊的 VM。 這會開啟功能表。
+3. 在功能表中，選取 [活動記錄]  。 這會開啟 [活動記錄]  。
 
    ![選取活動記錄](./media/security-center-just-in-time/select-activity-log.png)
 
-   [活動記錄] 可提供篩選過的檢視，列出該 VM 先前的作業，以及時間、日期和訂用帳戶。
+   [活動記錄]  可提供篩選過的檢視，列出該 VM 先前的作業，以及時間、日期和訂用帳戶。
 
-選取 [按一下這裡，將所有項目下載為 CSV 格式] 即可下載記錄資訊。
+選取 [按一下這裡，將所有項目下載為 CSV 格式]  即可下載記錄資訊。
 
-修改篩選條件，並選取 [套用] 以建立搜尋和記錄。
+修改篩選條件，並選取 [套用]  以建立搜尋和記錄。
 
 
 ## <a name="permissions-needed-to-configure-and-use-jit"></a>設定和使用 JIT 所需的權限

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
 ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61315634"
 ---
 # <a name="messages-payloads-and-serialization"></a>訊息、承載和序列化
@@ -26,7 +26,7 @@ Microsoft Azure 服務匯流排的功能就是處理訊息。 訊息會以索引
 
 適用於 .NET 和 Java 的官方服務匯流排用戶端物件模型會反映抽象的服務匯流排訊息結構，而此訊息結構會對應至服務匯流排支援的傳送與接收網路通訊協定。
  
-服務匯流排訊息是由服務匯流排絕不會在服務端上以任何形式處理的二進位承載區段，以及兩組屬性所組成。 「訊息代理程式屬性」會由系統預先定義。 這些預先定義的屬性可能會控制訊息代理程式內的訊息層級功能，或是對應到一般和標準化的中繼資料項目。 「使用者屬性」是由應用程式定義和設定的索引鍵/值組集合。
+服務匯流排訊息是由服務匯流排絕不會在服務端上以任何形式處理的二進位承載區段，以及兩組屬性所組成。 「訊息代理程式屬性」  會由系統預先定義。 這些預先定義的屬性可能會控制訊息代理程式內的訊息層級功能，或是對應到一般和標準化的中繼資料項目。 「使用者屬性」  是由應用程式定義和設定的索引鍵/值組集合。
  
 下表列出預先定義的訊息代理程式屬性。 所有官方用戶端 API 均會使用這些名稱，同時也會在 HTTP 通訊協定對應的 [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) JSON 物件中使用。
  
@@ -44,7 +44,7 @@ Microsoft Azure 服務匯流排的功能就是處理訊息。 訊息會以索引
 | [ForcePersistence](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.forcepersistence)                      | 對於已設定 [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress) 旗標的佇列或主題，可設定這個屬性來指示訊息必須保存於磁碟中，之後才能進行認可。 這是適用於所有非 Express 實體的標準行為。                                                                                                                                                                                                         |
 | [Label](/dotnet/api/microsoft.azure.servicebus.message.label) (subject)                       | 這個屬性可讓應用程式以標準化方式向接收者指出訊息目的，類似於電子郵件主旨行。                                                                                                                                                                                                                                                                                  |
 | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc)                        | 對於在鎖定下接收的訊息 (查看鎖定接收模式，不是預先安置的)，這個屬性反映訊息會維持鎖定在佇列/訂用帳戶中的結束 UTC 時刻。 當鎖定到期時，[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deliverycount) 就會遞增，而訊息就再次可供擷取。 這個屬性是唯讀的。                                                                                                                         |
-| [LockToken](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.locktoken)                             | 鎖定權杖是「查看鎖定」接收模式中由訊息代理程式所持有鎖定的參考。 權杖可透過[延遲](message-deferral.md) API 以將鎖定永久固定，然後從一般傳遞狀態流程中取出訊息。 這個屬性是唯讀的。                                                                                                                                                               |
+| [LockToken](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.locktoken)                             | 鎖定權杖是「查看鎖定」  接收模式中由訊息代理程式所持有鎖定的參考。 權杖可透過[延遲](message-deferral.md) API 以將鎖定永久固定，然後從一般傳遞狀態流程中取出訊息。 這個屬性是唯讀的。                                                                                                                                                               |
 | [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) (message-id)                | 訊息識別碼是應用程式定義的值，可唯一識別訊息及其承載。 識別碼是一個自由格式的字串，可以反映 GUID 或衍生自應用程式內容的識別碼。 如果啟用[重複偵測](duplicate-detection.md)功能，就可以識別並移除具有相同 **MessageId** 之訊息的第二次及後續提交。                                                                |
 | [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey)                          | 針對[分割的實體](service-bus-partitioning.md)，設定此值可將相關訊息指派到相同的內部資料分割，如此便能正確記錄提交順序。 資料分割會由雜湊函式透過此值來選擇，無法直接選擇。 對於工作階段感知的實體，**SessionId** 屬性會覆寫此值。                                                                                                       |
 | [ReplyTo](/dotnet/api/microsoft.azure.servicebus.message.replyto) (reply-to)                    | 這個選擇性且由應用程式定義的值，乃是向訊息接收者表示回覆路徑的標準方法。 當傳送者預期收到回覆時，會將值設為預期回覆要送往的佇列或主題絕對或相對路徑。                                                                                                                                           |
@@ -53,7 +53,7 @@ Microsoft Azure 服務匯流排的功能就是處理訊息。 訊息會以索引
 | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber)                        | 序號是指派給訊息的唯一 64 位元整數，會由訊息代理程式和函式所接收並儲存，以作為真正的識別碼。 對於分割的實體，最前面的 16 位元會反映資料分割識別碼。 序號會以無間斷方式循序遞增。 它們會在 48 - 64 位元範圍用盡時回復為 0。 這個屬性是唯讀的。                                                                |
 | [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) (group-id)                  | 對於工作階段感知的實體，這個應用程式定義的值會指定訊息的工作階段關係。 具有相同工作階段識別碼的訊息會受限於摘要鎖定，並且能夠確實地依序處理和分離信號。 對於不是工作階段感知的實體，會忽略此值。                                                                                                                                     |
 | [大小](/dotnet/api/microsoft.azure.servicebus.message.size)                                  | 將訊息在訊息代理程式記錄中儲存的大小反映為位元組計數，因為它會計入儲存體配額。 這個屬性是唯讀的。                                                                                                                                                                                                                                                                                                       |
-| [State](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.state)                                 | 指示記錄中訊息的狀態。 這個屬性只有在訊息瀏覽 (查看) 期間才有意義。它可判斷訊息是否為「作用中」且在到達佇列頂端時可供擷取、訊息是否延遲，或者正等待納入排程。 這個屬性是唯讀的。                                                                                                                                           |
+| [狀態](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.state)                                 | 指示記錄中訊息的狀態。 這個屬性只有在訊息瀏覽 (查看) 期間才有意義。它可判斷訊息是否為「作用中」且在到達佇列頂端時可供擷取、訊息是否延遲，或者正等待納入排程。 這個屬性是唯讀的。                                                                                                                                           |
 | [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive)                            | 這個值是訊息到期之前的相對持續期間，從訊息代理程式接受並儲存訊息的瞬間開始，正如 **EnqueueTimeUtc** 所擷取的時間。 未明確設定時，所使用的值便是對應佇列或主題的 **DefaultTimeToLive**。 訊息層級的 **TimeToLive** 值不能比實體的 **DefaultTimeToLive** 設定還長。 如果較長，則會以無訊息方式加以調整。 |
 | [To](/dotnet/api/microsoft.azure.servicebus.message.to) (to)                               | 這個屬性會保留以便日後供路由傳送案例使用，訊息代理程式目前會忽略這個屬性。 應用程式可在規則驅動的自動轉送鏈結案例中使用此值，以指出訊息預期的邏輯目的地。                                                                                                                                                                                   |
 | [ViaPartitionKey](/dotnet/api/microsoft.azure.servicebus.message.viapartitionkey)                       | 如果訊息會透過交易範圍內的傳輸佇列來傳送，這個值就會選取傳輸佇列資料分割。                                                                                                                                                                                                                                                                                                                 |

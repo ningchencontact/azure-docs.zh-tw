@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: 103e09a0e2b9dd409fa2ddaff1c5311ef9936d22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61422089"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>如何使用 Azure 入口網站，在適用於 MySQL 的 Azure 資料庫中設定伺服器參數
@@ -20,13 +20,13 @@ MySQL 的 Azure 資料庫支援某些伺服器參數的組態。 本文說明如
 ## <a name="navigate-to-server-parameters-on-azure-portal"></a>瀏覽至 Azure 入口網站上的伺服器參數
 
 1. 登入 Azure 入口網站，然後找到適用於 MySQL 的 Azure 資料庫伺服器。
-2. 在 [設定] 區段下方，按一下 [伺服器參數] 以開啟適用於 MySQL 伺服器的 Azure 資料庫的 [伺服器參數] 頁面。
+2. 在 [設定]  區段下方，按一下 [伺服器參數]  以開啟適用於 MySQL 伺服器的 Azure 資料庫的 [伺服器參數] 頁面。
 ![Azure 入口網站伺服器參數頁面](./media/howto-server-parameters/auzre-portal-server-parameters.png)
-3. 找出您需要調整的任何設定。 檢閱 [描述] 資料行，以了解用途和允許的值。
+3. 找出您需要調整的任何設定。 檢閱 [描述]  資料行，以了解用途和允許的值。
 ![列舉下拉按鈕](./media/howto-server-parameters/3-toggle_parameter.png)
-4. 按一下 [儲存] 以儲存變更。
+4. 按一下 [儲存]  以儲存變更。
 ![儲存或捨棄變更](./media/howto-server-parameters/4-save_parameters.png)
-5. 儲存新的參數值後，隨時可以選取 [全部重設為預設值] 回復為所有參數的預設值。
+5. 儲存新的參數值後，隨時可以選取 [全部重設為預設值]  回復為所有參數的預設值。
 ![全部重設為預設值](./media/howto-server-parameters/5-reset_parameters.png)
 
 ## <a name="list-of-configurable-server-parameters"></a>可設定的伺服器參數清單
@@ -37,7 +37,7 @@ MySQL 的 Azure 資料庫支援某些伺服器參數的組態。 本文說明如
 
 InnoDB 緩衝集區和連線數目上限無法設定，且與您的[定價層](concepts-service-tiers.md)有關。
 
-|定價層| **計算世代**|**vCore(s)**|**InnoDB 緩衝集區 (MB)**| **連線數目上限**|
+|定價層 | **計算世代**|**vCore(s)**|**InnoDB 緩衝集區 (MB)**| **連線數目上限**|
 |---|---|---|---|--|
 |基本| Gen 4| 1| 960| 50|
 |基本| Gen 4| 2| 2560| 100|
@@ -92,7 +92,7 @@ SELECT name FROM mysql.time_zone_name;
 
 ### <a name="setting-the-global-level-time-zone"></a>設定全域層級時區
 
-全域層級時區可從 Azure 入口網站中的 [伺服器參數] 頁面設定。 下方的命令可將全域時區的值設定為 "US/Pacific"。
+全域層級時區可從 Azure 入口網站中的 [伺服器參數]  頁面設定。 下方的命令可將全域時區的值設定為 "US/Pacific"。
 
 ![設定時區參數](./media/howto-server-parameters/timezone.png)
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
 ms.openlocfilehash: e5387f1e44a55b0a30f8620b49d237ac1e1ec2b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61442081"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>裝置與模組對應項、作業和訊息路由的 IoT 中樞查詢語言
@@ -330,7 +330,7 @@ SELECT <select_list>
 
 
 ## <a name="where-clause"></a>WHERE 子句
-**WHERE <filter_condition>** 子句是可选的。 它會指定一或多個條件，而且 FROM 集合中的 JSON 文件必須滿足這些條件，才能納入為結果的一部分。 任何 JSON 文件都必須將指定的條件評估為 "true"，才能併入結果。
+**WHERE <filter_condition>** 子句是選擇性的。 它會指定一或多個條件，而且 FROM 集合中的 JSON 文件必須滿足這些條件，才能納入為結果的一部分。 任何 JSON 文件都必須將指定的條件評估為 "true"，才能併入結果。
 
 [運算式和條件](iot-hub-devguide-query-language.md#expressions-and-conditions)一節中會說明允許的條件。
 
@@ -396,12 +396,12 @@ GROUP BY <group_by_element>
 >
 
 ## <a name="expressions-and-conditions"></a>運算式和條件
-概括而言，運算式：
+概括而言，運算式  ：
 
 * 會評估為 JSON 類型 (例如布林值、數字、字串、陣列或物件) 的執行個體。
 * 定義方式是使用內建運算子和函式處理來自裝置 JSON 文件和常數的資料。
 
-「條件」是評估為布林值的運算式。 任何與布林值 **true** 不同的常數都會被視為 **false**。 此規則包括 **null****undefined**、任何物件或陣列執行個體、任何字串，以及布林值 **false**。
+「條件」  是評估為布林值的運算式。 任何與布林值 **true** 不同的常數都會被視為 **false**。 此規則包括 **null** **undefined**、任何物件或陣列執行個體、任何字串，以及布林值 **false**。
 
 運算式的語法如下︰
 
@@ -451,7 +451,7 @@ GROUP BY <group_by_element>
 | 邏輯 |AND、OR、NOT |
 | 比較 |=、!=、<、>、<=、>=、<> |
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>函式
 查詢對應項和作業時唯一支援的函式為：
 
 | 函式 | 描述 |
@@ -460,14 +460,14 @@ GROUP BY <group_by_element>
 
 在路由條件中，支援下列比對函式：
 
-| 函数 | 描述 |
+| 函式 | 描述 |
 | -------- | ----------- |
 | ABS(x) | 傳回指定之數值運算式的絕對 (正) 值。 |
 | EXP(x) | 傳回指定之數值運算式 (e^x) 的指數值。 |
 | POWER(x,y) | 將指定之運算式的值傳回給指定的乘冪 (x^y)。|
 | SQUARE(x) | 傳回指定之數值的平方。 |
 | CEILING(x) | 傳回大於或等於指定之數值運算式的最小整數值。 |
-| FLOOR(x) | 返回小于或等于指定数值表达式的最大整数。 |
+| FLOOR(x) | 傳回小於或等於指定之數值運算式的最大整數。 |
 | SIGN(x) | 傳回指定之數值運算式的正數 (+1)、零 (0) 或負數 (-1) 符號。|
 | SQRT(x) | 傳回指定之數值的平方根。 |
 
@@ -494,7 +494,7 @@ GROUP BY <group_by_element>
 | LOWER(x) | 傳回將大寫字元資料轉換成小寫之後的字串運算式。 |
 | UPPER(x) | 傳回將小寫字元資料轉換成大寫之後的字串運算式。 |
 | SUBSTRING(string, start [, length]) | 傳回字串運算式的部分，從指定字元以零為起始的位置開始，直到指定的長度，或直到字串的結尾。 |
-| INDEX_OF(string, fragment) | 返回第一个指定的字符串表达式中第一次出现第二个字符串表达式的起始位置，如果未找到字符串，则返回 -1。|
+| INDEX_OF(string, fragment) | 傳回第一個指定的字串運算式中，第二個字串運算式第一次出現的開始位置，或者如果找不到字串，則為 -1。|
 | STARTS_WITH(x, y) | 傳回布林值，表示第一個字串運算式是否以第二個字串運算式開頭。 |
 | ENDS_WITH(x, y) | 傳回布林值，表示第一個字串運算式是否以第二個字串運算式結尾。 |
 | CONTAINS(x,y) | 傳回布林值，表示第一個字串運算式是否包含第二個字串運算式。 |

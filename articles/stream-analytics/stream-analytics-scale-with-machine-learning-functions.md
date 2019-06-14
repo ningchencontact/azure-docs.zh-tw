@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61479103"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>使用 Azure Machine Learning 函式調整串流分析作業
@@ -88,7 +88,7 @@ ms.locfileid: "61479103"
 一般來說，我們為 Machine Learning 函式設定的批次大小不會正好可被每次串流分析作業「提取」所傳回的事件數目除盡。 發生此狀況時，會以「部分」的批次呼叫 Machine Learning Web 服務。 這麼做是為了不會在結合各提取的事件時，導致額外的作業延遲負擔。
 
 ## <a name="new-function-related-monitoring-metrics"></a>新的函式相關監視計量
-在串流分析作業的 [監視] 區域中，已加入三個額外的函式相關計量。 它们是 FUNCTION REQUESTS、FUNCTION EVENTS 和 FAILED FUNCTION REQUESTS，如下图所示。
+在串流分析作業的 [監視] 區域中，已加入三個額外的函式相關計量。 分別是 [函式要求]、[函式事件] 和 [失敗的函式要求]，如下圖所示。
 
 ![使用 Machine Learning 函式計量調整串流分析](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "使用 Machine Learning 函式計量調整串流分析")
 
@@ -110,9 +110,9 @@ ms.locfileid: "61479103"
 以完全分割的串流分析查詢為例。 如果需要更複雜的查詢，[Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)是可向串流分析小組取得其他協助的絕佳資源。
 
 ## <a name="next-steps"></a>後續步驟
-若要了解流分析的更多内容，请参阅：
+若要深入了解串流分析，請參閱：
 
-* [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
+* [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

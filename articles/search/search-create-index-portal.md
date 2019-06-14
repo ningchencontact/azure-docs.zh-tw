@@ -11,10 +11,10 @@ ms.date: 02/16/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 6a2bac71c37cc750eb24e3492ecdcdf0b2333cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60817296"
 ---
 # <a name="create-an-azure-search-index-in-the-portal"></a>在入口網站中建立 Azure 搜尋服務索引
@@ -25,9 +25,9 @@ Azure 搜尋服務在入口網站中包含適用於原型的內建索引設計�
 
 ## <a name="start-index-designer"></a>啟動索引設計工具
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)並開啟服務儀表板。 您可以按一下導向列中的 [所有服務] 以搜尋目前訂用帳戶中的現有「搜尋服務」。 
+1. 登入 [Azure 入口網站](https://portal.azure.com)並開啟服務儀表板。 您可以按一下導向列中的 [所有服務]  以搜尋目前訂用帳戶中的現有「搜尋服務」。 
 
-2. 在頁面頂端的命令列中，按一下 [新增索引] 連結。
+2. 在頁面頂端的命令列中，按一下 [新增索引]  連結。
 
    ![命令列中的 [新增索引] 連結](media/search-create-index-portal/add-index.png "命令列中的 [新增索引] 連結")
 
@@ -39,19 +39,19 @@ Azure 搜尋服務在入口網站中包含適用於原型的內建索引設計�
 
 ## <a name="add-fields"></a>新增欄位
 
-索引組合包含「欄位集合」，用以定義索引中可搜尋的資料。 總之，Fields 集合會指定您分別上傳的文件結構。 Fields 集合包含必要與選用欄位 (具名與具類型)，以及用來判斷如何使用欄位的索引屬性。
+索引組合包含「欄位集合」  ，用以定義索引中可搜尋的資料。 總之，Fields 集合會指定您分別上傳的文件結構。 Fields 集合包含必要與選用欄位 (具名與具類型)，以及用來判斷如何使用欄位的索引屬性。
 
 1. 新增欄位以完整指定您要上傳的文件，為每個都設定[資料類型](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) \(英文\)。 例如，如果文件包含 *hotel-id*、*hotel-name*、*address*、*city* 及 *region*，請為每一個在索引中建立對應的欄位。 請檢閱[下一節中的設計指導方針](#design)，以取得設定屬性的說明。
 
-2. 指定 Edm.String 類型的 *key* 欄位。 此欄位的值必須唯一地識別每個文件。 根據預設，已將該欄位命名為 id，但您可以將它重新命名，只要字串符合[命名規則](https://docs.microsoft.com/rest/api/searchservice/Naming-rules)即可。 例如，如果您的欄位集合包含 *hotel-id*，您就會針對您的索引鍵選擇它。 對於每個 Azure 搜尋服務索引而言，索引鍵欄位是必要的且必須為字串。
+2. 指定 Edm.String 類型的 *key* 欄位。 此欄位的值必須唯一地識別每個文件。 根據預設，已將該欄位命名為 id  ，但您可以將它重新命名，只要字串符合[命名規則](https://docs.microsoft.com/rest/api/searchservice/Naming-rules)即可。 例如，如果您的欄位集合包含 *hotel-id*，您就會針對您的索引鍵選擇它。 對於每個 Azure 搜尋服務索引而言，索引鍵欄位是必要的且必須為字串。
 
 3. 在每個欄位上設定屬性。 索引設計工具會排除對資料類型為無效的任何屬性，但不會建議要包含哪些。 請檢閱下一節中的指導方針，以了解有哪些屬性及其用途為何。
 
-    Azure 搜尋服務 API 文件包含具有簡單 hotels 索引功能的程式碼範例。 在以下的螢幕擷取畫面中，您可以看到索引定義，包括在索引定義期間指定的法文語言分析器，而您可以在入口網站中重新建立以當作練習。
+    Azure 搜尋服務 API 文件包含具有簡單 hotels  索引功能的程式碼範例。 在以下的螢幕擷取畫面中，您可以看到索引定義，包括在索引定義期間指定的法文語言分析器，而您可以在入口網站中重新建立以當作練習。
 
     ![旅館示範索引](media/search-create-index-portal/field-definitions.png "旅館示範索引")
 
-4. 完成後，按一下 [建立]，以儲存並建立索引。
+4. 完成後，按一下 [建立]  ，以儲存並建立索引。
 
 <a name="design"></a>
 
@@ -61,7 +61,7 @@ Azure 搜尋服務在入口網站中包含適用於原型的內建索引設計�
 
 系統會先將分析器與建議工具關聯至欄位，然後再儲存索引。 在建立索引定義時，請務必加入語言分析器或建議工具。
 
-字串欄位通常會標示為 [可搜尋] 和 [可擷取]。 用來縮小搜尋結果的欄位包括 [可排序]、[可篩選] 及 [可 Facet]。
+字串欄位通常會標示為 [可搜尋]  和 [可擷取]  。 用來縮小搜尋結果的欄位包括 [可排序]  、[可篩選]  及 [可 Facet]  。
 
 欄位屬性會決定欄位的使用方式，例如，是否將它用於全文檢索搜尋、多面向導覽、排序作業等。 下表描述每個屬性。
 
@@ -72,7 +72,7 @@ Azure 搜尋服務在入口網站中包含適用於原型的內建索引設計�
 |**sortable**|根據預設，系統會依分數來排序結果，但您可根據文件中的欄位設定排序。 類型 `Collection(Edm.String)` 的欄位不能是 **sortable**。 |  
 |**facetable**|通常用來呈現搜尋結果，其中包含依類別的叫用次數 (例如，特定城市中的旅館)。 此選項無法與類型 `Edm.GeographyPoint`的欄位搭配使用。 類型為 `Edm.String` 的欄位 (其為 **filterable**、**sortable** 或 **facetable**) 長度最多可達 32 KB。 如需詳細資訊，請參閱[建立索引 (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)。|  
 |**key**|索引內文件的唯一識別碼。 您必須只選擇一個欄位作為索引鍵欄位，而它的類型必須是 `Edm.String`。|  
-|**retrievable**|判斷搜尋結果中是否會傳回該欄位。 當您想要使用某個欄位 (例如 profit margin) 作為篩選、排序或評分機制，但不想讓使用者看見該欄位時，這非常有用。 針對 `true` for `key` 。|  
+|**retrievable**|判斷搜尋結果中是否會傳回該欄位。 當您想要使用某個欄位 (例如 profit margin  ) 作為篩選、排序或評分機制，但不想讓使用者看見該欄位時，這非常有用。 針對 `true` for `key` 。|  
 
 ## <a name="next-steps"></a>後續步驟
 

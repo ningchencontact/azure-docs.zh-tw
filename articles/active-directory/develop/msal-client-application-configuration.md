@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b5e175a8cdd1622add90bd80df63303fe914ab9c
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66430802"
 ---
 # <a name="application-configuration-options"></a>Možnosti konfigurace aplikace
@@ -38,7 +38,7 @@ ms.locfileid: "66430802"
 ## <a name="authority"></a>授權單位
 授權單位是 URL，表示 MSAL 可以要求權杖的目錄。 常見的授權單位是：
 
-- https://login.microsoftonline.com/&lt租用戶&gt;/，其中&lt;租用戶&gt;是 Azure Active Directory (Azure AD) 租用戶或網域，此 Azure AD 租用戶相關聯的租用戶識別碼。 只能用來登入特定組織的使用者。
+- https://login.microsoftonline.com/&lt 租用戶&gt; /，其中&lt; 租用戶&gt; 是 Azure Active Directory (Azure AD) 租用戶或網域，此 Azure AD 租用戶相關聯的租用戶識別碼。 只能用來登入特定組織的使用者。
 - https://login.microsoftonline.com/common/ 。 用來登入的使用者工作和學校帳戶或個人 Microsoft 帳戶。
 - https://login.microsoftonline.com/organizations/ 。 用來登入的使用者工作和學校帳戶。
 - https://login.microsoftonline.com/consumers/ 。 用來登入使用者具有只能個人 Microsoft 帳戶 （之前稱為 Windows Live ID 帳戶）。

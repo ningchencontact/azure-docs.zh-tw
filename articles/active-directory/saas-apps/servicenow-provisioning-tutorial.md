@@ -17,10 +17,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19b3e4cc5ba4bc0173721947bd1e1a680ca7b3a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60869823"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>教學課程：以 Azure Active Directory 設定 ServiceNow 來自動佈建使用者
@@ -67,39 +67,39 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ### <a name="configure-automatic-user-account-provisioning"></a>設定使用者帳戶自動佈建
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 [Azure Active Directory > 企業應用程式 > 所有應用程式] 區段。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 [Azure Active Directory > 企業應用程式 > 所有應用程式]  區段。
 
-1. 如果您已將 ServiceNow 設定為單一登入，請使用 [搜尋] 欄位搜尋您的 ServiceNow 執行個體。 否則，請選取 [新增]，並在應用程式庫中搜尋 [ServiceNow]。 從搜尋結果中選取 ServiceNow，並將它新增至您的應用程式清單。
+1. 如果您已將 ServiceNow 設定為單一登入，請使用 [搜尋] 欄位搜尋您的 ServiceNow 執行個體。 否則，請選取 [新增]  ，並在應用程式庫中搜尋 [ServiceNow]  。 從搜尋結果中選取 ServiceNow，並將它新增至您的應用程式清單。
 
-1. 選取您的 ServiceNow 執行個體，然後選取 [佈建] 索引標籤。
+1. 選取您的 ServiceNow 執行個體，然後選取 [佈建]  索引標籤。
 
-1. 將 [佈建模式] 設定為 [自動]。 
+1. 將 [佈建模式]  設定為 [自動]  。 
 
     ![佈建](./media/servicenow-provisioning-tutorial/provisioning.png)
 
 1. 在 [管理員認證] 區段底下，執行下列步驟：
    
-    a. 在 [ServiceNow 執行個體名稱] 字方塊中，輸入 ServiceNow 執行個體名稱。
+    a. 在 [ServiceNow 執行個體名稱]  字方塊中，輸入 ServiceNow 執行個體名稱。
 
-    b. 在 [ServiceNow 管理員使用者名稱] 文字方塊中，輸入管理員的使用者名稱。
+    b. 在 [ServiceNow 管理員使用者名稱]  文字方塊中，輸入管理員的使用者名稱。
 
-    c. 在 [ServiceNow 管理員密碼] 文字方塊中，輸入管理員的密碼。
+    c. 在 [ServiceNow 管理員密碼]  文字方塊中，輸入管理員的密碼。
 
-1. 在 Azure 入口網站中，按一下 [測試連線]，以確保 Azure AD 可以連線至您的 ServiceNow 應用程式。 如果連線失敗，請確定您的 ServiceNow 帳戶具有小組系統管理員權限，並再試一次「管理員認證」步驟。
+1. 在 Azure 入口網站中，按一下 [測試連線]  ，以確保 Azure AD 可以連線至您的 ServiceNow 應用程式。 如果連線失敗，請確定您的 ServiceNow 帳戶具有小組系統管理員權限，並再試一次「管理員認證」  步驟。
 
-1. 在 [通知電子郵件] 欄位中，輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選核取方塊。
+1. 在 [通知電子郵件]  欄位中，輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選核取方塊。
 
-1. 按一下 [儲存]。
+1. 按一下 [儲存]  。
 
-1. 在 [對應] 區段下，選取 [同步處理 Azure Active Directory 使用者至 ServiceNow]。
+1. 在 [對應] 區段下，選取 [同步處理 Azure Active Directory 使用者至 ServiceNow]  。
 
-1. 在 [屬性對應] 區段中，檢閱從 Azure AD 同步至 ServiceNow 的使用者屬性。 選取為 [比對] 屬性的屬性會用來比對 ServiceNow 中的使用者帳戶，以進行更新作業。 選取 [儲存] 按鈕以認可任何變更。
+1. 在 [屬性對應]  區段中，檢閱從 Azure AD 同步至 ServiceNow 的使用者屬性。 選取為 [比對]  屬性的屬性會用來比對 ServiceNow 中的使用者帳戶，以進行更新作業。 選取 [儲存] 按鈕以認可任何變更。
 
-1. 若要對 ServiceNow 啟用 Azure AD 佈建服務，請在 [設定] 區段中，將 [佈建狀態] 變更為 [開啟]
+1. 若要對 ServiceNow 啟用 Azure AD 佈建服務，請在 [設定] 區段中，將 [佈建狀態]  變更為 [開啟] 
 
-1. 按一下 [儲存]。
+1. 按一下 [儲存]  。
 
-這會對 [使用者和群組] 區段中指派給 ServiceNow 的任何使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並依循連結前往佈建活動記錄，此記錄會描述您 ServiceNow 應用程式上佈建服務所執行的所有動作。
+這會對 [使用者和群組] 區段中指派給 ServiceNow 的任何使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料]  區段來監視進度，並依循連結前往佈建活動記錄，此記錄會描述您 ServiceNow 應用程式上佈建服務所執行的所有動作。
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.openlocfilehash: 04fc1da04d9da715acfed8ca9d26e9c325afb403
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61441792"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569431"
 ---
 # <a name="get-started-with-device-management-python"></a>開始使用裝置管理 (Python)
 
@@ -22,7 +22,7 @@ ms.locfileid: "61441792"
 
 本教學課程說明如何：
 
-* 使用 Azure 门户创建 IoT 中心，以及如何在 IoT 中心创建设备标识。
+* 使用 Azure 入口網站來建立 IoT 中樞，並且在 IoT 中樞建立裝置識別。
 
 * 建立模擬裝置應用程式，其包含可將該裝置重新開機的直接方法。 直接方法是從雲端叫用。
 
@@ -36,7 +36,7 @@ ms.locfileid: "61441792"
 
 若要完成此教學課程，您需要下列項目：
 
-* [Python 2.x 或 3.x](https://www.python.org/downloads/)。 請務必使用安裝程式所需的 32 位元或 64 位元安裝。 在安裝期間出現系統提示時，務必將 Python 新增至平台特有的環境變數。 如果您是使用 Python 2.x，可能需要[安裝或升級 pip (Python 套件管理系統](https://pip.pypa.io/en/stable/installing/))。
+* [Python 2.x 或 3.x](https://www.python.org/downloads/)。 請務必使用安裝程式所需的 32 位元或 64 位元安裝。 在安裝期間出現系統提示時，務必將 Python 新增至平台特有的環境變數。 如果您是使用 Python 2.x，可能需要[安裝或升級 pip  (Python 套件管理系統](https://pip.pypa.io/en/stable/installing/))。
 
 * 安裝[azure-iothub-裝置-用戶端](https://pypi.org/project/azure-iothub-device-client/)封裝，請使用命令       `pip install azure-iothub-device-client`
 
@@ -178,7 +178,7 @@ ms.locfileid: "61441792"
     from iothub_service_client import IoTHubDeviceMethod, IoTHubError, IoTHubDeviceTwin
     ```
 
-3. 新增下列變數宣告。 只會取代 IoTHubConnectionString 和 deviceId 的預留位置值。
+3. 新增下列變數宣告。 只會取代 IoTHubConnectionString  和 deviceId  的預留位置值。
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"

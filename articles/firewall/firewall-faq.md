@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 5/30/2019
 ms.author: victorh
 ms.openlocfilehash: 75b1131f2853cb444481b9c7a6c96e28f8537538
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384681"
 ---
 # <a name="azure-firewall-faq"></a>Azure 防火牆常見問題集
@@ -89,7 +89,7 @@ Azure 防火牆是受管理的服務具有多個保護層，包括具有 NIC 層
 
 您可以使用 Azure PowerShell 的「解除配置」  和「配置」  方法。
 
-例如: 
+例如:
 
 ```azurepowershell
 # Stop an existing firewall

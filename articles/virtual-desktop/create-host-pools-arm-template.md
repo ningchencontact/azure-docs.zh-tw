@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: 4df8b854a94374346eec6f77d761e65a04ef78a2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523973"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立主機集區
@@ -42,7 +42,7 @@ ms.locfileid: "65523973"
 
 1. 向下捲動並以滑鼠右鍵按一下**部署至 Azure**，然後選取**複製連結位置**。
 2. 開啟 [記事本] 之類的文字編輯器，並貼上那里的連結。
-3. 後面"https://portal.azure.com/「 雜湊標記 （#） 之前輸入 at 符號 (@) 後面加上租用戶網域名稱。 以下是您應該使用的格式範例： https://portal.azure.com/@Contoso.onmicrosoft.com#create/。
+3. 後面"https://portal.azure.com/ 「 雜湊標記 （#） 之前輸入 at 符號 (@) 後面加上租用戶網域名稱。 以下是您應該使用的格式範例： https://portal.azure.com/@Contoso.onmicrosoft.com#create/ 。
 4. 具有雲端解決方案提供者訂用帳戶的系統管理員/參與者權限的使用者身分登入 Azure 入口網站。
 5. 貼上您複製到文字編輯器，在網址列的連結。
 

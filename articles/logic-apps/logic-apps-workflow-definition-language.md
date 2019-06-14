@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 05/13/2019
 ms.openlocfilehash: 3b0ad33ea6348f24079b3c88f972437244c0bc93
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596755"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps 中工作流程定義語言的結構描述參考
@@ -38,16 +38,16 @@ ms.locfileid: "65596755"
 }
 ```
 
-| 屬性 | 必要項 | 說明 |
+| 屬性 | 必要項 | 描述 |
 |-----------|----------|-------------|
-| `definition` | 有 | 工作流程定義的起始元素 |
+| `definition` | 是 | 工作流程定義的起始元素 |
 | `$schema` | 只有在外部參考工作流程定義時 | JSON 結構描述檔案的位置，該檔案說明工作流程定義語言版本，您可以在此找到此版本： <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
-| `actions` | 無 | 若要在工作流程執行階段執行的一或多個動作定義。 如需詳細資訊，請參閱 <<c0> [ 觸發程序和動作](#triggers-actions)。 <p><p>動作上限：250 |
-| `contentVersion` | 無 | 您的工作流程定義版本號碼，預設為 "1.0.0.0"。 若要在部署工作流程時協助識別及確認正確的定義，請指定要使用的值。 |
-| `outputs` | 無 | 輸出會傳回從執行工作流程定義。 如需詳細資訊，請參閱 <<c0> [ 輸出](#outputs)。 <p><p>輸出上限：10 |
-| `parameters` | 無 | 將資料傳遞至您的工作流程的一或多個參數的定義。 如需詳細資訊，請參閱 <<c0> [ 參數](#parameters)。 <p><p>參數上限：50 |
-| `staticResults` | 無 | 定義這些動作上啟用靜態的結果時，傳回的動作為模擬 （mock） 的輸出的一或多個靜態的結果。 在每個動作定義中，`runtimeConfiguration.staticResult.name`屬性會參考對應的定義內`staticResults`。 如需詳細資訊，請參閱 <<c0> [ 靜態結果](#static-results)。 |
-| `triggers` | 無 | 一或多個觸發程序的定義，此觸發程序可具現化您的工作流程。 您可以定義多個觸發程序，但只能利用工作流程定義語言，而不會透過 Logic Apps 設計工具呈現。 如需詳細資訊，請參閱 <<c0> [ 觸發程序和動作](#triggers-actions)。 <p><p>觸發程序上限：10 |
+| `actions` | 否 | 若要在工作流程執行階段執行的一或多個動作定義。 如需詳細資訊，請參閱 <<c0> [ 觸發程序和動作](#triggers-actions)。 <p><p>動作上限：250 |
+| `contentVersion` | 否 | 您的工作流程定義版本號碼，預設為 "1.0.0.0"。 若要在部署工作流程時協助識別及確認正確的定義，請指定要使用的值。 |
+| `outputs` | 否 | 輸出會傳回從執行工作流程定義。 如需詳細資訊，請參閱 <<c0> [ 輸出](#outputs)。 <p><p>輸出上限：10 |
+| `parameters` | 否 | 將資料傳遞至您的工作流程的一或多個參數的定義。 如需詳細資訊，請參閱 <<c0> [ 參數](#parameters)。 <p><p>參數上限：50 |
+| `staticResults` | 否 | 定義這些動作上啟用靜態的結果時，傳回的動作為模擬 （mock） 的輸出的一或多個靜態的結果。 在每個動作定義中，`runtimeConfiguration.staticResult.name`屬性會參考對應的定義內`staticResults`。 如需詳細資訊，請參閱 <<c0> [ 靜態結果](#static-results)。 |
+| `triggers` | 否 | 一或多個觸發程序的定義，此觸發程序可具現化您的工作流程。 您可以定義多個觸發程序，但只能利用工作流程定義語言，而不會透過 Logic Apps 設計工具呈現。 如需詳細資訊，請參閱 <<c0> [ 觸發程序和動作](#triggers-actions)。 <p><p>觸發程序上限：10 |
 ||||
 
 <a name="triggers-actions"></a>
@@ -76,11 +76,11 @@ ms.locfileid: "65596755"
 }
 ```
 
-| 屬性 | 必要項 | 類型 | 說明 |
+| 屬性 | 必要項 | 類型 | 描述 |
 |-----------|----------|------|-------------|
-| <*key-name*> | 有 | 字串 | 輸出傳回值的索引鍵名稱 |
-| <*key-type*> | 有 | int、float、string、securestring、bool、array、JSON 物件 | 輸出傳回值的類型 |
-| <*key-value*> | 有 | 與相同 <*金鑰類型*> | 輸出傳回值 |
+| <*key-name*> | 是 | 字串 | 輸出傳回值的索引鍵名稱 |
+| <*key-type*> | 是 | int、float、string、securestring、bool、array、JSON 物件 | 輸出傳回值的類型 |
+| <*key-value*> | 是 | 與相同 <*金鑰類型*> | 輸出傳回值 |
 |||||
 
 若要從執行工作流程取得輸出，請檢閱邏輯應用程式的執行歷程記錄和在 Azure 入口網站中的詳細資料，或使用[工作流程 REST API](https://docs.microsoft.com/rest/api/logic/workflows)。 您也可以將輸出傳遞至外部系統 (例如 PowerBI)，以便建立儀表板。
@@ -108,12 +108,12 @@ ms.locfileid: "65596755"
 },
 ```
 
-| 屬性 | 必要項 | 類型 | 說明 |
+| 屬性 | 必要項 | 類型 | 描述 |
 |-----------|----------|------|-------------|
-| <*parameter-type*> | 有 | int、float、string、securestring、bool、array、JSON 物件、secureobject <p><p>**注意**：對於所有密碼、金鑰和祕密，使用 `securestring` 和 `secureobject` 類型，因為 `GET` 作業不會傳回這些類型。 有关保护参数的详细信息，请参阅[保护逻辑应用](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | 參數的類型 |
-| <*default-parameter-values*> | 有 | 與 `type` 相同 | 在工作流程具現化時，未指定任何值時的預設參數值 |
-| <*array-with-permitted-parameter-values*> | 無 | 陣列 | 具有參數可接受值的陣列 |
-| `metadata` | 無 | JSON 物件 | 任何其他參數詳細資料，例如 「 名稱 」 或 「 您的邏輯應用程式或流程或使用 Visual Studio 或其他工具的設計階段資料的可讀取描述 |
+| <*parameter-type*> | 是 | int、float、string、securestring、bool、array、JSON 物件、secureobject <p><p>**注意**：對於所有密碼、金鑰和祕密，使用 `securestring` 和 `secureobject` 類型，因為 `GET` 作業不會傳回這些類型。 如需保護參數的詳細資訊，請參閱[保護您的邏輯應用程式](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | 參數的類型 |
+| <*default-parameter-values*> | 是 | 與 `type` 相同 | 在工作流程具現化時，未指定任何值時的預設參數值 |
+| <*array-with-permitted-parameter-values*> | 否 | 陣列 | 具有參數可接受值的陣列 |
+| `metadata` | 否 | JSON 物件 | 任何其他參數詳細資料，例如 「 名稱 」 或 「 您的邏輯應用程式或流程或使用 Visual Studio 或其他工具的設計階段資料的可讀取描述 |
 ||||
 
 <a name="static-results"></a>
@@ -143,13 +143,13 @@ ms.locfileid: "65596755"
 }
 ```
 
-| 屬性 | 必要項 | 類型 | 說明 |
+| 屬性 | 必要項 | 類型 | 描述 |
 |-----------|----------|------|-------------|
-| <*static-result-definition-name*> | 有 | 字串 | 動作定義中可以透過參考靜態的結果定義的名稱`runtimeConfiguration.staticResult`物件。 如需詳細資訊，請參閱[執行階段組態設定](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options)。 <p>您可以使用任何您想要的唯一名稱。 根據預設，這個唯一名稱會附加數字，就會遞增為必要。 |
-| <*output-attributes-and-values-returned*> | 有 | 視情況而異 | 這些屬性的需求根據不同的條件而有所不同。 例如，當`status`已`Succeeded`，則`outputs`屬性包含屬性和值的動作所傳回，模擬 （mock） 的輸出。 如果`status`已`Failed`，則`outputs`屬性包含`errors`屬性，也就是具有一或多個錯誤的陣列`message`錯誤資訊的物件。 |
-| <*header-values*> | 無 | JSON | 動作傳回的任何標頭值 |
-| <*status-code-returned*> | 有 | 字串 | 動作所傳回的狀態碼 |
-| <*action-status*> | 有 | 字串 | 動作的狀態，例如`Succeeded`或 `Failed` |
+| <*static-result-definition-name*> | 是 | 字串 | 動作定義中可以透過參考靜態的結果定義的名稱`runtimeConfiguration.staticResult`物件。 如需詳細資訊，請參閱[執行階段組態設定](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options)。 <p>您可以使用任何您想要的唯一名稱。 根據預設，這個唯一名稱會附加數字，就會遞增為必要。 |
+| <*output-attributes-and-values-returned*> | 是 | 視情況而異 | 這些屬性的需求根據不同的條件而有所不同。 例如，當`status`已`Succeeded`，則`outputs`屬性包含屬性和值的動作所傳回，模擬 （mock） 的輸出。 如果`status`已`Failed`，則`outputs`屬性包含`errors`屬性，也就是具有一或多個錯誤的陣列`message`錯誤資訊的物件。 |
+| <*header-values*> | 否 | JSON | 動作傳回的任何標頭值 |
+| <*status-code-returned*> | 是 | 字串 | 動作所傳回的狀態碼 |
+| <*action-status*> | 是 | 字串 | 動作的狀態，例如`Succeeded`或 `Failed` |
 |||||
 
 例如，在此 HTTP 動作定義中，`runtimeConfiguration.staticResult.name`屬性參考`HTTP0`內`staticResults`其中已定義動作的模擬 （mock） 輸出的屬性。 `runtimeConfiguration.staticResult.staticResultOptions`屬性可讓您指定靜態的結果設定為`Enabled`HTTP 動作。
@@ -209,7 +209,7 @@ HTTP 動作傳回的輸出`HTTP0`內定義`staticResults`。 在此範例中，�
 "rainbowColorsCount": 7
 ```
 
-您也可以擁有在執行階段才存在的值。 若要表示這些值，您可以使用會在執行階段評估的「運算式」。 運算式是一個序列，可包含一或多個[函式](#functions)[運算子](#operators)、變數、明確值或常數。 在工作流程定義中，您可以在運算式前面加上 (\@) 符號，以便在 JSON 字串值中的任何地方使用運算式。 在評估代表 JSON 值的運算式時，移除 \@ 字元即可擷取運算式主體，而且一律會產生其他 JSON 值。
+您也可以擁有在執行階段才存在的值。 若要表示這些值，您可以使用會在執行階段評估的「運算式」  。 運算式是一個序列，可包含一或多個[函式](#functions)[運算子](#operators)、變數、明確值或常數。 在工作流程定義中，您可以在運算式前面加上 (\@) 符號，以便在 JSON 字串值中的任何地方使用運算式。 在評估代表 JSON 值的運算式時，移除 \@ 字元即可擷取運算式主體，而且一律會產生其他 JSON 值。
 
 例如，對於先前定義的 `customerName` 屬性，您可以在運算式中使用 [parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 函式來取得此屬性值，並將該值指派給 `accountName` 屬性：
 
@@ -218,7 +218,7 @@ HTTP 動作傳回的輸出`HTTP0`內定義`staticResults`。 在此範例中，�
 "accountName": "@parameters('customerName')"
 ```
 
-「字串內插補點」也可讓您在字串內使用多個運算式，以 \@ 字元和大括號 ({}) 圍住。 語法如下：
+「字串內插補點」  也可讓您在字串內使用多個運算式，以 \@ 字元和大括號 ({}) 圍住。 語法如下：
 
 ```json
 @{ "<expression1>", "<expression2>" }
@@ -294,7 +294,7 @@ HTTP 動作傳回的輸出`HTTP0`內定義`staticResults`。 在此範例中，�
 
 | 運算子 | Task |
 |----------|------|
-| ' | 若要將字串常值作為輸入或使用於運算式和函式中，只用單引號圍住此字串，例如 `'<myString>'`。 請勿使用雙引號 ("")，這會與整個運算式的 JSON 格式設定發生衝突。 例如： <p>**是**：length('Hello') </br>**否**：length("Hello") <p>當您傳遞陣列或數字時，您不需要包圍標點符號。 例如： <p>**是**：length([1, 2, 3]) </br>**否**：length("[1, 2, 3]") |
+| ' | 若要將字串常值作為輸入或使用於運算式和函式中，只用單引號圍住此字串，例如 `'<myString>'`。 請勿使用雙引號 ("")，這會與整個運算式的 JSON 格式設定發生衝突。 例如: <p>**是**：length('Hello') </br>**否**：length("Hello") <p>當您傳遞陣列或數字時，您不需要包圍標點符號。 例如: <p>**是**：length([1, 2, 3]) </br>**否**：length("[1, 2, 3]") |
 | [] | 若要參考陣列中特定位置 (索引) 的值，請使用方括號。 例如，若要取得陣列中的第二個項目： <p>`myArray[1]` |
 | 上也提供本文中使用的原始碼。 | 若要參考物件中的屬性，請使用點運算子。 例如，若要取得 `customer` JSON 物件的 `name` 屬性： <p>`"@parameters('customer').name"` |
 | ? | 若要在不會發生執行階段錯誤的情況下，參考物件中的 null 屬性，請使用問號運算子。 例如，若要處理來自觸發程序的 null 輸出，您可以使用此運算式︰ <p>`@coalesce(trigger().outputs?.body?.<someProperty>, '<property-default-value>')` |
@@ -302,7 +302,7 @@ HTTP 動作傳回的輸出`HTTP0`內定義`staticResults`。 在此範例中，�
 
 <a name="functions"></a>
 
-## <a name="functions"></a>功能
+## <a name="functions"></a>函式
 
 某些運算式可能尚不存在您的工作流程定義開始執行時的執行階段動作中取得其值。 若要在運算式中參考或使用這些值，您可以使用工作流程定義語言所提供的[*函式*](../logic-apps/workflow-definition-language-functions-reference.md)。
 

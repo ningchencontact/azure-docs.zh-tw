@@ -9,10 +9,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 890cd7080447649396855bfbe051dca4470a4564
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546281"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen1
@@ -42,12 +42,12 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Storage Gen1︰
 
 | HDInsight 叢集類型 | 使用 Data Lake Storage Gen1 作為預設儲存體 | 使用 Data Lake Storage Gen1 作為其他儲存體| 注意 |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight 版本 4.0 | 無 | 無 |HDInsight 4.0 不支援 ADLS Gen1 |
-| HDInsight 3.6 版 | 有 | 有 | HBase 的例外狀況|
-| HDInsight 3.5 版 | 有 | 有 | HBase 的例外狀況|
-| HDInsight 3.4 版 | 無 | 有 | |
-| HDInsight 3.3 版 | 無 | 無 | |
-| HDInsight 3.2 版 | 無 | 有 | |
+| HDInsight 版本 4.0 | 否 | 否 |HDInsight 4.0 不支援 ADLS Gen1 |
+| HDInsight 3.6 版 | 是 | 是 | HBase 的例外狀況|
+| HDInsight 3.5 版 | 是 | 是 | HBase 的例外狀況|
+| HDInsight 3.4 版 | 否 | 是 | |
+| HDInsight 3.3 版 | 否 | 否 | |
+| HDInsight 3.2 版 | 否 | 是 | |
 | Storm | | |您可以使用 Data Lake Storage Gen1 從 Storm 拓撲寫入資料。 您也可以使用 Data Lake Storage 做為參考資料，該資料稍後可以由 Storm 拓撲讀取。|
 
 > [!WARNING]  
@@ -108,13 +108,13 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-data-lake-storage-gen1-as-additional-storage"></a>使用 Data Lake Storage Gen1 作為其他儲存體
 
-您也可以使用 Data Lake Storage Gen1 作為叢集的其他儲存體。 在這種情況下，叢集預設儲存體可以是 Azure 儲存體 Blob 或 Data Lake Storage 帳戶。 如果您正在作為其他儲存體的 Data Lake Storage 上針對其儲存的資料執行 HDInsight 作業，必須使用檔案的完整路徑。 例如：
+您也可以使用 Data Lake Storage Gen1 作為叢集的其他儲存體。 在這種情況下，叢集預設儲存體可以是 Azure 儲存體 Blob 或 Data Lake Storage 帳戶。 如果您正在作為其他儲存體的 Data Lake Storage 上針對其儲存的資料執行 HDInsight 作業，必須使用檔案的完整路徑。 例如:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 請注意，現在 URL 中沒有任何 **cluster_root_path**。 這是因為在此情況下 Data Lake Storage 不是預設儲存體，因此您只需要提供檔案的路徑。
 
-若要能夠使用 Data Lake Storage Gen1 作為其他儲存體，您只需要將您儲存檔案之位置的路徑存取權授與服務主體即可。  例如：
+若要能夠使用 Data Lake Storage Gen1 作為其他儲存體，您只需要將您儲存檔案之位置的路徑存取權授與服務主體即可。  例如:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 

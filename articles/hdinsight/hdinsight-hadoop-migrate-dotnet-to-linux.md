@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.openlocfilehash: a1d1488840ca2b17c83f380af4fa24105bb36202
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64729475"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>將以 Windows 為基礎的 HDInsight 適用的 .NET 方案移轉至以 Linux 為基礎的 HDInsight
@@ -21,7 +21,7 @@ ms.locfileid: "64729475"
 
 ## <a name="mono-compatibility-with-net"></a>Mono 與 .NET 的相容性
 
-4.2.1 版的 Mono 隨附於 3.6 版的 HDInsight。 如需 HDInsight 包含之 Mono 版本的詳細資訊，請參閱 [HDInsight 元件版本](hdinsight-component-versioning.md)。
+4\.2.1 版的 Mono 隨附於 3.6 版的 HDInsight。 如需 HDInsight 包含之 Mono 版本的詳細資訊，請參閱 [HDInsight 元件版本](hdinsight-component-versioning.md)。
 
 如需 Mono 與 .NET 之間的相容性詳細資訊，請參閱 [Mono 相容性 (英文) (https://www.mono-project.com/docs/about-mono/compatibility/)](https://www.mono-project.com/docs/about-mono/compatibility/) 文件。
 
@@ -34,15 +34,15 @@ ms.locfileid: "64729475"
 
 1. 安裝 [.NET Portability Analyzer (英文)](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)。 在安裝期間，選取要使用的 Visual Studio 版本。
 
-2. 從 Visual Studio 2015，選取 [分析] >  [Portability Analyzer 設定]，並確定已選取 [Mono] 區段中的 __4.5__。
+2. 從 Visual Studio 2015，選取 [分析]   >  [Portability Analyzer 設定]  ，並確定已選取 [Mono]  區段中的 __4.5__。
 
     ![分析器設定的 [Mono] 區段中已選取 4.5](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
 
-    選取 [確定] 以儲存組態。
+    選取 [確定]  以儲存組態。
 
-3. 選取 [分析] > [分析組件可攜性]。 選取包含您的方案的組件，然後選取 [開啟] 以開始分析。
+3. 選取 [分析]   > [分析組件可攜性]  。 選取包含您的方案的組件，然後選取 [開啟]  以開始分析。
 
-4. 分析完成之後，請選取 [分析] > [檢視分析報告]。 在 [可攜性分析結果] 中，選取 [開啟報告] 以開啟報告。
+4. 分析完成之後，請選取 [分析]   > [檢視分析報告]  。 在 [可攜性分析結果]  中，選取 [開啟報告]  以開啟報告。
 
     ![Portability Analyzer 結果對話方塊](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
@@ -57,7 +57,7 @@ ms.locfileid: "64729475"
 
 您可以繼續使用 Visual Studio 建置適用於 HDInsight 的 .NET 方案。 不過，您必須確定專案已設定為使用 .NET Framework 4.5。
 
-## <a name="deploy-and-test"></a>部署和测试
+## <a name="deploy-and-test"></a>部署和測試
 
 使用 .NET Portability Analyzer 或手動分析的建議修改您的方案後，您必須使用 HDInsight 進行測試。 在以 Linux 為基礎的 HDInsight 叢集上測試方案，可能會揭露需要更正的細微問題。 建議您在測試時啟用應用程式中的其他記錄。
 

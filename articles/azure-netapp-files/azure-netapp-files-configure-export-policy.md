@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: b-juche
 ms.openlocfilehash: 8cda5921a1aec86d28beabbd9cea5b07a203a0e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61086140"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>設定 NFS 磁碟區的匯出原則
@@ -27,7 +27,7 @@ ms.locfileid: "61086140"
 
 ## <a name="steps"></a>步驟 
 
-1.  從 [管理磁碟區] 刀鋒視窗按一下 [建立匯出原則] 刀鋒視窗。 
+1.  從 [管理磁碟區] 刀鋒視窗按一下 [建立匯出原則]  刀鋒視窗。 
 
 2.  指定下列欄位的資訊以建立匯出原則規則：   
     *  **索引**   

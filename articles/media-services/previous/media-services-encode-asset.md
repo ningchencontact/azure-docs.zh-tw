@@ -1,6 +1,6 @@
 ---
 title: Azure 隨選媒體編碼器的概觀和比較 | Microsoft Docs
-description: 本主题简要介绍并比较了 Azure 点播媒体编码器。
+description: 本主題概要說明並比較 Azure 隨選媒體編碼器。
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: a976b7c1f697c09082ca0f7978bb23bb4e467e5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61464176"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Azure 隨選媒體編碼器的概觀和比較 
@@ -35,26 +35,26 @@ Azure 媒體服務提供多個用於將雲端中之媒體編碼的選項。
 
 「媒體服務」提供動態封裝，這可讓您以「媒體服務」支援的串流格式 (MPEG DASH、HLS、Smooth Streaming) 提供調適性位元速率 MP4 或 Smooth Streaming 編碼內容，而不必重新封裝成這些串流格式。
 
-建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中] 狀態。 
+建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止]  狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中]  狀態。 
 
 媒體服務支援本文中所描述的下列隨選編碼器：
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
 * [Media Encoder Premium Workflow](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-本文概略敘述隨選媒體編碼器，並提供文章連結以提供更詳細資訊。 本主题还提供对编码器的比较。
+本文概略敘述隨選媒體編碼器，並提供文章連結以提供更詳細資訊。 本主題也提供各種編碼器的比較。
 
 依預設，每個媒體服務帳戶一次可以有一個進行中的編碼工作。 您可以保留編碼單位，這樣就可以同時執行多個編碼工作，其中一個用於您購買的每一個編碼保留單位。 如需相關資訊，請參閱 [調整編碼單位](media-services-scale-media-processing-overview.md)。
 
 ## <a name="media-encoder-standard"></a>Media Encoder Standard
 ### <a name="how-to-use"></a>使用方式
-[如何使用 Media Encoder Standard 进行编码](media-services-dotnet-encode-with-media-encoder-standard.md)
+[如何使用 Media Encoder Standard 進行編碼](media-services-dotnet-encode-with-media-encoder-standard.md)
 
 ### <a name="formats"></a>格式
 [格式和轉碼器](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>預設值
-Media Encoder Standard 使用 [此处](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)所述的编码器预设之一进行配置。
+Media Encoder Standard 使用 [這裡](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)描述的其中一個編碼器預設值進行設定。
 
 ### <a name="input-and-output-metadata"></a>輸入和輸出中繼資料
 [這裡](media-services-input-metadata-schema.md)說明編碼器輸入中繼資料。

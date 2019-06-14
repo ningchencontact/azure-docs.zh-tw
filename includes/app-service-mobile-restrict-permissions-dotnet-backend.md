@@ -5,20 +5,20 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: b609a708a987194398c53bdf83f0d6e1f281808d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66139870"
 ---
 根據預設，可以匿名方式叫用 Mobile Apps 後端中的 API。 接下來，您必須限制只有經過驗證的用戶端才有存取權。  
 
-* **Node.js 後端 (透過 Azure 入口網站)**：  
+* **Node.js 後端 (透過 Azure 入口網站)** ：  
 
-    在 Mobile Apps 的 [設定] 中，按一下 [簡單資料表]，然後選取資料表。 按一下 [變更權限]，選取所有權限的 [僅驗證存取]，然後按一下 [儲存]。
-* **.NET 後端 (C#)**：  
+    在 Mobile Apps 的 [設定] 中，按一下 [簡單資料表]  ，然後選取資料表。 按一下 [變更權限]  ，選取所有權限的 [僅驗證存取]  ，然後按一下 [儲存]  。
+* **.NET 後端 (C#)** ：  
 
-    在伺服器專案中，瀏覽至 [控制器]  >  [TodoItemController.cs]。 將 `[Authorize]` 屬性加入 **TodoItemController** 類別，如下所示。 若要限制只有特定方法才能存取，也可以將此屬性套用至這些方法，而不是類別。 發佈伺服器專案。
+    在伺服器專案中，瀏覽至 [控制器]   >  [TodoItemController.cs]  。 將 `[Authorize]` 屬性加入 **TodoItemController** 類別，如下所示。 若要限制只有特定方法才能存取，也可以將此屬性套用至這些方法，而不是類別。 發佈伺服器專案。
 
         [Authorize]
         public class TodoItemController : TableController<TodoItem>

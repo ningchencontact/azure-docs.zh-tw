@@ -7,17 +7,17 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 33fc2cd19152fb6cbbffb106aa058948d39555f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61471429"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>使用角色型存取控制 (RBAC) 管理 Site Recovery 存取
 
 Azure 角色型存取控制 (RBAC) 可以對 Azure 進行更細緻的存取權管理。 您可以使用 RBAC 劃分小組責任，並只將特定存取權限授與需要執行特定工作的使用者。
 
-Azure Site Recovery 提供 3 種內建角色，以控制 Site Recovery 管理作業。 详细了解 [Azure RBAC 内置角色](../role-based-access-control/built-in-roles.md)
+Azure Site Recovery 提供 3 種內建角色，以控制 Site Recovery 管理作業。 深入了解 [Azure RBAC 內建角色](../role-based-access-control/built-in-roles.md)
 
 * [Site Recovery 參與者](../role-based-access-control/built-in-roles.md#site-recovery-contributor)：此角色具有在復原服務保存庫中管理 Azure Site Recovery 作業所需的所有權限。 不過，具有此角色的使用者無法建立或刪除復原服務保存庫，也無法為其他使用者指派存取權限。 此角色最適合災害復原系統管理員，他們可以為應用程式或整個組織 (視情況而定) 啟用和管理災害復原。
 * [Site Recovery 操作員](../role-based-access-control/built-in-roles.md#site-recovery-operator) - 此角色具有執行和管理容錯移轉和容錯回復作業的權限。 具有此角色的使用者無法啟用或停用複寫、建立或刪除保存庫、註冊新的基礎結構，也無法為其他使用者指派存取權限。 此角色最適合災害復原操作員，當應用程式擁有者和 IT 系統管理員在實際或模擬災害情況 (例如災害復原演習) 中指示時，操作員可以對虛擬機器或應用程式進行容錯移轉。 災害解決後，災害復原操作員可以重新保護和容錯回復虛擬機器。
@@ -44,7 +44,7 @@ Azure Site Recovery 提供 3 種內建角色，以控制 Site Recovery 管理作
 |  |  | Microsoft.Compute/virtualMachines/read |
 |  |  | Microsoft.Compute/virtualMachines/write |
 |  |  | Microsoft.Compute/virtualMachines/delete |
-|  | 经典 | Microsoft.ClassicCompute/domainNames/read |
+|  | 傳統 | Microsoft.ClassicCompute/domainNames/read |
 |  |  | Microsoft.ClassicCompute/domainNames/write |
 |  |  | Microsoft.ClassicCompute/domainNames/delete |
 |  |  | Microsoft.ClassicCompute/virtualMachines/read |

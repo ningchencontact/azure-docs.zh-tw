@@ -10,27 +10,27 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: 31755dcc247ea3be5fb38249afd98dc72dcbc544
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717124"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>使用 Apache Spark MLlib 建置機器學習應用程式及分析資料集
 
-了解如何使用 Apache Spark [MLlib](https://spark.apache.org/mllib/) 建立機器學習應用程式，以在開啟的資料集上進行簡單的預測性分析。 從 Spark 的內建機器學習程式庫，此範例會透過羅吉斯迴歸使用「分類」。 
+了解如何使用 Apache Spark [MLlib](https://spark.apache.org/mllib/) 建立機器學習應用程式，以在開啟的資料集上進行簡單的預測性分析。 從 Spark 的內建機器學習程式庫，此範例會透過羅吉斯迴歸使用「分類」  。 
 
 MLlib 是核心 Spark 程式庫之一，提供許多可用於機器學習工作的公用程式，包括具有下列用途的公用程式：
 
 * 分類
-* 回归
+* 迴歸
 * 叢集
 * 主題模型化
 * 奇異值分解 (SVD) 和主體元件分析 (PCA)
 * 假設測試和計算範例統計資料
 
 ## <a name="understand-classification-and-logistic-regression"></a>了解分類和羅吉斯迴歸
-分類是常見的機器學習工作，是指將輸入資料依類別排序的程序。 它是以分類演算法指出如何為您所提供的輸入資料指派「標籤」的作業。 例如，試想某個機器學習演算法以股市資訊作為輸入，並且將股票分成兩個類別：該賣的股票和該留的股票。
+分類  是常見的機器學習工作，是指將輸入資料依類別排序的程序。 它是以分類演算法指出如何為您所提供的輸入資料指派「標籤」的作業。 例如，試想某個機器學習演算法以股市資訊作為輸入，並且將股票分成兩個類別：該賣的股票和該留的股票。
 
 羅吉斯迴歸是您用於分類的演算法。 Spark 的羅吉斯迴歸 API 可用於*二元分類*，或用來將輸入資料歸類到兩個群組之一。 如需羅吉斯迴歸的詳細資訊，請參閱 [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression)。
 
@@ -45,7 +45,7 @@ MLlib 是核心 Spark 程式庫之一，提供許多可用於機器學習工作�
 
 1. 使用 PySpark 核心建立 Jupyter Notebook。 如需指示，請參閱[建立 Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)。
 
-2. 匯入此應用程式所需的類型。 将以下代码复制并粘贴到空白单元格中，然后按 **SHIFT + ENTER**。
+2. 匯入此應用程式所需的類型。 複製並貼入空白儲存格，下列程式碼，然後再按下**SHIFT + ENTER**。
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -106,7 +106,7 @@ MLlib 是核心 Spark 程式庫之一，提供許多可用於機器學習工作�
 
     輸出可讓您了解輸入檔案的結構描述。 它包括每個餐飲業者的名稱、類型，地址，檢查資料和位置等等。 
 
-3. 執行下列程式碼來建立資料框架 (df) 和暫存資料表 (CountResults)，其中具有一些可用於預測分析的資料行。 您可以使用 `sqlContext` 對結構化資料執行轉換。 
+3. 執行下列程式碼來建立資料框架 (df  ) 和暫存資料表 (CountResults  )，其中具有一些可用於預測分析的資料行。 您可以使用 `sqlContext` 對結構化資料執行轉換。 
 
     ```PySpark
     schema = StructType([
@@ -238,7 +238,7 @@ MLlib 是核心 Spark 程式庫之一，提供許多可用於機器學習工作�
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>從輸入資料框架建立羅吉斯迴歸模型
 
-最後一項工作，是將加上標籤的資料轉換成可依羅吉斯迴歸進行分析的格式。 羅吉斯迴歸演算法的輸入必須是一組「標籤-特性向量配對」，其中「特性向量」是代表輸入點的數字向量。 因此，您需要將半結構化且包含許多自然語言註解的「違規情事」資料行，轉換成機器可輕易辨識的實數陣列。
+最後一項工作，是將加上標籤的資料轉換成可依羅吉斯迴歸進行分析的格式。 羅吉斯迴歸演算法的輸入必須是一組「標籤-特性向量配對」  ，其中「特性向量」是代表輸入點的數字向量。 因此，您需要將半結構化且包含許多自然語言註解的「違規情事」資料行，轉換成機器可輕易辨識的實數陣列。
 
 可用來處理自然語言的標準機器學習方法之一，是為每個不同的字指派一個「索引」，然後將向量傳至機器學習演算法，使每個索引的值包含該字在文字字串中出現的相對頻率。
 
@@ -255,7 +255,7 @@ model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-using-another-dataset"></a>使用另一個資料集來評估模型
 
-您可以使用先前建立的模型，根據所觀察的違規情事，*預測*新的檢查會有何種結果。 您已在資料集 **Food_Inspections1.csv** 上訓練此模型。 您可以使用第二個資料集 **Food_Inspections2.csv**，評估此模型對於新資料的強度。 第二個資料集 (**Food_Inspections2.csv**) 在與叢集相關聯的預設儲存體容器中。
+您可以使用先前建立的模型，根據所觀察的違規情事，*預測*新的檢查會有何種結果。 您已在資料集 **Food_Inspections1.csv** 上訓練此模型。 您可以使用第二個資料集 **Food_Inspections2.csv**，評估  此模型對於新資料的強度。 第二個資料集 (**Food_Inspections2.csv**) 在與叢集相關聯的預設儲存體容器中。
 
 1. 執行下列程式碼，可建立新的資料框架 **predictionsDf**，其中包含模型所產生的預測。 該程式碼片段也會根據資料框架，建立暫存資料表 **Predictions**。
 
@@ -354,10 +354,10 @@ model = pipeline.fit(labeledData)
 
     ![Spark 機器學習應用程式輸出 - 包含失敗食品檢查百分比的圓形圖。](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Spark 機器學習結果輸出")
 
-    在该图中，“正”的结果指未通过食品检验，而“负”的结果指通过检验。
+    在此圖中，「肯定」結果是指未通過的食品檢查，否定結果則是指通過的檢查。
 
-## <a name="shut-down-the-notebook"></a>关闭笔记本
-應用程式執行完畢之後，您應該關閉 Notebook 以釋放資源。 若要這麼做，請從 Notebook 的 [檔案] 功能表中，選取 [關閉並終止]。 這樣會關機並關閉 Notebook。
+## <a name="shut-down-the-notebook"></a>關閉 Notebook
+應用程式執行完畢之後，您應該關閉 Notebook 以釋放資源。 若要這麼做，請從 Notebook 的 [檔案]  功能表中，選取 [關閉並終止]  。 這樣會關機並關閉 Notebook。
 
 ## <a name="seealso"></a>另請參閱
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)

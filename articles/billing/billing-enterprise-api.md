@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 04/25/2017
 ms.author: erikre
 ms.openlocfilehash: 5722e05e5a5e3a57b4d12b70b14f8674364f824b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244825"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>適用於企業客戶的報告 API 概觀
@@ -29,7 +29,7 @@ ms.locfileid: "66244825"
 * **產生或擷取 API 金鑰** - 登入企業版入口網站，並瀏覽至 [報告] > [下載使用量] > [API 存取金鑰] 來產生或擷取 API 金鑰。
 * **在 API 中傳遞金鑰** - 必須針對每個驗證和授權呼叫傳遞 API 金鑰。 下列屬性必須是針對 HTTP 標頭
 
-|要求標頭金鑰 | Value|
+|要求標頭金鑰 | 值|
 |-|-|
 |授權| 以此格式指定值：**bearer {API_KEY}** <br/> 範例：bearer eyr....09| 
 

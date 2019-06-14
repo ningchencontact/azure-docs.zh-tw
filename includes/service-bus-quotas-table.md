@@ -9,15 +9,15 @@ ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: f48ad6ca74e6ce10148d66549fea16bc74015b2a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66171225"
 ---
 下表列出特定 Azure 服務匯流排傳訊的配額資訊。 如需定價資訊及其他配額的服務匯流排，請參閱[服務匯流排定價](https://azure.microsoft.com/pricing/details/service-bus/)。
 
-| 配額名稱 | `Scope` | 注意 | Value |
+| 配額名稱 | `Scope` | 注意 | 值 |
 | --- | --- | --- | --- |
 | 每個 Azure 訂用帳戶的基本或標準命名空間的最大數目 |命名空間 |Azure 入口網站會拒絕後續對於其他基本或標準的命名空間的要求。 |100|
 | 每個 Azure 訂用帳戶的進階命名空間的最大數目 |命名空間 |入口網站會拒絕後續對於更多進階命名空間的要求。 |25 |
@@ -37,6 +37,6 @@ ms.locfileid: "66171225"
 | 每個主題的相互關聯篩選器數目 |實體 |後續要求建立主題的其他篩選器都會遭到拒絕，並呼叫程式碼會收到例外狀況。 |100,000 |
 | SQL 篩選條件或動作的大小 |命名空間 |後續要求建立其他篩選器都會遭到拒絕，並呼叫程式碼會收到例外狀況。 |篩選條件字串的長度上限︰1024 (1K)。<br /><br />規則動作字串的長度上限︰1024 (1K)。<br /><br />每個規則動作的運算式數目上限︰32. |
 | 每個命名空間、佇列或主題的 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 規則數目 |實體、命名空間 |後續要求建立其他規則都會遭到拒絕，並呼叫程式碼會收到例外狀況。 |規則數目上限︰12. <br /><br /> 在服務匯流排命名空間上設定的規則可套用到該命名空間中的所有佇列和主題。 |
-| 每個交易的訊息數目 | 交易 | 其他內送訊息會遭到拒絕，並收到例外狀況，指出 「 無法傳送超過 100 個訊息在單一交易中 」 時所呼叫的程式碼。 | 100 <br /><br /> 適用於 **Send()** 和 **SendAsync()** 作業。 |
+| 每個交易的訊息數目 | Transaction | 其他內送訊息會遭到拒絕，並收到例外狀況，指出 「 無法傳送超過 100 個訊息在單一交易中 」 時所呼叫的程式碼。 | 100 <br /><br /> 適用於 **Send()** 和 **SendAsync()** 作業。 |
 
 [Azure portal]: https://portal.azure.com

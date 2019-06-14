@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 92036cebf0541f9e9928acf1a9c32db0037bde48
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66172224"
 ---
 #### <a name="to-add-or-remove-a-volume"></a>若要新增或移除磁碟區
 
-1. 請移至 StorSimple 裝置，並按一下 [備份原則]。
+1. 請移至 StorSimple 裝置，並按一下 [備份原則]  。
 
-2. 在表格式的原則清單中，選取並按一下您想要修改的原則。 以滑鼠右鍵按一下可叫用內容功能表，然後選取 [新增/移除磁碟區]。
+2. 在表格式的原則清單中，選取並按一下您想要修改的原則。 以滑鼠右鍵按一下可叫用內容功能表，然後選取 [新增/移除磁碟區]  。
 
     ![管理排程](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol1.png)
 
-3. 在 [新增/移除磁碟區] 刀鋒視窗中，將核取方塊選取或取消選取可將磁碟區新增或移除。 將對應的核取方塊核取或取消核取，可將多個磁碟區選取/取消選取。
+3. 在 [新增/移除磁碟區]  刀鋒視窗中，將核取方塊選取或取消選取可將磁碟區新增或移除。 將對應的核取方塊核取或取消核取，可將多個磁碟區選取/取消選取。
 
     ![管理排程](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
 

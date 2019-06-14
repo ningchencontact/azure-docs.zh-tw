@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571367"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect：當您有現有的租用戶時
@@ -29,7 +29,7 @@ ms.locfileid: "64571367"
 ## <a name="the-basics"></a>基本概念
 Azure AD 中的物件可能會在雲端 (Azure AD) 中受控或內部部署。 針對一個單一物件，您無法管理內部部署的某些屬性和 Azure AD 中的一些其他屬性。 每個物件都有表示物件受控位置的旗標。
 
-您可以在內部部署管理部分使用者，並在雲端中管理其他使用者。 混合著會計工作者和銷售工作者的組織是此組態的常見案例。 會計工作者具有內部部署 AD 帳戶，但銷售工作者沒有這種帳戶，他們在 Azure AD 中有帳戶。 这样，就需要在本地管理一些用户，在 Azure AD 中管理另一些用户。
+您可以在內部部署管理部分使用者，並在雲端中管理其他使用者。 混合著會計工作者和銷售工作者的組織是此組態的常見案例。 會計工作者具有內部部署 AD 帳戶，但銷售工作者沒有這種帳戶，他們在 Azure AD 中有帳戶。 您可在內部部署管理部分使用者，並在 Azure AD 管理其他使用者。
 
 如果您開始管理 Azure AD 且也在內部部署 AD 中的使用者，且稍後想要使用 Connect，則您必須考慮一些其他考量。
 

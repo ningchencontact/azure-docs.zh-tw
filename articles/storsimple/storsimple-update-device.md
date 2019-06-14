@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: v-sharos
 ms.openlocfilehash: d973a16c121a1e8ebee10826d135bcbb33ef748c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61409909"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>更新您的 StorSimple 8000 系列裝置
@@ -79,7 +79,7 @@ StorSimple 更新功能可讓您輕鬆地將 StorSimple 裝置保持為最新狀
 如果您需要套用維護模式更新，將會透過 Azure 傳統入口網站收到警示，指出您有必須安裝的更新。 這個警示將包含使用 Windows PowerShell for StorSimple 安裝更新的相關指示。 更新裝置之後，請使用相同的程序來將裝置變更為一般模式。 如需逐步指示，請參閱[步驟 4:結束維護模式](#step4)。
 
 > [!IMPORTANT]
-> * 進入維護模式之前，請檢查 Azure 傳統入口網站中 [維護]頁面上的**硬體狀態**，以確認兩個裝置控制器的健康情況良好。 如果控制站的健康情況不好，請連絡 Microsoft 支援服務以進行後續步驟。 如需詳細資訊，請參閱＜連絡 Microsoft 支援服務＞。 
+> * 進入維護模式之前，請檢查 Azure 傳統入口網站中 [維護]  頁面上的**硬體狀態**，以確認兩個裝置控制器的健康情況良好。 如果控制站的健康情況不好，請連絡 Microsoft 支援服務以進行後續步驟。 如需詳細資訊，請參閱＜連絡 Microsoft 支援服務＞。 
 > * 當您處於維護模式時，需要先在某一個控制站上套用更新，然後在另一個控制站上套用更新。
 > 
 > 

@@ -10,19 +10,19 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.openlocfilehash: 4a6d359b27b9a2e52d71ed5f8547041645147605
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61479877"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>使用作業圖表進行資料導向偵錯
 
-在 Azure 入口網站中，[監視] 刀鋒視窗上的作業圖表可協助您將作業流程視覺化。 圖表會顯示輸入、輸出和查詢步驟。 您可以使用作業圖表來檢查每個步驟的計量，以便在進行移難排解時更快速地找出問題來源。
+在 Azure 入口網站中，[監視]  刀鋒視窗上的作業圖表可協助您將作業流程視覺化。 圖表會顯示輸入、輸出和查詢步驟。 您可以使用作業圖表來檢查每個步驟的計量，以便在進行移難排解時更快速地找出問題來源。
 
 ## <a name="using-the-job-diagram"></a>使用作業圖表
 
-當串流作業執行時，在 Azure 入口網站中的 [支援+疑難排解] 下選取 [作業圖表]：
+當串流作業執行時，在 Azure 入口網站中的 [支援+疑難排解]  下選取 [作業圖表]  ：
 
 ![作業圖表與計量 - 位置](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-1.png)
 
@@ -55,7 +55,7 @@ ms.locfileid: "61479877"
 ### <a name="how-much-data-is-being-read"></a>已讀取多少資料？
 
 *   **InputEventsSourcesTotal** 是讀取的資料單位數目。 例如，Blob 的數目。
-*   **InputEventsTotal** 是讀取的事件數目。 此指标按分区提供。
+*   **InputEventsTotal** 是讀取的事件數目。 此度量適用於每個資料分割。
 *   **InputEventsTotal** 是讀取的位元組數目。
 *   **InputEventsLastArrivalTime** 會更新每個收到事件的加入佇列時間。
  

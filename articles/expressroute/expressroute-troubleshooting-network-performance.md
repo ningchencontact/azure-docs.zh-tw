@@ -9,10 +9,10 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883257"
 ---
 # <a name="troubleshooting-network-performance"></a>網路效能疑難排解
@@ -41,10 +41,10 @@ Azure 提供穩定且快速的方式，從您的內部部署網路連線到 Azur
  - **NIC**：請確定您知道指派給上述 NIC 的私人 IP。
  - **NIC NSG**：可能會有在 NIC 層級套用的特定 NSG，請確定 NSG 規則集適用於您想要通過的流量。 例如，確定已開放連接埠 5201 (用於 iPerf)、3389 (用於 RDP) 或 22 (用於 SSH)，以允許通過測試流量。
  - **VNet 子網路**：NIC 會指派給特定子網路，請確定您知道哪些規則與該子網路相關聯。
- - **子網路 NSG**：就像 NIC 一樣，也可以在子網路套用 NSG。 請確定 NSG 規則集適用於您想要通過的流量  (若是輸入至 NIC 的流量，會先套用子網路 NSG，然後再套用 NIC NSG，相反地，若是從 VM 輸出的流量，則會先套用 NIC NSG，然後子網路 NSG 才派上用場)。
- - **子網路 UDR**：使用者定義的路由可以將流量導向至中繼躍點 (例如，防火牆或負載平衡器)。 請確定您知道是否已經有適用於您流量的 UDR，如果有，則該流量將流向何處，且下一個躍點將會對您的流量採取什麼動作  (例如，防火牆可能會在相同的兩部主機之間通過一些流量，並拒絕一些流量)。
+ - **子網路 NSG**：就像 NIC 一樣，也可以在子網路套用 NSG。 請確定 NSG 規則集適用於您想要通過的流量 (若是輸入至 NIC 的流量，會先套用子網路 NSG，然後再套用 NIC NSG，相反地，若是從 VM 輸出的流量，則會先套用 NIC NSG，然後子網路 NSG 才派上用場)。
+ - **子網路 UDR**：使用者定義的路由可以將流量導向至中繼躍點 (例如，防火牆或負載平衡器)。 請確定您知道是否已經有適用於您流量的 UDR，如果有，則該流量將流向何處，且下一個躍點將會對您的流量採取什麼動作 (例如，防火牆可能會在相同的兩部主機之間通過一些流量，並拒絕一些流量)。
  - **閘道子網路/NSG/UDR**：就像 VM 子網路一樣，閘道子網路可以擁有 NSG 和 UDR。 請確定您知道它們是否在那裡，以及他們對流量的影響。
- - **VNet 閘道 (ExpressRoute)**：一旦啟用對等互連 (ExpressRoute) 或 VPN 之後，則不會有很多設定可以影響流量如何路由或是否路由。 如果您有多個 ExpressRoute 線路或 VPN 通道連線至相同的 VNet 閘道，您應該了解連線權數設定，因為這個設定會影響連線喜好設定，而且會影響您流量所採用的路徑。
+ - **VNet 閘道 (ExpressRoute)** ：一旦啟用對等互連 (ExpressRoute) 或 VPN 之後，則不會有很多設定可以影響流量如何路由或是否路由。 如果您有多個 ExpressRoute 線路或 VPN 通道連線至相同的 VNet 閘道，您應該了解連線權數設定，因為這個設定會影響連線喜好設定，而且會影響您流量所採用的路徑。
  - **路由篩選** (未顯示)：路由篩選僅適用於 ExpressRoute 上的 Microsoft 對等互連 ，但請務必確認您在 Microsoft 對等互連上是否看不到您預期的路由。 
 
 這表示您目前位於連結的 WAN 部分。 此路由網域可以是您的服務提供者、您的公司 WAN 或網際網路。 與這些連結相關的許多躍點、技術和公司都可能會使該路由網域有點難以進行疑難排解。 通常，您要先同時排除 Azure 和您的公司網路，才能跳入這個公司和躍點的集合。
@@ -160,7 +160,7 @@ AzureCT PowerShell 模組有兩個構成要素，分別是[可用性測試][Avai
  - 在啟用私人對等互連時識別之位置中的 10Gbps Premium ExpressRoute 線路。
  - 在指定的區域中，具有 UltraPerformance 閘道的 Azure VNet。
  - 在 VNet 上執行 Windows Server 2016 的 DS5v2 VM。 在已安裝 AzureCT 的情況下，從預設 Azure 映像 (未最佳化或自訂) 建置的 VM 未加入網域。
- - 所有測試都是使用 AzureCT Get-LinkPerformance 命令，而且六個測試回合中，每個測試回合都有 5 分鐘的負載測試。 例如︰
+ - 所有測試都是使用 AzureCT Get-LinkPerformance 命令，而且六個測試回合中，每個測試回合都有 5 分鐘的負載測試。 例如:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300

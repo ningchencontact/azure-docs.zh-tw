@@ -10,10 +10,10 @@ ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 16c16c0217a796ffbb57e10430f90cb4a7660ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61468144"
 ---
 # <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(已淘汰) 透過 Marathon Web UI 管理 Azure Container Service DC/OS 叢集
@@ -46,16 +46,16 @@ DC/OS 提供環境來部署及調整叢集工作負載，同時將基礎硬體�
 ![Marathon UI](./media/container-service-mesos-marathon-ui/dcos3.png)
 
 ## <a name="deploy-a-docker-formatted-container"></a>部署 Docker 格式化容器
-若要使用 Marathon 部署新容器，請按一下 [建立應用程式]，並在表單索引標籤中輸入下列資訊：
+若要使用 Marathon 部署新容器，請按一下 [建立應用程式]  ，並在表單索引標籤中輸入下列資訊：
 
-| 欄位 | Value |
+| 欄位 | 值 |
 | --- | --- |
 | ID |nginx |
 | 記憶體 | 32 |
 | Image |nginx |
 | 網路 |橋接 |
 | 主機連接埠 |80 |
-| 通訊協定 |TCP |
+| Protocol |TCP |
 
 ![新增應用程式 UI--一般](./media/container-service-mesos-marathon-ui/dcos4.png)
 
@@ -71,17 +71,17 @@ DC/OS 提供環境來部署及調整叢集工作負載，同時將基礎硬體�
 
 ![新增應用程式 UI--連接埠 80 範例](./media/container-service-mesos-marathon-ui/dcos13.png)
 
-如果您想要啟用健康狀態檢查，請在 [健康狀態檢查] 索引標籤上設定路徑。
+如果您想要啟用健康狀態檢查，請在 [健康狀態檢查]  索引標籤上設定路徑。
 
 ![新的應用程式 UI--健康狀態檢查](./media/container-service-mesos-marathon-ui/dcos_healthcheck.png)
 
-DC/OS 叢集會使用一組私人和公用代理程式來進行部署。 若要讓叢集能夠從網際網路存取應用程式，您需要將應用程式部署至公用代理程式。 若要這樣做，請選取「新增應用程式」精靈的 [選擇性] 索引標籤，並在 [接受的資源角色] 中輸入 **slave_public**。
+DC/OS 叢集會使用一組私人和公用代理程式來進行部署。 若要讓叢集能夠從網際網路存取應用程式，您需要將應用程式部署至公用代理程式。 若要這樣做，請選取「新增應用程式」精靈的 [選擇性]  索引標籤，並在 [接受的資源角色]  中輸入 **slave_public**。
 
-然後按一下 [建立應用程式]。
+然後按一下 [建立應用程式]  。
 
 ![新增應用程式 UI--公用代理程式設定](./media/container-service-mesos-marathon-ui/dcos14.png)
 
-回到 Marathon 主頁面，您可以看到容器的部署狀態。 一開始您看到的狀態為 [部署中]。 部署成功之後，狀態會變更為 [執行中]。
+回到 Marathon 主頁面，您可以看到容器的部署狀態。 一開始您看到的狀態為 [部署中]  。 部署成功之後，狀態會變更為 [執行中]  。
 
 ![Marathon 主頁面 UI--容器部署狀態](./media/container-service-mesos-marathon-ui/dcos7.png)
 
@@ -89,7 +89,7 @@ DC/OS 叢集會使用一組私人和公用代理程式來進行部署。 若要�
 
 ![DC/OS Web UI--在叢集上執行的工作](./media/container-service-mesos-marathon-ui/dcos8.png)
 
-若要查看工作執行所在的叢集節點，請按一下 [節點] 索引標籤。
+若要查看工作執行所在的叢集節點，請按一下 [節點]  索引標籤。
 
 ![DC/OS Web UI--工作叢集節點](./media/container-service-mesos-marathon-ui/dcos9.png)
 

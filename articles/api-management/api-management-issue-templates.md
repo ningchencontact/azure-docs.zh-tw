@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: c70e88a572bc261ad9d25f9a742b1987d0c19b44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60656663"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Azure API 管理中的問題範本
-「Azure API 管理」可讓您使用一組可設定開發人員入口網站頁面內容的範本，來自訂那些頁面的內容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](api-management-template-resources.md#strings)、[字形资源](api-management-template-resources.md#glyphs)和[页面控件](api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
+「Azure API 管理」可讓您使用一組可設定開發人員入口網站頁面內容的範本，來自訂那些頁面的內容。 使用這些範本時，您可以運用 [DotLiquid](http://dotliquidmarkup.org/) 語法和您選擇的編輯器 (例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers))，以及一組提供的當地語系化[字串資源](api-management-template-resources.md#strings)、[字符資源](api-management-template-resources.md#glyphs)和[頁面控制項](api-management-page-controls.md)，依照您的想法自由靈活地設定頁面內容。  
   
  本節的範本可讓您自訂開發人員入口網站中「問題」頁面的內容。  
   
 -   [問題清單](#IssueList)  
   
 > [!NOTE]
->  示例默认模板包含在后续文档中，但是会因持续改进而有所更改。 您可以瀏覽至想要的個別範本，來檢視開發人員入口網站中的即時預設範本。 如需详细了解如何使用模板，请参阅[如何使用模板自定义 API 管理开发人员门户](api-management-developer-portal-templates.md)。  
+>  下列文件中包含範例預設範本，但範本可能會因持續進行的改善而有變更。 您可以瀏覽至想要的個別範本，來檢視開發人員入口網站中的即時預設範本。 如需有關使用範本的詳細資訊，請參閱[如何使用範本自訂 API 管理開發人員入口網站](api-management-developer-portal-templates.md)。  
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="IssueList"></a> 問題清單  
- 「問題清單」範本可讓您自訂開發人員入口網站中問題清單頁面的主體。  
+ 「問題清單」  範本可讓您自訂開發人員入口網站中問題清單頁面的主體。  
   
  ![問題清單開發人員入口網站](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM 問題清單開發人員入口網站")  
   
@@ -103,7 +103,7 @@ ms.locfileid: "60656663"
 |`Paging`|[分頁](api-management-template-data-model-reference.md#Paging)實體。|應用程式集合的分頁資訊。|  
 |`IsAuthenticated`|boolean|目前使用者是否已登入開發人員入口網站。|  
 |`CanReportIssues`|boolean|目前使用者是否具備提出問題的權限。|  
-|`Search`|string|此屬性已過時而不應使用。|  
+|`Search`|字串|此屬性已過時而不應使用。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
   

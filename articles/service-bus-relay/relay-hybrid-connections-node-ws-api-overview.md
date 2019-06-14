@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
 ms.openlocfilehash: 794e797e504d6064c13ffe0a4ed131e668d86e97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421602"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699385"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>轉送混合式連線 Node API 概觀
 
@@ -75,7 +75,7 @@ var uri = createRelaySendUri([namespaceName], [path], [[token]], [[id]])
 建立指定命名空間和路徑的有效 Azure 轉送混合式連線傳送 URI。 這個 URI 可以搭配使用任何 WebSocket 用戶端。
 
 - `namespaceName` (必要) - 要使用的 Azure 轉送命名空間之網域限定名稱。
-- `path`（必需）- 该命名空间中现有 Azure 中继混合连接的名称。
+- `path` (必要) - 該命名空間中現有的 Azure 轉送混合式連線名稱。
 - `token` (選用) - 內嵌在傳送 URI 的先前發行轉送存取權杖 (請參閱下列範例)。
 - `id` (選用) - 可啟用端對端診斷追蹤要求的追蹤識別碼。
 
@@ -131,7 +131,7 @@ var wss = new server(
 - `server` (必要) - 要接聽之混合式連線名稱的完整 URI，通常是使用 WebSocket.createRelayListenUri() 協助程式方法所建構。
 - `token` (必要) - 這個引數包含先前發行的權杖字串或可以呼叫以取得權杖字串的回呼函式。 回呼是慣用選項，因為它可讓權杖更新。
 
-#### <a name="events"></a>活動
+#### <a name="events"></a>Events
 
 `RelayedServer` 執行個體會發出三個事件，可讓您處理傳入要求、建立連線，以及偵測錯誤狀況。 您必須訂閱 `connect` 事件以處理訊息。 
 
@@ -152,7 +152,7 @@ function(socket)
 接受新的 WebSocket 連線時就會發出。 物件類型是 `ws.WebSocket`，與基本封裝相同。
 
 
-##### <a name="error"></a>錯誤
+##### <a name="error"></a>error
 
 ```JavaScript
 function(error)
@@ -209,6 +209,6 @@ WebSocket.relayedConnect(
 ```
 
 ## <a name="next-steps"></a>後續步驟
-若要了解有关 Azure 中继的详细信息，请访问以下链接：
+若要深入了解 Azure 轉送，請造訪下列連結：
 * [什麼是 Azure 轉送？](relay-what-is-it.md)
 * [可用的轉送 API](relay-api-overview.md)

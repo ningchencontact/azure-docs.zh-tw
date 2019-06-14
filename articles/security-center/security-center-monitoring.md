@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 28b4667a9ceb4b3534d85ba28668f06c750e22c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703814"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>使用 Azure 資訊安全中心來加強安全性狀態
@@ -27,7 +27,7 @@ ms.locfileid: "60703814"
 ## <a name="how-do-you-strengthen-your-security-posture"></a>如何加強您的安全性狀態？
 我們通常都將監視想像成監看及等候事件發生，以便對該情況作出反應。 加強安全性狀態係指擁有一個可稽核資源的主動策略，以識別出不符合組織標準或最佳做法的系統。
 
-在您為訂用帳戶的資源啟用[安全性原則](tutorial-security-policy.md)之後，資訊安全中心會分析您資源的安全性狀態，以找出潛在的弱點。 您可以立即取得網路組態的相關資訊。 視您已安裝代理程式的 VM 和電腦數目而定，可能需要一個小時以上的時間才能收集有關 VM 和電腦的組態資訊，例如安全性更新狀態和作業系統組態。 您可以在 [建議] 圖格中檢視問題與強化網路與補救風險的完整清單。
+在您為訂用帳戶的資源啟用[安全性原則](tutorial-security-policy.md)之後，資訊安全中心會分析您資源的安全性狀態，以找出潛在的弱點。 您可以立即取得網路組態的相關資訊。 視您已安裝代理程式的 VM 和電腦數目而定，可能需要一個小時以上的時間才能收集有關 VM 和電腦的組態資訊，例如安全性更新狀態和作業系統組態。 您可以在 [建議]  圖格中檢視問題與強化網路與補救風險的完整清單。
 
 您可以在檢視每個資源類型的資源安全性狀態與任何問題：
 

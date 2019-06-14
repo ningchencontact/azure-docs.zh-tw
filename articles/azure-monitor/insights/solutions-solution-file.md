@@ -15,10 +15,10 @@ ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60595774"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>在 Azure 中建立管理解決方案檔 (預覽)
@@ -85,12 +85,12 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 
 | 參數 | 類型 | 描述 |
 |:--- |:--- |:--- |
-| accountName |string |Azure 自動化帳戶名稱。 |
-| pricingTier |string |Log Analytics 工作區和 Azure 自動化帳戶的定價層。 |
-| regionId |string |Azure 自動化帳戶的區域。 |
-| solutionName |string |解決方案的名稱。  如果您是透過快速入門範本部署解決方案，則您應該將 solutionName 定義為參數，如此您就可以定義字串，而不需要使用者來指定。 |
-| workspaceName |string |Log Analytics 工作區名稱。 |
-| workspaceRegionId |string |Log Analytics 工作區的區域。 |
+| accountName |字串 |Azure 自動化帳戶名稱。 |
+| pricingTier |字串 |Log Analytics 工作區和 Azure 自動化帳戶的定價層。 |
+| regionId |字串 |Azure 自動化帳戶的區域。 |
+| solutionName |字串 |解決方案的名稱。  如果您是透過快速入門範本部署解決方案，則您應該將 solutionName 定義為參數，如此您就可以定義字串，而不需要使用者來指定。 |
+| workspaceName |字串 |Log Analytics 工作區名稱。 |
+| workspaceRegionId |字串 |Log Analytics 工作區的區域。 |
 
 
 以下是您可以複製並貼到您的方案檔案中的標準參數結構。  
@@ -144,7 +144,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
         "AutomationApiVersion": "2015-10-31"
     },
 
-參考透過使用 **variables('variable name')** 語法的解決方案參數值。  例如，若要存取 SolutionName 變數，您會使用 **variables('SolutionName')**。
+參考透過使用 **variables('variable name')** 語法的解決方案參數值。  例如，若要存取 SolutionName 變數，您會使用 **variables('SolutionName')** 。
 
 您也可以定義有多組值的複雜變數。  這在您會針對不同的資源類型定義多個屬性的管理解決方案中，這特別實用。  例如，您可以將上述的解決方案變數重建為下列所示的狀態。
 
@@ -213,11 +213,11 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| workspaceResourceId |在表單中的 Log Analytics 工作區識別碼*\<資源群組識別碼 > /providers/Microsoft.OperationalInsights/workspaces/\<工作區名稱\>*。 |
+| workspaceResourceId |在表單中的 Log Analytics 工作區識別碼 *\<資源群組識別碼 > /providers/Microsoft.OperationalInsights/workspaces/\<工作區名稱\>* 。 |
 | referencedResources |解決方案移除時不應移除的解決方案資源清單。 |
 | containedResources |解決方案移除時應移除的解決方案資源清單。 |
 
-上述範例適用於具有 Runbook、排程和檢視的解決方案。  **properties** 元素會「參考」排程和 Runbook，因此在移除解決方案時不會移除它們。  會*包含*檢視，因此當移除解決方案時會移除它。
+上述範例適用於具有 Runbook、排程和檢視的解決方案。  **properties** 元素會「參考」  排程和 Runbook，因此在移除解決方案時不會移除它們。  會*包含*檢視，因此當移除解決方案時會移除它。
 
 ### <a name="plan"></a>規劃
 解決方案資源的**計劃**實體具有下表中的屬性。

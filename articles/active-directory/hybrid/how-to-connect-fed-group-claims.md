@@ -13,10 +13,10 @@ ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
 ms.openlocfilehash: 19a8400a076825f17501fabdb3f38ea05915822e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65138742"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>設定應用程式的群組宣告與 Azure Active Directory （公開預覽）
@@ -127,7 +127,7 @@ Azure Active Directory 所提供的應用程式中使用的權杖中的使用者
    - 「 DistributionList"
    - "DirectoryRole"
 
-   例如︰
+   例如:
 
    ```json
    "groupMembershipClaims": "SecurityGroup"
@@ -157,11 +157,11 @@ Azure Active Directory 所提供的應用程式中使用的權杖中的使用者
    }
    ```
 
-   | 選擇性宣告結構描述 | Value |
+   | 選擇性宣告結構描述 | 值 |
    |----------|-------------|
    | **名稱：** | 必須是 「 群組 」 |
-   | **來源：** | 不使用。 省略或指定 null |
-   | **重要：** | 不使用。 省略或指定 false |
+   | **來源：** | 未使用。 省略或指定 null |
+   | **重要：** | 未使用。 省略或指定 false |
    | **additionalProperties:** | 其他屬性的清單。  Valid options are "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name”, "emit_as_roles" |
 
    在 additionalProperties 只有其中一個 「 sam_account_name"，"dns_domain_and_sam_account_name"，"netbios_domain_and_sam_account_name 」 則是必要項目。  如果多個存在，則第一個和任何其他人被忽略。

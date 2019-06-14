@@ -8,10 +8,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.openlocfilehash: 3a7eaacc4c234ec7d1d3d88455bd423256a07e90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614878"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>針對適用於 MySQL 的 Azure 資料庫使用虛擬網路服務端點和規則
@@ -34,7 +34,7 @@ ms.locfileid: "60614878"
 
 **子網路：** 虛擬網路包含**子網路**。 您有的任何 Azure 虛擬機器 (VM) 會指派給子網路。 一個子網路可以包含多個 VM 或其他計算節點。 計算虛擬網路外部的節點無法存取虛擬網路，除非您設定安全性來允許存取。
 
-**虛擬網路服務端點：**[虛擬網路服務端點][vm-virtual-network-service-endpoints-overview-649d]是一個子網路，其屬性值包含一或多個正式的 Azure 服務類型名稱。 本文中我們探討類型名稱 **Microsoft.Sql**，它參考名為 SQL Database 的 Azure 服務。 此服務標籤也會套用至適用於 MySQL 和 PostgreSQL 服務的 Azure 資料庫。 請務必注意，當您將 **Microsoft.Sql** 服務標籤套用到 VNet 服務端點時，它將會針對子網路上的所有 Azure SQL Database、適用於 MySQL 的 Azure 資料庫，以及適用於 PostgreSQL 的 Azure 資料庫伺服器設定服務端點流量。 
+**虛擬網路服務端點：** [虛擬網路服務端點][vm-virtual-network-service-endpoints-overview-649d]是一個子網路，其屬性值包含一或多個正式的 Azure 服務類型名稱。 本文中我們探討類型名稱 **Microsoft.Sql**，它參考名為 SQL Database 的 Azure 服務。 此服務標籤也會套用至適用於 MySQL 和 PostgreSQL 服務的 Azure 資料庫。 請務必注意，當您將 **Microsoft.Sql** 服務標籤套用到 VNet 服務端點時，它將會針對子網路上的所有 Azure SQL Database、適用於 MySQL 的 Azure 資料庫，以及適用於 PostgreSQL 的 Azure 資料庫伺服器設定服務端點流量。 
 
 **虛擬網路規則：** 適用於 MySQL 的 Azure 資料庫伺服器的虛擬網路規則，是列於適用於 MySQL 的 Azure 資料庫伺服器之存取控制清單 (ACL) 中的子網路。 子網路必須包含 **Microsoft.Sql** 類型名稱，才能列在適用於 MySQL 的 Azure 資料庫伺服器的 ACL 中。
 
@@ -54,13 +54,13 @@ ms.locfileid: "60614878"
 
 ### <a name="a-allow-access-to-azure-services"></a>A. 允許存取 Azure 服務
 
-連線安全性窗格有一個標示為 [允許存取 Azure 服務] 的 [開啟/關閉] 按鈕。 [開啟] 設定允許來自所有 Azure IP 位址和所有 Azure 子網路的通訊。 這些 Azure IP 或子網路可能不是您所擁有。 此 [開啟] 設定可能會超出您想要開啟適用於 MySQL 資料庫的 Azure 資料庫的幅度。 虛擬網路規則功能提供更細微的控制。
+連線安全性窗格有一個標示為 [允許存取 Azure 服務]  的 [開啟/關閉]  按鈕。 [開啟]  設定允許來自所有 Azure IP 位址和所有 Azure 子網路的通訊。 這些 Azure IP 或子網路可能不是您所擁有。 此 [開啟]  設定可能會超出您想要開啟適用於 MySQL 資料庫的 Azure 資料庫的幅度。 虛擬網路規則功能提供更細微的控制。
 
 ### <a name="b-ip-rules"></a>B. IP 規則
 
-適用於 MySQL 的 Azure 資料庫防火牆可讓您指定 IP 位址範圍，以接受來自此範圍內的通訊進入適用於 MySQL 資料庫的 Azure 資料庫。 此方法對 Azure 私人網路外部的穩定 IP 位址很適合。 但 Azure 私人網路內部的許多節點都以「動態」IP 位址設定。 動態 IP 位址可能變更，例如當 VM 重新啟動時。 在生產環境中，請勿在防火牆規則中指定動態 IP 位址。
+適用於 MySQL 的 Azure 資料庫防火牆可讓您指定 IP 位址範圍，以接受來自此範圍內的通訊進入適用於 MySQL 資料庫的 Azure 資料庫。 此方法對 Azure 私人網路外部的穩定 IP 位址很適合。 但 Azure 私人網路內部的許多節點都以「動態」  IP 位址設定。 動態 IP 位址可能變更，例如當 VM 重新啟動時。 在生產環境中，請勿在防火牆規則中指定動態 IP 位址。
 
-您可以取得 VM 的「靜態」IP 位址，以挽回 IP 選項。 如需詳細資料，請參閱[使用 Azure 入口網站設定虛擬機器的私人 IP 位址][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]。
+您可以取得 VM 的「靜態」  IP 位址，以挽回 IP 選項。 如需詳細資料，請參閱[使用 Azure 入口網站設定虛擬機器的私人 IP 位址][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]。
 
 不過，靜態 IP 方法可能變得難以管理，在大規模使用時成本很高。 虛擬網路規則較容易建立和管理。
 
@@ -90,10 +90,10 @@ ms.locfileid: "60614878"
 
 有一組獨立的安全性角色負責管理虛擬網路服務端點。 下列每個角色都需要採取動作：
 
-- **網路管理：**&nbsp;開啟端點。
-- **資料庫管理：**&nbsp;更新存取控制清單 (ACL)，以將指定的子網路新增至適用於 MySQL 的 Azure 資料庫伺服器。
+- **網路管理：** &nbsp;開啟端點。
+- **資料庫管理：** &nbsp;更新存取控制清單 (ACL)，以將指定的子網路新增至適用於 MySQL 的 Azure 資料庫伺服器。
 
-RBAC 替代方案：
+RBAC 替代方案： 
 
 「網路管理員」和「資料庫管理員」角色的能力已超過管理虛擬網路規則所需。 只需要其中一部分能力。
 
@@ -108,7 +108,7 @@ RBAC 替代方案：
 
 針對適用於 MySQL 的 Azure 資料庫，虛擬網路規則功能具有下列限制：
 
-- Web 應用程式可以對應到 VNet/子網路中的私人 IP。 即使服務端點已從指定的 VNet/子網路上開啟，從 Web 應用程式至伺服器的連線仍具有 Azure 公用 IP 來源，而非 VNet/子網路來源。 若要启用从 Web 应用到具有 VNet 防火墙规则的服务器的连接，必须在该服务器上允许 Azure 服务访问服务器。
+- Web 應用程式可以對應到 VNet/子網路中的私人 IP。 即使服務端點已從指定的 VNet/子網路上開啟，從 Web 應用程式至伺服器的連線仍具有 Azure 公用 IP 來源，而非 VNet/子網路來源。 若要啟用 Web 應用程式具有 VNet 防火牆規則的伺服器的連線，您必須允許 Azure 服務存取伺服器上的伺服器。
 
 - 在適用於 MySQL 的 Azure 資料庫防火牆中，每個虛擬網路規則都會參考一個子網路。 裝載所有這些參考子網路的地理區域，必須和裝載適用於 MySQL 的 Azure 資料庫的地理區域相同。
 

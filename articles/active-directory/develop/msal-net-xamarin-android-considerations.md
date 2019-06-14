@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb0cfb06e95cadbb549f669e5d59bdb0d795c896
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545868"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>Xamarin Android 專用 MSAL.NET 考量
@@ -97,7 +97,7 @@ var authResult = AcquireTokenInteractive(scopes)
 
 ### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>Error:'AuthenticationContinuationHelper' 不存在於目前的內容名稱
 
-這可能是因為 Visual Studio 無法正確更新 Android.csproj* 檔案。 有時候**<HintPath>** 檔案路徑不正確地包含而不是 netstandard13 **monoandroid90**。
+這可能是因為 Visual Studio 無法正確更新 Android.csproj* 檔案。 有時候 **<HintPath>** 檔案路徑不正確地包含而不是 netstandard13 **monoandroid90**。
 
 ```xml
 <Reference Include="Microsoft.Identity.Client, Version=3.0.4.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae,
@@ -110,6 +110,6 @@ var authResult = AcquireTokenInteractive(scopes)
 
 中提供更多詳細資料和範例[Android 的特定考量](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations)段落下面的範例的 readme.md 檔案：
 
-| 範例 | 平台 | 說明 |
+| 範例 | 平台 | 描述 |
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS、Android、UWP | 展示如何使用 MSAL 來驗證 MSA 與 Azure AD 透過實例化 v2.0 端點，並存取 Microsoft Graph 與產生的語彙基元的簡單 Xamarin Forms 應用程式。 <br>![拓撲](media/msal-net-xamarin-android-considerations/topology.png) |

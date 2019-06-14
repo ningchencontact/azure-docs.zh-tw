@@ -10,10 +10,10 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.openlocfilehash: b463946402eee40d0de0942eeaf37a6f9ea59990
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60509980"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>使用適用於 Visual Studio 的 Data Lake 工具來開發 U-SQL 指令碼
@@ -54,9 +54,9 @@ Azure Data Lake 和串流分析工具包含兩項 Azure 服務、Azure Data Lake
 
 1. 開啟 Visual Studio。
 
-2. 選取 [檢視] > [伺服器總管] 可開啟伺服器總管。
+2. 選取 [檢視]   > [伺服器總管]  可開啟伺服器總管。
 
-3. 以滑鼠右鍵按一下 [Azure]。 然後選取 [連線到 Microsoft Azure 訂用帳戶]並遵循指示進行。
+3. 以滑鼠右鍵按一下 [Azure]  。 然後選取 [連線到 Microsoft Azure 訂用帳戶]  並遵循指示進行。
 
 4. 在 [伺服器總管] 中，選取 **Azure** > **Data Lake Analytics**。 您會看到 Data Lake Analytics 帳戶的清單。
 
@@ -81,9 +81,9 @@ OUTPUT @a
 
 ## <a name="submit-a-data-lake-analytics-job"></a>提交 Data Lake Analytics 作業
 
-1. 選取 [檔案] > [新增] > [專案]。
+1. 選取 [檔案]   > [新增]   > [專案]  。
 
-2. 選取 [U-SQL 專案] 類型，然後按一下 [確定]。 Visual Studio 會建立具有 **Script.usql** 檔案的解決方案。
+2. 選取 [U-SQL 專案]  類型，然後按一下 [確定]  。 Visual Studio 會建立具有 **Script.usql** 檔案的解決方案。
 
 3. 將先前的指令碼貼上 **Script.usql** 視窗。
 
@@ -91,9 +91,9 @@ OUTPUT @a
 
     ![提交 U-SQL Visual Studio 專案](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
-5. 在 **Script.usql** 視窗的左上角中，選取 [提交]。
+5. 在 **Script.usql** 視窗的左上角中，選取 [提交]  。
 
-6. 提交作業之後，[作業檢視] 索引標籤隨即開啟，並顯示作業進度。 按一下 [重新整理]，可查看最新的作業狀態並重新整理畫面。
+6. 提交作業之後，[作業檢視]  索引標籤隨即開啟，並顯示作業進度。 按一下 [重新整理]  ，可查看最新的作業狀態並重新整理畫面。
 
     ![U SQL Visual Studio Data Lake Analytics 工作效能圖表](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
@@ -101,8 +101,8 @@ OUTPUT @a
    * **作業圖形**會以視覺化方式檢視作業的進度。
    * **中繼資料作業**會顯示 U-SQL 目錄上所執行的所有動作。
    * **資料**會顯示所有的輸入和輸出。
-   * [狀態歷程記錄] 會顯示時間軸和狀態的詳細資料。
-   * [AU 分析] 會顯示作業中使用了多少個 AU，並探索不同 AU 配置策略的模擬。
+   * [狀態歷程記錄]  會顯示時間軸和狀態的詳細資料。
+   * [AU 分析]  會顯示作業中使用了多少個 AU，並探索不同 AU 配置策略的模擬。
    * **診斷**會提供作業執行和效能最佳化的進階分析。
 
 ## <a name="check-job-status"></a>檢查作業狀態
@@ -111,7 +111,7 @@ OUTPUT @a
 
 2. 展開 Data Lake Analytics 帳戶名稱。
 
-3. 按兩下 [作業]。
+3. 按兩下 [作業]  。
 
 4. 選取您先前提交的作業。
 
@@ -121,7 +121,7 @@ OUTPUT @a
 
 2. 按一下 [資料]  索引標籤。
 
-3. 在 [作業輸出] 索引標籤中，選取 `"/data.csv"` 檔案。
+3. 在 [作業輸出]  索引標籤中，選取 `"/data.csv"` 檔案。
 
 ## <a name="next-steps"></a>後續步驟
 

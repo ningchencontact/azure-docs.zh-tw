@@ -12,17 +12,17 @@ ms.custom: seodec18
 ms.date: 05/21/2019
 ms.author: shvija
 ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978301"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 角色型存取控制 (預覽)
 
 Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源和應用程式提供了整合式的存取控制管理功能。 使用 Azure AD，您即可管理使用者帳戶和應用程式 (具體而言是您的 Azure 型應用程式)，也可以讓您現有的 Active Directory 基礎結構與 Azure AD 建立同盟，以便提供亦可涵蓋 Azure 資源和 Azure 託管應用程式的全公司單一登入功能。 然後，您可以將這些 Azure AD 使用者和應用程式身分識別指派給全域和服務特有的角色，以便授與 Azure 資源的存取權。
 
-對於 Azure 事件中樞來說，透過 Azure 入口網站和 Azure 資源管理 API 來的管理命名空間和所有相關資源的作業，已使用「角色型存取控制 (RBAC)」模型來加以保護。 執行階段作業的 RBAC 目前是處於公開預覽狀態的功能。 
+對於 Azure 事件中樞來說，透過 Azure 入口網站和 Azure 資源管理 API 來的管理命名空間和所有相關資源的作業，已使用「角色型存取控制  (RBAC)」模型來加以保護。 執行階段作業的 RBAC 目前是處於公開預覽狀態的功能。 
 
 使用 Azure AD RBAC 的應用程式不需要處理專屬於事件中樞的 SAS 規則和金鑰或任何其他存取權杖。 用戶端應用程式會與 Azure AD 互動以建立驗證內容，並取得事件中樞的存取權杖。 在使用需要互動式登入的網域使用者帳戶時，應用程式永遠不會直接處理任何認證。
 
@@ -51,7 +51,7 @@ Azure 會提供下列內建的 RBAC 角色的授權存取事件中樞命名空�
 
 下一步[建立事件中樞命名空間](event-hubs-create.md)。 
 
-命名空間建立好之後，瀏覽至其位於入口網站上的 [存取控制 (IAM)] 頁面，然後按一下 [新增角色指派] 以將 Azure AD 使用者帳戶新增至 [擁有者] 角色。 如果您使用自己的使用者帳戶，而且您已建立命名空間，則您已加入「擁有者」角色。 若要在角色中新增不同帳戶，請在 [新增權限] 面板的 [選取] 欄位中搜尋 Web 應用程式的名稱，然後按一下該項目。 然後按一下 [儲存] 。 使用者帳戶現在會具有事件中樞命名空間的存取權，以及您先前建立之事件中樞的存取權。
+命名空間建立好之後，瀏覽至其位於入口網站上的 [存取控制 (IAM)]  頁面，然後按一下 [新增角色指派]  以將 Azure AD 使用者帳戶新增至 [擁有者] 角色。 如果您使用自己的使用者帳戶，而且您已建立命名空間，則您已加入「擁有者」角色。 若要在角色中新增不同帳戶，請在 [新增權限]  面板的 [選取]  欄位中搜尋 Web 應用程式的名稱，然後按一下該項目。 然後按一下 [儲存]  。 使用者帳戶現在會具有事件中樞命名空間的存取權，以及您先前建立之事件中樞的存取權。
  
 ### <a name="register-the-application"></a>註冊應用程式
 
@@ -67,12 +67,12 @@ Azure 會提供下列內建的 RBAC 角色的授權存取事件中樞命名空�
 
 - `tenantId`:設定為 **TenantId** 值。
 - `clientId`:設定為 **ApplicationId** 值。 
-- `clientSecret`:如果您想要使用用戶端密碼來登入，請在 Azure AD 中建立該密碼。 另外，請使用 Web 應用程式或 API 而非使用原生應用程式。 還有，請將應用程式新增到您先前所建立之命名空間中的 [存取控制 (IAM)] 底下。
+- `clientSecret`:如果您想要使用用戶端密碼來登入，請在 Azure AD 中建立該密碼。 另外，請使用 Web 應用程式或 API 而非使用原生應用程式。 還有，請將應用程式新增到您先前所建立之命名空間中的 [存取控制 (IAM)]  底下。
 - `eventHubNamespaceFQDN`:設定為新建立之「事件中樞」命名空間的完整 DNS 名稱；例如 `example.servicebus.windows.net`。
 - `eventHubName`:設定為您所建立之事件中樞的名稱。
 - 您在前面步驟的應用程式中所指定的重新導向 URI。
  
-當您執行主控台應用程式時，系統會提示您選取案例；請藉由輸入其號碼並按 ENTER 鍵來按一下 [互動使用者登入]。 應用程式隨即會顯示登入視窗，要求您同意存取事件中樞，然後使用該服務並利用登入身分識別來執行傳送/接收案例。
+當您執行主控台應用程式時，系統會提示您選取案例；請藉由輸入其號碼並按 ENTER 鍵來按一下 [互動使用者登入]  。 應用程式隨即會顯示登入視窗，要求您同意存取事件中樞，然後使用該服務並利用登入身分識別來執行傳送/接收案例。
 
 應用程式會使用 `ServiceAudience.EventHubsAudience` 作為權杖對象。 使用無法使用對象作為常數的其他語言或 SDK 時，應使用的正確值為 `https://eventhubs.azure.net/`。
 

@@ -10,10 +10,10 @@ ms.date: 04/26/2017
 ms.author: jjed
 ms.custom: seodec2018
 ms.openlocfilehash: 1b37b3c52abd3750c3452a46bdf5b0c5954de4dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61289179"
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>開始在 Node.js 中使用 Azure 搜尋服務
@@ -54,7 +54,7 @@ ms.locfileid: "61289179"
 使用以下其中一種方法下載範例。
 
 1. 移至 [search-node-indexer-demo](https://github.com/Azure-Samples/search-node-indexer-demo)。
-2. 按一下 [下載 ZIP] ，儲存 .zip 檔案，然後解壓縮其中所含的所有檔案。
+2. 按一下 [下載 ZIP]  ，儲存 .zip 檔案，然後解壓縮其中所含的所有檔案。
 
 所有後續的檔案修改及執行陳述式都會用到此資料夾中的檔案。
 
@@ -85,7 +85,7 @@ ms.locfileid: "61289179"
 4. 將您的瀏覽器導向至 `http://localhost:8080/index.html`
 
 ## <a name="search-on-usgs-data"></a>搜尋 USGS 資料
-USGS 資料集包含與羅德島州相關的記錄。 如果您在空白的搜尋方塊中按一下 [搜尋] ，預設會出現前 50 個項目。
+USGS 資料集包含與羅德島州相關的記錄。 如果您在空白的搜尋方塊中按一下 [搜尋]  ，預設會出現前 50 個項目。
 
 輸入搜尋詞彙，讓搜尋引擎運作一下。 試著輸入區域名稱。 "Roger Williams" 是羅德島州的第一任州長。 許多公園、建築物和學校都是以他的姓名命名。
 

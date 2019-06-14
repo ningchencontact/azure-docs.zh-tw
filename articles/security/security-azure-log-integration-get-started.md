@@ -16,10 +16,10 @@ ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
 ms.openlocfilehash: b1df35c82ffb8b98f8b7bf86c21694b62b3804e4
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298290"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>使用 Azure 診斷記錄和 Windows 事件轉送進行 Azure 記錄整合
@@ -171,7 +171,7 @@ Azure 記錄整合服務會從其安裝所在的電腦收集遙測資料。
    ![顯示功能表中存取金鑰選項的螢幕擷取畫面](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
 
 6. 複製 **key1**，然後將其儲存在安全的位置，以供進行下一個步驟時存取。
-7. 在您安裝Azure 記錄整合的伺服器上，以系統管理員身分開啟命令提示字元視窗  (請務必以系統管理員身分開啟命令提示字元視窗，而不是開啟 PowerShell)。
+7. 在您安裝Azure 記錄整合的伺服器上，以系統管理員身分開啟命令提示字元視窗 (請務必以系統管理員身分開啟命令提示字元視窗，而不是開啟 PowerShell)。
 8. 移至 C:\Program Files\Microsoft Azure Log Integration。
 9. 執行這個命令：`Azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey>`。
  

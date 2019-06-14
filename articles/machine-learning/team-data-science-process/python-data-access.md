@@ -12,10 +12,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bf0e679ab46752d71ba4f5ef2b014e0cb2b4c6ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60593989"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>使用 Azure Machine Learning Python 用戶端程式庫利用 Python 存取資料集
@@ -66,15 +66,15 @@ Python 用戶端程式庫讓您以程式設計方式存取執行實驗所得的�
 ### <a name="security"></a>資料存取安全性
 Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段包括工作區識別碼與授權權杖。 這些項目可提供工作區的完整存取權，且務必加以保護，像是密碼。
 
-基於安全性理由，程式碼片段功能只提供給其角色設定為工作區「擁有者」  的使用者。 您的角色會在 Azure Machine Learning Studio 中，顯示於 [設定] 的 [使用者] 頁面上。
+基於安全性理由，程式碼片段功能只提供給其角色設定為工作區「擁有者」  的使用者。 您的角色會在 Azure Machine Learning Studio 中，顯示於 [設定]  的 [使用者]  頁面上。
 
 ![安全性][security]
 
-如果您的角色未設定為 [擁有者] ，您可以要求重新受邀為擁有者，或要求該工作區的擁有者將程式碼片段提供給您。
+如果您的角色未設定為 [擁有者]  ，您可以要求重新受邀為擁有者，或要求該工作區的擁有者將程式碼片段提供給您。
 
 若要取得授權權杖，您可以執行下列其中一項：
 
-* 向擁有者要求權杖。 擁有者能夠在 Studio 中，從他們工作區的 [設定] 頁面存取其授權權杖。 選取左窗格中的 [設定]，然後按一下 [授權權杖]，即可看到主要與次要權杖。 雖然主要或次要授權權杖都能用於程式碼片段，但建議擁有者只共用次要授權權杖。
+* 向擁有者要求權杖。 擁有者能夠在 Studio 中，從他們工作區的 [設定] 頁面存取其授權權杖。 選取左窗格中的 [設定]  ，然後按一下 [授權權杖]  ，即可看到主要與次要權杖。 雖然主要或次要授權權杖都能用於程式碼片段，但建議擁有者只共用次要授權權杖。
 
 ![授權權杖](./media/python-data-access/ml-python-access-settings-tokens.png)
 
@@ -82,12 +82,12 @@ Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段�
 
 開發人員一旦取得工作區識別碼與授權權杖，無論其角色為何，都能夠使用程式碼片段存取該工作區。
 
-授權權杖可以在 [設定] 下的 [授權權杖] 頁面上管理。 您可以重新產生權杖，但這個程序會撤銷上一個權杖的存取權。
+授權權杖可以在 [設定]  下的 [授權權杖]  頁面上管理。 您可以重新產生權杖，但這個程序會撤銷上一個權杖的存取權。
 
 ### <a name="accessingDatasets"></a>從本機 Python 應用程式存取資料集
 1. 在 Machine Learning Studio 的左邊導覽列中，按一下 [資料集]  。
-2. 選取您想要存取的資料集。 您可以從 [範例] 清單的 [我的資料集] 清單中，選擇任何資料集。
-3. 按一下底部工具列上的 [產生資料存取程式碼] 。 如果資料格式與 Python 用戶端程式的不相容，就會停用這個按鈕。
+2. 選取您想要存取的資料集。 您可以從 [範例]  清單的 [我的資料集]  清單中，選擇任何資料集。
+3. 按一下底部工具列上的 [產生資料存取程式碼]  。 如果資料格式與 Python 用戶端程式的不相容，就會停用這個按鈕。
    
     ![資料集][datasets]
 4. 從出現的視窗中選取程式碼片段，然後複製到剪貼簿。
@@ -128,7 +128,7 @@ Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段�
 4. 插入[轉換成 CSV][convert-to-csv] 模組，然後將其輸入連接至其中一個[分割][split]模組輸出。
 5. 儲存此實驗、加以執行，然後等待執行完成。
 6. 按一下 [轉換成 CSV 模組][convert-to-csv] 上的輸出節點。
-7. 在隨即出現內容功能表，選取 [產生資料存取程式碼]。
+7. 在隨即出現內容功能表，選取 [產生資料存取程式碼]  。
    
     ![內容功能表][experiment]
 8. 選取程式碼片段，然後從出現的視窗中將它複製到剪貼簿。

@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 225ac86efba8a32b085a5fb7fc41bed48c499eab
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65022172"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>認知搜尋工作負載的文件資源
@@ -52,8 +52,8 @@ ms.locfileid: "65022172"
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
 + [REST API](https://docs.microsoft.com/rest/api/searchservice/)
-  + [建立技能集 (api-version = 2019年-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-  + [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
+  + [建立技能集 (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+  + [建立索引子 (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 ## <a name="see-also"></a>請參閱
 

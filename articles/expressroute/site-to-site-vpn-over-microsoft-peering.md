@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: f35ed65b25d469b524e7174affecb45ad7c4735c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66115830"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>透過 ExpressRoute Microsoft 對等互連，設定站對站 VPN
@@ -61,7 +61,7 @@ ms.locfileid: "66115830"
 
 * 如果您已經擁有 ExpressRoute 線路，但還未設定 Microsoft 對等互連，請利用[建立和修改 ExpressRoute 線路的對等互連](expressroute-howto-routing-arm.md#msft)一文，設定 Microsoft 對等互連。
 
-一旦您已設定線路及 Microsoft 對等互連，就可以輕鬆地使用 Azure 入口網站中的 [概觀] 頁面來檢視它。
+一旦您已設定線路及 Microsoft 對等互連，就可以輕鬆地使用 Azure 入口網站中的 [概觀]  頁面來檢視它。
 
 ![線路](./media/site-to-site-vpn-over-microsoft-peering/ExpressRouteCkt.png)
 
@@ -71,9 +71,9 @@ ms.locfileid: "66115830"
 
 ![路由篩選](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
-在此範例中，部署僅在 *Azure 美國西部 2* 區域中。 系統會新增路由篩選規則，以便僅允許 Azure 美國西部 2 區域前置詞的通告，其 BGP 社群值為 *12076:51026*。 您可以選取 [管理規則] 來指定您想要允許的區域前置詞。
+在此範例中，部署僅在 *Azure 美國西部 2* 區域中。 系統會新增路由篩選規則，以便僅允許 Azure 美國西部 2 區域前置詞的通告，其 BGP 社群值為 *12076:51026*。 您可以選取 [管理規則]  來指定您想要允許的區域前置詞。
 
-在路由篩選內，您也需要選擇路由篩選要套用的 ExpressRoute 線路。 您可以選取 [新增線路] 來選擇 ExpressRoute 線路。 在上圖中，路由篩選與範例 ExpressRoute 線路相關聯。
+在路由篩選內，您也需要選擇路由篩選要套用的 ExpressRoute 線路。 您可以選取 [新增線路]  來選擇 ExpressRoute 線路。 在上圖中，路由篩選與範例 ExpressRoute 線路相關聯。
 
 ### <a name="configfilter"></a>2.1 設定路由篩選
 
@@ -267,7 +267,7 @@ Get-AzBgpServiceCommunity
 本節的範本使用主動-主動組態所需要的設定來設定 VPN 閘道。 請記住下列需求：
 
 * 使用 **"RouteBased"** VpnType 建立 VPN 閘道。 如果您想要在 VPN 閘道與 VPN 內部部署之間啟用 BGP 路由，則此設定是強制性的。
-* 若要以主動-主動模式在兩個 VPN 閘道執行個體與指定的內部部署裝置之間建立 VPN 通道，**"activeActive"** 參數在 Resource Manager 範本中必須設為 **true**。 若要深入了解高可用性的 VPN 閘道，請參閱[高可用性的 VPN 閘道連線](../vpn-gateway/vpn-gateway-highlyavailable.md)。
+* 若要以主動-主動模式在兩個 VPN 閘道執行個體與指定的內部部署裝置之間建立 VPN 通道， **"activeActive"** 參數在 Resource Manager 範本中必須設為 **true**。 若要深入了解高可用性的 VPN 閘道，請參閱[高可用性的 VPN 閘道連線](../vpn-gateway/vpn-gateway-highlyavailable.md)。
 * 若要在 VPN 通道之間設定 eBGP 工作階段，您必須在任一端指定兩個不同的 ASN。 最好是指定私人 ASN 編號。 如需詳細資訊，請參閱 [BGP 和 Azure VPN 閘道的概觀](../vpn-gateway/vpn-gateway-bgp-overview.md)。
 
 ```json

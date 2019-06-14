@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
 ms.openlocfilehash: 50d7ca73e5e18f88f5d789e12fc7f26908e8b8f0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125775"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>最佳化 Azure 虛擬機器的網路輸送量
@@ -41,7 +41,7 @@ Azure 虛擬機器 (VM) 有預設網路設定，可進一步針對網路輸送�
     ```powershell
     Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
     ```
-    上述命令沒有輸出。 此命令已變更 NIC 設定，導致約一分鐘的暫時性連線中斷。 连接断开期间会显示“重新连接”对话框。 第三次嘗試後，連線通常就會恢復。
+    上述命令沒有輸出。 此命令已變更 NIC 設定，導致約一分鐘的暫時性連線中斷。 連線中斷時隨即出現 [正在重新連線] 對話方塊。 第三次嘗試後，連線通常就會恢復。
 3. 再次輸入 `Get-NetAdapterRss` 命令以確認 VM 中已啟用 RSS。 如果成功，則會傳回下列範例輸出：
 
     ```powershell

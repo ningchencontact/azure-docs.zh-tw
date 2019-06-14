@@ -10,10 +10,10 @@ ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
 ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61289714"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>開始在 Java 中使用 Azure 搜尋服務
@@ -69,20 +69,20 @@ ms.locfileid: "61289714"
 
 ## <a name="download-the-sample-files"></a>下載範例檔案
 1. 移至 GitHub 上的 [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo)。
-2. 按一下 [下載 ZIP] ，將 .zip 檔案儲存至磁碟，然後解壓縮其中所含的所有檔案。 可以考慮將檔案解壓縮到 Java 工作區，以便之後可以輕鬆找到專案。
+2. 按一下 [下載 ZIP]  ，將 .zip 檔案儲存至磁碟，然後解壓縮其中所含的所有檔案。 可以考慮將檔案解壓縮到 Java 工作區，以便之後可以輕鬆找到專案。
 3. 範例檔案為唯讀。 請以滑鼠右鍵按一下資料夾內容，然後清除唯讀屬性。
 
 所有後續的檔案修改及執行陳述式都會用到此資料夾中的檔案。  
 
 ## <a name="import-project"></a>匯入專案
-1. 在 Eclipse 中，選擇 [檔案] > [匯入] > [一般] > [將現有專案匯入工作區]。
+1. 在 Eclipse 中，選擇 [檔案]   > [匯入]   > [一般]   > [將現有專案匯入工作區]  。
    
     ![][4]
-2. 在 [Select root directory (選取根目錄)] 中，瀏覽至含有範例檔案的資料夾。 請選取含有 .project 資料夾的資料夾。 此專案應會在 [Projects (專案)]  清單中顯示為選取的項目。
+2. 在 [Select root directory (選取根目錄)]  中，瀏覽至含有範例檔案的資料夾。 請選取含有 .project 資料夾的資料夾。 此專案應會在 [Projects (專案)]  清單中顯示為選取的項目。
    
     ![][12]
-3. 按一下 [完成] 。
-4. 使用 **專案總管** 檢視及編輯檔案。 如果還沒開啟，請按一下 [視窗] > [顯示檢視] > [專案總管]，或使用捷徑來開啟檔案。
+3. 按一下 [完成]  。
+4. 使用 **專案總管** 檢視及編輯檔案。 如果還沒開啟，請按一下 [視窗]   > [顯示檢視]   > [專案總管]  ，或使用捷徑來開啟檔案。
 
 ## <a name="configure-the-service-url-and-api-key"></a>設定服務 URL 和 API 金鑰
 1. 在**專案總管**中按兩下 **config.properties** 以編輯含有伺服器名稱和 API 金鑰的組態設定。
@@ -92,36 +92,36 @@ ms.locfileid: "61289714"
     ![][5]
 
 ## <a name="configure-the-project-build-and-runtime-environments"></a>設定專案、組建和執行階段環境。
-1. 在 Eclipse 的 [專案總管] 中，以滑鼠右鍵按一下專案 > [屬性] > [專案 Facet]。
-2. 選取 [Dynamic Web Module (動態網路模組)]、[Java] 及 [JavaScript]。
+1. 在 Eclipse 的 [專案總管] 中，以滑鼠右鍵按一下專案 > [屬性]   > [專案 Facet]  。
+2. 選取 [Dynamic Web Module (動態網路模組)]  、[Java]  及 [JavaScript]  。
    
     ![][6]
-3. 按一下 [套用] 。
-4. 選取 [視窗] > [喜好設定] > [伺服器] > [執行階段環境] > [新增..]。
+3. 按一下 [套用]  。
+4. 選取 [視窗]   > [喜好設定]   > [伺服器]   > [執行階段環境]   > [新增..]  。
 5. 展開 [Apache] 並選取您先前安裝的 Apache Tomcat 伺服器版本。 我們的系統安裝了第 8 版。
    
     ![][7]
 6. 在下一頁指定 Tomcat 的安裝目錄。 在 Windows 電腦中，這通常為 C:\Program Files\Apache Software Foundation\Tomcat *版本*。
-7. 按一下 [完成] 。
-8. 選取 [視窗] > [喜好設定] > [Java] > [已安裝的 JRE] > [新增]。
-9. 在 [Add JRE (新增 JRE)] 中，選取 [Standard VM (標準 VM)]。
-10. 单击“下一步”。
-11. 在 [JRE Definition (JRE 定義)] 的 [JRE home (JRE 主資料夾)] 中按一下 [Directory (目錄)] 。
-12. 瀏覽至 [程式檔案] > [Java]，然後選取您先前安裝的 JDK。 請務必選取 JDK 做為 JRE。
+7. 按一下 [完成]  。
+8. 選取 [視窗]   > [喜好設定]   > [Java]   > [已安裝的 JRE]   > [新增]  。
+9. 在 [Add JRE (新增 JRE)]  中，選取 [Standard VM (標準 VM)]  。
+10. 单击“下一步”  。
+11. 在 [JRE Definition (JRE 定義)] 的 [JRE home (JRE 主資料夾)] 中按一下 [Directory (目錄)]  。
+12. 瀏覽至 [程式檔案]   > [Java]  ，然後選取您先前安裝的 JDK。 請務必選取 JDK 做為 JRE。
 13. 在 [Installed JREs (安裝的 JRE)] 中選擇 **JDK**。 您的設定應該類似以下的螢幕擷取畫面。
     
     ![][9]
-14. 您可以選擇性地選取 [視窗] > [網頁瀏覽器] > [Internet Explorer] 以在外部瀏覽器視窗開啟應用程式。 使用外部瀏覽器可給您更好的 Web 應用程式體驗。
+14. 您可以選擇性地選取 [視窗]   > [網頁瀏覽器]   > [Internet Explorer]  以在外部瀏覽器視窗開啟應用程式。 使用外部瀏覽器可給您更好的 Web 應用程式體驗。
     
     ![][8]
 
 您已經完成設定工作。 接著要建置並執行專案。
 
 ## <a name="build-the-project"></a>建置專案
-1. 在 [專案總管] 中，以滑鼠右鍵按一下專案名稱，然後選擇 [執行身分] > [Maven 組建...] 以設定專案。
+1. 在 [專案總管] 中，以滑鼠右鍵按一下專案名稱，然後選擇 [執行身分]   > [Maven 組建...]  以設定專案。
    
     ![][10]
-2. 在 [Edit Configuration (編輯組態)] 的 [Goals (目標)] 中輸入 "clean install"，然後按一下 [Run (執行)] 。
+2. 在 [Edit Configuration (編輯組態)] 的 [Goals (目標)] 中輸入 "clean install"，然後按一下 [Run (執行)]  。
 
 狀態訊息會輸出至主控台視窗。 您應該會看見 BUILD SUCCESS 訊息，指出專案已建置完成，未發生任何錯誤。
 
@@ -130,11 +130,11 @@ ms.locfileid: "61289714"
 
 如果您尚未在 Eclipse 中指定伺服器執行階段環境，請務必先行指定。
 
-1. 在 Project Explorer 中，展開 [WebContent] 。
-2. 以滑鼠右鍵依序按一下 [Search.jsp] > [執行身分] > [在伺服器上執行]。 選取 Apache Tomcat 伺服器，然後按一下 [Run (執行)] 。
+1. 在 Project Explorer 中，展開 [WebContent]  。
+2. 以滑鼠右鍵依序按一下 [Search.jsp]   > [執行身分]   > [在伺服器上執行]  。 選取 Apache Tomcat 伺服器，然後按一下 [Run (執行)]  。
 
 > [!TIP]
-> 如果您使用非預設工作區來儲存專案，則需要修改 [執行組態]，使其指向專案位置，以避免伺服器啟動錯誤。 在 [專案總管] 中，以滑鼠右鍵依序按一下 [Search.jsp] > [執行身分] > [執行組態]。 選取 Apache Tomcat 伺服器。 按一下 [Arguments (引數)] 。 按一下 [Workspace (工作區)] 或 [File System (檔案系統)]，以設定包含專案的資料夾。
+> 如果您使用非預設工作區來儲存專案，則需要修改 [執行組態]  ，使其指向專案位置，以避免伺服器啟動錯誤。 在 [專案總管] 中，以滑鼠右鍵依序按一下 [Search.jsp]   > [執行身分]   > [執行組態]  。 選取 Apache Tomcat 伺服器。 按一下 [Arguments (引數)]  。 按一下 [Workspace (工作區)]  或 [File System (檔案系統)]  ，以設定包含專案的資料夾。
 > 
 > 
 

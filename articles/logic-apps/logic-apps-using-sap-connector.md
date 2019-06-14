@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/09/2019
 tags: connectors
 ms.openlocfilehash: bccefec80ef3afd6d312bb1048d3be5d8e708728
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258156"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SAP 系統
@@ -78,7 +78,7 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，建立空白的邏輯應用程式，以開啟邏輯應用程式設計工具。
 
-1. 在搜尋方塊中，輸入「http 要求」做為篩選條件。 從觸發程序清單中，選取此觸發程序：**收到 HTTP 要求時**
+1. 在搜尋方塊中，輸入「http 要求」做為篩選條件。 從觸發程序清單中，選取此觸發程序：**收到 HTTP 请求时**
 
    ![新增 HTTP 要求觸發程序](./media/logic-apps-using-sap-connector/add-trigger.png)
 
@@ -271,7 +271,7 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
 1. 在 Azure 入口網站中，建立空白的邏輯應用程式，以開啟邏輯應用程式設計工具。
 
-1. 在搜尋方塊中，輸入「http 要求」做為篩選條件。 從觸發程序清單中，選取此觸發程序：**收到 HTTP 要求時**
+1. 在搜尋方塊中，輸入「http 要求」做為篩選條件。 從觸發程序清單中，選取此觸發程序：**收到 HTTP 请求时**
 
    ![新增 HTTP 要求觸發程序](./media/logic-apps-using-sap-connector/add-trigger.png)
 

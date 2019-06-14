@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 56611267872ca79d7d2fe3a08c9b9f49a9b1840b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067418"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>Azure 資料庫中設定 SSL 連線能力，適用於 PostgreSQL-單一伺服器
@@ -24,14 +24,14 @@ ms.locfileid: "65067418"
 同樣地，您在 Azure 入口網站的伺服器下方 [連接字串] 設定中預先定義的連接字串，會包含通用語言使用 SSL 連接到您資料庫伺服器所需的必要參數。 SSL 參數會根據連接器而有所不同，例如，"ssl=true" 或 "sslmode=require" 或 "sslmode=required" 及其他變化。
 
 ## <a name="configure-enforcement-of-ssl"></a>設定強制執行 SSL
-您可以選擇性地停用強制執行 SSL 連線能力。 Microsoft Azure 建議您一律啟用 [強制執行 SSL 連接] 設定，以取得增強的安全性。
+您可以選擇性地停用強制執行 SSL 連線能力。 Microsoft Azure 建議您一律啟用 [強制執行 SSL 連接]  設定，以取得增強的安全性。
 
 ### <a name="using-the-azure-portal"></a>使用 Azure 入口網站
-瀏覽您適用於 PostgreSQL 的 Azure 資料庫伺服器，然後按一下 [連接安全性]。 使用切換按鈕來啟用或停用 [強制使用 SSL 連線] 設定。 然後按一下 [ **儲存**]。 
+瀏覽您適用於 PostgreSQL 的 Azure 資料庫伺服器，然後按一下 [連接安全性]  。 使用切換按鈕來啟用或停用 [強制使用 SSL 連線]  設定。 然後按一下 [ **儲存**]。 
 
 ![連接安全性：停用強制執行 SSL](./media/concepts-ssl-connection-security/1-disable-ssl.png)
 
-您可以檢視 [概觀] 頁面來查看 [SSL 強制執行狀態] 指標，藉以確認設定。
+您可以檢視 [概觀]  頁面來查看 [SSL 強制執行狀態]  指標，藉以確認設定。
 
 ### <a name="using-azure-cli"></a>使用 Azure CLI
 您可以在 Azure CLI 中分別使用 `Enabled` 或 `Disabled` 值，來啟用或停用 **sssl-enforcement** 參數。
@@ -50,8 +50,8 @@ az postgres server update --resource-group myresourcegroup --name mydemoserver -
 ### <a name="download-the-certificate-file-from-the-certificate-authority-ca"></a>從憑證授權單位 (CA) 下載憑證檔 
 您可以在[這裡](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt)找到要透過 SSL 與您適用於 PostgreSQL 之 Azure 資料庫伺服器通訊所需的憑證。 本機下載憑證檔。
 
-### <a name="install-a-cert-decoder-on-your-machine"></a>在计算机上安装证书解码器 
-可以使用 [OpenSSL](https://github.com/openssl/openssl) 来解码应用程序安全连接到数据库服务器所需的证书文件。 若要了解如何安装 OpenSSL，请参阅 [OpenSSL 安装说明](https://github.com/openssl/openssl/blob/master/INSTALL)。 
+### <a name="install-a-cert-decoder-on-your-machine"></a>在電腦上安裝憑證解碼器 
+您可以使用[OpenSSL](https://github.com/openssl/openssl)解碼安全地連線到您的資料庫伺服器的應用程式所需的憑證檔案。 若要了解如何安裝 OpenSSL，請參閱[OpenSSL 的安裝指示](https://github.com/openssl/openssl/blob/master/INSTALL)。 
 
 
 ### <a name="decode-your-certificate-file"></a>將憑證檔案解碼
@@ -64,7 +64,7 @@ openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>使用 SSL 憑證驗證連接至適用於 PostgreSQL 的 Azure 資料庫
 既然您已成功將憑證解碼，您現在可以透過 SSL 安全地連接到資料庫伺服器。 若要允許伺服器憑證驗證，憑證必須放置於使用者主目錄上的 ~/.postgresql/root.crt 檔案中 (在 Microsoft Windows 上，此檔案會命名為 %APPDATA%\postgresql\root.crt)。 
 
-#### <a name="connect-using-psql"></a>使用 psql 进行连接
+#### <a name="connect-using-psql"></a>使用 psql 來連線
 下列範例會示範如何使用 psql 命令列公用程式，來成功地連線到 PostgreSQL 伺服器。 使用所建立的 `root.crt` 檔案和 `sslmode=verify-ca` 或 `sslmode=verify-full` 選項。
 
 使用 PostgreSQL 命令列介面，執行下列命令：

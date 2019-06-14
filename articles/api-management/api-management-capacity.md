@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60658284"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Azure API 管理執行個體的容量
@@ -69,16 +69,16 @@ ms.locfileid: "60658284"
 ![容量計量](./media/api-management-capacity/capacity-metric.png)  
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您的 APIM 執行個體。
-2. 選取 [計量 (預覽)]。
-3. 從紫色區段中，選取可用計量中的 [容量] 計量，並保留預設的 [平均值] 彙總。
+2. 選取 [計量 (預覽)]  。
+3. 從紫色區段中，選取可用計量中的 [容量]  計量，並保留預設的 [平均值]  彙總。
 
     > [!TIP]
-    > 請隨時看一下每個位置的 [容量] 計量細項，以免錯誤解譯。
+    > 請隨時看一下每個位置的 [容量]  計量細項，以免錯誤解譯。
 
-4. 從綠色區段中，選取 [位置] 來依維度分割計量。
+4. 從綠色區段中，選取 [位置]  來依維度分割計量。
 5. 從區段頂端列選取所需的時間範圍。
 
-    您可以設定計量警示，以得知有非預期的情況發生。 例如，当 APIM 实例超出预期峰值容量有 20 分钟以上时收到通知。
+    您可以設定計量警示，以得知有非預期的情況發生。 比方說，當您的 APIM 執行個體已超出其預期的尖峰容量超過 20 分鐘的時間時，才收到通知。
 
     >[!TIP]
     > 您可以設定警示以在服務容量即將不足時收到通知，也可以使用 Azure 監視器自動調整功能來自動新增 Azure API 管理單位。 調整作業會花大約 30 分鐘的時間，因此您應該據此規劃您的規則。  

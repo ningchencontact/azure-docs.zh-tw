@@ -17,10 +17,10 @@ ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: beee76bdc443b3a66b4500b83d228075b84eed1e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864776"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的部署常見問題集
@@ -33,7 +33,7 @@ ms.locfileid: "65864776"
 
 以下是發佈 Web 應用程式程式碼的一些選項：
 
-*   使用 Visual Studio 進行部署。 如果您有 Visual Studio 解決方案，以滑鼠右鍵按一下 Web 應用程式專案，然後選取 [發佈]。
+*   使用 Visual Studio 進行部署。 如果您有 Visual Studio 解決方案，以滑鼠右鍵按一下 Web 應用程式專案，然後選取 [發佈]  。
 *   使用 FTP 用戶端進行部署。 在 Azure 入口網站中，下載您想要部署程式碼之 Web 應用程式的發行設定檔。 然後，使用相同的發行設定檔 FTP 認證將檔案上傳至 \site\wwwroot。
 
 如需詳細資訊，請參閱[將應用程式部署到 App Service](deploy-local-git.md)。
@@ -80,7 +80,7 @@ App Service 支援兩種認證類型，用於本機 Git 部署和 FTP/S 部署�
 
 ## <a name="how-do-i-publish-my-code-to-app-service"></a>如何將我的程式碼發佈至 App Service？
 
-「Azure 快速入門」的設計目的是協助您使用部署堆疊和您選擇的方法來部署您的應用程式。 若要使用快速入門，請在 Azure 入口網站中，移至您的 App Service，在 [部署] 底下選取 [快速入門]。
+「Azure 快速入門」的設計目的是協助您使用部署堆疊和您選擇的方法來部署您的應用程式。 若要使用快速入門，請在 Azure 入口網站中，移至您的 App Service，在 [部署]  底下選取 [快速入門]  。
 
 ## <a name="why-does-my-app-sometimes-restart-after-deployment-to-app-service"></a>為什麼我的應用程式有時候會在部署至 App Service 之後重新啟動？
 

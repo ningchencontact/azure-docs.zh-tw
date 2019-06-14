@@ -16,10 +16,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60653345"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>對無法啟動的雲端服務角色進行疑難排解
@@ -28,11 +28,11 @@ ms.locfileid: "60653345"
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="missing-dlls-or-dependencies"></a>遺失 Dll 或相依性
-角色沒有回應，以及角色在 [正在初始化]、[忙碌] 和 [正在停止] 狀態之間循環，有可能是因為遺失 DLL 或組件所致。
+角色沒有回應，以及角色在 [正在初始化]  、[忙碌]  和 [正在停止]  狀態之間循環，有可能是因為遺失 DLL 或組件所致。
 
 DLL 或程序集缺失的症状可能为：
 
-* 您的角色執行個體在 [正在初始化]、[忙碌] 及 [正在停止] 狀態之間循環。
+* 您的角色執行個體在 [正在初始化]  、[忙碌]  及 [正在停止]  狀態之間循環。
 * 您的角色執行個體已進入 [就緒]  狀態，但當您瀏覽至 Web 應用程式時，發現頁面並未顯示。
 
 有數個建議的方法可調查這些問題。
@@ -48,7 +48,7 @@ DLL 或程序集缺失的症状可能为：
 若要檢視更完整的錯誤而不使用遠端桌面：
 
 1. 在 Microsoft Visual Studio 中開啟解決方案。
-2. 在 [方案總管] 中找出 web.config 檔案，並加以開啟。
+2. 在 [方案總管]  中找出 web.config 檔案，並加以開啟。
 3. 在 web.config 檔案中找出 system.web 區段，並加入下面這一行：
 
     ```xml
@@ -64,7 +64,7 @@ DLL 或程序集缺失的症状可能为：
 
 1. 確定已安裝 Azure SDK 1.3 或更新版本。
 2. 在使用 Visual Studio 部署解決方案期間，啟用「遠端桌面」。 如需詳細資訊，請參閱[使用 Visual Studio 啟用 Azure 雲端服務中角色的遠端桌面連線](cloud-services-role-enable-remote-desktop-visual-studio.md)。
-3. 在 Microsoft Azure 入口網站中，一旦執行個體的狀態顯示為 [就緒]，即可遠端存取執行個體。 如需透過雲端服務使用遠端桌面的詳細資訊，請參閱[角色執行個體的遠端存取](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances)。
+3. 在 Microsoft Azure 入口網站中，一旦執行個體的狀態顯示為 [就緒]  ，即可遠端存取執行個體。 如需透過雲端服務使用遠端桌面的詳細資訊，請參閱[角色執行個體的遠端存取](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances)。
 5. 使用在遠端桌面設定期間指定的認證登入虛擬機器。
 6. 開啟命令視窗。
 7. 輸入 `IPconfig`。
@@ -102,12 +102,12 @@ DLL 或程序集缺失的症状可能为：
 
 1. 確定已安裝 Azure SDK 1.3 或更新版本。
 2. 使用 Visual Studio 部署解決方案。 在部署期間，勾選 [為 .NET 4 角色啟用 IntelliTrace]  核取方塊。
-3. 執行個體啟動後，請開啟 [伺服器總管] 。
-4. 展開 [Azure]\\[雲端服務] 節點，並找出部署。
+3. 執行個體啟動後，請開啟 [伺服器總管]  。
+4. 展開 [Azure]\\[雲端服務]  節點，並找出部署。
 5. 展開部署，直到您看見角色執行個體。 以滑鼠右鍵按一下其中一個執行個體。
-6. 選擇 [檢視 IntelliTrace 記錄] 。 [IntelliTrace 摘要]  隨即開啟。
-7. 找出摘要的例外狀況區段。 如果有例外狀況，區段會標示 [例外狀況資料] 。
-8. 展開 [例外狀況資料]，並尋找類似如下的 **System.IO.FileNotFoundException** 錯誤：
+6. 選擇 [檢視 IntelliTrace 記錄]  。 [IntelliTrace 摘要]  隨即開啟。
+7. 找出摘要的例外狀況區段。 如果有例外狀況，區段會標示 [例外狀況資料]  。
+8. 展開 [例外狀況資料]  ，並尋找類似如下的 **System.IO.FileNotFoundException** 錯誤：
 
 ![例外狀況資料、遺失檔案或組件](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503390.png)
 
@@ -115,9 +115,9 @@ DLL 或程序集缺失的症状可能为：
 若要解決遺失 DLL 和組件錯誤，請遵循下列步驟：
 
 1. 在 Visual Studio 中開啟解決方案。
-2. 在 [方案總管] 中，開啟 [參考] 資料夾。
+2. 在 [方案總管]  中，開啟 [參考]  資料夾。
 3. 按一下錯誤中識別的組件。
-4. 在 [屬性] 窗格中找出 [複製本機] 屬性，並將值設為 **True**。
+4. 在 [屬性]  窗格中找出 [複製本機]  屬性，並將值設為 **True**。
 5. 重新部署雲端服務。
 
 在確認所有錯誤皆已修正後，即可在未勾選 [為 .NET 4 角色啟用 IntelliTrace]  核取方塊的情況下部署服務。

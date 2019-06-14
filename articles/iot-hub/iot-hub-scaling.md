@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
 ms.openlocfilehash: 49e0db690818e67f96f5bcefa4f581b1db6da451
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64697323"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>選擇適合您解決方案的 IoT 中樞層
@@ -35,7 +35,7 @@ Azure IoT 中樞提供基本和標準兩個層級，兩者所支援的功能數�
 
 每個 IoT 中樞只能選擇層次內的一個[版本](https://azure.microsoft.com/pricing/details/iot-hub/)類型。 例如，您建立的 IoT 中樞可以具有多個 S1 單位，但不能具有來自不同版本 (例如 S1 和 B3 或 S1 和 S2) 的混合單位。
 
-| 功能 | 基本層 | 免费/标准层 |
+| 功能 | 基本層 | 免費/標準層 |
 | ---------- | ---------- | ------------- |
 | [裝置到雲端的遙測](iot-hub-devguide-messaging.md) | 是 | 是 |
 | [每部裝置身分識別](iot-hub-devguide-identity-registry.md) | 是 | 是 |
@@ -54,7 +54,7 @@ IoT 中樞也會提供免費層供您測試和評估。 其具有標準層的所
 
 Azure IoT 中樞包含 [Azure 事件中樞](../event-hubs/event-hubs-features.md)的多個核心元件，包括[分割區](../event-hubs/event-hubs-features.md#partitions)。 IoT 中樞的事件資料流通常會填入由各種不同 IoT 裝置報告的內送遙測資料。 事件資料流的分割可用來減少同時讀取和寫入事件資料流時所發生的爭用。
 
-分割區限制是在 IoT 中樞建立時所選擇的，無法變更。 基本层 IoT 中心和标准层 IoT 中心的最大分区限制为 32。 大部分的 IoT 中樞只需要 4 個分割區。 如需關於決定分割區的詳細資訊，請參閱事件中樞的常見問題集：[我需要多少個分割區？](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+分割區限制是在 IoT 中樞建立時所選擇的，無法變更。 基本層 IoT 中樞和標準層 IoT 中樞的最大分割區限制為 32。 大部分的 IoT 中樞只需要 4 個分割區。 如需關於決定分割區的詳細資訊，請參閱事件中樞的常見問題集：[我需要多少個分割區？](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
 
 ## <a name="tier-upgrade"></a>層級升級
 
@@ -66,7 +66,7 @@ Azure IoT 中樞包含 [Azure 事件中樞](../event-hubs/event-hubs-features.md
 
 IoT 中樞的基本和標準層之間的支援功能差異，代表某些 API 呼叫無法與基本層中樞搭配運作。 下表顯示可用的 API：
 
-| API | 基本層 | 免费/标准层 |
+| API | 基本層 | 免費/標準層 |
 | --- | ---------- | ------------- |
 | [刪除裝置](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | 是 | 是 |
 | [取得裝置](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | 是 | 是 |
@@ -101,7 +101,7 @@ IoT 中樞的基本和標準層之間的支援功能差異，代表某些 API �
 
 若要評估每個單位的流量，最佳方式為調整 IoT 中樞解決方案的大小。 尤其要考慮以下類別的作業所需的尖峰輸送量：
 
-* 设备到云的消息
+* 裝置到雲端的訊息
 * 雲端到裝置的訊息
 * 身分識別登錄作業
 
@@ -112,7 +112,7 @@ IoT 中樞的基本和標準層之間的支援功能差異，代表某些 API �
 | 層 | 持續的輸送量 | 持續的傳送速率 |
 | --- | --- | --- |
 | B1, S1 |每個單位最多 1111 KB/分鐘<br/>(1.5 GB/天/單位) |每個單位平均 278 個訊息/分鐘<br/>(400,000 個訊息/天/單位) |
-| B2, S2 |每個單位最多 16 MB/分鐘<br/>（22.8 GB/天/单元） |每個單位平均 4,167 個訊息/分鐘<br/>(600 萬個訊息/天/單位) |
+| B2, S2 |每個單位最多 16 MB/分鐘<br/>(22.8 GB/天/單位) |每個單位平均 4,167 個訊息/分鐘<br/>(600 萬個訊息/天/單位) |
 | B3, S3 |每個單位最多 814 MB/分鐘<br/>(1144.4 GB/天/單位) |每個單位平均 208,333 個訊息/分鐘<br/>(3 億個訊息/天/單位) |
 
 除了此輸送量資訊之外，請參考 [IoT 中樞配額與節流](iot-hub-devguide-quotas-throttling.md) 並據以設計您的方案。

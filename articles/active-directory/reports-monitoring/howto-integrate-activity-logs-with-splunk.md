@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f30e19a351f7b25f995a85cfd566bcba091ac27
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597817"
 ---
 # <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>作法：使用 Azure 監視器的 Splunk 與整合 Azure Active Directory 記錄檔
@@ -36,11 +36,11 @@ ms.locfileid: "65597817"
 
 ## <a name="integrate-azure-active-directory-logs"></a>整合 Azure Active Directory 記錄檔 
 
-1. 開啟您的 Splunk 執行個體，並選取 [資料摘要]。
+1. 開啟您的 Splunk 執行個體，並選取 [資料摘要]  。
 
     ![[資料摘要] 按鈕](./media/howto-integrate-activity-logs-with-splunk/DataSummary.png)
 
-2. 選取 [來源類型] 索引標籤，然後選取 [amal: aadal:audit]
+2. 選取 [來源類型]  索引標籤，然後選取 [amal: aadal:audit] 
 
     ![[資料摘要] 的 [來源類型] 索引標籤](./media/howto-integrate-activity-logs-with-splunk/sourcetypeaadal.png)
 

@@ -17,11 +17,11 @@ ms.date: 03/28/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d474d9bfd6016885eaa21afcea5d44d39c624084
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62104624"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64730596"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>教學課程：設定 Samanage 來自動佈建使用者
 
@@ -51,11 +51,11 @@ Samanage 設定自動使用者佈建與 Azure AD 之前，請從 Azure Marketpla
 
     ![Azure Active Directory 圖示](common/select-azuread.png)
 
-2. 移至 [企業應用程式]，然後選取 [所有應用程式]。
+2. 移至 [企業應用程式]  ，然後選取 [所有應用程式]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增應用程式，請選取對話方塊頂端的 [新增應用程式]。
+3. 若要新增應用程式，請選取對話方塊頂端的 [新增應用程式]  。
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
@@ -90,15 +90,15 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Samanage] 。
+2. 在應用程式清單中，選取 [Samanage]  。
 
     ![應用程式清單中的 [Samanage] 連結](common/all-applications.png)
 
-3. 選取 [佈建] 索引標籤。
+3. 選取 [佈建]  索引標籤。
 
     ![Samanage 佈建](./media/samanage-provisioning-tutorial/ProvisioningTab.png)
 
-4. 將 [佈建模式] 設定為 [自動]。
+4. 將 [佈建模式]  設定為 [自動]  。
 
     ![Samanage 佈建模式](./media/samanage-provisioning-tutorial/ProvisioningCredentials.png)
 
@@ -118,19 +118,19 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
 8. 選取 [ **儲存**]。
 
-9. 在 [對應] 區段下，選取 [將 Azure Active Directory 使用者同步處理至 Samanage]。
+9. 在 [對應]  區段下，選取 [將 Azure Active Directory 使用者同步處理至 Samanage]  。
 
     ![Samanage 的使用者同步處理](./media/samanage-provisioning-tutorial/UserMappings.png)
 
-10. 在 [屬性對應] 區段中，檢閱從 Azure AD 同步至 Samanage 的使用者屬性。 選取為 [比對] 屬性的屬性會用來比對 Samanage 中的使用者帳戶，以進行更新作業。 若要儲存任何變更，請選取**儲存**。
+10. 在 [屬性對應]  區段中，檢閱從 Azure AD 同步至 Samanage 的使用者屬性。 選取為 [比對]  屬性的屬性會用來比對 Samanage 中的使用者帳戶，以進行更新作業。 若要儲存任何變更，請選取**儲存**。
 
     ![Samanage 相符的使用者屬性](./media/samanage-provisioning-tutorial/UserAttributeMapping.png)
 
-11. 若要啟用群組對應，請在 [對應] 區段下方，選取 [將 Azure Active Directory 群組同步處理至 Samanage]。
+11. 若要啟用群組對應，請在 [對應]  區段下方，選取 [將 Azure Active Directory 群組同步處理至 Samanage]  。
 
     ![Samanage 群組同步處理](./media/samanage-provisioning-tutorial/GroupMappings.png)
 
-12. 將 [已啟用] 設定為 [是]，以同步處理群組。 在 [屬性對應] 區段中，檢閱從 Azure AD 同步處理至 Samanage 的群組屬性。 選取為 [比對] 屬性的屬性會用來比對 Samanage 中的使用者帳戶，以進行更新作業。 若要儲存任何變更，請選取**儲存**。
+12. 將 [已啟用]  設定為 [是]  ，以同步處理群組。 在 [屬性對應]  區段中，檢閱從 Azure AD 同步處理至 Samanage 的群組屬性。 選取為 [比對]  屬性的屬性會用來比對 Samanage 中的使用者帳戶，以進行更新作業。 若要儲存任何變更，請選取**儲存**。
 
     ![Samanage 相符的群組屬性](./media/samanage-provisioning-tutorial/GroupAttributeMapping.png)
 

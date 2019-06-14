@@ -14,31 +14,31 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60795873"
 ---
 # <a name="api-management-advanced-policies"></a>API 管理進階原則
 
-本主題提供下列 API 管理原則的參考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。
+本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。
 
 ## <a name="AdvancedPolicies"></a>進階原則
 
--   [控制流](api-management-advanced-policies.md#choose) - 根据布尔[表达式](api-management-policy-expressions.md)的求值结果，有条件地应用策略语句。
+-   [控制流程](api-management-advanced-policies.md#choose) - 根據布林值[運算式](api-management-policy-expressions.md)的評估結果，有條件地套用原則陳述式。
 -   [轉寄要求](#ForwardRequest) - 將要求轉寄至後端服務。
 -   [限制並行](#LimitConcurrency) - 防止超過指定之要求數目同時執行括住的原則。
 -   [記錄至事件中樞](#log-to-eventhub) - 將指定格式的訊息傳送至記錄器實體所定義的事件中樞。
 -   [Mock 回應](#mock-response) - 中止管線執行，並將模擬回應直接傳回給呼叫者。
--   [重试](#Retry) - 重试执行括住的策略语句，直到符合条件为止。 系統會在指定的時間間隔重複執行，直到指定的重試計數為止。
+-   [重試](#Retry) - 重試已括住的原則陳述式執行，直到符合條件為止。 系統會在指定的時間間隔重複執行，直到指定的重試計數為止。
 -   [傳回回應](#ReturnResponse) - 中止管線執行，並將指定的回應直接傳回呼叫者。
 -   [傳送單向要求](#SendOneWayRequest) - 將要求傳送到指定的 URL，無須等待回應。
 -   [傳送要求](#SendRequest) - 將要求傳送到指定的 URL。
 -   [設定 HTTP Proxy](#SetHttpProxy) - 可讓您透過 HTTP Proxy 路由轉送要求。
--   [设置请求方法](#SetRequestMethod) - 允许更改请求的 HTTP 方法。
+-   [設定要求方法](#SetRequestMethod) - 允許您變更要求的 HTTP 方法。
 -   [設定狀態碼](#SetStatus) - 將 HTTP 狀態碼變更為指定的值。
--   [设置变量](api-management-advanced-policies.md#set-variable) - 保存命名[上下文](api-management-policy-expressions.md#ContextVariables)变量中的值供以后访问。
+-   [設定變數](api-management-advanced-policies.md#set-variable) - 保存具名[內容](api-management-policy-expressions.md#ContextVariables)變數中的值，供日後存取使用。
 -   [追蹤](#Trace) - 將字串新增至 [API 檢查器](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/)輸出。
 -   [等候](#Wait) - 等候括住的 [Send 要求](api-management-advanced-policies.md#SendRequest)、[取得快取的值](api-management-caching-policies.md#GetFromCacheByKey)或[控制流程](api-management-advanced-policies.md#choose)原則完成後再繼續。
 
@@ -46,7 +46,7 @@ ms.locfileid: "60795873"
 
 `choose` 原則會根據布林運算式 (類似於 if-then-else 或程式語言中的參數建構) 的評估結果套用括住的原則陳述式。
 
-### <a name="ChoosePolicyStatement"></a> 策略语句
+### <a name="ChoosePolicyStatement"></a>原則陳述式
 
 ```xml
 <choose>
@@ -141,7 +141,7 @@ ms.locfileid: "60795873"
 
 ### <a name="ChooseUsage"></a>使用方式
 
-此策略可在以下策略[节](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[范围](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)中使用。
+此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
 -   **原則區段︰** 輸入、輸出、後端、錯誤
 
@@ -164,7 +164,7 @@ ms.locfileid: "60795873"
 
 #### <a name="example"></a>範例
 
-以下 API 级策略将所有 API 请求都转发到后端服务，超时间隔设置为 60 秒。
+下列的 API 層級的原則會將轉送至 60 秒的逾時間隔後端服務的所有 API 要求。
 
 ```xml
 <!-- api level -->
@@ -253,9 +253,9 @@ ms.locfileid: "60795873"
 
 | 屬性                               | 描述                                                                                                      | 必要項 | 預設值     |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| timeout="integer"                       | 在引发超时错误之前，等待后端服务返回 HTTP 响应标头的时间量（秒）。 最小值为 0 秒。 大于 240 秒的值可能不会被遵守，因为底层网络基础设施在此时间后可能会丢弃闲置的连接。 | 否       | None |
+| timeout="integer"                       | 在 後端服務在逾時錯誤之前所要傳回的 HTTP 回應標頭的等候秒數的時間量，就會引發。 最小值為 0 秒。 值大於 240 秒可能無法接受為基礎的網路基礎結構可以在此時間之後卸除閒置的連接。 | 否       | None |
 | follow-redirects="true &#124; false"    | 指定來自後端服務的重新導向會由閘道遵循或傳回給呼叫者。      | 否       | false       |
-| buffer-request-body="true &#124; false" | 设置为“true”时，请求将被缓冲，并将在[重试](api-management-advanced-policies.md#Retry)时重新使用。 | 否       | false       |
+| buffer-request-body="true &#124; false" | 當設為"true"的要求緩衝處理，將會重複使用[重試](api-management-advanced-policies.md#Retry)。 | 否       | false       |
 
 ### <a name="usage"></a>使用量
 
@@ -409,13 +409,13 @@ status code and media type. If no example or schema found, the content is empty.
 
 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
--   **策略节：** 入站、出站、错误时
+-   **原則區段︰** 輸入、輸出、錯誤
 
 -   **原則範圍：** 所有範圍
 
-## <a name="Retry"></a> 重试
+## <a name="Retry"></a>重試
 
-`retry` 策略会执行其子策略一次，并重新尝试执行，直至重试 `condition` 变为 `false`，或者重试 `count` 为零。
+`retry`原則會執行一次其子原則，然後重試執行，直到重試`condition`會變成`false`，或重試`count`已用完。
 
 ### <a name="policy-statement"></a>原則陳述式
 
@@ -461,12 +461,12 @@ status code and media type. If no example or schema found, the content is empty.
 
 | 屬性        | 描述                                                                                                                                           | 必要項 | 預設值 |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| condition        | 布林常值或[運算式](api-management-policy-expressions.md)，指定應停止 (`false`) 還是繼續 (`true`) 重試。      | 是      | N/A     |
+| condition (條件)        | 布林常值或[運算式](api-management-policy-expressions.md)，指定應停止 (`false`) 還是繼續 (`true`) 重試。      | 是      | N/A     |
 | count            | 正數，指定要嘗試的重試次數上限。                                                                                | 是      | N/A     |
 | interval         | 以秒為單位的正數，指定重試嘗試之間的等待間隔。                                                                 | 是      | N/A     |
 | max-interval     | 以秒為單位的正數，指定重試嘗試之間的最大等待間隔。 此屬性可用來實作指數重試演算法。 | 否       | N/A     |
 | delta            | 以秒為單位的正數，指定等待間隔的增量。 此屬性可用來實作線性和指數的重試演算法。             | 否       | N/A     |
-| first-fast-retry | 如果设置为 `true`，则会立即执行首次重试。                                                                                  | 否       | `false` |
+| first-fast-retry | 如果設定為`true`，第一次重試嘗試會立即執行。                                                                                  | 否       | `false` |
 
 > [!NOTE]
 > 當只有指定 `interval` 時，會執行**固定**間隔的重試。
@@ -475,7 +475,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="usage"></a>使用量
 
-此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。 请注意，此策略会继承子策略使用限制。
+此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。 請注意，此原則會繼承子原則的使用方式限制。
 
 -   **原則區段︰** 輸入、輸出、後端、錯誤
 
@@ -583,7 +583,7 @@ status code and media type. If no example or schema found, the content is empty.
 | 元素                    | 描述                                                                                                 | 必要項                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-one-way-request       | 根元素。                                                                                               | 是                             |
-| url                        | 要求的 URL。                                                                                     | 如果 mode=copy，则为否；否则为是。 |
+| url                        | 要求的 URL。                                                                                     | mode=copy 時為 [否]；否則為 [是]。 |
 | method                     | 要求的 HTTP 方法。                                                                            | mode=copy 時為 [否]；否則為 [是]。 |
 | 頁首                     | 要求標頭。 若有多個要求標頭，請使用多個 header 元素。                                  | 否                              |
 | body                       | 要求本文。                                                                                           | 否                              |
@@ -667,7 +667,7 @@ status code and media type. If no example or schema found, the content is empty.
 | 元素                    | 描述                                                                                                 | 必要項                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-request               | 根元素。                                                                                               | 是                             |
-| url                        | 要求的 URL。                                                                                     | 如果 mode=copy，则为否；否则为是。 |
+| url                        | 要求的 URL。                                                                                     | mode=copy 時為 [否]；否則為 [是]。 |
 | method                     | 要求的 HTTP 方法。                                                                            | mode=copy 時為 [否]；否則為 [是]。 |
 | 頁首                     | 要求標頭。 若有多個要求標頭，請使用多個 header 元素。                                  | 否                              |
 | body                       | 要求本文。                                                                                           | 否                              |
@@ -730,7 +730,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
--   **策略节：** 入站
+-   **原則區段︰** inbound
 
 -   **原則範圍：** 所有範圍
 
@@ -848,7 +848,7 @@ status code and media type. If no example or schema found, the content is empty.
 <set-variable name="variable name" value="Expression | String literal" />
 ```
 
-### <a name="set-variableExample"></a> 示例
+### <a name="set-variableExample"></a>範例
 
 下列範例會示範 inbound 區段中的設定變數原則。 此設定變數原則會在 `User-Agent` 要求標頭包含文字 `iPad` 或 `iPhone` 時，建立設為 true 的 `isMobile` 布林[內容](api-management-policy-expressions.md#ContextVariables)變數。
 
@@ -912,9 +912,9 @@ status code and media type. If no example or schema found, the content is empty.
 -   System.Char?
 -   System.DateTime?
 
-## <a name="Trace"></a> 跟踪
+## <a name="Trace"></a>追蹤
 
-`trace` 策略将字符串添加到 [API 检查器](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/)输出中。 此策略会执行的前提是触发跟踪，即 `Ocp-Apim-Trace` 请求标头存在且设置为 `true`，同时 `Ocp-Apim-Subscription-Key` 请求标头存在且包含与管理员帐户关联的有效密钥。
+`trace`原則新增至字串[API 偵測器](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/)輸出。 此原則只會在觸發追蹤時執行，也就是 `Ocp-Apim-Trace` 要求標頭存在且設為 `true` 以及 `Ocp-Apim-Subscription-Key` 要求標頭存在且含有與管理帳戶相關聯的有效金鑰時。
 
 ### <a name="policy-statement"></a>原則陳述式
 

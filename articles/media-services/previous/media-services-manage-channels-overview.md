@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: c5dd0146fe59e7dc85787f146b10cfde7d6addb4
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64867901"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>使用媒體服務之即時串流的概觀
@@ -36,9 +36,9 @@ ms.locfileid: "64867901"
     (選擇性) 多個即時同步處理的編碼器。 針對某些需要相當高度可用性與高品質經驗的重要即時事件，建議使用主動對主動備援編碼器搭配時間同步處理，以便順利進行容錯移轉，而不會遺失資料。
 * 即時串流服務可讓您執行下列動作：
 
-  * 使用多种实时传送视频流协议（例如 RTMP 或平滑流式处理）引入实时内容
+  * 使用各種即時串流處理通訊協定 (例如 RTMP 或 Smooth Streaming) 擷取即時內容，
   * (選擇性) 將您的串流編碼成調適性位元速率串流
-  * 预览实时流，
+  * 預覽您的即時串流，
   * 記錄並儲存擷取的內容以於稍後進行串流 (隨選視訊)
   * 透過一般串流通訊協定 (例如，MPEG DASH、Smooth、HLS) 直接將內容傳遞給客戶，或傳遞至內容傳遞網路 (CDN) 供進一步的發佈。
 
@@ -61,12 +61,12 @@ ms.locfileid: "64867901"
   > 如果您在很長一段時間內進行多個事件，而且已投資內部部署編碼器時，使用傳遞方法是進行即時串流的最經濟實惠方式。 請參閱 [價格](https://azure.microsoft.com/pricing/details/media-services/) 詳細資料。
   > 
   > 
-* 內部部署即時編碼器會將單一位元速率串流傳送至通道，可以使用下列格式之一，以媒體服務執行即時編碼：RTMP 或 Smooth Streaming (分散的 MP4)。 下列包含 RTMP 輸出的即時編碼器已知可與以下類型的通道協同作業：Telestream Wirecast 和 FMLE。 通道接著會執行即時編碼，將連入的單一位元速率串流編碼成多位元速率 (自動調整) 視訊串流。 收到请求时，媒体服务会将该流传送给客户。
+* 內部部署即時編碼器會將單一位元速率串流傳送至通道，可以使用下列格式之一，以媒體服務執行即時編碼：RTMP 或 Smooth Streaming (分散的 MP4)。 下列包含 RTMP 輸出的即時編碼器已知可與以下類型的通道協同作業：Telestream Wirecast 和 FMLE。 通道接著會執行即時編碼，將連入的單一位元速率串流編碼成多位元速率 (自動調整) 視訊串流。 接到要求時，媒體服務會傳遞串流給客戶。
 
 自媒體服務 2.10 版起，當您建立通道時，您可以指定您希望通道接收輸入串流的方式，以及您是否想要通道執行串流的即時編碼。 您有兩個選擇：
 
-* **無** (傳遞) – 如果您想要使用會輸出多位元速率串流 (傳遞串流) 的內部部署即時編碼器，請指定這個值。 在此情況下，連入的串流會傳遞至輸出，無須任何編碼。 这是 2.10 发行版以前的通道行为。  
-* **標準** – 如果您打算使用媒體服務將單一位元速率即時串流編碼成多位元速率串流，請選擇這個值。 對於快速相應增加的非頻繁事件來說，這是較為經濟的方法。 请注意，实时编码会影响计费，应记住，将实时编码频道保持为“正在运行”状态会产生费用。  建議您在即時串流事件完成之後立即停止執行的通道，以避免額外的每小時費用。
+* **無** (傳遞) – 如果您想要使用會輸出多位元速率串流 (傳遞串流) 的內部部署即時編碼器，請指定這個值。 在此情況下，連入的串流會傳遞至輸出，無須任何編碼。 這是在 2.10 版以前的通道行為。  
+* **標準** – 如果您打算使用媒體服務將單一位元速率即時串流編碼成多位元速率串流，請選擇這個值。 對於快速相應增加的非頻繁事件來說，這是較為經濟的方法。 請注意即時編碼有計費影響，而且您應該記住將即時編碼通道保持在「執行中」狀態會產生費用。  建議您在即時串流事件完成之後立即停止執行的通道，以避免額外的每小時費用。
 
 ## <a name="comparison-of-channel-types"></a>通道類型的比較
 
@@ -78,7 +78,7 @@ ms.locfileid: "64867901"
 | 最大解析度、分層數目 |1080p、8 層、60+fps |720p、6 層、30 fps |
 | 輸入通訊協定 |RTMP、Smooth Streaming |RTMP、Smooth Streaming |
 | 價格 |請參閱 [定價頁面](https://azure.microsoft.com/pricing/details/media-services/) 並按一下 [即時影片] 索引標籤 |請參閱 [定價頁面](https://azure.microsoft.com/pricing/details/media-services/) |
-| 最長執行時間 |全天候 |8 小时 |
+| 最長執行時間 |全天候 |8 小時 |
 | 插入靜態圖像支援 |否 |是 |
 | 廣告訊號支援 |否 |是 |
 | 傳遞 CEA 608/708 字幕 |是 |是 |
@@ -94,13 +94,13 @@ ms.locfileid: "64867901"
 
 如需詳細資訊，請參閱 [使用通道，從內部部署編碼器接收多位元速率即時串流](media-services-live-streaming-with-onprem-encoders.md)。
 
-## <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>使用能够通过 Azure 媒体服务执行实时编码的通道
+## <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>使用啟用的通道來以 Azure 媒體服務執行即時編碼
 
 下圖顯示 AMS 平台的主要部分，與通道可以使用媒體服務執行即時編碼的即時串流工作流程有關。
 
 ![即時工作流程](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
 
-有关详细信息，请参阅[使用能够通过 Azure 媒体服务执行实时编码的频道](media-services-manage-live-encoder-enabled-channels.md)。
+如需詳細資訊，請參閱 [使用啟用的通道以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
 
 ## <a name="description-of-a-channel-and-its-related-components"></a>通道和其相關元件的說明
 
@@ -115,33 +115,33 @@ ms.locfileid: "64867901"
 建立通道時，您能以下列其中一種格式指定允許的 IP 位址：具有 4 個數字的 IpV4 位址、CIDR 位址範圍。
 
 ### <a name="program"></a>程式
-[程式](https://docs.microsoft.com/rest/api/media/operations/program) 可讓您控制即時資料流區段的發佈和儲存體。 频道管理节目。 通道和程式的關聯性非常類似於傳統媒體，此處的通道有常數內容資料流，而程式的範圍是該通道上的某些計時事件。
+[程式](https://docs.microsoft.com/rest/api/media/operations/program) 可讓您控制即時資料流區段的發佈和儲存體。 通道會管理程式。 通道和程式的關聯性非常類似於傳統媒體，此處的通道有常數內容資料流，而程式的範圍是該通道上的某些計時事件。
 您可以透過設定 **ArchiveWindowLength** 屬性，指定您想要保留已記錄程式內容的時數。 此值最小可以設定為 5 分鐘，最大可以設定為 25 個小時。
 
 ArchiveWindowLength 也指定用戶端可從目前即時位置往回搜尋的最大時間量。 程式可以執行超過指定的時間量，但是超過此時間長度的內容會被持續捨棄。 此屬性的這個值也會決定用戶端資訊清單可以成長多長的時間。
 
-每個程式都是與「資產」相關聯。 若要发布节目，必须为关联的资产创建定位符。 擁有此定位器，可讓您建置可提供給用戶端的串流 URL。
+每個程式都是與「資產」相關聯。 若要發佈程式，您必須建立相關資產的定位器。 擁有此定位器，可讓您建置可提供給用戶端的串流 URL。
 
 通道支援最多三個同時執行的程式，因此您可以建立相同內送串流的多個封存。 這可讓您視需要發行和封存事件的不同部分。 例如，您的商務需求是封存 6 小時的程式，但只廣播最後 10 分鐘。 為了達成此目的，您必須建立兩個同時執行的程式。 其中一個程式設定為封存 6 小時的事件，但是未發行該程式。 另一個程式則設定為封存 10 分鐘，並發行程式。
 
 ## <a name="billing-implications"></a>計費影響
-一旦通过 API 将频道的状态转换为“正在运行”，就会开始计费。  
+通道只要其狀態透過 API 轉換為「執行中」，即會開始計費。  
 
 下表顯示通道狀態如何對應至 API 和 Azure 入口網站的計費狀態。 請注意，API 和入口網站 UX 之間的狀態稍有不同。 一旦通道透過 API 處於「執行中」狀態，或在 Azure 入口網站中處於「就緒」或「串流」狀態，就會開始計費。
 
 若要停止通道進一步向您計費，您必須停止透過 API 或在 Azure 入口網站中的通道。
-使用完通道后，需要亲自停止通道。 無法停止通道將會導致持續計費。
+您必須負責在完成通道時停止您的通道。 無法停止通道將會導致持續計費。
 
 > [!NOTE]
 > 使用標準通道時，在輸入饋送遺失 12 小時之後且沒有執行任何程式時，AMS 會自動關閉仍處於「執行中」狀態的任何通道。 不過，您將還是需要支付通道處於「執行中」狀態時間的費用。
 >
 >
 
-### <a id="states"></a>通道状态及其如何映射到计费模式
+### <a id="states"></a>通道狀態和狀態如何對應至計費模式
 通道的目前狀態。 可能的值包括：
 
 * **已停止**。 這是通道建立後的初始狀態 (除非在入口網站中選取自動啟動)。此狀態中不會計費。 在此狀態下，通道屬性可以更新，但是不允許串流。
-* **啟動中**。 正在啟動通道。 此状态下不会发生计费。 在此狀態期間允許任何更新或串流。 如果發生錯誤，通道會回到已停止狀態。
+* **啟動中**。 正在啟動通道。 此狀態中不會計費。 在此狀態期間允許任何更新或串流。 如果發生錯誤，通道會回到已停止狀態。
 * **執行中**。 通道能夠處理即時串流。 現在針對使用量計費。 您必須停止通道來防止進一步計費。
 * **停止中**。 正在停止通道。 此暫時性狀態中不會計費。 在此狀態期間允許任何更新或串流。
 * **刪除中**。 正在刪除通道。 此暫時性狀態中不會計費。 在此狀態期間允許任何更新或串流。
@@ -151,8 +151,8 @@ ArchiveWindowLength 也指定用戶端可從目前即時位置往回搜尋的最
 | 頻道狀態 | 入口網站 UI 指標 | 會計費嗎？ |
 | --- | --- | --- |
 | 啟動中 |啟動中 |無 (暫時性狀態) |
-| 正在运行 |准备就绪（没有正在运行的节目）<br/>或<br/>流式处理（至少有一个正在运行的节目） |是 |
-| 停止中 |停止中 |否（暂时状态） |
+| 執行中 |就緒 (沒有執行中的程式)<br/>或<br/>串流 (至少一個執行中的程式) |是 |
+| 停止中 |停止中 |無 (暫時性狀態) |
 | 已停止 |已停止 |否 |
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
@@ -162,7 +162,7 @@ ArchiveWindowLength 也指定用戶端可從目前即時位置往回搜尋的最
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>相關主題
-[Azure 媒体服务分片 MP4 实时引入规范](media-services-fmp4-live-ingest-overview.md)
+[Azure 媒體服務的分散 MP4 即時內嵌規格](media-services-fmp4-live-ingest-overview.md)
 
 [使用啟用的通道來以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)
 

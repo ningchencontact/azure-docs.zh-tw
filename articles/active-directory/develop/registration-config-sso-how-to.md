@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 83fae56dd0cf7157575b7c5a07e33ca1888d8560
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545461"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>如何設定新的多租用戶應用程式
@@ -46,4 +46,4 @@ ms.locfileid: "65545461"
 
 [適用於 AzureAD v2.0 交集應用程式的同意與權限](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD StackOverflow (英文)](https://stackoverflow.com/questions/tagged/azure-active-directory)

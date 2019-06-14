@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 67e54f10074ee566ce974dbd27485904bfe0a653
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411538"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>促進式的決策樹迴歸模組
@@ -47,7 +47,7 @@ ms.locfileid: "65411538"
   
 -  [https://research.microsoft.com/apps/pubs/default.aspx?id=132652](https://research.microsoft.com/apps/pubs/default.aspx?id=132652)  
 
-    Microsoft Research:從 RankNet 到 LambdaRank 到 LambdaMART:概觀。 By J.C. C.j.c.Burges。
+    Microsoft Research：從 RankNet 到 LambdaRank 到 LambdaMART:概觀。 By J.C. C.j.c.Burges。
 
 梯度促進式方法也可用在分類問題減少它們具有適當的遺失函式的迴歸。 如需有關用於分類工作的推進式決策的樹實作的詳細資訊，請參閱 <<c0> [ 二級促進式決策樹](./two-class-boosted-decision-tree.md)。  
 

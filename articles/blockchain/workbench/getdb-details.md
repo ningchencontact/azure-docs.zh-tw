@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
 ms.openlocfilehash: 42d119acd8880458eadc1760a7cb9713f91e3f6f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65509969"
 ---
 # <a name="get-information-about-your-azure-blockchain-workbench-database"></a>取得 Azure Blockchain Workbench 資料庫的相關資訊
@@ -35,9 +35,9 @@ ms.locfileid: "65509969"
 若要連線至資料庫：
 
 1. 使用具有 Azure Blockchain Workbench 資源**擁有者**權限的帳戶登入 Azure 入口網站。
-2. 在左側導覽窗格中，選取 [資源群組]。
+2. 在左側導覽窗格中，選取 [資源群組]  。
 3. 為 Blockchain Workbench 部署選擇資源群組的名稱。
-4. 選取 [類型] 排序資源清單，然後選擇您的 **SQL 伺服器**。 下一個螢幕擷取畫面中的排序清單顯示兩個 SQL 資料庫，一個是 "master" 資料庫，另一個是使用 "lhgn" 作為**資源前置詞**的資料庫。
+4. 選取 [類型]  排序資源清單，然後選擇您的 **SQL 伺服器**。 下一個螢幕擷取畫面中的排序清單顯示兩個 SQL 資料庫，一個是 "master" 資料庫，另一個是使用 "lhgn" 作為**資源前置詞**的資料庫。
 
    ![排序後的 Blockchain Workbench 資源清單](./media/getdb-details/sorted-workbench-resource-list.png)
 

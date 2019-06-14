@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: ecb704253597bf4eb5672fe924a0dafc4c1b3fd1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726534"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>使用 Azure AD 驗證搭配 .NET 存取 Azure 媒體服務 API
@@ -60,11 +60,11 @@ ms.locfileid: "64726534"
 1. 在 Visual Studio 中，建立新的 C# 主控台應用程式。
 2. 使用 [windowsazure.mediaservices](https://www.nuget.org/packages/windowsazure.mediaservices) NuGet 封裝來安裝 **Azure 媒體服務 .NET SDK**。 
 
-    若要使用 NuGet 加入參考，請採取下列步驟︰在 [方案總管] 中，以滑鼠右鍵按一下專案名稱，然後選取 [管理 NuGet 封裝]。 接著，搜尋 **windowsazure.mediaservices**，然後選取 [安裝]。
+    若要使用 NuGet 加入參考，請採取下列步驟︰在 [方案總管]  中，以滑鼠右鍵按一下專案名稱，然後選取 [管理 NuGet 封裝]  。 接著，搜尋 **windowsazure.mediaservices**，然後選取 [安裝]  。
     
     -或-
 
-    在 Visual Studio 的 [封裝管理員主控台] 中，執行下列命令。
+    在 Visual Studio 的 [封裝管理員主控台]  中，執行下列命令。
 
         Install-Package windowsazure.mediaservices -Version 4.0.0.4
 
@@ -76,8 +76,8 @@ ms.locfileid: "64726534"
 
 若要利用使用者驗證選項連線到 Azure 媒體服務 API，用戶端應用程式必須使用下列參數要求 Azure AD 權杖：  
 
-- Azure AD 租用戶端點。 可以在 Azure 门户中检索租户信息。 將滑鼠游標停留在右上角登入的使用者。
-- 媒体服务资源 URI。
+- Azure AD 租用戶端點。 租用戶資訊可從 Azure 入口網站擷取。 將滑鼠游標停留在右上角登入的使用者。
+- 媒體服務資源 URI。
 - 媒體服務 (原生) 應用程式用戶端識別碼。 
 - 媒體服務 (原生) 應用程式重新導向 URI。 
 
@@ -92,7 +92,7 @@ ms.locfileid: "64726534"
   
 若要開始針對媒體服務進行程式設計，您需要建立可呈現伺服器內容的 **CloudMediaContext** 執行個體。 **CloudMediaContext** 包含重要集合的參考，包括工作、資產、檔案、存取原則和定位器。 
 
-您還需要將**媒體 REST 服務的資源 URI** 傳遞至 **CloudMediaContext** 建構函式。 若要取得媒體 REST 服務的資源 URI，請登入 Azure 入口網站，選取您的 Azure 媒體服務帳戶，選取 [API 存取權]，然後選取 [使用使用者驗證連線到 Azure 媒體服務]。 
+您還需要將**媒體 REST 服務的資源 URI** 傳遞至 **CloudMediaContext** 建構函式。 若要取得媒體 REST 服務的資源 URI，請登入 Azure 入口網站，選取您的 Azure 媒體服務帳戶，選取 [API 存取權]  ，然後選取 [使用使用者驗證連線到 Azure 媒體服務]  。 
 
 下列程式碼範例會建立 **CloudMediaContext** 執行個體：
 
@@ -131,7 +131,7 @@ ms.locfileid: "64726534"
     
 若要利用服務主體選項連線到 Azure 媒體服務 API，您的中介層應用程式 (Web API 或 Web 應用程式) 必須要求具有下列參數的 Azure AD 權杖：  
 
-- Azure AD 租用戶端點。 可以在 Azure 门户中检索租户信息。 將滑鼠游標停留在右上角登入的使用者。
+- Azure AD 租用戶端點。 租用戶資訊可從 Azure 入口網站擷取。 將滑鼠游標停留在右上角登入的使用者。
 - 媒體服務資源 URI。
 - Azure AD 應用程式的值：**用戶端識別碼**和**用戶端祕密**。
 

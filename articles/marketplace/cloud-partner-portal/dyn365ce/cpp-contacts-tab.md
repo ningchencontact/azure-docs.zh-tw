@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: cdd3d01c9295ef5ae8e7bc1936b5926fb38cfe77
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942501"
 ---
 # <a name="azure-application-contacts-tab"></a>Azure 應用程式連絡人索引標籤
 
-使用 [連絡人] 索引標籤，為您的 Dynamics 365 for Customer Engagement 供應項目提供工程和客戶支援資訊。
+使用 [連絡人]  索引標籤，為您的 Dynamics 365 for Customer Engagement 供應項目提供工程和客戶支援資訊。
 
 ![供應項目的連絡人索引標籤](./media/dynce-contacts-tab.png)
 

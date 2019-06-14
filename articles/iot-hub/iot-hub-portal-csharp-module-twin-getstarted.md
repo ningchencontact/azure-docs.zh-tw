@@ -10,10 +10,10 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.openlocfilehash: 3b1872699b8b3ac72424f00cd74bb90b8b7be87f
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873165"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>透過入口網站和 .NET 裝置開始使用 IoT 中樞模組身分識別和模組對應項
@@ -51,7 +51,7 @@ ms.locfileid: "65873165"
 
 ## <a name="create-a-module-identity-in-the-portal"></a>在入口網站中建立模組身分識別
 
-在一個裝置身分識別內，您可以建立最多 20 個模組身分識別。 按一下上方的 [新增模組身分識別] 按鈕，建立名稱為 **myFirstModule** 的第一個模組身分識別。
+在一個裝置身分識別內，您可以建立最多 20 個模組身分識別。 按一下上方的 [新增模組身分識別]  按鈕，建立名稱為 **myFirstModule** 的第一個模組身分識別。
 
   ![裝置詳細資料](./media/iot-hub-portal-csharp-module-twin-getstarted/create-module-id.png)
 
@@ -65,7 +65,7 @@ ms.locfileid: "65873165"
 
 ## <a name="create-a-visual-studio-project"></a>建立 Visual Studio 專案
 
-在 Visual Studio 中，使用 [主控台應用程式 (.NET Framework)] 專案範本，將 Visual C# Windows 傳統桌面專案新增至現有的解決方案。 確定 .NET Framework 為 4.6.1 或更新版本。 將專案命名為 **UpdateModuleTwinReportedProperties**。
+在 Visual Studio 中，使用 [主控台應用程式 (.NET Framework)]  專案範本，將 Visual C# Windows 傳統桌面專案新增至現有的解決方案。 確定 .NET Framework 為 4.6.1 或更新版本。 將專案命名為 **UpdateModuleTwinReportedProperties**。
 
   ![建立 Visual Studio 專案](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.png)
 
@@ -159,7 +159,7 @@ private static void ConnectionStatusChangeHandler(ConnectionStatus status, Conne
 
 ## <a name="run-the-apps"></a>執行應用程式
 
-您現在可以開始執行應用程式。 在 Visual Studio 的 [方案總管] 中以滑鼠右鍵按一下您的方案，然後按一下 [設定啟始專案]。 選取 [多個啟始專案]，然後選取 [啟動] 作為主控台應用程式的動作。 然後按 F5 來啟動執行這兩個應用程式。
+您現在可以開始執行應用程式。 在 Visual Studio 的 [方案總管] 中以滑鼠右鍵按一下您的方案，然後按一下 [設定啟始專案]  。 選取 [多個啟始專案]  ，然後選取 [啟動]  作為主控台應用程式的動作。 然後按 F5 來啟動執行這兩個應用程式。
 
 ## <a name="next-steps"></a>後續步驟
 

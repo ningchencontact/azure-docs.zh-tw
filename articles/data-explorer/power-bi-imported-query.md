@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: ae632f7df34ca342a3dcc12bf5f011df0eb61973
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399327"
 ---
 # <a name="visualize-data-using-a-query-imported-into-power-bi"></a>在 Power BI 中使用匯入的查詢將資料視覺化

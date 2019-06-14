@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
 ms.openlocfilehash: 1cb3946a93cbeff6a9b95e0a21edbf0523b53d5e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65203606"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>在 Azure 監視器中分析記錄資料
@@ -28,7 +28,7 @@ Azure 監視器所收集的記錄資料會儲存在 Log Analytics 工作區中�
 
 ## <a name="where-log-queries-are-used"></a>記錄查詢的使用位置
 
-在 Azure Monitor 中使用查询的方式包括以下几种：
+您會在 Azure 監視器中使用查詢的不同方式包括：
 
 - **入口網站。** 您可以在 [Azure 入口網站](portals.md)中執行記錄資料的互動式分析。  這可讓您在各種不同的格式和視覺效果中編輯查詢及分析結果。  
 - **警示規則。** [警示規則](../platform/alerts-overview.md)會主動識別您的工作區中資料的問題。  每個警示規則是根據以固定間隔自動執行的記錄搜尋。  會檢查結果來判斷是否應該建立警示。
@@ -36,7 +36,7 @@ Azure 監視器所收集的記錄資料會儲存在 Log Analytics 工作區中�
 - **檢視。**  您可以使用[檢視設計工具](../platform/view-designer.md)，建立要包含在使用者儀表板中的資料視覺效果。  記錄查詢會在各個檢視中提供[圖格](../platform/view-designer-tiles.md)和[視覺效果部分](../platform/view-designer-parts.md)所使用的資料。  
 
 - **匯出。**  當您從 Azure 監視器將記錄資料匯入到 Excel 或 [Power BI](../platform/powerbi.md) 時，您會建立定義要匯出之資料的記錄查詢。
-- **Powershell。** 可从命令行运行 PowerShell 脚本或运行使用 [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) 的 Azure 自动化 runbook，从 Azure Monitor 中检索日志数据。  此 Cmdlet 需要查詢來決定要擷取的資料。
+- **Powershell。** 您可以從命令列或使用 Azure 自動化 runbook 來執行 PowerShell 指令碼[Get AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult)來擷取 Azure 監視器中的記錄檔資料。  此 Cmdlet 需要查詢來決定要擷取的資料。
 - **Azure 監視器記錄 API。**  [Azure 監視器記錄 API](../platform/alerts-overview.md) 可讓任何 REST API 用戶端從工作區擷取記錄資料。  API 要求包含針對 Azure 監視器執行的查詢，來判斷要擷取的資料。
 
 ![記錄檔搜尋](media/log-query-overview/queries-overview.png)

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 92cb427149e6e6cbddfb96c6e4488017641e6482
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60761738"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>對 Azure 串流分析輸出進行疑難排解
@@ -21,9 +21,9 @@ ms.locfileid: "60761738"
 本頁面說明輸出連線的常見問題，以及如何進行其疑難排解並加以解決。
 
 ## <a name="output-not-produced-by-job"></a>作業未產生輸出 
-1.  對各個輸出使用 [測試連線] 按鈕，驗證輸出的連線能力。
+1.  對各個輸出使用 [測試連線]  按鈕，驗證輸出的連線能力。
 
-2.  請查看 [監視] 索引標籤上的[**監視計量**](stream-analytics-monitoring.md)。因為是彙總值，計量會延遲幾分鐘顯示。
+2.  請查看 [監視]  索引標籤上的[**監視計量**](stream-analytics-monitoring.md)。因為是彙總值，計量會延遲幾分鐘顯示。
     - 若輸入事件 > 0，則作業可以讀取輸入資料。 如果輸入事件不是 > 0，然後︰
       - 若要查看資料來源是否為有效資料，請使用[服務匯流排總管](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a)進行檢查。 此項檢查適用於使用事件中樞作為輸入的作業。
       - 請檢查資料序列化格式及資料編碼是否正確。
@@ -75,7 +75,7 @@ ms.locfileid: "60761738"
 - 上游來源是否已節流
 - 查詢中的處理邏輯是否需要大量計算
 
-若要查看這些詳細資料，請在 Azure 入口網站中，選取串流作業，然後選取 [工作圖表]。 每個輸入都有一個按照分割區區分的待辦項目事件計量。 如果待辦項目事件計量持續增加，則表示系統資源受到限制。 可能是因為有輸出接收節流，或 CPU 很高。 如需使用作業圖表的詳細資訊，請參閱[使用作業圖表進行資料導向偵錯](stream-analytics-job-diagram-with-metrics.md)。
+若要查看這些詳細資料，請在 Azure 入口網站中，選取串流作業，然後選取 [工作圖表]  。 每個輸入都有一個按照分割區區分的待辦項目事件計量。 如果待辦項目事件計量持續增加，則表示系統資源受到限制。 可能是因為有輸出接收節流，或 CPU 很高。 如需使用作業圖表的詳細資訊，請參閱[使用作業圖表進行資料導向偵錯](stream-analytics-job-diagram-with-metrics.md)。
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Azure SQL Database 輸出的索引鍵違規警告
 

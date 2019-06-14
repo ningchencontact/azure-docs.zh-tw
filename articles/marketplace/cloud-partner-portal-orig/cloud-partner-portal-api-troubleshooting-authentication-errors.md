@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: ddf3c9ce26a1538d91f1e6d6bcc04fd0d18e7936
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935810"
 ---
 # <a name="troubleshooting-common-authentication-errors"></a>針對常見驗證錯誤進行疑難排解
@@ -30,6 +30,6 @@ ms.locfileid: "64935810"
 如果您遇到 `403 forbidden` 錯誤，請確保已在 Cloud Partner 入口網站中將正確的服務主體加入到您的發行者帳戶中。
 請依照[先決條件](./cloud-partner-portal-api-prerequisites.md)頁面中的步驟，將服務主體加入到入口網站。
 
-如果已加入正確的服務主體，則確認所有其他資訊。 密切注意入口網站上輸入的物件識別碼。 在 [Azure Active Directory 應用程式註冊] 頁面中有兩個物件識別碼，而您必須使用本機物件識別碼。 您可以前往應用程式的 [應用程式註冊] 頁面，然後按一下 [本機目錄中受控的應用程式] 下的應用程式名稱，以尋找正確的值。 這會將您帶到應用程式的本機屬性，您可以在 [屬性] 頁面中找到正確的物件識別碼，如下圖所示。 此外，請確保在新增服務主體並進行 API 呼叫時使用正確的發行者識別碼。
+如果已加入正確的服務主體，則確認所有其他資訊。 密切注意入口網站上輸入的物件識別碼。 在 [Azure Active Directory 應用程式註冊] 頁面中有兩個物件識別碼，而您必須使用本機物件識別碼。 您可以前往應用程式的 [應用程式註冊]  頁面，然後按一下 [本機目錄中受控的應用程式]  下的應用程式名稱，以尋找正確的值。 這會將您帶到應用程式的本機屬性，您可以在 [屬性]  頁面中找到正確的物件識別碼，如下圖所示。 此外，請確保在新增服務主體並進行 API 呼叫時使用正確的發行者識別碼。
 
 ![疑難排解 403 錯誤](./media/cloud-partner-portal-api-troubleshooting-authentication-errors/troubleshooting-403-error.jpg)

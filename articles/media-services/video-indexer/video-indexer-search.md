@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 93376059dac2a8336e581269d8289d893779b291
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799100"
 ---
 # <a name="find-exact-moments-within-videos"></a>尋找影片中的確切時間
@@ -29,7 +29,7 @@ ms.locfileid: "65799100"
     ![Search](./media/video-indexer-search/video-indexer-search01.png)
 3. 搜尋影片的深入解析摘要。
 
-    接著，藉由在影片上按一下 [播放]，您就可以在影片中進行搜尋。 然後，您可以選取 [搜尋] 索引標籤並在影片中進行搜尋。 
+    接著，藉由在影片上按一下 [播放]  ，您就可以在影片中進行搜尋。 然後，您可以選取 [搜尋]  索引標籤並在影片中進行搜尋。 
 
     在下列範例中，我們搜尋 「 安全 」 內選取之視訊。
 

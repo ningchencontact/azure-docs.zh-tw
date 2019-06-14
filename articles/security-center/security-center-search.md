@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90dbb33fa516d3a831d4e60969ac6b6c8312d539
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332557"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64574152"
 ---
 # <a name="azure-security-center-search"></a>Azure 資訊安全中心搜尋
+
+> [!NOTE]
+> 資訊安全中心的搜尋服務儀表板將於 2019 年 7 月 31 日淘汰。 如需詳細資訊和替代的服務，請參閱 <<c0> [ 停用的資訊安全中心功能 (7 月 2019)](security-center-features-retirement-july2019.md#menu_search)。
+
 Azure 資訊安全中心會使用[Azure 監視器記錄檔搜尋](../log-analytics/log-analytics-log-searches.md)來擷取和分析安全性資料。 Azure 監視器記錄檔包含可快速擷取及彙總資料的查詢語言。 從資訊安全中心，您可以利用 Azure 監視器記錄檔搜尋來建構查詢及分析所收集的資料。
 
 資訊安全中心的免費層和標準層皆可使用搜尋。  記錄搜尋中的可用資料取決於套用至您工作區的層級。  如需詳細資訊，請參閱資訊安全中心[價格頁面](../security-center/security-center-pricing.md)。
@@ -33,7 +37,7 @@ Azure 資訊安全中心會使用[Azure 監視器記錄檔搜尋](../log-analyti
 >
 
 ## <a name="access-search"></a>存取搜尋
-1. 在資訊安全中心主功能表下，選取 [搜尋]。
+1. 在資訊安全中心主功能表下，選取 [搜尋]  。
 
    ![選取記錄搜尋][1]
 
@@ -41,11 +45,11 @@ Azure 資訊安全中心會使用[Azure 監視器記錄檔搜尋](../log-analyti
 
    ![選取工作區][2]
 
-3. [記錄搜尋] 隨即開啟。 若要查詢所選取工作區下的詳細資料，請輸入此範例查詢：
+3. [記錄搜尋]  隨即開啟。 若要查詢所選取工作區下的詳細資料，請輸入此範例查詢：
 
    SecurityEvent | 其中 EventID = = 4625 | summarize count() by TargetAccount
 
-   結果會顯示無法登入的所有帳戶 (事件 4625)。
+   結果會顯示所有的帳戶無法登入 （事件 4625）。
 
    ![搜尋結果][3]
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: fca76b632e9bcc27ed762886eaea696a5696ad3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60761866"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>使用樣本資料測試串流分析查詢
@@ -26,13 +26,13 @@ ms.locfileid: "60761866"
 
 2. 找到現有的串流分析作業並加以選取。
 
-3. 在 [串流分析作業] 頁面上，[工作拓撲] 標題下方，選取 [查詢] 開啟 [查詢] 編輯器視窗。 
+3. 在 [串流分析作業] 頁面上，[工作拓撲]  標題下方，選取 [查詢]  開啟 [查詢] 編輯器視窗。 
 
-4. 若要使用樣本輸入資料測試查詢，請以滑鼠右鍵按一下任何輸入資料。  然後選取 [從檔案上傳樣本資料]。 必須以 JSON、CSV 或 AVRO 將資料序列化。 範例輸入必須以 UTF-8 編碼而且不壓縮。 在入口網站上測試 CSV 輸入時僅支援逗號 (,) 分隔符號。
+4. 若要使用樣本輸入資料測試查詢，請以滑鼠右鍵按一下任何輸入資料。  然後選取 [從檔案上傳樣本資料]  。 必須以 JSON、CSV 或 AVRO 將資料序列化。 範例輸入必須以 UTF-8 編碼而且不壓縮。 在入口網站上測試 CSV 輸入時僅支援逗號 (,) 分隔符號。
 
     ![串流分析查詢編輯器的測試查詢](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
-5. 上傳完成後，選取 [測試] 以根據您提供的樣本資料測試此查詢。
+5. 上傳完成後，選取 [測試]  以根據您提供的樣本資料測試此查詢。
 
     ![串流分析查詢編輯器的樣本資料](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 
@@ -44,7 +44,7 @@ ms.locfileid: "60761866"
 
    當您在查詢中使用多個輸出時，結果會分別顯示在不同的索引標籤中，您可以輕鬆地切換索引標籤。
 
-8. 驗證顯示在瀏覽器中的結果後，請按一下 [儲存] 以儲存查詢。 然後按一下 [啟動] 以啟動作業，並讓其處理連入事件。
+8. 驗證顯示在瀏覽器中的結果後，請按一下 [儲存]  以儲存查詢。 然後按一下 [啟動]  以啟動作業，並讓其處理連入事件。
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]

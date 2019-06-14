@@ -17,10 +17,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65191532"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Azure Active Directory Identity Protection 風險事件參考
@@ -89,7 +89,7 @@ ms.locfileid: "65191532"
 我們也會針對基本驗證 (或舊版通訊協定) 執行這項偵測。 由於這些通訊協定沒有用戶端識別碼之類的新式屬性，因此只能以有限的遙測資料減少誤判。 我們建議客戶移轉至新式驗證。
 
 
-## <a name="azure-ad-threat-intelligence"></a>Azure AD 威脅情報
+## <a name="azure-ad-threat-intelligence"></a>Azure AD 的威脅情報
 
 **偵測類型：** 離線 <br>
 **舊名稱：** 此偵測中將會顯示 （使用者標幟為有風險，風險事件） 的舊版 Azure AD Identity Protection 報告為 「 認證外洩的使用者 」

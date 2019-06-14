@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 0191c56e1140870b1710b48c4fa1189fd92a337b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61362111"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>串流分析的常見問題以及疑難排解的步驟
@@ -22,7 +22,7 @@ ms.locfileid: "61362111"
 
  當串流分析作業的輸入資料流包含格式不正確的訊息時，就會導致序列化問題。 例如，格式錯誤的訊息可能是在 JSON 物件中遺漏括號或遺漏大括號所導致，或是時間欄位中不正確的時間戳記格式所導致。 
  
- 當串流分析作業從輸入收到格式不正確的訊息時，會捨棄訊息並以警告通知使用者。 警告符號會顯示在串流分析作業的 [輸入] 圖格 (只要作業處於執行中狀態，此警告符號就會一直存在)：
+ 當串流分析作業從輸入收到格式不正確的訊息時，會捨棄訊息並以警告通知使用者。 警告符號會顯示在串流分析作業的 [輸入]  圖格 (只要作業處於執行中狀態，此警告符號就會一直存在)：
 
 ![Azure 串流分析儀表板上的輸入圖格](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
@@ -73,7 +73,7 @@ ms.locfileid: "61362111"
 - 上游來源是否已節流
 - 查詢中的處理邏輯是否需要大量計算
 
-若要查看這些詳細資料，請在 Azure 入口網站中，選取串流作業，然後選取 [工作圖表]。 每個輸入都有一個按照分割區區分的待辦項目事件計量。 如果待辦項目事件計量持續增加，則表示系統資源受到限制。 可能是因為有輸出接收節流，或 CPU 很高。 如需使用作業圖表的詳細資訊，請參閱[使用作業圖表進行資料導向偵錯](stream-analytics-job-diagram-with-metrics.md)。
+若要查看這些詳細資料，請在 Azure 入口網站中，選取串流作業，然後選取 [工作圖表]  。 每個輸入都有一個按照分割區區分的待辦項目事件計量。 如果待辦項目事件計量持續增加，則表示系統資源受到限制。 可能是因為有輸出接收節流，或 CPU 很高。 如需使用作業圖表的詳細資訊，請參閱[使用作業圖表進行資料導向偵錯](stream-analytics-job-diagram-with-metrics.md)。
 
 ## <a name="handle-duplicate-records-in-azure-sql-database-output"></a>Azure SQL Database 輸出中的控制代碼重複記錄
 

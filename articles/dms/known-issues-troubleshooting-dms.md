@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 05/22/2019
 ms.openlocfilehash: 5a7c6c4553f46e8a7308995e05d6c06c0eb10f27
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002217"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>疑難排解常見的 Azure 資料庫移轉服務的問題和錯誤
@@ -78,7 +78,7 @@ ms.locfileid: "66002217"
 
 | 原因         | 解決方案    |
 | ------------- | ------------- |
-| Azure 資料庫移轉服務執行個體仍可能出現時，會發生這個問題及使用的 nic。 <br><br><br><br><br><br><br><br> | 若要刪除此 NIC，請刪除 DMS 服務執行個體，會自動刪除該服務所使用的 NIC。<br><br> **重要**：確定要刪除的 Azure 資料庫移轉服務執行個體具有任何執行中的活動。<br><br> 刪除所有的專案和 Azure 資料庫移轉服務執行個體相關聯的活動之後，您可以刪除服務執行個體。 刪除服務的一部分，會自動清除服務執行個體所使用的 NIC。 |
+| Azure 資料庫移轉服務執行個體仍可能出現時，會發生這個問題及使用的 nic。 <br><br><br><br><br><br><br><br> | 若要刪除此 NIC，請刪除 DMS 服務執行個體，會自動刪除該服務所使用的 NIC。<br><br> **重要说明**：確定要刪除的 Azure 資料庫移轉服務執行個體具有任何執行中的活動。<br><br> 刪除所有的專案和 Azure 資料庫移轉服務執行個體相關聯的活動之後，您可以刪除服務執行個體。 刪除服務的一部分，會自動清除服務執行個體所使用的 NIC。 |
 
 ## <a name="connection-error-when-using-expressroute"></a>使用 ExpressRoute 時的連線錯誤
 
@@ -96,7 +96,7 @@ ms.locfileid: "66002217"
 
 | 原因         | 解決方案    |
 | ------------- | ------------- |
-| 當在移轉期間移轉失敗時因為鎖定等候逾時，就會發生此錯誤。 | 請考慮增加伺服器參數的值 **'innodb_lock_wait_timeout'**。 允許的最大值是 1073741824。 |
+| 當在移轉期間移轉失敗時因為鎖定等候逾時，就會發生此錯誤。 | 請考慮增加伺服器參數的值 **'innodb_lock_wait_timeout'** 。 允許的最大值是 1073741824。 |
 
 ## <a name="error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance"></a>使用動態連接埠時，連接至來源 SQL Server 或具名執行個體時發生錯誤
 

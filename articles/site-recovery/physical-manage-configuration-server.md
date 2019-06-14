@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119719"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>管理實體伺服器災害復原的組態伺服器
@@ -29,7 +29,7 @@ ms.locfileid: "62119719"
 | CPU 核心| 8 |
 | RAM | 16 GB|
 | 磁碟數量 | 3，包括作業系統磁碟、處理序伺服器快取磁碟和用於容錯回復的保留磁碟機 |
-| - 磁碟可用空間 (處理序伺服器快取) | 600 GB
+| \- 磁碟可用空間 (處理序伺服器快取) | 600 GB
 | 磁碟可用空間 (保留磁碟) | 600 GB|
 | 作業系統  | Windows Server 2012 R2 <br> Windows Server 2016 |
 | 作業系統地區設定 | 英文 (美國)|
@@ -38,7 +38,7 @@ ms.locfileid: "62119719"
 | 群組原則| 請勿啟用這些群組原則： <br> - 防止存取命令提示字元 <br> - 防止存取登錄編輯工具 <br> - 檔案附件的信任邏輯 <br> - 開啟指令碼執行 <br> [深入了解](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 | IIS | - 沒有預先存在的預設網站 <br> - 啟用[匿名驗證](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) \(英文\) <br> - 啟用 [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 設定  <br> - 沒有預先存在的網站/應用程式接聽連接埠 443<br>|
 | NIC 類型 | VMXNET3 (部署為 VMware VM 時) |
-| IP 位址類型 | 靜態 |
+| IP 位址類型 | Static |
 | 網際網路存取 | 伺服器需要存取這些 URL： <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (相應放大處理序伺服器不需要) <br> - time.nist.gov <br> - time.windows.com |
 | 連接埠 | 443 (控制通道協調流程)<br>9443 (資料傳輸)|
 
@@ -48,9 +48,9 @@ Site Recovery 入口網站中提供最新版本的組態伺服器安裝檔案。
 
 1. 登入 Azure 入口網站並瀏覽至您的復原服務保存庫。
 2. 瀏覽至 **Site Recovery 基礎結構** > **設定伺服器** \(位於 [適用於 VMware 和實體機器] 底下)。
-3. 单击“+服务器”按钮。
-4. 在 [新增伺服器] 頁面上，按一下 [下載] 按鈕，下載註冊金鑰。 在組態伺服器安裝期間，您需要使用此金鑰向 Azure Site Recovery 服務註冊它。
-5. 按一下 [下載 Microsoft Azure Site Recovery 整合安裝] 連結，以下載最新版本的組態伺服器。
+3. 按一下 [+伺服器]  按鈕。
+4. 在 [新增伺服器]  頁面上，按一下 [下載] 按鈕，下載註冊金鑰。 在組態伺服器安裝期間，您需要使用此金鑰向 Azure Site Recovery 服務註冊它。
+5. 按一下 [下載 Microsoft Azure Site Recovery 整合安裝]  連結，以下載最新版本的組態伺服器。
 
    ![下載頁面](./media/physical-manage-configuration-server/downloadcs.png)
 
@@ -58,36 +58,36 @@ Site Recovery 入口網站中提供最新版本的組態伺服器安裝檔案。
 ## <a name="install-and-register-the-server"></a>安裝和註冊伺服器
 
 1. 執行統一安裝的安裝檔案。
-2. 在 [開始之前] 選取 [安裝設定伺服器和處理序伺服器]。
+2. 在 [開始之前]  選取 [安裝設定伺服器和處理序伺服器]  。
 
     ![開始之前](./media/physical-manage-configuration-server/combined-wiz1.png)
 
-3. 在 [協力廠商軟體授權] 中，按一下 [我接受] 來下載並安裝 MySQL。
-4. 在 [網際網路設定] 中，指定在設定伺服器上執行的 Provider 要如何透過網際網路連接到 Azure Site Recovery。 確定您已允許必要的 URL。
+3. 在 [協力廠商軟體授權]  中，按一下 [我接受]  來下載並安裝 MySQL。
+4. 在 [網際網路設定]  中，指定在設定伺服器上執行的 Provider 要如何透過網際網路連接到 Azure Site Recovery。 確定您已允許必要的 URL。
 
-    - 如果您想要使用電腦上目前設定的 Proxy 來連線，請選取 [使用 Proxy 伺服器連線至 Azure Site Recovery]。
-    - 如果您想要讓提供者直接連接，請選取 [不使用 Proxy 伺服器直接連線到 Azure Site Recovery]。
-    - 如果現有的 Proxy 需要驗證，或是您想要讓 Provider 使用自訂 Proxy 來連線，請選取 [以自訂 Proxy 設定連線]，並指定位址、連接埠和認證。
+    - 如果您想要使用電腦上目前設定的 Proxy 來連線，請選取 [使用 Proxy 伺服器連線至 Azure Site Recovery]  。
+    - 如果您想要讓提供者直接連接，請選取 [不使用 Proxy 伺服器直接連線到 Azure Site Recovery]  。
+    - 如果現有的 Proxy 需要驗證，或是您想要讓 Provider 使用自訂 Proxy 來連線，請選取 [以自訂 Proxy 設定連線]  ，並指定位址、連接埠和認證。
      ![防火牆](./media/physical-manage-configuration-server/combined-wiz4.png)
-6. 在 [必要條件檢查] 中，安裝程式會執行檢查來確定可以執行安裝。 如果出現有關「通用時間同步處理檢查」的警告，請確認系統時鐘上的時間 ([日期和時間] 設定) 與時區相同。
+6. 在 [必要條件檢查]  中，安裝程式會執行檢查來確定可以執行安裝。 如果出現有關「通用時間同步處理檢查」  的警告，請確認系統時鐘上的時間 ([日期和時間]  設定) 與時區相同。
 
     ![必要條件](./media/physical-manage-configuration-server/combined-wiz5.png)
-7. 在 [MySQL 組態] 中，建立認證來登入已安裝的 MySQL 伺服器執行個體。
+7. 在 [MySQL 組態]  中，建立認證來登入已安裝的 MySQL 伺服器執行個體。
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
-8. 在 [環境詳細資料] 中，選取您是否要複寫 VMware VM。 如果是的話，安裝程式就會檢查是否已安裝 PowerCLI 6.0。
-9. 在 [安裝位置] 中，選取您要安裝二進位檔及儲存快取的位置。 所选驱动器必须至少有 5 GB 的可用磁盘空间，但建议选择至少有 600 GB 可用空间的缓存驱动器。
+8. 在 [環境詳細資料]  中，選取您是否要複寫 VMware VM。 如果是的話，安裝程式就會檢查是否已安裝 PowerCLI 6.0。
+9. 在 [安裝位置]  中，選取您要安裝二進位檔及儲存快取的位置。 您選取的磁碟機至少必須有 5 GB 的可用磁碟空間，但我們建議快取磁碟機至少有 600 GB 的可用空間。
 
     ![安裝位置](./media/physical-manage-configuration-server/combined-wiz8.png)
-10. 在 **網路選取項目**，先選取 內建處理序伺服器使用的探索與推入安裝行動服務，在來源機器上的 NIC，然後選取 設定伺服器連線時使用的 NIC使用 Azure。 連接埠 9443 是用來傳送及接收複寫流量的預設連接埠，但您可以修改此連接埠號碼，以符合您的環境需求。 除了連接埠 9443 之外，我們也會開啟網頁伺服器用來協調複寫作業的連接埠 443。 請勿使用連接埠 443 來傳送或接收複寫流量。
+10. 在 [選取網路]  中，先選取內建處理序伺服器用來在來源機器上進行行動服務探索及推入安裝的 NIC，然後選取設定伺服器用來與 Azure 連線的 NIC。 連接埠 9443 是用來傳送及接收複寫流量的預設連接埠，但您可以修改此連接埠號碼，以符合您的環境需求。 除了連接埠 9443 之外，我們也會開啟網頁伺服器用來協調複寫作業的連接埠 443。 請勿使用連接埠 443 來傳送或接收複寫流量。
 
     ![網路選擇](./media/physical-manage-configuration-server/combined-wiz9.png)
 
 
-11. 在 [摘要] 中檢閱資訊，然後按一下 [安裝]。 安装完成后，将生成密码。 在您啟用複寫時會需要它，所以請將它複製並保存在安全的位置。
+11. 在 [摘要]  中檢閱資訊，然後按一下 [安裝]  。 安裝完成時，會產生複雜密碼。 在您啟用複寫時會需要它，所以請將它複製並保存在安全的位置。
 
 
-註冊完成後，伺服器會顯示在保存庫的 [設定]  >  刀鋒視窗上。
+註冊完成後，伺服器會顯示在保存庫的 [設定]   >   刀鋒視窗上。
 
 
 ## <a name="install-from-the-command-line"></a>從命令列安裝
@@ -152,11 +152,11 @@ ProxyPassword="Password"
 
 1. 登入組態伺服器。
 2. 使用桌面上的捷徑啟動 cspsconfigtool.exe。
-3. 按一下 [保存庫註冊] 索引標籤。
+3. 按一下 [保存庫註冊]  索引標籤。
 4. 從入口網站下載新的保存庫註冊檔案，並提供給工具作為輸入。
 
    ![註冊組態伺服器](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
-5. 提供新的 Proxy 詳細資料，然後按一下 [註冊] 按鈕。
+5. 提供新的 Proxy 詳細資料，然後按一下 [註冊]  按鈕。
 6. 開啟系統管理 PowerShell 命令視窗。
 7. 執行以下命令：
 
@@ -173,10 +173,10 @@ ProxyPassword="Password"
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>使用相同保存庫註冊組態伺服器
 1. 登入您的組態伺服器。
 2. 使用桌面上的捷徑啟動 cspsconfigtool.exe。
-3. 按一下 [保存庫註冊] 索引標籤。
+3. 按一下 [保存庫註冊]  索引標籤。
 4. 從入口網站下載新的註冊檔案，並提供給工具作為輸入。
       ![註冊組態伺服器](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
-5. 提供 Proxy 伺服器詳細資料，然後按一下 [註冊] 按鈕。  
+5. 提供 Proxy 伺服器詳細資料，然後按一下 [註冊]  按鈕。  
 6. 開啟系統管理 PowerShell 命令視窗。
 7. 執行下列命令
 
@@ -203,9 +203,9 @@ ProxyPassword="Password"
     net stop dra
     ```
 3. 使用桌面上的捷徑啟動 cspsconfigtool.exe。
-4. 按一下 [保存庫註冊] 索引標籤。
+4. 按一下 [保存庫註冊]  索引標籤。
 5. 從入口網站下載新的註冊檔案，並提供給工具作為輸入。
-6. 提供 Proxy 伺服器詳細資料，然後按一下 [註冊] 按鈕。  
+6. 提供 Proxy 伺服器詳細資料，然後按一下 [註冊]  按鈕。  
 7. 開啟系統管理 PowerShell 命令視窗。
 8. 執行下列命令
     ```powershell
@@ -217,7 +217,7 @@ ProxyPassword="Password"
 
 ## <a name="upgrade-a-configuration-server"></a>升級組態伺服器
 
-執行更新彙總來更新組態伺服器。 更新最多可以套用到 N-4 版本。 例如︰
+執行更新彙總來更新組態伺服器。 更新最多可以套用到 N-4 版本。 例如:
 
 - 如果您執行 9.7、9.8、9.9 或 9.10 - 您可以直接升級至 9.11。
 - 如果您執行 9.6 或更早版本，而且需要升級至 9.11 版，您必須先升級到 9.7 版， 才能升級到 9.11。
@@ -229,7 +229,7 @@ ProxyPassword="Password"
 1. 將更新安裝程式檔案下載到組態伺服器上。
 2. 按兩下以執行安裝程式。
 3. 安裝程式會偵測機器上執行的目前版本。
-4. 按一下 [確定] 以確認，並執行升級。 
+4. 按一下 [確定]  以確認，並執行升級。 
 
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>將設定伺服器刪除或取消註冊
@@ -242,10 +242,10 @@ ProxyPassword="Password"
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>從 Azure 入口網站刪除組態伺服器
-1. 在 Azure 入口網站中，從 [保存庫] 功能表瀏覽至 [Site Recovery 基礎結構] > [組態伺服器]。
+1. 在 Azure 入口網站中，從 [保存庫] 功能表瀏覽至 [Site Recovery 基礎結構]   > [組態伺服器]  。
 2. 按一下您需要解除委任的組態伺服器。
-3. 在組態伺服器的詳細資料頁面上，按一下 [刪除] 按鈕。
-4. 按一下 [是] 以確認刪除伺服器。
+3. 在組態伺服器的詳細資料頁面上，按一下 [刪除]  按鈕。
+4. 按一下 [是]  以確認刪除伺服器。
 
 ### <a name="uninstall-the-configuration-server-and-its-dependencies"></a>將組態伺服器軟體和其相依性解除安裝
 > [!TIP]
@@ -299,13 +299,13 @@ ProxyPassword="Password"
 
 - 當到期日是兩個月或少於兩個月時，服務會開始在入口網站傳送通知，以及透過電子郵件傳送通知 (如果您已訂閱 Azure Site Recovery 通知)。
 - 通知橫幅會出現在保存庫資源頁面上。 按一下橫幅可取得詳細資料。
-- 如果您看到 [立即升級] 按鈕，表示您的環境中有些元件尚未升級至 9.4.xxxx.x 或更新版本。 更新憑證之前請先升級元件。 您不能在舊版上更新。
+- 如果您看到 [立即升級]  按鈕，表示您的環境中有些元件尚未升級至 9.4.xxxx.x 或更新版本。 更新憑證之前請先升級元件。 您不能在舊版上更新。
 
 ### <a name="renew-the-certificate"></a>更新憑證
 
-1. 在保存庫中，開啟 [Site Recovery 基礎結構] > [設定伺服器]，然後按一下所需的設定伺服器。
-2. 到期日顯示在 [設定伺服器健康情況] 下
-3. 按一下 [更新憑證]。 
+1. 在保存庫中，開啟 [Site Recovery 基礎結構]   > [設定伺服器]  ，然後按一下所需的設定伺服器。
+2. 到期日顯示在 [設定伺服器健康情況]  下
+3. 按一下 [更新憑證]  。 
 
 
 

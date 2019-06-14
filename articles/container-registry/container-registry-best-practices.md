@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
 ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787340"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry 的最佳做法
@@ -75,7 +75,7 @@ Size      536870912000  185444288        Bytes
 Webhooks  100                            Count
 ```
 
-您也可以在 Azure 入口網站中，於登錄的 [概觀] 中找到目前使用的儲存體：
+您也可以在 Azure 入口網站中，於登錄的 [概觀]  中找到目前使用的儲存體：
 
 ![Azure 入口網站中的登錄使用量資訊][registry-overview-quotas]
 

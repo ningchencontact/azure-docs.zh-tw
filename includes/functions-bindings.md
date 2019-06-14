@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 957009ec9833df2dd0f89c3745c7f3df5a3705b4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66131357"
 ---
 下表顯示兩個主要版本的 Azure Functions 執行階段中所支援的繫結。
 
-| Type | 1.x | 2.x<sup>1</sup> | 觸發程序 | 輸入 | 輸出 |
+| 類型 | 1.x | 2.x<sup>1</sup> | 觸發程序 | 輸入 | 輸出 |
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Blob 儲存體](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|

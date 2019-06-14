@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.openlocfilehash: 9bc34110b85119c7b8b303774b585d03ce9d3a0f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596636"
 ---
 # <a name="get-started-with-device-management-node"></a>開始使用裝置管理 (Node)
@@ -23,9 +23,9 @@ ms.locfileid: "65596636"
 
 * 使用[Azure 入口網站](https://portal.azure.com)建立 IoT 中樞，並在 IoT 中樞建立裝置身分識別。
 
-* 建立模擬裝置應用程式，其包含可將該裝置重新開機的直接方法。 直接方法是从云中调用的。
+* 建立模擬裝置應用程式，其包含可將該裝置重新開機的直接方法。 直接方法是從雲端叫用。
 
-* 创建一个 Node.js 控制台应用，其通过 IoT 中心直接重启模拟设备应用。
+* 建立 Node.js 主控台應用程式，可透過您的 IoT 中樞在模擬的裝置應用程式中呼叫重新啟動直接方法。
 
 在本教學課程結尾處，您會有兩個 Node.js 主控台應用程式：
 
@@ -57,7 +57,7 @@ ms.locfileid: "65596636"
 
 * 觸發模擬裝置重新啟動
 
-* 通过报告的属性，设备孪生查询可标识设备及设备上次重新启动的时间
+* 使用報告屬性來啟用裝置對應項查詢，以識別裝置及其上次重新啟動時間
 
 1. 建立稱為 **manageddevice** 的空資料夾。  在 **manageddevice** 資料夾中，於命令提示字元使用下列命令建立 package.json 檔案。  接受所有預設值：
       
@@ -65,7 +65,7 @@ ms.locfileid: "65596636"
     npm init
     ```
 
-2. 在 **manageddevice** 文件夹的命令提示符处，运行下述命令以安装 **azure-iot-device** 设备 SDK 包和 **azure-iot-device-mqtt** 包：
+2. 在命令提示字元中，於 **manageddevice** 資料夾中執行下列命令來安裝 **azure-iot-device** 裝置 SDK 套件和 **azure-iot-device-mqtt** 套件：
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -73,7 +73,7 @@ ms.locfileid: "65596636"
 
 3. 使用文字編輯器，在 **manageddevice** 資料夾中建立 **dmpatterns_getstarted_device.js** 檔案。
 
-4. 在 **dmpatterns_getstarted_device.js** 文件开头添加以下“require”语句：
+4. 在 **dmpatterns_getstarted_device.js** 檔案開頭新增下列 'require' 陳述式：
    
     ```
     'use strict';
@@ -152,9 +152,9 @@ ms.locfileid: "65596636"
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>使用直接方法在裝置上觸發遠端重新啟動
 
-在本節中，您會建立 Node.js 主控台應用程式，此應用程式會使用直接方法起始遠端重新開機。 该应用使用设备孪生查询来搜索该设备的上次重新启动时间。
+在本節中，您會建立 Node.js 主控台應用程式，此應用程式會使用直接方法起始遠端重新開機。 應用程式使用裝置對應項查詢來探索該裝置的上次重新開機時間。
 
-1. 建立名為 **triggerrebootondevice** 的空白資料夾。 在 **triggerrebootondevice** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。 接受所有預設值：
+1. 建立名為 **triggerrebootondevice** 的空白資料夾。 在命令提示字元中，於 **triggerrebootondevice** 資料夾中使用下列命令來建立 package.json 檔案。 接受所有預設值：
    
     ```
     npm init
@@ -168,7 +168,7 @@ ms.locfileid: "65596636"
 
 3. 使用文字編輯器，在 **triggerrebootondevice** 資料夾中建立 **dmpatterns_getstarted_service.js** 檔案。
 
-4. 在 **dmpatterns_getstarted_service.js** 文件开头添加以下“require”语句：
+4. 在 **dmpatterns_getstarted_service.js** 檔案開頭新增下列 'require' 陳述式：
 
   
     ```
@@ -240,7 +240,7 @@ ms.locfileid: "65596636"
     setInterval(queryTwinLastReboot, 2000);
     ```
 
-9. 保存并关闭 **dmpatterns_getstarted_service.js** 文件。
+9. 儲存並關閉 **dmpatterns_getstarted_service.js** 檔案。
 
 ## <a name="run-the-apps"></a>執行應用程式
 

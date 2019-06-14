@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: de24b64ecd95eec79d7508f978acda9f0ae5a8d6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62097511"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>將推播通知新增至 Xamarin.iOS 應用程式
@@ -29,18 +29,18 @@ ms.locfileid: "62097511"
 
 在本教學課程中，您會將推播通知新增至 [Xamarin.iOS 快速入門](app-service-mobile-xamarin-ios-get-started.md)專案，以便在每次插入一筆記錄時傳送推播通知至裝置。
 
-如果您不要使用下載的快速入門伺服器專案，將需要推播通知擴充套件。 有关详细信息，请参阅 [使用适用于 Azure 移动应用的 .NET 后端服务器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) 。
+如果您不要使用下載的快速入門伺服器專案，將需要推播通知擴充套件。 如需詳細資訊，請參閱[使用 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
 * 完成 [建立 Xamarin.iOS 應用程式](app-service-mobile-xamarin-ios-get-started.md) 教學課程。
 * 實體的 iOS 裝置。 iOS 模擬器不支援推播通知。
 
-## <a name="register-the-app-for-push-notifications-on-apples-developer-portal"></a>在 Apple 的开发人员门户上为推送通知注册应用
+## <a name="register-the-app-for-push-notifications-on-apples-developer-portal"></a>在 Apple 的開發人員入口網站註冊應用程式以取得推播通知
 
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
-## <a name="configure-your-mobile-app-to-send-push-notifications"></a>配置移动应用以发送推送通知
+## <a name="configure-your-mobile-app-to-send-push-notifications"></a>設定您的行動應用程式以傳送推播通知
 
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
@@ -52,7 +52,7 @@ ms.locfileid: "62097511"
 
 [!INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
-## <a name="add-push-notifications-to-your-app"></a>向应用程序添加推送通知
+## <a name="add-push-notifications-to-your-app"></a>將推播通知新增至應用程式
 
 1. 在 **QSTodoService** 中新增下列屬性，以便讓 **AppDelegate** 能夠取得行動用戶端：
 
@@ -142,12 +142,12 @@ ms.locfileid: "62097511"
 
 ## <a name="test"></a>在應用程式中測試推播通知
 
-1. 按 [執行] 按鈕以建置專案並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [確定] 以接受推播通知。
+1. 按 [執行]  按鈕以建置專案並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [確定]  以接受推播通知。
 
    > [!NOTE]
-   > 您必須明確地接受來自應用程式的推播通知。 此请求只会在首次运行应用程序时出现。
+   > 您必須明確地接受來自應用程式的推播通知。 只有在應用程式第一次執行時，才會發生此要求。
 
-2. 在应用中，键入一项任务，然后单击加号 (**+**) 图标。
+2. 在應用程式中輸入一項工作，然後按一下加號 ( **+** ) 圖示。
 3. 確認您已接收到通知，然後按一下 [確定]  以關閉通知。
 4. 重複執行步驟 2 並立即關閉應用程式，接著確認通知已顯示。
 

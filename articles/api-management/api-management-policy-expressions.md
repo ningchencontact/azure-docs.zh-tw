@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 9a19165f9ac15f7a40aea0501f960b06efbd63a3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304368"
 ---
 # <a name="api-management-policy-expressions"></a>API 管理原則運算式
@@ -156,7 +156,7 @@ ms.locfileid: "66304368"
 |System.Security.Cryptography.SymmetricAlgorithm|全部|
 |System.Security.Cryptography.X509Certificates.PublicKey|全部|
 |System.Security.Cryptography.X509Certificates.RSACertificateExtensions|全部|
-|System.Security.Cryptography.X509Certificates.X500DistinguishedName|名稱|
+|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Name|
 |System.Security.Cryptography.X509Certificates.X509Certificate|全部|
 |System.Security.Cryptography.X509Certificates.X509Certificate2|全部|
 |System.Security.Cryptography.X509Certificates.X509ContentType|全部|
@@ -220,8 +220,8 @@ ms.locfileid: "66304368"
 |<a id="ref-context-request-headers"></a>字串內容。Request.Headers.GetValueOrDefault (headerName︰ 字串、 defaultValue︰ 字串)|headerName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到標頭，則傳回以逗號分隔的要求標頭值或 `defaultValue`。|
 |<a id="ref-context-response"></a>context.Response|主體：[IMessageBody](#ref-imessagebody)<br /><br /> [標頭](#ref-context-response-headers):IReadOnlyDictionary<string, string[]><br /><br /> StatusCode：int<br /><br /> StatusReason︰字串|
 |<a id="ref-context-response-headers"></a>字串內容。Response.Headers.GetValueOrDefault (headerName︰ 字串、 defaultValue︰ 字串)|headerName︰字串<br /><br /> defaultValue︰字串<br /><br /> 如果找不到標頭，則傳回以逗號分隔的回應標頭值或 `defaultValue`。|
-|<a id="ref-context-subscription"></a>context.Subscription|CreatedTime：DateTime<br /><br /> EndDate：DateTime?<br /><br /> 識別碼︰字串<br /><br /> 索引鍵︰字串<br /><br /> 名稱︰字串<br /><br /> PrimaryKey︰字串<br /><br /> SecondaryKey︰字串<br /><br /> StartDate：DateTime?|
-|<a id="ref-context-user"></a>context.User|電子郵件︰字串<br /><br /> FirstName︰字串<br /><br /> Groups：IEnumerable <[Ienumerable<igroup](#ref-igroup)\><br /><br /> 識別碼︰字串<br /><br /> Identities：IEnumerable <[Ienumerable<iuseridentity](#ref-iuseridentity)\><br /><br /> LastName︰字串<br /><br /> 附註︰字串<br /><br /> RegistrationDate：DateTime|
+|<a id="ref-context-subscription"></a>context.Subscription|CreatedTime：Datetime<br /><br /> EndDate：DateTime?<br /><br /> 識別碼︰字串<br /><br /> 索引鍵︰字串<br /><br /> 名稱︰字串<br /><br /> PrimaryKey︰字串<br /><br /> SecondaryKey︰字串<br /><br /> StartDate：DateTime?|
+|<a id="ref-context-user"></a>context.User|電子郵件︰字串<br /><br /> FirstName︰字串<br /><br /> Groups：IEnumerable <[Ienumerable<igroup](#ref-igroup)\><br /><br /> 識別碼︰字串<br /><br /> Identities：IEnumerable <[Ienumerable<iuseridentity](#ref-iuseridentity)\><br /><br /> LastName︰字串<br /><br /> 附註︰字串<br /><br /> RegistrationDate：Datetime|
 |<a id="ref-iapi"></a>IApi|識別碼︰字串<br /><br /> 名稱︰字串<br /><br /> 路徑︰字串<br /><br /> 通訊協定：IEnumerable<string\><br /><br /> ServiceUrl：[IUrl](#ref-iurl)<br /><br /> subscriptionKeyParameterNames：[ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>Ienumerable<igroup|識別碼︰字串<br /><br /> 名稱︰字串|
 |<a id="ref-imessagebody"></a>IMessageBody|作為 < T\>(preserveContent: bool = false)：其中 T：string、JObject、JToken、JArray、XNode、XElement、XDocument<br /><br /> `context.Request.Body.As<T>` 和 `context.Response.Body.As<T>` 方法是用來讀取指定類型 `T` 的要求和回應訊息主體。 根據預設，該方法會使用原始訊息本文資料流，並使它在傳回後無法使用。 若要避免那種情況，並讓方法在本文資料流的複本上進行操作，請將 `preserveContent` 參數設定為 `true`。 請移至[這裡](api-management-transformation-policies.md#SetBody)來查看範例。|

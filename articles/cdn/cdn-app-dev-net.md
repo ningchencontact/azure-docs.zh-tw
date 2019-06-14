@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 838c76e6a383b61ff465f3ed7506af34c8cd01d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60579920"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>開始使用 Azure CDN 開發
@@ -42,16 +42,16 @@ ms.locfileid: "60579920"
 ## <a name="create-your-project-and-add-nuget-packages"></a>建立專案並新增 Nuget 封裝
 現在，我們已為 CDN 設定檔建立資源群組，並為 Azure AD 應用程式授與權限來管理該群組內的 CDN 設定檔和端點，我們可以開始建立應用程式。
 
-從 Visual Studio 2015 中，依序按一下 [檔案]、[新增] 和 [專案...]，以開啟 [新增專案] 對話方塊。  展開 [Visual C#]，然後選取左側窗格中的 [Windows]。  按一下中央窗格的 [主控台應用程式]  。  為專案命名，然後按一下 [確定] 。  
+從 Visual Studio 2015 中，依序按一下 [檔案]  、[新增]  和 [專案...]  ，以開啟 [新增專案] 對話方塊。  展開 [Visual C#]  ，然後選取左側窗格中的 [Windows]  。  按一下中央窗格的 [主控台應用程式]  。  為專案命名，然後按一下 [確定]  。  
 
 ![New Project](./media/cdn-app-dev-net/cdn-new-project.png)
 
 我們的專案將使用 Nuget 封裝內含的一些 Azure 程式庫。  讓我們先將它們新增至專案。
 
-1. 依序按一下 [工具] 功能表、[Nuget 封裝管理員] 及 [封裝管理員主控台]。
+1. 依序按一下 [工具]  功能表、[Nuget 封裝管理員]  及 [封裝管理員主控台]  。
    
     ![管理 Nuget 封裝](./media/cdn-app-dev-net/cdn-manage-nuget.png)
-2. 在 [封裝管理員主控台] 中，執行下列命令來安裝 **Active Directory Authentication Library (ADAL)**：
+2. 在 [封裝管理員主控台] 中，執行下列命令來安裝 **Active Directory Authentication Library (ADAL)** ：
    
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
 3. 執行下列命令來安裝 **Azure CDN 管理程式庫**：
@@ -73,7 +73,7 @@ ms.locfileid: "60579920"
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. 我們必須定義一些我們的方法將用到的常數。  在 `Program` 類別中，但在 `Main` 方法之前，新增下列內容。  務必視需要使用您自己的值來取代預留位置，包括 **&lt;角括號&gt;**。
+2. 我們必須定義一些我們的方法將用到的常數。  在 `Program` 類別中，但在 `Main` 方法之前，新增下列內容。  務必視需要使用您自己的值來取代預留位置，包括 **&lt;角括號&gt;** 。
    
     ```csharp
     //Tenant app constants
@@ -291,7 +291,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> 在上述範例中，字串 `/*` 代表我想要清除端點路徑根目錄中的所有項目。  這相當於在 Azure 入口網站的 [清除] 對話方塊中勾選 [全部清除]。 在 `CreateCdnProfile` 方法中，我已經使用程式碼 `Sku = new Sku(SkuName.StandardVerizon)` 來建立設定檔做為**來自 Verizon 的 Azure CDN** 設定檔，因此這將會成功。  不過，**來自 Akamai 的 Azure CDN** 設定檔不支援 [全部清除]，因此，如果我在本教學課程中使用 Akamai 設定檔，就必須包含要清除的特定路徑。
+> 在上述範例中，字串 `/*` 代表我想要清除端點路徑根目錄中的所有項目。  這相當於在 Azure 入口網站的 [清除] 對話方塊中勾選 [全部清除]  。 在 `CreateCdnProfile` 方法中，我已經使用程式碼 `Sku = new Sku(SkuName.StandardVerizon)` 來建立設定檔做為**來自 Verizon 的 Azure CDN** 設定檔，因此這將會成功。  不過，**來自 Akamai 的 Azure CDN** 設定檔不支援 [全部清除]  ，因此，如果我在本教學課程中使用 Akamai 設定檔，就必須包含要清除的特定路徑。
 > 
 > 
 

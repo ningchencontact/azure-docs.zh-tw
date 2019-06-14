@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 0c47212e51725e7d4a173c441709dca739d4e357
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024539"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>使用 Azure 搜尋服務中的 「 簡單 」 的搜尋語法的查詢範例
@@ -55,7 +55,7 @@ URL 組合具有下列元素：
 
 ## <a name="send-your-first-query"></a>傳送第一個查詢
 
-在驗證步驟中，將下列要求貼到 GET 中，然後按一下 [傳送]。 結果會以詳細 JSON 文件的形式傳回。 會傳回整個文件，可讓您查看所有欄位和所有的值。
+在驗證步驟中，將下列要求貼到 GET 中，然後按一下 [傳送]  。 結果會以詳細 JSON 文件的形式傳回。 會傳回整個文件，可讓您查看所有欄位和所有的值。
 
 將此 URL 貼入 REST 用戶端上，做為驗證步驟，以及檢視文件結構。
 
@@ -141,7 +141,7 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
 ```
 
-合併篩選和搜尋的另一種強大方式就是透過篩選運算式中的 **`search.ismatch*()`**，您可以在其中的篩選內使用搜尋查詢。 這個篩選運算式在 *plan* 上使用萬用字元來選取包含 term plan、planner、planning 等等的 business_title。
+合併篩選和搜尋的另一種強大方式就是透過篩選運算式中的 **`search.ismatch*()`** ，您可以在其中的篩選內使用搜尋查詢。 這個篩選運算式在 *plan* 上使用萬用字元來選取包含 term plan、planner、planning 等等的 business_title。
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
@@ -194,7 +194,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ```
 
 > [!NOTE]
-> 透過值範圍進行面向化是常見的搜尋應用程式需求。 如需為 Facet 導覽結構建立篩選條件的詳細資訊和範例，請參閱[「如何實作多面向導覽」中的「根據範圍篩選」](search-faceted-navigation.md#filter-based-on-a-range)。
+> 透過值範圍進行面向化是常見的搜尋應用程式需求。 如需為 Facet 導覽結構建立篩選條件的詳細資訊和範例，請參閱[「如何實作多面向導覽」中的「根據範圍篩選」  ](search-faceted-navigation.md#filter-based-on-a-range)。
 
 ## <a name="example-5-geo-search"></a>範例 5：地區搜尋
 
@@ -223,19 +223,19 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 字詞查詢是個別評估的單一字詞 (可能有許多個)。 片語查詢會以引號括住，並以逐字字串的形式評估。 比對的精確度由運算子和 searchMode 所控制。
 
-範例 1︰**`&search=fire`** 傳回 150 個結果，其中，所有相符項目皆在文件中的某處包含 word 一字。
+範例 1︰ **`&search=fire`** 傳回 150 個結果，其中，所有相符項目皆在文件中的某處包含 word 一字。
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=fire
 ```
 
-範例 2︰**`&search=fire department`** 傳回 2002 個結果。 系統會針對包含 fire 或 department 的文件傳回相符項目。
+範例 2︰ **`&search=fire department`** 傳回 2002 個結果。 系統會針對包含 fire 或 department 的文件傳回相符項目。
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=fire department
 ```
 
-範例 3︰**`&search="fire department"`** 傳回 82 個結果。 以引號括住字串時會對這兩個字詞進行逐字搜尋，並從索引中包含此組合字詞的權杖化字詞尋找相符項目。 這解釋了為何 **`search=+fire +department`** 這樣的搜尋並不相同。 這兩個字詞都必須存在，但兩者的掃描會個別執行。 
+範例 3︰ **`&search="fire department"`** 傳回 82 個結果。 以引號括住字串時會對這兩個字詞進行逐字搜尋，並從索引中包含此組合字詞的權杖化字詞尋找相符項目。 這解釋了為何 **`search=+fire +department`** 這樣的搜尋並不相同。 這兩個字詞都必須存在，但兩者的掃描會個別執行。 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search="fire department"

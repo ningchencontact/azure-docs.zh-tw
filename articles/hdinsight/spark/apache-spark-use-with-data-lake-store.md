@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.openlocfilehash: 688b87fcc0ec18e0bf5924470d521c44229ae421
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64682879"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>使用 HDInsight Spark 叢集分析 Data Lake Storage Gen1 中的資料
@@ -57,20 +57,20 @@ ms.locfileid: "64682879"
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>搭配 Data Lake Storage Gen1 使用 HDInsight Spark 叢集
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Apache Spark 叢集格圖格 (如果您已將它釘選到開始面板)。 您也可以按一下 [瀏覽全部] > [HDInsight 叢集] 來瀏覽至您的叢集。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Apache Spark 叢集格圖格 (如果您已將它釘選到開始面板)。 您也可以按一下 [瀏覽全部]   > [HDInsight 叢集]  來瀏覽至您的叢集。
 
-2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。 出现提示时，请输入群集的管理员凭据。
+2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]  ，然後在 [叢集儀表板]  刀鋒視窗中按一下 [Jupyter Notebook]  。 出現提示時，輸入叢集的系統管理員認證。
 
    > [!NOTE]  
    > 您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。 使用您叢集的名稱取代 **CLUSTERNAME** ：
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-3. 建立新的 Notebook。 按一下 [新增]，然後按一下 [PySpark]。
+3. 建立新的 Notebook。 按一下 [新增]  ，然後按一下 [PySpark]  。
 
     ![建立新的 Jupyter Notebook](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "建立新的 Jupyter Notebook")
 
-4. 由于笔记本是使用 PySpark 内核创建，因此不需要显式创建任何上下文。 當您執行第一個程式碼儲存格時，系統會自動為您建立 Spark 和 Hive 內容。 首先，您可以匯入此案例所需的類型。 方法是將下列程式碼片段貼到儲存格中，然後按下 **SHIFT + ENTER**。
+4. 您使用 PySpark 核心建立 Notebook，因此不需要明確建立任何內容。 當您執行第一個程式碼儲存格時，系統會自動為您建立 Spark 和 Hive 內容。 首先，您可以匯入此案例所需的類型。 方法是將下列程式碼片段貼到儲存格中，然後按下 **SHIFT + ENTER**。
 
         from pyspark.sql.types import *
 
@@ -116,13 +116,13 @@ ms.locfileid: "64682879"
 
 7. 一旦工作順利完成後，預設會顯示下列表格式輸出。
 
-      ![查询结果的表输出](./media/apache-spark-use-with-data-lake-store/jupyter-tabular-output.png "查询结果的表输出")
+      ![查詢結果的資料表輸出](./media/apache-spark-use-with-data-lake-store/jupyter-tabular-output.png "查詢結果的資料表輸出")
 
-     您也可以查看其他視覺效果中的結果。 例如，同一输出的分区图看起来如下所示。
+     您也可以查看其他視覺效果中的結果。 例如，相同輸出的區域圖看起來會如下所示。
 
      ![查詢結果的區域圖](./media/apache-spark-use-with-data-lake-store/jupyter-area-output.png "查詢結果的區域圖")
 
-8. 應用程式執行完畢之後，您應該要關閉 Notebook 來釋放資源。 若要這樣做，請從 Notebook 的 [檔案] 功能表中，按一下 [關閉並停止]。 這樣就能夠結束並關閉 Notebook。
+8. 應用程式執行完畢之後，您應該要關閉 Notebook 來釋放資源。 若要這樣做，請從 Notebook 的 [檔案]  功能表中，按一下 [關閉並停止]  。 這樣就能夠結束並關閉 Notebook。
 
 
 ## <a name="next-steps"></a>後續步驟

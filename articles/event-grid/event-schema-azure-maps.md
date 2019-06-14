@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 02/08/2019
 ms.author: v-musehg
 ms.openlocfilehash: 74a3674e632f8dc3f0755bc2ad48376708c7966f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861849"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-maps"></a>Azure 地圖服務的 Azure 事件方格事件結構描述
@@ -105,7 +105,7 @@ Azure 地圖服務帳戶會發出下列事件類型：
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | topic | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| subject | string | 發行者定義事件主體的路徑。 |
+| 主旨 | string | 發行者定義事件主體的路徑。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | id | string | 事件的唯一識別碼。 |

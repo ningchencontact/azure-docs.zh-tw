@@ -16,10 +16,10 @@ ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60596683"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>使用 REST API 建立 Azure 資源的自訂角色
@@ -54,11 +54,11 @@ ms.locfileid: "60596683"
 
 1. 在 URI 內，將 *{scope}* 取代為要列出角色的範圍。
 
-    | 影響範圍 | 類型 |
+    | `Scope` | 類型 |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
 
 1. 取代 *{filter}* 與角色類型。
 
@@ -78,11 +78,11 @@ ms.locfileid: "60596683"
 
 1. 在 URI 內，將 *{scope}* 取代為要列出角色的範圍。
 
-    | 影響範圍 | 類型 |
+    | `Scope` | 類型 |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
 
 1. 取代 *{filter}* 角色顯示名稱。
 
@@ -104,11 +104,11 @@ ms.locfileid: "60596683"
 
 1. 在 URI 內，將 *{scope}* 取代為要列出角色的範圍。
 
-    | 影響範圍 | 類型 |
+    | `Scope` | 類型 |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
 
 1. 將 *{roleDefinitionId}* 取代為角色定義的 GUID 識別碼。
 
@@ -152,11 +152,11 @@ ms.locfileid: "60596683"
 
 1. 在 URI 內，將 *{scope}* 取代為自訂角色的第一個 `assignableScopes`。
 
-    | 影響範圍 | 類型 |
+    | `Scope` | 類型 |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
 
 1. 將 *{roleDefinitionId}* 取代為自訂角色的 GUID 識別碼。
 
@@ -217,11 +217,11 @@ ms.locfileid: "60596683"
 
 1. 在 URI 內，將 *{scope}* 取代為自訂角色的第一個 `assignableScopes`。
 
-    | 影響範圍 | 類型 |
+    | `Scope` | 類型 |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
 
 1. 將 *{roleDefinitionId}* 取代為自訂角色的 GUID 識別碼。
 
@@ -301,11 +301,11 @@ ms.locfileid: "60596683"
 
 1. 在 URI 內，將 *{scope}* 取代為要刪除自訂角色的範圍。
 
-    | 影響範圍 | 類型 |
+    | `Scope` | 類型 |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 訂用帳戶 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 資源群組 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 資源 |
 
 1. 將 *{roleDefinitionId}* 取代為自訂角色的 GUID 識別碼。
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
 ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925482"
 ---
 # <a name="scale-with-additional-process-servers"></a>調整的額外處理序伺服器
@@ -53,11 +53,11 @@ ms.locfileid: "64925482"
 
 1. 登入 Azure 入口網站中，並瀏覽至您的復原服務保存庫。
 2. 開啟 **Site Recovery 基礎結構** >  **VMWare 和實體機器** > **設定伺服器** (位於 [適用於 VMware 和實體機器] 底下)。
-3. 選取設定伺服器以切入伺服器的詳細資料。 接著按一下 **[+ 處理序伺服器]**。
-4. 在 **[新增處理序伺服器]** >  **[選擇您要部署處理序伺服器的位置]**，選擇 **[於內部部署部署相應放大處理序伺服器]**。
+3. 選取設定伺服器以切入伺服器的詳細資料。 接著按一下 **[+ 處理序伺服器]** 。
+4. 在 **[新增處理序伺服器]**  >   **[選擇您要部署處理序伺服器的位置]** ，選擇 **[於內部部署部署相應放大處理序伺服器]** 。
 
    ![新增伺服器頁面](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
-1. 按一下 **[下載 Microsoft Azure Site Recovery 整合安裝]**。 這會下載最新版本的安裝檔案。
+1. 按一下 **[下載 Microsoft Azure Site Recovery 整合安裝]** 。 這會下載最新版本的安裝檔案。
 
    > [!WARNING]
    > 處理序伺服器安裝的版本應該與您執行的設定伺服器版本相同或為較舊版本。 一個確保版本相容性的簡單方式，便是使用和您最近用來安裝或更新設定伺服器的安裝程式相同的安裝程式。
@@ -81,7 +81,7 @@ UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCred
 
 [!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
 
-例如︰
+例如:
 
 ```
 MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted

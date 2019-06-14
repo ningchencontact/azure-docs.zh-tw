@@ -1,6 +1,6 @@
 ---
 title: Azure 媒體服務概念 | Microsoft Docs
-description: 本主题提供 Azure 媒体服务概念的概述
+description: 本主題提供 Azure 媒體服務概念的概觀
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 2b28dde812dcce120c951730c27809f7f024e122
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64681548"
 ---
 # <a name="azure-media-services-concepts"></a>Azure 媒體服務概念 
@@ -29,7 +29,7 @@ ms.locfileid: "64681548"
 
 ## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>資產和儲存體
 ### <a name="assets"></a>Assets
-[資產](https://docs.microsoft.com/rest/api/media/operations/asset) 包含數位檔案 (包括視訊、音訊、影像、縮圖集合、文字播放軌和隱藏式輔助字幕檔案)，以及這些檔案的相關中繼資料。 数字文件在上传到资产中后，即可用于媒体服务编码和流式处理工作流。
+[資產](https://docs.microsoft.com/rest/api/media/operations/asset) 包含數位檔案 (包括視訊、音訊、影像、縮圖集合、文字播放軌和隱藏式輔助字幕檔案)，以及這些檔案的相關中繼資料。 將數位檔案上傳到資產之後，可以用於媒體服務編碼和串流工作流程。
 
 資產會對應到 Azure 儲存體帳戶中的 blob 容器，且資產中的檔案會儲存為該容器中的區塊 Blob。 Azure 媒體服務不支援分頁 Blob。
 
@@ -59,7 +59,7 @@ ms.locfileid: "64681548"
 
 **CommonEncryptionProtected** - 如果您想要使用一般加密或 PlayReady DRM (例如，受到 PlayReady DRM 保護的 Smooth Streaming) 來加密 (或上傳已加密) 內容，請使用此選項。
 
-**EnvelopeEncryptionProtected** - 如果要保护（或上传已加密的）采用高级加密标准 (AES) 加密的 HTTP Live Streaming (HLS)，请使用此选项。 如果您上傳已透過 AES 加密的 HLS，它必須是由 Transform Manager 加密。
+**EnvelopeEncryptionProtected** - 如果您想要保護利用進階加密標準 (AES) 所加密的 HTTP 即時串流 (HLS) 或上傳利用相同標準所加密的已保護 HTTP 即時串流 (HLS)，請使用此選項。 如果您上傳已透過 AES 加密的 HLS，它必須是由 Transform Manager 加密。
 
 ### <a name="access-policy"></a>存取原則
 [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) 定義資產存取的權限 (例如讀取、寫入和清單) 和持續時間。 您通常會傳遞 AccessPolicy 物件到定位器，接著再用來存取資產中包含的檔案。
@@ -68,7 +68,7 @@ ms.locfileid: "64681548"
 >對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限，例如，要長時間維持就地 (非上載原則) 的定位器原則，您應該使用相同的原則識別碼。 如需詳細資訊，請參閱[此主題](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
 ### <a name="blob-container"></a>Blob 容器
-Blob 容器提供一組 blob。 Blob 容器在媒體服務中是做為存取控制的分界點，以及資產上的共用存取簽章 (SAS) 定位器。 Azure 儲存體帳戶可以包含無限多個 blob 容器。 一个容器可以存储无数个 Blob。
+Blob 容器提供一組 blob。 Blob 容器在媒體服務中是做為存取控制的分界點，以及資產上的共用存取簽章 (SAS) 定位器。 Azure 儲存體帳戶可以包含無限多個 blob 容器。 容器可以儲存無限制的 Blob。
 
 >[!NOTE]
 > 請勿在不使用媒體服務 API 的情況下，嘗試變更由媒體服務所產生的 blob 容器內容。
@@ -92,7 +92,7 @@ Blob 容器提供一組 blob。 Blob 容器在媒體服務中是做為存取控�
 工作包含要進行之處理的相關中繼資料。 每個工作 (Job) 包含一或多個 [工作 (Task)](https://docs.microsoft.com/rest/api/media/operations/task)，該工作 (Task) 指定不可部分完成的處理工作、該處理工作的輸入資產、輸出資產、媒體處理器和其相關設定。 工作 (Job) 中的工作 (Task) 可以鏈結在一起，其中一項工作 (Task) 的輸出資產指定為下一個工作 (Task) 的輸入資產。 透過這種方式，一項工作 (Job) 可以包含一個媒體簡報所需的所有處理。
 
 ## <a id="encoding"></a>編碼
-Azure 媒体服务提供了多个用于在云中对媒体进行编码的选项。
+Azure 媒體服務提供多個用於將雲端中之媒體編碼的選項。
 
 開始使用媒體服務時，請務必了解轉碼器和檔案格式之間的差異。
 轉碼器是實作壓縮/解壓縮演算法的軟體，而檔案格式是保存已壓縮視訊的容器。
@@ -119,11 +119,11 @@ Azure 媒体服务提供了多个用于在云中对媒体进行编码的选项�
 
 您可在建立通道時取得內嵌 URL 和預覽 URL。 通道不需處於啟動狀態也可以取得這些 URL。 當您準備好要開始從即時轉碼器推播資料給通道時，就必須先啟動通道。 即時轉碼器開始內嵌資料後，您就可以預覽您的資料流。
 
-每個媒體服務帳戶可以包含多個通道、多個程式和多個 StreamingEndpoints。 根據頻寬和安全性需求，StreamingEndpoint 服務可以專屬於一或多個通道。 任何 StreamingEndpoint 都可以从任何通道拉取。
+每個媒體服務帳戶可以包含多個通道、多個程式和多個 StreamingEndpoints。 根據頻寬和安全性需求，StreamingEndpoint 服務可以專屬於一或多個通道。 任何 StreamingEndpoint 可以從任何通道中提取。
 
 ### <a name="program-event"></a>程式 (事件)
-[程式 (事件)](https://docs.microsoft.com/rest/api/media/operations/program) 可讓您控制即時資料流區段的發佈和儲存體。 频道管理节目（事件）。 通道和程式的關聯性類似於傳統媒體，此處的通道有常數內容資料流，而程式的範圍是該通道上的某些計時事件。
-可以通过设置 **ArchiveWindowLength** 属性，指定希望保留多少小时的节目录制内容。 此值最小可以設定為 5 分鐘，最大可以設定為 25 個小時。
+[程式 (事件)](https://docs.microsoft.com/rest/api/media/operations/program) 可讓您控制即時資料流區段的發佈和儲存體。 通道會管理程式 (事件)。 通道和程式的關聯性類似於傳統媒體，此處的通道有常數內容資料流，而程式的範圍是該通道上的某些計時事件。
+您可以透過設定 **ArchiveWindowLength** 屬性，指定您想要保留已記錄程式內容的時數。 此值最小可以設定為 5 分鐘，最大可以設定為 25 個小時。
 
 ArchiveWindowLength 也指定用戶端可從目前即時位置往回搜尋的最大時間量。 程式可以執行超過指定的時間量，但是超過此時間長度的內容會被持續捨棄。 此屬性的這個值也會決定用戶端資訊清單可以成長為多長的時間。
 
@@ -133,12 +133,12 @@ ArchiveWindowLength 也指定用戶端可從目前即時位置往回搜尋的最
 
 如需詳細資訊，請參閱
 
-* [使用能够使用 Azure 媒体服务执行实时编码的频道](media-services-manage-live-encoder-enabled-channels.md)
+* [使用啟用的通道來以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)
 * [使用通道，從內部部署編碼器接收多位元速率即時串流](media-services-live-streaming-with-onprem-encoders.md)
-* [配额和限制](media-services-quotas-and-limitations.md)
+* [配額和限制](media-services-quotas-and-limitations.md)。
 
 ## <a name="protecting-content"></a>保護內容
-### <a name="dynamic-encryption"></a>动态加密
+### <a name="dynamic-encryption"></a>動態加密
 Azure 媒體服務可讓您保護媒體從離開電腦到進行儲存、處理和傳遞時的安全。 媒體服務可讓您傳遞利用進階加密標準 (AES) (使用 128 位元加密金鑰) 動態加密和使用 PlayReady 和/或 Widevine DRM 的一般加密 (CENC) 的內容。 媒體服務也提供服務，傳遞 AES 金鑰和 PlayReady 授權給授權用戶端。
 
 您目前可以加密下列串流格式：HLS、MPEG DASH 和 Smooth Streaming。 您無法加密漸進式下載。
@@ -152,7 +152,7 @@ Azure 媒體服務可讓您保護媒體從離開電腦到進行儲存、處理�
 ### <a name="token-restriction"></a>權杖限制
 內容金鑰授權原則可能會有一個或多個授權限制：Open、權杖限制或 IP 限制。 權杖限制原則必須伴隨著安全權杖服務 (STS) 所發出的權杖。 媒體服務支援簡單 Web 權杖 (SWT) 格式和 JSON Web 權杖 (JWT) 格式的權杖。 媒體服務不提供安全權杖服務。 您可以建立自訂的 STS。 STS 必須設定為建立使用指定的索引鍵和問題宣告您在權杖限制組態中指定簽署的權杖。 如果權杖有效，且權杖中的宣告符合針對金鑰 (或授權) 所設定的宣告，媒體服務金鑰傳遞服務會將所要求的金鑰 (或授權) 傳回給用戶端。
 
-設定 token 限制原則時，您必須指定主要驗證金鑰、簽發者和對象參數。 主要驗證金鑰包含簽署權杖使用的金鑰，簽發者是發行權杖的安全權杖服務。 對象 (有時稱為範圍) 描述權杖或權杖獲授權存取之資源的用途。 媒体服务密钥传送服务验证令牌中的这些值是否与模板中的值匹配。
+設定 token 限制原則時，您必須指定主要驗證金鑰、簽發者和對象參數。 主要驗證金鑰包含簽署權杖使用的金鑰，簽發者是發行權杖的安全權杖服務。 對象 (有時稱為範圍) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。
 
 如需詳細資訊，請參閱下列文章：
 - [保護內容概觀](media-services-content-protection-overview.md)
@@ -164,14 +164,14 @@ Azure 媒體服務可讓您保護媒體從離開電腦到進行儲存、處理�
 使用媒體服務時，建議您將夾層檔案的編碼設為調適性位元速率 MP4 集，然後使用[動態封裝](media-services-dynamic-packaging-overview.md)將該 MP4 集轉換為需要的格式。
 
 ### <a name="streaming-endpoint"></a>串流端點
-StreamingEndpoint 表示一个流服务，该服务可以直接将内容传递给客户端播放器应用程序，也可以传递给内容分发网络 (CDN) 以进一步分发（Azure 媒体服务现在还提供了 Azure CDN 集成）。來自串流端點服務的輸出串流可以是即時資料流，或媒體服務帳戶中的隨選視訊資產。 媒體服務客戶可根據其需求，選擇一個**標準**串流端點，或選擇一或多個**進階**串流端點。 大多數的串流工作負載都適合使用標準串流端點。 
+StreamingEndpoint 代表可以直接將內容傳遞給用戶端播放程式應用程式，或傳遞給內容傳遞網路 (CDN) 進行進一步發佈的串流服務 (Azure 媒體服務現在提供 Azure CDN 整合)。來自串流端點服務的輸出串流可以是即時資料流，或媒體服務帳戶中的隨選視訊資產。 媒體服務客戶可根據其需求，選擇一個**標準**串流端點，或選擇一或多個**進階**串流端點。 大多數的串流工作負載都適合使用標準串流端點。 
 
 大多數的串流工作負載都適合使用標準串流端點。 標準串流端點可以透過動態封裝至 HLS、MPEG DASH 和 Smooth Streaming，靈活地將您的內容傳遞至幾乎每個裝置，也支援 Microsoft PlayReady、Google Widevine、Apple Fairplay 和 AES128 的動態加密。  透過 Azure CDN 整合，還能從極少觀眾調整到超大量的觀眾，加上數以千計的並行觀賞者。 如果您的進階工作負載或串流容量需求不符合標準串流端點輸送量目標，或您想要控制 StreamingEndpoint 服務的容量來因應不斷成長的頻寬需求，則建議配置縮放單位 (也稱為進階串流單位)。
 
 建議您使用動態封裝和/或動態加密。
 
 >[!NOTE]
->建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中] 狀態。 
+>建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止]  狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中]  狀態。 
 
 如需詳細資訊，請參閱[此主題](media-services-portal-manage-streaming-endpoints.md)。
 
@@ -180,24 +180,24 @@ StreamingEndpoint 表示一个流服务，该服务可以直接将内容传递�
 只有 StreamingEndpoint 處於執行中狀態時，才會向您收取費用。
 
 ### <a name="asset-delivery-policy"></a>資產傳遞原則
-媒体服务内容传送工作流中的步骤之一是配置[资产传送策略](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)，以便对其进行流式传输。 資產傳遞原則會告訴媒體服務您想要如何傳遞資產：您的資產應該動態封裝成哪個串流通訊協定 (如 MPEG DASH、HLS、Smooth Streaming 或所有)，您是否想要動態加密您的資產及其方式 (信封或一般加密)。
+其中一個媒體服務內容傳遞工作流程中的步驟設定[資產的傳遞原則](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)您想要串流處理。 資產傳遞原則會告訴媒體服務您想要如何傳遞資產：您的資產應該動態封裝成哪個串流通訊協定 (如 MPEG DASH、HLS、Smooth Streaming 或所有)，您是否想要動態加密您的資產及其方式 (信封或一般加密)。
 
 如果您有儲存體加密的資產，在可以串流處理資產之前，串流伺服器會先移除儲存體加密，並使用指定的傳遞原則來串流您的內容。 例如，若要傳遞使用進階加密標準 (AES) 加密金鑰加密的資產，請將原則類型設定為 DynamicEnvelopeEncryption。 如果您要移除儲存體加密，並且不受阻礙地串流資產，請將原則類型設定為 NoDynamicEncryption。
 
-### <a name="progressive-download"></a>渐进式下载
-漸進式下載可以在下載完整檔案前就開始播放媒體。 只能渐进式下载 MP4 文件。
+### <a name="progressive-download"></a>漸進式下載
+漸進式下載可以在下載完整檔案前就開始播放媒體。 只能漸進式下載 MP4 檔案。
 
 >[!NOTE]
 >如果希望加密的資產可供漸進式下載，您必須先將其解密。
 
-若要提供漸進式下載 URL 給使用者，您必須先建立 OnDemandOrigin 定位器。 建立定位器會提供資產的基底路徑。 接著您必須附加上 MP4 檔案的名稱。 例如︰
+若要提供漸進式下載 URL 給使用者，您必須先建立 OnDemandOrigin 定位器。 建立定位器會提供資產的基底路徑。 接著您必須附加上 MP4 檔案的名稱。 例如:
 
 http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-### <a name="streaming-urls"></a>流式处理 URL
-將內容串流到用戶端。 若要为用户提供流式处理 URL，必须先创建一个 OnDemandOrigin 定位符。 建立定位器可針對其中包含您要串流之內容的資產，提供其基底路徑。 不過，若要能夠串流此內容，您還需要進一步修改此路徑。 若要建構串流資訊清單檔案的完整 URL，您必須串連定位器的 Path 值和資訊清單 (filename.ism) 的檔案名稱。 接著，在定位器路徑後面附加 /Manifest 和適當的格式 (如果需要)。
+### <a name="streaming-urls"></a>串流 URL
+將內容串流到用戶端。 若要提供漸進式下載 URL 給使用者，您必須先建立 OnDemandOrigin 定位器。 建立定位器可針對其中包含您要串流之內容的資產，提供其基底路徑。 不過，若要能夠串流此內容，您還需要進一步修改此路徑。 若要建構串流資訊清單檔案的完整 URL，您必須串連定位器的 Path 值和資訊清單 (filename.ism) 的檔案名稱。 接著，在定位器路徑後面附加 /Manifest 和適當的格式 (如果需要)。
 
-您也可以透過 SSL 連線串流您的內容。 若要這樣做，請確定您的串流 URL 以 HTTPS 開頭。 目前，AMS 对自定义域不支持 SSL。  
+您也可以透過 SSL 連線串流您的內容。 若要這樣做，請確定您的串流 URL 以 HTTPS 開頭。 目前 AMS 不支援使用 SSL 搭配自訂網域。  
 
 >[!NOTE]
 >只有當您傳遞內容的來源串流端點是在 2014 年 9 月 10 日之後建立時，才能透過 SSL 串流。 如果您的串流 URL 是根據 9 月 10 日之後建立的串流端點，則 URL 會包含 "streaming.mediaservices.windows.net" (新格式)。 包含 "origin.mediaservices.windows.net" (舊格式) 的串流 URL 不支援 SSL。 如果您的 URL 是舊格式，而且您希望能夠透過 SSL 串流，請建立新的串流端點。 使用根據新的串流端點建立的 URL，透過 SSL 串流處理內容。

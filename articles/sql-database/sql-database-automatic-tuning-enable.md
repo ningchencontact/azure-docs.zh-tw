@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: f94d731fd7b9a9fa85ae42d22949c7ca4024aabe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61416476"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>啟用自動調整以監視查詢並改進工作負載效能
@@ -29,7 +29,7 @@ Azure SQL Database 是自動受控的資料服務，會不斷地監視您的查�
 > 可以透過設定支援的選項 force_last_good_plan 和受控執行個體[T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management)只。 入口網站設定和這篇文章中所述的自動索引微調選項不會套用到受控執行個體。
 
 > [!NOTE]
-> 目前不支持通过 ARM（Azure 资源管理器）模板配置自动优化选项。
+> 在此階段不支援設定透過 ARM (Azure Resource Manager) 範本的自動調整選項。
 
 ## <a name="enable-automatic-tuning-on-server"></a>在伺服器上啟用自動調整
 
@@ -37,15 +37,15 @@ Azure SQL Database 是自動受控的資料服務，會不斷地監視您的查�
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-若要在 Azure SQL Database 邏輯**伺服器**上啟用自動調整，請導覽至 Azure 入口網站中的伺服器，然後選取功能表中的 [自動調整]。
+若要在 Azure SQL Database 邏輯**伺服器**上啟用自動調整，請導覽至 Azure 入口網站中的伺服器，然後選取功能表中的 [自動調整]  。
 
 ![伺服器](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> 請注意，此時 [DROP_INDEX] 選項與使用分割區切換和索引提示的應用程式不相容，而且不應該在這些情況下啟用。
+> 請注意，此時 [DROP_INDEX]  選項與使用分割區切換和索引提示的應用程式不相容，而且不應該在這些情況下啟用。
 >
 
-依序選取您想要啟用的自動調整以及 [套用]。
+依序選取您想要啟用的自動調整以及 [套用]  。
 
 伺服器上的自動調整選項會套用到此伺服器上的所有資料庫。 根據預設，所有資料庫會都繼承其父伺服器的組態，但這可加以覆寫並針對每個資料庫個別加以指定。
 
@@ -63,7 +63,7 @@ Azure SQL Database 可讓您個別指定每個資料庫的自動調整設定。 
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-若要在**單一資料庫**上啟用自動調整，請導覽至 Azure 入口網站中的資料庫，然後選取 [自動調整]。
+若要在**單一資料庫**上啟用自動調整，請導覽至 Azure 入口網站中的資料庫，然後選取 [自動調整]  。
 
 您可以針對每個資料庫分開設定個別的自動調整設定。 您可以手動設定個別的自動調整選項，或指定選項從伺服器繼承其設定。
 
@@ -71,7 +71,7 @@ Azure SQL Database 可讓您個別指定每個資料庫的自動調整設定。 
 
 請注意，此時 [DROP_INDEX] 選項與使用分割區切換和索引提示的應用程式不相容，而且不應該在這些情況下啟用。
 
-選取所需的組態後，按一下 [套用]。
+選取所需的組態後，按一下 [套用]  。
 
 ### <a name="rest-api"></a>Rest API
 
@@ -113,4 +113,4 @@ ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_I
 
 * 閱讀[自動調整文章](sql-database-automatic-tuning.md)，進一步了解自動調整，以及它如何協助您改善效能。
 * 如需 Azure SQL Database 效能建議的概觀，請參閱[效能建議](sql-database-advisor.md)。
-* 请参阅[查询性能见解](sql-database-query-performance.md)，了解排名靠前的查询的性能影响。
+* 請參閱[查詢效能深入解析](sql-database-query-performance.md)，以了解如何檢視排名最前面查詢的效能影響。

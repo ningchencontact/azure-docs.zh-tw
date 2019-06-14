@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: glenga
 ms.openlocfilehash: 83e5a15d8a7f9c01f6a180ebceb715600b8a39db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035848"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure 中的 IP 位址 中的 IP 位址
@@ -33,8 +33,8 @@ IP 位址與函式應用程式相關聯，而非與個別函式相關聯。 傳�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 巡覽至函式應用程式。
-3. 選取 [平台功能]。
-4. 選取 [屬性]，以及 [虛擬 IP 位址] 之下的輸入 IP 位址。
+3. 選取 [平台功能]  。
+4. 選取 [屬性]  ，以及 [虛擬 IP 位址]  之下的輸入 IP 位址。
 
 ## <a name="find-outbound-ip-addresses"></a>函式應用程式輸出 IP 位址
 
@@ -84,7 +84,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 }
 ```
 
- 如需有關此檔案何時更新和 IP 位址何時變更的資訊，請展開[下載中心頁面](https://www.microsoft.com/en-us/download/details.aspx?id=56519)的 [詳細資料] 區段。
+ 如需有關此檔案何時更新和 IP 位址何時變更的資訊，請展開[下載中心頁面](https://www.microsoft.com/en-us/download/details.aspx?id=56519)的 [詳細資料]  區段。
 
 ## <a name="inbound-ip-address-changes"></a>輸入 IP 位址變更
 
@@ -123,8 +123,8 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 巡覽至函式應用程式。
-3. 選取 [概觀] 索引標籤。
-4. App Service 方案層會出現在 **App Service 方案/定價層**之下。 App Service 環境定價層為 [隔離]。
+3. 選取 [概觀]  索引標籤。
+4. App Service 方案層會出現在 **App Service 方案/定價層**之下。 App Service 環境定價層為 [隔離]  。
  
 或者，您可以使用 [Cloud Shell](../cloud-shell/quickstart.md)：
 

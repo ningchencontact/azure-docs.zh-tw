@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant
 ms.openlocfilehash: 4e028429ca8a22915eff2b90ca63c6d05a67741b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64692227"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>教學課程：設定自動使用者佈建的 Atlassian Cloud
@@ -48,11 +48,11 @@ ms.locfileid: "64692227"
 
 **若要從 Azure AD 應用程式資源庫新增 Atlassian Cloud，請執行下列步驟：**
 
-1. 在   **[Azure 入口網站](https://portal.azure.com)**，在左側的導覽窗格中，選取**Azure Active Directory**。
+1. 在   **[Azure 入口網站](https://portal.azure.com)** ，在左側的導覽窗格中，選取**Azure Active Directory**。
 
     ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 移至 [企業應用程式]，然後選取 [所有應用程式]。
+2. 移至 [企業應用程式]  ，然後選取 [所有應用程式]  。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
@@ -91,15 +91,15 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-2. 在應用程式清單中，選取 [Atlassian Cloud]。
+2. 在應用程式清單中，選取 [Atlassian Cloud]  。
 
     ![應用程式清單中的 [Atlassian Cloud] 連結](common/all-applications.png)
 
-3. 選取 [佈建] 索引標籤。
+3. 選取 [佈建]  索引標籤。
 
     ![佈建的 Atlassian Cloud](./media/atlassian-cloud-provisioning-tutorial/provisioning-tab.png)
 
-4. 將 [佈建模式] 設定為 [自動]。
+4. 將 [佈建模式]  設定為 [自動]  。
 
     ![佈建的 Atlassian Cloud](./media/atlassian-cloud-provisioning-tutorial/credentials.png)
 
@@ -107,7 +107,7 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
    * 在 **租用戶 URL**欄位中，填滿您收到 Atlassian 的特定租用戶端點，如步驟 6 中所述。 例如： `https://api.atlassian.com/scim/directory/{directoryId}`。
 
-   * 在 [秘密權杖] 欄位中，填入秘密權杖，如同步驟 6 所述。
+   * 在 [秘密權杖]  欄位中，填入秘密權杖，如同步驟 6 所述。
 
 6. 瀏覽至[Atlassian 組織管理員](https://admin.atlassian.com) **> 使用者佈建**，然後按一下**建立語彙基元**。 複製**Directory 基底 URL**並**持有人權杖**來**租用戶 URL**並**祕密權杖**欄位中，分別。
 
@@ -119,17 +119,17 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
     ![佈建的 Atlassian Cloud](./media/atlassian-cloud-provisioning-tutorial/test-connection.png)
 
-8. 在 [通知電子郵件] 欄位中，輸入應該收到佈建錯誤通知的個人或群組電子郵件地址，然後選取 [發生失敗時傳送電子郵件通知] 核取方塊。
+8. 在 [通知電子郵件]  欄位中，輸入應該收到佈建錯誤通知的個人或群組電子郵件地址，然後選取 [發生失敗時傳送電子郵件通知]  核取方塊。
 
     ![佈建的 Atlassian Cloud](./media/atlassian-cloud-provisioning-tutorial/notification.png)
 
-9. 按一下 [檔案] 。
+9. 按一下 [檔案]  。
 
 10. 底下**對應**區段中，選取**同步處理 Azure Active Directory 使用者至 Atlassian Cloud**。
 
     ![佈建的 Atlassian Cloud](./media/atlassian-cloud-provisioning-tutorial/provision-users.png)
 
-11. 檢閱從 Azure AD 同步至 Atlassian Cloud 中的使用者屬性**屬性對應**一節。 為選取的屬性**比對**屬性用來比對進行更新作業的 Atlassian Cloud 中的使用者帳戶。 選取 [儲存] 按鈕以認可所有變更。
+11. 檢閱從 Azure AD 同步至 Atlassian Cloud 中的使用者屬性**屬性對應**一節。 為選取的屬性**比對**屬性用來比對進行更新作業的 Atlassian Cloud 中的使用者帳戶。 選取 [儲存]  按鈕以認可所有變更。
 
     ![佈建的 Atlassian Cloud](./media/atlassian-cloud-provisioning-tutorial/user-mapping.png)
 
@@ -137,7 +137,7 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
     ![佈建的 Atlassian Cloud](./media/atlassian-cloud-provisioning-tutorial/provision-groups.png)
 
-13. 檢閱從 Azure AD 同步至 Atlassian Cloud 中的群組屬性**屬性對應**一節。 為選取的屬性**比對**屬性用來比對在 Atlassian Cloud 中的群組進行更新作業。 選取 [儲存] 按鈕以認可所有變更。
+13. 檢閱從 Azure AD 同步至 Atlassian Cloud 中的群組屬性**屬性對應**一節。 為選取的屬性**比對**屬性用來比對在 Atlassian Cloud 中的群組進行更新作業。 選取 [儲存]  按鈕以認可所有變更。
 
     ![佈建的 Atlassian Cloud](./media/atlassian-cloud-provisioning-tutorial/group-mapping.png)
 
@@ -151,11 +151,11 @@ Azure Active Directory 使用稱為概念*指派*來判斷哪些使用者應接�
 
     ![佈建的 Atlassian Cloud](./media/atlassian-cloud-provisioning-tutorial/provisioning-options.png)
 
-17. 當您準備好要佈建時，按一下 [儲存]。
+17. 當您準備好要佈建時，按一下 [儲存]  。
 
     ![佈建的 Atlassian Cloud](./media/atlassian-cloud-provisioning-tutorial/save.png)
 
-此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用**同步處理詳細資料**區段來監視進度，並依循連結前往佈建活動報告，當中會描述佈建服務在 Atlassian Cloud 的 Azure AD 所執行的所有動作。
+此作業會對在 [設定]  區段的 [範圍]  中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用**同步處理詳細資料**區段來監視進度，並依循連結前往佈建活動報告，當中會描述佈建服務在 Atlassian Cloud 的 Azure AD 所執行的所有動作。
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 

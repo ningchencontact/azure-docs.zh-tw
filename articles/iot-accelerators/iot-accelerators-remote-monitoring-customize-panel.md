@@ -1,19 +1,18 @@
 ---
-title: 向远程监视解决方案 UI 添加面板 - Azure | Microsoft Docs
+title: 將面板新增至遠端監視解決方案 UI-Azure |Microsoft Docs
 description: 本文說明如何在遠端監視解決方案加速器 Web UI 中的儀表板新增面板。
 author: dominicbetts
 manager: timlt
-ms.author: v-yiso
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-origin.date: 10/05/2018
-ms.date: 11/26/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447058"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>在遠端監視解決方案加速器 Web UI 中的儀表板上新增自訂面板
@@ -46,6 +45,7 @@ ms.locfileid: "61447058"
 
 **examplePanel.js**
 
+[!code-javascript[Example panel](~/remote-monitoring-webui/src/walkthrough/components/pages/dashboard/panels/examplePanel/examplePanel.js?name=panel "Example panel")]
 
 將 **src/walkthrough/components/pages/dashboard/panels/examplePanel** 資料夾複製到 **src/components/pages/dashboard/panels** 資料夾。
 
@@ -90,7 +90,7 @@ import {
 npm start
 ```
 
-上一個命令會在本機於 [http://localhost:3000/dashboard](http://localhost:3000/dashboard) 執行 UI。 瀏覽至 [儀表板] 頁面以檢視新的面板。
+上一個命令會在本機於 [http://localhost:3000/dashboard](http://localhost:3000/dashboard) 執行 UI。 瀏覽至 [儀表板]  頁面以檢視新的面板。
 
 ## <a name="next-steps"></a>後續步驟
 

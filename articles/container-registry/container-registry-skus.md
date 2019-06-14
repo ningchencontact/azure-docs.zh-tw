@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: danlep
 ms.openlocfilehash: f36b206ff015511dea7369617febe9220282bbe5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65069048"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU
@@ -20,15 +20,15 @@ Azure Container Registry (ACR) 具有多個服務層級 (稱為SKU)。 這些 SK
 
 | SKU | 受控 | 描述 |
 | --- | :-------: | ----------- |
-| **基本** | 是 | 適用於正在學習 Azure Container Registry 之開發人員的成本最佳化進入點。 基本注册表的编程功能（例如 Azure Active Directory [身份验证集成](container-registry-authentication.md#individual-login-with-azure-ad)、[映像删除][container-registry-delete]和 [Webhook][container-registry-webhook]）与标准注册表和高级注册表相同。 不過，內含儲存體和映像輸送量最適合較低的使用方式情節。 |
+| **基本** | 是 | 適用於正在學習 Azure Container Registry 之開發人員的成本最佳化進入點。 「 基本 」 登錄具有與 Standard 和 Premium 相同的程式設計功能 (例如 Azure Active Directory[驗證整合](container-registry-authentication.md#individual-login-with-azure-ad)，[映像刪除][container-registry-delete]，並[webhook][container-registry-webhook])。 不過，內含儲存體和映像輸送量最適合較低的使用方式情節。 |
 | **標準** | 是 | 「標準」登錄提供與「基本」相同的功能，並且提高內含儲存體和映像輸送量。 「標準」登錄應該能滿足大部分實際執行案例的需求。 |
 | **高級** | 是 | 「進階」登錄提供最多的內含儲存體和並行作業，可啟用大量情節。 除了更高的映像輸送量，Premium 會新增功能，包括[異地複寫][ container-registry-geo-replication]管理單一登錄，跨多個區域，並針對[內容信任](container-registry-content-trust.md)映像標記簽署，並[防火牆和虛擬網路 （預覽）](container-registry-vnet.md)來限制存取登錄。 |
-|  经典（*在 2019 年 4 月后不可用*） | 否 | 此 SKU 已啟用 Azure 中 Azure Container Registry 服務的初始版本。 Azure 在訂用帳戶中建立的儲存體帳戶支援「傳統」登錄，這會限制 ACR 提供更高層級功能的能力，例如提高輸送量和異地複寫。 |
+|  傳統 (*2019 年 4 月之後無法使用*) | 否 | 此 SKU 已啟用 Azure 中 Azure Container Registry 服務的初始版本。 Azure 在訂用帳戶中建立的儲存體帳戶支援「傳統」登錄，這會限制 ACR 提供更高層級功能的能力，例如提高輸送量和異地複寫。 |
 
 > [!IMPORTANT]
-> 经典注册表 SKU 即将**弃用**，**2019 年 4 月**之后将不可用。 对于所有新的注册表，建议使用基本、标准或高级 SKU。 应在 2019 年 4 月之前升级所有现有的经典注册表。 有关升级信息，请参阅[升级经典注册表][container-registry-upgrade]。
+> 经典注册表 SKU 即将**弃用**，**2019 年 4 月**之后将不可用。 我們建議所有新的登錄使用 Basic、 Standard 或 Premium。 应在 2019 年 4 月之前升级所有现有的经典注册表。 如需升級的資訊，請參閱[傳統登錄升級][container-registry-upgrade]。
 
-基本、标准和高级 SKU（统称为“托管注册表”）全都提供相同的编程功能。 它们也全都可以从完全由 Azure 托管的[映像存储][container-registry-storage]受益。 選擇較高層級的 SKU 可提供更多的效能和延展性。 由於有多個服務層級，您可以一開始先使用「基本」，再隨著登錄使用量的增加而轉換為「標準」和「進階」。
+基本、 標準和進階 Sku (共同稱為*受控登錄*) 全部都會提供相同的程式設計功能。 它們也所有受惠[映像儲存體][ container-registry-storage]完全由 Azure 管理。 選擇較高層級的 SKU 可提供更多的效能和延展性。 由於有多個服務層級，您可以一開始先使用「基本」，再隨著登錄使用量的增加而轉換為「標準」和「進階」。
 
 ## <a name="sku-feature-matrix"></a>SKU 功能對照表
 
@@ -38,7 +38,7 @@ Azure Container Registry (ACR) 具有多個服務層級 (稱為SKU)。 這些 SK
 
 ## <a name="changing-skus"></a>變更 SKU
 
-您可以使用 Azure CLI 或在 Azure 入口網站中變更登錄的 SKU。 您可以自由地改用其他受控 SKU，只要您所要改用的目標 SKU 具有所需的最大儲存容量即可。 如果从经典 SKU 切换到托管的 SKU 之一，则无法切换回经典 SKU，因为这是一个单向转换。
+您可以使用 Azure CLI 或在 Azure 入口網站中變更登錄的 SKU。 您可以自由地改用其他受控 SKU，只要您所要改用的目標 SKU 具有所需的最大儲存容量即可。 當您從傳統切換至其中一個受控 Sku 時，就無法改回傳統 」 是單向轉換，請將它。
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -50,11 +50,11 @@ az acr update --name myregistry --sku Premium
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-在 Azure 入口網站的容器登錄 [概觀] 中，選取 [更新]，然後從 SKU 下拉式清單中選取新的 **SKU**。
+在 Azure 入口網站的容器登錄 [概觀]  中，選取 [更新]  ，然後從 SKU 下拉式清單中選取新的 **SKU**。
 
 ![在 Azure 入口網站中更新容器登錄 SKU][update-registry-sku]
 
-如果您有傳統登錄，就無法在 Azure 入口網站中選取受控 SKU。 而是必须先[升级][container-registry-upgrade]到托管的注册表。
+如果您有傳統登錄，就無法在 Azure 入口網站中選取受控 SKU。 相反地，您必須先[升級][ container-registry-upgrade]為受控登錄。
 
 ## <a name="pricing"></a>價格
 

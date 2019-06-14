@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 6f3f06ff54fc76416ba63f4f09835897d546f8dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61349625"
 ---
 # <a name="azure-data-factory-window-transformation"></a>Azure Data Factory 視窗轉換
@@ -44,7 +44,7 @@ Over 子句的另一個部分是設定 ```Order By```。 這會設定資料排�
 
 ![視窗選項](media/data-flow/windows7.png "視窗 7")
 
-彙總及分析的函式 (可供您在 ADF 資料流程運算式語言透過運算式產生器中使用) 完整清單如下： https://aka.ms/dataflowexpressions。
+彙總及分析的函式 (可供您在 ADF 資料流程運算式語言透過運算式產生器中使用) 完整清單如下： https://aka.ms/dataflowexpressions 。
 
 ## <a name="next-steps"></a>後續步驟
 

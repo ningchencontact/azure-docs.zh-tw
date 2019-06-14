@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 58e360bb355c7faf9608b00dd65b14f27aca4367
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61038669"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>設定 Active Directory 和 DNS 的災害復原
@@ -47,7 +47,7 @@ ms.locfileid: "61038669"
 2. 網域控制站應為測試容錯移轉期間所需角色的 FSMO 角色擁有者。 否則在容錯移轉之後，將必須[收回](https://aka.ms/ad_seize_fsmo)這些角色。
 
 ### <a name="configure-vm-network-settings"></a>進行 VM 網路設定
-對於裝載網域控制站或 DNS 的虛擬機器，使用 Site Recovery，在複寫虛擬機器的 [計算和網路] 設定下進行網路設定。 這可確保虛擬機器在容錯移轉之後會連結至正確的網路。
+對於裝載網域控制站或 DNS 的虛擬機器，使用 Site Recovery，在複寫虛擬機器的 [計算和網路]  設定下進行網路設定。 這可確保虛擬機器在容錯移轉之後會連結至正確的網路。
 
 ## <a name="protect-active-directory"></a>保護 Active Directory
 
@@ -73,12 +73,12 @@ ms.locfileid: "61038669"
 
 1. 使用 Site Recovery [複寫](vmware-azure-tutorial.md)裝載網域控制站或 DNS 的虛擬機器。
 2. 建立隔離的網路。 在 Azure 中建立的任何虛擬網路，依預設都會與其他網路隔離。 建議您對此網路使用您的生產網路所使用的相同 IP 範圍。 請勿在此網路上啟用網站對網站連線能力。
-3. 提供隔離網路中 DNS IP 位址。 請使用您想要讓 DNS 虛擬機器取得的 IP 位址。 如果您要複寫至 Azure，請提供用於容錯移轉之虛擬機器的 IP 位址。 若要輸入 IP 位址，請在複寫虛擬機器的 [計算和網路] 設定中選取 [目標 IP] 設定。
+3. 提供隔離網路中 DNS IP 位址。 請使用您想要讓 DNS 虛擬機器取得的 IP 位址。 如果您要複寫至 Azure，請提供用於容錯移轉之虛擬機器的 IP 位址。 若要輸入 IP 位址，請在複寫虛擬機器的 [計算和網路]  設定中選取 [目標 IP]  設定。
 
     ![Azure 測試網路](./media/site-recovery-active-directory/azure-test-network.png)
 
     > [!TIP]
-    > Site Recovery 會嘗試在名稱相同的子網路中建立測試虛擬機器，並使用虛擬機器的 [計算與網路] 設定中提供的 IP 位址。 如果針對測試容錯移轉提供的 Azure 虛擬網路中沒有名稱相同的子網路，則會在依字母順序的第一個子網路中建立測試虛擬機器。
+    > Site Recovery 會嘗試在名稱相同的子網路中建立測試虛擬機器，並使用虛擬機器的 [計算與網路]  設定中提供的 IP 位址。 如果針對測試容錯移轉提供的 Azure 虛擬網路中沒有名稱相同的子網路，則會在依字母順序的第一個子網路中建立測試虛擬機器。
     >
     > 如果目標 IP 位址是所選子網路的一部分，則 Site Recovery 會使用目標 IP 位址嘗試建立測試容錯移轉虛擬機器。 如果目標 IP 不是所選子網路的一部分，則會使用所選子網路中的下一個可用 IP 建立測試容錯移轉虛擬機器。
     >

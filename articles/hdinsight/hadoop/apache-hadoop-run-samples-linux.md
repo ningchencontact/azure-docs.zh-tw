@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: hrasheed
 ms.openlocfilehash: f0251e3926c569b45ebebcd18b98df5af4564443
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706658"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>執行包含在 HDInsight 中的 MapReduce 範例
@@ -24,7 +24,7 @@ ms.locfileid: "64706658"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 在 HDInsight 上 Apache Hadoop 叢集。 请参阅 [Linux 上的 HDInsight 入门](./apache-hadoop-linux-tutorial-get-started.md)。
+* HDInsight 上的 Apache Hadoop 叢集。 請參閱[開始在 Linux 上使用 HDInsight](./apache-hadoop-linux-tutorial-get-started.md)。
 
 * SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -75,7 +75,7 @@ ms.locfileid: "64706658"
 
     此命令會產生本文件上一節中的範例清單。
 
-3. 使用下列命令可取得特定範例的說明。 在本例中为 **wordcount** 示例：
+3. 使用下列命令可取得特定範例的說明。 在此情況下為 **wordcount** 範例：
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
@@ -104,7 +104,7 @@ ms.locfileid: "64706658"
     hdfs dfs -cat /example/data/davinciwordcount/*
     ```
 
-    此命令會串連作業所產生的所有輸出檔。 它會在主控台顯示輸出。 输出与以下文本类似：
+    此命令會串連作業所產生的所有輸出檔。 它會在主控台顯示輸出。 輸出大致如下：
 
         zum     1
         zur     1
@@ -115,7 +115,7 @@ ms.locfileid: "64706658"
 
 ## <a name="the-sudoku-example"></a>數獨範例
 
-[数独](https://en.wikipedia.org/wiki/Sudoku)是由九个 3x3 网格组成的逻辑拼图。 方格中的一些格子含有數字，而有些格子則為空白，因此目標就是解出空白格子的數字。 先前的連結提供謎題的詳細資訊，而此範例的目的是要解出空白格子的數字。 所以我們的輸入應該是具有下列格式的檔案：
+[數獨](https://en.wikipedia.org/wiki/Sudoku) 是由九個 3x3 的方格所組成的邏輯謎題。 方格中的一些格子含有數字，而有些格子則為空白，因此目標就是解出空白格子的數字。 先前的連結提供謎題的詳細資訊，而此範例的目的是要解出空白格子的數字。 所以我們的輸入應該是具有下列格式的檔案：
 
 * 具有九個資料列的九個資料行
 * 每個資料行可以包含一個數字或 `?` (表示空白的格子)
@@ -153,7 +153,7 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 ## <a name="pi--example"></a>Pi (π) 範例
 
-Pi 範例會使用統計 (擬蒙特卡羅法) 方法來估計 pi 的值。 點隨機放置在單位正方形中。 正方形还包含一个圆圈。 點落在圓形中的機率等於圓面積，Pi/4。 Pi 的值可從 4R 的值來估計。 其中 R 是圓內點數佔正方形內總點數的比例。 使用的樣本點越多，估計越準確。
+Pi 範例會使用統計 (擬蒙特卡羅法) 方法來估計 pi 的值。 點隨機放置在單位正方形中。 正方形也包含一個圓形。 點落在圓形中的機率等於圓面積，Pi/4。 Pi 的值可從 4R 的值來估計。 其中 R 是圓內點數佔正方形內總點數的比例。 使用的樣本點越多，估計越準確。
 
 使用以下命令來執行此範例。 此命令會每次使用 16 個對應搭配 10,000,000 個取樣來估計 Pi 的值：
 
@@ -167,7 +167,7 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 GraySort 是一種效能評定排序。 其計量為排序大量資料時 (通常至少為 100 TB) 所達成的排序速率 (TB/分鐘)。
 
-此示例使用适中的 10 GB 数据，这样它运行时能相对快一点。 本範例使用由 Owen O'Malley 和 Arun Murthy 共同開發的 MapReduce 應用程式。 這些應用程式贏得在 2009 中，以 0.578 TB/分鐘 (173 分鐘內的 100 TB) 的速率獲勝的年度一般目的 （「 耐力賽 」） tb 排序效能評定。 如需有關這個和其他排序效能評定基準的詳細資訊，請參閱[排序效能評定](https://sortbenchmark.org/)站台。
+本範例使用不太大的 10 GB 資料，所以執行起來相對較快。 本範例使用由 Owen O'Malley 和 Arun Murthy 共同開發的 MapReduce 應用程式。 這些應用程式贏得在 2009 中，以 0.578 TB/分鐘 (173 分鐘內的 100 TB) 的速率獲勝的年度一般目的 （「 耐力賽 」） tb 排序效能評定。 如需有關這個和其他排序效能評定基準的詳細資訊，請參閱[排序效能評定](https://sortbenchmark.org/)站台。
 
 本範例使用三組 MapReduce 程式：
 
@@ -189,7 +189,7 @@ GraySort 是一種效能評定排序。 其計量為排序大量資料時 (通�
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
     ```
 
-    `-Dmapred.map.tasks` 告诉 Hadoop 多少个映射任务用于此作业。 最後兩個參數會指示作業建立 10 GB 的資料，並將資料儲存在 `/example/data/10GB-sort-input`。
+    `-Dmapred.map.tasks` 會告訴 Hadoop 在這項工作中要使用多少 map 工作。 最後兩個參數會指示作業建立 10 GB 的資料，並將資料儲存在 `/example/data/10GB-sort-input`。
 
 2. 使用以下命令來排序資料：
 

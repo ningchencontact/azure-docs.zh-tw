@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ed94677eea91e3543dced9825a1372f60550a524
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073622"
 ---
 # <a name="what-is-azure-sql-database-service"></a>什麼是 Azure SQL Database 服務
@@ -39,11 +39,11 @@ Azure SQL Database 為 Azure SQL 資料庫提供下列部署選項：
 
 SQL Database 與 [Microsoft SQL Server 資料庫引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation)共用其程式碼基底。 依據 Microsoft 的雲端優先策略，SQL Server 的最新功能會先在 SQL Database 中發行，然後在 SQL Server 本身發行。 這種方法可為您提供最新的 SQL Server 功能，但沒有修補或升級的額外負荷，而這些新功能已在數百萬個資料庫上進行測試。 當新功能宣佈時，如需其相關資訊，請參閱：
 
-- **[適用於 SQL Database 的 Azure 藍圖](https://azure.microsoft.com/roadmap/?category=databases)**：
+- **[適用於 SQL Database 的 Azure 藍圖](https://azure.microsoft.com/roadmap/?category=databases)** ：
 
   您可以從中得知新登場和即將推出的產品。
 
-- **[Azure SQL Database 部落格](https://azure.microsoft.com/blog/topics/database)**：
+- **[Azure SQL Database 部落格](https://azure.microsoft.com/blog/topics/database)** ：
 
   SQL Server 產品小組成員發表 SQL Database 消息和功能的地方。
 
@@ -60,7 +60,7 @@ SQL Database 提供具有多個資源類型、服務層和計算大小的可預�
 
 您可以在一般用途服務層每個月依成本於一個小型單一資料庫中建置第一個應用程式，接著隨時在業務關鍵服務層以手動或程式設計方式變更其服務層，以符合您的解決方案需求。 您的應用程式或客戶皆無須停機，即可調整效能。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求，並且讓您只需支付您所需的資源費用。
 
-動態延展性與自動調整規模不同。 自動調整規模是指服務根據準則來自動調整規模，而動態延展性則允許在不停機的狀況下手動調整規模。 單一資料庫支援手動的動態延展性，但不支援自動調整規模。 如需「自動」體驗，請考慮使用彈性集區，以根據個別資料庫的需求讓資料庫共用集區中的資源。 不過，有一些指令碼可協助您對單一資料庫自動調整延展性。 如需範例，請參閱[使用 PowerShell 來監視和調整單一資料庫的規模](scripts/sql-database-monitor-and-scale-database-powershell.md)。
+動態延展性與自動調整規模不同。 自動調整規模是指服務根據準則來自動調整規模，而動態延展性則允許在不停機的狀況下手動調整規模。 單一資料庫支援手動的動態延展性，但不支援自動調整規模。 如需「自動」  體驗，請考慮使用彈性集區，以根據個別資料庫的需求讓資料庫共用集區中的資源。 不過，有一些指令碼可協助您對單一資料庫自動調整延展性。 如需範例，請參閱[使用 PowerShell 來監視和調整單一資料庫的規模](scripts/sql-database-monitor-and-scale-database-powershell.md)。
 
 ### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>購買模型、服務層、計算大小和儲存體數量
 
@@ -110,20 +110,20 @@ Azure 可用性區域是婧矔菛高可用性問題。  它會嘗試防止建置
 
 事實上，Azure 的業界領先的 99.99%可用性服務等級協定[(SLA)](https://azure.microsoft.com/support/legal/sla/)，由 Microsoft 管理的資料中心全球網路，可協助確保您的應用程式執行 24/7。 Azure 平台可完全管理每個資料庫，並保證任何資料都不會遺失及高度的資料可用性。 Azure 會自動處理修補、備份、複寫、失敗偵測，基礎潛在硬體、軟體或網路失敗、部署錯誤修正、容錯移轉、資料庫升級和其他維護工作。 隔離計算和儲存圖層可達成標準可用性。 整合單一節點上的計算和儲存以獲取效能，然後另外實作類似 Always On 可用性群組的技術，則可達成進階可用性。 如需 Azure SQL Database 高可用性功能的完整討論，請參閱 [SQL Database 可用性](sql-database-high-availability.md)。 此外，SQL Database 還提供內建[業務持續性和全域延展性](sql-database-business-continuity.md)功能，包括：
 
-- **[自動備份](sql-database-automated-backups.md)**：
+- **[自動備份](sql-database-automated-backups.md)** ：
 
   SQL Database 會自動執行 Azure SQL 資料庫的完整、差異及交易記錄備份，以供您還原至任何時間點。 對於單一資料庫和集區資料庫，您可以設定 SQL 資料庫將完整資料庫備份儲存至 Azure 儲存體，以供長期備份保留。 對於受控執行個體，您也可以對僅複製備份執行長期備份保留。
 
-- **[時間點還原](sql-database-recovery-using-backups.md)**：
+- **[時間點還原](sql-database-recovery-using-backups.md)** ：
 
   所有 SQL Database 部署選項均支援復原到任何 Azure SQL 資料庫自動備份保留期間內的任何時間點。
-- **[主動式異地複寫](sql-database-active-geo-replication.md)**：
+- **[主動式異地複寫](sql-database-active-geo-replication.md)** ：
 
   單一資料庫和集區資料庫可讓您在相同或全域分散的 Azure 資料中心最多設定四個可讀取的次要資料庫。  例如，如果 SaaS 應用程式的目錄資料庫有大量的並行唯讀交易，請使用主動式異地複寫功能來啟用全域讀取範圍，並移除主要資料庫上因為讀取工作負載所造成的瓶頸。 對於受控執行個體，請使用自動容錯移轉群組。
-- **[自動容錯移轉群組](sql-database-auto-failover-group.md)**：
+- **[自動容錯移轉群組](sql-database-auto-failover-group.md)** ：
 
   所有 SQL Database 部署選項均可讓您使用容錯移轉群組來全面啟用高可用性和負載平衡，包括大量資料庫、彈性集區和受控執行個體的透明異地複寫和容錯移轉。 容錯移轉群組能夠建立全域分散的 SaaS 應用程式，其管理負擔最小，可讓 SQL Database 處理所有複雜的監視、路由傳送及容錯移轉協調流程。
-- **[區域備援資料庫](sql-database-high-availability.md)**：
+- **[區域備援資料庫](sql-database-high-availability.md)** ：
 
   SQL Database 可讓您跨多個可用性區域佈建進階或業務關鍵資料庫或彈性集區。 由於這些資料庫和彈性集區有多個備援複本可提供高可用性，所以將這些複本放入多個可用性區域即可提供更高的復原能力，包括能夠從資料中心規模的失敗自動復原，而不會遺失任何資料。
 
@@ -191,16 +191,16 @@ SQL Database 會參與定期稽核，並已經過數個合規性標準的認證�
 
 SQL Database 讓應用程式的建置及維護更簡易也更有生產力。 SQL Database 讓您將精力集中於拿手項目：建置絕佳的應用程式。 您可以使用已經擁有的工具和技巧，在 SQL Database 中進行管理和開發。
 
-- **[Azure 入口網站](https://portal.azure.com/)**：
+- **[Azure 入口網站](https://portal.azure.com/)** ：
 
   網頁型應用程式，可用於管理所有 Azure 服務
-- **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)**：
+- **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)** ：
 
   可下載的免費用戶端應用程式，可用於管理任何 SQL 基礎結構 (從 SQL Server 到 SQL Database)
-- **[Visual Studio 中的 SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)**：
+- **[Visual Studio 中的 SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)** ：
 
   可下載的免費用戶端應用程式，可用於開發 SQL Server 關聯式資料庫、Azure SQL 資料庫、Integration Services 套件、Analysis Services 資料模型及 Reporting Services 報告。
-- **[Visual Studio Code](https://code.visualstudio.com/docs)**：
+- **[Visual Studio Code](https://code.visualstudio.com/docs)** ：
 
   免費、可下載、開放原始碼的程式碼編輯器，適用於支援擴充功能的 Windows、macOS 和 Linux，包括可供查詢 Microsoft SQL Server、Azure SQL Database 和 SQL 資料倉儲的 [mssql 擴充功能](https://aka.ms/mssql-marketplace)。
 

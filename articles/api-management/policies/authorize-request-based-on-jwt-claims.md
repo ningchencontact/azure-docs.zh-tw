@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: d656cf7c7bed1d40bbde654f9c2484efcc5df25d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61062147"
 ---
 # <a name="authorize-access-based-on-jwt-claims"></a>以 JWT 宣告為基礎的授權存取
@@ -26,7 +26,7 @@ ms.locfileid: "61062147"
 
 ## <a name="policy"></a>原則
 
-將程式碼貼至 [輸入] 區塊。
+將程式碼貼至 [輸入]  區塊。
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Pre-authorize requests based on HTTP method with validate-jwt.policy.xml)]
 

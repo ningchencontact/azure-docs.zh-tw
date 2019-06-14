@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rajanaki
 ms.openlocfilehash: dc15c8935cd3c20037bbed01f0f24cd2b8642045
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540935"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery 中的服務更新
@@ -69,7 +69,7 @@ Azure Site Recovery 會定期發佈服務更新，包括加入新功能、改善
     
     *按一下以安裝 ->*
 
-4. 選取您要套用更新的 VM，然後按一下 [確定]。
+4. 選取您要套用更新的 VM，然後按一下 [確定]  。
 
 ## <a name="between-two-on-premises-vmm-sites"></a>在兩個內部部署 VMM 網站之間
 1. 下載 Microsoft Azure Site Recovery 提供者的最新更新彙總套件。
@@ -101,7 +101,7 @@ Azure Site Recovery 會定期發佈服務更新，包括加入新功能、改善
 
 1. 根據您目前版本和以上的支援陳述式，先按照[此處](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server)提供的指導方針，在內部部署管理伺服器上安裝更新。 這是具備組態伺服器和處理序伺服器角色的伺服器。
 2. 如果您已相應放大處理序伺服器，請接著按照[此處](vmware-azure-manage-process-server.md#upgrade-a-process-server)提供的指導方針更新這些伺服器。
-3. 然後，若要更新每個受保護項目上的行動代理程式，請移至 Azure 入口網站，然後移至 [受保護的項目] > [複寫的項目] 頁面。 在此頁面上選取 VM。 選取出現在每部 VM 頁面底部的 [更新代理程式] 按鈕。 這會在所有受保護的 VM 上更新行動服務代理程式。
+3. 然後，若要更新每個受保護項目上的行動代理程式，請移至 Azure 入口網站，然後移至 [受保護的項目]   > [複寫的項目]  頁面。 在此頁面上選取 VM。 選取出現在每部 VM 頁面底部的 [更新代理程式]  按鈕。 這會在所有受保護的 VM 上更新行動服務代理程式。
 
 ### <a name="reboot-of-source-machine-after-mobility-agent-upgrade"></a>升級行動代理程式之後，重新啟動來源機器
 

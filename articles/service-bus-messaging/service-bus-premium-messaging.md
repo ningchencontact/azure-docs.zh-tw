@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: aschhab
 ms.openlocfilehash: 600577ebf05a8bc89dbec35d3b3ee5162aa246e1
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64872736"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>服務匯流排進階和標準傳訊層級
 
 服務匯流排傳訊 (包含佇列和主題等實體) 結合雲端級別的企業傳訊功能與豐富的發佈-訂閱語意。 服務匯流排傳訊作為許多縝密雲端解決方案的通訊骨幹。
 
-服務匯流排傳訊的「進階」層級可滿足一般客戶對於關鍵任務應用程式的規模、效能和可用性要求。 針對生產案例，建議使用進階層。 雖然功能組幾乎完全相同，但這兩層級的服務匯流排傳訊設計用來服務不同的使用案例。
+服務匯流排傳訊的「進階」  層級可滿足一般客戶對於關鍵任務應用程式的規模、效能和可用性要求。 針對生產案例，建議使用進階層。 雖然功能組幾乎完全相同，但這兩層級的服務匯流排傳訊設計用來服務不同的使用案例。
 
 下表強調大致的一些差異。
 
@@ -37,7 +37,7 @@ ms.locfileid: "64872736"
 | 相應增加和相應減少工作負載的能力 |N/A |
 | 訊息大小上限為 1 MB |訊息大小上限為 256 KB |
 
-**服務匯流排進階傳訊**提供 CPU 和記憶體層級的資源隔離，讓每個客戶工作負載能隔離執行。 此資源容器稱為「傳訊單位」 。 每個進階命名空間都會被配置至少一個傳訊單位。 您可以購買 1、 2、 4 或 8 傳訊單位的每個服務匯流排進階命名空間。 單一工作負載或實體可以跨越多個傳訊單位和傳訊單位數目可以隨意變更。 結果是您的服務匯流排方案的效能可預測並可重複。
+**服務匯流排進階傳訊**提供 CPU 和記憶體層級的資源隔離，讓每個客戶工作負載能隔離執行。 此資源容器稱為「傳訊單位」  。 每個進階命名空間都會被配置至少一個傳訊單位。 您可以購買 1、 2、 4 或 8 傳訊單位的每個服務匯流排進階命名空間。 單一工作負載或實體可以跨越多個傳訊單位和傳訊單位數目可以隨意變更。 結果是您的服務匯流排方案的效能可預測並可重複。
 
 此效能不僅更可預測並可取得，而且還更快速。 服務匯流排進階傳訊是以 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)中引進的儲存引擎為建置基礎。 使用進階訊息，尖峰效能的速度比標準層級的速度快很多。
 
@@ -72,7 +72,7 @@ CPU 和記憶體使用量會追蹤，並顯示給您，原因如下：
 
 ## <a name="get-started-with-premium-messaging"></a>開始使用進階傳訊
 
-開始使用進階訊息非常簡單，其程序類似於標準傳訊。 首先在 [Azure 入口網站](https://portal.azure.com)中[建立命名空間](service-bus-create-namespace-portal.md)。 請務必選取 [定價層] 之下的 [進階]。 按一下 [檢視完整定價詳細資料] 以查看每一層的詳細資訊。
+開始使用進階訊息非常簡單，其程序類似於標準傳訊。 首先在 [Azure 入口網站](https://portal.azure.com)中[建立命名空間](service-bus-create-namespace-portal.md)。 請務必選取 [定價層]  之下的 [進階]  。 按一下 [檢視完整定價詳細資料]  以查看每一層的詳細資訊。
 
 ![create-premium-namespace][create-premium-namespace]
 

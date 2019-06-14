@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
 ms.openlocfilehash: c527b0b10a2b9a351b242d0858fdbe64687970a7
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595298"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>使用 Application Insights 監視 Azure Batch .NET 應用程式並進行偵錯
@@ -37,7 +37,7 @@ ms.locfileid: "65595298"
 
 * [Application Insights 資源](../azure-monitor/app/create-new-resource.md )
   
-   * 使用 Azure 入口網站建立 Application Insights 資源。 選取「一般」**應用程式類型**。
+   * 使用 Azure 入口網站建立 Application Insights 資源  。 選取「一般」  **應用程式類型**。
 
    * 從入口網站複製[檢測金鑰](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key)。 本文稍後會需要此項目。
   
@@ -265,13 +265,13 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
 
 ### <a name="view-live-stream-data"></a>檢視即時資料流
 
-若要檢視 Application Insights 資源中的追蹤記錄，請按一下 [即時資料流]。 下列螢幕擷取畫面說明如何檢視來自集區中計算節點的即時資料，例如每個計算節點的 CPU 使用量。
+若要檢視 Application Insights 資源中的追蹤記錄，請按一下 [即時資料流]  。 下列螢幕擷取畫面說明如何檢視來自集區中計算節點的即時資料，例如每個計算節點的 CPU 使用量。
 
 ![即時資料流計算節點資料](./media/monitor-application-insights/applicationinsightslivestream.png)
 
 ### <a name="view-trace-logs"></a>檢視追蹤記錄
 
-若要檢視 Application Insights 資源中的追蹤記錄，請按一下 [搜尋]。 此檢視會顯示 Application Insights 所擷取的診斷資料清單，其中包括追蹤、事件和例外狀況。 
+若要檢視 Application Insights 資源中的追蹤記錄，請按一下 [搜尋]  。 此檢視會顯示 Application Insights 所擷取的診斷資料清單，其中包括追蹤、事件和例外狀況。 
 
 下列螢幕擷取畫面說明單一工作追蹤的記錄方式，以及之後進行偵錯所需的查詢方式。
 
@@ -288,14 +288,14 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
 自訂計量也是入口網站中的實用工具。 例如，您可以顯示每個計算節點下載所處理的必要文字檔案時，所花費的平均時間。
 
 建立範例圖表：
-1. 在 Application Insights 資源中，按一下 [計量瀏覽器] > [新增圖表]。
-2. 在新增的圖表上按一下 [編輯]。
+1. 在 Application Insights 資源中，按一下 [計量瀏覽器]   > [新增圖表]  。
+2. 在新增的圖表上按一下 [編輯]  。
 2. 更新圖表的詳細資料，如下所示：
-   * 將 [圖表類型] 設定為 [方格]。
-   * 將 [彙總] 設定為 [平均]。
-   * 將 [分組依據] 設定為 [NodeId]。
-   * 在 [計量] 中，選取 [自訂] > [Blob 下載 (以秒為單位)]。
-   * 您可以依喜好調整顯示的 [色彩調色盤]。 
+   * 將 [圖表類型]  設定為 [方格]  。
+   * 將 [彙總]  設定為 [平均]  。
+   * 將 [分組依據]  設定為 [NodeId]  。
+   * 在 [計量]  中，選取 [自訂]   > [Blob 下載 (以秒為單位)]  。
+   * 您可以依喜好調整顯示的 [色彩調色盤]  。 
 
 ![每個節點的 Blob 下載時間](./media/monitor-application-insights/blobdownloadtime.png)
 

@@ -9,17 +9,17 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575345"
 ---
 # <a name="glossary"></a>詞彙
 
 以下是經常搭配 Azure 地圖服務使用的字詞清單。
 
-## <a name="a"></a>具有使用 
+## <a name="a"></a>A
 
 <a name="address-validation"></a> **Address validation** (地址驗證)：驗證地址是否存在的程序。
 
@@ -55,7 +55,7 @@ ms.locfileid: "64575345"
 
 <a name="azure-maps-key"></a> **Azure Maps key** (Azure 地圖服務金鑰)：Azure 地圖服務金鑰是用來驗證使用者的 Azure 地圖服務應用程式或服務要求的唯一字串。 
 
-## <a name="b"></a>b
+## <a name="b"></a>B
 
 <a name="base-map"></a> **Base map** (基本地圖)：地圖應用程式顯示背景參考資訊 (例如道路、地標及行政界線) 的部分。
 

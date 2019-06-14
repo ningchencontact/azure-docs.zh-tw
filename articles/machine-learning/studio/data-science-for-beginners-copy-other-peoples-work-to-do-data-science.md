@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 8bacc3940cebaf9c62179cee0788e5903e56a310
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60751771"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>複製其他人的工作進行資料科學
@@ -52,7 +52,7 @@ ms.locfileid: "60751771"
 
 Microsoft 提供一個稱為 [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) \(英文\) 的雲端服務，歡迎您免費試用。 其會提供您工作區，讓您可以試驗不同的機器學習演算法，當您制定您的解決方案時，您可以將其啟動為 Web 服務。
 
-此服務有一個部分稱為 **[Azure AI 資源庫](https://gallery.azure.ai/)**。 它包含各種資源，包括一系列的 Azure Machine Learning Studio 實驗或模型 (前人建置並貢獻予他人使用)。 這些實驗是運用思考的好方法，以及是其他人的挑戰，他們會協助您開始您自己的解決方案。 歡迎每個人前往瀏覽。
+此服務有一個部分稱為 **[Azure AI 資源庫](https://gallery.azure.ai/)** 。 它包含各種資源，包括一系列的 Azure Machine Learning Studio 實驗或模型 (前人建置並貢獻予他人使用)。 這些實驗是運用思考的好方法，以及是其他人的挑戰，他們會協助您開始您自己的解決方案。 歡迎每個人前往瀏覽。
 
 ![Azure AI 資源庫](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 

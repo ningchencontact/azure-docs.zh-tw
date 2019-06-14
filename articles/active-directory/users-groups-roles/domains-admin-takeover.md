@@ -16,10 +16,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b32ef37c6d61c88a18acd5ddc80cc6154369ca29
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65780529"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中非受控目錄
@@ -39,11 +39,11 @@ ms.locfileid: "65780529"
 
 1. 在受管理的租用戶透過註冊 Power BI 中建立的使用者內容。 為了便於範例說明，這些步驟會假設該路徑。
 
-2. 開啟 [Power BI 網站](https://powerbi.com)，然後選取 [免費開始]。 輸入使用組織網域名稱的使用者帳戶，例如 `admin@fourthcoffee.xyz`。 輸入驗證碼之後，請查看您的電子郵件是否有確認碼。
+2. 開啟 [Power BI 網站](https://powerbi.com)，然後選取 [免費開始]  。 輸入使用組織網域名稱的使用者帳戶，例如 `admin@fourthcoffee.xyz`。 輸入驗證碼之後，請查看您的電子郵件是否有確認碼。
 
-3. 在來自 Power BI 的確認電子郵件中，選取 [是，這是我]。
+3. 在來自 Power BI 的確認電子郵件中，選取 [是，這是我]  。
 
-4. 登入[Microsoft 365 系統管理中心](https://admin.microsoft.com)與 Power BI 使用者帳戶。 您會收到指導您**成為管理員**的訊息，這是已經在非受控租用戶中驗證之網域名稱的管理員。 請選取 [是，我想要成為管理員]。
+4. 登入[Microsoft 365 系統管理中心](https://admin.microsoft.com)與 Power BI 使用者帳戶。 您會收到指導您**成為管理員**的訊息，這是已經在非受控租用戶中驗證之網域名稱的管理員。 請選取 [是，我想要成為管理員]  。
   
    ![[成為管理員] 的第一個螢幕擷取畫面](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -68,7 +68,7 @@ ms.locfileid: "65780529"
   
 6. 使用具備 Azure AD 租用戶全域管理員身分的帳戶來登入 [Azure AD 系統管理中心](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
   
-7. 選取 [自訂網域名稱]，然後新增網域名稱。 您將必須輸入 DNS TXT 記錄來驗證網域名稱擁有權。 
+7. 選取 [自訂網域名稱]  ，然後新增網域名稱。 您將必須輸入 DNS TXT 記錄來驗證網域名稱擁有權。 
   
    ![驗證為已加入 Azure AD 網域](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
@@ -125,10 +125,10 @@ Cmdlet | 使用量
 `connect-msolservice` | 出現提示時，登入您的受控租用戶。
 `get-msoldomain` | 顯示與目前租用戶關聯的網域名稱。
 `new-msoldomain –name <domainname>` | 將網域名稱以「未驗證」狀態 (尚未執行任何 DNS 驗證) 新增至租用戶。
-`get-msoldomain` | 網域名稱現在包含在與受控租用戶關聯的網域名稱清單中，但其狀態會是 [未驗證]。
+`get-msoldomain` | 網域名稱現在包含在與受控租用戶關聯的網域名稱清單中，但其狀態會是 [未驗證]  。
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | 提供要放到網域之新 DNS TXT 記錄中的資訊 (MS=xxxxx)。 驗證可能不會立即進行，因為 TXT 記錄需要一些時間傳播，所以請先稍候幾分鐘，再考慮使用 **-ForceTakeover** 選項。 
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>如果您的網域名稱仍然未驗證，就可以著手執行 **-ForceTakeover** 選項。 它會驗證是否已建立 TXT 記錄，然後啟動接管程序。<li>您應該只有在強制執行外部管理員接管時 (例如當非受控租用戶的 Office 365 服務封鎖接管時)，才將 **-ForceTakeover** 選項新增至 Cmdlet。
-`get-msoldomain` | 網域清單現在會將網域名稱顯示為 [已驗證]。
+`get-msoldomain` | 網域清單現在會將網域名稱顯示為 [已驗證]  。
 
 ### <a name="powershell-example"></a>PowerShell 範例
 
@@ -153,7 +153,7 @@ Cmdlet | 使用量
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. 複製從此命令傳回的值 (挑戰)。 例如：
+4. 複製從此命令傳回的值 (挑戰)。 例如:
    ```powershell
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -164,7 +164,7 @@ Cmdlet | 使用量
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
    ```
   
-   例如：
+   例如:
   
    ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com

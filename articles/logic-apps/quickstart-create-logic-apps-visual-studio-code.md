@@ -11,10 +11,10 @@ ms.reviewer: klam, deli, LADocs
 ms.suite: integration
 ms.date: 10/05/2018
 ms.openlocfilehash: 0fec590523fa130af2e5670a92914c056df289d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60512375"
 ---
 # <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>快速入門：建立及管理自動化邏輯應用程式工作流程 - Visual Studio Code
@@ -62,17 +62,17 @@ ms.locfileid: "60512375"
 
    ![選取 Azure 圖示](./media/create-logic-apps-visual-studio-code/open-extension.png)
 
-1. 在 Azure 視窗的 [Logic Apps] 下，選取 [登入 Azure]。 
+1. 在 Azure 視窗的 [Logic Apps]  下，選取 [登入 Azure]  。 
 
    ![選取 [登入 Azure]](./media/create-logic-apps-visual-studio-code/sign-in-azure.png)
 
    系統現在會提示您使用提供的驗證碼登入。 
 
-1. 複製驗證碼，然後選擇 [複製並開啟]，這會開啟新的瀏覽器視窗。
+1. 複製驗證碼，然後選擇 [複製並開啟]  ，這會開啟新的瀏覽器視窗。
 
    ![登入提示](./media/create-logic-apps-visual-studio-code/sign-in-prompt.png)
 
-1. 輸入您的驗證碼。 出現提示時，請選擇 [繼續]。
+1. 輸入您的驗證碼。 出現提示時，請選擇 [繼續]  。
 
    ![輸入代碼](./media/create-logic-apps-visual-studio-code/authentication-code.png)
 
@@ -82,7 +82,7 @@ ms.locfileid: "60512375"
 
    ![選取訂用帳戶](./media/create-logic-apps-visual-studio-code/select-azure-subscription.png)
 
-   如果您沒看到預期的訂用帳戶，請選取 [Logic Apps] 標籤旁的 [選取訂用帳戶] (過濾器圖示)。 尋找並選取您要的訂用帳戶。
+   如果您沒看到預期的訂用帳戶，請選取 [Logic Apps]  標籤旁的 [選取訂用帳戶]  (過濾器圖示)。 尋找並選取您要的訂用帳戶。
 
 1. 若要檢視 Azure 訂用帳戶中的任何現有邏輯應用程式或整合帳戶，請展開您的訂用帳戶。
 
@@ -94,11 +94,11 @@ ms.locfileid: "60512375"
 
 1. 如果您尚未從 Visual Studio Code 內登入 Azure 訂用帳戶，請依照此文章中的步驟[立即登入](#sign-in-azure)。
 
-1. 從您訂用帳戶的內容功能表中，選取 [建立]。
+1. 從您訂用帳戶的內容功能表中，選取 [建立]  。
 
    ![選取 [建立]](./media/create-logic-apps-visual-studio-code/create-logic-app.png)
 
-1. 從顯示訂用帳戶的 Azure 資源群組清單中，選取現有資源群組或 [建立新的資源群組]。 
+1. 從顯示訂用帳戶的 Azure 資源群組清單中，選取現有資源群組或 [建立新的資源群組]  。 
 
    此範例會建立新的資源群組：
 
@@ -118,7 +118,7 @@ ms.locfileid: "60512375"
 
    新的邏輯應用程式現在會出現在 Azure 視窗中的 Azure 訂用帳戶下。 現在您可以開始建立邏輯應用程式的工作流程定義。
 
-1. 從邏輯應用程式的捷徑功能表中，選取 [在編輯器中開啟]。 
+1. 從邏輯應用程式的捷徑功能表中，選取 [在編輯器中開啟]  。 
 
    ![在編輯器中開啟邏輯應用程式](./media/create-logic-apps-visual-studio-code/open-new-logic-app.png)
 
@@ -186,7 +186,7 @@ ms.locfileid: "60512375"
    }   
    ```
 
-1. 當您完成後，請儲存邏輯應用程式定義檔案。 當 Visual Studio Code 提示您確認將邏輯應用程式定義上傳至 Azure 訂用帳戶時，請選擇 [上傳]。
+1. 當您完成後，請儲存邏輯應用程式定義檔案。 當 Visual Studio Code 提示您確認將邏輯應用程式定義上傳至 Azure 訂用帳戶時，請選擇 [上傳]  。
 
    ![上傳新的邏輯應用程式](./media/create-logic-apps-visual-studio-code/upload-new-logic-app.png)
 
@@ -202,9 +202,9 @@ ms.locfileid: "60512375"
 
 1. 如果您尚未從 Visual Studio Code 內登入 Azure 訂用帳戶，請依照此文章中的步驟[立即登入](#sign-in-azure)。
 
-1. 在 Azure 視窗的 [Logic Apps] 下，展開 Azure 訂用帳戶，並選取您要的邏輯應用程式。 
+1. 在 Azure 視窗的 [Logic Apps]  下，展開 Azure 訂用帳戶，並選取您要的邏輯應用程式。 
 
-1. 從邏輯應用程式的功能表中，選取 [在編輯器中開啟]。 或者，在邏輯應用程式的名稱旁，選擇編輯圖示。
+1. 從邏輯應用程式的功能表中，選取 [在編輯器中開啟]  。 或者，在邏輯應用程式的名稱旁，選擇編輯圖示。
 
    ![針對現有邏輯應用程式開啟編輯器](./media/create-logic-apps-visual-studio-code/open-editor-existing-logic-app.png)
 
@@ -216,7 +216,7 @@ ms.locfileid: "60512375"
 
 1. 完成後，儲存變更。
 
-1. 當 Visual Studio Code 提示您更新 Azure 訂用帳戶中的邏輯應用程式定義時，請選擇 [上傳]。 
+1. 當 Visual Studio Code 提示您更新 Azure 訂用帳戶中的邏輯應用程式定義時，請選擇 [上傳]  。 
 
    ![上傳您的編輯](./media/create-logic-apps-visual-studio-code/upload-logic-app-changes.png)
 

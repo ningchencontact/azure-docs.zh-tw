@@ -14,10 +14,10 @@ ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: 70d1f54aed5e83801b1d1e249d7a412dd6d9a49a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964030"
 ---
 # <a name="application-map-triage-distributed-applications"></a>應用程式對應：將分散式應用程式分級
@@ -52,7 +52,7 @@ ms.locfileid: "65964030"
 
 ### <a name="investigate-failures"></a>調查失敗
 
-選取 [調查失敗] 以啟動 [失敗] 窗格。
+選取 [調查失敗]  以啟動 [失敗] 窗格。
 
 ![調查失敗按鈕的螢幕擷取畫面](media/app-map/investigate-failures.png)
 
@@ -60,7 +60,7 @@ ms.locfileid: "65964030"
 
 ### <a name="investigate-performance"></a>調查效能
 
-若要疑難排解效能問題，請選取 [調查效能]。
+若要疑難排解效能問題，請選取 [調查效能]  。
 
 ![調查效能按鈕的螢幕擷取畫面](media/app-map/investigate-performance.png)
 
@@ -76,7 +76,7 @@ ms.locfileid: "65964030"
 
 ### <a name="view-in-analytics"></a>在 Analytics 中檢視
 
-若要進一步查詢及調查應用程式資料，請按一下 [在 Analytics 中檢視]。
+若要進一步查詢及調查應用程式資料，請按一下 [在 Analytics 中檢視]  。
 
 ![在 Analytics 中檢視按鈕的螢幕擷取畫面](media/app-map/view-in-analytics.png)
 
@@ -84,7 +84,7 @@ ms.locfileid: "65964030"
 
 ### <a name="alerts"></a>警示
 
-若要檢視作用中警示和導致警示觸發的基礎規則，請選取 [警示]。
+若要檢視作用中警示和導致警示觸發的基礎規則，請選取 [警示]  。
 
 ![警示按鈕的螢幕擷取畫面](media/app-map/alerts.png)
 

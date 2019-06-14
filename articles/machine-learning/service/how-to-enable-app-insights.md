@@ -12,10 +12,10 @@ author: marthalc
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60820142"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>使用 Application Insights 監視您的 Azure Machine Learning 模型
@@ -83,31 +83,31 @@ ms.locfileid: "60820142"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，開啟您的工作區。
 
-1. 在 [部署] 索引標籤上，選取您要在其中啟用 Application Insights 的服務。
+1. 在 [部署]  索引標籤上，選取您要在其中啟用 Application Insights 的服務。
 
    [![[部署] 索引標籤上的服務清單](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
-3. 選取 [編輯]。
+3. 選取 [編輯]  。
 
    [![[編輯] 按鈕](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
-4. 在 [進階設定] 中，選取 [啟用 AppInsights 診斷] 核取選項。
+4. 在 [進階設定]  中，選取 [啟用 AppInsights 診斷]  核取選項。
 
    [![已選取啟用診斷的核取方塊](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
-1. 選取螢幕底部的 [更新] 以套用變更。 
+1. 選取螢幕底部的 [更新]  以套用變更。 
 
 ### <a name="disable"></a>停用
 1. 在 [Azure 入口網站](https://portal.azure.com)中，開啟您的工作區。
-1. 選取 [部署]，選取服務，然後選取 [編輯]。
+1. 選取 [部署]  ，選取服務，然後選取 [編輯]  。
 
    [![使用 [編輯] 按鈕](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
-1. 在 [進階設定] 中，清除 [啟用 AppInsights 診斷] 核取選項。 
+1. 在 [進階設定]  中，清除 [啟用 AppInsights 診斷]  核取選項。 
 
    [![已清除啟用診斷的核取方塊](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
-1. 選取螢幕底部的 [更新] 以套用變更。 
+1. 選取螢幕底部的 [更新]  以套用變更。 
  
 
 ## <a name="evaluate-data"></a>評估資料
@@ -117,12 +117,12 @@ ms.locfileid: "60820142"
 
     [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 
-1. 選取 [概觀] 索引標籤以查看一組您服務的基本計量。
+1. 選取 [概觀]  索引標籤以查看一組您服務的基本計量。
 
    [![概觀](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
-3. 若要查看您的自訂追蹤，請選取 [Analytics]。
-4. 在 [結構描述] 區段中，選取 [追蹤]。 然後選取 [執行] 來執行查詢。 資料應該會以資料表格式出現，且應該會對應至您評分檔案中的自訂呼叫。 
+3. 若要查看您的自訂追蹤，請選取 [Analytics]  。
+4. 在 [結構描述] 區段中，選取 [追蹤]  。 然後選取 [執行]  來執行查詢。 資料應該會以資料表格式出現，且應該會對應至您評分檔案中的自訂呼叫。 
 
    [![自訂追蹤](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 

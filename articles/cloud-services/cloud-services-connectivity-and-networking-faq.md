@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
 ms.openlocfilehash: 2a46879a6882e6d45e4a7ccce59e4a02feea9005
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61432954"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的连接和网络问题：常見問題集 (FAQ)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>連線和 Azure 雲端服務的網路問題：常見問題集 (FAQ)
 
 本文包含 [Azure 雲端服務](https://azure.microsoft.com/services/cloud-services)之連線能力和網路服務問題的相關常見問題集。 如需有關規模大小的資訊，請參閱[雲端服務 VM 大小頁面](cloud-services-sizes-specs.md)。
 
@@ -32,7 +32,7 @@ ms.locfileid: "61432954"
 首先，請確定您想要保留其 IP 的虛擬機器執行個體已開啟。 其次，請確定您會將保留的 IP 同時用於預備與生產部署。 *勿* 於部署正在升級時變更設定。
 
 ## <a name="how-do-i-use-remote-desktop-when-i-have-an-nsg"></a>當我有 NSG 時，應如何使用遠端桌面？
-將規則加入到 NSG，以允許連接埠 **3389** 和 **20000** 上的流量。 遠端桌面使用者連接埠 **3389**。 系統已為雲端服務執行個體進行負載平衡，因此您無法直接控制要連線的執行個體。 RemoteForwarder 與 RemoteAccess 代理程式會管理遠端桌面通訊協定 (RDP) 流量，並允許用戶端傳送 RDP Cookie 並指定要連線的個別執行個體。 RemoteForwarder 與 RemoteAccess 代理程式要求您必須開啟連接埠 **20000**，這在您使用 NSG 的情況下可能是封鎖的。
+將規則加入到 NSG，以允許連接埠 **3389** 和 **20000** 上的流量。 遠端桌面使用者連接埠 **3389**。 系統已為雲端服務執行個體進行負載平衡，因此您無法直接控制要連線的執行個體。 RemoteForwarder  與 RemoteAccess  代理程式會管理遠端桌面通訊協定 (RDP) 流量，並允許用戶端傳送 RDP Cookie 並指定要連線的個別執行個體。 RemoteForwarder  與 RemoteAccess  代理程式要求您必須開啟連接埠 **20000**，這在您使用 NSG 的情況下可能是封鎖的。
 
 ## <a name="can-i-ping-a-cloud-service"></a>是否可偵測雲端服務？
 
@@ -50,9 +50,9 @@ Azure 會實作多層的網路安全性，可保護其平台服務免於遭受�
 ## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>當我嘗試 RDP 到我的雲端服務執行個體時，會收到這個訊息：「使用者帳戶已過期」。
 當您略過 RDP 設定中所設定的到期日時，可能會收到「此使用者帳戶已過期」的錯誤訊息。 您可以從入口網站中變更到期日，方法是遵循下列步驟：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)、移至您的雲端服務，然後選取 [遠端桌面] 索引標籤。
+1. 登入 [Azure 入口網站](https://portal.azure.com)、移至您的雲端服務，然後選取 [遠端桌面]  索引標籤。
 
-2. 選取 [生產] 或 [預備] 部署位置。
+2. 選取 [生產]  或 [預備]  部署位置。
 
 3. 變更「**到期日**」的日期，然後儲存設定。
 

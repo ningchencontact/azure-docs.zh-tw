@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08a78a311771395f7c2113f03d5137d59999d7a7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783876"
 ---
 # <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>查明特定使用者何時將能存取應用程式
@@ -38,7 +38,7 @@ ms.locfileid: "65783876"
 
 若要查看所選使用者的佈建狀態，請參閱 Azure AD 中的稽核記錄。
 
-您可以在 Azure 入口網站的 [Azure Active Directory]&gt;[企業應用程式]&gt;[\[應用程式名稱\]]&gt;[稽核記錄] 索引標籤中存取佈建稽核記錄。基於 [帳戶佈建] 類別來篩選記錄，只顯示該應用程式的佈建事件。 您可以根據「比對識別碼」來搜尋使用者，此識別碼是在屬性對應中針對使用者所設定。 
+您可以在 Azure 入口網站的 [Azure Active Directory]&gt;[企業應用程式]&gt;[\[應用程式名稱\]]&gt;[稽核記錄]  索引標籤中存取佈建稽核記錄。基於 [帳戶佈建]  類別來篩選記錄，只顯示該應用程式的佈建事件。 您可以根據「比對識別碼」來搜尋使用者，此識別碼是在屬性對應中針對使用者所設定。 
 
 例如，如果您設定了「使用者主體名稱」或「電子郵件地址」做為 Azure AD 端的比對屬性，而且未佈建的使用者具有 "audrey@contoso.com" 的值，接著搜尋 “audrey@contoso.com” 的稽核記錄，然後檢閱傳回的項目。
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkd;juliako
 ms.openlocfilehash: b3357436d068396c5c3c4fae10ed6857759c5aed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61220326"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure 媒體服務的分散 MP4 即時內嵌規格 
@@ -69,7 +69,7 @@ ms.locfileid: "61220326"
 1. 如 [1] 中第 9.2 節所述，編碼器「不得」使用 `Events()` 名詞，才能即時內嵌至媒體服務。
 1. 如果 HTTP POST 要求在資料流結束之前因為出現 TCP 錯誤而終止或逾時，則編碼器「必須」藉由使用新連線發出新的 POST 要求，並遵循上述要求。 此外，編碼器「必須」為資料流中的每個資料軌重新傳送前兩個 MP4 片段，並在不會造成媒體時間軸不連續的情況下繼續運作。 為每個資料軌重新傳送最後兩個 MP4 片段，可確保不會遺失資料。 換句話說，如果資料流包含音訊和視訊播放軌，而且目前的 POST 要求失敗，則編碼器必須重新連線，然後為音訊播放軌重新傳送最後兩個片段 (先前已成功傳送)，為視訊播放軌重新傳送最後兩個片段 (先前已成功傳送)，以確保不會遺失任何資料。 編碼器「必須」維護媒體片段的 “forward” 緩衝區，當重新連線時會重新傳送此緩衝區。
 
-## <a name="5-timescale"></a>5.時幅
+## <a name="5-timescale"></a>5.Timescale
 [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) 描述 **SmoothStreamingMedia** (2.2.2.1 節)、**StreamElement** (2.2.2.3 節)、**StreamFragmentElement** (2.2.2.6 節) 和 **LiveSMIL** (2.2.7.3.1 節) 的「時幅」使用方式。 如果沒有時幅值，則使用的預設值為 10,000,000 (10 MHz)。 雖然 Smooth Streaming 格式規格不會封鎖使用其他的時幅值，但大部分的編碼器實作會使用此預設值 (10 MHz) 來產生 Smooth Streaming 內嵌資料。 由於 [Azure 媒體動態封裝](media-services-dynamic-packaging-overview.md) 功能之故，建議您針對視訊資料流使用 90-KHz 時幅，針對音訊資料流使用 44.1 KHz 或 48.1 KHz。 如果不同的資料流採用不同的時幅值，則「必須」傳送資料流層級時幅。 如需詳細資訊，請參閱 [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx)。     
 
 ## <a name="6-definition-of-stream"></a>6.「資料流」的定義

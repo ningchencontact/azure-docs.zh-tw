@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
 ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60759906"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure 監視器記錄查詢範例
@@ -25,7 +25,7 @@ ms.locfileid: "60759906"
 
 請參閱 [Kusto 語言參考](https://docs.microsoft.com/azure/kusto/query/)了解在這些範例中使用不同關鍵字的詳細資料。 如果您不熟悉 Azure 監視器，請逐步查看[建立查詢的課程](get-started-queries.md)。
 
-## <a name="events"></a>活動
+## <a name="events"></a>Events
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>搜尋說明為「密碼編譯」的應用程式層級事件
 此範例會搜尋 **Events** 資料表，找出 **EventLog** 是 _Application_ 且 **RenderedDescription** 包含 _cryptographic_ 的記錄。 包含過去 24 小時的記錄。

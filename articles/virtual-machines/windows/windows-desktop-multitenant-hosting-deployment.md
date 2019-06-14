@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
 ms.openlocfilehash: 7f43528c55cd22c2649ca0f1208da6f41695b98e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485443"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>如何使用多租用戶主機權限在 Azure 上部署 Windows 10 
@@ -108,7 +108,7 @@ LicenseType              :
 
 ## <a name="additional-information-about-joining-azure-ad"></a>關於加入 Azure AD 的其他資訊
 >[!NOTE]
->Azure 會使用內建的 Administrator 帳戶佈建所有 Windows VM，但此帳戶無法用來加入 AAD。 例如，[設定] > [帳戶] > [存取公司或學校資源] > [+連線] 不會有作用。 您必須建立第二個 Administrator 帳戶並以此帳戶的身分登入，才能手動加入 Azure AD。 您也可以使用佈建套件來設定 Azure AD，請使用*後續步驟*一節中的連結來進一步了解。
+>Azure 會使用內建的 Administrator 帳戶佈建所有 Windows VM，但此帳戶無法用來加入 AAD。 例如，[設定] > [帳戶] > [存取公司或學校資源] > [+連線]  不會有作用。 您必須建立第二個 Administrator 帳戶並以此帳戶的身分登入，才能手動加入 Azure AD。 您也可以使用佈建套件來設定 Azure AD，請使用*後續步驟*一節中的連結來進一步了解。
 >
 >
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: yushwang, cherylmc
 ms.openlocfilehash: 7ba4fb32ddfb8b3eb88d2dbfce265b070d521414
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66119459"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>設定 Azure VPN 閘道的主動-主動 S2S VPN 連線

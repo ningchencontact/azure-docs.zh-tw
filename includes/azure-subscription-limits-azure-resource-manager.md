@@ -9,13 +9,13 @@ ms.date: 04/22/2019
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: 712b70960e09a9c2b0e7a998bc0bddbc28c1e112
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146230"
 ---
-| Resource | 預設限制 | 上限 |
+| 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
 | 每一[訂用帳戶](../articles/billing-buy-sign-up-azure-subscription.md) VM |25,000<sup>1</sup>每個區域。 |每個區域的 25000。 |
 | 每一[訂用帳戶](../articles/billing-buy-sign-up-azure-subscription.md)的 VM 總計核心 |20<sup>1</sup>每個區域。 | 請連絡支援人員。 |

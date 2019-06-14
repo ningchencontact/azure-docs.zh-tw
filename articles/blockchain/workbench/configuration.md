@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60578975"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain Workbench 組態參考
@@ -55,14 +55,14 @@ Azure Blockchain Workbench 應用程式是以組態中繼資料和智慧合約�
 
 | 欄位 | 描述 | 必要項 | 最大長度 |
 |-------|-------------|:--------:|-----------:|
-| 名稱 | 唯一的工作流程名稱。 對應的智慧合約必須針對適用的合約類別使用相同的**名稱**。 | 是 | 50 |
+| Name | 唯一的工作流程名稱。 對應的智慧合約必須針對適用的合約類別使用相同的**名稱**。 | 是 | 50 |
 | DisplayName | 工作流程的易記顯示名稱。 | 是 | 255 |
 | 描述 | 工作流程的說明。 | 否 | 255 |
 | Initiators | [ApplicationRoles](#application-roles) 的集合。 對已獲授權可在工作流程中建立合約的使用者所指派的角色。 | 是 | |
 | StartState | 工作流程初始狀態的名稱。 | 是 | |
 | properties | [識別碼](#identifiers)的集合。 代表可在使用者體驗工具中進行鏈結關閉讀取或視覺化的資料。 | 是 | |
 | 建構函式 | 定義用於建立工作流程執行個體的輸入參數。 | 是 | |
-| Functions | 可在工作流程中執行的[函式](#functions)集合。 | 是 | |
+| 函式 | 可在工作流程中執行的[函式](#functions)集合。 | 是 | |
 | 狀態 | 工作流程[狀態](#states)的集合。 | 是 | |
 
 如需範例，請參閱[組態檔範例](#configuration-file-example)。
@@ -73,7 +73,7 @@ Azure Blockchain Workbench 應用程式是以組態中繼資料和智慧合約�
 
 | 類型 | 描述 |
 |-------|-------------|
-| 位址  | 區塊鏈位址類型，例如「合約」或「使用者」。 |
+| 位址  | 區塊鏈位址類型，例如「合約」  或「使用者」  。 |
 | array    | 類型為整數、布林、金額、或時間的單一層級陣列。 陣列可以是靜態或動態。 使用 **ElementType** 指定陣列中元素的資料類型。 請參閱[組態範例](#example-configuration-of-type-array)。 |
 | 布林     | 布林值資料類型。 |
 | 合約 | 合約類型的位址。 |
@@ -81,7 +81,7 @@ Azure Blockchain Workbench 應用程式是以組態中繼資料和智慧合約�
 | int      | 整數資料類型。 |
 | money    | 金額資料類型。 |
 | state    | 工作流程狀態。 |
-| string  | 字串資料類型。 最多 4000 個字元。 請參閱[組態範例](#example-configuration-of-type-string)。 |
+| 字串  | 字串資料類型。 最多 4000 個字元。 請參閱[組態範例](#example-configuration-of-type-string)。 |
 | user     | 使用者類型的位址。 |
 | time     | 時間資料類型。 |
 |`[ Application Role Name ]`| 應用程式角色中所指定的任何名稱。 限制使用者只能成為該角色類型。 |
@@ -104,7 +104,7 @@ Azure Blockchain Workbench 應用程式是以組態中繼資料和智慧合約�
 
 #### <a name="using-a-property-of-type-array"></a>使用陣列類型的屬性
 
-如果您在組態中定義陣列類型的屬性，則必須包含明確的 get 函式，才能在 Solidity 中傳回陣列類型的公用屬性。 例如︰
+如果您在組態中定義陣列類型的屬性，則必須包含明確的 get 函式，才能在 Solidity 中傳回陣列類型的公用屬性。 例如:
 
 ```
 function GetQuotes() public constant returns (int[]) {
@@ -203,7 +203,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 }
 ```
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>函式
 
 定義可在工作流程中執行的函式。
 
@@ -257,7 +257,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 欄位 | 描述 | 必要項 | 最大長度 |
 |-------|-------------|:--------:|-----------:|
-| 名稱 | 狀態的唯一名稱。 對應的智慧合約必須針對適用的狀態使用相同的**名稱**。 | 是 | 50 |
+| Name | 狀態的唯一名稱。 對應的智慧合約必須針對適用的狀態使用相同的**名稱**。 | 是 | 50 |
 | DisplayName | 狀態的易記顯示名稱。 | 是 | 255 |
 | 描述 | 狀態的說明。 | 否 | 255 |
 | PercentComplete | Blockchain Workbench 使用者介面中所顯示的整數值，用來顯示商務邏輯控制流程內的進度。 | 是 | |
@@ -371,7 +371,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 欄位 | 描述 | 必要項 | 最大長度 |
 |-------|-------------|:--------:|-----------:|
-| 名稱 | 應用程式角色的唯一名稱。 對應的智慧合約必須針對適用的角色使用相同的**名稱**。 系統會保留基底類型名稱。 您不能使用和[類型](#type)相同的名稱來為應用程式角色命名| 是 | 50 |
+| Name | 應用程式角色的唯一名稱。 對應的智慧合約必須針對適用的角色使用相同的**名稱**。 系統會保留基底類型名稱。 您不能使用和[類型](#type)相同的名稱來為應用程式角色命名| 是 | 50 |
 | 描述 | 應用程式角色的說明。 | 否 | 255 |
 
 ### <a name="application-roles-example"></a>應用程式角色範例
@@ -394,7 +394,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 欄位 | 描述 | 必要項 | 最大長度 |
 |-------|-------------|:--------:|-----------:|
-| 名稱 | 屬性或參數的唯一名稱。 對應的智慧合約必須針對適用的屬性或參數使用相同的**名稱**。 | 是 | 50 |
+| Name | 屬性或參數的唯一名稱。 對應的智慧合約必須針對適用的屬性或參數使用相同的**名稱**。 | 是 | 50 |
 | DisplayName | 屬性或參數的易記顯示名稱。 | 是 | 255 |
 | 描述 | 屬性或參數的說明。 | 否 | 255 |
 

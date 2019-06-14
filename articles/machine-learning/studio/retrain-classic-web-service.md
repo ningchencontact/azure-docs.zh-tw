@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
 ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234060"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>重新定型並部署傳統的 Studio Web 服務
@@ -25,7 +25,7 @@ ms.locfileid: "65234060"
 
 本文假設您進行過了重新定型實驗和預測性實驗。 [重新定型和部署機器學習模型](/azure/machine-learning/studio/retrain-machine-learning-model)一文有講解這些步驟。 不過，無需將您的機器學習模型部署為新 Web 服務，而是要將預測性實驗部署為傳統 Web 服務。
      
-## <a name="add-a-new-endpoint"></a>加入新的端點
+## <a name="add-a-new-endpoint"></a>新增端點
 
 您部署的預測性 Web 服務包含預設評分端點，它會與原始定型和評分實驗定型的模型保持同步。 若要將您的 Web 服務更新為新訓練的模型，您必須建立新的評分端點。
 
@@ -45,8 +45,8 @@ ms.locfileid: "65234060"
 ### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>使用 Azure Web 服務入口網站新增端點
 
 1. 在 Machine Learning Studio 中，按一下左側的 [Web 服務]。
-1. 在 Web 服務儀表板底部，按一下 [管理端點預覽]。
-1. 按一下 [新增] 。
+1. 在 Web 服務儀表板底部，按一下 [管理端點預覽]  。
+1. 按一下 [新增]  。
 1. 輸入新端點的名稱和描述。 選取記錄層級，以及是否啟用範例資料。 如需有關記錄的詳細資訊，請參閱 [為 Machine Learning Web 服務啟用記錄](web-services-logging.md)。
 
 ## <a name="update-the-added-endpoints-trained-model"></a>更新已新增端點的定型模型
@@ -62,21 +62,21 @@ ms.locfileid: "65234060"
 
    ![addEndpoint 範例之輸出中的 HelpLocation。](./media/retrain-classic/addEndpoint-output.png)
 1. 將此 URL 貼到瀏覽器中，瀏覽到提供 Web 服務說明連結的頁面。
-1. 按一下 [更新資源] 連結以開啟修補說明頁面。
+1. 按一下 [更新資源]  連結以開啟修補說明頁面。
 
 ### <a name="option-2-use-the-azure-machine-learning-web-services-portal"></a>選項 2：使用 Azure Machine Learning Web 服務入口網站
 
 請按照下列步驟，使用 Web 入口網站取得正確的 PATCH URL：
 
 1. 登入 [Azure Machine Learning Web 服務](https://services.azureml.net/)入口網站。
-1. 按一下頂端的 [Web 服務] 或 [傳統 Web 服務]。
+1. 按一下頂端的 [Web 服務]  或 [傳統 Web 服務]  。
 1. 按一下您正在處理的評分 Web 服務 (如果您並未修改 Web 服務的預設名稱，它的結尾是「[Scoring Exp.]」)。
-1. 按一下 [+新增]。
+1. 按一下 [+新增]  。
 1. 在新增端點之後，按一下其端點名稱。
-1. 在 [修補程式] 之下，按一下 [API 說明] 以開啟修補說明頁面。
+1. 在 [修補程式]  之下，按一下 [API 說明]  以開啟修補說明頁面。
 
 > [!NOTE]
-> 如果您已將端點新增至定型 Web 服務，而不是預測性 Web 服務，當您按一下 [更新資源] 連結時，將會收到下列錯誤：「很抱歉，但這項功能在此內容中不支援或不可使用。 此 Web 服務有沒有可更新的資源。 造成您的不便我們深感抱歉，並將致力於改善這個工作流程。」
+> 如果您已將端點新增至定型 Web 服務，而不是預測性 Web 服務，當您按一下 [更新資源]  連結時，將會收到下列錯誤：「很抱歉，但這項功能在此內容中不支援或不可使用。 此 Web 服務有沒有可更新的資源。 造成您的不便我們深感抱歉，並將致力於改善這個工作流程。」
 >
 
 PATCH 說明頁面包含必須使用的 PATCH URL，並提供可用來呼叫它的範例程式碼。
@@ -132,12 +132,12 @@ PATCH 說明頁面包含必須使用的 PATCH URL，並提供可用來呼叫它�
 *Resources* 中 *Name* 參數的值，應該符合預測性實驗中已儲存之訓練模型的「資源名稱」。 取得資源名稱：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 按一下左側功能表中的 [Machine Learning] 。
-1. 在 [名稱] 下，按一下您的工作區，然後按一下 [Web 服務] 。
-1. 在 [名稱] 下，按一下 [普查模型 [predictive exp.]] 。
+1. 按一下左側功能表中的 [Machine Learning]  。
+1. 在 [名稱] 下，按一下您的工作區，然後按一下 [Web 服務]  。
+1. 在 [名稱] 下，按一下 [普查模型 [predictive exp.]]  。
 1. 按一下您新增的端點。
-1. 在端點儀表板中，按一下 [更新資源] 。
-1. 在 Web 服務的 [更新資源 API 文件] 頁面，您可以在 [可更新的資源] 下找到 [資源名稱]。
+1. 在端點儀表板中，按一下 [更新資源]  。
+1. 在 Web 服務的 [更新資源 API 文件] 頁面，您可以在 [可更新的資源]  下找到 [資源名稱]  。
 
 如果在您完成端點更新之前 SAS 權杖已到期，您必須執行 GET 以作業識別碼取得新的權杖。
 

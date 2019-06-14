@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/15/2019
 ms.author: aschhab
 ms.openlocfilehash: 2ca8f0e34b63802453c8876f878b531e78e66d76
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991752"
 ---
 # <a name="get-started-with-service-bus-topics"></a>開始使用服務匯流排主題
@@ -51,8 +51,8 @@ ms.locfileid: "65991752"
 
 ### <a name="add-the-service-bus-nuget-package"></a>新增服務匯流排 NuGet 封裝
 
-1. 以滑鼠右鍵按一下新建立的專案，然後選取 [管理 NuGet 套件]。
-2. 按一下 [瀏覽] 索引標籤，搜尋 **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)**，然後選取 [Microsoft.Azure.ServiceBus] 項目。 按一下 [安裝]  完成安裝作業，然後關閉此對話方塊。
+1. 以滑鼠右鍵按一下新建立的專案，然後選取 [管理 NuGet 套件]  。
+2. 按一下 [瀏覽]  索引標籤，搜尋 **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)** ，然後選取 [Microsoft.Azure.ServiceBus]  項目。 按一下 [安裝]  完成安裝作業，然後關閉此對話方塊。
    
     ![選取 NuGet 封裝][nuget-pkg]
 
@@ -194,7 +194,7 @@ ms.locfileid: "65991752"
     }
     ```
 
-3. 執行程式，並檢查 Azure 入口網站：按一下命名空間 [概觀] 視窗中的主題名稱。 主題的 [基本資訊] 畫面即會顯示。 請注意，在靠近視窗底部所列的訂用帳戶中，訂用帳戶的 [訊息計數] 值現在是 **10**。 每次執行傳送者應用程式而未擷取訊息 (如下一節所述)，這個值就會增加 10。 也請注意，每當應用程式將訊息新增到主題時，主題的目前大小就會讓 [基本資訊] 視窗上的 [目前] 值增加。
+3. 執行程式，並檢查 Azure 入口網站：按一下命名空間 [概觀]  視窗中的主題名稱。 主題的 [基本資訊]  畫面即會顯示。 請注意，在靠近視窗底部所列的訂用帳戶中，訂用帳戶的 [訊息計數]  值現在是 **10**。 每次執行傳送者應用程式而未擷取訊息 (如下一節所述)，這個值就會增加 10。 也請注意，每當應用程式將訊息新增到主題時，主題的目前大小就會讓 [基本資訊]  視窗上的 [目前]  值增加。
    
       ![訊息大小][topic-message]
 
@@ -395,7 +395,7 @@ ms.locfileid: "65991752"
 恭喜！ 使用 .NET Standard 程式庫，您現在已建立主題和訂用帳戶，傳送 10 則訊息，以及接收這些訊息。
 
 > [!NOTE]
-> 您可以管理與服務匯流排資源[Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)。 Service Bus Explorer 可讓使用者連接到服務匯流排命名空間，並可以輕鬆地管理訊息實體。 此工具提供進階的功能，例如匯入/匯出功能或測試主題、 佇列、 訂用帳戶、 轉送服務、 通知中樞和事件中樞的能力。 
+> 您可以使用[服務匯流排總管](https://github.com/paolosalvatori/ServiceBusExplorer/)來管理服務匯流排資源。 服務匯流排總管可讓使用者連線到服務匯流排命名空間，並以簡便的方式管理傳訊實體。 此工具提供進階的功能 (例如匯入/匯出功能) 或測試主題、佇列、訂用帳戶、轉送服務、通知中樞和事件中樞的能力。 
 
 ## <a name="next-steps"></a>後續步驟
 

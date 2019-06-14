@@ -15,10 +15,10 @@ ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 252c84bce2b70f6931593fe9410abe6cc146b5bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60679046"
 ---
 # <a name="onboarding-requirements"></a>上線需求
@@ -51,7 +51,7 @@ ms.locfileid: "60679046"
 - 在 Azure 中部署於 VM 上的 Red Hat Subscription Manager。 Red Hat Subscription Manager 提供可讓 Red Hat 註冊 SAP HANA on Azure (大型執行個體) 並對其分別進行更新的功能。 (在 Azure 大型執行個體戳記上部署的租用戶內無法進行直接的網際網路存取)。
 - SAP 會要求您與 Linux 提供者之間有一份支援合約。 這項需求並不會因「HANA 大型執行個體」解決方案或您在 Azure 中執行 Linux 的事實而消除。 與使用一些 Linux Azure 資源庫映像時不同，服務費用*並未*包含在「HANA 大型執行個體」的解決方案內容中。 您必須負責達到 SAP 對 Linux 散發者之支援合約的相關需求。 
    - 針對 SUSE Linux，查詢 [SAP 附註 #1984787 - SUSE Linux Enterprise Server 12：安裝注意事項](https://launchpad.support.sap.com/#/notes/1984787)和 [SAP 附註 #1056161 - SAP 應用程式的 SUSE 優先支援](https://launchpad.support.sap.com/#/notes/1056161)。
-   - 針對 Red Hat Linux，您必須擁有包含支援和服務 (HANA 大型執行個體的作業系統更新) 的正確訂用帳戶層級。 Red Hat 建議使用 SAP 解決方案適用的 Red Hat Enterprise Linux 訂用帳戶。 請參閱 https://access.redhat.com/solutions/3082481。 
+   - 針對 Red Hat Linux，您必須擁有包含支援和服務 (HANA 大型執行個體的作業系統更新) 的正確訂用帳戶層級。 Red Hat 建議使用 SAP 解決方案適用的 Red Hat Enterprise Linux 訂用帳戶。 請參閱 https://access.redhat.com/solutions/3082481 。 
 
 如需具有不同 Linux 版本之 SAP HANA 版本的支援矩陣，請參閱 [SAP 附註 #2235581](https://launchpad.support.sap.com/#/notes/2235581)。
 

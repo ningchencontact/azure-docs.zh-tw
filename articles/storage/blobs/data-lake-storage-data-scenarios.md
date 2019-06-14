@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
 ms.openlocfilehash: c5b6287757f6b71cfd60687f463673f142db04d9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939298"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>使用 Azure Data Lake Storage Gen2 處理巨量資料需求
@@ -35,7 +35,7 @@ Data Lake Storage Gen2 帳戶是具有階層命名空間的儲存體帳戶。
 
 ## <a name="create-a-file-system"></a>建立檔案系統
 
-「檔案系統」是資料夾和檔案的容器。 您需要至少一個檔案系統，才能開始擷取您儲存體帳戶中的資料。  以下是您可用來建立檔案系統的工具清單。
+「檔案系統」  是資料夾和檔案的容器。 您需要至少一個檔案系統，才能開始擷取您儲存體帳戶中的資料。  以下是您可用來建立檔案系統的工具清單。
 
 |工具 | 指引 |
 |---|--|

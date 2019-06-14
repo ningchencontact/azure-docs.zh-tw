@@ -9,10 +9,10 @@ ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506979"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>使用 REST API 進行非同步重新整理
@@ -98,10 +98,10 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 不一定要指定參數。 會套用預設值。
 
-| 名稱             | 類型  | 說明  |預設值  |
+| Name             | 類型  | 描述  |預設值  |
 |------------------|-------|--------------|---------|
-| `Type`           | 例舉  | 要執行的處理類型。 Type 對應於 TMSL 的 [refresh 命令](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl)類型：full、clearValues、calculate、dataOnly、automatic 和 defragment。 不支援 Add 類型。      |   automatic      |
-| `CommitMode`     | 例舉  | 決定物件要批次認可或只在完成時認可。 CommitMode 包括：default、transactional、partialBatch。  |  transactional       |
+| `Type`           | Enum  | 要執行的處理類型。 Type 對應於 TMSL 的 [refresh 命令](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl)類型：full、clearValues、calculate、dataOnly、automatic 和 defragment。 不支援 Add 類型。      |   automatic      |
+| `CommitMode`     | Enum  | 決定物件要批次認可或只在完成時認可。 CommitMode 包括：default、transactional、partialBatch。  |  transactional       |
 | `MaxParallelism` | Int   | 這個值決定了可以平行執行處理命令的執行緒數目上限。 此值與 MaxParallelism 屬性對應，後者可以在 TMSL 的 [sequence 命令](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl)中設定，或使用其他方法設定。       | 10        |
 | `RetryCount`     | Int   | 表示作業失敗之前重試的次數。      |     0    |
 | `Objects`        | 陣列 | 要處理的物件陣列。 每個物件包含：「資料表」(處理整份資料表時)，或「資料表」和「分割區」(處理資料分割時)。 如未指定物件，會重新整理整個模型。 |   處理整個模型      |
@@ -207,7 +207,7 @@ CommitMode 等於 partialBatch。 當進行大型資料集的初始載入需要�
 
 如需關於如何在 Azure 中設定服務主體及指派必要權限的詳細資訊，請參閱[建立服務主體 - Azure 入口網站](../active-directory/develop/howto-create-service-principal-portal.md)和[將服務主體新增至伺服器管理員角色](analysis-services-addservprinc-admins.md)。 完成這些步驟後，請完成下列額外步驟：
 
-1.  在程式碼範例中，找到 **string authority = …**，將 **common** 取代為貴組織的租用戶識別碼。
+1.  在程式碼範例中，找到 **string authority = …** ，將 **common** 取代為貴組織的租用戶識別碼。
 2.  註解/取消註解，以便使用 ClientCredential 類別來具現化認證物件。 請確定目前存取 \<App ID> 和 \<App Key> 值的方式很安全，或為服務主體使用憑證型驗證。
 3.  執行範例。
 

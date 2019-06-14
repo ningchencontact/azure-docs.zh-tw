@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: genli
 ms.openlocfilehash: 3df4108907a4e1e65a444faf1049163966b7accf
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66170780"
 ---
 ## <a name="scenario"></a>案例
-建立具有單一 NIC 的 VM，並連接至虛擬網路。 VM 需要三個不同的「私人」IP 位址和兩個「公用」IP 位址。 IP 位址會指派給下列 IP 組態︰
+建立具有單一 NIC 的 VM，並連接至虛擬網路。 VM 需要三個不同的「私人」  IP 位址和兩個「公用」  IP 位址。 IP 位址會指派給下列 IP 組態︰
 
 * **Ipconfig-1:** 指派*靜態*私人 IP 位址並*靜態*公用 IP 位址。
 * **Ipconfig-2︰** 指派*靜態*私人 IP 位址並*靜態*公用 IP 位址。

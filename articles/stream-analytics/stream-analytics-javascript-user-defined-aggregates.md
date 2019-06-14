@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ms.openlocfilehash: 6663e3fc48408de83e92f39e8c8070005818852d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61479553"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure 串流分析 JavaScript 使用者定義彙總 (預覽)
@@ -124,9 +124,9 @@ computeResult() 方法會根據目前的狀態傳回彙總結果。 呼叫此方
 現在，我們將依循步驟，在現有的 ASA 作業底下建立一個 JavaScript UDA。
 
 1. 登入 Azure 入口網站並找出您現有的「串流分析」作業。
-1. 然後按一下 [作業拓撲] 底下的函式連結。
-1. 按一下 [新增] 圖示來新增函式。
-1. 在 [新增函式] 檢視上，選取 [JavaScript UDA] 作為 [函式類型]，然後您就會在編輯器中看見預設的 UDA 範本。
+1. 然後按一下 [作業拓撲]  底下的函式連結。
+1. 按一下 [新增]  圖示來新增函式。
+1. 在 [新增函式] 檢視上，選取 [JavaScript UDA]  作為 [函式類型]，然後您就會在編輯器中看見預設的 UDA 範本。
 1. 填入 "TWA" 作為 UDA 別名，然後依下列方式變更函式實作：
 
     ```JavaScript
@@ -175,7 +175,7 @@ computeResult() 方法會根據目前的狀態傳回彙總結果。 呼叫此方
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>在 ASA 查詢中呼叫 JavaScript UDA
 
-在 Azure 入口網站中，開啟您的作業、編輯查詢，然後使用授權前置詞 "uda" 來呼叫 TWA() 函式。 例如︰
+在 Azure 入口網站中，開啟您的作業、編輯查詢，然後使用授權前置詞 "uda" 來呼叫 TWA() 函式。 例如:
 
 ```SQL
 WITH value AS

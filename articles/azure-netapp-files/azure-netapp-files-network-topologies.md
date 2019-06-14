@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
 ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65826469"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>適用於 Azure NetApp Files 網路方案的指導方針
@@ -52,13 +52,13 @@ Azure NetApp 檔案磁碟區設計用來呼叫的特殊用途子網路中可包�
 
 |    拓撲    |    支援    |     因應措施    |
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
-|    連線到本機的 VNet 中的磁碟區    |    有    |         |
-|    對等互連的 VNet （相同的區域） 中的磁碟區的連線    |    有    |         |
-|    連線能力 （跨區域或全域對等互連） 的對等互連 VNet 中的磁碟區    |    無    |    None    |
-|    透過 ExpressRoute 閘道的磁碟區的連線    |    有    |         |
-|    從內部部署至輪輻 VNet ExpressRoute 閘道和閘道傳輸與對等互連的 VNet 中的磁碟區的連線能力    |    無    |    中樞 VNet (與閘道的 Azure VNet) 中建立委派的子網路    |
-|    在內部部署 VPN 閘道的輪輻 VNet 中的磁碟區的連線    |    有    |         |
-|    從內部部署至輪輻 VNet VPN 閘道和閘道傳輸與對等互連的 VNet 中的磁碟區的連線    |    有    |         |
+|    連線到本機的 VNet 中的磁碟區    |    是    |         |
+|    對等互連的 VNet （相同的區域） 中的磁碟區的連線    |    是    |         |
+|    連線能力 （跨區域或全域對等互連） 的對等互連 VNet 中的磁碟區    |    否    |    None    |
+|    透過 ExpressRoute 閘道的磁碟區的連線    |    是    |         |
+|    從內部部署至輪輻 VNet ExpressRoute 閘道和閘道傳輸與對等互連的 VNet 中的磁碟區的連線能力    |    否    |    中樞 VNet (與閘道的 Azure VNet) 中建立委派的子網路    |
+|    在內部部署 VPN 閘道的輪輻 VNet 中的磁碟區的連線    |    是    |         |
+|    從內部部署至輪輻 VNet VPN 閘道和閘道傳輸與對等互連的 VNet 中的磁碟區的連線    |    是    |         |
 
 
 ## <a name="virtual-network-for-azure-netapp-files-volumes"></a>針對 Azure NetApp 檔案磁碟區的虛擬網路
@@ -95,7 +95,7 @@ Azure NetApp 檔案磁碟區設計用來呼叫的特殊用途子網路中可包�
 
 基本的案例是建立或從相同 VNet 中的虛擬機器 (VM) 連線到 Azure NetApp 檔案磁碟區。 在上圖中的 VNet 2，磁碟區 1 中委派子網路建立，並可在 VM 1 預設子網路中掛接。
 
-### <a name="vnet-peering"></a>VNet 對等
+### <a name="vnet-peering"></a>VNet 對等互連
 
 如果您有額外的 Vnet，需要存取彼此的資源位於相同區域時，可以使用連線的 Vnet [VNet 對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)以啟用透過 Azure 基礎結構的安全連線。 
 

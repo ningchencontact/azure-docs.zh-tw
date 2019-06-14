@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61442847"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>整合 Azure 時間序列深入解析與遠端監視
@@ -51,7 +51,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-1. 選取 [建立資源] > [物聯網] > [時間序列深入解析]。
+1. 選取 [建立資源]   > [物聯網]   > [時間序列深入解析]  。
 
     ![新增時間序列深入解析](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights.png)
 
@@ -68,7 +68,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
     ![建立時間序列深入解析](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights-create.png)
 
-1. 按一下頁面底部的 [新增] 。 可能需要一點時間來建立環境。
+1. 按一下頁面底部的 [新增]  。 可能需要一點時間來建立環境。
 
 ## <a name="create-event-source"></a>建立事件來源
 
@@ -76,11 +76,11 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 1. 瀏覽至新的時間序列見解環境。
 
-1. 選取左側的 [事件來源]。
+1. 選取左側的 [事件來源]  。
 
     ![檢視事件來源](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-sources.png)
 
-1. 按一下 [新增] 。
+1. 按一下 [新增]  。
 
     ![新增事件來源](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-sources-add.png)
 
@@ -101,29 +101,29 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
     ![建立事件來源](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
-1. 按一下頁面底部的 [新增] 。
+1. 按一下頁面底部的 [新增]  。
 
 ## <a name="configure-the-data-access-policy"></a>設定資料存取原則
 
 為確保有權存取遠端監視解決方案的所有使用者都能夠在時間序列見解總管中瀏覽資料，請在 Azure 入口網站中的資料存取原則下新增應用程式和使用者。 
 
-1. 在導覽清單中，選擇 [資源群組]。
+1. 在導覽清單中，選擇 [資源群組]  。
 
-1. 選擇 [ContosoRM] 資源群組。
+1. 選擇 [ContosoRM]  資源群組。
 
-1. 在 Azure 資源清單中，選擇 [contosormtsi]。
+1. 在 Azure 資源清單中，選擇 [contosormtsi]  。
 
-1. 選擇 [資料存取原則]，以查看目前的角色指派清單。
+1. 選擇 [資料存取原則]  ，以查看目前的角色指派清單。
 
-1. 選擇 [新增] 以開啟 [選取使用者規則] 窗格。
+1. 選擇 [新增]  以開啟 [選取使用者規則]  窗格。
 
-   如果您沒有指派角色的權限，就看不到 [新增] 選項。
+   如果您沒有指派角色的權限，就看不到 [新增]  選項。
 
-1. 在 [角色] 下拉式清單中，選取 [讀者] 及 [參與者] 等角色。
+1. 在 [角色]  下拉式清單中，選取 [讀者]  及 [參與者]  等角色。
 
-1. 在 [選取] 清單中，選取使用者、群組或應用程式。 如果在清單中未看到安全性主體，您可以在 [選取] 方塊中輸入，以在目錄中搜尋顯示名稱、電子郵件地址和物件識別碼。
+1. 在 [選取]  清單中，選取使用者、群組或應用程式。 如果在清單中未看到安全性主體，您可以在 [選取]  方塊中輸入，以在目錄中搜尋顯示名稱、電子郵件地址和物件識別碼。
 
-1. 選擇 [儲存] 以建立角色指派。 在幾分鐘之後，即會在資料存取原則中指派安全性主體的角色。
+1. 選擇 [儲存]  以建立角色指派。 在幾分鐘之後，即會在資料存取原則中指派安全性主體的角色。
 
 > [!NOTE]
 > 如果您需要為其他使用者授與存取時間序列深入解析總管的權限，則可以使用下列步驟來[授與資料存取](../time-series-insights/time-series-insights-data-access.md#grant-data-access)。
@@ -132,11 +132,11 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 下一個步驟是設定 Azure 串流分析管理員微服務，以停止傳送訊息至 Cosmos DB，並僅將其儲存在時間序列見解中。 如果您想在 Cosmos DB 中複製訊息，請跳過此步驟。
 
-1. 在導覽清單中，選擇 [資源群組]。
+1. 在導覽清單中，選擇 [資源群組]  。
 
-1. 選擇 [ContosoRM] 資源群組。
+1. 選擇 [ContosoRM]  資源群組。
 
-1. 在資源清單中尋找 Azure 串流分析 (ASA) 的資料流處理工作。 資源名稱的開頭為 **streamingjobs-**。
+1. 在資源清單中尋找 Azure 串流分析 (ASA) 的資料流處理工作。 資源名稱的開頭為 **streamingjobs-** 。
 
 1. 在頂端按一下按鈕以停止 ASA 資料流處理工作。
 
@@ -191,7 +191,7 @@ Java：
 docker pull azureiotpcs/telemetry-java:1.0.2
 ```
 
-## <a name="optional-configure-the-web-ui-to-link-to-the-time-series-insights-explorer"></a>[選擇性] 設定 Web UI 以連結至時間序列見解總管
+## <a name="optional-configure-the-web-ui-to-link-to-the-time-series-insights-explorer"></a>[選擇性]  設定 Web UI 以連結至時間序列見解總管
 
 若要在時間序列見解總管中輕鬆地檢視資料，建議您自訂 UI 以輕鬆地連結至環境。 為此，請使用下列命令將最新變更提取至 Web UI ：
 
@@ -207,13 +207,13 @@ docker pull azureiotpcs/pcs-remote-monitoring-webui:1.0.2
 
 為已更新的微服務設定 `basic` 部署環境。
 
-1. 在 Azure 入口網站中，按一下左方窗格的 [Azure Active Directory] 索引標籤。
+1. 在 Azure 入口網站中，按一下左方窗格的 [Azure Active Directory]  索引標籤。
 
-1. 按一下 [應用程式註冊]。
+1. 按一下 [應用程式註冊]  。
 
 1. 搜尋並按一下您的 **ContosoRM** 應用程式。
 
-1. 巡覽至 [設定] > [金鑰]，然後為您的應用程式建立新金鑰。 請確保將金鑰值複製到安全的位置。
+1. 巡覽至 [設定]   > [金鑰]  ，然後為您的應用程式建立新金鑰。 請確保將金鑰值複製到安全的位置。
 
 1. 使用最新標記從 GitHub 存放庫中提取[最新的 docker compose yaml 檔案](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm)。 
 
@@ -231,9 +231,9 @@ docker pull azureiotpcs/pcs-remote-monitoring-webui:1.0.2
     PCS_AAD_APPSECRET={AAD application key}
     ```
 
-1. 瀏覽至 [遙測服務]，並透過新增與上述相同的環境變數來編輯 docker compose 檔案。
+1. 瀏覽至 [遙測服務]  ，並透過新增與上述相同的環境變數來編輯 docker compose 檔案。
 
-1. 瀏覽至 [ASA 管理員服務]，並透過新增 `PCS_TELEMETRY_STORAGE_TYPE` 來編輯 docker compose 檔案。
+1. 瀏覽至 [ASA 管理員服務]  ，並透過新增 `PCS_TELEMETRY_STORAGE_TYPE` 來編輯 docker compose 檔案。
 
 1. 從 VM 中使用 `sudo ./start.sh` 來重新啟動 Docker 容器。
 

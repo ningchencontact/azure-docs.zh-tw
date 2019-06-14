@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: aa9485ec8fcabdc0276e0598bd3e19f04d70dfa1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65066972"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>使用傾印和還原來移轉 PostgreSQL 資料庫
@@ -61,7 +61,7 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 >
 
 ### <a name="for-the-backup"></a>進行備份
-- 使用 -Fc 參數建立備份，能夠平行執行還原，加快執行速度。 例如︰
+- 使用 -Fc 參數建立備份，能夠平行執行還原，加快執行速度。 例如:
 
     ```
     pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName > Z:\Data\Backups\MyDatabaseBackup.dump
@@ -72,13 +72,13 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 
 - 根據預設，這應已完成，但請開啟傾印檔案，確認 Create Index 陳述式位在插入的資料之後。 若非如此，請將 Create Index 陳述式移至插入的資料之後。
 
-- 還原時使用參數-Fc 和-j *#*，可對還原進行平行處理。 *#* 是目標伺服器上的核心數目。 您也可以嘗試將 *#* 設定為目標伺服器核心數目的兩倍，以查看所產生的影響。 例如︰
+- 還原時使用參數-Fc 和-j *#* ，可對還原進行平行處理。 *#* 是目標伺服器上的核心數目。 您也可以嘗試將 *#* 設定為目標伺服器核心數目的兩倍，以查看所產生的影響。 例如:
 
     ```
     pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump
     ```
 
-- 您也可以在開頭處新增 *set synchronous_commit = off;* 命令並在結尾處新增 *set synchronous_commit = on;*，來編輯傾印檔案。 在應用程式變更資料之前，未在結尾處將它設為開啟，可能會造成後續遺失資料。
+- 您也可以在開頭處新增 *set synchronous_commit = off;* 命令並在結尾處新增 *set synchronous_commit = on;* ，來編輯傾印檔案。 在應用程式變更資料之前，未在結尾處將它設為開啟，可能會造成後續遺失資料。
 
 - 在適用於 PostgreSQL 的 Azure 資料庫目標伺服器上，請在還原前考慮下列事項：
     - 關閉查詢效能追蹤，因為在移轉期間不需要這些統計資料。 將 pg_stat_statements.track、pg_qs.query_capture_mode 和 pgms_wait_sampling.query_capture_mode 設定為 NONE，即可達成。

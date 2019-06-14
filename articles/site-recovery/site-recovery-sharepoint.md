@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61472030"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 設定多層式 SharePoint 應用程式的災害復原，以便進行災害復原
@@ -100,7 +100,7 @@ Microsoft SharePoint 是功能強大的應用程式，可協助群組或部門�
     ![選取網路](./media/site-recovery-sharepoint/select-network.png)
 
 
-* 如果您是使用靜態 IP 位址，然後在 [目標 IP] 欄位中指定您希望虛擬機器採用的 IP
+* 如果您是使用靜態 IP 位址，然後在 [目標 IP]  欄位中指定您希望虛擬機器採用的 IP
 
     ![設定靜態 IP](./media/site-recovery-sharepoint/set-static-ip.png)
 
@@ -185,7 +185,7 @@ Microsoft SharePoint 是功能強大的應用程式，可協助群組或部門�
     ![已儲存的 RP](./media/site-recovery-sharepoint/saved-rp.png)
 
 ## <a name="doing-a-test-failover"></a>執行測試容錯移轉
-遵循[此指南](site-recovery-test-failover-to-azure.md)执行测试故障转移。
+請依照[本指引](site-recovery-test-failover-to-azure.md)來執行測試容錯移轉。
 
 1.  請移至 Azure 入口網站，然後選取您的復原服務保存庫。
 2.  按一下為 SharePoint 應用程式建立的復原方案。

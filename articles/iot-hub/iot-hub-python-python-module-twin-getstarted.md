@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
 ms.openlocfilehash: f887fbd4f82e59c02d6a5b69d0d5b43b426a39bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61441200"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>透過 Python 後端和 Python 裝置開始使用 IoT 中樞模組身分識別和模組對應項
@@ -91,7 +91,7 @@ except KeyboardInterrupt:
 
    ![Azure 入口網站模組詳細資料](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 
-2. **创建 UpdateModuleTwinReportedProperties 应用**
+2. **建立 UpdateModuleTwinReportedProperties 應用程式**
 
    在 **Program.cs** 檔案開頭處新增下列 `using` 陳述式：
 

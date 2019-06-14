@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
 ms.openlocfilehash: 20a170963ff4a8ff9cb69d3397e66e12c1047d16
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65561194"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>使用金鑰輪替和稽核設定 Azure Key Vault
@@ -89,19 +89,19 @@ Get-AzKeyVaultSecret –VaultName <vaultName>
 > [!NOTE]
 > 應用程式必須建立在與金鑰保存庫相同的 Azure Active Directory 租用戶上。
 
-1. 打开“Azure Active Directory”。
-2. 選取 [應用程式註冊]。 
-3. 选择“新建应用程序注册”，以将一个应用程序添加到 Azure Active Directory。
+1. 打开“Azure Active Directory”。 
+2. 選取 [應用程式註冊]  。 
+3. 选择“新建应用程序注册”，以将一个应用程序添加到 Azure Active Directory。 
 
     ![在 Azure Active Directory 中開啟應用程式](./media/keyvault-keyrotation/azure-ad-application.png)
 
-4. 在“创建”下，将应用程序类型保留为“Web 应用/API”，并为应用程序命名。 为应用程序指定“登录 URL”。 此 URL 可以是任意 URL，适合本演示即可。
+4. 在“创建”下，将应用程序类型保留为“Web 应用/API”，并为应用程序命名。   为应用程序指定“登录 URL”  。 此 URL 可以是任意 URL，适合本演示即可。
 
     ![建立應用程式註冊](./media/keyvault-keyrotation/create-app.png)
 
-5. 将应用程序添加到 Azure Active Directory 后，应用程序页将会打开。 依次选择“设置”、“属性”。 複製 [應用程式識別碼] 值。 后面的步骤需要用到。
+5. 将应用程序添加到 Azure Active Directory 后，应用程序页将会打开。 依次选择“设置”、“属性”。   複製 [應用程式識別碼]  值。 后面的步骤需要用到。
 
-接下来，为应用程序生成密钥，使其可与 Azure Active Directory 交互。 若要创建密钥，请在“设置”下选择“密钥”。 记下为 Azure Active Directory 应用程序生成的新密钥。 您在後續的步驟中將需要此資訊。 从此部分导航出来以后，该密钥将不可用。 
+接下来，为应用程序生成密钥，使其可与 Azure Active Directory 交互。 若要创建密钥，请在“设置”下选择“密钥”。   记下为 Azure Active Directory 应用程序生成的新密钥。 您在後續的步驟中將需要此資訊。 从此部分导航出来以后，该密钥将不可用。 
 
 ![Azure Active Directory 应用密钥](./media/keyvault-keyrotation/create-key.png)
 
@@ -163,7 +163,7 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 ## <a name="key-rotation-using-azure-automation"></a>使用 Azure 自動化的金鑰輪替
 
 > [!IMPORTANT]
-> Azure 自动化 Runbook 仍需使用 `AzureRM` 模块。
+> Azure 自動化 runbook 仍需要使用`AzureRM`模組。
 
 现在，对于存储为 Key Vault 机密的值，可以设置轮换策略。 可通过多种方式轮换机密：
 
@@ -173,11 +173,11 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 
 本文结合使用 Azure PowerShell 和 Azure 自动化来更改 Azure 存储帐户的访问密钥。 然后使用新密钥更新 Key Vault 机密。
 
-若要允许 Azure 自动化在 Key Vault 中设置机密值，必须获取名为 **AzureRunAsConnection** 的连接的客户端 ID。 此连接是建立 Azure 自动化实例时创建的。 若要查找此 ID，请在 Azure 自动化实例中选择“资产”。 在此处选择“连接”，然后选择“AzureRunAsConnection”服务主体。 记下“ApplicationId”值。
+若要允许 Azure 自动化在 Key Vault 中设置机密值，必须获取名为 **AzureRunAsConnection** 的连接的客户端 ID。 此连接是建立 Azure 自动化实例时创建的。 若要查找此 ID，请在 Azure 自动化实例中选择“资产”。  在此处选择“连接”，然后选择“AzureRunAsConnection”服务主体。   记下“ApplicationId”值。 
 
 ![Azure 自動化用戶端識別碼](./media/keyvault-keyrotation/Azure_Automation_ClientID.png)
 
-在“资产”中选择“模块”。 选择“库”，然后搜索并导入以下每个模块的更新版本：
+在“资产”中选择“模块”。   选择“库”，然后搜索并导入以下每个模块的更新版本： 
 
     Azure
     Azure.Storage
@@ -195,7 +195,7 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
 ```
 
-接下来，选择 Azure 自动化实例下的“Runbook”，然后选择“添加 Runbook”。 選取 [快速建立] 。 为 Runbook 命名，然后选择“PowerShell”作为 Runbook 类型。 可以添加说明。 最後，選取 [建立]。
+接下来，选择 Azure 自动化实例下的“Runbook”，然后选择“添加 Runbook”。   選取 [快速建立]  。 为 Runbook 命名，然后选择“PowerShell”作为 Runbook 类型。  可以添加说明。 最後，選取 [建立]  。
 
 ![建立 Runbook](./media/keyvault-keyrotation/Create_Runbook.png)
 
@@ -242,7 +242,7 @@ $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
-在编辑器窗格中，选择“测试”窗格以测试脚本。 正常运行脚本后，可以选择“发布”，并在 Runbook 配置窗格中应用 Runbook 的计划。
+在编辑器窗格中，选择“测试”窗格以测试脚本。  正常运行脚本后，可以选择“发布”，并在 Runbook 配置窗格中应用 Runbook 的计划。 
 
 ## <a name="key-vault-auditing-pipeline"></a>金鑰保存庫稽核管線
 
@@ -276,7 +276,7 @@ Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Ena
 
 ![Azure Functions 啟動刀鋒視窗](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 
-在 [開發] 索引標籤上，以下列內容取代 run.csx 程式碼︰
+在 [開發]  索引標籤上，以下列內容取代 run.csx 程式碼︰
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -421,9 +421,9 @@ Sync.txt 檔案包含最後發生的事件時間戳記。 當載入記錄檔時�
 
 在同一個**整合**索引標籤上，新增類型的輸入**Azure Blob 儲存體**。 此輸入會指向包含函式所查看的最後一個事件的時間戳記的 sync.txt 檔案。 此輸入將存取函式中，使用參數名稱。 在上述程式碼中，Azure Blob 儲存體輸入預期參數名稱為*inputBlob*。 選取儲存體帳戶的 sync.txt 檔案將位於何處 （可能是相同或不同的儲存體帳戶）。 在 [路徑] 欄位中，提供格式檔案的路徑`{container-name}/path/to/sync.txt`。
 
-新增類型的輸出**Azure Blob 儲存體**。 此輸出會指向您在輸入中定義的 sync.txt 檔案。 函式會使用此輸出寫入查看的最後一個事件的時間戳記。 前面的程式碼預期此參數名稱為 outputBlob。
+新增類型的輸出**Azure Blob 儲存體**。 此輸出會指向您在輸入中定義的 sync.txt 檔案。 函式會使用此輸出寫入查看的最後一個事件的時間戳記。 前面的程式碼預期此參數名稱為 outputBlob  。
 
-此函式已準備好。 請務必切換回 [開發] 索引標籤並儲存程式碼。 檢查有任何編譯錯誤 [輸出] 視窗，並視需要加以更正。 如果程式碼會編譯，然後程式碼應該現在會每隔一分鐘檢查金鑰保存庫記錄檔並將任何新事件推送至定義的服務匯流排佇列。 您應該會在每次觸發函式時看到記錄資訊寫入到 [記錄檔] 視窗。
+此函式已準備好。 請務必切換回 [開發]  索引標籤並儲存程式碼。 檢查有任何編譯錯誤 [輸出] 視窗，並視需要加以更正。 如果程式碼會編譯，然後程式碼應該現在會每隔一分鐘檢查金鑰保存庫記錄檔並將任何新事件推送至定義的服務匯流排佇列。 您應該會在每次觸發函式時看到記錄資訊寫入到 [記錄檔] 視窗。
 
 ### <a name="azure-logic-app"></a>Azure 邏輯應用程式
 
@@ -435,7 +435,7 @@ Sync.txt 檔案包含最後發生的事件時間戳記。 當載入記錄檔時�
 
 ![Azure 邏輯應用程式服務匯流排](./media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
 
-選取 [新增條件] 。 在條件中，切換到進階編輯器，並輸入下列程式碼。 取代*APP_ID*實際的應用程式識別碼，為您的 web 應用程式：
+選取 [新增條件]  。 在條件中，切換到進階編輯器，並輸入下列程式碼。 取代*APP_ID*實際的應用程式識別碼，為您的 web 應用程式：
 
 ```
 @equals('<APP_ID>', json(decodeBase64(triggerBody()['ContentData']))['identity']['claim']['appid'])

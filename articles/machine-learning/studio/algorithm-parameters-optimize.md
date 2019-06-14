@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
 ms.openlocfilehash: 6dc9476f603d5664b7ea23489042b69f86647cf5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60752145"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>選擇參數來最佳化 Azure Machine Learning Studio 中的演算法
@@ -41,7 +41,7 @@ ms.locfileid: "60752145"
 
 ![二元促進式決策樹，單一參數](./media/algorithm-parameters-optimize/fig2.png)
 
- 或者，您可以使用**使用範圍產生器**來定義網格的最大點數與最小點數，以及要產生的總點數。 參數值預設會以線性刻度產生。 但如果核取了 [對數刻度]，值會以對數刻度產生 (也就是相鄰兩點的比率而不是其差異為常數)。 對於整數參數，您可以使用連字號來定義範圍。 例如，"1-10" 表示介於 1 到 10 (兩者皆含) 之間的所有整數會構成參數集。 也支援使用混合的模式。 例如，此參數設定 "1-10, 20, 50" 會包括整數 1-10、20 和 50 個。
+ 或者，您可以使用**使用範圍產生器**來定義網格的最大點數與最小點數，以及要產生的總點數。 參數值預設會以線性刻度產生。 但如果核取了 [對數刻度]  ，值會以對數刻度產生 (也就是相鄰兩點的比率而不是其差異為常數)。 對於整數參數，您可以使用連字號來定義範圍。 例如，"1-10" 表示介於 1 到 10 (兩者皆含) 之間的所有整數會構成參數集。 也支援使用混合的模式。 例如，此參數設定 "1-10, 20, 50" 會包括整數 1-10、20 和 50 個。
 
 ![二元促進式決策樹，參數範圍](./media/algorithm-parameters-optimize/fig3.png)
 
@@ -51,7 +51,7 @@ ms.locfileid: "60752145"
 ![資料分割和取樣](./media/algorithm-parameters-optimize/fig4.png)
 
 ## <a name="define-the-metric"></a>定義計量
-[微調模型超參數][tune-model-hyperparameters]模組支援依據經驗為指定的演算法和資料集選擇一組最佳參數。 除了有關訓練模型的其他資訊，此模組的 [屬性] 窗格還包括用來判斷最佳參數集的計量。 分類和迴歸演算法分別有兩個不同的下拉式清單方塊。 如果考慮使用分類演算法，則會忽略迴歸計量，反之亦然。 在此特定範例中，計量是**正確度**。   
+[微調模型超參數][tune-model-hyperparameters]模組支援依據經驗為指定的演算法和資料集選擇一組最佳參數。 除了有關訓練模型的其他資訊，此模組的 [屬性]  窗格還包括用來判斷最佳參數集的計量。 分類和迴歸演算法分別有兩個不同的下拉式清單方塊。 如果考慮使用分類演算法，則會忽略迴歸計量，反之亦然。 在此特定範例中，計量是**正確度**。   
 
 ![掃掠參數](./media/algorithm-parameters-optimize/fig5.png)
 

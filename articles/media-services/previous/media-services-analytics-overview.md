@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
 ms.openlocfilehash: ceaf4d3db71d99c3e87157f9847312fdf4000026
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991795"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>媒體服務平台上的媒體分析 
@@ -64,7 +64,7 @@ Azure 內容仲裁可讓您針對影片使用機器輔助仲裁。 例如，您�
 
 ### <a name="mp-names"></a>MP 名稱
 * Azure 媒體索引器 2 預覽
-* Azure 媒體索引器
+* Azure Media Indexer
 * Azure 媒體臉部偵測器
 * Azure 媒體動作偵測器
 * Azure 媒體視訊縮圖

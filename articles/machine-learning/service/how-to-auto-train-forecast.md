@@ -11,10 +11,10 @@ ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.openlocfilehash: c7f4b6d8aa614a460772fb7af11f9b83dc3fc979
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65800819"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自動定型時間序列預測的模型
@@ -81,7 +81,7 @@ y_test = X_test.pop("sales_quantity").values
 
 `AutoMLConfig`物件定義的設定和自動化的機器學習工作所需的資料。 類似於迴歸問題，您定義標準的訓練參數，例如工作類型、 的反覆項目，定型資料，以及交叉驗證數目。 預測工作，有額外的參數必須設定會影響實驗。 下表說明每個參數，以及其使用方式。
 
-| 參數 | 說明 | 必要項 |
+| 參數 | 描述 | 必要項 |
 |-------|-------|-------|
 |`time_column_name`|用來指定用來建立時間序列和推斷其頻率的輸入資料中的日期時間資料行。|✓|
 |`grain_column_names`|輸入資料中定義個別的數列群組的名稱。 如果未定義資料粒度，資料集被假設一個時間序列。||

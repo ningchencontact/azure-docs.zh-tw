@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.openlocfilehash: 9a6a1a744a8441d2f082d4d14a3aba8aa1cfc09e
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306027"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>建立和管理讀取的複本，從 Azure CLI
@@ -52,7 +52,7 @@ ms.locfileid: "66306027"
 | 設定 | 範例值 | 描述  |
 | --- | --- | --- |
 | resource-group | myresourcegroup |  複本伺服器將會建立資源群組。  |
-| NAME | mydemoserver-replica | 所建立的新複本伺服器名稱。 |
+| name | mydemoserver-replica | 所建立的新複本伺服器名稱。 |
 | source-server | mydemoserver | 名稱或資源識別碼的現有的主要伺服器複寫。 |
 
 在下列 CLI 範例中，為主機相同的區域中建立複本。

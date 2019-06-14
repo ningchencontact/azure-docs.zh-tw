@@ -7,10 +7,10 @@ ms.topic: samples
 ms.date: 05/06/2019
 ms.author: mjbrown
 ms.openlocfilehash: 4a695fd569459e6372465273675620cd40d7e6a7
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65078276"
 ---
 # <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>更新 Azure Cosmos 帳戶，並加入區域，使用 PowerShell
@@ -25,7 +25,7 @@ ms.locfileid: "65078276"
 
 ## <a name="clean-up-deployment"></a>清除部署
 
-运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
+在執行過指令碼範例之後，您可以使用下列命令來移除資源群組和所有與其相關聯的資源。
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"

@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 10/01/2018
 ms.openlocfilehash: 6eabb65203ed8a37975e09271ce4aa11c9478498
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779168"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>用於測試和建立原型的公用資料集
@@ -28,7 +28,7 @@ ms.locfileid: "65779168"
 | 資料來源 | 關於資料 | 關於檔案 |
 |---|---|---|
 | [美國政府資料](https://www.census.gov/data.html) | 超過 190,000 個資料集，涵蓋美國的農業、氣候、消費者、生態系統、教育、能源、金融、健康、當地政府、製造、海事、公共安全以及科學和研究資料 | 各種格式 (包括 HTML、XML、CSV、JSON、Excel 和其他許多格式)、各種大小的檔案。 您可以依照檔案格式篩選可用的資料集。 |
-| [美國人口普查資料](https://www.census.gov/data.html) | 有關美國人口的統計資料 | 数据集采用各种格式。 |
+| [美國人口普查資料](https://www.census.gov/data.html) | 有關美國人口的統計資料 | 資料集採用各種格式。 |
 | [來自 NASA 的地球科學資料](https://earthdata.nasa.gov/) | 超過 32,000 個資料集合，涵蓋農業、大氣、生物圈、氣候、冰雪圈、人類範圍、水圈、地表、海洋、太陽與地球互動等資料。 | 資料集採用各種格式。 |
 | [航班延遲和其他運輸資料](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | 「美國運輸部 (DOT) 的運輸統計局 (BTS) 會追蹤大型航空運輸業者所營運的國內航班準點率。 這個網站上公布的摘要表會顯示準時、延遲、取消和轉降航班數目的摘要資訊。」 | 檔案採用 CSV 格式。 |
 | [交通事故死亡率 - 美國事故死亡率分析報告系統 (FARS)](https://www.nhtsa.gov/FARS) | 「FARS 是一項全國人口普查，提供 NHTSA、美國國會和美國大眾有關在汽機車交通碰撞中遭受嚴重傷害的年度資料。」 | 「使用 FARS 查詢系統建立自己線上執行的事故死亡率資料。 或從 FTP 網站下載自 1975 年起的所有 FARS 資料。」 |

@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab, bonova, jovanpop
 manager: craigg
 ms.date: 03/13/2019
 ms.openlocfilehash: 9ca9506ad9ca826349b2815e504e9ba8bf976faa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60702002"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>快速入門：設定從內部部署連線至 Azure SQL Database 受控執行個體的點對站連線
@@ -28,12 +28,12 @@ ms.locfileid: "60702002"
 此快速入門：
 
 - 使用在[建立受控執行個體](sql-database-managed-instance-get-started.md)中建立的資源作為起點。
-- 本地客户端计算机需要 PowerShell 5.1 和 AZ PowerShell 1.4.0 或更高版本。 如有需要，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module)的指示。
+- 需要 PowerShell 5.1 和 AZ PowerShell 1.4.0 或更新版本上您的內部部署用戶端電腦。 如有需要，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module)的指示。
 - 您的內部部署用戶端電腦上需要最新版 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS)。
 
 ## <a name="attach-a-vpn-gateway-to-your-managed-instance-virtual-network"></a>將 VPN 閘道連結到您的受控執行個體虛擬網路
 
-1. 在本地客户端计算机上打开 PowerShell。
+1. 您的內部部署用戶端電腦上開啟 PowerShell。
 
 2. 複製此 PowerShell 指令碼。 此指令碼會將 VPN 閘道連結到您在[建立受控執行個體](sql-database-managed-instance-get-started.md)快速入門中所建立的受控執行個體虛擬網路。 此指令碼會執行下列動作︰
 
@@ -56,41 +56,41 @@ ms.locfileid: "60702002"
      ```
 
      > [!IMPORTANT]
-     > 若要使用 Azure PowerShell 资源管理器模块而不是 Az 模块，请使用 `attachVPNGateway.ps1` cmdlet 而不是 `attachVPNGatewayAz.ps1` cmdlet。
+     > 若要使用 Azure PowerShell Resource Manager 模組，而不是 Az 模組，請使用下列 cmdlet:`attachVPNGateway.ps1`而非`attachVPNGatewayAz.ps1`cmdlet。
 
 3. 在 PowerShell 視窗中貼上指令碼，並提供必要的參數。 `<subscriptionId>`、`<resourceGroup>` 和 `<virtualNetworkName>` 的值應符合在[建立受控執行個體](sql-database-managed-instance-get-started.md)快速入門中所用的值。 `<certificateNamePrefix>` 的值可以是您自己選擇的字串。
 
 4. 執行 PowerShell 指令碼。
 
 > [!IMPORTANT]
-> 在 PowerShell 脚本完成前，请勿继续操作。
+> PowerShell 指令碼完成之前，請勿繼續。
 
 ## <a name="create-a-vpn-connection-to-your-managed-instance"></a>建立受控執行個體的 VPN 連線
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 開啟您在虛擬網路閘道中所建立的資源群組，然後開啟虛擬網路閘道資源。
-3. 選取 [點對站設定]，然後選取 [下載 VPN 用戶端]。
+3. 選取 [點對站設定]  ，然後選取 [下載 VPN 用戶端]  。
 
     ![下載 VPN 用戶端](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
-4. 在本地客户端计算机上，从 zip 文件中提取文件，然后打开包含已提取文件的文件夹。
-5. 打开 **WindowsAmd64** 文件夹，然后打开 **VpnClientSetupAmd64.exe** 文件。
-6. 如果您收到 [Windows 已保護您的電腦] 訊息，請按一下 [其他資訊]，然後按一下 [仍要執行]。
+4. 您在內部部署用戶端在電腦上，從 zip 檔案解壓縮檔案，然後開啟資料夾解壓縮檔案使用。
+5. 開啟 '**WindowsAmd64**資料夾，然後開啟**VpnClientSetupAmd64.exe**檔案。
+6. 如果您收到 [Windows 已保護您的電腦]  訊息，請按一下 [其他資訊]  ，然後按一下 [仍要執行]  。
 
     ![安裝 VPN 用戶端](./media/sql-database-managed-instance-configure-p2s/vpn-client-defender.png)\
-7. 在“用户帐户控制”对话框中单击“是”，继续下一步。
-8. 在引用虚拟网络的对话框中选择“是”，为虚拟网络安装 VPN 客户端。
+7. 在 [使用者帳戶控制] 對話方塊中，按一下**是**以繼續。
+8. 在 [參考您的虛擬網路] 對話方塊中，選取**是**安裝 VPN 用戶端，您的虛擬網路。
 
 ## <a name="connect-to-the-vpn-connection"></a>連線到 VPN 連線
 
-1. 在本地客户端计算机上的“网络和 Internet”中转到“VPN”，选择“托管实例”虚拟网络，以便建立到此 VNet 的连接。 在下圖中，VNet 的名稱為 **MyNewVNet**。
+1. 移至**VPN**中**網路和網際網路**您內部部署用戶端電腦上，選取您受控執行個體的虛擬網路建立到此 VNet 的連線。 在下圖中，VNet 的名稱為 **MyNewVNet**。
 
     ![VPN 連線](./media/sql-database-managed-instance-configure-p2s/vpn-connection.png)  
 2. 選取 [ **連接**]。
-3. 在對話方塊中，選取 [連線]。
+3. 在對話方塊中，選取 [連線]  。
 
     ![VPN 連線](./media/sql-database-managed-instance-configure-p2s/vpn-connection2.png)  
-4. 出現連線管理員需要提高的權限以更新路由表的提示時，請選擇 [繼續]。
-5. 在 [使用者帳戶控制] 對話方塊中，按選取 [是] 以繼續。
+4. 出現連線管理員需要提高的權限以更新路由表的提示時，請選擇 [繼續]  。
+5. 在 [使用者帳戶控制] 對話方塊中，按選取 [是]  以繼續。
 
    您已建立對受控執行個體 VNet 的 VPN 連線。
 
@@ -99,8 +99,8 @@ ms.locfileid: "60702002"
 ## <a name="use-ssms-to-connect-to-the-managed-instance"></a>使用 SSMS 連線到受控執行個體
 
 1. 在內部部署用戶端電腦上，開啟 SQL Server Management Studio (SSMS)。
-2. 在 [連接到伺服器] 對話方塊方塊中，於 [伺服器名稱] 方塊中輸入受控執行個體的完整 [主機名稱]。
-3. 選取 [SQL Server 驗證]，提供您的使用者名稱和密碼，然後選取 [連線]。
+2. 在 [連接到伺服器]  對話方塊方塊中，於 [伺服器名稱]  方塊中輸入受控執行個體的完整 [主機名稱]  。
+3. 選取 [SQL Server 驗證]  ，提供您的使用者名稱和密碼，然後選取 [連線]  。
 
     ![SSMS 連線](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
 

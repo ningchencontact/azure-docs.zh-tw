@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
 ms.openlocfilehash: 99f756b5415811b3d4c2ee0167f98b31c905df1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60657677"
 ---
 # <a name="policies-in-azure-api-management"></a>Azure API 管理中的原則
@@ -35,7 +35,7 @@ ms.locfileid: "60657677"
 按一下已啟用的陳述式會在定義檢視中的游標位置上加入適當的 XML。 
 
 > [!NOTE]
-> 如果未啟用您想要新增的原則，請確定您是在該原則的正確範圍內。 每个策略语句都设计为在特定范围和策略部分中使用。 若要檢閱原則的原則區段和範圍，請檢查[原則參考][Policy Reference]中該原則的**使用方式**一節。
+> 如果未啟用您想要新增的原則，請確定您是在該原則的正確範圍內。 每個原則陳述式都是針對在特定範圍和原則區段中使用所設計。 若要檢閱原則的原則區段和範圍，請檢查[原則參考][Policy Reference]中該原則的**使用方式**一節。
 > 
 > 
 
@@ -59,7 +59,7 @@ ms.locfileid: "60657677"
 </policies> 
 ```
 
-若在處理要求期間發生錯誤，便會略過 `inbound`、`backend` 或 `outbound` 區段中的所有剩餘步驟，且執行程序會跳至 `on-error` 區段中的陳述式。 將原則陳述式置於 `on-error` 區段中，您即可使用 `context.LastError` 屬性檢閱錯誤、使用 `set-body` 原則檢查和自訂錯誤回應，以及設定錯誤發生時採取的動作。 错误代码可针对内置步骤，也可针对在处理策略语句的过程中会发生的错误。 如需詳細資訊，請參閱 [API 管理原則中的錯誤處理方式](/azure/api-management/api-management-error-handling-policies)。
+若在處理要求期間發生錯誤，便會略過 `inbound`、`backend` 或 `outbound` 區段中的所有剩餘步驟，且執行程序會跳至 `on-error` 區段中的陳述式。 將原則陳述式置於 `on-error` 區段中，您即可使用 `context.LastError` 屬性檢閱錯誤、使用 `set-body` 原則檢查和自訂錯誤回應，以及設定錯誤發生時採取的動作。 會出現內建步驟的錯誤碼和處理原則陳述式期間可能會發生之錯誤的錯誤碼。 如需詳細資訊，請參閱 [API 管理原則中的錯誤處理方式](/azure/api-management/api-management-error-handling-policies)。
 
 ## <a name="scopes"> </a>如何設定原則
 

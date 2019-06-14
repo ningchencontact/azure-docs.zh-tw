@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6e84801875cf0a77990a63db5c28eedc2128c504
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866821"
 ---
 # <a name="what-is-vmware-solution-on-azure-by-cloudsimple"></a>什麼是 Azure CloudSimple 上的 VMware 解決方案
@@ -22,7 +22,7 @@ ms.locfileid: "64866821"
 
 ![VMware 的解決方案，在 Azure CloudSimple 概觀](media/azure-vmware-solution-by-cloudsimple.png)
 
-## <a name="features"></a>特性
+## <a name="features"></a>功能
 
 * 隨選自助服務佈建 VMware 雲端環境。 新增和移除隨選容量的能力
 * VMware 平台部署、 升級、 管理平面備份、 / 容量的健全狀況監視、 警示、 疑難排解和補救。
@@ -42,7 +42,7 @@ ms.locfileid: "64866821"
   * 作業
   * 網路功能
   * 安全性
-  * Backup 
+  * Backup
   * 災害復原
   * 稽核
   * 相容性工具

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942719"
 ---
 # <a name="storefront-details-tab"></a>電子店面詳細資料索引標籤
 
-本文說明如何輸入您店面的詳細資料。 [電子店面詳細資料] 索引標籤由下列區段組成：
+本文說明如何輸入您店面的詳細資料。 [電子店面詳細資料]  索引標籤由下列區段組成：
 
 -   **產品/服務詳細資料**
 -   **發行者資訊**
@@ -28,7 +28,7 @@ ms.locfileid: "64942719"
 
 ## <a name="offer-details"></a>供應項目詳細資料
 
-[產品/服務詳細資料] 區段包含下列方塊：
+[產品/服務詳細資料]  區段包含下列方塊：
 
 -   **供應項目摘要\***
 -   **供應項目描述\***
@@ -66,9 +66,9 @@ ms.locfileid: "64942719"
 
 ### <a name="offer-description"></a>供應項目描述\*
 
-在 [供應項目描述] 方塊中輸入諮詢服務供應項目的描述。 良好的供應項目描述涵蓋業務開發實際情況的確切詳細資料，以及客戶獲得的最終交付項目。 它應該清楚地協助客戶了解他們能獲得的項目。 包括您的供應項目與您提供諮詢服務的 Microsoft 產品有何關聯。
+在 [供應項目描述]  方塊中輸入諮詢服務供應項目的描述。 良好的供應項目描述涵蓋業務開發實際情況的確切詳細資料，以及客戶獲得的最終交付項目。 它應該清楚地協助客戶了解他們能獲得的項目。 包括您的供應項目與您提供諮詢服務的 Microsoft 產品有何關聯。
 
-請勿在您的供應項目描述中包含您的電子郵件地址或電話號碼。 您的供應項目隨附 [與我連絡] 按鈕，可將潛在客戶上傳到您針對供應項目所識別的潛在客戶管理目標。
+請勿在您的供應項目描述中包含您的電子郵件地址或電話號碼。 您的供應項目隨附 [與我連絡]  按鈕，可將潛在客戶上傳到您針對供應項目所識別的潛在客戶管理目標。
 
 以 Markdown 格式輸入供應項目描述。 如果您不熟悉如何使用 Markdown 或 HTML 格式，請參閱[如何使用 Markdown 來撰寫 Docs](https://docs.microsoft.com/contribute/how-to-write-use-markdown)。
 
@@ -171,13 +171,13 @@ Microsoft 僅著重於固定範圍、固定期間、估計或固定價格 (或�
 
 **Duration**
 
-在 [持續時間] 底下選取數字 (如 3 或 4)，然後選取 [小時]、[天]、或 [週]。
+在 [持續時間]  底下選取數字 (如 3 或 4)，然後選取 [小時]  、[天]  、或 [週]  。
 
 **主要產品**
 
-若要發佈至 Azure Marketplace，請選取 [Azure] 作為主要產品。 然後選取相關的 [解決方案區域]。
+若要發佈至 Azure Marketplace，請選取 [Azure]  作為主要產品。 然後選取相關的 [解決方案區域]  。
 
-若要發佈至 AppSource，請選取 [Dynamics 365]、[Power BI] 或 [PowerApps] 作為您主要的產品。 您也可以選取其他相關的**適用產品**。 然後您的諮詢服務供應項目就會於 AppSource 上，在與每個這些產品相關聯的清單中顯示。
+若要發佈至 AppSource，請選取 [Dynamics 365]  、[Power BI]  或 [PowerApps]  作為您主要的產品。 您也可以選取其他相關的**適用產品**。 然後您的諮詢服務供應項目就會於 AppSource 上，在與每個這些產品相關聯的清單中顯示。
 
 **相關專長認證**
 

@@ -16,10 +16,10 @@ ms.date: 02/14/2019
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: 00d7e510fa43865f1427092f2f20b9847f1afa9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60863779"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>將 Linux Service Fabric 叢集部署到 Azure 虛擬網路
@@ -65,7 +65,7 @@ ms.locfileid: "60863779"
 
 在 **Microsoft.Network/loadBalancers** 資源中，會為下列連接埠設定負載平衡器，並進行探查和規則的設定：
 
-* 客户端连接终结点：19000
+* 用戶端連線端點：19000
 * HTTP 閘道端點：19080
 * 應用程式連接埠：80
 * 應用程式連接埠：443
@@ -74,8 +74,8 @@ ms.locfileid: "60863779"
 
 虛擬網路和子網路的名稱會在範本參數中宣告。  虛擬網路和子網路的位址空間也會在範本參數中宣告，並設定於 **Microsoft.Network/virtualNetworks** 資源中：
 
-* 虚拟网络地址空间：10.0.0.0/16
-* Service Fabric 子网地址空间：10.0.2.0/24
+* 虛擬網路位址空間：10.0.0.0/16
+* Service Fabric 子網路位址空間：10.0.2.0/24
 
 如果需要任何其他應用程式連接埠，則您必須調整 Microsoft.Network/loadBalancers 資源，以允許流量進入。
 

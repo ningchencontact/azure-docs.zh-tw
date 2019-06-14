@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
 ms.openlocfilehash: 3d324c54d10433520a73f2bd836c26bd79f1b3bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615260"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>設定加密憑證，並在 Windows 叢集上將祕密加密
@@ -31,7 +31,7 @@ ms.locfileid: "60615260"
 
 * 憑證必須包含私密金鑰。
 * 憑證必須是為了進行金鑰交換而建立，且可匯出成個人資訊交換檔 (.pfx)。
-* 证书密钥用法必须包括数据加密 (10)，不应包括服务器身份验证或客户端身份验证。 
+* 憑證的金鑰使用法必須包含資料編密 (10)，而且不應該包含伺服器驗證或用戶端驗證。 
   
   例如，當使用 PowerShell 建立自我簽署的憑證時，`KeyUsage` 旗標必須設定為 `DataEncipherment`：
   

@@ -16,10 +16,10 @@ ms.date: 03/01/2018
 ms.author: banders
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7d41e9b7774bf8840db9e729d3aa9371f5bac04f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615899"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>我的 Azure for Students 訂用帳戶為何停用，以及如何將它重新啟動？
@@ -37,7 +37,7 @@ Azure for Students 帳戶提供美金 100 元的點數，以及 12 個月數量�
    
     ![顯示 Azure for Students 訂用帳戶點數資訊的螢幕擷取畫面](./media/billing-azurestudents-subscription-disabled/azurestudents-credit-balance.png)
 
-3. 若要檢查耗用 Azure 點數的服務使用量，請從左方導覽中選取 [使用量]，然後選取您的 Azure for Students 訂用帳戶。
+3. 若要檢查耗用 Azure 點數的服務使用量，請從左方導覽中選取 [使用量]  ，然後選取您的 Azure for Students 訂用帳戶。
 
     ![顯示 Azure for Students 點數使用量資訊的螢幕擷取畫面](./media/billing-azurestudents-subscription-disabled/azurestudents-credit-usage.png)
 

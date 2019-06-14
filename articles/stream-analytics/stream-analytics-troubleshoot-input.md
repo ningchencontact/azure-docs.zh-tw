@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: b5ed614fdd378b36d8f95fc90ce7ff98d63ef31a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60761820"
 ---
 # <a name="troubleshoot-input-connections"></a>針對輸入連線進行疑難排解
@@ -21,7 +21,7 @@ ms.locfileid: "60761820"
 本頁面說明輸入連線的常見問題，以及如何進行疑難排解。
 
 ## <a name="input-events-not-received-by-job"></a>作業未收到輸入事件 
-1.  測試連線能力。 針對各個輸入和輸出使用 [測試連線] 按鈕，驗證輸入及輸出的連線能力。
+1.  測試連線能力。 針對各個輸入和輸出使用 [測試連線]  按鈕，驗證輸入及輸出的連線能力。
 
 2.  檢查您的輸入資料。
 
@@ -34,7 +34,7 @@ ms.locfileid: "60761820"
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>格式不正確的輸入事件導致還原序列化錯誤 
 當串流分析作業的輸入資料流包含格式不正確的訊息時，就會導致還原序列化問題。 例如，格式錯誤的訊息可能是在 JSON 物件中遺漏括號或遺漏大括號所導致，或是時間欄位中不正確的時間戳記格式所導致。 
  
-當串流分析作業從輸入收到格式不正確的訊息時，會捨棄訊息並以警告通知您。 您串流分析作業的 [輸入] 圖格上會顯示警告符號。 只要作業處於執行中狀態，此警告符號就會存在：
+當串流分析作業從輸入收到格式不正確的訊息時，會捨棄訊息並以警告通知您。 您串流分析作業的 [輸入]  圖格上會顯示警告符號。 只要作業處於執行中狀態，此警告符號就會存在：
 
 ![Azure 串流分析輸入圖格](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
@@ -73,13 +73,13 @@ Could not deserialize the input event(s) from resource <blob URI> as json.
 
 2. 找到您的事件中樞。
 
-3. 選取 [實體] 標題下方的 [事件中樞]。
+3. 選取 [實體]  標題下方的 [事件中樞]  。
 
 4. 依名稱選取事件中樞。
 
-5. 在 [事件中樞執行個體] 頁面上，[實體] 標題下方，選取 [取用者群組]。 隨即列出名為 **$Default** 的取用者群組。
+5. 在 [事件中樞執行個體]  頁面上，[實體]  標題下方，選取 [取用者群組]  。 隨即列出名為 **$Default** 的取用者群組。
 
-6. 選取 [+ 取用者群組] 以新增取用者群組。 
+6. 選取 [+ 取用者群組]  以新增取用者群組。 
 
    ![在事件中樞新增取用者群組](media/stream-analytics-event-hub-consumer-groups/new-eh-consumer-group.png)
 

@@ -17,10 +17,10 @@ ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8f18fbabe52c9170cde70900933ce96a3a6400c7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123827"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>針對在 Azure 中建立新 Windows VM 時的部署問題進行疑難排解
@@ -34,7 +34,7 @@ ms.locfileid: "62123827"
 如需了解其他 VM 部署問題，請參閱[針對 Azure 中的 Windows 虛擬機器部署問題進行疑難排解](troubleshoot-deploy-vm-windows.md)。
 
 ## <a name="collect-activity-logs"></a>收集活動記錄
-若要開始進行排解疑難，請收集活動記錄，以識別與問題相關的錯誤。 以下链接包含有关要遵循的过程的详细信息。
+若要開始進行排解疑難，請收集活動記錄，以識別與問題相關的錯誤。 下列連結提供此程序該遵循的更多詳細資訊。
 
 [檢視部署作業](../../azure-resource-manager/resource-manager-deployment-operations.md)
 
@@ -76,9 +76,9 @@ ms.locfileid: "62123827"
 * 以較小的 VM 大小重試要求。
 * 如果無法變更要求的 VM 的大小︰
   * 停止可用性設定組中的所有 VM。
-    单击“资源组” >  *你的资源组*  > “资源” >  *你的可用性集*  > “虚拟机” >  *你的虚拟机*  > “停止”。
+    按一下 [資源群組]   > [您的資源群組]   > [資源]   > [您的可用性設定組]   > [虛擬機器]   > [您的虛擬機器]   > [停止]  。
   * 所有 VM 都停止後，建立所需大小的新 VM。
-  * 先啟動新 VM，然後選取每個已停止的 VM 並按一下 [啟動] 。
+  * 先啟動新 VM，然後選取每個已停止的 VM 並按一下 [啟動]  。
 
 **原因 2：** 叢集沒有可用的資源。
 

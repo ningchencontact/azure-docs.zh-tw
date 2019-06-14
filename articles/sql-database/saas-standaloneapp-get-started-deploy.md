@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
 ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304145"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>部署及探索使用 Azure SQL Database 的獨立單一租用戶應用程式
@@ -76,16 +76,16 @@ ms.locfileid: "66304145"
 
 1. 在不同的瀏覽器索引標籤中開啟三個租用戶的 [事件] 頁面：
 
-   - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
-   - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
-   - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt ;user&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt ;user&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt ;user&gt;.trafficmanager.net
 
      (在每個 URL 中，將 &lt;user&gt; 取代為部署時用的使用者值)。
 
-   ![活動](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
+   ![Events](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 為了控制連入要求的發佈，應用程式會使用 [*Azure 流量管理員*](../traffic-manager/traffic-manager-overview.md)。 每個租用戶專屬的應用程式執行個體都包含租用戶名稱，以在 URL 中作為網域名稱的一部分。 所有租用戶 URL 都包含您的特定 [使用者]  值。 URL 的格式如下︰
-- http://events.&lt;venuename&gt;.&lt;user&gt;.trafficmanager.net
+- http://events.&lt ;venuename&gt;.&lt; user&gt;.trafficmanager.net
 
 每個租用戶的資料庫 [位置]  都包含在對應已部署應用程式的應用程式設定中。
 

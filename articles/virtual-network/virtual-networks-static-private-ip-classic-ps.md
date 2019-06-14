@@ -17,10 +17,10 @@ ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a1be2966cf568fc5101fb0d887f0d55a8a1876d0
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952494"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-powershell"></a>使用 PowerShell 設定虛擬機器 (傳統) 的私人 IP 位址
@@ -38,7 +38,7 @@ ms.locfileid: "65952494"
 以下的範例 PowerShell 命令會預期已經建立簡單的環境。 如果您想要執行如本文件中所顯示的命令，請先建置 [建立 VNet](virtual-networks-create-vnet-classic-netcfg-ps.md)中所說明的測試環境。
 
 ## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>如何驗證特定 IP 位址是否可用
-若要驗證 IP 位址 192.168.1.101 在名為 TestVnet 的 VNet 中是否可用，請執行下列 PowerShell 命令，並驗證 IsAvailable 的值：
+若要驗證 IP 位址 192.168.1.101  在名為 TestVnet  的 VNet 中是否可用，請執行下列 PowerShell 命令，並驗證 IsAvailable  的值：
 
     Test-AzureStaticVNetIP –VNetName TestVNet –IPAddress 192.168.1.101 
 
@@ -51,7 +51,7 @@ ms.locfileid: "65952494"
     OperationStatus      : Succeeded
 
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>建立 VM 時如何指定靜態私人 IP 位址
-下方 PowerShell 指令碼會建立名為 TestService 的新雲端服務，接著從 Azure 中擷取映像，然後在新的雲端服務中使用擷取的映像建立名為 DNS01 的 VM，接下來設定 VM 位於 FrontEnd 子網路中，並設定 192.168.1.7 作為 VM 的靜態私人 IP：
+下方 PowerShell 指令碼會建立名為 TestService  的新雲端服務，接著從 Azure 中擷取映像，然後在新的雲端服務中使用擷取的映像建立名為 DNS01  的 VM，接下來設定 VM 位於 FrontEnd  子網路中，並設定 192.168.1.7  作為 VM 的靜態私人 IP：
 
     New-AzureService -ServiceName TestService -Location "Central US"
     $image = Get-AzureVMImage | where {$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}

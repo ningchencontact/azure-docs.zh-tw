@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: fcea5e4e6bb108f1a8d8036e51a5dae8a9e6431b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711011"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure 虛擬機器客體作業系統防火牆設定不正確
@@ -98,7 +98,7 @@ ms.locfileid: "60711011"
 
 ### <a name="offline-mitigations"></a>離線風險降低措施
 
-1.  若要启用或禁用防火墙规则，请参阅[在 Azure VM 来宾 OS 上启用或禁用防火墙规则](enable-disable-firewall-rule-guest-os.md)。
+1.  若要啟用或停用防火牆規則，請參閱[啟用或停用 Azure VM 客體 OS 上的防火牆規則](enable-disable-firewall-rule-guest-os.md)。
 
 2.  請檢查您是否處於[客體作業系統防火牆封鎖傳入流量的情況](guest-os-firewall-blocking-inbound-traffic.md) (英文)。
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: b367b6e7126a442dc68646ff52a29c955f50b798
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60631123"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>打開包裝、掛接機架和佈線 StorSimple 8100 裝置
@@ -46,7 +46,7 @@ ms.locfileid: "60631123"
    
     **儲存體裝置打開包裝的樣子**
    
-   | 標籤 | 描述 |
+   | ThisAddIn | 描述 |
    | --- | --- |
    |   1 |包裝箱 |
    |   2 |底層發泡材料 |
@@ -102,7 +102,7 @@ ms.locfileid: "60631123"
 提供一組掛接滑軌以用於 19 英吋機櫃。 滑軌已經過測試可以處理最大機箱重量。 這些滑軌也可以進行多個機箱的安裝，而不會損失機櫃內的任何空間。
 
 #### <a name="to-install-the-device-on-the-rails"></a>在滑軌上安裝裝置
-1. 只有在內部滑軌未安裝在您的裝置上時才執行此步驟。 通常，內部滑軌會在工廠安裝。 如果滑軌沒有安裝的話，則在機箱底座側邊安裝左邊和右邊滑軌。 它們是在每一邊使用六個公制螺絲來連接。 為了協助辨識方向，滑軌標示為 [LH – Front] \(左邊 – 前) 和 [RH – Front] \(右邊 – 前)，接至機箱後端的尾端有錐型結尾。<br/>
+1. 只有在內部滑軌未安裝在您的裝置上時才執行此步驟。 通常，內部滑軌會在工廠安裝。 如果滑軌沒有安裝的話，則在機箱底座側邊安裝左邊和右邊滑軌。 它們是在每一邊使用六個公制螺絲來連接。 為了協助辨識方向，滑軌標示為 [LH – Front]  \(左邊 – 前) 和 [RH – Front]  \(右邊 – 前)，接至機箱後端的尾端有錐型結尾。<br/>
    
     ![將滑軌連接至機箱底座](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
@@ -122,7 +122,7 @@ ms.locfileid: "60631123"
    
     **將外部滑軌組件連接至機架**
    
-   | 標籤 | 描述 |
+   | ThisAddIn | 描述 |
    | --- | --- |
    |   1 |固定螺絲 |
    |   2 |方孔前端機架柱螺絲 |
@@ -148,7 +148,7 @@ ms.locfileid: "60631123"
    
     **安裝輪緣蓋**
    
-   | 標籤 | 描述 |
+   | ThisAddIn | 描述 |
    | --- | --- |
    |   1 |機箱鎖固螺絲 |
 
@@ -188,7 +188,7 @@ ms.locfileid: "60631123"
    
     **裝置後方的資料連接埠**
    
-   | 標籤 | 描述 |
+   | ThisAddIn | 描述 |
    | --- | --- |
    |   0,1,4,5 |1 GbE 網路介面 |
    |   2,3 |10 GbE 網路介面 |
@@ -199,9 +199,9 @@ ms.locfileid: "60631123"
 
     **您裝置的網路纜線**
 
-   |標籤 | 描述 |
+   |ThisAddIn | 描述 |
    |----- | ----------- |
-   | 具有使用     | 具有網際網路存取的 LAN |
+   | A    | 具有網際網路存取的 LAN |
    | B    | 控制器 0 |
    | C    | PCM 0 |
    | D    | 控制器 1 |

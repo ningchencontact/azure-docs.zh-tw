@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
 ms.openlocfilehash: ac0edf2de4337154b665b8f3898134a7c2fd1f4c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712404"
 ---
 # <a name="deep-dive---advanced-analytics"></a>深入探討 - 進階分析
 
 ## <a name="what-is-advanced-analytics-for-hdinsight"></a>什麼是 HDInsight 的進階分析？
 
-HDInsight 提供可從大量結構化、非結構化及快速移動之資料取得寶貴深入解析的功能。 進階分析會使用高擴充性架構、統計和機器學習服務模型，以及智慧型儀表板，為您提供有意義的深入解析。 機器學習服務 (或「預測性分析」) 會使用可從您資料中的關聯性進行識別並學習的演算法來進行預測，然後引導您做出決策。
+HDInsight 提供可從大量結構化、非結構化及快速移動之資料取得寶貴深入解析的功能。 進階分析會使用高擴充性架構、統計和機器學習服務模型，以及智慧型儀表板，為您提供有意義的深入解析。 機器學習服務 (或「預測性分析」  ) 會使用可從您資料中的關聯性進行識別並學習的演算法來進行預測，然後引導您做出決策。
 
 ## <a name="advanced-analytics-process"></a>進階分析程序
 

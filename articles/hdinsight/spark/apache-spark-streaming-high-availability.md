@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
 ms.openlocfilehash: 79a36ad39284dc66467ba7c500a363668f78b893
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720651"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>使用 YARN 建立高可用性 Apache Spark 串流作業
@@ -25,9 +25,9 @@ Spark 串流會建立長時間執行的作業，您可在這段期間將轉換�
 
 ## <a name="dstreams"></a>DStreams
 
-Spark 串流會使用「離散化串流」 (DStream) 來表示連續資料流。 此 DStream 可以從事件中樞或 Kafka 等輸入來源建立，或將轉換套用至另一個 DStream 來建立 DStream。 當事件抵達 Spark 串流應用程式時，事件會以可靠的方式儲存。 也就是會複寫事件資料，讓多個節點擁有其複本。 這可確保任何單一節點的錯誤不會造成事件遺失。
+Spark 串流會使用「離散化串流」  (DStream) 來表示連續資料流。 此 DStream 可以從事件中樞或 Kafka 等輸入來源建立，或將轉換套用至另一個 DStream 來建立 DStream。 當事件抵達 Spark 串流應用程式時，事件會以可靠的方式儲存。 也就是會複寫事件資料，讓多個節點擁有其複本。 這可確保任何單一節點的錯誤不會造成事件遺失。
 
-Spark 核心會使用「彈性分散式資料集」(RDD)。 RDD 會將資料分散於叢集中的多個節點，其中的每個節點通常都會在記憶體內部完整維護其資料，以達到最佳效能。 每個 RDD 代表在一段批次間隔內收集的事件。 當批次間隔消逝時，Spark 串流會產生一個新 RDD，其中包含該間隔內的所有資料。 這一組連續的 RDD 會被收集到 DStream。 Spark 串流應用程式會處理每個批次的 RDD 中儲存的資料。
+Spark 核心會使用「彈性分散式資料集」  (RDD)。 RDD 會將資料分散於叢集中的多個節點，其中的每個節點通常都會在記憶體內部完整維護其資料，以達到最佳效能。 每個 RDD 代表在一段批次間隔內收集的事件。 當批次間隔消逝時，Spark 串流會產生一個新 RDD，其中包含該間隔內的所有資料。 這一組連續的 RDD 會被收集到 DStream。 Spark 串流應用程式會處理每個批次的 RDD 中儲存的資料。
 
 ![Spark DStream](./media/apache-spark-streaming-high-availability/DStream.png)
 
@@ -37,7 +37,7 @@ Spark 2.0 引進了 Spark 結構化串流，作為用於串流結構化資料的
 
 ![Spark 結構化串流](./media/apache-spark-streaming-high-availability/structured-streaming.png)
 
-在結構化串流中，資料會送達系統並立即內嵌到輸入資料表中。 您可撰寫查詢來對此輸入資料表執行作業。 查詢輸出會產生稱為「結果資料表」的其他資料表。 結果資料表包含您的查詢結果，您可以從中提取資料以傳送至外部資料存放區 (如關聯式資料庫)。 「觸發間隔」可設定從輸入資料表處理資料的時機。 根據預設，結構化串流會在資料送達時立即進行處理。 不過，您也可將觸發程序設定為以較長的間隔執行，從而以時間為基礎的批次方式處理串流資料。 每次有新資料時，結果資料表中的資料就會完全重新整理，使其包含自串流查詢開始後的所有輸出資料 (「完整模式」)，或只包含自上次處理查詢後的新資料 (「附加模式」)。
+在結構化串流中，資料會送達系統並立即內嵌到輸入資料表中。 您可撰寫查詢來對此輸入資料表執行作業。 查詢輸出會產生稱為「結果資料表」的其他資料表。 結果資料表包含您的查詢結果，您可以從中提取資料以傳送至外部資料存放區 (如關聯式資料庫)。 「觸發間隔」  可設定從輸入資料表處理資料的時機。 根據預設，結構化串流會在資料送達時立即進行處理。 不過，您也可將觸發程序設定為以較長的間隔執行，從而以時間為基礎的批次方式處理串流資料。 每次有新資料時，結果資料表中的資料就會完全重新整理，使其包含自串流查詢開始後的所有輸出資料 (「完整模式」  )，或只包含自上次處理查詢後的新資料 (「附加模式」  )。
 
 ## <a name="create-fault-tolerant-spark-streaming-jobs"></a>建立容錯的 Spark 串流作業
 
@@ -67,7 +67,7 @@ RDD 有數個可協助高可用性和容錯的 Spark 串流作業的屬性：
 
 如果**執行程式**失敗，Spark 會自動重新啟動其工作和接收器，所以不需要變更組態。
 
-不過，如果**驅動程式**失敗，則其所有相關聯的執行程式都會失敗，而且會失去所有收到的區塊和運算結果。 若要從驅動程式失敗中復原，請使用[透過一次性事件處理來建立 Spark 串流作業](apache-spark-streaming-exactly-once.md#use-checkpoints-for-drivers)中所述的「DStream 檢查點檢查」。 DStream 檢查點檢查會定期將 DStreams 的「有向非循環圖」 (DAG) 儲存至容錯儲存體，例如 Azure 儲存體。  檢查點檢查可讓 Spark 結構化串流從檢查點資訊重新啟動失敗的驅動程式。  重新啟動驅動程式即可啟動新的執行程式，也可重新啟動接收器。
+不過，如果**驅動程式**失敗，則其所有相關聯的執行程式都會失敗，而且會失去所有收到的區塊和運算結果。 若要從驅動程式失敗中復原，請使用[透過一次性事件處理來建立 Spark 串流作業](apache-spark-streaming-exactly-once.md#use-checkpoints-for-drivers)中所述的「DStream 檢查點檢查」  。 DStream 檢查點檢查會定期將 DStreams 的「有向非循環圖」  (DAG) 儲存至容錯儲存體，例如 Azure 儲存體。  檢查點檢查可讓 Spark 結構化串流從檢查點資訊重新啟動失敗的驅動程式。  重新啟動驅動程式即可啟動新的執行程式，也可重新啟動接收器。
 
 若要使用 DStream 檢查點檢查來復原驅動程式：
 
@@ -110,7 +110,7 @@ RDD 有數個可協助高可用性和容錯的 Spark 串流作業的屬性：
 
 * 您應該分割長時間執行的作業。  將 Spark 串流應用程式提交至叢集時，必須定義執行作業的 YARN 佇列。 您可以使用 [YARN 容量排程器](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)，將長時間執行的作業提交至不同的佇列。
 
-* 正常關閉串流應用程式。 如果已知您的位移，且所有應用程式狀態都儲存在外部，您可以透過程式設計方式在適當位置停止串流應用程式。 其中有個技巧是在 Spark 中使用「執行緒勾點」，做法是每隔 *n* 秒檢查一次外部旗標。 您也可以使用啟動應用程式時在 HDFS 上建立的「標記檔」，然後在想要停止時移除。 若採用標記檔方法，請在 Spark 應用程序中使用個別的執行緒來呼叫類似下面的程式碼：
+* 正常關閉串流應用程式。 如果已知您的位移，且所有應用程式狀態都儲存在外部，您可以透過程式設計方式在適當位置停止串流應用程式。 其中有個技巧是在 Spark 中使用「執行緒勾點」，做法是每隔 *n* 秒檢查一次外部旗標。 您也可以使用啟動應用程式時在 HDFS 上建立的「標記檔」  ，然後在想要停止時移除。 若採用標記檔方法，請在 Spark 應用程序中使用個別的執行緒來呼叫類似下面的程式碼：
 
     ```scala
     streamingContext.stop(stopSparkContext = true, stopGracefully = true)

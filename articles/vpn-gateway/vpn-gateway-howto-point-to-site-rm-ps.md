@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
 ms.openlocfilehash: 822cbc7401de90d63f9079561ced0dfbb911fa2c
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989449"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>請使用原生 Azure 憑證驗證設定 VNet 的點對站連線：PowerShell
@@ -55,7 +55,7 @@ ms.locfileid: "65989449"
 * **訂用帳戶：** 如果您有一個以上的訂用帳戶，請確認您使用正確的訂用帳戶。
 * **資源群組：TestRG**
 * **位置：美國東部**
-* **DNS 伺服器：** 您想要用於名稱解析的 DNS 伺服器的 IP 位址。 (選擇性)
+* **DNS 伺服器：** 您想要用於名稱解析的 DNS 伺服器的 IP 位址。 (選用)
 * **GW 名稱：Vnet1GW**
 * **公用 IP 名稱：VNet1GWPIP**
 * **VpnType：RouteBased** 
@@ -97,7 +97,7 @@ ms.locfileid: "65989449"
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG -Location $Location
    ```
-2. 為虛擬網路建立子網路組態，將其命名為 FrontEndBackEnd 和 GatewaySubnet。 這些前置詞必須是您宣告的 VNet 位址空間的一部分。
+2. 為虛擬網路建立子網路組態，將其命名為 FrontEnd  BackEnd  和 GatewaySubnet  。 這些前置詞必須是您宣告的 VNet 位址空間的一部分。
 
    ```azurepowershell-interactive
    $fesub = New-AzVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
@@ -161,7 +161,7 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPoo
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
 
-### <a name="generate"></a>2.產生用戶端憑證 
+### <a name="generate"></a>2.產生用戶端憑證
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
@@ -202,7 +202,7 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPoo
 
 VPN 用戶端組態檔所包含的設定，可用來將裝置設定為透過 P2S 連線來連線至 VNet。 如需產生和安裝 VPN 用戶端組態檔的指示，請參閱[建立和安裝適用於原生 Azure 憑證驗證 P2S 組態的 VPN 用戶端組態檔](point-to-site-vpn-client-configuration-azure-cert.md)。
 
-## <a name="connect"></a>9.連線至 Azure
+## <a name="connect"></a>9.連接到 Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>從 Windows VPN 用戶端連線
 
@@ -211,8 +211,8 @@ VPN 用戶端組態檔所包含的設定，可用來將裝置設定為透過 P2S
 >
 >
 
-1. 若要連接至您的 VNet，在用戶端電腦上瀏覽到 VPN 連線，然後找出所建立的 VPN 連線。 其名稱會與虛擬網路相同。 按一下 [ **連接**]。 可能會出現與使用憑證有關的快顯訊息。 按一下 [繼續] 以使用較高的權限。 
-2. 在 [連線] 狀態頁面上，按一下 [連線] 以便開始連線。 如果出現 [選取憑證]  畫面，請確認顯示的用戶端憑證是要用來連接的憑證。 如果沒有，請使用下拉箭頭來選取正確的憑證，然後按一下 [確定] 。
+1. 若要連接至您的 VNet，在用戶端電腦上瀏覽到 VPN 連線，然後找出所建立的 VPN 連線。 其名稱會與虛擬網路相同。 按一下 [ **連接**]。 可能會出現與使用憑證有關的快顯訊息。 按一下 [繼續]  以使用較高的權限。 
+2. 在 [連線]  狀態頁面上，按一下 [連線]  以便開始連線。 如果出現 [選取憑證]  畫面，請確認顯示的用戶端憑證是要用來連接的憑證。 如果沒有，請使用下拉箭頭來選取正確的憑證，然後按一下 [確定]  。
 
    ![VPN 用戶端連線至 Azure](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png)
 3. 已建立您的連線。
@@ -225,7 +225,7 @@ VPN 用戶端組態檔所包含的設定，可用來將裝置設定為透過 P2S
 
 ### <a name="to-connect-from-a-mac-vpn-client"></a>從 Mac VPN 用戶端連線
 
-從 [網路] 對話方塊，找出您要使用的用戶端設定檔，然後按一下 [連線]。
+從 [網路] 對話方塊，找出您要使用的用戶端設定檔，然後按一下 [連線]  。
 如需詳細指示，請參閱[安裝 - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac)。 如果您在連線時發生問題，請確認虛擬網路閘道不是使用「基本」SKU。 針對 Mac 用戶端不支援「基本」SKU。
 
   ![Mac 連線](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)

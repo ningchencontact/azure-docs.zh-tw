@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: ce6188732720bc43c5849fa492237c7ab98487c6
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067505"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Azure 資料庫中建立使用者，適用於 PostgreSQL-單一伺服器
 本主題說明如在「適用於 PostgreSQL 的 Azure 資料庫」伺服器中建立使用者。
 
-## <a name="the-server-admin-account"></a>伺服器管理帳戶
+## <a name="the-server-admin-account"></a>伺服器系統管理員帳戶
 當您第一次建立「適用於 PostgreSQL 的 Azure 資料庫」時，您提供了伺服器管理使用者名稱和密碼。 如需詳細資訊，您可以遵循[快速入門](quickstart-create-server-database-portal.md)，查看逐步方法。 由於伺服器管理使用者名稱是自訂名稱，您可以從 Azure 入口網站找到所選的伺服器管理使用者名稱。
 
 在適用於 PostgreSQL 的 Azure 資料庫伺服器建立時，系統會定義 3 個預設角色。 若要查看這些角色，可執行命令：`SELECT rolname FROM pg_roles;`
@@ -32,7 +32,7 @@ PostgreSQL 引擎會使用權限來控制資料庫物件的存取，如 [Postgre
 
 ## <a name="how-to-create-additional-admin-users-in-azure-database-for-postgresql"></a>如何在適用於 PostgreSQL 的 Azure 資料庫中建立其他管理使用者
 1. 取得連線資訊和管理員使用者名稱。
-   若要連線到您的資料庫伺服器，您需要完整伺服器名稱和系統管理員登入認證。 您可以從 Azure 入口網站的伺服器 [概觀] 或 [屬性] 頁面輕鬆尋找伺服器名稱和登入資訊。 
+   若要連線到您的資料庫伺服器，您需要完整伺服器名稱和系統管理員登入認證。 您可以從 Azure 入口網站的伺服器 [概觀]  或 [屬性]  頁面輕鬆尋找伺服器名稱和登入資訊。 
 
 2. 使用系統管理員帳戶和密碼來連線到資料庫伺服器。 使用您慣用的用戶端工具，例如 pgAdmin 或 psql。
    如果您不確定如何連線，請參閱[快速入門](./quickstart-create-server-database-portal.md)
@@ -48,7 +48,7 @@ PostgreSQL 引擎會使用權限來控制資料庫物件的存取，如 [Postgre
 ## <a name="how-to-create-database-users-in-azure-database-for-postgresql"></a>如何在適用於 PostgreSQL 的 Azure 資料庫中建立資料庫使用者
 
 1. 取得連線資訊和管理員使用者名稱。
-   若要連線到您的資料庫伺服器，您需要完整伺服器名稱和系統管理員登入認證。 您可以從 Azure 入口網站的伺服器 [概觀] 或 [屬性] 頁面輕鬆尋找伺服器名稱和登入資訊。 
+   若要連線到您的資料庫伺服器，您需要完整伺服器名稱和系統管理員登入認證。 您可以從 Azure 入口網站的伺服器 [概觀]  或 [屬性]  頁面輕鬆尋找伺服器名稱和登入資訊。 
 
 2. 使用系統管理員帳戶和密碼來連線到資料庫伺服器。 使用您慣用的用戶端工具，例如 pgAdmin 或 psql。
 
@@ -64,7 +64,7 @@ PostgreSQL 引擎會使用權限來控制資料庫物件的存取，如 [Postgre
    GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
-4. 由於使用管理帳戶，您可能需要授與其他權限來保護資料庫中的物件。 請參閱 [PostgreSQL 文件](https://www.postgresql.org/docs/current/static/ddl-priv.html)，以深入了解資料庫角色和權限。 例如︰ 
+4. 由於使用管理帳戶，您可能需要授與其他權限來保護資料庫中的物件。 請參閱 [PostgreSQL 文件](https://www.postgresql.org/docs/current/static/ddl-priv.html)，以深入了解資料庫角色和權限。 例如: 
    ```sql
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;
    ```

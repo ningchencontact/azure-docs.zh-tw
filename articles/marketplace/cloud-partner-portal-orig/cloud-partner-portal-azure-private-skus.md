@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 6efdb1c28777d9230727066fdba03d2850be62b0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935913"
 ---
 <a name="private-skus-and-plans"></a>私人 SKU 和方案
@@ -37,7 +37,7 @@ ms.locfileid: "64935913"
 
 ![將 SKU 標記為私人](./media/cloud-partner-portal-publish-virtual-machine/markingskuprivate.png)
 
-您可以重複使用其他 SKU 的磁碟，並修改定價或描述。 若要重複使用磁碟，請在回覆「這個 SKU 要重複使用公開 SKU 中的映像嗎」提示時選取 [是]。
+您可以重複使用其他 SKU 的磁碟，並修改定價或描述。 若要重複使用磁碟，請在回覆「這個 SKU 要重複使用公開 SKU 中的映像嗎」提示時選取 [是]  。
 
 如果將 SKU 標記為私人，且供應項目有其他可重複使用磁碟的 SKU，您必須指出 SKU 會使用其他 SKU 中的磁碟。 您也必須指定私人 SKU 的目標對象。
 
@@ -47,7 +47,7 @@ ms.locfileid: "64935913"
 <a name="select-an-image"></a>選取映像
 ------------------
 
-您可以為私人 SKU 提供新的磁碟，或是重複使用已在其他 SKU 中提供的相同磁碟，而只修改定價或描述。 若要重複使用磁碟，請在回覆「這個 SKU 要重複使用公開 SKU 中的映像嗎」提示時選取 [是]。
+您可以為私人 SKU 提供新的磁碟，或是重複使用已在其他 SKU 中提供的相同磁碟，而只修改定價或描述。 若要重複使用磁碟，請在回覆「這個 SKU 要重複使用公開 SKU 中的映像嗎」提示時選取 [是]  。
 
 ![指出映像重複使用](./media/cloud-partner-portal-publish-virtual-machine/selectimage1.png)
 

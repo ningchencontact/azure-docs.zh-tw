@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61038194"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>設定多層式 Citrix XenApp 和 XenDesktop 部署的災害復原
@@ -35,7 +35,7 @@ Citrix XenDesktop 是桌面虛擬化解決方案，能夠為任何地方的任�
 1. [執行測試容錯移轉至 Azure](site-recovery-test-failover-to-azure.md)
 1. [執行容錯移轉至 Azure](site-recovery-failover.md)
 1. 如何[複寫網域控制站](site-recovery-active-directory.md)
-1. 如何[复制 SQL Server](site-recovery-sql.md)
+1. 如何[複寫 SQL Server](site-recovery-sql.md)
 
 ## <a name="deployment-patterns"></a>部署模式
 
@@ -106,7 +106,7 @@ AD DNS 伺服器、SQL 資料庫伺服器、Citrix 傳遞控制站、StoreFront 
 在 [計算和網路] > [計算屬性] 中，您可以指定 Azure VM 名稱和目標大小。
 視需要修改名稱以符合 Azure 需求。 您也可以檢視和加入目標網路、子網路的相關資訊，以及將指派給 Azure VM 的 IP 位址。
 
-注意以下事项：
+請注意：
 
 * 您可以設定目標 IP 位址。 如果您未提供地址，則容錯移轉的機器會使用 DHCP。 如果您設定的位址在容錯移轉時無法使用，則容錯移轉會失敗。 如果位址可用於測試容錯移轉網路，則相同的目標 IP 位址可用於測試容錯移轉。
 
@@ -116,7 +116,7 @@ AD DNS 伺服器、SQL 資料庫伺服器、Citrix 傳遞控制站、StoreFront 
 
 *   如果來源電腦上的網路介面卡數目小於或等於針對目標機器大小所允許的介面卡數目，則目標將具備與來源相同的介面卡數目。
 *   如果來源虛擬機器的介面卡數目超過針對目標大小所允許的數目，則將使用目標大小的最大值。
-* 例如，如果來源機器具有兩張網路介面卡，而目標機器大小支援四張，則目標機器將會有兩張介面卡。 如果源计算机有两个适配器，但支持的目标大小只支持一个，则目标计算机只有一个适配器。
+* 例如，如果來源機器具有兩張網路介面卡，而目標機器大小支援四張，則目標機器將會有兩張介面卡。 如果來源機器具有兩張介面卡，但支援的目標大小僅支援一張，則目標機器將只會有一張介面卡。
 *   如果虛擬機器有多張網路介面卡，則全部會連接至相同的網路。
 *   如果虛擬機器具有多個網路介面卡，則清單中顯示的第一個介面卡會變成 Azure 虛擬機器中的「預設」網路介面卡。
 

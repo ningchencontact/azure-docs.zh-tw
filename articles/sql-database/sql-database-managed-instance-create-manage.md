@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 6362084c11ce7aa9078823758700239694162765
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150757"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Azure SQL Database 受控執行個體的管理 API 參考
@@ -38,7 +38,7 @@ ms.locfileid: "66150757"
 > [!TIP]
 > 如需 PowerShell 範例指令碼，請參閱[指令碼快速入門：使用 PowerShell 程式庫建立 Azure SQL 受控執行個體](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/)。
 
-| Cmdlet | 說明 |
+| Cmdlet | 描述 |
 | --- | --- |
 |[New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)|建立 Azure SQL Database 受控執行個體 |
 |[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|傳回 Azure SQL Database 受控執行個體的資訊|
@@ -56,7 +56,7 @@ ms.locfileid: "66150757"
 > [!TIP]
 > 如需 Azure CLI 快速入門，請參閱[使用 Azure CLI 處理 SQL 受控執行個體](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)。
 
-| Cmdlet | 說明 |
+| Cmdlet | 描述 |
 | --- | --- |
 |[az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |建立受控執行個體|
 |[az sql mi list](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|列出可用的受控執行個體|
@@ -86,7 +86,7 @@ ms.locfileid: "66150757"
 
 若要建立和管理受控執行個體，請使用下列 REST API 要求。
 
-| 命令 | 說明 |
+| 命令 | 描述 |
 | --- | --- |
 |[Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)|建立或更新受控執行個體。|
 |[Managed Instances - Delete](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)|刪除受控執行個體。|

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
 ms.openlocfilehash: 582912160c8ed514401be3522e52dcc6eb45d263
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65235753"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>管理及回應 Azure 資訊安全中心的安全性警示
@@ -41,11 +41,11 @@ ms.locfileid: "65235753"
 ## <a name="managing-security-alerts"></a>管理安全性警示
 您可以查看 [安全性警示]  圖格來檢視目前的警示。 遵循下列步驟來查看有關每個警示的更多詳細資訊：
 
-1. 您會在 [資訊安全中心] 儀表板看到 [安全性警示] 圖格。
+1. 您會在 [資訊安全中心] 儀表板看到 [安全性警示]  圖格。
 
     ![資訊安全中心的 [安全性警示] 圖格](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
 
-2. 按一下圖格，即可開啟 [安全性警示] 來查看有關警示的更多詳細資料。
+2. 按一下圖格，即可開啟 [安全性警示]  來查看有關警示的更多詳細資料。
 
    ![資訊安全中心內的安全性警示](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
@@ -81,7 +81,7 @@ ms.locfileid: "65235753"
 ### <a name="filtering-alerts"></a>篩選警示
 您可以根據日期、狀態及嚴重性來篩選警示。 如果您需要縮小顯示的安全性警示檢視範圍，篩選警示會相當有用。 例如，您可能想確認在過去 24 小時發生的安全性警示，因為您正在調查系統中可能的入侵行動。
 
-1. 按一下 [安全性警示] 上的 [篩選]。 即會開啟 [篩選] 供您選取想要查看的日期、狀態和嚴重性值。
+1. 按一下 [安全性警示]  上的 [篩選]  。 即會開啟 [篩選]  供您選取想要查看的日期、狀態和嚴重性值。
 
     ![篩選資訊安全中心的警示](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
@@ -94,7 +94,7 @@ ms.locfileid: "65235753"
 
 ![對於如何處理 Azure 資訊安全中心的安全性警示的建議](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
 
-在 [說明] 欄位中，您會找到關於這個事件的更多詳細資料。 這些額外的詳細資料可供深入了解什麼會觸發安全性警示、目標資源、來源 IP 位址 (若適用)，以及有關如何補救的建議。  在某些情況下，來源 IP 位址會是空的 (不適用)，因為並非所有的 Windows 安全性事件記錄都包含 IP 位址。
+在 [說明]  欄位中，您會找到關於這個事件的更多詳細資料。 這些額外的詳細資料可供深入了解什麼會觸發安全性警示、目標資源、來源 IP 位址 (若適用)，以及有關如何補救的建議。  在某些情況下，來源 IP 位址會是空的 (不適用)，因為並非所有的 Windows 安全性事件記錄都包含 IP 位址。
 
 資訊安全中心會根據安全性警示，建議您不同的補救方法。 在某些情況下，您可能必須使用其他的 Azure 功能來實作建議的補救方法。 例如，這個攻擊的補救方法是使用[網路 ACL](../virtual-network/virtual-networks-acl.md) 或[網路安全性群組](../virtual-network/security-overview.md#security-rules)規則，將產生此攻擊的 IP 位址列入封鎖清單。 如需不同警示類型的詳細資訊，請閱讀 [Azure 資訊安全中心不同類型的安全性警示](security-center-alerts-type.md)。
 

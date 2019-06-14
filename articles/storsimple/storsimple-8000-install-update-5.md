@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126744"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>在 StorSimple 裝置上安裝 Update 5
@@ -47,7 +47,7 @@ Update 5 包含裝置軟體、Storport 和 Spaceport、OS 安全性更新和 OS 
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update5-via-portal.md)]
 
-確認您的裝置是否正在執行 **StorSimple 8000 系列 Update 5 (6.3.9600.17845)**。 [上次更新日期] 應該已修改。
+確認您的裝置是否正在執行 **StorSimple 8000 系列 Update 5 (6.3.9600.17845)** 。 [上次更新日期]  應該已修改。
 
 您會看到有可用的維護模式更新 (此訊息可能會在您安裝更新之後繼續顯示長達 24 小時)。 下一節會詳細說明安裝維護模式更新的步驟。
 
@@ -99,7 +99,7 @@ Hotfix 方法涉及下列三個步驟：
 
 | 順序 | KB | 描述 | 更新類型 | 安裝時間 | 安裝在資料夾|
 | --- | --- | --- | --- | --- | --- |
-| 3. |KB4037263 |磁碟韌體 |維護  <br></br>干擾性 |~ 30 分鐘 | ThirdOrderUpdate |
+| 3. |KB4037263 |磁碟韌體 |維護 <br></br>干擾性 |~ 30 分鐘 | ThirdOrderUpdate |
 
 <br></br>
 

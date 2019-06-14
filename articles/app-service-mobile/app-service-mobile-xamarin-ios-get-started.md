@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: crdun
 ms.openlocfilehash: 559050cbc575fce5bdb5b32ec266e1cc3d09b2d5
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242716"
 ---
 # <a name="create-a-xamarinios-app"></a>建立 Xamarin.iOS 應用程式
@@ -45,7 +45,7 @@ ms.locfileid: "66242716"
 ## <a name="run-the-xamarinios-app"></a>執行 Xamarin.iOS 應用程式
 1. 開啟 Xamarin.iOS 專案。
 
-2. 移至[Azure 入口網站](https://portal.azure.com/)並瀏覽至您所建立的行動應用程式。 在 `Overview`刀鋒視窗中，搜尋 URL，也就是您的行動裝置應用程式的公用端點。 範例-將會針對我的應用程式名稱"test123"sitename https://test123.azurewebsites.net。
+2. 移至[Azure 入口網站](https://portal.azure.com/)並瀏覽至您所建立的行動應用程式。 在 `Overview`刀鋒視窗中，搜尋 URL，也就是您的行動裝置應用程式的公用端點。 範例-將會針對我的應用程式名稱"test123"sitename https://test123.azurewebsites.net 。
 
 3. 開啟檔案`QSTodoService.cs`在此資料夾中-xamarin.iOS/ZUMOAPPNAME。 應用程式名稱是`ZUMOAPPNAME`。
 

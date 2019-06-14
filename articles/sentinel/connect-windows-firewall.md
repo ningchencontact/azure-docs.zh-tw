@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 9388e267c52ef53b59aacad844e964d3cfeb13d7
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233799"
 ---
 # <a name="connect-windows-firewall"></a>連線 Windows 防火牆
@@ -37,7 +37,7 @@ ms.locfileid: "65233799"
 
 1. 在 Azure Sentinel 入口網站中，選取**資料連接器**，然後按一下**Windows 防火牆**圖格。 
 1. 選取您要串流處理的資料類型。
-1. 按一下 [Install] 。
+1. 按一下 [Install]  。
 6. 若要使用相關的結構描述在 Log Analytics 中的 Windows 防火牆，搜尋**SecurityEvent**。
 
 ## <a name="validate-connectivity"></a>驗證連線能力

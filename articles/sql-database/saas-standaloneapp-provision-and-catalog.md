@@ -13,10 +13,10 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: 28deb9b7ba15744b9bd3d273d02db4398d2b2ef3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484501"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>使用每一租用戶一個應用程式 SaaS 模式，佈建新租用戶及編目
@@ -45,7 +45,7 @@ ms.locfileid: "61484501"
 
 ## <a name="elastic-database-client-library"></a>彈性資料庫用戶端程式庫
 
-在 Wingtip SaaS 範例應用程式中，目錄的實作乃使用[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md) (EDCL) 的分區管理功能。  此程式庫可讓應用程式建立、管理及使用資料庫中所儲存的分區對應。 在 Wingtip Tickets 範例中，目錄會儲存在「租用戶目錄」資料庫中。  分區能讓租用戶索引鍵與儲存租用戶資料的分區 (資料庫) 相對應。  EDCL 函式負責管理儲存在「租用戶目錄」資料庫表格中的「全域分區對應」，以及儲存在每個分區中的「本機分區對應」。
+在 Wingtip SaaS 範例應用程式中，目錄的實作乃使用[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md) (EDCL) 的分區管理功能。  此程式庫可讓應用程式建立、管理及使用資料庫中所儲存的分區對應。 在 Wingtip Tickets 範例中，目錄會儲存在「租用戶目錄」  資料庫中。  分區能讓租用戶索引鍵與儲存租用戶資料的分區 (資料庫) 相對應。  EDCL 函式負責管理儲存在「租用戶目錄」  資料庫表格中的「全域分區對應」  ，以及儲存在每個分區中的「本機分區對應」  。
 
 您可以從應用程式或 PowerShell 指令碼叫用 EDCL 函式來建立及管理分區對應中的項目， 也可以使用其他 EDCL 函式來擷取分區集合，或讓特定租用戶索引鍵與正確的資料庫連線。 
 
@@ -99,7 +99,7 @@ Azure Resource Manager 範本可用來部署及設定應用程式、建立租用
 現在，請查看您建立的資源。
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後瀏覽至資源群組。  開啟 **wingtip-sa-catalog-\<user\>** 資源群組，並記下目錄伺服器和資料庫。
-1. 在入口網站中開啟資料庫，再從左側功能表選取 [資料總管]。  按一下 [登入] 命令，然後輸入密碼 = **P\@ssword1**。
+1. 在入口網站中開啟資料庫，再從左側功能表選取 [資料總管]  。  按一下 [登入] 命令，然後輸入密碼 = **P\@ssword1**。
 
 
 1. 探索 *tenantcatalog* 資料庫的結構描述。  

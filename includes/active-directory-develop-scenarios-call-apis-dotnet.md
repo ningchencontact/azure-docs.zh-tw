@@ -15,10 +15,10 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 0196d39f5b131bc54e00412beb7fdf10b7352336
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121865"
 ---
 ### <a name="authenticationresult-properties-in-msalnet"></a>在 MSAL.NET AuthenticationResult 屬性
@@ -44,7 +44,7 @@ MSAL.NET 定義帳戶的概念 (透過`IAccount`介面)。 這項重大變革提
 
 `AccountId`類別會識別特定的租用戶中的帳戶。 它具有下列屬性：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |----------|-------------|
 | `TenantId` | GUID，也就是帳戶所在的租用戶識別碼的字串表示。 |
 | `ObjectId` | GUID，這是擁有租用戶中的帳戶的使用者識別碼的字串表示。 |
@@ -52,7 +52,7 @@ MSAL.NET 定義帳戶的概念 (透過`IAccount`介面)。 這項重大變革提
 
 `IAccount`介面代表單一帳戶的相關資訊。 相同的使用者可能會出現在不同的租用戶，也就是使用者可以擁有多個帳戶。 其成員都是：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |----------|-------------|
 | `Username` | 字串，包含可顯示的值，UserPrincipalName (UPN) 格式，例如john.doe@contoso.com。 而 HomeAccountId 和 HomeAccountId.Identifier 不可以是 null，這個字串可以是 null。 這個屬性會取代`DisplayableId`屬性`IUser`MSAL.NET 舊版本中。 |
 | `Environment` | 字串，包含身分識別提供者，此帳戶，例如`login.microsoftonline.com`。 這個屬性會取代`IdentityProvider`的屬性`IUser`，差異在於`IdentityProvider`也有租用戶 （除了雲端環境中） 的相關資訊，而這裡的值是主應用程式。 |

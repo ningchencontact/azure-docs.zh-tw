@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 701be795ca217c4a2dc5a7dbaa3a3717d16c85bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61024595"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>將服務主體新增至伺服器管理員角色 
@@ -31,18 +31,18 @@ ms.locfileid: "61024595"
 ## <a name="add-service-principal-to-server-administrators-role"></a>將服務主體加入至伺服器管理員角色
 
 1. 在 SSMS 中，連線至 Azure AS 伺服器。
-2. 在 [伺服器屬性]  >  [安全性] 中，按一下 [新增]。
-3. 在 [選取使用者或群組] 中，以名稱搜尋您註冊的應用程式，選取它，然後按一下 [新增]。
+2. 在 [伺服器屬性]   >  [安全性]  中，按一下 [新增]  。
+3. 在 [選取使用者或群組]  中，以名稱搜尋您註冊的應用程式，選取它，然後按一下 [新增]  。
 
     ![搜尋服務主體帳戶](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 
-4. 確認服務主體帳戶識別碼，然後按一下 [確定]。
+4. 確認服務主體帳戶識別碼，然後按一下 [確定]  。
     
     ![搜尋服務主體帳戶](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 
 > [!NOTE]
-> 对于使用 Azure PowerShell cmdlet 进行的服务器操作，运行计划程序的服务主体还必须属于 [Azure 基于角色的访问控制 (RBAC)](../role-based-access-control/overview.md) 中资源的“所有者”角色。 
+> 使用 Azure PowerShell cmdlet 的伺服器作業，服務主體的執行排程器也必須屬於**擁有者**中的資源角色[azure 角色型存取控制 (RBAC)](../role-based-access-control/overview.md)。 
 
 ## <a name="related-information"></a>相關資訊
 

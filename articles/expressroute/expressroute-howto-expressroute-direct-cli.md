@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: ebfe3db43de87e67ad05ed8cb9f5812b5ded04e0
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965917"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>設定 ExpressRoute 直接使用 Azure CLI
@@ -147,7 +147,7 @@ ms.locfileid: "65965917"
    ```
 
    > [!NOTE]
-   > 您也可以將 [封裝] 屬性設定為 **Dot1Q**。 
+   > 您也可以將 [封裝]  屬性設定為 **Dot1Q**。 
    >
 
    **範例輸出**
@@ -208,7 +208,7 @@ ms.locfileid: "65965917"
 
 使用此程序來進行第 1 層測試。 確保每個交叉連線都已在主要和次要連接埠的每個路由器中正確修補。
 
-1. 將連結設定為 [已啟用]。 重複此步驟，將每個連結設定為 [已啟用]。
+1. 將連結設定為 [已啟用]  。 重複此步驟，將每個連結設定為 [已啟用]  。
 
    連結 [0] 是主要連接埠，而連結 [1] 是次要連接埠。
 

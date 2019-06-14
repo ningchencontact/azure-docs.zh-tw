@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 09a2b616e2bba93be86241c64d37daec7d6dea3b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029756"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>例外狀況和錯誤代碼的演算法和模組參考
@@ -347,7 +347,7 @@ Azure Machine learning 不支援某些較新的帳戶類型。 比方說，新�
 ## <a name="error-0018"></a>錯誤 0018  
  如果輸入資料集不正確，就會發生例外狀況。  
   
-**解決方案：** 在 Azure Machine Learning 中可能出現此錯誤在許多內容中，因此不單一的解析度。 一般情況下，此錯誤表示做為輸入至模組所提供的資料有錯誤的資料行數目或資料類型不符的模組的需求。 例如︰  
+**解決方案：** 在 Azure Machine Learning 中可能出現此錯誤在許多內容中，因此不單一的解析度。 一般情況下，此錯誤表示做為輸入至模組所提供的資料有錯誤的資料行數目或資料類型不符的模組的需求。 例如:  
   
 -   模組需要標籤資料行，但沒有資料行標示為標籤，或您有尚未選取標籤資料行。  
   
@@ -415,7 +415,7 @@ Azure Machine learning 不支援某些較新的帳戶類型。 比方說，新�
 ## <a name="error-0022"></a>錯誤 0022  
  如果輸入資料集中選取的資料行數目不等於預期的數目，就會發生例外狀況。  
   
- 下游的模組或作業都需要特定數目的資料行或輸入，並提供資料行或輸入太少或太多時，會發生在 Azure Machine Learning 中的此錯誤。 例如︰  
+ 下游的模組或作業都需要特定數目的資料行或輸入，並提供資料行或輸入太少或太多時，會發生在 Azure Machine Learning 中的此錯誤。 例如:  
   
 -   您指定的單一標籤資料行或索引鍵資料行，並不小心選取多個資料行。  
   
@@ -1192,7 +1192,7 @@ For general information about how the Matchbox recommendation algorithm works, a
   
  如果沒有報告模組例外狀況所產生的 SQL 訊息，需要根據報告的錯誤。 比方說，錯誤訊息有時會包含可能會發生錯誤的特定指引：
 + *沒有這類資料行或遺漏資料庫*，指出，您可能輸入錯誤的資料行名稱。 如果您不確定資料行名稱正確無誤，請嘗試使用方括號或引號來括住的資料行識別碼。
-+ *SQL 邏輯錯誤，接近\<SQL 關鍵字\>*，表示您可能必須先指定關鍵字的語法錯誤
++ *SQL 邏輯錯誤，接近\<SQL 關鍵字\>* ，表示您可能必須先指定關鍵字的語法錯誤
 
   
 |例外狀況訊息|  
@@ -1500,7 +1500,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 ## <a name="error-0100"></a>錯誤 0100  
  不支援的語言指定自訂的模組時，就會發生例外狀況。  
   
- 建置自訂模組和 name 屬性時，會發生此錯誤，在 Azure Machine Learning**語言**自訂模組 xml 定義檔中的項目有無效的值。 目前，唯一有效的值，這個屬性是`R`。 例如︰  
+ 建置自訂模組和 name 屬性時，會發生此錯誤，在 Azure Machine Learning**語言**自訂模組 xml 定義檔中的項目有無效的值。 目前，唯一有效的值，這個屬性是`R`。 例如:  
   
  `<Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />`  
   
@@ -1555,7 +1555,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 ## <a name="error-0104"></a>錯誤 0104  
  模組定義檔參考找不到的指令碼時，擲回  
   
- 將自訂模組的 xml 定義檔案參考中的指令碼檔案時擲回這個錯誤，在 Azure Machine Learning**語言**不存在的 zip 套件中的項目。 中所定義的指令碼檔案路徑**sourceFile**屬性**語言**項目。 原始程式檔的路徑是相對於根目錄的 zip 套件 （與模組的 xml 定義檔案相同的位置）。 如果指令碼檔案位於子資料夾，就必須指定指令碼檔案的相對路徑。 比方說，如果所有的指令碼儲存在**myScripts** zip 封裝內的資料夾**語言**項目就必須新增此路徑至**sourceFile**屬性設為下面。 例如︰  
+ 將自訂模組的 xml 定義檔案參考中的指令碼檔案時擲回這個錯誤，在 Azure Machine Learning**語言**不存在的 zip 套件中的項目。 中所定義的指令碼檔案路徑**sourceFile**屬性**語言**項目。 原始程式檔的路徑是相對於根目錄的 zip 套件 （與模組的 xml 定義檔案相同的位置）。 如果指令碼檔案位於子資料夾，就必須指定指令碼檔案的相對路徑。 比方說，如果所有的指令碼儲存在**myScripts** zip 封裝內的資料夾**語言**項目就必須新增此路徑至**sourceFile**屬性設為下面。 例如:  
   
  `<Language name="R" sourceFile="myScripts/CustomAddRows.R" entryPoint="CustomAddRows" />`  
   

@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines-windows
 manager: jeconnoc
 ms.openlocfilehash: 01109aa83c12bda9b1d21ec25784d663f8abf700
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65159716"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>預覽：使用 Azure 映像產生器中建立 Windows VM
@@ -140,7 +140,7 @@ az resource invoke-action \
 
 ## <a name="create-the-vm"></a>建立 VM
 
-建立使用您所建置的映像的 VM。 取代*<password>* 與您自己的密碼`aibuser`在 VM 上。
+建立使用您所建置的映像的 VM。 取代 *<password>* 與您自己的密碼`aibuser`在 VM 上。
 
 ```azurecli-interactive
 az vm create \

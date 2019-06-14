@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: eb6667a1429382ed566826de64ad7ffbe83183cf
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65521892"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>將建議工具新增至 Azure 搜尋服務中的自動提示的索引
@@ -101,7 +101,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 定義建議工具的屬性包含如下：
 
-|屬性      |說明      |
+|屬性      |描述      |
 |--------------|-----------------|
 |`name`        |建議工具名稱。 呼叫時，使用的建議工具名稱[建議 REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions)或是[自動完成 REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)。|
 |`searchMode`  |用來搜尋候選片語的策略。 目前唯一支援的模式是 `analyzingInfixMatching`，其可在句子開頭或中間執行彈性的片語比對。|

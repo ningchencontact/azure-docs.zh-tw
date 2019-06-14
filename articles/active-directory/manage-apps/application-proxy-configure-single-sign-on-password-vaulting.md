@@ -15,10 +15,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c19550adf500ba91462af12b4c5f7f5e38240e67
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65783504"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>使用應用程式 Proxy 進行單一登入的密碼保存庫
@@ -32,13 +32,13 @@ Azure Active Directory 應用程式 Proxy 可發佈內部部署應用程式，�
 ## <a name="set-up-password-vaulting-for-your-application"></a>為應用程式設定密碼儲存庫存
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [Azure Active Directory]  >  [企業應用程式]  >  [所有應用程式]。
+2. 選取 [Azure Active Directory]   >  [企業應用程式]   >  [所有應用程式]  。
 3. 從清單中選取您要設定 SSO 的應用程式。  
-4. 選取 [單一登入]。
+4. 選取 [單一登入]  。
 
    ![選取單一登入](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
 
-5. 在 SSO 模式中，選擇 [密碼型登入]。
+5. 在 SSO 模式中，選擇 [密碼型登入]  。
 6. 在登入 URL 輸入頁面 URL，使用者將在該頁面輸入其使用者名稱和密碼，以登入公司網路外部的應用程式。 這可能是您透過應用程式 Proxy 發佈應用程式時建立的外部 URL。 
 
    ![選擇密碼型登入並輸入您的 URL](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
