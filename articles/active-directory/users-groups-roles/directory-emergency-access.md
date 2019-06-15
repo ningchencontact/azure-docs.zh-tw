@@ -12,16 +12,16 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f430a832ffb35b95d0bf4eff2d82be5ecc3d865c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42de060d81539030ef1970e01e753383662e924f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472344"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083900"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>在 Azure AD 中管理緊急存取帳戶
 
-請務必防止不慎鎖定 Azure Active Directory (Azure AD) 租用戶，因為您無法以系統管理員的身分，登入或啟動現有個別使用者的帳戶。 您可以藉由在租用戶中建立兩個或多個「緊急存取帳戶」，來減緩不慎失去系統管理存取權的影響。
+請務必防止不慎鎖定 Azure Active Directory (Azure AD) 租用戶，因為您無法以系統管理員的身分，登入或啟動現有個別使用者的帳戶。 您可以藉由在租用戶中建立兩個或多個「緊急存取帳戶」  ，來減緩不慎失去系統管理存取權的影響。
 
 緊急存取帳戶具有高度權限，不會指派給特定個人。 緊急存取帳戶僅限用於無法使用一般系統管理帳戶的緊急或「急用」狀況。 組織必須限制只有在絕對必要時，才能使用緊急帳戶，並維護此限制目標。
 
@@ -43,7 +43,7 @@ ms.locfileid: "60472344"
 設定這些帳戶時，必須符合下列需求：
 
 - 這些緊急存取帳戶不應與組織中的任何個別使用者相關聯。 請確定您的帳戶未連線至任何員工提供的行動電話、會與個別員工一同移動的硬體權杖，或其他員工專屬的認證。 此預防措施適用於需要認證時卻聯絡不到個別員工的狀況。 請務必確保任何已註冊的裝置可處於已知且安全的位置，並有多個方法可與 Azure AD 通訊。
-- 用於緊急存取帳戶的驗證機制應該與您其他管理帳戶 (包括其他緊急存取帳戶) 所使用的驗證機制不同。  例如，如果您的一般管理員登入是透過內部部署 MFA 進行，則 Azure MFA 會是不同的機制。  不過，如果 Azure MFA 是驗證管理帳戶的主要部分，請考慮採用不同的方法，例如，對第三方 MFA 提供者使用條件式存取。
+- 用於緊急存取帳戶的驗證機制應該與您其他管理帳戶 (包括其他緊急存取帳戶) 所使用的驗證機制不同。  例如，如果您的一般管理員登入是透過內部部署 MFA 進行，則 Azure MFA 會是不同的機制。  不過如果 Azure MFA 是您主要的一部分，針對您的系統管理帳戶的驗證，請考慮不同的方法的這些項目，例如使用協力廠商 MFA 提供者的條件式存取。
 - 裝置或認證不得過期或處於因缺乏使用而自動清除的範圍內。  
 - 您應該為緊急存取帳戶永久保留全域管理員角色指派。 
 
@@ -52,11 +52,11 @@ ms.locfileid: "60472344"
 
 若要降低因密碼洩漏而遭到攻擊的風險，Azure AD 建議您要求所有個別使用者使用多重要素驗證。 這個群組包含管理員和所有其他人員 (例如財務人員)，其遭洩漏的帳戶會造成重大影響。
 
-但是，至少有一個緊急存取帳戶不應該具有與其他非緊急帳戶相同的多重要素驗證機制。 這包括第三方多重要素驗證解決方案。 如果您具備條件式存取原則，要針對 Azure AD 和其他連線的軟體即服務 (SaaS) 應用程式，要求[每位管理員進行多重要素驗證](../authentication/howto-mfa-userstates.md)，則應該將緊急存取帳戶從此要求中排除，並設定其他機制。 此外，您應該確定帳戶沒有每位使用者的多重要素驗證原則。
+但是，至少有一個緊急存取帳戶不應該具有與其他非緊急帳戶相同的多重要素驗證機制。 這包括第三方多重要素驗證解決方案。 如果您有要求的條件式存取原則[每位系統管理員的 multi-factor authentication](../authentication/howto-mfa-userstates.md)適用於 Azure AD 和其他連線的軟體即服務 (SaaS) 應用程式，您應該排除緊急存取帳戶從此需求，並改為設定不同的機制。 此外，您應該確定帳戶沒有每位使用者的多重要素驗證原則。
 
-### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>從條件式存取原則中排除至少一個帳戶
+### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>排除條件式存取原則中的至少一個帳戶
 
-在緊急情況下，您不希望有可能會阻止您存取以解決問題的原則。 應該從所有條件式存取原則中，排除至少一個緊急存取帳戶。 如果您已啟用[基準原則](../conditional-access/baseline-protection.md)，您應該排除緊急存取帳戶。
+在緊急情況下，您不希望有可能會阻止您存取以解決問題的原則。 至少一個緊急存取帳戶應該排除所有的條件式存取原則。 如果您已啟用[基準原則](../conditional-access/baseline-protection.md)，您應該排除緊急存取帳戶。
 
 ## <a name="additional-guidance-for-hybrid-customers"></a>混合式客戶的其他指導方針
 

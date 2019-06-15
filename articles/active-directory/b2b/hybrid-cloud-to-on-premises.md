@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2447aac825874779a543d25b0a70c339dcbf1473
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6d3fa8e71df3d1184956e1802d1b6b72411b6449
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768448"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113041"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>對 Azure AD 中的 B2B 使用者授與內部部署應用程式的存取權
 
@@ -31,7 +31,7 @@ ms.locfileid: "65768448"
 - 使用非資源庫的應用程式範本整合 SAML 應用程式，如[設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入](../manage-apps/configure-single-sign-on-non-gallery-applications.md)所述。 請務必記下您所使用的**登入 URL** 值。
 -  使用 Azure AD 應用程式 Proxy 來發行內部部署應用程式，並將 **Azure Active Directory** 設定為驗證來源。 如需指示，請參閱[使用 Azure AD 應用程式 Proxy 發行應用程式](../manage-apps/application-proxy-publish-azure-portal.md)。 
 
-   當您設定 [內部 Url] 設定時，請使用您在非資源庫的應用程式範本中指定的登入 URL。 如此一來，使用者就可以從組織界限外存取應用程式。 應用程式 Proxy 會為內部部署應用程式執行 SAML 單一登入。
+   當您設定 [內部 Url]  設定時，請使用您在非資源庫的應用程式範本中指定的登入 URL。 如此一來，使用者就可以從組織界限外存取應用程式。 應用程式 Proxy 會為內部部署應用程式執行 SAML 單一登入。
  
    ![顯示內部部署應用程式設定內部 URL 和驗證](media/hybrid-cloud-to-on-premises/OnPremAppSettings.PNG)
 
@@ -61,9 +61,9 @@ ms.locfileid: "65768448"
 
 ### <a name="lifecycle-management-policies"></a>生命週期管理原則
 
-您可以透過生命週期管理原則管理內部部署 B2B 使用者物件。 例如：
+您可以透過生命週期管理原則管理內部部署 B2B 使用者物件。 例如:
 
-- 您可以為來賓使用者設定多重要素驗證 (MFA) 原則，以在應用程式 Proxy 驗證期間使用 MFA。 如需詳細資訊，請參閱 [B2B 共同作業使用者的條件式存取](conditional-access.md)。
+- 您可以為來賓使用者設定多重要素驗證 (MFA) 原則，以在應用程式 Proxy 驗證期間使用 MFA。 如需詳細資訊，請參閱 < [B2B 共同作業使用者的條件式存取](conditional-access.md)。
 - 任何對雲端 B2B 使用者執行的贊助、存取權檢閱、帳戶驗證等，皆適用於內部部署使用者。 例如，如果透過生命週期管理原則刪除雲端使用者，則也會由 MIM 同步處理或透過 Azure AD Connect 同步處理刪除內部部署使用者。如需詳細資訊，請參閱[使用 Azure AD 存取權檢閱來管理來賓存取權](../governance/manage-guest-access-with-access-reviews.md)。
 
 ### <a name="create-b2b-guest-user-objects-through-mim"></a>透過 MIM 建立 B2B 來賓使用者物件

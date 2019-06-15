@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d09adbfa7cb2782d710ef3116cbd7bc68ee247b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417578"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL Database 的效能建議
@@ -28,7 +28,7 @@ Azure SQL Database 會學習及適應您的應用程式。 它會提供自訂的
 >
 
 ## <a name="create-index-recommendations"></a>建立索引建議
-SQL Database 會持續監視正在執行的查詢，並找出可改善效能的索引。 確信遺漏特定索引之後，就會建立新的 [建立索引] 建議。
+SQL Database 會持續監視正在執行的查詢，並找出可改善效能的索引。 確信遺漏特定索引之後，就會建立新的 [建立索引]  建議。
 
  評估一段時間之後，Azure SQL Database 會確定索引所能提升的效能。 根據評估的顯現效能，將建議分類為高、中或低。 
 
@@ -61,7 +61,7 @@ SQL Database 會持續監視正在執行的查詢，並找出可改善效能的�
 
 重新編譯執行計畫的程序會使用資料庫資源，增加查詢持續時間，以及造成計畫快取溢位。 而這些事件會導致系統從快取中回收計畫。 在資料庫上設定強制參數化選項，可以改變此 SQL Server 行為。 
 
-為了協助您評估此建議的影響，我們提供了實際 CPU 使用量和預計 CPU 使用量 (如同已套用建議) 之間的比較。 這項建議可協助您節省 CPU 資源。 也可以協助您減少計畫快取的查詢持續時間和負擔，這表示多個計畫可以留在快取中並加以重複使用。 您可以按一下 [套用] 命令，快速套用此建議。 
+為了協助您評估此建議的影響，我們提供了實際 CPU 使用量和預計 CPU 使用量 (如同已套用建議) 之間的比較。 這項建議可協助您節省 CPU 資源。 也可以協助您減少計畫快取的查詢持續時間和負擔，這表示多個計畫可以留在快取中並加以重複使用。 您可以按一下 [套用]  命令，快速套用此建議。 
 
 套用此建議之後，即可在幾分鐘內於資料庫上啟用強制參數化。 它會啟動可持續約 24 小時的監視程序。 經過這段期間之後，您即可看到驗證報告。 此報告顯示資料庫在套用建議前後 24 小時的 CPU 使用量。 SQL Database 建議程式有一項安全機制，會在偵測到效能衰退時，自動還原所套用的建議。
 
@@ -77,9 +77,9 @@ SQL Database 會持續監視正在執行的查詢，並找出可改善效能的�
 
 當 Azure SQL Database 服務注意到 SQL 資料庫上發生結構描述數目異常相關的 SQL 錯誤時，即會出現「修正結構描述問題」建議。 下表顯示與結構描述問題相關的錯誤：
 
-| SQL 錯誤碼 | 訊息 |
+| SQL 錯誤碼 | Message |
 | --- | --- |
-| 201 |程序或函數 '' 必須有參數 ''，但未提供。 |
+| 201 |程序或函數 '' 必須有參數 '  '，但未提供。 |
 | 207 |無效的資料行名稱 '*'。 |
 | 208 |無效的物件名稱 '*'。 |
 | 213 |資料行名稱或提供的數值數量與資料表定義不相符。 |
@@ -88,7 +88,7 @@ SQL Database 會持續監視正在執行的查詢，並找出可改善效能的�
 
 ## <a name="custom-applications"></a>自訂應用程式
 
-开发人员可以考虑使用针对 Azure SQL 数据库的性能建议来开发自定义应用程序。 可以通过 [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API 访问门户中列出的针对数据库的所有建议。
+開發人員可能會考慮開發自訂應用程式使用 Azure SQL database 的效能建議。 入口網站中的資料庫可以透過存取列出的所有建議[Get AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API。
 
 ## <a name="next-steps"></a>後續步驟
 監視建議，並繼續套用建議以改善效能。 資料庫工作負載會動態地持續變更。 SQL Database 建議程式會繼續監視並提供可能改善資料庫效能的建議。 

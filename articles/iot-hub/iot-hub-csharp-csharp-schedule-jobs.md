@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: robinsh
 ms.openlocfilehash: f21f1eed6babee52f30c6eccc79f88dc7bee5d58
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864486"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>排程及廣播作業 (.NET/.NET)
@@ -68,13 +68,13 @@ ms.locfileid: "65864486"
 
 在本節中，您會建立 .NET 主控台應用程式，回應解決方案後端所呼叫的直接方法。
 
-1. 在 Visual Studio 中，使用 [主控台應用程式] 專案範本，將 Visual C# Windows 傳統桌面專案新增至目前的方案。 將專案命名為 **SimulateDeviceMethods**。
+1. 在 Visual Studio 中，使用 [主控台應用程式]  專案範本，將 Visual C# Windows 傳統桌面專案新增至目前的方案。 將專案命名為 **SimulateDeviceMethods**。
    
     ![新的 Visual C# Windows 傳統裝置應用程式](./media/iot-hub-csharp-csharp-schedule-jobs/create-device-app.png)
     
-2. 在方案總管中，以滑鼠右鍵按一下 **SimulateDeviceMethods** 專案，然後按一下 [管理 NuGet 套件...]
+2. 在方案總管中，以滑鼠右鍵按一下 **SimulateDeviceMethods** 專案，然後按一下 [管理 NuGet 套件...] 
 
-3. 在 [NuGet 套件管理員] 視窗中，選取 [瀏覽]，並搜尋 **Microsoft.Azure.Devices.Client**。 選取 [安裝] 來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 裝置 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet 套件與其相依性，並新增對它的參考。
+3. 在 [NuGet 套件管理員]  視窗中，選取 [瀏覽]  ，並搜尋 **Microsoft.Azure.Devices.Client**。 選取 [安裝]  來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 裝置 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet 套件與其相依性，並新增對它的參考。
    
     ![NuGet 套件管理員視窗用戶端應用程式](./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png)
 
@@ -155,13 +155,13 @@ ms.locfileid: "65864486"
 
 在本節中，您要建立 .NET 主控台應用程式 (使用 C#)，使用作業呼叫 **LockDoor** 直接方法，並將所需的屬性更新傳送至多部裝置。
 
-1. 在 Visual Studio 中，使用 [主控台應用程式] 專案範本，將 Visual C# Windows 傳統桌面專案新增至目前的方案。 將專案命名為 **ScheduleJob**。
+1. 在 Visual Studio 中，使用 [主控台應用程式]  專案範本，將 Visual C# Windows 傳統桌面專案新增至目前的方案。 將專案命名為 **ScheduleJob**。
 
     ![新的 Visual C# Windows 傳統桌面專案](./media/iot-hub-csharp-csharp-schedule-jobs/createnetapp.png)
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ScheduleJob** 專案，然後按一下 [管理 NuGet 套件...]。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ScheduleJob** 專案，然後按一下 [管理 NuGet 套件...]  。
 
-3. 在 [NuGet 套件管理員] 視窗中選取 [瀏覽]、搜尋 **Microsoft.Azure.Devices**、選取 [安裝] 以安裝 **Microsoft.Azure.Devices** 套件，並接受使用條款。 此步驟會下載及安裝 [Azure IoT 服務 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet 套件與其相依性，並加入對它的參考。
+3. 在 [NuGet 套件管理員]  視窗中選取 [瀏覽]  、搜尋 **Microsoft.Azure.Devices**、選取 [安裝]  以安裝 **Microsoft.Azure.Devices** 套件，並接受使用條款。 此步驟會下載及安裝 [Azure IoT 服務 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet 套件與其相依性，並加入對它的參考。
 
     ![NuGet 封裝管理員視窗](./media/iot-hub-csharp-csharp-schedule-jobs/servicesdknuget.png)
 
@@ -279,9 +279,9 @@ ms.locfileid: "65864486"
 
 您現在可以開始執行應用程式。
 
-1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下您的解決方案，然後按一下 [建置]。 **多個啟始專案**。 請確定 `SimulateDeviceMethods` 位於清單頂端，後面接著 `ScheduleJob`。 將其兩個動作設為 [啟動]，然後按一下 [確定]。
+1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下您的解決方案，然後按一下 [建置]  。 **多個啟始專案**。 請確定 `SimulateDeviceMethods` 位於清單頂端，後面接著 `ScheduleJob`。 將其兩個動作設為 [啟動]  ，然後按一下 [確定]  。
 
-2. 執行專案，方法是按一下 [開始] 或移至 [偵錯] 功能表，然後按一下 [開始偵錯]。
+2. 執行專案，方法是按一下 [開始]  或移至 [偵錯]  功能表，然後按一下 [開始偵錯]  。
 
 3. 您會看到來自裝置及後端應用程式的輸出。
 

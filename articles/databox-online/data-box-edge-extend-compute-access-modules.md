@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: alkohli
 ms.openlocfilehash: 907647725dd6795b3b6482476de7442fbbf66114
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65917231"
 ---
 # <a name="enable-compute-network-on-your-azure-data-box-edge"></a>啟用您的 Azure 資料方塊邊緣上的計算網路
@@ -40,7 +40,7 @@ ms.locfileid: "65917231"
 
 請在本機 Web UI 上採取下列步驟來設定計算的設定值。
 
-1. 在本機 Web UI 中，移至 [組態] > [計算設定]。  
+1. 在本機 Web UI 中，移至 [組態] > [計算設定]  。  
 
 2. **啟用**您想要用來連線至您將在裝置執行的計算模組的網路介面。
 
@@ -49,7 +49,7 @@ ms.locfileid: "65917231"
 
     ![啟用計算設定 1](media/data-box-edge-extend-compute-access-modules/enable-compute-setting-1.png)
 
-3. 選取 [套用] 來套用設定。 記下 指派給網路介面，如果使用 DHCP 的 IP 位址。
+3. 選取 [套用]  來套用設定。 記下 指派給網路介面，如果使用 DHCP 的 IP 位址。
 
     ![啟用計算設定](media/data-box-edge-extend-compute-access-modules/enable-compute-setting-2.png)
 

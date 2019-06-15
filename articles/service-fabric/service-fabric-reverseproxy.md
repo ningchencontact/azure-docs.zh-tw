@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
 ms.openlocfilehash: 6ce6f1f6559b43a64fb7edd0773a20f8ee0cf8a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837930"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric 中的反向 Proxy
@@ -77,20 +77,20 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **http(s)：** 反向 Proxy 可設定為接受 HTTP 或 HTTPS 流量。 對於 HTTPS 轉送，在您設定反向 Proxy 於 HTTPS 接聽後，請參閱[使用反向 Proxy 連線安全的服務](service-fabric-reverseproxy-configure-secure-communication.md)。
 * **叢集完整網域名稱 (FQDN) | 內部 IP：** 如果是外部用戶端，您可以設定反向 Proxy 讓其可透過叢集網域 (例如 mycluster.eastus.cloudapp.azure.com) 來聯繫到。 根據預設，反向 Proxy 會在每個節點上執行。 如果是內部流量，反向 Proxy 可在 localhost 或任何內部節點 IP (例如 10.0.0.1) 上聯繫到。
 * **連接埠︰** 這是為反向 Proxy 指定的連接埠，例如 19081。
-* **ServiceInstanceName：** 這是您嘗試不使用「fabric:/」配置來連線到之已部署服務執行個體的完整名稱。 例如，若要連線到 fabric:/myapp/myservice/ 服務，可以使用 myapp/myservice。
+* **ServiceInstanceName：** 這是您嘗試不使用「fabric:/」配置來連線到之已部署服務執行個體的完整名稱。 例如，若要連線到 fabric:/myapp/myservice/  服務，可以使用 myapp/myservice  。
 
     服務執行個體名稱區分大小寫。 對於 URL 中的服務執行個體名稱使用不同的大小寫，會導致要求失敗，並顯示「404 (找不到)」。
 * **尾碼路徑︰** 這是所要連線服務的實際 URL 路徑，例如 *myapi/values/add/3*。
 * **PartitionKey：** 若為資料分割服務，這是您想要連線的資料分割計算資料分割金鑰。 請注意，這不是  資料分割識別碼 GUID。 使用單一資料分割配置的服務不需要這個參數。
 * **PartitionKind：** 這是服務資料分割配置。 這可以是 'Int64Range' 或 'Named'。 使用單一資料分割配置的服務不需要這個參數。
-* **ListenerName** 服务中的终结点采用以下形式：{"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2" ...}}。 當服務公開多個端點時，這可識別用戶端要求應該轉送至哪個端點。 如果服务只有一个侦听器，则可以省略此项。
+* **ListenerName** 服務傳回的端點格式為 {"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2" ...}}。 當服務公開多個端點時，這可識別用戶端要求應該轉送至哪個端點。 如果服務只有一個接聽程式，這可省略。
 * **TargetReplicaSelector** 這指定應該如何選取目標複本或執行個體。
   * 當目標服務具狀態時，TargetReplicaSelector 可以是下列其中一個：'PrimaryReplica'、'RandomSecondaryReplica' 或 'RandomReplica'。 未指定此參數時，預設值是 'PrimaryReplica'。
   * 當目標服務無狀態時，反向 Proxy 會挑選服務資料分割的隨機執行個體，將要求轉送至此執行個體。
 * **逾時︰** 指定由反向 Proxy 建立的 HTTP 要求代替用戶端要求傳送到服務的逾時。 預設值為 60 秒。 這是選擇性參數。
 
-### <a name="example-usage"></a>用法示例
-例如，讓我們採用在下列 URL 上開啟 HTTP 接聽程式的 fabric:/MyApp/MyService 服務：
+### <a name="example-usage"></a>使用方式範例
+例如，讓我們採用在下列 URL 上開啟 HTTP 接聽程式的 fabric:/MyApp/MyService  服務：
 
 ```
 http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
@@ -101,15 +101,15 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 * `/index.html`
 * `/api/users/<userId>`
 
-如果服務使用單一資料分割配置，則不需要 PartitionKey 和 PartitionKind 查詢字串參數，可透過閘道以下列方式連線到服務︰
+如果服務使用單一資料分割配置，則不需要 PartitionKey  和 PartitionKind  查詢字串參數，可透過閘道以下列方式連線到服務︰
 
-* 外部访问方式：`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
+* 外部： `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
 * 內部： `http://localhost:19081/MyApp/MyService`
 
-如果服務使用統一 Int64 資料分割配置，則必須使用 PartitionKey 和 PartitionKind 查詢字串參數來連線到服務的資料分割︰
+如果服務使用統一 Int64 資料分割配置，則必須使用 PartitionKey  和 PartitionKind  查詢字串參數來連線到服務的資料分割︰
 
 * 外部： `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
-* 内部访问方式：`http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* 內部： `http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 
 若要連線到服務公開的資源，只要將資源路徑放在 URL 的服務名稱之後︰
 
@@ -156,7 +156,7 @@ Service Fabric 反向 Proxy 會嘗試重新解析服務位址，並在無法連�
 ```
 針對本機叢集，預設會將 `Fabric_NodeIPOrFQDN` 設定為 "localhost"。 使用 `-UseMachineName` 參數啟動本機叢集，以確保容器可連線至在節點上執行的反向 Proxy。 如需詳細資訊，請參閱[設定開發人員環境以對容器進行偵錯](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers)。
 
-在 Docker Compose 容器內執行的 Service Fabric 服務需要特殊的 docker-compose.yml 連接埠區段 http: 或 https: 組態。 如需詳細資訊，請參閱 [Azure Service Fabric 中的 Docker Compose 部署支援](service-fabric-docker-compose.md)。
+在 Docker Compose 容器內執行的 Service Fabric 服務需要特殊的 docker-compose.yml 連接埠區段  http: 或 https: 組態。 如需詳細資訊，請參閱 [Azure Service Fabric 中的 Docker Compose 部署支援](service-fabric-docker-compose.md)。
 
 ## <a name="next-steps"></a>後續步驟
 * [在叢集上安裝及設定反向 Proxy](service-fabric-reverseproxy-setup.md)。

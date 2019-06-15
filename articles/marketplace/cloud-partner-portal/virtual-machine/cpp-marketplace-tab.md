@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
 ms.openlocfilehash: d9b259ba93be369658638d034f109a3a6ba4c4a4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938195"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>虛擬機器 Marketplace 索引標籤
 
-在 [新增供應項目] 頁面的 [Marketplace] 索引標籤上，可提供行銷、銷售和法律方面的資訊與合約給您的潛在客戶，並管理 Marketplace 產生的潛在客戶。 這個完整的形式分為四個區段：**概觀**，**行銷構件**，**潛在客戶管理**，和**法律**。
+在 [新增供應項目]  頁面的 [Marketplace]  索引標籤上，可提供行銷、銷售和法律方面的資訊與合約給您的潛在客戶，並管理 Marketplace 產生的潛在客戶。 這個完整的形式分為四個區段：**概觀**，**行銷構件**，**潛在客戶管理**，和**法律**。
 
 
 ## <a name="overview-section"></a>概觀區段
@@ -33,7 +33,7 @@ ms.locfileid: "64938195"
 | **完整摘要\***          | 解決方案功能的用途。  長度上限為 256 個字元。 |
 | **說明\***           | 解決方案說明。  長度上限是 3000 個字元，支援簡單的 HTML 格式。 |
 | **Microsoft CSP 轉銷商通路\*** | 雲端解決方案提供者 (CSP) 合作夥伴通道選用功能現在可使用。  請參閱[雲端方案提供者](../../cloud-solution-providers.md)如需有關行銷您的供應項目，透過 Microsoft CSP 合作夥伴的通道。 |
-| **行銷識別碼\***  | 與本供應項目相關聯的唯一不重複網址，通常會包含您的組織與解決方案名稱，長度上限是 50 個字元。  例如︰ <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **行銷識別碼\***  | 與本供應項目相關聯的唯一不重複網址，通常會包含您的組織與解決方案名稱，長度上限是 50 個字元。  例如: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **預覽訂用帳戶識別碼\*** | 可新增 1 到 100 個預覽使用者的訂閱帳戶識別碼。 這些列入允許清單的訂閱帳戶，待供應項目一發佈，即能在供應項目上線前先行存取。 |
 | **實用連結**          | 新增文件、版本資訊、常見問題等等的 URL。 |
 | **建議的分類 （最多 5 個）\*** | 可選擇多個適合與供應項目建立關聯的企業和技術類別，  最多可選擇五個。  |
@@ -58,7 +58,7 @@ ms.locfileid: "64938195"
 | **主圖**                  | 815 x 290 點陣圖。  (選擇性) 主圖圖示一旦上傳，即無法刪除。 |
 | *螢幕擷取畫面*  | (選擇性) 每個 SKU 的螢幕擷取畫面上限為五個。 |
 | **名稱**                  | 名稱或標題 <!-- TODO - max char length? none specified in UI -->                               |
-| **映像**                 | 螢幕擷取映像，533x324 像素                                         |
+| **影像**                 | 螢幕擷取映像，533x324 像素                                         |
 | *影片*  |  |
 | **名稱**                  | 名稱或標題  <!-- TODO - max char length? -->                              |
 | **連結**                  | 裝載於 YouTube 或 Vimeo 的影片 URL                                        |

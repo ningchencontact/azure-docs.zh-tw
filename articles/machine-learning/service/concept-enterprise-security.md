@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
-ms.openlocfilehash: 9762b8cadde86a2e64f8fa74a4e794bdf1109ec4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e9002b96467d6fa3a5c4fb03fb20bde4e1bf87a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151196"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059347"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning 服務的企業安全性
 
@@ -75,7 +75,7 @@ print(primary)
 | 檢視模型/映像 | ✓ | ✓ | ✓ |
 | 呼叫 web 服務 | ✓ | ✓ | ✓ |
 
-如果內建的角色不足以執行您的需求，您也可以建立自訂角色。 請注意，只會將自訂的角色，我們支援對工作區和 Machine Learning 計算作業。 自訂的角色可能會具有讀取、 寫入或刪除工作區和該工作區中的計算資源的權限。 您可以提供角色在特定的工作區層級、 特定的資源群組層級或特定的訂用帳戶層級。 如需詳細資訊，請參閱[管理使用者和 Azure Machine Learning 工作區中的角色](how-to-assign-roles.md)
+如果內建的角色不足以執行您的需求，您也可以建立自訂角色。 我們支援只會將自訂角色會對工作區和 Machine Learning 計算作業。 自訂的角色可能會具有讀取、 寫入或刪除工作區和該工作區中的計算資源的權限。 您可以提供角色在特定的工作區層級、 特定的資源群組層級或特定的訂用帳戶層級。 如需詳細資訊，請參閱[管理使用者和 Azure Machine Learning 工作區中的角色](how-to-assign-roles.md)
 
 ### <a name="securing-compute-and-data"></a>計算和資料保護
 擁有者和參與者可以使用所有計算目標和資料存放區連結至工作區。  
@@ -83,18 +83,18 @@ print(primary)
 
 如需有關受管理的身分識別的詳細資訊，請參閱[管理適用於 Azure 資源的身分識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-| Resource | 權限 |
+| 資源 | 權限 |
 | ----- | ----- |
 | 工作區 | 參與者 | 
 | 儲存體帳戶 | 儲存體 Blob 資料參與者 | 
 | Key Vault | 所有的金鑰，祕密，憑證的存取權 | 
-| Azure 容器登錄 | 參與者 | 
+| Azure Container Registry | 參與者 | 
 | 包含的工作區的資源群組 | 參與者 | 
 | （如果不同於包含工作區），包含金鑰保存庫的資源群組 | 參與者 | 
 
 建議系統管理員不會撤銷的受管理的身分識別以上面所提到的資源存取權。 重新同步金鑰作業，就可以還原存取權。
 
-Azure Machine Learning 服務與參與者層級存取您的訂用帳戶中變更每個工作區區域建立其他的應用程式 （名稱開頭為 aml-）。 Ex。 如果您有工作區，在美國東部和北歐地區另一個工作區相同的訂用帳戶中，您會看到 2 個這類應用程式。 這需要使服務可以幫助您管理 Azure Machine Learning 計算資源。
+Azure Machine Learning 服務會建立其他的應用程式 (名稱開頭為`aml-`) 與參與者層級存取您的訂用帳戶中的每個工作區的區域。 Ex。 如果您有工作區，在美國東部和北歐地區另一個工作區相同的訂用帳戶中，您會看到兩個這類應用程式。 這需要使服務可以幫助您管理 Azure Machine Learning 計算資源。
 
 
 ## <a name="network-security"></a>網路安全性
@@ -113,13 +113,15 @@ Azure Machine Learning 服務會繫結至 Azure 機器學習服務工作區，�
 
 定型資料通常也會儲存在 Azure Blob 儲存體，如此就能夠訓練計算。 此儲存體不是受 Azure Machine Learning，而掛接到計算做為遠端檔案系統。
 
+如需有關重新產生存取金鑰與您的工作區搭配使用 Azure 儲存體帳戶，請參閱[重新產生儲存體存取金鑰](how-to-change-storage-access-key.md)文章。
+
 #### <a name="cosmos-db"></a>Cosmos DB
 Azure Machine Learning 服務會將計量和到所在 Cosmos DB 的中繼資料儲存在 Azure Machine Learning 服務所管理的 Microsoft 訂用帳戶。 在待用期間使用 Microsoft 受控金鑰加密儲存在 Cosmos DB 中的所有資料。
 
 #### <a name="azure-container-registry-acr"></a>Azure Container Registry (ACR)
 在您的登錄 (ACR) 中的所有容器映像皆在待用都加密。 Azure 會自動加密再將其儲存的映像，並將它解密上即時，Azure Machine Learning 服務提取映像時。
 
-#### <a name="machine-learning-compute"></a>Machine Learning Compute
+#### <a name="machine-learning-compute"></a>Machine Learning 計算
 OS 磁碟的每個計算節點會儲存在 Azure 儲存體已加密您在 Azure Machine Learning 服務的儲存體帳戶中使用 Microsoft 管理的金鑰。 此計算是暫時的並沒有執行時通常叢集相應減少已排入佇列。 解除佈建基礎的虛擬機器，OS 磁碟刪除。 針對 OS 磁碟不支援 azure 磁碟加密。
 每個虛擬機器也有作業系統作業的本機暫存磁碟。 此磁碟也選擇性可用階段定型資料。 此磁碟不會加密。 如需有關如何在 Azure 中的待用加密運作方式的詳細資訊，請參閱 < [Azure 資料加密待用](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)。 
 

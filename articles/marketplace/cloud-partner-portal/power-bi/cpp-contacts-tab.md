@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: f659ad2f75f9dad390c37f0e1736af5991a32dfc
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943232"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Power BI 應用程式的 [連絡人] 索引標籤
 
-使用 [新增供應項目] 頁面的 [連絡人] 索引標籤，為您的供應項目提供技術和使用者支援資源。 它分成兩部分：**工程**和**客戶支援**。
+使用 [新增供應項目]  頁面的 [連絡人]  索引標籤，為您的供應項目提供技術和使用者支援資源。 它分成兩部分：**工程**和**客戶支援**。
 
 ![連絡人索引標籤](media/contacts-tab.png)
 

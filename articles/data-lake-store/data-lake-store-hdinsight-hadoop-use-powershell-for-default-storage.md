@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c57a45145d9abc43d0ca79839ea297dfc025db9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161406"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>使用 PowerShell 建立以 Azure Data Lake Storage Gen1 作為預設儲存體的 HDInsight 叢集
@@ -33,7 +33,7 @@ ms.locfileid: "66161406"
 
 * HDInsight 3.5 和 3.6 版提供建立可存取 Data Lake Storage Gen1 作為預設儲存體之 HDInsight 叢集的選項。
 
-* HDInsight Premium 叢集「不提供」建立可存取 Data Lake Storage Gen1 作為預設儲存體之 HDInsight 叢集的選項。
+* HDInsight Premium 叢集「不提供」  建立可存取 Data Lake Storage Gen1 作為預設儲存體之 HDInsight 叢集的選項。
 
 若要使用 PowerShell 來設定 HDInsight 搭配 Data Lake Storage Gen1 運作，請遵循接下來五個章節中的指示操作。
 
@@ -45,7 +45,7 @@ ms.locfileid: "66161406"
 
 * **Azure 訂用帳戶**：請移至[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Azure PowerShell 1.0 或更新版本**：請參閱[如何安裝和設定 PowerShell](/powershell/azure/overview)。
-* **Windows 軟體開發套件 (SDK)**：若要安裝 Windows SDK，請移至[適用於 Windows 10 的下載項目與工具](https://dev.windows.com/downloads)。 SDK 是用來建立安全性憑證。
+* **Windows 軟體開發套件 (SDK)** ：若要安裝 Windows SDK，請移至[適用於 Windows 10 的下載項目與工具](https://dev.windows.com/downloads)。 SDK 是用來建立安全性憑證。
 * **Azure Active Directory 服務主體**：本教學課程說明如何在 Azure Active Directory (Azure AD) 中建立服務主體。 不過，您必須是 Azure AD 系統管理員，才能建立服務主體。 如果您是系統管理員，就可以略過這項先決條件並繼續進行本教學課程。
 
     >[!NOTE]
@@ -215,7 +215,7 @@ ms.locfileid: "66161406"
     Cmdlet 成功完成後，您應該會看到列出叢集詳細資料的輸出。
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>在 HDInsight 叢集上執行測試作業以使用 Data Lake Storage Gen1
-設定 HDInsight 叢集之後，您可以在叢集上執行測試工作，確保它可以存取 Data Lake Storage Gen1。 若要這樣做，請執行範例 Hive 作業，以建立使用已在 Data Lake 儲存體 Gen1 中可用的範例資料的資料表*\<叢集根目錄 > /example/data/sample.log*。
+設定 HDInsight 叢集之後，您可以在叢集上執行測試工作，確保它可以存取 Data Lake Storage Gen1。 若要這樣做，請執行範例 Hive 作業，以建立使用已在 Data Lake 儲存體 Gen1 中可用的範例資料的資料表 *\<叢集根目錄 > /example/data/sample.log*。
 
 在這一節中，您將透過安全殼層 (SSH) 連線到您所建立的 HDInsight Linux 叢集，然後執行範例 Hive 查詢。
 

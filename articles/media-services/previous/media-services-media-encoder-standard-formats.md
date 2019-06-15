@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: c862de2eec4e6c116218457a20b567dc02778685
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463730"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard 格式和轉碼器
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> [!div class="op_single_selector" title1="選取您要使用媒體服務版本："]
 > * [第 2 版](media-services-media-encoder-standard-formats.md)
 > * [第 3 版](../latest/media-encoder-standard-formats.md)
 
@@ -60,9 +60,9 @@ Media Encoder Standard 支援在輸入容器中帶有下列音訊格式：
 ## <a name="input-video-codecs"></a>輸入視訊轉碼器
 | 輸入視訊轉碼器 | 支援 |
 | --- | --- |
-| AVC 8 位/10 位，最高支持 4:2:2，包括 AVCIntra |8 位元 4:2:0 和 4:2:2 |
-| Avid DNxHD（MXF 格式） |是 |
-| DVCPro/DVCProHD（MXF 格式） |是 |
+| AVC 8 位元/10 位元，高達 4:2:2，包括 AVCIntra |8 位元 4:2:0 和 4:2:2 |
+| Avid DNxHD (使用 MXF) |是 |
+| DVCPro/DVCProHD (使用 MXF) |是 |
 | 數位視訊 (DV) (使用 AVI 檔案) |是 |
 | JPEG 2000 |是 |
 | MPEG-2 (高達 422 Profile 和 High Level，包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs ® 和 D10 等變種) |最高 422 設定檔 |
@@ -83,9 +83,9 @@ Media Encoder Standard 支援在輸入容器中帶有下列音訊格式：
 ## <a name="input-audio-codecs"></a>輸入音訊轉碼器
 | 輸入音訊轉碼器 | 支援 |
 | --- | --- |
-| AAC（AAC-LC、AAC-HE 和 AAC-HEv2；最高支持 5.1） |是 |
+| AAC (AAC-LC、AAC-HE 和 AAC-HEv2；高達 5.1) |是 |
 | MPEG Layer 2 |是 |
-| MP3 (MPEG-1 Audio Layer 3) |是 |
+| MP3 (MPEG-1 音訊層 3) |是 |
 | Windows Media 音訊 |是 |
 | WAV/PCM |是 |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |是 |
@@ -100,9 +100,9 @@ Media Encoder Standard 支援在輸入容器中帶有下列音訊格式：
 ## <a name="output-formats-and-codecs"></a>輸出格式和轉碼器
 下表會列出支援匯出的轉碼器和檔案格式清單。
 
-| 檔案格式 | 視訊轉碼器 | 音频编解码器 |
+| 檔案格式 | 視訊轉碼器 | 音訊轉碼器 |
 | --- | --- | --- |
-| MP4  <br/><br/>(包括多位元速率 MP4 容器) |H.264（High、Main 和 Baseline Profile） |AAC-LC、HE-AAC v1、HE-AAC v2 |
+| MP4 <br/><br/>(包括多位元速率 MP4 容器) |H.264 (高、主要和基準設定檔) |AAC-LC、HE-AAC v1、HE-AAC v2 |
 | MPEG2-TS |H.264 (高、主要和基準設定檔) |AAC-LC、HE-AAC v1、HE-AAC v2 |
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑

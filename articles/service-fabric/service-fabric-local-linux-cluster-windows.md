@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
 ms.openlocfilehash: e700250a6ebcdb82f99c1b460a510811d7ceb96c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60719935"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>在 Windows 開發人員電腦上設定 Linux Service Fabric 叢集
@@ -30,7 +30,7 @@ ms.locfileid: "60719935"
 
 * 至少 4 GB 的 RAM
 * 最新版 [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
-* Docker 必须在 Linux 模式下运行
+* 必須在 Linux 模式上執行 docker
 
 >[!TIP]
 > * 您可以遵循官方 Docker [文件](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions)中所述的步驟，在 Windows 上安裝 Docker。 

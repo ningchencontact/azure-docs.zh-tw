@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b18c4c039b615c7c88268b6e668df9f7fec9fabf
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 414573a90e5a7b7de845b65e6e88715a26024f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687921"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125778"
 ---
 # <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>將資料從 Amazon S3 貯體，使用 AzCopy 複製
 
@@ -50,6 +50,9 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 
 AzCopy 會使用[從 URL 將區塊](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url)API，以便直接在 AWS S3 與存放區伺服器之間複製資料。 這些複製作業不會使用您電腦的網路頻寬。
 
+> [!IMPORTANT]
+> 此功能目前為預覽狀態。 如果您決定要移除您的 S3 貯體中的資料，複製作業之後，請務必確認資料已正確複製到您的儲存體帳戶之前先移除資料。
+
 ### <a name="copy-an-object"></a>複製物件
 
 |    |     |
@@ -62,7 +65,7 @@ AzCopy 會使用[從 URL 將區塊](https://docs.microsoft.com/rest/api/storages
 >
 > 您也可以使用虛擬裝載式 Url (例如： `http://bucket.s3.amazonaws.com`)。 
 >
-> 若要深入了解虛擬裝載的貯體，請參閱 [虛擬裝載的貯體]] (https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html)。
+> 若要深入了解虛擬裝載的貯體，請參閱 [虛擬裝載的貯體]] (https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html) 。
 
 ### <a name="copy-a-directory"></a>複製目錄
 

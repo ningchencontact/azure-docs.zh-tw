@@ -17,23 +17,23 @@ ms.date: 03/14/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b94e9b7267c956c07f4171f8cce46c6159affd90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 942f7e43a549b5aa1a21284949ffc12ef3c8d75f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459661"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108923"
 ---
-# <a name="how-to-configure-the-user-risk-policy"></a>作法：設定使用者風險原則
+# <a name="how-to-configure-the-user-risk-policy"></a>如何：設定使用者風險原則
 
-透過使用者風險，Azure AD 可偵測使用者帳戶遭到入侵的可能性。 系統管理員可以設定使用者風險條件式存取原則，來自動回應特定登入風險層級。
+透過使用者風險，Azure AD 可偵測使用者帳戶遭到入侵的可能性。 身為管理員，您可以設定使用者風險條件式存取原則，自動回應至特定的使用者風險層級。
  
 本文提供設定使用者風險原則所需的資訊。
 
 
 ## <a name="what-is-a-user-risk-policy"></a>什麼是使用者風險原則？
 
-Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨登入出現的可疑動作。 在 Azure AD 中，系統可以偵測到的可疑動作也稱為風險事件。 雖然可以即時偵測到有些風險事件，但也有宜些風險事件需要更多時間。 例如，若要偵測不可能到達非典型位置的旅行，系統需要 14 天的初始學習期間，才能了解使用者的一般行為。 有數個選項可以解決偵測到的風險事件。 例如，您可以手動解決個別的風險事件，或者使用登入風險或使用者風險條件式存取原則來解決這些事件。
+Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨登入出現的可疑動作。 在 Azure AD 中，系統可以偵測到的可疑動作也稱為風險事件。 雖然可以即時偵測到有些風險事件，但也有宜些風險事件需要更多時間。 例如，若要偵測不可能到達非典型位置的旅行，系統需要 14 天的初始學習期間，才能了解使用者的一般行為。 有數個選項可以解決偵測到的風險事件。 例如，您可以手動解決個別的風險事件，或者您也可以將它們解析使用的登入風險] 或 [使用者風險條件式存取原則取得。
 
 針對使用者偵測到但未獲得解決的所有風險事件也稱為作用中風險事件。 與使用者相關聯的作用中風險事件也稱為使用者風險。 Azure AD 會根據使用者風險，計算使用者遭到入侵的可能性 (低、中、高)。 此可能性稱為使用者風險層級。
 
@@ -44,7 +44,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 ## <a name="how-do-i-access-the-user-risk-policy"></a>如何存取使用者風險原則？
    
-登入風險原則位於 [Azure AD Identity Protection] 頁面的 [設定](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy) 區段中。
+登入風險原則位於 [Azure AD Identity Protection]  頁面的 [設定](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy) 區段中。
    
 ![使用者風險原則](./media/howto-user-risk-policy/1014.png)
 
@@ -89,7 +89,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 ## <a name="best-practices"></a>最佳作法
 
 選擇 [高]  臨界值可減少觸發原則的次數，並將對使用者的影響降至最低。
-不過，這會從原則中排除標示 [低] 和 [中] 度風險的使用者，而無法保護先前疑似或已知遭到入侵的身分識別或裝置。
+不過，這會從原則中排除標示 [低]  和 [中]  度風險的使用者，而無法保護先前疑似或已知遭到入侵的身分識別或裝置。
 
 設定原則時，
 
@@ -107,7 +107,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 **開啟相關的組態對話方塊**：
 
-- 在 [Azure AD Identity Protection] 刀鋒視窗的 [設定] 區段中，按一下 [使用者風險原則]。
+- 在 [Azure AD Identity Protection]  刀鋒視窗的 [設定]  區段中，按一下 [使用者風險原則]  。
 
     ![使用者風險原則](./media/howto-user-risk-policy/1009.png "使用者風險原則")
 

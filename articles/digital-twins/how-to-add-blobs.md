@@ -10,10 +10,10 @@ ms.date: 06/05/2019
 ms.author: v-adgera
 ms.custom: seodec18
 ms.openlocfilehash: 9490772226ecdb90cdd2e0b98fe8336b91db6044
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754528"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>在 Azure Digital Twins 中將 Blob 新增到物件
@@ -54,13 +54,13 @@ JSON blob 中繼資料符合下列模型：
 | 屬性 | 類型 | 描述 |
 | --- | --- | --- |
 | **parentId** | 字串 | 與 blob 相關聯的父實體 (空間、裝置或使用者) |
-| **name** |String | blob 的人類易記名稱 |
-| **type** | String | Blob 的類型 - 不能使用 *type* 與 *typeId*  |
+| **name** |字串 | blob 的人類易記名稱 |
+| **type** | 字串 | Blob 的類型 - 不能使用 *type* 與 *typeId*  |
 | **typeId** | Integer | Blob 類型識別碼 - 不能使用 *type* 與 *typeId* |
-| **subtype** | String | Blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
+| **subtype** | 字串 | Blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
 | **subtypeId** | Integer | blob 的子類型識別碼 - 不能使用 *subtype* 與 *subtypeId* |
-| **description** | String | 自訂的 blob 描述 |
-| **sharing** | String | 是否可以共用 blob - enum [`None`, `Tree`, `Global`] |
+| **description** | 字串 | 自訂的 blob 描述 |
+| **sharing** | 字串 | 是否可以共用 blob - enum [`None`, `Tree`, `Global`] |
 
 一律提供 blob 中繼資料作為 **Content-Type** 為 `application/json` 的第一個區塊，或作為 `.json` 檔案。 檔案資料是在第二個區塊中提供的，可以是任何支援的 MIME 類型。
 
@@ -111,16 +111,16 @@ Swagger 文件會完整詳細說明這些模型結構描述。
 | 屬性 | 類型 | 描述 |
 | --- | --- | --- |
 | **id** | 字串 | Blob 的專屬識別碼 |
-| **name** |String | Blob 的人類易記名稱 |
+| **name** |字串 | Blob 的人類易記名稱 |
 | **parentId** | 字串 | 與 Blob 相關聯的父實體 (空間、裝置或使用者) |
 | **type** | 字串 | Blob 的類型 - 不能使用 *type* 與 *typeId*  |
 | **typeId** | Integer | Blob 類型識別碼 - 不能使用 *type* 與 *typeId* |
 | **subtype** | 字串 | Blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
 | **subtypeId** | Integer | Blob 的子類型識別碼 - 不能使用 *subtype* 與 *subtypeId* |
-| **sharing** | String | 是否可以共用 blob - enum [`None`, `Tree`, `Global`] |
+| **sharing** | 字串 | 是否可以共用 blob - enum [`None`, `Tree`, `Global`] |
 | **description** | 字串 | 自訂的 Blob 描述 |
 | **contentInfos** | 陣列 | 指定非結構化的中繼資料資訊，包括版本 |
-| **fullName** | String | Blob 的完整名稱 |
+| **fullName** | 字串 | Blob 的完整名稱 |
 | **spacePaths** | 字串 | 空間路徑 |
 
 一律提供 Blob 中繼資料作為 **Content-Type** 為 `application/json` 的第一個區塊，或作為 `.json` 檔案。 檔案資料是在第二個區塊中提供的，可以是任何支援的 MIME 類型。
@@ -159,7 +159,7 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Value | 更換為 |
+| 值 | 更換為 |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | 多部分內容界限名稱 |
 
@@ -195,7 +195,7 @@ curl
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 
-| Value | 更換為 |
+| 值 | 更換為 |
 | --- | --- |
 | YOUR_TOKEN | 有效的 OAuth 2.0 權杖 |
 | YOUR_SPACE_ID | 要與 Blob 產生關聯的空間其識別碼 |

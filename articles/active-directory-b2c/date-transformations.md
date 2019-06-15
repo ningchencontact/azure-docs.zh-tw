@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: ad4c6c78556f98e2905b3583910e498055257c36
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511136"
 ---
 # <a name="date-claims-transformations"></a>日期宣告轉換
@@ -30,7 +30,7 @@ ms.locfileid: "66511136"
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | leftOperand | 字串 | 第一個宣告的類型，應該晚於第二個宣告。 |
-| inputClaim | rightOperand | string | 第二個宣告的類型，應該早於第一個宣告。 |
+| inputClaim | rightOperand | 字串 | 第二個宣告的類型，應該早於第一個宣告。 |
 | InputParameter | AssertIfEqualTo | boolean | 指定當左運算元等於右運算元時，是否應該傳遞這個判斷提示。 |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | 指定當右運算元遺失時，是否應該傳遞這個判斷提示。 |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | 指定若要將兩個日期時間視為相等，彼此之間所允許相隔的毫秒數 (例如，為了考慮時鐘誤差因素)。 |

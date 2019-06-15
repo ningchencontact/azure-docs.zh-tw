@@ -13,10 +13,10 @@ ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900508"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>要求遙測：Application Insights 資料模型
@@ -25,7 +25,7 @@ ms.locfileid: "60900508"
 
 要求遙測會使用自訂 `properties` 和 `measurements`支援標準的擴充性模型。
 
-## <a name="name"></a>名稱
+## <a name="name"></a>Name
 
 要求的名稱代表處理要求所採用的程式碼路徑。 較低的基數值可使群組要求更妥善。 針對 HTTP 要求，它代表 HTTP 方法和 URL 路徑範本，例如無實際 `id` 值的 `GET /values/{id}`。
 
@@ -45,7 +45,7 @@ Application Insights web SDK 會將要求名稱依「現狀」傳送 (考量字�
 
 最大長度：2048 個字元
 
-## <a name="source"></a>來源
+## <a name="source"></a>source
 
 要求的來源。 範例包括呼叫端的檢測金鑰或呼叫端的 IP 位址。 如需詳細資訊，請參閱[相互關聯](../../azure-monitor/app/correlation.md)頁面。
 

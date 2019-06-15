@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 15fa9095b8169dc1545c796421be91e89652e1c1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c87685673052d2cfbc961d3bb717c9cd274872af
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165867"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059234"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 
@@ -53,7 +53,7 @@ ms.locfileid: "66165867"
 
 * 設定 `DataReference` 物件，以指向位於資料存放區中或可在資料存放區中存取的資料。
 
-* 設定將作為您管線步驟執行位置的[計算目標](concept-azure-machine-learning-architecture.md#compute-target)。
+* 設定將作為您管線步驟執行位置的[計算目標](concept-azure-machine-learning-architecture.md#compute-targets)。
 
 ### <a name="set-up-a-datastore"></a>設定資料存放區
 資料存放區會儲存可供管線存取的資料。 每個工作區都有一個預設的資料存放區。 您可以註冊額外的資料存放區。 
@@ -296,7 +296,7 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 > [!IMPORTANT]
 > 若要防止檔案包含快照中，建立[.gitignore](https://git-scm.com/docs/gitignore)或`.amlignore`檔案的目錄中，並將檔案新增至它。 `.amlignore`檔案使用相同的語法，並做為模式[.gitignore](https://git-scm.com/docs/gitignore)檔案。 如果這兩個檔案存在，`.amlignore`檔有優先順序。
 >
-> 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshot)。
+> 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshots)。
 
 ```python
 # Submit the pipeline to be run

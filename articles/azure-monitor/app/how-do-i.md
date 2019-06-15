@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
 ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60902026"
 ---
 # <a name="how-do-i--in-application-insights"></a>我如何在 Application Insights 中...？
@@ -29,13 +29,13 @@ ms.locfileid: "60902026"
 
 ![](./media/how-do-i/030-server.png)
 
-您的 app 也可能會藉由傳回失敗碼顯示資源耗盡的徵兆。 針對 [失敗的要求] 設定警示。
+您的 app 也可能會藉由傳回失敗碼顯示資源耗盡的徵兆。 針對 [失敗的要求]  設定警示。
 
-如果您想要針對 [伺服器例外狀況] 設定警示，可能必須進行 [一些其他設定](../../azure-monitor/app/asp-net-exceptions.md) 才能看到資料。
+如果您想要針對 [伺服器例外狀況]  設定警示，可能必須進行 [一些其他設定](../../azure-monitor/app/asp-net-exceptions.md) 才能看到資料。
 
 ### <a name="email-on-exceptions"></a>傳送電子郵件的例外狀況
 1. [設定例外狀況監視](../../azure-monitor/app/asp-net-exceptions.md)
-2. [設定警示](../../azure-monitor/app/alerts.md) 
+2. [設定警示](../../azure-monitor/app/alerts.md)
 
 ### <a name="email-on-an-event-in-my-app"></a>我的 app 發生事件時寄送電子郵件
 我們假設您想要在特定事件發生時收到電子郵件。 Application Insights 並未直接提供此功能，但它可 [在計量超過某個閾值時傳送警示](../../azure-monitor/app/alerts.md)。

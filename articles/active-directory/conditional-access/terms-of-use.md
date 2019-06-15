@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1abae0a454e17e8f633f68bc5853bfb4a4b24d14
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 0534613a9df3177290e9b4b57e9830fe62f9741a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383183"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112122"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory 使用規定
 
@@ -119,19 +119,19 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
    | 範本 | 描述 |
    | --- | --- |
-   | **所有來賓的雲端應用程式存取權** | 系統將會針對所有來賓和所有雲端應用程式建立條件式存取原則。 此原則會影響 Azure 入口網站。 建立此原則之後，您可能需要登出然後再登入。 |
-   | **所有使用者的雲端應用程式存取權** | 系統將會針對所有使用者和所有雲端應用程式建立條件式存取原則。 此原則會影響 Azure 入口網站。 建立此原則之後，您必須登出然後再登入。 |
+   | **所有來賓的雲端應用程式存取權** | 條件式存取原則會建立所有來賓和所有雲端應用程式。 此原則會影響 Azure 入口網站。 建立此原則之後，您可能需要登出然後再登入。 |
+   | **所有使用者的雲端應用程式存取權** | 條件式存取原則會建立所有使用者和所有雲端應用程式。 此原則會影響 Azure 入口網站。 建立此原則之後，您必須登出然後再登入。 |
    | **自訂原則** | 選取使用者、 群組，以及使用此規定將會套用到的應用程式。 |
-   | **稍後建立條件式存取原則** | 此使用規定將會在建立條件式存取原則時在授與控制清單中出現。 |
+   | **稍後建立條件式存取原則** | 當建立條件式存取原則授與控制項清單就會出現此使用條款。 |
 
    >[!IMPORTANT]
-   >條件式存取原則控制項 (包括使用條款) 不支援服務帳戶的強制執行。 建議您排除條件式存取原則中的所有服務帳戶。
+   >條件式存取原則可控制 （包括使用條款） 不支援強制服務帳戶。 我們建議您排除條件式存取原則中的所有服務帳戶。
 
     自訂的條件式存取原則可讓細微使用條款，向特定的雲端應用程式或使用者群組。 如需詳細資訊，請參閱[快速入門：必須接受使用規定才可存取雲端應用程式](require-tou.md)。
 
 1. 按一下頁面底部的 [新增]  。
 
-   如果您已選取自訂的條件式存取範本，則會出現新的畫面以讓您建立自訂條件式存取原則。
+   如果您選取自訂的條件式存取範本，然後新畫面隨即出現，可讓您建立自訂的條件式存取原則。
 
    ![自訂原則](./media/terms-of-use/custom-policy.png)
 
@@ -307,7 +307,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 > [!IMPORTANT]
 > 如果情況如下，範圍中的使用者必須登出並登入，才能符合新的原則：
 >
-> - 對使用規定啟用條件式存取原則
+> - 已啟用條件式存取原則上的使用規定
 > - 或建立第二個使用條款
 
 ## <a name="b2b-guests-preview"></a>B2B 來賓 (預覽)
@@ -364,10 +364,10 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 答：登入體驗期間，會觸發使用規定。
 
 **问：哪些應用程式可以設為目標來使用規定？**<br />
-答：您可以使用新式驗證，在企業應用程式上建立條件式存取原則。 如需詳細資訊，請參閱[企業應用程式](./../manage-apps/view-applications-portal.md)。
+答：您可以建立條件式存取原則使用新式驗證的企業應用程式。 如需詳細資訊，請參閱[企業應用程式](./../manage-apps/view-applications-portal.md)。
 
 **问：可以指定的使用者或應用程式新增多個使用規定嗎？**<br />
-答：是。方法為建立多個條件式存取原則，並將那些群組或應用程式設為目標。 如果使用者落在範圍內的多個使用規定，它們會接受一個一次的使用規定。
+答：是，藉由建立這些群組或應用程式為目標的多個條件式存取原則。 如果使用者落在範圍內的多個使用規定，它們會接受一個一次的使用規定。
 
 **问：如果使用者拒絕使用規定，會發生什麼事？**<br />
 答：使用者會被封鎖而無法存取應用程式。 使用者必須再次登入並同意規定，才能取得存取權。
@@ -379,9 +379,9 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 答：如果您已設定這兩個 Azure AD 使用規定及[Intune 條款和條件](/intune/terms-and-conditions-create)，使用者必須接受兩者。 如需詳細資訊，請參閱[為您組織的部落格文章選擇正確的條款解決方案](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409) \(英文\)。
 
 **问：使用服務合約會使用哪些端點進行驗證？**<br />
-答：使用規定會利用下列端點進行驗證： https://tokenprovider.termsofuse.identitygovernance.azure.com和 https://account.activedirectory.windowsazure.com。 如果您的組織已註冊的允許清單的 Url，您必須新增這些端點，以您的允許清單，以及 Azure AD 端點的登入。
+答：使用規定會利用下列端點進行驗證： https://tokenprovider.termsofuse.identitygovernance.azure.com 和 https://account.activedirectory.windowsazure.com 。 如果您的組織已註冊的允許清單的 Url，您必須新增這些端點，以您的允許清單，以及 Azure AD 端點的登入。
 
 ## <a name="next-steps"></a>後續步驟
 
 - [快速入門：必須接受使用規定才可存取雲端應用程式](require-tou.md)
-- [Azure Active Directory 中條件式存取的最佳做法](best-practices.md)
+- [Azure Active Directory 中條件式存取的最佳作法](best-practices.md)

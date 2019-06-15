@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
 ms.openlocfilehash: 459de569916af14b0efea0ff08b92e5c93ed2369
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64718900"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>如何監視與 Ambari 和 Azure 監視器的記錄檔的叢集可用性
@@ -60,10 +60,10 @@ Ambari 提供許多預先定義的警示與可用性，包括：
 
 | 警示名稱                        | 描述                                                                                                                                                                           |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| DataNode 运行状况摘要           | 如果存在不正常的 DataNode，则会触发此服务级别的警报                                                                                                                |
-| NameNode 高可用性运行状况 | 如果主动 NameNode 或待机 NameNode 未运行，则会触发此服务级别的警报。                                                                              |
-| 可用 JournalNode 百分比    | 如果群集中已关闭的 JournalNode 数目大于配置的“严重”阈值，则会触发此警报。 此值聚合了 JournalNode 进程检查的结果。 |
-| 可用 DataNode 百分比       | 如果群集中已关闭的 DataNode 数目大于配置的“严重”阈值，则会触发此警报。 此值聚合了 DataNode 进程检查的结果。       |
+| DataNode 健全狀況摘要           | 服務層級會觸發此警示有狀況不良的 Datanode                                                                                                                |
+| NameNode 高可用性健全狀況 | 如果未執行的作用中的 NameNode 或待命 NameNode，就會觸發此服務層級警示。                                                                              |
+| 可用百分比 JournalNodes    | 如果數目減少 JournalNodes 叢集中大於設定的關鍵臨界值時，會觸發此警示。 它會彙總 JournalNode 程序檢查結果。 |
+| 可用百分比 Datanode       | 如果數目減少 Datanode 叢集中大於設定的關鍵臨界值時，會觸發此警示。 它會彙總 DataNode 程序檢查結果。       |
 
 Ambari 的完整清單，系統會通知該說明監視，您可以找到叢集的可用性[此處](https://docs.microsoft.com/azure/hdinsight/hdinsight-high-availability-linux#ambari-web-ui)，
 
@@ -168,7 +168,7 @@ Azure 監視器記錄可讓資料產生多個資源，例如 HDInsight 叢集，
 > [!NOTE]
 > 有數個警示可以觸發電子郵件/簡訊/推送/語音，例如 Azure 函式、 LogicApp、 Webhook、 ITSM 和自動化 Runbook 以外的其他動作。 [深入了解。](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#action-specific-information)
 
-這會開啟**電子郵件/簡訊/推送/語音**刀鋒視窗。 選擇**名稱**收件者，如**檢查****電子郵件**方塊，然後輸入您要傳送警示的電子郵件地址。 按一下  **確定**中**電子郵件/簡訊/推送/語音**刀鋒視窗中，然後在**新增動作群組**刀鋒視窗中，若要完成設定您的動作群組。
+這會開啟**電子郵件/簡訊/推送/語音**刀鋒視窗。 選擇**名稱**收件者，如**檢查** **電子郵件**方塊，然後輸入您要傳送警示的電子郵件地址。 按一下  **確定**中**電子郵件/簡訊/推送/語音**刀鋒視窗中，然後在**新增動作群組**刀鋒視窗中，若要完成設定您的動作群組。
 
 ![警示規則新增動作群組](media/hdinsight-cluster-availability/portal-add-action-group.png)
 

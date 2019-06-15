@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60998798"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Azure Logic Apps 的 B2B 錯誤與解決方案
@@ -64,7 +64,7 @@ ms.locfileid: "60998798"
 | 使用者動作 | 傳送給夥伴前，將 @base64ToBinary 新增至 AS2Message。 |
 |||
 
-例如︰
+例如:
 
 ```json
 "HTTP": {
@@ -84,7 +84,7 @@ ms.locfileid: "60998798"
 | 使用者動作 | 傳送給夥伴前將 @base64ToBinary 新增至 MDN。 | 
 |||
 
-例如︰
+例如:
 
 ```json
 "Response": {

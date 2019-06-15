@@ -16,10 +16,10 @@ ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
 ms.openlocfilehash: 88de601caf984d2511229cd68190554086c3da38
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779548"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
@@ -37,7 +37,7 @@ Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https:
 
 這項服務可於正式推出的 Azure 區域中使用。 並非所有的 API 版本都能在所有 Azure 區域使用。
 
-區域                                        | 可用性？                                 | 支援的版本
+Regions                                        | 可用性？                                 | 支援的版本
 -----------------------------------------------|-----------------------------------------------|-----------------
 [所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01
@@ -60,7 +60,7 @@ Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https:
 
 新增較新版本時，如果您的指令碼對於特定資料格式有相依性，則因為相容性而仍可存取較舊版本。
 
-如果未指定版本，则会返回错误并列出受支持的最新版本。
+指定任何版本時，會傳回錯誤的最新支援版本清單。
 
 > [!NOTE] 
 > 回應是 JSON 字串。 下列範例回應均列印清晰，很容易閱讀。
@@ -108,9 +108,9 @@ API | 預設資料格式 | 其他格式
 --------|---------------------|--------------
 /instance | json | 文字
 /scheduledevents | json | None
-/attested | JSON | None
+/attested | json | None
 
-若要存取非預設的回應格式，請指定要求的格式作為要求中的查詢字串參數。 例如：
+若要存取非預設的回應格式，請指定要求的格式作為要求中的查詢字串參數。 例如:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -140,7 +140,7 @@ HTTP 狀態碼 | 原因
 ### <a name="examples"></a>範例
 
 > [!NOTE]
-> 所有 API 回應都是 JSON 字串。 以下所有响应示例都以美观的形式输出以提高可读性。
+> 所有 API 回應都是 JSON 字串。 所有下列的範例回應會是列印，很方便閱讀。
 
 #### <a name="retrieving-network-information"></a>擷取網路資訊
 
@@ -260,7 +260,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 
 #### <a name="retrieving-metadata-in-windows-virtual-machine"></a>擷取 Windows 虛擬機器中的中繼資料
 
-**请求**
+**要求**
 
 可以透過 Powershell 公用程式 `curl` 在 Windows 中擷取執行個體中繼資料： 
 
@@ -340,11 +340,11 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 #### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>下列 Api 都是透過中繼資料端點：
 
-資料 | 說明 | 引進的版本
+資料 | 描述 | 引進的版本
 -----|-------------|-----------------------
 attested | 請參閱[證明資料](#attested-data) | 2018-10-01
 身分識別 | 適用於 Azure 資源的受控識別。 請參閱[取得存取權杖](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-執行個體 | 請參閱[執行個體 API](#instance-api) | 2017-04-02
+instance | 請參閱[執行個體 API](#instance-api) | 2017-04-02
 scheduledevents | 請參閱[排定的事件](scheduled-events.md) | 2017-08-01
 
 #### <a name="instance-api"></a>執行個體 API
@@ -353,9 +353,9 @@ scheduledevents | 請參閱[排定的事件](scheduled-events.md) | 2017-08-01
 > [!NOTE]
 > 中繼資料端點，透過下列類別是透過計算執行個體/存取
 
-資料 | 說明 | 引進的版本
+資料 | 描述 | 引進的版本
 -----|-------------|-----------------------
-azEnvironment | VM 运行时所在的 Azure 环境 | 2018-10-01
+azEnvironment | Azure VM 中的執行所在的環境 | 2018-10-01
 customData | 請參閱[自訂資料](#custom-data) | 2019-02-01
 location | VM 執行所在的 Azure 區域 | 2017-04-02
 name | VM 的名稱 | 2017-04-02
@@ -365,13 +365,13 @@ placementGroupId | 虛擬機器擴展集的[放置群組](../../virtual-machine-
 計劃 | [計劃](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)包含名稱、 產品和 「 發行者 」 的 vm，如果其 Azure Marketplace 映像 | 2018-04-02
 platformUpdateDomain |  VM 執行所在的[更新網域](manage-availability.md) | 2017-04-02
 platformFaultDomain | VM 執行所在的[容錯網域](manage-availability.md) | 2017-04-02
-提供者 | VM 的提供商 | 2018-10-01
-publicKeys | [公钥的集合](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey)，已分配给 VM 和路径 | 2018-04-02
+provider | VM 的提供者 | 2018-10-01
+publicKeys | [公開金鑰的集合](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey)指派給 VM 和路徑 | 2018-04-02
 publisher | VM 映像的發佈者 | 2017-04-02
 resourceGroupName | 虛擬機器的[資源群組](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
-SKU | VM 映像的特定 SKU | 2017-04-02
+sku | VM 映像的特定 SKU | 2017-04-02
 subscriptionId | 虛擬機器的 Azure 訂用帳戶 | 2017-08-01
-tags | 虛擬機器的[標籤](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
+标记 | 虛擬機器的[標籤](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
 version | VM 映像的版本 | 2017-04-02
 vmId | VM 的[唯一識別碼](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
 vmScaleSetName | 虛擬機器擴展集的[虛擬機器擴展集名稱](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
@@ -383,7 +383,7 @@ vmSize | [VM 大小](sizes.md) | 2017-04-02
 > [!NOTE]
 > 透過中繼資料端點，透過執行個體/網路/介面存取下列類別
 
-資料 | 說明 | 引進的版本
+資料 | 描述 | 引進的版本
 -----|-------------|-----------------------
 ipv4/privateIpAddress | VM 的本機 IPv4 位址 | 2017-04-02
 ipv4/publicIpAddress | VM 的公用 IPv4 位址 | 2017-04-02
@@ -487,7 +487,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
-**响应**
+**回應**
 
 ```text
 0
@@ -604,7 +604,7 @@ Verification successful
 }
 ```
 
-資料 | 說明
+資料 | 描述
 -----|------------
 nonce | 使用者隨要求提供的選擇性字串。 如果要求中未提供 nonce，則會傳回目前的 UTC 時間戳記
 計劃 | VM 在其 Azure Marketplace 映像中的[方案](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) \(英文\)，包含名稱、產品及發行者
@@ -619,7 +619,7 @@ vmId |  VM 的[唯一識別碼](https://azure.microsoft.com/blog/accessing-and-u
 > [!NOTE]
 > 公用雲端和主權雲端的憑證將會不同。
 
- 區域 | 憑證
+ Regions | 憑證
 ---------|-----------------
 [所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
@@ -742,7 +742,7 @@ Puppet | https://github.com/keirans/azuremetadata
 2. 為什麼我沒有收到我的 VM 計算資訊？
    * 目前執行個體中繼資料服務僅支援使用 Azure Resource Manager 建立的執行個體。 未來可能會新增雲端服務 VM 的支援。
 3. 我在一陣子之後回過頭來透過 Azure Resource Manager 建立我的虛擬機器。 為什麼我看不到計算中繼資料資訊？
-   * 对于 2016 年 9 月之后创建的所有 VM，请添加[标记](../../azure-resource-manager/resource-group-using-tags.md)以开始查看计算元数据。 針對較舊的 VM (在 2016 年 9 月之前建立)，對 VM 新增/移除擴充功能或資料磁碟，以重新整理中繼資料。
+   * 針對在 2016 年 9 月之後建立的 VM，新增[標記](../../azure-resource-manager/resource-group-using-tags.md)才會開始看到計算中繼資料。 針對較舊的 VM (在 2016 年 9 月之前建立)，對 VM 新增/移除擴充功能或資料磁碟，以重新整理中繼資料。
 4. 我看不到為新版本填入的所有資料
    * 針對在 2016 年 9 月之後建立的 VM，新增[標記](../../azure-resource-manager/resource-group-using-tags.md)才會開始看到計算中繼資料。 針對較舊的 VM (在 2016 年 9 月之前建立)，對 VM 新增/移除擴充功能或資料磁碟，以重新整理中繼資料。
 5. 我為何收到錯誤 `500 Internal Server Error`？

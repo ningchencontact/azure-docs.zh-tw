@@ -11,10 +11,10 @@ ms.date: 04/30/2019
 ms.author: kavithaj
 ms.reviewer: rortloff
 ms.openlocfilehash: 1d62bc5cb080f2167f13bd58e9a8a334b8ae5163
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146077"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>開始使用透明資料加密 (TDE)
@@ -26,7 +26,7 @@ ms.locfileid: "65146077"
 > 
 > 
 
-## <a name="required-permissions"></a>所需权限
+## <a name="required-permissions"></a>必要的權限
 您必須是系統管理員或 dbmanager 角色的成員，才能啟用透明資料加密 (TDE)。
 
 ## <a name="enabling-encryption"></a>啟用加密

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: c539460177a0a85938b886d161803e1fdf0e9e68
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64730189"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>建立 Apache Spark 機器學習服務管線
@@ -29,7 +29,7 @@ Transformer 或 Estimator 的每個無狀態執行個體皆有自己唯一的識
 
 ## <a name="pipeline-example"></a>管線範例
 
-為了示範機器學習服務管線的實際應用情況，此範例針對您的 HDInsight 叢集 (Azure 儲存體或 Data Lake Storage)，使用在預設儲存體中預先載入的 `HVAC.csv` 資料檔案範例。 若要檢視檔案的內容，請瀏覽至 `/HdiSamples/HdiSamples/SensorSampleData/hvac` 目錄。 `HVAC.csv` 包含一系列各種建築物中 HVAC (暖氣、通風和空調) 系統的目標和實際溫度。 目標是在資料上定型模型，並為指定的建築物產生預測溫度。
+為了示範機器學習服務管線的實際應用情況，此範例針對您的 HDInsight 叢集 (Azure 儲存體或 Data Lake Storage)，使用在預設儲存體中預先載入的 `HVAC.csv` 資料檔案範例。 若要檢視檔案的內容，請瀏覽至 `/HdiSamples/HdiSamples/SensorSampleData/hvac` 目錄。 `HVAC.csv` 包含一系列各種建築物中 HVAC (暖氣、通風和空調  ) 系統的目標和實際溫度。 目標是在資料上定型模型，並為指定的建築物產生預測溫度。
 
 下列程式碼：
 

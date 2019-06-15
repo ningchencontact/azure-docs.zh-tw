@@ -15,10 +15,10 @@ ms.topic: article
 ms.author: jowargo
 ms.date: 01/04/2019
 ms.openlocfilehash: 43a691ff9025cdb39786f965be6a2fca1b33bd3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61458375"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>如何透過 Python 使用通知中樞
@@ -98,7 +98,7 @@ class NotificationHub:
                 self.SasKeyValue = part[16:]
 ```
 
-### <a name="create-security-token"></a>创建安全令牌
+### <a name="create-security-token"></a>建立安全性權杖
 
 您可以在 [此處](https://msdn.microsoft.com/library/dn495627.aspx)找到建立安全性權杖的詳細資料。
 將下列方法新增至 `NotificationHub` 類別，以依據目前要求的 URI，以及從連接字串擷取的認證來建立權杖。
@@ -344,7 +344,7 @@ adm_payload = {
 hub.send_adm_notification(adm_payload)
 ```
 
-### <a name="baidu"></a>百度
+### <a name="baidu"></a>Baidu
 
 ```python
 baidu_payload = {

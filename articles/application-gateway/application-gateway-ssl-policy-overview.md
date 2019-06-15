@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure services
-origin.date: 08/03/2017
-ms.date: 02/26/2019
-ms.author: v-junlch
+ms.date: 08/03/2017
+ms.author: amsriva
 ms.openlocfilehash: 46a823e4e230656b53a93a97f195d0879fd08bf2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122229"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>應用程式閘道 SSL 原則概觀
@@ -34,27 +33,27 @@ SSL 原則包含 SSL 通訊協定版本和加密套件以及 SSL 交握期間使
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
-|屬性  |Value  |
+|屬性  |值  |
 |---|---|
-|名稱     | AppGwSslPolicy20150501        |
+|Name     | AppGwSslPolicy20150501        |
 |MinProtocolVersion     | TLSv1_0        |
 |預設值| True (如果未定義任何預先定義原則) |
 |CipherSuites     |TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_DHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_3DES_EDE_CBC_SHA<br>TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA |
   
 ### <a name="appgwsslpolicy20170401"></a>AppGwSslPolicy20170401
   
-|屬性  |Value  |
+|屬性  |值  |
 |   ---      |  ---       |
-|名稱     | AppGwSslPolicy20170401        |
+|Name     | AppGwSslPolicy20170401        |
 |MinProtocolVersion     | TLSv1_1        |
 |預設值| False |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA |
   
 ### <a name="appgwsslpolicy20170401s"></a>AppGwSslPolicy20170401S
 
-|屬性  |Value  |
+|屬性  |值  |
 |---|---|
-|名稱     | AppGwSslPolicy20170401S        |
+|Name     | AppGwSslPolicy20170401S        |
 |MinProtocolVersion     | TLSv1_2        |
 |預設值| False |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 <br>    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 <br>    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br> |
@@ -65,9 +64,9 @@ SSL 原則包含 SSL 通訊協定版本和加密套件以及 SSL 交握期間使
  
 ### <a name="ssl-protocol-versions"></a>SSL 通訊協定版本
 
-- 依預設，所有應用程式閘道都停用 SSL 2.0 和 3.0。 這些通訊協定版本無法設定。
-- 自定义 SSL 策略允许你选择以下三种协议之一作为网关的最低 SSL 协议版本：TLSv1_0、TLSv1_1 和 TLSv1_2。
-- 如果未定義任何 SSL 原則，則這三個通訊協定 (TLSv1_0、TLSv1_1 和 TLSv1_2) 皆會啟用。
+* 依預設，所有應用程式閘道都停用 SSL 2.0 和 3.0。 這些通訊協定版本無法設定。
+* 自訂 SSL 原則可讓您選取下列三種通訊協定的任何一個閘道的最小 SSL 通訊協定版本：TLSv1_0、 TLSv1_1 和 TLSv1_2。
+* 如果未定義任何 SSL 原則，則這三個通訊協定 (TLSv1_0、TLSv1_1 和 TLSv1_2) 皆會啟用。
 
 ### <a name="cipher-suites"></a>加密套件
 
@@ -106,5 +105,3 @@ SSL 原則包含 SSL 通訊協定版本和加密套件以及 SSL 交握期間使
 ## <a name="next-steps"></a>後續步驟
 
 如果您想要了解如何設定 SSL 原則，請參閱[在應用程式閘道上設定 SSL 原則](application-gateway-configure-ssl-policy-powershell.md)。
-
-<!-- Update_Description: wording update -->

@@ -14,10 +14,10 @@ ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
 ms.openlocfilehash: b1a3b04427839736359c88f8ad6a8db5eedf8488
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61294027"
 ---
 # <a name="smart-detection---performance-anomalies"></a>智慧型偵測 - 效能異常
@@ -58,11 +58,11 @@ Application Insights 偵測到您的應用程式以下列其中一種方式降�
 
 ## <a name="configure-email-notifications"></a>設定電子郵件通知
 
-依預設會啟用智慧型偵測通知，並將這些通知傳送給具有 [Application Insights 資源的擁有者、參與者和讀取者存取權](../../azure-monitor/app/resources-roles-access-control.md)的人員。 若要變更這種情況，請按一下電子郵件通知中的 [設定]，或開啟 Application Insights 中的 [智慧型偵測] 設定。 
+依預設會啟用智慧型偵測通知，並將這些通知傳送給具有 [Application Insights 資源的擁有者、參與者和讀取者存取權](../../azure-monitor/app/resources-roles-access-control.md)的人員。 若要變更這種情況，請按一下電子郵件通知中的 [設定]  ，或開啟 Application Insights 中的 [智慧型偵測] 設定。 
   
   ![智慧型偵測設定](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
-  * 您可以使用智慧型偵測電子郵件中的 [取消訂閱] 連結，停止接收電子郵件通知。
+  * 您可以使用智慧型偵測電子郵件中的 [取消訂閱]  連結，停止接收電子郵件通知。
 
 每個 Application Insights 資源每天僅限一個關於智慧型偵測效能異常的電子郵件。 只有在當天偵測到至少一個新的問題時，才會傳送電子郵件。 您不會重複收到任何訊息。 
 
@@ -76,7 +76,7 @@ Application Insights 偵測到您的應用程式以下列其中一種方式降�
 * 這適用於哪些類型的應用程式？
   * 會在產生適當遙測的任何應用程式中偵測到這些降低。 如果您在 Web 應用程式中安裝了 Application Insights，就會自動追蹤要求及相依性。 但在後端服務或其他應用程式中，如果您將呼叫插入 [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) 或 [TrackDependency](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)，則智慧型偵測會以相同的方式運作。
 
-* 我可以建立自己的異常偵測規則或自訂現有的規則嗎？
+* 我可以建立自己的異常偵測規則或自訂現有的規則嗎？ 
 
   * 還不行，但是您可以︰
     * [設定警示](../../azure-monitor/app/alerts.md)，使其在計量超出臨界值時通知您。
@@ -88,10 +88,10 @@ Application Insights 偵測到您的應用程式以下列其中一種方式降�
   * 沒有。  我們不保證能偵測到您可能認為異常的每項行為。
 
 
-* 如果我完全不回應通知，是否會收到提醒？
+* 如果我完全不回應通知，是否會收到提醒？ 
   * 不會，每個問題您只會收到一次訊息。 如果問題仍然存在，就會在 [智慧型偵測摘要] 刀鋒視窗中進行更新。
 * *我遺失了電子郵件。在入口網站中哪裡可以找到通知？*
-  * 在應用程式的 Application Insights 概觀中，按一下 [智慧型偵測] 磚。 您可以在這裡找到最多 90 天前的所有通知。
+  * 在應用程式的 Application Insights 概觀中，按一下 [智慧型偵測]  磚。 您可以在這裡找到最多 90 天前的所有通知。
 
 ## <a name="how-can-i-improve-performance"></a>如何改善效能？
 您可從自己的經驗得知，對網站使用者而言，回應緩慢和失敗是最大挫折之一。 因此，請務必解決問題。
@@ -169,7 +169,7 @@ Application Insights 會尋找可能只會影響某部分使用者，或只在�
 ![按一下電子郵件警示中的連結，可在 Azure 中開啟診斷報告](./media/proactive-performance-diagnostics/03.png)
 
 * **時間**顯示偵測到問題的時間。
-* [對象] 說明：
+* [對象]  說明：
 
   * 偵測到的問題；
   * 我們發現的事件集的特性顯示了問題行為。

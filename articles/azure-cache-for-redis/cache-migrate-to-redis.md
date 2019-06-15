@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: yegu
 ms.openlocfilehash: 116e54fd39af801cf8941a974da2b72c483097dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60830235"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>從受控快取服務移轉至 Azure Cache for Redis
@@ -62,7 +62,7 @@ Microsoft Azure Cache for Redis 可在以下層級使用：
 
 * **基本** - 單一節點。 多種大小，最高為 53 GB。
 * **標準** – 兩個節點 (主要/從屬)。 多種大小，最高為 53 GB。 99.9% SLA。
-* **進階** – 兩個節點的主要/從屬，最多具有 10 個分區。 提供多種大小，範圍從 6 GB 到 530 GB。 标准层的所有功能加上其他功能，包括支持 [Redis 群集](cache-how-to-premium-clustering.md)、[Redis 持久性](cache-how-to-premium-persistence.md)和 [Azure 虚拟网络](cache-how-to-premium-vnet.md)。 99.9% SLA。
+* **進階** – 兩個節點的主要/從屬，最多具有 10 個分區。 提供多種大小，範圍從 6 GB 到 530 GB。 所有「標準」層級的功能以及更多功能，可支援 [Redis 叢集](cache-how-to-premium-clustering.md)、[Redis 持續性](cache-how-to-premium-persistence.md)和 [Azure 虛擬網路](cache-how-to-premium-vnet.md)。 99.9% SLA。
 
 每一個階層都有不同的功能和價格。 本指南稍後將探討這些功能，如需定價的詳細資訊，請參閱 [快取定價詳細資料](https://azure.microsoft.com/pricing/details/cache/)。
 
@@ -80,7 +80,7 @@ Microsoft Azure Cache for Redis 可在以下層級使用：
 ### <a name="remove-the-managed-cache-service-configuration"></a>移除受控快取服務設定
 要將用戶端應用程式設定為使用 Azure Cache for Redis，必須先解除安裝受控快取服務 NuGet 套件，以移除現有受控快取服務組態和組件參考。
 
-若要解除安裝受控快取服務 NuGet 封裝，請在 [方案總管] 中的用戶端專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。 選取 [已安裝的封裝] 節點，然後在 [搜尋已安裝的封裝] 方塊中輸入 **WindowsAzure.Caching**。 選取 [Windows Azure 快取 (Windows Azure Cache)] \(或 [Windows Azure 快取 (Windows Azure Caching)]，視 NuGet 封裝的版本而定)，按一下 [解除安裝]，然後按一下 [關閉]。
+若要解除安裝受控快取服務 NuGet 封裝，請在 [方案總管]  中的用戶端專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]  。 選取 [已安裝的封裝]  節點，然後在 [搜尋已安裝的封裝] 方塊中輸入 **WindowsAzure.Caching**。 選取 [Windows Azure 快取 (Windows Azure Cache)]   \(或 [Windows Azure 快取 (Windows Azure Caching)]   ，視 NuGet 封裝的版本而定)，按一下 [解除安裝]  ，然後按一下 [關閉]  。
 
 ![解除安裝 Azure 受控快取服務 NuGet 套件](./media/cache-migrate-to-redis/IC757666.jpg)
 
@@ -154,7 +154,7 @@ public static ConnectionMultiplexer Connection
 }
 ```
 
-快取端點、金鑰和連接埠可從快取執行個體的 [Azure Cache for Redis] 刀鋒視窗中取得。 如需詳細資訊，請參閱 [Azure Cache for Redis 屬性](cache-configure.md#properties)。
+快取端點、金鑰和連接埠可從快取執行個體的 [Azure Cache for Redis]  刀鋒視窗中取得。 如需詳細資訊，請參閱 [Azure Cache for Redis 屬性](cache-configure.md#properties)。
 
 在連線建立後，請呼叫 `ConnectionMultiplexer.GetDatabase` 方法以傳回對 Azure Cache for Redis 資料庫的參考。 透過 `GetDatabase` 方法傳回的物件是輕量型傳遞物件，而且不需要儲存。
 

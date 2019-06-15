@@ -8,10 +8,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 09777a9980e4576a5d00123516e33696e845dcac
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65990230"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>一致性、可用性與效能權衡取捨 
@@ -55,7 +55,7 @@ Azure Cosmos DB 會針對資料一致性提供選項頻譜。 這個方法所包
 |1|單一或多重主機|任何一致性層級|< 240 分鐘|< 1 週|
 |> 1|單一主機|工作階段、開頭一致、最終|< 15 分鐘|< 15 分鐘|
 |> 1|單一主機|限定過期|*K* & *T*|< 15 分鐘|
-|> 1|單一主機|強|0|< 15 分鐘|
+|> 1|單一主機|強式|0|< 15 分鐘|
 |> 1|多重主機|工作階段、開頭一致、最終|< 15 分鐘|0|
 |> 1|多重主機|限定過期|*K* & *T*|0|
 

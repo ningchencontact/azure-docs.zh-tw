@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60864060"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>在 Azure 入口網站中為 Azure SQL Database 設定主動式異地複寫，並起始容錯移轉
@@ -47,14 +47,14 @@ ms.locfileid: "60864060"
 > 如果夥伴資料庫已經存在 (例如，因終止先前的「異地複寫」關聯性所導致)，命令將會失敗。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您想要為「異地複寫」設定的資料庫。
-2. 在 SQL Database 頁面上，選取 [異地複寫]，然後選取要建立次要資料庫的區域。 您可以選取裝載主要資料庫之區域以外的任何區域，但我們建議您選取[配對區域](../best-practices-availability-paired-regions.md)。
+2. 在 SQL Database 頁面上，選取 [異地複寫]  ，然後選取要建立次要資料庫的區域。 您可以選取裝載主要資料庫之區域以外的任何區域，但我們建議您選取[配對區域](../best-practices-availability-paired-regions.md)。
 
     ![配置异地复制](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
 3. 選取或設定伺服器及次要資料庫的定價層。
 
     ![設定次要資料庫](./media/sql-database-geo-replication-portal/create-secondary.png)
-4. (選擇性) 您可以將次要資料庫新增至彈性集區。 若要在集區中建立次要資料庫，請按一下 [彈性集區]，然後選取目標伺服器上的集區。 池必须已在目标服务器上存在。 此工作流程不會建立集區。
-5. 单击“创建”添加辅助数据库。
+4. (選擇性) 您可以將次要資料庫新增至彈性集區。 若要在集區中建立次要資料庫，請按一下 [彈性集區]  ，然後選取目標伺服器上的集區。 池必须已在目标服务器上存在。 此工作流程不會建立集區。
+5. 单击“创建”  添加辅助数据库。
 6. 將會建立次要資料庫並開始植入程序。
 
     ![設定次要資料庫](./media/sql-database-geo-replication-portal/seeding0.png)
@@ -67,8 +67,8 @@ ms.locfileid: "60864060"
 次要資料庫可被切換成為主要資料庫。  
 
 1. 在 [Azure 入口網站](https://portal.azure.com) 中，瀏覽至「異地複寫」合作關係中的主要資料庫。
-2. 在 [SQL Database] 刀鋒視窗上，選取 [所有設定] > [異地複寫]。
-3. 在 [次要] 清單中，選取要做為新主要資料庫的資料庫，然後按一下 [容錯移轉]。
+2. 在 [SQL Database] 刀鋒視窗上，選取 [所有設定]   > [異地複寫]  。
+3. 在 [次要]  清單中，選取要做為新主要資料庫的資料庫，然後按一下 [容錯移轉]  。
 
     ![容錯移轉](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. 按一下 [是]  即可開始容錯移轉。
@@ -85,12 +85,12 @@ ms.locfileid: "60864060"
 此作業會永久終止對次要資料庫的複寫，並將次要資料庫的角色變更為一般讀寫資料庫。 如果與次要資料庫的連線中斷，命令將會成功，但次要資料庫必須等到連線恢復後才會變成讀寫資料庫。  
 
 1. 在 [Azure 入口網站](https://portal.azure.com) 中，瀏覽至「異地複寫」合作關係中的主要資料庫。
-2. 在 SQL Database 頁面上，選取 [異地複寫]。
-3. 在 [次要] 清單中，選取您想要從「異地複寫」合作關係中移除的資料庫。
+2. 在 SQL Database 頁面上，選取 [異地複寫]  。
+3. 在 [次要]  清單中，選取您想要從「異地複寫」合作關係中移除的資料庫。
 4. 按一下 [ **停止複寫**]。
 
     ![移除次要](./media/sql-database-geo-replication-portal/remove-secondary.png)
-5. 隨即開啟確認視窗。 按一下 [是] 以從異地複寫合作關係中移除資料庫。 (將它設定為讀寫資料庫不屬於任何複寫的一部分。)
+5. 隨即開啟確認視窗。 按一下 [是]  以從異地複寫合作關係中移除資料庫。 (將它設定為讀寫資料庫不屬於任何複寫的一部分。)
 
 ## <a name="next-steps"></a>後續步驟
 

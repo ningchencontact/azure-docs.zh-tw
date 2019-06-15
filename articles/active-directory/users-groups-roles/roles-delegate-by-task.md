@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3f21f552add551ac2434618b184eb18c53ad5be
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 21136046bad8cb58432de367f0de06d1d0457eec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752228"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083792"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>在 Azure Active Directory 中依管理工作區分的系統管理員角色
 
@@ -270,7 +270,7 @@ Task | 最低特殊權限角色 | 其他角色
 設定驗證方法 | 全域管理員 | 
 讀取所有設定 | 全域管理員 | 
 
-## <a name="security---conditional-access"></a>安全性 - 條件式存取
+## <a name="security---conditional-access"></a>安全性-條件式存取
 
 Task | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
@@ -288,7 +288,7 @@ Task | 最低特殊權限角色 | 其他角色
 管理具名位置 | 條件式存取系統管理員 | 安全性系統管理員
 管理使用規定 | 條件式存取系統管理員 | 安全性系統管理員
 讀取所有設定 | 安全性讀取者 | 安全性系統管理員
-讀取具名位置 | 安全性讀取者 | 條件式存取管理員、安全性系統管理員
+讀取具名位置 | 安全性讀取者 | 條件式存取系統管理員、 安全性系統管理員
 
 ## <a name="security---identity-security-score"></a>安全性 - 身分識別安全性分數
 

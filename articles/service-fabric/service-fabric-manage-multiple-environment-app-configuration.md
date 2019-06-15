@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: dac96ef6fce38a0557444e181fa6eccb649cfb9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60719221"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>管理多個環境的應用程式
@@ -42,7 +42,7 @@ Azure Service Fabric 叢集可讓您使用任意數量的機器 (從一部至數
 
 > [!NOTE]
 > 並非應用程式及服務資訊清單檔中的所有屬性皆支援參數。
-> 在這些案例中，您必須依賴將字串取代為部署工作流程的一部分。 在 Azure DevOps 中，您可以使用「取代權杖」之類的擴充功能： https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens，或可在 Jenkins 中執行指令碼工作來取代該值。
+> 在這些案例中，您必須依賴將字串取代為部署工作流程的一部分。 在 Azure DevOps 中，您可以使用「取代權杖」之類的擴充功能： https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens ，或可在 Jenkins 中執行指令碼工作來取代該值。
 >
 
 ## <a name="specifying-parameters-during-application-creation"></a>在應用程式建立期間指定參數

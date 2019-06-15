@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: v-adgera
-ms.openlocfilehash: 31944c08bad503c20832ea7e4e682c0063ab0f9f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: cd67f1065f47b758f2a7e0e5be3c60169c30273e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735040"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116575"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>如何針對 Azure Digital Twins 設定 Postman
 
@@ -41,7 +41,7 @@ ms.locfileid: "66735040"
 
     [![Azure Active Directory 應用程式註冊中新增 api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
-1. 按一下 [資訊清單]  ，以開啟應用程式的應用程式資訊清單。 將 *oauth2AllowImplicitFlow* 設定為 `true`。
+1. 選取 **資訊清單**開啟您的應用程式的應用程式資訊清單。 將 *oauth2AllowImplicitFlow* 設定為 `true`。
 
     [![Azure Active Directory 隱含流程](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
 
@@ -68,7 +68,7 @@ ms.locfileid: "66735040"
 
 1. 選取 [授權]  索引標籤、選取 [OAuth 2.0]  ，然後選取 [取得新的存取權杖]  。
 
-    | 欄位  | Value |
+    | 欄位  | 值 |
     |---------|---------|
     | 授與類型 | `Implicit` |
     | 回呼 URL | `https://www.getpostman.com/oauth2/callback` |
@@ -111,7 +111,7 @@ ms.locfileid: "66735040"
    > * 您不需要為每個部分指定這些標頭。
    > * 您必須針對整個要求選取 `multipart/mixed` 或其他適當的 **Content-type**。
 
-1. 最後，按一下 [傳送]  提交多部分的 HTTP POST 要求。
+1. 最後，選取**傳送**提交多部分 HTTP POST 要求。
 
 ## <a name="next-steps"></a>後續步驟
 

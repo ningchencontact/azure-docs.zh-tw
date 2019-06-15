@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: d0960c749d74903acc778c0f21d5c49f380195ae
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: c8199c960229f9cc53cf57f9da3e1f17ebd9f5c7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734188"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074168"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>狀態監視器 v2:詳細指示
 
@@ -128,7 +128,7 @@ SerializationVersion           1.1.0.1
     您可以確認這項變更，並藉由執行稽核所有 PSRepositories`Get-PSRepository`命令。
 
 4. 安裝最新版的 PowerShellGet。
-    - Description:此模組包含用來取得其他模組，從 PowerShell 資源庫的工具。 版本為 1.0.0.1，隨附於 Windows 10 和 Windows Server。 1.6.0 版或更高的需要。 若要判斷所安裝的版本，請執行`Get-Command -Module PowerShellGet`命令。
+    - Description:此模組包含用來取得其他模組，從 PowerShell 資源庫的工具。 版本為 1.0.0.1，隨附於 Windows 10 和 Windows Server。 1\.6.0 版或更高的需要。 若要判斷所安裝的版本，請執行`Get-Command -Module PowerShellGet`命令。
     - 參考：[安裝 PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget)。
     - 命令： `Install-Module -Name PowerShellGet`。
     - 選擇性參數：
@@ -167,7 +167,7 @@ SerializationVersion           1.1.0.1
 
 ### <a name="manually-download-the-latest-nupkg-file"></a>手動下載最新的 nupkg 檔案
 
-1. 移至 https://www.powershellgallery.com/packages/Az.ApplicationMonitor。
+1. 移至 https://www.powershellgallery.com/packages/Az.ApplicationMonitor 。
 2. 選取的檔案中的最新版本**版本歷程記錄**資料表。
 3. 底下**安裝選項**，選取**手動下載**。
 
@@ -204,7 +204,7 @@ SerializationVersion           1.1.0.1
 
 ### <a name="option-2-unzip-and-import-nupkg-manually"></a>選項 2：解壓縮，並手動匯入 nupkg
 如此便能找到的 PowerShell 工作階段，請將手動下載的 PowerShell 模組安裝到 PowerShell 目錄中。
-如需詳細資訊，請參閱 <<c0> [ 安裝 PowerShell 模組](https://docs.mircrosoft.com/powershell/developer/module/installing-a-powershell-module)。
+如需詳細資訊，請參閱 <<c0> [ 安裝 PowerShell 模組](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module)。
 
 如果您要安裝的模組到任何其他目錄，以手動方式使用匯入模組[Import-module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6)。
 

@@ -11,17 +11,17 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.openlocfilehash: 87379631cc7f7b9e31def157ba38336e41b693d8
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873821"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL 資料倉儲商業智慧合作夥伴
 若要建立端對端資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。  這篇文章特別介紹 Microsoft 夥伴公司官方的商務智慧 (BI) 解決方案支援 Azure SQL 資料倉儲。
 
 ## <a name="our-business-intelligence-partners"></a>我們的商業智慧合作夥伴
-| 合作夥伴 | 說明 | 網站/產品連結 |
+| 合作夥伴 | 描述 | 網站/產品連結 |
 | ------- | ----------- | -------------------- |
 | ![Birst][1] |**Birst**<br>Birst 透過交互編排虛擬化 BI 執行個體上機上的共用的共用分析網狀架構的網路連接在整個組織|[產品頁面][birst_website]<br>[Azure Marketplace][birst_marketplace]<br> |
 | ![ClearStory Data][2] |**ClearStory Data （連續的商務深入解析）**<br>ClearStory Data 能夠快速分析 SQL 資料倉儲中儲存的不同資料。 ClearStory 的整合式 Spark 架構平台和分析應用程式可加速度資料存取並調和不同的資料集。 他們可讓商務使用者一起合作來快速探索，獨立地取得見解。 |[產品頁面][clearstory_website]<br> |

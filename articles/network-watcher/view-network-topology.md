@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
 ms.openlocfilehash: a67f1cca54c89ead9ae7fc46ef0c9fc8c5217c74
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64682044"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>檢視 Azure 虛擬網路的拓撲
@@ -32,9 +32,9 @@ ms.locfileid: "64682044"
 ## <a name = "azure-portal"></a>檢視拓撲 - Azure 入口網站
 
 1. 使用具有必要[權限](required-rbac-permissions.md)的帳戶登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在入口網站的左上角，選取 [所有服務]。
-3. 在 [所有服務] 篩選方塊中，輸入 [網路監看員]。 當結果中出現**網路監看員**時，請加以選取。
-4. 選取 [拓撲]。 若要產生拓撲，在您要產生拓撲的虛擬網路所在的相同區域中必須要有網路監看員。 如果您未在要產生拓撲的虛擬網路所在的相同區域中啟用網路監看員，系統將在所有區域中自動為您建立網路監看員。 網路監看員會建立在名為 NetworkWatcherRG 的資源群組中。
+2. 在入口網站的左上角，選取 [所有服務]  。
+3. 在 [所有服務]  篩選方塊中，輸入 [網路監看員]  。 當結果中出現**網路監看員**時，請加以選取。
+4. 選取 [拓撲]  。 若要產生拓撲，在您要產生拓撲的虛擬網路所在的相同區域中必須要有網路監看員。 如果您未在要產生拓撲的虛擬網路所在的相同區域中啟用網路監看員，系統將在所有區域中自動為您建立網路監看員。 網路監看員會建立在名為 NetworkWatcherRG  的資源群組中。
 5. 依序選取訂用帳戶、您想要檢視拓撲之虛擬網路的資源群組，以及虛擬網路。 下圖會在名為 *MyResourceGroup* 的資源群組中，針對名為 *MyVnet* 的虛擬網路顯示一個拓撲：
 
     ![檢視拓撲](./media/view-network-topology/view-topology.png)
@@ -46,7 +46,7 @@ ms.locfileid: "64682044"
 
    圖中顯示的拓撲屬於部署**透過網路虛擬設備路由流量的指令碼範例**後所建立的虛擬網路；您可以使用 [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 或 [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 部署該指令碼範例。
 
-6. 選取 [下載拓撲]，以下載 svg 格式的影像作為可編輯的檔案。
+6. 選取 [下載拓撲]  ，以下載 svg 格式的影像作為可編輯的檔案。
 
 途中顯示的資源是虛擬網路中的網路元件子集。 例如，當網路安全性群組顯示時，其中的安全性規則並不會顯示於圖表中。 雖然在此圖中並未區分，但直線代表兩個關聯性的其中之一：*內含項目*或*相關聯*。 若要查看虛擬網路中的完整資源清單以及資源之間的關聯性類型，請使用 [PowerShell](#powershell) 或 [Azure CLI](#azure-cli) 產生拓撲。
 
@@ -144,7 +144,7 @@ ms.locfileid: "64682044"
 - **Id**：資源的 URI。
 - **位置**：資源所在的 Azure 區域。
 - **關聯性**：與所參考物件之關聯性的清單。 每個關聯性都具有下列屬性：
-    - **AssociationType**：參考子物件與父系之間的關聯性。 有效值為 [包含] 或 [相關聯]。
+    - **AssociationType**：參考子物件與父系之間的關聯性。 有效值為 [包含]  或 [相關聯]  。
     - **名稱**：所參考資源的名稱。
     - **ResourceId**：關聯性中參考之資源的 URI。
 

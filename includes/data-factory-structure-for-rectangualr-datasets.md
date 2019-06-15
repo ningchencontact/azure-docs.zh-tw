@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122531"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>指定矩形資料集的結構定義
@@ -19,9 +19,9 @@ ms.locfileid: "66122531"
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | name |資料行的名稱。 |是 |
-| type |資料行的資料類型。 有關何時應指定類型資訊的詳細資訊，請參閱下文類型轉換的部份 |無 |
-| culture |當有指定 type (類型) 時要使用的 .NET 型文化特性，且是 .NET 類型的 Datetime 或 Datetimeoffset。 預設值為 “en-us”。 |無 |
-| format |當有指定 type (類型) 時要使用的格式字串，且是 .NET 類型的 Datetime 或 Datetimeoffset。 |無 |
+| type |資料行的資料類型。 有關何時應指定類型資訊的詳細資訊，請參閱下文類型轉換的部份 |否 |
+| culture |當有指定 type (類型) 時要使用的 .NET 型文化特性，且是 .NET 類型的 Datetime 或 Datetimeoffset。 預設值為 “en-us”。 |否 |
+| format |當有指定 type (類型) 時要使用的格式字串，且是 .NET 類型的 Datetime 或 Datetimeoffset。 |否 |
 
 下列範例顯示具有 userid、name、lastlogindate 三個資料行的資料表的結構區段 JSON。
 
@@ -54,7 +54,7 @@ ms.locfileid: "66122531"
 * Decimal
 * Byte[]
 * Bool
-* String 
+* 字串 
 * Guid
 * Datetime
 * Datetimeoffset

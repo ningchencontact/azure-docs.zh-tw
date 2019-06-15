@@ -9,17 +9,17 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: d9825ea41937dc9436fe8b465b48b378e13407c1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150276"
 ---
-1. 在入口網站中，從 [所有資源]，按一下 [+新增]。
-2. 在 [一切] 頁面搜尋方塊中，輸入**區域網路閘道**，然後按一下以傳回資源清單。 按一下 [區域網路閘道] 以開啟頁面，然後按一下 [建立] 開啟 [建立區域網路閘道] 頁面。
+1. 在入口網站中，從 [所有資源]  ，按一下 [+新增]  。
+2. 在 [一切]  頁面搜尋方塊中，輸入**區域網路閘道**，然後按一下以傳回資源清單。 按一下 [區域網路閘道]  以開啟頁面，然後按一下 [建立]  開啟 [建立區域網路閘道]  頁面。
 
    ![建立區域網路閘道](./media/vpn-gateway-add-lng-rm-portal-include/lng.png)
-3. 在 [建立區域網路閘道] 頁面中，指定區域網路閘道的值。
+3. 在 [建立區域網路閘道]  頁面中，指定區域網路閘道的值。
 
    - **名稱：** 指定區域網路閘道物件的名稱。 可能的話，請使用直覺式名稱，例如 **ClassicVNetLocal** 或 **TestVNet1Local**。 這可讓您更輕鬆地識別入口網站中的區域網路閘道。
    - **IP 位址：** 為您要連線的 VPN 裝置或虛擬網路閘道指定有效的公用 **IP 位址**。

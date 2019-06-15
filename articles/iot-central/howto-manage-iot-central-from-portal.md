@@ -9,10 +9,10 @@ ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: c72de0ef874659a5d7840689e38bd7857c25b840
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65464166"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>從 Azure 入口網站管理 IoT Central
@@ -35,7 +35,7 @@ ms.locfileid: "65464166"
 
 ![管理入口網站：搜尋結果](media/howto-manage-iot-central-from-portal/image0b1.png)
 
-現在，選取 [建立]。
+現在，選取 [建立]  。
 
 ![管理入口網站：IoT 中心資源](media/howto-manage-iot-central-from-portal/image0c1.png)
 
@@ -60,7 +60,7 @@ ms.locfileid: "65464166"
 
 ![管理入口網站：資源管理](media/howto-manage-iot-central-from-portal/image3.png)
 
-若要移動到不同的資源群組的應用程式，請選取**變更**旁邊的資源群組。 在 [移動資源] 頁面上，挑選要將此應用程式遷移至的資源群組。
+若要移動到不同的資源群組的應用程式，請選取**變更**旁邊的資源群組。 在 [移動資源]  頁面上，挑選要將此應用程式遷移至的資源群組。
 
 ![管理入口網站：資源管理](media/howto-manage-iot-central-from-portal/image4a.png)
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b29dec76fb6b1f9883c5c594d4719c9f3032089e
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 3f80f3c6be747cf84aa9d8b2c386c0568a7511ad
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514630"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069387"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment 的網路考量 #
 
@@ -58,24 +58,32 @@ ASE 部署之後，就無法變更用來裝載 ASE 的子網路大小。  每個
 
 ### <a name="ase-inbound-dependencies"></a>ASE 連入相依性 ###
 
-ASE 連入存取相依性如下：
+為了讓 ASE 能夠運作，ASE 需要開啟下列連接埠：
 
 | 使用 | 從 | 至 |
 |-----|------|----|
 | 管理性 | App Service 管理位址 | ASE 子網路：454、455 |
 |  ASE 內部通訊 | ASE 子網路：所有連接埠 | ASE 子網路：所有連接埠
-|  允許 Azure Load Balancer 輸入 | Azure Load Balancer | ASE 子網路：所有連接埠
-|  應用程式指派的 IP 位址 | 應用程式指派的位址 | ASE 子網路：所有連接埠
+|  允許 Azure Load Balancer 輸入 | Azure Load Balancer | ASE 子網路：16001
 
-除了系統監視之外，連入管理流量也提供 ASE 的命令與控制。 此流量的來源位址列於 [ASE 管理位址][ASEManagement]文件中。 網路安全性設定需在連接埠 454 和 455 上允許來自所有 IP 的存取。 如果您封鎖來自那些位址的存取，則您的 ASE 將變成狀況不良，接著會變成暫時停權。
+有 2 個其他可以顯示在掃描通訊埠，7654 及 1221年開放的連接埠。 它們的 IP 位址而不需要其他回覆。 如有需要，可能會封鎖它們。 
+
+除了系統監視之外，連入管理流量也提供 ASE 的命令與控制。 此流量的來源位址列於 [ASE 管理位址][ASEManagement]文件中。 網路安全性組態必須允許存取連接埠 454 和 455 上的 ASE 管理位址。 如果您封鎖來自那些位址的存取，則您的 ASE 將變成狀況不良，接著會變成暫時停權。 在連接埠 454 與 455 傳入的 TCP 流量必須回到相同的 VIP，否則您將會有非對稱式路由問題。 
 
 ASE 子網路內有許多用於內部元件通訊的連接埠，以及他們可以變更。 ASE 子網路的所有連接埠都必須能夠從 ASE 子網路存取。 
 
-您必須開啟最小連接埠 454、455 和 16001，才能在 Azure Load Balancer 與 ASE 子網路之間進行通訊。 16001 連接埠可用來保持負載平衡器與 ASE 之間的流量運作。 如果您使用 ILB ASE 中，則您可以鎖定於 454、 455、 16001 流量的連接埠。  如果您使用外部 ASE，您需要考慮一般應用程式存取連接埠。  如果您使用應用程式指派的位址，您需要開啟所有連接埠。  將位址指派給特定應用程式時，負載平衡器會使用事先不知道的連接埠將 HTTP 和 HTTPS 流量傳送至 ASE。
+您必須開啟最小連接埠 454、455 和 16001，才能在 Azure Load Balancer 與 ASE 子網路之間進行通訊。 16001 連接埠可用來保持負載平衡器與 ASE 之間的流量運作。 如果您使用 ILB ASE 中，則您可以鎖定於 454、 455、 16001 流量的連接埠。  如果您使用外部 ASE，您需要考慮一般應用程式存取連接埠。  
 
-如果您使用應用程式指派的 IP 位址，您需要允許從 ASE 子網路的應用程式指派的 Ip 的流量。
+您需要擔心的其他連接埠是應用程式連接埠：
 
-在連接埠 454 與 455 傳入的 TCP 流量必須回到相同的 VIP，否則您將會有非對稱式路由問題。 
+| 使用 | 連接埠 |
+|----------|-------------|
+|  HTTP/HTTPS  | 80、443 |
+|  FTP/FTPS    | 21、990、10001-10020 |
+|  Visual Studio 遠端偵錯  |  4020、4022、4024 |
+|  Web 部署服務 | 8172 |
+
+如果您封鎖應用程式連接埠，您的 ASE 仍可運作，但您的應用程式可能不會。  如果您使用外部 ASE 中應用程式指派的 IP 位址，您必須允許來自 ASE 子網路，ASE 入口網站中顯示的連接埠上的應用程式指派的 Ip 流量 > IP 位址 頁面。
 
 ### <a name="ase-outbound-dependencies"></a>ASE 連出相依性 ###
 
@@ -83,15 +91,15 @@ ASE 子網路內有許多用於內部元件通訊的連接埠，以及他們可�
 
 ASE 會出與以下連接埠的網際網路可存取位址：
 
-| Port | 使用 |
+| 使用 | 連接埠 |
 |-----|------|
-| 53 | DNS |
-| 123 | NTP |
-| 80/443 | Windows 更新、 Linux 相依性、 Azure 服務的 CRL |
-| 1433 | Azure SQL | 
-| 12000 | 監視 |
+| DNS | 53 |
+| NTP | 123 |
+| 8CRL、 Windows 更新、 Linux 相依性、 Azure 服務 | 80/443 |
+| Azure SQL | 1433 | 
+| 監視 | 12000 |
 
-連出相依性的完整清單列於說明[鎖定 App Service Environment 連出流量](./firewall-integration.md)的文件中。 如果 ASE 失去對其相依性的存取，就會停止運作。 當停止運作時間達到一定的長度之後，ASE 就會暫停。 
+描述的文件中所列的輸出相依性[鎖定 App Service Environment 的輸出流量](./firewall-integration.md)。 如果 ASE 失去對其相依性的存取，就會停止運作。 當停止運作時間達到一定的長度之後，ASE 就會暫停。 
 
 ### <a name="customer-dns"></a>客戶 DNS ###
 
@@ -165,12 +173,12 @@ NSG 可以透過 Azure 入口網站或 PowerShell 來設定。 這裡的資訊�
 
 DNS 連接埠不需要新增 NSG 規則不會影響到 DNS 的流量。 這些連接埠不會包含您的應用程式需要成功使用連接埠。 一般的應用程式存取連接埠為：
 
-| 使用 | 從 | 至 |
-|----------|---------|-------------|
-|  HTTP/HTTPS  | 可由使用者設定 |  80、443 |
-|  FTP/FTPS    | 可由使用者設定 |  21、990、10001-10020 |
-|  Visual Studio 遠端偵錯  |  可由使用者設定 |  4020、4022、4024 |
-|  Web 部署服務 | 可由使用者設定 | 8172 |
+| 使用 | 連接埠 |
+|----------|-------------|
+|  HTTP/HTTPS  | 80、443 |
+|  FTP/FTPS    | 21、990、10001-10020 |
+|  Visual Studio 遠端偵錯  |  4020、4022、4024 |
+|  Web 部署服務 | 8172 |
 
 將輸入和輸出需求納入考量時，NSG 看起來應類似此範例中顯示的 NSG。 
 

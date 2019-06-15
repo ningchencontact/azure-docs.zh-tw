@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e4a9931fa6e2edf8989036eb8dbfbef3638cbbe0
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 9ae2894f9f442bca1e6029b7e7d8e07824abf7fb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507531"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051737"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>可以在 Active Directory B2C 中使用的應用程式類型
 
@@ -98,7 +98,7 @@ Web API 接收的權杖可以來自許多類型的用戶端，包括 Web 應用�
 6. 系統會將 `access_token` 和 `refresh_token` 傳回給 Web 伺服器。
 7. 使用授權標頭中的 `access_token` 可呼叫 Web API。
 8. Web API 會驗證此權杖。
-9. 系統會將安全的資料傳回給 Web 伺服器。
+9. 安全的資料會傳回至 web 應用程式。
 
 若要深入了解授權碼、重新整理權杖和取得權杖的步驟，請參閱 [OAuth 2.0 通訊協定](active-directory-b2c-reference-oauth-code.md)。
 

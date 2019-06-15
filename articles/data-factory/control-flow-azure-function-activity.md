@@ -12,10 +12,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64727049"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Azure 函式活動
@@ -28,13 +28,13 @@ Azure 函式活動可讓您在 Data Factory 管線中執行 [Azure 函式](../az
 
 ## <a name="azure-function-linked-service"></a>Azure 函式連結服務
 
-Azure 函式的傳回型別必須是有效的 `JObject`。 (請記住，[JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm)「不是」一個`JObject`)。任何傳回型別以外`JObject`失敗，並引發使用者錯誤*回應內容不是有效的 JObject*。
+Azure 函式的傳回型別必須是有效的 `JObject`。 (請記住，[JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm)「不是」  一個`JObject`)。任何傳回型別以外`JObject`失敗，並引發使用者錯誤*回應內容不是有效的 JObject*。
 
 | **屬性** | **說明** | **必要** |
 | --- | --- | --- |
 | type   | 類型屬性必須設定為：**AzureFunction** | 是 |
-| 函式應用程式 URL | Azure 函式應用程式的 URL。 格式為 `https://<accountname>.azurewebsites.net`。 此 URL 是您在 Azure 入口網站中檢視函式應用程式時位於 [URL] 區段底下的值  | 是 |
-| 函式金鑰 | Azure 函式的存取金鑰。 按一下個別函式的 [管理] 區段，然後複製 [函式金鑰] 或 [主機金鑰]。 前往此處深入了解：[Azure Functions HTTP 觸發程序和繫結](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | 是 |
+| 函式應用程式 URL | Azure 函式應用程式的 URL。 格式為 `https://<accountname>.azurewebsites.net`。 此 URL 是您在 Azure 入口網站中檢視函式應用程式時位於 [URL]  區段底下的值  | 是 |
+| 函式金鑰 | Azure 函式的存取金鑰。 按一下個別函式的 [管理]  區段，然後複製 [函式金鑰]  或 [主機金鑰]  。 前往此處深入了解：[Azure Functions HTTP 觸發程序和繫結](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | 是 |
 |   |   |   |
 
 ## <a name="azure-function-activity"></a>Azure 函式活動

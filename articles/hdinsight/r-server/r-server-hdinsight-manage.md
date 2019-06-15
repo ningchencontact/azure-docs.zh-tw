@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: 607f85c10183366e88d597d84090f49fc30aff48
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687973"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>在 HDInsight 上管理 ML 服務叢集
@@ -79,7 +79,7 @@ HDInsight 上 ML 服務叢集中所使用的 R Studio Server 社群版本，只�
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>遠端連線到 Microsoft ML 服務
 
-您可以設定從桌上型電腦上執行的 ML 用戶端遠端執行個體，來存取 HDInsight Spark 計算內容。 若要這樣做，在桌上型電腦上定義 RxSpark 計算內容時，您必須指定選項 (hdfsShareDir、shareDir、sshUsername、sshHostname、sshSwitches 和 sshProfileScript)：例如︰
+您可以設定從桌上型電腦上執行的 ML 用戶端遠端執行個體，來存取 HDInsight Spark 計算內容。 若要這樣做，在桌上型電腦上定義 RxSpark 計算內容時，您必須指定選項 (hdfsShareDir、shareDir、sshUsername、sshHostname、sshSwitches 和 sshProfileScript)：例如:
 
     myNameNode <- "default"
     myPort <- 0
@@ -305,7 +305,7 @@ HDInsight ML 服務可讓您在 Hive 和 Parquet 中直接存取資料，以供 
 
 3. 針對**提交指令碼動作**，提供下列資訊：
 
-   * 針對**指令碼類型**，選取 [自訂]。
+   * 針對**指令碼類型**，選取 [自訂]  。
 
    * 針對**名稱**，提供指令碼動作的名稱。
 
@@ -313,7 +313,7 @@ HDInsight ML 服務可讓您在 Hive 和 Parquet 中直接存取資料，以供 
 
    * 只選取**背景工作**的核取方塊。
 
-   * **參數**：要安裝的 R 套件。 例如， `bitops stringr arules`
+   * **參數**：要安裝的 R 套件。 例如： `bitops stringr arules`
 
    * 選取此核取方塊以**持續此指令碼動作**。  
 
@@ -326,7 +326,7 @@ HDInsight ML 服務可讓您在 Hive 和 Parquet 中直接存取資料，以供 
 
    ![新增指令碼動作](./media/r-server-hdinsight-manage/submitscriptaction.png)
 
-4. 按一下 [建立] 執行指令碼。 指令碼完成之後，即可在所有的背景工作角色節點上使用 R 套件。
+4. 按一下 [建立]  執行指令碼。 指令碼完成之後，即可在所有的背景工作角色節點上使用 R 套件。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
 ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60768646"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory 中的查閱活動
@@ -54,7 +54,7 @@ ms.locfileid: "60768646"
 
 ## <a name="type-properties"></a>類型屬性
 
-名稱 | 描述 | 類型 | 必要？
+名稱 | 描述 | 類型 | 必要項？
 ---- | ----------- | ---- | --------
 資料集 | 提供查閱的資料集參考。 如需詳細資料，請參閱每個對應連接器文章中的＜**資料集屬性**＞一節。 | 索引鍵/值組 | 是
 source | 包含資料集特定的來源屬性，與複製活動來源相同。 如需詳細資料，請參閱每個對應連接器文章中的＜**複製活動屬性**＞一節。 | 索引鍵/值組 | 是
@@ -70,7 +70,7 @@ firstRowOnly | 指出是否只傳回第一個資料列或傳回所有資料列�
 
 查閱結果會在活動執行結果的 `output` 區段中傳回。
 
-* **當 `firstRowOnly` 設為 `true` (預設值)**，輸出格式如下列程式碼所示。 查閱結果就在固定的 `firstRow` 索引鍵底下。 若要在後續活動中使用結果，請使用 `@{activity('MyLookupActivity').output.firstRow.TableName}` 模式。
+* **當 `firstRowOnly` 設為 `true` (預設值)** ，輸出格式如下列程式碼所示。 查閱結果就在固定的 `firstRow` 索引鍵底下。 若要在後續活動中使用結果，請使用 `@{activity('MyLookupActivity').output.firstRow.TableName}` 模式。
 
     ```json
     {
@@ -82,7 +82,7 @@ firstRowOnly | 指出是否只傳回第一個資料列或傳回所有資料列�
     }
     ```
 
-* **當 `firstRowOnly` 設為 `false`**，輸出格式如下列程式碼所示。 `count` 欄位會指出傳回多少筆記錄。 詳細的值會顯示在固定 `value` 陣列下。 在這種情況下，查閱活動後面會接著 [Foreach 活動](control-flow-for-each-activity.md)。 您可以使用 `@activity('MyLookupActivity').output.value` 模式，將 `value` 陣列傳遞至 ForEach 活動的 `items` 欄位。 若要存取 `value` 陣列中的元素，請使用下列語法：`@{activity('lookupActivity').output.value[zero based index].propertyname}`。 例如 `@{activity('lookupActivity').output.value[0].tablename}`。
+* **當 `firstRowOnly` 設為 `false`** ，輸出格式如下列程式碼所示。 `count` 欄位會指出傳回多少筆記錄。 詳細的值會顯示在固定 `value` 陣列下。 在這種情況下，查閱活動後面會接著 [Foreach 活動](control-flow-for-each-activity.md)。 您可以使用 `@activity('MyLookupActivity').output.value` 模式，將 `value` 陣列傳遞至 ForEach 活動的 `items` 欄位。 若要存取 `value` 陣列中的元素，請使用下列語法：`@{activity('lookupActivity').output.value[zero based index].propertyname}`。 例如 `@{activity('lookupActivity').output.value[0].tablename}`。
 
     ```json
     {

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
 ms.openlocfilehash: ac0e4e9019a35d3fdb35c0b7af9cb1289f4bceeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60829577"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>執行 ACR 工作中的多步驟建置、測試及修補工作
@@ -30,7 +30,7 @@ ms.locfileid: "60829577"
 1. 如果測試通過，便建置 Helm 圖表封存套件
 1. 使用新的 Helm 圖表封存套件來執行 `helm upgrade`
 
-所有步驟都會在 Azure 內執行，這會將工作卸交給 Azure 的計算資源，讓您無須管理基礎結構。 除了您的 Azure 容器登錄之外，您只需支付您所用資源的費用。 如需有關定價的資訊，請參閱 [Azure Container Registry 價格][pricing]中的＜容器組建＞一節。
+所有步驟都會在 Azure 內執行，這會將工作卸交給 Azure 的計算資源，讓您無須管理基礎結構。 除了您的 Azure 容器登錄之外，您只需支付您所用資源的費用。 如需有關定價的資訊，請參閱 [Azure Container Registry 價格][pricing]中的＜容器組建＞  一節。
 
 
 ## <a name="common-task-scenarios"></a>常見的工作案例

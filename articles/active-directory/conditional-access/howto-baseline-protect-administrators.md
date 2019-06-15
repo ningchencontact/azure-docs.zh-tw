@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1ce48126c3e8867ac7f2696d8cf7db992a9a60a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 4f8b7f281ad5ed8424110696544ffdb49e50ce59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003277"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112433"
 ---
 # <a name="baseline-policy-require-mfa-for-admins"></a>基準原則：管理員需要進行 MFA
 
@@ -69,7 +69,7 @@ ms.locfileid: "66003277"
 1. 瀏覽至**Azure Active Directory** > **條件式存取**。
 1. 在原則清單中，選取 **基準原則：適用於系統管理員要求 MFA**。
 1. 設定**啟用原則**要**立即使用原則**。
-1. 新增任何使用者排除項目上即可**使用者** > **選取排除的使用者**，然後選擇要排除的使用者。 按一下 **選取 **再**完成**。
+1. 新增任何使用者排除項目上即可**使用者** > **選取排除的使用者**，然後選擇要排除的使用者。 按一下 **選取** 再**完成**。
 1. 按一下  **儲存**。
 
 ## <a name="next-steps"></a>後續步驟

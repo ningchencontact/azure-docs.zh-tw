@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 82418c03039219adedf45828d769d278a14499ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61259702"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Cosmos DB 的 MongoDB 版 API，或從中複製資料
@@ -110,7 +110,7 @@ ms.locfileid: "61259702"
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb-as-source"></a>以 Azure Cosmos DB 的 Mongo 版 API 作為來源
 
-複製活動的 [來源] 區段支援下列屬性：
+複製活動的 [來源]  區段支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -165,7 +165,7 @@ ms.locfileid: "61259702"
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb-as-sink"></a>以 Azure Cosmos DB 的 Mongo 版 API 作為接收
 
-複製活動的 [接收] 區段支援下列屬性：
+複製活動的 [接收]  區段支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -217,7 +217,7 @@ ms.locfileid: "61259702"
 * 將 JSON 文件從 Azure Cosmos DB 集合匯出至各種檔案型存放區。
 * 在兩個 Azure Cosmos DB 集合之間依原樣複製文件。
 
-若要完成這種跨平台結構描述的複製，請跳過資料集中的「結構」(也稱為「結構描述」) 區段，以及複製活動中的結構描述對應。
+若要完成這種跨平台結構描述的複製，請跳過資料集中的「結構」(也稱為「結構描述」  ) 區段，以及複製活動中的結構描述對應。
 
 ## <a name="schema-mapping"></a>結構描述對應
 

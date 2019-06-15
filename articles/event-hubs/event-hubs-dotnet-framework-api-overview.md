@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
 ms.openlocfilehash: f56882d2d73c85434c6f81972a06e5ea9ccdff99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822036"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>事件中樞 .NET Framework API 概觀
@@ -35,7 +35,7 @@ ehd.PartitionCount = SampleManager.numPartitions;
 await namespaceManager.CreateEventHubAsync(ehd);
 ```
 
-### <a name="update"></a>更新
+### <a name="update"></a>Update
 
 ```csharp
 var ehd = await namespaceManager.GetEventHubAsync(eventHubName);
@@ -178,10 +178,10 @@ public class SimpleEventProcessor : IEventProcessor
 
 若要深入了解事件中樞案例，請造訪下列連結：
 
-* [什么是 Azure 事件中心？](event-hubs-what-is-event-hubs.md)
+* [Azure 事件中樞是什麼？](event-hubs-what-is-event-hubs.md)
 * [事件中樞程式設計指南](event-hubs-programming-guide.md)
 
-下面提供了 .NET API 参考：
+.NET API 參考如下：
 
 * [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
 * [Microsoft.Azure.EventHubs.EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)

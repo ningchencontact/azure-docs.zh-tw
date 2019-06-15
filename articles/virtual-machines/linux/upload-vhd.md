@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 6483fa8737ee3de6a60c4e4646fefec30ae702b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473403"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>使用 Azure CLI 從自訂磁碟建立 Linux VM
@@ -47,7 +47,7 @@ az vm create --resource-group myResourceGroup --location eastus --name myVM \
 若要完成下列步驟，您將需要：
 
 * 一部已準備好用於 Azure 中的 Linux 虛擬機器。 本文的[準備 VM](#prepare-the-vm) 一節將說明如何尋找關於安裝 Azure Linux 代理程式 (waagent) 的發行版本特有資訊，您需要有此資訊，才能使用 SSH 連線到至 VM。
-* 以 VHD 格式從現有[經 Azure 背書的 Linux 發行版本](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (或者，請參閱[非背書發行版本的資訊](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) 到虛擬磁碟的 VHD 檔案。 可使用多种工具创建 VM 和 VHD：
+* 以 VHD 格式從現有[經 Azure 背書的 Linux 發行版本](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (或者，請參閱[非背書發行版本的資訊](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) 到虛擬磁碟的 VHD 檔案。 有多項工具可用來建立 VM 和 VHD：
   * 安裝和設定 [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) 或 [KVM](https://www.linux-kvm.org/page/RunningKVM)，並小心使用 VHD 做為您的映像格式。 如有需要，您可以使用 `qemu-img convert` 來[轉換映像](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) \(英文\)。
   * 您也可以在 [Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) 或 [Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx) 上使用 Hyper-V。
 
@@ -90,7 +90,7 @@ Azure 支援各種 Linux 散發套件 (請參閱 [背書的散發套件](endorse
 
 在上傳您的自訂磁碟並建立 VM 之前，您將必須使用 [az group create](/cli/azure/group#az-group-create) 來建立資源群組。
 
-下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組：
 
 ```azurecli
 az group create \
@@ -100,7 +100,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-使用 [az storage account create](/cli/azure/storage/account) 為自訂磁碟和 VM 建立儲存體帳戶。 下列範例會在先前建立的資源群組中建立名為 mystorageaccount 的儲存體帳戶：
+使用 [az storage account create](/cli/azure/storage/account) 為自訂磁碟和 VM 建立儲存體帳戶。 下列範例會在先前建立的資源群組中建立名為 mystorageaccount  的儲存體帳戶：
 
 ```azurecli
 az storage account create \
@@ -138,7 +138,7 @@ info:    storage account keys list command OK
 ### <a name="create-a-storage-container"></a>建立儲存體容器
 您可以在儲存體帳戶內建立容器來組織您的磁碟，方法與您建立不同目錄來以邏輯方式組織本機檔案系統相同。 一個儲存體帳戶可以包含多個容器。 使用 [az storage container create](/cli/azure/storage/container#az-storage-container-create) 來建立容器。
 
-下列範例會建立名為 mydisks 的容器：
+下列範例會建立名為 mydisks  的容器：
 
 ```azurecli
 az storage container create \
@@ -164,7 +164,7 @@ az storage blob upload --account-name mystorageaccount \
 ### <a name="create-a-managed-disk"></a>建立受控磁碟
 
 
-使用 [az disk create](/cli/azure/disk#az-disk-create) 從 VHD 建立受控磁碟。 下列範例會從您上傳至具名儲存體帳戶和容器的 VHD 建立名為 myManagedDisk 的受控磁碟：
+使用 [az disk create](/cli/azure/disk#az-disk-create) 從 VHD 建立受控磁碟。 下列範例會從您上傳至具名儲存體帳戶和容器的 VHD 建立名為 myManagedDisk  的受控磁碟：
 
 ```azurecli
 az disk create \
@@ -174,11 +174,11 @@ az disk create \
 ```
 ## <a name="option-2-copy-an-existing-vm"></a>選項 2：複製現有的 VM
 
-您可以也在 Azure 中建立自訂的 VM，然後複製 OS 磁碟並將它連結到新的 VM，以建立另一個複本。 這適合用來測試，但如果您想要使用現有的 Azure VM 作為多個新 VM 的模型，請建立「映像」。 如需如何從現有 Azure VM 建立映像的詳細資訊，請參閱[使用 CLI 建立 Azure VM 的自訂映像](tutorial-custom-images.md)。
+您可以也在 Azure 中建立自訂的 VM，然後複製 OS 磁碟並將它連結到新的 VM，以建立另一個複本。 這適合用來測試，但如果您想要使用現有的 Azure VM 作為多個新 VM 的模型，請建立「映像」  。 如需如何從現有 Azure VM 建立映像的詳細資訊，請參閱[使用 CLI 建立 Azure VM 的自訂映像](tutorial-custom-images.md)。
 
 ### <a name="create-a-snapshot"></a>建立快照集
 
-這個範例會在名為 myResourceGroup 資源群組中建立名為 myVM 的 VM 快照集，並建立名為 osDiskSnapshot 的快照集。
+這個範例會在名為 myResourceGroup  資源群組中建立名為 myVM  的 VM 快照集，並建立名為 osDiskSnapshot  的快照集。
 
 ```azure-cli
 osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -191,7 +191,7 @@ az snapshot create \
 
 從快照集建立新的受控磁碟。
 
-取得快照集的識別碼。 在此範例中，快照集的名稱為 osDiskSnapshot 且位於 myResourceGroup 資源群組中。
+取得快照集的識別碼。 在此範例中，快照集的名稱為 osDiskSnapshot  且位於 myResourceGroup  資源群組中。
 
 ```azure-cli
 snapshotId=$(az snapshot show --name osDiskSnapshot --resource-group myResourceGroup --query [id] -o tsv)

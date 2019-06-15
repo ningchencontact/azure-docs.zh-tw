@@ -2,24 +2,18 @@
 title: Azure 自動化之圖形化 Runbook 中的錯誤處理
 description: 本文說明如何在 Azure 自動化的圖形化 Runbook 中實作錯誤處理邏輯。
 services: automation
-documentationcenter: ''
-author: yunan2016
-manager: digimobile
-editor: tysonn
-ms.assetid: ''
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 03/16/2018
-ms.date: 05/14/2018
-ms.author: v-nany
+ms.subservice: process-automation
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
+ms.topic: conceptual
+manager: carmonm
 ms.openlocfilehash: d7fe38334b71334d4dae9235643117efdf5fbd5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61233032"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Azure 自動化之圖形化 Runbook 中的錯誤處理
@@ -67,7 +61,7 @@ Azure 自動化的圖形化 Runbook 已納入錯誤處理功能。 您現在可�
 
 依設定，**Get-AutomationVariable** 活動和 **Start-AzureRmVm** 會將例外狀況轉換為錯誤。 如果無法取得變數或啟動 VM，就會產生錯誤。<br><br> ![自動化 Runbook 的錯誤處理活動設定](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 
-錯誤連結會從這些活動流向單一**錯誤管理**活動 (程式碼活動)。 此活動已設定了簡單的 PowerShell 運算式，其使用 Throw 關鍵字來停止處理，以及使用 $Error.Exception.Message 來取得說明目前例外狀況的訊息。<br><br> ![自動化 Runbook 的錯誤處理程式碼範例](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
+錯誤連結會從這些活動流向單一**錯誤管理**活動 (程式碼活動)。 此活動已設定了簡單的 PowerShell 運算式，其使用 Throw  關鍵字來停止處理，以及使用 $Error.Exception.Message  來取得說明目前例外狀況的訊息。<br><br> ![自動化 Runbook 的錯誤處理程式碼範例](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 
 ## <a name="next-steps"></a>後續步驟
@@ -75,3 +69,4 @@ Azure 自動化的圖形化 Runbook 已納入錯誤處理功能。 您現在可�
 * 若要深入了解圖形化 Runbook 中的連結和連結類型，請參閱 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md#links-and-workflow)。
 
 * 若要深入了解 Runbook 執行方式、如何監視 Runbook 作業，以及其他技術性詳細資料，請參閱[追蹤 Runbook 作業](automation-runbook-execution.md)。
+

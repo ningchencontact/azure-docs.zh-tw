@@ -17,10 +17,10 @@ ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
 ms.openlocfilehash: c002e7c107c4dcbcd7eeff9579fae6893483392e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156138"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 為虛擬機器擴展集建立及使用共用映像
@@ -34,7 +34,7 @@ ms.locfileid: "66156138"
 [!INCLUDE [virtual-machines-common-shared-images-cli](../../includes/virtual-machines-common-shared-images-cli.md)]
 
 ## <a name="create-a-scale-set-from-the-custom-vm-image"></a>從自訂 VM 映像建立擴展集
-建立的擴展集[ `az vmss create` ](/cli/azure/vmss#az-vmss-create)。 請勿使用 UbuntuLTS 或 CentOS 這類平台映像，而是指定自訂 VM 映像的名稱。 下列範例會建立名為 myScaleSet 的擴展集，其使用前一步驟中名為 myImage 的自訂映像：
+建立的擴展集[ `az vmss create` ](/cli/azure/vmss#az-vmss-create)。 請勿使用 UbuntuLTS  或 CentOS  這類平台映像，而是指定自訂 VM 映像的名稱。 下列範例會建立名為 myScaleSet  的擴展集，其使用前一步驟中名為 myImage  的自訂映像：
 
 ```azurecli-interactive
 az vmss create \

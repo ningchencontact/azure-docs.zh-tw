@@ -11,10 +11,10 @@ ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 31c6c1258b6d20eb2d2802cf23244cb59df682c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61428616"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>資料科學專案的平台和工具
@@ -107,7 +107,7 @@ Microsoft 的 TDSP 小組已發佈兩個端對端逐步解說，示範如何在 
 
 ### <a name="install-git-credential-manager-on-windows"></a>在 Windows 上安裝 Git 認證管理員
 
-如果您遵照 **Windows** 上的 TDSP，您需要安裝 **Git 認證管理員 (GCM)**，以與 Git 存放庫通訊。 若要安裝 GCM，您必須先安裝 **Chocolaty**。 若要安裝 Chocolaty 和 GCM，以**系統管理員**身分在 Windows PowerShell 中執行下列命令：  
+如果您遵照 **Windows** 上的 TDSP，您需要安裝 **Git 認證管理員 (GCM)** ，以與 Git 存放庫通訊。 若要安裝 GCM，您必須先安裝 **Chocolaty**。 若要安裝 Chocolaty 和 GCM，以**系統管理員**身分在 Windows PowerShell 中執行下列命令：  
 
     iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
     choco install git-credential-manager-for-windows -y
@@ -131,13 +131,13 @@ Microsoft 的 TDSP 小組已發佈兩個端對端逐步解說，示範如何在 
 
 ![用來產生 SSH 金鑰的命令](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
-- 複製整個 ssh 金鑰，包括 ssh-rsa。 
+- 複製整個 ssh 金鑰，包括 ssh-rsa  。 
 - 登入您的 Azure DevOps Services。 
-- 在分頁右上角，按一下 [<您的名稱\>]，然後按一下 [安全性]。 
+- 在分頁右上角，按一下 [<您的名稱\>]  ，然後按一下 [安全性]  。 
     
     ![按一下您的名稱，然後按一下 [安全性]](./media/platforms-and-tools/resources-2-user-setting.png)
 
-- 按一下 [SSH 公開金鑰]，然後按一下 [+新增]。 
+- 按一下 [SSH 公開金鑰]  ，然後按一下 [+新增]  。 
 
     ![按一下 [SSH 公開金鑰]，然後按一下 [+新增]](./media/platforms-and-tools/resources-3-add-ssh.png)
 

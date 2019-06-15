@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: pabutler
 ms.openlocfilehash: 0dbf1abbb91f9e5c3bd2d042c57f87591d52c9cd
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938503"
 ---
 # <a name="certify-your-vm-image"></a>認證您的 VM 映像
@@ -24,10 +24,10 @@ ms.locfileid: "64938503"
 Azure 認證的認證測試工具是以本機 Windows 電腦執行，但可測試 Azure 為基礎的 Windows 或 Linux 虛擬機器。  測試工具會驗證您的使用者 VM 映像是否與 Microsoft Azure 相容，確認您 VHD 的準備工作是否有依循指示並達到要求。 此工具會輸出相容性報告，需將此報告上傳至 [Cloud Partner 入口網站](https://cloudpartner.azure.com)以要求 VM 認證。
 
 1. 下載並安裝最新版本的 [Azure 認證的認證測試工具](https://www.microsoft.com/download/details.aspx?id=44299)。 
-2. 開啟認證工具，然後按一下 [啟動新測試]。
-3. 從 [測試資訊] 畫面，輸入測試回合的**測試名稱**。
-4. 選取您 VM 適用的 [平台]，亦即 `Windows Server` 或 `Linux`。 所選的平台會影響其餘的選項。
-5. 如果您的 VM 使用此資料庫服務，請選取 [Test for Azure SQL Database]\(Azure SQL Database 測試\) 核取方塊。
+2. 開啟認證工具，然後按一下 [啟動新測試]  。
+3. 從 [測試資訊]  畫面，輸入測試回合的**測試名稱**。
+4. 選取您 VM 適用的 [平台]  ，亦即 `Windows Server` 或 `Linux`。 所選的平台會影響其餘的選項。
+5. 如果您的 VM 使用此資料庫服務，請選取 [Test for Azure SQL Database]\(Azure SQL Database 測試\)  核取方塊。
 
    ![認證測試工具初始頁面](./media/publishvm_025.png)
 
@@ -38,37 +38,37 @@ Azure 認證的認證測試工具是以本機 Windows 電腦執行，但可測�
 
 ### <a name="connect-the-certification-tool-to-a-linux-vm-image"></a>將認證工具連線至 Linux VM 映像
 
-1. 選取 [SSH 驗證] 模式：`Password Authentication` 或 `key File Authentication`。
-2. 如果使用以密碼為基礎的驗證，請輸入**虛擬機器 DNS 名稱**、**使用者名稱**和**密碼**。  或是也可以變更預設的 [SSH 連接埠] 號碼。
+1. 選取 [SSH 驗證]  模式：`Password Authentication` 或 `key File Authentication`。
+2. 如果使用以密碼為基礎的驗證，請輸入**虛擬機器 DNS 名稱**、**使用者名稱**和**密碼**。  或是也可以變更預設的 [SSH 連接埠]  號碼。
 
      ![Linux VM 映像的密碼驗證](./media/publishvm_026.png)
 
-3. 如果使用以金鑰檔案為基礎的驗證，請輸入**虛擬機器 DNS 名稱**、**使用者名稱**和**私密金鑰**位置等值。  或是也可以提供 [複雜密碼] 或是變更預設的 [SSH 連接埠] 號碼。
+3. 如果使用以金鑰檔案為基礎的驗證，請輸入**虛擬機器 DNS 名稱**、**使用者名稱**和**私密金鑰**位置等值。  或是也可以提供 [複雜密碼]  或是變更預設的 [SSH 連接埠]  號碼。
 
      ![Linux VM 映像的檔案驗證](./media/publishvm_027.png)
 
 ### <a name="connect-the-certification-tool-to-a-windows-based-vm-image"></a>**將認證工具連接到 Windows 型 VM 映像**
 1. 輸入完整的**虛擬機器 DNS 名稱** (例如：`MyVMName.Cloudapp.net`)。
-2. 輸入 [使用者名稱] 和 [密碼] 的值。
+2. 輸入 [使用者名稱]  和 [密碼]  的值。
 
    ![Windows VM 映像的密碼驗證](./media/publishvm_028.png)
 
 
 ## <a name="run-a-certification-test"></a>執行認證測試
 
-在認證工具中提供適用於您 VM 映像的參數值後，請選取 [測試連線]，以確認至 VM 的連線是否有效。 驗證連線後，選取 [下一步] 啟動測試。  測試完成時，資料表會顯示測試結果 (通過/失敗/警告)。  下列範例顯示的是 Linux 虛擬機器測試的測試結果。 
+在認證工具中提供適用於您 VM 映像的參數值後，請選取 [測試連線]  ，以確認至 VM 的連線是否有效。 驗證連線後，選取 [下一步]  啟動測試。  測試完成時，資料表會顯示測試結果 (通過/失敗/警告)。  下列範例顯示的是 Linux 虛擬機器測試的測試結果。 
 
 ![Linux VM 映像的認證測試結果](./media/publishvm_029.png)
 
 如果任何一項測試失敗，您的映像即*未*通過認證。 此時請檢查需求與失敗訊息，按指示進行變更，然後再重新執行測試。 
 
-執行自動化測試後，系統會要求您在**問卷**畫面上，提供 VM 映像的其他資訊。  其中有兩個索引標籤必須完成。  [一般評量] 索引標籤是**是非**題，而 [核心自訂] 則是選擇題和簡答題。  請完成兩個索引標籤上的問題，然後選取 [下一步]。
+執行自動化測試後，系統會要求您在**問卷**畫面上，提供 VM 映像的其他資訊。  其中有兩個索引標籤必須完成。  [一般評量]  索引標籤是**是非**題，而 [核心自訂]  則是選擇題和簡答題。  請完成兩個索引標籤上的問題，然後選取 [下一步]  。
 
 ![認證工具問卷](./media/publishvm_030.png)
 
 您可在最後一個畫面提供其他資訊，像是 Linux VM 映像的 SSH 存取資訊，或是尋找例外狀況時所需的評量失敗說明。 
 
-除了問卷調查的答案之外，最後按一下 [產生報告]，還可下載已執行測試案例的測試結果和記錄檔。 請將結果儲存在與您 VHD 相同的容器中。
+除了問卷調查的答案之外，最後按一下 [產生報告]  ，還可下載已執行測試案例的測試結果和記錄檔。 請將結果儲存在與您 VHD 相同的容器中。
 
 ![儲存認證測試結果](./media/publishvm_031.png)
 

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 51c1ea7b554178f7fb3f264bf731ffd5872ceea2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5b53819c1d30f6cd62c5941d4b44d70a4996daad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234554"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67117887"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>適用於對應資料流程的來源轉換 
 
@@ -35,7 +35,7 @@ ms.locfileid: "66234554"
 
 Data Factory 有將近 80 原生的連接器的存取。 若要在資料流程中加入這些其他來源的資料，使用 「 複製活動 」 工具來接移一個資料流程的資料集臨時區域中的資料。
 
-## <a name="options"></a>選項。
+## <a name="options"></a>選項
 
 選擇結構描述和取樣選項，為您的資料。
 
@@ -65,13 +65,13 @@ Data Factory 有將近 80 原生的連接器的存取。 若要在資料流程�
 
 在 [**最佳化**索引標籤的來源轉換] 中，您可能會看到**來源**資料分割類型。 只有在您的來源是 Azure SQL Database 時，才使用此選項。 這是因為 Data Factory 會嘗試建立連接平行針對 SQL Database 來源執行大型查詢。
 
-![來源資料分割設定](media/data-flow/sourcepart2.png "資料分割")
+![來源資料分割設定](media/data-flow/sourcepart3.png "資料分割")
 
 您不需要分割資料在 SQL Database 來源，但資料分割是針對大型查詢很有用。 您可以為您的資料分割基礎的資料行或查詢。
 
 ### <a name="use-a-column-to-partition-data"></a>使用資料行來分割資料
 
-從來源資料表中，選取 資料分割的資料行上。 也設定的連線數目上限。
+從來源資料表中，選取 資料分割的資料行上。 也請設定資料分割數目。
 
 ### <a name="use-a-query-to-partition-data"></a>使用查詢來分割資料
 
@@ -84,9 +84,39 @@ Data Factory 有將近 80 原生的連接器的存取。 若要在資料流程�
 ![新的來源設定](media/data-flow/source2.png "新設定")
 
 * **萬用字元路徑**:從您的來源資料夾，選擇一系列符合模式的檔案。 此設定會覆寫您的資料集定義中的任何檔案。
+
+萬用字元範例：
+
+* ```*``` 代表任何字元的組合
+* ```**``` 表示遞迴目錄巢狀結構
+* ```?``` 將一個字元取代
+* ```[]``` 比對一個括號中的多個字元
+
+* ```/data/sales/**/*.csv``` 取得下 /data/sales 的所有 csv 檔案
+* ```/data/sales/20??/**``` 取得在 20 世紀中的所有檔案
+* ```/data/sales/2004/*/12/[XY]1?.csv``` 取得在 2004 年的所有 csv 檔案，在 12 月起 X 或 Y 2 位數的前置詞
+
+容器的指定資料集內。 萬用字元路徑因此也必須包含您在根資料夾中的資料夾路徑。
+
 * **檔案清單**:這是檔案集合。 建立文字檔案，其中包含要處理的相對路徑檔案的清單。 指向此文字檔案。
 * **若要儲存檔案名稱的資料行**:在您的資料中的資料行中儲存的原始程式檔的名稱。 在此輸入新的名稱以儲存檔案名稱字串。
 * **完成後**:選擇資料流程回合，刪除原始程式檔，或移動的原始程式檔之後的原始程式檔不執行任何動作。 移動路徑是相對的。
+
+若要移動到另一個位置的後置處理的原始程式檔，先選取 「 移動 」 檔案作業。 然後，設定 [從] 目錄。 如果您不會使用任何萬用字元，您的路徑，然後在 [從] 設定將會與您的來源資料夾相同的資料夾。
+
+如果您有一個含萬用字元來源路徑，例如：
+
+```/data/sales/20??/**/*.csv```
+
+您可以指定為 「 來源 」
+
+```/data/sales```
+
+和"to"做為
+
+```/backup/priorSales```
+
+在此情況下，這來自 /data/sales 下的所有子目錄會都移動相對於 /backup/priorSales。
 
 ### <a name="sql-datasets"></a>SQL 資料集
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878362"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1 中的資料加密
@@ -116,7 +116,7 @@ Data Lake Storage Gen1 提供兩種管理主要加密金鑰 (MEK) 模式。 現�
 ### <a name="how-to-rotate-the-mek-in-data-lake-storage-gen1"></a>如何在 Data Lake Storage Gen1 中輪替 MEK
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 瀏覽至儲存與您 Data Lake Storage Gen1 帳戶建立關聯之金鑰的 Key Vault 執行個體。 選取 [金鑰]。
+2. 瀏覽至儲存與您 Data Lake Storage Gen1 帳戶建立關聯之金鑰的 Key Vault 執行個體。 選取 [金鑰]  。
 
     ![Key Vault 的螢幕擷取畫面](./media/data-lake-store-encryption/keyvault.png)
 
@@ -124,11 +124,11 @@ Data Lake Storage Gen1 提供兩種管理主要加密金鑰 (MEK) 模式。 現�
 
    ![[金鑰] 視窗的螢幕擷取畫面 (醒目提示 [新增版本])](./media/data-lake-store-encryption/keynewversion.png)
 
-4. 瀏覽至 Data Lake Storage Gen1 儲存體帳戶，然後選取 [加密]。
+4. 瀏覽至 Data Lake Storage Gen1 儲存體帳戶，然後選取 [加密]  。
 
    ![Data Lake Storage Gen1 帳戶視窗的螢幕擷取畫面 (醒目提示 [加密])](./media/data-lake-store-encryption/select-encryption.png)
 
-5. 有一則訊息會通知您，新本的金鑰已可使用。 按一下 [輪替金鑰]，將金鑰更新為新的版本。
+5. 有一則訊息會通知您，新本的金鑰已可使用。 按一下 [輪替金鑰]  ，將金鑰更新為新的版本。
 
    ![Data Lake Storage Gen1 視窗的螢幕擷取畫面 (具有訊息並醒目提示 [輪替金鑰])](./media/data-lake-store-encryption/rotatekey.png)
 

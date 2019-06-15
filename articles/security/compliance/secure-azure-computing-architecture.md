@@ -7,10 +7,10 @@ ms.date: 4/9/2019
 ms.topic: article
 ms.service: security
 ms.openlocfilehash: 017a26d5672f666d4d8eaf629a0f53fe0cfe517f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963233"
 ---
 # <a name="secure-azure-computing-architecture"></a>保護 Azure 運算架構
@@ -157,7 +157,7 @@ Saca 取得參考架構被設計來部署 Azure 中的 VDSS 和 VDM 元件，並
             - 這個子網路是部署 Vm 和服務用於 VDM 的位置。
         - 未受信任及受信任的子網路
             - 這些子網路是虛擬設備部署的位置。
-        - 閘道子網路
+        - 閘道器子網路
             - 這個子網路是 ExpressRoute 閘道的部署位置。
 - 管理跳躍方塊虛擬機器
     - 其用途-頻外管理的環境。

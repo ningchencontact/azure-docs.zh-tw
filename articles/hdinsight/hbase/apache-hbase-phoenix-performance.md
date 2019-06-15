@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
 ms.openlocfilehash: 4fc4d1843ddb8d007ca062d928ebbddf90909583
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64690037"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Apache Phoenix 效能最佳做法
@@ -52,7 +52,7 @@ Phoenix 中資料表上定義的主索引鍵，可決定資料儲存在基礎 HB
 
 在上表的第一列中，rowkey 的資料如下所示：
 
-|rowkey|       key|   value| 
+|rowkey|       索引鍵|   value| 
 |------|--------------------|---|
 |  Dole-John-111|位址 |1111 San Gabriel Dr.|  
 |  Dole-John-111|電話 |1-425-000-0002|  
@@ -62,7 +62,7 @@ Phoenix 中資料表上定義的主索引鍵，可決定資料儲存在基礎 HB
 
 這個 rowkey 現在可儲存資料的複本。 請考量主索引鍵包含的資料行大小和數目，因為基礎 HBase 資料表中的每個資料格都包含這個值。
 
-此外，如果主索引鍵具有單調遞增值 ，您應該建立具有「salt 貯體」的資料表，協助您避免建立寫入熱點；請參閱[分割資料](#partition-data)。
+此外，如果主索引鍵具有單調遞增值 ，您應該建立具有「salt 貯體」  的資料表，協助您避免建立寫入熱點；請參閱[分割資料](#partition-data)。
 
 ### <a name="column-family-design"></a>資料行系列設計
 

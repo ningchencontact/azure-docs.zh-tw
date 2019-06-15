@@ -10,10 +10,10 @@ ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 5bb52e0547ed9bc18d67370ffb9db35942212aab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61300261"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>管理 Azure 自動化中的 Runbook
@@ -27,8 +27,8 @@ ms.locfileid: "61300261"
 ### <a name="create-a-runbook-in-the-azure-portal"></a>在 Azure 入口網站中建立 Runbook
 
 1. 在 Azure 入口網站中，開啟您的自動化帳戶。
-2. 從 [中樞] 選取 [Runbook] 以開啟 Runbook 清單。
-3. 按一下 [加入 Runbook] 按鈕，然後按一下 [建立新的 Runbook]。
+2. 從 [中樞] 選取 [Runbook]  以開啟 Runbook 清單。
+3. 按一下 [加入 Runbook]  按鈕，然後按一下 [建立新的 Runbook]  。
 4. 輸入 Runbook 的 [名稱]  ，然後選取其 [類型](automation-runbook-types.md)。 Runbook 名稱必須以字母開頭，可以具有字母、數字、底線和連字號。
 5. 按一下 [建立]  來建立 Runbook 並開啟編輯器。
 
@@ -59,8 +59,8 @@ New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
 > 請注意，您只能使用入口網站，將 .ps1 檔案匯入 PowerShell 工作流程 Runbook。
 
 1. 在 Azure 入口網站中，開啟您的自動化帳戶。
-2. 從 [中樞] 選取 [Runbook] 以開啟 Runbook 清單。
-3. 按一下 [加入 Runbook] 按鈕，然後按一下 [匯入]。
+2. 從 [中樞] 選取 [Runbook]  以開啟 Runbook 清單。
+3. 按一下 [加入 Runbook]  按鈕，然後按一下 [匯入]  。
 4. 按一下 [Runbook 檔案]  以選取要匯入的檔案
 5. 如果 [名稱]  欄位已啟用，則您可以選擇變更它。  Runbook 名稱必須以字母開頭，可以具有字母、數字、底線和連字號。
 6. [Runbook 類型](automation-runbook-types.md) 會自動選取，但在考量適用的限制之後，您可以變更類型。 
@@ -96,9 +96,9 @@ Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
 測試每個 [Runbook 類型](automation-runbook-types.md)的程序都相同，而且無論是在文字式編輯器或 Azure 入口網站的圖形化編輯器中進行測試，都沒有任何差別。  
 
 1. 您可以在[文字編輯器](automation-edit-textual-runbook.md)或[圖形化編輯器](automation-graphical-authoring-intro.md)中開啟 Runbook 的草稿版本。
-1. 按一下 [測試] 按鈕以開啟 [測試] 頁面。
+1. 按一下 [測試]  按鈕以開啟 [測試] 頁面。
 1. 如果 Runbook 含有參數，這些參數會列在左窗格中，您可以在此提供值，以供測試使用。
-1. 如果您想要在[混合式 Runbook 背景工作](automation-hybrid-runbook-worker.md)上執行測試，則需將 [執行設定] 變更為 [混合式背景工作]，然後選取目標群組的名稱。  否則，請保留預設值 **Azure**，以便在雲端中執行測試。
+1. 如果您想要在[混合式 Runbook 背景工作](automation-hybrid-runbook-worker.md)上執行測試，則需將 [執行設定]  變更為 [混合式背景工作]  ，然後選取目標群組的名稱。  否則，請保留預設值 **Azure**，以便在雲端中執行測試。
 1. 按一下 [啟動]  按鈕以啟動測試。
 1. 如果 Runbook 是 [PowerShell 工作流程](automation-runbook-types.md#powershell-workflow-runbooks)或[圖形化](automation-runbook-types.md#graphical-runbooks) Runbook，則在測試過程中，您可以使用 [輸出] 窗格下方的按鈕來停止或暫停 Runbook。 暫停 Runbook 時，它會先完成目前的活動後才暫停。 Runbook 一旦暫停，您可以選擇停止或重新啟動。
 1. 您可以在 [輸出] 窗格中檢查 Runbook 的輸出。
@@ -111,7 +111,7 @@ Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 1. 在 Azure 入口網站中開啟 Runbook。
 2. 按一下 [ **編輯** ] 按鈕。
-3. 按一下 [發佈] 按鈕，然後對驗證訊息按一下 [是]。
+3. 按一下 [發佈]  按鈕，然後對驗證訊息按一下 [是]  。
 
 ### <a name="powershell"></a>PowerShell
 
@@ -130,4 +130,4 @@ Publish-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName `
 
 * 若要了解如何從 Runbook 和 PowerShell 模組資源庫中受益，請參閱 [Azure 自動化的 Runbook 和模組資源庫](automation-runbook-gallery.md)
 * 若要深入了解使用文字編輯器編輯 PowerShell 和 PowerShell 工作流程 Runbook，請參閱 [在 Azure 自動化中編輯文字式 Runbook](automation-edit-textual-runbook.md)
-* 若要详细了解图形 Runbook 创作，请参阅 [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
+* 若要深入了解如何編寫圖形化 Runbook，請參閱 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)

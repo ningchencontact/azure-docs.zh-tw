@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 565f08f0c69aef393a9296f3cce90570a3f0bc2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 030259f7773435760c09afd25ca674b63bb1b3ca
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901114"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073247"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遙測相互關聯
 
@@ -35,7 +35,7 @@ Application Insights 會定義分散遙測相互關聯的[資料模型](../../az
 
 您可以將 `operation_Id`、`operation_parentId` 和 `request.id` 與 `dependency.id` 搭配使用，來建置分散式邏輯作業的檢視。 這些欄位也會定義遙測呼叫的因果順序。
 
-在微服務環境中，來自元件的追蹤可能會前往不同的儲存體項目。 每個元件在 Application Insights 中都可能有自己的檢測金鑰。 若要取得邏輯作業的遙測，您必須向每個儲存體項目查詢資料。 當儲存體項目的數目很龐大時，您將需要有關下一個尋找位置的提示。 Application Insights 資料模型會定義兩個欄位來解決這個問題：`request.source` 和 `dependency.target`。 第一個欄位會識別起始相依性要求的元件，而第二個欄位會識別傳回相依性呼叫回應的元件。
+在微服務環境中，來自元件的追蹤可能會前往不同的儲存體項目。 每個元件在 Application Insights 中都可能有自己的檢測金鑰。 若要取得邏輯作業的遙測，Application Insights UX 會查詢每個儲存體項目資料。 當儲存體項目的數目很龐大時，您將需要有關下一個尋找位置的提示。 Application Insights 資料模型會定義兩個欄位來解決這個問題：`request.source` 和 `dependency.target`。 第一個欄位會識別起始相依性要求的元件，而第二個欄位會識別傳回相依性呼叫回應的元件。
 
 ## <a name="example"></a>範例
 
@@ -55,7 +55,7 @@ Application Insights 會定義分散遙測相互關聯的[資料模型](../../az
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Stock 頁面                |              | STYz               | STYz         |
 | 相依性 | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
-| 要求    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
+| request    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
 | 相依性 | GET /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
 向外部服務發出 `GET /api/stock/value` 呼叫時，您想要知道該伺服器的身分識別，以便適當地設定 `dependency.target` 欄位。 當外部服務不支援監視時，`target` 會設定為服務的主機名稱 (例如 `stock-prices-api.com`)。 不過，如果服務會藉由傳回預先定義的 HTTP 標頭來識別其本身，則 `target` 包含的服務識別可讓 Application Insights 透過向該服務查詢遙測來建置分散式追蹤。
@@ -143,7 +143,7 @@ public void ConfigureServices(IServiceCollection services)
 
 | Application Insights                  | OpenTracing                                       |
 |------------------------------------   |-------------------------------------------------  |
-| `Request`、`PageView`                 | `span.kind = server` 的 `Span`                  |
+| `Request`、 `PageView`                 | `span.kind = server` 的 `Span`                  |
 | `Dependency`                          | `span.kind = client` 的 `Span`                  |
 | `Request` 和 `Dependency` 的 `Id`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: b1edd4777839c947cf8f60bb6857f939553e2603
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467663"
 ---
 # <a name="configure-the-application-dashboard"></a>設定應用程式儀表板
@@ -32,7 +32,7 @@ ms.locfileid: "65467663"
 
 ![儀表板程式庫](media/howto-configure-homepage/image2a.png)
 
-例如，您可以在其中加入**裝置設定與屬性**磚，以顯示選取的裝置目前的設定和屬性值。 若要這麼做，請先選取 [裝置範本]，然後選取 [裝置執行個體]。 然後，提供圖格標題並選取要顯示的 [設定] 或 [屬性]。 下列螢幕擷取畫面顯示設定，以及選取要新增到 [] 圖格的屬性。 選取 **完成**儀表板中儲存的變更。
+例如，您可以在其中加入**裝置設定與屬性**磚，以顯示選取的裝置目前的設定和屬性值。 若要這麼做，請先選取 [裝置範本]  ，然後選取 [裝置執行個體]  。 然後，提供圖格標題並選取要顯示的 [設定]  或 [屬性]  。 下列螢幕擷取畫面顯示設定，以及選取要新增到 [] 圖格的屬性。 選取 **完成**儀表板中儲存的變更。
 
 ![含設定和屬性詳細資料的 [設定裝置詳細資料] 表單](media/howto-configure-homepage/image3a.png)
 

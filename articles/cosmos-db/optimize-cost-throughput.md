@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.openlocfilehash: ddbec882675dba4724406ad1ea8079df377c34fc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967295"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中最佳化已佈建的輸送量成本
@@ -57,7 +57,7 @@ Azure Cosmos DB 可藉由提供所佈建的輸送量模型，於任何規模提�
 |----|----|----|
 |SQL API|資料庫|容器|
 |適用於 MongoDB 的 Azure Cosmos DB API|資料庫|集合|
-|Cassandra API|Keyspace|資料表|
+|Cassandra API|keyspace|資料表|
 |Gremlin API|資料庫帳戶|圖形|
 |資料表 API|資料庫帳戶|資料表|
 

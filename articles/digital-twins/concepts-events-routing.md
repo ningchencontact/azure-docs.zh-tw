@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: b7ace0718ea0fad0b746a40c90acff487ae314d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7dfda00aca403f7f95f0c56d1db28c3c609bebd2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926239"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080648"
 ---
 # <a name="routing-events-and-messages"></a>活動及訊息路線規劃
 
@@ -21,7 +21,7 @@ IoT 解決方案通常會結合數個功能強大的服務，包括儲存體、�
 
 ## <a name="route-types"></a>路由類型  
 
-Azure Digital Twins 提供兩種方法來將 IoT 事件整合至其他 Azure 服務或商務應用程式：
+Azure 的數位對應項會提供兩種方式可將 IoT 事件連線與其他 Azure 服務或商務應用程式：
 
 * **路由傳送 Azure Digital Twins 事件**：當空間圖表中的物件發生變更、收到遙測資料，或使用者定義的函式根據預先定義的條件建立通知時，都可能觸發 Azure Digital Twins 事件。 使用者可以將這些事件傳送至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)、[Azure 服務匯流排主題](https://azure.microsoft.com/services/service-bus/)或 [Azure 事件方格](https://azure.microsoft.com/services/event-grid/)，以執行進一步的處理。
 

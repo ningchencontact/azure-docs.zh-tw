@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: 7f8638365b40395a5dd82457c40e5c15209ba1a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60882373"
 ---
 # <a name="replicas-and-instances"></a>複本和執行個體 
@@ -116,11 +116,11 @@ Service Fabric 會視需要開啟關閉的複本，例如在節點上完成升�
 ## <a name="replica-role"></a>複本角色 
 複本角色可決定其在複本集中的功能：
 
-- **主要 (P)**:有一個主要複本集中會負責執行讀取和寫入作業。 
-- **ActiveSecondary (S)**:這些是從主要接收狀態更新、 套用更新並傳送認知的複本。 複本集內有多個作用中次要複本。 這些次要複本的數目會決定服務可處理的錯誤數目。
-- **IdleSecondary (I)**:這些複本是正在由主要建置中。 它們需要先接收來自主要複本的狀態，才能夠升階至作用中次要複本。 
-- **無 (N)**:這些複本在複本集沒有責任。
-- **未知 (U)**:這是初始複本的角色，才會收到任何**ChangeRole**從 Service Fabric API 呼叫。
+- **主要 (P)** :有一個主要複本集中會負責執行讀取和寫入作業。 
+- **ActiveSecondary (S)** :這些是從主要接收狀態更新、 套用更新並傳送認知的複本。 複本集內有多個作用中次要複本。 這些次要複本的數目會決定服務可處理的錯誤數目。
+- **IdleSecondary (I)** :這些複本是正在由主要建置中。 它們需要先接收來自主要複本的狀態，才能夠升階至作用中次要複本。 
+- **無 (N)** :這些複本在複本集沒有責任。
+- **未知 (U)** :這是初始複本的角色，才會收到任何**ChangeRole**從 Service Fabric API 呼叫。
 
 下圖說明複本角色轉換及一些轉換會發生的範例情節：
 

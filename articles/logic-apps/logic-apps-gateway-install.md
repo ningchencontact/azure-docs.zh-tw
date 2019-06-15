@@ -10,10 +10,10 @@ ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544465"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
@@ -32,7 +32,7 @@ ms.locfileid: "65544465"
 *   IBM Informix
 *   IBM MQ
 *   MySQL
-*   Oracle Database
+*   Oracle 資料庫
 *   PostgreSQL
 *   SAP 應用程式伺服器 
 *   SAP 訊息伺服器
@@ -77,7 +77,7 @@ ms.locfileid: "65544465"
     > [!TIP]
     > 若要盡量減少延遲，您可以將閘道安裝在最靠近資料來源的位置或同一部電腦上，但前提是您有相關權限。
 
-  * 將閘道安裝在連線至網際網路、一律開啟且「不會」進入睡眠模式的電腦上。 否則，閘道將無法執行。 
+  * 將閘道安裝在連線至網際網路、一律開啟且「不會」  進入睡眠模式的電腦上。 否則，閘道將無法執行。 
   此外，透過無線網路的效能可能會受到影響。
 
   * 在安裝期間，您只能以[公司或學校帳戶](../active-directory/sign-up-organization.md)登入，且該帳戶必須是由 Azure Active Directory (Azure AD) 所管理 (例如 @contoso.onmicrosoft.com)，而非 Azure B2B (來賓) 帳戶或個人 Microsoft 帳戶 (例如 @hotmail.com 或 @outlook.com)。 
@@ -93,7 +93,7 @@ ms.locfileid: "65544465"
   > 接著，您就可以在安裝閘道時，使用此使用者名稱和密碼來進行登入。
 
   * 為您的閘道安裝選取的區域，可藉由建立 Azure 資源來決定您稍後在 Azure 中註冊閘道的位置。 
-  當您在 Azure 中建立此閘道資源時，必須選取與閘道安裝「相同」的位置。 預設區域是與 Azure AD 租用戶 (用來管理您的 Azure 帳戶) 相同的位置，但您可以在閘道安裝期間變更此位置。
+  當您在 Azure 中建立此閘道資源時，必須選取與閘道安裝「相同」  的位置。 預設區域是與 Azure AD 租用戶 (用來管理您的 Azure 帳戶) 相同的位置，但您可以在閘道安裝期間變更此位置。
 
   * 如果您已經有使用 14.16.6317.4 版之前的安裝程式所設定的閘道，就無法藉由執行最新版的安裝程式來變更閘道位置。 不過，您可以使用最新版的安裝程式，將新的閘道設定為您想要的位置。
   
@@ -109,7 +109,7 @@ ms.locfileid: "65544465"
 
 * 主要閘道必須執行 2017 年 11 月或更新版本的閘道更新。
 
-符合這些需求之後，當您建立下一個閘道時，請選取 [新增至現有的閘道叢集]，為您的叢集選取主要閘道，然後提供該主要閘道的修復金鑰。
+符合這些需求之後，當您建立下一個閘道時，請選取 [新增至現有的閘道叢集]  ，為您的叢集選取主要閘道，然後提供該主要閘道的修復金鑰。
 如需詳細資訊，請參閱[適用於內部部署資料閘道的高可用性叢集](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters)。
 
 <a name="install-gateway"></a>
@@ -120,15 +120,15 @@ ms.locfileid: "65544465"
 
 2. 接受預設安裝路徑，或指定您要用來安裝閘道的電腦位置。
 
-3. 檢閱並接受使用規定和隱私權聲明，然後選擇 [安裝]。
+3. 檢閱並接受使用規定和隱私權聲明，然後選擇 [安裝]  。
 
    ![接受使用規定和隱私權聲明](./media/logic-apps-gateway-install/accept-terms.png)
 
-4. 成功安裝閘道之後，請提供公司或學校帳戶的電子郵件地址，然後選擇 [登入]。
+4. 成功安裝閘道之後，請提供公司或學校帳戶的電子郵件地址，然後選擇 [登入]  。
 
    ![使用公司或學校帳戶登入](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-5. 選擇 [在這部電腦上註冊新的閘道] > [下一步]，即可透過[閘道雲端服務](#gateway-cloud-service)註冊您的閘道安裝。 
+5. 選擇 [在這部電腦上註冊新的閘道]   > [下一步]  ，即可透過[閘道雲端服務](#gateway-cloud-service)註冊您的閘道安裝。 
 
    ![註冊閘道](./media/logic-apps-gateway-install/register-new-gateway.png)
 
@@ -156,19 +156,19 @@ ms.locfileid: "65544465"
 
    例如，若要減少延遲，您可以將閘道的區域變更為與邏輯應用程式相同的區域。 
    或者，您可以選取最接近的內部部署資料來源區域。 
-   「Azure 中的閘道資源」和邏輯應用程式可位於不同位置。
+   「Azure 中的閘道資源」  和邏輯應用程式可位於不同位置。
 
-8. 若要接受預設區域，請選擇 [設定]。 或者，若要變更預設區域，請遵循下列步驟：
+8. 若要接受預設區域，請選擇 [設定]  。 或者，若要變更預設區域，請遵循下列步驟：
 
-   1. 在目前區域旁邊，選取 [變更區域]。 
+   1. 在目前區域旁邊，選取 [變更區域]  。 
 
       ![變更區域](./media/logic-apps-gateway-install/change-region.png)
 
-   2. 在下一頁上，開啟 [選取區域] 清單，選取您想要的區域，然後選擇 [完成]。
+   2. 在下一頁上，開啟 [選取區域]  清單，選取您想要的區域，然後選擇 [完成]  。
 
       ![選取其他區域](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
-9. 在確認頁面出現之後，請選擇 [關閉]。 
+9. 在確認頁面出現之後，請選擇 [關閉]  。 
 
    安裝程式會確認您的閘道現在已上線，而且可供使用。
 
@@ -182,23 +182,23 @@ ms.locfileid: "65544465"
 
 如果您必須變更閘道的位置、閘道安裝移至新的電腦、復原受損的閘道，或取得現有閘道的擁有權，您會需要在閘道安裝期間所提供的修復金鑰。 這個動作會中斷舊閘道的連線。
 
-1. 從電腦的 [控制台]，移至 [程式和功能]。 在程式清單中，選取 [內部部署資料閘道]，然後選擇 [解除安裝]。
+1. 從電腦的 [控制台]  ，移至 [程式和功能]  。 在程式清單中，選取 [內部部署資料閘道]  ，然後選擇 [解除安裝]  。
 
 2. [重新安裝內部部署資料閘道](https://aka.ms/on-premises-data-gateway-installer)。
 
 3. 安裝程式開啟後，以先前用來安裝閘道的同一個公司或學校帳戶進行登入。
 
-4. 選取 [遷移、還原或取代現有閘道]，然後選擇 [下一步]。
+4. 選取 [遷移、還原或取代現有閘道]  ，然後選擇 [下一步]  。
 
    ![選取 [遷移、還原或取代現有閘道]](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
-5. 在 [可用的閘道] 或 [可用的閘道叢集] 之下，選取您想要變更的閘道安裝。 輸入閘道安裝的修復金鑰。 
+5. 在 [可用的閘道]  或 [可用的閘道叢集]  之下，選取您想要變更的閘道安裝。 輸入閘道安裝的修復金鑰。 
 
    ![選取主要閘道](./media/logic-apps-gateway-install/select-existing-gateway.png)
 
-6. 若要變更區域，請選取 [變更區域] 和新的區域。
+6. 若要變更區域，請選取 [變更區域]  和新的區域。
 
-7. 完成之後，請選擇 [設定]。
+7. 完成之後，請選擇 [設定]  。
 
 ## <a name="configure-proxy-or-firewall"></a>設定 Proxy 或防火牆
 
@@ -238,7 +238,7 @@ TcpTestSucceeded       : True
 
 閘道會使用這些完整的網域名稱：
 
-| 網域名稱 | 輸出連接埠 | 說明 | 
+| 網域名稱 | 輸出連接埠 | 描述 | 
 | ------------ | -------------- | ----------- | 
 | *.analysis.windows.net | 443 | HTTPS | 
 | *.core.windows.net | 443 | HTTPS | 
@@ -260,9 +260,9 @@ TcpTestSucceeded       : True
 
 1. 瀏覽至內部部署資料閘道用戶端的位置，您通常可以在此找到該位置：```C:\Program Files\On-premises data gateway\Microsoft.PowerBI.EnterpriseGateway.exe```
 
-   否則，若要尋找用戶端位置，請在同一部電腦上開啟 [服務] 主控台，尋找 [內部部署資料閘道服務]，然後檢視 [可執行檔的路徑] 屬性。
+   否則，若要尋找用戶端位置，請在同一部電腦上開啟 [服務] 主控台，尋找 [內部部署資料閘道服務]  ，然後檢視 [可執行檔的路徑]  屬性。
 
-2. 開啟此「組態」檔：**Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
+2. 開啟此「組態」  檔：**Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
 3. 將 **ServiceBusSystemConnectivityModeString** 值從 **AutoDetect** 變更為 **Https**：
 
@@ -363,7 +363,7 @@ TcpTestSucceeded       : True
 **問**：閘道 Windows 服務可以使用 Azure Active Directory 帳戶執行嗎？ <br/>
 **答**：否，Windows 服務必須要有有效的 Windows 帳戶。
 
-### <a name="disaster-recovery"></a>嚴重損壞修復
+### <a name="disaster-recovery"></a>災害復原
 
 **問**：災害復原有哪些選項？ <br/>
 **答**：您可以使用修復金鑰還原或移動閘道。 當您安裝閘道時，請指定修復金鑰。
@@ -382,7 +382,7 @@ TcpTestSucceeded       : True
 **答**：發生此問題的原因如下：
 
 * 您的閘道安裝已經由 Azure 中的其他閘道資源加以註冊及宣告。 建立閘道資源之後，閘道安裝就不會出現在執行個體清單中。
-若要在 Azure 入口網站中檢查您的閘道註冊，請使用 [內部部署資料閘道] 類型，檢閱「所有」 Azure 訂用帳戶的所有 Azure 資源。 
+若要在 Azure 入口網站中檢查您的閘道註冊，請使用 [內部部署資料閘道]  類型，檢閱「所有」  Azure 訂用帳戶的所有 Azure 資源。 
 
 * 安裝閘道的人員的 Azure AD 身分識別與登入 Azure 入口網站的人員不同。 請檢查您已使用安裝閘道的相同身分識別進行登入。
 
@@ -411,8 +411,8 @@ TcpTestSucceeded       : True
 若要協助進行疑難排解，請一律從收集並檢視閘道記錄著手。 您有幾種方式可收集記錄，但是在您安裝閘道之後，最簡單的選項是透過閘道安裝程式的使用者介面。 
 
 1. 在電腦上，開啟內部部署資料閘道安裝程式。
-2. 在左側功能表上，選取 [診斷]。
-3. 在 [閘道記錄] 之下，選取 [匯出記錄]。
+2. 在左側功能表上，選取 [診斷]  。
+3. 在 [閘道記錄]  之下，選取 [匯出記錄]  。
 
    ![從閘道安裝程式匯出記錄](./media/logic-apps-gateway-install/export-logs.png)
 
@@ -429,9 +429,9 @@ TcpTestSucceeded       : True
 
 若要尋找閘道的事件記錄，請遵循下列步驟：
 
-1. 在具有閘道安裝的電腦上，開啟 [事件檢視器]。 
-2. 展開 [事件檢視器 (本機)] > [應用程式和服務記錄]。 
-3. 選取 [內部部署資料閘道服務]。
+1. 在具有閘道安裝的電腦上，開啟 [事件檢視器]  。 
+2. 展開 [事件檢視器 (本機)]   > [應用程式和服務記錄]  。 
+3. 選取 [內部部署資料閘道服務]  。
 
    ![檢視閘道的事件記錄](./media/logic-apps-gateway-install/event-viewer.png)
 
@@ -443,7 +443,7 @@ TcpTestSucceeded       : True
 
 1. 瀏覽至與閘道用戶端相同的位置，您通常可以在此找到該位置：```C:\Program Files\On-premises data gateway```
 
-   否則，若要尋找用戶端位置，請在同一部電腦上開啟 [服務] 主控台，尋找 [內部部署資料閘道服務]，然後檢視 [可執行檔的路徑] 屬性。
+   否則，若要尋找用戶端位置，請在同一部電腦上開啟 [服務] 主控台，尋找 [內部部署資料閘道服務]  ，然後檢視 [可執行檔的路徑]  屬性。
 
 2. 依照描述開啟和編輯下列組態檔：
 
@@ -472,12 +472,12 @@ TcpTestSucceeded       : True
        </setting>
        ```
 
-     * 開啟閘道安裝程式，選取 [診斷]，開啟 [額外記錄]，然後選擇 [套用]：
+     * 開啟閘道安裝程式，選取 [診斷]  ，開啟 [額外記錄]  ，然後選擇 [套用]  ：
 
        ![開啟額外記錄](./media/logic-apps-gateway-install/turn-on-additional-logging.png)
 
      > [!IMPORTANT]
-     > 開啟 TracingVerbosity 設定，可能會大幅增加以閘道使用量為基礎的記錄大小。 完成記錄檢閱之後，請務必在閘道安裝程式中關閉 [額外記錄]或再次於組態檔中將 TracingVerbosity 重設為 **4**，而不是將此設定長期保留開啟狀態。
+     > 開啟 TracingVerbosity 設定，可能會大幅增加以閘道使用量為基礎的記錄大小。 完成記錄檢閱之後，請務必在閘道安裝程式中關閉 [額外記錄]  或再次於組態檔中將 TracingVerbosity 重設為 **4**，而不是將此設定長期保留開啟狀態。
 
 3. 若要尋找查詢的持續時間，請遵循下列步驟：
 
@@ -485,7 +485,7 @@ TcpTestSucceeded       : True
 
    2. 若要尋找查詢，請搜尋活動類型，例如： 
 
-      | 活動類型 | 說明 | 
+      | 活動類型 | 描述 | 
       |---------------|-------------| 
       | MGEQ | 透過 ADO.NET 執行的查詢。 | 
       | MGEO | 透過 OLEDB 執行的查詢。 | 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: d2f7f83654f397cc6b93adbbebc25193155bcedb
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399382"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>準備「Hyper-V VM 災害復原至 Azure」的網路對應
@@ -54,7 +54,7 @@ ms.locfileid: "66399382"
 
 以下是說明這項機制的範例。 讓我們以具有兩個位置 (紐約和芝加哥) 的組織為例。
 
-**位置** | **VMM 伺服器** | **VM 網路** | **對應至**
+**Location** | **VMM 伺服器** | **VM 網路** | **對應至**
 ---|---|---|---
 紐約 | VMM-NewYork| VMNetwork1-NewYork | 對應至 VMNetwork1-Chicago
  |  | VMNetwork2-NewYork | 未對應
@@ -79,7 +79,7 @@ SilverCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwor
 
 ### <a name="logical-and-vm-network-settings"></a>邏輯和 VM 網路設定
 
-**位置** | **邏輯網路** | **相關聯的 VM 網路**
+**Location** | **邏輯網路** | **相關聯的 VM 網路**
 ---|---|---
 紐約 | LogicalNetwork1-NewYork | VMNetwork1-NewYork
 芝加哥 | LogicalNetwork1-Chicago | VMNetwork1-Chicago

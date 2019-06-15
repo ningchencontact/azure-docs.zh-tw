@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/12/2019
 ms.author: juliako
-ms.openlocfilehash: f04ae727957d988e75ea0984d0005a6a140ca63f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: 49ab52f031e24ac77a534c86061fe831bbec39ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732992"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67114675"
 ---
 # <a name="live-events-and-live-outputs"></a>即時事件與即時輸出
 
@@ -54,14 +54,14 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 ![即時編碼](./media/live-streaming/live-encoding.svg)
 
-搭配「媒體服務」使用即時編碼時，您會設定讓內部部署即時編碼器將單一位元速率視訊當作發佈摘要，傳送給「實況活動」(使用 RTMP 或分散式 MP4 通訊協定)。 「實況活動」會將該項傳入的單一位元速率資料流編碼成[多重位元速率視訊資料流](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)，使其可供透過 MPEG-DASH、HLS 及 Smooth Streaming 等通訊協定，傳遞給播放裝置。 建立這類型的「實況活動」時，請將編碼類型指定為 [標準]  (LiveEventEncodingType.Standard)。
+搭配「媒體服務」使用即時編碼時，您會設定讓內部部署即時編碼器將單一位元速率視訊當作發佈摘要，傳送給「實況活動」(使用 RTMP 或分散式 MP4 通訊協定)。 然後設定即時的事件，讓它將編碼該內送單一位元速率串流處理至[多重位元速率視訊資料流](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)，並傳遞要播放裝置透過通訊協定，例如 MPEG DASH、 HLS、 Smooth 提供輸出資料流。
 
-您可以使用 H.264/AVC 視訊轉碼器以及 AAC (AAC-LC、HE-AACv1 或 HE-AACv2) 音訊轉碼器，以高達 1080p 的解析度和每秒 30 個畫面的畫面播放速率傳送發佈摘要。 如需更多詳細資料，請參閱[實況活動類型比較](live-event-types-comparison.md)一文。
+當您使用即時編碼時，您可以傳送摘要只解析度 30 框架/AAC H.264/AVC 視訊轉碼器與第二，畫面播放速率的 1080p 解析度的比重 （AAC LC、 HE-AACv1 或 HE-AACv2） 音訊轉碼器。 請注意，傳遞即時事件，可支援解析度最高到 4k 在 60 框架/秒。 如需更多詳細資料，請參閱[實況活動類型比較](live-event-types-comparison.md)一文。
 
-使用即時編碼時 ([即時事件] 設定為 [標準]  )，編碼預設值會定義傳入的資料流如何編碼為多重位元速率或圖層。 如需相關資訊，請參閱[系統預設值](live-event-types-comparison.md#system-presets)。
+從即時編碼器輸出中所包含的位元速率與解析度取決，預設值。 如果使用**標準**即時編碼器 (LiveEventEncodingType.Standard)，則*Default720p*預設都會指定一組 6 個解析/位元速率組，從 720p 3.5Mbps 到 200 kbps 192 p。 否則，如果使用**Premium1080p**即時編碼器 (LiveEventEncodingType.Premium1080p)，則*Default1080p*預設都會指定一組 6 個解析/位元速率組，從 1080p 3.5Mbps 在到 200 kbps 180p。 如需相關資訊，請參閱[系統預設值](live-event-types-comparison.md#system-presets)。
 
 > [!NOTE]
-> 目前，標準類型的即時事件唯一允許的預設值為 *Default720p*。 如果您需要使用自訂的即時編碼預設值，請連絡 amshelp@microsoft.com。 您應指定解析度和位元速率的所需資料表。 請確認只有一個圖層為 720p，且最多只有 6 個圖層。
+> 如果您需要自訂即時編碼的預設值，請開啟支援票證，透過 Azure 入口網站。 您應指定解析度和位元速率的所需資料表。 ，請確認只有一個圖層 （如果要求的標準的即時編碼器的預設值） 的 720p 或 1080p （如果要求 Premium1080p 即時編碼器的預設值），和最多 6 個圖層。
 
 ## <a name="live-event-creation-options"></a>實況活動建立選項
 
@@ -93,6 +93,14 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
     存取權杖必須是唯一的資料中心內。 如果您的應用程式需要使用虛名 URL，建議一律建立您的存取權杖 （而不是重複使用任何現有的 GUID） 的新 GUID 執行個體。 
 
+    使用下列 Api 啟用虛名 URL，並將存取權杖設定為有效的 GUID (例如`"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`):
+    
+    |語言|啟用虛名 URL|設定存取權杖|
+    |---|---|---|
+    |REST|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--vanity-url](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
+    |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    
 ### <a name="live-ingest-url-naming-rules"></a>即時內嵌 URL 命名規則
 
 下方的 *random* \(隨機\) 字串是 128 位元的十六進位數字 (由 32 個字元的 0-9 a-f 所組成)。<br/>

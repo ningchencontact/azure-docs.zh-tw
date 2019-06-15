@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b14dcb5f5af971b10c83ea7fd9064a08cde3ab35
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 1858b3e8d659d8810c54cab96566d03c24c92adf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545439"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111271"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory 程式碼範例 (v1.0 端點)
 
@@ -114,7 +114,7 @@ ASP.NET Web 應用程式  | ![.NET](media/sample-v2-code/logo_NETframework.png) 
 
 ### <a name="web-api-calling-microsoft-graph-or-another-web-api"></a>呼叫 Microsoft Graph 或其他 Web API 的 Web API
 
-下列範例顯示呼叫其他 Web API 的 Web API。 第二個範例說明如何處理條件式存取。
+下列範例顯示呼叫其他 Web API 的 Web API。 第二個範例示範如何處理條件式存取。
 
  平台 |  呼叫 Microsoft Graph | 呼叫其他 ASP.NET 或 ASP.NET Core 2.0 Web API
  -------- |  --------------------- | -------------------------

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 3b1019d45f4fee60e0e197f283ef38f4f3fca875
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.openlocfilehash: 067280cdad85f59106bce5ff214e2fa9eddf3b71
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143074"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133461"
 ---
 以下是 Azure Active Directory (Azure AD) 服務的使用條件約束和其他服務限制。
 
-| 類別 | 限制 |
+| Category | 限制 |
 | --- | --- |
 | 目錄 | 單一使用者能以成員或來賓的身分，隸屬於最多 500 個 Azure AD 目錄。<br/>單一使用者最多可以建立 20 個目錄。 |
 | 網域 | 您可以新增 900 個以內的受控網域名稱。 如果您要設定所有網域與內部部署 Active Directory 建立同盟，則可以在每個目錄中新增 450 個以內的網域名稱。 |
@@ -29,4 +29,4 @@ ms.locfileid: "66143074"
 | 存取面板 |<ul><li>每位使用者在存取面板中可以看到的應用程式數目沒有限制。 這適用於已指派 Azure AD Premium 或 Enterprise Mobility Suite 授權的使用者。</li><li>每位使用者可在存取面板中看到最多 10 個應用程式圖格。 這項限制適用於已指派「免費」或 Azure Active Directory 的 Azure AD Basic 版本授權的使用者。 應用程式圖格範例包括 Box、Salesforce 或 Dropbox。 此限制不適用於系統管理員帳戶。</li></ul> |
 | 報告 | 在任何報告中，最多可以檢視或下載 1000 個資料列。 任何其他資料會遭到截斷。 |
 | 管理單位 | 物件可以是有不超過 30 個管理單位的成員。 |
-| 系統管理員角色與權限 | <li>無法將群組新增為擁有者。<li>無法將群組指派給角色。<li>除非切換租用戶，否則無法變更預設的使用者權限。您可以在 Azure AD 中的使用者設定進行此動作。 |
+| 系統管理員角色與權限 | <ul><li>群組無法加入成為[擁有者](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership)。</li><li>無法將群組指派給[角色](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles)。</li><li>使用者的能力讀取其他使用者的目錄資訊無法限制之外的整個租用戶的切換，以停用所有非系統管理員使用者的存取 （不建議使用） 的所有目錄資訊。 預設權限的更多有關[此處](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users)。</li><li>可能需要 15 分鐘，或簽署外/登入之前系統管理員角色成員資格新增項目和撤銷才會生效。</li></ul> |

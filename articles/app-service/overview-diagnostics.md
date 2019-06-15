@@ -16,10 +16,10 @@ ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
 ms.openlocfilehash: 3e304df51133d53adad50e672249bde6c9960712
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65539810"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service 診斷概觀
@@ -32,7 +32,7 @@ App Service 診斷不僅適用於 Windows 上您的應用程式，也適用於 [
 
 ## <a name="open-app-service-diagnostics"></a>開啟 App Service 診斷
 
-若要存取 App Service 診斷，瀏覽至您的 App Service web 應用程式或 App Service Environment 現[Azure 入口網站](https://portal.azure.com)。 在左方導覽列中，按一下 [診斷並解決問題]。
+若要存取 App Service 診斷，瀏覽至您的 App Service web 應用程式或 App Service Environment 現[Azure 入口網站](https://portal.azure.com)。 在左方導覽列中，按一下 [診斷並解決問題]  。
 
 適用於 Azure Functions 瀏覽至您的函式應用程式，並在頂端導覽列中，按一下 **平台功能**，然後選取**診斷並解決問題**從**資源管理**一節。
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
 ms.openlocfilehash: de4e9fb4b15f4c346926fe46f23255c668204c2e
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65413896"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>附加或卸離共用映像資源庫中 Azure 實驗室服務
@@ -39,14 +39,14 @@ ms.locfileid: "65413896"
 
 ## <a name="create-and-attach-a-shared-image-gallery"></a>建立並連接共用的映像庫
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取左側功能表上的 [所有服務]。 選取 **DEVOPS** 區段中的 [實驗室服務]。 如果您選取 [實驗室服務] 旁邊的星號 (`*`)，它會新增到左功能表上的 [我的最愛] 區段。 從下一次開始，您可選取 [我的最愛] 下方的 [實驗室服務]。
+2. 選取左側功能表上的 [所有服務]  。 選取 **DEVOPS** 區段中的 [實驗室服務]  。 如果您選取 [實驗室服務]  旁邊的星號 (`*`)，它會新增到左功能表上的 [我的最愛]  區段。 從下一次開始，您可選取 [我的最愛]  下方的 [實驗室服務]  。
 
     ![[所有服務] -> [實驗室服務]](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
 3. 選取您的實驗室帳戶，以查看**實驗室帳戶**頁面。 
 4. 選取 **共用映像庫**左側的功能表中，然後選取 **+ 建立**工具列上。  
 
     ![建立共用的映像組件庫按鈕](../media/how-to-use-shared-image-gallery/new-shared-image-gallery-button.png)
-5. 在 [**建立共用的映像庫**] 視窗中，輸入**名稱**組件庫，並輸入 **[確定]**。 
+5. 在 [**建立共用的映像庫**] 視窗中，輸入**名稱**組件庫，並輸入 **[確定]** 。 
 
     ![建立共用的映像 [圖庫] 視窗](../media/how-to-use-shared-image-gallery/create-shared-image-gallery-window.png)
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 03/12/2019
 ms.author: shvija
-ms.openlocfilehash: 7b5a62f81238d1ae2b627c395613066350b36efe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15912ce2e100a4317e775d72972ca6eacfac0d42
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343438"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080544"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>將虛擬網路服務端點搭配 Azure 事件中樞使用
 
@@ -41,7 +41,7 @@ ms.locfileid: "60343438"
 > - Azure 資料總管
 >
 > 虛擬網路上必須有下列 Microsoft 服務
-> - Azure Web Apps 
+> - Azure Web Apps
 > - Azure Functions
 
 > [!IMPORTANT]
@@ -57,7 +57,7 @@ ms.locfileid: "60343438"
 
 ## <a name="bind-event-hubs-to-virtual-networks"></a>將事件中樞繫結至虛擬網路
 
-「虛擬網路規則」是防火牆安全性功能，可控制 Azure 事件中樞命名空間是否接受來自特定虛擬網路子網路的連線。
+「虛擬網路規則」  是防火牆安全性功能，可控制 Azure 事件中樞命名空間是否接受來自特定虛擬網路子網路的連線。
 
 將事件中樞命名空間繫結至虛擬網路是一個雙步驟程序。 您必須先在虛擬網路子網路上建立**虛擬網路服務端點**，然後為 "Microsoft.EventHub" 啟用該端點，如[服務端點概觀][vnet-sep]所述。 一旦您新增服務端點，便會使用*虛擬網路規則*將事件中樞命名空間與其繫結。
 
@@ -71,10 +71,10 @@ ms.locfileid: "60343438"
 
 * **namespaceName**：「事件中樞」命名空間。
 * **vnetRuleName**：要建立之「虛擬網路」規則的名稱。
-* **virtualNetworkingSubnetId**：虛擬網路子網路的完整 Resource Manager 路徑，例如，如果是虛擬網路的預設子網路，則為 `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default`。
+* **virtualNetworkingSubnetId**：虛擬網路子網路的完整 Resource Manager 路徑，例如，如果是虛擬網路的預設子網路，則為 `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default`。
 
 > [!NOTE]
-> 雖然無法使用任何拒絕規則，但 Azure Resource Manager 範本是將預設動作設定為不會限制連線的 **"Allow"**。
+> 雖然無法使用任何拒絕規則，但 Azure Resource Manager 範本是將預設動作設定為不會限制連線的 **"Allow"** 。
 > 在建立「虛擬網路」或「防火牆」規則時，我們必須將 ***"defaultAction"***
 > 
 > from

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: hrasheed
 ms.openlocfilehash: 7f7f6fe31afe35d9ccfd6ee33617bd7e4fbe46b7
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409552"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 儲存體共用存取簽章來限制 HDInsight 對資料的存取
@@ -227,7 +227,7 @@ Set-AzStorageblobcontent `
 
 在建立 HDInsight 叢集時，您必須指定主要儲存體帳戶，您可以選擇性地指定其他儲存體帳戶。 這兩種新增儲存體的方法都需要所使用的儲存體帳戶和容器的完整存取權。
 
-若要使用共用存取簽章來限制對容器的存取，請將自訂項目新增至叢集的 [核心網站] 組態。 使用 PowerShell 建立叢集期間或使用 Ambari 在叢集建立之後，您可以新增項目。
+若要使用共用存取簽章來限制對容器的存取，請將自訂項目新增至叢集的 [核心網站]  組態。 使用 PowerShell 建立叢集期間或使用 Ambari 在叢集建立之後，您可以新增項目。
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>建立使用 SAS 的叢集
 
@@ -358,29 +358,29 @@ Remove-AzResourceGroup `
 
 1. 開啟叢集的 Ambari Web UI。 此頁面的位址是 `https://YOURCLUSTERNAME.azurehdinsight.net`。 出現提示時，使用您建立叢集時所使用的 admin 名稱 (admin) 和密碼來驗證叢集。
 
-2. 叢 Ambari Web UI 的左側，選擇 [HDFS]，然後選取頁面中間的 [設定] 索引標籤。
+2. 叢 Ambari Web UI 的左側，選擇 [HDFS]  ，然後選取頁面中間的 [設定]  索引標籤。
 
-3. 選取 [進階] 索引標籤，然後再向下捲動直到您找到 [自訂核心網站] 區段。
+3. 選取 [進階]  索引標籤，然後再向下捲動直到您找到 [自訂核心網站]  區段。
 
-4. 展開 [自訂核心網站] 區段，然後捲動至結尾，並且選取 [新增屬性...] 連結。 針對 [金鑰] 和 [值] 欄位使用下列值：
+4. 展開 [自訂核心網站]  區段，然後捲動至結尾，並且選取 [新增屬性...]  連結。 針對 [金鑰]  和 [值]  欄位使用下列值：
 
    * **索引鍵**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
    * **值**：其中一個先前執行的方法所傳回的 SAS。
 
      取代`CONTAINERNAME`容器的名稱，您搭配使用C#或 SAS 應用程式。 取代`STORAGEACCOUNTNAME`與您所使用的儲存體帳戶名稱。
 
-5. 按一下 [新增] 按鈕以儲存這個金鑰和值，然後按一下 [儲存] 按鈕以儲存組態變更。 出現提示時，加入變更的描述 (例如，「新增 SAS 儲存體存取權」)，然後按一下 [儲存]。
+5. 按一下 [新增]  按鈕以儲存這個金鑰和值，然後按一下 [儲存]  按鈕以儲存組態變更。 出現提示時，加入變更的描述 (例如，「新增 SAS 儲存體存取權」)，然後按一下 [儲存]  。
 
-    完成更改后，单击“确定”。
+    變更都完成時按一下 [確定]  。
 
    > [!IMPORTANT]  
    > 您必須重新啟動數個服務，變更才會生效。
 
-6. 在 Ambari Web UI 中，選取左側清單中的 [HDFS]，然後從右側 [服務動作] 下拉式清單中選取 [重新啟動所有受影響項目]。 出現提示時，選取 [確認全部重新啟動]。
+6. 在 Ambari Web UI 中，選取左側清單中的 [HDFS]  ，然後從右側 [服務動作]  下拉式清單中選取 [重新啟動所有受影響項目]  。 出現提示時，選取 [確認全部重新啟動]  。
 
     對 MapReduce2 和 YARN 重複此程序。
 
-7. 這些項目重新啟動之後，選取每一個項目，並從 [服務動作] 下拉式清單停用維護模式。
+7. 這些項目重新啟動之後，選取每一個項目，並從 [服務動作]  下拉式清單停用維護模式。
 
 ## <a name="test-restricted-access"></a>測試限制的存取
 
@@ -428,7 +428,7 @@ Remove-AzResourceGroup `
 
         put: java.io.IOException
 
-    发生此错误的原因是存储位置仅支持读取和列出。 使用下列命令將資料放在叢集的預設儲存體，它是可寫入的：
+    因為儲存體位置僅限讀取+列出，所以會發生此錯誤。 使用下列命令將資料放在叢集的預設儲存體，它是可寫入的：
 
     ```bash
     hdfs dfs -put testfile.txt wasbs:///testupload.txt

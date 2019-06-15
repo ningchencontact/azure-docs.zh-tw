@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
 ms.openlocfilehash: 4cd635c6f664a5260b79e62ea72bbb86fc4e1e4f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938363"
 ---
 # <a name="create-virtual-machine-offer"></a>建立虛擬機器供應項目
@@ -33,13 +33,13 @@ ms.locfileid: "64938363"
 
 ## <a name="new-offer-form"></a>新增供應項目表單
 
-登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)後，按一下左側的選單列上的 [+ 新增供應項目]。 在顯示的選單中，按一下 [虛擬機器] 以顯示 [新增供應項目]，並開始定義新虛擬機器供應項目資產。 
+登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)後，按一下左側的選單列上的 [+ 新增供應項目]  。 在顯示的選單中，按一下 [虛擬機器]  以顯示 [新增供應項目]  ，並開始定義新虛擬機器供應項目資產。 
 <!-- not all publishers see corevm or azure apps test, you need to be whitelisted to see them. we should hide those in these images. -->
 
 ![選擇新虛擬機器供應項目使用者介面](./media/publishvm_003.png)
 
 > [!WARNING]
-> 如果 [虛擬機器] 選項並未顯示，或未啟用，則您的帳戶沒有建立此類供應項目的權限。  請檢查您是否已符合此類供應項目所有[先決條件](./cpp-prerequisites.md)，包括：註冊開發人員帳戶。
+> 如果 [虛擬機器]  選項並未顯示，或未啟用，則您的帳戶沒有建立此類供應項目的權限。  請檢查您是否已符合此類供應項目所有[先決條件](./cpp-prerequisites.md)，包括：註冊開發人員帳戶。
 
 
 ## <a name="next-steps"></a>後續步驟

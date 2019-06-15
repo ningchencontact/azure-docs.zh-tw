@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 5/1/2017
 ms.author: aljo
 ms.openlocfilehash: 9785a09a3ac3e119507b4ac28075d887c7edc619
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60774058"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Azure Service Fabric Reliable Collections 中的交易和鎖定模式
@@ -61,12 +61,12 @@ ms.locfileid: "60774058"
 ## <a name="locks"></a>鎖定
 在 Reliable Collections 中，所有交易都會實作嚴格的兩階段鎖定：在以中止或認可來終止交易之前，交易不會釋放它所取得的鎖定。
 
-Reliable Dictionary 对所有单个实体操作使用行级别锁定。
+可靠的字典會針對所有單一實體作業使用資料列層級鎖定。
 可靠的佇列則會針對嚴格交易的 FIFO 屬性交換並行。
 可靠的佇列會使用作業層級的鎖定，允許一次有 `TryPeekAsync` 和/或 `TryDequeueAsync` 的一個交易，以及有 `EnqueueAsync` 的一個交易。
 請注意，為維持 FIFO，如果 `TryPeekAsync` 或 `TryDequeueAsync` 曾觀察到可靠的佇列是空的，則它們也會鎖定 `EnqueueAsync`。
 
-写入操作始终采用排他锁。
+寫入作業一律會採取「獨佔」鎖定。
 讀取作業的鎖定則取決於一些因素。
 任何使用快照隔離所完成的讀取作業都是無鎖定的。
 任何可重複讀取作業預設都會採用共用鎖定。
@@ -75,11 +75,11 @@ Reliable Dictionary 对所有单个实体操作使用行级别锁定。
 
 下表中可找到鎖定相容性矩陣：
 
-| 请求\授予 | None | 共用 | 更新 | 獨佔 |
+| 要求 \ 授與 | None | 共用 | Update | 獨佔 |
 | --- |:--- |:--- |:--- |:--- |
-| 共用 |無衝突 |無衝突 |冲突 |衝突 |
-| 更新 |無衝突 |無衝突 |冲突 |衝突 |
-| 獨佔 |無衝突 |冲突 |衝突 |衝突 |
+| 共用 |無衝突 |無衝突 |衝突 |衝突 |
+| Update |無衝突 |無衝突 |衝突 |衝突 |
+| 獨佔 |無衝突 |衝突 |衝突 |衝突 |
 
 Reliable Collections API 中的逾時引數是用來進行死結偵測。
 例如，有兩筆交易 (T1 和 T2) 嘗試讀取和更新 K1。

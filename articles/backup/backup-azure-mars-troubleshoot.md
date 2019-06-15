@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: d8a1d261808eb8f97d1e0dab78b767b37ae6802f
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 2c2ed46ed6e4a5d6663387777d3425d18b50500e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743149"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060213"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>針對 Microsoft Azure 復原服務 (MARS) 代理程式進行疑難排解
 
@@ -41,9 +41,29 @@ ms.locfileid: "66743149"
 
 ## <a name="invalid-vault-credentials-provided"></a>提供的保存庫認證無效
 
-| 錯誤詳細資料 | 可能的原因 | 建議動作 |
-| ---     | ---     | ---    |
-| **錯誤** </br> *提供的保存庫認證無效。檔案已損毀或沒有與復原服務關聯的最新認證。(識別碼：34513)* | <ul><li> 保存庫認證無效 (亦即，在將它們下載超過 48 小時之後才註冊)。<li>MARS 代理程式無法將檔案下載到 Windows Temp 目錄。 <li>保存庫認證位於網路位置上。 <li>TLS 1.0 已停用<li> 已設定的 Proxy 伺服器正在封鎖連線。 <br> |  <ul><li>下載新的保存庫認證。(**注意**：如果先前下載了多個保存庫認證檔案，只有最新下載的檔案會在 48 小時內維持有效狀態。) <li>啟動 [IE]   > [設定]  [網際網路選項] >    > [安全性]   > [網際網路]  。 接下來，選取 [自訂層級]  ，然後捲動，直到您看到檔案下載區段為止。 接著選取 [啟用]  。<li>您可能也必須在 IE [信任的網站](https://docs.microsoft.com/azure/backup/backup-configure-vault#verify-internet-access)中新增這些網站。<li>變更設定以使用 Proxy 伺服器。 接著提供 Proxy 伺服器詳細資料。 <li> 使日期和時間與您的電腦相符。<li>如果您收到敘述不允許檔案下載的錯誤，有可能 C:/Windows/Temp 目錄中具有大量檔案。<li>移至 C:/Windows/Temp，並檢查具有 .tmp 副檔名的檔案是否超過 60,000 或 65,000 個。 如果有，請刪除這些檔案。<li>確定您已安裝 .NET Framework 4.6.2。 <li>如果您因 PCI 合規性而停用了 TLS 1.0，請參閱這個[疑難排解頁面](https://support.microsoft.com/help/4022913)。 <li>如果您已在伺服器上安裝防毒程式，請從防毒掃描中排除下列檔案： <ul><li>CBengine.exe<li>與 .NET Framework 相關的 CSC.exe。 伺服器上所安裝的每個 .NET 版本都有一個 CSC.exe。 排除受影響伺服器上繫結至所有 .NET Framework 版本的 CSC.exe 檔案。 <li>臨時資料夾或快取位置。 <br>臨時資料夾或快取位置路徑的預設位置是 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch  。<br><li>Bin 資料夾 C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+**錯誤訊息**：提供的保存庫認證無效。 檔案已損毀或沒有與復原服務關聯的最新認證。 (識別碼：34513)
+
+| 原因 | 建議的動作 |
+| ---     | ---    |
+| **保存庫認證不正確** <br/> <br/> 保存庫認證檔案可能已損毀，或可能已過期 （也就是下載超過 48 小時之前註冊時）| 從復原服務保存庫，從 Azure 入口網站下載新的認證 (請參閱*步驟 6*下方[**下載 MARS 代理程式**](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent)區段)，並執行如下： <ul><li> 如果您已經安裝並註冊 Microsoft Azure 備份代理程式，然後開啟 [Microsoft Azure 備份代理程式] MMC 主控台，並選擇**註冊伺服器**從完成 active directory 註冊新下載的 [動作] 窗格認證 <br/> <li> 如果新的安裝失敗，然後再次嘗試重新安裝使用新的認證</ul> **注意**：如果多個保存庫認證檔案會下載之前，只有最新下載的檔案是有效 48 小時內。 因此建議您下載全新新的保存庫認證檔。
+| **Proxy 伺服器/防火牆封鎖<br/>或<br/>沒有網際網路連線** <br/><br/> 如果您的電腦或 Proxy 伺服器具有受限的網際網路存取則沒有列出必要的 Url 註冊將會失敗。| 若要解決此問題，請執行如下：<br/> <ul><li> 使用您的 IT 團隊，以確保系統具有網際網路連線<li> 如果您沒有使用 Proxy 伺服器，然後確定 [proxy] 選項未選取註冊代理程式時，請確認 proxy 設定步驟列出[這裡](#verifying-proxy-settings-for-windows)<li> 如果您需要防火牆/proxy 伺服器與網路小組確保下, 面 Url 和 IP 位址可以存取<br/> <br> **URL**<br> - *www.msftncsi.com* <br>-  *.Microsoft.com* <br> -  *.WindowsAzure.com* <br>-  *.microsoftonline.com* <br>-  *.windows.net* <br>**IP 位址**<br> - *20.190.128.0/18* <br> - *40.126.0.0/18* <br/></ul></ul>請嘗試重新註冊之後完成上述的疑難排解步驟
+| **防毒軟體封鎖** | 如果您有伺服器上安裝的防毒軟體，然後從防毒掃描新增需要排除規則，下列檔案： <br/><ui> <li> *CBengine.exe* <li> *CSC.exe*<li> 臨時資料夾，預設位置是*C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch* <li> 在 [bin] 資料夾*C:\Program Files\Microsoft Azure Recovery Services Agent\Bin*
+
+### <a name="additional-recommendations"></a>其他建議
+- 移至*c: / Windows/Temp*並檢查是否有超過 60,000 或 65,000 具有.tmp 副檔名的檔案。 如果有，請刪除這些檔案
+- 請確定電腦的日期和時間會比對與當地時區
+- 請確定[下列](backup-configure-vault.md#verify-internet-access)網站會新增至 IE 信任的網站
+
+### <a name="verifying-proxy-settings-for-windows"></a>Windows 驗證的 proxy 設定
+
+- 下載**psexec**從[這裡](https://docs.microsoft.com/sysinternals/downloads/psexec)
+- 執行此程序`psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"`命令從提升權限的提示字元：
+- 這會啟動*Internet Explorer*視窗
+- 移至*工具* -> *網際網路選項* -> *連線* -> *區域網路設定*
+- 確認 proxy 設定*系統*帳戶
+- 如果沒有任何 proxy 設定，而且會提供 proxy 詳細資料，然後移除詳細資料
+-   如果 proxy 設定不正確的 proxy 詳細資料，請確定*Proxy IP*並*連接埠*詳細資料是否正確
+- 關閉*Internet Explorer*
 
 ## <a name="unable-to-download-vault-credential-file"></a>無法下載保存庫認證檔
 
@@ -85,34 +105,31 @@ ms.locfileid: "66743149"
 
 - 請確定 線上備份狀態設為**啟用**。 若要確認狀態執行如下：
 
-  - 移至 [控制台]   > [系統管理工具]   > [工作排程器]  。
-    - 依序展開 [Microsoft]  ，然後選取 [線上備份]  。
+  - 開啟**工作排程器**並展開**Microsoft**，然後選取**Online Backup**。
   - 按兩下 [Microsoft-OnlineBackup]  ，並移至 [觸發程序]  索引標籤。
-  - 驗證是否要將狀態設定為**已啟用**。 如果不是，請選取 [編輯]  ，然後選取 [已啟用]  核取方塊，並按一下 [確定]  。
+  - 驗證是否要將狀態設定為**已啟用**。 如果沒有，然後選取**編輯** > **Enabled**核取方塊，然後按一下**確定**。
 
-- 請確定此使用者帳戶來執行工作為 **系統**或是**本機系統管理員群組**伺服器上。 若要驗證的使用者帳戶，請前往**一般**索引標籤，然後檢查**安全性選項**。
+- 請確定此使用者帳戶來執行工作為 **系統**或是**本機系統管理員群組**伺服器上。 若要驗證的使用者帳戶，請前往**一般**索引標籤，然後檢查**安全性**選項。
 
-- 查看是否已在伺服器上安裝 PowerShell 3.0 或更新版本。 若要檢查 PowerShell 版本，請執行下列命令，並確認「主要」  版本號碼等於或大於 3。
+- 請確定伺服器上已安裝 PowerShell 3.0 或更新版本。 若要檢查 PowerShell 版本，請執行下列命令，並確認「主要」  版本號碼等於或大於 3。
 
   `$PSVersionTable.PSVersion`
 
-- 查看下列路徑是否是 *PSMODULEPATH* 環境變數的一部分。
+- 請確定下列路徑的一部分*PSMODULEPATH*環境變數
 
   `<MARS agent installation path>\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup`
 
-- 如果將 *LocalMachine* 的 Powershell 執行原則設定為受限制，則觸發備份工作的 Powershell cmdlet 可能會失敗。 在提高權限的模式中執行下列命令，以檢查執行原則，並加以設定為 Unrestricted  或 RemoteSigned  。
+- 如果將 *LocalMachine* 的 Powershell 執行原則設定為受限制，則觸發備份工作的 Powershell cmdlet 可能會失敗。 執行下列命令，在提升權限的模式中，以檢查並設定執行原則設為*Unrestricted*或*RemoteSigned*
 
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
 
-- 請確定伺服器已在備份代理程式安裝後重新開機
+- 請確定沒有遺漏或損毀**PowerShell**模組**MSonlineBackup**。 如果沒有任何遺失或損毀的檔案，若要解決此問題，請執行如下：
 
-- 請確定沒有遺漏或損毀**PowerShell**模組**MSonlineBackup**。 如果有任何遺失或損毀的檔案，若要解決問題，請執行如下：
-
-  - 從另一部電腦 (Windows 2008 R2) 正常運作，MARS 代理程式有 MSOnlineBackup 將資料夾複製從 *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* 路徑。
+  - 從任何電腦是否正常運作的 MARS 代理程式有 MSOnlineBackup 將資料夾複製從 *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* 路徑。
   - 此資訊貼上有問題的機器中的相同路徑 *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* 。
-  - 如果 **MSOnlineBackup** 資料夾已存在在電腦上，貼上/取代它的內容檔案。
+  - 如果 **MSOnlineBackup** 資料夾已經存在電腦中，貼上或取代它的內容檔案。
 
 
 > [!TIP]

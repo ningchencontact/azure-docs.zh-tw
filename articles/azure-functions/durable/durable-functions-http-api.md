@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787292"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>長期函式中的 HTTP API (Azure Functions)
@@ -44,7 +44,7 @@ ms.locfileid: "65787292"
 
 這些範例函式會產生下列 JSON 回應資料。 所有欄位的資料類型是 `string`。
 
-| 欄位                   |說明                           |
+| 欄位                   |描述                           |
 |-------------------------|--------------------------------------|
 | **`id`**                |協調流程執行個體的識別碼。 |
 | **`statusQueryGetUri`** |協調流程執行個體的狀態 URL。 |
@@ -74,7 +74,7 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
 
 ## <a name="async-operation-tracking"></a>非同步作業追蹤
 
-先前所述之 HTTP 回應的設計目的，是協助搭配長期函式實作長時間執行 HTTP 非同步 API。 有時候稱為「輪詢取用者模式」。 用戶端/伺服器流量運作方式如下：
+先前所述之 HTTP 回應的設計目的，是協助搭配長期函式實作長時間執行 HTTP 非同步 API。 有時候稱為「輪詢取用者模式」  。 用戶端/伺服器流量運作方式如下：
 
 1. 用戶端會發出 HTTP 要求，以啟動長時間執行處理序，例如協調器函式。
 2. 目標 HTTP 觸發程序會傳回 HTTP 202 回應，具有 `Location` 標頭和 `statusQueryGetUri` 值。
@@ -90,7 +90,7 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
 
 延伸模組實作的所有 HTTP API 會採用下列參數。 所有參數的資料類型是 `string`。
 
-| 參數        | 參數類型  | 說明 |
+| 參數        | 參數類型  | 描述 |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | 查詢字串    | [工作中樞](durable-functions-task-hubs.md)的名稱。 如果未指定，則會假設為目前函式應用程式的工作中樞名稱。 |
 | **`connection`** | 查詢字串    | 儲存體帳戶之連接字串的**名稱**。 如果未指定，則會假設為函式應用程式的預設連接字串。 |
@@ -106,7 +106,7 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
 
 #### <a name="request"></a>要求
 
-对于 1.x 版 Functions 运行时，请求格式如下（为简洁起见，已分多行显示）：
+如需版本 1.x 的 Functions 執行階段，要求會格式化，如下所示 （為了清楚起見顯示多行）：
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
@@ -118,7 +118,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
     &showInput=[true|false]
 ```
 
-在 2.x 版 Functions 运行时中，URL 格式包含的所有参数相同，但前缀略有不同：
+在版本 2.x 的 Functions 執行階段，URL 格式具有完全相同的參數，但稍有不同的前置詞：
 
 ```http
 GET /runtime/webhooks/durabletask/instances/{instanceId}
@@ -132,36 +132,36 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數：
 
-| 欄位                   | 參數類型  | 說明 |
+| 欄位                   | 參數類型  | 描述 |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | 協調流程執行個體的識別碼。 |
-| **`showInput`**         | 查詢字串    | 選擇性參數。 如果设置为 `false`，则函数输入不会包含在响应有效负载中。|
+| **`showInput`**         | 查詢字串    | 選擇性參數。 如果設定為`false`，將不會包含回應承載中的函式輸入。|
 | **`showHistory`**       | 查詢字串    | 選擇性參數。 如果設定為 `true`，則協調流程執行歷程記錄將會包含在回應承載中。|
-| **`showHistoryOutput`** | 查詢字串    | 選擇性參數。 如果设置为 `true`，函数输出将包含在业务流程执行历史记录中。|
-| **`createdTimeFrom`**   | 查詢字串    | 選擇性參數。 指定后，将筛选在给定 ISO8601 时间戳当时或之后创建的返回实例列表。|
-| **`createdTimeTo`**     | 查詢字串    | 選擇性參數。 指定后，将筛选在给定 ISO8601 时间戳当时或之前创建的返回实例列表。|
+| **`showHistoryOutput`** | 查詢字串    | 選擇性參數。 如果設定為`true`，函式輸出將會包含在協調流程執行歷程記錄。|
+| **`createdTimeFrom`**   | 查詢字串    | 選擇性參數。 指定時，會篩選傳回的執行個體上或指定的 ISO8601 時間戳記之後所建立的清單。|
+| **`createdTimeTo`**     | 查詢字串    | 選擇性參數。 指定時，會篩選傳回的執行個體或指定的 ISO8601 時間戳記之前所建立的清單。|
 | **`runtimeStatus`**     | 查詢字串    | 選擇性參數。 指定時，會根據所傳回執行個體的執行階段狀態來篩選所傳回執行個體的清單。 若要查看可能的執行階段狀態值清單，請參閱[查詢執行個體](durable-functions-instance-management.md)主題。 |
 
-#### <a name="response"></a>回應
+#### <a name="response"></a>Response
 
 可以傳回幾個可能的狀態字碼值。
 
-* **HTTP 200 (確定)**：指定的執行個體處於已完成狀態。
-* **HTTP 202 (已接受)**：指定的執行個體正在進行中。
-* **HTTP 400 (不正確的要求)**：指定的執行個體失敗或終止。
-* **HTTP 404 (找不到)**：指定的執行個體不存在或尚未開始執行。
-* **HTTP 500 (內部伺服器錯誤)**：指定的執行個體失敗且發生未處理的例外狀況。
+* **HTTP 200 (確定)** ：指定的執行個體處於已完成狀態。
+* **HTTP 202 (已接受)** ：指定的執行個體正在進行中。
+* **HTTP 400 (不正確的要求)** ：指定的執行個體失敗或終止。
+* **HTTP 404 (找不到)** ：指定的執行個體不存在或尚未開始執行。
+* **HTTP 500 (內部伺服器錯誤)** ：指定的執行個體失敗且發生未處理的例外狀況。
 
 **HTTP 200** 和 **HTTP 202** 案例的回應承載是 JSON 物件，具有下列欄位：
 
-| 欄位                 | 数据类型 | 說明 |
+| 欄位                 | 数据类型 | 描述 |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | string    | 執行個體的執行階段狀態。 值包括 [執行中]、[擱置]、[失敗]、[已取消]、[終止]、[已完成]。 |
+| **`runtimeStatus`**   | 字串    | 執行個體的執行階段狀態。 值包括 [執行中]  、[擱置]  、[失敗]  、[已取消]  、[終止]  、[已完成]  。 |
 | **`input`**           | JSON      | JSON 資料，用來初始化執行個體。 這個欄位為 `null`，如果 `showInput` 查詢字串參數設定為 `false`。|
 | **`customStatus`**    | JSON      | 用於自訂協調流程狀態的 JSON 資料。 如果未設定，欄位會是 `null`。 |
 | **`output`**          | JSON      | 執行個體的 JSON 輸出。 如果執行個體不是已完成狀態，則這個欄位是 `null`。 |
-| **`createdTime`**     | string    | 執行個體建立的時間。 使用 ISO 8601 延伸標記法。 |
-| **`lastUpdatedTime`** | string    | 執行個體保存的時間。 使用 ISO 8601 延伸標記法。 |
+| **`createdTime`**     | 字串    | 執行個體建立的時間。 使用 ISO 8601 延伸標記法。 |
+| **`lastUpdatedTime`** | 字串    | 執行個體保存的時間。 使用 ISO 8601 延伸標記法。 |
 | **`historyEvents`**   | JSON      | 包含協調流程執行歷程記錄的 JSON 陣列。 這個欄位為 `null`，除非 `showHistory` 查詢字串參數設定為 `true`。 |
 
 以下是範例回應承載，其中包含協調流程執行歷程記錄和活動輸出 (針對可讀性格式化)：
@@ -223,14 +223,14 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 
 ### <a name="get-all-instances-status"></a>取得所有執行個體狀態
 
-此外，可以通过从“获取实例状态”请求中删除 `instanceId`，来查询所有实例的状态。 在这种情况下，基本参数与“获取实例状态”相同。 也支持使用查询字符串参数进行筛选。
+您也可以藉由移除查詢的所有執行個體狀態`instanceId`從 「 取得執行個體狀態 」 要求。 在此情況下，基本的參數是 '取得執行個體狀態' 相同。 也支援篩選的查詢字串參數。
 
 請記住一點，`connection` 和 `code` 是選擇性的。 如果您對函式使用匿名驗證，則不需要程式碼。
-如果你不想要使用 AzureWebJobsStorage 应用设置中未定义的其他存储连接字符串，则可以安全地忽略连接查询字符串参数。
+如果您不想使用不同的儲存體連接字串，而不是 AzureWebJobsStorage 應用程式設定中所定義，您可以放心地忽略連接的查詢字串參數。
 
 #### <a name="request"></a>要求
 
-对于 1.x 版 Functions 运行时，请求格式如下（为简洁起见，已分多行显示）：
+如需版本 1.x 的 Functions 執行階段，要求會格式化，如下所示 （為了清楚起見顯示多行）：
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances
@@ -244,7 +244,7 @@ GET /admin/extensions/DurableTaskExtension/instances
     &top={integer}
 ```
 
-在 2.x 版 Functions 运行时中，URL 格式包含的所有参数相同，但前缀略有不同：
+在版本 2.x 的 Functions 執行階段，URL 格式具有完全相同的參數，但稍有不同的前置詞：
 
 ```http
 GET /runtime/webhooks/durableTask/instances?
@@ -260,18 +260,18 @@ GET /runtime/webhooks/durableTask/instances?
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數：
 
-| 欄位                   | 參數類型  | 說明 |
+| 欄位                   | 參數類型  | 描述 |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | 協調流程執行個體的識別碼。 |
-| **`showInput`**         | 查詢字串    | 選擇性參數。 如果设置为 `false`，则函数输入不会包含在响应有效负载中。|
+| **`showInput`**         | 查詢字串    | 選擇性參數。 如果設定為`false`，將不會包含回應承載中的函式輸入。|
 | **`showHistory`**       | 查詢字串    | 選擇性參數。 如果設定為 `true`，則協調流程執行歷程記錄將會包含在回應承載中。|
-| **`showHistoryOutput`** | 查詢字串    | 選擇性參數。 如果设置为 `true`，函数输出将包含在业务流程执行历史记录中。|
-| **`createdTimeFrom`**   | 查詢字串    | 選擇性參數。 指定后，将筛选在给定 ISO8601 时间戳当时或之后创建的返回实例列表。|
-| **`createdTimeTo`**     | 查詢字串    | 選擇性參數。 指定后，将筛选在给定 ISO8601 时间戳当时或之前创建的返回实例列表。|
+| **`showHistoryOutput`** | 查詢字串    | 選擇性參數。 如果設定為`true`，函式輸出將會包含在協調流程執行歷程記錄。|
+| **`createdTimeFrom`**   | 查詢字串    | 選擇性參數。 指定時，會篩選傳回的執行個體上或指定的 ISO8601 時間戳記之後所建立的清單。|
+| **`createdTimeTo`**     | 查詢字串    | 選擇性參數。 指定時，會篩選傳回的執行個體或指定的 ISO8601 時間戳記之前所建立的清單。|
 | **`runtimeStatus`**     | 查詢字串    | 選擇性參數。 指定時，會根據所傳回執行個體的執行階段狀態來篩選所傳回執行個體的清單。 若要查看可能的執行階段狀態值清單，請參閱[查詢執行個體](durable-functions-instance-management.md)主題。 |
-| **`top`**               | 查詢字串    | 選擇性參數。 如果指定，则会限制查询返回的实例数。 |
+| **`top`**               | 查詢字串    | 選擇性參數。 指定時，會限制查詢所傳回的執行個體數目。 |
 
-#### <a name="response"></a>回應
+#### <a name="response"></a>Response
 
 以下是回應承載範例，包括協調流程狀態 (針對可讀性格式化)：
 
@@ -328,17 +328,17 @@ GET /runtime/webhooks/durableTask/instances?
 > 如果執行個體資料表中有大量資料列，則這項作業可能會耗用非常大量 Azure 儲存體 I/O。 在 [Durable Functions (Azure Functions) 中的效能和級別](durable-functions-perf-and-scale.md#instances-table)文件中可以找到執行個體資料表的更多詳細資料。
 >
 
-如果存在更多结果，则会在响应标头中返回继续标记。  標頭的名稱為 `x-ms-continuation-token`。
+如果存在多個結果，接續權杖會傳回回應標頭中。  標頭的名稱為 `x-ms-continuation-token`。
 
-如果在下一个请求标头中设置了继续标记值，则可以获取下一页结果。 请求标头的此名称也是 `x-ms-continuation-token`。
+如果您設定接續語彙基元的值下, 一步 要求標頭中，您可以取得下一頁的結果。 此名稱的要求標頭也是`x-ms-continuation-token`。
 
-### <a name="purge-single-instance-history"></a>清除单个实例的历史记录
+### <a name="purge-single-instance-history"></a>清除單一執行個體記錄
 
-删除指定业务流程实例的历史记录和相关项目。
+刪除歷程記錄和指定的協調流程執行個體的相關的成品。
 
 #### <a name="request"></a>要求
 
-对于 1.x 版 Functions 运行时，请求格式如下（为简洁起见，已分多行显示）：
+如需版本 1.x 的 Functions 執行階段，要求會格式化，如下所示 （為了清楚起見顯示多行）：
 
 ```http
 DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}
@@ -347,7 +347,7 @@ DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}
     &code={systemKey}
 ```
 
-在 2.x 版 Functions 运行时中，URL 格式包含的所有参数相同，但前缀略有不同：
+在版本 2.x 的 Functions 執行階段，URL 格式具有完全相同的參數，但稍有不同的前置詞：
 
 ```http
 DELETE /runtime/webhooks/durabletask/instances/{instanceId}
@@ -358,22 +358,22 @@ DELETE /runtime/webhooks/durabletask/instances/{instanceId}
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數：
 
-| 欄位             | 參數類型  | 說明 |
+| 欄位             | 參數類型  | 描述 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 協調流程執行個體的識別碼。 |
 
-#### <a name="response"></a>回應
+#### <a name="response"></a>Response
 
-可以返回以下 HTTP 状态代码值。
+可以傳回下列 HTTP 狀態碼的值。
 
-* **HTTP 200 (確定)**：已成功清除实例历史记录。
-* **HTTP 404 (找不到)**：指定的实例不存在。
+* **HTTP 200 (確定)** ：已成功清除執行個體歷程記錄。
+* **HTTP 404 (找不到)** ：指定的執行個體不存在。
 
-值为 **HTTP 200** 时的响应有效负载是包含以下字段的 JSON 对象：
+回應承載**HTTP 200**案例是具有下列欄位的 JSON 物件：
 
-| 欄位                  | 数据类型 | 說明 |
+| 欄位                  | 数据类型 | 描述 |
 |------------------------|-----------|-------------|
-| **`instancesDeleted`** | integer   | 删除的实例数。 对于单个实例，此值应始终为 `1`。 |
+| **`instancesDeleted`** | integer   | 刪除的執行個體數目。 單一執行個體案例中，這個值應該一律是`1`。 |
 
 以下是範例回應裝載 (針對可讀性格式化)：
 
@@ -383,13 +383,13 @@ DELETE /runtime/webhooks/durabletask/instances/{instanceId}
 }
 ```
 
-### <a name="purge-multiple-instance-history"></a>清除多个实例的历史记录
+### <a name="purge-multiple-instance-history"></a>清除多個執行個體記錄
 
-也可以通过删除“清除单个实例的历史记录”请求中的 `{instanceId}`，来删除任务中心内多个实例的历史记录和相关项目。 若要有选择地清除实例历史记录，请使用“获取所有实例状态”请求中所述的相同筛选器。
+您也可以刪除歷程記錄和工作中樞內的多個執行個體的相關的成品，藉由移除`{instanceId}`從 「 清除的單一執行個體歷程記錄 」 的要求。 若要選擇性地清除執行個體記錄，使用相同的篩選 '取得所有執行個體的狀態' 的要求中所述。
 
 #### <a name="request"></a>要求
 
-对于 1.x 版 Functions 运行时，请求格式如下（为简洁起见，已分多行显示）：
+如需版本 1.x 的 Functions 執行階段，要求會格式化，如下所示 （為了清楚起見顯示多行）：
 
 ```http
 DELETE /admin/extensions/DurableTaskExtension/instances
@@ -401,7 +401,7 @@ DELETE /admin/extensions/DurableTaskExtension/instances
     &runtimeStatus={runtimeStatus1,runtimeStatus2,...}
 ```
 
-在 2.x 版 Functions 运行时中，URL 格式包含的所有参数相同，但前缀略有不同：
+在版本 2.x 的 Functions 執行階段，URL 格式具有完全相同的參數，但稍有不同的前置詞：
 
 ```http
 DELETE /runtime/webhooks/durabletask/instances
@@ -415,27 +415,27 @@ DELETE /runtime/webhooks/durabletask/instances
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數：
 
-| 欄位                 | 參數類型  | 說明 |
+| 欄位                 | 參數類型  | 描述 |
 |-----------------------|-----------------|-------------|
 | **`createdTimeFrom`** | 查詢字串    | 篩選已清除在或指定的 ISO8601 時間戳記之後所建立的執行個體的清單。|
-| **`createdTimeTo`**   | 查詢字串    | 選擇性參數。 指定后，将筛选在给定 ISO8601 时间戳当时或之前创建的已清除实例列表。|
-| **`runtimeStatus`**   | 查詢字串    | 選擇性參數。 指定后，将根据运行时状态筛选已清除实例的列表。 若要查看可能的執行階段狀態值清單，請參閱[查詢執行個體](durable-functions-instance-management.md)主題。 |
+| **`createdTimeTo`**   | 查詢字串    | 選擇性參數。 指定時，篩選的清單，或指定的 ISO8601 時間戳記之前已建立的已清除執行個體。|
+| **`runtimeStatus`**   | 查詢字串    | 選擇性參數。 指定時，篩選已清除的執行個體的清單根據其執行階段狀態。 若要查看可能的執行階段狀態值清單，請參閱[查詢執行個體](durable-functions-instance-management.md)主題。 |
 
 > [!NOTE]
-> 如果“实例”和/或“历史记录”表中包含许多的行，则此操作可能会导致很高的 Azure 存储 I/O 开销。 有关这些表的更多详细信息，请参阅 [Durable Functions (Azure Functions) 中的性能和缩放](durable-functions-perf-and-scale.md#instances-table)文档。
+> 如果有很多，這項作業可以是非常耗用 Azure 儲存體 I/O 的執行個體及/或歷程記錄中的資料列的資料表。 這些資料表上的更多詳細資料可在[效能和規模 Durable Functions (Azure Functions) 中的](durable-functions-perf-and-scale.md#instances-table)文件。
 
-#### <a name="response"></a>回應
+#### <a name="response"></a>Response
 
-可以返回以下 HTTP 状态代码值。
+可以傳回下列 HTTP 狀態碼的值。
 
-* **HTTP 200 (確定)**：已成功清除实例历史记录。
-* **HTTP 404 (找不到)**：找不到与筛选表达式匹配的实例。
+* **HTTP 200 (確定)** ：已成功清除執行個體歷程記錄。
+* **HTTP 404 (找不到)** ：找不到符合的篩選條件運算式的任何執行個體。
 
-值为 **HTTP 200** 时的响应有效负载是包含以下字段的 JSON 对象：
+回應承載**HTTP 200**案例是具有下列欄位的 JSON 物件：
 
-| 欄位                   | 数据类型 | 說明 |
+| 欄位                   | 数据类型 | 描述 |
 |-------------------------|-----------|-------------|
-| **`instancesDeleted`**  | integer   | 删除的实例数。 |
+| **`instancesDeleted`**  | integer   | 刪除的執行個體數目。 |
 
 以下是範例回應裝載 (針對可讀性格式化)：
 
@@ -451,7 +451,7 @@ DELETE /runtime/webhooks/durabletask/instances
 
 #### <a name="request"></a>要求
 
-对于 1.x 版 Functions 运行时，请求格式如下（为简洁起见，已分多行显示）：
+如需版本 1.x 的 Functions 執行階段，要求會格式化，如下所示 （為了清楚起見顯示多行）：
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}
@@ -460,7 +460,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
     &code={systemKey}
 ```
 
-在 2.x 版 Functions 运行时中，URL 格式包含的所有参数相同，但前缀略有不同：
+在版本 2.x 的 Functions 執行階段，URL 格式具有完全相同的參數，但稍有不同的前置詞：
 
 ```http
 POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
@@ -471,20 +471,20 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數：
 
-| 欄位             | 參數類型  | 說明 |
+| 欄位             | 參數類型  | 描述 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 協調流程執行個體的識別碼。 |
 | **`eventName`**   | URL             | 目標協調流程執行個體等候之事件的名稱。 |
 | **`{content}`**   | 要求內容 | JSON 格式的事件裝載。 |
 
-#### <a name="response"></a>回應
+#### <a name="response"></a>Response
 
 可以傳回幾個可能的狀態字碼值。
 
-* **HTTP 202 (已接受)**：已接受引發的事件以進行處理。
-* **HTTP 400 (不正確的要求)**：要求內容不是類型 `application/json` 或不是有效的 JSON。
-* **HTTP 404 (找不到)**：找不到指定的執行個體。
-* **HTTP 410 (不存在)**：指定的執行個體已完成或失敗，且無法再處理任何引發的事件。
+* **HTTP 202 (已接受)** ：已接受引發的事件以進行處理。
+* **HTTP 400 (不正確的要求)** ：要求內容不是類型 `application/json` 或不是有效的 JSON。
+* **HTTP 404 (找不到)** ：找不到指定的執行個體。
+* **HTTP 410 (不存在)** ：指定的執行個體已完成或失敗，且無法再處理任何引發的事件。
 
 以下是範例要求，它會將 JSON 字串 `"incr"` 傳送給等候名為**作業** 之事件的執行個體：
 
@@ -504,7 +504,7 @@ Content-Length: 6
 
 #### <a name="request"></a>要求
 
-对于 1.x 版 Functions 运行时，请求格式如下（为简洁起见，已分多行显示）：
+如需版本 1.x 的 Functions 執行階段，要求會格式化，如下所示 （為了清楚起見顯示多行）：
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate
@@ -514,7 +514,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate
     &reason={text}
 ```
 
-在 2.x 版 Functions 运行时中，URL 格式包含的所有参数相同，但前缀略有不同：
+在版本 2.x 的 Functions 執行階段，URL 格式具有完全相同的參數，但稍有不同的前置詞：
 
 ```http
 POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
@@ -526,18 +526,18 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數。
 
-| 欄位             | 參數類型  | 說明 |
+| 欄位             | 參數類型  | 描述 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 協調流程執行個體的識別碼。 |
 | **`reason`**      | 查詢字串    | 選用。 終止協調流程執行個體的原因。 |
 
-#### <a name="response"></a>回應
+#### <a name="response"></a>Response
 
 可以傳回幾個可能的狀態字碼值。
 
-* **HTTP 202 (已接受)**：已接受終止要求以進行處理。
-* **HTTP 404 (找不到)**：找不到指定的執行個體。
-* **HTTP 410 (不存在)**：指定的執行個體已完成或失敗。
+* **HTTP 202 (已接受)** ：已接受終止要求以進行處理。
+* **HTTP 404 (找不到)** ：找不到指定的執行個體。
+* **HTTP 410 (不存在)** ：指定的執行個體已完成或失敗。
 
 以下是範例要求，它會終止執行中執行個體並且指定**錯誤**的原因：
 
@@ -553,7 +553,7 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 ### <a name="request"></a>要求
 
-对于 1.x 版 Functions 运行时，请求格式如下（为简洁起见，已分多行显示）：
+如需版本 1.x 的 Functions 執行階段，要求會格式化，如下所示 （為了清楚起見顯示多行）：
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind
@@ -563,7 +563,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind
     &reason={text}
 ```
 
-在 2.x 版 Functions 运行时中，URL 格式包含的所有参数相同，但前缀略有不同：
+在版本 2.x 的 Functions 執行階段，URL 格式具有完全相同的參數，但稍有不同的前置詞：
 
 ```http
 POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
@@ -575,18 +575,18 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 此 API 的要求參數包含先前所述的預設集合，以及下列的唯一參數。
 
-| 欄位             | 參數類型  | 說明 |
+| 欄位             | 參數類型  | 描述 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 協調流程執行個體的識別碼。 |
 | **`reason`**      | 查詢字串    | 選用。 倒轉協調流程執行個體的原因。 |
 
-### <a name="response"></a>回應
+### <a name="response"></a>Response
 
 可以傳回幾個可能的狀態字碼值。
 
-* **HTTP 202 (已接受)**：已接受倒轉要求以進行處理。
-* **HTTP 404 (找不到)**：找不到指定的執行個體。
-* **HTTP 410 (不存在)**：指定的執行個體已完成或終止。
+* **HTTP 202 (已接受)** ：已接受倒轉要求以進行處理。
+* **HTTP 404 (找不到)** ：找不到指定的執行個體。
+* **HTTP 410 (不存在)** ：指定的執行個體已完成或終止。
 
 以下是範例要求，它會倒轉失敗的執行個體並且指定**修正**的原因：
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 842c35a1575c7bcf6f547fb04d5680178b3bee78
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: c402b82b91b02f8d9619c851d09c689fd103c9fe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730374"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116444"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 參考文件
 
@@ -112,7 +112,7 @@ Swagger 所提供的強大功能之一是直接透過文件 UI 來測試 API 端
 
     ![Azure AD 應用程式註冊新增 API](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
-4. 設定為允許 OAuth 2.0 隱含流程的應用程式資訊清單。 按一下 [資訊清單]  ，以開啟應用程式的應用程式資訊清單。 將 *oauth2AllowImplicitFlow* 設定為 `true`。
+4. 設定為允許 OAuth 2.0 隱含流程的應用程式資訊清單。 選取 **資訊清單**開啟您的應用程式的應用程式資訊清單。 將 *oauth2AllowImplicitFlow* 設定為 `true`。
 
     ![Azure AD 隱含流程](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
 
@@ -120,9 +120,9 @@ Swagger 所提供的強大功能之一是直接透過文件 UI 來測試 API 端
 
 之後完成的 Azure Active Directory 註冊：
 
-6. 按一下 **授權**swagger 頁面上的按鈕。
+6. 選取 **授權**swagger 頁面上的按鈕。
 
-    [![按一下 Swagger 授權按鈕](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [![選取 Swagger 授權按鈕](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
 7. 貼上到的應用程式識別碼**client_id**欄位。
 

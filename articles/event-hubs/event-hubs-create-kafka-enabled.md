@@ -12,10 +12,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
 ms.openlocfilehash: 125da95349fce0e75b44b5619baba28d34a74be1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822490"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>建立已啟用 Apache kafka 的事件中樞
@@ -32,17 +32,17 @@ Azure 事件中樞為您提供 Kafka 端點。 此端點可讓您的事件中樞
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>建立已啟用 Kafka 的事件中樞命名空間
 
-1. 登入 [Azure 入口網站][Azure portal]，然後按一下畫面左上方的 [建立資源]。
+1. 登入 [Azure 入口網站][Azure portal]，然後按一下畫面左上方的 [建立資源]  。
 
 2. 搜尋事件中樞，並選取選項，如下所示：
     
     ![在入口網站中搜尋事件中樞](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. 提供唯一名稱並在命名空間上啟用 Kafka。 按一下頁面底部的 [新增] 。
+3. 提供唯一名稱並在命名空間上啟用 Kafka。 按一下頁面底部的 [新增]  。
     
     ![建立命名空間](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
-4. 建立命名空間後，在 [設定] 索引標籤上，按一下 [共用存取原則] 以取得連接字串。
+4. 建立命名空間後，在 [設定]  索引標籤上，按一下 [共用存取原則]  以取得連接字串。
 
     ![按一下 [共用存取原則]](./media/event-hubs-create/create-event-hub7.png)
 

@@ -2,20 +2,20 @@
 title: 將公司網際網路網域指向 Azure 流量管理員網域名稱
 description: 本文將協助您將公司網域名稱指向流量管理員網域名稱。
 services: traffic-manager
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
-ms.author: kumud
-ms.openlocfilehash: 77a5fbab6ecda910750ab2b8bae987e77607223a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: cd99d8829a8a7bb57b6affe98c1257eaa3ea8ce7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60329695"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070958"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>將公司網際網路網域指向 Azure 流量管理員網域
 
@@ -33,5 +33,5 @@ ms.locfileid: "60329695"
 ## <a name="next-steps"></a>後續步驟
 
 * [流量管理員路由方法](traffic-manager-routing-methods.md)
-* [流量管理器 - 禁用、启用或删除配置文件](disable-enable-or-delete-a-profile.md)
+* [流量管理員 - 停用、啟用或刪除設定檔](disable-enable-or-delete-a-profile.md)
 * [流量管理員 - 停用或啟用端點](disable-or-enable-an-endpoint.md)

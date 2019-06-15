@@ -11,10 +11,10 @@ ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 56c15a9505b3f0e4344c9164268082da1ff7cc22
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851547"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL 資料倉儲中的暫存資料表
@@ -24,7 +24,7 @@ ms.locfileid: "65851547"
 暫存資料表在處理資料時很有用 - 尤其是具有暫時性中繼結果的轉換期間。 在 SQL 資料倉儲中，暫存資料表存在於工作階段層級。  它們只出現在建立它們的工作階段中，工作階段登出時就會自動卸除它們。  暫存資料表的結果會寫入至本機，而不是遠端儲存體，這是它的效能優點。
 
 ## <a name="create-a-temporary-table"></a>建立暫存資料表
-建立暫存資料表時會在資料表名稱前面加上 `#`。  例如：
+建立暫存資料表時會在資料表名稱前面加上 `#`。  例如:
 
 ```sql
 CREATE TABLE #stats_ddl

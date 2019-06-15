@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: eb68421c4f62d94eedf266a0c34a0e276eacc4a6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.date: 06/10/2019
+ms.openlocfilehash: b85277a4238351b6448c2cf29676ae3d8c118385
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479273"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077180"
 ---
 # <a name="scale-hdinsight-clusters"></a>調整 HDInsight 叢集
 
@@ -21,6 +21,9 @@ HDInsight 具有彈性，可讓您選擇相應增加和相應減少叢集中的�
 如果您有定期的批次處理，HDInsight 叢集可以相應增加該作業之前，幾分鐘的時間，讓您的叢集有足夠的記憶體和 CPU 資源。  之後，當處理完成且使用量再次降低時，您可以將 HDInsight 叢集相應減少為較少的背景工作節點。
 
 您可以調整叢集，以手動方式使用其中一種，如下所述的方法，或使用[自動調整規模](hdinsight-autoscale-clusters.md)選項，以讓系統自動相應增加和減少以回應 CPU、 記憶體和其他度量。
+
+> [!NOTE]  
+> 只支援使用 HDInsight 3.1.3 版或更高版本的叢集。 如果不確定您的叢集版本，您可以檢查 [屬性] 頁面。
 
 ## <a name="utilities-to-scale-clusters"></a>調整叢集的公用程式
 
@@ -47,6 +50,50 @@ Microsoft 提供下列的公用程式，來調整叢集：
 當您**新增**節點，以執行 HDInsight 叢集 （向上延展），所有擱置或執行作業不會受到影響。 在調整程序執行的同時，您仍可放心地提交新的作業。 如果調整作業因為任何原因失敗，失敗會進行處理以將您的叢集保留的功能狀態。
 
 如果您**移除**節點 （相應減少），任何暫止或執行中作業將會失敗，在調整作業完成時。 這個錯誤是因為一些調整程序期間重新啟動服務。 也會有風險，您的叢集，可以手動調整大小作業期間取得待在安全模式。
+
+變更資料節點數目的影響會因為 HDInsight 支援的各種類型叢集而有所不同：
+
+* Apache Hadoop
+
+    您可以順暢地增加正在執行的 Hadoop 叢集中背景工作節點數目，而不會影響任何擱置或執行中的工作。 您也可以在作業進行當中提交新工作。 系統會順暢處理失敗的調整作業，讓叢集永保正常運作狀態。
+
+    減少資料節點數目以縮減 Hadoop 叢集時，系統會重新啟動叢集中的部分服務。 此行為會導致所有執行中和擱置的工作在調整作業完成時失敗。 但您可以在作業完成後重新提交這些工作。
+
+* Apache HBase (英文)
+
+    您可以順暢地在 HBase 叢集運作時對其新增或移除資料節點。 區域伺服器會在完成調整作業的數分鐘之內自動取得平衡。 但是，您也可以手動平衡區域伺服器，方法是登入叢集的前端節點，然後從命令提示字元視窗執行下列命令：
+
+    ```bash
+    pushd %HBASE_HOME%\bin
+    hbase shell
+    balancer
+    ```
+
+    如需使用 HBase 殼層的詳細資訊，請參閱[開始使用 HDInsight 中的 Apache HBase 範例](hbase/apache-hbase-tutorial-get-started-linux.md)。
+
+* Apache Storm
+
+    您可以順暢地在 Storm 叢集運作時對其新增或移除資料節點。 不過，在調整作業順利完成後，您需要重新平衡拓撲。
+
+    您可以使用兩種方式來完成重新平衡作業：
+
+  * Storm Web UI
+  * 命令列介面 (CLI) 工具
+
+    如需詳細資訊，請參閱 [Apache Storm 文件](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) 。
+
+    HDInsight 叢集上有提供 Storm Web UI：
+
+    ![HDInsight Storm 調整重新平衡](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+
+    以下是用來重新平衡 Storm 拓撲的範例 CLI 命令：
+
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>如何安全地相應減少叢集
 
@@ -140,13 +187,13 @@ org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.server
 1. 停止 Hive 服務，並確定所有查詢和作業皆已完成。
 2. 列出內容的暫存目錄上方，找到`hdfs://mycluster/tmp/hive/`以查看它是否包含任何檔案：
 
-    ```
+    ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     ```
 
     以下是有檔案存在時的輸出範例：
 
-    ```
+    ```output
     sshuser@hn0-scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/_tmp_space.db
@@ -160,7 +207,7 @@ org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.server
 
     從 HDFS 中移除檔案的命令列範例：
 
-    ```
+    ```bash
     hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
     ```
 
@@ -173,7 +220,6 @@ org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.server
 #### <a name="run-the-command-to-leave-safe-mode"></a>執行命令來脫離安全模式
 
 最後一個選項是執行離開安全模式的命令。 如果您知道 HDFS 進入安全模式的原因是因為 Hive 檔案不足複寫，您可以執行下列命令來脫離安全模式：
-
 
 ```bash
 hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
@@ -201,4 +247,3 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 * [自動調整 Azure HDInsight 叢集](hdinsight-autoscale-clusters.md)
 * [Azure HDInsight 簡介](hadoop/apache-hadoop-introduction.md)
-* [調整叢集](hdinsight-administer-use-portal-linux.md#scale-clusters)

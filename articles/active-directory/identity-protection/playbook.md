@@ -17,19 +17,19 @@ ms.date: 06/27/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 697bb8a60861acb120e92d8fd1dda3892a957b57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 24c3af12d35d07796db9255f0ac76dd1389bd013
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294317"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108836"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection 腳本
 
 這個腳本可協助您︰
 
 * 藉由模擬風險事件和弱點，在 Identity Protection 環境中填入資料
-* 設定以風險為基礎的條件式存取原則，並測試這些原則的影響
+* 設定以風險為基礎的條件式存取原則和測試這些原則的影響
 
 
 ## <a name="simulating-risk-events"></a>模擬風險事件
@@ -124,18 +124,18 @@ ms.locfileid: "60294317"
 **若要測試使用者風險安全性原則，請執行下列步驟**：
 
 1. 使用租用戶的全域管理員認證來登入 [https://portal.azure.com](https://portal.azure.com)。
-2. 瀏覽至 [Identity Protection] 。 
-3. 在 [Azure AD Identity Protection] 頁面上，按一下 [使用者風險原則]。
-4. 在 [指派] 區段中，選取所需的使用者 (與群組) 和使用者風險層級。
+2. 瀏覽至 [Identity Protection]  。 
+3. 在 [Azure AD Identity Protection]  頁面上，按一下 [使用者風險原則]  。
+4. 在 [指派]  區段中，選取所需的使用者 (與群組) 和使用者風險層級。
 
     ![使用者風險](./media/playbook/03.png "腳本")
 
 5. 在 [控制] 區段中，選取所需的存取控制 (例如，需要變更密碼)。
-5. 針對 [強制執行原則]，選取 [關閉]。
+5. 針對 [強制執行原則]  ，選取 [關閉]  。
 6. 提高測試帳戶的使用者風險，例如，藉由模擬其中一個風險事件多次來執行。
 7. 等候幾分鐘，然後確認使用者的使用者層級為 [中]。 如果不是，請為使用者模擬更多風險事件。
-8. 針對 [強制執行原則]，選取 [開啟]。
-9. 您現在可以使用風險層級已提高的使用者進行登入，以測試以使用者風險為基礎的條件式存取。
+8. 針對 [強制執行原則]  ，選取 [開啟]  。
+9. 您現在可以測試使用者使用具有提高的風險等級的使用者登入風險型條件式存取。
     
     
 
@@ -152,20 +152,20 @@ ms.locfileid: "60294317"
 
 2. 導覽至 **Azure AD Identity Protection**。
 
-3. 在 [Azure AD Identity Protection] 主頁面上，按一下 [登入風險原則]。 
+3. 在 [Azure AD Identity Protection]  主頁面上，按一下 [登入風險原則]  。 
 
-4. 在 [指派] 區段中，選取所需的使用者 (與群組) 和登入風險層級。
+4. 在 [指派]  區段中，選取所需的使用者 (與群組) 和登入風險層級。
 
     ![登入風險](./media/playbook/04.png "腳本")
 
 
-5. 在 [控制] 區段中，選取所需的存取控制 (例如，**需要多重要素驗證**)。 
+5. 在 [控制]  區段中，選取所需的存取控制 (例如，**需要多重要素驗證**)。 
 
-6. 針對 [強制執行原則]，選取 [開啟]。
+6. 針對 [強制執行原則]  ，選取 [開啟]  。
 
-7. 按一下 [檔案] 。
+7. 按一下 [檔案]  。
 
-8. 您現在可以使用具風險的工作階段 (例如，藉由使用 Tor 瀏覽器) 進行登入，以測試以登入風險為基礎的條件式存取。 
+8. 您現在可以使用具風險的工作階段 （例如，藉由使用 Tor 瀏覽器） 登入測試登入風險型條件式存取。 
 
  
 

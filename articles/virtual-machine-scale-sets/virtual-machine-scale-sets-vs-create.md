@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: manayar
 ms.openlocfilehash: 3d472aeaae7e7f02eba58aadea1df042d6c0f27b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62108047"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>如何使用 Visual Studio 建立虛擬機器擴展集
@@ -33,24 +33,24 @@ Azure 資源群組部署是一種方式，可在單一部署作業中將一組�
 ## <a name="pre-requisites"></a>先決條件
 若要開始在 Visual Studio 中部署虛擬機器擴展集，您需要下列項目：
 
-* Visual Studio 2013 或更高版本
+* Visual Studio 2013 或更新版本
 * Azure SDK 2.7、2.8 或 2.9
 
 >[!NOTE]
 >這些指示假設您使用 Visual Studio 搭配 [Azure SDK 2.8 (英文)](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)。
 
 ## <a name="creating-a-project"></a>建立專案
-1. 選擇 [檔案 | 新增 | 專案]，在 Visual Studio 中建立新專案。
+1. 選擇 [檔案 | 新增 | 專案]  ，在 Visual Studio 中建立新專案。
    
     ![新增檔案][file_new]
 
-2. 在 [Visual C# | 雲端] 底下，選擇 [Azure Resource Manager] 來建立專案，以部署 Azure Resource Manager 範本。
+2. 在 [Visual C# | 雲端]  底下，選擇 [Azure Resource Manager]  來建立專案，以部署 Azure Resource Manager 範本。
    
-    ![创建项目][create_project]
+    ![建立專案][create_project]
 
 3. 從範本清單中，選取 Linux 或 Windows 虛擬機器調整集範本。
    
-   ![选择模板][select_Template]
+   ![選取範本][select_Template]
 
 4. 建立專案之後，您會看到 PowerShell 部署指令碼、Azure Resource Manager 範本，以及虛擬機器擴展集的參數檔。
    
@@ -61,12 +61,12 @@ Azure 資源群組部署是一種方式，可在單一部署作業中將一組�
 
 負載平衡器可讓您透過 SSH (Linux) 或 RDP (Windows) 連接到 VM 執行個體。 前端連接埠範圍是從 50000 開始。 針對 Linux，這表示如果您透過 SSH 連接到通訊埠 50000，系統就會將您路由傳送到擴展集中第一個 VM 的連接埠 22。 連接到連接埠 50001，將路由傳送到第二個 VM 的連接埠 22，依此類推。
 
- 使用 Visual Studio 編輯範本的好方法是使用 JSON 大綱來組織參數、變數和資源。 了解架构后，Visual Studio 可以在部署前指出模板中的错误。
+ 使用 Visual Studio 編輯範本的好方法是使用 JSON 大綱來組織參數、變數和資源。 了解結構描述 Visual Studio 可以在部署範本之前在其中指出錯誤。
 
 ![JSON 總管][json_explorer]
 
 ## <a name="deploy-the-project"></a>部署專案
-1. 部署 Azure Resource Manager 範本來建立虛擬機器擴展集資源。 以滑鼠右鍵按一下專案節點，然後選擇 [部署 | 新增部署]。
+1. 部署 Azure Resource Manager 範本來建立虛擬機器擴展集資源。 以滑鼠右鍵按一下專案節點，然後選擇 [部署 | 新增部署]  。
    
     ![部署範本][5deploy_Template]
     
@@ -78,16 +78,16 @@ Azure 資源群組部署是一種方式，可在單一部署作業中將一組�
    
     ![新增資源群組][new_resource]
 
-4. 接著，按一下 [編輯參數] 以輸入要傳遞到範本的參數。 提供建立部署所需的 OS 使用者名稱和密碼。 如果尚未安裝 PowerShell Tools for Visual Studio，建議核取 [儲存密碼] 以避免隱藏的 PowerShell 命令列提示字元，或使用[金鑰保存庫支援 (英文)](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/)。
+4. 接著，按一下 [編輯參數]  以輸入要傳遞到範本的參數。 提供建立部署所需的 OS 使用者名稱和密碼。 如果尚未安裝 PowerShell Tools for Visual Studio，建議核取 [儲存密碼]  以避免隱藏的 PowerShell 命令列提示字元，或使用[金鑰保存庫支援 (英文)](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/)。
    
     ![編輯參數][edit_parameters]
 
-5. 現在，按一下 [部署]。 [輸出] 視窗會顯示部署進度。 請注意，動作正在執行 **Deploy-AzureResourceGroup.ps1** 指令碼。
+5. 現在，按一下 [部署]  。 [輸出]  視窗會顯示部署進度。 請注意，動作正在執行 **Deploy-AzureResourceGroup.ps1** 指令碼。
    
    ![輸出視窗][output_window]
 
 ## <a name="exploring-your-virtual-machine-scale-set"></a>探索您的虛擬機器擴展集
-部署完成之後，您可以在 Visual Studio 的 [Cloud Explorer] 中檢視新的虛擬機器擴展集 (重新整理清單)。 雲端總管可讓您在開發應用程式的同時，於 Visual Studio 中管理 Azure 資源。 您也可以在 [Azure 入口網站](https://portal.azure.com)和 [Azure 資源總管 (英文)](https://resources.azure.com/) 中檢視虛擬機器擴展集。
+部署完成之後，您可以在 Visual Studio 的 [Cloud Explorer]  中檢視新的虛擬機器擴展集 (重新整理清單)。 雲端總管可讓您在開發應用程式的同時，於 Visual Studio 中管理 Azure 資源。 您也可以在 [Azure 入口網站](https://portal.azure.com)和 [Azure 資源總管 (英文)](https://resources.azure.com/) 中檢視虛擬機器擴展集。
 
 ![雲端總管][cloud_explorer]
 

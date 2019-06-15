@@ -3,9 +3,8 @@ title: 連線到 Office 365 Outlook - Azure Logic Apps | Microsoft Docs
 description: 使用 Office 365 REST API 和 Azure Logic Apps 管理電子郵件、連絡人和行事曆
 author: ecfan
 manager: jeconnoc
-ms.author: v-yiso
-origin.date: 10/18/2016
-ms.date: 09/03/2018
+ms.author: estfan
+ms.date: 10/18/2016
 ms.topic: article
 ms.service: logic-apps
 services: logic-apps
@@ -13,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 52abf17e869216e65780129a7b48df79bd79f67a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105049"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>開始使用 Office 365 Outlook 連接器
@@ -38,7 +37,7 @@ Office 365 Outlook 連接器能夠與 Office 365 中的 Outlook 互動。 使用
 若要深入瞭解 Logic Apps，請參閱[什麼是邏輯應用程式](../logic-apps/logic-apps-overview.md)以及[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="connect-to-office-365"></a>連接至 Office 365
-您必須先建立與服務的「連線」，才能透過邏輯應用程式存取任何服務。 連線可讓邏輯應用程式與另一個服務連線。 例如，若要連線到 Office 365 Outlook，您必須先有 Office 365「連線」。 若要建立連線，請輸入平常用來存取所要連線之服務的認證。 因此，在 Office 365 Outlook 中，請在 Office 365 帳戶輸入認證以建立連線。
+您必須先建立與服務的「連線」  ，才能透過邏輯應用程式存取任何服務。 連線可讓邏輯應用程式與另一個服務連線。 例如，若要連線到 Office 365 Outlook，您必須先有 Office 365「連線」  。 若要建立連線，請輸入平常用來存取所要連線之服務的認證。 因此，在 Office 365 Outlook 中，請在 Office 365 帳戶輸入認證以建立連線。
 
 ## <a name="create-the-connection"></a>建立連線
 > [!INCLUDE [Steps to create a connection to Office 365](../../includes/connectors-create-api-office365-outlook.md)]
@@ -51,17 +50,17 @@ Office 365 Outlook 連接器能夠與 Office 365 中的 Outlook 互動。 使用
 1. 在邏輯應用程式中，輸入 "office 365" 以取得觸發程序的清單︰  
    
     ![](./media/connectors-create-api-office365-outlook/office365-trigger.png)
-2. 選取 [Office 365 Outlook - 即將來臨的事件快要開始時]。 如果連線已存在，則選取下拉式清單中的行事曆。
+2. 選取 [Office 365 Outlook - 即將來臨的事件快要開始時]  。 如果連線已存在，則選取下拉式清單中的行事曆。
    
     ![](./media/connectors-create-api-office365-outlook/sample-calendar.png)
    
     如果系統提示您登入，則輸入登入詳細資料來建立連線。 本主題中的[建立連線](connectors-create-api-office365-outlook.md#create-the-connection)一節會列出步驟。 
    
    > [!NOTE]
-   > 在此範例中，邏輯應用程式會在行事曆事件更新時執行。 若要查看此觸發程序的結果，請新增另一個動作，以傳送簡訊給您。 例如，加入 Twilio「傳送訊息」動作，以便在行事曆事件於 15 分鐘內開始時傳送簡訊給您。 
+   > 在此範例中，邏輯應用程式會在行事曆事件更新時執行。 若要查看此觸發程序的結果，請新增另一個動作，以傳送簡訊給您。 例如，加入 Twilio「傳送訊息」  動作，以便在行事曆事件於 15 分鐘內開始時傳送簡訊給您。 
    > 
    > 
-3. 選取 [編輯] 按鈕，然後設定 [頻率] 和 [間隔] 值。 例如，如果您希望觸發程序每隔 15 分鐘輪詢一次，則將 [頻率] 設定為 [分鐘] 並將 [間隔] 設定為 [15]。 
+3. 選取 [編輯]  按鈕，然後設定 [頻率]  和 [間隔]  值。 例如，如果您希望觸發程序每隔 15 分鐘輪詢一次，則將 [頻率]  設定為 [分鐘]  並將 [間隔]  設定為 [15]  。 
    
     ![](./media/connectors-create-api-office365-outlook/calendar-settings.png)
 4. **儲存**您的變更 (工具列的左上角)。 邏輯應用程式將會儲存，而且可能會自動啟用。
@@ -72,18 +71,18 @@ Office 365 Outlook 連接器能夠與 Office 365 中的 Outlook 互動。 使用
 1. 選取加號。 您會看到幾個選擇：**新增動作**，**新增條件**，或其中一個**詳細**選項。
    
     ![](./media/connectors-create-api-office365-outlook/add-action.png)
-2. 選擇 [新增動作] 。
+2. 選擇 [新增動作]  。
 3. 在文字方塊中，輸入 “office 365” 以取得所有可用動作的清單。
    
     ![](./media/connectors-create-api-office365-outlook/office365-actions.png) 
-4. 在本例中，選擇 [Office 365 Outlook - 建立連絡人]。 如果連線已存在，則選擇 [資料夾識別碼]、[名字] 和其他屬性︰  
+4. 在本例中，選擇 [Office 365 Outlook - 建立連絡人]  。 如果連線已存在，則選擇 [資料夾識別碼]  、[名字]  和其他屬性︰  
    
     ![](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
    
     如果系統提示您輸入連線資訊，請輸入詳細資料以建立連線。 本主題的[建立連線](connectors-create-api-office365-outlook.md#create-the-connection)一節會說明這些屬性。 
    
    > [!NOTE]
-   > 在此範例中，我們會在 Office 365 Outlook 中建立新連絡人。 您可以使用另一個觸發程序的輸出來建立連絡人。 例如，新增 SalesForce「當物件建立時」觸發程序。 然後新增 Office 365 Outlook「建立連絡人」動作，以使用 SalesForce 欄位在 Office 365 中建立新的連絡人。 
+   > 在此範例中，我們會在 Office 365 Outlook 中建立新連絡人。 您可以使用另一個觸發程序的輸出來建立連絡人。 例如，新增 SalesForce「當物件建立時」  觸發程序。 然後新增 Office 365 Outlook「建立連絡人」  動作，以使用 SalesForce 欄位在 Office 365 中建立新的連絡人。 
    > 
    > 
 5. **儲存**您的變更 (工具列的左上角)。 邏輯應用程式將會儲存，而且可能會自動啟用。

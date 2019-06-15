@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: debf91f04cff3cb9705ebc5915e2e665679230a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66143318"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>管理 Azure SQL Database 中的彈性集區
@@ -25,7 +25,7 @@ ms.locfileid: "66143318"
 
 ## <a name="azure-portal-manage-elastic-pools-and-pooled-databases"></a>Azure 入口網站：管理彈性集區和集區資料庫
 
-所有集區設定都可以在一個位置找到：[設定集區] 刀鋒視窗。 若要前往該位置，請在入口網站中尋找彈性集區，然後從刀鋒視窗頂端或左側的資源功能表按一下 [設定集區]。
+所有集區設定都可以在一個位置找到：[設定集區]  刀鋒視窗。 若要前往該位置，請在入口網站中尋找彈性集區，然後從刀鋒視窗頂端或左側的資源功能表按一下 [設定集區]  。
 
 您可以從這裡進行下列任何變更並將變更全部儲存在一個批次中：
 

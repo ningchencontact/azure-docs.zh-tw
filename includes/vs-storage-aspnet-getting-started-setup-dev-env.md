@@ -9,10 +9,10 @@ ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: a7c696870e22e1692ca5ed778e47f8e4cc00615a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160697"
 ---
 ## <a name="set-up-the-development-environment"></a>設定開發環境
@@ -23,27 +23,27 @@ ms.locfileid: "66160697"
 
 1. 開啟 Visual Studio。
 
-1. 從主功能表中，選取 [檔案] > [新增] > [專案]。
+1. 從主功能表中，選取 [檔案]   > [新增]   > [專案]  。
 
-1. 在 [新增專案] 對話方塊中，選取 [Web] > [ASP.NET Web 應用程式 (.NET Framework)]。 在 [名稱] 欄位中，指定 [StorageAspNet]。 選取 [確定] 。
+1. 在 [新增專案]  對話方塊中，選取 [Web]   > [ASP.NET Web 應用程式 (.NET Framework)]  。 在 [名稱]  欄位中，指定 [StorageAspNet]  。 選取 [確定]  。
 
     ![[新增專案] 對話方塊的螢幕擷取畫面](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
 
-1. 在 [新增 ASP.NET Web 應用程式] 對話方塊中，選取 [MVC]，然後選取 [確定]。
+1. 在 [新增 ASP.NET Web 應用程式]  對話方塊中，選取 [MVC]  ，然後選取 [確定]  。
 
     ![[新增 ASP.NET Web 應用程式] 對話方塊的螢幕擷取畫面](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
 
 ### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>使用已連線服務來連線到 Azure 儲存體帳戶
 
-1. 在 [方案總管] 中，於專案上按一下滑鼠右鍵。
+1. 在 [方案總管]  中，於專案上按一下滑鼠右鍵。
 
-1. 從操作功能表中，選取 [新增] > [已連線的服務]。
+1. 從操作功能表中，選取 [新增]   > [已連線的服務]  。
 
-1. 在 [已連線的服務] 對話方塊中，選取 [使用 Azure 儲存體的雲端儲存體]。
+1. 在 [已連線的服務]  對話方塊中，選取 [使用 Azure 儲存體的雲端儲存體]  。
 
     ![[已連線的服務] 對話方塊的螢幕擷取畫面](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 
-1. 在 [Azure 儲存體] 對話方塊中，選取要用於本教學課程的 Azure 儲存體帳戶。 若要建立新的 Azure 儲存體帳戶，請選取 [建立新的儲存體帳戶]，然後完成表單。 在選取現有儲存體帳戶或建立新的儲存體帳戶之後，選取 [新增]。 Visual Studio 會將 Azure 儲存體 NuGet 套件和儲存體連接字串安裝到 **Web.config**。
+1. 在 [Azure 儲存體]  對話方塊中，選取要用於本教學課程的 Azure 儲存體帳戶。 若要建立新的 Azure 儲存體帳戶，請選取 [建立新的儲存體帳戶]  ，然後完成表單。 在選取現有儲存體帳戶或建立新的儲存體帳戶之後，選取 [新增]  。 Visual Studio 會將 Azure 儲存體 NuGet 套件和儲存體連接字串安裝到 **Web.config**。
 
 1. 中**方案總管**，以滑鼠右鍵按一下**相依性**，選擇**管理 NuGet 套件**，並新增為最新版的 NuGet 套件參考Microsoft.Azure.ConfigurationManager。
 

@@ -9,10 +9,10 @@ ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
 ms.openlocfilehash: 51754021f5029a751be90bfc4194ac6347c1e278
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772134"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 保護檔案伺服器 
@@ -64,7 +64,7 @@ DFSR 使用名為「遠端差異壓縮 (RDC)」的壓縮演算法，可用來在
 ### <a name="site-recovery-support"></a>Site Recovery 支援
 由於 Site Recovery 複寫無法以應用程式驗證，下列建議應該適用於下列案例。
 
-| 來源    |至次要網站    |至 Azure
+| source    |至次要網站    |至 Azure
 |---------|---------|---------|
 |Azure| -|是|
 |Hyper-V|   是 |是
@@ -159,10 +159,10 @@ Azure 檔案服務可用來完全取代或補充傳統內部部署檔案伺服�
 
 1. 請移至 Azure 入口網站，然後選取您的復原服務保存庫。
 2. 選取為檔案伺服器環境建立的復原計畫。
-3. 選取 [測試容錯移轉]。
+3. 選取 [測試容錯移轉]  。
 4. 選取復原點和 Azure 虛擬網路，以啟動測試容錯移轉程序。
 5. 次要環境啟動後，請執行驗證。
-6. 驗證完成後，請選取復原計畫上的 [清除測試容錯移轉]，測試容錯移轉環境隨即清除。
+6. 驗證完成後，請選取復原計畫上的 [清除測試容錯移轉]  ，測試容錯移轉環境隨即清除。
 
 如需關於如何執行測試容錯移轉的詳細資訊，請參閱 [Site Recovery 的測試容錯移轉](site-recovery-test-failover-to-azure.md)。
 
@@ -172,7 +172,7 @@ Azure 檔案服務可用來完全取代或補充傳統內部部署檔案伺服�
 
 1. 移至 Azure 入口網站，然後選取您的復原服務保存庫。
 2. 選取為檔案伺服器環境建立的復原計畫。
-3. 選取 [容錯移轉]。
+3. 選取 [容錯移轉]  。
 4. 選取復原點，以啟動容錯移轉程序。
 
 如需關於如何執行容錯移轉的詳細資訊，請參閱[在 Site Recovery 中容錯移轉](site-recovery-failover.md)。

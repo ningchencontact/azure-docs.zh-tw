@@ -15,17 +15,17 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: ebced83346a7b130598e4a5f49a72d51ffd18e4f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118768"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>使用 Azure CLI 建立適用於 Azure 資源的自訂角色
 
 如果[適用於 Azure 資源的內建角色](built-in-roles.md)無法滿足您組織的特定需求，您可以建立自己的自訂角色。 本文說明如何使用 Azure CLI 來建立和管理自訂角色。
 
-如需如何建立自訂角色的逐步教學課程，請參閱[教學課程：使用 Azure CLI 为 Azure 资源创建自定义角色](tutorial-custom-role-cli.md)。
+如需如何建立自訂角色的逐步教學課程，請參閱[教學課程：建立使用 Azure CLI 的 Azure 資源的自訂角色](tutorial-custom-role-cli.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -63,15 +63,15 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 ...
 ```
 
-## <a name="list-a-custom-role-definition"></a>列出自定义角色定义
+## <a name="list-a-custom-role-definition"></a>列出自訂角色定義
 
-若要列出自定义角色定义，请使用 [az role definition list](/cli/azure/role/definition#az-role-definition-list)。 这与用于内置角色的命令相同。
+若要列出自訂角色定義，請使用[az 角色定義清單](/cli/azure/role/definition#az-role-definition-list)。 這是相同的命令，您會使用內建的角色。
 
 ```azurecli
 az role definition list --name <role_name>
 ```
 
-以下示例列出了“虚拟机操作员”角色定义：
+下列範例會列出*Virtual Machine Operator*角色定義：
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator"
@@ -113,7 +113,7 @@ az role definition list --name "Virtual Machine Operator"
 ]
 ```
 
-以下示例仅列出了“虚拟机操作员”角色的 actions：
+下列範例會列出的動作*Virtual Machine Operator*角色：
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator" --output json | jq '.[] | .permissions[0].actions'
@@ -143,7 +143,7 @@ az role definition list --name "Virtual Machine Operator" --output json | jq '.[
 az role definition create --role-definition <role_definition>
 ```
 
-下列範例會建立一個名為 Virtual Machine Operator 的自訂角色。 這個自訂角色會指派 Microsoft.Compute、Microsoft.Storage 和 Microsoft.Network 資源提供者之所有讀取作業的存取權，以及指派啟動、重新啟動和監視虛擬機器的存取權。 這個自訂角色可用於兩個訂用帳戶中。 這個範例使用 JSON 檔案做為輸入。
+下列範例會建立一個名為 Virtual Machine Operator  的自訂角色。 這個自訂角色會指派 Microsoft.Compute  、Microsoft.Storage  和 Microsoft.Network  資源提供者之所有讀取作業的存取權，以及指派啟動、重新啟動和監視虛擬機器的存取權。 這個自訂角色可用於兩個訂用帳戶中。 這個範例使用 JSON 檔案做為輸入。
 
 vmoperator.json
 
@@ -186,7 +186,7 @@ az role definition create --role-definition ~/roles/vmoperator.json
 az role definition update --role-definition <role_definition>
 ```
 
-下列範例會將 Microsoft.Insights/diagnosticSettings/ 作業新增到 Virtual Machine Operator 自訂角色的 Actions 中。
+下列範例會將 Microsoft.Insights/diagnosticSettings/  作業新增到 Virtual Machine Operator  自訂角色的 Actions  中。
 
 vmoperator.json
 
@@ -230,7 +230,7 @@ az role definition update --role-definition ~/roles/vmoperator.json
 az role definition delete --name <role_name or role_id>
 ```
 
-下列範例會刪除 Virtual Machine Operator 自訂角色。
+下列範例會刪除 Virtual Machine Operator  自訂角色。
 
 ```azurecli
 az role definition delete --name "Virtual Machine Operator"

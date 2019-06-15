@@ -1,20 +1,19 @@
 ---
 title: Azure Data Factory 對應資料流程 [最佳化] 索引標籤
-description: 使用 [最佳化] 索引標籤資料分割設定來最佳化 Azure Data Factory 對應資料流程
+description: 最佳化 Azure Data Factory 對應資料流程使用分割區設定中的 [最佳化] 索引標籤
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 3802a8475d8a39a2f275dbc7fcf21ce69892a117
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 372922fff600aaa12fddfeeb86ff4522eca3e602
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262258"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075092"
 ---
-# <a name="mapping-data-flow-transformation-optimize-tab"></a>對應資料流程轉換 [最佳化] 索引標籤
+# <a name="mapping-data-flow-transformation-optimize-tab"></a>將資料對應資料流程轉換最佳化 索引標籤
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -51,3 +50,8 @@ Azure Data Factory 會產生資料行雜湊以產生統一的分割區，使具�
 ### <a name="key"></a>Key
 
 如果您已充分了解自己資料的多重性，索引鍵資料分割可能會是個良好的分割策略。 索引鍵資料分割將會針對資料行中的每個唯一值建立分割區。 您無法設定分割區的數目，因為該數目是以資料中的唯一值作為基礎。
+
+## <a name="next-steps"></a>後續步驟
+
+[對應資料流程效能指南](concepts-data-flow-performance.md)
+[資料流程監視](concepts-data-flow-monitoring.md)

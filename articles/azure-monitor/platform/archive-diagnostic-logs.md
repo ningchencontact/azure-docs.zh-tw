@@ -1,39 +1,31 @@
 ---
 title: 封存 Azure 診斷記錄
 description: 了解如何封存 Azure 診斷記錄以在儲存體帳戶中長期保存。
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: johnkem
+ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: bc1804e547bb1a29fc0dc680b948f1bb31af8307
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8ab8a0bcf0c2c00515e46f3e2bbdb55b42ff7a2a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244924"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071543"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>封存 Azure 診斷記錄
 
 在本文中，我們會示範如何使用 Azure 入口網站、PowerShell Cmdlet、CLI 或 REST API 來封存儲存體帳戶中的 [Azure 診斷記錄](diagnostic-logs-overview.md)。 如果您想要使用適用於稽核、靜態分析或備份的選用保留原則來保留診斷記錄，這個選項非常有用。 儲存體帳戶不一定要和資源發出記錄屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
 
-> [!WARNING]
-> 2018 年 11 月 1 日起，儲存體帳戶中的記錄資料格式將變更為 JSON 資料行。 [請參閱本文以了解影響的描述，以及如何更新您的工具，來處理新的格式。](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
 ## <a name="prerequisites"></a>必要條件
 
 在開始之前，您需要[建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)，以便將診斷記錄封存至其中。 我們強烈建議您不要使用已儲存了其他非監視資料的現有儲存體帳戶，這樣您對監視資料才能有更好的存取控制。 不過，如果您也要封存活動記錄和診斷度量至儲存體帳戶，它會使合理地使用該儲存體帳戶用於診斷記錄也可以在中央位置將所有的監視資料。
 
-> [!NOTE]
->  您目前無法將資料封存到位在安全虛擬網路後面的儲存體帳戶。
-
 ## <a name="diagnostic-settings"></a>診斷設定
 
-若要使用下列任何方法封存診斷記錄，您必須為特定資源設定**診斷設定**。 資源診斷設定會定義記錄檔和計量資料傳送至目的地 （儲存體帳戶、 事件中樞命名空間或 Log Analytics 工作區） 的類別。 它也會定義儲存在儲存體帳戶中每個記錄類別之事件和計量資料的保留原則 (保留的天數)。 如果保留原則設定為零，則會無限期地 (亦即永遠) 儲存該記錄類別的事件。 否則，保留原則可以是 1 到 2147483647 之間的任何天數。 [您可以在此深入了解診斷設定](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)。 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄將被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄會被刪除。 刪除程序會從 UTC 午夜開始，但是請注意，可能需要長達 24 小時的時間，記錄才會從您的儲存體帳戶中刪除。 
+若要使用下列任何方法封存診斷記錄，您必須為特定資源設定**診斷設定**。 資源診斷設定會定義記錄檔和計量資料傳送至目的地 （儲存體帳戶、 事件中樞命名空間或 Log Analytics 工作區） 的類別。 它也會定義儲存在儲存體帳戶中每個記錄類別之事件和計量資料的保留原則 (保留的天數)。 如果保留原則設定為零，則會無限期地 (亦即永遠) 儲存該記錄類別的事件。 否則，保留原則可以是任意數目的 1 到 365 之間的天數。 [您可以在此深入了解診斷設定](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)。 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄將被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄會被刪除。 刪除程序會從 UTC 午夜開始，但是請注意，可能需要長達 24 小時的時間，記錄才會從您的儲存體帳戶中刪除。 
 
 > [!NOTE]
 > 目前不支援透過診斷設定傳送多維度計量。 跨維度值所彙總的維度計量會匯出為扁平化單一維度計量。
@@ -71,17 +63,17 @@ ms.locfileid: "66244924"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ```
-Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Categories networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
+Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Category networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
 | 屬性 | 必要項 | 描述 |
 | --- | --- | --- |
 | resourceId |是 |要设置诊断设置的资源的资源 ID。 |
 | StorageAccountId |否 |資源識別碼，診斷記錄應該要儲存至此儲存體帳戶。 |
-| Categories |否 |要啟用之記錄類別的逗號分隔清單。 |
+| Category |否 |要啟用之記錄類別的逗號分隔清單。 |
 | Enabled |是 |布林值，表示要對資源啟用還是停用診斷。 |
 | RetentionEnabled |否 |布林值，表示此資源是否啟用保留原則。 |
-| RetentionInDays |否 |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地儲存記錄。 |
+| RetentionInDays |否 |事件應保留 1 到 365 之間的天數。 值為 0 會無限期地儲存記錄。 |
 
 ## <a name="archive-diagnostic-logs-via-the-azure-cli"></a>透過 Azure CLI 封存診斷記錄
 

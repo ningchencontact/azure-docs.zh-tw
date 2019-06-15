@@ -10,10 +10,10 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64574116"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure 自動化中的原始檔控制整合
@@ -41,9 +41,9 @@ Azure 自動化支援三種類型的原始檔控制：
 
 ![選取原始檔控制](./media/source-control-integration/select-source-control.png)
 
-選擇 [原始檔控制類型]，按一下 [驗證]。 瀏覽器視窗隨即開啟，並提示您登入，請遵循提示以完成驗證。
+選擇 [原始檔控制類型]  ，按一下 [驗證]  。 瀏覽器視窗隨即開啟，並提示您登入，請遵循提示以完成驗證。
 
-在 [原始檔控制摘要] 頁面上，填入資訊並按一下 [儲存]。 下表顯示可用欄位的說明。
+在 [原始檔控制摘要]  頁面上，填入資訊並按一下 [儲存]  。 下表顯示可用欄位的說明。
 
 |屬性  |描述  |
 |---------|---------|
@@ -93,7 +93,7 @@ New-AzureRmAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<a
 
 如需有關如何建立 GitHub 個人存取權杖的詳細資訊，請瀏覽[建立個人存取權杖以供命令列](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)。
 
-|影響範圍  |描述  |
+|`Scope`  |描述  |
 |---------|---------|
 |**存放庫**     |         |
 |repo:status     | 存取認可狀態         |
@@ -107,7 +107,7 @@ New-AzureRmAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<a
 
 如需有關如何建立 Azure 儲存機制中的個人存取權杖的詳細資訊，請瀏覽[驗證使用個人存取權杖的存取](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)。
 
-|影響範圍  |
+|`Scope`  |
 |---------|
 |程式碼 (讀取)     |
 |專案與小組 (讀取)|
@@ -120,9 +120,9 @@ New-AzureRmAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<a
 
 ## <a name="syncing"></a>同步處理
 
-在選取資料表的來源**原始檔控制**頁面。 按一下 [開始同步處理] 開始同步處理程序。
+在選取資料表的來源**原始檔控制**頁面。 按一下 [開始同步處理]  開始同步處理程序。
 
-您可以按一下 [同步處理作業] 索引標籤，以檢視目前或先前同步處理作業的狀態。在 [原始檔控制] 下拉式清單中選取原始檔控制。
+您可以按一下 [同步處理作業]  索引標籤，以檢視目前或先前同步處理作業的狀態。在 [原始檔控制]  下拉式清單中選取原始檔控制。
 
 ![同步處理狀態](./media/source-control-integration/sync-status.png)
 
@@ -167,7 +167,7 @@ Source Control Sync Summary:
 
 若要中斷連線的原始檔控制存放庫，請開啟**原始檔控制**下方**帳戶設定**自動化帳戶中。
 
-選取您想要移除的原始檔控制。 在 [原始檔控制摘要] 頁面上，按一下 [刪除]。
+選取您想要移除的原始檔控制。 在 [原始檔控制摘要]  頁面上，按一下 [刪除]  。
 
 ## <a name="encoding"></a>編碼
 

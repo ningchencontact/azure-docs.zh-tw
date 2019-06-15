@@ -8,21 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 8b27ad34bdc6fcbd7a1eb46515fbf33c96d02528
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c8b05886ae338bb73b0f4ddce4d02a1f1a926a45
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682903"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078234"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>部署和管理 HDInsight 上的 Apache Storm 拓撲 
 
 在本文件中，您可以了解管理和監視在 Storm on HDInsight 叢集上所執行 [Apache Storm](https://storm.apache.org/) 拓撲的基本概念。
-
-> [!IMPORTANT]  
-> 本文中的步驟需要 HDInsight 叢集上以 Linux 為基礎的 Storm。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。 
->
-
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -32,7 +27,7 @@ ms.locfileid: "64682903"
 
 * (選擇性) **Visual Studio**：Azure SDK 2.5.1 或更新版本，以及 Data Lake Tools for Visual Studio。 如需詳細資訊，請參閱[開始使用 Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)。
 
-    下列其中一个版本的 Visual Studio：
+    下列其中一個 Visual Studio 版本：
 
   * Visual Studio 2012 (含 Update 4)
 
@@ -54,18 +49,18 @@ HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 �
     >
     > Data Lake Tools for Visual Studio 隨附於適用於 Visual Studio 2017 的 __Azure 工作負載__中。
 
-2. 開啟 Visual Studio，選取 [檔案]  >  [新增]  >  [專案]。
+2. 開啟 Visual Studio，選取 [檔案]   >  [新增]   >  [專案]  。
 
-3. 在 [新增專案] 對話方塊中，依序展開 [已安裝]  >  [範本]，然後選取 [HDInsight]。 從範本清單中，選取 [Storm 範例] 。 在對話方塊底部，輸入應用程式的名稱。
+3. 在 [新增專案]  對話方塊中，依序展開 [已安裝]   >  [範本]  ，然後選取 [HDInsight]  。 從範本清單中，選取 [Storm 範例]  。 在對話方塊底部，輸入應用程式的名稱。
 
     ![image](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
 
-4. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，然後選取 [提交至 Storm on HDInsight]。
+4. 在 [方案總管]  中，於專案上按一下滑鼠右鍵，然後選取 [提交至 Storm on HDInsight]  。
 
    > [!NOTE]  
    > 如果出現提示，請輸入您 Azure 訂閱的登入認證。 如果您有多個訂用帳戶，請登入包含 Storm on HDInsight 叢集的訂用帳戶。
 
-5. 從 [Storm 叢集] 下拉式清單中選取 Storm on HDInsight 叢集，然後選取 [提交]。 您可以使用 [輸出]  視窗監視提交是否成功。
+5. 從 [Storm 叢集]  下拉式清單中選取 Storm on HDInsight 叢集，然後選取 [提交]  。 您可以使用 [輸出]  視窗監視提交是否成功。
 
 ## <a name="submit-a-topology-ssh-and-the-storm-command"></a>提交拓撲：SSH 和 Storm 命令
 
@@ -75,7 +70,7 @@ HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 �
 
     如需使用 SSH 連線至 HDInsight 叢集的詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-2. 使用以下命令启动示例拓扑：
+2. 使用下列命令以啟動範例拓撲：
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
 
@@ -92,31 +87,31 @@ HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 �
 
 ## <a name="monitor-and-manage-visual-studio"></a>監視及管理：Visual Studio
 
-使用 Visual Studio 提交拓撲之後，隨即會出現 [Storm 拓撲] 檢視。 從清單中選取拓撲，以檢視執行中拓撲的詳細資訊。
+使用 Visual Studio 提交拓撲之後，隨即會出現 [Storm 拓撲]  檢視。 從清單中選取拓撲，以檢視執行中拓撲的詳細資訊。
 
 ![Visual Studio 監視器](./media/apache-storm-deploy-monitor-topology-linux/vsmonitor.png)
 
 > [!NOTE]  
-> 您也可以透過展開 [Azure]  >  [HDInsight]，並在 Storm on HDInsight 叢集上按一下滑鼠右鍵，然後選取 [檢視 Storm 拓撲] 以從**伺服器總管**中檢視 [Storm 拓撲]。
+> 您也可以透過展開 [Azure]   >  [HDInsight]  ，並在 Storm on HDInsight 叢集上按一下滑鼠右鍵，然後選取 [檢視 Storm 拓撲]  以從**伺服器總管**中檢視 [Storm 拓撲]  。
 
 選取 Spout 或 Bolt 的圖形以檢視這些元件的資訊。 隨即會針對每個選取的項目開啟新的視窗。
 
 ### <a name="deactivate-and-reactivate"></a>停用和重新啟動
 
-停用拓撲會暫停它，直到刪除或重新啟動。 若要執行這些作業，請使用 [拓撲摘要] 頂端的 [停用] 和 [重新啟用] 按鈕。
+停用拓撲會暫停它，直到刪除或重新啟動。 若要執行這些作業，請使用 [拓撲摘要]  頂端的 [停用]  和 [重新啟用]  按鈕。
 
 ### <a name="rebalance"></a>重新平衡
 
 重新平衡拓撲可以讓系統修訂拓撲的平行處理原則。 例如，如果您已調整叢集的大小來新增更多節點，重新平衡可讓拓撲看見新的節點。
 
-若要重新平衡拓撲，請使用 [拓撲摘要] 頂端的 [重新平衡] 按鈕。
+若要重新平衡拓撲，請使用 [拓撲摘要]  頂端的 [重新平衡]  按鈕。
 
 > [!WARNING]  
 > 重新平衡拓撲首先會停用拓撲，然後跨叢集平均重新分佈背景工作角色，最後讓拓撲返回發生重新平衡之前的狀態。 因此，如果拓撲是作用中，它會再次變成作用中。 如果已停用，它就會保持停用。
 
 ### <a name="kill-a-topology"></a>終止拓撲
 
-除非停止 Storm 拓撲或刪除叢集，否則 Storm 拓撲會繼續執行。 若要停止拓撲，請使用 [拓撲摘要] 頂端的 [終止] 按鈕。
+除非停止 Storm 拓撲或刪除叢集，否則 Storm 拓撲會繼續執行。 若要停止拓撲，請使用 [拓撲摘要]  頂端的 [終止]  按鈕。
 
 ## <a name="monitor-and-manage-ssh-and-the-storm-command"></a>監視及管理：SSH 和 Storm 命令
 
@@ -128,13 +123,13 @@ HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 �
 
     storm list
 
-此命令返回类似于以下文本的信息：
+此命令會傳回類似以下文字的資訊：
 
     Topology_name        Status     Num_tasks  Num_workers  Uptime_secs
     -------------------------------------------------------------------
     WordCount            ACTIVE     29         2            263
 
-### <a name="deactivate-and-reactivate"></a>停用和重新激活
+### <a name="deactivate-and-reactivate"></a>停用和重新啟動
 
 停用拓撲會暫停它，直到刪除或重新啟動。 使用下列命令來停用和重新啟動：
 
@@ -142,15 +137,15 @@ HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 �
 
     storm Activate TOPOLOGYNAME
 
-### <a name="kill-a-running-topology"></a>终止正在运行的拓扑
+### <a name="kill-a-running-topology"></a>刪除執行中拓撲
 
-Storm 拓撲一旦啟動之後，就會繼續執行直到停止。 若要停止拓扑，请使用以下命令：
+Storm 拓撲一旦啟動之後，就會繼續執行直到停止。 若要停止拓撲，請使用下列命令：
 
     storm kill TOPOLOGYNAME
 
 ### <a name="rebalance"></a>重新平衡
 
-重新平衡拓撲可以讓系統修訂拓撲的平行處理原則。 例如，如果调整了群集的大小以添加更多节点，则重新平衡允许拓扑查看新节点。
+重新平衡拓撲可以讓系統修訂拓撲的平行處理原則。 例如，如果您已調整叢集的大小來新增更多節點，重新平衡可讓拓撲看見新的節點。
 
 > [!WARNING]  
 > 重新平衡拓撲首先會停用拓撲，然後跨叢集平均重新分佈背景工作角色，最後讓拓撲返回發生重新平衡之前的狀態。 因此，如果拓撲是作用中，它會再次變成作用中。 如果已停用，它就會保持停用。
@@ -159,7 +154,7 @@ Storm 拓撲一旦啟動之後，就會繼續執行直到停止。 若要停止�
 
 ## <a name="monitor-and-manage-storm-ui"></a>監視及管理：Storm UI
 
-Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsight 叢集中。 若要檢視 Storm UI，請使用網頁瀏覽器開啟 **https://CLUSTERNAME.azurehdinsight.net/stormui**，其中 **CLUSTERNAME** 是叢集的名稱。
+Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsight 叢集中。 若要檢視 Storm UI，請使用網頁瀏覽器開啟 **https://CLUSTERNAME.azurehdinsight.net/stormui** ，其中 **CLUSTERNAME** 是叢集的名稱。
 
 > [!NOTE]  
 > 如果要求您提供使用者名稱和密碼，請輸入叢集系統管理員 (admin) 和建立叢集時使用的密碼。
@@ -186,17 +181,17 @@ Storm UI 的主頁面會提供下列資訊：
 
     如需詳細資訊，請參閱 <a href="https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of an Apache Storm topology</a> (了解 Apache Storm 拓撲的平行處理原則)。
   * **終止**：在指定的逾時之後終止 Storm 拓撲。
-* **拓撲統計資料**：拓撲的統計資料。 若要設定頁面上其餘項目的時間範圍，請使用 [視窗] 資料行中的連結。
+* **拓撲統計資料**：拓撲的統計資料。 若要設定頁面上其餘項目的時間範圍，請使用 [視窗]  資料行中的連結。
 * **Spout**：拓撲所使用的 Spout。 使用本節中的連結檢視特定 Spout 的詳細資訊。
 * **Bolt**：拓撲所使用的 Bolt。 使用本節中的連結檢視特定 Bolt 的詳細資訊。
 * **拓撲設定**：所選取拓撲的設定。
 
 ### <a name="spout-and-bolt-summary"></a>Spout 和 Bolt 摘要
 
-從 [Spout] 或 [Bolt] 區段中選取 Spout 會顯示所選取項目的下列資訊：
+從 [Spout]  或 [Bolt]  區段中選取 Spout 會顯示所選取項目的下列資訊：
 
 * **元件摘要**：有關 Spout 或 Bolt 的基本資訊。
-* **Spout/Bolt 統計資料**：Spout 或 Bolt 的統計資料。 若要設定頁面上其餘項目的時間範圍，請使用 [視窗] 資料行中的連結。
+* **Spout/Bolt 統計資料**：Spout 或 Bolt 的統計資料。 若要設定頁面上其餘項目的時間範圍，請使用 [視窗]  資料行中的連結。
 * **輸入統計資料** (僅限 Bolt)：Bolt 所取用之輸入串流的相關資訊。
 * **輸出統計資料**：Spout 或 Bolt 所發出資料流的資訊。
 * **執行程式**：Spout 或 Bolt 執行個體的相關資訊。 選取特定執行程式的 [連接埠]  項目，以檢視針對此執行個體所產生之診斷資訊的記錄。
@@ -213,12 +208,12 @@ Storm UI 是以 REST API 為建置基礎，因此您可以使用 REST API 執行
 
 ### <a name="base-uri"></a>基底 URI
 
-在以 Linux 為基礎的 HDInsight 叢集上 REST API 的基底 URI 可在前端節點上**https:\//HEADNODEFQDN:8744/api/v1/**。 前端節點的網域名稱是在叢集建立期間產生，而不是靜態的。
+在以 Linux 為基礎的 HDInsight 叢集上 REST API 的基底 URI 可在前端節點上**https:\//HEADNODEFQDN:8744/api/v1/** 。 前端節點的網域名稱是在叢集建立期間產生，而不是靜態的。
 
 您可以用幾種不同的方式尋找叢集前端節點的完整網域名稱 (FQDN)：
 
 * **從 SSH 工作階段**：使用命令 `headnode -f` (從 SSH 工作階段到叢集)。
-* **從 Ambari Web**：從頁面頂端選取 [服務]，然後選取 [Storm]。 從 [摘要] 索引標籤，選取 [Storm UI 伺服器]。 託管 Storm UI 和 REST API 的節點 FQDN 位於頁面頂端。
+* **從 Ambari Web**：從頁面頂端選取 [服務]  ，然後選取 [Storm]  。 從 [摘要]  索引標籤，選取 [Storm UI 伺服器]  。 託管 Storm UI 和 REST API 的節點 FQDN 位於頁面頂端。
 * **從 Ambari REST API**：使用命令 `curl -u admin -G "https:\//CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 來擷取 Storm UI 和 REST API 執行所在節點的相關資訊。 將 **CLUSTERNAME** 取代為叢集名稱。 出現提示時，請輸入登入 (系統管理員) 帳戶的密碼。 在回應中，"host_name" 項目包含節點的 FQDN。
 
 ### <a name="authentication"></a>Authentication

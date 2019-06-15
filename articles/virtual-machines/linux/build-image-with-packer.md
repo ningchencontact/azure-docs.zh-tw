@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
 ms.openlocfilehash: c0ec2616d8bdcf3cfd6d649f12e9bfceea33690a
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467753"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>如何在 Azure 中使用 Packer 來建立 Linux 虛擬機器映像
@@ -32,7 +32,7 @@ Azure 中的每個虛擬機器 (VM) 都是透過映像所建立，而映像則�
 ## <a name="create-azure-resource-group"></a>建立 Azure 資源群組
 建置程序進行期間，Packer 會在建置來源 VM 時建立暫存的 Azure 資源。 若要擷取該來源 VM 以作為映像，您必須定義資源群組。 Packer 建置程序所產生的輸出會儲存在此資源群組中。
 
-使用 [az group create](/cli/azure/group) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+使用 [az group create](/cli/azure/group) 來建立資源群組。 下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組：
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -64,22 +64,22 @@ az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, t
 az account show --query "{ subscription_id: id }"
 ```
 
-在下一步中使用这两个命令的输出。
+您將在下一個步驟中使用這兩個命令的輸出。
 
 
 ## <a name="define-packer-template"></a>定義 Packer 範本
 若要建置映像，您可以將範本建立為 JSON 檔案。 在此範本中，您必須定義產生器和佈建程式，由它們執行實際的建置程序。 Packer 具有[適用於 Azure 的佈建程式](https://www.packer.io/docs/builders/azure.html)，以供您定義 Azure 資源，例如上述步驟所建立的服務主體認證。
 
-建立名為 ubuntu.json 的檔案，並貼入下列內容。 針對下列參數輸入您自己的值︰
+建立名為 ubuntu.json  的檔案，並貼入下列內容。 針對下列參數輸入您自己的值︰
 
 | 參數                           | 取得位置 |
 |-------------------------------------|----------------------------------------------------|
-| client_id                         | `az ad sp` 建立命令所產生之輸出的第一行 - appId |
-| client_secret                     | `az ad sp` 建立命令所產生之輸出的第二行 - password |
-| tenant_id                         | `az ad sp` 建立命令所產生之輸出的第三行 - tenant |
-| subscription_id                   | `az account show` 命令所產生的輸出 |
-| managed_image_resource_group_name | 您在第一個步驟中建立的資源群組名稱 |
-| managed_image_name                | 所建立之受控磁碟映像的名稱 |
+| client_id                          | `az ad sp` 建立命令所產生之輸出的第一行 - appId  |
+| client_secret                      | `az ad sp` 建立命令所產生之輸出的第二行 - password  |
+| tenant_id                          | `az ad sp` 建立命令所產生之輸出的第三行 - tenant  |
+| *subscription_id*                   | `az account show` 命令所產生的輸出 |
+| managed_image_resource_group_name  | 您在第一個步驟中建立的資源群組名稱 |
+| managed_image_name                 | 所建立之受控磁碟映像的名稱 |
 
 
 ```json
@@ -204,7 +204,7 @@ Packer 需要幾分鐘的時間來建置 VM、執行佈建程式並清除部署�
 
 
 ## <a name="create-vm-from-azure-image"></a>從 Azure 映像建立 VM
-您現在可以使用 [az vm create](/cli/azure/vm) 從您的映像建立 VM。 指定您使用 `--image` 參數所建立的映像。 下列範例會從 myPackerImage 建立名為 myVM 的 VM，並產生 SSH 金鑰 (如果您還未擁有這些金鑰的話)︰
+您現在可以使用 [az vm create](/cli/azure/vm) 從您的映像建立 VM。 指定您使用 `--image` 參數所建立的映像。 下列範例會從 myPackerImage  建立名為 myVM  的 VM，並產生 SSH 金鑰 (如果您還未擁有這些金鑰的話)︰
 
 ```azurecli
 az vm create \
@@ -219,7 +219,7 @@ az vm create \
 
 建立 VM 需要幾分鐘的時間。 在 VM 建立好之後，請記下 Azure CLI 所顯示的 `publicIpAddress`。 此位址可用來透過 Web 瀏覽器存取 NGINX 網站。
 
-若要使 VM 能使用 Web 流量，请通过 [az vm open-port](/cli/azure/vm) 从 Internet 打开端口 80：
+若要讓 Web 流量到達您的 VM，請使用 [az vm open-port](/cli/azure/vm) 從網際網路開啟通訊埠 80：
 
 ```azurecli
 az vm open-port \
@@ -229,9 +229,9 @@ az vm open-port \
 ```
 
 ## <a name="test-vm-and-nginx"></a>測試 VM 和 NGINX
-現在，您可以開啟 Web 瀏覽器，並在網址列輸入 `http://publicIpAddress`。 在 VM 创建过程中提供自己的公共 IP 地址。 預設 NGINX 網頁即會顯示，如下列範例所示：
+現在，您可以開啟 Web 瀏覽器，並在網址列輸入 `http://publicIpAddress`。 提供您自己從 VM 建立程序中取得的公用 IP 位址。 預設 NGINX 網頁即會顯示，如下列範例所示：
 
-![NGINX 默认站点](./media/build-image-with-packer/nginx.png) 
+![預設 NGINX 網站](./media/build-image-with-packer/nginx.png) 
 
 
 ## <a name="next-steps"></a>後續步驟

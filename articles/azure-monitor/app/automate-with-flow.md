@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: mbullwin
 ms.openlocfilehash: 15299be83758c157bf3bc7d9fb27b50763b9148e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60903484"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>使用適用於 Microsoft Flow 的連接器自動執行 Azure Application Insights 程序
@@ -33,7 +33,7 @@ ms.locfileid: "60903484"
 在此教學課程中，您將學習如何建立流程，該流程會使用 Analytics 自動叢集演算法將 Web 應用程式資料中的屬性分組。 此流程會以電子郵件自動傳送結果，這只是如何將 Microsoft Flow 和 Application Insights Analytics 一起使用的其中一個範例。 
 
 ### <a name="step-1-create-a-flow"></a>步驟 1：建立流程
-1. 登入 [Microsoft Flow](https://flow.microsoft.com)，然後選取 [我的流程]。
+1. 登入 [Microsoft Flow](https://flow.microsoft.com)，然後選取 [我的流程]  。
 2. 按一下 **的新**再**從空白建立**。
 
     ![從空白建立新的流程](./media/automate-with-flow/1createflow.png)
@@ -90,7 +90,7 @@ ms.locfileid: "60903484"
 ### <a name="step-6-configure-the-flow-to-send-email"></a>步驟 6：設定傳送電子郵件的流程
 
 1. 搜尋 **Office 365 Outlook**。
-2. 按一下 [Office 365 Outlook - 傳送電子郵件]。
+2. 按一下 [Office 365 Outlook - 傳送電子郵件]  。
 
     ![Office 365 Outlook 選取視窗](./media/automate-with-flow/9outlookaction.png)
 
@@ -100,19 +100,19 @@ ms.locfileid: "60903484"
 
    b. 輸入電子郵件的主旨。
 
-   c. 按一下 [內文] 方塊中的任意處，然後在右方開啟的動態內容功能表上，選取 [內文]。
+   c. 按一下 [內文]  方塊中的任意處，然後在右方開啟的動態內容功能表上，選取 [內文]  。
 
-   d. 按一下 [顯示進階選項]。
+   d. 按一下 [顯示進階選項]  。
 
     ![Office 365 Outlook 設定](./media/automate-with-flow/10sendemailbody.png)
 
 1. 在動態內容功能表上執行下列動作：
 
-    a. 選取 [附件名稱]。
+    a. 選取 [附件名稱]  。
 
-    b. 選取 [附件內容]。
+    b. 選取 [附件內容]  。
     
-    c. 在 [為 HTML] 方塊中選取 [是]。
+    c. 在 [為 HTML]  方塊中選取 [是]  。
 
     ![Office 365 電子郵件設定畫面](./media/automate-with-flow/11emailattachment.png)
 

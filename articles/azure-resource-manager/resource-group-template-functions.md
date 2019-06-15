@@ -12,35 +12,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: b5a1f12a877008a3ce2ff7bd9635b9ed47b379f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80f5c59f5a113bbe29d18bae41ba44adc338a4b7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782226"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069286"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure 資源管理員範本函數
-本文描述您可以在Azure Resource Manager 範本中使用的所有函式。 若要了解如何在模板中使用函数，请参阅[模板语法](resource-group-authoring-templates.md#syntax)。
+本文描述您可以在Azure Resource Manager 範本中使用的所有函式。 如需在範本中使用函式的資訊，請參閱[範本語法](resource-group-authoring-templates.md#syntax)。
 
 若要建立自己的函式，請參閱[使用者定義的函式](resource-group-authoring-templates.md#functions)。
 
-<a id="array" />
-<a id="coalesce" />
-<a id="concatarray" />
-<a id="contains" />
-<a id="createarray" />
-<a id="empty" />
-<a id="first" />
-<a id="intersection" />
-<a id="json" />
-<a id="last" />
-<a id="length" />
-<a id="min" />
-<a id="max" />
-<a id="range" />
-<a id="skip" />
-<a id="take" />
-<a id="union" />
+<a id="array" aria-hidden="true" />
+<a id="coalesce" aria-hidden="true" />
+<a id="concatarray" aria-hidden="true" />
+<a id="contains" aria-hidden="true" />
+<a id="createarray" aria-hidden="true" />
+<a id="empty" aria-hidden="true" />
+<a id="first" aria-hidden="true" />
+<a id="intersection" aria-hidden="true" />
+<a id="json" aria-hidden="true" />
+<a id="last" aria-hidden="true" />
+<a id="length" aria-hidden="true" />
+<a id="min" aria-hidden="true" />
+<a id="max" aria-hidden="true" />
+<a id="range" aria-hidden="true" />
+<a id="skip" aria-hidden="true" />
+<a id="take" aria-hidden="true" />
+<a id="union" aria-hidden="true" />
 
 ## <a name="array-and-object-functions"></a>陣列和物件函式
 Resource Manager 提供了幾個用來使用陣列和物件的函式。
@@ -63,11 +63,11 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 * [take](resource-group-template-functions-array.md#take)
 * [union](resource-group-template-functions-array.md#union)
 
-<a id="equals" />
-<a id="less" />
-<a id="lessorequals" />
-<a id="greater" />
-<a id="greaterorequals" />
+<a id="equals" aria-hidden="true" />
+<a id="less" aria-hidden="true" />
+<a id="lessorequals" aria-hidden="true" />
+<a id="greater" aria-hidden="true" />
+<a id="greaterorequals" aria-hidden="true" />
 
 ## <a name="comparison-functions"></a>比較函式
 Resource Manager 提供了幾個可在範本中進行比較的函式。
@@ -78,9 +78,9 @@ Resource Manager 提供了幾個可在範本中進行比較的函式。
 * [greater](resource-group-template-functions-comparison.md#greater)
 * [greaterOrEquals](resource-group-template-functions-comparison.md#greaterorequals)
 
-<a id="deployment" />
-<a id="parameters" />
-<a id="variables" />
+<a id="deployment" aria-hidden="true" />
+<a id="parameters" aria-hidden="true" />
+<a id="variables" aria-hidden="true" />
 
 ## <a name="deployment-value-functions"></a>部署值函式
 資源管理員提供下列函式，以從與部署相關的範本和值的區段中取得值：
@@ -89,11 +89,11 @@ Resource Manager 提供了幾個可在範本中進行比較的函式。
 * [參數](resource-group-template-functions-deployment.md#parameters)
 * [變數](resource-group-template-functions-deployment.md#variables)
 
-<a id="and" />
-<a id="bool" />
-<a id="if" />
-<a id="not" />
-<a id="or" />
+<a id="and" aria-hidden="true" />
+<a id="bool" aria-hidden="true" />
+<a id="if" aria-hidden="true" />
+<a id="not" aria-hidden="true" />
+<a id="or" aria-hidden="true" />
 
 ## <a name="logical-functions"></a>邏輯函式
 Resource Manager 提供下列函式以使用邏輯條件：
@@ -104,16 +104,16 @@ Resource Manager 提供下列函式以使用邏輯條件：
 * [not](resource-group-template-functions-logical.md#not)
 * [or](resource-group-template-functions-logical.md#or)
 
-<a id="add" />
-<a id="copyindex" />
-<a id="div" />
-<a id="float" />
-<a id="int" />
-<a id="minint" />
-<a id="maxint" />
-<a id="mod" />
-<a id="mul" />
-<a id="sub" />
+<a id="add" aria-hidden="true" />
+<a id="copyindex" aria-hidden="true" />
+<a id="div" aria-hidden="true" />
+<a id="float" aria-hidden="true" />
+<a id="int" aria-hidden="true" />
+<a id="minint" aria-hidden="true" />
+<a id="maxint" aria-hidden="true" />
+<a id="mod" aria-hidden="true" />
+<a id="mul" aria-hidden="true" />
+<a id="sub" aria-hidden="true" />
 
 ## <a name="numeric-functions"></a>數值函式
 資源管理員提供下列函式以使用整數：
@@ -129,13 +129,13 @@ Resource Manager 提供下列函式以使用邏輯條件：
 * [mul](resource-group-template-functions-numeric.md#mul)
 * [sub](resource-group-template-functions-numeric.md#sub)
 
-<a id="listkeys" />
-<a id="list" />
-<a id="providers" />
-<a id="reference" />
-<a id="resourcegroup" />
-<a id="resourceid" />
-<a id="subscription" />
+<a id="listkeys" aria-hidden="true" />
+<a id="list" aria-hidden="true" />
+<a id="providers" aria-hidden="true" />
+<a id="reference" aria-hidden="true" />
+<a id="resourcegroup" aria-hidden="true" />
+<a id="resourceid" aria-hidden="true" />
+<a id="subscription" aria-hidden="true" />
 
 ## <a name="resource-functions"></a>資源函式
 資源管理員提供下列函式以取得資源值：
@@ -150,39 +150,39 @@ Resource Manager 提供下列函式以使用邏輯條件：
 * [resourceId](resource-group-template-functions-resource.md#resourceid)
 * [訂用帳戶](resource-group-template-functions-resource.md#subscription)
 
-<a id="base64" />
-<a id="base64tojson" />
-<a id="base64tostring" />
-<a id="concat" />
-<a id="containsstring" />
-<a id="datauri" />
-<a id="datauritostring" />
-<a id="emptystring" />
-<a id="endswith" />
-<a id="firststring" />
-<a id="guid" />
-<a id="indexof" />
-<a id="laststring" />
-<a id="lastindexof" />
-<a id="lengthstring" />
-<a id="padleft" />
-<a id="replace" />
-<a id="skipstring" />
-<a id="split" />
-<a id="startswith" />
-<a id="string" />
-<a id="substring" />
-<a id="takestring" />
-<a id="tolower" />
-<a id="toupper" />
-<a id="trim" />
-<a id="uniquestring" />
-<a id="uri" />
-<a id="uricomponent" />
-<a id="uricomponenttostring" />
+<a id="base64" aria-hidden="true" />
+<a id="base64tojson" aria-hidden="true" />
+<a id="base64tostring" aria-hidden="true" />
+<a id="concat" aria-hidden="true" />
+<a id="containsstring" aria-hidden="true" />
+<a id="datauri" aria-hidden="true" />
+<a id="datauritostring" aria-hidden="true" />
+<a id="emptystring" aria-hidden="true" />
+<a id="endswith" aria-hidden="true" />
+<a id="firststring" aria-hidden="true" />
+<a id="guid" aria-hidden="true" />
+<a id="indexof" aria-hidden="true" />
+<a id="laststring" aria-hidden="true" />
+<a id="lastindexof" aria-hidden="true" />
+<a id="lengthstring" aria-hidden="true" />
+<a id="padleft" aria-hidden="true" />
+<a id="replace" aria-hidden="true" />
+<a id="skipstring" aria-hidden="true" />
+<a id="split" aria-hidden="true" />
+<a id="startswith" aria-hidden="true" />
+<a id="string" aria-hidden="true" />
+<a id="substring" aria-hidden="true" />
+<a id="takestring" aria-hidden="true" />
+<a id="tolower" aria-hidden="true" />
+<a id="toupper" aria-hidden="true" />
+<a id="trim" aria-hidden="true" />
+<a id="uniquestring" aria-hidden="true" />
+<a id="uri" aria-hidden="true" />
+<a id="uricomponent" aria-hidden="true" />
+<a id="uricomponenttostring" aria-hidden="true" />
 
 ## <a name="string-functions"></a>字串函數
-Resource Manager 提供以下用于处理字符串的函数：
+資源管理員提供下列函式以使用字串：
 
 * [base64](resource-group-template-functions-string.md#base64)
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
@@ -194,7 +194,7 @@ Resource Manager 提供以下用于处理字符串的函数：
 * [empty](resource-group-template-functions-string.md#empty)
 * [endsWith](resource-group-template-functions-string.md#endswith)
 * [first](resource-group-template-functions-string.md#first)
-* [format](resource-group-template-functions-string.md#format)
+* [格式](resource-group-template-functions-string.md#format)
 * [guid](resource-group-template-functions-string.md#guid)
 * [indexOf](resource-group-template-functions-string.md#indexof)
 * [last](resource-group-template-functions-string.md#last)
@@ -206,7 +206,7 @@ Resource Manager 提供以下用于处理字符串的函数：
 * [skip](resource-group-template-functions-string.md#skip)
 * [分割](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
-* [字符串](resource-group-template-functions-string.md#string)
+* [字串](resource-group-template-functions-string.md#string)
 * [substring](resource-group-template-functions-string.md#substring)
 * [take](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)
@@ -222,4 +222,4 @@ Resource Manager 提供以下用于处理字符串的函数：
 * 如需有關 Azure 資源管理員範本中各區段的說明，請參閱 [編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 * 若要合併多個範本，請參閱 [透過 Azure 資源管理員使用連結的範本](resource-group-linked-templates.md)
 * 建立資源類型時若要逐一查看指定的次數，請參閱 [在 Azure Resource Manager 中建立資源的多個執行個體](resource-group-create-multiple.md)
-* 若要查看如何部署已创建的模板，请参阅[使用 Azure 资源管理器模板部署应用程序](resource-group-template-deploy.md)
+* 若要了解如何部署已建立的範本，請參閱[部署應用程式使用 Azure Resource Manager 範本](resource-group-template-deploy.md)

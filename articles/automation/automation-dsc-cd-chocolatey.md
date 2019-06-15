@@ -10,10 +10,10 @@ ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b53cb65ec99637dadb16ed9d97c495571be956d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61073883"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>使用範例：使用自動化狀態設定和 Chocolatey 持續部署至虛擬機器
@@ -27,11 +27,11 @@ DevOps 領域中有許多工具可協助處理持續整合管線中的各個點�
 這裡要進行的事項很多，幸好，大致上可分成兩個主要程序：
 
 - 撰寫程式碼並測試，然後針對系統的主要和次要版本，建立並發佈安裝封裝。
-- 创建和管理用于安装和运行包中代码的 VM。  
+- 建立和管理 VM，以安裝和執行封裝中的程式碼。  
 
-当这两个核心过程都已经正常运行后，只要创建和部署了新版本，就能立即自动更新任何特定 VM 上运行的包。
+完成這兩個核心程序後，隨著建立和部署新版本，立即就能自動更新任何特定 VM 上執行的套件。
 
-## <a name="component-overview"></a>组件概述
+## <a name="component-overview"></a>元件概觀
 
 [apt get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) 這類封裝管理員在 Linux 領域中相當知名，但在 Windows 領域中沒有那麼出名。
 [Chocolatey](https://chocolatey.org/) 就是如此，Scott Hanselman 的[部落格](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx)對此主題有深入介紹。 簡單的說，Chocolatey 可讓您使用命令列，從封裝的中央儲存機制將封裝安裝到 Windows 系統。 您可以建立和管理您自己的儲存機制，而 Chocolatey 可以從您指定的任何數量的儲存機制來安裝封裝。
@@ -46,7 +46,7 @@ DSC 資源是具有特定功能的程式碼模組，例如管理網路、Active 
 
 Resource Manager 範本以宣告方式產生基礎結構，例如網路、子網路、網路安全性和路由、負載平衡器、NIC、VM...等等。 這篇[文章](../azure-resource-manager/resource-manager-deployment-model.md)比較 Resource Manager 部署模型 (宣告) 與 Azure 服務管理 (ASM 或傳統) 部署模型 (必要)，以及討論核心資源提供者、計算、儲存體和網路。
 
-Resource Manager 範本的主要功能之一，能夠在佈建時將 VM 擴充功能安裝至 VM 中。 VM 扩展模块具有特定功能，例如运行自定义脚本、安装防病毒软件或运行 DSC 配置脚本。 有許多其他類型的 VM 延伸模組。
+Resource Manager 範本的主要功能之一，能夠在佈建時將 VM 擴充功能安裝至 VM 中。 VM 延伸模組具有特定功能，例如執行自訂指令碼、安裝防毒軟體或執行 DSC 組態指令碼。 有許多其他類型的 VM 延伸模組。
 
 ## <a name="quick-trip-around-the-diagram"></a>圖表速覽
 
@@ -56,7 +56,7 @@ Chocolatey 可以處理各種類型的安裝封裝，例如 MSI、MSU、ZIP 等�
 圖表左下方有一個 Azure Resource Manager 範本。 在這個使用範例中，VM 擴充功能會將 VM 註冊到 Azure 自動化狀態設定提取伺服器 (也就是提取伺服器)，作為「節點」。 組態儲存在提取伺服器中。
 它實際上會儲存兩次：一次儲存為純文字，另一次編譯成 MOF 檔案 (供對此有所瞭解的人使用。)在入口網站，MOF 是「節點組態」(而非只是「組態」)。 它是與「節點」相關聯的構件，因此節點會知道其組態。 下列詳細資料示範如何將節點組態指派給節點。
 
-也许已执行了开头的一点或大部分操作。 建立 nuspec、編譯和儲存在 NuGet 伺服器中很簡單。 您已開始管理 VM。 持續部署的下一步需要設定提取伺服器 (一次)、向它註冊節點 (一次)，然後建立組態並儲存到那裡 (初步)。 接著，當封裝升級並部署至儲存機制時，請重新整理提取伺服器中的 [組態] 和 [節點組態] \(視需要重複)。
+您應已完成其中的初階工作或大部分的工作。 建立 nuspec、編譯和儲存在 NuGet 伺服器中很簡單。 您已開始管理 VM。 持續部署的下一步需要設定提取伺服器 (一次)、向它註冊節點 (一次)，然後建立組態並儲存到那裡 (初步)。 接著，當封裝升級並部署至儲存機制時，請重新整理提取伺服器中的 [組態] 和 [節點組態] \(視需要重複)。
 
 如果您不是從 Resource Manager 範本開始，也沒關係。 有一些 PowerShell Cmdlet 可協助您向提取伺服器註冊 VM，以及完成其餘所有工作。 如需詳細資料，請參閱這篇文章：[將機器上架交由 Azure 自動化 State Configuration 管理](automation-dsc-onboarding.md)。
 
@@ -83,9 +83,9 @@ PowerShell 資源庫會自動將 DSC 資源安裝到您的 Azure 自動化帳戶
 
 ![PowerShell 資源庫範例](./media/automation-dsc-cd-chocolatey/xNetworking.PNG)
 
-最近新增至 Azure 入口網站的另一種技術可讓您提取新模組或更新現有模組。 按一下 [自動化帳戶資源]、[資產] 圖格和 [模組] 圖格。 [瀏覽資源庫] 圖示可讓您查看資源庫的模組清單，深入了解詳細資料，並最終匯入您的自動化帳戶。 這是讓您的模組隨時保持最新狀態的絕佳方法。 而且，导入功能会检查与其他模块的依赖性，以确保所有模块都保持同步。
+最近新增至 Azure 入口網站的另一種技術可讓您提取新模組或更新現有模組。 按一下 [自動化帳戶資源]、[資產] 圖格和 [模組] 圖格。 [瀏覽資源庫] 圖示可讓您查看資源庫的模組清單，深入了解詳細資料，並最終匯入您的自動化帳戶。 這是讓您的模組隨時保持最新狀態的絕佳方法。 而且，匯入功能會檢查與其他模組的相依性以確保所有模組都保持同步。
 
-还有手动方法。 适用于 Windows 计算机的 PowerShell 集成模块的文件夹结构与 Azure 自动化所需的文件夹结构稍有不同。
+或者，您可以使用手動方法。 適用於 Windows 電腦的 PowerShell 整合模組的資料夾結構，與 Azure 自動化所需的資料夾結構稍有不同。
 您需要稍微調整一下。 但這並不難，每個資源只需要調整一次 (除非您將來想要升級。)如需關於撰寫 PowerShell 整合模組的詳細資訊，請參閱下列文章：[撰寫 Azure 自動化的整合模組](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 - 將您需要的模組安裝在工作站，如下所示：
@@ -178,21 +178,21 @@ Get-AzureRmAutomationDscCompilationJob `
 ## <a name="step-5-creating-and-maintaining-package-metadata"></a>步驟 5：建立和維護封裝中繼資料
 
 對於放入封裝儲存機制中的每一個封裝，您需要 nuspec 來描述它。
-該 nuspec 必須編譯並儲存在 NuGet 伺服器中。 此程序的說明請參閱 [這裡](https://docs.nuget.org/create/creating-and-publishing-a-package)。 可以使用 MyGet.org 作为 NuGet 服务器。 他们销售这种服务，但也提供免费的初始 SKU。 在 NuGet.org，您可以找到針對私人套件自行安裝 NuGet 伺服器的指示。
+該 nuspec 必須編譯並儲存在 NuGet 伺服器中。 此程序的說明請參閱 [這裡](https://docs.nuget.org/create/creating-and-publishing-a-package)。 您可以使用 MyGet.org 做為 NuGet 伺服器。 他們銷售這項服務，但有免費的入門 SKU。 在 NuGet.org，您可以找到針對私人套件自行安裝 NuGet 伺服器的指示。
 
 ## <a name="step-6-tying-it-all-together"></a>步驟 6：整合一切
 
 每當有某個版本通過 QA 並核准可部署時，即會建立封裝，且 nuspec 及 nupkg 會更新並部署至 NuGet 伺服器。 此外也必須更新組態 (上述的步驟 4)，以符合新的版本號碼。 它必須傳送至提取伺服器並進行編譯。
 從這裡開始，則須由依存於該組態的 VM 提取更新並加以安裝。 這些更新內容很簡單 - 只有一兩行 PowerShell。 以 Azure DevOps 為例，有些更新會封裝在可一起鏈結在組建內的建置工作中。 [本文](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery)將詳加說明。 此 [GitHub 儲存機制](https://github.com/Microsoft/vso-agent-tasks) 會詳細說明各種可用的建置工作。
 
-## <a name="notes"></a>注释
+## <a name="notes"></a>注意
 
 此使用範例開頭的 VM 來自於 Azure 資源庫的一般 Windows Server 2012 R2 映像。 您可以從任何預存的映像開始，再從那裡使用 DSC 組態進行調整。
 不過，變更已併入影像的組態，要比使用 DSC 動態更新組態難得多。
 
 將這項技巧運用在 VM 時，不需要使用 Resource Manager 範本和 VM 擴充功能。 此外，VM 不在 Azure 上也能由 CD 管理。 只需要在 VM 上安裝 Chocolatey，並設定 LCM 使其得知提取伺服器所在位置即可。
 
-当然，在生产环境中的 VM 上更新包时，在安装更新的过程中，需要将 VM 从轮转列表中排除。 具体的操作根据情况而有很大的差异。 例如，如果 VM 在 Azure 負載平衡器後方，您可以加入自訂探查。 更新 VM 時，讓探查端點傳回 400。 可在組態中進行必要調整來引起此變更，但更新完成時，此調整會恢復成傳回 200。
+當然，在生產環境中的 VM 上更新套件時，VM 在安裝更新時必須脫離輪替。 視情況而定，作法會有很大的差異。 例如，如果 VM 在 Azure 負載平衡器後方，您可以加入自訂探查。 更新 VM 時，讓探查端點傳回 400。 可在組態中進行必要調整來引起此變更，但更新完成時，此調整會恢復成傳回 200。
 
 此使用範例的完整原始檔位於 GitHub 上的 [Visual Studio 專案](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) 。
 

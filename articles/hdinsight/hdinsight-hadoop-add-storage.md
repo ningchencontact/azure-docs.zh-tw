@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
 ms.openlocfilehash: 6b9577bcf8b527abb0cb7b8720ed83ec8321655b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64724475"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>將其他儲存體帳戶新增至 HDInsight
@@ -23,7 +23,7 @@ ms.locfileid: "64724475"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 在 HDInsight 上 Hadoop 叢集。 请参阅 [Linux 上的 HDInsight 入门](./hadoop/apache-hadoop-linux-tutorial-get-started.md)。
+* 在 HDInsight 上 Hadoop 叢集。 請參閱[開始在 Linux 上使用 HDInsight](./hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 * 儲存體帳戶名稱和金鑰。 請參閱[管理 Azure 入口網站中的儲存體帳戶設定](../storage/common/storage-account-manage.md)。
 * [正確的大小寫的叢集名稱](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name)。
 * 如果使用 PowerShell，您將需要 AZ 模組。  請參閱[Azure PowerShell 概觀](https://docs.microsoft.com/powershell/azure/overview)。
@@ -46,7 +46,7 @@ ms.locfileid: "64724475"
 
 * 確認儲存體帳戶存在並可使用金鑰來存取。
 
-* 使用群集凭据对密钥进行加密。
+* 使用叢集認證加密金鑰。
 
 * 將儲存體帳戶新增至 core-site.xml 檔案。
 
@@ -59,7 +59,7 @@ ms.locfileid: "64724475"
 
 __指令碼位置__：[https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
 
-__需求__：指令碼必須套用於__前端節點__。 您不需要將此指令碼標示為 [已保存]，因為它會直接更新叢集的 Ambari 組態。
+__需求__：指令碼必須套用於__前端節點__。 您不需要將此指令碼標示為 [已保存]  ，因為它會直接更新叢集的 Ambari 組態。
 
 ## <a name="to-use-the-script"></a>若要使用指令碼
 
@@ -112,7 +112,7 @@ az hdinsight script-action execute ^
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>儲存體帳戶未顯示在 Azure 入口網站或工具中
 
-在 Azure 入口網站中檢視 HDInsight 叢集時，選取 [屬性] 之下的 [儲存體帳戶] 項目，並不會顯示透過此指令碼動作新增的儲存體帳戶。 Azure PowerShell 和 Azure CLI 也不會顯示其他儲存體帳戶。
+在 Azure 入口網站中檢視 HDInsight 叢集時，選取 [屬性]  之下的 [儲存體帳戶]  項目，並不會顯示透過此指令碼動作新增的儲存體帳戶。 Azure PowerShell 和 Azure CLI 也不會顯示其他儲存體帳戶。
 
 沒有顯示儲存體資訊是因為指令碼只修改叢集的 core-site.xml 組態。 使用 Azure 管理 API 擷取叢集資訊時，不會使用這項資訊。
 
@@ -195,22 +195,22 @@ jq-win64 ".items[].configurations[].properties["""fs.azure.account.key.ACCOUNTNA
 
 再次執行指令碼動作並__不會__更新金鑰，因為指令碼會查看儲存體帳戶的項目是否已經存在。 如果項目已經存在，就不會進行任何變更。
 
-若要解决此问题，必须删除存储帐户的现有条目。 執行下列步驟以移除現有項目：
+若要解決這個問題，您必須移除儲存體帳戶的現有項目。 執行下列步驟以移除現有項目：
 
 1. 在 Web 瀏覽器中，對您的 HDInsight 叢集開啟 Ambari Web UI。 URI 為 `https://CLUSTERNAME.azurehdinsight.net`。 將 `CLUSTERNAME` 取代為您的叢集名稱。
 
     出現提示時，輸入您叢集的 HTTP 登入使用者和密碼。
 
-2. 從頁面左邊的服務清單中，選取 [HDFS]。 然後選取頁面中間的 [設定] 索引標籤。
+2. 從頁面左邊的服務清單中，選取 [HDFS]  。 然後選取頁面中間的 [設定]  索引標籤。
 
-3. 在“筛选...”字段中，输入值 __fs.azure.account__。 這會傳回已新增到叢集的任何其他儲存體帳戶項目。 条目的类型为两种：__keyprovider__ 和 __key__。 兩者都會包含儲存體帳戶名稱做為金鑰名稱的一部分。
+3. 在 [篩選...]  欄位中，輸入 __fs.azure.account__ 值。 這會傳回已新增到叢集的任何其他儲存體帳戶項目。 有兩種項目類型：__keyprovider__ 和 __key__。 兩者都會包含儲存體帳戶名稱做為金鑰名稱的一部分。
 
-    以下是名为 __mystorage__ 的存储帐户的示例条目：
+    下列是名為 __mystorage__ 之儲存體帳戶的項目範例：
 
         fs.azure.account.keyprovider.mystorage.blob.core.windows.net
         fs.azure.account.key.mystorage.blob.core.windows.net
 
-4. 在您識別您需要移除之儲存體帳戶的金鑰之後，請使用項目右邊的紅色 '-' 圖示將它刪除。 然後使用 [儲存] 按鈕來儲存您的變更。
+4. 在您識別您需要移除之儲存體帳戶的金鑰之後，請使用項目右邊的紅色 '-' 圖示將它刪除。 然後使用 [儲存]  按鈕來儲存您的變更。
 
 5. 在儲存變更之後，使用指令碼動作將儲存體帳戶和新的金鑰值新增至叢集。
 
@@ -218,7 +218,7 @@ jq-win64 ".items[].configurations[].properties["""fs.azure.account.key.ACCOUNTNA
 
 如果儲存體帳戶位於與 HDInsight 叢集不同的區域中，您可能會遇到效能不佳。 存取不同區域中的資料會傳送 Azure 資料中心外部和跨越公用網際網路的網路流量，這可能會造成延遲。
 
-### <a name="additional-charges"></a>额外费用
+### <a name="additional-charges"></a>額外費用
 
 如果儲存體帳戶位於與 HDInsight 叢集不同的區域中，您可能會發現 Azure 帳單上出現額外輸出費用。 當資料離開區域資料中心時，就會產生輸出費用。 即使流量的目的地是不同區域中的其他 Azure 資料中心，仍會產生此費用。
 

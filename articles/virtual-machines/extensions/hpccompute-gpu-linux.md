@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
 ms.openlocfilehash: 5a184c72da8af0d451902a164c8b71a94a01883f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683163"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>適用於 Linux 的 NVIDIA GPU 驅動程式擴充功能
@@ -74,18 +74,18 @@ ms.locfileid: "64683163"
 | 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverLinux | string |
+| publisher | Microsoft.HpcCompute | 字串 |
+| type | NvidiaGpuDriverLinux | 字串 |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>設定
 
 所有設定都是選用的。 預設行為是如果驅動程式安裝未要求，則不更新核心，並會安裝最新支援的驅動程式和 CUDA 工具組 (若適用)。
 
-| 名稱 | 描述 | 預設值 | 有效值 | 数据类型 |
+| Name | 描述 | 預設值 | 有效值 | 数据类型 |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | 即使驅動程式安裝不需要，也會更新核心 | false | true、false | boolean |
-| driverVersion | NV：GRID 驅動程式版本<br> NC/ND：CUDA 工具組版本。 系統會自動安裝所選 CUDA 的最新驅動程式。 | 最新 | GRID："418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA："10.0.130"、"9.2.88"、"9.1.85" | string |
+| driverVersion | NV：GRID 驅動程式版本<br> NC/ND：CUDA 工具組版本。 系統會自動安裝所選 CUDA 的最新驅動程式。 | 最新 | GRID："418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA："10.0.130"、"9.2.88"、"9.1.85" | 字串 |
 | installCUDA | 安裝 CUDA 工具組。 只與 NC/ND 系列 VM 相關。 | true | true、false | boolean |
 
 

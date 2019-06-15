@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387928"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67120187"
 ---
 要診斷 Microsoft Azure 雲端服務的問題，必須在問題發生時收集服務在虛擬機器上的記錄檔。 您可以視需要使用 AzureLogCollector 延伸模組，從一或多個雲端服務虛擬機器 (從 Web 角色和背景工作角色) 執行一次性的記錄收集作業，並將收集到的檔案傳輸到 Azure 儲存體帳戶，完全不必遠端登入任何虛擬機器。
 
@@ -20,8 +20,8 @@ ms.locfileid: "60387928"
 
 根據要收集的檔案類型，會有兩種收集模式。
 
-* **僅限 Azure 客體代理程式記錄檔 (GA)**。 此收集模式包含所有與 Azure 客體代理程式和其他 Azure 元件相關的記錄。
-* **所有的記錄檔 (完整)**。 此收集模式會收集 GA 模式中的所有檔案，外加：
+* **僅限 Azure 客體代理程式記錄檔 (GA)** 。 此收集模式包含所有與 Azure 客體代理程式和其他 Azure 元件相關的記錄。
+* **所有的記錄檔 (完整)** 。 此收集模式會收集 GA 模式中的所有檔案，外加：
   
   * 系統和應用程式事件記錄
   * HTTP 錯誤記錄

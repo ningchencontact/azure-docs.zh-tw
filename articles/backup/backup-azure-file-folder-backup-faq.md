@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1ac3cdecc79cafb9ea2697cca3c87b2ebe083d40
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 56dc87b1cdf36d761c46133004a05f8fa225a091
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66254857"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808307"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>將檔案和資料夾備份的相關常見問題 
 
@@ -83,11 +83,11 @@ ms.locfileid: "66254857"
 - 如果您需要復原已備份到採用舊伺服器名稱之保存庫的資料，請還原到替代位置復原資料精靈 中使用選項。 [深入了解](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)。 
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>什麼是備份的最大的檔案路徑長度？
-MARS 代理程式依存於 NTFS，並使用檔案路徑長度規格受限於[Windows API](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths)。 如果您想要保護的檔案超過允許的值，備份父資料夾或磁碟機。  
+MARS 代理程式依存於 NTFS，並使用檔案路徑長度規格受限於[Windows API](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths)。 如果您想要保護的檔案超過允許的值，備份父資料夾或磁碟機。  
 
 ### <a name="what-characters-are-allowed-in-file-paths"></a>在檔案路徑中允許哪些字元？
 
-MARS 代理程式依存於 NTFS，並允許[支援的字元](/windows/desktop/FileIO/naming-a-file#naming_conventions)中檔案的名稱/路徑。
+MARS 代理程式依存於 NTFS，並允許[支援的字元](/windows/desktop/FileIO/naming-a-file#naming-conventions)中檔案的名稱/路徑。
 
 ### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>「 Azure 備份有尚未設定此伺服器 」 的警告會出現。
 即使您已設定備份原則，當儲存在本機伺服器上的備份排程設定都不是儲存在備份保存庫中的設定相同，則可能會出現這個警告。
@@ -112,7 +112,7 @@ MARS 代理程式依存於 NTFS，並允許[支援的字元](/windows/desktop/Fi
 2. 請勿移動檔案。 相反地，請將快取空間資料夾複製到不同的磁碟機具有足夠空間。
 3. 使用新的快取資料夾的路徑更新下列登錄項目。<br/>
 
-    | 登錄路徑 | 登錄金鑰 | Value |
+    | 登錄路徑 | 登錄金鑰 | 值 |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*「新的快取資料夾位置」* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*「新的快取資料夾位置」* |

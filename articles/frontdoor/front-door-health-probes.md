@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 59a3bac39437b91eeee3b005bd23476a34a308b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736576"
 ---
 # <a name="health-probes"></a>健康狀態探查
@@ -29,7 +29,7 @@ Front Door 支援透過 HTTP 或 HTTPS 通訊協定傳送探查。 這些探查�
 
 ## <a name="health-probe-responses"></a>健全狀況探查回應
 
-| 回應  | 描述 | 
+| Responses  | 描述 | 
 | ------------- | ------------- |
 | 判斷健全狀況  |  200 OK 狀態碼表示後端狀況良好。 所有其他項目會視為失敗。 如果基於任何原因 (包括網路失敗) 未收到有效的 HTTP 探查回應，則探查將會視為失敗。|
 | 測量延遲  | 延遲是從目前我們傳送探查要求的那一刻起，到我們收到回應的最後一個位元組之前測量的時鐘時間。 我們針對每個要求使用新的 TCP 連線，因此該度量不會偏向使用現有連線的後端。  |

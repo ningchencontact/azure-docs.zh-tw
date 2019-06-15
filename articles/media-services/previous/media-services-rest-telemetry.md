@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 9c654c65577c44b1773ff98cb1206beeb5206ba4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60761772"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>使用 REST 設定 Azure 媒體服務遙測
@@ -38,7 +38,7 @@ ms.locfileid: "60761772"
   
 - 取得監視組態
 
-    針對要監視的服務建立監視組態設定。 最多允许一个监视配置设置。 
+    針對要監視的服務建立監視組態設定。 系統最多只允許一個監視組態設定。 
 
 - 新增監視組態
 

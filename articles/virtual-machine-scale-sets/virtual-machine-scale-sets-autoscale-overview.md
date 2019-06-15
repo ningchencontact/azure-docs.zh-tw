@@ -17,10 +17,10 @@ ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 610f3073594f73f04a68865593be6bfb4188d4f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883665"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>使用 Azure 虛擬機器擴展集自動調整的概觀
@@ -40,7 +40,7 @@ Azure 虛擬機器擴展集可以自動增加或減少執行您的應用程式�
 
 可以使用下列其中一個工具來建立使用主機型計量的自動調整規則：
 
-- [Azure 门户](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure 入口網站](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](tutorial-autoscale-powershell.md)
 - [Azure CLI](tutorial-autoscale-cli.md)
 - [Azure 範本](tutorial-autoscale-template.md)
@@ -83,7 +83,7 @@ Azure 虛擬機器擴展集可以自動增加或減少執行您的應用程式�
 | 最小值          |
 | 最大值          |
 | 總計            |
-| 最後一頁             |
+| 最後一個             |
 | 計數            |
 
 使用下列其中一個運算子將計量與您定義的閾值相比較時，則會觸發自動調整規則：

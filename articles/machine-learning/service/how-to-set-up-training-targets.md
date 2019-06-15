@@ -9,18 +9,18 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: a815ec4ac97f8476403f773aeedb19ff84092b03
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0b35ef5ca3aaa7ad4169f99e2830ebea76d2759e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752954"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074935"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>設定計算目標進行模型定型 
 
-使用 Azure Machine Learning 服務，您可以在各種資源或環境中定型您的模型，統稱為[__計算目標__](concept-azure-machine-learning-architecture.md#compute-target)。 計算目標可以是本機電腦或雲端資源，例如 Azure Machine Learning Compute、Azure HDInsight 或遠端虛擬機器。  您也可以建立用於部署模型的計算目標，如[模型的部署位置和方法](how-to-deploy-and-where.md)中所述。
+使用 Azure Machine Learning 服務，您可以在各種資源或環境中定型您的模型，統稱為[__計算目標__](concept-azure-machine-learning-architecture.md#compute-targets)。 計算目標可以是本機電腦或雲端資源，例如 Azure Machine Learning Compute、Azure HDInsight 或遠端虛擬機器。  您也可以建立用於部署模型的計算目標，如[模型的部署位置和方法](how-to-deploy-and-where.md)中所述。
 
 您可以建立和管理使用 Azure 機器學習服務 SDK，Azure 入口網站、 Azure CLI 或 Azure Machine Learning VS Code 延伸模組的計算目標。 如果您有透過其他服務 (例如 HDInsight 叢集) 建立的計算目標，可以將它們附加至 Azure Machine Learning 服務工作區來使用這些計算目標。
  
@@ -31,7 +31,7 @@ ms.locfileid: "66752954"
 
 
 >[!NOTE]
-> 測試與 Azure 機器學習服務 SDK 版本 1.0.39 的這篇文章中的程式碼。
+> 本文中的程式碼已進行過 Azure Machine Learning SDK 1.0.39 版的測試。
 
 ## <a name="compute-targets-for-training"></a>訓練用的計算目標
 
@@ -75,7 +75,7 @@ Azure Machine Learning 服務在不同計算目標上提供不同的支援。 �
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
   
-## <a name="set-up-compute-targets-with-python"></a>使用 Python 設定計算目標
+## <a name="set-up-in-python"></a>在 Python 中設定
 
 使用各節來設定這些計算目標：
 
@@ -271,7 +271,7 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## <a name="set-up-compute-in-the-azure-portal"></a>在 Azure 入口網站中設定計算
+## <a name="set-up-in-azure-portal"></a>在 Azure 入口網站設定
 
 您可以在 Azure 入口網站中，存取與您工作區相關聯的計算目標。  您可以使用入口網站以執行下列操作：
 
@@ -357,7 +357,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 1. 選取 [附加]  。 
 1. 從清單選取計算目標以檢視附加作業的狀態。
 
-## <a name="set-up-compute-with-the-cli"></a>使用 CLI 設定計算
+## <a name="set-up-with-cli"></a>使用 CLI 設定
 
 您可以為 Azure Machine Learning 服務使用 [CLI 擴充功能](reference-azure-machine-learning-cli.md)存取與您工作區相關聯的計算目標。  您可以使用 CLI 執行下列操作：
 
@@ -367,7 +367,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 如需詳細資訊，請參閱[資源管理](reference-azure-machine-learning-cli.md#resource-management)。
 
-## <a name="set-up-compute-with-vs-code"></a>設定 VS Code 與計算
+## <a name="set-up-with-vs-code"></a>設定 VS Code
 
 您可以存取、 建立及管理您的工作區的使用相關聯的計算目標[VS Code 延伸模組](how-to-vscode-tools.md#create-and-manage-compute-targets)Azure Machine Learning 服務。
 
@@ -384,7 +384,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 >
 > 若要防止檔案包含快照中，建立[.gitignore](https://git-scm.com/docs/gitignore)或`.amlignore`檔案的目錄中，並將檔案新增至它。 `.amlignore`檔案使用相同的語法，並做為模式[.gitignore](https://git-scm.com/docs/gitignore)檔案。 如果這兩個檔案存在，`.amlignore`檔有優先順序。
 > 
-> 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshot)。
+> 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshots)。
 
 ### <a name="create-an-experiment"></a>建立實驗
 

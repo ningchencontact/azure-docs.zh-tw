@@ -3,17 +3,17 @@ title: 在 Azure IoT Central 應用程式中建立和管理事件規則 | Micros
 description: Azure IoT Central 事件規則可讓您近乎即時地監視裝置，以及在觸發規則時自動叫用動作，例如傳送電子郵件。
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 02/20/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a2bce535d8612eca565970d4c530a27efb356334
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 4754e6b571845d286ef22014f87b86fae2f6633d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464578"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053027"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中建立事件規則並設定通知
 
@@ -51,13 +51,13 @@ ms.locfileid: "65464578"
 
 條件會定義規則所監視的準則。
 
-1. 選擇 [條件] 旁的 [+] 來新增條件。
+1. 選擇 [條件]  旁的 [+]  來新增條件。
 
 1. 從量測下拉式清單中選擇想要監視的事件。 此範例選取了**風扇馬達錯誤**事件。
 
    ![條件](media/howto-create-event-rules/condition_filled_out1.png)
 
-1. (選擇性) 您也可以將 [計數] 設定為 [彙總]，並提供對應的閾值。
+1. (選擇性) 您也可以將 [計數]  設定為 [彙總]  ，並提供對應的閾值。
 
    - 如果沒有彙總，規則會在每個事件資料點符合條件時觸發。 例如，如果您設定規則的條件時觸發**風扇馬達錯誤**接著此規則會觸發幾乎在當裝置報告該事件，就會發生事件。
    - 如果使用「計數」作為彙總函式，則必須提供**閾值**，以及評估條件的**彙總時間範圍**。 在此情況下，彙總的事件計數，此規則會觸發，只有當彙總的事件計數符合臨界值。
@@ -73,18 +73,18 @@ ms.locfileid: "65464578"
 
 本節示範如何設定要在引發規則時採取的動作。 當規則中指定的所有條件都評估為 True 時，即會叫用動作。
 
-1. 選擇 [動作] 旁的 [+]。 在此，您會看到可用動作的清單。
+1. 選擇 [動作]  旁的 [+]  。 在此，您會看到可用動作的清單。
 
     ![新增動作](media/howto-create-event-rules/add_action1.png)
 
-1. 選擇 [傳送電子郵件] 動作，在 [收件者] 欄位中輸入有效的電子郵件地址，然後提供當此規則觸發時要在電子郵件本文中出現的附註。
+1. 選擇 [傳送電子郵件]  動作，在 [收件者]  欄位中輸入有效的電子郵件地址，然後提供當此規則觸發時要在電子郵件本文中出現的附註。
 
     > [!NOTE]
     > 只有已新增至應用程式且至少已登入一次的使用者才會收到電子郵件。 深入了解 Azure IoT Central 中的[使用者管理](howto-administer.md)。
 
    ![設定動作](media/howto-create-event-rules/configure_action1.png)
 
-1. 若要儲存規則，請選擇 [儲存]。 幾分鐘內，規則就會生效，並開始監視傳送至應用程式的事件。 當規則中指定的條件相符時，規則就會觸發所設定的電子郵件動作。
+1. 若要儲存規則，請選擇 [儲存]  。 幾分鐘內，規則就會生效，並開始監視傳送至應用程式的事件。 當規則中指定的條件相符時，規則就會觸發所設定的電子郵件動作。
 
 您可以將其他動作新增至規則，例如 Microsoft Flow 和 Webhook。 您可以針對每個規則最多新增 5 個動作。
 
@@ -93,19 +93,19 @@ ms.locfileid: "65464578"
 
 ## <a name="parameterize-the-rule"></a>將規則參數化
 
-您也可以使用 [裝置屬性] 將動作設定為參數。 如果將電子郵件地址儲存為裝置屬性，您就可以在定義 [收件者] 地址時加以使用。
+您也可以使用 [裝置屬性]  將動作設定為參數。 如果將電子郵件地址儲存為裝置屬性，您就可以在定義 [收件者]  地址時加以使用。
 
 ## <a name="delete-a-rule"></a>刪除規則
 
-如果不再需要某個規則，請開啟規則並選擇 [刪除] 來加以刪除。 規則在刪除後就會從裝置範本和所有相關聯的裝置中移除。
+如果不再需要某個規則，請開啟規則並選擇 [刪除]  來加以刪除。 規則在刪除後就會從裝置範本和所有相關聯的裝置中移除。
 
 ## <a name="enable-or-disable-a-rule-for-a-device-template"></a>啟用或停用裝置範本的規則
 
-瀏覽至裝置，然後選擇您要啟用或停用的規則。 切換 [為此範本的所有裝置啟用規則] 按鈕，可對所有與裝置範本相關聯的裝置啟用或停用規則。
+瀏覽至裝置，然後選擇您要啟用或停用的規則。 切換 [為此範本的所有裝置啟用規則]  按鈕，可對所有與裝置範本相關聯的裝置啟用或停用規則。
 
 ## <a name="enable-or-disable-a-rule-for-a-device"></a>啟用或停用裝置的規則
 
-瀏覽至裝置，然後選擇您要啟用或停用的規則。 切換 [啟用此裝置的規則] 按鈕，可對該裝置啟用或停用規則。
+瀏覽至裝置，然後選擇您要啟用或停用的規則。 切換 [啟用此裝置的規則]  按鈕，可對該裝置啟用或停用規則。
 
 ## <a name="next-steps"></a>後續步驟
 

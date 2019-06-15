@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: danlep
 ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977207"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>使用 ACR 工作來自動執行 OS 和架構修補
@@ -20,7 +20,7 @@ ms.locfileid: "65977207"
 
 ## <a name="what-is-acr-tasks"></a>什麼是 ACR 工作？
 
-「ACR 工作」是 Azure Container Registry 內的一套功能。 它能提供適用於 Linux、Windows 及 ARM 的雲端式容器映像建置，並可以自動化針對 Docker 容器的 [OS 和架構修補](#automate-os-and-framework-patching)。 「ACR 工作」不僅可透過依需求進行的容器映像建置，將您的「內部迴圈」開發週期延伸至雲端，也可讓您在認可原始程式碼和更新容器基底映像時，自動執行建置。 您可以使用基底映像更新觸發程序，自動進行作業系統和應用程式架構修補工作流程，維護安全的環境，同時還能依循不可變容器的主體。
+「ACR 工作」  是 Azure Container Registry 內的一套功能。 它能提供適用於 Linux、Windows 及 ARM 的雲端式容器映像建置，並可以自動化針對 Docker 容器的 [OS 和架構修補](#automate-os-and-framework-patching)。 「ACR 工作」不僅可透過依需求進行的容器映像建置，將您的「內部迴圈」開發週期延伸至雲端，也可讓您在認可原始程式碼和更新容器基底映像時，自動執行建置。 您可以使用基底映像更新觸發程序，自動進行作業系統和應用程式架構修補工作流程，維護安全的環境，同時還能依循不可變容器的主體。
 
 使用「ACR 工作」以四種方式建置及測試容器映像：
 
@@ -35,13 +35,13 @@ ms.locfileid: "65977207"
 
 「ACR 工作」的[快速工作](container-registry-tutorial-quick-task.md)功能可在您認可第一行程式碼之前，藉由將您的容器映像建置卸交給 Azure，提供一個整合式開發體驗。 使用快速工作時，您可以在認可程式碼之前，先確認您的自動化建置定義並攔截可能的問題。
 
-Azure CLI 中的 [az acr build][az-acr-build]命令會使用熟悉的 `docker build` 格式來取得「內容」(要建置的一組檔案)、將它傳送給「ACR 工作」，然後依預設在完成時將所建置的映像推送至其登錄。
+Azure CLI 中的 [az acr build][az-acr-build]命令會使用熟悉的 `docker build` 格式來取得「內容」  (要建置的一組檔案)、將它傳送給「ACR 工作」，然後依預設在完成時將所建置的映像推送至其登錄。
 
 如需簡介，請參閱快速入門[建置和執行容器映像](container-registry-quickstart-task-cli.md)Azure Container Registry 中。  
 
 下表顯示「ACR 工作」的幾個所支援內容位置範例：
 
-| 內容位置 | 說明 | 範例 |
+| 內容位置 | 描述 | 範例 |
 | ---------------- | ----------- | ------- |
 | 本機檔案系統 | 本機檔案系統上目錄內的檔案。 | `/home/user/projects/myapp` |
 | GitHub 主要分支 | GitHub 存放庫之主要 (或其他預設) 分支內的檔案。  | `https://github.com/gituser/myapp-repo.git` |
@@ -67,7 +67,7 @@ Azure CLI 中的 [az acr build][az-acr-build]命令會使用熟悉的 `docker bu
 
 「ACR 工作」之所以能夠真正增強您的容器建置工作流程，是因為它能夠偵測基底映像的更新。 當已更新的基底映像被推送至您的登錄時，「ACR 工作」可根據它自動建置任何應用程式映像。
 
-容器映像可概括地分類為「基底」映像和「應用程式」映像。 您的基底映像通常包含您的應用程式建置所在的作業系統和應用程式架構，以及其他自訂項目。 這些基底映像本身通常是以公用上游映像為基礎，例如：[Alpine Linux][base-alpine]、[Windows][base-windows]、[.NET][base-dotnet] 或 [Node.js][base-node]。 您有數個應用程式映像可能會共用一個通用基底映像。
+容器映像可概括地分類為「基底」  映像和「應用程式」  映像。 您的基底映像通常包含您的應用程式建置所在的作業系統和應用程式架構，以及其他自訂項目。 這些基底映像本身通常是以公用上游映像為基礎，例如：[Alpine Linux][base-alpine]、[Windows][base-windows]、[.NET][base-dotnet] 或 [Node.js][base-node]。 您有數個應用程式映像可能會共用一個通用基底映像。
 
 當上游維護程式 (例如重要 OS 安全性修補程式) 更新作業系統或應用程式架構映像時，您也必須更新您的基底映像以包含重要修正。 接著，還必須重建每個應用程式映像，以包含現在包含在基底映像中的這些上游修正。
 

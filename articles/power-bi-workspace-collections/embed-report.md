@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: a7d6ccc2360d63b888dc46badc742f2618a08dac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64724609"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>在 Power BI 工作區集合中內嵌報表
@@ -84,7 +84,7 @@ Power BI 工作區集合會使用內嵌權杖，其為 HMAC 簽署的 JSON Web �
 
 存取權杖應該建立在伺服器上，因為會使用存取金鑰來簽署/加密權杖。 如需如何建立存取權杖的相關資訊，請參閱[使用 Power BI 工作區集合驗證和授權](app-token-flow.md)。 您也可以檢閱 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) 方法。 以下是使用 .NET SDK for Power BI 時此方法所呈現樣貌的範例。
 
-您會使用先前擷取到的報表識別碼。 建立內嵌權杖後，您接著將使用存取金鑰來產生可從 JavaScript 觀點使用的權杖。 要使用 PowerBIToken 類別，您必須安裝 [Power BI 核心 NuGut 套件](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)。
+您會使用先前擷取到的報表識別碼。 建立內嵌權杖後，您接著將使用存取金鑰來產生可從 JavaScript 觀點使用的權杖。 要使用 PowerBIToken 類別  ，您必須安裝 [Power BI 核心 NuGut 套件](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)。
 
 **NuGet 套件安裝**
 
@@ -92,7 +92,7 @@ Power BI 工作區集合會使用內嵌權杖，其為 HMAC 簽署的 JSON Web �
 Install-Package Microsoft.PowerBI.Core
 ```
 
-**C# 代码**
+**C# 程式碼**
 
 ```csharp
 using Microsoft.PowerBI.Security;
@@ -109,7 +109,7 @@ var token = embedToken.Generate("{access key}");
 
 ## <a name="embed-using-javascript"></a>使用 JavaScript 進行內嵌
 
-當您擁有存取權杖和報表識別碼之後，我們就能使用 JavaScript 來內嵌報表。 這需要您安裝 NuGet [Power BI JavaScript 封裝](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/) \(英文\)。 embedUrl 將只是 https://embedded.powerbi.com/appTokenReportEmbed。
+當您擁有存取權杖和報表識別碼之後，我們就能使用 JavaScript 來內嵌報表。 這需要您安裝 NuGet [Power BI JavaScript 封裝](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/) \(英文\)。 embedUrl 將只是 https://embedded.powerbi.com/appTokenReportEmbed 。
 
 > [!NOTE]
 > 您可以使用 [JavaScript 報告內嵌範例](https://microsoft.github.io/PowerBI-JavaScript/demo/)來測試功能。 它也會提供可用之不同作業的程式碼範例。
@@ -120,7 +120,7 @@ var token = embedToken.Generate("{access key}");
 Install-Package Microsoft.PowerBI.JavaScript
 ```
 
-**JavaScript 代码**
+**JavaScript 程式碼**
 
 ```html
 <script src="/scripts/powerbi.js"></script>
@@ -149,10 +149,10 @@ var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
 [在 Power BI 工作區集合中驗證和授權](app-token-flow.md)  
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [JavaScript 內嵌範例](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
-[Power BI JavaScript 包](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
+[Power BI JavaScript 套件](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 [Power BI API NuGet 套件](https://www.nuget.org/profiles/powerbi)
 [Power BI 核心 NuGut 套件](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
 [PowerBI-CSharp Git 存放庫](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git存放庫](https://github.com/Microsoft/PowerBI-Node)  
 
-有更多问题？ [試用 Power BI 社群](https://community.powerbi.com/)
+有其他疑問？ [試用 Power BI 社群](https://community.powerbi.com/)

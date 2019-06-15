@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776991"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics 中的警示管理方案
@@ -64,18 +64,18 @@ ms.locfileid: "60776991"
 - 警示資料每 3 分鐘從 Operations Manager 管理群組傳送至 Log Analytics。  
 
 ## <a name="using-the-solution"></a>使用解決方案
-當您將警示管理解決方案新增至 Log Analytics 工作區時，[警示管理] 圖格會新增至儀表板。  此圖格會顯示過去 24 小時內產生的目前作用中警示數目的計數和圖形表示。  您無法變更此時間範圍。
+當您將警示管理解決方案新增至 Log Analytics 工作區時，[警示管理]  圖格會新增至儀表板。  此圖格會顯示過去 24 小時內產生的目前作用中警示數目的計數和圖形表示。  您無法變更此時間範圍。
 
 ![Alert Management tile](media/alert-management-solution/tile.png)
 
-按一下 [警示管理] 圖格以開啟 [警示管理] 儀表板。  此儀表板包含下表中的資料行。  每個資料行依計數列出前 10 個警示，這幾個警示符合該資料行中指定範圍和時間範圍的準則。  您可以按一下資料行底部的 [查看全部]  ，或按一下資料行標頭，以執行記錄搜尋來提供完整清單。
+按一下 [警示管理]  圖格以開啟 [警示管理]  儀表板。  此儀表板包含下表中的資料行。  每個資料行依計數列出前 10 個警示，這幾個警示符合該資料行中指定範圍和時間範圍的準則。  您可以按一下資料行底部的 [查看全部]  ，或按一下資料行標頭，以執行記錄搜尋來提供完整清單。
 
 | 欄 | 描述 |
 |:--- |:--- |
 | 重大警示 |嚴重性為「重大」的所有警示 (依警示名稱分組)。  按一下警示名稱來執行記錄搜尋，以傳回該警示的所有記錄。 |
 | 警告警示 |嚴重性為「警告」的所有警示 (依警示名稱分組)。  按一下警示名稱來執行記錄搜尋，以傳回該警示的所有記錄。 |
-| 作用中的 SCOM 警示 |來自 Operations Manager 且狀態不為 [已關閉] 的所有警示，並依產生此警示的來源分組。 |
-| 所有作用中警示 |具有任何嚴重性的所有警示 (依警示名稱分組)。 只包含 [已關閉] 以外任何狀態的 Operations Manager 警示。 |
+| 作用中的 SCOM 警示 |來自 Operations Manager 且狀態不為 [已關閉]  的所有警示，並依產生此警示的來源分組。 |
+| 所有作用中警示 |具有任何嚴重性的所有警示 (依警示名稱分組)。 只包含 [已關閉]  以外任何狀態的 Operations Manager 警示。 |
 
 如果您向右捲動，儀表板會列出數個常見的查詢，按一下即可執行警示資料的[記錄搜尋](../../azure-monitor/log-query/log-query-overview.md)。
 

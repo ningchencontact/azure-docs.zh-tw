@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
 ms.openlocfilehash: e297a6f42774f29e2eca4a410b695d5bbb636300
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726599"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>刪除 Reliable Actors 及其狀態
@@ -47,7 +47,7 @@ myActorServiceProxy.deleteActorAsync(actorToDelete);
 
 * **作用中動作項目**
   * 動作項目會從作用中動作項目清單中移除並且停用。
-  * 该执行组件的状态会被永久删除。
+  * 其狀態會永久刪除。
 * **非作用中動作項目**
   * 其狀態會永久刪除。
 
@@ -57,9 +57,9 @@ myActorServiceProxy.deleteActorAsync(actorToDelete);
 * [動作項目計時器和提醒](service-fabric-reliable-actors-timers-reminders.md)
 * [動作項目事件](service-fabric-reliable-actors-events.md)
 * [動作項目重新進入](service-fabric-reliable-actors-reentrancy.md)
-* [执行组件诊断和性能监视](service-fabric-reliable-actors-diagnostics.md)
+* [動作項目診斷與效能監視](service-fabric-reliable-actors-diagnostics.md)
 * [動作項目 API 參考文件](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# 示例代码](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [C# 範例程式碼 (英文)](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java 範例程式碼 (英文)](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->

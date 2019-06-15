@@ -1,6 +1,6 @@
 ---
 title: 開始將 Azure AD 與應用程式整合 | Microsoft Docs
-description: 本文是一篇入门指南，介绍如何将 Azure Active Directory (AD) 与本地应用程序和云应用程序集成。
+description: 本文章是整合 Azure Active Directory (AD) 與在內部部署應用程式和雲端應用程式的入門指南。
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8db7ac63aaf9ae5b1b16bb233e87ace06867309
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 11453ad9132664313df2b56cb3664512628a16ba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824325"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108232"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>整合 Azure Active Directory 與應用程式入門指南
 
@@ -50,7 +50,7 @@ ms.locfileid: "65824325"
 * 是否已經在您的內部部署 Active Directory 中建立群組？
   * 您的群組的組織方式？
   * 有哪些群組成員？
-  * 组当前有哪些权限/角色分配？
+  * 群組目前有哪些權限/角色指派？
 * 您是否需要在整合之前清除使用者/群組資料庫？  (這是很重要的問題。 垃圾進，垃圾出 - 應當避免無用資料。)
 
 ### <a name="access-management-inventory"></a>存取管理清查
@@ -91,11 +91,11 @@ ms.locfileid: "65824325"
 * [共用帳戶](../active-directory-sharing-accounts.md)
 
 ## <a name="next-steps"></a>後續步驟
-如需深入資訊，您可以從 [GitHub](https://aka.ms/deploymentplans) 下載 Azure Active Directory 部署計劃。 對於資源庫應用程式，您可以透過 [Azure 入口網站](https://portal.azure.com)下載單一登入、條件式存取和使用者佈建的部署計劃。 
+如需深入資訊，您可以從 [GitHub](https://aka.ms/deploymentplans) 下載 Azure Active Directory 部署計劃。 資源庫應用程式，您可以下載部署計劃的單一登入、 條件式存取，並透過佈建的使用者[Azure 入口網站](https://portal.azure.com)。 
 
 若要從 Azure 入口網站下載部署計劃：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [企業應用程式] | [挑選應用程式] | [部署計劃]。
+2. 選取 [企業應用程式]   | [挑選應用程式]   | [部署計劃]  。
 
 請接受[部署計劃問卷調查](https://aka.ms/DeploymentPlanFeedback)，以提供關於部署計劃的意見反應。

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: cf818756f583974a8a9b53a9a0cce31dd93d042b
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 23d7b0626dba5a88c100868907ecf868a895fc9e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299293"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059622"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>沒有要進行疑難排解的資料 - Application Insights for .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>我遺失了部分遙測
@@ -232,6 +232,27 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 3. 重新啟動程序，讓 SDK 取得這些新設定
 
 4. 完成作業後，請還原這些變更。
+
+
+## <a name="PerfView"></a> 使用 PerfView 收集記錄檔
+[PerfView](https://github.com/Microsoft/perfview)是免費的診斷和效能分析工具，協助您找出 CPU、 記憶體和其他問題，透過收集和視覺化從許多來源的診斷資訊。
+
+應用程式的 application Insights SDK 的記錄，可以擷取 PerfView 的 EventSource 自我疑難排解記錄檔。
+
+若要收集記錄檔，請下載 PerfView 並執行此命令：
+```cmd
+PerfView.exe collect /onlyProviders=*Microsoft-ApplicationInsights-* -MaxCollectSec:300
+```
+
+您可以視需要修改這些參數。
+
+- **MaxCollectSec**。 設定此參數，以防止 PerfView 從無限期地執行，並會影響您伺服器的效能。
+- **OnlyProviders**。 設定此參數以只從 SDK 收集記錄檔。 您可以自訂此清單根據您特定的調查。 
+
+
+如需詳細資訊，
+- [記錄使用 PerfView 的效能追蹤](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView)。
+- [Application Insights 事件來源](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
 
 ## <a name="still-not-working"></a>仍然無法運作...
 * [Application Insights 論壇](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.openlocfilehash: 56aa06ade50f6c0eb1467b1295cbebb907023398
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209364"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>在 Azure 中安裝和設定遠端桌面，以連接至 Linux VM
@@ -37,7 +37,7 @@ ms.locfileid: "65209364"
 
 下列範例會在 Ubuntu 16.04 LTS VM 上安裝輕量型 [xfce4](https://www.xfce.org/) 桌面環境。 其他散發的命令稍微不同 (例如，使用 `yum` 以在 Red Hat Enterprise Linux 上安裝及設定適當的 `selinux` 規則，或使用 `zypper` 在 SUSE 上安裝)。
 
-首先，SSH 連接至您的 VM。 下列範例會連線至名為 myvm.westus.cloudapp.azure.com 且具有使用者名稱 azureuser 的 VM。 使用您自己的值：
+首先，SSH 連接至您的 VM。 下列範例會連線至名為 myvm.westus.cloudapp.azure.com  且具有使用者名稱 azureuser  的 VM。 使用您自己的值：
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
@@ -74,7 +74,7 @@ sudo service xrdp restart
 
 
 ## <a name="set-a-local-user-account-password"></a>設定本機使用者帳戶密碼
-如果您在建立 VM 時已為您的使用者帳戶建立密碼，請略過此步驟。 如果您只使用 SSH 金鑰驗證，並且尚未設定本機帳戶密碼，請先指定密碼，再使用 xrdp 登入您的 VM。 xrdp 無法接受 SSH 金鑰進行驗證。 下列範例會指定使用者帳戶 azureuser 的密碼：
+如果您在建立 VM 時已為您的使用者帳戶建立密碼，請略過此步驟。 如果您只使用 SSH 金鑰驗證，並且尚未設定本機帳戶密碼，請先指定密碼，再使用 xrdp 登入您的 VM。 xrdp 無法接受 SSH 金鑰進行驗證。 下列範例會指定使用者帳戶 azureuser  的密碼：
 
 ```bash
 sudo passwd azureuser
@@ -87,7 +87,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>建立遠端桌面流量的網路安全性群組規則
 若要允許遠端桌面流量觸達您的 Linux VM，必須建立網路安全性群組規則，允許連接埠 3389 上的 TCP 觸達您的 VM。 如需有關網路安全性群組規則的詳細資訊，請參閱[什麼是網路安全性群組？](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 您也可以[使用 Azure 入口網站建立網路安全性群組規則](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
-下列範例會使用 [az vm open-port](/cli/azure/vm#az-vm-open-port) 在連接埠 3389 上建立網路安全性群組規則。 從 Azure CLI (而非您 VM 的 SSH 工作階段) 開啟下列網路安全性群組規則：
+下列範例會使用 [az vm open-port](/cli/azure/vm#az-vm-open-port) 在連接埠 3389  上建立網路安全性群組規則。 從 Azure CLI (而非您 VM 的 SSH 工作階段) 開啟下列網路安全性群組規則：
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389
@@ -107,7 +107,7 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 
 
 ## <a name="troubleshoot"></a>疑難排解
-如果无法使用远程桌面客户端连接到 Linux VM，请在 Linux VM上使用 `netstat` 验证 VM 是否正在侦听 RDP 连接，如下所示：
+如果無法使用遠端桌面用戶端連線至 Linux VM，請在 Linux VM 上使用 `netstat`，以檢查您的 VM 是否正在接聽 RDP 連線，如下所示︰
 
 ```bash
 sudo netstat -plnt | grep rdp
@@ -120,13 +120,13 @@ tcp     0     0      127.0.0.1:3350     0.0.0.0:*     LISTEN     53192/xrdp-sesm
 tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
 ```
 
-如果未接聽 xrdp-sesman 服務，在 Ubuntu VM 上重新啟動服務，如下所示︰
+如果未接聽 xrdp-sesman 服務  ，在 Ubuntu VM 上重新啟動服務，如下所示︰
 
 ```bash
 sudo service xrdp restart
 ```
 
-在您的 Ubuntu VM 上檢閱 /var/log 中的記錄，以取得為何服務沒有回應的指示。 您也可以在遠端桌面連線嘗試期間監視 syslog，以檢視任何錯誤：
+在您的 Ubuntu VM 上檢閱 /var/log  中的記錄，以取得為何服務沒有回應的指示。 您也可以在遠端桌面連線嘗試期間監視 syslog，以檢視任何錯誤：
 
 ```bash
 tail -f /var/log/syslog

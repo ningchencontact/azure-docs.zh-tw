@@ -9,11 +9,11 @@ ms.date: 05/15/2018
 ms.author: estfan
 ms.custom: include file
 ms.openlocfilehash: da03c5247b8ebe0a3305b08a05d661264497663f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60540782"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67122223"
 ---
 * 如果您是使用 Azure SQL Database，請遵循[連線到 Azure SQL Database](#connect-azure-sql-db) 下的步驟。 
 
@@ -35,9 +35,9 @@ ms.locfileid: "60540782"
 
       您可以在 Azure 入口網站的 SQL 資料庫屬性下，或在您的連接字串中找到此資訊： 
       
-      "User ID=<yourUserName>"
+      "User ID=<yourUserName  >"
       <br>
-      "Password=<yourPassword>"
+      "Password=<yourPassword  >"
 
    本範例顯示的是觸發程序的連線資訊，但這些步驟也適用於動作。
 
@@ -45,7 +45,7 @@ ms.locfileid: "60540782"
    <br>
    星號 (*) 表示必要值。
 
-   | 屬性 | Value | 詳細資料 | 
+   | 屬性 | 值 | 詳細資料 | 
    |----------|-------|---------| 
    | 連線名稱 | <*my-sql-connection*> | 您連線的名稱 | 
    | SQL Server 名稱 | <*my-sql-server*> | 您 SQL 伺服器的名稱 |
@@ -54,7 +54,7 @@ ms.locfileid: "60540782"
    | 密碼 | <*my-sql-password*> | 用以存取您資料庫的密碼 | 
    |||| 
 
-2. 完成之後，請選擇 [建立]。
+2. 完成之後，請選擇 [建立]  。
 
 3. 您在建立連線之後，請繼續[新增 SQL 觸發程序](#add-sql-trigger)或[新增 SQL 動作](#add-sql-action)。
 
@@ -81,8 +81,8 @@ ms.locfileid: "60540782"
 
       您可以在連接字串中找到這項資訊： 
       
-      * "User ID=<yourUserName>"
-      * "Password=<yourPassword>"
+      * "User ID=<yourUserName  >"
+      * "Password=<yourPassword  >"
 
    5. 如果您的 SQL 伺服器是使用 Windows 或基本驗證，請選取驗證類型。
 
@@ -96,7 +96,7 @@ ms.locfileid: "60540782"
    <br>
    星號 (*) 表示必要值。
 
-   | 屬性 | Value | 詳細資料 | 
+   | 屬性 | 值 | 詳細資料 | 
    |----------|-------|---------| 
    | 透過內部部署閘道連線 | 請先針對 SQL Server 設定選取此選項。 | | 
    | 連線名稱 | <*my-sql-connection*> | 您連線的名稱 | 
@@ -108,6 +108,6 @@ ms.locfileid: "60540782"
    | 閘道 | <*my-data-gateway*> | 您內部部署資料閘道的名稱 | 
    |||| 
 
-2. 完成之後，請選擇 [建立]。 
+2. 完成之後，請選擇 [建立]  。 
 
 3. 您在建立連線之後，請繼續[新增 SQL 觸發程序](#add-sql-trigger)或[新增 SQL 動作](#add-sql-action)。

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8897de5ee86d20e52b948f21afaef4acf196539
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: e15cf9b2e10a581c72a5035b52be47c3e2c9dfda
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988568"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112330"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>設定驗證工作階段管理使用條件式存取
 
@@ -27,7 +27,7 @@ ms.locfileid: "65988568"
 * 高影響使用者
 * 關鍵業務應用程式
 
-條件式存取控制項可讓您建立目標組織內的特定使用案例，而不會影響所有使用者的原則。
+條件式存取控制可讓您建立目標組織內的特定使用案例，而不會影響所有使用者的原則。
 
 再探討如何設定原則的詳細資料，讓我們檢查預設組態。
 
@@ -50,14 +50,14 @@ ms.locfileid: "65988568"
 
 ## <a name="configuring-authentication-session-controls"></a>設定驗證工作階段控制項
 
-條件式存取是 Azure AD Premium 功能，而且需要 premium 授權。 如果想進一步深入了解條件式存取，請參閱[什麼是 Azure Active Directory 條件式存取？](overview.md#license-requirements)
+條件式存取是 Azure AD Premium 功能，而且需要 premium 授權。 如果您想要深入了解條件式存取，請參閱[什麼是 Azure Active Directory 中的條件式存取？](overview.md#license-requirements)
 
 > [!WARNING]
-> 如果您使用[可設定權杖存留期](../develop/active-directory-configurable-token-lifetimes.md)功能目前處於公開預覽狀態，請注意，我們不支援建立兩個不同的原則相同的使用者或應用程式組合： 一個與這項功能，另一個則使用可設定權杖存留期的功能。 Microsoft 計劃在年 10 月 15 日淘汰 「 可設定權杖存留期 」 功能，並取代的條件式存取驗證工作階段管理功能。  
+> 如果您使用[可設定權杖存留期](../develop/active-directory-configurable-token-lifetimes.md)功能目前處於公開預覽狀態，請注意，我們不支援建立兩個不同的原則相同的使用者或應用程式組合： 一個與這項功能，另一個則使用可設定權杖存留期的功能。 Microsoft 計劃在 11 月 1 日淘汰 「 可設定權杖存留期 」 功能，並取代的條件式存取驗證工作階段管理功能。  
 
 ### <a name="policy-1-sign-in-frequency-control"></a>原則 1：登入頻率控制項
 
-1. 建立新原則
+1. 建立新的原則
 1. 選擇所有必要的條件，為客戶的環境，包括目標雲端應用程式。
 
    > [!NOTE]
@@ -74,9 +74,9 @@ ms.locfileid: "65988568"
 
 如果您已設定不同的 web 應用程式在相同的瀏覽器工作階段中執行的不同登入頻率，最嚴格的原則將套用至這兩個應用程式，因為在相同的瀏覽器工作階段中執行的所有應用程式共用的單一工作階段權杖。
 
-### <a name="policy-2-persistent-browser-session"></a>原則 2：持續性瀏覽器工作階段
+### <a name="policy-2-persistent-browser-session"></a>原則 2：持續性的瀏覽器工作階段
 
-1. 建立新原則
+1. 建立新的原則
 1. 選擇所有必要的條件。
 
    > [!NOTE]
@@ -86,7 +86,7 @@ ms.locfileid: "65988568"
 1. 從下拉式清單中選取的值
 1. 儲存原則
 
-![設定的持續性的瀏覽器的條件式存取原則](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
+![設定持續性的瀏覽器的條件式存取原則](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
 
 > [!NOTE]
 > 在 Azure AD 條件式存取的永續性瀏覽器工作階段設定會覆寫 「 保持登入？ 」 在 [公司商標] 窗格中的相同使用者的 Azure 入口網站，如果您已設定這兩個原則中設定。
@@ -95,13 +95,13 @@ ms.locfileid: "65988568"
 
 您可以使用假設狀況工具，模擬使用者登入目標應用程式，並根據您的原則的設定方式的其他條件。 驗證工作階段管理控制項顯示在工具的結果。
 
-![如果工具產生的條件式存取](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
+![條件式存取那如果工具結果](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
 ## <a name="policy-deployment"></a>原則部署
 
-若要確定您的原則會如預期般運作，建議的最佳做法是先測試，再推出到生產環境。 在理想情況下，可以使用測試租用戶來驗證您的新原則是否如預期般運作。 如需詳細資訊，請參閱文章[Azure Active Directory 中的條件式存取的最佳做法](best-practices.md)。
+若要確定您的原則會如預期般運作，建議的最佳做法是先測試，再推出到生產環境。 在理想情況下，可以使用測試租用戶來驗證您的新原則是否如預期般運作。 如需詳細資訊，請參閱文章[Azure Active Directory 中的條件式存取的最佳作法](best-practices.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如果您想要知道如何設定條件式存取原則，請參閱文章[需要使用 Azure Active Directory 條件式存取的特定應用程式的 MFA](app-based-mfa.md)。
-* 如果您已準備好設定您的環境的條件式存取原則，請參閱文章[Azure Active Directory 中的條件式存取的最佳做法](best-practices.md)。
+* 如果您想要知道如何設定條件式存取原則，請參閱文章[需要 MFA 的特定應用程式與 Azure Active Directory 條件式存取](app-based-mfa.md)。
+* 如果您已準備好設定您的環境的條件式存取原則，請參閱文章[Azure Active Directory 中的條件式存取的最佳作法](best-practices.md)。

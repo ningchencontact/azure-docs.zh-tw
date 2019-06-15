@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ms.openlocfilehash: 2126408222433e6339723dc2da0d2611bb234fe8
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66734151"
 ---
 # <a name="status-monitor-v2"></a>狀態監視器 v2
@@ -33,7 +33,7 @@ ms.locfileid: "66734151"
 
 ## <a name="powershell-gallery"></a>PowerShell 資源庫
 
-「 PowerShell 資源庫位於此處： https://www.powershellgallery.com/packages/Az.ApplicationMonitor。
+「 PowerShell 資源庫位於此處： https://www.powershellgallery.com/packages/Az.ApplicationMonitor 。
 
 
 ## <a name="instructions"></a>範例的指示

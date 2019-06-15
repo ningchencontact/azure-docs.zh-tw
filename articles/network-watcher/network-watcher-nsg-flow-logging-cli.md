@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 7f964fd78845e663c1ebcde7e79bfb7295c72f31
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64730563"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>使用 Azure CLI 設定網路安全性群組流量記錄
 
 > [!div class="op_single_selector"]
-> - [Azure 门户](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure 入口網站](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
@@ -53,7 +53,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 您指定的儲存體帳戶不能為其設定網路規則，以限制只能對 Microsoft 服務或特定虛擬網路進行網路存取。 儲存體帳戶和您要啟用流程記錄的 NSG 可以位於相同或不同的 Azure 訂用帳戶。 如果您使用不同訂用帳戶，兩者都必須與相同的 Azure Active Directory 租用戶相關聯。 為每個訂用帳戶所使用的帳戶必須具有[必要的權限](required-rbac-permissions.md)。 
 
-如果儲存體帳戶位於不同的資源群組或訂用帳戶，而不是在網路安全性群組中，則指定儲存體帳戶的完整識別碼，而不是指定其名稱。 例如，如果儲存體帳戶位於名為 RG-Storage 的資源群組，則並非指定先前命令中的 storageAccountName，而是要指定 /subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName。
+如果儲存體帳戶位於不同的資源群組或訂用帳戶，而不是在網路安全性群組中，則指定儲存體帳戶的完整識別碼，而不是指定其名稱。 例如，如果儲存體帳戶位於名為 RG-Storage  的資源群組，則並非指定先前命令中的 storageAccountName  ，而是要指定 /subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName  。
 
 ## <a name="disable-network-security-group-flow-logs"></a>停用網路安全性群組流量記錄
 

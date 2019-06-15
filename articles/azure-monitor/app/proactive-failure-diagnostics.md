@@ -14,10 +14,10 @@ ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
 ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61299030"
 ---
 # <a name="smart-detection---failure-anomalies"></a>智慧型偵測 - 失敗異常
@@ -105,7 +105,7 @@ ms.locfileid: "61299030"
 
 ## <a name="review-recent-alerts"></a>檢閱最近的警示
 
-按一下 [智慧型偵測] 來移至最新的警示：
+按一下 [智慧型偵測]  來移至最新的警示：
 
 ![警示摘要](./media/proactive-failure-diagnostics/070.png)
 

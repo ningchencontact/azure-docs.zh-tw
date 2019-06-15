@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 2dad1caeba8a0417b7ac16ebaa45f4f291f54495
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: c28c87339bbfda7cc47e329c8fe6cebdee4a7843
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480757"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127197"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全性技術功能
 這篇文章介紹安全性在 Azure 中的服務，可協助您保護您的資料、 資源和雲端中的應用程式並符合您企業的安全性需求。
@@ -52,7 +52,7 @@ Azure 可讓您管理使用者的身分識別和認證並控制存取權，協�
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Microsoft 身分識別與存取管理解決方案會協助 IT 保護應用程式和跨公司資料中心和到雲端的存取，啟用其他層級的驗證，例如 Multi-Factor Authentication 和條件式存取原則。 透過進階的安全性報告、稽核和警示來監視可疑活動，有助於減緩潛在的安全性問題。 [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions)提供單一登入至數千個雲端應用程式，並存取您內部部署環境上執行 web 應用程式。
+Microsoft 身分識別和存取管理解決方案會協助 IT 保護應用程式和資源的存取跨公司資料中心和到雲端、 啟用其他層級的驗證，例如多重要素驗證和條件式存取原則。 透過進階的安全性報告、稽核和警示來監視可疑活動，有助於減緩潛在的安全性問題。 [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions)提供單一登入至數千個雲端應用程式，並存取您內部部署環境上執行 web 應用程式。
 
 Azure Active Directory (Azure AD) 的安全性優點包括下列功能：
 
@@ -124,9 +124,9 @@ Azure Active Directory (Azure AD) 的安全性優點包括下列功能：
 
 #### <a name="device-registration"></a>裝置註冊
 
-[Azure AD 裝置註冊](https://docs.microsoft.com/azure/active-directory/device-management-introduction) \(機器翻譯\) 是裝置型[條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup)案例的基礎。 當裝置已註冊時，Azure AD 裝置註冊會在使用者登入時，對裝置提供用來驗證裝置的身分識別。 然後已驗證的裝置和裝置的屬性即可用來對裝載於雲端和內部部署的應用程式，強制執行條件式存取原則。
+[Azure AD 裝置註冊](https://docs.microsoft.com/azure/active-directory/device-management-introduction)是成功的裝置型[條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup)案例。 當裝置已註冊時，Azure AD 裝置註冊會在使用者登入時，對裝置提供用來驗證裝置的身分識別。 然後將驗證的裝置和裝置屬性用來強制執行條件式存取原則，為裝載於雲端和內部部署的應用程式。
 
-與 Intune 這類的[行動裝置管理 (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) 解決方案結合時，將會以裝置的其他相關資訊更新 Azure Active Directory 中的裝置屬性。 這可讓您建立條件式存取規則，強制讓裝置的存取符合您的安全性和相容性標準。
+與 Intune 這類的[行動裝置管理 (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) 解決方案結合時，將會以裝置的其他相關資訊更新 Azure Active Directory 中的裝置屬性。 這可讓您建立條件式存取規則，強制執行從符合安全性與合規性標準的裝置存取。
 
 #### <a name="privileged-identity-management"></a>Privileged Identity Management
 

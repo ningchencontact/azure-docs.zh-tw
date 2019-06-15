@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
 ms.openlocfilehash: 5163aa0a9195aa712fa333667b3f7ccf227469be
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938393"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>建立 Azure Key Vault 的憑證
@@ -76,7 +76,7 @@ ms.locfileid: "64938393"
 
 ## <a name="create-the-key-vault"></a>建立金鑰保存庫
 
-將[金鑰保存庫部署範本](./cpp-key-vault-deploy-template.md)的內容複製至本機電腦上的檔案  (在以下的範例指令碼中，此資源是 `C:\certLocation\keyvault.json`)。編輯並執行下列 Azure Powershell 指令碼來建立 Azure Key Vault 執行個體和相關聯的資源群組。  您必須取代下列參數的值：
+將[金鑰保存庫部署範本](./cpp-key-vault-deploy-template.md)的內容複製至本機電腦上的檔案 (在以下的範例指令碼中，此資源是 `C:\certLocation\keyvault.json`)。編輯並執行下列 Azure Powershell 指令碼來建立 Azure Key Vault 執行個體和相關聯的資源群組。  您必須取代下列參數的值：
 
 |  **參數**        |   **說明**                                                               |
 |  -------------        |   ---------------                                                               |

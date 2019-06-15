@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2018
 ms.author: magoedte
 ms.openlocfilehash: 0e4268cb3a8d6ac62da12f689560338eee7e6935
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65071809"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>如何停止使用容器的 Azure 監視器來監視 Azure Kubernetes Service (AKS)
@@ -26,7 +26,7 @@ ms.locfileid: "65071809"
 
 
 ## <a name="azure-cli"></a>Azure CLI
-使用 [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) 命令可停用容器的 Azure 監視。 该命令从群集节点中删除代理，它不会删除已收集并存储在 Azure Monitor 资源中的解决方案或数据。  
+使用 [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) 命令可停用容器的 Azure 監視。 此命令會移除代理程式，從叢集節點，它不會移除解決方案或已收集及儲存在您的 Azure 監視器資源中的資料。  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -108,11 +108,11 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
     }
     ```
 
-4. 使用可所選取叢集的 [屬性] 頁面上找到之 AKS 叢集的值，來編輯 **aksResourceId** 和 **aksResourceLocation** 的值。
+4. 使用可所選取叢集的 [屬性]  頁面上找到之 AKS 叢集的值，來編輯 **aksResourceId** 和 **aksResourceLocation** 的值。
 
     ![容器屬性頁面](media/container-insights-optout/container-properties-page.png)
 
-    當您在 [屬性] 頁面上時，亦請複製 [工作區資源識別碼]。 如果您稍後決定要刪除 Log Analytics 工作區，必須要有這個值。 這部分的程序並不會刪除 Log Analytics 工作區。 
+    當您在 [屬性]  頁面上時，亦請複製 [工作區資源識別碼]  。 如果您稍後決定要刪除 Log Analytics 工作區，必須要有這個值。 這部分的程序並不會刪除 Log Analytics 工作區。 
 
 5. 將此檔案儲存為本機資料夾的 **OptOutParam.json**。
 6. 您已準備好部署此範本。 

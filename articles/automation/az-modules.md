@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a076c924d57aadfae477a5df0d128aad8e67af60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a45a1fbe0d7a99c970d6f8f5626c1349f9d8b1ca
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61305393"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67123701"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Azure 自動化中的 Az 模組支援
 
@@ -53,17 +53,17 @@ Azure 自動化支援在您的 Runbook 中使用 [Azure Powershell Az 模組](/p
 
 [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) 模組是其他 `Az.*` 模組的相依項目。 基於這個原因，此模組必須在您匯入其他任何模組之前，先匯入到您的自動化帳戶。
 
-從您的自動化帳戶中，選取 [共用資源] 下的 [模組]。 按一下 [瀏覽資源庫] 來開啟 [瀏覽資源庫] 頁面。  在搜尋列中，輸入模組名稱 (例如`Az.Accounts`)。 在 [PowerShell 模組] 頁面上，按一下 [匯入] 將模組匯入到您的自動化帳戶。
+從您的自動化帳戶中，選取 [共用資源]  下的 [模組]  。 按一下 [瀏覽資源庫]  來開啟 [瀏覽資源庫]  頁面。  在搜尋列中，輸入模組名稱 (例如`Az.Accounts`)。 在 [PowerShell 模組] 頁面上，按一下 [匯入]  將模組匯入到您的自動化帳戶。
 
 ![從自動化帳戶匯入模組](media/az-modules/import-module.png)
 
-此匯入程序也可以透過在 [PowerShell 資源庫](https://www.powershellgallery.com)搜尋模組來完成。 一旦您找到模組，請選取它，並且在 [Azure 自動化] 索引標籤下按一下 [部署至 Azure 自動化]。
+此匯入程序也可以透過在 [PowerShell 資源庫](https://www.powershellgallery.com)搜尋模組來完成。 一旦您找到模組，請選取它，並且在 [Azure 自動化]  索引標籤下按一下 [部署至 Azure 自動化]  。
 
 ![直接從資源庫匯入模組](media/az-modules/import-gallery.png)
 
 ## <a name="test-your-runbooks"></a>測試您的 Runbook
 
-一旦 `Az` 模組匯入到您的自動化帳戶，您可以開始編輯您的 Runbook 以改為使用 Az 模組。 大部分 Cmdlet 具有相同的名稱，除了 `AzureRM` 已變更為 `Az`。 如需未遵循此程序的模組清單，請參閱[例外狀況清單](/powershell/azure/migrate-from-azurerm-to-az?view=azps-1.1.0#change-module-imports-and-cmdlet-names)。
+一旦 `Az` 模組匯入到您的自動化帳戶，您可以開始編輯您的 Runbook 以改為使用 Az 模組。 大部分 Cmdlet 具有相同的名稱，除了 `AzureRM` 已變更為 `Az`。 如需未遵循此程序的模組清單，請參閱[例外狀況清單](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters)。
 
 在修改您的 Runbook 使用新 Cmdlet 之前測試 Runbook 的其中一個方式，是在 Runbook 開頭使用 `Enable-AzureRMAlias -Scope Process`。 藉由將它新增至您的 Runbook，您的 Runbook 就可以執行而不需要變更。
 

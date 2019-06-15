@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 1ec4786291d6e2e5be6785e52cf3ab5bb5bbc690
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754545"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>移轉至叢集組態中以角色為基礎的細微存取
@@ -148,7 +148,7 @@ Api 已新增下列取代：</span>
 若要更新[Az PowerShell 版本 2.0.0](https://www.powershellgallery.com/packages/Az)或更新版本，以避免中斷。  如果您使用的方法，這些變更的影響，可能需要最少程式碼修改。
 - `Grant-AzHDInsightHttpServicesAccess` 現在已被取代，並已由新取代`Set-AzHDInsightGatewayCredential`cmdlet。
 - `Get-AzHDInsightJobOutput` 已更新為支援細微角色型存取儲存體金鑰。
-    - 與 HDInsight 叢集操作員、 參與者或擁有者角色的使用者不會受到影響。
+    - 具有 HDInsight 叢集操作員、參與者或擁有者角色的使用者將不受影響。
     - 讀取者角色的使用者必須指定`DefaultStorageAccountKey`參數明確。
 - `Revoke-AzHDInsightHttpServicesAccess` 現在已被取代。 HTTP 現在永遠啟用，因此不再需要這個指令程式。
  請參閱[az。HDInsight 移轉指南](https://github.com/Azure/azure-powershell/blob/master/documentation/migration-guides/Az.2.0.0-migration-guide.md#azhdinsight)如需詳細資訊。

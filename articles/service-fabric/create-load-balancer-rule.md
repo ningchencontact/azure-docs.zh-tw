@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
 ms.openlocfilehash: d95d2802398a61b948ff6c59fb3eab0e1ddddbc5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147471"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>開啟 Service Fabric 叢集的連接埠
@@ -61,7 +61,7 @@ az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol 
 
 Azure CLI 命令有幾個參數，如下表所述：
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --------- | ----------- |
 | `--backend-port`  | Service Fabric 應用程式正在接聽的連接埠。 |
 | `--frontend-port` | 負載平衡器公開給外部連線的連接埠。 |

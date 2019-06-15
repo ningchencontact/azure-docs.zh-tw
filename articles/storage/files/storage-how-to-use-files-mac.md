@@ -9,10 +9,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 7f2abbb355513c175329d01b9d5ed8884f2c27ef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715943"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>透過 macOS 的 SMB 掛接 Azure 檔案共用
@@ -38,7 +38,7 @@ ms.locfileid: "64715943"
 1. **開啟搜尋工具**：搜尋工具在 macOS 中為預設開啟，但是您可以按一下 Dock 上的 [macOS 臉部圖示] 確保它是目前選取的應用程式：  
     ![macOS 臉部圖示](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **從 [前往] 功能表選取 [連線至伺服器]**：使用必要條件中的 UNC 路徑，將開頭的雙反斜線 (`\\`) 轉換為 `smb://`，並將其他所有的反斜線 (`\`) 轉換為正斜線 (`/`)。 您的連結看起來應該如下所示：![[連線至伺服器] 對話方塊](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **從 [前往] 功能表選取 [連線至伺服器]** ：使用必要條件中的 UNC 路徑，將開頭的雙反斜線 (`\\`) 轉換為 `smb://`，並將其他所有的反斜線 (`\`) 轉換為正斜線 (`/`)。 您的連結看起來應該如下所示：![[連線至伺服器] 對話方塊](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **提示您輸入使用者名稱和密碼時，使用儲存體帳戶名稱和儲存體帳戶金鑰**：當您在 [連線至伺服器] 對話方塊中按一下 [連線] 時，系統會提示您輸入使用者名稱和密碼 (這會使用您的 macOS 使用者名稱自動填入)。 您可以選擇將儲存體帳戶名稱/儲存體帳戶金鑰置於您的 macOS 金鑰鏈。
 

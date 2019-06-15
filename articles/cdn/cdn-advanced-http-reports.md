@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 67bab857e66edd8e9fae7d45c6157f018da81ccf
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64867025"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>使用 Azure CDN 進階 HTTP 報告分析使用量統計資料
@@ -33,7 +33,7 @@ ms.locfileid: "64867025"
     ![[CDN 設定檔] 刀鋒視窗的 [管理] 按鈕](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
     隨即開啟 CDN 管理入口網站。
-2. 將滑鼠移至 [分析] 索引標籤上，然後將滑鼠移至 [進階 HTTP 報告] 飛出視窗上。  按一下 [HTTP 大型平台] 。
+2. 將滑鼠移至 [分析]  索引標籤上，然後將滑鼠移至 [進階 HTTP 報告]  飛出視窗上。  按一下 [HTTP 大型平台]  。
    
     ![CDN 管理入口網站 - 進階報告功能表](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    

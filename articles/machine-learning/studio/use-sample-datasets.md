@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
 ms.openlocfilehash: f86ae4977621927a09d9b83287a00dfa3bc17196
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736610"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中使用範例資料集
@@ -367,14 +367,14 @@ NOAA 提供的每小時起降天候觀測值 (<a href="https://az754797.vo.msecn
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">lyrl2004_tokens_test.csv</a></td>
   <td>
-RCV1-V2 路透社新聞資料集中測試功能的範例。 資料集有 78 萬 1 千篇新聞文章，以及它們的識別碼 (資料集的第一個資料行)。 每篇文章均執行語彙基元化、停用字詞和詞幹分析。 資料集由 David. D. Lewis  D. 提供。
+RCV1-V2 路透社新聞資料集中測試功能的範例。 資料集有 78 萬 1 千篇新聞文章，以及它們的識別碼 (資料集的第一個資料行)。 每篇文章均執行語彙基元化、停用字詞和詞幹分析。 資料集由 David. D. Lewis D. 提供。
   </td>
 </tr>
 
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">lyrl2004_tokens_train.csv</a></td>
   <td>
-RCV1-V2 路透社新聞資料集中訓練功能的範例。 資料集有 2 萬 3 千篇新聞文章，以及它們的識別碼 (資料集的第一個資料行)。 每篇文章均執行語彙基元化、停用字詞和詞幹分析。 資料集由 David. D. Lewis  D. 提供。
+RCV1-V2 路透社新聞資料集中訓練功能的範例。 資料集有 2 萬 3 千篇新聞文章，以及它們的識別碼 (資料集的第一個資料行)。 每篇文章均執行語彙基元化、停用字詞和詞幹分析。 資料集由 David. D. Lewis D. 提供。
   </td>
 </tr>
 
@@ -390,7 +390,7 @@ RCV1-V2 路透社新聞資料集中訓練功能的範例。 資料集有 2 萬 3
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
-RCV1-V2 路透社新聞資料集中新聞文章的主題指派。 一篇新聞文章可以指派給數個主題。 每個資料列的格式為 "&lt;topic name&gt; &lt;document id&gt; 1"。 資料集包含 260 萬個主題指派。 資料集由 David. D. Lewis  D. 提供。
+RCV1-V2 路透社新聞資料集中新聞文章的主題指派。 一篇新聞文章可以指派給數個主題。 每個資料列的格式為 "&lt;topic name&gt; &lt;document id&gt; 1"。 資料集包含 260 萬個主題指派。 資料集由 David. D. Lewis D. 提供。
   </td>
 </tr>
 
