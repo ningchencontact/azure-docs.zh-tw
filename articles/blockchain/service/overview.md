@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
 ms.openlocfilehash: e370916d420a7bc4cd16d021c69a2f8609093d30
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544710"
 ---
 # <a name="what-is-azure-blockchain-service"></a>什麼是 Azure 區塊鏈服務？
@@ -51,7 +51,7 @@ Azure 區塊鏈 Service 提供兩個服務層：*基本*並*標準*。 每個層
 
 此外，Azure 區塊鏈 Service 會提供豐富的計量，透過 Azure 監視器服務提供深入了解節點的 CPU、 記憶體和儲存體使用量以及實用的深入了解區塊鏈網路活動，例如交易，以及進行資料採礦，區塊交易的佇列深度，以及使用中的連接。  可以自訂計量，以對您的區塊鏈應用程式很重要的深入解析成提供的檢視。  此外，可以透過讓使用者動作，例如傳送電子郵件或文字訊息、 執行邏輯應用程式，Azure 函式，或將傳送至自訂的 webhook 觸發程序的警示定義臨界值。
 
-![指标](./media/overview/metrics.png)
+![度量](./media/overview/metrics.png)
 
 透過 Azure Log Analytics，使用者可以檢視相關的仲裁交易紀錄資料庫或其他重要資訊，例如嘗試節點的連線，交易記錄。
 

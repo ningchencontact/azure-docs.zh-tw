@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 5b23a5e93dcbb9c13243240bda760a16d108d731
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938468"
 ---
 <a name="what-is-test-drive"></a>什麼是試用產品？
@@ -47,8 +47,8 @@ ms.locfileid: "64938468"
 
 無論您的產品多複雜，Microsoft Test Drive 都能協助您將產品提供給客戶。 我們現已根據產品類型、案例和您所在的 Marketplace，提供三種不同類型的試用產品。
 
-- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)**:Azure Resource Manager 試用產品是一個部署範本，其中包含組成發行者所建置之解決方案的所有 Azure 資源。 適用於此案例的產品為僅使用 Azure 資源的產品。
-- **[邏輯應用程式](./logic-app-test-drive.md)**:邏輯應用程式試用產品已包含所有複雜的解決方案架構是為了部署範本。 所有 Dynamics 應用程式或自訂產品，都應該使用此類型的試用產品。
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** :Azure Resource Manager 試用產品是一個部署範本，其中包含組成發行者所建置之解決方案的所有 Azure 資源。 適用於此案例的產品為僅使用 Azure 資源的產品。
+- **[邏輯應用程式](./logic-app-test-drive.md)** :邏輯應用程式試用產品已包含所有複雜的解決方案架構是為了部署範本。 所有 Dynamics 應用程式或自訂產品，都應該使用此類型的試用產品。
 - **Power BI**：Power BI 試用產品是直接內建的自訂儀表板內嵌的連結。 任何只是要示範互動式 Power BI 視覺效果的產品，都應該使用此類型的試用產品。
     您只需要上傳內嵌的 Power BI URL。
 

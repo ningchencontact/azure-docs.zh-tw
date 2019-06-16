@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 85a1579e32b4c216f234f77c76316bedeaea77b0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d32beb2d799a60cb9c5be061c39e4ec834da8dcf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119553"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814753"
 ---
 這項功能處於預覽狀態。 若要使用這項功能，您必須安裝此模組的預覽擴充功能。
 
@@ -28,11 +28,9 @@ ms.locfileid: "66119553"
 
 針對本機安裝：
 
-1. 在本機將 Azure CLI 解除安裝。
-1. 安裝[最新版](/cli/azure/install-azure-cli)的 Azure CLI。
-1. 啟動命令視窗。
+1. [安裝 Azure CLI](/cli/azure/install-azure-cli)。 請確定您有最新的版本，方法是檢查`az --version`。
 1. 將舊版的擴充功能解除安裝 `az extension remove -n eventgrid`
-1. 安裝擴充功能 `az extension add -n eventgrid`
+1. 安裝`eventgrid`延伸模組 `az extension add -n eventgrid`
 
 ### <a name="install-module-for-powershell"></a>安裝 PowerShell 模組
 

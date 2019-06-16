@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a6a0e6219a45821e2a4416a4e563aa6edb86eba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611077"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127178"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 進階威脅偵測
 
@@ -37,11 +37,11 @@ Identity Protection 會使用調適性機器學習演算法和啟發學習法，
 
 Azure Active Directory Identity Protection 不只是監視和報告工具而已。 Identity Protection 會根據風險事件，計算每位使用者的使用者風險層級，讓您設定風險原則來自動保護您組織的身分識別。
 
-除了 Azure Active Directory 與 [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) 所提供的其他[條件式存取控制](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access)以外，這些以風險為根據的原則可以自動封鎖或提供調適性補救動作，包括重設密碼，以及強制執行 Multi-Factor Authentication。
+這些風險型原則，除了其他[條件式存取控制](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access)提供的 Azure Active Directory 並[EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access)、 可以自動封鎖或提供調適性補救動作，包括重設密碼以及強制 multi-factor authentication。
 
 ### <a name="identity-protection-capabilities"></a>Identity Protection 功能
 
-Azure Active Directory Identity Protection 不只是監視和報告工具而已。 若要保護您組織的身分識別，您可以設定以風險為基礎的原則，當達到指定風險層級時自動回應偵測到的問題。 除了 Azure Active Directory 與 EMS 所提供的其他條件式存取控制以外，這些的原則可以自動封鎖或起始調適性補救動作，包括重設密碼以及強制 Multi-Factor Authentication。
+Azure Active Directory Identity Protection 不只是監視和報告工具而已。 若要保護您組織的身分識別，您可以設定以風險為基礎的原則，當達到指定風險層級時自動回應偵測到的問題。 這些原則，除了 Azure Active Directory 與 EMS 所提供的其他條件式存取控制項可以自動封鎖或起始調適性補救動作，包括密碼重設以及強制 multi-factor authentication。
 
 Azure Identity Protection 可用以協助保護您的帳戶和身分識別的一些方法範例包括：
 
@@ -95,7 +95,7 @@ Azure 監視器記錄檔幫助您快速且輕鬆地了解任何環境中，所�
 
 -   **值得注意的問題**︰可讓您快速識別作用中的問題數目和問題嚴重性。
 
--   **偵測 (預覽)**︰可讓您顯示資源所發生的安全性警示，進而識別攻擊模式。
+-   **偵測 (預覽)** ︰可讓您顯示資源所發生的安全性警示，進而識別攻擊模式。
 
 -   **威脅情報**：可讓您藉由下列方式來識別攻擊模式：顯示呈現具有惡意輸出 IP 流量的伺服器總數、惡意威脅類型，以及 IP 位置的地圖。
 
@@ -193,7 +193,7 @@ Microsoft 可以存取大量的全域威脅情報。
 
 ### <a name="anomaly-detection"></a>異常偵測
 
-Azure 資訊安全中心也會使用異常偵測來識別威脅。 相較於行為分析 (這取決於衍生自大型資料集的已知模式)，異常偵測更加「個人化」，且著重於您的部署專用的基準。 機器學習適用於判斷您部署的正常活動，然後產生規則來定義可能代表安全性事件的極端狀況。 範例如下：
+Azure 資訊安全中心也會使用異常偵測來識別威脅。 相較於行為分析 (這取決於衍生自大型資料集的已知模式)，異常偵測更加「個人化」，且著重於您的部署專用的基準。 機器學習適用於判斷您部署的正常活動，然後產生規則來定義可能代表安全性事件的極端狀況。 以下為範例：
 
 -   **輸入 RDP/SSH 暴力密碼破解攻擊**︰您的部署中可能包含每天都有許多登入的繁忙虛擬機器，以及有少量 (如果有的話) 登入的其他虛擬機器。 Azure 資訊安全中心可以判斷這些虛擬機器的基準登入活動，並使用要定義於正常登入活動周圍的機器學習服務。 如果與針對登入相關特性所定義的基準有任何差異，則可能會產生警示。 同樣地，機器學習服務會判斷何者值得關注。
 

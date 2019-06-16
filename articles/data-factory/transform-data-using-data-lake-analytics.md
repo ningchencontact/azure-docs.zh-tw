@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
 ms.openlocfilehash: d5b074fcf182bcc9bf4dc17ba21215d27e13cbdd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60888430"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>在 Azure Data Lake Analytics 上執行 U-SQL 指令碼來轉換資料 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-usql-activity.md)
 > * [目前的版本](transform-data-using-data-lake-analytics.md)
 
@@ -122,7 +122,7 @@ Azure Data Lake Analytics 已連結的服務需要服務主體驗證，才能連
 | name                | 管線中的活動名稱     | 是      |
 | description         | 說明活動用途的文字。  | 否       |
 | type                | 對於 Data Lake Analytics U-SQL 活動，活動類型為 **DataLakeAnalyticsU-SQL**。 | 是      |
-| 預設容器   | Azure Data Lake Analytics 之已連結的服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。  |是       |
+| linkedServiceName   | Azure Data Lake Analytics 之已連結的服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。  |是       |
 | scriptPath          | 包含 U-SQL 指令碼的資料夾的路徑。 檔案的名稱有區分大小寫。 | 是      |
 | scriptLinkedService | 連結服務會將包含指令碼的 **Azure Data Lake Store** 或 **Azure 儲存體**連結至資料處理站 | 是      |
 | degreeOfParallelism | 同時用來執行作業的節點數目上限。 | 否       |
@@ -162,7 +162,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-在上述指令碼範例中，輸入和輸出的指令碼會定義於**\@中**並**\@出**參數。 值**\@中**並**\@出**U-SQL 指令碼中的參數來動態傳遞 Data Factory 使用 'parameters' 區段。 
+在上述指令碼範例中，輸入和輸出的指令碼會定義於 **\@中**並 **\@出**參數。 值 **\@中**並 **\@出**U-SQL 指令碼中的參數來動態傳遞 Data Factory 使用 'parameters' 區段。 
 
 您也可以在管線定義中，針對在 Azure Data Lake Analytics 服務上執行的作業，指定其他屬性 (例如 degreeOfParallelism 和 priority)。
 
@@ -176,7 +176,7 @@ OUTPUT @rs1
 }
 ```
 
-您可改為使用動態參數。 例如︰ 
+您可改為使用動態參數。 例如: 
 
 ```json
 "parameters": {

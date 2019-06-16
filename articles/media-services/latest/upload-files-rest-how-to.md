@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: a241f66adecbab1d0b1462f379d3765d6c1de252
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61466766"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>使用 REST 將檔案上傳至媒體服務帳戶
@@ -39,23 +39,23 @@ ms.locfileid: "61466766"
 
 本節說明如何建立新的資產。
 
-1. 選取 [資產] -> [建立或更新資產]。
-2. 按 [傳送]。
+1. 選取 [資產]   -> [建立或更新資產]  。
+2. 按 [傳送]  。
 
     ![建立資產](./media/upload-files/postman-create-asset.png)
 
-您會看到 [回應]，包含新建資產的相關資訊。
+您會看到 [回應]  ，包含新建資產的相關資訊。
 
 ## <a name="get-a-sas-url-with-read-write-permissions"></a>取得具有讀寫權限的 SAS URL 
 
 本節說明如何取得針對已建立資產所產生的 SAS URL。 SAS URL 是以讀寫權限建立，可用來將數位檔案上傳到資產容器。
 
-1. 選取 [資產] -> [列出資產 URL]。
-2. 按 [傳送]。
+1. 選取 [資產]   -> [列出資產 URL]  。
+2. 按 [傳送]  。
 
     ![上傳檔案](./media/upload-files/postman-create-sas-locator.png)
 
-您會看到 [回應]，包含資產的 URL 相關資訊。 複製第一個 URL 並用於上傳檔案。
+您會看到 [回應]  ，包含資產的 URL 相關資訊。 複製第一個 URL 並用於上傳檔案。
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>使用上傳 URL 將檔案上傳至 blob 儲存體
 

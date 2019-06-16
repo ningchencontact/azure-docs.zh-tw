@@ -10,10 +10,10 @@ ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 38bafdb4753b41a9c8acd599e6b7215e1777c6cd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779474"
 ---
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 開發 Azure 檔案服務
@@ -45,17 +45,17 @@ API | 使用時機 | 注意
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>建立主控台應用程式並取得組件
 在 Visual Studio 中，建立新的 Windows 主控台應用程式。 下列步驟示範如何在 Visual Studio 2017 中建立主控台應用程式，但步驟類似其他版本的 Visual Studio。
 
-1. 選取 [檔案] > [新增] > [專案]
-2. 選取 [安裝] > [範本] > [Visual C#] > [Windows 傳統桌面]
+1. 選取 [檔案]   > [新增]   > [專案] 
+2. 選取 [安裝]   > [範本]   > [Visual C#]   > [Windows 傳統桌面] 
 3. 選取 **主控台應用程式 (.NET Framework)**
-4. 在 [名稱：] 欄位中輸入應用程式的名稱
-5. 選取 [確定]
+4. 在 [名稱：]  欄位中輸入應用程式的名稱
+5. 選取 [確定] 
 
 本教學課程中的所有程式碼範例均可新增至您主控台應用程式的 `Program.cs` 檔案中的 `Main()` 方法。
 
 您可以使用 Azure 儲存體用戶端程式庫，在任何類型的.NET 應用程式，包括 Azure 雲端服務或 web 應用程式和桌面和行動應用程式。 在本指南中，為求簡化，我們會使用主控台應用程式。
 
-## <a name="use-nuget-to-install-the-required-packages"></a>使用 NuGet 安装所需包
+## <a name="use-nuget-to-install-the-required-packages"></a>使用 NuGet 來安裝必要的封裝
 您必須在您的專案中參考下列兩個套件，才能完成本教學課程︰
 
 * [適用於.NET 的 Microsoft Azure 儲存體通用程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/):此封裝提供以程式設計方式存取您的儲存體帳戶中的通用資源。
@@ -64,8 +64,8 @@ API | 使用時機 | 注意
 
 您可以使用 NuGet 來取得這兩個封裝。 請遵循下列步驟：
 
-1. 在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。
-2. 在线搜索“WindowsAzure.Storage”，并单击“安装”  以安装存储客户端库和依赖项。
+1. 在 [方案總管]  中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]  。
+2. 在線上搜尋 "WindowsAzure.Storage"，然後按一下 [安裝]  以安裝 Storage Client Library 與其相依項目。
 3. 在線上搜尋 "WindowsAzure.ConfigurationManager"，然後按一下 [安裝]  以安裝 Azure Configuration Manager。
 
 ## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>將您的儲存體帳戶認證儲存到 app.config 檔案
@@ -233,7 +233,7 @@ if (share.Exists())
 > 
 > 
 
-**將檔案複製到另一個檔案** 下列範例會將檔案複製到相同共用中的另一個檔案。 因为此操作在同一存储帐户中的文件之间进行复制，可以使用共享密钥身份验证来进行复制。
+**將檔案複製到另一個檔案** 下列範例會將檔案複製到相同共用中的另一個檔案。 由於此複製作業是在相同儲存體帳戶中的檔案間進行複製，所以您可以使用共用金鑰驗證執行複製。
 
 ```csharp
 // Parse the connection string for the storage account.

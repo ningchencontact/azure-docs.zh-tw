@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 2001b849e9c43d552889475ca237c52b141f3f04
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 32eb2c47ed46aed8e2e3755a83437a21391295c5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306270"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122971"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure 的 Red Hat OpenShift 常見問題集
 
@@ -49,9 +49,13 @@ ms.locfileid: "66306270"
 
 根據預設，沒有待用加密。 Azure 儲存體平台會自動加密您的資料，再進行保存，且會在擷取之前的資料解密。 請參閱[待用資料的 Azure 儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)如需詳細資訊。
 
-## <a name="can-i-use-prometheusgrafana-to-monitor-containers-and-manage-capacity"></a>可以使用 Prometheus/Grafana 監視容器及管理容量嗎？
+## <a name="can-i-use-prometheusgrafana-to-monitor-my-applications"></a>可以使用 Prometheus/Grafana 來監視我的應用程式嗎？
 
-否，不是在目前的時間。
+是，您可以部署在命名空間和監視應用程式中的 Prometheus，命名空間中。
+
+## <a name="can-i-use-prometheusgrafana-to-monitor-metrics-related-to-cluster-health-and-capacity"></a>可以使用 Prometheus/Grafana 監視叢集健康情況和容量的相關度量嗎？
+
+否，不是在目前的階段。
 
 ## <a name="is-the-docker-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>可從外部因此我可以使用 Jenkins 等工具時，才 Docker 登錄嗎？
 
@@ -80,3 +84,7 @@ Docker 登錄是可從`https://docker-registry.apps.<clustername>.<region>.azmos
 ## <a name="is-open-service-broker-for-azure-osba-supported"></a>是 Open Service Broker for Azure (OSBA) 支援？
 
 是。 您可以使用 OSBA 與 Azure 的 Red Hat OpenShift。 請參閱[Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template)如需詳細資訊。
+
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>我正在嘗試到不同的訂用帳戶中的虛擬網路對等互連，但取得`Failed to get vnet CIDR`時發生錯誤。
+
+在具有虛擬網路的訂用帳戶，請務必註冊`Microsoft.ContainerService`提供者 `az provider register -n Microsoft.ContainerService --wait` 

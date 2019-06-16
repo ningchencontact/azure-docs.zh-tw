@@ -1,6 +1,6 @@
 ---
-title: 监视工作负荷 - Azure 门户 | Microsoft Docs
-description: 使用 Azure 门户监视 Azure SQL 数据仓库
+title: 監視工作負載-Azure 入口網站 |Microsoft Docs
+description: 監視 Azure SQL 資料倉儲使用 Azure 入口網站
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -11,36 +11,36 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.openlocfilehash: 6c8ce090039e3d5cc85c86d920710294de2165f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60748814"
 ---
-# <a name="monitor-workload---azure-portal"></a>监视工作负荷 - Azure 门户
+# <a name="monitor-workload---azure-portal"></a>監視工作負載-Azure 入口網站
 
-本文介绍如何使用 Azure 门户监视工作负荷。 这包括设置 Azure Monitor 日志，以使用适用于 [Azure SQL 数据仓库](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/)的日志分析来调查查询执行和工作负荷趋势。
+本文說明如何使用 Azure 入口網站來監視您的工作負載。 這包括設定 Azure 監視器的記錄檔來調查查詢執行和工作負載趨勢使用 log analytics [Azure SQL 資料倉儲](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/)。
 
 ## <a name="prerequisites"></a>必要條件
 
 - Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
-- Azure SQL 資料倉儲：我们将收集 SQL 数据仓库的日志。 如果未预配 SQL 数据仓库，请参阅[创建 SQL 数据仓库](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial)中的说明。
+- Azure SQL 資料倉儲：我們會收集 SQL 資料倉儲的記錄檔。 如果您尚未佈建的 SQL 資料倉儲，請參閱中的指示[建立 SQL 資料倉儲](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial)。
 
 ## <a name="create-a-log-analytics-workspace"></a>建立 Log Analytics 工作區
 
-导航到 Log Analytics 工作区的浏览边栏选项卡并创建工作区 
+瀏覽至 Log Analytics 工作區的 [瀏覽] 刀鋒視窗，並建立工作區 
 
 ![Log Analytics 工作區](media/sql-data-warehouse-monitor/log_analytics_workspaces.png)
 
-![添加 Analytics 工作区](media/sql-data-warehouse-monitor/add_analytics_workspace.png)
+![新增 Analytics 工作區](media/sql-data-warehouse-monitor/add_analytics_workspace.png)
 
-![添加 Analytics 工作区](media/sql-data-warehouse-monitor/add_analytics_workspace_2.png)
+![新增 Analytics 工作區](media/sql-data-warehouse-monitor/add_analytics_workspace_2.png)
 
-有关工作区的更多详细信息，请访问以下[文档](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#create-a-workspace)。
+如需工作區的詳細資訊，請瀏覽下列[文件](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#create-a-workspace)。
 
-## <a name="turn-on-diagnostic-logs"></a>启用诊断日志 
+## <a name="turn-on-diagnostic-logs"></a>開啟診斷記錄 
 
-配置诊断设置，以便从 SQL 数据仓库发出日志。 日志由数据仓库的遥测视图组成，相当于 SQL 数据仓库最常用的性能故障排除 DMV。 目前支持以下视图：
+設定以將記錄從您的 SQL 資料倉儲發出的診斷設定。 記錄檔包含相當於 SQL 資料倉儲的疑難排解 Dmv 最常用的效能資料倉儲的遙測檢視。 目前支援下列檢視：
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016-au7)
 - [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?view=aps-pdw-2016-au7)
@@ -51,28 +51,28 @@ ms.locfileid: "60748814"
 
 ![啟用診斷記錄](media/sql-data-warehouse-monitor/enable_diagnostic_logs.png)
 
-可将日志发送到 Azure 存储、流分析或 Log Analytics。 本教程选择了“Log Analytics”。
+Azure 儲存體、 Stream Analytics 或 Log Analytics 可以發出記錄檔。 本教學課程中，選取 Log Analytics。
 
-![指定日志](media/sql-data-warehouse-monitor/specify_logs.png)
+![指定記錄檔](media/sql-data-warehouse-monitor/specify_logs.png)
 
-## <a name="run-queries-against-log-analytics"></a>针对 Log Analytics 运行查询
+## <a name="run-queries-against-log-analytics"></a>針對 Log Analytics 執行查詢
 
-导航到 Log Analytics 工作区，在其中可执行以下操作：
+瀏覽至您的 Log Analytics 工作區，其中您可以執行下列作業：
 
-- 使用日志查询分析日志，并保存查询以便重复使用
-- 保存查询以便重复使用
-- 创建日志警报
-- 将查询结果固定到仪表板
+- 使用記錄檔查詢來分析記錄並儲存以供重複使用的查詢
+- 儲存以供重複使用的查詢
+- 建立記錄警示
+- 將查詢結果釘選到儀表板
 
-有关日志查询功能的详细信息，请访问以下[文档](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language)。
+如需記錄檔查詢的功能的詳細資訊，請造訪下列[文件](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language)。
 
-![Log Analytics 工作区编辑器](media/sql-data-warehouse-monitor/log_analytics_workspace_editor.png)
+![Log Analytics 工作區編輯器](media/sql-data-warehouse-monitor/log_analytics_workspace_editor.png)
 
 
 
-![Log Analytics 工作区查询](media/sql-data-warehouse-monitor/log_analytics_workspace_queries.png)
+![記錄分析工作區的查詢](media/sql-data-warehouse-monitor/log_analytics_workspace_queries.png)
 
-## <a name="sample-log-queries"></a>示例日志查询
+## <a name="sample-log-queries"></a>範例記錄檔查詢
 
 
 
@@ -99,4 +99,4 @@ AzureDiagnostics
 ```
 ## <a name="next-steps"></a>後續步驟
 
-设置并配置 Azure Monitor 日志后，请[自定义 Azure 仪表板](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards)以便在整个团队中共享。
+既然您已安裝並設定 Azure 監視器記錄[來自訂 Azure 儀表板](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards)在您的小組共用。

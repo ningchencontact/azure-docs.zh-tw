@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ms.openlocfilehash: d7c740133911689c6d3f8e29c2cb20aa8873f0c7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65788002"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>教學課程：在 Microsoft Azure 儲存體中使用 Azure 金鑰保存庫加密和解密 Blob
@@ -29,7 +29,7 @@ ms.locfileid: "65788002"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本教程，必须具备以下项目：
+若要完成本教學課程，您必須具備下列項目：
 
 * Azure 儲存體帳戶
 * Visual Studio 2013 或更新版本
@@ -43,7 +43,7 @@ ms.locfileid: "65788002"
 
 1. Azure 儲存體用戶端 SDK 會產生內容加密金鑰 (CEK)，這是使用一次的對稱金鑰。
 2. 客戶資料是使用此 CEK 加密。
-3. 然後使用金鑰加密金鑰 (KEK) 包裝 (加密) CEK。 KEK 由金鑰識別碼所識別，可以是非對稱金鑰組或對稱金鑰，且可以在本機管理或儲存在 Azure 金鑰保存庫中。 儲存體用戶端本身永遠沒有 KEK 的存取權。 它只能调用密钥保管库提供的密钥包装算法。 如有需要，客戶可以選擇使用自訂提供者來包裝/取消包裝金鑰。
+3. 然後使用金鑰加密金鑰 (KEK) 包裝 (加密) CEK。 KEK 由金鑰識別碼所識別，可以是非對稱金鑰組或對稱金鑰，且可以在本機管理或儲存在 Azure 金鑰保存庫中。 儲存體用戶端本身永遠沒有 KEK 的存取權。 它只是叫用金鑰保存庫所提供的金鑰包裝演算法。 如有需要，客戶可以選擇使用自訂提供者來包裝/取消包裝金鑰。
 4. 然後，將加密的資料上傳至 Azure 儲存體服務。
 
 ## <a name="set-up-your-azure-key-vault"></a>設定 Azure 金鑰保存庫
@@ -206,8 +206,8 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 * SymmetricKey 中的金鑰應該為 Base64 編碼。
 * 用來做為 SymmetricKey 的金鑰保存庫密碼，在金鑰保存庫中必須具有 "application/octet-stream" 內容類型。
 
-以下是使用 PowerShell 在密钥保管库中创建可用作 SymmetricKey 的密钥的示例。
-請注意，硬式編碼的值 ($key) 僅用於示範目的。 请在自己的代码中生成此密钥。
+以下是在 PowerShell 中，在保存庫中建立密碼做為 SymmetricKey 的範例：
+請注意，硬式編碼的值 ($key) 僅用於示範目的。 在自己的程式碼中，您會想要產生此金鑰。
 
 ```csharp
 // Here we are making a 128-bit key so we have 16 characters.

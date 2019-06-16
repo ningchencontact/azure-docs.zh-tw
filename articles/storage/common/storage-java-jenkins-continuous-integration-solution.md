@@ -10,10 +10,10 @@ custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
 ms.openlocfilehash: d9ef6f5056fdbd7187c92c98d1c884a5314c29a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153672"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>將 Azure 儲存體用於 Jenkins 連續整合解決方案
@@ -49,38 +49,38 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
      
       雖然一般 Jenkins CI 解決方案會設定成以服務的形式執行，但對本教學課程來說，在命令列執行 Jenkins war 已經足夠。
 * 一個 Azure 帳戶。 您可以在 <https://www.azure.com> 註冊 Azure 帳戶。
-* 一個 Azure 儲存體帳戶。 如果还没有存储帐户，则可使用 [创建存储帐户](../common/storage-quickstart-create-account.md)中的步骤创建一个。
+* 一個 Azure 儲存體帳戶。 如果您還沒有儲存體帳戶，可以使用 [建立儲存體帳戶](../common/storage-quickstart-create-account.md)中的步驟建立一個帳戶。
 * 建議您熟悉 Jenkins CI 解決方案，但這並非必要，因為下列內容將使用一個基本範例來示範使用 Blob 服務作為 Jenkins CI 組建成品的存放庫時所需的步驟。
 
 ## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>如何使用 Blob 服務搭配 Jenkins CI
 若要使用 Blob 服務搭配 Jenkins，您將要安裝 Azure 儲存體外掛程式、設定外掛程式來使用您的儲存體帳戶，然後建立一個會將您的組建成品上傳至您儲存體帳戶的建置後動作。 這些步驟將於下列各節中說明。
 
 ## <a name="how-to-install-the-azure-storage-plugin"></a>如何安裝 Azure 儲存體外掛程式
-1. 在 Jenkins 儀表板中，選取 [管理 Jenkins]。
-2. 在 [管理 Jenkins] 頁面中，選取 [管理外掛程式]。
-3. 選取 [可用] 索引標籤。
-4. 在 [構件上傳程式] 區段中，取核 [Microsoft Azure 儲存體外掛程式]。
-5. 選取 [直接安裝而不重新啟動] 或 [立即下載並於重新啟動後安裝]。
+1. 在 Jenkins 儀表板中，選取 [管理 Jenkins]  。
+2. 在 [管理 Jenkins]  頁面中，選取 [管理外掛程式]  。
+3. 選取 [可用]  索引標籤。
+4. 在 [構件上傳程式]  區段中，取核 [Microsoft Azure 儲存體外掛程式]  。
+5. 選取 [直接安裝而不重新啟動]  或 [立即下載並於重新啟動後安裝]  。
 6. 重新啟動 Jenkins。
 
 ## <a name="how-to-configure-the-azure-storage-plugin-to-use-your-storage-account"></a>如何設定 Azure 儲存體外掛程式來使用您的儲存體帳戶
-1. 在 Jenkins 儀表板中，選取 [管理 Jenkins]。
-2. 在 [管理 Jenkins] 頁面中，選取 [設定系統]。
+1. 在 Jenkins 儀表板中，選取 [管理 Jenkins]  。
+2. 在 [管理 Jenkins]  頁面中，選取 [設定系統]  。
 3. 在 [Microsoft Azure Storage Account Configuration]  區段中：
    1. 輸入您的儲存體帳戶名稱，您可從 [Azure 入口網站](https://portal.azure.com)取得此名稱。
    2. 輸入您的儲存體帳戶金鑰，這項資訊也可以從 [Azure 入口網站](https://portal.azure.com)取得。
-   3. 如果您使用全域 Azure 雲端，請讓 [Blob 服務端點 URL] 使用預設值。 如果您使用的是其他 Azure 雲端，請使用 [Azure 入口網站](https://portal.azure.com) 中為您儲存體帳戶所指定的端點。 
-   4. 按一下 [驗證儲存體認證] 以驗證您的儲存體帳戶。 
-   5. [選擇性] 如果您有其他儲存體帳戶要提供給 Jenkins CI 使用，請選取 [新增更多儲存體帳戶]。
-   6. 選取 [儲存] 以儲存您的設定。
+   3. 如果您使用全域 Azure 雲端，請讓 [Blob 服務端點 URL]  使用預設值。 如果您使用的是其他 Azure 雲端，請使用 [Azure 入口網站](https://portal.azure.com) 中為您儲存體帳戶所指定的端點。 
+   4. 按一下 [驗證儲存體認證]  以驗證您的儲存體帳戶。 
+   5. [選擇性] 如果您有其他儲存體帳戶要提供給 Jenkins CI 使用，請選取 [新增更多儲存體帳戶]  。
+   6. 選取 [儲存]  以儲存您的設定。
 
 ## <a name="how-to-create-a-post-build-action-that-uploads-your-build-artifacts-to-your-storage-account"></a>如何建立會將您的組建成品上傳至您儲存體帳戶的建置後動作
 為了方便說明，您會先建立一個會建立數個檔案的作業，然後新增會將這些檔案上傳至儲存體帳戶的建置後動作。
 
-1. 在 Jenkins 儀表板中，選取 [新增項目]。
-2. 將作業命名為 **MyJob**，選取 [建立任意樣式的軟體專案]，然後選取 [確定]。
-3. 在作業組態的 [組建] 區段中，選取 [新增組建步驟]，然後選取 [執行 Windows 批次命令]。
-4. 在 [Command] 中，使用下列命令：
+1. 在 Jenkins 儀表板中，選取 [新增項目]  。
+2. 將作業命名為 **MyJob**，選取 [建立任意樣式的軟體專案]  ，然後選取 [確定]  。
+3. 在作業組態的 [組建]  區段中，選取 [新增組建步驟]  ，然後選取 [執行 Windows 批次命令]  。
+4. 在 [Command]  中，使用下列命令：
 
     ```   
     md text
@@ -90,36 +90,36 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
     time /t >> date.txt
     ```
 
-5. 在作業組態的 [建置後動作] 區段中，選取 [新增建置後動作]，然後選取 [將構件上傳至 Azure Blob 儲存體]。
-6. 在 [儲存體帳戶名稱] 中，選取要使用的儲存體帳戶。
-7. 在 [容器名稱] 中，指定容器名稱。 (如果上傳組建成品時該容器尚未存在，將會建立該容器。)您可以使用環境變數，就這個範例而言，請輸入 `${JOB_NAME}` 作為容器名稱。
+5. 在作業組態的 [建置後動作]  區段中，選取 [新增建置後動作]  ，然後選取 [將構件上傳至 Azure Blob 儲存體]  。
+6. 在 [儲存體帳戶名稱]  中，選取要使用的儲存體帳戶。
+7. 在 [容器名稱]  中，指定容器名稱。 (如果上傳組建成品時該容器尚未存在，將會建立該容器。)您可以使用環境變數，就這個範例而言，請輸入 `${JOB_NAME}` 作為容器名稱。
    
     **秘訣**
    
-    在您為 [執行 Windows 批次命令] 輸入指令碼的 [命令] 區段底下有一個 Jenkins 所辨識環境變數的連結。 選取該連結可了解各環境變數名稱和描述。 含有特殊字元的環境變數 (例如 **BUILD_URL** 環境變數) 不能當做容器名稱或共同虛擬路徑。
-8. 在此範例中，請選取 [依預設將新容器設為公用]。 (如果您想要使用私用容器，則需要建立共用存取簽章來允許存取，但這不在本文的討論之列。 若要深入了解共用存取簽章，請參閱[使用共用存取簽章 (SAS)](../storage-dotnet-shared-access-signature-part-1.md)。)
-9. [選擇性] 如果您要在上傳組建構件之前清除容器的內容，請選取 [在上傳之前清除容器] (若不想清除容器的內容，請維持不核取)。
-10. 針對 [要上傳的構件清單]，輸入 `text/*.txt`。
-11. 在 [上傳構件的常用虛擬路徑] 中，基於本教學課程的目的，輸入 `${BUILD\_ID}/${BUILD\_NUMBER}`。
-12. 選取 [儲存] 以儲存您的設定。
-13. 在 Jenkins 儀表板中，選取 [立即建置] 以執行 **MyJob**。 檢查主控台輸出中的狀態。 當建置後動作開始上傳組建成品時，主控台輸出中將會包含 Azure 儲存體的狀態訊息。
+    在您為 [執行 Windows 批次命令]  輸入指令碼的 [命令]  區段底下有一個 Jenkins 所辨識環境變數的連結。 選取該連結可了解各環境變數名稱和描述。 含有特殊字元的環境變數 (例如 **BUILD_URL** 環境變數) 不能當做容器名稱或共同虛擬路徑。
+8. 在此範例中，請選取 [依預設將新容器設為公用]  。 (如果您想要使用私用容器，則需要建立共用存取簽章來允許存取，但這不在本文的討論之列。 若要深入了解共用存取簽章，請參閱[使用共用存取簽章 (SAS)](../storage-dotnet-shared-access-signature-part-1.md)。)
+9. [選擇性] 如果您要在上傳組建構件之前清除容器的內容，請選取 [在上傳之前清除容器]  (若不想清除容器的內容，請維持不核取)。
+10. 針對 [要上傳的構件清單]  ，輸入 `text/*.txt`。
+11. 在 [上傳構件的常用虛擬路徑]  中，基於本教學課程的目的，輸入 `${BUILD\_ID}/${BUILD\_NUMBER}`。
+12. 選取 [儲存]  以儲存您的設定。
+13. 在 Jenkins 儀表板中，選取 [立即建置]  以執行 **MyJob**。 檢查主控台輸出中的狀態。 當建置後動作開始上傳組建成品時，主控台輸出中將會包含 Azure 儲存體的狀態訊息。
 14. 順利完成作業時，您就可以開啟公用 Blob 來檢查組建成品。
     1. 登入 [Azure 入口網站](https://portal.azure.com)。
-    2. 選取 [儲存體] 。
+    2. 選取 [儲存體]  。
     3. 選取您用於 Jenkins 的儲存體帳戶名稱。
-    4. 選取 [容器] 。
+    4. 選取 [容器]  。
     5. 選取名為 **myjob**的容器，這是您建立 Jenkins 工作時所指派的工作名稱小寫版本。 在 Azure 儲存體中，容器名稱和 Blob 名稱皆為小寫 (並且區分大小寫)。 在容器 **myjob** 的 Blob 清單中，您應該會看到 **hello.txt** 和 **date.txt**。 請複製這些項目中任何一項的 URL，然後在瀏覽器中開啟它。 您會看到文字檔已上傳作為組建成品。
 
-每一工作只能建立一個將成品上傳至 Azure Blob 儲存體的建置後動作。 將構件上傳至 Azure Blob 儲存體的單一建置後動作，可在 [要上船的構件清單] 內使用分號作為分隔符號來指定不同的檔案 (包含萬用字元) 和檔案路徑。 例如，若 Jenkins 組建在您工作區的 **build** 資料夾中產生 JAR 檔和 TXT 檔，且您想將兩者都上傳至 Azure Blob 儲存體，請在 [要上傳的構件清單] 選項中使用下列值：`build/\*.jar;build/\*.txt`。 您也可以使用雙冒號語法來指定要在 Blob 名稱內使用的路徑。 例如，若您想要在 Blob 路徑中使用 **binaries** 上傳 JAR，並在 Blob 路徑中使用 **notices** 上傳 TXT，請在 [要上傳的構件清單] 中使用下列值：`build/\*.jar::binaries;build/\*.txt::notices`。
+每一工作只能建立一個將成品上傳至 Azure Blob 儲存體的建置後動作。 將構件上傳至 Azure Blob 儲存體的單一建置後動作，可在 [要上船的構件清單]  內使用分號作為分隔符號來指定不同的檔案 (包含萬用字元) 和檔案路徑。 例如，若 Jenkins 組建在您工作區的 **build** 資料夾中產生 JAR 檔和 TXT 檔，且您想將兩者都上傳至 Azure Blob 儲存體，請在 [要上傳的構件清單]  選項中使用下列值：`build/\*.jar;build/\*.txt`。 您也可以使用雙冒號語法來指定要在 Blob 名稱內使用的路徑。 例如，若您想要在 Blob 路徑中使用 **binaries** 上傳 JAR，並在 Blob 路徑中使用 **notices** 上傳 TXT，請在 [要上傳的構件清單]  中使用下列值：`build/\*.jar::binaries;build/\*.txt::notices`。
 
 ## <a name="how-to-create-a-build-step-that-downloads-from-azure-blob-storage"></a>如何建立從 Azure Blob 儲存體下載的組建步驟
 下列步驟說明如何設定從 Azure Blob 儲存體下載項目的組建步驟，如果您想要在組件中包含項目，則可以使用。 使用此模式的範例，是您可能想要在 Azure Blob 儲存體中保存的 JAR。
 
-1. 在工作組態的 [組建] 區段中，選取 [新增組建步驟]，然後選取 [從 Azure Blob 儲存體下載]。
-2. 在 [儲存體帳戶名稱] 中，選取要使用的儲存體帳戶。
-3. 在 [容器名稱] 中，指定您要下載的 Blob 所在之容器的名稱。 您可以使用環境變數。
-4. 在 [Blob 名稱] 中，指定 Blob 名稱。 您可以使用環境變數。 另外，您也可以在指定 Blob 名稱的開頭字母之後，使用星號作為萬用字元。 例如，**project\\*** 将指定名称以 **project** 开头的所有 Blob。
-5. [選擇性] 在 [下載路徑] 中，指定在 Jenkins 機器上您要從 Azure Blob 儲存體下載檔案的路徑。 也可以使用環境變數 (如果您未提供 [下載路徑] 的值，則 Azure Blob 儲存體中的檔案會下載至工作的工作區。)
+1. 在工作組態的 [組建]  區段中，選取 [新增組建步驟]  ，然後選取 [從 Azure Blob 儲存體下載]  。
+2. 在 [儲存體帳戶名稱]  中，選取要使用的儲存體帳戶。
+3. 在 [容器名稱]  中，指定您要下載的 Blob 所在之容器的名稱。 您可以使用環境變數。
+4. 在 [Blob 名稱]  中，指定 Blob 名稱。 您可以使用環境變數。 另外，您也可以在指定 Blob 名稱的開頭字母之後，使用星號作為萬用字元。 例如，**專案\\** * 指定所有的 blob 名稱開頭**專案**。
+5. [選擇性] 在 [下載路徑]  中，指定在 Jenkins 機器上您要從 Azure Blob 儲存體下載檔案的路徑。 也可以使用環境變數 (如果您未提供 [下載路徑]  的值，則 Azure Blob 儲存體中的檔案會下載至工作的工作區。)
 
 如果您還有其他項目要從 Azure Blob 儲存體下載，您可以建立其他組建步驟。
 
@@ -130,14 +130,14 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 
 * **儲存體帳戶**：所有對 Azure 儲存體的存取都是透過儲存體帳戶進行。 儲存體帳戶是存取 Blob 的最上層命名空間。 帳戶可以包含不限數目的容器，只要它們的大小總計低於 100 TB 即可。
 * **容器**：容器可對一組 Blob 進行分組。 所有 Blob 都必須放在容器中。 一個帳戶可以包含的容器不限數量。 容器可以儲存無限制的 Blob。
-* **Blob**：任何類型和大小的檔案。 Azure 儲存中可以儲存兩種 Blob：區塊 Blob 和分頁 Blob。 大部分檔案都是區塊 Blob。 單一區塊 Blob 的大小上限為 200 GB。 本教程使用的是块 Blob。 分頁 Blob (另一種 Blob 類型) 的大小上限為 1 TB，當檔案中的位元組範圍經常修改時，分頁 Blob 的效率較高。 如需關於 Blob 的詳細資訊，請參閱 [了解區塊 Blob、附加 Blob 及分頁 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx)。
+* **Blob**：任何類型和大小的檔案。 Azure 儲存中可以儲存兩種 Blob：區塊 Blob 和分頁 Blob。 大部分檔案都是區塊 Blob。 單一區塊 Blob 的大小上限為 200 GB。 本教學課程使用區塊 Blob。 分頁 Blob (另一種 Blob 類型) 的大小上限為 1 TB，當檔案中的位元組範圍經常修改時，分頁 Blob 的效率較高。 如需關於 Blob 的詳細資訊，請參閱 [了解區塊 Blob、附加 Blob 及分頁 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx)。
 * **URL 格式**：可利用下列 URL 格式來定址 Blob：
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
     (上述格式適用於全域 Azure 雲端。 如果您使用其他 Azure 雲端，請使用 [Azure 入口網站](https://portal.azure.com)中的端點來判斷您的 URL 端點。)
   
-    在上述格式中，`storageaccount` 代表您的儲存體帳戶名稱，`container_name` 代表您的容器名稱，而 `blob_name` 代表您的 Blob 名稱。 容器名稱中可以有多個路徑，這些路徑彼此以正斜線 **/**(英文)。 本教學課程中使用的範例容器名稱為 **MyJob**，使用的共同虛擬路徑則是 **${BUILD\_ID}/${BUILD\_NUMBER}**，產生的 Blob URL 格式如下：
+    在上述格式中，`storageaccount` 代表您的儲存體帳戶名稱，`container_name` 代表您的容器名稱，而 `blob_name` 代表您的 Blob 名稱。 容器名稱中可以有多個路徑，這些路徑彼此以正斜線 **/** (英文)。 本教學課程中使用的範例容器名稱為 **MyJob**，使用的共同虛擬路徑則是 **${BUILD\_ID}/${BUILD\_NUMBER}** ，產生的 Blob URL 格式如下：
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 

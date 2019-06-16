@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: b2ab07e40ac2652d97e912f8c7bd3b8893bfc114
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e11446b961727663961e4d3fa295a9b7f64860c9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438686"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059663"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions 的 Event Grid 觸發程序
 
 本文說明如何在 Azure Functions 中處理 [Event Grid](../event-grid/overview.md) 事件。
 
-Event Grid 是一項 Azure 服務，會傳送 HTTP 要求通知您「發行者」中發生的事件。 發行者是產生事件的服務或資源。 例如，Azure Blob 儲存體帳戶即為發行者，而 [Blob 的上傳或刪除是事件](../storage/blobs/storage-blob-event-overview.md)。 部分 [Azure 服務內建有將事件發佈至 Event Grid 的支援](../event-grid/overview.md#event-sources)。
+Event Grid 是一項 Azure 服務，會傳送 HTTP 要求通知您「發行者」  中發生的事件。 發行者是產生事件的服務或資源。 例如，Azure Blob 儲存體帳戶即為發行者，而 [Blob 的上傳或刪除是事件](../storage/blobs/storage-blob-event-overview.md)。 部分 [Azure 服務內建有將事件發佈至 Event Grid 的支援](../event-grid/overview.md#event-sources)。
 
 事件*處理常式*會接收及處理事件。 Azure Functions 是數個[有內建 Event Grid 事件處理支援的 Azure 服務](../event-grid/overview.md#event-handlers)之一。 在本文中，您將了解如何在接收到來自 Event Grid 的事件時使用 Event Grid 觸發程序來叫用函式。
 
@@ -107,7 +107,7 @@ namespace Company.Function
 
 ### <a name="c-script-example"></a>C# 指令碼範例
 
-下列範例示範 function.json 檔案中的觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。
+下列範例示範 function.json  檔案中的觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -159,7 +159,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 
 ### <a name="javascript-example"></a>JavaScript 範例
 
-下列範例示範的是使用繫結之 function.json 檔案，以及 [JavaScript 函式](functions-reference-node.md)中的觸發程序繫結。
+下列範例示範的是使用繫結之 function.json  檔案，以及 [JavaScript 函式](functions-reference-node.md)中的觸發程序繫結。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -318,7 +318,7 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 ## <a name="configuration"></a>組態
 
-下表說明您在 function.json 檔案中設定的繫結設定屬性。 沒有要在 `EventGridTrigger` 屬性中設定的建構函式參數或屬性。
+下表說明您在 function.json  檔案中設定的繫結設定屬性。 沒有要在 `EventGridTrigger` 屬性中設定的建構函式參數或屬性。
 
 |function.json 屬性 |描述|
 |---------|---------|
@@ -402,11 +402,11 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 此命令需要叫用函式的端點 URL。 下列範例顯示特定版本的 URL 模式：
 
-#### <a name="version-2x-runtime"></a>2.x 版執行階段
+#### <a name="version-2x-runtime"></a>2\.x 版執行階段
 
     https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
 
-#### <a name="version-1x-runtime"></a>1.x 版執行階段
+#### <a name="version-1x-runtime"></a>1\.x 版執行階段
 
     https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
 
@@ -414,7 +414,7 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 以下是訂閱 Blob 儲存體帳戶的範例 (以預留位置表示系統金鑰)：
 
-#### <a name="version-2x-runtime"></a>2.x 版執行階段
+#### <a name="version-2x-runtime"></a>2\.x 版執行階段
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -425,7 +425,7 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
 ```
 
-#### <a name="version-1x-runtime"></a>1.x 版執行階段
+#### <a name="version-1x-runtime"></a>1\.x 版執行階段
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -442,13 +442,13 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 
 您可以使用下列 API (HTTP GET) 來取得系統金鑰：
 
-#### <a name="version-2x-runtime"></a>2.x 版執行階段
+#### <a name="version-2x-runtime"></a>2\.x 版執行階段
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
 ```
 
-#### <a name="version-1x-runtime"></a>1.x 版執行階段
+#### <a name="version-1x-runtime"></a>1\.x 版執行階段
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
@@ -471,7 +471,7 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 }
 ```
 
-您可以從入口網站中的 [函數應用程式設定] 索引標籤取得函數應用程式主要金鑰。
+您可以從入口網站中的 [函數應用程式設定]  索引標籤取得函數應用程式主要金鑰。
 
 > [!IMPORTANT]
 > 主要金鑰為系統管理員提供對函數應用程式的存取權。 請勿與第三方共用此金鑰或將其散發於原生用戶端應用程式。
@@ -495,7 +495,7 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 
 若要簡化擷取事件訊息，您可以部署[預先建置的 Web 應用程式](https://github.com/Azure-Samples/azure-event-grid-viewer)，以顯示事件訊息。 已部署的解決方案包含 App Service 方案、App Service Web 應用程式，以及 GitHub 中的原始程式碼。
 
-選取 [部署至 Azure]，將解決方案部署至您的訂用帳戶。 在 Azure 入口網站中，提供參數的值。
+選取 [部署至 Azure]  ，將解決方案部署至您的訂用帳戶。 在 Azure 入口網站中，提供參數的值。
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
@@ -529,7 +529,7 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 * 設定 `aeg-event-type: Notification` 標頭。
 * 將 RequestBin 資料貼到要求本文中。
 * 張貼到您的 Event Grid 觸發程序函式的 URL。
-  * 2.x 中，使用下列模式：
+  * 2\.x 中，使用下列模式：
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
@@ -555,7 +555,7 @@ Event Grid 觸發程序函式會執行並顯示類似於下列範例的記錄：
 
 ## <a name="local-testing-with-ngrok"></a>使用 ngrok 進行本機測試
 
-在本機測試 Event Grid 觸發程序的另一種方式，是自動建立網際網路與您開發電腦之間的 HTTP 連線。 您可以使用名為 [ngrok](https://ngrok.com/) 的開放原始碼工具執行此作業：
+在本機測試 Event Grid 觸發程序的另一種方式，是自動建立網際網路與您開發電腦之間的 HTTP 連線。 您可以在做之類的工具[ngrok](https://ngrok.com/):
 
 1. [建立 ngrok 端點](#create-an-ngrok-endpoint)。
 1. [執行 Event Grid 觸發程序函式](#run-the-event-grid-trigger-function)。

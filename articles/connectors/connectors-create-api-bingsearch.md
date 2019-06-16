@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60952543"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>使用 Bing 搜尋和 Azure Logic Apps 尋找新聞
@@ -68,7 +68,7 @@ ms.locfileid: "60952543"
 
 4. 選取要讓觸發程序檢查結果的間隔和頻率。
 
-5. 當您完成時，請在設計工具的工具列上，選擇 [儲存]。
+5. 當您完成時，請在設計工具的工具列上，選擇 [儲存]  。
 
 6. 現在，繼續針對您想要使用觸發程序結果來執行的工作，於邏輯應用程式中新增一或多個動作。
 
@@ -80,7 +80,7 @@ ms.locfileid: "60952543"
 
 1. 在 Azure 入口網站或 Visual Studio 的邏輯應用程式設計工具中，開啟邏輯應用程式。 這個範例會使用 Azure 入口網站。
 
-2. 在觸發程序或動作底下，選擇 [新增步驟]  >  [新增動作]。
+2. 在觸發程序或動作底下，選擇 [新增步驟]   >  [新增動作]  。
 
    此範例會使用此觸發程序：
 
@@ -89,12 +89,12 @@ ms.locfileid: "60952543"
    ![新增動作](./media/connectors-create-api-bing-search/add-action.png)
 
    若要在現有步驟之間新增動作，請將滑鼠放在連接箭頭上。 
-   選擇顯示的加號 (**+**)，然後選擇 [新增動作]。
+   選擇顯示的加號 ( **+** )，然後選擇 [新增動作]  。
 
 3. 在搜尋方塊中，輸入 "Bing 搜尋" 作為篩選條件。
 從 [動作] 清單中，選取您想要的動作。
 
-   此示例使用以下操作：
+   此範例會使用這項動作：
 
    **Bing 搜尋-查詢清單新聞**
 
@@ -115,25 +115,25 @@ ms.locfileid: "60952543"
 
    例如，假設您想要的結果其類別名稱包括 "tech" 這個字。
 
-   1. 按一下 [搜尋查詢] 方塊，動態內容清單隨即出現。 
-   從該清單中選擇 [運算式]，運算式產生器隨即出現。 
+   1. 按一下 [搜尋查詢]  方塊，動態內容清單隨即出現。 
+   從該清單中選擇 [運算式]  ，運算式產生器隨即出現。 
 
       ![Bing 搜尋觸發程序](./media/connectors-create-api-bing-search/bing-search-action.png)
 
       現在您可以開始建立運算式。
 
-   2. 從函式清單中選取 **contains()** 函式，它會出現在運算式方塊中。 按一下 [動態內容]，欄位清單會再次出現，但請確認您的資料指標停留在括號內。
+   2. 從函式清單中選取 **contains()** 函式，它會出現在運算式方塊中。 按一下 [動態內容]  ，欄位清單會再次出現，但請確認您的資料指標停留在括號內。
 
       ![選取函式](./media/connectors-create-api-bing-search/expression-select-function.png)
 
-   3. 從欄位清單中選取 [類別]，它會轉換成參數。 
+   3. 從欄位清單中選取 [類別]  ，它會轉換成參數。 
    在第一個參數後新增逗號，並在逗號後新增這個字：`'tech'` 
 
       ![選取欄位](./media/connectors-create-api-bing-search/expression-select-field.png)
 
-   4. 完成時，選擇 [確定]。
+   4. 完成時，選擇 [確定]  。
 
-      運算式現在會出現在 [搜尋查詢] 方塊中，格式如下：
+      運算式現在會出現在 [搜尋查詢]  方塊中，格式如下：
 
       ![完成的運算式](./media/connectors-create-api-bing-search/resolved-expression.png)
 
@@ -141,7 +141,7 @@ ms.locfileid: "60952543"
 
       `"@{contains(triggerBody()?['category'],'tech')}"`
 
-5. 當您完成時，請在設計工具的工具列上，選擇 [儲存]。
+5. 當您完成時，請在設計工具的工具列上，選擇 [儲存]  。
 
 <a name="create-connection"></a>
 
@@ -162,7 +162,7 @@ ms.locfileid: "60952543"
 
    ![建立連線](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 
-2. 完成之後，請選擇 [建立]。
+2. 完成之後，請選擇 [建立]  。
 
 ## <a name="connector-reference"></a>連接器參考
 

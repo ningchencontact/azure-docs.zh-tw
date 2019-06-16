@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 10fb44b0e76282ad78e7687beaa2e50e819e5cd9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62109996"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>將 Web 角色和背景工作角色轉換成 Service Fabric 無狀態服務的指南
@@ -39,10 +39,10 @@ ms.locfileid: "62109996"
 ## <a name="web-role-to-stateless-service"></a>Web 角色至無狀態服務
 和背景工作角色類似，Web 角色也代表無狀態的工作負載，因此在概念上也能對應至 Service Fabric 無狀態服務。 不過，和 Web 角色不同的是，Service Fabric 不支援 IIS。 若要將 Web 應用程式從 Web 角色移轉至無狀態服務，必須先移動到可以自我裝載且不仰賴 IIS 或 System.Web (例如 ASP.NET Core 1) 的 Web 架構。
 
-| **应用程序** | **支援** | **移轉路徑** |
+| **應用程式** | **支援** | **移轉路徑** |
 | --- | --- | --- |
 | ASP.NET Web Forms |否 |轉換為 ASP.NET Core 1 MVC |
-| ASP.NET MVC |使用迁移 |升級至 ASP.NET Core 1 MVC |
+| ASP.NET MVC |移轉 |升級至 ASP.NET Core 1 MVC |
 | ASP.NET Web API |移轉 |使用自我裝載的伺服器或 ASP.NET Core 1 |
 | ASP.NET Core 1 |是 |N/A |
 
@@ -54,9 +54,9 @@ ms.locfileid: "62109996"
 | Processing |`Run()` |`RunAsync()` |
 | VM 啟動 |`OnStart()` |N/A |
 | VM 停止 |`OnStop()` |N/A |
-| 開啟接聽程式以接收用戶端要求 |不适用 |<ul><li> `CreateServiceInstanceListener()` (針對無狀態)</li><li>`CreateServiceReplicaListener()` (針對具狀態)</li></ul> |
+| 開啟接聽程式以接收用戶端要求 |N/A |<ul><li> `CreateServiceInstanceListener()` (針對無狀態)</li><li>`CreateServiceReplicaListener()` (針對具狀態)</li></ul> |
 
-### <a name="worker-role"></a>辅助角色
+### <a name="worker-role"></a>背景工作角色
 ```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -123,7 +123,7 @@ Service Fabric 為接聽用戶端要求的服務提供選擇性的通訊設定�
 | 組態設定和變更通知 |`RoleEnvironment` |`CodePackageActivationContext` |
 | 本機儲存體 |`RoleEnvironment` |`CodePackageActivationContext` |
 | 端點資訊 |`RoleInstance` <ul><li>目前的執行個體︰`RoleEnvironment.CurrentRoleInstance`</li><li>其他角色和執行個體︰`RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` (針對目前的節點位址)</li><li>`FabricClient` 和 `ServicePartitionResolver` (針對服務端點探索)</li> |
-| 环境模拟 |`RoleEnvironment.IsEmulated` |N/A |
+| 環境模擬 |`RoleEnvironment.IsEmulated` |N/A |
 | 同時變更事件 |`RoleEnvironment` |N/A |
 
 ## <a name="configuration-settings"></a>組態設定
@@ -212,7 +212,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 | --- | --- |
 | 組態位置 |ServiceDefinition.csdef |
 | 權限 |「有限」或「提高」 |
-| 序列 |「簡單」、「背景」、「前景」 |
+| 排序 |「簡單」、「背景」、「前景」 |
 
 ### <a name="cloud-services"></a>雲端服務
 雲端服務中的啟動進入點是在 ServiceDefinition.csdef 中針對每個角色進行設定。 

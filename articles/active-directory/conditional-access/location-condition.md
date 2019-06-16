@@ -1,5 +1,5 @@
 ---
-title: 什麼是 Azure Active Directory 條件式存取中的位置條件？ | Microsoft Docs
+title: 什麼是 Azure Active Directory 條件式存取的位置條件？ | Microsoft Docs
 description: 了解如何使用位置條件，以根據使用者的網路位置來控制雲端應用程式的存取。
 services: active-directory
 ms.service: active-directory
@@ -12,16 +12,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98588e0c25439fd4988fe39e06e7042cfa9113cb
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 886118614427bea61f745e1ded28824b60225919
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305669"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112303"
 ---
-# <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的位置條件？ 
+# <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取的位置條件？ 
 
-透過 [Azure Active Directory (Azure AD) 條件式存取](../active-directory-conditional-access-azure-portal.md)，您可以控制授權使用者如何存取您的雲端應用程式。 條件式存取原則的位置條件可讓您將存取控制設定和使用者的網路位置結合。
+具有[Azure Active Directory (Azure AD) 條件式存取](../active-directory-conditional-access-azure-portal.md)，您可以控制如何授權的使用者可以存取您雲端應用程式。 條件式存取原則的位置條件可讓您將繫結至您的使用者的網路位置的存取控制設定。
 
 本文提供設定位置條件所需的資訊。
 
@@ -38,7 +38,7 @@ Azure AD 可讓單一登入裝置、 應用程式，並從任何位置服務在�
 
 使用具名位置，您可以建立 IP 位址範圍或國家/地區和區域的邏輯群組。
 
-您可以在 [條件式存取] 頁面的 [管理]  區段中存取您的具名位置。
+您可以存取您在中的具名的位置**管理**條件式存取 頁面的區段。
 
 ![條件式存取中的具名的位置](./media/location-condition/02.png)
 
@@ -52,7 +52,7 @@ Azure AD 可讓單一登入裝置、 應用程式，並從任何位置服務在�
    > [!NOTE]
    > IPv6 位址 rangess 目前不能包含具名位置中。 無法從 條件式存取原則中排除此 measn IPv6 範圍。
 
-- **標記為信任位置** - 您可以為具名位置設定旗標，以指出信任的位置。 一般而言，信任的位置是由您的 IT 部門所控制的網路區域。 除了條件式存取，Azure Identity Protection 與 Azure AD 安全性報告也會使用信任的具名位置以減少[誤判](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1)。
+- **標記為信任位置** - 您可以為具名位置設定旗標，以指出信任的位置。 一般而言，信任的位置是由您的 IT 部門所控制的網路區域。 除了條件式存取，受信任的具名的位置也會使用 Azure Identity Protection 與 Azure AD 安全性報告來減少[誤判](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1)。
 - **國家/地區** - 此選項可讓您選取一或多個國家或地區，以定義具名位置。
 - **包括未知的區域**-部分 IP 位址未對應至特定國家或地區。 此選項可讓您選擇這些 IP 位址是否應包含在具名位置中。 當使用具名位置的原則應套用到未知位置時，請使用此設定。
 
@@ -60,7 +60,7 @@ Azure AD 可讓單一登入裝置、 應用程式，並從任何位置服務在�
 
 條件式存取原則適用於 IPv4 和 IPv6 流量。 目前具名的位置不允許設定的 IPv6 範圍。 這項限制會導致下列情況：
 
-- 條件式存取原則，不能以特定的 IPv6 範圍為目標
+- 條件式存取原則不能指向特定的 IPv6 範圍
 - 條件式存取原則不能排除特定的 IPV6 範圍
 
 如果原則設定將套用至 「 任何位置 」，它會套用到 IPv4 和 IPv6 流量。 具名的位置設定為指定的國家/地區和區域僅支援 IPv4 位址。 IPv6 流量才包含如果選取 [包含未知的區域] 的選項。
@@ -73,7 +73,7 @@ Azure AD 可讓單一登入裝置、 應用程式，並從任何位置服務在�
 
 ### <a name="skipping-multi-factor-authentication"></a>略過多重要素驗證
 
-在多重要素驗證服務設定頁面中，您可以透過選取**針對來自內部網路同盟使用者的要求略過多重要素驗證**來識別公司內部網路使用者。 此設定表示 AD FS 所發出的內部公司網路宣告應受信任，並且應用來識別使用者位於公司網路上。 如需詳細資訊，請參閱[使用條件式存取啟用信任的 IP 功能](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access)。
+在多重要素驗證服務設定頁面中，您可以透過選取**針對來自內部網路同盟使用者的要求略過多重要素驗證**來識別公司內部網路使用者。 此設定表示 AD FS 所發出的內部公司網路宣告應受信任，並且應用來識別使用者位於公司網路上。 如需詳細資訊，請參閱 <<c0> [ 使用條件式存取啟用信任的 Ip 功能](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access)。
 
 之後核取此選項，包括 具名的位置**MFA 信任的 IP**選取此選項會套用任何原則。
 
@@ -113,7 +113,7 @@ Azure AD 可讓單一登入裝置、 應用程式，並從任何位置服務在�
 
 ### <a name="when-is-a-location-evaluated"></a>何時會評估位置？
 
-條件式存取原則的評估時機：
+評估條件式存取原則時：
 
 - 使用者初次登入 Web 應用程式、行動或桌面應用程式。
 - 使用新式驗證的行動或桌面應用程式使用重新整理權杖來取得新的存取權杖。 依預設這項檢查一次是一小時。
@@ -141,9 +141,9 @@ Azure AD 可讓單一登入裝置、 應用程式，並從任何位置服務在�
 
 ### <a name="api-support-and-powershell"></a>API 支援與 PowerShell
 
-API 和 PowerShell 尚未支援具名位置或條件式存取原則。
+API 和 PowerShell 尚未支援具名位置，或條件式存取原則。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您想要知道如何設定條件式存取原則，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](app-based-mfa.md)。
-- 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](best-practices.md)。
+- 如果您想要了解如何設定條件式存取原則，請參閱[需要 MFA 的特定應用程式與 Azure Active Directory 條件式存取](app-based-mfa.md)。
+- 如果您已準備好設定您的環境的條件式存取原則，請參閱[Azure Active Directory 中的條件式存取的最佳作法](best-practices.md)。

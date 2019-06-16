@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: e771def95db00b5de8c27011641a628560952970
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66494794"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>使用 Azure CLI 建立 Azure 資料總管叢集與資料庫
@@ -60,7 +60,7 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
 
    |**設定** | **建議的值** | **欄位描述**|
    |---|---|---|
-   | NAME | *azureclitest* | 所需的叢集名稱。|
+   | name | *azureclitest* | 所需的叢集名稱。|
    | sku | *D13_v2* | 將用於叢集的 SKU。 |
    | resource-group | *testrg* | 將在其中建立叢集的資源群組名稱。 |
 
@@ -85,7 +85,7 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
    |**設定** | **建議的值** | **欄位描述**|
    |---|---|---|
    | 叢集名稱 | *azureclitest* | 將在其中建立資料庫的叢集名稱。|
-   | NAME | *clidatabase* | 您的資料庫名稱。|
+   | name | *clidatabase* | 您的資料庫名稱。|
    | resource-group | *testrg* | 將在其中建立叢集的資源群組名稱。 |
    | soft-delete-period | *P365D* | 表示保留資料以供查詢的時間長度。 如需詳細資訊，請參閱[保留原則](/azure/kusto/concepts/retentionpolicy)。 |
    | hot-cache-period | *P31D* | 表示資料保留在快取中的時間長度。 如需詳細資訊，請參閱[快取原則](/azure/kusto/concepts/cachepolicy)。 |

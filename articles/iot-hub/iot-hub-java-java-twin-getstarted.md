@@ -10,11 +10,11 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.openlocfilehash: bfb111b07db105190fc59f21b3255c2ea2b1471c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129901"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64574545"
 ---
 # <a name="get-started-with-device-twins-java"></a>開始使用裝置對應項 (Java)
 
@@ -28,7 +28,7 @@ ms.locfileid: "62129901"
 > [!NOTE]
 > [Azure IoT SDK](iot-hub-devguide-sdks.md) 一文提供可用來建置裝置和後端應用程式之 Azure IoT SDK 的相關資訊。
 
-要完成本教程，需要：
+若要完成本教學課程，您需要：
 
 * 最新的 [Java SE 開發套件 8](https://aka.ms/azure-jdks)
 
@@ -60,9 +60,9 @@ ms.locfileid: "62129901"
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=add-tags-query -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-3. 在命令提示符下，导航到 `add-tags-query` 文件夹。
+3. 在命令提示字元中，巡覽至 `add-tags-query` 資料夾。
 
-4. 使用文字編輯器，開啟 `add-tags-query` 資料夾中的 `pom.xml` 檔案，並在 [相依性] 節點中新增下列相依性。 這個相依性可讓您在應用程式中使用 **iot-service-client** 套件與 IoT 中樞通訊：
+4. 使用文字編輯器，開啟 `add-tags-query` 資料夾中的 `pom.xml` 檔案，並在 [相依性]  節點中新增下列相依性。 這個相依性可讓您在應用程式中使用 **iot-service-client** 套件與 IoT 中樞通訊：
 
     ```xml
     <dependency>
@@ -76,7 +76,7 @@ ms.locfileid: "62129901"
     > [!NOTE]
     > 您可以使用 [Maven 搜尋](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)來檢查最新版的 **iot-service-client**。
 
-5. 將下列 [建置] 節點新增至 [相依性] 節點之後。 此配置指示 Maven 使用 Java 1.8 来生成应用：
+5. 將下列 [建置]  節點新增至 [相依性]  節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
 
     ```xml
     <build>
@@ -94,7 +94,7 @@ ms.locfileid: "62129901"
     </build>
     ```
 
-6. 保存并关闭 `pom.xml` 文件。
+6. 儲存並關閉 `pom.xml` 檔案。
 
 7. 使用文字編輯器開啟 `add-tags-query\src\main\java\com\mycompany\app\App.java` 檔案。
 
@@ -109,7 +109,7 @@ ms.locfileid: "62129901"
     import java.util.Set;
     ```
 
-9. 將下列類別層級變數新增到 **App** 類別中。 将 `{youriothubconnectionstring}` 替换为在“创建 IoT 中心”部分记下的 IoT 中心连接字符串：
+9. 將下列類別層級變數新增到 **App** 類別中。 以您在＜建立 IoT 中樞＞  一節中所記下的 IoT 中樞連接字串取代 `{youriothubconnectionstring}`：
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -119,7 +119,7 @@ ms.locfileid: "62129901"
     public static final String plant = "Redmond43";
     ```
 
-10. 更新 **main** 方法签名，以包含以下 `throws` 子句：
+10. 更新 **Main** 方法簽章，以包含下列 `throws` 子句：
 
     ```java
     public static void main( String[] args ) throws IOException
@@ -205,7 +205,7 @@ ms.locfileid: "62129901"
 
 15. 儲存並關閉 `add-tags-query\src\main\java\com\mycompany\app\App.java` 檔案。
 
-16. 建置 **add-tags-query** 應用程式，並更正所有錯誤。 在命令提示符下，导航到 `add-tags-query` 文件夹并运行以下命令：
+16. 建置 **add-tags-query** 應用程式，並更正所有錯誤。 在命令提示字元中，巡覽至 `add-tags-query` 資料夾，並執行下列命令：
 
     ```
     mvn clean package -DskipTests
@@ -215,7 +215,7 @@ ms.locfileid: "62129901"
 
 在本節中，您要建立 Java 主控台應用程式，以設定傳送到 IoT 中樞的回報屬性值。
 
-1. 在 `iot-java-twin-getstarted` 資料夾中，在命令提示字元中使用下列命令，建立名為 **simulated-device** 的 Maven 專案。 请注意，这是一条很长的命令：
+1. 在 `iot-java-twin-getstarted` 資料夾中，在命令提示字元中使用下列命令，建立名為 **simulated-device** 的 Maven 專案。 注意，這是一個單一且非常長的命令：
 
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -223,7 +223,7 @@ ms.locfileid: "62129901"
 
 2. 在命令提示字元中，巡覽至 `simulated-device` 資料夾。
 
-3. 使用文字編輯器，開啟 `simulated-device` 資料夾中的 `pom.xml` 檔案，並在 [相依性] 節點中新增下列相依性。 這個相依性可讓您在應用程式中使用 **iot-device-client** 套件與 IoT 中樞通訊：
+3. 使用文字編輯器，開啟 `simulated-device` 資料夾中的 `pom.xml` 檔案，並在 [相依性]  節點中新增下列相依性。 這個相依性可讓您在應用程式中使用 **iot-device-client** 套件與 IoT 中樞通訊：
 
     ```xml
     <dependency>
@@ -236,7 +236,7 @@ ms.locfileid: "62129901"
     > [!NOTE]
     > 您可以使用 [Maven 搜尋](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)來檢查最新版的 **iot-device-client**。
 
-4. 在 **dependencies** 节点后添加以下 **build** 节点。 此配置指示 Maven 使用 Java 1.8 来生成应用：
+4. 將下列 [建置]  節點新增至 [相依性]  節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
 
     ```xml
     <build>
@@ -254,7 +254,7 @@ ms.locfileid: "62129901"
     </build>
     ```
 
-5. 保存并关闭 `pom.xml` 文件。
+5. 儲存並關閉 `pom.xml` 檔案。
 
 6. 使用文字編輯器開啟 `simulated-device\src\main\java\com\mycompany\app\App.java` 檔案。
 
@@ -269,7 +269,7 @@ ms.locfileid: "62129901"
     import java.util.Scanner;
     ```
 
-8. 將下列類別層級變數新增到 **App** 類別中。 以您的 IoT 中樞名稱取代 `{youriothubname}`，並以您在＜建立裝置身分識別＞一節中產生的裝置金鑰值取代 `{yourdevicekey}`：
+8. 將下列類別層級變數新增到 **App** 類別中。 以您的 IoT 中樞名稱取代 `{youriothubname}`，並以您在＜建立裝置身分識別＞  一節中產生的裝置金鑰值取代 `{yourdevicekey}`：
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";

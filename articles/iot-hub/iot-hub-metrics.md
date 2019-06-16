@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
 ms.openlocfilehash: 8eac70db0c563f102dfa0e3fcece9d4604582cce
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595669"
 ---
 # <a name="understand-iot-hub-metrics"></a>了解 IoT 中樞計量
 
-IoT 中心度量值提供更棒的数据，清晰显示 Azure 订阅中的 Azure IoT 资源状态。 IoT 中樞度量可讓您評估 IoT 中樞服務及其連接之裝置的整體健全狀況。 面向用户的统计信息非常重要，因为它们可以帮助了解 IoT 中心的情况，并可以帮助在不联系 Azure 支持人员的情况下解决根本问题。
+IoT 中樞度量提供更好的資料，讓您了解 Azure 訂用帳戶中各種 Azure 資源的狀態。 IoT 中樞度量可讓您評估 IoT 中樞服務及其連接之裝置的整體健全狀況。 提供給您的統計資料非常重要，因為它們可以協助您了解其 IoT 中樞的情況，並協助您不需要連絡 Azure 支援人員就解決根本問題。
 
 預設會啟用計量。 您可以從 Azure 入口網站啟用 IoT 中樞計量。
 
@@ -24,7 +24,7 @@ IoT 中心度量值提供更棒的数据，清晰显示 Azure 订阅中的 Azure
 
 1. 建立 IoT 中樞。 您可以在[將遙測從裝置傳送到 IoT 中樞](quickstart-send-telemetry-dotnet.md)指南中找到有關如何建立 IoT 中樞的指示。
 
-2. 開啟 IoT 中樞的刀鋒視窗。 按一下此處的 [計量]。
+2. 開啟 IoT 中樞的刀鋒視窗。 按一下此處的 [計量]  。
    
     ![顯示 [IoT 中樞資源] 頁面中 [度量] 選項之位置的螢幕擷取畫面](./media/iot-hub-metrics/enable-metrics-1.png)
 
@@ -32,7 +32,7 @@ IoT 中心度量值提供更棒的数据，清晰显示 Azure 订阅中的 Azure
    
     ![顯示 IoT 中樞 [度量] 頁面的螢幕擷取畫面](./media/iot-hub-metrics/enable-metrics-2.png)
     
-4. 您可以藉由按一下 [診斷設定]，然後 [新增診斷設定]，選擇將計量資料傳送到事件中樞端點或 Azure 儲存體帳戶
+4. 您可以藉由按一下 [診斷設定]  ，然後 [新增診斷設定]  ，選擇將計量資料傳送到事件中樞端點或 Azure 儲存體帳戶
 
    ![顯示 [診斷設定] 按鈕位置的螢幕擷取畫面](./media/iot-hub-metrics/enable-metrics-3.png)
 
@@ -40,15 +40,15 @@ IoT 中心度量值提供更棒的数据，清晰显示 Azure 订阅中的 Azure
 
 IoT 中樞提供數個度量，以讓您概略了解中樞的健全狀況和所連線裝置的總數。 您可以結合多個度量的資訊，以便更清楚地了解 IoT 中樞的狀態。 下表描述每個 IoT 中樞所追蹤的度量，以及每個度量與 IoT 中樞整體狀態的關聯。
 
-|計量|計量顯示名稱|單位|彙總類型|說明|維度|
+|計量|計量顯示名稱|單位|彙總類型|描述|維度|
 |---|---|---|---|---|---|
 |d2c<br>.telemetry<br>.ingress.<br>allProtocol|遙測訊息傳送嘗試|計數|總計|要嘗試傳送至您 IoT 中樞的裝置到雲端遙測訊息數目|無維度|
 |d2c<br>.telemetry<br>.ingress<br>.success|已傳送的遙測訊息|計數|總計|成功傳送至您 IoT 中樞的裝置到雲端遙測訊息數目|無維度|
 |c2d<br>.commands<br>.egress<br>.complete<br>.success|完成的命令|計數|總計|裝置成功完成的雲端到裝置命令數目|無維度|
 |c2d<br>.commands<br>.egress<br>.abandon<br>.success|放棄的命令|計數|總計|裝置放棄的雲端到裝置命令數目|無維度|
 |c2d<br>.commands<br>.egress<br>.reject<br>.success|拒絕的命令|計數|總計|裝置拒絕的雲端到裝置命令數目|無維度|
-|裝置<br>.totalDevices|裝置總計 (已淘汰)|計數|總計|向 IoT 中樞註冊的裝置數目|無維度|
-|裝置<br>.connectedDevices<br>.allProtocol|連接的裝置 (已淘汰) |計數|總計|連接至 IoT 中樞的裝置數目|無維度|
+|devices<br>.totalDevices|裝置總計 (已淘汰)|計數|總計|向 IoT 中樞註冊的裝置數目|無維度|
+|devices<br>.connectedDevices<br>.allProtocol|連接的裝置 (已淘汰) |計數|總計|連接至 IoT 中樞的裝置數目|無維度|
 |d2c<br>.telemetry<br>.egress<br>.success|路由：已傳遞的遙測訊息|計數|總計|使用 IoT 中樞路由成功地將訊息傳遞到所有端點的次數。 如果將訊息路由至多個端點，這個值會為每一次成功傳遞加 1。 如果將訊息多次傳遞到同一個端點，這個值會為每一次成功傳遞加 1。|無維度|
 |d2c<br>.telemetry<br>.egress<br>.dropped|路由：已捨棄的遙測訊息 |計數|總計|IoT 中樞路由因為端點無效而捨棄訊息的次數。 這個值不會計算傳遞到後援路由的訊息，因為捨棄的訊息不會傳遞到那裡。|無維度|
 |d2c<br>.telemetry<br>.egress<br>.orphaned|路由：已遺棄的遙測訊息 |計數|總計|IoT 中樞路由因為訊息不符合任何路由規則 (包括後援規則) 而遺棄訊息的次數。 |無維度|
@@ -87,23 +87,23 @@ IoT 中樞提供數個度量，以讓您概略了解中樞的健全狀況和所�
 |twinQueries<br>.success|成功對應項查詢|計數|總計|所有成功對應項查詢的計數。|無維度|
 |twinQueries<br>.failure|失敗對應項查詢|計數|總計|所有失敗對應項查詢的計數。|無維度|
 |twinQueries<br>.resultSize|對應項查詢結果大小|位元組|平均值|所有成功對應項查詢的結果大小平均值、最小值和最大值。|無維度|
-|工作<br>.createTwinUpdateJob<br>.success|成功建立的對應項更新作業|計數|總計|所有成功建立的對應項更新作業計數。|無維度|
-|工作<br>.createTwinUpdateJob<br>.failure|建立失敗的對應項更新作業|計數|總計|所有建立失敗的對應項更新作業計數。|無維度|
-|工作<br>.createDirectMethodJob<br>.success|成功建立的方法叫用作業|計數|總計|所有成功建立的直接方法叫用作業計數。|無維度|
-|工作<br>.createDirectMethodJob<br>.failure|建立失敗的方法叫用作業|計數|總計|所有建立失敗的直接方法叫用作業計數。|無維度|
-|工作<br>.listJobs<br>.success|成功呼叫列出作業|計數|總計|所有成功呼叫列出作業的計數。|無維度|
-|工作<br>.listJobs<br>.failure|呼叫列出作業失敗|計數|總計|所有呼叫列出作業失敗的計數。|無維度|
-|工作<br>.cancelJob<br>.success|成功取消作業|計數|總計|所有成功呼叫取消作業的計數。|無維度|
-|工作<br>.cancelJob<br>.failure|取消作業失敗|計數|總計|所有呼叫取消作業失敗的計數。|無維度|
-|工作<br>.queryJobs<br>.success|成功作業查詢|計數|總計|所有成功呼叫查詢作業的計數。|無維度|
-|工作<br>.queryJobs<br>.failure|失敗作業查詢|計數|總計|所有呼叫查詢作業失敗的計數。|無維度|
-|工作<br>.completed|已完成的作業|計數|總計|所有已完成的作業計數。|無維度|
-|工作<br>.failed|失敗作業|計數|總計|所有失敗作業計數。|無維度|
+|jobs<br>.createTwinUpdateJob<br>.success|成功建立的對應項更新作業|計數|總計|所有成功建立的對應項更新作業計數。|無維度|
+|jobs<br>.createTwinUpdateJob<br>.failure|建立失敗的對應項更新作業|計數|總計|所有建立失敗的對應項更新作業計數。|無維度|
+|jobs<br>.createDirectMethodJob<br>.success|成功建立的方法叫用作業|計數|總計|所有成功建立的直接方法叫用作業計數。|無維度|
+|jobs<br>.createDirectMethodJob<br>.failure|建立失敗的方法叫用作業|計數|總計|所有建立失敗的直接方法叫用作業計數。|無維度|
+|jobs<br>.listJobs<br>.success|成功呼叫列出作業|計數|總計|所有成功呼叫列出作業的計數。|無維度|
+|jobs<br>.listJobs<br>.failure|呼叫列出作業失敗|計數|總計|所有呼叫列出作業失敗的計數。|無維度|
+|jobs<br>.cancelJob<br>.success|成功取消作業|計數|總計|所有成功呼叫取消作業的計數。|無維度|
+|jobs<br>.cancelJob<br>.failure|取消作業失敗|計數|總計|所有呼叫取消作業失敗的計數。|無維度|
+|jobs<br>.queryJobs<br>.success|成功作業查詢|計數|總計|所有成功呼叫查詢作業的計數。|無維度|
+|jobs<br>.queryJobs<br>.failure|失敗作業查詢|計數|總計|所有呼叫查詢作業失敗的計數。|無維度|
+|jobs<br>.completed|已完成的工作|計數|總計|所有已完成的作業計數。|無維度|
+|jobs<br>.failed|失敗作業|計數|總計|所有失敗作業計數。|無維度|
 |d2c<br>.telemetry<br>.ingress<br>.sendThrottle|節流錯誤數目|計數|總計|因裝置輸送量節流而導致的節流錯誤數目|無維度|
 |dailyMessage<br>QuotaUsed|已使用的訊息總數|計數|平均值|今日已使用的總訊息數。 這是一個累計值，會在每天的 00:00 UTC 重設為零。|無維度|
 |deviceDataUsage|總裝置資料使用量|位元組|總計|傳輸至任何已連線至 IotHub 之裝置或從該裝置傳出的位元組數|無維度|
 |totalDeviceCount|裝置總計 (預覽)|計數|平均值|向 IoT 中樞註冊的裝置數目|無維度|
-|已連接<br>裝置計數|連接的裝置 (預覽)|計數|平均值|連接至 IoT 中樞的裝置數目|無維度|
+|已連接<br>DeviceCount|連接的裝置 (預覽)|計數|平均值|連接至 IoT 中樞的裝置數目|無維度|
 |組態|設定計量|計數|總計|設定作業的計量|無維度|
 
 ## <a name="next-steps"></a>後續步驟

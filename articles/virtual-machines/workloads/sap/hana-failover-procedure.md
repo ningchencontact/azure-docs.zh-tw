@@ -15,10 +15,10 @@ ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f7d4f6216b4a57796ab5c0296713316dd97c47a8
-ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/01/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64987896"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>災害復原容錯移轉程序
@@ -43,7 +43,7 @@ ms.locfileid: "64987896"
 您可以也測試災害復原容錯移轉，而不會影響實際的複寫關聯性。 若要執行測試容錯移轉，請遵循 「 執行測試 DR 容錯移轉-azure_hana_test_dr_failover 」 中的步驟中[Microsoft Azure 上的 SAP HANA 快照工具](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf)。 
 
 >[!IMPORTANT]
->請勿*未*在您完成程序在 DR 網站中建立的執行個體上執行任何生產異動**測試容錯移轉**。 命令 azure_hana_test_dr_failover 會建立一組主要站台沒有任何關聯的磁碟區。 如此一來，「不」可能同步回主要站台。 
+>請勿*未*在您完成程序在 DR 網站中建立的執行個體上執行任何生產異動**測試容錯移轉**。 命令 azure_hana_test_dr_failover 會建立一組主要站台沒有任何關聯的磁碟區。 如此一來，「不」  可能同步回主要站台。 
 
 如果您想要有多個 SAP HANA 執行個體，若要測試，執行指令碼數次。 要求時，輸入您想要測試容錯移轉的執行個體 SAP HANA SID。 
 
@@ -57,7 +57,7 @@ ms.locfileid: "64987896"
 
       您應該會從輸出中看到 **hdbdaemon** 程序處於已停止狀態，而且已沒有其他 HANA 程序處於執行中或已啟動狀態。
 1. 決定要讓災害復原網站還原到哪個快照集名稱或 SAP HANA 備份識別碼。 在真實的災害復原案例中，此快照集通常會是最新的快照集。 如果您需要復原遺失的資料，請挑選較早的快照集。
-1. 透過高優先順序的支援要求連絡 Azure 支援。 要求的名稱與該快照集還原的日期和快照式或在 DR 網站上的 HANA 備份識別碼。 預設值是作業端只會還原 /hana/data 磁碟區。 如果您想要也有/hana/logbackups 磁碟區，您需要特別指明。 請勿還原 /hana/shared 磁碟區。 相反地，選擇特定的檔案，例如 global.ini **.snapshot**目錄和子目錄重新掛接 /hana/shared 之後共用 PRD 磁碟區。 
+1. 透過高優先順序的支援要求連絡 Azure 支援。 要求的名稱與該快照集還原的日期和快照式或在 DR 網站上的 HANA 備份識別碼。 預設值是作業端只會還原 /hana/data 磁碟區。 如果您想要也有/hana/logbackups 磁碟區，您需要特別指明。 請勿還原 /hana/shared 磁碟區。  相反地，選擇特定的檔案，例如 global.ini **.snapshot**目錄和子目錄重新掛接 /hana/shared 之後共用 PRD 磁碟區。 
 
    在作業端，系統將會進行下列步驟：
 
@@ -84,12 +84,12 @@ ms.locfileid: "64987896"
 
 1. 調整某些預設設定：
 
-      - 清除 [使用差異備份]。
-      - 選取 [初始化記錄區域]。
+      - 清除 [使用差異備份]  。
+      - 選取 [初始化記錄區域]  。
 
    ![設定初始化記錄區域](./media/hana-overview-high-availability-disaster-recovery/initialize_log_dr3.PNG)
 
-1. 選取 [完成]。
+1. 選取 [完成]  。
 
    ![完成 DR 還原](./media/hana-overview-high-availability-disaster-recovery/finish_dr4.PNG)
 

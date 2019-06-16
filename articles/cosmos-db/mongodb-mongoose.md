@@ -10,10 +10,10 @@ author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
 ms.openlocfilehash: 23275bc639b445b55cafb72c929514541ba00660
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61333234"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>將 Node.js Mongoose 應用程式連線至 Azure Cosmos DB
@@ -183,7 +183,7 @@ Mongoose 也有稱為[鑑別子](https://mongoosejs.com/docs/discriminators.html
 
 1. 現在，移至 Azure 入口網站，您會發現 Cosmos DB 中建立了兩個集合。
 
-    ![Node.js 教程 - Azure 门户的屏幕截图，其中显示 Azure Cosmos DB 帐户，并突出显示了多个集合名称 - Node 数据库][multiple-coll]
+    ![Node.js 教學課程-顯示螢幕擷取畫面的 Azure 入口網站中，Azure Cosmos DB 帳戶，以反白顯示的多個集合名稱-節點資料庫][multiple-coll]
 
 1. 最後，讓我們從 Cosmos DB 讀取資料。 由於我們使用的是預設的 Mongoose 作業模型，讀取作業會和 Mongoose 的其他讀取作業相同。
 
@@ -288,7 +288,7 @@ Mongoose 也有稱為[鑑別子](https://mongoosejs.com/docs/discriminators.html
 
 1. 現在，如果您返回 Azure 入口網站，您會發現您只有一個稱為 ```alldata``` 的集合，其中含有 'Family' 和 'VacationDestinations' 資料。
 
-    ![Node.js 教程 - Azure 门户的屏幕截图，其中显示 Azure Cosmos DB 帐户，并突出显示了集合名称 - Node 数据库][alldata]
+    ![Node.js 教學課程-顯示螢幕擷取畫面的 Azure 入口網站中，Azure Cosmos DB 帳戶，以反白顯示集合名稱-節點資料庫][alldata]
 
 1. 此外，請注意，每個物件有另一個稱為 ```__type``` 的屬性，可協助您區分兩個不同的物件模型。
 

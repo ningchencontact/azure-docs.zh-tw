@@ -9,10 +9,10 @@ ms.date: 03/23/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 9d8fb8f5f470dc47088efb30b7f823a0b8c624c8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65141005"
 ---
 # <a name="create-a-block-blob-storage-account"></a>建立區塊 Blob 儲存體帳戶
@@ -43,17 +43,17 @@ ms.locfileid: "65141005"
 
 1. 設定其餘部分，設定下列各項：
 
-   |欄位     |Value  |
+   |欄位     |值  |
    |---------|---------|
    |**效能**    |  選取  **Premium**。   |
    |**帳戶類型**    | 選取  **BlockBlobStorage**。      |
-   |**複寫**    |  保留預設值**本地備援儲存體 (LRS)**。      |
+   |**複寫**    |  保留預設值**本地備援儲存體 (LRS)** 。      |
 
    ![顯示入口網站 UI 來建立區塊 blob 儲存體帳戶](media/storage-blob-create-account-block-blob/create-block-blob-storage-account.png)
 
 1. 選取 **檢閱 + 建立**來檢閱儲存體帳戶設定。
 
-1. 選取 [建立] 。
+1. 選取 [建立]  。
 
 ## <a name="create-account-using-azure-powershell"></a>使用 Azure PowerShell 建立帳戶
 

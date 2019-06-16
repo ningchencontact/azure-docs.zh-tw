@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f3bfe067b7a927f800f88958ee2ffca09711c10
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c012ebfb00b57079e43b74b4f6570744db980860
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812819"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113149"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>B2B 共同作業使用者的條件式存取
 
@@ -46,7 +46,7 @@ ms.locfileid: "65812819"
 ### <a name="mfa-reset-for-b2b-collaboration-users"></a>B2B 共同作業使用者的 MFA 重設
 目前，系統管理員只能使用 PowerShell Cmdlet 要求 B2B 共同作業使用者重新證明：
 
-1. 連線到 Azure AD
+1. 連接至 Azure AD
 
    ```
    $cred = Get-Credential
@@ -87,15 +87,15 @@ ms.locfileid: "65812819"
 
 因此，針對 B2B 使用者的 MFA 建議是一律要求使用邀請方租用戶的 MFA。 在某些情況下，此要求可能會導致雙重 MFA，但每次存取邀請方租用戶時的使用者體驗都會是可預測的：Sally 必須向邀請方租用戶註冊 MFA。
 
-### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>B2B 使用者的裝置型、位置型及風險型條件式存取。
+### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>針對 B2B 使用者的裝置型、 位置型及風險型條件式存取
 
-當 Contoso 為其公司資料啟用裝置型條件式存取原則時，系統會防止未受 Contoso 管理且不符合 Contoso 裝置原則的裝置進行存取。
+當 Contoso 啟用裝置型條件式存取原則，為其公司資料時，會防止存取不在 contoso 和不符合 Contoso 裝置原則所管理的裝置。
 
-如果 B2B 使用者的裝置未受 Contoso 管理，當 B2B 使用者從夥伴組織進行存取時，只要是在強制執行這些原則的內容中，系統就會封鎖其存取。 不過，Contoso 可以建立包含特定合作夥伴使用者的排除清單，將他們排除在裝置型條件式存取原則之外。
+如果 B2B 使用者的裝置未受 Contoso 管理，當 B2B 使用者從夥伴組織進行存取時，只要是在強制執行這些原則的內容中，系統就會封鎖其存取。 不過，Contoso 可以建立排除清單，包含要排除的裝置型條件式存取原則的特定合作夥伴使用者。
 
 #### <a name="location-based-conditional-access-for-b2b"></a>B2B 的位置型條件式存取
 
-如果邀請組織能夠建立定義其合作夥伴組織的受信任 IP 位址範圍，便可以針對 B2B 使用者強制執行位置型條件式存取原則。
+可以針對 B2B 使用者強制執行位置型條件式存取原則，如果邀請組織能夠建立定義其合作夥伴組織的受信任的 IP 位址範圍。
 
 #### <a name="risk-based-conditional-access-for-b2b"></a>B2B 的風險型條件式存取
 

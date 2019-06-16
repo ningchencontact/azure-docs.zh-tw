@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: fb4e16c8be5344c5b9947758b6a09845b470196d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65800998"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>在 Azure HDInsight 中使用直接查詢藉由 Microsoft Power BI 將互動式查詢 Apache Hive 資料視覺化
@@ -27,7 +27,7 @@ ms.locfileid: "65800998"
 在閱讀本文之前，您必須有下列各項：
 
 * **HDInsight 叢集**。 此叢集可以是含有 Apache Hive 的 HDInsight 叢集或新發行的互動式查詢叢集。 如需建立叢集，請參閱[建立叢集](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)。
-* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)**。 您可以從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=45331)下載一份。
+* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)** 。 您可以從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=45331)下載一份。
 
 ## <a name="load-data-from-hdinsight"></a>從 HDInsight 載入資料
 
@@ -35,7 +35,7 @@ ms.locfileid: "65800998"
 
 1. 啟動 Power BI Desktop。
 
-2. 從功能表列中，瀏覽至**首頁** > **取得資料** > **更多...**.
+2. 從功能表列中，瀏覽至**首頁** > **取得資料** > **更多...** .
 
     ![HDInsight Power BI 開放式資料](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
 
@@ -47,7 +47,7 @@ ms.locfileid: "65800998"
 
 6. 在 [ **HDInsight 互動式查詢**] 視窗中，輸入下列資訊，然後選取**確定**:
 
-    |屬性 | Value |
+    |屬性 | 值 |
     |---|---|
     |伺服器 |輸入叢集名稱，例如*myiqcluster.azurehdinsight.net*。|
     |資料庫 |請輸入**預設**這篇文章。|

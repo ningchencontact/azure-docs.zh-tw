@@ -13,24 +13,24 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: 2bc32e28ffd6dd9dab2da61078684791a04709cc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922978"
 ---
 # <a name="configure-application-insights-profiler"></a>設定 Application Insights Profiler
 
 ## <a name="profiler-settings-pane"></a>Profiler 設定窗格
 
-若要開啟 Azure Application Insights Profiler 設定窗格，請移至 [Application Insights 效能] 窗格，然後選取 [Profiler] 按鈕。
+若要開啟 Azure Application Insights Profiler 設定窗格，請移至 [Application Insights 效能] 窗格，然後選取 [Profiler]  按鈕。
 
 ![設定 Profiler 窗格][configure-profiler-entry]
 
-[設定 Application Insights Profiler] 窗格包含四項功能： 
+[設定 Application Insights Profiler]  窗格包含四項功能： 
 * **立即分析**：開始為所有連結至此 Application Insights 執行個體的應用程式分析工作階段。
 * **連結的應用程式**：列出將分析資料傳送至此 Application Insights 資源的應用程式。
-* **進行中的工作階段**：顯示您選取 [立即分析] 時的工作階段狀態。 
+* **進行中的工作階段**：顯示您選取 [立即分析]  時的工作階段狀態。 
 * **最近的分析工作階段**：顯示過往分析工作階段的相關資訊。
 
 ![隨選 Profiler][profiler-on-demand]
@@ -51,17 +51,17 @@ ms.locfileid: "64922978"
 
 如果您的 Web 應用程式已經有連入流量，或您只想要以手動方式產生流量，請略過本節，並繼續執行步驟 2。
 
-1. 在 Application Insights 入口網站中，選取 [設定] > [效能測試]。 
+1. 在 Application Insights 入口網站中，選取 [設定]   > [效能測試]  。 
 
-1. 若要啟動新的效能測試，請選取 [新增] 按鈕。
+1. 若要啟動新的效能測試，請選取 [新增]  按鈕。
 
    ![建立新的效能測試][create-performance-test]
 
-1. 在 [新增效能測試] 窗格中，設定測試目標 URL。 接受所有預設設定，然後選取 [執行測試] 以開始執行負載測試。
+1. 在 [新增效能測試]  窗格中，設定測試目標 URL。 接受所有預設設定，然後選取 [執行測試]  以開始執行負載測試。
 
     ![設定負載測試][configure-performance-test]
 
-    新的測試會先排入佇列，接著是「進行中」的狀態。
+    新的測試會先排入佇列，接著是「進行中」  的狀態。
 
     ![提交負載測試並排入佇列][load-test-queued]
 
@@ -71,7 +71,7 @@ ms.locfileid: "64922978"
 
 1. 負載測試開始執行時，請啟動 Profiler，以在 Web 應用程式接收負載時擷取其追蹤。
 
-1. 移至 [設定 Profiler] 窗格。
+1. 移至 [設定 Profiler]  窗格。
 
 
 ### <a name="step-3-view-traces"></a>步驟 3：檢視追蹤
@@ -94,33 +94,33 @@ ms.locfileid: "64922978"
 
   如果您先前已啟用 Application Insights 設定檔，您可能必須更新 Profiler 代理程式，才能開始使用隨選功能。
   
-移至應用程式服務的 [應用程式設定] 窗格，並檢查下列設定：
+移至應用程式服務的 [應用程式設定]  窗格，並檢查下列設定：
 * **APPINSIGHTS_INSTRUMENTATIONKEY**：取代為 Application Insights 的適當檢測金鑰。
 * **APPINSIGHTS_PORTALINFO**：ASP.NET
 * **APPINSIGHTS_PROFILERFEATURE_VERSION**：1.0.0
 
 若有任何前述值未設定，請執行下列動作以安裝最新的網站延伸模組：
 
-1. 移至應用程式服務入口網站中的 [Application Insights] 窗格。
+1. 移至應用程式服務入口網站中的 [Application Insights]  窗格。
 
     ![從應用程式服務入口網站啟用 Application Insights][enable-app-insights]
 
-1. 如果 [Application Insights] 窗格中顯示 [更新] 按鈕，請按一下該按鈕以更新 Application Insights 網站延伸模組，繼而安裝最新的 Profiler 代理程式。
+1. 如果 [Application Insights]  窗格中顯示 [更新]  按鈕，請按一下該按鈕以更新 Application Insights 網站延伸模組，繼而安裝最新的 Profiler 代理程式。
 
     ![更新網站延伸模組][update-site-extension]
 
-1. 若要確定 Profiler 已開啟，請選取 [變更]，然後選取 [確定] 以儲存變更。
+1. 若要確定 Profiler 已開啟，請選取 [變更]  ，然後選取 [確定]  以儲存變更。
 
     ![變更並儲存 App Insights][change-and-save-appinsights]
 
-1. 返回 App Service 的 [應用程式設定] 窗格，並確定下列值已設定：
+1. 返回 App Service 的 [應用程式設定]  窗格，並確定下列值已設定：
    * **APPINSIGHTS_INSTRUMENTATIONKEY**：取代為 Application Insights 的適當檢測金鑰。
    * **APPINSIGHTS_PORTALINFO**：ASP.NET 
    * **APPINSIGHTS_PROFILERFEATURE_VERSION**：1.0.0
 
      ![Profiler 的應用程式設定][app-settings-for-profiler]
 
-1. 選擇性地選取 [延伸模組]，然後查看延伸模組版本，並確認是否有可用的更新。
+1. 選擇性地選取 [延伸模組]  ，然後查看延伸模組版本，並確認是否有可用的更新。
 
     ![檢查延伸模組更新][check-for-extension-update]
 

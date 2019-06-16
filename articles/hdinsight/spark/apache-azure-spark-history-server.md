@@ -9,15 +9,15 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.openlocfilehash: 716c60cf5155bf0583b2d602e8f46f8ba7c1cfcd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726829"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>使用擴充的 Apache Spark 記錄伺服器對 Apache Spark 應用程式進行偵錯和診斷
 
-本文將說明如何使用擴充的 Apache Spark 記錄伺服器，對已完成和執行中的 Spark 應用程式進行偵錯及診斷。 此延伸模組包含 [資料] 索引標籤和 [圖表] 索引標籤和 [診斷] 索引標籤。在 [資料] 索引標籤上，使用者可以檢查 Spark 作業的輸入與輸出。 在 [圖表] 索引標籤上，使用者可以檢查資料流程，並重新執行作業圖表。 在 [診斷] 索引標籤上，使用者可以參考 [資料扭曲]、[時間扭曲] 與 [執行程式使用狀況分析]。
+本文將說明如何使用擴充的 Apache Spark 記錄伺服器，對已完成和執行中的 Spark 應用程式進行偵錯及診斷。 此延伸模組包含 [資料] 索引標籤和 [圖表] 索引標籤和 [診斷] 索引標籤。在 [資料]  索引標籤上，使用者可以檢查 Spark 作業的輸入與輸出。 在 [圖表]  索引標籤上，使用者可以檢查資料流程，並重新執行作業圖表。 在 [診斷]  索引標籤上，使用者可以參考 [資料扭曲]  、[時間扭曲]  與 [執行程式使用狀況分析]  。
 
 ## <a name="get-access-to-apache-spark-history-server"></a>存取 Apache Spark 歷程記錄伺服器
 
@@ -26,7 +26,7 @@ ms.locfileid: "64726829"
 ### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>從 Azure 入口網站開啟 Apache Spark 歷程記錄伺服器 Web UI
 
 1. 從 [Azure 入口網站](https://portal.azure.com/)，開啟 Spark 叢集。 如需詳細資訊，請參閱[列出和顯示叢集](../hdinsight-administer-use-portal-linux.md#showClusters)。
-2. 從 [快速連結]，按一下 [叢集儀表板]，然後按一下 [Spark 記錄伺服器]。 出現提示時，輸入 Spark 叢集的系統管理員認證。 
+2. 從 [快速連結]  ，按一下 [叢集儀表板]  ，然後按一下 [Spark 記錄伺服器]  。 出現提示時，輸入 Spark 叢集的系統管理員認證。 
 
     ![Spark 歷程記錄伺服器](./media/apache-azure-spark-history-server/launch-history-server.png "Spark 歷程記錄伺服器")
 
@@ -43,21 +43,21 @@ ms.locfileid: "64726829"
 
 
 ## <a name="data-tab-in-spark-history-server"></a>Spark 歷程記錄伺服器中的 [資料] 索引標籤
-選取作業識別碼，然後按一下工具功能表上的 [資料]，以取得資料檢視。
+選取作業識別碼，然後按一下工具功能表上的 [資料]  ，以取得資料檢視。
 
-+ 您可以分別選取 [輸入]、[輸出]和 [資料表作業] 索引標籤來檢查這些項目。
++ 您可以分別選取 [輸入]  、[輸出]  和 [資料表作業]  索引標籤來檢查這些項目。
 
     ![[資料] 索引標籤](./media/apache-azure-spark-history-server/sparkui-data-tabs.png)
 
-+ 按一下 [複製] 按鈕可複製所有資料列。
++ 按一下 [複製]  按鈕可複製所有資料列。
 
     ![資料複製](./media/apache-azure-spark-history-server/sparkui-data-copy.png)
 
-+ 按一下 [csv] 按鈕，可將所有資料儲存為 CSV 檔案。
++ 按一下 [csv]  按鈕，可將所有資料儲存為 CSV 檔案。
 
     ![資料儲存](./media/apache-azure-spark-history-server/sparkui-data-save.png)
 
-+ 在 [搜尋] 欄位中輸入關鍵字，即可進行搜尋，而搜尋結果會立即顯示。
++ 在 [搜尋]  欄位中輸入關鍵字，即可進行搜尋，而搜尋結果會立即顯示。
 
     ![資料搜尋](./media/apache-azure-spark-history-server/sparkui-data-search.png)
 
@@ -65,11 +65,11 @@ ms.locfileid: "64726829"
 
     ![資料表](./media/apache-azure-spark-history-server/sparkui-data-table.png)
 
-+ 若要下載單一檔案，請按一下右側的 [部分下載] 按鈕，然後選取要下載到本機的檔案，如果檔案已不存在，顯示錯誤訊息的新索引標籤會隨即開啟。
++ 若要下載單一檔案，請按一下右側的 [部分下載]  按鈕，然後選取要下載到本機的檔案，如果檔案已不存在，顯示錯誤訊息的新索引標籤會隨即開啟。
 
     ![資料的下載資料列](./media/apache-azure-spark-history-server/sparkui-data-download-row.png)
 
-+ 若要複製完整路徑或相對路徑，可從展開的下載功能表中選取 [複製完整路徑] 或 [複製相對路徑]。 針對 Azure Data Lake Storage 檔案，[在 Azure 儲存體總管中開啟] 會啟動 Azure 儲存體總管，並在登入時移至該資料夾。
++ 若要複製完整路徑或相對路徑，可從展開的下載功能表中選取 [複製完整路徑]  或 [複製相對路徑]  。 針對 Azure Data Lake Storage 檔案，[在 Azure 儲存體總管中開啟]  會啟動 Azure 儲存體總管，並在登入時移至該資料夾。
 
     ![資料的複製路徑](./media/apache-azure-spark-history-server/sparkui-data-copy-path.png)
 
@@ -81,13 +81,13 @@ ms.locfileid: "64726829"
 
     ![資料的詳細資訊](./media/apache-azure-spark-history-server/sparkui-data-more-info.png)
 
-+ 按一下 [提供意見反應給我們]，可將意見反應和問題傳送給我們。
++ 按一下 [提供意見反應給我們]  ，可將意見反應和問題傳送給我們。
 
     ![圖表的意見反應](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
 ## <a name="graph-tab-in-apache-spark-history-server"></a>Apache Spark 歷程記錄伺服器中的 [圖表] 索引標籤
-選取作業識別碼，然後按一下工具功能表上的 [圖表]，以取得作業圖表檢視。
+選取作業識別碼，然後按一下工具功能表上的 [圖表]  ，以取得作業圖表檢視。
 
 + 透過產生的作業圖表來檢查您的作業概觀。 
 
@@ -95,7 +95,7 @@ ms.locfileid: "64726829"
 
     ![圖表作業識別碼](./media/apache-azure-spark-history-server/sparkui-graph-jobid.png)
 
-+ 系統會預設為選取 [進度]，使用者可以在 [顯示] 的下拉式清單中選取 [讀取]/[寫入] 來檢查資料流程。
++ 系統會預設為選取 [進度]  ，使用者可以在 [顯示]  的下拉式清單中選取 [讀取]/[寫入]  來檢查資料流程。
 
     ![圖表顯示](./media/apache-azure-spark-history-server/sparkui-graph-display.png)
 
@@ -103,7 +103,7 @@ ms.locfileid: "64726829"
 
     ![圖表熱度圖](./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png)
 
-+ 按一下 [播放] 按鈕可播放作業，而按一下 [停止] 按鈕可隨時停止。 播放時，工作會以不同色彩來顯示，以表示不同狀態：
++ 按一下 [播放]  按鈕可播放作業，而按一下 [停止] 按鈕可隨時停止。 播放時，工作會以不同色彩來顯示，以表示不同狀態：
 
   + 綠色表示成功：作業已成功完成。
   + 橘色表示重試：失敗但不會影響作業最終結果的工作執行個體。 這些工作有之後可能會成功的重複或重試執行個體。
@@ -122,7 +122,7 @@ ms.locfileid: "64726829"
     > 每個作業都可播放。 針對不完整的作業，不支援播放。
 
 
-+ 捲動滑鼠滾輪可縮放作業圖表，或按一下 [縮放至適當比例]，以調整成符合螢幕的大小。
++ 捲動滑鼠滾輪可縮放作業圖表，或按一下 [縮放至適當比例]  ，以調整成符合螢幕的大小。
  
     ![圖表縮放至適當比例](./media/apache-azure-spark-history-server/sparkui-graph-zoom2fit.png)
 
@@ -152,22 +152,22 @@ ms.locfileid: "64726829"
     > [!NOTE]  
     > 針對讀取和寫入的資料大小，我們使用 1MB = 1000 KB = 1000 * 1000 個位元組。
 
-+ 按一下 [提供意見反應給我們]，可將意見反應和問題傳送給我們。
++ 按一下 [提供意見反應給我們]  ，可將意見反應和問題傳送給我們。
 
     ![圖表的意見反應](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
 ## <a name="diagnosis-tab-in-apache-spark-history-server"></a>Apache Spark 歷程記錄伺服器中的 [診斷] 索引標籤
-選取作業識別碼，然後按一下工具功能表上的 [診斷]，以取得作業診斷檢視。 [診斷] 所有標籤包括 [資料扭曲]、[時間扭曲] 與 [執行程式使用狀況分析]。
+選取作業識別碼，然後按一下工具功能表上的 [診斷]  ，以取得作業診斷檢視。 [診斷] 所有標籤包括 [資料扭曲]  、[時間扭曲]  與 [執行程式使用狀況分析]  。
     
-+ 透過選取對應的索引標籤以查看 [資料扭曲]、[時間扭曲] 與 [執行程式使用狀況分析]。
++ 透過選取對應的索引標籤以查看 [資料扭曲]  、[時間扭曲]  與 [執行程式使用狀況分析]  。
 
     ![[診斷] 索引標籤](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
 
 ### <a name="data-skew"></a>資料扭曲
-按一下 [資料扭曲] 索引標籤，即會根據指定的參數顯示對應的扭曲工作。 
+按一下 [資料扭曲]  索引標籤，即會根據指定的參數顯示對應的扭曲工作。 
 
-+ **指定參數** - 第一個區段會顯示用來偵測資料扭曲的參數。 內建規則是：工作資料讀取大於平均工作資料讀取的 3 倍，且工作資料讀取超過 10MB。 若要為扭曲工作定義您的自己的規則，您可以選擇您的參數，[扭曲階段] 與 [扭曲字元] 區段將相應重新整理。
++ **指定參數** - 第一個區段會顯示用來偵測資料扭曲的參數。 內建規則是：工作資料讀取大於平均工作資料讀取的 3 倍，且工作資料讀取超過 10MB。 若要為扭曲工作定義您的自己的規則，您可以選擇您的參數，[扭曲階段]  與 [扭曲字元]  區段將相應重新整理。
 
 + **扭曲階段** - 第二個區段會顯示具有符合上面指定條件之扭曲工作的階段。 若階段中有多個扭曲工作，扭曲階段表格只會顯示最扭曲的工作 (例如要用於資料扭曲的最大資料)。
 
@@ -178,18 +178,18 @@ ms.locfileid: "64726829"
     ![資料扭曲區段 3](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
 
 ### <a name="time-skew"></a>時間扭曲
-[時間扭曲] 索引標籤會根據工作執行時間來顯示扭曲工作。 
+[時間扭曲]  索引標籤會根據工作執行時間來顯示扭曲工作。 
 
-+ **指定參數** - 第一個區段會顯示用來偵測時間扭曲的參數。 偵測時間扭曲的預設條件：工作執行時間大於平均執行時間 3 倍，而工作執行時間大於 30 秒。 您可以根據您的需求來變更參數。 [扭曲階段] 與 [扭曲圖表] 會顯示對應的階段與工作資序，就像上面的 [資料扭曲] 索引標籤一樣。
++ **指定參數** - 第一個區段會顯示用來偵測時間扭曲的參數。 偵測時間扭曲的預設條件：工作執行時間大於平均執行時間 3 倍，而工作執行時間大於 30 秒。 您可以根據您的需求來變更參數。 [扭曲階段]  與 [扭曲圖表]  會顯示對應的階段與工作資序，就像上面的 [資料扭曲]  索引標籤一樣。
 
-+ 按一下 [時間扭曲]，然後系統會根據在 [指定參數] 區段中設定的參數在 [扭曲階段] 區段中顯示篩選的結果。 按一下 [扭曲階段] 區段中的某個項目，接著對應的圖表會在區段 3 中顯示為草稿，而且工作詳細資料會顯示在右下角的窗格。
++ 按一下 [時間扭曲]  ，然後系統會根據在 [指定參數]  區段中設定的參數在 [扭曲階段]  區段中顯示篩選的結果。 按一下 [扭曲階段]  區段中的某個項目，接著對應的圖表會在區段 3 中顯示為草稿，而且工作詳細資料會顯示在右下角的窗格。
 
     ![匙時間扭曲區段 2](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
 
 ### <a name="executor-usage-analysis"></a>執行程式使用狀況分析
 執行程式使用狀況圖表會將 Spark 作業實際執行程式配置與執行狀態視覺化。  
 
-+ 按一下 [執行程式使用狀況分析]，接著會顯示四個關於執行程式使用狀況的類型曲線草稿，包括 [已配置的執行程式]、[執行中的執行程式]、[閒置執行程式] 與 [執行程式執行個體上限] 。 關於已配置的執行程式，「已新增執行程式」或「已移除執行程式」事件將會使得已配置的執行程式數目增加或減少，您可以查看「作業」中的「事件時間表」以取得更多比較。
++ 按一下 [執行程式使用狀況分析]  ，接著會顯示四個關於執行程式使用狀況的類型曲線草稿，包括 [已配置的執行程式]  、[執行中的執行程式]  、[閒置執行程式]  與 [執行程式執行個體上限]  。 關於已配置的執行程式，「已新增執行程式」或「已移除執行程式」事件將會使得已配置的執行程式數目增加或減少，您可以查看「作業」中的「事件時間表」以取得更多比較。
 
     ![[執行程式] 索引標籤](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
 
@@ -204,20 +204,20 @@ ms.locfileid: "64726829"
 
 若要還原為社群版本，請執行下列步驟：
 
-1. 在 Ambari 中開啟叢集。 按一下左側面板中的 [Spark2]。
-2. 按一下 [設定] 索引標籤。
+1. 在 Ambari 中開啟叢集。 按一下左側面板中的 [Spark2]  。
+2. 按一下 [設定]  索引標籤。
 3. 展開 **Custom spark2-defaults** 群組。
-4. 按一下 [新增屬性]，新增 **spark.ui.enhancement.enabled=false**，然後儲存。
+4. 按一下 [新增屬性]  ，新增 **spark.ui.enhancement.enabled=false**，然後儲存。
 5. 屬性現在會設定為 **false**。
 6. 按一下 **[儲存]** 儲存組態。
 
     ![功能關閉](./media/apache-azure-spark-history-server/sparkui-turn-off.png)
 
-7. 按一下左側面板中的 [Spark2]，在 [摘要] 索引標籤下方，按一下 [Spark2 記錄伺服器]。
+7. 按一下左側面板中的 [Spark2]  ，在 [摘要]  索引標籤下方，按一下 [Spark2 記錄伺服器]  。
 
     ![重新啟動伺服器 1](./media/apache-azure-spark-history-server/sparkui-restart-1.png) 
 
-8. 按一下 **Spark2 記錄伺服器**的 [重新啟動]，以重新啟動記錄伺服器。
+8. 按一下 **Spark2 記錄伺服器**的 [重新啟動]  ，以重新啟動記錄伺服器。
 
     ![重新啟動伺服器 2](./media/apache-azure-spark-history-server/sparkui-restart-2.png)  
 
@@ -226,15 +226,15 @@ ms.locfileid: "64726829"
 ### <a name="2-upload-history-server-event"></a>2.上傳記錄伺服器事件
 
 如果您遇到記錄伺服器錯誤，請依照下列步驟來提供事件：
-1. 按一下記錄伺服器 Web UI 中的 [下載] 來下載事件。
+1. 按一下記錄伺服器 Web UI 中的 [下載]  來下載事件。
 
     ![下載事件](./media/apache-azure-spark-history-server/sparkui-download-event.png)
 
-2. 從 [資料]/[圖表] 索引標籤中按一下 [提供意見反應給我們]。
+2. 從 [資料]/[圖表] 索引標籤中按一下 [提供意見反應給我們]  。
 
     ![圖表的意見反應](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
-3. 提供錯誤的標題和描述，並將 zip 檔拖曳至 [編輯] 欄位中，然後按一下 [提交新問題]。
+3. 提供錯誤的標題和描述，並將 zip 檔拖曳至 [編輯] 欄位中，然後按一下 [提交新問題]  。
 
     ![檔案問題](./media/apache-azure-spark-history-server/sparkui-file-issue.png)
 
@@ -301,9 +301,9 @@ ms.locfileid: "64726829"
 **從 Azure 入口網站中使用 Bash 檔案**
 
 1. 啟動 [Azure 入口網站](https://ms.portal.azure.com)，然後選取您的叢集。
-2. 按一下 [指令碼動作]，然後按一下 [提交新項目]。 完成 [提交指令碼動作] 表單，然後按一下 [建立] 按鈕。
+2. 按一下 [指令碼動作]  ，然後按一下 [提交新項目]  。 完成 [提交指令碼動作]  表單，然後按一下 [建立]  按鈕。
     
-    + **指令碼類型**：選取 [自訂]。
+    + **指令碼類型**：選取 [自訂]  。
     + **名稱**：指定指令碼名稱。
     + **Bash 指令碼 URI**：將 Bash 檔案上傳到私人叢集，然後複製此處的 URL。 或者，使用提供的 URI。
     
@@ -311,7 +311,7 @@ ms.locfileid: "64726829"
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
    ```
 
-   + 核取 [標頭] 和 [背景工作角色]。
+   + 核取 [標頭]  和 [背景工作角色]  。
    + **參數**：設定 Bash 使用量後方的參數。
 
      ![上傳記錄或升級 hotfix](./media/apache-azure-spark-history-server/sparkui-upload2.png)

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 06/02/2018
 ms.author: tomfitz
 ms.openlocfilehash: 3641833f0b55f20066302de350bfab17adfade0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128534"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>將 Azure 資源部署至多個訂用帳戶和資源群組
@@ -169,7 +169,7 @@ ms.locfileid: "66128534"
 
 下列範本示範多個資源群組部署。 表格後面會顯示要部署範本的指令碼。
 
-|範本  |說明  |
+|範本  |描述  |
 |---------|---------|
 |[跨訂用帳戶範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |將一個儲存體帳戶部署至一個資源群組，並將一個儲存體帳戶部署至第二個資源群組。 第二個資源群組位於不同的訂用帳戶時，請包含訂用帳戶識別碼的值。 |
 |[跨資源群組內容範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |示範如何解析 `resourceGroup()` 函式。 它不會部署任何資源。 |

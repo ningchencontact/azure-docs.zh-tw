@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 080a37a88e46117a9963f07c14d64f00c6bae6d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 19bcac68084c4817e0dc0e67f31ab62244db5a2a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570467"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113411"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>將現有的 NPS 基礎結構與 Azure Multi-Factor Authentication 整合
 
@@ -68,7 +68,7 @@ Windows Server 2008 R2 SP1 或更新版本。
 
 使用 NPS 擴充功能的每位使用者都必須使用 Azure AD Connect 同步到 Azure Active Directory ，且必須註冊 MFA。
 
-當您安裝擴充功能時，您的 Azure AD 租用戶需要目錄識別碼和系統管理員認證。 您可以在 [Azure 入口網站](https://portal.azure.com)中找到您的目錄識別碼。 請以系統管理員身分登入，選取左側的 [Azure Active Directory] 圖示，然後選取 [屬性]。 複製 [目錄識別碼] 方塊中的 GUID，然後儲存。 當您安裝 NPS 擴充功能時，將使用此 GUID 作為租用戶識別碼。
+當您安裝擴充功能時，您的 Azure AD 租用戶需要目錄識別碼和系統管理員認證。 您可以在 [Azure 入口網站](https://portal.azure.com)中找到您的目錄識別碼。 請以系統管理員身分登入，選取左側的 [Azure Active Directory]  圖示，然後選取 [屬性]  。 複製 [目錄識別碼]  方塊中的 GUID，然後儲存。 當您安裝 NPS 擴充功能時，將使用此 GUID 作為租用戶識別碼。
 
 ![在 Azure Active Directory 屬性下尋找您的目錄識別碼](./media/howto-mfa-nps-extension/find-directory-id.png)
 
@@ -93,10 +93,10 @@ NPS 伺服器必須能夠透過連接埠 80 和 443 與下列 URL 通訊。
 
 NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為此角色選擇一部伺服器。 建議您選擇不處理來自其他服務之要求的伺服器，因為 NPS 延伸模組會對任何不是 RADIUS 的要求擲回錯誤。 NPS 伺服器必須設定為您環境的主要及次要驗證伺服器，它不可將 RADIUS 要求 Proxy 傳送到其他伺服器。
 
-1. 在伺服器上，從 [伺服器管理員快速入門] 功能表開啟 [新增角色及功能精靈]。
-2. 將您的安裝類型選為 [角色型或功能型安裝]。
-3. 選取 [網路原則與存取服務] 伺服器角色。 隨即顯示快顯視窗，通知您執行這個角色所需的功能。
-4. 繼續執行精靈，直到顯示 [確認] 頁面為止。 選取 [安裝]。
+1. 在伺服器上，從 [伺服器管理員快速入門] 功能表開啟 [新增角色及功能精靈]  。
+2. 將您的安裝類型選為 [角色型或功能型安裝]  。
+3. 選取 [網路原則與存取服務]  伺服器角色。 隨即顯示快顯視窗，通知您執行這個角色所需的功能。
+4. 繼續執行精靈，直到顯示 [確認] 頁面為止。 選取 [安裝]  。
 
 現在您已經具備指定給 NPS 的伺服器，因此也應設定這部伺服器以處理從 VPN 解決方案傳入的 RADIUS 要求。
 
@@ -109,8 +109,8 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 這個步驟在租用戶上可能已經完成，但建議最好再次檢查，確認 Azure AD Connect 最近已同步處理您的資料庫。
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [Azure Active Directory]  >  [Azure AD Connect]
-3. 確認同步處理狀態為 [已啟用]，且上次同步處理為不到一小時前。
+2. 選取 [Azure Active Directory]   >  [Azure AD Connect] 
+3. 確認同步處理狀態為 [已啟用]  ，且上次同步處理為不到一小時前。
 
 如果您必須展開新一回合的同步處理，請使用 [Azure AD Connect 同步處理：排程器](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler)中的指示。
 
@@ -134,7 +134,7 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 使用下列步驟啟動測試帳戶：
 1. 使用測試帳戶登入 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)。 
 2. 遵循提示來設定驗證方法。
-3. 建立條件式存取原則或[變更使用者狀態](howto-mfa-userstates.md)，以要求測試帳戶進行雙步驟驗證。 
+3. 建立條件式存取原則或[變更使用者狀態](howto-mfa-userstates.md)要求測試帳戶的雙步驟驗證。 
 
 您的使用者在向 NPS 擴充功能驗證之前，也必須遵循下列步驟進行註冊。
 
@@ -207,9 +207,9 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 ### <a name="prepare-for-users-that-arent-enrolled-for-mfa"></a>針對未註冊 MFA 的使用者做準備
 
-如果您有未註冊 MFA 的使用者，您可以決定在其嘗試驗證時會有什麼結果。 使用登錄路徑 HKLM\Software\Microsoft\AzureMFA 中的登錄設定 *REQUIRE_USER_MATCH* 來控制功能的行為。 此設定具有單一組態選項︰
+如果您有未註冊 MFA 的使用者，您可以決定在其嘗試驗證時會有什麼結果。 使用登錄路徑 HKLM\Software\Microsoft\AzureMFA  中的登錄設定 *REQUIRE_USER_MATCH* 來控制功能的行為。 此設定具有單一組態選項︰
 
-| 索引鍵 | Value | 預設值 |
+| 索引鍵 | 值 | 預設值 |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | 未設定 (相當於 TRUE) |
 
@@ -266,7 +266,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 1. 重新啟動 NPS 伺服器。
 2. 確認已如預期安裝用戶端憑證。
 3. 確認憑證已與 Azure AD 上的租用戶相關聯。
-4. 確認可以從執行延伸模組的伺服器存取 https://login.microsoftonline.com/。
+4. 確認可以從執行延伸模組的伺服器存取 https://login.microsoftonline.com/ 。
 
 -------------------------------------------------------------
 
@@ -278,7 +278,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>為何我會在記錄中看到 HTTP 連線錯誤，且我的所有驗證都失敗？
 
-確認可以從執行 NPS 延伸模組的伺服器存取 https://adnotifications.windowsazure.com。
+確認可以從執行 NPS 延伸模組的伺服器存取 https://adnotifications.windowsazure.com 。
 
 -------------------------------------------------------------
 

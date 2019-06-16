@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7bb07fa00babb00d1b2af03f89ae6857cb79f5f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fa7b5c82f0b057e2eb029b9cc632d8da02206678
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782859"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108400"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 遠端存取應用程式的安全性考量
 
@@ -47,9 +47,9 @@ Azure AD 應用程式 Proxy 依賴 Azure AD Security Token Service (STS) 來進�
 
 在建立您的網路連線之前，先套用更豐富的原則控制。
 
-使用[條件式存取](../conditional-access/overview.md)，就可以定義允許哪些流量存取後端應用程式上的限制。 您可以位置、驗證強度和使用者風險狀況作為基礎，來建立限制登入的原則。
+具有[條件式存取](../conditional-access/overview.md)，您可以定義允許哪些流量存取後端應用程式上的限制。 您可以位置、驗證強度和使用者風險狀況作為基礎，來建立限制登入的原則。
 
-您也可以使用條件式存取來設定 Multi-Factor Authentication 原則，為您的使用者驗證新增另一層的安全性。 此外，您的應用程式也可透過 Azure AD 條件式存取路由至 Microsoft Cloud App Security，以透過[存取權](https://docs.microsoft.com/cloud-app-security/access-policy-aad)和[工作階段](https://docs.microsoft.com/cloud-app-security/session-policy-aad)原則提供即時的監視與控制能力
+您也可以使用條件式存取來設定多重要素驗證原則，將另一層安全性新增至您的使用者驗證。 此外，您的應用程式也可以路由至 Microsoft Cloud App Security，透過提供即時監視與控制，透過 Azure AD 條件式存取[存取權](https://docs.microsoft.com/cloud-app-security/access-policy-aad)並[工作階段](https://docs.microsoft.com/cloud-app-security/session-policy-aad)原則
 
 ### <a name="traffic-termination"></a>流量終止
 
@@ -61,7 +61,7 @@ Azure AD 應用程式 Proxy 是反向 Proxy，因此所有至後端應用程式�
 
 不需要開啟連往公司網路的輸入連線。
 
-應用程式 Proxy 連接器只會使用連往 Azure AD 應用程式 Proxy 服務的輸出連線；亦即，您不需要開啟防火牆連接埠以供連入連線使用。 傳統 Proxy 需要周邊網路 (也稱為「DMZ」、「周邊網路」或「遮蔽式子網路」) 並在網路邊緣允許未經授權連線的存取權。 這種情節需要投資 Web 應用程式防火牆產品，以便分析流量及保護環境。 使用應用程式 Proxy，您就不需要周邊網路，因為所有連線皆為輸出方向，並且是透過安全通道來傳輸。
+應用程式 Proxy 連接器只會使用連往 Azure AD 應用程式 Proxy 服務的輸出連線；亦即，您不需要開啟防火牆連接埠以供連入連線使用。 傳統 Proxy 需要周邊網路 (也稱為「DMZ」  、「周邊網路」  或「遮蔽式子網路」  ) 並在網路邊緣允許未經授權連線的存取權。 這種情節需要投資 Web 應用程式防火牆產品，以便分析流量及保護環境。 使用應用程式 Proxy，您就不需要周邊網路，因為所有連線皆為輸出方向，並且是透過安全通道來傳輸。
 
 如需連接器的詳細資訊，請參閱[了解 Azure AD 應用程式 Proxy 連接器](application-proxy-connectors.md)。
 
@@ -167,9 +167,9 @@ Azure AD 應用程式 Proxy 是由兩個部分組成︰
 
 根據要求，應用程式 Proxy 會執行下列其中一個動作︰
 
-* 如果要求是簡單的作業 (例如，主體內沒有資料現狀符合 RESTful「GET」要求)，連接器會建立連往目標內部資源的連線，然後等候回應。
+* 如果要求是簡單的作業 (例如，主體內沒有資料現狀符合 RESTful「GET」  要求)，連接器會建立連往目標內部資源的連線，然後等候回應。
 
-* 如果要求在主體中具有與它相關聯的資料 (例如，RESTful「POST」作業)，連接器會使用用戶端憑證建立與應用程式 Proxy 執行個體的輸出連線。 它會建立此連線來要求資料，並開啟與內部部署資源的連線。 在收到來自連接器的要求後，應用程式 Proxy 服務會開始接受來自使用者的內容，並將資料轉送至連接器。 連接器會依次將資料轉送到內部資源。
+* 如果要求在主體中具有與它相關聯的資料 (例如，RESTful「POST」  作業)，連接器會使用用戶端憑證建立與應用程式 Proxy 執行個體的輸出連線。 它會建立此連線來要求資料，並開啟與內部部署資源的連線。 在收到來自連接器的要求後，應用程式 Proxy 服務會開始接受來自使用者的內容，並將資料轉送至連接器。 連接器會依次將資料轉送到內部資源。
 
 #### <a name="4-the-connector-waits-for-a-response"></a>4.連接器會等候回應。
 

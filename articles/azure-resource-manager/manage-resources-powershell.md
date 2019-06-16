@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure PowerShell 管理 Azure 資源 |Microsoft Docs
-description: 使用 Azure PowerShell 和 Azure 资源管理器管理资源。
+description: 使用 Azure PowerShell 和 Azure Resource Manager 來管理您的資源。
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -12,28 +12,28 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 51ef6f3f8ac18b71064f73f32597c1f59ffa1d18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61075309"
 ---
-# <a name="manage-azure-resources-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 资源
+# <a name="manage-azure-resources-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 資源
 
-了解如何将 Azure PowerShell 与 [Azure 资源管理器](resource-group-overview.md)配合使用来管理 Azure 资源。 若要管理资源组，请参阅[使用 Azure PowerShell 管理 Azure 资源组](./manage-resource-groups-powershell.md)。
+了解如何使用 Azure PowerShell [Azure Resource Manager](resource-group-overview.md)來管理您的 Azure 資源。 如需管理資源群組，請參閱[使用 Azure PowerShell 管理 Azure 資源群組](./manage-resource-groups-powershell.md)。
 
-有关资源管理的其他文章：
+關於管理資源的其他文章：
 
-- [使用 Azure 门户管理 Azure 资源](./manage-resources-portal.md)
-- [使用 Azure CLI 管理 Azure 资源](./manage-resources-cli.md)
+- [使用 Azure 入口網站管理 Azure 資源](./manage-resources-portal.md)
+- [使用 Azure CLI 管理 Azure 資源](./manage-resources-cli.md)
 
-## <a name="deploy-resources-to-an-existing-resource-group"></a>将资源部署到现有的资源组
+## <a name="deploy-resources-to-an-existing-resource-group"></a>將資源部署至現有的資源群組
 
-可以使用 Azure PowerShell 直接部署 Azure 资源，也可以部署资源管理器模板来创建 Azure 资源。
+您可以直接透過使用 Azure PowerShell 部署 Azure 資源，或部署 Resource Manager 範本來建立 Azure 資源。
 
-### <a name="deploy-a-resource"></a>部署资源
+### <a name="deploy-a-resource"></a>部署資源
 
-以下脚本创建一个存储帐户。
+下列指令碼會建立儲存體帳戶。
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -52,7 +52,7 @@ $ctx = $storageAccount.Context
 
 ### <a name="deploy-a-template"></a>部署範本
 
-以下脚本通过部署快速入门模板来创建存储帐户。 如需詳細資訊，請參閱[快速入門：使用 Visual Studio Code 建立 Azure Resource Manager 範本](./resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell)。
+下列指令碼會建立部署快速入門範本，以建立儲存體帳戶。 如需詳細資訊，請參閱[快速入門：使用 Visual Studio Code 建立 Azure Resource Manager 範本](./resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell)。
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -63,17 +63,17 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure PowerShell 來部署資源](./resource-group-template-deploy.md)。
 
-## <a name="deploy-a-resource-group-and-resources"></a>部署资源组和资源
+## <a name="deploy-a-resource-group-and-resources"></a>部署資源群組和資源
 
-可以创建一个资源组，然后将资源部署到该组。 如需詳細資訊，請參閱[建立資源群組並部署資源](./deploy-to-subscription.md#create-resource-group-and-deploy-resources)。
+您可以建立資源群組，並將資源部署至該群組。 如需詳細資訊，請參閱[建立資源群組並部署資源](./deploy-to-subscription.md#create-resource-group-and-deploy-resources)。
 
-## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>将资源部署到多个订阅或资源组
+## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>將資源部署至多個訂用帳戶或資源群組
 
-一般而言，您要將範本中的所有資源部署至單一資源群組。 不過，在某些情況下，您要將一組資源部署在一起，但將它們放在不同的資源群組或訂用帳戶中。 有关详细信息，请参阅[将 Azure 资源部署到多个订阅或资源组](./resource-manager-cross-resource-group-deployment.md)。
+一般而言，您要將範本中的所有資源部署至單一資源群組。 不過，在某些情況下，您要將一組資源部署在一起，但將它們放在不同的資源群組或訂用帳戶中。 如需詳細資訊，請參閱 <<c0> [ 部署 Azure 資源部署至多個訂用帳戶或資源群組](./resource-manager-cross-resource-group-deployment.md)。
 
 ## <a name="delete-resources"></a>刪除資源
 
-以下脚本演示如何删除存储帐户。
+下列指令碼會示範如何刪除儲存體帳戶。
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -82,11 +82,11 @@ $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 Remove-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $storageAccountName
 ```
 
-若要详细了解 Azure 资源管理器如何控制资源的删除，请参阅 [Azure 资源管理器资源组的删除](./resource-group-delete.md)。
+如需 Azure Resource Manager 如何排序資源的刪除作業的詳細資訊，請參閱[Azure Resource Manager 資源群組刪除](./resource-group-delete.md)。
 
 ## <a name="move-resources"></a>移動資源
 
-以下脚本演示如何将存储帐户从一个资源组移到另一个资源组。
+下列指令碼會示範如何從一個資源群組中移除儲存體帳戶，另一個資源群組。
 
 ```azurepowershell-interactive
 $srcResourceGroupName = Read-Host -Prompt "Enter the source Resource Group name"
@@ -101,9 +101,9 @@ Move-AzResource -DestinationResourceGroupName $destResourceGroupName -ResourceId
 
 ## <a name="lock-resources"></a>鎖定資源
 
-锁定可以防止组织中的其他用户意外删除或修改关键资源，例如 Azure 订阅、资源组或资源。 
+鎖定可防止不小心刪除或修改重要資源，例如 Azure 訂用帳戶、 資源群組或資源組織中的其他使用者。 
 
-以下脚本锁定一个存储帐户，因此无法删除该帐户。
+下列指令碼會鎖定的儲存體帳戶，因此無法刪除帳戶。
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -112,7 +112,7 @@ $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 New-AzResourceLock -LockName LockStorage -LockLevel CanNotDelete -ResourceGroupName $resourceGroupName -ResourceName $storageAccountName -ResourceType Microsoft.Storage/storageAccounts 
 ```
 
-以下脚本获取存储帐户的所有锁：
+下列指令碼會取得儲存體帳戶的所有鎖定：
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -121,7 +121,7 @@ $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 Get-AzResourceLock -ResourceGroupName $resourceGroupName -ResourceName $storageAccountName -ResourceType Microsoft.Storage/storageAccounts
 ```
 
-以下脚本删除存储帐户的锁：
+下列指令碼會刪除儲存體帳戶的鎖定：
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -135,15 +135,15 @@ Remove-AzResourceLock -LockId $lockId
 
 ## <a name="tag-resources"></a>標記資源
 
-标记有助于按逻辑方式组织资源组和资源。 有关信息，请参阅[使用标记组织 Azure 资源](./resource-group-using-tags.md#powershell)。
+標記以邏輯方式組織您的資源群組和資源的協助。 如需資訊，請參閱[使用標記來組織您的 Azure 資源](./resource-group-using-tags.md#powershell)。
 
-## <a name="manage-access-to-resources"></a>管理对资源的访问
+## <a name="manage-access-to-resources"></a>管理對資源的存取
 
-[角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 是您對 Azure 中的資源存取進行管理的機制。 有关详细信息，请参阅[使用 RBAC 和 Azure PowerShell 管理访问权限](../role-based-access-control/role-assignments-powershell.md)。
+[角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 是您對 Azure 中的資源存取進行管理的機制。 如需詳細資訊，請參閱 <<c0> [ 使用 RBAC 和 Azure PowerShell 管理存取](../role-based-access-control/role-assignments-powershell.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要了解 Azure 资源管理器，请参阅 [Azure 资源管理器概述](./resource-group-overview.md)。
-- 若要了解资源管理器模板语法，请参阅[了解 Azure 资源管理器模板的结构和语法](./resource-group-authoring-templates.md)。
-- 若要了解如何开发模板，请参阅[分步教程](/azure/azure-resource-manager/)。
-- 若要查看 Azure 资源管理器模板架构，请参阅[模板参考](/azure/templates/)。
+- 若要深入了解 Azure Resource Manager，請參閱[Azure Resource Manager 概觀](./resource-group-overview.md)。
+- 若要深入了解 Resource Manager 範本語法，請參閱[了解的結構和 Azure Resource Manager 範本的語法](./resource-group-authoring-templates.md)。
+- 若要了解如何開發的範本，請參閱[逐步教學課程](/azure/azure-resource-manager/)。
+- 若要檢視 Azure Resource Manager 範本結構描述，請參閱[範本參考](/azure/templates/)。

@@ -11,10 +11,10 @@ ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: cc657e079949b8217031906efeb84049217d6493
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510242"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 Twitter 帳戶進行登入
@@ -35,7 +35,7 @@ ms.locfileid: "66510242"
 1. 使用您的 Twitter 帳戶認證登入 [Twitter 開發人員](https://developer.twitter.com/en/apps) \(英文\) 網站。
 2. 選取 [Create an app]  \(建立應用程式\)。
 3. 輸入**應用程式名稱**和**應用程式說明**。
-4. 在 [Website URL]  \(網站 URL\) 中，輸入 `https://your-tenant.b2clogin.com`。 以您的租用戶名稱取代 `your-tenant`。 例如： https://contosob2c.b2clogin.com。
+4. 在 [Website URL]  \(網站 URL\) 中，輸入 `https://your-tenant.b2clogin.com`。 以您的租用戶名稱取代 `your-tenant`。 例如： https://contosob2c.b2clogin.com 。
 5. 在 [回呼 URL]  中輸入 `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`。 將 `your-tenant` 取代為您的租用戶名稱，並將 `your-policy-Id` 取代為您的原則識別碼。 例如： `b2c_1A_signup_signin_twitter`。 即使租用戶在 Azure AD B2C 中是使用大寫字母來定義的，您還是需要在輸入租用戶名稱時，全部使用小寫字母。
 6. 在頁面底部，閱讀並接受條款，然後選取 [Create]  \(建立\)。
 7. 在 [App details]  \(應用程式詳細資料\) 頁面上，選取 [Edit] \(編輯\) > [Edit details] \(編輯詳細資料\)  、核取 [Enable Sign in with Twitter]  \(使用 Twitter 啟用登入\) 的方塊，然後選取 [Save]  \(儲存\)。

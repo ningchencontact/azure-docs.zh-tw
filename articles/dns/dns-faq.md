@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/21/2019
+ms.date: 6/15/2019
 ms.author: victorh
-ms.openlocfilehash: 4f0800dfd264059e1dc8aac32a54f216f777647f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: bb5c4d508344f391d610aeaa7e0be54a93c997dc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096162"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080001"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS 常見問題集
 
@@ -42,9 +42,9 @@ Azure 保證有效的 DNS 要求 100% 的時間都至少會從一部 Azure DNS �
 
 網域是網域名稱系統中的唯一名稱。 例如 contoso.com。
 
-DNS 區域用來裝載特定網域的 DNS 記錄。 例如，contoso.com 網域可能包含數筆 DNS 記錄。 这些记录可能包含 mail.contoso.com（用于邮件服务器）和 www\.contoso.com（用于网站）。 這些記錄會裝載在 contoso.com DNS 區域中。
+DNS 區域用來裝載特定網域的 DNS 記錄。 例如，contoso.com 網域可能包含數筆 DNS 記錄。 記錄可能包含 mail.contoso.com 的郵件伺服器與 www\.contoso.com 的網站。 這些記錄會裝載在 contoso.com DNS 區域中。
 
-網域名稱「只是一個名稱」。 DNS 區域則是包含網域名稱 DNS 記錄的資料資源。 您可以使用 Azure DNS 來裝載 DNS 區域，並在 Azure 中管理網域的 DNS 記錄。 它也提供 DNS 名稱伺服器以回應來自網際網路的 DNS 查詢。
+網域名稱「只是一個名稱」  。 DNS 區域則是包含網域名稱 DNS 記錄的資料資源。 您可以使用 Azure DNS 來裝載 DNS 區域，並在 Azure 中管理網域的 DNS 記錄。 它也提供 DNS 名稱伺服器以回應來自網際網路的 DNS 查詢。
 
 ### <a name="do-i-need-to-buy-a-dns-domain-name-to-use-azure-dns"></a>我是否必須先購買 DNS 網域名稱才能使用 Azure DNS？ 
 
@@ -110,7 +110,7 @@ Azure DNS 僅支援裝載靜態 DNS 網域，其中所指定 DNS 記錄的每個
 
 Azure DNS 區域中的下列記錄類型支援別名記錄集：
  
-- 具有使用  
+- A 
 - AAAA
 - CNAME 
 
@@ -143,11 +143,11 @@ Azure DNS 區域中的下列記錄類型支援別名記錄集：
 
 ## <a name="use-azure-dns"></a>使用 Azure DNS
 
-### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>是否可以使用 Azure DNS 和其他 DNS 提供程序共同托管域？
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>我可以共同裝載網域使用 Azure DNS 與其他 DNS 提供者嗎？
 
 是。 Azure DNS 支援與其他 DNS 服務共同裝載網域。
 
-若要设置共同托管，请将域的 NS 记录修改为指向这两个提供程序的名称服务器。 名稱伺服器 (NS) 記錄可控制哪些提供者會收到網域的 DNS 查詢。 您可以在 Azure DNS 中、在另一個提供者中，以及在父區域中修改這些 NS 記錄。 父區域通常會透過網域名稱註冊機構來設定。 如需有關 DNS 委派的詳細資訊，請參閱 [DNS 網域委派](dns-domain-delegation.md)。
+若要設定共同裝載，修改為指向兩個提供者的名稱伺服器網域的 NS 記錄。 名稱伺服器 (NS) 記錄可控制哪些提供者會收到網域的 DNS 查詢。 您可以在 Azure DNS 中、在另一個提供者中，以及在父區域中修改這些 NS 記錄。 父區域通常會透過網域名稱註冊機構來設定。 如需有關 DNS 委派的詳細資訊，請參閱 [DNS 網域委派](dns-domain-delegation.md)。
 
 此外，請確保網域的 DNS 記錄在這兩個 DNS 提供者之間保持同步。 Azure DNS 目前不支援 DNS 區域傳輸。 您必須使用 [Azure DNS 管理入口網站](dns-operations-recordsets-portal.md)、[REST API](https://docs.microsoft.com/powershell/module/az.dns) \(英文\)、[SDK](dns-sdk.md)、[PowerShell Cmdlet](dns-operations-recordsets.md) 或 [CLI 工具](dns-operations-recordsets-cli.md)，來同步處理 DNS 記錄。
 
@@ -194,87 +194,6 @@ Azure DNS 的管理是使用 Azure Resource Manager 來進行的。 Azure DNS �
 國際網域名稱 (IDN) 會使用 [Punycode](https://en.wikipedia.org/wiki/Punycode) 將每個 DNS 名稱編碼。 建立 DNS 查詢時，會使用這些以 Punycode 編碼的名稱來建立。
 
 若要設定 Azure DNS 中的 IDN，請將區域名稱或記錄集名稱轉換成 Punycode。 Azure DNS 目前不支援以 Punycode 作為轉換目標或來源的內建轉換。
-
-## <a name="private-dns"></a>私人 DNS
-
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
-
-### <a name="does-azure-dns-support-private-domains"></a>Azure DNS 是否支援私人網域？
-
-私人網域的支援是使用私人區域功能進行實作。 此功能目前以公開預覽的形式提供。 私人區域是使用與網際網路面向 Azure DNS 區域相同的工具來進行管理的。 但只能從您指定的虛擬網路內將它們進行解析。 如需詳細資訊，請參閱[概觀](private-dns-overview.md)。
-
-目前 Azure 入口網站上並不支援私人區域。
-
-如需有關 Azure 中其他內部 DNS 選項的資訊，請參閱 [VM 與角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
-
-### <a name="whats-the-difference-between-registration-virtual-network-and-resolution-virtual-network-in-the-context-of-private-zones"></a>在私人區域的內容下，註冊虛擬網路和解析虛擬網路之間的差異為何？
-
-您可以將虛擬網路連結至 DNS 私人區域以作為註冊虛擬網路或作為解析虛擬網路。 不管是用哪一種方式，虛擬網路中的虛擬機器都能夠針對私人區域中的記錄成功地進行解析。 若使用註冊虛擬網路，DNS 記錄都會自動註冊到虛擬網路中虛擬機器的區域。 當註冊虛擬網路中的虛擬機器遭到刪除時，來自所連結私人區域的對應 DNS 記錄也會自動遭到移除。 
-
-### <a name="will-azure-dns-private-zones-work-across-azure-regions"></a>Azure DNS 私人區域是否能跨 Azure 區域運作？
-
-是。 私人區域支援在跨 Azure 區域的虛擬網路之間進行 DNS 解析。 就算是沒有明確對虛擬網路進行對等，私人區域也能運作。 所有虛擬網路都必須針對私人區域指定為解析虛擬網路。 客戶可能需要對虛擬網路進行對等，來使 TCP/HTTP 流量能夠從某個區域流至另一個區域。
-
-### <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>針對私人區域，虛擬網路是否需要能夠連線至網際網路？
-
-沒有。 私人區域能與虛擬網路搭配運作。 客戶可以使用私人區域在虛擬網路內及虛擬網路之間管理虛擬機器或其他資源的網域。 名稱解析並不需要任何網際網路連線能力。 
-
-### <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>相同的私人區域是否可以用於數個虛擬網路以進行解析？
-
-是。 客戶可以將最多 10 個解析虛擬網路關聯至單一私人區域。
-
-### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>是否可以將屬於不同訂用帳戶的虛擬網路，作為解析虛擬網路新增至私人區域？
-
-是。 您必須在虛擬網路及私人 DNS 區域上皆擁有寫入作業權限。 寫入權限可授與給數個 RBAC 角色。 例如，傳統網路參與者 RBAC 角色便具有虛擬網路的寫入權限。 如需 RBAC 角色的詳細資訊，請參閱[角色型存取控制](../role-based-access-control/overview.md)。
-
-### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>當客戶刪除虛擬機器時，是否也會自動刪除私人區域中之自動註冊的虛擬機器 DNS 記錄？
-
-是。 如果您刪除註冊虛擬網路內的虛擬機器，註冊至該區域的 DNS 記錄也會自動刪除。 
-
-### <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-registration-virtual-network-be-deleted-manually"></a>來自註冊虛擬網路的私人區域中所自動註冊的虛擬機器記錄是否可以手動刪除？
-
-沒有。 從註冊虛擬網路自動註冊於私人區域中的虛擬機器 DNS 記錄，並無法由客戶查看或編輯。 您可以將自動註冊的 DNS 記錄覆寫為於區域中手動建立的 DNS 記錄。 下列問題和解答會說明這個議題。
-
-### <a name="what-happens-when-we-try-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>當我嘗試在具有和註冊虛擬網路中自動註冊的現有虛擬機器相同之主機名稱的私人區域中手動建立新的 DNS 記錄時，會發生什麼事？
-
-您可以嘗試在具有和註冊虛擬網路中現有自動註冊虛擬機器相同主機名稱的私人區域中手動建立新的 DNS 記錄。 當您這樣做時，新的 DNS 記錄會覆寫自動註冊的虛擬機器記錄。 如果您再次嘗試從區域刪除此手動建立的 DNS 記錄，刪除作業會成功。 只要虛擬機器仍然存在且有附加私人 IP，就會再次自動註冊。 DNS 記錄會在區域中自動重新建立。
-
-### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone-will-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-too"></a>當我取消註冊虛擬網路和私人區域之間的連結時，會發生什麼事？ 來自虛擬網路的自動註冊虛擬機器記錄是否也會從區域中移除？
-
-是。 若要解除註冊虛擬網路及私人區域之間的連結，您可以更新 DNS 區域以移除相關聯的註冊虛擬網路。 此程序也會從區域中移除自動註冊的虛擬機器記錄。 
-
-### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-thats-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>當我刪除已連結至私人區域的註冊或解析虛擬網路時，會發生什麼事？ 我是否需要手動更新私人區域，以取消作為註冊或解析虛擬網路的虛擬網路與區域之間的連結？
-
-是。 當您在沒有先解除註冊或解析虛擬網路與私人區域間連結的情況下便刪除該虛擬網路時，刪除作業會成功。 但系統將不會自動解除虛擬網路與任何私人區域之間的連結。 您必須手動解除虛擬網路與私人區域之間的連結。 基於這個原因，在刪除虛擬網路之前，請先解除它和您私人區域之間的連結。
-
-### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-privatecontosocom-is-linked-to-a-virtual-network"></a>使用預設 FQDN (internal.cloudapp.net) 的 DNS 解析仍然可以運作即使在私人區域 (例如 private.contoso.com) 連結到虛擬網路嗎？
-
-是。 私人區域並不會取代使用由 Azure 所提供之 internal.cloudapp.net 區域的預設 DNS 解析。 其會作為額外的性能或增強功能供您使用。 無論是仰賴由 Azure 所提供的 internal.cloudapp.net 或您自己的私人區域，都請使用您想要解析之目標區域的 FQDN。 
-
-### <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>已連結虛擬網路內之虛擬機器上的 DNS 尾碼，是否會變更成私人區域的尾碼？
-
-沒有。 您已連結虛擬網路中虛擬機器上的 DNS 尾碼會保持為由 Azure 所提供的預設尾碼 ("*.internal.cloudapp.net")。 您可以手動將虛擬機器上的 DNS 尾碼變更為私人區域的尾碼。 
-
-### <a name="are-there-any-limitations-for-private-zones-during-this-preview"></a>此預覽期間的私人區域功能是否有任何限制？
-
-是。 在公開預覽其間，將會存在下列限制。
-* 每個私人區域只能有一個註冊虛擬網路。
-* 每個私人區域最多可以有 10 個解析虛擬網路。
-* 特定虛擬網路只能連結到單一私人區域作為註冊虛擬網路。
-* 特定虛擬網路可以連結到最多 10 個私人區域作為解析虛擬網路。
-* 如果指定了註冊虛擬網路，在已註冊至私人區域的該虛擬網路中，將無法從 PowerShell、CLI 或 API 檢視或擷取來自該虛擬網路 VM 的 DNS 記錄。 VM 記錄已註冊，且解析會成功。
-* 反向 DNS 只適用於註冊虛擬網路中的私人 IP 空間。
-* 未註冊到私人區域的私人 IP 反向 DNS 會傳回 "internal.cloudapp.net" 作為 DNS 尾碼。 此尾碼無法解析。 例如，作為解析虛擬網路連結到私人區域的虛擬網路中，其中所含虛擬機器的私人 IP。
-* 第一次將虛擬網路連結至作為註冊或解析虛擬網路的私人區域時，虛擬網路必須是空白的。 對於未來要作為註冊或解析虛擬網路連結到其他私人區域的虛擬網路，則可為非空白。
-* 不支援條件式轉送，例如，啟用 Azure 和內部部署網路之間的解析。 請了解客戶可如何透過其他機制實現此案例。 請參閱 [VM 與角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
-
-### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>針對私人區域的區域或記錄，是否有任何配額或限制？
-
-針對私人區域，並沒有針對每個訂用帳戶所允許的區域數目限制。 針對私人區域，並沒有針對每個區域的記錄集數目限制。 公用與私人區域都會計入整體的 DNS 限制。 如需詳細資訊，請參閱 [Azure 訂用帳戶和服務限制](../azure-subscription-service-limits.md#azure-dns-limits)
-
-### <a name="is-there-portal-support-for-private-zones"></a>私人區域是否有入口網站支援？
-
-透過 API、PowerShell、CLI 和 SDK 所建立的私人區域都會顯示於 Azure 入口網站上。 但客戶無法建立新的私人區域或管理虛擬網路之間的關聯性。 對於關聯為註冊虛擬網路的虛擬網路，自動註冊的 VM 記錄不會顯示於入口網站上。 
 
 ## <a name="next-steps"></a>後續步驟
 

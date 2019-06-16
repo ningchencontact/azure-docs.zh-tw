@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.openlocfilehash: a813c77e81e51bfe13e75ed6c8d0e24b4d0fa645
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66392915"
 ---
 # <a name="streaming-policies"></a>串流原則
@@ -48,7 +48,7 @@ Azure 媒體服務 v3 中，[串流原則](https://docs.microsoft.com/rest/api/m
 
 ## <a name="get-a-streaming-policy-definition"></a>取得資料流的原則定義  
 
-如果您想要查看的資料流的原則定義，使用[取得](https://docs.microsoft.com/rest/api/media/streamingpolicies/get)，並指定原則名稱。 例如: 
+如果您想要查看的資料流的原則定義，使用[取得](https://docs.microsoft.com/rest/api/media/streamingpolicies/get)，並指定原則名稱。 例如:
 
 ### <a name="rest"></a>REST
 

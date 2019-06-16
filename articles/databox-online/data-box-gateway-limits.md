@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
 ms.openlocfilehash: e80b03f696a78887676e9f16750055a4dcfac230
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60755173"
 ---
 # <a name="azure-data-box-gateway-limits"></a>Azure 中部署資料閘道限制
@@ -28,7 +28,7 @@ ms.locfileid: "60755173"
 
 下表說明資料箱閘道裝置的限制。
 
-| 描述 | Value |
+| 描述 | 值 |
 |---|---|
 |沒有。 (每個裝置的檔案) |1 億 <br> 限制約為每 2 TB 的磁碟空間可以有 2 千 5 百萬個檔案，最大限制為 1 億個 |
 |沒有。 (每個裝置的共用) |24 |

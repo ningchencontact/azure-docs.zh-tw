@@ -12,10 +12,10 @@ ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60715450"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>航太工業中預測性維護之 Cortana Intelligence 解決方案範本的技術指南
@@ -148,7 +148,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 ## <a name="monitor-progress"></a>監視進度
 一旦資料產生器啟動，管線就會開始凍結，而且解決方案的不同元件會遵循 Data Factory 發出的命令開始動作。 有兩種方式可以監視管線。
 
-1. 其中一個串流分析作業會將原始內送資料寫入 blob 儲存體。 如果您從成功部署解決方案的畫面按一下解決方案的 Blob 儲存體元件，然後在右窗格中按一下 [開啟]，系統就會帶您前往 [Azure 入口網站](https://portal.azure.com/)。 一旦在該網站中，按一下 Blobs。 在接下來的面板中，您會看到容器的清單。 按一下 [maintenancesadata]。 接下來的面板中會顯示 **rawdata** 資料夾。 在 rawdata 資料夾內則可以看到具有如 hour=17 和 hour=18 等名稱的資料夾。 出現這些資料夾表示原始資料已經在您的電腦上產生並儲存在 Blob 儲存體中。 您應該會在這些資料夾中看到具有有限大小 (MB) 的 csv 檔案。
+1. 其中一個串流分析作業會將原始內送資料寫入 blob 儲存體。 如果您從成功部署解決方案的畫面按一下解決方案的 Blob 儲存體元件，然後在右窗格中按一下 [開啟]，系統就會帶您前往 [Azure 入口網站](https://portal.azure.com/)。 一旦在該網站中，按一下 Blobs。 在接下來的面板中，您會看到容器的清單。 按一下 [maintenancesadata]  。 接下來的面板中會顯示 **rawdata** 資料夾。 在 rawdata 資料夾內則可以看到具有如 hour=17 和 hour=18 等名稱的資料夾。 出現這些資料夾表示原始資料已經在您的電腦上產生並儲存在 Blob 儲存體中。 您應該會在這些資料夾中看到具有有限大小 (MB) 的 csv 檔案。
 2. 管線的最後一個步驟是將資料 (例如來自機器學習的預測) 寫入至 SQL Database。 您可能必須等候最多三個小時，資料才會出現在 SQL Database。 監視您的 SQL Database 中有多少資料可用的其中一個方法是透過 [Azure 入口網站](https://portal.azure.com/)。 在左側面板找到 SQL DATABASES ![SQL 圖示](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png)，然後按一下圖示。 接著找到您的資料庫 **pmaintenancedb** 並按一下它。 在下一個頁面的底部，按一下 [管理]
    
     ![管理圖示](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png)
@@ -171,25 +171,25 @@ Power BI 會連接到 Azure SQL 資料庫做為其資料來源，即預測結果
    
    在移至後續步驟之前，您將需要 **資料庫伺服器名稱、資料庫名稱、使用者名稱和密碼** 。 以下是引導您如何尋找的步驟。
    
-   * 一旦您的解決方案範本圖表上的 [Azure SQL Database] 變成綠色之後，請按一下它，然後按一下 [開啟]。
+   * 一旦您的解決方案範本圖表上的 [Azure SQL Database]  變成綠色之後，請按一下它，然後按一下 [開啟]  。
    * 您會看到新的瀏覽器索引標籤/視窗，其中顯示 Azure 入口網站頁面。 按一下左側面板上的 [資源群組]  。
-   * 選取您用於部署解決方案的訂用帳戶，然後選取 [YourSolutionName\_ResourceGroup]。
-   * 在新的快顯面板中，按一下 ![SQL 圖示](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png)圖示來存取您的資料庫。 您的資料庫名稱會在這個圖示旁邊 (例如 **'pmaintenancedb'**)，而**資料庫伺服器名稱**列在伺服器名稱屬性下方，看起來應該類似 **YourSoutionName.database.windows.net**。
+   * 選取您用於部署解決方案的訂用帳戶，然後選取 [YourSolutionName\_ResourceGroup]  。
+   * 在新的快顯面板中，按一下 ![SQL 圖示](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png)圖示來存取您的資料庫。 您的資料庫名稱會在這個圖示旁邊 (例如 **'pmaintenancedb'** )，而**資料庫伺服器名稱**列在伺服器名稱屬性下方，看起來應該類似 **YourSoutionName.database.windows.net**。
    * 您的資料庫**使用者名稱**和**密碼**使用解決方案部署期間記錄的相同使用者名稱和密碼。
 2. 使用 Power BI 桌面版來更新冷路徑報告檔案的資料來源。
    
-   * 在您下載並將產生器檔案解壓縮的資料夾中，按兩下 **PowerBI\\PredictiveMaintenanceAerospace.pbix** 檔案。 如果您開啟檔案時看到任何警告訊息，請忽略它們。 在檔案的頂端按一下 [編輯查詢] 。
+   * 在您下載並將產生器檔案解壓縮的資料夾中，按兩下 **PowerBI\\PredictiveMaintenanceAerospace.pbix** 檔案。 如果您開啟檔案時看到任何警告訊息，請忽略它們。 在檔案的頂端按一下 [編輯查詢]  。
      
      ![編輯查詢](./media/cortana-analytics-technical-guide-predictive-maintenance/edit-queries.png)
-   * 您會看到兩個資料表，**RemainingUsefulLife** 和 **PMResult**。 選取第一個資料表，然後在右側 [查詢設定] 面板的 [套用的步驟] 下，按一下 [來源]旁的 ![Query settings icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png)。 略過任何出現的警告訊息。
-   * 在快顯視窗中，將 [伺服器] 和 [資料庫] 取代為您自己的伺服器和資料庫名稱，然後按一下 [確定]。 針對伺服器名稱，請確定您指定連接埠 1433 (**YourSoutionName.database.windows.net, 1433**)。 讓 [資料庫] 欄位保持為 [pmaintenancedb]。 忽略畫面上出現的警告訊息。
-   * 在下一個快顯視窗中，您會在左側窗格上看到兩個選項 ([Windows] 和 [資料庫])。 按一下 [資料庫]，填入您的 [使用者名稱] 和 [密碼] (這是當您首次部署解決方案並建立 Azure SQL 資料庫時輸入的使用者名稱和密碼)。 在 [選取要套用這些設定的層級] 中，請勾選資料庫層級選項。 然後按一下 [連接]。
-   * 按一下第二個資料表 **PMResult**，然後在右側 [查詢設定] 面板的 [套用的步驟] 下，按一下 [來源] 旁的 ![Navigation icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png)，依上述步驟所示更新伺服器和資料庫名稱，然後按一下 [確定]。
-   * 一旦引導您回到上一頁，請關閉視窗。 此時會顯示一個訊息，請按一下 [套用]。 最後，按一下 [儲存]  按鈕以儲存變更。 您的 Power BI 檔案現在已建立與伺服器的連線。 如果視覺效果是空的，請確定將視覺效果上的選取範圍都清除，以將所有資料視覺化，成法是按一下圖例右上角的橡皮擦圖示。 使用重新整理按鈕在視覺效果上反映新的資料。 最初，您只會在視覺效果上看到種子資料，因為 Data Factory 排定為每 3 個小時重新整理。 3 小時後，當您重新整理資料時，您會看到新的預測反映在視覺效果中。
+   * 您會看到兩個資料表，**RemainingUsefulLife** 和 **PMResult**。 選取第一個資料表，然後在右側 [查詢設定]  面板的 [套用的步驟]  下，按一下 [來源]  旁的 ![Query settings icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png)。 略過任何出現的警告訊息。
+   * 在快顯視窗中，將 [伺服器]  和 [資料庫]  取代為您自己的伺服器和資料庫名稱，然後按一下 [確定]  。 針對伺服器名稱，請確定您指定連接埠 1433 (**YourSoutionName.database.windows.net, 1433**)。 讓 [資料庫] 欄位保持為 [pmaintenancedb]  。 忽略畫面上出現的警告訊息。
+   * 在下一個快顯視窗中，您會在左側窗格上看到兩個選項 ([Windows]  和 [資料庫]  )。 按一下 [資料庫]  ，填入您的 [使用者名稱]  和 [密碼]  (這是當您首次部署解決方案並建立 Azure SQL 資料庫時輸入的使用者名稱和密碼)。 在 [選取要套用這些設定的層級] 中，請勾選資料庫層級選項。 然後按一下 [連接]  。
+   * 按一下第二個資料表 **PMResult**，然後在右側 [查詢設定]  面板的 [套用的步驟]  下，按一下 [來源]  旁的 ![Navigation icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png)，依上述步驟所示更新伺服器和資料庫名稱，然後按一下 [確定]。
+   * 一旦引導您回到上一頁，請關閉視窗。 此時會顯示一個訊息，請按一下 [套用]  。 最後，按一下 [儲存]  按鈕以儲存變更。 您的 Power BI 檔案現在已建立與伺服器的連線。 如果視覺效果是空的，請確定將視覺效果上的選取範圍都清除，以將所有資料視覺化，成法是按一下圖例右上角的橡皮擦圖示。 使用重新整理按鈕在視覺效果上反映新的資料。 最初，您只會在視覺效果上看到種子資料，因為 Data Factory 排定為每 3 個小時重新整理。 3 小時後，當您重新整理資料時，您會看到新的預測反映在視覺效果中。
 3. (選擇性) 將冷路徑儀表板發佈至 [Power BI 線上版](https://www.powerbi.com/)。 請注意，這個步驟需要 Power BI 帳戶 (或 Office 365 帳戶)。
    
-   * 按一下 [發佈]，幾秒鐘後會出現一個視窗顯示「發佈至 Power BI 成功!」， 並帶有綠色核取記號。 按一下 [在 Power BI 中開啟 PredictiveMaintenanceAerospace.pbix] 下方的連結。 若要尋找詳細的指示，請參閱[從 Power BI Desktop 發佈](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop)。
-   * 若要建立新儀表板：在左側窗格中按一下 [儀表板] 區段旁的 **+** 號。 為這個新儀表板輸入名稱「預測性維護示範」。
+   * 按一下 [發佈]  ，幾秒鐘後會出現一個視窗顯示「發佈至 Power BI 成功!」， 並帶有綠色核取記號。 按一下 [在 Power BI 中開啟 PredictiveMaintenanceAerospace.pbix] 下方的連結。 若要尋找詳細的指示，請參閱[從 Power BI Desktop 發佈](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop)。
+   * 若要建立新儀表板：在左側窗格中按一下 [儀表板]  區段旁的 **+** 號。 為這個新儀表板輸入名稱「預測性維護示範」。
    * 開啟報告後，按一下 ![PIN icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-pin.png)，將所有視覺效果釘選至儀表板。 若要尋找詳細的指示，請參閱 [從報告將磚釘選至 Power BI 儀表板](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report)。
      前往儀表板頁面並調整視覺效果的大小和位置，以及編輯其標題。 若要尋找如何編輯您的磚的詳細說明，請參閱 [編輯磚 -- 調整大小、移動、重新命名、釘選、刪除、加入超連結](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename)。 以下是具有釘選了一些冷路徑視覺效果的範例儀表板。  根據執行資料產生器的時間長度，在視覺效果上的數字可能會不同。
      <br/>
@@ -197,7 +197,7 @@ Power BI 會連接到 Azure SQL 資料庫做為其資料來源，即預測結果
      <br/>
    * 排程重新整理的資料，將滑鼠移**PredictiveMaintenanceAerospace**資料集，按一下![省略符號圖示](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png)，然後選擇**排程重新整理**。
      <br/>
-     **附註：** 如果看到警告訊息，請按一下 [編輯認證]，並確定您的資料庫認證與步驟 1 中所述相同。
+     **附註：** 如果看到警告訊息，請按一下 [編輯認證]  ，並確定您的資料庫認證與步驟 1 中所述相同。
      <br/>
      ![排程重新整理](./media/cortana-analytics-technical-guide-predictive-maintenance/schedule-refresh.png)
      <br/>
@@ -224,14 +224,14 @@ Power BI 會連接到 Azure SQL 資料庫做為其資料來源，即預測結果
    
    * 在左側面板 [資料集] 區段中按一下資料集 **aircraftmonitor** 。
    * 按一下 [折線圖]  圖示。
-   * 按一下 [欄位] 窗格中的 [已處理]，使其顯示於 [視覺效果] 窗格中的「軸」下方。
+   * 按一下 [欄位]  窗格中的 [已處理]  ，使其顯示於 [視覺效果]  窗格中的「軸」下方。
    * 按一下 "s11" 和 "s11\_alert"，使它們都出現在「值」下方。 按一下 **s11** 和 **s11\_alert** 旁邊的小箭頭，將「總和」變更為「平均」。
-   * 按一下上方的 [儲存] 並將報告命名為 "aircraftmonitor"。 名為 "aircraftmonitor" 的報告會顯示在左側 [導覽] 窗格的 [報告] 區段中。
+   * 按一下上方的 [儲存]  並將報告命名為 "aircraftmonitor"。 名為 "aircraftmonitor" 的報告會顯示在左側 [導覽]  窗格的 [報告]  區段中。
    * 按一下此折線圖右上角的 [釘選視覺]  圖示。 可能出現「釘選至儀表板」視窗供您選擇儀表板。 選取 [預測性維護示範]，然後按一下 [釘選]。
    * 在儀表板上將滑鼠停留在此磚中，按一下右上角的 [編輯] 圖示可將其標題變更為「感應器 11 與閾值 48.26 的機隊檢視」，以及將副標題變更為「機隊經過一段時間的平均值」。
 
 ## <a name="delete-your-solution"></a>刪除解決方案
-確定您在未積極使用解決方案時有停止資料產生器，因為執行資料產生器將會產生較高的成本。 如果不使用解決方案，請將其刪除。 刪除解決方案時，會將您在部署解決方案時，於訂用帳戶中佈建的所有元件刪除。 如果要刪除解決方案，請在解決方案範本左側面板中按一下該解決方案的名稱，然後按一下 [刪除]。
+確定您在未積極使用解決方案時有停止資料產生器，因為執行資料產生器將會產生較高的成本。 如果不使用解決方案，請將其刪除。 刪除解決方案時，會將您在部署解決方案時，於訂用帳戶中佈建的所有元件刪除。 如果要刪除解決方案，請在解決方案範本左側面板中按一下該解決方案的名稱，然後按一下 [刪除]  。
 
 ## <a name="cost-estimation-tools"></a>成本估計工具
 下列兩項工具可協助您進一步了解在您的訂用帳戶中執行航太解決方案範本的預測性維護所牽涉的總成本：

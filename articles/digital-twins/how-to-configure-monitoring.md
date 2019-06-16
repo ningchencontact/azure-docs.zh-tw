@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9765af13a22a0ae9db8a45c396e7d5a32b71b79c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 5dc2587a0c127106d5afb41e20eca43919065f1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730329"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118776"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中設定監視
 
@@ -68,11 +68,11 @@ Azure Digital Twins 的活動記錄預設會啟用，而且可以透過下列方
 針對執行個體啟用診斷記錄：
 
 1. 在 Azure 入口網站中讓資源上線。
-1. 按一下 [診斷設定]  ：
+1. 選取 **診斷設定**:
 
     [![診斷設定一個](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
 
-1. 按一下 [開啟診斷]  以收集資料 (若先前未啟用)。
+1. 選取 **開啟診斷**收集資料 （如果先前未啟用）。
 1. 填入要求的欄位，並選取如何儲存資料以及要將資料儲存在何處：
 
     [![兩個的診斷設定](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
@@ -101,7 +101,7 @@ Azure 監視器包含功能強大的 log analytics 服務，可讓記錄以供�
 
     [![Log analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
-1. 如果您還沒有**Log Analytics 工作區**執行個體，您可以按一下 建立工作區**新增**按鈕：
+1. 如果您還沒有**Log Analytics 工作區**執行個體，您可以建立工作區選取**新增**按鈕：
 
     [![建立 OMS](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
 
@@ -114,7 +114,7 @@ Azure 監視器包含功能強大的 log analytics 服務，可讓記錄以供�
 > [!NOTE]
 > 傳送事件時，您可能會遇到有 5 分鐘的延遲**Log Analytics 工作區**第一次。
 
-Azure 監視器記錄檔也會提供功能強大的錯誤和警示通知服務，可檢視依序按一下**診斷並解決問題**:
+Azure 監視器記錄檔也會提供功能強大的錯誤和警示的 notification services 的選取，即可檢視**診斷並解決問題**:
 
    [![警示和錯誤的通知](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
 

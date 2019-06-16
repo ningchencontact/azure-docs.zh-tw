@@ -8,10 +8,10 @@ ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
 ms.openlocfilehash: 5cb4caa6f0f8098e68d693be6cc2f33b5ccbeb32
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752841"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>如何管理您的商業的 Marketplace 帳戶在合作夥伴中心 
@@ -84,7 +84,7 @@ ms.locfileid: "66752841"
 
 現在，您的 Microsoft 帳戶相關聯，若要新增的付款帳戶，您必須：
 - **選擇付款方式**:銀行帳戶或 PayPal
-- **新增付款資訊**:選擇帳戶類型 （支票或儲蓄）、 輸入帳戶的持有者的名稱、 帳戶號碼和路由，這可能包括數字、 帳單地址、 電話號碼或 PayPal 的電子郵件地址。 * 如需使用 PayPal，為您帳戶的付款方式，以及了解是否支援在您的上市區域的詳細資訊，請參閱 < [PayPal 資訊](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info)。
+- **新增付款資訊**:選擇帳戶類型 （支票或儲蓄）、 輸入帳戶的持有者的名稱、 帳戶號碼和路由，這可能包括數字、 帳單地址、 電話號碼或 PayPal 的電子郵件地址。 \* 如需使用 PayPal，為您帳戶的付款方式，以及了解是否支援在您的上市區域的詳細資訊，請參閱 < [PayPal 資訊](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info)。
 
 > [!IMPORTANT]
 > 變更您的付款帳戶會延遲您的付款最多一次付款週期。 因為我們需要確認帳戶變更，就像我們一樣第一次設定付款帳戶時，就會發生此延遲。 您仍然會在帳戶確認之後收到全額款項。當期付款週期未付的款項會新增至下一期。  
@@ -174,7 +174,7 @@ United States 個別納稅人識別碼 （或 ITIN） 不需要從 Microsoft 接
 
 1. 移至**使用者**(底下**帳戶設定**)，然後選取**將使用者新增**。
 2. 從出現的清單中選取一個或多個使用者。 您可以使用 [搜尋] 方塊搜尋特定的使用者。
-* 如果您選取多個使用者新增到您的合作夥伴中心帳戶時，您必須指派它們，相同的角色或自訂的權限集。 若要新增多個使用者具有不同的角色/權限，請針對每個角色或自訂的權限集的重複這些步驟。
+\* 如果您選取多個使用者新增到您的合作夥伴中心帳戶時，您必須指派它們，相同的角色或自訂的權限集。 若要新增多個使用者具有不同的角色/權限，請針對每個角色或自訂的權限集的重複這些步驟。
 3.  當您完成選擇使用者，請按一下**Add selected**。
 5.  在 **角色**區段中，指定所選使用者的自訂權限的角色。
 6.  選取 [ **儲存**]。

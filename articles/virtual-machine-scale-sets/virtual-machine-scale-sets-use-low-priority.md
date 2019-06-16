@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
 ms.openlocfilehash: 861c68ae8163e0ba8c2af2a3d96153ac3e84855f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60803216"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>擴展集中的低優先順序 VM (預覽)
@@ -41,8 +41,8 @@ ms.locfileid: "60803216"
 
 ## <a name="deploying-low-priority-vms-on-scale-sets"></a>在擴展集上部署低優先順序 VM
 
-若要在擴展集上部署低優先順序 VM，可將新的 Priority 旗標設為 Low。 擴展集中的所有 VM 都會設定為低優先順序。 若要建立使用低優先順序 VM 的擴展集，請使用下列其中一個方法︰
-- [Azure 门户](#use-the-azure-portal)
+若要在擴展集上部署低優先順序 VM，可將新的 Priority  旗標設為 Low  。 擴展集中的所有 VM 都會設定為低優先順序。 若要建立使用低優先順序 VM 的擴展集，請使用下列其中一個方法︰
+- [Azure 入口網站](#use-the-azure-portal)
 - Azure CLI
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure 資源管理員範本](#use-azure-resource-manager-templates)
@@ -53,7 +53,7 @@ ms.locfileid: "60803216"
 
 ## <a name="use-the-azure-cli"></a>使用 Azure CLI
 
-建立使用低優先順序 VM 之擴展集的程序，與[使用者入門文章](quick-create-cli.md)中所述的程序相同。 只要在 CLI 呼叫中新增 '--priority' 參數，並將它設定為 Low，如下列範例所示：
+建立使用低優先順序 VM 之擴展集的程序，與[使用者入門文章](quick-create-cli.md)中所述的程序相同。 只要在 CLI 呼叫中新增 '--priority' 參數，並將它設定為 Low  ，如下列範例所示：
 
 ```azurecli
 az vmss create \
@@ -82,11 +82,11 @@ $vmssConfig = New-AzVmssConfig `
 
 ## <a name="use-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本
 
-建立使用低優先順序 VM 之擴展集的程序，與 [Linux](quick-create-template-linux.md) 或 [Windows](quick-create-template-windows.md) 的使用者入門文章中所述的程序相同。 將 'priority' 屬性新增至範本中的 Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile 資源類型，並指定其值為 Low。 請務必使用 *2018-03-01* API 版本或更高版本。 
+建立使用低優先順序 VM 之擴展集的程序，與 [Linux](quick-create-template-linux.md) 或 [Windows](quick-create-template-windows.md) 的使用者入門文章中所述的程序相同。 將 'priority' 屬性新增至範本中的 Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile  資源類型，並指定其值為 Low  。 請務必使用 *2018-03-01* API 版本或更高版本。 
 
-為了要將收回原則設定為刪除，請新增 'evictionPolicy' 參數，並將它設定為 delete (刪除)。
+為了要將收回原則設定為刪除，請新增 'evictionPolicy' 參數，並將它設定為 delete  (刪除)。
 
-下列範例會在「美國中西部」建立名為 myScaleSet 的 Linux 低優先順序擴展集，並會在收回擴展集中的 VM 時刪除 VM：
+下列範例會在「美國中西部」  建立名為 myScaleSet  的 Linux 低優先順序擴展集，並會在收回擴展集中的 VM 時刪除  VM：
 
 ```json
 {

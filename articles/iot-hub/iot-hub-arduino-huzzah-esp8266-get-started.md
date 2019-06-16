@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: wesmc
 ms.openlocfilehash: 00d0e3a749c4af8faacfed5f725ce16e0492c399
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409087"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>將 Adafruit Feather HUZZAH ESP8266 連線到位於雲端的 Azure IoT 中樞
@@ -80,15 +80,15 @@ ms.locfileid: "65409087"
 
 ### <a name="connect-a-dht22-temperature-and-humidity-sensor-to-feather-huzzah-esp8266"></a>將 DHT22 溫度和溼度感應器連接至 Feather HUZZAH ESP8266
 
-使用麵包板和跳線來進行連接，如下所示。 如果没有传感器，请跳过本部分，因为可以改用模拟的传感器数据。
+使用麵包板和跳線來進行連接，如下所示。 如果您沒有感應器，請略過本節，因為您可以改為使用模擬的感應器資料。
 
 ![連接參考](./media/iot-hub-arduino-huzzah-esp8266-get-started/17_connections_on_breadboard.png)
 
 針對感應器針腳，請使用下列接線方式：
 
-| 启动（传感器）           | 結束 (電路版)            | 纜線顏色   |
+| 開始 (感應器)           | 結束 (電路版)            | 纜線顏色   |
 | -----------------------  | ---------------------- | ------------  |
-| VDD (針腳 31F)            | 3V (針腳 58H)           | 红线     |
+| VDD (針腳 31F)            | 3V (針腳 58H)           | 紅色纜線     |
 | DATA (針腳 32F)           | GPIO 2 (針腳 46A)       | 藍色纜線    |
 | GND (針腳 34F)            | GND (針腳 56I)          | 黑色纜線   |
 
@@ -122,7 +122,7 @@ ms.locfileid: "65409087"
 
    在輸出中，請注意 `uucp` 或 `dialout` 是 USB 連接埠的群組擁有者名稱。
 
-2. 运行以下命令，将用户添加到该组中：
+2. 執行下列命令，將使用者新增至群組︰
 
    ```bash
    sudo usermod -a -G <group-owner-name> <username>
@@ -136,7 +136,7 @@ ms.locfileid: "65409087"
 
 在本節中，您可以在 Feather HUZZAH ESP8266 上部署和執行範例應用程式。 範例應用程式會在 Feather HUZZAH ESP8266 上閃爍 LED，並將從 DHT22 感應器收集的溫度和溼度資料傳送至 IoT 中樞。
 
-### <a name="get-the-sample-application-from-github"></a>从 GitHub 获取示例应用程序
+### <a name="get-the-sample-application-from-github"></a>從 GitHub 取得範例應用程式
 
 範例應用程式會裝載在 GitHub 上。 請從 GitHub 複製包含範例應用程式的範例存放庫。 若要複製範例存放庫，請遵循下列步驟︰
 
@@ -162,11 +162,11 @@ ms.locfileid: "65409087"
 
 7. 型別**Arduino** ，然後選取**Arduino:** Board Manager。
 
-8. 在 [Arduino 面板管理員] 索引標籤中，按一下 [其他 URL]。
+8. 在 [Arduino 面板管理員]  索引標籤中，按一下 [其他 URL]  。
 
    ![VS Code Arduino 面板管理員](media/iot-hub-arduino-huzzah-esp8266-get-started/11_vscode-arduino-board-manager.png)
 
-9. 在 [使用者設定] 視窗中，複製下列內容並貼至檔案結尾
+9. 在 [使用者設定]  視窗中，複製下列內容並貼至檔案結尾
 
    ```json
    "arduino.additionalUrls": "https://arduino.esp8266.com/stable/package_esp8266com_index.json"
@@ -174,11 +174,11 @@ ms.locfileid: "65409087"
 
    ![在 VS Code 中設定 Arduino 套件 URL](media/iot-hub-arduino-huzzah-esp8266-get-started/12_vscode-package-url.png)
 
-10. 儲存檔案並關閉 [使用者設定] 索引標籤。
+10. 儲存檔案並關閉 [使用者設定]  索引標籤。
 
-11. 按一下 [重新整理套件索引]。 重新整理完成之後，搜尋 **esp8266**。
+11. 按一下 [重新整理套件索引]  。 重新整理完成之後，搜尋 **esp8266**。
 
-12. 針對 esp8266 按一下 [安裝] 按鈕。
+12. 針對 esp8266 按一下 [安裝]  按鈕。
 
     [電路板管理員] 指出已安裝的 ESP8266 版本為 2.2.0 版或更新版本。
 
@@ -186,7 +186,7 @@ ms.locfileid: "65409087"
 
 13. 請輸入`F1`，然後輸入**Arduino** ，然後選取**Arduino:面板設定**。
 
-14. 按一下 [選取的面板:] 的方塊並輸入 **esp8266**，然後選取 [Adafruit HUZZAH ESP8266 (esp8266)]。
+14. 按一下 [選取的面板:]  的方塊並輸入 **esp8266**，然後選取 [Adafruit HUZZAH ESP8266 (esp8266)]  。
 
     ![選取 esp8266 面板](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
 
@@ -194,7 +194,7 @@ ms.locfileid: "65409087"
 
 1. 在 Visual Studio Code 中，輸入`F1`，然後輸入**Arduino** ，然後選取**Arduino:程式庫管理員**。
 
-2. 逐一搜尋下列程式庫名稱。 針對您找到的每個程式庫，按一下 [安裝]。
+2. 逐一搜尋下列程式庫名稱。 針對您找到的每個程式庫，按一下 [安裝]  。
    * `AzureIoTHub`
    * `AzureIoTUtility`
    * `AzureIoTProtocol_MQTT`
@@ -220,23 +220,23 @@ ms.locfileid: "65409087"
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>將範例應用程式部署至 Feather HUZZAH ESP8266
 
-1. 在 Visual Studio Code 中，按一下**\<選取序列連接埠 >** 狀態列，，然後按一下 Feather HUZZAH esp8266 的序列埠。
+1. 在 Visual Studio Code 中，按一下 **\<選取序列連接埠 >** 狀態列，，然後按一下 Feather HUZZAH esp8266 的序列埠。
 
 2. 請輸入`F1`，然後輸入**Arduino** ，然後選取**Arduino:上傳**建置及部署至 Feather HUZZAH ESP8266 的範例應用程式。
 
-### <a name="enter-your-credentials"></a>輸入您的認證
+### <a name="enter-your-credentials"></a>輸入認證
 
 上傳程序成功完成後，請遵循這些步驟來輸入認證：
 
-1. 開啟 Arduino IDE，按一下 [Tools] \(工具\) > [Serial Monitor] \(序列監視器\)。
+1. 開啟 Arduino IDE，按一下 [Tools]  \(工具\) > [Serial Monitor]  \(序列監視器\)。
 
 2. 在 [序列監視器] 視窗中，請注意右下角的兩個下拉式清單。
 
-3. 在左侧下拉列表中选择“No line ending”（无行尾）。
+3. 在左邊的下拉式清單中選取 [無行尾結束符號]  。
 
-4. 在右邊的下拉式清單中選取 [115200 傳輸速率]。
+4. 在右邊的下拉式清單中選取 [115200 傳輸速率]  。
 
-5. 在位於 [序列監視器] 視窗頂端的輸入方塊中，輸入系統要求您提供的下列資訊，然後按一下 [傳送]。
+5. 在位於 [序列監視器] 視窗頂端的輸入方塊中，輸入系統要求您提供的下列資訊，然後按一下 [傳送]  。
 
    * Wi-Fi SSID
    * Wi-Fi 密碼

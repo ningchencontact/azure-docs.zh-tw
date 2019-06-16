@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
 ms.date: 04/05/2019
 ms.openlocfilehash: 26d653b873e959f0804e0456ed87ee68c39413e5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720684"
 ---
 # <a name="create-and-manage-trading-partner-agreements-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>建立和使用 Azure Logic Apps 與企業整合套件來管理交易夥伴協議
@@ -41,7 +41,7 @@ A[交易夥伴](../logic-apps/logic-apps-enterprise-integration-partners.md)
 ## <a name="create-agreements"></a>建立協議
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-在主要 Azure 功能表上，選取 [所有服務]。 在 [搜尋] 方塊中，輸入 「 整合 」 作為篩選條件。 從結果中，選取 此資源：**整合帳戶**
+在主要 Azure 功能表上，選取 [所有服務]  。 在 [搜尋] 方塊中，輸入 「 整合 」 作為篩選條件。 從結果中，選取 此資源：**整合帳戶**
 
    ![尋找您的整合帳戶](./media/logic-apps-enterprise-integration-agreements/find-integration-accounts.png)
 
@@ -53,7 +53,7 @@ A[交易夥伴](../logic-apps/logic-apps-enterprise-integration-partners.md)
 
    ![選擇 [合約]](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
 
-1. 在 [合約] 之下，選擇 [新增]。 在 [**新增**] 窗格中，提供您的合約的相關資訊，例如：
+1. 在 [合約]  之下，選擇 [新增]  。 在 [**新增**] 窗格中，提供您的合約的相關資訊，例如：
 
    ![選擇 [新增]](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 

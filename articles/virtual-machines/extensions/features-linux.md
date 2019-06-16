@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: bf6eca33eb1448eb84065fb7fe184d01e77feb61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c83eb1f6525c54bc44386f84498789b50bf19043
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387262"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721145"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>適用於 Linux 的虛擬機器擴充功能和功能
 
@@ -57,14 +57,14 @@ Azure 虛擬機器代理程式可管理 Azure 虛擬機器與 Azure 網狀架構
 Linux 代理程式可在多種作業系統上執行，但擴充功能作業系統的擴充功能架構有其限制。 如需詳細資訊，請參閱 [本篇文章](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 )。
 
-某些擴充功能並非所有作業系統都可支援，可能會發出錯誤碼 51：「不支援的 OS」。 請查看個別的擴充功能文件以了解支援度。
+某些擴充功能並非所有作業系統都可支援，可能會發出錯誤碼 51：「不支援的 OS」  。 請查看個別的擴充功能文件以了解支援度。
 
 #### <a name="network-access"></a>網路存取
 
 擴充功能套件可從 Azure 儲存體擴充功能存放庫下載，且擴充功能狀態上傳會發佈至 Azure 儲存體。 如果您使用[支援](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)版本的代理程式，就不需要允許存取虛擬機器區域中的 Azure 儲存體，因為可以使用代理程式將通訊重新導向至代理程式通訊的 Azure 網狀架構控制器。 如果您使用不受支援的代理程式版本，則必須允許從虛擬機器對該區域中的 Azure 儲存體進行存取。
 
 > [!IMPORTANT]
-> 如果您已使用客體防火牆封鎖對 168.63.129.16 的存取，則無論前述條件為何，擴充功能都會故障。
+> 如果您已使用客體防火牆封鎖對 168.63.129.16  的存取，則無論前述條件為何，擴充功能都會故障。
 
 代理程式只能用來下載擴充功能套件和報告狀態。 例如，如果需要從 GitHub 下載指令碼 (自訂指令碼)，或需要存取 Azure 儲存體 (Azure 備份) 才能安裝擴充功能，則必須開啟其他防火牆/網路安全性群組連接埠。 不同的擴充功能有不同需求，因為它們是自成一格的應用程式。 對於需要存取 Azure 儲存體的擴充功能，您可以使用[儲存體](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)適用的 Azure NSG 服務標記來允許存取。
 
@@ -108,7 +108,7 @@ info:    vm extension set command OK
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-虛擬機器擴充功能可以透過 Azure 入口網站套用至現有的虛擬機器。 請在入口網站選取虛擬機器，選擇 [擴充功能]，然後選取 [新增]。 請從可用擴充功能清單選擇您想要的擴充功能，並遵循精靈中的指示。
+虛擬機器擴充功能可以透過 Azure 入口網站套用至現有的虛擬機器。 請在入口網站選取虛擬機器，選擇 [擴充功能]  ，然後選取 [新增]  。 請從可用擴充功能清單選擇您想要的擴充功能，並遵循精靈中的指示。
 
 下圖顯示如何從 Azure 入口網站安裝「Linux 自訂指令碼」擴充功能：
 
@@ -232,11 +232,11 @@ VM 擴充功能可以新增至 Azure Resource Manager 範本，並使用範本�
 
 #### <a name="agent-updates"></a>代理程式更新
 
-Linux 虛擬機器代理程式在一個套件中包含「佈建代理程式程式碼」和「擴充功能處理程式碼」，兩者無法分隔。 您可以在您想要使用 cloud-init 在 Azure 上佈建時，停用「佈建代理程式」。 若要這樣做，請參閱[使用 cloud-init](../linux/using-cloud-init.md)。
+Linux 虛擬機器代理程式在一個套件中包含「佈建代理程式程式碼」  和「擴充功能處理程式碼」  ，兩者無法分隔。 您可以在您想要使用 cloud-init 在 Azure 上佈建時，停用「佈建代理程式」  。 若要這樣做，請參閱[使用 cloud-init](../linux/using-cloud-init.md)。
 
-支援的代理程式版本可以使用自動更新。 唯一可以更新的程式碼是「擴充功能處理程式碼」，不是佈建程式碼。 「佈建代理程式程式碼」是只會執行一次的程式碼。
+支援的代理程式版本可以使用自動更新。 唯一可以更新的程式碼是「擴充功能處理程式碼  」，不是佈建程式碼。 「佈建代理程式程式碼  」是只會執行一次的程式碼。
 
-「擴充功能處理程式碼」會負責與 Azure 網狀架構通訊，並處理虛擬機器擴充功能作業，例如安裝、報告狀態、更新個別的擴充功能和加以移除。 更新項目包含「擴充功能處理程式碼」的安全性修正程式、Bug 修正程式和增強功能。
+「擴充功能處理程式碼  」會負責與 Azure 網狀架構通訊，並處理虛擬機器擴充功能作業，例如安裝、報告狀態、更新個別的擴充功能和加以移除。 更新項目包含「擴充功能處理程式碼  」的安全性修正程式、Bug 修正程式和增強功能。
 
 安裝代理程式時，會建立父代精靈。 然後，此父代會繁衍子處理序，用來處理擴充功能。 如果代理程式有可用的更新，系統就會下載、父代會停止子處理序、進行升級，然後再重新啟動子處理序。 如果有更新問題，父處理序會回復為上一個子系版本。
 
@@ -264,7 +264,7 @@ Goal state agent: 2.2.18
 
 #### <a name="extension-updates"></a>擴充功能更新
 
-有可用的擴充功能更新時，Linux 代理程式即會下載並升級擴充功能。 自動擴充功能更新分為「次要」或「Hotfix」兩種。 您可以在佈建擴充更新時，選擇加入或退出擴充功能「次要」更新。 下列範例說明如何透過 *autoUpgradeMinorVersion": true,'* 在 Resource Manager 範本中自動升級次要版本：
+有可用的擴充功能更新時，Linux 代理程式即會下載並升級擴充功能。 自動擴充功能更新分為「次要」  或「Hotfix」  兩種。 您可以在佈建擴充更新時，選擇加入或退出擴充功能「次要  」更新。 下列範例說明如何透過 *autoUpgradeMinorVersion": true,'* 在 Resource Manager 範本中自動升級次要版本：
 
 ```json
     "publisher": "Microsoft.Azure.Extensions",
@@ -327,7 +327,7 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 
 ## <a name="agent-permissions"></a>代理程式權限
 
-若要執行其工作，代理程式必須以「根」權限執行。
+若要執行其工作，代理程式必須以「根」  權限執行。
 
 ## <a name="troubleshoot-vm-extensions"></a>針對 VM 擴充功能進行疑難排解
 
@@ -337,7 +337,7 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 
 1. 若要查看 Linux 代理程式記錄，請在 */var/log/waagent.log* 中檢視您佈建擴充功能時的活動
 
-2. 請在 */var/log/azure/<extensionName>* 中查看實際延伸模記錄的詳細資訊
+2. 檢查實際的延伸模組記錄檔中的更多詳細資料 */var/記錄/azure/\<extensionName >*
 
 3. 在擴充功能特定的疑難排解章節中，查看錯誤碼、已知問題等。
 
@@ -382,7 +382,7 @@ az vm get-instance-view \
   }
 ```
 
-也可以在 Azure 入口網站中找到擴充功能的執行狀態。 若要檢視擴充功能的狀態，請選取虛擬機器，選擇 [擴充功能]，然後選取所需的擴充功能。
+也可以在 Azure 入口網站中找到擴充功能的執行狀態。 若要檢視擴充功能的狀態，請選取虛擬機器，選擇 [擴充功能]  ，然後選取所需的擴充功能。
 
 ### <a name="rerun-a-vm-extension"></a>重新執行 VM 擴充功能
 

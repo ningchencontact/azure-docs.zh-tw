@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 86dcd39ad7b9f1e207e9254ec72698db3998bbd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61400469"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MongoDB 複製資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-on-premises-mongodb-connector.md)
 > * [目前的版本](connector-mongodb.md)
 
@@ -178,12 +178,12 @@ Azure Data Factory 服務會使用 MongoDB 集合中**最新的 100 份文件**�
 |:--- |:--- |
 | Binary |Byte[] |
 | Boolean |Boolean |
-| Date |DateTime |
+| date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |String |
-| String |String |
+| ObjectID |字串 |
+| 字串 |字串 |
 | UUID |Guid |
 | Object |以 "_" 作為巢狀分隔符號來重新標準化為壓平合併資料行 |
 

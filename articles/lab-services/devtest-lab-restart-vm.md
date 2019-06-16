@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 34c08a79abf6acb5ae8582ecd0743a890d850fc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60864361"
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 的對實驗室中重新啟動 VM
@@ -38,15 +38,15 @@ ms.locfileid: "60864361"
 
 ## <a name="steps-to-restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 的實驗室中重新啟動 VM 的步驟
 1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
-1. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
+1. 選取 [所有服務]  ，然後從清單中選取 [DevTest Labs]  。
 1. 從實驗室清單中，選取包含您想要重新啟動之 VM 的實驗室。
-1. 在左面板中，選取 [我的虛擬機器]。
+1. 在左面板中，選取 [我的虛擬機器]  。
 1. 從 VM 清單中，選取執行中的 VM。
-1. 在 VM 管理窗格頂端，選取 [重新啟動]。
+1. 在 VM 管理窗格頂端，選取 [重新啟動]  。
 
     ![重新啟動 VM 按鈕](./media/devtest-lab-restart-vm/devtest-lab-restart-vm.png)
 
-1. 選取視窗右上角的 [通知] 圖示來監視重新啟動的狀態。
+1. 選取視窗右上角的 [通知]  圖示來監視重新啟動的狀態。
 
     ![檢視 VM 重新啟動的狀態](./media/devtest-lab-restart-vm/devtest-lab-restart-notification.png)
 
@@ -55,5 +55,5 @@ ms.locfileid: "60864361"
 ![透過省略符號重新啟動 VM](./media/devtest-lab-restart-vm/devtest-lab-restart-elipses.png)
 
 ## <a name="next-steps"></a>後續步驟
-* 一旦重新啟動後，您可以選取其管理窗格上的 [連線] 來重新連線至 VM。
+* 一旦重新啟動後，您可以選取其管理窗格上的 [連線]  來重新連線至 VM。
 * 瀏覽 [DevTest Labs Azure Resource Manager 快速入門範本資源庫](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)

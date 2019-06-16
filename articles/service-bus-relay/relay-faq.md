@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
 ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111466"
 ---
 # <a name="azure-relay-faqs"></a>Azure 轉送常見問題集
@@ -71,7 +71,7 @@ ms.locfileid: "66111466"
 在某些情況下，單一轉送可能有多個已連線的接聽程式。 至少有一個轉送接聽程式連線到轉送時，即會被視為開放式轉送。 將接聽程式新增至開放式轉送會導致額外的轉送時數。 連線到轉送的轉送傳送者 (叫用或傳送訊息至轉送的用戶端) 數目不會影響轉送時數的計算。
 
 ### <a name="how-is-the-messages-meter-calculated-for-wcf-relays"></a>如何針對 WCF 轉送計算訊息計量？
-(**這只適用於 WCF 轉送。訊息並不是混合式連線的成本。**)
+(**這只適用於 WCF 轉送。訊息並不是混合式連線的成本。** )
 
 一般而言，對代理實體 (佇列、主題和訂用帳戶) 使用先前所述相同方法的轉送會計算計費訊息。 但是，請注意以下幾個差異。
 
@@ -80,7 +80,7 @@ ms.locfileid: "66111466"
 使用 **netTCPRelay** WCF 繫結開啟的轉送不會將訊息視為個別的訊息，但是會視為通過系統的資料流。 當您使用此繫結時，只有傳送者和接聽程式能夠看見傳送和接收之個別訊息的框架。 對於使用 **netTCPRelay** 繫結的轉送，所有資料都會被視為資料流，以便計算計費訊息。 在此情況下，服務匯流排會以 5 分鐘為基礎，計算透過每個個別轉送傳送或接收的資料總量。 然後，它會依據 64 KB 來分割資料總量，以判斷該期間該轉送的計費訊息數目。
 
 ## <a name="quotas"></a>配額
-| 配額名稱 | `Scope` |  注意 | Value |
+| 配額名稱 | `Scope` |  注意 | 值 |
 | --- | --- | --- | --- |
 | 轉送上的並行接聽程式 |實體 |後續對更多連線的要求將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。 |25 |
 | 服務命名空間中所有轉送端點的並行轉送連線 |命名空間 |- |5,000 |

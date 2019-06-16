@@ -10,10 +10,10 @@ ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
 ms.openlocfilehash: 2cb401dfd68075ff0867ae3f89eee3474000b5de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60828747"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>使用 Docker CLI 將您的第一個映像推送至私人 Docker 容器登錄
@@ -29,7 +29,7 @@ Azure 容器登錄庫儲存和管理私人 [Docker](https://hub.docker.com) 容�
 
 ## <a name="log-in-to-a-registry"></a>登入登錄庫
 
-您的私人容器登錄庫有[數種方式可進行驗證](container-registry-authentication.md)。 在命令列中工作時，建議的方法是使用 Azure CLI 命令 [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login)。 例如，若要登入名為 myregistry 的登錄庫：
+您的私人容器登錄庫有[數種方式可進行驗證](container-registry-authentication.md)。 在命令列中工作時，建議的方法是使用 Azure CLI 命令 [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login)。 例如，若要登入名為 myregistry  的登錄庫：
 
 ```azurecli
 az acr login --name myregistry
@@ -44,7 +44,7 @@ docker login myregistry.azurecr.io
 完成後，這兩個命令會傳回 `Login Succeeded`。
 
 > [!TIP]
-> 當您使用 `docker login` 時，以及當您標記要推送到您的登錄庫的映像時，請一定要指定完整登錄庫名稱 (全部小寫)。 在本文的範例中，完整名稱是 myregistry.azurecr.io。
+> 當您使用 `docker login` 時，以及當您標記要推送到您的登錄庫的映像時，請一定要指定完整登錄庫名稱 (全部小寫)。 在本文的範例中，完整名稱是 myregistry.azurecr.io  。
 
 ## <a name="pull-the-official-nginx-image"></a>提取官方的 Nginx 映像
 
@@ -62,7 +62,7 @@ docker pull nginx
 docker run -it --rm -p 8080:80 nginx
 ```
 
-浏览到 `http://localhost:8080`，查看由正在运行的容器中的 Nginx 提供服务的默认网页。 您應該會看到如下所示的頁面：
+瀏覽至`http://localhost:8080`來檢視由 Nginx 在執行中的容器中的預設網頁。 您應該會看到如下所示的頁面：
 
 ![本機電腦上的 Nginx](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -104,7 +104,7 @@ docker pull myregistry.azurecr.io/samples/nginx
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-浏览到 `http://localhost:8080` 以查看正在运行的容器。
+瀏覽至`http://localhost:8080`若要檢視執行中的容器。
 
 若要停止並移除該容器，請按 `Control`+`C`。
 
@@ -130,7 +130,7 @@ az acr repository delete --name myregistry --image samples/nginx:latest
 * [Azure 容器執行個體](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
 
-您可以選擇性地安裝[適用於 Visual Studio Code 的 Docker 擴充功能](https://code.visualstudio.com/docs/azure/docker)和 [Azure 帳戶](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)擴充功能，來搭配 Azure 容器登錄使用。 通过 Azure 容器注册表拉取和推送映像，或者运行 ACR 任务，这一切都可以在 Visual Studio Code 中进行。
+您可以選擇性地安裝[適用於 Visual Studio Code 的 Docker 擴充功能](https://code.visualstudio.com/docs/azure/docker)和 [Azure 帳戶](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)擴充功能，來搭配 Azure 容器登錄使用。 向 Azure 容器登錄提取及推送映像，或是執行 ACR 工作，都可以在 Visual Studio Code 內完成。
 
 
 <!-- LINKS - external -->

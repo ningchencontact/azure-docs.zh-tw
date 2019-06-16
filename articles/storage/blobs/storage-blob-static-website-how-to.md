@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 7a1aef14a2a32266c893933482527c361f17d7fb
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 61477767c59dd521e3f46db4445238a5a1ea759e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428556"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071445"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>裝載在 Azure 儲存體中的靜態網站
 
@@ -181,11 +181,13 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 使用下列命令來尋找 URL:
 
 ```powershell
-$context = Get-AzSubscription -SubscriptionId <subscription-d>
-Set-AzContext $context
+ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
-取代`<subscription-id>`訂用帳戶識別碼的預留位置值。
+* 取代`<resource-group-name>`預留位置的值，您的資源群組的名稱。
+
+* 使用您的儲存體帳戶名稱取代 `<storage-account-name>` 預留位置值。
 
 <a id="metrics" />
 

@@ -12,10 +12,10 @@ ms.date: 03/14/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
 ms.openlocfilehash: 1245255e65412f9bbcba3c8d9caa76b9ffd2dcc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60826184"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>適用於 Azure Machine Learning 預測之自動資料管線的小祕技
@@ -27,7 +27,7 @@ ms.locfileid: "60826184"
 ## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>下載「Microsoft Azure Machine Learning 自動資料管線小祕技」
 下載此這份小祕技之後，您可以將它列印成 Tabloid 大小 (11 x 17 英吋)。
 
-從這裡下載速查表：**[Microsoft Azure Machine Learning 自動化資料管線速查表](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)** \(英文\)
+從這裡下載速查表： **[Microsoft Azure Machine Learning 自動化資料管線速查表](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)** \(英文\)
 
 ![Microsoft Azure Machine Learning Studio 功能概觀][op-cheat-sheet]
 

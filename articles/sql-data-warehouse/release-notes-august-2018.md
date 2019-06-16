@@ -11,10 +11,10 @@ ms.date: 08/13/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: f0840e9b91c81b8a99e8c736c3c5db082c92fe76
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912221"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 8 月
@@ -30,7 +30,7 @@ Microsoft 推出了 [Automatic Intelligent Insights](https://azure.microsoft.com
 
 ## <a name="bug-fixes"></a>錯誤修正
 
-| 標題 | 說明 |
+| 標題 | 描述 |
 |:---|:---|
 | **分割計數超過最大限制時的潛在查詢錯誤** |超過 1 百萬個檔案分割上限時，未處理的例外狀況會造成 SQL 引擎發生傾印，而且所有查詢都會失敗。 此修正程式會透過正確地處理例外狀況來解決問題，並在不造成查詢失敗的情況下傳回錯誤。 |
 | **增加 ExternalMoveReadersPerNode 預設值來改善載入效能** |造成此問題的原因是 ExternalMoveReadersPerNode 屬性設定與 Service Fabric 設定不同步。 此迴歸造成 Gen2 負載效能降低。 修正程式會在經過最佳化設計的參數內恢復 Gen2 載入效能。|

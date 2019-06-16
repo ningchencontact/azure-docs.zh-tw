@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
 ms.openlocfilehash: 66f61b5d6fcb86ed93e4dbae802ae7a80613c83d
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66397845"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>針對 Azure 應用程式閘道工作階段親和性的問題進行疑難排解
@@ -82,7 +82,7 @@ ms.locfileid: "66397845"
     **祕訣**如果您不知道如何使用 Fiddler，核取選項 」**我想要收集網路流量，並使用 web 偵錯工具進行分析**"底部。
 
 2. 檢查和分析工作階段記錄檔，以判斷用戶端所提供的 cookie 是否具有 ARRAffinity 詳細資料。 如果您找不到 ARRAffinity 的詳細資訊，例如"**ARRAffinity =** *ARRAffinityValue*」 內的 cookie 集合，表示用戶端不回覆與 ARRA cookie，由所提供應用程式閘道。
-    例如: 
+    例如:
 
     ![troubleshoot-session-affinity-issues-3](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
 

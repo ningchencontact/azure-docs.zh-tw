@@ -9,10 +9,10 @@ ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 9b9e28f18208674609d0842b0e3a54e3fc661c9f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147727"
 ---
 ## <a name="view-device-telemetry"></a>檢視裝置遙測資料
@@ -23,11 +23,11 @@ ms.locfileid: "66147727"
 
     ![請參閱裝置詳細資料](media/iot-suite-visualize-connecting/devicesdetail.png)
 
-1. 選擇 [壓力] 以變更遙測顯示器：
+1. 選擇 [壓力]  以變更遙測顯示器：
 
     ![檢視壓力遙測](media/iot-suite-visualize-connecting/devicespressure.png)
 
-1. 若要檢視有關您裝置的診斷資訊，請向下捲動至 [診斷]：
+1. 若要檢視有關您裝置的診斷資訊，請向下捲動至 [診斷]  ：
 
     ![檢視裝置診斷](media/iot-suite-visualize-connecting/devicesdiagnostics.png)
 
@@ -41,7 +41,7 @@ ms.locfileid: "66147727"
 
     ![選取您的實體裝置](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. 若要顯示在您的裝置，您可以呼叫的方法清單，請選擇**作業**，然後**方法**。 若要排程可在多個裝置上執行的作業，您可以在清單中選取多個裝置。 [作業] 面板會顯示所有您選取之裝置的通用方法。
+1. 若要顯示在您的裝置，您可以呼叫的方法清單，請選擇**作業**，然後**方法**。 若要排程可在多個裝置上執行的作業，您可以在清單中選取多個裝置。 [作業]  面板會顯示所有您選取之裝置的通用方法。
 
 1. 選擇**重新啟動**，將作業名稱設定為**RebootPhysicalChiller** ，然後選擇**套用**:
 

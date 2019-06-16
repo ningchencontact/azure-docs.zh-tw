@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 7700f1c92aecab76dbc347814b7b161bc3d822a0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66118289"
 ---
 ### <a name="to-configure-and-register-the-device"></a>設定和註冊裝置
@@ -17,7 +17,7 @@ ms.locfileid: "66118289"
 3. 系統將提示您選擇想要為裝置設定的語言。 指定語言，然後按 **Enter** 鍵。
    
     ![StorSimple 設定和註冊裝置 1](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice1-gov-include.png)
-4. 在顯示的序列主控台功能表中，選擇選項 1 [以完整存取權登入]。
+4. 在顯示的序列主控台功能表中，選擇選項 1 [以完整存取權登入]  。
    
     ![StorSimple 註冊裝置 2](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice2-gov-include.png)
 5. 執行下列步驟，為裝置設定最小的必要網路設定。
@@ -79,9 +79,9 @@ ms.locfileid: "66118289"
 15. 返回 Azure Government 入口網站，並完成下列步驟：
     
     1. 移至您的 StorSimple 裝置管理員服務。
-    2. 按一下 [裝置]。 從裝置清單中找出您正在部署的裝置。 藉由查閱狀態來確認裝置已成功連線到服務。 裝置狀態應該是 [線上] 。
+    2. 按一下 [裝置]  。 從裝置清單中找出您正在部署的裝置。 藉由查閱狀態來確認裝置已成功連線到服務。 裝置狀態應該是 [線上]  。
             
-        如果裝置狀態為 [離線] ，請等待數分鐘，讓裝置上線。
+        如果裝置狀態為 [離線]  ，請等待數分鐘，讓裝置上線。
        
         如果數分鐘之後裝置仍然離線，請確定您的防火牆網路已依照 [StorSimple 裝置網路需求](../articles/storsimple/storsimple-8000-system-requirements.md)中的說明加以設定。
        

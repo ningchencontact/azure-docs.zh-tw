@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: a8d2b71899cdd6b7f9c8cb803732b760f3009811
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/25/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64513274"
 ---
 # <a name="toggle-live-chat"></a>切換即時聊天
@@ -32,17 +32,17 @@ ms.locfileid: "64513274"
 
 ![含設定和屬性詳細資料的 [設定裝置詳細資料] 表單](media/howto-show-hide-chat/sample-chat.png)
 
-## <a name="hide-chat"></a>隱藏聊天
+## <a name="hide-chat"></a>隱藏對談
 
 若要隱藏對談，請選擇**隱藏的聊天**中**協助**面板：
 
- ![隱藏聊天](media/howto-show-hide-chat/hide-chat.png)
+ ![隱藏對談](media/howto-show-hide-chat/hide-chat.png)
 
 ## <a name="enable-chat"></a>啟用對談
 
 若要顯示對談，請選擇**顯示聊天**中**協助**面板：
 
- ![顯示聊天](media/howto-show-hide-chat/show-chat.png)
+ ![顯示對談](media/howto-show-hide-chat/show-chat.png)
 
 ## <a name="next-steps"></a>後續步驟
 

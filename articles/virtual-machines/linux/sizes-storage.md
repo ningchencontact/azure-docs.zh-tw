@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 01/15/2019
 ms.author: jonbeck
 ms.openlocfilehash: 6e206763101bdf4d1e4180f8c9f4bc467a39f90d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510349"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>儲存體最佳化的虛擬機器大小
@@ -29,7 +29,7 @@ ms.locfileid: "65510349"
 ## <a name="other-sizes"></a>其他大小
 
 - [一般用途](sizes-general.md)
-- [计算优化](sizes-compute.md)
+- [計算最佳化](sizes-compute.md)
 - [記憶體最佳化](sizes-memory.md)
 - [GPU](sizes-gpu.md)
 - [高效能計算](sizes-hpc.md)

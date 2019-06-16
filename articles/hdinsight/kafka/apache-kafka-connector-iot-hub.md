@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: 420800e718c8f98bfd3d5d7383829d5aa5472828
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64698170"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>搭配使用 HDInsight 上的 Apache Kafka 與 Azure IoT 中樞
@@ -169,9 +169,9 @@ Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資�
 
    * __在 [Azure 入口網站](https://portal.azure.com/)中__，使用下列步驟：
 
-     1. 瀏覽至您的 IoT 中樞，並選取 [端點]。
-     2. 在 [內建端點] 中，選取 [事件]。
-     3. 在 [屬性] 中，複製下列欄位的值：
+     1. 瀏覽至您的 IoT 中樞，並選取 [端點]  。
+     2. 在 [內建端點]  中，選取 [事件]  。
+     3. 在 [屬性]  中，複製下列欄位的值：
 
          * __事件中樞相容名稱__
          * __事件中樞相容端點__
@@ -198,9 +198,9 @@ Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資�
 
     * __在 [Azure 入口網站](https://portal.azure.com/)中__，使用下列步驟：
 
-        1. 選取 [共用存取原則]，然後選取 [服務]。
-        2. 複製 [主要金鑰] 值。
-        3. 複製 [連接字串 – 主要金鑰] 的值。
+        1. 選取 [共用存取原則]  ，然後選取 [服務]  。
+        2. 複製 [主要金鑰]  值。
+        3. 複製 [連接字串 – 主要金鑰]  的值。
 
     * __在 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 中__，使用下列命令：
 

@@ -11,10 +11,10 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 06bdd21363aee8202ce7178f157f01a5c26e3a52
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851580"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中設計資料表
@@ -42,7 +42,7 @@ CREATE SCHEMA wwi;
 
 | WideWorldImportersDW 資料表  | 資料表類型 | SQL 資料倉儲 |
 |:-----|:-----|:------|:-----|
-| 縣/市 | 維度 | wwi.DimCity |
+| City | 維度 | wwi.DimCity |
 | 順序 | 事實 | wwi.FactOrder |
 
 
@@ -92,7 +92,7 @@ SQL 資料倉儲的基本功能是它可以儲存及操作跨資料表的方式[
 |:---------------|:--------------------|
 | 事實           | 使用具有叢集資料行存放區索引的雜湊散發。 在相同的散發資料行上聯結兩個雜湊資料表時，可以改善效能。 |
 | 維度      | 對較小的資料表使用複寫。 如果資料表太大而無法儲存在每個計算節點上，請使用雜湊散發。 |
-| 預備環境        | 對暫存資料表使用循環配置資源。 使用 CTAS 的載入速度較快。 暫存資料表中的資料之後，使用 INSERT...選取即可將資料移至生產資料表。 |
+| 預備        | 對暫存資料表使用循環配置資源。 使用 CTAS 的載入速度較快。 暫存資料表中的資料之後，使用 INSERT...選取即可將資料移至生產資料表。 |
 
 ## <a name="table-partitions"></a>資料表的資料分割
 分割的資料表會並根據資料範圍儲存在資料表資料列上，並執行作業。 例如，資料表可能會依日、月或年進行分割。 您可以透過「資料分割消除」將查詢掃描限定於某個資料分割內的資料，進而提升查詢效能。 您也可以透過資料分割切換來維護資料。 由於 SQL 資料倉儲中的資料已散發，資料分割過多可能會降低查詢效能。 如需詳細資訊，請參閱[資料分割指引](sql-data-warehouse-tables-partition.md)。  當資料分割切換移入資料表資料分割，不是空的請考慮使用 TRUNCATE_TARGET 選項，在您[ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql)陳述式，如果現有的資料會被截斷。 以下程式碼交換器已轉換的每日資料到 SalesFact 覆寫任何現有的資料。 
@@ -112,7 +112,7 @@ ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION
 ## <a name="commands-for-creating-tables"></a>建立資料表的命令
 您可以將資料表建立為新的空資料表。 您也可以在建立資料表後填入 Select 陳述式的結果。 以下是用來建立資料表的 T-SQL 命令。
 
-| T-SQL 陳述式 | 說明 |
+| T-SQL 陳述式 | 描述 |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | 藉由定義所有的資料表資料行和選項，建立空的資料表。 |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | 建立外部資料表。 資料表的定義會儲存在 SQL 資料倉儲中。 資料表的資料會儲存在 Azure 儲存體或 Azure Data Lake Store 中。 |

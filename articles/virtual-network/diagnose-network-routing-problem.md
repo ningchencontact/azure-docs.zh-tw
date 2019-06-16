@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
 ms.openlocfilehash: 465d44ea823c99afbb4f25541d64770c114ba7e2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64730499"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>診斷虛擬機器路由問題
@@ -30,13 +30,13 @@ ms.locfileid: "64730499"
 
 您嘗試連線至 VM，但連線失敗。 若要判斷為何無法連線至 VM，您可以使用 Azure [入口網站](#diagnose-using-azure-portal)、[PowerShell](#diagnose-using-powershell) 或 [Azure CLI](#diagnose-using-azure-cli) 來檢視網路介面的有效路由。
 
-下列步驟假設您具有可檢視有效路由的現有 VM。 如果您沒有現有的 VM，請先部署 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM，用以完成本文中的工作。 本文中的範例適用於名為 *myVM* 的 VM，且該 VM 具有名為 *myVMVMNic* 的網路介面。 VM 和網路介面皆位於名為 *myResourceGroup* 的資源群組，且位於「美國東部」區域。 請針對您要診斷問題的 VM，適當地變更步驟中的值。
+下列步驟假設您具有可檢視有效路由的現有 VM。 如果您沒有現有的 VM，請先部署 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM，用以完成本文中的工作。 本文中的範例適用於名為 *myVM* 的 VM，且該 VM 具有名為 *myVMVMNic* 的網路介面。 VM 和網路介面皆位於名為 *myResourceGroup* 的資源群組，且位於「美國東部」  區域。 請針對您要診斷問題的 VM，適當地變更步驟中的值。
 
 ## <a name="diagnose-using-azure-portal"></a>使用 Azure 入口網站進行診斷
 
 1. 使用具有[必要權限](virtual-network-network-interface.md#permissions)的 Azure 帳戶登入 Azure [入口網站](https://portal.azure.com)。
 2. 在 Azure 入口網站頂端的搜尋方塊中，輸入執行中 VM 的名稱。 當 VM 的名稱出現在搜尋結果中時，請加以選取。
-3. 選取 [診斷並解決問題]，然後在 [建議步驟] 下選取項目 7 中的 [有效路由]，如下圖所示：
+3. 選取 [診斷並解決問題]  ，然後在 [建議步驟]  下選取項目 7 中的 [有效路由]  ，如下圖所示：
 
     ![檢視有效的路由](./media/diagnose-network-routing-problem/view-effective-routes.png)
 
@@ -46,7 +46,7 @@ ms.locfileid: "64730499"
 
     如果有多個網路介面連結至 VM，您可以選取任何網路介面以檢視其有效路由。 由於每個網路介面可能位於不同的子網路中，因此每個網路介面可能會有不同的有效路由。
 
-    在上圖顯示的範例中，列出的路由是 Azure 為每個子網路建立的預設路由。 您的清單至少會有這些路由，但也可能會有其他路由，視您為虛擬網路啟用的功能而定，例如，您讓虛擬網路可與其他虛擬網路對等互連，或可透過 Azure VPN 閘道連線至您的內部部署網路。 若要深入了解每個路由，以及您可檢視的其他網路介面路由，請參閱[虛擬網路流量路由](virtual-networks-udr-overview.md)。 如果您的清單中有大量路由，您可以選取 [下載] 來下載含有路由清單的 .csv 檔案，試著簡化作業。
+    在上圖顯示的範例中，列出的路由是 Azure 為每個子網路建立的預設路由。 您的清單至少會有這些路由，但也可能會有其他路由，視您為虛擬網路啟用的功能而定，例如，您讓虛擬網路可與其他虛擬網路對等互連，或可透過 Azure VPN 閘道連線至您的內部部署網路。 若要深入了解每個路由，以及您可檢視的其他網路介面路由，請參閱[虛擬網路流量路由](virtual-networks-udr-overview.md)。 如果您的清單中有大量路由，您可以選取 [下載]  來下載含有路由清單的 .csv 檔案，試著簡化作業。
 
 雖然您在前幾個步驟中是透過 VM 來檢視有效路由，但您也可以透過下列途徑來檢視有效路由：
 - **個別網路介面**：了解如何[檢視網路介面](virtual-network-network-interface.md#view-network-interface-settings)。

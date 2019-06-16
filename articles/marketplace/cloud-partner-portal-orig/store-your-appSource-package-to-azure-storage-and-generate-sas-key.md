@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pabutler
 ms.openlocfilehash: ac77767aee2dcde33f4266e1d2d09c49dcf5f8a3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943290"
 ---
 <a name="store-your-appsource-package-to-azure-storage-and-generate-a-url-with-sas-key"></a>將您的 AppSource 套件儲存到 Azure 儲存體並使用 SAS 金鑰產生 URL
@@ -25,11 +25,11 @@ ms.locfileid: "64943290"
 
 2. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-3. 按一下 [+ 新增] 並移至 [資料 + 儲存體] 帳戶以建立新的儲存體帳戶。
+3. 按一下 [+ 新增]  並移至 [資料 + 儲存體]  帳戶以建立新的儲存體帳戶。
 
    ![Microsoft Azure 入口網站上的 [資料 + 儲存體] 儲存體](media/CRMScreenShot7.png)
 
-4. 輸入 [名稱] 與 [資源群組] 名稱，然後按一下 [建立] 按鈕。
+4. 輸入 [名稱]  與 [資源群組]  名稱，然後按一下 [建立]  按鈕。
 
    ![在 Microsoft Azure 入口網站上建立儲存體帳戶](media/CRMScreenShot8.png)
 
@@ -41,15 +41,15 @@ ms.locfileid: "64943290"
 
 7. 開啟 [儲存體總管] 並使用圖示來連線到您的 Azure 儲存體帳戶。
 
-8. 瀏覽到您建立的 Blob 容器，然後按一下 [上傳] 以新增您的套件 zip 檔案。
+8. 瀏覽到您建立的 Blob 容器，然後按一下 [上傳]  以新增您的套件 zip 檔案。
 
    ![使用 Microsoft 儲存體總管上傳套件](media/CRMScreenShot10.png)
 
-9. 以滑鼠右鍵按一下您的檔案，然後選取 [取得共用存取簽章]。
+9. 以滑鼠右鍵按一下您的檔案，然後選取 [取得共用存取簽章]  。
 
    ![取得 Azure 檔案的共用存取簽章](media/CRMScreenShot11.png)
 
-10. 修改 [到期時間] 將 SAS 的有效期設定為一個月，然後按一下 [建立]。
+10. 修改 [到期時間]  將 SAS 的有效期設定為一個月，然後按一下 [建立]  。
 
     ![修改 Azure 檔案的 SAS 到期日](media/CRMScreenShot12.png)
 
