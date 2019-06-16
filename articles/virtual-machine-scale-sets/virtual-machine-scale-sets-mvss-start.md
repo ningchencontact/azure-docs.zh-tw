@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: manayar
 ms.openlocfilehash: 8b6a6b78dc74572b22d397b5536efa1394401bbc
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64868910"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>了解虛擬機器擴展集範本
@@ -82,7 +82,7 @@ Resource Manager 範本也可讓您定義以後要在範本中使用的變數。
 ```
 
 ## <a name="specify-virtual-network-properties"></a>指定虛擬網路屬性
-每個 Resource Manager 資源都有自己的 `properties` 區段，用於該資源的特定組態。 在此案例中，請指定虛擬網路應該有一個使用私人 IP 位址範圍 `10.0.0.0/16` 的子網路。 擴展集一律是包含在一個子網路內。 它不能跨子网。
+每個 Resource Manager 資源都有自己的 `properties` 區段，用於該資源的特定組態。 在此案例中，請指定虛擬網路應該有一個使用私人 IP 位址範圍 `10.0.0.0/16` 的子網路。 擴展集一律是包含在一個子網路內。 它不能跨子網路。
 
 ```json
        "properties": {

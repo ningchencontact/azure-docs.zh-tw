@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/13/2019
 ms.author: aljo
 ms.openlocfilehash: e6b429189491af71f6215f1c7660be5965741bf7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66154860"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>相應增加 Service Fabric 叢集主要節點類型
@@ -42,7 +42,7 @@ ms.locfileid: "66154860"
 1. 使用這些[範本](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json)和[參數](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json)檔案範例，為初始叢集部署兩個節點類型和兩個擴展集 (兩個節點類型各一個擴展集)。  這兩個擴展集的大小為標準 D2_V2，所執行的是 Windows Server 2012 R2 Datacenter。  等候叢集完成基準升級。   
 2. 選擇性 - 在叢集中部署具狀態範例。
 3. 在決定升級主要節點類型 VM 後，請使用這些[範本](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.json)和[參數](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.parameters.json)檔案範例對主要節點類型新增擴展集，讓主要節點類型現在具有兩個擴展集。  系統服務和使用者應用程式可在兩個不同擴展集內的 VM 之間進行遷移。  新擴展集 VM 的大小為標準 D4_V2，並執行 Windows Server 2016 Datacenter with Containers。  新的擴展集也會一起新增負載平衡器和公用 IP 位址。  
-    若要在範本中尋找新的擴展集，請搜尋以 vmNodeType2Name 參數命名的 "Microsoft.Compute/virtualMachineScaleSets" 資源。  若要在主要節點類型中新增擴展集，請使用 [屬性] -> [virtualMachineProfile] -> [extensionProfile] -> [擴充功能] -> [屬性] -> [設定] -> [nodeTypeRef 設定]。
+    若要在範本中尋找新的擴展集，請搜尋以 vmNodeType2Name  參數命名的 "Microsoft.Compute/virtualMachineScaleSets" 資源。  若要在主要節點類型中新增擴展集，請使用 [屬性] -> [virtualMachineProfile] -> [extensionProfile] -> [擴充功能] -> [屬性] -> [設定] -> [nodeTypeRef 設定]。
 4. 檢查叢集健康情況，並確認所有節點均狀況良好。
 5. 停用主要節點類型舊有擴展集內的節點，以便之後移除節點。 您可以將所有節點一併停用，這些作業便會排入佇列中。 請靜候所有節點停用，這可能需要一些時間。  隨著節點類型中的較舊節點停用，系統服務和種子節點會遷移到主要節點類型中的新擴展集 VM。
 6. 從主要節點類型移除較舊的擴展集。

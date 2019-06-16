@@ -17,42 +17,42 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822305"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>為 Azure 事件中樞設定診斷記錄
 
 您可以檢視 Azure 事件中樞的兩種記錄類型：
 
-* **[活動記錄](../azure-monitor/platform/activity-logs-overview.md)**：這些記錄包含對工作執行之操作的相關資訊。 系統一律會啟用這些記錄。
-* **[診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)**：您可以設定診斷記錄，以更深入檢視與作業一起發生的所有事件。 診斷記錄涵蓋從建立工作到刪除工作期間的活動，包括工作執行時發生的更新與活動。
+* **[活動記錄](../azure-monitor/platform/activity-logs-overview.md)** ：這些記錄包含對工作執行之操作的相關資訊。 系統一律會啟用這些記錄。
+* **[診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)** ：您可以設定診斷記錄，以更深入檢視與作業一起發生的所有事件。 診斷記錄涵蓋從建立工作到刪除工作期間的活動，包括工作執行時發生的更新與活動。
 
 ## <a name="enable-diagnostic-logs"></a>啟用診斷記錄
 
 診斷記錄預設為停用。 若要啟用診斷記錄，請依照下列步驟操作：
 
-1.  在 [Azure 入口網站](https://portal.azure.com)的 [監視 + 管理] 下，按一下 [診斷記錄]。
+1.  在 [Azure 入口網站](https://portal.azure.com)的 [監視 + 管理]  下，按一下 [診斷記錄]  。
 
     ![瀏覽到診斷記錄的窗格](./media/event-hubs-diagnostic-logs/image1.png)
 
 2.  按一下您想要監視的資源。
 
-3.  按一下 [開啟診斷]。
+3.  按一下 [開啟診斷]  。
 
     ![開啟診斷記錄](./media/event-hubs-diagnostic-logs/image2.png)
 
-4.  針對 [狀態]，按一下 [開啟]。
+4.  針對 [狀態]  ，按一下 [開啟]  。
 
     ![變更診斷記錄的狀態](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  设置所需的存档目标；例如存储帐户、事件中心或 Azure Monitor 日志。
+5.  設定的封存目標，您想要的選項;例如，儲存體帳戶、 事件中樞或 Azure 監視器記錄。
 
 6.  儲存新的診斷設定。
 
-新的設定大約會在 10 分鐘內生效。 之後，記錄就會在 [診斷記錄] 窗格內的已設定封存目標中顯示。
+新的設定大約會在 10 分鐘內生效。 之後，記錄就會在 [診斷記錄]  窗格內的已設定封存目標中顯示。
 
 如需設定診斷的詳細資訊，請參閱 [Azure 診斷記錄概觀](../azure-monitor/platform/diagnostic-logs-overview.md)。
 

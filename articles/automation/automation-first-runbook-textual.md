@@ -11,10 +11,10 @@ ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1697f479cf013f2ef94dd5a8a2fc637d72e6e18a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60739874"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>我的第一個 PowerShell 工作流程 Runbook
@@ -37,23 +37,23 @@ ms.locfileid: "60739874"
 
 ## <a name="step-1---create-new-runbook"></a>步驟 1 - 建立新的 Runbook
 
-您會由建立一個可輸出 Hello World 文字的簡單 Runbook 開始。
+您會由建立一個可輸出 Hello World  文字的簡單 Runbook 開始。
 
 1. 在 Azure 入口網站中，開啟您的自動化帳戶。
 
    [自動化帳戶] 頁面提供這個帳戶中資源的快速檢視。 您應該已經有一些資產。 其中大部分資產是自動包含在新自動化帳戶的模組。 您應該也擁有 [必要條件](#prerequisites)中所述的認證資產。
 
-1. 按一下 [程序自動化] 底下的 [Runbook]，以開啟 Runbook 清單。
-1. 按一下 [+ 新增 Runbook] 按鈕，然後按一下 [建立新的 Runbook] 來建立新的 Runbook。
-1. 將 Runbook 命名為「MyFirstRunbook-Workflow」 。
-1. 在此情況下，您要建立 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)，因此請選取 [PowerShell 工作流程] 作為 [Runbook 類型]。
+1. 按一下 [程序自動化]  底下的 [Runbook]  ，以開啟 Runbook 清單。
+1. 按一下 [+ 新增 Runbook]  按鈕，然後按一下 [建立新的 Runbook]  來建立新的 Runbook。
+1. 將 Runbook 命名為「MyFirstRunbook-Workflow」  。
+1. 在此情況下，您要建立 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)，因此請選取 [PowerShell 工作流程]  作為 [Runbook 類型]  。
 1. 按一下 [建立]  來建立 Runbook 並開啟文字式編輯器。
 
 ## <a name="step-2---add-code-to-the-runbook"></a>步驟 2 - 將程式碼加入至 runbook
 
 您可以直接將程式碼輸入到 runbook 中，或從程式庫控制項選取 cmdlet、runbook 和資產，並利用任何相關的參數將它們加入至 runbook。 在此逐步解說中，您直接輸入至 Runbook。
 
-1. 您的 Runbook 目前是空白的，只有必要的「工作流程」關鍵字、Runbook 名稱以及括住整個工作流程的大括弧。
+1. 您的 Runbook 目前是空白的，只有必要的「工作流程」  關鍵字、Runbook 名稱以及括住整個工作流程的大括弧。
 
    ```powershell-interactive
    Workflow MyFirstRunbook-Workflow
@@ -70,7 +70,7 @@ ms.locfileid: "60739874"
    }
    ```
 
-1. 通过单击“保存” 保存 Runbook。
+1. 通过单击“保存”  保存 Runbook。
 
 ## <a name="step-3---test-the-runbook"></a>步驟 3 - 測試 Runbook
 
@@ -80,9 +80,9 @@ ms.locfileid: "60739874"
 1. 按一下 [開始]  以開始測試。 此选项应该是唯一的已启用选项。
 1. 隨即會建立 [Runbook 工作](automation-runbook-execution.md) ，並顯示其狀態。
 
-   作业状态初始为“排队”，该值指示它正在等待云中的 Runbook 辅助角色可用。 當背景工作角色宣告該作業時，狀態會變更為 [正在開始]，然後 Runbook 真正開始執行時再變更為 [執行中]。  
+   作业状态初始为“排队”，该值指示它正在等待云中的 Runbook 辅助角色可用  。 當背景工作角色宣告該作業時，狀態會變更為 [正在開始]  ，然後 Runbook 真正開始執行時再變更為 [執行中]  。  
 
-1. Runbook 工作完成時，會顯示其輸出。 在您的案例中，您應該會看到「Hello World」。
+1. Runbook 工作完成時，會顯示其輸出。 在您的案例中，您應該會看到「Hello World」  。
 
    ![Hello World](media/automation-first-runbook-textual/test-output-hello-world.png)
 
@@ -92,20 +92,20 @@ ms.locfileid: "60739874"
 
 您建立的 Runbook 仍處於 [草稿] 模式。 必须首先发布此 Runbook，然后才能在生产中运行它。 當您發佈 Runbook 時，您會使用草稿版本覆寫現有的已發佈版本。 在您的案例中，因為您剛剛建立 Runbook，所以還沒有已發佈的版本。
 
-1. 按一下 [發佈] 來發佈 Runbook，然後出現提示時按一下 [是]。
-1. 如果您現在向左捲動以檢視 [Runbook] 窗格中的 Runbook，則畫面會顯示 [已發佈] 的 [撰寫狀態]。
+1. 按一下 [發佈]  來發佈 Runbook，然後出現提示時按一下 [是]  。
+1. 如果您現在向左捲動以檢視 [Runbook]  窗格中的 Runbook，則畫面會顯示 [已發佈]  的 [撰寫狀態]  。
 1. 捲動回到右側，檢視 **MyFirstRunbook-Workflow**的窗格。  
    在頂端的選項可讓我們啟動 Runbook、排程它在未來的某個時間點啟動，或建立 [webhook](automation-webhooks.md) ，使得可以透過 HTTP 呼叫啟動它。
-1. 您只想要啟動 Runbook，因此按一下 [開始]，然後在提示出現時按一下 [是]。
+1. 您只想要啟動 Runbook，因此按一下 [開始]  ，然後在提示出現時按一下 [是]  。
 
    ![啟動 Runbook](media/automation-first-runbook-textual/automation-runbook-controls-start.png)
 
 1. 作業窗格會針對您所建立的 Runbook 作業開啟。 您可以關閉此窗格，但在此情況下，您會讓它開啟，以便觀看作業的進度。
-1. [作業摘要] 中會顯示作業狀態，且符合當您測試 Runbook 時看到的狀態。
+1. [作業摘要]  中會顯示作業狀態，且符合當您測試 Runbook 時看到的狀態。
 
    ![工作摘要](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
 
-1. 一旦 Runbook 狀態顯示 [已完成]，請按一下 [輸出]。 [輸出] 窗格會開啟，而且可以看到您的「Hello World」。
+1. 一旦 Runbook 狀態顯示 [已完成]  ，請按一下 [輸出]  。 [輸出] 窗格會開啟，而且可以看到您的「Hello World」  。
 
    ![工作摘要](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)  
 
@@ -115,7 +115,7 @@ ms.locfileid: "60739874"
    ![工作摘要](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 
 1. 关闭“流”页和“作业”页，以便返回到“MyFirstRunbook”页。
-1. 单击“作业”打开此 Runbook 的“作业”页。 這麼頁面會列出此 Runbook 建立的所有工作。 由於您只執行一次作業，因此應該只會看到列出一項作業。
+1. 单击“作业”打开此 Runbook 的“作业”页  。 這麼頁面會列出此 Runbook 建立的所有工作。 由於您只執行一次作業，因此應該只會看到列出一項作業。
 
    ![工作](media/automation-first-runbook-textual/runbook-control-job-tile.png)
 
@@ -125,7 +125,7 @@ ms.locfileid: "60739874"
 
 您已測試並發行您的 Runbook，但是到目前為止，它似乎並不實用。 您想要讓它管理 Azure 資源。 然而，除非已使用[先决条件](#prerequisites)中提到的凭据对其进行身份验证，否则它将无法进行管理。 您必須利用 **Connect-AzureRmAccount** Cmdlet 來執行。
 
-1. 按一下 MyFirstRunbook-Workflow 窗格上的 [編輯] 以開啟文字編輯器。
+1. 按一下 MyFirstRunbook-Workflow 窗格上的 [編輯]  以開啟文字編輯器。
 2. 您不再需要 **Write-Output** 行，因此可以放心刪除。
 3. 將游標放在大括弧之間的空白行。
 4. 輸入或是複製並貼上下列程式碼，此程式碼會處理您的自動化執行身分帳戶的驗證︰
@@ -147,16 +147,16 @@ ms.locfileid: "60739874"
 > [!NOTE]
 > 即使您才剛建立新的自動化帳戶，可能還是需要[更新模組](automation-update-azure-modules.md)。
 
-1. 按一下 [測試] 窗格，您便可測試 Runbook。
+1. 按一下 [測試]  窗格，您便可測試 Runbook。
 1. 按一下 [開始]  以開始測試。 測試完成時，您應該會從帳戶收到如同以下顯示基本資訊的輸出。 此操作是对凭据有效的确认。
 
    ![驗證](media/automation-first-runbook-textual/runbook-auth-output.png)
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>步驟 6 - 加入程式碼以啟動虛擬機器
 
-由於您的 Runbook 正在驗證您的 Azure 訂用帳戶，所以您可以管理資源。 您會新增一個命令以啟動虛擬機器。 可以在 Azure 订阅中选取任何虚拟机。而现在，需将该名称硬编码到 Runbook。 如果要跨多个订阅管理资源，需要使用 -AzureRmContext 参数以及 [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext)。
+由於您的 Runbook 正在驗證您的 Azure 訂用帳戶，所以您可以管理資源。 您會新增一個命令以啟動虛擬機器。 可以在 Azure 订阅中选取任何虚拟机。而现在，需将该名称硬编码到 Runbook。 如果要跨多个订阅管理资源，需要使用 -AzureRmContext 参数以及 [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext)  。
 
-1. 在 *Connect-AzureRmAccount* 後面輸入 Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'，提供所要啟動虛擬機器的名稱和資源群組名稱。  
+1. 在 *Connect-AzureRmAccount* 後面輸入 Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'  ，提供所要啟動虛擬機器的名稱和資源群組名稱。  
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
@@ -173,14 +173,14 @@ ms.locfileid: "60739874"
    }
    ```
 
-1. 儲存 Runbook，然後按一下 [測試] 窗格，您便能加以測試。
+1. 儲存 Runbook，然後按一下 [測試]  窗格，您便能加以測試。
 1. 按一下 [開始]  以開始測試。 一旦测试完成后，检查已启动的虚拟机。
 
 ## <a name="step-7---add-an-input-parameter-to-the-runbook"></a>步驟 7 - 將輸入參數加入至 Runbook
 
 您的 Runbook 目前會啟動您在 Runbook 中硬式編碼的虛擬機器，但如果可以在啟動 Runbook 時指定虛擬機器，它會更有用。 您會將輸入參數新增至 Runbook，以提供該功能。
 
-1. 如下列範例所示，將 [VMName] 和 [ResourceGroupName] 的參數新增至 Runbook，並搭配使用這些變數與 **Start-AzureRmVM** Cmdlet。
+1. 如下列範例所示，將 [VMName]  和 [ResourceGroupName]  的參數新增至 Runbook，並搭配使用這些變數與 **Start-AzureRmVM** Cmdlet。
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
@@ -202,7 +202,7 @@ ms.locfileid: "60739874"
 3. 關閉 [測試] 窗格。
 4. 按一下 [發佈]  來發行新版本的 Runbook。
 5. 停止您在上一個步驟中啟動的虛擬機器。
-6. 单击“启动”以启动 Runbook **ResourceGroupName** 。 輸入您要啟動之虛擬機器的 [VMName] 和 [ResourceGroupName]。
+6. 单击“启动”以启动 Runbook **ResourceGroupName** 。 輸入您要啟動之虛擬機器的 [VMName]  和 [ResourceGroupName]  。
 
    ![啟動 Runbook](media/automation-first-runbook-textual/automation-pass-params.png)
 

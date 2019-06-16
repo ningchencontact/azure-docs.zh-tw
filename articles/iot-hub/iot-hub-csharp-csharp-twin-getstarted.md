@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: robinsh
 ms.openlocfilehash: 9d5d5bdc569fec1df20c7729285cc462d5af4ffb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873242"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>開始使用裝置對應項 (.NET/.NET)
@@ -52,13 +52,13 @@ ms.locfileid: "65873242"
 
 在本節中，您將 (使用 C#) 建立一個 .NET 主控台應用程式，此應用程式會將位置中繼資料新增至與 **myDeviceId** 相關聯的裝置對應項。 接著，它會選取位於美國的裝置來查詢儲存在 IoT 中樞的裝置對應項，再查詢會報告行動電話連線的對應項。
 
-1. 在 Visual Studio 中，使用 [主控台應用程式] 專案範本，將 Visual C# Windows 傳統桌面專案新增至目前的方案。 將專案命名為 **AddTagsAndQuery**。
+1. 在 Visual Studio 中，使用 [主控台應用程式]  專案範本，將 Visual C# Windows 傳統桌面專案新增至目前的方案。 將專案命名為 **AddTagsAndQuery**。
    
     ![新的 Visual C# Windows 傳統桌面專案](./media/iot-hub-csharp-csharp-twin-getstarted/createnetapp.png)
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 **AddTagsAndQuery** 專案，然後按一下 [管理 NuGet 套件...]。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 **AddTagsAndQuery** 專案，然後按一下 [管理 NuGet 套件...]  。
 
-3. 在 [NuGet 套件管理員] 視窗中，選取 [瀏覽]，並搜尋 **Microsoft.Azure.Devices**。 選取 [安裝] 來安裝 **Microsoft.Azure.Devices** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 服務 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) (英文) NuGet 套件與其相依項目，並新增對它的參考。
+3. 在 [NuGet 套件管理員]  視窗中，選取 [瀏覽]  ，並搜尋 **Microsoft.Azure.Devices**。 選取 [安裝]  來安裝 **Microsoft.Azure.Devices** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 服務 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) (英文) NuGet 套件與其相依項目，並新增對它的參考。
    
     ![NuGet 封裝管理員視窗](./media/iot-hub-csharp-csharp-twin-getstarted/servicesdknuget.png)
 
@@ -120,9 +120,9 @@ ms.locfileid: "65873242"
     Console.ReadLine();
     ```
 
-8. 在 [方案總管] 中，開啟 [設定起始專案...]，並確定 **AddTagsAndQuery** 專案的 [動作] 是 [啟動]。 建置方案。
+8. 在 [方案總管] 中，開啟 [設定起始專案...]  ，並確定 **AddTagsAndQuery** 專案的 [動作]  是 [啟動]  。 建置方案。
 
-9. 以滑鼠右鍵按一下 **AddTagsAndQuery** 專案，並選取 [偵錯]，後面接著 [開始新執行個體] 來執行此應用程式。 如果是查詢所有位於 **Redmond43** 中的裝置，您在結果中會看到一個裝置，而如果查詢將結果限於使用行動電話網路的裝置，則您不會看到任何裝置。
+9. 以滑鼠右鍵按一下 **AddTagsAndQuery** 專案，並選取 [偵錯]  ，後面接著 [開始新執行個體]  來執行此應用程式。 如果是查詢所有位於 **Redmond43** 中的裝置，您在結果中會看到一個裝置，而如果查詢將結果限於使用行動電話網路的裝置，則您不會看到任何裝置。
    
     ![視窗中的查詢結果](./media/iot-hub-csharp-csharp-twin-getstarted/addtagapp.png)
 
@@ -132,13 +132,13 @@ ms.locfileid: "65873242"
 
 在本節中，您將建立一個 .NET 主控台應用程式，此應用程式會以 **myDeviceId** 來連線到您的中樞，然後更新其回報屬性，以包含資訊來指出目前使用行動電話通訊網路來連線。
 
-1. 在 Visual Studio 中，使用 [主控台應用程式] 專案範本，將 Visual C# Windows 傳統桌面專案新增至目前的方案。 將專案命名為 **ReportConnectivity**。
+1. 在 Visual Studio 中，使用 [主控台應用程式]  專案範本，將 Visual C# Windows 傳統桌面專案新增至目前的方案。 將專案命名為 **ReportConnectivity**。
    
     ![新的 Visual C# Windows 傳統裝置應用程式](./media/iot-hub-csharp-csharp-twin-getstarted/createdeviceapp.png)
     
-2. 在方案總管中，以滑鼠右鍵按一下 **ReportConnectivity** 專案，然後按一下 [管理 NuGet 套件...]。
+2. 在方案總管中，以滑鼠右鍵按一下 **ReportConnectivity** 專案，然後按一下 [管理 NuGet 套件...]  。
 
-3. 在 [NuGet 套件管理員] 視窗中，選取 [瀏覽]，並搜尋 **Microsoft.Azure.Devices.Client**。 選取 [安裝] 來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 裝置 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet 套件與其相依性，並新增對它的參考。
+3. 在 [NuGet 套件管理員]  視窗中，選取 [瀏覽]  ，並搜尋 **Microsoft.Azure.Devices.Client**。 選取 [安裝]  來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 裝置 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet 套件與其相依性，並新增對它的參考。
    
     ![NuGet 套件管理員視窗用戶端應用程式](./media/iot-hub-csharp-csharp-twin-getstarted/clientsdknuget.png)
 
@@ -224,9 +224,9 @@ ms.locfileid: "65873242"
     Console.ReadLine();
     ```
 
-9. 在方案總管中，開啟 [設定起始專案...]，並確定 **ReportConnectivity** 專案的 [動作] 是 [啟動]。 建置方案。
+9. 在方案總管中，開啟 [設定起始專案...]  ，並確定 **ReportConnectivity** 專案的 [動作]  是 [啟動]  。 建置方案。
 
-10. 以滑鼠右鍵按一下 **ReportConnectivity** 專案，並選取 [偵錯]，後面接著 [開始新執行個體] 來執行此應用程式。 您應該會看到它取得對應項資訊，然後傳送連線作為「回報屬性」。
+10. 以滑鼠右鍵按一下 **ReportConnectivity** 專案，並選取 [偵錯]  ，後面接著 [開始新執行個體]  來執行此應用程式。 您應該會看到它取得對應項資訊，然後傳送連線作為「回報屬性」  。
    
     ![執行裝置應用程式以回報連線](./media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png)
        

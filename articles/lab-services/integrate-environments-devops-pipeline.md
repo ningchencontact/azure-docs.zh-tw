@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
 ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61318377"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>將環境整合到您的 Azure DevOps 的 CI/CD 管線
@@ -42,10 +42,10 @@ ms.locfileid: "61318377"
 若要建立發行定義，請執行下列動作：
 
 1.  在上**版本**索引標籤**建置及發行中樞**，選取**加號 （+）**  按鈕。
-2.  在 [建立發行定義] 視窗中，選取 [空白] 範本，然後選取 [下一步]。
-3.  選取 [稍後選擇]，然後選取 [建立]，以使用一個預設的環境、但不使用任何連結的構件來建立新的發行定義。
+2.  在 [建立發行定義]  視窗中，選取 [空白]  範本，然後選取 [下一步]  。
+3.  選取 [稍後選擇]  ，然後選取 [建立]  ，以使用一個預設的環境、但不使用任何連結的構件來建立新的發行定義。
 4.  若要開啟快顯功能表中，新的發行定義中，選取 [**省略符號 （...）** 環境的名稱下, 一步]，然後選取**設定變數**。
-5.  在 [設定 - 環境] 視窗中，為您在發行定義工作中使用的變數輸入下列值：
+5.  在 [設定 - 環境]  視窗中，為您在發行定義工作中使用的變數輸入下列值：
 1.  針對**administratorLogin**，輸入 SQL 系統管理員登入名稱。
 2.  針對**administratorLoginPassword**，輸入密碼以供 SQL 系統管理員登入。 使用「掛鎖」圖示可隱藏及保護密碼。
 3.  針對**databaseName**，輸入 SQL Database 名稱。
@@ -54,9 +54,9 @@ ms.locfileid: "61318377"
 ## <a name="create-an-environment"></a>建立環境
 部署的下一個階段是建立環境，以用於開發或測試之用。
 
-1. 在發行定義中，選取 [新增工作]。
+1. 在發行定義中，選取 [新增工作]  。
 2. 在 **任務**索引標籤上，加入 Azure DevTest Labs 建立環境的工作。 請依照下列方式設定工作：
-    1. 針對 [Azure RM 訂用帳戶]，選取 [可用的 Azure 服務連線] 清單中的連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](/azure/devops/pipelines/library/service-endpoints)。
+    1. 針對 [Azure RM 訂用帳戶]  ，選取 [可用的 Azure 服務連線]  清單中的連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](/azure/devops/pipelines/library/service-endpoints)。
 2. 針對**實驗室名稱**，選取您稍早建立的執行個體的名稱 *。
 3. 針對**存放庫名稱**，選取 Resource Manager 範本 (201) 已推送至存放庫 *。
 4. 針對**範本名稱**，選取 儲存到您來源的程式碼存放庫 * 環境的名稱。 
@@ -71,7 +71,7 @@ ms.locfileid: "61318377"
 在發行定義中，選取**將工作加入**，然後在**部署**索引標籤上，新增**Azure DevTest Labs 刪除環境**工作。 進行下列設定：
 
 1. 若要刪除 VM，請參閱[Azure DevTest Labs 工作](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks):
-    1. 針對 [Azure RM 訂用帳戶]，選取 [可用的 Azure 服務連線] 清單中的連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](/azure/devops/pipelines/library/service-endpoints)。
+    1. 針對 [Azure RM 訂用帳戶]  ，選取 [可用的 Azure 服務連線]  清單中的連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](/azure/devops/pipelines/library/service-endpoints)。
     2. 針對**實驗室名稱**，選取的實驗室所在的環境。
     3. 針對**環境名稱**，輸入要移除環境的名稱。
 2. 輸入發行定義的名稱，並加以儲存。

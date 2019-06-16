@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.date: 07/08/2016
 ms.openlocfilehash: 137ed89c276338b534cad8fdf81ec31b5e5610b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845913"
 ---
 # <a name="add-trading-partners-for-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>在採用 Enterprise Integration Pack 的 Azure Logic Apps 中為整合帳戶新增交易夥伴
@@ -33,27 +33,27 @@ ms.locfileid: "60845913"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 在主要 Azure 功能表上，選取 [所有服務]。 在搜尋方塊中輸入「整合」，然後選取 [整合帳戶]。
+2. 在主要 Azure 功能表上，選取 [所有服務]  。 在搜尋方塊中輸入「整合」，然後選取 [整合帳戶]  。
 
    ![尋找整合帳戶](./media/logic-apps-enterprise-integration-partners/account-1.png)
 
-3. 在 [整合帳戶] 底下，選取要將合作夥伴新增到其中的整合帳戶。
+3. 在 [整合帳戶]  底下，選取要將合作夥伴新增到其中的整合帳戶。
 
    ![選取企業整合帳戶](./media/logic-apps-enterprise-integration-partners/account-2.png)
 
-4. 選擇 [合作夥伴] 圖格。
+4. 選擇 [合作夥伴]  圖格。
 
    ![選擇「合作夥伴」](./media/logic-apps-enterprise-integration-partners/partner-1.png)
 
-5. 在 [合作夥伴] 底下，選擇 [新增]。
+5. 在 [合作夥伴]  底下，選擇 [新增]  。
 
    ![選擇 [新增]](./media/logic-apps-enterprise-integration-partners/partner-2.png)
 
-6. 輸入合作夥伴的名稱，然後選取 [辨識符號]。 輸入用來識別應用程式所接收之文件的**值**。 完成時，選擇 [確定]。
+6. 輸入合作夥伴的名稱，然後選取 [辨識符號]  。 輸入用來識別應用程式所接收之文件的**值**。 完成時，選擇 [確定]  。
 
    ![新增合作夥伴詳細資料](./media/logic-apps-enterprise-integration-partners/partner-3.png)
 
-7. 再次選擇 [合作夥伴] 圖格。
+7. 再次選擇 [合作夥伴]  圖格。
 
    ![選擇「合作夥伴」圖格](./media/logic-apps-enterprise-integration-partners/partner-5.png)
 
@@ -63,29 +63,29 @@ ms.locfileid: "60845913"
 
 ## <a name="edit-partner"></a>編輯合作夥伴
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，尋找並選取整合帳戶。 選擇 [合作夥伴] 圖格。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，尋找並選取整合帳戶。 選擇 [合作夥伴]  圖格。
 
    ![選擇「合作夥伴」圖格](./media/logic-apps-enterprise-integration-partners/edit.png)
 
-2. 在 [合作夥伴] 底下，選取您要編輯的合作夥伴。
+2. 在 [合作夥伴]  底下，選取您要編輯的合作夥伴。
 
    ![選取要刪除的合作夥伴](./media/logic-apps-enterprise-integration-partners/edit-1.png)
 
-3. 在 [更新合作夥伴] 底下，進行您所需的變更。
-完成之後，選擇 [儲存]。 
+3. 在 [更新合作夥伴]  底下，進行您所需的變更。
+完成之後，選擇 [儲存]  。 
 
    ![進行變更並儲存](./media/logic-apps-enterprise-integration-partners/edit-2.png)
 
-   若要取消您的變更，請選取 [捨棄]。
+   若要取消您的變更，請選取 [捨棄]  。
 
 ## <a name="delete-partner"></a>刪除合作夥伴
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，尋找並選取整合帳戶。 選擇 [合作夥伴] 圖格。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，尋找並選取整合帳戶。 選擇 [合作夥伴]  圖格。
 
    ![選擇「合作夥伴」圖格](./media/logic-apps-enterprise-integration-partners/delete.png)
 
-2. 在 [合作夥伴] 底下，選取您要刪除的合作夥伴。
-選擇 [刪除]。
+2. 在 [合作夥伴]  底下，選取您要刪除的合作夥伴。
+選擇 [刪除]  。
 
    ![刪除合作夥伴](./media/logic-apps-enterprise-integration-partners/delete-1.png)
 

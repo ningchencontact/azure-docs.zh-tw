@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/29/2019
 ms.author: aljo
 ms.openlocfilehash: 703830778edb73781a263ae4d92529f7f79a0eb2
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306848"
 ---
 # <a name="connect-to-a-secure-cluster"></a>連線到安全的叢集
@@ -41,7 +41,7 @@ openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pas
 
 如果您的 .pfx 檔案未受密碼保護，請針對最後一個參數使用 -passin pass:。
 
-若要以 pem 檔案指定用戶端憑證，請在 `--pem` 引數中指定檔案路徑。 例如: 
+若要以 pem 檔案指定用戶端憑證，請在 `--pem` 引數中指定檔案路徑。 例如:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -55,7 +55,7 @@ sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./clie
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-有時，用來保護測試或開發叢集的憑證會讓憑證驗證失敗。 若要略過憑證驗證，請指定 `--no-verify` 選項。 例如: 
+有時，用來保護測試或開發叢集的憑證會讓憑證驗證失敗。 若要略過憑證驗證，請指定 `--no-verify` 選項。 例如:
 
 > [!WARNING]
 > 連線到生產環境 Service Fabric 叢集時，請勿使用 `no-verify` 選項。
@@ -64,7 +64,7 @@ sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./cli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-此外，您可以指定受信任 CA 憑證，或個別憑證的目錄路徑。 若要指定這些路徑，請使用 `--ca` 引數。 例如: 
+此外，您可以指定受信任 CA 憑證，或個別憑證的目錄路徑。 若要指定這些路徑，請使用 `--ca` 引數。 例如:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca

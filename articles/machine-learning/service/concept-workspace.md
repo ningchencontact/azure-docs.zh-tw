@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 3ecdf62cfed7d70873f3dc752bfacd134e367a90
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 2f3d9eeca1404fcae121ae5fead222cbde4037b1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388962"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059254"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>什麼是 Azure 機器學習服務工作區？
 
@@ -32,16 +32,16 @@ ms.locfileid: "66388962"
 
 + 工作區可以包含[Notebook Vm](quickstart-run-cloud-notebook.md)，雲端資源以執行 Azure Machine Learning 所需的 Python 環境設定。
 + [使用者角色](how-to-assign-roles.md)可讓您與其他使用者、 小組或專案中共用您的工作區。
-+ [計算目標](concept-azure-machine-learning-architecture.md#compute-target)用來執行您的實驗。
++ [計算目標](concept-azure-machine-learning-architecture.md#compute-targets)用來執行您的實驗。
 + 當您建立工作區中，[相關聯的資源](#resources)也會為您建立。
-+ [實驗](concept-azure-machine-learning-architecture.md#experiment)是您用來建置您的模型定型執行。  您可以建立並執行與實驗
++ [實驗](concept-azure-machine-learning-architecture.md#experiments)是您用來建置您的模型定型執行。  您可以建立並執行與實驗
     + [Azure SDK 適用於 Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)。
     + [自動化 （預覽） 的機器學習服務實驗](how-to-create-portal-experiments.md)在 Azure 入口網站中的區段。
     + [視覺化介面 （預覽）](ui-concept-visual-interface.md)。
-+ [管線](concept-azure-machine-learning-architecture.md#pipeline)是用於定型和重新定型模型的可重複使用工作流程。
-+ [資料集](concept-azure-machine-learning-architecture.md#dataset)協助管理您用於建立的模型訓練和管線的資料。
-+ 您想要部署的模型之後，您會建立[已註冊的模型](concept-azure-machine-learning-architecture.md#model-registry)。
-+ 使用已註冊的模型和評分指令碼來建立[部署](concept-azure-machine-learning-architecture.md#image-registry)。
++ [管線](concept-azure-machine-learning-architecture.md#ml-pipelines)是用於定型和重新定型模型的可重複使用工作流程。
++ [資料集](concept-azure-machine-learning-architecture.md#datasets-and-datastores)協助管理您用於建立的模型訓練和管線的資料。
++ 您想要部署的模型之後，您會建立已註冊的模型。
++ 使用已註冊的模型和評分指令碼來建立[部署](concept-azure-machine-learning-architecture.md#deployment)。
 
 ## <a name="tools-for-workspace-interaction"></a>工作區互動的工具
 

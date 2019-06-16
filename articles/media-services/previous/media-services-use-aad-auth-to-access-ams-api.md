@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: d80a58f1886ecc1ca2a735881fc5822f2fc0c53b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60826105"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>使用 Azure AD 驗證存取 Azure 媒體服務 API  
@@ -38,7 +38,7 @@ Azure 媒體服務 API 是一種 RESTful API。 您可以使用 REST API 或使�
 
 Azure 媒體 REST 要求若要成功，呼叫的使用者必須擁有嘗試存取之媒體服務帳戶的「參與者」或「擁有者」角色。  
 只有具備「擁有者」角色的使用者，可以授與媒體資源 (帳戶) 的存取權給新的使用者或應用程式。 「參與者」角色只能存取媒體資源。
-未經授權的要求會失敗，狀態碼為 401。 如果您看到此錯誤碼，請確認您的使用者是否具有針對該使用者的媒體服務帳戶指派的「參與者」或「擁有者」角色。 您可以在 Azure 入口網站查看。 搜尋您的媒體帳戶，然後按一下 [Access control] \(存取控制\) 索引標籤。 
+未經授權的要求會失敗，狀態碼為 401。 如果您看到此錯誤碼，請確認您的使用者是否具有針對該使用者的媒體服務帳戶指派的「參與者」或「擁有者」角色。 您可以在 Azure 入口網站查看。 搜尋您的媒體帳戶，然後按一下 [Access control] \(存取控制\)  索引標籤。 
 
 ![[Access control] \(存取控制\) 索引標籤](./media/media-services-use-aad-auth-to-access-ams-api/media-services-access-control.png)
 
@@ -79,13 +79,13 @@ Azure 媒體 REST 要求若要成功，呼叫的使用者必須擁有嘗試存�
        租用戶資訊可從 Azure 入口網站擷取。 將游標放在右上角登入的使用者名稱上方。
    * 媒體服務資源 URI。 
 
-       同一 Azure 環境中的媒體服務帳戶的這個 URI 都相同 (例如， https://rest.media.azure.net)。
+       同一 Azure 環境中的媒體服務帳戶的這個 URI 都相同 (例如， https://rest.media.azure.net) 。
 
    * 媒體服務 (原生) 應用程式用戶端識別碼。
    * 媒體服務 (原生) 應用程式重新導向 URI。
    * REST 媒體服務的資源 URI。
         
-       URI 表示 REST API 端點 (例如 https://test03.restv2.westus.media.azure.net/api/)。
+       URI 表示 REST API 端點 (例如 https://test03.restv2.westus.media.azure.net/api/) 。
 
      若要取得這些參數的值，請參閱[使用 Azure 入口網站存取 Azure AD 驗證設定](media-services-portal-get-started-with-aad.md) (使用使用者驗證選項)。
 
@@ -110,22 +110,22 @@ Azure 媒體 REST 要求若要成功，呼叫的使用者必須擁有嘗試存�
 建立您的 Azure AD 應用程式之後，您會取得下列設定的值。 您需要這些值以進行驗證：
 
 - 用戶端識別碼 
-- 客户端机密 
+- 用戶端密碼 
 
 在上圖中，數字代表依時間順序的要求流量：
     
 1. 中介層應用程式 (Web API 或 Web 應用程式) 會要求具有下列參數的 Azure AD 存取權杖：  
 
-   * Azure AD 租户终结点。
+   * Azure AD 租用戶端點。
 
        租用戶資訊可從 Azure 入口網站擷取。 將游標放在右上角登入的使用者名稱上方。
    * 媒體服務資源 URI。 
 
-       位於同一 Azure 環境中的媒體服務帳戶的這個 URI 都相同 (例如， https://rest.media.azure.net)。
+       位於同一 Azure 環境中的媒體服務帳戶的這個 URI 都相同 (例如， https://rest.media.azure.net) 。
 
    * REST 媒體服務的資源 URI。
 
-       URI 表示 REST API 端點 (例如 https://test03.restv2.westus.media.azure.net/api/)。
+       URI 表示 REST API 端點 (例如 https://test03.restv2.westus.media.azure.net/api/) 。
 
    * Azure AD 應用程式的值：用戶端識別碼和用戶端祕密。
     

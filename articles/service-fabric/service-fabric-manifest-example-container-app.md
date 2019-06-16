@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 622e6f7552d91cdb9ccf3668c302496c68a5920f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60719238"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>多容器應用程式和服務資訊清單範例
@@ -26,7 +26,7 @@ ms.locfileid: "60719238"
 
 下面是會顯示的功能：
 
-|資訊清單|特性|
+|資訊清單|功能|
 |---|---|
 |[應用程式資訊清單](#application-manifest)| [覆寫環境變數](service-fabric-get-started-containers.md#configure-and-set-environment-variables)、[設定容器連接埠對主機的對應](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery)、[設定容器登錄驗證](service-fabric-get-started-containers.md#configure-container-registry-authentication)、[資源管理](service-fabric-resource-governance.md)、[設定隔離模式](service-fabric-get-started-containers.md#configure-isolation-mode)、[指定 OS 組建專屬的容器映像](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
 |[FrontEndService 服務資訊清單](#frontendservice-service-manifest)| [設定環境變數](service-fabric-get-started-containers.md#configure-and-set-environment-variables)、[設定端點](service-fabric-get-started-containers.md#configure-communication)、將命令傳遞至容器、[將憑證匯入容器中](service-fabric-securing-containers.md)| 

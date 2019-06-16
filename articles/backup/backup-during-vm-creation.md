@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: d96b898c8f72abd7e4eb3522ae046e9fc926f387
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54449d9ea14fef6b2373aa8e0ea3341417c2d3fe
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809348"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057994"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>建立 Azure VM 時啟用備份
 
@@ -27,7 +27,7 @@ ms.locfileid: "60809348"
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
 如果您不已登入您的帳戶，登入[Azure 入口網站](https://portal.azure.com)。
- 
+
 ## <a name="create-a-vm-with-backup-configured"></a>建立具有已設定備份的 VM
 
 1. 在 Azure 入口網站中，按一下**建立資源**。
@@ -41,28 +41,32 @@ ms.locfileid: "60809348"
 6. 接受建議的保存庫名稱，或指定您自己。
 7. 指定或建立保存庫會位於資源群組。 資源群組的保存庫可以從 VM 資源群組不同。
 
-    ![啟用 VM 的備份](./media/backup-during-vm-creation/enable-backup.png) 
+    ![啟用 VM 的備份](./media/backup-during-vm-creation/enable-backup.png)
 
 8. 接受預設備份原則，或修改的設定。
-    - 備份原則會指定如何經常建立備份快照的 VM，並保留這些備份複本的時間長度。 
-    - 默认策略每天备份 VM 一次。
+    - 備份原則會指定如何經常建立備份快照的 VM，並保留這些備份複本的時間長度。
+    - 預設的原則一天一次備份 VM。
     - 您可以自訂您自己進行每日或每週備份 Azure VM 的備份原則。
     - [了解更多](backup-azure-vms-introduction.md#backup-and-restore-considerations)有關 Azure Vm 的備份考量。
     - [了解更多](backup-instant-restore-capability.md)需立即還原功能。
 
-      ![默认备份策略](./media/backup-during-vm-creation/daily-policy.png) 
+      ![預設備份原則](./media/backup-during-vm-creation/daily-policy.png)
 
 
-## <a name="start-a-backup-after-creating-the-vm"></a>開始備份之後建立 VM 
+> [!NOTE]
+> Azure 備份服務會建立個別的資源群組 （以外的 VM 資源群組中） 來儲存快照集，使用的命名格式**AzureBackupRG_geography_number** (範例：AzureBackupRG_northeurope_1)。 此資源群組中的資料會保留的活動中所指定的天數*保留立即復原快照集*的 Azure 虛擬機器備份原則 區段。  將鎖定套用到此資源群組，可能會導致備份失敗。
 
-您的 VM 備份將會根據您的備份原則執行。 不過，我們建議您執行初始備份。 
+
+## <a name="start-a-backup-after-creating-the-vm"></a>開始備份之後建立 VM
+
+您的 VM 備份將會根據您的備份原則執行。 不過，我們建議您執行初始備份。
 
 建立 VM 之後，執行下列作業：
 
 1. 在 VM 屬性中，按一下**備份**。 執行初始備份之前，VM 狀態是初始備份擱置中
 2. 按一下 **立即備份**来執行隨選備份。
 
-    ![執行隨選備份](./media/backup-during-vm-creation/run-backup.png) 
+    ![執行隨選備份](./media/backup-during-vm-creation/run-backup.png)
 
 ## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>使用 Resource Manager 範本來部署受保護的 VM
 
@@ -70,11 +74,11 @@ ms.locfileid: "60809348"
 
 
 
-## <a name="next-steps"></a>後續步驟 
+## <a name="next-steps"></a>後續步驟
 
 既然您已來保護您的 VM，了解如何管理並將它們還原。
 
-- [管理和監視 Vm](backup-azure-manage-vms.md) 
-- [還原 VM](backup-azure-arm-restore-vms.md) 
+- [管理和監視 Vm](backup-azure-manage-vms.md)
+- [還原 VM](backup-azure-arm-restore-vms.md)
 
 如果您遇到任何問題，[檢閱](backup-azure-vms-troubleshoot.md)疑難排解指南。

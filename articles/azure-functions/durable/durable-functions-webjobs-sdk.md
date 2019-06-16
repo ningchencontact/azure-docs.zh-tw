@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 39a757900b4307d702a0ce0ce1c20694418aa8dd
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65872827"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>如何執行 Durable Functions 與 WebJobs
@@ -43,7 +43,7 @@ ms.locfileid: "65872827"
 
   (您可以改為使用 [Visual Studio Code](https://code.visualstudio.com/)，但某些指示是 Visual Studio 特有的。)
 
-* 安裝並執行 [Azure 儲存體模擬器](../../storage/common/storage-use-emulator.md) 5.2 版或更新版本。 替代方法是使用 Azure 儲存體連接字串來更新 App.config 檔案。
+* 安裝並執行 [Azure 儲存體模擬器](../../storage/common/storage-use-emulator.md) 5.2 版或更新版本。 替代方法是使用 Azure 儲存體連接字串來更新 App.config  檔案。
 
 ## <a name="webjobs-sdk-versions"></a>WebJobs SDK 版本
 
@@ -53,9 +53,9 @@ ms.locfileid: "65872827"
 
 若要執行長期函式為 WebJobs，您必須先建立主控台應用程式。 WebJobs SDK 專案只是安裝了適當 NuGet 套件的主控台應用程式專案。
 
-在 Visual Studio**新的專案**對話方塊中，選取**Windows 傳統桌面** > **主控台應用程式 (.NET Framework)**。 在專案檔中，`TargetFrameworkVersion` 應該是 `v4.6.1`。
+在 Visual Studio**新的專案**對話方塊中，選取**Windows 傳統桌面** > **主控台應用程式 (.NET Framework)** 。 在專案檔中，`TargetFrameworkVersion` 應該是 `v4.6.1`。
 
-Visual Studio 也有您可以使用選取的 WebJob 專案範本**雲端** > **Azure WebJob (.NET Framework)**。 此範本會安裝許多套件，但您可能不需要其中的某些套件。
+Visual Studio 也有您可以使用選取的 WebJob 專案範本**雲端** > **Azure WebJob (.NET Framework)** 。 此範本會安裝許多套件，但您可能不需要其中的某些套件。
 
 ## <a name="install-nuget-packages"></a>安裝 NuGet 套件
 
@@ -125,7 +125,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="functions"></a>功能
+## <a name="functions"></a>函式
 
 WebJobs 的內容中的 durable Functions 可讓從 Durable Functions 略有不同的 Azure 函式的內容中。 務必在您撰寫程式碼時需要注意的差異。
 
@@ -200,7 +200,7 @@ while (true)
 
     a. 建立 Application Insights 資源，並用**一般**為它的應用程式類型。
 
-    b. 將檢測金鑰儲存在 App.config 檔案。
+    b. 將檢測金鑰儲存在 App.config  檔案。
 
 1. 執行專案。
 
@@ -222,7 +222,7 @@ while (true)
 
 導入的主要變更是使用.NET Core，而不是.NET Framework。 若要建立 WebJobs SDK 3.x 版專案，指示都相同，但有下列例外：
 
-1. 建立 .NET Core 主控台應用程式。 在 Visual Studio**新的專案**對話方塊中，選取 **.NET Core** > **主控台應用程式 (.NET Core)**。 專案檔會將 `TargetFramework` 指定為 `netcoreapp2.x`。
+1. 建立 .NET Core 主控台應用程式。 在 Visual Studio**新的專案**對話方塊中，選取 **.NET Core** > **主控台應用程式 (.NET Core)** 。 專案檔會將 `TargetFramework` 指定為 `netcoreapp2.x`。
 
 1. 選擇的 WebJobs SDK 的發行版本 3.x 的下列套件：
 

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60888913"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>將一般用戶端應用程式連線到 Azure IoT 中心應用程式 (Node.js)
@@ -62,7 +62,7 @@ Azure IoT Central 應用程式中，您需要下列度量、 裝置內容、 設
 
 加入下列事件上**測量**頁面：
 
-| 顯示名稱 | 欄位名稱  | 严重性 |
+| 顯示名稱 | 欄位名稱  | Severity |
 | ------------ | ----------- | -------- |
 | 過熱  | overheat    | Error    |
 
@@ -73,7 +73,7 @@ Azure IoT Central 應用程式中，您需要下列度量、 裝置內容、 設
 
 新增下列裝置屬性上**屬性**頁面：
 
-| 顯示名稱        | 欄位名稱        | 資料類型 |
+| 顯示名稱        | 欄位名稱        | 数据类型 |
 | ------------------- | ----------------- | --------- |
 | 序號       | serialNumber      | text      |
 | 裝置製造商 | manufacturer      | text      |
@@ -101,7 +101,7 @@ Azure IoT Central 應用程式中，您需要下列度量、 裝置內容、 設
 
 倒數計時命令中加入下列的輸入的欄位：
 
-| 顯示名稱    | 欄位名稱     | 数据类型 | Value |
+| 顯示名稱    | 欄位名稱     | 数据类型 | 值 |
 | --------------- | -------------- | --------- | ----- |
 | 從計算      | countFrom      | number    | 10    |
 
@@ -317,11 +317,11 @@ node connectedAirConditionerAdv.js
 
 身為 Azure IoT 中心應用程式的操作者，您可以針對真實裝置：
 
-* 在 [量值] 頁面上檢視遙測：
+* 在 [量值]  頁面上檢視遙測：
 
     ![檢視遙測](media/howto-connect-nodejs/viewtelemetry.png)
 
-* 在 [屬性] 頁面上檢視從裝置傳送的裝置屬性值。 當裝置連線的裝置屬性的磚更新：
+* 在 [屬性]  頁面上檢視從裝置傳送的裝置屬性值。 當裝置連線的裝置屬性的磚更新：
 
     ![檢視裝置屬性](media/howto-connect-nodejs/viewproperties.png)
 

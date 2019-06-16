@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: db3333aa52782ceb949ef3f46a903b618f6e3f2f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60931223"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>如何透過 PHP 使用 SendGrid 電子郵件服務
@@ -298,7 +298,7 @@ SendGrid 的 Web API 與 REST API 十分類似，但並非真的是 REST 型 API
 
 ## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>作法：使用篩選條件來啟用頁尾、追蹤和分析
 
-SendGrid 運用「篩選器」提供其他電子郵件功能。 這些設定可新增到電子郵件以啟用特定功能，例如啟用點擊追蹤、Google 分析、訂閱追蹤等。
+SendGrid 運用「篩選器」  提供其他電子郵件功能。 這些設定可新增到電子郵件以啟用特定功能，例如啟用點擊追蹤、Google 分析、訂閱追蹤等。
 
 您可以使用篩選器屬性對訊息套用篩選器。 每個篩選器都是由包含篩選器特定設定的雜湊來指定。 以下範例會啟用頁尾篩選器，並指定文字訊息來附加到電子郵件訊息的下方。 在此範例中，我們將使用 [sendgrid-php 程式庫]。
 

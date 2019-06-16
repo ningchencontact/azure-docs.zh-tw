@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 326382339e2b4aeaa488d3d7f76b7ff35f9bc620
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 7515c061467419412608bb8103136791845ae093
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147768"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133806"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>啟用並部署 Azure 的強力 Ssd （預覽）
 
@@ -33,11 +33,12 @@ CLI：`az vm list-skus --resource-type disks --query "[?name=='UltraSSD_LRS'].lo
 
 保留**區域**值，它代表您的可用性區域，且您需要它才能部署強力的 SSD。
 
-|ResourceType  |名稱  |位置  |區域  |限制  |功能  |Value  |
+|ResourceType  |名稱  |位置  |區域  |限制  |功能  |值  |
 |---------|---------|---------|---------|---------|---------|---------|
-|磁碟     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
+|disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
-如果從命令中，沒有回應，則您的註冊功能仍為暫止，或核准尚未。
+> [!NOTE]
+> 如果從命令中，沒有回應，則您的註冊功能仍為暫止，或核准尚未。
 
 既然您已經知道要部署至哪一個區域，請依照此文章中的部署步驟，使用 Ultra SSD 部署您的第一部 VM。
 

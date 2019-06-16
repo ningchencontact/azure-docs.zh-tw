@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 52fb32a8b34c62fe94ab35e2c051d996ab8bef10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60755129"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure 資料方塊邊緣的技術規格
@@ -38,7 +38,7 @@ The following table lists the typical power consumption data (actual values may 
 
 資料方塊的邊緣裝置具有 10 X 2.5"NVMe Ssd，每個都具有 1.6 TB 的容量。 使用的這些 Ssd，2 作業系統磁碟，而其他 8 的資料磁碟。 裝置的可用容量總計約為 12.5 TB。 下表包含裝置的儲存體容量的詳細資料。
 
-|     規格                          |     Value             |
+|     規格                          |     值             |
 |--------------------------------------------|-----------------------|
 |    固態硬碟 (SSD) 數     |    8                  |
 |    單一 SSD 容量                     |    1.6 TB             |
@@ -63,7 +63,7 @@ The following table lists the typical power consumption data (actual values may 
 
 下表列出傳送套件以公釐和英吋為單位的維度。
 
-|     Package     |     公釐     |     英吋     |
+|     封裝     |     公釐     |     英吋     |
 |-------------------|---------------------|----------------|
 |    高度         |    311.2            |    12.25"          |
 |    寬度          |    642.8          |    25.31"          |

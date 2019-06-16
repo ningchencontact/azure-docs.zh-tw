@@ -12,10 +12,10 @@ ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
 ms.openlocfilehash: 16f13cd4ad580ea2f163fe87b5924c1462890972
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926161"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 異常偵測 API
@@ -136,7 +136,7 @@ API 會對您的時間序列資料執行所有偵測器，然後傳回每個時�
 
 | 輸出 | 描述 |
 | --- | --- |
-| 時間 |未經處理資料或彙總 (和/或) 插補資料 (如果套用彙總 (和/或) 遺漏資料插補) 的時間戳記 |
+| Time |未經處理資料或彙總 (和/或) 插補資料 (如果套用彙總 (和/或) 遺漏資料插補) 的時間戳記 |
 | 資料 |未經處理資料或彙總 (和/或) 插補資料 (如果套用彙總 (和/或) 遺漏資料插補) 的值 |
 | TSpike |指出 TSpike 偵測器是否要偵測尖峰的二進位指示器 |
 | ZSpike |指出 Zspike 偵測器是否要偵測尖峰的二進位指示器 |
@@ -170,7 +170,7 @@ ScoreWithSeasonality API 可用來對具有季節性模式的時間序列執行�
 | tspikedetector.sensitivity |TSpike 偵測器的敏感度 |3 |integer |1 - 10 |3-5 (值愈低代表敏感度越高) |
 | zspikedetector.sensitivity |ZSpike 偵測器的敏感度 |3 |integer |1 - 10 |3-5 (值愈低代表敏感度越高) |
 | seasonality.enable |是否要執行季節性分析 |true |boolean |true、false |取決於時間序列 |
-| seasonality.numSeasonality |要偵測的定期循環數目上限 |1 |integer |1、2 |1 - 2 |
+| seasonality.numSeasonality |要偵測的定期循環數目上限 |1 |integer |1, 2 |1 - 2 |
 | seasonality.transform |在套用異常偵測之前，是否應該移除季節性 (和) 趨勢元件 |deseason |列舉 |無、deseason、deseasontrend |N/A |
 | postprocess.tailRows |輸出結果中要保留的最新資料點數目 |0 |integer |0 (保留所有資料點)，或指定要在結果中保留的資料點數目 |N/A |
 
@@ -179,7 +179,7 @@ API 會對您的時間序列資料執行所有偵測器，然後傳回每個時�
 
 | 輸出 | 描述 |
 | --- | --- |
-| 時間 |未經處理資料或彙總 (和/或) 插補資料 (如果套用彙總 (和/或) 遺漏資料插補) 的時間戳記 |
+| Time |未經處理資料或彙總 (和/或) 插補資料 (如果套用彙總 (和/或) 遺漏資料插補) 的時間戳記 |
 | OriginalData |未經處理資料或彙總 (和/或) 插補資料 (如果套用彙總 (和/或) 遺漏資料插補) 的值 |
 | ProcessedData |下列任一項︰ <ul><li>已進行季節性調整的時間序列 (在已偵測到明顯季節性並選取了 deseason 選項的前提下)</li><li>已進行季節性調整並去趨勢化的時間序列 (在已偵測到明顯季節性並選取了 deseasontrend 選項的前提下)</li><li>否則，與 OriginalData 相同</li> |
 | TSpike |指出 TSpike 偵測器是否要偵測尖峰的二進位指示器 |

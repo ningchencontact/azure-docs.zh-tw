@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65442376"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Azure 中部署資料閘道的系統需求
@@ -29,7 +29,7 @@ ms.locfileid: "65442376"
 
 「資料箱閘道」的基礎主機系統能夠將下列資源專門用來佈建您的虛擬裝置：
 
-| 規格                                          | 說明              |
+| 規格                                          | 描述              |
 |---------------------------------------------------------|--------------------------|
 | 虛擬處理器 (核心)   | 最少 4 個 |
 | 記憶體  | 最少 8 GB|
@@ -69,7 +69,7 @@ ms.locfileid: "65442376"
 
 ## <a name="networking-port-requirements"></a>網路連接埠需求
 
-下表列出必須在您的防火牆中開啟的連接埠，以允許 SMB、雲端或管理流量。 在這個資料表中，in 或 inbound 指的是輸入用戶端要求存取裝置的方向。 Out 或 outbound 指的是資料箱閘道裝置於外部傳送資料至部署之上的方向：例如，輸出到網際網路。
+下表列出必須在您的防火牆中開啟的連接埠，以允許 SMB、雲端或管理流量。 在這個資料表中，in  或 inbound  指的是輸入用戶端要求存取裝置的方向。 Out  或 outbound  指的是資料箱閘道裝置於外部傳送資料至部署之上的方向：例如，輸出到網際網路。
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 

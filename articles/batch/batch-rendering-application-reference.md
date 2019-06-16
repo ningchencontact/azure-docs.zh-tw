@@ -8,10 +8,10 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 4c93abdfb5c523d48ce115ed7d3251a346937f5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60775384"
 ---
 # <a name="rendering-applications"></a>轉譯應用程式
@@ -33,7 +33,7 @@ ms.locfileid: "60775384"
 
 叫用 `3dsmaxcmdio.exe` 應用程式以執行集區節點的命令列轉譯。  當工作執行時，此應用程式會位於路徑上。 `3dsmaxcmdio.exe` 應用程式具有與 `3dsmaxcmd.exe` 應用程式相同的可用參數，如 [3ds Max 說明文件](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (「轉譯 | 命令列轉譯」一節) 所說明。
 
-例如︰
+例如:
 
 ```
 3dsmaxcmdio.exe -v:5 -rfw:0 -start:{0} -end:{0} -bitmapPath:"%AZ_BATCH_JOB_PREP_WORKING_DIR%\sceneassets\images" -outputName:dragon.jpg -w:1280 -h:720 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scenes\dragon.max"
@@ -41,7 +41,7 @@ ms.locfileid: "60775384"
 
 注意：
 
-* 請謹慎處理，以確保可以找到資產檔案。  請使用 [資產追蹤] 視窗或在命令列上使用 `-bitmapPath` 參數，以確定路徑的正確性和相對性。
+* 請謹慎處理，以確保可以找到資產檔案。  請使用 [資產追蹤]  視窗或在命令列上使用 `-bitmapPath` 參數，以確定路徑的正確性和相對性。
 * 在工作執行時，請檢查 3ds Max 所寫入的 `stdout.txt` 檔案，以確認轉譯是否有任何問題，例如找不到資產。
 
 ### <a name="batch-explorer-templates"></a>Batch Explorer 範本

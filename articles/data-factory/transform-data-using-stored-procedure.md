@@ -11,14 +11,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 806654b7586895b62b014a49b8b3a00fb18f008f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764402"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 SQL Server 預存程序活動轉換資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-stored-proc-activity.md)
 > * [目前的版本](transform-data-using-stored-procedure.md)
 
@@ -68,7 +68,7 @@ ms.locfileid: "60764402"
 | 屬性                  | 描述                              | 必要項 |
 | ------------------------- | ---------------------------------------- | -------- |
 | name                      | 活動的名稱                     | 是      |
-| 說明               | 說明活動用途的文字 | 否       |
+| description               | 說明活動用途的文字 | 否       |
 | type                      | 對於預存程序活動，活動類型為 **SqlServerStoredProcedure** | 是      |
 | 預設容器         | 參考 **Azure SQL Database** 或 **Azure SQL 資料倉儲**或 **SQL Server**，註冊為 Data Factory 中的連結服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | 是      |
 | storedProcedureName       | 指定要叫用的預存程序名稱。 | 是      |

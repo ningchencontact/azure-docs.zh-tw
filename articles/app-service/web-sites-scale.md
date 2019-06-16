@@ -16,10 +16,10 @@ ms.date: 07/05/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 98d3d1f6fc0f2f30196f360811808579dfbab312
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60832074"
 ---
 # <a name="scale-up-an-app-in-azure"></a>在 Azure 中相應增加應用程式的規模
@@ -49,31 +49,31 @@ ms.locfileid: "60832074"
 
 ## <a name="scale-up-your-pricing-tier"></a>相應增加您的定價層
 1. 在瀏覽器中，開啟 [Azure 入口網站][portal]。
-2. 在 App Service 應用程式頁面中，按一下 [所有設定]，然後按一下 [Scale Up]\(相應增加\)。
+2. 在 App Service 應用程式頁面中，按一下 [所有設定]  ，然後按一下 [Scale Up]\(相應增加\)  。
    
     ![瀏覽以相應增加您的 Azure 應用程式規模。][ChooseWHP]
-3. 選擇您的定價層，然後按一下 [套用]。
+3. 選擇您的定價層，然後按一下 [套用]  。
    
-    當操作完成時，[通知] 索引標籤會有綠色的「成功」字樣閃爍顯示。
+    當操作完成時，[通知]  索引標籤會有綠色的「成功」  字樣閃爍顯示。
 
 <a name="ScalingSQLServer"></a>
 
 ## <a name="scale-related-resources"></a>調整相關資源
 如果您的應用程式相依於其他服務 (如 Azure SQL Database 或 Azure 儲存體)，您可以單獨相應增加這些資源。 這些資源不受 App Service 方案管理。
 
-1. 在 [基本功能] 中，按一下 [資源群組] 連結。
+1. 在 [基本功能]  中，按一下 [資源群組]  連結。
    
     ![相應增加 Azure 應用程式的相關資源](./media/web-sites-scale/RGEssentialsLink.png)
-2. 在 [資源群組] 頁面的 [摘要] 組件中，按一下您想要調整的資源。 以下螢幕擷取畫面顯示 SQL Database 資源和 Azure 儲存體資源。
+2. 在 [資源群組]  頁面的 [摘要]  組件中，按一下您想要調整的資源。 以下螢幕擷取畫面顯示 SQL Database 資源和 Azure 儲存體資源。
    
     ![巡覽至資源群組頁面以相應增加 Azure 應用程式的規模](./media/web-sites-scale/ResourceGroup.png)
-3. 針對 SQL Database 資源，按一下 [設定]  >  [定價層] 來調整定價層。
+3. 針對 SQL Database 資源，按一下 [設定]   >  [定價層]  來調整定價層。
    
     ![相應增加 Azure 應用程式的 SQL Database 後端](./media/web-sites-scale/ScaleDatabase.png)
    
     您也可以針對 SQL 資料庫執行個體開啟 [異地複寫](../sql-database/sql-database-geo-replication-overview.md) 。
    
-    針對 Azure 儲存體資源，按一下 [設定]  >  [組態]，以便相應增加您的儲存體選項。
+    針對 Azure 儲存體資源，按一下 [設定]   >  [組態]  ，以便相應增加您的儲存體選項。
    
     ![相應增加您 Azure 應用程式所使用的 Azure 儲存體帳戶](./media/web-sites-scale/ScaleStorage.png)
 

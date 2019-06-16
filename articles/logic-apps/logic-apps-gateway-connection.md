@@ -10,15 +10,15 @@ ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546266"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>從 Azure Logic Apps 連線到內部部署資料來源
 
-若要從您的邏輯應用程式存取內部部署資料來源，請在 Azure 入口網站中建立內部部署資料閘道資源。 然後，您的邏輯應用程式可以使用[內部部署連接器](../logic-apps/logic-apps-gateway-install.md#supported-connections)。 本文示範如何在[本機電腦下載並安裝閘道](../logic-apps/logic-apps-gateway-install.md)之後，建立 Azure 閘道資源。 
+若要從您的邏輯應用程式存取內部部署資料來源，請在 Azure 入口網站中建立內部部署資料閘道資源。 然後，您的邏輯應用程式可以使用[內部部署連接器](../logic-apps/logic-apps-gateway-install.md#supported-connections)。 本文示範如何在[本機電腦下載並安裝閘道](../logic-apps/logic-apps-gateway-install.md)之後  ，建立 Azure 閘道資源。 
 
 > [!TIP]
 > 若要連線至 Azure 虛擬網路，請考慮建立[*整合服務環境*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)。 
@@ -56,19 +56,19 @@ ms.locfileid: "65546266"
 
 1. 登入 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>。 請務必使用在安裝閘道時所用的同一個 Azure 公司或學校電子郵件地址。
 
-2. 在主要 Azure 功能表上，選取 [建立資源] > 
-[整合] > [內部部署資料閘道]。
+2. 在主要 Azure 功能表上，選取 [建立資源]   > 
+[整合]   > [內部部署資料閘道]  。
 
    ![尋找 [內部部署資料閘道]](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
-3. 在 [建立連線閘道] 頁面上，為閘道資源提供這項資訊：
+3. 在 [建立連線閘道]  頁面上，為閘道資源提供這項資訊：
 
-   | 屬性 | 說明 | 
+   | 屬性 | 描述 | 
    |----------|-------------|
    | **名稱** | 您的閘道資源名稱 | 
    | **訂用帳戶** | 您的 Azure 訂用帳戶名稱，該名稱必須是與邏輯應用程式相同的訂用帳戶。 預設的訂用帳戶會由您用來登入的 Azure 帳戶決定。 | 
    | **資源群組** | 可用來組織相關資源的 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)名稱 | 
-   | **位置** | Azure 對此位置有所限制，它的所在區域必須和[閘道安裝](../logic-apps/logic-apps-gateway-install.md)期間為閘道雲端服務所選取的區域相同。 <p>**注意**：請確定此閘道資源位置符合閘道雲端服務的位置。 否則，已安裝的閘道清單中可能不會出現您的閘道安裝，從而供您在下一個步驟中選取。 閘道資源和邏輯應用程式可使用不同的區域。 | 
+   | **Location** | Azure 對此位置有所限制，它的所在區域必須和[閘道安裝](../logic-apps/logic-apps-gateway-install.md)期間為閘道雲端服務所選取的區域相同。 <p>**注意**：請確定此閘道資源位置符合閘道雲端服務的位置。 否則，已安裝的閘道清單中可能不會出現您的閘道安裝，從而供您在下一個步驟中選取。 閘道資源和邏輯應用程式可使用不同的區域。 | 
    | **安裝名稱** | 如果您的閘道安裝還不是選取狀態，請選取您先前安裝的閘道。 | 
    | | | 
 
@@ -76,10 +76,10 @@ ms.locfileid: "65546266"
 
    ![提供詳細資料以建立內部部署資料閘道](./media/logic-apps-gateway-connection/createblade.png)
 
-4. 若要在 Azure 儀表板中新增閘道資源，請選取 [釘選到儀表板]。 完成之後，請選擇 [建立]。
+4. 若要在 Azure 儀表板中新增閘道資源，請選取 [釘選到儀表板]  。 完成之後，請選擇 [建立]  。
 
-   您可以從主要 Azure 功能表中選取 [所有服務]，隨時尋找或檢視閘道。 
-   在搜尋方塊中，輸入「內部部署資料閘道」，然後選取 [內部部署資料閘道]。
+   您可以從主要 Azure 功能表中選取 [所有服務]  ，隨時尋找或檢視閘道。 
+   在搜尋方塊中，輸入「內部部署資料閘道」，然後選取 [內部部署資料閘道]  。
 
    ![尋找 [內部部署資料閘道]](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
@@ -95,9 +95,9 @@ ms.locfileid: "65546266"
 
 3. 現在設定您的連線：
 
-   1. 選取 [透過內部部署資料閘道連線]。 
+   1. 選取 [透過內部部署資料閘道連線]  。 
 
-   2. 針對 [閘道]，選取您先前建立的閘道資源。 
+   2. 針對 [閘道]  ，選取您先前建立的閘道資源。 
 
       雖然閘道連線位置必須與邏輯應用程式位於相同區域，但您可以選取不同區域中的閘道。
 
@@ -109,7 +109,7 @@ ms.locfileid: "65546266"
 
       ![建立邏輯應用程式與資料閘道之間的連線](./media/logic-apps-gateway-connection/blankconnection.png)
 
-   4. 完成之後，請選擇 [建立]。 
+   4. 完成之後，請選擇 [建立]  。 
 
 您的閘道連線現已可供邏輯應用程式使用。
 
@@ -119,16 +119,16 @@ ms.locfileid: "65546266"
 
 1. 尋找您的閘道連線：
 
-   * 若只要尋找邏輯應用程式的所有 API 連線，請在邏輯應用程式功能表的 [開發工具] 底下，選取 [API 連線]。 
+   * 若只要尋找邏輯應用程式的所有 API 連線，請在邏輯應用程式功能表的 [開發工具]  底下，選取 [API 連線]  。 
    
      ![移至邏輯應用程式，選取 [API 連線]](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
    * 若要尋找與您的 Azure 訂用帳戶相關聯的所有 API 連線： 
 
-     * 從主要 Azure 功能表，移至 [所有資源] > [Web] > [API 連線]。 
-     * 或者，從主要 Azure 功能表，移至 [所有資源]。
+     * 從主要 Azure 功能表，移至 [所有資源]   > [Web]   > [API 連線]  。 
+     * 或者，從主要 Azure 功能表，移至 [所有資源]  。
 
-2. 選取您想要的閘道連線，然後選擇 [編輯 API 連線]。
+2. 選取您想要的閘道連線，然後選擇 [編輯 API 連線]  。
 
    > [!TIP]
    > 如果您的更新未生效，請嘗試[先停止再重新啟動閘道 Windows 服務](./logic-apps-gateway-install.md#restart-gateway)。
@@ -139,13 +139,13 @@ ms.locfileid: "65546266"
 
 若要建立不同的閘道資源、讓閘道與其他資源相關連，或是要移除閘道資源，您可以直接刪除閘道資源，這並不會影響閘道安裝。 
 
-1. 從主要 Azure 功能表，移至 [所有資源]。 
+1. 從主要 Azure 功能表，移至 [所有資源]  。 
 
 2. 尋找並選取您的閘道資源。
 
-3. 如果尚未選取，請在您的閘道資源功能表上選取 [內部部署資料閘道]。 
+3. 如果尚未選取，請在您的閘道資源功能表上選取 [內部部署資料閘道]  。 
 
-4. 在資源工具列上，選擇 [刪除]。
+4. 在資源工具列上，選擇 [刪除]  。
 
 <a name="faq"></a>
 

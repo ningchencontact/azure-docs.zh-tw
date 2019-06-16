@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 06/06/2018
 ms.author: tomfitz
 ms.openlocfilehash: 0dfbfa73009b5fa47dd7bb0804b612d0c2ad0a5a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61062247"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>解決找不到 Azure 資源的錯誤
@@ -68,7 +68,7 @@ Resource Manager 需要擷取資源的屬性，但是無法識別您訂用帳戶
 
    ![選取部署歷程記錄](./media/resource-manager-not-found-errors/select-deployment.png)
 
-2. 從歷程記錄中選取部署，然後選取 [事件]。
+2. 從歷程記錄中選取部署，然後選取 [事件]  。
 
    ![選取部署事件](./media/resource-manager-not-found-errors/select-deployment-events.png)
 

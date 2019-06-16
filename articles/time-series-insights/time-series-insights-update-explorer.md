@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/03/2019
 ms.custom: seodec18
 ms.openlocfilehash: c4f3053063ce33d2777387da2c53effd61b05f1a
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399866"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>在總管中將資料視覺化 (預覽)
@@ -208,7 +208,7 @@ Azure 時間序列深入解析預覽支援兩種佈景主題：
 | `<`, `>`, `<=`, `>=` | Double、DateTime、TimeSpan | |
 | `=`, `!=`, `<>` | String、Bool、Double、DateTime、TimeSpan、NULL |
 | `IN` | String、Bool、Double、DateTime、TimeSpan、NULL | 所有的運算元都應該是相同的類型或是 NULL 常數。 |
-| `HAS` | String | 只有常數字串常值可以在右邊。 不允許空字串和 NULL。 |
+| `HAS` | 字串 | 只有常數字串常值可以在右邊。 不允許空字串和 NULL。 |
 
 若要深入了解支援的查詢作業和資料類型，請參閱[時間序列運算式 (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx)。
 

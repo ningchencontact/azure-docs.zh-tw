@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
 ms.openlocfilehash: 638c06e1854504dcb7ff34b1d9df56694556c421
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939785"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>Azure Service Fabric Reliable Services 中的 ASP.NET Core
@@ -62,9 +62,9 @@ Reliable Service 執行個體是由您衍生自 `StatelessService` 或 `Stateful
 `ICommunicationListener` Kestrel 和 HTTP.sys 中的實作`Microsoft.ServiceFabric.AspNetCore.*`NuGet 套件有類似的使用模式。 但執行的是針對每個 web 伺服器的動作稍有不同。 
 
 這兩種通訊接聽程式都會提供使用下列引數的建構函式︰
- - **`ServiceContext serviceContext`**：這是`ServiceContext`物件，其中包含執行中服務的相關資訊。
- - **`string endpointName`**：這是名稱`Endpoint`在 ServiceManifest.xml 中的組態。 它主要是由兩個通訊接聽程式的不同位置。 HTTP.sys*需要*`Endpoint`組態，而 Kestrel 不會。
- - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**：這是 lambda 可實作您，在您建立並傳回`IWebHost`。 它可讓您設定`IWebHost`您通常會在 ASP.NET Core 應用程式的方式。 Lambda 會為您提供所產生的 URL，在您使用的 Service Fabric 整合選項而定，`Endpoint`您提供的組態。 然後，您可以修改，或使用該 URL 來啟動 web 伺服器。
+ - **`ServiceContext serviceContext`** ：這是`ServiceContext`物件，其中包含執行中服務的相關資訊。
+ - **`string endpointName`** ：這是名稱`Endpoint`在 ServiceManifest.xml 中的組態。 它主要是由兩個通訊接聽程式的不同位置。 HTTP.sys*需要*`Endpoint`組態，而 Kestrel 不會。
+ - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** ：這是 lambda 可實作您，在您建立並傳回`IWebHost`。 它可讓您設定`IWebHost`您通常會在 ASP.NET Core 應用程式的方式。 Lambda 會為您提供所產生的 URL，在您使用的 Service Fabric 整合選項而定，`Endpoint`您提供的組態。 然後，您可以修改，或使用該 URL 來啟動 web 伺服器。
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric 整合中介軟體
 `Microsoft.ServiceFabric.AspNetCore` NuGet 套件會包含`UseServiceFabricIntegration`擴充方法`IWebHostBuilder`新增 Service Fabric – 感知的中介軟體。 此中介軟體會設定 Kestrel 或 HTTP.sys`ICommunicationListener`向 Service Fabric 命名服務註冊唯一服務 URL。 然後，它會驗證用戶端要求，以確保用戶端連線至正確的服務。 
@@ -506,7 +506,7 @@ Kestrel 是建議的 web 伺服器前端公開於外部、 網際網路 HTTP 端
 | Web 伺服器 | Kestrel | 雖然您可以針對內部的無狀態服務使用 HTTP.sys，Kestrel 就會是最佳的伺服器，以允許多個服務執行個體共用主機。  |
 | 連接埠組態 | 動態指派 | 多個具狀態服務複本可能共用主機處理序或主機作業系統，因此需要唯一的連接埠。 |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | 使用動態連接埠指派，此設定可防止稍早所述的誤用識別問題。 |
-| InstanceCount | 任意 | 執行個體計數設定可以設定為操作本服務所需的任何值。 |
+| InstanceCount | any | 執行個體計數設定可以設定為操作本服務所需的任何值。 |
 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>僅供內部使用的具狀態 ASP.NET Core 服務
 只會從叢集內呼叫的具狀態服務應該使用動態指派連接埠，以確保多個服務之間的合作。 建議使用下列設定：
@@ -515,7 +515,7 @@ Kestrel 是建議的 web 伺服器前端公開於外部、 網際網路 HTTP 端
 | --- | --- | --- |
 | Web 伺服器 | Kestrel | `HttpSysCommunicationListener`不設計由複本共用主機處理序的具狀態服務使用。 |
 | 連接埠組態 | 動態指派 | 多個具狀態服務複本可能共用主機處理序或主機作業系統，因此需要唯一的連接埠。 |
-| ServiceFabricIntegrationOptions | UseUniqueServiceUrl | 通过动态端口分配，此设置可以防止前面所述的错误标识问题。 |
+| ServiceFabricIntegrationOptions | UseUniqueServiceUrl | 使用動態連接埠指派，此設定可防止稍早所述的誤用識別問題。 |
 
 ## <a name="next-steps"></a>後續步驟
 [使用 Visual Studio 偵錯 Service Fabric 應用程式](service-fabric-debugging-your-application.md)

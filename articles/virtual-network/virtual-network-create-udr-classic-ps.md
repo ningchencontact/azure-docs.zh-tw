@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.openlocfilehash: 1441ee9a3d4a563ab35cd9b01e8347d8f51b827a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60743347"
 ---
-# <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>使用 PowerShell 控制路由和使用虚拟设备（经典）
+# <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>透過 PowerShell 控制路由和使用虛擬應用裝置 (傳統)
 
 > [!div class="op_single_selector"]
 > * [PowerShell](tutorial-create-route-table-powershell.md)
@@ -69,7 +69,7 @@ ms.locfileid: "60743347"
     -RouteTableName UDR-FrontEnd
     ```
 
-## <a name="create-the-udr-for-the-back-end-subnet"></a>为后端子网创建 UDR
+## <a name="create-the-udr-for-the-back-end-subnet"></a>建立後端子網路的 UDR
 若要根據案例建立後端子網路所需的路由表和路徑，完成下列步驟：
 
 1. 執行下列命令，建立後端子網路的路由表：
@@ -99,7 +99,7 @@ ms.locfileid: "60743347"
     -RouteTableName UDR-BackEnd
     ```
 
-## <a name="enable-ip-forwarding-on-the-fw1-vm"></a>在 FW1 VM 上启用 IP 转发
+## <a name="enable-ip-forwarding-on-the-fw1-vm"></a>啟用 FW1 VM 上的 IP 轉送
 
 若要啟用 FW1 VM 中的 IP 轉送，完成下列步驟：
 

@@ -10,10 +10,10 @@ ms.date: 04/29/2019
 ms.author: danlep
 ms.custom: ''
 ms.openlocfilehash: dc516277d79e37500e73e1aee6b88c908acb9b1c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943992"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Azure 容器執行個體的安全性考量
@@ -115,7 +115,7 @@ ms.locfileid: "64943992"
 
 * [適用於容器的 azure 監視器](../azure-monitor/insights/container-insights-overview.md)來監視您的工作負載部署到裝載在 Azure Kubernetes Service (AKS) 中的 Kubernetes 環境的效能。 適用於容器的 Azure 監視器可藉由透過計量 API 從 Kubernetes 中取得的控制器、節點與容器來收集記憶體與處理器計量，為您提供效能可見度。 
 
-* [Azure 容器監視解決方案](../azure-monitor/insights/containers.md)協助您檢視及管理其他 Docker 和 Windows 容器主機，在單一位置。 例如︰
+* [Azure 容器監視解決方案](../azure-monitor/insights/containers.md)協助您檢視及管理其他 Docker 和 Windows 容器主機，在單一位置。 例如:
 
   * 檢視會顯示與容器搭配使用的命令的詳細的稽核資訊。 
   * 對容器進行檢視及搜尋集中式記錄檔，而不需從遠端檢視 Docker 或 Windows 主機的疑難排解。  

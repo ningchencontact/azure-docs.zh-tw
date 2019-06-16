@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: pabutler
 ms.openlocfilehash: 1dc6832fe09a610634ad934e3b173be6cc3331e6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942162"
 ---
 # <a name="update-an-existing-iot-edge-module-offer"></a>更新現有 IoT Edge 模組供應項目
@@ -46,15 +46,15 @@ ms.locfileid: "64942162"
 
 1.  登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)。
 
-2.  在 [所有供應項目] 之下，尋找您要更新的供應項目。
+2.  在 [所有供應項目]  之下，尋找您要更新的供應項目。
 
-3.  在 [SKU] 索引標籤中，按一下與 IoT Edge 模組映像關聯的 SKU，即可執行更新。
+3.  在 [SKU]  索引標籤中，按一下與 IoT Edge 模組映像關聯的 SKU，即可執行更新。
 
-4.  在 [Edge 模組映像] 下，選取 [+ 新增新的映像版本]，即可新增 IoT Edge 模組映像。
+4.  在 [Edge 模組映像]  下，選取 [+ 新增新的映像版本]  ，即可新增 IoT Edge 模組映像。
 
 5.  提供新的 IoT Edge 模組**映像版本**。 映像版本須遵循與舊版相同的標記指導方針。 版本格式應該是 X.Y.Z，其中 X、Y 和 Z 是整數。 請確認您提供的新版本大於所有先前的版本。
 
-6.  按一下 [發佈] 啟動工作流程，將新的 IoT Edge 模組版本發佈至 Microsoft Azure Marketplace。
+6.  按一下 [發佈]  啟動工作流程，將新的 IoT Edge 模組版本發佈至 Microsoft Azure Marketplace。
 
 ### <a name="add-a-new-sku"></a>新增 SKU
 
@@ -62,13 +62,13 @@ ms.locfileid: "64942162"
 
 1.  登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)。
 
-2.  在 [所有供應項目] 之下，尋找您要更新的供應項目。
+2.  在 [所有供應項目]  之下，尋找您要更新的供應項目。
 
-3.  在 [SKU] 索引標籤下方，按一下 [新增 SKU]，並在快顯視窗中提供 [SKU 識別碼]。
+3.  在 [SKU]  索引標籤下方，按一下 [新增 SKU]  ，並在快顯視窗中提供 [SKU 識別碼]  。
 
 4.  重新發行中所述的步驟將 IoT Edge 模組[IoT Edge 模組發佈至 Azure Marketplace](./cpp-publish-offer.md)。
 
-5.  選取 [發佈] 啟動工作流程，以發佈新 SKU。
+5.  選取 [發佈]  啟動工作流程，以發佈新 SKU。
 
 
 ### <a name="update-offer-marketplace-metadata"></a>更新供應項目市集中繼資料
@@ -77,11 +77,11 @@ ms.locfileid: "64942162"
 
 1.  登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)。
 
-2.  在 [所有供應項目] 下，尋找您要更新的供應項目。
+2.  在 [所有供應項目]  下，尋找您要更新的供應項目。
 
-3.  移至 [Marketplace ] 索引標籤。使用中的指示[IoT Edge 模組發佈至 Azure Marketplace](./cpp-publish-offer.md)文章，以進行中繼資料變更。
+3.  移至 [Marketplace ]  索引標籤。使用中的指示[IoT Edge 模組發佈至 Azure Marketplace](./cpp-publish-offer.md)文章，以進行中繼資料變更。
 
-4.  選取 [發佈] 啟動工作流程，以發佈變更。
+4.  選取 [發佈]  啟動工作流程，以發佈變更。
 
 ## <a name="compare-feature"></a>比較功能
 
@@ -89,7 +89,7 @@ ms.locfileid: "64942162"
 
 **使用「比較」功能：**
 
-1.  在編輯流程中的任何時間點，選取您供應項目的 [比較]。
+1.  在編輯流程中的任何時間點，選取您供應項目的 [比較]  。
 
     ![比較功能按鈕](./media/iot-edge-module-compare.png)
 
@@ -99,4 +99,4 @@ ms.locfileid: "64942162"
 
 ## <a name="history-of-publishing-actions"></a>發佈動作的記錄
 
-若要查看發佈活動記錄，請在 Cloud Partner 入口網站左邊導覽功能表列中，選擇 [記錄] 索引標籤。 您可以檢視在您的 Microsoft Azure Marketplace 供應項目生命週期期間發生的動作 (含時間戳記)。  <!-- Need to find correct link here:  legal time windowsFor more information, see [History page](cpp-history-page.md) -->
+若要查看發佈活動記錄，請在 Cloud Partner 入口網站左邊導覽功能表列中，選擇 [記錄]  索引標籤。 您可以檢視在您的 Microsoft Azure Marketplace 供應項目生命週期期間發生的動作 (含時間戳記)。  <!-- Need to find correct link here:  legal time windowsFor more information, see [History page](cpp-history-page.md) -->

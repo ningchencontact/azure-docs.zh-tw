@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
 ms.openlocfilehash: ea50506df53bfd586656d0030be4536d9d3b907d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122971"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>開始使用 Azure 資料表儲存體和 Visual Studio 已連線的服務 (ASP.NET)
@@ -24,14 +24,14 @@ ms.locfileid: "62122971"
 
 ## <a name="overview"></a>概觀
 
-Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。 Azure 資料表很適合儲存結構化、非關聯式資料。
+Azure 資料表儲存體可讓您儲存大量的結構化資料。 此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。 Azure 資料表很適合儲存結構化、非關聯式資料。
 
 本教學課程說明如何使用 Azure 表格儲存體實體撰寫一些常見案例的 ASP.NET 程式碼。 這些案例包括建立資料表，以及新增、查詢和刪除資料表實體。 
 
 ## <a name="prerequisites"></a>必要條件
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure 存储帐户](../storage/common/storage-quickstart-create-account.md)
+* [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -41,19 +41,19 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
 
 ### <a name="create-an-mvc-controller"></a>建立 MVC 控制器 
 
-1. 在 [方案總管] 中，用滑鼠右鍵按一下 [控制器]，然後從內容功能表中選取 [新增] > [控制器]。
+1. 在 [方案總管]  中，用滑鼠右鍵按一下 [控制器]  ，然後從內容功能表中選取 [新增] > [控制器]  。
 
     ![將控制器新增至 ASP.NET MVC 應用程式](./media/vs-storage-aspnet-getting-started-tables/add-controller-menu.png)
 
-1. 在 [Add Scaffold] 對話方塊中，按一下 [MVC 5 Controller - Empty]然後選取 [新增]。
+1. 在 [Add Scaffold]  對話方塊中，按一下 [MVC 5 Controller - Empty]  然後選取 [新增]  。
 
     ![指定 MVC 控制器類型](./media/vs-storage-aspnet-getting-started-tables/add-controller.png)
 
-1. 在 [新增控制器] 對話方塊中，將控制器命名為 TablesController，然後選取 [新增]。
+1. 在 [新增控制器]  對話方塊中，將控制器命名為 TablesController  ，然後選取 [新增]  。
 
     ![命名 MVC 控制器](./media/vs-storage-aspnet-getting-started-tables/add-controller-name.png)
 
-1. 将以下 using 指令添加到 `TablesController.cs` 文件：
+1. 將下列 using  指示詞新增至 `TablesController.cs` 檔案：
 
     ```csharp
     using Microsoft.Azure;
@@ -66,11 +66,11 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
 
 本文中的許多範例使用 **TableEntity**衍生的類別，稱為 **CustomerEntity**。 下列步驟會引導您宣告這個類別做為模型類別︰
 
-1. 在 [方案總管] 中，用滑鼠右鍵按一下 [模型]，然後從內容功能表中選取 [新增] > [類別]。
+1. 在 [方案總管]  中，用滑鼠右鍵按一下 [模型]  ，然後從內容功能表中選取 [新增] > [類別]  。
 
-1. 在 [新增項目] 對話方塊中，將類別命名為 **CustomerEntity**。
+1. 在 [新增項目]  對話方塊中，將類別命名為 **CustomerEntity**。
 
-1. 開啟 `CustomerEntity.cs` 檔案，並新增下列 using 指示詞：
+1. 開啟 `CustomerEntity.cs` 檔案，並新增下列 using  指示詞：
 
     ```csharp
     using Microsoft.WindowsAzure.Storage.Table;
@@ -114,7 +114,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     }
     ```
 
-1. 在 **CreateTable** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **CreateTable** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name>  變更為您正在存取的 Azure 儲存體帳戶名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -127,13 +127,13 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
-1. 获取表示所需表名称引用的 **CloudTable** 对象。 **CloudTableClient.GetTableReference** 方法不會進行對表格儲存體的要求。 無論資料表是否存在都會傳回參考。 
+1. 取得 **CloudTable** 物件，代表所需資料表名稱的參考。 **CloudTableClient.GetTableReference** 方法不會進行對表格儲存體的要求。 無論資料表是否存在都會傳回參考。 
    
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. 如果表不存在，则调用 **CloudTable.CreateIfNotExists** 方法来创建表。 如果容器不存在且已成功建立，則 **CloudTable.CreateIfNotExists** 方法會傳回 **true**。 否則，會傳回 **false**。    
+1. 呼叫 **CloudTable.CreateIfNotExists** 方法來建立資料表 (如果尚不存在)。 如果容器不存在且已成功建立，則 **CloudTable.CreateIfNotExists** 方法會傳回 **true**。 否則，會傳回 **false**。    
 
     ```csharp
     ViewBag.Success = table.CreateIfNotExists();
@@ -145,9 +145,9 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     ViewBag.TableName = table.Name;
     ```
 
-1. 在 [方案總管] 中，展開 [檢視] 資料夾、用滑鼠右鍵按一下 [資料表]，然後從內容功能表中選取 [新增] > [檢視]。
+1. 在 [方案總管]  中，展開 [檢視]  資料夾、用滑鼠右鍵按一下 [資料表]  ，然後從內容功能表中選取 [新增] > [檢視]  。
 
-1. 在 [新增檢視] 對話方塊中，針對檢視名稱輸入 **CreateTable**，然後選取 [新增]。
+1. 在 [新增檢視]  對話方塊中，針對檢視名稱輸入 **CreateTable**，然後選取 [新增]  。
 
 1. 開啟 `CreateTable.cshtml` 並加以修改，以便其如下列程式碼片段所示：
 
@@ -161,7 +161,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     Creation of @ViewBag.TableName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. 在 [方案總管] 中，展開 **檢視-> 共用** 資料夾，然後開啟 `_Layout.cshtml`。
+1. 在 [方案總管]  中，展開 **檢視-> 共用** 資料夾，然後開啟 `_Layout.cshtml`。
 
 1. 在最後一個 **Html.ActionLink** 之後，新增下列 **Html.ActionLink**：
 
@@ -177,8 +177,8 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
 
 ## <a name="add-an-entity-to-a-table"></a>將實體新增至資料表
 
-使用衍生自 **TableEntity** 的自訂類別，將實體對應至 C\# 物件。 若要將實體新增至資料表，請建立一個類別來定義實體的屬性。 在本節中，您將了解如何定義一個使用客戶名字作為資料列索引鍵、並使用姓氏作為資料分割索引鍵的實體類別。 实体的分区键和行键共同唯一地标识表中的实体。 查詢具有相同分割區索引鍵的實體，其速度快於查詢具有不同分割區索引鍵的實體，但使用不同的資料分割索引鍵可提供更佳的延展性或平行作業。 應該儲存在資料表服務中的任何屬性，都必須是公開設定和擷取值之支援類型的公用屬性。
-實體類別必須宣告公用的無參數建構函式。
+使用衍生自 **TableEntity** 的自訂類別，將實體  對應至 C\# 物件。 若要將實體新增至資料表，請建立一個類別來定義實體的屬性。 在本節中，您將了解如何定義一個使用客戶名字作為資料列索引鍵、並使用姓氏作為資料分割索引鍵的實體類別。 實體的資料分割索引鍵和資料列索引鍵共同唯一識別資料表中的實體。 查詢具有相同分割區索引鍵的實體，其速度快於查詢具有不同分割區索引鍵的實體，但使用不同的資料分割索引鍵可提供更佳的延展性或平行作業。 應該儲存在資料表服務中的任何屬性，都必須是公開設定和擷取值之支援類型的公用屬性。
+實體類別必須  宣告公用的無參數建構函式。
 
 > [!NOTE]
 > 
@@ -203,7 +203,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     }
     ```
 
-1. 在 **AddEntity** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **AddEntity** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name>  變更為您正在存取的 Azure 儲存體帳戶名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -235,7 +235,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     TableOperation insertOperation = TableOperation.Insert(customer1);
     ```
 
-1. 呼叫 **CloudTable.Execute** 方法以執行插入作業。 您可以檢查 **TableResult.HttpStatusCode** 屬性，以確認作業的結果。 状态代码为 2xx 指示客户端请求的操作已成功处理。 例如，成功插入新實體會造成 HTTP 狀態碼 204，這表示已成功處理作業且伺服器未傳回任何內容。
+1. 呼叫 **CloudTable.Execute** 方法以執行插入作業。 您可以檢查 **TableResult.HttpStatusCode** 屬性，以確認作業的結果。 狀態碼 2xx 表示已成功處理用戶端所要求的動作。 例如，成功插入新實體會造成 HTTP 狀態碼 204，這表示已成功處理作業且伺服器未傳回任何內容。
 
     ```csharp
     TableResult result = table.Execute(insertOperation);
@@ -248,9 +248,9 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     ViewBag.Result = result.HttpStatusCode;
     ```
 
-1. 在 [方案總管] 中，展開 [檢視] 資料夾、用滑鼠右鍵按一下 [資料表]，然後從內容功能表中選取 [新增] > [檢視]。
+1. 在 [方案總管]  中，展開 [檢視]  資料夾、用滑鼠右鍵按一下 [資料表]  ，然後從內容功能表中選取 [新增] > [檢視]  。
 
-1. 在 [新增檢視] 對話方塊中，針對檢視名稱輸入 **AddEntity**，然後選取 [新增]。
+1. 在 [新增檢視]  對話方塊中，針對檢視名稱輸入 **AddEntity**，然後選取 [新增]  。
 
 1. 開啟 `AddEntity.cshtml` 並加以修改，以便其如下列程式碼片段所示：
 
@@ -263,7 +263,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
 
     Insert of entity into @ViewBag.TableName @(ViewBag.Result == 204 ? "succeeded" : "failed")
     ```
-1. 在 [方案總管] 中，展開 **檢視-> 共用** 資料夾，然後開啟 `_Layout.cshtml`。
+1. 在 [方案總管]  中，展開 **檢視-> 共用** 資料夾，然後開啟 `_Layout.cshtml`。
 
 1. 在最後一個 **Html.ActionLink** 之後，新增下列 **Html.ActionLink**：
 
@@ -298,7 +298,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     }
     ```
 
-1. 在 **AddEntity** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **AddEntity** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name>  變更為您正在存取的 Azure 儲存體帳戶名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -352,11 +352,11 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     return View(results);
     ```
 
-1. 在 [方案總管] 中，展開 [檢視] 資料夾、用滑鼠右鍵按一下 [資料表]，然後從內容功能表中選取 [新增] > [檢視]。
+1. 在 [方案總管]  中，展開 [檢視]  資料夾、用滑鼠右鍵按一下 [資料表]  ，然後從內容功能表中選取 [新增] > [檢視]  。
 
-1. 在 [新增檢視] 對話方塊中，針對檢視名稱輸入 **AddEntity**，然後選取 [新增]。
+1. 在 [新增檢視]  對話方塊中，針對檢視名稱輸入 **AddEntity**，然後選取 [新增]  。
 
-1. 打开 `AddEntities.cshtml`并对其进行修改，使之看起来如下所示。
+1. 開啟 `AddEntities.cshtml` 並加以修改，以便其如下列所示。
 
     ```csharp
     @model IEnumerable<Microsoft.WindowsAzure.Storage.Table.TableResult>
@@ -383,7 +383,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     </table>
     ```
 
-1. 在 [方案總管] 中，展開 **檢視-> 共用** 資料夾，然後開啟 `_Layout.cshtml`。
+1. 在 [方案總管]  中，展開 **檢視-> 共用** 資料夾，然後開啟 `_Layout.cshtml`。
 
 1. 在最後一個 **Html.ActionLink** 之後，新增下列 **Html.ActionLink**：
 
@@ -405,7 +405,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
 > 
 > 本節假設您已完成[設定開發環境](#set-up-the-development-environment)中的步驟，並使用來自[將一批實體新增至資料表](#add-a-batch-of-entities-to-a-table)的資料。 
 
-1. 打开 `TablesController.cs` 文件。
+1. 開啟 `TablesController.cs` 檔案。
 
 1. 新增名為 **GetSingle** 的方法，其會傳回 **ActionResult**。
 
@@ -418,7 +418,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     }
     ```
 
-1. 在 **GetSingle** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **GetSingle** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name>  變更為您正在存取的 Azure 儲存體帳戶名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -437,7 +437,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. 建立擷取作業物件，其採用衍生自 **TableEntity** 的實體物件。 第一個參數是 partitionKey，而第二個參數是 rowKey。 使用[將一批實體新增至資料表](#add-a-batch-of-entities-to-a-table)一節中顯示的 **CustomerEntity** 類別和資料，下列程式碼片段可查詢資料表中是否有 *partitionKey* 值為 "Smith" 且 rowKey 值為 "Ben"的 **CustomerEntity** 實體：
+1. 建立擷取作業物件，其採用衍生自 **TableEntity** 的實體物件。 第一個參數是 partitionKey  ，而第二個參數是 rowKey  。 使用[將一批實體新增至資料表](#add-a-batch-of-entities-to-a-table)一節中顯示的 **CustomerEntity** 類別和資料，下列程式碼片段可查詢資料表中是否有 *partitionKey* 值為 "Smith" 且 rowKey  值為 "Ben"的 **CustomerEntity** 實體：
 
     ```csharp
     TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
@@ -455,9 +455,9 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     return View(result);
     ```
 
-1. 在 [方案總管] 中，展開 [檢視] 資料夾、用滑鼠右鍵按一下 [資料表]，然後從內容功能表中選取 [新增] > [檢視]。
+1. 在 [方案總管]  中，展開 [檢視]  資料夾、用滑鼠右鍵按一下 [資料表]  ，然後從內容功能表中選取 [新增] > [檢視]  。
 
-1. 在 [新增檢視] 對話方塊中，針對檢視名稱輸入 **GetSingle**，然後選取 [新增]。
+1. 在 [新增檢視]  對話方塊中，針對檢視名稱輸入 **GetSingle**，然後選取 [新增]  。
 
 1. 開啟 `GetSingle.cshtml` 並加以修改，以便其如下列程式碼片段所示：
 
@@ -485,7 +485,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     </table>
     ```
 
-1. 在 [方案總管] 中，展開 **檢視-> 共用** 資料夾，然後開啟 `_Layout.cshtml`。
+1. 在 [方案總管]  中，展開 **檢視-> 共用** 資料夾，然後開啟 `_Layout.cshtml`。
 
 1. 在最後一個 **Html.ActionLink** 之後，新增下列 **Html.ActionLink**：
 
@@ -518,7 +518,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     }
     ```
 
-1. 在 **GetPartition** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **GetPartition** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name>  變更為您正在存取的 Azure 儲存體帳戶名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -545,7 +545,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
         .Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
     ```
 
-1. 在迴圈內呼叫 **CloudTable.ExecuteQuerySegmented** 方法，以傳遞您在上一個步驟中具現化的查詢物件。  **CloudTable.ExecuteQuerySegmented** 方法會傳回 **TableContinuationToken** 物件 - 若為 **null**，表示再也沒有要擷取的實體。 在循环中，使用另一个循环来循环访问返回的实体。 在下列程式碼範例中，每個傳回的實體都會新增至清單。 一旦迴圈結束後，清單會傳遞至檢視顯示︰ 
+1. 在迴圈內呼叫 **CloudTable.ExecuteQuerySegmented** 方法，以傳遞您在上一個步驟中具現化的查詢物件。  **CloudTable.ExecuteQuerySegmented** 方法會傳回 **TableContinuationToken** 物件 - 若為 **null**，表示再也沒有要擷取的實體。 在迴圈內，使用另一個迴圈來逐一查看所傳回的實體。 在下列程式碼範例中，每個傳回的實體都會新增至清單。 一旦迴圈結束後，清單會傳遞至檢視顯示︰ 
 
     ```csharp
     List<CustomerEntity> customers = new List<CustomerEntity>();
@@ -564,9 +564,9 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     return View(customers);
     ```
 
-1. 在“解决方案资源管理器”中展开“Views”文件夹，右键单击“表”，然后从上下文菜单中选择“添加”->“视图”。
+1. 在 [方案總管]  中，展開 [檢視]  資料夾、用滑鼠右鍵按一下 [資料表]  ，然後從內容功能表中選取 [新增] > [檢視]  。
 
-1. 在 [新增檢視] 對話方塊中，針對檢視名稱輸入 **GetPartition**，然後選取 [新增]。
+1. 在 [新增檢視]  對話方塊中，針對檢視名稱輸入 **GetPartition**，然後選取 [新增]  。
 
 1. 開啟 `GetPartition.cshtml` 並加以修改，以便其如下列程式碼片段所示：
 
@@ -595,7 +595,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     </table>
     ```
 
-1. 在 [方案總管] 中，展開 **檢視-> 共用** 資料夾，然後開啟 `_Layout.cshtml`。
+1. 在 [方案總管]  中，展開 **檢視-> 共用** 資料夾，然後開啟 `_Layout.cshtml`。
 
 1. 在最後一個 **Html.ActionLink** 之後，新增下列 **Html.ActionLink**：
 
@@ -628,7 +628,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     }
     ```
 
-1. 在 **DeleteEntity** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name> 變更為您正在存取的 Azure 儲存體帳戶名稱。)
+1. 在 **DeleteEntity** 方法內，取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。 使用下列程式碼，從 Azure 服務組態取得儲存體連接字串和儲存體帳戶資訊：(將 &lt;storage-account-name>  變更為您正在存取的 Azure 儲存體帳戶名稱。)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -666,9 +666,9 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     return View(result);
     ```
 
-1. 在 [方案總管] 中，展開 [檢視] 資料夾、用滑鼠右鍵按一下 [資料表]，然後從內容功能表中選取 [新增] > [檢視]。
+1. 在 [方案總管]  中，展開 [檢視]  資料夾、用滑鼠右鍵按一下 [資料表]  ，然後從內容功能表中選取 [新增] > [檢視]  。
 
-1. 在 [新增檢視] 對話方塊中，針對檢視名稱輸入 **DeleteEntity**，然後選取 [新增]。
+1. 在 [新增檢視]  對話方塊中，針對檢視名稱輸入 **DeleteEntity**，然後選取 [新增]  。
 
 1. 開啟 `DeleteEntity.cshtml` 並加以修改，以便其如下列程式碼片段所示：
 
@@ -695,7 +695,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
 
     ```
 
-1. 在 [方案總管] 中，展開 **檢視-> 共用** 資料夾，然後開啟 `_Layout.cshtml`。
+1. 在 [方案總管]  中，展開 **檢視-> 共用** 資料夾，然後開啟 `_Layout.cshtml`。
 
 1. 在最後一個 **Html.ActionLink** 之後，新增下列 **Html.ActionLink**：
 
@@ -711,4 +711,4 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
 如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
 
   * [開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務 (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
-  * [Azure 队列存储和 Visual Studio 连接服务入门 (ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)
+  * [開始使用 Azure 佇列儲存體和 Visual Studio 已連線的服務 (ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)

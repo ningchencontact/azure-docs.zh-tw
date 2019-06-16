@@ -12,10 +12,10 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 688ef059387dc4c312873051c7c9d1eae259b1ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61429873"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>使用 SSIS 連接器從 Azure Blob 儲存體來回移動資料
@@ -42,7 +42,7 @@ ms.locfileid: "61429873"
 
 若要使用 **SSIS 連接器**，您必須下載:
 
-* **SQL Server 2014 或 2016 Standard (或更新版本)**：安裝隨附 SQL Server Integration Services。
+* **SQL Server 2014 或 2016 Standard (或更新版本)** ：安裝隨附 SQL Server Integration Services。
 * **適用於 Azure 的 Microsoft SQL Server 2014 或 2016 Integration Services 功能套件**：您可以分別從 [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) 和 [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) 頁面下載這些功能套件。
 
 > [!NOTE]

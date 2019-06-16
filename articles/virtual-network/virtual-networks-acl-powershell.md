@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: c43dacaf7bb5ab17fe740dd429e4a40dbc11bb6e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726925"
 ---
 # <a name="manage-endpoint-access-control-lists-using-powershell-in-the-classic-deployment-model"></a>在傳統部署模型中使用 PowerShell 來管理端點存取控制清單
-可以使用 Azure PowerShell 或在管理门户中为终结点创建和管理网络访问控制列表 (ACL)。 在本主題中，您會了解一些可使用 PowerShell 完成 ACL 一般工作的程序。 如需 Azure PowerShell Cmdlet 的清單，請參閱＜ [Azure 管理 Cmdlet](https://go.microsoft.com/fwlink/?LinkId=317721)＞。 如需有關 ACL 的詳細資訊，請參閱＜ [什麼是網路存取控制清單 (ACL)？](virtual-networks-acl.md)＞。 若您要使用管理入口網站來管理 ACL，請參閱[如何設定虛擬機器的端點](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
+您可以使用 Azure PowerShell 或在管理入口網站中建立和管理端點的網路存取控制清單 (ACL)。 在本主題中，您會了解一些可使用 PowerShell 完成 ACL 一般工作的程序。 如需 Azure PowerShell Cmdlet 的清單，請參閱＜ [Azure 管理 Cmdlet](https://go.microsoft.com/fwlink/?LinkId=317721)＞。 如需有關 ACL 的詳細資訊，請參閱＜ [什麼是網路存取控制清單 (ACL)？](virtual-networks-acl.md)＞。 若您要使用管理入口網站來管理 ACL，請參閱[如何設定虛擬機器的端點](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
 ## <a name="manage-network-acls-by-using-azure-powershell"></a>使用 Azure PowerShell 來管理網路 ACL
 您可以使用 Azure PowerShell Cmdlet 來建立、移除和設定 (Set) 網路存取控制清單 (ACL)。 我們已加入一些您可以使用 PowerShell 設定 ACL 方式的幾個範例。
@@ -36,7 +36,7 @@ ms.locfileid: "64726925"
 1. 建立新的網路 ACL 物件。
    
         $acl1 = New-AzureAclConfig
-2. 設定規則以允許從遠端子網路進行存取。 在下方範例中，您可以將規則設定為 100 (其中的優先順序高於 200 及以上) 以允許遠端子網路 10.0.0.0/8 存取虛擬機器端點。 根據您自己的組態需求來取代值。 「SharePoint ACL config」的名稱應該取代為您命名此規則的易記名稱。
+2. 設定規則以允許從遠端子網路進行存取。 在下方範例中，您可以將規則設定為 100  (其中的優先順序高於 200 及以上) 以允許遠端子網路 10.0.0.0/8  存取虛擬機器端點。 根據您自己的組態需求來取代值。 「SharePoint ACL config」的名稱應該取代為您命名此規則的易記名稱。
    
         Set-AzureAclConfig –AddRule –ACL $acl1 –Order 100 `
             –Action permit –RemoteSubnet "10.0.0.0/8" `

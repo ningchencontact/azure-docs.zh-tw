@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: jeconnoc
 ms.openlocfilehash: 4d8d3b93ef2a6347076fada53932b5fc56838d20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61435733"
 ---
 # <a name="how-to-configure-cloud-services"></a>如何設定雲端服務
 
-您可以在 Azure 入口網站中設定雲端服務的最常用設定。 或者，如果您想要直接更新組態檔，可以下載要更新的服務組態檔、上傳更新過的檔案，然後將雲端服務更新為使用這些組態變更。 无论使用哪种方法，配置更新都会应用于所有角色实例。
+您可以在 Azure 入口網站中設定雲端服務的最常用設定。 或者，如果您想要直接更新組態檔，可以下載要更新的服務組態檔、上傳更新過的檔案，然後將雲端服務更新為使用這些組態變更。 使用上述任一種方式，都會將組態更新推送到所有角色執行個體。
 
 您也可以管理雲端服務角色的執行個體，或從遠端桌面存取它們。
 
-如果每个角色至少具有两个角色实例，那么 Azure 在配置更新期间只能确保 99.95% 的服务可用性。 这使得一台虚拟机可以在另一台虚拟机更新时处理客户端请求。 如需詳細資訊，請參閱 [服務等級協定](https://azure.microsoft.com/support/legal/sla/)。
+每個角色至少必須有兩個角色執行個體，Azure 才能確保服務在組態更新期間有 99.95% 的可用性。 如此才能讓一個虛擬機器在受到更新時，還有另一個虛擬機器可以處理用戶端要求。 如需詳細資訊，請參閱 [服務等級協定](https://azure.microsoft.com/support/legal/sla/)。
 
 ## <a name="change-a-cloud-service"></a>變更雲端服務
 
@@ -35,7 +35,7 @@ ms.locfileid: "61435733"
 
 ![設定頁面](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
-[設定] 或 [所有設定] 連結將開啟 [設定]，讓您可以變更**屬性**、變更**設定**、管理**憑證**、設定**警示規則**，以及管理可存取此雲端服務的**使用者**。
+[設定]  或 [所有設定]  連結將開啟 [設定]  ，讓您可以變更**屬性**、變更**設定**、管理**憑證**、設定**警示規則**，以及管理可存取此雲端服務的**使用者**。
 
 ![Azure 雲端服務設定](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
@@ -43,7 +43,7 @@ ms.locfileid: "61435733"
 
 根據預設，Azure 會將客體作業系統定期更新為您在服務組態 (.cscfg) 中指定的作業系統系列內最新支援的映像，例如 Windows Server 2016。
 
-如果您需要將目標設為特定的作業系統版本，可以在 [設定] 中進行設定。
+如果您需要將目標設為特定的作業系統版本，可以在 [設定]  中進行設定。
 
 ![設定作業系統版本](./media/cloud-services-how-to-configure-portal/cs-settings-config-guestosversion.png)
 
@@ -52,11 +52,11 @@ ms.locfileid: "61435733"
 
 ## <a name="monitoring"></a>監視
 
-您可以將警示新增至雲端服務。 按一下 [設定] > [警示規則] > [新增警示]。
+您可以將警示新增至雲端服務。 按一下 [設定]   > [警示規則]   > [新增警示]  。
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
-您可以從這裡設定警示。 您可以使用 [計量] 下拉式方塊，以設定下列資料類型的警示。
+您可以從這裡設定警示。 您可以使用 [計量]  下拉式方塊，以設定下列資料類型的警示。
 
 * 磁碟讀取
 * 磁碟寫入
@@ -68,7 +68,7 @@ ms.locfileid: "61435733"
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>從計量圖格設定監視
 
-除了使用 [設定] > [警示規則]，您也可以在雲端服務的 [監視] 區段中，按一下其中一個計量圖格。
+除了使用 [設定]   > [警示規則]  ，您也可以在雲端服務的 [監視]  區段中，按一下其中一個計量圖格。
 
 ![雲端服務監視](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
@@ -90,7 +90,7 @@ ms.locfileid: "61435733"
 
 您可能需要透過[服務組態 (cscfg)](cloud-services-model-and-package.md#cscfg) 檔案來重新設定雲端服務。 首先，您需要下載 .cscfg 檔案，進行修改，然後上傳。
 
-1. 按一下 [設定] 圖示或 [所有設定] 連結，以開啟 [設定]。
+1. 按一下 [設定]  圖示或 [所有設定]  連結，以開啟 [設定]  。
 
     ![設定頁面](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 2. 按一下 [ **組態** ] 項目。

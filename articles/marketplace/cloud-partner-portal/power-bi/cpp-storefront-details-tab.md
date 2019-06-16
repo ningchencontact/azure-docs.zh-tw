@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: 0816e7a7add430a65af9b3948aa8626f9567053a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942631"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Power BI 應用程式店面詳細資料 索引標籤
@@ -54,7 +54,7 @@ ms.locfileid: "64942631"
 
 ## <a name="marketing-artifacts-section"></a>行銷成品區段
 
-在 **行銷構件**區段、 上傳品牌和行銷在 AppSource 上顯示的資料。  本節分為四個子區段：[標誌]、[影片]、[文件] 和 [螢幕擷取畫面]。 標誌和螢幕擷取畫面是唯一需要行銷構件。 但我們建議的最佳客戶吸引人，對新增影片和文件以及。
+在 **行銷構件**區段、 上傳品牌和行銷在 AppSource 上顯示的資料。  本節分為四個子區段：[標誌]  、[影片]  、[文件]  和 [螢幕擷取畫面]  。 標誌和螢幕擷取畫面是唯一需要行銷構件。 但我們建議的最佳客戶吸引人，對新增影片和文件以及。
 
 ![店面詳細資料索引標籤的行銷成品區段](./media/marketing-artifacts-section.png)
 
@@ -74,7 +74,7 @@ ms.locfileid: "64942631"
 | **檔案**                             | 上傳為 PDF 檔案。                             |
 | *螢幕擷取畫面\**                      | 新增最多五個螢幕擷取畫面。                        |
 | **名稱**                             | 輸入名稱或螢幕擷取畫面的標題。                                       |
-| **映像**                            | 上傳 PNG 螢幕擷取畫面。 其解析必須為 1280 x 720 像素。  | 
+| **影像**                            | 上傳 PNG 螢幕擷取畫面。 其解析必須為 1280 x 720 像素。  | 
 |   |   |
 
 您上傳至標誌[Cloud Partner 入口網站](https://cloudpartner.azure.com)應該*不*:

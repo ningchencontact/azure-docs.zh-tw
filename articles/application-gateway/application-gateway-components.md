@@ -1,5 +1,5 @@
 ---
-title: 应用程序网关组件
+title: 應用程式閘道的元件
 description: 本文提供的應用程式閘道中的各種元件的相關資訊
 services: application-gateway
 author: abshamsft
@@ -8,21 +8,21 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
 ms.openlocfilehash: f5dfa34760bcef23bf54d65b35e3ad8f48cc2ee5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831824"
 ---
-# <a name="application-gateway-components"></a>应用程序网关组件
+# <a name="application-gateway-components"></a>應用程式閘道的元件
 
- 应用程序网关充当客户端的单一联络点。 它會將應用程式的連入流量分散到多個後端集區，包括 Azure Vm、 虛擬機器擴展集、 Azure App Service，以及在內部部署/外部伺服器中。 若要將流量分散，應用程式閘道會使用這篇文章中所述的數個元件。
+ 應用程式閘道作為單一的用戶端的連絡點。 它會將應用程式的連入流量分散到多個後端集區，包括 Azure Vm、 虛擬機器擴展集、 Azure App Service，以及在內部部署/外部伺服器中。 若要將流量分散，應用程式閘道會使用這篇文章中所述的數個元件。
 
 ![中的應用程式閘道使用的元件](./media/application-gateway-components/application-gateway-components.png)
 
 ## <a name="frontend-ip-addresses"></a>前端 IP 位址
 
-前端 IP 位址是與應用程式閘道相關聯的 IP 位址。 您可以設定應用程式閘道有公用 IP 位址、 私人 IP 位址，或兩者。 應用程式閘道支援一個公用或私人 IP 位址。 虚拟网络和公共 IP 地址必须位于应用程序网关所在的同一位置。 在建立之後，前端 IP 位址是接聽程式相關聯。
+前端 IP 位址是與應用程式閘道相關聯的 IP 位址。 您可以設定應用程式閘道有公用 IP 位址、 私人 IP 位址，或兩者。 應用程式閘道支援一個公用或私人 IP 位址。 您的虛擬網路和公用 IP 位址必須位於與您的應用程式閘道相同的位置。 在建立之後，前端 IP 位址是接聽程式相關聯。
 
 ### <a name="static-versus-dynamic-public-ip-address"></a>靜態與動態公用 IP 位址
 
@@ -50,7 +50,7 @@ Azure 應用程式閘道 v2 SKU 支援這兩個靜態內部和靜態公用 IP �
 
 - 指定 HTTP 和 HTTPS 通訊協定接聽程式組態中。
 - 支援[Websocket 及 HTTP/2 通訊協定](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic)原生，提供並[WebSocket 支援](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket)預設會啟用。 使用者無法進行設定來選擇要啟用或停用 WebSocket 支援。 使用 HTTP 和 HTTPS 接聽程式使用 Websocket。
-- HTTP/2 通訊協定支援僅適用於連線到應用程式閘道接聽程式的用戶端。 與後端伺服器集區的通訊是透過 HTTP/1.1 進行的。 預設已停用 HTTP/2 支援。 可以选择启用该协议。
+- HTTP/2 通訊協定支援僅適用於連線到應用程式閘道接聽程式的用戶端。 與後端伺服器集區的通訊是透過 HTTP/1.1 進行的。 預設已停用 HTTP/2 支援。 您可以選擇啟用它。
 
 使用 SSL 終止的 HTTPS 接聽程式。 HTTPS 接聽程式會卸載應用程式閘道的加密和解密工作，讓您的 web 伺服器不負擔的額外負荷。 您的應用程式便可以專注於商務邏輯。
 
@@ -60,13 +60,13 @@ Azure 應用程式閘道 v2 SKU 支援這兩個靜態內部和靜態公用 IP �
 
 如需詳細資訊，請參閱 <<c0> [ 應用程式閘道的自訂錯誤網頁](https://docs.microsoft.com/azure/application-gateway/custom-error)。
 
-### <a name="types-of-listeners"></a>侦听器类型
+### <a name="types-of-listeners"></a>類型的接聽程式
 
-有两种类型的侦听器：
+有兩種類型的接聽程式：
 
 - **基本**。 這種類型的接聽程式接聽單一網域的站台，其單一的 DNS 對應至應用程式閘道的 IP 位址。 裝載應用程式閘道的單一站台時，需要此接聽程式組態。
 
-- **多站台**。 在同一个应用程序网关实例上配置多个 Web 应用程序时，需要使用此侦听器配置。 它可讓您藉由將一個應用程式閘道最多 100 個網站設定為您的部署更有效率的拓撲。 每個網站都可以導向到自己的後端集區。 比方說，三個的子網域、 abc.contoso.com、 xyz.contoso.com，與 pqr.contoso.com，端點的應用程式閘道的 IP 位址。 您會建立三個多站台接聽程式，並設定個別的連接埠和通訊協定設定的每個接聽程式。
+- **多站台**。 當您在相同的應用程式閘道執行個體上設定一個以上的 web 應用程式時需要此接聽程式組態。 它可讓您藉由將一個應用程式閘道最多 100 個網站設定為您的部署更有效率的拓撲。 每個網站都可以導向到自己的後端集區。 比方說，三個的子網域、 abc.contoso.com、 xyz.contoso.com，與 pqr.contoso.com，端點的應用程式閘道的 IP 位址。 您會建立三個多站台接聽程式，並設定個別的連接埠和通訊協定設定的每個接聽程式。
 
     如需詳細資訊，請參閱 <<c0> [ 多個站台裝載](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview)。
 
@@ -74,9 +74,9 @@ Azure 應用程式閘道 v2 SKU 支援這兩個靜態內部和靜態公用 IP �
 
 應用程式閘道會處理接聽程式在顯示的順序。 如果基本接聽程式符合傳入的要求，則會在第一次處理。 若要將流量路由至正確的後端，設定基本接聽程式之前的多站台接聽程式。
 
-## <a name="request-routing-rules"></a>请求路由规则
+## <a name="request-routing-rules"></a>要求路由規則
 
-要求的路由規則會是應用程式閘道的重要元件，因為它會決定如何將流量路由傳送接聽程式上。 该规则绑定侦听器、后端服务器池和后端 HTTP 设置。
+要求的路由規則會是應用程式閘道的重要元件，因為它會決定如何將流量路由傳送接聽程式上。 規則繫結接聽程式、 後端伺服器集區和後端 HTTP 設定。
 
 當接聽程式接受要求時，要求路由規則將要求轉寄到後端，或將它重新導向其他地方。 如果將要求轉送至後端，要求路由規則會定義將轉送到哪個後端伺服器集區。 此外，要求路由規則也會決定是否要重寫中要求的標頭。 一個接聽程式可以附加至一個規則。
 
@@ -90,7 +90,7 @@ Azure 應用程式閘道 v2 SKU 支援這兩個靜態內部和靜態公用 IP �
 
 ### <a name="redirection-support"></a>重新支援
 
-请求路由规则还允许重定向应用程序网关上的流量。 這是泛型重新導向機制，讓您可以重新導向至和您定義使用規則來從任何連接埠。
+要求路由規則也可讓您將應用程式閘道上的流量重新導向。 這是泛型重新導向機制，讓您可以重新導向至和您定義使用規則來從任何連接埠。
 
 您可以選擇另一個接聽程式 （這可協助啟用自動 HTTP 至 HTTPS 重新導向） 或外部網站的重新導向目標。 您也可以選擇要暫時或永久重新導向，或將 URI 路徑和查詢字串附加至重新導向的 URL。
 
@@ -135,7 +135,7 @@ Azure 應用程式閘道 v2 SKU 支援這兩個靜態內部和靜態公用 IP �
 
 應用程式閘道也可以進行通訊與內部部署伺服器如果允許流量連經由 Azure ExpressRoute 或 VPN 通道。
 
-可为不同类型的请求创建不同的后端池。 例如，建立一個後端集區，對於一般的要求，並要求您的應用程式的微服務的另一個後端集區。
+您可以建立不同的後端集區，針對不同類型的要求。 例如，建立一個後端集區，對於一般的要求，並要求您的應用程式的微服務的另一個後端集區。
 
 ## <a name="health-probes"></a>健康狀態探查
 

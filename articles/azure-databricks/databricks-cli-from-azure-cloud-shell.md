@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: mamccrea
 ms.openlocfilehash: dae481fb477223f149404c6a09cad024bc15cd90
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62108732"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>從 Azure Cloud Shell 使用 Databricks CLI
@@ -30,7 +30,7 @@ ms.locfileid: "62108732"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
  
-2. 從右上角，按一下 [Cloud Shell] 圖示。
+2. 從右上角，按一下 [Cloud Shell]  圖示。
 
    ![啟動 Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "啟動 Azure Cloud Shell")
 

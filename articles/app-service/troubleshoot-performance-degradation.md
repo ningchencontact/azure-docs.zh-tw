@@ -18,10 +18,10 @@ ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128444"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>針對 Azure App Service 中應用程式效能變慢的問題進行疑難排解
@@ -56,14 +56,14 @@ ms.locfileid: "62128444"
 每次發生服務中斷或效能降低時，Microsoft Azure 就會發出公告。 您可以在 [Azure 入口網站](https://portal.azure.com/)上追蹤服務的健康情況。 如需詳細資訊，請參閱[追蹤服務健全狀況](../monitoring-and-diagnostics/insights-service-health.md)。
 
 #### <a name="monitor-your-app"></a>監視應用程式
-此選項可讓您了解應用程式是否有任何問題。 在應用程式刀鋒視窗中，按一下 [要求和錯誤] 圖格。 [計量] 刀鋒視窗會顯示所有可以加入的計量。
+此選項可讓您了解應用程式是否有任何問題。 在應用程式刀鋒視窗中，按一下 [要求和錯誤]  圖格。 [計量]  刀鋒視窗會顯示所有可以加入的計量。
 
 某些您可能想用以監視應用程式的計量為
 
 * 平均記憶體工作集
-* 平均响应时间
+* 平均回應時間
 * CPU 時間
-* 内存工作集
+* 記憶體工作集
 * Requests
 
 ![監視應用程式效能](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
@@ -78,14 +78,14 @@ ms.locfileid: "62128444"
 
 端點監視能讓您設定從不同地理位置執行，且用來測試 Web URL 之回應時間和運作時間的 Web 測試。 這項測試會針對 Web URL 執行 HTTP GET 作業，以從每個位置判斷回應時間和執行時間。 各個已設定的位置會每隔五分鐘執行一次測試。
 
-運作時間是透過 HTTP 回應碼來加以監視，而回應時間的測量單位是毫秒。 如果 HTTP 回應碼大於或等於 400，或是當回應時間超過 30 秒時，監視測試即告失敗。 如果从所有指定的位置监视测试均成功，则终结点被视为可用。
+運作時間是透過 HTTP 回應碼來加以監視，而回應時間的測量單位是毫秒。 如果 HTTP 回應碼大於或等於 400，或是當回應時間超過 30 秒時，監視測試即告失敗。 如果所有指定位置上的端點監視測試全都成功，表示該端點可用。
 
 若要設定，請參閱[監視 Azure App Service 中的應用程式](web-sites-monitor.md)。
 
 同時，亦請參閱 [讓 Azure 網站保持運作以及端點監視 - 對談來賓 Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) 的端點監視影片。
 
 #### <a name="application-performance-monitoring-using-extensions"></a>使用擴充功能的應用程式效能監視
-您也可以利用「網站擴充功能」監視應用程式的效能。
+您也可以利用「網站擴充功能」  監視應用程式的效能。
 
 每個 App Service 應用程式都提供可擴充的管理端點，讓您得以運用一套以網站擴充功能形式部署的強大工具。 擴充功能包括： 
 
@@ -131,7 +131,7 @@ Application Insights Profiler 提供每個 Web 呼叫和追蹤之回應時間的
 #### <a name="use-the-diagnostics-tool"></a>使用診斷工具
 App Service 提供智慧型和互動式的體驗，可協助您對應用程式進行疑難排解，而且不需設定。 您的應用程式發生問題時，診斷工具將找出問題，並以正確的資訊引導您更輕鬆且快速地對問題進行疑難排解並解決。
 
-若要存取 App Service 診斷，請在 [Azure 入口網站](https://portal.azure.com)中瀏覽至您的 App Service 應用程式或 App Service Environment。 在左方導覽列中，按一下 [診斷並解決問題]。
+若要存取 App Service 診斷，請在 [Azure 入口網站](https://portal.azure.com)中瀏覽至您的 App Service 應用程式或 App Service Environment。 在左方導覽列中，按一下 [診斷並解決問題]  。
 
 #### <a name="use-the-kudu-debug-console"></a>使用 Kudu 偵錯主控台
 App Service 隨附可用於偵錯、探索、上傳檔案的偵錯主控台，以及可以取得您環境相關資訊的 JSON 端點。 此主控台稱為應用程式的 *Kudu 主控台*或 *SCM 儀表板*。

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/16/2018
 ms.author: vturecek
 ms.openlocfilehash: d27702983a4378becdbc67f3f156c92be3dc3af6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130087"
 ---
 # <a name="get-started-with-reliable-services"></a>開始使用 Reliable Service
@@ -41,7 +41,7 @@ Azure Service Fabric 應用程式包含一個或多個執行您的程式碼的�
 ## <a name="create-a-stateless-service"></a>建立無狀態服務
 無狀態服務是目前在雲端應用程式中做為基準的服務類型。 服務會視為無狀態，因為服務本身不包含需要可靠地儲存或設為高度可用的資料。 如果無狀態服務的執行個體關閉，其所有內部狀態都會遺失。 在此類型的服務中，狀態必須保存到外部存放區，例如 Azure 資料表或 SQL 資料庫中，才能成為高度可用且可靠。
 
-以管理員身分啟動 Visual Studio 2015 或 Visual Studio 2017，並建立新的 Service Fabric 應用程式專案，命名為 HelloWorld：
+以管理員身分啟動 Visual Studio 2015 或 Visual Studio 2017，並建立新的 Service Fabric 應用程式專案，命名為 HelloWorld  ：
 
 ![使用新增專案對話方塊來建立新的 Service Fabric 應用程式](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
@@ -57,7 +57,7 @@ Azure Service Fabric 應用程式包含一個或多個執行您的程式碼的�
 ## <a name="implement-the-service"></a>實作服務
 在服務專案中開啟 **HelloWorldStateless.cs** 檔案。 在 Service Fabric 中，服務可以執行任何商務邏輯。 服務 API 為您的程式碼提供兩個進入點：
 
-* 名为 *RunAsync* 的开放式入口点方法，可在其中开始执行任何工作负荷，包括长时间运行的计算工作负荷。
+* 開放式的進入點方法，稱為 *RunAsync*，您可以在這裡開始執行任何工作負載，包括長時間執行的計算工作負載。
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -75,7 +75,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-在本教學課程中，我們將著重在 `RunAsync()` 進入點方法。 可在其中立即开始运行代码。
+在本教學課程中，我們將著重在 `RunAsync()` 進入點方法。 這就是您可以立即開始執行程式碼的地方。
 專案範本包括 `RunAsync()` 的實作範例，它會遞增一個循環計數。
 
 > [!NOTE]
@@ -112,22 +112,22 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 此協調流程是由系統管理，可讓您的服務維持高度可用且正確平衡。
 
-`RunAsync()` 不应阻止同步。 RunAsync 的實作應該傳回工作或等待任何長時間執行或封鎖作業，以允許執行階段繼續執行。 請注意，在上一個範例的 `while(true)` 迴圈中，會使用 Task-returning `await Task.Delay()`。 如果您的工作負載必須同步封鎖，您應該使用 `Task.Run()` 在您的 `RunAsync` 實作中排定一個新的工作。
+`RunAsync()` 不應該同步封鎖。 RunAsync 的實作應該傳回工作或等待任何長時間執行或封鎖作業，以允許執行階段繼續執行。 請注意，在上一個範例的 `while(true)` 迴圈中，會使用 Task-returning `await Task.Delay()`。 如果您的工作負載必須同步封鎖，您應該使用 `Task.Run()` 在您的 `RunAsync` 實作中排定一個新的工作。
 
 取消您的工作負載是由所提供的取消語彙基元協調的協同努力。 系統會先等待您工作結束 (成功完成、取消或錯誤) 再繼續。 系統要求取消時，務必接受取消權杖、完成任何工作，並儘快結束 `RunAsync()`。
 
-在此无状态服务示例中，计数存储在本地变量中。 但是，因為這是無狀態服務，所儲存的值只針對其服務執行個體的目前生命週期而存在。 當服務移動或重新啟動時，值將會遺失。
+在這個無狀態服務範例中，計數會儲存在本機變數。 但是，因為這是無狀態服務，所儲存的值只針對其服務執行個體的目前生命週期而存在。 當服務移動或重新啟動時，值將會遺失。
 
 ## <a name="create-a-stateful-service"></a>建立具狀態服務
 Service Fabric 導入了一種可設定狀態的新服務。 具狀態服務能夠可靠地在服務本身維持狀態，和使用它的程式碼共置。 狀態是由 Service Fabric 設為高度可用，而不需要將狀態保存到外部存放區。
 
 若要將計數器值從無狀態轉換成高度可用且持續，即使服務移動或重新啟動亦然，您需要具狀態服務。
 
-在同一個 *HelloWorld* 應用程式中，於應用程式專案中的服務參考上按一下滑鼠右鍵並選取 [新增] -> [新增 Service Fabric 服務]，以加入新的服務。
+在同一個 *HelloWorld* 應用程式中，於應用程式專案中的服務參考上按一下滑鼠右鍵並選取 [新增] -> [新增 Service Fabric 服務]  ，以加入新的服務。
 
 ![將服務加入 Service Fabric 應用程式](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-選取  **.NET Core 2.0-> 具狀態服務**並將它命名*HelloWorldStateful*。 按一下 [確定]。
+選取  **.NET Core 2.0-> 具狀態服務**並將它命名*HelloWorldStateful*。 按一下 [確定]  。
 
 ![使用新增專案對話方塊來建立新的 Service Fabric 具狀態服務](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
@@ -179,14 +179,14 @@ var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<str
 
 可靠的集合可以儲存任何 .NET 類型 (包括您的自訂類型)，不過有幾個需要注意的事項：
 
-* Service Fabric 藉由在節點之間複寫  狀態來使您的狀態高度可用，而可靠的集合會將您的資料儲存到每個複本上的本機磁碟。 這表示所有儲存在可靠的集合中的項目必須可序列化 。 根據預設，可靠的集合使用 [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) 進行序列化，因此在您使用預設序列化程式時，請務必確定您的類型受到[資料合約序列化程式支援](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx)。
+* Service Fabric 藉由在節點之間複寫  狀態來使您的狀態高度可用，而可靠的集合會將您的資料儲存到每個複本上的本機磁碟。 這表示所有儲存在可靠的集合中的項目必須可序列化  。 根據預設，可靠的集合使用 [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) 進行序列化，因此在您使用預設序列化程式時，請務必確定您的類型受到[資料合約序列化程式支援](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx)。
 * 當您在可靠的集合上認可交易時，物件會複寫以獲得高可用性。 儲存在可靠集合中的物件會保留在服務中的本機記憶體。 這表示您有物件的本機參考。
   
    很重要的一點是，您不要改變那些物件的本機執行個體而不在交易中的可靠集合上執行更新作業。 這是因為不會自動複寫對本機物件執行個體所做的變更。 您必須將物件重新插入到字典中，或在字典上使用其中一個更新  方法。
 
 可靠狀態管理員會為您管理可靠的集合。 在您的服務中隨時隨地，您只需要以名稱向可靠狀態管理員要求可靠的集合。 可靠狀態管理員會確保您取回參考。 不建議您將可靠集合執行個體的參考儲存在類別成員變數或屬性中。 請特別小心以確保在服務生命週期中隨時將參考設定為執行個體。 可靠狀態管理員會為您處理這項工作，並且針對重複造訪最佳化。
 
-### <a name="transactional-and-asynchronous-operations"></a>事务和异步操作
+### <a name="transactional-and-asynchronous-operations"></a>交易式和非同步作業
 ```csharp
 using (ITransaction tx = this.StateManager.CreateTransaction())
 {
@@ -200,7 +200,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 可靠的集合與其 `System.Collections.Generic` 和 `System.Collections.Concurrent` 對應項目具有許多相同的作業 (LINQ 除外)。 可靠的集合上的作業是非同步的。 這是因為具備可靠集合的寫入作業執行 I/O 作業以將資料複寫並保存至磁碟。
 
-可靠的集合作業為「交易式」 作業，因此您可以在多個可靠的集合和作業之間維持狀態的一致。 比方說，您可能會從可靠佇列取出一個工作項目、對它執行作業，然後將結果儲存在可靠字典中，全都在單一交易中完成。 這會被視為不可部分完成的作業，而且它可保證整個作業都會成功，或整個作業都會回復。 如果您從佇列取消項目之後，但在您儲存結果之前發生錯誤，那麼會回復整個交易，且項目會保持在佇列中進行處理。
+可靠的集合作業為「交易式」  作業，因此您可以在多個可靠的集合和作業之間維持狀態的一致。 比方說，您可能會從可靠佇列取出一個工作項目、對它執行作業，然後將結果儲存在可靠字典中，全都在單一交易中完成。 這會被視為不可部分完成的作業，而且它可保證整個作業都會成功，或整個作業都會回復。 如果您從佇列取消項目之後，但在您儲存結果之前發生錯誤，那麼會回復整個交易，且項目會保持在佇列中進行處理。
 
 ## <a name="run-the-application"></a>執行應用程式
 現在我們回到 HelloWorld  應用程式。 您現在可以建置並部署您的服務。 當您按下 **F5**，您的應用程式會建置並部署至本機叢集。
@@ -221,7 +221,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 [深入了解可靠的集合](service-fabric-reliable-services-reliable-collections.md)
 
-[部署应用程序](service-fabric-deploy-remove-applications.md)
+[部署應用程式](service-fabric-deploy-remove-applications.md)
 
 [應用程式升級](service-fabric-application-upgrade.md)
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60877459"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>使用 Java SDK 在 Azure Data Lake Storage Gen1 上進行檔案系統作業
@@ -205,7 +205,7 @@ ms.locfileid: "60877459"
     promptEnterKey();
 
 ## <a name="build-and-run-the-application"></a>建置並執行應用程式
-1. 若要從 IDE 執行，請找到並按下 [執行] 按鈕。 若要從 Maven 執行，請使用 [exec: exec](https://www.mojohaus.org/exec-maven-plugin/exec-mojo.html)。
+1. 若要從 IDE 執行，請找到並按下 [執行]  按鈕。 若要從 Maven 執行，請使用 [exec: exec](https://www.mojohaus.org/exec-maven-plugin/exec-mojo.html)。
 2. 若要產生您可以從命令列執行的獨立 jar，請使用 [Maven 組件外掛程式](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html)建置內含所有相依性的 jar。 [GitHub 上的範例原始程式碼](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml)中的 pom.xml 有範例。
 
 ## <a name="next-steps"></a>後續步驟

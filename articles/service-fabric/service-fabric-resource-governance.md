@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: aljo, subramar
 ms.openlocfilehash: e011554e61411fddca034f024c30c2270593e07b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772530"
 ---
 # <a name="resource-governance"></a>資源管理
@@ -32,9 +32,9 @@ ms.locfileid: "60772530"
 
 Service Fabric 可依[服務套件](service-fabric-application-model.md)支援資源控管。 指派給服務套件的資源可以進一步在程式碼套件之間分配。 指定的資源限制也意謂著資源的保留。 Service Fabric 支援使用兩個內建的[計量](service-fabric-cluster-resource-manager-metrics.md)來指定每個服務套件的 CPU 與記憶體：
 
-* CPU (計量名稱`servicefabric:/_CpuCores`)：主機上提供的邏輯核心。 所有節點上的所有核心加權都相同。
+* CPU  (計量名稱`servicefabric:/_CpuCores`)：主機上提供的邏輯核心。 所有節點上的所有核心加權都相同。
 
-* 記憶體 (計量名稱`servicefabric:/_MemoryInMB`)：記憶體的單位為 MB，它會與電腦上可用的實體記憶體對應。
+* 記憶體  (計量名稱`servicefabric:/_MemoryInMB`)：記憶體的單位為 MB，它會與電腦上可用的實體記憶體對應。
 
 針對這兩個計量，[叢集資源管理員](service-fabric-cluster-resource-manager-cluster-description.md)會追蹤叢集總容量、叢集中每個節點上的負載，以及叢集中剩餘的資源數。 這兩個計量相當於其他任何使用者或自訂計量。 所有現有的功能都可以搭配這些計量使用：
 
@@ -56,9 +56,9 @@ Service Fabric 執行階段目前不提供資源的保留。 當開啟處理序�
 
 不過，有兩種情況其他處理序可能會爭用 CPU。 在這些情況下，我們範例中的處理序和容器可能會遇到擾鄰問題：
 
-* 混合有控管和無控管的服務和容器：如果使用者建立服務時沒有指定任何資源控管，執行階段會將它視為不會耗用任何資源，且能夠將它放在我們範例中的節點上。 在此情況下，這個新處理序會不客氣地耗用一些 CPU，犧牲已在節點上執行的服務。 這個問題有兩種解決方式。 不要在相同叢集上混合有控管和無控管的服務，或使用[放置條件約束](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)，讓這兩種類型的服務不會放在同一組節點上。
+* 混合有控管和無控管的服務和容器  ：如果使用者建立服務時沒有指定任何資源控管，執行階段會將它視為不會耗用任何資源，且能夠將它放在我們範例中的節點上。 在此情況下，這個新處理序會不客氣地耗用一些 CPU，犧牲已在節點上執行的服務。 這個問題有兩種解決方式。 不要在相同叢集上混合有控管和無控管的服務，或使用[放置條件約束](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)，讓這兩種類型的服務不會放在同一組節點上。
 
-* 在 Service Fabric 外 (例如，作業系統服務) 的節點上啟動另一個處理序時：在此情況下，Service Fabric 外的處理序也會與現有服務爭用 CPU。 這個問題的解決方法是設定節點容量時正確計入 OS 額外負荷，如下一節所述。
+* 在 Service Fabric 外 (例如，作業系統服務) 的節點上啟動另一個處理序時  ：在此情況下，Service Fabric 外的處理序也會與現有服務爭用 CPU。 這個問題的解決方法是設定節點容量時正確計入 OS 額外負荷，如下一節所述。
 
 ## <a name="cluster-setup-for-enabling-resource-governance"></a>設定叢集以啟用資源控管
 

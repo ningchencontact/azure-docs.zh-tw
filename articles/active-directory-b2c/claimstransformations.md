@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: c904ac9d4c59a467dd8402ec44682c3cbd03fd8d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511541"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
@@ -96,7 +96,7 @@ ms.locfileid: "66511541"
 | --------- | ----------- |----------- |
 | Id | 是 | 識別碼，其為對宣告轉換方法之參數的參考。 每個宣告轉換方法都有自己的值。 如需可用值的完整清單，請參閱宣告轉換表。 |
 | DataType | 是 | 參數的資料類型，例如字串、布林值、整數或日期時間，其會以自訂原則 XML 結構描述中的每個 DataType 列舉為依據。 此類型可用來正確地執行算術運算。 每個宣告轉換都有自己的值。 如需可用值的完整清單，請參閱[宣告轉換參考](#claims-transformations-reference)。 |
-| Value | 是 | 要逐字傳遞到轉換的值。 某些值是任意的，它們其中有一些是您從宣告轉換方法中選取的。 |
+| 值 | 是 | 要逐字傳遞到轉換的值。 某些值是任意的，它們其中有一些是您從宣告轉換方法中選取的。 |
 
 ### <a name="outputclaims"></a>OutputClaims
 

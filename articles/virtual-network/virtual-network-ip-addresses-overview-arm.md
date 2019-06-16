@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
 ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236349"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 位址類型及配置方法
@@ -85,12 +85,12 @@ ms.locfileid: "65236349"
 
 ### <a name="allocation-method"></a>配置方法
 
-基本和標準 SKU 的公用 IP 位址可支援「靜態」配置方法。  資源在建立時會獲得指派的 IP 位址，而此 IP 位址會在資源刪除時釋出。
+基本和標準 SKU 的公用 IP 位址可支援「靜態」  配置方法。  資源在建立時會獲得指派的 IP 位址，而此 IP 位址會在資源刪除時釋出。
 
-基本 SKU 的公用 IP 位址也支援「動態」配置方法，這是未指定配置方法時的預設值。  為基本公用 IP 位址選取「動態」配置方法，則表示**不會**在資源建立時配置 IP 位址。  公用 IP 位址會在您讓公用 IP 位址與虛擬機器產生關聯時配置，或是當您將第一個虛擬機器執行個體放到基本負載平衡器的後端集區時配置。   此 IP 位址會在您停止 (或刪除) 資源時釋出 。  例如，在從資源 A 釋出後，您就能將該 IP 位址指派給不同的資源。 如果在資源 A 停止時將 IP 位址指派給不同的資源，當您重新啟動資源 A 時，系統會指派不同的 IP 位址。 如果您將基本公用 IP 位址資源的配置方法從「靜態」變更為「動態」，則會釋出該位址。 若要確保相關聯資源的 IP 位址維持不變，您可以明確地將配置方法設定為「靜態」 。 系統會立即指派靜態 IP 位址。
+基本 SKU 的公用 IP 位址也支援「動態」  配置方法，這是未指定配置方法時的預設值。  為基本公用 IP 位址選取「動態」  配置方法，則表示**不會**在資源建立時配置 IP 位址。  公用 IP 位址會在您讓公用 IP 位址與虛擬機器產生關聯時配置，或是當您將第一個虛擬機器執行個體放到基本負載平衡器的後端集區時配置。   此 IP 位址會在您停止 (或刪除) 資源時釋出 。  例如，在從資源 A 釋出後，您就能將該 IP 位址指派給不同的資源。 如果在資源 A 停止時將 IP 位址指派給不同的資源，當您重新啟動資源 A 時，系統會指派不同的 IP 位址。 如果您將基本公用 IP 位址資源的配置方法從「靜態」  變更為「動態」  ，則會釋出該位址。 若要確保相關聯資源的 IP 位址維持不變，您可以明確地將配置方法設定為「靜態」  。 系統會立即指派靜態 IP 位址。
 
 > [!NOTE]
-> 即使將配置方法設定為「靜態」，您也無法指定已指派給公用 IP 位址資源的實際 IP 位址。 Azure 會從資源建立所在的 Azure 位置中可用的 IP 位址集區指派 IP 位址。
+> 即使將配置方法設定為「靜態」  ，您也無法指定已指派給公用 IP 位址資源的實際 IP 位址。 Azure 會從資源建立所在的 Azure 位置中可用的 IP 位址集區指派 IP 位址。
 >
 
 靜態公用 IP 位址通常用於下列案例：
@@ -105,7 +105,7 @@ ms.locfileid: "65236349"
 >
 
 ### <a name="dns-hostname-resolution"></a>DNS 主機名稱解析
-您可以指定公用 IP 資源的 DNS 網域名稱標籤，以建立 domainnamelabel.location.cloudapp.azure.com 與 Azure 受控 DNS 伺服器中的公用 IP 位址的對應。 比方說，如果您建立公用 IP 資源並以 **contoso** 作為**美國西部** Azure 位置中的 domainnamelabel，則完整網域名稱 (FQDN) **contoso.westus.cloudapp.azure.com** 會解析為資源的公用 IP 位址。
+您可以指定公用 IP 資源的 DNS 網域名稱標籤，以建立  domainnamelabel.location.cloudapp.azure.com  與 Azure 受控 DNS 伺服器中的公用 IP 位址的對應。 比方說，如果您建立公用 IP 資源並以 **contoso** 作為**美國西部** Azure 位置  中的 domainnamelabel  ，則完整網域名稱 (FQDN) **contoso.westus.cloudapp.azure.com** 會解析為資源的公用 IP 位址。
 
 > [!IMPORTANT]
 > 所建立的每個網域名稱標籤必須是 Azure 位置中唯一的。  
@@ -124,7 +124,7 @@ ms.locfileid: "65236349"
 
 ### <a name="vpn-gateways"></a>VPN 閘道
 
-[Azure VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)會將 Azure 虛擬網路連線到其他 Azure 虛擬網路或內部部署網路。 系統會將公用 IP 位址指派給 VPN 閘道，以便它能與遠端網路通訊。 您只可以將「動態」基本公用 IP 位址指派給 VPN 閘道。
+[Azure VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)會將 Azure 虛擬網路連線到其他 Azure 虛擬網路或內部部署網路。 系統會將公用 IP 位址指派給 VPN 閘道，以便它能與遠端網路通訊。 您只可以將「動態」  基本公用 IP 位址指派給 VPN 閘道。
 
 ### <a name="application-gateways"></a>應用程式閘道
 
@@ -133,11 +133,11 @@ ms.locfileid: "65236349"
 ### <a name="at-a-glance"></a>快速總覽
 下表顯示特定的屬性，公用 IP 位址可透過它關聯到最上層資源，以及顯示可以使用的可能配置方法 (動態或靜態)。
 
-| 最上層資源 | IP 位址關聯 | 動態 | 靜態 |
+| 最上層資源 | IP 位址關聯 | 動態 | Static |
 | --- | --- | --- | --- |
-| 虛擬機器 |Linux |有 |有 |
-| 網際網路對應負載平衡器 |前端組態 |有 |有 |
-| VPN 网关 |閘道 IP 組態 |有 |無 |
+| 虛擬機器 |Linux |是 |是 |
+| 網際網路對應負載平衡器 |前端組態 |是 |是 |
+| VPN 閘道 |閘道 IP 組態 |是 |否 |
 | 應用程式閘道 |前端組態 |是 (僅限 V1) |是 (僅限 V2) |
 
 ## <a name="private-ip-addresses"></a>私人 IP 位址
@@ -181,11 +181,11 @@ ms.locfileid: "65236349"
 ### <a name="at-a-glance"></a>快速總覽
 下表顯示特定的屬性，私人 IP 位址可透過它關聯到最上層資源，以及顯示可以使用的可能配置方法 (動態或靜態)。
 
-| 最上層資源 | IP 位址關聯 | 动态 | 靜態 |
+| 最上層資源 | IP 位址關聯 | 動態 | Static |
 | --- | --- | --- | --- |
-| 虛擬機器 |Linux |有 |有 |
-| 負載平衡器 |前端組態 |有 |有 |
-| 應用程式閘道 |前端組態 |有 |有 |
+| 虛擬機器 |Linux |是 |是 |
+| 負載平衡器 |前端組態 |是 |是 |
+| 應用程式閘道 |前端組態 |是 |是 |
 
 ## <a name="limits"></a>限制
 加諸於 IP 位址上的限制，如在 Azure 中的完整[網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)所示。 這些限制是針對每一區域和每一訂用帳戶。 您可以 [連絡支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ，以根據您的業務需求將預設上限調升到最高上限。

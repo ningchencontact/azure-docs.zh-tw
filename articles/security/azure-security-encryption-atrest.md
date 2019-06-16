@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/07/2019
 ms.author: barclayn
 ms.openlocfilehash: d0974b98975b8f7d09760be964024f92e9690a4e
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596376"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 資料靜態加密
@@ -257,55 +257,55 @@ Azure SQL Database 目前支援針對由 Microsoft 管理之服務端和用戶�
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **使用服務管理金鑰的伺服器端**     | **在 Key Vault 中使用客戶管理的伺服器端**             | **使用用戶端管理的用戶端**      |
 | **AI 和機器學習服務**      |                    |                    |                    |
-| Azure 搜尋服務                     | 有                | -                  | -                  |
-| Azure Machine Learning 服務   | 有                | -                  | -                  |
-| Azure Machine Learning Studio    | 有                | 預覽，RSA 2048 位元 | -               |
-| Power BI                         | 有                | -                  | -                  |
+| Azure 搜尋服務                     | 是                | -                  | -                  |
+| Azure Machine Learning 服務   | 是                | -                  | -                  |
+| Azure Machine Learning Studio    | 是                | 預覽，RSA 2048 位元 | -               |
+| Power BI                         | 是                | -                  | -                  |
 | **分析**                    |                    |                    |                    |
-| Azure 串流分析           | 有                | -                  | -                  |
-| 事件中樞                       | 有                | -                  | -                  |
-| Azure Analysis Services          | 有                | -                  | -                  |
-| Azure 資料目錄               | 有                | -                  | -                  |
-| HDInsight                        | 有                | 適用於 Apache Kafka，所有的 RSA 長度的預覽 | -                  |
-| Azure Data Factory               | 有                | -                  | -                  |
+| Azure 串流分析           | 是                | -                  | -                  |
+| 事件中樞                       | 是                | -                  | -                  |
+| Azure Analysis Services          | 是                | -                  | -                  |
+| Azure 資料目錄               | 是                | -                  | -                  |
+| HDInsight                        | 是                | 適用於 Apache Kafka，所有的 RSA 長度的預覽 | -                  |
+| Azure Data Factory               | 是                | -                  | -                  |
 | Azure Data Lake Store            | 是                | 是，RSA 2048 位元  | -                  |
 | **計算**                      |                    |                    |                    |
 | 虛擬機器                 | -                  | 是，RSA 2048 位元  | -                  |
 | 虛擬機器擴展集        | -                  | 是，RSA 2048 位元  | -                  |
 | **資料庫**                    |                    |                    |                    |
-| 虛擬機器上的 SQL Server   | 有                | 是，RSA 2048 位元  | 有                |
-| Azure SQL Database               | 有                | 是，RSA 2048 位元  | 有                |
-| Azure SQL 資料倉儲         | 有                | 是，RSA 2048 位元  | 有                |
-| SQL Server Stretch Database      | 有                | 是，RSA 2048 位元  | 有                |
-| 表格儲存體                    | 有                | -                  | 有                |
-| Azure Cosmos DB                  | 有                | -                  | -                  |
+| 虛擬機器上的 SQL Server   | 是                | 是，RSA 2048 位元  | 是                |
+| Azure SQL Database               | 是                | 是，RSA 2048 位元  | 是                |
+| Azure SQL 資料倉儲         | 是                | 是，RSA 2048 位元  | 是                |
+| SQL Server Stretch Database      | 是                | 是，RSA 2048 位元  | 是                |
+| 表格儲存體                    | 是                | -                  | 是                |
+| Azure Cosmos DB                  | 是                | -                  | -                  |
 | **DevOps**                       |                    |                    |                    |
-| Azure DevOps                     | 有                | -                  | 有                |
-| Azure Repos                      | 有                | -                  | 有                |
+| Azure DevOps                     | 是                | -                  | 是                |
+| Azure Repos                      | 是                | -                  | 是                |
 | **身分識別**                     |                    |                    |                    |
-| Azure Active Directory           | 有                | -                  | -                  |
-| Azure Active Directory Domain Services | 有          | 是，RSA 2048 位元  | -                  |
+| Azure Active Directory           | 是                | -                  | -                  |
+| Azure Active Directory Domain Services | 是          | 是，RSA 2048 位元  | -                  |
 | **整合**                  |                    |                    |                    |
-| 服務匯流排                      | 是                | -                  | 有                |
-| Event Grid                       | 有                | -                  | -                  |
-| API 管理                   | 有                | -                  | -                  |
+| 服務匯流排                      | 是                | -                  | 是                |
+| Event Grid                       | 是                | -                  | -                  |
+| API 管理                   | 是                | -                  | -                  |
 | **IoT 服務**                 |                    |                    |                    |
-| IoT 中樞                          | -                  | -                  | 有                |
+| IoT 中樞                          | -                  | -                  | 是                |
 | **管理和控管**    |                    |                    |                    |
-| Azure Site Recovery              | 有                | 是，RSA 2048 位元  | 有                |
+| Azure Site Recovery              | 是                | 是，RSA 2048 位元  | 是                |
 | **媒體**                        |                    |                    |                    |
-| 媒體服務                   | 有                | -                  | 有                |
+| 媒體服務                   | 是                | -                  | 是                |
 | **儲存體**                      |                    |                    |                    |
-| Blob 儲存體                     | 有                | 是，RSA 2048 位元  | 有                |
-| 磁碟儲存體                     | 有                | -                  | -                  |
-| 受控磁碟儲存體             | 有                | -                  | -                  |
-| 檔案儲存體                     | 有                | 是，RSA 2048 位元  | -                  |
-| 佇列儲存體                    | 有                | -                  | 有                |
-| Avere vFXT                       | 有                | -                  | -                  |
-| 封存儲存體                  | 有                | 是，RSA 2048 位元  | -                  |
-| StorSimple                       | 是                | -                  | 有                |
-| Azure 備份                     | 有                | -                  | 有                |
-| 資料箱                         | 有                | -                  | 有                |
+| Blob 儲存體                     | 是                | 是，RSA 2048 位元  | 是                |
+| 磁碟儲存體                     | 是                | -                  | -                  |
+| 受控磁碟儲存體             | 是                | -                  | -                  |
+| 檔案儲存體                     | 是                | 是，RSA 2048 位元  | -                  |
+| 佇列儲存體                    | 是                | -                  | 是                |
+| Avere vFXT                       | 是                | -                  | -                  |
+| 封存儲存體                  | 是                | 是，RSA 2048 位元  | -                  |
+| StorSimple                       | 是                | -                  | 是                |
+| Azure 備份                     | 是                | -                  | 是                |
+| 資料箱                         | 是                | -                  | 是                |
 
 ## <a name="conclusion"></a>結論
 

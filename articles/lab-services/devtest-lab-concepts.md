@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 08cae51da20b6093b284618de92c61aab4bf5b55
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65508391"
 ---
 # <a name="devtest-labs-concepts"></a>研發/測試實驗室概念
@@ -44,7 +44,7 @@ Azure 可宣告 VM 是可供任何具有權限的實驗室使用者使用的虛�
 ## <a name="base-images"></a>基礎映像
 基礎映像是 VM 映像，包含預先安裝並加以設定的所有工具與設定，可用來快速建立 VM。 您可以挑選現有的基本映像並加入構件來安裝測試代理程式，藉以佈建 VM。 您接著可以儲存佈建的 VM 做為基本映像，如此一來，不必針對 VM 的每個佈建重新安裝測試代理程式，就能使用該基本映像。
 
-## <a name="artifacts"></a>成品
+## <a name="artifacts"></a>構件
 構件是在佈建 VM 之後用來部署和設定您的應用程式。 構件可以是：
 
 * 您想要在 VM 上安裝的工具 - 例如，代理程式、Fiddler 及 Visual Studio。
@@ -60,7 +60,7 @@ Azure 可宣告 VM 是可供任何具有權限的實驗室使用者使用的虛�
 除了基底映像，公式提供快速 VM 佈建的機制。 研發/測試實驗室中的公式是用來建立實驗室 VM 的預設屬性值清單。
 透過公式，可以建立具備相同屬性集 - 例如基底映像、VM 大小、虛擬網路以及成品 - 的 VM，而不需要每次都指定這些屬性。 透過公式建立 VM 時，可以依現況使用預設值，或修改預設值。
 
-## <a name="policies"></a>原則
+## <a name="policies"></a>policies
 原則可協助控制實驗室中的成本。 例如，您可以建立一個原則，根據定義的排程自動關閉 VM。
 
 ## <a name="caps"></a>最高限度

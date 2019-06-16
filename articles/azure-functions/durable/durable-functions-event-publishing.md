@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
 ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60733701"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>發佈至 Azure 事件方格 (預覽) 的 Durable Functions
@@ -112,7 +112,7 @@ az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "k
 
 ### <a name="create-an-event-grid-trigger-function"></a>建立 event grid 觸發程序函式
 
-建立可接收生命週期事件的函式。 選取 [自訂函式]。
+建立可接收生命週期事件的函式。 選取 [自訂函式]  。
 
 ![選取 [建立自訂函式]。](./media/durable-functions-event-publishing/functions-portal.png)
 
@@ -250,19 +250,19 @@ namespace LifeCycleEventSpike
 
 下列清單說明生命週期事件結構描述︰
 
-* **`id`**：事件格線事件的唯一識別碼。
-* **`subject`**：事件主體的路徑。 `durable/orchestrator/{orchestrationRuntimeStatus}` 。 `{orchestrationRuntimeStatus}` 會是 `Running`、`Completed`、`Failed` 和 `Terminated`。  
-* **`data`**：Durable Functions 專屬參數。
-  * **`hubName`**：[TaskHub](durable-functions-task-hubs.md) 名稱。
-  * **`functionName`**：協調器函式名稱。
-  * **`instanceId`**：Durable Functions 執行個體識別碼。
-  * **`reason`**：與追蹤事件相關聯的其他資料。 如需詳細資訊，請參閱 [Durable Functions 中的診斷 (Azure Functions)](durable-functions-diagnostics.md)
-  * **`runtimeStatus`**：協調流程執行階段狀態。 執行中、已完成、失敗、已取消。
-* **`eventType`**: 「 orchestratorEvent"
-* **`eventTime`**：事件時間 (UTC)。
-* **`dataVersion`**：生命週期事件結構描述的版本。
-* **`metadataVersion`**：中繼資料的版本。
-* **`topic`**：事件格線主題資源。
+* **`id`** ：事件格線事件的唯一識別碼。
+* **`subject`** ：事件主體的路徑。 `durable/orchestrator/{orchestrationRuntimeStatus}` 。 `{orchestrationRuntimeStatus}` 會是 `Running`、`Completed`、`Failed` 和 `Terminated`。  
+* **`data`** ：Durable Functions 專屬參數。
+  * **`hubName`** ：[TaskHub](durable-functions-task-hubs.md) 名稱。
+  * **`functionName`** ：協調器函式名稱。
+  * **`instanceId`** ：Durable Functions 執行個體識別碼。
+  * **`reason`** ：與追蹤事件相關聯的其他資料。 如需詳細資訊，請參閱 [Durable Functions 中的診斷 (Azure Functions)](durable-functions-diagnostics.md)
+  * **`runtimeStatus`** ：協調流程執行階段狀態。 執行中、已完成、失敗、已取消。
+* **`eventType`** : 「 orchestratorEvent"
+* **`eventTime`** ：事件時間 (UTC)。
+* **`dataVersion`** ：生命週期事件結構描述的版本。
+* **`metadataVersion`** ：中繼資料的版本。
+* **`topic`** ：事件格線主題資源。
 
 ## <a name="how-to-test-locally"></a>本機測試方式
 

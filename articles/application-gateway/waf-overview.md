@@ -8,10 +8,10 @@ ms.date: 5/22/2019
 ms.author: amsriva
 ms.topic: conceptual
 ms.openlocfilehash: 9c2759222198f5df682d9e7a5363c0d9679e0fad
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991409"
 ---
 # <a name="web-application-firewall-for-azure-application-gateway"></a>Azure 應用程式閘道 web 應用程式防火牆
@@ -82,7 +82,7 @@ WAF 可保護對以下的 web 弱點：
 
 CRS 3.0 會包含 13 個規則群組下, 表所示。 每個群組包含多個規則，您可以停用。
 
-|規則群組|說明|
+|規則群組|描述|
 |---|---|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|鎖定方法 (PUT、 PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**|針對連接埠和環境掃描器保護|
@@ -100,7 +100,7 @@ CRS 3.0 會包含 13 個規則群組下, 表所示。 每個群組包含多個�
 
 CRS 2.2.9 中將包含 10 個規則群組下, 表所示。 每個群組包含多個規則，您可以停用。
 
-|規則群組|說明|
+|規則群組|描述|
 |---|---|
 |**[crs_20_protocol_violations](application-gateway-crs-rulegroups-rules.md#crs20)**|防範通訊協定違規 （例如無效的字元或 GET 要求內文）|
 |**[crs_21_protocol_anomalies](application-gateway-crs-rulegroups-rules.md#crs21)**|防範不正確的標頭資訊|
@@ -128,12 +128,12 @@ OWASP 有兩種模式決定是否要封鎖的流量：傳統模式和異常分�
 
 在異常計分模式中，符合任何規則的流量不立即封鎖防火牆在防止模式時。 規則具有特定嚴重性：*關鍵*，*錯誤*，*警告*，或*通知*。 該嚴重性會影響的要求，稱為異常分數的數值。 例如，一個*警告*相符項目提供分數 3 的規則。 一*重大*相符項目提供 5 的規則。
 
-|Severity  |Value  |
+|Severity  |值  |
 |---------|---------|
 |重要     |5|
 |Error        |4|
 |警告      |3|
-|注意事項       |2|
+|請注意       |2|
 
 沒有為 5 來阻擋流量異常分數的臨界值。 因此，單一*重大*規則相符項目已足夠來封鎖的要求，甚至在防止模式中的應用程式閘道 WAF。 保留一個*警告*相符項目只會增加異常分數 3，這還不夠本身，以封鎖流量的規則。
 

@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: d28f6ed1957f8f6ae7ff7eb49f8ce4cbdec62266
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 230fe94820a00c276238a7f5ff189ecc817f3f96
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147412"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074034"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 SQL Server 及從該處複製資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-sqlserver-connector.md)
 > * [目前的版本](connector-sql-server.md)
 
@@ -280,6 +280,9 @@ GO
 
 ### <a name="sql-server-as-sink"></a>SQL Server 作為接收器
 
+> [!TIP]
+> 深入了解支援的寫入行為、 組態和最佳做法是從[的資料載入 SQL Server 最佳做法](#best-practice-for-loading-data-into-sql-server)。
+
 若要將資料複製到 SQL Server，請將複製活動中的接收器類型設定為 **SqlSink**。 複製活動的 **sink** 區段支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
@@ -288,14 +291,11 @@ GO
 | writeBatchSize |要插入至 SQL 資料表的資料列的數目**每個批次**。<br/>允許的值為：整數 (資料列數目)。 依預設，Data Factory 以動態方式決定適當的批次大小為基礎的資料列大小。 |否 |
 | writeBatchTimeout |在逾時前等待批次插入作業完成的時間。<br/>允許的值為：時間範圍。 範例：“00:30:00” (30 分鐘)。 |否 |
 | preCopyScript |指定一個供「複製活動」在將資料寫入到 SQL Server 前執行的 SQL 查詢。 每一複製回合只會叫用此查詢一次。 您可以使用此屬性來清除預先載入的資料。 |否 |
-| sqlWriterStoredProcedureName |預存程序的名稱，此預存程序定義如何將來源資料套用至目標資料表，例如使用您自己的商務邏輯來執行更新插入或轉換。 <br/><br/>請注意，將會**依批次叫用**此預存程序。 如果您想要進行只執行一次且與來源資料無關的作業 (例如刪除/截斷)，請使用 `preCopyScript` 屬性。 |否 |
+| sqlWriterStoredProcedureName |定義如何將來源資料套用至目標資料表的預存程序的名稱。<br/>請注意，將會**依批次叫用**此預存程序。 如果您想要進行只執行一次且與來源資料無關的作業 (例如刪除/截斷)，請使用 `preCopyScript` 屬性。 |否 |
 | storedProcedureParameters |預存程序的參數。<br/>允許的值為：名稱/值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 |否 |
 | sqlWriterTableType |指定要在預存程序中使用的資料表類型名稱。 複製活動可讓正在移動的資料可用於此資料表類型的暫存資料表。 然後，預存程序程式碼可以合併正在複製的資料與現有的資料。 |否 |
 
-> [!TIP]
-> 將資料複製到 SQL Server 時，複製活動預設會將資料附加至接收資料表。 若要執行 UPSERT 或其他商務邏輯，請在 SqlSink 中使用該預存程序。 若要了解更多詳細資料，請參閱[叫用 SQL 接收器的預存程序](#invoking-stored-procedure-for-sql-sink)。
-
-**範例 1：附加資料**
+**範例 1： 附加資料**
 
 ```json
 "activities":[
@@ -327,7 +327,7 @@ GO
 ]
 ```
 
-**範例 2：在複製期間叫用預存程序來進行更新插入**
+**範例 2： 在複製期間呼叫的預存的程序**
 
 若要了解更多詳細資料，請參閱[叫用 SQL 接收器的預存程序](#invoking-stored-procedure-for-sql-sink)。
 
@@ -366,80 +366,69 @@ GO
 ]
 ```
 
-## <a name="identity-columns-in-the-target-database"></a>目標資料庫中的身分識別資料行
+## <a name="best-practice-for-loading-data-into-sql-server"></a>資料載入 SQL Server 的最佳作法
 
-本節提供一個範例，此範例會將資料從沒有身分識別資料行的來源資料表，複製到具有身分識別資料行的目的地資料表。
+當您將資料複製到 SQL Server 時，您可能需要不同的寫入行為：
 
-**來源資料表：**
+- **[附加](#append-data)** ： 我的來源資料只會有新的記錄;
+- **[Upsert](#upsert-data)** ： 我的來源資料有插入和更新;
+- **[覆寫](#overwrite-entire-table)** :我想要重新載入整個維度資料表每次;
+- **[寫入使用自訂邏輯](#write-data-with-custom-logic)** :我需要在最後一個插入至目的地資料表之前的額外處理。
+
+請參閱分別章節，到如何在 ADF 和最佳作法設定。
+
+### <a name="append-data"></a>附加資料
+
+這是預設行為，此 SQL Server 接收連接器，和 ADF 嗎**bulk insert**有效率地寫入至您的資料表。 您只可以設定來源，並據以接收複製活動中。
+
+### <a name="upsert-data"></a>更新插入資料
+
+**選項我**（特別是當您有要複製的大型資料建議）：**大部分的高效能方法**執行 upsert 如下： 
+
+- 首先，利用[暫存資料表](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables)來大量載入，使用複製活動的所有記錄。 因為對暫存資料表的作業不會記錄，您可以載入數百萬筆記錄，以秒為單位。
+- 在要套用的 ADF 執行預存程序活動[合併](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current)（或插入/更新） 陳述式，並使用 temp 資料表來源，以執行所有更新或插入做為單一交易中，減少往返量，並記錄作業。 在預存程序活動結束時，就可能被截斷暫存資料表以做好下次 upsert 循環。 
+
+例如，，您也可以在 Azure Data Factory 中建立管線，其中含有**複製活動**與鏈結**預存程序活動**成功。 先前的資料複製從您的來源存放區到資料庫的暫存資料表，例如" **##UpsertTempTable**"做為資料集中的資料表名稱，然後第二個會叫用來從暫存資料表的來源資料合併到目標資料表的預存程序並清除暫存資料表。
+
+![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+
+在資料庫中，定義與合併邏輯，如下所示，從上述的預存程序活動指的預存程序。 假設目標**行銷**具有三個資料行的資料表：**ProfileID**，**狀態**，以及**類別**，並執行 upsert 根據**ProfileID**資料行。
 
 ```sql
-create table dbo.SourceTbl
-(
-    name varchar(100),
-    age int
-)
+CREATE PROCEDURE [dbo].[spMergeData]
+AS
+BEGIN
+    MERGE TargetTable AS target
+    USING ##UpsertTempTable AS source
+    ON (target.[ProfileID] = source.[ProfileID])
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT matched THEN
+        INSERT ([ProfileID], [State], [Category])
+      VALUES (source.ProfileID, source.State, source.Category);
+    
+    TRUNCATE TABLE ##UpsertTempTable
+END
 ```
 
-**目的地資料表：**
+**選項二部分：** 或者，您可以選擇[叫用預存程序中複製活動](#invoking-stored-procedure-for-sql-sink)，同時請注意，這種方法會針對每個資料列中來源資料表，而不是利用大量執行插入成為預設方法在複製活動中，因此它並不適合用於大規模 upsert。
 
-```sql
-create table dbo.TargetTbl
-(
-    identifier int identity(1,1),
-    name varchar(100),
-    age int
-)
-```
+### <a name="overwrite-entire-table"></a>覆寫整份資料表
 
-請注意，目標資料表具有身分識別資料行。
+您可以設定**preCopyScript**接收複製活動中的屬性，在此情況下每個複製活動執行，ADF 指令碼會先執行，然後執行 插入資料的複本。 例如，若要以最新的資料覆寫整個資料表，您可以先指定指令碼以刪除所有記錄，再從來源大量載入新資料。
 
-**來源資料集 JSON 定義**
+### <a name="write-data-with-custom-logic"></a>寫入使用自訂邏輯的資料
 
-```json
-{
-    "name": "SampleSource",
-    "properties": {
-        "type": " SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "SourceTbl"
-        }
-    }
-}
-```
-
-**目的地資料集 JSON 定義**
-
-```json
-{
-    "name": "SampleTarget",
-    "properties": {
-        "structure": [
-            { "name": "name" },
-            { "name": "age" }
-        ],
-        "type": "SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "TargetTbl"
-        }
-    }
-}
-```
-
-請注意，您的來源資料表與目標資料表的結構描述不同 (目標資料表有一個具有身分識別的額外資料行)。 在此案例中，您必須在目標資料集定義中指定 **structure** 屬性，這不包含身分識別資料行。
+中所述類似[Upsert 資料](#upsert-data) 區段中，當您需要套用至目的地資料表中，來源資料在最後一次之前的額外處理可以) 針對大規模的載入至暫存資料表，然後叫用預存程序或 b） 在複製期間叫用預存的程序。
 
 ## <a name="invoking-stored-procedure-for-sql-sink"></a> 從 SQL 接收器叫用預存程序
 
-將資料複製到 SQL Server 資料庫時，可以設定使用者指定的預存程序，並搭配其他參數來叫用此程序。
+將資料複製到 SQL Server 資料庫中，您也可以設定，並叫用使用者自訂預存程序搭配其他參數。
 
-當內建的複製機制無法滿足需求時，可以使用預存程序。 通常是在最後一次將來源資料插入到目的地資料表之前，如果必須執行更新插入 (插入 + 更新) 或額外的處理 (合併資料行、查閱其他值、插入到多個資料表等) 時，會使用此程序。
+> [!TIP]
+> 叫用預存程序會處理資料列逐列，而非大量作業，不建議針對大規模複製。 進一步了解[的資料載入 SQL Server 最佳做法](#best-practice-for-loading-data-into-sql-server)。
+
+您可以使用預存程序，當內建的複製機制不提供的用途，例如，適用於來源資料的最後一個插入至目的地資料表之前的額外處理。 一些額外處理的範例包括合併資料行、查閱其他的值，以及插入多個資料表中。
 
 下列範例示範如何使用預存程序，對 SQL Server 資料庫中的資料表執行更新插入。 假設輸入資料和接收器 **Marketing** 資料表各有三個資料行：**ProfileID**、**State** 和 **Category**。 根據 **ProfileID** 資料行執行 upsert，然後僅針對特定的類別套用。
 
@@ -516,9 +505,9 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |DateTime |
-| DateTime |DateTime |
-| datetime2 |DateTime |
+| date |Datetime |
+| Datetime |Datetime |
+| datetime2 |Datetime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
@@ -532,7 +521,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Datetime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
@@ -543,27 +532,27 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |xml |
+| Xml |xml |
 
 >[!NOTE]
 > 針對對應至 Decimal 過渡期類型的資料類型，目前 ADF 支援的有效位數最多可達 28。 如果您有有效位數超過 28 的資料，請考慮在 SQL 查詢中將其轉換成字串。
 
 ## <a name="troubleshooting-connection-issues"></a>疑難排解連線問題
 
-1. 將 SQL Server 設定成接受遠端連線。 啟動 [SQL Server Management Studio]、用滑鼠右鍵按一下 [伺服器]，然後按一下 [屬性]。 選取清單中 [連接]，然後核取 [允許此伺服器的遠端連接]。
+1. 將 SQL Server 設定成接受遠端連線。 啟動 [SQL Server Management Studio]  、用滑鼠右鍵按一下 [伺服器]  ，然後按一下 [屬性]  。 選取清單中 [連接]  ，然後核取 [允許此伺服器的遠端連接]  。
 
     ![啟用遠端連線](media/copy-data-to-from-sql-server/AllowRemoteConnections.png)
 
     如需詳細步驟，請參閱 [設定 remote access 伺服器組態選項](https://msdn.microsoft.com/library/ms191464.aspx) 。
 
-2. 啟動 [SQL Server 組態管理員] 。 展開您想要之執行個體的 [SQL Server 網路組態]，然後選取 [MSSQLSERVER 的通訊協定]。 您應該會在右窗格中看到通訊協定。 用滑鼠右鍵按一下 [TCP/IP]，然後按一下 [啟用] 來啟用 TCP/IP。
+2. 啟動 [SQL Server 組態管理員]  。 展開您想要之執行個體的 [SQL Server 網路組態]  ，然後選取 [MSSQLSERVER 的通訊協定]  。 您應該會在右窗格中看到通訊協定。 用滑鼠右鍵按一下 [TCP/IP]  ，然後按一下 [啟用]  來啟用 TCP/IP。
 
     ![啟用 TCP/IP](./media/copy-data-to-from-sql-server/EnableTCPProptocol.png)
 
     如需啟用 TCP/IP 通訊協定的詳細資料及替代方式，請參閱 [啟用或停用伺服器網路通訊協定](https://msdn.microsoft.com/library/ms191294.aspx) 。
 
-3. 在相同的視窗中，按兩下 [TCP/IP] 來啟動 [TCP/IP 屬性] 視窗。
-4. 切換到 [IP 位址] 索引標籤。向下捲動到 [IPAll] 區段。 記下 [TCP 連接埠] (預設值是 **1433**)。
+3. 在相同的視窗中，按兩下 [TCP/IP]  來啟動 [TCP/IP 屬性]  視窗。
+4. 切換到 [IP 位址]  索引標籤。向下捲動到 [IPAll]  區段。 記下 [TCP 連接埠]  (預設值是 **1433**)。
 5. 在電腦上建立 **Windows 防火牆規則** ，來允許透過此連接埠的連入流量。  
 6. **驗證連線**：若要使用完整名稱來連線到 SQL Server，請使用來自不同機器的 SQL Server Management Studio。 例如： `"<machine>.<domain>.corp.<company>.com,1433"` 。
 

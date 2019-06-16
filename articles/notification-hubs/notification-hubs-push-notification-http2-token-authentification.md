@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: jowargo
 ms.openlocfilehash: 890577c013a96fc06acf3b05881649ad8202a083
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60872324"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>適用於 APNS 的權杖型 (HTTP/2) 驗證
@@ -76,13 +76,13 @@ ms.locfileid: "60872324"
 
 若要在入口網站中啟用權杖型驗證，請登入 Azure 入口網站，並移至 [通知中樞] > [Notification Services] > [APNS] 面板。
 
-我們已提供新屬性 – 驗證模式。 選取權杖可讓您透過所有相關的權杖屬性更新您的中樞。
+我們已提供新屬性 – 驗證模式  。 選取權杖可讓您透過所有相關的權杖屬性更新您的中樞。
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/azure-portal-apns-settings.png)
 
 * 輸入您從 Apple 開發人員帳戶擷取的屬性
 * 選擇您的應用程式模式 (「生產」或「沙箱」)
-* 按一下 [儲存] 按鈕以更新 APNS 認證
+* 按一下 [儲存]  按鈕以更新 APNS 認證
 
 ### <a name="configure-via-management-api-rest"></a>透過管理 API (REST) 進行設定
 

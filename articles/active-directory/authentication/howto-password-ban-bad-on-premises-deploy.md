@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256215b1976598b961ada7210e5ee92c9f72d440
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 4c22c9c202e6de3b31b99803dce4a07d38287a92
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506863"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057295"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>部署 Azure AD 密碼保護
 
@@ -36,6 +36,7 @@ ms.locfileid: "65506863"
 
 ## <a name="deployment-requirements"></a>部署需求
 
+* 授權需求，Azure AD 密碼保護，請參閱文章[排除在您的組織中的密碼錯誤](concept-password-ban-bad.md#license-requirements)。
 * 所有網域控制站服務安裝的 Azure AD 密碼保護，必須執行 Windows Server 2012 或更新版本，取得 DC 代理程式。 這項需求並不表示，Active Directory 網域或樹系必須也是在 Windows Server 2012 網域或樹系功能等級。 中所述[設計原則](concept-password-ban-bad-on-premises.md#design-principles)，沒有任何最低網域功能等級為或 FFL 所需的 DC 代理程式或 proxy 軟體執行。
 * 取得安裝的 DC 代理程式服務的所有機器必須都已安裝.NET 4.5。
 * 取得 proxy 服務已安裝的 Azure AD 密碼保護，必須執行 Windows Server 2012 R2 或更新版本的所有機器。
@@ -265,7 +266,7 @@ ms.locfileid: "65506863"
 
    您可以在尚無法在網域控制站的電腦上安裝 DC 代理程式服務。 在此情況下，服務會啟動並執行，但保持非使用中，直到電腦升級為網域控制站。
 
-   您可以使用標準的 MSI 程序，以自動化軟體安裝。 例如：
+   您可以使用標準的 MSI 程序，以自動化軟體安裝。 例如:
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.openlocfilehash: 368fec658dd1f063c45f3d00d42a4549ca9dfd83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60771153"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>使用 Azure CLI 從自訂磁碟上傳並建立 Linux VM
@@ -35,13 +35,13 @@ ms.locfileid: "60771153"
 
 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 `myResourceGroup`、`mystorageaccount` 和 `mydisks`。
 
-首先，使用 [az group create](/cli/azure/group) 创建资源组。 下列範例會在 `WestUs` 位置建立名為 `myResourceGroup` 的資源群組：
+首先，使用 [az group create](/cli/azure/group) 建立資源群組。 下列範例會在 `WestUs` 位置建立名為 `myResourceGroup` 的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-使用 [az storage account create](/cli/azure/storage/account) 建立儲存體帳戶以存放您的虛擬磁碟。 以下示例创建名为 `mystorageaccount`的存储帐户：
+使用 [az storage account create](/cli/azure/storage/account) 建立儲存體帳戶以存放您的虛擬磁碟。 下列範例會建立名為 `mystorageaccount` 的儲存體帳戶：
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westus \
@@ -54,7 +54,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
-使用透過 [az storage container create](/cli/azure/storage/container) 取得的儲存體金鑰在您的儲存體帳戶內建立容器。 以下示例使用 `key1` 中的存储密钥值创建名为 `mydisks` 的容器：
+使用透過 [az storage container create](/cli/azure/storage/container) 取得的儲存體金鑰在您的儲存體帳戶內建立容器。 下列範例會使用來自 `key1` 的儲存體金鑰值，建立名為 `mydisks` 的容器：
 
 ```azurecli
 az storage container create --account-name mystorageaccount \
@@ -79,7 +79,7 @@ az vm create --resource-group myResourceGroup --location westus \
     --use-unmanaged-disk
 ```
 
-目标存储帐户必须与上传虚拟磁盘的目标位置相同。 您也需要指定或依據提示回答 **az vm create** 命令所需的所有其他參數，例如虛擬網路、公用 IP 位址、使用者名稱及 SSH 金鑰。 您可以深入了解[可用的 CLI Resource Manager 參數](../azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines)。
+目的地儲存體帳戶必須與您上傳虛擬磁碟的目的地帳戶相同。 您也需要指定或依據提示回答 **az vm create** 命令所需的所有其他參數，例如虛擬網路、公用 IP 位址、使用者名稱及 SSH 金鑰。 您可以深入了解[可用的 CLI Resource Manager 參數](../azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines)。
 
 ## <a name="requirements"></a>需求
 若要完成下列步驟，您需要：
@@ -114,7 +114,7 @@ Azure 支援各種 Linux 散發套件 (請參閱 [背書的散發套件](endorse
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[其他：非背書散發套件](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
-如需有關為 Azure 準備 Linux 映像的更多一般秘訣，另請參閱 **[Linux 安裝注意事項](create-upload-generic.md#general-linux-installation-notes)**。
+如需有關為 Azure 準備 Linux 映像的更多一般秘訣，另請參閱 **[Linux 安裝注意事項](create-upload-generic.md#general-linux-installation-notes)** 。
 
 > [!NOTE]
 > 只有在搭配[經 Azure 背書之 Linux 散發套件](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)中＜支援的版本＞下指定的組態詳細資料來使用其中一個經背書的散發套件時，[Azure 平台 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 才適用於執行 Linux 的虛擬機器。
@@ -122,7 +122,7 @@ Azure 支援各種 Linux 散發套件 (請參閱 [背書的散發套件](endorse
 > 
 
 ## <a name="create-a-resource-group"></a>建立資源群組
-資源群組會以邏輯方式將所有 Azure 資源 (例如虛擬網路和儲存體) 結合在一起以支援您的虛擬機器。 如需有關資源群組的詳細資訊，請參閱[資源群組概觀](../../azure-resource-manager/resource-group-overview.md)。 在上传自定义磁盘和创建 VM 之前，首先需要使用 [az group create](/cli/azure/group) 创建一个资源组。
+資源群組會以邏輯方式將所有 Azure 資源 (例如虛擬網路和儲存體) 結合在一起以支援您的虛擬機器。 如需有關資源群組的詳細資訊，請參閱[資源群組概觀](../../azure-resource-manager/resource-group-overview.md)。 在上傳您的自訂磁碟並建立 VM 之前，您必須先使用 [az group create](/cli/azure/group) 建立資源群組。
 
 下列範例會在 `westus` 位置建立名為 `myResourceGroup` 的資源群組：
 
@@ -141,8 +141,8 @@ az storage account create --resource-group myResourceGroup --location westus \
   --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
-## <a name="list-storage-account-keys"></a>列出存储帐户密钥
-Azure 會為每個儲存體帳戶產生兩個 512 位元的存取金鑰。 對儲存體帳戶進行驗證時 (例如為了執行寫入作業)，就會使用這些存取金鑰。 从此处了解有关[管理对存储的访问](../../storage/common/storage-account-manage.md#access-keys)的详细信息。 您使用 [az storage account keys list](/cli/azure/storage/account/keys) 來檢視存取金鑰。
+## <a name="list-storage-account-keys"></a>列出儲存體帳戶金鑰
+Azure 會為每個儲存體帳戶產生兩個 512 位元的存取金鑰。 對儲存體帳戶進行驗證時 (例如為了執行寫入作業)，就會使用這些存取金鑰。 從 [這裡](../../storage/common/storage-account-manage.md#access-keys)深入了解如何管理對儲存體的存取。 您使用 [az storage account keys list](/cli/azure/storage/account/keys) 來檢視存取金鑰。
 
 檢視您所建立儲存體帳戶的存取金鑰：
 
@@ -150,7 +150,7 @@ Azure 會為每個儲存體帳戶產生兩個 512 位元的存取金鑰。 對�
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
-输出类似于：
+輸出如下：
 
 ```azurecli
 info:    Executing command storage account keys list
@@ -164,7 +164,7 @@ info:    storage account keys list command OK
 請記下 `key1` ，因為在接下來的步驟中，您將使用它來與您的儲存體帳戶互動。
 
 ## <a name="create-a-storage-container"></a>建立儲存體容器
-您可以在儲存體帳戶內建立容器來組織您的磁碟，方法與您建立不同目錄來以邏輯方式組織本機檔案系統相同。 儲存體帳戶可以包含任意數目的容器。 可以使用 [az storage container create](/cli/azure/storage/container) 创建容器。
+您可以在儲存體帳戶內建立容器來組織您的磁碟，方法與您建立不同目錄來以邏輯方式組織本機檔案系統相同。 儲存體帳戶可以包含任意數目的容器。 使用 [az storage container create](/cli/azure/storage/container) 來建立容器。
 
 下列範例會建立名為 `mydisks` 的容器：
 
@@ -175,7 +175,7 @@ az storage container create \
 ```
 
 ## <a name="upload-vhd"></a>上傳 VHD
-现在，使用 [az storage blob upload](/cli/azure/storage/blob)上传自定义磁盘。 您上傳並將您的自訂磁碟儲存為分頁 Blob。
+現在您可以使用 [az storage blob upload](/cli/azure/storage/blob) 上傳您的自訂磁碟。 您上傳並將您的自訂磁碟儲存為分頁 Blob。
 
 指定您的存取金鑰、您在上一個步驟中建立的容器，然後指定您本機電腦上自訂磁碟的路徑：
 
@@ -186,7 +186,7 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## <a name="create-the-vm"></a>建立 VM
-若要使用非托管磁盘创建 VM，请使用 [az vm create](/cli/azure/vm) 指定磁盘的 URI (`--image`)。 下列範例會使用先前上傳的虛擬磁碟來建立名為 `myVM` 的 VM：
+若要使用非受控磁碟來建立 VM，請使用 [az vm create](/cli/azure/vm) 指定磁碟的 URI (`--image`)。 下列範例會使用先前上傳的虛擬磁碟來建立名為 `myVM` 的 VM：
 
 您需搭配 [az vm create](/cli/azure/vm) 指定 `--image` 參數，以指向您的自訂磁碟。 請確保 `--storage-account` 與儲存您自訂磁碟的儲存體帳戶相符。 您不需使用與自訂磁碟相同的容器來儲存您的 VM。 上傳您的自訂磁碟之前，請確定會使用與先前步驟中相同的方式來建立任何額外的容器。
 
@@ -206,7 +206,7 @@ az vm create --resource-group myResourceGroup --location westus \
 ## <a name="resource-manager-template"></a>Resource Manager 範本
 Azure Resource Manager 範本是「JavaScript 物件標記法」(JSON) 檔案，定義了您想要建置的環境。 範本會細分成不同的資源提供者，例如計算或網路。 您可以使用現有的範本或自行撰寫範本。 深入了解如何 [使用 Resource Manager 和範本](../../azure-resource-manager/resource-group-overview.md)。
 
-在模板的 `Microsoft.Compute/virtualMachines` 提供程序中有一个 `storageProfile` 节点，其中包含 VM 的配置详细信息。 兩個要編輯的主要參數為 `image` 和 `vhd` URI，分別指向您的自訂磁碟和新 VM 的虛擬磁碟。 以下顯示使用自訂磁碟的 JSON 範例：
+在範本的 `Microsoft.Compute/virtualMachines` 提供者內，您會有一個包含 VM 組態詳細資料的 `storageProfile` 節點。 兩個要編輯的主要參數為 `image` 和 `vhd` URI，分別指向您的自訂磁碟和新 VM 的虛擬磁碟。 以下顯示使用自訂磁碟的 JSON 範例：
 
 ```json
 "storageProfile": {

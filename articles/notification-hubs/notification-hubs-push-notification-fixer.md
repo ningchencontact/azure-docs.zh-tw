@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
 ms.openlocfilehash: eebf9ef63a8622c4cc431322b786fdf30f6352fe
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925829"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>診斷 Azure 通知中樞卸除的通知
@@ -101,7 +101,7 @@ Azure 通知中樞相關常見的問題是如何針對從應用程式的通知�
 
 在此情況下，從資料庫移除失敗的註冊。 然後，我們會針對該批次中的其餘裝置，重試通知傳遞。
 
-若要获取有关针对注册的失败传递尝试的更多错误信息，可以使用通知中心 REST API [按消息遥测：获取通知消息遥测数据](https://msdn.microsoft.com/library/azure/mt608135.aspx)和 [PNS 反馈](https://msdn.microsoft.com/library/azure/mt705560.aspx)。 如需範例程式碼，請參閱[傳送 REST 範例](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/)。
+若要取得更多錯誤資訊錯誤的傳遞嘗試中，針對註冊，您可以使用通知中樞 REST Api[依訊息遙測：取得通知訊息遙測](https://msdn.microsoft.com/library/azure/mt608135.aspx)並[PNS 的意見反應](https://msdn.microsoft.com/library/azure/mt705560.aspx)。 如需範例程式碼，請參閱[傳送 REST 範例](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/)。
 
 ## <a name="push-notification-service-issues"></a>推播通知服務問題
 
@@ -117,7 +117,7 @@ Azure 通知中樞相關常見的問題是如何針對從應用程式的通知�
 
 ## <a name="self-diagnosis-tips"></a>自我診斷秘訣
 
-下面介绍了诊断通知中心已删除通知的根本原因的各种途径。
+以下是診斷通知中樞卸除的通知的根本原因的路徑。
 
 ### <a name="verify-credentials"></a>驗證認證 ###
 
@@ -139,21 +139,21 @@ Azure 通知中樞相關常見的問題是如何針對從應用程式的通知�
 
 ![Visual Studio 伺服器總管][9]
 
-您可以檢視和管理您的中樞內的所有註冊。 註冊可以分類的平台、 原生或範本註冊、 標記、 推播通知服務識別碼，註冊識別碼和到期日。 您也可以在此頁面上編輯註冊。 它对于编辑标记特别有用。
+您可以檢視和管理您的中樞內的所有註冊。 註冊可以分類的平台、 原生或範本註冊、 標記、 推播通知服務識別碼，註冊識別碼和到期日。 您也可以在此頁面上編輯註冊。 它是特別適合編輯標記。
 
 以滑鼠右鍵按一下您的通知中樞，在**伺服器總管**，然後選取**診斷**。 
 
 ![Visual Studio 伺服器總管：診斷 功能表](./media/notification-hubs-diagnosing/diagnose-menu.png)
 
-会看到以下页面：
+您會看到下列頁面：
 
 ![Visual Studio：診斷頁面](./media/notification-hubs-diagnosing/diagnose-page.png)
 
-切换到“设备注册”页：
+若要切換**裝置註冊**頁面：
 
 ![Visual Studio：裝置註冊](./media/notification-hubs-diagnosing/VSRegistrations.png)
 
-若要发送测试通知消息，可以使用“测试性发送”页：
+您可以使用**測試傳送**頁面，以傳送測試通知訊息：
 
 ![Visual Studio：測試傳送](./media/notification-hubs-diagnosing/test-send-vs.png)
 
@@ -168,7 +168,7 @@ Azure 通知中樞相關常見的問題是如何針對從應用程式的通知�
 
 #### <a name="azure-portal"></a>Azure 入口網站 ####
 
-若要將測試通知傳送到您的用戶端，而不需要運作後端服務，請在 [支援 + 疑難排解] 下，選取 [測試傳送]。
+若要將測試通知傳送到您的用戶端，而不需要運作後端服務，請在 [支援 + 疑難排解]  下，選取 [測試傳送]  。
 
 ![測試 Azure 中的傳送功能][7]
 
@@ -194,7 +194,7 @@ Azure 通知中樞相關常見的問題是如何針對從應用程式的通知�
 
 若要深入了解推播通知服務的錯誤，您可以使用 [EnableTestSend] 屬性。 當您從入口網站或 Visual Studio 用戶端傳送測試訊息時，會自動啟用該屬性。 您可以使用這個屬性，以查看詳細的偵錯資訊同時也會透過 Api。 目前，您可以在 .NET SDK 中使用該屬性。 它會加入所有用戶端 Sdk 最終。
 
-若要搭配使用 `EnableTestSend` 屬性與 REST 呼叫，請在傳送呼叫結尾附加名為 test 的查詢字串參數。 例如︰
+若要搭配使用 `EnableTestSend` 屬性與 REST 呼叫，請在傳送呼叫結尾附加名為 test  的查詢字串參數。 例如:
 
 ```text
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
@@ -247,17 +247,17 @@ The Token obtained from the Token Provider is wrong
 
 在入口網站中，您可以取得通知中樞上所有活動的簡要概觀。
 
-1. 在 [概觀] 索引標籤上，您可以依平台查看註冊、通知和錯誤的彙總檢視。
+1. 在 [概觀]  索引標籤上，您可以依平台查看註冊、通知和錯誤的彙總檢視。
 
    ![通知中樞概觀儀表板][5]
 
-2. 在 [監視器] 索引標籤上，您可以新增許多其他平台特定度量以獲得更深入的了解。 您可以專門查看通知中樞嘗試將通知傳送至推播通知服務時所傳回的錯誤。
+2. 在 [監視器]  索引標籤上，您可以新增許多其他平台特定度量以獲得更深入的了解。 您可以專門查看通知中樞嘗試將通知傳送至推播通知服務時所傳回的錯誤。
 
    ![Azure 入口網站活動記錄][6]
 
 3. 首先，檢閱**內送郵件**、**註冊作業**，以及**成功通知**。 然後，移至每個平台的索引標籤，以檢閱特定於推播通知服務的錯誤。
 
-4. 如果您通知中樞的驗證設定不正確，會出現 **PNS 驗證錯誤**訊息。 它表示要检查推送通知服务凭据。
+4. 如果您通知中樞的驗證設定不正確，會出現 **PNS 驗證錯誤**訊息。 它會檢查推播通知服務認證的徵兆。
 
 #### <a name="programmatic-access"></a>以程式設計方式存取 ####
 

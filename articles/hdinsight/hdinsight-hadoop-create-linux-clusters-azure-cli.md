@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: hrasheed
 ms.openlocfilehash: 0a278cd98b0dd6c6d8f0fe9bfee81e5bafd4f543
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597694"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>使用 Azure CLI 建立 HDInsight 叢集
@@ -27,13 +27,13 @@ ms.locfileid: "65597694"
 
 ## <a name="prerequisites"></a>必要條件
 
-Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)的步驟。
+Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 以取得相關步驟。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-cluster"></a>建立叢集
 
-1. 您的 Azure 訂用帳戶的登入。 如果您打算使用 Azure Cloud Shell，只要選取**試試**的程式碼區塊右上角。 否則，請輸入下列命令：
+1. 您的 Azure 訂用帳戶的登入。 如果您打算使用 Azure Cloud Shell，可直接選取程式碼區塊右上角的 [試試看]  。 或者，請輸入以下命令：
 
     ```azurecli-interactive
     az login
@@ -42,9 +42,9 @@ Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. 設定環境變數。 使用這篇文章中的變數是以 Bash 為基礎。 需要有到其他環境會有些微差異。 請參閱[az hdinsight 建立](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create)如需完整清單，可用來建立叢集的參數。
+2. 設定環境變數。 使用這篇文章中的變數是以 Bash 為基礎。 針對其他環境，會需要一點變化。 請參閱[az hdinsight 建立](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create)如需完整清單，可用來建立叢集的參數。
 
-    |參數 | 說明 |
+    |參數 | 描述 |
     |---|---|
     |`--size`| 在叢集中的背景工作節點數目。 這篇文章會使用變數`clusterSizeInNodes`做為值傳遞至`--size`。 |
     |`--version`| HDInsight 叢集版本。 這篇文章會使用變數`clusterVersion`做為值傳遞至`--version`。 另請參閱：[支援的 HDInsight 版本](./hdinsight-component-versioning.md#supported-hdinsight-versions)。|

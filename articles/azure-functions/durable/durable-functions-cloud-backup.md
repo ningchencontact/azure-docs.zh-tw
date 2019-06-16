@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 0bef5f1b64ec9f322070ba5c36cab138c7327da2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60741268"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Durable Functions 中的展開傳送/收合傳送情節 - 雲端備份範例
 
-「展開傳送/收合傳送」是指同時執行多個函式，然後對結果執行一些彙總的模式。 本文以一個範例說明如何使用 [Durable Functions](durable-functions-overview.md) 來實作展開傳送/收合傳送情節。 範例是一個永久性函式，可將應用程式的所有或部分網站內容備份至 Azure 儲存體。
+「展開傳送/收合傳送」  是指同時執行多個函式，然後對結果執行一些彙總的模式。 本文以一個範例說明如何使用 [Durable Functions](durable-functions-overview.md) 來實作展開傳送/收合傳送情節。 範例是一個永久性函式，可將應用程式的所有或部分網站內容備份至 Azure 儲存體。
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -67,7 +67,7 @@ Durable Functions 方法提供上述所有優點，而且額外負荷極低。
 4. 等候所有上傳完成。
 5. 傳回已上傳到 Azure Blob 儲存體的位元組總數。
 
-請注意 `await Task.WhenAll(tasks);` (C#) 和 `yield context.df.Task.all(tasks);` (JavaScript) 等程式碼行。 對 `E2_CopyFileToBlob` 函式的個別呼叫全部都「不會」等候。 這是為了平行執行而刻意設計。 將這個工作陣列傳遞給 `Task.WhenAll` (C#) 或 `context.df.Task.all` (JavaScript) 時，即會傳回一個「直到所有複製作業都完成」才會完成的工作。 如果您熟悉 .NET 中的工作平行程式庫 (TPL) 或 JavaScript 中的 [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)，則對此不會感到陌生。 差別在於，這些工作可以在多個虛擬機器上同時執行，而 Durable Functions 擴充可確保端對端執行在處理序回收的情況下迅速恢復。
+請注意 `await Task.WhenAll(tasks);` (C#) 和 `yield context.df.Task.all(tasks);` (JavaScript) 等程式碼行。 對 `E2_CopyFileToBlob` 函式的個別呼叫全部都「不會」  等候。 這是為了平行執行而刻意設計。 將這個工作陣列傳遞給 `Task.WhenAll` (C#) 或 `context.df.Task.all` (JavaScript) 時，即會傳回一個「直到所有複製作業都完成」  才會完成的工作。 如果您熟悉 .NET 中的工作平行程式庫 (TPL) 或 JavaScript 中的 [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)，則對此不會感到陌生。 差別在於，這些工作可以在多個虛擬機器上同時執行，而 Durable Functions 擴充可確保端對端執行在處理序回收的情況下迅速恢復。
 
 > [!NOTE]
 > 儘管工作在概念上類似於 JavaScript Promise，協調器函式還是應該使用 `context.df.Task.all` 和 `context.df.Task.any`，而不是使用 `Promise.all` 和 `Promise.race` 來管理工作平行處理。
@@ -76,7 +76,7 @@ Durable Functions 方法提供上述所有優點，而且額外負荷極低。
 
 ## <a name="helper-activity-functions"></a>協助程式活動函式
 
-如同其他範例一樣，協助程式活動函式只不過是使用 `activityTrigger` 觸發程序繫結的一般函式。 例如，`E2_GetFileList` 的 function.json 檔案看起來像下面這樣：
+如同其他範例一樣，協助程式活動函式只不過是使用 `activityTrigger` 觸發程序繫結的一般函式。 例如，`E2_GetFileList` 的 function.json  檔案看起來像下面這樣：
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/function.json)]
 

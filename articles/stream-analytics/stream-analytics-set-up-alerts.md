@@ -7,20 +7,19 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2019
-ms.custom: seodec18
-ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 09a5c77c770f7709b90d4959da5be9134b0f0ad9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771906"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077672"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>設定 Azure 串流分析工作的警示
 
 請務必監視您的 Azure 串流分析作業，以確保持續執行作業，而沒有任何問題。 本文說明如何針對應該監視的常見案例設定警示。 
 
-您可以透過入口網站來針對計量設定規則，也可透過作業記錄資料以[程式設計方式](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a)來設定規則。
+您可以從入口網站中，透過作業記錄檔資料的度量定義規則，以及[以程式設計方式](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a)。
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>在 Azure 入口網站中設定警示
 
@@ -28,29 +27,29 @@ ms.locfileid: "60771906"
 
 1. 在 Azure 入口網站中，開啟您想要建立警示的串流分析作業。
 
-2. 在 [作業] 頁面上，瀏覽至 [監視] 區段。  
+2. 在 [作業]  頁面上，瀏覽至 [監視]  區段。  
 
-3. 選取 [計量]，然後按一下 [新增警示規則]。
+3. 選取 **度量**，然後**新的警示規則**。
 
    ![Azure 入口網站串流分析警示設定](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
-4. 您的串流分析作業名稱應該會自動出現在 [資源] 之下。 按一下 [新增條件]，然後選取 [設定訊號邏輯] 之下的 [所有系統管理作業]。
+4. 您的串流分析作業名稱應該會自動出現在 [資源]  之下。 按一下 [新增條件]  ，然後選取 [設定訊號邏輯]  之下的 [所有系統管理作業]  。
 
    ![選取串流分析警示的訊號名稱](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. 在 [設定訊號邏輯] 之下，將 [事件層級] 變更為 [全部] 並將 [狀態] 變更為 [失敗]. 讓 [事件起始者] 保留空白，然後按一下 [完成]。
+5. 在 [設定訊號邏輯]  之下，將 [事件層級]  變更為 [全部]  並將 [狀態]  變更為 [失敗]  . 離開**事件起始者**空白，然後選取**完成**。
 
    ![設定串流分析警示的訊號邏輯](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 
-6. 選取現有的動作群組或建立新的群組。 在此範例中，[電子郵件] 動作可將電子郵件傳送給具有 [擁有者] Azure Resource Manager 角色的使用者，並經由該動作建立名為 **TIDashboardGroupActions** 的新動作群組。
+6. 選取現有的動作群組或建立新的群組。 在此範例中，[電子郵件]  動作可將電子郵件傳送給具有 [擁有者]  Azure Resource Manager 角色的使用者，並經由該動作建立名為 **TIDashboardGroupActions** 的新動作群組。
 
    ![設定 Azure 串流分析作業的警示](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. [資源]、[條件] 和 [動作群組] 應該各有一個項目。 請注意，若要引發警示，則必須符合所定義的條件。 例如，您可以在過去 15 分鐘內每隔 5 分鐘測量計量的平均值。
+7. [資源]  、[條件]  和 [動作群組]  應該各有一個項目。 請注意，若要引發警示，則必須符合所定義的條件。 例如，您可以在過去 15 分鐘內每隔 5 分鐘測量計量的平均值。
 
    ![建立串流分析警示規則](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
-   將 [警示規則名稱]、[描述] 和您的 [資源群組] 新增至 [警示詳細資料]，然後按一下 [建立警示規則] 來建立串流分析作業的規則。
+   將 [警示規則名稱]  、[描述]  和您的 [資源群組]  新增至 [警示詳細資料]  ，然後按一下 [建立警示規則]  來建立串流分析作業的規則。
 
    ![建立串流分析警示規則](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
    
@@ -69,7 +68,7 @@ ms.locfileid: "60771906"
 
 如需有關在 Azure 入口網站中設定警示的更多詳細資料，請參閱[接收警示通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)。  
 
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)

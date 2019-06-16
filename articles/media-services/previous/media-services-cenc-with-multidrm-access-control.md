@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan;kilroyh;yanmf;juliako
 ms.openlocfilehash: 336552c142e504ae7296314512f00688e30d032e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61466393"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>使用 Azure 媒體服務設計具有存取控制的內容保護系統 
@@ -88,7 +88,7 @@ DRM 子系統可能包含下列元件：
 * DRM 封裝
 * DRM 授權傳遞
 * 權利檢查
-* 身份验证/授权
+* 驗證/授權
 * 播放器
 * 來源/內容傳遞網路 (CDN)
 
@@ -188,7 +188,7 @@ DRM 子系統可能包含下列元件：
 ### <a name="implementation-procedures"></a>實作程序
 實作包含下列步驟：
 
-1. 準備測試資產。 編碼/封裝測試視訊為媒體服務中的多位元速率分散 MP4。 這項資產不受 DRM 保護。 DRM 保護稍後會由動態保護完成。
+1. 準備測試資產。 編碼/封裝測試視訊為媒體服務中的多位元速率分散 MP4。 這項資產不  受 DRM 保護。 DRM 保護稍後會由動態保護完成。
 
 2. 建立金鑰識別碼和內容金鑰 (選擇性地從金鑰種子)。 在本例中，並不需要金鑰管理系統，因為數個測試資產只需要單一金鑰識別碼和內容金鑰。
 
@@ -214,7 +214,7 @@ DRM 子系統可能包含下列元件：
 
     | **DRM** | **[瀏覽器]** | **有權限使用者的結果** | **無權限使用者的結果** |
     | --- | --- | --- | --- |
-    | **PlayReady** |Windows 10 的 Microsoft Edge 或 Internet Explorer 11 |成功 |失败 |
+    | **PlayReady** |Windows 10 的 Microsoft Edge 或 Internet Explorer 11 |成功 |不合格 |
     | **Widevine** |Chrome、Firefox、Opera |成功 |不合格 |
     | **FairPlay** |macOS 上的 Safari      |成功 |不合格 |
     | **AES-128** |大部分的新式瀏覽器  |成功 |不合格 |
@@ -240,7 +240,7 @@ DRM 子系統可能包含下列元件：
 
     ![JWT](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
 
-* 將權限新增至應用程式的 Azure AD 中 (在應用程式的 [設定] 索引標籤)。 每個應用程式皆需要權限 (本機和已部署版本)。
+* 將權限新增至應用程式的 Azure AD 中 (在應用程式的 [設定]  索引標籤)。 每個應用程式皆需要權限 (本機和已部署版本)。
 
     ![權限](./media/media-services-cenc-with-multidrm-access-control/media-services-perms-to-other-apps.png)
 
@@ -252,7 +252,7 @@ DRM 子系統可能包含下列元件：
 
         <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
 
-    GUID 是 Azure AD 租用戶識別碼。 您可以在 Azure 入口網站的 [端點] 快顯功能表中找到 GUID。
+    GUID 是 Azure AD 租用戶識別碼。 您可以在 Azure 入口網站的 [端點]  快顯功能表中找到 GUID。
 
 * 授與群組成員資格宣告權限。 請確定下列項目位於 Azure AD 應用程式資訊清單檔中： 
 
@@ -337,7 +337,7 @@ DRM 授權傳遞服務一律會檢查來自 Azure AD 的目前/有效公開金�
 
 3. 更新應用程式資訊清單檔案，讓 groupMembershipClaims 屬性具有下列值："groupMembershipClaims":"All"。
 
-4. 在指向播放器 Web 應用程式的 Azure AD 應用程式上，於 [其他應用程式的權限] 區段中，新增已在步驟 1 中新增的資源應用程式。 在 [委派的權限] 底下選取 [存取 [resource_name]]。 此選項可給予 Web 應用程式建立存取權杖的權限，從而存取資源應用程式。 如果您使用 Visual Studio 和 Azure Web 應用程式進行開發，請對本機和已部署版本的 Web 應用程式這麼做。
+4. 在指向播放器 Web 應用程式的 Azure AD 應用程式上，於 [其他應用程式的權限]  區段中，新增已在步驟 1 中新增的資源應用程式。 在 [委派的權限]  底下選取 [存取 [resource_name]]  。 此選項可給予 Web 應用程式建立存取權杖的權限，從而存取資源應用程式。 如果您使用 Visual Studio 和 Azure Web 應用程式進行開發，請對本機和已部署版本的 Web 應用程式這麼做。
 
 Azure AD 所簽發的 JWT 是用來存取指標資源的存取權杖。
 

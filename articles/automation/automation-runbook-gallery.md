@@ -10,10 +10,10 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 20aafc117ad8b6bd625894180fdfe79bd86192bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60737344"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure 自動化的 Runbook 和模組資源庫
@@ -34,7 +34,7 @@ ms.locfileid: "60737344"
 ### <a name="to-import-a-powershell-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>從 Runbook 資源庫，使用 Azure 入口網站匯入的 PowerShell runbook
 
 1. 在 Azure 入口網站中，開啟您的自動化帳戶。
-2. 在 [程序自動化] 底下，按一下 [Runbook 資源庫]
+2. 在 [程序自動化]  底下，按一下 [Runbook 資源庫] 
 3. 選取**來源：PowerShell 資源庫**。
 4. 找出您想要的資源庫項目，並且選取以檢視其詳細資料。 您可以在左邊輸入發行者和類型的其他搜尋參數。
 
@@ -46,7 +46,7 @@ ms.locfileid: "60737344"
    ![匯入按鈕](media/automation-runbook-gallery/gallery-item-detail.png)
 
 7. 選擇性變更 Runbook 的名稱，然後按一下 [確定]  以匯入 Runbook。
-8. Runbook 會出現在自動化帳戶的 [Runbook] 索引標籤上。
+8. Runbook 會出現在自動化帳戶的 [Runbook]  索引標籤上。
 
 ### <a name="adding-a-powershell-runbook-to-the-gallery"></a>加入資源庫中的 PowerShell runbook
 
@@ -62,12 +62,12 @@ PowerShell 模組包含您可以在 Runbook 中使用的 Cmdlet，您可以安�
 ### <a name="to-import-a-module-from-the-automation-module-gallery-with-the-azure-portal"></a>透過 Azure 入口網站從自動化模組資源庫匯入模組
 
 1. 在 Azure 入口網站中，開啟您的自動化帳戶。
-2. 在 [共用資源] 下選取 [模組]，以開啟模組清單。
-3. 從頁面頂端按一下 [瀏覽資源庫]。
+2. 在 [共用資源]  下選取 [模組]  ，以開啟模組清單。
+3. 從頁面頂端按一下 [瀏覽資源庫]  。
 
    ![模組資源庫](media/automation-runbook-gallery/modules-blade.png)
 
-4. 在 [瀏覽資源庫] 頁面上，您可以依下列欄位來搜尋：
+4. 在 [瀏覽資源庫]  頁面上，您可以依下列欄位來搜尋：
 
    * 模組名稱
    * 標記
@@ -81,8 +81,8 @@ PowerShell 模組包含您可以在 Runbook 中使用的 Cmdlet，您可以安�
    ![PowerShell 模組的詳細資料](media/automation-runbook-gallery/gallery-item-details-blade.png)
 
 6. 若要將該模組直接安裝至 Azure 自動化，請按一下 [匯入]  按鈕。
-7. 按一下 [匯入] 按鈕時，在 [匯入] 窗格上，您會看到將要匯入的模組名稱。 如果已安裝所有相依性，[確定] 按鈕會啟動。 如果缺少相依性，您必須先匯入這些相依性後，才能匯入此模組。
-8. 在 [匯入] 分頁上按一下 [確定] 以匯入模組。 當 Azure 自動化將模組匯入至您的帳戶時，它會擷取有關模組和 Cmdlet 的中繼資料。 因為必須解壓縮每個活動，此動作可能需要幾分鐘的時間。
+7. 按一下 [匯入] 按鈕時，在 [匯入]  窗格上，您會看到將要匯入的模組名稱。 如果已安裝所有相依性，[確定]  按鈕會啟動。 如果缺少相依性，您必須先匯入這些相依性後，才能匯入此模組。
+8. 在 [匯入]  分頁上按一下 [確定]  以匯入模組。 當 Azure 自動化將模組匯入至您的帳戶時，它會擷取有關模組和 Cmdlet 的中繼資料。 因為必須解壓縮每個活動，此動作可能需要幾分鐘的時間。
 9. 您會收到初始通知，表示正在部署模組，而完成時還會收到另一個通知。
 10. 匯入模組之後，您可以看到可用的活動。 您可以將其資源用於 Runbook 和「預期狀態設定」中。
 

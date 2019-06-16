@@ -9,10 +9,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
 ms.openlocfilehash: cf1cba6f6d26d66fc560c86ea42459fa276cc880
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66114913"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>關於 Azure 儲存體移轉的常見問題集
@@ -266,9 +266,9 @@ Azure 檔案共用不允許使用進階儲存體。
 
 -   如果您是從 Microsoft Azure 儲存體命令列存取 AzCopy，請輸入 **AzCopy**。 命令列是與 AzCopy 一同安裝的。
 
--   如果您安裝的是 32 位元版本，則位於：**%ProgramFiles(x86)%\\Microsoft SDKs\\Azure\\AzCopy**。
+-   如果您安裝的是 32 位元版本，則位於： **%ProgramFiles(x86)%\\Microsoft SDKs\\Azure\\AzCopy**。
 
--   如果您安裝的是 64 位元版本，則位於：**%ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**。
+-   如果您安裝的是 64 位元版本，則位於： **%ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**。
 
 **對於複寫的儲存體帳戶 (例如，區域備援儲存體、異地備援儲存體或讀取權限異地備援儲存體)，如何存取儲存在次要區域的資料？**
 
@@ -276,7 +276,7 @@ Azure 檔案共用不允許使用進階儲存體。
 
 -   如果您使用的是讀取權限異地備援儲存體，可以隨時存取次要區域中的資料。 使用下列其中一種方法：  
       
-    - **AzCopy**：將 **-secondary** 附加至 URL 中的儲存體帳戶名稱，即可存取次要端點。 例如：  
+    - **AzCopy**：將 **-secondary** 附加至 URL 中的儲存體帳戶名稱，即可存取次要端點。 例如:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 

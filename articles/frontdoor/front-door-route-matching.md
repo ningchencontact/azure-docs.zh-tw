@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736273"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Front Door 比對要求與路由規則的方式
@@ -50,8 +50,8 @@ Front Door 路由規則設定主要由兩個部分組成：「左邊」與「右
 
 | 路由規則 | 前端主機 | Path |
 |-------|--------------------|-------|
-| 具有使用  | foo.contoso.com | /\* |
-| b | foo.contoso.com | /users/\* |
+| A | foo.contoso.com | /\* |
+| B | foo.contoso.com | /users/\* |
 | C | www\.fabrikam.com, foo.adventure-works.com  | /\*、/images/\* |
 
 如果已將下列連入要求傳送到 Front Door，則會由上而下來比對下列路由規則：
@@ -80,8 +80,8 @@ Front Door 路由規則設定主要由兩個部分組成：「左邊」與「右
 
 | 路由規則 | 前端主機    | Path     |
 |-------|---------|----------|
-| 具有使用      | www\.contoso.com | /        |
-| b     | www\.contoso.com | /\*      |
+| A     | www\.contoso.com | /        |
+| B     | www\.contoso.com | /\*      |
 | C     | www\.contoso.com | /ab      |
 | D     | www\.contoso.com | /abc     |
 | E     | www\.contoso.com | /abc/    |
@@ -93,19 +93,19 @@ Front Door 路由規則設定主要由兩個部分組成：「左邊」與「右
 
 | 連入要求    | 相符的路由 |
 |---------------------|---------------|
-| www\.contoso.com/            | 具有使用              |
-| www\.contoso.com/a           | b             |
+| www\.contoso.com/            | A             |
+| www\.contoso.com/a           | B             |
 | www\.contoso.com/ab          | C             |
 | www\.contoso.com/abc         | D             |
-| www\.contoso.com/abzzz       | b             |
+| www\.contoso.com/abzzz       | B             |
 | www\.contoso.com/abc/        | E             |
 | www\.contoso.com/abc/d       | F             |
 | www\.contoso.com/abc/def     | G             |
 | www\.contoso.com/abc/defzzz  | F             |
 | www\.contoso.com/abc/def/ghi | F             |
-| www\.contoso.com/path        | b             |
+| www\.contoso.com/path        | B             |
 | www\.contoso.com/path/       | H             |
-| www\.contoso.com/path/zzz    | b             |
+| www\.contoso.com/path/zzz    | B             |
 
 >[!WARNING]
 > </br> 如果使用全面涵蓋路由路徑 (`/*`) 的完全相符前端主機找不到任何路由規則，則任何路由規則都不會有相符項目。
@@ -114,7 +114,7 @@ Front Door 路由規則設定主要由兩個部分組成：「左邊」與「右
 >
 > | 路由 | Host             | Path    |
 > |-------|------------------|---------|
-> | 具有使用      | profile.contoso.com | /api/\* |
+> | A     | profile.contoso.com | /api/\* |
 >
 > 比對表格：
 >

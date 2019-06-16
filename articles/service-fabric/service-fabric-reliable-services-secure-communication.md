@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
 ms.openlocfilehash: f247142f26490e1899256917b64fbec7308fb281
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62107665"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>保護 C# 服務中的服務遠端通訊
@@ -28,7 +28,7 @@ ms.locfileid: "62107665"
 >
 >
 
-安全是通信最为重视的要素之一。 Reliable Services 應用程式架構會提供可用來改善安全性的一些預先建置通訊堆疊和工具。 本文探討如何改善在 C# 服務中使用服務遠端時的安全性。 它建置於現有[範例](service-fabric-reliable-services-communication-remoting.md)上，其會說明如何針對以 C# 撰寫的可靠服務設定遠端。 
+安全性是通訊最為重視的其中一個部分。 Reliable Services 應用程式架構會提供可用來改善安全性的一些預先建置通訊堆疊和工具。 本文探討如何改善在 C# 服務中使用服務遠端時的安全性。 它建置於現有[範例](service-fabric-reliable-services-communication-remoting.md)上，其會說明如何針對以 C# 撰寫的可靠服務設定遠端。 
 
 若要在搭配 C# 服務使用服務遠端時協助保護服務安全，請遵循下列步驟：
 
@@ -180,7 +180,7 @@ ms.locfileid: "62107665"
 
     ```
 
-    如果用戶端程式碼正在當作服務一部分執行，則可以從 settings.xml 檔案中載入 `FabricTransportRemotingSettings` 。 建立與服務程式碼類似的 HelloWorldClientTransportSettings 區段，如前所示。 对客户端代码进行以下更改。
+    如果用戶端程式碼正在當作服務一部分執行，則可以從 settings.xml 檔案中載入 `FabricTransportRemotingSettings` 。 建立與服務程式碼類似的 HelloWorldClientTransportSettings 區段，如前所示。 對用戶端程式碼進行下列變更：
 
     ```csharp
     ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory(

@@ -1,32 +1,32 @@
 ---
-title: 使用 PagerDuty 設定 Azure 服務健康情況警示 | Microsoft Docs
+title: 使用 PagerDuty 使用 webhook 傳送 Azure 服務健康情況警示
 description: 取得關於 PagerDuty 執行個體服務健康情況事件的個人化通知。
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.date: 11/14/2017
-ms.openlocfilehash: b78c155fb2f3a13c27f4ff71c4dd37df2dbd2f36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: ab3bcffb6453b284c3c8bb0d0373c7155fe8ef23
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620967"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067141"
 ---
-# <a name="configure-service-health-alerts-with-pagerduty"></a>使用 PagerDuty 設定服務健康情況警示
+# <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>使用 PagerDuty 使用 webhook 傳送 Azure 服務健康情況警示
 
 本文會示範如何使用 Webhook 透過 PagerDuty 來設定 Azure 服務健康情況通知。 透過使用 [PagerDuty](https://www.pagerduty.com/) 的自訂 Microsoft Azure 整合類型，您可以毫不費力地將服務健康情況警示新增至新建或現有的 PagerDuty 服務。
 
 ## <a name="creating-a-service-health-integration-url-in-pagerduty"></a>在 PagerDuty 中建立服務健康情況的整合 URL
 1.  請確定您已註冊並登入您的 [PagerDuty](https://www.pagerduty.com/) 帳戶。
 
-1.  瀏覽至 PagerDuty 的 [服務] 區段。
+1.  瀏覽至 PagerDuty 的 [服務]  區段。
 
     ![在 PagerDuty 中的 [服務] 區段](./media/webhook-alerts/pagerduty-services-section.png)
 
-1.  選取 [新增服務] 或開啟已設定的現有服務。
+1.  選取 [新增服務]  或開啟已設定的現有服務。
 
-1.  在 [整合設定] 中選取下列項目：
+1.  在 [整合設定]  中選取下列項目：
 
     a. **整合類型**：Microsoft Azure
 
@@ -34,7 +34,7 @@ ms.locfileid: "60620967"
 
     ![PagerDuty 中的 [整合設定]](./media/webhook-alerts/pagerduty-integration-settings.png)
 
-1.  填寫所有必要欄位，然後選取 [新增]。
+1.  填寫所有必要欄位，然後選取 [新增]  。
 
 1.  開啟這個新的整合，並複製及儲存**整合 URL**。
 
@@ -46,30 +46,30 @@ ms.locfileid: "60620967"
 
 1. 在**動作**清單中定義：
 
-    a. **動作類型：***Webhook*
+    a. **動作類型：** *Webhook*
 
     b. **詳細資料：** 您先前儲存的 PagerDuty **整合 URL**。
 
     c. **名稱：** Webhook 的名稱、別名或識別項。
 
-1. 完成後選取 [儲存] 以建立警示。
+1. 完成後選取 [儲存]  以建立警示。
 
 ### <a name="for-an-existing-action-group"></a>現有的動作群組：
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [監視]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [監視]  。
 
-1. 在 [設定] 區段上，選取 [動作群組]。
+1. 在 [設定]  區段上，選取 [動作群組]  。
 
 1. 尋找並選取您要編輯的動作群組。
 
 1. 新增至**動作**清單：
 
-    a. **動作類型：***Webhook*
+    a. **動作類型：** *Webhook*
 
     b. **詳細資料：** 您先前儲存的 PagerDuty **整合 URL**。
 
     c. **名稱：** Webhook 的名稱、別名或識別項。
 
-1. 完成後選取 [儲存] 來更新動作群組。
+1. 完成後選取 [儲存]  來更新動作群組。
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>透過 HTTP POST 要求測試 Webhook 整合
 1. 建立您想要傳送的服務健康情況承載。 您可以在 [Azure 活動記錄警示的 Webhook](../azure-monitor/platform/activity-log-alerts-webhook.md) 上，找到服務服務健康情況 Webhook 承載範例。

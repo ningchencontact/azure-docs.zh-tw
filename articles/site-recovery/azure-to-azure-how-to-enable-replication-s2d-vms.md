@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: asgang
 ms.openlocfilehash: 6c639d4503b170660abed5767e3571c8a2bf24b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790276"
 ---
 # <a name="replicate-azure-virtual-machines-using-storage-spaces-direct-to-another-azure-region"></a>將使用儲存空間直接存取的 Azure 虛擬機器複寫到另一個 Azure 區域
@@ -80,10 +80,10 @@ ms.locfileid: "60790276"
 ## <a name="run-a-test-failover"></a>執行測試容錯移轉
 1.  在 Azure 入口網站中，選取您的復原服務保存庫。
 2.  選取您建立的復原計畫。
-3.  選取 [測試容錯移轉]。
+3.  選取 [測試容錯移轉]  。
 4.  若要啟動測試容錯移轉程序，請選取復原點和 Azure 虛擬網路。
 5.  當次要環境啟動時，即可執行您驗證。
-6.  完成驗證後，若要清除此容錯移轉環境，請選取 [清除測試容錯移轉]。
+6.  完成驗證後，若要清除此容錯移轉環境，請選取 [清除測試容錯移轉]  。
 
 如需詳細資訊，請參閱[在 Site Recovery 中測試容錯移轉至 Azure](site-recovery-test-failover-to-azure.md)。
 
@@ -91,7 +91,7 @@ ms.locfileid: "60790276"
 
 1.  在 Azure 入口網站中，選取您的復原服務保存庫。
 2.  選取為 SAP 應用程式建立的復原計畫。
-3.  選取 [容錯移轉]。
+3.  選取 [容錯移轉]  。
 4.  若要啟動容錯移轉程序，請選取復原點。
 
 如需詳細資訊，請參閱[在 Site Recovery 中容錯移轉](site-recovery-failover.md)。

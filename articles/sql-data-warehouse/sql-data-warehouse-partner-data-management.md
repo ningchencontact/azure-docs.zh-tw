@@ -11,17 +11,17 @@ ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.openlocfilehash: 98f581eca893fc3f0cf2eae12fdcffbe0440bdd7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873686"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>SQL 資料倉儲資料管理合作夥伴
 若要建立資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。 本文將重點放在具有可支援「Azure SQL 資料倉儲」之資料管理工具和解決方案的 Microsoft 合作夥伴公司。
 
 ## <a name="data-management-partners"></a>資料管理合作夥伴
-| 合作夥伴 | 說明 | 網站/產品連結 |
+| 合作夥伴 | 描述 | 網站/產品連結 |
 | ------- | ----------- | -------------------- |
 | ![Coffing Data Warehousing][1] |**Coffing Data Warehousing**<br>Coffing Data Warehousing 提供 Nexus Chameleon，這是專門用來查詢系統的工具，已有十年的歷史。 Nexus 可做為 SQL 資料倉儲的查詢工具。 請使用 Nexus 查詢內部部署和雲端電腦，並聯結不同平台的資料。 點擊式報告！ |[產品頁面][coffing_website]<br> |
 | ![Inbrein][2] |**Inbrein MicroERD**<br>Inbrein MicroERD 提供您建立精確資料模型、減少資料備援、提升產能及遵守標準所需的工具。 透過使用其根據廣泛使用者體驗所開發的 UI，可讓模型塑造既輕鬆又方便地處理 DB 模型。 透過及時的功能改進和更新，您可以持續享有 MicroERD 最新改善的功能。 |[產品頁面][inbrein_website]<br> |

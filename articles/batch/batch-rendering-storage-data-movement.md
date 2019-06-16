@@ -8,10 +8,10 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 5a0d4dc82995e63697cc673bc54695c9c6d586df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60773990"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>轉譯資產和輸出檔案的儲存體和資料移動選項
@@ -134,4 +134,4 @@ Blobfuse 是 Azure Blob 儲存體的虛擬檔案系統驅動程式，可讓您�
 
 * [Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
 * [Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)
-* [Azure 文件](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)
+* [Azure 檔案](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)
