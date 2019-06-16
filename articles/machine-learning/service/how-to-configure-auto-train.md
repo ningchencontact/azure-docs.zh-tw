@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
 ms.openlocfilehash: df05bd984667283b0ccc143ba14fff6b35d69144
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66753170"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>在 Python 中設定自動化的 ML 實驗
@@ -128,13 +128,13 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 Key | 類型 | 互斥項目    | 描述
 ---|---|---|---
 X | Pandas 資料框架或 Numpy 陣列 | data_train、標籤、資料行 |  所有要用於訓練的特徵
-y | Pandas 資料框架或 Numpy 陣列 |   標籤   | 要用於訓練的標籤資料。 就分類而言，應為整數的陣列。
+y | Pandas 資料框架或 Numpy 陣列 |   label   | 要用於訓練的標籤資料。 就分類而言，應為整數的陣列。
 X_valid | Pandas 資料框架或 Numpy 陣列   | data_train、標籤 | _選擇性_功能 form 驗證集的資料。 如果未指定，則 X 會分割至訓練和驗證之間
 y_valid |   Pandas 資料框架或 Numpy 陣列 | data_train、標籤 | _選擇性_ 要用於驗證的標籤資料。 如果未指定，則 y 會分割至訓練和驗證之間
 sample_weight | Pandas 資料框架或 Numpy 陣列 |   data_train、標籤、資料行| _選擇性_ 每個範例的加權值。 如果您想要為資料點指派不同的加權，則應使用
 sample_weight_valid | Pandas 資料框架或 Numpy 陣列 | data_train、標籤、資料行 |    _選擇性_ 每個驗證範例的加權值。 如果未指定，則 sample_weight 會分割至訓練和驗證之間
 data_train |    Pandas 資料框架 |  X、y、X_valid、y_valid |    所有要用於訓練的資料 (特徵+標籤)
-標籤 | 字串  | X、y、X_valid、y_valid |  data_train 中的哪個資料行代表標籤
+label | 字串  | X、y、X_valid、y_valid |  data_train 中的哪個資料行代表標籤
 columns | 字串的陣列  ||  _選擇性_ 要用於特徵的資料行白名單
 cv_splits_indices   | 一連串整數 ||  _選擇性_ 用來分割交叉驗證資料的索引清單
 

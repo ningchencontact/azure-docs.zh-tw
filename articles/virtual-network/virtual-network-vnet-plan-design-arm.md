@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
 ms.openlocfilehash: 0a80630ffa363d2b633667d8104cc0326c4afa2e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66478601"
 ---
 # <a name="plan-virtual-networks"></a>規劃虛擬網路
@@ -29,7 +29,7 @@ ms.locfileid: "66478601"
 
 所有 Azure 資源都有名稱。 名稱在範圍內必須是唯一的，而範圍可能會依每個資源類型而有所不同。 例如，虛擬網路的名稱在[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)內必須是唯一的，但在[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)或 Azure [區域](https://azure.microsoft.com/regions/#services)內則可以重複。 在隨時間管理數個網路資源的情況下，定義可讓您在命名資源時一致地使用的命名慣例將會很有幫助。 如需建議，請參閱[命名慣例](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#networking)。
 
-## <a name="regions"></a>區域
+## <a name="regions"></a>Regions
 
 所有的 Azure 資源都是建立於 Azure 區域和訂用帳戶中。 只有當虛擬網路位於與資源相同的區域和訂用帳戶時，才能在虛擬網路中建立資源。 不過，您可以連線存在於不同訂用帳戶和區域中的虛擬網路。 如需詳細資訊，請參閱[連線能力](#connectivity)。 決定要將資源部署在哪些區域時，請考慮資源的取用者實際位於何處：
 

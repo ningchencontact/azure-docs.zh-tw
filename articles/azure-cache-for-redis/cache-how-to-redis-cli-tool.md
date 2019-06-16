@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: yegu
 ms.openlocfilehash: 318d02f5da816ae8fe2fe199b9c87b3748d5d1fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133030"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>如何搭配使用 Redis 命令列工具與 Azure Redis 快取
@@ -53,11 +53,11 @@ ms.locfileid: "66133030"
 
     執行 **stunnel GUI Start** 啟動伺服器。
 
-    以滑鼠右鍵按一下 stunnel 伺服器的工作列圖示，然後按一下 [Show Log Window \(顯示記錄視窗\)]。
+    以滑鼠右鍵按一下 stunnel 伺服器的工作列圖示，然後按一下 [Show Log Window \(顯示記錄視窗\)]  。
 
-    在 stunnel 的 [Log Windows \(記錄視窗\)] 功能表上按一下 [Configuration \(設定\)]  >  [Edit Configuration \(編輯設定\)] 開啟目前的設定檔。
+    在 stunnel 的 [Log Windows \(記錄視窗\)] 功能表上按一下 [Configuration \(設定\)]   >  [Edit Configuration \(編輯設定\)]  開啟目前的設定檔。
 
-    在 [Service definitions \(服務定義\)] 區段下加入 *redis-cli.exe* 的下列項目。 取代 `yourcachename`，插入您實際的快取名稱。 
+    在 [Service definitions \(服務定義\)]  區段下加入 *redis-cli.exe* 的下列項目。 取代 `yourcachename`，插入您實際的快取名稱。 
 
     ```
     [redis-cli]
@@ -68,12 +68,12 @@ ms.locfileid: "66133030"
 
     儲存並關閉設定檔。 
   
-    在 stunnel 的 [Log Window \(記錄視窗\)] 功能表上按一下 [Configuration \(設定\)]  >  [Reload Configuration \(重新載入設定\)]。
+    在 stunnel 的 [Log Window \(記錄視窗\)] 功能表上按一下 [Configuration \(設定\)]   >  [Reload Configuration \(重新載入設定\)]  。
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>使用 Redis 命令列工具連線。
 
-使用 stunnel 時，執行 *redis-cli.exe*，只傳遞您的「連接埠」和「存取金鑰」(主要或次要) 以連線到快取。
+使用 stunnel 時，執行 *redis-cli.exe*，只傳遞您的「連接埠」  和「存取金鑰」  (主要或次要) 以連線到快取。
 
 ```
 redis-cli.exe -p 6380 -a YourAccessKey
@@ -81,7 +81,7 @@ redis-cli.exe -p 6380 -a YourAccessKey
 
 ![搭配使用 stunnel 與 redis-cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-如果您使用的測試快取有**不安全**的非 SSL 連接埠，請執行 `redis-cli.exe` 並傳遞您的「主機名稱」、「連接埠」和「存取金鑰」(主要或次要) 以連線到測試快取。
+如果您使用的測試快取有**不安全**的非 SSL 連接埠，請執行 `redis-cli.exe` 並傳遞您的「主機名稱」  、「連接埠」  和「存取金鑰」  (主要或次要) 以連線到測試快取。
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey

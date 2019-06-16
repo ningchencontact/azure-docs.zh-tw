@@ -14,10 +14,10 @@ ms.date: 02/27/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104815"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>將 Log Analytics 儲存的搜尋和警示新增到管理解決方案 (預覽)
@@ -55,7 +55,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 
 ## <a name="saved-searches"></a>儲存的搜尋
-在解決方案中包含[儲存的搜尋](../../azure-monitor/log-query/log-query-overview.md)，可讓使用者查詢您解決方案所收集的資料。 儲存的搜尋會出現在 Azure 入口網站的 [儲存的搜尋] 下方。 每個警示也會需要儲存的搜尋。
+在解決方案中包含[儲存的搜尋](../../azure-monitor/log-query/log-query-overview.md)，可讓使用者查詢您解決方案所收集的資料。 儲存的搜尋會出現在 Azure 入口網站的 [儲存的搜尋]  下方。 每個警示也會需要儲存的搜尋。
 
 [Log Analytics 儲存的搜尋](../../azure-monitor/log-query/log-query-overview.md)資源都具有 `Microsoft.OperationalInsights/workspaces/savedSearches` 類型，並具備下列結構。 這包括一般變數和參數，因此您可以將此程式碼片段複製並貼到您的解決方案檔，然後變更參數名稱。
 
@@ -83,7 +83,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 | query | 要執行的查詢。 |
 
 > [!NOTE]
-> 如果查詢包含可解譯為 JSON 的字元，您可能需要在查詢中使用逸出字元。 例如，如果查詢為 **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"**，就應該在方案檔中撰寫為 **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"**。
+> 如果查詢包含可解譯為 JSON 的字元，您可能需要在查詢中使用逸出字元。 例如，如果查詢為 **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"** ，就應該在方案檔中撰寫為 **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"** 。
 
 ## <a name="alerts"></a>警示
 [Azure 記錄警示](../../azure-monitor/platform/alerts-unified-log.md)是由 Azure 警示規則所建立，以定期執行指定的記錄查詢。 如果查詢的結果符合指定的準則，就會建立警示記錄，並使用[動作群組](../../azure-monitor/platform/action-groups.md)執行一或多個動作。
@@ -123,7 +123,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要項 | 描述 |
 |:--|:--|:--|
-| 已啟用       | 是 | 指定在建立警示時是否要加以啟用。 |
+| enabled       | 是 | 指定在建立警示時是否要加以啟用。 |
 | interval      | 是 | 查詢的執行頻率，以分鐘為單位。 |
 | queryTimeSpan | 是 | 評估結果的時間長度，以分鐘為單位。 |
 
@@ -177,7 +177,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 | 元素名稱 | 必要項 | 描述 |
 |:--|:--|:--|
 | 類型 | 是 | 動作的類型。  這是適用於警示動作的**警示**。 |
-| 名稱 | 是 | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
+| Name | 是 | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
 | 描述 | 否 | 警示的選擇性描述。 |
 | 嚴重性 | 是 | 警示記錄的嚴重性有下列值：<br><br> **critical**<br>**warning**<br>**informational**
 
@@ -188,7 +188,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 | 元素名稱 | 必要項 | 描述 |
 |:--|:--|:--|
 | 運算子 | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| Value | 是 | 要比較結果的值。 |
+| 值 | 是 | 要比較結果的值。 |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 此為選擇性區段。 加入此區段以供計量計量警示使用。
@@ -200,7 +200,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 |:--|:--|:--|
 | TriggerCondition | 是 | 使用下列值來指定臨界值為違反次數總和或連續違反次數：<br><br>**Total<br>Consecutive** |
 | 運算子 | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| Value | 是 | 必須符合準則以觸發警示的次數。 |
+| 值 | 是 | 必須符合準則以觸發警示的次數。 |
 
 
 #### <a name="throttling"></a>節流
@@ -269,7 +269,7 @@ Webhook 動作會呼叫 URL 並選擇性地提供要傳送的承載，以啟動�
     }
 下表會說明 Webhook 動作資源的屬性。
 
-| 元素名稱 | 必要項 | 描述 |
+| 元素名稱 | 必要項 | 說明 |
 |:--|:--|:--|
 | type | 是 | 動作的類型。 這適用於 Webhook 動作的 **Webhook**。 |
 | name | 是 | 動作的顯示名稱。 這不會顯示在主控台中。 |

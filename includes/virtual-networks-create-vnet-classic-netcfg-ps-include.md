@@ -9,10 +9,10 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: bda289e73b9a782cd56c0c94b8f53e8002b1ccf4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116874"
 ---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>如何使用 PowerShell 的網路組態檔建立虛擬網路
@@ -76,7 +76,7 @@ Azure 會使用 xml 檔案定義訂用帳戶可用的所有虛擬網路。 您�
       Set-AzureVNetConfig  <Id>                                 Succeeded 
       ```
    
-   如果傳回的輸出中 **OperationStatus** 不是 Succeeded，請檢查 xml 檔案中的錯誤並再次完成步驟 6。
+   如果傳回的輸出中 **OperationStatus** 不是 Succeeded  ，請檢查 xml 檔案中的錯誤並再次完成步驟 6。
 
 7. 從 Azure PowerShell 主控台中，使用 **Get-AzureVnetSite** Cmdlet，執行下列命令以確認已成功新增網路： 
 

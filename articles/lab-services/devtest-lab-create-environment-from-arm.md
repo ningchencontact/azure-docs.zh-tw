@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 144fd11e9c1ee3e00412320840e864a3190ccdb0
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833976"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立多個 VM 環境和 PaaS 資源
@@ -67,28 +67,28 @@ Azure DevTest Labs 有 [Azure Resource Manager 範本的公用存放庫](https:/
 下列步驟將引導您使用 Azure 入口網站將儲存機制新增至您的實驗室。 
 
 1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
-1. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
+1. 選取 [所有服務]  ，然後從清單中選取 [DevTest Labs]  。
 1. 從實驗室清單中，選取所需的實驗室。   
-1. 在實驗室的 [概觀] 窗格中，選取 [設定與原則]。
+1. 在實驗室的 [概觀]  窗格中，選取 [設定與原則]  。
 
     ![組態和原則](./media/devtest-lab-create-environment-from-arm/configuration-and-policies-menu.png)
 
-1. 從 [組態和原則] 設定清單中，選取 [儲存機制]。 [存放庫] 窗格會列出已新增至實驗室的存放庫。 會為所有實驗室自動產生名為 `Public Repo` 的儲存機制，並連接到 [DevTest Labs GitHub 儲存機制](https://github.com/Azure/azure-devtestlab)，其中包含數個 VM 構件供您使用。
+1. 從 [組態和原則]  設定清單中，選取 [儲存機制]  。 [存放庫]  窗格會列出已新增至實驗室的存放庫。 會為所有實驗室自動產生名為 `Public Repo` 的儲存機制，並連接到 [DevTest Labs GitHub 儲存機制](https://github.com/Azure/azure-devtestlab)，其中包含數個 VM 構件供您使用。
 
     ![公用儲存機制](./media/devtest-lab-create-environment-from-arm/public-repo.png)
 
-1. 選取 [新增 +] 以新增您的 Azure Resource Manager 範本儲存機制。
-1. 當第二個 [存放庫] 窗格開啟時，輸入必要資訊，如下所示：
+1. 選取 [新增 +]  以新增您的 Azure Resource Manager 範本儲存機制。
+1. 當第二個 [存放庫]  窗格開啟時，輸入必要資訊，如下所示：
     - **名稱** - 輸入在實驗室中使用的儲存機制名稱。
     - **Git 複製 URL** - 輸入來自 GitHub 或 Azure DevOps Services 的 GIT HTTPS 複製 URL。  
     - **分支** - 輸入分支的名稱，以存取您的 Azure Resource Manager 範本定義。 
-    - **個人的存取權杖** - 個人的存取權杖用來安全地存取您的儲存機制。 若要從 Azure DevOps Services 取得您的權杖，請選取 [&lt;您的名稱] > > [我的設定檔] > [安全性] > [公用存取權杖]。 若要從 GitHub 取得權杖，請選取 avatar 然後選取 [設定 > 公用存取權杖]。 
+    - **個人的存取權杖** - 個人的存取權杖用來安全地存取您的儲存機制。 若要從 Azure DevOps Services 取得您的權杖，請選取 [&lt;您的名稱] > > [我的設定檔] > [安全性] > [公用存取權杖]  。 若要從 GitHub 取得權杖，請選取 avatar 然後選取 [設定 > 公用存取權杖]  。 
     - **資料夾路徑** - 使用兩個輸入欄位其中之一、輸入資料夾路徑，其開頭為正斜線 - / - 且與 Git 複製 URI 相關，至構件定義 (第一個輸入欄位) 或您的 Azure Resource Manager 範本定義。   
     
         ![公用儲存機制](./media/devtest-lab-create-environment-from-arm/repo-values.png)
 
 
-1. 一旦輸入所有必要的欄位並通過驗證後，請選取 [儲存]。
+1. 一旦輸入所有必要的欄位並通過驗證後，請選取 [儲存]  。
 
 下一節將引導您從 Azure Resource Manager 範本建立環境。
 
@@ -97,14 +97,14 @@ Azure DevTest Labs 有 [Azure Resource Manager 範本的公用存放庫](https:/
 一旦在實驗室中設定 Azure Resource Manager 範本儲存機制之後，您實驗室的使用者可以使用 Azure 入口網站以下列步驟建立環境︰
 
 1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
-1. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
+1. 選取 [所有服務]  ，然後從清單中選取 [DevTest Labs]  。
 1. 從實驗室清單中，選取所需的實驗室。   
-1. 在實驗室的窗格中，選取 [新增+]。
-1. [選擇基底] 窗格會顯示您可以與先列出的 Azure Resource Manager 範本搭配使用的基底映像。 選取所需的 Azure Resource Manager 範本。
+1. 在實驗室的窗格中，選取 [新增+]  。
+1. [選擇基底]  窗格會顯示您可以與先列出的 Azure Resource Manager 範本搭配使用的基底映像。 選取所需的 Azure Resource Manager 範本。
 
     ![選擇基底](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)
   
-1. 在 [新增] 窗格中，輸入**環境名稱**值。 環境名稱是實驗室中向您使用者顯示的內容。 會在 Azure Resource Manager 範本中定義其餘的輸入欄位。 如果在範本中定義預設值或 `azuredeploy.parameter.json` 檔案存在，則預設值會顯示在這些輸入欄位中。 針對安全字串類型的參數，您可以使用儲存在 Azure 金鑰保存庫中的密碼。 若要深入了解如何在金鑰保存庫中儲存祕密以及在建立實驗室資源時使用它們，請參閱[在 Azure Key Vault 中儲存祕密](devtest-lab-store-secrets-in-key-vault.md)。  
+1. 在 [新增]  窗格中，輸入**環境名稱**值。 環境名稱是實驗室中向您使用者顯示的內容。 會在 Azure Resource Manager 範本中定義其餘的輸入欄位。 如果在範本中定義預設值或 `azuredeploy.parameter.json` 檔案存在，則預設值會顯示在這些輸入欄位中。 針對安全字串  類型的參數，您可以使用儲存在 Azure 金鑰保存庫中的密碼。 若要深入了解如何在金鑰保存庫中儲存祕密以及在建立實驗室資源時使用它們，請參閱[在 Azure Key Vault 中儲存祕密](devtest-lab-store-secrets-in-key-vault.md)。  
 
     ![新增窗格](./media/devtest-lab-create-environment-from-arm/add.png)
 
@@ -116,8 +116,8 @@ Azure DevTest Labs 有 [Azure Resource Manager 範本的公用存放庫](https:/
     > - GEN-SSH-PUB-KEY
     > - GEN-PASSWORD 
  
-1. 選取 [新增] 以建立環境。 環境會立即啟動佈建，並在**我的虛擬機器**清單中有狀態顯示。 實驗室會自動建立新的資源群組，以佈建 Azure Resource Manager 範本中定義的所有資源。
-1. 建立環境之後，在 [我的虛擬機器] 清單中選取環境，以開啟資源群組窗格，並瀏覽環境中佈建的所有資源。
+1. 選取 [新增]  以建立環境。 環境會立即啟動佈建，並在**我的虛擬機器**清單中有狀態顯示。 實驗室會自動建立新的資源群組，以佈建 Azure Resource Manager 範本中定義的所有資源。
+1. 建立環境之後，在 [我的虛擬機器]  清單中選取環境，以開啟資源群組窗格，並瀏覽環境中佈建的所有資源。
     
     ![我的虛擬機器清單](./media/devtest-lab-create-environment-from-arm/all-environment-resources.png)
    
@@ -273,15 +273,15 @@ Write-Output "Environment $EnvironmentName completed."
 請遵循下列步驟，為您的實驗室使用者提供參與者存取權限。 接著，當他們部署 Resource Manager 範本時，他們將能編輯該環境中的資源。 
 
 
-1. 在實驗室的 [概觀] 窗格中，選取 [設定與原則]。
-1. 選取 [實驗室設定]。
-1. 在 [實驗室設定] 窗格中，選取 [參與者]，為實驗室使用者授與寫入權限。
+1. 在實驗室的 [概觀]  窗格中，選取 [設定與原則]  。
+1. 選取 [實驗室設定]  。
+1. 在 [實驗室設定] 窗格中，選取 [參與者]  ，為實驗室使用者授與寫入權限。
 
     ![設定實驗室使用者存取權限](./media/devtest-lab-create-environment-from-arm/configure-access-rights.png)
 
 1. 選取 [ **儲存**]。
 
 ## <a name="next-steps"></a>後續步驟
-* 一旦建立 VM 之後，您就能選取 VM 管理窗格上的 [連線] 來連線至 VM。
-* 在實驗室的 [我的虛擬機器] 清單中選取環境，以檢視和管理環境中的資源。 
+* 一旦建立 VM 之後，您就能選取 VM 管理窗格上的 [連線]  來連線至 VM。
+* 在實驗室的 [我的虛擬機器]  清單中選取環境，以檢視和管理環境中的資源。 
 * [從 Azure 快速入門範本資源庫中探索 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates)。

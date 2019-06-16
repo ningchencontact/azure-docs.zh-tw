@@ -11,10 +11,10 @@ ms.date: 04/25/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 7053f5b0211878d2f0b9d810fc3f4c0b9361e6f7
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509597"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>使用自訂原則來自訂使用者旅程的 UI
@@ -119,7 +119,7 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 
 若要確認您要用來裝載內容的儲存體已啟用 CORS，請進行下列步驟︰
 
-1. 開啟瀏覽工作階段，並使用 unified.html  頁面在儲存體帳戶中所在位置的完整 URL `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html` 來瀏覽至該頁面。 例如： https://contoso369b2c.blob.core.windows.net/b2c/unified.html。
+1. 開啟瀏覽工作階段，並使用 unified.html  頁面在儲存體帳戶中所在位置的完整 URL `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html` 來瀏覽至該頁面。 例如： https://contoso369b2c.blob.core.windows.net/b2c/unified.html 。
 2. 瀏覽至 https://test-cors.org 。這個網站可讓您確認您要使用的頁面已啟用 CORS。  
    <!--
    ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)

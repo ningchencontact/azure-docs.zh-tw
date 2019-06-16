@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 09755922da78a3e856c491c01ce9f34f50063d71
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606499"
 ---
 # <a name="using-service-map-solution-in-azure"></a>在 Azure 中使用服務對應解決方案
@@ -33,15 +33,15 @@ ms.locfileid: "65606499"
 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 
 ## <a name="enable-service-map"></a>啟用服務對應
-1. 在 Azure 入口網站中，按一下 [+ 建立資源]。
+1. 在 Azure 入口網站中，按一下 [+ 建立資源]  。
 2. 在搜尋列中輸入**服務對應**，然後按 **Enter**。
-3. 在市集搜尋結果頁面的清單中，選取 [服務對應]。<br><br> ![從 Azure Marketplace 搜尋結果中選取服務對應解決方案](./media/service-map/marketplace-search-results.png)<br>
-4. 在 [服務對應] 概觀窗格上，檢閱解決方案詳細資料，然後按一下 [建立] 開始將程序上線到 Log Analytics 工作區。<br><br> ![將服務對應解決方案上線](./media/service-map/service-map-onboard.png)。
-5. 在 [設定解決方案] 窗格中，選取現有的或建立新的 Log Analytics 工作區。  如需如何建立新工作區的進一步資訊，請參閱[在 Azure 入口網站中建立 Log Analytics 工作區](../../azure-monitor/learn/quick-create-workspace.md)。 提供必要資訊後，按一下 [建立] 。  
+3. 在市集搜尋結果頁面的清單中，選取 [服務對應]  。<br><br> ![從 Azure Marketplace 搜尋結果中選取服務對應解決方案](./media/service-map/marketplace-search-results.png)<br>
+4. 在 [服務對應]  概觀窗格上，檢閱解決方案詳細資料，然後按一下 [建立]  開始將程序上線到 Log Analytics 工作區。<br><br> ![將服務對應解決方案上線](./media/service-map/service-map-onboard.png)。
+5. 在 [設定解決方案]  窗格中，選取現有的或建立新的 Log Analytics 工作區。  如需如何建立新工作區的進一步資訊，請參閱[在 Azure 入口網站中建立 Log Analytics 工作區](../../azure-monitor/learn/quick-create-workspace.md)。 提供必要資訊後，按一下 [建立]  。  
 
-確認資訊並部署解決方案後，您可以在功能表的 [通知] 底下追蹤其進度。 
+確認資訊並部署解決方案後，您可以在功能表的 [通知]  底下追蹤其進度。 
 
-您可以在 Azure 入口網站中從 Log Analytics 工作區存取服務對應，然後從左窗格選取 [解決方案] 選項。<br><br> ![在工作區中選取 [解決方案] 選項](./media/service-map/select-solution-from-workspace.png)。<br> 從解決方案清單中，選取 [ServiceMap(workspaceName)]，然後在 [服務對應解決方案概觀] 頁面中，按一下 [服務對應摘要] 圖格。<br><br> ![[服務對應摘要] 圖格](./media/service-map/service-map-summary-tile.png)。
+您可以在 Azure 入口網站中從 Log Analytics 工作區存取服務對應，然後從左窗格選取 [解決方案]  選項。<br><br> ![在工作區中選取 [解決方案] 選項](./media/service-map/select-solution-from-workspace.png)。<br> 從解決方案清單中，選取 [ServiceMap(workspaceName)]  ，然後在 [服務對應解決方案概觀] 頁面中，按一下 [服務對應摘要] 圖格。<br><br> ![[服務對應摘要] 圖格](./media/service-map/service-map-summary-tile.png)。
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>使用案例：讓 IT 處理序可以感知相依性
 
@@ -89,11 +89,11 @@ ms.locfileid: "65606499"
 ![機器群組](media/service-map/machine-group.png)
 
 ### <a name="creating-a-machine-group"></a>建立機器群組
-若要建立群組，請在 [機器] 清單中選取您想要的一或多部機器，然後按一下 [加入群組]。
+若要建立群組，請在 [機器] 清單中選取您想要的一或多部機器，然後按一下 [加入群組]  。
 
 ![建立群組](media/service-map/machine-groups-create.png)
 
-在該處選擇 [新建]，並指定群組名稱。
+在該處選擇 [新建]  ，並指定群組名稱。
 
 ![為群組命名](media/service-map/machine-groups-name.png)
 
@@ -117,19 +117,19 @@ ms.locfileid: "65606499"
 
 ![篩選群組](media/service-map/machine-groups-filter.png)
 
-選取 [所有處理序] 時，對應將包含群組中每部機器的所有處理序和連線。
+選取 [所有處理序]  時，對應將包含群組中每部機器的所有處理序和連線。
 
 ![機器群組的所有處理序](media/service-map/machine-groups-all.png)
 
-如果您變更檢視為只顯示 [已與群組連線的處理序]，對應的範圍會縮小至只和群組中其他機器直接相關的處理序和連線，以形成精簡的檢視。
+如果您變更檢視為只顯示 [已與群組連線的處理序]  ，對應的範圍會縮小至只和群組中其他機器直接相關的處理序和連線，以形成精簡的檢視。
 
 ![機器群組的已篩選處理序](media/service-map/machine-groups-filtered.png)
  
 ### <a name="adding-machines-to-a-group"></a>將機器加入群組
-若要將機器加入現有的群組，請核取您所需機器旁的方塊，然後按一下 [加入群組]。  然後，選擇您想在其中加入機器的群組。
+若要將機器加入現有的群組，請核取您所需機器旁的方塊，然後按一下 [加入群組]  。  然後，選擇您想在其中加入機器的群組。
  
 ### <a name="removing-machines-from-a-group"></a>從群組移除多部機器
-在 [群組] 清單中，展開群組名稱以列出機器群組中的機器。  然後，按一下您想移除之機器旁的省略符號功能表，然後選擇 [移除]。
+在 [群組] 清單中，展開群組名稱以列出機器群組中的機器。  然後，按一下您想移除之機器旁的省略符號功能表，然後選擇 [移除]  。
 
 ![從群組移除機器](media/service-map/machine-groups-remove.png)
 
@@ -142,9 +142,9 @@ ms.locfileid: "65606499"
 ## <a name="role-icons"></a>角色圖示
 某些處理序在機器上扮演特殊角色︰Web 伺服器、應用程式伺服器及資料庫等。 服務對應會為程序和機器方塊加上角色圖示註解，以協助您一下就識別出程序或伺服器所扮演的角色。
 
-| 角色圖示 | 說明 |
+| 角色圖示 | 描述 |
 |:--|:--|
-| ![Web 伺服器](media/service-map/role-web-server.png) | 網頁伺服器 |
+| ![Web 伺服器](media/service-map/role-web-server.png) | Web 伺服器 |
 | ![應用程式伺服器](media/service-map/role-application-server.png) | 應用程式伺服器 |
 | ![資料庫伺服器](media/service-map/role-database.png) | 資料庫伺服器 |
 | ![LDAP 伺服器](media/service-map/role-ldap.png) | LDAP 伺服器 |
@@ -153,10 +153,10 @@ ms.locfileid: "65606499"
 ![角色圖示](media/service-map/role-icons.png)
 
 
-## <a name="failed-connections"></a>連接失敗
+## <a name="failed-connections"></a>失敗的連線
 「服務對應」對應內會顯示處理序和機器的失敗連線，並以紅色虛線指示用戶端系統無法連線到處理序或連接埠。 已部署服務對應代理程式的系統如果就是嘗試進行失敗連線的系統，則會報告失敗的連線。 服務對應會觀察無法建立連線的 TCP 通訊端，藉以衡量此處理序。 連線失敗的原因可能是防火牆、用戶端或伺服器設定不正確，或遠端服務無法使用。
 
-![連接失敗](media/service-map/failed-connections.png)
+![失敗的連線](media/service-map/failed-connections.png)
 
 了解失敗的連線有助於疑難排解、移轉驗證、安全性分析和整體架構理解。 失敗的連線有時無害，但它們通常直指問題所在，例如容錯移轉環境突然變成無法連線，或兩個應用程式層在雲端移轉之後無法通訊。
 
@@ -165,7 +165,7 @@ ms.locfileid: "65606499"
 
 ![用戶端群組](media/service-map/client-groups.png)
 
-若要查看用戶端群組中伺服器的 IP 位址，選取群組。 群組的內容會列在 [用戶端群組屬性] 窗格中。
+若要查看用戶端群組中伺服器的 IP 位址，選取群組。 群組的內容會列在 [用戶端群組屬性]  窗格中。
 
 ![用戶端群組屬性](media/service-map/client-group-properties.png)
 
@@ -177,16 +177,16 @@ ms.locfileid: "65606499"
 ## <a name="context-menu"></a>操作功能表
 按一下任何伺服器右上角的省略符號 (...)，會顯示該伺服器的內容功能表。
 
-![連接失敗](media/service-map/context-menu.png)
+![失敗的連線](media/service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>載入伺服器對應
-按一下 [載入伺服器對應] 會導向新的對應，並以所選取的伺服器做為新的焦點機器。
+按一下 [載入伺服器對應]  會導向新的對應，並以所選取的伺服器做為新的焦點機器。
 
 ### <a name="show-self-links"></a>顯示自我連結
-按一下 [顯示自我連結] 將會重繪包括任何自我連結的伺服器節點。自我連結即是以伺服器內處理序做為開始和結束的 TCP 連線。 如果顯示了自我連結，功能表命令會變更為 [隱藏自我連結]，就可以將它們關閉。
+按一下 [顯示自我連結]  將會重繪包括任何自我連結的伺服器節點。自我連結即是以伺服器內處理序做為開始和結束的 TCP 連線。 如果顯示了自我連結，功能表命令會變更為 [隱藏自我連結]  ，就可以將它們關閉。
 
 ## <a name="computer-summary"></a>電腦摘要
-[機器摘要] 窗格包含伺服器作業系統的概觀、相依性計數，以及其他解決方案的資料。 這些資料包括效能計量、服務台票證、變更追蹤、安全性和更新。
+[機器摘要]  窗格包含伺服器作業系統的概觀、相依性計數，以及其他解決方案的資料。 這些資料包括效能計量、服務台票證、變更追蹤、安全性和更新。
 
 ![[機器摘要] 窗格](media/service-map/machine-summary.png)
 
@@ -199,12 +199,12 @@ ms.locfileid: "65606499"
 
 ![[處理序屬性] 窗格](media/service-map/process-properties.png)
 
-[處理序摘要] 窗格會提供其他有關該處理序連線的資訊，包括其繫結連接埠、輸入及輸出連線，以及失敗的連線。
+[處理序摘要]  窗格會提供其他有關該處理序連線的資訊，包括其繫結連接埠、輸入及輸出連線，以及失敗的連線。
 
 ![[處理序摘要] 窗格](media/service-map/process-summary.png)
 
 ## <a name="alerts-integration"></a>警示整合
-服務對應會與 Azure 警示整合，以顯示所選時間範圍內針對所選伺服器觸發的警示。 如果有最新警示，伺服器會顯示圖示，且 [機器警示] 窗格會列出警示。
+服務對應會與 Azure 警示整合，以顯示所選時間範圍內針對所選伺服器觸發的警示。 如果有最新警示，伺服器會顯示圖示，且 [機器警示]  窗格會列出警示。
 
 ![[機器警示] 窗格](media/service-map/machine-alerts.png)
 
@@ -220,28 +220,28 @@ ms.locfileid: "65606499"
 ## <a name="service-desk-integration"></a>服務台整合
 當「服務對應」和「IT 服務管理連接器」這兩個解決方案皆已在 Log Analytics 工作區中啟用並設定，便會自動進行整合。 服務對應中的整合會標示為「服務台」。 如需詳細資訊，請參閱[使用 IT 服務管理連接器將 ITSM 工作項目集中管理](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview)。
 
-[機器服務台] 窗格會列出所選時間範圍內所選伺服器的所有 IT 服務管理事件。 如果有最新項目，伺服器會顯示圖示，且 [機器服務台] 窗格會列出這些項目。
+[機器服務台]  窗格會列出所選時間範圍內所選伺服器的所有 IT 服務管理事件。 如果有最新項目，伺服器會顯示圖示，且 [機器服務台] 窗格會列出這些項目。
 
 ![[機器服務台] 窗格](media/service-map/service-desk.png)
 
-若要在連線的 ITSM 解決方案中開啟項目，請按一下 [檢視工作項目]。
+若要在連線的 ITSM 解決方案中開啟項目，請按一下 [檢視工作項目]  。
 
-若要檢視記錄搜尋中項目的詳細資料，請按一下 [在記錄搜尋中顯示]。
+若要檢視記錄搜尋中項目的詳細資料，請按一下 [在記錄搜尋中顯示]  。
 連線計量會寫入到 Log Analytics 中的兩個新資料表 
 
 ## <a name="change-tracking-integration"></a>變更追蹤整合
 當「服務對應」和「變更追蹤」這兩個解決方案皆已在 Log Analytics 工作區中啟用並設定，便會自動進行整合。
 
-[機器變更追蹤] 窗格會列出所有變更，從最新排到最舊，並有連結可供向下鑽研記錄搜尋，以取得其他詳細資料。
+[機器變更追蹤]  窗格會列出所有變更，從最新排到最舊，並有連結可供向下鑽研記錄搜尋，以取得其他詳細資料。
 
 ![[機器變更追蹤] 窗格](media/service-map/change-tracking.png)
 
-下圖是選取 [在 Log Analytics 中顯示] 之後，可能會看到的 ConfigurationChange 事件詳細檢視。
+下圖是選取 [在 Log Analytics 中顯示]  之後，可能會看到的 ConfigurationChange 事件詳細檢視。
 
 ![ConfigurationChange 事件](media/service-map/configuration-change-event-01.png)
 
 ## <a name="performance-integration"></a>效能整合
-[機器效能] 窗格會顯示所選伺服器的標準效能計量。 這些計量包含 CPU 使用率、記憶體使用率、傳送和接收的網路位元組，以及按照傳送和接收的網路位元組排序的前幾個處理序清單。
+[機器效能]  窗格會顯示所選伺服器的標準效能計量。 這些計量包含 CPU 使用率、記憶體使用率、傳送和接收的網路位元組，以及按照傳送和接收的網路位元組排序的前幾個處理序清單。
 
 ![[機器效能] 窗格](media/service-map/machine-performance.png)
 
@@ -264,14 +264,14 @@ Linux：
 ## <a name="security-integration"></a>安全性整合
 當「服務對應」和「安全性與稽核」這兩個解決方案皆已在 Log Analytics 工作區中啟用並設定，便會自動進行整合。
 
-[機器安全性] 面板會顯示安全性與稽核解決方案中針對所選伺服器的資料。 此窗格會列出所選時間範圍內伺服器任何未處理之安全性問題的摘要。 按一下任一安全性問題會向下鑽研到記錄搜尋，以顯示關於安全性問題的詳細資料。
+[機器安全性]  面板會顯示安全性與稽核解決方案中針對所選伺服器的資料。 此窗格會列出所選時間範圍內伺服器任何未處理之安全性問題的摘要。 按一下任一安全性問題會向下鑽研到記錄搜尋，以顯示關於安全性問題的詳細資料。
 
 ![[機器安全性] 窗格](media/service-map/machine-security.png)
 
 ## <a name="updates-integration"></a>更新整合
 當「服務對應」和「更新管理」這兩個解決方案皆已在 Log Analytics 工作區中啟用並設定，便會自動進行整合。
 
-[機器更新] 面板會顯示更新管理解決方案中針對所選伺服器的資料。 此窗格會列出所選時間範圍內伺服器所缺少之任何更新的摘要。
+[機器更新]  面板會顯示更新管理解決方案中針對所選伺服器的資料。 此窗格會列出所選時間範圍內伺服器所缺少之任何更新的摘要。
 
 ![[機器變更追蹤] 窗格](media/service-map/machine-updates.png)
 
@@ -291,13 +291,13 @@ Linux：
 因為在指定時間範圍內可以有多筆指定處理序和電腦的記錄，針對相同電腦或處理序的查詢可能會傳回多筆記錄。 若只要包含最新的記錄，請在查詢中加入 "| dedup ResourceId"。
 
 ### <a name="connections"></a>連線
-連線計量會寫入到 Log Analytics 中的新資料表：VMConnection。 這個資料表會提供機器連線 (輸入和輸出) 的相關資訊。 連線計量也會透過 API 來公開，這類 API 會提供方法來取得某個時間範圍內的特定計量。  因為在接聽通訊端上「接受」而產生的 TCP 連線是輸入，因為「連線」到指定 IP 和連接埠而建立的連線則為輸出。 連線的方向會透過 Direction 屬性來表示，此屬性可設為 **inbound** 或 **outbound**。 
+連線計量會寫入到 Log Analytics 中的新資料表：VMConnection。 這個資料表會提供機器連線 (輸入和輸出) 的相關資訊。 連線計量也會透過 API 來公開，這類 API 會提供方法來取得某個時間範圍內的特定計量。  因為在接聽通訊端上「接受」  而產生的 TCP 連線是輸入，因為「連線」  到指定 IP 和連接埠而建立的連線則為輸出。 連線的方向會透過 Direction 屬性來表示，此屬性可設為 **inbound** 或 **outbound**。 
 
 這些資料表中的記錄都是從 Dependency Agent 所報告的資料產生的。 每筆記錄均代表在一分鐘時間間隔內的觀測。 TimeGenerated 屬性表示時間間隔的開始時間。 每筆記錄均包含資訊來識別個別的實體 (也就是連線或連接埠)，以及與該實體相關聯的計量。 目前只會報告透過 IPv4 使用 TCP 而發生的網路活動。
 
 為了管理成本和複雜度，連線記錄不代表個別的實體網路連線。 將多個實體網路連線群組為一個邏輯連線，其接著會反映於各自的資料表中。  這表示，*VMConnection* 資料表中的記錄代表一個邏輯群組，而非觀測到的個別實體連線。 在指定的一分鐘時間間隔內，共用下列屬性相同值的實體網路連線會彙總為 *VMConnection* 中的單一邏輯記錄。 
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 | `Direction` |連線的方向，值為 *inbound* 或 *outbound* |
 | `Machine` |電腦 FQDN |
@@ -309,18 +309,18 @@ Linux：
 
 為了說明群組的影響，會在記錄的下列屬性中提供群組實體連線數目的相關資訊：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 | `LinksEstablished` |已在報告時間範圍內建立的實體網路連線數目 |
 | `LinksTerminated` |已在報告時間範圍內終止的實體網路連線數目 |
 | `LinksFailed` |在報告時間範圍內失敗的實體網路連線數目。 此資訊目前僅適用於輸出連線。 |
 | `LinksLive` |已在報告時間範圍結束時開啟的實體網路連線數目|
 
-#### <a name="metrics"></a>指标
+#### <a name="metrics"></a>度量
 
 除了連線計數計量，在指定邏輯連線或網路連接埠上傳送與接收的資料量相關資訊也會包含於記錄的下列屬性中：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 | `BytesSent` |已在報告時間範圍內傳送的位元組總數 |
 | `BytesReceived` |已在報告時間範圍內接收的位元組總數 |
@@ -346,16 +346,16 @@ Linux：
 #### <a name="geolocation"></a>地理位置
 *VMConnection* 也會在記錄的下列屬性中，包含每個連線記錄遠端的地理位置資訊： 
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 | `RemoteCountry` |裝載 RemoteIp 國家/地區名稱。  例如，*United States* |
 | `RemoteLatitude` |地理位置緯度。  例如，*47.68* |
-| `RemoteLongitude` |地理位置經度。  例如：*-122.12* |
+| `RemoteLongitude` |地理位置經度。  例如： *-122.12* |
 
 #### <a name="malicious-ip"></a>惡意 IP
 *VMConnection* 資料表中的每個 RemoteIp 屬性均會根據一組具有已知惡意活動的 IP 進行檢查。 如果 RemoteIp 被識別為惡意的，將在記錄的下列屬性中填入下列屬性 (如果 IP 被視為不是惡意的，則它們是空的)：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 | `MaliciousIp` |RemoteIp 位址 |
 | `IndicatorThreadType` |偵測到的威脅指標是下列值之一：*殭屍網路*、*C2*、*CryptoMining*、*Darknet*、*DDos*、*MaliciousUrl*、*惡意程式碼*、*網路釣魚*、*Proxy*、*PUA*、*關注清單*。   |
@@ -372,7 +372,7 @@ Linux：
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL 記錄
 類型為 *ServiceMapComputer_CL* 的記錄會有伺服器 (具有服務對應代理程式) 的清查資料。 這些記錄具有下表中的屬性：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 | `Type` | *ServiceMapComputer_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -388,7 +388,7 @@ Linux：
 | `PhysicalMemory_d` | 實體記憶體 (MB) |
 | `Cpus_d` | CPU 數目 |
 | `CpuSpeed_d` | CPU 速度 (MHz)|
-| `VirtualizationState_s` | *unknown**physical**virtual* *hypervisor* |
+| `VirtualizationState_s` | *unknown* *physical* *virtual* *hypervisor* |
 | `VirtualMachineType_s` | *hyperv*、*vmware* 等等 |
 | `VirtualMachineNativeMachineId_g` | VM 識別碼 (由其 Hypervisor 指派) |
 | `VirtualMachineName_s` | VM 的名稱 |
@@ -397,7 +397,7 @@ Linux：
 ### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL 類型記錄
 類型為 *ServiceMapProcess_CL* 的記錄會有伺服器 (具有服務對應代理程式) 上 TCP 連線處理程序的清查資料。 這些記錄具有下表中的屬性：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--|:--|
 | `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 465b53e1c5f56c5c05c860ebd69a825141f7e703
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706069"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>開始使用 Azure HDInsight 上的 ML 服務
@@ -30,12 +30,12 @@ Azure HDInsight 可讓您建立 ML 服務叢集。 此選項可讓 R 指令碼�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 瀏覽至 [+ 建立資源] > [分析] > [HDInsight]。
+2. 瀏覽至 [+ 建立資源]   > [分析]   > [HDInsight]  。
 
-3. 從 [基本概念]，輸入以下資訊：
+3. 從 [基本概念]  ，輸入以下資訊：
 
     * **叢集名稱**：HDInsight 叢集的名稱。
-    * 訂用帳戶：選取要使用的訂用帳戶。
+    * 訂用帳戶  ：選取要使用的訂用帳戶。
     * **叢集登入使用者名稱**和**叢集登入密碼**：透過 HTTPS 存取叢集時的登入資訊。 您會使用這些認證來存取 Apache Ambari Web UI 或 REST API 之類的服務。
     * **安全殼層 (SSH) 使用者名稱**：透過 SSH 存取叢集時使用的登入資訊。 依預設，密碼要與叢集登入密碼相同。
     * **資源群組**：在其中建立叢集的資源群組。
@@ -43,7 +43,7 @@ Azure HDInsight 可讓您建立 ML 服務叢集。 此選項可讓 R 指令碼�
 
         ![叢集基本詳細資料](./media/r-server-get-started/clustername.png)
 
-4. 選取 [叢集類型]，並且在 [叢集組態] 區段中設定下列值︰
+4. 選取 [叢集類型]  ，並且在 [叢集組態]  區段中設定下列值︰
 
     * **叢集類型**：ML 服務
 
@@ -55,13 +55,13 @@ Azure HDInsight 可讓您建立 ML 服務叢集。 此選項可讓 R 指令碼�
 
         ![叢集基本詳細資料](./media/r-server-get-started/clustertypeconfig.png)
 
-4. 選取叢集類型之後，請使用 [選取] 按鈕來設定叢集類型。 接下來，使用 [下一步] 按鈕來完成基本組態。
+4. 選取叢集類型之後，請使用 [選取]  按鈕來設定叢集類型。 接下來，使用 [下一步]  按鈕來完成基本組態。
 
-5. 從 [儲存體] 區段中，選取或建立儲存體帳戶。 本文件的步驟是，將此區段中的其他欄位保留為預設值。 使用 [下一步] 按鈕以儲存儲存體組態。
+5. 從 [儲存體]  區段中，選取或建立儲存體帳戶。 本文件的步驟是，將此區段中的其他欄位保留為預設值。 使用 [下一步]  按鈕以儲存儲存體組態。
 
     ![設定 HDInsight 的儲存體帳戶](./media/r-server-get-started/cluster-storage.png)
 
-6. 從 [摘要] 區段中，檢閱叢集組態。 使用 [編輯] 連結來變更所有不正確的設定。 最後，使用 [建立] 按鈕建立叢集。
+6. 從 [摘要]  區段中，檢閱叢集組態。 使用 [編輯]  連結來變更所有不正確的設定。 最後，使用 [建立]  按鈕建立叢集。
 
     ![設定 HDInsight 的儲存體帳戶](./media/r-server-get-started/clustersummary.png)
 
@@ -79,15 +79,15 @@ Azure HDInsight 可讓您建立 ML 服務叢集。 此選項可讓 R 指令碼�
 
 * **選項 2** - 使用 Azure 入口網站。
   從入口網站：
-  1. 從左側功能表中選取 [所有服務]。
-  2. 在 [分析] 底下，選取 [HDInsight 叢集]。
-  3. 從 [HDInsight 叢集] 頁面選取您的叢集名稱。
-  4. 從 [ML 服務儀表板] 中選取 [R Studio 伺服器]。 
+  1. 從左側功能表中選取 [所有服務]  。
+  2. 在 [分析]  底下，選取 [HDInsight 叢集]  。
+  3. 從 [HDInsight 叢集]  頁面選取您的叢集名稱。
+  4. 從 [ML 服務儀表板]  中選取 [R Studio 伺服器]  。 
 
      ![設定 HDInsight 的儲存體帳戶](./media/r-server-get-started/r-studio-server-dashboard.png)
 
      > [!IMPORTANT]  
-     > 不論使用哪一種方法，第一次登入時都必須驗證兩次。  第一次出現驗證提示時，請提供「叢集管理員的使用者識別碼」和「密碼」。 第二次出現驗證提示時，請提供「SSH 使用者識別碼」和「密碼」。 後續的登入只需要提供 SSH 認證。
+     > 不論使用哪一種方法，第一次登入時都必須驗證兩次。  第一次出現驗證提示時，請提供「叢集管理員的使用者識別碼」  和「密碼」  。 第二次出現驗證提示時，請提供「SSH 使用者識別碼」  和「密碼」  。 後續的登入只需要提供 SSH 認證。
 
 一旦連線後，您的畫面看起來應該像下列螢幕擷取畫面：
 
@@ -174,11 +174,11 @@ Azure HDInsight 可讓您建立 ML 服務叢集。 此選項可讓 R 指令碼�
 
    `ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net`
 
-若要尋找您叢集的 SSH 命令，請從 Azure 入口網站中按一下叢集名稱，並按一下 [SSH + 叢集登入]，然後針對 [主機名稱]，選取邊緣節點。 如此即可顯示邊緣節點的 SSH 端點資訊。
+若要尋找您叢集的 SSH 命令，請從 Azure 入口網站中按一下叢集名稱，並按一下 [SSH + 叢集登入]  ，然後針對 [主機名稱]  ，選取邊緣節點。 如此即可顯示邊緣節點的 SSH 端點資訊。
 
 ![邊緣節點 SSH 端點的影像](./media/r-server-get-started/sshendpoint.png)
 
-如果您已經使用密碼保護您 SSH 使用者帳戶的安全，系統會提示您輸入密碼。 如果您使用的是公開金鑰，您可能必須使用 `-i` 參數來指定對應的私密金鑰。 例如︰
+如果您已經使用密碼保護您 SSH 使用者帳戶的安全，系統會提示您輸入密碼。 如果您使用的是公開金鑰，您可能必須使用 `-i` 參數來指定對應的私密金鑰。 例如:
 
     ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 

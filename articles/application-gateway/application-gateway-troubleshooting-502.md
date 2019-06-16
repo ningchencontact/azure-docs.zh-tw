@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/25/2019
 ms.author: amsriva
 ms.openlocfilehash: 2a1c7e480e896da6852949c9d765d17290e4e9ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64697153"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>疑難排解應用程式閘道中閘道不正確的錯誤
@@ -82,10 +82,10 @@ DhcpOptions            : {
 
 下表列出與預設健全狀況探查相關聯的值：
 
-| 探查屬性 | Value | 描述 |
+| 探查屬性 | 值 | 描述 |
 | --- | --- | --- |
-| 探测 URL |`http://127.0.0.1/` |URL 路徑 |
-| 时间间隔 |30 |探查間隔 (秒) |
+| 探查 URL |`http://127.0.0.1/` |URL 路徑 |
+| Interval |30 |探查間隔 (秒) |
 | 逾時 |30 |探查逾時 (秒) |
 | 狀況不良臨界值 |3 |探查重試計數。 連續探查失敗計數到達狀況不良臨界值後，就會將後端伺服器標示為故障。 |
 
@@ -109,12 +109,12 @@ DhcpOptions            : {
 | 探查屬性 | 描述 |
 | --- | --- |
 | 名稱 |探查的名稱。 此名稱用來在後端 HTTP 設定中指出探查。 |
-| Protocol |用于发送探测的协议。 探查會使用後端 HTTP 設定中定義的通訊協定 |
+| Protocol |用來傳送探查的通訊協定。 探查會使用後端 HTTP 設定中定義的通訊協定 |
 | Host |用來傳送探查的主機名稱。 只有當應用程式閘道上設定多站台時適用。 這與 VM 主機名稱不同。 |
-| `Path` |探查的相對路徑。 有效路徑的開頭為 '/'。 探查會傳送到 \<通訊協定\>://\<主機\>:\<連接埠\>\<路徑\> |
+| Path |探查的相對路徑。 有效路徑的開頭為 '/'。 探查會傳送到 \<通訊協定\>://\<主機\>:\<連接埠\>\<路徑\> |
 | Interval |探查間隔 (秒)。 這是兩個連續探查之間的時間間隔。 |
 | 逾時 |探查逾時 (秒)。 如果這個逾時期限內未收到有效的回應，探查標示為失敗。 |
-| 狀況不良臨界值 |探测重试计数。 連續探查失敗計數到達狀況不良臨界值後，就會將後端伺服器標示為故障。 |
+| 狀況不良臨界值 |探查重試計數。 連續探查失敗計數到達狀況不良臨界值後，就會將後端伺服器標示為故障。 |
 
 ### <a name="solution"></a>解決方法
 

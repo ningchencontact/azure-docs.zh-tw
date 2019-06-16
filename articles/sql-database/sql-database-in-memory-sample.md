@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035709"
 ---
 # <a name="in-memory-sample"></a>記憶體內部範例
@@ -88,7 +88,7 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 - Demo.DemoSalesOrderDetailSeed
 
 
-您可以透過 SSMS 中的 [物件總管]，檢查記憶體最佳化資料表。 以滑鼠右鍵按一下 [資料表] > [篩選] > [篩選設定] > [記憶體已最佳化嗎]。 值等於 1。
+您可以透過 SSMS 中的 [物件總管]  ，檢查記憶體最佳化資料表。 以滑鼠右鍵按一下 [資料表]   > [篩選]   > [篩選設定]   > [記憶體已最佳化嗎]  。 值等於 1。
 
 
 或者您可以查詢目錄檢視，例如：
@@ -139,7 +139,7 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 本節顯示 ostress.exe 命令列中內嵌的 T-SQL 指令碼。 此指令碼會使用您稍早安裝的 T-SQL 指令碼所建立的項目。
 
 
-下列指令碼會在下列記憶體最佳化資料表 中插入有 5 個細項的範例銷售訂單：
+下列指令碼會在下列記憶體最佳化資料表  中插入有 5 個細項的範例銷售訂單：
 
 - SalesLT.SalesOrderHeader_inmem
 - SalesLT.SalesOrderDetail_inmem
@@ -199,7 +199,7 @@ whereas for SQL 2016+
 
 
 
-### <a name="run-the-inmem-stress-workload-first"></a>先執行 _inmem 壓力工作負載
+### <a name="run-the-inmem-stress-workload-first"></a>先執行 _inmem  壓力工作負載
 
 
 您可以使用 RML 命令提示字元  視窗來執行 ostress.exe 命令列。 命令列參數會將 `ostress` 導向至：
@@ -237,10 +237,10 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
 
-#### <a name="reset-edit-for-ondisk-then-rerun"></a>重設，針對 _ondisk 編輯，然後重新執行
+#### <a name="reset-edit-for-ondisk-then-rerun"></a>重設，針對 _ondisk  編輯，然後重新執行
 
 
-在获得 _inmem 运行结果之后，请针对 _ondisk 运行执行以下步骤：
+在获得 _inmem  运行结果之后，请针对 _ondisk  运行执行以下步骤：
 
 
 1. 在 SSMS 中執行下列命令來重設資料庫，以刪除先前執行插入的所有資料：
@@ -257,7 +257,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 
 #### <a name="expected-comparison-results"></a>預期的比較結果
 
-就這個過度簡單的工作負載而言，我們的「記憶體內部」測試顯示當 `ostress` 是在與資料庫相同 Azure 區域中的 Azure VM 上執行時，可獲得「九倍」的效能改善。
+就這個過度簡單的工作負載而言，我們的「記憶體內部」測試顯示當 `ostress` 是在與資料庫相同 Azure 區域中的 Azure VM 上執行時，可獲得「九倍」  的效能改善。
 
 <a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
 
@@ -295,9 +295,9 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 #### <a name="key-tables-and-columnstore-indexes"></a>重要資料表和資料行存放區索引
 
 
-- dbo.FactResellerSalesXL_CCI 是具有叢集資料行存放區索引的資料表，此資料表已在「資料」層級進一步壓縮。
+- dbo.FactResellerSalesXL_CCI 是具有叢集資料行存放區索引的資料表，此資料表已在「資料」  層級進一步壓縮。
 
-- dbo.FactResellerSalesXL_PageCompressed 是具有對等一般叢集式索引的資料表，此資料表只在「頁面」層級壓縮。
+- dbo.FactResellerSalesXL_PageCompressed 是具有對等一般叢集式索引的資料表，此資料表只在「頁面」  層級壓縮。
 
 
 #### <a name="key-queries-to-compare-the-columnstore-index"></a>用來比較資料行存放區索引的重要查詢

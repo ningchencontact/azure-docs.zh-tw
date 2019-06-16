@@ -9,10 +9,10 @@ ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
 ms.openlocfilehash: e29a1f5d1e258ab66540010dc12f9326b8fd57a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60775741"
 ---
 # <a name="common-alert-schema-definitions"></a>常見的警示結構描述定義
@@ -80,7 +80,7 @@ ms.locfileid: "60775741"
 |:---|:---|
 | alertId | 用來唯一識別警示的執行個體的 GUID。 |
 | alertRule | 警示規則產生警示的執行個體的名稱。 |
-| 严重性 | 警示的嚴重性。 可能的值：Sev0、 Sev1、 Sev2、 Sev3、 Sev4 |
+| Severity | 警示的嚴重性。 可能的值：Sev0、 Sev1、 Sev2、 Sev3、 Sev4 |
 | signalType | 識別在其定義警示規則的訊號。 可能的值：計量、 記錄檔中，活動記錄檔 |
 | monitorCondition | 當警示引發時，會將警示的監視條件設定為 '引發'。 當清除造成引發警示的基礎條件時，監視條件設為 '[已解決]'。   |
 | monitoringService | 監視的服務或產生警示的解決方案。 警示內容的欄位會依照監視的服務。 |

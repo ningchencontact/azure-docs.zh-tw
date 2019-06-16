@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: ea3e97db9ec560306788943d92a7670025f38bdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60958555"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>使用 Azure Logic Apps 在 Azure Blob 儲存體中建立和管理 Blob
@@ -61,7 +61,7 @@ ms.locfileid: "60958555"
 
    在此範例中，請選取您想要監視的容器和資料夾。
 
-   1. 在 [容器] 方塊中，選取 [資料夾] 圖示。
+   1. 在 [容器]  方塊中，選取 [資料夾] 圖示。
 
    2. 在資料夾清單中，選擇右角括弧 ( **>** )，然後一直瀏覽，直到您找到並選取您想要的資料夾。
 
@@ -69,7 +69,7 @@ ms.locfileid: "60958555"
 
    3. 選取您想要讓觸發程序檢查資料夾是否有變更的間隔和頻率。
 
-4. 當您完成時，請在設計工具的工具列上，選擇 [儲存]。
+4. 當您完成時，請在設計工具的工具列上，選擇 [儲存]  。
 
 5. 現在，繼續針對您想要使用觸發程序結果來執行的工作，於邏輯應用程式中新增一或多個動作。
 
@@ -81,16 +81,16 @@ ms.locfileid: "60958555"
 
 1. 在 Azure 入口網站或 Visual Studio 的邏輯應用程式設計工具中，開啟邏輯應用程式。 這個範例會使用 Azure 入口網站。
 
-2. 在邏輯應用程式設計工具的觸發程序或動作下，選擇 [新增步驟] > [新增動作]。
+2. 在邏輯應用程式設計工具的觸發程序或動作下，選擇 [新增步驟]   > [新增動作]  。
 
    ![新增動作](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
    若要在現有步驟之間新增動作，請將滑鼠放在連接箭頭上。 
-   選擇顯示的加號 (**+**)，然後選擇 [新增動作]。
+   選擇顯示的加號 ( **+** )，然後選擇 [新增動作]  。
 
 3. 在搜尋方塊中，輸入「azure blob」作為篩選條件。 從 [動作] 清單中，選取您想要的動作。
 
-   此示例使用以下操作：**Azure Blob 儲存體-取得 blob 內容**
+   此範例會使用這項動作：**Azure Blob 儲存體-取得 blob 內容**
 
    ![選取動作](./media/connectors-create-api-azureblobstorage/azure-blob-action.png) 
 
@@ -98,13 +98,13 @@ ms.locfileid: "60958555"
 
    針對此範例，請選取您想要的檔案。
 
-   1. 從 [Blob] 方塊中，選取 [資料夾] 圖示。
+   1. 從 [Blob]  方塊中，選取 [資料夾] 圖示。
   
       ![選取資料夾](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
    2. 根據 Blob 的**識別碼**，尋找並選取您想要的檔案。 您可以在先前所述 Blob 儲存體觸發程序所傳回的 Blob 中繼資料內，找到此**識別碼**。
 
-5. 當您完成時，請在設計工具的工具列上，選擇 [儲存]。
+5. 當您完成時，請在設計工具的工具列上，選擇 [儲存]  。
 若要測試邏輯應用程式，請確定所選取的資料夾包含 Blob。
 
 此範例只會取得 Blob 的內容。 若要檢視內容，請新增另一個動作，以使用另一個連接器建立具有 Blob 的檔案。 例如，新增 OneDrive 動作來根據 Blob 內容建立檔案。

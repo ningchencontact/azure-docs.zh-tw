@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
 ms.openlocfilehash: cf414cf08771090990775d124e27222e51f786e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122007"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>建立虛擬網路對等互連 - Resource Manager，不同訂用帳戶
@@ -46,22 +46,22 @@ ms.locfileid: "66122007"
 下列步驟針對每個訂用帳戶使用不同的帳戶。 如果您使用對兩個訂用帳戶都有權限的帳戶，便可以使用該相同帳戶來進行所有步驟、略過登出入口網站的步驟，以及略過指派另一位使用者權限給虛擬網路的步驟。
 
 1. 以 *UserA* 身分登入 [Azure 入口網站](https://portal.azure.com)。 您登入時使用的帳戶必須擁有必要的權限，才能建立虛擬網路對等互連。 如需權限清單，請參閱[虛擬網路對等互連權限](virtual-network-manage-peering.md#permissions)。
-2. 選取 [+建立資源]，選取 [網絡]，然後選取 [虛擬網路]。
-3. 選取或輸入下列設定的下列範例值，然後選取 [建立]：
+2. 選取 [+建立資源]  ，選取 [網絡]  ，然後選取 [虛擬網路]  。
+3. 選取或輸入下列設定的下列範例值，然後選取 [建立]  ：
     - **名稱**：*myVnetA*
     - **位址空間**：*10.0.0.0/16*
     - **子網路名稱**：*預設值*
     - **子網路位址範圍**︰*10.0.0.0/24*
-    - 訂用帳戶：選取訂用帳戶 A。
-    - **資源群組**：選取 [新建]，然後輸入 *myResourceGroupA*
-    - **位置**：美國東部
-4. 在入口網站頂端的 [搜尋資源] 方塊中，輸入 *myVnetA*。 當 myVnetA 出現在搜尋結果中時，選取 [myVnetA]。 
-5. 從左側的垂直選項清單中選取 [存取控制] \(IAM\)。
-6. 在 [myVnetA - 存取控制] \(IAM\) 之下，選取 [+ 新增角色只太]。
-7. 選取 [角色] 方塊中的 [網路參與者]。
-8. 在 [選取] 方塊中，選取 [UserB]，或輸入 UserB 的電子郵件地址來搜尋它。
+    - 訂用帳戶  ：選取訂用帳戶 A。
+    - **資源群組**：選取 [新建]  ，然後輸入 *myResourceGroupA*
+    - **位置**：美國東部 
+4. 在入口網站頂端的 [搜尋資源]  方塊中，輸入 *myVnetA*。 當 myVnetA 出現在搜尋結果中時，選取 [myVnetA]  。 
+5. 從左側的垂直選項清單中選取 [存取控制] \(IAM\)  。
+6. 在 [myVnetA - 存取控制] \(IAM\)  之下，選取 [+ 新增角色只太]  。
+7. 選取 [角色]  方塊中的 [網路參與者]  。
+8. 在 [選取]  方塊中，選取 [UserB]  ，或輸入 UserB 的電子郵件地址來搜尋它。
 9. 選取 [ **儲存**]。
-10. 在 [myVnetA - 存取控制] \(IAM\) 下，從左側的垂直選項清單中選取 [屬性]。 複製 [資源識別碼]，在稍後的步驟中將會用到此識別碼。 資源識別碼是類似下列的範例： `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`。
+10. 在 [myVnetA - 存取控制] \(IAM\)  下，從左側的垂直選項清單中選取 [屬性]  。 複製 [資源識別碼]  ，在稍後的步驟中將會用到此識別碼。 資源識別碼是類似下列的範例： `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`。
 11. 以 UserA 身分登出入口網站，然後以 UserB 身分登入。
 12. 完成步驟 2 到 3，其中在步驟 3 中輸入或選取下列值：
 
@@ -69,31 +69,31 @@ ms.locfileid: "66122007"
     - **位址空間**：*10.1.0.0/16*
     - **子網路名稱**：*預設值*
     - **子網路位址範圍**︰*10.1.0.0/24*
-    - 訂用帳戶：選取訂用帳戶 B。
-    - **資源群組**：選取 [新建]，然後輸入 *myResourceGroupB*
-    - **位置**：美國東部
+    - 訂用帳戶  ：選取訂用帳戶 B。
+    - **資源群組**：選取 [新建]  ，然後輸入 *myResourceGroupB*
+    - **位置**：美國東部 
 
-13. 在入口網站頂端的 [搜尋資源] 方塊中，輸入 *myVnetB*。 當 myVnetB 出現在搜尋結果中時，選取 [myVnetB]。
-14. 在 [myVnetB] 下，從左側的垂直選項清單中選取 [屬性]。 複製 [資源識別碼]，在稍後的步驟中將會用到此識別碼。 資源識別碼是類似下列的範例： `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`。
-15. 選取 [myVnetB] 下的 [存取控制] \(IAM\)，然後針對 myVnetB 完成步驟 5 到 10，其中在步驟 8 中輸入 **UserA**。
+13. 在入口網站頂端的 [搜尋資源]  方塊中，輸入 *myVnetB*。 當 myVnetB 出現在搜尋結果中時，選取 [myVnetB]  。
+14. 在 [myVnetB]  下，從左側的垂直選項清單中選取 [屬性]  。 複製 [資源識別碼]  ，在稍後的步驟中將會用到此識別碼。 資源識別碼是類似下列的範例： `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`。
+15. 選取 [myVnetB]  下的 [存取控制] \(IAM\)  ，然後針對 myVnetB 完成步驟 5 到 10，其中在步驟 8 中輸入 **UserA**。
 16. 以 UserB 身分登出入口網站，然後以 UserA 身分登入。
-17. 在入口網站頂端的 [搜尋資源] 方塊中，輸入 *myVnetA*。 當 myVnetA 出現在搜尋結果中時，選取 [myVnetA]。
-18. 選取 [myVnetA]。
-19. 在 [設定] 底下，選取 [對等互連]。
-20. 在 [myVnetA - 對等互連] 下，選取 [+ 新增]
-21. 在 [新增對等互連] 下，輸入或選取下列選項，然後選取 [確定]：
+17. 在入口網站頂端的 [搜尋資源]  方塊中，輸入 *myVnetA*。 當 myVnetA 出現在搜尋結果中時，選取 [myVnetA]  。
+18. 選取 [myVnetA]  。
+19. 在 [設定]  底下，選取 [對等互連]  。
+20. 在 [myVnetA - 對等互連]  下，選取 [+ 新增] 
+21. 在 [新增對等互連]  下，輸入或選取下列選項，然後選取 [確定]  ：
      - **名稱**：*myVnetAToMyVnetB*
      - **虛擬網路部署模型**︰選擇 **資源管理員**。
      - **我知道我的資源識別碼**：核取此方塊。
      - **資源識別碼**：輸入來自步驟 14 的資源識別碼。
-     - **允許虛擬網路存取：** 確定已選取 [啟用]。
+     - **允許虛擬網路存取：** 確定已選取 [啟用]  。
     本教學課程中不會使用其他設定。 若要了解所有對等互連設定，請閱讀[管理虛擬網路對等互連](virtual-network-manage-peering.md#create-a-peering)。
-22. 在上一個步驟中選取 [確定] 之後，不久就會出現您建立的對等互連。 您所建立之 **myVnetAToMyVnetB** 對等互連的 [對等互連狀態] 資料行中會列出 [已起始]。 您已將 myVnetA 對等互連到 myVnetB，但現在必須將 myVnetB 對等互連到 myVnetA。 必須以建立雙線的對等互連，虛擬網路中的資源才能彼此通訊。
+22. 在上一個步驟中選取 [確定]  之後，不久就會出現您建立的對等互連。 您所建立之 **myVnetAToMyVnetB** 對等互連的 [對等互連狀態]  資料行中會列出 [已起始]  。 您已將 myVnetA 對等互連到 myVnetB，但現在必須將 myVnetB 對等互連到 myVnetA。 必須以建立雙線的對等互連，虛擬網路中的資源才能彼此通訊。
 23. 以 UserA 身分登出入口網站，然後以 UserB 身分登入。
-24. 針對 myVnetB 完成步驟 17 到 21。 在步驟 21 中，將對等互連命名為 *myVnetBToMyVnetA*，針對 [虛擬網路] 選取 [myVnetA]，然後在 [資源識別碼] 方塊中輸入來自步驟 10 的識別碼。
-25. 選取 [確定] 來建立 myVnetB 的對等互連幾秒之後，您剛建立之 **myVnetBToMyVnetA** 對等互連的 [對等互連狀態] 資料行中就會列出 [已連線]。
+24. 針對 myVnetB 完成步驟 17 到 21。 在步驟 21 中，將對等互連命名為 *myVnetBToMyVnetA*，針對 [虛擬網路]  選取 [myVnetA]  ，然後在 [資源識別碼]  方塊中輸入來自步驟 10 的識別碼。
+25. 選取 [確定]  來建立 myVnetB 的對等互連幾秒之後，您剛建立之 **myVnetBToMyVnetA** 對等互連的 [對等互連狀態]  資料行中就會列出 [已連線]  。
 26. 以 UserB 身分登出入口網站，然後以 UserA 身分登入。
-27. 再次完成步驟 17 到 19。 **myVnetAToVNetB** 對等互連的 [對等互連狀態] 現在也是 [已連線]。 您在對等互連中兩個虛擬網路的 [對等互連狀態] 資料行中看到 [已連線] 之後，對等互連變已建立成功。 您在任何一個虛擬網路中建立的任何 Azure 資源現在能夠透過其 IP 位址彼此通訊。 如果您使用虛擬網路的預設 Azure 名稱解析，則虛擬網路中的資源無法跨虛擬網路解析名稱。 如果您想要跨對等互連中的虛擬網路解析名稱，您必須建立自己的 DNS 伺服器。 了解如何設定[使用自己的 DNS 伺服器進行名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。
+27. 再次完成步驟 17 到 19。 **myVnetAToVNetB** 對等互連的 [對等互連狀態]  現在也是 [已連線]  。 您在對等互連中兩個虛擬網路的 [對等互連狀態]  資料行中看到 [已連線]  之後，對等互連變已建立成功。 您在任何一個虛擬網路中建立的任何 Azure 資源現在能夠透過其 IP 位址彼此通訊。 如果您使用虛擬網路的預設 Azure 名稱解析，則虛擬網路中的資源無法跨虛擬網路解析名稱。 如果您想要跨對等互連中的虛擬網路解析名稱，您必須建立自己的 DNS 伺服器。 了解如何設定[使用自己的 DNS 伺服器進行名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。
 28. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
 29. **選擇性**：若要刪除您在本教學課程中建立的資源，請完成本文中[刪除資源](#delete-portal)一節的步驟。
 
@@ -108,7 +108,7 @@ ms.locfileid: "66122007"
 - 需要 Azure CLI 2.0.4 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 - 適用於 Bash 殼層。 如需在 Windows 用戶端上執行 Azure CLI 指令碼的選項，請參閱[在 Windows 上安裝 Azure CLI](/cli/azure/install-azure-cli-windows)。
 
-您可以不安裝 CLI 及其相依項目，而是改用 Azure Cloud Shell。 Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網站內執行。 它具有預先安裝和設定的 Azure CLI，可與您的帳戶搭配使用。 選取以下指令碼中的 [試試看] 按鈕，這會叫用可讓您登入 Azure 帳戶的 Cloud Shell。
+您可以不安裝 CLI 及其相依項目，而是改用 Azure Cloud Shell。 Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網站內執行。 它具有預先安裝和設定的 Azure CLI，可與您的帳戶搭配使用。 選取以下指令碼中的 [試試看]  按鈕，這會叫用可讓您登入 Azure 帳戶的 Cloud Shell。
 
 1. 開啟 CLI 工作階段，然後使用 `azure login` 命令來以 UserA 身分登入 Azure。 您登入時使用的帳戶必須擁有必要的權限，才能建立虛擬網路對等互連。 如需權限清單，請參閱[虛擬網路對等互連權限](virtual-network-manage-peering.md#permissions)。
 2. 將下列指令碼複製到您電腦上的文字編輯器中，使用 SubscriptionA 的 ID 來取代 `<SubscriptionA-Id>`，接著複製修改過的指令碼並貼到您的 CLI 工作階段中，然後按 `Enter`。 如果您不知道您的訂用帳戶 ID，請輸入 `az account show` 命令。 輸出中的 **id** 值就是您的訂用帳戶 ID。
@@ -299,9 +299,9 @@ ms.locfileid: "66122007"
 ### <a name="delete-portal"></a>Azure 入口網站
 
 1. 以 UserA 身分登入 Azure 入口網站。
-2. 在入口網站搜尋方塊中，輸入 **myResourceGroupA**。 在搜尋結果中，選取 [myResourceGroupA]。
-3. 選取 [刪除] 。
-4. 若要確認刪除，請在 [輸入資源群組名稱] 方塊中輸入 **myResourceGroupA**，然後選取 [刪除]。
+2. 在入口網站搜尋方塊中，輸入 **myResourceGroupA**。 在搜尋結果中，選取 [myResourceGroupA]  。
+3. 選取 [刪除]  。
+4. 若要確認刪除，請在 [輸入資源群組名稱]  方塊中輸入 **myResourceGroupA**，然後選取 [刪除]  。
 5. 以 UserA 身分登出入口網站，然後以 UserB 身分登入。
 6. 針對 myResourceGroupB，完成步驟 2 到 4。
 

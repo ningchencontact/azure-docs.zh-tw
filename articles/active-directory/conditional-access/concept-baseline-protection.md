@@ -1,5 +1,5 @@
 ---
-title: 條件式存取基準保護原則-Azure Active Directory
+title: 條件式的存取基準保護原則-Azure Active Directory
 description: 基準條件式存取原則來保護組織遭受常見的攻擊
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca062f4024bb5b0946812e00c8ccc1254b56d333
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 39a591a335d022ef7b2b99fdec930ddf0496cd47
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003292"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112580"
 ---
 # <a name="what-are-baseline-policies"></a>什麼是基準原則？
 

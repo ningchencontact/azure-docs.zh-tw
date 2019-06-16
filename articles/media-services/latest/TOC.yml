@@ -27,6 +27,7 @@
       items:
         - name: 透過 .NET
           href: stream-live-tutorial-with-api.md
+          displayName: 'Live Events, Live Outputs, ingest'
     - name: 分析您的影片
       items:
         - name: 透過 .NET
@@ -122,6 +123,7 @@
           href: live-streaming-overview.md
         - name: 即時事件與即時輸出
           href: live-events-outputs-concept.md
+          displayName: 'vanity, ingest'
         - name: 建議的即時編碼器
           href: recommended-on-premises-live-encoders.md
         - name: 使用雲端 DVR

@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: 20e84482b31c4da991f3fdc9c7bbf6ee0e7f902a
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 776f79d7f32cf23943ecab4133e055993d30c7cd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299093"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075070"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps 的定價模式
 
@@ -89,7 +89,7 @@ Azure Logic Apps 會測量為執行成功和失敗的所有動作。 不過，Lo
 
 ## <a name="integration-accounts"></a>整合帳戶
 
-取用定價適用於[整合帳戶](logic-apps-enterprise-integration-create-integration-account.md)您可以在其中瀏覽、 開發和測試[B2B 和 EDI](logic-apps-enterprise-integration-b2b.md)並[XML 處理](logic-apps-enterprise-integration-xml.md)不會有任何 Azure Logic Apps 中的功能額外的成本。
+固定的定價模型適用於[整合帳戶](logic-apps-enterprise-integration-create-integration-account.md)您可以在其中瀏覽、 開發和測試[B2B 和 EDI](logic-apps-enterprise-integration-b2b.md)並[XML 處理](logic-apps-enterprise-integration-xml.md)Azure Logic Apps 中的功能不會有任何額外的成本。
 您可以在每個 Azure 區域中有一個整合帳戶。 每個整合帳戶可儲存一定[成品數量](../logic-apps/logic-apps-limits-and-config.md)，其中包含交易夥伴、協議、地圖、結構描述、組件、憑證、批次組態等等。
 
 Azure Logic Apps 提供了免費、 基本和標準整合帳戶。 基本和標準層次都受到 Logic Apps 的服務等級協定 (SLA)，而免費層不受 SLA 支援，而且可以限制對輸送量和使用方式。

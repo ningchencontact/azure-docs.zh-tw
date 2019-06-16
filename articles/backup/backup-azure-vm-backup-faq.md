@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sogup
 ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966313"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>常見問題集的問題-備份 Azure Vm
@@ -20,7 +20,7 @@ ms.locfileid: "65966313"
 這篇文章回答有關 Azure Vm 備份常見問題[Azure 備份](backup-introduction-to-azure-backup.md)服務。
 
 
-## <a name="backup"></a>Backup 
+## <a name="backup"></a>Backup
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>哪些 VM 映像可以啟用備份時建立它們？
 當您建立 VM 時，您可以執行的 Vm 啟用備份[支援的作業系統](backup-support-matrix-iaas.md#supported-backup-actions)
@@ -91,7 +91,7 @@ Azure 備份無法備份已啟用 WA 的磁碟，但可從備份中排除該磁�
 我們正在執行 SAP HANA 備份的私人的預覽使用 15 分鐘的 RPO。 它會以類似 SQL DB 備份的方式建置，並針對 SAP HANA 所認證的協力廠商解決方案使用 backInt 介面。 如果您想要傳送電子郵件來信`AskAzureBackupTeam@microsoft.com`主旨**登入，以在 Azure Vm 中的 SAP hana 備份的私人預覽**。
 
 
-## <a name="restore"></a>還原
+## <a name="restore"></a>Restore
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>如何決定是否只要還原磁碟，還是要還原整個 VM？
 將 VM 還原視為 Azure VM 的快速建立選項。 此選項會變更磁碟名稱、 磁碟、 公用 IP 位址和網路介面名稱所使用的容器。 變更會在建立 VM 時維護唯一的資源。 VM 不會新增至可用性設定組。

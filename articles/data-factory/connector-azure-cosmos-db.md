@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: eca5e4cc96996c35e7c2181746cdb3de2e5a602c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61259512"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Cosmos DB (SQL API) 或從該處複製資料
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-azure-documentdb-connector.md)
 > * [目前的版本](connector-azure-cosmos-db.md)
 
@@ -163,7 +163,7 @@ Data Factory 可與 [Azure Cosmos DB 大量執行程式庫](https://github.com/A
 
 若要從 Azure Cosmos DB (SQL API) 複製資料，請將複製活動中的**來源**類型設定為 **DocumentDbCollectionSource**。 
 
-複製活動的 [來源] 區段支援下列屬性：
+複製活動的 [來源]  區段支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -207,7 +207,7 @@ Data Factory 可與 [Azure Cosmos DB 大量執行程式庫](https://github.com/A
 
 若要將資料複製到 Azure Cosmos DB (SQL API)，請將複製活動中的**接收**類型設定為 **DocumentDbCollectionSink**。 
 
-複製活動的 [來源] 區段支援下列屬性：
+複製活動的 [來源]  區段支援下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -217,7 +217,7 @@ Data Factory 可與 [Azure Cosmos DB 大量執行程式庫](https://github.com/A
 | nestingSeparator |**source** 資料行名稱中用來表示需要巢狀文件的特殊字元。 <br/><br/>例如，當 **nestedSeparator** 是 **.** (點) 時，輸出資料集結構中的 `Name.First` 會在 Azure Cosmos DB 文件中產生下列 JSON 結構： `"Name": {"First": "[value maps to this column from source]"}`  |否<br />(預設值為 **.** (點)) |
 
 >[!TIP]
->Cosmos DB 會將單一要求的大小限制為 2MB。 公式為要求大小 = 單一文件大小 * 寫入批次大小。 如果您遇到指出「要求大小太大。」的錯誤，請在複製接收組態中**縮小 `writeBatchSize` 值**。
+>Cosmos DB 會將單一要求的大小限制為 2MB。 公式為要求大小 = 單一文件大小 * 寫入批次大小。 如果您遇到指出「要求大小太大。」  的錯誤，請在複製接收組態中**縮小 `writeBatchSize` 值**。
 
 **範例**
 
@@ -261,8 +261,8 @@ Data Factory 可與 [Azure Cosmos DB 大量執行程式庫](https://github.com/A
 
 若要達成無從驗證結構描述的複製：
 
-* 當您使用複製資料工具時，請選取 [依原樣匯出到 JSON 檔案或 Cosmos DB 集合] 選項。
-* 當您使用活動撰寫功能時，請勿在 Azure Cosmos DB 資料集中指定 **structure** (也稱為 schema) 區段。 此外，請勿在複製活動的 Azure Cosmos DB 來源或接收端中指定 **nestingSeparator** 屬性。 當您從 JSON 檔案匯入或匯出到這些檔案時，請在對應的檔案存放區資料集中，將 **format** 類型指定為 **JsonFormat** 以及設定 **filePattern** (如 [JSON 格式](supported-file-formats-and-compression-codecs.md#json-format)一節所述)。 然後，請勿指定 **structure** 區段並略過其餘的格式設定。
+* 當您使用複製資料工具時，請選取 [依原樣匯出到 JSON 檔案或 Cosmos DB 集合]  選項。
+* 當您使用活動撰寫功能時，請勿在 Azure Cosmos DB 資料集中指定 **structure** (也稱為 schema  ) 區段。 此外，請勿在複製活動的 Azure Cosmos DB 來源或接收端中指定 **nestingSeparator** 屬性。 當您從 JSON 檔案匯入或匯出到這些檔案時，請在對應的檔案存放區資料集中，將 **format** 類型指定為 **JsonFormat** 以及設定 **filePattern** (如 [JSON 格式](supported-file-formats-and-compression-codecs.md#json-format)一節所述)。 然後，請勿指定 **structure** 區段並略過其餘的格式設定。
 
 ## <a name="next-steps"></a>後續步驟
 

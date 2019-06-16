@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bdeba401e99ad16555b9f6ea00017fc525302983
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc5266bc37a0b58913feb08452e173949b64c112
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457853"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061606"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>使用 Azure 通知中樞和 Node.js 傳送推播通知
 
@@ -44,7 +44,7 @@ ms.locfileid: "61457853"
 
 Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以將推播通知傳送至行動裝置。 如需服務基礎結構的詳細資訊，請參閱 [Azure 通知中樞](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx) 頁面。
 
-## <a name="create-a-nodejs-application"></a>创建 Node.js 应用程序
+## <a name="create-a-nodejs-application"></a>建立 Node.js 應用程式
 
 本教學課程的第一個步驟是建立新的空白 Node.js 應用程式。 如需有關建立 Node.js 應用程式的指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站][nodejswebsite]、使用 Windows PowerShell 的 [Node.js 雲端服務][Node.js Cloud Service]，或[使用 WebMatrix 的網站][webmatrix]。
 
@@ -79,10 +79,10 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 
 藉由執行下列步驟，從 [Azure 入口網站]取得連線 `connectionstring` 值：
 
-1. 在左導覽窗格中，按一下 [瀏覽] 。
-2. 選取 [通知中樞] ，然後尋找您要用於範例的中樞。 您可以參考[Windows 市集開始使用教學課程](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)如果您需要建立新的通知中樞的說明。
-3. 選取 [Settings] \(設定) 。
-4. 按一下 [存取原則] 。 您會看到兩個共用和完整存取連接字串。
+1. 在左導覽窗格中，按一下 [瀏覽]  。
+2. 選取 [通知中樞]  ，然後尋找您要用於範例的中樞。 您可以參考[Windows 市集開始使用教學課程](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)如果您需要建立新的通知中樞的說明。
+3. 選取 [Settings] \(設定)  。
+4. 按一下 [存取原則]  。 您會看到兩個共用和完整存取連接字串。
 
 ![Azure 入口網站 - 通知中樞](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
@@ -106,7 +106,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 - **Payload** - 訊息的 JSON 或原始字串承載。
 - **Callback** - 回呼函數。
 
-如需有關裝載格式的詳細資訊，請參閱 **Implementing GCM Server (實作 GCM 伺服器)** 文件的 [Payload (承載)](https://developer.android.com/google/gcm/server.html#payload) 一節。
+如需有關裝載格式的詳細資訊，請參閱 **Implementing GCM Server (實作 GCM 伺服器)** 文件的 [Payload (承載)](https://developers.google.com/cloud-messaging/) 一節。
 
 下列程式碼使用 `NotificationHubService` 所公開的 `GcmService` 執行個體，傳送推播通知至所有已註冊的用戶端。
 
@@ -129,7 +129,7 @@ notificationHubService.gcm.send(null, payload, function(error){
 
 - **Tags** - 標籤識別碼。 若未提供標籤，通知會傳送至所有用戶端。
 - **Payload** - 訊息的 JSON 或字串承載。
-- **Callback** - 回调函数。
+- **Callback** - 回呼函數。
 
 如需有關承載格式的詳細資訊，請參閱 **Local and Push Notification Programming Guide (本機與推播通知程式設計指南)** 文件的 [Notification Payload (通知承載)](https://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) 一節。
 
@@ -153,7 +153,7 @@ notificationHubService.apns.send(null, payload, function(error){
 - **Tags** - 標籤識別碼。 若未提供標籤，通知會傳送至所有用戶端。
 - **Payload** - 訊息的 XML 承載。
 - **TargetName** - 快顯通知的 `toast`。 `token` 代表磚通知。
-- **NotificationClass** - 通知的優先順序。 如需有效值，請參閱[來自伺服器的推播通知](https://msdn.microsoft.com/library/hh221551.aspx)文件的＜HTTP 標頭元素＞一節。
+- **NotificationClass** - 通知的優先順序。 如需有效值，請參閱[來自伺服器的推播通知](https://msdn.microsoft.com/library/hh221551.aspx)文件的＜HTTP 標頭元素＞  一節。
 - **Options** - 選用的要求標頭。
 - **Callback** - 回呼函數。
 
@@ -198,9 +198,9 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
 上述的範例程式碼片段可讓您輕鬆地建置服務基礎結構，將推播通知傳遞到各種裝置。 了解基本的透過 node.js 的通知中樞使用方式之後，請參考下列連結以了解如何進一步延伸這些功能。
 
 - 請參閱 [Azure 通知中樞](https://msdn.microsoft.com/library/azure/jj927170.aspx)的 MSDN 參考。
-- 造訪 GitHub 上的 [用于 Node 的 Azure SDK] 儲存機制，以取得更多範例和實作詳細資料。
+- 造訪 GitHub 上的 [Azure SDK for Node] 儲存機制，以取得更多範例和實作詳細資料。
 
-[用于 Node 的 Azure SDK]: https://github.com/WindowsAzure/azure-sdk-for-node
+[Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [Next Steps]: #nextsteps
 [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
 [Create a Service Namespace]: #create-a-service-namespace

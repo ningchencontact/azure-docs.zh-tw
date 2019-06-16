@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: crdun
-ms.openlocfilehash: b0719f6ac2f99f9e665b1265665752dd53ccbaf0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b47e498754bad6917efca5b7f19f8ebce9cf0330
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242669"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062217"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>使用 Azure 建立 Xamarin.Forms 應用程式
 
@@ -48,21 +48,9 @@ ms.locfileid: "66242669"
 
 需要有 Visual Studio Tools for Xamarin 才能開啟解決方案，請參閱 [Xamarin 安裝指示][Install Xamarin]。 如果工具已安裝好，請遵循下列步驟來下載並開啟解決方案：
 
-### <a name="visual-studio"></a>Visual Studio
+### <a name="visual-studio-windows-and-mac"></a>Visual Studio （Windows 和 Mac）
 
-1. 移至 [Azure 入口網站](https://portal.azure.com/)。
-
-2. 在行動應用程式的設定刀鋒視窗上，按一下 [快速入門]  \(在 [部署] 之下) > [Xamarin.Forms]  。 在步驟 3 中，按一下 建立新的應用程式  \(如果尚未選取的話)。  接著按一下 [下載]  按鈕。
-
-   此動作會下載包含連線到您行動裝置應用程式之用戶端應用程式的專案。 將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
-
-3. 您所下載的專案解壓縮，然後在 Visual Studio 中開啟它。
-
-4. 遵循下列指示來執行 Android 或 Windows 專案；如果有可用的連網 Mac 電腦，則可執行 iOS 專案。
-
-### <a name="visual-studio-for-mac"></a>Visual Studio for Mac
-
-1. 移至[Azure 入口網站](https://portal.azure.com/)並瀏覽至您所建立的行動應用程式。 在 `Overview`刀鋒視窗中，搜尋 URL，也就是您的行動裝置應用程式的公用端點。 範例-將會針對我的應用程式名稱"test123"sitename https://test123.azurewebsites.net。
+1. 移至[Azure 入口網站](https://portal.azure.com/)並瀏覽至您所建立的行動應用程式。 在 `Overview`刀鋒視窗中，搜尋 URL，也就是您的行動裝置應用程式的公用端點。 範例-將會針對我的應用程式名稱"test123"sitename https://test123.azurewebsites.net 。
 
 2. 開啟檔案`Constants.cs`在此資料夾中-xamarin.forms/ZUMOAPPNAME。 應用程式名稱是`ZUMOAPPNAME`。
 

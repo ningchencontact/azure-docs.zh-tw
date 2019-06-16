@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc08fd5cc4abbf5d16f9d49874ec2c70cace165b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60867379"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067958"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Azure container registry 使用 Azure 虛擬網路或防火牆規則限制存取
 
@@ -207,7 +207,7 @@ az acr network-rule add --name mycontainerregistry --subnet <subnet-resource-id>
 1. 在入口網站中，瀏覽至您的容器登錄。
 1. 底下**設定**，選取**防火牆和虛擬網路**。
 1. 若要預設拒絕存取，請選擇允許**所選網路**存取權。 
-1. 選取 **將現有的虛擬網路新增**，並選取 虛擬網路和您設定與服務端點的子網路。 選取 [新增] 。
+1. 選取 **將現有的虛擬網路新增**，並選取 虛擬網路和您設定與服務端點的子網路。 選取 [新增]  。
 1. 選取 [ **儲存**]。
 
 ![設定容器登錄的虛擬網路][acr-vnet-portal]
@@ -216,7 +216,7 @@ az acr network-rule add --name mycontainerregistry --subnet <subnet-resource-id>
 
 ## <a name="allow-access-from-an-ip-address"></a>允許來自 IP 位址的存取
 
-在本節中，設定您的容器登錄，以允許來自子網路的存取在 Azure 虛擬網路中。 提供使用 Azure CLI 和 Azure 入口網站的對等步驟。
+在本節中，設定您的容器登錄，以允許來自特定 IP 位址或範圍的存取。 提供使用 Azure CLI 和 Azure 入口網站的對等步驟。
 
 ### <a name="allow-access-from-an-ip-address---cli"></a>允許存取的 IP 位址-CLI
 
@@ -326,7 +326,7 @@ Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ fail
 az acr network-rule list--name mycontainerregistry 
 ```
 
-針對每個已設定的規則，執行[az acr 網路規則移除][ az-acr-network-rule-remove]命令來移除它。 例如︰
+針對每個已設定的規則，執行[az acr 網路規則移除][ az-acr-network-rule-remove]命令來移除它。 例如:
 
 ```azurecli
 # Remove a rule that allows access for a subnet. Substitute the subnet resource ID.

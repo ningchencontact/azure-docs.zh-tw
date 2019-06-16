@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
 ms.openlocfilehash: 21c49ad0d73721dd204a7a3899d11cf10d43521b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942101"
 ---
 # <a name="managing-users-on-the-cloud-partner-portal"></a>Cloud Partner 入口網站上管理使用者
@@ -28,7 +28,7 @@ ms.locfileid: "64942101"
     ![使用者索引標籤](./media/userstab.png)
 
 
-2. 按一下 [新增使用者] 。
+2. 按一下 [新增使用者]  。
 
     ![選取 [新增使用者]](./media/adduser.png)
 

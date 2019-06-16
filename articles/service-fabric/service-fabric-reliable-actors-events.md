@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: 9075fc8391e8afa21e3963c1eff6a630c586d647
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726395"
 ---
 # <a name="actor-events"></a>動作項目事件
@@ -110,7 +110,7 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 
 ## <a name="next-steps"></a>後續步驟
 * [動作項目重新進入](service-fabric-reliable-actors-reentrancy.md)
-* [执行组件诊断和性能监视](service-fabric-reliable-actors-diagnostics.md)
+* [動作項目診斷與效能監視](service-fabric-reliable-actors-diagnostics.md)
 * [動作項目 API 參考文件](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [C# 範例程式碼 (英文)](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [C# .NET Core 範例程式碼](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.openlocfilehash: 3b5da6c9046fc694bd5eb0f55cf031b82b6d0103
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60919754"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>在 Azure 監視器中使用 Active Directory 健康情況檢查解決方案來最佳化 Active Directory 環境
@@ -34,7 +34,7 @@ ms.locfileid: "60919754"
 
 您可以選擇對組織而言最重要的焦點區域，同時追蹤經營無風險且健康狀態良好之環境的進度。
 
-加入方案且檢查完成之後，系統會將焦點區域的摘要資訊顯示在環境之基礎結構的 [AD 健康情況檢查] 儀表板中。 下列章節說明如何使用 [AD 健康情況檢查] 儀表板上的資訊，您可以在這裡檢視 Active Directory 伺服器基礎結構的建議動作並予以實施。  
+加入方案且檢查完成之後，系統會將焦點區域的摘要資訊顯示在環境之基礎結構的 [AD 健康情況檢查]  儀表板中。 下列章節說明如何使用 [AD 健康情況檢查]  儀表板上的資訊，您可以在這裡檢視 Active Directory 伺服器基礎結構的建議動作並予以實施。  
 
 ![AD 健康情況檢查圖格的影像](./media/ad-assessment/ad-healthcheck-summary-tile.png)
 
@@ -83,7 +83,7 @@ Active Directory 健康情況檢查會使用您已啟用的代理程式，從下
 ### <a name="how-weights-are-calculated"></a>加權的計算方式
 加權是彙集以下三個重要因素的值：
 
-* 識別之疑難引發問題的機率。 機率較高等同於建議的整體分數較高。
+* 識別之疑難引發問題的機率  。 機率較高等同於建議的整體分數較高。
 * 疑難對組織的 *影響力* (如果確實引發問題)。 影響力較高等同於建議的整體分數較高。
 * 實作建議所需的 *勞力* 。 勞力較高等同於建議的整體分數較低。
 
@@ -111,10 +111,10 @@ Active Directory 健康情況檢查會使用您已啟用的代理程式，從下
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>檢視的焦點區域的建議並採取更正措施
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-1. 在 [概觀] 頁面上，按一下 [Active Directory 健康情況檢查] 圖格。
-1. 在 [健康情況檢查] 頁面中檢閱任一焦點區域分葉中的摘要資訊，然後按一下焦點區域以檢視建議。
+1. 在 [概觀]  頁面上，按一下 [Active Directory 健康情況檢查]  圖格。
+1. 在 [健康情況檢查]  頁面中檢閱任一焦點區域分葉中的摘要資訊，然後按一下焦點區域以檢視建議。
 1. 在任一焦點區域頁面中，您可以檢視針對環境且按照優先順序排列的建議。 按一下 [受影響的物件]  下方的建議，可檢視建議提出原因的詳細資料。<br><br> ![健康情況檢查建議的影像](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
-1. 您可以採取 [建議動作] 中所建議的更正動作。 當您解決某個項目後，後續評估會記錄您實施的建議動作並提高法務遵循分數。 更正後的項目將以**通過的物件**呈現。
+1. 您可以採取 [建議動作]  中所建議的更正動作。 當您解決某個項目後，後續評估會記錄您實施的建議動作並提高法務遵循分數。 更正後的項目將以**通過的物件**呈現。
 
 ## <a name="ignore-recommendations"></a>忽略建議
 如果您有想要忽略的建議，則可以建立 Azure 監視器將用來防止建議出現在您評估結果的文字檔。
@@ -128,7 +128,7 @@ Active Directory 健康情況檢查會使用您已啟用的代理程式，從下
 ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
 ```
 
-下面是一个显示了日志查询的屏幕截图：<br><br> ![失敗的建議](media/ad-assessment/ad-failed-recommendations.png)
+以下是顯示記錄檔查詢的螢幕擷取畫面：<br><br> ![失敗的建議](media/ad-assessment/ad-failed-recommendations.png)
 
 選擇您想要忽略的建議。 您將使用下一個程序中的 RecommendationId 值。
 
@@ -141,7 +141,7 @@ ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Co
    * 在 Operations Manager 2016 管理伺服器上 - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>驗證已忽略建議
-在執行下一個排定的健康情況檢查之後 (依預設是每隔 7 天)，指定的建議會標示為 [已略過]，且不會出現在儀表板中。
+在執行下一個排定的健康情況檢查之後 (依預設是每隔 7 天)，指定的建議會標示為 [已略過]  ，且不會出現在儀表板中。
 
 1. 您可以使用下列記錄查詢列出所有已忽略的建議。
 

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c09dd990bb377672cb34ebd73a5aa9e59bbc067f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098521"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070407"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>使用 SQL Database 進階資料安全性搭配虛擬網路幾乎 100%相容
 
@@ -41,7 +41,7 @@ ms.locfileid: "62098521"
 受控執行個體結合了可在 Azure SQL Database 和 SQL Server 資料庫引擎中取得的最佳功能。
 
 > [!IMPORTANT]
-> 受控執行個體能執行 SQL Server 最新版本的所有功能，包括線上作業、自動計劃修正，以及其他企業效能增強功能。 [功能比较：Azure SQL 数据库与 SQL ServerAzure SQL Database 與 SQL Server](sql-database-features.md)。
+> 受控執行個體能執行 SQL Server 最新版本的所有功能，包括線上作業、自動計劃修正，以及其他企業效能增強功能。 如需提供之功能的比較說明，請參閱[功能比較：Azure SQL Database 與 SQL Server](sql-database-features.md)。
 
 | **PaaS 支援** | **商務持續性** |
 | --- | --- |
@@ -78,7 +78,7 @@ ms.locfileid: "62098521"
 在 V 核心模型中，您可以選擇各硬體世代。
 
 - **Gen4** 邏輯 CPU 具備 Intel E5-2673 v3 (Haswell) 2.4-GHz 處理器、附加 SSD、實體核心、每核心 7 GB RAM，以及介於 8 到 24 個虛擬核心的計算大小。
-- **Gen5** 邏輯 CPU 具備 Intel E5-2673 v4 (Broadwell) 2.3-GHz 處理器、快速 NVMe SSD、超執行緒邏輯核心，以及介於 8 到 80 個虛擬核心的計算大小。
+- **第 5 代**邏輯 Cpu 的基礎 Intel E5 2673 v4 (Broadwell) 2.3-GHz 處理器，迅速 NVMe SSD，超執行緒邏輯核心與計算介於 4 到 80 個核心的大小。
 
 在[受控執行個體資源限制](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)中尋找關於硬體世代之間差異的詳細資訊。
 
@@ -226,12 +226,12 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 
 下表顯示數個透過 Transact SQL 使用的屬性，可用來檢測出應用程式正在使用受控執行個體，並擷取重要的屬性。
 
-|屬性|Value|註解|
+|屬性|值|註解|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|此值與 SQL Database 中的相同。|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|此值與 SQL Database 中的相同。|
 |`SERVERPROPERTY('EngineEdition')`|8|此值只會識別出受控執行個體。|
-|`@@SERVERNAME`、`SERVERPROPERTY ('ServerName')`|下列格式的完整執行個體 DNS 名稱：`<instanceName>`.`<dnsPrefix>`.database.windows.net，其中 `<instanceName>` 是客戶提供的名稱，而 `<dnsPrefix>` 是自動產生的部分名稱，確保全域 DNS 名稱是唯一的 (例如，"wcus17662feb9ce98")|範例：my-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`、 `SERVERPROPERTY ('ServerName')`|下列格式的完整執行個體 DNS 名稱：`<instanceName>`.`<dnsPrefix>`.database.windows.net，其中 `<instanceName>` 是客戶提供的名稱，而 `<dnsPrefix>` 是自動產生的部分名稱，確保全域 DNS 名稱是唯一的 (例如，"wcus17662feb9ce98")|範例：my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -240,5 +240,5 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 - 如需 VNet 組態的詳細資訊，請參閱[受控執行個體 VNet 組態](sql-database-managed-instance-connectivity-architecture.md)。
 - 如需建立受控執行個體，並從備份檔案還原資料庫的快速入門，請參閱[建立受控執行個體](sql-database-managed-instance-get-started.md)。
 - 如需使用 Azure 資料庫移轉服務 (DMS) 進行移轉的教學課程，請參閱[使用 DMS 的受控執行個體移轉](../dms/tutorial-sql-server-to-managed-instance.md)。
-- 若要使用內建的疑難排解智慧對受控執行個體的資料庫效能進行進階監視，請參閱[使用 Azure SQL 分析監視 Azure SQL Database](../azure-monitor/insights/azure-sql.md)
+- 進行進階疑難排解的內建智慧與監視的受管理的執行個體的資料庫效能，請參閱[使用 Azure SQL Analytics 監視 Azure SQL Database](../azure-monitor/insights/azure-sql.md)。
 - 如需價格資訊，請參閱 [SQL Database 受控執行個體的價格](https://azure.microsoft.com/pricing/details/sql-database/managed/)。

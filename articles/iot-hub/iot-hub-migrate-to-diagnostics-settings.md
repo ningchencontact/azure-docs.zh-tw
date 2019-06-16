@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
 ms.openlocfilehash: b6cde8402c699a7477cd0efc79a44b3f5e150ad0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146342"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>將 IoT 中樞從作業監視移轉至診斷設定
@@ -34,9 +34,9 @@ ms.locfileid: "66146342"
 
 一旦您在工作流程中測試新的診斷設定，您可以關閉作業監視功能。 
 
-1. 在您的「IoT 中樞」功能表上，選取 [作業監視]。
+1. 在您的「IoT 中樞」功能表上，選取 [作業監視]  。
 
-2. 在每個監視類別底下，選取 [無]。
+2. 在每個監視類別底下，選取 [無]  。
 
 3. 儲存作業監視變更。
 

@@ -5,10 +5,10 @@ ms.service: azure-monitor
 ms.topic: include
 ms.date: 01/19/2019
 ms.openlocfilehash: ca2aed5689fe31f47166428503abb9483fc406b4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66130493"
 ---
-在 Azure 入口網站的 Azure 監視器**概觀**頁面上，可取得此監視解決方案收集的資料。 按一下 [深入解析] 區段下方的 [更多]，即可在 [Azure 監視器] 功能表開啟此頁面。 每個解決方案皆會以圖格表示。 按一下圖格，即可取得更多該解決方案收集的資料。
+在 Azure 入口網站的 Azure 監視器**概觀**頁面上，可取得此監視解決方案收集的資料。 按一下 [深入解析]  區段下方的 [更多]  ，即可在 [Azure 監視器]  功能表開啟此頁面。 每個解決方案皆會以圖格表示。 按一下圖格，即可取得更多該解決方案收集的資料。

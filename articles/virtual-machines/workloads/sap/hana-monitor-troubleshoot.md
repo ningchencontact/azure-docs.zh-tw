@@ -15,10 +15,10 @@ ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 15b3fb4ae483e5b0e4f930d0dc08de6d198d0e5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61128782"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>從 HANA 端進行監視和疑難排解
@@ -94,10 +94,10 @@ SAP HANA on Linux 的其中一項最重要檢查就是要確保停用 Transparen
 請參考 [SAP HANA #2081065 - 針對 SAP HANA 網路進行疑難排解](https://launchpad.support.sap.com/#/notes/2081065)，並執行此 SAP 附註中的網路疑難排解步驟。
 
 1. 分析伺服器與用戶端之間的來回時間。
-  A. 執行 SQL 指令碼 [_HANA\_Network\_Clients_](https://launchpad.support.sap.com/#/notes/1969700)_。_
+  A. 執行 SQL 指令碼 [_HANA\_Network\_Clients_](https://launchpad.support.sap.com/#/notes/1969700) _。_
   
 2. 分析節點間的通訊。
-  A. 執行 SQL 指令碼 [_HANA\_Network\_Services_](https://launchpad.support.sap.com/#/notes/1969700)_。_
+  A. 執行 SQL 指令碼 [_HANA\_Network\_Services_](https://launchpad.support.sap.com/#/notes/1969700) _。_
 
 3. 執行 Linux 命令 **ifconfig** (輸出會顯示是否有發生任何封包遺失的情況)。
 4. 執行 Linux 命令 **tcpdump**。
@@ -108,7 +108,7 @@ SAP HANA on Linux 的其中一項最重要檢查就是要確保停用 Transparen
 
 ## <a name="storage"></a>儲存體
 
-從使用者的觀點而言，應用程式 （或系統整體） 執行緩慢、 沒有回應，或甚至似乎停止回應，前提有 I/O 效能問題。 在 SAP HANA Studio 的 [Volumes] \(磁碟區) 索引標籤中，您可以看到連接的磁碟區，以及每個服務使用哪些磁碟區。
+從使用者的觀點而言，應用程式 （或系統整體） 執行緩慢、 沒有回應，或甚至似乎停止回應，前提有 I/O 效能問題。 在 SAP HANA Studio 的 [Volumes] \(磁碟區)  索引標籤中，您可以看到連接的磁碟區，以及每個服務使用哪些磁碟區。
 
 ![在 SAP HANA Studio 的 [Volumes] (磁碟區) 索引標籤中，您可以看到連接的磁碟區，以及每個服務使用哪些磁碟區。](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 
@@ -124,7 +124,7 @@ SAP HANA on Linux 的其中一項最重要檢查就是要確保停用 Transparen
 
 請參考 [SAP 附註 #1969700 - SAP HANA 的 SQL 陳述式集合](https://launchpad.support.sap.com/#/notes/1969700)，並下載該附註隨附的 SQL Statements.zip 檔案。 請將這個 .zip 檔案儲存在本機硬碟。
 
-在 SAP HANA Studio 的 [System Information] (系統資訊) 索引標籤上，於 [Name] (名稱) 資料行上按一下滑鼠右鍵，然後選取 [Import SQL Statements] (匯入 SQL 陳述式)。
+在 SAP HANA Studio 的 [System Information] (系統資訊)  索引標籤上，於 [Name] (名稱)  資料行上按一下滑鼠右鍵，然後選取 [Import SQL Statements] (匯入 SQL 陳述式)  。
 
 ![在 SAP HANA Studio 的 [System Information] (系統資訊) 索引標籤上，於 [Name] (名稱) 資料行上按一下滑鼠右鍵，然後選取 [Import SQL Statements] (匯入 SQL 陳述式)](./media/troubleshooting-monitoring/image7-import-statements-a.png)
 
@@ -136,7 +136,7 @@ SAP HANA on Linux 的其中一項最重要檢查就是要確保停用 Transparen
 
 ![將會開啟完整的 SQL 陳述式，讓您變更輸入參數 (modification 區段)，然後加以執行](./media/troubleshooting-monitoring/image8-import-statements-b.png)
 
-另一個範例是以滑鼠右鍵按一下底下的陳述式上**複寫：概觀**。 從操作功能表中，選取 [Execute] \(執行)：
+另一個範例是以滑鼠右鍵按一下底下的陳述式上**複寫：概觀**。 從操作功能表中，選取 [Execute] \(執行)  ：
 
 ![另一個範例是以滑鼠右鍵按一下複寫底下的陳述式上：概觀。 從操作功能表中，選取 [Execute] \(執行)](./media/troubleshooting-monitoring/image9-import-statements-c.png)
 
@@ -144,7 +144,7 @@ SAP HANA on Linux 的其中一項最重要檢查就是要確保停用 Transparen
 
 ![這會產生可協助進行疑難排解的資訊](./media/troubleshooting-monitoring/image10-import-statements-d.png)
 
-針對 HANA\_Configuration\_Minichecks 進行相同的操作，然後檢查 [C] (重大) 資料行中是否有任何 _X_ 標記。
+針對 HANA\_Configuration\_Minichecks 進行相同的操作，然後檢查 [C]  (重大) 資料行中是否有任何 _X_ 標記。
 
 範例輸出：
 
@@ -160,11 +160,11 @@ SAP HANA on Linux 的其中一項最重要檢查就是要確保停用 Transparen
 
 ![HANA\_Services\_Statistics：適用於 SAP HANA 服務資訊](./media/troubleshooting-monitoring/image13-services-statistics.png)
 
-**HANA\_Configuration\_Overview\_Rev110+**：適用於 SAP HANA 執行個體的一般相關資訊。
+**HANA\_Configuration\_Overview\_Rev110+** ：適用於 SAP HANA 執行個體的一般相關資訊。
 
 ![HANA\_Configuration\_Overview\_Rev110+：：適用於 SAP HANA 執行個體的一般相關資訊](./media/troubleshooting-monitoring/image14-configuration-overview.png)
 
-**HANA\_Configuration\_Parameters\_Rev70+**：用來檢查 SAP HANA 參數。
+**HANA\_Configuration\_Parameters\_Rev70+** ：用來檢查 SAP HANA 參數。
 
 ![HANA\_Configuration\_Parameters\_Rev70+：用來檢查 SAP HANA 參數](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
 

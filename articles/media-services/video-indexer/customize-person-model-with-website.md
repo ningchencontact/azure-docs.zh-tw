@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
 ms.openlocfilehash: 37e556ca458a5b0a171664e089d39cfb448d5f96
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65800123"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>使用影片索引器網站自訂人員模型
@@ -47,7 +47,7 @@ ms.locfileid: "65800123"
     ![新增人員](./media/customize-face-model/add-new-person2.png)
 
     您已建立新的人員模型。 您現在可以新增至新的 「 個人 」 模式的臉部。
-3. 按一下 [清單] 功能表按鈕，然後選擇**新增人員 +**。
+3. 按一下 [清單] 功能表按鈕，然後選擇**新增人員 +** 。
 
     ![新增人員](./media/customize-face-model/add-new-person3.png)
     

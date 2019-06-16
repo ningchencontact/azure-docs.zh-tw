@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 02/25/2019
 ms.openlocfilehash: 2c95ec4d88e55af0becc73719bcc6126501267db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61416521"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database - 資料表稽核的舊版用戶端支援與 IP 端點變更
@@ -25,9 +25,9 @@ ms.locfileid: "61416521"
 > 本文件僅適用於資料表稽核，也就是**現已淘汰**。<br>
 > 請使用新的 [Blob 稽核](sql-database-auditing.md)方法，**不**需要修改舊版用戶端連接字串。 Blob 稽核的其他資訊位在[開始使用 SQL Database 稽核](sql-database-auditing.md)。
 
-对于支持 TDS 重定向的 SQL 客户端，可以自动使用[数据库审核](sql-database-auditing.md)。 请注意，使用 Blob 审核方法时，重定向不适用。
+[資料庫稽核](sql-database-auditing.md)可自動與支援 TDS 重新導向的 SQL 用戶端搭配運作。 請注意，使用「Blob 稽核」方法時，不適用重新導向。
 
-## <a id="subheading-1"></a>下层客户端支持
+## <a id="subheading-1"></a>舊版用戶端支援
 
 實作 TDS 7.4 的任何用戶端應該也支援重新導向。 例外包括其中未完全支援重新導向功能的 JDBC 4.0，和其中未實作重新導向的 Tedious for Node.JS。
 
@@ -54,7 +54,7 @@ ms.locfileid: "61416521"
 
 | 資料庫區域 | 可能的 IP 端點 |
 | --- | --- |
-| 中国北部 |139.217.29.176, 139.217.28.254 |
+| 中國北部 |139.217.29.176, 139.217.28.254 |
 | 中國東部 |42.159.245.65, 42.159.246.245 |
 | 澳洲東部 |104.210.91.32, 40.126.244.159, 191.239.64.60, 40.126.255.94 |
 | 澳大利亞東南部 |191.239.184.223, 40.127.85.81, 191.239.161.83, 40.127.81.130 |

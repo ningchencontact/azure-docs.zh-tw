@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/29/2018
 ms.author: rkarlin
 ms.openlocfilehash: 68bcd2b1916ccdf68eaa31ed251661a6b7e1bca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60704060"
 ---
 # <a name="handling-security-incidents-in-azure-security-center"></a>在 Azure 資訊安全中心處理安全性事件
@@ -44,7 +44,7 @@ ms.locfileid: "60704060"
 
     ![安全性事件](./media/security-center-incident/security-center-incident-fig3.png)
 
-4. 在 [事件] 刀鋒視窗中，您會看到此安全性事件的詳細資訊，其中包含事件的完整描述、嚴重性 (在本例中是 [高])、目前狀態 (在本例中仍為 [作用中]，這代表使用者尚未對其執行動作 - 在 [安全性警示] 刀鋒視窗中的事件上按一下右鍵即可執行)、受到攻擊的資源 (在本例中是 [VM1])、事件的修復步驟，而最下方的窗格則是此事件所包含的警示。 如果您想要取得每個警示的詳細資訊，只要按一下警示便會開啟另一個刀鋒視窗，如下所示：
+4. 在 [事件]  刀鋒視窗中，您會看到此安全性事件的詳細資訊，其中包含事件的完整描述、嚴重性 (在本例中是 [高])、目前狀態 (在本例中仍為 [作用中]  ，這代表使用者尚未對其執行動作 - 在 [安全性警示]  刀鋒視窗中的事件上按一下右鍵即可執行)、受到攻擊的資源 (在本例中是 [VM1]  )、事件的修復步驟，而最下方的窗格則是此事件所包含的警示。 如果您想要取得每個警示的詳細資訊，只要按一下警示便會開啟另一個刀鋒視窗，如下所示：
 
     ![安全性事件](./media/security-center-incident/security-center-incident-fig4.png)
 

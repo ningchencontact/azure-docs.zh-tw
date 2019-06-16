@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: edbd7000001ae6927078e2f1bb9e348cc78f9efa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61299643"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights 中的智慧型偵測
@@ -32,7 +32,7 @@ ms.locfileid: "61299643"
     ![電子郵件警示](./media/proactive-diagnostics/03.png)
   
     按一下大型按鈕以在入口網站中開啟更多詳細資料。
-* 您應用程式 [概觀] 刀鋒視窗上的 [主動式偵測] 磚會顯示最新進的警示計數。 按一下圖格即可查看最新警示的清單。
+* 您應用程式 [概觀] 刀鋒視窗上的 [主動式偵測]  磚會顯示最新進的警示計數。 按一下圖格即可查看最新警示的清單。
 
 ![檢視最近的偵測](./media/proactive-diagnostics/04.png)
 
@@ -51,7 +51,7 @@ ms.locfileid: "61299643"
 
 除了標示為預覽狀態之外，所有的智慧偵測規則均預設為發現到偵測時，傳送電子郵件通知。
 
-開啟智慧型偵測 [設定] 刀鋒視窗，然後選取規則，即會開啟 [編輯規則] 刀鋒視窗，然後便可設定特定智慧偵測規則的電子郵件通知。
+開啟智慧型偵測 [設定]  刀鋒視窗，然後選取規則，即會開啟 [編輯規則]  刀鋒視窗，然後便可設定特定智慧偵測規則的電子郵件通知。
 
 或者，您也可以使用 Azure Resource Manager 範本來變更設定。 如需詳細資訊，請參閱[使用 Azure Resource Manager 範本來管理 Application Insights 智慧偵測規則](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)。
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
 ms.openlocfilehash: cdc0f189daebcda592338b463954efab4fc2db96
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864422"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>以使用 .NET 的 IoT 中樞將檔案從裝置上傳至雲端
@@ -26,7 +26,7 @@ ms.locfileid: "65864422"
 
 - 您可以使用 IoT 中樞檔案上傳通知來觸發在您的應用程式後端中處理此檔案。
 
-[將遙測資料從裝置傳送到 IoT 中樞](quickstart-send-telemetry-dotnet.md)和[使用 IoT 中樞傳送雲端到裝置的訊息](iot-hub-csharp-csharp-c2d.md)兩篇文章，會示範 IoT 中樞基本的裝置到雲端和雲端到裝置傳訊功能。 [使用 IoT 中樞設定訊息路由](tutorial-routing.md)教學課程說明了能在 Azure Blob 儲存體中，可靠地儲存裝置到雲端訊息的方法。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如：
+[將遙測資料從裝置傳送到 IoT 中樞](quickstart-send-telemetry-dotnet.md)和[使用 IoT 中樞傳送雲端到裝置的訊息](iot-hub-csharp-csharp-c2d.md)兩篇文章，會示範 IoT 中樞基本的裝置到雲端和雲端到裝置傳訊功能。 [使用 IoT 中樞設定訊息路由](tutorial-routing.md)教學課程說明了能在 Azure Blob 儲存體中，可靠地儲存裝置到雲端訊息的方法。 不過，在某些情況下，您無法輕易地將裝置傳送的資料對應到 IoT 中樞接受且相對較小的裝置到雲端訊息。 例如:
 
 * 包含映像的大型檔案
 * 影片
@@ -55,9 +55,9 @@ ms.locfileid: "65864422"
 
 在本節中，您將修改在[使用 IoT 中樞傳送雲端到裝置訊息](iot-hub-csharp-csharp-c2d.md)中建立的裝置應用程式，以接收來自 IoT 中樞的雲端到裝置訊息。
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下 **SimulatedDevice** 專案，按一下 [新增]，然後按一下 [現有項目]。 瀏覽至影像檔並將它包含在您的專案中。 本教學課程假設影像名稱為 `image.jpg`。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下 **SimulatedDevice** 專案，按一下 [新增]  ，然後按一下 [現有項目]  。 瀏覽至影像檔並將它包含在您的專案中。 本教學課程假設影像名稱為 `image.jpg`。
 
-1. 以滑鼠右鍵按一下影像，然後按一下 [內容] 。 確定 [複製到輸出目錄] 是設為 [一律複製]。
+1. 以滑鼠右鍵按一下影像，然後按一下 [內容]  。 確定 [複製到輸出目錄]  是設為 [一律複製]  。
 
     ![顯示要在其中更新 [複製到輸出目錄] 映像屬性的位置](./media/iot-hub-csharp-csharp-file-upload/image-properties.png)
 
@@ -101,13 +101,13 @@ ms.locfileid: "65864422"
 
 在本節中，您將撰寫 .NET 主控台應用程式，以接收來自 IoT 中樞的檔案上傳通知訊息。
 
-1. 在目前的 Visual Studio 方案中，使用 [主控台應用程式] 專案範本來建立 Visual C# Windows 專案。 將專案命名為 **ReadFileUploadNotification**。
+1. 在目前的 Visual Studio 方案中，使用 [主控台應用程式]  專案範本來建立 Visual C# Windows 專案。 將專案命名為 **ReadFileUploadNotification**。
 
     ![Visual Studio 中的新專案](./media/iot-hub-csharp-csharp-file-upload/file-upload-project-csharp1.png)
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ReadFileUploadNotification** 專案，然後按一下 [管理 NuGet 套件...]。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ReadFileUploadNotification** 專案，然後按一下 [管理 NuGet 套件...]  。
 
-3. 在 [NuGet 套件管理員] 視窗中，搜尋 **Microsoft.Azure.Devices**，按一下 [安裝] 並接受使用規定。
+3. 在 [NuGet 套件管理員]  視窗中，搜尋 **Microsoft.Azure.Devices**，按一下 [安裝]  並接受使用規定。
 
     此動作會下載和安裝 [Azure IoT 服務 SDK NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.Devices/)，並在 **ReadFileUploadNotification** 專案中新增此套件的參考。
 
@@ -163,7 +163,7 @@ ms.locfileid: "65864422"
 
 現在您已經準備好執行應用程式。
 
-1. 在 Visual Studio 中，在您的方案上按一下滑鼠右鍵，然後選取 [設定啟始專案]。 選取 [多個啟始專案]，然後針對 **ReadFileUploadNotification** 和 **SimulatedDevice** 選取 [啟動]。
+1. 在 Visual Studio 中，在您的方案上按一下滑鼠右鍵，然後選取 [設定啟始專案]  。 選取 [多個啟始專案]  ，然後針對 **ReadFileUploadNotification** 和 **SimulatedDevice** 選取 [啟動]  。
 
 2. 按 **F5**。 這兩個應用程式應該都會啟動。 您應該會在其中一個主控台應用程式中看到上傳已完成，以及另一個主控台應用程式所收到的上傳通知訊息。 您可以使用 [Azure 入口網站](https://portal.azure.com/)或 Visual Studio 伺服器總管，在您的 Azure 儲存體帳戶中檢查上傳的檔案是否存在。
 

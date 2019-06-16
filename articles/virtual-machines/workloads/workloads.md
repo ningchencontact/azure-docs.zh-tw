@@ -12,20 +12,20 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 02/21/2019
+ms.date: 06/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 98bc10377dff8f06cd02d4a384ca14b364a73e74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 167370a4eebded3dba898ed47dede7a36900d976
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713754"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808208"
 ---
 # <a name="workloads-on-azure-virtual-machines"></a>Azure 虛擬機器上的工作負載
 
 在 Azure 中的虛擬機器可支援許多工作負載。 每個工作負載可以有特製化的指導方針在 Azure 中的 Vm 上部署的最佳設計。 以下是一些我們可以提供針對特定的工作負載的指導方針。
 
-
+- [高效能運算](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/)在 Azure 中使用 CPU 還是 GPU 最佳化的虛擬機器，來解決複雜、 需要大量計算的問題。 
 - [SAP](./sap/get-started.md)在 Azure 中可以執行您的任務關鍵性 SAP 工作負載和案例的可調整、 符合規範且經企業證明的平台上。
 - [Oracle](./oracle/oracle-considerations.md) Oracle Linux 為基礎的虛擬機器映像，在 Azure 中執行 Oracle DB 12.1 Standard 和 Enterprise edition 的支援。 
 - [大型主機重新裝載](./mainframe-rehosting/overview.md) 

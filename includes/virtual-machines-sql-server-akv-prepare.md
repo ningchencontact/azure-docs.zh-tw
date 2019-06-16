@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 01020a23b102c896bbeb3d8cf455afabfc164917
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1e96431af575533566786341750e17e7a7f446e0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165298"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075984"
 ---
 ## <a name="prepare-for-akv-integration"></a>準備進行 AKV 整合
 若要使用 Azure 金鑰保存庫整合以設定 SQL Server VM，有幾項必要條件： 
@@ -32,7 +32,7 @@ ms.locfileid: "66165298"
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ### <a id="install"></a> 安裝 Azure PowerShell
-確定您已安裝最新版本的 Azure PowerShell SDK。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/install-az-ps)。
+請確定您已安裝最新的 Azure PowerShell 模組。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/install-az-ps)。
 
 ### <a id="register"></a> 在 Azure Active Directory 中註冊應用程式
 
@@ -40,7 +40,7 @@ ms.locfileid: "66165298"
 
 接下來，向 AAD 註冊應用程式。 如此將會提供您服務主體帳戶，可存取您 VM 需要的金鑰保存庫。 在 Azure 金鑰保存庫文章中，您可以找到這些步驟[註冊應用程式與 Azure Active Directory](../articles/key-vault/key-vault-manage-with-cli2.md#registering-an-application-with-azure-active-directory)區段中，或者您可以看到和螢幕擷取畫面中的步驟，**取得應用程式一節中的身分識別**的[此部落格文章](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx)。 完成這些步驟之前，您需要收集此註冊期間的下列資訊，稍後當您在 SQL VM 上啟用 Azure 金鑰保存庫整合時需要該資訊。
 
-* 新增應用程式後，請在 [註冊應用程式] 刀鋒視窗中找出**應用程式識別碼**。
+* 新增應用程式後，請在 [註冊應用程式]  刀鋒視窗中找出**應用程式識別碼**。
     應用程式識別碼稍後會指派給 PowerShell 指令碼中的 **$spName** (服務主體名稱) 參數，以啟用 Azure Key Vault 整合。
 
    ![應用程式識別碼](./media/virtual-machines-sql-server-akv-prepare/aad-application-id.png)
@@ -58,7 +58,7 @@ ms.locfileid: "66165298"
 
     New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 
-當您進行「建立」金鑰保存庫步驟時，請注意傳回的 **vaultUri** 屬性，它是金鑰保存庫 URL。 在該步驟提供的範例中 (如下所示)，金鑰保存庫名稱是 ContosoKeyVault，因此金鑰保存庫 URL 會是 https://contosokeyvault.vault.azure.net/。
+當您進行「建立」金鑰保存庫步驟時，請注意傳回的 **vaultUri** 屬性，它是金鑰保存庫 URL。 在該步驟提供的範例中 (如下所示)，金鑰保存庫名稱是 ContosoKeyVault，因此金鑰保存庫 URL 會是 https://contosokeyvault.vault.azure.net/ 。
 
 金鑰保存庫 URL 稍後會指派給 PowerShell 指令碼中的 **$akvURL** 參數，以啟用 Azure 金鑰保存庫整合。
 

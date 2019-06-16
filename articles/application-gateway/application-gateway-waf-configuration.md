@@ -8,10 +8,10 @@ ms.date: 5/15/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 5ddcdeca41e2f21fa27db25f7e0721c7ef87e491
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65620285"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web 應用程式防火牆要求大小限制與排除清單
@@ -54,7 +54,7 @@ WAF 排除清單可讓您略過 WAF 評估的特定要求屬性。 常見範例�
 - **開頭為**：此運算子會比對開頭與指定之選取器值相符的所有欄位。
 - **結尾為**：此運算子會比對結尾與指定之選取器值相符的所有欄位。
 - **包含**：此運算子會比對包含與指定之選取器值相符的所有欄位。
-- **等于任何值**：此运算符与所有请求字段匹配。 * 将是选择器值。
+- **等於任何**:這個運算子會比對要求的所有欄位。 * 將會選取器的值。
 
 在所有情況下，比對都不會區分大小寫，且不允許使用規則運算式作為選取器。
 
@@ -91,7 +91,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "Equals" `
    -Selector "user"
 ```
-因此，如果 URL **http://www.contoso.com/?user=fdafdasfda**傳遞至 WAF，它將不會評估字串**fdafdasfda**。
+因此，如果 URL **http://www.contoso.com/?user=fdafdasfda** 傳遞至 WAF，它將不會評估字串**fdafdasfda**。
 
 ## <a name="next-steps"></a>後續步驟
 

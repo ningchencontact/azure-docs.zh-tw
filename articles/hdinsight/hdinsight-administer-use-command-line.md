@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tyfox
 ms.openlocfilehash: 7c12831c43762ddc776e8d5701f002be97992cbc
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65859971"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>管理 Azure HDInsight 叢集使用 Azure CLI
@@ -25,13 +25,13 @@ ms.locfileid: "65859971"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)的步驟。
+* Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 以取得相關步驟。
 
-* 在 HDInsight 上 Apache Hadoop 叢集。 請參閱[開始使用 Linux 上的 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
+* HDInsight 上的 Apache Hadoop 叢集。 請參閱[開始在 Linux 上使用 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 
-## <a name="connect-to-azure"></a>連線至 Azure
+## <a name="connect-to-azure"></a>連接到 Azure
 
-登入您的 Azure 訂用帳戶。 如果您打算使用 Azure Cloud Shell，只要選取**試試**的程式碼區塊右上角。 否則，請輸入下列命令：
+登入您的 Azure 訂用帳戶。 如果您打算使用 Azure Cloud Shell，可直接選取程式碼區塊右上角的 [試試看]  。 或者，請輸入以下命令：
 
 ```azurecli-interactive
 az login

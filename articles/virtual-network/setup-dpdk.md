@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
 ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60731595"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>在 Linux 虛擬機器中設定 DPDK
@@ -33,7 +33,7 @@ DPDK 可以在 Azure 虛擬機器中執行，並支援多個作業系統散發�
 
 ## <a name="benefit"></a>優點
 
-**提高每秒包数 (PPS)**：绕过内核并控制用户空间中的包可消除上下文切换，从而减少周期计数。 它也可以改善 Azure Linux 虛擬機器中每秒處理的封包速率。
+**每秒 (PPS) 更高的封包**:略過的核心和控制使用者空間中的封包可減少循環計數消除內容切換。 它也可以改善 Azure Linux 虛擬機器中每秒處理的封包速率。
 
 
 ## <a name="supported-operating-systems"></a>受支援的作業系統
@@ -133,7 +133,7 @@ zypper \
      > [!NOTE]
      > 依照 DPDK 的[指示](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment)可以修改 grub 檔案，以便在開機時保留 Hugepage。 指示位於頁面底部。 當您使用 Azure Linux 虛擬機器時，請改為修改 **/etc/config/grub.d** 下的檔案，以在重新開機期間保留 Hugepage。
 
-2. MAC 和 IP 地址：使用 `ifconfig –a` 查看网络接口的 MAC 和 IP 地址。 *VF* 網路介面和 *NETVSC* 網路介面都有相同的 MAC 位址，但僅限於具有 IP 位址的 *NETVSC* 網路介面。 VF 介面會當作 NETVSC 介面的從屬介面執行。
+2. MAC 和 IP 位址：使用`ifconfig –a`若要檢視網路介面的 MAC 和 IP 位址。 *VF* 網路介面和 *NETVSC* 網路介面都有相同的 MAC 位址，但僅限於具有 IP 位址的 *NETVSC* 網路介面。 VF 介面會當作 NETVSC 介面的從屬介面執行。
 
 3. PCI 位址
 
@@ -152,7 +152,7 @@ DPDK 應用程式必須透過在 Azure 中公開的保全 PMD 執行。 若應�
 
 若要在 root 模式中執行 testpmd，請在 *testpmd* 命令之前使用 `sudo`。
 
-### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>基本：健全性检查、防故障适配器初始化
+### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>基本：例行性檢查，保全配接器初始化
 
 1. 執行下列命令來啟動單一連接埠 testpmd 應用程式：
 
@@ -180,7 +180,7 @@ DPDK 應用程式必須透過在 Azure 中公開的保全 PMD 執行。 若應�
 
 前述命令會在互動模式中啟動 *testpmd* (建議做法)，以試用 testpmd 命令。
 
-### <a name="basic-single-sendersingle-receiver"></a>基本：单个发送端/单个接收端
+### <a name="basic-single-sendersingle-receiver"></a>基本：單一傳送者/單一接收者
 
 下列命令會定期列印每秒封包數的統計資料：
 
@@ -216,7 +216,7 @@ DPDK 應用程式必須透過在 Azure 中公開的保全 PMD 執行。 若應�
 
 當您在虛擬機器上執行前述命令時，變更 `app/test-pmd/txonly.c` 中的 *IP_SRC_ADDR* 與 *IP_DST_ADDR*，以在編譯前符合虛擬機器的實際 IP 位址。 否則，封包會在到達接收者之前捨棄。
 
-### <a name="advanced-single-sendersingle-forwarder"></a>高级：单个发送端/单个转发端
+### <a name="advanced-single-sendersingle-forwarder"></a>進階：單一傳送者/單一轉寄站
 下列命令會定期列印每秒封包數的統計資料：
 
 1. 在 TX 端上，執行下列命令：

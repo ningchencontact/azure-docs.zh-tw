@@ -16,10 +16,10 @@ ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 4113d582647b5bea86980824714936d24dafc870
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65511153"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>使用 Azure CLI 擴充 Linux VM 上的虛擬硬碟
@@ -36,7 +36,7 @@ ms.locfileid: "65511153"
 
 在下列範例中，以您自己的值取代範例參數名稱，例如 *myResourceGroup* 和 *myVM*。
 
-1. 當 VM 正在執行時，無法對虛擬硬碟執行作業。 使用 [az vm deallocate](/cli/azure/vm#az-vm-deallocate) 解除配置您的 VM。 下列範例會解除配置名為 myResourceGroup 資源群組中名為 myVM 的 VM：
+1. 當 VM 正在執行時，無法對虛擬硬碟執行作業。 使用 [az vm deallocate](/cli/azure/vm#az-vm-deallocate) 解除配置您的 VM。 下列範例會解除配置名為 myResourceGroup  資源群組中名為 myVM  的 VM：
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -45,7 +45,7 @@ ms.locfileid: "65511153"
     > [!NOTE]
     > 必須解除配置 VM，才能擴充虛擬硬碟。 使用 `az vm stop` 停止 VM，不會釋放計算資源。 若要釋放計算資源，請使用 `az vm deallocate`。
 
-1. 使用 [az disk list](/cli/azure/disk#az-disk-list) 來檢視資源群組中的受控磁碟清單。 下列範例會顯示名為 myResourceGroup 之資源群組中的受控磁碟清單：
+1. 使用 [az disk list](/cli/azure/disk#az-disk-list) 來檢視資源群組中的受控磁碟清單。 下列範例會顯示名為 myResourceGroup  之資源群組中的受控磁碟清單：
 
     ```azurecli
     az disk list \
@@ -66,7 +66,7 @@ ms.locfileid: "65511153"
     > [!NOTE]
     > 當您擴充受控磁碟時，會將更新的大小向上調整為最接近的受控磁碟大小。 如需可用受控磁碟大小和階層的表格，請參閱 [Azure 受控磁碟概觀 - 價格和計費](../windows/managed-disks-overview.md)。
 
-1. 使用 [az vm create](/cli/azure/vm#az-vm-start) 啟動 VM。 下列範例會啟動名為 myResourceGroup 資源群組中名為 myVM 的 VM：
+1. 使用 [az vm create](/cli/azure/vm#az-vm-start) 啟動 VM。 下列範例會啟動名為 myResourceGroup  資源群組中名為 myVM  的 VM：
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -141,7 +141,7 @@ ms.locfileid: "65511153"
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. 若要验证是否已调整数据磁盘的大小，请使用 `df -h`。 下列範例輸出顯示資料磁碟機 */dev/sdc1* 現在是 200 GB：
+1. 若要確認已調整大小的資料磁碟，請使用`df -h`。 下列範例輸出顯示資料磁碟機 */dev/sdc1* 現在是 200 GB：
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

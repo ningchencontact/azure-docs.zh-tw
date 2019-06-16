@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: aschhab
-ms.openlocfilehash: 9df321980db3a2481f0d8cc007546822fea46f9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d4ece6b631882200c6f98f6de5daa543fdf7ce4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66111151"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072125"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure 服務匯流排與 Event Grid 的整合概觀
 
@@ -39,7 +39,7 @@ Azure 服務匯流排已開始與 Azure Event Grid 進行全新整合。 此功�
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>確認您具有參與者存取權
-移至您的服務匯流排命名空間，然後選取 [存取控制 (IAM)]，然後選取 [角色指派] 索引標籤。確認您具有命名空間的參與者存取權。 
+移至您的服務匯流排命名空間，然後選取 [存取控制 (IAM)]  ，然後選取 [角色指派]  索引標籤。確認您具有命名空間的參與者存取權。 
 
 ### <a name="events-and-event-schemas"></a>事件和事件結構描述
 
@@ -112,7 +112,7 @@ Azure 服務匯流排已開始與 Azure Event Grid 進行全新整合。 此功�
 
 ### <a name="use-filters-to-limit-where-you-get-events-from"></a>使用篩選條件來限制您取得事件的來源
 
-如果您只想從命名空間內的一個佇列或一個訂用帳戶取得事件，您可以使用 Event Grid 所提供的「開頭為」或「結尾為」篩選條件。 在某些介面中，篩選條件稱為「前置」和「尾碼」篩選條件。 如果您想取得多個佇列和訂用帳戶 (但並非所有佇列和訂用帳戶) 的事件，您可以建立多個 Event Grid 訂用帳戶並且為每個訂用帳戶提供一個篩選條件。
+如果您只想從命名空間內的一個佇列或一個訂用帳戶取得事件，您可以使用 Event Grid 所提供的「開頭為」  或「結尾為」  篩選條件。 在某些介面中，篩選條件稱為「前置」  和「尾碼」  篩選條件。 如果您想取得多個佇列和訂用帳戶 (但並非所有佇列和訂用帳戶) 的事件，您可以建立多個 Event Grid 訂用帳戶並且為每個訂用帳戶提供一個篩選條件。
 
 ## <a name="create-event-grid-subscriptions-for-service-bus-namespaces"></a>如何為服務匯流排命名空間建立 Event Grid 訂用帳戶
 
@@ -126,8 +126,8 @@ Azure 服務匯流排已開始與 Azure Event Grid 進行全新整合。 此功�
 
 若要建立新的 Event Grid 訂用帳戶，請執行下列作業：
 1. 在 Azure 入口網站中，移至您的命名空間。
-2. 在左窗格中，選取 [Event Grid]。 
-3. 選取 [事件訂用帳戶]。  
+2. 在左窗格中，選取 [Event Grid]  。 
+3. 選取 [事件訂用帳戶]  。  
 
    下圖顯示一個命名空間，而該命名空間有事件方格訂用帳戶：
 
@@ -139,23 +139,25 @@ Azure 服務匯流排已開始與 Azure Event Grid 進行全新整合。 此功�
 
 ## <a name="azure-cli-instructions"></a>Azure CLI 指示
 
-首先，確定已安裝 Azure CLI 2.0 版或更新版本。 [下載安裝程式](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。 選取 [Windows + X]，然後以系統管理員權限開啟新的 PowerShell 主控台。 或者，也可以在 Azure 入口網站中使用命令 shell。
+首先，確定已安裝 Azure CLI 2.0 版或更新版本。 [下載安裝程式](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。 選取 [Windows + X]  ，然後以系統管理員權限開啟新的 PowerShell 主控台。 或者，也可以在 Azure 入口網站中使用命令 shell。
 
 執行以下程式碼：
 
  ```azurecli-interactive
 az login
 
-az account set -s “THE SUBSCRIPTION YOU WANT TO USE”
+az account set -s "<Azure subscription name>"
 
-$namespaceid=(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name “<yourNamespace>“--resource-group “<Your Resource Group Name>” --query id --output tsv)
+namespaceid=$(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name "<service bus namespace>" --resource-group "<resource group that contains the service bus namespace>" --query id --output tsv
 
-az eventgrid event-subscription create --resource-id $namespaceid --name “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” --endpoint “<your_function_url>” --subject-ends-with “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
+az eventgrid event-subscription create --resource-id $namespaceid --name "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" --endpoint "<your_function_url>" --subject-ends-with "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
+
+如果您使用 BASH 
 
 ## <a name="powershell-instructions"></a>PowerShell 指示
 
-確定您已安裝 Azure PowerShell。 [下載安裝程式](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 選取 [Windows + X]，然後以系統管理員權限開啟新的 PowerShell 主控台。 或者，也可以在 Azure 入口網站中使用命令 shell。
+確定您已安裝 Azure PowerShell。 [下載安裝程式](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 選取 [Windows + X]  ，然後以系統管理員權限開啟新的 PowerShell 主控台。 或者，也可以在 Azure 入口網站中使用命令 shell。
 
 ```powershell-interactive
 Connect-AzAccount
@@ -168,7 +170,7 @@ Install-Module Az.ServiceBus
 $NSID = (Get-AzServiceBusNamespace -ResourceGroupName "<YOUR RESOURCE GROUP NAME>" -Na
 mespaceName "<YOUR NAMESPACE NAME>").Id
 
-New-AzEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
+New-AzEVentGridSubscription -EventSubscriptionName "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
 
 從這裡，您可以瀏覽其他安裝程式選項或測試事件是否流動。

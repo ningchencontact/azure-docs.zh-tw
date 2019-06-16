@@ -16,10 +16,10 @@ ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: bd5c16d755ef9b71f36b3d499838b12e6099ba6d
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595373"
 ---
 > [!NOTE] 
@@ -164,7 +164,7 @@ task.UserIdentity = new UserIdentity(new AutoUserSpecification(scope: AutoUserSc
 
 ### <a name="create-named-user-accounts"></a>建立具名的使用者帳戶
 
-若要在 Batch 中建立具名使用者帳戶，請將使用者帳戶的集合新增至集區。 下列程式碼片段示範如何在 .NET、Java 和 Python 建立具名的使用者帳戶。 這些程式碼片段示範如何在集區上建立系統管理員和非系統管理員的具名帳戶。 这些示例使用云服务配置创建池，但你在使用虚拟机配置创建 Windows 或 Linux 池时，可以使用相同的方法。
+若要在 Batch 中建立具名使用者帳戶，請將使用者帳戶的集合新增至集區。 下列程式碼片段示範如何在 .NET、Java 和 Python 建立具名的使用者帳戶。 這些程式碼片段示範如何在集區上建立系統管理員和非系統管理員的具名帳戶。 範例會使用雲端服務設定來建立集區，但當您使用虛擬機器設定來建立 Windows 或 Linux 集區時，才使用相同的方法。
 
 #### <a name="batch-net-example-windows"></a>Batch .NET 範例 (Windows)
 
@@ -255,7 +255,7 @@ await pool.CommitAsync();
 ```
 
 
-#### <a name="batch-java-example"></a>Batch Java 示例
+#### <a name="batch-java-example"></a>Batch Java 範例
 
 ```java
 List<UserAccount> userList = new ArrayList<>();
@@ -331,7 +331,7 @@ Batch 服務版本 2017-01-01.4.0 導入重大變更，將舊版中的 **runElev
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`，其中 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
 | `run_elevated=False`                      | `user_identity=user`，其中 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin))`             |
-| `run_elevated` 未指定 | 无需更新                                                                                                                                  |
+| `run_elevated` 未指定 | 不需要更新                                                                                                                                  |
 
 
 ## <a name="next-steps"></a>後續步驟

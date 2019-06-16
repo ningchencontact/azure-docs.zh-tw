@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 7058d7f46373f8adaacbcbf90e5ea591a15f8f37
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58404068"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67125640"
 ---
 資料方塊的邊緣裝置上已計算角色設定，子集 docker 命令可用於監視或疑難排解的模組。 若要查看可用的命令，一份[連線至 PowerShell 介面](#connect-to-the-powershell-interface)並用`dkrdbe`函式。
 

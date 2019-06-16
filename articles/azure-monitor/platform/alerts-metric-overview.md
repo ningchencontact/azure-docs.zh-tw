@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 6138a9ff6bb6d34b09c49fa7b5dbb67cbf5eb1b6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ce65d87142df64a9f0c27f3acdb4d6f25e86fb8a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244897"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071635"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>了解計量警示在 Azure 監視器中的運作方式
 
@@ -36,6 +36,8 @@ Azure 監視器中的計量警示以多維度計量為基礎運作。 這些計�
 - 閾值：70
 
 從警示規則建立後開始，監視器會每隔 1 分鐘執行一次，並查看過去 5 分鐘的計量值，以及檢查這些值的平均是否超過 70。 如果條件符合，也就是說過去 5 分鐘的 CPU 百分比平均超過 70，則警示規則會引發啟動通知。 如果您已在與警示規則相關聯的動作群組中設定電子郵件或 Webhook 動作，您會收到兩者的啟動通知。
+
+當您使用多個條件中一項規則，規則"ands"條件在一起。  也就是警示中的所有條件評估為 true，並解析其中一個條件成立時不會再時，就會引發警示。 這類警示的範例就是警示的時機 「 高於 90%的 CPU 」 和 「 佇列長度 」 超過 300 個以上的項目。 
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>具有動態條件類型的警示規則
 

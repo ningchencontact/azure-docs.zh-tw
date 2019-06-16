@@ -1,6 +1,6 @@
 ---
 title: 開始使用 Azure IoT 中樞裝置管理 (Java) | Microsoft Docs
-description: 如何使用 Azure IoT 中樞裝置管理來起始遠端裝置重新開機。 使用适用于 Java 的 Azure IoT 设备 SDK 实现包含直接方法的模拟设备应用，并使用适用于 Java 的 Azure IoT 服务 SDK 实现调用直接方法的服务应用。
+description: 如何使用 Azure IoT 中樞裝置管理來起始遠端裝置重新開機。 您可以使用適用於 Java 的 Azure IoT 裝置 SDK，實作模擬的裝置應用程式 (包含直接方法)，也可以使用適用於 Java 的 Azure IoT 服務 SDK，實作服務應用程式 (叫用直接方法)。
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -10,10 +10,10 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.openlocfilehash: e9100a764ba3922e0254b7fa5cd03b18e204925f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596011"
 ---
 # <a name="get-started-with-device-management-java"></a>開始使用裝置管理 (Java)
@@ -89,7 +89,7 @@ ms.locfileid: "65596011"
 
 3. 在命令提示字元中，巡覽至 trigger-reboot 資料夾。
 
-4. 使用文字編輯器，在 trigger-reboot 資料夾中開啟 pom.xml 檔案，並對 [相依性] 節點新增下列相依性。 這個相依性可讓您在應用程式中使用 iot-service-client 套件與 IoT 中樞通訊：
+4. 使用文字編輯器，在 trigger-reboot 資料夾中開啟 pom.xml 檔案，並對 [相依性]  節點新增下列相依性。 這個相依性可讓您在應用程式中使用 iot-service-client 套件與 IoT 中樞通訊：
 
     ```xml
     <dependency>
@@ -103,7 +103,7 @@ ms.locfileid: "65596011"
     > [!NOTE]
     > 您可以使用 [Maven 搜尋](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)來檢查最新版的 **iot-service-client**。
 
-5. 將下列 [建置] 節點新增至 [相依性] 節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
+5. 將下列 [建置]  節點新增至 [相依性]  節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
 
     ```xml
     <build>
@@ -125,7 +125,7 @@ ms.locfileid: "65596011"
 
 7. 使用文字編輯器開啟 trigger-reboot\src\main\java\com\mycompany\app\App.java 來源檔案。
 
-8. 在该文件中添加以下 **import** 语句：
+8. 在此檔案中新增下列 **import** 陳述式：
 
     ```java
     import com.microsoft.azure.sdk.iot.service.devicetwin.DeviceMethod;
@@ -140,7 +140,7 @@ ms.locfileid: "65596011"
     import java.util.concurrent.ExecutorService;
     ```
 
-9. 將下列類別層級變數新增到 **App** 類別中。 以您在＜建立 IoT 中樞＞一節中所記下的 IoT 中樞連接字串取代 `{youriothubconnectionstring}`：
+9. 將下列類別層級變數新增到 **App** 類別中。 以您在＜建立 IoT 中樞＞  一節中所記下的 IoT 中樞連接字串取代 `{youriothubconnectionstring}`：
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -236,7 +236,7 @@ ms.locfileid: "65596011"
 
 2. 在命令提示字元中，瀏覽到 simulated-device 資料夾。
 
-3. 使用文字編輯器，在 simulated-device 資料夾中開啟 pom.xml 檔案，並對 [相依性] 節點新增下列相依性。 這個相依性可讓您在應用程式中使用 iot-service-client 套件與 IoT 中樞通訊：
+3. 使用文字編輯器，在 simulated-device 資料夾中開啟 pom.xml 檔案，並對 [相依性]  節點新增下列相依性。 這個相依性可讓您在應用程式中使用 iot-service-client 套件與 IoT 中樞通訊：
 
     ```xml
     <dependency>
@@ -249,7 +249,7 @@ ms.locfileid: "65596011"
     > [!NOTE]
     > 您可以使用 [Maven 搜尋](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)來檢查最新版的 **iot-device-client**。
 
-4. 在 **dependencies** 节点后添加以下 **build** 节点。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
+4. 將下列 [建置]  節點新增至 [相依性]  節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
 
     ```xml
     <build>
@@ -285,7 +285,7 @@ ms.locfileid: "65596011"
     import java.util.HashSet;
     ```
 
-7. 將下列類別層級變數新增到 **App** 類別中。 將 `{yourdeviceconnectionstring}` 取代為您在＜建立裝置身分識別＞一節中所記下的裝置連接字串：
+7. 將下列類別層級變數新增到 **App** 類別中。 將 `{yourdeviceconnectionstring}` 取代為您在＜建立裝置身分識別＞  一節中所記下的裝置連接字串：
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -430,7 +430,7 @@ ms.locfileid: "65596011"
 
 17. 儲存並關閉 simulated-device\src\main\java\com\mycompany\app\App.java 檔案。
 
-18. 建置 **simulated-device** 後端應用程式，並更正所有錯誤。 在命令提示符下，导航到 simulated-device 文件夹并运行以下命令：
+18. 建置 **simulated-device** 後端應用程式，並更正所有錯誤。 在命令提示字元中，瀏覽到 simulated-device 資料夾，並執行下列命令︰
 
     `mvn clean package -DskipTests`
 
@@ -452,6 +452,6 @@ ms.locfileid: "65596011"
 
 3. 會回應 reboot 直接方法呼叫的模擬裝置：
 
-    ![Java IoT 中心模拟设备应用对直接方法调用进行响应](./media/iot-hub-java-java-device-management-getstarted/respondtoreboot.png)
+    ![Java IoT 中樞模擬裝置會回應直接方法呼叫](./media/iot-hub-java-java-device-management-getstarted/respondtoreboot.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

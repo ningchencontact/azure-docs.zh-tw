@@ -6,15 +6,15 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 06/06/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 7208f96d99127247b51510e0c43c1733bb327dfb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5e230f45fd5889e216f2993f58adf6940ef7679
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60921809"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072899"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中建立使用者定義函式
 
@@ -67,7 +67,7 @@ YOUR_MANAGEMENT_API_URL/matchers
 }
 ```
 
-| Value | 更換為 |
+| 值 | 更換為 |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | 裝載您執行個體的伺服器區域 |
 
@@ -107,7 +107,7 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Value | 更換為 |
+| 值 | 更換為 |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | 多部分內容界限名稱 |
 | YOUR_SPACE_IDENTIFIER | 空間識別碼  |
@@ -140,7 +140,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-**telemetry** 參數會公開 **SensorId** 和 **Message** 屬性 (對應到感應器所傳送的訊息)。 ExecutionContext 參數會公開下列屬性：
+**telemetry** 參數會公開 **SensorId** 和 **Message** 屬性 (對應到感應器所傳送的訊息)。 ExecutionContext  參數會公開下列屬性：
 
 ```csharp
 var executionContext = new UdfExecutionContext
@@ -212,7 +212,7 @@ function process(telemetry, executionContext) {
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | Value | 更換為 |
+    | 值 | 更換為 |
     | --- | --- |
     | YOUR_SPACE_NAME | 想要使用的空間名稱 |
 
@@ -232,7 +232,7 @@ function process(telemetry, executionContext) {
     }
     ```
 
-    | Value | 更換為 |
+    | 值 | 更換為 |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | 所需角色的識別碼 |
     | YOUR_USER_DEFINED_FUNCTION_ID | 您所要使用的使用者定義函式其識別碼 |
