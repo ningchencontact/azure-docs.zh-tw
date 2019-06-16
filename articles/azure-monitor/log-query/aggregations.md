@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602722"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Azure 監視器記錄查詢中的彙總
@@ -29,9 +29,9 @@ ms.locfileid: "65602722"
 
 本文說明 Azure 監視器記錄查詢中提供實用方式來分析資料的彙總函式。 這些函式都可搭配 `summarize` 運算子使用，以產生具有輸入表格之彙總結果的表格。
 
-## <a name="counts"></a>數量
+## <a name="counts"></a>計數
 
-### <a name="count"></a>計數
+### <a name="count"></a>count
 計算套用任何篩選之後結果集中的列數。 下列範例會傳回過去 30 分鐘內 _Perf_ 表中的總列數。 除非您指定特定欄名，否則結果會以名為 *count_* 的欄傳回：
 
 

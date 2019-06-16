@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
 ms.openlocfilehash: 0d7c792c5230a5d82e97f4598a5dcfb864cead74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861135"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure 監視器記錄檔的公用基本負載平衡器
@@ -40,20 +40,20 @@ ms.locfileid: "60861135"
 
 登入 [Azure 入口網站](https://portal.azure.com)。 如果您還沒有負載平衡器，請先 [建立負載平衡器](load-balancer-get-started-internet-arm-ps.md) 再繼續。
 
-1. 在入口網站中，按一下 [瀏覽]。
-2. 選取 [負載平衡器]。
+1. 在入口網站中，按一下 [瀏覽]  。
+2. 選取 [負載平衡器]  。
 
     ![入口網站 - 負載平衡器](./media/load-balancer-monitor-log/load-balancer-browse.png)
 
-3. 選取現有的負載平衡器 >> [所有設定]。
-4. 在對話方塊的右側，於負載平衡器的名稱下方，捲動至 [監視]，按一下 [診斷]。
+3. 選取現有的負載平衡器 >> [所有設定]  。
+4. 在對話方塊的右側，於負載平衡器的名稱下方，捲動至 [監視]  ，按一下 [診斷]  。
 
     ![门户 - 负载均衡器 - 设置](./media/load-balancer-monitor-log/load-balancer-settings.png)
 
-5. 在 [診斷] 窗格中，在 [狀態] 下方，選取 [開啟]。
-6. 按一下 [儲存體帳戶]。
-7. 在“日志”下，选择现有存储帐户或创建新存储帐户。 使用滑桿來決定值得在事件記錄中儲存多少天的事件資料。 
-8. 按一下 [檔案] 。
+5. 在 [診斷]  窗格中，在 [狀態]  下方，選取 [開啟]  。
+6. 按一下 [儲存體帳戶]  。
+7. 在“日志”下，选择现有存储帐户或创建新存储帐户。  使用滑桿來決定值得在事件記錄中儲存多少天的事件資料。 
+8. 按一下 [檔案]  。
 
 診斷資料會儲存在指定儲存體帳戶中的表格儲存體中。 如果未儲存記錄，則是因為沒有相關的記錄產生。
 

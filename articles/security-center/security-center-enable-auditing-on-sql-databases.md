@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 資訊安全中心的 SQL Database 上啟用稽核與威脅偵測 | Microsoft Docs
-description: 本文件說明如何實作 Azure 資訊安全中心建議的「在 SQL Database 上啟用稽核與威脅偵測」。
+description: 本文件說明如何實作 Azure 資訊安全中心建議的「在 SQL Database 上啟用稽核與威脅偵測」  。
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 1108265101f37433860d0112e4e80aee0002ab5c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127220"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-databases-in-azure-security-center"></a>在 Azure 資訊安全中心的 SQL Database 上啟用稽核與威脅偵測
@@ -34,12 +34,12 @@ ms.locfileid: "62127220"
 >
 
 ## <a name="implement-the-recommendation"></a>實作建議
-1. 在 [建議] 刀鋒視窗中，選取 [在 SQL Database 上啟用稽核與威脅偵測]。  這會開啟 [在 SQL Database 上啟用稽核與威脅偵測]  刀鋒視窗。
+1. 在 [建議]  刀鋒視窗中，選取 [在 SQL Database 上啟用稽核與威脅偵測]  。  這會開啟 [在 SQL Database 上啟用稽核與威脅偵測]  刀鋒視窗。
 
    ![在 SQL Database 上啟用稽核][1]
-2. 選取要在其上啟用稽核的 SQL Database。 這會開啟 [稽核與威脅偵測] 刀鋒視窗。
+2. 選取要在其上啟用稽核的 SQL Database。 這會開啟 [稽核與威脅偵測]  刀鋒視窗。
 
-3. 在 [稽核與威脅偵測] 刀鋒視窗上，選取 [稽核] 下方的 [開啟]。
+3. 在 [稽核與威脅偵測]  刀鋒視窗上，選取 [稽核]  下方的 [開啟]  。
 
    ![開啟稽核與脅偵測][2]
 4. 遵循 [Azure 入口網站中的 SQL Database 威脅偵測](../sql-database/sql-database-threat-detection-portal.md)的步驟，來開啟並設定威脅偵測，以及設定將在偵測到異常活動時接收到安全性警示的電子郵件清單。

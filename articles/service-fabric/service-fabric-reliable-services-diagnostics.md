@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772953"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>具狀態 Reliable Services 診斷功能
@@ -29,8 +29,8 @@ Azure Service Fabric 具狀態可靠服務 StatefulServiceBase 類別會發出 [
 
 可協助您收集和/或檢視 EventSource 事件之工具和技術的範例包括 [PerfView](https://www.microsoft.com/download/details.aspx?id=28567)、[Azure 診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)和 [Microsoft TraceEvent 程式庫](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)。
 
-## <a name="events"></a>活動
-| 事件名称 | 事件識別碼 | Level | 事件說明 |
+## <a name="events"></a>Events
+| 事件名稱 | 事件識別碼 | Level | 事件說明 |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |資訊 |啟動服務 RunAsync 工作時發出 |
 | StatefulRunAsyncCancellation |2 |資訊 |取消服務 RunAsync 工作時發出 |
@@ -88,9 +88,9 @@ Windows 作業系統中預設可用的 [Windows 效能監視器](https://technet
 
 *ServiceFabricReplicaId* 是與某一可靠服務特定複本相關聯的識別碼。 複本識別碼包含在效能計數器執行個體名稱中，以確保其唯一性，並避免與相同資料分割所產生的其他效能計數器執行個體名稱發生衝突。 [這裡](service-fabric-concepts-replica-lifecycle.md)會詳細介紹複本以及它們在可靠服務中的角色。
 
-ServiceFabricStateProviderId 是識別碼，與可靠服務內的狀態供應器相關聯。 狀態供應器識別碼會包含在效能計數器執行個體名稱中，以便區別各個 TStore。
+ServiceFabricStateProviderId  是識別碼，與可靠服務內的狀態供應器相關聯。 狀態供應器識別碼會包含在效能計數器執行個體名稱中，以便區別各個 TStore。
 
-PerformanceCounterInstanceDifferentiator 是區別識別碼，與狀態供應器內的效能計數器執行個體相關聯。 區分碼會包含在效能計數器執行個體名稱中，以確保其唯一性，並避免與相同狀態供應器所產生的其他效能計數器執行個體名稱發生衝突。
+PerformanceCounterInstanceDifferentiator  是區別識別碼，與狀態供應器內的效能計數器執行個體相關聯。 區分碼會包含在效能計數器執行個體名稱中，以確保其唯一性，並避免與相同狀態供應器所產生的其他效能計數器執行個體名稱發生衝突。
 
 下列的計數器執行個體名稱一般用於 `Service Fabric TStore` 類別底下的計數器：
 

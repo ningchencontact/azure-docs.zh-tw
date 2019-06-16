@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: mbullwin
 ms.openlocfilehash: 61215adc2aee5cef3693d119bf0efb36526d748b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60904288"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>使用 Logic Apps 自動執行 Application Insights 程序
@@ -32,12 +32,12 @@ ms.locfileid: "60904288"
 
 ### <a name="step-1-create-a-logic-app"></a>步驟 1：建立邏輯應用程式
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 按一下 [建立資源]，選取 [Web + 行動]，然後選取 [邏輯應用程式]。
+1. 按一下 [建立資源]  ，選取 [Web + 行動]  ，然後選取 [邏輯應用程式]  。
 
     ![新增邏輯應用程式視窗](./media/automate-with-logic-apps/1createlogicapp.png)
 
 ### <a name="step-2-create-a-trigger-for-your-logic-app"></a>步驟 2：建立邏輯應用程式的觸發程序
-1. 在 [邏輯應用程式設計工具] 視窗的 [以一般觸發程序開始] 之下，選取 [循環]。
+1. 在 [邏輯應用程式設計工具]  視窗的 [以一般觸發程序開始]  之下，選取 [循環]  。
 
     ![邏輯應用程式設計工具視窗](./media/automate-with-logic-apps/2logicappdesigner.png)
 
@@ -48,7 +48,7 @@ ms.locfileid: "60904288"
 ### <a name="step-3-add-an-application-insights-action"></a>步驟 3：新增 Application Insights 動作
 1. 按一下 **新增步驟**。
 
-1. 在 [選擇動作] 搜尋方塊中，輸入 **Azure Application Insights**。
+1. 在 [選擇動作]  搜尋方塊中，輸入 **Azure Application Insights**。
 
 1. 底下**動作**，按一下**Azure Application Insights 視覺化 Analytics 查詢**。
 
@@ -71,7 +71,7 @@ ms.locfileid: "60904288"
 
 建立自己的查詢時，先確認它們可在 Analytics 中正常運作，再將其新增到您的流程中。
 
-1. 在 [查詢] 方塊中，新增下列 Analytics 查詢：
+1. 在 [查詢]  方塊中，新增下列 Analytics 查詢：
 
     ```
     requests
@@ -84,7 +84,7 @@ ms.locfileid: "60904288"
     | evaluate autocluster()
     ```
 
-1. 在 [圖表類型] 方塊中，選取 [Html 表格]。
+1. 在 [圖表類型]  方塊中，選取 [Html 表格]  。
 
     ![Analytics 查詢設定畫面](./media/automate-with-logic-apps/8query.png)
 
@@ -94,7 +94,7 @@ ms.locfileid: "60904288"
 
 1. 在搜尋方塊中，輸入**Office 365 Outlook**。
 
-1. 按一下 [Office 365 Outlook - 傳送電子郵件]。
+1. 按一下 [Office 365 Outlook - 傳送電子郵件]  。
 
     ![Office 365 Outlook 選項](./media/automate-with-logic-apps/9sendemail.png)
 
@@ -104,7 +104,7 @@ ms.locfileid: "60904288"
 
    b. 輸入電子郵件的主旨。
 
-   c. 按一下 [內文] 方塊中的任意處，然後在右方開啟的動態內容功能表上，選取 [內文]。
+   c. 按一下 [內文]  方塊中的任意處，然後在右方開啟的動態內容功能表上，選取 [內文]  。
     
    d. 按一下 **加入新參數**下拉式清單，然後選取 附件和為 HTML。
 
@@ -114,18 +114,18 @@ ms.locfileid: "60904288"
 
 1. 在動態內容功能表上執行下列動作：
 
-    a. 選取 [附件名稱]。
+    a. 選取 [附件名稱]  。
 
-    b. 選取 [附件內容]。
+    b. 選取 [附件內容]  。
     
-    c. 在 [為 HTML] 方塊中選取 [是]。
+    c. 在 [為 HTML]  方塊中選取 [是]  。
 
       ![Office 365 電子郵件設定畫面](./media/automate-with-logic-apps/12emailattachment.png)
 
 ### <a name="step-7-save-and-test-your-logic-app"></a>步驟 7：儲存並測試邏輯應用程式
-* 按一下 [確定] 儲存變更。
+* 按一下 [確定]  儲存變更。
 
-您可以等待觸發程式執行邏輯應用程式，也可以選取 [執行] 來立即執行邏輯應用程式。
+您可以等待觸發程式執行邏輯應用程式，也可以選取 [執行]  來立即執行邏輯應用程式。
 
 ![邏輯應用程式建立畫面](./media/automate-with-logic-apps/13save.png)
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
 ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952147"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>停用的資訊安全中心功能 (第 2019 年 7 月)
@@ -110,7 +110,7 @@ Log Analytics 儀表板上的單一工作區顯示深入解析。 不過，原�
 
 ### <a name="security-events-map---the-new-experience"></a>安全性事件對應新的體驗
 
-我們鼓勵您使用內建在資訊安全中心的警示對應功能：**安全性警示對應 （預覽）**。 這項功能提供最佳化的體驗，適用於所有訂用帳戶和相關聯的工作區。 它可讓您整個環境的高階檢視，並不著重於單一工作區。
+我們鼓勵您使用內建在資訊安全中心的警示對應功能：**安全性警示對應 （預覽）** 。 這項功能提供最佳化的體驗，適用於所有訂用帳戶和相關聯的工作區。 它可讓您整個環境的高階檢視，並不著重於單一工作區。
 
 ## 自訂警示規則 （預覽）<a name="menu_customalerts"></a>
 

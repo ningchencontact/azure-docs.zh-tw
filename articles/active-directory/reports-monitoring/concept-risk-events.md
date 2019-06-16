@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4afcbffa778c902c1b32979c69ca91ab0955f739
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e50cc4ca9c98cb6a8e0f19cfcf6c1f86f1949beb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682936"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107687"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 風險事件
 
@@ -54,7 +54,7 @@ Azure Active Directory 目前會偵測六種風險事件類型：
 * 使用 **Azure AD Premium P2 版本**時，您會獲得有關所有基礎偵測的最詳細資訊。 
 * 具有**Azure AD Premium P1 版本時**進階偵測 （例如不熟悉的登入內容） 未涵蓋在您的授權，而且會出現在 名稱**登入偵測到其他風險**. 此外，要隱藏的風險層級和風險詳細資料欄位。
 
-儘管偵測風險事件已經代表保護您身分識別的重要層面，但您還是可以選擇手動處理它們，或可藉由設定條件式存取原則來實作自動化回應。 如需詳細資訊，請參閱 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)。
+偵測風險事件已經代表保護您的身分識別的重要層面，您也可以手動加以解決，或藉由設定條件式存取原則，實作自動化的回應。 如需詳細資訊，請參閱 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)。
 
 ## <a name="risk-event-types"></a>風險事件類型
 
@@ -74,7 +74,7 @@ Microsoft 針對偵測程序的持續投資的結果是︰
 - Microsoft 安全性小組
 - 其他受信任的來源 
 
-當服務取得使用者名稱 / 密碼組時，它們會針對 AAD 使用者目前的有效認證進行檢查。 找到相符項目時，表示使用者的密碼已遭入侵，並已建立認證外洩風險事件。
+當服務取得使用者名稱 / 密碼組時，它們會針對 AAD 使用者目前的有效認證進行檢查。 找到相符項目時，表示使用者的密碼已遭入侵，並已建立認證外洩風險事件  。
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>從匿名 IP 位址登入
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61333631"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>自動使用 Azure 入口網站的大規模的 IoT 裝置管理
@@ -52,9 +52,9 @@ Azure IoT 中樞中的自動裝置管理會自動執行許多管理大型裝置�
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，移至您的 IoT 中樞。 
 
-2. 選取 [IoT 裝置組態]。
+2. 選取 [IoT 裝置組態]  。
 
-3. 選取 [新增設定]。
+3. 選取 [新增設定]  。
 
 建立設定有五個步驟。 下列各節將逐步解說每一個步驟。 
 
@@ -64,7 +64,7 @@ Azure IoT 中樞中的自動裝置管理會自動執行許多管理大型裝置�
 
 2. 新增標籤以協助追蹤您的設定。 標籤是可描述設定的成對「**名稱**, **值**」。 例如，`HostPlatform, Linux` 或 `Version, 3.0.1`。
 
-3. 選取 [下一步] 以移至下一個步驟。 
+3. 選取 [下一步]  以移至下一個步驟。 
 
 ### <a name="specify-settings"></a>指定設定
 
@@ -78,17 +78,17 @@ Azure IoT 中樞中的自動裝置管理會自動執行許多管理大型裝置�
 
 如果您想要移除屬性，請將屬性值指定為 `null`。
 
-您可以選取 [新增裝置對應項設定] 來新增其他設定。
+您可以選取 [新增裝置對應項設定]  來新增其他設定。
 
 ### <a name="specify-metrics-optional"></a>指定計量 (選擇性)
 
 計量會提供裝置可能會回報之後套用的設定內容的各種狀態的摘要的計數。 例如，您可以建立擱置設定變更的計量、錯誤的計量，以及成功設定變更的計量。
 
-1. 在 [計量名稱] 輸入名稱。
+1. 在 [計量名稱]  輸入名稱。
 
-2. 在 [計量準則] 輸入查詢。  查詢是根據裝置對應項報告屬性。  此計量代表查詢所傳回的資料列數目。
+2. 在 [計量準則]  輸入查詢。  查詢是根據裝置對應項報告屬性。  此計量代表查詢所傳回的資料列數目。
 
-例如︰
+例如:
 
 ```sql
 SELECT deviceId FROM devices 
@@ -109,15 +109,15 @@ SELECT deviceId FROM devices
 
 由於多個設定可能會以相同裝置為目標，您應該為每個設定提供優先順序號碼。 如果發生衝突，則會優先選擇優先順序最高的設定。 
 
-1. 為設定的 [優先順序] 輸入一個正整數。 最高的數值會視為最高優先順序。 如果有兩個設定具有相同的優先順序號碼，則會優先選擇最新建立的設定。 
+1. 為設定的 [優先順序]  輸入一個正整數。 最高的數值會視為最高優先順序。 如果有兩個設定具有相同的優先順序號碼，則會優先選擇最新建立的設定。 
 
-2. 輸入 [目標條件] 來判斷這個設定會將哪些裝置設為目標。 條件會以裝置對應項標籤或裝置對應項報告屬性為基礎，且應符合運算式格式。 例如，`tags.environment='test'` 或 `properties.reported.chillerProperties.model='4000x'`。 您可以指定 `*` 以將所有裝置設為目標。
+2. 輸入 [目標條件]  來判斷這個設定會將哪些裝置設為目標。 條件會以裝置對應項標籤或裝置對應項報告屬性為基礎，且應符合運算式格式。 例如，`tags.environment='test'` 或 `properties.reported.chillerProperties.model='4000x'`。 您可以指定 `*` 以將所有裝置設為目標。
 
-3. 選取 [下一步] 移到最後一個步驟。
+3. 選取 [下一步]  移到最後一個步驟。
 
 ### <a name="review-configuration"></a>檢閱設定
 
-檢閱您的設定資訊，然後選取 [提交]。
+檢閱您的設定資訊，然後選取 [提交]  。
 
 ## <a name="monitor-a-configuration"></a>監視設定
 
@@ -125,7 +125,7 @@ SELECT deviceId FROM devices
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，移至您的 IoT 中樞。 
 
-2. 選取 [IoT 裝置組態]。
+2. 選取 [IoT 裝置組態]  。
 
 3. 檢查設定清單。 針對每個設定，您可以檢視下列詳細資料：
 
@@ -147,7 +147,7 @@ SELECT deviceId FROM devices
 
    * **目標條件**：符合目標條件的裝置。 
 
-   * **計量**：系統計量和自訂計量的清單。  您可以選取下拉式清單中的計量，然後選取 [檢視裝置] 來檢視每個計量所計算裝置的清單。
+   * **計量**：系統計量和自訂計量的清單。  您可以選取下拉式清單中的計量，然後選取 [檢視裝置]  來檢視每個計量所計算裝置的清單。
 
    * **裝置對應項設定**：由設定所設定的裝置對應項設定。 
 
@@ -169,7 +169,7 @@ SELECT deviceId FROM devices
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，移至您的 IoT 中樞。 
 
-2. 選取 [IoT 裝置組態]。 
+2. 選取 [IoT 裝置組態]  。 
 
 3. 選取您想要修改的設定。 
 
@@ -178,7 +178,7 @@ SELECT deviceId FROM devices
    * 目標條件 
    * 標籤 
    * 優先順序 
-   * 指标
+   * 度量
 
 4. 選取 [ **儲存**]。
 
@@ -190,11 +190,11 @@ SELECT deviceId FROM devices
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，移至您的 IoT 中樞。 
 
-2. 選取 [IoT 裝置組態]。 
+2. 選取 [IoT 裝置組態]  。 
 
 3. 使用核取方塊來選取您想要刪除的設定。 
 
-4. 選取 [刪除] 。
+4. 選取 [刪除]  。
 
 5. 您會看到要求確認的提示。
 

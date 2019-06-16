@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: fd5a16334fff0319d7993fb2403a48d1777f6bce
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 0691c35661a6d185a6aa5ed3383ad600653359d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955333"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058589"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>適用於.NET Core ILogger 記錄 ApplicationInsightsLoggerProvider
 
@@ -106,6 +106,9 @@ public class ValuesController : ControllerBase
 ```
 
 ### <a name="capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps"></a>擷取從 Startup.cs 和 Program.cs ASP.NET Core 應用程式中的 ILogger 記錄檔
+
+> [!NOTE]
+> 在 ASP.NET Core 3.0 和更新版本，就不再能夠插入`ILogger`Startup.cs 和 Program.cs 中。 如需更多詳細資料，請參閱 https://github.com/aspnet/Announcements/issues/353 \(英文\)。
 
 新的 ApplicationInsightsLoggerProvider 可以擷取從早期應用程式啟動管線中的記錄檔。 雖然 ApplicationInsightsLoggerProvider （起版本 2.7.0-beta3） 的 Application Insights 中，會自動啟用，它沒有管線中稍後才設定檢測金鑰。 因此，只會從記錄**控制器**/ 將擷取的其他類別。 若要擷取開頭為每個記錄檔**Program.cs**並**Startup.cs**本身，您必須明確啟用檢測金鑰 ApplicationInsightsLoggerProvider。 此外， *TelemetryConfiguration*未完全設定當您從登**Program.cs**或是**Startup.cs**本身。 因此這些記錄檔必須使用 InMemoryChannel、 沒有取樣，並沒有標準遙測初始設定式或處理器的最低組態。
 
@@ -450,7 +453,7 @@ ApplicationInsightsLoggerProvider 擷取 ILogger 記錄檔，並從其中建立 
 
 在 Azure Web Apps 中的 Application Insights 延伸模組會使用舊的提供者。 您可以修改中的篩選規則*appsettings.json*應用程式的檔案。 若要充分利用新的提供者，使用 建置階段檢測的 NuGet 相依性 SDK。 擴充功能會切換成使用新的提供者時，將會更新本文。
 
-### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-enabling-application-insights-provider-by-calling-builderaddapplicationinsightsikey-is-there-an-option-to-get-an-instrumentation-key-from-configuration"></a>我使用的獨立封裝 Microsoft.Extensions.Logging.ApplicationInsights 且啟用 Application Insights 提供者，藉由呼叫**產生器。AddApplicationInsights("ikey")**。 是否有選項可從組態取得檢測金鑰？
+### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-enabling-application-insights-provider-by-calling-builderaddapplicationinsightsikey-is-there-an-option-to-get-an-instrumentation-key-from-configuration"></a>我使用的獨立封裝 Microsoft.Extensions.Logging.ApplicationInsights 且啟用 Application Insights 提供者，藉由呼叫**產生器。AddApplicationInsights("ikey")** 。 是否有選項可從組態取得檢測金鑰？
 
 
 請修改 Program.cs 和 appsettings.json，如下所示：

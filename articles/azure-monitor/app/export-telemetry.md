@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: mbullwin
 ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60899337"
 ---
 # <a name="export-telemetry-from-application-insights"></a>從 Application Insights 匯出遙測
@@ -44,7 +44,7 @@ ms.locfileid: "60899337"
 * [Azure Data Lake 儲存體 Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)。
 
 ## <a name="setup"></a> 建立連續匯出
-1. 在您應用程式的 Application Insights 資源中，開啟 [連續匯出]，然後選擇 [新增]：
+1. 在您應用程式的 Application Insights 資源中，開啟 [連續匯出]，然後選擇 [新增]  ：
 
 2. 選擇您想要匯出的遙測資料類型。
 
@@ -93,9 +93,9 @@ ms.locfileid: "60899337"
 >
 
 ## <a name="get"></a> 檢查資料
-您可以直接在入口網站中檢查儲存體。 按一下 [瀏覽]、選取您的儲存體帳戶，然後開啟 [容器]。
+您可以直接在入口網站中檢查儲存體。 按一下 [瀏覽]  、選取您的儲存體帳戶，然後開啟 [容器]  。
 
-若要在 Visual Studio 中檢查 Azure 儲存體，請依序開啟 [檢視]、[Cloud Explorer]。 (如果您沒有該功能表命令，您需要安裝 Azure SDK：開啟 [新增專案] 對話方塊，展開 Visual C# / Cloud 並選擇 [取得 Microsoft Azure SDK for .NET]。)
+若要在 Visual Studio 中檢查 Azure 儲存體，請依序開啟 [檢視]  、[Cloud Explorer]  。 (如果您沒有該功能表命令，您需要安裝 Azure SDK：開啟 [新增專案]  對話方塊，展開 Visual C# / Cloud 並選擇 [取得 Microsoft Azure SDK for .NET]  。)
 
 當您開啟 Blob 存放區時，您會看到含有一組 Blob 檔案的容器。 衍生自您 Application Insights 的資源名稱、其檢測金鑰、遙測-類型/日期/時間之每個檔案的 URI。 (資源名稱全部小寫，而檢測金鑰會省略連字號。)
 
@@ -128,7 +128,7 @@ Where
 [屬性類型和值的詳細資料模型參考。](export-data-model.md)
 
 ## <a name="processing-the-data"></a>處理資料
-就小型規模而言，您可以編寫一些程式碼來取出您的資料，將它讀取為試算表等等。 例如︰
+就小型規模而言，您可以編寫一些程式碼來取出您的資料，將它讀取為試算表等等。 例如:
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {

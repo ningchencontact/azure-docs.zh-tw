@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: ab5b50433b85416ff471546171998e992293b0ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bb0726fdddf6d20a9c8c5f20d6cec0cae68322ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586923"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67119252"
 ---
 # <a name="azure-operational-security"></a>Azure 作業安全性
 ## <a name="introduction"></a>簡介
@@ -69,7 +69,7 @@ Azure 監視器記錄檔的核心功能是由一組在 Azure 中執行的服務�
 | :------------- | :-------------|
 | Azure 監視器記錄 | 監視及分析不同資源 (包括實體和虛擬機器) 的可用性和效能。 |
 |自動化 | 讓手動程序自動化，並強制設定實體和虛擬機器。 |
-| Backup  | 備份及還原重要資料。 |
+| Backup | 備份及還原重要資料。 |
 | Site Recovery | 為重要應用程式提供高可用性。 |
 
 ### <a name="azure-monitor-logs"></a>Azure 監視器記錄
@@ -224,10 +224,10 @@ Azure 監視器可讓您取用遙測來查看您 Azure 工作負載的效能與�
 
 網路監看員目前具有下列功能︰
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">稽核記錄</a>**：會記錄做為網路組態一部分所執行的作業。 這些記錄可在 Azure 入口網站中檢視，或使用 Power BI 之類的 Microsoft 工具或協力廠商工具來擷取。 稽核記錄可透過入口網站、PowerShell、CLI 和 Rest API 來取得。 如需稽核記錄的詳細資訊，請參閱＜使用 Resource Manager 來稽核作業＞。 針對所有網路資源所進行的作業都會有稽核記錄。
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">稽核記錄</a>** ：會記錄做為網路組態一部分所執行的作業。 這些記錄可在 Azure 入口網站中檢視，或使用 Power BI 之類的 Microsoft 工具或協力廠商工具來擷取。 稽核記錄可透過入口網站、PowerShell、CLI 和 Rest API 來取得。 如需稽核記錄的詳細資訊，請參閱＜使用 Resource Manager 來稽核作業＞。 針對所有網路資源所進行的作業都會有稽核記錄。
 
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP 流程驗證</a>**：根據流程資訊 5 個 Tuple 封包參數 (目的地 IP、來源 IP、目的地連接埠、來源連接埠和通訊協定) 檢查是否允許或拒絕封包。 如果封包遭到網路安全性群組拒絕，則會傳回拒絕封包的規則和網路安全性群組。
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP 流程驗證</a>** ：根據流程資訊 5 個 Tuple 封包參數 (目的地 IP、來源 IP、目的地連接埠、來源連接埠和通訊協定) 檢查是否允許或拒絕封包。 如果封包遭到網路安全性群組拒絕，則會傳回拒絕封包的規則和網路安全性群組。
 
 -   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview">下一個躍點</a>** - 決定在 Azure 網路網狀架構中路由傳送之封包的下一個躍點，讓您得以診斷任何設定錯誤的使用者定義路由。
 
@@ -276,7 +276,7 @@ Azure 監視器可讓您取用遙測來查看您 Azure 工作負載的效能與�
 
 Azure AD 也包含一組完整的身分識別管理功能，包括多重要素驗證、裝置註冊、自助式密碼管理、自助式群組管理、特殊權限的帳戶管理、角色型存取控制、應用程式使用量監視、豐富的稽核，以及安全性監視和警示。
 
--   利用 Azure AD 多重要素驗證和條件式存取，改善應用程式的安全性。
+-   改善應用程式與 Azure AD 多重要素驗證和條件式存取的安全性。
 
 -   利用安全性報告和監視，監視應用程式使用量並保護您的企業免於受到嚴重的威脅。
 

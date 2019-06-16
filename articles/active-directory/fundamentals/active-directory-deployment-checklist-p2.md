@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b0844030d069fba40bfd2fdf55252d8b9e3b1c2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e668a5238859d8cd8c2a7797200a12197ce72be9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235132"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110462"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory 功能部署指南
 
@@ -53,7 +53,7 @@ ms.locfileid: "66235132"
 | [停用雲端式使用者帳戶的定期密碼重設](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | 定期密碼重設會鼓勵使用者遞增其現有的密碼。 使用 Microsoft 的密碼指引文件中的指導方針，將您的內部部署原則反映至僅限雲端的使用者。 | Azure AD Free |
 | [自訂 Azure Active Directory 智慧鎖定](../authentication/howto-password-smart-lockout.md) | 讓來自雲端式使用者的鎖定停止複寫至內部部署 Active Directory 使用者 | Azure AD Basic |
 | [啟用 AD FS 的外部網路智慧鎖定](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | AD FS 外部網路鎖定可防禦暴力密碼猜測破解攻擊，同時讓有效的 AD FS 使用者繼續使用其帳戶。 | |
-| [使用條件式存取原則部署 Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md) | 要求使用者在使用條件式存取原則來存取敏感性應用程式時，執行雙步驟驗證。 | Azure AD Premium P1 |
+| [部署使用條件式存取原則的 Azure AD 多重要素驗證](../authentication/howto-mfa-getstarted.md) | 需要存取機密的應用程式使用條件式存取原則時，請執行雙步驟驗證的使用者。 | Azure AD Premium P1 |
 | [啟用 Azure Active Directory Identity Protection](../identity-protection/enable.md) | 能夠追蹤有風險的登入以及貴組織中使用者遭入侵的認證。 | Azure AD Premium P2 |
 | [使用風險事件觸發 Multi-Factor Authentication 和密碼變更](../authentication/tutorial-risk-based-sspr-mfa.md) | 啟用可觸發以下事件的自動化功能：例如多重要素驗證、密碼重設，以及根據風險封鎖登入。 | Azure AD Premium P2 |
 | [啟用自助密碼重設和 Azure AD Multi-Factor Authentication 的融合式註冊 (預覽)](../authentication/concept-registration-mfa-sspr-converged.md) | 可讓使用者在單一常見體驗中註冊 Azure Multi-Factor Authentication 和自助密碼重設。 | Azure AD Premium P1 |

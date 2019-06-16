@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.date: 06/10/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 05d01851d0a3dc9df6c396e862ce93defd957c70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91ee8b6e614cf12deccd1429ad67323c277954a0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461964"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061492"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Azure web 應用程式防火牆的常見問題集
 
@@ -31,9 +31,6 @@ Azure WAF 原則可以套用至應用程式閘道或 Azure 前端服務上裝載
 ## <a name="what-is-waf-for-azure-front-door-service"></a>什麼是 Azure 前端服務的 WAF？ 
 
 Azure 的大門是可高度擴充且全域散發的應用程式和內容傳遞網路。 Azure WAF 的大門，與整合時停止阻絕服務，並為目標的應用程式在 Azure 網路邊緣的攻擊，攻擊來源，進入您的虛擬網路，才能提供保護不需要犧牲效能。
-
-## <a name="how-will-i-be-charged-for-azure-waf-for-front-door"></a>如何將收費的大門 Azure waf？
-公開預覽期間，在前門 WAF 使用量是免費。 請注意，前端費用額外。 請參閱大門 Service 定價[此處](https://azure.microsoft.com/pricing/details/frontdoor/)。
 
 ## <a name="does-azure-waf-support-https"></a>Azure WAF 是否支援 HTTPS？
 
@@ -77,5 +74,5 @@ Azure 的大門是可高度擴充且全域散發的應用程式和內容傳遞�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解[Azure web 應用程式防火牆](waf-overview.md)。
+- 了解 [Azure Web 應用程式防火牆](waf-overview.md)。
 - 深入了解[Azure 大門](front-door-overview.md)。

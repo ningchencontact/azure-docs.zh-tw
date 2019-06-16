@@ -11,10 +11,10 @@ ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.openlocfilehash: 61537a4cb8ca1e6e98f2fa04959861eb03480fe9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61474859"
 ---
 # <a name="view-a-maintenance-schedule"></a>檢視維護排程 
@@ -27,7 +27,7 @@ ms.locfileid: "61474859"
 
 1.  登入 [Azure 入口網站](https://portal.azure.com/)。
 2.  選取您要檢視的資料倉儲。 
-3.  所選取的資料倉儲即會在概觀刀鋒視窗上開啟。 套用至資料倉儲的維護排程會顯示於 [維護排程 (預覽)] 下方。
+3.  所選取的資料倉儲即會在概觀刀鋒視窗上開啟。 套用至資料倉儲的維護排程會顯示於 [維護排程 (預覽)]  下方。
 
 ![[概觀] 刀鋒視窗](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 

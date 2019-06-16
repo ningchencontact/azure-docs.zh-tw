@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5b53ccdcd33e2542834769baff5b759ff7b170
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 0f007ad1d5bf99136328ec5706f7ccbb5f6593c8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962376"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111220"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>案例：呼叫 web Api 的行動應用程式
 
@@ -52,7 +52,7 @@ ms.locfileid: "65962376"
 
 - **使用者體驗是關鍵**:允許使用者登入時，要求之前，請先查看您的應用程式的值，並要求的必要權限。
 - **支援所有的使用者設定**:許多行動商務使用者會在 條件式存取與裝置合規性政策下。 請務必在支援這些重要的案例。
-- **實作單一登入 (SSO)**:MSAL 和 Microsoft 身分識別平台可讓啟用單一登入裝置的瀏覽器或透過 Microsoft Authenticator （在 Android 上的 Intune 公司入口網站） 的簡單。
+- **實作單一登入 (SSO)** :MSAL 和 Microsoft 身分識別平台可讓啟用單一登入裝置的瀏覽器或透過 Microsoft Authenticator （在 Android 上的 Intune 公司入口網站） 的簡單。
 
 ## <a name="specifics"></a>詳細資料
 

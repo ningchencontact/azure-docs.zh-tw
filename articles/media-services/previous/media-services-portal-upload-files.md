@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 3ebeb3c601dd3f734265d49d60728056561928be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61127800"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>在 Azure 入口網站中將檔案上傳至媒體服務帳戶 
@@ -40,7 +40,7 @@ ms.locfileid: "61127800"
 
 ## <a name="upload-files"></a>上傳檔案
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取您的 Azure 媒體服務帳戶。
-2. 選取 **設定** > **資產**。 然後，選取 [上傳] 按鈕。
+2. 選取 **設定** > **資產**。 然後，選取 [上傳]  按鈕。
    
     ![上傳檔案](./media/media-services-portal-vod-get-started/media-services-upload.png)
    
@@ -49,11 +49,11 @@ ms.locfileid: "61127800"
    > [!NOTE]
    > 媒體服務不會限制上傳影片的檔案大小。
  
-3. 在您的電腦上，移至您要上傳的影片。 選取影片，然後選取 [確定]。  
+3. 在您的電腦上，移至您要上傳的影片。 選取影片，然後選取 [確定]  。  
    
     隨即開始上傳。 您可以在檔名底下看到進度。  
 
-上傳完成後，新資產會列在 [資產] 窗格中。 
+上傳完成後，新資產會列在 [資產]  窗格中。 
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

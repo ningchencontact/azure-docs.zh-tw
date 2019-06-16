@@ -1,5 +1,5 @@
 ---
-title: Azure Linux VM 大小 - GPU | Microsoft Docs
+title: Azure Linux VM 大小-加速計算 |Microsoft Docs
 description: 列出 Azure 中可用的不同 Linux 虛擬機器 GPU 最佳化大小。 列出 vCPU 數目、資料磁碟和 NIC 的相關資訊，以及此服務中各種大小之儲存體輸送量和網路頻寬的相關資訊。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 06/11/2019
 ms.author: jonbeck
-ms.openlocfilehash: 8f50f090fe38382b8bc3cb7f669ab4025d36ff76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3c59c73914a78374da0b8d2f9aeb18b9005e00ac
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799438"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070018"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 最佳化的虛擬機器大小
 
@@ -42,7 +42,7 @@ ms.locfileid: "60799438"
 
 ## <a name="other-sizes"></a>其他大小
 - [一般用途](sizes-general.md)
-- [计算优化](sizes-compute.md)
+- [計算最佳化](sizes-compute.md)
 - [記憶體最佳化](sizes-memory.md)
 - [儲存體最佳化](sizes-storage.md)
 - [高效能計算](sizes-hpc.md)

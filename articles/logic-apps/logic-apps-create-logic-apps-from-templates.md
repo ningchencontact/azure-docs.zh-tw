@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.date: 10/15/2017
 ms.openlocfilehash: 134a8f9625b45a8196ebd47f10286093f6ba0d46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459623"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>從預先建置的範本建立邏輯應用程式工作流程
@@ -38,7 +38,7 @@ Logic Apps 提供範本來協助您更快速開始建立工作流程，這些範
 
 1. 如果您尚未登入 [Azure 入口網站](https://portal.azure.com "Azure 入口網站")，請先登入。
 
-2. 從主要 Azure 功能表，選擇 [建立資源] > [企業整合] > [邏輯應用程式]。
+2. 從主要 Azure 功能表，選擇 [建立資源]   > [企業整合]   > [邏輯應用程式]  。
 
    ![Azure 入口網站, 新增, 企業整合, 邏輯應用程式](./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png)
 
@@ -49,13 +49,13 @@ Logic Apps 提供範本來協助您更快速開始建立工作流程，這些範
    | 設定 | 值 | 描述 | 
    | ------- | ----- | ----------- | 
    | **名稱** | *邏輯應用程式的名稱* | 提供唯一的邏輯應用程式名稱。 | 
-   | **訂用帳戶** | 您的 Azure 訂用帳戶名稱 | 選取您要使用的 Azure 訂用帳戶。 | 
-   | **資源群組** | 您的 Azure 資源群組名稱 | 為此邏輯應用程式建立或選取一個 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)，並用以組織與此應用程式關聯的所有資源。 | 
-   | **位置** | 您的 Azure 資料中心區域 | 選取用於部署邏輯應用程式的資料中心區域，例如，美國西部。 | 
+   | **訂用帳戶** | 您的 Azure 訂用帳戶名稱  | 選取您要使用的 Azure 訂用帳戶。 | 
+   | **資源群組** | 您的 Azure 資源群組名稱  | 為此邏輯應用程式建立或選取一個 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)，並用以組織與此應用程式關聯的所有資源。 | 
+   | **Location** | 您的 Azure 資料中心區域  | 選取用於部署邏輯應用程式的資料中心區域，例如，美國西部。 | 
    | **Log Analytics** | **Off** (預設值) 或 **On** | 開啟[診斷記錄](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app)邏輯應用程式透過[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)。 您必須已經有 Log Analytics 工作區。 | 
    |||| 
 
-4. 當您準備就緒時，請選取 [釘選到儀表板]。 這樣一來，邏輯應用程式就會在部署之後自動出現在 Azure 儀表板上並開啟。 選擇 [建立] 。
+4. 當您準備就緒時，請選取 [釘選到儀表板]  。 這樣一來，邏輯應用程式就會在部署之後自動出現在 Azure 儀表板上並開啟。 選擇 [建立]  。
 
    > [!NOTE]
    > 如果您不想要釘選邏輯應用程式，就必須在部署之後以手動方式尋找並開啟邏輯應用程式，才能繼續操作。
@@ -63,19 +63,19 @@ Logic Apps 提供範本來協助您更快速開始建立工作流程，這些範
    在 Azure 部署您的邏輯應用程式之後，「Logic Apps 設計工具」會隨即開啟，並顯示含有簡介影片的分頁。 
    您可以在影片底下找到一般邏輯應用程式模式的範本。 
 
-5. 捲動到 [範本] \(中間會經過簡介影片和一般觸發程序)。 選擇預先建置的範本。 例如︰
+5. 捲動到 [範本]  \(中間會經過簡介影片和一般觸發程序)。 選擇預先建置的範本。 例如:
 
    ![選擇邏輯應用程式範本](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
    > [!TIP]
-   > 若要從頭開始建置您的邏輯應用程式，請選擇 [空白邏輯應用程式]。
+   > 若要從頭開始建置您的邏輯應用程式，請選擇 [空白邏輯應用程式]  。
 
    選取預先建置的範本時，您可以檢視該範本的相關詳細資訊。 
-   例如︰
+   例如:
 
    ![選擇預先建置的範本](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
-6. 若要使用選取的範本繼續操作，請選擇 [使用此範本]。 
+6. 若要使用選取的範本繼續操作，請選擇 [使用此範本]  。 
 
 7. 根據範本中的連接器，將會提示您執行下列任一步驟：
 
@@ -83,16 +83,16 @@ Logic Apps 提供範本來協助您更快速開始建立工作流程，這些範
 
    * 針對範本所參考的任何服務或系統建立連線。 若要建立連線，請為連線提供名稱，並視需要選取您想要使用的資源。 
 
-   * 如果您已經設定好這些連線，請選擇 [繼續]。
+   * 如果您已經設定好這些連線，請選擇 [繼續]  。
 
-   例如︰
+   例如:
 
    ![建立連線](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
    當您完成時，邏輯應用程式會在「Logic Apps 設計工具」中開啟並顯示。
 
    > [!TIP]
-   > 若要返回範本檢視器，請選擇設計工具之工具列上的 [範本]。 此動作會捨棄所有未儲存的變更，因此會出現警告訊息來確認您的要求。
+   > 若要返回範本檢視器，請選擇設計工具之工具列上的 [範本]  。 此動作會捨棄所有未儲存的變更，因此會出現警告訊息來確認您的要求。
 
 8. 繼續建置您的邏輯應用程式。
 
@@ -103,20 +103,20 @@ Logic Apps 提供範本來協助您更快速開始建立工作流程，這些範
 
 1. 在 [Azure 入口網站](https://portal.azure.com "Azure 入口網站")的「邏輯應用程式設計工具」中，尋找並開啟您的邏輯應用程式。
 
-2. 在設計工具的工具列上，選擇 [範本]。 此動作會捨棄所有未儲存的變更，因此會出現警告訊息，供您確認是否要繼續。 若要確認，請選擇 [確定]。 例如︰
+2. 在設計工具的工具列上，選擇 [範本]  。 此動作會捨棄所有未儲存的變更，因此會出現警告訊息，供您確認是否要繼續。 若要確認，請選擇 [確定]  。 例如:
 
    ![選擇 [範本]](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. 捲動到 [範本] \(中間會經過簡介影片和一般觸發程序)。 選擇預先建置的範本。 例如︰
+3. 捲動到 [範本]  \(中間會經過簡介影片和一般觸發程序)。 選擇預先建置的範本。 例如:
 
    ![選擇邏輯應用程式範本](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
    選取預先建置的範本時，您可以檢視該範本的相關詳細資訊。 
-   例如︰
+   例如:
 
    ![選擇預先建置的範本](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
-4. 若要使用選取的範本繼續操作，請選擇 [使用此範本]。 
+4. 若要使用選取的範本繼續操作，請選擇 [使用此範本]  。 
 
 5. 根據範本中的連接器，將會提示您執行下列任一步驟：
 
@@ -124,7 +124,7 @@ Logic Apps 提供範本來協助您更快速開始建立工作流程，這些範
 
    * 針對範本所參考的任何服務或系統建立連線。 若要建立連線，請為連線提供名稱，並視需要選取您想要使用的資源。 
 
-   * 如果您已經設定好這些連線，請選擇 [繼續]。
+   * 如果您已經設定好這些連線，請選擇 [繼續]  。
 
    ![建立連線](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
@@ -133,7 +133,7 @@ Logic Apps 提供範本來協助您更快速開始建立工作流程，這些範
 8. 繼續建置您的邏輯應用程式。 
 
    > [!TIP]
-   > 如果您尚未儲存變更，則可以捨棄工作並返回先前的邏輯應用程式。 在設計工具的工具列上，選擇 [捨棄]。
+   > 如果您尚未儲存變更，則可以捨棄工作並返回先前的邏輯應用程式。 在設計工具的工具列上，選擇 [捨棄]  。
 
 > [!NOTE] 
 > 許多範本會包含可能已經預先填入必要屬性的連接器。 不過，有些範本可能還是需要您先提供值，您才能正確地部署邏輯應用程式。 如果您不完成遺漏的屬性欄位就嘗試部署，將會收到錯誤訊息。
@@ -142,7 +142,7 @@ Logic Apps 提供範本來協助您更快速開始建立工作流程，這些範
 
 對範本進行變更之後，您可以儲存所做的變更。 此動作也會自動發佈您的邏輯應用程式。
 
-在設計工具的工具列上，選擇 [儲存]。
+在設計工具的工具列上，選擇 [儲存]  。
 
 ![儲存並發佈您的邏輯應用程式](./media/logic-apps-create-logic-apps-from-templates/logic-app-save.png)  
 

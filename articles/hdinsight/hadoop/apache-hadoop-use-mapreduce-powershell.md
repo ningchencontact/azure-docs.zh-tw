@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 29e23d5919a953566c803f2b7825a75a2993723c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2ba8ab07edc4fd036b82c97f0ae3fb565d5eed72
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721799"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078386"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>使用 PowerShell 搭配執行 MapReduce 工作與 HDInsight 上的 Apache Hadoop
 
@@ -25,10 +25,7 @@ ms.locfileid: "64721799"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-* **Azure HDInsight（HDInsight 上的 Hadoop）群集**
-
-  > [!IMPORTANT]  
-  > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+* **Azure HDInsight (HDInsight 上的 Hadoop) 叢集**
 
 * **具有 Azure PowerShell 的工作站**。
 
@@ -38,15 +35,15 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Ma
 
 在遠端 HDInsight 叢集中執行 MapReduce 工作時，會使用下列 Cmdlet。
 
-* **Connect-AzAccount**：向您的 Azure 訂用帳戶驗證 Azure PowerShell。
+* **連接 AzAccount**:向您的 Azure 訂用帳戶驗證 Azure PowerShell。
 
-* **New-AzHDInsightMapReduceJobDefinition**：使用指定的 MapReduce 資訊來建立新的「作業定義」。
+* **New-AzHDInsightMapReduceJobDefinition**:使用指定的 MapReduce 資訊來建立新的「作業定義」  。
 
-* **Start-AzHDInsightJob**：將作業定義傳送給 HDInsight，並啟動作業。 系統會傳回「作業」物件。
+* **開始 AzHDInsightJob**:將作業定義傳送給 HDInsight，並啟動作業。 系統會傳回「作業」  物件。
 
-* **Wait-AzHDInsightJob**：使用作業物件來檢查作業的狀態。 它會等到工作完成，或等到等候時間超過。
+* **等候 AzHDInsightJob**:使用作業物件來檢查作業的狀態。 它會等到工作完成，或等到等候時間超過。
 
-* **Get-AzHDInsightJobOutput**：用來擷取作業的輸出。
+* **Get-AzHDInsightJobOutput**:用來擷取作業的輸出。
 
 下列步驟示範如何使用這些 Cmdlet，在您的 HDInsight 叢集中執行工作。
 
@@ -75,7 +72,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Ma
     此輸出表示工作已順利完成。
 
     > [!NOTE]  
-    > 如果 **ExitCode** 的值不是 0，请参阅[故障排除](#troubleshooting)。
+    > 如果 **ExitCode** 的值不是 0，請參閱 [疑難排解](#troubleshooting)。
 
     此範例也會將下載的檔案儲存到您執行指令碼所在目錄中的 **output.txt** 檔案。
 

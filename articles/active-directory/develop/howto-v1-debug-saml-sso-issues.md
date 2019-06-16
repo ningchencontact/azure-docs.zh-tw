@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a06aeee1a7d9635d625edbeb2ff57a514a33a84
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 0273a0d35d2b4d69f74b1acd8bc2b1d7174810cb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962726"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111475"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>針對 Azure Active Directory 中應用程式的 SAML 型單一登入進行偵錯
 
@@ -46,7 +46,7 @@ ms.locfileid: "65962726"
 1. 在左刀鋒視窗中，選取**Azure Active Directory**，然後選取**企業應用程式**。 
 1. 企業應用程式清單中，選取您要測試單一登入，然後從左邊選取的選項的應用程式**單一登入**。
 1. 若要開啟 SAML 型單一登入測試經驗，請前往**測試單一登入**（步驟 5）。 如果**測試** 按鈕會呈現灰色，您必須第一次填入出，並將必要的屬性儲存**基本 SAML 組態**一節。
-1. 在 [測試單一登入] 刀鋒視窗中，使用公司的認證來登入目標應用程式。 您可以使用目前使用者或不同使用者的身分來登入。 如果您使用不同使用者的身分登入，會有提示要求您進行驗證。
+1. 在 [測試單一登入]  刀鋒視窗中，使用公司的認證來登入目標應用程式。 您可以使用目前使用者或不同使用者的身分來登入。 如果您使用不同使用者的身分登入，會有提示要求您進行驗證。
 
     ![測試 SAML 頁面](./media/howto-v1-debug-saml-sso-issues/test-single-sign-on.png)
 
@@ -78,9 +78,9 @@ ms.locfileid: "65962726"
 1. 複製頁面右下角的錯誤訊息。 錯誤訊息包括：
     - 相互關聯識別碼和時間戳記。 在向 Microsoft 建立支援案例時務必要有這些值，原因是這些值可協助工程師識別問題並提供正確的問題解決方式。
     - 可識別問題根本原因的陳述。
-1. 返回 Azure AD，並尋找 [測試單一登入] 刀鋒視窗。
-1. 在 [取得解決指導方針] 上方的文字方塊中，貼上錯誤訊息。
-1. 按一下 [取得解決指導方針] 以顯示問題的解決步驟。 此指導方針可能需要來自 SAML 要求或 SAML 回應的資訊。 如果您不使用 My Apps 安全登入延伸模組，您需要一種工具這類[Fiddler](https://www.telerik.com/fiddler)擷取 SAML 要求和回應。
+1. 返回 Azure AD，並尋找 [測試單一登入]  刀鋒視窗。
+1. 在 [取得解決指導方針]  上方的文字方塊中，貼上錯誤訊息。
+1. 按一下 [取得解決指導方針]  以顯示問題的解決步驟。 此指導方針可能需要來自 SAML 要求或 SAML 回應的資訊。 如果您不使用 My Apps 安全登入延伸模組，您需要一種工具這類[Fiddler](https://www.telerik.com/fiddler)擷取 SAML 要求和回應。
 1. 請確認 SAML 要求中的目的地會對應至 SAML 單一登入服務 URL 從 Azure AD 取得。
 1. 請確認 SAML 要求中的簽發者是您已設定 Azure AD 中的應用程式相同的識別項。 Azure AD 會使用簽發者尋找您目錄中的應用程式。
 1. 請確認 AssertionConsumerServiceURL 是應用程式預期接收來自 Azure AD 的 SAML 權杖。 您可以在 Azure AD 中設定此值，但它不是強制性如果它是 SAML 要求的一部分。
@@ -94,7 +94,7 @@ ms.locfileid: "65962726"
 
 1. 如果應用程式在 Azure AD 資源庫中，請確認您已遵循與 Azure AD 整合應用程式的所有步驟。 若要尋找應用程式的整合指示，請參閱 [SaaS 應用程式整合教學課程清單](../saas-apps/tutorial-list.md)。
 1. 擷取 SAML 回應。
-    - 如果您已安裝 My Apps 安全登入擴充功能，請從 [測試單一登入] 刀鋒視窗中，按一下 [下載 SAML 回應]。
+    - 如果您已安裝 My Apps 安全登入擴充功能，請從 [測試單一登入]  刀鋒視窗中，按一下 [下載 SAML 回應]  。
     - 如果未安裝此擴充功能，則請使用 [Fiddler](https://www.telerik.com/fiddler) 之類的工具來擷取 SAML 回應。 
 1. 請注意 SAML 回應權杖中的這些元素：
    - NameID 值和格式的使用者唯一識別碼

@@ -13,12 +13,12 @@ ms.date: 06/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b7e54f6acfe1cbbe6e46fe92d132ebdaa91ff33
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 510a5562740260eb2946ded074a5c37804c55375
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742350"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109510"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>如何在 Azure AD 提供雲端控管內部工作負載的管理
 
@@ -93,7 +93,7 @@ Azure AD 可以[自動在 AD 中建立帳戶的來賓使用者](https://docs.mic
 
 ![Azure AD 的發展](media/cloud-governed-management-for-on-premises/image5.png)
 
-若要開始移轉同盟應用程式至 Azure AD 作為身分識別提供者，請參閱 https://aka.ms/migrateapps所包含的連結：
+若要開始移轉同盟應用程式至 Azure AD 作為身分識別提供者，請參閱 https://aka.ms/migrateapps 所包含的連結：
 
 * 技術白皮書[將您應用程式移轉至 Azure Active Directory](https://aka.ms/migrateapps/whitepaper)，其中顯示移轉的優點，並說明如何規劃移轉中明確所述的四個階段： 探索、 分類、 移轉和持續管理。 將會引導您了解如何思考程序，並細分成容易取用的片段專案。 此文件全篇都有在過程中可協助您的重要資源連結。
 

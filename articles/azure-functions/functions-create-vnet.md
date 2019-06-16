@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 07c7d7fb682708bf813820440d9c790c28b1f3e5
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 55cce60ab3d1cda3cb870afd2f6214f917a04189
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834680"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063271"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>教學課程： 整合 Azure 虛擬網路中的函式
 
@@ -91,7 +91,7 @@ ms.locfileid: "65834680"
 
 1. 選擇**管理** 索引標籤，然後在**診斷儲存體帳戶**，選擇您建立函式應用程式使用的儲存體帳戶。
 
-1. 選取 [檢閱 + 建立]。 驗證完成之後，請選取**建立**。 VM 建立程序需要幾分鐘的時間。 建立的 VM 只能存取虛擬網路。
+1. 選取 [檢閱 + 建立]  。 驗證完成之後，請選取**建立**。 VM 建立程序需要幾分鐘的時間。 建立的 VM 只能存取虛擬網路。
 
 1. 建立 VM 之後，請選擇**移至資源**若要檢視新的虛擬機器 頁面，然後選擇**網路**之下**設定**。
 
@@ -113,7 +113,7 @@ ms.locfileid: "65834680"
 
     ![設定網路功能的狀態](./media/functions-create-vnet/Networking-1.png)
 
-1. 在 [虛擬網路整合] 頁面中，選取**新增 VNet （預覽）**。
+1. 在 [虛擬網路整合] 頁面中，選取**新增 VNet （預覽）** 。
 
     ![新增 VNet 整合預覽](./media/functions-create-vnet/networking-2.png)
 
@@ -121,7 +121,7 @@ ms.locfileid: "65834680"
 
     ![定義函式應用程式的虛擬網路](./media/functions-create-vnet/networking-3.png)
 
-    | 設定      | 建議值  | 說明      |
+    | 設定      | 建議值  | 描述      |
     | ------------ | ---------------- | ---------------- |
     | **虛擬網路** | MyResourceGroup-vnet | 此虛擬網路是您稍早建立的一個。 |
     | **子網路** | 建立新的子網路 | 在您的函式應用程式使用的虛擬網路中建立子網路。 VNet 整合必須設定為使用空白的子網路中。 它並不重要，您的函式會使用您的 VM 的不同子網路。 虛擬網路會自動將路由兩個子網路之間的流量。 |
@@ -137,7 +137,7 @@ ms.locfileid: "65834680"
 
 使用已啟用 VNet 整合，您可以將 proxy 在函式應用程式將要求轉送到虛擬網路中執行的 VM。
 
-1. 在您函式應用程式中，選取**Proxy** > **+**，然後使用影像下方資料表中的 proxy 設定：
+1. 在您函式應用程式中，選取**Proxy** >  **+** ，然後使用影像下方資料表中的 proxy 設定：
 
     ![定義的 proxy 設定](./media/functions-create-vnet/create-proxy.png)
 
@@ -170,4 +170,4 @@ ms.locfileid: "65834680"
 > [!div class="nextstepaction"]
 > [深入了解函式中的網路功能選項](./functions-networking-options.md)
 
-[ 進階方案]: functions-scale.md#premium-plan-public-preview
+[ 進階方案]: functions-scale.md#premium-plan

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 915d1284d66438219fc9aba893512e5f6a5b02b3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 6093e1017af2fb8c54eaf1c3192f937172567982
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305037"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080547"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure 事件方格中的事件處理常式
 
@@ -78,9 +78,45 @@ ms.locfileid: "66305037"
 
 請注意，服務匯流排時因為處理常式處於公開預覽中，您必須安裝的 CLI 或 PowerShell 延伸模組時使用其來建立事件訂用帳戶。
 
-### <a name="using-cli"></a>使用 CLI
+### <a name="install-extension-for-azure-cli"></a>安裝 Azure CLI 擴充功能
 
-針對 Azure CLI，下列範例可訂閱連接至服務匯流排佇列的 Event Grid 主題和：
+對於 Azure CLI，您需要[事件方格擴充功能](/cli/azure/azure-cli-extensions-list)。
+
+在 [CloudShell](/azure/cloud-shell/quickstart) 中：
+
+* 如果您先前安裝的擴充功能，來更新它與`az extension update -n eventgrid`。
+* 如果您還沒有先前安裝的延伸模組，安裝使用`az extension add -n eventgrid`。
+
+針對本機安裝：
+
+1. [安裝 Azure CLI](/cli/azure/install-azure-cli)。 請確定您有最新的版本，方法是檢查`az --version`。
+1. 解除安裝舊版的擴充功能的`az extension remove -n eventgrid`。
+1. 安裝`eventgrid`副檔名`az extension add -n eventgrid`。
+
+### <a name="install-module-for-powershell"></a>安裝 PowerShell 模組
+
+對於 PowerShell，您需要 [AzureRM.EventGrid 模組](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview)。
+
+在 [CloudShell](/azure/cloud-shell/quickstart-powershell) 中：
+
+* 安裝的模組`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`。
+
+針對本機安裝：
+
+1. 以系統管理員身分開啟 PowerShell 主控台。
+1. 安裝的模組`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`。
+
+如果 `-AllowPrerelease` 參數無法使用，請使用下列步驟：
+
+1. 运行 `Install-Module PowerShellGet -Force`。
+1. 运行 `Update-Module PowerShellGet`。
+1. 關閉 PowerShell 主控台。
+1. 以系統管理員身分，重新啟動 PowerShell。
+1. 安裝模組`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`。
+
+### <a name="using-cli-to-add-a-service-bus-handler"></a>使用 CLI 來新增服務匯流排處理常式
+
+針對 Azure CLI，下列範例會訂閱，並連接至服務匯流排佇列的 Event Grid 主題：
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.

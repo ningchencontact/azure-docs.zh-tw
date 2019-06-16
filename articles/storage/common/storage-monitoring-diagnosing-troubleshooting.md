@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: ccafa3431e12b036346c4fd654b2978dc9021471
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912281"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>对 Microsoft Azure 存储进行监视、诊断和故障排除
@@ -139,11 +139,11 @@ ms.locfileid: "65912281"
 如需估計 Blob 等各種儲存體物件大小的說明，請參閱部落格文章 [了解 Winidows Azure 儲存體計費 - 頻寬、交易與容量](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)。
 
 ### <a name="monitoring-availability"></a>監視可用性
-您應該監視儲存體帳戶中的儲存體服務可用性，方法是監視每小時或每分鐘度量表內的 [可用性] 資料欄，亦即 — **$MetricsHourPrimaryTransactionsBlob**、**$MetricsHourPrimaryTransactionsTable**、**$MetricsHourPrimaryTransactionsQueue**、**$MetricsMinutePrimaryTransactionsBlob**、**$MetricsMinutePrimaryTransactionsTable**、**$MetricsMinutePrimaryTransactionsQueue**、**$MetricsCapacityBlob**。 [可用性] 資料欄內含的百分比值代表服務的可用性，或是由資料列所代表的 API 操作 (如果資料列內含整體服務度量或是特定 API 操作度量，則會顯示 **RowKey**)。
+您應該監視儲存體帳戶中的儲存體服務可用性，方法是監視每小時或每分鐘度量表內的 [可用性]  資料欄，亦即 — **$MetricsHourPrimaryTransactionsBlob**、 **$MetricsHourPrimaryTransactionsTable**、 **$MetricsHourPrimaryTransactionsQueue**、 **$MetricsMinutePrimaryTransactionsBlob**、 **$MetricsMinutePrimaryTransactionsTable**、 **$MetricsMinutePrimaryTransactionsQueue**、 **$MetricsCapacityBlob**。 [可用性]  資料欄內含的百分比值代表服務的可用性，或是由資料列所代表的 API 操作 (如果資料列內含整體服務度量或是特定 API 操作度量，則會顯示 **RowKey**)。
 
-任何小於 100% 的值，皆表示某些儲存體要求已經失敗。 您可以檢視度量資料裡的其他資料欄，查看裡面帶有各種錯誤類型 (例如 **ServerTimeoutError**) 的要求數量，以了解這些要求失敗的原因。 當暫時性伺服器逾時狀態出現，以致於服務移動資料分割以便提供更佳的負載平衡要求時，您應該會看到 [可用性]  百分比暫時低於 100%；用戶端應用程式裡的重試邏輯應該會處理此類間歇性狀況。 [儲存體分析記錄作業和狀態訊息](https://msdn.microsoft.com/library/azure/hh343260.aspx)一文列出儲存體度量納入其 [可用性] 計算中的交易類型。
+任何小於 100% 的值，皆表示某些儲存體要求已經失敗。 您可以檢視度量資料裡的其他資料欄，查看裡面帶有各種錯誤類型 (例如 **ServerTimeoutError**) 的要求數量，以了解這些要求失敗的原因。 當暫時性伺服器逾時狀態出現，以致於服務移動資料分割以便提供更佳的負載平衡要求時，您應該會看到 [可用性]  百分比暫時低於 100%；用戶端應用程式裡的重試邏輯應該會處理此類間歇性狀況。 [儲存體分析記錄作業和狀態訊息](https://msdn.microsoft.com/library/azure/hh343260.aspx)一文列出儲存體度量納入其 [可用性]  計算中的交易類型。
 
-在 [Azure 入口網站](https://portal.azure.com)中，您可以新增警示規則，讓系統在某項服務的 [可用性] 低於指定的臨界值時通知您。
+在 [Azure 入口網站](https://portal.azure.com)中，您可以新增警示規則，讓系統在某項服務的 [可用性]  低於指定的臨界值時通知您。
 
 本指南「[疑難排解指引]」一節將針對常見儲存體服務，說明一些可用性的相關問題。
 
@@ -237,7 +237,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 ### <a name="client-request-id"></a>用戶端要求 ID
 儲存體用戶端程式庫會自動為每一項要求產生唯一的用戶端要求識別碼。
 
-* 在儲存體用戶端程式庫所建立的用戶端記錄上，用戶端要求識別碼會顯示在與該要求相關之每個記錄項目的 [用戶端要求識別碼] 欄位。
+* 在儲存體用戶端程式庫所建立的用戶端記錄上，用戶端要求識別碼會顯示在與該要求相關之每個記錄項目的 [用戶端要求識別碼]  欄位。
 * 以 Fiddler 所擷取的網路追蹤為例，用戶端要求用戶端要求識別碼會顯示在要求訊息中，並呈現為 **x-ms-client-request-id** HTTP 標頭值。
 * 在伺服器端的儲存體記錄中，用戶端要求用戶端要求識別碼會顯示在用戶端要求用戶端要求識別碼資料行。
 
@@ -249,9 +249,9 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 ### <a name="server-request-id"></a>伺服器要求 ID
 儲存體服務會自動產生的伺服器要求 Id。
 
-* 在伺服器端的儲存體記錄中，伺服器要求識別碼會顯示在 [要求識別碼標頭] 資料行。
+* 在伺服器端的儲存體記錄中，伺服器要求識別碼會顯示在 [要求識別碼標頭]  資料行。
 * 以 Fiddler 所擷取的網路追蹤為例，伺服器要求識別碼會顯示在回應訊息中，並呈現為 **x-ms-request-id** HTTP 標頭值。
-* 在儲存體用戶端程式庫所建立的用戶端記錄中，伺服器要求識別碼會顯示在內含伺服器回應詳細資料之記錄項目的 [Operation Text] \(作業文字\) 資料行。
+* 在儲存體用戶端程式庫所建立的用戶端記錄中，伺服器要求識別碼會顯示在內含伺服器回應詳細資料之記錄項目的 [Operation Text]  \(作業文字\) 資料行。
 
 > [!NOTE]
 > 儲存體服務一律會為每個收到的要求指派唯一的伺服器要求識別碼，因此用戶端的每一次重試以及批次裡所包含的每一項作業，都會具備唯一的伺服器要求識別碼。
@@ -720,10 +720,10 @@ sqllocaldb create v11.0
 
 Fiddler 一經啟動後，就會開始擷取本機電腦上的 HTTP 與 HTTPS 流量。 以下提供您一些有用的命令，方便您控制 Fiddler：
 
-* 停止與開始擷取流量。 在主要功能表上，移至 [檔案] 並按一下 [擷取流量] 以開啟及關閉擷取作業。
-* 保存捕获的通信数据。 在主功能表上，移至 [檔案]，按一下 [儲存]，然後按一下 [所有工作階段]：這麼做可讓您將流量儲存在「工作階段封存」檔案中。 您稍後可以重新載入工作階段封存以供分析，或是因應要求傳送給 Microsoft 支援服務中心。
+* 停止與開始擷取流量。 在主要功能表上，移至 [檔案]  並按一下 [擷取流量]  以開啟及關閉擷取作業。
+* 保存捕获的通信数据。 在主功能表上，移至 [檔案]  ，按一下 [儲存]  ，然後按一下 [所有工作階段]  ：這麼做可讓您將流量儲存在「工作階段封存」檔案中。 您稍後可以重新載入工作階段封存以供分析，或是因應要求傳送給 Microsoft 支援服務中心。
 
-若要限制 Fiddler 所擷取的流量數量，請使用您在 [篩選器] 索引標籤中設定的篩選器。以下螢幕擷取畫面顯示只會擷取傳送至 **contosoemaildist.table.core.windows.net** 儲存體端點的流量之篩選器：
+若要限制 Fiddler 所擷取的流量數量，請使用您在 [篩選器] 索引標籤中設定的篩選器  。以下螢幕擷取畫面顯示只會擷取傳送至 **contosoemaildist.table.core.windows.net** 儲存體端點的流量之篩選器：
 
 ![][5]
 
@@ -734,19 +734,19 @@ Fiddler 一經啟動後，就會開始擷取本機電腦上的 HTTP 與 HTTPS �
 
 1. 在本機電腦上啟動 Wireshark。
 2. 在 [開始]  區段中，選取本機網路介面或是連線至網際網路的介面。
-3. 按一下 [擷取選項] 。
-4. 在 [擷取篩選器] 文字方塊中，新增一項篩選器。 舉例來說，**host contosoemaildist.table.core.windows.net** 會將 Wireshark 設定為僅擷取 **contosoemaildist** 儲存體帳戶中資料表服務端點所流入與流出的封包。 請參閱[擷取篩選器的完整清單](https://wiki.wireshark.org/CaptureFilters)。
+3. 按一下 [擷取選項]  。
+4. 在 [擷取篩選器]  文字方塊中，新增一項篩選器。 舉例來說，**host contosoemaildist.table.core.windows.net** 會將 Wireshark 設定為僅擷取 **contosoemaildist** 儲存體帳戶中資料表服務端點所流入與流出的封包。 請參閱[擷取篩選器的完整清單](https://wiki.wireshark.org/CaptureFilters)。
 
    ![][6]
-5. 按一下 [啟動] 。 現在當您於本機電腦上使用用戶端應用程式時，Wireshark 會開始擷取流入/流出資料表服務端點的所有封包。
-6. 完成作業時，按一下主要功能表上的 [擷取]，然後按一下 [停止]。
-7. 若要將擷取的資料儲存在 Wireshark 擷取檔案中，按一下主要功能表上的 [檔案]，然後按一下 [儲存]。
+5. 按一下 [啟動]  。 現在當您於本機電腦上使用用戶端應用程式時，Wireshark 會開始擷取流入/流出資料表服務端點的所有封包。
+6. 完成作業時，按一下主要功能表上的 [擷取]  ，然後按一下 [停止]  。
+7. 若要將擷取的資料儲存在 Wireshark 擷取檔案中，按一下主要功能表上的 [檔案]  ，然後按一下 [儲存]  。
 
-WireShark 會反白顯示任何存在 **packetlist** 視窗的錯誤。 您也可以使用 **Expert Info** 視窗 (依序按一下 [分析]、[專家資訊]) 來檢視錯誤與警告摘要。
+WireShark 會反白顯示任何存在 **packetlist** 視窗的錯誤。 您也可以使用 **Expert Info** 視窗 (依序按一下 [分析]  、[專家資訊]  ) 來檢視錯誤與警告摘要。
 
 ![][7]
 
-您也可以選擇應用程式層所顯示的 TCP 資料，方法是以滑鼠右鍵按一下 TCP 資料，然後選取 [Follow TCP Stream] \(追蹤 TCP 資料流\)。 當您不使用擷取篩選器而擷取到傾印時，這個方法很有用。 如需詳細資訊，請參閱 [追蹤 TCP 串流](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)。
+您也可以選擇應用程式層所顯示的 TCP 資料，方法是以滑鼠右鍵按一下 TCP 資料，然後選取 [Follow TCP Stream]  \(追蹤 TCP 資料流\)。 當您不使用擷取篩選器而擷取到傾印時，這個方法很有用。 如需詳細資訊，請參閱 [追蹤 TCP 串流](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)。
 
 ![][8]
 
@@ -759,7 +759,7 @@ WireShark 會反白顯示任何存在 **packetlist** 視窗的錯誤。 您也�
 您可以使用 Microsoft Message Analyzer，仿照 Fiddler 的方式擷取 HTTP 與 HTTPS 流量，並仿照 Wireshark 的方式擷取網路流量。
 
 #### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>使用 Microsoft Message Analyzer 設定 Web 追蹤工作階段
-若要使用 Microsoft Message Analyzer 設定 HTTP 與 HTTPS 流量的 Web 追蹤工作階段，請執行 Microsoft Message Analyzer 應用程式，並在 [檔案] 功能表上按一下 [Capture/Trace]。 在可用的追蹤案例清單中，選取 [Web Proxy]。 接著，在 [追蹤案例組態] 面板的 [HostnameFilter] 文字方塊中，新增您儲存體端點的名稱 (您可以在 [Azure 入口網站](https://portal.azure.com)中查詢這些名稱)。 舉例來說，如果您的 Azure 儲存體帳戶名稱為 **contosodata**，您應該將下列名稱加入 [HostnameFilter] 文字方塊：
+若要使用 Microsoft Message Analyzer 設定 HTTP 與 HTTPS 流量的 Web 追蹤工作階段，請執行 Microsoft Message Analyzer 應用程式，並在 [檔案]  功能表上按一下 [Capture/Trace]  。 在可用的追蹤案例清單中，選取 [Web Proxy]  。 接著，在 [追蹤案例組態]  面板的 [HostnameFilter]  文字方塊中，新增您儲存體端點的名稱 (您可以在 [Azure 入口網站](https://portal.azure.com)中查詢這些名稱)。 舉例來說，如果您的 Azure 儲存體帳戶名稱為 **contosodata**，您應該將下列名稱加入 [HostnameFilter]  文字方塊：
 
 ```
 contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
@@ -779,11 +779,11 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 #### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>使用 Microsoft Message Analyzer 診斷網路問題
 除了使用 Microsoft Message Analyzer **Web Proxy** 追蹤功能來擷取用戶端應用程式與儲存體服務之間的 HTTP/HTTPs 流量詳細資料之外，您還可以使用內建的**本機連結層**追蹤功能來擷取網路封包資訊。 此能够实现捕获类似于使用 Wireshark 捕获的数据，并诊断丢弃的数据包等网络问题。
 
-下列螢幕擷取畫面顯示以**本機連結層**追蹤功能所擷取到的一些**知識性**訊息 (在 [DiagnosisTypes] 資料欄中)。 按下 [DiagnosisTypes]  資料欄中的圖示，即可顯示該訊息的詳細資料。 在以下範例中，由於伺服器並未收到來自用戶端的認可，因此重新傳送訊息 #305：
+下列螢幕擷取畫面顯示以**本機連結層**追蹤功能所擷取到的一些**知識性**訊息 (在 [DiagnosisTypes]  資料欄中)。 按下 [DiagnosisTypes]  資料欄中的圖示，即可顯示該訊息的詳細資料。 在以下範例中，由於伺服器並未收到來自用戶端的認可，因此重新傳送訊息 #305：
 
 ![][9]
 
-當您在 Microsoft Message Analyzer 中建立追蹤工作階段時，可以指定篩選器來減少追蹤所產生的雜訊。 在您定義追蹤功能的 [Capture / Trace] 頁面中，按一下 [Microsoft-Windows-NDIS-PacketCapture] 旁邊的 [設定] 連結。 下列螢幕擷取畫面顯示針對三個儲存體服務的 IP 位址進行 TCP 流量篩選的組態：
+當您在 Microsoft Message Analyzer 中建立追蹤工作階段時，可以指定篩選器來減少追蹤所產生的雜訊。 在您定義追蹤功能的 [Capture / Trace]  頁面中，按一下 [Microsoft-Windows-NDIS-PacketCapture]  旁邊的 [設定] 連結  。 下列螢幕擷取畫面顯示針對三個儲存體服務的 IP 位址進行 TCP 流量篩選的組態：
 
 ![][10]
 
@@ -794,11 +794,11 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 
 要将存储日志记录数据导入 Excel（从 Blob 存储下载后），请执行以下操作：
 
-* 在 [資料] 功能表中，按一下 [From Text]。
-* 瀏覽至您想要檢視的記錄檔，然後按一下 [匯入] 。
-* 在 [Text Import Wizard] 的步驟 1 中，選取 [Delimited]。
+* 在 [資料]  功能表中，按一下 [From Text]  。
+* 瀏覽至您想要檢視的記錄檔，然後按一下 [匯入]  。
+* 在 [Text Import Wizard]  的步驟 1 中，選取 [Delimited]  。
 
-在 [Text Import Wizard] 的步驟 1 中，選取 [Semicolon] 作為唯一的分隔字元，並選擇雙引號作為**文字辨識符號**。 接著按一下 [完成]  ，並選擇要將資料放在工作簿的哪個位置。
+在 [Text Import Wizard]  的步驟 1 中，選取 [Semicolon]  作為唯一的分隔字元，並選擇雙引號作為**文字辨識符號**。 接著按一下 [完成]  ，並選擇要將資料放在工作簿的哪個位置。
 
 ### <a name="appendix-5"></a>附錄 5：使用 Application Insights for Azure DevOps 監視
 您也可以在效能與可用性監視作業中，使用 Azure DevOps 的 Application Insights 功能。 這項工具可以：

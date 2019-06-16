@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: pabutler
 ms.openlocfilehash: b0bf7af9b81025202c2fffa2a264982c9986e10b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943428"
 ---
 # <a name="cloud-partner-portal-tour"></a>Cloud Partner 入口網站導覽
@@ -19,7 +19,7 @@ ms.locfileid: "64943428"
 此文章提供 [Cloud Partner 入口網站](https://cloudpartner.azure.com)的簡介：包含其內容、瀏覽機制和功能。   此入口網站可讓已註冊的合作夥伴建立新的供應項目，並管理 [Azure Marketplace](https://azuremarketplace.microsoft.com) 和 [AppSource Marketplace](https://azuremarketplace.microsoft.com) 現有的供應項目。  只有已註冊的合作夥伴才能存取 Cloud Partner 入口網站，如需詳細資訊，請參閱[成為雲端市集發行者](https://docs.microsoft.com/azure/marketplace/become-publisher)。
 
 [![顯示 [設定檔] 頁面的 Cloud Partner 入口網站](./media/portal-window_001a.png)](./media/portal-window_001b.png#lightbox)
-<br/>   (按一下影像以放大)。
+<br/>   (按一下影像以放大  )。
 
 
 ## <a name="section-contents"></a>小節內容
@@ -31,7 +31,7 @@ ms.locfileid: "64943428"
 - [所有發行者](./cpp-all-publishers-page.md)頁面會列出所有目前已註冊的雲端合作夥伴發行者。
 - [使用者](./cpp-users-page.md)頁面會列出目前與註冊的雲端合作夥伴相關聯的所有使用者帳戶。
 - [歷程記錄](./cpp-history-page.md)頁面會列出所有發行者的供應項目發行和修改事件。 
-- [見解](./cpp-insights-page.md)頁面包含各種儀表板，並組成此入口網站的「賣方見解」功能。
+- [見解](./cpp-insights-page.md)頁面包含各種儀表板，並組成此入口網站的「賣方見解」  功能。
 
 
 ## <a name="next-steps"></a>後續步驟

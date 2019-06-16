@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 8b39866b990812913924118c564a5e93f898b1cb
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 7cfe19614b2107161dcce9c80690333212162045
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939474"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061320"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>使用 Azure Data Lake Storage Gen2 的最佳做法
 
@@ -26,7 +26,7 @@ Azure Data Lake Storage Gen2 針對 Azure Active Directory (Azure AD) 使用者�
 
 ### <a name="use-security-groups-versus-individual-users"></a>使用安全性群組與個別使用者
 
-在 Data Lake Storage Gen2 中使用巨量資料時，有可能會使用服務主體來允許 Azure HDInsight 這類服務使用資料。 不過，也可能會有個別使用者需要存取資料的情況。 強烈建議您在所有情況中使用 Azure Active Directory [安全性群組](../common/storage-auth-aad.md)，而不是將個別使用者指派至資目錄和檔案。
+當使用 Data Lake 儲存體 Gen2 中的巨量資料，可能是服務主體用來允許服務，例如 Azure HDInsight 來處理資料。 不過，也可能會有個別使用者需要存取資料的情況。 強烈建議您在所有情況中使用 Azure Active Directory [安全性群組](../common/storage-auth-aad.md)，而不是將個別使用者指派至資目錄和檔案。
 
 指派權限給安全性群組之後，在群組中新增或移除使用者皆不需要更新 Data Lake Storage Gen2。 這也有助於確保您不會超過存取控制清單 (ACL) 的存取控制項目上限。 目前，該數字為 32 (包括四個一律與每個檔案和目錄相關聯的 POSIX 樣式 ACL)：擁有使用者、擁有群組、遮罩和其他。 每個目錄可以有兩種 ACL：存取 ACL 和預設 ACL，共 64 個存取控制項目。 如需有關這些 ACL 的詳細資訊，請參閱 [Azure Data Lake Storage Gen2 中的存取控制](data-lake-storage-access-control.md)。
 
@@ -40,7 +40,7 @@ Azure Databricks 這類服務通常會使用 Azure Active Directory 服務主體
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>啟用 Data Lake Storage Gen2 防火牆與 Azure 服務存取權
 
-Data Lake Storage Gen2 支援開啟防火牆，以及限制僅有 Azure 服務具有存取權，建議使用此功能來限制外部攻擊的媒介。 透過 Azure 入口網站中的 [防火牆] > [啟用防火牆 (開啟)] > [允許存取 Azure 服務] 選項，可啟用儲存體帳戶上的防火牆。
+Data Lake Storage Gen2 支援開啟防火牆，以及限制僅有 Azure 服務具有存取權，建議使用此功能來限制外部攻擊的媒介。 透過 Azure 入口網站中的 [防火牆]   > [啟用防火牆 (開啟)]   > [允許存取 Azure 服務]  選項，可啟用儲存體帳戶上的防火牆。
 
 將 Azure Databricks 叢集新增至可透過儲存體防火牆存取的虛擬網路，需要使用 Databricks 的預覽功能。 若要啟用這項功能，請提出支援要求。
 
@@ -90,7 +90,7 @@ Data Lake Storage Gen2 在 Azure 入口網站的 Data Lake Storage Gen2 帳戶�
 
 簡單來說，批次處理中常用的方法是將資料置入 "in" 目錄。 然後，資料處理好後，將新的資料放入 "out" 目錄，以供下游程序使用。 此目錄結構有時會出現在需要對個別檔案進行處理的作業上，而且可能不需要大量平行處理大型資料集。 如同上述建議的 IoT 結構，好的目錄結構都使用區域和內容這類事項 (例如，組織、產品/生產者) 作為父層級目錄。 此結構有助於保護跨組織資料，以及更有效率地管理工作負載中的資料。 此外，請考慮在結構中使用日期和時間，可在處理時具有較佳的組織性、可篩選的搜尋、安全性及自動化。 日期結構的細微性層級取決於資料上傳或處理的間隔，例如每小時、每天或甚至是每個月。
 
-有時後，檔案處理會因為資料損毀或未預期的格式而不成功。 在這種情況下，目錄結構可能就需要 **/bad** 資料夾的功用，才能將檔案移至該資料夾並進行進一步檢查。 批次作業可能也會處理這些「不良」檔案的報告或通知，以進行手動介入。 請參考下列的範本結構：
+有時後，檔案處理會因為資料損毀或未預期的格式而不成功。 在這種情況下，目錄結構可能就需要 **/bad** 資料夾的功用，才能將檔案移至該資料夾並進行進一步檢查。 批次作業可能也會處理這些「不良」  檔案的報告或通知，以進行手動介入。 請參考下列的範本結構：
 
     {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/

@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: alavital
 ms.custom: ''
 ms.openlocfilehash: f1bf62596b6edcc6fff6572e431f3a777be93f05
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002098"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>使用成本警示監視使用量和支出
@@ -42,8 +42,8 @@ ms.locfileid: "66002098"
 | 警示類型 | Enterprise 合約 | Microsoft 客戶合約 | Web direct/付 As-You-執行 |
 |---|---|---|---|
 | 預算 | ✔ | ✔ | ✔ |
-| Credit | ✔ |✘ | ✘ |
-| 部門支出配額 | ✔ | ✘ | ✘ |
+| 功勞 | ✔ |✘ | ✘ |
+| 部門消費配額 | ✔ | ✘ | ✘ |
 
 
 

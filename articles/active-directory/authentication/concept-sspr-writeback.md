@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 749216d3fe9164857bd4abce7ba7c766e466e7d3
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 2dbf27301e738978e7f03d2423a4d23fd63c97b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823305"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113504"
 ---
 # <a name="what-is-password-writeback"></a>什麼是密碼回寫？
 
@@ -61,7 +61,7 @@ ms.locfileid: "65823305"
 * Microsoft 365 商務版
 
 > [!WARNING]
-> 獨立的 Office 365 授權方案不支援「自助式密碼重設/變更/使用內部部署回寫來解鎖」，而且需要您具備上述其中一個方案，這項功能才能運作。
+> 獨立的 Office 365 授權方案不支援「自助式密碼重設/變更/使用內部部署回寫來解鎖」  ，而且需要您具備上述其中一個方案，這項功能才能運作。
 
 ## <a name="how-password-writeback-works"></a>密碼回寫的運作方式
 
@@ -70,9 +70,9 @@ ms.locfileid: "65823305"
 1. 系統會執行檢查，以了解使用者擁有哪一種密碼。 如果密碼是在內部部署環境中進行管理的：
    * 系統會執行檢查以了解回寫服務是否已啟動並在執行中。 如果是，使用者可以繼續進行。
    * 如果回寫服務關閉，系統會告知使用者其無法立即重設其密碼。
-1. 接著，使用者會通過適當的驗證閘道，然後到達 [重設密碼] 畫面。
+1. 接著，使用者會通過適當的驗證閘道，然後到達 [重設密碼]  畫面。
 1. 使用者選取新的密碼，並加以確認。
-1. 當使用者選取 [送出] 時，系統會以在回寫設定程序期間所建立的對稱金鑰加密純文字密碼。
+1. 當使用者選取 [送出]  時，系統會以在回寫設定程序期間所建立的對稱金鑰加密純文字密碼。
 1. 經過加密的密碼會放入承載中，透過 HTTPS 通道傳送到租用戶特定的服務匯流排轉送 (會在回寫設定程序期間為您設定此轉送)。 此轉送受到只有您的內部部署安裝才會知道的隨機產生密碼所保護。
 1. 在訊息抵達服務匯流排之後，密碼重設端點會自動甦醒，並看到有擱置中的重設要求。
 1. 服務會接著使用雲端錨點屬性來尋找使用者。 若要讓此查閱成功︰
@@ -152,7 +152,6 @@ ms.locfileid: "65823305"
    * 任何系統管理員自助式強制變更密碼作業 (例如密碼到期)
    * 任何源自[密碼重設入口網站](https://passwordreset.microsoftonline.com)的系統管理員自助式密碼重設
    * 系統管理員從 [Azure 入口網站](https://portal.azure.com)起始的任何使用者密碼重設
-   * 任何系統管理員起始的使用者密碼重設[Microsoft 365 系統管理中心](https://admin.microsoft.com)
 
 ## <a name="unsupported-writeback-operations"></a>不支援的回寫作業
 
@@ -162,6 +161,7 @@ ms.locfileid: "65823305"
    * 任何由使用者使用 PowerShell 第 1 版、第 2 版或 Azure AD Graph API 來進行的自有密碼重設
 * **不支援的系統管理員作業**
    * 任何由系統管理員從 PowerShell 第 1 版、第 2 版或 Azure AD Graph API 起始的使用者密碼重設
+   * 任何系統管理員起始的使用者密碼重設[Microsoft 365 系統管理中心](https://admin.microsoft.com)
 
 > [!WARNING]
 > 不支援的核取方塊 」 使用者必須變更密碼在下次登入時 」 等 Active Directory 使用者和電腦或 Active Directory 管理中心在內部部署 Active Directory 系統管理工具中的使用。 變更密碼時在內部部署環境就不會檢查此選項。

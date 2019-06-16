@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: c840764dc978a8dacb3450c0aca5e5d93284b8a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61127527"
 ---
-# <a name="change-the-reserved-unit-type"></a>更改预留单位类型
+# <a name="change-the-reserved-unit-type"></a>變更保留單元類型
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [入口網站](media-services-portal-scale-media-processing.md)
@@ -49,11 +49,11 @@ ms.locfileid: "61127527"
 若要變更保留單元類型以及保留單元數目，請執行下列操作：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取您的 Azure 媒體服務帳戶。
-2. 在 [設定] 視窗中，選取 [媒體保留單元]。
+2. 在 [設定]  視窗中，選取 [媒體保留單元]  。
    
-    若要變更所選取保留單元類型的保留單元數目，請使用畫面頂端的 [媒體保留單元] 滑桿。
+    若要變更所選取保留單元類型的保留單元數目，請使用畫面頂端的 [媒體保留單元]  滑桿。
    
-    若要變更 [保留單元類型]，按一下 [保留媒體處理器的速度] 列。 然後，選取您需要的定價層：S1、S2 或 S3。
+    若要變更 [保留單元類型]  ，按一下 [保留媒體處理器的速度]  列。 然後，選取您需要的定價層：S1、S2 或 S3。
    
 3. 按 [儲存] 以儲存您的變更。
    
