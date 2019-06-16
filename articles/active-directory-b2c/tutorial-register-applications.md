@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 註冊應用程式 - Azure Active Directory B2C | Microsoft Docs
+title: 教學課程-註冊應用程式-Azure Active Directory B2C
 description: 了解如何使用 Azure 入口網站在 Azure Active Directory B2C 中註冊 Web 應用程式。
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 06/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 380fc1633f94f2365162c1a4e4087c9113e5f663
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 5c46d3153bdc5768836bce198af115f82e8469f3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66511950"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056289"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中註冊應用程式
 
@@ -40,7 +40,9 @@ ms.locfileid: "66511950"
 3. 選取 [應用程式]  ，然後選取 [新增]  。
 4. 輸入應用程式的名稱。 例如，*webapp1*。
 5. 針對 [包含 Web 應用程式/Web API]  和 [允許隱含流程]  ，選取 [是]  。
-6. 針對**回覆 URL**，請輸入 Azure AD B2C 應傳回您的應用程式所要求任何權杖的端點。 例如，您可以將它設定為在本機的 `https://localhost:44316` 接聽。如果還不知道連接埠號碼，您可以輸入預留位置值，之後再變更。 若要用於測試，您可以將它設為 `https://jwt.ms`，這會顯示權杖內容以進行檢測。 針對本教學課程，請將它設為 `https://jwt.ms`。 
+6. 針對**回覆 URL**，請輸入 Azure AD B2C 應傳回您的應用程式所要求任何權杖的端點。 比方說，您可以將它設定為在本機接聽`https://localhost:44316`。 如果還不知道連接埠號碼，您可以輸入預留位置值，之後再變更。
+
+    基於測試目的，例如本教學課程中您可以將它設定為`https://jwt.ms`顯示進行檢查的權杖內容。 本教學課程中，將**回覆 URL**至`https://jwt.ms`。
 
     回覆 URL 必須以配置 `https` 開頭，而且所有回覆 URL 值必須共用單一 DNS 網域。 例如，如果應用程式的回覆 URL 為 `https://login.contoso.com`，您可以新增它，如這個 URL 所示：`https://login.contoso.com/new`。 或者，您可以參照 `login.contoso.com` 的 DNS 子網域，例如 `https://new.login.contoso.com`。 如果您想要有以 `login-east.contoso.com` 和 `login-west.contoso.com` 作為回覆 URL 的應用程式，您必須依照以下順序新增這些回覆 URL：`https://contoso.com`、`https://login-east.contoso.com`、`https://login-west.contoso.com`。 您可以新增後面兩個，因為它們是第一個回覆 URL (`contoso.com`) 的子網域。
 
@@ -50,8 +52,9 @@ ms.locfileid: "66511950"
 
 如果您的應用程式交換權杖的程式碼，您需要建立應用程式祕密。
 
-1. 選取 [金鑰]  ，然後按一下 [產生金鑰]  。
-2. 選取 [儲存]  以檢視金鑰。 請記下 [應用程式金鑰]  值。 您可以使用此值，作為應用程式程式碼中的應用程式祕密。
+1. 在  **Azure AD B2C 應用程式**頁面上，選取您建立應用程式，例如*webapp1*。
+2. 選取 **按鍵**，然後選取**產生金鑰**。
+3. 選取 [儲存]  以檢視金鑰。 請記下 [應用程式金鑰]  值。 您可以使用此值作為您的應用程式程式碼中的應用程式密碼。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -61,5 +64,7 @@ ms.locfileid: "66511950"
 > * 註冊 Web 應用程式
 > * 建立用戶端密碼
 
+接下來，了解如何建立使用者流程，以讓使用者註冊、 登入，並管理其設定檔。
+
 > [!div class="nextstepaction"]
-> [在 Azure Active Directory B2C 中建立使用者流程](tutorial-create-user-flows.md)
+> [在 Azure Active Directory B2C 中建立使用者流程 >](tutorial-create-user-flows.md)

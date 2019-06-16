@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: acf121c2954b3f324682578dd3ab2b4d8b1f63f2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d771d91feaba942b88a0ddb68f0d997fad4a981e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707348"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059407"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>使用 Azure REST API 建立 Apache Hadoop 叢集
 
@@ -21,17 +21,14 @@ ms.locfileid: "64707348"
 
 了解如何使用 Azure Resource Manager 範本和 Azure REST API 來建立 HDInsight 叢集。
 
-使用 Azure REST API，可以对托管在 Azure 平台中的服务执行管理操作，包括创建新资源（例如 HDInsight 群集）。
-
-> [!IMPORTANT]  
-> Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+Azure REST API 可讓您對裝載於 Azure 平台的服務執行管理作業，包括建立新的資源，例如 HDInsight 叢集。
 
 > [!NOTE]  
 > 本文件的步驟是使用 [curl (https://curl.haxx.se/)](https://curl.haxx.se/) 公用程式來與 Azure REST API 進行通訊。
 
 ## <a name="create-a-template"></a>建立範本
 
-Azure Resource Manager 模板是描述**资源组**及其包含的所有资源（例如 HDInsight）的 JSON 文档。此範本型方法可讓您在一個範本中定義 HDInsight 所需的資源。
+Azure Resource Manager 範本是描述**資源群組**與其中所有資源 (例如 HDInsight) 的 JSON 文件。此範本型方法可讓您在一個範本中定義 HDInsight 所需的資源。
 
 以下 JSON 文件是 [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password) 提供的範本和參數檔合併工具，它會使用密碼來建立以 Linux 為基礎的叢集，以保護 SSH 使用者帳戶。
 
@@ -208,14 +205,14 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
    }
    ```
 
-本文件中的步驟引用此範例。 使用您叢集的值來取代 **Parameters** 區段中的範例值。
+本文件中的步驟引用此範例。 使用您叢集的值來取代 **Parameters** 區段中的範例值  。
 
 > [!IMPORTANT]  
 > 本範本使用 HDInsight 叢集的背景工作節點預設數目 (4)。 如果您規劃 32 個以上的背景工作節點，則必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。
 >
 > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
-## <a name="log-in-to-your-azure-subscription"></a>登入您的 Azure 訂用帳戶
+## <a name="sign-in-to-your-azure-subscription"></a>登入您的 Azure 訂用帳戶：
 
 請依照[開始使用 Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) 所述的步驟操作，並使用 `az login` 命令連接到您的訂用帳戶。
 
@@ -238,12 +235,12 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
-    将 `--display-name`、`--homepage` 和 `--identifier-uris` 的值替换为自己的值。 為新的 Active Directory 項目提供密碼。
+    將 `--display-name`、`--homepage`、`--identifier-uris` 的值取代為您自己的值。 為新的 Active Directory 項目提供密碼。
 
    > [!NOTE]  
    > `--home-page` 和 `--identifier-uris` 值不需參考裝載於網際網路上的實際網頁。 它們必須是唯一的 URI。
 
-   此命令返回的值是新应用程序的 __应用 ID__ 。 儲存這個值。
+   此命令傳回的值是新應用程式的 __App ID__。 儲存這個值。
 
 3. 使用下列命令以 **App ID** 建立服務主體。
 
@@ -259,7 +256,7 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
    ```
 
-## <a name="get-an-authentication-token"></a>获取身份验证令牌
+## <a name="get-an-authentication-token"></a>取得驗證權杖
 
 使用下列命令來擷取驗證權杖︰
 
@@ -291,7 +288,7 @@ curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-使用以下命令创建资源组。
+使用下列命令來建立資源群組。
 
 * 將 `$SUBSCRIPTIONID` 設定為建立服務主體時所收到的訂用帳戶識別碼。
 * 將 `$ACCESSTOKEN` 設定為上一個步驟中所收到的存取權杖。
@@ -332,7 +329,7 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 > [!IMPORTANT]  
 > 部署已送出，但尚未完成。 部署通常需要大約 15 分鐘才會完成。
 
-## <a name="check-the-status-of-a-deployment"></a>检查部署状态
+## <a name="check-the-status-of-a-deployment"></a>檢查部署的狀態
 
 若要檢查部署的狀態，請使用下列命令：
 

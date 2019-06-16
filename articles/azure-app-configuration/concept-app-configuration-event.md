@@ -8,10 +8,10 @@ ms.date: 05/30/2019
 ms.topic: article
 ms.service: azure-app-configuration
 ms.openlocfilehash: 601124aef37d2b285db71130f5c63b3620c7768f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735642"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>對 Azure 應用程式組態事件做出反應
@@ -40,14 +40,14 @@ Azure 應用程式設定的事件包含您要回應您的資料變更的所有�
 > |屬性|類型|描述|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |topic|字串|會發出此事件的應用程式組態的完整 Azure Resource Manager 識別碼。|
-> |subject|字串|為事件主體之索引鍵-值的 URI。|
+> |主旨|字串|為事件主體之索引鍵-值的 URI。|
 > |eventTime|字串|日期/時間所產生的事件，採用 ISO 8601 格式。|
 > |eventType|字串|「 Microsoft.AppConfiguration.KeyValueModified"或者"Microsoft.AppConfiguration.KeyValueDeleted 」。|
-> |Id|string|此事件的唯一識別碼。|
+> |Id|字串|此事件的唯一識別碼。|
 > |dataVersion|string|資料物件的結構描述版本。|
 > |metadataVersion|字串|最上層屬性的結構描述版本。|
 > |data|物件|Azure 應用程式設定特定的事件資料集合|
-> |data.key|string|已修改或刪除機碼值的索引鍵。|
+> |data.key|字串|已修改或刪除機碼值的索引鍵。|
 > |data.label|字串|標籤，如果有的話，索引鍵-值的已修改或刪除。|
 > |data.etag|字串|針對`KeyValueModified`新的索引鍵 / 值的 etag。 針對`KeyValueDeleted`已刪除的金鑰值的 etag。|
 

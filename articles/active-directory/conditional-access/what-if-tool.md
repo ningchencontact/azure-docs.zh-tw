@@ -1,8 +1,8 @@
 ---
-title: 什麼是 Azure Active Directory 條件式存取假設工具？
-description: 了解環境中的條件式存取原則會產生什麼影響。
+title: 什麼是如果工具在 Azure Active Directory 條件式存取？
+description: 了解如何在您的環境了解您的條件式存取原則的影響。
 services: active-directory
-keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
+keywords: 條件式存取應用程式，與 Azure AD，安全地存取公司資源，條件式存取原則的條件式存取
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,28 +18,28 @@ ms.date: 11/20/2018
 ms.author: joflore
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6271c7a99e82fb1fff2815167b0149c74212f260
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a0f1fa0630a58054a138b730141b982af427475
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354285"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111926"
 ---
-# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取假設工具？
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>什麼是如果工具在 Azure Active Directory 條件式存取？
 
-[條件式存取](../active-directory-conditional-access-azure-portal.md)是 Azure Active Directory (Azure AD) 的功能，可讓您控制授權使用者存取雲端應用程式的方式。 要如何知道環境中的條件式存取原則會有什麼影響？ 若要回答這個問題，您可以使用**條件式存取假設工具**。
+[條件式存取](../active-directory-conditional-access-azure-portal.md)是一項功能的 Azure Active Directory (Azure AD)，可讓您控制如何授權使用者存取您雲端應用程式。 您知道表單的行為的條件式存取原則在您的環境中？ 若要回答這個問題，您可以使用**條件式存取假設工具**。
 
-本文說明如何使用此工具來測試條件式存取原則。
+這篇文章說明如何使用這項工具來測試您的條件式存取原則。
 
 ## <a name="what-it-is"></a>內容
 
-**條件式存取假設原則工具**可讓您了解環境中的條件式存取原則會有什麼影響。 這個工具並非要讓您以手動方式執行多個登入來測試原則，而是要讓您評估使用者的模擬登入。 該模擬可評估此登入對原則所造成的影響，並產生模擬報告。 此報告不只會列出所套用的條件式存取原則，還會列出[傳統原則](policy-migration.md#classic-policies) (如果有的話)。    
+**條件式存取假設原則工具**可讓您了解您的環境上的條件式存取原則的影響。 這個工具並非要讓您以手動方式執行多個登入來測試原則，而是要讓您評估使用者的模擬登入。 該模擬可評估此登入對原則所造成的影響，並產生模擬報告。 報表不會只列出所套用的條件式存取原則，但也[傳統原則](policy-migration.md#classic-policies)如果有的話。    
 
 假設工具也可讓您快速判斷套用至特定使用者的原則。 例如，如果您需要針對問題進行疑難排解，就可以使用這項資訊。  
 
 ## <a name="how-it-works"></a>運作方式
 
-在**條件式存取假設工具**中，您必須先設定您要模擬之登入案例的設定。 這些設定包括：
+在 **條件式存取假設工具**，您必須先設定您想要模擬的登入案例的設定。 這些設定包括：
 
 - 您要測試的使用者 
 
@@ -56,9 +56,9 @@ ms.locfileid: "60354285"
 
 ## <a name="running-the-tool"></a>執行工具
 
-您可以在 Azure 入口網站的 [[條件式存取 - 原則](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)] 頁面中找到**假設**工具。
+您可以找到**要是**工具 **[條件式存取-原則](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** 在 Azure 入口網站中的頁面。
 
-若要啟動此工具，請在原則清單頂端的工具列中按一下 [假設]。
+若要啟動此工具，請在原則清單頂端的工具列中按一下 [假設]  。
 
 ![假設](./media/what-if-tool/01.png)
 
@@ -77,7 +77,7 @@ ms.locfileid: "60354285"
 
 ### <a name="cloud-apps"></a>雲端應用程式
 
-這項設定的預設值是 [所有雲端應用程式]。 此預設設定會對環境中的所有可用原則進行評估。 您可以將此範圍縮小至會影響特定雲端應用程式的原則。
+這項設定的預設值是 [所有雲端應用程式]  。 此預設設定會對環境中的所有可用原則進行評估。 您可以將此範圍縮小至會影響特定雲端應用程式的原則。
 
 
 ### <a name="ip-address"></a>IP 位址
@@ -90,11 +90,11 @@ IP 位址是用來模擬[位置條件](location-condition.md)的單一 IPv4 位�
 ### <a name="client-apps"></a>用戶端應用程式
 
 這項設定會模擬[用戶端應用程式條件](conditions.md#client-apps)。
-根據預設，此設定會導致系統評估已選取 [瀏覽器] 和 (或) [行動裝置應用程式和桌面用戶端] 的所有原則。 此外，還會偵測強制執行 **Exchange ActiveSync (EAS)** 的原則。 您可以選取下列選項來縮小此設定的範圍：
+根據預設，此設定會導致系統評估已選取 [瀏覽器]  和 (或) [行動裝置應用程式和桌面用戶端]  的所有原則。 此外，還會偵測強制執行 **Exchange ActiveSync (EAS)** 的原則。 您可以選取下列選項來縮小此設定的範圍：
 
-- **瀏覽器**：可評估所有至少已選取 [瀏覽器] 的原則。 
+- **瀏覽器**：可評估所有至少已選取 [瀏覽器]  的原則。 
 
-- **行動裝置應用程式和桌面用戶端**：可評估所有至少已選取 [行動裝置應用程式和桌面用戶端] 的原則。 
+- **行動裝置應用程式和桌面用戶端**：可評估所有至少已選取 [行動裝置應用程式和桌面用戶端]  的原則。 
 
 
 ### <a name="sign-in-risk"></a>登入風險
@@ -104,7 +104,7 @@ IP 位址是用來模擬[位置條件](location-condition.md)的單一 IPv4 位�
 
 ## <a name="evaluation"></a>評估 
 
-按一下 [假設] 即可開始評估。 評估結果所提供的報告中會包含： 
+按一下 [假設]  即可開始評估。 評估結果所提供的報告中會包含： 
 
 ![假設](./media/what-if-tool/03.png)
 
@@ -123,8 +123,8 @@ IP 位址是用來模擬[位置條件](location-condition.md)的單一 IPv4 位�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您想要知道如何設定條件式存取原則，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](app-based-mfa.md)。
+- 如果您想要了解如何設定條件式存取原則，請參閱[需要 MFA 的特定應用程式與 Azure Active Directory 條件式存取](app-based-mfa.md)。
 
-- 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](best-practices.md)。 
+- 如果您已準備好設定您的環境的條件式存取原則，請參閱[Azure Active Directory 中的條件式存取的最佳作法](best-practices.md)。 
 
 - 如果您要移轉傳統原則，請參閱[在 Azure 入口網站中移轉傳統原則](policy-migration.md)  

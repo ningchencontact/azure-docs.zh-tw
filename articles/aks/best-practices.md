@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: iainfou
 ms.openlocfilehash: 20922f0fb6932191b8e522e4640b1ba4fecd5ca4
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66514566"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中建置和管理應用程式的叢集操作員和開發人員最佳做法

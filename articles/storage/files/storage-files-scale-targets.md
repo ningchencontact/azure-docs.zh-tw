@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c4928050f945ac88dd1f86e2a13b5d26d385e55a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: c765c3e29166358f3504949136a67d8d0db96be8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190017"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078154"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure 檔案服務延展性和效能目標
 
@@ -38,20 +38,22 @@ Azure 檔案共用的父資源是 Azure 儲存體帳戶。 儲存體帳戶代表
 
 有三種類別的限制時應考量的進階檔案共用： 儲存體帳戶、 共用和檔案。
 
-例如︰單一共用可達到 100,000 IOPS 和單一檔案可以調整最多 5,000 個 IOPS。 因此，比方說，如果您有一個共用中的三個檔案，您可以從共用取得的最大 IOPS 是 15000。
+例如: 單一共用可達到 100,000 IOPS 和單一檔案可以調整最多 5,000 個 IOPS。 因此，比方說，如果您有一個共用中的三個檔案，您可以從共用取得的最大 IOPS 是 15000。
 
 ### <a name="premium-filestorage-account-limits"></a>進階 FileStorage 帳戶限制
 
-進階檔案共用會呼叫特殊的儲存體帳戶中佈建**filestorage （預覽）**。 這個帳戶具有比標準檔案共用所使用的儲存體帳戶的稍有不同的擴展目標。 儲存體帳戶擴展目標，請參閱中的資料表[Azure 儲存體帳戶擴展目標](#azure-storage-account-scale-targets)一節。
+進階檔案共用會呼叫特殊的儲存體帳戶中佈建**filestorage （預覽）** 。 這個帳戶具有比標準檔案共用所使用的儲存體帳戶的稍有不同的擴展目標。 儲存體帳戶擴展目標，請參閱中的資料表[Azure 儲存體帳戶擴展目標](#azure-storage-account-scale-targets)一節。
 
 > [!IMPORTANT]
 > 儲存體帳戶限制套用到所有的共用。 最多調整儲存體帳戶的最大值才可達成，如果沒有每個儲存體帳戶只能有一個共用。
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
+
 ## <a name="azure-file-sync-scale-targets"></a>Azure 檔案同步擴展目標
 
-藉由 Azure 檔案同步，我們已儘可能嘗試設計沒有限制的使用方式，但並非總是可行。 下表指出我們測試的界限，及哪些目標實際上是固定限制：
+Azure 檔案同步的設計目標是無限制的使用方式，但無限制的使用方式不一定行得通。 下表指出 Microsoft 的測試界限，也指出哪些目標是固定限制：
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 

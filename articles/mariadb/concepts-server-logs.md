@@ -5,23 +5,23 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: 8a78a9b8f0772a83e45ac2b926878e61e6ee2e61
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 06/12/2019
+ms.openlocfilehash: 7a517be49a249b0b73c901137381bd05946aa4cc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926341"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065708"
 ---
-# <a name="server-logs-in-azure-database-for-mariadb"></a>適用於 MariaDB 的 Azure 資料庫中的伺服器記錄
+# <a name="slow-query-logs-in-azure-database-for-mariadb"></a>適用於 MariaDB 慢速查詢記錄檔中的 Azure 資料庫
 在適用於 MariaDB 的 Azure 資料庫中，使用者可以使用慢速查詢記錄檔。 不支援存取交易記錄。 慢速查詢記錄檔可以用來找出效能瓶頸，以進行疑難排解。
 
 如需慢速查詢記錄檔的詳細資訊，請參閱 MariaDB 文件的[慢速查詢記錄檔](https://mariadb.com/kb/en/library/slow-query-log-overview/) (英文)。
 
-## <a name="access-server-logs"></a>存取伺服器記錄
-您可以使用 Azure 入口網站和 Azure CLI，來列出和下載適用於 MariaDB 的 Azure 資料庫伺服器記錄。
+## <a name="access-slow-query-logs"></a>存取慢速查詢記錄
+您可以列出並下載適用於 MariaDB 慢速查詢記錄，使用 Azure 入口網站和 Azure CLI 的 Azure 資料庫。
 
-在 Azure 入口網站中，選取適用於 MariaDB 的 Azure 資料庫伺服器。 在 [監視] 標題下方，選取 [伺服器記錄] 頁面。
+在 Azure 入口網站中，選取適用於 MariaDB 的 Azure 資料庫伺服器。 在 [監視]  標題下方，選取 [伺服器記錄]  頁面。
 
 如需 Azure CLI 的詳細資訊，請參閱[使用 Azure CLI 設定和存取伺服器記錄](howto-configure-server-logs-cli.md)。
 
@@ -30,7 +30,7 @@ ms.locfileid: "64926341"
 
 記錄會每隔 24 小時或 7 GB 旋轉一次，先到者先用。
 
-## <a name="configure-logging"></a>設定記錄
+## <a name="configure-slow-query-logging"></a>設定慢速查詢記錄
 預設會停用慢速查詢記錄。 若要啟用它，請將 slow_query_log 設為 ON。
 
 您可以調整的其他參數包含：
@@ -75,7 +75,7 @@ ms.locfileid: "64926341"
 | `insert_id_s` | 插入識別碼 |
 | `sql_text_s` | 完整查詢 |
 | `server_id_s` | 伺服器識別碼 |
-| `thread_id_s` | 執行緒 ID |
+| `thread_id_s` | 執行緒識別碼 |
 | `\_ResourceId` | 資源 URI |
 
 ## <a name="next-steps"></a>後續步驟

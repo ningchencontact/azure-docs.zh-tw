@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 04/24/2019
 ms.openlocfilehash: b39279e560cb1738ff9b33ec587562efd2ed4e8d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65800941"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>將 Azure HDInsight 3.6 Hive 工作負載移轉至 HDInsight 4.0
@@ -30,7 +30,7 @@ ms.locfileid: "65800941"
 Hive 的其中一個優點是能夠將中繼資料匯出至外部資料庫 （又稱為 Hive 中繼存放區）。 **Hive 中繼存放區**負責儲存資料表的統計資料，包括表格儲存體位置、 資料行名稱和資料表索引資訊。 中繼存放區資料庫結構描述不同的 Hive 版本。 執行下列作業來升級 HDInsight 3.6 Hive 中繼存放區，使它與 HDInsight 4.0 相容。
 
 1. 建立您的外部中繼存放區的新複本。 HDInsight 3.6 和 HDInsight 4.0 需要不同的中繼存放區結構描述，並不能共用單一中繼存放區。 請參閱[使用 Azure HDInsight 中的外部中繼資料存放區](../hdinsight-use-external-metadata-stores.md)若要深入了解將外部中繼存放區連結至 HDInsight 叢集。 
-2. 為節點類型的執行啟動指令碼動作對 HDI 3.6 叢集，使用 「 前端節點 」。 貼上下列 URI 的文字方塊標記"Bash 指令碼 URI": https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh。在標記為 「 引數 」 的文字方塊中，輸入 伺服器名稱、 資料庫、 使用者名稱和密碼**複製**Hive 中繼存放區，並以空格分隔。 不包含"。 database.windows.net 」 時指定的伺服器名稱。
+2. 為節點類型的執行啟動指令碼動作對 HDI 3.6 叢集，使用 「 前端節點 」。 貼上下列 URI 的文字方塊標記"Bash 指令碼 URI": https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh 。在標記為 「 引數 」 的文字方塊中，輸入 伺服器名稱、 資料庫、 使用者名稱和密碼**複製**Hive 中繼存放區，並以空格分隔。 不包含"。 database.windows.net 」 時指定的伺服器名稱。
 
 > [!Warning]
 > 升級將 HDInsight 3.6 中繼資料結構描述轉換至 HDInsight 4.0 的結構描述，就無法逆轉。

@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 3897c402e45962836880ccebbeb252d189188d3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39c5efee0958fdfc8fa647f5acaf929f559f7bf7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61038557"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065656"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>如何為適用於 MariaDB 的 Azure 資料庫設定資料輸入複寫
 
-在此文章中，您將了解如何透過設定主要和複本伺服器，在適用於 MariaDB 的 Azure 資料庫服務中設定「資料輸入複寫」。 「資料輸入複寫」可讓您將來自在內部部署執行的主要 MariaDB 伺服器、虛擬機器中或由其他雲端提供者所代管的資料庫服務的資料，同步處理到適用於 MariaDB 的 Azure 資料庫服務中的複本。 
+在此文章中，您將了解如何透過設定主要和複本伺服器，在適用於 MariaDB 的 Azure 資料庫服務中設定「資料輸入複寫」。 「資料輸入複寫」可讓您將來自在內部部署執行的主要 MariaDB 伺服器、虛擬機器中或由其他雲端提供者所代管的資料庫服務的資料，同步處理到適用於 MariaDB 的 Azure 資料庫服務中的複本。 我們 recommanded 設定與資料中的進行複寫[全域交易識別碼](https://mariadb.com/kb/en/library/gtid/)10.2 您的主要伺服器版本時，或更新版本。
 
 此文章假設您先前已具備一些使用 MariaDB 伺服器與資料庫的經驗。
 
@@ -84,15 +84,15 @@ ms.locfileid: "61038557"
 
    **MySQL Workbench**
 
-   若要在 MySQL Workbench 中建立複寫角色，請從 [管理] 面板開啟 [使用者和權限] 面板。 接著，按一下 [新增帳戶]。 
+   若要在 MySQL Workbench 中建立複寫角色，請從 [管理]  面板開啟 [使用者和權限]  面板。 接著，按一下 [新增帳戶]  。 
  
    ![使用者和權限](./media/howto-data-in-replication/users_privileges.png)
 
-   在 [登入名稱] 欄位中輸入使用者名稱。 
+   在 [登入名稱]  欄位中輸入使用者名稱。 
 
    ![同步處理使用者](./media/howto-data-in-replication/syncuser.png)
  
-   按一下 [管理角色] 面板，然後從 [全域權限] 清單選取 [複寫從屬]。 然後按一下 [套用] 以建立複寫角色。
+   按一下 [管理角色]  面板，然後從 [全域權限]  清單選取 [複寫從屬]  。 然後按一下 [套用]  以建立複寫角色。
 
    ![複寫從屬](./media/howto-data-in-replication/replicationslave.png)
 
@@ -116,7 +116,16 @@ ms.locfileid: "61038557"
    結果應類似以下所示。 請務必記下二進位檔案的名稱，後續步驟會用到此名稱。
 
    ![主要狀態結果](./media/howto-data-in-replication/masterstatus.png)
+   
+6. 取得 GTID 位置 （選擇性，GTID 與複寫所需）
+
+   執行函式[ `BINLOG_GTID_POS` ](https://mariadb.com/kb/en/library/binlog_gtid_pos/)命令，以取得 GTID 位置對應 binlog 檔案名稱和位移。
+  
+    ```sql
+    select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);
+    ```
  
+
 ## <a name="dump-and-restore-master-server"></a>傾印並還原主要伺服器
 
 1. 從主要伺服器傾印所有資料庫
@@ -142,10 +151,16 @@ ms.locfileid: "61038557"
 
    所有「複寫中的資料」功能都可由已儲存的程序執行完成。 您可在[複寫中的資料已儲存的程序](reference-data-in-stored-procedures.md)中找到所有程序。 已儲存的程序可在 MySQL Shell 或 MySQL Workbench 中執行。
 
-   若要連結兩個伺服器並開始複寫，請在適用於 MariaDB 的 Azure DB 服務中登入目標複本伺服器，然後將外部執行個體設為主要伺服器。 在適用於 MariaDB 伺服器的 Azure DB 中使用 `mysql.az_replication_change_master` 已儲存的程序，即可執行此作業。
+   若要連結兩個伺服器並開始複寫，請在適用於 MariaDB 的 Azure DB 服務中登入目標複本伺服器，然後將外部執行個體設為主要伺服器。 這是藉由使用`mysql.az_replication_change_master`或`mysql.az_replication_change_master_with_gtid`MariaDB 伺服器的 Azure DB 預存程序。
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
+   ```
+   
+   或
+   
+   ```sql
+   CALL mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', 3306, '<master_gtid_pos>', '<master_ssl_ca>');
    ```
 
    - master_host：主要伺服器的主機名稱
@@ -153,6 +168,7 @@ ms.locfileid: "61038557"
    - master_password：主要伺服器的密碼
    - master_log_file：執行 `show master status` 產生的二進位記錄檔的名稱
    - master_log_pos：執行 `show master status` 產生的二進位記錄檔的位置
+   - master_gtid_pos:無法執行 GTID 位置 `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
    - master_ssl_ca：CA 憑證的內容。 如果不使用 SSL，請傳入空字串。
        - 建議將此參數以變數形式傳遞。 請參閱下列範例，以取得詳細資訊。
 
@@ -199,6 +215,10 @@ ms.locfileid: "61038557"
 
    如果 `Slave_IO_Running` 和 `Slave_SQL_Running` 的狀態為「是」，且 `Seconds_Behind_Master` 的值是 “0”，則複寫可順利運作。 `Seconds_Behind_Master` 可指定複本的延遲時間。 如果值不是 “0”，代表複本正在處理更新。 
 
+4. 更新對應的伺服器變數，讓資料在複寫更安全 （不含 GTID 複寫才需要）
+    
+    由於 MariaDB 原生複寫限制，您需要設定[ `sync_master_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info)並[ `sync_relay_log_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info)變數上不含 GTID 案例複寫。 我們建議您檢查您的從屬伺服器`sync_master_info`並`sync_relay_log_info`變數，並變更至`1`如果您想要確保資料在複寫是以穩定。
+    
 ## <a name="other-stored-procedures"></a>其他已儲存的程序
 
 ### <a name="stop-replication"></a>停止複寫

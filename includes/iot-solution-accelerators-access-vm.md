@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: db1af4f046bd8849fddee299e949d6edbdaae86a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 8d1f0f6ae3ffc123f1ae8318a6fbce4a9a3024fa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143407"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814761"
 ---
 ## <a name="access-the-virtual-machine"></a>存取虛擬機器
 
-下列步驟會在 Azure Cloud Shell 中使用 `az` 命令。 如果您想要的話，也可以在開發機器上[安裝 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)，並在本機執行命令。
+下列步驟會使用 Azure CLI 在 Azure Cloud Shell 中。 如果您想，您可以[安裝 Azure CLI](/cli/azure/install-azure-cli)上您的開發機器，並在本機執行命令。
 
 下列步驟說明如何設定 Azure 虛擬機器，以允許進行 **SSH** 存取。 所顯示的步驟假設您為解決方案加速器選擇的名稱是 **contoso-simulation** -- 請將此值更換為部署名稱：
 

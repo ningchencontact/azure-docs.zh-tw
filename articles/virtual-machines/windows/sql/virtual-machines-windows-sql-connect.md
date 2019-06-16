@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a33525e44b2e294b7ce85c7081864dbef0856588
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 70e478ac70b7ab53f1357394f3a3cb0d92f41f00
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130805"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075818"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>連線到 Azure 上的 SQL Server 虛擬機器
 
@@ -50,7 +50,7 @@ ms.locfileid: "62130805"
 
 ## <a name="connect-to-sql-server-over-the-internet"></a>連接網際網路中的 SQL Server
 
-如果您需要從網際網路連線到您的 SQL Server 資料庫引擎，請於佈建期間，在入口網站中針對 [SQL 連線能力]類型選取 [公開]。 入口網站會自動執行下列步驟：
+如果您需要從網際網路連線到您的 SQL Server 資料庫引擎，請於佈建期間，在入口網站中針對 [SQL 連線能力]  類型選取 [公開]  。 入口網站會自動執行下列步驟：
 
 * 啟用 SQL Server 的 TCP/IP 通訊協定。
 * 設定防火牆規則，以開啟 SQL Server TCP 連接埠 (預設為 1433)。
@@ -58,7 +58,7 @@ ms.locfileid: "62130805"
 * 將 VM 上的網路安全性群組設定為 SQL Server 連接埠上的所有 TCP 流量。
 
 > [!IMPORTANT]
-> SQL Server Developer 和 Express 版本的虛擬機器映像不會自動啟用 TCP/IP 通訊協定。 对于 Developer Edition 和 Express Edition，在创建 VM 后，必须使用 SQL Server 配置管理器[手动启用 TCP/IP 协议](#manualtcp) 。
+> SQL Server Developer 和 Express 版本的虛擬機器映像不會自動啟用 TCP/IP 通訊協定。 在 Developer 和 Express 版本中，您必須在建立 VM 之後，使用「SQL Server 組態管理員」來[手動啟用 TCP/IP 通訊協定](#manualtcp)。
 
 任何能夠存取網際網路的用戶端都能藉由指定虛擬機器的公用 IP 位址或指派給該 IP 位址的任何 DNS 標籤，連線到 SQL Server 執行個體。 如果 SQL Server 連接埠是 1433，則不需要在連接字串中指定它。 下列連接字串會使用 SQL 驗證 (您也可以使用公用 IP 位址) 連線到具有 DNS 標籤的 SQL VM`sqlvmlabel.eastus.cloudapp.azure.com`。
 
@@ -77,10 +77,10 @@ Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User 
 
 ## <a name="connect-to-sql-server-within-a-virtual-network"></a>連線到相同虛擬網路內的 SQL Server
 
-當您在入口網站中針對 [SQL 連線能力]類型選擇 [私用] 時，Azure 會將大部分設定設定為與**公用**的相同。 其中一項差異是沒有任何網路安全性群組規則可允許 SQL Server 連接埠 (預設為 1433) 上的外部流量。
+當您在入口網站中針對 [SQL 連線能力]  類型選擇 [私用]  時，Azure 會將大部分設定設定為與**公用**的相同。 其中一項差異是沒有任何網路安全性群組規則可允許 SQL Server 連接埠 (預設為 1433) 上的外部流量。
 
 > [!IMPORTANT]
-> SQL Server Developer Edition 和 Express Edition 的虚拟机映像不会自动启用 TCP/IP 协议。 在 Developer 和 Express 版本中，您必須在建立 VM 之後，使用「SQL Server 組態管理員」來[手動啟用 TCP/IP 通訊協定](#manualtcp)。
+> SQL Server Developer 和 Express 版本的虛擬機器映像不會自動啟用 TCP/IP 通訊協定。 在 Developer 和 Express 版本中，您必須在建立 VM 之後，使用「SQL Server 組態管理員」來[手動啟用 TCP/IP 通訊協定](#manualtcp)。
 
 私用連線能力通常與[虛擬網路](../../../virtual-network/virtual-networks-overview.md)搭配使用，可進行數個情節。 您可以連接在相同虛擬網路中的 VM，即使這些 VM 位於不同的資源群組也可以。 [站對站 VPN](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)可讓您建立能將 VM 連接至內部部署網路和電腦的混合式架構。
 
@@ -94,13 +94,15 @@ Server=mysqlvm;Integrated Security=true
 
 ## <a id="change"></a>變更 SQL 連線能力設定
 
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
 您可以在 Azure 入口網站中變更您 SQL Server 虛擬機器的連線能力設定。
 
-1. 在 Azure 入口網站中，選取 [虛擬機器]。
+1. 在 Azure 入口網站中，選取**SQL 虛擬機器**。
 
 2. 選取 SQL Server VM。
 
-3. 在 [設定] 下，按一下 [SQL Server 組態]。
+3. 底下**設定**，選取**安全性**。
 
 4. 將 **SQL 連線能力層級**變更為必要的設定。 可選擇性地使用此區域來變更 SQL Server 連接埠或 SQL 驗證設定。
 

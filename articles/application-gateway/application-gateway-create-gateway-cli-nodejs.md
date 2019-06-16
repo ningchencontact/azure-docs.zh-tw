@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
 ms.openlocfilehash: 7107f45253c4f13b3378489726bf5034e104fa30
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62095977"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>使用 Azure CLI 建立應用程式閘道
@@ -29,7 +29,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
 
 在此案例中，您將了解如何使用 Azure 入口網站來建立應用程式閘道。
 
-此方案将：
+此案例將會：
 
 * 建立含有兩個執行個體的中型應用程式閘道。
 * 建立名為 ContosoVNET 且含有 10.0.0.0/16 保留 CIDR 區塊的虛擬網路。
@@ -40,7 +40,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
 
 ## <a name="before-you-begin"></a>開始之前
 
-「Azure 應用程式閘道」需要有自己的子網路。 在创建虚拟网络时，请确保保留足够的地址空间，以便设置多个子网。 將應用程式閘道部署到子網路之後，就只能將額外的應用程式閘道新增到該子網路。
+「Azure 應用程式閘道」需要有自己的子網路。 建立虛擬網路時，請確定您保留足夠的位址空間，以便擁有多個子網路。 將應用程式閘道部署到子網路之後，就只能將額外的應用程式閘道新增到該子網路。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -50,7 +50,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
 az login
 ```
 
-輸入上述範例後會提供程式碼。 瀏覽至 https://aka.ms/devicelogin瀏覽器繼續登上處理程序中。
+輸入上述範例後會提供程式碼。 瀏覽至 https://aka.ms/devicelogin 瀏覽器繼續登上處理程序中。
 
 ![顯示裝置登入的 cmd][1]
 
@@ -90,7 +90,7 @@ azure network vnet create \
 --location eastus
 ```
 
-## <a name="create-a-subnet"></a>创建子网
+## <a name="create-a-subnet"></a>建立子網路
 
 建立虛擬網路之後，就會為應用程式閘道新增子網路。  如果您打算使用應用程式閘道搭配與其裝載於相同虛擬網路中的 Web 應用程式，請務必保留足夠的空間給另一個子網路使用。
 
@@ -135,7 +135,7 @@ azure network application-gateway create \
 
 參閱 [建立自訂健康狀態探查](application-gateway-create-probe-portal.md)
 
-访问 [配置 SSL 卸载](application-gateway-ssl-arm.md)
+參閱 [設定 SSL 卸載](application-gateway-ssl-arm.md)
 
 <!--Image references-->
 

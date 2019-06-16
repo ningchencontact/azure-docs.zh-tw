@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.openlocfilehash: ff2930fbe0e53c4b3c1223f87919c0913296d07c
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66515926"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>使用析診斷記錄對 Azure 串流分進行疑難排解
@@ -117,7 +117,7 @@ properties | 記錄項目特定詳細資料 (序列化為 JSON 字串)。 如需
 
 Name | 描述
 ------- | -------
-`Source` | 發生錯誤的作業輸入或輸出名稱。
+source | 發生錯誤的作業輸入或輸出名稱。
 Message | 與錯誤相關的訊息。
 類型 | 錯誤類型。 例如，**DataConversionError**、**CsvParserError** 或 **ServiceBusPropertyColumnMissingError**。
 資料 | 包含有助於正確找到錯誤來源的資料。 視其大小，資料可能會遭到截斷。
@@ -136,7 +136,7 @@ Message | 與錯誤相關的訊息。
 
 一般事件涵蓋所有其他事件。
 
-Name | 描述
+名稱 | 描述
 -------- | --------
 Error | (選用) 錯誤資訊。 這通常是例外狀況資訊 (如果有的話)。
 Message| 記錄訊息。

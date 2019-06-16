@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148825"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(已被取代) Container Service 常見問題集
@@ -93,13 +93,13 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 
 1. 在入口網站中，瀏覽至叢集部署的資源群組。  
 
-2. 按一下 [概觀]，然後按一下 [基本資訊] 下 [部署] 的連結。 
+2. 按一下 [概觀]  ，然後按一下 [基本資訊]  下 [部署]  的連結。 
 
-3. 在 [部署歷程記錄] 刀鋒視窗中，按一下名稱開頭為 **microsoft-acs** 且後接部署日期的部署。 範例︰microsoft-acs-201701310000。  
+3. 在 [部署歷程記錄]  刀鋒視窗中，按一下名稱開頭為 **microsoft-acs** 且後接部署日期的部署。 範例︰microsoft-acs-201701310000。  
 
-4. 在 [摘要] 頁面的 [輸出] 底下，提供了一些叢集連結。 **SSHMaster0** 會提供容器服務叢集中第一個主要主機的 SSH 連接字串。 
+4. 在 [摘要]  頁面的 [輸出]  底下，提供了一些叢集連結。 **SSHMaster0** 會提供容器服務叢集中第一個主要主機的 SSH 連接字串。 
 
-如先前所述，您也可以使用 Azure 工具來尋找主要主機的 FQDN。 請使用建立叢集時所指定的主要主機 FQDN 和使用者名稱，透過 SSH 連線到主要主機。 例如：
+如先前所述，您也可以使用 Azure 工具來尋找主要主機的 FQDN。 請使用建立叢集時所指定的主要主機 FQDN 和使用者名稱，透過 SSH 連線到主要主機。 例如:
 
 ```bash
 ssh userName@masterFQDN –A –p 22 

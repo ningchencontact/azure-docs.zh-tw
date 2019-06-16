@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
 ms.openlocfilehash: 083d8f66a73471548c812e27325e1ec69ad5c45c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869576"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>依國家/地區限制 Azure CDN 內容
@@ -36,29 +36,29 @@ ms.locfileid: "64869576"
 若為**來自 Verizon 的 Azure CDN 進階**設定檔，則必須使用**管理**入口網站來啟動地區篩選。 如需詳細資訊，請參閱[來自 Verizon 的 Azure CDN 進階設定檔](#azure-cdn-premium-from-verizon-profiles)。
 
 ### <a name="define-the-directory-path"></a>定義目錄路徑
-若要存取地區篩選功能，請在入口網站內選取 CDN 端點，然後在左側功能表的 [設定] 下選取 [地區篩選]。 
+若要存取地區篩選功能，請在入口網站內選取 CDN 端點，然後在左側功能表的 [設定] 下選取 [地區篩選]  。 
 
 ![地區篩選標準](./media/cdn-filtering/cdn-geo-filtering-standard.png)
 
-從 [路徑] 方塊中，指定要允許或拒絕使用者存取的位置相對路徑。 
+從 [路徑]  方塊中，指定要允許或拒絕使用者存取的位置相對路徑。 
 
-您可藉由指定目錄路徑 (例如，/pictures/)，並使用正斜線 (/) 或選取特定資料夾，來對所有檔案套用地區篩選。 您也可以對單一檔案套用地區篩選 (例如，/pictures/city.png)。 系統允許多個規則；在輸入規則後，會出現空白資料列供您輸入下一個規則。
+您可藉由指定目錄路徑 (例如，/pictures/  )，並使用正斜線 (/) 或選取特定資料夾，來對所有檔案套用地區篩選。 您也可以對單一檔案套用地區篩選 (例如，/pictures/city.png  )。 系統允許多個規則；在輸入規則後，會出現空白資料列供您輸入下一個規則。
 
 例如，下列目錄路徑篩選條件全都有效：   
 */*                                 
-/Photos/     
-/Photos/Strasbourg/     
-/Photos/Strasbourg/city.png
+/Photos/       
+/Photos/Strasbourg/       
+/Photos/Strasbourg/city.png 
 
 ### <a name="define-the-type-of-action"></a>定義動作的類型
 
-從 [動作] 清單中，選取 [允許] 或 [封鎖]： 
+從 [動作]  清單中，選取 [允許]  或 [封鎖]  ： 
 
 - **允許**:只有從指定的國家/地區的使用者可以從遞迴路徑要求的資產的存取。
 
 - **區塊**:從指定的國家/地區的使用者被拒絕存取，從遞迴路徑要求的資產。 如果已不設定該位置的任何其他國家 （地區） 篩選選項，則所有其他使用者將不允許存取。
 
-例如，用於封鎖 /Photos/Strasbourg/ 路徑的地區篩選規則會篩選出下列檔案：     
+例如，用於封鎖 /Photos/Strasbourg/  路徑的地區篩選規則會篩選出下列檔案：     
 *http:\//\<端點 >.azureedge.net/Photos/Strasbourg/1000.jpg*
 *http:\//\<端點 >.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
@@ -70,28 +70,28 @@ ms.locfileid: "64869576"
 ![地區篩選規則](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
 ### <a name="clean-up-resources"></a>清除資源
-若要刪除規則，請從 [地區篩選] 頁面上的清單中選取規則，然後選擇 [刪除]。
+若要刪除規則，請從 [地區篩選]  頁面上的清單中選取規則，然後選擇 [刪除]  。
 
 ## <a name="azure-cdn-premium-from-verizon-profiles"></a>來自 Verizon 的 Azure CDN 進階設定檔
 在**來自 Verizon 的 Azure CDN 進階**設定檔上，用於建立地區篩選規則的使用者介面並不相同：
 
-1. 在 Azure CDN 設定檔的頂端功能表中，選取 [管理]。
+1. 在 Azure CDN 設定檔的頂端功能表中，選取 [管理]  。
 
-2. 在 Verizon 入口網站中，選取 [HTTP 大型]，然後選取 [國家 (地區) 篩選]。
+2. 在 Verizon 入口網站中，選取 [HTTP 大型]  ，然後選取 [國家 (地區) 篩選]  。
 
     ![地區篩選標準](./media/cdn-filtering/cdn-geo-filtering-premium.png)
 
-3. 選取 [新增國家 (地區) 篩選]。
+3. 選取 [新增國家 (地區) 篩選]  。
 
-    [步驟 1：] 頁面隨即出現。
+    [步驟 1：]  頁面隨即出現。
 
-4. 輸入目錄路徑、選取 [封鎖] 或 [新增]，然後選取 [下一步]。
+4. 輸入目錄路徑、選取 [封鎖]  或 [新增]  ，然後選取 [下一步]  。
 
-    [步驟 2：] 頁面隨即出現。 
+    [步驟 2：]  頁面隨即出現。 
 
 5. 從清單中，選取一或多個國家/地區，然後選取**完成**以啟動規則。 
     
-    新的規則便會出現在 [國家 (地區)篩選] 頁面的資料表中。
+    新的規則便會出現在 [國家 (地區)篩選]  頁面的資料表中。
 
     ![地區篩選規則](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
 

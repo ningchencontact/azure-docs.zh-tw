@@ -6,14 +6,14 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 5e03a3e33d618c393241a649be50fe78632caafe
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b7d69e0fe16f96b0e3886c3736f8b91d4c06b446
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069003"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063744"
 ---
-# <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>監視與微調 Azure Database for PostgreSQL-單一伺服器
+# <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>監視和調整「適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器」
 監視伺服器的相關資料，可協助您疑難排解並最佳化您的工作負載。 「適用於 PostgreSQL 的 Azure 資料庫」提供各種監視選項，可讓您深入了解伺服器的行為。
 
 ## <a name="metrics"></a>度量
@@ -40,16 +40,16 @@ ms.locfileid: "65069003"
 |backup_storage_used|已使用的備份儲存體|位元組|已使用的備份儲存體數量。|
 
 ## <a name="server-logs"></a>伺服器記錄
-您可以在伺服器上啟用記錄功能。 这些日志也可通过 [Azure Monitor 日志](../azure-monitor/log-query/log-query-overview.md)、事件中心和存储帐户中的 Azure 诊断日志获得。 若要深入了解記錄，請造訪[伺服器記錄](concepts-server-logs.md)頁面。
+您可以在伺服器上啟用記錄功能。 這些記錄檔也都可透過 Azure 中的診斷記錄[Azure 監視器記錄](../azure-monitor/log-query/log-query-overview.md)，事件中樞和儲存體帳戶。 若要深入了解記錄，請造訪[伺服器記錄](concepts-server-logs.md)頁面。
 
 ## <a name="query-store"></a>查詢存放區
-[查詢存放區](concepts-query-store.md)是公開預覽功能，可追蹤一段時間的查詢效能，包括查詢執行階段統計資料和等待事件。 此功能會將查詢執行階段效能資訊保留在名稱為 **azure_sys** 的系統資料庫之中的 query_store 結構描述下。 您可以透過各種設定旋鈕控制資料的收集和儲存。
+[查詢存放區](concepts-query-store.md)會持續追蹤的一段時間包括效能查詢執行階段統計資料，並等待事件的查詢。 此功能會將查詢執行階段效能資訊保留在名稱為 **azure_sys** 的系統資料庫之中的 query_store 結構描述下。 您可以透過各種設定旋鈕控制資料的收集和儲存。
 
 ## <a name="query-performance-insight"></a>查詢效能深入解析
-[查詢效能深入解析](concepts-query-performance-insight.md)可搭配查詢存放區提供可從 Azure 入口網站存取的視覺效果。 這些圖表可讓您識別影響效能的關鍵查詢。 查詢效能深入解析位於公開預覽狀態，可在 PostgreSQL 伺服器入口網站頁面的 Azure Database **支援與疑難排解**區段中存取。
+[查詢效能深入解析](concepts-query-performance-insight.md)可搭配查詢存放區提供可從 Azure 入口網站存取的視覺效果。 這些圖表可讓您識別影響效能的關鍵查詢。 查詢從可存取的效能 Insightis**支援與疑難排解**Azure Database for PostgreSQL 伺服器的入口網站頁面的區段。
 
 ## <a name="performance-recommendations"></a>效能建議
-[效能建議](concepts-performance-recommendations.md)功能可識別改善工作負載效能的機會。 效能建議的公開預覽版本提供建立新索引的建議，可能有助改善工作負載的效能。 若要產生索引建議，此功能會考量各種資料庫特性，包括查詢存放區所報告的結構描述和工作負載。 實作任何效能建議後，客戶應測試效能，以評估這些變更的影響。 
+[效能建議](concepts-performance-recommendations.md)功能可識別改善工作負載效能的機會。 效能建議為您提供建立新的索引，有可能改善您的工作負載的效能建議。 若要產生索引建議，此功能會考量各種資料庫特性，包括查詢存放區所報告的結構描述和工作負載。 實作任何效能建議後，客戶應測試效能，以評估這些變更的影響。 
 
 ## <a name="next-steps"></a>後續步驟
 - 如需有關建立計量相關警示的指引，請參閱[如何設定警示](howto-alert-on-metric.md)。

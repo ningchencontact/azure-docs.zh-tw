@@ -2,20 +2,20 @@
 title: Azure 流量管理員中的計量與警示
 description: 本文描述在 Azure 中的流量管理員可使用的計量。
 services: traffic-manager
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
-ms.author: kumud
-ms.openlocfilehash: 1c0c48efc7abf4b810e92b5cd04d1538577c71d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: e689398a38030a712ec6beb651131d0424e44476
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330030"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071125"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>流量管理員的計量與警示
 
@@ -46,7 +46,7 @@ ms.locfileid: "60330030"
  - 如果端點已啟動，使用 **1**。
  - 如果端點已關閉，使用 **0**。
 
-此計量可以顯示為代表所有計量狀態的彙總值 (圖 3)，或者也可以分割 (參閱圖 4) 以顯示特定端點狀態。 在前者的情況下，如果彙總層級選取為 [平均]，則此計量值是所有端點狀態的算術平均值。 例如，如果設定檔有兩個端點，且只有一個健康情況良好，則此計量的值會是 **0.50**，如圖 3 中所示。 
+此計量可以顯示為代表所有計量狀態的彙總值 (圖 3)，或者也可以分割 (參閱圖 4) 以顯示特定端點狀態。 在前者的情況下，如果彙總層級選取為 [平均]  ，則此計量值是所有端點狀態的算術平均值。 例如，如果設定檔有兩個端點，且只有一個健康情況良好，則此計量的值會是 **0.50**，如圖 3 中所示。 
 
 
 ![流量管理員計量 - 端點狀態的複合檢視](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)

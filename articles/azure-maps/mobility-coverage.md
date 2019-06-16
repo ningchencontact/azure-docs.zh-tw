@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 11ebaec75b1220f39fe059ea7825cdccafda2f5d
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735612"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Azure Maps 流動性涵蓋範圍
@@ -47,7 +47,7 @@ Azure 地圖服務並沒有相同的層級資訊 」 和 「 所有城市和國�
 | 波多黎各 | 聖胡安 |
 | 烏拉圭 | 蒙特維多，蓬塔阿雷 del Este |
 | 美國 | <p>Albany (NY)、 Albuquerque (NM)、 泊船港 (AK)，Appleton Oshkosh Neenah (WI-FI)、 Asheville (NC)、 （喔） 雅典，亞特蘭大 (運作 GA)、 奧斯丁 (TX)、 Bakersfield (CA)、 Baltimore)，Bellevue (WA) 」、 「 Berkshire 郡 (MA) 」、 「 伯明罕 (AL) 」、 「 布魯民頓 (IN)、 「 波伊西 （識別碼）、 波士頓 （MA) Boulder (CO) Brevard 郡 （奧蘭多市）、 水牛 (NY)、 Butte (MT)、 維德 Cod)，Centre 郡 (PA)、 Champaign Urbana (IL)、 Charleston (SC)、 Charleston (WV)、 Charlotte (NC)、 Charlottesville (VA)、 Chattanooga (TN)、 類似 (WY)、 芝加哥 (IL)、 辛辛那提 （順帶一提），Citrus 郡 （奧蘭多市）、 克里夫蘭 （喔）、 Coachella Valley (CA)、 Colorado Springs (CO)、 哥倫比亞 (TN)、 州哥倫布 （喔）、 主體 Christi (TX)、 Dallas/等值得 (TX)、 Dayton （喔）、 Delaware，丹佛 (CO)、 Des Moines (IA)、 底特律 (MI)、 北極圈 (MN)、 El Paso (TX)、 Eugene (OR)，Fairbanks (AK)、 Fargo (ND)、 Fayetteville (NC)、 弗 (AZ)、 打火 (MI) Fort Collins (CO)、 堡壘 Wayne (IN)、 夫勒斯諾市 (CA)、 Gainesville （奧蘭多市）、 直屬分岔 (ND)，Grand Rapids (MI)，綠色槽 (WI-FI) 」、 「 Greensboro (NC) 」、 「 Greenville (SC) 」、 「 Gunnison (CO)、 「 Hampton 道路 (VA)，佛 (CA)、 Hartford (CT)、 國家/地區 （奧蘭多市名稱）、 檀香山 (HI)、 休士頓 （德州）、 Humboldt 國家/地區 (CA)、 Huntsville (AL)、 安納波利斯 (IN)、 Ithaca (NY)、 Jackson （毫秒），Jackson (TN)、 傑克遜-聖約翰郡 （奧蘭多市）、 Johnson 城市 (TN) Jonesboro (AR)Joplin （月）、 Juneau (AK)、 Kalamazoo (MI)、 堪薩斯城 （月）、 Kauai (HI)、 Ketchum (ID)、 Knoxville (TN)、 Lafayette (IN)、 蘭卡斯特 (PA)、 Lansing (MI)、 拉斯維加斯 （內華達州拉斯維加斯）、 Lawrence (KS)、 Lee 郡 （奧蘭多市）、 頓號 （金鑰）、 Lincoln 郡 (OR)、 Little Rock (AR)，洛杉磯 (CA)，路易維耳 （金鑰）、 Madison (WI-FI)、 McAllen (TX)、 田納西州 (TN)、 邁阿密 （奧蘭多市）、 Milwaukee 威斯康辛 (WI-FI)、 聖保羅明尼亞 (MN)、 Missoula (MT)、 Modesto （美國）、 Moline (IL)、 門羅縣 (PA)、 Montgomery (AL)、 Morgantown (WV)、 納許維爾居住 (TN)、 Navajo 國家/地區)，新的樂園 (CT)、 紐奧良 (LA)，NYC NJ） Ocala （奧蘭多市）、 Okaloosa 郡 （奧蘭多市）、 Oklahoma 縣 （市） （確定）、 奧馬哈 (NE)、 佛羅里達州奧蘭多 （市）、 巴拿馬縣 （市） （奧蘭多市）、 Pensacola （奧蘭多市）、 Peoria (IL)、 Philadelphia (PA)、 Phoenix (AZ)、 Pittsburgh (PA)、 波特蘭 (ME)、 波特蘭 (OR)、 Racine (WI-FI)，羅列 (NC)、 Redding (CA)、 Reno & Lake Tahoe （內華達州拉斯維加斯）、 Roanoke Valley (VA-Lynchburg，) 斯特 (NY)，Rocky Mountain 美地國家公園），惡意 Valley (OR)、 Roseburg (OR)、 Roseville (CA)、 沙加緬度 (CA)、 Salem (OR)、 鹽湖城 (UT)、 San Antonio （德州） 聖地牙哥 (CA)，San Luis Obispo (CA)、 Santa Barbara (CA)、 Santa Fe (NM)、 Sarasota （奧蘭多市）、 大 (GA)、 Seacoast 區域 (NH)，西雅圖 Tacoma Bellevue (WA)，SF Bay 區域 (CA)、 1876 縣 （市） (IA)、 1876 便 (SD)、 Sitka (AK)、 Spokane (WA)、 量 (IL)、 量 （大量），聖 George (UT)、 St.Louis （月）、 Stockton (CA)，鳩 Utica (NY)、 Tallahassee （奧蘭多市）、 坦帕市聖彼得堡 （奧蘭多市）、 土 Haute (IN)、 托 （喔）、 Topeka (KS)、 周遊縣 （市） (MI)、 Tucson (AZ)、 Tulsa （確定）、 Vermont，Victorville (CA)、 Volusia 郡 （奧蘭多市）、 Waco （德州）華盛頓州 (DC)、 Waterbury (CT)、 Wichita (KS)、 Wilmington (NC)、 雅其瑪 (WA)、 紐約郡 (PA)、 Yuma 郡 (AZ)</p>|
-| + 美國美屬維爾京群島 | 美國美屬維爾京群島 * |
+| \+ 美國美屬維爾京群島 | 美國美屬維爾京群島 * |
 
 
 ## <a name="asia-pacific"></a>亞太地區
@@ -90,8 +90,8 @@ Azure 地圖服務並沒有相同的層級資訊 」 和 「 所有城市和國�
 | 愛沙尼亞   | 愛沙尼亞 * |   
 | 芬蘭   | Hämeenlinna、 Helsinki、 Joensuu、 Jyväskylä、 Kajaani、 Kouvola-Kotka，Kuopio，Lappeenranta Mikkeli、 Oulu、 Seinäjoki、 Tampere、 Turku、 Vaasa|
 | 法國    | <p>Amberieu-en-Bugey、 亞眠、 Angers、 Annecy、 Annonay、 Arras、 Aubenas、 Bayonne、 Besançon、 Blois、 波爾多，夏末 sur Mer、 Brest、 Briançon、 cannes 上, en Châlons 香檳、 Chartres、 Clermont-Ferrand、 Colmar、 Dax、 Dijon、 Grenoble、 Haguenau、 La Rochelle、 Le功能濾鏡，Lille、 Lorient、 Lyon、 MAC、 馬賽 & Provence、 梅茲、 Millau，Mont-de-Marsan、 Montpellier、 Mulhouse，nancy 用下列方式 mans Nantes，好用、 Nimes，同時、 Nyons、 巴黎、 普瓦泰、 Privas、 Quimper、 Rennes、 聖 Malo、 聖 Étienne、 Saint-Nazaire，Saintes、 Sarrebourg、 Sete、 規則、 Tarbes、 Toulouse，了解</P> | 
-| + 法屬圭亞那 | 開雲 |
-| + 新增喀 | Nouméa  |
+| \+ 法屬圭亞那 | 開雲 |
+| \+ 新增喀 | Nouméa  |
 | 喬治亞 | 第比利斯 | 
 | 德國 | <p>柏林、 布蘭登、 Bremen & Niedersachsen、 Cologne、 Eisenach、 法蘭克福、 漢堡、 Karlsruhe、 Mainz、 München-幕尼黑，Rhein Neckar 區域 Rhein Ruhr 區域，Stuttgart，Titisee-Neustadt，烏爾姆</P> | 
 | 希臘 | <p>雅典，Arta、 Amorgos、 Chania、 Corfu、 Chios Kos、 Heraklion、 Ioannina、 Kavala、 Kalamata、 Komotini、 Kos、 Larissa、 Meganisi、 Mykonos、 Patra、 Rethimno、 斯島、 Santorini、 Serres、 Syros、 Tinos、 Thessaloniki、 Veria、 Volos、 Xanthi </P> |

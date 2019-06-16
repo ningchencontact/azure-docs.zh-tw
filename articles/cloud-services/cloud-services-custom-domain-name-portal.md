@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e210882cb773718f68e9178cbbce6874c2729744
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337443"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063623"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>設定 Azure 雲端服務的自訂網域名稱
-當您建立雲端服務時，Azure 會將它指派給 **cloudapp.net**的子網域。 例如，如果您的雲端服務的名稱為 "contoso"，您的使用者可以透過 URL (如 http://contoso.cloudapp.net) 存取應用程式。 Azure 也會指派虛擬 IP 位址。
+當您建立雲端服務時，Azure 會將它指派給 **cloudapp.net**的子網域。 例如，如果您的雲端服務的名稱為 "contoso"，您的使用者可以透過 URL (如 `http://contoso.cloudapp.net`) 存取應用程式。 Azure 也會指派虛擬 IP 位址。
 
 不過，您也可以在自己的網域名稱 (例如 **contoso.com**) 上公開您的應用程式。 本文說明如何保留或設定雲端服務 Web 角色的自訂網域名稱。
 
@@ -64,11 +64,11 @@ CNAME 記錄對應*特定*網域，例如**contoso.com**或是**www\.contoso.com
 
 1. 使用其中一種方法來尋找指派給雲端服務的 **.cloudapp.net** 網域名稱。
 
-   * 登录到 [Azure 门户]，选择云服务，查看“概述”部分，然后找到“站点 URL”条目   。
+   * 登入[Azure 入口網站]，選取您的雲端服務，查看**概觀**區段，然後尋找**站台 URL**項目。
 
        ![快速瀏覽區段，其中顯示網站 URL][csurl]
 
-       **或者**
+       **或**
    * 安裝並設定 [Azure Powershell](/powershell/azure/overview)，然後使用下列命令：
 
        ```powershell
@@ -93,11 +93,11 @@ CNAME 記錄對應*特定*網域，例如**contoso.com**或是**www\.contoso.com
 > 上述範例僅適用於 **www** 子網域的流量。 因為 CNAME 記錄不能使用萬用字元，所以您必須為每一個網域/子網域建立一個 CNAME。 如果要將來自子網域 (例如 *.contoso.com) 的流量導向您的 cloudapp.net 位址，您可以在 DNS 設定中設定 [URL 重新導向]  或 [URL 轉送]  項目，或建立 A 記錄。
 
 ## <a name="add-an-a-record-for-your-custom-domain"></a>新增自訂網域的 A 記錄
-若要建立 A 記錄，您必須先找出雲端服務的虛擬 IP 位址。 然後，利用註冊機構提供的工具，在 DNS 表格中為自訂網域新增項目。 每个注册机构指定 A 记录的方法类似但略有不同，但概念是相同的。
+若要建立 A 記錄，您必須先找出雲端服務的虛擬 IP 位址。 然後，利用註冊機構提供的工具，在 DNS 表格中為自訂網域新增項目。 各註冊機構指定 A 記錄的方法都很類似，只是稍微不同，但概念都一樣。
 
 1. 使用下列其中一種方法取得雲端服務的 IP 位址。
 
-   * 登录到 [Azure 门户]，选择云服务，查看“概述”部分，然后找到“公共 IP 地址”条目   。
+   * 登入[Azure 入口網站]，選取您的雲端服務，查看**概觀**區段，然後尋找**公用 IP 位址**項目。
 
        ![快速瀏覽區段，其中顯示 VIP][vip]
 
@@ -109,7 +109,7 @@ CNAME 記錄對應*特定*網域，例如**contoso.com**或是**www\.contoso.com
        ```
 
      建立 A 記錄時需要用到此 IP 位址，請儲存下來。
-2. 登录到 DNS 注册机构的网站，并转到用于管理 DNS 的页面。 在網站中尋找標示為 **Domain Name**、**DNS** 或 **Name Server Management** 的連結或區域。
+2. 登入 DNS 註冊機構的網站，並移至 DNS 管理頁面。 在網站中尋找標示為 **Domain Name**、**DNS** 或 **Name Server Management** 的連結或區域。
 3. 現在找出可選取或輸入 A 記錄的地方。 您可能需要從下拉式清單中或移至進階設定頁面，才能選取記錄類型。
 4. 選取或輸入將使用此 A 記錄的網域或子網域。 例如，選取**www**如果您想要建立別名**www\.customdomain.com**。 如果要為所有子網域建立萬用字元項目，請輸入 '*****'。 這會涵蓋所有子網域，例如**mail.customdomain.com**， **login.customdomain.com**，並**www\.customdomain.com**。
 
@@ -130,17 +130,17 @@ CNAME 記錄對應*特定*網域，例如**contoso.com**或是**www\.contoso.com
 > 
 
 ## <a name="next-steps"></a>後續步驟
-* [如何管理云服务](cloud-services-how-to-manage-portal.md)
+* [如何管理雲端服務](cloud-services-how-to-manage-portal.md)
 * [如何將 CDN 內容對應至自訂網域](../cdn/cdn-map-content-to-custom-domain.md)
 * [雲端服務的一般設定](cloud-services-how-to-configure-portal.md)。
 * 了解如何 [部署雲端服務](cloud-services-how-to-create-deploy-portal.md)。
-* 配置 [SSL 证书](cloud-services-configure-ssl-certificate-portal.md)。
+* 設定 [SSL 憑證](cloud-services-configure-ssl-certificate-portal.md)。
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
 [Expose Your Data on a Custom Domain]: #access-data
 [VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
-[Azure 门户]: https://portal.azure.com
+[Azure 入口網站]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png

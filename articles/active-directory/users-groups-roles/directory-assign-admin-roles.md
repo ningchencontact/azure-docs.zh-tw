@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d31bde1a33d622c2c0b7aa716cbbbfbc8ef42ecf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 73ca740a4dcca3bdbb1951e55df4061364a5c646
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514584"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083930"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -91,24 +91,26 @@ ms.locfileid: "66514584"
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 檢視所有的 Intune 稽核資料
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 具有唯讀權限，並可管理警示<br>可建立和修改檔案原則，並允許檔案治理動作<br> 可檢視 [資料管理] 下的所有內建報告
 
-<!--* **[Compliance Data Administrator](#compliance-data-administrator)**: Users with this role have permissions to protect and track data in the Microsoft 365 compliance center, Microsoft 365 admin center, and Azure. Users can also manage all features within the Exchange admin center, Compliance Manager, and Teams & Skype for Business admin center and create support tickets for Azure and Microsoft 365.
+* **[合規性資料的系統管理員](#compliance-data-administrator)** :具備此角色的使用者有權限來保護及追蹤 Microsoft 365 合規性中心，Microsoft 365 系統管理中心和 Azure 中的資料。 使用者也可以管理 Exchange 系統管理中心、合規性管理員、Teams 和商務用 Skype 系統管理中心內的所有功能，並建立適用於 Azure 和 Microsoft 365 的支援票證。
 
-  In | Can do
+  在 | 可以執行
   ----- | ----------
-  [Microsoft 365 compliance center](https://protection.office.com) | Monitor compliance-related policies across Microsoft 365 services<br>Manage compliance alerts
-  [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Track, assign, and verify your organization's regulatory compliance activities
-  [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request
-  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | View all Intune audit data
-  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Has read-only permissions and can manage alerts<br>Can create and modify file policies and allow file governance actions<br> Can view all the built-in reports under Data Management
--->
-* **[條件式存取系統管理員](#conditional-access-administrator)** ：具有此角色的使用者能夠管理 Azure Active Directory 條件式存取設定。
+  [Microsoft 365 合規性中心](https://protection.office.com) | 監視合規性相關的原則，跨 Microsoft 365 服務<br>管理合規性警示
+  [合規性管理員](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | 追蹤、指派和確認您組織的法規合規性活動
+  [Office 365 安全性與合規性中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 管理資料治理<br>執行法律和資料的調查<br>管理資料主體要求
+  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 檢視所有的 Intune 稽核資料
+  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 具有唯讀權限，並可管理警示<br>可建立和修改檔案原則，並允許檔案治理動作<br> 可檢視 [資料管理] 下的所有內建報告
+
+* **[條件式存取系統管理員](#conditional-access-administrator)** ：具備此角色的使用者能夠管理 Azure Active Directory 條件式存取設定。
   > [!NOTE]
-  > 若要在 Azure 中部署 Exchange ActiveSync 條件式存取原則，使用者也必須是全域系統管理員。
+  > 若要部署在 Azure 中的 Exchange ActiveSync 條件式存取原則，使用者也必須是全域管理員。
   
 * **[客戶加密箱存取核准者](#customer-lockbox-access-approver)** ：管理您組織中的[客戶加密箱要求](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests)。 他們會收到「客戶加密箱」要求的電子郵件通知，並且可以核准和拒絕來自 Microsoft 365 系統管理中心的要求。 他們也可以開啟或關閉「客戶加密箱」功能。 只有全域管理員可以重設指派給此角色之人員的密碼。
   <!--  This was announced in August of 2018. https://techcommunity.microsoft.com/t5/Security-Privacy-and-Compliance/Customer-Lockbox-Approver-Role-Now-Available/ba-p/223393-->
 
-* **[裝置系統管理員](#device-administrators)** ：此角色是只能指派為[裝置設定](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/)中的其他本機系統管理員。 具有此角色的使用者，會在已加入 Azure Active Directory 的所有 Windows 10 裝置上，成為本機電腦系統管理員。 它們並沒有在 Azure Active Directory 中管理裝置物件的能力。 
+* **[桌面 Analytics 系統管理員](#desktop-analytics-administrator)** :此角色中的使用者可以管理的桌面分析和 Office 自訂和原則的服務。 針對桌面分析，這包括檢視資產清查、 建立部署計畫中，檢視部署和健康情況狀態的能力。 Office 自訂和原則的服務，此角色可讓使用者管理 Office 原則。
+
+* **[裝置系統管理員](#device-administrators)** :此角色是只能指派為[裝置設定](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/)中的其他本機系統管理員。 具有此角色的使用者，會在已加入 Azure Active Directory 的所有 Windows 10 裝置上，成為本機電腦系統管理員。 它們並沒有在 Azure Active Directory 中管理裝置物件的能力。 
 
 * **[目錄讀取器](#directory-readers)** ︰這是應該只為舊版的應用程式不支援指派給角色[同意架構](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)。 未指派給使用者。
 
@@ -210,19 +212,20 @@ ms.locfileid: "66514584"
   [Azure 資訊安全中心](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | 可檢視安全性原則、檢視安全性狀態、編輯安全性原則、檢視警示和建議、關閉警示和建議
   [Office 365 服務健康情況](https://docs.microsoft.com/office365/enterprise/view-service-health) | 檢視 Office 365 服務的健康情況
 
-<!--* **[Security operator](#security-operator)**: Users with this role can manage alerts and have global read-only access on security-related feature, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management, as well as the ability to read Azure Active Directory sign-in reports and audit logs, and in Office 365 Security & Compliance Center.
+* **[安全性操作員](#security-operator)** :具備此角色的使用者可以管理警示，以及具有全域唯讀存取權與安全性相關的功能，包括 Microsoft 365 資訊安全中心，Azure Active Directory、 Identity Protection、 Privileged Identity Management 和 Office 365 中的所有資訊安全與規範中心。 關於 Office 365 權限的詳細資訊可在 [Office 365 安全性與法規遵循中心的權限](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center)中取得。
 
-  In | Can do
+  在 | 可以執行
   --- | ---
-  [Microsoft 365 security center](https://protection.office.com) | All permissions of the Security Reader role<br>View, investigate, and respond to security threats alerts
-  Identity Protection Center | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords
-  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | All permissions of the Security Reader role
-  [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
-  Windows Defender ATP and EDR | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
-  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | All permissions of the Security Reader role
-  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | All permissions of the Security Reader role
-  [Office 365 service health](https://docs.microsoft.com/office365/enterprise/view-service-health) | View the health of Office 365 services
--->
+  [Microsoft 365 資訊安全中心](https://protection.office.com) | 「安全性讀取者」角色的所有權限<br>檢視、 調查及回應安全性威脅的警示
+  身分識別防護中心 | 「安全性讀取者」角色的所有權限<br>此外，還能夠執行除了重設密碼以外的所有身分識別防護中心作業
+  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | 「安全性讀取者」角色的所有權限
+  [Office 365 安全性與合規性中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 「安全性讀取者」角色的所有權限<br>檢視、 調查及回應安全性警示
+  Windows Defender ATP 和 EDR | 「安全性讀取者」角色的所有權限<br>檢視、 調查及回應安全性警示
+  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 「安全性讀取者」角色的所有權限
+  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 「安全性讀取者」角色的所有權限
+  [Office 365 服務健康情況](https://docs.microsoft.com/office365/enterprise/view-service-health) | 檢視 Office 365 服務的健康情況
+<!--* **[Security Operator](#security-operator)**: Users with this role can manage alerts and have global read-only access on security-related feature, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management.-->
+
 * **[安全性讀取者](#security-reader)** ：具備此角色的使用者具有安全性相關功能的全域唯讀存取權 (含 Microsoft 365 資訊安全中心、Azure Active Directory、Identity Protection、Privileged Identity Management 中的所有資訊)，並能讀取 Azure Active Directory 登入報告與稽核記錄，且具有 Office 365 安全性與合規性中心的全域唯讀存取權。 關於 Office 365 權限的詳細資訊可在 [Office 365 安全性與法規遵循中心的權限](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)中取得。
 
   在 | 可以執行
@@ -406,22 +409,6 @@ ms.locfileid: "66514584"
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
 
-### <a name="desktop-analytics-administrator"></a>電腦分析系統管理員
-可以管理的桌面分析和 Office 自訂和原則的服務。 針對桌面分析，這包括檢視資產清查、 建立部署計畫中，檢視部署和健康情況狀態的能力。 Office 自訂和原則的服務，此角色可讓使用者管理 Office 原則。
-
-  > [!NOTE]
-  > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
-  >
-  >
-
-| **動作** | **說明** |
-| --- | --- |
-| microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
-| microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
-| microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
-| microsoft.office365.desktopAnalytics/allEntities/allTasks | 管理電腦分析的所有層面。 |
-| microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
-| microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
 
 ### <a name="cloud-application-administrator"></a>雲端應用程式系統管理員
 能夠建立及管理應用程式註冊與企業應用程式的所有層面，但應用程式 Proxy 除外。
@@ -565,8 +552,30 @@ ms.locfileid: "66514584"
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | 管理商務用 Skype Online 的所有層面。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
 
+### <a name="compliance-data-administrator"></a>合規性資料管理員
+建立及管理合規性內容。
+
+  > [!NOTE]
+  > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
+  >
+  >
+
+| **動作** | **說明** |
+| --- | --- |
+| microsoft.aad.cloudAppSecurity/allEntities/allTasks | 讀取及設定 Microsoft Cloud App Security。 |
+| microsoft.azure.informationProtection/allEntities/allTasks | 管理 Azure 資訊保護的所有層面。 |
+| microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
+| microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
+| microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
+| microsoft.office365.complianceManager/allEntities/allTasks | 管理 Office 365 合規性管理員的所有層面 |
+| microsoft.office365.exchange/allEntities/allTasks | 管理 Exchange Online 的所有層面。 |
+| microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
+| microsoft.office365.sharepoint/allEntities/allTasks | 建立和刪除所有資源，以及讀取和更新 microsoft.office365.sharepoint 中的標準屬性。 |
+| microsoft.office365.skypeForBusiness/allEntities/allTasks | 管理商務用 Skype Online 的所有層面。 |
+| microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
+
 ### <a name="conditional-access-administrator"></a>條件式存取系統管理員
-可管理條件式存取功能。
+可以管理條件式存取功能。
 
 | **動作** | **說明** |
 | --- | --- |
@@ -608,6 +617,23 @@ ms.locfileid: "66514584"
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 | microsoft.office365.lockbox/allEntities/allTasks | 管理 Office 365 客戶加密箱的所有層面 |
+
+### <a name="desktop-analytics-administrator"></a>電腦分析系統管理員
+可以管理的桌面分析和 Office 自訂和原則的服務。 針對桌面分析，這包括檢視資產清查、 建立部署計畫中，檢視部署和健康情況狀態的能力。 Office 自訂和原則的服務，此角色可讓使用者管理 Office 原則。
+
+  > [!NOTE]
+  > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
+  >
+  >
+
+| **動作** | **說明** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
+| microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
+| microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
+| microsoft.office365.desktopAnalytics/allEntities/allTasks | 管理電腦分析的所有層面。 |
+| microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
+| microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
 
 ### <a name="device-administrators"></a>裝置系統管理員
 指派給這個角色的使用者會新增至 Azure AD 已加入的裝置上的本機 administrators 群組。
@@ -1081,6 +1107,25 @@ ms.locfileid: "66514584"
 | microsoft.office365.protectionCenter/allEntities/update | 更新 microsoft.office365.protectionCenter 中的所有資源。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 
+### <a name="security-operator"></a>安全性運算子
+建立和管理安全性事件。
+
+  > [!NOTE]
+  > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
+  >
+  >
+
+| **動作** | **說明** |
+| --- | --- |
+| microsoft.aad.cloudAppSecurity/allEntities/allTasks | 讀取及設定 Microsoft Cloud App Security。 |
+| microsoft.aad.identityProtection/allEntities/read | 讀取 microsoft.aad.identityProtection 中的所有資源。 |
+| microsoft.aad.privilegedIdentityManagement/allEntities/read | 讀取 microsoft.aad.privilegedIdentityManagement 中的所有資源。 |
+| microsoft.azure.advancedThreatProtection/allEntities/read | 讀取及設定 Azure AD 進階威脅防護。 |
+| microsoft.intune/allEntities/allTasks | 管理 Intune 的所有層面。 |
+| microsoft.office365.securityComplianceCenter/allEntities/allTasks | 讀取及設定安全性與合規性中心。 |
+| microsoft.office365.usageReports/allEntities/read | 讀取 Office 365 使用量報告。 |
+| microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | 讀取及設定 Windows Defender 進階威脅防護。 |
+
 ### <a name="security-reader"></a>安全性讀取者
 可讀取安全性資訊及 Azure AD 與 Office 365 中的報告。
 
@@ -1261,14 +1306,15 @@ B2C 使用者流程屬性管理員 | B2C 使用者流程屬性管理員 | 0f971e
 B2C IEF 索引鍵集管理員 | B2C IEF 索引鍵集管理員 | aaf43236-0c0d-4d5f-883a-6955382ac081
 B2C IEF 原則管理員 | B2C IEF 原則管理員 | 3edaf663-341e-4475-9f94-5c398ef6c070
 計費管理員 | 計費管理員 | b0f54661-2d74-4c50-afa3-1ec803f12efe
-電腦分析系統管理員 | 電腦分析系統管理員 | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 雲端應用程式系統管理員 | 雲端應用程式系統管理員 | 158c047a-c907-4556-b7ef-446551a6b5f7
 雲端裝置管理員 | 雲端裝置管理員 | 7698a772-787b-4ac8-901f-60d6b08affd2
 公司系統管理員 | 全域管理員 | 62e90394-69f5-4237-9190-012177145e10
 規範管理員 | 規範管理員 | 17315797-102d-40b4-93e0-432062caca18
+合規性資料管理員 | 合規性資料管理員 | e6d1a23a-da11-4be4-9570-befc86d067a7
 條件式存取系統管理員 | 條件式存取系統管理員 | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
 CRM 服務管理員 | Dynamics 365 系統管理員 | 44367163-eba1-44c3-98af-f5787879f96a
 客戶 LockBox 存取核准者 | 客戶加密箱存取核准者 | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
+電腦分析系統管理員 | 電腦分析系統管理員 | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 裝置系統管理員 | 裝置系統管理員 | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 加入裝置 | 加入裝置 | 9c094953-4995-41c8-84c8-3ebb9b32c93f
 裝置管理員 | 裝置管理員 | 2b499bcd-da44-4968-8aec-78e1674fa64d
@@ -1295,6 +1341,7 @@ Power BI 服務管理員 | Power BI 系統管理員 | a9ea8996-122f-4c74-9520-8e
 搜尋系統管理員 | 搜尋系統管理員 | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
 搜尋編輯器 | 搜尋編輯器 | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
 安全性系統管理員 | 安全性系統管理員 | 194ae4cb-b126-40b2-bd5b-6091b380977d
+安全性運算子 | 安全性運算子 | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 安全性讀取者 | 安全性讀取者 | 5d6b6bb7-de71-4623-b4af-96380a352509
 服務支援管理員 | 服務管理員 | f023fd81-a637-4b56-95fd-791ac0226033
 SharePoint 服務管理員 | Sharepoint 系統管理員 | f28a1f50-f6e7-4571-818b-6a12f2af6b6c

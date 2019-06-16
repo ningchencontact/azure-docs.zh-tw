@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
 ms.openlocfilehash: 0ee40c3ad692deccbc185fa7f8e51dd25eeaf95d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66164503"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>每個區域的容錯網域數目
@@ -47,7 +47,7 @@ ms.locfileid: "66164503"
 | 巴西南部        | 2                       |
 |                     |                         |
 | 美國政府維吉尼亞州     | 2                       |
-| US Gov 德克薩斯州        | 2                       |
-| US Gov 亞利桑那州      | 2                       |
-| 美國 DoD 中部      | 2                       |
+| 美國政府德克薩斯州        | 2                       |
+| 美國政府亞利桑那州      | 2                       |
+| 美國國防部中央      | 2                       |
 | 美國 DoD 東部         | 2                       |

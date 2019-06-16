@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/11/2017
 ms.author: yegu
 ms.openlocfilehash: 495fc031150d04f253279606baebb5d64d52bce7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132932"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>如何調整 Azure Redis 快取的規模
@@ -37,11 +37,11 @@ ms.locfileid: "66132932"
 如果您判斷快取不再符合您應用程式的需求，則可以調整為適合您應用程式的較大或較小快取定價層。 如需有關判斷要使用哪個快取定價層的詳細資訊，請參閱 [我應該使用哪個 Azure Redis 快取供應項目和大小](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)。
 
 ## <a name="scale-a-cache"></a>調整快取
-若要調整快取，在 [Azure 入口網站](https://portal.azure.com)中[瀏覽至快取](cache-configure.md#configure-azure-cache-for-redis-settings)，然後按一下 **[資源]** 功能表中的 **[調整]**。
+若要調整快取，在 [Azure 入口網站](https://portal.azure.com)中[瀏覽至快取](cache-configure.md#configure-azure-cache-for-redis-settings)，然後按一下 **[資源]** 功能表中的 **[調整]** 。
 
 ![調整](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
-從 [選取定價層] 刀鋒視窗中選取想要的定價層，然後按一下 [選取]。
+從 [選取定價層]  刀鋒視窗中選取想要的定價層，然後按一下 [選取]  。
 
 ![定價層][redis-cache-pricing-tier-blade]
 
@@ -55,11 +55,11 @@ ms.locfileid: "66132932"
 * 您無法直接從**基本**快取調整至**進階**快取。 首先，在單一調整作業中從**基本**調整至**標準**，然後在後續的調整作業中從**標準**調整至**進階**。
 * 您無法從較大的大小向下調整至 **C0 (250 MB)** 的大小。
  
-當快取正在調整成新的定價層時，[Azure Redis 快取] 刀鋒視窗中會顯示[正在調整規模] 狀態。
+當快取正在調整成新的定價層時，[Azure Redis 快取]  刀鋒視窗中會顯示[正在調整規模]  狀態。
 
 ![縮放][redis-cache-scaling]
 
-調整完成時，狀態會從 [正在調整] 變更為 [執行中]。
+調整完成時，狀態會從 [正在調整]  變更為 [執行中]  。
 
 ## <a name="how-to-automate-a-scaling-operation"></a>如何自動化調整作業
 除了在 Azure 入口網站中調整快取執行個體之外，您還可以使用 PowerShell Cmdlet、Azure CLI 以及使用 Microsoft Azure 管理庫 (MAML) 進行調整。 
@@ -177,7 +177,7 @@ ms.locfileid: "66132932"
 根據快取中的資料量，調整大約需要 20 分鐘。
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>如何分辨調整何時完成？
-在 Azure 入口網站中，您可以看到調整作業進行中。 調整完成時，快取的狀態會變更為 [執行中] 。
+在 Azure 入口網站中，您可以看到調整作業進行中。 調整完成時，快取的狀態會變更為 [執行中]  。
 
 <!-- IMAGES -->
 

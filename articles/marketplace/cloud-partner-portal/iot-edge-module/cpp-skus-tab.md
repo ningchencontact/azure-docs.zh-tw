@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pabutler
 ms.openlocfilehash: bf8957c315909785112dea947f2e2e0f7b26349f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942182"
 ---
 # <a name="iot-edge-module-skus-tab"></a>IoT Edge 模組 SKU 索引標籤
 
-可使用 [新增供應項目] 頁面的 [SKU] 索引標籤，建立一個或一個以上的 SKU，並建立 SKU 與新供應項目之間的關聯性。  可以使用不同的 SKU，依功能集、帳單模式或其他部分特性，讓解決方案彼此互有差異。
+可使用 [新增供應項目]  頁面的 [SKU]  索引標籤，建立一個或一個以上的 SKU，並建立 SKU 與新供應項目之間的關聯性。  可以使用不同的 SKU，依功能集、帳單模式或其他部分特性，讓解決方案彼此互有差異。
 
 
 ## <a name="sku-settings"></a>SKU 設定
 
 開始建立新的供應項目時，沒有任何與該供應項目相關聯的 SKU。 若要建立新的 SKU，請依照下列步驟進行：
 
-- 在 [IoT Edge 模組 > 新增供應項目] 頁面中，選取 [SKU] 索引標籤。
-- 在 SKU 下方，選取 [+新增 SKU]，即會開啟對話方塊。
+- 在 [IoT Edge 模組 > 新增供應項目]  頁面中，選取 [SKU]  索引標籤。
+- 在 SKU 下方，選取 [+新增 SKU]  ，即會開啟對話方塊。
 
   ![IoT Edge 模組的 [新增供應項目] 索引標籤上的 [新 SKU] 按鈕](./media/iot-edge-module-skus-tab-new-sku.png)
 
-- 在 [新 SKU] 對話方塊中，輸入 SKU 的識別碼，然後選取 [確定]。
+- 在 [新 SKU]  對話方塊中，輸入 SKU 的識別碼，然後選取 [確定]  。
 (下表提供識別碼命名慣例。)
 
-[SKU] 索引標籤隨即會重新整理，顯示設定 SKU 的編輯欄位。 欄位名稱上附加的星號 (*) 表示此為必填欄位。
+[SKU]  索引標籤隨即會重新整理，顯示設定 SKU 的編輯欄位。 欄位名稱上附加的星號 (*) 表示此為必填欄位。
 
 |  **欄位**       |     **說明**                                                          |
 |  ---------       |     ---------------                                                          |
@@ -41,11 +41,11 @@ ms.locfileid: "64942182"
 
 ## <a name="sku-details"></a>SKU 詳細資料
 
-設定 [SKU 詳細資料]，定義您的 SKU 在 Azure Marketplace 和 Azure 入口網站上的顯示方式。
+設定 [SKU 詳細資料]  ，定義您的 SKU 在 Azure Marketplace 和 Azure 入口網站上的顯示方式。
 
 ![IoT Edge 模組 SKU 中繼資料](media/iot-edge-module-skus-tab-metadata.png)
 
-下表說明 [SKU 詳細資料] 下的欄位用途、內容和格式。 必要欄位由星號 (*) 標示。
+下表說明 [SKU 詳細資料]  下的欄位用途、內容和格式。 必要欄位由星號 (*) 標示。
 
 |  **欄位**       |     **說明**                                                          |
 |  ---------       |     ---------------                                                          |
@@ -58,7 +58,7 @@ ms.locfileid: "64942182"
 
 ### <a name="sku-example"></a>SKU 範例
 
- 下列範例顯示了 SKU 的 [標題]、[摘要] 以及 [說明] 欄位會以何種方式顯示在不同的檢視畫面上。
+ 下列範例顯示了 SKU 的 [標題]  、[摘要]  以及 [說明]  欄位會以何種方式顯示在不同的檢視畫面上。
  
 
 #### <a name="on-the-azure-marketplace-website"></a>在 Azure Marketplace 網站上：
@@ -91,7 +91,7 @@ ms.locfileid: "64942182"
 
 ## <a name="sku-content"></a>SKU 內容
 
-在 [Edge 模組映像] 下，提供上傳 IoT Edge 模組所需的資訊。
+在 [Edge 模組映像]  下，提供上傳 IoT Edge 模組所需的資訊。
 
 請讓我們得以存取您含有 IoT Edge 模組映像的 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR)，以便我們將之上傳並加以認證。 發佈後，會使用 Azure Marketplace 託管的公共容器登錄來複製和散發您的 IoT Edge 模組。
 
@@ -122,7 +122,7 @@ ms.locfileid: "64942182"
 
 ![部署時的 IoT Edge 模組預設設定](./media/iot-edge-module-skus-tab-iot-edge-defaults.png)
 
-下表說明 [預設路由]、[預設對應項的所需屬性]、[預設環境變數]，以及 [預設 CreateOptions] 欄位的用途、內容和格式。
+下表說明 [預設路由]  、[預設對應項的所需屬性]  、[預設環境變數]  ，以及 [預設 CreateOptions]  欄位的用途、內容和格式。
 
 |  **欄位**       |     **說明**                                                          |
 |  ---------       |     ---------------                                                          |
@@ -132,7 +132,7 @@ ms.locfileid: "64942182"
 | **預設 createOptions**  | createOptions 必須少於 512 個字元， 必須是非逸出的有效 JSON。 深入了解 [createOptions](https://docs.microsoft.com/azure/iot-edge/module-composition#configure-modules)。 <br/> 例如，如果模組需要繫結連接埠，您可以定義下列 createOptions:<br/>  `"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}`|
 |   |   |
 
-選取 [儲存] 以儲存您的 SKU 設定。 
+選取 [儲存]  以儲存您的 SKU 設定。 
 
 
 ## <a name="next-steps"></a>後續步驟

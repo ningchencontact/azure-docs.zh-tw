@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: 57a3ea73783af1edaee069bf2770d5c58f81772a
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 94cc41890778e842cb2e4bd6e06b90361cbef1cd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66495935"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066446"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>使用 Azure Toolkit for IntelliJ 為 HDInsight 叢集建立 Apache Spark 應用程式
 
@@ -175,7 +175,7 @@ ms.locfileid: "66495935"
 
     * **HDInsight 叢集**  
   
-        |屬性 |Value |
+        |屬性 |值 |
         |----|----|
         |連結資源類型|從下拉式清單中選取 [HDInsight 叢集]  。|
         |叢集名稱/URL| 輸入叢集名稱。|
@@ -183,11 +183,11 @@ ms.locfileid: "66495935"
         |使用者名稱| 輸入叢集使用者名稱，預設值是 admin。|
         |密碼| 輸入使用者名稱的密碼。|
     
-        ![連結 Hdinsight 叢集 對話方塊](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
+        ![連結 HdInsight 叢集 對話方塊](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
 
     * **Livy 服務**  
   
-        |屬性 |Value |
+        |屬性 |值 |
         |----|----|
         |連結資源類型|從下拉式清單中選取 [Livy 服務]  。|
         |Livy 端點| 輸入 Livy 端點|
@@ -218,7 +218,7 @@ ms.locfileid: "66495935"
 
 3. 在 [編輯組態]  視窗中，提供下列值，然後選取 [確定]  ：
 
-    |屬性 |Value |
+    |屬性 |值 |
     |----|----|
     |Spark 叢集 (僅限 Linux)|選取您要在其中執行應用程式的 HDInsight Spark 叢集。|
     |選取要提交的成品|保留預設值。|
@@ -298,7 +298,7 @@ ms.locfileid: "66495935"
 
 4. 提供下列值，然後選取 [確定]  ：
 
-    |屬性 |Value |
+    |屬性 |值 |
     |----|----|
     |作業主類別|預設值是來自所選取檔案的主類別。 選取省略符號 ( **...** ) 並選擇另一個類別，即可變更類別。|
     |環境變數|請確定 HADOOP_HOME 的值正確無誤。|
@@ -332,7 +332,7 @@ ms.locfileid: "66495935"
 
 4. 提供下列值，然後選取 [確定]  ：
 
-    |屬性 |Value |
+    |屬性 |值 |
     |----|----|
     |Spark 叢集 (僅限 Linux)|選取您要在其中執行應用程式的 HDInsight Spark 叢集。|
     |主類別名稱|預設值是來自所選取檔案的主類別。 選取省略符號 ( **...** ) 並選擇另一個類別，即可變更類別。|
@@ -457,12 +457,12 @@ ms.locfileid: "66495935"
 
 ![Intellij 會在叢集忙碌時收到錯誤](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
 
-## <a name="feedback-and-known-issues"></a>意見反應和已知問題
+## <a name="known-issues"></a>已知問題
+
 目前，不支援直接檢視 Spark 輸出。
 
-如果您有任何建議或意見反應，或使用此外掛程式時遇到任何問題，請將電子郵件傳送到 hdivstool@microsoft.com。
-
 ## <a name="seealso"></a>接續步驟
+
 * [概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="demo"></a>示範
@@ -482,7 +482,6 @@ ms.locfileid: "66495935"
 ### <a name="tools-and-extensions"></a>工具和擴充功能
 * [使用 Azure Toolkit for IntelliJ 透過 VPN 遠端偵錯 Apache Spark 應用程式](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [使用 Azure Toolkit for IntelliJ 透過 SSH 遠端偵錯 Apache Spark 應用程式](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [透過 Hortonworks 沙箱使用 HDInsight Tools for IntelliJ](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [使用 Azure Toolkit for Eclipse 中的 HDInsight 工具建立 Apache Spark 應用程式](apache-spark-eclipse-tool-plugin.md)
 * [在 HDInsight 上搭配使用 Apache Zeppelin Notebook 和 Apache Spark 叢集](apache-spark-zeppelin-notebook.md)
 * [HDInsight Apache Spark 叢集中 Jupyter Notebook 的可用核心](apache-spark-jupyter-notebook-kernels.md)

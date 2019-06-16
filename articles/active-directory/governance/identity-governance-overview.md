@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be6fc2b7d6da85778524cb8986f399c341370c1
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 4b4f1563aa0437cd45c297b95a83119318a24624
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307057"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109583"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>什麼是 Azure AD 身分識別控管？
 
@@ -60,7 +60,7 @@ Azure Active Directory (Azure AD) 身分識別管理可讓您正確的程序與�
 
 組織可以透過[動態群組](../users-groups-roles/groups-dynamic-membership.md)這類技術，並結合使用者佈建至 [SaaS 應用程式](../saas-apps/tutorial-list.md)或[與 SCIM 整合的應用程式](../manage-apps/use-scim-to-provision-users-and-groups.md)來自動存取生命週期程序。  組織也可以控制哪些[來賓使用者能夠存取內部部署應用程式](../b2b/hybrid-cloud-to-on-premises.md)。  接著可以利用週期性 [Azure AD 存取權檢閱](access-reviews-overview.md)，定期檢閱這些存取權限。
 
-當使用者嘗試存取應用程式時，Azure AD 會強制執行[條件式存取](/azure/active-directory/conditional-access/)原則。 例如，條件式存取原則可以包含先顯示[使用規定](../conditional-access/terms-of-use.md)並[確保使用者已同意這些規定](../conditional-access/require-tou.md)，才能夠存取應用程式。
+當使用者嘗試存取應用程式時，Azure AD 會強制[條件式存取](/azure/active-directory/conditional-access/)原則。 例如，條件式存取原則可以包含顯示[使用規定](../conditional-access/terms-of-use.md)並[確保使用者已經同意這些條款](../conditional-access/require-tou.md)才能夠存取應用程式。
 
 ## <a name="privileged-access-lifecycle"></a>特殊權限的存取生命週期
 
@@ -68,7 +68,7 @@ Azure Active Directory (Azure AD) 身分識別管理可讓您正確的程序與�
 
 ![特殊權限的存取生命週期](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
-Azure AD Privileged Identity Management (PIM) 提供量身訂做的其他控制項，以保護 Azure AD、Azure 和其他 Microsoft Online Services 中資源的存取權限。  除了多重要素驗證和條件式存取，Just-In-Time 存取以及 Azure AD PIM 所提供的角色變更警示功能都會提供一組完整的控管控制項，協助保護貴公司的資源 (目錄、Office 365 和 Azure 資源角色)。 如同其他形式的存取權，組織可以使用存取權檢閱，對具有系統管理員角色的所有使用者設定週期性存取權重新確認。
+Azure AD Privileged Identity Management (PIM) 提供量身訂做的其他控制項，以保護 Azure AD、Azure 和其他 Microsoft Online Services 中資源的存取權限。  在 just-in-time 存取和角色變更警示由 Azure AD PIM，除了多重要素驗證和條件式存取的功能，請提供一組完整的治理控制項，可協助保護公司資源 （目錄中，Office 365 和 Azure 資源角色）。 如同其他形式的存取權，組織可以使用存取權檢閱，對具有系統管理員角色的所有使用者設定週期性存取權重新確認。
 
 ## <a name="getting-started"></a>開始使用
 

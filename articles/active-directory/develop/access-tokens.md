@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea1e47939913435b5b7040c0e6d01b1208d709d3
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 355e61fdfd9847e54a4bd13ac3b0f2d416c05812
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962895"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111964"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft 身分識別平台的存取權杖
 
@@ -74,17 +74,17 @@ JWT 分成三個部分：
 
 ### <a name="header-claims"></a>標頭宣告
 
-|宣告 | 格式 | 說明 |
+|宣告 | 格式 | 描述 |
 |--------|--------|-------------|
 | `typ` | 字串 - 一律為 "JWT" | 表示權杖是 JWT。|
-| `nonce` | String | 唯一識別碼，用來防範權杖重新執行攻擊。 您的資源可以記錄此值，以防止重新執行。 |
-| `alg` | String | 表示用來簽署權杖的演算法，例如 "RS256" |
-| `kid` | String | 為用來簽署此權杖的公開金鑰指定指紋。 v1.0 和 v2.0 存取權杖中都會發出此宣告。 |
-| `x5t` | String | 與 `kid` 的功能一樣 (用法和值)。 `x5t` 是只在 v1.0 存取權杖中發出的舊版宣告，僅針對相容性使用。 |
+| `nonce` | 字串 | 唯一識別碼，用來防範權杖重新執行攻擊。 您的資源可以記錄此值，以防止重新執行。 |
+| `alg` | 字串 | 表示用來簽署權杖的演算法，例如 "RS256" |
+| `kid` | 字串 | 為用來簽署此權杖的公開金鑰指定指紋。 v1.0 和 v2.0 存取權杖中都會發出此宣告。 |
+| `x5t` | 字串 | 與 `kid` 的功能一樣 (用法和值)。 `x5t` 是只在 v1.0 存取權杖中發出的舊版宣告，僅針對相容性使用。 |
 
 ### <a name="payload-claims"></a>承載宣告
 
-| 宣告 | 格式 | 說明 |
+| 宣告 | 格式 | 描述 |
 |-----|--------|-------------|
 | `aud` | 字串，應用程式識別碼 URI | 識別權杖的預定接收者。 在存取權杖中，對象是在 Azure 入口網站中指派給應用程式的應用程式識別碼。 您的應用程式應驗證此值，並拒絕值不相符的權杖。 |
 | `iss` | 字串，STS URI | 識別建構並傳回權杖的 Security Token Service (STS)，以及在其中驗證使用者的 Azure AD 租用戶。 如果發出的權杖是 v2.0 權杖 (請參閱`ver`宣告)，URI 的結尾會是 `/v2.0`。 指出使用者是來自 Microsoft 帳戶之取用者使用者的 GUID 是 `9188040d-6c67-4c5b-b112-36a304b66dad`。 您的應用程式應該使用宣告的 GUID 部分來限制可登入應用程式的租用戶集合 (如果有的話)。 |
@@ -99,8 +99,8 @@ JWT 分成三個部分：
 | `appidacr` | "0"、"1" 或 "2" | 只存在於 v1.0 權杖中。 指出如何驗證用戶端。 若為公用用戶端，此值為 "0"。 如果使用用戶端識別碼和用戶端密碼，此值為 "1"。 如果已使用用戶端憑證進行驗證，則值為 "2"。 |
 | `azp` | 字串，GUID | 只出現在 v2.0 權杖，來取代`appid`。 使用權杖的用戶端應用程式識別碼。 應用程式代表本身或使用者行事。 應用程式識別碼通常代表應用程式物件，但也可以代表 Azure AD 中的服務主體物件。 |
 | `azpacr` | "0"、"1" 或 "2" | 只出現在 v2.0 權杖，來取代`appidacr`。 指出如何驗證用戶端。 若為公用用戶端，此值為 "0"。 如果使用用戶端識別碼和用戶端密碼，此值為 "1"。 如果已使用用戶端憑證進行驗證，則值為 "2"。 |
-| `preferred_username` | String | 代表使用者的主要使用者名稱。 它可以是電子郵件地址、電話號碼或未指定格式的一般使用者名稱。 其值是可變動的，並且可能隨著時間改變。 因為此值會變動，請勿用在授權決策。  但可以將它用於使用者名稱提示。 需要 `profile` 範圍才能接收此宣告。 |
-| `name` | String | 提供人類看得懂的值，用以識別權杖的主體。 此值不保證是唯一值，它是可變動的，並且在設計上僅用於顯示。 需要 `profile` 範圍才能接收此宣告。 |
+| `preferred_username` | 字串 | 代表使用者的主要使用者名稱。 它可以是電子郵件地址、電話號碼或未指定格式的一般使用者名稱。 其值是可變動的，並且可能隨著時間改變。 因為此值會變動，請勿用在授權決策。  但可以將它用於使用者名稱提示。 需要 `profile` 範圍才能接收此宣告。 |
+| `name` | 字串 | 提供人類看得懂的值，用以識別權杖的主體。 此值不保證是唯一值，它是可變動的，並且在設計上僅用於顯示。 需要 `profile` 範圍才能接收此宣告。 |
 | `scp` | 字串，範圍的空格分隔清單 | 由您應用程式公開的範圍集合，用戶端應用程式已針對此集合要求 (和接收) 同意。 您的應用程式應確認這些範圍是由應用程式公開的有效範圍，並根據這些範圍的值做出授權決策。 僅包含於[使用者權杖](#user-and-application-tokens)中。 |
 | `roles` | 字串陣列，權限清單 | 權限集所公開您的應用程式，要求的應用程式或使用者具有權限來呼叫。 針對[應用程式權杖](#user-and-application-tokens)，這會使用於[用戶端認證](v1-oauth2-client-creds-grant-flow.md)取代使用者範圍的流量。  針對[的使用者語彙基元](#user-and-application-tokens)下拉式功能表中的使用者已指派給目標的應用程式的角色。 |
 | `wids` | 陣列[RoleTemplateID](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) Guid | 代表租用戶層級的角色指派給這位使用者，從角色中的區段[[系統管理角色] 頁面](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids)。  此宣告以每個應用程式為基礎，透過設定`groupMembershipClaims`的屬性[應用程式資訊清單](reference-app-manifest.md)。  將它設定為"All"或"DirectoryRole"。  可能不會出現在透過隱含流程，因為 token 長度的考量而取得的權杖。 |
@@ -110,7 +110,7 @@ JWT 分成三個部分：
 | `sub` | 字串，GUID | 權杖判斷提示其相關資訊的主體，例如應用程式的使用者。 這個值不可變，而且無法重新指派或重複使用。 它可用來安全地執行授權檢查 (例如當權杖用於存取資源時)，並可做為資料庫資料表中的索引鍵。 由於主體一律是存在於 Azure AD 所簽發的權杖中，因此建議您在一般用途的授權系統中使用此值。 不過，主體是成對識別碼，對於特定應用程式識別碼來說，主體是唯一的。 因此，如果單一使用者使用兩個不同的用戶端識別碼登入兩個不同的應用程式，這些應用程式會收到兩個不同的主體宣告值。 視您的架構和隱私權需求而定，這不一定是您想要的。 另請參閱`oid`宣告 （這會維持不變跨租用戶內的應用程式）。 |
 | `oid` | 字串，GUID | 物件在 Microsoft 身分識別平台中的不可變識別碼，在此案例為使用者帳戶。 它也可用來安全地執行授權檢查，以及做為資料庫資料表中的索引鍵。 此識別碼可跨應用程式唯一識別使用者，同一位使用者登入兩個不同的應用程式會在 `oid` 宣告中收到相同的值。 因此，在對 Microsoft 線上服務 (例如 Microsoft Graph) 進行查詢時可使用 `oid`。 Microsoft Graph 會傳回這個識別碼做為指定使用者帳戶的 `id` 屬性。 因為 `oid` 可讓多個應用程式相互關聯使用者，因此需要 `profile` 範圍才能接收此宣告。 請注意，如果單一使用者存在於多個租用戶，使用者將會在每個租用戶中包含不同的物件識別碼，它們會被視為不同帳戶，即使使用者使用相同認證來登入各個帳戶也是如此。 |
 | `tid` | 字串，GUID | 代表使用者是來自哪個 Azure AD 租用戶。 就工作和學校帳戶而言，GUID 是使用者所屬組織的不可變租用戶識別碼。 就個人帳戶而言，此值會是 `9188040d-6c67-4c5b-b112-36a304b66dad`。 需要 `profile` 範圍才能接收此宣告。 |
-| `unique_name` | String | 只存在於 v1.0 權杖中。 提供人類看得懂的值，用以識別權杖的主體。 此值不保證是租用戶中的唯一值，而且應僅用於顯示目的。 |
+| `unique_name` | 字串 | 只存在於 v1.0 權杖中。 提供人類看得懂的值，用以識別權杖的主體。 此值不保證是租用戶中的唯一值，而且應僅用於顯示目的。 |
 | `uti` | 不透明字串 | Azure 用來重新驗證權杖的內部宣告。 資源不應該使用此宣告。 |
 | `rh` | 不透明字串 | Azure 用來重新驗證權杖的內部宣告。 資源不應該使用此宣告。 |
 | `ver` | 字串，或是`1.0`或 `2.0` | 表示存取權杖的版本。 |
@@ -119,23 +119,23 @@ JWT 分成三個部分：
 
 下列宣告將會包含在 v1.0 權杖，如果適用的話，但預設不包含在 v2.0 權杖中。 如果您使用 2.0 版和這些宣告的其中一個需求，要求他們使用[選擇性宣告](active-directory-optional-claims.md)。
 
-| 宣告 | 格式 | 說明 |
+| 宣告 | 格式 | 描述 |
 |-----|--------|-------------|
-| `ipaddr`| String | 從中進行使用者驗證的 IP 位址。 |
+| `ipaddr`| 字串 | 從中進行使用者驗證的 IP 位址。 |
 | `onprem_sid`| 字串，採 [SID 格式](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | 如果使用者具有內部部署驗證，此宣告會提供其 SID。 您可以使用 `onprem_sid` 取得繼承應用程式中的授權。|
 | `pwd_exp`| 整數，UNIX 時間戳記 | 表示使用者密碼到期的時間。 |
-| `pwd_url`| String | 可傳送給使用者以重設其密碼的 URL。 |
+| `pwd_url`| 字串 | 可傳送給使用者以重設其密碼的 URL。 |
 | `in_corp`| boolean | 指出用戶端是否是從公司網路登入的。 若非如此，宣告不包含在內。 |
-| `nickname`| String | 使用者的額外名稱 (有別於名字或姓氏)。|
-| `family_name` | String | 提供使用者的姓氏 (如使用者物件中所定義)。 |
-| `given_name` | String | 提供使用者的名字 (如使用者物件上所設定)。 |
-| `upn` | String | 使用者的使用者名稱。 可能是電話號碼、電子郵件地址或未格式化的字串。 應只用於顯示用途，並在重新驗證情節中提供使用者名稱提示。 |
+| `nickname`| 字串 | 使用者的額外名稱 (有別於名字或姓氏)。|
+| `family_name` | 字串 | 提供使用者的姓氏 (如使用者物件中所定義)。 |
+| `given_name` | 字串 | 提供使用者的名字 (如使用者物件上所設定)。 |
+| `upn` | 字串 | 使用者的使用者名稱。 可能是電話號碼、電子郵件地址或未格式化的字串。 應只用於顯示用途，並在重新驗證情節中提供使用者名稱提示。 |
 
 #### <a name="the-amr-claim"></a>`amr` 宣告
 
 Microsoft 身分識別可以在不同的方式，可能會與您的應用程式進行驗證。 `amr` 宣告為陣列，其中可包含多個項目，例如 `["mfa", "rsa", "pwd"]`，適用於同時使用密碼和驗證器應用程式的驗證。
 
-| Value | 說明 |
+| 值 | 描述 |
 |-----|-------------|
 | `pwd` | 密碼驗證，可以是使用者的 Microsoft 密碼或應用程式的用戶端祕密。 |
 | `rsa` | 驗證會以 RSA 金鑰證明為基礎，例如使用 [Microsoft Authenticator 應用程式](https://aka.ms/AA2kvvu)。 這包括如果自我簽署的 JWT 已進行驗證與服務所擁有的 X509 憑證。 |
@@ -204,7 +204,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 * 驗證呼叫的用戶端使用的驗證狀態`appidacr`-這應該不是 0，如果不允許公開用戶端呼叫您的 API。
 * 檢查針對一份過去`nonce`宣告，以確認權杖不在重新執行。
 * 檢查 `tid` 是否符合允許呼叫您 API 的租用戶。
-* 使用 `acr` 宣告確認使用者已執行 MFA。 這應該使用[條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)來強制執行。
+* 使用 `acr` 宣告確認使用者已執行 MFA。 這應該強制執行使用[條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)。
 * 如果您已要求`roles`或`groups`宣告在存取權杖中，可讓您驗證使用者是否能夠執行此動作的動作群組中。
   * 針對使用隱含流程擷取的權杖，您可能需要查詢此資料的 [Microsoft Graph](https://developer.microsoft.com/graph/)，因為這通常會太大，而無法放入權杖。
 

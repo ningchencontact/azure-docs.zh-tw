@@ -7,31 +7,28 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 06/12/2019
 ms.author: gregman
-ms.openlocfilehash: be7479d3f042d6e64428a07e0509907b78595200
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9e3f7e3b23cba3fab87ee35aa2a15b6305d9ece4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159776"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054189"
 ---
 # <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Windows Server 虛擬機器上執行 Azure IoT Edge
 Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段可以部署在像 Raspberry Pi 一樣小或像工業伺服器一樣大的裝置上。 利用 IoT Edge 執行階段設定裝置之後，您就可以開始從雲端將商務邏輯部署給它。
 
 若要深入了解 IoT Edge 執行階段的運作方式，以及會包含哪些元件，請參閱[了解 Azure IoT Edge 執行階段及其架構](iot-edge-runtime.md)。
 
-這篇文章列出執行 Windows Server 2019 的虛擬機器使用的 Azure IoT Edge 執行階段的步驟[Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview) Azure Marketplace 供應項目。 請遵循指示[安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-windows.md)搭配其他版本的 Windows 上。
-
-> [!NOTE]
-> IoT Edge 執行階段，Windows Server 上的處於[公開預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+這篇文章列出執行 Windows Server 2019 的虛擬機器使用的 Azure IoT Edge 執行階段的步驟[Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace 供應項目。 請遵循指示[安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-windows.md)搭配其他版本的 Windows 上。
 
 ## <a name="deploy-from-the-azure-marketplace"></a>從 Azure Marketplace 進行部署
-1.  瀏覽至[Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview) Azure Marketplace 供應項目或搜尋"Windows Server" [Azure Marketplace](https://azuremarketplace.microsoft.com/)
+1.  瀏覽至[Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace 供應項目或搜尋"Windows Server" [Azure Marketplace](https://azuremarketplace.microsoft.com/)
 2.  選取**取得立即** 
 3.  在 [**軟體計劃**，尋找 [Windows Server 2019 資料中心伺服器核心與容器]，然後選取**繼續**在下一步] 對話方塊。
     * 您也可以使用這些指示的其他版本的 Windows Server 容器
-4.  一旦進入 Azure 入口網站，選取 [建立] 並且遵循精靈以部署 VM。 
+4.  一旦進入 Azure 入口網站，選取 [建立]  並且遵循精靈以部署 VM。 
     *   如果這是您第一次試用 VM，則更加容易使用的密碼，並啟用 RDP 和 SSH 公用輸入連接埠 功能表中。 
     *   如果您有資源密集工作負載，您應該藉由新增更多的 CPU 和/或記憶體來升級虛擬機器大小。
 5.  一旦部署虛擬機器，將它設定為連線到您的 IoT 中樞：

@@ -1,6 +1,6 @@
 ---
-title: 作法 - 透過 Azure Active Directory 條件式存取要求必須從受控裝置存取雲端應用程式 | Microsoft Docs
-description: 了解如何設定 Azure Active Directory (Azure AD) 裝置型條件式存取原則，以要求必須從受控裝置存取雲端應用程式。
+title: 如何： 需要受管理的裝置存取雲端應用程式使用 Azure Active Directory 條件式存取 |Microsoft Docs
+description: 了解如何設定 Azure Active Directory (Azure AD) 裝置型條件式存取原則，要求受管理的裝置存取雲端應用程式。
 services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
@@ -17,25 +17,25 @@ ms.date: 06/14/2018
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f55f1058537da255a2611f544239f693615678
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 459dd981b73ae840b3fc61bd0cc83ecefb1cf393
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354702"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112151"
 ---
-# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>作法：透過條件式存取要求必須從受控裝置存取雲端應用程式
+# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>如何：需要受管理的裝置存取雲端應用程式使用條件式存取
 
 在行動第一、雲端第一的世界中，Azure Active Directory (Azure AD) 可讓您從任何地方單一登入至應用程式和服務。 授權使用者可以從多種裝置 (包括行動裝置和個人裝置) 存取您的雲端應用程式。 不過，許多環境都至少會有些許應用程式只應由符合您的安全性與相容性標準的裝置存取。 這些裝置也稱為受控裝置。 
 
-本文說明如何設定條件式存取原則，以要求只有受控裝置才能存取您環境中的特定雲端應用程式。 
+這篇文章說明如何設定需要受管理的裝置存取您的環境中的特定雲端應用程式的條件式存取原則。 
 
 
 ## <a name="prerequisites"></a>必要條件
 
-要求須由受控裝置存取雲端應用程式，會將 **Azure AD 條件式存取**和 **Azure AD 裝置管理**繫結在一起。 如果您還不熟悉上述其中一種領域，您應該先閱讀下列主題：
+需要受管理的裝置為雲端應用程式存取繫結**Azure AD 條件式存取**並**Azure AD 裝置管理**在一起。 如果您還不熟悉上述其中一種領域，您應該先閱讀下列主題：
 
-- **[Azure Active Directory 中的條件式存取](../active-directory-conditional-access-azure-portal.md)** - 本文提供條件式存取的概念性概觀和相關術語。
+- **[Azure Active Directory 中的條件式存取](../active-directory-conditional-access-azure-portal.md)** -這篇文章會將您提供條件式存取和相關的術語的概念性概觀。
 
 - **[Azure Active Directory 中的裝置管理簡介](../devices/overview.md)** - 本文概略說明在組織的控制下可用來連接裝置的各種選項。 
 
@@ -44,7 +44,7 @@ ms.locfileid: "60354702"
 
 要兼顧安全性與生產力並不容易。 在可存取雲端資源的裝置種類激增的情況下，使用者的生產力得以提升。 而另一方面，您應該不希望環境中的特定資源在保護層級不確定的情況下受到裝置存取。 對於受影響的資源，您應要求使用者只能使用受控裝置加以存取。 
 
-利用 Azure AD 條件式存取，您可以透過單一原則來處理此需求並：
+您可以使用 Azure AD 條件式存取，來解決與單一原則可授與存取這項需求：
 
 - 將存取權授與所選的雲端應用程式
 
@@ -74,7 +74,7 @@ ms.locfileid: "60354702"
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>需要已加入混合式 Azure AD 的裝置
 
-在條件式存取原則中，您可以選取 [需要已加入混合式 Azure AD 的裝置]，表示只能使用受控裝置來存取所選取的雲端應用程式。 
+在條件式存取原則中，您可以選取**需要混合式 Azure AD 加入的裝置**陳述，只能使用受管理的裝置來存取選取的雲端應用程式。 
 
 ![裝置型條件](./media/require-managed-devices/10.png)
 
@@ -87,7 +87,7 @@ ms.locfileid: "60354702"
 
 ## <a name="require-device-to-be-marked-as-compliant"></a>裝置需要標記為符合規範
 
-「裝置需要標記為符合規範」選項是要求受控裝置的最強形式。
+「裝置需要標記為符合規範」  選項是要求受控裝置的最強形式。
 
 ![裝置型條件](./media/require-managed-devices/11.png)
 
@@ -112,5 +112,5 @@ ms.locfileid: "60354702"
 
 ## <a name="next-steps"></a>後續步驟
 
-在您的環境中設定裝置型條件式存取原則之前，您應該閱讀 [Azure Active Directory 中條件式存取的最佳做法](best-practices.md)。
+之前在您的環境中設定裝置型條件式存取原則，您應該看看[Azure Active Directory 中的條件式存取的最佳作法](best-practices.md)。
 

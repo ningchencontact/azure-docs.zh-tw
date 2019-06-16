@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 8e3d12db8d2500a2675e451580bee7072d22d41c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 20fb352e65a570063d9a0f55667db073f8a4ee27
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225436"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062422"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>適用於 MySQL 的 Azure 資料庫定價層
 
@@ -55,6 +55,25 @@ ms.locfileid: "66225436"
 
 您可以在 Azure 入口網站或使用 Azure CLI 命令來監視 I/O 耗用量。 要監視的相關計量包括[儲存體限制、儲存體百分比、已使用的儲存體和 IO 百分比](concepts-monitoring.md)。
 
+### <a name="large-storage-preview"></a>大型的儲存體 （預覽）
+
+在我們的一般用途和記憶體最佳化層中，我們會提高儲存體限制。 新建立的伺服器的選用功能的預覽可以佈建最多可達 16 TB 的儲存體。 3:1 比例調整的 IOPS 最多 20,000 個 IOPS。 如同目前正式運作的儲存體中，您可以在伺服器上，建立之後新增額外的儲存體容量，並允許成長自動根據您的工作負載的儲存體耗用量的儲存體系統。
+
+|              | **一般用途** | **記憶體最佳化** |
+|:-------------|:--------------------|:---------------------|
+| 儲存體類型 | Azure 進階儲存體 | Azure 進階儲存體 |
+| 儲存體大小 | 32 GB 到 16 TB| 32 到 16 TB |
+| 儲存體遞增大小 | 1 GB | 1 GB |
+| IOPS | 3 IOPS/GB<br/>最小值為 100 IOPS<br/>20,000 IOPS 的最大| 3 IOPS/GB<br/>最小值為 100 IOPS<br/>20,000 IOPS 的最大 |
+
+> [!IMPORTANT]
+> 大型的儲存體是目前處於公開預覽狀態，在下列區域：美國東部、 美國東部 2、 美國中部、 美國西部、 美國西部 2、 北歐、 西歐、 東南亞、 日本東部、 韓國中部、 澳大利亞東部。
+>
+> 目前不支援大型儲存體預覽：
+>
+> * 異地備援備份
+> * 跨區域複寫
+
 ### <a name="reaching-the-storage-limit"></a>到達儲存體限制
 
 具有少於 100 GB 佈建儲存體的伺服器會標示為唯讀的可用儲存體是否小於 512 MB 或 5%的已佈建的儲存體大小。 具有多個佈建 100 GB 的儲存空間的伺服器會標示為唯讀時，才可用的儲存體小於 5 GB。
@@ -71,7 +90,7 @@ ms.locfileid: "66225436"
 
 例如，如果您已佈建 1000 GB 的儲存體，以及實際的使用率超過 950 GB，伺服器儲存體大小會增加至 1050 GB。 或者，如果您已佈建 10 GB 的儲存體，儲存體大小是增加到 15GB 免費小於 1 GB 的儲存體時。
 
-## <a name="backup"></a>Backup 
+## <a name="backup"></a>Backup
 
 服務會自動採用伺服器的備份。 備份的最小保留期限是七天。 您可以設定的保留期限最多為 35 天。 在伺服器的存留期期間，您可以在任何時間點調整保留期限。 您可以選擇本地備援和異地備援備份。 異地備援備份也會儲存在您伺服器所在建立區域的[地理配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)中。 此備援能力可在發生災害時提供一層保護。 您也可讓伺服器還原到其他任何 Azure 區域，只要其中的服務可使用異地備援備份。 建立伺服器之後，便無法在兩個備份儲存體選項之間做變更。
 

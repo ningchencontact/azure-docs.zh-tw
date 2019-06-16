@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 81a5f99b0babd79af0034f684c45bfcf1bb25bd8
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3ae6966ed3fa8ee57e0ac85fe34866dcbde0fb9e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66425616"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077257"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>複製活動的效能及微調指南
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-copy-activity-performance.md)
 > * [目前的版本](copy-activity-performance.md)
 
@@ -306,7 +306,7 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 針對 Microsoft 資料存放區，請參閱資料存放區特定的 [監視和微調主題](#performance-reference) 。 這些主題可協助您了解資料存放區的效能特性，以及如何最小化回應時間和最大化輸送量。
 
-* 如果您要從 Blob 儲存體複製資料到 SQL 資料倉儲  ，請考慮使用 **PolyBase** 以提升效能。 如需詳細資訊，請參閱 [使用 PolyBase 將資料載入 Azure SQL 資料倉儲](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) 。
+* 如果您將資料複製**從任何資料存放區複製到 Azure SQL 資料倉儲**，請考慮使用**PolyBase** ，大幅提升效能。 如需詳細資訊，請參閱 [使用 PolyBase 將資料載入 Azure SQL 資料倉儲](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) 。
 * 如果您將資料從 HDFS 複製到 Azure Blob/Azure Data Lake Store  ，請考慮使用 **DistCp** 以提高效能。 如需詳細資料，請參閱[使用 DistCp 從 HDFS 複製資料](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs)。
 * 如果您將資料從 Redshift 複製到 Azure SQL 資料倉儲/Azure BLob/Azure Data Lake Store  ，請考慮使用 **UNLOAD** 以提高效能。 如需詳細資料，請參閱[使用 UNLOAD 複製 Amazon Redshift 中的資料](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)。
 
@@ -317,10 +317,8 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 
 ### <a name="relational-data-stores"></a>關聯式資料存放區
 
-* **複製行為**：根據為 **sqlSink** 設定的屬性，複製活動會以不同的方式將資料寫入目的地資料庫中。
-  * 根據預設，資料移動服務會使用大量複製 API 以附加模式插入資料，而提供最佳效能。
-  * 如果您在接收中設定了預存程序，資料庫會一次套用一個資料列的資料 (而不是大量載入)。 因此效能會大幅降低。 如果資料集較大，在適用的情況下，請考慮改為使用 **preCopyScript** 屬性。
-  * 如果您設定了每個複製活動執行的 **preCopyScript** 屬性，服務會觸發指令碼，然後使用大量複製 API 插入資料。 例如，若要以最新的資料覆寫整個資料表，您可以先指定指令碼以刪除所有記錄，再從來源大量載入新資料。
+* **複製行為與效能，還有以隱含方式**:有不同的方式，若要將資料寫入至 SQL 接收器，進一步了解[將資料載入 Azure SQL Database 的最佳做法](connector-azure-sql-database.md#best-practice-for-loading-data-into-azure-sql-database)。
+
 * **資料模式和批次大小**：
   * 資料表結構描述對複製輸送量會有影響。 若要複製相同的資料量，較大的資料列大小會有優於較小資料列大小的效能，因為資料庫可以更有效率地認可較少的資料批次。
   * 複製活動會以一系列的批次插入資料。 您可以使用 **writeBatchSize** 屬性來設定批次中包含的資料列數。 如果您的資料具有較小的資料列，您可以將 **writeBatchSize** 屬性設為較高的值，以減少批次的額外負荷，並增加輸送量。 如果您的資料的資料列大小較大，在增加 **writeBatchSize**時請多加留意。 較大的值可能會導致複製因資料庫的超載而失敗。

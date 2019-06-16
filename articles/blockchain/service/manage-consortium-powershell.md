@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: 4bb72bc3fe8b85a8d2aed88e02f5f3150abb6899
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66493645"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-by-using-powershell"></a>使用 PowerShell 管理 Azure 區塊鏈 Service 中的協會成員
@@ -145,7 +145,7 @@ New-Web3Connection -RemoteRPCEndpoint '<Endpoint address>'
 
 | 參數 | 描述 | 必要項 |
 |-----------|-------------|:--------:|
-| Name | 您想要擷取其相關詳細資料的區塊鏈服務成員的名稱。 當您輸入的名稱時，它會傳回成員的詳細資料。 當省略名稱時，它會傳回所有協會成員的清單。 | 否 |
+| 名稱 | 您想要擷取其相關詳細資料的區塊鏈服務成員的名稱。 當您輸入的名稱時，它會傳回成員的詳細資料。 當省略名稱時，它會傳回所有協會成員的清單。 | 否 |
 | 成員 | 從匯入 ConsortiumManagementContracts 取得的成員物件 | 是 |
 | Web3Client | 取自新增 Web3Connection Web3Client 物件 | 是 |
 
@@ -196,7 +196,7 @@ $ContractConnection | Remove-BlockchainMember -Name <Member Name> -Web3Account $
 
 | 參數 | 描述 | 必要項 |
 |-----------|-------------|:--------:|
-| Name | 區塊鏈成員名稱 | 是 |
+| 名稱 | 區塊鏈成員名稱 | 是 |
 | DisplayName | 新的顯示名稱 | 否 |
 | AccountAddress | 帳戶地址 | 否 |
 | 成員 | 從匯入 ConsortiumManagementContracts 取得的成員物件 | 是 |

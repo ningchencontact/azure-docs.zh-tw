@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 46be01c57be0e4f5fa74f8e8b0d91db3d78f441c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: d4acc620fb2a4c41615c745516e5ccfafd59d848
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480409"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057974"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>對應資料的流程效能及微調指南
 
@@ -41,7 +41,7 @@ Azure Data Factory 對應資料流程提供設計、 部署和協調大規模的
 
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>最佳化 Azure SQL Database 和 Azure SQL 資料倉儲
 
-![來源組件](media/data-flow/sourcepart2.png "來源組件")
+![來源組件](media/data-flow/sourcepart3.png "來源組件")
 
 ### <a name="partition-your-source-data"></a>將來源資料分割
 
@@ -122,8 +122,8 @@ Azure Data Factory 對應資料流程提供設計、 部署和協調大規模的
 * 若要避免耗盡計算節點的資源，您可以在 ADF，會針對效能進行最佳化，保留預設值或明確的資料分割配置，然後再新增 會合併所有組件的管線中後續的複製活動檔案從輸出資料夾複製到新的單一檔案。 基本上，這項技術會分隔檔案合併 」 轉換的動作，並達到相同結果與設為 「 輸出至單一檔案 」。
 
 ## <a name="next-steps"></a>後續步驟
-請參閱其他資料流程的文章：
+請參閱其他資料流程的文章與效能相關：
 
-- [資料的流程概觀](concepts-data-flow-overview.md)
+- [資料流程最佳化 索引標籤](concepts-data-flow-optimize-tab.md)
 - [Data Flow 活動](control-flow-execute-data-flow-activity.md)
 - [監視資料流程效能](concepts-data-flow-monitoring.md)

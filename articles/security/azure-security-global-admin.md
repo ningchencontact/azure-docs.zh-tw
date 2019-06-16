@@ -8,12 +8,12 @@ editor: TomSh
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: barclayn
-ms.openlocfilehash: fbc3bba3d95526277da3487cb8670c1f1a88a925
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 7d40b8f0ca05000a51e70d7a124e9cb143aa2dcf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951765"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127243"
 ---
 # <a name="enforce-multi-factor-authentication-mfa-for-subscription-administrators"></a>對訂用帳戶系統管理員強制執行多重要素驗證 (MFA)。
 
@@ -22,7 +22,7 @@ ms.locfileid: "65951765"
 您可以視需要將特定的系統管理員角色指派給 IT 人員的使用者帳戶，例如 Exchange 系統管理員或密碼系統管理員，以便執行例行管理作業。
 此外，為系統管理員啟用 [Azure 多重要素驗證 (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) 可以加強防護使用者登入和交易的安全。 Azure MFA 也可協助 IT 降低遭入侵的認證能夠存取公司資料的可能性。
 
-例如：您對使用者強制執行 Azure MFA，並將它設定為使用電話通話或簡訊做為驗證。 如果使用者的認證遭到入侵，攻擊者將無法存取任何資源，因為他們就不需要存取使用者的電話。 未新增額外身分識別保護層的組織會更容易受到認證竊取攻擊，這可能會導致資料洩漏。
+例如: 您對使用者強制執行 Azure MFA，並將它設定為使用電話通話或簡訊做為驗證。 如果使用者的認證遭到入侵，攻擊者將無法存取任何資源，因為他們就不需要存取使用者的電話。 未新增額外身分識別保護層的組織會更容易受到認證竊取攻擊，這可能會導致資料洩漏。
 
 想要將整個驗證控制保留於內部部署的組織有一個替代方法，就是使用 [Azure Multi-factor Authentication Server](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server) (也稱為「MFA 內部部署」)。 使用此方法，您仍可強制執行 Multi-Factor Authentication，同時保留 MFA 伺服器內部部署。
 
@@ -44,5 +44,5 @@ Get-AzureADDirectoryRole | Where { $_.DisplayName -eq "Company Administrator" } 
 
 ## <a name="turn-on-two-step-verification-for-users"></a>對使用者開啟雙步驟驗證
 
-使用[如何要求使用者或群組進行雙步驟驗證](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states)中所列的其中一個程序，開始使用 Azure MFA。 您可以選擇對所有登入強制執行雙步驟驗證，也可以建立條件式存取原則，只有在與您有關時要求雙步驟驗證。
+使用[如何要求使用者或群組進行雙步驟驗證](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states)中所列的其中一個程序，開始使用 Azure MFA。 您可以選擇強制執行雙步驟驗證，對所有登入，或者您可以建立只有在與您有關時要求雙步驟驗證的條件式存取原則。
 

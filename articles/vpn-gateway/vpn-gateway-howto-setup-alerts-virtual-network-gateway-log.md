@@ -5,18 +5,26 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptional
-ms.date: 04/22/2019
+ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 3880c847c54136dfd3ba1ecfe0178565091e229f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 48725ed8cdf3df30f8df31966aa632bfb2a4ef1f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510208"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066898"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>從 VPN 閘道設定診斷記錄事件的警示
 
-這篇文章可協助您設定以從 Azure VPN 閘道的診斷記錄事件為基礎的警示。
+這篇文章可協助您設定以從 Azure VPN 閘道的診斷記錄事件為基礎的警示。 使用下列記錄檔。
+
+|***名稱*** | ***說明*** |
+|---        | ---               |
+|GatewayDiagnosticLog | 包含閘道設定事件、 主要的變更和維護事件的診斷記錄檔 |
+|TunnelDiagnosticLog | 包含通道狀態變更事件。 如果適用的話，通道連接/中斷連接事件會有摘要的理由，狀態變更 |
+|RouteDiagnosticLog | 靜態路由與發生在閘道的 BGP 事件記錄檔變更 |
+|IKEDiagnosticLog | 控制項的 IKE 訊息和閘道上的事件記錄 |
+|P2SDiagnosticLog | 點對站台控制訊息與在閘道上的事件記錄 |
 
 ## <a name="setup"></a>設定警示
 
@@ -60,7 +68,7 @@ ms.locfileid: "65510208"
 
    ![選取項目自訂記錄檔搜尋](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "選取")
 
-10. 在 [搜尋查詢] 文字方塊中，輸入下列查詢。 取代為適當的繁體中文的值。
+10. 在 [搜尋查詢]  文字方塊中，輸入下列查詢。 取代為適當的繁體中文的值。
 
      `AzureDiagnostics |
      where Category  == "TunnelDiagnosticLog" and ResourceId == toupper("<RESOURCEID OF GATEWAY>") and TimeGenerated > ago(5m) and

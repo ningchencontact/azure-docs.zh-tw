@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 96ce71a7b3076adec169f103060a167b61c42d5c
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603518"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>傳送事件，或從使用.NET Framework 的 Azure 事件中樞接收事件
@@ -44,8 +44,8 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 
 ### <a name="add-the-event-hubs-nuget-package"></a>新增事件中樞 NuGet 封裝
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 [寄件者] 專案，然後按一下 [管理方案的 NuGet 封裝]。 
-2. 按一下 [瀏覽] 索引標籤，然後搜尋 `WindowsAzure.ServiceBus`。 按一下 [安裝] 並接受使用條款。 
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 [寄件者]  專案，然後按一下 [管理方案的 NuGet 封裝]  。 
+2. 按一下 [瀏覽]  索引標籤，然後搜尋 `WindowsAzure.ServiceBus`。 按一下 [安裝]  並接受使用條款。 
    
     ![安裝服務匯流排 NuGet 套件](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
    
@@ -115,8 +115,8 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 
 ### <a name="add-the-event-hubs-nuget-package"></a>新增事件中樞 NuGet 封裝
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 [收件者]專案，然後按一下 [管理方案的 NuGet 封裝]。
-2. 单击“浏览”选项卡，并搜索 `Microsoft Azure Service Bus Event Hub - EventProcessorHost`。 按一下 [安裝] 並接受使用條款。
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 [收件者]  專案，然後按一下 [管理方案的 NuGet 封裝]  。
+2. 按一下 [瀏覽]  索引標籤，然後搜尋 `Microsoft Azure Service Bus Event Hub - EventProcessorHost`。 按一下 [安裝]  並接受使用條款。
    
     ![搜尋事件處理器主機 NuGet 套件](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
    
@@ -124,7 +124,7 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 
 ### <a name="implement-the-ieventprocessor-interface"></a>實作 IEventProcessor 介面
 
-1. 在 [接收者] 專案上按一下滑鼠右鍵，按一下 [新增]，然後按一下 [類別]。 將新類別命名為 **SimpleEventProcessor**，然後按一下 [新增] 以建立該類別。
+1. 在 [接收者]  專案上按一下滑鼠右鍵，按一下 [新增]  ，然後按一下 [類別]  。 將新類別命名為 **SimpleEventProcessor**，然後按一下 [新增]  以建立該類別。
    
     ![新增 SimpleEventProcessor 類別](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
 2. 在 SimpleEventProcessor.cs 檔案開頭處新增下列陳述式：

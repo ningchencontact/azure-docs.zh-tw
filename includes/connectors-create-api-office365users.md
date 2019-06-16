@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
 ms.openlocfilehash: ebae0fac5edc0bb79e6a19d8bdc741960f0b0e20
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66149687"
 ---
 ### <a name="prerequisites"></a>必要條件
@@ -18,7 +18,7 @@ ms.locfileid: "66149687"
 
 若要授與邏輯應用程式連接到 Office 365 使用者帳戶的權限，其步驟如下：  
 
-1. 若要建立 Office 365 使用者連接，請在邏輯應用程式設計工具的下拉式清單中選取 [顯示 Microsoft 受控 API]，然後在搜尋方塊中輸入「Office 365 使用者」。 選取您要使用的觸發程序或動作：  
+1. 若要建立 Office 365 使用者連接，請在邏輯應用程式設計工具的下拉式清單中選取 [顯示 Microsoft 受控 API]  ，然後在搜尋方塊中輸入「Office 365 使用者」  。 選取您要使用的觸發程序或動作：  
    ![Office 365 使用者的建立步驟](./media/connectors-create-api-office365users/office365users-1.png)  
 2. 如果您之前尚未建立任何 Office 365 使用者連接，系統會提示您提供 Office 365 使用者認證。 這些認證會用來授與邏輯應用程式連接並存取 Office 365 使用者帳戶資料的權限：  
    ![Office 365 使用者的建立步驟](./media/connectors-create-api-office365users/office365users-2.png)  

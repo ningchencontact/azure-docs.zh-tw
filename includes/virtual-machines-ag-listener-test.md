@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165437"
 ---
 在此步驟中，您會使用在相同網路上執行的用戶端應用程式來測試可用性群組接聽程式。
@@ -23,7 +23,7 @@ ms.locfileid: "66165437"
     sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
 
 > [!NOTE]
-> 如果 EndpointPort 值為 1433，則不需要在呼叫中指定。 前一個呼叫也假設用戶端電腦已加入相同的網域，而且已使用 Windows 驗證授與呼叫端對資料庫的權限。
+> 如果 EndpointPort 值為 1433  ，則不需要在呼叫中指定。 前一個呼叫也假設用戶端電腦已加入相同的網域，而且已使用 Windows 驗證授與呼叫端對資料庫的權限。
 > 
 > 
 

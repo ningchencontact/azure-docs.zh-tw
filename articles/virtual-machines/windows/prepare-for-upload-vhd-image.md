@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
 ms.openlocfilehash: 5ae0e7855db6bec9f48d2b9511f0d0626d883111
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65561343"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>準備 Windows VHD 或 VHDX 以上傳至 Azure
@@ -31,25 +31,25 @@ ms.locfileid: "65561343"
 > [!Note]
 > 本文中的指示適用於 64 位元版本的 Windows Server 2008 R2 或更新版本的 Windows Server 作業系統。 如需 Azure 中執行 32 位元版本的作業系統相關資訊，請參閱[在 Azure 虛擬機器中對 32 位元作業系統的支援](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines) \(機器翻譯\)。
 
-## <a name="convert-the-virtual-disk-to-vhd-and-fixed-size-disk"></a>将虚拟磁盘转换为 VHD 和固定大小磁盘 
+## <a name="convert-the-virtual-disk-to-vhd-and-fixed-size-disk"></a>將虛擬磁碟轉換成 VHD 及固定大小的磁碟 
 如果您需要將虛擬磁碟轉換為 Azure 所需的格式，請使用本節中的其中一種方法。 在執行虛擬磁碟轉換程序之前備份 VM ，並確定 Windows VHD 在本機伺服器上正常運作。 先解決 VM 本身的任何錯誤，然後嘗試轉換或上傳至 Azure。
 
 在轉換磁碟之後，建立會使用轉換磁碟的 VM。 啟動並登入 VM 以完成準備上傳 VM。
 
 ### <a name="convert-disk-using-hyper-v-manager"></a>使用 HYPER-V 管理員轉換磁碟
-1. 打开 Hyper-V 管理器，在左侧选择本地计算机。 在電腦清單上方的功能表中，按一下 [動作] >  [編輯磁碟]。
-2. 在 [尋找虛擬硬碟] 畫面上，尋找並選取您的虛擬磁碟。
-3. 在 [選擇動作] 畫面上，接著選取 [轉換] 和 [下一步]。
-4. 如果您需要從 VHDX 進行轉換，請選取 [VHD]，然後按 [下一步]。
-5. 如果您需要從動態擴充磁碟進行轉換，選取 [固定大小]，然後按 [下一步]。
+1. 開啟 Hyper-V 管理員，然後在左側選取您的本機電腦。 在電腦清單上方的功能表中，按一下 [動作]   >  [編輯磁碟]  。
+2. 在 [尋找虛擬硬碟]  畫面上，尋找並選取您的虛擬磁碟。
+3. 在 [選擇動作]  畫面上，接著選取 [轉換]  和 [下一步]  。
+4. 如果您需要從 VHDX 進行轉換，請選取 [VHD]  ，然後按 [下一步]  。
+5. 如果您需要從動態擴充磁碟進行轉換，選取 [固定大小]  ，然後按 [下一步]  。
 6. 尋找並選取用以儲存新 VHD 檔案的路徑。
-7. 按一下 [完成] 。
+7. 按一下 [完成]  。
 
 >[!NOTE]
 >本文中的命令必須以提高權限的 PowerShell 工作階段來執行。
 
 ### <a name="convert-disk-by-using-powershell"></a>使用 PowerShell 轉換磁碟
-您可以在 Windows PowerShell 中使用 [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) 命令來轉換虛擬磁碟。 當您啟動 PowerShell 時，選取 [以系統管理員身分執行]。 
+您可以在 Windows PowerShell 中使用 [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) 命令來轉換虛擬磁碟。 當您啟動 PowerShell 時，選取 [以系統管理員身分執行]  。 
 
 下列範例命令會從 VHDX 轉換至 VHD，以及從動態擴充磁碟轉換至固定大小的磁碟：
 
@@ -58,7 +58,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 ```
 在這個命令中，使用您想要轉換的虛擬硬碟路徑取代 "-Path" 的值，並使用已轉換磁碟的新路徑和名稱取代 "-DestinationPath" 的值。
 
-### <a name="convert-from-vmware-vmdk-disk-format"></a>从 VMware VMDK 磁盘格式转换
+### <a name="convert-from-vmware-vmdk-disk-format"></a>從 VMware VMDK 磁碟格式進行轉換
 如果您的 Windows VM 映像是 [VMDK 檔案格式](https://en.wikipedia.org/wiki/VMDK)，使用 [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497) \(英文\) 將它轉換為 VHD。 如需詳細資訊，請參閱部落格文章：[如何將 VMware VMDK 轉換為 Hyper-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) \(英文\)。
 
 ## <a name="set-windows-configurations-for-azure"></a>設定適用於 Azure 的 Windows 設定
@@ -96,14 +96,14 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
     exit   
     ```
 
-4. 設定適用於 Windows 的國際標準時間 (UTC)，並將 Windows 時間 (w32time) 服務的啟動類型設為 [自動]：
+4. 設定適用於 Windows 的國際標準時間 (UTC)，並將 Windows 時間 (w32time) 服務的啟動類型設為 [自動]  ：
    
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" -Value 1 -Type DWord -force
 
     Set-Service -Name w32time -StartupType Automatic
     ```
-5. 將電源設定檔設為 [高效能]：
+5. 將電源設定檔設為 [高效能]  ：
 
     ```PowerShell
     powercfg /setactive SCHEME_MIN
@@ -195,11 +195,11 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
     ```PowerShell
     Remove-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SSLCertificateSHA1Hash" -force
     ```
-    這是為了確定您在部署 VM 時，一開始就能連線。 也可在 VM 部署到 Azure 以后，根据需要在后期进行查看。
+    這是為了確定您在部署 VM 時，一開始就能連線。 您也可以視需要，在 Azure 中部署 VM 之後的後續階段中檢閱這部分。
 
 9. 如果 VM 將為網域的一部分，請檢查下列所有設定，以確定不會還原先前設定。 以下為必須檢查的原則：
     
-    | 目標                                     | 原則                                                                                                                                                       | Value                                                                                    |
+    | 目標                                     | 原則                                                                                                                                                       | 值                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP 已啟用                           | 電腦設定\原則\Windows 設定\系統管理範本\元件\遠端桌面服務\遠端桌面工作階段主機\連線         | 允許使用者使用遠端桌面服務從遠端連線                                  |
     | NLA 群組原則                         | 設定\系統管理範本\元件\遠端桌面服務\遠端桌面工作階段主機\安全性                                                    | 透過使用網路層級驗證以要求對遠端連線進行使用者驗證 |
@@ -233,7 +233,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
    ``` 
 5. 如果 VM 將為網域的一部分，請檢查下列設定，以確定不會還原先前設定。 以下為必須檢查的 AD 原則：
 
-    | 目標                                 | 原則                                                                                                                                                  | Value                                   |
+    | 目標                                 | 原則                                                                                                                                                  | 值                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | 啟用 Windows 防火牆設定檔 | 電腦設定\原則\Windows 設定\系統管理範本\網路\網路連線\Windows 防火牆\網域設定檔\Windows 防火牆   | 保護所有網路連線         |
     | 啟用 RDP                           | 電腦設定\原則\Windows 設定\系統管理範本\網路\網路連線\Windows 防火牆\網域設定檔\Windows 防火牆   | 允許輸入遠端桌面例外狀況 |
@@ -296,7 +296,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
     ```
     如果存放庫損毀，請參閱 [WMI：存放庫損毀，還是沒有損毀](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not) \(英文\)。
 
-5. 確定沒有任何其他應用程式使用連接埠 3389。 此端口用于 Azure 中的 RDP 服务。 您可以執行 **netstat anob** 來查看 VM 上使用了哪些連接埠：
+5. 確定沒有任何其他應用程式使用連接埠 3389。 在 Azure 中，此連接埠是由 RDP 服務所使用。 您可以執行 **netstat anob** 來查看 VM 上使用了哪些連接埠：
 
     ```PowerShell
     netstat -anob
@@ -339,7 +339,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 ### <a name="install-windows-updates"></a>安裝 Windows 更新
 理想的設定是**具有最新的電腦修補程式等級**。 如果這不可行，請確定已安裝下列更新：
 
-| 元件               | Binary         | Windows 7 SP1、Windows Server 2008 R2 SP1 | Windows 8、Windows Server 2012               | Windows 8.1、Windows Server 2012 R2 | Windows 10 版本 1607、Windows Server 2016 版本 1607 | Windows 10 版本 1703    | Windows 10 版本 1709、Windows Server 2016 版本 1709 | Windows 10 1803、Windows Server 2016 版本 1803 |
+| 元件               | Binary         | Windows 7 SP1、Windows Server 2008 R2 SP1 | Windows 8、Windows Server 2012               | Windows 8.1、Windows Server 2012 R2 | Windows 10 1607年版 Windows Server 2016 版本 1607 | Windows 10 版本 1703    | Windows 10 版本 1709、Windows Server 2016 版本 1709 | Windows 10 1803 Windows Server 2016 版本 1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
 | 儲存體                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
@@ -399,12 +399,12 @@ Sysprep 是您可執行來進行 Windows 安裝的程序，將重設系統安裝
 
 1. 登入 Windows VM。
 2. 以系統管理員身分執行**命令提示字元**。 
-3. 將目錄切換至：**%windir%\system32\sysprep**，然後執行 **sysprep.exe**。
-3. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，並確認已勾選 [一般化] 核取方塊。
+3. 將目錄切換至： **%windir%\system32\sysprep**，然後執行 **sysprep.exe**。
+3. 在 [系統準備工具]  對話方塊中，選取 [進入系統全新體驗 (OOBE)]  ，並確認已勾選 [一般化]  核取方塊。
 
     ![系統準備工具](media/prepare-for-upload-vhd-image/syspre.png)
-4. 在“关机选项”中选择“关机”。
-5. 按一下 [確定]。
+4. 在 [關機選項]  中選取 [關機]  。
+5. 按一下 [確定]  。
 6. 當 Sysprep 完成時，關閉 VM。 不要使用**重新啟動**來關閉 VM。
 7. 現在已準備好上傳 VHD。 如需如何從一般化磁碟建立 VM 的詳細資訊，請參閱[將一般化 VHD 上傳，並使用它在 Azure 中建立新的 VM](sa-upload-generalized.md)。
 
@@ -416,7 +416,7 @@ Sysprep 是您可執行來進行 Windows 安裝的程序，將重設系統安裝
 ## <a name="complete-recommended-configurations"></a>完成建議的設定
 下列設定不會影響 VHD 上傳。 不過，我們強烈建議您設定它們。
 
-* 安裝 [Azure VM 代理程式](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 然後您可以啟用 VM 擴充功能。 VM 擴充功能實作了您可能想要與 VM 搭配使用的大部分重要功能，例如重設密碼、設定 RDP 等功能。 有关详细信息，请参阅 [Azure 虚拟机代理概述](../extensions/agent-windows.md)。
+* 安裝 [Azure VM 代理程式](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 然後您可以啟用 VM 擴充功能。 VM 擴充功能實作了您可能想要與 VM 搭配使用的大部分重要功能，例如重設密碼、設定 RDP 等功能。 如需詳細資訊，請參閱 < [Azure 虛擬機器代理程式概觀](../extensions/agent-windows.md)。
 * 在 Azure 中建立 VM 之後，我們建議您將分頁檔放在「暫存磁碟機」磁碟區中，以改善效能。 您可以如下方式設定這部分：
 
    ```PowerShell

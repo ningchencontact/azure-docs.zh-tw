@@ -10,10 +10,10 @@ ms.date: 05/20/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 8afe8fed8912dd365071f1c4c5560c9f5578dcd8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133107"
 ---
 # <a name="workspace-mappings"></a>工作區對應
@@ -56,11 +56,11 @@ ms.locfileid: "66133107"
 > [!NOTE]
 > 某些包含舊版 Azure SQL 監視解決方案的解決方案可能已建立自動化資產，在取消連結工作區之前，可能也需要先加以移除。
 
-1. 從 Azure 入口網站開啟您的自動化帳戶，然後在 [自動化帳戶] 頁面上，在左側的 [相關資源] 區段下選取 [已取消連結的工作區]。
+1. 從 Azure 入口網站開啟您的自動化帳戶，然後在 [自動化帳戶] 頁面上，在左側的 [相關資源]  區段下選取 [已取消連結的工作區]  。
 
-2. 在 [取消連結工作區] 頁面上，按一下 [取消連結工作區]。 您會收到提示，確認您想要繼續。
+2. 在 [取消連結工作區] 頁面上，按一下 [取消連結工作區]  。 您會收到提示，確認您想要繼續。
 
-3. 當 Azure 自動化嘗試將您的帳戶從 Log Analytics 工作區取消連結時，您可以從功能表在 [通知] 下追蹤進度。
+3. 當 Azure 自動化嘗試將您的帳戶從 Log Analytics 工作區取消連結時，您可以從功能表在 [通知]  下追蹤進度。
 
 若使用「更新管理」解決方案，您可以在移除解決方案之後選擇移除已不再需要的下列項目。
 

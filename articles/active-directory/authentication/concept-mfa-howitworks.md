@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa25e8a965b89c4e97263e3767a9400079fcad7a
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: ff8f27d727768f3f1135f8929310d5cfeffe874b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496798"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113527"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>運作方式：Azure Multi-Factor Authentication
 
@@ -50,7 +50,7 @@ Multi-Factor Authentication 隨附於下列供應項目：
 因為大多數使用者都已習慣僅使用密碼來驗證，所以您的組織務必要與所有使用者溝通此程序。 這番了解可以避免使用者因為 MFA 的小問題就連絡技術人員。 不過，有一些案例是需要暫時停用 MFA。 使用下列指導方針了解如何處理這些案例：
 
 * 訓練您的支援人員來處理使用者因無權存取其驗證方法或其無法正常運作而無法登入的案例。
-   * 使用 Azure MFA 服務的條件式存取原則，您的支援人員就可以將使用者新增至從要求 MFA 的原則中排除的群組。
+   * 使用 Azure MFA 服務的條件式存取原則，您的支援人員就可以將使用者新增至群組時，會排除原則，要求 MFA。
 * 請考慮使用具名位置最小化雙步驟驗證的方式提示的條件式存取。 透過這項功能，系統管理員可以略過雙步驟驗證的安全信任的網路位置，例如網路從登入的使用者使用新的使用者上架的區段。
 * 部署 [Azure AD Identity Protection](../active-directory-identityprotection.md)，並根據風險事件觸發雙步驟驗證。
 

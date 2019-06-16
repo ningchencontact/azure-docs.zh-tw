@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 897634ac0c30b4a2cc496c225965f465a94fe4e9
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: f2787cd74525e7676befb133a6106ce83d9c2a20
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751890"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072622"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應項目
 
@@ -72,12 +72,12 @@ ms.locfileid: "66751890"
 
 若要透過合作夥伴中心上的商業 Marketplace 提供的服務 (SaaS)，請列出軟體，必須符合下列準則：
 
-- 您的供應項目必須與 Azure 的用戶端相容。 (通常 SaaS 應用程式也會裝載於 Azure 上取得最佳的效能及相容性，但這不一定需要。) 
 - 必須使用您的供應項目[Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/)身分識別管理和驗證。
 - 必須使用您的供應項目[履行的 SaaS Api](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2)整合與 Azure Marketplace。
+- 如需更廣泛的需求，請參閱[SaaS 提供發行指南](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)。
 
-#### <a name="billing-infrastructure-costs"></a>基礎結構成本計費
-SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結構使用費用，以及軟體授權費用為單一的成本項目。 這項成本被以客戶的一般每月費用。 管理，且直接會計入您的合作夥伴，azure 基礎結構使用方式。 客戶不會看到實際的基礎結構使用量費用。 發行者通常選擇將 Azure 基礎結構使用量費用算在他們的軟體授權定價中。 
+#### <a name="saas-on-azure-billing-infrastructure-costs"></a>Azure 計費基礎結構成本的 SaaS
+如果 SaaS 供應項目裝載在 Azure 中，您，為 「 發行者 」，必須考慮 Azure 基礎結構使用費用，以及軟體授權費用為單一的成本項目。 這項成本被以客戶的一般每月費用。 管理，且直接會計入您的合作夥伴，azure 基礎結構使用方式。 客戶不會看到實際的基礎結構使用量費用。 發行者通常選擇將 Azure 基礎結構使用量費用算在他們的軟體授權定價中。 
 
 軟體授權費用會以每月、 週期性站台為基礎的訂用帳戶的固定費率收費，且不計量或使用情況為基礎。
 
@@ -189,7 +189,7 @@ SaaS 供應項目，您，為 「 發行者 」，必須考慮 Azure 基礎結�
 
 製作自訂的條款及條件，可以選擇 Azure Marketplace 發行者提供其軟體，客戶只需要檢查，並接受一次的標準契約義務。 
 
-標準的合約可以在這裡找到： https://go.microsoft.com/fwlink/?linkid=2041178。
+標準的合約可以在這裡找到： https://go.microsoft.com/fwlink/?linkid=2041178 。
 
 #### <a name="terms-of-use"></a>使用規定
 
@@ -400,9 +400,9 @@ Microsoft 可以移除所裝載及維護服務佈建和部署使用這種類型�
 
 - **試用產品期限**（必要）：輸入試用產品所定義的時數會持續作用的時間的長度。 之後這幾個小時，工作階段會結束，並不會再使用其中一個您授權。 我們建議您 2-24 小時，視您的供應項目複雜度而定的值。 這段期間可能只採用組依時數的整數 （例如："2"的時數，「 1.5"是無效的）。  如果它們用盡時間，而且想要再次存取試用產品，使用者可以要求新的工作階段。
 
-- **執行個體 URL** （必要）：客戶將會開始其測試磁碟機的位置 URL。 通常您已安裝的範例資料以執行您的應用程式的 Dynamics 365 執行個體的 URL (例如 https://testdrive.crm.dynamics.com)。
+- **執行個體 URL** （必要）：客戶將會開始其測試磁碟機的位置 URL。 通常您已安裝的範例資料以執行您的應用程式的 Dynamics 365 執行個體的 URL (例如 https://testdrive.crm.dynamics.com) 。
 
-- **執行個體的 Web API URL** （必要）：擷取登入您的 Microsoft 365 帳戶，然後瀏覽至您 Dynamics 365 執行個體的 Web API URL**設定** \&gt;**自訂** \&gt;**開發人員資源** \&gt;**執行個體 (服務根目錄 URL) 的 Web API**，複製此處找到的 URL (例如 https://testdrive.crm.dynamics.com/api/data/v9.0)。
+- **執行個體的 Web API URL** （必要）：擷取登入您的 Microsoft 365 帳戶，然後瀏覽至您 Dynamics 365 執行個體的 Web API URL**設定** \&gt;**自訂** \&gt;**開發人員資源** \&gt;**執行個體 (服務根目錄 URL) 的 Web API**，複製此處找到的 URL (例如 https://testdrive.crm.dynamics.com/api/data/v9.0) 。
 
 - **角色名稱**（必要）：提供您已定義自訂的 Dynamics 365 測試磁碟機中的安全性角色名稱。 這會在其測試磁碟機 （例如測試-訂餐角色） 期間指派給使用者。
 

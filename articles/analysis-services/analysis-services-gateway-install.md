@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 629a97048ceba4ac02e3aa1dd59310980e5a0c95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55f68d777d291c7d12fcbae93884a5596b84c8ca
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327478"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062257"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安裝及設定內部部署資料閘道
 
@@ -28,7 +28,7 @@ ms.locfileid: "60327478"
 
 **建議配備：**
 
-* 8 核 CPU
+* 8 核心 CPU
 * 8 GB 記憶體
 * 64 位元版本的 Windows 2012 R2 (或更新版本)
 
@@ -40,9 +40,9 @@ ms.locfileid: "60327478"
 * 請在電源維持開啟且不會進入睡眠狀態的電腦上安裝閘道。
 * 請勿將閘道安裝於採用無線網路的電腦上。 效能會因此降低。
 * 安裝閘道時，您用來登入電腦的使用者帳戶必須具有「登入為服務」權限。 安裝完成時，內部部署資料閘道服務會使用 NT SERVICE\PBIEgwService 帳戶登入為服務。 在安裝期間可以指定不同的帳戶，或是可在安裝完成後於服務中指定。 在安裝時請確定群組原則設定允許您用於登入的帳戶，且您選擇的服務帳戶具有「登入為服務」權限。
-* 如果[租用戶](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant)與您要註冊閘道的訂用帳戶相同，請以 Azure AD 中的帳戶登入 Azure。 安裝和註冊閘道時不支援 Azure B2B (來賓) 帳戶。
+* 如果[租用戶](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant)與您要註冊閘道的訂用帳戶相同，請以 Azure AD 中的帳戶登入 Azure。 安裝和註冊閘道時不支援 Azure B2B (來賓) 帳戶。
 * 如果資料來源位於 Azure 虛擬網路 (VNet) 上，您必須設定 [AlwaysUseGateway](analysis-services-vnet-gateway.md) 伺服器屬性。
-* Azure 德國區域不支援此處所述的 (統一) 閘道。 相反地，使用在入口網站中伺服器的 [快速入門] 中安裝的 **Azure Analysis Service 專用內部部署閘道**。 
+* Azure 德國區域不支援此處所述的 (統一) 閘道。 相反地，使用在入口網站中伺服器的 [快速入門]  中安裝的 **Azure Analysis Service 專用內部部署閘道**。 
 
 
 ## <a name="download"></a>下載
@@ -53,7 +53,7 @@ ms.locfileid: "60327478"
 
 1. 執行安裝程式。
 
-2. 選取位置，接受條款，然後按一下 [安裝]。
+2. 選取位置，接受條款，然後按一下 [安裝]  。
 
    ![安裝位置和授權條款](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
@@ -68,11 +68,11 @@ ms.locfileid: "60327478"
 
 若要在 Azure 中建立閘道資源，您必須向閘道雲端服務註冊您安裝的本機執行個體。 
 
-1.  選取 [在這部電腦上註冊新的閘道]。
+1.  選取 [在這部電腦上註冊新的閘道]  。
 
     ![註冊](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
-2. 輸入您的閘道名稱和復原金鑰。 根據預設，閘道會使用您訂用帳戶的預設區域。 如果您需要選取不同的區域，請選取 [變更區域]。
+2. 輸入您的閘道名稱和復原金鑰。 根據預設，閘道會使用您訂用帳戶的預設區域。 如果您需要選取不同的區域，請選取 [變更區域]  。
 
     > [!IMPORTANT]
     > 將您的修復金鑰儲存在安全的地方。 必須要有修復金鑰，才能接管、移轉或還原閘道。 
@@ -84,15 +84,15 @@ ms.locfileid: "60327478"
 
 在您安裝並註冊閘道之後，您需要在您的 Azure 訂用帳戶中建立閘道資源。 使用您用於註冊閘道的相同帳戶登入 Azure。
 
-1. 在 Azure 入口網站中，按一下 [建立資源] > [整合] > [內部部署資料閘道]。
+1. 在 Azure 入口網站中，按一下 [建立資源]   > [整合]   > [內部部署資料閘道]  。
 
    ![建立閘道資源](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 
-2. 在 [建立連線閘道] 中，輸入下列設定：
+2. 在 [建立連線閘道]  中，輸入下列設定：
 
-   * **名称**：輸入閘道資源的名稱。 
+   * **名稱**：輸入閘道資源的名稱。 
 
-   * 訂用帳戶：選取要與閘道資源關聯的 Azure 訂用帳戶。 
+   * 訂用帳戶  ：選取要與閘道資源關聯的 Azure 訂用帳戶。 
    
      預設的訂用帳戶會由您用來登入的 Azure 帳戶來決定。
 
@@ -102,15 +102,15 @@ ms.locfileid: "60327478"
 
    * **安裝名稱**︰如果您的閘道安裝還不是選取狀態，請選取已註冊的閘道。 
 
-     完成之後，請按一下 [建立] 。
+     完成之後，請按一下 [建立]  。
 
 ## <a name="connect-servers"></a>將伺服器連線到閘道資源
 
-1. 在 Azure Analysis Services 伺服器概觀中，按一下 [內部部署資料閘道]。
+1. 在 Azure Analysis Services 伺服器概觀中，按一下 [內部部署資料閘道]  。
 
    ![將伺服器連線至閘道](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
 
-2. 在 [挑選要連線的內部部署資料閘道] 中，選取您的閘道資源，然後按一下 [連線選取的閘道]。
+2. 在 [挑選要連線的內部部署資料閘道]  中，選取您的閘道資源，然後按一下 [連線選取的閘道]  。
 
    ![將伺服器連線至閘道資源](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
 

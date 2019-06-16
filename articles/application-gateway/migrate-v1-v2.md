@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/5/2019
+ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: 44d5ce3e194c873a564039934f518cb3a0e142e3
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 2387f2546afa9d5af2cb909a1e6a2179548e3b5a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497168"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053339"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>移轉 Azure 應用程式閘道和 Web 應用程式防火牆從 v1 為 v2
 
@@ -96,7 +96,7 @@ Azure PowerShell 指令碼，會進行下列作業：
      $appgw.Id
      ```
 
-   * **subnetAddressRange: [String]:所需**-這是新的子網路，其中包含新的 v2 閘道的 IP 位址空間配置 （或想要配置）。 這必須以 CIDR 標記法指定。 例如: 10.0.0.0/24. 您不需要事先建立此子網路。 指令碼會建立它，如果不存在。
+   * **subnetAddressRange: [String]:所需**-這是新的子網路，其中包含新的 v2 閘道的 IP 位址空間已配置 （或想要配置）。 這必須以 CIDR 標記法指定。 例如: 10.0.0.0/24. 您不需要事先建立此子網路。 指令碼會建立它，如果不存在。
    * **appgwName: [String]:選擇性**。 這是您指定做為新的 Standard_v2 或 WAF_v2 閘道的名稱使用的字串。 如果未提供這個參數，現有的 v1 閘道的名稱將用於後置詞*並將 _v2*附加。
    * **sslCertificates: [PSApplicationGatewaySslCertificate]:選擇性**。  您建立來代表從 v1 閘道的 SSL 憑證的 PSApplicationGatewaySslCertificate 物件的逗號分隔的清單，都必須上傳至新的 v2 閘道。 針對每個您設定您的標準 v1 或 WAF v1 閘道的 SSL 憑證，您可以建立新的 PSApplicationGatewaySslCertificate 物件透過`New-AzApplicationGatewaySslCertificate`如下所示的命令。 您需要 SSL 憑證檔案和密碼的路徑。
 
@@ -117,11 +117,11 @@ Azure PowerShell 指令碼，會進行下列作業：
 
       若要建立 PSApplicationGatewayTrustedRootCertificate 物件的清單，請參閱[新增 AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0)。
    * **privateIpAddress: [String]:選擇性**。 特定私人 IP 位址，您想要關聯到新的 v2 閘道。  這必須是從您配置給新的 v2 閘道相同的 VNet。 如果未指定，指令碼會為 v2 閘道配置私人 IP 位址。
-    * **publicIpResourceId: [String]:選擇性**。 您想要配置給新的 v2 閘道您訂用帳戶中的公用 IP 位址資源的 resourceId。 如果未指定，指令碼會配置相同的資源群組中的新公用 IP。 名稱為 v2 閘道的名稱，加*IP*附加。
+    * **publicIpResourceId: [String]:選擇性**。 您想要配置給新的 v2 閘道您訂用帳戶中的公用 IP 位址 (標準 SKU) 資源的 resourceId。 如果未指定，指令碼會配置在相同的資源群組中的新公用 IP。 名稱為 v2 閘道的名稱，加*IP*附加。
    * **validateMigration: [切換]:選擇性**。 如果您想要執行某些基本設定的設定，比較驗證 v2 閘道建立並設定複本之後的指令碼，請使用此參數。 根據預設，會不進行任何驗證。
    * **enableAutoScale: [切換]:選擇性**。 如果您想要在建立之後，新的 v2 閘道上啟用自動調整的指令碼，請使用此參數。 根據預設，會停用自動調整。 您可以一律以手動方式啟用它之後新建立的 v2 閘道。
 
-1. 執行指令碼使用適當的參數。
+1. 執行指令碼使用適當的參數。 可能需要五到七分鐘才能完成。
 
     **範例**
 
@@ -176,7 +176,11 @@ Azure PowerShell 指令碼，會進行下列作業：
 
 ### <a name="is-the-new-v2-gateway-created-by-the-azure-powershell-script-sized-appropriately-to-handle-all-of-the-traffic-that-is-currently-served-by-my-v1-gateway"></a>Azure PowerShell 指令碼建立新的 v2 閘道大小適用於處理所有目前由我 v1 閘道的流量？
 
-Azure PowerShell 指令碼會建立新的 v2 閘道適當的大小，以處理現有的 V1 閘道上的流量。 根據預設，停用自動調整，但當您執行指令碼時，您可以啟用自動調整。
+Azure PowerShell 指令碼會建立新的 v2 閘道適當的大小，以處理現有的 v1 閘道上的流量。 根據預設，停用自動調整，但當您執行指令碼時，您可以啟用自動調整。
+
+### <a name="i-configured-my-v1-gateway--to-send-logs-to-azure-storage-does-the-script-replicate-this-configuration-for-v2-as-well"></a>我設定我的 v1 閘道，將記錄傳送至 Azure 儲存體。 指令碼是否複寫這項設定，以及 v2？
+
+沒有。 指令碼不會複寫此組態的 v2。 您必須將記錄組態新增至已移轉的 v2 閘道的分開。
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>我遇到一些與使用此指令碼的問題。 如何取得協助？
   

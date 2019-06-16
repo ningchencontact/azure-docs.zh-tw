@@ -11,16 +11,16 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: b6f95607c7cfc574d647be3046cef4a4b61906f6
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65861757"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>在 SQL 資料倉儲中使用交易
 在 Azure SQL 資料倉儲中實作交易以便開發解決方案的秘訣。
 
-## <a name="what-to-expect"></a>預期的情況
+## <a name="what-to-expect"></a>未來展望
 如您所預期，SQL 資料倉儲支援交易做為資料倉儲工作負載的一部分。 不過，為了確保 SQL 資料倉儲的效能維持在一定的程度，某些功能會受到限制 (相較於 SQL Server)。 本文特別強調差異，並列出其他交易。 
 
 ## <a name="transaction-isolation-levels"></a>交易隔離層級

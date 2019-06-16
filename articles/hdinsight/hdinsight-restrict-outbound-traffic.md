@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 4ce3ca31163c286f54b9630e5d4779e2e47a032f
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 542813e0f82a1a52142a2b82bea3fdb101fdec28
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754595"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077167"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>設定 Azure HDInsight 叢集使用的防火牆 （預覽） 的輸出網路流量
 
@@ -52,20 +52,22 @@ Azure HDInsight 叢集通常會在您自己的虛擬網路中部署。 叢集中
 
 在 **新增應用程式規則集合**畫面上，完成下列步驟：
 
-1. 請輸入**名稱**，**優先順序**，然後按一下**允許**從**動作**下拉式功能表。
-1. 新增下列規則：
-    1. 規則以允許 HDInsight 與 Windows Update 的流量：
-        1. 在  **FQDN 標記**區段中，提供**名稱**，並設定**來源地址**來`*`。
-        1. 選取  **HDInsight**並**WindowsUpdate**從**FQDN 標記**下拉式功能表。
-    1. 允許 Windows 登入活動的規則：
-        1. 在 **目標 Fqdn**區段中，提供**名稱**，並設定**來源地址**至`*`。
-        1. 輸入`https:443`底下**通訊協定： 連接埠**並`login.windows.net`之下**目標 FQDN**。
-    1. 如果您的叢集做為後盾 WASB，然後新增規則的 WASB:
-        1. 在 **目標 Fqdn**區段中，提供**名稱**，並設定**來源地址**至`*`。
-        1. 輸入`http:80,https:443`底下**通訊協定： 連接埠**下的儲存體帳戶 url 並**目標 FQDN**。 格式會類似於 < storage_account_name.blob.core.windows.net >。 若要使用僅限 https 連線確定[「 需要安全傳輸 」](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)啟用儲存體帳戶。
+1. 輸入**名稱**，**優先順序**，然後按一下**允許**從**動作**下拉式功能表中，並輸入下列規則在**FQDN 標記區段**:
+
+   | **名稱** | **來源位址** | **FQDN 標記** | **注意事項** |
+   | --- | --- | --- | --- |
+   | Rule_1 | * | HDInsight 和 WindowsUpdate | 所需的 HDI 服務 |
+
+1. 新增下列規則，以便**目標 Fqdn 區段**:
+
+   | **名稱** | **來源位址** | **Protocol:Port** | **目標 FQDN** | **注意事項** |
+   | --- | --- | --- | --- | --- |
+   | Rule_2 | * | https:443 | login.windows.net | 可讓 Windows 登入活動 |
+   | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | 如果您的叢集做為後盾 WASB，然後新增規則的 WASB。 若要使用僅限 https 連線確定[「 需要安全傳輸 」](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)啟用儲存體帳戶。 |
+
 1. 按一下 [新增]  。
 
-![標題：輸入應用程式規則集合的詳細資料](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
+   ![標題：輸入應用程式規則集合的詳細資料](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
 ### <a name="configure-the-firewall-with-network-rules"></a>設定防火牆與網路規則
 
@@ -74,37 +76,24 @@ Azure HDInsight 叢集通常會在您自己的虛擬網路中部署。 叢集中
 1. 選取新的防火牆**測試 FW01**從 Azure 入口網站。
 1. 按一下 **規則**下方**設定** > **網路規則集合** > **新增網路規則集合**。
 1. 在上**新增網路規則集合**畫面上，輸入**名稱**，**優先順序**，然後按一下**允許**從**動作**下拉式功能表中。
-1. 建立下列規則：
-    1. 在 [IP 位址] 區段，可讓叢集以執行使用 NTP 的時鐘同步處理網路規則。
-        1. 在 **規則**區段中，提供**名稱**，然後選取**UDP**從**通訊協定**下拉式清單。
-        1. 設定**來源位址**並**目的地位址**到`*`。
-        1. 設定**目的地連接埠**為 123。
-    1. 如果您使用企業安全性套件 」 (ESP)，然後可允許與 AAD DS ESP 叢集進行通訊的 IP 位址區段中新增網路規則。
-        1. 判斷兩個 IP 位址讓網域控制站。
-        1. 在下一個資料列中**規則**區段中，提供**名稱**，然後選取**任何**從**通訊協定**下拉式清單。
-        1. 設定**來源地址** `*`。
-        1. 輸入您的網域控制站中的所有 IP 位址**目的地位址**以逗號分隔。
-        1. 設定**目的地連接埠**至`*`。
-    1. 如果您使用 Azure Data Lake 儲存體，您可以解決 ADLS sku:gen1 和 Gen2 SNI 問題的 IP 位址 區段中新增網路規則。 此選項會將流量路由傳送到防火牆，可能會導致較高的成本，對於大型資料載入，但流量將會進行記錄，並可稽核防火牆記錄檔中。
-        1. 判斷您的 Data Lake 儲存體帳戶的 IP 位址。 您可以使用 powershell 命令，例如`[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")`來將 FQDN 解析到 IP 位址。
-        1. 在下一個資料列中**規則**區段中，提供**名稱**，然後選取**TCP**從**通訊協定**下拉式清單。
-        1. 設定**來源地址** `*`。
-        1. 輸入您的儲存體帳戶中的 IP 位址**目的地位址**。
-        1. 設定**目的地連接埠**至`*`。
-    1. （選擇性）如果您使用 Log Analytics，然後與您的 Log Analytics 工作區進行通訊的 IP 位址 區段中建立網路規則。
-        1. 在下一個資料列中**規則**區段中，提供**名稱**，然後選取**TCP**從**通訊協定**下拉式清單。
-        1. 設定**來源地址** `*`。
-        1. 設定**目的地位址**至`*`。
-        1. 設定**目的地連接埠**至`12000`。
-    1. 在 [服務標記] 區段中設定網路規則，可讓您記錄和稽核 SQL 流量，除非您對 SQL Server 設定服務端點將會略過防火牆之 HDInsight 子網路上的 sql。
-        1. 在下一個資料列中**規則**區段中，提供**名稱**，然後選取**TCP**從**通訊協定**下拉式清單。
-        1. 設定**來源地址** `*`。
-        1. 設定**目的地位址**至`*`。
-        1. 選取  **Sql**從**服務標籤**下拉式清單。
-        1. 設定**目的地連接埠**至`1433,11000-11999,14000-14999`。
+1. 建立中的下列規則**IP 位址**區段：
+
+   | **名稱** | **通訊協定** | **來源位址** | **目的地位址** | **目的地連接埠** | **注意事項** |
+   | --- | --- | --- | --- | --- | --- |
+   | Rule_1 | UDP | * | * | `123` | 時間服務 |
+   | Rule_2 | 任意 | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | 如果您使用企業安全性套件 」 (ESP)，然後可允許與 AAD DS ESP 叢集進行通訊的 IP 位址區段中新增網路規則。 您可以在入口網站中找到 AAD DS 區段上的網域控制站的 IP 位址 | 
+   | Rule_3 | TCP | * | 您的 Data Lake 儲存體帳戶的 IP 位址 | `*` | 如果您使用 Azure Data Lake 儲存體，您可以解決 ADLS sku:gen1 和 Gen2 SNI 問題的 IP 位址 區段中新增網路規則。 此選項會將流量路由傳送到防火牆，可能會導致較高的成本，對於大型資料載入，但流量將會進行記錄，並可稽核防火牆記錄檔中。 判斷您的 Data Lake 儲存體帳戶的 IP 位址。 您可以使用 powershell 命令，例如`[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")`來將 FQDN 解析到 IP 位址。|
+   | Rule_4 | TCP | * | * | `12000` | （選擇性）如果您使用 Log Analytics，然後與您的 Log Analytics 工作區進行通訊的 IP 位址 區段中建立網路規則。 |
+
+1. 建立中的下列規則**服務標籤**區段：
+
+   | **名稱** | **通訊協定** | **來源位址** | **服務標記** | **目的地連接埠** | **注意事項** |
+   | --- | --- | --- | --- | --- | --- |
+   | Rule_7 | TCP | * | * | `1433,11000-11999,14000-14999` | 在 [服務標記] 區段中設定網路規則，可讓您記錄和稽核 SQL 流量，除非您對 SQL Server 設定服務端點將會略過防火牆之 HDInsight 子網路上的 sql。 |
+
 1. 按一下 **新增**以完成建立網路規則集合。
 
-![標題：輸入應用程式規則集合的詳細資料](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   ![標題：輸入應用程式規則集合的詳細資料](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 ### <a name="create-and-configure-a-route-table"></a>建立及設定路由表
 
@@ -162,7 +151,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 第一次取得 應用程式，運作時您不知道的所有應用程式相依性存在時，與 Azure 監視器記錄檔整合您的 Azure 防火牆很有用的。 您可以從[分析 Azure 監視器中的記錄資料](../azure-monitor/log-query/log-query-overview.md)深入了解 Azure 監視器記錄
 
 ## <a name="access-to-the-cluster"></a>叢集的存取權
-已成功有防火牆安裝程式之後，您可以使用內部端點 (`https://<clustername>-int.azurehdinsight.net`) 來存取 VNET 中的從 Ambari。 若要使用的公用端點 (`https://<clustername>.azurehdinsight.net`) 或 ssh 端點 (`<clustername>-ssh.azurehdinsight.net`)，請確定您有正確的路由的路由表中，而且 NSG 規則設定，以避免 asymetric 路由問題說明[這裡](https://docs.microsoft.com/azure/firewall/integrate-lb)。
+已成功有防火牆安裝程式之後，您可以使用內部端點 (`https://<clustername>-int.azurehdinsight.net`) 來存取 VNET 中的從 Ambari。 若要使用的公用端點 (`https://<clustername>.azurehdinsight.net`) 或 ssh 端點 (`<clustername>-ssh.azurehdinsight.net`)，請確定您有正確的路由的路由表中，而且 NSG 規則設定，以避免對稱路由問題說明[這裡](https://docs.microsoft.com/azure/firewall/integrate-lb)。
 
 ## <a name="configure-another-network-virtual-appliance"></a>設定另一個網路虛擬設備
 

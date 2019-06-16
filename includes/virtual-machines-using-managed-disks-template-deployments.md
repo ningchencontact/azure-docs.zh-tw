@@ -9,10 +9,10 @@ ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
 ms.openlocfilehash: 904bd884bc09c1e2016f55ffc8e1e9f635974ac7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157685"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>在 Azure Resource Manager 範本中使用受控磁碟
@@ -224,10 +224,10 @@ ms.locfileid: "66157685"
 
 以下是在 Resource Manager 範本中建立標準 SSD 磁碟所需的參數：
 
-* Microsoft.Compute 的 apiVersion 必須設定為 `2018-04-01` (或更新版本)
-* 將 managedDisk.storageAccountType 指定為 `StandardSSD_LRS`
+* Microsoft.Compute 的 apiVersion  必須設定為 `2018-04-01` (或更新版本)
+* 將 managedDisk.storageAccountType  指定為 `StandardSSD_LRS`
 
-下列範例示範使用標準 SSD 磁碟的虛擬機器 properties.storageProfile.osDisk 區段：
+下列範例示範使用標準 SSD 磁碟的虛擬機器 properties.storageProfile.osDisk  區段：
 
 ```json
 "osDisk": {

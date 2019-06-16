@@ -7,25 +7,24 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 4/11/2018
+ms.date: 6/06/2019
 ms.author: robinsh
-ms.openlocfilehash: 3e932048b41e9af149f14a814a1c92d86bd26f29
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 7deb1b501d30c8af0cb190f4722d46435afa9b8e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479879"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065854"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>使用 Power BI 將 Azure IoT 中樞的即時感應器資料視覺化
 
 ![端對端圖表](./media/iot-hub-live-data-visualization-in-power-bi/1_end-to-end-diagram.png)
 
-
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## <a name="what-you-learn"></a>您學到什麼
 
-您可了解如何藉由使用 Power BI 將 Azure IoT 中樞收到的即時感應器資料視覺化。 如果您想要嘗試 toe 視覺化您的 IoT 中樞與 web 應用程式中的資料，請參閱[使用 web 應用程式的 Azure IoT 中樞的即時感應器資料視覺化](iot-hub-live-data-visualization-in-web-apps.md)。
+您可了解如何藉由使用 Power BI 將 Azure IoT 中樞收到的即時感應器資料視覺化。 如果您想要嘗試使用 web 應用程式將 IoT 中樞的資料視覺化，請參閱 <<c0> [ 使用 web 應用程式的 Azure IoT 中樞的即時感應器資料視覺化](iot-hub-live-data-visualization-in-web-apps.md)。
 
 ## <a name="what-you-do"></a>您要做什麼
 
@@ -37,7 +36,7 @@ ms.locfileid: "66479879"
 
 ## <a name="what-you-need"></a>您需要什麼
 
-* 完成[Raspberry Pi 線上模擬器](iot-hub-raspberry-pi-web-simulator-get-started.md)教學課程中，或其中一個裝置教學課程中，例如[搭配 node.js 的 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)。 這些會涵蓋下列需求：
+* 完成[Raspberry Pi 線上模擬器](iot-hub-raspberry-pi-web-simulator-get-started.md)教學課程中，或其中一個裝置教學課程中，例如[搭配 node.js 的 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)。 這些文章涵蓋下列需求：
   
   * 有效的 Azure 訂用帳戶。
   * 位於您訂用帳戶中的 Azure IoT 中樞。
@@ -53,7 +52,7 @@ ms.locfileid: "66479879"
 
 ### <a name="create-a-stream-analytics-job"></a>建立串流分析作業
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [建立資源]   > [物聯網]   > [串流分析作業]  。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源]   > [物聯網]   > [串流分析作業]  。
 
 2. 輸入作業的以下資訊。
 
@@ -63,37 +62,49 @@ ms.locfileid: "66479879"
 
    **位置**：使用與資源群組相同的位置。
 
-   **釘選到儀表板**：核取此選項可讓您從儀表板輕鬆地存取 IoT 中樞。
+   ![在 Azure 中建立串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/create-stream-analytics-job-azure.png)
 
-   ![在 Azure 中建立串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/2_create-stream-analytics-job-azure.png)
-
-3. 按一下頁面底部的 [新增]  。
+3. 選取 [建立]  。
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>將輸入新增至串流分析作業
 
 1. 開啟串流分析作業。
 
-2. 在 [作業拓撲]  之下，按一下 [輸入]  。
+2. 在 [作業拓撲]  下方，選取 [輸入]  。
 
-3. 在 [輸入]  窗格中，按一下 [新增資料流輸入]  ，然後輸入下列資訊︰
+3. 在 **輸入**窗格中，選取**新增串流輸入**，然後選取**IoT 中樞**從下拉式清單。 在新的輸入窗格中，輸入下列資訊：
 
-   **輸入別名**：輸入的唯一別名，然後選取下面的 [手動提供 IoT 中樞設定]  。
+   **輸入別名**：輸入輸入唯一別名。
 
-   **來源**：選取 [IoT 中樞]  。
-   
-   **端點**：按一下 [傳訊]  。
+   **從您的訂用帳戶提供 IoT 中樞**:選取此選項按鈕。
 
-   **取用者群組**：選取您剛建立的取用者群組。
+   訂用帳戶  ：選取您要用於本教學課程的 Azure 訂用帳戶。
 
-4. 按一下頁面底部的 [新增]  。
+   **IoT 中樞**：選取您用於本教學課程中的 IoT 中樞。
 
-   ![在 Azure 中將輸入新增至串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/3_add-input-to-stream-analytics-job-azure.png)
+   **端點**：選取 [傳訊]  。
+
+   **共用存取原則名稱**：選取您想要的 Stream Analytics 作業，以使用 IoT 中樞的共用的存取原則的名稱。 本教學課程中，您可以選取*服務*。 *服務*原則預設會建立新的 IoT 中樞，和授與權限來傳送和接收 IoT 中樞所公開的雲端後端端點上。 若要進一步了解，請參閱[存取控制及權限](iot-hub-devguide-security.md#access-control-and-permissions)。
+
+   **共用的存取原則金鑰**:此欄位會自動填入取決於您選擇共用的存取原則名稱。
+
+   **取用者群組**：選取您先前建立的取用者群組。
+
+   保留所有其他欄位保留其預設值。
+
+   ![在 Azure 中將輸入新增至串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/add-input-to-stream-analytics-job-azure.png)
+
+4. 選取 [ **儲存**]。
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>將輸出新增至串流分析作業
 
-1. 在 [作業拓撲]  之下，按一下 [輸出]  。
+1. 在 [作業拓撲]  下方，選取 [輸出]  。
 
-2. 在 [輸出]  窗格中，按一下 [新增]  和 [Power BI]  ，然後輸入下列資訊︰
+2. 在 **輸出**窗格中，選取**新增**並**Power BI**。
+
+3. 在  **Power BI-新增輸出**窗格中，選取**授權**並遵循提示來登入您的 Power BI 帳戶。
+
+4. 您已登入 Power BI 之後，請輸入下列資訊：
 
    **輸出別名**：輸出的唯一別名。
 
@@ -103,29 +114,27 @@ ms.locfileid: "66479879"
 
    **資料表名稱**：輸入資料表名稱。
 
-3. 按一下 [授權]  ，然後登入您的 Power BI 帳戶。
+   ![在 Azure 中將輸出新增至串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/add-output-to-stream-analytics-job-azure.png)
 
-4. 按一下頁面底部的 [新增]  。
-
-   ![在 Azure 中將輸出新增至串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
+5. 選取 [ **儲存**]。
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>設定串流分析作業的查詢
 
-1. 在 [作業拓撲]  之下，按一下 [查詢]  。
+1. 在 [作業拓撲]  下方，選取 [查詢]  。
 
 2. 使用作業的輸入別名取代 `[YourInputAlias]`。
 
 3. 使用作業的輸出別名取代 `[YourOutputAlias]`。
 
-4. 按一下 [檔案]  。
+   ![在 Azure 中將查詢新增至串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/add-query-stream-analytics-job-azure.png)
 
-   ![在 Azure 中將查詢新增至串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/5_add-query-stream-analytics-job-azure.png)
+4. 選取 [ **儲存**]。
 
 ### <a name="run-the-stream-analytics-job"></a>執行串流分析作業
 
-在串流分析作業中，按一下 [啟動]   > [立即]   > [啟動]  。 成功啟動作業後，作業狀態會從 [已停止]  變更為 [執行中]  。
+在 Stream Analytics 作業中，選取**概觀**，然後選取**開始** > **現在** > **開始**。 成功啟動作業後，作業狀態會從 [已停止]  變更為 [執行中]  。
 
-![在 Azure 中執行串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/6_run-stream-analytics-job-azure.png)
+![在 Azure 中執行串流分析作業](./media/iot-hub-live-data-visualization-in-power-bi/run-stream-analytics-job-azure.png)
 
 ## <a name="create-and-publish-a-power-bi-report-to-visualize-the-data"></a>建立及發佈 Power BI 報告，以將資料視覺化。
 
@@ -133,45 +142,45 @@ ms.locfileid: "66479879"
 
 2. 登入您的 [Power BI](https://powerbi.microsoft.com/en-us/) 帳戶。
 
-3. 按一下您所使用的工作區 [我的工作區]  。
+3. 選取您使用，工作區**我的工作區**。
 
-4. 按一下 [資料集]  。
+4. 選取 [資料集]  。
 
    您應該會看到在建立串流分析作業輸出時所指定的資料集。
 
-5. 對於您所建立的資料集，按一下 [新增報告]  (資料集名稱右邊的第一個圖示)。
+5. 如您所建立的資料集，請選取**加入報表**（右邊的資料集名稱的第一個圖示）。
 
-   ![建立 Microsoft Power BI 報告](./media/iot-hub-live-data-visualization-in-power-bi/7_create-power-bi-report-microsoft.png)
+   ![建立 Microsoft Power BI 報告](./media/iot-hub-live-data-visualization-in-power-bi/start-power-bi.png)
 
 6. 建立折線圖以顯示一段時間的即時溫度。
 
-   1. 在報告建立頁面上，新增折線圖。
+   1. 在 **視覺效果**窗格中的報表建立頁面上，選取折線圖圖示加入折線圖。
 
    2. 在 [欄位]  窗格上，展開您建立串流分析作業輸出時指定的資料表。
-   
+
    3. 將 **EventEnqueuedUtcTime** 拖放至 [視覺效果]  窗格上的 [軸]  。
-   
+
    4. 將 **temperature** 拖放至 [值]  。
 
       折線圖已建立。 x 軸會顯示 UTC 時區的日期和時間。 y 軸會顯示感應器的溫度。
 
-      ![將溫度的折線圖新增至 Microsoft Power BI 報告](./media/iot-hub-live-data-visualization-in-power-bi/8_add-line-chart-for-temperature-to-power-bi-report-microsoft.png)
+      ![將溫度的折線圖新增至 Microsoft Power BI 報告](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-add-temp.png)
 
 7. 建立另一個折線圖以顯示一段時間的即時溼度。 若要這麼做，請遵循上述相同步驟，並將 **EventEnqueuedUtcTime** 放在 x 軸上，將 **humidity** 放在 y 軸上。
 
-   ![將溼度的折線圖新增至 Microsoft Power BI 報告](./media/iot-hub-live-data-visualization-in-power-bi/9_add-line-chart-for-humidity-to-power-bi-report-microsoft.png)
+   ![將溼度的折線圖新增至 Microsoft Power BI 報告](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-add-humidity.png)
 
-8. 按一下 [儲存]  以儲存報告。
+8. 選取 [儲存]  以儲存報告。
 
-9. 按一下左窗格中的 [報告]  ，然後按一下您剛建立的報告。
+9. 選取 **報表**左的窗格中，然後再選取您剛才中建立報表。
 
-10. 按一下 [檔案]   > [發佈到網站]  。
+10. 選取 **檔案** > **發佈至網路**。
 
-11. 按一下 [建立內嵌程式碼]  ，然後按一下 [發佈]  。
+11. 選取 **建立內嵌程式碼**，然後選取**發佈**。
 
-您會取得可與任何人共用以供存取報告的報告連結，以及取得程式碼片段以將報告整合到您的部落格或網站。
+您可以與報表存取的任何人共用的 [報告] 連結，可用來將報表整合至您部落格或網站的程式碼片段，系統會提供您項目。
 
-![發佈 Microsoft Power BI 報告](./media/iot-hub-live-data-visualization-in-power-bi/10_publish-power-bi-report-microsoft.png)
+![發佈 Microsoft Power BI 報告](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-publish.png)
 
 Microsoft 也會提供 [Power BI 行動應用程式](https://powerbi.microsoft.com/en-us/documentation/powerbi-power-bi-apps-for-mobile-devices/)，以供檢視並與您行動裝置上的 Power BI 儀表板和報告互動。
 

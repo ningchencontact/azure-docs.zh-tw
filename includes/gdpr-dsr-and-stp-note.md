@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: 20eb51aea676db0feaf21c2c7889f6cf93206709
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: f2927bb10c282218e378f0f12a22cb1bfcdc9154
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113380"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112973"
 ---
->[!Note] 
->如果您想要檢視或刪除個人資料，請參閱 [Azure 針對 GDPR 的資料主體要求](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure)一文。 如果您想要尋找有關 GDPR 的一般資訊，請參閱 [Service Trust 入口網站的 GDPR 區段](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted)。
+>[!NOTE] 
+>如需有關檢視或刪除個人資料的資訊，請參閱[Azure 資料主體要求 GDPR](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure)。 如需有關 GDPR 的詳細資訊，請參閱[GDPR 服務信任入口網站區段](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted)。

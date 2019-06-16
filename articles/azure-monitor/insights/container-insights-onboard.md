@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: magoedte
 ms.openlocfilehash: 5e149fa96e0a62656804906b52adf10273321d17
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65521905"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>如何啟用適用於容器的 Azure 監視器  
@@ -26,7 +26,7 @@ ms.locfileid: "65521905"
 
 使用下列受支援的方法，即可為全新、一或多個現有的 AKS 部署啟用適用於容器的 Azure 監視器：
 
-* 借助 Azure 门户、Azure PowerShell 或 Azure CLI
+* 從 Azure 入口網站中，Azure PowerShell，或使用 Azure CLI
 * 使用 [Terraform 和 AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -34,9 +34,9 @@ ms.locfileid: "65521905"
 ## <a name="prerequisites"></a>必要條件 
 開始之前，請確定您有下列項目：
 
-- **Log Analytics 工作区。** 您可以在啟用新 AKS 叢集的監視時建立它，或是讓上線體驗在 AKS 叢集訂用帳戶的預設資源群組中建立預設工作區。 若選擇自行建立它 ，您可以透過 [Azure Resource Manager](../platform/template-workspace-configuration.md)、透過 [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)，或是在 [Azure 入口網站](../learn/quick-create-workspace.md)中建立它。
-- 需要成为 **Log Analytics 参与者角色**的成员才能启用容器监视。 如需有關如何控制 Log Analytics 工作區存取的詳細資訊，請參閱[管理工作區](../platform/manage-access.md)。
-- 在 AKS 群集资源上，你是**[所有者](../../role-based-access-control/built-in-roles.md#owner)** 角色的成员。 
+- **Log Analytics 工作區中。** 您可以在啟用新 AKS 叢集的監視時建立它，或是讓上線體驗在 AKS 叢集訂用帳戶的預設資源群組中建立預設工作區。 若選擇自行建立它 ，您可以透過 [Azure Resource Manager](../platform/template-workspace-configuration.md)、透過 [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)，或是在 [Azure 入口網站](../learn/quick-create-workspace.md)中建立它。
+- 您所隸屬**Log Analytics 參與者 」 角色**啟用容器監視。 如需有關如何控制 Log Analytics 工作區存取的詳細資訊，請參閱[管理工作區](../platform/manage-access.md)。
+- 您所隸屬 **[擁有者](../../role-based-access-control/built-in-roles.md#owner)** AKS 叢集資源上的角色。 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -55,7 +55,7 @@ ms.locfileid: "65521905"
 
 您啟用適用於容器的 Azure 監視器使用下表所述的下列方法之一。
 
-| 部署狀態 | 方法 | 說明 | 
+| 部署狀態 | 方法 | 描述 | 
 |------------------|--------|-------------| 
 | 新的 AKS 叢集 | [使用 Azure CLI 建立叢集](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| 您可以啟用新的 AKS 叢集，您使用 Azure CLI 建立監視。 | 
 | | [使用 Terraform 建立叢集](container-insights-enable-new-cluster.md#enable-using-terraform)| 您可以啟用新的 AKS 叢集，您使用開放原始碼工具 Terraform 所建立的監視。 | 

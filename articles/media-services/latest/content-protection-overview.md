@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 99aea38ec877074075eaec8cf9ab8da077901acf
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 140e6c338d12732d1e41ccd9dabef1de7d5cf8d8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393101"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068854"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>內容保護與動態加密
 
@@ -167,7 +167,7 @@ DRM 系統，例如 PlayReady、 Widevine 和 FairPlay 全部都會提供一層�
 * StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate-與上述相同，只針對 Widevine。 
 * StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate-與上述相同，只適用於 FairPlay。  
 
-例如: 
+例如:
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";

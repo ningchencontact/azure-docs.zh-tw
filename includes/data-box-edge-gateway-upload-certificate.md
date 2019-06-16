@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/23/2019
 ms.author: alkohli
 ms.openlocfilehash: d7a9923d5bd9e357bcd75fae6e0a7d1bcd437a53
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161148"
 ---
 在適當的 SSL 憑證可確保您要到正確的伺服器傳送加密的資訊。 除了加密，憑證也用來驗證。 您可以上傳您自己受信任的 SSL 憑證，透過裝置的 PowerShell 介面。

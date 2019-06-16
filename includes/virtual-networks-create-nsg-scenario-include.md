@@ -9,10 +9,10 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 588aa260f2ece543445bfd4da7ef4682dab8334c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66170321"
 ---
 ## <a name="scenario"></a>案例
@@ -22,12 +22,12 @@ ms.locfileid: "66170321"
 
 在這個案例中，您會在 **TestVNet** 虛擬網路的每個子網路中建立 NSG ，如下所述： 
 
-* **NSG-FrontEnd**。 前端 NSG 會套用到「前端」子網路，且包含兩個規則：    
-  * **rdp-rule**。 允許 RDP 流量流向「前端」子網路。
-  * **web-rule**。 允許 HTTP 流量流向「前端」子網路。
-* **NSG-BackEnd**。 後端 NSG 會套用到「後端」子網路，且包含兩個規則：    
-  * **sql-rule**。 僅允許 SQL 流量來自「前端」子網路。
-  * **web-rule**。 拒絕來自「後端」子網路的所有網際網路繫結流量。
+* **NSG-FrontEnd**。 前端 NSG 會套用到「前端」  子網路，且包含兩個規則：    
+  * **rdp-rule**。 允許 RDP 流量流向「前端」  子網路。
+  * **web-rule**。 允許 HTTP 流量流向「前端」  子網路。
+* **NSG-BackEnd**。 後端 NSG 會套用到「後端」  子網路，且包含兩個規則：    
+  * **sql-rule**。 僅允許 SQL 流量來自「前端」  子網路。
+  * **web-rule**。 拒絕來自「後端」  子網路的所有網際網路繫結流量。
 
 這些規則的組合會建立類似 DMZ 的案例，其後端子網路只能接收來自前端子網路 SQL 的傳入流量，且無網際網路的存取權；而前端子網路則可與網際網路通訊，並接收傳入的 HTTP 要求。
 
