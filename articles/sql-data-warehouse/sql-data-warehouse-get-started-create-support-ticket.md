@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: b3ffc9794967f44708d8330d4dc5d5de11b794d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61474466"
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>如何為 SQL 資料倉儲建立支援票證
@@ -22,10 +22,10 @@ ms.locfileid: "61474466"
 
 ## <a name="create-a-support-ticket"></a>建立支援票證
 1. 開啟 [Azure 入口網站][Azure portal]。
-2. 在 [首頁] 畫面上，按一下 [說明 + 支援] 索引標籤。
+2. 在 [首頁] 畫面上，按一下 [說明 + 支援]  索引標籤。
    
     ![說明 + 支援](./media/sql-data-warehouse-get-started-create-support-ticket/MainPage.PNG)
-3. 在 [說明 + 支援] 刀鋒視窗上，按一下 [新增支援要求] 並填妥 [基本概念] 刀鋒視窗。
+3. 在 [說明 + 支援] 刀鋒視窗上，按一下 [新增支援要求]  並填妥 [基本概念]  刀鋒視窗。
 
    選取 [Azure 支援計劃][Azure support plan]。
    
@@ -37,11 +37,11 @@ ms.locfileid: "61474466"
         
      ![基本概念刀鋒視窗](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
      ![基本概念刀鋒視窗1](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
-4. 填妥 [問題] 刀鋒視窗。
+4. 填妥 [問題]  刀鋒視窗。
     ![Problem_blade](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_3.PNG)
    
    > [!NOTE]
-   > 根據預設，每個 SQL Server (例如 myserver.database.windows.net) 的 [DTU 配額] 為 45,000。 此配額僅是安全限制。 您可以藉由建立支援票證，並選取 *配額* 做為要求類型來增加配額。 若要計算 DTU 需求，將所需的總 [DWU][DWU] 乘以 7.5。 例如，如果您想要在一個 SQL Server 上裝載兩個 DW6000，則應該要求 90,000 的 DTU 配額。  您可以在入口網站的 [SQL Server] 刀鋒視窗中檢視目前的 DTU 耗用量。 已暫停和未暫停的資料庫都會計入 DTU 配額。 
+   > 根據預設，每個 SQL Server (例如 myserver.database.windows.net) 的 [DTU 配額]  為 45,000。 此配額僅是安全限制。 您可以藉由建立支援票證，並選取 *配額* 做為要求類型來增加配額。 若要計算 DTU 需求，將所需的總 [DWU][DWU] 乘以 7.5。 例如，如果您想要在一個 SQL Server 上裝載兩個 DW6000，則應該要求 90,000 的 DTU 配額。  您可以在入口網站的 [SQL Server] 刀鋒視窗中檢視目前的 DTU 耗用量。 已暫停和未暫停的資料庫都會計入 DTU 配額。 
    > 
    > 
    
@@ -52,7 +52,7 @@ ms.locfileid: "61474466"
 6. 按一下 [建立]  提交支援要求。
 
 ## <a name="monitor-a-support-ticket"></a>監視支援票證
-在您提交支援要求之後，Azure 支援小組會與您連絡。 若要檢查您的要求狀態和詳細資料，請按一下儀表板上的 [所有支援要求]。
+在您提交支援要求之後，Azure 支援小組會與您連絡。 若要檢查您的要求狀態和詳細資料，請按一下儀表板上的 [所有支援要求]  。
 
 ![檢查狀態](./media/sql-data-warehouse-get-started-create-support-ticket/Monitor_ticket.PNG)
 

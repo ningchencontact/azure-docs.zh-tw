@@ -3,21 +3,21 @@ title: Azure 流量管理員中的實際使用者度量
 description: 流量管理員中實際使用者度量的簡介
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: kumud
+ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: fd37ef739522955ae8227db39a41aecf199d65c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cbde96f135aa52ada9bb10b47ca81687992e5833
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60329576"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070974"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>流量管理員實際使用者度量概觀
 

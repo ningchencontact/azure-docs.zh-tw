@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/31/2019
+ms.date: 06/11/2019
 ms.author: jaredr80
-ms.openlocfilehash: c443d4705da83a43af10763f633f340b1eab69d3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: f7006a8162aab87bc36f3dae034f10daa3f37ac1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478153"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67115445"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -74,7 +74,7 @@ ms.locfileid: "66478153"
 
 
 ### <a name="production-azure"></a>生產 Azure
-| **位置** | **對等互連位置擁有者** | **本機的 Azure 區域** | **服務提供者** |
+| **Location** | **對等互連位置擁有者** | **本機的 Azure 區域** | **服務提供者** |
 | --- | --- | --- | --- |
 | **阿姆斯特丹** | Equinix | 西歐 | Aryaka Networks、AT&T NetBond、British Telecom、Colt、Equinix、euNetworks、GÉANT、InterCloud、Interxion、KPN、 IX Reach、Level 3 Communications、Megaport、NTT Communications、Orange、Tata Communications、TeleCity Group、Telefonica、Telenor、Telia Carrier、Verizon、Zayo |
 | **阿姆斯特丹2** | Interxion | 西歐 | DE-CIX、 Interxion |
@@ -92,14 +92,14 @@ ms.locfileid: "66478153"
 | **Dubai2** | du datamena | 阿拉伯聯合大公國北部 | du datamena Orixcom |
 | **都柏林** | Equinix | 北歐 | Colt、eir、Equinix、Interxion、Megaport |
 | **法蘭克福** | Interxion | n/a | DE-CIX、 Interxion |
-| **中國香港特別行政區** | Equinix | 東亞 | Aryaka Networks、British Telecom、China Telecom Global、Equinix、Megaport、NTT Communications、Orange、PCCW Global Limited、Tata Communications、Verizon |
+| **中國香港特別行政區** | Equinix | 東亞 | Aryaka Networks、 British Telecom、 首席 Telecom、 China Telecom Global、 Equinix、 Megaport、 NTT Communications、 Orange、 PCCW Global Limited、 Tata Communications、 Verizon |
 | **約翰尼斯堡** | Teraco | 南非北部 | Internet Solutions - Cloud Connect、Liquid Telecom、Teraco |
 | **吉隆坡** | TIME dotCom | n/a | TIME dotCom |
 | **拉斯維加斯** | 參數 | n/a | CenturyLink Cloud Connect、Megaport |
 | **倫敦** | Equinix | 英國南部 | AT&T NetBond、British Telecom、Colt、Equinix、InterCloud、Internet Solutions - Cloud Connect、Interxion、Jisc、Level 3 Communications、Megaport、MTN、NTT Communications、Orange、PCCW Global Limited、Tata Communications、Telehouse - KDDI、Telenor、Telia Carrier、Verizon、Vodafone、Zayo |
 | **London2** | Telehouse | 英國南部 | IX 觸達、 Equinix |
 | **洛杉磯** | CoreSite | n/a | CoreSite、Equinix、Megaport、Neutrona Networks、NTT、Zayo |
-| **馬賽** |Interxion | 法國南部 | Interxion |
+| **馬賽** |Interxion | 法國南部 | Interxion、 豹網路 |
 | **墨爾本** | NEXTDC | 澳大利亞東南部 | AARNet，Devoli，Equinix、 Megaport、 NEXTDC、 Optus、 Telstra Corporation，TPG Telecom |
 | **邁阿密** | Equinix | n/a | C3ntro+、Equinix、Megaport、Neutrona Networks |
 | **蒙特婁** | Cologix | n/a | Bell Canada、Cologix、Telus、Zayo |
@@ -132,7 +132,7 @@ ms.locfileid: "66478153"
 ### <a name="national-cloud-environments"></a>國家雲端環境
 
 ### <a name="us-government-cloud"></a>美國政府雲端
-| **位置** | **服務提供者** |
+| **Location** | **服務提供者** |
 | --- | --- |
 | **芝加哥** |AT&T NetBond、Equinix、Level 3 Communications、Verizon |
 | **達拉斯** |Equinix、Megaport、Verizon |
@@ -144,7 +144,7 @@ ms.locfileid: "66478153"
 | **華盛頓** |At&t NetBond、 Equinix、 Level 3 Communications、 Megaport、 Verizon |
 
 ### <a name="china"></a>中國
-| **位置** | **服務提供者** |
+| **Location** | **服務提供者** |
 | --- | --- |
 | **北京** |China Telecom |
 | **北京 2** | China Telecom、 GDS |
@@ -177,32 +177,33 @@ ms.locfileid: "66478153"
   * 依照 [建立 ExpressRoute 循環](expressroute-howto-circuit-classic.md) 中的步驟來設定連線。
 
 ## <a name="c1partners"></a>透過額外服務提供者連線
-| **位置** | **Exchange** | **連線提供者** |
+| **Location** | **Exchange** | **連線提供者** |
 | --- | --- | --- |
 | **阿姆斯特丹** | Equinix、Telecity | BICS、CloudXpress、Eurofiber、Fastweb S.p.A、Gulf Bridge International、MainOne、Nianet、Post、Proximus、TDC Erhverv、Telecom Italia Sparkle、Telia |
+| **亞特蘭大** | Equinix| 皇冠 Castle
 | **開普敦** | Teraco | MTN |
-| **芝加哥** | Equinix | Lightower、 廣泛的 Enterprise、 Windstream |
-| **達拉斯** | Equinix、Megaport | Axtel、c3ntro Telecom、 Cox Business、 Data Foundry 頻譜 Enterprise、 Transtelco |
+| **芝加哥** | Equinix | 皇冠 Castle，範圍的 Enterprise、 Windstream |
+| **達拉斯** | Equinix、Megaport | Axtel、c3ntro Telecom、 Cox Business 皇冠 Castle 資料 Foundry、 廣泛的 Enterprise、 Transtelco |
 | **法蘭克福** | Telecity | BICS、Cinia、Nianet、QSC AG |
 | **漢堡** | Equinix | Cinia |
 | **中國香港特別行政區** | Equinix | Chief、Macroview Telecom |
 | **約翰尼斯堡** | Teraco | MTN |
 | **倫敦** | BICS、Equinix、euNetworks、Telecity | Bezeq International Ltd.、 CoreAzure Telecommunications Limited、 Exponential E、 HSO、 NexGen Networks、 Proximus、 Tamares Telecom、 Zain |
-| **洛杉磯** | Equinix |頻譜的 Enterprise、 Transtelco |
+| **洛杉磯** | Equinix |皇冠 Castle，範圍的 Enterprise、 Transtelco |
 | **馬德里** | Level3 | Zertia |
 | **蒙特婁** | Cologix、Equinix | Airgate Technologies, Inc.Cogeco Peer 1、Rogers、Zirro |
-| **紐約** |Equinix、Megaport | Altice Business、 Lightower、 廣泛的 Enterprise、 Webair |
+| **紐約** |Equinix、Megaport | Altice Business 皇冠 Castle 頻譜 Enterprise、 Webair |
 | **巴黎** | Equinix | Proximus |
 | **魁北克市** | Megaport | Fibrenoire |
 | **聖保羅** | Equinix | Venha Pra Nuvem |
 | **Seattle** |Equinix | Alaska Communications |
-| **矽谷** |Equinix | Cox Business，廣泛企業 Windstream |
+| **矽谷** |Coresite、 Equinix | Cox Business、 廣泛企業、 Windstream，X2nsat Inc. |
 | **新加坡** |Equinix |1CLOUDSTAR、BICS、Epsilon Telecommunications Limited、LGA Telecom、United Information Highway (UIH) |
 | **Slough** | Equinix | HSO|
 | **雪梨** | Megaport | Macquarie Telecom Group|
 | **東京** | Equinix | ARTERIA Networks Corporation, BroadBand Tower, Inc. |
-| **多倫多** | Equinix | Airgate Technologies, Inc.Cogeco Peer 1、IVedha Inc、Rogers、Thinktel、Zirro|
-| **華盛頓** |Equinix | Altice Business、BICS、Cox Business、Gtt Communications Inc、Epsilon Telecommunications Limited、Lightower、Masergy、Windstream |
+| **多倫多** | Equinix、Megaport | Airgate Technologies Inc.、 Beanfield Metroconnect、 Cogeco Peer 1、 IVedha Inc、 Rogers、 Thinktel、 Zirro|
+| **華盛頓** |Equinix | Altice Business、 BICS，Cox Business，皇冠 Castle，Gtt Communications Inc、 Epsilon Telecommunications Limited、 Masergy、 Windstream |
 
 ## <a name="expressroute-system-integrators"></a>ExpressRoute 系統整合者
 根據您的網路規模，為符合您的需求而啟用私人連線可能有一定的難度。 您可以使用下表所列出的任何系統整合者來協助您開始使用 ExpressRoute。

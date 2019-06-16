@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
 ms.openlocfilehash: ede2092be4e4eaf201e15307a7d9934ea267ae37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61481508"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>將 Windows VM 移至另一個 Azure 訂用帳戶或資源群組

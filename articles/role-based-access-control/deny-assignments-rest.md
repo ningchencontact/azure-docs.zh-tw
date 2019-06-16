@@ -1,6 +1,6 @@
 ---
 title: 使用 REST API 列出 Azure 資源的拒絕指派 - Azure | Microsoft Docs
-description: 了解如何使用適用於 Azure 資源的角色型存取控制 (RBAC) 和 REST API，來列出使用者、群組和應用程式的拒絕指派。
+description: 了解如何列出拒絕的使用者、 群組和角色型存取控制 (RBAC) 用於 Azure 資源和 REST API 的應用程式指派。
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -12,22 +12,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 59bcf2b33d203ae216b4965b963a727a6b34ae72
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 0bc49456f5965846a2de542b4a063bab2d1838bf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60194662"
+ms.locfileid: "67118293"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>使用 REST API 列出 Azure 資源的拒絕指派
 
-[拒絕指派](deny-assignments.md)會封鎖使用者執行特定的 Azure 資源動作，即使角色指派授予他們存取權也一樣。 這篇文章說明如何使用 REST API，以清單拒絕指派。
+[拒絕指派](deny-assignments.md)會封鎖使用者執行特定的 Azure 資源動作，即使角色指派授予他們存取權也一樣。 本文說明如何列出拒絕使用 REST API 的指派。
 
 > [!NOTE]
-> 目前，您可以新增自己的拒絕指派的唯一方式是使用 Azure 藍圖。 如需詳細資訊，請參閱[使用 Azure 藍圖資源鎖定保護新資源](../governance/blueprints/tutorials/protect-new-resources.md)。
+> 您無法直接建立您自己拒絕指派。 如有關拒絕建立指派，請參閱 <<c0> [ 拒絕指派](deny-assignments.md)。
 
 ## <a name="prerequisites"></a>必要條件
 

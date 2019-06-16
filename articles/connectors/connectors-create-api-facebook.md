@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 25595127d913d3cd093e0af3d7916e33fc7cb352
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105969"
 ---
 # <a name="get-started-with-the-facebook-connector"></a>開始使用 Facebook 連接器
@@ -31,7 +31,7 @@ ms.locfileid: "62105969"
 當您將這個連接器新增到邏輯應用程式時，您必須授權邏輯應用程式，使其能夠連線到您的 Facebook。
 
 1. 登入您的 Facebook 帳戶。
-2. 選取 [授權] ，然後允許您的邏輯應用程式連線並使用您的 Facebook。 
+2. 選取 [授權]  ，然後允許您的邏輯應用程式連線並使用您的 Facebook。 
 
 > [!INCLUDE [Steps to create a connection to Facebook](../../includes/connectors-create-api-facebook.md)]
 > 

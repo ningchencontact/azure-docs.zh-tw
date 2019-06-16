@@ -4,16 +4,16 @@ description: 在 Azure Logic Apps 中使用 IoT Central 連接器觸發工作流
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 635c8d0f149895798eece8cf3b48712ab74374ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2269ede83ad64172e316a208871ab65053b2d10e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887052"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053081"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用 IoT Central 連接器建置工作流程
 

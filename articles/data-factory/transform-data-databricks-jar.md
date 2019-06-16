@@ -13,10 +13,10 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: d299a785d50657ef40c0c49cb2dce33b8939fd02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60860979"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>在 Azure Databricks 中執行 Jar 活動來轉換資料
@@ -61,7 +61,7 @@ ms.locfileid: "60860979"
 |name|管線中的活動名稱。|是|
 |description|說明活動用途的文字。|否|
 |type|若是 Databricks Jar 活動，則活動類型是 DatabricksSparkJar。|是|
-|預設容器|Jar 活動執行所在之 Databricks 連結服務的名稱。 若要深入了解此連結服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。|是|
+|linkedServiceName|Jar 活動執行所在之 Databricks 連結服務的名稱。 若要深入了解此連結服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。|是|
 |mainClassName|類別的完整名稱，該類別包含要執行的 main 方法。 這個類別必須包含在提供做為程式庫的 JAR 中。|是|
 |parameters|將傳遞至 main 方法的參數。  這是字串陣列。|否|
 |程式庫|要在負責執行工作的叢集上，即將安裝的程式庫清單。 可以是 < 字串, 物件 > 陣列|是 (至少有一個包含 mainClassName 方法)|
@@ -110,7 +110,7 @@ ms.locfileid: "60860979"
 
 若要取得利用 UI 新增之程式庫的 dbfs 路徑，您可以使用 [Databricks CLI (安裝)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli) \(英文\)。 
 
-使用 UI 時，Jar 程式庫通常會儲存在 dbfs: FileStore/jar。 您可以透過 CLI 來列出所有 Jar 程式庫：databricks fs ls dbfs:/FileStore/job-jars 
+使用 UI 時，Jar 程式庫通常會儲存在 dbfs: FileStore/jar。 您可以透過 CLI 來列出所有 Jar 程式庫：databricks fs ls dbfs:/FileStore/job-jars  
 
 
 

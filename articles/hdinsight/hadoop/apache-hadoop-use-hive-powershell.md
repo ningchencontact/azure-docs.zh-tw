@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 108a3e7d899eef4ca78ae7507bf4852b861e74d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 243713d7961c911cdda93d3d680a952d424da22b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722179"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078385"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>使用 PowerShell 執行 Apache Hive 查詢
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -29,9 +29,6 @@ ms.locfileid: "64722179"
 
 * HDInsight 叢集 3.4 版或更新版本上以 Linux 為基礎的 Apache Hadoop。
 
-  > [!IMPORTANT]  
-  > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
-
 * 具有 Azure PowerShell 的用戶端。
 
 [!INCLUDE [upgrade-powershell](../../../includes/hdinsight-use-latest-powershell.md)]
@@ -43,8 +40,8 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Hi
 在遠端 HDInsight 叢集中執行 Hive 查詢時，會使用下列 Cmdlet：
 
 * `Connect-AzAccount`:向您的 Azure 訂用帳戶驗證 Azure PowerShell。
-* `New-AzHDInsightHiveJobDefinition`:使用指定的 HiveQL 陳述式建立「作業定義」。
-* `Start-AzHDInsightJob`:將作業定義傳送至 HDInsight，並啟動作業。 系統會傳回「作業」物件。
+* `New-AzHDInsightHiveJobDefinition`:使用指定的 HiveQL 陳述式建立「作業定義」  。
+* `Start-AzHDInsightJob`:將作業定義傳送至 HDInsight，並啟動作業。 系統會傳回「作業」  物件。
 * `Wait-AzHDInsightJob`:使用作業物件來檢查作業的狀態。 它會等到工作完成，或等到等候時間超過。
 * `Get-AzHDInsightJobOutput`:用來擷取作業的輸出。
 * `Invoke-AzHDInsightHiveJob`:用來執行 HiveQL 陳述式。 這個 Cmdlet 會阻止查詢完成，然後傳回結果。
@@ -60,7 +57,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Hi
 
         .\hivejob.ps1
 
-    執行指令碼時，系統會提示您輸入叢集名稱和 HTTPS/叢集管理帳戶認證。 系統可能也會提示您登入 Azure 訂用帳戶。
+    執行指令碼時，系統會提示您輸入叢集名稱和 HTTPS/叢集管理帳戶認證。 您可能也會提示您登入您的 Azure 訂用帳戶。
 
 3. 作業完成時，應該會傳回類似下列文字的資訊：
 

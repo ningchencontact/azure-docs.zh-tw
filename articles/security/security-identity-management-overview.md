@@ -1,6 +1,6 @@
 ---
 title: 協助進行身分識別管理的 Azure 安全性功能 | Microsoft Docs
-description: " 本文對協助進行身分識別管理的 Azure 安全性功能提供核心的概觀。 Microsoft 身分識別與存取管理解決方案會協助 IT 保護應用程式和跨公司資料中心和到雲端的存取，啟用其他層級的驗證，例如 Multi-Factor Authentication 和條件式存取原則。 "
+description: " 本文對協助進行身分識別管理的 Azure 安全性功能提供核心的概觀。 Microsoft 身分識別和存取管理解決方案會協助 IT 保護應用程式和資源的存取跨公司資料中心和到雲端、 啟用其他層級的驗證，例如 Multi-factor Authentication 和條件式存取原則。 "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 29c04fc04b5d277e982a37402a128b2dbe787e2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 758ed2e44718da709acec1379cfc79936c8b7cdf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444226"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083629"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure 身分識別管理安全性概觀
 
- 身分識別管理即為驗證與授權[安全性主體](https://docs.microsoft.com/windows/security/identity-protection/access-control/security-principals)的流程。 其中還包含該主體 (識別身分) 資訊的控管。 安全性主體 (識別身分) 可能包含服務、應用程式、使用者、群組等等。Microsoft 身分識別和存取管理解決方案可協助 IT 人員保護從公司資料中心與雲端存取應用程式和資源的權限。 這種保護機制能提供其他層級的驗證方式，例如多重要素驗證和條件式存取原則。 透過進階的安全性報告、稽核和警示來監視可疑活動，有助於緩解潛在的安全性問題。 [Azure Active Directory Premium](../active-directory/active-directory-editions.md) 可以提供數千個雲端軟體即服務 (SaaS) 應用程式的單一登入 (SSO) 及存取您在內部部署執行的 Web 應用程式。
+ 身分識別管理即為驗證與授權[安全性主體](https://docs.microsoft.com/windows/security/identity-protection/access-control/security-principals)的流程。 其中還包含該主體 (識別身分) 資訊的控管。 安全性主體 (識別身分) 可能包含服務、應用程式、使用者、群組等等。Microsoft 身分識別和存取管理解決方案可協助 IT 人員保護從公司資料中心與雲端存取應用程式和資源的權限。 這種保護措施可讓其他層級的驗證，例如 Multi-factor Authentication 和條件式存取原則。 透過進階的安全性報告、稽核和警示來監視可疑活動，有助於緩解潛在的安全性問題。 [Azure Active Directory Premium](../active-directory/active-directory-editions.md) 可以提供數千個雲端軟體即服務 (SaaS) 應用程式的單一登入 (SSO) 及存取您在內部部署執行的 Web 應用程式。
  
 善用 Azure Active Directory (Azure AD) 的安全性優點，您便可以：
 
@@ -129,9 +129,9 @@ Azure AD B2C 是高可用性的全域身分識別管理服務，可用於處理�
 
 ## <a name="device-registration"></a>裝置註冊
 
-Azure AD 裝置註冊是裝置型[條件式存取](../active-directory/active-directory-conditional-access-device-registration-overview.md)案例的基礎。 當裝置已註冊時，Azure AD 裝置註冊會在使用者登入時，對裝置提供用來驗證裝置的身分識別。 然後已驗證的裝置和裝置的屬性即可用來對裝載於雲端和內部部署的應用程式，強制執行條件式存取原則。
+Azure AD 裝置註冊是成功的裝置型[條件式存取](../active-directory/active-directory-conditional-access-device-registration-overview.md)案例。 當裝置已註冊時，Azure AD 裝置註冊會在使用者登入時，對裝置提供用來驗證裝置的身分識別。 已驗證的裝置和裝置的屬性則可用來強制執行條件式存取原則，對於裝載於雲端和內部部署的應用程式。
 
-與 Intune 這類的行動裝置管理解決方案結合時，將會以裝置的其他相關資訊更新 Azure AD 中的裝置屬性。 接著您就可以建立條件式存取規則，強制讓裝置的存取符合您的安全性和相容性標準。
+與 Intune 這類的行動裝置管理解決方案結合時，將會以裝置的其他相關資訊更新 Azure AD 中的裝置屬性。 然後，您可以建立條件式存取規則，強制裝置符合安全性與合規性標準的存取。
 
 深入了解：
 

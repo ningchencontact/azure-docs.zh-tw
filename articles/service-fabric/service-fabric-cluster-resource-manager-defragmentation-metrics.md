@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 6e041e41372c72c6792c1fb4a1fbdc3bbe475b21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60844382"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>度量的重組和 Service Fabric 中的負載
@@ -42,7 +42,7 @@ Service Fabric 叢集資源管理員支援管理負載的不同策略，也就�
 
 <center>
 
-![比较均衡的群集与重整的群集][Image1]
+![比較平衡和重組叢集][Image1]
 </center>
 
 在平衡情況下，請注意放置其中一個最大服務物件所需的移動次數。 在重組的叢集中，大型工作負載可以放置於四或五個節點，而不需要等待其他服務移動。
@@ -54,7 +54,7 @@ Service Fabric 叢集資源管理員支援管理負載的不同策略，也就�
 | --- | --- |
 | 能夠更快速建立大型服務 |將負載集中到較少數的節點，提高爭用 |
 | 在建立期間啟用較低的資料移動 |失敗會影響更多服務，並導致更多流失 |
-| 能夠豐富描述需求和空間的回收 |更复杂的整体资源管理配置 |
+| 能夠豐富描述需求和空間的回收 |較複雜的整體資源管理組態 |
 
 您可以在相同叢集中混用重組計量和一般計量。 叢集資源管理員會嘗試儘可能合併重組計量，而分散其他計量。 混合重組和平衡策略的結果取決於許多因素，包括：
   - 平衡計量數目與重組計量數目
@@ -76,7 +76,7 @@ ClusterManifest.xml：
 </Section>
 ```
 
-通过用于独立部署的 ClusterConfig.json 或用于 Azure 托管群集的 Template.json：
+獨立部署透過 ClusterConfig.json，Azure 託管叢集透過 Template.json：
 
 ```json
 "fabricSettings": [

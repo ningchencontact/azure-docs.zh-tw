@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
 ms.openlocfilehash: 9a23f13947c4c7a77460ff389861e1dcc1de3c7f
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65992113"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>在 Azure 中於 SUSE Linux Enterprise Server 上設定 Pacemaker
@@ -176,7 +176,7 @@ o- / ...........................................................................
 
 從叢集連線到上一個步驟中建立的 iSCSI 裝置。
 在您想要建立之新叢集的節點上，執行下列命令。
-下列項目會加上下列其中一個前置詞：**[A]** - 適用於所有節點、**[1]** - 僅適用於節點 1 或 **[2]** - 僅適用於節點 2。
+下列項目會加上下列其中一個前置詞： **[A]** - 適用於所有節點、 **[1]** - 僅適用於節點 1 或 **[2]** - 僅適用於節點 2。
 
 1. **[A]** 連線到 iSCSI 裝置
 
@@ -314,7 +314,7 @@ o- / ...........................................................................
 
 ## <a name="cluster-installation"></a>叢集安裝
 
-下列項目會加上下列其中一個前置詞：**[A]** - 適用於所有節點、**[1]** - 僅適用於節點 1 或 **[2]** - 僅適用於節點 2。
+下列項目會加上下列其中一個前置詞： **[A]** - 適用於所有節點、 **[1]** - 僅適用於節點 1 或 **[2]** - 僅適用於節點 2。
 
 1. **[A]** 更新 SLES
 
@@ -497,7 +497,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 
 1. 移至 [https://portal.azure.com](https://portal.azure.com)
 1. 開啟 [Azure Active Directory] 刀鋒視窗  
-   移至 [屬性]，並記下目錄識別碼。 這是「租用戶識別碼」。
+   移至 [屬性]，並記下目錄識別碼。 這是「租用戶識別碼」  。
 1. 按一下 [應用程式註冊]
 1. 按一下 [新增]
 1. 輸入名稱、選取應用程式類型 [Web 應用程式/API]、輸入登入 URL (例如 http\://localhost)，然後按一下 [建立]
@@ -505,7 +505,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 1. 選取新的應用程式，然後按一下 [設定] 索引標籤中的金鑰
 1. 輸入新金鑰的說明、選取 [永不過期]，然後按一下 [儲存]
 1. 記下值。 此值會用來做為服務主體的**密碼**
-1. 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的「登入識別碼」)
+1. 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的「登入識別碼」  )
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 為柵欄代理程式建立自訂角色
 

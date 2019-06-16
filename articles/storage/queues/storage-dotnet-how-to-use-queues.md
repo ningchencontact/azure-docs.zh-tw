@@ -10,30 +10,34 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: bfa69c6904644f707626e57a6696695cf4868c50
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 44f1953d01f827db1cbb65f9029c62569425745e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236606"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077059"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>以 .NET 開始使用 Azure 佇列儲存體
+
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="overview"></a>概觀
+
 Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計擴充性的應用程式時，會經常分離應用程式元件，以便進行個別擴充。 佇列儲存體可針對應用程式元件間的通訊，提供非同步傳訊，無論應用程式元件是在雲端、桌面、內部部署伺服器或行動裝置上執行。 佇列儲存體也支援管理非同步工作並建置處理工作流程。
 
 ### <a name="about-this-tutorial"></a>關於本教學課程
+
 本教學課程說明如何使用 Azure 佇列儲存體撰寫一些常見案例的 .NET 程式碼。 本文說明的案例包括建立和刪除佇列，以及新增、讀取和刪除佇列訊息。
 
 **預估完成時間：** 45 分鐘
 
-###<a name="prerequisites"></a>必要條件：
+### <a name="prerequisites"></a>必要條件
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [適用於 .NET 的 Azure 儲存體用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Azure 儲存體一般用戶端程式庫適用於.NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+* [適用於.NET 的 azure 儲存體佇列用戶端程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
 * [適用於.NET 的 Azure 設定管理員](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 * [Azure 儲存體帳戶](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
@@ -41,9 +45,93 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-[!INCLUDE [storage-development-environment-include](../../../includes/storage-development-environment-include.md)]
+## <a name="set-up-your-development-environment"></a>設定開發環境
+
+接下來，在 Visual Studio 中設定您的開發環境，以便您開始嘗試本指南中的程式碼範例。
+
+### <a name="create-a-windows-console-application-project"></a>建立 Windows 主控台應用程式專案
+
+在 Visual Studio 中，建立新的 Windows 主控台應用程式。 下列步驟說明如何在 Visual Studio 2019 中建立主控台應用程式。 這些步驟類似其他 Visual Studio 版本中的步驟。
+
+1. 選取 [檔案]   > [新增]   > [專案] 
+2. 選取 **平台** > **Windows**
+3. 選取 **主控台應用程式 (.NET Framework)**
+4. 選取 [下一步] 
+5. 在 **專案名稱**欄位中，輸入您的應用程式的名稱
+6. 選取 [建立] 
+
+在本教學課程中的所有程式碼範例，請新增至**main （)** 方法，您的主控台應用程式**Program.cs**檔案。
+
+您可以使用 Azure 儲存體用戶端程式庫，在任何類型的.NET 應用程式，包括 Azure 雲端服務或 web 應用程式和桌面和行動應用程式。 在本指南中，為求簡化，我們會使用主控台應用程式。
+
+### <a name="use-nuget-to-install-the-required-packages"></a>使用 NuGet 來安裝必要的封裝
+
+您必須參考您的專案，才能完成本教學課程中的下列三個套件：
+
+* [Microsoft Azure 儲存體一般用戶端程式庫適用於.NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/):此套件可讓您以程式設計方式存取儲存體帳戶中的資料資源。
+* [適用於.NET 的 Microsoft Azure 儲存體佇列程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/):此用戶端程式庫可讓您使用 Microsoft Azure 儲存體佇列服務來儲存用戶端可能存取的訊息。
+* [適用於 .NET 的 Microsoft Azure Configuration Manager 程式庫](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)：此套件提供一個類別，無論您的應用程式於何處執行，均可用來剖析組態檔中的連接字串。
+
+您可以使用 NuGet 來取得這些套件。 請遵循下列步驟：
+
+1. 在 [方案總管]  中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 套件]  。
+2. 選取 [瀏覽] 
+3. 線上搜尋"Microsoft.Azure.Storage.Queue 」，然後選取**安裝**安裝儲存體用戶端程式庫和其相依性。 這也會安裝 Microsoft.Azure.Storage.Common 程式庫，這是佇列的程式庫的相依性。
+4. 線上搜尋"Microsoft.Azure.ConfigurationManager 」，然後選取**安裝**來安裝 Azure Configuration Manager。
+
+> [!NOTE]
+> 儲存體用戶端程式庫套件也會包含在[Azure SDK for.NET](https://azure.microsoft.com/downloads/)。 不過，我們建議您也從以確保您永遠有最新版本的 NuGet 安裝儲存體用戶端程式庫。
+>
+> 適用於.NET 的儲存體用戶端程式庫中的 ODataLib 相依性會解決 ODataLib 套件可用在 NuGet 上而不是從 WCF 資料服務。 您可以直接下載 ODataLib 程式庫，或是由您的程式碼專案透過 NuGet 參照這些程式庫。 儲存體用戶端程式庫所使用的特定 ODataLib 封裝包括[OData](http://nuget.org/packages/Microsoft.Data.OData/)， [Edm](http://nuget.org/packages/Microsoft.Data.Edm/)，並[空間](http://nuget.org/packages/System.Spatial/)。 雖然這些程式庫類別所使用的 Azure 資料表儲存體，也就是必要的相依性，使用儲存體用戶端程式庫進行程式設計。
+
+### <a name="determine-your-target-environment"></a>決定您的目標環境
+
+有兩個環境選項可供您執行本指南中的範例︰
+
+* 您可以對雲端中的 Azure 儲存體帳戶執行您的程式碼。
+* 您可以對 Azure 儲存體模擬器執行您的程式碼。 儲存體模擬器是模擬雲端中 Azure 儲存體帳戶的本機環境。 模擬器是一個免費選項，在開發您的應用程式時可用於測試和偵錯您的程式碼。 模擬器會使用已知的帳戶和金鑰。 如需詳細資訊，請參閱[使用 Azure 儲存體模擬器進行開發和測試](../common/storage-use-emulator.md)。
+
+如果您要選擇以雲端中的儲存體帳戶為目標，請從 Azure 入口網站複製您的儲存體帳戶的主要存取金鑰。 如需詳細資訊，請參閱[存取金鑰](../common/storage-account-manage.md#access-keys)。
+
+> [!NOTE]
+> 您可以選擇以儲存體模擬器為目標，以避免產生與 Azure 儲存體相關聯的任何費用。 不過，如果您選擇以雲端中的 Azure 儲存體帳戶為目標，則執行本教學課程的費用可以忽略不計。
+
+### <a name="configure-your-storage-connection-string"></a>設定儲存體連接字串
+
+如需使用儲存體連接字串來設定端點與認證以存取儲存體服務的.NET 支援 Azure 儲存體用戶端程式庫。 在組態檔中維護儲存體連接字串是最佳方式。
+
+如需有關連接字串的詳細資訊，請參閱[設定 Azure 儲存體的連接字串](../common/storage-configure-connection-string.md)。
+
+> [!NOTE]
+> 儲存體帳戶金鑰很類似儲存體帳戶的根密碼。 請務必小心保護您的儲存體帳戶金鑰。 請避免轉發給其他使用者、進行硬式編碼，或將它儲存在其他人可以存取的純文字檔案。 如果您認為金鑰可能遭到破解，請使用 Azure 入口網站重新產生金鑰。
+
+若要設定您的連接字串，開啟**app.config**從 Visual Studio 方案總管中的檔案。 新增的內容 **\<appSettings\>** 如下所示的項目。 取代*帳戶名稱*的儲存體帳戶名稱並*帳戶金鑰*與您的帳戶存取金鑰：
+
+```xml
+<configuration>
+    <startup>
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+    </startup>
+    <appSettings>
+        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
+    </appSettings>
+</configuration>
+```
+
+例如，組態設定會如下顯示：
+
+```xml
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==" />
+```
+
+若要以儲存體模擬器為目標，您可以使用對應到已知帳戶名稱和金鑰的捷徑。 在此情況下，您的連接字串設定會是︰
+
+```xml
+<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
+```
 
 ### <a name="add-using-directives"></a>新增 using 指示詞
+
 將下列 `using` 指示詞新增至 `Program.cs` 檔案的開頭處：
 
 ```csharp
@@ -64,18 +152,21 @@ using Microsoft.Azure.Storage.Queue; // Namespace for Queue storage types
     ![顯示如何從 Azure 入口網站複製連接字串的螢幕擷取畫面](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
 ### <a name="parse-the-connection-string"></a>解析連接字串
+
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### <a name="create-the-queue-service-client"></a>建立佇列服務用戶端
+
 [CloudQueueClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet) 類別可讓您擷取佇列儲存體中儲存的佇列。 以下是建立服務用戶端的其中一種方式：
 
 ```csharp
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 ```
-    
+
 您現在可以開始撰寫程式碼，以讀取佇列儲存體的資料並將資料寫入其中。
 
 ## <a name="create-a-queue"></a>建立佇列
+
 此範例說明如何建立尚不存在的佇列：
 
 ```csharp
@@ -94,6 +185,7 @@ queue.CreateIfNotExists();
 ```
 
 ## <a name="insert-a-message-into-a-queue"></a>將訊息插入佇列
+
 若要將訊息插入現有佇列，請先建立新的 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet)。 接著，呼叫 [AddMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet) 方法。 您可以從字串 (採用 UTF-8 格式) 或**位元組**陣列建立 **CloudQueueMessage**。 以下是建立佇列 (如果佇列不存在) 並插入訊息 'Hello, World' 的程式碼：
 
 ```csharp
@@ -116,6 +208,7 @@ queue.AddMessage(message);
 ```
 
 ## <a name="peek-at-the-next-message"></a>查看下一個訊息
+
 透過呼叫 [PeekMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet) 方法，您可以在佇列前面查看訊息，而無需將它從佇列中移除。
 
 ```csharp
@@ -137,6 +230,7 @@ Console.WriteLine(peekedMessage.AsString);
 ```
 
 ## <a name="change-the-contents-of-a-queued-message"></a>變更佇列訊息的內容
+
 您可以在佇列中就地變更訊息內容。 如果訊息代表工作作業，則您可以使用此功能來更新工作作業的狀態。 下列程式碼將使用新的內容更新佇列訊息，並將可見度逾時設定延長 60 秒。 這可儲存與訊息相關的工作狀態，並提供用戶端多一分鐘的時間繼續處理訊息。 您可以使用此技巧來追蹤佇列訊息上的多步驟工作流程，如果因為硬體或軟體故障而導致某個處理步驟失敗，將無需從頭開始。 通常，您也會保留重試計數，如果訊息重試超過 *n* 次，您會將它刪除。 這麼做可防止每次處理時便觸發應用程式錯誤的訊息。
 
 ```csharp
@@ -152,13 +246,14 @@ CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
 // Get the message from the queue and update the message contents.
 CloudQueueMessage message = queue.GetMessage();
-message.SetMessageContent("Updated contents.");
+message.SetMessageContent2("Updated contents.", false);
 queue.UpdateMessage(message,
     TimeSpan.FromSeconds(60.0),  // Make it invisible for another 60 seconds.
     MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 ```
 
 ## <a name="de-queue-the-next-message"></a>將下一個訊息清除佇列
+
 您的程式碼可以使用兩個步驟將訊息自佇列中清除佇列。 呼叫 [GetMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet)時，您會取得佇列中的下一個訊息。 從 **GetMessage** 傳回的訊息，對於從此佇列讀取訊息的任何其他程式碼而言將會是不可見的。 依預設，此訊息會維持 30 秒的不可見狀態。 若要完成從佇列中移除訊息，您還必須呼叫 [DeleteMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet)。 這個移除訊息的兩步驟程序可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。 您的程式碼會在處理完訊息之後立即呼叫 **DeleteMessage** 。
 
 ```csharp
@@ -180,6 +275,7 @@ queue.DeleteMessage(retrievedMessage);
 ```
 
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>搭配通用佇列儲存體 API 使用 Async-Await 模式
+
 這個範例示範如何搭配通用佇列儲存體 API 使用 Async-Await 模式。 此範例會呼叫每個指定方法的非同步版本，就像每個方法的非同步 *Async* 尾碼所指示的一樣。 使用非同步方法時，async-await 模式會暫停本機執行，直到呼叫完成為止。 這種行為可讓目前的執行緒執行其他工作，有助於避免發生效能瓶頸並提升應用程式的整體回應。 如需在 .NET 中使用 Async-Await 模式的詳細資訊，請參閱 [Async 和 Await (C# 和 Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
 ```csharp
@@ -208,8 +304,9 @@ Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsStr
 await queue.DeleteMessageAsync(retrievedMessage);
 Console.WriteLine("Deleted message");
 ```
-    
+
 ## <a name="leverage-additional-options-for-de-queuing-messages"></a>運用清除佇列訊息的其他選項
+
 自訂從佇列中擷取訊息的方法有兩種。 首先，您可以取得一批訊息 (最多 32 個)。 其次，您可以設定較長或較短的可見度逾時，讓您的程式碼有較長或較短的時間可以完全處理每個訊息。 下列程式碼範例將使用 [GetMessages](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet) 方法，在一次呼叫中取得 20 個訊息。 接著它會使用 **foreach** 迴圈處理每個訊息。 它也會將可見度逾時設定為每個訊息五分鐘。 請注意，系統會針對所有訊息同時開始計時 5 分鐘，所以從呼叫 **GetMessages**開始的 5 分鐘後，任何尚未刪除的訊息都會重新出現。
 
 ```csharp
@@ -231,6 +328,7 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 ```
 
 ## <a name="get-the-queue-length"></a>取得佇列長度
+
 您可以取得佇列中的估計訊息數目。 [FetchAttributes](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet) 方法會要求佇列服務擷取佇列屬性，其中包含訊息計數。 [ApproximateMessageCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet) 屬性會傳回 **FetchAttributes** 方法所擷取的最後一個值，而無需呼叫佇列服務。
 
 ```csharp
@@ -255,6 +353,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
 ## <a name="delete-a-queue"></a>刪除佇列
+
 若要刪除佇列及其內含的所有訊息，請在佇列物件上呼叫 [Delete](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet) 方法。
 
 ```csharp
@@ -271,9 +370,9 @@ CloudQueue queue = queueClient.GetQueueReference("myqueue");
 // Delete the queue.
 queue.Delete();
 ```
-    
 
 ## <a name="next-steps"></a>後續步驟
+
 了解佇列儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存工作。
 
 * 如需可用 API 的完整詳細資訊，請檢視佇列服務參考文件：

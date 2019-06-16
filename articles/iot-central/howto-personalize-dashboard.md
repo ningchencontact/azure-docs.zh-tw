@@ -3,17 +3,17 @@ title: 建立 Azure IoT Central 的個人儀表板 |Microsoft Docs
 description: 身為使用者，了解如何建立及管理您的個人儀表板。
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/13/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: fb74669dcaa802ad06a9c4dff3ffdf25726f518c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1641c4f3ae4eaa175657db8ff4064fa2202aea6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60518611"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053007"
 ---
 # <a name="create-and-manage-personal-dashboards"></a>建立和管理個人儀表板
 
@@ -29,7 +29,7 @@ ms.locfileid: "60518611"
 
 ![儀表板程式庫](media/howto-personalize-dashboard/dashboardeditor.png)
 
-例如，您可以在其中加入**裝置設定與屬性**磚，以顯示其中一個您所管理之裝置的設定和屬性值。 若要這麼做，請先選取 [裝置範本]，然後選取 [裝置執行個體]。 然後為 [] 圖格，標題並選取**設定**或是**屬性**來顯示。 下列螢幕擷取畫面示**展開速度**選取要新增到 [] 圖格的設定。 選取 **完成**儀表板中儲存的變更。
+例如，您可以在其中加入**裝置設定與屬性**磚，以顯示其中一個您所管理之裝置的設定和屬性值。 若要這麼做，請先選取 [裝置範本]  ，然後選取 [裝置執行個體]  。 然後為 [] 圖格，標題並選取**設定**或是**屬性**來顯示。 下列螢幕擷取畫面示**展開速度**選取要新增到 [] 圖格的設定。 選取 **完成**儀表板中儲存的變更。
 
 ![含設定和屬性詳細資料的 [設定裝置詳細資料] 表單](media/howto-personalize-dashboard/dashboardsetting.png)
 

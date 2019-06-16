@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.openlocfilehash: 73402421a87d2cf14719ff34201890ea96c90519
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715250"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用 Resource Manager 範本在 HDInsight 中建立 Apache Hadoop 叢集
@@ -29,7 +29,7 @@ ms.locfileid: "64715250"
 * Azure PowerShell 和/或 Azure 傳統 CLI。
 
 ### <a name="resource-manager-templates"></a>Resource Manager 範本
-通过资源管理器模板，可轻松地通过单个协调操作为应用程序创建以下资源：
+Resource Manager 範本可讓您輕鬆地在單一、 協調的作業中建立您的應用程式的下列資源：
 * HDInsight 叢集及其相依資源 (例如，預設儲存體帳戶)。
 * 其他資源 (例如，使用 [Apache Sqoop](https://sqoop.apache.org/) \(英文\) 的 Azure SQL Database)。
 
@@ -64,7 +64,7 @@ Resource Manager 可讓您使用不同工具，從您的訂用帳戶中現有的
 您可以使用 REST API 部署 Resource Manager 範本。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Resource Manager REST API 來部署資源](../azure-resource-manager/resource-group-template-deploy-rest.md)。
 
 ## <a name="deploy-with-visual-studio"></a>透過 Visual Studio 部署
- 使用 Visual Studio 來透過使用者介面建立資源群組專案，並將其部署至 Azure。 您選取要包含在您的專案中的資源類型。 這些資源會自動新增至 Resource Manager 範本。 该项目还提供了用于部署模板的 PowerShell 脚本。
+ 使用 Visual Studio 來透過使用者介面建立資源群組專案，並將其部署至 Azure。 您選取要包含在您的專案中的資源類型。 這些資源會自動新增至 Resource Manager 範本。 該專案也提供 PowerShell 指令碼來部署範本。
 
 如需搭配資源群組使用 Visual Studio 的簡介，請參閱 [透過 Visual Studio 建立和部署 Azure 資源群組](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)。
 

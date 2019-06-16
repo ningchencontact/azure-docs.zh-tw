@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: fa92c836fc967f67b46f0417ec5182b41e980b18
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 7a7ac843960e253b3172d1ed22fe5b59633897dc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735402"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062475"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的連線架構
 這篇文章會說明 Azure Database for MySQL 連線架構以及如何將流量導向至 Azure Database for MySQL 執行個體來自 Azure 內外的用戶端。
 
 ## <a name="connectivity-architecture"></a>連線架構
-MySQL sql Azure 資料庫 」 的連線是透過負責您的伺服器，在我們的叢集中的實體位置的路由連入連線的閘道建立的。 下圖說明的流量。
+適用於 MySQL 的 Azure 資料庫的連接是透過閘道路由連入連線您的伺服器，在我們的叢集中的實體位置負責建立。 下圖說明的流量。
 
 ![連線架構的概觀](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 

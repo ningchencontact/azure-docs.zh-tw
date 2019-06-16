@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e003aec8fa5aeab587fa07acdae3a13b370a535
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55c56674b04c4359fba741d10176fc91e3a991eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453428"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109017"
 ---
-# <a name="how-to-close-active-risk-events"></a>作法：關閉進行中的風險事件
+# <a name="how-to-close-active-risk-events"></a>如何：關閉進行中的風險事件
 
 利用[風險事件](../reports-monitoring/concept-risk-events.md)，Azure Active Directory 會偵測可能遭入侵使用者帳戶的指標。 系統管理員會想要取得所有已關閉的風險事件，所以受影響的使用者不再有風險。
 
@@ -32,7 +32,7 @@ ms.locfileid: "60453428"
 
 ## <a name="options-to-close-risk-events"></a>用於關閉風險事件的選項 
 
-風險事件的狀態為 [作用中] 或 [已關閉]。 所有作用中風險事件會納入稱為使用者風險層級的值計算。 使用者風險層級是帳戶遭到入侵的可能性指標 (低、中、高)。 
+風險事件的狀態為 [作用中]  或 [已關閉]  。 所有作用中風險事件會納入稱為使用者風險層級的值計算。 使用者風險層級是帳戶遭到入侵的可能性指標 (低、中、高)。 
 
 若要關閉作用中風險事件，您有下列選項︰
 
@@ -48,7 +48,7 @@ ms.locfileid: "60453428"
 
 ## <a name="require-password-reset-with-a-user-risk-policy"></a>使用者風險原則需要密碼重設
 
-藉由設定[使用者風險條件式存取原則](howto-user-risk-policy.md)，如果自動偵測到指定的使用者風險層級，您可以要求變更密碼。 
+藉由設定[使用者風險條件式存取原則](howto-user-risk-policy.md)，如果自動偵測到指定的使用者風險層級，您可以要求密碼變更。 
 
 ![重設密碼](./media/howto-close-active-risk-events/13.png)
 
@@ -85,7 +85,7 @@ ms.locfileid: "60453428"
 
 ![重設密碼](./media/howto-close-active-risk-events/03.png)
 
-當您按一下 [關閉所有事件] ，所有事件都已關閉，且受影響的使用者不再有風險。 不過，因為這個方法不會影響現有的密碼，所以不會讓相關的身分識別回到安全狀態。 這個方法的慣用使用案例是具有作用中風險事件的已刪除使用者。 
+當您按一下 [關閉所有事件]  ，所有事件都已關閉，且受影響的使用者不再有風險。 不過，因為這個方法不會影響現有的密碼，所以不會讓相關的身分識別回到安全狀態。 這個方法的慣用使用案例是具有作用中風險事件的已刪除使用者。 
 
 
 ## <a name="close-individual-risk-events-manually"></a>手動關閉個別風險事件

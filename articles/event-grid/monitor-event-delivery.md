@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: spelluru
 ms.openlocfilehash: fdd18b833794c25cb90188ba8bc418d4785492ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60824091"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>監視事件格線訊息傳遞 
@@ -44,15 +44,15 @@ Event Grid 提供持久的傳遞。 它針對每個訂用帳戶傳遞每則訊�
 
 若要查看事件訂閱的計量，您可以依訂閱類型或特定資源的訂閱搜尋。
 
-若要依事件訂閱類型搜尋，請選取 [所有服務]。
+若要依事件訂閱類型搜尋，請選取 [所有服務]  。
 
 ![選取 [所有服務]](./media/monitor-event-delivery/all-services.png)
 
-搜尋 [事件格線]，然後從可用的選項選取 [事件格線訂閱]。
+搜尋 [事件格線]  ，然後從可用的選項選取 [事件格線訂閱]  。
 
 ![搜尋事件訂閱](./media/monitor-event-delivery/search-and-select.png)
 
-依事件的類型、訂閱及位置進行篩選。 針對要檢視的訂閱選取 [計量]。
+依事件的類型、訂閱及位置進行篩選。 針對要檢視的訂閱選取 [計量]  。
 
 ![篩選事件訂閱](./media/monitor-event-delivery/filter-events.png)
 
@@ -60,7 +60,7 @@ Event Grid 提供持久的傳遞。 它針對每個訂用帳戶傳遞每則訊�
 
 ![檢視事件計量](./media/monitor-event-delivery/subscription-metrics.png)
 
-若要尋找特定資源的計量，請選取該資源。 然後，選取 [事件]。
+若要尋找特定資源的計量，請選取該資源。 然後，選取 [事件]  。
 
 ![選取資源的事件](./media/monitor-event-delivery/select-events.png)
 

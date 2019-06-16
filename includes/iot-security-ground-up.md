@@ -9,10 +9,10 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: b952763378de562f35c2e1ecaf49c56f0145c559
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166312"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>徹底保護物聯網 (IoT) 安全性
@@ -39,7 +39,7 @@ ms.locfileid: "66166312"
 
 ## <a name="microsoft-azure---secure-iot-infrastructure-for-your-business"></a>Microsoft Azure - 適用於貴公司的安全 IoT 基礎結構
 
-Microsoft Azure 提供完整的雲端解決方案，其中結合了持續成長的整合式雲端服務 (分析、機器學習服務、儲存體、安全性、網路功能及 Web) 集合，透過業界領先的承諾來為您的資料提供保護與隱私權。 Microsoft 的[模擬缺口](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) 策略會透過由軟體安全性專家組成的專屬「紅隊」，來模擬攻擊、測試要偵測的 Azure 能力、防範新興威脅，以及從缺口中復原。 Microsoft 的[全域事件回應](https://www.microsoft.com/en-us/TrustCenter/Security/DesignOpSecurity)小組夜以繼日地工作，能夠減緩攻擊與惡意活動所產生的影響。 此小組會遵循事件管理、通訊及復原所建立的程序，並與內部和外部夥伴合作來使用可探索且可預測的介面。
+Microsoft Azure 提供完整的雲端解決方案，其中結合了持續成長的整合式雲端服務 (分析、機器學習服務、儲存體、安全性、網路功能及 Web) 集合，透過業界領先的承諾來為您的資料提供保護與隱私權。 Microsoft 的[模擬缺口](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) 策略會透過由軟體安全性專家組成的專屬「紅隊」  ，來模擬攻擊、測試要偵測的 Azure 能力、防範新興威脅，以及從缺口中復原。 Microsoft 的[全域事件回應](https://www.microsoft.com/en-us/TrustCenter/Security/DesignOpSecurity)小組夜以繼日地工作，能夠減緩攻擊與惡意活動所產生的影響。 此小組會遵循事件管理、通訊及復原所建立的程序，並與內部和外部夥伴合作來使用可探索且可預測的介面。
 
 Microsoft 的系統能提供持續的入侵偵測與防護、阻斷服務攻擊防護、一般滲透測試，以及可協助識別及緩解威脅的法務工具。 [Multi-Factor Authentication](../articles/active-directory/authentication/multi-factor-authentication.md) 可為存取網路的使用者提供額外的安全性層級。 此外，針對應用程式和主機提供者，Microsoft 會提供存取控制、監視、反惡意程式碼、弱點掃描、修補程式及組態管理。
 

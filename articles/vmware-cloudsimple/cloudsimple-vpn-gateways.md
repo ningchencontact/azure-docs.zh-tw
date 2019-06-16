@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9b2630614e549181f4dd2f4e79871c4594d09201
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: c9689a468e8784eb4ec3590011e02a37d92d6b9c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496852"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083392"
 ---
 # <a name="vpn-gateways-overview"></a>VPN 閘道概觀
 
@@ -52,7 +52,7 @@ VPN 閘道可讓您從內部部署私人雲端，在使用服務，與您的私�
 | IKE 版本 | IKEv1 | IKEv1 | IKEv1 |
 | 加密 | AES 128 | AES 256 | AES 256 |
 | 雜湊演算法| SHA 256 | SHA 256 | SHA 1 |
-| Diffie Hellman 群組 （DH 群組） | 1 | 1 | 1 |
+| Diffie Hellman 群組 （DH 群組） | 2 | 2 | 2 |
 | 存留時間 | 28,800 秒 | 28,800 秒 | 28,800 秒 |
 | 資料大小 | 4 GB | 4 GB | 4 GB |
 

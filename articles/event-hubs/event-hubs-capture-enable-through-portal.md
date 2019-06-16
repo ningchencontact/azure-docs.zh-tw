@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: shvija
 ms.openlocfilehash: 9108c52529319288fba48dbad3c6f8aa6cb5f725
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822507"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>允許透過 Azure 事件中樞擷取事件串流
@@ -32,7 +32,7 @@ Azure [事件中樞擷取][capture-overview]可讓您將事件中樞內的串流
 
 ## <a name="capture-data-to-an-azure-storage-account"></a>將資料擷取至 Azure 儲存體帳戶  
 
-當您建立事件中樞時，按一下 [建立事件中樞] 入口網站畫面中的 [開啟] 按鈕，即可啟用擷取功能。 然後按一下 [擷取提供者] 方塊中的 [Azure 儲存體]，以指定儲存體帳戶和容器。 事件中樞擷取會對儲存體使用服務對服務驗證，因此您不需要指定儲存體連接字串。 資源選擇器會自動選取儲存體帳戶的資源 URI。 如果您使用 Azure Resource Manager，您必須以字串形式明確提供此 URI。
+當您建立事件中樞時，按一下 [建立事件中樞]  入口網站畫面中的 [開啟]  按鈕，即可啟用擷取功能。 然後按一下 [擷取提供者]  方塊中的 [Azure 儲存體]  ，以指定儲存體帳戶和容器。 事件中樞擷取會對儲存體使用服務對服務驗證，因此您不需要指定儲存體連接字串。 資源選擇器會自動選取儲存體帳戶的資源 URI。 如果您使用 Azure Resource Manager，您必須以字串形式明確提供此 URI。
 
 預設時間範圍為 5 分鐘。 最小值是 1，最大值是 15。 **大小** 範圍為 10-500 MB。
 
@@ -56,15 +56,15 @@ Azure [事件中樞擷取][capture-overview]可讓您將事件中樞內的串流
 
 ### <a name="create-an-event-hub"></a>建立事件中樞
 
-1. 請注意，事件中樞必須位於與您剛建立之 Azure Data Lake Store 相同的 Azure 訂用帳戶中。 按一下 [建立事件中樞] 入口網站頁面中 [擷取] 之下的 [開啟] 按鈕，以建立事件中樞。 
-2. 在 [建立事件中樞] 入口網站頁面中，從 [擷取提供者] 方塊選取 [Azure Data Lake Store]。
-3. 在 [選取 Data Lake Store] 中，指定您先前建立的 Data Lake Store 帳戶，以及在 [Data Lake 路徑] 欄位中，輸入您建立之資料資料夾的路徑。
+1. 請注意，事件中樞必須位於與您剛建立之 Azure Data Lake Store 相同的 Azure 訂用帳戶中。 按一下 [建立事件中樞]  入口網站頁面中 [擷取]  之下的 [開啟]  按鈕，以建立事件中樞。 
+2. 在 [建立事件中樞]  入口網站頁面中，從 [擷取提供者]  方塊選取 [Azure Data Lake Store]  。
+3. 在 [選取 Data Lake Store]  中，指定您先前建立的 Data Lake Store 帳戶，以及在 [Data Lake 路徑]  欄位中，輸入您建立之資料資料夾的路徑。
 
     ![選取 Data Lake Storage 帳戶][3]
 
 ## <a name="add-or-configure-capture-on-an-existing-event-hub"></a>在現有的事件中樞上新增或設定擷取功能
 
-您可以在位於事件中樞命名空間的現有事件中樞上設定擷取功能。 若要在現有事件中樞上啟用擷取功能，或變更您的擷取設定，請按一下命名空間以載入概觀畫面，然後按一下您要啟用或變更擷取設定的事件中樞。 最後，按一下開啟之頁面左側的 [擷取] 選項，然後編輯設定，如下圖所示：
+您可以在位於事件中樞命名空間的現有事件中樞上設定擷取功能。 若要在現有事件中樞上啟用擷取功能，或變更您的擷取設定，請按一下命名空間以載入概觀畫面，然後按一下您要啟用或變更擷取設定的事件中樞。 最後，按一下開啟之頁面左側的 [擷取]  選項，然後編輯設定，如下圖所示：
 
 ### <a name="azure-blob-storage"></a>Azure Blob 儲存體
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 77b9b20f99f00ef87c4907c2890cb3a21d20ec75
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62096261"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>在 Azure 中升級叢集的組態 
@@ -33,12 +33,12 @@ ms.locfileid: "62096261"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>使用 Resource Manager 範本自訂叢集設定
-透過 JSON Resource Manager 範本可以設定 Azure 叢集。 若要深入了解不同的設定，請參閱[叢集的組態設定](service-fabric-cluster-fabric-settings.md)。 舉例來說，下列步驟示範如何使用 Azure 資源總管將新設定 *MaxDiskQuotaInMB* 新增至 [Diagnostics] 區段。
+透過 JSON Resource Manager 範本可以設定 Azure 叢集。 若要深入了解不同的設定，請參閱[叢集的組態設定](service-fabric-cluster-fabric-settings.md)。 舉例來說，下列步驟示範如何使用 Azure 資源總管將新設定 *MaxDiskQuotaInMB* 新增至 [Diagnostics]  區段。
 
-1. 移至 https://resources.azure.com。
-2. 瀏覽至您的訂用帳戶，方法為展開 [訂用帳戶] -> **\<您的訂用帳戶>** -> **resourceGroups** -> **\<您的資源群組>** -> [提供者] -> **Microsoft.ServiceFabric** -> [叢集] -> **\<您的叢集名稱>**
-3. 選取右上角的 [讀取/寫入]。
-4. 選取 [編輯]，並更新 `fabricSettings` JSON 元素，然後新增元素：
+1. 移至 https://resources.azure.com 。
+2. 瀏覽至您的訂用帳戶，方法為展開 [訂用帳戶]   ->  **\<您的訂用帳戶>**  -> **resourceGroups** ->  **\<您的資源群組>**  -> [提供者]   -> **Microsoft.ServiceFabric** -> [叢集]   ->  **\<您的叢集名稱>**
+3. 選取右上角的 [讀取/寫入]  。
+4. 選取 [編輯]  ，並更新 `fabricSettings` JSON 元素，然後新增元素：
 
 ```json
       {

@@ -10,10 +10,10 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 07/14/2017
 ms.openlocfilehash: 765bcaab0f91e097be827bfa6e8f505ef5330d57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814399"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>以 Visual Studio Code 在本機執行 U-SQL 及偵錯
@@ -27,7 +27,7 @@ ms.locfileid: "60814399"
 
    ![下載 ADL LocalRun 相依性套件](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/downloadtheadllocalrunpackage.png)
 
-2. 從 [輸出] 窗格中顯示的路徑找出相依性套件，然後安裝 BuildTools 和 Win10SDK 10240。 路徑範例如下：  
+2. 從 [輸出]  窗格中顯示的路徑找出相依性套件，然後安裝 BuildTools 和 Win10SDK 10240。 路徑範例如下：  
 `C:\Users\xxx\AppData\Roaming\LocalRunDependency` 
 
    ![找出相依性套件](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/LocateDependencyPath.png)
@@ -48,7 +48,7 @@ ms.locfileid: "60814399"
 針對第一次的使用者，使用 **ADL:下載本機執行套件** 下載本機執行的套件，如果您還沒 [設定 U-SQL 本機執行環境](#set-up-the-u-sql-local-run-environment)。
 
 1. 選取 Ctrl + Shift + P 以開啟 命令選擇區中，然後輸入**ADL:啟動本機執行的服務**。   
-2. 選取 [接受] 來首次接受 Microsoft 軟體授權條款。 
+2. 選取 [接受]  來首次接受 Microsoft 軟體授權條款。 
 
    ![接受 Microsoft 軟體授權條款](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/AcceptEULA.png)   
 3. 隨即會開啟 CMD 主控台。 如果您是初次使用者，就必須輸入 **3**，然後找出用於資料輸入和輸出的本機資料夾路徑。 其他選項則可以使用預設值。 
@@ -57,7 +57,7 @@ ms.locfileid: "60814399"
 4. 選取 Ctrl + Shift + P 以開啟 命令選擇區中，輸入**ADL:提交作業**，然後選取**本機**將作業提交至您的本機帳戶。
 
    ![Data Lake Tools for Visual Studio Code 選取本機](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-select-local.png)
-5. 在提交作業後，您就可以檢視提交詳細資料。 若要檢視提交詳細資料，選取 [輸出] 視窗中的 [jobUrl]。 您也可以從 CMD 主控台檢視作業提交狀態。 如果您想要知道更多的作業詳細資料，請在 CMD 主控台中輸入 **7**。
+5. 在提交作業後，您就可以檢視提交詳細資料。 若要檢視提交詳細資料，選取 [輸出]  視窗中的 [jobUrl]  。 您也可以從 CMD 主控台檢視作業提交狀態。 如果您想要知道更多的作業詳細資料，請在 CMD 主控台中輸入 **7**。
 
    ![Data Lake Tools for Visual Studio Code 本機執行輸出](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-result.png)
    ![Data Lake Tools for Visual Studio Code 本機執行 CMD 狀態](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-localrun-cmd-status.png) 

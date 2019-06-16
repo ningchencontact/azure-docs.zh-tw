@@ -1,8 +1,8 @@
 ---
-title: 什麼是 Azure Active Directory 條件式存取中的條件？ | Microsoft Docs
-description: 了解如何在 Azure Active Directory 條件式存取中使用條件來觸發原則。
+title: Azure Active Directory 條件式存取中的條件有哪些？ | Microsoft Docs
+description: 了解條件如何在 Azure Active Directory 條件式存取中使用來觸發原則。
 services: active-directory
-keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
+keywords: 條件式存取應用程式，與 Azure AD，安全地存取公司資源，條件式存取原則的條件式存取
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,28 +18,28 @@ ms.date: 05/17/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2caedeb5cd4d0f920ffa49b33b0dca8bea9938cb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 83263b3536100ce16819002c833754d18ac12816
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861552"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112603"
 ---
-# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的條件？
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取中的條件有哪些？
 
-您可以使用 [Azure Active Directory (Azure AD) 條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)，控制使用者將如何存取您的雲端應用程式。 在條件式存取原則中，您會定義對觸發原則原因 ("When this happens") 做出的回應 ("Then do this")。
+您可以控制使用者如何存取您雲端應用程式使用[Azure Active Directory (Azure AD) 條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)。 在條件式存取原則中，您定義的回應 ("Then do this") 來觸發您的原則 ("When this happens") 的原因。
 
 ![原因和回應](./media/conditions/10.png)
 
 
-在條件式存取內容中，我們將**發生此情況時**稱為**條件**。 **則執行此動作**稱為**存取控制**。 條件與存取控制的組合即代表條件式存取原則。
+內容中的條件式存取**當發生這種情況**稱為**條件**。 **則執行此動作**稱為**存取控制**。 您的條件與存取控制的組合代表條件式存取原則。
 
 ![條件式存取原則](./media/conditions/61.png)
 
 
-您未在條件式存取原則中設定的條件將不會套用。 某些條件會[強制](best-practices.md)將條件式存取原則套用至環境。
+您尚未設定條件式存取原則中的條件並不會套用。 某些條件皆[強制](best-practices.md)環境套用條件式存取原則。
 
-本文將簡要說明條件及如何在條件式存取原則中使用條件。 
+這篇文章是條件，和它們的條件式存取原則中的使用方式的概觀。 
 
 ## <a name="users-and-groups"></a>使用者和群組
 
@@ -77,7 +77,7 @@ ms.locfileid: "65861552"
 
 ## <a name="sign-in-risk"></a>登入風險
 
-登入風險是可能性 (高、中或低) 的指標，代表執行登入的使用者不是使用者帳戶合法擁有者的可能性。 Azure AD 會計算使用者登入期間的登入風險層級。 您可以使用計算出的登入風險層級作為條件式存取原則中的條件。
+登入風險是可能性 (高、中或低) 的指標，代表執行登入的使用者不是使用者帳戶合法擁有者的可能性。 Azure AD 會計算使用者登入期間的登入風險層級。 您可以使用導出的登入風險層級作為條件式存取原則中的條件。
 
 ![登入風險層級](./media/conditions/22.png)
 
@@ -100,13 +100,13 @@ ms.locfileid: "65861552"
 如需支援的裝置平台清單，請參閱[裝置平台條件](technical-reference.md#device-platform-condition)。
 
 
-此條件的其中一個常見使用案例，就是限制只有[受控的裝置](require-managed-devices.md)才能存取您雲端應用程式的原則。 如需更多案例 (包括裝置平台條件)，請參閱 [Azure Active Directory 應用程式型條件式存取](app-based-conditional-access.md)。
+此條件的其中一個常見使用案例，就是限制只有[受控的裝置](require-managed-devices.md)才能存取您雲端應用程式的原則。 更多的案例，包括裝置平台條件，請參閱 < [Azure Active Directory 應用程式型條件式存取](app-based-conditional-access.md)。
 
 
 
 ## <a name="device-state"></a>裝置狀態
 
-裝置狀態條件會將已加入混合式 Azure AD 的裝置和標示為符合規範的裝置，從條件式存取原則中排除。 
+裝置狀態條件排除加入混合式 Azure AD 的裝置和標記為符合規範的條件式存取原則的裝置。 
 
 
 ![設定裝置狀態](./media/conditions/112.png)
@@ -125,7 +125,7 @@ ms.locfileid: "65861552"
 
 - 針對從特定國家或地區存取服務的使用者，封鎖存取權。 
 
-如需詳細資訊，請參閱[什麼是 Azure Active Directory 條件式存取中的位置條件？](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)。
+如需詳細資訊，請參閱 <<c0> [ 什麼是 Azure Active Directory 條件式存取的位置條件？](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)。
 
 
 ## <a name="client-apps"></a>用戶端應用程式
@@ -177,12 +177,12 @@ ms.locfileid: "65861552"
 
 在其他情況下 (例如需要 MFA)，受影響的使用者會遭到封鎖，因為使用基本驗證的用戶端並不支援 MFA。
 
-您只能將此設定用在使用者和群組上。 它不支援來賓或角色。 如果設定了來賓或角色的條件，由於條件式存取無法判斷是否應將原則套用至使用者，所以會封鎖所有使用者。
+您只能將此設定用在使用者和群組上。 它不支援來賓或角色。 如果已使用 guest 帳戶或角色的條件，則會封鎖所有使用者，因為無法判斷條件式存取，或不若原則應該套用到使用者。
 
 
  如需詳細資訊，請參閱
 
-- [設定 SharePoint Online 和 Exchange Online，以便採用 Azure Active Directory 條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication)。
+- [SharePoint Online 和 Exchange Online 設定 Azure Active Directory 條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication)。
  
 - [Azure Active Directory 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)。 
 
@@ -190,7 +190,7 @@ ms.locfileid: "65861552"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要了解如何設定條件式存取原則，請參閱[快速入門：透過 Azure Active Directory 條件式存取來要求特定應用程式必須使用 MFA](app-based-mfa.md)。
+- 若要了解如何設定條件式存取原則，請參閱[快速入門：使用 Azure Active Directory 條件式存取所需的特定應用程式 MFA](app-based-mfa.md)。
 
-- 若要為您的環境設定條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](best-practices.md)。 
+- 若要設定條件式存取原則，為您的環境，請參閱[Azure Active Directory 中的條件式存取的最佳作法](best-practices.md)。 
 

@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: afa332b40884a79b5114b3b8093cd27108c39984
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65780014"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>適用於容器的 Azure 監視器常見問題集
@@ -71,7 +71,7 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 
 ## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>當我啟用即時記錄檔時如何解決 Azure AD 錯誤？ 
 
-您可能會看到下列錯誤：**回覆要求中指定的 url 不符合為應用程式設定的回覆 url: '< 應用程式識別碼\>'**。 來解決此問題的解決方案可在發行項[如何檢視容器記錄檔使用即時 Azure 監視器容器](container-insights-live-logs.md#configure-aks-with-azure-active-directory)。 
+您可能會看到下列錯誤：**回覆要求中指定的 url 不符合為應用程式設定的回覆 url: '< 應用程式識別碼\>'** 。 來解決此問題的解決方案可在發行項[如何檢視容器記錄檔使用即時 Azure 監視器容器](container-insights-live-logs.md#configure-aks-with-azure-active-directory)。 
 
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>為什麼無法升級叢集上架後？
 

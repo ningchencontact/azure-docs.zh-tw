@@ -4,30 +4,29 @@ description: 本文旨在做為熟悉 PowerShell 的作者的快速課程，以�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: WenJason
-ms.author: v-jay
-origin.date: 12/14/2018
-ms.date: 04/01/2019
+author: georgewallace
+ms.author: gwallace
+ms.date: 12/14/2018
 ms.topic: conceptual
-manager: digimobile
+manager: carmonm
 ms.openlocfilehash: c5764c36a646b9639c0eb6463c39b9f014c4272d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738327"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>了解適用於自動化 Runbook 的重要 Windows PowerShell 工作流程概念
 
 Azure 自動化中的 Runbook 會實作為 Windows PowerShell 工作流程。  Windows PowerShell 工作流程類似於 Windows PowerShell 指令碼，但有一些顯著的差異可能會對新使用者造成混淆。  雖然本文旨在協助您使用 PowerShell 工作流程撰寫 Runbook，但是除非您需要檢查點，否則建議您使用 PowerShell 來撰寫 Runbook。  在撰寫 PowerShell 工作流程 Runbook 時有許多語法差異，而這些差異需要更多的工作來撰寫有效的工作流程。
 
-工作流程是一連串的程式化、連接步驟，執行長時間執行的工作，或是需要跨多個裝置或受控節點協調多個步驟。 透過標準的指令碼工作流程的好處包括能夠同時對多個裝置執行動作，以及可自動從失敗復原的能力。 Windows PowerShell 工作流程是使用 Windows Workflow Foundation 的 Windows PowerShell 指令碼。 尽管工作流采用 Windows PowerShell 语法编写并通过 Windows PowerShell 启动，但由 Windows Workflow Foundation 对其进行处理。
+工作流程是一連串的程式化、連接步驟，執行長時間執行的工作，或是需要跨多個裝置或受控節點協調多個步驟。 透過標準的指令碼工作流程的好處包括能夠同時對多個裝置執行動作，以及可自動從失敗復原的能力。 Windows PowerShell 工作流程是使用 Windows Workflow Foundation 的 Windows PowerShell 指令碼。 雖然工作流程是使用 Windows PowerShell 語法編寫，並由 Windows PowerShell 啟動，它是由 Windows Workflow Foundation 來處理。
 
 如需這篇文章中的主題的完整詳細資訊，請參閱 [開始使用 Windows PowerShell 工作流程](https://technet.microsoft.com/library/jj134242.aspx)。
 
 ## <a name="basic-structure-of-a-workflow"></a>工作流程的基本結構
 
-將 PowerShell 指令碼轉換成 PowerShell 工作流程的第一個步驟是將它使用 **Workflow** 關鍵字含括。  工作流以 **Workflow** 关键字开头，后接括在大括号中的脚本正文。 工作流程的名稱會遵循 **Workflow** 關鍵字，如下列語法所示：
+將 PowerShell 指令碼轉換成 PowerShell 工作流程的第一個步驟是將它使用 **Workflow** 關鍵字含括。  一種工作流程，以 **Workflow** 關鍵字為開頭，後面接著括在大括弧中的指令碼主體。 工作流程的名稱會遵循 **Workflow** 關鍵字，如下列語法所示：
 
 ```powershell
 Workflow Test-Workflow
@@ -36,7 +35,7 @@ Workflow Test-Workflow
 }
 ```
 
-工作流程的名稱必須符合自動化 Runbook 的名稱。 如果正在匯入 Runbook，檔案名稱必須符合工作流程名稱，並必須以 .ps1 結尾。
+工作流程的名稱必須符合自動化 Runbook 的名稱。 如果正在匯入 Runbook，檔案名稱必須符合工作流程名稱，並必須以 .ps1  結尾。
 
 若要將參數加入至工作流程，請使用 **Param** 關鍵字，如同您會對指令碼執行的動作。
 
@@ -44,11 +43,11 @@ Workflow Test-Workflow
 
 PowerShell 工作流程程式碼看起來幾乎類似於 PowerShell 指令碼，除了少數幾個重大變更。  下列各節說明您必須對 PowerShell 指令碼進行的變更，以讓它在工作流程中執行。
 
-### <a name="activities"></a>活动
+### <a name="activities"></a>activities
 
 活動是工作流程中的特定工作。 就像指令碼是由一或多個命令所組成，工作流程是由序列中執行的一或多個活動所組成。 執行工作流程時，Windows PowerShell 工作流程會自動將許多 Windows PowerShell Cmdlet 轉換為活動。 在 Runbook 中指定其中一個 Cmdlet 時，對應的活動是由 Windows Workflow Foundation 執行。 針對沒有對應活動的 Cmdlet，Windows PowerShell 工作流程會自動在 [InlineScript](#inlinescript) 活動內執行 Cmdlet。 有一組 Cmdlet 被排除，除非您明確在 InlineScript 區塊中將其納入，否則無法用在工作流程中。 如需這些概念的詳細資訊，請參閱 [在指令碼工作流程中使用活動](https://technet.microsoft.com/library/jj574194.aspx)。
 
-工作流活动共享一组公用参数来配置其操作。 如需有關工作流程通用參數的詳細資訊，請參閱 [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx)。
+工作流程活動共用一組通用參數來設定其作業。 如需有關工作流程通用參數的詳細資訊，請參閱 [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx)。
 
 ### <a name="positional-parameters"></a>位置參數
 
@@ -56,7 +55,7 @@ PowerShell 工作流程程式碼看起來幾乎類似於 PowerShell 指令碼，
 
 例如，請考慮會取得所有執行中服務的下列程式碼。
 
-```powershell
+```azurepowershell-interactive
 Get-Service | Where-Object {$_.Status -eq "Running"}
 ```
 
@@ -73,7 +72,7 @@ Workflow Get-RunningServices
 
 工作流程中的物件會還原序列化。  這表示其屬性都仍然可用，而不是它們的方法。  例如，請考慮下列 PowerShell 程式碼，它會使用 Service 物件的 Stop 方法來停止服務。
 
-```powershell
+```azurepowershell-interactive
 $Service = Get-Service -Name MyService
 $Service.Stop()
 ```
@@ -92,7 +91,7 @@ Workflow Stop-Service
 }
 ```
 
-另一个选项是使用执行相同功能的另一个 cmdlet（如果可用）。  在我們的範例中，Stop-Service Cmdlet 會提供與 Stop 方法相同的功能，並且您可以使用下面工作流程。
+另一個選項是使用會與方法執行相同功能的另一個 Cmdlet，如果有的話。  在我們的範例中，Stop-Service Cmdlet 會提供與 Stop 方法相同的功能，並且您可以使用下面工作流程。
 
 ```powershell
 Workflow Stop-MyService
@@ -149,13 +148,13 @@ Workflow Stop-MyService
 
 雖然 InlineScript 活動在特定工作流程中可能是關鍵，它們不支援工作流程建構，而且應該基於以下原因時使用：
 
-* 您不能在 InlineScript 區塊內使用[檢查點](#checkpoints)。 如果块中发生失败，它必须从块的开头恢复。
+* 您不能在 InlineScript 區塊內使用[檢查點](#checkpoints)。 如果失敗發生在區塊內，它必須從區塊的開頭繼續。
 * 您不能在 InlineScriptBlock 內使用[平行執行](#parallel-processing)。
 * InlineScript 會影響工作流程的延展性，因為它會保留 InlineScript 區塊的整個長度的 Windows PowerShell 工作階段。
 
 如需使用 InlineScript 的詳細資訊，請參閱[在工作流程中執行 Windows PowerShell 命令](https://technet.microsoft.com/library/jj574197.aspx)和 [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx)。
 
-## <a name="parallel-processing"></a>并行处理
+## <a name="parallel-processing"></a>平行處理
 
 Windows PowerShell 工作流程的優點之一是可平行執行一組命令，而不是如同一般的指令碼以循序方式執行。
 
@@ -172,7 +171,7 @@ Parallel
 
 例如，考慮下列 PowerShell 命令，它會將多個檔案複製到網路目的地。  這些命令會循序執行，因此一個檔案必須完成複製才能開始複製下一個。
 
-```powershell
+```azurepowershell-interactive
 Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
 Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
 Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
@@ -227,7 +226,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>檢查點
 
-*檢查點* 是包含變數的目前值和在該點產生的任何輸出的工作流程的目前狀態的快照。 如果工作流程結束時發生錯誤或是擱置，下次執行時，就會從其最後一個檢查點開始，而不是從工作流程的開頭開始。  您可以使用 **Checkpoint-Workflow** 活動來設定工作流程中的檢查點。 Azure 自动化有一项名叫[公平共享](automation-runbook-execution.md#fair-share)的功能，即系统会卸载任何已运行 3 小时的 runbook，让其他 runbook 有机会运行。 最终，卸载的 runbook 会重新加载，并从上一个检查点处继续执行原来的操作。 为了确保 runbook 最终能够完成，必须按时间间隔（不到 3 小时）添加检查点。 如果在每次运行过程中添加了新的检查点，则当 runbook 在 3 小时后因错误而被系统逐出时，系统会恢复该 runbook，没有限期。
+*檢查點* 是包含變數的目前值和在該點產生的任何輸出的工作流程的目前狀態的快照。 如果工作流程結束時發生錯誤或是擱置，下次執行時，就會從其最後一個檢查點開始，而不是從工作流程的開頭開始。  您可以使用 **Checkpoint-Workflow** 活動來設定工作流程中的檢查點。 Azure 自動化的功能，稱為[公平共用](automation-runbook-execution.md#fair-share)，其中卸載執行 3 小時內的任何 runbook，以允許其他 runbook 來執行。 最後，卸載的 runbook 將會重新載入，並時，它會繼續執行，從 runbook 中採取的最後一個檢查點。 為了確保將最後完成的 runbook，請您必須在執行少於 3 小時的時間間隔加入檢查點。 如果在每次執行期間加入新的檢查點，而且之後 3 小時內，因錯誤而取得收回的 runbook，然後 runbook 將會繼續無限期。
 
 在下列範例程式碼中，Activity2 之後發生的例外狀況造成工作流程結束。 工作流程再次執行時，它會先執行 Activity2，因為這是緊接在設定的最後一個檢查點之後。
 
@@ -276,13 +275,13 @@ workflow CreateTestVms
         # Do work first to create the VM (code not shown)
 
         # Now add the VM
-        New-AzureRmVm -VM $Vm -Location "ChinaNorth" -ResourceGroupName "ResourceGroup01"
+        New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
 
         # Checkpoint so that VM creation is not repeated if workflow suspends
         $Cred = $null
         Checkpoint-Workflow
         $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-        $null = Connect-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
+        $null = Connect-AzureRmAccount -Credential $Cred
         }
 }
 ```
@@ -292,9 +291,9 @@ workflow CreateTestVms
 
 如果您使用以服務主體設定的執行身分帳戶進行驗證，則不必這麼做。
 
-关于检查点的详细信息，请参阅[向脚本工作流添加检查点](https://technet.microsoft.com/library/jj574114.aspx)。
+如需有關檢查點的詳細資訊，請參閱 [加入檢查點至指令碼工作流程](https://technet.microsoft.com/library/jj574114.aspx)。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要开始使用 PowerShell 工作流 Runbook，请参阅[我的第一个 PowerShell 工作流 Runbook](automation-first-runbook-textual.md)
+* 若要开始使用 PowerShell 工作流 Runbook，请参阅 [我的第一个 PowerShell 工作流 Runbook](automation-first-runbook-textual.md)
 

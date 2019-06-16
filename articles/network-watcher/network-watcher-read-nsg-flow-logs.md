@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: kumud
-ms.openlocfilehash: 4126f27156ed8a75abebe02e5d67f35695f5235f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 23eacd0fdb85eea43c534fc0f98a14188b954502
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205543"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061615"
 ---
 # <a name="read-nsg-flow-logs"></a>讀取 NSG 流量記錄
 
@@ -116,7 +116,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>讀取區塊 Blob
 
-接下來，您需要讀取 `$blocklist` 變數以擷取資料。 在這個範例中，我們會逐一查看區塊清單，從每個區塊讀取位元組，並將它們儲存在陣列中。 使用 [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 方法來擷取資料。
+接下來，您需要讀取 `$blocklist` 變數以擷取資料。 在這個範例中，我們會逐一查看區塊清單，從每個區塊讀取位元組，並將它們儲存在陣列中。 使用 [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 方法來擷取資料。
 
 ```powershell
 function Get-NSGFlowLogReadBlock  {

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 9771c110e277d67bee329fe62434b18a01189476
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ed9be9f3ecc7a14a0aa0210ee34f9323126be085
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65072229"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061092"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中以動態方式建立和使用 Azure 檔案服務的永續性磁碟區
 
@@ -35,7 +35,7 @@ ms.locfileid: "65072229"
 * *Standard_RAGRS* - 標準讀取權限異地備援儲存體 (RA-GRS)
 
 > [!NOTE]
-> Azure 檔案服務目前只適用於標準儲存體。 如果使用進階儲存體，磁碟區將無法佈建。
+> Azure 檔案服務在 AKS 叢集中執行 Kubernetes 1.13 或更高版本支援進階儲存體。
 
 如需有關適用於 Azure 檔案服務的 Kubernetes 儲存體類別詳細資訊，請參閱 [Kubernetes 儲存體類別][kubernetes-storage-classes]。
 

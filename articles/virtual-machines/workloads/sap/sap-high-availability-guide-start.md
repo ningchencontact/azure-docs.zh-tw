@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7de46a534ea7920bcae4a5b2a3316117f090a7bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60935862"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器高可用性
@@ -193,7 +193,7 @@ ms.locfileid: "60935862"
 * 使用 Azure Resource Manager 部署模型，在 Azure 中部署高可用性 SAP 系統的 SAP 安裝步驟。
 
     > [!IMPORTANT]
-    > 強烈建議您針對 SAP 安裝使用 Azure Resource Manager 部署模型。 它提供经典部署模型所不具备的多种优势。 進一步了解 Azure [部署模型][virtual-machines-azure-resource-manager-architecture-benefits-arm]。   
+    > 強烈建議您針對 SAP 安裝使用 Azure Resource Manager 部署模型。 它提供傳統部署模型所沒有的許多好處。 進一步了解 Azure [部署模型][virtual-machines-azure-resource-manager-architecture-benefits-arm]。   
     >
 * 在下列項目的 SAP 高可用性：
   * ![Windows][Logo_Windows]  **Windows**使用 **Windows Server 容錯移轉叢集 (WSFC)**

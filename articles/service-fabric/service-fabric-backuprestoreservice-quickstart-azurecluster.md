@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: e81cc1b3d80afd39a74c3046b1f8020e0a524ae4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 7078a1a5edc310c799690f0f7236dd0947e3290b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237371"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059192"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>在 Azure Service Fabric 中定期備份和還原 
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Service Fabric 提供一組 API，可實現下列和定期備份與復原功能�
 - 備份的保留管理 (即將推出)
 
 ## <a name="prerequisites"></a>必要條件
-* 具有 Fabric 6.2 版和更新版本的 Service Fabric 叢集。 應該在 Windows Server 上設定叢集。 如需了解使用 Azure 資源範本來建立 Service Fabric 叢集的步驟，請參閱這篇[文章](service-fabric-cluster-creation-via-arm.md)。
+* Fabric 6.4 版或更新版本的 Service Fabric 叢集。 如需了解使用 Azure 資源範本來建立 Service Fabric 叢集的步驟，請參閱這篇[文章](service-fabric-cluster-creation-via-arm.md)。
 * 用於加密祕密 (連線至儲存體以儲存備份時所需) 的 X.509 憑證。 若要了解如何取得或建立 X.509 憑證，請參閱這篇[文章](service-fabric-cluster-creation-via-arm.md)。
 * 使用 Service Fabric SDK 3.0 版或更新版本來建置的 Service Fabric 可靠具狀態應用程式。 對於以.NET Core 2.0 為目標的應用程式，應用程式應該使用來建置 Service Fabric SDK 3.1 版或更新版本。
 * 建立 Azure 儲存體帳戶來儲存應用程式備份。

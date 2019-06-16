@@ -8,19 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: c52574485a62b081224a36ca5deb0fdae114f9bc
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: b00630354834897793bbf357be378051bcf74698
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65859664"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059372"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>在 Linux 上使用 HDInsight 的相關資訊
 
 Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端中執行的 Apache Hadoop。 其操作大多與 Linux 安裝上的任何其他 Hadoop 相同。 本文件會指出其中應注意的特殊不同之處。
-
-> [!IMPORTANT]  
-> Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -41,7 +38,7 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
 
 若要從網際網路連接到叢集時使用完整的網域名稱 (FQDN) 是`CLUSTERNAME.azurehdinsight.net`或`CLUSTERNAME-ssh.azurehdinsight.net`（僅適用於 SSH)。
 
-就內部而言，叢集中的每個節點都具有在叢集組態期間指派的名稱。 若要尋找叢集名稱，請參閱 Ambari Web UI 上的 [主機] 頁面。 您也可以使用下列命令從 Ambari REST API 傳回主機清單︰
+就內部而言，叢集中的每個節點都具有在叢集組態期間指派的名稱。 若要尋找叢集名稱，請參閱 Ambari Web UI 上的 [主機]  頁面。 您也可以使用下列命令從 Ambari REST API 傳回主機清單︰
 
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
@@ -55,7 +52,7 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
 
 ## <a name="remote-access-to-services"></a>遠端存取服務
 
-* **Ambari (web)** - https://CLUSTERNAME.azurehdinsight.net
+* **Ambari (web)**  - https://CLUSTERNAME.azurehdinsight.net
 
     使用叢集系統管理員使用者名稱和密碼，來進行驗證，然後登入 Ambari。
 
@@ -66,14 +63,14 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
     >
     > 若要使用 Ambari Web UI 的完整功能，請使用 SSH 通道將 Web 流量以 Proxy 處理傳輸到叢集前端節點。 請參閱[使用 SSH 通道來存取 Apache Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** - https://CLUSTERNAME.azurehdinsight.net/ambari
+* **Ambari (REST)**  - https://CLUSTERNAME.azurehdinsight.net/ambari
 
     > [!NOTE]  
     > 使用叢集系統管理員使用者和密碼進行驗證。
     >
     > 驗證是純文字的 - 請一律使用 HTTPS 來協助確保連線的安全性。
 
-* **WebHCat (Templeton)** - https://CLUSTERNAME.azurehdinsight.net/templeton
+* **WebHCat (Templeton)**  - https://CLUSTERNAME.azurehdinsight.net/templeton
 
     > [!NOTE]  
     > 使用叢集系統管理員使用者和密碼進行驗證。
@@ -183,7 +180,7 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 
 1. 從 [Azure 入口網站](https://portal.azure.com/)，選取您的 HDInsight 叢集。
 
-2. 從 [屬性] 區段中，選取 [儲存體帳戶]。 隨即會顯示叢集的儲存體資訊。
+2. 從 [屬性]  區段中，選取 [儲存體帳戶]  。 隨即會顯示叢集的儲存體資訊。
 
 ### <a name="how-do-i-access-files-from-outside-hdinsight"></a>如何從 HDInsight 外部存取檔案
 
@@ -244,7 +241,7 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
     * **Storm UI**︰使用下列步驟來重新平衡使用 Storm UI 的拓撲。
 
         1. 開啟`https://CLUSTERNAME.azurehdinsight.net/stormui`網頁瀏覽器，其中`CLUSTERNAME`是 Storm 叢集的名稱。 出現提示時，輸入建立叢集時所指定的 HDInsight 叢集系統管理員 (管理員) 名稱和密碼。
-        2. 選取您要重新平衡的拓撲，然後選取 [重新平衡] 按鈕。 在執行重新平衡作業之前輸入延遲。
+        2. 選取您要重新平衡的拓撲，然後選取 [重新平衡]  按鈕。 在執行重新平衡作業之前輸入延遲。
 
 * **Kafka**：您應該在調整作業完成後重新平衡磁碟分割複本。 如需詳細資訊，請參閱[使用 HDInsight 上的 Apache Kafka 確保資料的高可用性](./kafka/apache-kafka-high-availability.md)文件。
 
@@ -288,7 +285,6 @@ HDInsight 是受控服務。 如果 Azure 偵測到叢集問題，它可能會�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [從以 Windows 為基礎的 HDInsight 移轉至以 Linux 為基礎的 HDInsight](hdinsight-migrate-from-windows-to-linux.md)
 * [使用 Apache Ambari REST API 管理 HDInsight 叢集](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [搭配 HDInsight 使用 Apache Hive](hadoop/hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Apache Pig](hadoop/hdinsight-use-pig.md)

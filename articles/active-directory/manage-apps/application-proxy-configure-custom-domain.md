@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cc742a6b1a7f3fc78e8639206e06c2937f00c30
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: bae13de156d502cdd731005d460641ca452448d5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956910"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108665"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 中的自訂網域
 
@@ -48,18 +48,18 @@ ms.locfileid: "65956910"
 當您備妥這三項需求時，請遵循下列步驟來設定自訂網域：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 瀏覽至 [Azure Active Directory] > [企業應用程式] > [所有應用程式]，然後選擇您要管理的應用程式。
-3. 選取 [應用程式 Proxy]。 
+2. 瀏覽至 [Azure Active Directory]   > [企業應用程式]   > [所有應用程式]  ，然後選擇您要管理的應用程式。
+3. 選取 [應用程式 Proxy]  。 
 4. 在 [外部 URL] 欄位中，使用下拉式清單來選取您的自訂網域。 如果您未在清單中看到您的網域，則它尚未經過驗證。 
-5. 選取 [儲存]。
-5. 已停用的 [憑證] 欄位會變成已啟用。 選取此欄位。 
+5. 選取 [儲存]  。
+5. 已停用的 [憑證]  欄位會變成已啟用。 選取此欄位。 
 
    ![按一下以上傳憑證](./media/application-proxy-configure-custom-domain/certificate.png)
 
    如果您已上傳此網域的憑證，則 [憑證] 欄位會顯示憑證資訊。 
 
 6. 上傳 PFX 憑證，然後輸入憑證的密碼。 
-7. 選取 [儲存] 來儲存變更。 
+7. 選取 [儲存]  來儲存變更。 
 8. 新增 [DNS 記錄](../../dns/dns-operations-recordsets-portal.md)，此記錄會將新的外部 URL 重新導向至 msappproxy.net 網域。
 9. 檢查是否設定正確的 DNS 記錄[nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx)命令，以查看您的外部 URL 是否連線到 msapproxy.net 網域會顯示做為別名。
 
@@ -87,7 +87,7 @@ ms.locfileid: "65956910"
 
 ## <a name="next-steps"></a>後續步驟
 * [啟用單一登入](application-proxy-configure-single-sign-on-with-kcd.md)以登入您使用 Azure AD 驗證發佈的應用程式。
-* [啟用條件式存取](application-proxy-integrate-with-sharepoint-server.md)以存取您發佈的應用程式。
+* [啟用條件式存取](application-proxy-integrate-with-sharepoint-server.md)要發行的應用程式。
 * [將自訂網域名稱新增至 Azure AD](../fundamentals/add-custom-domain.md)
 
 

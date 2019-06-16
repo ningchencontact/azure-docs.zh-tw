@@ -12,10 +12,10 @@ ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
 tags: connectors
 ms.date: 08/24/2018
 ms.openlocfilehash: 01573871700bbeeb653ce3efdbf6c6aca88fd454
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104876"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 來管理 RSS 摘要
@@ -37,7 +37,7 @@ RSS (具意網站摘要) 也稱為真正簡易新聞訂閱方式，是一種熱�
 
 * [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識
 
-* 要在其中存取 RSS 摘要的邏輯應用程式。 若要開始使用 RSS 觸發程序，請[建立空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要使用 RSS 動作，請使用其他觸發程序來啟動邏輯應用程式，例如「週期」觸發程序。
+* 要在其中存取 RSS 摘要的邏輯應用程式。 若要開始使用 RSS 觸發程序，請[建立空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要使用 RSS 動作，請使用其他觸發程序來啟動邏輯應用程式，例如「週期」  觸發程序。
 
 ## <a name="connect-to-an-rss-feed"></a>連線到 RSS 摘要
 
@@ -49,7 +49,7 @@ RSS (具意網站摘要) 也稱為真正簡易新聞訂閱方式，是一種熱�
 
      -或-
 
-   * 若是現有的邏輯應用程式，請在想要新增動作的步驟底下，選擇 [新增步驟]。 在搜尋方塊中，輸入 "rss" 作為篩選條件。 在動作清單底下，選取您想要的動作。
+   * 若是現有的邏輯應用程式，請在想要新增動作的步驟底下，選擇 [新增步驟]  。 在搜尋方塊中，輸入 "rss" 作為篩選條件。 在動作清單底下，選取您想要的動作。
 
 1. 為您選取的觸發程序或動作提供必要的詳細資料，並且繼續建置邏輯應用程式的工作流程。
 

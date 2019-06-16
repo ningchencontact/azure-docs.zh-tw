@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: danlep
 ms.openlocfilehash: 18ac3fcb2797b24c9d5e5f05968eed4bf8732af7
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389456"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>使用 Azure Container Registry Webhook
@@ -33,7 +33,7 @@ Azure Container Registry 會儲存和管理私人 Docker 容器映像，其方�
 1. 選取 [Webhook] 工具列中的 [新增]  。
 1. 填入下列資訊以完成 [建立 Webhook]  表單：
 
-| Value | 描述 |
+| 值 | 描述 |
 |---|---|
 | Webhook 名稱 | 您想要提供給 Webhook 的名稱。 它只能包含字母和數字必須是長度為 5 到 50 個字元。 |
 | 位置 | 針對[異地複寫](container-registry-geo-replication.md)登錄中，指定的登錄複本的 Azure 區域。 

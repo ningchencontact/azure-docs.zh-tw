@@ -11,16 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 277001faf988e5d201a65c9e4112263f226b3db5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bcb1bf4996e381db933eac91135093a101e504bb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358339"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055972"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>將 PhoneFactor Agent 升級為 Azure Multi-Factor Authentication Server
 
 若要將 PhoneFactor Agent v5.x 或更舊版本升級至 Azure Multi-factor Authentication Server，請先解除安裝 PhoneFactor Agent 和附屬元件。 然後即可安裝 Multi-Factor Authentication Server 與其附屬元件。
+
+> [!IMPORTANT]
+> 截至 2019 年 7 月 1 日，Microsoft 將不再提供任何 MFA Server 的新部署。 想要從使用者的 multi-factor authentication 的新客戶應該使用雲端式 Azure Multi-factor Authentication。 已啟用在 7 月 1 之前的 MFA Server 的現有客戶將能夠下載最新版本，也就是未來的更新，並如往常般產生啟用認證。
 
 ## <a name="uninstall-the-phonefactor-agent"></a>解除安裝 PhoneFactor Agent
 

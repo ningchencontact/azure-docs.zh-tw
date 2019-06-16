@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 06/11/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6ae7037ad4cd532b6661a56e6e37a88df3eb54a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6dae2d40650b9fdb8df2d3bdb74b2df78639dc11
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60766463"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058058"
 ---
 # <a name="locking-down-an-app-service-environment"></a>鎖定 App Service 環境
 
@@ -30,6 +30,21 @@ ASE 有一些輸入相依性。 輸入的管理流量不能透過防火牆裝置
 ASE 輸出相依性幾乎完全使用 FQDN 定義，它背後並沒有靜態位址。 缺乏靜態位址表示網路安全性群組 (NSG) 不能用來鎖定來自 ASE 的輸出流量。 地址經常變更，使得無法根據目前的解析度來設定規則，以用來建立 NSG。 
 
 保護輸出位址的解決方案在於使用可以根據網域名稱控制輸出流量的防火牆裝置。 Azure 防火牆可以依據目的地的 FQDN 限制 HTTP 和 HTTPS 流量輸出。  
+
+## <a name="system-architecture"></a>系統架構
+
+部署 ASE 輸出流量通過防火牆裝置需要變更 ASE 子網路上的路由。 在 IP 層級運作，路由。 如果您不小心在定義您的路由，您可以強制 TCP 回覆流量來源從另一個位址。 這稱為非對稱式路由，而它將會中斷 TCP。
+
+必須有定義，使 ASE 的流量可以來自相同的方式將流量傳回回覆的路由。 這適用於輸入的管理要求，而且很適用於輸入的應用程式的要求。
+
+ASE 進出的流量必須遵守下列慣例
+
+* 防火牆裝置的使用不支援 Azure SQL、 儲存體和事件中樞的流量。 此流量必須直接傳送到這些服務。 要發生的方式是設定這些三項服務的服務端點。 
+* 路由資料表規則必須定義傳送輸入的管理流量從它所屬的地方。
+* 路由資料表規則必須定義傳送流量的輸入應用程式，從它所屬的地方。 
+* 所有其他流量離開 ASE 可以傳送至路由資料表規則與防火牆裝置。
+
+![具有 Azure 防火牆連線流程的 ASE][5]
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>使用 ASE 設定 Azure 防火牆 
 
@@ -44,7 +59,7 @@ ASE 輸出相依性幾乎完全使用 FQDN 定義，它背後並沒有靜態位�
    
    ![加入應用程式規則][1]
    
-1. 從 [Azure 防火牆 UI > 規則 > 網路規則集合] 中，選取 [新增網路規則集合]。 提供名稱、優先順序，並設定為 [允許]。 在 [規則] 區段中，提供名稱、選取 [任何]、將 * 設定為來源和目的地位址，並將連接埠設定為 123。 此規則可讓系統使用 NTP 執行時鐘同步。 以與連接埠 12000 相同的方式建立另一個規則，以協助分類任何系統問題。
+1. 從 [Azure 防火牆 UI > 規則 > 網路規則集合] 中，選取 [新增網路規則集合]。 提供名稱、優先順序，並設定為 [允許]。 在 [規則] 區段中，提供名稱、選取 [任何]  、將 * 設定為來源和目的地位址，並將連接埠設定為 123。 此規則可讓系統使用 NTP 執行時鐘同步。 以與連接埠 12000 相同的方式建立另一個規則，以協助分類任何系統問題。
 
    ![加入 NTP 網路規則][3]
 
@@ -68,8 +83,6 @@ ASE 輸出相依性幾乎完全使用 FQDN 定義，它背後並沒有靜態位�
 如果您的應用程式有相依性，它們必須新增至您的 Azure 防火牆。 建立應用程式規則來允許 HTTP/HTTPS 流量，以及建立網路規則來允許其他一切流量。 
 
 如果您知道應用程式要求流量來源的位址範圍，可以將它新增到指派給您 ASE 子網路的路由表。 如果位址範圍很大或未指定，則可以使用網路設備，例如應用程式閘道，提供您一個位址以便新增至路由表。 如需設定應用程式閘道與 ILB ASE 的詳細資訊，請參閱[整合 ILB ASE 與應用程式閘道](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
-
-![具有 Azure 防火牆連線流程的 ASE][5]
 
 此應用程式閘道的使用方式只是如何設定系統的範例。 如果您確實遵循此路徑，則您需要將路由新增至 ASE 子網路路由表，以便傳送至應用程式閘道的回覆流量會直接傳送至該處。 
 

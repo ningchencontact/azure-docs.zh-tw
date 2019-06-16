@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: cynthn
 ms.openlocfilehash: 1264c7e4ebaf5e948e624fa49dc5fb0b4cdb31f0
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869064"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>加密作業系統和虛擬機器擴展集使用 Azure CLI 中的連結的資料磁碟
@@ -37,13 +37,13 @@ Azure 磁碟加密支援：
 
 ## <a name="create-a-scale-set"></a>建立擴展集
 
-請先使用 [az group create](/cli/azure/group) 建立資源群組，才可以建立擴展集。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+請先使用 [az group create](/cli/azure/group) 建立資源群組，才可以建立擴展集。 下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-現在使用 [az vmss create](/cli/azure/vmss) 建立虛擬機器擴展集。 下列範例會建立名為 myScaleSet 的擴展集，其已設定為在套用變更時自動更新，並在 ~/.ssh/id_rsa 中沒有 SSH 金鑰時產生 SSH 金鑰。 系統會將 32 Gb 資料磁碟連結至每個 VM 執行個體，並使用 Azure [自訂指令碼擴充功能](../virtual-machines/linux/extensions-customscript.md)搭配 [az vmss extension set](/cli/azure/vmss/extension) 來準備資料磁碟：
+現在使用 [az vmss create](/cli/azure/vmss) 建立虛擬機器擴展集。 下列範例會建立名為 myScaleSet  的擴展集，其已設定為在套用變更時自動更新，並在 ~/.ssh/id_rsa  中沒有 SSH 金鑰時產生 SSH 金鑰。 系統會將 32 Gb 資料磁碟連結至每個 VM 執行個體，並使用 Azure [自訂指令碼擴充功能](../virtual-machines/linux/extensions-customscript.md)搭配 [az vmss extension set](/cli/azure/vmss/extension) 來準備資料磁碟：
 
 ```azurecli-interactive
 # Create a scale set with attached data disk
@@ -114,7 +114,7 @@ az vmss encryption enable \
 
 加密程序開始可能需要一兩分鐘的時間。
 
-由於擴展集是在先前步驟設定為「自動」時建立的擴展集上的升級原則，因此 VM 執行個體會自動開始執行加密程序。 在升級原則為手動的擴展集上，使用 [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances) 對 VM 執行個體啟動加密原則。
+由於擴展集是在先前步驟設定為「自動」  時建立的擴展集上的升級原則，因此 VM 執行個體會自動開始執行加密程序。 在升級原則為手動的擴展集上，使用 [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances) 對 VM 執行個體啟動加密原則。
 
 ### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>包裝金鑰使用 KEK 來啟用加密
 

@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: cc6f822f20da55488c559c081129c3f177367123
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295438"
+ms.locfileid: "67108979"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>如何：在 Azure Active Directory Identity Protection (已重新整理) 中設定風險原則
 
@@ -114,7 +114,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 ## <a name="what-is-a-user-risk-policy"></a>什麼是使用者風險原則？
 
-Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨登入出現的可疑動作。 在 Azure AD 中，系統可以偵測到的可疑動作也稱為風險事件。 雖然可以即時偵測到有些風險事件，但也有宜些風險事件需要更多時間。 例如，若要偵測不可能到達非典型位置的旅行，系統需要 14 天的初始學習期間，才能了解使用者的一般行為。 有數個選項可以解決偵測到的風險事件。 例如，您可以手動解決個別的風險事件，或者使用登入風險或使用者風險條件式存取原則來解決這些事件。
+Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨登入出現的可疑動作。 在 Azure AD 中，系統可以偵測到的可疑動作也稱為風險事件。 雖然可以即時偵測到有些風險事件，但也有宜些風險事件需要更多時間。 例如，若要偵測不可能到達非典型位置的旅行，系統需要 14 天的初始學習期間，才能了解使用者的一般行為。 有數個選項可以解決偵測到的風險事件。 例如，您可以手動解決個別的風險事件，或者您也可以將它們解析使用的登入風險] 或 [使用者風險條件式存取原則取得。
 
 針對使用者偵測到但未獲得解決的所有風險事件也稱為作用中風險事件。 與使用者相關聯的作用中風險事件也稱為使用者風險。 Azure AD 會根據使用者風險，計算使用者遭到入侵的可能性 (低、中、高)。 此可能性稱為使用者風險層級。
 

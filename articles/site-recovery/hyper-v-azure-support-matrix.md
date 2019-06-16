@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: bce9f3b3a574d27e2fb47fb9b2da9470c43fd2eb
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399417"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>內部部署 Hyper-V VM 至 Azure 的災害復原支援矩陣
@@ -50,7 +50,7 @@ VM 設定 | 複寫到 Azure 的 VM 必須符合 [Azure 需求](#azure-vm-require
 
 ## <a name="vmdisk-management"></a>VM/磁碟管理
 
-**動作** | **詳細資料**
+**Action** | **詳細資料**
 --- | ---
 在複寫的 Hyper-V VM 上調整磁碟大小 | 不支援。 停用複寫、進行變更，然後重新啟用 VM 的複寫。
 在複寫的 Hyper-V VM 上新增磁碟 | 不支援。 停用複寫、進行變更，然後重新啟用 VM 的複寫。
@@ -159,14 +159,14 @@ RDM | NA | NA
 網路介面卡 | 支援多個介面卡 |
 共用 VHD | 不支援 | 若不支援，則必要條件檢查會失敗。
 FC 磁碟 | 不支援 | 若不支援，則必要條件檢查會失敗。
-硬碟格式 | VHD  <br/><br/> VHDX | Site Recovery 會在您容錯移轉至 Azure 時，自動將 VHDX 轉換為 VHD。 當您容錯回復到內部部署時，虛擬機器仍會繼續使用 VHDX 格式。
+硬碟格式 | VHD <br/><br/> VHDX | Site Recovery 會在您容錯移轉至 Azure 時，自動將 VHDX 轉換為 VHD。 當您容錯回復到內部部署時，虛擬機器仍會繼續使用 VHDX 格式。
 BitLocker | 不支援 | 為 VM 啟用複寫之前必須先停用 BitLocker。
 VM 名稱 | 介於 1 到 63 個字元。 只能使用字母、數字和連字號。 VM 名稱必須以字母或數字為開頭或結尾。 | 更新 Site Recovery 中 VM 屬性的值。
 VM 類型 | 第 1 代<br/><br/> 第 2 代--Windows | OS 磁碟基本類型的第 2 代 VM (其中包含一或兩個格式化為 VHDX 的資料磁碟區) 且支援小於 300 GB 的磁碟空間。<br></br>不支援 Linux 第 2 代 VM。 [深入了解](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。|
 
 ## <a name="recovery-services-vault-actions"></a>復原服務保存庫動作
 
-**動作** |  **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
+**Action** |  **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
 --- | --- | ---
 在資源群組間移動保存庫<br/><br/> 內及跨訂用帳戶 | 否 | 否
 跨資源群組間移動儲存體、網路、Azure VM<br/><br/> 內及跨訂用帳戶 | 否 | 否

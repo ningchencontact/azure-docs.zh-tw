@@ -9,18 +9,18 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: 1e3ec677f2c3ce2a7f942c47269fe1f70885ac02
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 01349dbc5fe98fd69ce7219ef6f2029d7bb815d0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466477"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067919"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Azure IoT 參考架構簡介
 
 本文介紹 [Azure IoT 參考架構](https://aka.ms/iotrefarchitecture)，並提供 [Azure IoT 解決方案加速器](about-iot-accelerators.md)如何遵循其建議的範例。
 
-開放原始碼[遠端監視](iot-accelerators-remote-monitoring-sample-walkthrough.md)和[連線的處理站](iot-accelerators-connected-factory-sample-walkthrough.md)解決方案加速器會遵循許多參考架構建議。 您可以使用該解決方案加速器作為您專屬 IoT 解決方案的起點，或是作為學習工具。
+開放原始碼[遠端監視](iot-accelerators-remote-monitoring-sample-walkthrough.md)和[連線的處理站](iot-accelerators-connected-factory-features.md)解決方案加速器會遵循許多參考架構建議。 您可以使用該解決方案加速器作為您專屬 IoT 解決方案的起點，或是作為學習工具。
 
 ## <a name="overview"></a>概觀
 

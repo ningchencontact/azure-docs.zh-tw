@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: 76be814e0dd4c054fc3a873716dbfe395eeeb2dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837774"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>以本機使用者或系統帳戶身分執行服務啟動指令碼
@@ -106,7 +106,7 @@ ms.locfileid: "60837774"
 
 首先，以使用者名稱 (例如 SetupAdminUser) 建立 **Principals** 區段。 SetupAdminUser 使用者帳戶是 Administrators 系統群組的成員。
 
-接著在 **ServiceManifestImport** 區段下方設定原則，以將此主體套用至 **SetupEntryPoint**。 此原則會告知 Service Fabric，當 **MySetup.bat** 檔案執行時，應該以 SetupAdminUser (具備系統管理員權限) 身分執行。 由於您「尚未」將原則套用至主要進入點，因此，**MyServiceHost.exe** 中的程式碼會在系統 **NetworkService** 帳戶下執行。 這是用來執行所有服務進入點的預設帳戶。
+接著在 **ServiceManifestImport** 區段下方設定原則，以將此主體套用至 **SetupEntryPoint**。 此原則會告知 Service Fabric，當 **MySetup.bat** 檔案執行時，應該以 SetupAdminUser (具備系統管理員權限) 身分執行。 由於您「尚未」  將原則套用至主要進入點，因此，**MyServiceHost.exe** 中的程式碼會在系統 **NetworkService** 帳戶下執行。 這是用來執行所有服務進入點的預設帳戶。
 
 ### <a name="configure-the-policy-by-using-local-system-accounts"></a>使用本機系統帳戶設定原則
 通常最好是使用本機系統帳戶 (而不是系統管理員帳戶) 執行啟動指令碼。 使用 Administrators 群組成員的身分執行 RunAs 原則通常無法正常運作，因為電腦預設會啟用使用者存取控制 (UAC)。 在此情況下，建議以 LocalSystem 身分 (而不是以新增到 Administrators 群組的本機使用者身分) 執行 SetupEntryPoint。 下列範例示範如何設定 SetupEntryPoint 以 LocalSystem 身分執行：
@@ -147,7 +147,7 @@ ms.locfileid: "60837774"
 
 在 Visual Studio 中，以滑鼠右鍵按一下服務專案，並新增名為 *MySetup.bat* 的新檔案。
 
-接下來，確定 *MySetup.bat* 檔案已包含於服務套件中。 預設不會包含該檔案。 選取該檔案、以滑鼠右鍵按一下操作功能表，然後選擇 [屬性] 。 在 [屬性] 對話方塊中，確定已將 [複製到輸出目錄] 設為 [有更新時才複製]。 请参阅下面的屏幕截图。
+接下來，確定 *MySetup.bat* 檔案已包含於服務套件中。 預設不會包含該檔案。 選取該檔案、以滑鼠右鍵按一下操作功能表，然後選擇 [屬性]  。 在 [屬性] 對話方塊中，確定已將 [複製到輸出目錄]  設為 [有更新時才複製]  。 請參閱下列螢幕擷取畫面。
 
 ![Visual Studio CopyToOutput for SetupEntryPoint 批次檔][image1]
 
@@ -185,7 +185,7 @@ MySetup.bat 可啟動 PowerShell 檔案：
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ```
 
-在 PowerShell 文件中，添加以下内容来设置系统环境变量：
+在 PowerShell 檔案中，加入以下項目來設定系統環境變數：
 
 ```
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
@@ -210,7 +210,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 基於偵錯的目的，查看執行安裝指令碼後的主控台輸出偶爾會有幫助。 您可以在服務資訊清單中的安裝程式進入點上設定主控台重新導向原則，其會將輸出寫入至檔案。 檔案輸出會寫入至部署並執行應用程式所在的叢集節點上，稱為 **log** 的應用程式資料夾中。 
 
 > [!WARNING]
-> 切勿在實際部署的應用程式中使用主控台重新導向原則，因為這可能會影響應用程式容錯移轉。 僅將此原則用於本機開發及偵錯。  
+> 切勿在實際部署的應用程式中使用主控台重新導向原則，因為這可能會影響應用程式容錯移轉。 僅  將此原則用於本機開發及偵錯。  
 > 
 > 
 

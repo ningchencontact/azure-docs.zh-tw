@@ -11,10 +11,10 @@ ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 26791aecb2ca57b31358d3385d07230c73c84904
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61474386"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>如何監視 Gen2 快取
@@ -24,9 +24,9 @@ ms.locfileid: "61474386"
 
 ![Azure 監視器](./media/sql-data-warehouse-cache-portal/cache_0.png)
 
-選取 [計量] 按鈕，然後填入資料倉儲的 [訂用帳戶]、[資源群組]、[資源類型] 和 [資源名稱]。
+選取 [計量] 按鈕，然後填入資料倉儲的 [訂用帳戶]  、[資源群組]  、[資源類型]  和 [資源名稱]   。
 
-用於疑難排解 Gen2 快取的關鍵計量是 [快取命中百分比] 和 [已用快取百分比]。 請設定 Azure 計量圖表，以顯示這兩個計量。
+用於疑難排解 Gen2 快取的關鍵計量是 [快取命中百分比]  和 [已用快取百分比]  。 請設定 Azure 計量圖表，以顯示這兩個計量。
 
 ![快取計量](./media/sql-data-warehouse-cache-portal/cache_1.png)
 

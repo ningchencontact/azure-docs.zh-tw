@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/27/2019
 ms.author: anuragm
 ms.openlocfilehash: 8459bb451c4ff462ee816b986cafdbf776603917
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306961"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>針對 Azure 上的 SQL Server 備份進行疑難排解
@@ -94,7 +94,7 @@ ms.locfileid: "66306961"
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| 用於復原的記錄備份包含大量記錄變更。 它不能用來在任意點根據 SQL 指導方針的時間停止。 | 當資料庫在大量記錄的復原模式下時，就無法復原大量記錄交易與下一個記錄交易之間的資料。 | 選擇不同的點進行復原的時間。 [深入了解](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+| 用於復原的記錄備份包含大量記錄的變更。 根據 SQL 指導方針，其無法用來在任意時間點停止。 | 當資料庫在大量記錄的復原模式下時，就無法復原大量記錄交易與下一個記錄交易之間的資料。 | 選擇不同的點進行復原的時間。 [深入了解](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
 
 
 ## <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError

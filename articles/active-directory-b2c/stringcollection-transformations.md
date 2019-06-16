@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 98453daeb34d093b49cdcc636f68c3d7ae017126
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66512444"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection 宣告轉換
@@ -99,7 +99,7 @@ ms.locfileid: "66512444"
 | Item | TransformationClaimType | 数据类型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | 宣告轉換用來取得項目的 ClaimType。 |
-| OutputClaim | extractedItem | string | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 集合中的第一個項目。 |
+| OutputClaim | extractedItem | 字串 | 叫用此 ClaimsTransformation 之後所產生的 ClaimType。 集合中的第一個項目。 |
 
 下列範例會讀取 **otherMails** 宣告，並將第一個項目傳回到 **email** 宣告。 
 

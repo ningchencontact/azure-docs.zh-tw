@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 1702d9558e27452006a2f015fd3312ac19362871
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: aee793dcfc5040b4a5f0f29fdae3247a5647e257
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849859"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055646"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>將安全性和核心更新套用至 Linux 節點在 Azure Kubernetes Service (AKS)
 
@@ -43,7 +43,7 @@ ms.locfileid: "65849859"
 
 ### <a name="node-upgrades"></a>節點升級
 
-AKS 中有一個額外的程序可讓您的「升級」叢集。 升級通常會移至較新版的 Kubernetes，而不只是套用節點安全性更新。 AKS 升級會執行下列動作：
+AKS 中有一個額外的程序可讓您的「升級」  叢集。 升級通常會移至較新版的 Kubernetes，而不只是套用節點安全性更新。 AKS 升級會執行下列動作：
 
 * 利用已套用的最新安全性更新與 Kubernetes 版本來部署新節點。
 * 舊節點會遭到封鎖並清空。
@@ -58,12 +58,13 @@ AKS 中有一個額外的程序可讓您的「升級」叢集。 升級通常會
 
 ```console
 kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.2.0/kured-1.2.0-dockerhub.yaml
+```
 
-You can also configure additional parameters for `kured`, such as integration with Prometheus or Slack. For more information about additional configuration parameters, see the [kured installation docs][kured-install].
+您也可以設定適用於 `kured` 的其他參數，例如，與 Prometheus 或 Slack 整合。 如需其他設定參數的詳細資訊，請參閱 [Kured 安裝文件][kured-install]。
 
-## Update cluster nodes
+## <a name="update-cluster-nodes"></a>更新叢集節點
 
-By default, Linux nodes in AKS check for updates every evening. If you don't want to wait, you can manually perform an update to check that `kured` runs correctly. First, follow the steps to [SSH to one of your AKS nodes][aks-ssh]. Once you have an SSH connection to the Linux node, check for updates and apply them as follows:
+根據預設，在 AKS 中的 Linux 節點會檢查更新每個晚上。 如果您不想等待，則可手動執行更新以檢查 `kured` 能夠正確執行。 首先，遵循步驟以 [SSH 到您的其中一個 AKS 節點][aks-ssh]。 SSH 連線至 Linux 節點之後，檢查有更新，並將它們套用到，如下所示：
 
 ```console
 sudo apt-get update && sudo apt-get upgrade -y

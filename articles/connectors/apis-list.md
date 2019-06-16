@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
 ms.openlocfilehash: c02361cf69b98da61a0f551ac037e6d35ea42efc
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65551873"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>適用於 Azure Logic Apps 的連接器
@@ -27,7 +27,7 @@ ms.locfileid: "65551873"
 
 內建的觸發程序和動作，或是做為受管理的連接器，連接器可供使用：
 
-* [**内置操作**](#built-ins)：這些內建的觸發程序和動作就是 「 原生 」 至 Azure Logic Apps 和可幫助您建立邏輯應用程式，在自訂排程上執行，與其他端點進行通訊、 接收和回應要求，並呼叫 Azure functions、 Azure API 應用程式 （Web 應用程式）、 您自己的 Api受管理及使用已發行的 Azure API 管理，以及可以接收要求的巢狀的邏輯應用程式。 您也可以使用內建動作，協助您組織及控制邏輯應用程式的工作流程，以及處理資料。
+* [**內建**](#built-ins):這些內建的觸發程序和動作就是 「 原生 」 至 Azure Logic Apps 和可幫助您建立邏輯應用程式，在自訂排程上執行，與其他端點進行通訊、 接收和回應要求，並呼叫 Azure functions、 Azure API 應用程式 （Web 應用程式）、 您自己的 Api受管理及使用已發行的 Azure API 管理，以及可以接收要求的巢狀的邏輯應用程式。 您也可以使用內建動作，協助您組織及控制邏輯應用程式的工作流程，以及處理資料。
 
   > [!NOTE]
   > 邏輯應用程式內[整合服務環境 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)可以直接存取 Azure 虛擬網路中的資源。
@@ -41,7 +41,7 @@ ms.locfileid: "65551873"
   比方說，如果您使用 Microsoft BizTalk Server，您的邏輯應用程式可以連接到並使用與您的 BizTalk Server 進行通訊[BizTalk Server 內部部署連接器](#on-premises-connectors)。 
   您可以使用[整合帳戶連接器](#integration-account-connectors)，接著在邏輯應用程式中擴充或執行類似 BizTalk 的作業。
 
-  连接器分类为“标准”或“企业”连接器。 
+  連接器會歸類為 Standard 或 Enterprise。 
   [企業連接器](#enterprise-connectors)提供企業系統例如 SAP、 IBM MQ 和 IBM 3270 存取產生額外費用。 若要判斷連接器是否為 Standard 或 Enterprise，請參閱底下的每個連接器的參考頁面中的技術細節[連接器概觀](https://docs.microsoft.com/connectors)。 
 
   您也可以識別連接器使用這些分類中，雖然某些連接器可以跨越多個類別。 
@@ -72,8 +72,8 @@ Logic Apps 會提供內建觸發程序和動作，所以您可以建立以排程
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![API 圖示][schedule-icon]<br/>**排程**][recurrence-doc] | - 透過 [週期] 觸發程序，依照指定的排程執行邏輯應用程式 (範圍從基本到複雜週期)。 <p>- 透過 [延遲] 動作，在指定的持續時間內暫停邏輯應用程式。 <p>- 透過 [延遲直到] 動作，將邏輯應用程式暫停直到指定的日期和時間為止。 | [![API 圖示][http-icon]<br/>**HTTP**][http-doc] | 利用適用於 HTTP、HTTP + Swagger 以及 HTTP + Webhook 的觸發程序和動作，透過 HTTP 與任何端點通訊。 | 
-| [![API 圖示][http-request-icon]<br/>**要求**][http-request-doc] | - 透過 [要求] 觸發程序，讓邏輯應用程式得以從其他應用程式或服務呼叫、在 Event Grid 資源事件上觸發，或在 Azure 資訊安全中心警示的回應上觸發。 <p>- 透過 [回應] 動作，將回應傳送到應用程式或服務。 | [![API 圖示][batch-icon]<br/>**批次**][batch-doc] | - 透過 [批次訊息] 觸發程序，分批處理訊息。 <p>- 透過 [將訊息傳送至批次] 動作，呼叫具有現有批次觸發程序的邏輯應用程式。 | 
+| [![API 圖示][schedule-icon]<br/>**排程**][recurrence-doc] | - 透過 [週期]  觸發程序，依照指定的排程執行邏輯應用程式 (範圍從基本到複雜週期)。 <p>- 透過 [延遲]  動作，在指定的持續時間內暫停邏輯應用程式。 <p>- 透過 [延遲直到]  動作，將邏輯應用程式暫停直到指定的日期和時間為止。 | [![API 圖示][http-icon]<br/>**HTTP**][http-doc] | 利用適用於 HTTP、HTTP + Swagger 以及 HTTP + Webhook 的觸發程序和動作，透過 HTTP 與任何端點通訊。 | 
+| [![API 圖示][http-request-icon]<br/>**要求**][http-request-doc] | - 透過 [要求]  觸發程序，讓邏輯應用程式得以從其他應用程式或服務呼叫、在 Event Grid 資源事件上觸發，或在 Azure 資訊安全中心警示的回應上觸發。 <p>- 透過 [回應]  動作，將回應傳送到應用程式或服務。 | [![API 圖示][batch-icon]<br/>**批次**][batch-doc] | - 透過 [批次訊息]  觸發程序，分批處理訊息。 <p>- 透過 [將訊息傳送至批次]  動作，呼叫具有現有批次觸發程序的邏輯應用程式。 | 
 | [![API 圖示][azure-functions-icon]<br/>**Azure Functions**][azure-functions-doc] | 呼叫 Azure 函式，以從邏輯應用程式執行自訂程式碼片段 (C# 或 Node.js)。 | [![API 圖示][azure-api-management-icon]</br>**Azure API 管理**][azure-api-management-doc] | 呼叫透過 Azure API 管理控管和發佈的自有 API 所定義的觸發程序和動作。 | 
 | [![API 圖示][azure-app-services-icon]<br/>**Azure App Service**][azure-app-services-doc] | 呼叫 API Apps 或 Web Apps (裝載於 Azure App Service)。 如果包含 Swagger，這些應用程式所定義的動作與觸發程序看起來像是任何其他第一級觸發程序和動作。 | [![API 圖示][azure-logic-apps-icon]<br/>**Azure<br/>Logic Apps**][nested-logic-app-doc] | 呼叫透過 [要求] 觸發程序啟動的其他邏輯應用程式。 | 
 ||||| 
@@ -85,7 +85,7 @@ Logic Apps 會提供內建動作，來建構與控制邏輯應用程式的工作
 |   |   |   |   | 
 |---|---|---|---| 
 | [![內建圖示][condition-icon]<br/>**條件**][condition-doc] | 根據條件為 true 或 false，評估條件並執行不同的動作。 | [![內建圖示][for-each-icon]</br>**For each**][for-each-doc] | 對陣列中的每個項目執行相同的動作。 | 
-| [![內建圖示][scope-icon]<br/>**範圍**][scope-doc] | 將動作分成數個「範圍」，這些範圍會在範圍中的動作執行完成後取得自己的狀態。 | [![內建圖示][switch-icon]</br>**Switch**][switch-doc] | 將動作分成數個「案例」，這些案例會獲派唯一值 (預設案例除外)。 僅執行其指派值符合運算式、物件或語彙基元結果的案例。 如果沒有相符項目存在，請執行預設案例。 | 
+| [![內建圖示][scope-icon]<br/>**範圍**][scope-doc] | 將動作分成數個「範圍」  ，這些範圍會在範圍中的動作執行完成後取得自己的狀態。 | [![內建圖示][switch-icon]</br>**Switch**][switch-doc] | 將動作分成數個「案例」  ，這些案例會獲派唯一值 (預設案例除外)。 僅執行其指派值符合運算式、物件或語彙基元結果的案例。 如果沒有相符項目存在，請執行預設案例。 | 
 | [![內建圖示][terminate-icon]<br/>**終止**][terminate-doc] | 停止正在執行的邏輯應用程式工作流程。 | [![內建圖示][until-icon]<br/>**Until**][until-doc] | 重複動作，直到符合指定的條件或某些狀態已改變為止。 | 
 ||||| 
 
@@ -95,9 +95,9 @@ Logic Apps 會提供內建動作，使用 資料輸出和其格式：
 
 |   |   | 
 |---|---| 
-| [![內建圖示][data-operations-icon]<br/>**資料作業**][data-operations-doc] | 執行資料相關作業： <p>- **撰写**：基于具有不同类型的多个输入创建单个输出。 <br>- **创建 CSV 表**：基于包含 JSON 对象的数组创建逗号分隔值 (CSV) 表。 <br>- **创建 HTML 表**：基于包含 JSON 对象的数组创建一个 HTML 表。 <br>- **筛选数组**：基于符合条件的另一个数组中的项创建一个数组。 <br>- **联接**：基于数组中的所有项创建一个字符串，并使用指定的分隔符分隔这些项。 <br>- **分析 JSON**：基于 JSON 内容中的属性及其值创建用户友好的令牌，以便可以在工作流中使用这些属性。 <br>- **选择**：通过转换另一数组中的项或值并将这些项映射到指定的属性，创建包含 JSON 对象的数组。 | 
-| ![內建圖示][date-time-icon]<br/>**日期時間** | 執行時間戳記相關作業： <p>- **添加到时间**：将指定的单位数添加到时间戳。 <br>- **转换时区**：將時間戳記從來源時區轉換為目標時區。 <br>- **当前时间**：傳回目前的時間戳記作為字串。 <br>- **获取将来的时间**：傳回目前時間戳記加上指定時間單位的結果。 <br>- **获取过去的时间**：傳回目前時間戳記減去指定時間單位的結果。 <br>- **从时间中减去**：從時間戳記減去時間單位數字。 |
-| [![內建圖示][variables-icon]<br/>**變數**][variables-doc] | 執行變數相關作業： <p>- **追加到数组变量**：插入一个值，作为变量存储的数组中的最后一个项。 <br>- **追加到字符串变量**：插入一个值，作为变量存储的字符串中的最后一个字符。 <br>- **递减变量**：按常量值减小变量。 <br>- **递增变量**：按常量值增大变量。 <br>- **初始化变量**：创建一个变量并声明其数据类型和初始值。 <br>- **设置变量**：将不同的值分配给现有变量。 |
+| [![內建圖示][data-operations-icon]<br/>**資料作業**][data-operations-doc] | 執行資料相關作業： <p>- **撰寫**:從多個與各種類型的輸入建立單一輸出。 <br>- **建立 CSV 資料表**:從 JSON 物件的陣列建立逗點分隔值 (CSV) 資料表。 <br>- **建立 HTML 資料表**:建立 HTML 表格，從 JSON 物件的陣列。 <br>- **篩選陣列**:建立陣列，從另一個陣列中符合您準則的項目。 <br>- **加入**:從陣列中的所有項目建立的字串，並使用指定的分隔符號分隔這些項目。 <br>- **剖析 JSON**:因此您可以在工作流程中使用這些屬性，請從屬性和其值在 JSON 內容中的建立使用者易記的語彙基元。 <br>- **選取**:建立使用 JSON 物件的陣列，轉換的項目或另一個陣列中的值，並將這些項目對應至指定的屬性。 | 
+| ![內建圖示][date-time-icon]<br/>**日期時間** | 執行時間戳記相關作業： <p>- **加入時間**:將指定的單位數新增至時間戳記。 <br>- **轉換時區**:將時間戳記從來源時區轉換為目標時區。 <br>- **目前時間**:傳回目前的時間戳記作為字串。 <br>- **取得未來時間**:傳回目前時間戳記加上指定時間單位的結果。 <br>- **取得過去時間**:傳回目前時間戳記減去指定時間單位的結果。 <br>- **從時間減去**:從時間戳記減去時間單位數字。 |
+| [![內建圖示][variables-icon]<br/>**變數**][variables-doc] | 執行變數相關作業： <p>- **附加到陣列變數**:插入的值作為變數儲存在陣列中最後一個項目。 <br>- **附加至字串變數**:插入的變數儲存的字串中的最後一個字元的值。 <br>- **遞減變數**:減少的常數值的變數。 <br>- **遞增變數**:增加的常數值的變數。 <br>- **初始化變數**:建立變數，並宣告其資料類型和初始值。 <br>- **設定變數**:將不同的值指派給現有的變數中。 |
 |  |  | 
 
 <a name="managed-api-connectors"></a>
@@ -163,9 +163,9 @@ Azure Logic Apps 的觸發程序引發之後，建立邏輯應用程式的執行
 
 以下是一般的 Azure Logic Apps 提供的觸發程序類型：
 
-* 重复周期触发器：此觸發程序會在指定的排程上執行，而且不緊密相關聯的特定服務或系統。
+* *循環觸發程序*:此觸發程序會在指定的排程上執行，而且不緊密相關聯的特定服務或系統。
 
-* *轮询触发器*：此觸發程序，定期輪詢特定服務或指定的排程，檢查新的資料，或發生特定事件的是否為基礎的系統。 如果新的資料可供使用，或發生特定事件，觸發程序會建立並執行您的邏輯應用程式，現在可以使用傳遞做為輸入的資料的新執行個體。
+* *輪詢觸發程序*:此觸發程序，定期輪詢特定服務或指定的排程，檢查新的資料，或發生特定事件的是否為基礎的系統。 如果新的資料可供使用，或發生特定事件，觸發程序會建立並執行您的邏輯應用程式，現在可以使用傳遞做為輸入的資料的新執行個體。
 
 * *推送觸發程序*:此觸發程序會等候並接聽的新資料或發生的事件。 新的資料可用時，或在發生事件時，觸發程序會建立，並執行您的邏輯應用程式，現在可以使用傳遞做為輸入的資料的新執行個體。
 
@@ -183,7 +183,7 @@ Azure Logic Apps 的觸發程序引發之後，建立邏輯應用程式的執行
 
 ## <a name="custom-apis-and-connectors"></a>自訂 API 和連接器
 
-若要呼叫可執行自訂程式碼或不可作為連接器的 API，您可[建立自訂 API Apps](../logic-apps/logic-apps-create-api-app.md)，以擴充 Logic Apps 平台。 您也可以針對「任何」以 REST 或 SOAP 為基礎的 API [建立自訂連接器](../logic-apps/custom-connector-overview.md)，以便將這些 API 提供給 Azure 訂用帳戶中的任何邏輯應用程式使用。
+若要呼叫可執行自訂程式碼或不可作為連接器的 API，您可[建立自訂 API Apps](../logic-apps/logic-apps-create-api-app.md)，以擴充 Logic Apps 平台。 您也可以針對「任何」  以 REST 或 SOAP 為基礎的 API [建立自訂連接器](../logic-apps/custom-connector-overview.md)，以便將這些 API 提供給 Azure 訂用帳戶中的任何邏輯應用程式使用。
 若要對任何人公開自訂 API Apps 或連接器以使用於 Azure，您可以[提交連接器進行 Microsoft 認證](../logic-apps/custom-connector-submit-certification.md)。
 
 > [!NOTE]

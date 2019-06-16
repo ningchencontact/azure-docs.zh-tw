@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3b4c3bac1a2d62246fa5a7ff3a348c6cb2652ea1
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a29381bded4bb2562227bd5f23ccb59bb5add028
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868177"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059215"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 監視 .NET 的媒體服務作業通知 
 
@@ -47,7 +47,7 @@ ms.locfileid: "64868177"
 需要有下列項目，才能完成教學課程：
 
 * 一個 Azure 帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* 一个媒体服务帐户。 若要建立媒體服務帳戶，請參閱[如何建立媒體服務帳戶](media-services-portal-create-account.md)。
+* 媒體服務帳戶。 若要建立媒體服務帳戶，請參閱[如何建立媒體服務帳戶](media-services-portal-create-account.md)。
 * 了解[如何使用 Azure Functions](../../azure-functions/functions-overview.md)。 另請檢閱 [Azure Functions HTTP 和 Webhook 繫結](../../azure-functions/functions-bindings-http-webhook.md)。
 
 ## <a name="create-a-function-app"></a>建立函數應用程式
@@ -64,22 +64,22 @@ ms.locfileid: "64868177"
 |名稱|定義|範例| 
 |---|---|---|
 |SigningKey |簽署金鑰。| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | 一個 webhook 端點位址。 建立您的 Webhook 函式之後，您就可以從 [取得函式 URL] 連結複製 URL。 | https:\//juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
+|WebHookEndpoint | 一個 webhook 端點位址。 建立您的 Webhook 函式之後，您就可以從 [取得函式 URL]  連結複製 URL。 | https:\//juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ## <a name="create-a-function"></a>建立函式
 
 部署函式應用程式之後，您可以在**應用程式服務** Azure Functions 中找到它。
 
-1. 選取您的函式應用程式，然後按一下 [新增函式]。
-2. 選取 [C#] 程式碼以及 [API 與 Webhook] 案例。 
-3. 選取 [Generic Webhook - C#] (泛型 Webhook - C#)。
-4. 命名您的 Webhook，然後按 [建立]。
+1. 選取您的函式應用程式，然後按一下 [新增函式]  。
+2. 選取 [C#]  程式碼以及 [API 與 Webhook]  案例。 
+3. 選取 [Generic Webhook - C#] (泛型 Webhook - C#)  。
+4. 命名您的 Webhook，然後按 [建立]  。
 
-### <a name="files"></a>檔案
+### <a name="files"></a>文件
 
 您的 Azure 函式會與本節所述的程式碼檔案和其他檔案建立關聯。 根據預設，函式會與 **function.json** 和 **run.csx** (C#) 檔案相關聯。 您必須新增 **project.json** 檔案。 本節其餘部分會說明這些檔案的定義。
 
-![檔案](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 #### <a name="functionjson"></a>function.json
 
@@ -106,7 +106,7 @@ function.json 檔案會定義函式繫結和其他組態設定。 執行階段�
 
 #### <a name="projectjson"></a>project.json
 
-project.json 文件包含依赖项。 
+project.json 檔案包含相依性。 
 
 ```json
 {
@@ -245,7 +245,7 @@ private static string PublishAndBuildStreamingURLs(String jobID)
 
     // Get a reference to the streaming manifest file from the  
     // collection of files in the asset. 
-    var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+    var manifestFile = asset.AssetFiles.ToList().Where(f => f.Name.ToLower().
                 EndsWith(".ism")).
                 FirstOrDefault();
 

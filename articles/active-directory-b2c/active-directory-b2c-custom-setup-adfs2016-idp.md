@@ -11,10 +11,10 @@ ms.date: 11/07/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 4510074619ff513b7284819d88fdb2532e4ce33a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510439"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則將 ADFS 新增為 SAML 識別提供者
@@ -173,7 +173,7 @@ https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadat
     | Surname | family_name |
     | 指定的名稱 | given_name |
     | 電子郵件地址 | email |
-    | 顯示名稱 | NAME |
+    | 顯示名稱 | name |
     
 12.  根據不同憑證類型，您可能需要設定雜湊演算法。 在信賴憑證者信任 (B2C 示範) 屬性視窗上，選取 [進階]  索引標籤、將 [安全雜湊演算法]  變更為 `SHA-256`，然後按一下 [確定]  。  
 13. 在 [伺服器管理員] 中選取 [工具]  ，然後選取 [ADFS 管理]  。

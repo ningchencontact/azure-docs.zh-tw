@@ -12,16 +12,19 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f97b4ee364ecadde7738b8fe077f21d5732365f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82aa566c5bcd6347a6f62b2f693a7ad796347438
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358374"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055994"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA Server 與 Active Directory 之間的目錄整合
 
 使用 Azure MFA Server 的 [目錄整合] 區段來與 Active Directory 或另一個 LDAP 目錄整合。 您可以設定相關屬性以比對目錄結構描述，並設定自動使用者同步處理。
+
+> [!IMPORTANT]
+> 截至 2019 年 7 月 1 日，Microsoft 將不再提供任何 MFA Server 的新部署。 想要從使用者的 multi-factor authentication 的新客戶應該使用雲端式 Azure Multi-factor Authentication。 已啟用在 7 月 1 之前的 MFA Server 的現有客戶將能夠下載最新版本，也就是未來的更新，並如往常般產生啟用認證。
 
 ## <a name="settings"></a>設定
 
@@ -32,7 +35,7 @@ ms.locfileid: "60358374"
 | 功能 | 描述 |
 | --- | --- |
 | 使用 Active Directory |選取 [使用 Active Directory] 選項，以使用 Active Directory 來匯入和同步處理。  這是預設設定。 <br>注意：為了使 Active Directory 整合能正常運作，請將電腦加入網域並以網域帳戶進行登入。 |
-| 包含受信任的網域 |核取 [包含受信任的網域]，讓代理程式嘗試連線至目前網域所信任的網域、樹系中的另一個網域，或涉及樹系信任的網域。  當不從任何受信任的網域匯入或同步處理使用者時，請取消選取此核取方塊，以改善效能。  預設為核取。 |
+| 包含受信任的網域 |核取 [包含受信任的網域]  ，讓代理程式嘗試連線至目前網域所信任的網域、樹系中的另一個網域，或涉及樹系信任的網域。  當不從任何受信任的網域匯入或同步處理使用者時，請取消選取此核取方塊，以改善效能。  預設為核取。 |
 | 使用特定 LDAP 組態 |選取 [使用 LDAP] 選項，以使用指定的 LDAP 設定來匯入和同步處理。 注意：當選取 [使用 LDAP] 時，使用者介面會將參考從 Active Directory 變更為 LDAP。 |
 | [編輯] 按鈕 |[編輯] 按鈕允許修改目前的 LDAP 組態設定。 |
 | 使用屬性範圍查詢 |指出是否應該使用屬性範圍查詢。  屬性範圍查詢可以根據另一個記錄屬性中的項目，有效率地在目錄中搜尋合格的記錄。  Azure Multi-Factor Authentication Server 可以使用屬性範圍查詢，有效率地查詢安全性群組成員的使用者。   <br>注意：在某些情況下，雖然支援屬性範圍查詢，但卻不應該使用。  比方說，當安全性群組包含來自多個網域的成員時，Active Directory 的屬性範圍查詢可能會有問題。 在此情況下，請取消選取此核取方塊。 |
@@ -48,7 +51,7 @@ ms.locfileid: "60358374"
 | 繫結 DN 或繫結使用者名稱 |輸入帳戶的使用者記錄辨別名稱，以在繫結至 LDAP 目錄時使用。<br><br>只有在 [繫結類型] 為 [簡單] 或 [SSL] 時，才會使用繫結辨別名稱。  <br><br>當 [繫結類型] 為 [Windows] 時，輸入當繫結至 LDAP 目錄時要使用的 Windows 帳戶的使用者名稱。  如果空白，則會使用已登入的使用者帳戶進行繫結。 |
 | 繫結密碼 |輸入用來繫結至 LDAP 目錄之繫結 DN 或使用者名稱的繫結密碼。  若要設定 Multi-Factor Auth Server AdSync 服務的密碼，請啟用同步處理並確保此服務在本機電腦上執行。  此密碼會儲存在用於執行 Multi-Factor Auth Server AdSync Service 的帳戶下的 [Windows 儲存的使用者和密碼] 中。  此密碼也會儲存在用於執行 Multi-Factor Auth Server 使用者介面的帳戶下，以及用於執行 Multi-Factor Auth Server Service 的帳戶下。  <br><br>由於密碼只會儲存在本機伺服器的 [Windows 儲存的使用者和密碼] 中，所以在每個需要存取此密碼的 Multi-Factor Auth Server 上重複此步驟。 |
 | 查詢大小限制 |指定目錄搜尋可傳回的使用者數目上限。  此限制應該符合 LDAP 目錄上的設定。  對於不支援分頁的大型搜尋，匯入和同步處理會嘗試以批次方式擷取使用者。  如果此處指定的大小限制大於 LDAP 目錄上設定的限制，可能會遺漏部分使用者。 |
-| 測試按鈕 |按一下 [測試] 以測試 LDAP 伺服器繫結。  <br><br>您不需要選取 [使用 LDAP] 選項來測試繫結。 這樣可以在使用 LDAP 組態之前先測試繫結。 |
+| 測試按鈕 |按一下 [測試]  以測試 LDAP 伺服器繫結。  <br><br>您不需要選取 [使用 LDAP]  選項來測試繫結。 這樣可以在使用 LDAP 組態之前先測試繫結。 |
 
 ## <a name="filters"></a>篩選器
 
@@ -95,9 +98,9 @@ Azure Multi-Factor Authentication 具有下列三個篩選選項：
 | IP 電話 |輸入屬性的屬性名稱，此屬性包含使用者記錄中的 IP 電話號碼。  預設值是 ipPhone。 |
 | 自訂 |輸入屬性的屬性名稱，其中包含使用者記錄中的自訂電話號碼。  預設值為空白。 |
 | 分機 |輸入屬性的屬性名稱，此屬性包含使用者記錄中的分機電話號碼。  分機欄位的值只會做為主要電話號碼的分機。  預設值為空白。 <br><br>如果不指定分機屬性，則可以在電話屬性中包含分機。 在此情況下，在分機前面加上 'x'，便可得到正確剖析。  例如，555-123-4567 x890 會形成電話號碼 555-123-4567 和分機 890。 |
-| [還原預設值] 按鈕 |按一下 [還原預設值]，可將所有屬性還原為預設值。  在一般 Active Directory 或 ADAM 結構描述中，預設值應該可以正確運作。 |
+| [還原預設值] 按鈕 |按一下 [還原預設值]  ，可將所有屬性還原為預設值。  在一般 Active Directory 或 ADAM 結構描述中，預設值應該可以正確運作。 |
 
-若要編輯屬性，按一下 [屬性] 索引標籤上的 [編輯] 按鈕。這會帶出您可以在其中編輯屬性的視窗。 選取任何屬性旁邊的 [...] 可開啟視窗供您選擇要顯示的屬性。
+若要編輯屬性，按一下 [屬性] 索引標籤上的 [編輯]  按鈕。這會帶出您可以在其中編輯屬性的視窗。 選取任何屬性旁邊的 [...]  可開啟視窗供您選擇要顯示的屬性。
 
 ![編輯在 MFA Server 中的目錄屬性對應](./media/howto-mfaserver-dir-ad/dirint4.png)
 
@@ -135,7 +138,7 @@ Multi-Factor Auth ADSync 服務使用 Microsoft 所提供的 DirSync LDAP 伺服
 [上移] 和 [下移] 按鈕可讓系統管理員變更同步處理項目的順序。  順序很重要，因為相同的使用者可能是多個同步處理項目 (例如容器和安全性群組) 的成員。  在同步處理期間套用至使用者的設定，將來自使用者相關聯的清單中的第一個同步處理項目。  因此，同步處理項目應該依優先順序放置。
 
 > [!TIP]
-> 移除同步處理項目之後應該執行完整同步處理。  排序同步處理項目之後應該執行完整同步處理。  按一下 [立即同步處理] 以執行完整同步處理。
+> 移除同步處理項目之後應該執行完整同步處理。  排序同步處理項目之後應該執行完整同步處理。  按一下 [立即同步處理]  以執行完整同步處理。
 
 ## <a name="multi-factor-authentication-servers"></a>Multi-factor Authentication server
 

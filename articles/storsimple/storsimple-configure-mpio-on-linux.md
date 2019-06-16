@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2018
+ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: b968cc29a7139a4a6db5d2dea8dd6f8f4e1c7ccd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6d4a5b9688540e5aa96dd8789dbb609aedeca97
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60630743"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077846"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>在執行 CentOS 的 StorSimple 主機上設定 MPIO
 本文說明在 Centos 6.6 主機伺服器上設定多重路徑 IO (MPIO) 所需的步驟。 主機伺服器會連線到您的 Microsoft Azure StorSimple 裝置，以透過 iSCSI 啟動器取得高可用性。 文中詳細描述多重路徑裝置的自動探索，以及 StorSimple 磁碟區特有的設定。
@@ -56,11 +56,11 @@ Linux 中的多重路徑是由核心元件和下列的使用者空間元件所�
 
 multipath.conf 有五個區段：
 
-- **系統層級的預設值** *（預設）*:您可以覆寫系統層級的預設值。
-- **列封鎖清單中的裝置** *(blacklist)*:您可以指定不受裝置對應程式的裝置清單。
-- **列入封鎖清單例外狀況** *(blacklist_exceptions)*:您可以識別即使列入黑名單，被視為多重路徑裝置的特定裝置。
-- **設定特定的儲存體控制器** *（裝置）*:您可以指定將套用至具有廠商和產品資訊的裝置的組態設定。
-- **裝置特定的設定** *(multipaths)*:您可以使用本節來微調個別 Lun 的組態設定。
+- **系統層級的預設值** *（預設）* :您可以覆寫系統層級的預設值。
+- **列封鎖清單中的裝置** *(blacklist)* :您可以指定不受裝置對應程式的裝置清單。
+- **列入封鎖清單例外狀況** *(blacklist_exceptions)* :您可以識別即使列入黑名單，被視為多重路徑裝置的特定裝置。
+- **設定特定的儲存體控制器** *（裝置）* :您可以指定將套用至具有廠商和產品資訊的裝置的組態設定。
+- **裝置特定的設定** *(multipaths)* :您可以使用本節來微調個別 Lun 的組態設定。
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>在連線到 Linux 主機的 StorSimple 上設定多重路徑
 可以設定連線到 Linux 主機的 StorSimple 裝置，以取得高可用性和負載平衡。 例如，如果 Linux 主機有兩個連接到 SAN 的介面，而裝置有兩個連接到 SAN 的介面，以致這些介面位於相同的子網路上，則會有 4 個路徑可用。 不過，如果裝置瀚主機介面上的每個 DATA 介面位於不同的 IP 子網路上 (且不可路由傳送)，則只有 2 路徑可用。 您可以設定多重路徑，以便自動探索所有可用的路徑、選擇這些路徑的負載平衡演算法、套用僅限 StorSimple 磁碟區的特定組態設定，然後啟用和驗證多重路徑。
@@ -150,7 +150,7 @@ multipath.conf 有五個區段：
      
       在 [設定]  頁面中
      
-     1. 確定這兩個網路介面都已啟用 iSCSI。 [啟用 iSCSI] 欄位應設定為 [是]。
+     1. 確定這兩個網路介面都已啟用 iSCSI。 [啟用 iSCSI]  欄位應設定為 [是]  。
      1. 確定網路介面的速度相同，兩者都應該是 1 GbE 或 10 GbE。
      1. 請記下已啟用 iSCSI 的介面的 IPv4 位址，並加以儲存供稍後用於主機上。
 * 應可從 CentOS 伺服器存取 StorSimple 裝置上的 iSCSI 介面。
@@ -417,10 +417,10 @@ A. 若要驗證您的裝置是否已列入允許清單，請使用下列疑難�
     dm-3 devnode blacklisted, unmonitored
 
 
-如需詳細資訊，移至 [對多重路徑使用疑難排解互動式命令](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html)。
+如需詳細資訊，請移至[多重路徑疑難排解](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot)。
 
 ## <a name="list-of-useful-commands"></a>有用的命令清單
-| 在系統提示您進行確認時，輸入  | 命令 | 描述 |
+| 在系統提示您進行確認時，輸入 | 命令 | 描述 |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |啟動 iSCSI 服務 |
 | &nbsp; |`service iscsid stop` |停止 iSCSI 服務 |
@@ -444,6 +444,6 @@ A. 若要驗證您的裝置是否已列入允許清單，請使用下列疑難�
 ## <a name="next-steps"></a>後續步驟
 當您在 Linux 主機上設定 MPIO 時，您可能也需要參考下列 CentoS 6.6 文件︰
 
-* [在 CentOS 上設定 MPIO](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
+* [在 CentOS 上設定 MPIO](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Linux 訓練指南](http://linux-training.be/linuxsys.pdf)
 

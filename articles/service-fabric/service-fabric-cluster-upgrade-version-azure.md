@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
 ms.openlocfilehash: 234bff5049babf0c4b1d036b40201720b2736228
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60714680"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>升級叢集的 Service Fabric 版本
@@ -48,7 +48,7 @@ ms.locfileid: "60714680"
 
 如果不符合叢集健康狀態原則，則會回復升級。 請往下捲動本文，以深入了解如何設定這些自訂的健康狀態原則。 
 
-修复造成回滚的问题后，需要按照与之前完全相同的步骤重新启动升级。
+在解決導致復原的問題後，您需要依照之前的相同步驟再次起始升級。
 
 ![Manage_Automaticmode][Manage_Automaticmode]
 
@@ -75,7 +75,7 @@ ms.locfileid: "60714680"
 ## <a name="list-all-available-versions-for-all-environments-for-a-given-subscription"></a>針對指定的訂用帳戶列出所有環境的所有可用版本
 執行下列命令，應該會得到類似如下的輸出。
 
-“supportExpiryUtc”告知给定的版本何时即将到期或已过期。 最新版本並無有效日期 - 它的值為 "9999-12-31T23:59:59.9999999"，這只是表示到期日還沒有設定。
+“supportExpiryUtc” 會告訴您給定的版本即將到期或已過期。 最新版本並無有效日期 - 它的值為 "9999-12-31T23:59:59.9999999"，這只是表示到期日還沒有設定。
 
 ```REST
 GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01

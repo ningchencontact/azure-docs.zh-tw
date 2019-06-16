@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 989c5c1cd9474999400177293d896b96c79c32b7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5333f02edd6a4ff888e28ed36c2b78f75309f4d4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955247"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060916"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench 架構
 
@@ -45,7 +45,7 @@ Workbench 會為 Web 和行動裝置 (iOS、Android) 提供自動產生的用戶
 * 上傳並部署他們自己的智慧合約。
 * 在特定角色的內容中對使用者指派智慧合約的存取權。
 
-如需詳細資訊，請參閱 [GitHub 上的 Azure Blockchain Workbench 範例用戶端應用程式](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-development-kit/connect/mobile/blockchain-workbench/workbench-client)。
+如需詳細資訊，請參閱 [GitHub 上的 Azure Blockchain Workbench 範例用戶端應用程式](https://github.com/Azure-Samples/blockchain-devkit/tree/master/connect/mobile)。
 
 ## <a name="gateway-service-api"></a>閘道服務 API
 
@@ -84,7 +84,7 @@ Blockchain Workbench 會自動部署兩種類型的事件消費者。 其中一�
 
 ## <a name="transaction-builder-and-signer"></a>交易產生器和簽署者
 
-如果輸入訊息代理人上的訊息需要寫入至區塊鏈，將會由 DLT 取用者負責處理。 DLT 取用者是一項服務，其會擷取訊息 (其中包含所要執行交易的中繼資料)，然後將資訊傳送至「交易產生器和簽署者」。 「交易產生器和簽署者」會將以資料為基礎的區塊鏈交易與所需的 區塊鏈目的地組合在一起。 一經組合，便會簽署交易。 私密金鑰會儲存在 Azure Key Vault。
+如果輸入訊息代理人上的訊息需要寫入至區塊鏈，將會由 DLT 取用者負責處理。 DLT 取用者是一項服務，其會擷取訊息 (其中包含所要執行交易的中繼資料)，然後將資訊傳送至「交易產生器和簽署者」  。 「交易產生器和簽署者」  會將以資料為基礎的區塊鏈交易與所需的 區塊鏈目的地組合在一起。 一經組合，便會簽署交易。 私密金鑰會儲存在 Azure Key Vault。
 
  Blockchain Workbench 會從 Key Vault 擷取適當的私密金鑰，並在 Key Vault 外簽署交易。 一經簽署，交易就會傳送至交易路由器和總帳。
 

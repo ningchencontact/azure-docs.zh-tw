@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2017
 ms.author: cherylmc
 ms.openlocfilehash: bcece64a85a69c705b0f7f915dafe29123a2cd4a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128359"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>確認 VPN 閘道連線
@@ -55,4 +55,4 @@ ms.locfileid: "62128359"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 您可以將虛擬機器加入您的虛擬網路。 请参阅 [创建虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 以获取相关步骤。
+* 您可以將虛擬機器加入您的虛擬網路。 請參閱 [建立網站的虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 以取得相關步驟。
