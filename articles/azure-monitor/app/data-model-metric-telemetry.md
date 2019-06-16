@@ -13,10 +13,10 @@ ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 0973c86d055ff4ebbe7e5a3c4a2ca4e3dcabc6a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900455"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>計量遙測：Application Insights 資料模型
@@ -45,7 +45,7 @@ Application Insights 支援數個已知的計量名稱。 這些計量會置入 
 
 您想要在 Application Insights 入口網站和 UI 中看到的計量名稱。 
 
-## <a name="value"></a>Value
+## <a name="value"></a>值
 
 度量的單一值。 個別彙總度量的總和。
 

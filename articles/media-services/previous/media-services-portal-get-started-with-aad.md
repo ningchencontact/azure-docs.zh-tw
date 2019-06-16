@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: b7962f42b4244121a67b88ef3bf789ce40f7b1e5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719614"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>利用 Azure 入口網站開始使用 Azure AD 驗證
@@ -33,13 +33,13 @@ ms.locfileid: "64719614"
 - 媒體服務帳戶。 如需詳細資訊，請參閱[使用 Azure 入口網站建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)。
 - 請先複習[使用 Azure AD 驗證存取 Azure 媒體服務 API 概觀](media-services-use-aad-auth-to-access-ams-api.md)。 
 
-将 Azure AD 身份验证与 Azure 媒体服务结合使用时，可以选择下列两个身份验证选项：
+當您使用 Azure AD 驗證搭配 Azure 媒體服務 時，會有兩個驗證選項：
 
-- **使用者驗證**。 驗證使用應用程式與媒體服務資源互動的人員。 互動式應用程式應該會先提示使用者輸入認證。 例如，授权用户用来监视编码作业或实时传送视频流的管理控制台应用程序。 
-- **服務主體驗證**。 对服务进行身份验证。 通常使用這種驗證方法的應用程式有執行精靈服務、中介層服務或排程的工作的應用程式：Web 應用程式、函數應用程式、邏輯應用程式、API 或微服務。
+- **使用者驗證**。 驗證使用應用程式與媒體服務資源互動的人員。 互動式應用程式應該會先提示使用者輸入認證。 例如，授權的使用者用來監控編碼工作或即時串流的管理主控台應用程式。 
+- **服務主體驗證**。 驗證服務。 通常使用這種驗證方法的應用程式有執行精靈服務、中介層服務或排程的工作的應用程式：Web 應用程式、函數應用程式、邏輯應用程式、API 或微服務。
 
 > [!IMPORTANT]
-> 目前，媒體服務支援 Azure 存取控制服務驗證模型。 不過，存取控制授權將在 2018 年 6 月 1 日被取代。 建议尽快迁移到 Azure AD 身份验证模型。
+> 目前，媒體服務支援 Azure 存取控制服務驗證模型。 不過，存取控制授權將在 2018 年 6 月 1 日被取代。 建議您儘速移轉至 Azure AD 驗證模型。
 
 ## <a name="select-the-authentication-method"></a>選取驗證方法
 
@@ -70,8 +70,8 @@ ms.locfileid: "64719614"
 
 若要利用服務主體選項連線到媒體服務 API，您的中介層應用程式 (Web API 或 Web 應用程式) 必須要求具有下列參數的 Azure AD 權杖：  
 
-* Azure AD 租户终结点
-* 媒体服务资源 URI 
+* Azure AD 租用戶端點
+* 媒體服務資源 URI 
 * REST 媒體服務的資源 URI
 * Azure AD 應用程式的值：**用戶端識別碼**和**用戶端祕密**
 
@@ -79,7 +79,7 @@ ms.locfileid: "64719614"
 
 ![使用服務主體連線的頁面](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started04.png)
 
-當服務主體的刀鋒視窗開啟時，會選取符合下列準則的第一個 Azure AD 應用程式：
+當服務主體的  刀鋒視窗開啟時，會選取符合下列準則的第一個 Azure AD 應用程式：
 
 - 它是已註冊的 Azure AD 應用程式。
 - 它對帳戶具有參與者或擁有者角色型存取控制權限。
@@ -98,17 +98,17 @@ ms.locfileid: "64719614"
 
 ![[Manage permissions] \(管理權限\) 和 [Manage application] \(管理應用程式\) 按鈕](./media/media-services-portal-get-started-with-aad/media-services-portal-manage.png)
 
-若要開啟 Azure AD 應用程式刀鋒視窗，請按一下 [Manage application] \(管理應用程式\)。 在 [Manage application] \(管理應用程式\) 刀鋒視窗中，您可以取得應用程式的用戶端識別碼 (應用程式識別碼)。 若要產生用戶端祕密 (金鑰)，請選取 [金鑰]。
+若要開啟 Azure AD 應用程式刀鋒視窗，請按一下 [Manage application] \(管理應用程式\)  。 在 [Manage application] \(管理應用程式\)  刀鋒視窗中，您可以取得應用程式的用戶端識別碼 (應用程式識別碼)。 若要產生用戶端祕密 (金鑰)，請選取 [金鑰]  。
 
 ![管理應用程式刀鋒視窗的 [Keys] \(金鑰\) 選項](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started06.png) 
 
 ### <a name="manage-permissions-and-the-application"></a>管理權限和應用程式
 
-選取 Azure AD 應用程式之後，您可以管理應用程式和權限。 若要設定您的 Azure AD 應用程式以存取其他應用程式，請按一下 [Manage permissions] \(管理權限\)。 對於管理工作，例如變更金鑰和回覆 URL，或編輯應用程式的資訊清單，請按一下 [Manage application] \(管理應用程式\)。
+選取 Azure AD 應用程式之後，您可以管理應用程式和權限。 若要設定您的 Azure AD 應用程式以存取其他應用程式，請按一下 [Manage permissions] \(管理權限\)  。 對於管理工作，例如變更金鑰和回覆 URL，或編輯應用程式的資訊清單，請按一下 [Manage application] \(管理應用程式\)  。
 
 ### <a name="edit-the-apps-settings-or-manifest"></a>編輯應用程式的設定或資訊清單
 
-若要編輯應用程式的設定或資訊清單，請按一下 [Manage application] \(管理應用程式\)。
+若要編輯應用程式的設定或資訊清單，請按一下 [Manage application] \(管理應用程式\)  。
 
 ![管理應用程式頁面](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started05.png)
 

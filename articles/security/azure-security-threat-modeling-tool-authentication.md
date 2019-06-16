@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 3b170a214c7c3c464f7ea645fa1dc42cce0a0580
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951722"
 ---
 # <a name="security-frame-authentication--mitigations"></a>安全性框架：驗證 | 緩和措施 
@@ -48,7 +48,7 @@ ms.locfileid: "65951722"
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
-| 詳細資料 | <p>驗證是實體證明其身分識別的程序 (通常透過使用者名稱和密碼等認證)。 有多個驗證通訊協定可列入考量。 下列是其中一些通訊協定︰</p><ul><li>用戶憑證</li><li>Windows 架構</li><li>表單架構</li><li>同盟 - ADFS</li><li>同盟 - Azure AD</li><li>同盟 - Identity Server</li></ul><p>考慮使用標準驗證機制來識別來源程序</p>|
+| 詳細資料 | <p>驗證是實體證明其身分識別的程序 (通常透過使用者名稱和密碼等認證)。 有多個驗證通訊協定可列入考量。 下列是其中一些通訊協定︰</p><ul><li>Client certificates</li><li>Windows 架構</li><li>表單架構</li><li>同盟 - ADFS</li><li>同盟 - Azure AD</li><li>同盟 - Identity Server</li></ul><p>考慮使用標準驗證機制來識別來源程序</p>|
 
 ## <a id="handle-failed-authn"></a>應用程式必須安全地處理失敗的驗證案例
 
@@ -340,7 +340,7 @@ ms.locfileid: "65951722"
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [ASP.NET Web API 中的驗證和授權](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api)、[外部驗證服務與 ASP.NET Web API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
-| **步驟** | <p>驗證是實體證明其身分識別的程序 (通常透過使用者名稱和密碼等認證)。 有多個驗證通訊協定可列入考量。 下列是其中一些通訊協定︰</p><ul><li>用戶憑證</li><li>Windows 架構</li><li>表單架構</li><li>同盟 - ADFS</li><li>同盟 - Azure AD</li><li>同盟 - Identity Server</li></ul><p>[參考] 區段中的連結提供如何實作每個驗證方案來保護 Web API 的低階詳細資料。</p>|
+| **步驟** | <p>驗證是實體證明其身分識別的程序 (通常透過使用者名稱和密碼等認證)。 有多個驗證通訊協定可列入考量。 下列是其中一些通訊協定︰</p><ul><li>Client certificates</li><li>Windows 架構</li><li>表單架構</li><li>同盟 - ADFS</li><li>同盟 - Azure AD</li><li>同盟 - Identity Server</li></ul><p>[參考] 區段中的連結提供如何實作每個驗證方案來保護 Web API 的低階詳細資料。</p>|
 
 ## <a id="authn-aad"></a>使用 Azure Active Directory 所支援的標準驗證案例
 

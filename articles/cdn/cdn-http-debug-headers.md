@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
 ms.openlocfilehash: e5693e0e191b36aa8d4552824c649a38d2f17b5b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475278"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 規則引擎的 X-EC-Debug HTTP 標頭
@@ -103,7 +103,7 @@ X-EC-Debug 標頭會以下列格式報告快取狀態碼資訊：
 
 前述回應標頭語法中使用的詞彙定義如下：
 
-Value  | 描述
+值  | 描述
 -------| --------
 是    | 指出要求的內容符合快取的資格。
 否     | 指出要求的內容不符合快取的資格。 此狀態可能是下列其中一個原因所造成： <br /> -客戶特定組態：您的帳戶特有的組態可能防止 pop 伺服器快取資產。 例如，規則引擎可能對符合資格的要求啟用了「略過快取」功能，而防止快取某項資產。<br /> -快取的回應標頭：所要求的資產的 Cache-control 和 Expires 標頭可能防止 POP 伺服器快取它。

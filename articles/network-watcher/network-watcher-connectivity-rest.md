@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: kumud
 ms.openlocfilehash: 7fbe36d9ee15ffbdaa2ba978aabf3cc4f5db3889
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64694067"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>使用 Azure REST API 利用 Azure 網路監看員進行連線疑難排解
@@ -133,7 +133,7 @@ null
 
 ### <a name="response"></a>Response
 
-下列回應是來自上一個範例。  在此回應中，`ConnectionStatus` 為 [無法連線]。 您可以看到傳送的所有探查都失敗。 因為名為 **UserRule_Port80** 的使用者設定 `NetworkSecurityRule` 設定成封鎖連接埠 80 的連入流量，所以虛擬設備的連線失敗。 這項資訊可以用來研究連線問題。
+下列回應是來自上一個範例。  在此回應中，`ConnectionStatus` 為 [無法連線]  。 您可以看到傳送的所有探查都失敗。 因為名為 **UserRule_Port80** 的使用者設定 `NetworkSecurityRule` 設定成封鎖連接埠 80 的連入流量，所以虛擬設備的連線失敗。 這項資訊可以用來研究連線問題。
 
 ```json
 {
@@ -249,7 +249,7 @@ null
 
 ### <a name="response"></a>Response
 
-在下列範例中，`connectionStatus` 會顯示為 [無法連線]。 在 `hops` 詳細資料中，您可以在 `issues` 下看到已因 `UserDefinedRoute` 而封鎖流量。
+在下列範例中，`connectionStatus` 會顯示為 [無法連線]  。 在 `hops` 詳細資料中，您可以在 `issues` 下看到已因 `UserDefinedRoute` 而封鎖流量。
 
 ```json
 {
@@ -345,7 +345,7 @@ null
 
 ### <a name="response"></a>Response
 
-在下列回應中，您可以看到 `connectionStatus` 顯示為 [可以連線]。 連線成功時，會提供延遲值。
+在下列回應中，您可以看到 `connectionStatus` 顯示為 [可以連線]  。 連線成功時，會提供延遲值。
 
 ```json
 {
@@ -432,7 +432,7 @@ null
 
 ### <a name="response"></a>Response
 
-下列範例是執行前一個 API 呼叫的回應。 因為檢查成功，所以 `connectionStatus` 屬性會顯示為 [可以連線]。  系統會向您提供連線儲存體 Blob 和延遲所需躍點數目的詳細資料。
+下列範例是執行前一個 API 呼叫的回應。 因為檢查成功，所以 `connectionStatus` 屬性會顯示為 [可以連線]  。  系統會向您提供連線儲存體 Blob 和延遲所需躍點數目的詳細資料。
 
 ```json
 {

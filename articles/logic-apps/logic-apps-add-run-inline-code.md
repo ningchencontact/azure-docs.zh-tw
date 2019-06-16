@@ -10,10 +10,10 @@ ms.reviewer: derek1ee, LADocs
 ms.topic: article
 ms.date: 05/14/2019
 ms.openlocfilehash: 0bfa98396ee3afb80b486a5a17959664dfbe603c
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602112"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>新增並執行 Azure Logic Apps 中使用內嵌程式碼的程式碼片段
@@ -52,7 +52,7 @@ ms.locfileid: "65602112"
 
    * 若要在您的工作流程結尾處新增動作，請選擇**新增步驟**。
 
-   * 若要新增的現有步驟之間的動作，將滑鼠指標移到連接這些步驟的箭號上。 選擇加號 (**+**)，然後選取**新增動作**。
+   * 若要新增的現有步驟之間的動作，將滑鼠指標移到連接這些步驟的箭號上。 選擇加號 ( **+** )，然後選取**新增動作**。
 
    這個範例會新增**內嵌程式碼**下的 Office 365 Outlook 觸發程序的動作。
 
@@ -127,7 +127,7 @@ ms.locfileid: "65602112"
 
 下表包含這些子屬性的詳細資訊：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 |----------|------|-------|
 | `actions` | 物件集合 | 從您的程式碼片段執行前執行的動作結果物件。 每個物件都*鍵值*配對，其中索引鍵是動作的名稱，而此值相當於呼叫[actions() 函式](../logic-apps/workflow-definition-language-functions-reference.md#actions)使用`@actions('<action-name>')`。 動作的名稱會使用相同的動作名稱，用於基礎的工作流程定義，這會取代空格 ("") 中動作名稱以底線 (_)。 從目前執行的工作流程執行個體，這個物件會提供存取至動作的屬性值。 |
 | `trigger` | Object | 從觸發程序和對等項目呼叫的結果物件[trigger() 函式](../logic-apps/workflow-definition-language-functions-reference.md#trigger)。 從目前執行的工作流程執行個體，這個物件會提供存取至觸發程序的屬性值。 |
@@ -217,7 +217,7 @@ ms.locfileid: "65602112"
 
    ![新增參數](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
 
-   | 參數 | 說明 |
+   | 參數 | 描述 |
    |-----------|-------------|
    | **動作** | 包含來自先前動作的結果。 請參閱[包含動作結果](#action-results)。 |
    | **觸發程序** | 包含來自觸發程序的結果。 請參閱[包含觸發程序結果](#trigger-results)。 |

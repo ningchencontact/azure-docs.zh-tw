@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: seguler
 ms.subservice: blobs
 ms.openlocfilehash: 519190b6aeb313f25eddd717bce1a72148c8c518
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148456"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>如何使用 C++ 的 Blob 儲存體
@@ -35,7 +35,7 @@ ms.locfileid: "65148456"
 若要安裝 Azure Storage Client Library for C++，您可以使用下列方法：
 
 * **Linux：** 遵循 [Azure Storage Client Library for C++ 讀我檔案](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 頁面中提供的指示進行。  
-* **Windows：** 在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。 在 [NuGet 套件管理員主控台](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 **Enter**。  
+* **Windows：** 在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]  。 在 [NuGet 套件管理員主控台](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 **Enter**。  
   
      Install-Package wastorage
 
@@ -64,9 +64,9 @@ const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=ht
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-若要啟動 Azure 儲存體模擬器，選取 [開始] 按鈕或按下 [Windows] 鍵。 開始輸入 **Azure 儲存體模擬器**，然後從應用程式清單選取 [Microsoft Azure 儲存體模擬器]。  
+若要啟動 Azure 儲存體模擬器，選取 [開始]  按鈕或按下 [Windows]  鍵。 開始輸入 **Azure 儲存體模擬器**，然後從應用程式清單選取 [Microsoft Azure 儲存體模擬器]  。  
 
-下面的示例假定使用了这两个方法之一来获取存储连接字符串。  
+下列範例假設您已經使用這兩個方法之一來取得儲存體連接字串。  
 
 ## <a name="retrieve-your-connection-string"></a>擷取連接字串
 您可以使用 **cloud_storage_account** 類別來代表儲存體帳戶資訊。 若要從儲存體連接字串擷取儲存體帳戶資訊，您可以使用 **parse** 方法。  
@@ -109,7 +109,7 @@ catch (const std::exception& e)
 }  
 ```
 
-默认情况下，新容器是专用容器，因此，必须指定存储访问密钥才能从该容器下载 Blob。 若要讓所有人都能使用容器中的檔案 (Blob)，您可以使用下列程式碼將容器設定為公用容器：  
+根據預設，新容器屬私人性質，您必須指定儲存體存取金鑰才能從此容器下載 Blob。 若要讓所有人都能使用容器中的檔案 (Blob)，您可以使用下列程式碼將容器設定為公用容器：  
 
 ```cpp
 // Make the blob container publicly accessible.
@@ -121,7 +121,7 @@ container.upload_permissions(permissions);
 網際網路上的任何人都可以看到公用容器中的 Blob，但要有適當的存取金鑰，才能修改或刪除這些 Blob。  
 
 ## <a name="how-to-upload-a-blob-into-a-container"></a>作法：將 Blob 上傳至容器
-Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。 大多数情况下，推荐使用的类型是块 Blob。  
+Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。 在大多數情況下，建議使用區塊 Blob 的類型。  
 
 若要將檔案上傳至區塊 Blob，請取得容器參照，並使用該參照來取得區塊 Blob 參照。 取得 Blob 參考後，即可藉由呼叫 **upload_from_stream** 方法，將任何資料流上傳至 Blob。 此操作會建立 Blob (如果其並不存在) 或覆寫 Blob (如果其已存在)。 下列範例顯示如何將 Blob 上傳到容器，並假設已建立該容器。  
 
@@ -260,6 +260,6 @@ blockBlob.delete_blob();
 * [如何使用 C++ 的資料表儲存體](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [以 C++ 列出 Azure 儲存體資源](../storage-c-plus-plus-enumeration.md)
 * [Storage Client Library for C++ 參考資料](https://azure.github.io/azure-storage-cpp)
-* [Azure 存储文档](https://azure.microsoft.com/documentation/services/storage/)
-* [使用 AzCopy 命令行实用工具传输数据](../storage-use-azcopy.md)
+* [Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)
+* [使用 AzCopy 命令列公用程式傳輸資料](../storage-use-azcopy.md)
 

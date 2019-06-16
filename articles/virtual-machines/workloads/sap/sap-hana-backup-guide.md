@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
 ms.openlocfilehash: 89896fab7b1c359007ed23d4f9d9771e366ca68a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60936967"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Azure 虛擬機器上的 SAP HANA 備份指南
 
 ## <a name="getting-started"></a>開始使用
 
-Azure 虛擬機器上執行的 SAP HANA 備份指南只描述 Azure 相關主題。 如需一般 SAP HANA 備份的相關主題，請閱讀 SAP HANA 文件 (請參閱本文稍後的＜SAP HANA 備份文件＞)。
+Azure 虛擬機器上執行的 SAP HANA 備份指南只描述 Azure 相關主題。 如需一般 SAP HANA 備份的相關主題，請閱讀 SAP HANA 文件 (請參閱本文稍後的＜SAP HANA 備份文件＞  )。
 
 本文的重點是備份 Azure 虛擬機器上 SAP HANA 的兩種主要做法：
 
@@ -43,7 +43,7 @@ Azure 上支援的 SAP 產品資訊可在 [SAP Note 1928533](https://launchpad.s
 
 ![此圖顯示儲存目前 VM 狀態的兩種做法](media/sap-hana-backup-guide/image001.png)
 
-此圖顯示儲存目前 VM 狀態的兩種做法：透過 Azure 備份服務或 VM 磁碟的手動快照集。 採取這個做法，不需要管理 SAP HANA 備份。 磁碟快照集案例的挑戰，是檔案系統的一致性，和應用程式一致的磁碟狀態。 一致性主題會在本文稍後的＜建立儲存體快照集時，SAP HANA 資料的一致性＞一節中討論。 與 SAP HANA 備份相關的 Azure 備份服務功能和限制也會在本文稍後討論。
+此圖顯示儲存目前 VM 狀態的兩種做法：透過 Azure 備份服務或 VM 磁碟的手動快照集。 採取這個做法，不需要管理 SAP HANA 備份。 磁碟快照集案例的挑戰，是檔案系統的一致性，和應用程式一致的磁碟狀態。 一致性主題會在本文稍後的＜建立儲存體快照集時，SAP HANA 資料的一致性＞  一節中討論。 與 SAP HANA 備份相關的 Azure 備份服務功能和限制也會在本文稍後討論。
 
 ![此圖顯示在 VM 中建立 SAP HANA 檔案備份的選項](media/sap-hana-backup-guide/image002.png)
 
@@ -88,7 +88,7 @@ Azure 儲存體提供現成的可用性和可靠性 (如需有關 Azure 儲存�
 
 SAP 不特別偏好 HANA 備份或儲存體快照集之中的任何一個。 它會列出其各別的優缺點，讓您視情況和可用的儲存技術決定要使用哪一個 (請參閱[規劃備份和復原策略](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm))。
 
-在 Azure 上，請注意一件事：Azure blob 快照集功能不保證檔案系統的一致性 (請參閱[以 PowerShell 使用 blob 快照集](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/))。 下一節＜建立儲存體快照集時，SAP HANA 資料的一致性＞將討論此功能的考量事項。
+在 Azure 上，請注意一件事：Azure blob 快照集功能不保證檔案系統的一致性 (請參閱[以 PowerShell 使用 blob 快照集](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/))。 下一節＜建立儲存體快照集時，SAP HANA 資料的一致性＞  將討論此功能的考量事項。
 
 此外，有一個具有經常使用這篇文章中所述的 blob 快照集時，了解計費的含意：[了解快照如何產生費用](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)— 它不是&#39;做為使用 Azure 的虛擬磁碟那麼明顯。
 
@@ -100,7 +100,7 @@ SAP 不特別偏好 HANA 備份或儲存體快照集之中的任何一個。 它
 
 當單一檔案系統跨多個磁碟/磁碟區的情況下，一致性的主題會變得更具挑戰性。 例如，使用 mdadm 或 LVM 和串接。 上述 SAP Note 中描述︰
 
-「但是請記住，在建立每個 SAP HANA 資料磁碟區的儲存體快照集時，儲存體系統必須保證 I/O 一致性，也就是 SAP HANA 服務專用資料磁碟區的快照必須是不可部分完成的作業。」_&quot;&quot;_
+「但是請記住，在建立每個 SAP HANA 資料磁碟區的儲存體快照集時，儲存體系統必須保證 I/O 一致性，也就是 SAP HANA 服務專用資料磁碟區的快照必須是不可部分完成的作業。」 _&quot;&quot;_
 
 假設有個橫跨四個 Azure 虛擬磁碟的 XFS 檔案系統，下列步驟提供可表示 HANA 資料區域的一致快照集︰
 

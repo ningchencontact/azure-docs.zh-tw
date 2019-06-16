@@ -17,11 +17,11 @@ ms.date: 03/27/2019
 ms.author: zhchia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8fecc5232b26c98c4027174454cf29b81b0ee41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263585"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060337"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>教學課程：設定自動使用者佈建的 MerchLogix
 
@@ -44,11 +44,11 @@ MerchLogix 設定自動化使用者佈建與 Azure AD 時，您需要從 Azure A
 
 **若要從 Azure AD 應用程式資源庫新增 MerchLogix，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory]  圖示。 
 
     ![Azure Active Directory 按鈕][1]
 
-2. 瀏覽至 [企業應用程式] > [所有應用程式]。
+2. 瀏覽至 [企業應用程式]   > [所有應用程式]  。
 
     ![企業應用程式區段][2]
 
@@ -85,13 +85,13 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ### <a name="to-configure-automatic-user-provisioning-for-merchlogix-in-azure-ad"></a>若要設定 Azure ad 自動使用者佈建的 MerchLogix:
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 [Azure Active Directory] > [企業應用程式] > [所有應用程式]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 [Azure Active Directory] > [企業應用程式] > [所有應用程式]  。
 
 2. 您可以選取 MerchLogix 從您的 SaaS 應用程式清單。
 
-3. 選取 [佈建] 索引標籤。
+3. 選取 [佈建]  索引標籤。
 
-4. 將 [佈建模式] 設定為 [自動]。
+4. 將 [佈建模式]  設定為 [自動]  。
 
     ![MerchLogix 佈建](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
 
@@ -103,23 +103,23 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 6. 填寫後在步驟 5 中所顯示的欄位，按一下**測試連接**以確保 Azure AD 可以連線到 MerchLogix。 如果連線失敗，請確定您的 MerchLogix 帳戶具有系統管理員權限並再試一次。
 
-7. 在 [通知電子郵件] 欄位中，輸入應該收到佈建錯誤通知的個人或群組電子郵件地址，然後選取 [發生失敗時傳送電子郵件通知] 核取方塊。
+7. 在 [通知電子郵件]  欄位中，輸入應該收到佈建錯誤通知的個人或群組電子郵件地址，然後選取 [發生失敗時傳送電子郵件通知]  核取方塊。
 
-8. 按一下 [檔案] 。
+8. 按一下 [檔案]  。
 
 9. 底下**對應**區段中，選取**同步處理 Azure Active Directory 使用者至 MerchLogix**。
 
-10. 檢閱從 Azure AD 同步至 MerchLogix 中的使用者屬性**屬性對應**一節。 為選取的屬性**比對**屬性用來比對在 MerchLogix 中的使用者帳戶進行更新作業。 選取 [儲存] 按鈕以認可所有變更。
+10. 檢閱從 Azure AD 同步至 MerchLogix 中的使用者屬性**屬性對應**一節。 為選取的屬性**比對**屬性用來比對在 MerchLogix 中的使用者帳戶進行更新作業。 選取 [儲存]  按鈕以認可所有變更。
 
 11. 底下**對應**區段中，選取**同步處理 Azure Active Directory 群組至 MerchLogix**。
 
-12. 檢閱從 Azure AD 同步至 MerchLogix 中的群組屬性**屬性對應**一節。 為選取的屬性**比對**屬性用來比對在 MerchLogix 中進行更新作業的群組。 選取 [儲存] 按鈕以認可所有變更。
+12. 檢閱從 Azure AD 同步至 MerchLogix 中的群組屬性**屬性對應**一節。 為選取的屬性**比對**屬性用來比對在 MerchLogix 中進行更新作業的群組。 選取 [儲存]  按鈕以認可所有變更。
 
 13. 若要啟用 Azure AD 佈建服務 MerchLogix，請變更**佈建狀態**要**上**中**設定**一節。
 
-14. 當您準備好要佈建時，按一下 [儲存]。
+14. 當您準備好要佈建時，按一下 [儲存]  。
 
-此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用**同步處理詳細資料**區段來監視進度，並依循連結前往佈建活動報告，當中會描述佈建服務在 MerchLogix 的 Azure AD 所執行的所有動作。
+此作業會對在 [設定]  區段的 [範圍]  中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用**同步處理詳細資料**區段來監視進度，並依循連結前往佈建活動報告，當中會描述佈建服務在 MerchLogix 的 Azure AD 所執行的所有動作。
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 

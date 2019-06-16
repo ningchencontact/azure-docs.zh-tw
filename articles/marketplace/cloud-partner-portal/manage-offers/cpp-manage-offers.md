@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pabutler
 ms.openlocfilehash: 8a03ce94971d704aa38c1be5d7cfbb3c24bd2f82
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943366"
 ---
 # <a name="manage-azure-and-appsource-marketplace-offers"></a>管理 Azure 與 AppSource Marketplace 供應項目
@@ -27,7 +27,7 @@ Cloud Partner 入口網站可讓發行者對供應項目執行下列基本作業
 |     ---------      |  -----------                                           |
 | [建立供應項目](./cpp-create-offer.md)   | 在上架存放庫中建立擱置的供應項目，但不會自動將其發佈到 Microsoft 市集 | 
 | [檢視供應項目狀態](./cpp-view-status-offer.md)   | 提供供應項目的發佈狀態。  入口網站中的多個位置都會顯示狀態資訊。 |
-| [發佈供應項目](./cpp-publish-offer.md) | 進行驗證，然後將已完成的供應項目發佈至適當的 Microsoft 市集。  接著，我們會稱供應項目已「上線」。 |
+| [發佈供應項目](./cpp-publish-offer.md) | 進行驗證，然後將已完成的供應項目發佈至適當的 Microsoft 市集。  接著，我們會稱供應項目已「上線」  。 |
 | [更新供應項目](./cpp-update-offer.md)   | 可修改現有供應項目的某些特性。  擱置和已發佈的供應項目皆適用。 |
 | [刪除供應項目](./cpp-delete-offer.md)   | 刪除現有的擱置或上線供應項目。  | 
 |  |  |

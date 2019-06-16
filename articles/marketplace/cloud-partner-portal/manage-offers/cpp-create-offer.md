@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pabutler
 ms.openlocfilehash: cc0d8e68578500d4fa5f1b167790d60c8f7c5067
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942161"
 ---
 # <a name="create-azure-marketplace-and-appsource-offers"></a>建立 Azure Marketplace 和 AppSource 的供應項目
 
-Cloud Partner 入口網站的一個基本目的是使發行者能夠建立 (並發行) Microsoft Azure 和 AppSource Marketplace 的供應項目。  這項作業始終從[新增供應項目功能表](../portal-tour/cpp-new-offer-menu.md)中選取所需的供應項目類型開始。  在回應中，將顯示該供應項目類型的適當 [新增供應項目] 頁面。  例如，下圖顯示 Azure 應用程式類型的預設 [新增供應項目] 頁面。
+Cloud Partner 入口網站的一個基本目的是使發行者能夠建立 (並發行) Microsoft Azure 和 AppSource Marketplace 的供應項目。  這項作業始終從[新增供應項目功能表](../portal-tour/cpp-new-offer-menu.md)中選取所需的供應項目類型開始。  在回應中，將顯示該供應項目類型的適當 [新增供應項目]  頁面。  例如，下圖顯示 Azure 應用程式類型的預設 [新增供應項目]  頁面。
 
 ![[新增供應項目] 預設頁面](./media/new-offer-page.png)
 
 在此頁面頂端顯示的水平功能表列中有兩個索引標籤選項： 
-- [編輯器] 索引標籤 - 允許為新的供應項目執行個體輸入資訊和上載資產。  根據預設，會顯示此索引標籤。
-- [狀態] 索引標籤 - 提供發佈狀態，並列出任何驗證和檢閱問題。 
+- [編輯器]  索引標籤 - 允許為新的供應項目執行個體輸入資訊和上載資產。  根據預設，會顯示此索引標籤。
+- [狀態]  索引標籤 - 提供發佈狀態，並列出任何驗證和檢閱問題。 
 
-當您建立供應項目時，您可以使用 [編輯器] 索引標籤來輸入該供應項目的相關資訊。 
+當您建立供應項目時，您可以使用 [編輯器]  索引標籤來輸入該供應項目的相關資訊。 
 
 ## <a name="editing-operations"></a>編輯作業
 
@@ -42,7 +42,7 @@ Cloud Partner 入口網站的一個基本目的是使發行者能夠建立 (並�
 
 ## <a name="editing-tabs"></a>[編輯] 索引標籤
 
-建立供應項目時，您可以在 [新增供應項目] 頁面左側垂直資料行中的每個索引標籤中提供必要和選擇性資料。  標準使用者介面控制項會顯示 (例如文字方塊、下拉式清單和核取方塊) 以進行資料收集。  雖然 [編輯] 索引標籤的特定集合是根據供應項目類型而定，但下表列出了一些常見的索引標籤。
+建立供應項目時，您可以在 [新增供應項目]  頁面左側垂直資料行中的每個索引標籤中提供必要和選擇性資料。  標準使用者介面控制項會顯示 (例如文字方塊、下拉式清單和核取方塊) 以進行資料收集。  雖然 [編輯] 索引標籤的特定集合是根據供應項目類型而定，但下表列出了一些常見的索引標籤。
 
 |      索引標籤名稱       |   目的                                                            |
 |      --------       |   -------                                                            |

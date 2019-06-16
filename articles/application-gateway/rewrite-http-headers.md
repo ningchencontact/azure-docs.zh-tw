@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
 ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476028"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>請重寫應用程式閘道的 HTTP 標頭
@@ -20,7 +20,7 @@ ms.locfileid: "66476028"
 
 HTTP 標頭可讓用戶端和伺服器，將與要求或回應的其他資訊。 藉由重寫這些標頭，您可以完成重要工作，例如新增安全性相關的標頭欄位，例如 HSTS / X XSS 防護、 移除回應標頭欄位，可能會揭露機密資訊，以及移除從連接埠資訊X 轉送的標頭。
 
-應用程式閘道可讓您新增、 移除或更新 HTTP 要求和回應標頭時要求和回應封包將用戶端與後端集區之間移動。 它可讓您新增條件，以確保只有在符合特定條件時，才指定的標頭會重寫。
+應用程式閘道可讓您在要求和回應封包於用戶端與後端集區之間移動時，新增、移除或更新 HTTP 要求和回應標頭。 其可讓您新增條件，以確保僅在符合特定條件時才重寫指定的標頭。
 
 應用程式閘道也支援數個[伺服器變數](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables)儲存要求和回應的其他資訊可幫助。 這可讓您更輕鬆地建立強大的重寫規則。
 

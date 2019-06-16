@@ -12,10 +12,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c417950e07ae3c6922aa260a3ef40d862870aa1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61042878"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>在 Azure HDInsight Hive 資料表中進行資料取樣
@@ -52,7 +52,7 @@ Hive 查詢可以從 Hadoop 叢集前端節點上的 Hadoop 命令列主控台�
 在此處， `<sample rate, 0-1>` 會指定使用者想要取樣的記錄比例。
 
 ## <a name="group"></a> 依群組隨機取樣
-對類別資料進行取樣時，您可能想要包含或排除類別變數中某些值的所有執行個體。 這種取樣稱為「依群組取樣」。 例如，如果您有一個類別變數 "State"，擁有 NY、MA、CA、NJ、PA 等值，您想要讓相同狀態的記錄一律在一起，而不論是否要對它們取樣。
+對類別資料進行取樣時，您可能想要包含或排除類別變數中某些值的所有執行個體。 這種取樣稱為「依群組取樣」。 例如，如果您有一個類別變數 "State"  ，擁有 NY、MA、CA、NJ、PA 等值，您想要讓相同狀態的記錄一律在一起，而不論是否要對它們取樣。
 
 以下是依群組取樣的查詢範例：
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.openlocfilehash: c2f3d882ac01427ea017d4f9b81edc3c64cc932d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64728725"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>搭配 Apache Kafka 和 Azure Cosmos DB 使用 Apache Spark 結構化串流
@@ -32,7 +32,7 @@ Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允�
 
 ## <a name="create-the-clusters"></a>建立叢集
 
-Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息代理程式。 若要与 Kafka 通信，必须与 Kafka 群集中的节点在同一 Azure 虚拟网络中。 例如，Kafka 和 Spark 叢集均位於 Azure 虛擬網路中。 下圖顯示叢集之間的通訊流動方式︰
+Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息代理程式。 任何 Kafka 相關項目必須位於與 Kafka 叢集中節點相同的 Azure 虛擬網路。 例如，Kafka 和 Spark 叢集均位於 Azure 虛擬網路中。 下圖顯示叢集之間的通訊流動方式︰
 
 ![Azure 虛擬網路中的 Spark 和 Kafka 叢集圖表](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
@@ -65,11 +65,11 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
      > [!IMPORTANT]  
      > 此範例中使用的結構化串流 Notebook 需要 HDInsight 3.6 上的 Spark。 如果您在 HDInsight 上使用較早版本的 Spark，當使用 Notebook 時會收到錯誤。
 
-2. 使用下列資訊來填入 [自訂部署] 區段上的項目︰
+2. 使用下列資訊來填入 [自訂部署]  區段上的項目︰
    
     ![HDInsight 自訂部署](./media/apache-kafka-spark-structured-streaming-cosmosdb/parameters.png)
 
-    * 訂用帳戶：選取 Azure 訂用帳戶。
+    * 訂用帳戶  ：選取 Azure 訂用帳戶。
    
     * **資源群組**：建立群組或選取現有的群組。 此群組包含 HDInsight 叢集。
 
@@ -92,16 +92,16 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     * **SSH 密碼**：Spark 和 Kafka 叢集的 SSH 使用者密碼。
 
-3. 讀取**條款及條件**，然後選取 [我同意上方所述的條款及條件]。
+3. 讀取**條款及條件**，然後選取 [我同意上方所述的條款及條件]  。
 
-4. 最後，選取 [購買]。 大約需要 20 分鐘的時間來建立叢集。
+4. 最後，選取 [購買]  。 大約需要 20 分鐘的時間來建立叢集。
 
 > [!IMPORTANT]  
 > 最多需要 45 分鐘才能建立叢集、虛擬網路與 Cosmos DB 帳戶。
 
 ## <a name="create-the-cosmos-db-database-and-collection"></a>建立 Cosmos DB 資料庫和集合
 
-此文件中使用的專案會將資料儲存在 Cosmos DB 中。 執行程式碼之前，您必須先在您的 Cosmos DB 執行個體中建立「資料庫」與「集合」 。 您也必須擷取用於向 Cosmos DB 驗證要求的文件端點與「索引鍵」。 
+此文件中使用的專案會將資料儲存在 Cosmos DB 中。 執行程式碼之前，您必須先在您的 Cosmos DB 執行個體中建立「資料庫」  與「集合」  。 您也必須擷取用於向 Cosmos DB 驗證要求的文件端點與「索引鍵」  。 
 
 執行此動作的其中一種方式是使用 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。 下列指令碼將會建立名為 `kafkadata` 的資料庫與名為 `kafkacollection` 的集合。 接著，它會傳回主索引鍵。
 
@@ -188,15 +188,15 @@ curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUST
 
     出現提示時，輸入您在建立叢集時所使用的叢集登入 (admin) 和密碼。
 
-2. 從頁面右上角，使用 [上傳] 按鈕將 __Stream-taxi-data-to-kafka.ipynb__ 檔案上傳到叢集。 選取 [開啟] 以開始上傳。
+2. 從頁面右上角，使用 [上傳]  按鈕將 __Stream-taxi-data-to-kafka.ipynb__ 檔案上傳到叢集。 選取 [開啟]  以開始上傳。
 
-3. 在 Notebook 清單中尋找 __Stream-taxi-data-to-kafka.ipynb__ 項目，然後選取其旁邊的 [上傳] 按鈕。
+3. 在 Notebook 清單中尋找 __Stream-taxi-data-to-kafka.ipynb__ 項目，然後選取其旁邊的 [上傳]  按鈕。
 
 4. 重複步驟 1-3 以上傳 __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ Notebook。
 
 ## <a name="load-taxi-data-into-kafka"></a>將 taxi 資料載入至 Kafka
 
-上傳檔案之後，請選取 [Stream-taxi-data-to-kafka.ipynb] 項目來開啟 Notebook。 請依照 Notebook 中的步驟，將資料載入至 Kafka。
+上傳檔案之後，請選取 [Stream-taxi-data-to-kafka.ipynb]  項目來開啟 Notebook。 請依照 Notebook 中的步驟，將資料載入至 Kafka。
 
 ## <a name="process-taxi-data-using-spark-structured-streaming"></a>使用 Spark 結構化串流來處理 taxi 資料
 

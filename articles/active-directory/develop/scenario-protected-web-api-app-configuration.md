@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e206cb29338445e30a7462bcbaf0079236e75510
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bdd68d9ec5d0dd83df4628f39785ce255482245d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074961"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111157"
 ---
 # <a name="protected-web-api---code-configuration"></a>受保護的 web API-程式碼組態
 
@@ -159,4 +159,4 @@ JwtBearer 中的介軟體，例如 web apps 中，OpenID Connect 中介軟體會
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [移至生產環境](scenario-protected-web-api-production.md)
+> [請確認範圍和程式碼中的應用程式角色](scenario-protected-web-api-verification-scope-app-roles.md)

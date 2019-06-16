@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 991e6554df62591dea5c126f8ea82704373d6ffd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60781234"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-using-the-azure-classic-cli"></a>開始使用 Azure 傳統 CLI 建立內部負載平衡器
@@ -73,7 +73,7 @@ ms.locfileid: "60781234"
 azure service internal-load-balancer add --serviceName mytestcloud --internalLBName ilbset --subnet-name subnet-1 --static-virtualnetwork-ipaddress 192.168.2.7
 ```
 
-有关详细信息，请查看 `azure service internal-load-balancer --help` 。
+如需詳細資訊，請參閱 `azure service internal-load-balancer --help` 。
 
 您可使用 `azure service internal-load-balancer list` *cloud service name*命令，檢查內部負載平衡器屬性。
 

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.openlocfilehash: d566b57ae12520b9eee26334a67d2e10c05f8040
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64709074"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>在 HDInsight 中搭配使用 Apache Mahout 和以 Linux 為基礎的 Apache Hadoop 來產生電影推薦 (SSH)
@@ -25,7 +25,7 @@ Mahout 是[機器學習服務](https://en.wikipedia.org/wiki/Machine_learning)Ap
 
 ## <a name="prerequisites"></a>必要條件
 
-* 在 HDInsight 上 Apache Hadoop 叢集。 请参阅 [Linux 上的 HDInsight 入门](./apache-hadoop-linux-tutorial-get-started.md)。
+* HDInsight 上的 Apache Hadoop 叢集。 請參閱[開始在 Linux 上使用 HDInsight](./apache-hadoop-linux-tutorial-get-started.md)。
 
 * SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -35,15 +35,15 @@ Mahout 是[機器學習服務](https://en.wikipedia.org/wiki/Machine_learning)Ap
 
 ## <a name="recommendations"></a>了解推薦
 
-Mahout 提供的其中一項功能是推薦引擎。 這個引擎接受 `userID`、`itemId` 和 `prefValue` (項目的喜好設定) 格式的資料。 Mahout 接著可以執行共生分析來判斷：「偏好某項目的使用者同時也偏好其他這些項目」。 接著 Mahout 會以偏好的類似項目判斷使用者，並以此做出推薦。
+Mahout 提供的其中一項功能是推薦引擎。 這個引擎接受 `userID`、`itemId` 和 `prefValue` (項目的喜好設定) 格式的資料。 Mahout 接著可以執行共生分析來判斷：「偏好某項目的使用者同時也偏好其他這些項目」  。 接著 Mahout 會以偏好的類似項目判斷使用者，並以此做出推薦。
 
 以下工作流程是一個使用電影資料的簡化範例：
 
-* **共生**：Joe、Alice 和 Bob 都喜歡 *《星際大戰》*、*《帝國大反擊》* 和 *《絕地大反攻》*。 Mahout 將判斷喜歡上述任何一部電影的使用者，也會喜歡另外兩部電影。
+* **共生**：Joe、Alice 和 Bob 都喜歡 *《星際大戰》* 、 *《帝國大反擊》* 和 *《絕地大反攻》* 。 Mahout 將判斷喜歡上述任何一部電影的使用者，也會喜歡另外兩部電影。
 
-* **共生**：Bob 和 Alice 同時也喜歡 *《威脅潛伏》*、*《複製人全面進攻》* 和 *《西斯大帝的復仇》*。 Mahout 將判斷喜歡前三部電影的使用者，也會喜歡這三部電影。
+* **共生**：Bob 和 Alice 同時也喜歡 *《威脅潛伏》* 、 *《複製人全面進攻》* 和 *《西斯大帝的復仇》* 。 Mahout 將判斷喜歡前三部電影的使用者，也會喜歡這三部電影。
 
-* **相似性推薦**：因為 Joe 喜歡前三部電影，Mahout 會查看具有相似偏好的其他使用者所喜歡但 Joe 還沒看過 (喜歡/評價) 的電影。 在此情況下，Mahout 將會推薦 *《威脅潛伏》*、*《複製人全面進攻》* 和 *《西斯大帝的復仇》*。
+* **相似性推薦**：因為 Joe 喜歡前三部電影，Mahout 會查看具有相似偏好的其他使用者所喜歡但 Joe 還沒看過 (喜歡/評價) 的電影。 在此情況下，Mahout 將會推薦 *《威脅潛伏》* 、 *《複製人全面進攻》* 和 *《西斯大帝的復仇》* 。
 
 ### <a name="understanding-the-data"></a>了解資料
 
@@ -59,7 +59,7 @@ user-ratings.txt 內包含的資料具有 `userID`、`movieID`、`userRating` �
     244    51     2    880606923
     166    346    1    886397596
 
-## <a name="run-the-analysis"></a>运行分析
+## <a name="run-the-analysis"></a>執行分析
 
 經由叢集的 SSH 連線，使用下列命令來執行推薦工作：
 
@@ -72,7 +72,7 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
 ## <a name="view-the-output"></a>檢視輸出
 
-1. 作业完成后，使用以下命令查看生成的输出：
+1. 工作完成後，使用以下命令來檢視所產生的輸出：
 
     ```bash
     hdfs dfs -text /example/data/mahoutout/part-r-00000
@@ -102,7 +102,7 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
     nano show_recommendations.py
     ```
 
-    编辑器打开后，使用以下文本作为该文件的内容：
+    開啟編輯器時，請使用下列文字做為檔案的內容：
 
    ```python
    #!/usr/bin/env python
@@ -164,11 +164,11 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
     python show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
     ```
 
-    此命令查看为用户 ID 4 生成的建议。
+    此命令會查看為使用者 ID 4 所產生的建議。
 
    * **user-ratings.txt** 檔案可用來擷取已評分的影片。
 
-   * **moviedb.txt** 文件用于检索电影的名称。
+   * **moviedb.txt** 檔案用來擷取影片名稱。
 
    * **recommendations.txt** 用來擷取這位使用者的電影建議。
 

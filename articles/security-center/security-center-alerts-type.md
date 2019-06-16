@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 3/20/2018
 ms.author: v-mohabe
 ms.openlocfilehash: 4592caacf7f73e4bce9f974fb3bb2ab3ed1a89ff
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65968355"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>了解 Azure 資訊安全中心的安全性警示
 本文可協助您了解 Azure 資訊安全中心各種可用的安全性警示和相關深入資訊的類型。 如需如何管理警示和事件的詳細資訊，請參閱[管理及回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)。
 
-若要設定進階偵測，請升級至 Azure 資訊安全中心標準版。 有免費試用版可用。 若要升級，請選取[安全性原則](tutorial-security-policy.md) 中的 [定價層]。 若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
+若要設定進階偵測，請升級至 Azure 資訊安全中心標準版。 有免費試用版可用。 若要升級，請選取[安全性原則](tutorial-security-policy.md) 中的 [定價層]  。 若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
 
 ## <a name="what-type-of-alerts-are-available"></a>可以使用何種類型的警示？
 Azure 資訊安全中心會使用不同的[偵測功能](security-center-detection-capabilities.md)，向客戶警示以其環境為目標的潛在攻擊。 這些警示包含觸發警示的項目、鎖定為目標的資源，以及攻擊來源等重要資訊。 警示中包含的資訊會以用來偵測威脅的分析類型作為基礎而有所不同。 事件可能還會包含其他內容相關的資訊，在調查威脅時很有用。  本文提供下列警示類型的相關資訊：
@@ -91,7 +91,7 @@ Azure 資訊安全中心可以使用行為分析，根據虛擬機器事件記�
 * **停用和刪除 IIS 記錄檔**：此警示表示已停用和/或刪除 IIS 記錄檔，攻擊者通常藉此嘗試掩蓋其行徑。
 * **可疑的檔案刪除**：此警示表示可疑的檔案刪除，攻擊者可藉此移除惡意二進位檔的證明。
 * **已刪除所有檔案陰影複本**：此警示表示已刪除陰影複本。
-* **可疑的檔案清除命令**：此警示表示用來執行入侵後自助清除活動的 systeminfo 命令組合。  雖然 systeminfo.exe 是合法的 Windows 工具，但連續執行兩次，接著執行刪除命令很少見。
+* **可疑的檔案清除命令**：此警示表示用來執行入侵後自助清除活動的 systeminfo 命令組合。  雖然 systeminfo.exe  是合法的 Windows 工具，但連續執行兩次，接著執行刪除命令很少見。
 * **可疑的帳戶建立**：此警示表示已建立與現有內建系統管理權限帳戶非常相似的帳戶。 攻擊者可以使用此技巧來建立 Rouge 帳戶，以免被偵測到。
 * **可疑的磁碟區陰影複製活動**：此警示表示資源上的陰影複本刪除活動。 磁碟區陰影複製 (VSC) 是儲存資料快照集的重要成品。 此活動是勒索軟體相關聯，但也可能是合法。
 * **Windows 登錄持續性方法**：此警示表示嘗試在 Windows 登錄中保存可執行檔。 惡意程式碼通常會使用這類技術在開機時倖存。
@@ -101,7 +101,7 @@ Azure 資訊安全中心可以使用行為分析，根據虛擬機器事件記�
 * **偵測到命令列中異常混用大寫和小寫字元**：此警示表示在命令列混合使用大寫和小寫字元，攻擊者使用此技術來隱藏不區分大小寫或雜湊型機器規則。
 * **模糊的命令列**：此警示表示在命令列偵測到可疑的模糊化指標。
 * **查詢多個網域帳戶**：攻擊者通常會在對使用者、網域管理員帳戶、網域控制站，以及網域之間的信任關係執行偵察時，查詢 AD 網域帳戶。 此警示表示在短時間內查詢的相異網域帳戶數目不尋常。
-* **可能的本機偵察活動**：此警示表示已執行與偵察活動相關聯的 systeminfo 命令組合。  雖然 systeminfo.exe 是合法的 Windows 工具，但連續執行兩次很少見。
+* **可能的本機偵察活動**：此警示表示已執行與偵察活動相關聯的 systeminfo 命令組合。  雖然 systeminfo.exe  是合法的 Windows 工具，但連續執行兩次很少見。
 * **可能的 keygen 可執行檔執行**：此警示表示已執行名稱代表 keygen 工具的程序。 這類工具通常用來擊敗軟體授權機制，但其下載通常與其他惡意軟體組合在一起。
 * **經由 rundll32.exe 的可疑執行**：此警示表示攻擊者已使用 rundll32.exe 來執行具有不常見名稱 (符合程序命名配置) 的程序，在遭到入侵的主機上安裝第一階段植入程序。
 * **可疑的 HTA 與 PowerShell 組合**：此警示表示 Microsoft HTML 應用程式主機 (HTA) 正在啟動 PowerShell 命令。 這是攻擊者用來啟動惡意 PowerShell 指令碼的技巧。
@@ -116,7 +116,7 @@ Azure 資訊安全中心可以使用行為分析，根據虛擬機器事件記�
 * **可疑的 Set-ExecutionPolicy 和 WinRM 變更**：此警示表示與使用惡意 ChinaChopper webshell 相關聯的組態變更。
 * **停用重要服務**：此警示表示 "net.exe stop" 命令用來停止 SharedAccess 或 Windows 資訊安全中心等重要服務。
 * **可疑的 FTP -s 參數使用**：此警示表示使用 FTP 的 "-s" 參數，惡意程式碼可用來連線到遠端 FTP 伺服器並下載其他惡意二進位檔。
-* **可疑的 VBScript.Encode 命令執行**：此警示表示已執行 VBScript.Encode 命令，它會將指令碼編碼成無法讀取的文字，讓使用者更難以檢查程式碼。
+* **可疑的 VBScript.Encode 命令執行**：此警示表示已執行 VBScript.Encode  命令，它會將指令碼編碼成無法讀取的文字，讓使用者更難以檢查程式碼。
 * **VBScript HTTP 物件配置**：此警示表示使用命令提示字元建立 VBScript 檔案，而該檔案可用來下載惡意檔案。
 * **相黏鍵攻擊**：此警示表示攻擊者可能在破壞協助工具二進位檔 (例如相黏鍵、螢幕小鍵盤、朗讀程式)，以提供後門程式存取權。
 * **Petya 勒索軟體指標**：此警示表示發現與 Petya 勒索軟體相關聯的技術。

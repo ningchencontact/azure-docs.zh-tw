@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 8d0f9866864ca4b02ca6238be2ac44537a586c2d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157938"
 ---
 ## <a name="update-resources"></a>更新資源
@@ -20,12 +20,12 @@ ms.locfileid: "66157938"
 有一些限制可以更新項目。 可以更新下列項目： 
 
 共用映像庫：
-- 說明
+- 描述
 
 映像定義：
 - 建議的 vCPU
 - 建議的記憶體
-- 說明
+- 描述
 - 生命週期結束日期
 
 映像版本：

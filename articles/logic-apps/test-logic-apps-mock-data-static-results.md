@@ -10,10 +10,10 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: 45eeb20e5c572ddd98244b2e751322fcce1d4b76
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597203"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>設定靜態的結果，以測試邏輯應用程式使用模擬 （mock） 的資料
@@ -38,7 +38,7 @@ ms.locfileid: "65597203"
 
 1. 您要設定靜態的結果時的動作，請遵循下列步驟： 
 
-   1. 在動作的右上角，選擇省略符號 (*...*) 按鈕，然後選取**靜態結果**，例如：
+   1. 在動作的右上角，選擇省略符號 ( *...* ) 按鈕，然後選取**靜態結果**，例如：
 
       ![選取 「 靜態的結果 」 > 「 啟用靜態結果 」](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 
@@ -46,7 +46,7 @@ ms.locfileid: "65597203"
 
       例如，以下是 HTTP 動作的必要的屬性：
 
-      | 屬性 | 說明 |
+      | 屬性 | 描述 |
       |----------|-------------|
       | **狀態** | 要傳回動作的狀態 |
       | **狀態碼** | 要傳回的特定狀態碼 |
@@ -103,7 +103,7 @@ ms.locfileid: "65597203"
 
    ![JSON 模式](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
-1. 完成之後，選擇 [完成]。 或者，若要返回設計工具，選擇**切換編輯器模式**(![選擇 [切換編輯器模式]](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png))。
+1. 完成之後，選擇 [完成]  。 或者，若要返回設計工具，選擇**切換編輯器模式**(![選擇 [切換編輯器模式]](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png))。
 
 <a name="find-runs-mock-data"></a>
 

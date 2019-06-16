@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/06/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 68f62a6945f3b651781414e3194104b6d2e6295c
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: 72a91fefc26e9c0b6d5a91223119815c4fcb9551
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455804"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808594"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure Blob 儲存體
 
@@ -58,7 +58,7 @@ ms.locfileid: "66455804"
 6.  若要準備磁碟，請執行下列命令。 **視資料大小而定，這可能需要數小時到數天的時間。** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite /enablecontentmd5 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite 
     ```
     日誌檔案會建立在執行此工具的相同資料夾中。 還會建立其他兩個檔案 - .xml  檔案 (您執行工具的資料夾) 和 drive-manifest.xml  檔案 (資料所在的資料夾)。
     
@@ -74,7 +74,7 @@ ms.locfileid: "66455804"
     |/dstdir:     |Azure 儲存體中目的地容器的名稱。         |
     |/blobtype:     |此選項會指定您要匯入之資料的 blob 的類型。 若為區塊 blob，則`BlockBlob`分頁 blob，則為`PagaBlob`。         |
     |/skipwrite：     |此選項表示不需要複製新資料，且即將準備磁碟上的現有資料。          |
-    |/enablecontentmd5:     |選項啟用時，可確保您的 azure 區塊 blob 上傳期間，會計算 MD5。          |
+    |/enablecontentmd5:     |選項啟用時，可確保 MD5 已計算，並設定為`Content-md5`上每個 blob 的屬性。 使用此選項，只有當您想要使用`Content-md5`欄位後資料上傳至 Azure。 <br> 此選項不會影響資料完整性檢查 （也就是預設值）。 此設定會增加資料上傳至雲端時所花費的時間。          |
 7. 為每個要寄送的磁碟重複上述步驟。 每次執行命令列時，都會使用提供的名稱來建立日誌檔案。
     
     > [!IMPORTANT]
@@ -84,7 +84,7 @@ ms.locfileid: "66455804"
 
 在 Azure 入口網站中執行下列步驟，以建立匯入作業。
 
-1. 登入 https://portal.azure.com/。
+1. 登入 https://portal.azure.com/ 。
 2. 移至 [所有服務] > [儲存體] > [匯入/匯出作業]  。 
     
     ![移至匯入/匯出作業](./media/storage-import-export-data-to-blobs/import-to-blob1.png)

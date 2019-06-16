@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 9dac7aa19e428c964bd10c3ef62df949393e8d1f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64681776"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>在 HDInsight 上計算 ML 服務的內容選項
@@ -27,12 +27,12 @@ Azure HDInsight 上的 ML 服務控制如何透過設定計算內容來執行呼
 ## <a name="compute-contexts-for-an-edge-node"></a>邊緣節點的計算內容
 一般而言，在邊緣節點上 ML 服務叢集中執行的 R 指令碼會在該節點上的 R 解譯器內執行。 但呼叫 RevoScaleR 函式的步驟則屬例外狀況。 RevoScaleR 呼叫會在計算環境中執行，該環境是由您設定 RevoScaleR 計算內容的方式所決定。  當您從邊緣節點執行 R 指令碼時，可能的計算內容值為：
 
-- 本機循序 (local)
-- 本機平行 (localpar)
+- 本機循序 (local  )
+- 本機平行 (localpar  )
 - Map Reduce
 - Spark
 
-local 和 localpar 選項的差別只在於執行 **rxExec** 呼叫的方式。 它們都會在所有可用的核心之間，以平行方式執行其他的 rx 函式呼叫，除非已指定，否則皆使用 RevoScaleR **numCoresToUse** 選項，例如 `rxOptions(numCoresToUse=6)`。 平行執行選項提供最佳效能。
+local  和 localpar  選項的差別只在於執行 **rxExec** 呼叫的方式。 它們都會在所有可用的核心之間，以平行方式執行其他的 rx 函式呼叫，除非已指定，否則皆使用 RevoScaleR **numCoresToUse** 選項，例如 `rxOptions(numCoresToUse=6)`。 平行執行選項提供最佳效能。
 
 下表摘要說明各種不同的計算內容選項來設定呼叫的執行方式：
 
@@ -56,8 +56,8 @@ local 和 localpar 選項的差別只在於執行 **rxExec** 呼叫的方式。 
 在給定這些原則的情況下，以下各節提供一些有關選取計算內容的一般準則。
 
 ### <a name="local"></a>本機
-* 如果要分析的資料量很小，而且不需要重複分析，請使用 local 或 localpar 直接將它串流到分析常式。
-* 如果要分析的資料量很小或是中等大小，而且需要重複分析，請將它複製到本機檔案系統、匯入至 XDF，然後透過 local 或 localpar 分析。
+* 如果要分析的資料量很小，而且不需要重複分析，請使用 local  或 localpar  直接將它串流到分析常式。
+* 如果要分析的資料量很小或是中等大小，而且需要重複分析，請將它複製到本機檔案系統、匯入至 XDF，然後透過 local  或 localpar  分析。
 
 ### <a name="apache-spark"></a>Apache Spark
 * 如果要分析的資料量很大，請使用 **RxHiveData** 或 **RxParquetData** 將它匯入到 Spark DataFrame，或匯入到 HDFS 中的 XDF (除非儲存體會是問題)，然後使用 Spark 計算內容分析。

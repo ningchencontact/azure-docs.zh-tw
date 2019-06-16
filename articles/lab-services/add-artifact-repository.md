@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: c1e74efa9cf99e8510ea17aedc840ce3b0731c3b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7ff036fbdf3ae9360bed8d728b9bec3a1937b70a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916666"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808257"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>將構件儲存機制新增至您在 DevTest Labs 的實驗室
-DevTest Labs 可讓您指定要加入至 VM，在建立 VM 時或之後建立 VM 構件。 一種工具或您想要在 VM 上安裝的應用程式，可能是此成品。 從 GitHub 或 VSTS Git 存放庫所載入的 JSON 檔案中定義的成品。 
+DevTest Labs 可讓您指定要加入至 VM，在建立 VM 時或之後建立 VM 構件。 一種工具或您想要在 VM 上安裝的應用程式，可能是此成品。 從 GitHub 或 Azure DevOps Git 儲存機制載入的 JSON 檔案中定義的成品。 
 
 [公用成品儲存機制](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)、 由 DevTest Labs 維護、 適用於 Windows 和 Linux 提供許多常用工具。 此存放庫的連結會自動加入至您的實驗室。 您可以使用公用成品儲存機制中無法使用的特定工具來建立您自己的構件儲存機制。 若要了解如何建立自訂構件，請參閱[建立自訂構件](devtest-lab-artifact-author.md)。
 
@@ -35,38 +35,38 @@ DevTest Labs 可讓您指定要加入至 VM，在建立 VM 時或之後建立 VM
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>取得 GitHub 儲存機制複製 URL 和個人存取權杖
 
 1. 移至包含構件或 Resource Manager 範本定義的 GitHub 存放庫首頁。
-2. 選取 [複製或下載] 。
-3. 若要將 URL 複製到剪貼簿，請選取 [HTTPS 複製 URL] 按鈕。 儲存 URL 以供稍後使用。
-4. 選取 GitHub 右上角的設定檔影像，然後選取 [設定]。
+2. 選取 [複製或下載]  。
+3. 若要將 URL 複製到剪貼簿，請選取 [HTTPS 複製 URL]  按鈕。 儲存 URL 以供稍後使用。
+4. 選取 GitHub 右上角的設定檔影像，然後選取 [設定]  。
 5. 在 **個人設定**左側功能表，選取**開發人員設定**。
 6. 選取 **個人存取權杖**左側功能表上。
-7. 選取 [產生新的權杖] 。
-8. 在 [新增個人存取權杖] 頁面上，於 [權杖描述] 底下輸入描述。 接受 [選取範圍] 底下的預設項目，然後選取 [產生權杖]。
+7. 選取 [產生新的權杖]  。
+8. 在 [新增個人存取權杖]  頁面上，於 [權杖描述]  底下輸入描述。 接受 [選取範圍]  底下的預設項目，然後選取 [產生權杖]  。
 9. 儲存產生的權杖。 您稍後會用到該權杖。
 10. 關閉 GitHub。   
 
 ### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>取得 Azure Repos 複製 URL 和個人存取權杖
 1. 移至您的小組集合首頁 (例如 https://contoso-web-team.visualstudio.com) ，然後選取專案。
-2. 在專案首頁上，選取 [程式碼] 。
-3. 若要檢視複製 URL，可在專案 [程式碼] 頁面上，選取 [複製]。
+2. 在專案首頁上，選取 [程式碼]  。
+3. 若要檢視複製 URL，可在專案 [程式碼]  頁面上，選取 [複製]  。
 4. 儲存 URL。 您稍後會用到該 URL。
-5. 若要建立個人存取權杖，請選取使用者帳戶下拉式功能表中的 [我的設定檔]。
-6. 在 [設定檔資訊] 頁面上，選取 [安全性] 。
-7. 在 [安全性] 索引標籤上，選取 [新增]。
-8. 在 [建立個人存取權杖] 頁面上：
+5. 若要建立個人存取權杖，請選取使用者帳戶下拉式功能表中的 [我的設定檔]  。
+6. 在 [設定檔資訊] 頁面上，選取 [安全性]  。
+7. 在 [安全性]  索引標籤上，選取 [新增]  。
+8. 在 [建立個人存取權杖]  頁面上：
    1. 輸入權杖的 **描述** 。
-   2. 在 [到期日] 清單中選取 [180 天]。
-   3. 在 [帳戶] 清單中選取 [所有可存取的帳戶]。
-   4. 選取 [所有範圍] 選項。
-   5. 選擇 [建立權杖]。
-9. 新的權杖會出現在 [個人存取權杖] 清單中。 選取 [複製權杖] ，然後儲存權杖值供稍後使用。
+   2. 在 [到期日]  清單中選取 [180 天]  。
+   3. 在 [帳戶]  清單中選取 [所有可存取的帳戶]  。
+   4. 選取 [所有範圍]  選項。
+   5. 選擇 [建立權杖]  。
+9. 新的權杖會出現在 [個人存取權杖]  清單中。 選取 [複製權杖]  ，然後儲存權杖值供稍後使用。
 10. 繼續 連線您的實驗室的儲存機制 」 一節。
 
 ## <a name="use-azure-portal"></a>使用 Azure 入口網站
 本節提供在 Azure 入口網站中對實驗室新增構件儲存機制的步驟。 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [更多服務]，然後從服務清單中選取 [DevTest Labs]。
+2. 選取 [更多服務]  ，然後從服務清單中選取 [DevTest Labs]  。
 3. 從實驗室清單中選取您的實驗室。 
 4. 選取 **組態和原則**左側功能表上。
 5. 選取**儲存機制**下方**外部資源**左側功能表上的一節。
@@ -352,7 +352,7 @@ Set-AzContext -SubscriptionId <Your Azure subscription ID>
 | --------- | ----------- | 
 | LabName | 實驗室名稱。 |
 | ArtifactRepositoryName | 新的成品存放庫的名稱。 如果未指定，指令碼會建立存放庫的隨機名稱。 |
-| ArtifactRepositoryDisplayName | 構件儲存機制的顯示名稱。 這是顯示在 Azure 入口網站的名稱 (https://portal.azure.com)時檢視實驗室的所有構件儲存機制。 |
+| ArtifactRepositoryDisplayName | 構件儲存機制的顯示名稱。 這是顯示在 Azure 入口網站的名稱 (https://portal.azure.com) 時檢視實驗室的所有構件儲存機制。 |
 | RepositoryUri | 儲存機制的 Uri。 範例：`https://github.com/<myteam>/<nameofrepo>.git`或`"https://MyProject1.visualstudio.com/DefaultCollection/_git/TeamArtifacts"`。| 
 | RepositoryBranch | 哪些成品中可以找到檔案的分支。 預設值為 'master'。 | 
 | FolderPath | 可以找到成品所在的資料夾。 預設值為 '/' 成品 |

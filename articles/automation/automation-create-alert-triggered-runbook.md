@@ -10,10 +10,10 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 8a1ae906a72d781f638fb171a409b860ffa6d501
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65517711"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>使用警示來觸發 Azure 自動化 Runbook
@@ -33,11 +33,11 @@ ms.locfileid: "65517711"
 
 當警示呼叫 Runbook 時，實際的呼叫是對 Webhook 的 HTTP POST 要求。 POST 要求的本文包含 JSON 格式的物件，其中具有與警示相關的實用屬性。 下表列出每種警示類型的承載結構描述連結：
 
-|警示  |說明|承載結構描述  |
+|警示  |描述|承載結構描述  |
 |---------|---------|---------|
 |[常見的警示](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|一般警示架構今天標準化的使用體驗，在 Azure 中的警示通知。|[常見的警示承載結構描述](../azure-monitor/platform/alerts-common-schema-definitions.md?toc=%2fazure%2fautomation%2ftoc.json#sample-alert-payload)|
-|[活動記錄警示](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |當 Azure 活動記錄中的任何新事件符合特定條件時，便傳送通知。 例如，當 **myProductionResourceGroup** 中發生 `Delete VM` 作業時，或出現狀態為 [作用中] 的新「Azure 服務健康狀態」事件時。| [活動記錄警示承載結構描述](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
-|[近乎即時計量警示](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |當一或多個平台層級的計量符合指定的條件時，便以比計量警示快的速度傳送通知。 例如，當在過去 5 分鐘 VM 上 [CPU %] 的值大於 **90**，且 [網路輸入] 的值大於 **500 MB** 時。| [近乎即時計量警示承載結構描述](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
+|[活動記錄警示](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |當 Azure 活動記錄中的任何新事件符合特定條件時，便傳送通知。 例如，當 **myProductionResourceGroup** 中發生 `Delete VM` 作業時，或出現狀態為 [作用中]  的新「Azure 服務健康狀態」事件時。| [活動記錄警示承載結構描述](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
+|[近乎即時計量警示](../azure-monitor/platform/alerts-metric-near-real-time.md?toc=%2fazure%2fautomation%2ftoc.json)    |當一或多個平台層級的計量符合指定的條件時，便以比計量警示快的速度傳送通知。 例如，當在過去 5 分鐘 VM 上 [CPU %]  的值大於 **90**，且 [網路輸入]  的值大於 **500 MB** 時。| [近乎即時計量警示承載結構描述](../azure-monitor/platform/alerts-webhooks.md#payload-schema)          |
 
 由於每種類型的警示所提供的資料不同，因此每種警示類型的處理方式也不同。 在下一節中，您將了解如何建立 Runbook 來處理不同類型的警示。
 
@@ -56,7 +56,7 @@ Runbook 會使用**AzureRunAsConnection** [執行身分帳戶](automation-create
 1. 移至您的「Azure 自動化」帳戶。
 2. 底下**程序自動化**，選取**Runbook**。
 3. 在 runbook 清單頂端，選取 **+ 建立 runbook**。
-4. 在 **新增 Runbook**頁面上，輸入**Stop-azurevminresponsetovmalert**針對 runbook 名稱。 針對 Runbook 類型，選取 [PowerShell]。 然後，選取 [Create] \(建立\)。  
+4. 在 **新增 Runbook**頁面上，輸入**Stop-azurevminresponsetovmalert**針對 runbook 名稱。 針對 Runbook 類型，選取 [PowerShell]  。 然後，選取 [Create]  \(建立\)。  
 5. 複製到下列 PowerShell 範例**編輯**頁面。
 
     ```powershell-interactive
@@ -168,7 +168,7 @@ Runbook 會使用**AzureRunAsConnection** [執行身分帳戶](automation-create
     }
     ```
 
-6. 選取 [發佈] 來儲存並發佈 Runbook。
+6. 選取 [發佈]  來儲存並發佈 Runbook。
 
 ## <a name="create-the-alert"></a>建立警示
 
@@ -176,16 +176,16 @@ Runbook 會使用**AzureRunAsConnection** [執行身分帳戶](automation-create
 
 1. 在您的自動化帳戶中選取**警示**下方**監視**。
 1. 選取  **+ 新增警示規則**。
-1. 按一下 **選取 **下方**資源**。 在 **選取資源**頁面上，選取您的 VM 關閉的警示，然後按一下**完成**。
+1. 按一下 **選取** 下方**資源**。 在 **選取資源**頁面上，選取您的 VM 關閉的警示，然後按一下**完成**。
 1. 按一下 **新增條件**下方**條件**。 選取您想要使用，例如的訊號**CPU 百分比**然後按一下**完成**。
 1. 在上**設定訊號邏輯**頁面上，輸入您**臨界值**下**警示邏輯**，然後按一下**完成**。
-1. 在 [動作群組] 底下，選取 [新建]。
+1. 在 [動作群組]  底下，選取 [新建]  。
 1. 在 **新增動作群組**頁面上，提供您的動作群組的名稱和簡短名稱。
 1. 指定動作的名稱。 動作類型中，選取**自動化 Runbook**。
-1. 選取 **編輯詳細資料**。 在 [設定 Runbook] 頁面上的 [Runbook 來源] 底下，選取 [使用者]。  
-1. 選取您的 [訂用帳戶] 和 [自動化帳戶]，然後選取 [Stop-AzureVmInResponsetoVMAlert] Runbook。  
+1. 選取 **編輯詳細資料**。 在 [設定 Runbook]  頁面上的 [Runbook 來源]  底下，選取 [使用者]  。  
+1. 選取您的 [訂用帳戶]  和 [自動化帳戶]  ，然後選取 [Stop-AzureVmInResponsetoVMAlert]  Runbook。  
 1. 選取  **是** for**啟用常見的警示結構描述**。
-1. 若要建立動作群組，請選取 [確定]。
+1. 若要建立動作群組，請選取 [確定]  。
 
     ![新增動作群組分頁](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 

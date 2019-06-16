@@ -14,10 +14,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 7b6323e02225be3d954e4ee91ea06952bb3ce396
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001772"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>事件中樞傳訊例外狀況
@@ -83,9 +83,9 @@ ms.locfileid: "66001772"
     
     解決方案：修改資料分割散發策略，或嘗試 [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient)，可能會有幫助。
 
-2. 事件中樞命名空間沒有足夠的輸送量單位 (您可以檢查 [Azure 入口網站](https://portal.azure.com)中 [事件中樞命名空間] 視窗上的 [度量] 畫面來確認)。 入口網站會顯示彙總資訊 (1 分鐘)，但我們會即時測量輸送量 – 因此這只是估計值。
+2. 事件中樞命名空間沒有足夠的輸送量單位 (您可以檢查 [Azure 入口網站](https://portal.azure.com)中 [事件中樞命名空間] 視窗上的 [度量]  畫面來確認)。 入口網站會顯示彙總資訊 (1 分鐘)，但我們會即時測量輸送量 – 因此這只是估計值。
 
-    解決方案：增加命名空間的輸送量單位可能會有幫助。 您可以透過入口網站，在 [事件中樞命名空間] 畫面的 [調整] 視窗中執行此作業。 您也可以使用[自動擴充](event-hubs-auto-inflate.md)。
+    解決方案：增加命名空間的輸送量單位可能會有幫助。 您可以透過入口網站，在 [事件中樞命名空間] 畫面的 [調整]  視窗中執行此作業。 您也可以使用[自動擴充](event-hubs-auto-inflate.md)。
 
 ### <a name="error-code-50001"></a>錯誤碼 50001
 

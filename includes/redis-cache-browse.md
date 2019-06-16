@@ -9,23 +9,23 @@ ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 7f03072c2b7ee1f08fc5fa306da6c5b8368742ae
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133089"
 ---
-如果您未將快取釘選到儀表板，請使用 [所有服務] 在 [Azure 入口網站](https://portal.azure.com)中找到快取。
+如果您未將快取釘選到儀表板，請使用 [所有服務]  在 [Azure 入口網站](https://portal.azure.com)中找到快取。
 
 ![Azure Cache for Redis 瀏覽刀鋒視窗](media/redis-cache-browse/redis-cache-browse.png)
 
-若要檢視您的快取，請按一下 [所有服務] 並搜尋 [Azure Cache for Redis]。 
+若要檢視您的快取，請按一下 [所有服務]  並搜尋 [Azure Cache for Redis]  。 
 
 選取所需的快取，以檢視和設定該快取的設定。
 
 ![Azure Cache for Redis 瀏覽快取清單](media/redis-cache-browse/redis-caches.png)
 
-您可以在 [Azure Cache for Redis] 刀鋒視窗檢視和設定快取。
+您可以在 [Azure Cache for Redis]  刀鋒視窗檢視和設定快取。
 
 ![Azure Cache for Redis 全部設定](media/redis-cache-browse/redis-cache-blade.png)
 

@@ -8,21 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: a1b816656e019a214e8c0dc72b79575c49d99e68
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 62c9dcc039c68b0b6c8b8bf29ed9f13f88936723
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719598"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059604"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>在以 Linux 為基礎的 HDInsight 上啟用 Apache Hadoop 服務的堆積傾印
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
 堆積傾印含有應用程式記憶體的快照，其中包括建立傾印時的變數值。 因此它們有助於為執行階段發生的問題進行診斷。
-
-> [!IMPORTANT]  
-> 本文件中的步驟只適用於使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="whichServices"></a>服務
 
@@ -63,7 +60,7 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 
 ### <a name="dump-location"></a>傾印位置
 
-傾印檔案的預設位置是目前的工作目錄。 可以使用以下选项来控制文件的存储位置：
+傾印檔案的預設位置是目前的工作目錄。 您可以使用以下選項，控制檔案的儲存位置：
 
     -XX:HeapDumpPath=/path
 
@@ -84,7 +81,7 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 
 若要修改服務的組態，請依照下列步驟進行：
 
-1. 開啟叢集的 Ambari Web UI。 URL 為 https://YOURCLUSTERNAME.azurehdinsight.net。
+1. 開啟叢集的 Ambari Web UI。 URL 為 https://YOURCLUSTERNAME.azurehdinsight.net 。
 
     出現提示時，請使用您叢集的 HTTP 帳戶名稱 (預設值：admin) 和密碼來向網站驗證。
 
@@ -95,33 +92,33 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 
     ![Ambari Web 圖片 (已選取 HDFS 設定索引標籤)](./media/hdinsight-hadoop-heap-dump-linux/serviceconfig.png)
 
-3. 在 [篩選...] 項目中輸入 **opts**。 只會顯示包含此文字的項目。
+3. 在 [篩選...]  項目中輸入 **opts**。 只會顯示包含此文字的項目。
 
-    ![筛选的列表](./media/hdinsight-hadoop-heap-dump-linux/filter.png)
+    ![篩選的清單](./media/hdinsight-hadoop-heap-dump-linux/filter.png)
 
 4. 針對您想要啟用堆積傾印的服務尋找 **\*\_OPTS** 項目，並新增您想要啟用的選項。 在下圖中，我將 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` 新增至 **HADOOP\_NAMENODE\_OPTS** 項目：
 
-    ![HADOOP_NAMENODE_OPTS with -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
+    ![含有 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/ 的 HADOOP_NAMENODE_OPTS](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
    > [!NOTE]  
    > 啟用 map 或 reduce 子處理序的堆積傾印時，請尋找名為 **mapreduce.admin.map.child.java.opts** 和 **mapreduce.admin.reduce.child.java.opts** 的欄位。
 
-    使用 [儲存] 按鈕來儲存變更。 您可以輸入簡短的附註來說明所做的變更。
+    使用 [儲存]  按鈕來儲存變更。 您可以輸入簡短的附註來說明所做的變更。
 
 5. 套用變更後，一或多個服務旁邊就會出現**必須重新啟動**圖示。
 
     ![必須重新啟動圖示和重新啟動按鈕](./media/hdinsight-hadoop-heap-dump-linux/restartrequiredicon.png)
 
-6. 選取每個需要重新啟動的服務，並使用 [服務動作] 按鈕**開啟維護模式**。 維護模式可避免您在重新啟動服務產生警示。
+6. 選取每個需要重新啟動的服務，並使用 [服務動作]  按鈕**開啟維護模式**。 維護模式可避免您在重新啟動服務產生警示。
 
     ![開啟維護模式功能表](./media/hdinsight-hadoop-heap-dump-linux/maintenancemode.png)
 
-7. 啟用維護模式後，請使用服務的 [重新啟動] 按鈕來**重新啟動所有受影響的項目**。
+7. 啟用維護模式後，請使用服務的 [重新啟動]  按鈕來**重新啟動所有受影響的項目**。
 
     ![重新啟動所有受影響的項目](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
 
    > [!NOTE]  
-   > 其他服務的 [重新啟動] 按鈕項目可能會有所不同。
+   > 其他服務的 [重新啟動]  按鈕項目可能會有所不同。
 
-8. 重新啟動服務後，請使用 [服務動作] 按鈕**關閉維護模式**。 這麼做可讓 Ambari 繼續監視服務是否有警示。
+8. 重新啟動服務後，請使用 [服務動作]  按鈕**關閉維護模式**。 這麼做可讓 Ambari 繼續監視服務是否有警示。
 

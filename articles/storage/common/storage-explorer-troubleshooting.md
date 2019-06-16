@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 980dc850537b7419e4ee48391acd5ba971fb3fed
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 03cb3f2339dda1bf1dbb510b686882e924a98d74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306722"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118690"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
 
@@ -194,7 +194,7 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 
 * 如果必須透過 proxy 工作，您可能必須設定網路工具透過 proxy 連線。
 * 檢查網路工具使用的連接埠號碼。
-* 輸入本機主機 URL 和網路工具的連接埠號碼，當做儲存體總管的 proxy 設定。 如果作業正確，您的網路工具就會開始記錄儲存體總管向管理和服務端點提出的網路要求。 例如，輸入 https://cawablobgrs.blob.core.windows.net/回應為您的 blob 端點，在瀏覽器中，而且您會收到類似下列程式碼，這表示資源存在於，雖然您無法存取它。
+* 輸入本機主機 URL 和網路工具的連接埠號碼，當做儲存體總管的 proxy 設定。 如果作業正確，您的網路工具就會開始記錄儲存體總管向管理和服務端點提出的網路要求。 例如，輸入 https://cawablobgrs.blob.core.windows.net/ 回應為您的 blob 端點，在瀏覽器中，而且您會收到類似下列程式碼，這表示資源存在於，雖然您無法存取它。
 
 ![程式碼範例](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -235,7 +235,7 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 
 一般情況下，需要下列封裝在 Linux 上執行儲存體總管：
 
-* [.NET core 2.0 執行階段](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)附註：儲存體總管版本 1.7.0 和稍早需要.NET Core 2.0。 如果您有較新版的.NET Core 安裝將會需要修補儲存體總管 （請參閱下文）。 如果您執行儲存體總管 1.8.0 或更高的然後您應該能夠最多可以使用.NET Core 2.2。 2.2 版本尚未驗證能夠在這個階段。
+* [.NET core 2.0 執行階段](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)附註：儲存體總管版本 1.7.0 和稍早需要.NET Core 2.0。 如果您有較新版的.NET Core 安裝將會需要修補儲存體總管 （請參閱下文）。 如果您執行儲存體總管 1.8.0 或更高的然後您應該能夠最多可以使用.NET Core 2.2。 2\.2 版本尚未驗證能夠在這個階段。
 * `libgnome-keyring-common`和`libgnome-keyring-dev`
 * `libgconf-2-4`
 

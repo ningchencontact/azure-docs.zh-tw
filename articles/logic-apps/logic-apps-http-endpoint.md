@@ -13,10 +13,10 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.openlocfilehash: b091fb8c6f0b2b655ce0595188c362206f79d702
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66495047"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>呼叫、 觸發程序或透過 Azure Logic Apps 中的 HTTP 端點的巢狀工作流程
@@ -243,7 +243,7 @@ ms.locfileid: "66495047"
 
 | 屬性 | 描述 |
 | --- | --- |
-| StatusCode |指定用於回應傳入要求的 HTTP 狀態碼。 此代碼可以是任何以 2xx、4xx 或 5xx 開頭的有效狀態碼。 但是，不允許 3xx 狀態碼。 |
+| statusCode |指定用於回應傳入要求的 HTTP 狀態碼。 此代碼可以是任何以 2xx、4xx 或 5xx 開頭的有效狀態碼。 但是，不允許 3xx 狀態碼。 |
 | headers |定義要包含於回應中的標頭，且數目不限。 |
 | body |指定本文物件可以是字串、JSON 物件，甚至是上一個步驟中所參考的二進位內容。 |
 

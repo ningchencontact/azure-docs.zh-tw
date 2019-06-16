@@ -10,17 +10,17 @@ ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 847c928681451b4fef93198e2f2272d5bb04b1b8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919790"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>編譯 Azure Automation State Configuration 中的 DSC 組態
 
 使用 Azure Automation State Configuration 時有兩種方式可以編譯 Desired State Configuration (DSC) 組態：在 Azure 入口網站中，以及使用 Windows PowerShell。 下表可協助您根據方法的特性判斷何時應使用哪種方法：
 
-**Azure 门户**
+**Azure 入口網站**
 
 - 互動式使用者介面的最簡單方法
 - 提供簡單參數值的表單
@@ -41,11 +41,11 @@ ms.locfileid: "64919790"
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>使用 Azure 入口網站編譯 DSC 組態
 
-1. 從您的自動化帳戶，按一下 [State Configuration (DSC)]。
-1. 按一下 [組態] 索引標籤，然後按一下要編譯的組態名稱。
-1. 按一下 [編譯] 。
-1. 如果組態沒有參數，系統會提示您確認是否要加以編譯。 如果組態有參數，即會開啟 [編譯組態] 刀鋒視窗，讓您可以提供參數值。 如需參數的進一步詳細資訊，請參閱下列[**基本參數**](#basic-parameters)一節。
-1. [編譯工作] 頁面隨即開啟，供您追蹤編譯工作的狀態，以及因為此工作而放在 Azure Automation State Configuration 提取伺服器上的節點組態 (MOF 組態文件)。
+1. 從您的自動化帳戶，按一下 [State Configuration (DSC)]  。
+1. 按一下 [組態]  索引標籤，然後按一下要編譯的組態名稱。
+1. 按一下 [編譯]  。
+1. 如果組態沒有參數，系統會提示您確認是否要加以編譯。 如果組態有參數，即會開啟 [編譯組態]  刀鋒視窗，讓您可以提供參數值。 如需參數的進一步詳細資訊，請參閱下列[**基本參數**](#basic-parameters)一節。
+1. [編譯工作]  頁面隨即開啟，供您追蹤編譯工作的狀態，以及因為此工作而放在 Azure Automation State Configuration 提取伺服器上的節點組態 (MOF 組態文件)。
 
 ## <a name="compiling-a-dsc-configuration-with-windows-powershell"></a>使用 Windows PowerShell 編譯 DSC 組態
 
@@ -109,7 +109,7 @@ Configuration ParametersExample
 
 ### <a name="portal"></a>入口網站
 
-在入口網站中，您可以在按一下 [編譯] 後輸入參數值。
+在入口網站中，您可以在按一下 [編譯]  後輸入參數值。
 
 ![組態編譯參數](./media/automation-dsc-compile/DSC_compiling_1.png)
 
@@ -230,7 +230,7 @@ Azure Automation State Configuration 和 Runbook 中的資產參考是相同的�
 
 - [憑證](automation-certificates.md)
 - [連線](automation-connections.md)
-- [凭据](automation-credentials.md)
+- [認證](automation-credentials.md)
 - [變數](automation-variables.md)
 
 ### <a name="credential-assets"></a>認證資產
@@ -285,13 +285,13 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 > [!NOTE]
 > 完成編譯時，您可能會收到錯誤，指出：**並未匯入 'Microsoft.PowerShell.Management' 模組，因為已經匯入 'Microsoft.PowerShell.Management' 嵌入式管理單元。** 請放心忽略這項警告。
 
-## <a name="partial-configuration"></a>部分配置
+## <a name="partial-configuration"></a>部分設定
 
-Azure 自动化状态配置支持使用[部分配置](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs)。
-在此方案中，DSC 配置为独立管理多个配置，并且每个配置都从 Azure 自动化中检索。
-但是，每个自动化帐户只能为一个节点分配一个配置。
-这意味着，如果对节点使用两种配置，则需要两个自动化帐户。
-有关团队如何协作以代码形式使用配置来协作管理服务器的更多信息，请参见[了解 DSC 在 CI/CD 管道中的角色](https://docs.microsoft.com/powershell/dsc/overview/authoringadvanced)。
+Azure 自動化狀態設定支援的使用方式[部分設定](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs)。
+在此案例中，DSC 會設定為獨立地管理多個組態，每個組態會從 Azure 自動化的 retreieved。
+不過，只有一個組態可以指派給每個自動化帳戶的節點。
+這表示如果您使用兩個組態的節點，您將需要兩個自動化帳戶。
+小組可以運作方式的詳細資訊一起共同管理的伺服器使用組態即程式碼請參閱[CI/CD 管線中的了解 DSC 角色](https://docs.microsoft.com/powershell/dsc/overview/authoringadvanced)。
 
 ## <a name="importing-node-configurations"></a>匯入節點組態
 
@@ -307,14 +307,14 @@ Azure 自动化状态配置支持使用[部分配置](https://docs.microsoft.com
 
 ### <a name="importing-a-node-configuration-in-the-azure-portal"></a>在 Azure 入口網站中匯入節點組態
 
-1. 從您的自動化帳戶，按一下 [組態管理] 下方的 [State configuration (DSC)]。
-1. 在 [State Configuration (DSC)] 頁面中，按一下 [組態] 索引標籤，然後按一下 [+ 新增]。
-1. 在 [匯入] 頁面中，按一下資料夾圖示旁的 [節點組態檔] 文字方塊，以瀏覽本機電腦上的節點組態檔 (MOF)。
+1. 從您的自動化帳戶，按一下 [組態管理]  下方的 [State configuration (DSC)]  。
+1. 在 [State Configuration (DSC)]  頁面中，按一下 [組態]  索引標籤，然後按一下 [+ 新增]  。
+1. 在 [匯入]  頁面中，按一下資料夾圖示旁的 [節點組態檔]  文字方塊，以瀏覽本機電腦上的節點組態檔 (MOF)。
 
    ![瀏覽本機檔案](./media/automation-dsc-compile/import-browse.png)
 
-1. 在 [組態名稱]文字方塊中輸入名稱。 此名稱必須符合已編譯節點組態的組態名稱。
-1. 按一下 [確定]。
+1. 在 [組態名稱]  文字方塊中輸入名稱。 此名稱必須符合已編譯節點組態的組態名稱。
+1. 按一下 [確定]  。
 
 ### <a name="importing-a-node-configuration-with-powershell"></a>使用 PowerShell 匯入節點組態
 

@@ -11,10 +11,10 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b486c30827ee67b58cbdc0027c8221cceed02e51
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235950"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration 概觀
@@ -62,7 +62,7 @@ Azure Automation State Configuration 為 [PowerShell Desired State Configuration
 
 DSC Linux 延伸模組支援的所有 Linux 散發套件[azure 背書](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)除外：
 
-配送映像 | 版本
+配送映像 | Version
 -|-
 Debian  | 所有版本
 Ubuntu  | 18.04

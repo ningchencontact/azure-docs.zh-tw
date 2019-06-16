@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: 2cfd5a99144af1120afbf06fe6222228a9332bb6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787431"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>如何監視 Azure Cache for Redis
@@ -28,31 +28,31 @@ Azure Cache for Redis 執行個體的計量使用 Redis [INFO](https://redis.io/
 
 <a name="view-cache-metrics"></a>
 
-若要檢視快取度量，請[瀏覽](cache-configure.md#configure-azure-cache-for-redis-settings)至您在 [Azure 入口網站](https://portal.azure.com)中的快取執行個體。  Azure Cache for Redis 會在 [概觀] 刀鋒視窗和 [Redis 計量] 刀鋒視窗中提供一些內建圖表。 新增或移除度量，以及變更報告間隔，即可自訂每個圖表。
+若要檢視快取度量，請[瀏覽](cache-configure.md#configure-azure-cache-for-redis-settings)至您在 [Azure 入口網站](https://portal.azure.com)中的快取執行個體。  Azure Cache for Redis 會在 [概觀]  刀鋒視窗和 [Redis 計量]  刀鋒視窗中提供一些內建圖表。 新增或移除度量，以及變更報告間隔，即可自訂每個圖表。
 
 ![Redis 度量](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
 
 ## <a name="view-pre-configured-metrics-charts"></a>檢視預先設定的計量圖表
 
-[概觀] 刀鋒視窗具有下列預先設定的監視圖表。
+[概觀]  刀鋒視窗具有下列預先設定的監視圖表。
 
 * [監視圖表](#monitoring-charts)
 * [使用量圖表](#usage-charts)
 
 ### <a name="monitoring-charts"></a>监视图表
-[概觀] 刀鋒視窗的 [監視] 區段具有 [點擊和遺漏]、[取得和設定]、[連線] 和 [總命令數] 圖表。
+[概觀]  刀鋒視窗的 [監視]  區段具有 [點擊和遺漏]  、[取得和設定]  、[連線]  和 [總命令數]  圖表。
 
 ![監視圖表](./media/cache-how-to-monitor/redis-cache-monitoring-part.png)
 
 ### <a name="usage-charts"></a>使用量圖表
-[概觀] 刀鋒視窗的 [使用量] 區段有 [Redis 伺服器負載]、[記憶體使用量]、[網路頻寬] 和 [CPU 使用量] 圖表，也會顯示快取執行個的 [定價層]。
+[概觀]  刀鋒視窗的 [使用量]  區段有 [Redis 伺服器負載]  、[記憶體使用量]  、[網路頻寬]  和 [CPU 使用量]  圖表，也會顯示快取執行個的 [定價層]  。
 
 ![使用量圖表](./media/cache-how-to-monitor/redis-cache-usage-part.png)
 
-“定价层”显示缓存定价层，并可用于将缓存[缩放](cache-how-to-scale.md)到不同的定价层。
+“定价层”显示缓存定价层，并可用于将缓存[缩放](cache-how-to-scale.md)到不同的定价层。 
 
 ## <a name="view-metrics-with-azure-monitor"></a>使用 Azure 監視器檢視計量
-若要檢視 Redis 計量，並使用 Azure 監視器建立自訂圖表，請按一下 [資源] 功能表的 [計量]，使用所需的計量、報告間隔、圖表類型等來自訂圖表。
+若要檢視 Redis 計量，並使用 Azure 監視器建立自訂圖表，請按一下 [資源]  功能表的 [計量]  ，使用所需的計量、報告間隔、圖表類型等來自訂圖表。
 
 ![Redis 度量](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
@@ -61,16 +61,16 @@ Azure Cache for Redis 執行個體的計量使用 Redis [INFO](https://redis.io/
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>匯出快取計量
-根據預設，Azure 監視器中的快取計量會[儲存 30 天](../azure-monitor/platform/data-platform-metrics.md)後刪除。 若要保留您的快取計量超過 30 天，您可以[指定儲存體帳戶](../azure-monitor/platform/archive-diagnostic-logs.md)，並指定快取計量的 [保留天數] 原則。 
+根據預設，Azure 監視器中的快取計量會[儲存 30 天](../azure-monitor/platform/data-platform-metrics.md)後刪除。 若要保留您的快取計量超過 30 天，您可以[指定儲存體帳戶](../azure-monitor/platform/archive-diagnostic-logs.md)，並指定快取計量的 [保留天數]  原則。 
 
 設定快取計量的儲存體帳戶：
 
-1. 在 [Azure Cache for Redis] 刀鋒視窗中，按一下 [資源] 功能表中的 [診斷]。
-2. 按一下 [開啟]。
-3. 勾選 [封存至儲存體帳戶]。
+1. 在 [Azure Cache for Redis]  刀鋒視窗中，按一下 [資源]  功能表中的 [診斷]  。
+2. 按一下 [開啟]  。
+3. 勾選 [封存至儲存體帳戶]  。
 4. 選取要儲存快取計量的儲存體帳戶。
-5. 勾選 [1 分鐘] 核取方塊，並指定 [保留天數] 原則。 如果您不想要套用任何保留期原則，也不想永久保留資料，請將 [保留天數] 設為 **0**。
-6. 按一下 [檔案] 。
+5. 勾選 [1 分鐘]  核取方塊，並指定 [保留天數]  原則。 如果您不想要套用任何保留期原則，也不想永久保留資料，請將 [保留天數]  設為 **0**。
+6. 按一下 [檔案]  。
 
 ![Redis 診斷](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
@@ -87,7 +87,7 @@ Azure Cache for Redis 執行個體的計量使用 Redis [INFO](https://redis.io/
 > 
 
 ## <a name="available-metrics-and-reporting-intervals"></a>可用度量和報告間隔
-快取度量是使用數個報告間隔所報告，包括 [過去一小時]、[今天]、[過去一週] 和 [自訂]。 每個度量圖的 [度量]  分頁都會顯示圖表中每個度量的平均值、最小值和最大值，而有些度量會顯示報告間隔的總計。 
+快取度量是使用數個報告間隔所報告，包括 [過去一小時]  、[今天]  、[過去一週]  和 [自訂]  。 每個度量圖的 [度量]  分頁都會顯示圖表中每個度量的平均值、最小值和最大值，而有些度量會顯示報告間隔的總計。 
 
 每個度量都包含兩個版本。 有一個度量會測量整個快取的效能，以及使用[叢集](cache-how-to-premium-clustering.md)之快取的效能，名稱中包含 `(Shard 0-9)` 的第二個度量版本則會測量快取中單一分區的效能。 例如，如果快取有 4 個分區，`Cache Hits` 就是整個快取的點擊總數，而 `Cache Hits (Shard 3)` 就只是該快取分區的點擊數。
 
@@ -126,7 +126,7 @@ Azure Cache for Redis 執行個體的計量使用 Redis [INFO](https://redis.io/
 * 呼叫 Webhook
 * 叫用 Azure 邏輯應用程式
 
-若要設定快取警示規則，請按一下 [資源] 功能表的 [警示規則]。
+若要設定快取警示規則，請按一下 [資源]  功能表的 [警示規則]  。
 
 ![監視](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
@@ -140,7 +140,7 @@ Azure Cache for Redis 執行個體的計量使用 Redis [INFO](https://redis.io/
 >
 >
 
-若要檢視快取的活動記錄，請按一下 [資源] 功能表的 [活動記錄]。
+若要檢視快取的活動記錄，請按一下 [資源]  功能表的 [活動記錄]  。
 
 如需活動記錄的詳細資訊，請參閱 [Azure 活動記錄概觀](../azure-monitor/platform/activity-logs-overview.md)。
 

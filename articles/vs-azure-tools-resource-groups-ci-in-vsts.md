@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
 ms.openlocfilehash: 692c075b55efd138f6d731ffae43608f141abfdc
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66019777"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>使用 Azure 資源群組部署專案在 Azure DevOps Services 中進行持續整合
@@ -52,38 +52,38 @@ ms.locfileid: "66019777"
 ### <a name="detailed-walkthrough-for-option-1"></a>選項 1 的詳細逐步解說
 下列程序會使用單一工作在您的專案中執行 PowerShell 指令碼，逐步引導您進行在 Azure DevOps Services 中設定持續部署所需的步驟。 
 
-1. 編輯您的 Azure DevOps Services 組建管線並新增 Azure PowerShell 組建步驟。 在 [組建管線] 類別下選擇組建管線，再選擇 [編輯] 連結。
+1. 編輯您的 Azure DevOps Services 組建管線並新增 Azure PowerShell 組建步驟。 在 [組建管線]  類別下選擇組建管線，再選擇 [編輯]  連結。
    
    ![編輯組建管線][0]
-2. 在組建管線中新增 [Azure PowerShell] 組建步驟，再選擇 [新增組建步驟...] 按鈕。
+2. 在組建管線中新增 [Azure PowerShell]  組建步驟，再選擇 [新增組建步驟...]  按鈕。
    
    ![新增組建步驟][1]
-3. 選擇 [部署工作] 類別，選取 [Azure PowerShell] 工作，再選擇其 [新增] 按鈕。
+3. 選擇 [部署工作]  類別，選取 [Azure PowerShell]  工作，再選擇其 [新增]  按鈕。
    
    ![新增工作][2]
 4. 選擇 [Azure PowerShell]  組建步驟，再填上其值。
    
-   1. 如果您已將 Azure 服務端點新增至 Azure DevOps Services，請在 [Azure 訂用帳戶] 下拉式清單方塊中選擇訂用帳戶，並跳至下一節。 
+   1. 如果您已將 Azure 服務端點新增至 Azure DevOps Services，請在 [Azure 訂用帳戶]  下拉式清單方塊中選擇訂用帳戶，並跳至下一節。 
       
       如果您的 Azure DevOps Services 中沒有 Azure 服務端點，請新增一個。 此訂用帳戶會帶您完成此程序。 如果您的 Azure 帳戶使用 Microsoft 帳戶 (例如 Hotmail)，您必須進行下列步驟以取得服務主體驗證。
 
-   2. 選擇 [Azure 訂用帳戶] 下拉式清單方塊旁的 [管理] 連結。
+   2. 選擇 [Azure 訂用帳戶]  下拉式清單方塊旁的 [管理]  連結。
       
       ![管理 Azure 訂用帳戶][3]
-   3. 在 [新服務端點] 下拉式清單方塊中選擇 [Azure]。
+   3. 在 [新服務端點]  下拉式清單方塊中選擇 [Azure]  。
       
       ![新增服務端點][4]
-   4. 在 [新增 Azure 訂用帳戶] 對話方塊中，選取 [服務主體] 選項。
+   4. 在 [新增 Azure 訂用帳戶]  對話方塊中，選取 [服務主體]  選項。
       
       ![服務主體選項][5]
    5. 在 [新增 Azure 訂用帳戶]  對話方塊中新增 Azure 訂用帳戶資訊。 您必須先提供下列項目：
       
-      * 訂閱識別碼
+      * 訂用帳戶識別碼
       * 訂用帳戶名稱
       * 服務主體識別碼
       * 服務主體金鑰
       * 租用戶識別碼
-   6. 在 [訂用帳戶]  名稱方塊中新增您選擇的名稱。 此值稍後會出現在 Azure DevOps Services 的 [Azure 訂用帳戶] 下拉式清單中。 
+   6. 在 [訂用帳戶]  名稱方塊中新增您選擇的名稱。 此值稍後會出現在 Azure DevOps Services 的 [Azure 訂用帳戶]  下拉式清單中。 
 
    7. 如果您不知道 Azure 訂用帳戶識別碼，可以使用以下其中一個命令擷取。
       
@@ -95,13 +95,13 @@ ms.locfileid: "66019777"
       
       `az account show`
    8. 若要取得服務主體識別碼、服務主體金鑰及租用戶識別碼，請依照[使用入口網站建立 Active Directory 應用程式和服務主體](active-directory/develop/howto-create-service-principal-portal.md)或[以 Azure 資源管理員驗證服務主體](active-directory/develop/howto-authenticate-service-principal-powershell.md)中的程序。
-   9. 將服務主體識別碼、服務主體金鑰，以及租用戶識別碼值新增至 [新增 Azure 訂用帳戶] 對話方塊，然後選擇 [確定] 按鈕。
+   9. 將服務主體識別碼、服務主體金鑰，以及租用戶識別碼值新增至 [新增 Azure 訂用帳戶]  對話方塊，然後選擇 [確定]  按鈕。
       
       現在，您擁有可執行 Azure PowerShell 指令碼的有效服務主體。
-5. 編輯組建管線並選擇 **Azure PowerShell** 組建步驟。 在 [Azure 訂用帳戶] 下拉式清單方塊中選取訂用帳戶。 (如果訂用帳戶未出現，請選擇 [管理] 連結旁的 [重新整理]按鈕。) 
+5. 編輯組建管線並選擇 **Azure PowerShell** 組建步驟。 在 [Azure 訂用帳戶]  下拉式清單方塊中選取訂用帳戶。 (如果訂用帳戶未出現，請選擇 [管理]  連結旁的 [重新整理]  按鈕。) 
    
    ![安裝並設定 Azure PowerShell 建置工作][8]
-6. 提供 Deploy-AzureResourceGroup.ps1 PowerShell 指令碼的路徑。 若要這樣做，請選擇 [指令碼路徑] 方塊旁的省略符號 (…) 按鈕，瀏覽到您專案的 [指令碼] 資料夾中的 Deploy-AzureResourceGroup.ps1 PowerShell 指令碼，選取並選擇 [確定] 按鈕。    
+6. 提供 Deploy-AzureResourceGroup.ps1 PowerShell 指令碼的路徑。 若要這樣做，請選擇 [指令碼路徑]  方塊旁的省略符號 (…) 按鈕，瀏覽到您專案的 [指令碼]  資料夾中的 Deploy-AzureResourceGroup.ps1 PowerShell 指令碼，選取並選擇 [確定]  按鈕。    
    
    ![選取要編寫指令碼的路徑][9]
 7. 選取指令碼之後，將路徑更新到該指令碼，以便從 Build.StagingDirectory 執行 (與 *ArtifactsLocation* 設定的目錄相同)。 您可以在指令碼路徑的開頭加入 “$(Build.StagingDirectory)/” 以執行此項作業。
@@ -109,7 +109,7 @@ ms.locfileid: "66019777"
     ![選取要編寫指令碼的路徑][10]
 8. 在 [指令碼引數]  方塊中，輸入下列參數 (請輸入在同一行)。 當您在 Visual Studio 中執行指令碼時，可以在 [輸出]  視窗中看到 VS 如何使用參數。 您可以從這裡開始，在建置步驟中設定參數值。
    
-   | 參數 | 說明 |
+   | 參數 | 描述 |
    | --- | --- |
    | -ResourceGroupLocation |資源群組所在的地理位置，例如 **eastus** 或**美國東部**。 (如果名稱中有空間，請加入單引號。)如需詳細資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。 |
    | -ResourceGroupName |此部署使用的資源群組名稱。 |
@@ -128,7 +128,7 @@ ms.locfileid: "66019777"
    –StorageAccountResourceGroupName 'Default-Storage-EastUS' -ArtifactStagingDirectory '$(Build.StagingDirectory)'    
    ```
    
-   完成之後，[指令碼引數] 方塊應該如下清單所示：
+   完成之後，[指令碼引數]  方塊應該如下清單所示：
    
    ![指令碼引數][11]
 9. 將所有必要的項目都加入 Azure PowerShell 建置步驟之後，請選擇 [佇列]  建置按鈕以建置專案。 [建置]  畫面會顯示 PowerShell 指令碼的輸出。
@@ -136,25 +136,25 @@ ms.locfileid: "66019777"
 ### <a name="detailed-walkthrough-for-option-2"></a>選項 2 的詳細逐步解說
 下列程序會使用內建工作，逐步引導您進行在 Azure DevOps Services 中設定持續部署所需的步驟。
 
-1. 編輯您的 Azure DevOps Services 組建管線，以新增兩個新的組建步驟。 在 [組建定義] 類別下選擇組建管線，再選擇 [編輯] 連結。
+1. 編輯您的 Azure DevOps Services 組建管線，以新增兩個新的組建步驟。 在 [組建定義]  類別下選擇組建管線，再選擇 [編輯]  連結。
    
    ![編輯組建定義][12]
-2. 將新的組建步驟新增至組建管線，方法為使用 [新增組建步驟...] 按鈕。
+2. 將新的組建步驟新增至組建管線，方法為使用 [新增組建步驟...]  按鈕。
    
    ![新增組建步驟][13]
-3. 選擇 [部署工作] 類別，選取 [Azure 檔案複製] 工作，再選擇其 [新增] 按鈕。
+3. 選擇 [部署工作]  類別，選取 [Azure 檔案複製]  工作，再選擇其 [新增]  按鈕。
    
    ![新增 Azure 檔案複製工作][14]
-4. 選擇 [Azure 資源群組部署] 工作，然後選擇其 [新增] 按鈕，然後 [關閉] [工作目錄]。
+4. 選擇 [Azure 資源群組部署]  工作，然後選擇其 [新增]  按鈕，然後 [關閉]  [工作目錄]  。
    
    ![新增 [Azure 資源群組部署] 工作][15]
 5. 選擇 **Azure 檔案複製**工作並填入其值。
    
-   如果您已將 Azure 服務端點新增至 Azure DevOps Services，請在 [Azure 訂用帳戶] 下拉式清單方塊中選擇訂用帳戶。 如果您沒有訂用帳戶，請參閱[選項 1](#detailed-walkthrough-for-option-1)，以查看在 Azure DevOps Services 中設定訂用帳戶的指示。
+   如果您已將 Azure 服務端點新增至 Azure DevOps Services，請在 [Azure 訂用帳戶]  下拉式清單方塊中選擇訂用帳戶。 如果您沒有訂用帳戶，請參閱[選項 1](#detailed-walkthrough-for-option-1)，以查看在 Azure DevOps Services 中設定訂用帳戶的指示。
    
    * 來源 - 輸入 **$(Build.StagingDirectory)**
    * Azure 連線類型 - 選取 **Azure Resource Manager**
-   * Azure RM 訂用帳戶 - 在 [Azure 訂用帳戶] 下拉式清單方塊中，選取您想要使用之儲存體帳戶的訂用帳戶。 如果訂用帳戶未出現，請選擇 [管理] 連結旁的 [重新整理]按鈕。
+   * Azure RM 訂用帳戶 - 在 [Azure 訂用帳戶]  下拉式清單方塊中，選取您想要使用之儲存體帳戶的訂用帳戶。 如果訂用帳戶未出現，請選擇 [管理]  連結旁的 [重新整理]  按鈕。
    * 目的地類型 - 選取 **Azure Blob**
    * RM 儲存體帳戶 - 選取您想要針對預備構件使用的儲存體帳戶
    * 容器名稱 - 輸入您想要用於暫存的容器名稱，可以是任何有效的容器名稱，但請使用專用於此組建管線的名稱
@@ -168,19 +168,19 @@ ms.locfileid: "66019777"
 6. 選擇 [Azure 資源群組部署]  組建步驟，再填上其值。
    
    * Azure 連線類型 - 選取 **Azure Resource Manager**
-   * Azure RM 訂用帳戶 - 在 [Azure 訂用帳戶] 下拉式清單方塊中選取部署的訂用帳戶。 這通常與上一個步驟中使用的訂用帳戶相同
+   * Azure RM 訂用帳戶 - 在 [Azure 訂用帳戶]  下拉式清單方塊中選取部署的訂用帳戶。 這通常與上一個步驟中使用的訂用帳戶相同
    * 動作 - 選取 **建立或更新資源群組**
    * 資源群組 - 選取資源群組或輸入部署的新資源群組名稱
    * 位置 - 選取資源群組的位置
-   * 範本 - 輸入要部署之範本的名稱與路徑前面加上 **$(Build.StagingDirectory)**，例如︰**$(Build.StagingDirectory/DSC-CI/azuredeploy.json)**
-   * 範本參數 - 輸入要使用之參數的名稱與路徑，前面加上 **$(Build.StagingDirectory)**，例如︰**$(Build.StagingDirectory/DSC-CI/azuredeploy.parameters.json)**
+   * 範本 - 輸入要部署之範本的名稱與路徑前面加上 **$(Build.StagingDirectory)** ，例如︰ **$(Build.StagingDirectory/DSC-CI/azuredeploy.json)**
+   * 範本參數 - 輸入要使用之參數的名稱與路徑，前面加上 **$(Build.StagingDirectory)** ，例如︰ **$(Build.StagingDirectory/DSC-CI/azuredeploy.parameters.json)**
    * 覆寫範本參數 - 輸入或複製並貼上下列程式碼︰
      
      ```    
      -_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken (ConvertTo-SecureString -String "$(artifactsLocationSasToken)" -AsPlainText -Force)
      ```
      ![設定 [Azure 資源群組部署] 工作][17]
-7. 在新增所有必要的項目之後，儲存組建管線然後在頂端選擇 [將新組建排入佇列]。
+7. 在新增所有必要的項目之後，儲存組建管線然後在頂端選擇 [將新組建排入佇列]  。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure 資源管理員和 Azure 資源群組的詳細資訊的詳細資訊，請參閱 [Azure 資源管理員概觀](azure-resource-manager/resource-group-overview.md) 。

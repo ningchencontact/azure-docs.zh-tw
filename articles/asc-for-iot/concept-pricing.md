@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 40963e0d81ccff21cc625b799833b996547a13b6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65198329"
 ---
 # <a name="pricing-and-associated-costs"></a>定價和相關成本
@@ -58,7 +58,7 @@ Iot 的 ASC 有兩種類型的相關聯的成本，並不屬於直接定價：
 
 2. 底下**安全性**，按一下**概觀**。
 
-3. 按一下 [設定] 。
+3. 按一下 [設定]  。
 
 下表提供相關聯成本的摘要，以及每個選項的影響。
 
@@ -73,7 +73,7 @@ Iot 的 ASC 有兩種類型的相關聯的成本，並不屬於直接定價：
 >[!Important]
 > 退出有可用的安全性功能的嚴重影響。
   
-| 退出 | 影響 |
+| 選擇退出 | 影響 |
 | --- | --- |
 | _對應項中繼資料集合_ | 停用[自訂警示](quickstart-create-custom-alerts.md) |
 | | 停用 IoT Edge 資訊清單的建議 |

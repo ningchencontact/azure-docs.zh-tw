@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 639bc4ff9c69bca3d5f8bca6967bfc3e8e6a13d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822396"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>事件中樞擷取逐步解說︰Python
@@ -41,20 +41,20 @@ ms.locfileid: "60822396"
 - Python 2.7.x
 - Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
 - 作用中的[事件中樞命名空間和事件中樞](event-hubs-create.md)。 
-- 依照來自以下的指示，為事件中樞啟用 [擷取] 功能：[使用 Azure 入口網站啟用事件中樞擷取功能](event-hubs-capture-enable-through-portal.md)
+- 依照來自以下的指示，為事件中樞啟用 [擷取]  功能：[使用 Azure 入口網站啟用事件中樞擷取功能](event-hubs-capture-enable-through-portal.md)
 
 ## <a name="create-an-azure-blob-storage-account"></a>建立 Azure Blob 儲存體帳戶
 1. 登入 [Azure 入口網站][Azure portal]。
-2. 在入口網站的左窗格中，選取 [新增] > [儲存體] > [儲存體帳戶]。
-3. 完成 [建立儲存體帳戶] 窗格中的選項，然後選取 [建立]。
+2. 在入口網站的左窗格中，選取 [新增]   > [儲存體]   > [儲存體帳戶]  。
+3. 完成 [建立儲存體帳戶]  窗格中的選項，然後選取 [建立]  。
    
    ![[建立儲存體帳戶] 窗格][1]
-4. 在看到**部署成功**訊息之後，選取新儲存體帳戶的名稱，並在 [基本功能] 窗格中選取 [Blob]。 當 [Blob 服務] 窗格開啟時，選取頂端的 [+ 容器]。 將容器命名為**擷取**，然後關閉 [Blob 服務] 窗格。
-5. 選取左窗格中的 [存取金鑰]，然後複製儲存體帳戶名稱和 **key1** 的值。 將這些值儲存到記事本或一些其他暫存位置。
+4. 在看到**部署成功**訊息之後，選取新儲存體帳戶的名稱，並在 [基本功能]  窗格中選取 [Blob]  。 當 [Blob 服務]  窗格開啟時，選取頂端的 [+ 容器]  。 將容器命名為**擷取**，然後關閉 [Blob 服務]  窗格。
+5. 選取左窗格中的 [存取金鑰]  ，然後複製儲存體帳戶名稱和 **key1** 的值。 將這些值儲存到記事本或一些其他暫存位置。
 
 ## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>建立 Python 指令碼以將事件傳送到事件中樞
 1. 開啟您慣用的 Python 編輯器，例如 [Visual Studio 程式碼][Visual Studio Code]。
-2. 创建名为 **sender.py**的脚本。 此指令碼會將 200 個事件傳送到事件中樞。 這些事件是以 JSON 格式傳送的簡單環境數據。
+2. 建立稱為 **sender.py**的指令碼。 此指令碼會將 200 個事件傳送到事件中樞。 這些事件是以 JSON 格式傳送的簡單環境數據。
 3. 將下列程式碼貼到 sender.py：
    
    ```python
@@ -76,11 +76,11 @@ ms.locfileid: "60822396"
            sbs.send_event('INSERT YOUR EVENT HUB NAME', s)
        print y
    ```
-4. 更新前面的代码，以使用在创建事件中心命名空间时获得的命名空间名称、密钥值和事件中心名称。
+4. 更新上述程式碼，以使用您在建立「事件中樞」命名空間時取得的命名空間名稱、金鑰值及事件中樞名稱。
 
 ## <a name="create-a-python-script-to-read-your-capture-files"></a>建立 Python 指令碼來讀取擷取檔案
 
-1. 填妥窗格，然後選取 [建立]。
+1. 填妥窗格，然後選取 [建立]  。
 2. 建立名為 **capturereader.py** 的指令碼。 此指令碼會讀取擷取檔案，並為每個裝置建立檔案以便只寫入該裝置的資料。
 3. 將下列程式碼貼到 capturereader.py：
    

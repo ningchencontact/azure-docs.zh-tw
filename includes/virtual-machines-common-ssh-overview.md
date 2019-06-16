@@ -9,10 +9,10 @@ ms.date: 12/21/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: bca78e2963f19b60071b1b27c8dc65c76818e10e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166102"
 ---
 ## <a name="overview-of-ssh-and-keys"></a>SSH 和金鑰的概觀
@@ -21,7 +21,7 @@ ms.locfileid: "66166102"
 
 * *公開金鑰*會置於您的 Linux VM 或任何您要搭配公開金鑰加密使用的其他服務上。
 
-* 「私密金鑰」會保留在您的本機系統上。 保護此私密金鑰。 不要共用它。
+* 「私密金鑰」  會保留在您的本機系統上。 保護此私密金鑰。 不要共用它。
 
 當您使用 SSH 用戶端連線到您的 Linux VM (其有公開金鑰) 時，遠端 VM 會測試用戶端以確保它擁有私密金鑰。 如果用戶端具有私密金鑰，則會獲得 VM 的存取權。 
 

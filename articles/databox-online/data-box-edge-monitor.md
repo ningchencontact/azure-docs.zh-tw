@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 188f5c6cfbb4650ad1ff767955d064f8e0c3cb70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60756730"
 ---
 # <a name="monitor-your-azure-data-box-edge"></a>監視您的 Azure Data Box Edge
@@ -36,7 +36,7 @@ ms.locfileid: "60756730"
 在本機 Web UI 中採取下列步驟來檢視您裝置元件的硬體狀態。
 
 1. 連線至您裝置的本機 Web UI 設定。
-2. 移至 [維護] > [硬體狀態]。 您可以檢視各種裝置元件的健康情況。
+2. 移至 [維護] > [硬體狀態]  。 您可以檢視各種裝置元件的健康情況。
 
     ![檢視硬體狀態](media/data-box-edge-monitor/view-hardware-status.png)
 

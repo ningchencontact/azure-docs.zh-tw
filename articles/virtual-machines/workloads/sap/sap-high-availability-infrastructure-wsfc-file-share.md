@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409604"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用，為 SAP 高可用性準備 Azure 基礎結構
@@ -219,7 +219,7 @@ ms.locfileid: "65409604"
 
 ## <a name="host-names-and-ip-addresses"></a>主機名稱和 IP 位址
 
-| 虛擬主機名稱角色 | 虛擬主機名稱 | 靜態 IP 位址 | 可用性集合 |
+| 虛擬主機名稱角色 | 虛擬主機名稱 | 靜態 IP 位址 | 可用性設定組 |
 | --- | --- | --- | --- |
 | 第一個叢集節點 ASCS/SCS 叢集 | ascs-1 | 10.0.6.4 | ascs-as |
 | 第二個叢集節點 ASCS/SCS 叢集 | ascs-2 | 10.0.6.5 | ascs-as |
@@ -236,7 +236,7 @@ ms.locfileid: "65409604"
 **表 2**:SAP ASCS/SCS 執行個體詳細資料
 
 
-| 虛擬主機名稱角色 | 虛擬主機名稱 | 靜態 IP 位址 | 可用性集合 |
+| 虛擬主機名稱角色 | 虛擬主機名稱 | 靜態 IP 位址 | 可用性設定組 |
 | --- | --- | --- | --- |
 | 第一個叢集節點 | sofs-1 | 10.0.6.10 | sofs-as |
 | 第二個叢集節點 | sofs-2 | 10.0.6.11 | sofs-as |
@@ -328,10 +328,10 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 _**圖 1**:使用受控磁碟的向外延展檔案伺服器資源管理員範本的 UI 畫面_
 
 在此範本中，執行下列作業︰
-1. 在 [VM 計數] 方塊中，輸入最小計數 **2**。
-2. 在 [VM 磁碟計數] 方塊中，輸入最小磁碟計數 **3** (2 個磁碟 + 1 個備用磁碟 = 3 個磁碟)。
-3. 在 [Sofs 名稱] 方塊中，輸入 SAP 全域主機網路名稱 **sapglobalhost**。
-4. 在 [共用名稱] 方塊中，輸入檔案共用名稱 **sapmnt**。
+1. 在 [VM 計數]  方塊中，輸入最小計數 **2**。
+2. 在 [VM 磁碟計數]  方塊中，輸入最小磁碟計數 **3** (2 個磁碟 + 1 個備用磁碟 = 3 個磁碟)。
+3. 在 [Sofs 名稱]  方塊中，輸入 SAP 全域主機網路名稱 **sapglobalhost**。
+4. 在 [共用名稱]  方塊中，輸入檔案共用名稱 **sapmnt**。
 
 ### <a name="use-unmanaged-disks"></a>使用非受控磁碟
 
@@ -341,7 +341,7 @@ _**圖 1**:使用受控磁碟的向外延展檔案伺服器資源管理員範本
 
 _**圖 2**:如需不含受控磁碟的向外延展檔案伺服器的 Azure Resource Manager 範本的 UI 畫面_
 
-在 [儲存體帳戶類型] 方塊中，選取 [進階儲存體]。 所有其他設定與受控磁碟的設定相同。
+在 [儲存體帳戶類型]  方塊中，選取 [進階儲存體]  。 所有其他設定與受控磁碟的設定相同。
 
 ## <a name="adjust-cluster-timeout-settings"></a>調整叢集逾時設定
 

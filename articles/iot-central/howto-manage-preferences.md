@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 00d40b9910f9b549443373c84b079c543037ce62
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236329"
 ---
 # <a name="manage-your-application-preferences"></a>管理您的應用程式偏好設定
@@ -32,7 +32,7 @@ IoT Central 是以多種語言支援。 您可以使用，以便切換您慣用�
 ![IoT Central 佈景主題選擇器](media/howto-manage-preferences/settings.png)
 
 > [!NOTE]
-> 淺色與深色佈景主題當中選擇如果無法使用您的系統管理員已設定之應用程式的自訂佈景主題。
+> 如果您的系統管理員已為應用程式設定自訂佈景主題，則無法選擇淺色與深色佈景主題選項。
 
 ## <a name="next-steps"></a>後續步驟
 

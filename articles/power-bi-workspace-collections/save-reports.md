@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: b61abee3382697d50b9a18de763c8a4d01e1ccba
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64701857"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>在 Power BI 工作區集合中報表儲存
@@ -106,9 +106,9 @@ ms.locfileid: "64701857"
 ```
 
 > [!IMPORTANT]
-> 在另存新檔後才會建立新報告。 在儲存後，畫布仍會顯示編輯模式的舊報告，而非新報告。 內嵌已建立的新報表。 內嵌新報表需要新的存取權杖，因為權杖是針對個別報表建立的。
+> 在另存新檔  後才會建立新報告。 在儲存後，畫布仍會顯示編輯模式的舊報告，而非新報告。 內嵌已建立的新報表。 內嵌新報表需要新的存取權杖，因為權杖是針對個別報表建立的。
 
-然後，您必須在另存新檔之後載入新的報告。 載入新報表類似於內嵌任何報表。
+然後，您必須在另存新檔  之後載入新的報告。 載入新報表類似於內嵌任何報表。
 
 ```html
 <div id="reportContainer"></div>

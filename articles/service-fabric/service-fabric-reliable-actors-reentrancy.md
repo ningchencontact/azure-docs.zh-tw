@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 46682787bac2d60d188384a4078ca2fa1f46ae7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60725409"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reliable Actors 重新進入
@@ -110,5 +110,5 @@ static class Program
 ```
 
 
-## <a name="next-steps"></a>后续步骤
+## <a name="next-steps"></a>後續步驟
 * 參閱[動作項目 API 參考文件](https://msdn.microsoft.com/library/azure/dn971626.aspx)來深入了解重新進入

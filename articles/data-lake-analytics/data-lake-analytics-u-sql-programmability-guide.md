@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811609"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 可程式性指南
@@ -949,7 +949,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 * T2：要累積的第二個參數
 * TResult：傳回終止的類型
 
-例如︰
+例如:
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>
@@ -1067,11 +1067,11 @@ U-SQL 指令碼中通常會明確地呼叫 UDO 以做為下列 U-SQL 陳述式�
 ## <a name="use-user-defined-extractors"></a>使用使用者定義擷取器
 U-SQL 可讓您使用 EXTRACT 陳述式來匯入外部資料。 EXTRACT 陳述式可以使用內建的 UDO 擷取器：  
 
-* *Extractors.Text()*：可從不同編碼的分隔文字檔進行擷取。
+* *Extractors.Text()* ：可從不同編碼的分隔文字檔進行擷取。
 
-* *Extractors.Csv()*：可從不同編碼的逗號分隔值 (CSV) 檔案進行擷取。
+* *Extractors.Csv()* ：可從不同編碼的逗號分隔值 (CSV) 檔案進行擷取。
 
-* *Extractors.Tsv()*：可從不同編碼的逗號分隔值 (CSV) 檔案進行擷取。
+* *Extractors.Tsv()* ：可從不同編碼的逗號分隔值 (CSV) 檔案進行擷取。
 
 它很適合用來開發自訂擷取器。 在匯入資料期間，如果我們想要執行下列任何作業，這會很有幫助：
 
@@ -1102,7 +1102,7 @@ SqlUserDefinedExtractor 是 UDE 定義的選擇性屬性。 它可用來定義 U
 * **true** = 表示此擷取器需要不可部分完成的輸入檔 (JSON、XML ...)
 * **false** = 表示此擷取器可以處理分割/分散式檔案 (CSV、SEQ ...)
 
-主要的 UDE 可程式性物件為「輸入」和「輸出」。 輸入物件用來列舉輸入資料做為 `IUnstructuredReader`。 輸入物件可用來將輸出資料設定為擷取器活動的結果。
+主要的 UDE 可程式性物件為「輸入」  和「輸出」  。 輸入物件用來列舉輸入資料做為 `IUnstructuredReader`。 輸入物件可用來將輸出資料設定為擷取器活動的結果。
 
 輸入資料是透過 `System.IO.Stream` 和 `System.IO.StreamReader` 來存取。
 
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>使用使用者定義輸出器
 使用者定義輸出器是另一個 U-SQL UDO，其可讓您擴充內建的 U-SQL 功能。 和擷取器類似，系統也有數個內建輸出器。
 
-* *Outputters.Text()*：將資料寫入不同編碼的分隔文字檔。
-* *Outputters.Csv()*：將資料寫入不同編碼的逗號分隔值 (CSV) 檔案。
-* *Outputters.Tsv()*：將資料寫入不同編碼的逗號分隔值 (CSV) 檔案。
+* *Outputters.Text()* ：將資料寫入不同編碼的分隔文字檔。
+* *Outputters.Csv()* ：將資料寫入不同編碼的逗號分隔值 (CSV) 檔案。
+* *Outputters.Tsv()* ：將資料寫入不同編碼的逗號分隔值 (CSV) 檔案。
 
 自訂輸出器可讓您以自訂的定義格式寫入資料。 這可適用於下列工作︰
 
@@ -1280,7 +1280,7 @@ SqlUserDefinedOutputter 是使用者定義輸出器之定義的選擇性屬性�
 * **true** = 表示此輸出器需要不可部分完成的輸出檔 (JSON、XML ...)
 * **false** = 表示此輸出器可以處理分割/分散式檔案 (CSV、SEQ ...)
 
-主要的可程式性物件為「資料列」和「輸出」。 **列**物件可用來列舉輸出資料做為 `IRow` 介面。 **輸出**用來設定輸出資料至目標檔案。
+主要的可程式性物件為「資料列」  和「輸出」  。 **列**物件可用來列舉輸出資料做為 `IRow` 介面。 **輸出**用來設定輸出資料至目標檔案。
 
 輸出資料是透過 `IRow` 介面來存取。 一次會對輸出資料傳遞一個資料列。
 
@@ -1518,7 +1518,7 @@ public override IRow Process(IRow input, IUpdatableRow output)
 
 SqlUserDefinedProcessor 是 UDP 定義的**選擇性**屬性。
 
-主要的可程式性物件為「輸入」和「輸出」。 輸入物件可用來列舉輸入資料欄和輸出，以將輸出資料設定為處理器活動的結果。
+主要的可程式性物件為「輸入」  和「輸出」  。 輸入物件可用來列舉輸入資料欄和輸出，以將輸出資料設定為處理器活動的結果。
 
 若要列舉輸入資料行，我們可以使用 `input.Get` 方法。
 
@@ -1873,7 +1873,7 @@ CombinerMode 列舉可以採用下列值︰
         IUpdatableRow output
 ```
 
-輸入資料列集會傳遞做為介面的「左邊」和「右邊」 `IRowset` 類型。 這兩個資料列集必須列舉以進行處理。 您僅可以允許每個介面列舉一次，因此我們必須在必要時加以列舉和快取。
+輸入資料列集會傳遞做為介面的「左邊」  和「右邊」  `IRowset` 類型。 這兩個資料列集必須列舉以進行處理。 您僅可以允許每個介面列舉一次，因此我們必須在必要時加以列舉和快取。
 
 若要快取，我們可以透過執行 LINQ 查詢來建立記憶體結構的 List\<T\> 類型，特別是 List<`IRow`>。 列舉期間也可以使用匿名資料類型。
 
@@ -2113,7 +2113,7 @@ public class EmptyUserReducer : IReducer
 * bool     IsRecursive    
 * **true** = 表示此歸納器是否為關聯式和交換式
 
-主要的可程式性物件為「輸入」和「輸出」。 輸入物件用來列舉輸入資料列。 輸出用來設定減少活動結果的輸出資料列。
+主要的可程式性物件為「輸入」  和「輸出」  。 輸入物件用來列舉輸入資料列。 輸出用來設定減少活動結果的輸出資料列。
 
 若要列舉輸入資料列，我們可以使用 `Row.Get` 方法。
 

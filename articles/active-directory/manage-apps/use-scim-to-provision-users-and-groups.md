@@ -17,10 +17,10 @@ ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a62f44783d63131812794a4b55f0e9f9f3b45f27
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66742468"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management (SCIM) 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
@@ -126,7 +126,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 * Microsoft Azure AD 只會使用下列運算子：  
      - `eq`
      - `and`
-* 不需要區分大小寫的相符項目結構中的項目在特定的修補程式的 SCIM`op`作業的值，如同 https://tools.ietf.org/html/rfc7644#section-3.5.2。 Azure AD 發出 'o' 的值作為`Add`， `Replace`，和`Remove`。
+* 不需要區分大小寫的相符項目結構中的項目在特定的修補程式的 SCIM`op`作業的值，如同 https://tools.ietf.org/html/rfc7644#section-3.5.2 。 Azure AD 發出 'o' 的值作為`Add`， `Replace`，和`Remove`。
 * Microsoft Azure AD 會要求擷取隨機使用者和群組，以確保端點和認證有效。 它也會完成的一部分**測試連接**朝[Azure 入口網站](https://portal.azure.com)。 
 * 資源可以查詢的屬性應該設定為 比對的屬性中的應用程式[Azure 入口網站](https://portal.azure.com)。 如需詳細資訊，請參閱[自訂使用者佈建屬性對應](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 
@@ -665,7 +665,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
    ![][2]
    *圖 6：在 Azure 入口網站中設定佈建*
     
-1. 在 [租用戶 URL]  欄位中，輸入網際網路公開的 URL 和 SCIM 端點的連接埠。 此項目就像是 http://testmachine.contoso.com:9000 或 http://\<ip-address>:9000/，其中 \<ip-address> 是網際網路公開 IP 位址。 
+1. 在 [租用戶 URL]  欄位中，輸入網際網路公開的 URL 和 SCIM 端點的連接埠。 此項目就像是 http://testmachine.contoso.com:9000 或 http://\< ip-address>:9000/，其中 \< ip-address> 是網際網路公開 IP 位址。 
 
 1. 如果 SCIM 端點需要來自非 Azure AD 簽發者的 OAuth 持有人權杖，那麼便將所需的 OAuth 持有人權杖複製到選擇性 [祕密權杖]  欄位。 
 1. 選取 **測試連接**，讓 Azure Active Directory 嘗試連線到 SCIM 端點。 如果嘗試失敗，則會顯示錯誤的資訊。  
@@ -823,7 +823,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
    ```
 
 ### <a name="handling-endpoint-authentication"></a>處理端點驗證
-來自 Azure Active Directory 的要求包括 OAuth 2.0 持有人權杖。   接收要求的任何服務應該驗證簽發者為 Azure Active Directory 預期的 Azure Active Directory 租用戶，Azure Active Directory 圖形 web 服務的存取。  在權杖中，簽發者由用 iss 宣告，例如"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/」。  在此範例中，宣告值的基底位址 https://sts.windows.net識別為簽發者的 Azure Active Directory，而相對位址區段 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422，不會針對 Azure Active Directory 租用戶的唯一識別碼這發出的權杖。  如果發出的權杖要用於存取 Azure Active Directory 圖形 Web 服務，則該服務的識別項 00000002-0000-0000-c000-000000000000，應該位於權杖的 aud 宣告中的值。  每個在單一租用戶中註冊應用程式可能會收到相同`iss`SCIM 要求宣告。
+來自 Azure Active Directory 的要求包括 OAuth 2.0 持有人權杖。   接收要求的任何服務應該驗證簽發者為 Azure Active Directory 預期的 Azure Active Directory 租用戶，Azure Active Directory 圖形 web 服務的存取。  在權杖中，簽發者由用 iss 宣告，例如"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/ 」。  在此範例中，宣告值的基底位址 https://sts.windows.net 識別為簽發者的 Azure Active Directory，而相對位址區段 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422，不會針對 Azure Active Directory 租用戶的唯一識別碼這發出的權杖。  如果發出的權杖要用於存取 Azure Active Directory 圖形 Web 服務，則該服務的識別項 00000002-0000-0000-c000-000000000000，應該位於權杖的 aud 宣告中的值。  每個在單一租用戶中註冊應用程式可能會收到相同`iss`SCIM 要求宣告。
 
 使用 Microsoft 所提供來建置 SCIM 服務的 CLI 程式庫的開發人員可以驗證來自 Azure Active Directory 依照下列步驟使用 Microsoft.Owin.Security.ActiveDirectory 套件要求： 
 
@@ -1314,7 +1314,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 ## <a name="user-and-group-schema-reference"></a>使用者和群組的結構描述參考
 Azure Active Directory 可以佈建兩種類型的資源至 SCIM Web 服務。  這些類型的資源是使用者和群組。  
 
-結構描述識別碼，識別使用者資源`urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`，隨附於此通訊協定規格： https://tools.ietf.org/html/rfc7643。  表 1 中提供的 Azure Active Directory 中使用者的使用者資源屬性的屬性的預設對應。  
+結構描述識別碼，識別使用者資源`urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`，隨附於此通訊協定規格： https://tools.ietf.org/html/rfc7643 。  表 1 中提供的 Azure Active Directory 中使用者的使用者資源屬性的屬性的預設對應。  
 
 用結構描述識別碼 `urn:ietf:params:scim:schemas:core:2.0:Group` 識別群組資源。 表 2 顯示的群組屬性的預設對應 Azure Active Directory 中群組資源的屬性。  
 

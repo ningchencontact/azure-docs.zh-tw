@@ -1,6 +1,6 @@
 ---
 title: 建立檢視以分析在 Azure 監視器中的記錄檔資料 |Microsoft Docs
-description: 可以通过 Azure Monitor 中的视图设计器创建自定义视图，此类视图在 Azure 门户中显示，包含 Log Analytics 工作区中的多种基于数据的可视化效果。 本文包含檢視設計工具的概觀，並提供建立和編輯自訂檢視的程序。
+description: 透過 Azure 監視器中檢視表設計工具，您可以建立自訂的檢視會顯示在 Azure 入口網站，並包含各種不同的 Log Analytics 工作區中的資料視覺效果。 本文包含檢視設計工具的概觀，並提供建立和編輯自訂檢視的程序。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61341951"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>使用 Azure 監視器中的檢視表設計工具建立自訂檢視
-在 Azure Monitor 中使用视图设计器即可在 Azure 门户中创建各种自定义视图，使 Log Analytics 工作区中的数据可视化。 本文提供檢視設計工具的概觀以及建立和編輯自訂檢視的程序。
+透過 Azure 監視器中檢視表設計工具，您可以建立各種不同的自訂檢視，在 Azure 入口網站中，可協助您以視覺化方式檢視您的 Log Analytics 工作區中的資料。 本文提供檢視設計工具的概觀以及建立和編輯自訂檢視的程序。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "61341951"
 
 
 ## <a name="concepts"></a>概念
-檢視會顯示在 Azure 監視器**概觀**在 Azure 入口網站中的頁面。 按一下 [深入解析] 區段下方的 [更多]，即可在 [Azure 監視器] 功能表開啟此頁面。 每個自訂檢視中的圖格會顯示依字母順序，並監視解決方案的圖格會安裝相同的工作區。
+檢視會顯示在 Azure 監視器**概觀**在 Azure 入口網站中的頁面。 按一下 [深入解析]  區段下方的 [更多]  ，即可在 [Azure 監視器]  功能表開啟此頁面。 每個自訂檢視中的圖格會顯示依字母順序，並監視解決方案的圖格會安裝相同的工作區。
 
 ![概觀分頁](media/view-designer/overview-page.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "61341951"
 
 
 ## <a name="create-a-new-view"></a>建立新的檢視
-您可以在檢視設計工具中建立新的檢視，方法是選取 Log Analytics 工作區功能表中的 [檢視設計工具]。
+您可以在檢視設計工具中建立新的檢視，方法是選取 Log Analytics 工作區功能表中的 [檢視設計工具]  。
 
 ![檢視設計工具圖格](media/view-designer/view-designer-tile.png)
 
@@ -76,20 +76,20 @@ ms.locfileid: "61341951"
 
 檢視設計工具有三個窗格： 
 * **設計**：包含您要建立或編輯的自訂檢視。 
-* **控制項**：包含您新增至 [設計] 窗格的圖格和組件。 
+* **控制項**：包含您新增至 [設計]  窗格的圖格和組件。 
 * **屬性**：顯示圖格或所選組件的屬性。
 
 ![[檢視設計工具]](media/view-designer/view-designer-screenshot.png)
 
 ### <a name="configure-the-view-tile"></a>設定檢視圖格
-自訂檢視可以只有單一圖格。 若要檢視目前圖格或選取另一個圖格，請選取 [控制] 窗格中的 [圖格] 索引標籤。 [屬性] 窗格會顯示目前圖格的屬性。 
+自訂檢視可以只有單一圖格。 若要檢視目前圖格或選取另一個圖格，請選取 [控制]  窗格中的 [圖格]  索引標籤。 [屬性]  窗格會顯示目前圖格的屬性。 
 
-您可以根據 [圖格參考](view-designer-tiles.md) 中的資訊來設定圖格屬性，然後按一下 [套用] 儲存變更。
+您可以根據 [圖格參考](view-designer-tiles.md) 中的資訊來設定圖格屬性，然後按一下 [套用]  儲存變更。
 
 ### <a name="configure-the-visualization-parts"></a>設定視覺效果組件
-檢視可以包含任意數目的視覺效果組件。 若要將組件新增至檢視，請選取 [檢視] 索引標籤，然後選取視覺效果組件。 [屬性] 窗格會顯示所選取組件的屬性。 
+檢視可以包含任意數目的視覺效果組件。 若要將組件新增至檢視，請選取 [檢視]  索引標籤，然後選取視覺效果組件。 [屬性]  窗格會顯示所選取組件的屬性。 
 
-您可以根據 [視覺效果組件參考](view-designer-parts.md) 中的資訊來設定檢視的屬性，然後按一下 [套用] 儲存變更。
+您可以根據 [視覺效果組件參考](view-designer-parts.md) 中的資訊來設定檢視的屬性，然後按一下 [套用]  儲存變更。
 
 檢視只有一列視覺效果組件。 您可以將它們拖曳至新位置來重新安排現有組件的位置。
 

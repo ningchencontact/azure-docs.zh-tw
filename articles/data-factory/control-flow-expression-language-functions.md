@@ -13,21 +13,21 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 4c51974498539a0305312d6501bcfa9ebc3b2e88
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64573544"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory 中的運算式和函式
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-functions-variables.md)
 > * [目前的版本](control-flow-expression-language-functions.md)
 
 本文提供 Azure Data Factory 支援之運算式和函式的詳細資料。 
 
 ## <a name="introduction"></a>簡介
-定義中的 JSON 值可以是常值，或是在執行階段評估的運算式。 例如︰  
+定義中的 JSON 值可以是常值，或是在執行階段評估的運算式。 例如:  
   
 ```json
 "name": "value"
@@ -49,7 +49,7 @@ ms.locfileid: "64573544"
 |"\@\@"|傳回包含 '\@' 的 1 個字元字串。|  
 |" \@"|傳回包含 '\@' 的 2 個字元字串。|  
   
- 使用稱為「字串插補」的功能，運算式也可以出現在字串內，其中運算式會包含在 `@{ ... }` 內。 例如：`"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
+ 使用稱為「字串插補」  的功能，運算式也可以出現在字串內，其中運算式會包含在 `@{ ... }` 內。 例如：`"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
  使用字串插補時，結果一律為字串。 假設我將 `myNumber` 定義為 `42`，將 `myString` 定義為 `foo`：  
   
@@ -57,8 +57,8 @@ ms.locfileid: "64573544"
 |----------------|------------|  
 |"\@pipeline().parameters.myString"| 傳回 `foo` 做為字串。|  
 |"\@{pipeline().parameters.myString}"| 傳回 `foo` 做為字串。|  
-|"\@pipeline().parameters.myNumber"| 傳回 `42` 做為「編號」。|  
-|"\@{pipeline().parameters.myNumber}"| 傳回 `42` 做為「字串」。|  
+|"\@pipeline().parameters.myNumber"| 傳回 `42` 做為「編號」  。|  
+|"\@{pipeline().parameters.myNumber}"| 傳回 `42` 做為「字串」  。|  
 |"Answer is: @{pipeline().parameters.myNumber}"| 傳回字串 `Answer is: 42`。|  
 |"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| 傳回字串 `Answer is: 42`|  
 |"Answer is: \@\@{pipeline().parameters.myNumber}"| 傳回字串 `Answer is: @{pipeline().parameters.myNumber}`。|  
@@ -140,7 +140,7 @@ ms.locfileid: "64573544"
 }
 ```
   
-## <a name="functions"></a>Functions  
+## <a name="functions"></a>函式  
  您可以在運算式內呼叫函式。 下列各節提供可在運算式中使用之函式的相關資訊。  
 
 ## <a name="string-functions"></a>字串函數  
@@ -194,7 +194,7 @@ ms.locfileid: "64573544"
 ## <a name="conversion-functions"></a>轉換函式  
  這些函式是用來在每個原生類型語言之間轉換︰  
   
--   string  
+-   字串  
   
 -   integer  
   
@@ -208,19 +208,19 @@ ms.locfileid: "64573544"
   
 |函式名稱|描述|  
 |-------------------|-----------------|  
-|int|將參數轉換成整數。 例如，下列運算式會傳回 100 做為數字，而不是字串︰`int('100')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：Value<br /><br /> **描述**：必要。 轉換成整數的值。|  
-|string|將參數轉換成字串。 例如，下列運算式會傳回 `'10'`：`string(10)`您也可以將物件轉換為字串，例如，如果 **foo** 參數是具有 `bar : baz` 屬性的物件，則下列範例會傳回 `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：Value<br /><br /> **描述**：必要。 轉換成字串的值。|  
+|int|將參數轉換成整數。 例如，下列運算式會傳回 100 做為數字，而不是字串︰`int('100')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：值<br /><br /> **描述**：必要。 轉換成整數的值。|  
+|字串|將參數轉換成字串。 例如，下列運算式會傳回 `'10'`：`string(10)`您也可以將物件轉換為字串，例如，如果 **foo** 參數是具有 `bar : baz` 屬性的物件，則下列範例會傳回 `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：值<br /><br /> **描述**：必要。 轉換成字串的值。|  
 |json|將參數轉換成 JSON 類型值， 並且與 string() 相反。 例如，下列運算式會傳回 `[1,2,3]` 做為數字，而不是字串︰<br /><br /> `json('[1,2,3]')`<br /><br /> 同樣地，您可以將字串轉換成物件。 例如，`json('{"bar" : "baz"}')` 會傳回：<br /><br /> `{ "bar" : "baz" }`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 轉換成原生類型值的字串。<br /><br /> JSON 函式也支援 XML 輸入。 例如，參數值︰<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> 轉換為下列 JSON：<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
-|float|將參數引數轉換成浮點數。 例如，下列運算式會傳回 `10.333`：`float('10.333')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：Value<br /><br /> **描述**：必要。 轉換成浮點數的值。|  
-|布林|將參數轉換成布林值。 例如，下列運算式會傳回 `false`：`bool(0)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：Value<br /><br /> **描述**：必要。 轉換成布林值的值。|  
+|float|將參數引數轉換成浮點數。 例如，下列運算式會傳回 `10.333`：`float('10.333')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：值<br /><br /> **描述**：必要。 轉換成浮點數的值。|  
+|布林|將參數轉換成布林值。 例如，下列運算式會傳回 `false`：`bool(0)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：值<br /><br /> **描述**：必要。 轉換成布林值的值。|  
 |coalesce|傳回傳入的引數中第一個非 null 的物件。 注意︰空字串不是 null。 例如，如果未定義參數 1 和 2，此範例會傳回 `fallback`：`coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **參數編號**：1 ... *n*<br /><br /> **名稱**：物件*n*<br /><br /> **描述**：必要。 要檢查其是否有 `null` 的物件。|  
 |base64|傳回輸入字串的 base64 表示法。 例如，下列運算式會傳回 `c29tZSBzdHJpbmc=`：`base64('some string')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串 1<br /><br /> **描述**：必要。 要編碼為 base64 表示法的字串。|  
 |base64ToBinary|傳回 base64 編碼字串的二進位表示法。 例如，下列運算式會傳回某字串的二進位表示法：`base64ToBinary('c29tZSBzdHJpbmc=')`。<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 base64 編碼的字串。|  
 |base64ToString|傳回 based64 編碼字串的字串表示法。 例如，下列運算式會傳回某字串：`base64ToString('c29tZSBzdHJpbmc=')`。<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 base64 編碼的字串。|  
-|Binary|傳回值的二進位表示法。  例如，下列運算式會傳回某字串的二進位表示法：`binary(‘some string’).`<br /><br /> **參數編號**：1<br /><br /> **名稱**：Value<br /><br /> **描述**：必要。 轉換成二進位的值。|  
+|Binary|傳回值的二進位表示法。  例如，下列運算式會傳回某字串的二進位表示法：`binary(‘some string’).`<br /><br /> **參數編號**：1<br /><br /> **名稱**：值<br /><br /> **描述**：必要。 轉換成二進位的值。|  
 |dataUriToBinary|傳回資料 URI 的二進位表示法。 例如，下列運算式會傳回某字串的二進位表示法：`dataUriToBinary('data:;base64,c29tZSBzdHJpbmc=')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 要轉換成二進位表示法的資料 URI。|  
 |dataUriToString|傳回資料 URI 的字串表示法。 例如，下列運算式會傳回某字串：`dataUriToString('data:;base64,c29tZSBzdHJpbmc=')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br />**描述**：必要。 要轉換成字串表示法的資料 URI。|  
-|dataUri|傳回值的資料 URI。 例如，下列運算式會傳回資料：`text/plain;charset=utf8;base64,c29tZSBzdHJpbmc=: dataUri('some string')`<br /><br /> **參數編號**：1<br /><br />**名稱**：Value<br /><br />**描述**：必要。 要轉換成資料 URI 的值。|  
+|dataUri|傳回值的資料 URI。 例如，下列運算式會傳回資料：`text/plain;charset=utf8;base64,c29tZSBzdHJpbmc=: dataUri('some string')`<br /><br /> **參數編號**：1<br /><br />**名稱**：值<br /><br />**描述**：必要。 要轉換成資料 URI 的值。|  
 |decodeBase64|傳回輸入 based64 字串的字串表示法。 例如，下列運算式會傳回 `some string`：`decodeBase64('c29tZSBzdHJpbmc=')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：傳回輸入 based64 字串的字串表示法。|  
 |encodeUriComponent|URL 逸出傳入的字串。 例如，下列運算式會傳回 `You+Are%3ACool%2FAwesome`：`encodeUriComponent('You Are:Cool/Awesome')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 要從中逸出 URL 不安全字元的字串。|  
 |decodeUriComponent|非 URL 逸出傳入的字串。 例如，下列運算式會傳回 `You Are:Cool/Awesome`：`encodeUriComponent('You+Are%3ACool%2FAwesome')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br /> **描述**：必要。 要從中解碼 URL 不安全字元的字串。|  
@@ -228,9 +228,9 @@ ms.locfileid: "64573544"
 |uriComponent|傳回值的 URI 編碼表示法。 例如，下列運算式會傳回 `You+Are%3ACool%2FAwesome: uriComponent('You Are:Cool/Awesome ')`<br /><br /> 參數詳細資料：編號：1，名稱：字串，描述：必要。 要進行 URI 編碼的字串。|  
 |uriComponentToBinary|傳回 URI 編碼字串的二進位表示法。 例如，下列運算式會傳回 `You Are:Cool/Awesome` 的二進位表示法：`uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：字串<br /><br />**描述**：必要。 URI 編碼的字串。|  
 |uriComponentToString|傳回 URI 編碼字串的字串表示法。 例如，下列運算式會傳回 `You Are:Cool/Awesome`：`uriComponentToString('You+Are%3ACool%2FAwesome')`<br /><br /> **參數編號**：1<br /><br />**名稱**：字串<br /><br />**描述**：必要。 URI 編碼的字串。|  
-|Xml|傳回值的 XML 表示法。 例如，下列運算式會傳回以 `'\<name>Alan\</name>'` 表示的 XML 內容：`xml('\<name>Alan\</name>')`。 XML 函式也支援 JSON 物件輸入。 例如，參數 `{ "abc": "xyz" }` 轉換成 XML 內容 `\<abc>xyz\</abc>`<br /><br /> **參數編號**：1<br /><br />**名稱**：Value<br /><br />**描述**：必要。 要轉換成 XML 的值。|  
+|Xml|傳回值的 XML 表示法。 例如，下列運算式會傳回以 `'\<name>Alan\</name>'` 表示的 XML 內容：`xml('\<name>Alan\</name>')`。 XML 函式也支援 JSON 物件輸入。 例如，參數 `{ "abc": "xyz" }` 轉換成 XML 內容 `\<abc>xyz\</abc>`<br /><br /> **參數編號**：1<br /><br />**名稱**：值<br /><br />**描述**：必要。 要轉換成 XML 的值。|  
 |xpath|傳回符合值 (xpath 運算式進行評估) 之 xpath 運算式的 XML 節點陣列。<br /><br />  **範例 1**<br /><br /> 假設參數 ‘p1’ 的值是下列 XML 的字串表示法：<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1.此程式碼：`xpath(xml(pipeline().parameters.p1), '/lab/robot/name')`<br /><br /> 會傳回<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> 而<br /><br /> 2.此程式碼：`xpath(xml(pipeline().parameters.p1, ' sum(/lab/robot/parts)')`<br /><br /> 會傳回<br /><br /> `13`<br /><br /> <br /><br /> **範例 2**<br /><br /> 指定下列 XML 內容：<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.此程式碼：`@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> 或<br /><br /> 2.此程式碼：`@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> 傳回<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> 和<br /><br /> 3.此程式碼：`@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> 傳回<br /><br /> ``bar``<br /><br /> **參數編號**：1<br /><br />**名稱**：Xml<br /><br />**描述**：必要。 要評估 XPath 運算式的 XML。<br /><br /> **參數編號**：2<br /><br />**名稱**：XPath<br /><br />**描述**：必要。 要評估的 XPath 運算式。|  
-|array|將參數轉換成陣列。  例如，下列運算式會傳回 `["abc"]`：`array('abc')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：Value<br /><br /> **描述**：必要。 轉換成陣列的值。|
+|array|將參數轉換成陣列。  例如，下列運算式會傳回 `["abc"]`：`array('abc')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：值<br /><br /> **描述**：必要。 轉換成陣列的值。|
 |createArray|從參數建立陣列。  例如，下列運算式會傳回 `["a", "c"]`：`createArray('a', 'c')`<br /><br /> **參數編號**：1 ... n<br /><br /> **名稱**：任何 n<br /><br /> **描述**：必要。 要結合到陣列的值。|
 
 ## <a name="math-functions"></a>數學函式  
@@ -257,7 +257,7 @@ ms.locfileid: "64573544"
 |addminutes|將整數分鐘數新增至傳入的字串時間戳記。 分鐘數可以是正數或負數。 結果會是 ISO 8601 格式 ("o") 的字串，除非有提供格式規範。 例如，`2015-03-15T14:00:36Z`：<br /><br /> `addminutes('2015-03-15T13:27:36Z', 33)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：Timestamp<br /><br /> **描述**：必要。 包含時間的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：分鐘<br /><br /> **描述**：必要。 要新增的分鐘數。 可以是負數以減去分鐘。<br /><br /> **參數編號**：3<br /><br /> **名稱**：格式<br /><br /> **描述**：選用。 [單一格式規範字元](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自訂格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指出如何格式化這個時間戳記值。 如果未提供格式，則會使用 ISO 8601 格式 ("o")。|  
 |addhours|將整數時數新增至傳入的字串時間戳記。 時數可以是正數或負數。 結果會是 ISO 8601 格式 ("o") 的字串，除非有提供格式規範。 例如：`2015-03-16T01:27:36Z`：<br /><br /> `addhours('2015-03-15T13:27:36Z', 12)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：Timestamp<br /><br /> **描述**：必要。 包含時間的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：小時<br /><br /> **描述**：必要。 要新增的時數。 可以是負數以減去小時。<br /><br /> **參數編號**：3<br /><br /> **名稱**：格式<br /><br /> **描述**：選用。 [單一格式規範字元](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自訂格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指出如何格式化這個時間戳記值。 如果未提供格式，則會使用 ISO 8601 格式 ("o")。|  
 |adddays|將整數天數新增至傳入的字串時間戳記。 天數可以是正數或負數。 結果會是 ISO 8601 格式 ("o") 的字串，除非有提供格式規範。 例如：`2015-02-23T13:27:36Z`：<br /><br /> `adddays('2015-03-15T13:27:36Z', -20)`<br /><br /> **參數編號**：1<br /><br /> **名稱**：Timestamp<br /><br /> **描述**：必要。 包含時間的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：星期幾<br /><br /> **描述**：必要。 要新增的天數。 可以是負數以減去天。<br /><br /> **參數編號**：3<br /><br /> **名稱**：格式<br /><br /> **描述**：選用。 [單一格式規範字元](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自訂格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指出如何格式化這個時間戳記值。 如果未提供格式，則會使用 ISO 8601 格式 ("o")。|  
-|formatDateTime|以日期格式傳回字串。 結果會是 ISO 8601 格式 ("o") 的字串，除非有提供格式規範。 例如：`2015-02-23T13:27:36Z`：<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：date<br /><br /> **描述**：必要。 包含日期的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：格式<br /><br /> **描述**：選用。 [單一格式規範字元](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自訂格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指出如何格式化這個時間戳記值。 如果未提供格式，則會使用 ISO 8601 格式 ("o")。|  
+|formatDateTime|以日期格式傳回字串。 結果會是 ISO 8601 格式 ("o") 的字串，除非有提供格式規範。 例如：`2015-02-23T13:27:36Z`：<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br /> **參數編號**：1<br /><br /> **名稱**：Date<br /><br /> **描述**：必要。 包含日期的字串。<br /><br /> **參數編號**：2<br /><br /> **名稱**：格式<br /><br /> **描述**：選用。 [單一格式規範字元](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自訂格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指出如何格式化這個時間戳記值。 如果未提供格式，則會使用 ISO 8601 格式 ("o")。|  
 
 ## <a name="next-steps"></a>後續步驟
 如需可在運算式中使用之系統變數的清單，請參閱[系統變數](control-flow-system-variables.md)。

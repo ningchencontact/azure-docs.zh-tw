@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: d485799547644ccb3c34a8841e8b20d8a45444bf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707367"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>在具有企業安全性套件的 HDInsight 中設定 Apache Hive 原則
@@ -45,8 +45,8 @@ ms.locfileid: "64707367"
 **建立 Ranger 原則**
 
 1. 開啟 Ranger 系統管理 UI。 請參閱連接到 Apache Ranger 系統管理 UI。
-2. 按一下 [Hive] 下的 **&lt;ClusterName>_hive**。 您會看到兩個預先設定的原則。
-3. 按一下 [新增原則]，然後輸入下列值︰
+2. 按一下 [Hive]  下的 **&lt;ClusterName>_hive**。 您會看到兩個預先設定的原則。
+3. 按一下 [新增原則]  ，然後輸入下列值︰
 
    * 原則名稱︰read-hivesampletable-all
    * Hive 資料庫︰預設值
@@ -61,7 +61,7 @@ ms.locfileid: "64707367"
      > 如果 [選取使用者] 中未填入網域使用者，請稍等一下讓 Ranger 與 AAD 同步處理。
      >
      >
-4. 按一下 [新增] 以儲存規則。
+4. 按一下 [新增]  以儲存規則。
 5. 重複最後兩個步驟，使用下列屬性建立另一個原則︰
 
    * 原則名稱︰read-hivesampletable-devicemake
@@ -80,28 +80,28 @@ ms.locfileid: "64707367"
  | Host | 輸入 &lt;HDInsightClusterName>.azurehdinsight.net。 例如，myHDICluster.azurehdinsight.net |
  | Port | 使用 **443** (此連接埠已從 563 變更為 443)。 |
  | 資料庫 | 使用**預設值** |
- | Hive 伺服器類型 | 選取 [Hive Server 2] |
- | 機制 | 選取 [Azure HDInsight 服務] |
- | HTTP 路径 | 保留為空白。 |
+ | Hive 伺服器類型 | 選取 [Hive Server 2]  |
+ | 機制 | 選取 [Azure HDInsight 服務]  |
+ | HTTP 路徑 | 保留為空白。 |
  | 使用者名稱 | 輸入 hiveuser1@contoso158.onmicrosoft.com。 更新網域名稱 (如果不同的話)。 |
  | 密碼 | 輸入 hiveuser1 的密碼。 |
 
-請務必先按一下 [測試]，再儲存資料來源。
+請務必先按一下 [測試]  ，再儲存資料來源。
 
 ## <a name="import-data-into-excel-from-hdinsight"></a>從 HDInsight 將資料匯入 Excel 中
 在上一節中，您已設定兩個原則。  hiveuser1 具有所有資料行的選取權限，而 hiveuser2 具有兩個資料行的選取權限。 本節中，您可以模擬兩位使用者將資料匯入 Excel 中。
 
 1. 在 Excel 中開啟新的或現有的活頁簿。
-2. 在 [資料] 索引標籤上按一下 [從其他資料來源]，然後按一下 [從資料連接精靈]，以啟動 [資料連接精靈]。
+2. 在 [資料]  索引標籤上按一下 [從其他資料來源]  ，然後按一下 [從資料連接精靈]  ，以啟動 [資料連接精靈]  。
 
     ![開啟資料連接精靈][img-hdi-simbahiveodbc.excel.dataconnection]
-3. 選取 [ODBC DSN] 作為資料來源，然後按 [下一步]。
-4. 從 ODBC 資料來源中，選取您在上一個步驟中建立的資料來源名稱，然後按 [下一步] 。
-5. 在精靈中重新輸入叢集的密碼，然後按一下 [確定]。 等待 [選取資料庫及資料表]  對話方塊開啟。 這可能需要幾秒鐘的時間。
-6. 選取 **hivesampletable**，然後按 [下一步]。
-7. 按一下 [完成] 。
-8. 在 [匯入資料]  對話方塊中，您可以變更或指定查詢。 若要執行此動作，請按一下 [屬性] 。 這可能需要幾秒鐘的時間。
-9. 按一下 [定義] 索引標籤。命令文字如下：
+3. 選取 [ODBC DSN]  作為資料來源，然後按 [下一步]  。
+4. 從 ODBC 資料來源中，選取您在上一個步驟中建立的資料來源名稱，然後按 [下一步]  。
+5. 在精靈中重新輸入叢集的密碼，然後按一下 [確定]  。 等待 [選取資料庫及資料表]  對話方塊開啟。 這可能需要幾秒鐘的時間。
+6. 選取 **hivesampletable**，然後按 [下一步]  。
+7. 按一下 [完成]  。
+8. 在 [匯入資料]  對話方塊中，您可以變更或指定查詢。 若要執行此動作，請按一下 [屬性]  。 這可能需要幾秒鐘的時間。
+9. 按一下 [定義]  索引標籤。命令文字如下：
 
        SELECT * FROM "HIVE"."default"."hivesampletable"
 
@@ -109,8 +109,8 @@ ms.locfileid: "64707367"
 
    ![連接屬性][img-hdi-simbahiveodbc-excel-connectionproperties]
 10. 按一下 [確定]  以關閉 [連接屬性] 對話方塊。
-11. 按一下 [確定] 以關閉 [匯入資料] 對話方塊。  
-12. 重新輸入 hiveuser1 的密碼，然後按一下 [確定]。 經過數秒後，資料即會匯入至 Excel。 完成時，您會看到 11 個資料行的資料。
+11. 按一下 [確定]  以關閉 [匯入資料]  對話方塊。  
+12. 重新輸入 hiveuser1 的密碼，然後按一下 [確定]  。 經過數秒後，資料即會匯入至 Excel。 完成時，您會看到 11 個資料行的資料。
 
 測試您在上一節中建立的第二個原則 (read-hivesampletable-devicemake)
 

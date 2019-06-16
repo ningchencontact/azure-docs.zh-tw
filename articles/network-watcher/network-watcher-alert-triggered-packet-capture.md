@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 37e42b05046be27254d2ceb15a59fbdb931ae161
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711922"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>使用封包擷取搭配警示和 Azure Functions 進行主動式網路監視
@@ -69,11 +69,11 @@ ms.locfileid: "64711922"
 
 第一個步驟是建立 Azure 函式來處理警示，以及建立封包擷取。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源] > [計算] > [函數應用程式]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源]   > [計算]   > [函數應用程式]  。
 
     ![建立函數應用程式][1-1]
 
-2. 在 [函數應用程式] 刀鋒視窗上，輸入下列值，然後選取 [確定] 以建立應用程式︰
+2. 在 [函數應用程式]  刀鋒視窗上，輸入下列值，然後選取 [確定]  以建立應用程式︰
 
     |**設定** | **值** | **詳細資料** |
     |---|---|---|
@@ -81,12 +81,12 @@ ms.locfileid: "64711922"
     |**訂用帳戶**|[您的訂用帳戶]要建立函數應用程式的訂用帳戶。||
     |**資源群組**|PacketCaptureRG|要包含函數應用程式的資源群組。|
     |**主控方案**|取用方案| 函數應用程式所使用的方案類型。 選項有「取用」或 Azure App Service 方案。 |
-    |**位置**|美國中部| 要在其中建立函數應用程式的區域。|
+    |**Location**|美國中部| 要在其中建立函數應用程式的區域。|
     |**儲存體帳戶**|{自動產生}| Azure Functions 針對一般用途的儲存所需的儲存體帳戶。|
 
-3. 在 [PacketCaptureExample 函數應用程式] 刀鋒視窗上，選取 [函式] > [自訂函式] >[+]。
+3. 在 [PacketCaptureExample 函數應用程式]  刀鋒視窗上，選取 [函式]   > [自訂函式]   >[+]  。
 
-4. 選取 [HttpTrigger-Powershell]，然後輸入其餘資訊。 最後，若要建立函式，請選取 [建立]。
+4. 選取 [HttpTrigger-Powershell]  ，然後輸入其餘資訊。 最後，若要建立函式，請選取 [建立]  。
 
     |**設定** | **值** | **詳細資料** |
     |---|---|---|
@@ -121,7 +121,7 @@ ms.locfileid: "64711922"
 
      ![PowerShell 資料夾][functions5]
 
-1. 選取 [函數應用程式設定] > [前往 App Service 編輯器]。
+1. 選取 [函數應用程式設定]   > [前往 App Service 編輯器]  。
 
     ![函數應用程式設定][functions2]
 
@@ -139,7 +139,7 @@ ms.locfileid: "64711922"
 
 1. 以滑鼠右鍵按一下**Az.Network**子資料夾，然後選取**上傳檔案**。 
 
-6. 前往 Azure 模組。 在本機**Az.Network**資料夾中，選取資料夾中的所有檔案。 然後選取 [確定]。 
+6. 前往 Azure 模組。 在本機**Az.Network**資料夾中，選取資料夾中的所有檔案。 然後選取 [確定]  。 
 
 7. 重複這些步驟**Az.Accounts**並**Az.Resources**。
 
@@ -208,11 +208,11 @@ $Encryptedpassword
    > [!NOTE]
    > 建立應用程式時所使用的密碼，應該與稍早在儲存金鑰檔案時所建立的密碼相同。
 
-1. 在 Azure 入口網站中，選取 [訂用帳戶]。 選取要使用的訂用帳戶，然後選取 [存取控制 (IAM)]。
+1. 在 Azure 入口網站中，選取 [訂用帳戶]  。 選取要使用的訂用帳戶，然後選取 [存取控制 (IAM)]  。
 
     ![函式 IAM][functions9]
 
-1. 選擇要使用的帳戶，然後選取 [屬性]。 複製應用程式識別碼。
+1. 選擇要使用的帳戶，然後選取 [屬性]  。 複製應用程式識別碼。
 
     ![函數應用程式識別碼][functions10]
 
@@ -226,7 +226,7 @@ $Encryptedpassword
 
 #### <a name="azurecredpassword"></a>AzureCredPassword
 
-AzureCredPassword 環境變數的值是執行下列 PowerShell 範例所取得的值。 這個範例與前面的＜加密的認證＞一節所顯示的範例相同。 所需的值是 `$Encryptedpassword` 變數的輸出。  這是使用 PowerShell 指令碼所加密的服務主體密碼。
+AzureCredPassword 環境變數的值是執行下列 PowerShell 範例所取得的值。 這個範例與前面的＜加密的認證＞  一節所顯示的範例相同。 所需的值是 `$Encryptedpassword` 變數的輸出。  這是使用 PowerShell 指令碼所加密的服務主體密碼。
 
 ```powershell
 #Variables
@@ -247,11 +247,11 @@ $Encryptedpassword
 
 ### <a name="store-the-environment-variables"></a>儲存環境變數
 
-1. 返回函數應用程式。 然後選取 [函數應用程式設定] > [設定應用程式設定]。
+1. 返回函數應用程式。 然後選取 [函數應用程式設定]   > [設定應用程式設定]  。
 
     ![進行應用程式設定][functions11]
 
-1. 將環境變數及其值新增至應用程式設定，然後選取 [儲存]。
+1. 將環境變數及其值新增至應用程式設定，然後選取 [儲存]  。
 
     ![應用程式設定][functions12]
 
@@ -342,7 +342,7 @@ $Encryptedpassword
 
 ### <a name="create-the-alert-rule"></a>建立警示規則
 
-前往現有的虛擬機器，然後新增警示規則。 如需設定警示相關的詳細文件，請參閱[在 Azure 服務的 Azure 監視器中建立警示 - Azure 入口網站](../monitoring-and-diagnostics/insights-alerts-portal.md)。 在 [警示規則] 刀鋒視窗中輸入下列值，然後選取 [確定]。
+前往現有的虛擬機器，然後新增警示規則。 如需設定警示相關的詳細文件，請參閱[在 Azure 服務的 Azure 監視器中建立警示 - Azure 入口網站](../monitoring-and-diagnostics/insights-alerts-portal.md)。 在 [警示規則]  刀鋒視窗中輸入下列值，然後選取 [確定]  。
 
   |**設定** | **值** | **詳細資料** |
   |---|---|---|
@@ -359,7 +359,7 @@ $Encryptedpassword
 
 ## <a name="review-the-results"></a>檢閱結果
 
-觸發警示的準則之後，會建立封包擷取。 前往網路監看員，然後選取 [封包擷取]。 在這個頁面上，您可以選取封包擷取檔案連結以下載封包擷取。
+觸發警示的準則之後，會建立封包擷取。 前往網路監看員，然後選取 [封包擷取]  。 在這個頁面上，您可以選取封包擷取檔案連結以下載封包擷取。
 
 ![檢視封包擷取][functions14]
 

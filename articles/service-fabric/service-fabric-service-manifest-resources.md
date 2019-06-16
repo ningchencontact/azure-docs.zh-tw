@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: 8707a9cb90afe1bf72f3aef6377f8ada409a1c64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837754"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>在服務資訊清單中指定資源
 ## <a name="overview"></a>概觀
 服務資訊清單可宣告/變更服務使用的資源，且不需變更已編譯的程式碼。 Azure Service Fabric 支援針對服務的端點資源組態。 透過應用程式資訊清單中的 SecurityGroup，即可控制存取服務資訊清單中的指定資源。 資源宣告可讓您在部署階段變更這些資源，也就是服務不需要導入新的組態機制。 ServiceManifest.xml 檔案的結構描述定義是和 Service Fabric SDK 及工具一起安裝在 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*。
 
-## <a name="endpoints"></a>终结点
+## <a name="endpoints"></a>端點
 在服務資訊清單中定義端點資源時，若沒有明確指定連接埠，Service Fabric 會從保留的應用程式連接埠範圍指派連接埠。 例如，請看本段落之後提供的資訊清單片段中所指定的端點 *ServiceEndpoint1* 。 此外，服務也可以在資源中要求特定連接埠。 不同的連接埠號碼可以指派給在不同叢集節點上執行的服務複本，而在同一節點上執行的服務複本可以共用連接埠。 然後服務複本就可以在需要時使用這些連接埠進行複寫和接聽用戶端要求。
 
 ```xml
@@ -38,7 +38,7 @@ ms.locfileid: "60837754"
 </Resources>
 ```
 
-如果單一服務套件中有多個程式碼套件，則也需要在 [端點] 區段中參考程式碼套件。  例如，如果 **ServiceEndpoint2a** 和 **ServiceEndpoint2b** 是來自參考不同程式碼套件之相同服務套件的端點，則對應至每個端點的程式碼套件釐清如下：
+如果單一服務套件中有多個程式碼套件，則也需要在 [端點]  區段中參考程式碼套件。  例如，如果 **ServiceEndpoint2a** 和 **ServiceEndpoint2b** 是來自參考不同程式碼套件之相同服務套件的端點，則對應至每個端點的程式碼套件釐清如下：
 
 ```xml
 <Resources>
@@ -51,7 +51,7 @@ ms.locfileid: "60837754"
 
 請參閱 [設定具狀態的 Reliable Services](service-fabric-reliable-services-configuration.md) ，從設定封裝設定檔 (settings.xml) 深入了解參考端點。
 
-## <a name="example-specifying-an-http-endpoint-for-your-service"></a>示例：为服务指定 HTTP 终结点
+## <a name="example-specifying-an-http-endpoint-for-your-service"></a>範例：指定服務的 HTTP 端點
 以下服務資訊清單在 &lt;Resources&gt; 項目中定義了一個 TCP 端點資源和兩個 HTTP 端點資源。
 
 Service Fabric 會自動將 HTTP 端點處理為 ACL。
@@ -101,7 +101,7 @@ Service Fabric 會自動將 HTTP 端點處理為 ACL。
 ```
 
 ## <a name="example-specifying-an-https-endpoint-for-your-service"></a>範例：指定服務的 HTTPS 端點
-HTTPS 通訊協定提供伺服器驗證，也能用於加密用戶端-伺服器通訊。 若要在 Service Fabric 服務上啟用 HTTPS，請在服務資訊清單的 [資源] -> [端點] -> [端點] 區段指定通訊協定，如先前針對 *ServiceEndpoint3* 端點所示。
+HTTPS 通訊協定提供伺服器驗證，也能用於加密用戶端-伺服器通訊。 若要在 Service Fabric 服務上啟用 HTTPS，請在服務資訊清單的 [資源] -> [端點] -> [端點]  區段指定通訊協定，如先前針對 *ServiceEndpoint3* 端點所示。
 
 > [!NOTE]
 > 服務的通訊協定不能在應用程式升級期間變更。 如果它在升級期間變更，將會發生中斷變更。
@@ -192,7 +192,7 @@ HTTPS 通訊協定提供伺服器驗證，也能用於加密用戶端-伺服器�
   </Parameters>
 ```
 
-部署應用程式時，您可以傳入這些值作為 ApplicationParameters。  例如︰
+部署應用程式時，您可以傳入這些值作為 ApplicationParameters。  例如:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
@@ -200,7 +200,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 注意：如果提供給 ApplicationParameters 的值為空白，我們要回到 ServiceManifest 中提供的預設值，來取得對應的 EndPointName。
 
-例如︰
+例如:
 
 如果在您指定的 ServiceManifest 中
 

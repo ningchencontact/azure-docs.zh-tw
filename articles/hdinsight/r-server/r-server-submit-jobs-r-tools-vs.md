@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 8f1ed582b7abf43afd38ca5c358aa7e179bfecb3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64702283"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>從 Visual Studio R 工具提交作業
@@ -37,14 +37,14 @@ RTVS 會增強您的 R 工作流程，方法是提供例如 [R 互動視窗](htt
 5. 安裝 [PuTTY](https://www.putty.org/) 以提供計算內容，從您的本機用戶端將 `RevoScaleR` 函式執行至 HDInsight 叢集。
 
 6. 您可以選擇將資料科學設定套用至 Visual Studio 環境，它為您的 R 工具工作區提供新的版面配置。
-   1. 若要儲存目前的 Visual Studio 設定，使用 [工具] > [匯入和匯出設定] 命令，然後選取 [匯出選取的環境設定] 並且指定檔案名稱。 若要還原這些設定，請使用相同的命令並選取 [匯入選取的環境設定]。
+   1. 若要儲存目前的 Visual Studio 設定，使用 [工具] > [匯入和匯出設定]  命令，然後選取 [匯出選取的環境設定]  並且指定檔案名稱。 若要還原這些設定，請使用相同的命令並選取 [匯入選取的環境設定]  。
 
-   2. 移至 [R 工具] 功能表項目，然後選取 [資料科學設定...].
+   2. 移至 [R 工具]  功能表項目，然後選取 [資料科學設定...]  .
 
        ![資料科學設定...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
       > [!NOTE]  
-      > 使用步驟 1 中的方法，您也可以儲存和還原您的個人化資料科學家版面配置，而不用重複 [資料科學設定] 命令。
+      > 使用步驟 1 中的方法，您也可以儲存和還原您的個人化資料科學家版面配置，而不用重複 [資料科學設定]  命令。
 
 ## <a name="execute-local-r-methods"></a>執行本機 R 方法
 
@@ -65,7 +65,7 @@ RTVS 會增強您的 R 工作流程，方法是提供例如 [R 互動視窗](htt
 
 您可以透過配備 PuTTY 的 Windows 電腦使用 Microsoft Machine Learning Server/Microsoft R Client，建立計算內容，此內容會從本機用戶端將分散式 `RevoScaleR` 函式執行至 HDInsight 叢集。 使用 `RxSpark` 來建立計算內容，指定您的使用者名稱、Apache Hadoop 叢集的邊緣節點、SSH 參數等等。
 
-1. 若要尋找邊緣節點的主機名稱，請開啟您在 Azure 上的 HDInsight ML 服務叢集窗格，然後選取 [概觀] 窗格功能表頂端的 [安全殼層 (SSH)]。
+1. 若要尋找邊緣節點的主機名稱，請開啟您在 Azure 上的 HDInsight ML 服務叢集窗格，然後選取 [概觀] 窗格功能表頂端的 [安全殼層 (SSH)]  。
 
     ![安全殼層 (SSH)](./media/r-server-submit-jobs-r-tools-vs/ssh.png)
 
@@ -117,17 +117,17 @@ RTVS 會增強您的 R 工作流程，方法是提供例如 [R 互動視窗](htt
 
 5. 確認 `rxHadoopCopy` 成功將 `people.json` 檔案從範例資料資料夾複製到新建立的 `/user/RevoShare/newUser` 資料夾：
 
-    1. 從 Azure 中的 HDInsight ML 服務叢集窗格，選取左側功能表的 [儲存體帳戶]。
+    1. 從 Azure 中的 HDInsight ML 服務叢集窗格，選取左側功能表的 [儲存體帳戶]  。
 
         ![儲存體帳戶](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
 
     2. 選取叢集的預設儲存體帳戶，記下容器/目錄名稱。
 
-    3. 從儲存體帳戶窗格的左側功能表選取 [容器]。
+    3. 從儲存體帳戶窗格的左側功能表選取 [容器]  。
 
         ![容器](./media/r-server-submit-jobs-r-tools-vs/containers.png)
 
-    4. 選取叢集的容器名稱，瀏覽至 **user** 資料夾 (您可能必須按一下清單底部的 [載入更多])，然後依序選取 [RevoShare]、[newUser]。 `people.json` 檔案應該會顯示在 `newUser` 資料夾中。
+    4. 選取叢集的容器名稱，瀏覽至 **user** 資料夾 (您可能必須按一下清單底部的 [載入更多]  )，然後依序選取 [RevoShare]  、[newUser]  。 `people.json` 檔案應該會顯示在 `newUser` 資料夾中。
 
         ![複製的檔案](./media/r-server-submit-jobs-r-tools-vs/copied-file.png)
 
