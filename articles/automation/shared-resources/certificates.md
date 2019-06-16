@@ -1,6 +1,6 @@
 ---
 title: Azure 自動化中的憑證資產
-description: 证书将安全地存储在 Azure 自动化中，以便可以通过 Runbook 或 DSC 配置访问这些证书，对 Azure 和第三方资源进行身份验证。  這篇文章說明憑證的詳細資料，以及如何以文字和圖形化編寫形式加以使用。
+description: 憑證是安全地在 Azure 自動化中，使得 runbook 或 DSC 組態，以向 Azure 和協力廠商資源存取。  這篇文章說明憑證的詳細資料，以及如何以文字和圖形化編寫形式加以使用。
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
@@ -10,22 +10,22 @@ ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: d230fa97d009f0ee2a3bc86a0b6b7c8d40687a46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61216027"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure 自動化中的憑證資產
 
-证书将安全地存储在 Azure 自动化中，以便可以使用 Azure 资源管理器资源的 **Get-AzureRmAutomationCertificate** 活动通过 Runbook 或 DSC 配置访问这些证书。 這個功能可讓您建立使用憑證進行驗證的 Runbook 和 DSC 設定，或將它們新增至 Azure 或協力廠商資源。
+憑證會安全地儲存在 Azure 自動化中，它們可以存取 runbook 或 DSC 組態使用**Get-azurermautomationcertificate** Azure Resource Manager 資源的活動。 這個功能可讓您建立使用憑證進行驗證的 Runbook 和 DSC 設定，或將它們新增至 Azure 或協力廠商資源。
 
 >[!NOTE]
 >Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一金鑰儲存在 Azure 自動化中。 此金鑰會儲存在系統管理的 Key Vault 中。 在儲存安全資產之前，系統會從 Key Vault 載入金鑰，然後用來加密資產。 此程序是由 Azure 自動化所管理。
 
 ## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell Cmdlet
 
-針對 AzureRM，下表中的 Cmdlet 可透過 Windows PowerShell 來建立和管理自動化認證資產。 可在自动化 Runbook 和 DSC 配置中使用的 [AzureRM.Automation 模块](/powershell/azure/overview)已随附了这些 cmdlet。
+針對 AzureRM，下表中的 Cmdlet 可透過 Windows PowerShell 來建立和管理自動化認證資產。 它們附屬於[AzureRM.Automation 模組](/powershell/azure/overview)，這是可用於自動化 runbook 和 DSC 設定。
 
 |Cmdlet|描述|
 |:---|:---|
@@ -35,11 +35,11 @@ ms.locfileid: "61216027"
 |[Set-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/set-azurermautomationcertificate)|設定現有的憑證，包括上傳憑證檔案和設定 .pfx 的密碼屬性。|
 |[Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate)|上傳指定雲端服務的服務憑證。|
 
-## <a name="activities"></a>活動
+## <a name="activities"></a>activities
 
 下表中的活動是用來存取 Runbook 和 DSC 設定中的憑證。
 
-| 活動 | 描述 |
+| activities | 描述 |
 |:---|:---|
 |Get-AutomationCertificate|取得要在 Runbook 或 DSC 組態中使用的憑證。 傳回 [System.Security.Cryptography.X509Certificates.X509Certificate2](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2) 物件。|
 
@@ -59,18 +59,18 @@ ms.locfileid: "61216027"
 
 ## <a name="creating-a-new-certificate"></a>建立新憑證
 
-建立新憑證時，您會將 cer 或 pfx 檔案上傳到 Azure 自動化。 如果您將憑證標示為可匯出，那麼您可以將它傳送到 Azure 自動化憑證存放區外部。 如果证书不可导出，则它只可用于在 Runbook 或 DSC 配置中签名。 Azure 自動化需要讓憑證擁有提供者：**Microsoft Enhanced RSA 與 AES 密碼編譯提供者**。
+建立新憑證時，您會將 cer 或 pfx 檔案上傳到 Azure 自動化。 如果您將憑證標示為可匯出，那麼您可以將它傳送到 Azure 自動化憑證存放區外部。 如果不是可匯出，然後它只能用於簽署的 runbook 或 DSC 組態內。 Azure 自動化需要讓憑證擁有提供者：**Microsoft Enhanced RSA 與 AES 密碼編譯提供者**。
 
 ### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>使用 Azure 入口網站建立新憑證
 
-1. 在自动化帐户中，单击“资产”磁贴打开“资产”页。
-2. 单击“证书”磁贴打开“证书”页。
-3. 单击页面顶部的“添加证书”。
+1. 從您的自動化帳戶，按一下**資產**圖格以開啟**資產**頁面。
+2. 按一下 **憑證**圖格以開啟**憑證**頁面。
+3. 按一下 **將憑證新增**頁面的頂端。
 4. 在 [ **名稱** ] 方塊中輸入憑證的名稱。
-5. 若要瀏覽 .cer 或 .pfx 檔案，請按一下 [上傳憑證檔案] 下方的 [選取檔案]。 如果选择了 .pfx 文件，请指定密码，以及是否可以导出该文件。
+5. 若要瀏覽 .cer 或 .pfx 檔案，請按一下 [上傳憑證檔案]  下方的 [選取檔案]  。 如果您選取.pfx 檔案，請指定密碼，以及是否可以匯出。
 6. 按一下 [ **建立** ] 以儲存新的憑證資產。
 
-### <a name="to-create-a-new-certificate-with-powershell"></a>使用 PowerShell 创建新证书
+### <a name="to-create-a-new-certificate-with-powershell"></a>若要使用 PowerShell 建立新的憑證
 
 下列範例示範如何建立新的自動化憑證，並將其標示為可匯出。 這樣會匯入現有的 pfx 檔案。
 
@@ -128,7 +128,7 @@ New-AzureRmResourceGroupDeployment -Name NewCert -ResourceGroupName TestAzureAut
 
 ## <a name="using-a-certificate"></a>使用憑證
 
-若要使用憑證，請使用 **Get-AutomationCertificate** 活動。 不能使用 [Get-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/get-azurermautomationcertificate) cmdlet，因为它返回有关证书资产的信息，而不是证书本身的信息。
+若要使用憑證，請使用 **Get-AutomationCertificate** 活動。 您無法使用[Get-azurermautomationcertificate](/powershell/module/azurerm.automation/get-azurermautomationcertificate) cmdlet，因為它會傳回憑證資產，但不是憑證本身的相關資訊。
 
 ### <a name="textual-runbook-sample"></a>文字式 Runbook 範例
 
@@ -144,11 +144,11 @@ Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 
 ### <a name="graphical-runbook-sample"></a>圖形化 Runbook 範例
 
-通过在“库”窗格中右键单击证书并选择“添加到画布”，将 **Get-AutomationCertificate** 添加到图形 Runbook。
+您將新增**Get-automationcertificate**至圖形化 runbook 程式庫 窗格中的憑證上按一下滑鼠右鍵，然後選取**新增至畫布**。
 
 ![將憑證新增至畫布](../media/certificates/automation-certificate-add-to-canvas.png)
 
-下圖顯示在圖形化 Runbook 中使用憑證的範例。 这与上面演示如何从文本 Runbook 向云服务添加证书的示例相同。
+下圖顯示在圖形化 Runbook 中使用憑證的範例。 這是上述範例，示範如何將憑證新增至雲端服務中，從文字式 runbook 相同。
 
 ![範例圖形化編寫](../media/certificates/graphical-runbook-add-certificate.png)
 

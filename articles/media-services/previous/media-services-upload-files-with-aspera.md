@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: e522883da7fddad44741599107f2dbc4c99aace6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60826860"
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>使用 Azure 上的 Aspera Server On Demand 服務，將檔案上傳至媒體服務帳戶 
@@ -42,7 +42,7 @@ ms.locfileid: "60826860"
 若要完成本教學課程，您需要：
 
 * Windows Live ID
-* [Azure 帳戶](https://azure.microsoft.com)。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。 
+* [Azure 帳戶](https://azure.microsoft.com)。 如需詳細資訊，請參閱 < [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。 
 * [Azure 媒體服務帳戶](media-services-portal-create-account.md)。
 
 ## <a name="purchase-aspera-on-demand-for-azure"></a>購買適用於 Azure 的 Aspera On Demand
@@ -61,15 +61,15 @@ ms.locfileid: "60826860"
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera003.png)
 
-4. 按一下 [定價層]，並在子面板中選取您希望的每月磁碟量。 在 [方案詳細資料] 面板中，選取 [確定]。 在 [選擇定價層] 面板中，按一下 [選取]。
+4. 按一下 [定價層]  ，並在子面板中選取您希望的每月磁碟量。 在 [方案詳細資料]  面板中，選取 [確定]  。 在 [選擇定價層]  面板中，按一下 [選取]  。
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera004.png)
 
-5. 按一下 [法律條款]，即可檢視並接受子面板中的法律條款。 一旦您已檢閱法律條款，按一下 [購買]。
+5. 按一下 [法律條款]  ，即可檢視並接受子面板中的法律條款。 一旦您已檢閱法律條款，按一下 [購買]  。
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera005.png)
 
-6. 按一下 [建立]，以完成購買。
+6. 按一下 [建立]  ，以完成購買。
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera006.png)
 
@@ -77,7 +77,7 @@ ms.locfileid: "60826860"
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera007.png)
 
-8. 啟動 Aspera 管理入口網站。 一旦找到新的 Aspera 服務，您可以在服務上按一下以存取管理入口網站。  新的面板就會啟動。 從該新面板中，必須按一下新服務的 [資源名稱]。  在下列螢幕擷取畫面中，資源名稱為 'AsperaTransferDemo'。 一旦按一下資源名稱時，就會啟動另一個面板。 在該新推出的面板中，您會看到 [管理] 連結。 按一下 [管理] 連結來啟動 Aspera 管理入口網站。
+8. 啟動 Aspera 管理入口網站。 一旦找到新的 Aspera 服務，您可以在服務上按一下以存取管理入口網站。  新的面板就會啟動。 從該新面板中，必須按一下新服務的 [資源名稱]  。  在下列螢幕擷取畫面中，資源名稱為 'AsperaTransferDemo'。 一旦按一下資源名稱時，就會啟動另一個面板。 在該新推出的面板中，您會看到 [管理] 連結。 按一下 [管理] 連結來啟動 Aspera 管理入口網站。
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera008.png)
 
@@ -113,7 +113,7 @@ ms.locfileid: "60826860"
    3. 透過 [Azure 入口網站](https://portal.azure.com/)，擷取與 Azure 媒體帳戶相關聯的儲存體帳戶部分資訊。 具體而言，即您要將內容置於其中的名稱索引鍵和儲存體 blob 容器名稱。 
 
        * 若要從入口網站取得儲存體資訊︰尋找儲存體帳戶、按一下 [存取金鑰] 並複製帳戶名稱和金鑰。
-       * 若要取得容器名稱︰尋找儲存體帳戶，選取 [Blob]，接著選取您想將內容上傳至其中的內容名稱。 
+       * 若要取得容器名稱︰尋找儲存體帳戶，選取 [Blob]  ，接著選取您想將內容上傳至其中的內容名稱。 
 
       以下是 Aspera 用戶端**連接管理員**的螢幕擷取畫面，您必須在其中指定 'Azure' 儲存體類型和認證以及 blob 容器。
 

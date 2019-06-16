@@ -11,10 +11,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 45be3d7f865c7b72ae62efbf99dbbb4594b1846f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60812548"
 ---
 # <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>小組負責人在 Team Data Science Process Team 中的工作
@@ -57,7 +57,7 @@ ms.locfileid: "60812548"
 - 整個群組可以選擇建立單一專案。 其後，所有資料科學小組的所有專案都會在這個單一專案底下。 為此，您可以指定 git 系統管理員須遵循這些指示來建立單一專案。 這個案例對於下列情形有效，例如：
     -  沒有多個資料科學小組的小型資料科學群組 
     -  具有多個資料科學小組的較大資料科學群組，想要使用例如群組層級短期衝刺計劃的活動來最佳化小組間共同作業。 
-- 小組可以選擇讓整個群組的單一專案下包含小組特定專案範本或小組特定公用程式。 在此情況下，小組負責人應該在相同的專案下建立專案範本存放庫和/或小組公用程式存放庫。 將這些存放庫命名為 <TeamName\>ProjectTemplate 和 <TeamName\>Utilities，例如，TeamJohnProjectTemplate 和 TeamJohnUtilities。 
+- 小組可以選擇讓整個群組的單一專案下包含小組特定專案範本或小組特定公用程式。 在此情況下，小組負責人應該在相同的專案下建立專案範本存放庫和/或小組公用程式存放庫。 將這些存放庫命名為 <TeamName\>ProjectTemplate  和 <TeamName\>Utilities  ，例如，TeamJohnProjectTemplate  和 TeamJohnUtilities  。 
 
 在任何情況下，小組負責人都必須讓小組成員知道當他們設定及複製專案和公用程式存放庫時，要採用哪個範本和公用程式存放庫。 專案負責人應遵循[資料科學小組的專案負責人工作](project-lead-tasks.md)以建立專案存放庫，無論是在個別專案下還是單一專案下。 
 
@@ -70,7 +70,7 @@ ms.locfileid: "60812548"
 - 您的 **GroupProjectTemplate 存放庫** (R1) 已由您計劃使用之程式碼裝載平台上的群組管理員，在群組帳戶上設定。
 - 您已經被群組管理員**授權**，為您的小組建立存放庫。
 - Git 必須安裝在您的機器上。 如果您使用資料科學虛擬機器 (DSVM)，則已預先安裝 Git，而您可以繼續作業。 否則，請參閱[平台和工具附錄](platforms-and-tools.md#appendix)。  
-- 如果您使用 **Windows DSVM**，您必須在機器上安裝 [Git 認證管理員 (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) \(英文\)。 在 README.md 檔案中，向下捲動至 [下載並安裝] 區段，然後按一下 [最新的安裝程式]。 這樣會帶您到最新的安裝程式分頁。 從這裡下載 .exe 安裝程式並執行它。 
+- 如果您使用 **Windows DSVM**，您必須在機器上安裝 [Git 認證管理員 (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) \(英文\)。 在 README.md 檔案中，向下捲動至 [下載並安裝]  區段，然後按一下 [最新的安裝程式]  。 這樣會帶您到最新的安裝程式分頁。 從這裡下載 .exe 安裝程式並執行它。 
 - 如果您使用 **Linux DSVM**，請在您的 DSVM 上建立 SSH 公開金鑰，並將它新增到您的群組 Azure DevOps Services。 如需 SSH 的詳細資訊，請參閱[平台和工具附錄](platforms-and-tools.md#appendix)中的**建立 SSH 公開金鑰**一節。 
     
 ## <a name="1-create-a-project-and-repositories"></a>1.建立專案和存放庫
@@ -84,7 +84,7 @@ ms.locfileid: "60812548"
 ### <a name="create-the-myteam-project"></a>建立 MyTeam 專案
 
 - 移至您群組的 Azure DevOps Services 首頁，位於 URL：`https://<Azure DevOps Services Name\>.visualstudio.com`。 
-- 按一下 [新增] 以建立專案。 
+- 按一下 [新增]  以建立專案。 
 
     ![2](./media/team-lead-tasks/team-leads-2-create-new-team.png)
 
@@ -92,37 +92,37 @@ ms.locfileid: "60812548"
 
     ![3](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
 
-- 按一下 [建立專案]。 您的專案 **MyTeam** 會在 1 分鐘內建立。 
+- 按一下 [建立專案]  。 您的專案 **MyTeam** 會在 1 分鐘內建立。 
 
-- 專案 **MyTeam** 建立之後，請按一下 [瀏覽至專案] 按鈕，以導向專案的首頁。 
+- 專案 **MyTeam** 建立之後，請按一下 [瀏覽至專案]  按鈕，以導向專案的首頁。 
 
     ![4](./media/team-lead-tasks/team-leads-4-create-new-team-3.png)
 
-- 如果您看到 [恭喜！] 快顯視窗，請按一下 [新增程式碼] (紅色方塊中的按鈕)。 否則，請按一下 [程式碼] (黃色方塊中)。 這樣會將您導向至專案的 Git 存放庫頁面。 
+- 如果您看到 [恭喜！]  快顯視窗，請按一下 [新增程式碼]  (紅色方塊中的按鈕)。 否則，請按一下 [程式碼]  (黃色方塊中)。 這樣會將您導向至專案的 Git 存放庫頁面。 
 
     ![5](./media/team-lead-tasks/team-leads-5-team-project-home.png)
 
 ### <a name="create-the-myprojecttemplate-repository-r3-on-git"></a>在 Git 上建立 MyProjectTemplate 存放庫 (R3)
 
-- 在專案的 Git 存放庫頁面上，按一下存放庫名稱 **MyTeam** 旁的向下箭號，然後選取 [管理存放庫...]。
+- 在專案的 Git 存放庫頁面上，按一下存放庫名稱 **MyTeam** 旁的向下箭號，然後選取 [管理存放庫...]  。
 
     ![6](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
 
-- 在專案的控制台上，按一下 [版本控制] 索引標籤上的 [MyTeam]，然後選取 [重新命名存放庫...]。 
+- 在專案的控制台上，按一下 [版本控制]  索引標籤上的 [MyTeam]  ，然後選取 [重新命名存放庫...]  。 
 
     ![7](./media/team-lead-tasks/team-leads-7-rename-team-project-repo-2.png)
 
-- 在 [重新命名 MyTeam 存放庫] 視窗中，輸入存放庫的新名稱。 在此範例中為 *MyTeamProjectTemplate*。 您可以選擇類似 <您的小組名稱\>ProjectTemplate 這樣的名稱。 按一下 [重新命名] 繼續作業。
+- 在 [重新命名 MyTeam 存放庫]  視窗中，輸入存放庫的新名稱。 在此範例中為 *MyTeamProjectTemplate*。 您可以選擇類似 <您的小組名稱\>ProjectTemplate  這樣的名稱。 按一下 [重新命名]  繼續作業。
 
     ![8](./media/team-lead-tasks/team-leads-8-rename-team-project-repo-3.png)
 
 ### <a name="create-the-myteamutilities-repository-r4-on-git"></a>在 Git 上建立 MyTeamUtilities 存放庫 (R4)
 
-- 若要在專案下建立新的存放庫 <您的小組名稱\>Utilities，請在專案控制台的 [版本控制] 索引標籤上，按一下 [新增存放庫...]。  
+- 若要在專案下建立新的存放庫 <您的小組名稱\>Utilities  ，請在專案控制台的 [版本控制]  索引標籤上，按一下 [新增存放庫...]  。  
 
     ![9](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
 
-- 在快顯的 [建立新存放庫] 視窗中，提供這個存放庫的名稱。 在此範例中，我們將其命名為 MyTeamUtilities，在我們的標記法中它是 **R4**。 選擇類似 <您的小組名稱\>Utilities 這樣的名稱。 請確定您針對 **類型**選取 **Git**。 接著，按一下 [建立] 繼續作業。
+- 在快顯的 [建立新存放庫]  視窗中，提供這個存放庫的名稱。 在此範例中，我們將其命名為 MyTeamUtilities  ，在我們的標記法中它是 **R4**。 選擇類似 <您的小組名稱\>Utilities  這樣的名稱。 請確定您針對 **類型**選取 **Git**。 接著，按一下 [建立]  繼續作業。
 
     ![10](./media/team-lead-tasks/team-leads-10-create-team-utilities-2.png)
 
@@ -250,7 +250,7 @@ ms.locfileid: "60812548"
 
 現在從 **GitRepos\MyTeam\MyTeamUtilities** 目錄執行相同一組的四個 git 命令。 
 
-> [AZURE.NOTE]如果這是第一次認可 Git 存放庫，您必須在執行 `git commit` 命令之前，設定全域參數 user.name 和 user.email。 執行下列兩個命令：
+> [AZURE.NOTE]如果這是第一次認可 Git 存放庫，您必須在執行 `git commit` 命令之前，設定全域參數 user.name  和 user.email  。 執行下列兩個命令：
         
     git config --global user.name <your name>
     git config --global user.email <your email address>
@@ -402,7 +402,7 @@ ms.locfileid: "60812548"
 
 ## <a name="5-set-up-security-control-policy"></a>5.設定安全性控制原則 
 
-群組 Azure DevOps Services 首頁的右上角，按一下您的使用者名稱旁邊的**齒輪圖示**，然後選取 [安全性] 索引標籤。您可以在這裡將成員新增至您的小組，並且授與各種權限。
+群組 Azure DevOps Services 首頁的右上角，按一下您的使用者名稱旁邊的**齒輪圖示**，然後選取 [安全性]  索引標籤。您可以在這裡將成員新增至您的小組，並且授與各種權限。
 
 ![44](./media/team-lead-tasks/team-leads-44-add-team-members.png)
 

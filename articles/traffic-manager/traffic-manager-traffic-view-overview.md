@@ -3,21 +3,21 @@ title: Azure 流量管理員中的流量檢視
 description: 流量管理員流量檢視簡介
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: kumud
+ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 70ac4319e2ea0081f7805c2fb936af1310d57d8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a34cf3e41e04367b1cf38015861518fb74dd3f7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771595"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070954"
 ---
 # <a name="traffic-manager-traffic-view"></a>流量管理員流量檢視
 
@@ -43,7 +43,7 @@ ms.locfileid: "60771595"
 
 ## <a name="visual-overview"></a>視覺效果概觀
 
-當您瀏覽至流量管理員頁面中的 [流量檢視] 區段時，您會看到覆蓋流量檢視深入分析的地理區域地圖。 地圖會提供流量管理員設定檔的使用者群體和端點相關資訊。
+當您瀏覽至流量管理員頁面中的 [流量檢視]  區段時，您會看到覆蓋流量檢視深入分析的地理區域地圖。 地圖會提供流量管理員設定檔的使用者群體和端點相關資訊。
 
 ### <a name="user-base-information"></a>使用者群體資訊
 

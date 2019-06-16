@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 資訊安全中心啟用網路安全性群組 | Microsoft Docs
-description: 本文件說明如何實作 Azure 資訊安全中心建議的「啟用網路安全性群組」。
+description: 本文件說明如何實作 Azure 資訊安全中心建議的「啟用網路安全性群組」  。
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 14b7cc8f8162574380ca21ac515af8b7d3d5ded9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60911417"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>在 Azure 資訊安全中心啟用網路安全性群組
@@ -32,14 +32,14 @@ ms.locfileid: "60911417"
 >
 
 ## <a name="implement-the-recommendation"></a>實作建議
-1. 在 [建議] 刀鋒視窗中，選取在子網路或虛擬機器上 [啟用網路安全性群組]。
+1. 在 [建議]  刀鋒視窗中，選取在子網路或虛擬機器上 [啟用網路安全性群組]  。
    ![啟用網路安全性群組][1]
 2. 這會開啟針對子網路或虛擬機器 [設定遺漏的網路安全性群組]  刀鋒視窗，取決於您選取的建議。 選取要設定 NSG 的子網路或虛擬機器。
 
    ![針對子網路設定 NSG][2]
 
    ![針對 VM 設定 NSG][3]
-3. 在 [選擇網路安全性群組] 刀鋒視窗中，選取現有的 NSG 或選取 [建立新的] 以建立一個 NSG。
+3. 在 [選擇網路安全性群組]  刀鋒視窗中，選取現有的 NSG 或選取 [建立新的]  以建立一個 NSG。
 
    ![選擇網路安全性群組][4]
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 29d034be5999d0bc3f0a244cfa7a5658a4ecce32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711354"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>升級在您叢集上執行之 Service Fabric 的版本 
@@ -107,7 +107,7 @@ ms.locfileid: "60711354"
 
 如需進行手動程序，請遵循以下指示。
 
-請修改叢集組態以將下列屬性設定為 false，再開始進行組態升級：
+請修改叢集組態以將下列屬性設定為 false  ，再開始進行組態升級：
 
 ```json
 "fabricClusterAutoupgradeEnabled": false,
@@ -141,7 +141,7 @@ ms.locfileid: "60711354"
     ```
 4. 將下載的套件複製到叢集映像存放區。
 
-5. 注册复制的程序包。
+5. 註冊所複製的套件。
 
     ```powershell
     ###### Get the list of available Service Fabric versions

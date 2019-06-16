@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 0487cac6a0cf7d37befdf0d7cfab33ad6a62cf7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822876"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-java"></a>傳送事件，或從使用 Java 的 Azure 事件中樞接收事件
@@ -179,11 +179,11 @@ eventHubClient.closeSync();
 若要使用 EventProcessorHost，您必須具有 [Azure 儲存體帳戶] [Azure 儲存體帳戶]:
 
 1. 登入[Azure 入口網站](https://portal.azure.com)，然後按一下 **+ 建立資源**左手邊的畫面。
-2. 按一下 [儲存體]，然後按一下 [儲存體帳戶]。 在 [建立儲存體帳戶] 視窗中，輸入儲存體帳戶名稱。 完成其餘欄位，選取您想要的區域，然後按一下 [建立]。
+2. 按一下 [儲存體]  ，然後按一下 [儲存體帳戶]  。 在 [建立儲存體帳戶]  視窗中，輸入儲存體帳戶名稱。 完成其餘欄位，選取您想要的區域，然後按一下 [建立]  。
    
     ![建立儲存體帳戶](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
-3. 按一下新建立的儲存體帳戶，然後按一下 [存取金鑰]：
+3. 按一下新建立的儲存體帳戶，然後按一下 [存取金鑰]  ：
    
     ![取得存取金鑰](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
@@ -206,7 +206,7 @@ eventHubClient.closeSync();
 </dependency>
 ```
 
-針對不同類型的組建環境，您可以明確地取得最新發佈的 JAR 檔案從 [Maven 中央儲存機制] [https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22]。  
+針對不同類型的組建環境，您可以明確地取得最新發佈的 JAR 檔案從 [Maven 中央儲存機制] [https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22 ]。  
 
 1. 針對下列範例，在您最喜愛的 Java 開發環境中，先為主控台/殼層應用程式建立新的 Maven 專案。 類別稱為 `ErrorNotificationHandler`。     
    

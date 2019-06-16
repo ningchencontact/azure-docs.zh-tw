@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
 ms.openlocfilehash: 05368f627c5e9482a43d5e30b0e16b1d47f6217c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60999027"
 ---
 # <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>使用 Azure Logic Apps 與 Enterprise Integration Pack 接收 B2B 資料
@@ -35,7 +35,7 @@ ms.locfileid: "60999027"
 
     ![](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)
 
-3. 若要新增 [將 AS2 解碼] 動作，請選取 [新增動作]。
+3. 若要新增 [將 AS2 解碼]  動作，請選取 [新增動作]  。
 
     ![](./media/logic-apps-enterprise-integration-b2b/transform-2.png)
 
@@ -43,19 +43,19 @@ ms.locfileid: "60999027"
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-5.png)
 
-5. 選取 [AS2 - 將 AS2 訊息解碼] 動作。
+5. 選取 [AS2 - 將 AS2 訊息解碼]  動作。
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-6.png)
 
-6. 新增要做為輸入使用的 [主體]。 
-   在此範例中，選取觸發邏輯應用程式的 HTTP 要求主體。 或者，輸入會在 [標頭] 欄位輸入標頭的運算式：
+6. 新增要做為輸入使用的 [主體]  。 
+   在此範例中，選取觸發邏輯應用程式的 HTTP 要求主體。 或者，輸入會在 [標頭]  欄位輸入標頭的運算式：
 
     @triggerOutputs()['headers']
 
-7. 針對 AS2 新增要求的 [標頭]，您可以在 HTTP 要求標頭中找到標頭。 
+7. 針對 AS2 新增要求的 [標頭]  ，您可以在 HTTP 要求標頭中找到標頭。 
    在此範例中，選取觸發邏輯應用程式的 HTTP 要求標頭。
 
-8. 現在，新增「將 X12 訊息解碼」動作。 選取 [新增動作]。
+8. 現在，新增「將 X12 訊息解碼」動作。 選取 [新增動作]  。
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-9.png)
 
@@ -63,7 +63,7 @@ ms.locfileid: "60999027"
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-10.png)
 
-10. 選取 [X12 - 將 X12 訊息解碼] 動作。
+10. 選取 [X12 - 將 X12 訊息解碼]  動作。
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-as2message.png)
 
@@ -71,14 +71,14 @@ ms.locfileid: "60999027"
     此輸入是上一個 AS2 動作的輸出。
 
     實際訊息內容是 JSON 物件格式且使用 base64 編碼，因此您必須將運算式指定為輸入。 
-    在 [要解碼的 X12 一般檔案訊息] 輸入欄位中輸入下列運算式：
+    在 [要解碼的 X12 一般檔案訊息]  輸入欄位中輸入下列運算式：
     
     @base64ToString(body('Decode_AS2_message')?['AS2Message']?['Content'])
 
     現在，請新增步驟以將接收自交易夥伴的 X12 資料解碼，並輸出 JSON 物件中的一些項目。 
     若要通知合作夥伴已收到資料，您可以在 HTTP 回應動作中送回包含 AS2 郵件處置通知 (MDN) 的回應。
 
-12. 若要新增 [回應] 動作，請選擇 [新增動作]。
+12. 若要新增 [回應]  動作，請選擇 [新增動作]  。
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-14.png)
 
@@ -86,11 +86,11 @@ ms.locfileid: "60999027"
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-15.png)
 
-14. 選取 [回應] 動作。
+14. 選取 [回應]  動作。
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-16.png)
 
-15. 若要從 [將 X12 訊息解碼] 動作的輸出存取 MDN，請使用此運算式設定回應**主體**：
+15. 若要從 [將 X12 訊息解碼]  動作的輸出存取 MDN，請使用此運算式設定回應**主體**：
 
     @base64ToString(body('Decode_AS2_message')?['OutgoingMdn']?['Content'])
 
