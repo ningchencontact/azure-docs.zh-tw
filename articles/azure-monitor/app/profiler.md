@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: b8f6a2d12e1a9920421e6491432b516520ae110b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60730130"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>使用 Application Insights 來分析即時 Azure App Service 應用程式
@@ -32,12 +32,12 @@ ms.locfileid: "60730130"
 Application Insights Profiler 會預先安裝的應用程式服務執行階段的一部分。 下列步驟將示範如何啟用您的 App Service。 即使您已經包含應用程式的 application Insights SDK 的應用程式在建置階段中，請遵循下列步驟。
 
 1. 啟用 「 永遠開啟 」 設定您的 app service。 您可以更新您的 App Service，[一般設定] 下的 [組態] 頁面中的設定。
-1. 移至 Azure 入口網站中的 [App Service] 窗格。
-1. 瀏覽至 [設定] > [Application Insights] 窗格。
+1. 移至 Azure 入口網站中的 [App Service]  窗格。
+1. 瀏覽至 [設定] > [Application Insights]  窗格。
 
    ![在 App Service 入口網站上啟用 Application Insights](./media/profiler/AppInsights-AppServices.png)
 
-1. 依照窗格上的指示來建立新資源，或選取現有的 App Insights 資源來監視您的應用程式。 也請確定 Profiler 為 [開啟]。 如果 Application Insights 資源位於不同的訂用帳戶，從您的 App Service，您無法使用此頁面來設定 Application Insights。 您仍然可以執行它以手動方式雖然藉由建立必要的應用程式設定以手動方式。 [下一節包含手動啟用 Profiler 的指示。](#enable-profiler-manually-or-with-azure-resource-manager) 
+1. 依照窗格上的指示來建立新資源，或選取現有的 App Insights 資源來監視您的應用程式。 也請確定 Profiler 為 [開啟]  。 如果 Application Insights 資源位於不同的訂用帳戶，從您的 App Service，您無法使用此頁面來設定 Application Insights。 您仍然可以執行它以手動方式雖然藉由建立必要的應用程式設定以手動方式。 [下一節包含手動啟用 Profiler 的指示。](#enable-profiler-manually-or-with-azure-resource-manager) 
 
    ![新增 App Insights 網站延伸模組][Enablement UI]
 
@@ -49,7 +49,7 @@ Application Insights Profiler 會預先安裝的應用程式服務執行階段�
 建立您的 Azure App Service 應用程式設定，可以啟用 Application Insights Profiler。 如上所示的選項頁面建立這些為您的應用程式設定。 但是，您可以自動建立的範本或其他方式使用這些設定。 如果您的 Application Insights 資源位於不同的訂用帳戶，從您的 Azure App Service，這些設定也會運作。
 以下是啟用分析工具所需的設定：
 
-|應用程式設定    | Value    |
+|應用程式設定    | 值    |
 |---------------|----------|
 |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 資源的 iKey    |
 |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -61,7 +61,7 @@ Application Insights Profiler 會預先安裝的應用程式服務執行階段�
 
 ## <a name="disable-profiler"></a>停用 Profiler
 
-若要為個別應用程式的執行個體停止或重新啟動 Profiler，請在 [Web 工作] 底下，移至該應用程式資源。 若要刪除 Profiler，請移至 [擴充功能]。
+若要為個別應用程式的執行個體停止或重新啟動 Profiler，請在 [Web 工作]  底下，移至該應用程式資源。 若要刪除 Profiler，請移至 [擴充功能]  。
 
 ![停用 Web 作業的 Profiler][disable-profiler-webjob]
 

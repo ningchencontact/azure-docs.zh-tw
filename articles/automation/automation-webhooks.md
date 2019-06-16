@@ -10,10 +10,10 @@ ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61304536"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 Webhook 啟動 Azure 自動化 Runbook
@@ -24,7 +24,7 @@ ms.locfileid: "61304536"
 您可以透過 [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md)
 
 > [!NOTE]
-> 不支持使用 Webhook 启动 Python runbook。
+> 不支援使用 webhook 來啟動 Python runbook。
 
 ## <a name="details-of-a-webhook"></a>Webhook 的詳細資料
 
@@ -32,10 +32,10 @@ ms.locfileid: "61304536"
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 名稱 |您可以為 Webhook 提供任何想要的名稱，因為這並不會向用戶端公開。 該名稱僅供您用來識別 Azure 自動化中的 Runbook。 <br> 最佳做法是您給予 Webhook 的名稱應該與要使用它的用戶端相關。 |
+| Name |您可以為 Webhook 提供任何想要的名稱，因為這並不會向用戶端公開。 該名稱僅供您用來識別 Azure 自動化中的 Runbook。 <br> 最佳做法是您給予 Webhook 的名稱應該與要使用它的用戶端相關。 |
 | URL |Webhook 的 URL 是一種唯一性的位址，即用戶端用來呼叫 HTTP POST 以啟動連結至 Webhook的 Runbook。 當您建立 Webhook 時其會自動產生。 您無法指定自訂 URL。 <br> <br> URL 包含可讓協力廠商系統不需進一步驗證即可叫用 Runbook 的安全性權杖。 基於這個原因，應該將其視為一種密碼。 基於安全性原因，您僅能於 Webhook 建立時在 Azure 入口網站中檢視 URL。 請在安全的位置記下 URL 以供日後使用。 |
 | 到期日期 |例如憑證，每個 Webhook 都會有一個到期日期，到期後便無法再使用。 此到期日可在 Webhook 建立後進行修改，只要 Webhook尚未過期即可。 |
-| Enabled |建立 Runbook 時 Webhook 會預設為啟用。 如果您將其設定為 [停用]，則任何用戶端皆無法使用。 當您建立 Webhook 時或在建立後的任何時候，您可以設定 [啟用] 屬性。 |
+| Enabled |建立 Runbook 時 Webhook 會預設為啟用。 如果您將其設定為 [停用]，則任何用戶端皆無法使用。 當您建立 Webhook 時或在建立後的任何時候，您可以設定 [啟用]  屬性。 |
 
 ### <a name="parameters"></a>參數
 
@@ -89,10 +89,10 @@ Webhook 的安全性仰賴其 URL 的隱私權，其中包含允許叫用它的�
 
 使用下列程序在 Azure 入口網站中建立連結至 Runbook 的全新 Webhook。
 
-1. 從 Azure 入口網站的 [Runbook] 頁面中，按一下 Webhook 要開始檢視其詳細資料頁面的 Runbook。 請確定 Runbook 的 [狀態] 為 [已發佈]。
-2. 按一下頁面頂端的 [Webhook] 以開啟 [新增 Webhook] 頁面。
-3. 按一下 [建立新的 Webhook] 以開啟 [建立 Webhook] 頁面。
-4. 指定 Webhook 的 [名稱]、[到期日期] 以及是否應該啟用。 請參閱 [Webhook 的詳細資料](#details-of-a-webhook) 以取得這些屬性的詳細資訊。
+1. 從 Azure 入口網站的 [Runbook]  頁面中，按一下 Webhook 要開始檢視其詳細資料頁面的 Runbook。 請確定 Runbook 的 [狀態]  為 [已發佈]  。
+2. 按一下頁面頂端的 [Webhook]  以開啟 [新增 Webhook]  頁面。
+3. 按一下 [建立新的 Webhook]  以開啟 [建立 Webhook]  頁面。
+4. 指定 Webhook 的 [名稱]  、[到期日期]  以及是否應該啟用。 請參閱 [Webhook 的詳細資料](#details-of-a-webhook) 以取得這些屬性的詳細資訊。
 5. 按一下複製圖示，然後按 Ctrl + C 以複製 Webhook 的 URL。 然後將其記錄在安全的地方。 **一旦您建立 Webhook，即無法再次擷取 URL。**
 
    ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
@@ -129,11 +129,11 @@ http://<Webhook Server>/token?=<Token Value>
 
 Webhook 建立之後，會有為期一年的有效時間。 一年之後，Webhook 即會自動到期。 Webhook 在過期後即無法重新啟動，而必須先移除再重新建立。 Webhook 若尚未達到其到期時間，則可以延長。
 
-若要延長 Webhook，請瀏覽至包含 Webhook 的 Runbook。 在 [資源] 下方選取 [Webhook]。 按一下要延長的 Webhook，此動作會開啟 [Webhook] 頁面。  選擇新的到期日期和時間，然後按一下 [儲存]。
+若要延長 Webhook，請瀏覽至包含 Webhook 的 Runbook。 在 [資源]  下方選取 [Webhook]  。 按一下要延長的 Webhook，此動作會開啟 [Webhook]  頁面。  選擇新的到期日期和時間，然後按一下 [儲存]  。
 
 ## <a name="sample-runbook"></a>範例 Runbook
 
-下列範例 Runbook 會接受 Webhook 資料，並啟動要求本文中指定的虛擬機器。 若要測試此 Runbook，請在您自動化帳戶的 [Runbook] 下，按一下 [+ 加入 Runbook]。 如果您不知道如何建立 Runbook，請參閱[建立 Runbook](automation-quickstart-create-runbook.md)。
+下列範例 Runbook 會接受 Webhook 資料，並啟動要求本文中指定的虛擬機器。 若要測試此 Runbook，請在您自動化帳戶的 [Runbook]  下，按一下 [+ 加入 Runbook]  。 如果您不知道如何建立 Runbook，請參閱[建立 Runbook](automation-quickstart-create-runbook.md)。
 
 ```powershell
 param

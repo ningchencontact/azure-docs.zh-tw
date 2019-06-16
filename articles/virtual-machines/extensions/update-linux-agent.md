@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: roiyz
 ms.openlocfilehash: 5d53f34ea6b0983d0687cdaf6ec6271c703bb055
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60799754"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>如何更新虛擬機器上的 Azure Linux 代理程式
@@ -107,7 +107,7 @@ dpkg -l | grep waagent
 sudo apt-get -qq update
 ```
 
-#### <a name="install-the-latest-package-version"></a>安装最新版本的程序包
+#### <a name="install-the-latest-package-version"></a>安裝最新版本的封裝
 
 ```bash
 sudo apt-get install waagent
@@ -268,7 +268,7 @@ sudo systemctl restart waagent.service
 zypper info python-azure-agent
 ```
 
-#### <a name="check-available-updates"></a>检查可用的更新
+#### <a name="check-available-updates"></a>檢查可用的更新
 
 上述的輸出結果會顯示封裝是否為最新的狀態。
 

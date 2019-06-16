@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 6aa707d3c63b7ead6db94f84ebd9214302cc7367
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873736"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>使用 Visual Studio 和 SSDT 連接到 SQL 資料倉儲
@@ -38,7 +38,7 @@ ms.locfileid: "65873736"
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1.連接到您的 SQL 資料倉儲
 1. 開啟 Visual Studio 2013 或 2015。
-2. 開啟 [SQL Server 物件總管]。 若要這麼做，請選取 [檢視] > [SQL Server 物件總管]。
+2. 開啟 [SQL Server 物件總管]。 若要這麼做，請選取 [檢視]   > [SQL Server 物件總管]  。
    
     ![SQL Server 物件總管][1]
 3. 按一下 [加入 SQL Server]  圖示。
@@ -49,8 +49,8 @@ ms.locfileid: "65873736"
     ![連線到伺服器][3]
    
    * **伺服器名稱**。 輸入先前找到的 **伺服器名稱** 。
-   * **驗證**。 選取 [SQL Server 驗證] 或 [Active Directory 整合式驗證]。
-   * [使用者名稱] 和 [密碼]。 如果上面已選取 [SQL Server 驗證]，請輸入使用者名稱和密碼。
+   * **驗證**。 選取 [SQL Server 驗證]  或 [Active Directory 整合式驗證]  。
+   * [使用者名稱]  和 [密碼]  。 如果上面已選取 [SQL Server 驗證]，請輸入使用者名稱和密碼。
    * 按一下 [ **連接**]。
 5. 若要瀏覽，請展開您的 Azure SQL 伺服器。 您可以檢視與伺服器相關聯的資料庫。 展開 AdventureWorksDW 以查看範例資料庫中的資料表。
    
@@ -60,7 +60,7 @@ ms.locfileid: "65873736"
 現已建立對您的資料庫的連線，接著繼續撰寫查詢。
 
 1. 在 [SQL Server 物件總管] 中您的資料庫上按一下滑鼠右鍵。
-2. 選取 [新增查詢] 。 新的查詢視窗隨即開啟。
+2. 選取 [新增查詢]  。 新的查詢視窗隨即開啟。
    
     ![新增查詢][5]
 3. 將此 TSQL 查詢複製到查詢視窗中：

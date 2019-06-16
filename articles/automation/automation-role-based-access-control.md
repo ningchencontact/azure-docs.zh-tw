@@ -11,10 +11,10 @@ ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738691"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自動化中的角色型存取控制
@@ -142,7 +142,7 @@ ms.locfileid: "60738691"
 |Microsoft.Compute/virtualMachines/extensions/*|建立和管理傳統虛擬機器延伸模組。|
 |Microsoft.Insights/alertRules/*|读取/写入/删除警报规则。|
 |Microsoft.Insights/diagnosticSettings/*|讀取/寫入/刪除診斷設定。|
-|Microsoft.OperationalInsights/*|管理 Azure Monitor 日志。|
+|Microsoft.OperationalInsights/*|管理 Azure 監視器記錄檔。|
 |Microsoft.OperationsManagement/*|管理工作區中的解決方案。|
 |Microsoft.Resources/deployments/*|建立和管理資源群組部署。|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|建立和管理資源群組部署。|
@@ -156,8 +156,8 @@ ms.locfileid: "60738691"
 |**動作**  |**說明**  |
 |---------|---------|
 |*/read|讀取密碼以外的所有類型的資源。|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|管理 Azure Monitor 日志中的查询。|
-|Microsoft.OperationalInsights/workspaces/search/action|搜索 Azure Monitor 日志数据。|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|管理 Azure 監視器記錄檔中的查詢。|
+|Microsoft.OperationalInsights/workspaces/search/action|搜尋 Azure 監視器記錄檔資料。|
 |Microsoft.Support/*|建立和管理支援票證。|
 |**無法執行的動作**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|無法讀取共用存取金鑰。|
@@ -180,11 +180,11 @@ ms.locfileid: "60738691"
 |Microsoft.Insights/Metrics/*|读取资源的指标。|
 |Microsoft.Insights/Register/Action|註冊 Microsoft Insights 提供者。|
 |Microsoft.Insights/webtests/*|管理 Application Insights Web 測試。|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|管理 Azure Monitor 日志解决方案包。|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|管理 Azure Monitor 日志保存的搜索。|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|管理 Azure 監視器記錄檔的方案套件。|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|管理 Azure 監視器儲存記錄搜尋。|
 |Microsoft.OperationalInsights/workspaces/search/action|搜尋 Log Analytics 工作區。|
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|列出 Log Analytics 工作區的金鑰。|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|管理 Azure Monitor 日志存储见解配置。|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|管理 Azure 監視器記錄檔儲存體深入解析設定。|
 |Microsoft.Support/*|建立和管理支援票證。|
 |Microsoft.WorkloadMonitor/workloads/*|管理「工作負載」。|
 
@@ -276,27 +276,27 @@ ms.locfileid: "60738691"
 ### <a name="configure-rbac-using-the-azure-portal"></a>使用 Azure 入口網站設定 RBAC
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)，並從 [自動化帳戶] 頁面開啟您的自動化帳戶。
-2. 按一下左上角的 [存取控制 (IAM)] 控制項。 這會開啟 [存取控制 (IAM)] 頁面，您可以在其中新增新使用者、群組及應用程式來管理您的「自動化」帳戶，並檢視可以為「自動化」帳戶設定的現有角色。
-3. 按一下 [角色指派] 索引標籤。
+2. 按一下左上角的 [存取控制 (IAM)]  控制項。 這會開啟 [存取控制 (IAM)]  頁面，您可以在其中新增新使用者、群組及應用程式來管理您的「自動化」帳戶，並檢視可以為「自動化」帳戶設定的現有角色。
+3. 按一下 [角色指派]  索引標籤。
 
    ![[存取] 按鈕](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>加入新使用者並指派角色
 
-1. 從 [存取控制 (IAM)] 頁面，按一下 [+ 新增角色指派] 以開啟 [新增角色指派] 頁面，您可以在其中新增使用者、群組或應用程式，並將角色指派給他們。
+1. 從 [存取控制 (IAM)]  頁面，按一下 [+ 新增角色指派]  以開啟 [新增角色指派]  頁面，您可以在其中新增使用者、群組或應用程式，並將角色指派給他們。
 
 2. 從可用角色的清單中選取角色。 您可以選擇「自動化」帳戶支援的任何可用內建角色，或已定義的任何自訂角色。
 
-3. 在 [選取] 欄位中輸入您想要授與權限之使用者的使用者名稱。 從清單中選取使用者，然後按一下 [儲存]。
+3. 在 [選取]  欄位中輸入您想要授與權限之使用者的使用者名稱。 從清單中選取使用者，然後按一下 [儲存]  。
 
    ![新增使用者](media/automation-role-based-access-control/automation-04-add-users.png)
 
-   現在您應該會看到使用者已新增至 [使用者] 頁面，並已獲指派所選取的角色
+   現在您應該會看到使用者已新增至 [使用者]  頁面，並已獲指派所選取的角色
 
    ![列出使用者](media/automation-role-based-access-control/automation-05-list-users.png)
 
-   您也可以從 [角色] 頁面指派角色給使用者。
-4. 從 [存取控制 (IAM)] 頁面按一下 [角色]，以開啟 [角色] 頁面。 從這個頁面中，您可以檢視角色的名稱、指派給該角色的使用者和群組數目。
+   您也可以從 [角色]  頁面指派角色給使用者。
+4. 從 [存取控制 (IAM)]  頁面按一下 [角色]  ，以開啟 [角色]  頁面。 從這個頁面中，您可以檢視角色的名稱、指派給該角色的使用者和群組數目。
 
     ![從 [使用者] 頁面指派角色](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
 
@@ -307,8 +307,8 @@ ms.locfileid: "60738691"
 
 您可以針對未管理「自動化」帳戶的使用者，或不再為組織工作的使用者，移除存取權限。 以下是移除使用者的步驟：
 
-1. 從 [存取控制 (IAM)] 頁面中，選取要移除的使用者，然後按一下 [移除]。
-2. 按一下指派詳細資料窗格上的 [移除] 按鈕。
+1. 從 [存取控制 (IAM)]  頁面中，選取要移除的使用者，然後按一下 [移除]  。
+2. 按一下指派詳細資料窗格上的 [移除]  按鈕。
 3. 按一下 [是]  以確認移除。
 
    ![移除使用者](media/automation-role-based-access-control/automation-08-remove-users.png)
@@ -317,7 +317,7 @@ ms.locfileid: "60738691"
 
 使用下列 [Azure PowerShell Cmdlet](../role-based-access-control/role-assignments-powershell.md) 也可以將角色型存取設定到「自動化」帳戶：
 
-[Get-AzureRmRoleDefinition](/previous-versions/azure/mt603792(v=azure.100)) 會列出 Azure Active Directory 中可用的所有 RBAC 角色。 您可以使用這個命令搭配 [名稱] 屬性，列出特定角色可以執行的所有動作。
+[Get-AzureRmRoleDefinition](/previous-versions/azure/mt603792(v=azure.100)) 會列出 Azure Active Directory 中可用的所有 RBAC 角色。 您可以使用這個命令搭配 [名稱]  屬性，列出特定角色可以執行的所有動作。
 
 ```azurepowershell-interactive
 Get-AzureRmRoleDefinition -Name 'Automation Operator'

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 9ee5eec5a5c17e443fe71f0093f09c96cf81ece0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60754743"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>使用 Azure 入口網站來管理 Azure 資料箱閘道上的使用者。 
@@ -40,18 +40,18 @@ ms.locfileid: "60754743"
 
 在 Azure 入口網站中執行下列步驟，以新增使用者。
 
-1. 在 Azure 入口網站中，移至您的資料箱閘道資源，然後瀏覽至 [概觀]。 按一下命令列上的 [+ 新增使用者]。
+1. 在 Azure 入口網站中，移至您的資料箱閘道資源，然後瀏覽至 [概觀]  。 按一下命令列上的 [+ 新增使用者]  。
 
     ![按一下 [新增使用者]](media/data-box-gateway-manage-users/add-user-1.png)
 
-2. 針對您要新增的使用者指定使用者名稱和密碼。 確認密碼，然後按一下 [新增]。
+2. 針對您要新增的使用者指定使用者名稱和密碼。 確認密碼，然後按一下 [新增]  。
 
     ![按一下 [新增使用者]](media/data-box-gateway-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
     > 系統會保留下列使用者，不得加以使用：系統管理員、EdgeUser、EdgeSupport、HcsSetupUser、WDAGUtilityAccount、CLIUSR、DefaultAccount、來賓。  
 
-3. 開始及完成使用者建立時，您會收到通知。 建立使用者之後，從命令列中按一下 [重新整理]，以檢視更新後的使用者清單。
+3. 開始及完成使用者建立時，您會收到通知。 建立使用者之後，從命令列中按一下 [重新整理]  ，以檢視更新後的使用者清單。
 
 
 ## <a name="modify-user"></a>修改使用者
@@ -65,7 +65,7 @@ ms.locfileid: "60754743"
 
 在 Azure 入口網站中執行下列步驟，以刪除使用者。
 
-1. 從使用者清單中選取並按一下使用者，然後按一下 [刪除]。  
+1. 從使用者清單中選取並按一下使用者，然後按一下 [刪除]  。  
 
    ![刪除使用者](media/data-box-gateway-manage-users/delete-user-1.png)
 
