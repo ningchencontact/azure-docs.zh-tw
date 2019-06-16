@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 32b0f467f11cf8cb0a04657006cb5a86b11e27e9
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 003a14174ff65bab253f27a458d4f3e2c0a1a6db
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66755192"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069989"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>高效能運算的虛擬機器大小
 
@@ -72,7 +72,7 @@ Azure Marketplace 有許多 Linux 散發套件支援 RDMA 連線能力：
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]  
 
-  如需啟用設定 MPI 的 InfiniBand 的更多詳細資料請參閱 <<c0> [ 啟用 InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband-with-sriov)。
+  如需啟用設定 MPI 的 InfiniBand 的更多詳細資料請參閱 <<c0> [ 啟用 InfiniBand](../workloads/hpc/enable-infiniband.md)。
 
 
 ### <a name="cluster-configuration-options"></a>叢集組態選項
@@ -107,5 +107,5 @@ Azure 提供數個選項來建立 Linux HPC VM 的叢集，而這些 VM 可以�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解如何設定、 最佳化及調整[HPC 工作負載](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc)在 Azure 上。
+- 深入了解如何設定、 最佳化及調整[HPC 工作負載](../workloads/hpc/configure.md)在 Azure 上。
 - 深入了解 [Azure 計算單位 (ACU)](acu.md) 如何協助您比較各個 Azure SKU 的計算效能。

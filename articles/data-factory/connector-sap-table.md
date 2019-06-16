@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 06/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 4dee0e994c9e7be9677a8f1051481850990998e9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 49f07b4aaadfd45e9743bde58dc715230e5bc983
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247165"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074055"
 ---
 # <a name="copy-data-from-sap-table-using-azure-data-factory"></a>從 SAP 資料表使用 Azure Data Factory 複製資料
 
@@ -29,7 +29,13 @@ ms.locfileid: "66247165"
 
 具體而言，此 SAP 資料表 」 連接器支援：
 
-- 將資料從 SAP 資料表中複製**7.01 或更高版本的 SAP Business Suite** （在新 SAP 支援封裝堆疊在 2015 年之後釋出） 或**S/4HANA**。
+- 將資料從 SAP 資料表中的複製：
+
+    - **SAP ECC** 7.01 或 （堆疊中較高層最近 SAP 支援封裝之後 2015 年發行） 的版本
+    - **SAP BW** 7.01 或更高版本的版本
+    - **SAP S/4HANA**
+    - **在 SAP Business Suite 中的其他產品**7.01 或更高版本的版本 
+
 - 將資料複製兩個**SAP 透明資料表**並**檢視**。
 - 複製 使用資料**基本驗證**或是**SNC** （安全網路通訊） 如果設定 SNC。
 - 連接到**應用程式伺服器**或是**訊息伺服器**。
@@ -62,7 +68,7 @@ ms.locfileid: "66247165"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**SapTable** | 是 |
-| 伺服器 | SAP 執行個體所在伺服器的名稱。<br/>如果您想要連接到適用於**SAP 應用程式伺服器**。 | 否 |
+| server | SAP 執行個體所在伺服器的名稱。<br/>如果您想要連接到適用於**SAP 應用程式伺服器**。 | 否 |
 | systemNumber | SAP 系統的系統編號。<br/>如果您想要連接到適用於**SAP 應用程式伺服器**。<br/>允許的值：以字串表示的二位數十進位數字。 | 否 |
 | messageServer | SAP 訊息伺服器的主機名稱。<br/>如果您想要連接到適用於**SAP 訊息伺服器**。 | 否 |
 | messageServerService | 服務名稱或連接埠的訊息伺服器數目。<br/>如果您想要連接到適用於**SAP 訊息伺服器**。 | 否 |
@@ -203,7 +209,7 @@ SAP BW Open Hub 來回，請複製資料，支援下列屬性。
 | type                             | Type 屬性必須設定為**SapTableSource**。       | 是      |
 | rowCount                         | 要擷取的資料列數目。                              | 否       |
 | rfcTableFields                   | 若要從 SAP 資料表複製的欄位。 例如： `column0, column1`。 | 否       |
-| rfcTableOptions                  | SAP 資料表中的資料列篩選選項。 例如： `COLUMN0 EQ 'SOMEVALUE'`。 | 否       |
+| rfcTableOptions                  | SAP 資料表中的資料列篩選選項。 例如： `COLUMN0 EQ 'SOMEVALUE'`。 請參閱此表格下方的詳細描述。 | 否       |
 | customRfcReadTableFunctionModule | 自訂 RFC 函式的模組，可用來從 SAP 資料表讀取資料。 | 否       |
 | partitionOption                  | 若要從 SAP 資料表讀取資料分割機制。 支援的選項包括： <br/>- **None**<br/>- **PartitionOnInt** （一般整數或整數值，以零填補左方 0000012345 等）<br/>- **PartitionOnCalendarYear** (4 digits in format "YYYY")<br/>- **PartitionOnCalendarMonth** （格式為"YYYYMM 」 的 6 位數）<br/>- **PartitionOnCalendarDate** （格式為"YYYYMMDD"的 8 位數） | 否       |
 | partitionColumnName              | 要分割資料的資料行名稱。 | 否       |
@@ -215,6 +221,18 @@ SAP BW Open Hub 來回，請複製資料，支援下列屬性。
 >- 如果您的 SAP 資料表有大量的資料，例如數個數十億個資料列，使用`partitionOption`和`partitionSetting`將資料分割成小型資料分割，在此情況下讀取的資料分割且每個資料分割的資料會從您透過一個單一的 SAP 伺服器RFC 呼叫。<br/>
 >- 採取`partitionOption`作為`partitionOnInt`做為範例，每個分割中的資料列數目計算方式 (之間的資料列總數*partitionUpperBound*並*partitionLowerBound*) /*maxPartitionsNumber*。<br/>
 >- 如果您想要進一步分割區平行執行以加快複製，強烈建議進行`maxPartitionsNumber`做為值的倍數`parallelCopies`(進一步了解[平行複製](copy-activity-performance.md#parallel-copy))。
+
+在  `rfcTableOptions`，您可以使用例如下列一般 SAP 查詢運算子的資料列篩選： 
+
+| 運算子 | 描述 |
+| :------- | :------- |
+| EQ | 等於 |
+| NE | 不等於 |
+| LT | 小於 |
+| LE | 小於或等於 |
+| GT | 大於 |
+| GE | 大於或等於 |
+| 類似 | 如下所示 LIKE 'Emma %' |
 
 **範例：**
 
@@ -260,13 +278,13 @@ SAP BW Open Hub 來回，請複製資料，支援下列屬性。
 
 | SAP ABAP 類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| C (字串) | String |
+| C (字串) | 字串 |
 | 我 （整數） | Int32 |
 | F (浮點數) | Double |
 | D (日期) | 字串 |
 | T (時間) | 字串 |
 | P (BCD 封裝、貨幣、小數、數量) | Decimal |
-| N （數值） | String |
+| N （數值） | 字串 |
 | X (二進位和原始) | 字串 |
 
 ## <a name="next-steps"></a>後續步驟

@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 0ac62a99f5735647f67917d441645e30444b3818
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473637"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>如何在 Azure 上搭配 Windows 使用 SSH 金鑰
 
-本文描述各種方法讓您能在 Windows 電腦上產生及使用「安全殼層」(SSH) 金鑰，以在 Azure 中建立並連線到 Linux 虛擬機器 (VM)。 若要從 Linux 或 macOS 用戶端使用 SSH 金鑰，請參閱[快速](mac-create-ssh-keys.md)或[詳細](create-ssh-keys-detailed.md)指南。
+本文描述各種方法讓您能在 Windows 電腦上產生及使用「安全殼層」  (SSH) 金鑰，以在 Azure 中建立並連線到 Linux 虛擬機器 (VM)。 若要從 Linux 或 macOS 用戶端使用 SSH 金鑰，請參閱[快速](mac-create-ssh-keys.md)或[詳細](create-ssh-keys-detailed.md)指南。
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
@@ -68,21 +68,21 @@ ssh-keygen -t rsa -b 2048
 
 1. 啟動 PuTTYgen。
 
-2. 按一下 [產生]。 根據預設，PuTTYgen 會產生 2048 位元 SSH-2 RSA 金鑰。
+2. 按一下 [產生]  。 根據預設，PuTTYgen 會產生 2048 位元 SSH-2 RSA 金鑰。
 
 4. 在空白區域中四處移動滑鼠來提供隨機金鑰。
 
 5. 產生公開金鑰之後，選擇性地輸入並確認複雜密碼。 當您使用私密 SSH 金鑰向 VM 進行驗證時，系統會提示您輸入複雜密碼。 若沒有複雜密碼，如果有人取得您的私密金鑰，他們即可登入使用該金鑰的任何 VM 或服務。 我們建議您建立複雜密碼。 不過如果您忘記此複雜密碼，將無法加以復原。
 
-6. 公開金鑰會顯示在視窗的頂端。 當您建立 Linux VM 時，可以複製這整個公開金鑰，然後貼到 Azure 入口網站或 Azure Resource Manager 範本中。 您也可以選取 [儲存公開金鑰]，將複本儲存到您的電腦：
+6. 公開金鑰會顯示在視窗的頂端。 當您建立 Linux VM 時，可以複製這整個公開金鑰，然後貼到 Azure 入口網站或 Azure Resource Manager 範本中。 您也可以選取 [儲存公開金鑰]  ，將複本儲存到您的電腦：
 
     ![儲存 PuTTY 公用金鑰檔案](./media/ssh-from-windows/save-public-key.png)
 
-7. (選擇性) 若要將私密金鑰儲存成 PuTTy 私密金鑰格式 (.ppk 檔案)，請選取 [儲存私密金鑰]。 稍後您將需要 .ppk 檔案，才能使用 PuTTY 來建立 VM 的 SSH 連線。
+7. (選擇性) 若要將私密金鑰儲存成 PuTTy 私密金鑰格式 (.ppk 檔案)，請選取 [儲存私密金鑰]  。 稍後您將需要 .ppk 檔案，才能使用 PuTTY 來建立 VM 的 SSH 連線。
 
     ![儲存 PuTTY 私密金鑰檔案](./media/ssh-from-windows/save-ppk-file.png)
 
-    如果您想要將私密金鑰儲存成 OpenSSH 格式 (許多 SSH 用戶端使用的私密金鑰格式)，請選取 [轉換] > [匯出 OpenSSH 金鑰]。
+    如果您想要將私密金鑰儲存成 OpenSSH 格式 (許多 SSH 用戶端使用的私密金鑰格式)，請選取 [轉換]   > [匯出 OpenSSH 金鑰]  。
 
 ## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>部署 VM 時，提供 SSH 公開金鑰
 
@@ -118,11 +118,11 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 
     ![開啟新的 PuTTY 連線](./media/ssh-from-windows/putty-new-connection.png)
 
-3. 選取 [連線] > [SSH] > [驗證] 類別。 瀏覽至您的 PuTTY 私密金鑰 (.ppk 檔案) 並加以選取︰
+3. 選取 [連線]   > [SSH]   > [驗證]  類別。 瀏覽至您的 PuTTY 私密金鑰 (.ppk 檔案) 並加以選取︰
 
     ![選取您的 PuTTY 私密金鑰進行驗證](./media/ssh-from-windows/putty-auth-dialog.png)
 
-4. 按一下 [開啟] 來連線到 VM。
+4. 按一下 [開啟]  來連線到 VM。
 
 ## <a name="next-steps"></a>後續步驟
 

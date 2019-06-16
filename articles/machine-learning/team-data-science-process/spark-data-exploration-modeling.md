@@ -12,10 +12,10 @@ ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: acc701431afa458efd0768fb3d6898fd1920e333
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811188"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>使用 Spark 資料探索和模型化
@@ -589,8 +589,8 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
 每個模型建置程式碼區段會分成幾個步驟︰ 
 
 1. **模型定型** 資料
-2. **模型評估** 
-3. **儲存模型** 
+2. **模型評估**
+3. **儲存模型**
 
 ### <a name="classification-using-logistic-regression"></a>使用羅吉斯迴歸分類
 本節的程式碼顯示如何定型、評估及使用 [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) 來儲存羅吉斯迴歸模型，可預測是否針對 NYC 計程車車程和費用資料集的某趟車程支付小費。
@@ -700,7 +700,7 @@ F1 分數 = 0.984304060189
 
 **繪製 ROC 曲線。**
 
-predictionAndLabelsDF 已在先前的儲存格中已註冊為 tmp_results 資料表。 tmp_results 可用來執行查詢，並將結果輸出至 sqlResults 資料框架供繪製之用。 程式碼如下。
+predictionAndLabelsDF  已在先前的儲存格中已註冊為 tmp_results  資料表。 tmp_results  可用來執行查詢，並將結果輸出至 sqlResults 資料框架供繪製之用。 程式碼如下。
 
     # QUERY RESULTS                              
     %%sql -q -o sqlResults
@@ -847,8 +847,8 @@ ROC 下的領域 = 0.985297691373
 這些模型將在簡介中說明。 每個模型建置程式碼區段會分成幾個步驟︰ 
 
 1. **模型定型** 資料
-2. **模型評估** 
-3. **儲存模型** 
+2. **模型評估**
+3. **儲存模型**
 
 ### <a name="linear-regression-with-sgd"></a>使用 SGD 的線性迴歸
 本節的程式碼示範如何使用縮放功能來訓練線性迴歸 (使用隨機梯度下降 (SGD) 以最佳化)，以及如何評分、評估並將模型儲存在 Azure Blob 儲存體 (WASB)。
@@ -1014,7 +1014,7 @@ R-sqr = 0.753835096681
 
 **圖**
 
-tmp_results 已在先前的儲存格中註冊為 Hive 資料表。 來自資料表的結果已輸出至 sqlResults  資料框架以供繪製之用。 程式碼如下
+tmp_results  已在先前的儲存格中註冊為 Hive 資料表。 來自資料表的結果已輸出至 sqlResults  資料框架以供繪製之用。 程式碼如下
 
     # PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
 

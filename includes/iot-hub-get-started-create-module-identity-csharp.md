@@ -9,10 +9,10 @@ ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: e78c9a490d2ad02fb132d62b0ab0b55f15d3d4ed
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166263"
 ---
 ## <a name="create-a-module-identity"></a>建立模組身分識別
@@ -20,7 +20,7 @@ ms.locfileid: "66166263"
 在本節中，您會建立 .NET 主控台應用程式，它會在 IoT 中樞的身分識別登錄中建立裝置身分識別和模組身分識別。 裝置或模組無法連線到 IoT 中樞，除非它在身分識別登錄中具有項目。 如需詳細資訊，請參閱 [IoT 中樞開發人員指南的＜身分識別登錄＞一節](../articles/iot-hub/iot-hub-devguide-identity-registry.md)。 當您執行此主控台應用程式時，它會針對裝置和模組產生唯一的識別碼和金鑰。 當裝置和模組將裝置到雲端的訊息傳送給 IoT 中樞時，裝置和模組會使用這些值來識別自己。 識別碼會區分大小寫。
 
 
-1. **建立 Visual Studio 專案** - 在 Visual Studio 中，使用 [主控台應用程式] \(.NET Framework\) 專案範本，將 Visual C# Windows 傳統桌面專案新增至新的解決方案。 確定 .NET Framework 為 4.6.1 或更新版本。 將專案命名為 **CreateIdentities**，將解決方案命名為 **IoTHubGetStarted**。
+1. **建立 Visual Studio 專案** - 在 Visual Studio 中，使用 [主控台應用程式] \(.NET Framework\)  專案範本，將 Visual C# Windows 傳統桌面專案新增至新的解決方案。 確定 .NET Framework 為 4.6.1 或更新版本。 將專案命名為 **CreateIdentities**，將解決方案命名為 **IoTHubGetStarted**。
 
     ![建立 Visual Studio 解決方案](./media/iot-hub-get-started-create-module-identity-csharp/create-identities-csharp1.JPG)
 

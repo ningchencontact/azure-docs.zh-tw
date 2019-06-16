@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: robb
 ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65471790"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 診斷疑難排解
 本文說明有關使用 Azure 診斷的疑難排解資訊。 如需有關 Azure 診斷的詳細資訊，請參閱 [Azure 診斷概觀](diagnostics-extension-overview.md)。
 
 ## <a name="logical-components"></a>邏輯元件
-**診斷外掛程式啟動器 (DiagnosticsPluginLauncher.exe)**：啟動 Azure 診斷擴充。 可作為進入點程序。
+**診斷外掛程式啟動器 (DiagnosticsPluginLauncher.exe)** ：啟動 Azure 診斷擴充。 可作為進入點程序。
 
-**診斷外掛程式 (DiagnosticsPlugin.exe)**：設定、啟動及管理監視代理程式的存留期。 它是由啟動程式啟動的主要處理序。
+**診斷外掛程式 (DiagnosticsPlugin.exe)** ：設定、啟動及管理監視代理程式的存留期。 它是由啟動程式啟動的主要處理序。
 
-**監視代理程式 (MonAgent\*.exe 處理程序)**:監視、收集和傳輸診斷資料。  
+**監視代理程式 (MonAgent\*.exe 處理程序)** :監視、收集和傳輸診斷資料。  
 
 ## <a name="logartifact-paths"></a>記錄檔/構件路徑
 以下是一些重要記錄和構件的路徑。 稍後在本文中我們會參考這些資訊。
 
 ### <a name="azure-cloud-services"></a>Azure 雲端服務
-| 構件 | `Path` |
+| 構件 | Path |
 | --- | --- |
 | **Azure 診斷組態檔** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **記錄檔** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -40,7 +40,7 @@ ms.locfileid: "65471790"
 | **MonAgentHost 記錄檔** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>虛擬機器
-| 構件 | `Path` |
+| 構件 | Path |
 | --- | --- |
 | **Azure 診斷組態檔** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **記錄檔** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -56,9 +56,9 @@ Azure 診斷會提供計量資料，這些資料可以在 Azure 入口網站中�
 
 此處的表格 **PartitionKey** 是資源識別碼、虛擬機器或虛擬機器擴展集。 **RowKey** 是度量的名稱 (也稱為效能計數器名稱)。
 
-如果資源識別碼不正確，請檢查 [診斷組態] > [計量] > [資源識別碼]，以查看資源識別碼是否正確地設定。
+如果資源識別碼不正確，請檢查 [診斷組態]    > [計量]   > [資源識別碼]  ，以查看資源識別碼是否正確地設定。
 
-如果沒有特定計量的資料，請檢查 [診斷組態] > [PerformanceCounter]，以查看是否包含計量 (效能計數器)。 我們預設會啟用下列計數器：
+如果沒有特定計量的資料，請檢查 [診斷組態]   > [PerformanceCounter]  ，以查看是否包含計量 (效能計數器)。 我們預設會啟用下列計數器：
 - \Processor(_Total)\% Processor Time
 - \Memory\Available Bytes
 - \ASP.NET Applications(__Total__)\Requests/Sec
@@ -91,7 +91,7 @@ Azure 診斷會提供計量資料，這些資料可以在 Azure 入口網站中�
 ```
 DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] DiagnosticPlugin exited with code 0
 ```
-如果結束代碼為「負值」，請參閱[參考](#references)一節中的[結束代碼表格](#azure-diagnostics-plugin-exit-codes)。
+如果結束代碼為「負值」  ，請參閱[參考](#references)一節中的[結束代碼表格](#azure-diagnostics-plugin-exit-codes)。
 
 ## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>診斷資料未記錄至 Azure 儲存體
 判斷是沒有出現任何資料，或是出現部分的資料。
@@ -127,7 +127,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 - **追蹤記錄**：從遠端存取 VM，並將 TextWriterTraceListener 新增至應用程式的組態檔。  請參閱 https://msdn.microsoft.com/library/sk36c28t.aspx 設定文字接聽程式。  確定 `<trace>` 元素具有 `<trace autoflush="true">`。<br />
 如果未看到任何追蹤記錄產生，請參閱「關於遺漏追蹤記錄檔的詳細資訊」。
 
-- **ETW 追蹤**：從遠端存取 VM 並安裝 PerfView。  在 PerfView 中執行 [File] \(檔案\) > [User Command] \(使用者命令\) > [Listen etwprovder1] \(接聽 etwprovder1\) > [etwprovider2]，依此類推。 **Listen** 命令會區分大小寫，而且在以逗號區隔的 ETW 提供者清單之間不能有空格。 如果命令執行失敗，您可以選取 Perfview 工具右下方的 [Log] \(記錄\) 按鈕，即可查看已嘗試執行的動作與執行結果。  如果輸入正確，就會跳出新的視窗。 在幾秒鐘內，就會開始看到 ETW 追蹤。
+- **ETW 追蹤**：從遠端存取 VM 並安裝 PerfView。  在 PerfView 中執行 [File]  \(檔案\) > [User Command]  \(使用者命令\) > [Listen etwprovder1]  \(接聽 etwprovder1\) > [etwprovider2]  ，依此類推。 **Listen** 命令會區分大小寫，而且在以逗號區隔的 ETW 提供者清單之間不能有空格。 如果命令執行失敗，您可以選取 Perfview 工具右下方的 [Log]  \(記錄\) 按鈕，即可查看已嘗試執行的動作與執行結果。  如果輸入正確，就會跳出新的視窗。 在幾秒鐘內，就會開始看到 ETW 追蹤。
 
 - **事件記錄**：從遠端存取 VM。 開啟 `Event Viewer`，然後確認事件存在。
 
@@ -230,7 +230,7 @@ Azure 儲存體中保存 ETW 事件的表格使用以下程式碼來命名：
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Azure 診斷外掛程式結束代碼
 外掛程式會傳回下列結束代碼：
 
-| 結束代碼 | 說明 |
+| 結束代碼 | 描述 |
 | --- | --- |
 | 0 |成功。 |
 | -1 |一般錯誤。 |
@@ -247,7 +247,7 @@ Azure 儲存體中保存 ETW 事件的表格使用以下程式碼來命名：
 | -105 |診斷外掛程式無法開啟診斷組態檔。<p><p>只有在 VM 上不正確地手動叫用診斷外掛程式時，才會發生此內部錯誤。 |
 | -106 |無法讀取診斷組態檔。<p><p>原因是組態檔未通過結構描述驗證。 <br><br>解決方案：提供符合結構描述的組態檔。 如需詳細資訊，請參閱[如何檢查診斷擴充功能組態](#how-to-check-diagnostics-extension-configuration)。 |
 | -107 |傳遞給監視代理程式的資源目錄無效。<p><p>只有在 VM 上不正確地手動叫用監視代理程式時，才會發生此內部錯誤。</p> |
-| -108 |無法將診斷組態檔轉換成監視代理程式組態檔。<p><p>此内部错误应仅当使用无效的配置文件手动调用了诊断插件时才会发生。 |
+| -108 |無法將診斷組態檔轉換成監視代理程式組態檔。<p><p>此內部錯誤應只有當使用無效的組態檔以手動方式叫用診斷外掛程式時才會發生。 |
 | -110 |一般診斷組態錯誤。<p><p>此內部錯誤應只有當使用無效的組態檔以手動方式叫用診斷外掛程式時才會發生。 |
 | -111 |無法啟動監視代理程式。<p><p>解決方案：確認有足夠的系統資源可用。 |
 | -112 |一般錯誤 |
@@ -296,7 +296,7 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 
 虛擬機器中的入口網站體驗預設會顯示特定效能計數器。 如果您沒有看到效能計數器，但知道系統正在產生資料，因為儲存體中有資料，請檢查下列項目：
 
-- 儲存體中的資料是否具有英文計數器名稱。 如果計數器名稱不是英文，入口網站計量圖表將無法辨識該計數器。 **降低風險**：針對系統帳戶，將電腦的語言變更為英文。 若要執行上述方式，請選取 [控制台] > [地區] > [系統管理] > [複製設定]。 接下來，取消選取 [歡迎畫面及系統帳戶]，如此一來自訂語言就不會套用到系統帳戶。
+- 儲存體中的資料是否具有英文計數器名稱。 如果計數器名稱不是英文，入口網站計量圖表將無法辨識該計數器。 **降低風險**：針對系統帳戶，將電腦的語言變更為英文。 若要執行上述方式，請選取 [控制台]   > [地區]   > [系統管理]   > [複製設定]  。 接下來，取消選取 [歡迎畫面及系統帳戶]  ，如此一來自訂語言就不會套用到系統帳戶。
 
 - 如果您在效能計數器名稱中使用萬用字元 (\*)，在將效能計數器傳送至 Azure 儲存體接收時，入口網站將無法關聯設定和收集的計數器。 **降低風險**：若要確定您可以使用萬用字元，並讓入口網站展開 (\*)，請將效能計數器傳送至[「Azure 監視器」接收](diagnostics-extension-schema.md#diagnostics-extension-111)。
 

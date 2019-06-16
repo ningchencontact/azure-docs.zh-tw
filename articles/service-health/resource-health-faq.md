@@ -8,10 +8,10 @@ ms.service: service-health
 ms.date: 01/29/2019
 ms.workload: Supportability
 ms.openlocfilehash: 03c5fb0f399e43af2584743655eeea8af4c5b2f5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924453"
 ---
 # <a name="azure-resource-health-faq"></a>Azure 資源健康狀態常見問題集
@@ -54,9 +54,9 @@ ms.locfileid: "64924453"
 
 ## <a name="where-do-i-find-resource-health"></a>哪裡可以找到資源健康狀態？
 登入 Azure 入口網站之後，您可以使用多種方式來存取資源健康狀態：
-- 瀏覽至您的資源。 在左側導覽中，選取 [資源健康狀態]。
-- 移至 [Azure 服務健康狀態] 刀鋒視窗。  在左側導覽中，選取 [資源健康狀態]。
-- 按一下入口網站右上角的問號，然後選取 [說明 + 支援]，即可開啟 [說明 + 支援] 刀鋒視窗。 當刀鋒視窗開啟之後，選取 [資源健康狀態]。
+- 瀏覽至您的資源。 在左側導覽中，選取 [資源健康狀態]  。
+- 移至 [Azure 服務健康狀態] 刀鋒視窗。  在左側導覽中，選取 [資源健康狀態]  。
+- 按一下入口網站右上角的問號，然後選取 [說明 + 支援]  ，即可開啟 [說明 + 支援]  刀鋒視窗。 當刀鋒視窗開啟之後，選取 [資源健康狀態]  。
 
 您也可以使用資源健康狀態 API，來取得資源的健康狀態相關資訊。
 
@@ -64,7 +64,7 @@ ms.locfileid: "64924453"
 您可以在[這裡](resource-health-checks-resource-types.md)找到透過資源健康狀態支援的健康情況檢查和資源類型清單。
 
 ## <a name="what-should-i-do-if-my-resource-is-showing-available-but-i-believe-it-is-not"></a>如果我的資源顯示無法使用，但我認為它可以使用，該怎麼辦？
-檢查資源的健康情況時，您可以在健全狀態下面按一下 [報告不正確的健全狀態]。 提交報表之前，您可以選擇提供為何您認為目前健全狀態不正確的其他相關詳細資料。
+檢查資源的健康情況時，您可以在健全狀態下面按一下 [報告不正確的健全狀態]  。 提交報表之前，您可以選擇提供為何您認為目前健全狀態不正確的其他相關詳細資料。
 
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>資源健康狀態是否適用於所有的 Azure 區域？ 
 資源健康狀態是適用於所有 Azure 地區。

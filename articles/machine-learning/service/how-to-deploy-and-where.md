@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 89539509e759da7f041ce0216397b1a9c8ff1f16
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 2c54f7192827376bb157915738ee781f45433267
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753085"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059230"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -108,6 +108,16 @@ ms.locfileid: "66753085"
 * `init()`:此函式通常會將模型載入到全域物件。 只要您的 web 服務的 Docker 容器啟動時，會執行此函式。
 
 * `run(input_data)`:此函式會使用模型，依據輸入資料來預測值。 執行的輸入和輸出通常使用 JSON 進行序列化和還原序列化。 您也可以使用原始的二進位資料。 您可以先轉換資料，再將資料傳送給模型或傳回用戶端。
+
+#### <a name="what-is-getmodelpath"></a>什麼是 get_model_path？
+當您註冊模型時，您會提供用來管理在登錄中的模型的模型名稱。 您可以使用此名稱在 get_model_path API 會傳回本機檔案系統上的模型檔案的路徑。 如果您註冊資料夾或檔案的集合，此 API 會傳回路徑來包含這些檔案的目錄。
+
+當您註冊模型時，提供對應的名稱給模型放置的位置，在本機或在服務部署期間。
+
+下列範例會傳回路徑單一檔案稱為 'sklearn_mnist_model.pkl' （其已註冊名稱為 'sklearn_mnist'）
+```
+model_path = Model.get_model_path('sklearn_mnist')
+``` 
 
 #### <a name="optional-automatic-swagger-schema-generation"></a>（選擇性）自動產生 Swagger 結構描述
 
@@ -248,7 +258,9 @@ inference_config = InferenceConfig(source_directory="C:/abc",
 * [項目指令碼](#script)，用以處理 web 要求傳送至已部署的服務
 * 描述推斷所需的 Python 套件的 conda 檔案
 
-如需 InferenceConfig 功能資訊，請參閱[進階的組態](#advanced-config)一節。
+如需 InferenceConfig 功能資訊，請參閱[InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)類別參考。
+
+如需推斷組態搭配使用自訂的 Docker 映像的資訊，請參閱[如何部署模型使用自訂的 Docker 映像](how-to-deploy-custom-docker-image.md)。
 
 ### <a name="3-define-your-deployment-configuration"></a>3.定義您的部署組態
 
@@ -265,6 +277,15 @@ inference_config = InferenceConfig(source_directory="C:/abc",
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 下列各節示範如何建立部署組態，並接著使用它來部署 web 服務。
+
+### <a name="optional-profile-your-model"></a>選用：分析您的模型
+在部署之前即服務模型，您可以分析以判斷最佳的 CPU 和記憶體需求。
+您可以透過 SDK 或 CLI 來這麼做。
+
+如需詳細資訊，您可以查看我們 SDK 文件： https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
+
+執行物件的形式發出模型分析的結果。
+模型的設定檔結構描述的詳細資訊可以在這裡找到： https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
 
 ## <a name="deploy-to-target"></a>部署到目標
 
@@ -492,54 +513,6 @@ print(service.state)
 print(service.get_logs())
 ```
 
-<a id="advanced-config"></a>
-
-## <a name="advanced-settings"></a>進階設定 
-
-**<a id="customimage"></a> 使用自訂的基底映像**
-
-就內部而言，InferenceConfig 建立 Docker 映像，其中包含模型和其他服務所需的資產。 如果未指定，則會使用預設的基底映像。
-
-當建立推斷組態搭配使用的映像，映像必須符合下列需求：
-
-* Ubuntu 16.04 或更新版本。
-* Conda 4.5。 # 或更新版本。
-* Python 3.5。 # 或 3.6。 #。
-
-若要使用自訂映像，`base_image`推斷設定位址的映像的屬性。 下列範例示範如何使用來自這兩個公用和私用 Azure Container Registry 的映像：
-
-```python
-# use an image available in public Container Registry without authentication
-inference_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
-
-# or, use an image available in a private Container Registry
-inference_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
-inference_config.base_image_registry.address = "myregistry.azurecr.io"
-inference_config.base_image_registry.username = "username"
-inference_config.base_image_registry.password = "password"
-```
-
-下列映像 Uri 是由 Microsoft 所提供的映像，並可不搭配提供的使用者名稱或密碼值：
-
-* `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03`
-
-若要使用這些映像，`base_image`至上述清單中的 URI。 將 `base_image_registry.address` 設定為 `mcr.microsoft.com`。
-
-> [!IMPORTANT]
-> 使用 CUDA 或 TensorRT 的 Microsoft 映像必須只使用 Microsoft Azure 服務上。
-
-如需有關如何將自己的映像上傳至 Azure Container Registry 的詳細資訊，請參閱 <<c0> [ 您的第一個映像推送至私人 Docker 容器登錄](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli)。
-
-如果您的模型訓練 Azure Machine Learning 計算，使用__1.0.22 版或更新版本__Azure 機器學習服務 sdk，在定型期間建立的映像。 下列範例示範如何使用此映像：
-
-```python
-# Use an image built during training with SDK 1.0.22 or greater
-image_config.base_image = run.properties["AzureML.DerivedImageName"]
-```
-
 ## <a name="clean-up-resources"></a>清除資源
 若要刪除已部署的 Web 服務，請使用 `service.delete()`。
 若要刪除已註冊的模型，請使用 `model.delete()`。
@@ -547,6 +520,7 @@ image_config.base_image = run.properties["AzureML.DerivedImageName"]
 如需詳細資訊，請參閱的參考文件[WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--)，並[Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--)。
 
 ## <a name="next-steps"></a>後續步驟
+* [如何部署模型使用自訂的 Docker 映像](how-to-deploy-custom-docker-image.md)
 * [部署疑難排解](how-to-troubleshoot-deployment.md)
 * [使用 SSL 保護 Azure Machine Learning Web 服務](how-to-secure-web-service.md)
 * [取用部署為 Web 服務的 ML 模型](how-to-consume-web-service.md)

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/26/2018
 ms.author: v-jamebr
 ms.openlocfilehash: c0580b75544a9613bc8caf2faaac11ba1ba6708e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60881363"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Linux 叢集上的憑證和安全性
@@ -104,7 +104,7 @@ ms.locfileid: "60881363"
 
 Service Fabric SDK 可讓您與 Service Fabric 執行階段 API 通訊以使用平台。 當您在安全 Linux 叢集上執行任何使用此功能的應用程式時，都必須設定應用程式，使其具有可用來對 Service Fabric 執行階段進行驗證的憑證。 應用程式若包含使用 .NET Core 或 Java SDK 撰寫的 Service Fabric Reliable Service 服務，則必須進行此設定。 
 
-若要設定應用程式，請在 [憑證] 標記下新增 [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) 元素；該標記位於 *ApplicationManifest.xml* 檔案中的 **ApplicationManifest** 標記下方。 下列 XML 顯示依憑證的指紋參考的憑證： 
+若要設定應用程式，請在 [憑證]  標記下新增 [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) 元素；該標記位於 *ApplicationManifest.xml* 檔案中的 **ApplicationManifest** 標記下方。 下列 XML 顯示依憑證的指紋參考的憑證： 
 
 ```xml
    <Certificates>

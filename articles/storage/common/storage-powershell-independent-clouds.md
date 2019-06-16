@@ -9,10 +9,10 @@ ms.date: 10/24/2017
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 69707eec0ea1f2260ee50a48ce1dcb82dc9ddd8f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145871"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>使用 PowerShell 在 Azure 獨立雲端中管理儲存體
@@ -29,7 +29,7 @@ ms.locfileid: "65145871"
 
 若要在其中一個獨立雲端中使用 Azure 儲存體，您要連線到該雲端，而非 Azure 公用。 若要使用其中一個獨立雲端，而非 Azure 公用：
 
-* 指定要連線的「環境」。
+* 指定要連線的「環境」  。
 * 決定並且使用可用的區域。
 * 使用正確的端點尾碼，它與 Azure 公用的尾碼不同。
 
@@ -71,7 +71,7 @@ Get-AzLocation | select Location, DisplayName
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>使用 Get-AzEnvironment 取得端點 
 
-使用 [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) 擷取端點尾碼。 端點是環境的「StorageEndpointSuffix」屬性。 下列程式碼片段示範如何執行這項作業。 這些命令都會傳回類似 "core.cloudapp.net" 或 "core.cloudapi.de" 等等的資訊。將這個項目附加至儲存體服務，以存取該服務。 例如，"queue.core.cloudapi.de" 會在德國雲端中存取佇列服務。
+使用 [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) 擷取端點尾碼。 端點是環境的「StorageEndpointSuffix」  屬性。 下列程式碼片段示範如何執行這項作業。 這些命令都會傳回類似 "core.cloudapp.net" 或 "core.cloudapi.de" 等等的資訊。將這個項目附加至儲存體服務，以存取該服務。 例如，"queue.core.cloudapi.de" 會在德國雲端中存取佇列服務。
 
 此程式碼片段會擷取所有環境及其端點尾碼。
 
@@ -81,7 +81,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 此命令會傳回下列結果。
 
-| 名稱| StorageEndpointSuffix|
+| Name| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -96,9 +96,9 @@ Get-AzEnvironment -Name AzureGermanCloud
 
 結果如下所示：
 
-|屬性名稱|Value|
+|屬性名稱|值|
 |----|----|
-| 名稱 | AzureGermanCloud |
+| Name | AzureGermanCloud |
 | EnableAdfsAuthentication | False |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |

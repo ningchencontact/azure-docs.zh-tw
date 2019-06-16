@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61069925"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>在 Microsoft Azure CDN 中分析邊緣節點效能
@@ -55,7 +55,7 @@ ms.locfileid: "61069925"
     ![[CDN 設定檔] 刀鋒視窗的 [管理] 按鈕](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     隨即開啟 CDN 管理入口網站。
-2. 將滑鼠移至 [分析] 索引標籤上，然後將滑鼠移至 [邊緣效能分析] 飛出視窗上。  按一下 [儀表板] 。
+2. 將滑鼠移至 [分析]  索引標籤上，然後將滑鼠移至 [邊緣效能分析]  飛出視窗上。  按一下 [儀表板]  。
    
     邊緣節點分析儀表板隨即顯示。
 
@@ -143,7 +143,7 @@ ms.locfileid: "61069925"
     ![[CDN 設定檔] 刀鋒視窗的 [管理] 按鈕](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     隨即開啟 CDN 管理入口網站。
-2. 將滑鼠移至 [分析] 索引標籤上，然後將滑鼠移至 [邊緣效能分析] 飛出視窗上。  按一下 [HTTP 大型物件] 。
+2. 將滑鼠移至 [分析]  索引標籤上，然後將滑鼠移至 [邊緣效能分析]  飛出視窗上。  按一下 [HTTP 大型物件]  。
    
     邊緣節點分析報告畫面隨即顯示。
 

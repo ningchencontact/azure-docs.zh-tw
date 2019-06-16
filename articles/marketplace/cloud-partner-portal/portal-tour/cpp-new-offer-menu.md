@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pabutler
 ms.openlocfilehash: 8ec1a6a6ec77838ec75666d219d90739bf74517b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943278"
 ---
 # <a name="new-offer-menu"></a>新增供應項目功能表
 
-[新增供應項目] 功能表可讓合作夥伴建立受 [Cloud Partner 入口網站](https://cloudpartner.azure.com)支援的供應項目類型執行個體。  在左側導覽功能表上選取 [新增供應項目] 功能表項目，即會顯示下列供應項目類型清單。  選取其中一個類型，即可啟動供應項目的建立和發佈程序。
+[新增供應項目]  功能表可讓合作夥伴建立受 [Cloud Partner 入口網站](https://cloudpartner.azure.com)支援的供應項目類型執行個體。  在左側導覽功能表上選取 [新增供應項目]  功能表項目，即會顯示下列供應項目類型清單。  選取其中一個類型，即可啟動供應項目的建立和發佈程序。
 
 |    **新增供應項目功能表項目**     |     **對應的文件章節**                       |
 |    -----------------------     |     -----------------------------                       |

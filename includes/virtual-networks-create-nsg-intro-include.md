@@ -9,10 +9,10 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 20ecc0e30c774c2f237238937ab1c6c1dcd4003f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66170282"
 ---
 您可以在虛擬網路中，使用 NSG 控制傳輸至一個或多個虛擬機器 (VM)、角色執行個體、網路介面卡 (NIC) 或子網路的流量。 NSG 包含存取控制規則，可根據流量方向、通訊協定、來源位址和連接埠與目的地位址和連接埠，允許或拒絕流量。 NSG 的規則可以隨時變更，而變更時會套用至所有相關聯的執行個體。

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 140f2ec6252eac2958f236b2ffb48225fa16fe2b
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: fea9e79986e45127ad4918ed62bd8bf8dc782133
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688049"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125794"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>使用 AzCopy 和 Blob 儲存體傳輸資料
 
@@ -191,10 +191,10 @@ AzCopy 會使用[從 URL 將區塊](https://docs.microsoft.com/rest/api/storages
 
 ## <a name="synchronize-files"></a>同步處理檔案
 
-您可以同步處理本機檔案系統的 blob 容器的內容。 您也可以在您的電腦上同步到本機檔案系統的 blob 容器。 同步處理是單向的。 換句話說，您會選擇這兩個端點的來源且其中一個是目的地。
+您可以與 blob 容器，以同步處理本機檔案系統的內容。 同步處理是單向的。 換句話說，您會選擇這兩個端點的來源且其中一個是目的地。
 
 > [!NOTE]
-> 目前版本的 AzCopy 不會同步處理之間的其他來源和目的地 (例如：檔案儲存體或 Amazon Web Services (AWS) S3 貯體）。
+> 目前，只會針對沒有階層式命名空間的帳戶支援此案例。 目前版本的 AzCopy 不會同步處理之間的其他來源和目的地 (例如：檔案儲存體或 Amazon Web Services (AWS) S3 貯體）。
 
 `sync`命令比較檔案名稱和上次修改時間戳記。 設定`--delete-destination`的值的選擇性旗標`true`或`prompt`刪除目的地目錄中的檔案，如果這些檔案不再存在於來源目錄。
 
@@ -203,26 +203,24 @@ AzCopy 會使用[從 URL 將區塊](https://docs.microsoft.com/rest/api/storages
 > [!NOTE]
 > 若要防止意外刪除，請務必啟用[虛刪除](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)功能才能使用`--delete-destination=prompt|true`旗標。
 
-### <a name="synchronize-a-container-to-a-local-file-system"></a>同步處理到本機檔案系統的容器
+### <a name="update-a-container-with-changes-to-a-local-file-system"></a>使用本機檔案系統的變更來更新容器
 
-在此情況下，本機檔案系統變成來源，而容器為目的地。
+在此情況下，容器是目的地，而且本機檔案系統來源。
 
 |    |     |
 |--------|-----------|
 | **語法** | `azcopy sync "<local-directory-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive` |
 | **範例** | `azcopy sync "C:\myDirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive` |
-| **範例**（階層式命名空間） | `azcopy sync "C:\myDirectory" "https://<storage-account-name>.dfs.core.windows.net/mycontainer" --recursive` |
 
+### <a name="update-a-local-file-system-with-changes-to-a-container"></a>使用容器的變更來更新本機檔案系統
 
-### <a name="synchronize-a-local-file-system-to-a-container"></a>同步處理至容器的本機檔案系統
-
-在此情況下，容器會變成來源，並在本機檔案系統是目的地。
+在此情況下，本機檔案系統是目的地，以及容器的來源。
 
 |    |     |
 |--------|-----------|
 | **語法** | `azcopy sync "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" "C:\myDirectory" --recursive` |
 | **範例** | `azcopy sync "https://mystorageaccount.blob.core.windows.net/mycontainer" "C:\myDirectory" --recursive` |
-| **範例**（階層式命名空間） | `azcopy sync "https://mystorageaccount.dfs.core.windows.net/mycontainer" "C:\myDirectory" --recursive` |
+|
 
 ## <a name="next-steps"></a>後續步驟
 

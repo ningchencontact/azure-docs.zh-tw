@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 46fa1c5a4874508cf8e2d288a99c908744347b69
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.date: 06/04/2019
+ms.openlocfilehash: 4bfbce7dd985f3ebf67fde671d83acf30623b641
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480078"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055402"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -223,7 +223,7 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
 
 ![建立自訂的 Azure VNET 中的 HDInsight 實體的圖表](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
 
-### <a id="hdinsight-ip"></a> 使用網路安全性群組的 HDInsight
+### <a name="hdinsight-with-network-security-groups"></a>使用網路安全性群組的 HDInsight
 
 如果您計劃使用**網路安全性群組**來控制網路流量，然後再安裝 HDInsight 中執行下列動作：
 
@@ -291,11 +291,11 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
     | &nbsp; | 印度南部 | 104.211.223.67<br/>104.211.216.210 | \*:443 | 輸入 |
     | 日本 | 日本東部 | 13.78.125.90</br>13.78.89.60 | \*:443 | 輸入 |
     | &nbsp; | 日本西部 | 40.74.125.69</br>138.91.29.150 | \*:443 | 輸入 |
-    | 南韓 | 南韓中部 | 52.231.39.142</br>52.231.36.209 | \*:433 | 輸入 |
+    | 南韓 | 南韓中部 | 52.231.39.142</br>52.231.36.209 | \*:443 | 輸入 |
     | &nbsp; | 南韓南部 | 52.231.203.16</br>52.231.205.214 | \*:443 | 輸入
     | 英國 | 英國西部 | 51.141.13.110</br>51.141.7.20 | \*:443 | 輸入 |
     | &nbsp; | 英國南部 | 51.140.47.39</br>51.140.52.16 | \*:443 | 輸入 |
-    | 美國 | 美國中部 | 13.67.223.215</br>40.86.83.253 | \*:443 | 輸入 |
+    | 美國 | 美國中部 | 13.89.171.122</br>13.89.171.124 | \*:443 | 輸入 |
     | &nbsp; | 美國東部 | 13.82.225.233</br>40.71.175.99 | \*:443 | 輸入 |
     | &nbsp; | 美國中北部 | 157.56.8.38</br>157.55.213.99 | \*:443 | 輸入 |
     | &nbsp; | 美國中西部 | 52.161.23.15</br>52.161.10.167 | \*:443 | 輸入 |
@@ -328,28 +328,29 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
 
 * [部署安全的 Azure 虛擬網路和 HDInsight Hadoop 叢集](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
-> [!IMPORTANT]  
-> 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
-
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 使用下列 PowerShell 指令碼建立限制輸入流量的虛擬網路，並允許來自北歐區域之 IP 位址的流量。
 
 > [!IMPORTANT]  
-> 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
+> 變更的 IP 位址`hdirule1`和`hdirule2`在此範例中以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
 
 ```powershell
 $vnetName = "Replace with your virtual network name"
 $resourceGroupName = "Replace with the resource group the virtual network is in"
 $subnetName = "Replace with the name of the subnet that you plan to use for HDInsight"
+
 # Get the Virtual Network object
 $vnet = Get-AzVirtualNetwork `
     -Name $vnetName `
     -ResourceGroupName $resourceGroupName
+
 # Get the region the Virtual network is in.
 $location = $vnet.Location
+
 # Get the subnet object
 $subnet = $vnet.Subnets | Where-Object Name -eq $subnetName
+
 # Create a Network Security Group.
 # And add exemptions for the HDInsight health and management services.
 $nsg = New-AzNetworkSecurityGroup `
@@ -422,8 +423,10 @@ $nsg = New-AzNetworkSecurityGroup `
         -Access Allow `
         -Priority 305 `
         -Direction Inbound `
+
 # Set the changes to the security group
 Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsg
+
 # Apply the NSG to the subnet
 Set-AzVirtualNetworkSubnetConfig `
     -VirtualNetwork $vnet `
@@ -433,14 +436,12 @@ Set-AzVirtualNetworkSubnetConfig `
 $vnet | Set-AzVirtualNetwork
 ```
 
-> [!IMPORTANT]  
-> 此範例示範如何新增規則，以允許所需 IP 位址上的輸入流量。 它不會包含可限制其他來源之輸入存取的規則。
->
-> 下列範例示範如何啟用從網際網路進行 SSH 存取：
->
-> ```powershell
-> Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
-> ```
+此範例示範如何新增規則，以允許所需 IP 位址上的輸入流量。 它不會包含可限制其他來源之輸入存取的規則。 下列程式碼示範如何啟用從網際網路的 SSH 存取：
+
+```powershell
+Get-AzNetworkSecurityGroup -Name hdisecure -ResourceGroupName RESOURCEGROUP |
+Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
+```
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -457,7 +458,7 @@ $vnet | Set-AzVirtualNetwork
 2. 使用下列將規則新增至新的網路安全性群組，這些規則允許從 Azure HDInsight 健康狀態和管理服務透過連接埠 443 的輸入通訊。 取代`RESOURCEGROUP`具有包含 Azure 虛擬網路的資源群組名稱。
 
     > [!IMPORTANT]  
-    > 建立此範例中使用的 IP 位址，以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
+    > 變更的 IP 位址`hdirule1`和`hdirule2`在此範例中以符合您使用的 Azure 區域。 您可以在[具有網路安全性群組和使用者定義路由的 HDInsight](#hdinsight-ip) 一節中找到這項資訊。
 
     ```azurecli
     az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
@@ -471,14 +472,12 @@ $vnet | Set-AzVirtualNetwork
 3. 若要擷取此網路安全性群組的唯一識別碼，請使用下列命令：
 
     ```azurecli
-    az network nsg show -g RESOURCEGROUP -n hdisecure --query 'id'
+    az network nsg show -g RESOURCEGROUP -n hdisecure --query "id"
     ```
 
     此命令會傳回類似下列文字的值：
 
         "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
-
-    使用雙引號括住`id`在命令中，如果沒有得到預期的結果。
 
 4. 使用下列命令將網路安全性群組套用至子網路。 取代`GUID`和`RESOURCEGROUP`從上一個步驟傳回的值。 取代`VNETNAME`和`SUBNETNAME`與虛擬網路名稱和您想要建立的子網路名稱。
 
@@ -488,14 +487,14 @@ $vnet | Set-AzVirtualNetwork
 
     此命令完成之後，您可以將 HDInsight 安裝至虛擬網路。
 
-> [!IMPORTANT]  
-> 這些步驟只會開啟 Azure 雲端上 HDInsight 健康狀態和管理服務的存取權。 任何其他來自虛擬網路外部之對 HDInsight 叢集的存取都會遭到封鎖。 若要允許從外部虛擬網路存取，您必須新增額外的網路安全性群組規則。
->
-> 下列範例示範如何啟用從網際網路進行 SSH 存取：
->
-> ```azurecli
-> az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
-> ```
+
+這些步驟只會開啟 Azure 雲端上 HDInsight 健康狀態和管理服務的存取權。 任何其他來自虛擬網路外部之對 HDInsight 叢集的存取都會遭到封鎖。 若要允許從外部虛擬網路存取，您必須新增額外的網路安全性群組規則。
+
+下列程式碼示範如何啟用從網際網路的 SSH 存取：
+
+```azurecli
+az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
+```
 
 ## <a id="example-dns"></a> 範例：DNS 組態
 
@@ -658,7 +657,7 @@ $vnet | Set-AzVirtualNetwork
 ## <a name="next-steps"></a>後續步驟
 
 * 如需設定 HDInsight 連線至內部部署網路的端對端範例，請參閱[將 HDInsight 連線至內部部署網路](./connect-on-premises-network.md)。
-* 如需在 Azure 虛擬網路中設定 Apache HBase 叢集，請參閱[在 Azure 虛擬網路的 HDInsight 上建立 Apache HBase 叢集](hbase/apache-hbase-provision-vnet.md)。
+* 如需設定 Azure 虛擬網路中的 Apache HBase 叢集，請參閱[在 Azure 虛擬網路中的 HDInsight 上建立 Apache HBase 叢集](hbase/apache-hbase-provision-vnet.md)。
 * 如需設定 Apache HBase 異地複寫，請參閱[設定 Azure 虛擬網路中的 Apache HBase 叢集複寫](hbase/apache-hbase-replication.md)。
 * 如需 Azure 虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 

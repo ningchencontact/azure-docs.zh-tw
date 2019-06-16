@@ -1,21 +1,21 @@
 ---
-title: 在 Azure 入口網站中設定和存取適用於 MySQL 的 Azure 資料庫的伺服器記錄
-description: 本文描述如何從 Azure 入口網站設定和存取適用於 MySQL 的 Azure 資料庫的伺服器記錄。
+title: 設定和在 Azure 入口網站中適用於 MySQL 存取慢速查詢記錄的 Azure 資料庫
+description: 本文說明如何設定和存取適用於 MySQL 的 Azure 資料庫中的慢速記錄，從 Azure 入口網站。
 author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: e0701d2e10b366a6bf849512484fb216c42823bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/29/2019
+ms.openlocfilehash: b16ac525d41eb2423828a647fdb75fd3f4a80a31
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525914"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052728"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>在 Azure 入口網站中設定和存取伺服器記錄
+# <a name="configure-and-access-slow-query-logs-in-the-azure-portal"></a>設定和存取慢速查詢記錄在 Azure 入口網站
 
-您可以從 Azure 入口網站設定、列示和下載[適用於 MySQL 的 Azure 資料庫](concepts-server-logs.md)。
+您可以設定、 列出及下載[Azure Database for MySQL 慢速查詢記錄](concepts-server-logs.md)從 Azure 入口網站。
 
 ## <a name="prerequisites"></a>必要條件
 若要逐步執行本作法指南，您需要︰
@@ -28,27 +28,27 @@ ms.locfileid: "60525914"
 
 2. 選取適用於 MySQL 的 Azure 資料庫伺服器。
 
-3. 在提要欄位的 [監視] 區段中，選取 [伺服器記錄]。 
+3. 在提要欄位的 [監視]  區段中，選取 [伺服器記錄]  。 
    ![選取伺服器記錄，按一下以設定](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
 
-4. 選取 [按一下這裡可啟用記錄，並設定記錄參數] 標題，來查看伺服器參數。
+4. 選取 [按一下這裡可啟用記錄，並設定記錄參數]  標題，來查看伺服器參數。
 
 5. 變更您需要調整的參數。 您在此工作階段中所做的所有變更都會以紫色顯示。 
 
-   變更參數之後，您可以按一下 [儲存]。 或者，也可以**捨棄**您的變更。
+   變更參數之後，您可以按一下 [儲存]  。 或者，也可以**捨棄**您的變更。
 
    ![按一下 [儲存] 或 [捨棄]](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-6. 按一下 [伺服器參數] 頁面上的**關閉按鈕** (X 圖示)。
+6. 按一下 [伺服器參數]  頁面上的**關閉按鈕** (X 圖示)。
 
 ## <a name="view-list-and-download-logs"></a>檢視清單並下載記錄
-一旦開始記錄，您就可以檢視可用記錄的清單，並在 [伺服器記錄] 窗格上下載個別記錄。 
+開始記錄之後，您可以檢視可用的慢速查詢記錄檔的清單，並下載伺服器記錄 窗格上的個別記錄檔。
 
 1. 開啟 Azure 入口網站。
 
 2. 選取適用於 MySQL 的 Azure 資料庫伺服器。
 
-3. 在提要欄位的 [監視] 區段中，選取 [伺服器記錄]。 頁面會顯示記錄檔的清單，如下所示：
+3. 在提要欄位的 [監視]  區段中，選取 [伺服器記錄]  。 頁面會顯示記錄檔的清單，如下所示：
 
    ![記錄清單](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
 
@@ -61,9 +61,7 @@ ms.locfileid: "60525914"
 
    ![按一下下載圖示](./media/howto-configure-server-logs-in-portal/5-download.png)
 
-
 ## <a name="next-steps"></a>後續步驟
-- 請參閱[存取 CLI 中的伺服器記錄](howto-configure-server-logs-in-cli.md)，以了解如何透過程式下載記錄。
-- 深入了解[適用於 MySQL 的 Azure 資料庫](concepts-server-logs.md)中的伺服器記錄。 
+- 請參閱[存取慢速查詢記錄中 CLI](howto-configure-server-logs-in-cli.md)以了解如何以程式設計方式下載慢速查詢記錄。
+- 深入了解[緩慢查詢記錄](concepts-server-logs.md)適用於 MySQL 的 Azure 資料庫中。
 - 如需參數定義和 MySQL 記錄的詳細資訊，請參閱 MySQL 文件上的[記錄](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)。
-

@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61482925"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>建立、設定及管理彈性作業
@@ -25,14 +25,14 @@ ms.locfileid: "61482925"
 
 ## <a name="create-and-configure-the-agent"></a>建立和設定代理程式
 
-1. 建立或識別空的 S0 或更高版本的 SQL 資料庫。 此資料庫將在彈性作業代理程式建立期間作為「作業資料庫」。
+1. 建立或識別空的 S0 或更高版本的 SQL 資料庫。 此資料庫將在彈性作業代理程式建立期間作為「作業資料庫」  。
 2. 在[入口網站](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent)中，或使用 [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent) 建立彈性作業代理程式。
 
    ![建立彈性作業代理程式](media/elastic-jobs-overview/create-elastic-job-agent.png)
 
 ## <a name="create-run-and-manage-jobs"></a>建立、執行和管理作業
 
-1. 使用 [PowerShell](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets) 或 [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution) 建立認證，以便在「作業資料庫」中執行作業。
+1. 使用 [PowerShell](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets) 或 [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution) 建立認證，以便在「作業資料庫」  中執行作業。
 2. 使用 [PowerShell](elastic-jobs-powershell.md#define-the-target-databases-you-want-to-run-the-job-against) 或 [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers) 定義目標群組 (您想要執行作業的資料庫)。
 3. 在將要執行作業的每個資料庫中建立作業代理程式認證 [(將使用者 (或角色) 新增至群組中的每個資料庫)](sql-database-control-access.md)。 如需範例，請參閱 [PowerShell 教學課程](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets)。
 4. 使用 [PowerShell](elastic-jobs-powershell.md#create-a-job) 或 [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases) 建立作業。
@@ -48,11 +48,11 @@ ms.locfileid: "61482925"
 
 設定適當的認證來執行作業，可能會有點混淆，因此請牢記下列要點：
 
-- 必須在「作業資料庫」中建立資料庫範圍認證。
+- 必須在「作業資料庫」  中建立資料庫範圍認證。
 - **所有目標資料庫都必須具有登入，而且有[足夠的權限](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)，才能順利完成作業** (下圖中的 `jobuser`)。
 - 認證可跨作業重複使用，而認證密碼會經過加密並受到保護，以免具有作業物件唯讀權限的使用者加以使用。
 
-下圖設計用來協助了解及設定適當的作業認證。 **請記得在每個需要執行作業的資料庫 (所有「目標使用者資料庫」) 中建立使用者**。
+下圖設計用來協助了解及設定適當的作業認證。 **請記得在每個需要執行作業的資料庫 (所有「目標使用者資料庫」  ) 中建立使用者**。
 
 ![彈性作業認證](media/elastic-jobs-overview/job-credentials.png)
 
@@ -68,7 +68,7 @@ ms.locfileid: "61482925"
 
 彈性作業在等待長時間執行的作業完成時，會使用最少的運算資源。
 
-視資料庫的目標群組大小和作業所需的執行時間 (並行背景工作數目) 而定，代理程式需要不同的計算量和「作業資料庫」效能 (目標愈多和作業數目較高，所需的計算量就愈高)。
+視資料庫的目標群組大小和作業所需的執行時間 (並行背景工作數目) 而定，代理程式需要不同的計算量和「作業資料庫」  效能 (目標愈多和作業數目較高，所需的計算量就愈高)。
 
 預覽版本目前受限於 100 個並行作業。
 
@@ -76,7 +76,7 @@ ms.locfileid: "61482925"
 
 若要確保在對 SQL 彈性集區中的資料庫執行作業時，資源不會負擔過重，則可以設定作業來限制作業可以同時執行的資料庫數目。
 
-通过在 T-SQL 中设置 `sp_add_jobstep` 存储过程的 `@max_parallelism` 参数，或者通过在 PowerShell 中设置 `Add-AzSqlElasticJobStep -MaxParallelism`，来设置作业运行的并发数据库数。
+設定並行作業的設定執行的資料庫數目`sp_add_jobstep`預存程序的`@max_parallelism`在 T-SQL 中的參數或`Add-AzSqlElasticJobStep -MaxParallelism`在 PowerShell 中。
 
 ## <a name="best-practices-for-creating-jobs"></a>建立作業的最佳做法
 

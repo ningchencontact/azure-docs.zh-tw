@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1fb67600ea01629e7bf3ab4c7c470e4727b0e923
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 667a696e96234aca33981946a5b063ab5bfb080b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393180"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075903"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>如何在 Azure 中變更 SQL Server 虛擬機器的授權模型
 本文說明如何在 Azure 中使用新的 SQL VM 資源提供者 **Microsoft.SqlVirtualMachine**，來變更 SQL Server 虛擬機器的授權模型。 有兩個授權裝載 SQL Server-隨用隨付，虛擬機器 (VM) 的模型和自備授權 (BYOL)。 而現在，使用 Azure 入口網站、 Azure CLI 或 PowerShell 您可以修改您的 SQL Server VM 會使用哪個授權模型。 
@@ -37,7 +37,7 @@ ms.locfileid: "66393180"
  - Azure 雲端方案 (CSP) 客戶可以利用 Azure Hybrid Benefit，第一次部署的隨用隨付的 VM，並再將它轉換成自備-您擁有的授權。 
  - 向資源提供者註冊自訂的 SQL Server VM 映像，當指定授權類型 = 'AHUB'。 離開授權類型為空白，或指定 'PAYG' 會造成失敗的註冊。 
  - 如果您卸除 SQL Server VM 資源，您將會移回至映像的硬式編碼的授權設定。 
- - 將 SQL Server VM 加入至可用性設定組時，需要重新建立 VM。 這類，任何虛擬機器加入至可用性集合將會回到預設的隨用隨付授權類型，並適 AHB 必須再次啟用。 
+ - 將 SQL Server VM 加入至可用性設定組時，需要重新建立 VM。 這類，任何虛擬機器新增到可用性集將會回到預設的隨用隨付授權類型，並適 AHB 必須再次啟用。 
  - 若要變更授權模型的能力是 SQL VM 的資源提供者的功能。 部署在 Azure 入口網站的 marketplace 映像會自動向資源提供者的 SQL Server VM。 不過，自我安裝 SQL Server 的客戶將需要手動[註冊其 SQL Server VM](#register-sql-server-vm-with-the-sql-vm-resource-provider)。 
  
 
@@ -58,11 +58,14 @@ ms.locfileid: "66393180"
 
 ## <a name="with-the-azure-portal"></a>透過 Azure 入口網站
 
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
 您可以修改授權模型，直接從入口網站。 
 
-1. 瀏覽至您的 SQL Server VM 內[Azure 入口網站](https://portal.azure.com)。 
-1. 選取  **SQL Server 組態**中**設定**窗格。 
-1. 選取 **編輯**中**SQL Server 授權**窗格，即可修改授權。 
+1. 開啟[Azure 入口網站](https://portal.azure.com)，然後啟動[SQL 虛擬機器資源](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource)為您的 SQL Server VM。 
+1. 選取 **設定**下方**設定**。 
+1. 選取  **Azure Hybrid Benefit**選項，並確認您具有軟體保證的 SQL Server 授權。 
+1. 選取 **套用**底部**設定**頁面。 
 
 ![在入口網站中的適 AHB](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
 
@@ -75,7 +78,7 @@ ms.locfileid: "66393180"
 
 下列程式碼片段會切換成 BYOL （或使用 Azure Hybrid Benefit） 的隨用隨付授權模型：
 
-```azurecli
+```azurecli-interactive
 # Switch your SQL Server VM license from pay-as-you-go to bring-your-own
 # example: az sql vm update -n AHBTest -g AHBTest --license-type AHUB
 
@@ -84,18 +87,19 @@ az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
 
 下列程式碼片段會切換成隨用隨付的您將為您擁有的授權模型： 
 
-```azurecli
+```azurecli-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
 # example: az sql vm update -n AHBTest -g AHBTest --license-type PAYG
 
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 ```
+
 ## <a name="with-powershell"></a>透過 PowerShell
 您可以使用 PowerShell 來變更您的授權模型。
 
 下列程式碼片段會切換成 BYOL （或使用 Azure Hybrid Benefit） 的隨用隨付授權模型：
 
-```powershell
+```powershell-interactive
 # Switch your SQL Server VM license from pay-as-you-go to bring-your-own
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
 $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
@@ -109,7 +113,7 @@ $SqlVm | Set-AzResource -Force
 
 下列程式碼片段會切換成隨用隨付的 BYOL 模式：
 
-```powershell
+```powershell-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
 $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
@@ -144,7 +148,7 @@ $SqlVm | Set-AzResource -Force
 #### <a name="with-azure-cli"></a>透過 Azure CLI
 下列程式碼片段會註冊您的 Azure 訂用帳戶的 SQL VM 資源提供者。 
 
-```azurecli
+```azurecli-interactive
 # Register the new SQL resource provider to your subscription 
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
@@ -153,7 +157,7 @@ az provider register --namespace Microsoft.SqlVirtualMachine
 
 下列程式碼片段會註冊您的 Azure 訂用帳戶的 SQL 資源提供者。
 
-```powershell
+```powershell-interactive
 # Register the new SQL resource provider to your subscription
 Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
@@ -162,16 +166,18 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 SQL VM 的資源提供者註冊訂用帳戶之後, 您就可以與使用 Azure CLI 資源提供者註冊您的 SQL Server VM。 
 
 #### <a name="with-azure-cli"></a>透過 Azure CLI
-註冊 SQL Server VM 使用 Azure CLI 搭配下列程式碼片段： 
 
-```azurecli
+註冊 SQL Server VM 使用 Azure CLI，使用下列程式碼片段： 
+
+```azurecli-interactive
 # Register your existing SQL Server VM with the new resource provider
-az sql vm create -n <VMName> -g <ResourceGroupName> -l <VMLocation>
+az sql vm create -n <VMName> -g <ResourceGroupName> -l <VMLocation> --license-type <AHUB or PAYG>
 ```
+
 #### <a name="with-powershell"></a>透過 PowerShell
 註冊 SQL Server VM 搭配使用 PowerShell 與下列程式碼片段：
 
-```powershell
+```powershell-interactive
 # Register your existing SQL Server VM with the new resource provider
 # example: $vm=Get-AzVm -ResourceGroupName AHBTest -Name AHBTest
 $vm=Get-AzVm -ResourceGroupName <ResourceGroupName> -Name <VMName>
@@ -209,7 +215,7 @@ $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new()
 
 使用下列程式碼來確認您的 Azure PowerShell 版本：
 
-```powershell
+```powershell-interactive
 Get-Module -ListAvailable -Name Azure -Refresh
 ```
 

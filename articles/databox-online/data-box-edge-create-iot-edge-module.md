@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: alkohli
 ms.openlocfilehash: c2803ba598895834bb197f4a06ff0635354fcaca
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64680885"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>開發C#IoT Edge 模組，來移動資料方塊的邊緣上的檔案
@@ -63,24 +63,24 @@ ms.locfileid: "64680885"
 Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其中儲存並管理私人 Docker 容器映像。 雲端中所提供的兩個熱門 Docker 登錄服務為 Azure Container Registry 和 Docker Hub。 本文使用 Container Registry。
 
 1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
-2. 選取 [建立資源] > [容器] > [Container Registry]。 按一下頁面底部的 [新增] 。
+2. 選取 [建立資源] > [容器] > [Container Registry]  。 按一下頁面底部的 [新增]  。
 3. 提供：
 
    1. Azure 內唯一的**登錄名稱**，其中包含 5 到 50 個英數字元。
-   2. 選擇 [訂用帳戶] 。
+   2. 選擇 [訂用帳戶]  。
    3. 建立新的，或選擇現有的**資源群組**。
-   4. 選取 [位置] 。 我們建議此位置應該和與 Data Box Edge 資源相關聯的位置一樣。
-   5. 將 [管理使用者] 切換為 [啟用]。
-   6. 將 SKU 設定為 [基本]。
+   4. 選取 [位置]  。 我們建議此位置應該和與 Data Box Edge 資源相關聯的位置一樣。
+   5. 將 [管理使用者]  切換為 [啟用]  。
+   6. 將 SKU 設定為 [基本]  。
 
       ![建立容器登錄](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
  
-4. 選取 [建立] 。
-5. 建立容器登錄之後，請加以瀏覽，並選取 [存取金鑰]。
+4. 選取 [建立]  。
+5. 建立容器登錄之後，請加以瀏覽，並選取 [存取金鑰]  。
 
     ![取得存取金鑰](./media/data-box-edge-create-iot-edge-module/get-access-keys-1.png)
  
-6. 複製 [登入伺服器]、[使用者名稱] 及 [密碼] 的值。 您稍後會使用這些值來將 Docker 映像發佈到登錄，以及將登錄認證新增至 Azure IoT Edge 執行階段。
+6. 複製 [登入伺服器]  、[使用者名稱]  及 [密碼]  的值。 您稍後會使用這些值來將 Docker 映像發佈到登錄，以及將登錄認證新增至 Azure IoT Edge 執行階段。
 
 
 ## <a name="create-an-iot-edge-module-project"></a>建立 IoT Edge 模組專案
@@ -91,16 +91,16 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 
 建立您可以使用自己的程式碼自訂的 C# 解決方案範本。
 
-1. 在 Visual Studio Code 中，選取 [檢視] > [命令選擇區] 以開啟 VS Code 命令選擇區。
+1. 在 Visual Studio Code 中，選取 [檢視] > [命令選擇區]  以開啟 VS Code 命令選擇區。
 2. 在 [命令選擇區] 中，輸入並執行命令 **Azure:Sign in**，然後遵循指示來登入您的 Azure 帳戶。 如果您已登入，則可以略過此步驟。
-3. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge:**[新增 IoT Edge 解決方案]。 在命令選擇區中提供下列資訊，以建立解決方案：
+3. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge:** [新增 IoT Edge 解決方案]。 在命令選擇區中提供下列資訊，以建立解決方案：
 
     1. 選取要用來建立解決方案的資料夾。
     2. 為解決方案提供名稱，或是接受預設值 **EdgeSolution**。
     
         ![建立新的解決方案 1](./media/data-box-edge-create-iot-edge-module/create-new-solution-1.png)
 
-    3. 選擇 [C# 模組] 作為模組範本。
+    3. 選擇 [C# 模組]  作為模組範本。
     4. 將預設模組名稱取代為您想要指派的名稱，在此案例中為 **FileCopyModule**。
     
         ![建立新的解決方案 2](./media/data-box-edge-create-iot-edge-module/create-new-solution-2.png)
@@ -111,11 +111,11 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 
         ![建立新的解決方案 3](./media/data-box-edge-create-iot-edge-module/create-new-solution-3.png)
 
-4. 移至 [檔案] > [開啟資料夾]。
+4. 移至 [檔案] > [開啟資料夾]  。
 
     ![建立新的解決方案 4](./media/data-box-edge-create-iot-edge-module/create-new-solution-4.png)
 
-5. 瀏覽並指向您稍早建立的 **EdgeSolution** 資料夾。 VS Code 視窗會載入您的 IoT Edge 解決方案工作區，以及它的五個最上層元件。 您將不會在本文中編輯 **.vscode** 資料夾、**.gitignore** 檔案、**.env** 檔案及 **deployment.template.json**。
+5. 瀏覽並指向您稍早建立的 **EdgeSolution** 資料夾。 VS Code 視窗會載入您的 IoT Edge 解決方案工作區，以及它的五個最上層元件。 您將不會在本文中編輯 **.vscode** 資料夾、 **.gitignore** 檔案、 **.env** 檔案及 **deployment.template.json**。
     
     您修改的唯一元件是 modules 資料夾。 此資料夾含有適用於您模組的 C# 和 Docker 檔案，可用來建置您的模組作為容器映像。
 
@@ -250,15 +250,15 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 
     ![建置並推送 IoT Edge 解決方案](./media/data-box-edge-create-iot-edge-module/build-iot-edge-solution-1.png)
 
-2. 當系統提示您輸入密碼時，請提供密碼。 您也可以在 Azure 入口網站的容器登錄中，從 [存取金鑰] 擷取適用於登入伺服器、使用者名稱和密碼的值。
+2. 當系統提示您輸入密碼時，請提供密碼。 您也可以在 Azure 入口網站的容器登錄中，從 [存取金鑰]  擷取適用於登入伺服器、使用者名稱和密碼的值。
  
-3. 提供認證之後，您就能將模組映像推送到您的 Azure 容器登錄。 在 VS Code 總管中，以滑鼠右鍵按一下 **module.json** 檔案，然後選取 [建置並推送 IoT Edge 解決方案]。
+3. 提供認證之後，您就能將模組映像推送到您的 Azure 容器登錄。 在 VS Code 總管中，以滑鼠右鍵按一下 **module.json** 檔案，然後選取 [建置並推送 IoT Edge 解決方案]  。
 
     ![建置並推送 IoT Edge 解決方案](./media/data-box-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  
     當您告知 Visual Studio Code 建置您的解決方案時，它會在整合式終端機中執行兩個命令：docker build 和 docker push。 這兩個命令會建置程式碼、將 CSharpModule.dll 容器化，再將程式碼推送至您在初始化解決方案時所指定的容器登錄中。
 
-    系統會提示您選擇模組平台。 選取對應至 Linux 的 [amd64]。
+    系統會提示您選擇模組平台。 選取對應至 Linux 的 [amd64]  。
 
     ![選取平台](./media/data-box-edge-create-iot-edge-module/select-platform.png)
 

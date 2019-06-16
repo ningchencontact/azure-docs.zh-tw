@@ -9,18 +9,51 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 0a6b48dbba232c06945b00d5107581d8d0c017b0
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 9c08cd52bba6391660bc5f28e5db2dbec1126951
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472407"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118720"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>針對 Linux 中的 Azure 檔案服務問題進行疑難排解
 
 本文會列出當您從 Linux 用戶端連線時，與 Azure 檔案服務相關的常見問題。 文中也會提供這些問題的可能原因和解決方案。 
 
 除了本文中的疑難排解步驟外，您還可以使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) 來確保 Windows 用戶端環境具備正確的必要條件。 AzFileDiagnostics 會自動偵測本文提及的大部分徵兆。 它可協助設定您的環境，以取得最佳效能。 您也可以在 [Azure 檔案共用疑難排解員](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)中找到這項資訊。 疑難排解員提供的步驟有助您處理連接、對應以及掛接 Azure 檔案共用的問題。
+
+## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>無法連線或裝載 Azure 檔案共用
+
+### <a name="cause"></a>原因
+
+此問題的常見原因為：
+
+- 您使用的是不相容的 Linux 散發套件用戶端。 建議您使用下列的 Linux 散發套件來連線到 Azure 檔案共用：
+
+|   | SMB 2.1 <br>(掛接在相同 Azure 區域內的 VM 上) | SMB 3.0 <br>(從內部部署環境和跨區域掛接) |
+| --- | :---: | :---: |
+| Ubuntu Server | 14.04+ | 16.04+ |
+| RHEL | 7+ | 7.5+ |
+| CentOS | 7+ |  7.5+ |
+| Debian | 8+ |   |
+| openSUSE | 13.2+ | 42.3+ |
+| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+
+- 用戶端上未安裝 CIFS 公用程式 (cfs-utils)。
+- 用戶端上未安裝 SMB/CIFS 的最低版本 (2.1 版)。
+- 用戶端不支援 SMB 3.0 加密。 上表中提供的 Linux 散發套件清單，支援從掛接在內部與跨區域使用加密。 其他散發套件需要核心 4.11 和更新版本。
+- 您嘗試透過 TCP 通訊埠 445 連線到儲存體帳戶，但目前並不支援。
+- 您嘗試從 Azure VM 連線到 Azure 檔案共用，而該 VM 與儲存體帳戶位於不同的區域。
+- 如果儲存體帳戶上已啟用 [需要安全傳輸]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定，則 Azure 檔案服務僅允許使用 SMB 3.0 加密的連線。
+
+### <a name="solution"></a>解決方法
+
+若要解決此問題，請使用[適用於 Linux 上 Azure 檔案服務掛接錯誤的疑難排解工具](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089)。 這項工具可以：
+
+* 協助您驗證用戶端執行環境。
+* 偵測可能造成 Azure 檔案服務存取錯誤的不相容用戶端設定。
+* 提供自行修正的規範指引。
+* 收集診斷追蹤。
 
 <a id="mounterror13"></a>
 ## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>嘗試掛接 Azure 檔案共用時會顯示「掛接錯誤 (13):使用權限被拒」
@@ -55,9 +88,11 @@ ms.locfileid: "66472407"
 
 您已達到檔案所允許的同時開啟控點上限。
 
+單一檔案的開啟控制代碼配額為 2,000 個。 當您擁有 2,000 個開啟控制代碼時，會顯示一則錯誤訊息以指出已達到配額。
+
 ### <a name="solution"></a>解決方法
 
-關閉一些控點以減少同時開啟的控點數，然後再次嘗試操作。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體效能與延展性檢查清單](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
+關閉一些控點以減少同時開啟的控點數，然後再次嘗試操作。
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>從 Linux 中的 Azure 檔案服務複製檔案或將檔案複製到其中的速度變慢
@@ -66,36 +101,12 @@ ms.locfileid: "66472407"
 - 如果您知道擴充寫入檔案的最終大小，且當檔案上未寫入的結尾中有零時軟體不會產生相容性問題，則請事先設定檔案大小，而不是將每次寫入設為擴充寫入。
 - 使用正確的複製方法：
     - 針對兩個檔案共用之間的所有傳輸，使用 [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
-    - 在內部部署電腦上的檔案共用之間，使用 [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) \(英文\)。
-
-<a id="error112"></a>
-## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>因重新連線逾時而發生「掛接錯誤 (112):主機已關機」
-
-當用戶端閒置很長時間時，Linux 用戶端上發生「112」掛接錯誤。 加長閒置時間之後，用戶端中斷連線且連線逾時。  
-
-### <a name="cause"></a>原因
-
-連線可能因下列原因而閒置：
-
--   使用預設的「軟」掛接選項時，造成無法重新建立 TCP 連線以連線到伺服器的網路通訊失敗
--   未出現在較舊核心中的最近重新連線修正
-
-### <a name="solution"></a>解決方法
-
-此 Linux 核心中的重新連線問題已隨下列變更修正：
-
-- [修正重新連線在通訊端重新連線許久之後不會延遲 SMB3 工作階段重新連線 (英文)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
-- [在通訊端重新連線之後立即呼叫 Echo 服務 (英文)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
-- [CIFS：修正重新連線期間可能發生的記憶體損毀](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) \(英文\)
-- [CIFS：修正重新連線期間可能發生的 Mutex 雙重鎖定 (針對核心 4.9 版與更新版本)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) \(英文\)
-
-但是，這些變更可能尚未移植到所有 Linux 發行版本。 下列常見 Linux 核心中已有此修正和其他重新連線修正：4.4.40、4.8.16 和 4.9.1。 您可以升級至其中一個建議的核心版本，以完成此修正。
-
-### <a name="workaround"></a>因應措施
-
-您可以指定硬掛接，以解決此問題。 硬掛接會強制用戶端一直等候到連線建立或明確中斷為止。 您可用它來防止因網路逾時而發生的錯誤。 不過，這個因應措施可能會導致無限期等候。 請準備好視需要停止連線。
-
-如果您無法升級至最新的核心版本，您可以使用下列因應措施解決此問題：在 Azure 檔案共用中保留一個每 30 秒 (或更短時間) 就會寫入的檔案。 這必須是寫入作業，例如重寫檔案的建立或修改日期。 否則，您可能會取得快取的結果，而您的作業可能不會觸發重新連線。
+    - 使用平行的 cp 無法複製更快、 執行緒數目取決於您的使用案例和工作負載。 這個範例會使用六個： `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`。
+    - 這類開放原始碼協力廠商工具：
+        - [GNU 平行](http://www.gnu.org/software/parallel/)。
+        - [Fpart](https://github.com/martymac/fpart) -排序檔案並將它們封裝到資料分割。
+        - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -使用 Fpart 和複製工具繁衍多個執行個體，以將資料移轉到 dst_url src_dir。
+        - [多重](https://github.com/pkolano/mutil)-多執行緒的 cp 和 md5sum 依據 GNU coreutils。
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>當您使用 SMB 3.0 掛接 Azure 檔案服務時，發生「掛接錯誤 (115):作業進行中」
@@ -106,7 +117,7 @@ ms.locfileid: "66472407"
 
 ### <a name="solution"></a>解決方法
 
-Linux 4.11 核心已推出 SMB 3.0 適用的加密功能。 此功能讓您可從內部部署或不同 Azure 區域的 Azure 檔案共用進行掛接。 發佈時，這項功能已向前移植到 Ubuntu 17.04 和 Ubuntu 16.10。 
+Linux 4.11 核心已推出 SMB 3.0 適用的加密功能。 此功能讓您可從內部部署或不同 Azure 區域的 Azure 檔案共用進行掛接。 此功能已包含在中所列的 Linux 散發套件[最小的建議與對應的掛接功能 （SMB 2.1 版與 SMB 3.0 版） 版本](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30)。 其他散發套件需要核心 4.11 和更新版本。
 
 如果您的 Linux SMB 用戶端不支援加密，請從位於檔案共用相同資料中心的 Azure Linux VM 使用 SMB 2.1 來掛接 Azure 檔案服務。 驗證儲存體帳戶上已停用[需要安全傳輸]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定。 
 
@@ -133,13 +144,13 @@ Linux 4.11 核心已推出 SMB 3.0 適用的加密功能。 此功能讓您可�
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>掛接在 Linux VM 上的 Azure 檔案共用效能變慢
 
-### <a name="cause"></a>原因
+### <a name="cause-1-caching"></a>原因 1：快取
 
-效能變慢可能的一個原因是已停用快取。
+效能變慢可能的一個原因是已停用快取。 快取很有用，如果您要重複存取檔案，否則它可以是額外負荷。 檢查您使用快取之前停用它。
 
-### <a name="solution"></a>解決方法
+### <a name="solution-for-cause-1"></a>原因 1 的解決方案
 
-若要查看是否停用快取，請尋找 **cache=** 項目。 
+若要查看是否停用快取，請尋找 **cache=** 項目。
 
 **Cache=none** 表示已停用快取。 使用預設的 mount 命令或明確地為 mount 命令加上 **cache=strict** 選項來重新掛接共用，以確保啟用預設快取或 "strict" 快取模式。
 
@@ -154,6 +165,14 @@ Linux 4.11 核心已推出 SMB 3.0 適用的加密功能。 此功能讓您可�
 ```
 
 如果沒有 **cache=strict** 或 **serverino** 選項，請執行[文件](../storage-how-to-use-files-linux.md)中的掛接命令，將 Azure 檔案服務卸載並再次掛接。 然後，重新檢查 **/etc/fstab** 項目是否有正確的選項。
+
+### <a name="cause-2-throttling"></a>原因 2：節流
+
+很可能您遇到節流，而且您要求被送至佇列。 您可以確認這要歸功[Azure 監視器中的 Azure 儲存體計量](../common/storage-metrics-in-azure-monitor.md)。
+
+### <a name="solution-for-cause-2"></a>原因 2 的解決方案
+
+請確定您的應用程式內[Azure 檔案調整目標](storage-files-scale-targets.md#azure-files-scale-targets)。
 
 <a id="timestampslost"></a>
 ## <a name="time-stamps-were-lost-in-copying-files-from-windows-to-linux"></a>將檔案從 Windows 複製到 Linux 時，遺失時間戳記
@@ -173,40 +192,6 @@ COPYFILE 中的強制旗標 **f** 會導致在 Unix 上執行 **cp -p -f**。 �
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
 
-## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>無法連線或裝載 Azure 檔案共用
-
-### <a name="cause"></a>原因
-
-此問題的常見原因為：
-
-
-- 您使用的是不相容的 Linux 散發套件用戶端。 建議您使用下列的 Linux 散發套件來連線到 Azure 檔案共用：
-
-    |   | SMB 2.1 <br>(掛接在相同 Azure 區域內的 VM 上) | SMB 3.0 <br>(從內部部署環境和跨區域掛接) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04+ |
-    | RHEL | 7+ | 7.5+ |
-    | CentOS | 7+ |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2+ | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
-
-- 用戶端上未安裝 CIFS 公用程式 (cfs-utils)。
-- 用戶端上未安裝 SMB/CIFS 的最低版本 (2.1 版)。
-- 用戶端不支援 SMB 3.0 加密。 SMB 3.0 加密可用於 Ubuntu 16.4 和更新版本，以及 SUSE 12.3 和更新版本。 其他散發套件需要核心 4.11 和更新版本。
-- 您嘗試透過 TCP 通訊埠 445 連線到儲存體帳戶，但目前並不支援。
-- 您嘗試從 Azure VM 連線到 Azure 檔案共用，而該 VM 與儲存體帳戶位於不同的區域。
-- 如果儲存體帳戶上已啟用 [需要安全傳輸]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)設定，則 Azure 檔案服務僅允許使用 SMB 3.0 加密的連線。
-
-### <a name="solution"></a>解決方法
-
-若要解決此問題，請使用[適用於 Linux 上 Azure 檔案服務掛接錯誤的疑難排解工具](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089)。 這項工具可以：
-
-* 協助您驗證用戶端執行環境。
-* 偵測可能造成 Azure 檔案服務存取錯誤的不相容用戶端設定。
-* 提供自行修正的規範指引。
-* 收集診斷追蹤。
-
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: 無法存取 '&lt;path&gt;':輸入/輸出錯誤
 
 當您嘗試使用 ls 命令列出 Azure 檔案共用中的檔案時，命令會在列出檔案時停滯， 而您會收到下列錯誤：
@@ -220,7 +205,7 @@ COPYFILE 中的強制旗標 **f** 會導致在 Unix 上執行 **cp -p -f**。 �
 - 4.4.87+
 - 4.9.48+
 - 4.12.11+
-- 4.13 (含) 以上的所有版本
+- 4\.13 (含) 以上的所有版本
 
 ## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>無法建立符號連結 - ln: 無法建立符號連結 't':不支援作業
 
@@ -248,6 +233,35 @@ sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <
 然後，您就可以依據 [wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers) 建議的方式來建立符號連結。
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
+
+<a id="error112"></a>
+## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>因重新連線逾時而發生「掛接錯誤 (112):主機已關機」
+
+當用戶端閒置很長時間時，Linux 用戶端上發生「112」掛接錯誤。 加長閒置時間之後，用戶端中斷連線且連線逾時。  
+
+### <a name="cause"></a>原因
+
+連線可能因下列原因而閒置：
+
+-   使用預設的「軟」掛接選項時，造成無法重新建立 TCP 連線以連線到伺服器的網路通訊失敗
+-   未出現在較舊核心中的最近重新連線修正
+
+### <a name="solution"></a>解決方法
+
+此 Linux 核心中的重新連線問題已隨下列變更修正：
+
+- [修正重新連線在通訊端重新連線許久之後不會延遲 SMB3 工作階段重新連線 (英文)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
+- [在通訊端重新連線之後立即呼叫 Echo 服務 (英文)](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
+- [CIFS：修正重新連線期間可能發生的記憶體損毀](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) \(英文\)
+- [CIFS：修正重新連線期間可能發生的 Mutex 雙重鎖定 (針對核心 4.9 版與更新版本)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) \(英文\)
+
+但是，這些變更可能尚未移植到所有 Linux 發行版本。 此修正和其他重新連線修正程式可在[最小的建議與對應的掛接功能 （SMB 2.1 版與 SMB 3.0 版） 的版本](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30)一節[使用 Azure 檔案 Linux](storage-how-to-use-files-linux.md)一文。 您可以升級至其中一個建議的核心版本，以完成此修正。
+
+### <a name="workaround"></a>因應措施
+
+您可以指定硬掛接，以解決此問題。 硬掛接會強制用戶端一直等候到連線建立或明確中斷為止。 您可用它來防止因網路逾時而發生的錯誤。 不過，這個因應措施可能會導致無限期等候。 請準備好視需要停止連線。
+
+如果您無法升級至最新的核心版本，您可以使用下列因應措施解決此問題：在 Azure 檔案共用中保留一個每 30 秒 (或更短時間) 就會寫入的檔案。 這必須是寫入作業，例如重寫檔案的建立或修改日期。 否則，您可能會取得快取的結果，而您的作業可能不會觸發重新連線。
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 

@@ -7,12 +7,12 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: b2b3d1ac0a7c0e917f87be1dd131120f63a70f8e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b245661ab8f26c1f529a049d326d2c72838c7a17
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142802"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056735"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>整合 Apache Spark 和 Apache Hive 與 Hive 倉儲連接器
 
@@ -20,7 +20,7 @@ Apache Hive 倉儲連接器 (HWC) 是可讓您能夠更輕鬆地使用 Apache Sp
 
 Hive 倉儲連接器可讓您充分利用的 Hive 和 Spark 來建置功能強大的巨量資料應用程式的獨特功能。 Apache Hive 提供是不可部分完成、 一致、 隔離及持久 (ACID) 的資料庫交易的支援。 如需 ACID 的詳細資訊和在 Hive 中的交易，請參閱[Hive 交易](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions)。 Hive 也提供詳細的安全性控制項，透過 Apache Ranger 和低延遲分析處理 Apache Spark 中無法使用。
 
-Apache Spark 有結構化串流 API，可讓資料流中的功能無法使用 Apache Hive。 從 Hortonworks Data Platform (HDP) 3.0 與，Apache Spark 和 Apache Hive 可以個別中繼存放區，它只能進行困難的互通性。 Hive 倉儲 」 連接器可讓您同時使用 Spark 和 Hive 的工作變得更容易。 HWC 程式庫載入到 Spark 執行程式以平行方式，讓它更有效率且可調整比使用標準 JDBC 連接，從 Spark 到 Hive LLAP 精靈資料。
+Apache Spark 有結構化串流 API，可讓資料流中的功能無法使用 Apache Hive。 從 HDInsight 4.0 開始，2.3.1 的 Apache Spark 和 Apache Hive 3.1.0 有個別中繼存放區，它只能進行困難的互通性。 Hive 倉儲 」 連接器可讓您同時使用 Spark 和 Hive 的工作變得更容易。 HWC 程式庫載入到 Spark 執行程式以平行方式，讓它更有效率且可調整比使用標準 JDBC 連接，從 Spark 到 Hive LLAP 精靈資料。
 
 ![架構](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
@@ -51,7 +51,7 @@ Hive 倉儲連接器所支援的作業包括：
 
         ![Spark2 Ambari 組態](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-    1. 設定`spark.hadoop.hive.llap.daemon.service.hosts`相同的值當做屬性**LLAP 應用程式名稱**之下**進階 hive 互動式 env**。 例如， `@llap0`
+    1. 設定`spark.hadoop.hive.llap.daemon.service.hosts`相同的值當做屬性**LLAP 應用程式名稱**之下**進階 hive 互動式 env**。 例如： `@llap0`
 
     1. 設定`spark.sql.hive.hiveserver2.jdbc.url`JDBC 連接字串中，它會連線到 Hiveserver2 互動式查詢叢集上。 您的叢集的連接字串看起來類似下列 URI。 `CLUSTERNAME` 您的 Spark 叢集的名稱和`user`和`password`參數會設定為正確的值，為您的叢集。
 
@@ -231,7 +231,7 @@ Spark 原生不支援寫入至 Hive 的受管理的 ACID 資料表。 使用 HWC
     1. 按一下您的叢集的 Hive 服務**Hive**。
         ![示範資料表之後才套用 ranger 原則](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
     1. 按一下 **遮罩**索引標籤，然後**新增新的原則**![原則清單](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
-    1. 提供所需的原則名稱。 選取資料庫：**預設值**，Hive 資料表：**示範**，Hive 資料行：**名稱**，使用者： **rsadmin2**，存取類型：**選取**，及**部分遮罩： 顯示最後 4**從**選取遮罩選項**功能表。 按一下 [新增] 。
+    1. 提供所需的原則名稱。 選取資料庫：**預設值**，Hive 資料表：**示範**，Hive 資料行：**名稱**，使用者： **rsadmin2**，存取類型：**選取**，及**部分遮罩： 顯示最後 4**從**選取遮罩選項**功能表。 按一下 [新增]  。
                 ![原則清單](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. 再次檢視資料表的內容。 Ranger 原則的套用之後, 我們可以看到資料行的最後四個字元。
 

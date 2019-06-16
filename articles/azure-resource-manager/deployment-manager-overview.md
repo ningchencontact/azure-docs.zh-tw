@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 52b132b45bd90d7d21bb072e9a94d8588d5cf301
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: 6a25444f0207ec5eceb029c5d31d222a31813e22
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431162"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066828"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>啟用安全部署實務與 Azure 部署管理員 （公開預覽）
 
 若要跨多區域部署您的服務，並確定服務在每個區域中皆如預期般執行，您可以使用 Azure 部署管理員來協調服務的分段推出。 如同任何 Azure 部署，您要在 [Resource Manager 範本](resource-group-authoring-templates.md)中定義服務的資源。 在建立範本之後，您要使用部署管理員來描述您服務的拓撲，以及拓撲的推出方式。
 
-部署管理員是 Resource Manager 的一項功能。 此功能可在部署期間延展您的功能。 當您有複雜的服務必須部署到數個區域時，可使用部署管理員。 透過將服務分段推出，您可以在服務部署到所有區域之前，先找出潛在的問題。 如果您不需要分段推出的額外預防措施，請使用適用於 Resource Manager 的標準[部署選項](resource-group-template-deploy-portal.md)。 部署管理員會與支援 Resource Manager 部署的所有現有第三方工具緊密整合，例如持續整合與持續傳遞 (CI/CD) 供應項目。 
+部署管理員是 Resource Manager 的一項功能。 此功能可在部署期間延展您的功能。 當您有複雜的服務必須部署到數個區域時，可使用部署管理員。 透過將服務分段推出，您可以在服務部署到所有區域之前，先找出潛在的問題。 如果您不需要分段推出的額外預防措施，請使用適用於 Resource Manager 的標準[部署選項](resource-group-template-deploy-portal.md)。 部署管理員會與支援 Resource Manager 部署的所有現有第三方工具緊密整合，例如持續整合與持續傳遞 (CI/CD) 供應項目。
 
 Azure Deployment Manager 處於預覽狀態。 協助我們改進所提供的功能[意見反應](https://aka.ms/admfeedback)。
 
@@ -31,7 +31,12 @@ Azure Deployment Manager 處於預覽狀態。 協助我們改進所提供的功
 
 在部署推出範本之前，請部署拓樸範本。
 
-在[這裡](https://docs.microsoft.com/rest/api/deploymentmanager/)可以找到 Azure 部署管理員 REST API 參考。
+其他資源：
+
+- [Azure Deployment Manager REST API 參考](https://docs.microsoft.com/rest/api/deploymentmanager/)。
+- [教學課程：使用 Azure 部署管理員搭配 Resource Manager 範本](./deployment-manager-tutorial.md)。
+- [教學課程：在 Azure 部署管理員中使用健康情況檢查](./deployment-manager-tutorial-health-check.md)。
+- [Azure Deployment Manager 範例](https://github.com/Azure-Samples/adm-quickstart)。
 
 ## <a name="identity-and-access"></a>身分識別與存取
 
@@ -191,7 +196,7 @@ Azure Deployment Manager 處於預覽狀態。 協助我們改進所提供的功
 
 ### <a name="steps"></a>步驟
 
-您可以定義要在部署作業之前或之後執行的步驟。 目前，只有`wait`步驟和 'healthCheck' 步驟可供使用。 
+您可以定義要在部署作業之前或之後執行的步驟。 目前，只有`wait`步驟和 'healthCheck' 步驟可供使用。
 
 在繼續進行之前，等候步驟會暫停部署。 這可讓您確認在部署下一個服務單位之前，您的服務正在如預期般執行。 下列範例顯示等候步驟的一般格式。
 
@@ -262,13 +267,13 @@ Azure Deployment Manager 處於預覽狀態。 協助我們改進所提供的功
 
 ## <a name="parameter-file"></a>參數檔案
 
-您會建立兩個參數檔案。 部署服務拓撲時，會使用一個參數檔案，另一個則用於推出部署。 您必須確定這兩個參數檔案中的某些值是相同的。  
+您會建立兩個參數檔案。 部署服務拓撲時，會使用一個參數檔案，另一個則用於推出部署。 您必須確定這兩個參數檔案中的某些值是相同的。
 
 ## <a name="containerroot-variable"></a>containerRoot 變數
 
 透過已建立版本的部署，您的成品路徑會隨著每個新版本而有所變更。 您第一次執行部署的路徑可能是 `https://<base-uri-blob-container>/binaries/1.0.0.0`。 第二次可能會是 `https://<base-uri-blob-container>/binaries/1.0.0.1`。 部署管理員會使用 `$containerRoot` 變數來輕鬆取得目前部署的正確根路徑。 這個值會隨著每個版本變更，且在部署之前是未知的。
 
-使用範本參數檔案中的 `$containerRoot` 變數來部署 Azure 資源。 在部署期間，此變數會取代為推出中的實際值。 
+使用範本參數檔案中的 `$containerRoot` 變數來部署 Azure 資源。 在部署期間，此變數會取代為推出中的實際值。
 
 例如，在推出期間，您會建立二進位成品的成品來源。
 

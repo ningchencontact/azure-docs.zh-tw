@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 55c7670821ee6c6f5b924bf18b5f7ad01d4b6d51
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: c5cc39c2f2a7f2a79b8d6bc2bd95506ee5532a84
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431294"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073971"
 ---
 # <a name="application-gateway-configuration-overview"></a>應用程式閘道設定概觀
 
@@ -71,7 +71,10 @@ Azure 也會保留供內部使用的每個子網路中的 5 個 IP 位址： 第
 
 使用者定義路由 (Udr) v1 SKU，則支援應用程式閘道子網路，只要它們不會改變端對端要求/回應通訊。 比方說，您可以設定在應用程式閘道子網路 UDR 以指向防火牆設備的封包檢查。 但是，您必須先確定的封包都可以聯繫其目的地之後檢查。 若要這樣做可能會導致不正確的健全狀況探查或流量路由的行為。 這包括學習到的路由或預設 0.0.0.0/0 路由傳送虛擬網路中的 Azure ExpressRoute 或 VPN 閘道。
 
-V2 sku，不支援應用程式閘道子網路的 Udr。 如需詳細資訊，請參閱 < [Azure 應用程式閘道 v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku)。
+V2 sku，Udr 不支援應用程式閘道子網路。 如需詳細資訊，請參閱 < [Azure 應用程式閘道 v2 SKU](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku)。
+
+> [!NOTE]
+> Udr 不支援 v2 sku。  如果您需要您應該繼續部署 v1 SKU 的 Udr。
 
 > [!NOTE]
 > 使用應用程式閘道子網路的 Udr 會導致中的健全狀況狀態[後端健康情況檢視](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health)顯示為 「 不明 」。 它也會讓產生的應用程式閘道記錄檔和度量資訊失敗。 我們建議您不要 Udr 使用應用程式閘道子網路，您可以檢視後端健康狀態、 記錄和計量。
@@ -84,7 +87,7 @@ V2 sku，不支援應用程式閘道子網路的 Udr。 如需詳細資訊，請
 
 支援 1 個公用 IP 位址或 1 個私人 IP 位址。 當您建立應用程式閘道時，您可以選擇前端 IP。
 
-- 針對公用 IP，您可以建立新的公用 IP 位址，或使用現有的公用 IP 的應用程式閘道相同的位置。 如果您建立新的公用 IP，您選取的 IP 位址類型 （靜態或動態） 稍後無法變更。 如需詳細資訊，請參閱 <<c0> [ 靜態與動態公用 IP 位址](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address)。
+- 針對公用 IP，您可以建立新的公用 IP 位址，或使用現有的公用 IP 的應用程式閘道相同的位置。 如果您建立新的公用 IP，您選取的 IP 位址類型 （靜態或動態） 稍後無法變更。 如需詳細資訊，請參閱 <<c0> [ 靜態與動態公用 IP 位址](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address)。
 
 - 針對私人 IP，您可以指定從應用程式閘道建立所在的子網路的私人 IP 位址。 如果您未指定，會自動會從子網路選取任意 IP 位址。 如需詳細資訊，請參閱 <<c0> [ 建立的應用程式閘道搭配內部負載平衡器](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)。
 
@@ -124,7 +127,7 @@ V2 sku，多站台接聽程式會處理之前基本接聽程式。
 
 - 如果您選擇 HTTP 時，用戶端與應用程式閘道之間的流量未加密。
 
-- 如果您想選擇 HTTPS [SSL 終止](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl)或是[端對端 SSL 加密](https://docs.microsoft.com/azure/application-gateway/ssl-overview)。 用戶端與應用程式閘道之間的流量會加密。 並終止應用程式閘道的 SSL 連線。 如果您想要端對端 SSL 加密，您必須選擇 HTTPS，並設定**後端 HTTP**設定。 這可確保它會從應用程式閘道的後端傳送時，重新加密流量。
+- 如果您想選擇 HTTPS [SSL 終止](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination)或是[端對端 SSL 加密](https://docs.microsoft.com/azure/application-gateway/ssl-overview)。 用戶端與應用程式閘道之間的流量會加密。 並終止應用程式閘道的 SSL 連線。 如果您想要端對端 SSL 加密，您必須選擇 HTTPS，並設定**後端 HTTP**設定。 這可確保它會從應用程式閘道的後端傳送時，重新加密流量。
 
 若要設定 SSL 終止和端對端 SSL 加密，您必須將憑證加入接聽程式，以啟用應用程式閘道，以衍生對稱金鑰。 這取決於 SSL 通訊協定規格。 對稱金鑰用來加密和解密會傳送至閘道的流量。 閘道憑證必須是個人資訊交換 (PFX) 格式。 此格式可讓您匯出私密金鑰閘道用來加密和解密流量。
 
@@ -172,7 +175,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ### <a name="rule-type"></a>規則類型
 
-當您建立規則時，您選擇[*基本*並*路徑型*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rule)。
+當您建立規則時，您選擇[*基本*並*路徑型*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules)。
 
 - 如果您想要轉寄的相關聯的接聽程式上的所有要求，請選擇基本 (例如*部落格<i></i>.contoso.com/\*)* 至單一後端集區。
 - 選擇路徑為基礎如果您想要路由傳送到特定的後端集區的要求從特定的 URL 路徑。 路徑模式只套用至的 URL，不到其查詢參數的路徑。
@@ -245,7 +248,7 @@ V2 sku，確切的相符項目會是較高的優先順序高於在 URL 路徑對
 這項設定會新增、 移除或更新 HTTP 要求和回應標頭時要求和回應封包將用戶端與後端集區之間移動。 您可以只設定這項功能，透過 PowerShell。 Azure 入口網站和 CLI 支援尚無法使用。 如需詳細資訊，請參閱
 
  - [重新撰寫 HTTP 標頭概觀](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [設定 HTTP 標頭重寫](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-your-http-header-rewrite-rule-configuration)
+ - [設定 HTTP 標頭重寫](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
 
 ## <a name="http-settings"></a>HTTP 設定
 

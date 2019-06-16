@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: 0b158a1d713e0de8f3d1b2672aed442fce66e724
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: be07e0f3438ea93312d4eb440e7e63b8f98e11b8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65917156"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077367"
 ---
 # <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>什麼是 Azure Machine Learning 服務的視覺化介面？ 
 
@@ -27,7 +27,7 @@ Azure Machine Learning 服務的視覺化介面 （預覽） 可讓您準備資�
 + 寫入的成品[實驗](#experiment)執行到的工作區。
 + 存取權[資料集](#dataset)。
 + 使用[計算資源](#compute)將工作區中執行實驗。 
-+ 註冊[模型](concept-azure-machine-learning-architecture.md#model)。
++ 註冊[模型](concept-azure-machine-learning-architecture.md#models)。
 + [部署](#deployment)模型做為 web 服務上的計算的工作區中的資源。
 
 ![視覺化介面的概觀](media/ui-concept-visual-interface/overview.png)

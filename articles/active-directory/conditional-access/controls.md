@@ -1,8 +1,8 @@
 ---
-title: 什麼是 Azure Active Directory 條件式存取中的存取控制？ | Microsoft Docs
-description: 了解 Azure Active Directory 條件式存取中的存取控制如何運作。
+title: 在 Azure Active Directory 條件式存取的存取控制有哪些？ | Microsoft Docs
+description: 了解在 Azure Active Directory 條件式存取的工作中的存取控制如何。
 services: active-directory
-keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
+keywords: 條件式存取應用程式，與 Azure AD，安全地存取公司資源，條件式存取原則的條件式存取
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,26 +18,26 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acc30bc18921b79be3b5e5b2ae340eab29dd5bcf
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: dd1ea7665daa6fd93a755cbdb20ebc63e3d63a94
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305765"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112549"
 ---
-# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的存取控制？
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>在 Azure Active Directory 條件式存取的存取控制有哪些？
 
-透過 [Azure Active Directory (Azure AD) 條件式存取](../active-directory-conditional-access-azure-portal.md)，您可以控制授權使用者如何存取您的雲端應用程式。 在條件式存取原則中，您會定義對觸發原則之原因 ("when this happens") 做出的回應 ("do this")。
+具有[Azure Active Directory (Azure AD) 條件式存取](../active-directory-conditional-access-azure-portal.md)，您可以控制授權的使用者如何存取您雲端應用程式。 在條件式存取原則中，您可以定義 ("do this") 的回應 ("when this happens")，觸發您原則的原因。
 
 ![控制](./media/controls/10.png)
 
-在條件式存取的情境中，
+條件式存取的內容中
 
 - "**When this happens**" 稱為**條件**
 
 - "**Then do this**" 稱為**存取控制**
 
-條件陳述式與控制項的組合代表條件式存取原則。
+條件陳述式與控制項的組合即代表條件式存取原則。
 
 ![控制](./media/controls/61.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "66305765"
 
 - **工作階段控制項** - 限制工作階段內的存取權限
 
-本主題說明 Azure AD 條件式存取中的各種控制項。 
+本主題說明 Azure AD 條件式存取中可用的各種控制項。 
 
 ## <a name="grant-controls"></a>授與控制
 
@@ -72,7 +72,7 @@ ms.locfileid: "66305765"
 
 ### <a name="compliant-device"></a>符合規範的裝置
 
-您可以設定以裝置作為基礎的條件式存取原則。 裝置型條件式存取原則的目標是，僅從[受控裝置](require-managed-devices.md)授與所選雲端應用程式的存取權。 您必須限制對受控裝置的存取的其中一個選項，是要求將裝置標示為符合規範。 Intune (適用於任何裝置作業系統) 或您的協力廠商 MDM 系統 (適用於 Windows 10 裝置) 可以將裝置標示為符合規範。 不支援針對 Windows 10 以外的裝置 OS 類型使用的第三方 MDM 系統。 
+您可以設定以裝置作為基礎的條件式存取原則。 裝置型條件式存取原則的目標是只存取權授與選取的雲端應用程式，從[受管理的裝置](require-managed-devices.md)。 您必須限制對受控裝置的存取的其中一個選項，是要求將裝置標示為符合規範。 Intune (適用於任何裝置作業系統) 或您的協力廠商 MDM 系統 (適用於 Windows 10 裝置) 可以將裝置標示為符合規範。 不支援針對 Windows 10 以外的裝置 OS 類型使用的第三方 MDM 系統。 
 
 您的裝置必須向 Azure AD 註冊，才能標示為符合規範。 若要註冊裝置，您會有三個選項： 
 
@@ -80,27 +80,27 @@ ms.locfileid: "66305765"
 - [Azure AD 已加入裝置](../devices/overview.md#azure-ad-joined-devices)  
 - [混合式 Azure AD 已加入裝置](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
-如需詳細資訊，請參閱[如何透過條件式存取要求必須從受控裝置存取雲端應用程式](require-managed-devices.md)。
+如需詳細資訊，請參閱 <<c0> [ 如何要求使用條件式存取的雲端應用程式存取的受管理的裝置](require-managed-devices.md)。
 
 ### <a name="hybrid-azure-ad-joined-device"></a>已加入混合式 Azure AD 的裝置
 
-設定裝置型條件式存取原則的另一個必要選項，是要求已加入混合式 Azure AD 的裝置。 這項需求是指加入內部部署 Active Directory 的 Windows 桌上型電腦、膝上型電腦和企業平板電腦。 如果選取此選項，當使用已加入您內部部署 Active Directory 和 Azure Active Directory 的裝置來嘗試存取時，您的條件式存取原則就會對其授與存取權。  
+需要混合式 Azure AD 已加入的裝置是您不必設定裝置型條件式存取原則的另一個選項。 這項需求是指加入內部部署 Active Directory 的 Windows 桌上型電腦、膝上型電腦和企業平板電腦。 如果選取此選項時，您的條件式存取原則會授與連線才能存取嘗試與您的內部部署 Active Directory 與 Azure Active Directory 已加入的裝置。  
 
-如需詳細資訊，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](require-managed-devices.md)。
+如需詳細資訊，請參閱 <<c0> [ 設定 Azure Active Directory 裝置型條件式存取原則](require-managed-devices.md)。
 
 ### <a name="approved-client-app"></a>已核准的用戶端應用程式
 
 由於員工使用行動裝置來處理個人和工作事務，因此即使您不負責管理公司資料，可能也會想要在員工使用裝置存取公司資料時保護資料。
 您可以使用 [Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)來保護公司的資料，並且不受任何行動裝置管理 (MDM) 解決方案影響。
 
-藉由核准的用戶端應用程式，您可以要求嘗試存取雲端應用程式的用戶端應用程式支援 [Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)。 例如，您可以限制唯有 Outlook 應用程式能存取 Exchange Online。 要求通過核准之用戶端應用程式的條件式存取原則，也稱為[應用程式型條件式存取原則](app-based-conditional-access.md)。 如需支援的核准用戶端應用程式清單，請參閱[核准的用戶端應用程式需求](technical-reference.md#approved-client-app-requirement)。
+藉由核准的用戶端應用程式，您可以要求嘗試存取雲端應用程式的用戶端應用程式支援 [Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)。 例如，您可以限制唯有 Outlook 應用程式能存取 Exchange Online。 需要核准的用戶端應用程式的條件式存取原則就是所謂[應用程式型條件式存取原則](app-based-conditional-access.md)。 如需支援的核准用戶端應用程式清單，請參閱[核准的用戶端應用程式需求](technical-reference.md#approved-client-app-requirement)。
 
 ### <a name="app-protection-policy-preview"></a>應用程式保護原則 （預覽）
 
 由於員工使用行動裝置來處理個人和工作事務，因此即使您不負責管理公司資料，可能也會想要在員工使用裝置存取公司資料時保護資料。
 您可以使用 [Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)來保護公司的資料，並且不受任何行動裝置管理 (MDM) 解決方案影響。
 
-使用應用程式保護原則，您可以限制已向 Azure 回報的用戶端應用程式的存取 AD 有接收[Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)。 比方說，您可以限制 Exchange online 的存取，Outlook 應用程式具有 Intune 應用程式保護原則。 需要應用程式保護原則的條件式存取原則就是所謂[應用程式保護型條件式存取原則](app-protection-based-conditional-access.md)。 
+使用應用程式保護原則，您可以限制已向 Azure 回報的用戶端應用程式的存取 AD 有接收[Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)。 比方說，您可以限制 Exchange online 的存取，Outlook 應用程式具有 Intune 應用程式保護原則。 需要應用程式保護原則的條件式存取原則就是所謂[應用程式保護為基礎的條件式存取原則](app-protection-based-conditional-access.md)。 
 
 您的裝置必須向 Azure AD 應用程式可以標示為受保護的原則。
 
@@ -117,9 +117,9 @@ ms.locfileid: "66305765"
 
 ## <a name="custom-controls"></a>自訂控制項
 
-自訂控制項是 Azure Active Directory Premium P1 版本的一項功能。 使用自訂控制項時，系統會將使用者重新導向到相容的服務，以滿足 Azure Active Directory 之外的進一步需求。 為了滿足此控制項，系統會將使用者的瀏覽器重新導向至外部服務，執行任何必要的驗證或確認活動，再將瀏覽器重新導向回到 Azure Active Directory。 Azure Active Directory 會確認回應，而且使用者如果成功通過驗證或確認，就會繼續進行條件式存取流程。
+自訂控制項是 Azure Active Directory Premium P1 版本的一項功能。 使用自訂控制項時，系統會將使用者重新導向到相容的服務，以滿足 Azure Active Directory 之外的進一步需求。 為了滿足此控制項，系統會將使用者的瀏覽器重新導向至外部服務，執行任何必要的驗證或確認活動，再將瀏覽器重新導向回到 Azure Active Directory。 Azure Active Directory 確認回應，而且，如果使用者已成功驗證或驗證，使用者會繼續進行條件式存取流程。
 
-這些控制項會允許使用某些外部或自訂的服務來作為條件式存取控制項，而且一般都能擴充條件式存取的功能。
+這些控制項允許使用某些外部或自訂的服務，做為條件式存取控制項，而且一般都能擴充條件式存取的功能。
 
 目前提供相容服務的提供者包括：
 
@@ -136,13 +136,13 @@ ms.locfileid: "66305765"
 
 ### <a name="creating-custom-controls"></a>建立自訂控制項
 
-若要建立自訂控制項，請先連絡您想要使用的提供者。 每個非 Microsoft 的提供者在註冊、訂閱或成為服務一部分等方面，以及在指出您想要與條件式存取整合的方面，都有自己的處理程序和需求。 屆時，提供者會提供您 JSON 格式的資料區塊。 這項資料可讓提供者和條件式存取一起為您的租用戶工作，建立新的控制項，以及定義條件式存取要如何分辨使用者是否已成功執行提供者所提出的驗證。
+若要建立自訂控制項，請先連絡您想要使用的提供者。 每個非 Microsoft 提供者都有自己的處理程序和註冊、 訂閱，或成為服務的一部分，並指出您想要整合使用條件式存取的需求。 屆時，提供者會提供您 JSON 格式的資料區塊。 這項資料可讓提供者和條件式存取一起運作，您的租用戶、 建立新的控制項和定義條件式存取如何分辨如果您的使用者是否已成功執行與提供者的驗證。
 
 自訂控制項不能使用 Identity Protection 的自動化需要 multi-factor authentication，或提高權限角色 Privileged Identity Manager (PIM) 中。
 
 複製 JSON 資料並貼到相關文字方塊中。 除非您明確地了解您要進行的變更，否則請勿變更 JSON。 進行變更可能會讓提供者與 Microsoft 之間的連線中斷，進而可能將您的帳戶鎖定，讓您和您的使用者無法使用。
 
-用來建立自訂控制項的選項位於 [條件式存取]  頁面的 [管理]  區段。
+建立自訂控制項的選項位於**管理**一節**條件式存取**頁面。
 
 ![控制](./media/controls/82.png)
 
@@ -152,7 +152,7 @@ ms.locfileid: "66305765"
 
 ### <a name="deleting-custom-controls"></a>刪除自訂控制項
 
-若要刪除自訂控制項，您必須先確定沒有任何條件式存取原則正在使用它。 完成之後：
+若要刪除自訂控制項，您必須先確定它不在任何條件式存取原則中所使用。 完成之後：
 
 1. 移至 [自訂控制項] 清單
 
@@ -182,6 +182,6 @@ ms.locfileid: "66305765"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您想要知道如何設定條件式存取原則，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](app-based-mfa.md)。
+- 如果您想要了解如何設定條件式存取原則，請參閱[需要 MFA 的特定應用程式與 Azure Active Directory 條件式存取](app-based-mfa.md)。
 
-- 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](best-practices.md)。
+- 如果您已準備好設定您的環境的條件式存取原則，請參閱[Azure Active Directory 中的條件式存取的最佳作法](best-practices.md)。

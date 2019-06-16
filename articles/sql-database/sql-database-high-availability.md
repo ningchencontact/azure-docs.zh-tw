@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 manager: craigg
-ms.date: 04/17/2019
-ms.openlocfilehash: ec9f5aa8163ea9bb838b1a95ab8ad49233a72643
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: a88842802759a5c3ae7af7334bbe125344c978ea
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392606"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066907"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>高可用性和 Azure SQL Database
 
@@ -62,7 +62,7 @@ Azure SQL Database 上執行最新的穩定版本的 SQL Server Database Engine 
 由於區域備援資料庫與彼此之間有些距離的不同資料中心內有複本，增加的網路延遲可能會增加的認可時間，並因此會影響某些 OLTP 工作負載的效能。 您一律可以停用區域備援設定來回到單一區域設定。 此程序是一項線上作業類似於一般的服務層升級。 在此程序結束時，資料庫或集區會從區域備援環移轉成單一區域環，或反之亦然。
 
 > [!IMPORTANT]
-> 區域備援資料庫和彈性集區目前都只支援進階和業務關鍵服務層級。 根據預設，備份和稽核記錄會儲存在 RA-GRS 儲存體中，因此在發生全區域服務中斷時，可能不會自動提供這些記錄。 
+> 區域備援資料庫和彈性集區目前都在精選區域中的進階和業務關鍵服務層中才支援。 當使用業務關鍵層中，區域備援設定時才可用在選取的第 5 代計算硬體。 最新狀態的支援區域備援資料庫的區域的詳細資訊，請參閱[依區域的服務支援](../availability-zones/az-overview.md#services-support-by-region)。  
 
 下圖說明區域備援版的高可用性架構：
 

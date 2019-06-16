@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc;xpouyat;juliako
 ms.openlocfilehash: d227e3618c138e6661cc4be7caa2b9a3ba1af3f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61240649"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>進階媒體編碼器 Premium 工作流程教學課程
@@ -75,7 +75,7 @@ ms.locfileid: "61240649"
 
 新的工作流程會顯示三個元素︰
 
-* 主源文件
+* 主要來源檔案
 * 剪輯清單 XML
 * 輸出檔案/資產  
 
@@ -116,7 +116,7 @@ ms.locfileid: "61240649"
 
 若要將視訊串流編碼成 H.264，請將 AVC 視訊編碼器元件加入至設計工具介面。 此元件會將未壓縮的視訊串流做為輸入，並在其輸出接點上提供 AVC 壓縮視訊串流。
 
-![未连接的 AVC 编码器](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-avc-encoder.png)
+![未連接的 AVC 編碼器](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-avc-encoder.png)
 
 *未連接的 AVC 編碼器*
 
@@ -208,7 +208,7 @@ ms.locfileid: "61240649"
 
 將 [檔案輸出] 元件連接到 [輸出檔案/資產] 元件以完成工作流程。
 
-![已完成的工作流](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow.png)
+![工作流程完成](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow.png)
 
 *工作流程完成*
 
@@ -360,7 +360,7 @@ ms.locfileid: "61240649"
 
 設定 [發佈] 對話方塊，以發佈至我們的工作流程圖形的根目錄，使用發佈的名稱 "video1bitrate" 以及可讀取的顯示名稱「視訊 1 位元速率」。 設定名為「串流處理位元速率」的自訂群組名稱，並按 [發佈]。
 
-![发布比特率属性](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-dialog-for-bitrate-property.png)
+![發佈位元速率屬性](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-dialog-for-bitrate-property.png)
 
 *位元速率屬性的發佈對話方塊*
 
@@ -559,7 +559,7 @@ ms.locfileid: "61240649"
 ### <a id="time_based_trim_finish"></a>工作流程完成
 ![工作流程完成](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-time-base-trimming.png)
 
-*已完成的工作流*
+*工作流程完成*
 
 ## <a id="scripting"></a>推出指令碼元件
 指令碼元件可以在我們的工作流程執行階段期間執行任意指令碼。 有四個可以執行的不同指令碼，每個都具有特定特性，以及在工作流程生命週期中的位置：
@@ -600,7 +600,7 @@ ms.locfileid: "61240649"
 
 我們呼叫記錄方法所在的節點物件，是指我們目前的「節點」或是我們正在編寫指令碼的元件。 每個元件因此具備可透過系統索引標籤輸出記錄資料的能力。在此情況下，我們會輸出字串常值 "Hello World"。 在此處需要了解的是這可以證明是非常重要的偵錯工具，讓您深入了解指令碼實際上做些什麼。
 
-從我們的指令碼環境內，我們也可以存取其他元件的屬性。 試試看：
+從我們的指令碼環境內，我們也可以存取其他元件的屬性。 試試這個：
 
 ```java
     //inspect current node:
@@ -939,7 +939,7 @@ ms.locfileid: "61240649"
 ```
 
 ## <a name="also-see"></a>另請參閱
-[在 Azure 媒体服务中引入高级编码](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+[介紹 Azure 媒體服務中的 Premium 編碼](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 
 [如何使用 Azure 媒體服務中的 Premium 編碼](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 

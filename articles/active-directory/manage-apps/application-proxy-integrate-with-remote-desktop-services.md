@@ -16,12 +16,12 @@ ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 621ca9a7a55f86a92f0c809b6e220245f47dfd39
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233719"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108472"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 發佈遠端桌面
 
@@ -29,7 +29,7 @@ ms.locfileid: "66233719"
 
 本文的目標對象是︰
 - 目前的應用程式 Proxy 客戶，想要透過遠端桌面服務發佈內部部署應用程式，以提供更多使用者應用程式。
-- 目前的遠端桌面服務客戶，想要使用 Azure AD 應用程式 Proxy 來減少其部署的 Attack Surface。 這種情況下，會向 RDS 提供一組有限的雙步驟驗證和條件式存取控制。
+- 目前的遠端桌面服務客戶，想要使用 Azure AD 應用程式 Proxy 來減少其部署的 Attack Surface。 這種情況下 RDS 提供一組有限的雙步驟驗證和條件式存取控制
 
 ## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>應用程式 Proxy 如何放入標準 RDS 部署中
 
@@ -57,6 +57,8 @@ ms.locfileid: "66233719"
 - 發行 RD Web 時，建議您使用相同的內部和外部 FQDN。 如果內部和外部 FQDN 不同，則應停用要求標頭轉譯，以避免用戶端接收無效的連結。 
 
 - 在 Internet Explorer 上，啟用 RDS ActiveX 附加元件。
+
+- Azure AD 預先驗證流程中，使用者只能連線到發佈中的資源**RemoteApp 和桌面**窗格。 使用者無法連線到桌面 using**連接到遠端電腦**窗格。
 
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>部署聯合 RDS 和應用程式 Proxy 案例
 
@@ -127,7 +129,7 @@ ms.locfileid: "66233719"
 | 預先驗證    | 使用 Internet Explorer + RDS ActiveX 附加元件的 Windows 7/10 |
 | 通道 | 支援 Microsoft 遠端桌面應用程式的任何其他作業系統 |
 
-預先驗證流程的安全性優點多於通道流程。 使用預先驗證，您可以使用內部部署資源的 Azure AD 驗證功能，例如單一登入、條件式存取和雙步驟驗證。 您也可以確定只有驗證過的流量到達您的網路。
+預先驗證流程的安全性優點多於通道流程。 使用預先驗證中，您可以使用 Azure AD 驗證功能，例如單一登入、 條件式存取和雙步驟驗證為您的內部部署資源。 您也可以確定只有驗證過的流量到達您的網路。
 
 若要使用通道驗證，只需要對本文中所列的步驟進行兩項修改：
 1. 在 [Publish the RD host endpoint] [發佈 RD 主機端點](#publish-the-rd-host-endpoint) 步驟 1 中，請將預先驗證方法設為 **通道**。

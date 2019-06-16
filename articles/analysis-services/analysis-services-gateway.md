@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b35977061b7e5806d15f4b7b0087fcafa4f291ef
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 190394481f17310784f87c9e2f642eeea0b2597f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141165"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062232"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>透過內部部署資料閘道連線至內部部署資料來源
 內部部署資料閘道在內部部署資料來源和雲端中的 Azure Analysis Services 伺服器之間提供安全的資料傳輸。 除了搭配相同區域中的多部 Azure Analysis Services 伺服器運作，最新版的閘道也可以搭配 Azure Logic Apps、Power BI、Power Apps 和 Microsoft Flow運作。 您可以讓相同訂用帳戶及相同區域中的多個服務與單一閘道建立關聯。 
 
 第一次設定閘道的程序有四部分：
 
-- **下載並執行安裝程式** - 這個步驟會在您組織中的電腦上安裝閘道服務。 您也會使用[租用戶](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant) Azure AD 中的帳戶來登入 Azure。 不支援 Azure B2B (來賓) 帳戶。
+- **下載並執行安裝程式** - 這個步驟會在您組織中的電腦上安裝閘道服務。 您也會使用[租用戶](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) Azure AD 中的帳戶來登入 Azure。 不支援 Azure B2B (來賓) 帳戶。
 
 - **註冊您的閘道** - 在此步驟中，您會為您的閘道指定名稱和復原金鑰，然後選取區域，並且向閘道雲端服務註冊您的閘道。 閘道資源可以註冊於任何區域中，但建議位於與 Analysis Services 伺服器相同的區域中。 
 
@@ -178,7 +178,7 @@ ms.locfileid: "65141165"
 
 #### <a name="event-logs"></a>事件記錄
 
-您可以在 [應用程式及服務記錄] 底下找到資料管理閘道和 PowerBIGateway 記錄。
+您可以在 [應用程式及服務記錄]  底下找到資料管理閘道和 PowerBIGateway 記錄。
 
 ## <a name="next-steps"></a>後續步驟
 * [安裝及設定內部部署資料閘道](analysis-services-gateway-install.md)。   

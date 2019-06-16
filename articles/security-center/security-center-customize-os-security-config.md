@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: c0c37724e61490c8c33b5e2d37879549bbc6d7ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d9dc9f3a4ab964b66e3a2cb03f4aad442c5665e9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60705392"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64573598"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>在 Azure 資訊安全中心 (預覽) 自訂 OS 安全性設定
 
 本逐步解說示範如何在 Azure 資訊安全中心自訂 OS 安全性設定評估。
+
+> [!NOTE]
+> 自訂 OS 安全性設定的功能將於 2019 年 7 月 31 日淘汰。 如需詳細資訊和替代的服務，請參閱 <<c0> [ 停用的資訊安全中心功能 (7 月 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations)。
 
 ## <a name="what-are-os-security-configurations"></a>什麼是 OS 安全性設定？
 
@@ -43,7 +46,7 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
 新規則和同類型的其他現有規則必須是相同的格式和結構。
 
 > [!NOTE]
-> 若要自訂 OS 安全性設定，您必須獲指派「訂用帳戶擁有者」、「訂用帳戶參與者」或「安全性系統管理員」角色。
+> 若要自訂 OS 安全性設定，您必須獲指派「訂用帳戶擁有者」  、「訂用帳戶參與者」  或「安全性系統管理員」  角色。
 >
 >
 
@@ -51,15 +54,15 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
 
 若要自訂資訊安全中心的預設 OS 安全性設定，請執行下列作業：
 
-1.  開啟 [資訊安全中心] 儀表板。
+1.  開啟 [資訊安全中心]  儀表板。
 
-2.  在左窗格中，選取 [安全性原則]。      
+2.  在左窗格中，選取 [安全性原則]  。      
 
     ![[安全性原則] 清單](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  在您要自訂的訂用帳戶資料列中，按一下 [編輯設定]。
+3.  在您要自訂的訂用帳戶資料列中，按一下 [編輯設定]  。
 
-4. 選取 [編輯安全性組態]。  
+4. 選取 [編輯安全性組態]  。  
 
     ![[編輯安全性設定] 視窗](media/security-center-customize-os-security-config/blade.png)
 
@@ -69,13 +72,13 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
    > 根據預設，您下載的設定檔為 *json* 格式。 如需修改此檔案的指示，請移至[自訂設定檔](#customize-the-configuration-file)。
    >
 
-6. 若要認可變更，請選取 [儲存]。 否則不會儲存原則。
+6. 若要認可變更，請選取 [儲存]  。 否則不會儲存原則。
 
     ![[儲存] 按鈕](media/security-center-customize-os-security-config/save-successfully.png)
 
    成功儲存檔案後，設定就會套用到訂用帳戶下連線到工作區的所有 VM 和電腦。 此程序通常需要數分鐘，但可能會更久，這取決於基礎結構大小。
 
-在任何時間點，您都可以將目前的原則設定重設為其預設狀態。 若要這樣做，在 [編輯 OS 安全性設定規則] 視窗中，選取 [重設]。 在確認快顯視窗中，選取 [是] 以確認此選項。
+在任何時間點，您都可以將目前的原則設定重設為其預設狀態。 若要這樣做，在 [編輯 OS 安全性設定規則]  視窗中，選取 [重設]  。 在確認快顯視窗中，選取 [是]  以確認此選項。
 
 ![[重設確認] 視窗](media/security-center-customize-os-security-config/edit-alert.png)
 
@@ -96,19 +99,19 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
 
 每個類別都有自己的屬性集。 您可以變更下列屬性：
 
-- **expectedValue**：此屬性的欄位資料類型必須符合每個「規則類型」支援的值，例如：
+- **expectedValue**：此屬性的欄位資料類型必須符合每個「規則類型」  支援的值，例如：
 
   - **baselineRegistryRules**：此值應符合該規則中所定義的 [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884)。
 
   - **baselineAuditPolicyRules**：請使用下列其中一個字串值：
 
-    - 「成功和失敗」
+    - 「成功和失敗」 
 
-    - 「成功」
+    - 「成功」 
 
   - **baselineSecurityPolicyRules**：請使用下列其中一個字串值：
 
-    - 「沒有人」
+    - 「沒有人」 
 
     - 允許的使用者群組清單，例如：*Administrators*、*Backup Operators*
 
@@ -275,7 +278,7 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
 
 | **錯誤**                                | **說明**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfigurationSchemaVersionError  | 屬性 *schemaVersion* 無效或空白。 此值必須設定為 *{0}*。                                                         |
+| BaselineConfigurationSchemaVersionError  | 屬性 *schemaVersion* 無效或空白。 此值必須設定為 *{0}* 。                                                         |
 | BaselineInvalidStringError               | 屬性 *{0}* 不可包含 *\\n*。                                                                                                         |
 | BaselineNullRuleError                    | 基準設定規則清單包含具有值 *null* 的規則。                                                                         |
 | BaselineRuleCceIdNotUniqueError          | CCE 識別碼 *{0}* 不是唯一的。                                                                                                                  |
@@ -290,20 +293,20 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
 | BaselineRuleNotInPlace                   | 規則會比對類型為 {0} 的預設規則，並列在 {1} 清單中。                                                                       |
 | BaselineRulePropertyTooLong              | 屬性 *{0}* 太長。 允許的最大長度：{1}。                                                                                        |
 | BaselineRuleRegTypeInvalidError          | 預期值 *{0}* 不符合定義的登錄值類型。                                                              |
-| BaselineRulesetAdded                     | 在預設設定中找不到識別碼為 *{0}* 的規則集。 無法加入規則集。                                               |
+| BaselineRulesetAdded                     | 識別碼的規則集 *{0}* 找不到在預設組態。 無法加入規則集。                                               |
 | BaselineRulesetIdMustBeUnique            | 指定的基準規則集 *{0}* 必須是唯一的。                                                                                           |
-| BaselineRulesetNotFound                  | 在指定的組態中找不到識別碼為 *{0}* 且名稱為 *{1}* 的規則集。 無法刪除規則集。                                |
-| BaselineRuleSourceNotMatch               | 已定義識別碼為 *{0}* 的規則。                                                                                                       |
-| BaselineRuleTypeDoesntMatch              | 預設規則類型為 *{0}*。                                                                                                              |
-| BaselineRuleTypeDoesntMatchError         | 規則的實際類型為 *{0}*，但 *ruleType* 屬性為 *{1}*。                                                                          |
+| BaselineRulesetNotFound                  | 識別碼的規則集 *{0}* 和名稱 *{1}* 找不到指定的設定中。 無法刪除規則集。                                |
+| BaselineRuleSourceNotMatch               | 具有識別碼的規則 *{0}* 已經定義。                                                                                                       |
+| BaselineRuleTypeDoesntMatch              | 預設規則類型為 *{0}* 。                                                                                                              |
+| BaselineRuleTypeDoesntMatchError         | 規則的實際類型為 *{0}* ，但 *ruleType* 屬性為 *{1}* 。                                                                          |
 | BaselineRuleUnpermittedChangesError      | 只允許變更 *expectedValue* 和 *state* 屬性。                                                                       |
 | BaselineTooManyRules                     | 允許的自訂規則數目上限為 {0} 個規則。 指定的組態包含 {1} 個規則、{2} 個預設規則和 {3} 個自訂規則。 |
 | ErrorNoConfigurationStatus               | 找不到設定狀態。 說明所需的設定狀態：*Default* 或 *Custom*。                                    |
 | ErrorNonEmptyRulesetOnDefault            | 設定狀態會設為預設。 *BaselineRulesets* 清單必須是 Null 或空白。                                                          |
-| ErrorNullRulesetsPropertyOnCustom        | 指定的設定狀態為「自訂」，但 *baselineRulesets* 屬性為 Null 或空白。                                             |
+| ErrorNullRulesetsPropertyOnCustom        | 指定的設定狀態為「自訂」  ，但 *baselineRulesets* 屬性為 Null 或空白。                                             |
 | ErrorParsingBaselineConfig               | 指定的組態無效。 一或多個定義的值含有 Null 值或無效類型。                                  |
-| ErrorParsingIsDefaultProperty            | 指定的 *configurationStatus* 值 *{0}* 無效。 值只可以是「預設」或「自訂」。                                         |
-| InCompatibleViewVersion                  | 檢視版本 *{0}* 在此工作區類型中「不」受支援。                                                                                   |
+| ErrorParsingIsDefaultProperty            | 指定的 *configurationStatus* 值 *{0}* 無效。 值只可以是「預設」  或「自訂」  。                                         |
+| InCompatibleViewVersion                  | 檢視版本 *{0}* 在此工作區類型中「不」  受支援。                                                                                   |
 | InvalidBaselineConfigurationGeneralError | 指定的基準設定有一或多個類型驗證錯誤。                                                          |
 | ViewConversionError                      | 檢視的版本較工作區支援的版本舊。 檢視轉換失敗：{0}。                                                                 |
 

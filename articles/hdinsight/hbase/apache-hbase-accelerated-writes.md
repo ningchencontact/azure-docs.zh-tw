@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 4/29/2019
 ms.openlocfilehash: 219899c2e336f544ff6572589cc79f84f555490d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233845"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Azure HDInsight 的 Apache HBase 加速寫入
@@ -36,7 +36,7 @@ ms.locfileid: "65233845"
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>如何在 HDInsight 中的 hbase 中啟用 加速寫入
 
-若要建立新的 HBase 叢集與加速寫入功能，請遵循[在 HDInsight 中設定叢集](../hdinsight-hadoop-provision-linux-clusters.md)直到您到達**步驟 3、 儲存體**。 底下**中繼存放區設定**，按一下旁邊的核取方塊**啟用加速寫入 （預覽）**。 然後，繼續進行其餘步驟來建立叢集。
+若要建立新的 HBase 叢集與加速寫入功能，請遵循[在 HDInsight 中設定叢集](../hdinsight-hadoop-provision-linux-clusters.md)直到您到達**步驟 3、 儲存體**。 底下**中繼存放區設定**，按一下旁邊的核取方塊**啟用加速寫入 （預覽）** 。 然後，繼續進行其餘步驟來建立叢集。
 
 ![啟用適用於 HDInsight 的 Apache HBase 的加速的寫入選項](./media/apache-hbase-accelerated-writes/accelerated-writes-cluster-creation.png)
 

@@ -9,10 +9,10 @@ ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: fe0547c1ddb89b8d9ab3e876e83bbdea17a58743
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570590"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>使用執行命令在 Linux VM 中執行殼層指令碼
@@ -54,16 +54,16 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
-瀏覽至 [Azure](https://portal.azure.com) 中的 VM，並選取 [作業] 下的 [執行命令]。 您會看到將可在虛擬機器上執行之命令的清單。
+瀏覽至 [Azure](https://portal.azure.com) 中的 VM，並選取 [作業]  下的 [執行命令]  。 您會看到將可在虛擬機器上執行之命令的清單。
 
 ![執行命令清單](./media/run-command/run-command-list.png)
 
-選擇要執行的命令。 有些命令可能會有選擇性或必要的輸入參數。 對於這些命令，參數會顯示為可讓您提供輸入值的文字欄位。 對於每個命令，您可以展開 [檢視指令碼] 檢視執行中的指令碼。 **RunShellScript** 不同於其他命令，因為它可讓您提供您自己的自訂指令碼。
+選擇要執行的命令。 有些命令可能會有選擇性或必要的輸入參數。 對於這些命令，參數會顯示為可讓您提供輸入值的文字欄位。 對於每個命令，您可以展開 [檢視指令碼]  檢視執行中的指令碼。 **RunShellScript** 不同於其他命令，因為它可讓您提供您自己的自訂指令碼。
 
 > [!NOTE]
 > 內建命令是無法編輯的。
 
-選擇命令之後，按一下 [執行] 執行指令碼。 指令碼隨即執行，完成時將在輸出視窗中傳回任何錯誤。 下列螢幕擷取畫面顯示執行 **ifconfig** 命令的範例輸出。
+選擇命令之後，按一下 [執行]  執行指令碼。 指令碼隨即執行，完成時將在輸出視窗中傳回任何錯誤。 下列螢幕擷取畫面顯示執行 **ifconfig** 命令的範例輸出。
 
 ![執行命令指令碼輸出](./media/run-command/run-command-script-output.png)
 

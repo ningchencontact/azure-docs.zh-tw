@@ -6,15 +6,15 @@ keywords: encoding;encoders;media;編碼;編碼器;媒體
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 01/17/2019
+ms.date: 06/12/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 50b22cefccf620d7b79202a5c432e2e6a4e3e3be
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 1bede8ff7c33988a4e11a84d3a51ca098a608f33
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550045"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055276"
 ---
 # <a name="recommended-live-streaming-encoders"></a>建議使用即時串流編碼器
 
@@ -24,7 +24,7 @@ ms.locfileid: "65550045"
 
   > [!NOTE]
   > 使用傳遞方法是進行即時串流的最經濟實惠方式。
-
+ 
 * 內部部署即時編碼器會將單一位元速率串流傳送至即時編碼，可以使用下列格式之一，以媒體服務執行即時編碼：RTMP 或 Smooth Streaming (分散的 MP4)。 即時事件接著會執行即時編碼，將內送單一位元速率資料流編碼成多位元速率 (自適性) 視訊資料流。
 
 如需媒體服務即時編碼的詳細資訊，請參閱[使用媒體服務 v3 進行即時串流](live-streaming-overview.md)。
@@ -89,8 +89,8 @@ ms.locfileid: "65550045"
 2. 建立並啟動**傳遞**即時事件。 <br/> 如需詳細資訊，請參閱[實況活動狀態和計費](live-event-states-billing.md)。
 3. 取得內嵌 URL 並設定您的內部部署編碼器使用該 URL，以將多位元速率即時資料流傳送到媒體服務。
 4. 取得預覽 URL 並使用它來確認實際上已收到來自編碼器的輸入。
-5. 建立新的 [資產] 物件。
-6. 建立 [即時輸出] 並使用您建立的資產名稱。
+5. 建立新的 [資產]  物件。
+6. 建立 [即時輸出]  並使用您建立的資產名稱。
 7. 使用內建的**串流原則**類型來建立**串流定位器**。
 8. 列出**串流定位器**上的路徑，以取回要使用的 URL。
 9. 取得您想要串流的來源**串流端點**主機名稱。
@@ -108,8 +108,8 @@ ms.locfileid: "65550045"
 2. 建立並啟動**即時編碼**即時事件。 <br/> 如需詳細資訊，請參閱[實況活動狀態和計費](live-event-states-billing.md)。
 3. 取得內嵌 URL 並設定您的編碼器將單一位元速率即時資料流推送到媒體服務。
 4. 取得預覽 URL 並使用它來確認實際上已收到來自編碼器的輸入。
-5. 建立新的 [資產] 物件。
-6. 建立 [即時輸出] 並使用您建立的資產名稱。
+5. 建立新的 [資產]  物件。
+6. 建立 [即時輸出]  並使用您建立的資產名稱。
 7. 使用內建的**串流原則**類型來建立**串流定位器**。
 8. 列出**串流定位器**上的路徑，以取回要使用的 URL。
 9. 取得您想要串流的來源**串流端點**主機名稱。
@@ -127,7 +127,7 @@ ms.locfileid: "65550045"
 
 ### <a name="email-your-recorded-settings"></a>用電子郵件傳送記錄的設定
 
-最後，以電子郵件將記錄的設定和即時封存參數傳送到 amsstreaming@microsoft.com 的 Azure 媒體服務，做為所有自我驗證檢查已通過的通知。 此外，包含任何後續動作的連絡資訊。 若有任何關於此程序的問題，請連絡 Azure 媒體服務團隊。
+最後，以電子郵件將記錄的設定和即時封存參數傳送到 amslived@microsoft.com 的 Azure 媒體服務，做為所有自我驗證檢查已通過的通知。 此外，包含任何後續動作的連絡資訊。 若有任何關於此程序的問題，請連絡 Azure 媒體服務團隊。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -4,19 +4,19 @@ description: 本文說明如何在 Azure 串流分析作業的查詢設計中使
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.openlocfilehash: 93c65429ef7581f4a7d2e268034e4056d6f000c8
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 06/11/2019
+ms.openlocfilehash: 99917fa01fcdb3faf731e9d0909d67ff41222f22
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393126"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066773"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>使用參考資料在串流分析中進行查閱
+
 參考資料 (也稱為查詢資料表) 基本上是靜態或不常變更的有限資料集，可用來執行查閱或與資料流相互關聯。 比方說，在 IoT 案例中，您可以在參考資料中儲存有關感應器 (不常變更) 的中繼資料，並將其與即時 IoT 資料流聯結。 Azure 串流分析會將參考資料載入記憶體，以達到低延遲的串流處理。 若要使用 Azure 串流分析作業中的參考資料，您通常會在查詢中使用[參考資料聯結](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 
 
 串流分析支援 Azure Blob 儲存體和 Azure SQL Database 作為參考資料的儲存層。 您還可以從 Azure Data Factory 將參考資料轉換和/或複製到 Blob 儲存體中，以使用[任意數目的雲端和內部部署資料存放區](../data-factory/copy-activity-overview.md)。
@@ -43,7 +43,7 @@ ms.locfileid: "66393126"
 
 ### <a name="static-reference-data"></a>靜態參考資料
 
-如果您的參考資料不應該變更，則在輸入組態中指定靜態路徑，以便啟用靜態參考資料的支援。 Azure 串流分析會從指定的路徑挑選 blob。 {date} 和 {time} 替代權杖並非必要。 參考資料在串流分析中固定不變。 因此，不建議覆寫靜態參考資料 blob。
+如果您的參考資料不應該變更，則在輸入組態中指定靜態路徑，以便啟用靜態參考資料的支援。 Azure 串流分析會從指定的路徑挑選 blob。 {date} 和 {time} 替代權杖並非必要。 因為參考資料是 Stream Analytics 中的不可變的所以不建議覆寫靜態參考資料 blob。
 
 ### <a name="generate-reference-data-on-a-schedule"></a>依排程產生參考資料
 
@@ -54,7 +54,7 @@ Azure 串流分析會每隔一分鐘自動掃描已重新整理的參考資料 b
 > [!NOTE]
 > 目前串流分析作業只有在機器時間朝向 Blob 名稱中編碼的時間時，才會尋求 Blob 重新整理。 例如，作業會儘速尋找 `sample/2015-04-16/17-30/products.csv` ，但不早於 UTC 時區 2015 年 4 月 16 日的下午 5:30。 它「決不會」  尋找編碼時間早於最後一個探索到的 blob。
 > 
-> 例如 一旦作業找到 Blob `sample/2015-04-16/17-30/products.csv`，就會忽略任何編碼日期早於 2015 年 4 月 16 日下午 5:30 的檔案，所以如果在相同的容器中建立晚到的 `sample/2015-04-16/17-25/products.csv` Blob，作業便不會使用它。
+> 例如，一旦作業找到 blob`sample/2015-04-16/17-30/products.csv`就會忽略任何編碼日期早於 2015 年 4 月 16 日的下午 5:30 檔案因此如果晚到`sample/2015-04-16/17-25/products.csv`建立 blob 相同的容器中的作業不會使用。
 > 
 > 同樣地，如果 `sample/2015-04-16/17-30/products.csv` 只會在 2015 年 4 月 16 日下午 10:03 產生，但容器中沒有日期較早的 Blob，則作業會從 2015 年 4 月 16 日下午 10:03 開始使用這個檔案，並在那之前使用先前的參考資料。
 > 

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 81b7030d0f45222a1641e34b341885d2ecc051e3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864460"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107657"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的登入活動報告
 
@@ -55,7 +55,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 * 一週內有多少使用者登入？
 * 這些登入的狀態為何？
 
-您可以藉由在 [Azure入口網站](https://portal.azure.com)的 [Azure Active Directory] 刀鋒視窗中，選取 [活動] 區段的 [登入]，來存取登入報告。 請注意，最多可能需要兩個小時，入口網站中才會出現一些登入記錄。
+您可以藉由在 [Azure入口網站](https://portal.azure.com)的 [Azure Active Directory]  刀鋒視窗中，選取 [活動]  區段的 [登入]  ，來存取登入報告。 請注意，最多可能需要兩個小時，入口網站中才會出現一些登入記錄。
 
 ![登入活動](./media/concept-sign-ins/61.png "登入活動")
 
@@ -73,7 +73,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 ![登入活動](./media/concept-sign-ins/01.png "登入活動")
 
-您可以按一下工具列中的 [資料行] 來自訂清單檢視。
+您可以按一下工具列中的 [資料行]  來自訂清單檢視。
 
 ![登入活動](./media/concept-sign-ins/19.png "登入活動")
 
@@ -86,7 +86,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 ![登入活動](./media/concept-sign-ins/03.png "登入活動")
 
 > [!NOTE]
-> 客戶現在可以透過所有的登入報告來針對條件式存取原則進行疑難排解。 按一下登入記錄的 [條件式存取]，客戶可以檢閱條件式存取狀態，並探索套用至每個原則登入和結果的原則詳細資料。
+> 客戶現在可以針對條件式存取原則，透過所有的登入報告進行疑難排解。 上即可**條件式存取**] 索引標籤上的登入記錄中，客戶可以檢閱 [條件式存取狀態] 和 [探索到的登入並將結果的每個原則套用原則的詳細資料。
 > 如需詳細資訊，請參閱[所有登入中的 CA 資訊相關常見問題集](reports-faq.md#conditional-access)。
 
 ![登入活動](./media/concept-sign-ins/ConditionalAccess.png "登入活動")
@@ -104,11 +104,11 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 ![登入活動](./media/concept-sign-ins/04.png "登入活動")
 
-[使用者] 篩選條件可讓您指定您關心的使用者名稱或使用者主體名稱 (UPN)。
+[使用者]  篩選條件可讓您指定您關心的使用者名稱或使用者主體名稱 (UPN)。
 
-[應用程式] 篩選條件可讓您指定您關心的應用程式名稱。
+[應用程式]  篩選條件可讓您指定您關心的應用程式名稱。
 
-[登入狀態] 篩選條件可讓您選取︰
+[登入狀態]  篩選條件可讓您選取︰
 
 - 全部
 - 成功
@@ -121,7 +121,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 - 成功
 - 失敗
 
-[日期] 篩選條件可讓您定義傳回資料的時間範圍。  
+[日期]  篩選條件可讓您定義傳回資料的時間範圍。  
 可能的值包括：
 
 - 1 個月
@@ -131,7 +131,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 當您選取自訂時間範圍時，可以設定開始時間和結束時間。
 
-如果您將其他欄位新增至您的登入檢視，這些欄位就會自動新增至篩選條件清單。 例如，藉由將 [用戶端應用程式] 欄位新增至您的清單，同時也會取得其他篩選選項，可讓您設定下列篩選條件：  
+如果您將其他欄位新增至您的登入檢視，這些欄位就會自動新增至篩選條件清單。 例如，藉由將 [用戶端應用程式]  欄位新增至您的清單，同時也會取得其他篩選選項，可讓您設定下列篩選條件：  
 ![登入活動](./media/concept-sign-ins/12.png "登入活動")
 
 - **[瀏覽器]**  
@@ -190,7 +190,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 
 按一下項目，即可取得有關登入作業的更多詳細資料：
 
-- 使用者 ID
+- 使用者識別碼
 - 使用者
 - 使用者名稱
 - 應用程式識別碼
@@ -205,7 +205,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 > [!NOTE]
 > IP 位址的發出方式如下：IP 位址與該位址實際所在的電腦之間沒有任何明確的連線。 對應 IP 位址之所以複雜，是因為行動提供者和 VPN 會從中央集區發出 IP 位址，而中央集區通常距離用戶端裝置的實際使用位置非常遠。 目前在 Azure AD 報告中，根據追蹤、登錄資料、反向查詢和其他資訊，將 IP 位址轉換為實體位置的效果最佳。
 
-在 [使用者] 頁面上，按一下 [活動] 區段中的 [登入]，即可取得所有使用者登入的完整概觀。
+在 [使用者]  頁面上，按一下 [活動]  區段中的 [登入]  ，即可取得所有使用者登入的完整概觀。
 
 ![登入活動](./media/concept-sign-ins/08.png "登入活動")
 
@@ -217,7 +217,7 @@ Azure Active Directory (Azure AD) 中的報告架構包含下列元件：
 * 您的組織中排名前 3 個應用程式為何？
 * 我最近已推出一個應用程式。 它的情況為何？
 
-此資料的進入點是在 [企業應用程式] 之下 [概觀] 區段中的最近 30 天報告內您的組織中排名前 3 個應用程式。
+此資料的進入點是在 [企業應用程式]  之下 [概觀]  區段中的最近 30 天報告內您的組織中排名前 3 個應用程式。
 
 ![登入活動](./media/concept-sign-ins/10.png "登入活動")
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: rimman
-ms.openlocfilehash: f30155c0fbdbdd93ab4ffc3ae85ef2ad62b188c9
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: ce059e542ee7bfa67e899b4923e3410e13e4930e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389239"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067508"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>在容器和資料庫中佈建輸送量
 
@@ -87,7 +87,7 @@ Azure Cosmos 資料庫上的設定輸送量保證，您會收到佈建的輸送�
 
 使用.NET SDK 中，當[DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet)方法可讓您擷取的容器或資料庫的最小輸送量。 
 
-您可以隨時調整的容器或資料庫佈建的輸送量。 
+您可以隨時調整的容器或資料庫佈建的輸送量。 若要增加輸送量執行調整規模作業時，可能需要長的時間，因為系統工作，來佈建所需的資源。 您可以檢查在 Azure 入口網站或使用 Sdk 以程式設計方式調整規模作業的狀態。 當使用.Net SDK，您可以使用來取得調整作業的狀態`DocumentClient.ReadOfferAsync`方法。
 
 ## <a name="comparison-of-models"></a>模型的比較
 

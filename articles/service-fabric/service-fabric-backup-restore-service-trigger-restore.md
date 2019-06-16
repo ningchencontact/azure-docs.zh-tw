@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: e4ada412547360f97e869d3312b65d869fa3df48
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65413721"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>在 Azure Service Fabric 中還原備份
@@ -34,8 +34,8 @@ ms.locfileid: "65413721"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 若要觸發還原，必須對叢集啟用還原「錯誤分析服務 (FAS)」。
-- 「備份還原服務 (BRS)」已建立備份。
+- 若要觸發還原，必須對叢集啟用還原「錯誤分析服務 (FAS)」  。
+- 「備份還原服務 (BRS)」  已建立備份。
 - 還原只能在分割區觸發。
 - 設定電話安裝 Microsoft.ServiceFabric.Powershell.Http 模組 [預覽]。
 
@@ -56,8 +56,8 @@ ms.locfileid: "65413721"
 
 還原可針對下列任何情況而觸發：
 
-- 針對「災害復原」進行的資料還原。
-- 針對「資料損毀/資料遺失」進行的資料還原。
+- 針對「災害復原」  進行的資料還原。
+- 針對「資料損毀/資料遺失」  進行的資料還原。
 
 ### <a name="data-restore-in-the-case-of-disaster-recovery"></a>災害復原案例中的資料還原
 
@@ -161,9 +161,9 @@ FailureError            :
 
 您也需要選擇替代叢集中的目的地分割區，如[資料分割配置](service-fabric-concepts-partitioning.md#get-started-with-partitioning)中所述。 替代叢集備份會從原始的遺失叢集中，還原到資料分割配置中指定的分割區。
 
-如果替代叢集上的分割區識別碼為 `1c42c47f-439e-4e09-98b9-88b8f60800c6`，您可以藉由比較「定界分割 (UniformInt64Partition)」的高鍵值和低鍵值，將其對應至原始叢集分割區識別碼：`974bd92a-b395-4631-8a7f-53bd4ae9cf22`。
+如果替代叢集上的分割區識別碼為 `1c42c47f-439e-4e09-98b9-88b8f60800c6`，您可以藉由比較「定界分割 (UniformInt64Partition)」  的高鍵值和低鍵值，將其對應至原始叢集分割區識別碼：`974bd92a-b395-4631-8a7f-53bd4ae9cf22`。
 
-對於「具名分割」，比較名稱值可找出替代叢集中的目標分割區。
+對於「具名分割」  ，比較名稱值可找出替代叢集中的目標分割區。
 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>使用 Microsoft.ServiceFabric.Powershell.Http 模組的 Powershell
 
@@ -199,15 +199,15 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 您可以透過 TrackRestoreProgress 追蹤還原的進度。
 
-### <a name="data-restore-for-data-corruptiondata-loss"></a>針對「資料損毀/資料遺失」進行的資料還原
+### <a name="data-restore-for-data-corruptiondata-loss"></a>針對「資料損毀  /資料遺失  」進行的資料還原
 
-針對「資料遺失」或「資料損毀」的情況，您可以將可靠具狀態服務和 Reliable Actors 的已備份分割區還原至任何所選的備份。
+針對「資料遺失」  或「資料損毀」  的情況，您可以將可靠具狀態服務和 Reliable Actors 的已備份分割區還原至任何所選的備份。
 
 下列範例接續＜[啟用可靠具狀態服務和 Reliable Actors 的定期備份](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors)＞。 在此範例中，備份原則會針對分割區啟用，且服務會依據所需頻率在 Azure 儲存體中建立備份。
 
 從 [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups) 的輸出中選取備份。 在此案例中，備份會從與之前相同的叢集中產生。
 
-若要觸發還原，請從清單中選擇備份。 針對目前的「資料遺失」/「資料損毀」情況，請選取下列備份：
+若要觸發還原，請從清單中選擇備份。 針對目前的「資料遺失」  /「資料損毀」  情況，請選取下列備份：
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -223,7 +223,7 @@ CreationTimeUtc         : 2018-04-06T21:10:27Z
 FailureError            :
 ```
 
-對於還原 API，請提供 _BackupId_ 和 _BackupLocation_ 詳細資料。 因為叢集已啟用備份，所以 Service Fabric 的「備份還原服務 (BRS)」會依據相關聯的備份原則找出正確的儲存體位置。
+對於還原 API，請提供 _BackupId_ 和 _BackupLocation_ 詳細資料。 因為叢集已啟用備份，所以 Service Fabric 的「備份還原服務 (BRS)」  會依據相關聯的備份原則找出正確的儲存體位置。
 
 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>使用 Microsoft.ServiceFabric.Powershell.Http 模組的 Powershell
@@ -272,14 +272,14 @@ $restoreResponse | Format-List
 
 還原要求會依下列順序進行：
 
-1. **Accepted**：Accepted 還原狀態表示已使用正確的要求參數觸發所要求的分割區。
+1. **Accepted**：Accepted  還原狀態表示已使用正確的要求參數觸發所要求的分割區。
     ```
     RestoreState  : Accepted
     TimeStampUtc  : 0001-01-01T00:00:00Z
     RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
     RestoredLsn   : 3552
     ```
-2. **InProgress**：InProgress 還原狀態表示正以要求中所提到的備份在分割區中進行還原。 分割區會回報 dataloss 狀態。
+2. **InProgress**：InProgress  還原狀態表示正以要求中所提到的備份在分割區中進行還原。 分割區會回報 dataloss  狀態。
     ```
     RestoreState  : RestoreInProgress
     TimeStampUtc  : 0001-01-01T00:00:00Z
@@ -288,7 +288,7 @@ $restoreResponse | Format-List
     ```
     
 3. **Success**、**Failure** 或 **Timeout**：要求的還原可以下列任何狀態完成。 每個狀態都有下列重要性和回應詳細資料：
-    - **成功**：Success (成功) 還原狀態表示已取回分割狀態。 分割區會報告 RestoredEpoch 和 RestoredLSN 狀態以及 UTC 時間。
+    - **成功**：Success (成功)  還原狀態表示已取回分割狀態。 分割區會報告 RestoredEpoch  和 RestoredLSN  狀態以及 UTC 時間。
 
         ```
         RestoreState  : Success
@@ -296,7 +296,7 @@ $restoreResponse | Format-List
         RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
         RestoredLsn   : 3552
         ```        
-    - **失敗**：Failure (失敗) 還原狀態表示還原要求失敗。 系統會報告失敗的原因。
+    - **失敗**：Failure (失敗)  還原狀態表示還原要求失敗。 系統會報告失敗的原因。
 
         ```
         RestoreState  : Failure
@@ -304,7 +304,7 @@ $restoreResponse | Format-List
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    - **Timeout**：Timeout (逾時) 還原狀態表示要求已逾時。 請以提高的 [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) 值建立新的還原要求。 預設的逾時為 10 分鐘。 請先確定分割區不是處於資料遺失狀態後，再重新要求還原。
+    - **Timeout**：Timeout (逾時)  還原狀態表示要求已逾時。 請以提高的 [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) 值建立新的還原要求。 預設的逾時為 10 分鐘。 請先確定分割區不是處於資料遺失狀態後，再重新要求還原。
      
         ```
         RestoreState  : Timeout
@@ -315,7 +315,7 @@ $restoreResponse | Format-List
 
 ## <a name="automatic-restore"></a>自動還原
 
-您可針對「自動還原」設定 Service Fabric 叢集中可靠具狀態服務和 Reliable Actors 分割區。 在備份原則中，將 `AutoRestore` 設定為「true」。 啟用「自動還原」後，即可在回報資料遺失時，自動從最新分割區的備份還原資料。 如需詳細資訊，請參閱
+您可針對「自動還原」  設定 Service Fabric 叢集中可靠具狀態服務和 Reliable Actors 分割區。 在備份原則中，將 `AutoRestore` 設定為「true」  。 啟用「自動還原」  後，即可在回報資料遺失時，自動從最新分割區的備份還原資料。 如需詳細資訊，請參閱
 
 - [備份原則中的自動還原啟用](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
 - [RestorePartition API 參考](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e55d11fa44aca65e2d4e487852bd242a4ba75a5f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 43b5a051913ac762fe6b5a0ad11776ae911df864
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474178"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110375"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory 新增功能的封存檔
 
@@ -146,7 +146,7 @@ Azure Active Directory Domain Services 會在 Azure 入口網站上提供有關�
 **服務類別：** 我的應用程式  
 **產品功能：** SSO
 
-查看適用於 [我的應用程式] 存取面板的新部署方案 (https://aka.ms/deploymentplans)。
+查看適用於 [我的應用程式] 存取面板的新部署方案 (https://aka.ms/deploymentplans) 。
 [我的應用程式] 存取面板可讓使用者在單一位置尋找及存取其應用程式。 此入口網站也提供使用者自助服務的機會，例如要求存取應用程式和群組，或代表其他人管理這些資源的存取權。
 
 如需詳細資訊，請參閱[什麼是「我的應用程式」入口網站？](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)
@@ -177,7 +177,7 @@ Azure 入口網站的 [登入]  頁面上有新的 [疑難排解和支援]  索�
 
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>針對 Azure AD 應用程式型條件式存取之新的已核准用戶端應用程式
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>新的已核准的用戶端應用程式，適用於 Azure AD 應用程式型條件式存取
 
 **類型：** 針對變更做規劃  
 **服務類別：** 條件式存取  
@@ -439,7 +439,7 @@ Azure AD 活動記錄現在已可在 Azure 監視器的公開預覽 (Azure 的�
 
 ---
 
-### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>新增至 Azure AD 登入報告的條件式存取資訊
+### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>條件式存取的資訊，新增至 Azure AD 登入報告
 
 **類型：** 新功能  
 **服務類別：** 報告  
@@ -707,13 +707,13 @@ Azure AD Connect 的最新版本包括：
 
 ---
 
-### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-creation"></a>新的使用建立期間建立的 「 自訂 」 的條件式存取原則範本
+### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-creation"></a>「 自訂 」 的條件式存取原則建立新範本的使用建立期間
 
 **類型：** 新功能  
 **服務類別：** 使用規定  
 **產品功能：** 控管
 
-在建立期間的使用規定，也會建立新的 「 自訂 」 的條件式存取原則範本。 這個全新原則範本可讓您建立 ToU，然後立即前往條件式存取原則建立刀鋒視窗，無須手動瀏覽入口網站。
+在建立期間的使用規定，也會建立新的 「 自訂 」 的條件式存取原則範本。 這個新的原則範本可讓您建立使用規定，然後立即移至條件式存取原則建立刀鋒視窗中，而不需要以手動方式瀏覽至入口網站。
 
 如需詳細資訊，請參閱 [Azure Active Directory 使用規定功能](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)。
 
@@ -891,7 +891,7 @@ Azure AD Premium P2 中現已正式提供群組和應用程式的存取權檢閱
 **服務類別：** 其他  
 **產品功能：** 目錄
  
-如何部署 Azure Active Directory (Azure AD) 的全新逐步指南，包括自助式密碼重設 (SSPR)、單一登入 (SSO)、條件式存取 (CA)、應用程式 Proxy、使用者佈建、Active Directory 同盟服務 (ADFS) 至傳遞驗證 (PTA)，以及 ADFS 至密碼雜湊同步處理 (PHS)。
+如何部署 Azure Active Directory (Azure AD)、 包括自助式密碼重設 (SSPR)、 單一登入 (SSO)，條件式存取 (CA) 的新的逐步指引使用者佈建，Active Directory Federation Services (ADFS) 到應用程式 proxy傳遞驗證 (PTA) 和密碼雜湊同步處理 (PHS) 的 ADFS。
 
 如需檢視部署指南，請前往 GitHub 上的[識別部署指南](https://aka.ms/DeploymentPlans)存放庫。 如需提供有關部署指南的意見反應，請使用[部署方案意見反應單](https://aka.ms/deploymentplanfeedback)。 如果對於部署指南有任何疑問，請於 [IDGitDeploy](mailto:idgitdeploy@microsoft.com) 聯絡我們。
 
@@ -1034,7 +1034,7 @@ Azure AD 使用規定已從公用預覽版到正式推出。
 
 這可協助您控制資源的存取，同時讓已核准的使用者擁有平順的經驗。
 
-此 B2B 共同作業功能可供所有 Azure Active Directory 客戶使用，而且可搭配 Azure AD Premium 功能使用，例如條件式存取和身分識別保護，以便進一步控制外部商務使用者何時與如何登入及取得存取權。
+此 B2B 共同作業功能適用於所有 Azure Active Directory 的客戶，並可用於與 Azure AD Premium 功能，例如條件式存取和身分識別保護搭配使用的更細微的控制何時及如何外部商務使用者登入在中，以及存取。
 
 如需詳細資訊，請參閱[允許或封鎖對特定組織的 B2B 使用者的邀請](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-allow-deny-list)。
 
@@ -1137,7 +1137,7 @@ Criterion HCM、[FiscalNote](https://docs.microsoft.com/azure/active-directory/a
  
 ---
 
-### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>針對 iOS 和 Android，搭配 Azure AD 應用程式型條件式存取使用 Intune Managed Browser 來限制瀏覽器存取
+### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>限制瀏覽器存取使用 Intune Managed Browser 和 Azure AD 應用程式型條件式存取適用於 iOS 和 Android
 
 **類型：** 新功能  
 **服務類別：** 條件式存取  
@@ -1147,7 +1147,7 @@ Criterion HCM、[FiscalNote](https://docs.microsoft.com/azure/active-directory/a
 
 **Intune Managed Browser SSO：** 您的員工可以在所有原生用戶端 (例如 Microsoft Outlook) 上使用單一登入，以及針對所有與 Azure AD 連線的應用程式使用 Intune Managed Browser。
 
-**Intune Managed Browser 條件式存取支援：** 您現在可以使用應用程式型條件式存取原則來要求員工使用 Intune Managed Browser。
+**Intune Managed Browser 條件式存取支援：** 您現在可以要求員工使用 Intune Managed browser 使用應用程式型條件式存取原則。
 
 如需深入了解，請參閱我們的[部落格文章](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/) \(英文\)。
 
@@ -1253,7 +1253,7 @@ Powershell GA 模組中目前提供應用程式 Proxy Cmdlet 的支援！ 這需
 **服務類別：** 驗證 (登入)  
 **產品功能：** 使用者驗證
  
-已更新 Azure AD 文件以發佈 PKCE 的支援，PKCE 可讓 OAuth 2.0 授權碼授與流程期間的通訊更安全。  1.0 和 2.0 版端點上同時支援 S256 與純文字 code_challenges。 
+已更新 Azure AD 文件以發佈 PKCE 的支援，PKCE 可讓 OAuth 2.0 授權碼授與流程期間的通訊更安全。  1\.0 和 2.0 版端點上同時支援 S256 與純文字 code_challenges。 
 
 如需詳細資訊，請參閱[要求授權碼](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code#request-an-authorization-code)。 
  
@@ -1494,7 +1494,7 @@ Azure AD Connect 是在 Azure AD 與內部部署資料來源 (包括 Windows Ser
 
 ---
  
-### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>新增支援 Intune 應用程式防護原則的應用程式，以與 Azure AD 應用程式型條件式存取搭配使用
+### <a name="applications-supporting-intune-app-protection-policies-added-for-use-with-azure-ad-application-based-conditional-access"></a>支援與 Azure 搭配使用所新增的 Intune 應用程式保護原則的應用程式廣告應用程式型條件式存取
 
 **類型：** 已變更的功能  
 **服務類別：** 條件式存取  
@@ -1783,7 +1783,7 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 
 您可以藉由使用 Intune Managed Browser 作為已核准的應用程式，限制瀏覽器對 Office 365 和其他已連線至 Azure AD 之雲端應用程式的存取。 
 
-您現在可以為應用程式型條件式存取設定下列條件：
+您現在可以設定應用程式型條件式存取的下列條件：
 
 **用戶端應用程式：** [瀏覽器]
 
@@ -1793,11 +1793,11 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 
 請在即將推出的部落格和版本資訊中，查看此功能及更多資訊。 
 
-如需詳細資訊，請參閱 [Azure AD 中的條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)。
+如需詳細資訊，請參閱 <<c0> [ 在 Azure AD 中的條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)。
  
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>針對 Azure AD 應用程式型條件式存取之新的已核准用戶端應用程式
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>新的已核准的用戶端應用程式，適用於 Azure AD 應用程式型條件式存取
 
 **類型：** 針對變更做規劃  
 **服務類別：** 條件式存取  
@@ -1848,11 +1848,11 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 **服務類別：** Azure AD  
 **產品功能：** 身分識別安全性與保護
 
-您現在可以藉由使用 [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)，限制只有支援 Intune 應用程式防護原則的[已核准用戶端應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)，才能存取 Office 365 和其他已連線至 Azure AD 的雲端應用程式。 系統會使用 Intune 應用程式防護原則，來設定及保護這些用戶端應用程式上的公司資料。
+您現在可以限制存取 Office 365 和其他 Azure AD 已連線的雲端應用程式[核准的用戶端應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)可透過支援 Intune 應用程式保護原則[Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)。 系統會使用 Intune 應用程式防護原則，來設定及保護這些用戶端應用程式上的公司資料。
 
-透過結合[應用程式型](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)和[裝置型](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications)的條件式存取原則，您將能彈性地保護個人及公司裝置上的資料。
+結合[應用程式為基礎](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)具有[裝置型](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications)條件式存取原則，您可以彈性地保護個人資料和公司裝置。
 
-下列條件及控制項現已能搭配應用程式型條件式存取使用：
+下列條件及控制項現已可供使用應用程式型條件式存取的使用：
 
 **支援的平台條件**
 
@@ -1867,7 +1867,7 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 
 - 需要已核准的用戶端應用程式
 
-如需詳細資訊，請參閱 [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)。
+如需詳細資訊，請參閱 < [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)。
  
 ---
 
@@ -1879,7 +1879,7 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 
 您現在只要在一個位置，就可以找到所有已連線至 Azure AD 的裝置，以及與裝置相關的活動。 現已推出在 Azure 入口網站中管理所有裝置身分識別和設定的新系統管理體驗。 在這個版本中，您可以︰
 
-- 檢視所有可供在 Azure AD 中進行條件式存取的裝置。
+- 檢視所有您在 Azure AD 中可供條件式存取的裝置。
 - 檢視屬性，包括您的混合式已加入 Azure AD 的裝置。
 - 尋找已加入 Azure AD 之裝置的 BitLocker 金鑰、透過 Intune 管理裝置等等。
 - 管理 Azure AD 裝置相關的設定。
@@ -1888,22 +1888,22 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 
 ---
 
-### <a name="support-for-macos-as-a-device-platform-for-azure-ad-conditional-access"></a>支援使用 macOS 作為 Azure AD 條件式存取的裝置平台 
+### <a name="support-for-macos-as-a-device-platform-for-azure-ad-conditional-access"></a>適用於 macOS 作為裝置平台支援 Azure AD 條件式存取 
 
 **類型：** 新功能    
 **服務類別：** 條件式存取  
 **產品功能：** 身分識別安全性與保護 
 
-您現在可以在 Azure AD 條件式存取原則中，包含 (或排除) macOS 作為裝置平台條件。 除了將 macOS 新增為支援的裝置平台之外，您也可以：
+您現在可以包含 （或排除） macOS 作為 Azure AD 條件式存取原則中的裝置平台條件。 除了將 macOS 新增為支援的裝置平台之外，您也可以：
 
 - **使用 Intune 來註冊和管理 macOS 裝置。** 與其他平台 (例如 iOS 和 Android) 類似，有可供 macOS 用來進行統一註冊的公司入口網站應用程式。 您可以使用適用於 macOS 的新公司入口網站應用程式，向 Intune 註冊裝置，並向 Azure AD 註冊它。
 - **確保 macOS 裝置遵守組織在 Intune 中定義的合規性原則。** 您現在可以在 Azure 入口網站上的 Intune 中，設定適用於 macOS 裝置的合規性原則。 
-- **限制只有符合規範的 macOS 裝置才能存取 Azure AD 中的應用程式。** 條件式存取原則撰寫提供 macOS 作為個別裝置平台選項。 現在您可以針對在 Azure 中設定的目標應用程式，撰寫 macOS 特定的條件式存取原則。
+- **限制只有符合規範的 macOS 裝置才能存取 Azure AD 中的應用程式。** 條件式存取原則撰寫具有 macOS 作為個別裝置平台選項。 現在您可以撰寫 macOS 特定條件式存取原則在 Azure 中設定的目標應用程式。
 
 如需詳細資訊，請參閱
 
 - [使用 Intune 為 macOS 裝置建立裝置合規性原則](https://aka.ms/macoscompliancepolicy)
-- [Azure AD 中的條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
+- [在 Azure AD 中的條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
  
 ---
 
@@ -1942,7 +1942,7 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
  
 ---
 
-### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>針對 Azure AD 應用程式型條件式存取之新的已核准用戶端應用程式
+### <a name="new-approved-client-apps-for-azure-ad-app-based-conditional-access"></a>新的已核准的用戶端應用程式，適用於 Azure AD 應用程式型條件式存取
  
 **類型：** 已變更的功能  
 **服務類別：** 條件式存取  
@@ -1960,15 +1960,15 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 
 ---
 
-### <a name="use-or-between-controls-in-a-conditional-access-policy"></a>在條件式存取原則中的控制項之間使用 "OR" 
+### <a name="use-or-between-controls-in-a-conditional-access-policy"></a>使用"OR"之間的條件式存取原則中的控制項 
 
 **類型：** 已變更的功能    
 **服務類別：** 條件式存取  
 **產品功能：** 身分識別安全性與保護
  
-您現在可以針對條件式存取控制項使用 "OR" (需要其中一個選取的控制項)。 您可以使用此功能建立在存取控制項之間具有 "OR" 的原則。 例如，您可以使用此功能來建立原則，以要求使用者使用 Multi-Factor Authentication 進行登入，「或」使用符合規範的裝置進行登入。
+您現在可以使用 「 或者 」 （需要其中一個選取的控制項） 的條件式存取控制。 您可以使用此功能建立在存取控制項之間具有 "OR" 的原則。 例如，您可以使用此功能來建立原則，以要求使用者使用 Multi-Factor Authentication 進行登入，「或」使用符合規範的裝置進行登入。
 
-如需詳細資訊，請參閱 [Azure AD 條件式存取中的控制項](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls)。
+如需詳細資訊，請參閱 < [Azure AD 條件式存取中的控制項](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls)。
  
 ---
 

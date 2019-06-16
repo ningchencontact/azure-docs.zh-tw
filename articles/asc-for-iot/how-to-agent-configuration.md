@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 311a867c863cbd72292d8e34b4f7abdb949b12c6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65198449"
 ---
 # <a name="tutorial-configure-security-agents"></a>教學課程：設定安全性代理程式
@@ -95,7 +95,7 @@ IoT 安全性代理程式的每個 ASC 與相關屬性位於內所需的屬性 �
     }, 
     ```
 
-1. 按一下 [檔案] 。
+1. 按一下 [檔案]  。
 
 ### <a name="using-a-default-value"></a>使用預設值
 

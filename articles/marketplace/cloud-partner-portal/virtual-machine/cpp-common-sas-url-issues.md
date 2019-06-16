@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: pabutler
 ms.openlocfilehash: 4f2770312624e1ca4c939ade458a451eb03f9d20
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938386"
 ---
 # <a name="common-sas-url-issues-and-fixes"></a>常見 SAS URL 問題及修正
 
 下表列出一些使用共用存取簽章 (用於識別及共享解決方案之上傳 VHD) 時常見問題，以及建議的解決方案。
 
-| **問題** | 失敗訊息 | 修正 | 
+| **問題** | 失敗訊息  | 修正  | 
 | --------- | ------------------- | ------- | 
 | &emsp;  *複製映像失敗* |  |  |
 | 在 SAS URL 中找不到 "?" | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | 使用建議工具更新 SAS URL。 |

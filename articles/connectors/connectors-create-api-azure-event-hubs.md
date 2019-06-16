@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/23/2019
 tags: connectors
 ms.openlocfilehash: 882bae14678d8bfff15b35c63c666a20aeee3d1d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720052"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>使用 Azure 事件中樞與 Azure Logic Apps 監視、接收和傳送事件
@@ -38,15 +38,15 @@ ms.locfileid: "64720052"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 移至您的事件中樞「命名空間」，而不是特定事件中樞。 
+1. 移至您的事件中樞「命名空間」  ，而不是特定事件中樞。 
 
-1. 在命名空間 功能表中，在**設定**，選取**共用存取原則**。 在 [宣告] 之下，確認您有該命名空間的 [管理] 權限。
+1. 在命名空間 功能表中，在**設定**，選取**共用存取原則**。 在 [宣告]  之下，確認您有該命名空間的 [管理]  權限。
 
    ![管理事件中樞命名空間的權限](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
 
 1. 如果您想要在稍後手動輸入您的連線資訊，請取得事件中樞命名空間的連接字串。
 
-   1. 在 [原則] 下，選擇 [RootManageSharedAccessKey]。
+   1. 在 [原則]  下，選擇 [RootManageSharedAccessKey]  。
 
    1. 尋找主索引鍵的連接字串。 選擇 [複製] 按鈕，然後儲存連接字串以供稍後使用。
 
@@ -98,7 +98,7 @@ ms.locfileid: "64720052"
    | **開始時間** | 否 | 提供下列格式的開始時間： <p>YYYY-MM-DDThh:mm:ss (如果您選取時區)<p>-或-<p>YYYY-MM-DDThh:mm:ssZ (如果您未選取時區)<p>如需詳細資訊，請參閱 <<c0> [ 建立及執行週期性工作和使用 Azure Logic Apps 的工作流程](../connectors/connectors-native-recurrence.md)。 |
    ||||
 
-1. 當您完成時，請在設計工具的工具列上，選擇 [儲存]。
+1. 當您完成時，請在設計工具的工具列上，選擇 [儲存]  。
 
 1. 現在，繼續針對您想要使用觸發程序結果來執行的工作，於邏輯應用程式中新增一或多個動作。 
 
@@ -120,7 +120,7 @@ ms.locfileid: "64720052"
 1. 在觸發程序或動作下，選擇**新增步驟**。
 
    若要在現有步驟之間新增動作，請將滑鼠放在連接箭頭上。 
-   選擇顯示的加號 (**+**)，然後選取 [新增動作]。
+   選擇顯示的加號 ( **+** )，然後選取 [新增動作]  。
 
 1. 在搜尋方塊中，輸入「事件中樞」作為篩選條件。
 從 [動作] 清單中，選取此動作：**傳送事件-事件中樞**
@@ -145,7 +145,7 @@ ms.locfileid: "64720052"
 
    ![傳送事件範例](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action-example.png)
 
-1. 當您完成時，請在設計工具的工具列上，選擇 [儲存]。
+1. 當您完成時，請在設計工具的工具列上，選擇 [儲存]  。
 
 <a name="create-connection"></a>
 
@@ -157,18 +157,18 @@ ms.locfileid: "64720052"
 
    | 屬性 | 必要項 | Value | 描述 |
    |----------|----------|-------|-------------|
-   | 連線名稱 | 是 | <*connection-name*> | 要為連線建立的名稱 |
+   | 連線名稱  | 是 | <*connection-name*> | 要為連線建立的名稱 |
    | **事件中樞命名空間** | 是 | <*event-hubs-namespace*> | 選取您想要使用的事件中樞命名空間。 |
    |||||  
 
-   例如︰
+   例如:
 
    ![建立事件中樞連線](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 
-   若要手動輸入連接字串，請選擇 [手動輸入連線資訊]。 
+   若要手動輸入連接字串，請選擇 [手動輸入連線資訊]  。 
    了解[如何尋找您的連接字串](#permissions-connection-string)。
 
-2. 選取要使用的事件中樞原則 (若尚未選取)。 選擇 [建立] 。
+2. 選取要使用的事件中樞原則 (若尚未選取)。 選擇 [建立]  。
 
    ![建立事件中樞連線 (第二部分)](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-2.png)
 

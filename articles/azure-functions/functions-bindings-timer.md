@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 3b4ed6d1ba83e2adb96bcfac986381dccbbef56f
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 0a202621a9da031815ebbff3b121ea7f5e1eccfe
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416178"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062179"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的計時器觸發程序 
 
@@ -45,12 +45,13 @@ ms.locfileid: "65416178"
 * [C#](#c-example)
 * [C# 指令碼 (.csx)](#c-script-example)
 * [F#](#f-example)
-* [JavaScript](#javascript-example)
 * [Java](#java-example)
+* [JavaScript](#javascript-example)
+* [Python](#python-example)
 
 ### <a name="c-example"></a>C# 範例
 
-以下示例显示了一个 [C# 函数](functions-dotnet-class-library.md)，每当分钟的值可被 5 整除时，就执行该函数（例如，如果函数起始于 18:57:00，则下一次执行函数的时间为 19:00:00）。 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 对象将传递到函数中。
+下列範例所示[C#函式](functions-dotnet-class-library.md)分鐘有整除的值每次執行的五個 (例如如果函式開始 18:57:00 下, 一步 的效能會變 19:00:00)。 [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -66,7 +67,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ### <a name="c-script-example"></a>C# 指令碼範例
 
-下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 对象将传递到函数中。
+下列範例示範 function.json  檔案中的計時器觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -94,7 +95,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 
 ### <a name="f-example"></a>F# 範例
 
-下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [F# 指令碼函式](functions-reference-fsharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 对象将传递到函数中。
+下列範例示範 function.json  檔案中的計時器觸發程序繫結，以及使用此繫結的 [F# 指令碼函式](functions-reference-fsharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -117,9 +118,24 @@ let Run(myTimer: TimerInfo, log: ILogger ) =
     log.LogInformation(sprintf "F# function executed at %s!" now)
 ```
 
+### <a name="java-example"></a>Java 範例
+
+下列範例函式會每五分鐘觸發並執行。 函式上的 `@TimerTrigger` 註釋會使用與 [CRON 運算式](https://en.wikipedia.org/wiki/Cron#CRON_expression)相同的字串格式來定義排程。
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 ### <a name="javascript-example"></a>JavaScript 範例
 
-下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [计时器对象](#usage)将传递到函数中。
+下列範例示範 function.json  檔案中的計時器觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 A[計時器物件](#usage)傳遞至函式。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -148,19 +164,37 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-### <a name="java-example"></a>Java 範例
+### <a name="python-example"></a>Python 範例
 
-下列範例函式會每五分鐘觸發並執行。 函式上的 `@TimerTrigger` 註釋會使用與 [CRON 運算式](https://en.wikipedia.org/wiki/Cron#CRON_expression)相同的字串格式來定義排程。
+下列範例會使用計時器觸發程序繫結的組態所述*function.json*檔案。 實際[Python 函式](functions-reference-python.md)，會使用繫結所述 *__init__.py*檔案。 傳遞至函式的物件屬於類型[azure.functions.TimerRequest 物件](/python/api/azure-functions/azure.functions.timerrequest)。 函數邏輯寫入記錄檔，以指出目前的引動過程是否因為遺失的排程項目。 
 
-```java
-@FunctionName("keepAlive")
-public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
-      ExecutionContext context
- ) {
-     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
-     context.getLogger().info("Timer is triggered: " + timerInfo);
+以下是 *function.json* 檔案中的繫結資料：
+
+```json
+{
+    "name": "mytimer",
+    "type": "timerTrigger",
+    "direction": "in",
+    "schedule": "0 */5 * * * *"
 }
+```
+
+以下是 Python 程式碼：
+
+```python
+import datetime
+import logging
+
+import azure.functions as func
+
+def main(mytimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.datetime.utcnow().replace(
+        tzinfo=datetime.timezone.utc).isoformat()
+
+    if mytimer.past_due:
+        logging.info('The timer is past due!')
+
+    logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
 ## <a name="attributes"></a>屬性
@@ -201,7 +235,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ## <a name="usage"></a>使用量
 
-调用计时器触发器函数时，计时器对象将传递到函数中。 下列 JSON 是計時器物件的範例表示法。
+叫用計時器觸發程序函式時，計時器物件會傳遞至函式。 下列 JSON 是計時器物件的範例表示法。
 
 ```json
 {
@@ -226,7 +260,7 @@ Azure Functions 會使用 [NCronTab](https://github.com/atifaziz/NCrontab) \(英
 
 每個欄位可以具備下列類型的值：
 
-|Type  |範例  |觸發時間  |
+|類型  |範例  |觸發時間  |
 |---------|---------|---------|
 |特定值 |<nobr>"0 5 * * * *"</nobr>|於 hh:05:00，其中 hh 是每小時 (一小時一次)|
 |所有值 (`*`)|<nobr>"0 * 5 * * *"</nobr>|於每天 5:mm:00，其中 mm 是小時中的每一分鐘 (一天 60 次)|
@@ -297,7 +331,7 @@ CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON
 
 ## <a name="function-apps-sharing-storage"></a>共用儲存體的函式應用程式
 
-如果您在多個函式應用程式中共用儲存體帳戶，請確定每個函式應用程式在 host.json 中具有不同的 `id`。 您可以省略 `id` 屬性或將每個函式應用程式的 `id` 手動設定為不同的值。 計時器觸發程序會使用儲存體鎖定，以確保當函數應用程式相應放大至多個執行個體時，只會有一個計時器執行個體。 如果兩個函式應用程式共用相同的 `id`，且每一個都是使用計時器觸發程序，則只有一個計時器會執行。
+如果您在多個函式應用程式中共用儲存體帳戶，請確定每個函式應用程式在 host.json  中具有不同的 `id`。 您可以省略 `id` 屬性或將每個函式應用程式的 `id` 手動設定為不同的值。 計時器觸發程序會使用儲存體鎖定，以確保當函數應用程式相應放大至多個執行個體時，只會有一個計時器執行個體。 如果兩個函式應用程式共用相同的 `id`，且每一個都是使用計時器觸發程序，則只有一個計時器會執行。
 
 ## <a name="retry-behavior"></a>重試行為
 

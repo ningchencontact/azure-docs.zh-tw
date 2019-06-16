@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9a3468d720cb04e73cb284abb20c7bcf6a392dd
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4790dc7ebeeee3407e89bcf38d7e3f25699ed328
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65859515"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108416"
 ---
 # <a name="compare-remote-access-solutions"></a>比較遠端存取解決方案
 
@@ -34,21 +34,21 @@ Azure Active Directory 應用程式 Proxy 是 Microsoft 提供的兩個遠端存
 
 | 功能 | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
-| 憑證驗證 | 有 | 有 | - | - |
-| 選擇性地發佈瀏覽器應用程式 | 有 | 是 | 是 | 有 |
-| 預先驗證和單一登入 | 有 | 是 | 是 | 有 | 
-| 第 2 層/第 3 層防火牆 | 有 | 有 | - | - |
-| 轉接 Proxy 功能 | 有 | - | - | - |
-| VPN 功能 | 有 | 有 | - | - |
-| 豐富通訊協定支援 | - | 有 | 是，如果是透過 HTTP 執行 | 是，如果是透過 HTTP 或透過遠端桌面閘道執行 |
-| 作為 ADFS Proxy 伺服器 | - | 有 | 有 | - |
-| 應用程式存取的單一入口網站 | - | 有 | - | 有 |
-| 回應內文連結轉譯 | 有 | 是 | - | 有 | 
-| 使用標頭進行驗證 | - | 有 | - | 是，使用 PingAccess | 
-| 雲端級別安全性 | - | - | - | 有 | 
-| 條件式存取 | - | 有 | - | yes |
+| 憑證驗證 | 是 | 是 | - | - |
+| 選擇性地發佈瀏覽器應用程式 | 是 | 是 | 是 | 是 |
+| 預先驗證和單一登入 | 是 | 是 | 是 | 是 | 
+| 第 2 層/第 3 層防火牆 | 是 | 是 | - | - |
+| 轉接 Proxy 功能 | 是 | - | - | - |
+| VPN 功能 | 是 | 是 | - | - |
+| 豐富通訊協定支援 | - | 是 | 是，如果是透過 HTTP 執行 | 是，如果是透過 HTTP 或透過遠端桌面閘道執行 |
+| 作為 ADFS Proxy 伺服器 | - | 是 | 是 | - |
+| 應用程式存取的單一入口網站 | - | 是 | - | 是 |
+| 回應內文連結轉譯 | 是 | 是 | - | 是 | 
+| 使用標頭進行驗證 | - | 是 | - | 是，使用 PingAccess | 
+| 雲端級別安全性 | - | - | - | 是 | 
+| 條件式存取 | - | 是 | - | yes |
 | 周邊網路 (DMZ) 中沒有任何元件 | - | - | - | yes |
-| 沒有輸入連線 | - | - | - | 有 |
+| 沒有輸入連線 | - | - | - | 是 |
 
 大部分的情況下，我們建議 Azure AD 應用程式 Proxy 作為現代化解決方案。 Web 應用程式 Proxy 只建議用在需要 AD FS Proxy 伺服器的情節中，而且您無法使用 Azure Active Directory 中的自訂網域。 
 
@@ -56,7 +56,7 @@ Azure Active Directory 應用程式 Proxy 是 Microsoft 提供的兩個遠端存
 
 - 將 Azure AD 擴充至內部部署資源
    - 雲端級別安全性和保護
-   - 可輕鬆地啟用諸如條件式存取和 Multi-Factor Authentication 等功能
+   - 條件式存取和 Multi-factor Authentication 等功能可輕鬆地啟用
 - 周邊網路中沒有任何元件
 - 沒有所需的輸入連線
 - 您的使用者可以使用其所有應用程式的單一存取面板，包括 O365、Azure AD 整合式 SaaS 應用程式，以及您的內部部署 Web 應用程式。 

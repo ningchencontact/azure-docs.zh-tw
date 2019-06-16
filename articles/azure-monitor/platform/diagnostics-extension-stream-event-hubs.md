@@ -10,10 +10,10 @@ ms.date: 07/13/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: c5fc2199de8623dd3a9f2bc5faf23c7c40d67d75
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922812"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>使用事件中樞串流最忙碌路徑中的 Azure 診斷資料
@@ -45,7 +45,7 @@ Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機�
 * 文章中佈建的事件中樞命名空間，[開始使用事件中樞](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>將 Azure 診斷連接至事件中樞接收
-根據預設，Azure 診斷一律會將記錄和計量傳送至 Azure 儲存體帳戶。 應用程式可能會將資料傳送至事件中樞，方法是將新的 [接收] 區段新增至 *.wadcfgx* 檔案的 **PublicConfig** / **WadCfg** 元素底下。 在 Visual Studio 中，*.wadcfgx* 檔案會儲存在下列路徑：[雲端服務專案] > [角色] > (RoleName) > **diagnostics.wadcfgx** 檔案。
+根據預設，Azure 診斷一律會將記錄和計量傳送至 Azure 儲存體帳戶。 應用程式可能會將資料傳送至事件中樞，方法是將新的 [接收]  區段新增至 *.wadcfgx* 檔案的 **PublicConfig** / **WadCfg** 元素底下。 在 Visual Studio 中， *.wadcfgx* 檔案會儲存在下列路徑：[雲端服務專案]   > [角色]   > (RoleName)   > **diagnostics.wadcfgx** 檔案。
 
 ```xml
 <SinksConfig>
@@ -100,7 +100,7 @@ Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機�
 }
 ```
 
-`SharedAccessKeyName` 值必須符合共用存取簽章 (SAS) 金鑰，以及**事件中樞**命名空間中已定義的原則。 在 [Azure 入口網站](https://portal.azure.com)中瀏覽至 [事件中樞] 儀表板，按一下 [設定] 索引標籤，然後設定具有*傳送*權限的具名原則 (如 "SendRule")。 **StorageAccount** 也已經在 **PrivateConfig** 中宣告。 如果這裡的值可以運作，就不需要變更。 在此範例中，我們保留空白的值，這代表下游資產將會設定值。 例如，*ServiceConfiguration.Cloud.cscfg* 環境組態檔會設定適合環境的名稱和金鑰。  
+`SharedAccessKeyName` 值必須符合共用存取簽章 (SAS) 金鑰，以及**事件中樞**命名空間中已定義的原則。 在 [Azure 入口網站](https://portal.azure.com)中瀏覽至 [事件中樞] 儀表板，按一下 [設定]  索引標籤，然後設定具有*傳送*權限的具名原則 (如 "SendRule")。 **StorageAccount** 也已經在 **PrivateConfig** 中宣告。 如果這裡的值可以運作，就不需要變更。 在此範例中，我們保留空白的值，這代表下游資產將會設定值。 例如，*ServiceConfiguration.Cloud.cscfg* 環境組態檔會設定適合環境的名稱和金鑰。  
 
 > [!WARNING]
 > 事件中樞 SAS 金鑰會以純文字儲存在 *.wadcfgx* 檔案中。 有時候，系統會將該金鑰簽入原始程式碼控制，或做為組建伺服器中的資產提供，因此您應該適當地保護它。 建議您在這裡使用具有「僅限傳送」  權限的 SAS 金鑰，讓惡意使用者只能寫入事件中樞，而無法接聽或加以管理。
@@ -202,7 +202,7 @@ Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機�
 在此範例中，接收會套用至記錄，並且只篩選為「錯誤」層級追蹤。
 
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>部署和更新雲端服務應用程式和診斷設定
-Visual Studio 提供最簡單的路徑供您部署應用程式和事件中樞接收組態。 若要檢視及編輯檔案，請在 Visual Studio 中開啟 *.wadcfgx* 檔案，然後再加以編輯和儲存。 其路徑為 [雲端服務專案] > [角色] > (RoleName) > diagnostics.wadcfgx。  
+Visual Studio 提供最簡單的路徑供您部署應用程式和事件中樞接收組態。 若要檢視及編輯檔案，請在 Visual Studio 中開啟 *.wadcfgx* 檔案，然後再加以編輯和儲存。 其路徑為 [雲端服務專案]   > [角色]   > (RoleName)   > diagnostics.wadcfgx  。  
 
 此時，Visual Studio、Visual Studio Team System 中的所有部署和部署更新動作，以及所有根據 MSBuild 和使用 **/t:publish** 目標的命令或指令碼，都會在封裝程序中納入 *.wadcfgx* 。 此外，部署和更新會使用 VM 上適當的 Azure 診斷代理程式擴充功能將檔案部署到 Azure。
 

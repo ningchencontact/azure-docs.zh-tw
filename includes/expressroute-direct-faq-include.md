@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 1bcadc18172535649a0ceb482939ca6a75477e25
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ab74c331bdc8b72612aa848688e1de080314337a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170691"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67132997"
 ---
 ### <a name="what-is-expressroute-direct"></a>什麼是 ExpressRoute Direct？
 
@@ -25,12 +25,11 @@ ExpressRoute Direct 為客戶提供能夠將策略性分散於世界各地的對
 
 ### <a name="what-locations-currently-support-expressroute-direct"></a>哪些位置目前支援 ExpressRoute Direct？ 
 
-可用的連接埠將會是動態的，且將可透過 PowerShell 來檢視容量。 位置包括如下，且根據可用性可能會有所變更：
+可用的連接埠將會是動態的，且將可透過 PowerShell 來檢視容量。 位置包括如下，且根據可用性可能會有所變更  ：
 
 * 阿姆斯特丹
-* 坎培拉
 * 芝加哥
-* 華盛頓特區
+* 華盛頓
 * 達拉斯 
 * 香港特別行政區
 * 倫敦
@@ -41,7 +40,7 @@ ExpressRoute Direct 為客戶提供能夠將策略性分散於世界各地的對
 * 多倫多
 * San Antonio
 * Seattle
-* Seoul
+* 首爾
 * 矽谷
 * 新加坡 
 * 雪梨

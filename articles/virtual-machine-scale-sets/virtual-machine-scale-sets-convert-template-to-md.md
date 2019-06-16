@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 5/18/2017
 ms.author: manayar
 ms.openlocfilehash: b2d1738b85799079b3af7ab39c5cb1799a38d382
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60731732"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>轉換擴展集範本至受控磁碟擴展集範本
@@ -124,7 +124,7 @@ ms.locfileid: "60731732"
 擴展集設定中並沒有明確的屬性可決定要使用受控或非受控磁碟。 擴展集會根據儲存體設定檔中的屬性來判斷要使用的磁碟。 因此，修改範本以確保擴展集的儲存體設定檔中有正確的屬性非常重要。
 
 
-## <a name="data-disks"></a>数据磁盘数
+## <a name="data-disks"></a>資料磁碟
 
 根據上面的變更，擴展集會針對 OS 磁碟使用受控磁碟，但對於資料磁碟呢？ 若要新增資料磁碟，請在與 "osDisk" 相同層級的 "storageProfile" 下新增 "dataDisks" 屬性。 屬性的值是 JSON 物件清單，其中每個物件都具有屬性 "lun" (對於 VM 上的每個資料磁碟，這必須是唯一的)、"createOption" ("empty" 是目前唯一支援的選項) 與 "diskSizeGB" (以 GB 為單位的磁碟大小，必須大於 0 並小於 1024)，如下列範例中所示：
 

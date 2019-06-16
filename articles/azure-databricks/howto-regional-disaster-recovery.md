@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: bd91d9201e81c884b48b41de27146c186eeb9598
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3718b79562ec05383b9881a1a97cc5bcc5e04258
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60784654"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075445"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Azure Databricks 叢集的區域性災害復原
 
@@ -31,7 +31,7 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
 
 ## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>如何建立區域性災害復原拓撲
 
-您會注意到上述的結構描述中，有許多用來與 Azure Databricks 巨量資料管線的元件：Azure 儲存體、 Azure 資料庫和其他資料來源。 Azure Databricks 是適用於巨量資料管線的「計算」。 其具有「暫時」性質，也就是說，當您的資料仍可在 Azure 儲存體中取得時，可以終止「計算」 (Azure Databricks 叢集)，您就不必支付不需要的計算費用。 「計算」(Azure Databricks) 和儲存體來源必須位於相同的區域中，作業才不會發生高延遲。  
+您會注意到上述的結構描述中，有許多用來與 Azure Databricks 巨量資料管線的元件：Azure 儲存體、 Azure 資料庫和其他資料來源。 Azure Databricks 是適用於巨量資料管線的「計算」  。 其具有「暫時」  性質，也就是說，當您的資料仍可在 Azure 儲存體中取得時，可以終止「計算」  (Azure Databricks 叢集)，您就不必支付不需要的計算費用。 「計算」  (Azure Databricks) 和儲存體來源必須位於相同的區域中，作業才不會發生高延遲。  
 
 若要建立您自己的區域性災害復原拓撲，請遵循下列需求：
 
@@ -136,45 +136,84 @@ Databricks 控制平面可管理和監視 Databricks 工作區環境。 從控�
    將下列 python 指令碼複製並儲存到檔案，然後在 Databricks 命令列中加以執行。 例如： `python scriptname.py`。
 
    ```python
-   from subprocess import call, check_output import json
+   from subprocess import call, check_output
+   import json, os
 
    EXPORT_PROFILE = "primary"
    IMPORT_PROFILE = "secondary"
 
-   # Get all clusters info from old workspace 
-   clusters_out = check_output(["databricks", "clusters", "list", "--profile", EXPORT_PROFILE]) clusters_info_list = clusters_out.splitlines()
+   # Get all clusters info from old workspace
+   clusters_out = check_output(["databricks", "clusters", "list", "--profile", EXPORT_PROFILE])
+   clusters_info_list = clusters_out.splitlines()
 
-   # Create a list of all cluster ids 
-   clusters_list = [] for cluster_info in clusters_info_list:   clusters_list.append(cluster_info.split(None, 1)[0])
+   # Create a list of all cluster ids
+   clusters_list = []
+   ##for cluster_info in clusters_info_list: clusters_list.append(cluster_info.split(None, 1)[0])
+
+   for cluster_info in clusters_info_list: 
+      if cluster_info != '':
+         clusters_list.append(cluster_info.split(None, 1)[0])
 
    # Optionally filter cluster ids out manually, so as to create only required ones in new workspace
 
-   # Create a list of mandatory / optional create request elements 
-   cluster_req_elems = ["num_workers","autoscale","cluster_name","spark_version","spark_conf"," node_type_id","driver_node_type_id","custom_tags","cluster_log_conf","sp ark_env_vars","autotermination_minutes","enable_elastic_disk"]
+   # Create a list of mandatory / optional create request elements
+   cluster_req_elems = ["num_workers","autoscale","cluster_name","spark_version","spark_conf","node_type_id","driver_node_type_id","custom_tags","cluster_log_conf","spark_env_vars","autotermination_minutes","enable_elastic_disk"]
 
+   print(str(len(clusters_list)) + " clusters found in the primary site" )
+
+   print ("---------------------------------------------------------")
    # Try creating all / selected clusters in new workspace with same config as in old one.
-   cluster_old_new_mappings = {} for cluster in clusters_list:   print "Trying to migrate cluster " + cluster
+   cluster_old_new_mappings = {}
+   i = 0
+   for cluster in clusters_list:
+      i += 1
+      print("Checking cluster " + str(i) + "/" + str(len(clusters_list)) + " : " + cluster)
+      cluster_get_out = check_output(["databricks", "clusters", "get", "--cluster-id", cluster, "--profile", EXPORT_PROFILE])
+      print ("Got cluster config from old workspace")
 
-   cluster_get_out = check_output(["databricks", "clusters", "get", "--cluster-id", cluster, "--profile", EXPORT_PROFILE])
-   print "Got cluster config from old workspace"
+       # Remove extra content from the config, as we need to build create request with allowed elements only
+      cluster_req_json = json.loads(cluster_get_out)
+      cluster_json_keys = cluster_req_json.keys()
 
-   # Remove extra content from the config, as we need to build create request with allowed elements only
-   cluster_req_json = json.loads(cluster_get_out)    
-   cluster_json_keys = cluster_req_json.keys()   
+      #Don't migrate Job clusters
+      if cluster_req_json['cluster_source'] == u'JOB' : 
+         print ("Skipping this cluster as it is a Job cluster : " + cluster_req_json['cluster_id'] )
+         print ("---------------------------------------------------------")
+         continue
 
-   for key in cluster_json_keys:     
-      if key not in cluster_req_elems:       
-         cluster_req_json.pop(key, None)
-  
-   # Create the cluster, and store the mapping from old to new cluster ids
-   cluster_create_out = check_output(["databricks", "clusters", "create", "--json", json.dumps(cluster_req_json), "--profile", IMPORT_PROFILE]) 
-   cluster_create_out_json = json.loads(cluster_create_out)   
-   cluster_old_new_mappings[cluster] = cluster_create_out_json['cluster_id']
+      for key in cluster_json_keys:
+         if key not in cluster_req_elems:
+            cluster_req_json.pop(key, None)
 
-   print "Sent cluster create request to new workspace successfully"
+      # Create the cluster, and store the mapping from old to new cluster ids
 
-   print "Cluster mappings: " + json.dumps(cluster_old_new_mappings)
-   print "All done"
+      #Create a temp file to store the current cluster info as JSON
+      strCurrentClusterFile = "tmp_cluster_info.json" 
+
+      #delete the temp file if exists
+      if os.path.exists(strCurrentClusterFile) : 
+         os.remove(strCurrentClusterFile)
+
+      fClusterJSONtmp = open(strCurrentClusterFile,"w+")
+      fClusterJSONtmp.write(json.dumps(cluster_req_json))
+      fClusterJSONtmp.close()
+
+      #cluster_create_out = check_output(["databricks", "clusters", "create", "--json", json.dumps(cluster_req_json), "--profile", IMPORT_PROFILE])
+      cluster_create_out = check_output(["databricks", "clusters", "create", "--json-file", strCurrentClusterFile , "--profile", IMPORT_PROFILE])
+      cluster_create_out_json = json.loads(cluster_create_out)
+      cluster_old_new_mappings[cluster] = cluster_create_out_json['cluster_id']
+
+      print ("Cluster create request sent to secondary site workspace successfully")
+      print ("---------------------------------------------------------")
+
+      #delete the temp file if exists
+      if os.path.exists(strCurrentClusterFile) : 
+         os.remove(strCurrentClusterFile)
+
+   print ("Cluster mappings: " + json.dumps(cluster_old_new_mappings))
+   print ("All done")
+   print ("P.S. : Please note that all the new clusters in your secondary site are being started now!")
+   print ("       If you won't use those new clusters at the moment, please don't forget terminating your new clusters to avoid charges")
    ```
 
 6. **遷移作業組態**

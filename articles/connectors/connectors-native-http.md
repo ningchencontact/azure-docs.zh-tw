@@ -12,17 +12,17 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713808"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>使用 Azure Logic Apps 來呼叫 HTTP 或 HTTPS 端點
 
 您可以使用 Azure Logic Apps 和超文字傳輸通訊協定 (HTTP) 連接器，建立自動化的工作流程，藉由建置邏輯應用程式來與任何 HTTP 或 HTTPS 端點通訊。 例如，您可以監視網站的服務端點。 當該端點上發生事件時，例如您的網站停止運作，事件就會觸發邏輯應用程式的工作流程，並執行指定的動作。
 
-您可以使用 HTTP 觸發程序作為工作流程中的第一個步驟，以定期檢查或「輪詢」端點。 在每次檢查時，觸發程序會將呼叫或「要求」傳送至端點。 端點的回應會決定是否執行邏輯應用程式的工作流程。 觸發程序會將回應的任何內容，傳遞至邏輯應用程式中的動作。 
+您可以使用 HTTP 觸發程序作為工作流程中的第一個步驟，以定期檢查或「輪詢」  端點。 在每次檢查時，觸發程序會將呼叫或「要求」  傳送至端點。 端點的回應會決定是否執行邏輯應用程式的工作流程。 觸發程序會將回應的任何內容，傳遞至邏輯應用程式中的動作。 
 
 您可以使用 HTTP 動作作為工作流程中的任何其他步驟，在您想要的時候檢查端點。 端點的回應會決定工作流程的剩餘動作如何執行。 
 
@@ -44,7 +44,7 @@ ms.locfileid: "64713808"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，如果邏輯應用程式尚未開啟，請在邏輯應用程式設計工具中開啟空白邏輯應用程式。
 
-1. 在搜尋方塊中輸入 "http" 作為篩選條件。 在觸發程序清單底下，選取 [HTTP] 觸發程序。 
+1. 在搜尋方塊中輸入 "http" 作為篩選條件。 在觸發程序清單底下，選取 [HTTP]  觸發程序。 
 
    ![選取 HTTP 觸發程序](./media/connectors-native-http/select-http-trigger.png)
 
@@ -62,26 +62,26 @@ ms.locfileid: "64713808"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，如果邏輯應用程式尚未開啟，請在邏輯應用程式設計工具中開啟邏輯應用程式。
 
-1. 在想要新增 HTTP 動作的最後一個步驟底下，選擇 [新增步驟]。 
+1. 在想要新增 HTTP 動作的最後一個步驟底下，選擇 [新增步驟]  。 
 
    在此範例中，邏輯應用程式會啟動 HTTP 觸發程序作為第一個步驟。
 
-1. 在搜尋方塊中輸入 "http" 作為篩選條件。 在動作清單底下，選取 [HTTP] 動作。
+1. 在搜尋方塊中輸入 "http" 作為篩選條件。 在動作清單底下，選取 [HTTP]  動作。
 
    ![選取 HTTP 動作](./media/connectors-native-http/select-http-action.png)
 
    若要在步驟之間新增動作，將指標移至步驟之間的箭號。 
-   選擇顯示的加號 (**+**)，然後選取 [新增動作]。
+   選擇顯示的加號 ( **+** )，然後選取 [新增動作]  。
 
 1. 提供您想要包含在目標端點呼叫中的 [HTTP 動作參數和值](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)。 
 
    ![輸入 HTTP 動作參數](./media/connectors-native-http/http-action-parameters.png)
 
-1. 完成後，請確保已儲存邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]。 
+1. 完成後，請確保已儲存邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]  。 
 
 ## <a name="authentication"></a>Authentication
 
-若要設定驗證，請在動作或觸發程序內選擇 [顯示進階選項]。 如需 HTTP 觸發程序和動作可用驗證類型的詳細資訊，請參閱[觸發程序和動作類型參考](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication)。
+若要設定驗證，請在動作或觸發程序內選擇 [顯示進階選項]  。 如需 HTTP 觸發程序和動作可用驗證類型的詳細資訊，請參閱[觸發程序和動作類型參考](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication)。
 
 ## <a name="get-support"></a>取得支援
 

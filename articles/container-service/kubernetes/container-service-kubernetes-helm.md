@@ -10,10 +10,10 @@ ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 05edbf40e8cd5f8edbdc8b74b540962b1a25c8de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60712267"
 ---
 # <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(已淘汰) 使用 Helm 在 Kubernetes 叢集部署容器
@@ -26,9 +26,9 @@ ms.locfileid: "60712267"
 [Helm](https://github.com/kubernetes/helm/) 是開放原始碼的封裝工具，可協助您安裝和管理 Kubernetes 應用程式的生命週期。 Helm 類似於 Apt-get 和 Yum 等 Linux 封裝管理工具，可用於管理 Kubernetes 圖表 (即預先設定的 Kubernetes 資源封裝)。 本文將說明如何在部署於 Azure Container Service 中的 Kubernetes 叢集使用 Helm。
 
 Helm 包含兩個元件︰ 
-* Helm CLI是在本機或雲端執行的用戶端  
+* Helm CLI  是在本機或雲端執行的用戶端  
 
-* Tiller是在 Kubernetes 叢集執行的伺服器，管理 Kubernetes 應用程式的生命週期 
+* Tiller  是在 Kubernetes 叢集執行的伺服器，管理 Kubernetes 應用程式的生命週期 
  
 ## <a name="prerequisites"></a>必要條件
 

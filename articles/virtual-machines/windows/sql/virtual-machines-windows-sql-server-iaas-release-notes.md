@@ -13,16 +13,33 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: f929369030b6f0a634eb2c84e33eee24af8cb6a2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ee3aeb9f44d1b98d6307c6a72d1e4786ea1ec664
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787504"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076894"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>Azure 虛擬機器的 SQL Server 版本資訊
 
 Azure 可讓您使用內建的 SQL Server 映像部署虛擬機器。 本文將摘要說明 [Azure 虛擬機器上的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 最新版本中的新功能與改進功能。 本文也會列出值得注意的內容更新，這些更新並未與該版本直接相關，但會在同一個時間範圍內發佈。 如需其他 Azure 服務的改進功能，請參閱[服務更新](https://azure.microsoft.com/updates)
+
+## <a name="may-2019"></a>2019 年 5 月
+
+### <a name="service-improvements"></a>服務改進功能
+
+| 服務改進功能 | 詳細資料 |
+| --- | --- |
+| **在 Azure 入口網站中的新 SQL VM 管理** | 目前沒有新的方式來管理您在 Azure 入口網站中的 SQL Server VM。 如需詳細資訊，請參閱 <<c0> [ 在 Azure 入口網站中管理 SQL Server VM](virtual-machines-windows-sql-manage-portal.md)。  | 
+| &nbsp; | &nbsp; |
+
+### <a name="documentation-improvements"></a>文件改進
+
+| 文件 | 詳細資料 |
+| --- | --- |
+| **新 SQL VM 的入口網站管理** | 約有十幾個發行項已更新為新的 SQL VM 管理入口網站體驗。 | 
+| &nbsp; | &nbsp; |
+
 
 ## <a name="april-2019"></a>2019 年 4 月
 
@@ -33,9 +50,6 @@ Azure 可讓您使用內建的 SQL Server 映像部署虛擬機器。 本文將�
 | **擴充支援的 SQL Server 2008/2008R2** | [擴充支援](virtual-machines-windows-sql-server-2008-eos-extend-support.md)SQL Server 2008 和 SQL Server 2008 R2 移轉*為-是*至 Azure VM。 | 
 | &nbsp; | &nbsp; |
 
-### <a name="documentation-improvements"></a>文件改進
-
-None
 
 ## <a name="march-2019"></a>2019 年 3 月
 
@@ -60,7 +74,7 @@ None
 
 | 服務改進功能 | 詳細資料 |
 | --- | --- |
-| **新增 SQL 叢集群組資源提供者** | 新的資源提供者 (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups)，可定義 Windows 容錯移轉叢集的中繼資料。 將 SQL Server VM 加入 SqlVirtualMachineGroups 會啟動 Windows 容錯移轉叢集服務，並將 VM 加入叢集。  |
+| **新增 SQL 叢集群組資源提供者** | 新的資源提供者 (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups)，可定義 Windows 容錯移轉叢集的中繼資料。 將 SQL Server VM 加入 SqlVirtualMachineGroups  會啟動 Windows 容錯移轉叢集服務，並將 VM 加入叢集。  |
 |**使用 Azure 快速入門範本自動設定可用性群組的部署** |現在您可以使用兩個 Azure 快速入門範本來建立 Windows 容錯移轉叢集、將 SQL Server VM 加入該叢集、建立接聽程式，以及設定內部負載平衡器。 如需詳細資訊，請參閱 <<c0> [ 使用 Azure 快速入門範本，若要設定 Azure VM 上的 SQL Server Always On 可用性群組](virtual-machines-windows-sql-availability-group-quickstart-template.md)。 | 
 | **自動化 SQL VM 資源提供者的註冊** | 本月之後部署的 SQL Server VM 會自動向新的 SQL Server 資源提供者註冊。 本月之前部署的 SQL Server VM 仍然需要手動註冊。 如需詳細資訊，請參閱 <<c0> [ 向 SQL VM 資源提供者註冊現有的 SQL VM](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider)。|
 | &nbsp; | &nbsp; |

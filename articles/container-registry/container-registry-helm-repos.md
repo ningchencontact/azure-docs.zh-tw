@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.openlocfilehash: ba0e1386d67e920f1805d244f9042044bb462ec9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62109846"
 ---
 # <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>使用 Azure Container Registry 作為應用程式圖表的 Helm 存放庫
 
-若要快速管理及部署 Kubernetes 的應用程式，您可以使用[開放原始碼 Helm 套件管理員][helm]。 使用 Helm 時，應用程式會定義成儲存在 Helm 圖表存放庫中的「圖表」。 這些圖表會定義設定和相依性，且在整個應用程式生命週期可進行版本設定。 Azure Container Registry 可用來作為 Helm 圖表存放庫的主機。
+若要快速管理及部署 Kubernetes 的應用程式，您可以使用[開放原始碼 Helm 套件管理員][helm]。 使用 Helm 時，應用程式會定義成儲存在 Helm 圖表存放庫中的「圖表」  。 這些圖表會定義設定和相依性，且在整個應用程式生命週期可進行版本設定。 Azure Container Registry 可用來作為 Helm 圖表存放庫的主機。
 
 使用 Azure Container Registry 時，您會擁有一個私人、安全的 Helm 圖表存放庫，此存放庫可與組建管線或其他 Azure 服務整合。 Azure Container Registry 中的 Helm 圖表存放庫包含異地複寫功能，可讓您的圖表靠近部署並提供備援。 您只需支付圖表所使用儲存體的費用，且所有 Azure Container Registry 價格層都有提供。
 
@@ -68,7 +68,7 @@ mkdir ~/acr-helm && cd ~/acr-helm
 helm fetch stable/wordpress
 ```
 
-列出已下載的圖表，並記下檔案名稱中所包含的 Wordpress 版本。 `helm fetch stable/wordpress` 命令並未指定特定的版本，因此擷取的是「最新」版本。 所有 Helm 圖表都會在檔案名稱中包含依循 [SemVer 2][semver2] 標準的版本號碼。 在下列範例輸出中，Wordpress 圖表的版本為 *2.1.10*：
+列出已下載的圖表，並記下檔案名稱中所包含的 Wordpress 版本。 `helm fetch stable/wordpress` 命令並未指定特定的版本，因此擷取的是「最新」  版本。 所有 Helm 圖表都會在檔案名稱中包含依循 [SemVer 2][semver2] 標準的版本號碼。 在下列範例輸出中，Wordpress 圖表的版本為 *2.1.10*：
 
 ```
 $ ls
@@ -129,7 +129,7 @@ az acr helm list
 helm inspect <acrName>/wordpress
 ```
 
-未提供任何版本號碼時，會使用「最新」版本。 Helm 會傳回您圖表的相關詳細資訊，如以下扼要的範例輸出所示：
+未提供任何版本號碼時，會使用「最新」  版本。 Helm 會傳回您圖表的相關詳細資訊，如以下扼要的範例輸出所示：
 
 ```
 $ helm inspect myacrhelm/wordpress
@@ -157,7 +157,7 @@ version: 2.1.10
 [...]
 ```
 
-您也可以使用 Azure CLI [az acr helm show][az-acr-helm-show] 命令來顯示圖表的資訊。 同樣地，預設會傳回圖表的「最新」版本。 您可以附加 `--version` 來列出圖表的特定版本，例如 *2.1.10*：
+您也可以使用 Azure CLI [az acr helm show][az-acr-helm-show] 命令來顯示圖表的資訊。 同樣地，預設會傳回圖表的「最新」  版本。 您可以附加 `--version` 來列出圖表的特定版本，例如 *2.1.10*：
 
 ```azurecli
 az acr helm show wordpress

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 4943b730bb46ee00200d84faf95a7ccb069d3aa8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790973"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>啟用 Azure 磁碟加密的虛擬機器複寫到另一個 Azure 區域
@@ -50,7 +50,7 @@ Site Recovery 需要有在目標區域和複製金鑰至區域中建立金鑰保
 
    ![金鑰保存庫權限 視窗](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
 
-2. 您可以看到不有任何使用者權限。 選取 [新增]。 輸入的使用者和權限資訊。
+2. 您可以看到不有任何使用者權限。 選取 [新增]  。 輸入的使用者和權限資訊。
 
    ![金鑰保存庫的權限](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-2.png)
 
@@ -90,7 +90,7 @@ Site Recovery 需要有在目標區域和複製金鑰至區域中建立金鑰保
     - **來源訂用帳戶**：來源虛擬機器所屬的訂用帳戶。 它可以是與您的復原服務保存庫相同的 Azure Active Directory 租用戶中的任何訂用帳戶。
     - **資源群組**：來源虛擬機器所屬的資源群組。 選取的資源群組中的所有 Vm 會都列出在下一個步驟中的保護。
 
-3. 在 **虛擬機器** > **選取 虛擬機器**，選取您想要複寫的每部 VM。 您只能選取可以啟用複寫的機器。 然後選取 [確定]。
+3. 在 **虛擬機器** > **選取 虛擬機器**，選取您想要複寫的每部 VM。 您只能選取可以啟用複寫的機器。 然後選取 [確定]  。
 
 4. 在 **設定**，您可以設定下列目標站台設定。
 
@@ -98,8 +98,8 @@ Site Recovery 需要有在目標區域和複製金鑰至區域中建立金鑰保
     - **目標訂用帳戶**：目標訂用帳戶用於災害復原。 根據預設，目標訂用帳戶會與來源訂用帳戶相同。
     - **目標資源群組**：所有已複寫虛擬機器所屬的資源群組。 根據預設，Site Recovery 會在目標區域中建立新的資源群組。 名稱取得"asr"尾碼。 如果資源群組已經存在所建立的 Azure Site Recovery，就會重複使用。 下一節中所示，您也可以選擇進行自訂。 目標資源群組的位置可以是任何 Azure 區域以外的來源虛擬機器的裝載位置的區域。
     - **目標虛擬網路**：根據預設，Site Recovery 會在目標區域中建立新的虛擬網路。 名稱取得"asr"尾碼。 它已對應至您的來源網路，並用於任何未來的保護。 [深入了解](site-recovery-network-mapping-azure-to-azure.md)網路對應。
-    - **目標儲存體帳戶 （如果您的來源 VM 未使用受控磁碟）**:根據預設，Site Recovery 會建立新的目標儲存體帳戶，藉由模擬來源 VM 儲存體組態。 如果儲存體帳戶已經存在，就會重複使用。
-    - **複本受控磁碟 （如果來源 VM 使用受控的磁碟）**:Site Recovery 會建立新的複本受控磁碟，以反映來源 VM 的受控的磁碟的相同儲存體類型 （標準或進階） 做為來源 VM 的受控磁碟的目標區域中。
+    - **目標儲存體帳戶 （如果您的來源 VM 未使用受控磁碟）** :根據預設，Site Recovery 會建立新的目標儲存體帳戶，藉由模擬來源 VM 儲存體組態。 如果儲存體帳戶已經存在，就會重複使用。
+    - **複本受控磁碟 （如果來源 VM 使用受控的磁碟）** :Site Recovery 會建立新的複本受控磁碟，以反映來源 VM 的受控的磁碟的相同儲存體類型 （標準或進階） 做為來源 VM 的受控磁碟的目標區域中。
     - **快取儲存體帳戶**：Site Recovery 需要額外的儲存體帳戶名*快取儲存體*來源區域中。 來源 Vm 上的所有變更會追蹤並傳送至快取儲存體帳戶。 它們會再複寫到目標位置。
     - **可用性設定組**：根據預設，Site Recovery 會建立新的可用性設定的目標區域中。 名稱有"asr"尾碼。 如果已由 Site Recovery 所建立的可用性設定組存在，就會重複使用。
     - **磁碟加密金鑰保存庫**：根據預設，Site Recovery 會在目標區域中建立新的金鑰保存庫。 它具有"asr"尾碼的來源 VM 磁碟加密金鑰為基礎。 如果已由 Azure Site Recovery 所建立的金鑰保存庫存在，就會重複使用。

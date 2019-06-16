@@ -15,10 +15,10 @@ ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3ef1656a7e8a66092de3050a8f14c5b38e0e2e6c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123564"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>使用 STONITH 在 SUSE 中進行高可用性設定
@@ -155,7 +155,7 @@ zypper in SAPHanaSR SAPHanaSR-doc
 
 ![yast-key-file.png](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
-按一下 [檔案] &gt; [新增] &gt; [專案] 
+按一下 **[確定]** 。
 
 驗證會使用 IP 位址和 Csync2 中的預先共用金鑰執行。 金鑰檔案是使用 csync2 -k /etc/csync2/key_hagroup 產生。 檔案 key_hagroup 應在建立之後手動複製到叢集的所有成員。 **務必將檔案從 node1 複製到 node2**。
 

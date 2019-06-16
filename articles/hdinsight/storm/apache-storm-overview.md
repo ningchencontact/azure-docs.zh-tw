@@ -6,21 +6,19 @@ ms.reviewer: jasonh
 keywords: apache storm 使用案例,storm 叢集,什麼是 apache storm
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 05/24/2019
+ms.topic: overview
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 42aaa91906319133fd2864cd836447fcf3ca3a07
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: 97083142066e59acbefe60181743e5aa32541bac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257773"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67115831"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什麼是 Apache Storm on Azure HDInsight？
 
 [Apache Storm](https://storm.apache.org/) 是一個容錯的分散式開放原始碼計算系統。 您可以搭配 [Apache Hadoop](https://hadoop.apache.org/) 使用 Storm 來即時處理資料流。 Storm 解決方案也能夠重播最初未成功處理的資料，保證一定會處理資料。
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="why-use-apache-storm-on-hdinsight"></a>為何使用 Apache Storm on HDInsight？
 
@@ -38,8 +36,7 @@ Storm on HDInsight 提供下列功能︰
 
 * **動態調整**：您可以新增或移除背景工作節點，而不影響執行 Storm 拓撲。
 
-    > [!NOTE]  
-    > 您必須停用並重新執行拓撲，才能利用透過調整作業新增的節點。
+    * 您必須停用並重新執行拓撲，才能利用透過調整作業新增的節點。
 
 * **使用多項 Azure 服務建立串流管線**：HDInsight 上的 Storm 會與其他 Azure 服務整合，例如事件中樞、SQL Database、Azure 儲存體及 Azure Data Lake Storage。
 
@@ -149,7 +146,9 @@ Apache Storm 可以提供不同程度的訊息處理保證。 例如，基本的
 
 在下列 Java 範例中，會使用 fieldsGrouping 將源自元件 "1"、"2" 和 "3" 的 Tuple 路由傳送至 MyJoiner bolt：
 
-    builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```java
+builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```
 
 ### <a name="batches"></a>批次
 

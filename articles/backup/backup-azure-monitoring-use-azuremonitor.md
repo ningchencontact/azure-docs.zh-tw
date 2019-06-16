@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2d7c158b32c15fb8be153511136eafb73147afa6
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: 1e85b633024b5a3e85874707ae9a1f068e7a328d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734830"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808517"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>監視大規模使用 Azure 監視器
 
@@ -257,7 +257,7 @@ on BackupItemUniqueId_s
 雖然您可以使用透過活動記錄檔的通知，***強烈建議要用於 LA 基於下列原因規模和不活動記錄檔監視的 Azure 備份服務***。
 
 - **有限的情況：** 只適用於 Azure VM 備份，並且應該重複的每個 RS 保存庫。
-- **定義符合：** 排定的備份活動的活動記錄檔的最新的定義不符合，並配合[診斷記錄](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-are-azure-monitor-diagnostic-logs)。 這會導致非預期的影響，當透過活動記錄檔通道中提取的資料已變更為指向下方。
+- **定義符合：** 排定的備份活動的活動記錄檔的最新的定義不符合，並配合[診斷記錄](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs)。 這會導致非預期的影響，當透過活動記錄檔通道中提取的資料已變更為指向下方。
 - **活動記錄檔通道的問題：** 我們已從復原服務保存庫上的 Azure 備份移至提取活動記錄的新模型。 不幸的是，移動的影響 Azure Sovereign 雲端中的活動記錄檔的產生。 如果 Azure Sovereign 雲端使用者建立或設定與透過 Azure 監視器活動記錄的任何警示，它們不會觸發。 此外，在所有 Azure 公用區域中，如果使用者要將復原服務活動記錄收集到 Log Analytics 工作區 (如[此處](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs)所述)，則這些記錄也不會出現。
 
 因此強烈建議使用記錄分析工作區來監視和警示大規模您所有的 Azure 備份保護工作負載。

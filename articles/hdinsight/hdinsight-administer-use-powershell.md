@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: tylerfox
 ms.openlocfilehash: a7e129f43b957b271c77f451ab198a9068bb0797
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64718992"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 上的 Apache Hadoop 叢集
@@ -24,12 +24,12 @@ Azure PowerShell 可讓您在 Azure 中用來控制和自動化工作負載的�
 
 * Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-* PowerShell [Az 模組](https://docs.microsoft.com/powershell/azure/overview)安裝。
+* 安裝 PowerShell [Az 模組](https://docs.microsoft.com/powershell/azure/overview)。
 
 ## <a name="create-clusters"></a>建立叢集
 請參閱 [使用 Azure PowerShell 在 HDInsight 中建立以 Linux 為基礎的叢集](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 
-## <a name="list-clusters"></a>列出群集
+## <a name="list-clusters"></a>列出叢集
 使用下列命令列出目前訂用帳戶中的所有叢集：
 
 ```powershell
@@ -100,7 +100,7 @@ Remove-AzResourceGroup -Name <Resource Group Name>
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
 
-若要使用 Azure PowerShell 更改 Hadoop 群集大小，请从客户端计算机运行以下命令：
+若要使用 Azure PowerShell 變更 Hadoop 叢集大小，請從用戶端電腦執行下列命令：
 
 ```powershell
 Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
@@ -108,7 +108,7 @@ Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <New
 
 
 ## <a name="grantrevoke-access"></a>授與/撤銷存取權
-HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样式的终结点）：
+HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful 端點)：
 
 * ODBC
 * JDBC
@@ -142,7 +142,7 @@ Grant-AzHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $c
 > [!NOTE]  
 > 透過授與/撤銷存取權，您將重設叢集使用者名稱和密碼。
 
-授與及撤銷存取權也可以透過入口網站完成。 请参阅[使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集](hdinsight-administer-use-portal-linux.md)。
+授與及撤銷存取權也可以透過入口網站完成。 請參閱[使用 Azure 入口網站在 HDInsight 中管理 Apache Hadoop 叢集](hdinsight-administer-use-portal-linux.md)。
 
 ## <a name="update-http-user-credentials"></a>更新 HTTP 使用者認證
 這是與授與/撤銷 HTTP 存取權相同的程序。 如果已將 HTTP 存取權授與叢集，您必須先將它撤銷。  然後再使用新的 HTTP 使用者認證授與存取權。

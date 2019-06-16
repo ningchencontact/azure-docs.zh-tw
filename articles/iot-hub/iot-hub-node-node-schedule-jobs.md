@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.openlocfilehash: 1a42b590fc83b89cd9f90998f835fc58f84ea960
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: af35a84c299544e43988547771ddce75fd71bd90
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597412"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065792"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>排定及廣播作業 (Node)
 
@@ -22,7 +22,7 @@ ms.locfileid: "65597412"
 
 Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立作業來排定和更新數百萬個裝置，並追蹤作業。  作業可用於下列動作：
 
-* 更新所需属性
+* 更新所需屬性
 * 更新標籤
 * 叫用直接方法
 
@@ -80,9 +80,9 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
    npm install azure-iot-device azure-iot-device-mqtt --save
    ```
 
-3. 使用文字編輯器，在 [simDevice] 資料夾中建立新的 **simDevice.js** 檔案。
+3. 使用文字編輯器，在 [simDevice]  資料夾中建立新的 **simDevice.js** 檔案。
 
-4. 在 **simDevice.js** 文件的开头添加以下“require”语句：
+4. 在 **simDevice.js** 檔案的開頭新增下列 'require' 陳述式：
    
     ```
     'use strict';
@@ -98,14 +98,14 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
-6. 添加以下函数以处理 **lockDoor** 方法。
+6. 新增下列函式以處理 **lockDoor** 方法。
    
     ```
     var onLockDoor = function(request, response) {
    
         // Respond the cloud app for the direct method
         response.send(200, function(err) {
-            if (!err) {
+            if (err) {
                 console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');
@@ -151,7 +151,7 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
     npm install azure-iothub uuid --save
     ```
 
-3. 使用文字編輯器，在 [scheduleJobService] 資料夾中建立新的 **scheduleJobService.js** 檔案。
+3. 使用文字編輯器，在 [scheduleJobService]  資料夾中建立新的 **scheduleJobService.js** 檔案。
 
 4. 在 **dmpatterns_gscheduleJobServiceetstarted_service.js** 檔案的開頭新增下列 'require' 陳述式：
    
@@ -259,13 +259,13 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
     });
     ```
 
-9. 保存并关闭 **scheduleJobService.js** 文件。
+9. 儲存並關閉 **scheduleJobService.js** 檔案。
 
 ## <a name="run-the-applications"></a>執行應用程式
 
 現在您已經準備好執行應用程式。
 
-1. 在 simDevice 文件夹的命令提示符处，运行以下命令以开始侦听重启直接方法。
+1. 在命令提示字元中，於 **simDevice** 資料夾中執行下列命令來開始接聽重新啟動直接方法。
    
     ```
     node simDevice.js
@@ -277,7 +277,7 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
     node scheduleJobService.js
     ```
 
-3. 可以在控制台中看到设备对直接方法的响应。
+3. 您會在主控台中看到直接方法的裝置回應。
 
 ## <a name="next-steps"></a>後續步驟
 

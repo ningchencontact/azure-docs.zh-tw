@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 8b76e1a168d39d2f39098754f43bae73c21c2049
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ac1a6136eae79700c427b27c8869bc9241c62abc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799832"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717803"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Resource Manager 模式中的 Azure CLI 命令
 本文提供在 Azure Resource Manager 部署模型中建立和管理 Azure 資源時，常用的 Azure 命令列介面 (CLI) 命令的語法和選項。 您可以在 Resource Manager (ARM) 模式中執行 CLI 來存取這些命令。 這不是完整的參考，您的 CLI 版本可能會顯示稍微不同的命令或參數。 如需 Azure 資源及資源群組的一般概觀，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。  
@@ -32,7 +32,7 @@ ms.locfileid: "60799832"
 
 若要開始使用，請先[安裝 Azure CLI](../cli-install-nodejs.md)，並[連線到您的 Azure 訂用帳戶](/cli/azure/authenticate-azure-cli)。
 
-要在 Resource Manager 模式下在命令行中查看当前的命令语法和选项，请键入 `azure help`；要显示某个命令的帮助，请键入 `azure help [command]`。 还可以在创建和管理特定 Azure 服务的说明文档中找到 CLI 示例。
+如需在資源管理員模式中命令列目前的命令語法和選項，請輸入 `azure help`，或顯示特定命令的說明 `azure help [command]`。 也可以在文件中找到建立和管理特定 Azure 服務的 CLI 範例。
 
 選用參數會以方括弧括住 (例如， `[parameter]`)。 其他所有參數皆為必要參數。
 
@@ -137,7 +137,7 @@ ms.locfileid: "60799832"
     config mode [options] <modename>
 
 
-## <a name="azure-feature-commands-to-manage-account-features"></a>azure feature：用于管理帐户功能的命令
+## <a name="azure-feature-commands-to-manage-account-features"></a>azure feature：用來管理帳戶功能的命令
 **列出您訂用帳戶可用的所有功能**
 
     feature list [options]
@@ -740,7 +740,7 @@ ms.locfileid: "60799832"
     + Updating load balancer "mylb"
     info:    network lb probe set command OK
 
-参数选项
+參數選項
 
     -h, --help                             output usage information
     -v, --verbose                          use verbose output
@@ -969,9 +969,10 @@ ms.locfileid: "60799832"
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
+
     network lb address-pool delete [options] <resource-group> <lb-name> <name>
 
-从负载均衡器中删除后端 IP 池范围资源。
+移除來自負載平衡器的後端 IP 集區範圍資源。
 
     azure network lb address-pool delete -g myresourcegroup -l mylb -n mybackendpool
 
@@ -995,7 +996,7 @@ ms.locfileid: "60799832"
 **用來管理負載平衡器規則的命令**
 
     network lb rule create [options] <resource-group> <lb-name> <name>
-创建负载均衡器规则。
+建立負載平衡器規則。
 
 您可以建立負載平衡器規則，用以設定負載平衡器的前端端點，以及設定接收傳入網路流量的後端位址集區範圍。 設定也包含前端 IP 端點的連接埠以及後端位址集區範圍的連接埠。
 
@@ -1333,7 +1334,9 @@ ms.locfileid: "60799832"
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
-     network public-ip list [options] <resource-group> 列出資源群組中的所有公用 IP 資源。
+
+    network public-ip list [options] <resource-group>
+列出資源群組內的所有公用 IP 資源。
 
     azure network public-ip list -g myresourcegroup
 
@@ -1353,7 +1356,9 @@ ms.locfileid: "60799832"
     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
+
 <BR>
+
     network public-ip show [options] <resource-group> <name>
 
 顯示資源群組中公用 IP 資源的公用 IP 屬性。

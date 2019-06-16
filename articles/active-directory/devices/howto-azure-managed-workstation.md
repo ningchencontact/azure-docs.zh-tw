@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 242926c0821e4951d2a2bd2f858f63691baf1017
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: ae7c823b9aea262556081354a108ac9509a284ab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307223"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110676"
 ---
 # <a name="deploy-a-secure-workstation"></a>部署安全的工作站
 
@@ -106,7 +106,7 @@ Microsoft 365 企業版 E5 」 或 「 對等的 SKU，則會假設本指南中�
 
 Azure AD 條件式存取可協助保持符合規範的裝置上的這些特殊權限的系統管理工作。 我們已定義為成員的使用者**安全的工作站使用者**群組都必須執行多重要素驗證登入雲端應用程式時。 我們將遵循的最佳做法指導，並從原則中排除我們緊急存取帳戶。 在本文中，可以找到其他資訊[在 Azure AD 中管理緊急存取帳戶](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 
-若要設定條件式存取，從 Azure 入口網站，瀏覽至**Azure Active Directory** > **條件式存取** > **新原則**。
+若要從 Azure 入口網站中設定條件式存取，瀏覽至**Azure Active Directory** > **條件式存取** > **新原則**。
 
 * **名稱**-安全的裝置所需的原則
 * 指派
@@ -122,7 +122,7 @@ Azure AD 條件式存取可協助保持符合規範的裝置上的這些特殊�
       * 為多個控制項-**需要所有選取的控制項**
 * 啟用原則-**上**
 
-組織可以選擇建立區塊國家/地區的使用者會存取公司資源的原則。 IP 位置型條件式存取原則的詳細資訊可在發行項[什麼是 Azure Active Directory 條件式存取中的位置條件？](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
+組織可以選擇建立區塊國家/地區的使用者會存取公司資源的原則。 IP 位置型條件式存取原則的詳細資訊可在發行項[什麼是 Azure Active Directory 條件式存取的位置條件？](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
 
 ## <a name="intune-configuration"></a>Intune 設定
 

@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06112361434a8217df6714a70d0059c175e98ac8
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: df20c8b863a6abb1cdb4d53c0057b223fe9fdaf5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521707"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110434"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>關於 Azure Active Directory 的常見問題集
 Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) 解決方案，其涉及範圍橫跨身分識別、存取管理和安全性的所有層面。
@@ -196,7 +196,7 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 - - -
 **問：如何對存取特定應用程式的使用者要求多重要素驗證？**
 
-**答：** Azure AD 條件式存取可讓您針對每個應用程式指派唯一的存取原則。 您可以在原則中要求一律要進行 Multi-Factor Authentication，或在使用者未連線到區域網路時才進行。  
+**答：** 使用 Azure AD 條件式存取，您可以指派唯一的存取原則，每個應用程式。 您可以在原則中要求一律要進行 Multi-Factor Authentication，或在使用者未連線到區域網路時才進行。  
 
 如需詳細資訊，請參閱[保護對 Office 365 及其他連接至 Azure Active Directory 之應用程式的存取](../active-directory-conditional-access-azure-portal.md)。
 
@@ -210,4 +210,4 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 - - -
 **問：是否可以設定與 Azure AD 之間的安全 LDAP 連線？**
 
-**答：** 沒有。 Azure AD 不支援輕量型目錄存取通訊協定 (LDAP) 通訊協定或安全 LDAP 直接。 不過，就可以啟用 Azure AD 租用戶使用透過 Azure 網路來達成 LDAP 連線已正確設定的網路安全性群組上的 Azure AD Domain Services (Azure AD DS) 執行個體。 如需詳細資訊，請參閱 https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap。
+**答：** 沒有。 Azure AD 不支援輕量型目錄存取通訊協定 (LDAP) 通訊協定或安全 LDAP 直接。 不過，就可以啟用 Azure AD 租用戶使用透過 Azure 網路來達成 LDAP 連線已正確設定的網路安全性群組上的 Azure AD Domain Services (Azure AD DS) 執行個體。 如需詳細資訊，請參閱 https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap 。
