@@ -9,10 +9,10 @@ ms.date: 05/23/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ms.openlocfilehash: 70de178df86a4b202298eda63b0f59cb7bc96281
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237826"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 語言參考 
@@ -531,7 +531,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 |**comparison**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|等於。 若引數相等，則傳回 **True**，否則會傳回 **False**。<br /><br /> 不等於。 若引數不相等，則傳回 **True**，否則會傳回 **False**。<br /><br /> 大於。 如果第一個引數大於第二個引數，則傳回 **True**，否則傳回 **False**。<br /><br /> 大於或等於。 如果第一個引數大於或等於第二個引數，則傳回 **True**，否則傳回 **False**。<br /><br /> 小於。 如果第一個引數小於第二個引數，則傳回 **True**，否則傳回 **False**。<br /><br /> 小於或等於。 如果第一個引數小於或等於第二個引數，則傳回 **True**，否則傳回 **False**。<br /><br /> 聯合。 若第一個引數為**未定義的**值，則會傳回第二個引數。|  
 |**String**|**&#124;&#124;**|串連。 傳回兩個引數的串連。|  
   
- **三元運算子：**   
+ **三元運算子：**  
 
 |**名稱**|**運算子**|**詳細資料**| 
 |-|-|-|  

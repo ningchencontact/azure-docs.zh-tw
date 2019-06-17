@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: 39bb75a6f834789f91cb590ffebb72f45624eb25
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148865"
 ---
 # <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(已淘汰) 保護 Azure Container Service 中的 Docker 容器
@@ -24,7 +24,7 @@ ms.locfileid: "66148865"
 ### <a name="public-and-private-images"></a>公用和私人映像
 一般情況下，可公開取得的容器映像並無法保證安全性，這個情況就和任何已公開發佈的軟體套件一樣。 容器映像包含多個軟體層，每個軟體層可能各有弱點。 它是了解容器映像來源 (包括映像擁有者，以便判斷它是否為可靠來源)、其所含軟體層和軟體版本的關鍵。 
 
-例如，如果您進入 Docker Hub 官方所提供的 [nginx 存放庫](https://hub.docker.com/_/nginx/)，並瀏覽至 [標記] 索引標籤，您就會看到每個映像以色彩標示的弱點。 每一種色彩各代表一個映像軟體層弱點。 如需有關 Docker Hub 弱點掃描的詳細資訊，請參閱[了解 Docker Hub 的官方存放庫](https://blog.docker.com/2015/06/understanding-official-repos-docker-hub/)。
+例如，如果您進入 Docker Hub 官方所提供的 [nginx 存放庫](https://hub.docker.com/_/nginx/)，並瀏覽至 [標記]  索引標籤，您就會看到每個映像以色彩標示的弱點。 每一種色彩各代表一個映像軟體層弱點。 如需有關 Docker Hub 弱點掃描的詳細資訊，請參閱[了解 Docker Hub 的官方存放庫](https://blog.docker.com/2015/06/understanding-official-repos-docker-hub/)。
 
 ![Docker Hub 中的 Nginx 映像](./media/container-service-security/docker-hub-nginx.png)
 

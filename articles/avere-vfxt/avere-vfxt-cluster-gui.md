@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60794271"
 ---
 # <a name="access-the-vfxt-cluster"></a>存取 vFXT 叢集
@@ -51,15 +51,15 @@ ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 
 範例： ``azureuser@203.0.113.51``
 
-在 [設定] 面板中：
+在 [設定]  面板中：
 
-1. 展開左側的 [連線] > [SSH]。 
-1. 按一下 [通道]。 
+1. 展開左側的 [連線]   > [SSH]  。 
+1. 按一下 [通道]  。 
 1. 輸入來源連接埠，例如 8443。 
 1. 在目的地中，輸入 vFXT 叢集的管理 IP 位址和連接埠 443。 
    範例： ``203.0.113.51:443``
-1. 按一下 [新增] 。
-1. 按一下 [開啟] 。
+1. 按一下 [新增]  。
+1. 按一下 [開啟]  。
 
 ![顯示按一下哪裡可新增通道的 Putty 應用程式螢幕擷取畫面](media/avere-vfxt-ptty-numbered.png)
 
@@ -75,13 +75,13 @@ ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 
 * 如果您使用 VPN 或 ExpressRoute 連至叢集，請在瀏覽器中瀏覽至叢集管理 IP 位址。 範例： ``https://203.0.113.51``
 
-根據您的瀏覽器，您可能需要按一下 [進階]，並確認否安全地前往到該頁面。
+根據您的瀏覽器，您可能需要按一下 [進階]  ，並確認否安全地前往到該頁面。
 
 輸入您在建立叢集時所提供的使用者名稱 `admin` 和系統管理密碼。
 
 ![填入使用者名稱 'admin' 和密碼的 Avere 登入頁面螢幕擷取畫面](media/avere-vfxt-gui-login.png)
 
-按一下 [登入]，或按鍵盤上的 Enter 鍵。
+按一下 [登入]  ，或按鍵盤上的 Enter 鍵。
 
 ## <a name="next-steps"></a>後續步驟
 

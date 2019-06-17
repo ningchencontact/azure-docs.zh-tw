@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60870501"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop-preview"></a>在 Windows 虛擬桌面預覽中的委派的存取
@@ -25,7 +25,7 @@ Windows 虛擬桌面委派存取支援每個項目的角色指派下列值：
     * 服務主體
 * 角色定義
     * 內建角色
-* 影響範圍
+* `Scope`
     * 租用戶群組
     * 租用戶
     * 主應用程式集區

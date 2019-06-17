@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 42e533cdcedfb47a46934f77714d61a640a8d7d1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942874"
 ---
 # <a name="azure-applications-test-drive-tab"></a>Azure 應用程式試用產品索引標籤
@@ -34,8 +34,8 @@ ms.locfileid: "64942874"
 
 ### <a name="to-enable-a-test-drive"></a>啟用試用產品：
 
-1. 在 [新增供應項目] 下方，選取 [試用產品] 索引標籤。
-2. 在 [試用產品] 下方，針對 [啟用試用產品] 選取 [是]。
+1. 在 [新增供應項目]  下方，選取 [試用產品]  索引標籤。
+2. 在 [試用產品]  下方，針對 [啟用試用產品]  選取 [是]  。
 
    ![啟用試用產品](./media/managed-app-enable-testdrive.png)
 
@@ -57,7 +57,7 @@ ms.locfileid: "64942874"
 |  ---------------   |  ---------------  |
 | **說明\***  |  說明可在試用產品上完成的動作。 您可以使用基本 HTML 標記來設定這個說明的格式。 例如，&lt;p&gt;、&lt;em&gt;、&lt;ul&gt;、&lt;li&gt;、&lt;ol&gt; 及標題。                |
 | **使用者手冊\***  |  上傳客戶可用來逐步進行試用產品體驗的使用者手冊。 這份文件必須是 .pdf 檔案。    |
-| **試用產品示範影片** |  選擇性的視訊逐步解說您的試用產品。 客戶可以先觀看這段影片，然後再取得試用產品。 提供影片在 YouTube 或 Vimeo 上的 URL。 如果您選取 [+ 新增影片]，系統將會提示您提供下列資訊：<ul><li>名稱</li><li>URL</li><li>縮圖 (.png 格式，533 x 324 像素)</li></ul>  |
+| **試用產品示範影片** |  選擇性的視訊逐步解說您的試用產品。 客戶可以先觀看這段影片，然後再取得試用產品。 提供影片在 YouTube 或 Vimeo 上的 URL。 如果您選取 [+ 新增影片]  ，系統將會提示您提供下列資訊：<ul><li>名稱</li><li>URL</li><li>縮圖 (.png 格式，533 x 324 像素)</li></ul>  |
 | **執行個體\***      | 設定所需的執行個體數目、要在哪個區域設定，以及您的客戶多快就能取得試用產品。 如需詳細資訊，請參閱[如何發佈試用產品](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive)。           |
 | **測試磁碟機的持續時間 （小時）\*** | 輸入整數的時數。 允許的範圍是從 1 到 999。 |
 | **測試磁碟機的 ARM 範本\***     | 上傳含有適用於您應用程式之 Azure Resource Manager 範本的壓縮 (.zip) 檔案。 如需詳細資訊，請參閱 [Azure Resource Manager 試用產品](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)。 |
@@ -68,7 +68,7 @@ ms.locfileid: "64942874"
 | **Azure AD 應用程式金鑰\***            | 建立應用程式的驗證金鑰，並將它貼到這個欄位。   |
 |  |  |
 
-提供所有必要資訊之後，請選取 [儲存] 以完成設定試用產品。
+提供所有必要資訊之後，請選取 [儲存]  以完成設定試用產品。
 
 
 ## <a name="next-steps"></a>後續步驟

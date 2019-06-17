@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: 25f32750b612bb66f23eb19c378f7935689f3a73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463084"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>媒體編碼器高階工作流程格式和轉碼器
@@ -45,7 +45,7 @@ ms.locfileid: "61463084"
 * MXF/SMPTE 377M
 * GXF
 * MPEG-2 傳輸資料流
-* MPEG-2 节目流
+* MPEG-2 程式資料流
 * MPEG-4/MP4
 * Windows Media/ASF
 * AVI (未壓縮 8 位元/10 位元)
@@ -76,7 +76,7 @@ ms.locfileid: "61463084"
 
 下節列出此媒體處理器支援做為輸出的轉碼器和檔案格式。
 
-### <a name="output-containerfile-formats"></a>输出容器/文件格式
+### <a name="output-containerfile-formats"></a>輸出容器/檔案格式
 
 * Adobe® Flash® F4V
 * MXF (OP1a、XDCAM 和 AS02)
@@ -95,7 +95,7 @@ ms.locfileid: "61463084"
 * DVCPro/DVCProHD (使用 MXF)
 * MPEG-2 (高達 422 Profile 和 High Level，包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs ® 和 D10 等變種)
 * MPEG-1
-* Windows Media 视频/VC-1
+* Windows Media 視訊/VC-1
 * JPEG 縮圖建立
 * HEVC (H.265、8 位元和 10 位元、主要和主要 10 設定檔)
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
 ms.openlocfilehash: 0d83bdc3fd3f644013a2d2b80128839658524db9
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864454"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>使用 IoT 中樞將訊息從雲端傳送至裝置 (.NET)
@@ -32,7 +32,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 * 接收裝置上的雲端到裝置訊息。
 
-* 從您的解決方案後端，要求確認收到從 IoT 中樞傳送到裝置的訊息 (「意見反應」)。
+* 從您的解決方案後端，要求確認收到從 IoT 中樞傳送到裝置的訊息 (「意見反應」  )。
 
 您可以在[使用 IoT 中樞的 D2C 和 C2D 傳訊](iot-hub-devguide-messaging.md)中，找到有關雲端到裝置訊息的詳細資訊。
 
@@ -56,7 +56,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 在本節中，您將修改在[將遙測資料從裝置傳送到 IoT 中樞...](quickstart-send-telemetry-dotnet.md)中建立的裝置應用程式，以接收來自 IoT 中樞的雲端到裝置訊息。
 
-1. 在 Visual Studio 的 **SimulatedDevice** 專案中，將下列方法新增 [程式] 類別。
+1. 在 Visual Studio 的 **SimulatedDevice** 專案中，將下列方法新增 [程式]  類別。
 
    ```csharp
     private static async void ReceiveC2dAsync()
@@ -79,7 +79,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
    `ReceiveAsync` 方法會以非同步方式，在裝置收到訊息時，傳回收到的訊息。 它會在可指定的逾時期間過後傳回「null」  (在本例中，使用的是預設值 1 分鐘)。 當應用程式收到 *null* 時，應繼續等待新訊息。 這項要求是 `if (receivedMessage == null) continue` 行的的原因。
 
-    對 `CompleteAsync()` 的呼叫會通知 IoT 中樞，說明已成功處理訊息。 可以安全地從裝置佇列中移除該訊息。 如果因故導致裝置應用程式無法完成訊息處理作業，「IoT 中樞」將會重新傳遞該訊息。 因此，裝置應用程式中的訊息處理邏輯必須是「等冪」，如此一來，多次接收相同的訊息才會產生相同的結果。 
+    對 `CompleteAsync()` 的呼叫會通知 IoT 中樞，說明已成功處理訊息。 可以安全地從裝置佇列中移除該訊息。 如果因故導致裝置應用程式無法完成訊息處理作業，「IoT 中樞」將會重新傳遞該訊息。 因此，裝置應用程式中的訊息處理邏輯必須是「等冪」  ，如此一來，多次接收相同的訊息才會產生相同的結果。 
 
     應用程式也可以暫時放棄訊息，這會使得「IoT 中樞」將訊息保留在佇列中以供未來取用。 或者，應用程式可以拒絕訊息，這會將訊息從佇列中永久移除。 如需有關雲端到裝置訊息生命週期的詳細資訊，請參閱[使用 IoT 中樞的 D2C 和 C2D 傳訊](iot-hub-devguide-messaging.md)。
 
@@ -105,7 +105,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 4. 在 [中樞] 窗格中選取**共用存取原則**。
 
-5. 選取 [iothubowner]。 它會在顯示的連接字串**iothubowner**面板。 選取複製圖示，如**連接字串-主索引鍵**。 儲存連接字串以供稍後使用。
+5. 選取 [iothubowner]  。 它會在顯示的連接字串**iothubowner**面板。 選取複製圖示，如**連接字串-主索引鍵**。 儲存連接字串以供稍後使用。
 
    ![取得 IoT 中樞連接字串](./media/iot-hub-csharp-csharp-c2d/get-iot-hub-connection-string.png)
 
@@ -113,13 +113,13 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 現在，您會撰寫.NET 主控台應用程式，將雲端到裝置訊息傳送到裝置應用程式。
 
-1. 在目前的 Visual Studio 解決方案中，以滑鼠右鍵按一下方案，然後選取 新增 > 新的專案。 選取  **Windows 桌面**，然後**主控台應用程式 (.NET Framework)**。 將專案命名為**SendCloudToDevice**並選取.NET Framework 中，最新版本，然後選取**確定**建立專案。
+1. 在目前的 Visual Studio 解決方案中，以滑鼠右鍵按一下方案，然後選取 新增 > 新的專案。 選取  **Windows 桌面**，然後**主控台應用程式 (.NET Framework)** 。 將專案命名為**SendCloudToDevice**並選取.NET Framework 中，最新版本，然後選取**確定**建立專案。
 
    ![Visual Studio 中的新專案](./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png)
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下方案，然後按一下 [ **管理方案的 NuGet 封裝...**]。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下方案，然後按一下 [ **管理方案的 NuGet 封裝...** ]。
 
-   此動作會開啟 [管理 NuGet 套件] 視窗。
+   此動作會開啟 [管理 NuGet 套件]  視窗。
 
 3. 搜尋**Microsoft.Azure.Devices**，選取 [瀏覽] 索引標籤。當您找到封裝時，按一下**安裝**，並接受使用規定。
 
@@ -163,9 +163,9 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
    Console.ReadLine();
    ```
 
-8. 從 Visual Studio 中，在您的方案上按一下滑鼠右鍵，然後選取 [設定啟始專案...]。選取 [多個啟始專案]，然後同時針對 **ReadDeviceToCloudMessages**、**SimulatedDevice** 以及 **SendCloudToDevice** 選取 [啟動] 動作。
+8. 從 Visual Studio 中，在您的方案上按一下滑鼠右鍵，然後選取 [設定啟始專案...]  。選取 [多個啟始專案]  ，然後同時針對 **ReadDeviceToCloudMessages**、**SimulatedDevice** 以及 **SendCloudToDevice** 選取 [啟動]  動作。
 
-9. 按 **F5**。 三個應用程式應該全部都會啟動。 選取 [SendCloudToDevice] 視窗，然後按 **Enter**。 您應該會看到裝置應用程式正在接收訊息。
+9. 按 **F5**。 三個應用程式應該全部都會啟動。 選取 [SendCloudToDevice]  視窗，然後按 **Enter**。 您應該會看到裝置應用程式正在接收訊息。
 
    ![正在接收訊息的應用程式](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
@@ -212,7 +212,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
    commandMessage.Ack = DeliveryAcknowledgement.Full;
    ```
 
-4. 按 **F5**來執行應用程式。 您應該會看到三個應用程式全部都啟動。 選取 [SendCloudToDevice] 視窗，然後按 **Enter**。 您應該會看到裝置應用程式正在接收訊息，而幾秒之後，則會看到您的 **SendCloudToDevice** 應用程式正在接收意見反應訊息。
+4. 按 **F5**來執行應用程式。 您應該會看到三個應用程式全部都啟動。 選取 [SendCloudToDevice]  視窗，然後按 **Enter**。 您應該會看到裝置應用程式正在接收訊息，而幾秒之後，則會看到您的 **SendCloudToDevice** 應用程式正在接收意見反應訊息。
 
    ![正在接收訊息的應用程式](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 

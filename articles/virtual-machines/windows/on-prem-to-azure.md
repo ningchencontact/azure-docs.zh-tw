@@ -17,10 +17,10 @@ ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 42ad7bc10cb7b93bd4db9260f950ae4ca12aba44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61126871"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>從 Amazon Web Services (AWS) 和其他平台移轉至 Azure 中的受控磁碟
@@ -57,12 +57,12 @@ Azure 受控磁碟可免除管理儲存體帳戶的需求，進而簡化 VM 管�
 
 ### <a name="location"></a>位置
 
-挑選 Azure 受控磁碟可用的位置。 如果要迁移到高级托管磁盘，还应确保高级存储在计划迁移到的区域中可用。 有关可用位置的最新信息，请参阅 [Azure 服务（按区域）](https://azure.microsoft.com/regions/#services) 。
+挑選 Azure 受控磁碟可用的位置。 如果您要移轉至進階受控磁碟，也請確保進階儲存體可用於您打算移轉至的區域。 如需可使用 Azure 服務之地點的最新資訊，請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/#services)。
 
 ### <a name="vm-sizes"></a>VM 大小
 
 如果您要移轉至進階受控磁碟，您必須將 VM 大小更新為 VM 所在區域中進階儲存體可支援的大小。 檢閱進階儲存體可支援的 VM 大小。 Azure VM 大小的規格已列在 [虛擬機器的大小](sizes.md)一文中。
-請檢閱使用於進階儲存體的虛擬機器效能特性，然後選擇最適合您的工作負載的 VM 大小。 确保 VM 上有足够的带宽来驱动磁盘通信。
+請檢閱使用於進階儲存體的虛擬機器效能特性，然後選擇最適合您的工作負載的 VM 大小。 確定 VM 上有足夠的磁碟流量頻寬。
 
 ### <a name="disk-sizes"></a>磁碟大小
 
@@ -86,7 +86,7 @@ Azure 受控磁碟可免除管理儲存體帳戶的需求，進而簡化 VM 管�
 | 每一磁碟的 IOPS       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
 | 每一磁碟的輸送量 | 每秒 60 MB | 每秒 60 MB | 每秒 60 MB | 每秒 60 MB |每秒 60 MB | 每秒 60 MB | 每秒 60 MB | 每秒 60 MB | 
 
-### <a name="disk-caching-policy"></a>磁盘缓存策略 
+### <a name="disk-caching-policy"></a>磁碟快取原則 
 
 **進階受控磁碟**
 

@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/24/2018
 ms.openlocfilehash: 292d517f2c99974f4674a4c94472a0a320320ce4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62106010"
 ---
 # <a name="monitor-create-and-manage-salesforce-resources-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 來監視、建立及管理 Salesforce 資源
@@ -35,7 +35,7 @@ ms.locfileid: "62106010"
 
 * [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識
 
-* 您要在其中存取 Salesforce 帳戶的邏輯應用程式。 若要開始使用 Salesforce 觸發程序，請[建立空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要使用 Salesforce 動作，請使用其他觸發程序來啟動邏輯應用程式，例如「週期」觸發程序。
+* 您要在其中存取 Salesforce 帳戶的邏輯應用程式。 若要開始使用 Salesforce 觸發程序，請[建立空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要使用 Salesforce 動作，請使用其他觸發程序來啟動邏輯應用程式，例如「週期」  觸發程序。
 
 ## <a name="connect-to-salesforce"></a>連線至 Salesforce
 
@@ -50,7 +50,7 @@ ms.locfileid: "62106010"
 
      -或-
 
-   * 若是現有的邏輯應用程式，請在想要新增動作的步驟底下，選擇 [新增步驟]。 在搜尋方塊中，輸入「salesforce」作為篩選條件。 在動作清單底下，選取您想要的動作。
+   * 若是現有的邏輯應用程式，請在想要新增動作的步驟底下，選擇 [新增步驟]  。 在搜尋方塊中，輸入「salesforce」作為篩選條件。 在動作清單底下，選取您想要的動作。
 
 1. 如果系統提示您登入 Salesforce，請立即登入並允許存取。
 
