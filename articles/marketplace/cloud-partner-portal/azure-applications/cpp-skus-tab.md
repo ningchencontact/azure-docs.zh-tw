@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: ef4ea2419c64d0376023ea5d291460df48a51c63
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943413"
 ---
 # <a name="azure-application-skus-tab"></a>Azure 應用程式 SKU 索引標籤
@@ -27,12 +27,12 @@ ms.locfileid: "64943413"
 
 若要建立新的 SKU，使用下列步驟：
 
-1. 選取 [SKU] 索引標籤。
-2. 在 SKU 下，選取 [+ 新增 SKU]。
+1. 選取 [SKU]  索引標籤。
+2. 在 SKU 下，選取 [+ 新增 SKU]  。
 
     ![新增 SKU 提示](./media/azureapp-plus-sku.png)
 
-3. 在 [新增 SKU] 快顯視窗中，輸入 [SKU 識別碼]。 此識別碼的長度限制為 50 個字元，且只能包含小寫英數字元、連字號或底線。 SKU 識別碼不能以連字號結尾。
+3. 在 [新增 SKU] 快顯視窗中，輸入 [SKU 識別碼]  。 此識別碼的長度限制為 50 個字元，且只能包含小寫英數字元、連字號或底線。 SKU 識別碼不能以連字號結尾。
 4. 客戶會看到此 SKU 識別碼顯示在產品的 URL、Resource Manager 範本 (如果適用) 和計費報告中。 供應項目發行之後，您無法修改此識別碼。
 
 ### <a name="sku-details-for-a-solution-template"></a>解決方案範本的 SKU 詳細資料
@@ -73,7 +73,7 @@ ms.locfileid: "64943413"
 | **SKU 類型\***   | 類型的 Azure 應用程式方案，然後選取 ***受管理的應用程式**此案例中。 
 | **雲端可用性\*** | SKU 的位置。 預設值是**公用 Azure**。  <b/>   **公用 Azure** -應用程式將會部署至整合 marketplace 的所有公用 Azure 區域中的客戶。  <b/>   **Azure Government 雲端**-將會在 Azure Government 雲端中部署應用程式。 之前發行至[Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners)，Microsoft 建議發行者測試及驗證解決方案能如預期般在此環境中。 若要執行暫存和測試，請要求[試用帳戶](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/)。   Microsoft Azure Government 是政府社群雲端，US 聯邦政府、本地客戶或部落客戶，及符合資格可以為這些實體提供服務的合作夥伴，擁有此雲端的控管權限。 |
 | **這是私用的 SKU 嗎？\*** | 選取 **是**如果此 SKU 只會提供給客戶的選取群組。 |
-| **國家/地區可用性\*** | 使用**區域以選取**若要檢視可用的國家/地區的清單。 檢查每個國家/地區，然後選取 [確定] 以儲存您的選擇。  <b/>   ![國家/地區和區域可用性清單](./media/azure-app-select-country-region.png)  |
+| **國家/地區可用性\*** | 使用**區域以選取**若要檢視可用的國家/地區的清單。 檢查每個國家/地區，然後選取 [確定]  以儲存您的選擇。  <b/>   ![國家/地區和區域可用性清單](./media/azure-app-select-country-region.png)  |
 | **舊的定價\*** | Sku，以美元為單位每月價格。 價格會根據設定時當前匯率的當地貨幣來設定。 由於您最後會擁有這些設定，請驗證這些選項。 若要個別設定或檢視每個國家/地區的價格，請匯出價格試算表，然後匯入自訂價格。  您必須儲存您的定價變更，即可匯出/匯入的定價資料。  |
 | **簡化的貨幣的價格\*** | Sku，以美元為單位每月價格。 這必須與舊的定價相同。 如需詳細資訊，請參閱[簡化的貨幣定價](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer)。 |
 |  |  |
@@ -135,22 +135,22 @@ ms.locfileid: "64943413"
 
 **如需建立新的授權：**
 
-1. 在 [授權] 下，選取 [+ 新增授權]。
+1. 在 [授權]  下，選取 [+ 新增授權]  。
 2. 針對**主體識別碼**，將使用者、群組或應用程式的 Azure Active Directory 識別碼，輸入至您要向其授與受控資源群組的存取權。 授與的權限由角色定義所指示。
-3. 針對 [角色定義]，從下拉式清單中選取其中一個選項：擁有者或參與者。 如需詳細資訊，請參閱 [Azure 資源的內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)。
+3. 針對 [角色定義]  ，從下拉式清單中選取其中一個選項：擁有者或參與者。 如需詳細資訊，請參閱 [Azure 資源的內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)。
 
 >[!NOTE] 
 >可以新增多個授權。 不過，建議要建立 Active Directory 使用者群組，並在 "PrincipalId" 中指定其識別碼。 如此可新增更多使用者到使用者群組，而不需要更新 SKU。
 
 **如需建立新的原則：**
 
-1. 在 [原則設定] 下，選取 [+ 新增原則]。
-2. 針對 [原則名稱]，請輸入原則名稱。 該名稱的長度上限為 50 個字元。
-3. 針對 [原則]，從下拉式清單中選取其中一個選項： 選擇當應用程式使用資料時，資料提供者要啟用的原則。 如需詳細資訊，請參閱 [Azure 原則範例](https://docs.microsoft.com/azure/governance/policy/samples/index)。
+1. 在 [原則設定]  下，選取 [+ 新增原則]  。
+2. 針對 [原則名稱]  ，請輸入原則名稱。 該名稱的長度上限為 50 個字元。
+3. 針對 [原則]  ，從下拉式清單中選取其中一個選項： 選擇當應用程式使用資料時，資料提供者要啟用的原則。 如需詳細資訊，請參閱 [Azure 原則範例](https://docs.microsoft.com/azure/governance/policy/samples/index)。
 
     ![受控應用程式的授權設定](./media/azureapp-sku-policy-settings.png)
 
-4. 針對 [原則 SKU]，選取免費或標準作為原則 SKU 的類型。 稽核原則需要標準 SKU。
+4. 針對 [原則 SKU]  ，選取免費或標準作為原則 SKU 的類型。 稽核原則需要標準 SKU。
 
 
 ## <a name="next-steps"></a>後續步驟

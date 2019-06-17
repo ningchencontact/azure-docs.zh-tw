@@ -10,10 +10,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae47cba8f8e9a7cdf914c0b3ea5dfb9fa6c259a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738208"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>從 Orchestrator 移轉到 Azure 自動化 (Beta)
@@ -104,7 +104,7 @@ Runbook Converter 會在與所轉換的 Runbook 的相同位置中建立下列�
 ### <a name="exporting-runbooks-from-orchestrator"></a>從 Orchestrator 匯出 Runbook
 Runbook Converter 可與來自包含一或多個 Runbook 的 Orchestrator 匯出檔案搭配使用。  它會為匯出檔案中的每個 Orchestrator Runbook 建立對應的 Azure 自動化 Runbook。  
 
-若要從 Orchestrator 匯出 Runbook，請在 Runbook Designer 中的 Runbook 名稱上按一下滑鼠右鍵，然後選取 [匯出] 。  若要匯出資料夾中的所有 Runbook，請在資料夾名稱上按一下滑鼠右鍵，並選取 [匯出] 。
+若要從 Orchestrator 匯出 Runbook，請在 Runbook Designer 中的 Runbook 名稱上按一下滑鼠右鍵，然後選取 [匯出]  。  若要匯出資料夾中的所有 Runbook，請在資料夾名稱上按一下滑鼠右鍵，並選取 [匯出]  。
 
 ### <a name="runbook-activities"></a>Runbook 活動
 Runbook Converter 會將 Orchestrator Runbook 中的每個活動轉換成 Azure 自動化中的對應活動。  針對無法轉換的這些活動，會在 Runbook 中建立預留位置活動，並帶有警告文字。  將轉換的 Runbook 匯入 Azure 自動化之後，您必須將這些活動取代為可執行所需功能的有效活動。
@@ -126,7 +126,7 @@ Orchestrator 中的 Runbook 會接受具有 **初始化資料** 活動的輸入�
 使用此策略的原因是最能與 Orchestrator Runbook 中的功能對映。  新圖形化 Runbook 中的活動應該使用 Runbook 輸入資料來源直接參照輸入參數。
 
 ### <a name="invoke-runbook-activity"></a>叫用 Runbook 活動
-Orchestrator 中的 Runbook 會使用 **叫用 Runbook** 活動來啟動其他 Runbook。 如果要轉換的 Runbook 包含此活動，並且設定了 **等候完成** 選項，則會為它在轉換後的 Runbook 中建立 Runbook 活動。  如果未設定 [等候完成] 選項，則會建立使用 **Start-AzureAutomationRunbook** 來啟動 Runbook 的工作流程指令碼活動。  將轉換的 Runbook 匯入 Azure 自動化之後，您必須以活動中指定的資訊修改此活動。
+Orchestrator 中的 Runbook 會使用 **叫用 Runbook** 活動來啟動其他 Runbook。 如果要轉換的 Runbook 包含此活動，並且設定了 **等候完成** 選項，則會為它在轉換後的 Runbook 中建立 Runbook 活動。  如果未設定 [等候完成]  選項，則會建立使用 **Start-AzureAutomationRunbook** 來啟動 Runbook 的工作流程指令碼活動。  將轉換的 Runbook 匯入 Azure 自動化之後，您必須以活動中指定的資訊修改此活動。
 
 ## <a name="related-articles"></a>相關文章
 * [System Center 2012 - Orchestrator](https://technet.microsoft.com/library/hh237242.aspx)

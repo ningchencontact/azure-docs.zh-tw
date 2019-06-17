@@ -17,18 +17,18 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb9a6f162a10408469669cf40b29efc6d2903944
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 612bdd2a5813237f05e9a30a0c90c3b643ece4b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546055"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111453"
 ---
 # <a name="authentication-flows"></a>驗證流程
 
 本文說明提供 Microsoft Authentication Library (MSAL) 不同的驗證流程。  這些流程可以用於各種不同的應用程式案例。
 
-| Flow | 說明 | 使用於|  
+| Flow | 描述 | 使用於|  
 | ---- | ----------- | ------- | 
 | [互動式](#interactive) | 透過互動式處理序會提示使用者輸入認證，透過瀏覽器或快顯視窗中取得的權杖。 | [傳統型應用程式](scenario-desktop-overview.md)，[行動裝置應用程式](scenario-mobile-overview.md) |
 | [隱含授與](#implicit-grant) | 可讓應用程式，以取得權杖，而不需執行的後端伺服器認證交換。 這可讓應用程式登入使用者、維護工作階段，並且取得用戶端 JavaScript 程式碼中所有其他 Web API 的權杖。| [單一頁面應用程式 (SPA)](scenario-spa-overview.md) |
@@ -126,7 +126,7 @@ MSAL 也支援[OAuth 2 裝置程式碼流程](v2-oauth2-device-code.md)，可讓
 
 ![裝置程式碼流程](media/msal-authentication-flows/device-code.png)
 
-1. 需要使用者驗證時，應用程式提供的程式碼，並要求使用者使用 （例如連線到網際網路的智慧型手機） 的其他裝置，巡覽至的 URL (例如 https://microsoft.com/devicelogin)，輸入程式碼會提示使用者。 完成之後，web 網頁將會導致透過一般的驗證體驗，包括如有必要的同意提示和 multi-factor authentication 使用者。
+1. 需要使用者驗證時，應用程式提供的程式碼，並要求使用者使用 （例如連線到網際網路的智慧型手機） 的其他裝置，巡覽至的 URL (例如 https://microsoft.com/devicelogin) ，輸入程式碼會提示使用者。 完成之後，web 網頁將會導致透過一般的驗證體驗，包括如有必要的同意提示和 multi-factor authentication 使用者。
 
 2. 驗證成功後，命令列應用程式將會收到需要的語彙基元，透過後頻道，並將它用來執行它所需要的 web API 呼叫。
 
@@ -152,7 +152,7 @@ MSAL 也支援適用於桌面整合式 Windows 驗證 (IWA)，或在已加入網
 
 適用於.NET Framework、.NET Core 和通用 Windows 平台的平台所撰寫的應用程式是 IWA。
 
-IWA 不會不會略過 MFA （多重要素驗證）。 如果設定了 MFA，則如果需要 MFA 挑戰，因為，MFA 還需要使用者互動，就可能會失敗 IWA。 這是棘手。 IWA 為非互動式的但兩個要素驗證 (2FA) 需要使用者互動性。 您無法控制身分識別提供者要求有 2FA 才能執行時，租用戶系統管理員。 從我們的觀察，2FA 時需要您登入來自不同國家/地區中，當未連接透過 VPN 到公司網路，並透過 VPN 連線時，有時甚至。 千萬不要將具有決定性的一組規則，Azure Active Directory 會使用 AI 來持續了解是否需要 2FA。 您應該使用者提示的後援 (https://aka.ms/msal-net-interactive)如果 IWA 失敗。
+IWA 不會不會略過 MFA （多重要素驗證）。 如果設定了 MFA，則如果需要 MFA 挑戰，因為，MFA 還需要使用者互動，就可能會失敗 IWA。 這是棘手。 IWA 為非互動式的但兩個要素驗證 (2FA) 需要使用者互動性。 您無法控制身分識別提供者要求有 2FA 才能執行時，租用戶系統管理員。 從我們的觀察，2FA 時需要您登入來自不同國家/地區中，當未連接透過 VPN 到公司網路，並透過 VPN 連線時，有時甚至。 千萬不要將具有決定性的一組規則，Azure Active Directory 會使用 AI 來持續了解是否需要 2FA。 您應該使用者提示的後援 (https://aka.ms/msal-net-interactive) 如果 IWA 失敗。
 
 授權單位時傳入建構公用用戶端應用程式必須是：
 - 租用戶 (的表單`https://login.microsoftonline.com/{tenant}/`其中`tenant`是任一個 guid，代表租用戶識別碼或租用戶相關聯的網域。

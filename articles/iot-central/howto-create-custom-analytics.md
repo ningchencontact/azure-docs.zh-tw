@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: e039e2b8d9c183b5bfee1bee47e4addc4c873bf7
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66743436"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics"></a>使用自訂的分析來擴充 Azure IoT Central
@@ -37,7 +37,7 @@ ms.locfileid: "66743436"
 
 建立 IoT Central 應用程式來自[Azure IoT Central-我的應用程式](https://aka.ms/iotcentral)頁面使用下列設定：
 
-| 設定 | Value |
+| 設定 | 值 |
 | ------- | ----- |
 | 付款計劃 | Pay-As-You-Go |
 | 應用程式範本 | Contoso 範例 |
@@ -59,7 +59,7 @@ ms.locfileid: "66743436"
 
 | 設定 | 值 |
 | ------- | ----- |
-| Name    | 選擇您的命名空間名稱 |
+| 名稱    | 選擇您的命名空間名稱 |
 | 定價層 | 基本 |
 | 訂用帳戶 | 您的訂用帳戶 |
 | 資源群組 | IoTCentralAnalysis |
@@ -70,7 +70,7 @@ ms.locfileid: "66743436"
 
 使用[Azure 入口網站來建立 Azure Databricks 服務](https://portal.azure.com/#create/Microsoft.Databricks)使用下列設定：
 
-| 設定 | Value |
+| 設定 | 值 |
 | ------- | ----- |
 | 工作區名稱    | 選擇您的工作區名稱 |
 | 訂用帳戶 | 您的訂用帳戶 |
@@ -104,7 +104,7 @@ ms.locfileid: "66743436"
 1. 瀏覽至**連續資料匯出**頁面上，選取 **+ 新增**，然後**Azure 事件中樞**。
 1. 使用下列設定來設定匯出，然後選取**儲存**:
 
-    | 設定 | Value |
+    | 設定 | 值 |
     | ------- | ----- |
     | 顯示名稱 | 匯出至事件中樞 |
     | Enabled | 另一 |
@@ -128,7 +128,7 @@ ms.locfileid: "66743436"
 
 使用下表中的資訊，來建立叢集：
 
-| 設定 | Value |
+| 設定 | 值 |
 | ------- | ----- |
 | 叢集名稱 | centralanalysis |
 | 叢集模式 | 標準 |

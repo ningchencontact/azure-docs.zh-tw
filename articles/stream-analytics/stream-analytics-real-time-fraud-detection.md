@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 38353ed68469ac35f04d68e19afd11ac4b47f2ae
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: cfb7dc8ef41c8829caebed6fff2d881093dbbe4d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943958"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076227"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>開始使用 Azure 串流分析：即時詐欺偵測
 
@@ -42,13 +42,13 @@ ms.locfileid: "64943958"
 * 通話事件產生器應用程式 [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) (可至 Microsoft 下載中心下載)。 將此套件解壓縮至電腦上的資料夾。 如果您想要看到原始程式碼，並在偵錯工具中執行應用程式，您可以從 [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator) 取得應用程式原始程式碼。 
 
     >[!NOTE]
-    >Windows 可能會封鎖下載的 .zip 檔案。 請無法解壓縮，請以滑鼠右鍵按一下檔案，然後選取 [內容]。 如果看到「這個檔案來自另一部電腦，可能會封鎖以協助保護您的電腦」訊息，請選取 [解除封鎖] 選項，並按一下 [套用]。
+    >Windows 可能會封鎖下載的 .zip 檔案。 請無法解壓縮，請以滑鼠右鍵按一下檔案，然後選取 [內容]  。 如果看到「這個檔案來自另一部電腦，可能會封鎖以協助保護您的電腦」訊息，請選取 [解除封鎖]  選項，並按一下 [套用]  。
 
 如果想要檢查串流分析作業的結果，您也需要工具來檢視 Azure Blob 儲存體容器的內容。 如果您使用 Visual Studio，您可以使用 [Azure Tools for Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) 或 [Visual Studio Cloud Explorer](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer)。 或者，您可以安裝獨立工具，例如 [Azure 儲存體總管](https://storageexplorer.com/)或 [Cerulean](https://www.cerebrata.com/products/cerulean/features/azure-storage) \(英文\)。 
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>建立 Azure 事件中樞來內嵌事件
 
-若要分析資料流，您需要將資料流「內嵌」到 Azure。 內嵌資料的一般做法是使用 [Azure 事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)，這可讓您每秒內嵌數百萬個事件，然後處理並儲存事件資訊。 在本教學課程中，您將建立事件中樞，然後由通話事件產生器應用程式將通話資料傳送至該事件中樞。 如需深入了解事件中樞，請參閱 [Azure 服務匯流排文件](https://docs.microsoft.com/azure/service-bus/)。
+若要分析資料流，您需要將資料流「內嵌」  到 Azure。 內嵌資料的一般做法是使用 [Azure 事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)，這可讓您每秒內嵌數百萬個事件，然後處理並儲存事件資訊。 在本教學課程中，您將建立事件中樞，然後由通話事件產生器應用程式將通話資料傳送至該事件中樞。 如需深入了解事件中樞，請參閱 [Azure 服務匯流排文件](https://docs.microsoft.com/azure/service-bus/)。
 
 >[!NOTE]
 >如需此程序的詳細資訊，請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。 
@@ -56,47 +56,47 @@ ms.locfileid: "64943958"
 ### <a name="create-a-namespace-and-event-hub"></a>建立命名空間和事件中樞
 在此程序中，您需要先建立事件中樞命名空間，再將事件中樞新增至該命名空間。 事件中樞命名空間可在邏輯上將相關的事件匯流排執行個體分組。 
 
-1. 登入 Azure 入口網站，按一下 [建立資源] > [物聯網] > [事件中樞]。 
+1. 登入 Azure 入口網站，按一下 [建立資源]   > [物聯網]   > [事件中樞]  。 
 
-2. 在 [建立命名空間] 窗格中，輸入命名空間名稱，例如 `<yourname>-eh-ns-demo`。 您可以使用任何名稱作為命名空間，但名稱在 URL 中必須有效，而且在整個 Azure 內必須唯一的。 
+2. 在 [建立命名空間]  窗格中，輸入命名空間名稱，例如 `<yourname>-eh-ns-demo`。 您可以使用任何名稱作為命名空間，但名稱在 URL 中必須有效，而且在整個 Azure 內必須唯一的。 
     
-3. 選取訂用帳戶並建立或選擇資源群組，然後按一下 [建立]。
+3. 選取訂用帳戶並建立或選擇資源群組，然後按一下 [建立]  。
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="Create event hub namespace in Azure portal" width="300px"/>
 
 4. 當命名空間完成部署時，請在 Azure 資源清單中尋找事件中樞命名空間。 
 
-5. 按一下新的命名空間，然後在命名空間窗格中，按一下 [事件中樞]。
+5. 按一下新的命名空間，然後在命名空間窗格中，按一下 [事件中樞]  。
 
    ![建立新事件中樞的 [新增事件中樞] 按鈕](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
-6. 將新的事件中樞命名為 `asa-eh-frauddetection-demo`。 可以使用其他名称。 如果這樣做，請記下來，因為稍後需要用到此名稱。 您目前不需要為事件中樞設定其他任何選項。
+6. 將新的事件中樞命名為 `asa-eh-frauddetection-demo`。 您可以使用不同的名稱。 如果這樣做，請記下來，因為稍後需要用到此名稱。 您目前不需要為事件中樞設定其他任何選項。
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
  
-7. 按一下頁面底部的 [新增] 。
+7. 按一下頁面底部的 [新增]  。
 
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>授權存取事件中樞並取得連接字串
 
 事件中樞必須有原則來允許適當的存取權，流程才能將資料傳送到事件中樞。 存取原則會產生包含授權資訊的連接字串。
 
-1.  在事件命名空間窗格中，按一下 [事件中樞]，然後按一下新事件中樞的名稱。
+1.  在事件命名空間窗格中，按一下 [事件中樞]  ，然後按一下新事件中樞的名稱。
 
-2.  在事件中樞窗格中，按一下 [共用存取原則]，然後按一下 [新增]**+&nbsp;**。
+2.  在事件中樞窗格中，按一下 [共用存取原則]  ，然後按一下 [新增] **+&nbsp;** 。
 
     >[!NOTE]
     >請確定您正在使用事件中樞，而不是事件中樞命名空間。
 
-3.  新增名為 `sa-policy-manage-demo` 的原則，然後在 [宣告] 中，選取 [管理]。
+3.  新增名為 `sa-policy-manage-demo` 的原則，然後在 [宣告]  中，選取 [管理]  。
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
-4.  按一下頁面底部的 [新增] 。
+4.  按一下頁面底部的 [新增]  。
 
 5.  部署原則之後，在共用存取原則清單中按一下此原則。
 
-6.  找出標示為 [連接字串-主要索引鍵] 的方塊，按一下連接字串旁邊的複製按鈕。 
+6.  找出標示為 [連接字串-主要索引鍵]  的方塊，按一下連接字串旁邊的複製按鈕。 
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="Stream Analytics shared access policy" width="300px"/>
  
@@ -106,7 +106,7 @@ ms.locfileid: "64943958"
 
         Endpoint=sb://YOURNAME-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=asa-policy-manage-demo;SharedAccessKey=Gw2NFZwU1Di+rxA2T+6hJYAtFExKRXaC2oSQa0ZsPkI=;EntityPath=asa-eh-frauddetection-demo
 
-    请注意，连接字符串包含多个键值对，用分号分隔：`Endpoint`、`SharedAccessKeyName`、`SharedAccessKey` 和 `EntityPath`。  
+    請注意，連接字串包含多個機碼值組，以分號分隔：`Endpoint`、`SharedAccessKeyName`、`SharedAccessKey` 和 `EntityPath`。  
 
 ## <a name="configure-and-start-the-event-generator-application"></a>設定並啟動事件產生器應用程式
 
@@ -131,11 +131,12 @@ ms.locfileid: "64943958"
 
 ### <a name="start-the-app"></a>啟動應用程式
 1.  開啟命令視窗，切換至解壓縮 TelcoGenerator 應用程式的資料夾。
+
 2.  輸入下列命令：
 
-        ```cmd
-        telcodatagen.exe 1000 0.2 2
-        ```
+   ```cmd
+   telcodatagen.exe 1000 0.2 2
+   ```
 
     參數如下： 
 
@@ -147,10 +148,10 @@ ms.locfileid: "64943958"
 
 您在此即時詐騙偵測應用程式中會用到的一些重要欄位如下：
 
-|**記錄**|**定义**|
+|**記錄**|**定義**|
 |----------|--------------|
 |`CallrecTime`|通話開始時間的時間戳記。 |
-|`SwitchNum`|用來接通電話的電話交換機。 針對此範例中，參數會是字串，代表國家/地區 （美國、 中國、 英國、 德國或澳大利亞）。 |
+|`SwitchNum`|用來接通電話的電話交換機。 在此範例中，交換機是代表發話國家/地區的字串 (美國、中國、英國、德國或澳大利亞)。 |
 |`CallingNum`|來電者的電話號碼。 |
 |`CallingIMSI`|國際行動用戶識別碼 (IMSI)。 這是來電者的唯一識別碼。 |
 |`CalledNum`|受話方的電話號碼。 |
@@ -163,7 +164,7 @@ ms.locfileid: "64943958"
 
 ### <a name="create-the-job"></a>建立工作 
 
-1. 在 Azure 入口網站中，按一下 [建立資源] > [物聯網] > [串流分析作業]。
+1. 在 Azure 入口網站中，按一下 [建立資源]   > [物聯網]   > [串流分析作業]  。
 
 2. 將作業命名為 `asa_frauddetection_job_demo`，並指定訂用帳戶、資源群組和位置。
 
@@ -171,18 +172,18 @@ ms.locfileid: "64943958"
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
 
-3. 按一下頁面底部的 [新增] 。
+3. 按一下頁面底部的 [新增]  。
 
     即可建立作業，入口網站會顯示作業詳細資料。 但還沒有開始運作，您必須先設定作業，作業才能啟動。
 
 ### <a name="configure-job-input"></a>設定作業輸入
 
-1. 在儀表板或 [所有資源] 窗格中，尋找並選取 `asa_frauddetection_job_demo` 串流分析作業。 
-2. 在串流分析作業窗格的 [概觀] 區段中，按一下 [輸入] 方塊。
+1. 在儀表板或 [所有資源]  窗格中，尋找並選取 `asa_frauddetection_job_demo` 串流分析作業。 
+2. 在串流分析作業窗格的 [概觀]  區段中，按一下 [輸入]  方塊。
 
    ![串流分析作業窗格中位於 [拓撲] 下的輸入方塊](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-input-box-new-portal.png)
  
-3. 按一下 [新增資料流輸入] 並選取 [事件中樞]。 接著，在 [新的輸入] 頁面中填寫以下資訊：
+3. 按一下 [新增資料流輸入]  並選取 [事件中樞]  。 接著，在 [新的輸入] 頁面中填寫以下資訊：
 
    |**設定**  |**建議的值**  |**說明**  |
    |---------|---------|---------|
@@ -196,7 +197,7 @@ ms.locfileid: "64943958"
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
 
-4. 按一下頁面底部的 [新增] 。
+4. 按一下頁面底部的 [新增]  。
 
 ## <a name="create-queries-to-transform-real-time-data"></a>建立查詢來轉換即時資料
 
@@ -213,14 +214,14 @@ ms.locfileid: "64943958"
 TelcoGenerator 應用程式正在將通話記錄傳送到事件中樞，而串流分析作業已設定來讀取事件中樞。 您可以使用查詢來測試作業，確定能正確讀取。 若要在 Azure 主控台測試查詢，您需要範例資料。 在這個逐步解說中，您將從傳入事件中樞的資料流擷取範例資料。
 
 1. 請確定 TelcoGenerator 應用程式正在執行且產生通話記錄。
-2. 在入口網站中，返回串流分析作業窗格  (如果已關閉此窗格，請在 [所有資源] 窗格中搜尋 `asa_frauddetection_job_demo`)。
-3. 按一下 [查詢] 方塊。 Azure 會列出作業已設定的輸入和輸出，還可讓您建立查詢，在輸入資料流傳送至輸出時進行轉換。
-4. 在 [查詢] 窗格中，按一下 `CallStream` 輸入旁邊的點，然後選取 [來自輸入的範例資料]。
+2. 在入口網站中，返回串流分析作業窗格 (如果已關閉此窗格，請在 [所有資源]  窗格中搜尋 `asa_frauddetection_job_demo`)。
+3. 按一下 [查詢]  方塊。 Azure 會列出作業已設定的輸入和輸出，還可讓您建立查詢，在輸入資料流傳送至輸出時進行轉換。
+4. 在 [查詢]  窗格中，按一下 `CallStream` 輸入旁邊的點，然後選取 [來自輸入的範例資料]  。
 
    ![用於在串流分析作業中輸入範例資料的功能表選項，已選取 [來自輸入的範例資料]](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sample-data-from-input.png)
 
 
-5. 將 [分鐘] 設定為 3，然後按一下 [確定]。 
+5. 將 [分鐘]  設定為 3，然後按一下 [確定]  。 
     
    ![已選取 3 分鐘的輸入資料流取樣選項](./media/stream-analytics-real-time-fraud-detection/stream-analytics-input-create-sample-data.png)
 
@@ -268,7 +269,7 @@ TelcoGenerator 應用程式正在將通話記錄傳送到事件中樞，而串�
        CallStream
    ```
 
-2. 再按一次 [測試]。 
+2. 再按一次 [測試]  。 
 
    ![投影的串流分析作業輸出，顯示 25 筆記錄](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-projection.png)
  
@@ -276,7 +277,7 @@ TelcoGenerator 應用程式正在將通話記錄傳送到事件中樞，而串�
 
 假設您想要計算每個區域的來電數目。 在串流資料中，當您想要執行彙總函式時，例如計數，您需要將資料流分割成時態單位 (因為資料流本身實際上沒有止境)。 做法是使用串流分析[視窗函式](stream-analytics-window-functions.md)。 然後，您就可以將該視窗內的資料當作一個單位來使用。
 
-在這個轉換過程中，您需要有一連串不重疊的時態性視窗，每個視窗會有一組特定的資料讓您分組和彙總。 這種視窗稱為「輪轉視窗」。 輪轉視窗中，您可以取得的分組的來電計數`SwitchNum`，代表發話國的國家/地區。 
+在這個轉換過程中，您需要有一連串不重疊的時態性視窗，每個視窗會有一組特定的資料讓您分組和彙總。 這種視窗稱為「輪轉視窗」  。 輪轉視窗中，您可以取得的分組的來電計數`SwitchNum`，代表發話國的國家/地區。 
 
 1. 在程式碼編輯器中，將查詢變更如下：
 
@@ -294,7 +295,7 @@ TelcoGenerator 應用程式正在將通話記錄傳送到事件中樞，而串�
 
     若要指定您想要使用輪轉視窗，您使用[TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx)函式中`GROUP BY`子句。 在此函式中，您可以指定時間單位 (從一微秒到一天即可) 和視窗大小 (單位數量)。 在此範例中，輪轉視窗包含 5 秒的間隔，因此您會取得計數依國家/地區每隔 5 秒的呼叫。
 
-2. 再按一次 [測試]。 在結果中，可看見 **WindowEnd** 底下的時間戳記是以 5 秒為增量單位。
+2. 再按一次 [測試]  。 在結果中，可看見 **WindowEnd** 底下的時間戳記是以 5 秒為增量單位。
 
    ![彙總的串流分析作業輸出，顯示 13 筆記錄](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
  
@@ -326,11 +327,11 @@ TelcoGenerator 應用程式正在將通話記錄傳送到事件中樞，而串�
 
     `WHERE` 子句中的條件會標出詐騙電話：發話端交換機不相同。 
 
-2. 再按一次 [測試]。 
+2. 再按一次 [測試]  。 
 
    ![自我聯結的串流分析作業輸出，顯示已產生 6 筆記錄](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-self-join.png)
 
-3. 按一下 [儲存] 將自我聯結查詢儲存在串流分析作業中。 (不會儲存範例資料。)
+3. 按一下 [儲存]  將自我聯結查詢儲存在串流分析作業中。 (不會儲存範例資料。)
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png" alt="Save Stream Analytics query in portal" width="300px"/>
 
@@ -344,15 +345,15 @@ TelcoGenerator 應用程式正在將通話記錄傳送到事件中樞，而串�
 
 ### <a name="create-an-azure-blob-storage-account"></a>建立 Azure Blob 儲存體帳戶
 
-1. 從 Azure 入口網站的左上角，選取 [建立資源] > [儲存體] > [儲存體帳戶]。 填寫儲存體帳戶作業頁面，將 [名稱] 設為 "asaehstorage"，[位置] 設為「美國東部」，[資源群組] 設為 "asa-eh-ns-rg" (將儲存體帳戶裝載在與串流作業相同的資源群組中可增加效能)。 其餘設定可以保留預設值。  
+1. 從 Azure 入口網站的左上角，選取 [建立資源]   > [儲存體]   > [儲存體帳戶]  。 填寫儲存體帳戶作業頁面，將 [名稱]  設為 "asaehstorage"，[位置]  設為「美國東部」，[資源群組]  設為 "asa-eh-ns-rg" (將儲存體帳戶裝載在與串流作業相同的資源群組中可增加效能)。 其餘設定可以保留預設值。  
 
    ![在 Azure 入口網站中建立儲存體帳戶](./media/stream-analytics-real-time-fraud-detection/stream-analytics-storage-account-create.png)
 
-2. 在 Azure 入口網站中，返回串流分析作業窗格。 (如果已關閉此窗格，請在 [所有資源] 窗格中搜尋 `asa_frauddetection_job_demo`)。
+2. 在 Azure 入口網站中，返回串流分析作業窗格。 (如果已關閉此窗格，請在 [所有資源]  窗格中搜尋 `asa_frauddetection_job_demo`)。
 
-3. 在 [作業拓撲] 區段中，按一下 [輸出] 方塊。
+3. 在 [作業拓撲]  區段中，按一下 [輸出]  方塊。
 
-4. 在 [輸出] 窗格中，按一下 [新增]，然後選取 [Blob 儲存體]。 接著，在 [新的輸出] 頁面中填寫以下資訊：
+4. 在 [輸出]  窗格中，按一下 [新增]  ，然後選取 [Blob 儲存體]  。 接著，在 [新的輸出] 頁面中填寫以下資訊：
 
    |**設定**  |**建議的值**  |**說明**  |
    |---------|---------|---------|
@@ -364,7 +365,7 @@ TelcoGenerator 應用程式正在將通話記錄傳送到事件中樞，而串�
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
-5. 按一下 [檔案] 。 
+5. 按一下 [檔案]  。 
 
 
 ## <a name="start-the-streaming-analytics-job"></a>啟動串流分析作業
@@ -373,7 +374,7 @@ TelcoGenerator 應用程式正在將通話記錄傳送到事件中樞，而串�
 
 1. 請確定 TelcoGenerator 應用程式正在執行。
 
-2. 在作業窗格中，按一下 [啟動]。 在 [啟動作業] 窗格的 [作業輸出開始時間] 中，選取 [現在]。 
+2. 在作業窗格中，按一下 [啟動]  。 在 [啟動作業]  窗格的 [作業輸出開始時間] 中，選取 [現在]  。 
 
    ![啟動串流分析工作](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start.png)
 
@@ -396,7 +397,7 @@ TelcoGenerator 應用程式正在將通話記錄傳送到事件中樞，而串�
 
 不過，如果您已完成，也不需要您已建立的資源，則可以刪除它們，以免產生不必要的 Azure 費用。 在此情況下，建議您採取下列動作：
 
-1. 停止串流分析作業。 在 [作業] 窗格中，按一下頂端的 [停止]。
+1. 停止串流分析作業。 在 [作業]  窗格中，按一下頂端的 [停止]  。
 2. 停止 Telco Generator 應用程式。 在您啟動應用程式的命令視窗中，按 Ctrl+C。
 3. 如果您建立的新 blob 儲存體帳戶只用於本教學課程，請刪除它。 
 4. 刪除串流分析作業。

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 973b0044844fbdf38eefde2072631586a8ace593
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192598"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>如需 IoT 必要條件的 azure 資訊安全中心
@@ -53,7 +53,7 @@ Iot 的 ASC 目前支援下列的 Azure 區域中的 IoT 中樞：
 請檢查您的 IoT 中樞位置，在您開始前，請確認服務可用性。 
 
 1. 開啟 IoT 中樞。 
-2. 按一下 [概觀] 。 
+2. 按一下 [概觀]  。 
 3. 確認所列的位置符合其中一個[支援的服務區域](#supported-service-regions)。 
 
 

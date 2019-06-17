@@ -1,7 +1,7 @@
 ---
 title: 快速入門：Python 和 REST Api-Azure 搜尋服務
 description: 建立、 載入和使用 Python、 Jupyter Notebook 和 Azure 搜尋服務 REST API 查詢索引。
-ms.date: 05/23/2019
+ms.date: 06/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 99b4ec0be8e9fa631c5081edd42474ea89dc5dc3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c519cbd151ac3008593e3309930db4e9a9414e51
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244781"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056602"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>快速入門：建立使用 Jupyter Python notebook 的 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -88,22 +88,19 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
    相反地，空白的索引集合會傳回此回應： `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
-> [!Tip]
-> 上一項免費服務，您受限於三個索引、 索引子和資料來源項目。 本快速入門會各建立一個。 請確定您有空間可在進一步之前建立新的物件。
-
 ## <a name="1---create-an-index"></a>1 - 建立索引
 
 除非您使用入口網站，索引上必須有服務之前，您可以載入資料。 此步驟中使用[建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)推送至服務的索引結構描述。
 
 索引的必要項目包括名稱、 欄位的集合，以及索引鍵。 Fields 集合定義的結構*文件*。 每個欄位都有名稱、 類型和屬性，以決定欄位的使用方式 (例如，它是否全文檢索搜尋、 可篩選，或可在搜尋結果中擷取)。 索引，其中一個類型的欄位內`Edm.String`您必須指定為*金鑰*文件的身分識別。
 
-這個索引名為"hotels py"，並具有您在下方看到的欄位定義。 它是較大子集[Hotels 索引](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON)其他逐步解說中使用。 我們在本快速入門，為求簡單明瞭修剪。
+這個索引名為"hotels-快速入門 」，並具有您在下方看到的欄位定義。 它是較大子集[Hotels 索引](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON)其他逐步解說中使用。 我們在本快速入門，為求簡單明瞭修剪。
 
 1. 下一步 的資料格，將下列範例貼入提供結構描述的儲存格。 
 
     ```python
     index_schema = {
-       "name": "hotels-py",  
+       "name": "hotels-quickstart",  
        "fields": [
          {"name": "HotelId", "type": "Edm.String", "key": "true", "filterable": "true"},
          {"name": "HotelName", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "true", "facetable": "false"},
@@ -236,10 +233,10 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
     }
     ```   
 
-2. 在另一個資料格中，制訂的要求。 這個 POST 要求為目標的旅館 py 索引的文件集合，並將推入上一個步驟中提供的文件。
+2. 在另一個資料格中，制訂的要求。 這個 POST 要求為目標的快速入門的 hotels 索引的文件集合，並將推入上一個步驟中提供的文件。
 
    ```python
-   url = endpoint + "indexes/hotels-py/docs/index" + api_version
+   url = endpoint + "indexes/hotels-quickstart/docs/index" + api_version
    response  = requests.post(url, headers=headers, json=documents)
    index_content = response.json()
    pprint(index_content)
@@ -253,56 +250,63 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 此步驟會說明如何使用索引來進行查詢[搜尋文件的 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)。
 
+1. 在資料格中，提供執行空的搜尋查詢運算式 (搜尋 = *)，傳回 unranked 的清單 (搜尋分數 = 1.0) 的任意文件。 根據預設，Azure 搜尋服務會傳回 50 的相符項目，一次。 為結構化，此查詢會傳回整份文件結構和值。 新增 $count = true，以取得結果中的所有文件的計數。
 
-1. 在新的儲存格，提供查詢運算式。 下列範例會搜尋詞彙"hotels"和"wifi"。 它也會傳回*計數*相符的文件並*選取*来包含在搜尋結果中的欄位。
+   ```python
+   searchstring = '&search=*&$count=true'
+   ```
+
+1. 在新的儲存格，提供下列的範例，若要搜尋的詞彙"hotels"和"wifi"。 新增 $select 來指定要包含在搜尋結果中的欄位。
 
    ```python
    searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
    ```
 
-2. 在另一個資料格中，制訂的要求。 這個的 GET 要求目標 hotels py 索引的文件集合，並附加您在上一個步驟中指定的查詢。
+1. 在另一個資料格中，制訂的要求。 此 GET 要求以快速入門的旅館索引的文件集合為目標，並附加您在上一個步驟中指定的查詢。
 
    ```python
-   url = endpoint + "indexes/hotels-py/docs" + api_version + searchstring
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
    response  = requests.get(url, headers=headers, json=searchstring)
    query = response.json()
    pprint(query)
    ```
 
-3. 執行每個步驟。 結果看起來應該類似下列的輸出。 
+1. 執行每個步驟。 結果看起來應該類似下列的輸出。 
 
     ![搜尋索引](media/search-get-started-python/search-index.png "搜尋索引")
 
-4. 請嘗試幾個其他查詢範例，以概略了語法。 您可以使用下列範例取代 searchstring，然後重新執行搜尋要求。 
+1. 請嘗試幾個其他查詢範例，以概略了語法。 您可以使用下列範例取代 searchstring，然後重新執行搜尋要求。 
 
    套用篩選器： 
 
    ```python
-   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'
+   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
    ```
 
    採取的前兩個結果：
 
    ```python
-   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
+   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description,Category'
    ```
 
     依特定欄位：
 
    ```python
-   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
+   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
    ```
 
 ## <a name="clean-up"></a>清除 
 
-如果您不再需要您應該刪除索引。 一項免費服務僅限於三個索引。 您可能想要刪除您未主動使用以騰出供其他教學課程的任何索引。
+如果您不再需要您應該刪除索引。 一項免費服務僅限於三個索引。 您應該刪除您未主動使用以騰出供其他教學課程的任何索引。
+
+刪除物件的最簡單方式是透過入口網站中，但由於這是 Python 快速入門中，下列語法會產生相同的結果：
 
    ```python
-  url = endpoint + "indexes/hotels-py" + api_version
+  url = endpoint + "indexes/hotels-quickstart" + api_version
   response  = requests.delete(url, headers=headers)
    ```
 
-您可以傳回一份現有的索引，以確認刪除索引。 如果您知道您的要求成功，則看不見了，hotels py。
+您可以要求一份現有的索引，以確認刪除索引。 如果您知道您的要求成功之後，則看不見了，旅館-快速入門。
 
 ```python
 url = endpoint + "indexes" + api_version + "&$select=name"

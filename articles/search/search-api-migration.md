@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
 ms.openlocfilehash: 85a8ddf4ce87d7ac8ce460c0aff56311a2ea4578
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540699"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>升級至最新的 Azure 搜尋服務 REST API 版本
@@ -39,7 +39,7 @@ ms.locfileid: "65540699"
 
 預覽功能的數個版本符合此正式推出的更新。 若要檢閱新的預覽功能的清單，請參閱[搜尋服務 REST api 版本 2019年-05-06-Preview](search-api-preview.md)。
 
-## <a name="breaking-changes"></a>中斷性變更
+## <a name="breaking-changes"></a>重大變更
 
 包含下列功能的現有程式碼會中斷 api-version = 2019年-05-06。
 

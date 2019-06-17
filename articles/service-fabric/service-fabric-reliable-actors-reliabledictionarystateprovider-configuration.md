@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: 4e39357a765ec85aa64055b1aa422d8d7a01c116
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60727126"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>設定 Reliable Actors - ReliableDictionaryActorStateProvider
 您可以在指定之動作項目的 Config 資料夾下，變更 Visual Studio 封裝根中所產生的 settings.xml，來修改 ReliableDictionaryActorStateProvider 的預設組態。
 
-Azure Service Fabric 运行时在 settings.xml 文件中查找预定义的节名称，并在创建基础运行时组件时使用这些配置值。
+Azure Service Fabric 執行階段會在建立基礎執行階段元件時，在 settings.xml 檔案中尋找預先定義的區段名稱，並使用組態值。
 
 > [!NOTE]
 > 請 **不要** 刪除或修改在 Visual Studio 方案中產生之 settings.xml 檔案中的下列組態區段名稱。
@@ -36,7 +36,7 @@ Azure Service Fabric 运行时在 settings.xml 文件中查找预定义的节名
 ## <a name="global-configuration"></a>全域組態
 在 KtlLogger 區段下，叢集的叢集資訊清單中所指定的全域組態。 它可設定共用記錄檔位置和大小，加上記錄器所使用的全域記憶體限制。 請注意，叢集資訊清單中的變更會影響使用 ReliableDictionaryActorStateProvider 的所有服務，以及可靠的可設定狀態服務。
 
-群集清单是单个 XML 文件，可保留适用于群集中所有节点和服务的设置与配置。 此檔案通常稱為 ClusterManifest.xml。 您可以查看叢集的叢集資訊清單使用 Get-ServiceFabricClusterManifest powershell 命令。
+叢集資訊清單是單一 XML 檔案，可保留套用至叢集中所有節點和服務態的設定與組態。 此檔案通常稱為 ClusterManifest.xml。 您可以查看叢集的叢集資訊清單使用 Get-ServiceFabricClusterManifest powershell 命令。
 
 ### <a name="configuration-names"></a>組態名稱
 | 名稱 | 單位 | 預設值 | 備註 |
@@ -78,7 +78,7 @@ SharedLogSizeInMB 會指定要預先配置給所有節點上之預設共用記�
 
 ## <a name="replicator-configuration"></a>复制器配置
 複寫器組態用來設定負責將狀態複寫和保存至本機，讓動作項目狀態提供者變得高度可靠的複寫器。
-默认配置由 Visual Studio 模板生成，并应已足够。 本部分介绍了可用于调整复制器的其他配置。
+默认配置由 Visual Studio 模板生成，并应已足够。 本節說明可用於微調複寫器的其他組態。
 
 ### <a name="section-name"></a>區段名稱
 &lt;ActorName&gt;ServiceReplicatorConfig
@@ -91,13 +91,13 @@ SharedLogSizeInMB 會指定要預先配置給所有節點上之預設共用記�
 | MaxReplicationMessageSize |位元組 |50 MB |單一訊息可傳輸的複寫資料大小上限。 |
 | MaxPrimaryReplicationQueueSize |操作的数量 |8192 |主要佇列中作業數目上限。 主要複寫器收到所有次要複寫器的通知後，系統便會釋放作業。 此值必須大於 64 且為 2 的乘冪。 |
 | MaxSecondaryReplicationQueueSize |作業數目 |16384 |次要佇列中作業數目上限。 透過持續性讓狀態成為高可用性後，系統便會釋放作業。 此值必須大於 64 且為 2 的乘冪。 |
-| CheckpointThresholdInMB |MB |200 |创建状态检查点后的日志文件空间量。 |
+| CheckpointThresholdInMB |MB |200 |狀態完成檢查點作業後的記錄檔空間量。 |
 | MaxRecordSizeInKB |KB |1024 |複寫器可以寫入記錄檔中的最大記錄大小。 此值必須是 4 的倍數且大於 16。 |
-| OptimizeLogForLowerDiskUsage |布尔 |true |為 true 時會設定記錄檔，以便使用 NTFS 疏鬆檔案來建立複本的專用記錄檔。 這會降低檔案實際使用的磁碟空間量。 為 false 時，將以固定配置建立檔案，以提供最佳寫入效能。 |
+| OptimizeLogForLowerDiskUsage |Boolean |true |為 true 時會設定記錄檔，以便使用 NTFS 疏鬆檔案來建立複本的專用記錄檔。 這會降低檔案實際使用的磁碟空間量。 為 false 時，將以固定配置建立檔案，以提供最佳寫入效能。 |
 | SharedLogId |GUID |"" |指定用於識別此複本共用記錄檔的唯一 GUID。 服務通常不應使用此設定。 不過，如果有指定 SharedLogId，則也必須指定 SharedLogPath。 |
 | SharedLogPath |完整路徑名稱 |"" |指定建立此複本共用記錄檔的完整路徑。 服務通常不應使用此設定。 不過，如果有指定 SharedLogPath，則也必須指定 SharedLogId。 |
 
-## <a name="sample-configuration-file"></a>示例配置文件
+## <a name="sample-configuration-file"></a>範例組態檔
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">

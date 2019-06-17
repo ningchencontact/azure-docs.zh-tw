@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dcb128d8793e3438d87e728bde069d07c72cf97b
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: a5187ed299f77c11892c6e34c8dfd3f904c7e075
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493114"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067717"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>將您的應用程式與 Azure 虛擬網路整合
 本文件說明 Azure App Service 虛擬網路整合功能，以及如何設定中的應用程式[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)。 [Azure 虛擬網路][VNETOverview] (VNet) 可讓您將許多 Azure 資源，放在非網際網路可路由網路中。  
@@ -33,8 +33,8 @@ Azure App Service 具有兩種形式。
 
 有兩種形式的 VNet 整合功能
 
-1. 一種版本可與相同區域中 Vnet 整合。 這種形式的功能需要在相同區域中的 VNet 有子網路
-2. 另一個版本可與其他區域中的 Vnet 或傳統 Vnet 的整合。 此版本的功能需要虛擬網路閘道部署到您的 VNet。
+1. 一種版本可與相同區域中 Vnet 整合。 這種形式的功能需要在相同區域中的 VNet 子網路。 這項功能仍處於預覽狀態，但支援的 Windows 應用程式的生產工作負載有一些注意事項如下所示。
+2. 另一個版本可與其他區域中的 Vnet 或傳統 Vnet 的整合。 此版本的功能需要虛擬網路閘道部署到您的 VNet。 這是點對站 VPN 基礎功能。
 
 應用程式一次只能使用一種形式的 VNet 整合功能。 問題會是您應該使用哪一項功能。 您可以使用許多項目。 雖然是明確的差異：
 
@@ -72,7 +72,7 @@ VNet 整合不支援的事項包括：
 * 您已連線到 VNet 中的存取資源
 * 跨對等互連的連線，包括 ExpressRoute 連線存取資源
 
-這項功能處於預覽狀態，但它支援生產工作負載，但有下列限制：
+這項功能處於預覽狀態，但它支援 Windows 應用程式生產工作負載，但有下列限制：
 
 * 您可以只連線到在 RFC 1918 範圍內的位址。 這些都是在 10.0.0.0/8、 172.16.0.0/12、 192.168.0.0/16 位址區塊的位址。
 * 您無法跨全域對等互連連線觸達資源
@@ -80,11 +80,12 @@ VNet 整合不支援的事項包括：
 * 此功能才可從較新的 App Service 縮放單位來支援 PremiumV2 App Service 方案。
 * 此功能無法使用隔離式的方案的應用程式服務環境中的應用程式
 * 此功能需要使用 Resource Manager VNet 中至少 32 個位址的未使用的子網路。
-* 應用程式與 VNet 必須位於相同的區域
-* 一個地址用於每個 App Service 方案執行個體。 因為子網路大小在指派之後就無法變更，所以請使用超過最大規模大小的子網路。 建議的大小為具有 32 個位址的 /27，因為這會容納擴充為 20 個執行個體的 App Service 方案。
+* 應用程式和 VNet 必須位於相同的區域
+* 一個位址用於一個 App Service 方案執行個體。 因為子網路大小在指派之後就無法變更，所以請使用超過最大規模大小的子網路。 建議的大小為具有 32 個位址的 /27，因為這會容納擴充為 20 個執行個體的 App Service 方案。
 * 您無法刪除具有整合式應用程式的 VNet。 您必須先移除整合 
+* 您可以只有一個區域 VNet 整合，每個 App Service 方案。 在相同的 App Service 方案中的多個應用程式可以使用相同的 VNet。 
 
-若要使用 Resource Manager VNet 位於相同區域中的 VNet 整合功能：
+此功能為預覽狀態，也適用於 Linux。 若要使用 Resource Manager VNet 位於相同區域中的 VNet 整合功能：
 
 1. 移至入口網站中的 [網路 UI]。 如果您的應用程式就能使用新的功能，您會看到一個選項來新增 VNet （預覽）。  
 
@@ -110,7 +111,7 @@ VNet 整合不支援的事項包括：
 
 啟用 VNet 整合時，您的應用程式仍能如往常一樣的相同管道網際網路的輸出呼叫。 應用程式屬性入口網站中所列的輸出位址仍是您的應用程式所使用的位址。 變更您的應用程式為何對服務端點保護的服務，或 RFC 1918 位址會進入您的 VNet。 
 
-此功能僅支援每個背景工作的一個虛擬介面。  每個背景工作的一個虛擬介面表示每個 App Service 方案的一個虛擬介面。 所有相同的 App Service 方案中的應用程式可以使用相同的 VNet 整合，但如果您需要連接到其他的 VNet，您必須建立另一個 App Service 方案。 使用的虛擬介面不是客戶可以直接存取的資源。
+此功能僅支援每個背景工作的一個虛擬介面。  每個背景工作的一個虛擬介面表示每個 App Service 方案的一個區域 VNet 整合。 所有相同的 App Service 方案中的應用程式可以使用相同的 VNet 整合，但如果您需要應用程式連接至其他 VNet 時，您必須建立另一個 App Service 方案。 使用的虛擬介面不是客戶可以直接存取的資源。
 
 由於這項技術的運作方式，可使用 VNet 整合的流量不會顯示網路監看員或 NSG 流量記錄中。  
 
@@ -119,11 +120,12 @@ VNet 整合不支援的事項包括：
 閘道需要 VNet 整合功能：
 
 * 可用來連線到任何區域中 Vnet 是在 Resource Manager 或傳統 Vnet
-* 可讓應用程式一次只連接到 1 個 VNet
-* 可在 App Service 方案中與最多五個 VNet 整合 
+* 可讓應用程式一次連接到只有 1 個 VNet
+* 可在 App Service 方案，與整合的最多五個 Vnet 
 * 可讓相同的 VNet，以供在 App Service 方案中的多個應用程式而不會影響可供 App Service 方案的總數。  如果您有 6 應用程式使用相同的 VNet 位於相同的 App Service 方案，都會被視為正在使用的 1 個 VNet。 
-* 需要使用點對站 VPN 設定的虛擬網路閘道
-* 由於閘道上的 SLA，可支援 99.9% SLA
+* 需要已使用點對站 VPN 的虛擬網路閘道
+* 不支援搭配 Linux 應用程式使用
+* 在閘道上支援 99.9 %sla，因為 SLA
 
 這項功能不支援：
 
@@ -200,7 +202,7 @@ ASP VNet 整合 UI 會向您顯示 ASP 中的應用程式所使用的所有 VNet
 * **同步網路**。 同步處理網路作業只是閘道相依 VNet 整合功能。 執行同步處理網路作業，可確保您的憑證和網路資訊會保持同步。如果您新增或變更 VNet 的 DNS，則需要執行**同步網路**作業。 這項作業將重新啟動任何使用此 VNet 的應用程式。
 * **新增路由** 新增路由將驅動輸出流量進入 VNet。
 
-**路由** VNet 中所定義的路由用於將應用程式中的流量導向至 VNet。 如果需要將額外的輸出流量傳送到 VNet，則可以在此處新增這些位址區塊。 閘道此 capabilty 僅適用於需要 VNet 整合。
+**路由** VNet 中所定義的路由用於將應用程式中的流量導向至 VNet。 如果需要將額外的輸出流量傳送到 VNet，則可以在此處新增這些位址區塊。 此功能只能搭配閘道需要 VNet 整合。
 
 **憑證**閘道需要啟用 VNet 整合時不需要的交換憑證以確保連線的安全性。 除了憑證以外，還有 DNS 組態、路由，以及其他描述網路的類似項目。
 如果憑證或網路資訊已變更，您需要按一下 [同步網路]。 按一下 [同步處理網路] 時，會導致應用程式與 VNet 之間的連線短暫中斷。 如果應用程式未重新啟動，失去連線會導致您的網站無法正常運作。 

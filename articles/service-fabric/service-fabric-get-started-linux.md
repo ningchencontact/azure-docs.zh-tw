@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65470236"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上準備您的開發環境
@@ -273,21 +273,21 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
 > 
 > 在 Ubuntu 上，建議您直接從 Eclipse 網站安裝，而不要使用套件安裝程式 (`apt` 或 `apt-get`)。 這麼做可確保您會取得最新版的 Eclipse。 您可以安裝適用於 Java 開發人員或 Java EE 開發人員的 Eclipse IDE。
 
-1. 在 Eclipse 中，確定您已安裝 Eclipse Neon 或更新版本以及 Buildship 2.2.1 版或更新版本。 請選取 [說明] >  [關於 Eclipse] >  [安裝詳細資料]，檢查已安裝的元件版本。 您可以使用 [Eclipse Buildship：適用於 Gradle 的 Eclipse 外掛程式][buildship-update]的指示來更新 Buildship。
+1. 在 Eclipse 中，確定您已安裝 Eclipse Neon 或更新版本以及 Buildship 2.2.1 版或更新版本。 請選取 [說明]   >  [關於 Eclipse]   >  [安裝詳細資料]  ，檢查已安裝的元件版本。 您可以使用 [Eclipse Buildship：適用於 Gradle 的 Eclipse 外掛程式][buildship-update]的指示來更新 Buildship。
 
-2. 若要安裝 Service Fabric 外掛程式，請選取 [說明]  >  [安裝新軟體]。
+2. 若要安裝 Service Fabric 外掛程式，請選取 [說明]  >  [安裝新軟體]   。
 
-3. 在 [使用] 方塊中，輸入 **https://dl.microsoft.com/eclipse**。
+3. 在 [使用]  方塊中，輸入 **https://dl.microsoft.com/eclipse** 。
 
-4. 選取 [新增] 。
+4. 選取 [新增]  。
 
     ![可用的軟體頁面][sf-eclipse-plugin]
 
-5. 選取 [ServiceFabric] 外掛程式，然後按 [下一步]。
+5. 選取 [ServiceFabric]  外掛程式，然後按 [下一步]  。
 
 6. 執行安裝步驟。 然後接受使用者授權合約。
 
-如果您已安裝 Service Fabric Eclipse 外掛程式，請確定您擁有的是最新版本。 請選取 [說明] > [關於Eclipse] > [安裝詳細資料] 來檢查。 然後，在已安裝的外掛程式清單中搜尋 Service Fabric。如果有可用的較新版本，請選取 [更新]。
+如果您已安裝 Service Fabric Eclipse 外掛程式，請確定您擁有的是最新版本。 請選取 [說明]   > [關於Eclipse]   > [安裝詳細資料]  來檢查。 然後，在已安裝的外掛程式清單中搜尋 Service Fabric。如果有可用的較新版本，請選取 [更新]  。
 
 如需詳細資訊，請參閱[適用於 Eclipse Java 應用程式開發的 Service Fabric 外掛程式](service-fabric-get-started-eclipse.md)。
 

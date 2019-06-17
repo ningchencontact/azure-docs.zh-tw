@@ -13,10 +13,10 @@ ms.reviewer: MightyPen
 manager: craigg
 ms.date: 11/07/2018
 ms.openlocfilehash: 03e5540e34cd99d2b201bc763f13b42c7fa20bf7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65785306"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>使用記憶體內部 OLTP 改善 SQL Database 中的應用程式效能
@@ -46,8 +46,8 @@ SSMS 包含您可以對具有作用中工作負載的資料庫執行的 [交易�
 
 在 SSMS 中，若要產生報告︰
 
-* 在 [物件總管] 中，以滑鼠右鍵按一下您的資料庫節點。
-* 按一下 [報表] > [標準報表] > [交易效能分析概觀]。
+* 在 [物件總管]  中，以滑鼠右鍵按一下您的資料庫節點。
+* 按一下 [報表]   > [標準報表]   > [交易效能分析概觀]  。
 
 如需詳細資訊，請參閱 [判斷資料表或預存程序是否應該移植到 In-Memory OLTP](https://msdn.microsoft.com/library/dn205133.aspx)。
 
@@ -56,7 +56,7 @@ SSMS 包含您可以對具有作用中工作負載的資料庫執行的 [交易�
 
 您需要實際執行資料庫的測試複本。 測試資料庫需位於與實際執行資料庫相同的服務層級。
 
-为了简化测试，请按以下方式调整测试数据库：
+為了簡化測試，請依照下列方式調整測試資料庫：
 
 1. 使用 SSMS 連接到測試資料庫。
 2. 若要避免在查詢中用到 WITH (SNAPSHOT) 選項，請依照下列 T-SQL 陳述式中所示設定資料庫選項：
@@ -74,13 +74,13 @@ SSMS 包含您可以對具有作用中工作負載的資料庫執行的 [交易�
 * 手動 T-SQL。
 
 #### <a name="memory-optimization-wizard-in-ssms"></a>SSMS 中的記憶體最佳化精靈
-若要使用此迁移选项，请执行以下操作：
+若要使用此移轉選項：
 
 1. 使用 SSMS 連接到測試資料庫。
-2. 在 [物件總管] 中，以滑鼠右鍵按一下資料表，然後按一下 [記憶體最佳化建議程式]。
+2. 在 [物件總管]  中，以滑鼠右鍵按一下資料表，然後按一下 [記憶體最佳化建議程式]  。
    
    * [資料表記憶體最佳化建議程式]  精靈隨即顯示。
-3. 在此精靈中按一下 [移轉驗證] \(或 [下一步] 按鈕)，以查看資料表是否有任何在記憶體最佳化資料表中不受支援的功能。 如需詳細資訊，請參閱
+3. 在此精靈中按一下 [移轉驗證]  \(或 [下一步]  按鈕)，以查看資料表是否有任何在記憶體最佳化資料表中不受支援的功能。 如需詳細資訊，請參閱
    
    * *記憶體最佳化建議程式* 中的 [記憶體最佳化檢查清單](https://msdn.microsoft.com/library/dn284308.aspx)。
    * [In-Memory OLTP 不支援的 Transact-SQL 建構](https://msdn.microsoft.com/library/dn246937.aspx)。
@@ -94,7 +94,7 @@ SSMS 包含您可以對具有作用中工作負載的資料庫執行的 [交易�
 2. 為您的資料表及其索引取得完整 T-SQL 指令碼。
    
    * 在 SSMS 中，以滑鼠右鍵按一下資料表節點。
-   * 按一下 [產生資料表的指令碼為] > [建立] > [新增查詢視窗]。
+   * 按一下 [產生資料表的指令碼為]   > [建立]   > [新增查詢視窗]  。
 3. 在指令碼視窗中，將 WITH (MEMORY_OPTIMIZED = ON) 新增至 CREATE TABLE 陳述式。
 4. 如果有 CLUSTERED 索引，請將其變更為 NONCLUSTERED。
 5. 使用 SP_RENAME 重新命名現有的資料表。
@@ -167,7 +167,7 @@ CREATE PROCEDURE schemaname.procedurename
 請考慮監視您在實際執行環境中實作 In-Memory 的效能影響：
 
 * [監視記憶體內部儲存體](sql-database-in-memory-oltp-monitoring.md)。
-* [使用动态管理视图监视 Azure SQL 数据库](sql-database-monitoring-with-dmvs.md)
+* [使用動態管理檢視監視 Azure SQL Database](sql-database-monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>相關連結
 * [In-Memory OLTP (In-Memory Optimization)](https://msdn.microsoft.com/library/dn133186.aspx)

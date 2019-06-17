@@ -13,17 +13,17 @@ ms.author: gamal
 ms.reviewer: maghan
 manager: craigg
 ms.openlocfilehash: 76962975705ff53a292f41a0a54e42c5f2991a2c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002642"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory 中的持續整合和傳遞 (CI/CD)
 
 持續整合是指進行相關實作，以自動並及早測試對您的程式碼基底所做的每項變更。 在持續整合期間執行測試，並將變更推送至暫存或生產系統後，就會進行持續傳遞。
 
-就 Azure Data Factory 而言，持續整合和傳遞是指將一個環境 (開發、測試、生產) 中的 Data Factory 管線移至另一個環境。 若要進行持續整合和傳遞，您可以使用 Data Factory UI 整合與 Azure Resource Manager 範本。 當您選取 [ARM 範本] 選項時，Data Factory UI 可產生 Resource Manager 範本。 當您選取 [匯出 ARM 範本] 時，入口網站將會產生資料處理站的 Resource Manager 範本，以及包含您所有連接字串和其他參數的組態檔。 然後，您必須為每個環境 (開發、測試、生產) 建立一個組態檔。 所有環境的主要 Resource Manager 範本檔案會保持相同。
+就 Azure Data Factory 而言，持續整合和傳遞是指將一個環境 (開發、測試、生產) 中的 Data Factory 管線移至另一個環境。 若要進行持續整合和傳遞，您可以使用 Data Factory UI 整合與 Azure Resource Manager 範本。 當您選取 [ARM 範本]  選項時，Data Factory UI 可產生 Resource Manager 範本。 當您選取 [匯出 ARM 範本]  時，入口網站將會產生資料處理站的 Resource Manager 範本，以及包含您所有連接字串和其他參數的組態檔。 然後，您必須為每個環境 (開發、測試、生產) 建立一個組態檔。 所有環境的主要 Resource Manager 範本檔案會保持相同。
 
 如需此功能的 9 分鐘簡介與示範，請觀看下列影片：
 
@@ -32,21 +32,21 @@ ms.locfileid: "66002642"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>為每個環境建立 Resource Manager 範本
-選取 [匯出 ARM 範本]，在開發環境中匯出資料處理站的 Resource Manager 範本。
+選取 [匯出 ARM 範本]  ，在開發環境中匯出資料處理站的 Resource Manager 範本。
 
 ![](media/continuous-integration-deployment/continuous-integration-image1.png)
 
-然後，移至您的測試資料處理站和生產資料處理站，並選取 [匯入 ARM 範本]。
+然後，移至您的測試資料處理站和生產資料處理站，並選取 [匯入 ARM 範本]  。
 
 ![](media/continuous-integration-deployment/continuous-integration-image2.png)
 
-此動作會將您移至 Azure 入口網站，您可以在此處匯入先前匯出的範本。 依序選取 [在編輯器中建置您自己的範本]、[載入檔案]，和產生的 Resource Manager 範本。 提供設定，將資料處理站和整個管線匯入生產環境中。
+此動作會將您移至 Azure 入口網站，您可以在此處匯入先前匯出的範本。 依序選取 [在編輯器中建置您自己的範本]  、[載入檔案]  ，和產生的 Resource Manager 範本。 提供設定，將資料處理站和整個管線匯入生產環境中。
 
 ![](media/continuous-integration-deployment/continuous-integration-image3.png)
 
 ![](media/continuous-integration-deployment/continuous-integration-image4.png)
 
-選取 [載入檔案] 以選取匯出的 Resource Manager 範本，並提供所有的組態值 (例如，連結服務)。
+選取 [載入檔案]  以選取匯出的 Resource Manager 範本，並提供所有的組態值 (例如，連結服務)。
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
 
@@ -59,11 +59,11 @@ ms.locfileid: "66002642"
 
 1.  使用可讓所有開發人員撰寫 Data Factory 資源 (例如管線、資料集等等) 的 Azure Repos 設定開發資料處理站。
 
-1.  接著，開發人員可以修改管線之類的資源。 在進行修改時，他們可以選取 [偵錯] 以查看管線在經過最新變更之後的執行情況。
+1.  接著，開發人員可以修改管線之類的資源。 在進行修改時，他們可以選取 [偵錯]  以查看管線在經過最新變更之後的執行情況。
 
 1.  如果開發人員滿意其變更，他們可以從其分支建立對主要分支 (或共同作業分支) 的提取要求，讓同事檢閱其變更。
 
-1.  變更送至主要分支後，相關人員可藉由選取 [發行] 將其發行至開發處理站。
+1.  變更送至主要分支後，相關人員可藉由選取 [發行]  將其發行至開發處理站。
 
 1.  當小組準備好要將變更升階至測試處理站和生產處理站時，他們可以從主要分支匯出 Resource Manager 範本，或者，若其主要分支支援即時開發 Data Factory，則可從任何其他分支匯出。
 
@@ -87,11 +87,11 @@ ms.locfileid: "66002642"
 
 1.  移至您以 Data Factory 設定之相同專案中的 Azure Repos 頁面。
 
-1.  按一下頂層功能表的 [Azure Pipelines] &gt; [發行] &gt; [建立發行定義]。
+1.  按一下頂層功能表的 [Azure Pipelines]  &gt; [發行]  &gt; [建立發行定義]  。
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-1.  選取 [空白流程] 範本。
+1.  選取 [空白流程]  範本。
 
 1.  輸入您的環境名稱。
 
@@ -107,18 +107,18 @@ ms.locfileid: "66002642"
 
     c.  選取**建立或更新資源群組**動作。
 
-    d.  選取 **…** (位於 [範本] 欄位中)。 瀏覽在入口網站中以發行動作建立的 Resource Manager 範本 (*ARMTemplateForFactory.json*)。 在 `adf_publish` 分支的 `<FactoryName>` 資料夾中尋找此檔案。
+    d.  選取 **…** (位於 [範本]  欄位中)。 瀏覽在入口網站中以發行動作建立的 Resource Manager 範本 (*ARMTemplateForFactory.json*)。 在 `adf_publish` 分支的 `<FactoryName>` 資料夾中尋找此檔案。
 
     e.  對參數檔案執行相同的動作。 根據您是已建立複本還是使用預設檔案 *ARMTemplateParametersForFactory.json*，選擇正確的檔案。
 
-    f.  選取 **…** (位於 [覆寫範本參數] 欄位旁)，並填入目標 Data Factory 的資訊。 對於來自金鑰保存庫的認證，請為密碼使用下列格式的相同名稱：假設密碼的名稱是 `cred1`，請輸入 `"$(cred1)"` (引號之間的內容)。
+    f.  選取 **…** (位於 [覆寫範本參數]  欄位旁)，並填入目標 Data Factory 的資訊。 對於來自金鑰保存庫的認證，請為密碼使用下列格式的相同名稱：假設密碼的名稱是 `cred1`，請輸入 `"$(cred1)"` (引號之間的內容)。
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-    g. 選取 [累加] 部署模式。
+    g. 選取 [累加]  部署模式。
 
     > [!WARNING]
-    > 如果您選取 [完整] 部署模式，則可能會刪除現有的資源，包括目標資源群組中所有未定義於 Resource Manager 範本內的資源。
+    > 如果您選取 [完整]  部署模式，則可能會刪除現有的資源，包括目標資源群組中所有未定義於 Resource Manager 範本內的資源。
 
 1.  儲存發行管線。
 
@@ -157,7 +157,7 @@ ms.locfileid: "66002642"
 
 1.  在上一節中所述的 Azure Resource Manager 部署之前，新增 [Azure Key Vault 工作](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault)：
 
-    -   選取 [工作] 索引標籤、建立新的工作、搜尋 **Azure Key Vault**，並加以新增。
+    -   選取 [工作]  索引標籤、建立新的工作、搜尋 **Azure Key Vault**，並加以新增。
 
     -   在 Key Vault 工作中，選擇您用來建立金鑰保存庫的訂用帳戶、視需要提供認證，然後選擇金鑰保存庫。
 
@@ -173,7 +173,7 @@ Azure Key Vault 工作可能會失敗並發生拒絕存取錯誤 fIntegration �
 
 1.  選擇 **Azure Resource Manager** 作為連線類型，然後選取您的訂用帳戶。
 
-1.  選擇 [內嵌指令碼] 作為指令碼類型，然後提供您的程式碼。 下列範例會停止觸發程序：
+1.  選擇 [內嵌指令碼]  作為指令碼類型，然後提供您的程式碼。 下列範例會停止觸發程序：
 
     ```powershell
     $triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
@@ -936,7 +936,7 @@ else {
 }
 ```
 
-### <a name="explanation"></a>說明:
+### <a name="explanation"></a>說明：
 
 #### <a name="pipelines"></a>管線
     
@@ -1191,7 +1191,7 @@ else {
 
 請記得在在部署工作之前和之後，於 CI/CD 管線中新增 Data Factory 指令碼。
 
-如果您未設定 Git，則可透過 [匯出 ARM 範本] 手勢存取連結的範本。
+如果您未設定 Git，則可透過 [匯出 ARM 範本]  手勢存取連結的範本。
 
 ## <a name="best-practices-for-cicd"></a>CI/CD 的最佳做法
 

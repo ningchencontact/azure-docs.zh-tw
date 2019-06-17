@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: 0831f08eaa3e8e6f6a0d3f68bc50cd927167b7ba
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65507916"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure 中繼資料服務：Linux VM 的已排定事件
@@ -75,7 +75,7 @@ ms.locfileid: "65507916"
 ### <a name="version-and-region-availability"></a>版本和區域可用性
 已排定事件服務已進行版本設定。 版本是必要項目；目前版本為 `2017-11-01`。
 
-| 版本 | 版本類型 | 區域 | 版本資訊 | 
+| Version | 版本類型 | Regions | 版本資訊 | 
 | - | - | - | - | 
 | 2017-11-01 | 正式運作 | 全部 | <li> 已新增的支援低優先順序 VM 收回 EventType 'Preempt'<br> | 
 | 2017-08-01 | 正式運作 | 全部 | <li> 已從 IaaS VM 的資源名稱中移除預留底線<br><li>強制所有要求的中繼資料標頭需求 | 
@@ -97,7 +97,7 @@ ms.locfileid: "65507916"
 
 ## <a name="use-the-api"></a>使用 API
 
-### <a name="headers"></a>標頭
+### <a name="headers"></a>headers
 查詢中繼資料服務時，您必須提供 `Metadata:true` 標頭以免不小心重新導向要求。 所有排程的事件都需要 `Metadata:true` 標頭。 要求中未包含標頭會導致中繼資料服務「不正確的要求」回應。
 
 ### <a name="query-for-events"></a>查詢事件
@@ -127,13 +127,13 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 ```
 
 ### <a name="event-properties"></a>事件屬性
-|屬性  |  說明 |
+|屬性  |  描述 |
 | - | - |
 | EventId | 此事件的全域唯一識別碼。 <br><br> 範例： <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | 此事件造成的影響。 <br><br> 值: <br><ul><li> `Freeze`:虛擬機器已排定會暫停幾秒鐘的時間。 CPU 和網路連線可能會暫止，但不會影響記憶體或開啟的檔案。<li>`Reboot`:虛擬機器已排定要重新開機 (非持續性記憶體都會遺失)。 <li>`Redeploy`:虛擬機器已排定要移至另一個節點 (暫時磁碟都會遺失)。 <li>`Preempt`:正在刪除低優先順序虛擬機器 （暫時磁碟會遺失）。|
-| ResourceType | 受此事件影響的資源類型。 <br><br> 值: <ul><li>`VirtualMachine`|
+| EventType | 此事件造成的影響。 <br><br> 值： <br><ul><li> `Freeze`:虛擬機器已排定會暫停幾秒鐘的時間。 CPU 和網路連線可能會暫止，但不會影響記憶體或開啟的檔案。<li>`Reboot`:虛擬機器已排定要重新開機 (非持續性記憶體都會遺失)。 <li>`Redeploy`:虛擬機器已排定要移至另一個節點 (暫時磁碟都會遺失)。 <li>`Preempt`:正在刪除低優先順序虛擬機器 （暫時磁碟會遺失）。|
+| ResourceType | 受此事件影響的資源類型。 <br><br> 值： <ul><li>`VirtualMachine`|
 | 資源| 受此事件影響的資源清單。 其中最多只能包含來自一個[更新網域](manage-availability.md)的機器，但不能包含更新網域中的所有機器。 <br><br> 範例： <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| EventStatus | 此事件的狀態。 <br><br> 值: <ul><li>`Scheduled`:此事件已排定在 `NotBefore` 屬性所指定的時間之後啟動。<li>`Started`:已啟動事件。</ul> 未曾提供 `Completed` 或類似的狀態。 當事件完成時，不會再傳回事件。
+| EventStatus | 此事件的狀態。 <br><br> 值： <ul><li>`Scheduled`:此事件已排定在 `NotBefore` 屬性所指定的時間之後啟動。<li>`Started`:已啟動事件。</ul> 未曾提供 `Completed` 或類似的狀態。 當事件完成時，不會再傳回事件。
 | NotBefore| 自此之後可啟動此事件的時間。 <br><br> 範例： <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>事件排程
@@ -142,7 +142,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 |EventType  | 最短時間通知 |
 | - | - |
 | 凍結| 15 分鐘 |
-| 重新開機 | 15 分鐘 |
+| 重新啟動 | 15 分鐘 |
 | 重新部署 | 10 分鐘 |
 | 優先於 | 30 秒 |
 

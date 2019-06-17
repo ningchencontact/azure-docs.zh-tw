@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5a16e2d5e3ac723675ebdb536a51d20412681f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 33ef65f09a4e7513738a6cc6b277d06cd4cb4da8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235364"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052390"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>作法：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體
 
@@ -98,7 +98,7 @@ ms.locfileid: "66235364"
    ![用戶端識別碼](./media/howto-create-service-principal-portal/copy-app-id.png)
 
 ## <a name="certificates-and-secrets"></a>憑證和祕密
-Deamon 應用程式可以使用兩種形式的認證來向 Azure AD： 憑證和應用程式祕密。  我們建議使用的認證，但您也可以建立新的應用程式祕密。
+精靈應用程式可以使用兩種形式的認證來向 Azure AD： 憑證和應用程式祕密。  我們建議使用的認證，但您也可以建立新的應用程式祕密。
 
 ### <a name="upload-a-certificate"></a>上傳憑證
 

@@ -11,14 +11,14 @@ manager: daveba
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f4083ddf849842358f7699badca6598e56e4dee
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 434d07163713a139b42a5dbe1664f81dafc2a1ca
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139373"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108948"
 ---
-# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>作法：設定 Azure Multi-factor Authentication 註冊原則
+# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>如何：設定 Azure Multi-factor Authentication 註冊原則
 
 Azure AD Identity Protection 可協助您藉由設定條件式存取原則來要求 MFA 註冊，無論您登入哪些應用程式管理導入的 multi-factor authentication (MFA) 註冊。 這篇文章會說明哪些原則可用於和如何加以設定。
 
@@ -35,7 +35,7 @@ Azure Multi-factor Authentication 提供方法來確認您使用多個只是使�
 
 ## <a name="how-do-i-access-the-registration-policy"></a>如何存取登錄原則？
 
-MFA 註冊原則位於 [Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy) 頁面的 [設定] 區段中。
+MFA 註冊原則位於 [Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy) 頁面的 [設定]  區段中。
 
 ![MFA 原則](./media/howto-mfa-policy/1014.png)
 

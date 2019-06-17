@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
 ms.openlocfilehash: a3df5f28475b03f1799dc1e245c3a7e904b49cb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772919"
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services 通知
@@ -34,7 +34,7 @@ ms.locfileid: "60772919"
 ## <a name="reliable-state-manager-notifications"></a>可靠的狀態管理員通知
 可靠的狀態管理員提供下列事件的通知︰
 
-* 交易
+* Transaction
   * 認可
 * 狀態管理員
   * 重建
@@ -50,7 +50,7 @@ ms.locfileid: "60772919"
 * 完整的複本：在複本可加入組態集之前，它必須先建置。 有時，這需要主要複本的可靠狀態管理員的狀態完整複本，以套用到閒置的次要複本。 次要複本上的可靠狀態管理員會使用 **NotifyStateManagerChangedEventArgs** 引發事件，其中包含一組它從主要複本取得的可靠狀態。
 * 還原：在災害復原案例中，複本的狀態可以從備份還原透過**RestoreAsync**。 在這類案例中，主要複本上的可靠狀態管理員會使用 **NotifyStateManagerChangedEventArgs** 引發事件，其中包含一組它從備份還原來的可靠狀態。
 
-若要註冊交易通知及/或狀態管理員通知，您必須向可靠的狀態管理員分別註冊 **TransactionChanged** 或 **StateManagerChanged** 事件。 注册这些事件处理程序的常见位置是有状态服务的构造函数。 當您註冊建構函式時，您也不會錯過 **IReliableStateManager**存留期間的變更所造成的任何通知。
+若要註冊交易通知及/或狀態管理員通知，您必須向可靠的狀態管理員分別註冊 **TransactionChanged** 或 **StateManagerChanged** 事件。 註冊這些事件處理常式的常見位置是您的具狀態服務的建構函式。 當您註冊建構函式時，您也不會錯過 **IReliableStateManager**存留期間的變更所造成的任何通知。
 
 ```csharp
 public MyService(StatefulServiceContext context)
@@ -112,7 +112,7 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 * 重建：時呼叫**ReliableDictionary**從復原或複製的本機狀態或備份復原其狀態。
 * 清除：呼叫時的狀態**ReliableDictionary**已清除透過**Reliabledictionary**方法。
 * 新增：已加入項目時呼叫**ReliableDictionary**。
-* 更新:中的項目時呼叫**IReliableDictionary**已更新。
+* 更新：中的項目時呼叫**IReliableDictionary**已更新。
 * 移除：中的項目時呼叫**IReliableDictionary**已被刪除。
 
 若要註冊可靠的字典通知，使用者必須在 **IReliableDictionary** 上註冊事件處理常式 **DictionaryChanged**。 註冊這些事件處理常式的常見位置是在 **ReliableStateManager.StateManagerChanged** 加入通知中。
@@ -158,7 +158,7 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 ```
 
 > [!NOTE]
-> 在上述代码中，在处理重新生成通知的过程中，会先清除所维护的聚合状态。 因為正在利用新狀態重建可靠的集合，因此與先前的所有通知無關。
+> 在上述程式碼中，於處理重建通知的過程中，會先清除所維護的彙總狀態。 因為正在利用新狀態重建可靠的集合，因此與先前的所有通知無關。
 > 
 > 
 
@@ -217,7 +217,7 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 
 ## <a name="next-steps"></a>後續步驟
 * [可靠的集合](service-fabric-work-with-reliable-collections.md)
-* [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
+* [Reliable Services 快速入門](service-fabric-reliable-services-quick-start.md)
 * [備份與還原 Reliable Services (災害復原)](service-fabric-reliable-services-backup-restore.md)
 * [可靠的集合的開發人員參考資料](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 

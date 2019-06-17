@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 2cbe3b790197c3f71305e4cb21d0f37fe0404511
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943495"
 ---
 # <a name="insights-page"></a>見解頁面
@@ -21,7 +21,7 @@ ms.locfileid: "64943495"
 
 |  **儀表板**    |  **顯示的內容**               |
 |  -------------    |  ---------------------               |
-| **總結**       | 摘要說明發行者供應項目之市集活動的圖表、趨勢和彙總資料值 |
+| **摘要**       | 摘要說明發行者供應項目之市集活動的圖表、趨勢和彙總資料值 |
 | **支付**        | 以圖形和可下載格式顯示的支付和相關交易 |
 | **訂單和使用量** | 以圖形和可下載格式顯示的訂單和使用量資訊 |
 | **客戶**      | 客戶資訊，包括購買的設定檔 |

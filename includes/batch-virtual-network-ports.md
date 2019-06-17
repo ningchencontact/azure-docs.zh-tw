@@ -16,10 +16,10 @@ ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: 711b662c35b5f8fec96f1edee765696bc1028bf8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127504"
 ---
 ### <a name="general-requirements"></a>一般需求
@@ -58,20 +58,20 @@ ms.locfileid: "66127504"
 * 任何連接埠上傳至網際網路的輸出流量。
 
 > [!IMPORTANT]
-> 如果您要在 Batch 設定的 NSG 中修改或新增輸入或輸出規則，請謹慎操作。 如果 NSG 拒絕對所指定子網路中計算節點的通訊，則 Batch 服務會將計算節點的狀態設為 [無法使用]。
+> 如果您要在 Batch 設定的 NSG 中修改或新增輸入或輸出規則，請謹慎操作。 如果 NSG 拒絕對所指定子網路中計算節點的通訊，則 Batch 服務會將計算節點的狀態設為 [無法使用]  。
 
 您不需要在子網路層級指定 NSG，因為 Batch 會設定其本身的 NSG。 不過，如果指定的子網路有相關聯的網路安全性群組 (NSG) 和 (或) 防火牆，請設定輸入和輸出安全性規則，如下列表格所示。 只有當您需要允許集區 Vm 的遠端存取，從外部來源，請設定上的輸入的流量的連接埠 3389 (Windows) 或 22 (Linux)。 集區 VM 不需要此設定即可使用。 請注意，您必須啟用適用於 Linux 的連接埠 22 上的虛擬網路子網路流量，如果使用某些類型的多重執行個體的工作，例如 MPI。
 
 <bpt id="p1">**</bpt>Inbound security rules<ept id="p1">**</ept>
 
-| 來源 IP 位址 | 來源服務標籤 | 來源連接埠 | 目的地 | 目的地連接埠 | Protocol |  動作 |
+| 來源 IP 位址 | 來源服務標籤 | 來源連接埠 | 目的地 | 目的地連接埠 | Protocol | 動作 |
 | --- | --- | --- | --- | --- | --- | --- |
 | N/A | `BatchNodeManagement` [服務標籤](../articles/virtual-network/security-overview.md#service-tags) | * | 任意 | 29876-29877 | TCP | 允許 |
 | 如有需要，從遠端存取計算節點和/或計算節點的子網路的 Linux 多重執行個體工作，使用者來源 Ip。 | N/A | * | 任意 | 3389 (Windows)、22 (Linux) | TCP | 允許 |
 
 **輸出安全性規則**
 
-| `Source` | 來源連接埠 | 目的地 | 目的地服務標籤 | Protocol |  動作 |
+| source | 來源連接埠 | 目的地 | 目的地服務標記 | Protocol | 動作 |
 | --- | --- | --- | --- | --- | --- |
 | 任意 | 443 | [服務標記](../articles/virtual-network/security-overview.md#service-tags) | `Storage` （在您的 Batch 帳戶和 VNet 位於相同區域）  | 任意 | 允許 |
 
@@ -91,19 +91,19 @@ ms.locfileid: "66127504"
 
 子網路必須允許來自 Batch 服務的輸入通訊，才能在計算節點上排程工作，且必須允許輸出通訊，才能與 Azure 儲存體或其他資源進行通訊。
 
-您不需要指定 NSG，因為 Batch 只會設定從 Batch IP 位址到集區節點的輸入通訊。 不過，如果指定的子網路有相關聯的 NSG 和 (或) 防火牆，請設定輸入和輸出安全性規則，如下列表格所示。 如果 NSG 拒絕對所指定子網路中計算節點的通訊，則 Batch 服務會將計算節點的狀態設為 [無法使用]。
+您不需要指定 NSG，因為 Batch 只會設定從 Batch IP 位址到集區節點的輸入通訊。 不過，如果指定的子網路有相關聯的 NSG 和 (或) 防火牆，請設定輸入和輸出安全性規則，如下列表格所示。 如果 NSG 拒絕對所指定子網路中計算節點的通訊，則 Batch 服務會將計算節點的狀態設為 [無法使用]  。
 
 設定輸入的流量在連接埠 3389 上的 Windows 若要允許集區節點的 RDP 存取。 集區節點不需要此設定即可使用。
 
 <bpt id="p1">**</bpt>Inbound security rules<ept id="p1">**</ept>
 
-| 來源 IP 位址 | 來源連接埠 | 目的地 | 目的地連接埠 | Protocol |  動作 |
+| 來源 IP 位址 | 來源連接埠 | 目的地 | 目的地連接埠 | Protocol | 動作 |
 | --- | --- | --- | --- | --- | --- |
 任意 <br /><br />雖然這實際上需要「全部允許」，但 Batch 服務會在每個節點的層級上套用 ACL 規則，而篩選掉所有非 Batch 服務的 IP 位址。 | * | 任意 | 10100、20100、30100 | TCP | 允許 |
 | （選擇性） 若要讓計算節點的 RDP 存取。 | * | 任意 | 3389 | TCP | 允許 |
 
 **輸出安全性規則**
 
-| `Source` | 來源連接埠 | 目的地 | 目的地連接埠 | Protocol |  動作 |
+| source | 來源連接埠 | 目的地 | 目的地連接埠 | Protocol | 動作 |
 | --- | --- | --- | --- | --- | --- |
 | 任意 | * | 任意 | 443  | 任意 | 允許 |

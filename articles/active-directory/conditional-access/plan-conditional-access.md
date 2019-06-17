@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Active Directory 中規劃條件式存取原則 | Microsoft Docs
-description: 在本文中，您將了解如何為 Azure Active Directory 規劃條件式存取原則。
+title: 規劃 Azure Active Directory 中的條件式存取原則 |Microsoft Docs
+description: 在本文中，您將了解如何規劃 Azure Active Directory 條件式存取原則。
 services: active-directory
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -13,58 +13,58 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e277f31dcf2627959b88d58f325fb4dad024a00
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 44a64611d4e31767b4705f41e47234af7b0848c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001182"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112233"
 ---
-# <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>如何：在 Azure Active Directory 中規劃條件式存取部署
+# <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>如何：規劃 Azure Active Directory 中的條件式存取部署
 
-規劃條件式存取部署非常重要，這可確保您針對組織內的應用程式和資源達成需要的存取策略。 您在部署的規劃階段，應該將大部分時間花費在設計需要的各種原則，以在您選擇的條件下授與或封鎖使用者存取權。 本文件說明實作安全有效率的條件式存取原則所應採取的步驟。 在開始之前，請務必了解[條件式存取](overview.md)的運作方式和使用時機。
+規劃您的條件式存取部署的是，一定要確定您達到您組織中的應用程式和資源的必要的存取策略。 您在部署的規劃階段，應該將大部分時間花費在設計需要的各種原則，以在您選擇的條件下授與或封鎖使用者存取權。 本文件說明實作安全且有效的條件式存取原則，您應該採取的步驟。 在開始之前，請確定您了解如何[條件式存取](overview.md)運作，以及何時應該使用它。
 
 
 ## <a name="what-you-should-know"></a>您應該知道的事情
 
-條件式存取可視為是一種讓您控制組織應用程式和資源存取權的架構，而不是獨立的功能。 因此，某些條件式存取設定需要設定額外的功能。 例如，您可以設定某個原則來回應特定的[登入風險層級](../identity-protection/howto-sign-in-risk-policy.md#what-is-the-sign-in-risk-policy)。 不過，以登入風險層級為基礎的原則需要啟用 [Azure Active Directory Identity Protection](../identity-protection/overview.md)。
+將條件式存取視為一個架構，可讓您控制存取您組織的應用程式和資源，而不是獨立的功能。 因此，某些條件式存取設定需要設定額外的功能。 例如，您可以設定某個原則來回應特定的[登入風險層級](../identity-protection/howto-sign-in-risk-policy.md#what-is-the-sign-in-risk-policy)。 不過，以登入風險層級為基礎的原則需要啟用 [Azure Active Directory Identity Protection](../identity-protection/overview.md)。
 
-如果需要其他的功能，您可能也需要取得相關的授權。 例如，條件式存取是 Azure AD Premium P1 功能，而 Identity Protection 需要 Azure AD Premium P2 授權。
+如果需要其他的功能，您可能也需要取得相關的授權。 比方說，雖然條件式存取是 Azure AD Premium P1 功能，身分識別保護會需要 Azure AD Premium P2 授權。
 
-有兩種條件式存取原則：基準和標準。 [基準原則](baseline-protection.md)是預先定義的條件式存取原則。 這些原則的目標是確保您的環境中至少會啟用基準層級的安全性。 基準原則。 所有 Azure AD 版本都可以使用基準原則，而這些原則僅提供有限的自訂選項。 如果案例需要更多彈性，您可以停用基準原則，然後在自訂標準原則中實作自己的需求。
+有兩種類型的條件式存取原則： 基準和標準。 A[基準原則](baseline-protection.md)預先定義的條件式存取原則。 這些原則的目標是確保您的環境中至少會啟用基準層級的安全性。 基準原則。 所有 Azure AD 版本都可以使用基準原則，而這些原則僅提供有限的自訂選項。 如果案例需要更多彈性，您可以停用基準原則，然後在自訂標準原則中實作自己的需求。
 
-在標準條件式存取原則中，您可以自訂所有設定，以便將原則調整為適合您的業務需求。 標準原則需要 Azure AD Premium P1 授權。
+在標準的條件式存取原則中，您可以自訂 所有設定，以調整您的業務需求的原則。 標準原則需要 Azure AD Premium P1 授權。
 
 
 
 
 ## <a name="draft-policies"></a>草稿原則
 
-Azure Active Directory 條件式存取可讓您的雲端應用程式保護登上全新境界。 在這個新的境界中，雲端應用程式的存取方式是根據動態原則評估，而不是靜態存取設定。 使用條件式存取原則，您就可以定義存取條件 (**當發生的時候**) 的回應 (**做這件事**)。
+Azure Active Directory 條件式的存取可讓您將保護的雲端應用程式帶到新的層級。 在這個新的境界中，雲端應用程式的存取方式是根據動態原則評估，而不是靜態存取設定。 使用條件式存取原則時，您可以定義回應 (**這樣**) 來存取條件 (**當發生這種情況**)。
 
 ![原因和回應](./media/plan-conditional-access/10.png)
 
-使用此規劃模型，定義您要實作的每個條件式存取原則。 規劃練習：
+定義您想要使用此計劃的模型來實作每個條件式存取原則。 規劃練習：
 
 - 協助您針對每個原則擬出回應與條件的大綱。
-- 為您的組織產生具有詳細記錄的條件式存取原則目錄。 
+- 在記載完善的條件式存取原則類別目錄，為您的組織中的結果。 
 
 您可以使用目錄來評估原則實作是否反映您組織的業務需求。 
 
-使用下列範例範本，為您的組織建立條件式存取原則：
+您可以使用下列的範例範本來建立條件式存取原則，為您的組織：
 
-|發生「此情況」時：|則執行「此動作」：|
+|發生「此情況」  時：|則執行「此動作」  ：|
 |-|-|
-|嘗試存取下列項目：<br>- 雲端應用程式<br>- 來自使用者和群組<br>使用：<br>- 條件 1 (例如在公司網路之外)<br>- 條件 2 (例如裝置平台)|封鎖對應用程式的存取|
-|嘗試存取下列項目：<br>- 雲端應用程式<br>- 來自使用者和群組<br>使用：<br>- 條件 1 (例如在公司網路之外)<br>- 條件 2 (例如裝置平台)|授與存取權 (滿足所有需求)：<br>- 需求 1 (例如 MFA)<br>- 需求 2 (例如裝置合規性)|
-|嘗試存取下列項目：<br>- 雲端應用程式<br>- 來自使用者和群組<br>使用：<br>- 條件 1 (例如在公司網路之外)<br>- 條件 2 (例如裝置平台)|授與存取權 (滿足需求之一)：<br>- 需求 1 (例如 MFA)<br>- 需求 2 (例如裝置合規性)|
+|嘗試存取下列項目：<br>- 雲端應用程式<br>- 來自使用者和群組 <br>使用：<br>- 條件 1 (例如在公司網路之外)<br>- 條件 2 (例如裝置平台)|封鎖對應用程式的存取|
+|嘗試存取下列項目：<br>- 雲端應用程式<br>- 來自使用者和群組 <br>使用：<br>- 條件 1 (例如在公司網路之外)<br>- 條件 2 (例如裝置平台)|授與存取權 (滿足所有需求)：<br>- 需求 1 (例如 MFA)<br>- 需求 2 (例如裝置合規性)|
+|嘗試存取下列項目：<br>- 雲端應用程式<br>- 來自使用者和群組 <br>使用：<br>- 條件 1 (例如在公司網路之外)<br>- 條件 2 (例如裝置平台)|授與存取權 (滿足需求之一)：<br>- 需求 1 (例如 MFA)<br>- 需求 2 (例如裝置合規性)|
 
-**發生此情況時**至少要定義嘗試存取雲端應用程式 (**目標**) 的主體 (**人員**)。 如果有必要，您也可以包含執行存取嘗試的**方法**。 在條件式存取中，定義人員、目標和方法的元素是已知條件。 如需詳細資訊，請參閱 [Azure Active Directory 條件式存取中的條件是什麼？](conditions.md) 
+**發生此情況時**至少要定義嘗試存取雲端應用程式 (**目標**) 的主體 (**人員**)。 如果有必要，您也可以包含執行存取嘗試的**方法**。 在條件式存取，項目，定義的對象、 內容和如何所謂的條件。 如需詳細資訊，請參閱[什麼是 Azure Active Directory 條件式存取中的條件？](conditions.md) 
 
-透過**則執行此動作**，您要定義原則對於存取條件的回應。 在您的回應中，您可以搭配其他需求 (例如多重要素驗證 (MFA)) 來封鎖或授與存取權。 如需完整的概觀，請參閱[什麼是 Azure Active Directory 條件式存取中的存取控制？](controls.md)  
+透過**則執行此動作**，您要定義原則對於存取條件的回應。 在您的回應中，您可以搭配其他需求 (例如多重要素驗證 (MFA)) 來封鎖或授與存取權。 如需完整概觀，請參閱[什麼是存取控制在 Azure Active Directory 條件式存取？](controls.md)  
  
 
-條件與存取控制的組合即代表了條件式存取原則。
+條件與存取控制的組合代表條件式存取原則。
 
 ![原因和回應](./media/plan-conditional-access/51.png)
 
@@ -81,7 +81,7 @@ Azure Active Directory 條件式存取可讓您的雲端應用程式保護登上
  
 ![命名標準](./media/plan-conditional-access/11.png)
 
-雖然描述性名稱可協助概述條件式存取實作，但是如果您需要在交談中參考原則，則序號很有幫助。 比方說，如果您透過電話連絡其他系統管理員，您可以要求他們以開啟 原則 EM063 來解決問題。
+雖然的描述性名稱可協助您將條件式存取實作的概觀，序號是如果您需要參考在交談中的原則很有幫助。 比方說，如果您透過電話連絡其他系統管理員，您可以要求他們以開啟 原則 EM063 來解決問題。
 
 
 
@@ -111,7 +111,7 @@ Azure Active Directory 條件式存取可讓您的雲端應用程式保護登上
 
 ## <a name="plan-policies"></a>規劃原則
 
-在規劃您的條件式存取原則解決方案時，請評估您是否需要建立原則來達到下列結果。 
+在規劃您的條件式存取原則解決方案時，評估是否要建立原則，以達到下列結果。 
 
 
 ### <a name="block-access"></a>封鎖存取
@@ -127,7 +127,7 @@ Azure Active Directory 條件式存取可讓您的雲端應用程式保護登上
 
 ### <a name="require-mfa"></a>需要 MFA
 
-為了簡化使用者的登入體驗，您可以讓他們透過使用者名稱和密碼登入您的雲端應用程式。 不過，通常來說，至少有部分案例會建議需要更強的帳戶驗證表單。 使用條件式存取原則，您可以將 MFA 的需求限制在特定案例。 
+為了簡化使用者的登入體驗，您可以讓他們透過使用者名稱和密碼登入您的雲端應用程式。 不過，通常來說，至少有部分案例會建議需要更強的帳戶驗證表單。 使用條件式存取原則時，您可以限制特定案例的需求適用於 MFA。 
 
 需要 MFA 來進行存取的常見使用案例：
 
@@ -138,9 +138,9 @@ Azure Active Directory 條件式存取可讓您的雲端應用程式保護登上
 
 ### <a name="respond-to-potentially-compromised-accounts"></a>回應可能遭盜用的帳戶
 
-透過條件式存取原則，您可以針對可能遭盜用的身分識別登入實作自動化回應。 帳戶遭到盜用的可能性會以風險層級的形式來表示。 Identity Protection 會計算兩種風險層級：登入風險和使用者風險。 若要實作登入風險回應，您有兩個選項：
+使用條件式存取原則，您可以實作自動化的回應可能遭盜用的身分識別登入。 帳戶遭到盜用的可能性會以風險層級的形式來表示。 Identity Protection 會計算兩種風險層級：登入風險和使用者風險。 若要實作登入風險回應，您有兩個選項：
 
-- 條件式存取原則中的[登入風險條件](conditions.md#sign-in-risk)
+- [登入風險條件](conditions.md#sign-in-risk)中條件式存取原則
 - Identity Protection 中的 [登入風險原則](../identity-protection/howto-sign-in-risk-policy.md) 
 
 將登入風險作為條件是慣用的方法，因為它可提供您更多自訂選項。
@@ -152,16 +152,16 @@ Azure Active Directory 條件式存取可讓您的雲端應用程式保護登上
 
 ### <a name="require-managed-devices"></a>需要受控裝置
 
-在可存取雲端資源的裝置種類激增的情況下，使用者的生產力得以提升。 而另一方面，您應該不希望環境中的特定資源在保護層級不確定的情況下受到裝置存取。 對於受影響的資源，您應要求使用者只能使用受控裝置加以存取。 如需詳細資訊，請參閱[如何透過條件式存取要求必須從受控裝置存取雲端應用程式](require-managed-devices.md)。 
+在可存取雲端資源的裝置種類激增的情況下，使用者的生產力得以提升。 而另一方面，您應該不希望環境中的特定資源在保護層級不確定的情況下受到裝置存取。 對於受影響的資源，您應要求使用者只能使用受控裝置加以存取。 如需詳細資訊，請參閱 <<c0> [ 如何要求使用條件式存取的雲端應用程式存取的受管理的裝置](require-managed-devices.md)。 
 
 ### <a name="require-approved-client-apps"></a>需要已核准的用戶端應用程式
 
-針對攜帶您自己的裝置 (BYOD) 案例，您需要做的第一個決策之一是您要管理整個裝置，或是只管理裝置上的資料。 您的員工使用行動裝置來處理個人和工作事務。 在維護員工的生產力時，您也希望能預防資料遺失。 有了 Azure Active Directory (Azure AD) 條件式存取，您可以將雲端應用程式的存取限制為能保護公司資料的已核准用戶端應用程式。 如需詳細資訊，請參閱[如何透過條件式存取要求必須從已核准用戶端應用程式存取雲端應用程式。](app-based-conditional-access.md)
+針對攜帶您自己的裝置 (BYOD) 案例，您需要做的第一個決策之一是您要管理整個裝置，或是只管理裝置上的資料。 您的員工使用行動裝置來處理個人和工作事務。 在維護員工的生產力時，您也希望能預防資料遺失。 使用 Azure Active Directory (Azure AD) 條件式存取，您可以限制存取您的雲端應用程式，可以保護公司資料的已核准的用戶端應用程式。 如需詳細資訊，請參閱 <<c0> [ 如何要求核准的用戶端應用程式使用條件式存取的雲端應用程式存取](app-based-conditional-access.md)。
 
 
 ### <a name="block-legacy-authentication"></a>封鎖舊式驗證
 
-Azure AD 支援數個最常用的驗證和授權通訊協定，包括舊式驗證。 如何防止使用舊式驗證的應用程式存取您租用戶的資源？ 建議您使用條件式存取原則直接加以封鎖。 如有必要，您可以僅允許特定使用者和特定網路位置使用以舊式驗證為基礎的應用程式。 如需詳細資訊，請參閱[如何使用條件式存取封鎖對 Azure AD 的舊式驗證](block-legacy-authentication.md)。
+Azure AD 支援數個最常用的驗證和授權通訊協定，包括舊式驗證。 如何防止使用舊式驗證的應用程式存取您租用戶的資源？ 建議是只與條件式存取原則會封鎖它們。 如有必要，您可以僅允許特定使用者和特定網路位置使用以舊式驗證為基礎的應用程式。 如需詳細資訊，請參閱 <<c0> [ 如何封鎖舊版 Azure AD 驗證來使用條件式存取](block-legacy-authentication.md)。
 
 
 ## <a name="test-your-policy"></a>測試您的原則
@@ -195,10 +195,10 @@ Azure AD 支援數個最常用的驗證和授權通訊協定，包括舊式驗�
 
 |原則 |案例 |預期的結果 | 結果 |
 |---|---|---|---|
-|[不在公司時要求 MFA](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|已授權的使用者在信任的位置/公司登入應用程式|不會提示使用者進行 MFA| |
-|[不在公司時要求 MFA](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|已授權的使用者不是在信任的位置/公司登入應用程式|提示使用者進行 MFA 且成功登入| |
-|[要求 MFA (適用於管理員)](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|全域管理員登入應用程式|提示管理員進行 MFA| |
-|[有風險的登入](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|使用者使用 [Tor 瀏覽器](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)登入應用程式|提示管理員進行 MFA| |
+|[不在公司時要求 MFA](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|已授權的使用者在信任的位置/公司登入應用程式 |不會提示使用者進行 MFA| |
+|[不在公司時要求 MFA](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|已授權的使用者不是在信任的位置/公司登入應用程式 |提示使用者進行 MFA 且成功登入| |
+|[要求 MFA (適用於管理員)](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|全域管理員登入應用程式 |提示管理員進行 MFA| |
+|[有風險的登入](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|使用者使用 [Tor 瀏覽器](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)登入應用程式 |提示管理員進行 MFA| |
 |[裝置管理](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|已授權的使用者嘗試從已授權的裝置登入|授與存取權| |
 |[裝置管理](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|已授權的使用者嘗試從未經授權的裝置登入|封鎖存取權| |
 |[具風險使用者的密碼變更](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)|已授權的使用者嘗試以被盜用的認證登入 (高風險登入)|根據您的原則，系統會提示使用者變更密碼或封鎖存取| |
@@ -206,12 +206,12 @@ Azure AD 支援數個最常用的驗證和授權通訊協定，包括舊式驗�
 
 ### <a name="configure-the-policy"></a>設定原則
 
-管理條件式存取原則是手動工作。 在 Azure 入口網站中，您可以在單一中央位置 (條件式存取頁面) 管理您的條件式存取原則。 條件式存取頁面的其中一個進入點是 [Active Directory] 瀏覽窗格中的 [安全性] 區段。 
+管理條件式存取原則是手動工作。 在 Azure 入口網站中，您可以管理您的條件式存取原則，在單一中央位置-條件式存取頁面。 條件式存取頁面的一個進入點是**安全性**一節**Active Directory**瀏覽窗格中。 
 
 ![條件式存取](media/plan-conditional-access/03.png)
 
 
-如果您要深入了解如何建立條件式存取原則，請參閱[透過 Azure Active Directory 條件式存取來要求特定應用程式必須使用 MFA](app-based-mfa.md)。 本快速入門可協助您：
+如果您想要深入了解如何建立條件式存取原則，請參閱[需要 MFA 的特定應用程式與 Azure Active Directory 條件式存取](app-based-mfa.md)。 本快速入門可協助您：
 
 - 熟悉使用者介面。
 - 取得條件式存取如何運作的第一印象。 
@@ -219,10 +219,10 @@ Azure AD 支援數個最常用的驗證和授權通訊協定，包括舊式驗�
 
 ### <a name="evaluate-a-simulated-sign-in"></a>評估模擬的登入狀況
 
-現在您已設定條件式存取原則，建議您查看它是否如預期般運作。 第一個步驟是使用條件式存取 [What If 原則工具](what-if-tool.md)，模擬您測試使用者的登入情況。 該模擬可評估此登入對原則所造成的影響，並產生模擬報告。
+既然您已設定條件式存取原則，您可能會想要知道它要以如預期般運作。 第一個步驟中，使用條件式存取[假設原則工具](what-if-tool.md)來模擬登入您的測試使用者。 該模擬可評估此登入對原則所造成的影響，並產生模擬報告。
 
 >[!NOTE]
-> 雖然模擬執行可提供您對條件式存取原則所影響的印象，但它不會取代實際的測試回合。
+> 雖然模擬的執行可提供您的條件式存取原則的影響，但它不會取代實際的測試回合。
 
 
 ### <a name="test-your-policy"></a>測試您的原則

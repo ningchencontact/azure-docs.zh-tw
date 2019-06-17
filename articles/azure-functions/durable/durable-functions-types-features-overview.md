@@ -1,6 +1,6 @@
 ---
-title: Azure Functions 的 Durable Functions 扩展中的函数类型和功能
-description: 了解 Azure Functions 的 Durable Functions 业务流程中用于支持函数间通信的函数类型和角色。
+title: 函式型別和 Azure Functions 的 Durable Functions 擴充中的功能
+description: 了解函式和支援在 Azure Functions 的 Durable Functions 協調流程中的函式至函式通訊的角色類型。
 services: functions
 author: jeffhollan
 manager: jeconnoc
@@ -8,97 +8,96 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 03/19/2019
-ms.author: v-junlch
+ms.date: 12/07/2018
+ms.author: azfuncdf
 ms.openlocfilehash: 76b6f013333113d5a24b744bc962d36b1c0e21b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60731105"
 ---
-# <a name="durable-functions-types-and-features-azure-functions"></a>Durable Functions 类型和功能 (Azure Functions)
+# <a name="durable-functions-types-and-features-azure-functions"></a>長期函式型別和功能 (Azure Functions)
 
-Durable Functions 是 [Azure Functions](../functions-overview.md) 的一个扩展。 可将 Azure Functions 用于函数执行的有状态业务流程。 持久函数是由不同 Azure 函数构成的解决方案。 函数可在持久函数业务流程中扮演不同的角色。 
+Durable Functions 也是的延伸模組[Azure Functions](../functions-overview.md)。 您可以使用長期函式的函式執行具狀態協調流程。 長期函式會是個不同的 Azure 函式的解決方案。 函式可以長期函式協調流程中扮演不同的角色。 
 
-本文将会概述可在 Durable Functions 业务流程中使用的函数类型。 本文包括一些可用于连接函数的常用模式。 了解 Durable Functions 有助于解决应用开发中遇到的难题。
+這篇文章會提供您可以使用 Durable Functions 協調流程中的函式類型的概觀。 本文會包含一些常見的模式，您可以使用 functions 連接。 了解 Durable Functions 可協助您解決您的應用程式的開發挑戰。
 
-![显示 Durable Functions 类型的插图][1]  
+![此圖顯示長期函式的類型][1]  
 
 ## <a name="types-of-durable-functions"></a>長期函式類型
 
-可在 Azure Functions 中使用三种持久函数类型：活动、业务流程协调程序和客户端。
+您可以在 Azure Functions 中使用三種永久性函式類型： 活動、 orchestrator 和用戶端。
 
 ### <a name="activity-functions"></a>活動函式
 
-活动函数是持久函数业务流程中的基本工作单元。 活动函数是在过程中协调的函数和任务。 例如，可以创建一个持久函数来处理订单。 任务涉及到检查库存、向客户收费和创建发货单。 每个任务都是一个活动函数。 
+活動函式是工作的一個永久性函式的協調流程中的基本單位。 活動函式是函式和協調程序中的工作。 例如，您可以建立一個永久性函式來處理訂單。 工作都涉及檢查庫存、 付費客戶，以及建立出貨。 每個工作是活動函式。 
 
-活动函数对于可在其中执行的工作类型没有限制。 可以使用 [Durable Functions 支持的任何语言](durable-functions-overview.md#language-support)编写活动函数。 長期任務架構可確保每個呼叫的活動函式在協調流程期間至少執行一次。
+活動函式不可以在其上執行的工作類型的限制。 您可以撰寫活動函式的任何[Durable Functions 支援的語言](durable-functions-overview.md#language-support)。 長期任務架構可確保每個呼叫的活動函式在協調流程期間至少執行一次。
 
-使用[活动触发器](durable-functions-bindings.md#activity-triggers)触发活动函数。 .NET 函数接收 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) 作为参数。 您也可以將觸發程式繫結至任何其他物件，以將輸入的資訊傳遞至函式。 在 JavaScript 中，可以通过 [`context.bindings` 对象](../functions-reference-node.md#bindings)中的 `<activity trigger binding name>` 属性访问输入。
+使用[活動觸發程序](durable-functions-bindings.md#activity-triggers)觸發活動函式。 .NET 函式會收到[DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html)做為參數。 您也可以將觸發程式繫結至任何其他物件，以將輸入的資訊傳遞至函式。 在 JavaScript 中，您可以透過輸入`<activity trigger binding name>`上的屬性[`context.bindings`物件](../functions-reference-node.md#bindings)。
 
-活动函数还可以将值返回给业务流程协调程序。 如果从活动函数发送或返回大量的值，可以使用[元组或数组](durable-functions-bindings.md#passing-multiple-parameters)。 只能从业务流程实例触发活动函数。 虽然某个活动函数和另一个函数（例如 HTTP 触发的函数）可以共享一些代码，但每个函数只能有一个触发器。
+您的活動函式也可以將值傳回給協調器。 如果您傳送，或從活動函式會傳回大量的值，您可以使用[tuple 或陣列](durable-functions-bindings.md#passing-multiple-parameters)。 您可以觸發活動函式只能從協調流程執行個體。 雖然活動函式和另一個函式 （例如 HTTP 觸發的函式） 可能會共用一些程式碼，每個函式可以有只有一個觸發程序。
 
-有关详细信息和示例，请参阅[活动函数](durable-functions-bindings.md#activity-triggers)。
+如需詳細資訊和範例，請參閱[活動函式](durable-functions-bindings.md#activity-triggers)。
 
 ### <a name="orchestrator-functions"></a>協調器函式
 
-业务流程协调程序函数描述操作的执行方式和操作的执行顺序。 业务流程协调程序函数描述代码（C# 或 JavaScript）中的业务流程，如 [Durable Functions 模式和技术概念](durable-functions-concepts.md)中所述。 业务流程可以包含许多不同类型的操作，包括[活动函数](#activity-functions)、[子业务流程](#sub-orchestrations)、[等待外部事件](#external-events)和[计时器](#durable-timers)。 
+協調器函式會說明如何執行動作，以及執行動作的順序。 協調器函式說明中的程式碼的協調流程 (C#或 JavaScript) 中所示[Durable Functions 模式和技術概念](durable-functions-concepts.md)。 協調流程可以有許多不同類型的動作，包括[活動函式](#activity-functions)，[子協調流程](#sub-orchestrations)，[等待外部事件](#external-events)，以及[計時器](#durable-timers)。 
 
 協調器函式必須由[協調流程觸發程序](durable-functions-bindings.md#orchestration-triggers)觸發。
 
-业务流程协调程序由[业务流程协调程序客户端](#client-functions)启动。 可以从任何源（HTTP、队列、事件流）触发业务流程协调程序。 业务流程的每个实例都有一个实例标识符。 可以自动生成（推荐）或者由用户生成实例标识符。 可以使用实例标识符[管理业务流程的实例](durable-functions-instance-management.md)。
+啟動協調器[orchestrator 用戶端](#client-functions)。 您可以觸發任何來源 （HTTP、 佇列、 事件資料流） orchestrator。 每個協調流程執行個體具有執行個體識別碼。 執行個體識別碼可以是自動產生 （建議選項），或使用者所產生。 您可以使用的執行個體識別碼[管理執行個體](durable-functions-instance-management.md)協調流程。
 
-有关详细信息和示例，请参阅[业务流程触发器](durable-functions-bindings.md#orchestration-triggers)。
+如需詳細資訊和範例，請參閱[協調流程觸發程序](durable-functions-bindings.md#orchestration-triggers)。
 
 ### <a name="client-functions"></a>用戶端函式
 
-客户端函数是触发的函数，可以创建业务流程的新实例。 客户端函数是用于创建 Durable Functions 业务流程实例的入口点。 可以从任何源（HTTP、队列、事件流）触发客户端函数。 可以使用应用支持的任何语言编写客户端函数。 
+用戶端函式會建立新的執行個體的協調流程的觸發函式。 用戶端函式會建立 Durable Functions 協調流程執行個體的進入點。 您可以觸發用戶端函式，從任何來源 （HTTP、 佇列、 事件資料流）。 您可以在任何應用程式支援的語言撰寫的用戶端函式。 
 
-客户端函数还具有[业务流程客户端](durable-functions-bindings.md#orchestration-client)绑定。 客户端函数可以使用业务流程客户端绑定来创建和管理持久业务流程。 
+用戶端函式也有[協調流程用戶端](durable-functions-bindings.md#orchestration-client)繫結。 用戶端函式可用來建立和管理永久性協調流程繫結協調流程用戶端。 
 
-客户端函数的最基本示例是 HTTP 触发的函数，该函数启动业务流程协调程序函数，然后返回检查状态响应。 有关示例，请参阅 [HTTP API URL 发现](durable-functions-http-api.md#http-api-url-discovery)。
+用戶端函式的最基本範例是 HTTP 觸發的函式會啟動協調器函式，然後傳回 核取狀態回應。 如需範例，請參閱[HTTP API URL 探索](durable-functions-http-api.md#http-api-url-discovery)。
 
-有关详细信息和示例，请参阅[业务流程客户端](durable-functions-bindings.md#orchestration-client)。
+如需詳細資訊和範例，請參閱[協調流程用戶端](durable-functions-bindings.md#orchestration-client)。
 
 ## <a name="features-and-patterns"></a>功能與模式
 
-后续部分介绍 Durable Functions 类型的功能和模式。
+下一節中說明的 Durable Functions 類型模式的功能。
 
 ### <a name="sub-orchestrations"></a>子協調流程
 
-业务流程协调程序函数可以调用活动函数，但除此之外，还可以调用其他业务流程协调程序函数。 例如，您可以從協調器函式庫中編譯更大的協調流程。 或者，可以并行运行某个业务流程协调程序函数的多个实例。
+協調器函式可以呼叫活動函式，但它們也可以呼叫其他協調器函式。 例如，您可以從協調器函式庫中編譯更大的協調流程。 或者，您可以平行執行的協調器函式的多個執行個體。
 
-有关详细信息和示例，请参阅[子业务流程](durable-functions-sub-orchestrations.md)。
+如需詳細資訊和範例，請參閱[子協調流程](durable-functions-sub-orchestrations.md)。
 
 ### <a name="durable-timers"></a>永久性計時器
 
-[Durable Functions](durable-functions-overview.md) 提供持久计时器，在业务流程协调程序函数中使用这些计时器可以针对异步操作实现延迟或设置超时。 在业务流程协调程序函数中应使用持久计时器，而不要使用 `Thread.Sleep` 和 `Task.Delay` (C#) 或 `setTimeout()` 和 `setInterval()` (JavaScript)。
+[Durable Functions](durable-functions-overview.md)提供*永久性計時器*，您可以使用協調器函式中實作延遲，或設定在非同步動作上的逾時。 在協調器函式，而不是使用永久性計時器`Thread.Sleep`並`Task.Delay`(C#) 或`setTimeout()`並`setInterval()`(JavaScript)。
 
-有关详细信息和示例，请参阅[持久计时器](durable-functions-timers.md)。
+如需詳細資訊和範例，請參閱[永久性計時器](durable-functions-timers.md)。
 
 ### <a name="external-events"></a>外部事件
 
-協調器函式可以等待外部事件以更新協調流程執行個體。 此项 Durable Functions 功能通常用于处理人机交互或其他外部回调。
+協調器函式可以等待外部事件以更新協調流程執行個體。 此 Durable Functions 功能通常適合用來處理人為互動或其他外部的回呼。
 
-有关详细信息和示例，请参阅[外部事件](durable-functions-external-events.md)。
+如需詳細資訊和範例，請參閱[外部事件](durable-functions-external-events.md)。
 
 ### <a name="error-handling"></a>错误处理。
 
-使用代码实现 Durable Functions 业务流程。 可以使用编程语言的错误处理功能。 在业务流程中可以运行诸如 `try`/`catch` 的模式。 
+您可以使用程式碼來實作 Durable Functions 協調流程。 您可以使用程式設計語言的錯誤處理功能。 模式，例如`try` / `catch`協調流程中的工作。 
 
-Durable Functions 还有内置的重试策略。 发生异常时，某项操作可以自动延迟和重试活动。 可以使用重试来处理暂时性的异常，而无需丢弃业务流程。
+Durable Functions 也會隨附內建的重試原則。 動作可以延遲，並自動重試活動時發生例外狀況。 您可以使用重試來處理暫時性例外狀況，而不需要放棄協調流程。
 
-有关详细信息和示例，请参阅[错误处理](durable-functions-error-handling.md)。
+如需詳細資訊和範例，請參閱[錯誤處理](durable-functions-error-handling.md)。
 
 ### <a name="cross-function-app-communication"></a>跨函式應用程式通訊
 
-虽然持久业务流程在单个函数应用的上下文中运行，但你可以使用模式来跨多个函数应用协调业务流程。 跨应用通信可以通过 HTTP 进行，但是，为每个活动使用持久框架意味着还可以跨两个应用保持持久过程。
+雖然單一函式應用程式的內容中執行長期的協調流程，您可以使用模式來協調跨許多函式應用程式的協調流程。 跨應用程式的通訊可能會發生在 HTTP 上，但每個活動中使用長期架構表示您仍可以跨兩個應用程式維護長期的程序。
 
-以下示例演示了 C# 和 JavaScript 中的跨函数应用业务流程。 在每个示例中，有一个活动启动外部业务流程。 另一个活动检索并返回状态。 业务流程协调程序等待状态变为 `Complete`，然后继续。
+下列範例示範如何跨函式應用程式中的協調流程C#和 JavaScript。 在每個範例中，一個活動啟動外部協調流程。 另一個活動會擷取並傳回的狀態。 Orchestrator 會等到狀態變成`Complete`繼續執行之前。
 
-下面是跨函数应用业务流程的一些示例：
+以下是一些跨函式應用程式協調流程的範例：
 
 #### <a name="c"></a>C#
 
@@ -132,7 +131,7 @@ public static async Task RunRemoteOrchestrator(
 public static async Task<string> StartRemoteOrchestration([ActivityTrigger] string orchestratorName)
 {
     using (var response = await HttpClient.PostAsync(
-        $"https://appB.chinacloudsites.cn/orchestrations/{orchestratorName}",
+        $"https://appB.azurewebsites.net/orchestrations/{orchestratorName}",
         new StringContent("")))
     {
         string statusUrl = await response.Content.ReadAsAsync<string>();
@@ -184,7 +183,7 @@ const request = require("request-promise-native");
 module.exports = async function(context, orchestratorName) {
     const options = {
         method: "POST",
-        uri: `https://appB.chinacloudsites.cn/orchestrations/${orchestratorName}`,
+        uri: `https://appB.azurewebsites.net/orchestrations/${orchestratorName}`,
         body: ""
     };
 
@@ -211,12 +210,10 @@ module.exports = async function(context, statusUrl) {
 
 ## <a name="next-steps"></a>後續步驟
 
-若要开始体验，请在 [C#](durable-functions-create-first-csharp.md) 或 [JavaScript](quickstart-js-vscode.md) 中创建第一个持久函数。
+若要開始，建立您的第一個永久性函式，在[ C# ](durable-functions-create-first-csharp.md)或是[JavaScript](quickstart-js-vscode.md)。
 
 > [!div class="nextstepaction"]
-> [详细了解 Durable Functions](durable-functions-bindings.md)
+> [深入的了解 Durable Functions](durable-functions-bindings.md)
 
 <!-- Media references -->
 [1]: media/durable-functions-types-features-overview/durable-concepts.png
-
-<!-- Update_Description: wording update -->

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1f29a12090ca37f25ea6f5f11e870df924b334f5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.openlocfilehash: d7c8c8e6931c3e677273fab17755031527aff978
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497132"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069366"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Azure 監視器中的整合警示和監視取代了傳統警示和監視
 
 Azure 監視器現在已成為整合的完整堆疊監視服務，其現在可跨資源支援「一個計量」和「一個警示」；如需詳細資訊，請參閱[關於新 Azure 監視器的部落格文章](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/)。新的 Azure 監視和警示平台經過建置，變得更快速、更聰明，且可擴充，以跟上雲端運算日益擴張的版圖，並和 Microsoft Intelligent Cloud 的原則保持一致。 
 
-使用新的 Azure 監視和警示就緒的平台，我們將會淘汰 「 傳統 」 監視和警示平台-裝載於*檢視傳統警示*一節的 Azure 警示，**會在淘汰將於 2019 年 8 月在 Azure 公用雲端**。 [Azure Government 雲端](../../azure-government/documentation-government-welcome.md)將不受影響。
+使用新的 Azure 監視和警示就緒的平台，我們將會淘汰 「 傳統 」 監視和警示平台-裝載於*檢視傳統警示*一節的 Azure 警示，**會在淘汰將於 2019 年 8 月在 Azure 公用雲端**。 [Azure Government 雲端](../../azure-government/documentation-government-welcome.md)並[Azure China](https://docs.azure.cn/)不會受到影響。
 
 > [!NOTE]
 > 因為導入的移轉工具中的延遲，所以傳統警示移轉的停用日期已[延伸到 2019 年 8 月 31 日](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/)從最初宣布於 2019 年 6 月 30 日的日期。

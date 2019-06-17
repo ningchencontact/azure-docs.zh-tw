@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
-ms.openlocfilehash: 1610678b0ae1d94c3f3b8f91913beceb211d08d6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7d26d4c924ba2b7116b95e0b396652e49ca1b8f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701707"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059396"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>將 Azure HDInsight 中的 Apache Hive 查詢最佳化
 
@@ -39,7 +39,7 @@ ms.locfileid: "64701707"
 
 ## <a name="use-apache-tez-instead-of-map-reduce"></a>使用 Apache Tez 而非 Mapreduce
 
-[Apache Tez](https://hortonworks.com/hadoop/tez/) 是 MapReduce 引擎的替代執行引擎。 Linux 的 HDInsight 叢集預設會啟用 Tez。
+[Apache Tez](https://tez.apache.org/) 是 MapReduce 引擎的替代執行引擎。 Linux 的 HDInsight 叢集預設會啟用 Tez。
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -51,7 +51,7 @@ Tez 比較迅速，因為：
 * **重複使用容器**。 Tez 會儘可能重複使用容器，確保減少因為啟動容器而產生的延遲。
 * **連續最佳化技巧**。 習慣上，是在編譯階段進行最佳化。 但是有更多關於輸入的資訊可用，所以在執行階段進行最佳化比較理想。 Tez 會使用連續最佳化技巧，進一步在執行階段將計劃最佳化。
 
-如需這些概念的詳細資訊，請參閱 [Apache TEZ](https://hortonworks.com/hadoop/tez/)。
+如需這些概念的詳細資訊，請參閱 [Apache TEZ](https://tez.apache.org/)。
 
 在查詢的前面加上下列設定命令，即可啟用任何 Hive 查詢 Tez：
 
@@ -71,7 +71,7 @@ Hive 資料分割的實作方法是將未經處理的資料重新整理成新的
 
 * **請勿分割不足** - 依據只有少數幾個值的資料行進行分割，可能會造成很少的分割區。 例如，依據性別進行分割，只會建立兩個分割區 (男性和女性)，因此只會降低最多一半的延遲。
 * **請勿過度分割** - 另一方面，在具有唯一值 (例如，使用者識別碼) 的資料行建立分割區會造成多個分割區。 過度分割會在叢集 namenode 上造成太多壓力，因為它必須處理大量目錄。
-* **避免資料扭曲** - 明智地選擇分割索引鍵，讓所有分割區的大小平均。 例如，「州/省」資料行上的資料分割可能會扭曲資料的分佈。 由於加州的人口幾乎是佛蒙特州的 30 倍，分割區大小可能會有偏差，且效能可能會有極大的差異。
+* **避免資料扭曲** - 明智地選擇分割索引鍵，讓所有分割區的大小平均。 例如，「州/省」  資料行上的資料分割可能會扭曲資料的分佈。 由於加州的人口幾乎是佛蒙特州的 30 倍，分割區大小可能會有偏差，且效能可能會有極大的差異。
 
 若要建立分割資料表，請使用 *Partitioned By* 子句：
 
@@ -121,7 +121,7 @@ Hive 資料分割的實作方法是將未經處理的資料重新整理成新的
 如需詳細資訊，請參閱[資料分割資料表](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables) \(英文\)。
 
 ## <a name="use-the-orcfile-format"></a>使用 ORCFile 格式
-Hive 支援不同的檔案格式。 例如︰
+Hive 支援不同的檔案格式。 例如:
 
 * **文字**：預設檔案格式且適用於大部分的案例。
 * **Avro**：適用於互通性案例。
@@ -147,7 +147,7 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
    STORED AS ORC;
    ```
    
-接著，將資料從暫存資料表插入至 ORC 資料表。 例如︰
+接著，將資料從暫存資料表插入至 ORC 資料表。 例如:
 
    ```hive
    INSERT INTO TABLE lineitem_orc
@@ -188,7 +188,7 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
 您有更多最佳化方法可以考慮，例如：
 
 * **Hive 值區：** 能將大型資料集叢集化或分段以最佳化查詢效能的技術。
-* **聯結最佳化：** Hive 的查詢執行計劃最佳化，可改善聯結的效率並減少使用者提示的需求。 有关详细信息，请参阅 [联接优化](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization)。
+* **聯結最佳化：** Hive 的查詢執行計劃最佳化，可改善聯結的效率並減少使用者提示的需求。 如需詳細資訊，請參閱 [聯結最佳化](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization)。
 * **增加歸納器**。
 
 ## <a name="next-steps"></a>後續步驟
