@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 06/07/2019
 ms.author: raynew
-ms.openlocfilehash: 514aaaf7a274e60a17bbae62b3c62e7cf3668e7a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8b1f3740018d9f6d9eacdae573054a6d9fa8542f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237310"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073960"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
@@ -66,7 +66,7 @@ Site Recovery 支援複寫任何執行於所支援機器上的工作負載。
 機器工作負載 | Site Recovery 支援複寫任何執行於所支援機器上的工作負載 (如 Active Directory、SQL server 等)。 [深入了解](https://aka.ms/asr_workload)。
 Windows 作業系統 | Windows Server 2019 (從[9.22 版本](service-updates-how-to.md#links-to-currently-supported-update-rollups))、 64 位元 Windows Server 2016 （Server Core、 伺服器含桌面體驗）、 Windows Server 2012 R2、 Windows Server 2012、 Windows Server 2008 R2 含在至少為 SP1。 </br> 從中[9.24 版本](https://support.microsoft.com/en-in/help/4503156)、 64 位元 Windows 10，64 位元 Windows 8.1，64 位元 Windows 8，64 位元 Windows 7 （Windows 7 RTM 不支援）</br>  [至少含 SP2 的 Windows Server 2008 -32 位元和 64 位元](migrate-tutorial-windows-server-2008.md) (僅限移轉)。 </br></br> 不支援 Windows 2016 Nano Server。
 Linux 作業系統架構 | 只有 64 位元系統則支援。 不支援 32 位元系統
-Linux 作業系統 | Red Hat Enterprise Linux：5.2 至 5.11<b>\*\*</b>、6.1 至 6.10<b>\*\*</b>、7.0 至 7.6 <br/><br/>CentOS：5.2 至 5.11<b>\*\*</b>、6.1 至 6.10<b>\*\*</b>、7.0 至 7.6 <br/><br/>Ubuntu 14.04 LTS 伺服器[（支援的核心版本）](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 伺服器[（支援的核心版本）](#ubuntu-kernel-versions)<br/><br/>Debian 7/debian 8 [（支援的核心版本）](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1、 SP2、 SP3、 SP4 [（支援的核心版本）](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>、SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4、 6.5、 6.6、 6.7、 6.8、 6.9、 6.10、 7.0、 7.1、 7.2、 7.3、 7.4、 7.5、 7.6 執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3、 4 和 5 (UEK3，UEK4，UEK5) <br/><br/></br>- 不支援將所複寫的機器從 SUSE Linux Enterprise Server 11 SP3 升級至 SP4。 若要升級，請停用複寫，然後在升級之後再次加以啟用。</br></br> - [深入了解](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)Azure 中對 Linux 及開放原始碼技術的支援。 Site Recovery 會協調容錯移轉以在 Azure 中執行 Linux 伺服器。 不過，Linux 廠商可能會將支援僅限於生命週期尚未結束的發行版本。<br/><br/> - 在 Linux 發行版本上，僅支援屬於發行版本之次要版本發行/更新的原生核心。<br/><br/> - 不支援跨主要 Linux 發行版本升級受保護的機器。 若要升級，請停用複寫、升級作業系統，然後再次啟用複寫。<br/><br/> - 執行 Red Hat Enterprise Linux 5.2-5.11 或 CentOS 5.2-5.11 的伺服器應該安裝 [Linux Integration Services (LIS) 元件](https://www.microsoft.com/download/details.aspx?id=55106)，如此機器才能在 Azure 中啟動。
+Linux 作業系統 | Red Hat Enterprise Linux：5.2 至 5.11<b>\*\*</b>、6.1 至 6.10<b>\*\*</b>、7.0 至 7.6 <br/><br/>CentOS：5.2 至 5.11<b>\*\*</b>、6.1 至 6.10<b>\*\*</b>、7.0 至 7.6 <br/><br/>Ubuntu 14.04 LTS 伺服器[（支援的核心版本）](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 伺服器[（支援的核心版本）](#ubuntu-kernel-versions)<br/><br/>Debian 7/debian 8 [（支援的核心版本）](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1、 SP2、 SP3、 SP4 [（支援的核心版本）](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>、SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4、 6.5、 6.6、 6.7、 6.8、 6.9、 6.10、 7.0、 7.1、 7.2、 7.3、 7.4、 7.5、 7.6 執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3、 4 和 5 (UEK3，UEK4，UEK5) <br/><br/></br>\- 不支援將所複寫的機器從 SUSE Linux Enterprise Server 11 SP3 升級至 SP4。 若要升級，請停用複寫，然後在升級之後再次加以啟用。</br></br> - [深入了解](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)Azure 中對 Linux 及開放原始碼技術的支援。 Site Recovery 會協調容錯移轉以在 Azure 中執行 Linux 伺服器。 不過，Linux 廠商可能會將支援僅限於生命週期尚未結束的發行版本。<br/><br/> - 在 Linux 發行版本上，僅支援屬於發行版本之次要版本發行/更新的原生核心。<br/><br/> - 不支援跨主要 Linux 發行版本升級受保護的機器。 若要升級，請停用複寫、升級作業系統，然後再次啟用複寫。<br/><br/> - 執行 Red Hat Enterprise Linux 5.2-5.11 或 CentOS 5.2-5.11 的伺服器應該安裝 [Linux Integration Services (LIS) 元件](https://www.microsoft.com/download/details.aspx?id=55106)，如此機器才能在 Azure 中啟動。
 
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu 核心版本
@@ -74,35 +74,35 @@ Linux 作業系統 | Red Hat Enterprise Linux：5.2 至 5.11<b>\*\*</b>、6.1 �
 
 **支援的版本** | **Azure Site Recovery 行動服務版本** | **核心版本** |
 --- | --- | --- |
+14.04 LTS | [9.24][9.25 UR]  | 3.13.0-169-generic 的 3.13.0-24-generic<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-146-generic 的 4.4.0-21-generic<br/>若要 4.15.0-1042-azure 4.15.0-1023-azure |
 14.04 LTS | [9.24][9.24 UR] | 3.13.0-167-generic 的 3.13.0-24-generic<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-143-generic 的 4.4.0-21-generic<br/>若要 4.15.0-1040-azure 4.15.0-1023-azure |
 14.04 LTS | [9.23][9.23 UR] | 3.13.0-165-generic 的 3.13.0-24-generic<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-142-generic 的 4.4.0-21-generic<br/>若要 4.15.0-1037-azure 4.15.0-1023-azure |
 14.04 LTS | [9.22][9.22 UR] | 3.13.0-24-generic 至 3.13.0-164-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-140-generic、<br/>4.15.0-1023-azure 至 4.15.0-1036-azure |
-14.04 LTS | [9.21][9.21 UR] | 3.13.0-24-generic 至 3.13.0-163-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-140-generic、<br/>4.15.0-1023-azure 至 4.15.0-1035-azure |
 |||
-16.04 LTS | [9.23][9.24 UR] | 4.4.0-143-generic 的 4.4.0-21-generic<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>若要 4.15.0-46-generic 4.15.0-13-generic<br/>4.11.0-1018-azure 的 4.11.0-1009-azure<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>若要 4.15.0-1040-azure 4.15.0-1012-azure|
+16.04 LTS | [9.25][9.25 UR] | 4.4.0-146-generic 的 4.4.0-21-generic<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>若要 4.15.0-48-generic 4.15.0-13-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>若要 4.15.0-1042-azure 4.15.0-1012-azure|
+16.04 LTS | [9.24][9.24 UR] | 4.4.0-143-generic 的 4.4.0-21-generic<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>若要 4.15.0-46-generic 4.15.0-13-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>若要 4.15.0-1040-azure 4.15.0-1012-azure|
 16.04 LTS | [9.23][9.23 UR] | 4.4.0-142-generic 的 4.4.0-21-generic<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>若要 4.15.0-45-generic 4.15.0-13-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>若要 4.15.0-1037-azure 4.15.0-1012-azure|
 16.04 LTS | [9.22][9.22 UR] | 4.4.0-21-generic 至 4.4.0-140-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-generic 至 4.15.0-43-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1036-azure|
-16.04 LTS | [9.21][9.21 UR] | 4.4.0-21-generic 至 4.4.0-140-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-generic 至 4.15.0-42-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1035-azure|
-16.04 LTS | [9.20][9.20 UR] | 4.4.0-21-generic 至 4.4.0-138-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-generic 至 4.15.0-38-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1025-azure|
 
 ### <a name="debian-kernel-versions"></a>Debian 核心版本
 
 
 **支援的版本** | **Azure Site Recovery 行動服務版本** | **核心版本** |
 --- | --- | --- |
-Debian 7 | [9.21][9.21 UR]， [9.22][9.22 UR]，[9.23][9.23 UR]，[9.24] [9.24 UR]| 3.2.0-4-amd64 至 3.2.0-6-amd64、3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.21][9.21 UR], [9.22][9.22 UR],[9.23][9.23 UR], [9.24][9.24 UR]| 3.2.0-4-amd64 至 3.2.0-6-amd64、3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | [9.21][9.21 UR]，[9.22][9.22 UR]，[9.23][9.23 UR]，[9.24] [9.24 UR] | 3.16.0-4-amd64 至 3.16.0-7-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.8-amd64 |
+Debian 8 | [9.25][9.25 UR] | 3.16.0-4-amd64 to 3.16.0-8-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.8-amd64 |
+Debian 8 | [9.22][9.22 UR],[9.23][9.23 UR], [9.24][9.24 UR] | 3.16.0-4-amd64 至 3.16.0-7-amd64、4.9.0-0.bpo.4-amd64 至 4.9.0-0.bpo.8-amd64 |
 
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 支援的核心版本
 
 **版本** | **行動服務版本** | **核心版本** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 SP1、 SP2、 SP3 (SP4） | [9.25][9.25 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>若要 4.4.121-92.104-default SP2(LTSS) 4.4.121-92.73-default</br></br>若要 4.4.176-94.88-default SP3 4.4.73-5-default</br></br>若要 4.12.14-95.13-default SP4 4.12.14-94.41-default |
 SUSE Linux Enterprise Server 12 SP1、 SP2、 SP3 (SP4） | [9.24][9.24 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>若要 4.4.121-92.101-default SP2(LTSS) 4.4.121-92.73-default</br></br>若要 4.4.175-94.79-default SP3 4.4.73-5-default</br></br>若要 4.12.14-95.6-default SP4 4.12.14-94.41-default |
 SUSE Linux Enterprise Server 12 SP1、 SP2、 SP3 (SP4） | [9.23][9.23 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>若要 4.4.121-92.101-default SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default 至 4.4.162-94.69-default</br></br>若要 4.12.14-95.6-default SP4 4.12.14-94.41-default |
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.22][9.22 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default 至 4.4.162-94.72-default |
-SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.21][9.21 UR] | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default 至 4.4.156-94.72-default |
 
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux 檔案系統/客體儲存體
@@ -119,11 +119,11 @@ SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.21][9.21 UR] | SP1 3.12.4
 開機目錄 | 不支援在虛擬機器上有多個開機磁碟 <br/><br/> 無法保護不含開機磁碟的機器
 可用空間需求| /root 分割區上為 2 GB <br/><br/> 安裝資料夾上為 250 MB
 XFSv5 | 自「行動服務」9.10 版開始，支援 XFS 檔案系統上的 XFSv5 功能，例如中繼資料總和檢查碼。 使用 xfs_info 公用程式來檢查磁碟分割的 XFS 超級區塊。 如果`ftype`設為 1，則 XFSv5 功能正在使用中。
-BTRFS |9.22 版本中，從 BTRFS 支援，但下列情況除外</br>如果在啟用保護之後變更 BTRFS 檔案系統子磁碟區時，就不會支援 BTRFS。 </br>如果 BTRFS 檔案系統會散佈到多個磁碟，則不會支援 BTRFS。</br>如果 BTRFS 檔案系統支援 RAID，BTRFS 不支援。
+BTRFS |9\.22 版本中，從 BTRFS 支援，但下列情況除外</br>如果在啟用保護之後變更 BTRFS 檔案系統子磁碟區時，就不會支援 BTRFS。 </br>如果 BTRFS 檔案系統會散佈到多個磁碟，則不會支援 BTRFS。</br>如果 BTRFS 檔案系統支援 RAID，BTRFS 不支援。
 
 ## <a name="vmdisk-management"></a>VM/磁碟管理
 
-**動作** | **詳細資料**
+**Action** | **詳細資料**
 --- | ---
 在複寫的 VM 上調整磁碟大小 | 支援。
 在複寫的 VM 上新增磁碟 | 停用 VM 的複寫、新增磁碟，然後重新啟用複寫。 目前不支援在複寫的 VM 上新增磁碟。
@@ -261,7 +261,7 @@ VM 上所有磁碟的尖峰資料變換 | 54 MB/秒
 
 ## <a name="vault-tasks"></a>保存庫工作
 
-**動作** | **支援**
+**Action** | **支援**
 --- | ---
 在資源群組間移動保存庫<br/><br/> 內及跨訂用帳戶 | 否
 跨資源群組間移動儲存體、網路、Azure VM<br/><br/> 內及跨訂用帳戶 | 否
@@ -271,7 +271,7 @@ VM 上所有磁碟的尖峰資料變換 | 54 MB/秒
 
 **名稱** | **說明** | **最新版本下載指示**
 --- | --- | ---
-組態伺服器 | 協調內部部署 VMware 伺服器與 Azure 之間的通訊  <br/><br/> 安裝在內部部署 VMware 伺服器上 | 如需詳細資訊，請造訪我們的指引[全新安裝](vmware-azure-deploy-configuration-server.md)並[升級至最新版本的現有元件的](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。
+組態伺服器 | 協調內部部署 VMware 伺服器與 Azure 之間的通訊 <br/><br/> 安裝在內部部署 VMware 伺服器上 | 如需詳細資訊，請造訪我們的指引[全新安裝](vmware-azure-deploy-configuration-server.md)並[升級至最新版本的現有元件的](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。
 處理序伺服器|預設會安裝在組態伺服器上。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。 隨著部署規模擴大，您可以新增額外的個別處理序伺服器，以處理日較大的複寫流量。| 如需詳細資訊，請造訪我們的指引[全新安裝](vmware-azure-set-up-process-server-scale.md)並[升級至最新版本的現有元件的](vmware-azure-manage-process-server.md#upgrade-a-process-server)。
 行動服務 | 協調內部部署 VMware 伺服器/實體伺服器和 Azure/次要站台間複寫<br/><br/> 安裝於 VMware VM 上或您想要複寫的實體伺服器上 | 如需詳細資訊，請造訪我們的指引[全新安裝](vmware-azure-install-mobility-service.md)並[升級至最新版本的現有元件的](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal)。
 
@@ -281,7 +281,9 @@ VM 上所有磁碟的尖峰資料變換 | 54 MB/秒
 ## <a name="next-steps"></a>後續步驟
 [了解如何](tutorial-prepare-azure.md)準備 Azure 的 VMware VM 災害復原。
 
-[9.23 UR]: https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery
+[9.25 UR]: https://support.microsoft.com/en-in/help/4503156
+[9.24 UR]: https://support.microsoft.com/en-in/help/4503156
+[9.23 UR]: https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery
 [9.22 UR]: https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery
 [9.21 UR]: https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery
 [9.20 UR]: https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery

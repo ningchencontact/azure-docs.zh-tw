@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/02/2019
 ms.author: wesmc
 ms.openlocfilehash: 498a7ee28b9404d0733e4615f4df635a8c904b51
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66132776"
 ---
 ### <a name="cacheskuname"></a>cacheSKUName
@@ -81,7 +81,7 @@ Sku 系列。
 
 值會對應到下列快取大小：
 
-| Value | 基本和標準<br>快取大小 | 進階<br>快取大小 |
+| 值 | 基本和標準<br>快取大小 | 進階<br>快取大小 |
 | :---: | :------------------------------: | :-------------------: |
 | 0     | 250 MB （預設值）                 | n/a                   |
 | 1     | 1 GB                             | 6 GB （預設值）        |

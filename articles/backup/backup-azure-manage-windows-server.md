@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
 ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66688907"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>監視及管理復原服務保存庫
@@ -101,7 +101,7 @@ ms.locfileid: "66688907"
 * 備份項目
 * 受保護的伺服器
 * Severity
-* 持續時間
+* Duration
 * 建立時間
 * 狀態
 * 最新發生時間

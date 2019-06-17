@@ -1,22 +1,22 @@
 ---
 title: 在適用於 MySQL 的 Azure 資料庫中監視
 description: 本文說明適用於 MySQL 的 Azure 資料庫之監視和警示的計量，包括 CPU、儲存體和連線統計資料。
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.openlocfilehash: 9dcb79e7f4ebd43da3f6c6fd35fa0707898d7ec8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 06/05/2019
+ms.openlocfilehash: 0122f952e586d0535fc2e482c7b78266f8809272
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "60525540"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062431"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>在適用於 MySQL 的 Azure 資料庫中監視
 監視伺服器的相關資料，可協助您疑難排解並最佳化您的工作負載。 適用於 MySQL 的 Azure 資料庫提供多種計量，可讓您深入了解您伺服器的行為。
 
-## <a name="metrics"></a>指标
+## <a name="metrics"></a>度量
 所有 Azure 計量都有一分鐘頻率，且每個計量皆提供 30 天的記錄。 您可以在計量上設定警示。 如需逐步指引，請參閱[如何設定警示](howto-alert-on-metric.md)。 其他工作包含設定自動化動作、執行進階分析，以及封存記錄。 如需詳細資訊，請參閱 [Azure 計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
 
 ### <a name="list-of-metrics"></a>計量清單
@@ -41,7 +41,16 @@ ms.locfileid: "60525540"
 |backup_storage_used|已使用的備份儲存體|位元組|已使用的備份儲存體數量。|
 
 ## <a name="server-logs"></a>伺服器記錄
-您可以在伺服器上啟用慢速查詢記錄。 这些日志也可通过 Azure Monitor 日志、事件中心和存储帐户中的 Azure 诊断日志获得。 若要深入了解記錄，請瀏覽 [伺服器記錄](concepts-server-logs.md)頁面。
+您可以啟用慢速查詢，並稽核登入您的伺服器。 這些記錄檔中也會有透過 Azure 診斷記錄 Azure 監視器記錄檔、 事件中樞和儲存體帳戶。 若要深入了解記錄，請造訪 [稽核記錄檔](concepts-audit-logs.md)並[緩慢查詢記錄](concepts-server-logs.md)文章。
+
+## <a name="query-store"></a>查詢存放區
+[查詢存放區](concepts-query-store.md)是公開預覽功能，可追蹤一段時間的查詢效能，包括查詢執行階段統計資料和等待事件。 此功能仍然存在查詢執行階段中的效能資訊**mysql**結構描述。 您可以透過各種設定旋鈕控制資料的收集和儲存。
+
+## <a name="query-performance-insight"></a>查詢效能深入解析
+[查詢效能深入解析](concepts-query-performance-insight.md)可搭配查詢存放區提供可從 Azure 入口網站存取的視覺效果。 這些圖表可讓您識別影響效能的關鍵查詢。 查詢效能深入解析處於公開預覽狀態，並可**智慧型效能**Azure Database for MySQL 伺服器的入口網站頁面的區段。
+
+## <a name="performance-recommendations"></a>效能建議
+[效能建議](concepts-performance-recommendations.md)功能可識別改善工作負載效能的機會。 效能建議的公開預覽版本提供建立新索引的建議，可能有助改善工作負載的效能。 若要產生索引建議，此功能會考量各種資料庫特性，包括查詢存放區所報告的結構描述和工作負載。 實作任何效能建議後，客戶應測試效能，以評估這些變更的影響。
 
 ## <a name="next-steps"></a>後續步驟
 - 請參閱[如何設定警示](howto-alert-on-metric.md)，取得根據計量來建立警示的指引。

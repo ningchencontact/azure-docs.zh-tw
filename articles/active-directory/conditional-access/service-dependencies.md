@@ -1,8 +1,8 @@
 ---
 title: 什麼是 Azure Active Directory 條件式存取中的服務相依性？ | Microsoft Docs
-description: 了解如何在 Azure Active Directory 條件式存取中使用條件來觸發原則。
+description: 了解條件如何在 Azure Active Directory 條件式存取中使用來觸發原則。
 services: active-directory
-keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
+keywords: 條件式存取應用程式，與 Azure AD，安全地存取公司資源，條件式存取原則的條件式存取
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 03/18/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f727fc7133ebc9ee124e63253e8a266862b0d908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54e5de5fdb03cfaff4d4ed53da94b512f30db58a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354347"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112086"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的服務相依性？ 
 
@@ -79,4 +79,4 @@ ms.locfileid: "60354347"
 
 ## <a name="next-steps"></a>後續步驟
 
-若要了解如何在環境中實作條件式存取，請參閱[在 Azure Active Directory 中規劃條件式存取部署](plan-conditional-access.md)。
+若要了解如何在環境中實作條件式存取，請參閱[計劃在 Azure Active Directory 中的條件式存取部署](plan-conditional-access.md)。

@@ -9,13 +9,13 @@ ms.date: 05/24/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: 2b250f9f722bb1992d72b0555207a64dbc2dd972
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66271551"
 ---
-| 類別 | 資料存放區 |
+| Category | 資料存放區 |
 |:--- |:--- |
 | **Azure** |[Azure Blob 儲存體](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |

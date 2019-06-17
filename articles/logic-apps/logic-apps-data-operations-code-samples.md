@@ -4,18 +4,17 @@ description: Azure Logic Apps 中資料作業動作定義的程式碼範例
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
-ms.author: v-yiso
+ms.author: estfan
 manager: jeconnoc
 ms.topic: reference
-origin.date: 07/25/2018
-ms.date: 12/10/2018
+ms.date: 07/25/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 8de70e8df50b79f27c19c74307d9321ff8cd1eb5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128544"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>適用於 Azure Logic Apps 的資料作業程式碼範例
@@ -227,7 +226,7 @@ ms.locfileid: "62128544"
 
 <a name="join-action-example"></a>
 
-## <a name="join"></a>Join
+## <a name="join"></a>加入
 
 若要嘗試[**加入**動作範例](../logic-apps/logic-apps-perform-data-operations.md#join-action)，以下是您可以使用的動作定義：
 

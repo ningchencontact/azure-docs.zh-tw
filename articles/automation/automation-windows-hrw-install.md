@@ -10,10 +10,10 @@ ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cc3307a4f32d77b9b8d259ac846c4db1c1ae4a99
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002520"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>部署 Windows 混合式 Runbook 背景工作角色
@@ -65,11 +65,11 @@ ms.locfileid: "66002520"
    >
    > 如需支援的對應配對的清單，請參閱 <<c0> [ 自動化帳戶和 Log Analytics 工作區的區域對應](how-to/region-mappings.md)。
 
-2. 在您的電腦上，從 [開始] 畫面以系統管理員模式開啟 **Windows PowerShell**。
-3. 從 PowerShell 命令列殼層，瀏覽至包含您所下載指令碼的資料夾。 變更參數 *-AutomationAccountName*、*-AAResourceGroupName*、*-OMSResourceGroupName*、*-HybridGroupName*、*-SubscriptionId* 及 *-WorkspaceName* 的值。 然後執行指令碼。
+2. 在您的電腦上，從 [開始]  畫面以系統管理員模式開啟 **Windows PowerShell**。
+3. 從 PowerShell 命令列殼層，瀏覽至包含您所下載指令碼的資料夾。 變更參數 *-AutomationAccountName*、 *-AAResourceGroupName*、 *-OMSResourceGroupName*、 *-HybridGroupName*、 *-SubscriptionId* 及 *-WorkspaceName* 的值。 然後執行指令碼。
 
      > [!NOTE]
-     > 執行指令碼之後，系統會提示您向 Azure 進行驗證。 您「必須」以「訂用帳戶管理員」角色成員和訂用帳戶共同管理員的帳戶登入。
+     > 執行指令碼之後，系統會提示您向 Azure 進行驗證。 您「必須」  以「訂用帳戶管理員」角色成員和訂用帳戶共同管理員的帳戶登入。
 
    ```powershell-interactive
    .\New-OnPremiseHybridWorker.ps1 -AutomationAccountName <NameofAutomationAccount> -AAResourceGroupName <NameofResourceGroup>`
@@ -79,7 +79,7 @@ ms.locfileid: "66002520"
 
 4. 系統會提示您同意安裝 NuGet，也會提示使用您的 Azure 認證進行驗證。
 
-5. 指令碼執行完成之後，[混合式背景工作角色群組] 頁面會顯示新的群組和成員數目。 如果這是現有群組，成員數目就會遞增。 您可以從 [Hybrid Worker 群組] 頁面上的清單中選取群組，然後選取 [Hybrid Worker] 圖格。 在 [Hybrid Worker] 頁面上，您會看到列出群組的每個成員。
+5. 指令碼執行完成之後，[混合式背景工作角色群組]  頁面會顯示新的群組和成員數目。 如果這是現有群組，成員數目就會遞增。 您可以從 [Hybrid Worker 群組]  頁面上的清單中選取群組，然後選取 [Hybrid Worker]  圖格。 在 [Hybrid Worker]  頁面上，您會看到列出群組的每個成員。
 
 ### <a name="manual-deployment"></a>手動部署
 
@@ -107,7 +107,7 @@ Microsoft Monitoring Agent 可將電腦連線到 Azure 監視器記錄檔。 將
 
 若要在內部部署電腦上安裝代理程式，請遵循的指示[連線的 Windows 電腦連線到 Azure 監視器記錄](../log-analytics/log-analytics-windows-agent.md)。 您可以對多部電腦重複此程序，將多個背景工作角色加入至您的環境。
 
-當代理程式已成功連線到 Azure 監視器記錄檔中時，它會列在**連接的來源**] 索引標籤的 [log analytics**設定**頁面。 當 C:\Program Files\Microsoft Monitoring Agent\Agent 中出現 **AzureAutomationFiles** 資料夾時，就可確認代理程式已正確下載自動化解決方案。 若要確認「混合式 Runbook 背景工作角色」版本，您可以瀏覽至 C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\，並記下 \\version 子資料夾。
+當代理程式已成功連線到 Azure 監視器記錄檔中時，它會列在**連接的來源**] 索引標籤的 [log analytics**設定**頁面。 當 C:\Program Files\Microsoft Monitoring Agent\Agent 中出現 **AzureAutomationFiles** 資料夾時，就可確認代理程式已正確下載自動化解決方案。 若要確認「混合式 Runbook 背景工作角色」版本，您可以瀏覽至 C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\，並記下 \\version  子資料夾。
 
 #### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4.安裝 Runbook 環境並連接到 Azure 自動化
 
@@ -126,13 +126,13 @@ Import-Module .\HybridRegistration.psd1
 Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 ```
 
-您可以從 Azure 入口網站的 [管理金鑰] 頁面取得這個 Cmdlet 所需的資訊。 從您「自動化」帳戶的 [設定] 頁面中選取 [金鑰]，以開啟此頁面。
+您可以從 Azure 入口網站的 [管理金鑰]  頁面取得這個 Cmdlet 所需的資訊。 從您「自動化」帳戶的 [設定]  頁面中選取 [金鑰]  ，以開啟此頁面。
 
 ![[管理金鑰] 頁面](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 * **GroupName** 是「混合式 Runbook 背景工作角色」群組的名稱。 如果「自動化」帳戶中已經有這個群組，系統就會將目前的電腦新增至其中。 如果此群組不存在，則會新增此群組。
-* **EndPoint** 是 [管理金鑰] 頁面上的 [URL] 項目。
-* **Token** 是 [管理金鑰] 頁面上的 [主要存取金鑰] 項目。
+* **EndPoint** 是 [管理金鑰]  頁面上的 [URL]  項目。
+* **Token** 是 [管理金鑰]  頁面上的 [主要存取金鑰]  項目。
 
 若要收到有關安裝的詳細資訊，請搭配 **Add-HybridRunbookWorker** 使用 **-Verbose** 參數。
 

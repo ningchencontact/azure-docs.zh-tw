@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
 ms.openlocfilehash: 3974be886b57fbf685b211369094edf844d96ab6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776519"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>在 Batch 集區中使用 RDMA 或 GPU 執行個體
 
-為了執行特定 Batch 作業，您可以利用專門設計來進行大規模計算的 Azure VM 大小。 例如︰
+為了執行特定 Batch 作業，您可以利用專門設計來進行大規模計算的 Azure VM 大小。 例如:
 
 * 若要執行多執行個體的 [MPI 工作負載](batch-mpi.md)，請選擇 H 系列，或擁有網路介面可進行遠端直接記憶體存取 (RDMA) 的其他大小。 這些大小會連線到 InfiniBand 網路來進行節點間通訊，以加速 MPI 應用程式的運作。 
 
@@ -107,7 +107,7 @@ ms.locfileid: "60776519"
 3. 將套件上傳至您的 Batch 帳戶。 如需相關步驟，請參閱[應用程式套件](batch-application-packages.md)指引。 指定應用程式識別碼 (例如 *GPUDriver*) 和版本 (例如 *411.82*)。
 1. 使用 Batch API 或 Azure 入口網站，在虛擬機器設定中建立具有所需節點數目和規模大小的集區。 下表顯示使用啟動工作以無訊息方式安裝 NVIDIA GPU 驅動程式的範例設定：
 
-| 設定 | Value |
+| 設定 | 值 |
 | ---- | ----- | 
 | **映像類型** | Marketplace (Linux/Windows) |
 | **發行者** | MicrosoftWindowsServer |
@@ -128,7 +128,7 @@ ms.locfileid: "60776519"
 4. 在支援 NC VM 的區域建立 Batch 帳戶。
 5. 使用 Batch API 或 Azure 入口網站，[使用自訂映像](batch-custom-images.md)建立具有所需節點數目和規模大小的集區。 下表顯示該映像的集區設定範例：
 
-| 設定 | Value |
+| 設定 | 值 |
 | ---- | ---- |
 | **映像類型** | 自訂映像 |
 | **自訂映像** | *映像的名稱* |
@@ -147,7 +147,7 @@ ms.locfileid: "60776519"
 1. 遵循步驟為 Batch 建立[快照集和自訂 Windows VM 映像](batch-custom-images.md)。
 1. 使用 Batch API 或 Azure 入口網站，[使用自訂映像](batch-custom-images.md)建立具有所需節點數目和規模大小的集區。 下表顯示該映像的集區設定範例：
 
-| 設定 | Value |
+| 設定 | 值 |
 | ---- | ---- |
 | **映像類型** | 自訂映像 |
 | **自訂映像** | *映像的名稱* |
@@ -162,7 +162,7 @@ ms.locfileid: "60776519"
 
 使用 Batch API 或 Azure 入口網站，透過此映像建立具有所需節點數目和規模大小的集區。 下表顯示範例集區設定：
 
-| 設定 | Value |
+| 設定 | 值 |
 | ---- | ---- |
 | **映像類型** | Marketplace (Linux/Windows) |
 | **發行者** | OpenLogic |

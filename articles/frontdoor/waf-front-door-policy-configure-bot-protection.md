@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: tyao;kumud
 ms.openlocfilehash: af92f3b9049862fc19c69965f979b7dfe8c62526
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66481620"
 ---
 # <a name="configure-bot-protection-for-web-application-firewall-preview"></a>設定 web 應用程式防火牆 （預覽） 的 bot 保護

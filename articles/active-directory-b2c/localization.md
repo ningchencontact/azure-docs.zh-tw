@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: a02983c5019870e8b17db48184b2f238a82f8a40
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510589"
 ---
 # <a name="localization"></a>當地語系化
@@ -111,7 +111,7 @@ ms.locfileid: "66510589"
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | Text | 是 | 此選項應會在使用者介面中向使用者顯示的易記顯示字串。 |
-| Value | 是 | 與選取此選項相關聯的字串宣告值。 |
+| 值 | 是 | 與選取此選項相關聯的字串宣告值。 |
 
 下列範例顯示 **LocalizedCollections** 元素的用法。 其包含兩個 **LocalizedCollection** 元素，一個適用於英文，另一個適用於西班牙文。 兩者皆會使用英文和西班牙文的項目清單，設定宣告 `Gender` 的**限制**集合。
 

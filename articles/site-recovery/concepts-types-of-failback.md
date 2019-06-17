@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/19/2019
 ms.author: raynew
 ms.openlocfilehash: 1e5dc91018df822c72381e4a162c5af5d74ed83c
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399480"
 ---
 # <a name="failback-after-disaster-recovery-of-vmware-vms"></a>容錯回復 VMware vm 的災害復原後

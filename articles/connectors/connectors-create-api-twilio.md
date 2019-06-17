@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: fab52236c701f10c8e8e23ac398362ca4583ea06
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104896"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>使用 Azure Logic Apps 管理 Twilio 中的訊息
@@ -31,7 +31,7 @@ ms.locfileid: "62104896"
   * 您的 Twilio 帳戶識別碼和[驗證權杖](https://support.twilio.com/hc/en-us/articles/223136027-Auth-Tokens-and-How-to-Change-Them) (英文)，可以在 Twilio 儀表板上找到
 
     您的認證會授權邏輯應用程式建立連線，並且從邏輯應用程式存取 Twilio 帳戶。 
-    如果您是使用 Twilio 試用帳戶，則只能傳送簡訊給「已驗證」的電話號碼。
+    如果您是使用 Twilio 試用帳戶，則只能傳送簡訊給「已驗證」  的電話號碼。
 
   * 已驗證的 Twilio 電話號碼，以便傳送簡訊
 
@@ -39,7 +39,7 @@ ms.locfileid: "62104896"
 
 * [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識
 
-* 您要在其中存取 Twilio 帳戶的邏輯應用程式。 若要使用 Twilio 動作，請使用其他觸發程序來啟動邏輯應用程式，例如「週期」觸發程序。
+* 您要在其中存取 Twilio 帳戶的邏輯應用程式。 若要使用 Twilio 動作，請使用其他觸發程序來啟動邏輯應用程式，例如「週期」  觸發程序。
 
 ## <a name="connect-to-twilio"></a>連線至 Twilio
 
@@ -49,17 +49,17 @@ ms.locfileid: "62104896"
 
 1. 選擇路徑： 
 
-     * 請在想要新增 SMTP 動作的最後一個步驟底下，選擇 [新增步驟]。 
+     * 請在想要新增 SMTP 動作的最後一個步驟底下，選擇 [新增步驟]  。 
 
        -或-
 
      * 請在想要新增動作的步驟之間，將指標移至步驟之間的箭號。 
-     選擇顯示的加號 (**+**)，然後選取 [新增動作]。
+     選擇顯示的加號 ( **+** )，然後選取 [新增動作]  。
      
        在搜尋方塊中，輸入 "twilio" 作為篩選條件。 
        請在動作清單底下，選取您想要的動作。
 
-1. 為您的連線提供必要的詳細資料，然後選擇 [建立]：
+1. 為您的連線提供必要的詳細資料，然後選擇 [建立]  ：
 
    * 用於連線的名稱
    * 您的 Twilio 帳戶識別碼 

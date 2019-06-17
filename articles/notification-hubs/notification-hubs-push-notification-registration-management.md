@@ -15,10 +15,10 @@ ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
 ms.openlocfilehash: 5a70eec15003a1f75a80740f269f6df3523012a8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64685383"
 ---
 # <a name="registration-management"></a>註冊管理
@@ -29,9 +29,9 @@ ms.locfileid: "64685383"
 
 ## <a name="what-is-device-registration"></a>什麼是裝置註冊
 
-向「通知中樞」註冊裝置是藉由使用 [註冊] 或 [安裝] 來完成。
+向「通知中樞」註冊裝置是藉由使用 [註冊]  或 [安裝]  來完成。
 
-### <a name="registrations"></a>注册
+### <a name="registrations"></a>註冊
 
 註冊會將裝置的「平台通知服務」(PNS) 控制代碼與標記 (以及也可能與範本) 建立關聯。 PNS 控制代碼可能是 ChannelURI、裝置權杖或 FCM 註冊識別碼。標記是用來將通知路由至一組正確的裝置控制代碼。 如需詳細資訊，請參閱 [路由與標記運算式](notification-hubs-tags-segment-push-message.md)。 範本是用來實作每一註冊的轉換。 如需詳細資訊，請參閱 [範本](notification-hubs-templates-cross-platform-push-messages.md)。
 
@@ -45,7 +45,7 @@ ms.locfileid: "64685383"
 以下是使用安裝的一些主要優點：
 
 - 建立或更新安裝是完全等冪的。 因此您可以重試它，而不需顧慮重複註冊的情況。
-- 此安装模型支持特殊的标记格式 (`$InstallationId:{INSTALLATION_ID}`)，该格式允许将通知直接发送到特定的设备。 例如，如果应用的代码为此特定设备设置了安装 ID `joe93developer`，则开发人员在向 `$InstallationId:{joe93developer}` 标记发送通知时，可以将此设备作为目标。 这样，无需编写任何额外的代码，就能将特定设备作为目标。
+- 「 安裝 」 模型支援特殊的標記格式 (`$InstallationId:{INSTALLATION_ID}`)，可讓您直接將傳送通知到特定的裝置。 例如，如果應用程式的程式碼設定的安裝識別碼`joe93developer`針對這個特定的裝置，開發人員可以目標此裝置時傳送通知給`$InstallationId:{joe93developer}`標記。 這可讓您套用至特定的裝置，而不需要進行任何額外的程式碼。
 - 使用安裝也可讓您進行部分註冊更新。 要求部分安裝更新時，是使用 [JSON-Patch 標準](https://tools.ietf.org/html/rfc6902)以 PATCH 方法來要求。 當您想要更新註冊的相關標記時，這會特別有用。 您不需要移除整個註冊，然後再次重新傳送所有先前的標記。
 
 安裝可以包含下列屬性。 如需完整的安裝屬性清單，請參閱[使用 REST API 建立或覆寫安裝](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation)或[安裝屬性](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation)。
@@ -264,7 +264,7 @@ catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
 
 從後端管理註冊的優點包括：即使裝置上對應的 app 不是處於使用中，也能夠修改註冊的標記；以及能夠在將標記新增到用戶端 app 的註冊之前，先驗證該 app。
 
-### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>使用安装从后端向通知中心注册的示例代码
+### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>使用安裝從後端向通知中樞註冊的範例程式碼
 
 用戶端裝置仍會如先前一樣取得其 PNS 控制代碼及相關的安裝屬性，然後在可以執行註冊及授權標記等的後端上呼叫自訂 API。後端可以利用[適用於後端作業的通知中樞 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
 
@@ -314,7 +314,7 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>使用註冊識別碼從裝置向通知中樞註冊的範例程式碼
 
-您可以從 app 後端，對註冊執行基本 CRUD 作業。 例如︰
+您可以從 app 後端，對註冊執行基本 CRUD 作業。 例如:
 
 ```
 var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");

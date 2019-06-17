@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 5/1/2017
 ms.author: aljo
 ms.openlocfilehash: dbdfa4686c047fa7cf5d74cd9aca768447f9db93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60774007"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service Fabric 中的 ReliableConcurrentQueue 簡介
@@ -44,8 +44,8 @@ ReliableConcurrentQueue 的範例使用情況為[訊息佇列](https://en.wikipe
 * 佇列會預期佇列中的項目具有低保留期限。 也就是項目在佇列中不會長時間停留。
 * 佇列並不保證嚴格的 FIFO 順序。
 * 佇列不會閱讀它自己的寫入。 如果項目在交易內加入佇列，則同一個交易內的清除佇列者將看不到它。
-* 清除佇列不會彼此互相隔離。 如果已在交易 txnA 中將項目 A 清除佇列，則即使 txnA 不認可，並行交易 txnB 也看不到項目 A。  如果 txnA 中止，txnB 就可立即看到 A。
-* 可將 TryPeekAsync 行為加以實作，方法是使用 TryDequeueAsync，然後中止交易。 程式設計模式一節中可以找到這個範例。
+* 清除佇列不會彼此互相隔離。 如果已在交易 txnA  中將項目 A  清除佇列，則即使 txnA  不認可，並行交易 txnB  也看不到項目 A  。  如果 txnA  中止，txnB  就可立即看到 A  。
+* 可將 TryPeekAsync  行為加以實作，方法是使用 TryDequeueAsync  ，然後中止交易。 程式設計模式一節中可以找到這個範例。
 * 計數為非交易式。 它可用來了解佇列中元素的數目，但會以時間點表示且無法依賴。
 * 交易使用中時，不應在清除佇列的項目上執行昂貴的處理，以避免長時間執行交易可能會對系統造成的效能影響。
 
@@ -96,7 +96,7 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-假設已順利完成工作、工作以平行方式執行，且沒有其他修改佇列的並行交易。 無法推斷佇列中的項目順序。 此程式碼片段中，項目會以下列 4 個之一出現！ 可能的排序。  队列会尝试让项保持原有的（排队）顺序，但在出现并发操作或错误的情况下，也可能会强制其重新排序。
+假設已順利完成工作、工作以平行方式執行，且沒有其他修改佇列的並行交易。 無法推斷佇列中的項目順序。 此程式碼片段中，項目會以下列 4 個之一出現！ 可能的排序。  佇列會嘗試以原始順序保留項目 (佇列)，但可能會因並行作業或錯誤而強制將它們重新排序。
 
 
 ### <a name="dequeueasync"></a>DequeueAsync
@@ -142,9 +142,9 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-假設已順利完成工作、工作以平行方式執行，且沒有其他修改佇列的並行交易。 由於無法推斷佇列中的項目順序，dequeue1 和 dequeue2 都會以任何順序包含任何兩個項目。
+假設已順利完成工作、工作以平行方式執行，且沒有其他修改佇列的並行交易。 由於無法推斷佇列中的項目順序，dequeue1  和 dequeue2  都會以任何順序包含任何兩個項目。
 
-相同項目不會同時出現在兩份清單中。 因此，如果 dequeue1 包含 10、*30*，dequeue2 就會包含 *20*、*40*。
+相同項目不會  同時出現在兩份清單中。 因此，如果 dequeue1 包含 10  、*30*，dequeue2 就會包含 *20*、*40*。
 
 - *案例 3：使用交易中止來清除佇列排序*
 
@@ -168,7 +168,7 @@ using (var txn = this.StateManager.CreateTransaction())
 > 
 > 20, 10
 
-這也適用於交易未成功認可的所有情況。
+這也適用於交易未成功認可  的所有情況。
 
 ## <a name="programming-patterns"></a>程式設計模式
 在本節中，我們來看看幾個可能有助於使用 ReliableConcurrentQueue 的程式設計模式。
@@ -268,7 +268,7 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-drain"></a>盡可能清空
-由於資料結構的並行本質，無法保證可將佇列清空。  即使在佇列上沒有進行中的使用者作業，特定的 TryDequeueAsync 呼叫可能不會傳回先前已加入佇列並且受到認可的項目。  清除佇列最終保證可看到加入佇列的項目，不過，沒有超出訊號範圍通訊機制的獨立取用者，無法得知佇列已觸達穩定狀態，即使已將所有的產生者停止，且不允許任何新的加入佇列作業亦然。 因此，已盡可能清空作業，實作如下。
+由於資料結構的並行本質，無法保證可將佇列清空。  即使在佇列上沒有進行中的使用者作業，特定的 TryDequeueAsync 呼叫可能不會傳回先前已加入佇列並且受到認可的項目。  清除佇列最終  保證可看到加入佇列的項目，不過，沒有超出訊號範圍通訊機制的獨立取用者，無法得知佇列已觸達穩定狀態，即使已將所有的產生者停止，且不允許任何新的加入佇列作業亦然。 因此，已盡可能清空作業，實作如下。
 
 使用者應該將所有進一步的生產者和取用者工作停止，並在嘗試清空佇列之前，等待任何進行中的交易加以認可或中止。  如果使用者知道佇列中預期的項目數目，就可以設定通知，發出所有項目皆已清除佇列的訊號。
 
@@ -307,7 +307,7 @@ do
 ```
 
 ### <a name="peek"></a>預覽
-ReliableConcurrentQueue 不會提供 TryPeekAsync API。 使用者可以預覽語意，方法是使用 TryDequeueAsync 然後將交易中止。 在此範例中，僅在項目大於 10 時，才會處理清除佇列。
+ReliableConcurrentQueue 不會提供 TryPeekAsync  API。 使用者可以預覽語意，方法是使用 TryDequeueAsync  然後將交易中止。 在此範例中，僅在項目大於 10  時，才會處理清除佇列。
 
 ```
 using (var txn = this.StateManager.CreateTransaction())

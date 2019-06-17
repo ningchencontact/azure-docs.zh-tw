@@ -9,10 +9,10 @@ ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
 ms.openlocfilehash: 63f59d59712d851f9bb7ace27335fe665a598f9f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66477910"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 活動記錄警示的 Webhook
@@ -175,7 +175,7 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
 | context |事件的內容。 |
 | resourceProviderName |受影響資源的資源提供者。 |
 | conditionType |一律為「事件」。 |
-| NAME |警示規則的名稱。 |
+| name |警示規則的名稱。 |
 | id |警示的資源識別碼。 |
 | description |建立警示時，會設定警示描述。 |
 | subscriptionId |Azure 訂用帳戶識別碼。 |
@@ -184,7 +184,7 @@ POST 作業中所包含的 JSON 承載，會根據承載的 data.context.activit
 | resourceGroupName |受影響資源的資源群組的名稱。 |
 | properties |一組包含事件相關詳細資料的`<Key, Value>`配對 (也就是 `Dictionary<String, String>`)。 |
 | 事件 |包含事件相關中繼資料的元素。 |
-| 授權 |事件的角色型存取控制屬性。 這些屬性通常包括動作、角色和範圍。 |
+| authorization |事件的角色型存取控制屬性。 這些屬性通常包括動作、角色和範圍。 |
 | category |事件的類別。 支援值包括「管理」、「警示」、「安全性」、「ServiceHealth」和「建議」。 |
 | 呼叫者 |已執行作業的使用者的電子郵件地址，根據可用性的 UPN 宣告或 SPN 宣告。 特定系統呼叫可為 Null。 |
 | correlationId |通常是字串格式的 GUID。 具有屬於同一個較大動作的 correlationId 的事件，且通常會共用 correlationId。 |

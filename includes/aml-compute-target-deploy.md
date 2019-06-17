@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 05/30/2019
 ms.openlocfilehash: a463ac9f9584cb13cadbcf79674d56b2f8e47c2c
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66753093"
 ---
 | 計算目標 | 使用量 | GPU 支援 | FPGA 支援 | 描述 |

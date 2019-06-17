@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: 5197fdfe78b1b091de713754967f58157cc4a1b3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66481650"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Azure 的 CDN from Verizon Premium 規則引擎比對條件
@@ -38,7 +38,7 @@ ms.locfileid: "66481650"
 
 「裝置」比對條件可識別從行動裝置根據其屬性所提出的要求。  
 
-Name | 目的
+名稱 | 目的
 -----|--------
 [裝置](#device) | 識別從行動裝置根據其屬性所提出的要求。
 
@@ -55,7 +55,7 @@ Name | 目的
 
 「原點」比對條件可識別指向內容傳遞網路儲存體或客戶原始伺服器的要求。
 
-Name | 目的
+名稱 | 目的
 -----|--------
 [CDN 原點](#cdn-origin) | 識別儲存在內容傳遞網路儲存體中的內容要求。
 [客戶原點](#customer-origin) | 識別對儲存於特定客戶原始伺服器上之內容的要求。
@@ -64,7 +64,7 @@ Name | 目的
 
 「要求」比對條件可根據要求的屬性識別它們。
 
-Name | 目的
+名稱 | 目的
 -----|--------
 [用戶端 IP 位址](#client-ip-address) | 識別源自特定 IP 位址的要求。
 [Cookie 參數](#cookie-parameter) | 檢查與每個適用於指定值之要求相關聯的 Cookie。
@@ -81,7 +81,7 @@ Name | 目的
 
 「URL」比對條件可根據要求的 URL 識別它們。
 
-Name | 目的
+名稱 | 目的
 -----|--------
 [URL 路徑目錄](#url-path-directory) | 依其相對路徑來識別要求。
 [URL 路徑副檔名](#url-path-extension) | 依其副檔名來識別要求。
@@ -804,7 +804,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 - 在 URL 比較之前，邊緣 CNAME URL 會重寫為 CDN URL。
 
     例如，以下這兩個 URL 都指向相同的資產，因此具有相同的 URL 路徑：
-     - CDN URL： http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
+     - CDN URL： http://wpc.0001.&lt ;domain&gt; /800001/CustomerOrigin/path/asset.htm
      - 邊緣 CNAME URL：http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     其他資訊：
@@ -829,7 +829,7 @@ HTML 慣用 DTD | %{wurfl_cap_html_preferred_dtd} | 字串，表示 HTML 內容�
 
 下表中的範例設定會假設當要求符合指定的 URL 模式時，就符合比對條件：
 
-Value                   | 相對於    | 結果 
+值                   | 相對於    | 結果 
 ------------------------|----------------|-------
 \*/test.html \*/test.php  | 根或原點 | 要求此模式比對任何資料夾中名為 "test.html" 或 "test.php" 的資產。
 /80ABCD/origin/text/*   | 根           | 要求的資產符合下列準則時，會比對此模式： <br />- 必須位於名為 "origin" 的客戶原點。 <br />- 相對路徑必須以名為 "text" 的資料夾為開頭。 也就是所要求的資產可以位於 "text" 資料夾中，或是位於該資料夾的其中一個遞迴子資料夾中。
@@ -953,7 +953,7 @@ Value                   | 相對於    | 結果
 
 下列範例會示範這個選項在特定情況中的運作方式：
 
-Name  | Value |  結果
+名稱  | 值 |  結果
 ------|-------|--------
 使用者  | Joe   | 當所要求 URL 的查詢字串為 "?user=joe" 時，會比對此模式。
 使用者  | *     | 當所要求 URL 的查詢字串包含 User 參數時，會比對此模式。
@@ -984,7 +984,7 @@ Email | Joe\* | 當所要求 URL 的查詢字串包含以 "Joe" 為開頭的 Ema
     
 - 某些字元需要 URL 編碼。 使用百分比符號以 URL 編碼下列字元：
 
-   Character | URL 編碼 | Value
+   Character | URL 編碼 | 值
    ----------|--------------|------
    空白字元     | %20          | \%20
    &         | %25          | \%25
@@ -995,7 +995,7 @@ Email | Joe\* | 當所要求 URL 的查詢字串包含以 "Joe" 為開頭的 Ema
 
    例如:
 
-   Value | 解譯為 
+   值 | 解譯為 
    ------|---------------
    \\+    | +
    \\\\+   | \\+
@@ -1053,7 +1053,7 @@ Email | Joe\* | 當所要求 URL 的查詢字串包含以 "Joe" 為開頭的 Ema
 
 下列範例會示範這個選項在特定情況中的運作方式：
 
- Name                 | 描述
+ 名稱                 | 描述
  ---------------------|------------
 user=joe              | 當所要求 URL 的查詢字串為 "?user=joe" 時，會比對此模式。
 \*user=\* \*optout=\* | 當 CDN URL 查詢包含 user 或 optout 參數時，會比對此模式。

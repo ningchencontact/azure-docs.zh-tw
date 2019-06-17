@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
 ms.openlocfilehash: 80e8a5e5de1da2098d895e09b36fb209050743a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60743067"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>頻寬/輸送量測試 (NTTTCP)
@@ -124,7 +124,7 @@ ntttcp -r -t 300
 ntttcp -s10.0.0.4 -t 300
 ```
  
-如果未给定时间参数，默认的测试持续时间为 60 秒
+如果未提供時間參數，則測試時間長度預設為 60 秒
 
 ## <a name="testing-between-vms-running-windows-and-linux"></a>在執行 Windows 和 LINUX 的 VM 之間進行測試：
 

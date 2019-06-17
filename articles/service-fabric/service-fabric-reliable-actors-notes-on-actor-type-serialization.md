@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: c8eeeb0ade6ca002adf3211cbf49127be9b76edb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60725647"
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Service Fabric Reliable Actors 類型序列化的注意事項
@@ -146,7 +146,7 @@ public class VoicemailBox implements Serializable
 
 
 ## <a name="next-steps"></a>後續步驟
-* [执行组件生命周期和垃圾回收](service-fabric-reliable-actors-lifecycle.md)
+* [動作項目生命週期與記憶體回收](service-fabric-reliable-actors-lifecycle.md)
 * [動作項目計時器和提醒](service-fabric-reliable-actors-timers-reminders.md)
 * [動作項目事件](service-fabric-reliable-actors-events.md)
 * [動作項目重新進入](service-fabric-reliable-actors-reentrancy.md)

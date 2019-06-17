@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 06/07/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78676ac2f2dcff74a27e0260a5d83e924f7c246f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ee49ae56122fe596a4490914677d91d2f0348f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284963"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807518"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>對 Azure Active Directory 活動記錄內容套件錯誤進行疑難排解 
 
@@ -47,7 +47,7 @@ ms.locfileid: "60284963"
 | 原因 | 修正方式 |
 | ---   | ---        |
 | 若連線到內容套件的使用者認證已重設，但卻未在內容套件的連線設定中加以更新，即會導致重新整理失敗錯誤。 | 在 Power BI 中，找出對應到 Azure AD 活動記錄儀表板 (**Azure Active Directory 活動記錄**) 的資料集、選擇 [排程重新整理]，然後輸入您的 Azure AD 認證。 |
-| 重新整理可能會因為基礎內容套件中的資料問題而失敗。 | [提出支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)。|
+| 重新整理可能會失敗，因為大型資料集。 | 目前，有了 Power BI 的 Azure AD 內容套件可支援只有小型資料集 （小於 500,00 資料列），因為周圍 Power BI 服務中的逾時的一些限制。 如果您遇到節流錯誤，或重新整理失敗，因為逾時問題，這可能會因為您嘗試擷取大型資料集。 減少查詢中的時間週期，並再試一次。|
  
  
 ## <a name="failed-to-update-data-source-credentials"></a>無法更新資料來源認證 
@@ -63,7 +63,7 @@ ms.locfileid: "60284963"
 
 ## <a name="data-import-is-too-slow"></a>資料匯入速度太慢 
  
-**此錯誤的呈現方式**：在 Power BI 中，於連線到內容套件後，資料匯入程序就會開始準備您的儀表板以用於 Azure AD 活動記錄。 您會看見此訊息：**正在匯入資料...**，然後再也沒有任何進展。  
+**此錯誤的呈現方式**：在 Power BI 中，於連線到內容套件後，資料匯入程序就會開始準備您的儀表板以用於 Azure AD 活動記錄。 您會看見此訊息：**正在匯入資料...** ，然後再也沒有任何進展。  
 
 | 原因 | 修正方式 |
 | ---   | ---        |

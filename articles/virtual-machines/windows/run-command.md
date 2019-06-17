@@ -9,10 +9,10 @@ ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: 23973445992ceaeb0cd3bc0589665f2fac5b64e5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575312"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>使用執行命令在 Windows 虛擬機器中執行 PowerShell 指令碼
@@ -45,16 +45,16 @@ ms.locfileid: "64575312"
 
 ## <a name="run-a-command"></a>執行命令
 
-瀏覽至 [Azure](https://portal.azure.com) 中的虛擬機器，並選取 [作業] 下的 [執行命令]。 您會看到將可在虛擬機器上執行之命令的清單。
+瀏覽至 [Azure](https://portal.azure.com) 中的虛擬機器，並選取 [作業]  下的 [執行命令]  。 您會看到將可在虛擬機器上執行之命令的清單。
 
 ![執行命令清單](./media/run-command/run-command-list.png)
 
-選擇要執行的命令。 有些命令可能會有選擇性或必要的輸入參數。 對於這些命令，參數會顯示為可讓您提供輸入值的文字欄位。 對於每個命令，您可以展開 [檢視指令碼] 檢視執行中的指令碼。 **RunPowerShellScript** 不同於其他命令，因為它可讓您提供您自己的自訂指令碼。
+選擇要執行的命令。 有些命令可能會有選擇性或必要的輸入參數。 對於這些命令，參數會顯示為可讓您提供輸入值的文字欄位。 對於每個命令，您可以展開 [檢視指令碼]  檢視執行中的指令碼。 **RunPowerShellScript** 不同於其他命令，因為它可讓您提供您自己的自訂指令碼。
 
 > [!NOTE]
 > 無法編輯內建命令。
 
-選擇命令之後，按一下 [執行] 執行指令碼。 指令碼隨即執行，完成時將在輸出視窗中傳回任何錯誤。 下列螢幕擷取畫面顯示執行 **RDPSettings** 命令的範例輸出。
+選擇命令之後，按一下 [執行]  執行指令碼。 指令碼隨即執行，完成時將在輸出視窗中傳回任何錯誤。 下列螢幕擷取畫面顯示執行 **RDPSettings** 命令的範例輸出。
 
 ![執行命令指令碼輸出](./media/run-command/run-command-script-output.png)
 

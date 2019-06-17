@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: d4e8d99cd7c67136f359772664eb017c6207e6e4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66165546"
 ---
 ### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>為虛擬機器建立 TCP 端點
@@ -19,14 +19,14 @@ ms.locfileid: "66165546"
 > 
 > 
 
-1. 在 Azure 入口網站中，選取 [虛擬機器 (傳統)] 。
+1. 在 Azure 入口網站中，選取 [虛擬機器 (傳統)]  。
 2. 然後選取您的 SQL Server 虛擬機器。
-3. 選取 [端點]，然後按一下位於 [端點] 刀鋒視窗頂端的 [新增] 按鈕。
+3. 選取 [端點]  ，然後按一下位於 [端點] 刀鋒視窗頂端的 [新增]  按鈕。
    
     ![建立端點的入口網站步驟](./media/virtual-machines-sql-server-connection-steps/portal-endpoint-creation.png)
-4. 在 [新增端點] 刀鋒視窗上，提供 [名稱]，例如 SQLEndpoint。
-5. 針對 [通訊協定] 請選取 [TCP]。
-6. 對於 [公用連接埠]，請指定連接埠號碼，例如 **57500**。
-7. 對於 [私用連接埠]，請指定 SQL Server 的接聽連接埠，預設為 **1433**。
+4. 在 [新增端點]  刀鋒視窗上，提供 [名稱]  ，例如 SQLEndpoint。
+5. 針對 [通訊協定]  請選取 [TCP]  。
+6. 對於 [公用連接埠]  ，請指定連接埠號碼，例如 **57500**。
+7. 對於 [私用連接埠]  ，請指定 SQL Server 的接聽連接埠，預設為 **1433**。
 8. 按一下 [確定]  以建立端點。
 

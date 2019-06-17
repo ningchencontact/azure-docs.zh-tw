@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 130ca6bc946d44d80cddba5486d405bfb15523cb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235870"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式
@@ -188,7 +188,7 @@ git clone https://github.com/Azure/iot-central-firmware
 
 從範例 Devkits 應用程式範本建立的應用程式包含具有下列特性的 MXChip 裝置範本：
 
-### <a name="measurements"></a>量測
+### <a name="measurements"></a>度量
 
 #### <a name="telemetry"></a>遙測
 
@@ -208,11 +208,11 @@ git clone https://github.com/Azure/iot-central-firmware
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>狀態 
-| 名稱          | Display name   | 正常 | 警告 | 危險 | 
+| Name          | Display name   | 正常 | 警告 | 危險 | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | 裝置狀態   | 綠色  | 橙色  | 紅色    | 
 
-#### <a name="events"></a>活動 
+#### <a name="events"></a>Events 
 | 名稱             | Display name      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | 按下按鈕 B  | 

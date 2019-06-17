@@ -18,10 +18,10 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 5edd3e51e83b5ab324d1e110a1882b20d935a9b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60833034"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>針對 Azure App Service 中「502 不正確的閘道」和「503 服務無法使用」的 HTTP 錯誤，進行疑難排解
@@ -33,14 +33,14 @@ ms.locfileid: "60833034"
 當您瀏覽至應用程式時，傳回 HTTP「502 不正確的閘道」錯誤或 HTTP「503 服務無法使用」錯誤。
 
 ## <a name="cause"></a>原因
-此问题通常是应用程序级别的问题造成的，例如：
+此問題通常是因為應用程式層級問題所造成，例如：
 
 * 要求耗費過長的時間
-* 应用程序的内存/CPU 使用率过高
-* 应用程序因异常而崩溃
+* 應用程式的記憶體/CPU 使用率過高
+* 應用程式因例外狀況導致損毀
 
 ## <a name="troubleshooting-steps-to-solve-502-bad-gateway-and-503-service-unavailable-errors"></a>解決「502 錯誤閘道」和「503 服務無法使用」錯誤的疑難排解步驟
-故障排除可划分为三种不同的任务，依次为：
+疑難排解可以分成三種不同的工作，依序為：
 
 1. [觀察和監視應用程式行為](#observe)
 2. [收集資料](#collect)
@@ -55,14 +55,14 @@ ms.locfileid: "60833034"
 每次發生服務中斷或效能降低時，Microsoft Azure 就會發出公告。 您可以在 [Azure 入口網站](https://portal.azure.com/)上追蹤服務健全狀況。 如需詳細資訊，請參閱[追蹤服務健全狀況](../monitoring-and-diagnostics/insights-service-health.md)。
 
 #### <a name="monitor-your-app"></a>監視應用程式
-此選項可讓您了解應用程式是否有任何問題。 在應用程式刀鋒視窗中，按一下 [要求和錯誤] 磚。 [ **度量** ] 刀鋒視窗將顯示所有可以加入的計量。
+此選項可讓您了解應用程式是否有任何問題。 在應用程式刀鋒視窗中，按一下 [要求和錯誤]  磚。 [ **度量** ] 刀鋒視窗將顯示所有可以加入的計量。
 
 某些您可能想用以監視應用程式的計量為
 
 * 平均記憶體工作集
-* 平均响应时间
+* 平均回應時間
 * CPU 時間
-* 内存工作集
+* 記憶體工作集
 * Requests
 
 ![監視應用程式，以解決 502 不正確的閘道和 503 服務無法使用的 HTTP 錯誤](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
@@ -78,7 +78,7 @@ ms.locfileid: "60833034"
 #### <a name="use-the-diagnostics-tool"></a>使用診斷工具
 App Service 提供智慧型和互動式的體驗，可協助您對應用程式進行疑難排解，而且不需設定。 您的應用程式發生問題時，診斷工具將找出問題，並以正確的資訊引導您更輕鬆且快速地對問題進行疑難排解並解決。
 
-若要存取 App Service 診斷，請在 [Azure 入口網站](https://portal.azure.com)中瀏覽至您的 App Service 應用程式或 App Service Environment。 在左方導覽列中，按一下 [診斷並解決問題]。
+若要存取 App Service 診斷，請在 [Azure 入口網站](https://portal.azure.com)中瀏覽至您的 App Service 應用程式或 App Service Environment。 在左方導覽列中，按一下 [診斷並解決問題]  。
 
 #### <a name="use-the-kudu-debug-console"></a>使用 Kudu 偵錯主控台
 App Service 隨附可用於偵錯、探索、上傳檔案的偵錯主控台，以及可取得您環境相關資訊的 JSON 端點。 這稱為應用程式的 *Kudu 主控台*或 *SCM 儀表板*。

@@ -12,10 +12,10 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 19666eb668dd120c1705c6a62a8ba1abd2321026
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61261804"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure Data Factory 的角色和權限
@@ -24,7 +24,7 @@ ms.locfileid: "61261804"
 
 ## <a name="roles-and-requirements"></a>角色和需求
 
-若要建立 Data Factory 執行個體，您用來登入 Azure 的使用者帳戶必須為「參與者」或「擁有者」角色，或是 Azure 訂用帳戶的「管理員」。 若要檢視您在訂用帳戶中擁有的權限，請在 Azure 入口網站中選取右上角的使用者名稱，然後選取 [權限]。 如果您有多個訂用帳戶的存取權，請選取適當的訂用帳戶。 
+若要建立 Data Factory 執行個體，您用來登入 Azure 的使用者帳戶必須為「參與者」  或「擁有者」  角色，或是 Azure 訂用帳戶的「管理員」  。 若要檢視您在訂用帳戶中擁有的權限，請在 Azure 入口網站中選取右上角的使用者名稱，然後選取 [權限]  。 如果您有多個訂用帳戶的存取權，請選取適當的訂用帳戶。 
 
 若要建立及管理 Data factory 的子資源 (包括資料集、連結服務、管線、觸發程序和整合執行階段)，必須要符合下列需求：
 - 若要在 Azure 入口網站中建立及管理子資源，您必須屬於資源群組層級或更高層級的 **Data Factory 參與者**角色。
@@ -57,7 +57,7 @@ Azure Repos 和 GitHub 上的權限與 Data Factory 權限無關。 因此，具
 
 ### <a name="custom-scenarios-and-custom-roles"></a>自訂案例和自訂角色
 
-有時候，您可能需要對不同的資料處理站使用者授與不同的存取層級。 例如︰
+有時候，您可能需要對不同的資料處理站使用者授與不同的存取層級。 例如:
 - 您可能需要使用者只有特定資料處理站權限的群組。
 - 或者，您可能需要使用者只能監視而無法修改資料處理站 (一或多個) 的群組。
 
@@ -82,7 +82,7 @@ Azure Repos 和 GitHub 上的權限與 Data Factory 權限無關。 因此，具
 
 - 讓使用者從 PowerShell 或 SDK 更新資料處理站，而不是在 Azure 入口網站中進行。
 
-  對使用者指派資料處理站資源的內建**參與者**角色。 此角色可讓使用者在 Azure 入口網站中查看資源，但使用者無法存取 [發佈] 和 [全部發佈] 按鈕。
+  對使用者指派資料處理站資源的內建**參與者**角色。 此角色可讓使用者在 Azure 入口網站中查看資源，但使用者無法存取 [發佈]  和 [全部發佈]  按鈕。
 
 ## <a name="next-steps"></a>後續步驟
 

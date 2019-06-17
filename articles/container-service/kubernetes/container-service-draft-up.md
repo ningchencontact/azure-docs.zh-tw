@@ -10,10 +10,10 @@ ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: fb34be09ec08957621517c957b3570cdbcfc0468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60712665"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(已淘汰) 使用 Draft 搭配 Azure Container Service 與 Azure Container Registry，可將應用程式建置及部署至 Kubernetes
@@ -204,7 +204,7 @@ kubernetes                    10.0.0.1       <none>          443/TCP            
 
 ### <a name="map-the-ingress-ip-to-a-custom-subdomain"></a>將輸入 IP 對應至自訂子網域
 
-Draft 會針對其所建立的每個 Helm 圖表，以及您在使用每個應用程式建立一個版本。 每個版本都會取得一個供 **draft** 使用的產生名稱，作為您所控制之根「部署網域」上的「子網域」。 (在此範例中，我們使用 `squillace.io` 作為部署網域。)若要啟用此子網域行為，您必須針對部署網域，在 DNS 項目中建立 `'*.draft'` 的 A 記錄，以便每個產生的子網域會路由傳送至 Kubernetes 叢集的輸入控制器。 
+Draft 會針對其所建立的每個 Helm 圖表，以及您在使用每個應用程式建立一個版本。 每個版本都會取得一個供 **draft** 使用的產生名稱，作為您所控制之根「部署網域」  上的「子網域」  。 (在此範例中，我們使用 `squillace.io` 作為部署網域。)若要啟用此子網域行為，您必須針對部署網域，在 DNS 項目中建立 `'*.draft'` 的 A 記錄，以便每個產生的子網域會路由傳送至 Kubernetes 叢集的輸入控制器。 
 
 您自己的網域提供者都有其各自的方法可指派 DNS 伺服器；若要[將您的 nameservers 網域委派給 Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)，請採取下列步驟：
 

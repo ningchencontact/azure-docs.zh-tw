@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1bd06507bd8a20cf504c1ff4cd9fe7e3b9196a3c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5bdd5049b7ddeaac4425734aa6f4d633b08cd3b4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687769"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057468"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 基礎結構最佳做法
 
@@ -25,7 +25,7 @@ ms.locfileid: "64687769"
 
 - **選擇區域**：Azure 區域決定叢集實際佈建的位置。 若要將讀取和寫入的延遲降至最低，叢集應該與資料位於相同區域。
 - **選擇儲存體位置和大小**：預設的儲存體必須與叢集位於相同區域。 假設有一個 48 節點叢集，建議使用 4 到 8 個儲存體帳戶。 雖然可能已經有足夠的儲存體總計，每個儲存體帳戶都會提供額外的網路頻寬供計算節點使用。 當有多個儲存體帳戶時，請對每個儲存體帳戶使用隨機名稱，不含前置詞。 隨機命名的目的在於減少儲存體瓶頸 (節流) 或所有帳戶發生一般模式失敗的機會。 為提升效能，每個儲存體帳戶僅使用一個容器。
-- **選擇 VM大小與類型 (現在支援 G 系列)**：每個叢集類型都具有一組節點類型，且每個節點類型都有其 VM 大小和類型的特定選項。 VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定。 模擬工作負載可用來決定每個節點類型適用的最佳 VM 大小和類型。
+- **選擇 VM大小與類型 (現在支援 G 系列)** ：每個叢集類型都具有一組節點類型，且每個節點類型都有其 VM 大小和類型的特定選項。 VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定。 模擬工作負載可用來決定每個節點類型適用的最佳 VM 大小和類型。
 - **選擇背景工作節點數目**：背景工作節點的初始數目可使用模擬工作負載來決定。 稍後可新增更多背景工作節點來調整叢集，以符合尖峰負載需求。 稍後當不需要額外的背景工作節點時，可以調降叢集。
 
 如需詳細資訊，請參閱 [HDInsight 叢集的容量規劃](../hdinsight-capacity-planning.md)一文。
@@ -36,7 +36,7 @@ ms.locfileid: "64687769"
 
 ## <a name="check-hadoop-components-availability-in-hdinsight"></a>在 HDInsight 中檢查 Hadoop 元件可用性
 
-每個 HDInsight 版本都是 Hortonworks Data Platform (HDP) 版本和一組 Hadoop 生態系統元件組成的雲端發佈。 如需所有 HDInsight 元件與其最新版本的詳細資訊，請參閱 [HDInsight 元件版本設定](../hdinsight-component-versioning.md)。
+每個 HDInsight 版本是一組 Hadoop 真假難系統元件的雲端發佈。 如需所有 HDInsight 元件與其最新版本的詳細資訊，請參閱 [HDInsight 元件版本設定](../hdinsight-component-versioning.md)。
 
 您也可以使用 Apache Ambari UI 或 Ambari REST API ，在 HDInsight 中檢查 Hadoop 元件和版本。
 

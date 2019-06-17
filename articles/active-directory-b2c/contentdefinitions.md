@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: d82785a0f833afb6a9c675fc7022ed19e96c7fc0
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511322"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
@@ -79,7 +79,7 @@ ms.locfileid: "66511322"
 
 **DataUri** 元素用於指定頁面識別碼。 Azure AD B2C 使用頁面識別碼以載入並初始化 UI 元素與用戶端 JavaScript。 值的格式為 `urn:com:microsoft:aad:b2c:elements:page-name:version`。  下表列出您可以使用的頁面識別碼清單。
 
-| Value |   描述 |
+| 值 |   描述 |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | 發生例外狀況或錯誤時，會顯示錯誤頁面。 |
 | `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | 列出使用者可以在登入期間選擇的識別提供者。 | 

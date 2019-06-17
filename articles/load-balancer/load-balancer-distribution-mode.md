@@ -4,21 +4,20 @@ titlesuffix: Azure Load Balancer
 description: 如何設定 Azure Load Balancer 分配模式來支援來源 IP 同質性。
 services: load-balancer
 documentationcenter: na
-author: WenJason
+author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/25/2017
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 09/25/2017
+ms.author: kumud
 ms.openlocfilehash: afa840bd0b48cc9df1e9711caa035b85e8ec3855
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122398"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>設定 Azure Load Balancer 的分配模式
@@ -62,14 +61,14 @@ Set-AzLoadBalancer -LoadBalancer $lb
 針對傳統的虛擬機器，使用 Azure PowerShell 來變更分配設定。 將 Azure 端點新增到虛擬機器，然後設定負載平衡器分配模式：
 
 ```powershell
-Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 -LoadBalancerDistribution sourceIP | Update-AzureVM
+Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
 請設定 `LoadBalancerDistribution` 元素的值來達到所需的負載平衡量。 如果是 2 Tuple (來源 IP 和目的地 IP) 負載平衡，請指定 sourceIP。 如果是 3 Tuple (來源 IP、目的地 IP 及通訊協定類型) 負載平衡，請指定 sourceIPProtocol。 如果是預設的 5 Tuple 負載平衡行為，請指定 none。
 
 使用下列設定來擷取端點負載平衡器分配模式組態：
 
-    PS C:\> Get-AzureVM -ServiceName MyService -Name MyVM | Get-AzureEndpoint
+    PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -95,8 +94,8 @@ Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Pro
 
 當端點是負載平衡端點集的一部分時，必須在負載平衡端點集上設定分配模式：
 
-```powershell
-Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -LoadBalancerDistribution sourceIP
+```azurepowershell
+Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 
 ### <a name="configure-distribution-mode-for-cloud-services-endpoints"></a>設定雲端服務端點的分配模式
@@ -133,10 +132,10 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
 
 #### <a name="request"></a>要求
 
-    POST https://management.core.chinacloudapi.cn/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
+    POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
     Content-Type: application/xml
 
-    <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
       <InputEndpoint>
         <LoadBalancedEndpointSetName> endpoint-set-name </LoadBalancedEndpointSetName>
         <LocalPort> local-port-number </LocalPort>
@@ -156,7 +155,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
 
 如先前所述，針對 2 Tuple 同質性，請將 `LoadBalancerDistribution` 元素設定成 sourceIP，針對 3 Tuple 同質性，請設定成 sourceIPProtocol，或針對無同質性 (5 Tuple 同質性)，則設定成 none。
 
-#### <a name="response"></a>回應
+#### <a name="response"></a>Response
 
     HTTP/1.1 202 Accepted
     Cache-Control: no-cache
@@ -171,5 +170,3 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
 * [Azure 內部負載平衡器概觀](load-balancer-internal-overview.md)
 * [開始設定網際網路對應負載平衡器](load-balancer-get-started-internet-arm-ps.md)
 * [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
-
-<!-- Update_Description: update meta properties, wording update, update link -->

@@ -9,10 +9,10 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 11/22/2017
 ms.openlocfilehash: 6c234ad6756f4e65e172bf0ffc0ae5a1d35d109b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814085"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>針對 Visual Studio Code 中的 Azure Data Lake Analytics 使用 Python、R 和 C# 開發 U-SQL
@@ -24,10 +24,10 @@ ms.locfileid: "60814085"
 ## <a name="prerequisites-for-python-and-r"></a>Python 和 R 的必要條件
 為您的 ADL 帳戶註冊 Python 和 R 擴充功能組件。 
 1. 在入口網站開啟您的帳戶。
-   - 選取 [概觀]。 
-   - 按一下 [範例指令碼]。
-2. 按一下 [更多]。
-3. 選取 [安裝 U-SQL 擴充功能]。 
+   - 選取 [概觀]  。 
+   - 按一下 [範例指令碼]  。
+2. 按一下 [更多]  。
+3. 選取 [安裝 U-SQL 擴充功能]  。 
 4. 安裝 U-SQL 擴充功能之後，會顯示確認訊息。 
 
    ![設定 Python 與 R 的環境](./media/data-lake-analytics-data-lake-tools-for-vscode/setup-the-enrionment-for-python-and-r.png)
@@ -36,7 +36,7 @@ ms.locfileid: "60814085"
    > 為了在 Python 與 R 語言服務方面獲得最佳體驗，請安裝 VSCode Python 與 R 擴充功能。 
 
 ## <a name="develop-python-file"></a>開發 Python 檔案
-1. 在您的工作區中按一下 [新增檔案]。
+1. 在您的工作區中按一下 [新增檔案]  。
 2. 在 U-SQL 中撰寫程式碼。 以下是程式碼範例。
     ```U-SQL
     REFERENCE ASSEMBLY [ExtPython];
@@ -72,10 +72,10 @@ ms.locfileid: "60814085"
         del df['tweet']
         return df
     ```
-5. 以滑鼠右鍵按一下 **USQL** 檔案，按一下 [編譯指令碼] 或 [提交作業] 即可執行作業。
+5. 以滑鼠右鍵按一下 **USQL** 檔案，按一下 [編譯指令碼]  或 [提交作業]  即可執行作業。
 
 ## <a name="develop-r-file"></a>開發 R 檔案
-1. 在您的工作區中按一下 [新增檔案]。
+1. 在您的工作區中按一下 [新增檔案]  。
 2. 在 U-SQL 檔案中撰寫程式碼。 以下是程式碼範例。
     ```U-SQL
     DEPLOY RESOURCE @"/usqlext/samples/R/my_model_LM_Iris.rda";
@@ -122,12 +122,12 @@ ms.locfileid: "60814085"
     load("my_model_LM_Iris.rda")
     outputToUSQL=data.frame(predict(lm.fit, inputFromUSQL, interval="confidence"))
     ```
-5. 以滑鼠右鍵按一下 **USQL** 檔案，按一下 [編譯指令碼] 或 [提交作業] 即可執行作業。
+5. 以滑鼠右鍵按一下 **USQL** 檔案，按一下 [編譯指令碼]  或 [提交作業]  即可執行作業。
 
 ## <a name="develop-c-file"></a>開發 C# 檔案
 程式碼後置檔案是與單一 U-SQL 指令碼關聯的 C# 檔案。 您可以在程式碼後置檔案中定義專用於 UDO、UDA、UDT 和 UDF 的指令碼。 UDO、UDA、UDT 和 UDF 可以直接在指令碼中使用，而不需要先註冊組件。 程式碼後置檔案會放在與其對等互連 U-SQL 指令碼檔案相同的資料夾中。 如果指令碼名稱為 xxx.usql，程式碼後置就會被命名為 xxx.usql.cs。 如果您手動刪除該程式碼後置檔案，系統就會停用其相關聯之 U-SQL 指令碼的程式碼後置功能。 如需有關如何撰寫 U-SQL 指令碼的客戶程式碼的詳細資訊，請參閱[寫入作業，並在 U-SQL 中使用自訂程式碼：使用者定義函數]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/)。
 
-1. 在您的工作區中按一下 [新增檔案]。
+1. 在您的工作區中按一下 [新增檔案]  。
 2. 在 U-SQL 檔案中撰寫程式碼。 以下是程式碼範例。
     ```U-SQL
     @a = 
@@ -176,7 +176,7 @@ ms.locfileid: "60814085"
         }
     }
     ```
-5. 以滑鼠右鍵按一下 **USQL** 檔案，按一下 [編譯指令碼] 或 [提交作業] 即可執行作業。
+5. 以滑鼠右鍵按一下 **USQL** 檔案，按一下 [編譯指令碼]  或 [提交作業]  即可執行作業。
 
 ## <a name="next-steps"></a>後續步驟
 * [使用 Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)

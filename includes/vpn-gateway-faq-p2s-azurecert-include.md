@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e2e91dc91cf0fbe6827808785a4c3cc25b06542b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66151075"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
@@ -40,4 +40,4 @@ ms.locfileid: "66151075"
     * 針對用戶端憑證：
 
       * 建立私密金鑰時，請將長度指定為 4096。
-      * 建立憑證時，針對 -extensions 參數，請指定 usr_cert。
+      * 建立憑證時，針對 -extensions  參數，請指定 usr_cert  。

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
 ms.openlocfilehash: 1d7a18f3f46cec73d70389b82eed5a85e440d340
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119073"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>如何使用 Azure 傳統 CLI 來建立及管理 Azure Redis 快取
@@ -44,11 +44,11 @@ Azure 傳統 CLI 是從任何平台管理 Azure 基礎結構的一個好方法�
 ## <a name="azure-cache-for-redis-properties"></a>Azure Redis 快取屬性
 建立及更新「Azure Redis 快取」執行個體時會使用下列屬性。
 
-| 屬性 | 开关 | 描述 |
+| 屬性 | 參數 | 描述 |
 | --- | --- | --- |
 | name |-n, --name |「Azure Redis 快取」的名稱。 |
 | 資源群組 |-g, --resource-group |資源群組的名稱。 |
-| 位置 |-l, --location |要建立快取的位置。 |
+| location |-l, --location |要建立快取的位置。 |
 | size |-z, --size |「Azure Redis 快取」的大小。 有效的值：[C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | sku |-x, --sku |Redis SKU。 應為其中一個：[Basic, Standard, Premium] |
 | EnableNonSslPort |-e, --enable-non-ssl-port |「Azure Redis 快取」的 EnableNonSslPort 屬性。 如果您想針對您的快取啟用非 SSL 連接埠，則加入此旗標 |

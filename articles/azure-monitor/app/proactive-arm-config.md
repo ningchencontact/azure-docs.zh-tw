@@ -14,10 +14,10 @@ ms.date: 02/07/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
 ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61461556"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來管理 Application Insights 智慧偵測規則
@@ -39,7 +39,7 @@ ms.locfileid: "61461556"
 ## <a name="examples"></a>範例
 
 以下幾個範例會說明如何使用 Azure Resource Manager 範本來設定智慧偵測規則的設定。
-所有範例都參考名為 myApplication 的 Application Insights 資源以及「相依性持續時間較長智慧偵測規則」(這在內部稱為 longdependencyduration)。
+所有範例都參考名為 myApplication  的 Application Insights 資源以及「相依性持續時間較長智慧偵測規則」(這在內部稱為 longdependencyduration  )。
 請務必取代 Application Insights 資源名稱，並指定相關的智慧偵測規則內部名稱。 請查閱下表中每個智慧偵測規則對應的內部 Azure Resource Manager 名稱清單。
 
 ### <a name="disable-a-smart-detection-rule"></a>停用智慧偵測規則
@@ -162,10 +162,10 @@ ms.locfileid: "61461556"
 
 * 我們建議針對智慧偵測/傳統警示通知使用特定的收件者。
 
-* 如已啟用 [大量/群組] 核取方塊選項，系統就會將智慧偵測警示傳送給訂用帳戶中具有擁有者、參與者或讀者角色的使用者。 實際上，「所有」有權存取 Application Insights 資源訂用帳戶的使用者都在涵蓋範圍內，而且將會收到通知。 
+* 如已啟用 [大量/群組]  核取方塊選項，系統就會將智慧偵測警示傳送給訂用帳戶中具有擁有者、參與者或讀者角色的使用者。 實際上，「所有」  有權存取 Application Insights 資源訂用帳戶的使用者都在涵蓋範圍內，而且將會收到通知。 
 
 > [!NOTE]
-> 如果您目前使用 [大量/群組] 核取方塊選項並停用它，您將無法還原變更。
+> 如果您目前使用 [大量/群組]  核取方塊選項並停用它，您將無法還原變更。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
 ms.openlocfilehash: 81bde837cd78646f1fc59d921246c72978ecb840
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111361"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>在 Azure 中使用基礎結構自動化工具搭配虛擬機器
@@ -35,7 +35,7 @@ ms.locfileid: "66111361"
 - [管理 Linux 虛擬機器](../articles/virtual-machines/linux/ansible-manage-linux-vm.md)。
 
 
-## <a name="chef"></a>主要
+## <a name="chef"></a>Chef
 [Chef](https://www.chef.io/) 是自動化平台，可協助定義您基礎結構的設定、部署和管理方式。 其他元件包含應用程式生命週期自動化而非基礎結構的 Chef Habitat，以及可協助自動化與安全性和原則需求相容的 Chef InSpec。 Chef 用戶端是安裝在目標電腦上，包含一或多個中央 Chef 伺服器，可儲存和管理設定。 如需詳細資訊，請參閱 [Chef 概觀](https://docs.chef.io/chef_overview.html)。
 
 了解如何：

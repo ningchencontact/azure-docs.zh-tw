@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
 ms.openlocfilehash: 4a19462f4f849602fd14fe1204f1c7e3c01e6ec4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64701453"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>使用 Enterprise Integration Pack 將 Azure Logic Apps 中的 X12 訊息解碼
@@ -36,7 +36,7 @@ ms.locfileid: "64701453"
 
 2. 解碼 X12 訊息連接器沒有觸發程序，因此您必須新增觸發程序 (例如要求觸發程序) 來啟動邏輯應用程式。 在 Logic Apps 設計工具中，新增觸發程序，然後將動作新增至您的邏輯應用程式。
 
-3.  在搜尋方塊中，輸入 "X12" 做為篩選條件。 選取 [X12 - 將 X12 訊息]。
+3.  在搜尋方塊中，輸入 "X12" 做為篩選條件。 選取 [X12 - 將 X12 訊息]  。
    
     ![搜尋 "x12"](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
 
@@ -51,7 +51,7 @@ ms.locfileid: "64701453"
     | 連線名稱 * |為連接器輸入任何名稱。 |
     | 整合帳戶 * |輸入整合帳戶的名稱。 確定您的整合帳戶和邏輯應用程式位於相同的 Azure 位置。 |
 
-5.  當您完成時，連線詳細資料看起來類似此範例。 若要完成連線建立，請選擇 [建立]。
+5.  當您完成時，連線詳細資料看起來類似此範例。 若要完成連線建立，請選擇 [建立]  。
    
     ![整合帳戶連線詳細資料](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
 
@@ -59,7 +59,7 @@ ms.locfileid: "64701453"
 
     ![整合帳戶連線已建立](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
 
-    例如︰
+    例如:
 
     ![選取 X12 一般檔案訊息進行解碼](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
