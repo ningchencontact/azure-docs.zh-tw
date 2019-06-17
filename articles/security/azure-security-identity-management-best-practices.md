@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 2a669f5b46db4d5de7d1d6863b94e6c117667aee
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2b57ec7727e8f5b648bcb97e5fae26c63724411c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153248"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127200"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure 身分識別管理和存取控制安全性最佳作法
 本文會討論一系列的 Azure 身分識別管理和存取控制安全性最佳做法。 這些最佳作法衍生自我們的 [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) 經驗和客戶的經驗。
@@ -40,7 +40,7 @@ ms.locfileid: "65153248"
 * 集中管理身分識別
 * 管理已連線的租用戶
 * 啟用單一登入
-* 開啟條件式存取
+* 開啟 條件式存取
 * 啟用密碼管理
 * 對使用者強制執行多重要素驗證
 * 使用角色型存取控制
@@ -109,14 +109,14 @@ ms.locfileid: "65153248"
 
 未建立通用身分識別來對使用者和應用程式建立 SSO 的組織，更容易遭遇使用者有多組密碼的情況。 這些情況會提高使用者重複使用密碼或使用弱式密碼的可能性。
 
-## <a name="turn-on-conditional-access"></a>開啟條件式存取
+## <a name="turn-on-conditional-access"></a>開啟 條件式存取
 
 使用者可以使用各種裝置和應用程式，從任何位置存取您組織的資源。 身為 IT 系統管理員，您會想要確保這些裝置符合安全性與合規性標準。 只將焦點放在誰可以存取資源，已不再足夠。
 
-安全性與生產力之間取得平衡，您需要思考才能進行存取控制的相關決定要如何存取資源。 有了 Azure AD 條件式存取，您就能夠因應這項需求。 使用條件式存取，您可以進行以存取您雲端應用程式的條件為基礎的自動化的存取控制決定。
+安全性與生產力之間取得平衡，您需要思考才能進行存取控制的相關決定要如何存取資源。 使用 Azure AD 條件式存取，您可以解決這項需求。 使用條件式存取，您可以進行以存取您雲端應用程式的條件為基礎的自動化的存取控制決定。
 
 **最佳做法**：管理和控制公司資源的存取權。  
-**詳細資料**：針對 SaaS 應用程式和連線到 Azure AD 的應用程式，設定以群組、位置和應用程式敏感性為基礎的 Azure AD [條件式存取](../active-directory/active-directory-conditional-access-azure-portal.md)。
+**詳細資料**：設定 Azure AD[條件式存取](../active-directory/active-directory-conditional-access-azure-portal.md)根據群組、 位置和 SaaS 應用程式與 Azure AD 連線應用程式的應用程式敏感性。
 
 **最佳做法**：封鎖舊版驗證通訊協定。
 **詳細資料**：攻擊者利用舊的通訊協定中的弱點每一天，特別是針對噴灑防範密碼攻擊。 設定條件式存取封鎖舊版通訊協定。 請觀看影片[Azure AD:建議與禁忌](https://www.youtube.com/watch?v=wGk0J4z90GI)如需詳細資訊。
@@ -143,16 +143,16 @@ ms.locfileid: "65153248"
 以下是啟用雙步驟驗證的選項和優點：
 
 **選項 1**：[藉由變更使用者狀態來啟用 Multi-Factor Authentication](../active-directory/authentication/howto-mfa-userstates.md)。   
-**優點**：這是要求使用雙步驟驗證的傳統方法。 同時適用於[雲端與 Azure Multi-Factor Authentication Server 中的 Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-whichversion.md)。 如果使用這種方法，則會要求使用者在每次登入時執行雙步驟驗證，並且會覆寫條件式存取原則。
+**優點**：這是要求使用雙步驟驗證的傳統方法。 同時適用於[雲端與 Azure Multi-Factor Authentication Server 中的 Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-whichversion.md)。 使用此方法需要每次登入時執行雙步驟驗證的使用者，並覆寫條件式存取原則。
 
 若要判斷何處啟用 Multi-factor Authentication，請參閱[哪個版本的 Azure MFA 是最適合我的組織？](../active-directory/authentication/concept-mfa-whichversion.md)。
 
-**選項 2**：[透過條件式存取原則來啟用 Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)。
-**優點**：此選項可讓您使用[條件式存取](../active-directory/active-directory-conditional-access-azure-portal.md)，在特定條件下提示使用雙步驟驗證。 特定條件可以是使用者從不同的位置、不受信任的裝置，或您認為有危險的應用程式登入。 定義您要求使用雙步驟驗證的特定條件，可讓您避免要持續提示使用者，這可能會帶來不愉快的使用者體驗。
+**選項 2**：[使用條件式存取原則中啟用 Multi-factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)。
+**優點**：此選項可讓您能夠提示進行雙步驟驗證，在特定情況下，使用[條件式存取](../active-directory/active-directory-conditional-access-azure-portal.md)。 特定條件可以是使用者從不同的位置、不受信任的裝置，或您認為有危險的應用程式登入。 定義您要求使用雙步驟驗證的特定條件，可讓您避免要持續提示使用者，這可能會帶來不愉快的使用者體驗。
 
-這是最具彈性的方法，可為您的使用者啟用雙步驟驗證。 啟用條件式存取原則，只適用於雲端的 Azure Multi-Factor Authentication，而且是 Azure AD 的進階功能。 您可以在[部署雲端式 Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)中找到這個方法的詳細資訊。
+這是最具彈性的方法，可為您的使用者啟用雙步驟驗證。 啟用條件式存取原則只適用於在雲端中的 Azure Multi-factor Authentication，並為 Azure AD premium 功能。 您可以在[部署雲端式 Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)中找到這個方法的詳細資訊。
 
-**選項 3**：藉由評估 [Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md) 的使用者和登入風險，以透過條件式存取原則啟用 Multi-Factor Authentication。   
+**選項 3**：啟用 Multi-factor Authentication 條件式存取原則，藉由評估的使用者和登入風險[Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md)。   
 **優點**：此選項可讓您：
 
 - 偵測會影響貴組織身分識別的潛在弱點。
@@ -162,7 +162,7 @@ ms.locfileid: "65153248"
 這個方法使用 Azure AD Identity Protection 風險評估，根據所有雲端應用程式的使用者和登入風險來判斷是否需要雙步驟驗證。 這個方法需要 Azure Active Directory P2 授權。 您可以在 [Azure Active Directory Identity Protection](../active-directory/identity-protection/overview.md) 中找到這個方法的詳細資訊。
 
 > [!Note]
-> 選項 1，藉由變更使用者狀態來啟用 Multi-Factor Authentication，進而覆寫條件式存取原則。 選項 2 和 3 會使用條件式存取原則，所以您無法使用選項 1 來搭配它們。
+> 藉由變更使用者狀態來啟用 Multi-factor Authentication 的選項 1，會覆寫條件式存取原則。 選項 2 和 3 會使用條件式存取原則，因為您無法使用選項 1 與它們。
 
 未新增額外身分識別保護層 (例如雙步驟驗證) 的組織比較容易遭受認證竊取攻擊。 認證竊取攻擊可能會導致資料洩漏。
 

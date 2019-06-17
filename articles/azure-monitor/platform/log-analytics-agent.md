@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: magoedte
 ms.openlocfilehash: 436685f3bba58ed7d06dfe834d808e7fe422176b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66751972"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>使用 Azure Log Analytics 代理程式收集記錄資料
@@ -131,7 +131,7 @@ Windows 和 Linux 代理程式支援透過 proxy 伺服器或 Azure 監視器使
 ## <a name="install-and-configure-agent"></a>安裝及設定代理程式 
 在您的 Azure 訂用帳戶或混合式環境中的機器連接直接與 Azure 監視器記錄檔即可使用不同的方法，根據您的需求。 下表說明每個方法，您可以判斷哪個方法最適合您的組織。
 
-|`Source` | 方法 | 描述|
+|source | 方法 | 描述|
 |-------|-------------|-------------|
 |Azure VM| - 適用於 [Windows](../../virtual-machines/extensions/oms-windows.md) 或 [Linux](../../virtual-machines/extensions/oms-linux.md) 的 Log Analytics VM 擴充功能，使用 Azure CLI 或 Azure Resource Manager 範本<br>- [從 Azure 入口網站手動執行](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json)。 | 擴充功能會在 Azure 虛擬機器上安裝 Log Analytics 代理程式，並且在現有的 Azure 監視器工作區中註冊這些機器。|
 | 混合式 Windows 電腦|- [手動安裝](agent-windows.md)<br>- [Azure 動化 DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [搭配 Azure Stack 的資源管理員範本](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |從命令列或使用自動化方法 (例如 Azure 自動化 DSC、[System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications)) 來安裝 Microsoft Monitoring 代理程式，或者如果您已經在您的資料中心部署 Microsoft Azure Stack，請使用 Azure Resource Manager 範本。| 
