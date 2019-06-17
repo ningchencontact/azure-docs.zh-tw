@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
 ms.openlocfilehash: ef6aac0d97c38798f826304475779ea8059875c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60848535"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>開始使用 PowerShell 建立內部負載平衡器 (傳統)
@@ -77,7 +77,7 @@ Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epnam
 
 ### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>步驟 3：設定您的伺服器將其流量傳送到新的內部負載平衡端點
 
-您必須設定其流量即將進行負載平衡的伺服器使用內部負載平衡執行個體的新 IP 位址 (VIP)。 此地址是内部负载均衡实例正在侦听的地址。 在大部分情況下，您只需要針對內部負載平衡執行個體的 VIP 新增或修改 DNS 記錄。
+您必須設定其流量即將進行負載平衡的伺服器使用內部負載平衡執行個體的新 IP 位址 (VIP)。 這是內部負載平衡執行個體所接聽的位址。 在大部分情況下，您只需要針對內部負載平衡執行個體的 VIP 新增或修改 DNS 記錄。
 
 如果您在建立內部負載平衡執行個體的過程中指定 IP 位址，則您已具有 VIP。 否則，您可以使用下列命令查看 VIP：
 
@@ -103,13 +103,13 @@ Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 
 若要為兩個範例組態逐步完成建立負載平衡集合的端對端程序，請參閱下列各節。
 
-### <a name="an-internet-facing-multi-tier-application"></a>面向 Internet 的多层应用程序
+### <a name="an-internet-facing-multi-tier-application"></a>網際網路面向的多層式應用程式
 
 您想要為一組網際網路面向的 Web 伺服器提供負載平衡資料庫服務。 這兩組伺服器都會裝載於單一 Azure 雲端服務。 進入 TCP 通訊埠 1433 的 Web 伺服器流量必須分配到資料庫層中的兩部虛擬機器。 圖 1 顯示組態。
 
-![适用于数据库层的内部负载均衡集](./media/load-balancer-internal-getstarted/IC736321.png)
+![資料庫層的內部負載平衡集合](./media/load-balancer-internal-getstarted/IC736321.png)
 
-该配置由以下项组成：
+組態包含下列各項：
 
 * 裝載虛擬機器的現有雲端服務會命名為 mytestcloud。
 * 兩個現有的資料庫伺服器會命名為 DB1、DB2。
@@ -134,7 +134,7 @@ $vmname="DB2"
 Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 ```
 
-## <a name="remove-an-internal-load-balancing-configuration"></a>删除内部负载均衡配置
+## <a name="remove-an-internal-load-balancing-configuration"></a>移除內部負載平衡組態
 
 若要將虛擬機器從內部負載平衡器執行個體的端點中移除，請使用下列命令：
 

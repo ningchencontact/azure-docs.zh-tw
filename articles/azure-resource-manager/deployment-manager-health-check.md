@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
 ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796264"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>導入健康情況整合首度發行至 Azure 部署管理員 （公開預覽）
@@ -24,7 +24,7 @@ ms.locfileid: "65796264"
 
 ## <a name="health-monitoring-providers"></a>健全狀況監視提供者
 
-為了讓健康情況整合盡量簡化，Microsoft 投入某些監視公司，為您提供簡單的複製/貼上解決方案來整合您的部署中的健康情況檢查的最上層服務健全狀況。 如果您還沒使用健全狀況監視，這些是絕佳的解決方案開始：
+為了讓健康情況整合盡量簡化，Microsoft 持續與一些最頂尖的服務健康情況監視公司合作，為您提供簡單的複製/貼上解決方案，以整合健康情況檢查與您的部署。 如果您還沒使用健全狀況監視，這些是絕佳的解決方案開始：
 
 | ![azure 部署管理員健全狀況監視提供者 datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![azure 部署管理員健全狀況監視提供者 site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![azure 部署管理員健全狀況監視提供者 wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
 |-----|------|------|
@@ -134,7 +134,7 @@ ms.locfileid: "65796264"
     ]
     ```
 
-若要逐步解說範例，請參閱[教學課程：使用 Azure 部署管理員 」 中的健康情況檢查](./deployment-manager-health-check.md)。
+若要逐步解說範例，請參閱[教學課程：在 Azure 部署管理員中使用健康情況檢查](./deployment-manager-health-check.md)。
 
 ## <a name="phases-of-a-health-check"></a>健康情況檢查的階段
 

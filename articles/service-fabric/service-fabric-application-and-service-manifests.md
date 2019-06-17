@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 5e93bb3b206fbef6beb09b7aca6df0742a80ccf1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5fb28b176ce14a9b871b2a6a775e0017fcc993d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621508"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052675"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 應用程式和服務資訊清單
 本文說明如何使用 ApplicationManifest.xml 和 ServiceManifest.xml 檔案來定義 Service Fabric 應用程式和服務及設定其版本。  如需更詳細的範例，請參閱[應用程式和服務資訊清單範例](service-fabric-manifest-examples.md)。  這些資訊清單檔的 XML 結構描述記載於 [ServiceFabricServiceModel.xsd 結構描述文件](service-fabric-service-model-schema.md)中。
@@ -74,9 +74,9 @@ ms.locfileid: "60621508"
 
 **EntryPoint** 指定的可執行檔通常是長時間執行的服務主機。 **SetupEntryPoint** 是以與 Service Fabric 相同的認證執行的特殊權限進入點 (通常 *LocalSystem* 帳戶)，優先於任何其他進入點。  有個別設定的進入點，就不需要使用較高權限來長時間執行服務主機。 **EntryPoint** 指定的可執行檔是在 **SetupEntryPoint** 成功結束之後執行。 如果程序曾經終止或當機，則產生的程序會受到監視並重新啟動 (以 **SetupEntryPoint**再次開始)。  
 
-使用 **SetupEntryPoint** 的一般案例，是當您在服務啟動之前執行可執行檔，或使用提高的權限來執行作業時。 例如︰
+使用 **SetupEntryPoint** 的一般案例，是當您在服務啟動之前執行可執行檔，或使用提高的權限來執行作業時。 例如:
 
-* 設定及初始化服務可執行檔需要的環境變數。 這不限於透過 Service Fabric 程式設計模型撰寫的執行檔。 例如，npm.exe 需要配置一些环境变量来部署 node.js 应用程序。
+* 設定及初始化服務可執行檔需要的環境變數。 這不限於透過 Service Fabric 程式設計模型撰寫的執行檔。 例如，npm.exe 部署 node.js 應用程式，需要設定某些環境變數。
 * 透過安裝安全性憑證設定存取控制。
 
 如需有關如何設定 SetupEntryPoint 的詳細資訊，請參閱[設定服務設定進入點的原則](service-fabric-application-runas-security.md)
@@ -85,7 +85,7 @@ ms.locfileid: "60621508"
 
 **DataPackage** (未設定於前一個範例中) 會宣告 **Name** 屬性所命名的資料夾，包含由程序在執行階段使用的任意靜態資料。
 
-**ConfigPackage** 宣告 **Name** 屬性所命名的資料夾，其中包含 *Settings.xml* 檔案。 設定檔案包含程序在執行階段讀回的使用者定義、成對的索引鍵/值設定等區段。 升级期间，如果仅更改了 **ConfigPackage** **版本**，则不重启正在运行的进程。 相反地，回呼會通知程序組態設定已變更，因此它們可以動態方式重新載入。 以下是 *Settings.xml* 檔案的範例：
+**ConfigPackage** 宣告 **Name** 屬性所命名的資料夾，其中包含 *Settings.xml* 檔案。 設定檔案包含程序在執行階段讀回的使用者定義、成對的索引鍵/值設定等區段。 在升級期間，如果只有 **ConfigPackage** **版本**已變更，則不會重新啟動執行中程序。 相反地，回呼會通知程序組態設定已變更，因此它們可以動態方式重新載入。 以下是 *Settings.xml* 檔案的範例：
 
 ```xml
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -96,7 +96,7 @@ ms.locfileid: "60621508"
 </Settings>
 ```
 
-Service Fabric 服務**端點**是 Service Fabric 資源的範例；不需變更已編譯的程式碼，即可宣告/變更 Service Fabric 資源。 透過應用程式資訊清單中的 **SecurityGroup**，即可控制存取服務資訊清單中指定的 Service Fabric 資源。 在服務資訊清單中定義端點資源時，若沒有明確指定連接埠，Service Fabric 會從保留的應用程式連接埠範圍指派連接埠。 深入了解[指定或覆寫端點資源](service-fabric-service-manifest-resources.md)。
+Fabric Service**端點**是 Service Fabric 資源的範例。 Service Fabric 資源可以是宣告/變更而不需變更已編譯的程式碼。 透過應用程式資訊清單中的 **SecurityGroup**，即可控制存取服務資訊清單中指定的 Service Fabric 資源。 在服務資訊清單中定義端點資源時，若沒有明確指定連接埠，Service Fabric 會從保留的應用程式連接埠範圍指派連接埠。 深入了解[指定或覆寫端點資源](service-fabric-service-manifest-resources.md)。
 
 
 <!--
@@ -163,7 +163,11 @@ For more information about other features supported by service manifests, refer 
 
 **Certificates** (未設定於前一個範例中) 會宣告用來[設定 HTTPS 端點](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service)或[在應用程式資訊清單中加密密碼](service-fabric-application-secret-management.md)。
 
-**Policies** (未設定於前一個範例中) 說明要在應用程式層級設定的記錄集合、[預設執行身分](service-fabric-application-runas-security.md)、[健康情況](service-fabric-health-introduction.md#health-policies)和[安全性存取](service-fabric-application-runas-security.md)原則。
+**原則**（未在上述範例中的設定） 描述的記錄集合、[預設執行身分](service-fabric-application-runas-security.md)，[健全狀況](service-fabric-health-introduction.md#health-policies)，和[安全性存取](service-fabric-application-runas-security.md)在設定的原則應用程式層級，包括其他服務可以存取 Service Fabric 執行階段。
+
+> [!NOTE] 
+> 根據預設，Service Fabric 應用程式存取 Service Fabric 執行階段，以接受特定應用程式的要求，並指向包含網狀架構和應用程式特定的檔案在主機上的檔案路徑的環境變數的端點的形式. 請考慮將應用程式裝載未受信任的程式碼 （也就是程式碼的 provenance 不明，或應用程式擁有者並不會把可安全地執行） 時，停用此存取權。 如需詳細資訊，請參閱[Service Fabric 中的安全性最佳作法](service-fabric-best-practices-security.md#platform-isolation)。 
+>
 
 **Principals** (未設定於前一個範例中) 說明[執行服務和保護服務資源](service-fabric-application-runas-security.md)所需的安全性主體 (使用者或群組)。  主體會在 **Policies** 區段中參考。
 

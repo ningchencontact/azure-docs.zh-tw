@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2019
+ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 002ebcbe8ba14b9f15ddea6deb21f0f2bc201ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: deb7864c9f59427d6da9d27ede349c7532bf40d5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66160326"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074033"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>使用 RBAC 與 Azure PowerShell 管理 Azure 資源的存取權
 
@@ -223,7 +223,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 若要指派角色，您必須識別物件 (使用者、群組或應用程式) 和範圍。
 
-如果您不知道訂用帳戶 ID，可以在 Azure 入口網站的 [訂用帳戶] 刀鋒視窗中找到，或者，可以使用 [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription)。
+如果您不知道訂用帳戶 ID，可以在 Azure 入口網站的 [訂用帳戶]  刀鋒視窗中找到，或者，可以使用 [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription)。
 
 若要取得 Azure AD 使用者物件識別碼，使用[Get AzADUser](/powershell/module/az.resources/get-azaduser)。
 
@@ -286,7 +286,7 @@ CanDelegate        : False
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-下列範例會將指派[虛擬機器參與者](built-in-roles.md#virtual-machine-contributor)角色，才能*alain@example.com*使用者 *「 銷售*資源群組範圍。 若要取得的唯一角色識別碼，您可以使用[Get AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ，或參閱[適用於 Azure 資源的內建角色](built-in-roles.md)。
+下列範例會將指派[虛擬機器參與者](built-in-roles.md#virtual-machine-contributor)角色，才能 *alain@example.com* 使用者 *「 銷售*資源群組範圍。 若要取得的唯一角色識別碼，您可以使用[Get AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ，或參閱[適用於 Azure 資源的內建角色](built-in-roles.md)。
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -355,7 +355,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-## <a name="remove-access"></a>移除存取權
+## <a name="remove-access"></a>移除存取
 
 在 RBAC 中，若要移除存取權，您需使用 [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) 來移除角色指派。
 
@@ -366,6 +366,8 @@ Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -S
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
 ```
+
+如果您收到錯誤訊息：「 提供的資訊未對應到角色指派 」，請確定，您也指定`-Scope`或`-ResourceGroupName`參數。 如需詳細資訊，請參閱 <<c0> [ 疑難排解 Azure 資源的 RBAC](troubleshooting.md#role-assignments-without-a-security-principal)。
 
 ## <a name="next-steps"></a>後續步驟
 

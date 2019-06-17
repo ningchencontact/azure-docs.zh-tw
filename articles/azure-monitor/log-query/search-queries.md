@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.openlocfilehash: b5860243b6b605288aaf8d6dffe2260bc031a592
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65560833"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Azure 監視器記錄中的搜尋查詢
@@ -107,7 +107,7 @@ search in (Event) "corp*.com"
 > [!TIP]
 > 雖然您可以使用 `search *` 來取得每個資料表中的每個資料行，但建議您一律將查詢範圍界定在特定資料表。 未界定範圍的查詢可能需要一段時間才能完成，而且可能會傳回太多結果。
 
-## <a name="add-and--or-to-search-queries"></a>對搜尋查詢新增 and / or
+## <a name="add-and--or-to-search-queries"></a>對搜尋查詢新增 and  / or 
 使用 **and** 可搜尋包含多個字詞的記錄：
 
 ```Kusto
@@ -132,7 +132,7 @@ search in (Event) "error" and ("register" or "marshal*")
 此範例的結果中所含有的記錄，會包含「error」字詞且同時包含「register」或以「marshal」開頭的字詞。
 
 ## <a name="pipe-search-queries"></a>垂直線搜尋查詢
-和任何其他命令一樣，**search** 也可以使用垂直線，以便對搜尋結果進行篩選、排序和彙總。 例如，若要取得包含「win」的 Event 記錄數目：
+和任何其他命令一樣，**search** 也可以使用垂直線，以便對搜尋結果進行篩選、排序和彙總。 例如，若要取得包含「win」的 Event  記錄數目：
 
 ```Kusto
 search in (Event) "win"

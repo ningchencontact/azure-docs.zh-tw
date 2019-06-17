@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 1/27/2019
 ms.author: v-mohabe
 ms.openlocfilehash: b18267b1443b257a575bf2e1199b9f8fa8c419fc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966832"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>使用 Azure 資訊安全中心來保護 App Service
@@ -47,16 +47,16 @@ Web 應用程式中的弱點經常會遭到攻擊者利用，因為對網際網�
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>啟用 App Service 監視和保護
 
 1. 在 Azure 中，選擇 [資訊安全中心]。
-2. 移至 [安全性原則]，然後選擇一個訂用帳戶。
-3. 在訂用帳戶的資料列結尾，按一下 [編輯設定]。
-4. 在 [定價層] 底下的 [應用程式服務] 資料列中，將方案切換至 [已啟用]。
+2. 移至 [安全性原則]  ，然後選擇一個訂用帳戶。
+3. 在訂用帳戶的資料列結尾，按一下 [編輯設定]  。
+4. 在 [定價層]  底下的 [應用程式服務]  資料列中，將方案切換至 [已啟用]  。
 
 ![App Service 切換](./media/security-center-app-services/app-services-toggle.png)
 
 >[!NOTE]
 > 針對資源數量列出的執行個體數目代表您開啟定價層刀鋒視窗時，作用中的相關 App Service 執行個體數目。 由於此數目會依據您選取的調整規模選項變更，因此您需付費的執行個體數目也會相應地修改。
 
-若要停用您 App Service 的監視和建議，請重複此程序並將 **App Service** 方案切換至 [已停用]。
+若要停用您 App Service 的監視和建議，請重複此程序並將 **App Service** 方案切換至 [已停用]  。
 
 
 

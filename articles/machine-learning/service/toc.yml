@@ -79,8 +79,7 @@
           displayName: 'Basic Sample, training, classification, sample 5'
           href: ui-sample-classification-predict-churn.md
     - name: Azure 開放資料集
-      href: 'https://docs.microsoft.com/azure/open-datasets/samples'
-      maintainContext: true
+      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: 概念
   items:
     - name: 工作區
@@ -98,7 +97,7 @@
     - name: 模型管理 (MLOps)
       displayName: 'deploy, deployment, mlops, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
-    - name: 可重複使用的 ML 管線
+    - name: ML 管線
       href: concept-ml-pipelines.md
     - name: 模型可解釋性
       displayName: explainability
@@ -119,6 +118,8 @@
           href: how-to-enable-virtual-network.md
         - name: 使用 SSL 保護 Web 服務
           href: how-to-secure-web-service.md
+        - name: 重新產生儲存體存取金鑰
+          href: how-to-change-storage-access-key.md
 - name: 使用說明指南
   items:
     - name: 管理工作區
@@ -177,10 +178,12 @@
           href: how-to-set-up-training-targets.md
         - name: 在訓練中建立估算器
           href: how-to-train-ml-models.md
-        - name: 使用 PyTorch
-          href: how-to-train-pytorch.md
         - name: 使用 TensorFlow
           href: how-to-train-tensorflow.md
+        - name: 使用 Keras
+          href: how-to-train-keras.md
+        - name: 使用 PyTorch
+          href: how-to-train-pytorch.md
         - name: 微調超參數
           displayName: parameter
           href: how-to-tune-hyperparameters.md
@@ -191,6 +194,9 @@
           href: how-to-manage-runs.md
         - name: 記錄訓練執行的計量
           href: how-to-track-experiments.md
+        - name: 使用 MLflow 追蹤實驗
+          displayName: 'log, monitor, metrics'
+          href: how-to-use-mlflow.md
     - name: 將機器學習自動化
       displayName: 'automl, auto ml'
       items:
@@ -215,8 +221,9 @@
         - name: FPGA
           href: how-to-deploy-fpga-web-service.md
         - name: IoT Edge
-          href: ../../iot-edge/tutorial-deploy-machine-learning.md
-          maintainContext: true
+          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: 自訂 Docker 映像
+          href: how-to-deploy-custom-docker-image.md
         - name: 疑難排解
           href: how-to-troubleshoot-deployment.md
     - name: 取用 Web 服務
@@ -241,8 +248,7 @@
           href: how-to-create-your-first-pipeline.md
         - name: 搭配 Azure Pipelines 的 ML 工作流程 CI/CD
           displayName: 'continuous, integration, delivery'
-          href: /azure/devops/pipelines/targets/azure-machine-learning
-          mainContext: true
+          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
     - name: 管理資源配額
       displayName: limits
       href: how-to-manage-quotas.md
@@ -366,8 +372,7 @@
     - name: 堆疊溢位
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
     - name: 比較 ML 產品
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
-      maintainContext: true
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/service/context/ml-context
     - name: Workbench 有什麼改變
       displayName: desktop ui Workbench upgrade update transfer
       href: overview-what-happened-to-workbench.md

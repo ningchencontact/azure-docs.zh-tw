@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 5/10/2019
 ms.openlocfilehash: 5d769e2198b714d611b3004e11ccc624d4c6acdf
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546460"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>以 DTU 為基礎的購買模式的服務層
@@ -62,7 +62,7 @@ ms.locfileid: "65546460"
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>彈性集區 eDTU、儲存體及集區資料庫限制
 
-| | **基本** | **标准** | **高級** |
+| | **基本** | **標準** | **高級** |
 | :-- | --: | --: | --: |
 | 每個資料庫的儲存體大小上限  | 2 GB | 1 TB | 1 TB |
 | 每個集區的儲存體大小上限 | 156 GB | 4 TB | 4 TB |
@@ -165,9 +165,9 @@ ms.locfileid: "65546460"
 
 | 服務類別 | 輸送量測量 | 回應時間需求 |
 | --- | --- | --- |
-| 進階 |每秒交易 |0.5 秒時第 95 個百分位數 |
-| 標準 |每分鐘交易 |1.0 秒時第 90 個百分位數 |
-| 基本 |每小時交易 |2.0 秒時第 80 個百分位數 |
+| 進階 |每秒交易 |0\.5 秒時第 95 個百分位數 |
+| 標準 |每分鐘交易 |1\.0 秒時第 90 個百分位數 |
+| 基本 |每小時交易 |2\.0 秒時第 80 個百分位數 |
 
 ## <a name="next-steps"></a>後續步驟
 

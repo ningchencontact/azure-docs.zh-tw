@@ -1,17 +1,16 @@
 ---
-title: 自定义 Azure 应用程序网关的 Web 应用程序防火墙规则 - PowerShell
+title: 自訂 web 應用程式防火牆規則，在 Azure 應用程式閘道-PowerShell
 description: 本文提供如何透過 PowerShell，在應用程式閘道中自訂 Web 應用程式防火牆規則的相關資訊。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-origin.date: 02/22/2019
-ms.date: 03/11/2019
-ms.author: v-junlch
+ms.date: 2/22/2019
+ms.author: victorh
 ms.openlocfilehash: f96395a54f66b787878faeee057f02818f956ade
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831447"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>透過 PowerShell 自訂 Web 應用程式防火牆規則
@@ -92,18 +91,18 @@ Set-AzApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway 
 Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
-## <a name="mandatory-rules"></a>强制性规则
+## <a name="mandatory-rules"></a>必要的規則
 
-以下列表包含导致 WAF 在防护模式下阻止请求的条件（在检测模式下，它们作为异常记录）。 无法配置或禁用这些规则：
+下列清單包含會造成封鎖的要求在防止模式 （在它們記錄為例外狀況的偵測模式） 中 WAF 的條件。 無法設定或停用這些：
 
-* 除非关闭正文检查（XML、JSON、表单数据），否则无法分析请求正文会导致请求被阻止
-* 请求正文（不带文件）数据长度大于配置的限制
-* 请求正文（包括文件）大于限制
-* WAF 引擎发生内部错误
+* 無法剖析要求主體導致要求遭到封鎖，除非主體檢查已關閉 （XML、 JSON、 表單資料）
+* 要求本文中 （的任何檔案） 的資料長度大於設定的限制
+* （包括檔案） 的內文大於限制的要求
+* WAF 引擎中發生內部錯誤
 
 CRS 3.x 特定：
 
-* 入站异常分数超出阈值
+* 輸入異常分數超過閾值
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -113,5 +112,3 @@ CRS 3.x 特定：
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
-
-<!-- Update_Description: code update -->

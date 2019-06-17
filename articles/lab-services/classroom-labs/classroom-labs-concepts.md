@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 82f9d7090d7283e0b00b36e0928fffb3395ca4c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8bbb486b0dbf1a5e25f5ee4d1f8e5e01b999a8ba
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679080"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067384"
 ---
 # <a name="classroom-labs-concepts"></a>教室實驗室概念
 下列清單包含重要的實驗室服務概念和定義：
 
 ## <a name="quota"></a>Quota
-配額是老師可以設定時間限制 （以小時為單位） 的學生使用實驗室 VM。 可以設為 0，無限制或特定的小時數。 配額設定為 0 時，如果一位學生只能使用虛擬機器時有排程正在執行，或當老師手動啟動虛擬機器上的學生。
+配額是老師可以設定時間限制 （以小時為單位） 的學生使用實驗室 VM。 可以設為 0 或特定的小時數。 配額設定為 0 時，如果一位學生只能使用虛擬機器時有排程正在執行，或當老師手動啟動虛擬機器上的學生。
  
 ## <a name="schedules"></a>排程
 排程是老師可以建立類別的時間位置 （一次性或週期性）。 在實驗室中的所有虛擬機器會自動都啟動排程開頭和結尾的排程已停止。 排程執行時，不會使用配額時數。

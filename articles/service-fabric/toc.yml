@@ -517,6 +517,8 @@
               href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
             - name: 在 Windows 上設定 Linux 叢集
               href: service-fabric-local-linux-cluster-windows.md
+            - name: 將 .NET Core 應用程式從 VS 部署至遠端 Linux 叢集
+              href: service-fabric-how-to-publish-linux-app-vs.md
         - name: 在 Linux/Eclipse 開發人員環境中工作
           items:
             - name: 開始使用 Eclipse 外掛程式進行 Java 部署
@@ -842,8 +844,8 @@
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: 定價計算機
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: 疑難排解指南
-      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
+    - name: 版本資訊
+      href: release-notes.md
     - name: 範例程式碼
       href: 'https://aka.ms/servicefabricsamples'
     - name: 支援選項
@@ -852,5 +854,7 @@
       href: service-fabric-versions.md
     - name: 服務更新
       href: 'https://azure.microsoft.com/updates/?product=service-fabric'
+    - name: 疑難排解指南
+      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
     - name: 影片
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'

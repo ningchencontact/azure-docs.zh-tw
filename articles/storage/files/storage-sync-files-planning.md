@@ -9,10 +9,10 @@ ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597084"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
@@ -113,7 +113,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 ### <a name="system-requirements"></a>系統需求
 - 執行 Windows Server 2012 R2、Windows Server 2016 或 Windows Server 2019 的伺服器：
 
-    | 版本 | 支援的 SKU | 支援的部署選項 |
+    | Version | 支援的 SKU | 支援的部署選項 |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter 和 Standard | 完整 (具有 UI 的伺服器) |
     | Windows Server 2016 | Datacenter 和 Standard | 完整 (具有 UI 的伺服器) |
@@ -150,7 +150,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 
 ### <a name="files-skipped"></a>跳過的檔案
 
-| 檔案/資料夾 | 注意 |
+| 檔案/資料夾 | 附註 |
 |-|-|
 | Desktop.ini | 系統專用檔案 |
 | ethumbs.db$ | 暫存檔案的縮圖 |
@@ -178,9 +178,9 @@ Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Window
 ### <a name="distributed-file-system-dfs"></a>分散式檔案系統 (DFS)
 Azure 檔案同步支援與 DFS 命名空間 (DFS-N) 和 DFS 複寫 (DFS-R) 互通。
 
-**DFS 命名空間 (DFS-N)**：DFS-N 伺服器上完全支援 Azure 檔案同步。 您可以將 Azure 檔案同步代理程式安裝在一或多個 DFS-N 成員上，同步伺服器端點與雲端端點之間的資料。 如需詳細資訊，請參閱 [DFS 命名空間概觀](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview)。
+**DFS 命名空間 (DFS-N)** ：DFS-N 伺服器上完全支援 Azure 檔案同步。 您可以將 Azure 檔案同步代理程式安裝在一或多個 DFS-N 成員上，同步伺服器端點與雲端端點之間的資料。 如需詳細資訊，請參閱 [DFS 命名空間概觀](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview)。
  
-**DFS 複寫 (DFS-R)**：因為 DFS-R 與 Azure 檔案同步都是複寫解決方案，所以建議您在大部分情況下，以 Azure 檔案同步取代 DFS-R。不過有幾個案例，您會想要一起使用 DFS-R 和 Azure 檔案同步：
+**DFS 複寫 (DFS-R)** ：因為 DFS-R 與 Azure 檔案同步都是複寫解決方案，所以建議您在大部分情況下，以 Azure 檔案同步取代 DFS-R。不過有幾個案例，您會想要一起使用 DFS-R 和 Azure 檔案同步：
 
 - 您正要從 DFS-R 部署移轉至 Azure 檔案同步部署。 如需詳細資訊，請參閱[將 DFS 複寫 (DFS-R) 部署移轉至 Azure 檔案同步](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync)。
 - 並非需要檔案資料複本的每個內部部署伺服器都能直接連線到網際網路。
@@ -235,32 +235,32 @@ Azure 檔案同步僅於下列區域提供：
 
 | 區域 | 資料中心位置 |
 |--------|---------------------|
-| 澳洲東部 | New South Wales |
-| 澳大利亞東南部 | Victoria |
+| 澳洲東部 | 新南威爾斯 |
+| 澳大利亞東南部 | 維多利亞 |
 | 巴西南部 | 聖保羅 Paolo 狀態 |
 | 加拿大中部 | 多倫多 |
 | 加拿大東部 | 魁北克市 |
 | 印度中部 | 浦那 |
-| 美國中部 | Iowa |
+| 美國中部 | 愛荷華州 |
 | 東亞 | 香港特別行政區 |
-| 美國東部 | Virginia |
-| 美國東部 2 | Virginia |
-| 南韓中部| Seoul |
-| 南韓南部| Busan |
+| 美國東部 | 維吉尼亞州 |
+| 美國東部 2 | 維吉尼亞州 |
+| 南韓中部| 首爾 |
+| 南韓南部| 斧山 |
 | 日本東部 | 東京，埼玉 |
 | 日本西部 | 大阪 |
-| 美國中北部 | Illinois |
+| 美國中北部 | 伊利諾州 |
 | 北歐 | 愛爾蘭 |
 | 美國中南部 | Texas |
 | 印度南部 | 辰內 |
 | 東南亞 | 新加坡 |
 | 英國南部 | 倫敦 |
 | 英國西部 | 卡地夫 |
-| 美國亞歷桑那 （預覽） | 美國亞歷桑那時間 |
+| 美國亞歷桑那 （預覽） | 亞利桑那州 |
 | 美國德克薩斯州政府 （預覽） | Texas |
-| 美國維吉尼亞州政府 （預覽） | Virginia |
+| 美國維吉尼亞州政府 （預覽） | 維吉尼亞州 |
 | 西歐 | 荷蘭 |
-| 美國中西部 | Wyoming |
+| 美國中西部 | 懷俄明州 |
 | 美國西部 | California |
 | 美國西部 2 | Washington |
 
@@ -300,9 +300,9 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 | 東南亞      | 東亞          |
 | 英國南部            | 英國西部            |
 | 英國西部             | 英國南部           |
-| US Gov 亞利桑那州      | US Gov 德克薩斯州       |
+| 美國政府亞利桑那州      | 美國政府德克薩斯州       |
 | US Gov 愛荷華州         | 美國政府維吉尼亞州    |
-| US Gov Virgini      | US Gov 德克薩斯州       |
+| US Gov Virgini      | 美國政府德克薩斯州       |
 | 西歐         | 北歐       |
 | 美國中西部     | 美國西部 2          |
 | 美國西部             | 美國東部            |

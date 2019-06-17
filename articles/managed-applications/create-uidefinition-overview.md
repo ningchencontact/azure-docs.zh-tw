@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 05/26/2019
 ms.author: tomfitz
 ms.openlocfilehash: 3d0a6d97440404904c041369a4631fdd3fb618b4
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257555"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>為您的受控應用程式建立 Azure 入口網站使用者介面
@@ -82,6 +82,6 @@ createUiDefinition.json 檔案本身有簡單的結構描述。 它的實際深�
 - [元素](create-uidefinition-elements.md)
 - [函式](create-uidefinition-functions.md)
 
-下列位置會提供 createUiDefinition 的目前 JSON 結構描述： https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json。
+下列位置會提供 createUiDefinition 的目前 JSON 結構描述： https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json 。
 
 如需使用者介面檔案範例，請參閱 [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json)。

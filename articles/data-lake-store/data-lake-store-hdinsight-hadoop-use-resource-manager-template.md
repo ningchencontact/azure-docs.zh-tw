@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: b09ca2cc358107c5f95fe3426351d380380db3c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161377"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本來建立搭配 Azure Data Lake Storage Gen1 的 HDInsight 叢集
@@ -82,7 +82,7 @@ Resource Manager 範本會建立一個新的 Data Lake Storage Gen1 帳戶並將
 ## <a name="set-relevant-acls-on-the-sample-data"></a>在範例資料上設定相關的 ACL
 為確保可從 HDInsight 叢集存取您上傳的範例資料，您必須確認用來在 HDInsight 叢集與 Data Lake Storage Gen1 之間建立身分識別的 Azure AD 應用程式，有權限存取您嘗試存取的檔案/資料夾。 若要這樣做，請執行下列步驟。
 
-1. 找出與 HDInsight 叢集和 Data Lake Storage Gen1 帳戶相關聯的 Azure AD 應用程式名稱。 其中一個尋找名稱的方法是開啟您使用 Resource Manager 範本來建立的 HDInsight 叢集刀鋒視窗、按一下 [叢集 AAD 識別] 索引標籤，然後尋找 [服務主體顯示名稱] 的值。
+1. 找出與 HDInsight 叢集和 Data Lake Storage Gen1 帳戶相關聯的 Azure AD 應用程式名稱。 其中一個尋找名稱的方法是開啟您使用 Resource Manager 範本來建立的 HDInsight 叢集刀鋒視窗、按一下 [叢集 AAD 識別]  索引標籤，然後尋找 [服務主體顯示名稱]  的值。
 2. 現在，將您想要從 HDInsight 叢集存取之檔案/資料夾的存取權提供給此 Azure AD 應用程式。 若要在 Data Lake Storage Gen1 中的檔案/資料夾上設定正確的 ACL，請參閱[保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md#filepermissions)。
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>在 HDInsight 叢集上執行測試作業以使用 Data Lake Storage Gen1

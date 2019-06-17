@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.openlocfilehash: 0cb75c1acb731432ed524560698e3355699b2500
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60931206"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>如何使用 SendGrid 透過 Java 傳送電子郵件
@@ -80,7 +80,7 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
 
        Authenticator auth = new SMTPAuthenticator();
        Session mailSession = Session.getDefaultInstance(properties, auth);
-3. 建立郵件並指派 [收件者]、[寄件者]、[主旨] 和內容值。 這會顯示[How To:建立電子郵件](#how-to-create-an-email)一節。
+3. 建立郵件並指派 [收件者]  、[寄件者]  、[主旨]  和內容值。 這會顯示[How To:建立電子郵件](#how-to-create-an-email)一節。
 4. 透過 *javax.mail.Transport* 物件傳送郵件。 這會顯示在 [How To:傳送電子郵件] [# how to-傳送-的-電子郵件] 一節。
 
 ## <a name="how-to-create-an-email"></a>作法：建立電子郵件
@@ -131,7 +131,7 @@ SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電
     multipart.addBodyPart(attachmentPart);
 
 ## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>作法：使用篩選器來啟用頁尾、 追蹤和分析
-SendGrid 運用「篩選器」提供其他電子郵件功能。 這些設定可新增到電子郵件以啟用特定功能，例如啟用點擊追蹤、Google 分析、訂閱追蹤等。 如需完整的篩選器清單，請參閱[篩選器設定][Filter Settings]。
+SendGrid 運用「篩選器」  提供其他電子郵件功能。 這些設定可新增到電子郵件以啟用特定功能，例如啟用點擊追蹤、Google 分析、訂閱追蹤等。 如需完整的篩選器清單，請參閱[篩選器設定][Filter Settings]。
 
 * 下列程式碼顯示如何插入頁尾篩選器，以使 HTML 文字出現在傳送之電子郵件的底部。
 
@@ -168,7 +168,7 @@ SendGrid 運用「篩選器」提供其他電子郵件功能。 這些設定可�
 
     message.setReplyTo(addresses);
 
-若要增加 [副本] 收件者，請使用下列程式碼：
+若要增加 [副本]  收件者，請使用下列程式碼：
 
     message.addRecipient(Message.RecipientType.CC, new
     InternetAddress("john@contoso.com"));

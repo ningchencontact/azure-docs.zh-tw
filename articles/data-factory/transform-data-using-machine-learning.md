@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60928047"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>使用 Azure Machine Learning 和 Azure Data Factory 來建立預測管線
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [目前的版本](transform-data-using-machine-learning.md)
 
@@ -66,7 +66,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，使用已發佈[Azure Machin
 
 如需了解 JSON 定義中的屬性說明，請參閱[計算連結服務](compute-linked-services.md)一文。
 
-Azure Machine Learning 支援傳統 Web 服務和新 Web 服務，以用於您的預測性實驗。 您可以從 Data Factory 選擇正確的服務。 若要取得建立 Azure Machine Learning 連結服務所需的資訊，請移至 https://services.azureml.net，其中列出所有 (新) Web 服務和傳統 Web 服務。 按一下您要存取的 Web 服務，然後按一下 [取用] 頁面。 為 **apiKey** 屬性複製**主索引鍵**，並為 **mlEndpoint** 屬性複製**批次要求**。
+Azure Machine Learning 支援傳統 Web 服務和新 Web 服務，以用於您的預測性實驗。 您可以從 Data Factory 選擇正確的服務。 若要取得建立 Azure Machine Learning 連結服務所需的資訊，請移至 https://services.azureml.net ，其中列出所有 (新) Web 服務和傳統 Web 服務。 按一下您要存取的 Web 服務，然後按一下 [取用]  頁面。 為 **apiKey** 屬性複製**主索引鍵**，並為 **mlEndpoint** 屬性複製**批次要求**。
 
 ![Azure Machine Learning Web 服務](./media/transform-data-using-machine-learning/web-services.png)
 
@@ -129,7 +129,7 @@ Azure Machine Learning 支援傳統 Web 服務和新 Web 服務，以用於您�
 | name              | 管線中的活動名稱     | 是      |
 | description       | 說明活動用途的文字。  | 否       |
 | type              | 對於 Data Lake Analytics U-SQL 活動，活動類型為 **AzureMLBatchExecution**。 | 是      |
-| 預設容器 | 將服務連結至 Azure Machine Learning 連結服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | 是      |
+| linkedServiceName | 將服務連結至 Azure Machine Learning 連結服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | 是      |
 | webServiceInputs  | 對應 Azure Machine Learning Web 服務輸入之名稱的索引鍵/值組。 索引鍵必須符合已發佈 Azure Machine Learning Web 服務中定義的輸入參數。 值是指定輸入 Blob 位置的 Azure 儲存體連結服務和 FilePath 屬性組。 | 否       |
 | webServiceOutputs | 對應 Azure Machine Learning Web 服務輸出之名稱的索引鍵/值組。 索引鍵必須符合已發佈 Azure Machine Learning Web 服務中定義的輸出參數。 值是指定輸出 Blob 位置的 Azure 儲存體連結服務和 FilePath 屬性組。 | 否       |
 | globalParameters  | 要傳遞給「Azure Machine Learning Studio 批次執行服務」端點的索引鍵/值組。 索引鍵必須符合已發佈之 Azure Machine Learning Studio Web 服務中定義的 Web 服務參數名稱。 值會在 Azure Machine Learning Studio 批次執行要求的 GlobalParameters 屬性中傳遞 | 否       |

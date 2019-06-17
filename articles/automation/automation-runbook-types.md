@@ -10,10 +10,10 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 7a3990366814beda83852fc7c07c896445388c23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60737154"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure 自動化 Runbook 類型
@@ -49,7 +49,7 @@ Azure 自動化支援下表中簡短描述的幾種 Runbook。  下列各節提�
 
 ## <a name="powershell-runbooks"></a>PowerShell Runbook
 
-PowerShell Runbook 以 Windows PowerShell 為基礎。  可以在 Azure 门户中使用文本编辑器直接编辑 Runbook 的代码。  您也可以使用任何離線文字編輯器，並 [匯入 Runbook](manage-runbooks.md) 到 Azure 自動化。
+PowerShell Runbook 以 Windows PowerShell 為基礎。  您可以直接使用 Azure 入口網站的文字編輯器來編輯 Runbook 的程式碼。  您也可以使用任何離線文字編輯器，並 [匯入 Runbook](manage-runbooks.md) 到 Azure 自動化。
 
 ### <a name="advantages"></a>優點
 
@@ -77,7 +77,7 @@ PowerShell Runbook 以 Windows PowerShell 為基礎。  可以在 Azure 门户�
 
 PowerShell Workflow Runbook 是以 [Windows PowerShell 工作流程](automation-powershell-workflow.md)為基礎的文字 Runbook。  您可以直接使用 Azure 入口網站的文字編輯器來編輯 Runbook 的程式碼。  您也可以使用任何離線文字編輯器，並 [匯入 Runbook](manage-runbooks.md) 到 Azure 自動化。
 
-### <a name="advantages"></a>优点
+### <a name="advantages"></a>優點
 
 * 使用 PowerShell 工作流程程式碼實作所有複雜的邏輯。
 * 發生錯誤時，能使用[檢查點](automation-powershell-workflow.md#checkpoints)來繼續執行 Runbook。

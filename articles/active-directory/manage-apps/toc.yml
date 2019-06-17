@@ -83,6 +83,10 @@
           href: plan-sso-deployment.md
     - name: 使用者入口網站
       href: end-user-experiences.md
+    - name: One Click SSO
+      items:
+        - name: 什麼是 One Click SSO
+          href: one-click-sso-tutorial.md
 - name: 使用說明指南
   items:
     - name: 新增雲端應用程式

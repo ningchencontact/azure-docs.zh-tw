@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 09ce4cdc6ab4556f0ba68507bb23d09e02ae0357
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 45d575488db8d740069fba961203842899024747
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296818"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807190"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 
@@ -245,7 +245,7 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="report"></a>報表
+## <a name="report"></a>報告
 
 您可以在合作夥伴中心分析儀表板中的客戶使用方式屬性找到報表。 ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). 若要查看報表，您必須使用合作夥伴中心認證來登入。 如果您遇到任何問題的報表，或登入，建立支援要求，遵循 [取得支援] 區段中的指示。
 
@@ -259,19 +259,21 @@ foreach ($deployment in $deployments){
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Resource Manager 範本部署的通知
 
-當您部署此範本時，Microsoft 可以透過已部署的 Azure 資源來識別 \<PARTNER> 軟體的安裝。 Microsoft 可讓用來支援軟體的 Azure 資源相互關聯。 Microsoft 會收集這項資訊，以透過其產品提供最佳體驗以及經營業務。 Microsoft 隱私權原則 (位於 https://www.microsoft.com/trustcenter) 規範此資料的收集與控管。
+當您部署此範本時，Microsoft 可以透過已部署的 Azure 資源來識別 \<PARTNER> 軟體的安裝。 Microsoft 可讓用來支援軟體的 Azure 資源相互關聯。 Microsoft 會收集這項資訊，以透過其產品提供最佳體驗以及經營業務。 Microsoft 隱私權原則 (位於 https://www.microsoft.com/trustcenter ) 規範此資料的收集與控管。
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>SDK 或 API 部署的通知
 
-當您部署 \<PARTNER> 軟體時，Microsoft 可以透過已部署的 Azure 資源來識別 \<PARTNER> 軟體的安裝。 Microsoft 可讓用來支援軟體的 Azure 資源相互關聯。 Microsoft 會收集這項資訊，以透過其產品提供最佳體驗以及經營業務。 Microsoft 隱私權原則 (位於 https://www.microsoft.com/trustcenter) 規範此資料的收集與控管。
+當您部署 \<PARTNER> 軟體時，Microsoft 可以透過已部署的 Azure 資源來識別 \<PARTNER> 軟體的安裝。 Microsoft 可讓用來支援軟體的 Azure 資源相互關聯。 Microsoft 會收集這項資訊，以透過其產品提供最佳體驗以及經營業務。 Microsoft 隱私權原則 (位於 https://www.microsoft.com/trustcenter ) 規範此資料的收集與控管。
 
 ## <a name="get-support"></a>取得支援
 
-如果您遇到任何問題的報表或登入合作夥伴中心，請使用合作夥伴中心支援小組建立支援要求： [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+有兩個支援管道，根據您所遇到的問題。
+
+如果您遇到任何問題，在合作夥伴中心，例如查看客戶使用方式屬性報表，或登入，使用合作夥伴中心支援小組建立支援要求： [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
-如果您是 Marketplace 上架及/或客戶使用方式屬性需要協助，請遵循下列步驟。
+如果您需要協助 Marketplace 上架及/或客戶的使用方式屬性的一般情況下，例如如何設定客戶使用量免署名，請遵循下列步驟：
 
 1. 移至[支援連結](https://go.microsoft.com/fwlink/?linkid=844975)。
 

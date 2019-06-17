@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 914bc37552a80886df16ed69fba4e31b3f22ac22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61399517"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop Pig 活動轉換資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您正在使用的 Data Factory 服務的版本："]
 > * [第 1 版](v1/data-factory-pig-activity.md)
 > * [目前的版本](transform-data-using-hadoop-pig.md)
 
@@ -59,14 +59,14 @@ Data Factory [管線](concepts-pipelines-activities.md)中的 HDInsight Pig 活�
 | 屬性            | 描述                              | 必要項 |
 | ------------------- | ---------------------------------------- | -------- |
 | name                | 活動的名稱                     | 是      |
-| 說明         | 說明活動用途的文字 | 否       |
+| description         | 說明活動用途的文字 | 否       |
 | type                | 對於 Hive 活動，活動類型為 HDinsightPig | 是      |
-| 預設容器   | 參考 HDInsight 叢集註冊為 Data Factory 中的連結服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | 是      |
+| linkedServiceName   | 參考 HDInsight 叢集註冊為 Data Factory 中的連結服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | 是      |
 | scriptLinkedService | Azure 儲存體已連結的服務用來儲存要執行之 Pig 指令碼的參考。 如果您未指定這項連結服務，則會使用 HDInsight 已連結的服務中定義的 Azure 儲存體已連結的服務。 | 否       |
 | scriptPath          | 提供儲存在 scriptLinkedService 引用之 Azure 儲存體中指令碼檔案的路徑。 檔案名稱有區分大小寫。 | 否       |
 | getDebugInfo        | 指定何時將記錄檔複製到 HDInsight 叢集所使用 (或) scriptLinkedService 所指定的 Azure 儲存體。 允許的值：None、Always 或 Failure。 預設值：無。 | 否       |
 | arguments           | 指定 Hadoop 作業的引數陣列。 引數會以命令列引數的方式傳遞給每項工作。 | 否       |
-| 定義             | 在使用 Pig 指令碼內指定參數做為參考的機碼/值組。 | 否       |
+| defines             | 在使用 Pig 指令碼內指定參數做為參考的機碼/值組。 | 否       |
 
 ## <a name="next-steps"></a>後續步驟
 請參閱下列文章，其說明如何以其他方式轉換資料： 

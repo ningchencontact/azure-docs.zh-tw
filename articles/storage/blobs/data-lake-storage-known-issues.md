@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: normesta
-ms.openlocfilehash: 27adc0eeeabed2b1f2e86f301a60604a3d358b82
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 446b49cbf3fdf3d4cde37b2a7c4ac2d9f0a811b1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464727"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061325"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知問題
 
@@ -23,7 +23,7 @@ ms.locfileid: "65464727"
 
 ## <a name="blob-storage-apis"></a>Blob 儲存體 API
 
-Blob 儲存體 Api 會停用，以避免不小心的資料存取問題，因為 Blob 儲存體 Api 尚無法使用 Azure Data Lake Gen2 Api 互通，就會發生。
+Blob 儲存體 Api 會停用，以避免可能發生因為 Blob 儲存體 Api 尚無法使用 Azure Data Lake Gen2 Api 可互通的功能證問題。
 
 ### <a name="what-to-do-with-existing-tools-applications-and-services"></a>該如何處理現有的工具、 應用程式和服務
 
@@ -66,7 +66,7 @@ Blob 儲存體 Api 會停用，以避免不小心的資料存取問題，因為 
 | **診斷記錄** |尚不支援|
 | **檔案系統總管** | 有限的支援 |
 | **不可變的儲存體** |尚不支援 <br><br>不可變的儲存體可讓資料儲存在[蠕蟲 （寫入一次，多次讀取）](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)狀態。|
-| **物件層級層** |尚不支援 <br><br>例如：Premium、 經常性存取、 冷的、 和封存層。|
+| **物件層級層** |尚不支援 <br><br>例如: Premium、 經常性存取、 冷的、 和封存層。|
 | **Powershell 和 CLI 的支援** | 有限的功能 <br><br>您可以使用 Powershell 或 CLI 來建立帳戶。 您無法執行作業，或在檔案系統、 目錄和檔案上設定存取控制清單。|
 | **靜態網站** |尚不支援 <br><br>具體來說，能夠提供檔案[靜態網站](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)。|
 | **協力廠商應用程式** | 有限的支援 <br><br>使用 REST Api 來運作的協力廠商應用程式會繼續運作，如果您使用 Data Lake 儲存體 Gen2。 <br>如果您有使用 Blob Api 的應用程式時，該應用程式很可能會有問題如果您使用該應用程式與 Data Lake 儲存體 Gen2。 若要進一步了解，請參閱[Blob 儲存體的 Data Lake 儲存體 Gen2 儲存體帳戶已停用 Api](#blob-apis-disabled)一節。|

@@ -74,8 +74,9 @@
     - name: 跨租用戶可見性
       href: security-center-management-groups.md
     - name: 實作安全性建議
-      href: security-center-recommendations.md
       items:
+        - name: 有哪些安全性建議
+          href: security-center-recommendations.md
         - name: 鞏固安全性現況
           href: security-center-monitoring.md
         - name: 保護您的機器和應用程式
@@ -181,6 +182,8 @@
       href: /learn/browse/?term=securityS
     - name: 管理使用者資料
       href: security-center-privacy.md
+    - name: 管理 IoT
+      href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
     - name: 常見問題集
       href: security-center-faq.md
     - name: Azure 安全性

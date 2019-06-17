@@ -11,10 +11,10 @@ ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
 ms.openlocfilehash: f27d30d4709fbf373c8458629d0c8c5af4333acf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61296934"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>透過 Azure 入口網站發佈服務類別目錄應用程式
@@ -29,7 +29,7 @@ ms.locfileid: "61296934"
 
 ## <a name="create-managed-application-with-portal"></a>使用入口網站建立受控應用程式
 
-1. 在左上角，選取 [新增]。
+1. 在左上角，選取 [新增]  。
 
    ![新增服務](./media/publish-portal/new.png)
 
@@ -39,7 +39,7 @@ ms.locfileid: "61296934"
 
    ![搜尋受控應用程式定義](./media/publish-portal/select-managed-apps-definition.png)
 
-1. 選取 [建立] 以開始建立受控應用程式定義的程序。
+1. 選取 [建立]  以開始建立受控應用程式定義的程序。
 
    ![建立受控應用程式定義](./media/publish-portal/create-definition.png)
 
@@ -47,15 +47,15 @@ ms.locfileid: "61296934"
 
    ![提供值](./media/publish-portal/fill-application-values.png)
 
-1. 當您來到 [驗證和鎖定層級] 區段時，選取 [新增授權]。
+1. 當您來到 [驗證和鎖定層級] 區段時，選取 [新增授權]  。
 
    ![新增授權](./media/publish-portal/add-authorization.png)
 
-1. 選取 Azure Active Directory 群組來管理資源，然後選取 [確定]。
+1. 選取 Azure Active Directory 群組來管理資源，然後選取 [確定]  。
 
    ![新增授權群組](./media/publish-portal/add-auth-group.png)
 
-1. 當您已提供所有值時，選取 [建立]。
+1. 當您已提供所有值時，選取 [建立]  。
 
    ![建立受控應用程式](./media/publish-portal/create-app.png)
 

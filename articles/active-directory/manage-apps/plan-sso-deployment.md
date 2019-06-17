@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29569302d20e23c95b6508a5b58c7ed96e005885
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: bd8cebbd7c60715bc90412d9f53458edfee6c56d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66499245"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108208"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>規劃單一登入部署
 
@@ -146,7 +146,7 @@ Microsoft 雲端應用程式安全性 (MCAS) 工作階段控制項可供在任�
 
 使用條件式存取，您可以自動化雲端應用程式條件式存取控制決定。
 
-完成第一個要素驗證之後，即會強制執行條件式存取原則。 因此，條件式存取不是如案例的第一列防禦阻絕服務 (DoS) 攻擊，但可以使用從這些事件的訊號，來決定存取權限。 例如登入風險層級時，可以使用的要求，並依此類推的位置。 如需有關條件式存取的詳細資訊，請參閱 <<c0> [ 概觀](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access)並[部署計劃](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access)。
+第一個雙因素驗證完成之後，會強制執行條件式存取原則。 因此，條件式存取不是如案例的第一列防禦阻絕服務 (DoS) 攻擊，但可以使用從這些事件的訊號，來決定存取權限。 例如登入風險層級時，可以使用的要求，並依此類推的位置。 如需有關條件式存取的詳細資訊，請參閱 <<c0> [ 概觀](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access)並[部署計劃](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access)。
 
 ## <a name="azure-sso-technical-requirements"></a>Azure 的 SSO 技術需求
 

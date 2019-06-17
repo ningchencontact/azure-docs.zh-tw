@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: e059762cbbf5de2ac03a8a74397e59c9b3bdb97e
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 042277899ff22066cfa890e64f5c6c0f2e0134f9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66387107"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080466"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>設定連線的處理站解決方案加速器
 
@@ -264,7 +264,7 @@ ms.locfileid: "66387107"
 
 此分類中的屬性會定義連線處理站儀表板的視覺外觀。 範例包括：
 
-* 名稱
+* Name
 * 描述
 * Image
 * 位置
@@ -340,4 +340,4 @@ WebApp 可維護其中包含所有拓撲節點相關資訊的內部資料字典�
 
 ## <a name="next-steps"></a>後續步驟
 
-下一個建議步驟是了解如何[在 Windows 或 Linux 上部署連線的處理站解決方案加速器的閘道](iot-accelerators-connected-factory-gateway-deployment.md)。
+建議採取的下一個步驟是了解如何[自訂連線工廠解決方案](iot-accelerators-connected-factory-customize.md)。

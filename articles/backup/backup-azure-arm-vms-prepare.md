@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
-ms.openlocfilehash: bac61342f39821b6181a6a0e61bf0b11fb311007
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 06a7623fed0205d927fca9406469737faeda3a4b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239322"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076794"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>備份復原服務保存庫中的 Azure VM
 
@@ -70,6 +70,9 @@ ms.locfileid: "66239322"
  在建立保存庫之後，它會顯示復原服務保存庫清單中。 如果您沒有看到保存庫，請選取 [重新整理]  。
 
 ![備份保存庫的清單](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
+
+> [!NOTE]
+> Azure 備份服務會建立個別的資源群組 （以外的 VM 資源群組中） 來儲存快照集，使用的命名格式**AzureBackupRG_geography_number** (範例：AzureBackupRG_northeurope_1)。 此資源群組中的資料會保留的活動中所指定的天數*保留立即復原快照集*的 Azure 虛擬機器備份原則 區段。  將鎖定套用到此資源群組，可能會導致備份失敗。
 
 ### <a name="modify-storage-replication"></a>修改儲存體複寫
 
@@ -203,7 +206,7 @@ Failed | Failed | Failed
 - 如果您遇到困難與 Vm 連線，或如果您看到錯誤**ExtensionSnapshotFailedNoNetwork**時嘗試連線，您應該明確地允許存取讓備份擴充功能可以與 Azure 公用 IP 進行通訊備份流量的的位址。 下表摘要說明存取方法。
 
 
-**選項** | **動作** | **詳細資料**
+**選項** | **Action** | **詳細資料**
 --- | --- | ---
 **設定 NSG 規則** | 允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。<br/><br/> 而不是允許和管理每個位址範圍，您可以新增規則，以允許存取 Azure 備份服務會使用[服務標籤](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure)。 | [深入了解](../virtual-network/security-overview.md#service-tags)服務標記。<br/><br/> 服務標記簡化存取管理，並不會產生額外費用。
 **部署 Proxy** | 部署 HTTP Proxy 伺服器來路由傳送流量。 | 提供整個 Azure 的存取權，而不只是儲存體的存取權。<br/><br/> 可精確控制儲存體 URL。<br/><br/> VM 具有單一網際網路存取點。<br/><br/> Proxy 需要額外成本。

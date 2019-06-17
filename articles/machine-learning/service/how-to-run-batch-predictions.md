@@ -12,10 +12,10 @@ author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 1e403ac0d2fbe9572a44fb3cde9d25e4df9b3db4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60818511"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務對大型資料集執行批次預測
@@ -59,7 +59,7 @@ ms.locfileid: "60818511"
 
 首先，存取具備模型、標籤及影像的資料存放區。
 
-您將使用 pipelinedata 帳戶中名為 sampledata 的公用 Blob 容器，此容器會保存來自 ImageNet 評估集中的影像。 此公用容器的資料存放區名稱為 *images_datastore*。 向您的工作區註冊此資料存放區：
+您將使用 pipelinedata  帳戶中名為 sampledata  的公用 Blob 容器，此容器會保存來自 ImageNet 評估集中的影像。 此公用容器的資料存放區名稱為 *images_datastore*。 向您的工作區註冊此資料存放區：
 
 ```python
 # Public blob container details

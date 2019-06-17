@@ -9,10 +9,10 @@ ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c8e7e5272f180c482ca7fdd44302f49eb888b25
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157327"
 ---
 使用透過企業解決方案產生的根憑證 (建議)，或產生自我簽署憑證。 建立根憑證之後，將公開憑證資料 (不是私密金鑰) 匯出為 Base64 編碼的 X.509 .cer 檔案。 然後，將公開憑證資料上傳至 Azure 伺服器。

@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 04/22/2018
 ms.author: yegu
 ms.openlocfilehash: a93d21b07dc486f743694ee99f60018ed4ef517c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943863"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>適用於 Azure Redis 快取的 ASP.NET 輸出快取提供者
@@ -29,7 +29,7 @@ Redis 輸出快取提供者為輸出快取資料的程序外儲存體機制。 �
 
 ## <a name="store-aspnet-page-output-in-the-cache"></a>將 ASP.NET 頁面輸出儲存在快取中
 
-若要在 Visual Studio 中使用「Azure Redis 快取工作階段狀態」NuGet 套件來設定用戶端應用程式，請從 [工具] 功能表中，依序按一下 [NuGet 套件管理員] 和 [套件管理器主控台]。
+若要在 Visual Studio 中使用「Azure Redis 快取工作階段狀態」NuGet 套件來設定用戶端應用程式，請從 [工具]  功能表中，依序按一下 [NuGet 套件管理員]  和 [套件管理器主控台]  。
 
 從 `Package Manager Console` 視窗執行下列命令。
 
@@ -61,20 +61,20 @@ NuGet 封裝會下載和加入必要的組件參考，並將下列區段加入�
 
 | 屬性 | 類型 | 預設值 | 描述 |
 | --------- | ---- | ------- | ----------- |
-| *主機* | string | "localhost" | Redis 伺服器 IP 位址或主機名稱 |
+| *主機* | 字串 | "localhost" | Redis 伺服器 IP 位址或主機名稱 |
 | *port* | 正整數 | 6379 (non-SSL)<br/>6380 (SSL) | Redis 伺服器連接埠 |
-| *accessKey* | string | "" | 已啟用 Redis 授權時，redis 伺服器密碼。 值為空字串，根據預設，這表示工作階段狀態提供者在連接到 Redis 伺服器時，不會使用任何密碼。 **您的 Redis 伺服器是否可公開存取的網路，例如 Azure Redis 快取中，務必啟用 Redis 授權，以改善安全性，並提供安全的密碼。** |
+| *accessKey* | 字串 | "" | 已啟用 Redis 授權時，redis 伺服器密碼。 值為空字串，根據預設，這表示工作階段狀態提供者在連接到 Redis 伺服器時，不會使用任何密碼。 **您的 Redis 伺服器是否可公開存取的網路，例如 Azure Redis 快取中，務必啟用 Redis 授權，以改善安全性，並提供安全的密碼。** |
 | *ssl* | boolean | **false** | 是否要透過 SSL 的 Redis 伺服器連接。 這個值是**false**預設因為 Redis 不支援現成的 SSL。 **如果您使用 Azure Redis 快取支援 SSL 內建的請務必將此設為 true，以改善安全性。**<br/><br/>預設會為新快取停用非 SSL 連接埠。 指定 **，則為 true**這項設定使用 SSL 連接埠。 如需啟用非 SSL 連接埠的相關詳細資訊，請參閱[設定快取](cache-configure.md)主題中的[存取連接埠](cache-configure.md#access-ports)一節。 |
 | *databaseIdNumber* | 正整數 | 0 | *這個屬性可以指定僅透過 web.config 或 AppSettings。*<br/><br/>指定要使用哪個 Redis 資料庫。 |
 | *connectionTimeoutInMilliseconds* | 正整數 | 由 StackExchange.Redis | 用來設定*ConnectTimeout*建立 StackExchange.Redis.ConnectionMultiplexer 時。 |
 | *operationTimeoutInMilliseconds* | 正整數 | 由 StackExchange.Redis | 用來設定*SyncTimeout*建立 StackExchange.Redis.ConnectionMultiplexer 時。 |
-| *connectionString* （有效的 StackExchange.Redis 連接字串） | string | *n/a* | 任一參數參考，以便 AppSettings 或 web.config 中，或是有效的 StackExchange.Redis 連接字串。 這個屬性可以提供的值*主機*，*連接埠*， *accessKey*， *ssl*，和其他 StackExchange.Redis 屬性。 得更仔細看看*connectionString*，請參閱[設定 connectionString](#setting-connectionstring)中[屬性備忘稿](#attribute-notes)一節。 |
-| *settingsClassName*<br/>*settingsMethodName* | string<br/>string | *n/a* | *這些屬性可以指定僅透過 web.config 或 AppSettings。*<br/><br/>您可以使用這些屬性來提供連接字串。 *settingsClassName*應該是組件限定的類別名稱，其中包含所指定的方法*settingsMethodName*。<br/><br/>所指定的方法*settingsMethodName*應該是公用、 靜態的且虛值 （未採用任何參數），以傳回型別**字串**。 這個方法會傳回實際的連接字串。 |
-| *loggingClassName*<br/>*loggingMethodName* | string<br/>string | *n/a* | *這些屬性可以指定僅透過 web.config 或 AppSettings。*<br/><br/>藉由提供來自 StackExchange.Redis 的工作階段狀態/輸出快取的記錄檔，以及記錄檔偵錯應用程式中使用這些屬性。 *loggingClassName*應該是組件限定的類別名稱，其中包含所指定的方法*loggingMethodName*。<br/><br/>所指定的方法*loggingMethodName*應該是公用、 靜態的且虛值 （未採用任何參數），以傳回型別**System.IO.TextWriter**。 |
-| *applicationName* | string | 目前的處理序的模組名稱或"/" | *只有 SessionStateProvider*<br/>*這個屬性可以指定僅透過 web.config 或 AppSettings。*<br/><br/>使用 Redis 快取中的應用程式名稱前置詞。 客戶可能會針對不同用途使用相同的 Redis 快取。 為了確保工作階段金鑰，不會衝突，它可以在前面加上應用程式名稱。 |
+| *connectionString* （有效的 StackExchange.Redis 連接字串） | 字串 | *n/a* | 任一參數參考，以便 AppSettings 或 web.config 中，或是有效的 StackExchange.Redis 連接字串。 這個屬性可以提供的值*主機*，*連接埠*， *accessKey*， *ssl*，和其他 StackExchange.Redis 屬性。 得更仔細看看*connectionString*，請參閱[設定 connectionString](#setting-connectionstring)中[屬性備忘稿](#attribute-notes)一節。 |
+| *settingsClassName*<br/>*settingsMethodName* | 字串<br/>字串 | *n/a* | *這些屬性可以指定僅透過 web.config 或 AppSettings。*<br/><br/>您可以使用這些屬性來提供連接字串。 *settingsClassName*應該是組件限定的類別名稱，其中包含所指定的方法*settingsMethodName*。<br/><br/>所指定的方法*settingsMethodName*應該是公用、 靜態的且虛值 （未採用任何參數），以傳回型別**字串**。 這個方法會傳回實際的連接字串。 |
+| *loggingClassName*<br/>*loggingMethodName* | 字串<br/>字串 | *n/a* | *這些屬性可以指定僅透過 web.config 或 AppSettings。*<br/><br/>藉由提供來自 StackExchange.Redis 的工作階段狀態/輸出快取的記錄檔，以及記錄檔偵錯應用程式中使用這些屬性。 *loggingClassName*應該是組件限定的類別名稱，其中包含所指定的方法*loggingMethodName*。<br/><br/>所指定的方法*loggingMethodName*應該是公用、 靜態的且虛值 （未採用任何參數），以傳回型別**System.IO.TextWriter**。 |
+| *applicationName* | 字串 | 目前的處理序的模組名稱或"/" | *只有 SessionStateProvider*<br/>*這個屬性可以指定僅透過 web.config 或 AppSettings。*<br/><br/>使用 Redis 快取中的應用程式名稱前置詞。 客戶可能會針對不同用途使用相同的 Redis 快取。 為了確保工作階段金鑰，不會衝突，它可以在前面加上應用程式名稱。 |
 | *throwOnError* | boolean | true | *只有 SessionStateProvider*<br/>*這個屬性可以指定僅透過 web.config 或 AppSettings。*<br/><br/>是否發生錯誤時擲回例外狀況。<br/><br/>如需詳細資訊*throwOnError*，請參閱[注意事項*throwOnError* ](#notes-on-throwonerror)中[屬性備忘稿](#attribute-notes)一節。 |>*Microsoft.Web.Redis.RedisSessionStateProvider.LastException*. |
 | *retryTimeoutInMilliseconds* | 正整數 | 5000 | *只有 SessionStateProvider*<br/>*這個屬性可以指定僅透過 web.config 或 AppSettings。*<br/><br/>重試作業失敗時的時間長度。 如果這個值是小於*operationTimeoutInMilliseconds*，提供者將不會重試。<br/><br/>如需詳細資訊*retryTimeoutInMilliseconds*，請參閱[注意事項*retryTimeoutInMilliseconds* ](#notes-on-retrytimeoutinmilliseconds)中[屬性備忘稿](#attribute-notes)一節。 |
-| *redisSerializerType* | string | *n/a* | 指定可實作 Microsoft.Web.Redis 類別的組件限定的類型名稱。 ISerializer，包含序列化和還原序列化值的自訂邏輯。 如需詳細資訊，請參閱 <<c0> [ 關於*redisSerializerType* ](#about-redisserializertype)中[屬性備忘稿](#attribute-notes)一節。 |
+| *redisSerializerType* | 字串 | *n/a* | 指定可實作 Microsoft.Web.Redis 類別的組件限定的類型名稱。 ISerializer，包含序列化和還原序列化值的自訂邏輯。 如需詳細資訊，請參閱 <<c0> [ 關於*redisSerializerType* ](#about-redisserializertype)中[屬性備忘稿](#attribute-notes)一節。 |
 |
 
 ## <a name="attribute-notes"></a>屬性附註

@@ -16,6 +16,10 @@
       href: manage-app-groups.md
     - name: 5. 建立主機集區以驗證服務更新
       href: create-validation-host-pool.md
+    - name: 6. 部署管理工具
+      href: manage-resources-using-ui.md
+    - name: 7. 設定服務警示
+      href: set-up-service-alerts.md
 - name: 作法
   items:
     - name: 連線至 Windows 虛擬桌面資源
@@ -40,6 +44,8 @@
       href: configure-vm-gpu.md
     - name: 自動調整工作階段主機
       href: set-up-scaling-script.md
+    - name: 自訂 RDP 屬性
+      href: customize-rdp-properties.md
 - name: 概念
   items:
     - name: Windows 虛擬桌面環境

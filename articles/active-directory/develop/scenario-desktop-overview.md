@@ -15,14 +15,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44d31011ca70bbebaf994b5fb80a45eee8dbde40
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 97b32fff931c1c0f5e19a269afec5094cae3d40e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076941"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111216"
 ---
-# <a name="scenario-desktop-app-that-calls-web-apis"></a>案例：傳統型應用程式呼叫 web Api
+# <a name="scenario-desktop-app-that-calls-web-apis"></a>案例：呼叫 Web API 的傳統型應用程式
 
 了解您只需要建置傳統型應用程式呼叫 web Api
 

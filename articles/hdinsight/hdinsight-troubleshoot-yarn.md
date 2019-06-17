@@ -6,12 +6,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4ca3dddb2b5ea4897ff82f1d91e88dc656305453
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8396f682558b71ca99af845bd51f7b2c8059f79b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721572"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072007"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>使用 Azure HDInsight 針對 Apache Hadoop YARN 問題進行疑難排解
 
@@ -31,16 +31,16 @@ ms.locfileid: "64721572"
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
 
-1. 選取 [Ambari 檢視] 圖示，然後選取格線模式。 接著，選取 [YARN 佇列管理員]。
+1. 選取 [Ambari 檢視]  圖示，然後選取格線模式。 接著，選取 [YARN 佇列管理員]  。
 
     ![選取 Ambari 檢視圖示](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
-2. 選取 [預設] 佇列。
+2. 選取 [預設]  佇列。
 
     ![選取預設佇列](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
-3. 對於 [預設] 佇列，將 [容量] 從 50% 變更為 25%。 對於 [thriftsvr] 佇列，將 [容量] 變更為 25%。
+3. 對於 [預設]  佇列，將 [容量]  從 50% 變更為 25%。 對於 [thriftsvr]  佇列，將 [容量]  變更為 25%。
 
     ![將預設和 thriftsvr 佇列的容量變更為 25%](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
-4. 若要建立新的佇列，請選取 [新增佇列]。
+4. 若要建立新的佇列，請選取 [新增佇列]  。
 
     ![選取 [新增佇列]](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
 
@@ -48,10 +48,10 @@ ms.locfileid: "64721572"
 
     ![將佇列命名為 Spark](media/hdinsight-troubleshoot-yarn/create-queue-5.png)  
 
-6. 將 [容量] 值保持在 50%，然後選取 [動作] 按鈕。
+6. 將 [容量]  值保持在 50%，然後選取 [動作]  按鈕。
 
     ![選取 [動作] 按鈕](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
-7. 選取 [Save and Refresh Queues] \(儲存並重新整理佇列)。
+7. 選取 [Save and Refresh Queues] \(儲存並重新整理佇列)  。
 
     ![選取 [Save and Refresh Queues] \(儲存並重新整理佇列)。](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
 
@@ -74,7 +74,7 @@ ms.locfileid: "64721572"
     ```apache
     yarn top
     ```
-    識別碼會列在 [APPLICATIONID] 資料行。 您可以從 [APPLICATIONID] 資料行下載記錄。
+    識別碼會列在 [APPLICATIONID]  資料行。 您可以從 [APPLICATIONID]  資料行下載記錄。
 
     ```apache
     YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
@@ -132,7 +132,7 @@ ms.locfileid: "64721572"
 ### <a name="additional-reading-2"></a>其他閱讀資料
 
 - [使用 SSH 連線到 HDInsight (Apache Hadoop)](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
-- [Apache Hadoop YARN 概念與應用程式](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
+- [Apache Hadoop YARN 概念與應用程式](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
 
 ### <a name="see-also"></a>另请参阅

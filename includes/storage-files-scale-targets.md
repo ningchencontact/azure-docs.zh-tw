@@ -1,22 +1,22 @@
 ---
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
-ms.author: tamram
-ms.openlocfilehash: 213ecee34df46c0a408e7034a07ab864c96b340b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.author: rogarana
+ms.openlocfilehash: df5d8ff941c742d546208c27c7af4e7bcbeec08a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66114486"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073778"
 ---
-| Resource | 標準檔案共用 | 進階檔案共用 (預覽) |
+| 資源 | 標準檔案共用 | 進階檔案共用 (預覽) |
 |----------|---------------|------------------------------------------|
 | 檔案共用大小上限 | 沒有最小值;預付 | 100 giB;佈建 |
 | 檔案共用的大小上限 | 5 TiB | 100 TiB |
 | 檔案共用中的檔案大小上限 | 1 TiB | 1 TiB |
-| 檔案共用中檔案的最大數目 | 無限制 | 無限制 |
+| 檔案共用中檔案的最大數目 | 沒有限制 | 沒有限制 |
 | 每個共用最大 IOPS | 1,000 IOPS | 100,000 IOPS |
 | 每個檔案的預存的存取原則的最大數目的共用 | 5 | 5 |
 | 單一檔案共用的目標輸送量 | 最高 60 MiB/秒 | 請參閱進階檔案共用的輸入和輸出值|

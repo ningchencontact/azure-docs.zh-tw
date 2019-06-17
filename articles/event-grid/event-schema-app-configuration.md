@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 05/30/2019
 ms.author: jimmyca
 ms.openlocfilehash: fe0274f723692eea3cfd25cc0e9e146b35dce2ae
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735777"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-app-configuration"></a>Azure 應用程式設定的 azure Event Grid 事件結構描述
 
-這篇文章提供 Azure 應用程式設定事件的屬性和結構描述。 如需事件結構描述的簡介，請參閱 [Azure Event Grid 事件結構描述](event-schema.md)。
+這篇文章提供 Azure 應用程式設定事件的屬性和結構描述。 如需事件結構描述的簡介，請參閱 [Azure 事件格線事件結構描述](event-schema.md)。
 
 如需範例指令碼和教學課程的清單，請參閱 < [Azure 應用程式設定事件來源](event-sources.md#app-configuration)。
 
@@ -76,7 +76,7 @@ Azure 應用程式組態會發出下列事件類型：
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | topic | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| subject | string | 發行者定義事件主體的路徑。 |
+| 主旨 | string | 發行者定義事件主體的路徑。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | id | string | 事件的唯一識別碼。 |
@@ -89,7 +89,7 @@ Azure 應用程式組態會發出下列事件類型：
 | 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | 索引鍵 | 字串 | 已修改或刪除機碼值的索引鍵。 |
-| 標籤 | string | 標籤，如果有的話，索引鍵-值的已修改或刪除。 |
+| label | 字串 | 標籤，如果有的話，索引鍵-值的已修改或刪除。 |
 | etag | 字串 | 針對`KeyValueModified`新的索引鍵 / 值的 etag。 針對`KeyValueDeleted`已刪除的金鑰值的 etag。 |
  
 ## <a name="next-steps"></a>後續步驟

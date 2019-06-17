@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: tomfitz
 ms.openlocfilehash: ea9499da3dac67635a48704f439f6592c6ed467e
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65515380"
 ---
 # <a name="single-and-multi-resource-export-to-template-in-azure-portal"></a>單一和多重資源匯出至 Azure 入口網站中的範本
@@ -114,7 +114,7 @@ Resource Manager 可讓您選擇匯出至範本的一或多個資源。 您可�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要了解 Azure 资源管理器，请参阅 [Azure 资源管理器概述](./resource-group-overview.md)。
-- 若要了解资源管理器模板语法，请参阅[了解 Azure 资源管理器模板的结构和语法](./resource-group-authoring-templates.md)。
-- 若要了解如何开发模板，请参阅[分步教程](/azure/azure-resource-manager/)。
-- 若要查看 Azure 资源管理器模板架构，请参阅[模板参考](/azure/templates/)。
+- 若要深入了解 Azure Resource Manager，請參閱[Azure Resource Manager 概觀](./resource-group-overview.md)。
+- 若要深入了解 Resource Manager 範本語法，請參閱[了解的結構和 Azure Resource Manager 範本的語法](./resource-group-authoring-templates.md)。
+- 若要了解如何開發的範本，請參閱[逐步教學課程](/azure/azure-resource-manager/)。
+- 若要檢視 Azure Resource Manager 範本結構描述，請參閱[範本參考](/azure/templates/)。

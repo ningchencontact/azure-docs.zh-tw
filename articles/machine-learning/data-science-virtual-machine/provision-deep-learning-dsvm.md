@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 318df03c7c4447d051dfa396098462c0f8bbf423
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65410444"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>在 Azure 上佈建深入學習虛擬機器 
@@ -33,7 +33,7 @@ DLVM 包含數個 AI 的工具，包括 GPU 版本的熱門深入學習架構，
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com/#create/microsoft-ads.dsvm-deep-learningtoolkit
 )上的虛擬機器清單。
-2. 選取底部的 [建立] 按鈕以進入精靈。![create-dlvm](./media/dlvm-provision-wizard.PNG)
+2. 選取底部的 [建立]  按鈕以進入精靈。![create-dlvm](./media/dlvm-provision-wizard.PNG)
 3. 針對此圖右邊列舉的**四個步驟**，用來建立 DLVM 的精靈會要求**輸入**每個步驟。 以下是設定每個步驟所需的輸入：
 
    <a name="basics"></a>   
@@ -43,18 +43,18 @@ DLVM 包含數個 AI 的工具，包括 GPU 版本的熱門深入學習架構，
       2. **選取深度學習 VM 的 OS 類型**：選擇 Windows 或 Linux (針對 Windows 2016 和 Ubuntu Linux 基底 DSVM)
       2. **使用者名稱**：系統管理員帳戶登入識別碼。
       3. **密碼**：系統管理員帳戶密碼。
-      4. 訂用帳戶：如果您有多個訂用帳戶，請選取要用來建立機器和開立帳單的訂用帳戶。
+      4. 訂用帳戶  ：如果您有多個訂用帳戶，請選取要用來建立機器和開立帳單的訂用帳戶。
       5. **資源群組**：您可以建立新的群組，也可以使用訂用帳戶中**空白**的現有 Azure 資源群組。
       6. **位置**：選取最適合的資料中心。 它通常是擁有您大部分的資料或者是最接近您的實際位置以取得最快速度的網路存取的資料中心。 
       
       > [!NOTE]
-      > DLVM 支援所有 NC 和 ND 系列 GPU VM 執行個體。 佈建 DLVM 時，您必須在 Azure 中選擇其中一個具有 GPU 的位置。 請參閱[依區域的 Azure 產品頁面](https://azure.microsoft.com/regions/services/)以取得可用位置，並在 [計算] 下方尋找 [NC 系列]、[NCv2 系列]、[NCv3 系列] 或 [ND 系列]。 
+      > DLVM 支援所有 NC 和 ND 系列 GPU VM 執行個體。 佈建 DLVM 時，您必須在 Azure 中選擇其中一個具有 GPU 的位置。 請參閱[依區域的 Azure 產品頁面](https://azure.microsoft.com/regions/services/)以取得可用位置，並在 [計算]  下方尋找 [NC 系列]  、[NCv2 系列]  、[NCv3 系列]  或 [ND 系列]  。 
 
    1. **設定**：選取符合您功能性需求和成本限制的其中一個 NC 系列 (NC、NCv2、NCv3) 或 ND 系列 GPU 虛擬機器大小。 為您的 VM 建立儲存體帳戶。  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
    1. **摘要**：請確認您輸入的所有資訊都正確無誤。
 
-   1. ：按一下 [購買] 以開始佈建。 會提供一個交易條款的連結。 VM 除了計算您在 [大小]  步驟中所選擇的伺服器大小之外，不會收取任何其他費用。 
+   1.  ：按一下 [購買]  以開始佈建。 會提供一個交易條款的連結。 VM 除了計算您在 [大小]  步驟中所選擇的伺服器大小之外，不會收取任何其他費用。 
 
 > [!NOTE]
 > 佈建大約 10-20 分鐘。 在 Azure 入口網站中會顯示佈建的狀態。
@@ -79,7 +79,7 @@ DLVM 包含數個 AI 的工具，包括 GPU 版本的熱門深入學習架構，
 Linux DLVM 已經佈建了 X2Go 伺服器，並準備接受用戶端連接。 若要連線到 Linux VM 圖形化桌面，請在用戶端上完成下列程序：
 
 1. 從 [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient)下載並安裝您用戶端平台適用的 X2Go 用戶端。    
-2. 執行 X2Go 用戶端，然後選取 [新增工作階段] 。 會開啟具有多個索引標籤的組態視窗。 輸入下列組態參數︰
+2. 執行 X2Go 用戶端，然後選取 [新增工作階段]  。 會開啟具有多個索引標籤的組態視窗。 輸入下列組態參數︰
    * **[工作階段] 索引標籤**：
      * **主機**：「Linux 資料科學 VM」的主機名稱或 IP 位址。
      * **登入**：Linux VM 上的使用者名稱。

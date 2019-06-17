@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61247238"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>自訂媒體編碼器標準預設  
@@ -113,7 +113,7 @@ ms.locfileid: "61247238"
     }  
 ```
 
-## <a id="encoding_with_dotnet"></a>使用媒体服务 .NET SDK 进行编码
+## <a id="encoding_with_dotnet"></a>使用媒體服務 .NET SDK 進行編碼
 
 下列程式碼範例使用媒體服務 .NET SDK 執行下列工作：
 
@@ -125,7 +125,7 @@ ms.locfileid: "61247238"
         string configuration = File.ReadAllText(fileName);  
 
 - 將編碼工作新增至作業。 
-- 指定要编码的输入资产。
+- 指定要編碼的輸入資產。
 - 建立包含已編碼資產的輸出資產。
 - 加入事件處理常式來檢查工作進度。
 - 提交作業。

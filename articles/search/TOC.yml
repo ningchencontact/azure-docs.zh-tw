@@ -167,7 +167,7 @@
           href: search-howto-indexing-azure-tables.md
         - name: Azure SQL DB 索引器
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-        - name: Azure Cosmos DB 索引器
+        - name: Azure Cosmos DB 索引子
           href: search-howto-index-cosmosdb.md
         - name: Azure Blob 儲存體索引器
           items:
@@ -233,7 +233,7 @@
           href: search-query-lucene-examples.md
         - name: moreLikeThis (預覽)
           href: search-more-like-this.md
-    - name: 篩選與排序資料
+    - name: 使用篩選條件
       items:
         - name: 篩選條件概觀
           href: search-filters.md
@@ -241,8 +241,10 @@
           href: search-filters-facets.md
         - name: 新增多面向導覽
           href: search-faceted-navigation.md
-        - name: 篩選條件與 OrderBy 運算式語法及範例
-          href: query-odata-filter-orderby-syntax.md
+        - name: 疑難排解集合篩選條件
+          href: search-query-troubleshoot-collection-filters.md
+        - name: 了解集合篩選條件
+          href: search-query-understand-collection-filters.md
     - name: 處理結果
       items:
         - name: 網頁相關功能
@@ -283,6 +285,32 @@
       href: search-api-preview.md
     - name: Resource Manager 範本
       href: /azure/templates/microsoft.search/searchservices
+    - name: OData 語言參考
+      items:
+        - name: 概觀
+          href: query-odata-filter-orderby-syntax.md
+        - name: $filter
+          href: search-query-odata-filter.md
+        - name: $orderby
+          href: search-query-odata-orderby.md
+        - name: $select
+          href: search-query-odata-select.md
+        - name: 'any, all'
+          href: search-query-odata-collection-operators.md
+        - name: 'eq, ne, gt, lt, ge, le'
+          href: search-query-odata-comparison-operators.md
+        - name: 'search.ismatch, search.ismatchscoring'
+          href: search-query-odata-full-text-search-functions.md
+        - name: 'geo.distance, geo.intersects'
+          href: search-query-odata-geo-spatial-functions.md
+        - name: 'and, or, not'
+          href: search-query-odata-logical-operators.md
+        - name: search.in
+          href: search-query-odata-search-in-function.md
+        - name: search.score
+          href: search-query-odata-search-score-function.md
+        - name: OData 語言文法
+          href: search-query-odata-syntax-reference.md
     - name: 認知技能參考
       href: cognitive-search-predefined-skills.md
       items:

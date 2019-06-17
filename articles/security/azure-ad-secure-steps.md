@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f63ceb6a80f253ea1661d215939705f8e39f3e58
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236756"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67119290"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>可保護身分識別基礎結構的五個步驟
 
@@ -95,15 +95,15 @@ Microsoft 建議採用下列根據 [NIST 指導方針](https://pages.nist.gov/80
 
 ### <a name="block-legacy-authentication"></a>封鎖舊式驗證
 
-使用自有舊式方法來向 Azure AD 進行驗證和存取公司資料的應用程式，會對組織造成其他風險。 使用舊式驗證的應用程式範例包括 POP3、IMAP4 或 SMTP 用戶端。 舊式驗證應用程式會代表使用者進行驗證，而讓 Azure AD 無法進行進階的安全性評估。 作為替代的新式驗證可支援多重要素驗證和條件式存取，所以會減少安全性風險。 建議您進行下列三個動作：
+使用自有舊式方法來向 Azure AD 進行驗證和存取公司資料的應用程式，會對組織造成其他風險。 使用舊式驗證的應用程式範例包括 POP3、IMAP4 或 SMTP 用戶端。 舊式驗證應用程式會代表使用者進行驗證，而讓 Azure AD 無法進行進階的安全性評估。 替代的新式驗證，會減少您的安全性風險，因為它支援多重要素驗證和條件式存取。 建議您進行下列三個動作：
 
 1. 封鎖[舊式驗證 (如果您使用 AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)。
 2. 將 [SharePoint Online 和 Exchange Online 設定為使用新式驗證](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication)。
-3. 使用[條件式存取原則來封鎖舊式驗證](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions)。
+3. 使用[條件式存取原則來封鎖舊版驗證](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions)。
 
 ### <a name="block-invalid-authentication-entry-points"></a>封鎖無效的驗證進入點
 
-使用假想入侵心態，應該就能在使用者認證遭到入侵時降低其影響。 對於環境中的每個應用程式，請考慮有效的使用案例：哪些群組、哪些網路、哪些裝置和其他元素有獲得授權，然後將其餘項目封鎖。 透過 [Azure AD 條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)，即可根據所定義的特定條件，控制獲得授權的使用者要如何存取其應用程式和資源。
+使用假想入侵心態，應該就能在使用者認證遭到入侵時降低其影響。 對於環境中的每個應用程式，請考慮有效的使用案例：哪些群組、哪些網路、哪些裝置和其他元素有獲得授權，然後將其餘項目封鎖。 具有[Azure AD 條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)，您可以控制授權的使用者如何存取其應用程式和資源根據特定條件定義。
 
 ### <a name="block-end-user-consent"></a>封鎖使用者同意
 
@@ -130,13 +130,13 @@ Azure Active Directory 有許多會自動攔截攻擊的功能，可讓偵測與
 
 ### <a name="implement-user-risk-security-policy-using-azure-ad-identity-protection"></a>使用 Azure AD Identity Protection 來實作使用者風險安全性原則
 
-使用者風險可指出使用者的身分識別已遭到入侵的可能性，並會根據與使用者身分識別相關聯的[使用者風險事件](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)來算出。 使用者風險原則是條件式存取原則，可評估特定使用者或群組的風險層級。 根據低、中、高風險層級，原則可以設定為封鎖存取，也可以設定為必須使用多重要素驗證來進行安全密碼變更。 Microsoft 會建議您要求高風險使用者必須進行安全密碼變更。
+使用者風險可指出使用者的身分識別已遭到入侵的可能性，並會根據與使用者身分識別相關聯的[使用者風險事件](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)來算出。 使用者風險原則是條件式存取原則評估的特定使用者或群組的風險層級。 根據低、中、高風險層級，原則可以設定為封鎖存取，也可以設定為必須使用多重要素驗證來進行安全密碼變更。 Microsoft 會建議您要求高風險使用者必須進行安全密碼變更。
 
 ![標示有風險的使用者](media/azure-ad/azure-ad-sec-steps1.png)
 
 ### <a name="implement-sign-in-risk-policy-using-azure-ad-identity-protection"></a>使用 Azure AD Identity Protection 來實作登入風險原則
 
-登入風險是指帳戶擁有者以外人士嘗試使用身分識別來登入的可能性。 [登入風險原則](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)是條件式存取原則，可評估特定使用者或群組的風險層級。 根據風險層級 (高/中/低)，原則可以設定為封鎖存取，也可以設定為強制使用多重要素驗證。 請確定您有對中等以上風險的登入，強制使用多重要素驗證。
+登入風險是指帳戶擁有者以外人士嘗試使用身分識別來登入的可能性。 A[登入風險原則](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)是條件式存取原則，評估特定使用者或群組的風險層級。 根據風險層級 (高/中/低)，原則可以設定為封鎖存取，也可以設定為強制使用多重要素驗證。 請確定您有對中等以上風險的登入，強制使用多重要素驗證。
 
 ![從匿名 IP 登入](media/azure-ad/azure-ad-sec-steps2.png)
 
