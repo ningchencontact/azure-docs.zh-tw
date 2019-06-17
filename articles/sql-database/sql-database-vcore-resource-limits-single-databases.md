@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: 15aedaa7eedad4940945e9b1e7eff0e1780da796
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ca29bfdb381c5cab0625a320679331c82f63c887
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790391"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118076"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>使用以 vCore 為基礎的購買模型的單一資料庫資源限制
 
@@ -146,7 +146,7 @@ ms.locfileid: "65790391"
 |TempDB 大小 (GB)|32|64|128|
 |儲存體類型|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|
 |IO 延遲 (大約)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|5-7 毫秒 (寫入)<br>5-10 毫秒 (讀取)|
-|目標 IOPS (64 KB)|250|500|1000|
+|目標 IOPS (64 KB)|500|1000|2000|
 |日志速率限制 (MBps)|2.5|5.6|10|
 |並行背景工作 (要求) 數上限|75|150|300|
 |允許的工作階段數上限|30000|30000|30000|
