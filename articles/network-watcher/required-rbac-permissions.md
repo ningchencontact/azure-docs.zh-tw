@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: kumud
 ms.openlocfilehash: 8c8fe6125d9c638fedadc3d299ff0ac0d601fd61
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64685702"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>使用網路監看員功能時所需的角色型存取控制權限
@@ -27,7 +27,7 @@ Azure 角色型存取控制 (RBAC) 可將指派給組織成員的動作，限縮
 
 ## <a name="network-watcher"></a>網路監看員
 
-|  動作                                                              | 名稱                                                           |
+| 動作                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/read                              | 取得網路監看員                                          |
 | Microsoft.Network/networkWatchers/write                             | 建立或更新網路監看員                             |
@@ -35,14 +35,14 @@ Azure 角色型存取控制 (RBAC) 可將指派給組織成員的動作，限縮
 
 ## <a name="nsg-flow-logs"></a>NSG 流量記錄
 
-|  動作                                                              | 名稱                                                           |
+| 動作                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/configureFlowLog/action           | 設定流量記錄                                           |
 | Microsoft.Network/networkWatchers/queryFlowLogStatus/action         | 流量記錄的查詢狀態                                    |
 
 ## <a name="connection-troubleshoot"></a>針對連線問題進行疑難排解
 
-|  動作                                                              | 名稱                                                           |
+| 動作                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/connectivityCheck/action          | 起始連線疑難排解測試
 | Microsoft.Network/networkWatchers/queryTroubleshootResult/action    | 連線疑難排解測試的查詢結果                |
@@ -50,7 +50,7 @@ Azure 角色型存取控制 (RBAC) 可將指派給組織成員的動作，限縮
 
 ## <a name="connection-monitor"></a>連線監視
 
-|  動作                                                              | 名稱                                                           |
+| 動作                                                              | 名稱                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/connectionMonitors/start/action   | 啟動連線監視                                     |
 | Microsoft.Network/networkWatchers/connectionMonitors/stop/action    | 停止連線監視                                      |
@@ -61,7 +61,7 @@ Azure 角色型存取控制 (RBAC) 可將指派給組織成員的動作，限縮
 
 ## <a name="packet-capture"></a>封包擷取
 
-|  動作                                                              | 名稱                                                           |
+| 動作                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | 查詢封包擷取的狀態                           |
 | Microsoft.Network/networkWatchers/packetCaptures/stop/action        | 停止封包擷取                                          |
@@ -71,31 +71,31 @@ Azure 角色型存取控制 (RBAC) 可將指派給組織成員的動作，限縮
 
 ## <a name="ip-flow-verify"></a>IP 流量驗證
 
-|  動作                                                              | 名稱                                                           |
+| 動作                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/ipFlowVerify/action               | 驗證 IP 流量                                              |
 
 ## <a name="next-hop"></a>下一個躍點
 
-|  動作                                                              | 名稱                                                           |
+| 動作                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/nextHop/action                    | 從 VM 取得下一個躍點                                     |
 
 ## <a name="network-security-group-view"></a>網路安全性群組檢視
 
-|  動作                                                              | 名稱                                                           |
+| 動作                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/securityGroupView/action          | 檢視安全性群組                                           |
 
 ## <a name="topology"></a>拓撲
 
-|  動作                                                              | 名稱                                                           |
+| 動作                                                              | 名稱                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/topology/action                   | 取得拓撲                                                   |
 
 ## <a name="reachability-report"></a>連線性報告
 
-|  動作                                                              | 名稱                                                           |
+| 動作                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/azureReachabilityReport/action    | 取得 Azure 連線性報告                               |
 

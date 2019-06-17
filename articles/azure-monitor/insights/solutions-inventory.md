@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
 ms.openlocfilehash: 9398815ea75c0eacd99a6e40c569254fac671cbb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66234023"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>監視 Azure 中的解決方案的清查和資料收集詳細資料
@@ -45,37 +45,37 @@ ms.locfileid: "66234023"
 | **監視解決方案** | **平台** | **Microsoft Monitoring Agent** | **Operations Manager 代理程式** | **Azure 儲存體** | **是否需要 Operations Manager？** | **透過管理群組傳送的 Operations Manager 代理程式資料** | **收集頻率** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [活動記錄分析](../platform/activity-log-collect.md) | Azure | | | | | | 與通知同時 |
-| [AD 評估](ad-assessment.md) | Windows |&#8226; |&#8226; | | |&#8226; |7 天 |
-| [AD 複寫狀態](ad-replication-status.md) | Windows |&#8226; |&#8226; | | |&#8226; |5 天 |
+| [AD 評估](ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 天 |
+| [AD 複寫狀態](ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 天 |
 | [代理程式健全狀況](solution-agenthealth.md) | Windows 和 Linux | &#8226; | &#8226; | | | &#8226; | 1 分鐘 |
-| [警示管理](../platform/alert-management-solution.md) (Nagios) | Linux |&#8226; | | | | |與抵達同時 |
-| [警示管理](../platform/alert-management-solution.md) (Zabbix) | Linux |&#8226; | | | | |1 分鐘 |
-| [警示管理](../platform/alert-management-solution.md) (Operations Manager) | Windows | |&#8226; | |&#8226; |&#8226; |3 分鐘 |
+| [警示管理](../platform/alert-management-solution.md) (Nagios) |Linux |&#8226; | | | | |與抵達同時 |
+| [警示管理](../platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 分鐘 |
+| [警示管理](../platform/alert-management-solution.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 分鐘 |
 | [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | n/a |
 | [Application Insights Connector (已淘汰)](../platform/app-insights-connector.md) | Azure | | | |  |  | 與通知同時 |
-| [自動化混合式背景工作角色](../../automation/automation-hybrid-runbook-worker.md) |  Windows | &#8226; | &#8226; |  |  |  | n/a |
+| [自動化混合式背景工作角色](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | n/a |
 | [Azure 應用程式閘道分析](azure-networking-analytics.md) | Azure |  |  |  |  |  | 與通知同時 |
 | **監視解決方案** | **平台** | **Microsoft Monitoring Agent** | **Operations Manager 代理程式** | **Azure 儲存體** | **是否需要 Operations Manager？** | **透過管理群組傳送的 Operations Manager 代理程式資料** | **收集頻率** |
 | [Azure 網路安全性群組分析 (已淘汰)](azure-networking-analytics.md) | Azure |  |  |  |  |  | 與通知同時 |
-| [Azure SQL Analytics (預覽)](azure-sql.md) |  Windows | | | | | | 1 分鐘 |
+| [Azure SQL Analytics (預覽)](azure-sql.md) | Windows | | | | | | 1 分鐘 |
 | [備份](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | 與通知同時 |
-| [容量與效能 (預覽)](capacity-performance.md) | Windows |&#8226; |&#8226; | | |&#8226; |與抵達同時 |
-| [變更追蹤](../../automation/change-tracking.md) | Windows |&#8226; |&#8226; | | |&#8226; |[varies](../../automation/change-tracking.md#change-tracking-data-collection-details) |
-| [變更追蹤](../../automation/change-tracking.md) | Linux |&#8226; | | | | |[varies](../../automation/change-tracking.md#change-tracking-data-collection-details) |
+| [容量與效能 (預覽)](capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |與抵達同時 |
+| [變更追蹤](../../automation/change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[varies](../../automation/change-tracking.md#change-tracking-data-collection-details) |
+| [變更追蹤](../../automation/change-tracking.md) |Linux |&#8226; | | | | |[varies](../../automation/change-tracking.md#change-tracking-data-collection-details) |
 | [容器](containers.md) | Windows 和 Linux | &#8226; | &#8226; |  |  |  | 3 分鐘 |
-| [金鑰保存庫分析](azure-key-vault.md) | Windows | | | | | |與通知同時 |
-| [惡意程式碼評估](../../security-center/security-center-install-endpoint-protection.md) | Windows |&#8226; |&#8226; | | |&#8226; |每小時 |
-| [網路效能監視器](network-performance-monitor.md) |  Windows | &#8226; | &#8226; |  |  |  | TCP 會每 5 秒交握一次，而資料會每 3 分鐘傳送一次 |
-| [Office 365 分析 (預覽)](solution-office-365.md) | Windows | | | | | |與通知同時 |
+| [金鑰保存庫分析](azure-key-vault.md) |Windows | | | | | |與通知同時 |
+| [惡意程式碼評估](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |每小時 |
+| [網路效能監視器](network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP 會每 5 秒交握一次，而資料會每 3 分鐘傳送一次 |
+| [Office 365 分析 (預覽)](solution-office-365.md) |Windows | | | | | |與通知同時 |
 | **監視解決方案** | **平台** | **Microsoft Monitoring Agent** | **Operations Manager 代理程式** | **Azure 儲存體** | **是否需要 Operations Manager？** | **透過管理群組傳送的 Operations Manager 代理程式資料** | **收集頻率** |
-| [Service Fabric 分析](../../service-fabric/service-fabric-diagnostics-oms-setup.md) | Windows | | |&#8226; | | |5 分鐘 |
+| [Service Fabric 分析](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 分鐘 |
 | [服務對應](service-map.md) | Windows 和 Linux | &#8226; | &#8226; |  |  |  | 15 秒 |
-| [SQL 評估](sql-assessment.md) | Windows |&#8226; |&#8226; | | |&#8226; |7 天 |
-| [SurfaceHub](surface-hubs.md) | Windows |&#8226; | | | | |與抵達同時 |
-| [System Center Operations Manager 評定 (預覽)](scom-assessment.md) |  Windows | &#8226; | &#8226; |  |  | &#8226; | 7 天 |
-| [更新管理](../../automation/automation-update-management.md) |  Windows |&#8226; |&#8226; | | |&#8226; |安裝更新之後 15 分鐘，至少一天 2 次 |
-| [升級整備程度](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) |  Windows | &#8226; |  |  |  |  | 2 天 |
-| [VMware 監控 (已淘汰)](vmware.md) |  Linux | &#8226; |  |  |  |  | 3 分鐘 |
+| [SQL 評估](sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 天 |
+| [SurfaceHub](surface-hubs.md) |Windows |&#8226; | | | | |與抵達同時 |
+| [System Center Operations Manager 評定 (預覽)](scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | 7 天 |
+| [更新管理](../../automation/automation-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |安裝更新之後 15 分鐘，至少一天 2 次 |
+| [升級整備程度](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) | Windows | &#8226; |  |  |  |  | 2 天 |
+| [VMware 監控 (已淘汰)](vmware.md) | Linux | &#8226; |  |  |  |  | 3 分鐘 |
 | [Wire Data 2.0 (預覽)](wire-data.md) |Windows (2012 R2/8.1 或更新版本) |&#8226; |&#8226; | | | | 1 分鐘 |
 
 

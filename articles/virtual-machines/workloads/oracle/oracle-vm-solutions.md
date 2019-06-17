@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: b62b35320ba1f4473e9b3a039d181d6a2fb58257
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 9dd7f7d07b34ed3c1076b46c0bf5185d6c8cd31a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743616"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074221"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Oracle VM 映像並將其部署在 Microsoft Azure
 
@@ -68,6 +68,18 @@ Oracle 支援在以 Oracle Linux 為基礎的虛擬機器映像上，在 Azure �
 ### <a name="attached-disk-configuration-options"></a>連接的磁碟組態選項
 
 連接的磁碟依賴 Azure Blob 儲存體服務。 理論上每個標準磁碟最多都能達約每秒 500 輸入/輸出作業 (IOPS)。 我們的進階磁碟供應項目十分適用於高效能資料庫工作附載，且可達到每部磁碟最多 5000 IOPS。 如果符合您效能需求，您可以使用單一磁碟。 不過，您可以改善有效的 IOPS 效能，如果您使用多個連接的磁碟、 資料庫資料分散，然後使用 Oracle Automatic Storage Management (ASM)。 如需有關 Oracle ASM 的特定詳細資訊，請參閱 [Oracle Automatic Storage 概觀](https://www.oracle.com/technetwork/database/index-100339.html) (英文)。 如需如何安裝和設定 Linux Azure VM 上的 Oracle ASM 的範例，請參閱 <<c0> [ 安裝和設定 Oracle Automatic Storage Management](configure-oracle-asm.md)教學課程。
+
+### <a name="shared-storage-configuration-options"></a>共用存放裝置組態選項
+
+Azure 的 NetApp 檔案被設計成符合在雲端中，執行高效能工作負載，例如資料庫中的核心需求，並提供;
+- Azure 的原生共用執行 Oracle 工作負載可能是透過原生 NFS 用戶端 VM 或 Oracle dNFS NFS 儲存體服務
+- 反映出真實世界範圍的 IOPS 需求的可調整的效能層級
+- 低延遲
+- 高可用性、 高持久性和規模，通常需要任務關鍵性企業工作負載 （例如 SAP 和 Oracle） 的管理能力
+- 快速且有效率的備份和復原，來達成的最積極的 RTO 和 RPO 的 SLA
+
+這些功能可能會因為 Azure NetApp 檔案以 Azure 資料中心環境中 – 做為 Azure 原生服務內執行的 NetApp® ONTAP® 全快閃系統為基礎。 結果是一種理想的資料庫儲存體技術，可以佈建及耗用就像其他 Azure 儲存體選項。 請參閱[Azure NetApp 檔案文件](https://docs.microsoft.com/azure/azure-netapp-files/)如需有關如何部署和存取 Azure NetApp 檔案 NFS 磁碟區。 請參閱[在 Azure 部署最佳作法指南使用 Azure NetApp 檔案上的 Oracle](https://www.netapp.com/us/media/tr-4780.pdf)的最佳作法建議操作 Azure NetApp 檔案上的 Oracle 資料庫。
+
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
 Oracle RAC 是用來在內部部署的多節點叢集組態中，減少發生單一節點錯誤的機率。 它依賴以下兩個內部部署技術，而這兩個技術並非大規模公用雲端環境的原生技術︰網路多點傳送和共用磁碟。 如果您的資料庫解決方案需要 Oracle RAC，在 Azure 中，您需要第三方 = 廠商軟體，才能啟用這些技術。 如需有關 Oracle RAC 的詳細資訊，請參閱 < [FlashGrid SkyCluster 頁面](https://www.flashgrid.io/oracle-rac-in-azure/)。

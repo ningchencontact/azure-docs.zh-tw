@@ -9,10 +9,10 @@ ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/09/2019
 ms.openlocfilehash: 5b5b83fe0028e43ca35bf883b29cb71bad6ca2c8
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66253761"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>建立並在 Azure HDInsight 中設定企業安全性套件的叢集
@@ -302,14 +302,14 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
     1. 底下**設定**按一下 **輸入安全性規則** > **新增**。
     1. 在 **新增輸入的安全性規則**畫面上，輸入下列內容並按**新增**:
 
-        | 屬性 | Value |
+        | 屬性 | 值 |
         |---|---|
-        | `Source` | 任意 |
+        | source | 任意 |
         | 來源連接埠範圍 | * |
         | 目的地 | 任意 |
         | 目的地連接埠範圍 | 636 |
         | Protocol | 任意 |
-        |  動作 | 允許 |
+        | 動作 | 允許 |
         | 優先順序 | <Desired Number> |
         | 名稱 | Port_LDAP_636 |
 

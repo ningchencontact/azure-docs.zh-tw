@@ -9,10 +9,10 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147916"
 ---
 *準備快取*  
@@ -40,7 +40,7 @@ ms.locfileid: "66147916"
 
 #### <a name="maximum-iops-test-specifications"></a>最大 IOPS 測試規格
 
- 為了示範最大 IOPS，請使用較小的要求大小。 使用 8K 要求大小，並建立隨機寫入和讀取的規格。
+為了示範最大 IOPS，請使用較小的要求大小。 使用 8K 要求大小，並建立隨機寫入和讀取的規格。
 
 | 存取規格 | 要求大小 | 隨機 % | 讀取 % |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ ms.locfileid: "66147916"
 
 #### <a name="maximum-throughput-test-specifications"></a>最大輸送量測試規格
 
- 為了示範最大輸送量，請使用較大的要求大小。 使用 64 K 要求大小，並建立隨機寫入和讀取的規格。
+為了示範最大輸送量，請使用較大的要求大小。 使用 64 K 要求大小，並建立隨機寫入和讀取的規格。
 
 | 存取規格 | 要求大小 | 隨機 % | 讀取 % |
 | --- | --- | --- | --- |
@@ -58,17 +58,17 @@ ms.locfileid: "66147916"
 
 #### <a name="run-the-iometer-test"></a>執行 Iometer 測試
 
- 執行下列步驟將準備快取
+執行下列步驟將準備快取
 
 1. 使用如下所示的值建立兩個存取規格
 
-   | 名稱 | 要求大小 | 隨機 % | 讀取 % |
+   | Name | 要求大小 | 隨機 % | 讀取 % |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 MB |100 |0 |
    | RandomReads\_1MB |1 MB |100 |100 |
 1. 執行 Iometer 測試，使用下列參數初始化快取磁碟。 對目標磁碟區使用三個背景工作執行緒，佇列深度為 128。 在 [測試安裝程式] 索引標籤上，將測試的 [執行階段] 期間設為 2 小時。
 
-   | 案例 | 目標磁碟區 | 名稱 | 持續時間 |
+   | 案例 | 目標磁碟區 | Name | Duration |
    | --- | --- | --- | --- |
    | 初始化快取磁碟 |CacheReads |RandomWrites\_1MB |2 小時 |
 1. 執行 Iometer 測試，使用下列參數來準備快取。 對目標磁碟區使用三個背景工作執行緒，佇列深度為 128。 在 [測試安裝程式] 索引標籤上，將測試的 [執行階段] 期間設為 2 小時。
@@ -79,9 +79,9 @@ ms.locfileid: "66147916"
 
 準備快取磁碟之後，繼續執行下列的測試案例。 若要執行 Iometer 測試，請對 **每個** 目標磁碟區使用至少三個背景工作角色執行緒。 針對每個背景工作執行緒，請選取目標磁碟區，設定佇列深度，然後選取其中一個已儲存的測試規格，如下表所示，以執行對應的測試案例。 表格也顯示執行這些測試時，預期的 IOPS 和輸送量結果。 在所有案例中，都使用較小的 IO 大小 8 KB 和較高的佇列深度 128。
 
-| 測試案例 | 目標磁碟區 | 名稱 | 結果 |
+| 測試案例 | 目標磁碟區 | Name | 結果 |
 | --- | --- | --- | --- |
-| 最大 讀取 IOPS |CacheReads |RandomWrites\_8K |50,000 IOPS  |
+| 最大 讀取 IOPS |CacheReads |RandomWrites\_8K |50,000 IOPS |
 | 最大 寫入 IOPS |NoCacheWrites |RandomReads\_8K |64,000 IOPS |
 | 最大 結合的 IOPS |CacheReads |RandomWrites\_8K |100,000 IOPS |
 | NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
@@ -116,7 +116,7 @@ apt-get install fio
 
 #### <a name="maximum-write-iops"></a>最大寫入 IOPS
 
- 使用下列規格建立作業檔案，以產生最大寫入 IOPS。 將它命名為 "fiowrite.ini"。
+使用下列規格建立作業檔案，以產生最大寫入 IOPS。 將它命名為 "fiowrite.ini"。
 
 ```ini
 [global]
@@ -157,7 +157,7 @@ sudo fio --runtime 30 fiowrite.ini
 
 #### <a name="maximum-read-iops"></a>最大讀取 IOPS
 
- 使用下列規格建立作業檔案，以產生最大讀取 IOPS。 將它命名為 "fioread.ini"。
+使用下列規格建立作業檔案，以產生最大讀取 IOPS。 將它命名為 "fioread.ini"。
 
 ```ini
 [global]
@@ -198,7 +198,7 @@ sudo fio --runtime 30 fioread.ini
 
 #### <a name="maximum-read-and-write-iops"></a>最大讀取和寫入 IOPS
 
- 使用下列規格建立作業檔案，以產生最大讀取和寫入 IOPS。 將它命名為 "fioreadwrite.ini"。
+使用下列規格建立作業檔案，以產生最大讀取和寫入 IOPS。 將它命名為 "fioreadwrite.ini"。
 
 ```ini
 [global]
@@ -256,4 +256,4 @@ sudo fio --runtime 30 fioreadwrite.ini
 
 #### <a name="maximum-combined-throughput"></a>結合的最大輸送量
 
- 若要獲得最大的結合讀取和寫入輸送量，請使用較大的區塊大小和較大佇列深度，並搭配執行讀取和寫入的多個執行緒。 您可以使用 64 KB 的區塊大小和 128 的佇列深度。
+若要獲得最大的結合讀取和寫入輸送量，請使用較大的區塊大小和較大佇列深度，並搭配執行讀取和寫入的多個執行緒。 您可以使用 64 KB 的區塊大小和 128 的佇列深度。

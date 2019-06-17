@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pabutler
 ms.openlocfilehash: 3d38efadfb8ad13d072056ef851be99d9540ad4b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938421"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>設定 Azure 裝載的虛擬機器
@@ -59,7 +59,7 @@ ms.locfileid: "64938421"
 
 Azure Marketplace 中的所有映像通常都必須能夠重複使用。 若要達到重複使用的目標，必須將作業系統 VHD *一般化*，此作業會移除虛擬機器中所有的執行個體特定識別碼和軟體驅動程式。
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Windoes 作業系統磁碟是使用 [sysprep 工具](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)來進行一般化。 如果後續要更新或重新設定作業系統，則必須重新執行 sysprep。 
 
@@ -68,7 +68,7 @@ Windoes 作業系統磁碟是使用 [sysprep 工具](https://docs.microsoft.com/
 
 如需執行 sysprep 的詳細資訊，請參閱[將一般化 VHD 的步驟](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
 
-### <a name="linux"></a> Linux
+### <a name="linux"></a>Linux
 
 下列程序有兩個步驟，會將 Linux 虛擬機器一般化，並重新部署為個別的虛擬機器。  如需詳細資訊，請參閱[如何建立虛擬機器或 VHD 的映像](../../../virtual-machines/linux/capture-image.md)。 
 

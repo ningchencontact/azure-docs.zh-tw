@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
 ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800276"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>適用於 Linux 和 Windows 的 Chef VM Extension
@@ -68,7 +68,7 @@ Chef VM Extension 需要目標虛擬機器連線至網際網路，才能夠從�
 
 ### <a name="core-property-values"></a>核心屬性值
 
-| 名稱 | 值 / 範例 | 資料類型
+| Name | 值 / 範例 | 資料類型
 | ---- | ---- | ---- 
 | apiVersion | `2017-12-01` | 字串 (日期) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
@@ -77,17 +77,17 @@ Chef VM Extension 需要目標虛擬機器連線至網際網路，才能夠從�
 
 ### <a name="settings"></a>設定
 
-| 名稱 | 值 / 範例 | 数据类型 | 必要？
+| 名稱 | 值 / 範例 | 数据类型 | 必要項？
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | 字串 (url) | Y |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
-| settings/runlist | `recipe[mycookbook::default]` | string | Y |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | 字串 | Y |
+| settings/runlist | `recipe[mycookbook::default]` | 字串 | Y |
 
 ### <a name="protected-settings"></a>受保護的設定
 
-| 名稱 | 範例 | 数据类型 | 必要？
+| Name | 範例 | 数据类型 | 必要項？
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | Y |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | 字串 | Y |
 
 <!--
 ### Linux-specific settings
@@ -133,13 +133,13 @@ az vm extension list --resource-group myResourceGroup --vm-name myExistingVM -o 
 
 擴充功能執行輸出會記錄至下列檔案︰
 
-### <a name="linux"></a> Linux
+### <a name="linux"></a>Linux
 
 ```bash
 /var/lib/waagent/Chef.Bootstrap.WindowsAzure.LinuxChefClient
 ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```powershell
 C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\

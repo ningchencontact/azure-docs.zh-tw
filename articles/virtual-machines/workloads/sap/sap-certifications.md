@@ -18,10 +18,10 @@ ms.date: 05/15/2019
 ms.author: rclaus
 ms.custom: ''
 ms.openlocfilehash: a38d5b44aaca0aa28e7ecd32543d2b0563964b3d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65797449"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>於 Microsoft Azure 上執行的 SAP 認證和設定
@@ -55,15 +55,15 @@ Microsoft Azure 已獲認證可用於下列 SAP 產品，因此具備 Microsoft 
 | --- | --- | --- | --- |
 | SAP Business Suite 軟體 | Windows、SUSE Linux Enterprise、Red Hat Enterprise Linux、Oracle Linux |SQL Server；Oracle (僅限 Windows 及 Oracle Linux)、DB2、SAP ASE |A5 至 A11，D11 到 D14，DS14 的 DS11，DS15_v2 的 DS11_v2、 GS1 至 GS5、 D64s_v3 的 D2s_v3、 E2s_v3 E64s_v3、 M64s、 M64ms、 M128s、 M128ms、 M64ls、 M32ls、 M32ts、 M208s_v2、 M208ms_v2 |
 | SAP Business All-in-One | Windows、SUSE Linux Enterprise、Red Hat Enterprise Linux、Oracle Linux |SQL Server；Oracle (僅限 Windows 及 Oracle Linux)、DB2、SAP ASE |A5 至 A11，D11 到 D14，DS14 的 DS11，DS15_v2 的 DS11_v2、 GS1 至 GS5、 D64s_v3 的 D2s_v3、 E2s_v3 E64s_v3、 M64s、 M64ms、 M128s、 M128ms、 M64ls、 M32ls、 M32ts、 M208s_v2、 M208ms_v2 |
-| SAP BusinessObjects BI |  Windows |N/A |A5 至 A11，D11 到 D14，DS14 的 DS11，DS15_v2 的 DS11_v2、 GS1 至 GS5、 D64s_v3 的 D2s_v3、 E2s_v3 E64s_v3、 M64s、 M64ms、 M128s、 M128ms、 M64ls、 M32ls、 M32ts、 M208s_v2、 M208ms_v2 |
+| SAP BusinessObjects BI | Windows |N/A |A5 至 A11，D11 到 D14，DS14 的 DS11，DS15_v2 的 DS11_v2、 GS1 至 GS5、 D64s_v3 的 D2s_v3、 E2s_v3 E64s_v3、 M64s、 M64ms、 M128s、 M128ms、 M64ls、 M32ls、 M32ts、 M208s_v2、 M208ms_v2 |
 | SAP NetWeaver | Windows、SUSE Linux Enterprise、Red Hat Enterprise Linux、Oracle Linux |SQL Server；Oracle (僅限 Windows 及 Oracle Linux)、DB2、SAP ASE |A5 至 A11，D11 到 D14，DS14 的 DS11，DS15_v2 的 DS11_v2、 GS1 至 GS5、 D64s_v3 的 D2s_v3、 E2s_v3 E64s_v3、 M64s、 M64ms、 M128s、 M128ms、 M64ls、 M32ls、 M32ts、 M208s_v2、 M208ms_v2 |
 
 ## <a name="other-sap-workload-supported-on-azure"></a>Azure 上支援的其他 SAP 工作負載
 
 | SAP 產品 | 客體作業系統 | RDBMS | 虛擬機器類型 |
 | --- | --- | --- | --- |
-| SAP Business One on SQL Server |  Windows  | SQL Server | 所有 NetWeaver 認證的 VM 類型<br /> [SAP 附註編號 928839](https://launchpad.support.sap.com/#/notes/928839) |
+| SAP Business One on SQL Server | Windows  | SQL Server | 所有 NetWeaver 認證的 VM 類型<br /> [SAP 附註編號 928839](https://launchpad.support.sap.com/#/notes/928839) |
 | SAP BPC 10.01 MS SP08 | Windows 和 Linux | | 所有 NetWeaver 認證的 VM 類型<br /> SAP 附註編號 2451795 |
 | SAP Business Objects BI 平台 | Windows 和 Linux | | SAP 附註編號 2145537 |
 | SAP Data Services 4.2 | | | SAP 附註編號 2288344 |
-| SAP Hybris Commerce Platform 5.x 和 6.x |  Windows | SQL Server，Oracle | 所有 NetWeaver 認證的 VM 類型<br /> [Hybris Wiki](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud) |
+| SAP Hybris Commerce Platform 5.x 和 6.x | Windows | SQL Server，Oracle | 所有 NetWeaver 認證的 VM 類型<br /> [Hybris Wiki](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud) |

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
 ms.openlocfilehash: 3c05b7e9b1c6d1b9214da168f7abfcbb322f8f6d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192526"
 ---
 # <a name="security-agent-reference-architecture"></a>安全性代理程式參考架構
@@ -51,7 +51,7 @@ ASC 建立 IoT 安全性代理程式會開發做為開放原始碼專案，而�
 
 Iot 的 ASC 提供 32 位元和 64 位元 Windows，不同的安裝程式代理程式和適用於 32 位元和 64 位元 Linux。 請確定您有正確的代理程式安裝程式，您的裝置，根據下表的每個項目：
 
-| 32 或 64 位元 |  Linux |  Windows |    詳細資料|
+| 32 或 64 位元 | Linux | Windows |    詳細資料|
 |----------|----------------------------------------------|-------------|-------------------------------------------|
 | 32 位元  | C  | C#  ||
 | 64 位元  | C#或 C           | C#      | 使用 C 代理程式具有最少資源的裝置|

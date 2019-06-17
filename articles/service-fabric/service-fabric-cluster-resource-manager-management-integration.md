@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: c201945e94474d54b8a19918f3b55a0b40995a97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60743508"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>叢集資源管理員與 Service Fabric 叢集管理整合
@@ -73,11 +73,11 @@ HealthEvents          :
 
 以下是此健康狀態訊息要告訴我們的事情︰
 
-1. 所有副本本身都是正常的：每个副本具有 AggregatedHealthState：確定
+1. 所有複本本身都均狀況良好：每個有 AggregatedHealthState:確定
 2. 目前違反升級網域發佈條件約束。 這表示特定升級網域擁有這個磁碟的過多分割複本。
 3. 哪個節點包含造成違規的複本。 在此案例中是名為「Node.8」的節點。
 4. 無論此分割區是否正在升級 (「Currently Upgrading -- false」)
-5. 此服务的分发策略：“分发策略 - 打包”。 這是由`RequireDomainDistribution`[放置原則](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)控管。 「封裝」表示在此情況下_不_需要 DomainDistribution，因此可知道並未替該服務指定放置原則。 
+5. 此服務的發佈原則：「 發佈原則-封裝 」。 這是由`RequireDomainDistribution`[放置原則](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)控管。 「封裝」表示在此情況下_不_需要 DomainDistribution，因此可知道並未替該服務指定放置原則。 
 6. 報告時間 - 2015 年 8 月 10 日下午 7:13:02
 
 這種資訊會引出在生產環境中出現的警示，讓您知道已發生問題，也會用來偵測和停止不正確的升級。 在此情況下，我們需要查明 Resource Manager 為何一定要將複本封裝至升級網域。 例如，封裝是暫時性的，因為其他升級網域中的節點已關閉。
@@ -92,12 +92,12 @@ HealthEvents          :
 ## <a name="constraint-types"></a>條件約束類型
 讓我們討論這些健康情況報告中每個不同的條件約束。 無法放置複本時，會看到與這些條件約束有關的健康情況訊息。
 
-* **ReplicaExclusionStatic** 和 **ReplicaExclusionDynamic**：这些约束指示某个解决方案遭到拒绝，因为同一分区中的两个服务对象必须放置在同一节点上。 不允許這麼做是因為該節點的失敗會過度影響該分割區。 ReplicaExclusionStatic 和 ReplicaExclusionDynamic 幾乎是完全相同的規則，兩者之間的差異並無太大影響。 如果您看到的條件約束消除序列包含 ReplicaExclusionStatic 或 ReplicaExclusionDynamic 條件約束，則是叢集資源管理員認為節點不足。 這需要其他解決方案使用這些不被允許的無效位置。 序列中的其他條件約束通常會告訴我們為什麼要先消除節點。
-* **PlacementConstraint**：如果您看到此訊息，這表示，我們已消除一些節點，因為它們不符合服務的放置條件約束。 我們會在此此訊息中描繪出目前所設定的放置條件約束。 如果您已定義放置條件約束，則這是正常情形。 不過，如果放置條件約束錯誤，而造成過多節點遭消除，您就應該注意。
-* **NodeCapacity**：這個條件約束表示，叢集資源管理員無法將複本放在指出的節點上因為它們會放置超出容量。
-* **Affinity**：這個條件約束表示，我們無法將複本放在受影響的節點上因為這會導致違反同質性條件約束。 如需同質性的詳細資訊，請參閱[這篇文章](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-* **FaultDomain** 和 **UpgradeDomain**：如果将副本放在指定的节点上会导致副本打包在特定的容错域或升级域中，此约束将消除节点。  [容錯與升級網域條件約束及產生的行為](service-fabric-cluster-resource-manager-cluster-description.md)
-* **PreferredLocation**：您通常不會看到這個條件約束從方案移除節點，因為它預設會執行最佳化。 慣用的位置條件約束也會在升級期間出現。 在升級期間，它用於將服務移回它們在升級開始時所在的位置。
+* **ReplicaExclusionStatic**並**ReplicaExclusionDynamic**:這些條件約束指出解決方案遭拒因為兩個服務物件，從相同的資料分割都必須放在相同的節點上。 不允許這麼做是因為該節點的失敗會過度影響該分割區。 ReplicaExclusionStatic 和 ReplicaExclusionDynamic 幾乎是完全相同的規則，兩者之間的差異並無太大影響。 如果您看到的條件約束消除序列包含 ReplicaExclusionStatic 或 ReplicaExclusionDynamic 條件約束，則是叢集資源管理員認為節點不足。 這需要其他解決方案使用這些不被允許的無效位置。 序列中的其他條件約束通常會告訴我們為什麼要先消除節點。
+* **PlacementConstraint**:如果您看到此訊息，這表示，我們已消除一些節點，因為它們不符合服務的放置條件約束。 我們會在此此訊息中描繪出目前所設定的放置條件約束。 如果您已定義放置條件約束，則這是正常情形。 不過，如果放置條件約束錯誤，而造成過多節點遭消除，您就應該注意。
+* **NodeCapacity**:這個條件約束表示，叢集資源管理員無法將複本放在指出的節點上因為它們會放置超出容量。
+* **親和性**:這個條件約束表示，我們無法將複本放在受影響的節點上因為這會導致違反同質性條件約束。 如需同質性的詳細資訊，請參閱[這篇文章](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+* **FaultDomain**並**UpgradeDomain**:這個條件約束消除節點，如果將複本放在指出的節點上會導致複本封裝在特定的容錯或升級網域。 [容錯與升級網域條件約束及產生的行為](service-fabric-cluster-resource-manager-cluster-description.md)
+* **PreferredLocation**:您通常不會看到這個條件約束從方案移除節點，因為它預設會執行最佳化。 慣用的位置條件約束也會在升級期間出現。 在升級期間，它用於將服務移回它們在升級開始時所在的位置。
 
 ## <a name="blocklisting-nodes"></a>封鎖節點
 封鎖節點時，叢集資源管理員會報告另一個健康情況訊息。 您可以將封鎖視為自動套用的暫時性條件約束。 啟動該服務類型的執行個體時，發生重複失敗的節點會遭封鎖。 節點是依照服務類型來封鎖。 某個服務類型的節點可能會被封鎖，另一個服務類型的節點則未被封鎖。 

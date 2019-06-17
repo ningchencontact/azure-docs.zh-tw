@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
 ms.openlocfilehash: d572da27cee33cf546933e55a59c27dac4c1efd9
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475198"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Azure CDN 規則引擎的 HTTP 變數
@@ -34,7 +34,7 @@ HTTP 變數能提供擷取 HTTP 要求和回應中繼資料的方法。 此中�
 下表描述支援的 HTTP 變數。 在無法針對特定要求提供地理中繼資料 (例如郵遞區號) 時，系統將會傳回空白值。
 
 
-| 名稱 | 變數 | 描述 | 範例值 |
+| Name | 變數 | 描述 | 範例值 |
 | ---- | -------- | ----------- | ------------ |
 | ASN (要求者) | %{geo_asnum} | 表示要求者的 AS 號碼。 <br /><br />**已淘汰：** %{virt_dst_asnum}。 <br />此變數已由 %{geo_asnum} 取代。 雖然使用此已淘汰變數的規則仍然可以運作，您應該更新規則以使用新的變數。 | AS15133 |
 | 城市 (要求者) | %{geo_city} | 表示要求者的城市。 | 洛杉磯 |

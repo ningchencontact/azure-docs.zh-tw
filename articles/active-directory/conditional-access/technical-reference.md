@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 條件式存取設定參考 | Microsoft Docs
-description: 取得 Azure Active Directory 條件式存取原則中所支援設定的概觀。
+title: Azure Active Directory 條件式存取設定參考 |Microsoft Docs
+description: 在 Azure Active Directory 條件式存取原則中取得所支援設定的概觀。
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae09b5aeed05dfb09f2b998de805ef0607e7f39
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 5919eebccad8d7f9e048ae07be296eaaaf8428eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823556"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112116"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 條件式存取設定參考
 
-您可以使用 [Azure Active Directory (Azure AD) 條件式存取](../active-directory-conditional-access-azure-portal.md)來控制已獲授權使用者存取您資源的方式。
+您可以使用[Azure Active Directory (Azure AD) 條件式存取](../active-directory-conditional-access-azure-portal.md)來控制如何授權的使用者可以存取您的資源。
 
-本文會針對條件式存取原則中的下列設定選項，為您提供支援資訊：
+這篇文章為您提供下列設定選項中的條件式存取原則的支援資訊：
 
 - 雲端應用程式指派
 - 裝置平台條件
@@ -33,13 +33,13 @@ ms.locfileid: "65823556"
 
 ## <a name="cloud-apps-assignments"></a>雲端應用程式指派
 
-使用條件式存取原則，您就能控制使用者存取您[雲端應用程式](conditions.md#cloud-apps-and-actions)的方式。 當您設定條件式存取原則時，必須選取至少一個雲端應用程式。 
+使用條件式存取原則，您控制使用者如何存取您[雲端應用程式](conditions.md#cloud-apps-and-actions)。 當您設定條件式存取原則時，您必須選取至少一個雲端應用程式。 
 
 ![選取您原則適用的雲端應用程式](./media/technical-reference/09.png)
 
 ### <a name="microsoft-cloud-applications"></a>Microsoft 雲端應用程式
 
-您可以將條件式存取原則指派給下列 Microsoft 的雲端應用程式：
+您可以指派給下列雲端應用程式的條件式存取原則，從 Microsoft:
 
 - Azure Analysis Services
 - Azure DevOps
@@ -77,7 +77,7 @@ ms.locfileid: "65823556"
 
 ### <a name="other-applications"></a>其他應用程式
 
-除了 Microsoft 雲端應用程式之外，您還可以將條件式存取原則指派給下列類型的雲端應用程式：
+除了 Microsoft 雲端應用程式中，您可以將條件式存取原則指派給下列類型的雲端應用程式：
 
 - Azure AD 連線的應用程式
 - 預先整合的同盟軟體即服務 (SaaS) 應用程式
@@ -87,28 +87,28 @@ ms.locfileid: "65823556"
 
 ## <a name="device-platform-condition"></a>裝置平台條件
 
-在條件式存取原則中，您可以設定裝置平台條件，將原則繫結到用戶端上的作業系統。 Azure AD 條件式存取支援下列裝置平台：
+在條件式存取原則中，您可以設定裝置平台條件，以將作業系統原則的用戶端上繫結。 Azure AD 條件式存取支援下列裝置平台：
 
 - Android
 - iOS
 - Windows Phone
--  Windows
+- Windows
 - macOS
 
 ![將存取原則繫結至用戶端作業系統](./media/technical-reference/41.png)
 
 ## <a name="client-apps-condition"></a>用戶端應用程式條件
 
-在條件式存取原則中，您可以設定[用戶端應用程式](conditions.md#client-apps)條件，將原則繫結至已啟動存取嘗試的用戶端應用程式。 當有人從下列類型的用戶端應用程式嘗試存取時，將用戶端應用程式條件設定為授與或封鎖存取：
+在條件式存取原則中，您可以設定[用戶端應用程式](conditions.md#client-apps)將繫結至已啟動存取嘗試的用戶端應用程式原則的條件。 當有人從下列類型的用戶端應用程式嘗試存取時，將用戶端應用程式條件設定為授與或封鎖存取：
 
-- 瀏覽器
+- [瀏覽器]
 - 行動裝置應用程式和桌面應用程式
 
 ![控制對用戶端應用程式的存取](./media/technical-reference/03.png)
 
 ### <a name="supported-browsers"></a>支援的瀏覽器
 
-在您的條件式存取原則中，您可以選取 [瀏覽器] 作為用戶端應用程式。
+在條件式存取原則中，您可以選取**瀏覽器**為用戶端應用程式。
 
 ![控制對支援之瀏覽器的存取](./media/technical-reference/05.png)
 
@@ -140,25 +140,25 @@ Windows 7、 iOS、 Android 及 macOS 上 Azure AD 會使用與 Azure AD 註冊�
 
 |    |    |
 | --- | --- |
-| `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | 名稱 | 1 |
-| Type | REG_SZ (字串) |
+| 類型 | REG_SZ (字串) |
 | 資料 | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
 如需 **Windows 8.1 和 7** 中的 Chrome 支援，請建立下列登錄機碼：
 
 |    |    |
 | --- | --- |
-| `Path` | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| 名稱 | 1 |
-| Type | REG_SZ (字串) |
+| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| Name | 1 |
+| 類型 | REG_SZ (字串) |
 | 資料 | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 這些瀏覽器支援裝置驗證，因此可以根據原則來識別和驗證裝置。 如果瀏覽器在私用模式中執行，裝置檢查將會失敗。
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>支援的行動裝置應用程式和桌面用戶端
 
-在您的條件式存取原則中，您可以選取 [行動裝置應用程式和桌面用戶端] 作為用戶端應用程式。
+在條件式存取原則中，您可以選取**行動裝置應用程式和桌面用戶端**為用戶端應用程式。
 
 ![控制對支援之行動裝置應用程式或桌面用戶端的存取](./media/technical-reference/06.png)
 
@@ -168,7 +168,7 @@ Windows 7、 iOS、 Android 及 macOS 上 Azure AD 會使用與 Azure AD 註冊�
 | --- | --- | --- |
 | Dynamics CRM 應用程式 | Dynamics CRM | Windows 10、Windows 8.1、iOS 和 Android |
 | [電子郵件]/[行事曆]/[人員] 應用程式、Outlook 2016、Outlook 2013 (使用新式驗證)| Office 365 Exchange Online | Windows 10 |
-| 應用程式的 MFA 和位置原則。 不支援裝置型原則。| 任何 My Apps 應用程式服務| Android 及 iOS |
+| 應用程式的 MFA 和位置原則。 不支援裝置型原則。| 任何 My Apps 應用程式服務| Android 和 iOS |
 | Microsoft Teams Services - 這會控制支援 Microsoft Teams 及其所有用戶端應用程式的所有服務 - Windows 桌面、iOS、Android、WP 和 Web 用戶端 | Microsoft Teams | Windows 10、Windows 8.1、Windows 7、iOS、Android 及 macOS |
 | Office 2016 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) | Office 365 SharePoint Online | Windows 8.1、Windows 7 |
 | Office 2016 應用程式、通用 Office 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))、預計未來提供的 Office Groups 支援、預計未來提供的 SharePoint 應用程式支援 | Office 365 SharePoint Online | Windows 10 |
@@ -186,7 +186,7 @@ Windows 7、 iOS、 Android 及 macOS 上 Azure AD 會使用與 Azure AD 註冊�
 
 ## <a name="support-for-legacy-authentication"></a>支援舊版驗證
 
-藉由選取 [其他用戶端]，您可以指定會影響搭配使用基本驗證和郵件通訊協定 (如 IMAP、MAPI、POP、SMTP) 之應用程式的條件，這些條件也會影響不是使用新式驗證的舊版 Office 應用程式。  
+藉由選取 [其他用戶端]  ，您可以指定會影響搭配使用基本驗證和郵件通訊協定 (如 IMAP、MAPI、POP、SMTP) 之應用程式的條件，這些條件也會影響不是使用新式驗證的舊版 Office 應用程式。  
 
 ![其他用戶端](./media/technical-reference/11.png)
 
@@ -194,7 +194,7 @@ Windows 7、 iOS、 Android 及 macOS 上 Azure AD 會使用與 Azure AD 註冊�
 
 ## <a name="approved-client-app-requirement"></a>核准的用戶端應用程式需求
 
-在條件式存取原則中，您可以要求從已核准用戶端應用程式對所選取雲端應用程式進行存取嘗試。 
+在條件式存取原則中，您可以要求的存取嘗試的所選的雲端應用程式必須從已核准的用戶端應用程式。 
 
 ![控制對經過核准之用戶端應用程式的存取](./media/technical-reference/21.png)
 
@@ -252,7 +252,7 @@ Windows 7、 iOS、 Android 及 macOS 上 Azure AD 會使用與 Azure AD 註冊�
 ## <a name="next-steps"></a>後續步驟
 
 - 如需條件式存取的概觀，請參閱[什麼是 Azure Active Directory 中的條件式存取？](../active-directory-conditional-access-azure-portal.md)
-- 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的建議做法](best-practices.md)。
+- 如果您已準備好在您的環境中設定條件式存取原則，請參閱[Azure Active Directory 中的條件式存取的建議作法](best-practices.md)。
 
 <!--Image references-->
 [1]: ./media/technical-reference/01.png
