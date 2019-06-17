@@ -70,16 +70,16 @@ Chef VM Extension 需要目標虛擬機器連線至網際網路，才能夠從�
 
 | 名稱 | 值 / 範例 | 資料類型
 | ---- | ---- | ---- 
-| apiVersion | `2017-12-01` | 字串 (日期) |
+| apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
 | type | `LinuxChefClient` (Linux)，`ChefClient` (Windows) | string |
-| typeHandlerVersion | `1210.12` | 字串 (雙精確度) |
+| typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>設定
 
 | 名稱 | 值 / 範例 | 数据类型 | 必要？
 | ---- | ---- | ---- | ----
-| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | 字串 (url) | Y |
+| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | Y |
 | settings/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
 | settings/runlist | `recipe[mycookbook::default]` | string | Y |
 
