@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: e770beb0470b54d8e13493bca4790323b2e96ce1
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 4e96276a862844cea1d0800eafb952d4a0df97ab
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393192"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076361"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>IoT 中樞的 Azure Event Grid 事件結構描述
 
@@ -35,7 +35,7 @@ Azure IoT 中樞會發出下列事件類型：
 | Microsoft.Devices.DeviceDisconnected | 在裝置從 IoT 中樞中斷連線時發佈。 | 
 | Microsoft.Devices.DeviceTelemetry | 遙測訊息傳送至 IoT 中樞時，就會發行。 |
 
-Event Grid 所支援的所有區域中，所有的裝置事件，但裝置遙測事件是正式推出。 裝置遙測事件處於公開預覽狀態，並會在美國東部、 美國西部、 西歐、 以外的所有區域內上市[Azure Government](/azure-government/documentation-government-welcome.md)， [Azure 中國 21Vianet](/azure/china/china-welcome.md)，和[Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
+Event Grid 所支援的所有區域中，所有的裝置事件，但裝置遙測事件是正式推出。 裝置遙測事件處於公開預覽狀態，並會在美國東部、 美國西部、 西歐、 以外的所有區域內上市[Azure Government](../azure-government/documentation-government-welcome.md)， [Azure 中國 21Vianet](/azure/china/china-welcome)，和[Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="example-event"></a>事件範例
 
@@ -152,7 +152,7 @@ DeviceCreated 和 DeviceDeleted 事件的結構描述具有相同的結構。 �
 | -------- | ---- | ----------- |
 | id | string | 事件的唯一識別碼。 |
 | topic | string | 事件來源的完整資源路徑。 此欄位不可寫入。 Event Grid 提供此值。 |
-| subject | string | 發行者定義事件主體的路徑。 |
+| 主旨 | string | 發行者定義事件主體的路徑。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | data | 物件 | IoT 中樞事件資料。  |

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
 ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161206"
 ---
 1. [連線到 PowerShell 介面](#connect-to-the-powershell-interface)。
@@ -45,7 +45,7 @@ ms.locfileid: "66161206"
 
     以下是一些重要的裝置資訊的摘要資料表：
     
-    | 參數                             | 說明                                                                                                                                                  |   |
+    | 參數                             | 描述                                                                                                                                                  |   |
     |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
     | FriendlyName                   | 在裝置部署期間透過本機 web UI 設定的裝置易記名稱。 預設的易記名稱是裝置序號。  |   |
     | SerialNumber                   | 裝置序號是在工廠所指派的唯一號碼。                                                                             |   |

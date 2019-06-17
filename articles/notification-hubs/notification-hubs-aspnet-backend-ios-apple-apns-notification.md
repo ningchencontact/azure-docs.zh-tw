@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 9b6c0715cb85e245aba94adfb8b33d0d07ece9a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60880439"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至特定使用者
@@ -58,7 +58,7 @@ ms.locfileid: "60880439"
 
    * **使用者名稱**：含有預留位置文字 ( *輸入使用者名稱*) 的 UITextField，位於傳送結果標籤正下方且受到左右邊界限制並位於傳送結果標籤正下方。
    * **密碼**：含有預留位置文字 ( *輸入密碼*) 的 UITextField，位於使用者名稱文字欄位正下方且受到左右邊界限制並位於使用者文字欄位正下方。 勾選 [ **傳回金鑰** ] 底下屬性偵測器中的 [ *安全文字輸入*] 選項。
-   * **登入**：密碼文字欄位正下方標記的 UIButton，並取消勾選 [控制項內容] 底下屬性偵測器中的 [啟用] 選項
+   * **登入**：密碼文字欄位正下方標記的 UIButton，並取消勾選 [控制項內容]  底下屬性偵測器中的 [啟用]  選項
    * **WNS**：當中樞中已設定 Windows 通知服務時，用來啟用傳送通知至該服務的標籤與開關。 請參閱 [Windows 入門](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)教學課程。
    * **GCM**：當中樞中已設定 Google 雲端通訊時，用來啟用傳送通知至該服務的標籤與開關。 請參閱 [Android 入門](notification-hubs-android-push-notification-google-gcm-get-started.md) 教學課程。
    * **APNS**：啟用傳送通知給 Apple 平台通知服務之功能的標籤與開關。
@@ -483,7 +483,7 @@ ms.locfileid: "60880439"
 
     ![iOS 測試應用程式][2]
 
-3. 您應該會看到註冊成功的快顯通知。 按一下 [確定]。
+3. 您應該會看到註冊成功的快顯通知。 按一下 [確定]  。
 
     ![顯示的 iOS 測試通知][3]
 

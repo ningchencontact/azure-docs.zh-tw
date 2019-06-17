@@ -16,10 +16,10 @@ ms.date: 08/17/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b207d9e3123245e5cb7dddb625f7488886591ae5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128512"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>在使用流量管理員的 Azure App Service 中設定 Web 應用程式的自訂網域名稱
@@ -55,7 +55,7 @@ ms.locfileid: "62128512"
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-由於每個網域提供者的特殊要求可能有所不同，您會「從」自訂網域名稱 (例如 **contoso.com**) 對應「至」與您的 Web 應用程式整合的流量管理員網域名稱 (**contoso.trafficmanager.net**)。
+由於每個網域提供者的特殊要求可能有所不同，您會「從」  自訂網域名稱 (例如 **contoso.com**) 對應「至」  與您的 Web 應用程式整合的流量管理員網域名稱 (**contoso.trafficmanager.net**)。
 
 > [!NOTE]
 > 如果記錄已在使用中，而您需要事先將您的應用程式繫結到該記錄，您可以建立其他的 CNAME 記錄。 例如，若要事先將繫結**www\.contoso.com**您 web 應用程式中，建立 CNAME 記錄，從**awverify.www**來**contoso.trafficmanager.net**。 然後，您可以新增 「 www\.contoso.com 」 您的 Web 應用程式，而不需要變更"www"CNAME 記錄。 如需詳細資訊，請參閱[在自訂網域中建立 Web 應用程式的 DNS 記錄][CREATEDNS]。
@@ -68,7 +68,7 @@ ms.locfileid: "62128512"
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
 ## <a name="next-steps"></a>後續步驟
-有关详细信息，请参阅 [Node.js 开发人员中心](https://azure.microsoft.com/develop/nodejs/)。
+如需詳細資訊，請參閱 [Node.js 開發人員中心](https://azure.microsoft.com/develop/nodejs/)。
 
 <!-- URL List -->
 

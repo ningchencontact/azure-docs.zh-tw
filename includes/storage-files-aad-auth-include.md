@@ -9,10 +9,10 @@ ms.date: 10/22/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 0cfa0fdb51969c92e767adfa86a0065d11da56e2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237762"
 ---
 [Azure 檔案](../articles/storage/files/storage-files-introduction.md)透過 [Azure Active Directory (Azure AD) Domain Services](../articles/active-directory-domain-services/overview.md)，支援「透過 SMB (伺服器訊息區) (預覽) 進行以身分識別為基礎的驗證」。 您加入網域的 Windows 虛擬機器 (VM) 可以使用 [Azure AD](../articles/active-directory/fundamentals/active-directory-whatis.md) 認證存取 Azure 檔案共用。 

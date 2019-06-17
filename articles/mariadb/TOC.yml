@@ -59,12 +59,20 @@
           href: concepts-business-continuity.md
         - name: 備份與還原
           href: concepts-backup.md
-    - name: 監視
+    - name: 監視與微調
       items:
         - name: 監視
           href: concepts-monitoring.md
-        - name: 伺服器記錄
+        - name: 慢速查詢記錄
           href: concepts-server-logs.md
+        - name: 稽核記錄
+          href: concepts-audit-logs.md
+        - name: 查詢存放區
+          href: concepts-query-store.md
+        - name: 查詢效能深入解析
+          href: concepts-query-performance-insight.md
+        - name: 效能建議
+          href: concepts-performance-recommendations.md
     - name: 開發
       items:
         - name: 驅動程式和工具相容性
@@ -75,6 +83,8 @@
       items:
         - name: 複寫中的資料
           href: concepts-data-in-replication.md
+        - name: 讀取複本
+          href: concepts-read-replicas.md
 - name: 使用說明指南
   items:
     - name: 防火牆規則
@@ -113,10 +123,16 @@
           href: howto-auto-grow-storage-portal.md
     - name: 存取伺服器記錄
       items:
-        - name: Azure 入口網站
-          href: howto-configure-server-logs-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-logs-cli.md
+        - name: 慢速查詢記錄
+          items:
+            - name: Azure 入口網站
+              href: howto-configure-server-logs-portal.md
+            - name: Azure CLI
+              href: howto-configure-server-logs-cli.md
+        - name: 稽核記錄
+          items:
+            - name: Azure 入口網站
+              href: howto-configure-audit-logs-portal.md
     - name: 監視
       items:
         - name: 建立計量警示
@@ -125,6 +141,8 @@
       items:
         - name: 設定複寫中的資料
           href: howto-data-in-replication.md
+        - name: 在 Azure 入口網站中建立讀取複本
+          href: howto-read-replicas-portal.md
     - name: 疑難排解
       items:
         - name: 針對連線問題進行疑難排解

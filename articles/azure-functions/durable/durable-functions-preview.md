@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596071"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Durable Functions 2.0 預覽 (Azure Functions)
@@ -26,7 +26,7 @@ Durable Functions 是 Azure Functions 的 GA （正式推出） 功能，但也�
 > [!NOTE]
 > 這些預覽功能是 Durable Functions 2.0 版本中，也就是目前的一部分**alpha 品質版本**具有幾項重大變更。 與版本的形式在 nuget.org 上可以找到 Azure Functions 長期延伸模組套件建置**2.0.0-alpha**。 這些組建並不適合任何生產工作負載，及後續版本可能包含其他的重大變更。
 
-## <a name="breaking-changes"></a>中斷性變更
+## <a name="breaking-changes"></a>重大變更
 
 在 Durable Functions 2.0 導入幾項重大變更。 現有的應用程式不應該為無須變更程式碼與 Durable Functions 2.0 相容。 此區段會列出的一些變更：
 
@@ -154,8 +154,8 @@ public static async Task Counter(
 實體上的作業執行可以在內容物件上呼叫這些成員 (`IDurableEntityContext`在.NET 中):
 
 * **OperationName**： 取得作業的名稱。
-* **GetInput\<T >**： 取得作業的輸入。
-* **GetState\<T >**： 取得實體的目前狀態。
+* **GetInput\<T >** ： 取得作業的輸入。
+* **GetState\<T >** ： 取得實體的目前狀態。
 * **SetState**： 更新實體的狀態。
 * **SignalEntity**： 傳送單向訊息至實體。
 * **自助**： 取得實體的識別碼。
@@ -172,7 +172,7 @@ public static async Task Counter(
 
 持久的實體，可以從一般的函式，透過叫用`orchestrationClient`繫結 (`IDurableOrchestrationClient`在.NET 中)。 支援下列方法：
 
-* **ReadEntityStateAsync\<T >**： 讀取實體的狀態。
+* **ReadEntityStateAsync\<T >** ： 讀取實體的狀態。
 * **SignalEntityAsync**： 將單向訊息傳送至實體，並等候它要加入佇列。
 
 這些方法會設定效能優先順序高於一致性：`ReadEntityStateAsync`可以過時的值，傳回和`SignalEntityAsync`可以傳回之前完成此作業。 相反地，（如下所述），從協調流程呼叫的實體是強式一致的。
@@ -183,7 +183,7 @@ public static async Task Counter(
 
 * **SignalEntity**： 傳送單向訊息至實體。
 * **CallEntityAsync**： 將訊息傳送至實體，並等候回應，指出作業已完成。
-* **CallEntityAsync\<T >**： 將訊息傳送至實體，並等候回應，包含結果的型別 t。
+* **CallEntityAsync\<T >** ： 將訊息傳送至實體，並等候回應，包含結果的型別 t。
 
 使用時的雙向通訊，作業執行期間擲回任何例外狀況也會傳輸回到呼叫的協調流程，並重新擲回。 相反地，當使用單一事件-fire-and-forget，例外狀況是未觀察到。
 

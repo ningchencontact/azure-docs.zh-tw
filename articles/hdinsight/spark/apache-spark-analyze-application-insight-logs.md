@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 45cbb26eb74dd78bf46a6b148a32a7762bb31fbc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 730ecd306bf33709ed5d9fa334b64f7cd7a482dc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696864"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066478"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>使用 HDInsight 上的 Apache Spark 分析 Application Insights 遙測記錄
 
@@ -27,24 +27,21 @@ ms.locfileid: "64696864"
 
 * 熟悉以 Linux 為基礎的 HDInsight 叢集的建立程序。 如需詳細資訊，請參閱[在 HDInsight 上建立 Apache Spark](apache-spark-jupyter-spark-sql.md)。
 
-  > [!IMPORTANT]  
-  > 此文件中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
-
 * 網頁瀏覽器。
 
 開發和測試本文件時使用了以下資源：
 
-* [配置为使用 Application Insights 的 Node.js Web 应用](../../azure-monitor/app/nodejs.md)，用于生成 Application Insights 遥测数据。
+* Application Insights 遙測資料，由 [設定為使用 Application Insights 的 Node.js Web 應用程式](../../azure-monitor/app/nodejs.md)產生。
 
 * 在 Linux 上使用 HDInsight 叢集版本 3.5 上的 Spark 分析資料。
 
-## <a name="architecture-and-planning"></a>架构与规划
+## <a name="architecture-and-planning"></a>架構與規劃
 
 下圖說明此範例的服務架構：
 
 ![顯示資料從 Application Insights 傳輸至 blob 儲存體，然後由 HDInsight 上的 Spark 處理的圖](./media/apache-spark-analyze-application-insight-logs/appinsightshdinsight.png)
 
-### <a name="azure-storage"></a>Azure 存储
+### <a name="azure-storage"></a>Azure 儲存體
 
 Application Insights 可以設定為持續將遙測資訊匯出到 blob。 HDInsight 接著便可讀取儲存在 blob 中的資料。 不過，有一些您必須遵守的需求︰
 
@@ -73,11 +70,11 @@ Application Insights 提供 [匯出資料模型](../../azure-monitor/app/export-
 
 ## <a name="analyze-the-data-pyspark"></a>分析資料︰PySpark
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中選取您 HDInsight 叢集上的 Spark。 在 [快速連結] 區段中，選取 [叢集儀表板]，然後選取 [叢集儀表板] 區段中的 [Jupyter Notebook]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中選取您 HDInsight 叢集上的 Spark。 在 [快速連結]  區段中，選取 [叢集儀表板]  ，然後選取 [叢集儀表板] 區段中的 [Jupyter Notebook]  。
 
     ![叢集儀表板](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
 
-2. 在 Jupyter 頁面右上角依序選取 [新增]、[PySpark]。 隨即開啟新的瀏覽器索引標籤，其中包含以 Python 為基礎的 Jupyter Notebook。
+2. 在 Jupyter 頁面右上角依序選取 [新增]  、[PySpark]  。 隨即開啟新的瀏覽器索引標籤，其中包含以 Python 為基礎的 Jupyter Notebook。
 
 3. 在頁面的第一個欄位 (稱為**儲存格**) 中，輸入下列文字：
 
@@ -216,10 +213,10 @@ Application Insights 提供 [匯出資料模型](../../azure-monitor/app/export-
 
 ## <a name="analyze-the-data-scala"></a>分析資料︰Scala
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中選取您 HDInsight 叢集上的 Spark。 在 [快速連結] 區段中，選取 [叢集儀表板]，然後選取 [叢集儀表板] 區段中的 [Jupyter Notebook]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中選取您 HDInsight 叢集上的 Spark。 在 [快速連結]  區段中，選取 [叢集儀表板]  ，然後選取 [叢集儀表板] 區段中的 [Jupyter Notebook]  。
 
     ![叢集儀表板](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
-2. 在 Jupyter 頁面右上角依序選取 [新增]、[Scala]。 新的瀏覽器索引標籤隨即出現，其中包含以 Scala 為基礎的 Jupyter Notebook。
+2. 在 Jupyter 頁面右上角依序選取 [新增]  、[Scala]  。 新的瀏覽器索引標籤隨即出現，其中包含以 Scala 為基礎的 Jupyter Notebook。
 3. 在頁面的第一個欄位 (稱為**儲存格**) 中，輸入下列文字：
 
    ```scala

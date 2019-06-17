@@ -10,10 +10,10 @@ ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 8375f4c54dc436ecf0694ec5f629c81d3591594d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234165"
 ---
 # <a name="create-a-storage-account"></a>建立儲存體帳戶
@@ -41,7 +41,7 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 您可以登入 Azure，並且以下列兩種方式之一執行 Azure CLI 命令：
 
 - 您可以在 Azure Cloud Shell 中執行 CLI 命令從 Azure 入口網站中。
-- 可以安装 CLI 并在本地运行 CLI 命令。
+- 您可以安裝 CLI，並在本機執行 CLI 命令。
 
 ### <a name="use-azure-cloud-shell"></a>使用 Azure Cloud Shell
 
@@ -182,7 +182,7 @@ az storage account create \
 
 # <a name="templatetabtemplate"></a>[範本](#tab/template)
 
-您可以使用 Azure PowerShell 或 Azure CLI 來部署 Resource Manager 範本以建立儲存體帳戶。 本做法文章中使用的範本是來自[Azure Resource Manager 快速入門範本](https://azure.microsoft.com/resources/templates/101-storage-account-create/)。 若要執行指令碼，請選取 [試試看] 開啟 Azure Cloud shell。 若要貼上指令碼，請以滑鼠右鍵按一下 Shell，然後選取 [貼上]。
+您可以使用 Azure PowerShell 或 Azure CLI 來部署 Resource Manager 範本以建立儲存體帳戶。 本做法文章中使用的範本是來自[Azure Resource Manager 快速入門範本](https://azure.microsoft.com/resources/templates/101-storage-account-create/)。 若要執行指令碼，請選取 [試試看]  開啟 Azure Cloud shell。 若要貼上指令碼，請以滑鼠右鍵按一下 Shell，然後選取 [貼上]  。
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -219,9 +219,9 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 
 若要使用 Azure 入口網站刪除資源群組：
 
-1. 在 Azure 入口網站中，展開左側功能表以開啟服務的功能表，然後選擇 [資源群組] 以顯示資源群組的清單。
-2. 找出要刪除的資源群組，以滑鼠右鍵按一下清單右側的 [更多] 按鈕 (**...**)。
-3. 選取 [刪除資源群組] 並且確認。
+1. 在 Azure 入口網站中，展開左側功能表以開啟服務的功能表，然後選擇 [資源群組]  以顯示資源群組的清單。
+2. 找出要刪除的資源群組，以滑鼠右鍵按一下清單右側的 [更多]  按鈕 ( **...** )。
+3. 選取 [刪除資源群組]  並且確認。
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
